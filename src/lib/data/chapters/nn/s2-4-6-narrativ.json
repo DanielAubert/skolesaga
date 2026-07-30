@@ -1,1 +1,361 @@
-{"id":"s2-4-6-narrativ","courseId":"s2","chapterNumber":"4.6","title":"Kontinuerlege sannsynsfordelingar","subtitle":"Narrativ versjon","description":"Ei forteljing om ventetider og tettleikskurver — når sannsyn blir areal og integrasjon overtek for summering.","estimatedMinutes":40,"competenceGoals":["forklare kva ein tettleiksfunksjon er og tolke sannsyn som areal","rekne ut sannsyn for kontinuerlege fordelingar ved integrasjon","bruke uniform fordeling og eksponentialfordeling i modellering","finne og tolke den kumulative fordelingsfunksjonen"],"linkedChapterId":"s2-4-6","content":[{"id":"s2-4-6-n-intro","type":"text","content":"## Når verdiane ikkje kan teljast\n\nPå eit kundesenter ringjer telefonen — men nøyaktig *når* neste anrop kjem, kan ingen seie. Ventetida kan bli 3 minutt, 3,7 minutt eller 3,7124 minutt; ho kan ta **alle** verdiar i eit intervall. Det same gjeld høgda til ein tilfeldig person, temperaturen i morgon og feilen i ein produksjonsprosess. Slike storleikar er **kontinuerlege**, i motsetnad til dei diskrete variablane vi har telt oss gjennom så langt.\n\nOg her skjer noko som først verkar paradoksalt: for ein kontinuerleg variabel $X$ er $P(X = x) = 0$ for kvar einskild verdi. Sannsynet for at ventetida blir *nøyaktig* 3,7124000... minutt er null — det finst uendeleg mange kandidatar. Det som har meining, er sannsyn for **intervall**, og dei blir rekna med integrasjon: $$P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$$ der $f(x)$ er **tettleiksfunksjonen** (pdf) til $X$.\n\nEin funksjon kan vere tettleiksfunksjon viss han oppfyller to krav: $f(x) \\geq 0$ overalt, og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$ — det totale sannsynet er 1. Geometrisk er sannsyn **areal under kurva**. Merk ei vanleg misforståing: $f(x)$ er ikkje sjølv eit sannsyn og kan godt vere større enn 1 — det er arealet som tel.\n\nForventning og varians blir definerte med integral i staden for summar: $E(X) = \\int_{-\\infty}^{\\infty} x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$ der $E(X^2) = \\int x^2 f(x)\\,dx$. Alt vi kunne om diskrete fordelingar, har altså ein kontinuerleg tvilling — med $\\int$ der det før stod $\\sum$."},{"id":"s2-4-6-n-section1","type":"text","content":"## Å rekne med tettleikar\n\nVi prøver maskineriet på ein konkret tettleik. La $f(x) = cx^2$ for $0 \\leq x \\leq 3$ og $f(x) = 0$ elles. Tre spørsmål: Kva må $c$ vere? Kva er $P(1 \\leq X \\leq 2)$? Og kva er $E(X)$?\n\n**Konstanten** blir bestemt av kravet om totalareal 1: $\\int_0^3 cx^2\\,dx = c\\left[\\frac{x^3}{3}\\right]_0^3 = 9c = 1$, så $c = \\frac{1}{9}$. **Sannsynet**: $P(1 \\leq X \\leq 2) = \\int_1^2 \\frac{x^2}{9}\\,dx = \\frac{1}{9} \\cdot \\frac{8 - 1}{3} = \\frac{7}{27} \\approx 0{,}259$. **Forventninga**: $E(X) = \\int_0^3 x \\cdot \\frac{x^2}{9}\\,dx = \\frac{1}{9}\\left[\\frac{x^4}{4}\\right]_0^3 = \\frac{81}{36} = 2{,}25$.\n\nVed sida av tettleiksfunksjonen finst ein annan funksjon som ofte er endå meir praktisk: den **kumulative fordelingsfunksjonen** (cdf), $$F(x) = P(X \\leq x) = \\int_{-\\infty}^{x} f(t)\\,dt$$ Han samlar opp alt sannsyn til venstre for $x$. Eigenskapane følgjer av definisjonen: $F$ er ikkje-avtakande, $F(-\\infty) = 0$, $F(\\infty) = 1$, og — vakkert nok — $F'(x) = f(x)$: tettleiken er den deriverte av den kumulative fordelinga. Analysens fundamentalteorem bind altså sannsynsteorien saman.\n\nNytten er umiddelbar: $P(a \\leq X \\leq b) = F(b) - F(a)$ og $P(X > a) = 1 - F(a)$. Har du først funne $F$, slepp du å integrere på nytt for kvart spørsmål — det er derfor tabellar (som for normalfordelinga) alltid er tabellar over cdf-en. Du kan alltid utleie cdf ved å integrere pdf, og alltid kontrollere ein tettleik ved å sjekke at integralet er 1."},{"id":"s2-4-6-n-quiz1","type":"exercise","exercise":{"id":"s2-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på tettleiksfunksjonar og kumulativ fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-6-n-quiz1-q0","task":"Kvifor er $P(X = x) = 0$ for ein kontinuerleg stokastisk variabel?","options":[{"id":"a","text":"Fordi det finst uendeleg mange moglege verdiar — berre intervall har positivt sannsyn","isCorrect":true},{"id":"b","text":"Fordi tettleiksfunksjonen alltid er null","isCorrect":false},{"id":"c","text":"Fordi kontinuerlege variablar ikkje kan observerast","isCorrect":false},{"id":"d","text":"Det stemmer ikkje — punktsannsyn er positive","isCorrect":false}],"solution":"Eit einskild punkt har «breidd null», og arealet under kurva over eit punkt er null. Sannsyn får vi berre over intervall: $P(a \\leq X \\leq b) = \\int_a^b f(x)dx$."},{"id":"s2-4-6-n-quiz1-q1","task":"Kva to krav må ein tettleiksfunksjon oppfylle?","options":[{"id":"a","text":"$f(x) \\leq 1$ og $f(0) = 0$","isCorrect":false},{"id":"b","text":"$f(x) \\geq 0$ og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$","isCorrect":true},{"id":"c","text":"$f$ er veksande og kontinuerleg","isCorrect":false},{"id":"d","text":"$f(x) \\geq 0$ og $f$ er symmetrisk","isCorrect":false}],"solution":"Ikkje-negativitet og totalareal 1. Merk at $f(x)$ gjerne kan vere større enn 1 — det er arealet, ikkje funksjonsverdien, som er sannsyn."},{"id":"s2-4-6-n-quiz1-q2","task":"For $f(x) = cx^2$ på $[0, 3]$: kva må $c$ vere?","options":[{"id":"a","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{27}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{9}$","isCorrect":true},{"id":"d","text":"$9$","isCorrect":false}],"solution":"$\\int_0^3 cx^2 dx = c \\cdot \\frac{27}{3} = 9c = 1$ gir $c = \\frac{1}{9}$."},{"id":"s2-4-6-n-quiz1-q3","task":"Kva er samanhengen mellom cdf $F(x)$ og pdf $f(x)$?","options":[{"id":"a","text":"$F(x) = f(x)^2$","isCorrect":false},{"id":"b","text":"$f(x) = \\int F(x)\\,dx$","isCorrect":false},{"id":"c","text":"Dei er same funksjon","isCorrect":false},{"id":"d","text":"$F'(x) = f(x)$ — tettleiken er den deriverte av den kumulative fordelinga","isCorrect":true}],"solution":"$F(x) = \\int_{-\\infty}^x f(t)dt$, så $F'(x) = f(x)$. Og $P(a \\leq X \\leq b) = F(b) - F(a)$ gjer cdf-en til eit praktisk oppslagsverktøy."}]}},{"id":"s2-4-6-n-section2","type":"text","content":"## Den flate og den gløymske\n\nTo kontinuerlege fordelingar går att i modellering, og dei har heilt ulik personlegdom.\n\nDen første er **uniform fordeling**, $X \\sim U(a, b)$: fullstendig tilfeldigheit der alle verdiar i intervallet $[a, b]$ er like «tette». Tettleiksfunksjonen er flat, $f(x) = \\frac{1}{b-a}$ på intervallet og null utanfor, og cdf-en veks lineært: $F(x) = \\frac{x-a}{b-a}$ for $a \\leq x \\leq b$. Forventninga ligg naturleg nok i midten, $E(X) = \\frac{a+b}{2}$, og variansen er $\\text{Var}(X) = \\frac{(b-a)^2}{12}$. Ein buss som kjem «ein eller annan gong» i eit kvartersvindauge, eit tilfeldig tal frå `random.random()` — uniforme fordelingar begge to.\n\nDen andre er **eksponentialfordelinga**, $X \\sim \\text{Exp}(\\lambda)$ med $\\lambda > 0$: modellen for **ventetider** mellom hendingar — tid til neste telefonsamtale, levetida til ein komponent. Tettleiken er $f(x) = \\lambda e^{-\\lambda x}$ for $x \\geq 0$, cdf-en er $F(x) = 1 - e^{-\\lambda x}$, og dermed er «overlevingssannsynet» $P(X > t) = e^{-\\lambda t}$. Forventninga er $E(X) = \\frac{1}{\\lambda}$ og variansen $\\frac{1}{\\lambda^2}$.\n\nTilbake til kundesenteret: anrop kjem i snitt 4 per time, så ventetida mellom anrop er $\\text{Exp}(4)$ (målt i timar). Sannsynet for at det går meir enn 30 minutt ($0{,}5$ timar) til neste anrop: $P(X > 0{,}5) = e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$. Innan 10 minutt ($\\frac{1}{6}$ time): $P(X \\leq \\frac{1}{6}) = 1 - e^{-2/3} \\approx 0{,}487$. Og forventa ventetid: $\\frac{1}{4}$ time, altså 15 minutt.\n\nSignaturen til eksponentialfordelinga er **hugselausheita**: $P(X > s + t \\mid X > s) = P(X > t)$. Har du alt venta ein halvtime, er sannsynet for å vente ti minutt til nøyaktig det same som då du byrja. Fordelinga «hugsar ikkje» fortida — akkurat som mynten i førre kapittel."},{"id":"s2-4-6-n-quiz2","type":"exercise","exercise":{"id":"s2-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på uniform fordeling og eksponentialfordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-6-n-quiz2-q0","task":"Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim U(a, b)$?","options":[{"id":"a","text":"$E(X) = \\frac{a+b}{2}$ og $\\text{Var}(X) = \\frac{(b-a)^2}{12}$","isCorrect":true},{"id":"b","text":"$E(X) = \\frac{b-a}{2}$ og $\\text{Var}(X) = \\frac{a+b}{12}$","isCorrect":false},{"id":"c","text":"$E(X) = \\frac{1}{b-a}$ og $\\text{Var}(X) = \\frac{1}{(b-a)^2}$","isCorrect":false},{"id":"d","text":"$E(X) = ab$ og $\\text{Var}(X) = \\frac{(ab)^2}{12}$","isCorrect":false}],"solution":"Den uniforme fordelinga har senter midt i intervallet, $\\frac{a+b}{2}$, og varians $\\frac{(b-a)^2}{12}$."},{"id":"s2-4-6-n-quiz2-q1","task":"Anrop kjem med rate $\\lambda = 4$ per time. Kva er sannsynet for meir enn 30 minutt til neste anrop?","options":[{"id":"a","text":"$e^{-2} \\approx 0{,}135$","isCorrect":true},{"id":"b","text":"$1 - e^{-2} \\approx 0{,}865$","isCorrect":false},{"id":"c","text":"$e^{-4} \\approx 0{,}018$","isCorrect":false},{"id":"d","text":"$0{,}5$","isCorrect":false}],"solution":"$P(X > t) = e^{-\\lambda t}$ med $t = 0{,}5$ timar: $e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$."},{"id":"s2-4-6-n-quiz2-q2","task":"Kva er forventa ventetid når $\\lambda = 4$ anrop per time?","options":[{"id":"a","text":"4 timar","isCorrect":false},{"id":"b","text":"30 minutt","isCorrect":false},{"id":"c","text":"15 minutt","isCorrect":true},{"id":"d","text":"4 minutt","isCorrect":false}],"solution":"$E(X) = \\frac{1}{\\lambda} = \\frac{1}{4}$ time $= 15$ minutt."},{"id":"s2-4-6-n-quiz2-q3","task":"Kva tyder det at eksponentialfordelinga er «hugselaus»?","options":[{"id":"a","text":"At forventningsverdien er null","isCorrect":false},{"id":"b","text":"At $P(X > s + t \\mid X > s) = P(X > t)$ — tida du alt har venta, påverkar ikkje gjenståande ventetid","isCorrect":true},{"id":"c","text":"At fordelinga endrar seg over tid","isCorrect":false},{"id":"d","text":"At variansen er uendeleg","isCorrect":false}],"solution":"Hugselausheit: sannsynet for å vente $t$ til er det same uansett kor lenge du allereie har venta. Det er særtrekket til eksponentialfordelinga."}]}},{"id":"s2-4-6-n-summary","type":"text","content":"## Oppsummering: sannsyn som areal\n\nVentetidene på kundesenteret førte oss frå det teljande til det kontinuerlege. For kontinuerlege stokastiske variablar er punktsannsyn null; alt blir uttrykt gjennom **tettleiksfunksjonen** $f(x)$, som må vere ikkje-negativ og ha totalareal 1, og sannsyn er areal: $P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$. Hugs at $f(x)$ sjølv ikkje er eit sannsyn og godt kan overstige 1. Forventning og varians blir rekna med integral: $E(X) = \\int x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDen **kumulative fordelingsfunksjonen** $F(x) = P(X \\leq x) = \\int_{-\\infty}^x f(t)\\,dt$ er det praktiske oppslagsverktøyet: $P(a \\leq X \\leq b) = F(b) - F(a)$, $P(X > a) = 1 - F(a)$, og $F'(x) = f(x)$ knyter dei to funksjonane saman via fundamentalteoremet. Du kan alltid utleie cdf frå pdf ved integrasjon — og alltid kontrollere ein tettleik ved å sjekke at integralet blir 1.\n\nTo standardmodellar bør du kjenne att på avstand. Den **uniforme fordelinga** $U(a,b)$ — flat tettleik $\\frac{1}{b-a}$, $E(X) = \\frac{a+b}{2}$, $\\text{Var}(X) = \\frac{(b-a)^2}{12}$ — skildrar rein tilfeldigheit i eit intervall. **Eksponentialfordelinga** $\\text{Exp}(\\lambda)$ — tettleik $\\lambda e^{-\\lambda x}$, $E(X) = \\frac{1}{\\lambda}$, overleving $P(X > t) = e^{-\\lambda t}$ — skildrar ventetider, og hugselausheita hennar tyder at fortida aldri endrar utsiktene. Saman med normalfordelinga utgjer desse verktøykassa for kontinuerleg sannsyn — og brua over til neste tema: å bruke fordelingane til å trekkje konklusjonar frå data."}],"exercises":[],"_meta":{"sourceHash":"3317373838282b58","translatedAt":"2026-06-20T09:03:44.535Z","model":"claude-code-agent","strings":61,"tm":{"da422f782475d6c6":"Kontinuerlege sannsynsfordelingar","b195b06d1ed59702":"Narrativ versjon","50d4e56adf8fa79d":"Ei forteljing om ventetider og tettleikskurver — når sannsyn blir areal og integrasjon overtek for summering.","1c4a38abb5207672":"forklare kva ein tettleiksfunksjon er og tolke sannsyn som areal","40f0cff81cdcf939":"rekne ut sannsyn for kontinuerlege fordelingar ved integrasjon","a085956b52999253":"bruke uniform fordeling og eksponentialfordeling i modellering","c5c923bb7b6103c1":"finne og tolke den kumulative fordelingsfunksjonen","7aa0e9c75155c1dd":"## Når verdiane ikkje kan teljast\n\nPå eit kundesenter ringjer telefonen — men nøyaktig *når* neste anrop kjem, kan ingen seie. Ventetida kan bli 3 minutt, 3,7 minutt eller 3,7124 minutt; ho kan ta **alle** verdiar i eit intervall. Det same gjeld høgda til ein tilfeldig person, temperaturen i morgon og feilen i ein produksjonsprosess. Slike storleikar er **kontinuerlege**, i motsetnad til dei diskrete variablane vi har telt oss gjennom så langt.\n\nOg her skjer noko som først verkar paradoksalt: for ein kontinuerleg variabel $X$ er $P(X = x) = 0$ for kvar einskild verdi. Sannsynet for at ventetida blir *nøyaktig* 3,7124000... minutt er null — det finst uendeleg mange kandidatar. Det som har meining, er sannsyn for **intervall**, og dei blir rekna med integrasjon: $$P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$$ der $f(x)$ er **tettleiksfunksjonen** (pdf) til $X$.\n\nEin funksjon kan vere tettleiksfunksjon viss han oppfyller to krav: $f(x) \\geq 0$ overalt, og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$ — det totale sannsynet er 1. Geometrisk er sannsyn **areal under kurva**. Merk ei vanleg misforståing: $f(x)$ er ikkje sjølv eit sannsyn og kan godt vere større enn 1 — det er arealet som tel.\n\nForventning og varians blir definerte med integral i staden for summar: $E(X) = \\int_{-\\infty}^{\\infty} x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$ der $E(X^2) = \\int x^2 f(x)\\,dx$. Alt vi kunne om diskrete fordelingar, har altså ein kontinuerleg tvilling — med $\\int$ der det før stod $\\sum$.","359614007adab830":"## Å rekne med tettleikar\n\nVi prøver maskineriet på ein konkret tettleik. La $f(x) = cx^2$ for $0 \\leq x \\leq 3$ og $f(x) = 0$ elles. Tre spørsmål: Kva må $c$ vere? Kva er $P(1 \\leq X \\leq 2)$? Og kva er $E(X)$?\n\n**Konstanten** blir bestemt av kravet om totalareal 1: $\\int_0^3 cx^2\\,dx = c\\left[\\frac{x^3}{3}\\right]_0^3 = 9c = 1$, så $c = \\frac{1}{9}$. **Sannsynet**: $P(1 \\leq X \\leq 2) = \\int_1^2 \\frac{x^2}{9}\\,dx = \\frac{1}{9} \\cdot \\frac{8 - 1}{3} = \\frac{7}{27} \\approx 0{,}259$. **Forventninga**: $E(X) = \\int_0^3 x \\cdot \\frac{x^2}{9}\\,dx = \\frac{1}{9}\\left[\\frac{x^4}{4}\\right]_0^3 = \\frac{81}{36} = 2{,}25$.\n\nVed sida av tettleiksfunksjonen finst ein annan funksjon som ofte er endå meir praktisk: den **kumulative fordelingsfunksjonen** (cdf), $$F(x) = P(X \\leq x) = \\int_{-\\infty}^{x} f(t)\\,dt$$ Han samlar opp alt sannsyn til venstre for $x$. Eigenskapane følgjer av definisjonen: $F$ er ikkje-avtakande, $F(-\\infty) = 0$, $F(\\infty) = 1$, og — vakkert nok — $F'(x) = f(x)$: tettleiken er den deriverte av den kumulative fordelinga. Analysens fundamentalteorem bind altså sannsynsteorien saman.\n\nNytten er umiddelbar: $P(a \\leq X \\leq b) = F(b) - F(a)$ og $P(X > a) = 1 - F(a)$. Har du først funne $F$, slepp du å integrere på nytt for kvart spørsmål — det er derfor tabellar (som for normalfordelinga) alltid er tabellar over cdf-en. Du kan alltid utleie cdf ved å integrere pdf, og alltid kontrollere ein tettleik ved å sjekke at integralet er 1.","e379c921f9706c83":"Test deg sjølv på tettleiksfunksjonar og kumulativ fordeling:","4097889236a2af26":"placeholder","71507ee356993b5a":"Kvifor er $P(X = x) = 0$ for ein kontinuerleg stokastisk variabel?","4698cf5535aefbd6":"Fordi det finst uendeleg mange moglege verdiar — berre intervall har positivt sannsyn","a96c8a807e23394a":"Fordi tettleiksfunksjonen alltid er null","fb5985c13f048841":"Fordi kontinuerlege variablar ikkje kan observerast","516bfeb32dbc9bea":"Det stemmer ikkje — punktsannsyn er positive","f6dc3303d864cdc2":"Eit einskild punkt har «breidd null», og arealet under kurva over eit punkt er null. Sannsyn får vi berre over intervall: $P(a \\leq X \\leq b) = \\int_a^b f(x)dx$.","f25c1c5c1cc5148e":"Kva to krav må ein tettleiksfunksjon oppfylle?","2c869ed4d4b647a9":"$f(x) \\leq 1$ og $f(0) = 0$","cc66e4648e897f31":"$f(x) \\geq 0$ og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$","7924feffbeb85987":"$f$ er veksande og kontinuerleg","d807af7a0cc43d01":"$f(x) \\geq 0$ og $f$ er symmetrisk","2def4637a912fc46":"Ikkje-negativitet og totalareal 1. Merk at $f(x)$ gjerne kan vere større enn 1 — det er arealet, ikkje funksjonsverdien, som er sannsyn.","f8e62752ae192965":"For $f(x) = cx^2$ på $[0, 3]$: kva må $c$ vere?","b87bda455923b2a6":"$\\frac{1}{3}$","e31d7ce071e9f65c":"$\\frac{1}{27}$","251fc60202ac7005":"$\\frac{1}{9}$","d0779d8a093925ec":"$\\int_0^3 cx^2 dx = c \\cdot \\frac{27}{3} = 9c = 1$ gir $c = \\frac{1}{9}$.","ad0c4506e3c40f65":"Kva er samanhengen mellom cdf $F(x)$ og pdf $f(x)$?","a770664b9b8c9feb":"$F(x) = f(x)^2$","dcd4be3ab9b69601":"$f(x) = \\int F(x)\\,dx$","c386a9878fd7615d":"Dei er same funksjon","4fb50d3a3f9b2091":"$F'(x) = f(x)$ — tettleiken er den deriverte av den kumulative fordelinga","b9b37f7aebeba40f":"$F(x) = \\int_{-\\infty}^x f(t)dt$, så $F'(x) = f(x)$. Og $P(a \\leq X \\leq b) = F(b) - F(a)$ gjer cdf-en til eit praktisk oppslagsverktøy.","0a3747f24821f329":"## Den flate og den gløymske\n\nTo kontinuerlege fordelingar går att i modellering, og dei har heilt ulik personlegdom.\n\nDen første er **uniform fordeling**, $X \\sim U(a, b)$: fullstendig tilfeldigheit der alle verdiar i intervallet $[a, b]$ er like «tette». Tettleiksfunksjonen er flat, $f(x) = \\frac{1}{b-a}$ på intervallet og null utanfor, og cdf-en veks lineært: $F(x) = \\frac{x-a}{b-a}$ for $a \\leq x \\leq b$. Forventninga ligg naturleg nok i midten, $E(X) = \\frac{a+b}{2}$, og variansen er $\\text{Var}(X) = \\frac{(b-a)^2}{12}$. Ein buss som kjem «ein eller annan gong» i eit kvartersvindauge, eit tilfeldig tal frå `random.random()` — uniforme fordelingar begge to.\n\nDen andre er **eksponentialfordelinga**, $X \\sim \\text{Exp}(\\lambda)$ med $\\lambda > 0$: modellen for **ventetider** mellom hendingar — tid til neste telefonsamtale, levetida til ein komponent. Tettleiken er $f(x) = \\lambda e^{-\\lambda x}$ for $x \\geq 0$, cdf-en er $F(x) = 1 - e^{-\\lambda x}$, og dermed er «overlevingssannsynet» $P(X > t) = e^{-\\lambda t}$. Forventninga er $E(X) = \\frac{1}{\\lambda}$ og variansen $\\frac{1}{\\lambda^2}$.\n\nTilbake til kundesenteret: anrop kjem i snitt 4 per time, så ventetida mellom anrop er $\\text{Exp}(4)$ (målt i timar). Sannsynet for at det går meir enn 30 minutt ($0{,}5$ timar) til neste anrop: $P(X > 0{,}5) = e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$. Innan 10 minutt ($\\frac{1}{6}$ time): $P(X \\leq \\frac{1}{6}) = 1 - e^{-2/3} \\approx 0{,}487$. Og forventa ventetid: $\\frac{1}{4}$ time, altså 15 minutt.\n\nSignaturen til eksponentialfordelinga er **hugselausheita**: $P(X > s + t \\mid X > s) = P(X > t)$. Har du alt venta ein halvtime, er sannsynet for å vente ti minutt til nøyaktig det same som då du byrja. Fordelinga «hugsar ikkje» fortida — akkurat som mynten i førre kapittel.","0dccedaa861a3025":"Test deg sjølv på uniform fordeling og eksponentialfordeling:","4b0c15e0a803a192":"Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim U(a, b)$?","f1994ad500c3ff62":"$E(X) = \\frac{a+b}{2}$ og $\\text{Var}(X) = \\frac{(b-a)^2}{12}$","52b02225e1ab5600":"$E(X) = \\frac{b-a}{2}$ og $\\text{Var}(X) = \\frac{a+b}{12}$","cc62362b95bc7952":"$E(X) = \\frac{1}{b-a}$ og $\\text{Var}(X) = \\frac{1}{(b-a)^2}$","b7e0ca4724f1ae88":"$E(X) = ab$ og $\\text{Var}(X) = \\frac{(ab)^2}{12}$","4889df205ba493d9":"Den uniforme fordelinga har senter midt i intervallet, $\\frac{a+b}{2}$, og varians $\\frac{(b-a)^2}{12}$.","37b296ed6cd3701e":"Anrop kjem med rate $\\lambda = 4$ per time. Kva er sannsynet for meir enn 30 minutt til neste anrop?","013b2a3e4715ccf8":"$e^{-2} \\approx 0{,}135$","9bfcfe9a83d5b6bf":"$1 - e^{-2} \\approx 0{,}865$","57a761bddeb0b0af":"$e^{-4} \\approx 0{,}018$","7b72ca46cdcd4075":"$P(X > t) = e^{-\\lambda t}$ med $t = 0{,}5$ timar: $e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$.","9fc25777457c41ba":"Kva er forventa ventetid når $\\lambda = 4$ anrop per time?","109abffa32c472fe":"4 timar","bbc1e1831bf635ac":"30 minutt","ffa29062e3960b2a":"15 minutt","0a16bb9776a825c1":"4 minutt","e485922075178eb2":"$E(X) = \\frac{1}{\\lambda} = \\frac{1}{4}$ time $= 15$ minutt.","a6efa6e1d4a28896":"Kva tyder det at eksponentialfordelinga er «hugselaus»?","6e3edbb5c1a069b7":"At forventningsverdien er null","8967b5d3f41e9332":"At $P(X > s + t \\mid X > s) = P(X > t)$ — tida du alt har venta, påverkar ikkje gjenståande ventetid","899898f1034bfee0":"At fordelinga endrar seg over tid","2aeb4d7379cb6514":"At variansen er uendeleg","0c102238885ef0f8":"Hugselausheit: sannsynet for å vente $t$ til er det same uansett kor lenge du allereie har venta. Det er særtrekket til eksponentialfordelinga.","4c368830f593f9a9":"## Oppsummering: sannsyn som areal\n\nVentetidene på kundesenteret førte oss frå det teljande til det kontinuerlege. For kontinuerlege stokastiske variablar er punktsannsyn null; alt blir uttrykt gjennom **tettleiksfunksjonen** $f(x)$, som må vere ikkje-negativ og ha totalareal 1, og sannsyn er areal: $P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$. Hugs at $f(x)$ sjølv ikkje er eit sannsyn og godt kan overstige 1. Forventning og varians blir rekna med integral: $E(X) = \\int x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDen **kumulative fordelingsfunksjonen** $F(x) = P(X \\leq x) = \\int_{-\\infty}^x f(t)\\,dt$ er det praktiske oppslagsverktøyet: $P(a \\leq X \\leq b) = F(b) - F(a)$, $P(X > a) = 1 - F(a)$, og $F'(x) = f(x)$ knyter dei to funksjonane saman via fundamentalteoremet. Du kan alltid utleie cdf frå pdf ved integrasjon — og alltid kontrollere ein tettleik ved å sjekke at integralet blir 1.\n\nTo standardmodellar bør du kjenne att på avstand. Den **uniforme fordelinga** $U(a,b)$ — flat tettleik $\\frac{1}{b-a}$, $E(X) = \\frac{a+b}{2}$, $\\text{Var}(X) = \\frac{(b-a)^2}{12}$ — skildrar rein tilfeldigheit i eit intervall. **Eksponentialfordelinga** $\\text{Exp}(\\lambda)$ — tettleik $\\lambda e^{-\\lambda x}$, $E(X) = \\frac{1}{\\lambda}$, overleving $P(X > t) = e^{-\\lambda t}$ — skildrar ventetider, og hugselausheita hennar tyder at fortida aldri endrar utsiktene. Saman med normalfordelinga utgjer desse verktøykassa for kontinuerleg sannsyn — og brua over til neste tema: å bruke fordelingane til å trekkje konklusjonar frå data."}}}
+{
+  "id": "s2-4-6-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "4.6",
+  "title": "Kontinuerlege sannsynsfordelingar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ventetider og tettleikskurver — når sannsyn blir areal og integrasjon overtek for summering.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forklare kva ein tettleiksfunksjon er og tolke sannsyn som areal",
+    "rekne ut sannsyn for kontinuerlege fordelingar ved integrasjon",
+    "bruke uniform fordeling og eksponentialfordeling i modellering",
+    "finne og tolke den kumulative fordelingsfunksjonen"
+  ],
+  "linkedChapterId": "s2-4-6",
+  "content": [
+    {
+      "id": "s2-4-6-n-intro",
+      "type": "text",
+      "content": "## Når verdiane ikkje kan teljast\n\nPå eit kundesenter ringjer telefonen — men nøyaktig *når* neste anrop kjem, kan ingen seie. Ventetida kan bli 3 minutt, 3,7 minutt eller 3,7124 minutt; ho kan ta **alle** verdiar i eit intervall. Det same gjeld høgda til ein tilfeldig person, temperaturen i morgon og feilen i ein produksjonsprosess. Slike storleikar er **kontinuerlege**, i motsetnad til dei diskrete variablane vi har telt oss gjennom så langt.\n\nOg her skjer noko som først verkar paradoksalt: for ein kontinuerleg variabel $X$ er $P(X = x) = 0$ for kvar einskild verdi. Sannsynet for at ventetida blir *nøyaktig* 3,7124000... minutt er null — det finst uendeleg mange kandidatar. Det som har meining, er sannsyn for **intervall**, og dei blir rekna med integrasjon: $$P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$$ der $f(x)$ er **tettleiksfunksjonen** (pdf) til $X$.\n\nEin funksjon kan vere tettleiksfunksjon viss han oppfyller to krav: $f(x) \\geq 0$ overalt, og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$ — det totale sannsynet er 1. Geometrisk er sannsyn **areal under kurva**. Merk ei vanleg misforståing: $f(x)$ er ikkje sjølv eit sannsyn og kan godt vere større enn 1 — det er arealet som tel.\n\nForventning og varians blir definerte med integral i staden for summar: $E(X) = \\int_{-\\infty}^{\\infty} x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$ der $E(X^2) = \\int x^2 f(x)\\,dx$. Alt vi kunne om diskrete fordelingar, har altså ein kontinuerleg tvilling — med $\\int$ der det før stod $\\sum$."
+    },
+    {
+      "id": "s2-4-6-n-section1",
+      "type": "text",
+      "content": "## Å rekne med tettleikar\n\nVi prøver maskineriet på ein konkret tettleik. La $f(x) = cx^2$ for $0 \\leq x \\leq 3$ og $f(x) = 0$ elles. Tre spørsmål: Kva må $c$ vere? Kva er $P(1 \\leq X \\leq 2)$? Og kva er $E(X)$?\n\n**Konstanten** blir bestemt av kravet om totalareal 1: $\\int_0^3 cx^2\\,dx = c\\left[\\frac{x^3}{3}\\right]_0^3 = 9c = 1$, så $c = \\frac{1}{9}$. **Sannsynet**: $P(1 \\leq X \\leq 2) = \\int_1^2 \\frac{x^2}{9}\\,dx = \\frac{1}{9} \\cdot \\frac{8 - 1}{3} = \\frac{7}{27} \\approx 0{,}259$. **Forventninga**: $E(X) = \\int_0^3 x \\cdot \\frac{x^2}{9}\\,dx = \\frac{1}{9}\\left[\\frac{x^4}{4}\\right]_0^3 = \\frac{81}{36} = 2{,}25$.\n\nVed sida av tettleiksfunksjonen finst ein annan funksjon som ofte er endå meir praktisk: den **kumulative fordelingsfunksjonen** (cdf), $$F(x) = P(X \\leq x) = \\int_{-\\infty}^{x} f(t)\\,dt$$ Han samlar opp alt sannsyn til venstre for $x$. Eigenskapane følgjer av definisjonen: $F$ er ikkje-avtakande, $F(-\\infty) = 0$, $F(\\infty) = 1$, og — vakkert nok — $F'(x) = f(x)$: tettleiken er den deriverte av den kumulative fordelinga. Analysens fundamentalteorem bind altså sannsynsteorien saman.\n\nNytten er umiddelbar: $P(a \\leq X \\leq b) = F(b) - F(a)$ og $P(X > a) = 1 - F(a)$. Har du først funne $F$, slepp du å integrere på nytt for kvart spørsmål — det er derfor tabellar (som for normalfordelinga) alltid er tabellar over cdf-en. Du kan alltid utleie cdf ved å integrere pdf, og alltid kontrollere ein tettleik ved å sjekke at integralet er 1."
+    },
+    {
+      "id": "s2-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tettleiksfunksjonar og kumulativ fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-6-n-quiz1-q0",
+            "task": "Kvifor er $P(X = x) = 0$ for ein kontinuerleg stokastisk variabel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det finst uendeleg mange moglege verdiar — berre intervall har positivt sannsyn",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi tettleiksfunksjonen alltid er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi kontinuerlege variablar ikkje kan observerast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det stemmer ikkje — punktsannsyn er positive",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit einskild punkt har «breidd null», og arealet under kurva over eit punkt er null. Sannsyn får vi berre over intervall: $P(a \\leq X \\leq b) = \\int_a^b f(x)dx$."
+          },
+          {
+            "id": "s2-4-6-n-quiz1-q1",
+            "task": "Kva to krav må ein tettleiksfunksjon oppfylle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) \\leq 1$ og $f(0) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) \\geq 0$ og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f$ er veksande og kontinuerleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) \\geq 0$ og $f$ er symmetrisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ikkje-negativitet og totalareal 1. Merk at $f(x)$ gjerne kan vere større enn 1 — det er arealet, ikkje funksjonsverdien, som er sannsyn."
+          },
+          {
+            "id": "s2-4-6-n-quiz1-q2",
+            "task": "For $f(x) = cx^2$ på $[0, 3]$: kva må $c$ vere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{27}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{9}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_0^3 cx^2 dx = c \\cdot \\frac{27}{3} = 9c = 1$ gir $c = \\frac{1}{9}$."
+          },
+          {
+            "id": "s2-4-6-n-quiz1-q3",
+            "task": "Kva er samanhengen mellom cdf $F(x)$ og pdf $f(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$F(x) = f(x)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = \\int F(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei er same funksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$F'(x) = f(x)$ — tettleiken er den deriverte av den kumulative fordelinga",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$F(x) = \\int_{-\\infty}^x f(t)dt$, så $F'(x) = f(x)$. Og $P(a \\leq X \\leq b) = F(b) - F(a)$ gjer cdf-en til eit praktisk oppslagsverktøy."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-6-n-section2",
+      "type": "text",
+      "content": "## Den flate og den gløymske\n\nTo kontinuerlege fordelingar går att i modellering, og dei har heilt ulik personlegdom.\n\nDen første er **uniform fordeling**, $X \\sim U(a, b)$: fullstendig tilfeldigheit der alle verdiar i intervallet $[a, b]$ er like «tette». Tettleiksfunksjonen er flat, $f(x) = \\frac{1}{b-a}$ på intervallet og null utanfor, og cdf-en veks lineært: $F(x) = \\frac{x-a}{b-a}$ for $a \\leq x \\leq b$. Forventninga ligg naturleg nok i midten, $E(X) = \\frac{a+b}{2}$, og variansen er $\\text{Var}(X) = \\frac{(b-a)^2}{12}$. Ein buss som kjem «ein eller annan gong» i eit kvartersvindauge, eit tilfeldig tal frå `random.random()` — uniforme fordelingar begge to.\n\nDen andre er **eksponentialfordelinga**, $X \\sim \\text{Exp}(\\lambda)$ med $\\lambda > 0$: modellen for **ventetider** mellom hendingar — tid til neste telefonsamtale, levetida til ein komponent. Tettleiken er $f(x) = \\lambda e^{-\\lambda x}$ for $x \\geq 0$, cdf-en er $F(x) = 1 - e^{-\\lambda x}$, og dermed er «overlevingssannsynet» $P(X > t) = e^{-\\lambda t}$. Forventninga er $E(X) = \\frac{1}{\\lambda}$ og variansen $\\frac{1}{\\lambda^2}$.\n\nTilbake til kundesenteret: anrop kjem i snitt 4 per time, så ventetida mellom anrop er $\\text{Exp}(4)$ (målt i timar). Sannsynet for at det går meir enn 30 minutt ($0{,}5$ timar) til neste anrop: $P(X > 0{,}5) = e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$. Innan 10 minutt ($\\frac{1}{6}$ time): $P(X \\leq \\frac{1}{6}) = 1 - e^{-2/3} \\approx 0{,}487$. Og forventa ventetid: $\\frac{1}{4}$ time, altså 15 minutt.\n\nSignaturen til eksponentialfordelinga er **hugselausheita**: $P(X > s + t \\mid X > s) = P(X > t)$. Har du alt venta ein halvtime, er sannsynet for å vente ti minutt til nøyaktig det same som då du byrja. Fordelinga «hugsar ikkje» fortida — akkurat som mynten i førre kapittel."
+    },
+    {
+      "id": "s2-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på uniform fordeling og eksponentialfordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-6-n-quiz2-q0",
+            "task": "Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim U(a, b)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$E(X) = \\frac{a+b}{2}$ og $\\text{Var}(X) = \\frac{(b-a)^2}{12}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$E(X) = \\frac{b-a}{2}$ og $\\text{Var}(X) = \\frac{a+b}{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E(X) = \\frac{1}{b-a}$ og $\\text{Var}(X) = \\frac{1}{(b-a)^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$E(X) = ab$ og $\\text{Var}(X) = \\frac{(ab)^2}{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den uniforme fordelinga har senter midt i intervallet, $\\frac{a+b}{2}$, og varians $\\frac{(b-a)^2}{12}$."
+          },
+          {
+            "id": "s2-4-6-n-quiz2-q1",
+            "task": "Anrop kjem med rate $\\lambda = 4$ per time. Kva er sannsynet for meir enn 30 minutt til neste anrop?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1 - e^{-2} \\approx 0{,}865$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$e^{-2} \\approx 0{,}135$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$e^{-4} \\approx 0{,}018$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(X > t) = e^{-\\lambda t}$ med $t = 0{,}5$ timar: $e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$."
+          },
+          {
+            "id": "s2-4-6-n-quiz2-q2",
+            "task": "Kva er forventa ventetid når $\\lambda = 4$ anrop per time?",
+            "options": [
+              {
+                "id": "a",
+                "text": "4 timar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "30 minutt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "15 minutt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "4 minutt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = \\frac{1}{\\lambda} = \\frac{1}{4}$ time $= 15$ minutt."
+          },
+          {
+            "id": "s2-4-6-n-quiz2-q3",
+            "task": "Kva tyder det at eksponentialfordelinga er «hugselaus»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At forventningsverdien er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At fordelinga endrar seg over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At variansen er uendeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At $P(X > s + t \\mid X > s) = P(X > t)$ — tida du alt har venta, påverkar ikkje gjenståande ventetid",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hugselausheit: sannsynet for å vente $t$ til er det same uansett kor lenge du allereie har venta. Det er særtrekket til eksponentialfordelinga."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: sannsyn som areal\n\nVentetidene på kundesenteret førte oss frå det teljande til det kontinuerlege. For kontinuerlege stokastiske variablar er punktsannsyn null; alt blir uttrykt gjennom **tettleiksfunksjonen** $f(x)$, som må vere ikkje-negativ og ha totalareal 1, og sannsyn er areal: $P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$. Hugs at $f(x)$ sjølv ikkje er eit sannsyn og godt kan overstige 1. Forventning og varians blir rekna med integral: $E(X) = \\int x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDen **kumulative fordelingsfunksjonen** $F(x) = P(X \\leq x) = \\int_{-\\infty}^x f(t)\\,dt$ er det praktiske oppslagsverktøyet: $P(a \\leq X \\leq b) = F(b) - F(a)$, $P(X > a) = 1 - F(a)$, og $F'(x) = f(x)$ knyter dei to funksjonane saman via fundamentalteoremet. Du kan alltid utleie cdf frå pdf ved integrasjon — og alltid kontrollere ein tettleik ved å sjekke at integralet blir 1.\n\nTo standardmodellar bør du kjenne att på avstand. Den **uniforme fordelinga** $U(a,b)$ — flat tettleik $\\frac{1}{b-a}$, $E(X) = \\frac{a+b}{2}$, $\\text{Var}(X) = \\frac{(b-a)^2}{12}$ — skildrar rein tilfeldigheit i eit intervall. **Eksponentialfordelinga** $\\text{Exp}(\\lambda)$ — tettleik $\\lambda e^{-\\lambda x}$, $E(X) = \\frac{1}{\\lambda}$, overleving $P(X > t) = e^{-\\lambda t}$ — skildrar ventetider, og hugselausheita hennar tyder at fortida aldri endrar utsiktene. Saman med normalfordelinga utgjer desse verktøykassa for kontinuerleg sannsyn — og brua over til neste tema: å bruke fordelingane til å trekkje konklusjonar frå data."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3317373838282b58",
+    "translatedAt": "2026-06-20T09:03:44.535Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "da422f782475d6c6": "Kontinuerlege sannsynsfordelingar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "50d4e56adf8fa79d": "Ei forteljing om ventetider og tettleikskurver — når sannsyn blir areal og integrasjon overtek for summering.",
+      "1c4a38abb5207672": "forklare kva ein tettleiksfunksjon er og tolke sannsyn som areal",
+      "40f0cff81cdcf939": "rekne ut sannsyn for kontinuerlege fordelingar ved integrasjon",
+      "a085956b52999253": "bruke uniform fordeling og eksponentialfordeling i modellering",
+      "c5c923bb7b6103c1": "finne og tolke den kumulative fordelingsfunksjonen",
+      "7aa0e9c75155c1dd": "## Når verdiane ikkje kan teljast\n\nPå eit kundesenter ringjer telefonen — men nøyaktig *når* neste anrop kjem, kan ingen seie. Ventetida kan bli 3 minutt, 3,7 minutt eller 3,7124 minutt; ho kan ta **alle** verdiar i eit intervall. Det same gjeld høgda til ein tilfeldig person, temperaturen i morgon og feilen i ein produksjonsprosess. Slike storleikar er **kontinuerlege**, i motsetnad til dei diskrete variablane vi har telt oss gjennom så langt.\n\nOg her skjer noko som først verkar paradoksalt: for ein kontinuerleg variabel $X$ er $P(X = x) = 0$ for kvar einskild verdi. Sannsynet for at ventetida blir *nøyaktig* 3,7124000... minutt er null — det finst uendeleg mange kandidatar. Det som har meining, er sannsyn for **intervall**, og dei blir rekna med integrasjon: $$P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$$ der $f(x)$ er **tettleiksfunksjonen** (pdf) til $X$.\n\nEin funksjon kan vere tettleiksfunksjon viss han oppfyller to krav: $f(x) \\geq 0$ overalt, og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$ — det totale sannsynet er 1. Geometrisk er sannsyn **areal under kurva**. Merk ei vanleg misforståing: $f(x)$ er ikkje sjølv eit sannsyn og kan godt vere større enn 1 — det er arealet som tel.\n\nForventning og varians blir definerte med integral i staden for summar: $E(X) = \\int_{-\\infty}^{\\infty} x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$ der $E(X^2) = \\int x^2 f(x)\\,dx$. Alt vi kunne om diskrete fordelingar, har altså ein kontinuerleg tvilling — med $\\int$ der det før stod $\\sum$.",
+      "359614007adab830": "## Å rekne med tettleikar\n\nVi prøver maskineriet på ein konkret tettleik. La $f(x) = cx^2$ for $0 \\leq x \\leq 3$ og $f(x) = 0$ elles. Tre spørsmål: Kva må $c$ vere? Kva er $P(1 \\leq X \\leq 2)$? Og kva er $E(X)$?\n\n**Konstanten** blir bestemt av kravet om totalareal 1: $\\int_0^3 cx^2\\,dx = c\\left[\\frac{x^3}{3}\\right]_0^3 = 9c = 1$, så $c = \\frac{1}{9}$. **Sannsynet**: $P(1 \\leq X \\leq 2) = \\int_1^2 \\frac{x^2}{9}\\,dx = \\frac{1}{9} \\cdot \\frac{8 - 1}{3} = \\frac{7}{27} \\approx 0{,}259$. **Forventninga**: $E(X) = \\int_0^3 x \\cdot \\frac{x^2}{9}\\,dx = \\frac{1}{9}\\left[\\frac{x^4}{4}\\right]_0^3 = \\frac{81}{36} = 2{,}25$.\n\nVed sida av tettleiksfunksjonen finst ein annan funksjon som ofte er endå meir praktisk: den **kumulative fordelingsfunksjonen** (cdf), $$F(x) = P(X \\leq x) = \\int_{-\\infty}^{x} f(t)\\,dt$$ Han samlar opp alt sannsyn til venstre for $x$. Eigenskapane følgjer av definisjonen: $F$ er ikkje-avtakande, $F(-\\infty) = 0$, $F(\\infty) = 1$, og — vakkert nok — $F'(x) = f(x)$: tettleiken er den deriverte av den kumulative fordelinga. Analysens fundamentalteorem bind altså sannsynsteorien saman.\n\nNytten er umiddelbar: $P(a \\leq X \\leq b) = F(b) - F(a)$ og $P(X > a) = 1 - F(a)$. Har du først funne $F$, slepp du å integrere på nytt for kvart spørsmål — det er derfor tabellar (som for normalfordelinga) alltid er tabellar over cdf-en. Du kan alltid utleie cdf ved å integrere pdf, og alltid kontrollere ein tettleik ved å sjekke at integralet er 1.",
+      "e379c921f9706c83": "Test deg sjølv på tettleiksfunksjonar og kumulativ fordeling:",
+      "4097889236a2af26": "placeholder",
+      "71507ee356993b5a": "Kvifor er $P(X = x) = 0$ for ein kontinuerleg stokastisk variabel?",
+      "4698cf5535aefbd6": "Fordi det finst uendeleg mange moglege verdiar — berre intervall har positivt sannsyn",
+      "a96c8a807e23394a": "Fordi tettleiksfunksjonen alltid er null",
+      "fb5985c13f048841": "Fordi kontinuerlege variablar ikkje kan observerast",
+      "516bfeb32dbc9bea": "Det stemmer ikkje — punktsannsyn er positive",
+      "f6dc3303d864cdc2": "Eit einskild punkt har «breidd null», og arealet under kurva over eit punkt er null. Sannsyn får vi berre over intervall: $P(a \\leq X \\leq b) = \\int_a^b f(x)dx$.",
+      "f25c1c5c1cc5148e": "Kva to krav må ein tettleiksfunksjon oppfylle?",
+      "2c869ed4d4b647a9": "$f(x) \\leq 1$ og $f(0) = 0$",
+      "cc66e4648e897f31": "$f(x) \\geq 0$ og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$",
+      "7924feffbeb85987": "$f$ er veksande og kontinuerleg",
+      "d807af7a0cc43d01": "$f(x) \\geq 0$ og $f$ er symmetrisk",
+      "2def4637a912fc46": "Ikkje-negativitet og totalareal 1. Merk at $f(x)$ gjerne kan vere større enn 1 — det er arealet, ikkje funksjonsverdien, som er sannsyn.",
+      "f8e62752ae192965": "For $f(x) = cx^2$ på $[0, 3]$: kva må $c$ vere?",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "e31d7ce071e9f65c": "$\\frac{1}{27}$",
+      "251fc60202ac7005": "$\\frac{1}{9}$",
+      "d0779d8a093925ec": "$\\int_0^3 cx^2 dx = c \\cdot \\frac{27}{3} = 9c = 1$ gir $c = \\frac{1}{9}$.",
+      "ad0c4506e3c40f65": "Kva er samanhengen mellom cdf $F(x)$ og pdf $f(x)$?",
+      "a770664b9b8c9feb": "$F(x) = f(x)^2$",
+      "dcd4be3ab9b69601": "$f(x) = \\int F(x)\\,dx$",
+      "c386a9878fd7615d": "Dei er same funksjon",
+      "4fb50d3a3f9b2091": "$F'(x) = f(x)$ — tettleiken er den deriverte av den kumulative fordelinga",
+      "b9b37f7aebeba40f": "$F(x) = \\int_{-\\infty}^x f(t)dt$, så $F'(x) = f(x)$. Og $P(a \\leq X \\leq b) = F(b) - F(a)$ gjer cdf-en til eit praktisk oppslagsverktøy.",
+      "0a3747f24821f329": "## Den flate og den gløymske\n\nTo kontinuerlege fordelingar går att i modellering, og dei har heilt ulik personlegdom.\n\nDen første er **uniform fordeling**, $X \\sim U(a, b)$: fullstendig tilfeldigheit der alle verdiar i intervallet $[a, b]$ er like «tette». Tettleiksfunksjonen er flat, $f(x) = \\frac{1}{b-a}$ på intervallet og null utanfor, og cdf-en veks lineært: $F(x) = \\frac{x-a}{b-a}$ for $a \\leq x \\leq b$. Forventninga ligg naturleg nok i midten, $E(X) = \\frac{a+b}{2}$, og variansen er $\\text{Var}(X) = \\frac{(b-a)^2}{12}$. Ein buss som kjem «ein eller annan gong» i eit kvartersvindauge, eit tilfeldig tal frå `random.random()` — uniforme fordelingar begge to.\n\nDen andre er **eksponentialfordelinga**, $X \\sim \\text{Exp}(\\lambda)$ med $\\lambda > 0$: modellen for **ventetider** mellom hendingar — tid til neste telefonsamtale, levetida til ein komponent. Tettleiken er $f(x) = \\lambda e^{-\\lambda x}$ for $x \\geq 0$, cdf-en er $F(x) = 1 - e^{-\\lambda x}$, og dermed er «overlevingssannsynet» $P(X > t) = e^{-\\lambda t}$. Forventninga er $E(X) = \\frac{1}{\\lambda}$ og variansen $\\frac{1}{\\lambda^2}$.\n\nTilbake til kundesenteret: anrop kjem i snitt 4 per time, så ventetida mellom anrop er $\\text{Exp}(4)$ (målt i timar). Sannsynet for at det går meir enn 30 minutt ($0{,}5$ timar) til neste anrop: $P(X > 0{,}5) = e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$. Innan 10 minutt ($\\frac{1}{6}$ time): $P(X \\leq \\frac{1}{6}) = 1 - e^{-2/3} \\approx 0{,}487$. Og forventa ventetid: $\\frac{1}{4}$ time, altså 15 minutt.\n\nSignaturen til eksponentialfordelinga er **hugselausheita**: $P(X > s + t \\mid X > s) = P(X > t)$. Har du alt venta ein halvtime, er sannsynet for å vente ti minutt til nøyaktig det same som då du byrja. Fordelinga «hugsar ikkje» fortida — akkurat som mynten i førre kapittel.",
+      "0dccedaa861a3025": "Test deg sjølv på uniform fordeling og eksponentialfordeling:",
+      "4b0c15e0a803a192": "Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim U(a, b)$?",
+      "f1994ad500c3ff62": "$E(X) = \\frac{a+b}{2}$ og $\\text{Var}(X) = \\frac{(b-a)^2}{12}$",
+      "52b02225e1ab5600": "$E(X) = \\frac{b-a}{2}$ og $\\text{Var}(X) = \\frac{a+b}{12}$",
+      "cc62362b95bc7952": "$E(X) = \\frac{1}{b-a}$ og $\\text{Var}(X) = \\frac{1}{(b-a)^2}$",
+      "b7e0ca4724f1ae88": "$E(X) = ab$ og $\\text{Var}(X) = \\frac{(ab)^2}{12}$",
+      "4889df205ba493d9": "Den uniforme fordelinga har senter midt i intervallet, $\\frac{a+b}{2}$, og varians $\\frac{(b-a)^2}{12}$.",
+      "37b296ed6cd3701e": "Anrop kjem med rate $\\lambda = 4$ per time. Kva er sannsynet for meir enn 30 minutt til neste anrop?",
+      "013b2a3e4715ccf8": "$e^{-2} \\approx 0{,}135$",
+      "9bfcfe9a83d5b6bf": "$1 - e^{-2} \\approx 0{,}865$",
+      "57a761bddeb0b0af": "$e^{-4} \\approx 0{,}018$",
+      "7b72ca46cdcd4075": "$P(X > t) = e^{-\\lambda t}$ med $t = 0{,}5$ timar: $e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$.",
+      "9fc25777457c41ba": "Kva er forventa ventetid når $\\lambda = 4$ anrop per time?",
+      "109abffa32c472fe": "4 timar",
+      "bbc1e1831bf635ac": "30 minutt",
+      "ffa29062e3960b2a": "15 minutt",
+      "0a16bb9776a825c1": "4 minutt",
+      "e485922075178eb2": "$E(X) = \\frac{1}{\\lambda} = \\frac{1}{4}$ time $= 15$ minutt.",
+      "a6efa6e1d4a28896": "Kva tyder det at eksponentialfordelinga er «hugselaus»?",
+      "6e3edbb5c1a069b7": "At forventningsverdien er null",
+      "8967b5d3f41e9332": "At $P(X > s + t \\mid X > s) = P(X > t)$ — tida du alt har venta, påverkar ikkje gjenståande ventetid",
+      "899898f1034bfee0": "At fordelinga endrar seg over tid",
+      "2aeb4d7379cb6514": "At variansen er uendeleg",
+      "0c102238885ef0f8": "Hugselausheit: sannsynet for å vente $t$ til er det same uansett kor lenge du allereie har venta. Det er særtrekket til eksponentialfordelinga.",
+      "4c368830f593f9a9": "## Oppsummering: sannsyn som areal\n\nVentetidene på kundesenteret førte oss frå det teljande til det kontinuerlege. For kontinuerlege stokastiske variablar er punktsannsyn null; alt blir uttrykt gjennom **tettleiksfunksjonen** $f(x)$, som må vere ikkje-negativ og ha totalareal 1, og sannsyn er areal: $P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$. Hugs at $f(x)$ sjølv ikkje er eit sannsyn og godt kan overstige 1. Forventning og varians blir rekna med integral: $E(X) = \\int x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDen **kumulative fordelingsfunksjonen** $F(x) = P(X \\leq x) = \\int_{-\\infty}^x f(t)\\,dt$ er det praktiske oppslagsverktøyet: $P(a \\leq X \\leq b) = F(b) - F(a)$, $P(X > a) = 1 - F(a)$, og $F'(x) = f(x)$ knyter dei to funksjonane saman via fundamentalteoremet. Du kan alltid utleie cdf frå pdf ved integrasjon — og alltid kontrollere ein tettleik ved å sjekke at integralet blir 1.\n\nTo standardmodellar bør du kjenne att på avstand. Den **uniforme fordelinga** $U(a,b)$ — flat tettleik $\\frac{1}{b-a}$, $E(X) = \\frac{a+b}{2}$, $\\text{Var}(X) = \\frac{(b-a)^2}{12}$ — skildrar rein tilfeldigheit i eit intervall. **Eksponentialfordelinga** $\\text{Exp}(\\lambda)$ — tettleik $\\lambda e^{-\\lambda x}$, $E(X) = \\frac{1}{\\lambda}$, overleving $P(X > t) = e^{-\\lambda t}$ — skildrar ventetider, og hugselausheita hennar tyder at fortida aldri endrar utsiktene. Saman med normalfordelinga utgjer desse verktøykassa for kontinuerleg sannsyn — og brua over til neste tema: å bruke fordelingane til å trekkje konklusjonar frå data."
+    }
+  }
+}

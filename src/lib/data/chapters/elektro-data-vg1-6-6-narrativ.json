@@ -1,1 +1,344 @@
-{"id":"elektro-data-vg1-6-6-narrativ","courseId":"elektro-data-vg1","chapterNumber":"6.6","title":"Feilsøking og systematisk vedlikehold","subtitle":"Narrativ versjon","description":"En fortelling om hvordan en dyktig fagperson finner feilen raskt -- fra halveringsmetoden og multimeteret til vedlikehold som hindrer at noe ryker i utgangspunktet.","estimatedMinutes":35,"competenceGoals":["utføre systematisk feilsøking i elektriske anlegg og automatiserte systemer"],"linkedChapterId":"elektro-data-vg1-6-6","content":[{"id":"elektro-data-vg1-6-6-n-intro","type":"text","content":"## Båndet som stoppet\n\nForestill deg at du er lærling, og en mandag morgen ringer telefonen: et automatisert transportbånd på en fabrikk har stoppet. Produksjonen står stille, og hvert minutt koster penger. Sjefen ser på deg. Hva gjør du?\n\nDet er nettopp her det skilles mellom en nybegynner og en dyktig fagperson. Nybegynneren begynner å gjette -- bytter en komponent her, river i en kabel der, og håper det løser seg. Du derimot, du vet at feilsøking er et håndverk. Det finnes en systematikk som gjør at du finner feilen raskt, i stedet for å bytte ut fungerende deler i blinde.\n\nDen som arbeider planløst, taper tid og penger og skaper ofte nye feil på veien. Den som arbeider systematisk, sparer tid, reduserer nedetiden og slipper å kaste bort dyre komponenter. I dette kapittelet skal du lære nettopp denne systematikken: hvordan du nærmer deg en feil steg for steg, hvordan du bruker multimeteret som ditt viktigste verktøy, og hvordan godt vedlikehold gjør at mange feil aldri oppstår i det hele tatt."},{"id":"elektro-data-vg1-6-6-n-section1","type":"text","content":"## Fem steg og en genial idé\n\nNår du står foran et system som ikke virker, følger du alltid den samme grunnoppskriften. Først beskriver du **symptomet**: Hva virker ikke? Når oppsto feilen? Har noe blitt endret nylig? Disse spørsmålene gir deg ledetråder før du i det hele tatt har tatt fram et instrument. Deretter gjør du en **visuell inspeksjon** -- du ser etter løse kabler, kjenner etter brent lukt, leter etter utløste sikringer og sjekker indikatorlamper og feilmeldinger på HMI-panelet.\n\nSå kommer den geniale ideen: **halveringsmetoden**. Tanken er enkel. I stedet for å teste hvert eneste punkt i systemet fra start til slutt, deler du systemet i to og tester på midten. Er signalet korrekt der? Hvis ja, ligger feilen i siste halvdel. Hvis nei, ligger den i første halvdel. Så halverer du den feilbærende delen igjen, og igjen. For hvert eneste test kutter du søkeområdet i to. Det betyr at antall tester vokser logaritmisk, ikke lineært.\n\nLa oss se det i praksis. Transportbåndet har åtte seksjoner fra A til H, og det står stille selv om PLS-en sender styresignal. Du tester først mellom D og E -- signalet er greit ved D. Da ligger feilen i E til H. Du tester mellom F og G, og signalet mangler ved G. Feilen er altså i E til F. Du tester ved E -- der er signalet greit, men det mangler ved F. Du har funnet det: en løs kabelsko på motordriveren i seksjon F. Tre tester i stedet for åtte. Etter at du har funnet feilen, **isolerer** du den defekte komponenten, reparerer eller bytter, og **tester** at alt fungerer igjen."},{"id":"elektro-data-vg1-6-6-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-6-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på systematisk feilsøking:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-6-6-n-quiz1-q0","task":"Hva er det aller første steget i systematisk feilsøking?","options":[{"id":"a","text":"Bytte alle mistenkte komponenter","isCorrect":false},{"id":"b","text":"Måle spenning i hele kretsen","isCorrect":false},{"id":"c","text":"Beskrive symptomet -- hva virker ikke, og når oppsto feilen?","isCorrect":true},{"id":"d","text":"Slå strømmen av og på igjen","isCorrect":false}],"solution":"Du starter alltid med å beskrive symptomet grundig. Hva virker ikke? Når skjedde det? Er noe endret? Disse svarene smalner inn mulige feilkilder før du måler."},{"id":"elektro-data-vg1-6-6-n-quiz1-q1","task":"Et system med 16 testpunkter feiler. Omtrent hvor mange tester trenger du med halveringsmetoden?","options":[{"id":"a","text":"Alle 16 tester","isCorrect":false},{"id":"b","text":"Rundt 8 tester","isCorrect":false},{"id":"c","text":"Bare 1 test","isCorrect":false},{"id":"d","text":"Rundt 4 tester","isCorrect":true}],"solution":"Halveringsmetoden kutter søkeområdet i to for hver test. 16 → 8 → 4 → 2 → 1, altså rundt 4 tester. Antall tester vokser logaritmisk, ikke lineært."},{"id":"elektro-data-vg1-6-6-n-quiz1-q2","task":"Hva gjør du i den visuelle inspeksjonen?","options":[{"id":"a","text":"Ser etter løse kabler, brent lukt, utløste sikringer og feilmeldinger","isCorrect":true},{"id":"b","text":"Måler motstand i alle komponenter","isCorrect":false},{"id":"c","text":"Bytter sikringsskapet","isCorrect":false},{"id":"d","text":"Demonterer hele systemet","isCorrect":false}],"solution":"Visuell inspeksjon er en rask førstehåndsvurdering: du ser, lukter og lytter etter åpenbare tegn som løse kabler, brent lukt, utløste sikringer og indikatorlamper eller feilmeldinger."}]}},{"id":"elektro-data-vg1-6-6-n-section2","type":"text","content":"## Multimeteret -- din beste venn\n\nNår øynene og nesen ikke er nok, tar du fram multimeteret. Det er det viktigste feilsøkingsverktøyet du har, fordi det kan utføre de fire grunnleggende målingene: spenning, strøm, motstand og kontinuitet.\n\nNår du måler **spenning**, kobler du multimeteret parallelt over punktet du vil sjekke. Slik finner du ut om spenning er til stede -- forventet verdi er gjerne 230 V AC i en stikkontakt, 24 V DC på PLS-ens inn- og utganger, eller 5 V og 3,3 V på mikrokontrollere. Når du måler **strøm**, må du derimot koble multimeteret i serie. Det betyr at kretsen må brytes og instrumentet settes inn i strømveien, slik at all strømmen flyter gjennom det. Her må du være våken: kobler du strømmåling parallelt slik du gjør med spenning, kan du kortslutte og ødelegge instrumentet.\n\nNår du måler **motstand**, må kretsen være spenningsløs. Multimeteret sender nemlig sin egen lille kjente strøm gjennom komponenten og regner ut motstanden ut fra den. Er det allerede spenning i kretsen, forstyrres målingen og du kan skade instrumentet. Null ohm betyr kortslutning, uendelig ohm betyr brudd. Til slutt har du **kontinuitetstesten**, pip-testen, som er en lynrask måte å sjekke om en leder er hel: multimeteret piper når motstanden er under cirka 30 ohm.\n\nTenk deg en lampe i et automatisert belysningsanlegg som ikke lyser. Du måler 24 V på PLS-utgangen -- den er altså i orden. Så måler du over reléspolen, og der er det 0 V. Signalet kommer ikke fram. Du slår av strømmen og gjør en kontinuitetstest på kabelen mellom dem -- ingen pip. Kabelen er brutt. Du har funnet feilen ved hjelp av **signalsporing**: å følge signalet fra kilden og nedover til det plutselig forsvinner."},{"id":"elektro-data-vg1-6-6-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-6-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på multimeter og målinger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-6-6-n-quiz2-q0","task":"Hvordan kobles multimeteret når du skal måle strøm?","options":[{"id":"a","text":"Parallelt over komponenten","isCorrect":false},{"id":"b","text":"I serie -- kretsen brytes og instrumentet settes inn i strømveien","isCorrect":true},{"id":"c","text":"Det spiller ingen rolle","isCorrect":false},{"id":"d","text":"Bare til den ene siden av komponenten","isCorrect":false}],"solution":"Strøm måles i serie. Kretsen brytes på ett punkt, og multimeteret settes inn slik at all strøm flyter gjennom det. Kobles det parallelt som ved spenningsmåling, kan det kortslutte og ødelegges."},{"id":"elektro-data-vg1-6-6-n-quiz2-q1","task":"Hvorfor må kretsen være spenningsløs når du måler motstand?","options":[{"id":"a","text":"Fordi det er enklere å lese av displayet","isCorrect":false},{"id":"b","text":"Det er egentlig ikke nødvendig","isCorrect":false},{"id":"c","text":"Fordi multimeteret bruker sin egen kjente strøm, og ytre spenning forstyrrer målingen","isCorrect":true},{"id":"d","text":"Fordi motstanden alltid er null med spenning på","isCorrect":false}],"solution":"Ved motstandsmåling sender multimeteret en liten kjent strøm gjennom komponenten og regner ut motstanden. Spenning i kretsen forstyrrer målingen og kan skade instrumentet."},{"id":"elektro-data-vg1-6-6-n-quiz2-q2","task":"Hva brukes kontinuitetstesten (pip-testen) til?","options":[{"id":"a","text":"Å måle nøyaktig spenning i kretsen","isCorrect":false},{"id":"b","text":"Å teste hvor mye strøm en sikring tåler","isCorrect":false},{"id":"c","text":"Å måle temperaturen i en komponent","isCorrect":false},{"id":"d","text":"Å sjekke raskt om en leder er hel og ikke brutt","isCorrect":true}],"solution":"Kontinuitetstesten sender en liten strøm gjennom lederen. Er motstanden lav (under cirka 30 ohm), piper instrumentet. Det er en rask test for å sjekke kabler, sikringer og koblinger."}]}},{"id":"elektro-data-vg1-6-6-n-section3","type":"text","content":"## Bedre å forebygge enn å reparere\n\nDen virkelig dyktige fagpersonen vet at den beste feilsøkingen er den du slipper å gjøre. Derfor handler dette kapittelet like mye om vedlikehold. Her finnes det to grunnleggende strategier.\n\n**Forebyggende vedlikehold** er planlagt. Du inspiserer etter faste intervaller, bytter slitedeler som filtre, remmer og lagre før de svikter, bruker termografering for å oppdage varme punkter i koblinger, gjør vibrasjonsanalyse på motorer og lagre, og rengjør ventilasjonsåpninger og kjøleelementer. **Korrigerende vedlikehold** er det motsatte: du reparerer eller bytter først etter at feilen har oppstått. Det er uplanlagt, og nesten alltid dyrere. Uplanlagt stans koster i tapt produksjon, og et havarert lager kan dra med seg akselen i fallet og gjøre reparasjonen langt mer omfattende.\n\nTenk på et eksempel: å smøre lagrene i en motor hver sjette måned koster lite. Å la dem gå til de havarerer, koster en hel ny motor pluss følgeskader pluss produksjonsstans. Det er derfor forebyggende vedlikehold lønner seg i lengden. Til sist fører du alt inn i en **vedlikeholdslogg** -- dato, feilbeskrivelse, årsak, tiltak og hvem som utførte det. Slik bygger du en historikk som avslører gjentakende feil, og over tid blir du en fagperson som ikke bare fikser problemer, men hindrer dem i å oppstå."},{"id":"elektro-data-vg1-6-6-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-6-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på vedlikehold:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-6-6-n-quiz3-q0","task":"Hva kjennetegner forebyggende vedlikehold?","options":[{"id":"a","text":"Det er planlagte tiltak som hindrer feil før de oppstår","isCorrect":true},{"id":"b","text":"Det utføres først etter at en feil har oppstått","isCorrect":false},{"id":"c","text":"Det handler bare om å bytte ødelagte deler","isCorrect":false},{"id":"d","text":"Det er alltid dyrere enn korrigerende vedlikehold","isCorrect":false}],"solution":"Forebyggende vedlikehold er planlagte tiltak -- inspeksjoner, smøring og bytte av slitedeler -- som hindrer feil før de oppstår. Korrigerende vedlikehold skjer derimot etter at feilen er et faktum."},{"id":"elektro-data-vg1-6-6-n-quiz3-q1","task":"Hvorfor er forebyggende vedlikehold ofte mer kostnadseffektivt?","options":[{"id":"a","text":"Fordi det krever dyrere verktøy","isCorrect":false},{"id":"b","text":"Fordi uplanlagt stans og følgeskader blir mye dyrere enn planlagt vedlikehold","isCorrect":true},{"id":"c","text":"Fordi det aldri er behov for reservedeler","isCorrect":false},{"id":"d","text":"Fordi det kan utføres uten fagfolk","isCorrect":false}],"solution":"Uplanlagt stans koster i tapt produksjon, og et havari kan gi følgeskader som gjør reparasjonen langt dyrere. Et smurt lager koster mye mindre enn en ny motor med ødelagt aksel."},{"id":"elektro-data-vg1-6-6-n-quiz3-q2","task":"Hva er hensikten med en vedlikeholdslogg?","options":[{"id":"a","text":"Å erstatte behovet for multimeter","isCorrect":false},{"id":"b","text":"Å beregne strømforbruket i anlegget","isCorrect":false},{"id":"c","text":"Å dokumentere hendelser slik at man oppdager gjentakende feil","isCorrect":true},{"id":"d","text":"Å sette opp Gantt-diagram for prosjektet","isCorrect":false}],"solution":"Vedlikeholdsloggen dokumenterer dato, feil, årsak, tiltak og utfører. Slik bygges en historikk som avslører mønstre og gjentakende feil over tid."}]}},{"id":"elektro-data-vg1-6-6-n-summary","type":"text","content":"## Oppsummering\n\nVi begynte med et transportbånd som sto stille, og endte med en hel verktøykasse for feilsøking. Du har sett at **systematisk feilsøking** følger stegene symptom, visuell inspeksjon, måling, isolering og reparasjon -- aldri tilfeldig gjetting. **Halveringsmetoden** kutter søkeområdet i to for hver test og finner feilen på langt færre forsøk enn lineær leting.\n\n**Multimeteret** er ditt viktigste verktøy: spenning måles parallelt, strøm i serie, motstand uten spenning, og kontinuitet med pip-testen. Med **signalsporing** følger du signalet til det forsvinner. Til slutt så vi at **forebyggende vedlikehold** er planlagt og billigere enn å reparere etter en stans, og at **vedlikeholdsloggen** gir deg historikken som avslører gjentakende feil. Den dyktige fagpersonen finner ikke bare feil raskt -- hun sørger for at de fleste feilene aldri oppstår."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-6-6-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "6.6",
+  "title": "Feilsøking og systematisk vedlikehold",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan en dyktig fagperson finner feilen raskt -- fra halveringsmetoden og multimeteret til vedlikehold som hindrer at noe ryker i utgangspunktet.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utføre systematisk feilsøking i elektriske anlegg og automatiserte systemer"
+  ],
+  "linkedChapterId": "elektro-data-vg1-6-6",
+  "content": [
+    {
+      "id": "elektro-data-vg1-6-6-n-intro",
+      "type": "text",
+      "content": "## Båndet som stoppet\n\nForestill deg at du er lærling, og en mandag morgen ringer telefonen: et automatisert transportbånd på en fabrikk har stoppet. Produksjonen står stille, og hvert minutt koster penger. Sjefen ser på deg. Hva gjør du?\n\nDet er nettopp her det skilles mellom en nybegynner og en dyktig fagperson. Nybegynneren begynner å gjette -- bytter en komponent her, river i en kabel der, og håper det løser seg. Du derimot, du vet at feilsøking er et håndverk. Det finnes en systematikk som gjør at du finner feilen raskt, i stedet for å bytte ut fungerende deler i blinde.\n\nDen som arbeider planløst, taper tid og penger og skaper ofte nye feil på veien. Den som arbeider systematisk, sparer tid, reduserer nedetiden og slipper å kaste bort dyre komponenter. I dette kapittelet skal du lære nettopp denne systematikken: hvordan du nærmer deg en feil steg for steg, hvordan du bruker multimeteret som ditt viktigste verktøy, og hvordan godt vedlikehold gjør at mange feil aldri oppstår i det hele tatt."
+    },
+    {
+      "id": "elektro-data-vg1-6-6-n-section1",
+      "type": "text",
+      "content": "## Fem steg og en genial idé\n\nNår du står foran et system som ikke virker, følger du alltid den samme grunnoppskriften. Først beskriver du **symptomet**: Hva virker ikke? Når oppsto feilen? Har noe blitt endret nylig? Disse spørsmålene gir deg ledetråder før du i det hele tatt har tatt fram et instrument. Deretter gjør du en **visuell inspeksjon** -- du ser etter løse kabler, kjenner etter brent lukt, leter etter utløste sikringer og sjekker indikatorlamper og feilmeldinger på HMI-panelet.\n\nSå kommer den geniale ideen: **halveringsmetoden**. Tanken er enkel. I stedet for å teste hvert eneste punkt i systemet fra start til slutt, deler du systemet i to og tester på midten. Er signalet korrekt der? Hvis ja, ligger feilen i siste halvdel. Hvis nei, ligger den i første halvdel. Så halverer du den feilbærende delen igjen, og igjen. For hvert eneste test kutter du søkeområdet i to. Det betyr at antall tester vokser logaritmisk, ikke lineært.\n\nLa oss se det i praksis. Transportbåndet har åtte seksjoner fra A til H, og det står stille selv om PLS-en sender styresignal. Du tester først mellom D og E -- signalet er greit ved D. Da ligger feilen i E til H. Du tester mellom F og G, og signalet mangler ved G. Feilen er altså i E til F. Du tester ved E -- der er signalet greit, men det mangler ved F. Du har funnet det: en løs kabelsko på motordriveren i seksjon F. Tre tester i stedet for åtte. Etter at du har funnet feilen, **isolerer** du den defekte komponenten, reparerer eller bytter, og **tester** at alt fungerer igjen."
+    },
+    {
+      "id": "elektro-data-vg1-6-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på systematisk feilsøking:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz1-q0",
+            "task": "Hva er det aller første steget i systematisk feilsøking?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bytte alle mistenkte komponenter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Beskrive symptomet -- hva virker ikke, og når oppsto feilen?",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Måle spenning i hele kretsen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Slå strømmen av og på igjen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du starter alltid med å beskrive symptomet grundig. Hva virker ikke? Når skjedde det? Er noe endret? Disse svarene smalner inn mulige feilkilder før du måler."
+          },
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz1-q1",
+            "task": "Et system med 16 testpunkter feiler. Omtrent hvor mange tester trenger du med halveringsmetoden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle 16 tester",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Rundt 8 tester",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rundt 4 tester",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bare 1 test",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Halveringsmetoden kutter søkeområdet i to for hver test. 16 → 8 → 4 → 2 → 1, altså rundt 4 tester. Antall tester vokser logaritmisk, ikke lineært."
+          },
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz1-q2",
+            "task": "Hva gjør du i den visuelle inspeksjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Måler motstand i alle komponenter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bytter sikringsskapet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Demonterer hele systemet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ser etter løse kabler, brent lukt, utløste sikringer og feilmeldinger",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Visuell inspeksjon er en rask førstehåndsvurdering: du ser, lukter og lytter etter åpenbare tegn som løse kabler, brent lukt, utløste sikringer og indikatorlamper eller feilmeldinger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-6-n-section2",
+      "type": "text",
+      "content": "## Multimeteret -- din beste venn\n\nNår øynene og nesen ikke er nok, tar du fram multimeteret. Det er det viktigste feilsøkingsverktøyet du har, fordi det kan utføre de fire grunnleggende målingene: spenning, strøm, motstand og kontinuitet.\n\nNår du måler **spenning**, kobler du multimeteret parallelt over punktet du vil sjekke. Slik finner du ut om spenning er til stede -- forventet verdi er gjerne 230 V AC i en stikkontakt, 24 V DC på PLS-ens inn- og utganger, eller 5 V og 3,3 V på mikrokontrollere. Når du måler **strøm**, må du derimot koble multimeteret i serie. Det betyr at kretsen må brytes og instrumentet settes inn i strømveien, slik at all strømmen flyter gjennom det. Her må du være våken: kobler du strømmåling parallelt slik du gjør med spenning, kan du kortslutte og ødelegge instrumentet.\n\nNår du måler **motstand**, må kretsen være spenningsløs. Multimeteret sender nemlig sin egen lille kjente strøm gjennom komponenten og regner ut motstanden ut fra den. Er det allerede spenning i kretsen, forstyrres målingen og du kan skade instrumentet. Null ohm betyr kortslutning, uendelig ohm betyr brudd. Til slutt har du **kontinuitetstesten**, pip-testen, som er en lynrask måte å sjekke om en leder er hel: multimeteret piper når motstanden er under cirka 30 ohm.\n\nTenk deg en lampe i et automatisert belysningsanlegg som ikke lyser. Du måler 24 V på PLS-utgangen -- den er altså i orden. Så måler du over reléspolen, og der er det 0 V. Signalet kommer ikke fram. Du slår av strømmen og gjør en kontinuitetstest på kabelen mellom dem -- ingen pip. Kabelen er brutt. Du har funnet feilen ved hjelp av **signalsporing**: å følge signalet fra kilden og nedover til det plutselig forsvinner."
+    },
+    {
+      "id": "elektro-data-vg1-6-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på multimeter og målinger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz2-q0",
+            "task": "Hvordan kobles multimeteret når du skal måle strøm?",
+            "options": [
+              {
+                "id": "b",
+                "text": "I serie -- kretsen brytes og instrumentet settes inn i strømveien",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Parallelt over komponenten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det spiller ingen rolle",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare til den ene siden av komponenten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strøm måles i serie. Kretsen brytes på ett punkt, og multimeteret settes inn slik at all strøm flyter gjennom det. Kobles det parallelt som ved spenningsmåling, kan det kortslutte og ødelegges."
+          },
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz2-q1",
+            "task": "Hvorfor må kretsen være spenningsløs når du måler motstand?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det er enklere å lese av displayet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi multimeteret bruker sin egen kjente strøm, og ytre spenning forstyrrer målingen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det er egentlig ikke nødvendig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi motstanden alltid er null med spenning på",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved motstandsmåling sender multimeteret en liten kjent strøm gjennom komponenten og regner ut motstanden. Spenning i kretsen forstyrrer målingen og kan skade instrumentet."
+          },
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz2-q2",
+            "task": "Hva brukes kontinuitetstesten (pip-testen) til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å måle nøyaktig spenning i kretsen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å teste hvor mye strøm en sikring tåler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sjekke raskt om en leder er hel og ikke brutt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å måle temperaturen i en komponent",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kontinuitetstesten sender en liten strøm gjennom lederen. Er motstanden lav (under cirka 30 ohm), piper instrumentet. Det er en rask test for å sjekke kabler, sikringer og koblinger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-6-n-section3",
+      "type": "text",
+      "content": "## Bedre å forebygge enn å reparere\n\nDen virkelig dyktige fagpersonen vet at den beste feilsøkingen er den du slipper å gjøre. Derfor handler dette kapittelet like mye om vedlikehold. Her finnes det to grunnleggende strategier.\n\n**Forebyggende vedlikehold** er planlagt. Du inspiserer etter faste intervaller, bytter slitedeler som filtre, remmer og lagre før de svikter, bruker termografering for å oppdage varme punkter i koblinger, gjør vibrasjonsanalyse på motorer og lagre, og rengjør ventilasjonsåpninger og kjøleelementer. **Korrigerende vedlikehold** er det motsatte: du reparerer eller bytter først etter at feilen har oppstått. Det er uplanlagt, og nesten alltid dyrere. Uplanlagt stans koster i tapt produksjon, og et havarert lager kan dra med seg akselen i fallet og gjøre reparasjonen langt mer omfattende.\n\nTenk på et eksempel: å smøre lagrene i en motor hver sjette måned koster lite. Å la dem gå til de havarerer, koster en hel ny motor pluss følgeskader pluss produksjonsstans. Det er derfor forebyggende vedlikehold lønner seg i lengden. Til sist fører du alt inn i en **vedlikeholdslogg** -- dato, feilbeskrivelse, årsak, tiltak og hvem som utførte det. Slik bygger du en historikk som avslører gjentakende feil, og over tid blir du en fagperson som ikke bare fikser problemer, men hindrer dem i å oppstå."
+    },
+    {
+      "id": "elektro-data-vg1-6-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vedlikehold:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz3-q0",
+            "task": "Hva kjennetegner forebyggende vedlikehold?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det utføres først etter at en feil har oppstått",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det handler bare om å bytte ødelagte deler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er alltid dyrere enn korrigerende vedlikehold",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Det er planlagte tiltak som hindrer feil før de oppstår",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Forebyggende vedlikehold er planlagte tiltak -- inspeksjoner, smøring og bytte av slitedeler -- som hindrer feil før de oppstår. Korrigerende vedlikehold skjer derimot etter at feilen er et faktum."
+          },
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz3-q1",
+            "task": "Hvorfor er forebyggende vedlikehold ofte mer kostnadseffektivt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi uplanlagt stans og følgeskader blir mye dyrere enn planlagt vedlikehold",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi det krever dyrere verktøy",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det aldri er behov for reservedeler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det kan utføres uten fagfolk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uplanlagt stans koster i tapt produksjon, og et havari kan gi følgeskader som gjør reparasjonen langt dyrere. Et smurt lager koster mye mindre enn en ny motor med ødelagt aksel."
+          },
+          {
+            "id": "elektro-data-vg1-6-6-n-quiz3-q2",
+            "task": "Hva er hensikten med en vedlikeholdslogg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å erstatte behovet for multimeter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å dokumentere hendelser slik at man oppdager gjentakende feil",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å beregne strømforbruket i anlegget",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sette opp Gantt-diagram for prosjektet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vedlikeholdsloggen dokumenterer dato, feil, årsak, tiltak og utfører. Slik bygges en historikk som avslører mønstre og gjentakende feil over tid."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi begynte med et transportbånd som sto stille, og endte med en hel verktøykasse for feilsøking. Du har sett at **systematisk feilsøking** følger stegene symptom, visuell inspeksjon, måling, isolering og reparasjon -- aldri tilfeldig gjetting. **Halveringsmetoden** kutter søkeområdet i to for hver test og finner feilen på langt færre forsøk enn lineær leting.\n\n**Multimeteret** er ditt viktigste verktøy: spenning måles parallelt, strøm i serie, motstand uten spenning, og kontinuitet med pip-testen. Med **signalsporing** følger du signalet til det forsvinner. Til slutt så vi at **forebyggende vedlikehold** er planlagt og billigere enn å reparere etter en stans, og at **vedlikeholdsloggen** gir deg historikken som avslører gjentakende feil. Den dyktige fagpersonen finner ikke bare feil raskt -- hun sørger for at de fleste feilene aldri oppstår."
+    }
+  ],
+  "exercises": []
+}

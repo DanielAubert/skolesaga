@@ -1,1 +1,673 @@
-{"id":"r1-8-6-narrativ","courseId":"r1","chapterNumber":"8.6","title":"Sannsyn i praksis","subtitle":"Narrativ versjon","description":"Ei forteljing om den positive testen som ikkje tydde det du trudde – Bayes' setning, base rate fallacy, samansette problem og Monte Carlo-simulering.","estimatedMinutes":35,"competenceGoals":["bruke Bayes' setning til å oppdatere sannsyn med ny informasjon","løyse samansette sannsynsproblem frå ulike kontekstar","forstå prinsippet bak Monte Carlo-simulering","bruke sannsynsmodellar til å ta avgjerder"],"linkedChapterId":"r1-8-6","content":[{"id":"r1-8-6-n-intro","type":"text","content":"## Den positive testen\n\nDu tek ein medisinsk test for ein sjeldan sjukdom. Testen er god: han fangar opp 99 % av alle sjuke og frikjenner 95 % av alle friske. Svaret kjem – positivt. Kor redd bør du vere?\n\nDei fleste – inkludert mange legar, viser studiar – svarar «rundt 95–99 % sannsynleg sjuk». Det rette svaret, med tala vi skal bruke, er omtrent **17 %**. Du las rett: etter ein positiv test frå ein svært treffsikker test er sjansen framleis meir enn fire av fem for at du er heilt frisk.\n\nKorleis kan det stemme? Svaret heiter **Bayes' setning** – formelen for å oppdatere sannsyn når ny informasjon kjem, og kanskje den mest praktisk viktige formelen i heile sannsynslæra. I dette kapittelet lærer du han, reknar gjennom testparadokset i detalj, løyser samansette problem som kombinerer alle verktøya frå kapittel 8, og møter Monte Carlo-simulering – metoden for å *eksperimentere* seg fram til sannsyn datamaskina kan finne raskare enn teorien."},{"id":"r1-8-6-n-section1","type":"text","content":"## Bayes' setning – å snu betinginga\n\nProblemet med testen er eit retningsproblem. Det du *kjenner*, er $P(\\text{positiv} \\mid \\text{sjuk})$ – treffsikkerheita til testen, målt i laboratoriet. Det du *vil vite*, er det omvendte: $P(\\text{sjuk} \\mid \\text{positiv})$. Og som du lærte i kapittel 8.4: dei to retningane kan vere vidt forskjellige tal.\n\n**Bayes' setning** snur betinginga. I si enklaste form, med to alternativ $B$ og $B^c$:\n\n$$P(B \\mid A) = \\frac{P(B) \\cdot P(A \\mid B)}{P(B) \\cdot P(A \\mid B) + P(B^c) \\cdot P(A \\mid B^c)}$$\n\nTeljaren er sannsynet for vegen «$B$, og deretter $A$» (produktsetninga). Nemnaren er totalsannsynet for $A$ – summen over alle vegar som fører til $A$ (totalsetninga frå 8.4). Brøken spør altså: av alle måtane $A$ kunne skje på, kor stor del gjekk via $B$? Generelt, for ein partisjon $B_1, \\ldots, B_n$: $P(B_j \\mid A) = \\frac{P(B_j)P(A \\mid B_j)}{\\sum_i P(B_i)P(A \\mid B_i)}$.\n\nOmgrepa rundt formelen er verde å lære, for dei blir brukte overalt frå medisin til maskinlæring: $P(B)$ blir kalla **prior** – trua di før evidensen. $P(A \\mid B)$ er **likelihood** – kor godt evidensen passar med hypotesen. Og $P(B \\mid A)$ er **posterior** – den oppdaterte trua etter at evidensen er lagd på bordet. Bayes' setning er rett og slett ei presis oppskrift for å lære av erfaring: typiske bruksområde er testen som er positiv (er pasienten sjuk?), produktet som er defekt (kva maskin lagde det?) og e-posten som inneheld ordet «gevinst» (er det spam?)."},{"id":"r1-8-6-n-quiz1","type":"exercise","exercise":{"id":"r1-8-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på Bayes' setning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-6-n-quiz1-q0","task":"Når treng vi Bayes' setning?","options":[{"id":"a","text":"Når vi kjenner $P(A \\mid B)$ men treng $P(B \\mid A)$ – altså å snu betinginga","isCorrect":true},{"id":"b","text":"Når hendingane er uavhengige","isCorrect":false},{"id":"c","text":"Når vi skal rekne ut forventningsverdi","isCorrect":false},{"id":"d","text":"Når utfalla er like sannsynlege","isCorrect":false}],"solution":"Bayes' setning snur retninga på betinginga – frå treffsikkerheita til testen til sannsynet for diagnosen, frå symptom til årsak."},{"id":"r1-8-6-n-quiz1-q1","task":"Kva blir $P(B)$ kalla i Bayes-terminologi?","options":[{"id":"a","text":"Posterior","isCorrect":false},{"id":"b","text":"Prior","isCorrect":true},{"id":"c","text":"Likelihood","isCorrect":false},{"id":"d","text":"Evidens","isCorrect":false}],"solution":"Prior er sannsynet for hypotesen $B$ før vi ser evidensen $A$ – til dømes delen sjuke i befolkninga."},{"id":"r1-8-6-n-quiz1-q2","task":"Kva uttrykkjer nemnaren i Bayes' setning?","options":[{"id":"a","text":"Sannsynet for hypotesen $B$","isCorrect":false},{"id":"b","text":"Komplementet til $P(B)$","isCorrect":false},{"id":"c","text":"Totalsannsynet $P(A)$, summert over alle vegar til $A$","isCorrect":true},{"id":"d","text":"Likelihooden $P(A \\mid B)$","isCorrect":false}],"solution":"Nemnaren er totalsetninga i aksjon: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$ – alle måtar $A$ kan inntreffe på."},{"id":"r1-8-6-n-quiz1-q3","task":"Kva blir det oppdaterte sannsynet $P(B \\mid A)$ kalla etter at evidensen er observert?","options":[{"id":"a","text":"Prior","isCorrect":false},{"id":"b","text":"Likelihood","isCorrect":false},{"id":"c","text":"Prevalens","isCorrect":false},{"id":"d","text":"Posterior","isCorrect":true}],"solution":"Posterior er trua etter oppdateringa – resultatet av å kombinere prior med evidensen via Bayes' setning."}],"solution":""}},{"id":"r1-8-6-n-section2","type":"text","content":"## Testparadokset – rekna ut i detalj\n\nLat oss leggje tala på bordet. Sjukdomen har **prevalens** 1 %: $P(S) = 0{,}01$. **Sensitiviteten** til testen er $P(T^+ \\mid S) = 0{,}99$, og **spesifisiteten** er $P(T^- \\mid S^c) = 0{,}95$ – altså er falsk positiv-raten $P(T^+ \\mid S^c) = 0{,}05$.\n\nFørst totalsannsynet for å teste positivt, via totalsetninga:\n\n$$P(T^+) = 0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05 = 0{,}0099 + 0{,}0495 = 0{,}0594$$\n\nSå Bayes:\n\n$$P(S \\mid T^+) = \\frac{0{,}01 \\cdot 0{,}99}{0{,}0594} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$$\n\nBerre 17 %! For å *sjå* kvifor, byt ut prosentane med menneske. Tenk deg 10 000 testa. Av dei er 100 sjuke (1 %), og testen fangar 99 av dei. Men 9 900 er friske, og 5 % av dei – 495 personar – får falsk positiv. Blant dei $99 + 495 = 594$ positive er berre 99 faktisk sjuke: $\\frac{99}{594} \\approx 17\\%$. Dei falske positive *druknar* dei ekte, rett og slett fordi dei friske er så mange fleire.\n\nDette er **base rate fallacy** – feilslutninga der ein stirrar på kvaliteten til testen og gløymer grunnfrekvensen (prioren). Lærdomen er djup og praktisk: ein positiv test for noko sjeldan bevisar lite åleine; det han gjer, er å *oppdatere* sannsynet – her frå 1 % til 17 %. Det er difor legar følgjer opp med nye, uavhengige testar: endå ein positiv test ville løfta sannsynet dramatisk vidare."},{"id":"r1-8-6-n-quiz2","type":"exercise","exercise":{"id":"r1-8-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på medisinske testar og base rate:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-6-n-quiz2-q0","task":"Med prevalens 1 %, sensitivitet 99 % og spesifisitet 95 %: kva er $P(\\text{sjuk} \\mid \\text{positiv})$?","options":[{"id":"a","text":"$\\approx 0{,}99$","isCorrect":false},{"id":"b","text":"$\\approx 0{,}95$","isCorrect":false},{"id":"c","text":"$\\approx 0{,}17$","isCorrect":true},{"id":"d","text":"$\\approx 0{,}50$","isCorrect":false}],"solution":"Bayes: $\\frac{0{,}01 \\cdot 0{,}99}{0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$."},{"id":"r1-8-6-n-quiz2-q1","task":"Av 10 000 testa (1 % sjuke) – omtrent kor mange får falsk positiv?","options":[{"id":"a","text":"99","isCorrect":false},{"id":"b","text":"495","isCorrect":true},{"id":"c","text":"5","isCorrect":false},{"id":"d","text":"990","isCorrect":false}],"solution":"9 900 friske, og 5 % av dei testar positivt: $0{,}05 \\cdot 9900 = 495$ falske positive."},{"id":"r1-8-6-n-quiz2-q2","task":"Kvifor er sannsynet for sjukdom så lågt trass i positiv test?","options":[{"id":"a","text":"Testen er dårlegare enn oppgitt","isCorrect":false},{"id":"b","text":"Bayes' setning undervurderer alltid sjukdom","isCorrect":false},{"id":"c","text":"Sensitiviteten er for låg","isCorrect":false},{"id":"d","text":"Sjukdomen er så sjeldan at dei falske positive er langt fleire enn dei ekte","isCorrect":true}],"solution":"Med låg prevalens kjem dei aller fleste positive svara frå den store, friske gruppa. Grunnfrekvensen (base rate) dominerer."},{"id":"r1-8-6-n-quiz2-q3","task":"Kva blir feilslutninga kalla der ein ignorerer grunnfrekvensen (prioren)?","options":[{"id":"a","text":"Base rate fallacy","isCorrect":true},{"id":"b","text":"Gamblers fallacy","isCorrect":false},{"id":"c","text":"Regresjon mot gjennomsnittet","isCorrect":false},{"id":"d","text":"Simpsons paradoks","isCorrect":false}],"solution":"Base rate fallacy: å vurdere styrken til evidensen (treffsikkerheita til testen) utan å ta omsyn til kor sjeldan hypotesen er i utgangspunktet."}],"solution":""}},{"id":"r1-8-6-n-section3","type":"text","content":"## Samansette problem – verktøya i samspel\n\nVerkelege problem kjem sjeldan med merkelapp. Dei krev at du *vel* og *kombinerer* verktøy: betinga sannsyn, binomisk fordeling, komplement, totalsetning, Bayes. Strategien er alltid: identifiser hendingane og relasjonane (uavhengige? betinga?), vel modell for kvart delsteg, og sjekk til slutt at svaret gir meining.\n\nEit eksempel som kombinerer to store verktøy. Ein forhandlar mottek vareparti: 80 % av partia er «gode» med 5 % defektrate, 20 % er «dårlege» med 15 %. Frå kvart parti blir 5 tilfeldige varer testa, og partiet blir akseptert dersom ingen er defekte. Kor stor del av partia blir aksepterte?\n\nFørst det binomiske laget – aksept *gitt* partitype: For eit godt parti er talet på defekte i stikkprøva $X \\sim \\text{Bin}(5;\\, 0{,}05)$, så $P(A \\mid G) = 0{,}95^5 \\approx 0{,}774$. For eit dårleg parti: $P(A \\mid D) = 0{,}85^5 \\approx 0{,}444$.\n\nSå laget til totalsetninga – vekta over partitypane:\n\n$$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}619 + 0{,}089 = 0{,}708$$\n\nCirka 71 % av partia slepp gjennom. Og legg merke til at du no kunne halde fram med Bayes: gitt at eit parti blei akseptert, kva er sannsynet for at det faktisk var dårleg? ($\\frac{0{,}089}{0{,}708} \\approx 12{,}5\\%$ – kontrollen siler, men ikkje perfekt.) Slik byggjer dei store analysane seg opp: lag på lag av verktøya du allereie kan."},{"id":"r1-8-6-n-quiz3","type":"exercise","exercise":{"id":"r1-8-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på samansette problem:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-6-n-quiz3-q0","task":"5 varer blir testa frå eit godt parti (5 % defekt). Kva er sannsynet for at ingen er defekte?","options":[{"id":"a","text":"$0{,}05^5$","isCorrect":false},{"id":"b","text":"$0{,}95^5 \\approx 0{,}774$","isCorrect":true},{"id":"c","text":"$1 - 0{,}95^5$","isCorrect":false},{"id":"d","text":"$5 \\cdot 0{,}05$","isCorrect":false}],"solution":"$X \\sim \\text{Bin}(5, 0{,}05)$ og $P(X = 0) = 0{,}95^5 \\approx 0{,}774$."},{"id":"r1-8-6-n-quiz3-q1","task":"Kva for verktøy limar saman akseptsannsyna for gode og dårlege parti?","options":[{"id":"a","text":"Komplementsetninga","isCorrect":false},{"id":"b","text":"Addisjonssetninga for disjunkte hendingar","isCorrect":false},{"id":"c","text":"Totalsetninga","isCorrect":true},{"id":"d","text":"Pascals regel","isCorrect":false}],"solution":"Partitypane er ein partisjon: $P(A) = P(G)P(A \\mid G) + P(D)P(A \\mid D)$ – totalsetninga."},{"id":"r1-8-6-n-quiz3-q2","task":"Kva er det samla sannsynet for at eit tilfeldig parti blir akseptert?","options":[{"id":"a","text":"$\\approx 0{,}708$","isCorrect":true},{"id":"b","text":"$\\approx 0{,}774$","isCorrect":false},{"id":"c","text":"$\\approx 0{,}609$","isCorrect":false},{"id":"d","text":"$\\approx 0{,}444$","isCorrect":false}],"solution":"$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}708$."},{"id":"r1-8-6-n-quiz3-q3","task":"Kva er ein god generell strategi for samansette sannsynsproblem?","options":[{"id":"a","text":"Bruk alltid binomisk fordeling først","isCorrect":false},{"id":"b","text":"Rekn ut alle moglege utfall med valtre","isCorrect":false},{"id":"c","text":"Start med Bayes' setning uansett","isCorrect":false},{"id":"d","text":"Identifiser hendingar og relasjonar, vel verktøy per delsteg, og rimelegheitssjekk svaret","isCorrect":true}],"solution":"Bryt problemet i delsteg, vel modell for kvart (binomisk? betinga? total?), og sjekk at svaret ligg i $[0,1]$ og gir meining."}],"solution":""}},{"id":"r1-8-6-n-section4","type":"text","content":"## Monte Carlo – når simulering slår teori\n\nNokre sannsyn er vonde å rekne ut eksakt, men lette å *eksperimentere* seg fram til. Ideen blir kalla **Monte Carlo-simulering**, oppkalla etter kasinobyen: lat datamaskina gjenta forsøket tusenvis av gonger og tel kor ofte hendinga inntreff. Oppskrifta er tre liner: simuler forsøket $N$ gonger (gjerne $N = 10\\,000$ eller meir), tel talet på gonger $n_A$ hendinga $A$ inntreff, og estimer $P(A) \\approx \\frac{n_A}{N}$. Jo større $N$, jo betre estimat – det er lova om store tal i arbeid.\n\nKlassikaren er **bursdagsproblemet**: kva er sannsynet for at minst to av 23 personar deler fødselsdag? Intuisjonen seier «liten» – 23 personar, 365 dagar. Simuleringa seier noko anna. I pseudokode:\n\n```\nantall_treff = 0\nfor i = 1 til 100000:\n    trekk 23 tilfeldige tall fra 1 til 365\n    hvis to er like: antall_treff += 1\nestimat = antall_treff / 100000\n```\n\nKøyr dette, og estimatet landar rundt $0{,}507$ – over femti prosent! (Den eksakte verdien, som kan reknast med komplement og produktsetninga, er $\\approx 0{,}5073$ – simuleringa treffer godt.) Intuisjonen feilar fordi det ikkje er 23 moglegheiter for samanfall, men $\\binom{23}{2} = 253$ *par* av personar.\n\nMonte Carlo er ikkje juks – det er eit fullverdig verktøy som blir brukt i alt frå finans til partikkelfysikk, nettopp i situasjonar der modellane blir for kompliserte for blyant og papir. Og det fine er at metoden samtidig er ein test av teorien din: stemmer ikkje simuleringa med formelen, har éin av dei feil."},{"id":"r1-8-6-n-quiz4","type":"exercise","exercise":{"id":"r1-8-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på Monte Carlo-simulering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-6-n-quiz4-q0","task":"Kva er prinsippet i Monte Carlo-simulering?","options":[{"id":"a","text":"Gjenta forsøket mange gonger og estimer $P(A) \\approx \\frac{n_A}{N}$","isCorrect":true},{"id":"b","text":"Rekn ut alle utfall eksakt med kombinatorikk","isCorrect":false},{"id":"c","text":"Bruk Bayes' setning iterativt","isCorrect":false},{"id":"d","text":"Vel utfall med høgast sannsyn","isCorrect":false}],"solution":"Simuler $N$ gonger, tel treffa $n_A$, og bruk delen som estimat. Lova om store tal garanterer at estimatet nærmar seg sanninga."},{"id":"r1-8-6-n-quiz4-q1","task":"Kva skjer med Monte Carlo-estimatet når talet på simuleringar $N$ aukar?","options":[{"id":"a","text":"Det blir systematisk for høgt","isCorrect":false},{"id":"b","text":"Det blir meir nøyaktig (nærare den sanne verdien)","isCorrect":true},{"id":"c","text":"Det endrar seg ikkje","isCorrect":false},{"id":"d","text":"Det blir meir tilfeldig","isCorrect":false}],"solution":"Etter lova om store tal nærmar delen $\\frac{n_A}{N}$ seg det sanne sannsynet når $N$ veks."},{"id":"r1-8-6-n-quiz4-q2","task":"Kva er (omtrent) sannsynet for at minst to av 23 personar deler fødselsdag?","options":[{"id":"a","text":"$\\approx 0{,}06$","isCorrect":false},{"id":"b","text":"$\\approx 0{,}23$","isCorrect":false},{"id":"c","text":"$\\approx 0{,}99$","isCorrect":false},{"id":"d","text":"$\\approx 0{,}51$","isCorrect":true}],"solution":"Både simulering og eksakt rekning gir $\\approx 0{,}507$. Det overraskar fordi det finst $\\binom{23}{2} = 253$ par som kan dele dag."},{"id":"r1-8-6-n-quiz4-q3","task":"Når er Monte Carlo-simulering særleg nyttig?","options":[{"id":"a","text":"Når utfallsrommet har færre enn ti utfall","isCorrect":false},{"id":"b","text":"Når vi kjenner den eksakte løysinga frå før","isCorrect":false},{"id":"c","text":"Når problemet er for komplisert til å løysast analytisk","isCorrect":true},{"id":"d","text":"Når forsøket berre kan gjentakast éin gong","isCorrect":false}],"solution":"Simulering skin når den analytiske løysinga er uoverkommeleg – og fungerer samtidig som kontroll av teoretiske svar."}],"solution":""}},{"id":"r1-8-6-n-summary","type":"text","content":"## Oppsummering: å oppdatere det du trur\n\nDen positive testen lærte oss den store lekksa til kapittelet: evidens skal ikkje erstatte det du visste frå før – han skal *oppdatere* det. Bayes' setning $P(B \\mid A) = \\frac{P(B)P(A \\mid B)}{P(A)}$ gjer oppdateringa presis: prior gonger likelihood, delt på totalsannsynet, gir posterior. Med 1 % prevalens løfta den positive testen sannsynet for sjukdom frå 1 % til berre 17 % – fordi dei falske positive frå den store friske gruppa drukna dei ekte. Å gløyme dette er base rate fallacy.\n\nSamansette problem blir løyste lagvis: binomisk fordeling innanfor kvart scenario, totalsetninga til å vege scenarioa saman, Bayes til å snu betingingar – som i kvalitetskontrollen der 71 % av partia blei aksepterte. Strategien: identifiser relasjonane, vel verktøy per delsteg, rimelegheitssjekk svaret.\n\nOg når teorien blir for tung, finst Monte Carlo: simuler mange gonger, tel, og estimer $P(A) \\approx \\frac{n_A}{N}$. Dei overraskande 50,7 % i bursdagsproblemet viste både krafta til metoden og avgrensingane til intuisjonen. Verktøya i sannsynsrekninga er no komplette – i neste kapittel finpussar vi valet mellom dei to store fordelingane."}],"exercises":[],"_meta":{"sourceHash":"bad670fa74a81d91","translatedAt":"2026-06-20T00:28:21.932Z","model":"claude-code-agent","strings":111,"tm":{"a4b510273f79b5b3":"Sannsyn i praksis","b195b06d1ed59702":"Narrativ versjon","728033b5f8fd5244":"Ei forteljing om den positive testen som ikkje tydde det du trudde – Bayes' setning, base rate fallacy, samansette problem og Monte Carlo-simulering.","5875367047ec6e4a":"bruke Bayes' setning til å oppdatere sannsyn med ny informasjon","37693c5091623838":"løyse samansette sannsynsproblem frå ulike kontekstar","97315b258f780808":"forstå prinsippet bak Monte Carlo-simulering","ee2e8f9c22e69bca":"bruke sannsynsmodellar til å ta avgjerder","ca83de9bb34ba34f":"## Den positive testen\n\nDu tek ein medisinsk test for ein sjeldan sjukdom. Testen er god: han fangar opp 99 % av alle sjuke og frikjenner 95 % av alle friske. Svaret kjem – positivt. Kor redd bør du vere?\n\nDei fleste – inkludert mange legar, viser studiar – svarar «rundt 95–99 % sannsynleg sjuk». Det rette svaret, med tala vi skal bruke, er omtrent **17 %**. Du las rett: etter ein positiv test frå ein svært treffsikker test er sjansen framleis meir enn fire av fem for at du er heilt frisk.\n\nKorleis kan det stemme? Svaret heiter **Bayes' setning** – formelen for å oppdatere sannsyn når ny informasjon kjem, og kanskje den mest praktisk viktige formelen i heile sannsynslæra. I dette kapittelet lærer du han, reknar gjennom testparadokset i detalj, løyser samansette problem som kombinerer alle verktøya frå kapittel 8, og møter Monte Carlo-simulering – metoden for å *eksperimentere* seg fram til sannsyn datamaskina kan finne raskare enn teorien.","34544d34a3d5a996":"## Bayes' setning – å snu betinginga\n\nProblemet med testen er eit retningsproblem. Det du *kjenner*, er $P(\\text{positiv} \\mid \\text{sjuk})$ – treffsikkerheita til testen, målt i laboratoriet. Det du *vil vite*, er det omvendte: $P(\\text{sjuk} \\mid \\text{positiv})$. Og som du lærte i kapittel 8.4: dei to retningane kan vere vidt forskjellige tal.\n\n**Bayes' setning** snur betinginga. I si enklaste form, med to alternativ $B$ og $B^c$:\n\n$$P(B \\mid A) = \\frac{P(B) \\cdot P(A \\mid B)}{P(B) \\cdot P(A \\mid B) + P(B^c) \\cdot P(A \\mid B^c)}$$\n\nTeljaren er sannsynet for vegen «$B$, og deretter $A$» (produktsetninga). Nemnaren er totalsannsynet for $A$ – summen over alle vegar som fører til $A$ (totalsetninga frå 8.4). Brøken spør altså: av alle måtane $A$ kunne skje på, kor stor del gjekk via $B$? Generelt, for ein partisjon $B_1, \\ldots, B_n$: $P(B_j \\mid A) = \\frac{P(B_j)P(A \\mid B_j)}{\\sum_i P(B_i)P(A \\mid B_i)}$.\n\nOmgrepa rundt formelen er verde å lære, for dei blir brukte overalt frå medisin til maskinlæring: $P(B)$ blir kalla **prior** – trua di før evidensen. $P(A \\mid B)$ er **likelihood** – kor godt evidensen passar med hypotesen. Og $P(B \\mid A)$ er **posterior** – den oppdaterte trua etter at evidensen er lagd på bordet. Bayes' setning er rett og slett ei presis oppskrift for å lære av erfaring: typiske bruksområde er testen som er positiv (er pasienten sjuk?), produktet som er defekt (kva maskin lagde det?) og e-posten som inneheld ordet «gevinst» (er det spam?).","b8f52815cfda093a":"Test deg sjølv på Bayes' setning:","4097889236a2af26":"placeholder","32a8ef96e0923e5b":"Når treng vi Bayes' setning?","43c28ad84fde5f78":"Når vi kjenner $P(A \\mid B)$ men treng $P(B \\mid A)$ – altså å snu betinginga","da8adaf879abc2c6":"Når hendingane er uavhengige","005f81f2fbe21a29":"Når vi skal rekne ut forventningsverdi","95672bffda8b74ba":"Når utfalla er like sannsynlege","4e80af56f3ee309a":"Bayes' setning snur retninga på betinginga – frå treffsikkerheita til testen til sannsynet for diagnosen, frå symptom til årsak.","518155e5c80b34c1":"Kva blir $P(B)$ kalla i Bayes-terminologi?","f6fe1c8bb8d549da":"Posterior","def7d604fad05c32":"Prior","545c4351af10f3d4":"Likelihood","353279abd765813b":"Evidens","083f8eff915fca91":"Prior er sannsynet for hypotesen $B$ før vi ser evidensen $A$ – til dømes delen sjuke i befolkninga.","dec659f0cafae4cd":"Kva uttrykkjer nemnaren i Bayes' setning?","744490e9d9dcda2e":"Sannsynet for hypotesen $B$","7ca2372d6c958f64":"Komplementet til $P(B)$","4583457f3ca30263":"Totalsannsynet $P(A)$, summert over alle vegar til $A$","513f30962d45d121":"Likelihooden $P(A \\mid B)$","5daf2e52434b65d3":"Nemnaren er totalsetninga i aksjon: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$ – alle måtar $A$ kan inntreffe på.","5da58f5a624b02e8":"Kva blir det oppdaterte sannsynet $P(B \\mid A)$ kalla etter at evidensen er observert?","ada37f06eecafada":"Prevalens","7ba4be381ffa1373":"Posterior er trua etter oppdateringa – resultatet av å kombinere prior med evidensen via Bayes' setning.","a2c7c823029a370a":"## Testparadokset – rekna ut i detalj\n\nLat oss leggje tala på bordet. Sjukdomen har **prevalens** 1 %: $P(S) = 0{,}01$. **Sensitiviteten** til testen er $P(T^+ \\mid S) = 0{,}99$, og **spesifisiteten** er $P(T^- \\mid S^c) = 0{,}95$ – altså er falsk positiv-raten $P(T^+ \\mid S^c) = 0{,}05$.\n\nFørst totalsannsynet for å teste positivt, via totalsetninga:\n\n$$P(T^+) = 0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05 = 0{,}0099 + 0{,}0495 = 0{,}0594$$\n\nSå Bayes:\n\n$$P(S \\mid T^+) = \\frac{0{,}01 \\cdot 0{,}99}{0{,}0594} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$$\n\nBerre 17 %! For å *sjå* kvifor, byt ut prosentane med menneske. Tenk deg 10 000 testa. Av dei er 100 sjuke (1 %), og testen fangar 99 av dei. Men 9 900 er friske, og 5 % av dei – 495 personar – får falsk positiv. Blant dei $99 + 495 = 594$ positive er berre 99 faktisk sjuke: $\\frac{99}{594} \\approx 17\\%$. Dei falske positive *druknar* dei ekte, rett og slett fordi dei friske er så mange fleire.\n\nDette er **base rate fallacy** – feilslutninga der ein stirrar på kvaliteten til testen og gløymer grunnfrekvensen (prioren). Lærdomen er djup og praktisk: ein positiv test for noko sjeldan bevisar lite åleine; det han gjer, er å *oppdatere* sannsynet – her frå 1 % til 17 %. Det er difor legar følgjer opp med nye, uavhengige testar: endå ein positiv test ville løfta sannsynet dramatisk vidare.","17d7044b1efefbca":"Test deg sjølv på medisinske testar og base rate:","6aa7472108790294":"Med prevalens 1 %, sensitivitet 99 % og spesifisitet 95 %: kva er $P(\\text{sjuk} \\mid \\text{positiv})$?","b6dc9e128cbc57bf":"$\\approx 0{,}99$","25e5f3a23d67e6c9":"$\\approx 0{,}95$","bca702bd2e68caa4":"$\\approx 0{,}17$","6c7052b0e1415a23":"$\\approx 0{,}50$","7ca6d53938194143":"Bayes: $\\frac{0{,}01 \\cdot 0{,}99}{0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$.","9c8a2371079a5e6a":"Av 10 000 testa (1 % sjuke) – omtrent kor mange får falsk positiv?","efd2eb1b4a9fffab":"9 900 friske, og 5 % av dei testar positivt: $0{,}05 \\cdot 9900 = 495$ falske positive.","0a50efe4c0d659be":"Kvifor er sannsynet for sjukdom så lågt trass i positiv test?","dcd3175529d7fcdc":"Testen er dårlegare enn oppgitt","bb59be15d78eedc8":"Bayes' setning undervurderer alltid sjukdom","cb0cead630937bab":"Sensitiviteten er for låg","872efee869e2fd88":"Sjukdomen er så sjeldan at dei falske positive er langt fleire enn dei ekte","fe789f728819890a":"Med låg prevalens kjem dei aller fleste positive svara frå den store, friske gruppa. Grunnfrekvensen (base rate) dominerer.","33a0c131f688b302":"Kva blir feilslutninga kalla der ein ignorerer grunnfrekvensen (prioren)?","157cbbec771f526f":"Base rate fallacy","4f7914c53b4af3b2":"Gamblers fallacy","fd64c71e2695e1e8":"Regresjon mot gjennomsnittet","0a29299746bae913":"Simpsons paradoks","7485eed9818f2dd3":"Base rate fallacy: å vurdere styrken til evidensen (treffsikkerheita til testen) utan å ta omsyn til kor sjeldan hypotesen er i utgangspunktet.","5ef7dab16f2bfb35":"## Samansette problem – verktøya i samspel\n\nVerkelege problem kjem sjeldan med merkelapp. Dei krev at du *vel* og *kombinerer* verktøy: betinga sannsyn, binomisk fordeling, komplement, totalsetning, Bayes. Strategien er alltid: identifiser hendingane og relasjonane (uavhengige? betinga?), vel modell for kvart delsteg, og sjekk til slutt at svaret gir meining.\n\nEit eksempel som kombinerer to store verktøy. Ein forhandlar mottek vareparti: 80 % av partia er «gode» med 5 % defektrate, 20 % er «dårlege» med 15 %. Frå kvart parti blir 5 tilfeldige varer testa, og partiet blir akseptert dersom ingen er defekte. Kor stor del av partia blir aksepterte?\n\nFørst det binomiske laget – aksept *gitt* partitype: For eit godt parti er talet på defekte i stikkprøva $X \\sim \\text{Bin}(5;\\, 0{,}05)$, så $P(A \\mid G) = 0{,}95^5 \\approx 0{,}774$. For eit dårleg parti: $P(A \\mid D) = 0{,}85^5 \\approx 0{,}444$.\n\nSå laget til totalsetninga – vekta over partitypane:\n\n$$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}619 + 0{,}089 = 0{,}708$$\n\nCirka 71 % av partia slepp gjennom. Og legg merke til at du no kunne halde fram med Bayes: gitt at eit parti blei akseptert, kva er sannsynet for at det faktisk var dårleg? ($\\frac{0{,}089}{0{,}708} \\approx 12{,}5\\%$ – kontrollen siler, men ikkje perfekt.) Slik byggjer dei store analysane seg opp: lag på lag av verktøya du allereie kan.","486205fdad807dd2":"Test deg sjølv på samansette problem:","14d3c3e304851902":"5 varer blir testa frå eit godt parti (5 % defekt). Kva er sannsynet for at ingen er defekte?","e9f92c5c900c1d24":"$0{,}95^5 \\approx 0{,}774$","e791919c6312a46b":"$5 \\cdot 0{,}05$","eb648b1961b738d8":"$X \\sim \\text{Bin}(5, 0{,}05)$ og $P(X = 0) = 0{,}95^5 \\approx 0{,}774$.","e81eaa1724d999e4":"Kva for verktøy limar saman akseptsannsyna for gode og dårlege parti?","1557d1677a986277":"Komplementsetninga","0fba8056a7ef8ef0":"Addisjonssetninga for disjunkte hendingar","525940960604685c":"Totalsetninga","d7bdab4001862d76":"Pascals regel","a21f64b18ef6f2f4":"Partitypane er ein partisjon: $P(A) = P(G)P(A \\mid G) + P(D)P(A \\mid D)$ – totalsetninga.","448969bbf67550e7":"Kva er det samla sannsynet for at eit tilfeldig parti blir akseptert?","4322f685f25d3b41":"$\\approx 0{,}708$","c748cfa7888eedf6":"$\\approx 0{,}774$","0d1d7e0251123091":"$\\approx 0{,}609$","b0321857b6f7ea80":"$\\approx 0{,}444$","6c04277d632e93a1":"$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}708$.","e672f349eb9feadc":"Kva er ein god generell strategi for samansette sannsynsproblem?","457862b6010e5b15":"Bruk alltid binomisk fordeling først","c1fdb54d89ab419a":"Rekn ut alle moglege utfall med valtre","941d0d72ce8ab5a2":"Start med Bayes' setning uansett","ee147933f3022d6d":"Identifiser hendingar og relasjonar, vel verktøy per delsteg, og rimelegheitssjekk svaret","f14c604d313b67a4":"Bryt problemet i delsteg, vel modell for kvart (binomisk? betinga? total?), og sjekk at svaret ligg i $[0,1]$ og gir meining.","01654320509a6e0e":"## Monte Carlo – når simulering slår teori\n\nNokre sannsyn er vonde å rekne ut eksakt, men lette å *eksperimentere* seg fram til. Ideen blir kalla **Monte Carlo-simulering**, oppkalla etter kasinobyen: lat datamaskina gjenta forsøket tusenvis av gonger og tel kor ofte hendinga inntreff. Oppskrifta er tre liner: simuler forsøket $N$ gonger (gjerne $N = 10\\,000$ eller meir), tel talet på gonger $n_A$ hendinga $A$ inntreff, og estimer $P(A) \\approx \\frac{n_A}{N}$. Jo større $N$, jo betre estimat – det er lova om store tal i arbeid.\n\nKlassikaren er **bursdagsproblemet**: kva er sannsynet for at minst to av 23 personar deler fødselsdag? Intuisjonen seier «liten» – 23 personar, 365 dagar. Simuleringa seier noko anna. I pseudokode:\n\n```\nantall_treff = 0\nfor i = 1 til 100000:\n    trekk 23 tilfeldige tall fra 1 til 365\n    hvis to er like: antall_treff += 1\nestimat = antall_treff / 100000\n```\n\nKøyr dette, og estimatet landar rundt $0{,}507$ – over femti prosent! (Den eksakte verdien, som kan reknast med komplement og produktsetninga, er $\\approx 0{,}5073$ – simuleringa treffer godt.) Intuisjonen feilar fordi det ikkje er 23 moglegheiter for samanfall, men $\\binom{23}{2} = 253$ *par* av personar.\n\nMonte Carlo er ikkje juks – det er eit fullverdig verktøy som blir brukt i alt frå finans til partikkelfysikk, nettopp i situasjonar der modellane blir for kompliserte for blyant og papir. Og det fine er at metoden samtidig er ein test av teorien din: stemmer ikkje simuleringa med formelen, har éin av dei feil.","1395bce14056a85d":"Test deg sjølv på Monte Carlo-simulering:","e508d0f928507fb9":"Kva er prinsippet i Monte Carlo-simulering?","fa8182e214585c1f":"Gjenta forsøket mange gonger og estimer $P(A) \\approx \\frac{n_A}{N}$","d61ed0038c7fa6b7":"Rekn ut alle utfall eksakt med kombinatorikk","a4360e4375128105":"Bruk Bayes' setning iterativt","c9601b274b7c0d92":"Vel utfall med høgast sannsyn","3674d91393e1e1ea":"Simuler $N$ gonger, tel treffa $n_A$, og bruk delen som estimat. Lova om store tal garanterer at estimatet nærmar seg sanninga.","a302c3c0eaad736c":"Kva skjer med Monte Carlo-estimatet når talet på simuleringar $N$ aukar?","eac49fcb7c49b21a":"Det blir systematisk for høgt","2fbce5ed34ef1b60":"Det blir meir nøyaktig (nærare den sanne verdien)","d11f6b69ace9b76b":"Det endrar seg ikkje","132ea30f792e90fd":"Det blir meir tilfeldig","64ce25c3c5c52be1":"Etter lova om store tal nærmar delen $\\frac{n_A}{N}$ seg det sanne sannsynet når $N$ veks.","916bdea6660fcf61":"Kva er (omtrent) sannsynet for at minst to av 23 personar deler fødselsdag?","735941114ac123f2":"$\\approx 0{,}06$","c485c20c349f4363":"$\\approx 0{,}23$","2119f7ad6a587a85":"$\\approx 0{,}51$","f8a4562e772d9dc8":"Både simulering og eksakt rekning gir $\\approx 0{,}507$. Det overraskar fordi det finst $\\binom{23}{2} = 253$ par som kan dele dag.","197d655eb8af4853":"Når er Monte Carlo-simulering særleg nyttig?","f69efb39a3bea682":"Når utfallsrommet har færre enn ti utfall","66480ed119b1a74f":"Når vi kjenner den eksakte løysinga frå før","b3f484e9457a9fe7":"Når problemet er for komplisert til å løysast analytisk","2034661b8192ee7a":"Når forsøket berre kan gjentakast éin gong","42e5178c5ab99d0d":"Simulering skin når den analytiske løysinga er uoverkommeleg – og fungerer samtidig som kontroll av teoretiske svar.","ab8b33e1bcd0288c":"## Oppsummering: å oppdatere det du trur\n\nDen positive testen lærte oss den store lekksa til kapittelet: evidens skal ikkje erstatte det du visste frå før – han skal *oppdatere* det. Bayes' setning $P(B \\mid A) = \\frac{P(B)P(A \\mid B)}{P(A)}$ gjer oppdateringa presis: prior gonger likelihood, delt på totalsannsynet, gir posterior. Med 1 % prevalens løfta den positive testen sannsynet for sjukdom frå 1 % til berre 17 % – fordi dei falske positive frå den store friske gruppa drukna dei ekte. Å gløyme dette er base rate fallacy.\n\nSamansette problem blir løyste lagvis: binomisk fordeling innanfor kvart scenario, totalsetninga til å vege scenarioa saman, Bayes til å snu betingingar – som i kvalitetskontrollen der 71 % av partia blei aksepterte. Strategien: identifiser relasjonane, vel verktøy per delsteg, rimelegheitssjekk svaret.\n\nOg når teorien blir for tung, finst Monte Carlo: simuler mange gonger, tel, og estimer $P(A) \\approx \\frac{n_A}{N}$. Dei overraskande 50,7 % i bursdagsproblemet viste både krafta til metoden og avgrensingane til intuisjonen. Verktøya i sannsynsrekninga er no komplette – i neste kapittel finpussar vi valet mellom dei to store fordelingane."}}}
+{
+  "id": "r1-8-6-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "8.6",
+  "title": "Sannsyn i praksis",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om den positive testen som ikkje tydde det du trudde – Bayes' setning, base rate fallacy, samansette problem og Monte Carlo-simulering.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke Bayes' setning til å oppdatere sannsyn med ny informasjon",
+    "løyse samansette sannsynsproblem frå ulike kontekstar",
+    "forstå prinsippet bak Monte Carlo-simulering",
+    "bruke sannsynsmodellar til å ta avgjerder"
+  ],
+  "linkedChapterId": "r1-8-6",
+  "content": [
+    {
+      "id": "r1-8-6-n-intro",
+      "type": "text",
+      "content": "## Den positive testen\n\nDu tek ein medisinsk test for ein sjeldan sjukdom. Testen er god: han fangar opp 99 % av alle sjuke og frikjenner 95 % av alle friske. Svaret kjem – positivt. Kor redd bør du vere?\n\nDei fleste – inkludert mange legar, viser studiar – svarar «rundt 95–99 % sannsynleg sjuk». Det rette svaret, med tala vi skal bruke, er omtrent **17 %**. Du las rett: etter ein positiv test frå ein svært treffsikker test er sjansen framleis meir enn fire av fem for at du er heilt frisk.\n\nKorleis kan det stemme? Svaret heiter **Bayes' setning** – formelen for å oppdatere sannsyn når ny informasjon kjem, og kanskje den mest praktisk viktige formelen i heile sannsynslæra. I dette kapittelet lærer du han, reknar gjennom testparadokset i detalj, løyser samansette problem som kombinerer alle verktøya frå kapittel 8, og møter Monte Carlo-simulering – metoden for å *eksperimentere* seg fram til sannsyn datamaskina kan finne raskare enn teorien."
+    },
+    {
+      "id": "r1-8-6-n-section1",
+      "type": "text",
+      "content": "## Bayes' setning – å snu betinginga\n\nProblemet med testen er eit retningsproblem. Det du *kjenner*, er $P(\\text{positiv} \\mid \\text{sjuk})$ – treffsikkerheita til testen, målt i laboratoriet. Det du *vil vite*, er det omvendte: $P(\\text{sjuk} \\mid \\text{positiv})$. Og som du lærte i kapittel 8.4: dei to retningane kan vere vidt forskjellige tal.\n\n**Bayes' setning** snur betinginga. I si enklaste form, med to alternativ $B$ og $B^c$:\n\n$$P(B \\mid A) = \\frac{P(B) \\cdot P(A \\mid B)}{P(B) \\cdot P(A \\mid B) + P(B^c) \\cdot P(A \\mid B^c)}$$\n\nTeljaren er sannsynet for vegen «$B$, og deretter $A$» (produktsetninga). Nemnaren er totalsannsynet for $A$ – summen over alle vegar som fører til $A$ (totalsetninga frå 8.4). Brøken spør altså: av alle måtane $A$ kunne skje på, kor stor del gjekk via $B$? Generelt, for ein partisjon $B_1, \\ldots, B_n$: $P(B_j \\mid A) = \\frac{P(B_j)P(A \\mid B_j)}{\\sum_i P(B_i)P(A \\mid B_i)}$.\n\nOmgrepa rundt formelen er verde å lære, for dei blir brukte overalt frå medisin til maskinlæring: $P(B)$ blir kalla **prior** – trua di før evidensen. $P(A \\mid B)$ er **likelihood** – kor godt evidensen passar med hypotesen. Og $P(B \\mid A)$ er **posterior** – den oppdaterte trua etter at evidensen er lagd på bordet. Bayes' setning er rett og slett ei presis oppskrift for å lære av erfaring: typiske bruksområde er testen som er positiv (er pasienten sjuk?), produktet som er defekt (kva maskin lagde det?) og e-posten som inneheld ordet «gevinst» (er det spam?)."
+    },
+    {
+      "id": "r1-8-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Bayes' setning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-6-n-quiz1-q0",
+            "task": "Når treng vi Bayes' setning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når vi kjenner $P(A \\mid B)$ men treng $P(B \\mid A)$ – altså å snu betinginga",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når hendingane er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når vi skal rekne ut forventningsverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når utfalla er like sannsynlege",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bayes' setning snur retninga på betinginga – frå treffsikkerheita til testen til sannsynet for diagnosen, frå symptom til årsak."
+          },
+          {
+            "id": "r1-8-6-n-quiz1-q1",
+            "task": "Kva blir $P(B)$ kalla i Bayes-terminologi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Posterior",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Prior",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Likelihood",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Evidens",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Prior er sannsynet for hypotesen $B$ før vi ser evidensen $A$ – til dømes delen sjuke i befolkninga."
+          },
+          {
+            "id": "r1-8-6-n-quiz1-q2",
+            "task": "Kva uttrykkjer nemnaren i Bayes' setning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sannsynet for hypotesen $B$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Komplementet til $P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Totalsannsynet $P(A)$, summert over alle vegar til $A$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Likelihooden $P(A \\mid B)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nemnaren er totalsetninga i aksjon: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$ – alle måtar $A$ kan inntreffe på."
+          },
+          {
+            "id": "r1-8-6-n-quiz1-q3",
+            "task": "Kva blir det oppdaterte sannsynet $P(B \\mid A)$ kalla etter at evidensen er observert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Prior",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Likelihood",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Prevalens",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Posterior",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Posterior er trua etter oppdateringa – resultatet av å kombinere prior med evidensen via Bayes' setning."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-6-n-section2",
+      "type": "text",
+      "content": "## Testparadokset – rekna ut i detalj\n\nLat oss leggje tala på bordet. Sjukdomen har **prevalens** 1 %: $P(S) = 0{,}01$. **Sensitiviteten** til testen er $P(T^+ \\mid S) = 0{,}99$, og **spesifisiteten** er $P(T^- \\mid S^c) = 0{,}95$ – altså er falsk positiv-raten $P(T^+ \\mid S^c) = 0{,}05$.\n\nFørst totalsannsynet for å teste positivt, via totalsetninga:\n\n$$P(T^+) = 0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05 = 0{,}0099 + 0{,}0495 = 0{,}0594$$\n\nSå Bayes:\n\n$$P(S \\mid T^+) = \\frac{0{,}01 \\cdot 0{,}99}{0{,}0594} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$$\n\nBerre 17 %! For å *sjå* kvifor, byt ut prosentane med menneske. Tenk deg 10 000 testa. Av dei er 100 sjuke (1 %), og testen fangar 99 av dei. Men 9 900 er friske, og 5 % av dei – 495 personar – får falsk positiv. Blant dei $99 + 495 = 594$ positive er berre 99 faktisk sjuke: $\\frac{99}{594} \\approx 17\\%$. Dei falske positive *druknar* dei ekte, rett og slett fordi dei friske er så mange fleire.\n\nDette er **base rate fallacy** – feilslutninga der ein stirrar på kvaliteten til testen og gløymer grunnfrekvensen (prioren). Lærdomen er djup og praktisk: ein positiv test for noko sjeldan bevisar lite åleine; det han gjer, er å *oppdatere* sannsynet – her frå 1 % til 17 %. Det er difor legar følgjer opp med nye, uavhengige testar: endå ein positiv test ville løfta sannsynet dramatisk vidare."
+    },
+    {
+      "id": "r1-8-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på medisinske testar og base rate:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-6-n-quiz2-q0",
+            "task": "Med prevalens 1 %, sensitivitet 99 % og spesifisitet 95 %: kva er $P(\\text{sjuk} \\mid \\text{positiv})$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\approx 0{,}17$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\approx 0{,}99$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\approx 0{,}95$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\approx 0{,}50$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bayes: $\\frac{0{,}01 \\cdot 0{,}99}{0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$."
+          },
+          {
+            "id": "r1-8-6-n-quiz2-q1",
+            "task": "Av 10 000 testa (1 % sjuke) – omtrent kor mange får falsk positiv?",
+            "options": [
+              {
+                "id": "a",
+                "text": "99",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "495",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "5",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "990",
+                "isCorrect": false
+              }
+            ],
+            "solution": "9 900 friske, og 5 % av dei testar positivt: $0{,}05 \\cdot 9900 = 495$ falske positive."
+          },
+          {
+            "id": "r1-8-6-n-quiz2-q2",
+            "task": "Kvifor er sannsynet for sjukdom så lågt trass i positiv test?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Testen er dårlegare enn oppgitt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bayes' setning undervurderer alltid sjukdom",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sjukdomen er så sjeldan at dei falske positive er langt fleire enn dei ekte",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Sensitiviteten er for låg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med låg prevalens kjem dei aller fleste positive svara frå den store, friske gruppa. Grunnfrekvensen (base rate) dominerer."
+          },
+          {
+            "id": "r1-8-6-n-quiz2-q3",
+            "task": "Kva blir feilslutninga kalla der ein ignorerer grunnfrekvensen (prioren)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Gamblers fallacy",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Regresjon mot gjennomsnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Simpsons paradoks",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Base rate fallacy",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Base rate fallacy: å vurdere styrken til evidensen (treffsikkerheita til testen) utan å ta omsyn til kor sjeldan hypotesen er i utgangspunktet."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-6-n-section3",
+      "type": "text",
+      "content": "## Samansette problem – verktøya i samspel\n\nVerkelege problem kjem sjeldan med merkelapp. Dei krev at du *vel* og *kombinerer* verktøy: betinga sannsyn, binomisk fordeling, komplement, totalsetning, Bayes. Strategien er alltid: identifiser hendingane og relasjonane (uavhengige? betinga?), vel modell for kvart delsteg, og sjekk til slutt at svaret gir meining.\n\nEit eksempel som kombinerer to store verktøy. Ein forhandlar mottek vareparti: 80 % av partia er «gode» med 5 % defektrate, 20 % er «dårlege» med 15 %. Frå kvart parti blir 5 tilfeldige varer testa, og partiet blir akseptert dersom ingen er defekte. Kor stor del av partia blir aksepterte?\n\nFørst det binomiske laget – aksept *gitt* partitype: For eit godt parti er talet på defekte i stikkprøva $X \\sim \\text{Bin}(5;\\, 0{,}05)$, så $P(A \\mid G) = 0{,}95^5 \\approx 0{,}774$. For eit dårleg parti: $P(A \\mid D) = 0{,}85^5 \\approx 0{,}444$.\n\nSå laget til totalsetninga – vekta over partitypane:\n\n$$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}619 + 0{,}089 = 0{,}708$$\n\nCirka 71 % av partia slepp gjennom. Og legg merke til at du no kunne halde fram med Bayes: gitt at eit parti blei akseptert, kva er sannsynet for at det faktisk var dårleg? ($\\frac{0{,}089}{0{,}708} \\approx 12{,}5\\%$ – kontrollen siler, men ikkje perfekt.) Slik byggjer dei store analysane seg opp: lag på lag av verktøya du allereie kan."
+    },
+    {
+      "id": "r1-8-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på samansette problem:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-6-n-quiz3-q0",
+            "task": "5 varer blir testa frå eit godt parti (5 % defekt). Kva er sannsynet for at ingen er defekte?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}95^5 \\approx 0{,}774$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}05^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1 - 0{,}95^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5 \\cdot 0{,}05$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$X \\sim \\text{Bin}(5, 0{,}05)$ og $P(X = 0) = 0{,}95^5 \\approx 0{,}774$."
+          },
+          {
+            "id": "r1-8-6-n-quiz3-q1",
+            "task": "Kva for verktøy limar saman akseptsannsyna for gode og dårlege parti?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Komplementsetninga",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Totalsetninga",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Addisjonssetninga for disjunkte hendingar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Pascals regel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Partitypane er ein partisjon: $P(A) = P(G)P(A \\mid G) + P(D)P(A \\mid D)$ – totalsetninga."
+          },
+          {
+            "id": "r1-8-6-n-quiz3-q2",
+            "task": "Kva er det samla sannsynet for at eit tilfeldig parti blir akseptert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\approx 0{,}774$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\approx 0{,}609$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\approx 0{,}708$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\approx 0{,}444$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}708$."
+          },
+          {
+            "id": "r1-8-6-n-quiz3-q3",
+            "task": "Kva er ein god generell strategi for samansette sannsynsproblem?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bruk alltid binomisk fordeling først",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Rekn ut alle moglege utfall med valtre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Start med Bayes' setning uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Identifiser hendingar og relasjonar, vel verktøy per delsteg, og rimelegheitssjekk svaret",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Bryt problemet i delsteg, vel modell for kvart (binomisk? betinga? total?), og sjekk at svaret ligg i $[0,1]$ og gir meining."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-6-n-section4",
+      "type": "text",
+      "content": "## Monte Carlo – når simulering slår teori\n\nNokre sannsyn er vonde å rekne ut eksakt, men lette å *eksperimentere* seg fram til. Ideen blir kalla **Monte Carlo-simulering**, oppkalla etter kasinobyen: lat datamaskina gjenta forsøket tusenvis av gonger og tel kor ofte hendinga inntreff. Oppskrifta er tre liner: simuler forsøket $N$ gonger (gjerne $N = 10\\,000$ eller meir), tel talet på gonger $n_A$ hendinga $A$ inntreff, og estimer $P(A) \\approx \\frac{n_A}{N}$. Jo større $N$, jo betre estimat – det er lova om store tal i arbeid.\n\nKlassikaren er **bursdagsproblemet**: kva er sannsynet for at minst to av 23 personar deler fødselsdag? Intuisjonen seier «liten» – 23 personar, 365 dagar. Simuleringa seier noko anna. I pseudokode:\n\n```\nantall_treff = 0\nfor i = 1 til 100000:\n    trekk 23 tilfeldige tall fra 1 til 365\n    hvis to er like: antall_treff += 1\nestimat = antall_treff / 100000\n```\n\nKøyr dette, og estimatet landar rundt $0{,}507$ – over femti prosent! (Den eksakte verdien, som kan reknast med komplement og produktsetninga, er $\\approx 0{,}5073$ – simuleringa treffer godt.) Intuisjonen feilar fordi det ikkje er 23 moglegheiter for samanfall, men $\\binom{23}{2} = 253$ *par* av personar.\n\nMonte Carlo er ikkje juks – det er eit fullverdig verktøy som blir brukt i alt frå finans til partikkelfysikk, nettopp i situasjonar der modellane blir for kompliserte for blyant og papir. Og det fine er at metoden samtidig er ein test av teorien din: stemmer ikkje simuleringa med formelen, har éin av dei feil."
+    },
+    {
+      "id": "r1-8-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Monte Carlo-simulering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-6-n-quiz4-q0",
+            "task": "Kva er prinsippet i Monte Carlo-simulering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjenta forsøket mange gonger og estimer $P(A) \\approx \\frac{n_A}{N}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Rekn ut alle utfall eksakt med kombinatorikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bruk Bayes' setning iterativt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vel utfall med høgast sannsyn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Simuler $N$ gonger, tel treffa $n_A$, og bruk delen som estimat. Lova om store tal garanterer at estimatet nærmar seg sanninga."
+          },
+          {
+            "id": "r1-8-6-n-quiz4-q1",
+            "task": "Kva skjer med Monte Carlo-estimatet når talet på simuleringar $N$ aukar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det blir systematisk for høgt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det blir meir nøyaktig (nærare den sanne verdien)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det endrar seg ikkje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det blir meir tilfeldig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter lova om store tal nærmar delen $\\frac{n_A}{N}$ seg det sanne sannsynet når $N$ veks."
+          },
+          {
+            "id": "r1-8-6-n-quiz4-q2",
+            "task": "Kva er (omtrent) sannsynet for at minst to av 23 personar deler fødselsdag?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\approx 0{,}06$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\approx 0{,}23$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\approx 0{,}51$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\approx 0{,}99$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Både simulering og eksakt rekning gir $\\approx 0{,}507$. Det overraskar fordi det finst $\\binom{23}{2} = 253$ par som kan dele dag."
+          },
+          {
+            "id": "r1-8-6-n-quiz4-q3",
+            "task": "Når er Monte Carlo-simulering særleg nyttig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når utfallsrommet har færre enn ti utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når vi kjenner den eksakte løysinga frå før",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når forsøket berre kan gjentakast éin gong",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når problemet er for komplisert til å løysast analytisk",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Simulering skin når den analytiske løysinga er uoverkommeleg – og fungerer samtidig som kontroll av teoretiske svar."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: å oppdatere det du trur\n\nDen positive testen lærte oss den store lekksa til kapittelet: evidens skal ikkje erstatte det du visste frå før – han skal *oppdatere* det. Bayes' setning $P(B \\mid A) = \\frac{P(B)P(A \\mid B)}{P(A)}$ gjer oppdateringa presis: prior gonger likelihood, delt på totalsannsynet, gir posterior. Med 1 % prevalens løfta den positive testen sannsynet for sjukdom frå 1 % til berre 17 % – fordi dei falske positive frå den store friske gruppa drukna dei ekte. Å gløyme dette er base rate fallacy.\n\nSamansette problem blir løyste lagvis: binomisk fordeling innanfor kvart scenario, totalsetninga til å vege scenarioa saman, Bayes til å snu betingingar – som i kvalitetskontrollen der 71 % av partia blei aksepterte. Strategien: identifiser relasjonane, vel verktøy per delsteg, rimelegheitssjekk svaret.\n\nOg når teorien blir for tung, finst Monte Carlo: simuler mange gonger, tel, og estimer $P(A) \\approx \\frac{n_A}{N}$. Dei overraskande 50,7 % i bursdagsproblemet viste både krafta til metoden og avgrensingane til intuisjonen. Verktøya i sannsynsrekninga er no komplette – i neste kapittel finpussar vi valet mellom dei to store fordelingane."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "bad670fa74a81d91",
+    "translatedAt": "2026-06-20T00:28:21.932Z",
+    "model": "claude-code-agent",
+    "strings": 111,
+    "tm": {
+      "a4b510273f79b5b3": "Sannsyn i praksis",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "728033b5f8fd5244": "Ei forteljing om den positive testen som ikkje tydde det du trudde – Bayes' setning, base rate fallacy, samansette problem og Monte Carlo-simulering.",
+      "5875367047ec6e4a": "bruke Bayes' setning til å oppdatere sannsyn med ny informasjon",
+      "37693c5091623838": "løyse samansette sannsynsproblem frå ulike kontekstar",
+      "97315b258f780808": "forstå prinsippet bak Monte Carlo-simulering",
+      "ee2e8f9c22e69bca": "bruke sannsynsmodellar til å ta avgjerder",
+      "ca83de9bb34ba34f": "## Den positive testen\n\nDu tek ein medisinsk test for ein sjeldan sjukdom. Testen er god: han fangar opp 99 % av alle sjuke og frikjenner 95 % av alle friske. Svaret kjem – positivt. Kor redd bør du vere?\n\nDei fleste – inkludert mange legar, viser studiar – svarar «rundt 95–99 % sannsynleg sjuk». Det rette svaret, med tala vi skal bruke, er omtrent **17 %**. Du las rett: etter ein positiv test frå ein svært treffsikker test er sjansen framleis meir enn fire av fem for at du er heilt frisk.\n\nKorleis kan det stemme? Svaret heiter **Bayes' setning** – formelen for å oppdatere sannsyn når ny informasjon kjem, og kanskje den mest praktisk viktige formelen i heile sannsynslæra. I dette kapittelet lærer du han, reknar gjennom testparadokset i detalj, løyser samansette problem som kombinerer alle verktøya frå kapittel 8, og møter Monte Carlo-simulering – metoden for å *eksperimentere* seg fram til sannsyn datamaskina kan finne raskare enn teorien.",
+      "34544d34a3d5a996": "## Bayes' setning – å snu betinginga\n\nProblemet med testen er eit retningsproblem. Det du *kjenner*, er $P(\\text{positiv} \\mid \\text{sjuk})$ – treffsikkerheita til testen, målt i laboratoriet. Det du *vil vite*, er det omvendte: $P(\\text{sjuk} \\mid \\text{positiv})$. Og som du lærte i kapittel 8.4: dei to retningane kan vere vidt forskjellige tal.\n\n**Bayes' setning** snur betinginga. I si enklaste form, med to alternativ $B$ og $B^c$:\n\n$$P(B \\mid A) = \\frac{P(B) \\cdot P(A \\mid B)}{P(B) \\cdot P(A \\mid B) + P(B^c) \\cdot P(A \\mid B^c)}$$\n\nTeljaren er sannsynet for vegen «$B$, og deretter $A$» (produktsetninga). Nemnaren er totalsannsynet for $A$ – summen over alle vegar som fører til $A$ (totalsetninga frå 8.4). Brøken spør altså: av alle måtane $A$ kunne skje på, kor stor del gjekk via $B$? Generelt, for ein partisjon $B_1, \\ldots, B_n$: $P(B_j \\mid A) = \\frac{P(B_j)P(A \\mid B_j)}{\\sum_i P(B_i)P(A \\mid B_i)}$.\n\nOmgrepa rundt formelen er verde å lære, for dei blir brukte overalt frå medisin til maskinlæring: $P(B)$ blir kalla **prior** – trua di før evidensen. $P(A \\mid B)$ er **likelihood** – kor godt evidensen passar med hypotesen. Og $P(B \\mid A)$ er **posterior** – den oppdaterte trua etter at evidensen er lagd på bordet. Bayes' setning er rett og slett ei presis oppskrift for å lære av erfaring: typiske bruksområde er testen som er positiv (er pasienten sjuk?), produktet som er defekt (kva maskin lagde det?) og e-posten som inneheld ordet «gevinst» (er det spam?).",
+      "b8f52815cfda093a": "Test deg sjølv på Bayes' setning:",
+      "4097889236a2af26": "placeholder",
+      "32a8ef96e0923e5b": "Når treng vi Bayes' setning?",
+      "43c28ad84fde5f78": "Når vi kjenner $P(A \\mid B)$ men treng $P(B \\mid A)$ – altså å snu betinginga",
+      "da8adaf879abc2c6": "Når hendingane er uavhengige",
+      "005f81f2fbe21a29": "Når vi skal rekne ut forventningsverdi",
+      "95672bffda8b74ba": "Når utfalla er like sannsynlege",
+      "4e80af56f3ee309a": "Bayes' setning snur retninga på betinginga – frå treffsikkerheita til testen til sannsynet for diagnosen, frå symptom til årsak.",
+      "518155e5c80b34c1": "Kva blir $P(B)$ kalla i Bayes-terminologi?",
+      "f6fe1c8bb8d549da": "Posterior",
+      "def7d604fad05c32": "Prior",
+      "545c4351af10f3d4": "Likelihood",
+      "353279abd765813b": "Evidens",
+      "083f8eff915fca91": "Prior er sannsynet for hypotesen $B$ før vi ser evidensen $A$ – til dømes delen sjuke i befolkninga.",
+      "dec659f0cafae4cd": "Kva uttrykkjer nemnaren i Bayes' setning?",
+      "744490e9d9dcda2e": "Sannsynet for hypotesen $B$",
+      "7ca2372d6c958f64": "Komplementet til $P(B)$",
+      "4583457f3ca30263": "Totalsannsynet $P(A)$, summert over alle vegar til $A$",
+      "513f30962d45d121": "Likelihooden $P(A \\mid B)$",
+      "5daf2e52434b65d3": "Nemnaren er totalsetninga i aksjon: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$ – alle måtar $A$ kan inntreffe på.",
+      "5da58f5a624b02e8": "Kva blir det oppdaterte sannsynet $P(B \\mid A)$ kalla etter at evidensen er observert?",
+      "ada37f06eecafada": "Prevalens",
+      "7ba4be381ffa1373": "Posterior er trua etter oppdateringa – resultatet av å kombinere prior med evidensen via Bayes' setning.",
+      "a2c7c823029a370a": "## Testparadokset – rekna ut i detalj\n\nLat oss leggje tala på bordet. Sjukdomen har **prevalens** 1 %: $P(S) = 0{,}01$. **Sensitiviteten** til testen er $P(T^+ \\mid S) = 0{,}99$, og **spesifisiteten** er $P(T^- \\mid S^c) = 0{,}95$ – altså er falsk positiv-raten $P(T^+ \\mid S^c) = 0{,}05$.\n\nFørst totalsannsynet for å teste positivt, via totalsetninga:\n\n$$P(T^+) = 0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05 = 0{,}0099 + 0{,}0495 = 0{,}0594$$\n\nSå Bayes:\n\n$$P(S \\mid T^+) = \\frac{0{,}01 \\cdot 0{,}99}{0{,}0594} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$$\n\nBerre 17 %! For å *sjå* kvifor, byt ut prosentane med menneske. Tenk deg 10 000 testa. Av dei er 100 sjuke (1 %), og testen fangar 99 av dei. Men 9 900 er friske, og 5 % av dei – 495 personar – får falsk positiv. Blant dei $99 + 495 = 594$ positive er berre 99 faktisk sjuke: $\\frac{99}{594} \\approx 17\\%$. Dei falske positive *druknar* dei ekte, rett og slett fordi dei friske er så mange fleire.\n\nDette er **base rate fallacy** – feilslutninga der ein stirrar på kvaliteten til testen og gløymer grunnfrekvensen (prioren). Lærdomen er djup og praktisk: ein positiv test for noko sjeldan bevisar lite åleine; det han gjer, er å *oppdatere* sannsynet – her frå 1 % til 17 %. Det er difor legar følgjer opp med nye, uavhengige testar: endå ein positiv test ville løfta sannsynet dramatisk vidare.",
+      "17d7044b1efefbca": "Test deg sjølv på medisinske testar og base rate:",
+      "6aa7472108790294": "Med prevalens 1 %, sensitivitet 99 % og spesifisitet 95 %: kva er $P(\\text{sjuk} \\mid \\text{positiv})$?",
+      "b6dc9e128cbc57bf": "$\\approx 0{,}99$",
+      "25e5f3a23d67e6c9": "$\\approx 0{,}95$",
+      "bca702bd2e68caa4": "$\\approx 0{,}17$",
+      "6c7052b0e1415a23": "$\\approx 0{,}50$",
+      "7ca6d53938194143": "Bayes: $\\frac{0{,}01 \\cdot 0{,}99}{0{,}01 \\cdot 0{,}99 + 0{,}99 \\cdot 0{,}05} = \\frac{0{,}0099}{0{,}0594} \\approx 0{,}167$.",
+      "9c8a2371079a5e6a": "Av 10 000 testa (1 % sjuke) – omtrent kor mange får falsk positiv?",
+      "efd2eb1b4a9fffab": "9 900 friske, og 5 % av dei testar positivt: $0{,}05 \\cdot 9900 = 495$ falske positive.",
+      "0a50efe4c0d659be": "Kvifor er sannsynet for sjukdom så lågt trass i positiv test?",
+      "dcd3175529d7fcdc": "Testen er dårlegare enn oppgitt",
+      "bb59be15d78eedc8": "Bayes' setning undervurderer alltid sjukdom",
+      "cb0cead630937bab": "Sensitiviteten er for låg",
+      "872efee869e2fd88": "Sjukdomen er så sjeldan at dei falske positive er langt fleire enn dei ekte",
+      "fe789f728819890a": "Med låg prevalens kjem dei aller fleste positive svara frå den store, friske gruppa. Grunnfrekvensen (base rate) dominerer.",
+      "33a0c131f688b302": "Kva blir feilslutninga kalla der ein ignorerer grunnfrekvensen (prioren)?",
+      "157cbbec771f526f": "Base rate fallacy",
+      "4f7914c53b4af3b2": "Gamblers fallacy",
+      "fd64c71e2695e1e8": "Regresjon mot gjennomsnittet",
+      "0a29299746bae913": "Simpsons paradoks",
+      "7485eed9818f2dd3": "Base rate fallacy: å vurdere styrken til evidensen (treffsikkerheita til testen) utan å ta omsyn til kor sjeldan hypotesen er i utgangspunktet.",
+      "5ef7dab16f2bfb35": "## Samansette problem – verktøya i samspel\n\nVerkelege problem kjem sjeldan med merkelapp. Dei krev at du *vel* og *kombinerer* verktøy: betinga sannsyn, binomisk fordeling, komplement, totalsetning, Bayes. Strategien er alltid: identifiser hendingane og relasjonane (uavhengige? betinga?), vel modell for kvart delsteg, og sjekk til slutt at svaret gir meining.\n\nEit eksempel som kombinerer to store verktøy. Ein forhandlar mottek vareparti: 80 % av partia er «gode» med 5 % defektrate, 20 % er «dårlege» med 15 %. Frå kvart parti blir 5 tilfeldige varer testa, og partiet blir akseptert dersom ingen er defekte. Kor stor del av partia blir aksepterte?\n\nFørst det binomiske laget – aksept *gitt* partitype: For eit godt parti er talet på defekte i stikkprøva $X \\sim \\text{Bin}(5;\\, 0{,}05)$, så $P(A \\mid G) = 0{,}95^5 \\approx 0{,}774$. For eit dårleg parti: $P(A \\mid D) = 0{,}85^5 \\approx 0{,}444$.\n\nSå laget til totalsetninga – vekta over partitypane:\n\n$$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}619 + 0{,}089 = 0{,}708$$\n\nCirka 71 % av partia slepp gjennom. Og legg merke til at du no kunne halde fram med Bayes: gitt at eit parti blei akseptert, kva er sannsynet for at det faktisk var dårleg? ($\\frac{0{,}089}{0{,}708} \\approx 12{,}5\\%$ – kontrollen siler, men ikkje perfekt.) Slik byggjer dei store analysane seg opp: lag på lag av verktøya du allereie kan.",
+      "486205fdad807dd2": "Test deg sjølv på samansette problem:",
+      "14d3c3e304851902": "5 varer blir testa frå eit godt parti (5 % defekt). Kva er sannsynet for at ingen er defekte?",
+      "e9f92c5c900c1d24": "$0{,}95^5 \\approx 0{,}774$",
+      "e791919c6312a46b": "$5 \\cdot 0{,}05$",
+      "eb648b1961b738d8": "$X \\sim \\text{Bin}(5, 0{,}05)$ og $P(X = 0) = 0{,}95^5 \\approx 0{,}774$.",
+      "e81eaa1724d999e4": "Kva for verktøy limar saman akseptsannsyna for gode og dårlege parti?",
+      "1557d1677a986277": "Komplementsetninga",
+      "0fba8056a7ef8ef0": "Addisjonssetninga for disjunkte hendingar",
+      "525940960604685c": "Totalsetninga",
+      "d7bdab4001862d76": "Pascals regel",
+      "a21f64b18ef6f2f4": "Partitypane er ein partisjon: $P(A) = P(G)P(A \\mid G) + P(D)P(A \\mid D)$ – totalsetninga.",
+      "448969bbf67550e7": "Kva er det samla sannsynet for at eit tilfeldig parti blir akseptert?",
+      "4322f685f25d3b41": "$\\approx 0{,}708$",
+      "c748cfa7888eedf6": "$\\approx 0{,}774$",
+      "0d1d7e0251123091": "$\\approx 0{,}609$",
+      "b0321857b6f7ea80": "$\\approx 0{,}444$",
+      "6c04277d632e93a1": "$P(A) = 0{,}80 \\cdot 0{,}774 + 0{,}20 \\cdot 0{,}444 \\approx 0{,}708$.",
+      "e672f349eb9feadc": "Kva er ein god generell strategi for samansette sannsynsproblem?",
+      "457862b6010e5b15": "Bruk alltid binomisk fordeling først",
+      "c1fdb54d89ab419a": "Rekn ut alle moglege utfall med valtre",
+      "941d0d72ce8ab5a2": "Start med Bayes' setning uansett",
+      "ee147933f3022d6d": "Identifiser hendingar og relasjonar, vel verktøy per delsteg, og rimelegheitssjekk svaret",
+      "f14c604d313b67a4": "Bryt problemet i delsteg, vel modell for kvart (binomisk? betinga? total?), og sjekk at svaret ligg i $[0,1]$ og gir meining.",
+      "01654320509a6e0e": "## Monte Carlo – når simulering slår teori\n\nNokre sannsyn er vonde å rekne ut eksakt, men lette å *eksperimentere* seg fram til. Ideen blir kalla **Monte Carlo-simulering**, oppkalla etter kasinobyen: lat datamaskina gjenta forsøket tusenvis av gonger og tel kor ofte hendinga inntreff. Oppskrifta er tre liner: simuler forsøket $N$ gonger (gjerne $N = 10\\,000$ eller meir), tel talet på gonger $n_A$ hendinga $A$ inntreff, og estimer $P(A) \\approx \\frac{n_A}{N}$. Jo større $N$, jo betre estimat – det er lova om store tal i arbeid.\n\nKlassikaren er **bursdagsproblemet**: kva er sannsynet for at minst to av 23 personar deler fødselsdag? Intuisjonen seier «liten» – 23 personar, 365 dagar. Simuleringa seier noko anna. I pseudokode:\n\n```\nantall_treff = 0\nfor i = 1 til 100000:\n    trekk 23 tilfeldige tall fra 1 til 365\n    hvis to er like: antall_treff += 1\nestimat = antall_treff / 100000\n```\n\nKøyr dette, og estimatet landar rundt $0{,}507$ – over femti prosent! (Den eksakte verdien, som kan reknast med komplement og produktsetninga, er $\\approx 0{,}5073$ – simuleringa treffer godt.) Intuisjonen feilar fordi det ikkje er 23 moglegheiter for samanfall, men $\\binom{23}{2} = 253$ *par* av personar.\n\nMonte Carlo er ikkje juks – det er eit fullverdig verktøy som blir brukt i alt frå finans til partikkelfysikk, nettopp i situasjonar der modellane blir for kompliserte for blyant og papir. Og det fine er at metoden samtidig er ein test av teorien din: stemmer ikkje simuleringa med formelen, har éin av dei feil.",
+      "1395bce14056a85d": "Test deg sjølv på Monte Carlo-simulering:",
+      "e508d0f928507fb9": "Kva er prinsippet i Monte Carlo-simulering?",
+      "fa8182e214585c1f": "Gjenta forsøket mange gonger og estimer $P(A) \\approx \\frac{n_A}{N}$",
+      "d61ed0038c7fa6b7": "Rekn ut alle utfall eksakt med kombinatorikk",
+      "a4360e4375128105": "Bruk Bayes' setning iterativt",
+      "c9601b274b7c0d92": "Vel utfall med høgast sannsyn",
+      "3674d91393e1e1ea": "Simuler $N$ gonger, tel treffa $n_A$, og bruk delen som estimat. Lova om store tal garanterer at estimatet nærmar seg sanninga.",
+      "a302c3c0eaad736c": "Kva skjer med Monte Carlo-estimatet når talet på simuleringar $N$ aukar?",
+      "eac49fcb7c49b21a": "Det blir systematisk for høgt",
+      "2fbce5ed34ef1b60": "Det blir meir nøyaktig (nærare den sanne verdien)",
+      "d11f6b69ace9b76b": "Det endrar seg ikkje",
+      "132ea30f792e90fd": "Det blir meir tilfeldig",
+      "64ce25c3c5c52be1": "Etter lova om store tal nærmar delen $\\frac{n_A}{N}$ seg det sanne sannsynet når $N$ veks.",
+      "916bdea6660fcf61": "Kva er (omtrent) sannsynet for at minst to av 23 personar deler fødselsdag?",
+      "735941114ac123f2": "$\\approx 0{,}06$",
+      "c485c20c349f4363": "$\\approx 0{,}23$",
+      "2119f7ad6a587a85": "$\\approx 0{,}51$",
+      "f8a4562e772d9dc8": "Både simulering og eksakt rekning gir $\\approx 0{,}507$. Det overraskar fordi det finst $\\binom{23}{2} = 253$ par som kan dele dag.",
+      "197d655eb8af4853": "Når er Monte Carlo-simulering særleg nyttig?",
+      "f69efb39a3bea682": "Når utfallsrommet har færre enn ti utfall",
+      "66480ed119b1a74f": "Når vi kjenner den eksakte løysinga frå før",
+      "b3f484e9457a9fe7": "Når problemet er for komplisert til å løysast analytisk",
+      "2034661b8192ee7a": "Når forsøket berre kan gjentakast éin gong",
+      "42e5178c5ab99d0d": "Simulering skin når den analytiske løysinga er uoverkommeleg – og fungerer samtidig som kontroll av teoretiske svar.",
+      "ab8b33e1bcd0288c": "## Oppsummering: å oppdatere det du trur\n\nDen positive testen lærte oss den store lekksa til kapittelet: evidens skal ikkje erstatte det du visste frå før – han skal *oppdatere* det. Bayes' setning $P(B \\mid A) = \\frac{P(B)P(A \\mid B)}{P(A)}$ gjer oppdateringa presis: prior gonger likelihood, delt på totalsannsynet, gir posterior. Med 1 % prevalens løfta den positive testen sannsynet for sjukdom frå 1 % til berre 17 % – fordi dei falske positive frå den store friske gruppa drukna dei ekte. Å gløyme dette er base rate fallacy.\n\nSamansette problem blir løyste lagvis: binomisk fordeling innanfor kvart scenario, totalsetninga til å vege scenarioa saman, Bayes til å snu betingingar – som i kvalitetskontrollen der 71 % av partia blei aksepterte. Strategien: identifiser relasjonane, vel verktøy per delsteg, rimelegheitssjekk svaret.\n\nOg når teorien blir for tung, finst Monte Carlo: simuler mange gonger, tel, og estimer $P(A) \\approx \\frac{n_A}{N}$. Dei overraskande 50,7 % i bursdagsproblemet viste både krafta til metoden og avgrensingane til intuisjonen. Verktøya i sannsynsrekninga er no komplette – i neste kapittel finpussar vi valet mellom dei to store fordelingane."
+    }
+  }
+}

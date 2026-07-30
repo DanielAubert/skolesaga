@@ -1,1 +1,371 @@
-{"id":"elektro-data-vg1-2-4-narrativ","courseId":"elektro-data-vg1","chapterNumber":"2.4","title":"Kombinatorisk logikk","subtitle":"Narrativ versjon","description":"En fortelling om kretsene uten hukommelse – velgere, dekodere og adderere – og hvordan logiske porter kan legge sammen tall akkurat slik en datamaskin gjør.","estimatedMinutes":35,"competenceGoals":["designe enkle kombinatoriske kretser"],"linkedChapterId":"elektro-data-vg1-2-4","content":[{"id":"elektro-data-vg1-2-4-n-intro","type":"text","content":"## Kretser som lever i nuet\n\nNoen elektroniske kretser har hukommelse – de husker hva som skjedde tidligere. Men en stor familie av kretser gjør det ikke. De lever helt i nuet: utgangen bestemmes utelukkende av hvilke verdier som ligger på inngangene akkurat nå. Endrer du inngangene, endrer utgangen seg umiddelbart, uten å bry seg om fortiden. Disse kaller vi **kombinatoriske kretser**.\n\nDet kan høres begrenset ut, men nettopp disse minneløse kretsene er byggesteinene i alt digitalt utstyr. Av logiske porter satt sammen på smarte måter får vi velgere som plukker ut riktig signal, dekodere som tenner riktig lampe, og – mest imponerende – adderere som faktisk kan legge sammen tall. Det er slik en datamaskin regner.\n\nI dette kapittelet skal vi møte de viktigste kombinatoriske kretsene. Vi starter med multiplekseren og dekoderen, to nyttige velgere. Deretter bygger vi opp halvadderen og heladderen, og ser hvordan de kan kjedes sammen for å legge sammen flersifrede binærtall – fra første prinsipp til et ferdig regnestykke."},{"id":"elektro-data-vg1-2-4-n-section1","type":"text","content":"## Velgere: multiplekser og dekoder\n\nLa oss begynne med **multiplekseren**, ofte forkortet MUX. Den er rett og slett en digital velger: av flere innganger sender den én videre til utgangen, alt etter hva du ber om. Den enkleste er en 2-til-1 MUX, med to datainnganger $D_0$ og $D_1$, en velgerinngang $S$, og en utgang $Y$. Når $S = 0$, slipper den $D_0$ gjennom; når $S = 1$, slipper den $D_1$. Dette fanges i ett boolsk uttrykk: $Y = \\bar{S} \\cdot D_0 + S \\cdot D_1$.\n\nTenk på et system med to temperatursensorer. Du kobler sensor A til $D_0$, sensor B til $D_1$, og en bryter til $S$. Med bryteren av leses sensor A, med bryteren på leses sensor B – multiplekseren fungerer som en elektronisk omkobler. Vil du velge mellom flere, bruker du en 4-til-1 MUX med to velgerinnganger $S_1 S_0$ som danner et 2-bits tall: 00 velger $D_0$, 01 velger $D_1$, 10 velger $D_2$, og 11 velger $D_3$.\n\nDen motsatte funksjonen har **dekoderen**. I stedet for å velge én av mange innganger, tar den et binærtall inn og aktiverer én av mange utganger. En 2-til-4 dekoder har innganger $A_1 A_0$ og fire utganger $Y_0$ til $Y_3$, der bare én er høy om gangen – den som svarer til tallet på inngangen. Uttrykkene følger rett av tabellen: $Y_0 = \\bar{A_1} \\cdot \\bar{A_0}$, $Y_1 = \\bar{A_1} \\cdot A_0$, $Y_2 = A_1 \\cdot \\bar{A_0}$ og $Y_3 = A_1 \\cdot A_0$. Dekodere brukes blant annet til å velge riktig minnecelle, styre et sjusegment-display eller peke ut en bestemt enhet i et datasystem."},{"id":"elektro-data-vg1-2-4-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på multipleksere og dekodere:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-2-4-n-quiz1-q0","task":"Hva gjør en multiplekser (MUX)?","options":[{"id":"a","text":"Aktiverer én av flere utganger ut fra et binærtall","isCorrect":false},{"id":"b","text":"Legger sammen to binærtall","isCorrect":false},{"id":"c","text":"Velger én av flere innganger og sender den til utgangen","isCorrect":true},{"id":"d","text":"Lagrer en bit","isCorrect":false}],"solution":"En MUX er en velger som sender én av flere datainnganger videre til utgangen, styrt av velgerinngangene."},{"id":"elektro-data-vg1-2-4-n-quiz1-q1","task":"En 4-til-1 MUX har $S_1 = 1$ og $S_0 = 0$. Hvilken datainngang velges?","options":[{"id":"a","text":"$D_0$","isCorrect":false},{"id":"b","text":"$D_1$","isCorrect":false},{"id":"c","text":"$D_3$","isCorrect":false},{"id":"d","text":"$D_2$","isCorrect":true}],"solution":"$S_1 S_0 = 10$ i binær er 2, så $D_2$ velges."},{"id":"elektro-data-vg1-2-4-n-quiz1-q2","task":"Hva kjennetegner en dekoder?","options":[{"id":"a","text":"Bare én utgang er aktiv om gangen, bestemt av binærtallet på inngangen","isCorrect":true},{"id":"b","text":"Den har hukommelse om tidligere innganger","isCorrect":false},{"id":"c","text":"Alle utganger er alltid høye","isCorrect":false},{"id":"d","text":"Den velger mellom flere innganger","isCorrect":false}],"solution":"En dekoder tolker inngangen som et binærtall og aktiverer kun den tilsvarende utgangen."}]}},{"id":"elektro-data-vg1-2-4-n-section2","type":"text","content":"## Halvadderen – å legge sammen to biter\n\nNå til kretsene som virkelig regner. Hvordan kan logiske porter legge sammen tall? Vi starter i det små, med å legge sammen to enkeltbiter, A og B. I binær har vi fire muligheter: $0+0=0$, $0+1=1$, $1+0=1$, og $1+1$ – som blir 2, altså $10$ i binær. Det siste tilfellet trenger to siffer, og det er nettopp her det blir interessant.\n\nKretsen som gjør dette kalles en **halvadder**. Den har to utganger: en sum-bit $S$ og en mente-bit $C$ (carry). Ser vi på sannhetstabellen, oppdager vi et mønster. Summen $S$ er 1 nøyaktig når A og B er forskjellige – det er **XOR**-funksjonen, eksklusiv ELLER, skrevet $S = A \\oplus B$. Menten $C$ er 1 bare når begge er 1 – det er AND, $C = A \\cdot B$.\n\nLa oss sjekke med $1 + 1$: $S = 1 \\oplus 1 = 0$ og $C = 1 \\cdot 1 = 1$. Sammen gir det $C S = 10$, altså 2 i binær. Akkurat riktig. Med to enkle porter, en XOR og en AND, har vi laget en krets som faktisk adderer.\n\nMen hvorfor heter den «halv»-adder? Fordi den mangler noe viktig: den har ikke plass til en mente som kommer inn fra et tidligere siffer. Når du legger sammen flersifrede tall, drar du jo en mente videre fra én kolonne til neste, akkurat som i vanlig addisjon. For å håndtere det trenger vi en mer komplett krets."},{"id":"elektro-data-vg1-2-4-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på halvadderen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-2-4-n-quiz2-q0","task":"Hvilken logisk operasjon gir sum-biten i en halvadder?","options":[{"id":"a","text":"AND","isCorrect":false},{"id":"b","text":"XOR ($A \\oplus B$)","isCorrect":true},{"id":"c","text":"OR","isCorrect":false},{"id":"d","text":"NOT","isCorrect":false}],"solution":"Summen er 1 når A og B er forskjellige, altså XOR: $S = A \\oplus B$."},{"id":"elektro-data-vg1-2-4-n-quiz2-q1","task":"Hva blir sum og mente når en halvadder får A = 1 og B = 1?","options":[{"id":"a","text":"S = 1, C = 0","isCorrect":false},{"id":"b","text":"S = 1, C = 1","isCorrect":false},{"id":"c","text":"S = 0, C = 1","isCorrect":true},{"id":"d","text":"S = 0, C = 0","isCorrect":false}],"solution":"$S = 1 \\oplus 1 = 0$ og $C = 1 \\cdot 1 = 1$. Sammen er det $10$ binært, altså 2."},{"id":"elektro-data-vg1-2-4-n-quiz2-q2","task":"Hvorfor kalles halvadderen «halv»?","options":[{"id":"a","text":"Fordi den bare bruker halvparten av portene","isCorrect":false},{"id":"b","text":"Fordi den bare kan legge sammen halve tall","isCorrect":false},{"id":"c","text":"Fordi den gir halv spenning ut","isCorrect":false},{"id":"d","text":"Fordi den ikke har inngang for innkommende mente (carry in)","isCorrect":true}],"solution":"Halvadderen mangler inngang for mente fra et tidligere siffer, og kan derfor bare brukes for det minst signifikante bitet."}]}},{"id":"elektro-data-vg1-2-4-n-section3","type":"text","content":"## Heladderen – og hvordan tall legges sammen\n\nFor å legge sammen flersifrede binærtall trenger vi en **heladder**. Forskjellen fra halvadderen er en ekstra inngang: $C_{in}$, menten som kommer inn fra forrige siffer. Heladderen har altså tre innganger – A, B og $C_{in}$ – og to utganger, sum $S$ og utgående mente $C_{ut}$.\n\nBoolsk blir summen en XOR av alle tre: $S = A \\oplus B \\oplus C_{in}$. Den utgående menten er litt mer sammensatt: $C_{ut} = A \\cdot B + C_{in} \\cdot (A \\oplus B)$. Med ord: det blir mente enten hvis både A og B er 1, eller hvis det allerede kom en mente inn samtidig som A og B er forskjellige. Praktisk nok kan en heladder bygges av to halvaddere og en OR-port.\n\nNå har vi alt vi trenger for å legge sammen ekte tall. La oss regne $11_2 + 01_2$, som er $3 + 1 = 4$. Vi begynner med det minst signifikante bitet, posisjon 0, og bruker en halvadder fordi det ikke kommer noen mente inn ennå: $A_0 = 1$, $B_0 = 1$ gir $S_0 = 0$ og en mente $C_0 = 1$. Denne menten drar vi videre. På posisjon 1 bruker vi en heladder med $A_1 = 1$, $B_1 = 0$ og $C_{in} = 1$: summen blir $S_1 = 1 \\oplus 0 \\oplus 1 = 0$, og menten $C_{ut} = 1 \\cdot 0 + 1 \\cdot (1 \\oplus 0) = 1$. Setter vi resultatet sammen, får vi $C_{ut} S_1 S_0 = 100_2 = 4$ – stemmer. Slik kobler vi én halvadder og flere heladdere i kjede, og kan legge sammen så store tall vi vil, akkurat som regneenheten i en datamaskin."},{"id":"elektro-data-vg1-2-4-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-2-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på heladderen og binær addisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-2-4-n-quiz3-q0","task":"Hva er hovedforskjellen mellom en halvadder og en heladder?","options":[{"id":"a","text":"Heladderen kan ta imot en innkommende mente (carry in)","isCorrect":true},{"id":"b","text":"Halvadderen har dobbelt så mange porter","isCorrect":false},{"id":"c","text":"Heladderen bruker bare OR-porter","isCorrect":false},{"id":"d","text":"Halvadderen kan legge sammen 4-bits tall","isCorrect":false}],"solution":"Heladderen har en ekstra inngang for carry in, slik at flere kan kjedes sammen for flersifrede tall."},{"id":"elektro-data-vg1-2-4-n-quiz3-q1","task":"En heladder får A = 1, B = 0 og $C_{in}$ = 1. Hva blir summen S?","options":[{"id":"a","text":"1","isCorrect":false},{"id":"b","text":"0","isCorrect":true},{"id":"c","text":"2","isCorrect":false},{"id":"d","text":"Udefinert","isCorrect":false}],"solution":"$S = 1 \\oplus 0 \\oplus 1 = 0$. (Menten $C_{ut}$ blir 1.)"},{"id":"elektro-data-vg1-2-4-n-quiz3-q2","task":"Når vi legger sammen $10_2 + 11_2$ med én halvadder og én heladder, hva blir resultatet?","options":[{"id":"a","text":"$100_2$ (4)","isCorrect":false},{"id":"b","text":"$110_2$ (6)","isCorrect":false},{"id":"c","text":"$101_2$ (5)","isCorrect":true},{"id":"d","text":"$011_2$ (3)","isCorrect":false}],"solution":"Posisjon 0: $0+1 = S_0=1$, $C_0=0$. Posisjon 1: $1 \\oplus 1 \\oplus 0 = S_1=0$, $C_{ut}=1$. Resultat $101_2 = 5$, og $2+3=5$."},{"id":"elektro-data-vg1-2-4-n-quiz3-q3","task":"Hvorfor brukes en halvadder bare for det minst signifikante bitet?","options":[{"id":"a","text":"Fordi det bitet er viktigst","isCorrect":false},{"id":"b","text":"Fordi halvadderen er raskere","isCorrect":false},{"id":"c","text":"Fordi heladderen ikke virker på posisjon 0","isCorrect":false},{"id":"d","text":"Fordi det ikke kommer noen mente inn til den første posisjonen","isCorrect":true}],"solution":"Den minst signifikante posisjonen har ingen innkommende mente, så en halvadder holder. Resten av posisjonene trenger heladdere for å motta menten."}]}},{"id":"elektro-data-vg1-2-4-n-summary","type":"text","content":"## Oppsummering\n\nVi har bygd opp de kombinatoriske kretsene – de minneløse kretsene der utgangen bare avhenger av inngangene akkurat nå. **Multiplekseren** velger én av flere innganger ($Y = \\bar{S} \\cdot D_0 + S \\cdot D_1$ for den enkleste), mens **dekoderen** gjør det motsatte og aktiverer én av flere utganger ut fra et binærtall.\n\nDeretter så vi hvordan logiske porter kan regne. **Halvadderen** legger sammen to biter med $S = A \\oplus B$ og $C = A \\cdot B$, men mangler inngang for innkommende mente. **Heladderen** løser dette med $S = A \\oplus B \\oplus C_{in}$ og $C_{ut} = A \\cdot B + C_{in} \\cdot (A \\oplus B)$, slik at vi kan kjede én halvadder og flere heladdere sammen og legge sammen flersifrede binærtall – akkurat slik regneenheten i en datamaskin gjør det."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-2-4-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "2.4",
+  "title": "Kombinatorisk logikk",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kretsene uten hukommelse – velgere, dekodere og adderere – og hvordan logiske porter kan legge sammen tall akkurat slik en datamaskin gjør.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "designe enkle kombinatoriske kretser"
+  ],
+  "linkedChapterId": "elektro-data-vg1-2-4",
+  "content": [
+    {
+      "id": "elektro-data-vg1-2-4-n-intro",
+      "type": "text",
+      "content": "## Kretser som lever i nuet\n\nNoen elektroniske kretser har hukommelse – de husker hva som skjedde tidligere. Men en stor familie av kretser gjør det ikke. De lever helt i nuet: utgangen bestemmes utelukkende av hvilke verdier som ligger på inngangene akkurat nå. Endrer du inngangene, endrer utgangen seg umiddelbart, uten å bry seg om fortiden. Disse kaller vi **kombinatoriske kretser**.\n\nDet kan høres begrenset ut, men nettopp disse minneløse kretsene er byggesteinene i alt digitalt utstyr. Av logiske porter satt sammen på smarte måter får vi velgere som plukker ut riktig signal, dekodere som tenner riktig lampe, og – mest imponerende – adderere som faktisk kan legge sammen tall. Det er slik en datamaskin regner.\n\nI dette kapittelet skal vi møte de viktigste kombinatoriske kretsene. Vi starter med multiplekseren og dekoderen, to nyttige velgere. Deretter bygger vi opp halvadderen og heladderen, og ser hvordan de kan kjedes sammen for å legge sammen flersifrede binærtall – fra første prinsipp til et ferdig regnestykke."
+    },
+    {
+      "id": "elektro-data-vg1-2-4-n-section1",
+      "type": "text",
+      "content": "## Velgere: multiplekser og dekoder\n\nLa oss begynne med **multiplekseren**, ofte forkortet MUX. Den er rett og slett en digital velger: av flere innganger sender den én videre til utgangen, alt etter hva du ber om. Den enkleste er en 2-til-1 MUX, med to datainnganger $D_0$ og $D_1$, en velgerinngang $S$, og en utgang $Y$. Når $S = 0$, slipper den $D_0$ gjennom; når $S = 1$, slipper den $D_1$. Dette fanges i ett boolsk uttrykk: $Y = \\bar{S} \\cdot D_0 + S \\cdot D_1$.\n\nTenk på et system med to temperatursensorer. Du kobler sensor A til $D_0$, sensor B til $D_1$, og en bryter til $S$. Med bryteren av leses sensor A, med bryteren på leses sensor B – multiplekseren fungerer som en elektronisk omkobler. Vil du velge mellom flere, bruker du en 4-til-1 MUX med to velgerinnganger $S_1 S_0$ som danner et 2-bits tall: 00 velger $D_0$, 01 velger $D_1$, 10 velger $D_2$, og 11 velger $D_3$.\n\nDen motsatte funksjonen har **dekoderen**. I stedet for å velge én av mange innganger, tar den et binærtall inn og aktiverer én av mange utganger. En 2-til-4 dekoder har innganger $A_1 A_0$ og fire utganger $Y_0$ til $Y_3$, der bare én er høy om gangen – den som svarer til tallet på inngangen. Uttrykkene følger rett av tabellen: $Y_0 = \\bar{A_1} \\cdot \\bar{A_0}$, $Y_1 = \\bar{A_1} \\cdot A_0$, $Y_2 = A_1 \\cdot \\bar{A_0}$ og $Y_3 = A_1 \\cdot A_0$. Dekodere brukes blant annet til å velge riktig minnecelle, styre et sjusegment-display eller peke ut en bestemt enhet i et datasystem."
+    },
+    {
+      "id": "elektro-data-vg1-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på multipleksere og dekodere:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz1-q0",
+            "task": "Hva gjør en multiplekser (MUX)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Aktiverer én av flere utganger ut fra et binærtall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Legger sammen to binærtall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lagrer en bit",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Velger én av flere innganger og sender den til utgangen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En MUX er en velger som sender én av flere datainnganger videre til utgangen, styrt av velgerinngangene."
+          },
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz1-q1",
+            "task": "En 4-til-1 MUX har $S_1 = 1$ og $S_0 = 0$. Hvilken datainngang velges?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$D_2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$D_0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$D_1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$D_3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S_1 S_0 = 10$ i binær er 2, så $D_2$ velges."
+          },
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz1-q2",
+            "task": "Hva kjennetegner en dekoder?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den har hukommelse om tidligere innganger",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Bare én utgang er aktiv om gangen, bestemt av binærtallet på inngangen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Alle utganger er alltid høye",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den velger mellom flere innganger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En dekoder tolker inngangen som et binærtall og aktiverer kun den tilsvarende utgangen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-2-4-n-section2",
+      "type": "text",
+      "content": "## Halvadderen – å legge sammen to biter\n\nNå til kretsene som virkelig regner. Hvordan kan logiske porter legge sammen tall? Vi starter i det små, med å legge sammen to enkeltbiter, A og B. I binær har vi fire muligheter: $0+0=0$, $0+1=1$, $1+0=1$, og $1+1$ – som blir 2, altså $10$ i binær. Det siste tilfellet trenger to siffer, og det er nettopp her det blir interessant.\n\nKretsen som gjør dette kalles en **halvadder**. Den har to utganger: en sum-bit $S$ og en mente-bit $C$ (carry). Ser vi på sannhetstabellen, oppdager vi et mønster. Summen $S$ er 1 nøyaktig når A og B er forskjellige – det er **XOR**-funksjonen, eksklusiv ELLER, skrevet $S = A \\oplus B$. Menten $C$ er 1 bare når begge er 1 – det er AND, $C = A \\cdot B$.\n\nLa oss sjekke med $1 + 1$: $S = 1 \\oplus 1 = 0$ og $C = 1 \\cdot 1 = 1$. Sammen gir det $C S = 10$, altså 2 i binær. Akkurat riktig. Med to enkle porter, en XOR og en AND, har vi laget en krets som faktisk adderer.\n\nMen hvorfor heter den «halv»-adder? Fordi den mangler noe viktig: den har ikke plass til en mente som kommer inn fra et tidligere siffer. Når du legger sammen flersifrede tall, drar du jo en mente videre fra én kolonne til neste, akkurat som i vanlig addisjon. For å håndtere det trenger vi en mer komplett krets."
+    },
+    {
+      "id": "elektro-data-vg1-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på halvadderen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz2-q0",
+            "task": "Hvilken logisk operasjon gir sum-biten i en halvadder?",
+            "options": [
+              {
+                "id": "a",
+                "text": "AND",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "OR",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "XOR ($A \\oplus B$)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "NOT",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Summen er 1 når A og B er forskjellige, altså XOR: $S = A \\oplus B$."
+          },
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz2-q1",
+            "task": "Hva blir sum og mente når en halvadder får A = 1 og B = 1?",
+            "options": [
+              {
+                "id": "a",
+                "text": "S = 1, C = 0",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "S = 1, C = 1",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "S = 0, C = 0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "S = 0, C = 1",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$S = 1 \\oplus 1 = 0$ og $C = 1 \\cdot 1 = 1$. Sammen er det $10$ binært, altså 2."
+          },
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz2-q2",
+            "task": "Hvorfor kalles halvadderen «halv»?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Fordi den ikke har inngang for innkommende mente (carry in)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi den bare bruker halvparten av portene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi den bare kan legge sammen halve tall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi den gir halv spenning ut",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Halvadderen mangler inngang for mente fra et tidligere siffer, og kan derfor bare brukes for det minst signifikante bitet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-2-4-n-section3",
+      "type": "text",
+      "content": "## Heladderen – og hvordan tall legges sammen\n\nFor å legge sammen flersifrede binærtall trenger vi en **heladder**. Forskjellen fra halvadderen er en ekstra inngang: $C_{in}$, menten som kommer inn fra forrige siffer. Heladderen har altså tre innganger – A, B og $C_{in}$ – og to utganger, sum $S$ og utgående mente $C_{ut}$.\n\nBoolsk blir summen en XOR av alle tre: $S = A \\oplus B \\oplus C_{in}$. Den utgående menten er litt mer sammensatt: $C_{ut} = A \\cdot B + C_{in} \\cdot (A \\oplus B)$. Med ord: det blir mente enten hvis både A og B er 1, eller hvis det allerede kom en mente inn samtidig som A og B er forskjellige. Praktisk nok kan en heladder bygges av to halvaddere og en OR-port.\n\nNå har vi alt vi trenger for å legge sammen ekte tall. La oss regne $11_2 + 01_2$, som er $3 + 1 = 4$. Vi begynner med det minst signifikante bitet, posisjon 0, og bruker en halvadder fordi det ikke kommer noen mente inn ennå: $A_0 = 1$, $B_0 = 1$ gir $S_0 = 0$ og en mente $C_0 = 1$. Denne menten drar vi videre. På posisjon 1 bruker vi en heladder med $A_1 = 1$, $B_1 = 0$ og $C_{in} = 1$: summen blir $S_1 = 1 \\oplus 0 \\oplus 1 = 0$, og menten $C_{ut} = 1 \\cdot 0 + 1 \\cdot (1 \\oplus 0) = 1$. Setter vi resultatet sammen, får vi $C_{ut} S_1 S_0 = 100_2 = 4$ – stemmer. Slik kobler vi én halvadder og flere heladdere i kjede, og kan legge sammen så store tall vi vil, akkurat som regneenheten i en datamaskin."
+    },
+    {
+      "id": "elektro-data-vg1-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på heladderen og binær addisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz3-q0",
+            "task": "Hva er hovedforskjellen mellom en halvadder og en heladder?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Halvadderen har dobbelt så mange porter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Heladderen kan ta imot en innkommende mente (carry in)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Heladderen bruker bare OR-porter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Halvadderen kan legge sammen 4-bits tall",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Heladderen har en ekstra inngang for carry in, slik at flere kan kjedes sammen for flersifrede tall."
+          },
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz3-q1",
+            "task": "En heladder får A = 1, B = 0 og $C_{in}$ = 1. Hva blir summen S?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Udefinert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S = 1 \\oplus 0 \\oplus 1 = 0$. (Menten $C_{ut}$ blir 1.)"
+          },
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz3-q2",
+            "task": "Når vi legger sammen $10_2 + 11_2$ med én halvadder og én heladder, hva blir resultatet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100_2$ (4)",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$110_2$ (6)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$011_2$ (3)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$101_2$ (5)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Posisjon 0: $0+1 = S_0=1$, $C_0=0$. Posisjon 1: $1 \\oplus 1 \\oplus 0 = S_1=0$, $C_{ut}=1$. Resultat $101_2 = 5$, og $2+3=5$."
+          },
+          {
+            "id": "elektro-data-vg1-2-4-n-quiz3-q3",
+            "task": "Hvorfor brukes en halvadder bare for det minst signifikante bitet?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Fordi det ikke kommer noen mente inn til den første posisjonen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi det bitet er viktigst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi halvadderen er raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi heladderen ikke virker på posisjon 0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den minst signifikante posisjonen har ingen innkommende mente, så en halvadder holder. Resten av posisjonene trenger heladdere for å motta menten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har bygd opp de kombinatoriske kretsene – de minneløse kretsene der utgangen bare avhenger av inngangene akkurat nå. **Multiplekseren** velger én av flere innganger ($Y = \\bar{S} \\cdot D_0 + S \\cdot D_1$ for den enkleste), mens **dekoderen** gjør det motsatte og aktiverer én av flere utganger ut fra et binærtall.\n\nDeretter så vi hvordan logiske porter kan regne. **Halvadderen** legger sammen to biter med $S = A \\oplus B$ og $C = A \\cdot B$, men mangler inngang for innkommende mente. **Heladderen** løser dette med $S = A \\oplus B \\oplus C_{in}$ og $C_{ut} = A \\cdot B + C_{in} \\cdot (A \\oplus B)$, slik at vi kan kjede én halvadder og flere heladdere sammen og legge sammen flersifrede binærtall – akkurat slik regneenheten i en datamaskin gjør det."
+    }
+  ],
+  "exercises": []
+}

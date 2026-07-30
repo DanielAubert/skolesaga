@@ -1,1 +1,314 @@
-{"id":"9-7-1-narrativ","courseId":"9","chapterNumber":"7.1","title":"Tallmønstre og tallfølger","subtitle":"Narrativ versjon","description":"En fortellende reise gjennom tallmønstre og tallfølger -- der vi oppdager skjulte regler i tallrekker, lærer å skille mellom aritmetiske og geometriske følger, og forstår hvorfor mønstre er en av matematikkens superkrefter.","estimatedMinutes":35,"competenceGoals":["utforske og beskrive strukturar og forandringar i geometriske mønster og tallmønster med figurar, ord og formlar"],"linkedChapterId":"9-7-1","content":[{"id":"9-7-1-n-intro","type":"text","content":"## Tallenes skjulte regler\n\nHar du noen gang lagt merke til at husnumrene på den ene siden av gaten alltid er oddetall? Eller at kalenderukene teller oppover med nøyaktig syv dager mellom hver? Overalt rundt oss finnes det **mønstre** -- regler som bestemmer hva som kommer neste gang.\n\nI matematikken kaller vi en ordnet liste med tall som følger et mønster for en **tallfølge**. Hvert tall i listen kalles et **ledd**. Det første leddet skriver vi som $a_1$, det andre som $a_2$, og det $n$-te leddet som $a_n$.\n\nSe på denne følgen: $2, 5, 8, 11, 14, \\ldots$ Hva skjer fra ledd til ledd? Vi legger til $3$ hver gang. Hvis noen ber deg om det 100. leddet, kunne du i prinsippet legge til $3$ nittini ganger -- men det finnes en smartere måte. Det er nettopp det dette kapittelet handler om."},{"id":"9-7-1-n-section1","type":"text","content":"## Aritmetiske følger -- når vi legger til det samme\n\nTenk deg at du sparer penger i en sparebøsse. Første uke legger du inn 20 kr, andre uke 25 kr, tredje uke 30 kr, fjerde uke 35 kr. Hva er mønsteret? Jo, beløpet øker med $5$ kr for hver uke. En slik følge -- der **differansen** mellom hvert par av påfølgende ledd er den samme -- kalles en **aritmetisk følge**.\n\nDen konstante differansen kaller vi $d$. I eksempelet vårt er $d = 5$. Det fine med aritmetiske følger er at vi kan lage en formel for ethvert ledd:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nLa oss teste: $a_1 = 20$, $d = 5$. Det 10. leddet er $a_{10} = 20 + (10-1) \\cdot 5 = 20 + 45 = 65$ kr. Uke 10 legger du altså inn 65 kr.\n\nMen hva om differansen er negativ? Det er også mulig! Følgen $100, 93, 86, 79, \\ldots$ har $d = -7$. Tallene krymper, men det er fortsatt en aritmetisk følge. Tenk på det som en nedtelling -- for eksempel en rakett som teller ned drivstoffnivået."},{"id":"9-7-1-n-quiz1","type":"exercise","exercise":{"id":"9-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på aritmetiske følger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-1-n-quiz1-q0","task":"Følgen $7, 11, 15, 19, 23, \\ldots$ er aritmetisk. Hva er differansen $d$?","options":[{"id":"a","text":"$d = 3$","isCorrect":false},{"id":"b","text":"$d = 4$","isCorrect":true},{"id":"c","text":"$d = 7$","isCorrect":false},{"id":"d","text":"$d = 11$","isCorrect":false}],"solution":"$11 - 7 = 4$, $15 - 11 = 4$, $19 - 15 = 4$. Differansen er konstant lik $d = 4$."},{"id":"9-7-1-n-quiz1-q1","task":"En aritmetisk følge har $a_1 = 3$ og $d = 5$. Hva er $a_{20}$?","options":[{"id":"a","text":"$100$","isCorrect":false},{"id":"b","text":"$98$","isCorrect":true},{"id":"c","text":"$103$","isCorrect":false},{"id":"d","text":"$95$","isCorrect":false}],"solution":"$a_{20} = 3 + (20 - 1) \\cdot 5 = 3 + 95 = 98$."},{"id":"9-7-1-n-quiz1-q2","task":"Hvilken av disse følgene er IKKE aritmetisk?","options":[{"id":"a","text":"$10, 7, 4, 1, -2, \\ldots$","isCorrect":false},{"id":"b","text":"$2, 4, 8, 16, 32, \\ldots$","isCorrect":true},{"id":"c","text":"$5, 5, 5, 5, 5, \\ldots$","isCorrect":false},{"id":"d","text":"$1, 3, 5, 7, 9, \\ldots$","isCorrect":false}],"solution":"I følgen $2, 4, 8, 16, 32, \\ldots$ er differansene $2, 4, 8, 16$ -- de er IKKE konstante. Denne følgen er geometrisk (vi ganger med $2$), ikke aritmetisk."}]}},{"id":"9-7-1-n-section2","type":"text","content":"## Geometriske følger -- når vi ganger med det samme\n\nForestill deg at du legger et kornkorn på det første ruten på et sjakkbrett, to korn på den andre ruten, fire på den tredje, åtte på den fjerde, og så videre. Snart blir mengdene enorme! Denne typen vekst -- der vi ganger med samme tall for hvert steg -- kalles en **geometrisk følge**.\n\nI stedet for en fast differanse $d$ har vi en fast **kvotient** $k$. Den finner vi ved å dele et ledd på det forrige:\n\n$$k = \\frac{a_{n+1}}{a_n}$$\n\nFor sjakkbrett-eksempelet: $k = \\frac{2}{1} = \\frac{4}{2} = \\frac{8}{4} = 2$. Formelen for det $n$-te leddet er:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nSjakkbrettet har $a_1 = 1$ og $k = 2$, så rute nummer $64$ har $a_{64} = 1 \\cdot 2^{63} = 9\\,223\\,372\\,036\\,854\\,775\\,808$ korn -- over 9 trillioner! Det er mer enn all ris som noensinne er produsert i verden. Slik er kraften i eksponentiell vekst.\n\nGeometriske følger dukker opp overalt: bakterier som dobler seg, sparepenger med rente, radioaktivt forfall (der $k$ er mellom $0$ og $1$), og lydnivåer i desibel."},{"id":"9-7-1-n-quiz2","type":"exercise","exercise":{"id":"9-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på geometriske følger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-1-n-quiz2-q0","task":"Følgen $3, 12, 48, 192, \\ldots$ er geometrisk. Hva er kvotienten $k$?","options":[{"id":"a","text":"$k = 3$","isCorrect":false},{"id":"b","text":"$k = 9$","isCorrect":false},{"id":"c","text":"$k = 4$","isCorrect":true},{"id":"d","text":"$k = 12$","isCorrect":false}],"solution":"$\\frac{12}{3} = 4$, $\\frac{48}{12} = 4$, $\\frac{192}{48} = 4$. Kvotienten er $k = 4$."},{"id":"9-7-1-n-quiz2-q1","task":"En bakteriekultur starter med 100 bakterier og tredobler seg hver time. Hvor mange bakterier er det etter 5 timer?","options":[{"id":"a","text":"$1500$","isCorrect":false},{"id":"b","text":"$24\\,300$","isCorrect":true},{"id":"c","text":"$30\\,000$","isCorrect":false},{"id":"d","text":"$8100$","isCorrect":false}],"solution":"Geometrisk følge med $a_1 = 100$ og $k = 3$. Etter 5 timer er vi ved ledd $a_6 = 100 \\cdot 3^5 = 100 \\cdot 243 = 24\\,300$."}]}},{"id":"9-7-1-n-section3","type":"text","content":"## Følger som verken er aritmetiske eller geometriske\n\nIkke alle tallfølger passer inn i de to kategoriene vi har sett på. Noen av de mest fascinerende følgene har helt egne regler.\n\n**Kvadrattallene:** $1, 4, 9, 16, 25, 36, \\ldots$ Her er mønsteret $a_n = n^2$. Differansene er $3, 5, 7, 9, 11, \\ldots$ -- de er ikke konstante (ikke aritmetisk), og kvotientene $4, 2{,}25, 1{,}78, \\ldots$ er heller ikke konstante (ikke geometrisk). Men mønsteret er likevel tydelig.\n\n**Fibonacci-følgen:** $1, 1, 2, 3, 5, 8, 13, 21, \\ldots$ Her er regelen at hvert ledd er summen av de to foregående: $1 + 1 = 2$, $1 + 2 = 3$, $2 + 3 = 5$, og så videre. Denne følgen dukker opp i naturen overalt -- i solsikkens frøspiral, i sneglehus, og i treers forgreiningsmønstre.\n\nNår du møter en ukjent følge, start alltid med å sjekke: Er differansene konstante? Da er den aritmetisk. Er kvotientene konstante? Da er den geometrisk. Hvis ingen av delene stemmer, må du lete etter andre mønstre -- kanskje er tallene kvadrattall, trekanttall, eller noe helt annet."},{"id":"9-7-1-n-quiz3","type":"exercise","exercise":{"id":"9-7-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på ulike typer tallfølger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-1-n-quiz3-q0","task":"Hvilken type følge er $1, 3, 9, 27, 81, \\ldots$?","options":[{"id":"a","text":"Aritmetisk","isCorrect":false},{"id":"b","text":"Geometrisk","isCorrect":true},{"id":"c","text":"Fibonacci","isCorrect":false},{"id":"d","text":"Ingen av delene","isCorrect":false}],"solution":"Kvotienten er $\\frac{3}{1} = \\frac{9}{3} = \\frac{27}{9} = 3$. Konstant kvotient betyr at det er en geometrisk følge med $k = 3$."},{"id":"9-7-1-n-quiz3-q1","task":"Hva er det neste tallet i Fibonacci-følgen $1, 1, 2, 3, 5, 8, 13, \\ldots$?","options":[{"id":"a","text":"$18$","isCorrect":false},{"id":"b","text":"$20$","isCorrect":false},{"id":"c","text":"$21$","isCorrect":true},{"id":"d","text":"$26$","isCorrect":false}],"solution":"I Fibonacci-følgen legger vi sammen de to siste leddene: $8 + 13 = 21$."},{"id":"9-7-1-n-quiz3-q2","task":"Følgen $50, 45, 40, 35, 30, \\ldots$ er aritmetisk. Hva er det 15. leddet?","options":[{"id":"a","text":"$-25$","isCorrect":false},{"id":"b","text":"$-20$","isCorrect":true},{"id":"c","text":"$-15$","isCorrect":false},{"id":"d","text":"$-30$","isCorrect":false}],"solution":"$d = 45 - 50 = -5$. $a_{15} = 50 + (15-1) \\cdot (-5) = 50 - 70 = -20$."}]}},{"id":"9-7-1-n-summary","type":"text","content":"## Oppsummering\n\nEn **tallfølge** er en ordnet liste med tall som følger et mønster. Leddene skrives $a_1, a_2, a_3, \\ldots$ og det generelle leddet er $a_n$.\n\n**Aritmetisk følge:** Differansen $d$ mellom leddene er konstant. Formel: $a_n = a_1 + (n-1) \\cdot d$.\n\n**Geometrisk følge:** Kvotienten $k$ mellom leddene er konstant. Formel: $a_n = a_1 \\cdot k^{n-1}$.\n\n**Andre følger:** Noen følger (som kvadrattall og Fibonacci) er verken aritmetiske eller geometriske, men har likevel tydelige mønstre.\n\nSjekk alltid differansene først (aritmetisk?), deretter kvotientene (geometrisk?), og til slutt andre mønstre."}],"exercises":[]}
+{
+  "id": "9-7-1-narrativ",
+  "courseId": "9",
+  "chapterNumber": "7.1",
+  "title": "Tallmønstre og tallfølger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende reise gjennom tallmønstre og tallfølger -- der vi oppdager skjulte regler i tallrekker, lærer å skille mellom aritmetiske og geometriske følger, og forstår hvorfor mønstre er en av matematikkens superkrefter.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og beskrive strukturar og forandringar i geometriske mønster og tallmønster med figurar, ord og formlar"
+  ],
+  "linkedChapterId": "9-7-1",
+  "content": [
+    {
+      "id": "9-7-1-n-intro",
+      "type": "text",
+      "content": "## Tallenes skjulte regler\n\nHar du noen gang lagt merke til at husnumrene på den ene siden av gaten alltid er oddetall? Eller at kalenderukene teller oppover med nøyaktig syv dager mellom hver? Overalt rundt oss finnes det **mønstre** -- regler som bestemmer hva som kommer neste gang.\n\nI matematikken kaller vi en ordnet liste med tall som følger et mønster for en **tallfølge**. Hvert tall i listen kalles et **ledd**. Det første leddet skriver vi som $a_1$, det andre som $a_2$, og det $n$-te leddet som $a_n$.\n\nSe på denne følgen: $2, 5, 8, 11, 14, \\ldots$ Hva skjer fra ledd til ledd? Vi legger til $3$ hver gang. Hvis noen ber deg om det 100. leddet, kunne du i prinsippet legge til $3$ nittini ganger -- men det finnes en smartere måte. Det er nettopp det dette kapittelet handler om."
+    },
+    {
+      "id": "9-7-1-n-section1",
+      "type": "text",
+      "content": "## Aritmetiske følger -- når vi legger til det samme\n\nTenk deg at du sparer penger i en sparebøsse. Første uke legger du inn 20 kr, andre uke 25 kr, tredje uke 30 kr, fjerde uke 35 kr. Hva er mønsteret? Jo, beløpet øker med $5$ kr for hver uke. En slik følge -- der **differansen** mellom hvert par av påfølgende ledd er den samme -- kalles en **aritmetisk følge**.\n\nDen konstante differansen kaller vi $d$. I eksempelet vårt er $d = 5$. Det fine med aritmetiske følger er at vi kan lage en formel for ethvert ledd:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nLa oss teste: $a_1 = 20$, $d = 5$. Det 10. leddet er $a_{10} = 20 + (10-1) \\cdot 5 = 20 + 45 = 65$ kr. Uke 10 legger du altså inn 65 kr.\n\nMen hva om differansen er negativ? Det er også mulig! Følgen $100, 93, 86, 79, \\ldots$ har $d = -7$. Tallene krymper, men det er fortsatt en aritmetisk følge. Tenk på det som en nedtelling -- for eksempel en rakett som teller ned drivstoffnivået."
+    },
+    {
+      "id": "9-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på aritmetiske følger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-1-n-quiz1-q0",
+            "task": "Følgen $7, 11, 15, 19, 23, \\ldots$ er aritmetisk. Hva er differansen $d$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$d = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$d = 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$d = 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$d = 11$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$11 - 7 = 4$, $15 - 11 = 4$, $19 - 15 = 4$. Differansen er konstant lik $d = 4$."
+          },
+          {
+            "id": "9-7-1-n-quiz1-q1",
+            "task": "En aritmetisk følge har $a_1 = 3$ og $d = 5$. Hva er $a_{20}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$103$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$98$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$95$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{20} = 3 + (20 - 1) \\cdot 5 = 3 + 95 = 98$."
+          },
+          {
+            "id": "9-7-1-n-quiz1-q2",
+            "task": "Hvilken av disse følgene er IKKE aritmetisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10, 7, 4, 1, -2, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5, 5, 5, 5, 5, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1, 3, 5, 7, 9, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2, 4, 8, 16, 32, \\ldots$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I følgen $2, 4, 8, 16, 32, \\ldots$ er differansene $2, 4, 8, 16$ -- de er IKKE konstante. Denne følgen er geometrisk (vi ganger med $2$), ikke aritmetisk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-1-n-section2",
+      "type": "text",
+      "content": "## Geometriske følger -- når vi ganger med det samme\n\nForestill deg at du legger et kornkorn på det første ruten på et sjakkbrett, to korn på den andre ruten, fire på den tredje, åtte på den fjerde, og så videre. Snart blir mengdene enorme! Denne typen vekst -- der vi ganger med samme tall for hvert steg -- kalles en **geometrisk følge**.\n\nI stedet for en fast differanse $d$ har vi en fast **kvotient** $k$. Den finner vi ved å dele et ledd på det forrige:\n\n$$k = \\frac{a_{n+1}}{a_n}$$\n\nFor sjakkbrett-eksempelet: $k = \\frac{2}{1} = \\frac{4}{2} = \\frac{8}{4} = 2$. Formelen for det $n$-te leddet er:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nSjakkbrettet har $a_1 = 1$ og $k = 2$, så rute nummer $64$ har $a_{64} = 1 \\cdot 2^{63} = 9\\,223\\,372\\,036\\,854\\,775\\,808$ korn -- over 9 trillioner! Det er mer enn all ris som noensinne er produsert i verden. Slik er kraften i eksponentiell vekst.\n\nGeometriske følger dukker opp overalt: bakterier som dobler seg, sparepenger med rente, radioaktivt forfall (der $k$ er mellom $0$ og $1$), og lydnivåer i desibel."
+    },
+    {
+      "id": "9-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på geometriske følger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-1-n-quiz2-q0",
+            "task": "Følgen $3, 12, 48, 192, \\ldots$ er geometrisk. Hva er kvotienten $k$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$k = 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$k = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$k = 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$k = 12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{12}{3} = 4$, $\\frac{48}{12} = 4$, $\\frac{192}{48} = 4$. Kvotienten er $k = 4$."
+          },
+          {
+            "id": "9-7-1-n-quiz2-q1",
+            "task": "En bakteriekultur starter med 100 bakterier og tredobler seg hver time. Hvor mange bakterier er det etter 5 timer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1500$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$24\\,300$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$30\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8100$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometrisk følge med $a_1 = 100$ og $k = 3$. Etter 5 timer er vi ved ledd $a_6 = 100 \\cdot 3^5 = 100 \\cdot 243 = 24\\,300$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-1-n-section3",
+      "type": "text",
+      "content": "## Følger som verken er aritmetiske eller geometriske\n\nIkke alle tallfølger passer inn i de to kategoriene vi har sett på. Noen av de mest fascinerende følgene har helt egne regler.\n\n**Kvadrattallene:** $1, 4, 9, 16, 25, 36, \\ldots$ Her er mønsteret $a_n = n^2$. Differansene er $3, 5, 7, 9, 11, \\ldots$ -- de er ikke konstante (ikke aritmetisk), og kvotientene $4, 2{,}25, 1{,}78, \\ldots$ er heller ikke konstante (ikke geometrisk). Men mønsteret er likevel tydelig.\n\n**Fibonacci-følgen:** $1, 1, 2, 3, 5, 8, 13, 21, \\ldots$ Her er regelen at hvert ledd er summen av de to foregående: $1 + 1 = 2$, $1 + 2 = 3$, $2 + 3 = 5$, og så videre. Denne følgen dukker opp i naturen overalt -- i solsikkens frøspiral, i sneglehus, og i treers forgreiningsmønstre.\n\nNår du møter en ukjent følge, start alltid med å sjekke: Er differansene konstante? Da er den aritmetisk. Er kvotientene konstante? Da er den geometrisk. Hvis ingen av delene stemmer, må du lete etter andre mønstre -- kanskje er tallene kvadrattall, trekanttall, eller noe helt annet."
+    },
+    {
+      "id": "9-7-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ulike typer tallfølger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-1-n-quiz3-q0",
+            "task": "Hvilken type følge er $1, 3, 9, 27, 81, \\ldots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Aritmetisk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fibonacci",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Geometrisk",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen av delene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvotienten er $\\frac{3}{1} = \\frac{9}{3} = \\frac{27}{9} = 3$. Konstant kvotient betyr at det er en geometrisk følge med $k = 3$."
+          },
+          {
+            "id": "9-7-1-n-quiz3-q1",
+            "task": "Hva er det neste tallet i Fibonacci-følgen $1, 1, 2, 3, 5, 8, 13, \\ldots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$21$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$26$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I Fibonacci-følgen legger vi sammen de to siste leddene: $8 + 13 = 21$."
+          },
+          {
+            "id": "9-7-1-n-quiz3-q2",
+            "task": "Følgen $50, 45, 40, 35, 30, \\ldots$ er aritmetisk. Hva er det 15. leddet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-25$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-30$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-20$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$d = 45 - 50 = -5$. $a_{15} = 50 + (15-1) \\cdot (-5) = 50 - 70 = -20$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEn **tallfølge** er en ordnet liste med tall som følger et mønster. Leddene skrives $a_1, a_2, a_3, \\ldots$ og det generelle leddet er $a_n$.\n\n**Aritmetisk følge:** Differansen $d$ mellom leddene er konstant. Formel: $a_n = a_1 + (n-1) \\cdot d$.\n\n**Geometrisk følge:** Kvotienten $k$ mellom leddene er konstant. Formel: $a_n = a_1 \\cdot k^{n-1}$.\n\n**Andre følger:** Noen følger (som kvadrattall og Fibonacci) er verken aritmetiske eller geometriske, men har likevel tydelige mønstre.\n\nSjekk alltid differansene først (aritmetisk?), deretter kvotientene (geometrisk?), og til slutt andre mønstre."
+    }
+  ],
+  "exercises": []
+}

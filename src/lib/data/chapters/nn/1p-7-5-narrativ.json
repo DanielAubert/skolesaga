@@ -1,1 +1,697 @@
-{"id":"1p-7-5-narrativ","courseId":"1p","chapterNumber":"7.5","title":"Kjennetegn ved funksjonar","subtitle":"Narrativ versjon","description":"Ein forteljing om å teikne funksjonens portrett -- definisjonsmenngde, nullpunkt, toppunkt, vekstfart, symmetri og asymptot i éin samla drøfting.","estimatedMinutes":33,"competenceGoals":["tolke og bruke funksjonar og drøfte eigenskapane deira"],"linkedChapterId":"1p-7-5","content":[{"id":"1p-7-5-n-intro","type":"text","content":"## Å bli kjent med ein funksjon\n\nTenk på korleis du skildrar ein person du kjenner godt: ikkje berre namnet, men personlegdomen -- kva som får dei opp om morgonen, kvar grensene går, når dei er på topp. Funksjonar kan skildrast på same måten. I staden for berre å setje inn $x$-verdiar og rekne ut $y$-verdiar, kan vi spørje om heilskapen: Kva $x$-verdiar kan vi bruke? Kva $y$-verdiar kan funksjonen gi? Kvar kryssa grafen $x$-aksen? Finst det høgaste eller lågaste punkt? Kor stig grafen, og kor sink ho?\n\nÅ svara på slike spørsmål kallast å **drøfte** funksjonen -- og det er nettopp det dette kapittelet handlar om. Vi skal bygge opp ei verktøykasse av kjennetegn: definisjonsmengde, verdimengde, nullpunkt, topp- og bunnpunkt, vekstfart, symmetri og asymptot. Til slutt skal du kunne ta ein kva som helst funksjon og teikne eit komplett portrett av ho."},{"id":"1p-7-5-n-section1","type":"text","content":"## Definisjonsmengde og verdimengde -- inngang og utgang\n\nEin funksjon er som ein maskin: du matar inn ein $x$-verdi, og ut kjem ein $y$-verdi. Dei to første spørsmåla i kvar drøfting er då: kva kan maskina *ta imot*, og kva kan ho *leverera*?\n\n**Definisjonsmenngda** $D_f$ er mengda av alle $x$-verdiar vi kan setje inn i funksjonen. **Verdimengda** $V_f$ er mengda av alle $y$-verdiar funksjonen kan gi.\n\nFor den lineære funksjonen $f(x) = 2x + 3$ er båe ubegrensa: du kan setje inn kva som helst, og du kan treffe kvar $y$-verdi. Altso $D_f = \\mathbb{R}$ og $V_f = \\mathbb{R}$ -- symbolet $\\mathbb{R}$ tyder alle reelle tal.\n\nMen sjå på $g(x) = x^2$. Ingangen er framleis fri, $D_g = \\mathbb{R}$ -- men utgangen er ikkje det! Eit kvadrat kan aldri bli negativt, så $V_g = [0, \\to\\rangle$: berre null og positive verdiar. Og $h(x) = \\frac{1}{x}$ har eit hol i ingangen: $x = 0$ er forbode (deling på null!), så $D_h = \\mathbb{R} \\setminus \\{0\\}$ -- alle tal unntatt null.\n\nTo døme til som vi får bruk for. For $f(x) = -x^2 + 4$ gjeld: sidan $-x^2 \\leq 0$ for alle $x$, er $f(x) \\leq 4$, med toppunkt i $(0, 4)$ -- altso $V_f = \\langle\\leftarrow, 4]$. Og eksponentialfunksjonen $g(x) = 3^x$ er alltid *strengt positiv*: ho nærmar seg null mot venstre utan å nå det, og veks utan grense mot høgre, så $V_g = \\langle 0, \\to\\rangle$."},{"id":"1p-7-5-n-quiz1","type":"exercise","exercise":{"id":"1p-7-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på definisjonsmengde og verdimengde:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-5-n-quiz1-q0","task":"Kva er definisjonsmenngda til ein funksjon?","options":[{"id":"a","text":"Alle $y$-verdiar funksjonen kan gi","isCorrect":false},{"id":"b","text":"Alle $x$-verdiar vi kan setje inn","isCorrect":true},{"id":"c","text":"Punkta der grafen kryssa aksane","isCorrect":false},{"id":"d","text":"Funksjonens største verdi","isCorrect":false}],"solution":"$D_f$ er ingangen til funksjonsmaskina: alle tillate $x$-verdiar."},{"id":"1p-7-5-n-quiz1-q1","task":"Kva er verdimengda til $g(x)=x^2$?","options":[{"id":"a","text":"Alle reelle tal","isCorrect":false},{"id":"b","text":"Alle negative tal","isCorrect":false},{"id":"c","text":"$[0, \\to\\rangle$ -- null og alle positive tal","isCorrect":true},{"id":"d","text":"Berre partal","isCorrect":false}],"solution":"Eit kvadrat er aldri negativt: $x^2\\geq 0$ for alle $x$, og alle verdiar frå $0$ og oppover kan treffas."},{"id":"1p-7-5-n-quiz1-q2","task":"Kvifor er $x=0$ utanfor definisjonsmenngda til $h(x)=\\frac{1}{x}$?","options":[{"id":"a","text":"Fordi deling på null ikkje er definert","isCorrect":true},{"id":"b","text":"Fordi $h(0)=0$","isCorrect":false},{"id":"c","text":"Fordi grafen kryssa origo","isCorrect":false},{"id":"d","text":"Fordi negative tal ikkje er tillate","isCorrect":false}],"solution":"$\\frac{1}{0}$ finst ikkje -- derfor er $D_h=\\mathbb{R}\\setminus\\{0\\}$, alle reelle tal unntatt null."},{"id":"1p-7-5-n-quiz1-q3","task":"Kva er verdimengda til $g(x)=3^x$?","options":[{"id":"a","text":"Alle reelle tal","isCorrect":false},{"id":"b","text":"$[0, \\to\\rangle$","isCorrect":false},{"id":"c","text":"$\\langle\\leftarrow, 3]$","isCorrect":false},{"id":"d","text":"$\\langle 0, \\to\\rangle$ -- alle strengt positive tal","isCorrect":true}],"solution":"$3^x$ er alltid positiv: ho nærmar seg $0$ mot venstre utan å nå det, og veks ubegrenset mot høgre."}]}},{"id":"1p-7-5-n-section2","type":"text","content":"## Nullpunkt -- der grafen treffer bakken\n\nNeste kjennetegn: kvar kryssa grafen $x$-aksen? Eit **nullpunkt** er ein $x$-verdi $x_0$ der funksjonen er null, altso $f(x_0) = 0$. Grafisk er det der grafen skjer eller tangerer $x$-aksen -- og vi finn nullpunkta ved å løyse likninga $f(x) = 0$.\n\nFor lineære funksjonar er det éin rask likning: $f(x) = 2x - 6 = 0$ gir $x = 3$. Eller $f(x) = 3x + 12 = 0$, som gir $3x = -12$ og dermed $x = -4$.\n\nAndregradsfunksjonar kan ha *to* nullpunkt. Ta $g(x) = x^2 - 9$: likninga $x^2 = 9$ har løysingane $x = 3$ *og* $x = -3$ -- grafen, ein parabel, dykkjer under $x$-aksen mellom dei og kryssa to stader. Eller $g(x) = x^2 - 5x + 6$, som kan faktoriserast: $(x-2)(x-3) = 0$ gir nullpunkta $x = 2$ og $x = 3$. Generelt har ein andregradsfunksjon $0$, $1$ eller $2$ nullpunkt, avhengig av om parabelen ligg heilt over (eller under) aksen, berører ho så vidt, eller kryssa ho.\n\nOg nokre funksjonar treffer aldri bakken: eksponentialfunksjonen $h(x) = 3^x$ er alltid strengt positiv, så likninga $3^x = 0$ har *ingen* løysing -- reine eksponentialfunksjonar har ingen nullpunkt. Men variantar kan ha det: $h(x) = 2 \\cdot 0{,}5^x - 8 = 0$ gir $0{,}5^x = 4$, og sidan $0{,}5^{-2} = 2^2 = 4$, er nullpunktet $x = -2$.\n\nNullpunkta er ofte dei mest meiningsfylte punkta i praktiske modellar: der overskuddet går gjennom null, der ballen treffer bakken, der temperaturen kryssa frysepunktet."},{"id":"1p-7-5-n-quiz2","type":"exercise","exercise":{"id":"1p-7-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på nullpunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-5-n-quiz2-q0","task":"Kva er eit nullpunkt for funksjonen $f$?","options":[{"id":"a","text":"Ein $x$-verdi der $f(x)=0$","isCorrect":true},{"id":"b","text":"Punktet der $x=0$","isCorrect":false},{"id":"c","text":"Funksjonens lågaste verdi","isCorrect":false},{"id":"d","text":"Ein verdi utanfor definisjonsmenngda","isCorrect":false}],"solution":"Nullpunktet er løysinga av $f(x)=0$ -- der grafen skjer $x$-aksen. (Punktet der $x=0$ er derimot skjeringa med $y$-aksen.)"},{"id":"1p-7-5-n-quiz2-q1","task":"Kva er nullpunktet til $f(x)=3x+12$?","options":[{"id":"a","text":"$x=4$","isCorrect":false},{"id":"b","text":"$x=12$","isCorrect":false},{"id":"c","text":"$x=-4$","isCorrect":true},{"id":"d","text":"$x=3$","isCorrect":false}],"solution":"$3x+12=0 \\Rightarrow 3x=-12 \\Rightarrow x=-4$."},{"id":"1p-7-5-n-quiz2-q2","task":"Kva nullpunkt har $g(x)=x^2-9$?","options":[{"id":"a","text":"Berre $x=3$","isCorrect":false},{"id":"b","text":"$x=-3$ og $x=3$","isCorrect":true},{"id":"c","text":"Berre $x=9$","isCorrect":false},{"id":"d","text":"Ingen","isCorrect":false}],"solution":"$x^2=9$ har to løysingar: $x=3$ og $x=-3$. Parabelen skjer $x$-aksen to stader."},{"id":"1p-7-5-n-quiz2-q3","task":"Kor mange nullpunkt har $h(x)=3^x$?","options":[{"id":"a","text":"Eitt","isCorrect":false},{"id":"b","text":"To","isCorrect":false},{"id":"c","text":"Uendeleg mange","isCorrect":false},{"id":"d","text":"Ingen","isCorrect":true}],"solution":"$3^x$ er strengt positiv for alle $x$ -- grafen nærmar seg $x$-aksen, men når ho henne aldri. Likninga $3^x=0$ har ingen løysing."}]}},{"id":"1p-7-5-n-section3","type":"text","content":"## Toppunkt, bunnpunkt og vekstfart\n\nNo til funksjonens dramatiske høydepunkt. Eit **toppunkt** er eit punkt der funksjonen har ein lokal høgaste verdi -- grafen stig opp til det og fell etterpå. Eit **bunnpunkt** er motsett: ein lokal lågaste verdi, der grafen snur frå fallande til stigande.\n\nFor andregradsfunksjonar $f(x) = ax^2 + bx + c$ er reglane klare. Teiknet til $a$ bestemmer forma: er $a > 0$, vender parabelen oppover som eit smilmunne og har eitt **bunnpunkt**; er $a < 0$, vender ho nedover og har eitt **toppunkt**. Og plasseringa har sin eigen formel -- ekstremalpunktet ligg ved\n\n$$x = -\\frac{b}{2a}$$\n\nPrøv på $f(x) = x^2 - 6x + 5$: her er $a = 1 > 0$, altso bunnpunkt, ved $x = -\\frac{-6}{2 \\cdot 1} = 3$. Verdien der er $f(3) = 9 - 18 + 5 = -4$, så bunnpunktet er $(3, -4)$. Og for $g(x) = -2x^2 + 8x + 3$: $a = -2 < 0$ gir toppunkt, ved $x = -\\frac{8}{2 \\cdot (-2)} = 2$, med $g(2) = -8 + 16 + 3 = 11$ -- toppunktet er $(2, 11)$.\n\nTett knytt til dette er **vekstfarten**: kor raskt funksjonen endrar seg. Ein funksjon er **stigande** i eit intervall der $f(x)$ aukar når $x$ aukar (grafen går oppover mot høgre) og **fallande** der $f(x)$ minkar. Lineære funksjonar er enklaste: vekstfarten er konstant lik stigningstalet $a$ -- alltid stigande viss $a > 0$, alltid fallande viss $a < 0$. For andre funksjonar varierer vekstfarten, og ekstremalpunkta er vendepunkta i historia: funksjonen med bunnpunkt i $x = 3$ er fallande for $x < 3$ og stigande for $x > 3$."},{"id":"1p-7-5-n-quiz3","type":"exercise","exercise":{"id":"1p-7-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på topp- og bunnpunkt og vekstfart:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-5-n-quiz3-q0","task":"Korleis ser du på $f(x)=ax^2+bx+c$ om parabelen har topp- eller bunnpunkt?","options":[{"id":"a","text":"Teiknet til $c$","isCorrect":false},{"id":"b","text":"Teiknet til $a$: $a>0$ gir bunnpunkt, $a<0$ gir toppunkt","isCorrect":true},{"id":"c","text":"Tal på nullpunkt","isCorrect":false},{"id":"d","text":"Storleiken på $b$","isCorrect":false}],"solution":"$a>0$: parabelen vender oppover (bunnpunkt). $a<0$: ho vender nedover (toppunkt)."},{"id":"1p-7-5-n-quiz3-q1","task":"Kor ligg ekstremalpunktet til $f(x)=x^2-6x+5$?","options":[{"id":"a","text":"$x=6$","isCorrect":false},{"id":"b","text":"$x=-3$","isCorrect":false},{"id":"c","text":"$x=3$","isCorrect":true},{"id":"d","text":"$x=-6$","isCorrect":false}],"solution":"$x=-\\frac{b}{2a}=-\\frac{-6}{2\\cdot 1}=3$. Siden $a=1>0$ er det eit bunnpunkt: $f(3)=9-18+5=-4$, altso $(3,-4)$."},{"id":"1p-7-5-n-quiz3-q2","task":"Kva er toppunktet til $g(x)=-2x^2+8x+3$?","options":[{"id":"a","text":"$(2, 11)$","isCorrect":true},{"id":"b","text":"$(-2, 11)$","isCorrect":false},{"id":"c","text":"$(2, -11)$","isCorrect":false},{"id":"d","text":"$(4, 3)$","isCorrect":false}],"solution":"$x=-\\frac{8}{2\\cdot(-2)}=2$ og $g(2)=-8+16+3=11$: toppunkt $(2, 11)$."},{"id":"1p-7-5-n-quiz3-q3","task":"Ein funksjon har bunnpunkt i $x=3$. Kor er ho stigande og fallande?","options":[{"id":"a","text":"Stigande overalt","isCorrect":false},{"id":"b","text":"Stigande for $x<3$, fallande for $x>3$","isCorrect":false},{"id":"c","text":"Fallande overalt","isCorrect":false},{"id":"d","text":"Synkande for $x<3$, stigande for $x>3$","isCorrect":true}],"solution":"Grafen synkar ned mot bunnpunktet og stig etterpå: synkande for $x<3$, stigande for $x>3$."}]}},{"id":"1p-7-5-n-section4","type":"text","content":"## Symmetri, asymptotar -- og det store portrettet\n\nTo kjennetegn til fullfører verktøykassen. Det første er **symmetri**. Nokre funksjonar er symmetriske om $y$-aksen: speiler du grafen i aksen, ser ho lik ut. Det skjer når $f(-x) = f(x)$ for alle $x$ -- som for $x^2$, $x^4$ og $|x|$ (såkalte partal-funksjonar). Andre er symmetriske om origo, med $f(-x) = -f(x)$ -- som $x^3$ og $x$ (oddetal-funksjonar). Og andregradsfunksjonar har alltid ei vertikal symmetrilinje gjennom topp- eller bunnpunktet: linja $x = -\\frac{b}{2a}$. Derfor ligg ekstremalpunktet alltid midt mellom nullpunkta!\n\nDet andre er **asymptotar**: linjer som grafen nærmar seg meir og meir utan å treffe. Ein **horisontal asymptote** er ein $y$-verdi grafen flatar ut mot når $x$ blir veldig stor eller veldig liten -- $f(x) = 3^x$ har horisontal asymptote $y = 0$, som grafen kryp langs mot venstre utan å krysse. Ein **vertikal asymptote** er ein $x$-verdi der grafen «sprengjer» mot uendeleg -- $f(x) = \\frac{1}{x}$ har vertikal asymptote $x = 0$ (og horisontal $y = 0$). Asymptotar møter vi oftast i eksponential- og brøkfunksjonar.\n\nLa oss avslutta med ein komplett drøfting av $f(x) = -x^2 + 4x + 5$. *Definisjonsmengde:* $D_f = \\mathbb{R}$. *Nullpunkt:* $-x^2 + 4x + 5 = 0$ gir $x = -1$ og $x = 5$. *Ekstremalpunkt:* $a = -1 < 0$ gir toppunkt ved $x = -\\frac{4}{2 \\cdot (-1)} = 2$, med $f(2) = -4 + 8 + 5 = 9$ -- toppunkt $(2, 9)$, pent plassert midt mellom nullpunkta. *Verdimengde:* $V_f = \\langle\\leftarrow, 9]$. *Monotoni:* stigande for $x < 2$, synkande for $x > 2$. Der har du det -- eit fullstendig portrett av funksjonen, teikna med fem spørsmål."},{"id":"1p-7-5-n-quiz4","type":"exercise","exercise":{"id":"1p-7-5-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på symmetri, asymptotar og drøfting:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-5-n-quiz4-q0","task":"Kva funksjon er symmetrisk om $y$-aksen?","options":[{"id":"a","text":"$f(x)=x^2$","isCorrect":true},{"id":"b","text":"$f(x)=x^3$","isCorrect":false},{"id":"c","text":"$f(x)=2x+1$","isCorrect":false},{"id":"d","text":"$f(x)=3^x$","isCorrect":false}],"solution":"$f(-x)=(-x)^2=x^2=f(x)$ -- grafen er sitt eige speilbilde om $y$-aksen."},{"id":"1p-7-5-n-quiz4-q1","task":"Kva er ein horisontal asymptote?","options":[{"id":"a","text":"Ein linje grafen alltid kryss","isCorrect":false},{"id":"b","text":"Funksjonens største verdi","isCorrect":false},{"id":"c","text":"Ein $y$-verdi grafen nærmar seg når $x$ blir veldig stor eller liten, utan å nå ho","isCorrect":true},{"id":"d","text":"Det same som eit nullpunkt","isCorrect":false}],"solution":"Grafen flatar ut mot asymptoten -- som $3^x$ som kryp mot $y=0$ utan å treffe."},{"id":"1p-7-5-n-quiz4-q2","task":"Kva asymptotar har $f(x)=\\frac{1}{x}$?","options":[{"id":"a","text":"Berre horisontal $y=1$","isCorrect":false},{"id":"b","text":"Vertikal $x=0$ og horisontal $y=0$","isCorrect":true},{"id":"c","text":"Berre vertikal $x=1$","isCorrect":false},{"id":"d","text":"Ingen asymptotar","isCorrect":false}],"solution":"Nær $x=0$ sprengjer grafen mot uendeleg (vertikal asymptote), og for store $|x|$ flatar ho ut mot $y=0$ (horisontal asymptote)."},{"id":"1p-7-5-n-quiz4-q3","task":"Funksjonen $f(x)=-x^2+4x+5$ har nullpunkt $x=-1$ og $x=5$. Kor ligg toppunktet?","options":[{"id":"a","text":"$x=4$","isCorrect":false},{"id":"b","text":"$x=0$","isCorrect":false},{"id":"c","text":"$x=5$","isCorrect":false},{"id":"d","text":"$x=2$","isCorrect":true}],"solution":"Parabelen er symmetrisk om linja gjennom toppunktet, så det ligg midt mellom nullpunkta: $x=\\frac{-1+5}{2}=2$. Samme svar gir $x=-\\frac{b}{2a}$."},{"id":"1p-7-5-n-quiz4-q4","task":"Kva funksjonstype har konstant vekstfart, ingen ekstremalpunkt og ingen asymptotar?","options":[{"id":"a","text":"Andregradsfunksjonen","isCorrect":false},{"id":"b","text":"Den lineære funksjonen","isCorrect":true},{"id":"c","text":"Eksponentialfunksjonen","isCorrect":false},{"id":"d","text":"Brøkfunksjonen","isCorrect":false}],"solution":"Den lineære $f(x)=ax+b$ har vekstfart konstant lik $a$, ingen topp-/bunnpunkt og ingen asymptotar. Parabelen har ekstremalpunkt, eksponentialfunksjonen har asymptote."}]}},{"id":"1p-7-5-n-summary","type":"text","content":"## Oppsummering\n\nVi lærte å teikne eit komplett portrett av ein funksjon -- å *drøfte* ho, som det heiter på fagspråket.\n\nPortrettet byggast av faste spørsmål. **Definisjonsmengden** $D_f$ er alle tillate $x$-verdiar, **verdimengden** $V_f$ alle moglege $y$-verdiar -- hugs at $x^2$ aldri blir negativ, og at $3^x$ alltid er strengt positiv. **Nullpunkta** finn vi ved å løyse $f(x) = 0$: lineære funksjonar har høgst eitt, parabler opptil to, reine eksponentialfunksjonar ingen.\n\n**Ekstremalpunkta** er parabelens dramatiske vendepunkt: $a > 0$ gir bunnpunkt, $a < 0$ toppunkt, alltid ved $x = -\\frac{b}{2a}$ -- på symmetrilinja, midt mellom nullpunkta. Rundt dei skiftar **vekstfarten**: funksjonen er stigande der grafen går oppover og synkande der ho går nedover, medan lineære funksjonar held konstant fart lik stigningstalet.\n\n**Symmetri** ($f(-x) = f(x)$ om $y$-aksen, $f(-x) = -f(x)$ om origo) og **asymptotar** -- linjene grafen kryp mot utan å nå, som $y = 0$ for $3^x$ og $x = 0$ for $\\frac{1}{x}$ -- fullførte verktøykassen.\n\nDrøftelista di er klar: definisjonsmengde og verdimengde, nullpunkt, topp-/bunnpunkt, stigning og synking. Fem spørsmål -- og kvar funksjon må vise sitt sanne ansikt."}],"exercises":[],"_meta":{"sourceHash":"a0692b9a05fe8ba6","translatedAt":"2026-06-16T09:59:24.304Z","model":"claude-haiku-4-5-20251001","strings":116,"tm":{"a6bdb113e02130f3":"Kjennetegn ved funksjonar","b195b06d1ed59702":"Narrativ versjon","405ba55347ce9d6c":"Ein forteljing om å teikne funksjonens portrett -- definisjonsmenngde, nullpunkt, toppunkt, vekstfart, symmetri og asymptot i éin samla drøfting.","4c25e1852a6998fe":"tolke og bruke funksjonar og drøfte eigenskapane deira","a97c98e01783015a":"## Å bli kjent med ein funksjon\n\nTenk på korleis du skildrar ein person du kjenner godt: ikkje berre namnet, men personlegdomen -- kva som får dei opp om morgonen, kvar grensene går, når dei er på topp. Funksjonar kan skildrast på same måten. I staden for berre å setje inn $x$-verdiar og rekne ut $y$-verdiar, kan vi spørje om heilskapen: Kva $x$-verdiar kan vi bruke? Kva $y$-verdiar kan funksjonen gi? Kvar kryssa grafen $x$-aksen? Finst det høgaste eller lågaste punkt? Kor stig grafen, og kor sink ho?\n\nÅ svara på slike spørsmål kallast å **drøfte** funksjonen -- og det er nettopp det dette kapittelet handlar om. Vi skal bygge opp ei verktøykasse av kjennetegn: definisjonsmengde, verdimengde, nullpunkt, topp- og bunnpunkt, vekstfart, symmetri og asymptot. Til slutt skal du kunne ta ein kva som helst funksjon og teikne eit komplett portrett av ho.","00897b8bac1d6219":"## Definisjonsmengde og verdimengde -- inngang og utgang\n\nEin funksjon er som ein maskin: du matar inn ein $x$-verdi, og ut kjem ein $y$-verdi. Dei to første spørsmåla i kvar drøfting er då: kva kan maskina *ta imot*, og kva kan ho *leverera*?\n\n**Definisjonsmenngda** $D_f$ er mengda av alle $x$-verdiar vi kan setje inn i funksjonen. **Verdimengda** $V_f$ er mengda av alle $y$-verdiar funksjonen kan gi.\n\nFor den lineære funksjonen $f(x) = 2x + 3$ er båe ubegrensa: du kan setje inn kva som helst, og du kan treffe kvar $y$-verdi. Altso $D_f = \\mathbb{R}$ og $V_f = \\mathbb{R}$ -- symbolet $\\mathbb{R}$ tyder alle reelle tal.\n\nMen sjå på $g(x) = x^2$. Ingangen er framleis fri, $D_g = \\mathbb{R}$ -- men utgangen er ikkje det! Eit kvadrat kan aldri bli negativt, så $V_g = [0, \\to\\rangle$: berre null og positive verdiar. Og $h(x) = \\frac{1}{x}$ har eit hol i ingangen: $x = 0$ er forbode (deling på null!), så $D_h = \\mathbb{R} \\setminus \\{0\\}$ -- alle tal unntatt null.\n\nTo døme til som vi får bruk for. For $f(x) = -x^2 + 4$ gjeld: sidan $-x^2 \\leq 0$ for alle $x$, er $f(x) \\leq 4$, med toppunkt i $(0, 4)$ -- altso $V_f = \\langle\\leftarrow, 4]$. Og eksponentialfunksjonen $g(x) = 3^x$ er alltid *strengt positiv*: ho nærmar seg null mot venstre utan å nå det, og veks utan grense mot høgre, så $V_g = \\langle 0, \\to\\rangle$.","d3283051f421c32b":"Test deg sjølv på definisjonsmengde og verdimengde:","4097889236a2af26":"placeholder","e10cc09da8f318d9":"Kva er definisjonsmenngda til ein funksjon?","110801cb687bf7ca":"Alle $y$-verdiar funksjonen kan gi","338f765efc2da5fd":"Alle $x$-verdiar vi kan setje inn","7e63fc3f14b34510":"Punkta der grafen kryssa aksane","6a7782199524835a":"Funksjonens største verdi","ac28465193057306":"$D_f$ er ingangen til funksjonsmaskina: alle tillate $x$-verdiar.","3e8f5d2e0f491616":"Kva er verdimengda til $g(x)=x^2$?","c88fef1c0641f109":"Alle reelle tal","2b05b6b2d47f9207":"Alle negative tal","9de2d6276767a144":"$[0, \\to\\rangle$ -- null og alle positive tal","4c058bedb3b86f27":"Berre partal","3b256cd7b16cb9a6":"Eit kvadrat er aldri negativt: $x^2\\geq 0$ for alle $x$, og alle verdiar frå $0$ og oppover kan treffas.","7c683f15399c1a29":"Kvifor er $x=0$ utanfor definisjonsmenngda til $h(x)=\\frac{1}{x}$?","f1293d0008949cfd":"Fordi deling på null ikkje er definert","c3ce222fc1dfbe91":"Fordi $h(0)=0$","38a8b77cc4a2df30":"Fordi grafen kryssa origo","ab7c56391f9afe1c":"Fordi negative tal ikkje er tillate","5edc90542eefbdec":"$\\frac{1}{0}$ finst ikkje -- derfor er $D_h=\\mathbb{R}\\setminus\\{0\\}$, alle reelle tal unntatt null.","c07c542294d8b29f":"Kva er verdimengda til $g(x)=3^x$?","24f51ecc49abafa9":"$[0, \\to\\rangle$","462319abc160588f":"$\\langle\\leftarrow, 3]$","fd6f2f316f69118b":"$\\langle 0, \\to\\rangle$ -- alle strengt positive tal","7c90850dddf30d1d":"$3^x$ er alltid positiv: ho nærmar seg $0$ mot venstre utan å nå det, og veks ubegrenset mot høgre.","e61b006c7d50f0f4":"## Nullpunkt -- der grafen treffer bakken\n\nNeste kjennetegn: kvar kryssa grafen $x$-aksen? Eit **nullpunkt** er ein $x$-verdi $x_0$ der funksjonen er null, altso $f(x_0) = 0$. Grafisk er det der grafen skjer eller tangerer $x$-aksen -- og vi finn nullpunkta ved å løyse likninga $f(x) = 0$.\n\nFor lineære funksjonar er det éin rask likning: $f(x) = 2x - 6 = 0$ gir $x = 3$. Eller $f(x) = 3x + 12 = 0$, som gir $3x = -12$ og dermed $x = -4$.\n\nAndregradsfunksjonar kan ha *to* nullpunkt. Ta $g(x) = x^2 - 9$: likninga $x^2 = 9$ har løysingane $x = 3$ *og* $x = -3$ -- grafen, ein parabel, dykkjer under $x$-aksen mellom dei og kryssa to stader. Eller $g(x) = x^2 - 5x + 6$, som kan faktoriserast: $(x-2)(x-3) = 0$ gir nullpunkta $x = 2$ og $x = 3$. Generelt har ein andregradsfunksjon $0$, $1$ eller $2$ nullpunkt, avhengig av om parabelen ligg heilt over (eller under) aksen, berører ho så vidt, eller kryssa ho.\n\nOg nokre funksjonar treffer aldri bakken: eksponentialfunksjonen $h(x) = 3^x$ er alltid strengt positiv, så likninga $3^x = 0$ har *ingen* løysing -- reine eksponentialfunksjonar har ingen nullpunkt. Men variantar kan ha det: $h(x) = 2 \\cdot 0{,}5^x - 8 = 0$ gir $0{,}5^x = 4$, og sidan $0{,}5^{-2} = 2^2 = 4$, er nullpunktet $x = -2$.\n\nNullpunkta er ofte dei mest meiningsfylte punkta i praktiske modellar: der overskuddet går gjennom null, der ballen treffer bakken, der temperaturen kryssa frysepunktet.","d70e8b96721cdc2c":"Test deg sjølv på nullpunkt:","732163c588df85ed":"Kva er eit nullpunkt for funksjonen $f$?","f22d61bef56c7e67":"Ein $x$-verdi der $f(x)=0$","425e70ebac17c5e9":"Punktet der $x=0$","6b67be9bcf1205cc":"Funksjonens lågaste verdi","415a0630bed37c8f":"Ein verdi utanfor definisjonsmenngda","23b550a2b2527a34":"Nullpunktet er løysinga av $f(x)=0$ -- der grafen skjer $x$-aksen. (Punktet der $x=0$ er derimot skjeringa med $y$-aksen.)","3622c7dd9e804c0f":"Kva er nullpunktet til $f(x)=3x+12$?","d847dadd3c0fdaed":"$x=4$","57584080965e1099":"$x=12$","5ebda8d107c816c4":"$x=-4$","b96efdc3a220bacc":"$x=3$","927b22de08a9163f":"$3x+12=0 \\Rightarrow 3x=-12 \\Rightarrow x=-4$.","0a7ebc78075e59e6":"Kva nullpunkt har $g(x)=x^2-9$?","7049acc3d5a8d7f6":"Berre $x=3$","5cbb560eeac799ca":"$x=-3$ og $x=3$","511dafaba0f4fca0":"Berre $x=9$","4caa44f124d9c5e5":"Ingen","81db2823d09f10d0":"$x^2=9$ har to løysingar: $x=3$ og $x=-3$. Parabelen skjer $x$-aksen to stader.","6b77c9a2174588aa":"Kor mange nullpunkt har $h(x)=3^x$?","64fc821125025fd5":"Eitt","f4b06ef6d3c81436":"To","6b5eccd31267a114":"Uendeleg mange","3d47def9e3150341":"$3^x$ er strengt positiv for alle $x$ -- grafen nærmar seg $x$-aksen, men når ho henne aldri. Likninga $3^x=0$ har ingen løysing.","d371e4585967d954":"## Toppunkt, bunnpunkt og vekstfart\n\nNo til funksjonens dramatiske høydepunkt. Eit **toppunkt** er eit punkt der funksjonen har ein lokal høgaste verdi -- grafen stig opp til det og fell etterpå. Eit **bunnpunkt** er motsett: ein lokal lågaste verdi, der grafen snur frå fallande til stigande.\n\nFor andregradsfunksjonar $f(x) = ax^2 + bx + c$ er reglane klare. Teiknet til $a$ bestemmer forma: er $a > 0$, vender parabelen oppover som eit smilmunne og har eitt **bunnpunkt**; er $a < 0$, vender ho nedover og har eitt **toppunkt**. Og plasseringa har sin eigen formel -- ekstremalpunktet ligg ved\n\n$$x = -\\frac{b}{2a}$$\n\nPrøv på $f(x) = x^2 - 6x + 5$: her er $a = 1 > 0$, altso bunnpunkt, ved $x = -\\frac{-6}{2 \\cdot 1} = 3$. Verdien der er $f(3) = 9 - 18 + 5 = -4$, så bunnpunktet er $(3, -4)$. Og for $g(x) = -2x^2 + 8x + 3$: $a = -2 < 0$ gir toppunkt, ved $x = -\\frac{8}{2 \\cdot (-2)} = 2$, med $g(2) = -8 + 16 + 3 = 11$ -- toppunktet er $(2, 11)$.\n\nTett knytt til dette er **vekstfarten**: kor raskt funksjonen endrar seg. Ein funksjon er **stigande** i eit intervall der $f(x)$ aukar når $x$ aukar (grafen går oppover mot høgre) og **fallande** der $f(x)$ minkar. Lineære funksjonar er enklaste: vekstfarten er konstant lik stigningstalet $a$ -- alltid stigande viss $a > 0$, alltid fallande viss $a < 0$. For andre funksjonar varierer vekstfarten, og ekstremalpunkta er vendepunkta i historia: funksjonen med bunnpunkt i $x = 3$ er fallande for $x < 3$ og stigande for $x > 3$.","48be634a5ec19f2a":"Test deg sjølv på topp- og bunnpunkt og vekstfart:","4071dc8f6d599b0d":"Korleis ser du på $f(x)=ax^2+bx+c$ om parabelen har topp- eller bunnpunkt?","6bfc52a3b3cc4ddf":"Teiknet til $c$","c0d651171652d5d6":"Teiknet til $a$: $a>0$ gir bunnpunkt, $a<0$ gir toppunkt","dfd9bd6c24931d11":"Tal på nullpunkt","9013303eef7d3ddb":"Storleiken på $b$","bd8d74efe121f6fa":"$a>0$: parabelen vender oppover (bunnpunkt). $a<0$: ho vender nedover (toppunkt).","32f8c2aa71a4cd86":"Kor ligg ekstremalpunktet til $f(x)=x^2-6x+5$?","3f65c329cfae7f78":"$x=6$","e1facfefc9b7446a":"$x=-3$","fff9c35bd796811b":"$x=-6$","d899b404fa8b2f74":"$x=-\\frac{b}{2a}=-\\frac{-6}{2\\cdot 1}=3$. Siden $a=1>0$ er det eit bunnpunkt: $f(3)=9-18+5=-4$, altso $(3,-4)$.","d19456dbe6275ff5":"Kva er toppunktet til $g(x)=-2x^2+8x+3$?","06609131fa78973f":"$x=-\\frac{8}{2\\cdot(-2)}=2$ og $g(2)=-8+16+3=11$: toppunkt $(2, 11)$.","bb9614140345d2c7":"Ein funksjon har bunnpunkt i $x=3$. Kor er ho stigande og fallande?","423c14d34d07842b":"Stigande overalt","3be62d75accfa8af":"Stigande for $x<3$, fallande for $x>3$","407ebafd9748df96":"Fallande overalt","6170d55093f8cd47":"Synkande for $x<3$, stigande for $x>3$","815f7f213d93bcfb":"Grafen synkar ned mot bunnpunktet og stig etterpå: synkande for $x<3$, stigande for $x>3$.","eccb59fe657b44d5":"## Symmetri, asymptotar -- og det store portrettet\n\nTo kjennetegn til fullfører verktøykassen. Det første er **symmetri**. Nokre funksjonar er symmetriske om $y$-aksen: speiler du grafen i aksen, ser ho lik ut. Det skjer når $f(-x) = f(x)$ for alle $x$ -- som for $x^2$, $x^4$ og $|x|$ (såkalte partal-funksjonar). Andre er symmetriske om origo, med $f(-x) = -f(x)$ -- som $x^3$ og $x$ (oddetal-funksjonar). Og andregradsfunksjonar har alltid ei vertikal symmetrilinje gjennom topp- eller bunnpunktet: linja $x = -\\frac{b}{2a}$. Derfor ligg ekstremalpunktet alltid midt mellom nullpunkta!\n\nDet andre er **asymptotar**: linjer som grafen nærmar seg meir og meir utan å treffe. Ein **horisontal asymptote** er ein $y$-verdi grafen flatar ut mot når $x$ blir veldig stor eller veldig liten -- $f(x) = 3^x$ har horisontal asymptote $y = 0$, som grafen kryp langs mot venstre utan å krysse. Ein **vertikal asymptote** er ein $x$-verdi der grafen «sprengjer» mot uendeleg -- $f(x) = \\frac{1}{x}$ har vertikal asymptote $x = 0$ (og horisontal $y = 0$). Asymptotar møter vi oftast i eksponential- og brøkfunksjonar.\n\nLa oss avslutta med ein komplett drøfting av $f(x) = -x^2 + 4x + 5$. *Definisjonsmengde:* $D_f = \\mathbb{R}$. *Nullpunkt:* $-x^2 + 4x + 5 = 0$ gir $x = -1$ og $x = 5$. *Ekstremalpunkt:* $a = -1 < 0$ gir toppunkt ved $x = -\\frac{4}{2 \\cdot (-1)} = 2$, med $f(2) = -4 + 8 + 5 = 9$ -- toppunkt $(2, 9)$, pent plassert midt mellom nullpunkta. *Verdimengde:* $V_f = \\langle\\leftarrow, 9]$. *Monotoni:* stigande for $x < 2$, synkande for $x > 2$. Der har du det -- eit fullstendig portrett av funksjonen, teikna med fem spørsmål.","5e6c6b2b8281ba62":"Test deg sjølv på symmetri, asymptotar og drøfting:","dfe60eeff206d74a":"Kva funksjon er symmetrisk om $y$-aksen?","b8afdd345b568317":"$f(x)=x^2$","c35445ccd3a7059b":"$f(x)=x^3$","750673a9884b6f62":"$f(x)=2x+1$","f7a49e5fd91ce34c":"$f(x)=3^x$","d6a1b01b330a90f9":"$f(-x)=(-x)^2=x^2=f(x)$ -- grafen er sitt eige speilbilde om $y$-aksen.","4295e090e1db7f13":"Kva er ein horisontal asymptote?","601cce2eb1acc0b8":"Ein linje grafen alltid kryss","cdc8d128af16670f":"Ein $y$-verdi grafen nærmar seg når $x$ blir veldig stor eller liten, utan å nå ho","c0821e41b2b0de7c":"Det same som eit nullpunkt","334d48ed03fcb0b3":"Grafen flatar ut mot asymptoten -- som $3^x$ som kryp mot $y=0$ utan å treffe.","768238a8a4549bf4":"Kva asymptotar har $f(x)=\\frac{1}{x}$?","adf9577d8560b398":"Berre horisontal $y=1$","0318c33c9f31a3d1":"Vertikal $x=0$ og horisontal $y=0$","b538b923d8159b31":"Berre vertikal $x=1$","f8de461ad0ca6c7b":"Ingen asymptotar","8b09504d21ae7f6f":"Nær $x=0$ sprengjer grafen mot uendeleg (vertikal asymptote), og for store $|x|$ flatar ho ut mot $y=0$ (horisontal asymptote).","c1961153f553e0ef":"Funksjonen $f(x)=-x^2+4x+5$ har nullpunkt $x=-1$ og $x=5$. Kor ligg toppunktet?","dbd5301847c30f3d":"$x=0$","64595896c714724d":"$x=5$","246bce8406ed5243":"$x=2$","319fe49a8cf00853":"Parabelen er symmetrisk om linja gjennom toppunktet, så det ligg midt mellom nullpunkta: $x=\\frac{-1+5}{2}=2$. Samme svar gir $x=-\\frac{b}{2a}$.","874f15ccc0901edd":"Kva funksjonstype har konstant vekstfart, ingen ekstremalpunkt og ingen asymptotar?","def4d2127a64e8e2":"Andregradsfunksjonen","140f1728df5c6503":"Den lineære funksjonen","1bd8437a7eed9190":"Eksponentialfunksjonen","3ce6c888114089c6":"Brøkfunksjonen","075373813466aa2c":"Den lineære $f(x)=ax+b$ har vekstfart konstant lik $a$, ingen topp-/bunnpunkt og ingen asymptotar. Parabelen har ekstremalpunkt, eksponentialfunksjonen har asymptote.","75cbd20d0d25bdd4":"## Oppsummering\n\nVi lærte å teikne eit komplett portrett av ein funksjon -- å *drøfte* ho, som det heiter på fagspråket.\n\nPortrettet byggast av faste spørsmål. **Definisjonsmengden** $D_f$ er alle tillate $x$-verdiar, **verdimengden** $V_f$ alle moglege $y$-verdiar -- hugs at $x^2$ aldri blir negativ, og at $3^x$ alltid er strengt positiv. **Nullpunkta** finn vi ved å løyse $f(x) = 0$: lineære funksjonar har høgst eitt, parabler opptil to, reine eksponentialfunksjonar ingen.\n\n**Ekstremalpunkta** er parabelens dramatiske vendepunkt: $a > 0$ gir bunnpunkt, $a < 0$ toppunkt, alltid ved $x = -\\frac{b}{2a}$ -- på symmetrilinja, midt mellom nullpunkta. Rundt dei skiftar **vekstfarten**: funksjonen er stigande der grafen går oppover og synkande der ho går nedover, medan lineære funksjonar held konstant fart lik stigningstalet.\n\n**Symmetri** ($f(-x) = f(x)$ om $y$-aksen, $f(-x) = -f(x)$ om origo) og **asymptotar** -- linjene grafen kryp mot utan å nå, som $y = 0$ for $3^x$ og $x = 0$ for $\\frac{1}{x}$ -- fullførte verktøykassen.\n\nDrøftelista di er klar: definisjonsmengde og verdimengde, nullpunkt, topp-/bunnpunkt, stigning og synking. Fem spørsmål -- og kvar funksjon må vise sitt sanne ansikt."}}}
+{
+  "id": "1p-7-5-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "7.5",
+  "title": "Kjennetegn ved funksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljing om å teikne funksjonens portrett -- definisjonsmenngde, nullpunkt, toppunkt, vekstfart, symmetri og asymptot i éin samla drøfting.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "tolke og bruke funksjonar og drøfte eigenskapane deira"
+  ],
+  "linkedChapterId": "1p-7-5",
+  "content": [
+    {
+      "id": "1p-7-5-n-intro",
+      "type": "text",
+      "content": "## Å bli kjent med ein funksjon\n\nTenk på korleis du skildrar ein person du kjenner godt: ikkje berre namnet, men personlegdomen -- kva som får dei opp om morgonen, kvar grensene går, når dei er på topp. Funksjonar kan skildrast på same måten. I staden for berre å setje inn $x$-verdiar og rekne ut $y$-verdiar, kan vi spørje om heilskapen: Kva $x$-verdiar kan vi bruke? Kva $y$-verdiar kan funksjonen gi? Kvar kryssa grafen $x$-aksen? Finst det høgaste eller lågaste punkt? Kor stig grafen, og kor sink ho?\n\nÅ svara på slike spørsmål kallast å **drøfte** funksjonen -- og det er nettopp det dette kapittelet handlar om. Vi skal bygge opp ei verktøykasse av kjennetegn: definisjonsmengde, verdimengde, nullpunkt, topp- og bunnpunkt, vekstfart, symmetri og asymptot. Til slutt skal du kunne ta ein kva som helst funksjon og teikne eit komplett portrett av ho."
+    },
+    {
+      "id": "1p-7-5-n-section1",
+      "type": "text",
+      "content": "## Definisjonsmengde og verdimengde -- inngang og utgang\n\nEin funksjon er som ein maskin: du matar inn ein $x$-verdi, og ut kjem ein $y$-verdi. Dei to første spørsmåla i kvar drøfting er då: kva kan maskina *ta imot*, og kva kan ho *leverera*?\n\n**Definisjonsmenngda** $D_f$ er mengda av alle $x$-verdiar vi kan setje inn i funksjonen. **Verdimengda** $V_f$ er mengda av alle $y$-verdiar funksjonen kan gi.\n\nFor den lineære funksjonen $f(x) = 2x + 3$ er båe ubegrensa: du kan setje inn kva som helst, og du kan treffe kvar $y$-verdi. Altso $D_f = \\mathbb{R}$ og $V_f = \\mathbb{R}$ -- symbolet $\\mathbb{R}$ tyder alle reelle tal.\n\nMen sjå på $g(x) = x^2$. Ingangen er framleis fri, $D_g = \\mathbb{R}$ -- men utgangen er ikkje det! Eit kvadrat kan aldri bli negativt, så $V_g = [0, \\to\\rangle$: berre null og positive verdiar. Og $h(x) = \\frac{1}{x}$ har eit hol i ingangen: $x = 0$ er forbode (deling på null!), så $D_h = \\mathbb{R} \\setminus \\{0\\}$ -- alle tal unntatt null.\n\nTo døme til som vi får bruk for. For $f(x) = -x^2 + 4$ gjeld: sidan $-x^2 \\leq 0$ for alle $x$, er $f(x) \\leq 4$, med toppunkt i $(0, 4)$ -- altso $V_f = \\langle\\leftarrow, 4]$. Og eksponentialfunksjonen $g(x) = 3^x$ er alltid *strengt positiv*: ho nærmar seg null mot venstre utan å nå det, og veks utan grense mot høgre, så $V_g = \\langle 0, \\to\\rangle$."
+    },
+    {
+      "id": "1p-7-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på definisjonsmengde og verdimengde:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-5-n-quiz1-q0",
+            "task": "Kva er definisjonsmenngda til ein funksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle $y$-verdiar funksjonen kan gi",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alle $x$-verdiar vi kan setje inn",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Punkta der grafen kryssa aksane",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonens største verdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D_f$ er ingangen til funksjonsmaskina: alle tillate $x$-verdiar."
+          },
+          {
+            "id": "1p-7-5-n-quiz1-q1",
+            "task": "Kva er verdimengda til $g(x)=x^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle reelle tal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alle negative tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[0, \\to\\rangle$ -- null og alle positive tal",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Berre partal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit kvadrat er aldri negativt: $x^2\\geq 0$ for alle $x$, og alle verdiar frå $0$ og oppover kan treffas."
+          },
+          {
+            "id": "1p-7-5-n-quiz1-q2",
+            "task": "Kvifor er $x=0$ utanfor definisjonsmenngda til $h(x)=\\frac{1}{x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $h(0)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi grafen kryssa origo",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi negative tal ikkje er tillate",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi deling på null ikkje er definert",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{1}{0}$ finst ikkje -- derfor er $D_h=\\mathbb{R}\\setminus\\{0\\}$, alle reelle tal unntatt null."
+          },
+          {
+            "id": "1p-7-5-n-quiz1-q3",
+            "task": "Kva er verdimengda til $g(x)=3^x$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\langle 0, \\to\\rangle$ -- alle strengt positive tal",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Alle reelle tal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[0, \\to\\rangle$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\langle\\leftarrow, 3]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3^x$ er alltid positiv: ho nærmar seg $0$ mot venstre utan å nå det, og veks ubegrenset mot høgre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-5-n-section2",
+      "type": "text",
+      "content": "## Nullpunkt -- der grafen treffer bakken\n\nNeste kjennetegn: kvar kryssa grafen $x$-aksen? Eit **nullpunkt** er ein $x$-verdi $x_0$ der funksjonen er null, altso $f(x_0) = 0$. Grafisk er det der grafen skjer eller tangerer $x$-aksen -- og vi finn nullpunkta ved å løyse likninga $f(x) = 0$.\n\nFor lineære funksjonar er det éin rask likning: $f(x) = 2x - 6 = 0$ gir $x = 3$. Eller $f(x) = 3x + 12 = 0$, som gir $3x = -12$ og dermed $x = -4$.\n\nAndregradsfunksjonar kan ha *to* nullpunkt. Ta $g(x) = x^2 - 9$: likninga $x^2 = 9$ har løysingane $x = 3$ *og* $x = -3$ -- grafen, ein parabel, dykkjer under $x$-aksen mellom dei og kryssa to stader. Eller $g(x) = x^2 - 5x + 6$, som kan faktoriserast: $(x-2)(x-3) = 0$ gir nullpunkta $x = 2$ og $x = 3$. Generelt har ein andregradsfunksjon $0$, $1$ eller $2$ nullpunkt, avhengig av om parabelen ligg heilt over (eller under) aksen, berører ho så vidt, eller kryssa ho.\n\nOg nokre funksjonar treffer aldri bakken: eksponentialfunksjonen $h(x) = 3^x$ er alltid strengt positiv, så likninga $3^x = 0$ har *ingen* løysing -- reine eksponentialfunksjonar har ingen nullpunkt. Men variantar kan ha det: $h(x) = 2 \\cdot 0{,}5^x - 8 = 0$ gir $0{,}5^x = 4$, og sidan $0{,}5^{-2} = 2^2 = 4$, er nullpunktet $x = -2$.\n\nNullpunkta er ofte dei mest meiningsfylte punkta i praktiske modellar: der overskuddet går gjennom null, der ballen treffer bakken, der temperaturen kryssa frysepunktet."
+    },
+    {
+      "id": "1p-7-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på nullpunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-5-n-quiz2-q0",
+            "task": "Kva er eit nullpunkt for funksjonen $f$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Punktet der $x=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein $x$-verdi der $f(x)=0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Funksjonens lågaste verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein verdi utanfor definisjonsmenngda",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nullpunktet er løysinga av $f(x)=0$ -- der grafen skjer $x$-aksen. (Punktet der $x=0$ er derimot skjeringa med $y$-aksen.)"
+          },
+          {
+            "id": "1p-7-5-n-quiz2-q1",
+            "task": "Kva er nullpunktet til $f(x)=3x+12$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=-4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x=3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3x+12=0 \\Rightarrow 3x=-12 \\Rightarrow x=-4$."
+          },
+          {
+            "id": "1p-7-5-n-quiz2-q2",
+            "task": "Kva nullpunkt har $g(x)=x^2-9$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre $x=3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre $x=9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=-3$ og $x=3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x^2=9$ har to løysingar: $x=3$ og $x=-3$. Parabelen skjer $x$-aksen to stader."
+          },
+          {
+            "id": "1p-7-5-n-quiz2-q3",
+            "task": "Kor mange nullpunkt har $h(x)=3^x$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Ingen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eitt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendeleg mange",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3^x$ er strengt positiv for alle $x$ -- grafen nærmar seg $x$-aksen, men når ho henne aldri. Likninga $3^x=0$ har ingen løysing."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-5-n-section3",
+      "type": "text",
+      "content": "## Toppunkt, bunnpunkt og vekstfart\n\nNo til funksjonens dramatiske høydepunkt. Eit **toppunkt** er eit punkt der funksjonen har ein lokal høgaste verdi -- grafen stig opp til det og fell etterpå. Eit **bunnpunkt** er motsett: ein lokal lågaste verdi, der grafen snur frå fallande til stigande.\n\nFor andregradsfunksjonar $f(x) = ax^2 + bx + c$ er reglane klare. Teiknet til $a$ bestemmer forma: er $a > 0$, vender parabelen oppover som eit smilmunne og har eitt **bunnpunkt**; er $a < 0$, vender ho nedover og har eitt **toppunkt**. Og plasseringa har sin eigen formel -- ekstremalpunktet ligg ved\n\n$$x = -\\frac{b}{2a}$$\n\nPrøv på $f(x) = x^2 - 6x + 5$: her er $a = 1 > 0$, altso bunnpunkt, ved $x = -\\frac{-6}{2 \\cdot 1} = 3$. Verdien der er $f(3) = 9 - 18 + 5 = -4$, så bunnpunktet er $(3, -4)$. Og for $g(x) = -2x^2 + 8x + 3$: $a = -2 < 0$ gir toppunkt, ved $x = -\\frac{8}{2 \\cdot (-2)} = 2$, med $g(2) = -8 + 16 + 3 = 11$ -- toppunktet er $(2, 11)$.\n\nTett knytt til dette er **vekstfarten**: kor raskt funksjonen endrar seg. Ein funksjon er **stigande** i eit intervall der $f(x)$ aukar når $x$ aukar (grafen går oppover mot høgre) og **fallande** der $f(x)$ minkar. Lineære funksjonar er enklaste: vekstfarten er konstant lik stigningstalet $a$ -- alltid stigande viss $a > 0$, alltid fallande viss $a < 0$. For andre funksjonar varierer vekstfarten, og ekstremalpunkta er vendepunkta i historia: funksjonen med bunnpunkt i $x = 3$ er fallande for $x < 3$ og stigande for $x > 3$."
+    },
+    {
+      "id": "1p-7-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på topp- og bunnpunkt og vekstfart:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-5-n-quiz3-q0",
+            "task": "Korleis ser du på $f(x)=ax^2+bx+c$ om parabelen har topp- eller bunnpunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Teiknet til $c$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Teiknet til $a$: $a>0$ gir bunnpunkt, $a<0$ gir toppunkt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Tal på nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Storleiken på $b$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a>0$: parabelen vender oppover (bunnpunkt). $a<0$: ho vender nedover (toppunkt)."
+          },
+          {
+            "id": "1p-7-5-n-quiz3-q1",
+            "task": "Kor ligg ekstremalpunktet til $f(x)=x^2-6x+5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x=-6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x=-\\frac{b}{2a}=-\\frac{-6}{2\\cdot 1}=3$. Siden $a=1>0$ er det eit bunnpunkt: $f(3)=9-18+5=-4$, altso $(3,-4)$."
+          },
+          {
+            "id": "1p-7-5-n-quiz3-q2",
+            "task": "Kva er toppunktet til $g(x)=-2x^2+8x+3$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(-2, 11)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(2, -11)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(4, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(2, 11)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x=-\\frac{8}{2\\cdot(-2)}=2$ og $g(2)=-8+16+3=11$: toppunkt $(2, 11)$."
+          },
+          {
+            "id": "1p-7-5-n-quiz3-q3",
+            "task": "Ein funksjon har bunnpunkt i $x=3$. Kor er ho stigande og fallande?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Synkande for $x<3$, stigande for $x>3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Stigande overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Stigande for $x<3$, fallande for $x>3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fallande overalt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grafen synkar ned mot bunnpunktet og stig etterpå: synkande for $x<3$, stigande for $x>3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-5-n-section4",
+      "type": "text",
+      "content": "## Symmetri, asymptotar -- og det store portrettet\n\nTo kjennetegn til fullfører verktøykassen. Det første er **symmetri**. Nokre funksjonar er symmetriske om $y$-aksen: speiler du grafen i aksen, ser ho lik ut. Det skjer når $f(-x) = f(x)$ for alle $x$ -- som for $x^2$, $x^4$ og $|x|$ (såkalte partal-funksjonar). Andre er symmetriske om origo, med $f(-x) = -f(x)$ -- som $x^3$ og $x$ (oddetal-funksjonar). Og andregradsfunksjonar har alltid ei vertikal symmetrilinje gjennom topp- eller bunnpunktet: linja $x = -\\frac{b}{2a}$. Derfor ligg ekstremalpunktet alltid midt mellom nullpunkta!\n\nDet andre er **asymptotar**: linjer som grafen nærmar seg meir og meir utan å treffe. Ein **horisontal asymptote** er ein $y$-verdi grafen flatar ut mot når $x$ blir veldig stor eller veldig liten -- $f(x) = 3^x$ har horisontal asymptote $y = 0$, som grafen kryp langs mot venstre utan å krysse. Ein **vertikal asymptote** er ein $x$-verdi der grafen «sprengjer» mot uendeleg -- $f(x) = \\frac{1}{x}$ har vertikal asymptote $x = 0$ (og horisontal $y = 0$). Asymptotar møter vi oftast i eksponential- og brøkfunksjonar.\n\nLa oss avslutta med ein komplett drøfting av $f(x) = -x^2 + 4x + 5$. *Definisjonsmengde:* $D_f = \\mathbb{R}$. *Nullpunkt:* $-x^2 + 4x + 5 = 0$ gir $x = -1$ og $x = 5$. *Ekstremalpunkt:* $a = -1 < 0$ gir toppunkt ved $x = -\\frac{4}{2 \\cdot (-1)} = 2$, med $f(2) = -4 + 8 + 5 = 9$ -- toppunkt $(2, 9)$, pent plassert midt mellom nullpunkta. *Verdimengde:* $V_f = \\langle\\leftarrow, 9]$. *Monotoni:* stigande for $x < 2$, synkande for $x > 2$. Der har du det -- eit fullstendig portrett av funksjonen, teikna med fem spørsmål."
+    },
+    {
+      "id": "1p-7-5-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-5-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på symmetri, asymptotar og drøfting:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-5-n-quiz4-q0",
+            "task": "Kva funksjon er symmetrisk om $y$-aksen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f(x)=x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$f(x)=x^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f(x)=2x+1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x)=3^x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(-x)=(-x)^2=x^2=f(x)$ -- grafen er sitt eige speilbilde om $y$-aksen."
+          },
+          {
+            "id": "1p-7-5-n-quiz4-q1",
+            "task": "Kva er ein horisontal asymptote?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein linje grafen alltid kryss",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Funksjonens største verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein $y$-verdi grafen nærmar seg når $x$ blir veldig stor eller liten, utan å nå ho",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det same som eit nullpunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grafen flatar ut mot asymptoten -- som $3^x$ som kryp mot $y=0$ utan å treffe."
+          },
+          {
+            "id": "1p-7-5-n-quiz4-q2",
+            "task": "Kva asymptotar har $f(x)=\\frac{1}{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre horisontal $y=1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre vertikal $x=1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen asymptotar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vertikal $x=0$ og horisontal $y=0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Nær $x=0$ sprengjer grafen mot uendeleg (vertikal asymptote), og for store $|x|$ flatar ho ut mot $y=0$ (horisontal asymptote)."
+          },
+          {
+            "id": "1p-7-5-n-quiz4-q3",
+            "task": "Funksjonen $f(x)=-x^2+4x+5$ har nullpunkt $x=-1$ og $x=5$. Kor ligg toppunktet?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$x=2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x=4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Parabelen er symmetrisk om linja gjennom toppunktet, så det ligg midt mellom nullpunkta: $x=\\frac{-1+5}{2}=2$. Samme svar gir $x=-\\frac{b}{2a}$."
+          },
+          {
+            "id": "1p-7-5-n-quiz4-q4",
+            "task": "Kva funksjonstype har konstant vekstfart, ingen ekstremalpunkt og ingen asymptotar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Andregradsfunksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den lineære funksjonen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Eksponentialfunksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Brøkfunksjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den lineære $f(x)=ax+b$ har vekstfart konstant lik $a$, ingen topp-/bunnpunkt og ingen asymptotar. Parabelen har ekstremalpunkt, eksponentialfunksjonen har asymptote."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi lærte å teikne eit komplett portrett av ein funksjon -- å *drøfte* ho, som det heiter på fagspråket.\n\nPortrettet byggast av faste spørsmål. **Definisjonsmengden** $D_f$ er alle tillate $x$-verdiar, **verdimengden** $V_f$ alle moglege $y$-verdiar -- hugs at $x^2$ aldri blir negativ, og at $3^x$ alltid er strengt positiv. **Nullpunkta** finn vi ved å løyse $f(x) = 0$: lineære funksjonar har høgst eitt, parabler opptil to, reine eksponentialfunksjonar ingen.\n\n**Ekstremalpunkta** er parabelens dramatiske vendepunkt: $a > 0$ gir bunnpunkt, $a < 0$ toppunkt, alltid ved $x = -\\frac{b}{2a}$ -- på symmetrilinja, midt mellom nullpunkta. Rundt dei skiftar **vekstfarten**: funksjonen er stigande der grafen går oppover og synkande der ho går nedover, medan lineære funksjonar held konstant fart lik stigningstalet.\n\n**Symmetri** ($f(-x) = f(x)$ om $y$-aksen, $f(-x) = -f(x)$ om origo) og **asymptotar** -- linjene grafen kryp mot utan å nå, som $y = 0$ for $3^x$ og $x = 0$ for $\\frac{1}{x}$ -- fullførte verktøykassen.\n\nDrøftelista di er klar: definisjonsmengde og verdimengde, nullpunkt, topp-/bunnpunkt, stigning og synking. Fem spørsmål -- og kvar funksjon må vise sitt sanne ansikt."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "a0692b9a05fe8ba6",
+    "translatedAt": "2026-06-16T09:59:24.304Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 116,
+    "tm": {
+      "a6bdb113e02130f3": "Kjennetegn ved funksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "405ba55347ce9d6c": "Ein forteljing om å teikne funksjonens portrett -- definisjonsmenngde, nullpunkt, toppunkt, vekstfart, symmetri og asymptot i éin samla drøfting.",
+      "4c25e1852a6998fe": "tolke og bruke funksjonar og drøfte eigenskapane deira",
+      "a97c98e01783015a": "## Å bli kjent med ein funksjon\n\nTenk på korleis du skildrar ein person du kjenner godt: ikkje berre namnet, men personlegdomen -- kva som får dei opp om morgonen, kvar grensene går, når dei er på topp. Funksjonar kan skildrast på same måten. I staden for berre å setje inn $x$-verdiar og rekne ut $y$-verdiar, kan vi spørje om heilskapen: Kva $x$-verdiar kan vi bruke? Kva $y$-verdiar kan funksjonen gi? Kvar kryssa grafen $x$-aksen? Finst det høgaste eller lågaste punkt? Kor stig grafen, og kor sink ho?\n\nÅ svara på slike spørsmål kallast å **drøfte** funksjonen -- og det er nettopp det dette kapittelet handlar om. Vi skal bygge opp ei verktøykasse av kjennetegn: definisjonsmengde, verdimengde, nullpunkt, topp- og bunnpunkt, vekstfart, symmetri og asymptot. Til slutt skal du kunne ta ein kva som helst funksjon og teikne eit komplett portrett av ho.",
+      "00897b8bac1d6219": "## Definisjonsmengde og verdimengde -- inngang og utgang\n\nEin funksjon er som ein maskin: du matar inn ein $x$-verdi, og ut kjem ein $y$-verdi. Dei to første spørsmåla i kvar drøfting er då: kva kan maskina *ta imot*, og kva kan ho *leverera*?\n\n**Definisjonsmenngda** $D_f$ er mengda av alle $x$-verdiar vi kan setje inn i funksjonen. **Verdimengda** $V_f$ er mengda av alle $y$-verdiar funksjonen kan gi.\n\nFor den lineære funksjonen $f(x) = 2x + 3$ er båe ubegrensa: du kan setje inn kva som helst, og du kan treffe kvar $y$-verdi. Altso $D_f = \\mathbb{R}$ og $V_f = \\mathbb{R}$ -- symbolet $\\mathbb{R}$ tyder alle reelle tal.\n\nMen sjå på $g(x) = x^2$. Ingangen er framleis fri, $D_g = \\mathbb{R}$ -- men utgangen er ikkje det! Eit kvadrat kan aldri bli negativt, så $V_g = [0, \\to\\rangle$: berre null og positive verdiar. Og $h(x) = \\frac{1}{x}$ har eit hol i ingangen: $x = 0$ er forbode (deling på null!), så $D_h = \\mathbb{R} \\setminus \\{0\\}$ -- alle tal unntatt null.\n\nTo døme til som vi får bruk for. For $f(x) = -x^2 + 4$ gjeld: sidan $-x^2 \\leq 0$ for alle $x$, er $f(x) \\leq 4$, med toppunkt i $(0, 4)$ -- altso $V_f = \\langle\\leftarrow, 4]$. Og eksponentialfunksjonen $g(x) = 3^x$ er alltid *strengt positiv*: ho nærmar seg null mot venstre utan å nå det, og veks utan grense mot høgre, så $V_g = \\langle 0, \\to\\rangle$.",
+      "d3283051f421c32b": "Test deg sjølv på definisjonsmengde og verdimengde:",
+      "4097889236a2af26": "placeholder",
+      "e10cc09da8f318d9": "Kva er definisjonsmenngda til ein funksjon?",
+      "110801cb687bf7ca": "Alle $y$-verdiar funksjonen kan gi",
+      "338f765efc2da5fd": "Alle $x$-verdiar vi kan setje inn",
+      "7e63fc3f14b34510": "Punkta der grafen kryssa aksane",
+      "6a7782199524835a": "Funksjonens største verdi",
+      "ac28465193057306": "$D_f$ er ingangen til funksjonsmaskina: alle tillate $x$-verdiar.",
+      "3e8f5d2e0f491616": "Kva er verdimengda til $g(x)=x^2$?",
+      "c88fef1c0641f109": "Alle reelle tal",
+      "2b05b6b2d47f9207": "Alle negative tal",
+      "9de2d6276767a144": "$[0, \\to\\rangle$ -- null og alle positive tal",
+      "4c058bedb3b86f27": "Berre partal",
+      "3b256cd7b16cb9a6": "Eit kvadrat er aldri negativt: $x^2\\geq 0$ for alle $x$, og alle verdiar frå $0$ og oppover kan treffas.",
+      "7c683f15399c1a29": "Kvifor er $x=0$ utanfor definisjonsmenngda til $h(x)=\\frac{1}{x}$?",
+      "f1293d0008949cfd": "Fordi deling på null ikkje er definert",
+      "c3ce222fc1dfbe91": "Fordi $h(0)=0$",
+      "38a8b77cc4a2df30": "Fordi grafen kryssa origo",
+      "ab7c56391f9afe1c": "Fordi negative tal ikkje er tillate",
+      "5edc90542eefbdec": "$\\frac{1}{0}$ finst ikkje -- derfor er $D_h=\\mathbb{R}\\setminus\\{0\\}$, alle reelle tal unntatt null.",
+      "c07c542294d8b29f": "Kva er verdimengda til $g(x)=3^x$?",
+      "24f51ecc49abafa9": "$[0, \\to\\rangle$",
+      "462319abc160588f": "$\\langle\\leftarrow, 3]$",
+      "fd6f2f316f69118b": "$\\langle 0, \\to\\rangle$ -- alle strengt positive tal",
+      "7c90850dddf30d1d": "$3^x$ er alltid positiv: ho nærmar seg $0$ mot venstre utan å nå det, og veks ubegrenset mot høgre.",
+      "e61b006c7d50f0f4": "## Nullpunkt -- der grafen treffer bakken\n\nNeste kjennetegn: kvar kryssa grafen $x$-aksen? Eit **nullpunkt** er ein $x$-verdi $x_0$ der funksjonen er null, altso $f(x_0) = 0$. Grafisk er det der grafen skjer eller tangerer $x$-aksen -- og vi finn nullpunkta ved å løyse likninga $f(x) = 0$.\n\nFor lineære funksjonar er det éin rask likning: $f(x) = 2x - 6 = 0$ gir $x = 3$. Eller $f(x) = 3x + 12 = 0$, som gir $3x = -12$ og dermed $x = -4$.\n\nAndregradsfunksjonar kan ha *to* nullpunkt. Ta $g(x) = x^2 - 9$: likninga $x^2 = 9$ har løysingane $x = 3$ *og* $x = -3$ -- grafen, ein parabel, dykkjer under $x$-aksen mellom dei og kryssa to stader. Eller $g(x) = x^2 - 5x + 6$, som kan faktoriserast: $(x-2)(x-3) = 0$ gir nullpunkta $x = 2$ og $x = 3$. Generelt har ein andregradsfunksjon $0$, $1$ eller $2$ nullpunkt, avhengig av om parabelen ligg heilt over (eller under) aksen, berører ho så vidt, eller kryssa ho.\n\nOg nokre funksjonar treffer aldri bakken: eksponentialfunksjonen $h(x) = 3^x$ er alltid strengt positiv, så likninga $3^x = 0$ har *ingen* løysing -- reine eksponentialfunksjonar har ingen nullpunkt. Men variantar kan ha det: $h(x) = 2 \\cdot 0{,}5^x - 8 = 0$ gir $0{,}5^x = 4$, og sidan $0{,}5^{-2} = 2^2 = 4$, er nullpunktet $x = -2$.\n\nNullpunkta er ofte dei mest meiningsfylte punkta i praktiske modellar: der overskuddet går gjennom null, der ballen treffer bakken, der temperaturen kryssa frysepunktet.",
+      "d70e8b96721cdc2c": "Test deg sjølv på nullpunkt:",
+      "732163c588df85ed": "Kva er eit nullpunkt for funksjonen $f$?",
+      "f22d61bef56c7e67": "Ein $x$-verdi der $f(x)=0$",
+      "425e70ebac17c5e9": "Punktet der $x=0$",
+      "6b67be9bcf1205cc": "Funksjonens lågaste verdi",
+      "415a0630bed37c8f": "Ein verdi utanfor definisjonsmenngda",
+      "23b550a2b2527a34": "Nullpunktet er løysinga av $f(x)=0$ -- der grafen skjer $x$-aksen. (Punktet der $x=0$ er derimot skjeringa med $y$-aksen.)",
+      "3622c7dd9e804c0f": "Kva er nullpunktet til $f(x)=3x+12$?",
+      "d847dadd3c0fdaed": "$x=4$",
+      "57584080965e1099": "$x=12$",
+      "5ebda8d107c816c4": "$x=-4$",
+      "b96efdc3a220bacc": "$x=3$",
+      "927b22de08a9163f": "$3x+12=0 \\Rightarrow 3x=-12 \\Rightarrow x=-4$.",
+      "0a7ebc78075e59e6": "Kva nullpunkt har $g(x)=x^2-9$?",
+      "7049acc3d5a8d7f6": "Berre $x=3$",
+      "5cbb560eeac799ca": "$x=-3$ og $x=3$",
+      "511dafaba0f4fca0": "Berre $x=9$",
+      "4caa44f124d9c5e5": "Ingen",
+      "81db2823d09f10d0": "$x^2=9$ har to løysingar: $x=3$ og $x=-3$. Parabelen skjer $x$-aksen to stader.",
+      "6b77c9a2174588aa": "Kor mange nullpunkt har $h(x)=3^x$?",
+      "64fc821125025fd5": "Eitt",
+      "f4b06ef6d3c81436": "To",
+      "6b5eccd31267a114": "Uendeleg mange",
+      "3d47def9e3150341": "$3^x$ er strengt positiv for alle $x$ -- grafen nærmar seg $x$-aksen, men når ho henne aldri. Likninga $3^x=0$ har ingen løysing.",
+      "d371e4585967d954": "## Toppunkt, bunnpunkt og vekstfart\n\nNo til funksjonens dramatiske høydepunkt. Eit **toppunkt** er eit punkt der funksjonen har ein lokal høgaste verdi -- grafen stig opp til det og fell etterpå. Eit **bunnpunkt** er motsett: ein lokal lågaste verdi, der grafen snur frå fallande til stigande.\n\nFor andregradsfunksjonar $f(x) = ax^2 + bx + c$ er reglane klare. Teiknet til $a$ bestemmer forma: er $a > 0$, vender parabelen oppover som eit smilmunne og har eitt **bunnpunkt**; er $a < 0$, vender ho nedover og har eitt **toppunkt**. Og plasseringa har sin eigen formel -- ekstremalpunktet ligg ved\n\n$$x = -\\frac{b}{2a}$$\n\nPrøv på $f(x) = x^2 - 6x + 5$: her er $a = 1 > 0$, altso bunnpunkt, ved $x = -\\frac{-6}{2 \\cdot 1} = 3$. Verdien der er $f(3) = 9 - 18 + 5 = -4$, så bunnpunktet er $(3, -4)$. Og for $g(x) = -2x^2 + 8x + 3$: $a = -2 < 0$ gir toppunkt, ved $x = -\\frac{8}{2 \\cdot (-2)} = 2$, med $g(2) = -8 + 16 + 3 = 11$ -- toppunktet er $(2, 11)$.\n\nTett knytt til dette er **vekstfarten**: kor raskt funksjonen endrar seg. Ein funksjon er **stigande** i eit intervall der $f(x)$ aukar når $x$ aukar (grafen går oppover mot høgre) og **fallande** der $f(x)$ minkar. Lineære funksjonar er enklaste: vekstfarten er konstant lik stigningstalet $a$ -- alltid stigande viss $a > 0$, alltid fallande viss $a < 0$. For andre funksjonar varierer vekstfarten, og ekstremalpunkta er vendepunkta i historia: funksjonen med bunnpunkt i $x = 3$ er fallande for $x < 3$ og stigande for $x > 3$.",
+      "48be634a5ec19f2a": "Test deg sjølv på topp- og bunnpunkt og vekstfart:",
+      "4071dc8f6d599b0d": "Korleis ser du på $f(x)=ax^2+bx+c$ om parabelen har topp- eller bunnpunkt?",
+      "6bfc52a3b3cc4ddf": "Teiknet til $c$",
+      "c0d651171652d5d6": "Teiknet til $a$: $a>0$ gir bunnpunkt, $a<0$ gir toppunkt",
+      "dfd9bd6c24931d11": "Tal på nullpunkt",
+      "9013303eef7d3ddb": "Storleiken på $b$",
+      "bd8d74efe121f6fa": "$a>0$: parabelen vender oppover (bunnpunkt). $a<0$: ho vender nedover (toppunkt).",
+      "32f8c2aa71a4cd86": "Kor ligg ekstremalpunktet til $f(x)=x^2-6x+5$?",
+      "3f65c329cfae7f78": "$x=6$",
+      "e1facfefc9b7446a": "$x=-3$",
+      "fff9c35bd796811b": "$x=-6$",
+      "d899b404fa8b2f74": "$x=-\\frac{b}{2a}=-\\frac{-6}{2\\cdot 1}=3$. Siden $a=1>0$ er det eit bunnpunkt: $f(3)=9-18+5=-4$, altso $(3,-4)$.",
+      "d19456dbe6275ff5": "Kva er toppunktet til $g(x)=-2x^2+8x+3$?",
+      "06609131fa78973f": "$x=-\\frac{8}{2\\cdot(-2)}=2$ og $g(2)=-8+16+3=11$: toppunkt $(2, 11)$.",
+      "bb9614140345d2c7": "Ein funksjon har bunnpunkt i $x=3$. Kor er ho stigande og fallande?",
+      "423c14d34d07842b": "Stigande overalt",
+      "3be62d75accfa8af": "Stigande for $x<3$, fallande for $x>3$",
+      "407ebafd9748df96": "Fallande overalt",
+      "6170d55093f8cd47": "Synkande for $x<3$, stigande for $x>3$",
+      "815f7f213d93bcfb": "Grafen synkar ned mot bunnpunktet og stig etterpå: synkande for $x<3$, stigande for $x>3$.",
+      "eccb59fe657b44d5": "## Symmetri, asymptotar -- og det store portrettet\n\nTo kjennetegn til fullfører verktøykassen. Det første er **symmetri**. Nokre funksjonar er symmetriske om $y$-aksen: speiler du grafen i aksen, ser ho lik ut. Det skjer når $f(-x) = f(x)$ for alle $x$ -- som for $x^2$, $x^4$ og $|x|$ (såkalte partal-funksjonar). Andre er symmetriske om origo, med $f(-x) = -f(x)$ -- som $x^3$ og $x$ (oddetal-funksjonar). Og andregradsfunksjonar har alltid ei vertikal symmetrilinje gjennom topp- eller bunnpunktet: linja $x = -\\frac{b}{2a}$. Derfor ligg ekstremalpunktet alltid midt mellom nullpunkta!\n\nDet andre er **asymptotar**: linjer som grafen nærmar seg meir og meir utan å treffe. Ein **horisontal asymptote** er ein $y$-verdi grafen flatar ut mot når $x$ blir veldig stor eller veldig liten -- $f(x) = 3^x$ har horisontal asymptote $y = 0$, som grafen kryp langs mot venstre utan å krysse. Ein **vertikal asymptote** er ein $x$-verdi der grafen «sprengjer» mot uendeleg -- $f(x) = \\frac{1}{x}$ har vertikal asymptote $x = 0$ (og horisontal $y = 0$). Asymptotar møter vi oftast i eksponential- og brøkfunksjonar.\n\nLa oss avslutta med ein komplett drøfting av $f(x) = -x^2 + 4x + 5$. *Definisjonsmengde:* $D_f = \\mathbb{R}$. *Nullpunkt:* $-x^2 + 4x + 5 = 0$ gir $x = -1$ og $x = 5$. *Ekstremalpunkt:* $a = -1 < 0$ gir toppunkt ved $x = -\\frac{4}{2 \\cdot (-1)} = 2$, med $f(2) = -4 + 8 + 5 = 9$ -- toppunkt $(2, 9)$, pent plassert midt mellom nullpunkta. *Verdimengde:* $V_f = \\langle\\leftarrow, 9]$. *Monotoni:* stigande for $x < 2$, synkande for $x > 2$. Der har du det -- eit fullstendig portrett av funksjonen, teikna med fem spørsmål.",
+      "5e6c6b2b8281ba62": "Test deg sjølv på symmetri, asymptotar og drøfting:",
+      "dfe60eeff206d74a": "Kva funksjon er symmetrisk om $y$-aksen?",
+      "b8afdd345b568317": "$f(x)=x^2$",
+      "c35445ccd3a7059b": "$f(x)=x^3$",
+      "750673a9884b6f62": "$f(x)=2x+1$",
+      "f7a49e5fd91ce34c": "$f(x)=3^x$",
+      "d6a1b01b330a90f9": "$f(-x)=(-x)^2=x^2=f(x)$ -- grafen er sitt eige speilbilde om $y$-aksen.",
+      "4295e090e1db7f13": "Kva er ein horisontal asymptote?",
+      "601cce2eb1acc0b8": "Ein linje grafen alltid kryss",
+      "cdc8d128af16670f": "Ein $y$-verdi grafen nærmar seg når $x$ blir veldig stor eller liten, utan å nå ho",
+      "c0821e41b2b0de7c": "Det same som eit nullpunkt",
+      "334d48ed03fcb0b3": "Grafen flatar ut mot asymptoten -- som $3^x$ som kryp mot $y=0$ utan å treffe.",
+      "768238a8a4549bf4": "Kva asymptotar har $f(x)=\\frac{1}{x}$?",
+      "adf9577d8560b398": "Berre horisontal $y=1$",
+      "0318c33c9f31a3d1": "Vertikal $x=0$ og horisontal $y=0$",
+      "b538b923d8159b31": "Berre vertikal $x=1$",
+      "f8de461ad0ca6c7b": "Ingen asymptotar",
+      "8b09504d21ae7f6f": "Nær $x=0$ sprengjer grafen mot uendeleg (vertikal asymptote), og for store $|x|$ flatar ho ut mot $y=0$ (horisontal asymptote).",
+      "c1961153f553e0ef": "Funksjonen $f(x)=-x^2+4x+5$ har nullpunkt $x=-1$ og $x=5$. Kor ligg toppunktet?",
+      "dbd5301847c30f3d": "$x=0$",
+      "64595896c714724d": "$x=5$",
+      "246bce8406ed5243": "$x=2$",
+      "319fe49a8cf00853": "Parabelen er symmetrisk om linja gjennom toppunktet, så det ligg midt mellom nullpunkta: $x=\\frac{-1+5}{2}=2$. Samme svar gir $x=-\\frac{b}{2a}$.",
+      "874f15ccc0901edd": "Kva funksjonstype har konstant vekstfart, ingen ekstremalpunkt og ingen asymptotar?",
+      "def4d2127a64e8e2": "Andregradsfunksjonen",
+      "140f1728df5c6503": "Den lineære funksjonen",
+      "1bd8437a7eed9190": "Eksponentialfunksjonen",
+      "3ce6c888114089c6": "Brøkfunksjonen",
+      "075373813466aa2c": "Den lineære $f(x)=ax+b$ har vekstfart konstant lik $a$, ingen topp-/bunnpunkt og ingen asymptotar. Parabelen har ekstremalpunkt, eksponentialfunksjonen har asymptote.",
+      "75cbd20d0d25bdd4": "## Oppsummering\n\nVi lærte å teikne eit komplett portrett av ein funksjon -- å *drøfte* ho, som det heiter på fagspråket.\n\nPortrettet byggast av faste spørsmål. **Definisjonsmengden** $D_f$ er alle tillate $x$-verdiar, **verdimengden** $V_f$ alle moglege $y$-verdiar -- hugs at $x^2$ aldri blir negativ, og at $3^x$ alltid er strengt positiv. **Nullpunkta** finn vi ved å løyse $f(x) = 0$: lineære funksjonar har høgst eitt, parabler opptil to, reine eksponentialfunksjonar ingen.\n\n**Ekstremalpunkta** er parabelens dramatiske vendepunkt: $a > 0$ gir bunnpunkt, $a < 0$ toppunkt, alltid ved $x = -\\frac{b}{2a}$ -- på symmetrilinja, midt mellom nullpunkta. Rundt dei skiftar **vekstfarten**: funksjonen er stigande der grafen går oppover og synkande der ho går nedover, medan lineære funksjonar held konstant fart lik stigningstalet.\n\n**Symmetri** ($f(-x) = f(x)$ om $y$-aksen, $f(-x) = -f(x)$ om origo) og **asymptotar** -- linjene grafen kryp mot utan å nå, som $y = 0$ for $3^x$ og $x = 0$ for $\\frac{1}{x}$ -- fullførte verktøykassen.\n\nDrøftelista di er klar: definisjonsmengde og verdimengde, nullpunkt, topp-/bunnpunkt, stigning og synking. Fem spørsmål -- og kvar funksjon må vise sitt sanne ansikt."
+    }
+  }
+}

@@ -1,1 +1,488 @@
-{"id":"s1-2-4-narrativ","courseId":"s1","chapterNumber":"2.4","title":"Logaritmefunksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om sparepengane som skal doblast — logaritmens definisjon, reknereglar og eksponentiallikningar.","estimatedMinutes":34,"competenceGoals":["analysere og tolke ulike funksjonstypar","bruke funksjonar i modellering"],"linkedChapterId":"s1-2-4","content":[{"id":"s1-2-4-n-intro","type":"text","content":"## Kor lenge må pengane stå?\n\nDu har sett sparepengar i eit fond og lurer på når beløpet er dobla. Veksten kjenner du frå førre kapittel — men no er spørsmålet snudd. Du veit *kva* verdien skal bli, og leitar etter *tida*. Den ukjende sit fast oppe i eksponenten, og for å hente han ned treng du eksponentialfunksjonens motstykke: **logaritmen**.\n\nLogaritmen med grunntal $b$ av eit tal $x > 0$ er definert slik:\n\n$$\\log_b(x) = y \\quad \\Leftrightarrow \\quad b^y = x$$\n\nder $b > 0$ og $b \\neq 1$. Logaritmen svarar altså på spørsmålet: «Kva potens må eg opphøye $b$ i for å få $x$?» Spør du $\\log_2(8)$, spør du eigentleg $2^? = 8$, og sidan $8 = 2^3$ er svaret 3. På same måte er $\\log_3(81) = 4$ fordi $3^4 = 81$.\n\nTo logaritmar er så vanlege at dei har eigne namn. **Tierlogaritmen** $\\lg(x) = \\log_{10}(x)$ (Briggs' logaritme) bruker grunntal 10: $\\lg(1000) = 3$ fordi $10^3 = 1000$. **Den naturlege logaritmen** $\\ln(x) = \\log_e(x)$ bruker Eulertalet $e$ som grunntal og er den du møter i kontinuerleg vekst.\n\nLogaritmen og eksponentialfunksjonen opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$. Det er nettopp den eigenskapen som lèt oss «pakke ut» ein ukjend frå eksponenten — og dermed svare på spørsmål som «kor mange år tek doblinga?», «når er medisinmengda halvert?» og «kor surt er dette stoffet?»."},{"id":"s1-2-4-n-quiz1","type":"exercise","exercise":{"id":"s1-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på logaritmens definisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-4-n-quiz1-q0","task":"Kva er $\\lg 1000$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":true},{"id":"c","text":"$100$","isCorrect":false},{"id":"d","text":"$10$","isCorrect":false}],"solution":"$\\lg 1000$ spør: $10^? = 1000$. Sidan $10^3 = 1000$ er svaret $3$."},{"id":"s1-2-4-n-quiz1-q1","task":"Kva er $\\log_2(8)$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":true},{"id":"d","text":"$\\frac{1}{3}$","isCorrect":false}],"solution":"$2^3 = 8$, så $\\log_2(8) = 3$."},{"id":"s1-2-4-n-quiz1-q2","task":"Kva er $\\lg 1$?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"Udefinert","isCorrect":false}],"solution":"$10^0 = 1$, så $\\lg 1 = 0$. Generelt er $\\log_a(1) = 0$ for alle gyldige grunntal."},{"id":"s1-2-4-n-quiz1-q3","task":"Kva er $10^{\\lg 7}$?","options":[{"id":"a","text":"$70$","isCorrect":false},{"id":"b","text":"$\\lg 7$","isCorrect":false},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$7$","isCorrect":true}],"solution":"Tierpotens og tierlogaritme opphevar kvarandre: $10^{\\lg 7} = 7$."}]}},{"id":"s1-2-4-n-section1","type":"text","content":"## Reknereglane som temmar store tal\n\nLogaritmar følgjer tre reknereglar som gjer dei til kraftige verktøy. For $a, b > 0$, $a \\neq 1$ og $x, y > 0$ gjeld:\n\n**Produktregelen:** $\\log_a(x \\cdot y) = \\log_a(x) + \\log_a(y)$ — logaritmen gjer ganging om til pluss.\n\n**Kvotientregelen:** $\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$ — deling blir minus.\n\n**Potensregelen:** $\\log_a(x^n) = n \\cdot \\log_a(x)$ — eksponentar hoppar ned og blir faktorar.\n\nI tillegg er $\\log_a(1) = 0$ (fordi $a^0 = 1$) og $\\log_a(a) = 1$ (fordi $a^1 = a$).\n\nSjå reglane i aksjon: $\\log_2(8) + \\log_2(4) = \\log_2(32) = \\log_2(2^5) = 5$. Og $\\lg(100) - \\lg(10) = \\lg\\left(\\frac{100}{10}\\right) = \\lg(10) = 1$. Potensregelen gir $\\log_3(9^5) = 5 \\cdot \\log_3(9) = 5 \\cdot 2 = 10$.\n\nGrafisk er logaritmefunksjonen $f(x) = \\log_b(x)$ den inverse av $g(x) = b^x$. Han er berre definert for $x > 0$, har verdimengd alle reelle tal, skjer $x$-aksen i $(1, 0)$ og har $x = 0$ som vertikal asymptote. For $b > 1$ stig han — men langsamare og langsamare, som ein motbakke som aldri tek slutt men stadig blir slakare.\n\nTreng du ein logaritme kalkulatoren ikkje har, reddar **grunntalsskiftet** deg:\n\n$$\\log_a(x) = \\frac{\\lg(x)}{\\lg(a)} = \\frac{\\ln(x)}{\\ln(a)}$$\n\nDermed held det at kalkulatoren kan $\\lg$ og $\\ln$ — alle andre logaritmar kan byggjast av dei."},{"id":"s1-2-4-n-quiz2","type":"exercise","exercise":{"id":"s1-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på logaritmereglar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-4-n-quiz2-q0","task":"Kva er $\\lg 4 + \\lg 25$?","options":[{"id":"a","text":"$\\lg 29$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":true},{"id":"c","text":"$100$","isCorrect":false},{"id":"d","text":"$\\lg 21$","isCorrect":false}],"solution":"Produktregelen: $\\lg 4 + \\lg 25 = \\lg(4 \\cdot 25) = \\lg 100 = 2$."},{"id":"s1-2-4-n-quiz2-q1","task":"Kva er $\\lg 200 - \\lg 2$?","options":[{"id":"a","text":"$2$","isCorrect":true},{"id":"b","text":"$\\lg 198$","isCorrect":false},{"id":"c","text":"$\\lg 400$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":false}],"solution":"Kvotientregelen: $\\lg\\frac{200}{2} = \\lg 100 = 2$."},{"id":"s1-2-4-n-quiz2-q2","task":"Kva er $\\dfrac{\\lg 8}{\\lg 2}$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$\\lg 4$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":true},{"id":"d","text":"$\\lg 6$","isCorrect":false}],"solution":"$\\lg 8 = \\lg(2^3) = 3\\lg 2$, så brøken blir $\\frac{3\\lg 2}{\\lg 2} = 3$. (Dette er også $\\log_2 8$ via grunntalsskifte.)"},{"id":"s1-2-4-n-quiz2-q3","task":"Kva utsegn om grafen til $f(x) = \\lg x$ er rett?","options":[{"id":"a","text":"Han er definert for alle $x$","isCorrect":false},{"id":"b","text":"Han skjer $y$-aksen i $(0, 1)$","isCorrect":false},{"id":"c","text":"Han har $y = 0$ som horisontal asymptote","isCorrect":false},{"id":"d","text":"Han er berre definert for $x > 0$ og har $x = 0$ som vertikal asymptote","isCorrect":true}],"solution":"Logaritmen krev positivt argument. Grafen skjer $x$-aksen i $(1, 0)$ og har den vertikale asymptoten $x = 0$."}]}},{"id":"s1-2-4-n-section2","type":"text","content":"## Eksponentiallikningar — å hente $x$ ned frå eksponenten\n\nNo kan vi løyse spareproblemet. Ei **eksponentiallikning** har den ukjende i eksponenten, til dømes $5^x = 200$. Strategien er alltid den same: ta logaritmen på begge sider og bruk potensregelen til å hente $x$ ned.\n\n$$\\lg(5^x) = \\lg(200)$$\n$$x \\cdot \\lg(5) = \\lg(200)$$\n$$x = \\frac{\\lg(200)}{\\lg(5)} = \\frac{2{,}301}{0{,}699} \\approx 3{,}29$$\n\nEin rask kontroll stadfestar: $5^{3{,}29} \\approx 200$. Generelt gir $a^x = c$ løysinga $x = \\frac{\\lg c}{\\lg a}$.\n\nFor sparepengane dine med til dømes 10 % årleg avkasting blir spørsmålet $1{,}1^x \\geq 2$. Logaritmen gir $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$ — beløpet er dobla i løpet av det åttande året. Den generelle **doblingstida** for ein modell $N(t) = N_0 \\cdot b^t$ er\n\n$$T_d = \\frac{\\lg(2)}{\\lg(b)} = \\frac{\\ln(2)}{\\ln(b)}$$\n\nLogaritmar blir også brukte til å byggje skalaer for storleikar som spenner over mange tierpotensar. **pH-skalaen** i kjemi er definert som $-\\lg[\\text{H}^+]$: ein konsentrasjon på $10^{-4}$ gir pH 4. **Desibelskalaen** for lyd og **Richterskalaen** for jordskjelv fungerer på same vis — eitt trinn på skalaen tyder ti gonger så mykje av fenomenet. Og i kapittel 7 skal du bruke logaritmar til å **linearisere** eksponentielle datasett, slik at ei krum kurve blir ei rett linje du kan køyre regresjon på. Logaritmen er med andre ord ikkje eit kuriosum, men eit arbeidsverktøy du kjem til å bruke resten av kurset."},{"id":"s1-2-4-n-quiz3","type":"exercise","exercise":{"id":"s1-2-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på eksponentiallikningar og bruksområde:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-4-n-quiz3-q0","task":"Løys likninga $10^x = 1000$.","options":[{"id":"a","text":"$x = 3$","isCorrect":true},{"id":"b","text":"$x = 100$","isCorrect":false},{"id":"c","text":"$x = 10$","isCorrect":false},{"id":"d","text":"$x = \\lg 3$","isCorrect":false}],"solution":"$1000 = 10^3$, så $x = \\lg 1000 = 3$."},{"id":"s1-2-4-n-quiz3-q1","task":"Kva er løysinga av $5^x = 200$ uttrykt med logaritmar?","options":[{"id":"a","text":"$x = \\lg 200 - \\lg 5$","isCorrect":false},{"id":"b","text":"$x = \\dfrac{\\lg 200}{\\lg 5}$","isCorrect":true},{"id":"c","text":"$x = \\lg\\dfrac{200}{5}$","isCorrect":false},{"id":"d","text":"$x = \\dfrac{\\lg 5}{\\lg 200}$","isCorrect":false}],"solution":"Ta $\\lg$ på begge sider: $x \\lg 5 = \\lg 200$, så $x = \\frac{\\lg 200}{\\lg 5} \\approx 3{,}29$."},{"id":"s1-2-4-n-quiz3-q2","task":"Du set pengar i banken med $10\\,\\%$ rente per år. Etter kor mange heile år er beløpet for første gong minst dobla?","options":[{"id":"a","text":"$7$ år","isCorrect":false},{"id":"b","text":"$10$ år","isCorrect":false},{"id":"c","text":"$8$ år","isCorrect":true},{"id":"d","text":"$5$ år","isCorrect":false}],"solution":"Vi treng $1{,}1^x \\geq 2$, altså $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$. Første heile år er $8$."},{"id":"s1-2-4-n-quiz3-q3","task":"pH er definert som $-\\lg[\\text{H}^+]$. Kva er pH når $[\\text{H}^+] = 10^{-4}$?","options":[{"id":"a","text":"$-4$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":false},{"id":"c","text":"$0{,}0001$","isCorrect":false},{"id":"d","text":"$4$","isCorrect":true}],"solution":"$\\text{pH} = -\\lg(10^{-4}) = -(-4) = 4$."}]}},{"id":"s1-2-4-n-summary","type":"text","content":"## Oppsummering: nøkkelen til eksponenten\n\nSpørsmålet «når er sparepengane dobla?» lét seg ikkje svare på med vanleg algebra — den ukjende sat i eksponenten. **Logaritmen** var nøkkelen: $\\log_b(x) = y$ tyder nøyaktig at $b^y = x$, og spesielt er $\\lg x = a \\Leftrightarrow 10^a = x$. Tierlogaritmen $\\lg$ og den naturlege logaritmen $\\ln$ er dei to du bruker i praksis, og logaritme og tierpotens opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$.\n\n**Reknereglane** gjer logaritmen til eit rekneverktøy: $\\lg(ab) = \\lg a + \\lg b$, $\\lg\\frac{a}{b} = \\lg a - \\lg b$ og $\\lg(a^k) = k \\lg a$. Den siste er arbeidshesten i **eksponentiallikningar**: ta logaritmen på begge sider, hent eksponenten ned, og $a^x = c$ gir $x = \\frac{\\lg c}{\\lg a}$. Doblingstid, halveringstid og «når passerer modellen grensa?» er alle variantar av same grep.\n\n**Logaritmefunksjonen** $f(x) = \\lg x$ er den omvende av $10^x$: definert berre for $x > 0$, stigande men stadig slakare, med skjeringspunkt $(1, 0)$ og vertikal asymptote $x = 0$. Og i den verkelege verda møter du logaritmen i pH, desibel og Richters skala — overalt der naturen spenner over mange tierpotensar.\n\nMed eksponentialfunksjonen og logaritmen som par er du rusta for neste kapittel, der nettopp slike funksjonspar — funksjonar som angrar kvarandre — får eit eige namn: omvende funksjonar."}],"exercises":[],"_meta":{"sourceHash":"e06d8a9ef697eef9","translatedAt":"2026-06-20T03:14:41.160Z","model":"claude-code-agent","strings":64,"tm":{"7a4c76021abc8464":"Logaritmefunksjonar","b195b06d1ed59702":"Narrativ versjon","2d77332d68359e3e":"Ei forteljing om sparepengane som skal doblast — logaritmens definisjon, reknereglar og eksponentiallikningar.","1b9f981eea196759":"analysere og tolke ulike funksjonstypar","f460b40ff86c4d2b":"bruke funksjonar i modellering","e28f8d3848147c20":"## Kor lenge må pengane stå?\n\nDu har sett sparepengar i eit fond og lurer på når beløpet er dobla. Veksten kjenner du frå førre kapittel — men no er spørsmålet snudd. Du veit *kva* verdien skal bli, og leitar etter *tida*. Den ukjende sit fast oppe i eksponenten, og for å hente han ned treng du eksponentialfunksjonens motstykke: **logaritmen**.\n\nLogaritmen med grunntal $b$ av eit tal $x > 0$ er definert slik:\n\n$$\\log_b(x) = y \\quad \\Leftrightarrow \\quad b^y = x$$\n\nder $b > 0$ og $b \\neq 1$. Logaritmen svarar altså på spørsmålet: «Kva potens må eg opphøye $b$ i for å få $x$?» Spør du $\\log_2(8)$, spør du eigentleg $2^? = 8$, og sidan $8 = 2^3$ er svaret 3. På same måte er $\\log_3(81) = 4$ fordi $3^4 = 81$.\n\nTo logaritmar er så vanlege at dei har eigne namn. **Tierlogaritmen** $\\lg(x) = \\log_{10}(x)$ (Briggs' logaritme) bruker grunntal 10: $\\lg(1000) = 3$ fordi $10^3 = 1000$. **Den naturlege logaritmen** $\\ln(x) = \\log_e(x)$ bruker Eulertalet $e$ som grunntal og er den du møter i kontinuerleg vekst.\n\nLogaritmen og eksponentialfunksjonen opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$. Det er nettopp den eigenskapen som lèt oss «pakke ut» ein ukjend frå eksponenten — og dermed svare på spørsmål som «kor mange år tek doblinga?», «når er medisinmengda halvert?» og «kor surt er dette stoffet?».","a0dca3d7fa3ef7be":"Test deg sjølv på logaritmens definisjon:","4097889236a2af26":"placeholder","8d38b2cc68f386e4":"Kva er $\\lg 1000$?","8d8e09c381c06f21":"$\\lg 1000$ spør: $10^? = 1000$. Sidan $10^3 = 1000$ er svaret $3$.","32ec6a26e31166f2":"Kva er $\\log_2(8)$?","b87bda455923b2a6":"$\\frac{1}{3}$","a9232cc75c1ca7a0":"$2^3 = 8$, så $\\log_2(8) = 3$.","59d1c3ff144b11ac":"Kva er $\\lg 1$?","0acc0f9632d29def":"Udefinert","22efb271ecd36b6c":"$10^0 = 1$, så $\\lg 1 = 0$. Generelt er $\\log_a(1) = 0$ for alle gyldige grunntal.","08f58e334c526293":"Kva er $10^{\\lg 7}$?","ae6f674e1c781cca":"$\\lg 7$","79f318c618892734":"Tierpotens og tierlogaritme opphevar kvarandre: $10^{\\lg 7} = 7$.","dbfec9987917881b":"## Reknereglane som temmar store tal\n\nLogaritmar følgjer tre reknereglar som gjer dei til kraftige verktøy. For $a, b > 0$, $a \\neq 1$ og $x, y > 0$ gjeld:\n\n**Produktregelen:** $\\log_a(x \\cdot y) = \\log_a(x) + \\log_a(y)$ — logaritmen gjer ganging om til pluss.\n\n**Kvotientregelen:** $\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$ — deling blir minus.\n\n**Potensregelen:** $\\log_a(x^n) = n \\cdot \\log_a(x)$ — eksponentar hoppar ned og blir faktorar.\n\nI tillegg er $\\log_a(1) = 0$ (fordi $a^0 = 1$) og $\\log_a(a) = 1$ (fordi $a^1 = a$).\n\nSjå reglane i aksjon: $\\log_2(8) + \\log_2(4) = \\log_2(32) = \\log_2(2^5) = 5$. Og $\\lg(100) - \\lg(10) = \\lg\\left(\\frac{100}{10}\\right) = \\lg(10) = 1$. Potensregelen gir $\\log_3(9^5) = 5 \\cdot \\log_3(9) = 5 \\cdot 2 = 10$.\n\nGrafisk er logaritmefunksjonen $f(x) = \\log_b(x)$ den inverse av $g(x) = b^x$. Han er berre definert for $x > 0$, har verdimengd alle reelle tal, skjer $x$-aksen i $(1, 0)$ og har $x = 0$ som vertikal asymptote. For $b > 1$ stig han — men langsamare og langsamare, som ein motbakke som aldri tek slutt men stadig blir slakare.\n\nTreng du ein logaritme kalkulatoren ikkje har, reddar **grunntalsskiftet** deg:\n\n$$\\log_a(x) = \\frac{\\lg(x)}{\\lg(a)} = \\frac{\\ln(x)}{\\ln(a)}$$\n\nDermed held det at kalkulatoren kan $\\lg$ og $\\ln$ — alle andre logaritmar kan byggjast av dei.","c55f8ac25175144a":"Test deg sjølv på logaritmereglar:","b631f1855ccba271":"Kva er $\\lg 4 + \\lg 25$?","6f6566f0ac0d87aa":"$\\lg 29$","47eb3096e8964b62":"$\\lg 21$","e02f47f6329e1643":"Produktregelen: $\\lg 4 + \\lg 25 = \\lg(4 \\cdot 25) = \\lg 100 = 2$.","3bde961926f300e1":"Kva er $\\lg 200 - \\lg 2$?","9fb2a9f855d0b521":"$\\lg 198$","bd6d0347c27ada7a":"$\\lg 400$","5a9b46cd3315c764":"Kvotientregelen: $\\lg\\frac{200}{2} = \\lg 100 = 2$.","f4a75e5fe2e9ebaf":"Kva er $\\dfrac{\\lg 8}{\\lg 2}$?","205a729ef716df0e":"$\\lg 4$","cd9dea000a4880e9":"$\\lg 6$","b680752fa8762912":"$\\lg 8 = \\lg(2^3) = 3\\lg 2$, så brøken blir $\\frac{3\\lg 2}{\\lg 2} = 3$. (Dette er også $\\log_2 8$ via grunntalsskifte.)","5c19a74dd3da13ad":"Kva utsegn om grafen til $f(x) = \\lg x$ er rett?","adaa19de52df14f3":"Han er definert for alle $x$","5c0cd3eea132812c":"Han skjer $y$-aksen i $(0, 1)$","e4f93b3734e47aa3":"Han har $y = 0$ som horisontal asymptote","5498cb133d6b4084":"Han er berre definert for $x > 0$ og har $x = 0$ som vertikal asymptote","229805c701321a32":"Logaritmen krev positivt argument. Grafen skjer $x$-aksen i $(1, 0)$ og har den vertikale asymptoten $x = 0$.","9fac4792c6a8bb1f":"## Eksponentiallikningar — å hente $x$ ned frå eksponenten\n\nNo kan vi løyse spareproblemet. Ei **eksponentiallikning** har den ukjende i eksponenten, til dømes $5^x = 200$. Strategien er alltid den same: ta logaritmen på begge sider og bruk potensregelen til å hente $x$ ned.\n\n$$\\lg(5^x) = \\lg(200)$$\n$$x \\cdot \\lg(5) = \\lg(200)$$\n$$x = \\frac{\\lg(200)}{\\lg(5)} = \\frac{2{,}301}{0{,}699} \\approx 3{,}29$$\n\nEin rask kontroll stadfestar: $5^{3{,}29} \\approx 200$. Generelt gir $a^x = c$ løysinga $x = \\frac{\\lg c}{\\lg a}$.\n\nFor sparepengane dine med til dømes 10 % årleg avkasting blir spørsmålet $1{,}1^x \\geq 2$. Logaritmen gir $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$ — beløpet er dobla i løpet av det åttande året. Den generelle **doblingstida** for ein modell $N(t) = N_0 \\cdot b^t$ er\n\n$$T_d = \\frac{\\lg(2)}{\\lg(b)} = \\frac{\\ln(2)}{\\ln(b)}$$\n\nLogaritmar blir også brukte til å byggje skalaer for storleikar som spenner over mange tierpotensar. **pH-skalaen** i kjemi er definert som $-\\lg[\\text{H}^+]$: ein konsentrasjon på $10^{-4}$ gir pH 4. **Desibelskalaen** for lyd og **Richterskalaen** for jordskjelv fungerer på same vis — eitt trinn på skalaen tyder ti gonger så mykje av fenomenet. Og i kapittel 7 skal du bruke logaritmar til å **linearisere** eksponentielle datasett, slik at ei krum kurve blir ei rett linje du kan køyre regresjon på. Logaritmen er med andre ord ikkje eit kuriosum, men eit arbeidsverktøy du kjem til å bruke resten av kurset.","fd460152fa5f76f6":"Test deg sjølv på eksponentiallikningar og bruksområde:","4d7c260b10276eec":"Løys likninga $10^x = 1000$.","e48f8a419112d39e":"$x = 3$","abca27e856ff0a29":"$x = 100$","b17c025fc1fca5ef":"$x = 10$","21e298770136b55e":"$x = \\lg 3$","cc24575942dbe82f":"$1000 = 10^3$, så $x = \\lg 1000 = 3$.","d10088242ab0504a":"Kva er løysinga av $5^x = 200$ uttrykt med logaritmar?","c412a55d87ab0d5f":"$x = \\lg 200 - \\lg 5$","82f3278300951bd5":"$x = \\dfrac{\\lg 200}{\\lg 5}$","41fa4c8d4b618aca":"$x = \\lg\\dfrac{200}{5}$","80798f6109e20d4f":"$x = \\dfrac{\\lg 5}{\\lg 200}$","9c48b6190b59c542":"Ta $\\lg$ på begge sider: $x \\lg 5 = \\lg 200$, så $x = \\frac{\\lg 200}{\\lg 5} \\approx 3{,}29$.","9c8d97d9ed83722a":"Du set pengar i banken med $10\\,\\%$ rente per år. Etter kor mange heile år er beløpet for første gong minst dobla?","a782dca1647cfd2b":"$7$ år","27b86cc10c29459c":"$10$ år","982dba16a053b68e":"$8$ år","9c2fe807cbb117d5":"$5$ år","d52bbfe3f3991e82":"Vi treng $1{,}1^x \\geq 2$, altså $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$. Første heile år er $8$.","a6d94eda8b8f3067":"pH er definert som $-\\lg[\\text{H}^+]$. Kva er pH når $[\\text{H}^+] = 10^{-4}$?","a00162c85ca268fa":"$\\text{pH} = -\\lg(10^{-4}) = -(-4) = 4$.","666e17878524d791":"## Oppsummering: nøkkelen til eksponenten\n\nSpørsmålet «når er sparepengane dobla?» lét seg ikkje svare på med vanleg algebra — den ukjende sat i eksponenten. **Logaritmen** var nøkkelen: $\\log_b(x) = y$ tyder nøyaktig at $b^y = x$, og spesielt er $\\lg x = a \\Leftrightarrow 10^a = x$. Tierlogaritmen $\\lg$ og den naturlege logaritmen $\\ln$ er dei to du bruker i praksis, og logaritme og tierpotens opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$.\n\n**Reknereglane** gjer logaritmen til eit rekneverktøy: $\\lg(ab) = \\lg a + \\lg b$, $\\lg\\frac{a}{b} = \\lg a - \\lg b$ og $\\lg(a^k) = k \\lg a$. Den siste er arbeidshesten i **eksponentiallikningar**: ta logaritmen på begge sider, hent eksponenten ned, og $a^x = c$ gir $x = \\frac{\\lg c}{\\lg a}$. Doblingstid, halveringstid og «når passerer modellen grensa?» er alle variantar av same grep.\n\n**Logaritmefunksjonen** $f(x) = \\lg x$ er den omvende av $10^x$: definert berre for $x > 0$, stigande men stadig slakare, med skjeringspunkt $(1, 0)$ og vertikal asymptote $x = 0$. Og i den verkelege verda møter du logaritmen i pH, desibel og Richters skala — overalt der naturen spenner over mange tierpotensar.\n\nMed eksponentialfunksjonen og logaritmen som par er du rusta for neste kapittel, der nettopp slike funksjonspar — funksjonar som angrar kvarandre — får eit eige namn: omvende funksjonar."}}}
+{
+  "id": "s1-2-4-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "2.4",
+  "title": "Logaritmefunksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om sparepengane som skal doblast — logaritmens definisjon, reknereglar og eksponentiallikningar.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "analysere og tolke ulike funksjonstypar",
+    "bruke funksjonar i modellering"
+  ],
+  "linkedChapterId": "s1-2-4",
+  "content": [
+    {
+      "id": "s1-2-4-n-intro",
+      "type": "text",
+      "content": "## Kor lenge må pengane stå?\n\nDu har sett sparepengar i eit fond og lurer på når beløpet er dobla. Veksten kjenner du frå førre kapittel — men no er spørsmålet snudd. Du veit *kva* verdien skal bli, og leitar etter *tida*. Den ukjende sit fast oppe i eksponenten, og for å hente han ned treng du eksponentialfunksjonens motstykke: **logaritmen**.\n\nLogaritmen med grunntal $b$ av eit tal $x > 0$ er definert slik:\n\n$$\\log_b(x) = y \\quad \\Leftrightarrow \\quad b^y = x$$\n\nder $b > 0$ og $b \\neq 1$. Logaritmen svarar altså på spørsmålet: «Kva potens må eg opphøye $b$ i for å få $x$?» Spør du $\\log_2(8)$, spør du eigentleg $2^? = 8$, og sidan $8 = 2^3$ er svaret 3. På same måte er $\\log_3(81) = 4$ fordi $3^4 = 81$.\n\nTo logaritmar er så vanlege at dei har eigne namn. **Tierlogaritmen** $\\lg(x) = \\log_{10}(x)$ (Briggs' logaritme) bruker grunntal 10: $\\lg(1000) = 3$ fordi $10^3 = 1000$. **Den naturlege logaritmen** $\\ln(x) = \\log_e(x)$ bruker Eulertalet $e$ som grunntal og er den du møter i kontinuerleg vekst.\n\nLogaritmen og eksponentialfunksjonen opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$. Det er nettopp den eigenskapen som lèt oss «pakke ut» ein ukjend frå eksponenten — og dermed svare på spørsmål som «kor mange år tek doblinga?», «når er medisinmengda halvert?» og «kor surt er dette stoffet?»."
+    },
+    {
+      "id": "s1-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logaritmens definisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-4-n-quiz1-q0",
+            "task": "Kva er $\\lg 1000$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\lg 1000$ spør: $10^? = 1000$. Sidan $10^3 = 1000$ er svaret $3$."
+          },
+          {
+            "id": "s1-2-4-n-quiz1-q1",
+            "task": "Kva er $\\log_2(8)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$2^3 = 8$, så $\\log_2(8) = 3$."
+          },
+          {
+            "id": "s1-2-4-n-quiz1-q2",
+            "task": "Kva er $\\lg 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Udefinert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$10^0 = 1$, så $\\lg 1 = 0$. Generelt er $\\log_a(1) = 0$ for alle gyldige grunntal."
+          },
+          {
+            "id": "s1-2-4-n-quiz1-q3",
+            "task": "Kva er $10^{\\lg 7}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$70$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\lg 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tierpotens og tierlogaritme opphevar kvarandre: $10^{\\lg 7} = 7$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-4-n-section1",
+      "type": "text",
+      "content": "## Reknereglane som temmar store tal\n\nLogaritmar følgjer tre reknereglar som gjer dei til kraftige verktøy. For $a, b > 0$, $a \\neq 1$ og $x, y > 0$ gjeld:\n\n**Produktregelen:** $\\log_a(x \\cdot y) = \\log_a(x) + \\log_a(y)$ — logaritmen gjer ganging om til pluss.\n\n**Kvotientregelen:** $\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$ — deling blir minus.\n\n**Potensregelen:** $\\log_a(x^n) = n \\cdot \\log_a(x)$ — eksponentar hoppar ned og blir faktorar.\n\nI tillegg er $\\log_a(1) = 0$ (fordi $a^0 = 1$) og $\\log_a(a) = 1$ (fordi $a^1 = a$).\n\nSjå reglane i aksjon: $\\log_2(8) + \\log_2(4) = \\log_2(32) = \\log_2(2^5) = 5$. Og $\\lg(100) - \\lg(10) = \\lg\\left(\\frac{100}{10}\\right) = \\lg(10) = 1$. Potensregelen gir $\\log_3(9^5) = 5 \\cdot \\log_3(9) = 5 \\cdot 2 = 10$.\n\nGrafisk er logaritmefunksjonen $f(x) = \\log_b(x)$ den inverse av $g(x) = b^x$. Han er berre definert for $x > 0$, har verdimengd alle reelle tal, skjer $x$-aksen i $(1, 0)$ og har $x = 0$ som vertikal asymptote. For $b > 1$ stig han — men langsamare og langsamare, som ein motbakke som aldri tek slutt men stadig blir slakare.\n\nTreng du ein logaritme kalkulatoren ikkje har, reddar **grunntalsskiftet** deg:\n\n$$\\log_a(x) = \\frac{\\lg(x)}{\\lg(a)} = \\frac{\\ln(x)}{\\ln(a)}$$\n\nDermed held det at kalkulatoren kan $\\lg$ og $\\ln$ — alle andre logaritmar kan byggjast av dei."
+    },
+    {
+      "id": "s1-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logaritmereglar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-4-n-quiz2-q0",
+            "task": "Kva er $\\lg 4 + \\lg 25$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\lg 29$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\lg 21$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen: $\\lg 4 + \\lg 25 = \\lg(4 \\cdot 25) = \\lg 100 = 2$."
+          },
+          {
+            "id": "s1-2-4-n-quiz2-q1",
+            "task": "Kva er $\\lg 200 - \\lg 2$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\lg 198$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\lg 400$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvotientregelen: $\\lg\\frac{200}{2} = \\lg 100 = 2$."
+          },
+          {
+            "id": "s1-2-4-n-quiz2-q2",
+            "task": "Kva er $\\dfrac{\\lg 8}{\\lg 2}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\lg 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\lg 6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\lg 8 = \\lg(2^3) = 3\\lg 2$, så brøken blir $\\frac{3\\lg 2}{\\lg 2} = 3$. (Dette er også $\\log_2 8$ via grunntalsskifte.)"
+          },
+          {
+            "id": "s1-2-4-n-quiz2-q3",
+            "task": "Kva utsegn om grafen til $f(x) = \\lg x$ er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han er definert for alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han er berre definert for $x > 0$ og har $x = 0$ som vertikal asymptote",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han skjer $y$-aksen i $(0, 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han har $y = 0$ som horisontal asymptote",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logaritmen krev positivt argument. Grafen skjer $x$-aksen i $(1, 0)$ og har den vertikale asymptoten $x = 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-4-n-section2",
+      "type": "text",
+      "content": "## Eksponentiallikningar — å hente $x$ ned frå eksponenten\n\nNo kan vi løyse spareproblemet. Ei **eksponentiallikning** har den ukjende i eksponenten, til dømes $5^x = 200$. Strategien er alltid den same: ta logaritmen på begge sider og bruk potensregelen til å hente $x$ ned.\n\n$$\\lg(5^x) = \\lg(200)$$\n$$x \\cdot \\lg(5) = \\lg(200)$$\n$$x = \\frac{\\lg(200)}{\\lg(5)} = \\frac{2{,}301}{0{,}699} \\approx 3{,}29$$\n\nEin rask kontroll stadfestar: $5^{3{,}29} \\approx 200$. Generelt gir $a^x = c$ løysinga $x = \\frac{\\lg c}{\\lg a}$.\n\nFor sparepengane dine med til dømes 10 % årleg avkasting blir spørsmålet $1{,}1^x \\geq 2$. Logaritmen gir $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$ — beløpet er dobla i løpet av det åttande året. Den generelle **doblingstida** for ein modell $N(t) = N_0 \\cdot b^t$ er\n\n$$T_d = \\frac{\\lg(2)}{\\lg(b)} = \\frac{\\ln(2)}{\\ln(b)}$$\n\nLogaritmar blir også brukte til å byggje skalaer for storleikar som spenner over mange tierpotensar. **pH-skalaen** i kjemi er definert som $-\\lg[\\text{H}^+]$: ein konsentrasjon på $10^{-4}$ gir pH 4. **Desibelskalaen** for lyd og **Richterskalaen** for jordskjelv fungerer på same vis — eitt trinn på skalaen tyder ti gonger så mykje av fenomenet. Og i kapittel 7 skal du bruke logaritmar til å **linearisere** eksponentielle datasett, slik at ei krum kurve blir ei rett linje du kan køyre regresjon på. Logaritmen er med andre ord ikkje eit kuriosum, men eit arbeidsverktøy du kjem til å bruke resten av kurset."
+    },
+    {
+      "id": "s1-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eksponentiallikningar og bruksområde:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-4-n-quiz3-q0",
+            "task": "Løys likninga $10^x = 1000$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = \\lg 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$1000 = 10^3$, så $x = \\lg 1000 = 3$."
+          },
+          {
+            "id": "s1-2-4-n-quiz3-q1",
+            "task": "Kva er løysinga av $5^x = 200$ uttrykt med logaritmar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = \\lg 200 - \\lg 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\lg\\dfrac{200}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\dfrac{\\lg 5}{\\lg 200}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\dfrac{\\lg 200}{\\lg 5}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ta $\\lg$ på begge sider: $x \\lg 5 = \\lg 200$, så $x = \\frac{\\lg 200}{\\lg 5} \\approx 3{,}29$."
+          },
+          {
+            "id": "s1-2-4-n-quiz3-q2",
+            "task": "Du set pengar i banken med $10\\,\\%$ rente per år. Etter kor mange heile år er beløpet for første gong minst dobla?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$8$ år",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5$ år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng $1{,}1^x \\geq 2$, altså $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$. Første heile år er $8$."
+          },
+          {
+            "id": "s1-2-4-n-quiz3-q3",
+            "task": "pH er definert som $-\\lg[\\text{H}^+]$. Kva er pH når $[\\text{H}^+] = 10^{-4}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}0001$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{pH} = -\\lg(10^{-4}) = -(-4) = 4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: nøkkelen til eksponenten\n\nSpørsmålet «når er sparepengane dobla?» lét seg ikkje svare på med vanleg algebra — den ukjende sat i eksponenten. **Logaritmen** var nøkkelen: $\\log_b(x) = y$ tyder nøyaktig at $b^y = x$, og spesielt er $\\lg x = a \\Leftrightarrow 10^a = x$. Tierlogaritmen $\\lg$ og den naturlege logaritmen $\\ln$ er dei to du bruker i praksis, og logaritme og tierpotens opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$.\n\n**Reknereglane** gjer logaritmen til eit rekneverktøy: $\\lg(ab) = \\lg a + \\lg b$, $\\lg\\frac{a}{b} = \\lg a - \\lg b$ og $\\lg(a^k) = k \\lg a$. Den siste er arbeidshesten i **eksponentiallikningar**: ta logaritmen på begge sider, hent eksponenten ned, og $a^x = c$ gir $x = \\frac{\\lg c}{\\lg a}$. Doblingstid, halveringstid og «når passerer modellen grensa?» er alle variantar av same grep.\n\n**Logaritmefunksjonen** $f(x) = \\lg x$ er den omvende av $10^x$: definert berre for $x > 0$, stigande men stadig slakare, med skjeringspunkt $(1, 0)$ og vertikal asymptote $x = 0$. Og i den verkelege verda møter du logaritmen i pH, desibel og Richters skala — overalt der naturen spenner over mange tierpotensar.\n\nMed eksponentialfunksjonen og logaritmen som par er du rusta for neste kapittel, der nettopp slike funksjonspar — funksjonar som angrar kvarandre — får eit eige namn: omvende funksjonar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "e06d8a9ef697eef9",
+    "translatedAt": "2026-06-20T03:14:41.160Z",
+    "model": "claude-code-agent",
+    "strings": 64,
+    "tm": {
+      "7a4c76021abc8464": "Logaritmefunksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "2d77332d68359e3e": "Ei forteljing om sparepengane som skal doblast — logaritmens definisjon, reknereglar og eksponentiallikningar.",
+      "1b9f981eea196759": "analysere og tolke ulike funksjonstypar",
+      "f460b40ff86c4d2b": "bruke funksjonar i modellering",
+      "e28f8d3848147c20": "## Kor lenge må pengane stå?\n\nDu har sett sparepengar i eit fond og lurer på når beløpet er dobla. Veksten kjenner du frå førre kapittel — men no er spørsmålet snudd. Du veit *kva* verdien skal bli, og leitar etter *tida*. Den ukjende sit fast oppe i eksponenten, og for å hente han ned treng du eksponentialfunksjonens motstykke: **logaritmen**.\n\nLogaritmen med grunntal $b$ av eit tal $x > 0$ er definert slik:\n\n$$\\log_b(x) = y \\quad \\Leftrightarrow \\quad b^y = x$$\n\nder $b > 0$ og $b \\neq 1$. Logaritmen svarar altså på spørsmålet: «Kva potens må eg opphøye $b$ i for å få $x$?» Spør du $\\log_2(8)$, spør du eigentleg $2^? = 8$, og sidan $8 = 2^3$ er svaret 3. På same måte er $\\log_3(81) = 4$ fordi $3^4 = 81$.\n\nTo logaritmar er så vanlege at dei har eigne namn. **Tierlogaritmen** $\\lg(x) = \\log_{10}(x)$ (Briggs' logaritme) bruker grunntal 10: $\\lg(1000) = 3$ fordi $10^3 = 1000$. **Den naturlege logaritmen** $\\ln(x) = \\log_e(x)$ bruker Eulertalet $e$ som grunntal og er den du møter i kontinuerleg vekst.\n\nLogaritmen og eksponentialfunksjonen opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$. Det er nettopp den eigenskapen som lèt oss «pakke ut» ein ukjend frå eksponenten — og dermed svare på spørsmål som «kor mange år tek doblinga?», «når er medisinmengda halvert?» og «kor surt er dette stoffet?».",
+      "a0dca3d7fa3ef7be": "Test deg sjølv på logaritmens definisjon:",
+      "4097889236a2af26": "placeholder",
+      "8d38b2cc68f386e4": "Kva er $\\lg 1000$?",
+      "8d8e09c381c06f21": "$\\lg 1000$ spør: $10^? = 1000$. Sidan $10^3 = 1000$ er svaret $3$.",
+      "32ec6a26e31166f2": "Kva er $\\log_2(8)$?",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "a9232cc75c1ca7a0": "$2^3 = 8$, så $\\log_2(8) = 3$.",
+      "59d1c3ff144b11ac": "Kva er $\\lg 1$?",
+      "0acc0f9632d29def": "Udefinert",
+      "22efb271ecd36b6c": "$10^0 = 1$, så $\\lg 1 = 0$. Generelt er $\\log_a(1) = 0$ for alle gyldige grunntal.",
+      "08f58e334c526293": "Kva er $10^{\\lg 7}$?",
+      "ae6f674e1c781cca": "$\\lg 7$",
+      "79f318c618892734": "Tierpotens og tierlogaritme opphevar kvarandre: $10^{\\lg 7} = 7$.",
+      "dbfec9987917881b": "## Reknereglane som temmar store tal\n\nLogaritmar følgjer tre reknereglar som gjer dei til kraftige verktøy. For $a, b > 0$, $a \\neq 1$ og $x, y > 0$ gjeld:\n\n**Produktregelen:** $\\log_a(x \\cdot y) = \\log_a(x) + \\log_a(y)$ — logaritmen gjer ganging om til pluss.\n\n**Kvotientregelen:** $\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$ — deling blir minus.\n\n**Potensregelen:** $\\log_a(x^n) = n \\cdot \\log_a(x)$ — eksponentar hoppar ned og blir faktorar.\n\nI tillegg er $\\log_a(1) = 0$ (fordi $a^0 = 1$) og $\\log_a(a) = 1$ (fordi $a^1 = a$).\n\nSjå reglane i aksjon: $\\log_2(8) + \\log_2(4) = \\log_2(32) = \\log_2(2^5) = 5$. Og $\\lg(100) - \\lg(10) = \\lg\\left(\\frac{100}{10}\\right) = \\lg(10) = 1$. Potensregelen gir $\\log_3(9^5) = 5 \\cdot \\log_3(9) = 5 \\cdot 2 = 10$.\n\nGrafisk er logaritmefunksjonen $f(x) = \\log_b(x)$ den inverse av $g(x) = b^x$. Han er berre definert for $x > 0$, har verdimengd alle reelle tal, skjer $x$-aksen i $(1, 0)$ og har $x = 0$ som vertikal asymptote. For $b > 1$ stig han — men langsamare og langsamare, som ein motbakke som aldri tek slutt men stadig blir slakare.\n\nTreng du ein logaritme kalkulatoren ikkje har, reddar **grunntalsskiftet** deg:\n\n$$\\log_a(x) = \\frac{\\lg(x)}{\\lg(a)} = \\frac{\\ln(x)}{\\ln(a)}$$\n\nDermed held det at kalkulatoren kan $\\lg$ og $\\ln$ — alle andre logaritmar kan byggjast av dei.",
+      "c55f8ac25175144a": "Test deg sjølv på logaritmereglar:",
+      "b631f1855ccba271": "Kva er $\\lg 4 + \\lg 25$?",
+      "6f6566f0ac0d87aa": "$\\lg 29$",
+      "47eb3096e8964b62": "$\\lg 21$",
+      "e02f47f6329e1643": "Produktregelen: $\\lg 4 + \\lg 25 = \\lg(4 \\cdot 25) = \\lg 100 = 2$.",
+      "3bde961926f300e1": "Kva er $\\lg 200 - \\lg 2$?",
+      "9fb2a9f855d0b521": "$\\lg 198$",
+      "bd6d0347c27ada7a": "$\\lg 400$",
+      "5a9b46cd3315c764": "Kvotientregelen: $\\lg\\frac{200}{2} = \\lg 100 = 2$.",
+      "f4a75e5fe2e9ebaf": "Kva er $\\dfrac{\\lg 8}{\\lg 2}$?",
+      "205a729ef716df0e": "$\\lg 4$",
+      "cd9dea000a4880e9": "$\\lg 6$",
+      "b680752fa8762912": "$\\lg 8 = \\lg(2^3) = 3\\lg 2$, så brøken blir $\\frac{3\\lg 2}{\\lg 2} = 3$. (Dette er også $\\log_2 8$ via grunntalsskifte.)",
+      "5c19a74dd3da13ad": "Kva utsegn om grafen til $f(x) = \\lg x$ er rett?",
+      "adaa19de52df14f3": "Han er definert for alle $x$",
+      "5c0cd3eea132812c": "Han skjer $y$-aksen i $(0, 1)$",
+      "e4f93b3734e47aa3": "Han har $y = 0$ som horisontal asymptote",
+      "5498cb133d6b4084": "Han er berre definert for $x > 0$ og har $x = 0$ som vertikal asymptote",
+      "229805c701321a32": "Logaritmen krev positivt argument. Grafen skjer $x$-aksen i $(1, 0)$ og har den vertikale asymptoten $x = 0$.",
+      "9fac4792c6a8bb1f": "## Eksponentiallikningar — å hente $x$ ned frå eksponenten\n\nNo kan vi løyse spareproblemet. Ei **eksponentiallikning** har den ukjende i eksponenten, til dømes $5^x = 200$. Strategien er alltid den same: ta logaritmen på begge sider og bruk potensregelen til å hente $x$ ned.\n\n$$\\lg(5^x) = \\lg(200)$$\n$$x \\cdot \\lg(5) = \\lg(200)$$\n$$x = \\frac{\\lg(200)}{\\lg(5)} = \\frac{2{,}301}{0{,}699} \\approx 3{,}29$$\n\nEin rask kontroll stadfestar: $5^{3{,}29} \\approx 200$. Generelt gir $a^x = c$ løysinga $x = \\frac{\\lg c}{\\lg a}$.\n\nFor sparepengane dine med til dømes 10 % årleg avkasting blir spørsmålet $1{,}1^x \\geq 2$. Logaritmen gir $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$ — beløpet er dobla i løpet av det åttande året. Den generelle **doblingstida** for ein modell $N(t) = N_0 \\cdot b^t$ er\n\n$$T_d = \\frac{\\lg(2)}{\\lg(b)} = \\frac{\\ln(2)}{\\ln(b)}$$\n\nLogaritmar blir også brukte til å byggje skalaer for storleikar som spenner over mange tierpotensar. **pH-skalaen** i kjemi er definert som $-\\lg[\\text{H}^+]$: ein konsentrasjon på $10^{-4}$ gir pH 4. **Desibelskalaen** for lyd og **Richterskalaen** for jordskjelv fungerer på same vis — eitt trinn på skalaen tyder ti gonger så mykje av fenomenet. Og i kapittel 7 skal du bruke logaritmar til å **linearisere** eksponentielle datasett, slik at ei krum kurve blir ei rett linje du kan køyre regresjon på. Logaritmen er med andre ord ikkje eit kuriosum, men eit arbeidsverktøy du kjem til å bruke resten av kurset.",
+      "fd460152fa5f76f6": "Test deg sjølv på eksponentiallikningar og bruksområde:",
+      "4d7c260b10276eec": "Løys likninga $10^x = 1000$.",
+      "e48f8a419112d39e": "$x = 3$",
+      "abca27e856ff0a29": "$x = 100$",
+      "b17c025fc1fca5ef": "$x = 10$",
+      "21e298770136b55e": "$x = \\lg 3$",
+      "cc24575942dbe82f": "$1000 = 10^3$, så $x = \\lg 1000 = 3$.",
+      "d10088242ab0504a": "Kva er løysinga av $5^x = 200$ uttrykt med logaritmar?",
+      "c412a55d87ab0d5f": "$x = \\lg 200 - \\lg 5$",
+      "82f3278300951bd5": "$x = \\dfrac{\\lg 200}{\\lg 5}$",
+      "41fa4c8d4b618aca": "$x = \\lg\\dfrac{200}{5}$",
+      "80798f6109e20d4f": "$x = \\dfrac{\\lg 5}{\\lg 200}$",
+      "9c48b6190b59c542": "Ta $\\lg$ på begge sider: $x \\lg 5 = \\lg 200$, så $x = \\frac{\\lg 200}{\\lg 5} \\approx 3{,}29$.",
+      "9c8d97d9ed83722a": "Du set pengar i banken med $10\\,\\%$ rente per år. Etter kor mange heile år er beløpet for første gong minst dobla?",
+      "a782dca1647cfd2b": "$7$ år",
+      "27b86cc10c29459c": "$10$ år",
+      "982dba16a053b68e": "$8$ år",
+      "9c2fe807cbb117d5": "$5$ år",
+      "d52bbfe3f3991e82": "Vi treng $1{,}1^x \\geq 2$, altså $x \\geq \\frac{\\lg 2}{\\lg 1{,}1} \\approx 7{,}27$. Første heile år er $8$.",
+      "a6d94eda8b8f3067": "pH er definert som $-\\lg[\\text{H}^+]$. Kva er pH når $[\\text{H}^+] = 10^{-4}$?",
+      "a00162c85ca268fa": "$\\text{pH} = -\\lg(10^{-4}) = -(-4) = 4$.",
+      "666e17878524d791": "## Oppsummering: nøkkelen til eksponenten\n\nSpørsmålet «når er sparepengane dobla?» lét seg ikkje svare på med vanleg algebra — den ukjende sat i eksponenten. **Logaritmen** var nøkkelen: $\\log_b(x) = y$ tyder nøyaktig at $b^y = x$, og spesielt er $\\lg x = a \\Leftrightarrow 10^a = x$. Tierlogaritmen $\\lg$ og den naturlege logaritmen $\\ln$ er dei to du bruker i praksis, og logaritme og tierpotens opphevar kvarandre: $\\lg(10^a) = a$ og $10^{\\lg a} = a$.\n\n**Reknereglane** gjer logaritmen til eit rekneverktøy: $\\lg(ab) = \\lg a + \\lg b$, $\\lg\\frac{a}{b} = \\lg a - \\lg b$ og $\\lg(a^k) = k \\lg a$. Den siste er arbeidshesten i **eksponentiallikningar**: ta logaritmen på begge sider, hent eksponenten ned, og $a^x = c$ gir $x = \\frac{\\lg c}{\\lg a}$. Doblingstid, halveringstid og «når passerer modellen grensa?» er alle variantar av same grep.\n\n**Logaritmefunksjonen** $f(x) = \\lg x$ er den omvende av $10^x$: definert berre for $x > 0$, stigande men stadig slakare, med skjeringspunkt $(1, 0)$ og vertikal asymptote $x = 0$. Og i den verkelege verda møter du logaritmen i pH, desibel og Richters skala — overalt der naturen spenner over mange tierpotensar.\n\nMed eksponentialfunksjonen og logaritmen som par er du rusta for neste kapittel, der nettopp slike funksjonspar — funksjonar som angrar kvarandre — får eit eige namn: omvende funksjonar."
+    }
+  }
+}

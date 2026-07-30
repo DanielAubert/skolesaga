@@ -1,1 +1,238 @@
-{"id":"s1-3-7-narrativ","courseId":"s1","chapterNumber":"3.7","title":"Implisitt derivasjon","subtitle":"Narrativ versjon","description":"En fortelling om kurver der x og y er flettet sammen — og trikset som finner tangenten uten å løse ut y.","estimatedMinutes":32,"competenceGoals":["bruke implisitt derivasjon til å finne den deriverte"],"linkedChapterId":"s1-3-7","content":[{"id":"s1-3-7-n-intro","type":"text","content":"## Når y ikke vil stå alene\n\nTil nå har funksjonene våre vært pent servert på formen $y = f(x)$ -- $y$ alene på venstre side, klar til å deriveres. Men virkeligheten er ikke alltid så ryddig. Tenk på en sirkel: $x^2 + y^2 = 25$. Her er $x$ og $y$ flettet sammen i én likning, og skal du løse ut $y$, må du velge mellom to grener med stygge rottegn. Likevel har sirkelen tangenter, og tangentene har stigningstall -- så det *finnes* en derivert. Hvordan får vi tak i den?\n\nSvaret er **implisitt derivasjon**: vi deriverer hele likningen slik den står, uten å løse ut $y$ først. Det eneste vi trenger å huske, er at $y$ i hemmelighet er en funksjon av $x$ -- så hver gang vi deriverer et ledd med $y$, må kjerneregelen med på kjøpet:\n\n$$\\frac{d}{dx}[y^n] = n \\cdot y^{n-1} \\cdot \\frac{dy}{dx}$$\n\nDet er hele trikset. Resten er vanlig derivasjon og litt likningsløsning."},{"id":"s1-3-7-n-section1","type":"text","content":"## Trikset -- kjerneregelen på y\n\nLa oss gjøre tankegangen helt konkret. Når vi deriverer $x^2$ med hensyn på $x$, får vi $2x$ -- som vanlig. Men når vi deriverer $y^2$ med hensyn på $x$, er $y$ ikke en konstant: den er en funksjon av $x$, en kjerne. Kjerneregelen gir da $2y \\cdot \\frac{dy}{dx}$, eller kortere $2y \\cdot y'$. Faktoren $y'$ er prisen vi betaler for at $y$ henger sammen med $x$.\n\nFremgangsmåten har fire steg. Først **deriverer vi begge sider** av likningen med hensyn på $x$. Hvert $y$-ledd får da en faktor $\\frac{dy}{dx}$ fra kjerneregelen. Deretter **samler vi alle ledd med $\\frac{dy}{dx}$** på den ene siden av likhetstegnet. Så **faktoriserer vi ut** $\\frac{dy}{dx}$, og til slutt **deler vi** på parentesen, slik at $\\frac{dy}{dx}$ står alene.\n\nMerk én ting til: produktet $xy$ krever produktregelen, siden begge faktorene avhenger av $x$:\n\n$$\\frac{d}{dx}[xy] = 1 \\cdot y + x \\cdot y' = y + xy'$$\n\nResultatet av implisitt derivasjon blir gjerne et uttrykk for $y'$ som inneholder *både* $x$ og $y$. Det er helt i orden -- for å finne stigningstallet i et punkt, setter vi inn begge koordinatene. Kurven kan jo ha flere punkter med samme $x$-verdi (tenk på sirkelen: ett punkt oppe og ett nede), og da må stigningstallet naturligvis avhenge av hvilket av dem vi mener."},{"id":"s1-3-7-n-quiz1","type":"exercise","exercise":{"id":"s1-3-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på ideen bak implisitt derivasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-7-n-quiz1-q0","task":"Hva er $\\frac{d}{dx}[y^2]$ når $y$ er en funksjon av $x$?","options":[{"id":"a","text":"$2y$","isCorrect":false},{"id":"b","text":"$y^2 \\cdot y'$","isCorrect":false},{"id":"c","text":"$2y \\cdot y'$","isCorrect":true},{"id":"d","text":"$2x$","isCorrect":false}],"solution":"$y$ er en kjerne, så kjerneregelen gir $\\frac{d}{dx}[y^2] = 2y \\cdot \\frac{dy}{dx}$."},{"id":"s1-3-7-n-quiz1-q1","task":"Hvorfor må vi bruke kjerneregelen på $y$-leddene?","options":[{"id":"a","text":"Fordi $y$ er en funksjon av $x$","isCorrect":true},{"id":"b","text":"Fordi $y$ er en konstant","isCorrect":false},{"id":"c","text":"Fordi likningen er av andre grad","isCorrect":false},{"id":"d","text":"Fordi $x$ og $y$ har samme fortegn","isCorrect":false}],"solution":"I en implisitt likning tenker vi på $y$ som $y(x)$ — en funksjon av $x$. Derfor utløser hvert $y$-ledd en faktor $y'$."},{"id":"s1-3-7-n-quiz1-q2","task":"Hva er siste steg i fremgangsmåten for å finne $\\frac{dy}{dx}$?","options":[{"id":"a","text":"Derivere en gang til","isCorrect":false},{"id":"b","text":"Sette $y = 0$","isCorrect":false},{"id":"c","text":"Kvadrere begge sider","isCorrect":false},{"id":"d","text":"Faktorisere ut $\\frac{dy}{dx}$ og dele på parentesen","isCorrect":true}],"solution":"Etter at alle $y'$-ledd er samlet på én side, faktoriserer vi ut $y'$ og deler — da står $y'$ alene."}],"solution":""}},{"id":"s1-3-7-n-section2","type":"text","content":"## Sirkelen og andre sammenflettede kurver\n\nNå tar vi sirkelen fra innledningen: $x^2 + y^2 = 25$, en sirkel med radius 5 om origo. Vi deriverer begge sider med hensyn på $x$. Venstre side gir $2x$ fra første ledd og $2y\\frac{dy}{dx}$ fra andre (kjerneregelen!), og høyre side -- konstanten 25 -- gir null:\n\n$$2x + 2y\\frac{dy}{dx} = 0$$\n\nVi løser for $\\frac{dy}{dx}$:\n\n$$\\frac{dy}{dx} = -\\frac{x}{y}$$\n\nEt kompakt og vakkert svar. La oss teste det i punktet $(3, 4)$, som ligger på sirkelen siden $9 + 16 = 25$. Stigningstallet er $\\frac{dy}{dx} = -\\frac{3}{4}$. Det stemmer med geometrien: radien ut til $(3,4)$ har stigningstall $\\frac{4}{3}$, og tangenten skal stå vinkelrett på radien -- akkurat det $-\\frac{3}{4}$ gjør, siden $\\frac{4}{3} \\cdot \\left(-\\frac{3}{4}\\right) = -1$.\n\nSå et eksempel med produktledd: finn $\\frac{dy}{dx}$ for $xy + y^2 = 1$. Produktregelen på $xy$ og kjerneregelen på $y^2$ gir\n\n$$y + x\\frac{dy}{dx} + 2y\\frac{dy}{dx} = 0$$\n\nVi samler $\\frac{dy}{dx}$-leddene og faktoriserer:\n\n$$\\frac{dy}{dx}(x + 2y) = -y \\quad \\Rightarrow \\quad \\frac{dy}{dx} = -\\frac{y}{x + 2y}$$\n\nMønsteret er alltid det samme: deriver ledd for ledd, husk $y'$-faktorene, samle, faktoriser, del. Implisitt derivasjon brukes til å finne tangenter til kurver der $y$ ikke enkelt kan isoleres -- sirkler, ellipser, hyperbler -- og er dessuten nøkkelen til neste kapittel om relaterte rater."},{"id":"s1-3-7-n-quiz2","type":"exercise","exercise":{"id":"s1-3-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på implisitt derivasjon i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-7-n-quiz2-q0","task":"For sirkelen $x^2 + y^2 = 25$, hva er $\\frac{dy}{dx}$?","options":[{"id":"a","text":"$-\\frac{y}{x}$","isCorrect":false},{"id":"b","text":"$-\\frac{x}{y}$","isCorrect":true},{"id":"c","text":"$\\frac{x}{y}$","isCorrect":false},{"id":"d","text":"$-2x$","isCorrect":false}],"solution":"$2x + 2y\\,y' = 0$ gir $y' = -\\frac{x}{y}$."},{"id":"s1-3-7-n-quiz2-q1","task":"Hva er stigningstallet til tangenten til $x^2 + y^2 = 25$ i punktet $(3, 4)$?","options":[{"id":"a","text":"$-\\frac{3}{4}$","isCorrect":true},{"id":"b","text":"$\\frac{3}{4}$","isCorrect":false},{"id":"c","text":"$\\frac{4}{3}$","isCorrect":false},{"id":"d","text":"$-\\frac{4}{3}$","isCorrect":false}],"solution":"$y' = -\\frac{x}{y} = -\\frac{3}{4}$. Tangenten står vinkelrett på radien, som har stigningstall $\\frac{4}{3}$."},{"id":"s1-3-7-n-quiz2-q2","task":"Hva er $\\frac{d}{dx}[xy]$?","options":[{"id":"a","text":"$y'$","isCorrect":false},{"id":"b","text":"$x \\cdot y'$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$y + x\\,y'$","isCorrect":true}],"solution":"Produktregelen: begge faktorene avhenger av $x$, så $(xy)' = 1 \\cdot y + x \\cdot y' = y + xy'$."}],"solution":""}},{"id":"s1-3-7-n-summary","type":"text","content":"## Oppsummering\n\nNår $x$ og $y$ er flettet sammen i én likning -- som i sirkelen $x^2 + y^2 = 25$ -- trenger vi ikke løse ut $y$ for å finne stigningstall. **Implisitt derivasjon** lar oss derivere likningen slik den står: vi deriverer begge sider med hensyn på $x$ og husker at $y$ er en funksjon av $x$, slik at kjerneregelen gir $(y^n)' = ny^{n-1}y'$ og produktregelen gir $(xy)' = y + xy'$.\n\nFremgangsmåten er fast: deriver hvert ledd, samle alle ledd med $y'$ på én side, faktoriser ut $y'$, og del. Svaret inneholder gjerne både $x$ og $y$ -- naturlig nok, siden kurven kan ha flere punkter over samme $x$-verdi.\n\nFor sirkelen fant vi $y' = -\\frac{x}{y}$, som i punktet $(3, 4)$ gir tangentstigning $-\\frac{3}{4}$ -- vinkelrett på radien, akkurat som geometrien krever. For $xy + y^2 = 1$ ga samme oppskrift $y' = -\\frac{y}{x+2y}$.\n\nTeknikken er mer enn et kuriosum: i neste kapittel deriverer vi likninger med hensyn på *tiden* og kobler sammen endringsfarter -- og da er det implisitt derivasjon som gjør jobben."}],"exercises":[]}
+{
+  "id": "s1-3-7-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "3.7",
+  "title": "Implisitt derivasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kurver der x og y er flettet sammen — og trikset som finner tangenten uten å løse ut y.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "bruke implisitt derivasjon til å finne den deriverte"
+  ],
+  "linkedChapterId": "s1-3-7",
+  "content": [
+    {
+      "id": "s1-3-7-n-intro",
+      "type": "text",
+      "content": "## Når y ikke vil stå alene\n\nTil nå har funksjonene våre vært pent servert på formen $y = f(x)$ -- $y$ alene på venstre side, klar til å deriveres. Men virkeligheten er ikke alltid så ryddig. Tenk på en sirkel: $x^2 + y^2 = 25$. Her er $x$ og $y$ flettet sammen i én likning, og skal du løse ut $y$, må du velge mellom to grener med stygge rottegn. Likevel har sirkelen tangenter, og tangentene har stigningstall -- så det *finnes* en derivert. Hvordan får vi tak i den?\n\nSvaret er **implisitt derivasjon**: vi deriverer hele likningen slik den står, uten å løse ut $y$ først. Det eneste vi trenger å huske, er at $y$ i hemmelighet er en funksjon av $x$ -- så hver gang vi deriverer et ledd med $y$, må kjerneregelen med på kjøpet:\n\n$$\\frac{d}{dx}[y^n] = n \\cdot y^{n-1} \\cdot \\frac{dy}{dx}$$\n\nDet er hele trikset. Resten er vanlig derivasjon og litt likningsløsning."
+    },
+    {
+      "id": "s1-3-7-n-section1",
+      "type": "text",
+      "content": "## Trikset -- kjerneregelen på y\n\nLa oss gjøre tankegangen helt konkret. Når vi deriverer $x^2$ med hensyn på $x$, får vi $2x$ -- som vanlig. Men når vi deriverer $y^2$ med hensyn på $x$, er $y$ ikke en konstant: den er en funksjon av $x$, en kjerne. Kjerneregelen gir da $2y \\cdot \\frac{dy}{dx}$, eller kortere $2y \\cdot y'$. Faktoren $y'$ er prisen vi betaler for at $y$ henger sammen med $x$.\n\nFremgangsmåten har fire steg. Først **deriverer vi begge sider** av likningen med hensyn på $x$. Hvert $y$-ledd får da en faktor $\\frac{dy}{dx}$ fra kjerneregelen. Deretter **samler vi alle ledd med $\\frac{dy}{dx}$** på den ene siden av likhetstegnet. Så **faktoriserer vi ut** $\\frac{dy}{dx}$, og til slutt **deler vi** på parentesen, slik at $\\frac{dy}{dx}$ står alene.\n\nMerk én ting til: produktet $xy$ krever produktregelen, siden begge faktorene avhenger av $x$:\n\n$$\\frac{d}{dx}[xy] = 1 \\cdot y + x \\cdot y' = y + xy'$$\n\nResultatet av implisitt derivasjon blir gjerne et uttrykk for $y'$ som inneholder *både* $x$ og $y$. Det er helt i orden -- for å finne stigningstallet i et punkt, setter vi inn begge koordinatene. Kurven kan jo ha flere punkter med samme $x$-verdi (tenk på sirkelen: ett punkt oppe og ett nede), og da må stigningstallet naturligvis avhenge av hvilket av dem vi mener."
+    },
+    {
+      "id": "s1-3-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ideen bak implisitt derivasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-7-n-quiz1-q0",
+            "task": "Hva er $\\frac{d}{dx}[y^2]$ når $y$ er en funksjon av $x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2y$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y^2 \\cdot y'$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2y \\cdot y'$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y$ er en kjerne, så kjerneregelen gir $\\frac{d}{dx}[y^2] = 2y \\cdot \\frac{dy}{dx}$."
+          },
+          {
+            "id": "s1-3-7-n-quiz1-q1",
+            "task": "Hvorfor må vi bruke kjerneregelen på $y$-leddene?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $y$ er en konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $y$ er en funksjon av $x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi likningen er av andre grad",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $x$ og $y$ har samme fortegn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I en implisitt likning tenker vi på $y$ som $y(x)$ — en funksjon av $x$. Derfor utløser hvert $y$-ledd en faktor $y'$."
+          },
+          {
+            "id": "s1-3-7-n-quiz1-q2",
+            "task": "Hva er siste steg i fremgangsmåten for å finne $\\frac{dy}{dx}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Derivere en gang til",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sette $y = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvadrere begge sider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Faktorisere ut $\\frac{dy}{dx}$ og dele på parentesen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Etter at alle $y'$-ledd er samlet på én side, faktoriserer vi ut $y'$ og deler — da står $y'$ alene."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-7-n-section2",
+      "type": "text",
+      "content": "## Sirkelen og andre sammenflettede kurver\n\nNå tar vi sirkelen fra innledningen: $x^2 + y^2 = 25$, en sirkel med radius 5 om origo. Vi deriverer begge sider med hensyn på $x$. Venstre side gir $2x$ fra første ledd og $2y\\frac{dy}{dx}$ fra andre (kjerneregelen!), og høyre side -- konstanten 25 -- gir null:\n\n$$2x + 2y\\frac{dy}{dx} = 0$$\n\nVi løser for $\\frac{dy}{dx}$:\n\n$$\\frac{dy}{dx} = -\\frac{x}{y}$$\n\nEt kompakt og vakkert svar. La oss teste det i punktet $(3, 4)$, som ligger på sirkelen siden $9 + 16 = 25$. Stigningstallet er $\\frac{dy}{dx} = -\\frac{3}{4}$. Det stemmer med geometrien: radien ut til $(3,4)$ har stigningstall $\\frac{4}{3}$, og tangenten skal stå vinkelrett på radien -- akkurat det $-\\frac{3}{4}$ gjør, siden $\\frac{4}{3} \\cdot \\left(-\\frac{3}{4}\\right) = -1$.\n\nSå et eksempel med produktledd: finn $\\frac{dy}{dx}$ for $xy + y^2 = 1$. Produktregelen på $xy$ og kjerneregelen på $y^2$ gir\n\n$$y + x\\frac{dy}{dx} + 2y\\frac{dy}{dx} = 0$$\n\nVi samler $\\frac{dy}{dx}$-leddene og faktoriserer:\n\n$$\\frac{dy}{dx}(x + 2y) = -y \\quad \\Rightarrow \\quad \\frac{dy}{dx} = -\\frac{y}{x + 2y}$$\n\nMønsteret er alltid det samme: deriver ledd for ledd, husk $y'$-faktorene, samle, faktoriser, del. Implisitt derivasjon brukes til å finne tangenter til kurver der $y$ ikke enkelt kan isoleres -- sirkler, ellipser, hyperbler -- og er dessuten nøkkelen til neste kapittel om relaterte rater."
+    },
+    {
+      "id": "s1-3-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på implisitt derivasjon i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-7-n-quiz2-q0",
+            "task": "For sirkelen $x^2 + y^2 = 25$, hva er $\\frac{dy}{dx}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-\\frac{x}{y}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{y}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x}{y}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2x + 2y\\,y' = 0$ gir $y' = -\\frac{x}{y}$."
+          },
+          {
+            "id": "s1-3-7-n-quiz2-q1",
+            "task": "Hva er stigningstallet til tangenten til $x^2 + y^2 = 25$ i punktet $(3, 4)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{3}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{3}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{4}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\frac{4}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y' = -\\frac{x}{y} = -\\frac{3}{4}$. Tangenten står vinkelrett på radien, som har stigningstall $\\frac{4}{3}$."
+          },
+          {
+            "id": "s1-3-7-n-quiz2-q2",
+            "task": "Hva er $\\frac{d}{dx}[xy]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y'$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x \\cdot y'$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y + x\\,y'$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen: begge faktorene avhenger av $x$, så $(xy)' = 1 \\cdot y + x \\cdot y' = y + xy'$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår $x$ og $y$ er flettet sammen i én likning -- som i sirkelen $x^2 + y^2 = 25$ -- trenger vi ikke løse ut $y$ for å finne stigningstall. **Implisitt derivasjon** lar oss derivere likningen slik den står: vi deriverer begge sider med hensyn på $x$ og husker at $y$ er en funksjon av $x$, slik at kjerneregelen gir $(y^n)' = ny^{n-1}y'$ og produktregelen gir $(xy)' = y + xy'$.\n\nFremgangsmåten er fast: deriver hvert ledd, samle alle ledd med $y'$ på én side, faktoriser ut $y'$, og del. Svaret inneholder gjerne både $x$ og $y$ -- naturlig nok, siden kurven kan ha flere punkter over samme $x$-verdi.\n\nFor sirkelen fant vi $y' = -\\frac{x}{y}$, som i punktet $(3, 4)$ gir tangentstigning $-\\frac{3}{4}$ -- vinkelrett på radien, akkurat som geometrien krever. For $xy + y^2 = 1$ ga samme oppskrift $y' = -\\frac{y}{x+2y}$.\n\nTeknikken er mer enn et kuriosum: i neste kapittel deriverer vi likninger med hensyn på *tiden* og kobler sammen endringsfarter -- og da er det implisitt derivasjon som gjør jobben."
+    }
+  ],
+  "exercises": []
+}

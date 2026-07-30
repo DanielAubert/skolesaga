@@ -1,1 +1,519 @@
-{"id":"s2-9-2-narrativ","courseId":"s2","chapterNumber":"9.2","title":"Figurtal og rekursive samanhengar","subtitle":"Narrativ versjon","description":"Ei forteljing om småsteinane til grekarane — om trekanttal, kvadrattal og pentagonaltal, detektivmetoden med andredifferansar, og induksjonsbeviset som klatrar ei uendeleg stige.","estimatedMinutes":35,"competenceGoals":["utforske rekursive samanhengar og presentere eigne framgangsmåtar","utleie og bruke formlar for figurtal og rekkjesummar","bruke matematisk induksjon til å prove formlar"],"linkedChapterId":"s2-9-2","content":[{"id":"s2-9-2-n-intro","type":"text","content":"## Prikkane som vart til formlar\n\nFor over to tusen år sidan sat greske matematikarar og la småstein i mønster på bakken: trekantar, kvadrat, femkantar. Dei oppdaga at talet på steinar i figurane følgde vakre talmønster — og at mønstera kunne provast. **Figurtal** er positive heiltal som kan framstillast som geometriske figurar bygde opp av prikkar, og studiet av dei er ein klassisk veg til to av kjerneferdigheitene i matematikken: å *finne* formlar og å *prove* dei.\n\nVi skal studere tre familiar: **trekanttal**, **kvadrattal** og **pentagonaltal**. For kvar av dei følgjer vi same oppskrift: skildre det geometriske mønsteret, finne ein rekursiv formel ut frå korleis figuren veks, utleie ein eksplisitt formel med summeteknikkar — og til slutt: prove formelen med **matematisk induksjon**, bevisteknikken som lèt deg vise at noko gjeld for *alle* naturlege tal, uendeleg mange på ein gong.\n\nKoplinga mellom figurtal og rekkjer gir ei visuell tolking av abstrakte algebraiske identitetar — du skal få *sjå* kvifor $1 + 3 + 5 + \\cdots + (2n-1) = n^2$. Finn fram penn og prikkar."},{"id":"s2-9-2-n-section1","type":"text","content":"## Trekantar, kvadrat og femkantar av prikkar\n\nDet $n$-te **trekanttalet** $T_n$ er talet på prikkar i ein trekant med $n$ prikkar langs kvar side: $T_1 = 1$, $T_2 = 3$, $T_3 = 6$, $T_4 = 10$, $T_5 = 15, \\ldots$ Kvar ny trekant blir laga ved å leggje ei ekstra rad under den førre — rad $k$ har $k$ prikkar — så den rekursive formelen er $T_{n+1} = T_n + (n+1)$ med $T_1 = 1$. Eksplisitt er $T_n$ summen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ (Gauss' formel). Det finst òg eit reint *geometrisk* bevis: legg to kopiar av trekanten mot kvarandre, så fyller dei eit rektangel med $n$ rader og $n+1$ kolonnar — $n(n+1)$ prikkar — og trekanten er halvparten.\n\nDet $n$-te **kvadrattalet** er sjølvsagt $K_n = n^2$: $1, 4, 9, 16, 25, \\ldots$ Men *korleis* veks kvadratet? Frå $K_n$ til $K_{n+1}$ legg du ein L-forma vinkel (ein *gnomon*) med $2n + 1$ prikkar langs to sider: $K_{n+1} = K_n + (2n+1)$. Dermed er $n^2$ summen av dei $n$ første oddetala: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ — ein berømt identitet, synleg for det blotte auget i prikkmønsteret. Og deler du kvadratet langs diagonalen, får du to trekantar: $K_n = T_n + T_{n-1}$, som du kan sjekke algebraisk: $\\frac{n(n+1)}{2} + \\frac{(n-1)n}{2} = n^2$.\n\nDet $n$-te **pentagonaltalet** byggjer femkantar lagvis: $P_1 = 1$, $P_2 = 5$, $P_3 = 12$, $P_4 = 22$, $P_5 = 35, \\ldots$ Differansane $P_{n+1} - P_n = 3n + 1$ veks aritmetisk med $d = 3$, og den eksplisitte formelen er $P_n = \\frac{n(3n-1)}{2}$. Alle desse er spesialtilfelle av **polygonaltal** for ein regulær $s$-kant: $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$ — set inn $s = 3, 4, 5, 6$ og få trekant ($\\frac{n(n+1)}{2}$), kvadrat ($n^2$), pentagon ($\\frac{n(3n-1)}{2}$) og heksagon ($n(2n-1)$)."},{"id":"s2-9-2-n-quiz1","type":"exercise","exercise":{"id":"s2-9-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på figurtala:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-2-n-quiz1-q0","task":"Kva er det $n$-te trekanttalet?","options":[{"id":"a","text":"$T_n = \\frac{n(n+1)}{2}$","isCorrect":true},{"id":"b","text":"$T_n = n^2$","isCorrect":false},{"id":"c","text":"$T_n = \\frac{n(3n-1)}{2}$","isCorrect":false},{"id":"d","text":"$T_n = 2n - 1$","isCorrect":false}],"solution":"$T_n = 1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — Gauss' summeformel, bevist geometrisk ved å doble trekanten til eit rektangel."},{"id":"s2-9-2-n-quiz1-q1","task":"Kva identitet viser gnomonane (L-formene) i kvadratet?","options":[{"id":"a","text":"$n^2 = \\frac{n(n+1)}{2}$","isCorrect":false},{"id":"b","text":"Summen av dei $n$ første oddetala er $n^2$","isCorrect":true},{"id":"c","text":"Summen av dei $n$ første partala er $n^2$","isCorrect":false},{"id":"d","text":"$n^2 = 2T_n$","isCorrect":false}],"solution":"Kvar L-form legg til $2n+1$ prikkar — neste oddetal. Lag på lag: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$."},{"id":"s2-9-2-n-quiz1-q2","task":"Kva er samanhengen mellom kvadrattal og trekanttal?","options":[{"id":"a","text":"$K_n = T_n \\cdot T_{n-1}$","isCorrect":false},{"id":"b","text":"$K_n = 2T_n$","isCorrect":false},{"id":"c","text":"$K_n = T_n + T_{n-1}$","isCorrect":true},{"id":"d","text":"$K_n = T_{2n}$","isCorrect":false}],"solution":"Diagonalen deler kvadratet i to trekantar: $n^2 = \\frac{n(n+1)}{2} + \\frac{(n-1)n}{2}$."},{"id":"s2-9-2-n-quiz1-q3","task":"Pentagonaltala startar $1, 5, 12, 22, 35, \\ldots$ Kva er differansane $P_{n+1} - P_n$?","options":[{"id":"a","text":"Konstant lik 4","isCorrect":false},{"id":"b","text":"Kvadrattala","isCorrect":false},{"id":"c","text":"Oddetala","isCorrect":false},{"id":"d","text":"$3n + 1$ — ei aritmetisk følgje med $d = 3$","isCorrect":true}],"solution":"$5-1=4$, $12-5=7$, $22-12=10$, $35-22=13$: differansane $4, 7, 10, 13$ aukar med 3, altså $P_{n+1} = P_n + (3n+1)$."}]}},{"id":"s2-9-2-n-section2","type":"text","content":"## Detektivmetoden: frå mønster til formel\n\nKva gjer du når du møter ei *ukjend* talfølgje — sei $1, 6, 15, 28, 45$? Detektivmetoden har tre steg.\n\n**Steg 1: Differansane.** $6-1 = 5$, $15-6 = 9$, $28-15 = 13$, $45-28 = 17$. Differansane $5, 9, 13, 17$ er ikkje konstante — men *deira* differansar er: $4, 4, 4$. Når **andredifferansane** er konstante, er følgja eit andregradsuttrykk $a_n = An^2 + Bn + C$, med $A = \\frac{\\text{andredifferansen}}{2}$. (Konstante førstedifferansar gir tilsvarande ein lineær formel.)\n\n**Steg 2: Rekursiv formel.** Den $k$-te differansen er $5 + (k-1) \\cdot 4 = 4k + 1$, så $a_{n+1} = a_n + (4n + 1)$ med $a_1 = 1$.\n\n**Steg 3: Eksplisitt formel via summeformlar.** Leddet $a_n$ er startverdien pluss alle differansane:\n\n$$a_n = 1 + \\sum_{k=1}^{n-1}(4k + 1) = 1 + 4 \\cdot \\frac{(n-1)n}{2} + (n-1) = 1 + (n-1)(2n+1) = 2n^2 - n = n(2n-1)$$\n\nVerifikasjon: $a_5 = 5 \\cdot 9 = 45$. ✓ (Dette er faktisk heksagonaltala $p_6(n)$.) Undervegs brukte vi summane som er verdt å kunne utanåt: $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$, $\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum_{k=1}^{n}(2k-1) = n^2$.\n\nMetoden verkar òg baklengs, som ei designøving: ein stjernefigur med éin sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$ prikkar ($2, 5, 10, 17, \\ldots$), og differansane $S_{n+1} - S_n = 2n + 1$ er oddetala — signaturen til kvadrattala, pluss ein konstant. Teikn gjerne figurane: visualisering er ikkje pynt, det er ofte sjølve innsikta."},{"id":"s2-9-2-n-quiz2","type":"exercise","exercise":{"id":"s2-9-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på frå mønster til formel:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-2-n-quiz2-q0","task":"Ei følgje har konstante andredifferansar lik 4. Kva veit vi om den eksplisitte formelen?","options":[{"id":"a","text":"Han er lineær med stigingstal 4","isCorrect":false},{"id":"b","text":"Han er eit andregradsuttrykk $An^2 + Bn + C$ med $A = 2$","isCorrect":true},{"id":"c","text":"Han er geometrisk med $k = 4$","isCorrect":false},{"id":"d","text":"Han er eit tredjegradsuttrykk","isCorrect":false}],"solution":"Konstante andredifferansar tyder andregradsformel, og $A = \\frac{\\Delta^2}{2} = \\frac{4}{2} = 2$."},{"id":"s2-9-2-n-quiz2-q1","task":"Følgja $1, 6, 15, 28, 45$ har eksplisitt formel …","options":[{"id":"a","text":"$a_n = n(2n+1)$","isCorrect":false},{"id":"b","text":"$a_n = 2n^2 + n$","isCorrect":false},{"id":"c","text":"$a_n = n(2n-1)$","isCorrect":true},{"id":"d","text":"$a_n = \\frac{n(3n-1)}{2}$","isCorrect":false}],"solution":"$a_n = 1 + \\sum_{k=1}^{n-1}(4k+1) = 2n^2 - n = n(2n-1)$. Sjekk: $a_5 = 5 \\cdot 9 = 45$ ✓ — heksagonaltala."},{"id":"s2-9-2-n-quiz2-q2","task":"Kva er $\\sum_{k=1}^{n} k^2$?","options":[{"id":"a","text":"$\\frac{n(n+1)(2n+1)}{6}$","isCorrect":true},{"id":"b","text":"$\\frac{n^2(n+1)^2}{4}$","isCorrect":false},{"id":"c","text":"$\\frac{n(n+1)}{2}$","isCorrect":false},{"id":"d","text":"$n^3$","isCorrect":false}],"solution":"Summen av dei første $n$ kvadrattala er $\\frac{n(n+1)(2n+1)}{6}$ — ein av standardsummane i verktøykassa."},{"id":"s2-9-2-n-quiz2-q3","task":"Stjernefiguren med 1 sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$. Kva er differansen $S_{n+1} - S_n$?","options":[{"id":"a","text":"$n + 1$","isCorrect":false},{"id":"b","text":"$2n - 1$","isCorrect":false},{"id":"c","text":"$n^2$","isCorrect":false},{"id":"d","text":"$2n + 1$","isCorrect":true}],"solution":"$S_{n+1} - S_n = (n+1)^2 + 1 - n^2 - 1 = 2n + 1$ — oddetala, akkurat som for kvadrattala."}]}},{"id":"s2-9-2-n-section3","type":"text","content":"## Induksjon — beviset som klatrar ei uendeleg stige\n\nDetektivmetoden *finn* formlar, men funn er ikkje bevis: at $T_n = \\frac{n(n+1)}{2}$ stemmer for dei fem første ledda, garanterer ingenting om ledd nummer ein million. Til det treng vi **matematisk induksjon** — teknikken for å prove at ein påstand $P(n)$ gjeld for *alle* naturlege tal $n \\geq 1$.\n\nTenk på ei uendeleg stige. Kan du nå første trinn? Og kan du, frå eit kva som helst trinn, alltid nå det neste? Då når du alle trinna. Formelt: **Grunnsteg** — vis at $P(1)$ er sann. **Induksjonssteg** — anta at $P(m)$ er sann for ein vilkårleg $m \\geq 1$ (*induksjonsantakinga*), og vis at då er $P(m+1)$ òg sann. Konklusjon: $P(n)$ gjeld for alle $n \\geq 1$.\n\nLat oss prove $1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$. *Grunnsteg* ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = m$, altså $1 + 2 + \\cdots + m = \\frac{m(m+1)}{2}$. Då er\n\n$$1 + 2 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1) = (m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$$\n\n— nøyaktig formelen med $n = m+1$. ✓ Stiga er klatra: formelen gjeld for alle $n \\geq 1$. $\\blacksquare$\n\nStrategien i induksjonssteget er nesten alltid den same for summeformlar: skriv $S_{m+1} = S_m + (\\text{ledd nummer } m+1)$, byt ut $S_m$ med induksjonsantakinga, og rekn deg fram til målformelen. Det vanskelege er sjeldan rekninga — det er å halde tunga rett i munnen om *kva som blir anteke* og *kva som skal visast*. Antakinga gjeld éin vilkårleg $m$; det du viser, er implikasjonen $P(m) \\Rightarrow P(m+1)$. Saman med grunnsteget er det nok til å dekkje uendeleg mange tilfelle med endeleg mykje arbeid — det stille mirakelet til induksjonen."},{"id":"s2-9-2-n-quiz3","type":"exercise","exercise":{"id":"s2-9-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på matematisk induksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-2-n-quiz3-q0","task":"Kva to delar består eit induksjonsbevis av?","options":[{"id":"a","text":"Grunnsteg ($P(1)$ er sann) og induksjonssteg ($P(m) \\Rightarrow P(m+1)$)","isCorrect":true},{"id":"b","text":"Derivasjon og integrasjon","isCorrect":false},{"id":"c","text":"Å sjekke formelen for dei ti første ledda","isCorrect":false},{"id":"d","text":"Rekursiv og eksplisitt formel","isCorrect":false}],"solution":"Grunnsteget forankrar stiga; induksjonssteget viser at kvart trinn leiar til det neste. Saman dekkjer dei alle $n \\geq 1$."},{"id":"s2-9-2-n-quiz3-q1","task":"Kva er induksjonsantakinga i beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$?","options":[{"id":"a","text":"At formelen gjeld for alle $n$","isCorrect":false},{"id":"b","text":"At formelen gjeld for $n = 1$","isCorrect":false},{"id":"c","text":"At formelen gjeld for éin vilkårleg $n = m$","isCorrect":true},{"id":"d","text":"At formelen er gal for $n = m+1$","isCorrect":false}],"solution":"Vi antar $P(m)$ for éin vilkårleg $m$ og bruker antakinga til å vise $P(m+1)$. Å anta det for alle $n$ ville vore sirkelargumentasjon."},{"id":"s2-9-2-n-quiz3-q2","task":"I induksjonssteget skreiv vi $1 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1)$. Kva er neste omforming?","options":[{"id":"a","text":"Set $m = 1$ og sjekk","isCorrect":false},{"id":"b","text":"Deriver begge sider","isCorrect":false},{"id":"c","text":"Erstatt $m+1$ med $m$","isCorrect":false},{"id":"d","text":"Faktoriser ut $(m+1)$: $(m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$","isCorrect":true}],"solution":"Felles faktor $(m+1)$ blir trekt ut, og $\\frac{m}{2} + 1 = \\frac{m+2}{2}$ gir målformelen $\\frac{(m+1)(m+2)}{2}$."},{"id":"s2-9-2-n-quiz3-q3","task":"Kvifor held det ikkje å verifisere ein formel for dei 1000 første verdiane av $n$?","options":[{"id":"a","text":"Fordi formelen kan svikte for ein seinare $n$ — endelege sjekkar bevis ikkje uendelege påstandar","isCorrect":true},{"id":"b","text":"Fordi 1000 er eit for lite tal å rekne med","isCorrect":false},{"id":"c","text":"Det held faktisk som bevis","isCorrect":false},{"id":"d","text":"Fordi formlar berre gjeld for partal","isCorrect":false}],"solution":"Ein påstand om alle naturlege tal omfattar uendeleg mange tilfelle. Induksjon dekkjer dei alle med to endelege steg."}]}},{"id":"s2-9-2-n-summary","type":"text","content":"## Oppsummering: frå småstein til strenge bevis\n\nPrikkemønstera til grekarane ber framleis på pensum. **Trekanttala** $T_n = \\frac{n(n+1)}{2}$, **kvadrattala** $K_n = n^2$ og **pentagonaltala** $P_n = \\frac{n(3n-1)}{2}$ veks kvar med sin gnomon — rader, L-former og lag — og heng saman på vakkert vis: $K_n = T_n + T_{n-1}$, og kvadratet er summen av oddetala. Alle er polygonaltal $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$.\n\nDetektivmetoden gjorde ukjende følgjer kjende: konstante *førstedifferansar* tyder lineær formel, konstante *andredifferansar* tyder andregradsformel med $A = \\frac{\\Delta^2}{2}$ — og summeformlane $\\sum k = \\frac{n(n+1)}{2}$, $\\sum k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum(2k-1) = n^2$ byggjer brua frå rekursiv til eksplisitt form, slik $1, 6, 15, 28, 45$ vart til $n(2n-1)$.\n\nOg til slutt det som skil matematikk frå mønstergjetting: **induksjonen**. Grunnsteg pluss induksjonssteg — $P(1)$ sann, og $P(m) \\Rightarrow P(m+1)$ — bevis påstandar for uendeleg mange $n$ med endeleg arbeid, som då Gauss-formelen vart klatra trinn for trinn. Mønster kan sjåast, formlar kan finnast — men frå no av kan du òg *prove* dei."}],"exercises":[],"_meta":{"sourceHash":"516470eec7eb0cef","translatedAt":"2026-06-20T09:16:35.836Z","model":"claude-code-agent","strings":89,"tm":{"b9c675876c704a78":"Figurtal og rekursive samanhengar","b195b06d1ed59702":"Narrativ versjon","92e0b8fec888b141":"Ei forteljing om småsteinane til grekarane — om trekanttal, kvadrattal og pentagonaltal, detektivmetoden med andredifferansar, og induksjonsbeviset som klatrar ei uendeleg stige.","78781630f0e97834":"utforske rekursive samanhengar og presentere eigne framgangsmåtar","0ba291296b9ae69c":"utleie og bruke formlar for figurtal og rekkjesummar","006e64030bfd0016":"bruke matematisk induksjon til å prove formlar","77174d6542182af5":"## Prikkane som vart til formlar\n\nFor over to tusen år sidan sat greske matematikarar og la småstein i mønster på bakken: trekantar, kvadrat, femkantar. Dei oppdaga at talet på steinar i figurane følgde vakre talmønster — og at mønstera kunne provast. **Figurtal** er positive heiltal som kan framstillast som geometriske figurar bygde opp av prikkar, og studiet av dei er ein klassisk veg til to av kjerneferdigheitene i matematikken: å *finne* formlar og å *prove* dei.\n\nVi skal studere tre familiar: **trekanttal**, **kvadrattal** og **pentagonaltal**. For kvar av dei følgjer vi same oppskrift: skildre det geometriske mønsteret, finne ein rekursiv formel ut frå korleis figuren veks, utleie ein eksplisitt formel med summeteknikkar — og til slutt: prove formelen med **matematisk induksjon**, bevisteknikken som lèt deg vise at noko gjeld for *alle* naturlege tal, uendeleg mange på ein gong.\n\nKoplinga mellom figurtal og rekkjer gir ei visuell tolking av abstrakte algebraiske identitetar — du skal få *sjå* kvifor $1 + 3 + 5 + \\cdots + (2n-1) = n^2$. Finn fram penn og prikkar.","c9eea0d888594b0d":"## Trekantar, kvadrat og femkantar av prikkar\n\nDet $n$-te **trekanttalet** $T_n$ er talet på prikkar i ein trekant med $n$ prikkar langs kvar side: $T_1 = 1$, $T_2 = 3$, $T_3 = 6$, $T_4 = 10$, $T_5 = 15, \\ldots$ Kvar ny trekant blir laga ved å leggje ei ekstra rad under den førre — rad $k$ har $k$ prikkar — så den rekursive formelen er $T_{n+1} = T_n + (n+1)$ med $T_1 = 1$. Eksplisitt er $T_n$ summen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ (Gauss' formel). Det finst òg eit reint *geometrisk* bevis: legg to kopiar av trekanten mot kvarandre, så fyller dei eit rektangel med $n$ rader og $n+1$ kolonnar — $n(n+1)$ prikkar — og trekanten er halvparten.\n\nDet $n$-te **kvadrattalet** er sjølvsagt $K_n = n^2$: $1, 4, 9, 16, 25, \\ldots$ Men *korleis* veks kvadratet? Frå $K_n$ til $K_{n+1}$ legg du ein L-forma vinkel (ein *gnomon*) med $2n + 1$ prikkar langs to sider: $K_{n+1} = K_n + (2n+1)$. Dermed er $n^2$ summen av dei $n$ første oddetala: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ — ein berømt identitet, synleg for det blotte auget i prikkmønsteret. Og deler du kvadratet langs diagonalen, får du to trekantar: $K_n = T_n + T_{n-1}$, som du kan sjekke algebraisk: $\\frac{n(n+1)}{2} + \\frac{(n-1)n}{2} = n^2$.\n\nDet $n$-te **pentagonaltalet** byggjer femkantar lagvis: $P_1 = 1$, $P_2 = 5$, $P_3 = 12$, $P_4 = 22$, $P_5 = 35, \\ldots$ Differansane $P_{n+1} - P_n = 3n + 1$ veks aritmetisk med $d = 3$, og den eksplisitte formelen er $P_n = \\frac{n(3n-1)}{2}$. Alle desse er spesialtilfelle av **polygonaltal** for ein regulær $s$-kant: $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$ — set inn $s = 3, 4, 5, 6$ og få trekant ($\\frac{n(n+1)}{2}$), kvadrat ($n^2$), pentagon ($\\frac{n(3n-1)}{2}$) og heksagon ($n(2n-1)$).","da24448c21c0e57b":"Test deg sjølv på figurtala:","4097889236a2af26":"placeholder","44fac1dd66704410":"Kva er det $n$-te trekanttalet?","f345211faee3edde":"$T_n = \\frac{n(n+1)}{2}$","7169e5720bf46e10":"$T_n = n^2$","b7bcb6935d11d937":"$T_n = \\frac{n(3n-1)}{2}$","d5f486b70bfe092b":"$T_n = 2n - 1$","dcf9f97456dfe1d9":"$T_n = 1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — Gauss' summeformel, bevist geometrisk ved å doble trekanten til eit rektangel.","560f4e83951c61d5":"Kva identitet viser gnomonane (L-formene) i kvadratet?","677041a5160e5371":"$n^2 = \\frac{n(n+1)}{2}$","6a9385d6e72279b5":"Summen av dei $n$ første oddetala er $n^2$","db3c19b3f19113ce":"Summen av dei $n$ første partala er $n^2$","7a7e4597ee35d4f4":"$n^2 = 2T_n$","16616df6d85120aa":"Kvar L-form legg til $2n+1$ prikkar — neste oddetal. Lag på lag: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$.","ce6459c8fd9b9a52":"Kva er samanhengen mellom kvadrattal og trekanttal?","579e8b175833fcc1":"$K_n = T_n \\cdot T_{n-1}$","0281fc840f5e9f2d":"$K_n = 2T_n$","51eb2f7544226565":"$K_n = T_n + T_{n-1}$","6644ffb712260465":"$K_n = T_{2n}$","6295f59c95bcefd4":"Diagonalen deler kvadratet i to trekantar: $n^2 = \\frac{n(n+1)}{2} + \\frac{(n-1)n}{2}$.","c1f56eba46561732":"Pentagonaltala startar $1, 5, 12, 22, 35, \\ldots$ Kva er differansane $P_{n+1} - P_n$?","0dc5f97d1a04d9c9":"Konstant lik 4","eb896c151cd05c80":"Kvadrattala","9b8760ba7de1d916":"Oddetala","0dc4917814a35497":"$3n + 1$ — ei aritmetisk følgje med $d = 3$","a1d262c7744ab5d1":"$5-1=4$, $12-5=7$, $22-12=10$, $35-22=13$: differansane $4, 7, 10, 13$ aukar med 3, altså $P_{n+1} = P_n + (3n+1)$.","fa0b047beb5e2eb8":"## Detektivmetoden: frå mønster til formel\n\nKva gjer du når du møter ei *ukjend* talfølgje — sei $1, 6, 15, 28, 45$? Detektivmetoden har tre steg.\n\n**Steg 1: Differansane.** $6-1 = 5$, $15-6 = 9$, $28-15 = 13$, $45-28 = 17$. Differansane $5, 9, 13, 17$ er ikkje konstante — men *deira* differansar er: $4, 4, 4$. Når **andredifferansane** er konstante, er følgja eit andregradsuttrykk $a_n = An^2 + Bn + C$, med $A = \\frac{\\text{andredifferansen}}{2}$. (Konstante førstedifferansar gir tilsvarande ein lineær formel.)\n\n**Steg 2: Rekursiv formel.** Den $k$-te differansen er $5 + (k-1) \\cdot 4 = 4k + 1$, så $a_{n+1} = a_n + (4n + 1)$ med $a_1 = 1$.\n\n**Steg 3: Eksplisitt formel via summeformlar.** Leddet $a_n$ er startverdien pluss alle differansane:\n\n$$a_n = 1 + \\sum_{k=1}^{n-1}(4k + 1) = 1 + 4 \\cdot \\frac{(n-1)n}{2} + (n-1) = 1 + (n-1)(2n+1) = 2n^2 - n = n(2n-1)$$\n\nVerifikasjon: $a_5 = 5 \\cdot 9 = 45$. ✓ (Dette er faktisk heksagonaltala $p_6(n)$.) Undervegs brukte vi summane som er verdt å kunne utanåt: $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$, $\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum_{k=1}^{n}(2k-1) = n^2$.\n\nMetoden verkar òg baklengs, som ei designøving: ein stjernefigur med éin sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$ prikkar ($2, 5, 10, 17, \\ldots$), og differansane $S_{n+1} - S_n = 2n + 1$ er oddetala — signaturen til kvadrattala, pluss ein konstant. Teikn gjerne figurane: visualisering er ikkje pynt, det er ofte sjølve innsikta.","a0d74f7f879b4e23":"Test deg sjølv på frå mønster til formel:","86b0ebe00717bcc0":"Ei følgje har konstante andredifferansar lik 4. Kva veit vi om den eksplisitte formelen?","f76a5717d380b1d2":"Han er lineær med stigingstal 4","dd0aa86ebdacde93":"Han er eit andregradsuttrykk $An^2 + Bn + C$ med $A = 2$","ef65eab435735da3":"Han er geometrisk med $k = 4$","3816c10562631c6c":"Han er eit tredjegradsuttrykk","a0f01bb82982858e":"Konstante andredifferansar tyder andregradsformel, og $A = \\frac{\\Delta^2}{2} = \\frac{4}{2} = 2$.","d3a784bc536ab0a4":"Følgja $1, 6, 15, 28, 45$ har eksplisitt formel …","0b02a51722c816ff":"$a_n = n(2n+1)$","a73da02ac4eaed2b":"$a_n = 2n^2 + n$","9ef6822c2adaa20f":"$a_n = n(2n-1)$","b0a02adfca472bf6":"$a_n = \\frac{n(3n-1)}{2}$","2611b0f710d16228":"$a_n = 1 + \\sum_{k=1}^{n-1}(4k+1) = 2n^2 - n = n(2n-1)$. Sjekk: $a_5 = 5 \\cdot 9 = 45$ ✓ — heksagonaltala.","44ecbbb14e48e95b":"Kva er $\\sum_{k=1}^{n} k^2$?","e16042ecfae8d2cd":"$\\frac{n(n+1)(2n+1)}{6}$","b769a13d33191a8c":"$\\frac{n^2(n+1)^2}{4}$","81cfa00fe7ac1c86":"$\\frac{n(n+1)}{2}$","34ff3cfb775770e9":"$n^3$","5e93ab3e49271913":"Summen av dei første $n$ kvadrattala er $\\frac{n(n+1)(2n+1)}{6}$ — ein av standardsummane i verktøykassa.","33c5428c503dd5e8":"Stjernefiguren med 1 sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$. Kva er differansen $S_{n+1} - S_n$?","dfb831ca9a2db4d1":"$n + 1$","9d25262b204865de":"$2n - 1$","a424b367aa96f504":"$n^2$","f1194e42ddbc4e88":"$2n + 1$","04579ff8fe140806":"$S_{n+1} - S_n = (n+1)^2 + 1 - n^2 - 1 = 2n + 1$ — oddetala, akkurat som for kvadrattala.","f379050e0269ffda":"## Induksjon — beviset som klatrar ei uendeleg stige\n\nDetektivmetoden *finn* formlar, men funn er ikkje bevis: at $T_n = \\frac{n(n+1)}{2}$ stemmer for dei fem første ledda, garanterer ingenting om ledd nummer ein million. Til det treng vi **matematisk induksjon** — teknikken for å prove at ein påstand $P(n)$ gjeld for *alle* naturlege tal $n \\geq 1$.\n\nTenk på ei uendeleg stige. Kan du nå første trinn? Og kan du, frå eit kva som helst trinn, alltid nå det neste? Då når du alle trinna. Formelt: **Grunnsteg** — vis at $P(1)$ er sann. **Induksjonssteg** — anta at $P(m)$ er sann for ein vilkårleg $m \\geq 1$ (*induksjonsantakinga*), og vis at då er $P(m+1)$ òg sann. Konklusjon: $P(n)$ gjeld for alle $n \\geq 1$.\n\nLat oss prove $1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$. *Grunnsteg* ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = m$, altså $1 + 2 + \\cdots + m = \\frac{m(m+1)}{2}$. Då er\n\n$$1 + 2 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1) = (m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$$\n\n— nøyaktig formelen med $n = m+1$. ✓ Stiga er klatra: formelen gjeld for alle $n \\geq 1$. $\\blacksquare$\n\nStrategien i induksjonssteget er nesten alltid den same for summeformlar: skriv $S_{m+1} = S_m + (\\text{ledd nummer } m+1)$, byt ut $S_m$ med induksjonsantakinga, og rekn deg fram til målformelen. Det vanskelege er sjeldan rekninga — det er å halde tunga rett i munnen om *kva som blir anteke* og *kva som skal visast*. Antakinga gjeld éin vilkårleg $m$; det du viser, er implikasjonen $P(m) \\Rightarrow P(m+1)$. Saman med grunnsteget er det nok til å dekkje uendeleg mange tilfelle med endeleg mykje arbeid — det stille mirakelet til induksjonen.","f0c371da040e2f7d":"Test deg sjølv på matematisk induksjon:","6a1c0b697a073213":"Kva to delar består eit induksjonsbevis av?","ea4612ec743ea9f9":"Grunnsteg ($P(1)$ er sann) og induksjonssteg ($P(m) \\Rightarrow P(m+1)$)","ee5def80af81fcdd":"Derivasjon og integrasjon","4e00dc8ff6a229fb":"Å sjekke formelen for dei ti første ledda","db6f5b87bd224397":"Rekursiv og eksplisitt formel","c602acfc74a01ebc":"Grunnsteget forankrar stiga; induksjonssteget viser at kvart trinn leiar til det neste. Saman dekkjer dei alle $n \\geq 1$.","611dd137d7c15637":"Kva er induksjonsantakinga i beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$?","4599f2fb90a49145":"At formelen gjeld for alle $n$","0df4370958459e34":"At formelen gjeld for $n = 1$","85e665fa85982133":"At formelen gjeld for éin vilkårleg $n = m$","bebe80c3608a4378":"At formelen er gal for $n = m+1$","72b614cbe8e491b8":"Vi antar $P(m)$ for éin vilkårleg $m$ og bruker antakinga til å vise $P(m+1)$. Å anta det for alle $n$ ville vore sirkelargumentasjon.","d20e8edf2229fd42":"I induksjonssteget skreiv vi $1 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1)$. Kva er neste omforming?","ab3e36a5fc87d0ee":"Set $m = 1$ og sjekk","657a0649a101b287":"Deriver begge sider","35e0e92959159aac":"Erstatt $m+1$ med $m$","41f41d57b59b4e4a":"Faktoriser ut $(m+1)$: $(m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$","70f02226a32d633b":"Felles faktor $(m+1)$ blir trekt ut, og $\\frac{m}{2} + 1 = \\frac{m+2}{2}$ gir målformelen $\\frac{(m+1)(m+2)}{2}$.","24a6efc06c74202e":"Kvifor held det ikkje å verifisere ein formel for dei 1000 første verdiane av $n$?","eac1a71ca78138dc":"Fordi formelen kan svikte for ein seinare $n$ — endelege sjekkar bevis ikkje uendelege påstandar","ee69a5787b4c4438":"Fordi 1000 er eit for lite tal å rekne med","246c1e7db70fa1cd":"Det held faktisk som bevis","6a60a414b712367a":"Fordi formlar berre gjeld for partal","8468a6c55358fe43":"Ein påstand om alle naturlege tal omfattar uendeleg mange tilfelle. Induksjon dekkjer dei alle med to endelege steg.","76fea4ecfea91971":"## Oppsummering: frå småstein til strenge bevis\n\nPrikkemønstera til grekarane ber framleis på pensum. **Trekanttala** $T_n = \\frac{n(n+1)}{2}$, **kvadrattala** $K_n = n^2$ og **pentagonaltala** $P_n = \\frac{n(3n-1)}{2}$ veks kvar med sin gnomon — rader, L-former og lag — og heng saman på vakkert vis: $K_n = T_n + T_{n-1}$, og kvadratet er summen av oddetala. Alle er polygonaltal $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$.\n\nDetektivmetoden gjorde ukjende følgjer kjende: konstante *førstedifferansar* tyder lineær formel, konstante *andredifferansar* tyder andregradsformel med $A = \\frac{\\Delta^2}{2}$ — og summeformlane $\\sum k = \\frac{n(n+1)}{2}$, $\\sum k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum(2k-1) = n^2$ byggjer brua frå rekursiv til eksplisitt form, slik $1, 6, 15, 28, 45$ vart til $n(2n-1)$.\n\nOg til slutt det som skil matematikk frå mønstergjetting: **induksjonen**. Grunnsteg pluss induksjonssteg — $P(1)$ sann, og $P(m) \\Rightarrow P(m+1)$ — bevis påstandar for uendeleg mange $n$ med endeleg arbeid, som då Gauss-formelen vart klatra trinn for trinn. Mønster kan sjåast, formlar kan finnast — men frå no av kan du òg *prove* dei."}}}
+{
+  "id": "s2-9-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "9.2",
+  "title": "Figurtal og rekursive samanhengar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om småsteinane til grekarane — om trekanttal, kvadrattal og pentagonaltal, detektivmetoden med andredifferansar, og induksjonsbeviset som klatrar ei uendeleg stige.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske rekursive samanhengar og presentere eigne framgangsmåtar",
+    "utleie og bruke formlar for figurtal og rekkjesummar",
+    "bruke matematisk induksjon til å prove formlar"
+  ],
+  "linkedChapterId": "s2-9-2",
+  "content": [
+    {
+      "id": "s2-9-2-n-intro",
+      "type": "text",
+      "content": "## Prikkane som vart til formlar\n\nFor over to tusen år sidan sat greske matematikarar og la småstein i mønster på bakken: trekantar, kvadrat, femkantar. Dei oppdaga at talet på steinar i figurane følgde vakre talmønster — og at mønstera kunne provast. **Figurtal** er positive heiltal som kan framstillast som geometriske figurar bygde opp av prikkar, og studiet av dei er ein klassisk veg til to av kjerneferdigheitene i matematikken: å *finne* formlar og å *prove* dei.\n\nVi skal studere tre familiar: **trekanttal**, **kvadrattal** og **pentagonaltal**. For kvar av dei følgjer vi same oppskrift: skildre det geometriske mønsteret, finne ein rekursiv formel ut frå korleis figuren veks, utleie ein eksplisitt formel med summeteknikkar — og til slutt: prove formelen med **matematisk induksjon**, bevisteknikken som lèt deg vise at noko gjeld for *alle* naturlege tal, uendeleg mange på ein gong.\n\nKoplinga mellom figurtal og rekkjer gir ei visuell tolking av abstrakte algebraiske identitetar — du skal få *sjå* kvifor $1 + 3 + 5 + \\cdots + (2n-1) = n^2$. Finn fram penn og prikkar."
+    },
+    {
+      "id": "s2-9-2-n-section1",
+      "type": "text",
+      "content": "## Trekantar, kvadrat og femkantar av prikkar\n\nDet $n$-te **trekanttalet** $T_n$ er talet på prikkar i ein trekant med $n$ prikkar langs kvar side: $T_1 = 1$, $T_2 = 3$, $T_3 = 6$, $T_4 = 10$, $T_5 = 15, \\ldots$ Kvar ny trekant blir laga ved å leggje ei ekstra rad under den førre — rad $k$ har $k$ prikkar — så den rekursive formelen er $T_{n+1} = T_n + (n+1)$ med $T_1 = 1$. Eksplisitt er $T_n$ summen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ (Gauss' formel). Det finst òg eit reint *geometrisk* bevis: legg to kopiar av trekanten mot kvarandre, så fyller dei eit rektangel med $n$ rader og $n+1$ kolonnar — $n(n+1)$ prikkar — og trekanten er halvparten.\n\nDet $n$-te **kvadrattalet** er sjølvsagt $K_n = n^2$: $1, 4, 9, 16, 25, \\ldots$ Men *korleis* veks kvadratet? Frå $K_n$ til $K_{n+1}$ legg du ein L-forma vinkel (ein *gnomon*) med $2n + 1$ prikkar langs to sider: $K_{n+1} = K_n + (2n+1)$. Dermed er $n^2$ summen av dei $n$ første oddetala: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ — ein berømt identitet, synleg for det blotte auget i prikkmønsteret. Og deler du kvadratet langs diagonalen, får du to trekantar: $K_n = T_n + T_{n-1}$, som du kan sjekke algebraisk: $\\frac{n(n+1)}{2} + \\frac{(n-1)n}{2} = n^2$.\n\nDet $n$-te **pentagonaltalet** byggjer femkantar lagvis: $P_1 = 1$, $P_2 = 5$, $P_3 = 12$, $P_4 = 22$, $P_5 = 35, \\ldots$ Differansane $P_{n+1} - P_n = 3n + 1$ veks aritmetisk med $d = 3$, og den eksplisitte formelen er $P_n = \\frac{n(3n-1)}{2}$. Alle desse er spesialtilfelle av **polygonaltal** for ein regulær $s$-kant: $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$ — set inn $s = 3, 4, 5, 6$ og få trekant ($\\frac{n(n+1)}{2}$), kvadrat ($n^2$), pentagon ($\\frac{n(3n-1)}{2}$) og heksagon ($n(2n-1)$)."
+    },
+    {
+      "id": "s2-9-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på figurtala:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-2-n-quiz1-q0",
+            "task": "Kva er det $n$-te trekanttalet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$T_n = n^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$T_n = \\frac{n(3n-1)}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$T_n = \\frac{n(n+1)}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$T_n = 2n - 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_n = 1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — Gauss' summeformel, bevist geometrisk ved å doble trekanten til eit rektangel."
+          },
+          {
+            "id": "s2-9-2-n-quiz1-q1",
+            "task": "Kva identitet viser gnomonane (L-formene) i kvadratet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$n^2 = \\frac{n(n+1)}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Summen av dei $n$ første partala er $n^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n^2 = 2T_n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Summen av dei $n$ første oddetala er $n^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvar L-form legg til $2n+1$ prikkar — neste oddetal. Lag på lag: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$."
+          },
+          {
+            "id": "s2-9-2-n-quiz1-q2",
+            "task": "Kva er samanhengen mellom kvadrattal og trekanttal?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$K_n = T_n + T_{n-1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$K_n = T_n \\cdot T_{n-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$K_n = 2T_n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$K_n = T_{2n}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Diagonalen deler kvadratet i to trekantar: $n^2 = \\frac{n(n+1)}{2} + \\frac{(n-1)n}{2}$."
+          },
+          {
+            "id": "s2-9-2-n-quiz1-q3",
+            "task": "Pentagonaltala startar $1, 5, 12, 22, 35, \\ldots$ Kva er differansane $P_{n+1} - P_n$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Konstant lik 4",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3n + 1$ — ei aritmetisk følgje med $d = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Kvadrattala",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Oddetala",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$5-1=4$, $12-5=7$, $22-12=10$, $35-22=13$: differansane $4, 7, 10, 13$ aukar med 3, altså $P_{n+1} = P_n + (3n+1)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-2-n-section2",
+      "type": "text",
+      "content": "## Detektivmetoden: frå mønster til formel\n\nKva gjer du når du møter ei *ukjend* talfølgje — sei $1, 6, 15, 28, 45$? Detektivmetoden har tre steg.\n\n**Steg 1: Differansane.** $6-1 = 5$, $15-6 = 9$, $28-15 = 13$, $45-28 = 17$. Differansane $5, 9, 13, 17$ er ikkje konstante — men *deira* differansar er: $4, 4, 4$. Når **andredifferansane** er konstante, er følgja eit andregradsuttrykk $a_n = An^2 + Bn + C$, med $A = \\frac{\\text{andredifferansen}}{2}$. (Konstante førstedifferansar gir tilsvarande ein lineær formel.)\n\n**Steg 2: Rekursiv formel.** Den $k$-te differansen er $5 + (k-1) \\cdot 4 = 4k + 1$, så $a_{n+1} = a_n + (4n + 1)$ med $a_1 = 1$.\n\n**Steg 3: Eksplisitt formel via summeformlar.** Leddet $a_n$ er startverdien pluss alle differansane:\n\n$$a_n = 1 + \\sum_{k=1}^{n-1}(4k + 1) = 1 + 4 \\cdot \\frac{(n-1)n}{2} + (n-1) = 1 + (n-1)(2n+1) = 2n^2 - n = n(2n-1)$$\n\nVerifikasjon: $a_5 = 5 \\cdot 9 = 45$. ✓ (Dette er faktisk heksagonaltala $p_6(n)$.) Undervegs brukte vi summane som er verdt å kunne utanåt: $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$, $\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum_{k=1}^{n}(2k-1) = n^2$.\n\nMetoden verkar òg baklengs, som ei designøving: ein stjernefigur med éin sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$ prikkar ($2, 5, 10, 17, \\ldots$), og differansane $S_{n+1} - S_n = 2n + 1$ er oddetala — signaturen til kvadrattala, pluss ein konstant. Teikn gjerne figurane: visualisering er ikkje pynt, det er ofte sjølve innsikta."
+    },
+    {
+      "id": "s2-9-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på frå mønster til formel:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-2-n-quiz2-q0",
+            "task": "Ei følgje har konstante andredifferansar lik 4. Kva veit vi om den eksplisitte formelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han er lineær med stigingstal 4",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han er geometrisk med $k = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han er eit andregradsuttrykk $An^2 + Bn + C$ med $A = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Han er eit tredjegradsuttrykk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstante andredifferansar tyder andregradsformel, og $A = \\frac{\\Delta^2}{2} = \\frac{4}{2} = 2$."
+          },
+          {
+            "id": "s2-9-2-n-quiz2-q1",
+            "task": "Følgja $1, 6, 15, 28, 45$ har eksplisitt formel …",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = n(2n+1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = 2n^2 + n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = \\frac{n(3n-1)}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = n(2n-1)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$a_n = 1 + \\sum_{k=1}^{n-1}(4k+1) = 2n^2 - n = n(2n-1)$. Sjekk: $a_5 = 5 \\cdot 9 = 45$ ✓ — heksagonaltala."
+          },
+          {
+            "id": "s2-9-2-n-quiz2-q2",
+            "task": "Kva er $\\sum_{k=1}^{n} k^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{n(n+1)(2n+1)}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{n^2(n+1)^2}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{n(n+1)}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Summen av dei første $n$ kvadrattala er $\\frac{n(n+1)(2n+1)}{6}$ — ein av standardsummane i verktøykassa."
+          },
+          {
+            "id": "s2-9-2-n-quiz2-q3",
+            "task": "Stjernefiguren med 1 sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$. Kva er differansen $S_{n+1} - S_n$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$n + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2n + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2n - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$n^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S_{n+1} - S_n = (n+1)^2 + 1 - n^2 - 1 = 2n + 1$ — oddetala, akkurat som for kvadrattala."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-2-n-section3",
+      "type": "text",
+      "content": "## Induksjon — beviset som klatrar ei uendeleg stige\n\nDetektivmetoden *finn* formlar, men funn er ikkje bevis: at $T_n = \\frac{n(n+1)}{2}$ stemmer for dei fem første ledda, garanterer ingenting om ledd nummer ein million. Til det treng vi **matematisk induksjon** — teknikken for å prove at ein påstand $P(n)$ gjeld for *alle* naturlege tal $n \\geq 1$.\n\nTenk på ei uendeleg stige. Kan du nå første trinn? Og kan du, frå eit kva som helst trinn, alltid nå det neste? Då når du alle trinna. Formelt: **Grunnsteg** — vis at $P(1)$ er sann. **Induksjonssteg** — anta at $P(m)$ er sann for ein vilkårleg $m \\geq 1$ (*induksjonsantakinga*), og vis at då er $P(m+1)$ òg sann. Konklusjon: $P(n)$ gjeld for alle $n \\geq 1$.\n\nLat oss prove $1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$. *Grunnsteg* ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = m$, altså $1 + 2 + \\cdots + m = \\frac{m(m+1)}{2}$. Då er\n\n$$1 + 2 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1) = (m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$$\n\n— nøyaktig formelen med $n = m+1$. ✓ Stiga er klatra: formelen gjeld for alle $n \\geq 1$. $\\blacksquare$\n\nStrategien i induksjonssteget er nesten alltid den same for summeformlar: skriv $S_{m+1} = S_m + (\\text{ledd nummer } m+1)$, byt ut $S_m$ med induksjonsantakinga, og rekn deg fram til målformelen. Det vanskelege er sjeldan rekninga — det er å halde tunga rett i munnen om *kva som blir anteke* og *kva som skal visast*. Antakinga gjeld éin vilkårleg $m$; det du viser, er implikasjonen $P(m) \\Rightarrow P(m+1)$. Saman med grunnsteget er det nok til å dekkje uendeleg mange tilfelle med endeleg mykje arbeid — det stille mirakelet til induksjonen."
+    },
+    {
+      "id": "s2-9-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på matematisk induksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-2-n-quiz3-q0",
+            "task": "Kva to delar består eit induksjonsbevis av?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Derivasjon og integrasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å sjekke formelen for dei ti første ledda",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Grunnsteg ($P(1)$ er sann) og induksjonssteg ($P(m) \\Rightarrow P(m+1)$)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Rekursiv og eksplisitt formel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grunnsteget forankrar stiga; induksjonssteget viser at kvart trinn leiar til det neste. Saman dekkjer dei alle $n \\geq 1$."
+          },
+          {
+            "id": "s2-9-2-n-quiz3-q1",
+            "task": "Kva er induksjonsantakinga i beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At formelen gjeld for alle $n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At formelen gjeld for $n = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At formelen er gal for $n = m+1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At formelen gjeld for éin vilkårleg $n = m$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi antar $P(m)$ for éin vilkårleg $m$ og bruker antakinga til å vise $P(m+1)$. Å anta det for alle $n$ ville vore sirkelargumentasjon."
+          },
+          {
+            "id": "s2-9-2-n-quiz3-q2",
+            "task": "I induksjonssteget skreiv vi $1 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1)$. Kva er neste omforming?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Faktoriser ut $(m+1)$: $(m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Set $m = 1$ og sjekk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Deriver begge sider",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Erstatt $m+1$ med $m$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Felles faktor $(m+1)$ blir trekt ut, og $\\frac{m}{2} + 1 = \\frac{m+2}{2}$ gir målformelen $\\frac{(m+1)(m+2)}{2}$."
+          },
+          {
+            "id": "s2-9-2-n-quiz3-q3",
+            "task": "Kvifor held det ikkje å verifisere ein formel for dei 1000 første verdiane av $n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi 1000 er eit for lite tal å rekne med",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi formelen kan svikte for ein seinare $n$ — endelege sjekkar bevis ikkje uendelege påstandar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det held faktisk som bevis",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi formlar berre gjeld for partal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein påstand om alle naturlege tal omfattar uendeleg mange tilfelle. Induksjon dekkjer dei alle med to endelege steg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: frå småstein til strenge bevis\n\nPrikkemønstera til grekarane ber framleis på pensum. **Trekanttala** $T_n = \\frac{n(n+1)}{2}$, **kvadrattala** $K_n = n^2$ og **pentagonaltala** $P_n = \\frac{n(3n-1)}{2}$ veks kvar med sin gnomon — rader, L-former og lag — og heng saman på vakkert vis: $K_n = T_n + T_{n-1}$, og kvadratet er summen av oddetala. Alle er polygonaltal $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$.\n\nDetektivmetoden gjorde ukjende følgjer kjende: konstante *førstedifferansar* tyder lineær formel, konstante *andredifferansar* tyder andregradsformel med $A = \\frac{\\Delta^2}{2}$ — og summeformlane $\\sum k = \\frac{n(n+1)}{2}$, $\\sum k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum(2k-1) = n^2$ byggjer brua frå rekursiv til eksplisitt form, slik $1, 6, 15, 28, 45$ vart til $n(2n-1)$.\n\nOg til slutt det som skil matematikk frå mønstergjetting: **induksjonen**. Grunnsteg pluss induksjonssteg — $P(1)$ sann, og $P(m) \\Rightarrow P(m+1)$ — bevis påstandar for uendeleg mange $n$ med endeleg arbeid, som då Gauss-formelen vart klatra trinn for trinn. Mønster kan sjåast, formlar kan finnast — men frå no av kan du òg *prove* dei."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "516470eec7eb0cef",
+    "translatedAt": "2026-06-20T09:16:35.836Z",
+    "model": "claude-code-agent",
+    "strings": 89,
+    "tm": {
+      "b9c675876c704a78": "Figurtal og rekursive samanhengar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "92e0b8fec888b141": "Ei forteljing om småsteinane til grekarane — om trekanttal, kvadrattal og pentagonaltal, detektivmetoden med andredifferansar, og induksjonsbeviset som klatrar ei uendeleg stige.",
+      "78781630f0e97834": "utforske rekursive samanhengar og presentere eigne framgangsmåtar",
+      "0ba291296b9ae69c": "utleie og bruke formlar for figurtal og rekkjesummar",
+      "006e64030bfd0016": "bruke matematisk induksjon til å prove formlar",
+      "77174d6542182af5": "## Prikkane som vart til formlar\n\nFor over to tusen år sidan sat greske matematikarar og la småstein i mønster på bakken: trekantar, kvadrat, femkantar. Dei oppdaga at talet på steinar i figurane følgde vakre talmønster — og at mønstera kunne provast. **Figurtal** er positive heiltal som kan framstillast som geometriske figurar bygde opp av prikkar, og studiet av dei er ein klassisk veg til to av kjerneferdigheitene i matematikken: å *finne* formlar og å *prove* dei.\n\nVi skal studere tre familiar: **trekanttal**, **kvadrattal** og **pentagonaltal**. For kvar av dei følgjer vi same oppskrift: skildre det geometriske mønsteret, finne ein rekursiv formel ut frå korleis figuren veks, utleie ein eksplisitt formel med summeteknikkar — og til slutt: prove formelen med **matematisk induksjon**, bevisteknikken som lèt deg vise at noko gjeld for *alle* naturlege tal, uendeleg mange på ein gong.\n\nKoplinga mellom figurtal og rekkjer gir ei visuell tolking av abstrakte algebraiske identitetar — du skal få *sjå* kvifor $1 + 3 + 5 + \\cdots + (2n-1) = n^2$. Finn fram penn og prikkar.",
+      "c9eea0d888594b0d": "## Trekantar, kvadrat og femkantar av prikkar\n\nDet $n$-te **trekanttalet** $T_n$ er talet på prikkar i ein trekant med $n$ prikkar langs kvar side: $T_1 = 1$, $T_2 = 3$, $T_3 = 6$, $T_4 = 10$, $T_5 = 15, \\ldots$ Kvar ny trekant blir laga ved å leggje ei ekstra rad under den førre — rad $k$ har $k$ prikkar — så den rekursive formelen er $T_{n+1} = T_n + (n+1)$ med $T_1 = 1$. Eksplisitt er $T_n$ summen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ (Gauss' formel). Det finst òg eit reint *geometrisk* bevis: legg to kopiar av trekanten mot kvarandre, så fyller dei eit rektangel med $n$ rader og $n+1$ kolonnar — $n(n+1)$ prikkar — og trekanten er halvparten.\n\nDet $n$-te **kvadrattalet** er sjølvsagt $K_n = n^2$: $1, 4, 9, 16, 25, \\ldots$ Men *korleis* veks kvadratet? Frå $K_n$ til $K_{n+1}$ legg du ein L-forma vinkel (ein *gnomon*) med $2n + 1$ prikkar langs to sider: $K_{n+1} = K_n + (2n+1)$. Dermed er $n^2$ summen av dei $n$ første oddetala: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ — ein berømt identitet, synleg for det blotte auget i prikkmønsteret. Og deler du kvadratet langs diagonalen, får du to trekantar: $K_n = T_n + T_{n-1}$, som du kan sjekke algebraisk: $\\frac{n(n+1)}{2} + \\frac{(n-1)n}{2} = n^2$.\n\nDet $n$-te **pentagonaltalet** byggjer femkantar lagvis: $P_1 = 1$, $P_2 = 5$, $P_3 = 12$, $P_4 = 22$, $P_5 = 35, \\ldots$ Differansane $P_{n+1} - P_n = 3n + 1$ veks aritmetisk med $d = 3$, og den eksplisitte formelen er $P_n = \\frac{n(3n-1)}{2}$. Alle desse er spesialtilfelle av **polygonaltal** for ein regulær $s$-kant: $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$ — set inn $s = 3, 4, 5, 6$ og få trekant ($\\frac{n(n+1)}{2}$), kvadrat ($n^2$), pentagon ($\\frac{n(3n-1)}{2}$) og heksagon ($n(2n-1)$).",
+      "da24448c21c0e57b": "Test deg sjølv på figurtala:",
+      "4097889236a2af26": "placeholder",
+      "44fac1dd66704410": "Kva er det $n$-te trekanttalet?",
+      "f345211faee3edde": "$T_n = \\frac{n(n+1)}{2}$",
+      "7169e5720bf46e10": "$T_n = n^2$",
+      "b7bcb6935d11d937": "$T_n = \\frac{n(3n-1)}{2}$",
+      "d5f486b70bfe092b": "$T_n = 2n - 1$",
+      "dcf9f97456dfe1d9": "$T_n = 1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — Gauss' summeformel, bevist geometrisk ved å doble trekanten til eit rektangel.",
+      "560f4e83951c61d5": "Kva identitet viser gnomonane (L-formene) i kvadratet?",
+      "677041a5160e5371": "$n^2 = \\frac{n(n+1)}{2}$",
+      "6a9385d6e72279b5": "Summen av dei $n$ første oddetala er $n^2$",
+      "db3c19b3f19113ce": "Summen av dei $n$ første partala er $n^2$",
+      "7a7e4597ee35d4f4": "$n^2 = 2T_n$",
+      "16616df6d85120aa": "Kvar L-form legg til $2n+1$ prikkar — neste oddetal. Lag på lag: $1 + 3 + 5 + \\cdots + (2n-1) = n^2$.",
+      "ce6459c8fd9b9a52": "Kva er samanhengen mellom kvadrattal og trekanttal?",
+      "579e8b175833fcc1": "$K_n = T_n \\cdot T_{n-1}$",
+      "0281fc840f5e9f2d": "$K_n = 2T_n$",
+      "51eb2f7544226565": "$K_n = T_n + T_{n-1}$",
+      "6644ffb712260465": "$K_n = T_{2n}$",
+      "6295f59c95bcefd4": "Diagonalen deler kvadratet i to trekantar: $n^2 = \\frac{n(n+1)}{2} + \\frac{(n-1)n}{2}$.",
+      "c1f56eba46561732": "Pentagonaltala startar $1, 5, 12, 22, 35, \\ldots$ Kva er differansane $P_{n+1} - P_n$?",
+      "0dc5f97d1a04d9c9": "Konstant lik 4",
+      "eb896c151cd05c80": "Kvadrattala",
+      "9b8760ba7de1d916": "Oddetala",
+      "0dc4917814a35497": "$3n + 1$ — ei aritmetisk følgje med $d = 3$",
+      "a1d262c7744ab5d1": "$5-1=4$, $12-5=7$, $22-12=10$, $35-22=13$: differansane $4, 7, 10, 13$ aukar med 3, altså $P_{n+1} = P_n + (3n+1)$.",
+      "fa0b047beb5e2eb8": "## Detektivmetoden: frå mønster til formel\n\nKva gjer du når du møter ei *ukjend* talfølgje — sei $1, 6, 15, 28, 45$? Detektivmetoden har tre steg.\n\n**Steg 1: Differansane.** $6-1 = 5$, $15-6 = 9$, $28-15 = 13$, $45-28 = 17$. Differansane $5, 9, 13, 17$ er ikkje konstante — men *deira* differansar er: $4, 4, 4$. Når **andredifferansane** er konstante, er følgja eit andregradsuttrykk $a_n = An^2 + Bn + C$, med $A = \\frac{\\text{andredifferansen}}{2}$. (Konstante førstedifferansar gir tilsvarande ein lineær formel.)\n\n**Steg 2: Rekursiv formel.** Den $k$-te differansen er $5 + (k-1) \\cdot 4 = 4k + 1$, så $a_{n+1} = a_n + (4n + 1)$ med $a_1 = 1$.\n\n**Steg 3: Eksplisitt formel via summeformlar.** Leddet $a_n$ er startverdien pluss alle differansane:\n\n$$a_n = 1 + \\sum_{k=1}^{n-1}(4k + 1) = 1 + 4 \\cdot \\frac{(n-1)n}{2} + (n-1) = 1 + (n-1)(2n+1) = 2n^2 - n = n(2n-1)$$\n\nVerifikasjon: $a_5 = 5 \\cdot 9 = 45$. ✓ (Dette er faktisk heksagonaltala $p_6(n)$.) Undervegs brukte vi summane som er verdt å kunne utanåt: $\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}$, $\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum_{k=1}^{n}(2k-1) = n^2$.\n\nMetoden verkar òg baklengs, som ei designøving: ein stjernefigur med éin sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$ prikkar ($2, 5, 10, 17, \\ldots$), og differansane $S_{n+1} - S_n = 2n + 1$ er oddetala — signaturen til kvadrattala, pluss ein konstant. Teikn gjerne figurane: visualisering er ikkje pynt, det er ofte sjølve innsikta.",
+      "a0d74f7f879b4e23": "Test deg sjølv på frå mønster til formel:",
+      "86b0ebe00717bcc0": "Ei følgje har konstante andredifferansar lik 4. Kva veit vi om den eksplisitte formelen?",
+      "f76a5717d380b1d2": "Han er lineær med stigingstal 4",
+      "dd0aa86ebdacde93": "Han er eit andregradsuttrykk $An^2 + Bn + C$ med $A = 2$",
+      "ef65eab435735da3": "Han er geometrisk med $k = 4$",
+      "3816c10562631c6c": "Han er eit tredjegradsuttrykk",
+      "a0f01bb82982858e": "Konstante andredifferansar tyder andregradsformel, og $A = \\frac{\\Delta^2}{2} = \\frac{4}{2} = 2$.",
+      "d3a784bc536ab0a4": "Følgja $1, 6, 15, 28, 45$ har eksplisitt formel …",
+      "0b02a51722c816ff": "$a_n = n(2n+1)$",
+      "a73da02ac4eaed2b": "$a_n = 2n^2 + n$",
+      "9ef6822c2adaa20f": "$a_n = n(2n-1)$",
+      "b0a02adfca472bf6": "$a_n = \\frac{n(3n-1)}{2}$",
+      "2611b0f710d16228": "$a_n = 1 + \\sum_{k=1}^{n-1}(4k+1) = 2n^2 - n = n(2n-1)$. Sjekk: $a_5 = 5 \\cdot 9 = 45$ ✓ — heksagonaltala.",
+      "44ecbbb14e48e95b": "Kva er $\\sum_{k=1}^{n} k^2$?",
+      "e16042ecfae8d2cd": "$\\frac{n(n+1)(2n+1)}{6}$",
+      "b769a13d33191a8c": "$\\frac{n^2(n+1)^2}{4}$",
+      "81cfa00fe7ac1c86": "$\\frac{n(n+1)}{2}$",
+      "34ff3cfb775770e9": "$n^3$",
+      "5e93ab3e49271913": "Summen av dei første $n$ kvadrattala er $\\frac{n(n+1)(2n+1)}{6}$ — ein av standardsummane i verktøykassa.",
+      "33c5428c503dd5e8": "Stjernefiguren med 1 sentral prikk og $n$ armar à $n$ prikkar har $S_n = n^2 + 1$. Kva er differansen $S_{n+1} - S_n$?",
+      "dfb831ca9a2db4d1": "$n + 1$",
+      "9d25262b204865de": "$2n - 1$",
+      "a424b367aa96f504": "$n^2$",
+      "f1194e42ddbc4e88": "$2n + 1$",
+      "04579ff8fe140806": "$S_{n+1} - S_n = (n+1)^2 + 1 - n^2 - 1 = 2n + 1$ — oddetala, akkurat som for kvadrattala.",
+      "f379050e0269ffda": "## Induksjon — beviset som klatrar ei uendeleg stige\n\nDetektivmetoden *finn* formlar, men funn er ikkje bevis: at $T_n = \\frac{n(n+1)}{2}$ stemmer for dei fem første ledda, garanterer ingenting om ledd nummer ein million. Til det treng vi **matematisk induksjon** — teknikken for å prove at ein påstand $P(n)$ gjeld for *alle* naturlege tal $n \\geq 1$.\n\nTenk på ei uendeleg stige. Kan du nå første trinn? Og kan du, frå eit kva som helst trinn, alltid nå det neste? Då når du alle trinna. Formelt: **Grunnsteg** — vis at $P(1)$ er sann. **Induksjonssteg** — anta at $P(m)$ er sann for ein vilkårleg $m \\geq 1$ (*induksjonsantakinga*), og vis at då er $P(m+1)$ òg sann. Konklusjon: $P(n)$ gjeld for alle $n \\geq 1$.\n\nLat oss prove $1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$. *Grunnsteg* ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = m$, altså $1 + 2 + \\cdots + m = \\frac{m(m+1)}{2}$. Då er\n\n$$1 + 2 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1) = (m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$$\n\n— nøyaktig formelen med $n = m+1$. ✓ Stiga er klatra: formelen gjeld for alle $n \\geq 1$. $\\blacksquare$\n\nStrategien i induksjonssteget er nesten alltid den same for summeformlar: skriv $S_{m+1} = S_m + (\\text{ledd nummer } m+1)$, byt ut $S_m$ med induksjonsantakinga, og rekn deg fram til målformelen. Det vanskelege er sjeldan rekninga — det er å halde tunga rett i munnen om *kva som blir anteke* og *kva som skal visast*. Antakinga gjeld éin vilkårleg $m$; det du viser, er implikasjonen $P(m) \\Rightarrow P(m+1)$. Saman med grunnsteget er det nok til å dekkje uendeleg mange tilfelle med endeleg mykje arbeid — det stille mirakelet til induksjonen.",
+      "f0c371da040e2f7d": "Test deg sjølv på matematisk induksjon:",
+      "6a1c0b697a073213": "Kva to delar består eit induksjonsbevis av?",
+      "ea4612ec743ea9f9": "Grunnsteg ($P(1)$ er sann) og induksjonssteg ($P(m) \\Rightarrow P(m+1)$)",
+      "ee5def80af81fcdd": "Derivasjon og integrasjon",
+      "4e00dc8ff6a229fb": "Å sjekke formelen for dei ti første ledda",
+      "db6f5b87bd224397": "Rekursiv og eksplisitt formel",
+      "c602acfc74a01ebc": "Grunnsteget forankrar stiga; induksjonssteget viser at kvart trinn leiar til det neste. Saman dekkjer dei alle $n \\geq 1$.",
+      "611dd137d7c15637": "Kva er induksjonsantakinga i beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$?",
+      "4599f2fb90a49145": "At formelen gjeld for alle $n$",
+      "0df4370958459e34": "At formelen gjeld for $n = 1$",
+      "85e665fa85982133": "At formelen gjeld for éin vilkårleg $n = m$",
+      "bebe80c3608a4378": "At formelen er gal for $n = m+1$",
+      "72b614cbe8e491b8": "Vi antar $P(m)$ for éin vilkårleg $m$ og bruker antakinga til å vise $P(m+1)$. Å anta det for alle $n$ ville vore sirkelargumentasjon.",
+      "d20e8edf2229fd42": "I induksjonssteget skreiv vi $1 + \\cdots + m + (m+1) = \\frac{m(m+1)}{2} + (m+1)$. Kva er neste omforming?",
+      "ab3e36a5fc87d0ee": "Set $m = 1$ og sjekk",
+      "657a0649a101b287": "Deriver begge sider",
+      "35e0e92959159aac": "Erstatt $m+1$ med $m$",
+      "41f41d57b59b4e4a": "Faktoriser ut $(m+1)$: $(m+1)\\left(\\frac{m}{2} + 1\\right) = \\frac{(m+1)(m+2)}{2}$",
+      "70f02226a32d633b": "Felles faktor $(m+1)$ blir trekt ut, og $\\frac{m}{2} + 1 = \\frac{m+2}{2}$ gir målformelen $\\frac{(m+1)(m+2)}{2}$.",
+      "24a6efc06c74202e": "Kvifor held det ikkje å verifisere ein formel for dei 1000 første verdiane av $n$?",
+      "eac1a71ca78138dc": "Fordi formelen kan svikte for ein seinare $n$ — endelege sjekkar bevis ikkje uendelege påstandar",
+      "ee69a5787b4c4438": "Fordi 1000 er eit for lite tal å rekne med",
+      "246c1e7db70fa1cd": "Det held faktisk som bevis",
+      "6a60a414b712367a": "Fordi formlar berre gjeld for partal",
+      "8468a6c55358fe43": "Ein påstand om alle naturlege tal omfattar uendeleg mange tilfelle. Induksjon dekkjer dei alle med to endelege steg.",
+      "76fea4ecfea91971": "## Oppsummering: frå småstein til strenge bevis\n\nPrikkemønstera til grekarane ber framleis på pensum. **Trekanttala** $T_n = \\frac{n(n+1)}{2}$, **kvadrattala** $K_n = n^2$ og **pentagonaltala** $P_n = \\frac{n(3n-1)}{2}$ veks kvar med sin gnomon — rader, L-former og lag — og heng saman på vakkert vis: $K_n = T_n + T_{n-1}$, og kvadratet er summen av oddetala. Alle er polygonaltal $p_s(n) = \\frac{n[(s-2)n - (s-4)]}{2}$.\n\nDetektivmetoden gjorde ukjende følgjer kjende: konstante *førstedifferansar* tyder lineær formel, konstante *andredifferansar* tyder andregradsformel med $A = \\frac{\\Delta^2}{2}$ — og summeformlane $\\sum k = \\frac{n(n+1)}{2}$, $\\sum k^2 = \\frac{n(n+1)(2n+1)}{6}$ og $\\sum(2k-1) = n^2$ byggjer brua frå rekursiv til eksplisitt form, slik $1, 6, 15, 28, 45$ vart til $n(2n-1)$.\n\nOg til slutt det som skil matematikk frå mønstergjetting: **induksjonen**. Grunnsteg pluss induksjonssteg — $P(1)$ sann, og $P(m) \\Rightarrow P(m+1)$ — bevis påstandar for uendeleg mange $n$ med endeleg arbeid, som då Gauss-formelen vart klatra trinn for trinn. Mønster kan sjåast, formlar kan finnast — men frå no av kan du òg *prove* dei."
+    }
+  }
+}

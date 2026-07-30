@@ -1,1 +1,493 @@
-{"id":"8-5-3-narrativ","courseId":"8","chapterNumber":"5.3","title":"Sannsyn -- introduksjon","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av grunnleggjande sannsyn -- terningkast, myntkast, gunstige og moglege utfall, og korleis vi set tal på uvisse.","estimatedMinutes":30,"competenceGoals":["bruke programmering til å utforske sannsyn"],"linkedChapterId":"8-5-3","content":[{"id":"8-5-3-n-intro","type":"text","content":"## Kan vi måle uvisse?\n\nLivet er fullt av ting vi ikkje veit sikkert. Vil det regne i morgon? Kjem du til å kaste ein seksar? Vinn laget ditt neste kamp? Vi snakkar ofte om sjanse og flaks, men visste du at matematikken har presise verktøy for å *måle* uvisse?\n\n**Sannsyn** er eit tal som fortel oss kor sannsynleg noko er. Det er eit tal mellom $0$ og $1$:\n- $0$ tyder **umogleg** (det kan aldri skje)\n- $1$ tyder **sikkert** (det vil alltid skje)\n- Alt mellom $0$ og $1$ er ulike grader av uvisse\n\nVi kan òg uttrykkje sannsyn som **prosent** mellom $0\\,\\%$ og $100\\,\\%$.\n\nTil dømes: Sannsynet for å få krone med ein rettferdig mynt er $\\frac{1}{2} = 0{,}5 = 50\\,\\%$. Det tyder ikkje at annankvart kast gir krone -- men over mange kast vil omtrent halvparten vere krone."},{"id":"8-5-3-n-section1","type":"text","content":"## Utfall og utfallsrom\n\nNår vi gjer eit forsøk (til dømes kastar ein terning), kallar vi dei moglege resultata for **utfall**. Mengda av alle moglege utfall kallast **utfallsrommet**.\n\n**Eksempel 1: Terningkast**\nUtfallsrommet er $\\{1, 2, 3, 4, 5, 6\\}$ -- seks moglege utfall.\n\n**Eksempel 2: Myntkast**\nUtfallsrommet er $\\{\\text{krone, mynt}\\}$ -- to moglege utfall.\n\n**Eksempel 3: Trekkje eit kort frå ein kortstokk**\nUtfallsrommet har $52$ moglege utfall (alle korta).\n\nEi **hending** er noko vi er interesserte i -- til dømes «kaste ein seksar» eller «trekkje eit hjarterkort». Ei hending er ei delmengd av utfallsrommet.\n\nHendinga «kaste eit partal» med ein terning består av utfalla $\\{2, 4, 6\\}$ -- tre av seks moglege utfall. Hendinga «kaste eit tal større enn $4$» består av $\\{5, 6\\}$ -- to av seks moglege utfall."},{"id":"8-5-3-n-quiz1","type":"exercise","exercise":{"id":"8-5-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på utfall og utfallsrom:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-5-3-n-quiz1-q0","task":"Kva er utfallsrommet når du kastar ein vanleg terning?","options":[{"id":"a","text":"$\\{1, 2, 3, 4, 5\\}$","isCorrect":false},{"id":"b","text":"$\\{1, 2, 3, 4, 5, 6\\}$","isCorrect":true},{"id":"c","text":"$\\{1, 6\\}$","isCorrect":false},{"id":"d","text":"$\\{\\text{partall, oddetall}\\}$","isCorrect":false}],"solution":"Utfallsrommet er alle moglege utfall: $\\{1, 2, 3, 4, 5, 6\\}$. Det er $6$ moglege utfall."},{"id":"8-5-3-n-quiz1-q1","task":"Hendinga «kaste eit tal mindre enn $3$» med ein terning. Kva utfall høyrer til denne hendinga?","options":[{"id":"a","text":"$\\{1, 2, 3\\}$","isCorrect":false},{"id":"b","text":"$\\{1, 2\\}$","isCorrect":true},{"id":"c","text":"$\\{3, 4, 5, 6\\}$","isCorrect":false},{"id":"d","text":"$\\{1\\}$","isCorrect":false}],"solution":"Tal mindre enn $3$ er $1$ og $2$. Hendinga består av utfalla $\\{1, 2\\}$."},{"id":"8-5-3-n-quiz1-q2","task":"Sannsynet for ei hending er $0$. Kva tyder det?","options":[{"id":"a","text":"Hendinga er veldig usannsynleg","isCorrect":false},{"id":"b","text":"Hendinga er umogleg","isCorrect":true},{"id":"c","text":"Hendinga skjer sjeldan","isCorrect":false},{"id":"d","text":"Vi veit ikkje om hendinga skjer","isCorrect":false}],"solution":"$P = 0$ tyder at hendinga er umogleg. Til dømes er sannsynet for å kaste $7$ med ein vanleg terning lik $0$."}]}},{"id":"8-5-3-n-section2","type":"text","content":"## Rekne ut sannsyn\n\nNår alle utfall er **like sannsynlege** (som med ein rettferdig terning eller mynt), kan vi rekne ut sannsynet med denne formelen:\n\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n$P$ står for «probability» (sannsyn på engelsk). «Gunstige utfall» er dei utfalla som gjer at hendinga inntreff.\n\n**Eksempel 1**: Sannsynet for å kaste ein seksar med ein terning:\n$$P(\\text{sekser}) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nDet er $1$ gunstig utfall (seksar) av $6$ moglege.\n\n**Eksempel 2**: Sannsynet for å kaste eit partal:\n$$P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2} = 0{,}5 = 50\\,\\%$$\n\nDet er $3$ gunstige utfall ($2, 4, 6$) av $6$ moglege.\n\n**Eksempel 3**: Ein pose inneheld $4$ raude, $3$ blå og $2$ grøne kuler ($9$ totalt). Sannsynet for å trekkje ei raud kule:\n$$P(\\text{rød}) = \\frac{4}{9} \\approx 0{,}44 = 44\\,\\%$$\n\n**Viktig**: Formelen gjeld berre når alle utfall er like sannsynlege! Ein skeiv terning eller ein lasta mynt har ikkje like sannsynlege utfall."},{"id":"8-5-3-n-quiz2","type":"exercise","exercise":{"id":"8-5-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på å rekne ut sannsyn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-5-3-n-quiz2-q0","task":"Du kastar ein terning. Kva er sannsynet for å få eit tal større enn $4$?","options":[{"id":"a","text":"$\\frac{4}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"c","text":"$\\frac{2}{6} = \\frac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\frac{3}{6}$","isCorrect":false}],"solution":"Tal større enn $4$ er $5$ og $6$ -- det er $2$ gunstige utfall av $6$ moglege. $P = \\frac{2}{6} = \\frac{1}{3}$."},{"id":"8-5-3-n-quiz2-q1","task":"Ein pose har $5$ raude og $3$ blå kuler. Kva er sannsynet for å trekkje ei blå kule?","options":[{"id":"a","text":"$\\frac{3}{5}$","isCorrect":false},{"id":"b","text":"$\\frac{5}{8}$","isCorrect":false},{"id":"c","text":"$\\frac{3}{8}$","isCorrect":true},{"id":"d","text":"$\\frac{1}{3}$","isCorrect":false}],"solution":"Det er $3$ blå kuler av totalt $5 + 3 = 8$ kuler. $P(\\text{blå}) = \\frac{3}{8}$."},{"id":"8-5-3-n-quiz2-q2","task":"Du trekkjer eit kort frå ein standard kortstokk med $52$ kort. Kva er sannsynet for å trekkje eit hjarterkort?","options":[{"id":"a","text":"$\\frac{1}{52}$","isCorrect":false},{"id":"b","text":"$\\frac{13}{52} = \\frac{1}{4}$","isCorrect":true},{"id":"c","text":"$\\frac{4}{52}$","isCorrect":false},{"id":"d","text":"$\\frac{26}{52}$","isCorrect":false}],"solution":"Det er $13$ hjarterkort i ein kortstokk med $52$ kort. $P(\\text{hjerter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$."}]}},{"id":"8-5-3-n-section3","type":"text","content":"## Komplementærhendinga\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko **ikkje** skjer. **Komplementærhendinga** til ei hending $A$ er det motsette -- alt som ikkje er $A$.\n\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Eksempel 1**: Sannsynet for å *ikkje* kaste ein seksar:\n$$P(\\text{ikke sekser}) = 1 - P(\\text{sekser}) = 1 - \\frac{1}{6} = \\frac{5}{6}$$\n\n**Eksempel 2**: I ei bolle med $10$ frukter er $3$ eple. Sannsynet for å trekkje noko anna enn eit eple:\n$$P(\\text{ikke eple}) = 1 - \\frac{3}{10} = \\frac{7}{10}$$\n\nKomplementregelen er spesielt nyttig når det er mange gunstige utfall for det du *ikkje* vil rekne ut. I staden for å telje alle dei gunstige utfalla for ei komplisert hending, kan du nokre gonger enklare rekne ut det motsette og trekkje frå.\n\nLegg merke til at $P(A) + P(\\text{ikke } A) = 1$ alltid. Det tyder at sannsynet for at noko skjer pluss sannsynet for at det ikkje skjer, alltid summerer til $1$ ($100\\,\\%$). Det gir meining -- anten skjer det, eller så skjer det ikkje!"},{"id":"8-5-3-n-quiz3","type":"exercise","exercise":{"id":"8-5-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på komplementærhendingar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-5-3-n-quiz3-q0","task":"Sannsynet for regn i morgon er $0{,}3$. Kva er sannsynet for at det *ikkje* regnar?","options":[{"id":"a","text":"$0{,}3$","isCorrect":false},{"id":"b","text":"$0{,}7$","isCorrect":true},{"id":"c","text":"$0{,}03$","isCorrect":false},{"id":"d","text":"$1{,}3$","isCorrect":false}],"solution":"$P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}3 = 0{,}7 = 70\\,\\%$."},{"id":"8-5-3-n-quiz3-q1","task":"Du kastar ein terning. Kva er sannsynet for å få eit tal som IKKJE er $1$?","options":[{"id":"a","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{5}{6}$","isCorrect":true},{"id":"c","text":"$\\frac{4}{6}$","isCorrect":false},{"id":"d","text":"$\\frac{6}{6}$","isCorrect":false}],"solution":"$P(\\text{ikke 1}) = 1 - P(1) = 1 - \\frac{1}{6} = \\frac{5}{6}$."},{"id":"8-5-3-n-quiz3-q2","task":"Kva er alltid sant om $P(A) + P(\\text{ikke } A)$?","options":[{"id":"a","text":"Det er alltid større enn $1$","isCorrect":false},{"id":"b","text":"Det er alltid lik $0$","isCorrect":false},{"id":"c","text":"Det er alltid lik $1$","isCorrect":true},{"id":"d","text":"Det kjem an på hendinga","isCorrect":false}],"solution":"Anten skjer hendinga eller så gjer ho det ikkje. Desse to moglegheitene dekkjer alt, så dei summerer alltid til $1$ ($100\\,\\%$)."}]}},{"id":"8-5-3-n-section4","type":"text","content":"## Eksperiment og relativ frekvens\n\nNokre gonger veit vi ikkje det teoretiske sannsynet. Kva er sannsynet for at ei brødskive landar med smørsida ned? For at du treff blink i dart? Her finst det ingen formel -- men vi kan **eksperimentere**.\n\nViss du gjer eit forsøk mange gonger, kan du **estimere** sannsynet ved hjelp av **relativ frekvens**:\n\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Eksempel**: Du kastar ein mynt $50$ gonger og får krone $28$ gonger.\n\n$$\\text{Relativ frekvens for krone} = \\frac{28}{50} = 0{,}56 = 56\\,\\%$$\n\nDet er litt meir enn $50\\,\\%$, men det er normalt med så få forsøk. Jo fleire gonger du kastar, jo nærare vil den relative frekvensen komme det sanne sannsynet ($50\\,\\%$). Med $1000$ kast ville du sannsynlegvis fått eit resultat nærare $50\\,\\%$.\n\nDette prinsippet kallast **dei store tals lov**: med mange forsøk nærmar den relative frekvensen seg det sanne sannsynet.\n\nDu kan òg bruke programmering for å simulere mange forsøk raskt! Ei datamaskin kan «kaste ein terning» tusenvis av gonger på under eit sekund og rekne ut den relative frekvensen."},{"id":"8-5-3-n-quiz4","type":"exercise","exercise":{"id":"8-5-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på relativ frekvens:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-5-3-n-quiz4-q0","task":"Du kastar ein terning $60$ gonger og får seksar $8$ gonger. Kva er den relative frekvensen for seksar?","options":[{"id":"a","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{8}{60} \\approx 13{,}3\\,\\%$","isCorrect":true},{"id":"c","text":"$8\\,\\%$","isCorrect":false},{"id":"d","text":"$\\frac{60}{8} = 7{,}5$","isCorrect":false}],"solution":"Relativ frekvens $= \\frac{8}{60} = \\frac{2}{15} \\approx 0{,}133 = 13{,}3\\,\\%$. Det teoretiske sannsynet er $\\frac{1}{6} \\approx 16{,}7\\,\\%$, så avviket er normalt med berre $60$ forsøk."},{"id":"8-5-3-n-quiz4-q1","task":"Kva skjer med den relative frekvensen når vi gjer fleire og fleire forsøk?","options":[{"id":"a","text":"Han blir alltid nøyaktig lik det sanne sannsynet","isCorrect":false},{"id":"b","text":"Han nærmar seg det sanne sannsynet","isCorrect":true},{"id":"c","text":"Han aukar alltid","isCorrect":false},{"id":"d","text":"Han svingar meir og meir","isCorrect":false}],"solution":"Dei store tals lov seier at den relative frekvensen nærmar seg det sanne sannsynet når talet på forsøk aukar. Med få forsøk kan han avvike mykje, men med mange forsøk stabiliserer han seg."}]}},{"id":"8-5-3-n-summary","type":"text","content":"## Oppsummering\n\n**Sannsyn** er eit tal mellom $0$ (umogleg) og $1$ (sikkert) som beskriv kor sannsynleg ei hending er.\n\n**Utfallsrommet** er mengda av alle moglege utfall. Ei **hending** er ei delmengd av utfallsrommet.\n\nNår alle utfall er like sannsynlege:\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n**Komplementregelen**:\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Relativ frekvens** estimerer sannsynet basert på eksperiment:\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Dei store tals lov**: Jo fleire forsøk du gjer, jo nærare kjem den relative frekvensen det sanne sannsynet.\n\nSannsyn gir oss eit presist språk for å snakke om uvisse -- frå terningkast til værmeldingar!"}],"exercises":[],"_meta":{"sourceHash":"0ab2b48638d3fd99","translatedAt":"2026-06-17T01:40:01.001Z","model":"claude-code-agent","strings":72,"tm":{"6a1cc882a65aff51":"Sannsyn -- introduksjon","b195b06d1ed59702":"Narrativ versjon","327b5e8182ceff05":"Ein forteljande gjennomgang av grunnleggjande sannsyn -- terningkast, myntkast, gunstige og moglege utfall, og korleis vi set tal på uvisse.","4bd7662f22288f39":"bruke programmering til å utforske sannsyn","b0422499ab0289db":"## Kan vi måle uvisse?\n\nLivet er fullt av ting vi ikkje veit sikkert. Vil det regne i morgon? Kjem du til å kaste ein seksar? Vinn laget ditt neste kamp? Vi snakkar ofte om sjanse og flaks, men visste du at matematikken har presise verktøy for å *måle* uvisse?\n\n**Sannsyn** er eit tal som fortel oss kor sannsynleg noko er. Det er eit tal mellom $0$ og $1$:\n- $0$ tyder **umogleg** (det kan aldri skje)\n- $1$ tyder **sikkert** (det vil alltid skje)\n- Alt mellom $0$ og $1$ er ulike grader av uvisse\n\nVi kan òg uttrykkje sannsyn som **prosent** mellom $0\\,\\%$ og $100\\,\\%$.\n\nTil dømes: Sannsynet for å få krone med ein rettferdig mynt er $\\frac{1}{2} = 0{,}5 = 50\\,\\%$. Det tyder ikkje at annankvart kast gir krone -- men over mange kast vil omtrent halvparten vere krone.","7813d36f6e9b531b":"## Utfall og utfallsrom\n\nNår vi gjer eit forsøk (til dømes kastar ein terning), kallar vi dei moglege resultata for **utfall**. Mengda av alle moglege utfall kallast **utfallsrommet**.\n\n**Eksempel 1: Terningkast**\nUtfallsrommet er $\\{1, 2, 3, 4, 5, 6\\}$ -- seks moglege utfall.\n\n**Eksempel 2: Myntkast**\nUtfallsrommet er $\\{\\text{krone, mynt}\\}$ -- to moglege utfall.\n\n**Eksempel 3: Trekkje eit kort frå ein kortstokk**\nUtfallsrommet har $52$ moglege utfall (alle korta).\n\nEi **hending** er noko vi er interesserte i -- til dømes «kaste ein seksar» eller «trekkje eit hjarterkort». Ei hending er ei delmengd av utfallsrommet.\n\nHendinga «kaste eit partal» med ein terning består av utfalla $\\{2, 4, 6\\}$ -- tre av seks moglege utfall. Hendinga «kaste eit tal større enn $4$» består av $\\{5, 6\\}$ -- to av seks moglege utfall.","52622a156ec206c6":"Test deg sjølv på utfall og utfallsrom:","4097889236a2af26":"placeholder","c883bb031d310e68":"Kva er utfallsrommet når du kastar ein vanleg terning?","90b274c8ed6c19ef":"$\\{\\text{partall, oddetall}\\}$","b7dc2a3c5f6f0385":"Utfallsrommet er alle moglege utfall: $\\{1, 2, 3, 4, 5, 6\\}$. Det er $6$ moglege utfall.","61efb45344c5ea8c":"Hendinga «kaste eit tal mindre enn $3$» med ein terning. Kva utfall høyrer til denne hendinga?","2976fb73a1ac29a6":"Tal mindre enn $3$ er $1$ og $2$. Hendinga består av utfalla $\\{1, 2\\}$.","e1de46b6051b8325":"Sannsynet for ei hending er $0$. Kva tyder det?","96eb70097e42739e":"Hendinga er veldig usannsynleg","a2455b1bccd888e3":"Hendinga er umogleg","474b9964cc595f91":"Hendinga skjer sjeldan","26f6aa37e64511be":"Vi veit ikkje om hendinga skjer","de74706252720cec":"$P = 0$ tyder at hendinga er umogleg. Til dømes er sannsynet for å kaste $7$ med ein vanleg terning lik $0$.","1b2f039349ab9b76":"## Rekne ut sannsyn\n\nNår alle utfall er **like sannsynlege** (som med ein rettferdig terning eller mynt), kan vi rekne ut sannsynet med denne formelen:\n\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n$P$ står for «probability» (sannsyn på engelsk). «Gunstige utfall» er dei utfalla som gjer at hendinga inntreff.\n\n**Eksempel 1**: Sannsynet for å kaste ein seksar med ein terning:\n$$P(\\text{sekser}) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nDet er $1$ gunstig utfall (seksar) av $6$ moglege.\n\n**Eksempel 2**: Sannsynet for å kaste eit partal:\n$$P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2} = 0{,}5 = 50\\,\\%$$\n\nDet er $3$ gunstige utfall ($2, 4, 6$) av $6$ moglege.\n\n**Eksempel 3**: Ein pose inneheld $4$ raude, $3$ blå og $2$ grøne kuler ($9$ totalt). Sannsynet for å trekkje ei raud kule:\n$$P(\\text{rød}) = \\frac{4}{9} \\approx 0{,}44 = 44\\,\\%$$\n\n**Viktig**: Formelen gjeld berre når alle utfall er like sannsynlege! Ein skeiv terning eller ein lasta mynt har ikkje like sannsynlege utfall.","16c509d747797cc8":"Test deg sjølv på å rekne ut sannsyn:","e2966141125b286f":"Du kastar ein terning. Kva er sannsynet for å få eit tal større enn $4$?","b51d92817d932fe4":"$\\frac{4}{6}$","ed2f0dca805db9c6":"$\\frac{1}{6}$","5bbbc74a721fdbe3":"$\\frac{2}{6} = \\frac{1}{3}$","2eb9eafebb72aad0":"$\\frac{3}{6}$","5c8b7a83b1c06101":"Tal større enn $4$ er $5$ og $6$ -- det er $2$ gunstige utfall av $6$ moglege. $P = \\frac{2}{6} = \\frac{1}{3}$.","e92d41af13c086a8":"Ein pose har $5$ raude og $3$ blå kuler. Kva er sannsynet for å trekkje ei blå kule?","e1879d7a93f60436":"$\\frac{3}{5}$","5257a310e0070b54":"$\\frac{5}{8}$","54c7e9fb31c5b808":"$\\frac{3}{8}$","b87bda455923b2a6":"$\\frac{1}{3}$","a668481d624410b4":"Det er $3$ blå kuler av totalt $5 + 3 = 8$ kuler. $P(\\text{blå}) = \\frac{3}{8}$.","84620c9d524e66df":"Du trekkjer eit kort frå ein standard kortstokk med $52$ kort. Kva er sannsynet for å trekkje eit hjarterkort?","aaa45f3e5ec152bd":"$\\frac{1}{52}$","e0006258c4de34fe":"$\\frac{13}{52} = \\frac{1}{4}$","a179331274e689a9":"$\\frac{4}{52}$","e4d2450e04780c9b":"$\\frac{26}{52}$","c4393080ed8d4eb5":"Det er $13$ hjarterkort i ein kortstokk med $52$ kort. $P(\\text{hjerter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$.","266cc66d3c185819":"## Komplementærhendinga\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko **ikkje** skjer. **Komplementærhendinga** til ei hending $A$ er det motsette -- alt som ikkje er $A$.\n\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Eksempel 1**: Sannsynet for å *ikkje* kaste ein seksar:\n$$P(\\text{ikke sekser}) = 1 - P(\\text{sekser}) = 1 - \\frac{1}{6} = \\frac{5}{6}$$\n\n**Eksempel 2**: I ei bolle med $10$ frukter er $3$ eple. Sannsynet for å trekkje noko anna enn eit eple:\n$$P(\\text{ikke eple}) = 1 - \\frac{3}{10} = \\frac{7}{10}$$\n\nKomplementregelen er spesielt nyttig når det er mange gunstige utfall for det du *ikkje* vil rekne ut. I staden for å telje alle dei gunstige utfalla for ei komplisert hending, kan du nokre gonger enklare rekne ut det motsette og trekkje frå.\n\nLegg merke til at $P(A) + P(\\text{ikke } A) = 1$ alltid. Det tyder at sannsynet for at noko skjer pluss sannsynet for at det ikkje skjer, alltid summerer til $1$ ($100\\,\\%$). Det gir meining -- anten skjer det, eller så skjer det ikkje!","1eefa36514949718":"Test deg sjølv på komplementærhendingar:","61976c8a52d90046":"Sannsynet for regn i morgon er $0{,}3$. Kva er sannsynet for at det *ikkje* regnar?","4ead2cc79fd303b1":"$P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}3 = 0{,}7 = 70\\,\\%$.","8bd7dee36da20cac":"Du kastar ein terning. Kva er sannsynet for å få eit tal som IKKJE er $1$?","18f9adbf430864eb":"$\\frac{5}{6}$","8e064360a295d169":"$\\frac{6}{6}$","80cd2d1e5f6d208c":"$P(\\text{ikke 1}) = 1 - P(1) = 1 - \\frac{1}{6} = \\frac{5}{6}$.","d1a5edc261098ef0":"Kva er alltid sant om $P(A) + P(\\text{ikke } A)$?","6d0a817f159c5337":"Det er alltid større enn $1$","d821da5f598ae1da":"Det er alltid lik $0$","9fcd859df78c68b3":"Det er alltid lik $1$","920531a3f5ccbce9":"Det kjem an på hendinga","3843f02dbb69f4af":"Anten skjer hendinga eller så gjer ho det ikkje. Desse to moglegheitene dekkjer alt, så dei summerer alltid til $1$ ($100\\,\\%$).","30f38bfc6787445c":"## Eksperiment og relativ frekvens\n\nNokre gonger veit vi ikkje det teoretiske sannsynet. Kva er sannsynet for at ei brødskive landar med smørsida ned? For at du treff blink i dart? Her finst det ingen formel -- men vi kan **eksperimentere**.\n\nViss du gjer eit forsøk mange gonger, kan du **estimere** sannsynet ved hjelp av **relativ frekvens**:\n\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Eksempel**: Du kastar ein mynt $50$ gonger og får krone $28$ gonger.\n\n$$\\text{Relativ frekvens for krone} = \\frac{28}{50} = 0{,}56 = 56\\,\\%$$\n\nDet er litt meir enn $50\\,\\%$, men det er normalt med så få forsøk. Jo fleire gonger du kastar, jo nærare vil den relative frekvensen komme det sanne sannsynet ($50\\,\\%$). Med $1000$ kast ville du sannsynlegvis fått eit resultat nærare $50\\,\\%$.\n\nDette prinsippet kallast **dei store tals lov**: med mange forsøk nærmar den relative frekvensen seg det sanne sannsynet.\n\nDu kan òg bruke programmering for å simulere mange forsøk raskt! Ei datamaskin kan «kaste ein terning» tusenvis av gonger på under eit sekund og rekne ut den relative frekvensen.","7fb709fcf8cdfd1d":"Test deg sjølv på relativ frekvens:","d9aa06858e2aef26":"Du kastar ein terning $60$ gonger og får seksar $8$ gonger. Kva er den relative frekvensen for seksar?","ef0f2997f7772b76":"$\\frac{8}{60} \\approx 13{,}3\\,\\%$","a931d8d4b0ce9023":"$\\frac{60}{8} = 7{,}5$","83e2f1136dcb2227":"Relativ frekvens $= \\frac{8}{60} = \\frac{2}{15} \\approx 0{,}133 = 13{,}3\\,\\%$. Det teoretiske sannsynet er $\\frac{1}{6} \\approx 16{,}7\\,\\%$, så avviket er normalt med berre $60$ forsøk.","afcaf2892801b4da":"Kva skjer med den relative frekvensen når vi gjer fleire og fleire forsøk?","4233c4ebc6db4ec0":"Han blir alltid nøyaktig lik det sanne sannsynet","7b453634b83a55b4":"Han nærmar seg det sanne sannsynet","fd749ffa89e736d4":"Han aukar alltid","42ee498b9a6c53e1":"Han svingar meir og meir","e22de8c6ed07cc8e":"Dei store tals lov seier at den relative frekvensen nærmar seg det sanne sannsynet når talet på forsøk aukar. Med få forsøk kan han avvike mykje, men med mange forsøk stabiliserer han seg.","f22d18a7b34c9388":"## Oppsummering\n\n**Sannsyn** er eit tal mellom $0$ (umogleg) og $1$ (sikkert) som beskriv kor sannsynleg ei hending er.\n\n**Utfallsrommet** er mengda av alle moglege utfall. Ei **hending** er ei delmengd av utfallsrommet.\n\nNår alle utfall er like sannsynlege:\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n**Komplementregelen**:\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Relativ frekvens** estimerer sannsynet basert på eksperiment:\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Dei store tals lov**: Jo fleire forsøk du gjer, jo nærare kjem den relative frekvensen det sanne sannsynet.\n\nSannsyn gir oss eit presist språk for å snakke om uvisse -- frå terningkast til værmeldingar!"}}}
+{
+  "id": "8-5-3-narrativ",
+  "courseId": "8",
+  "chapterNumber": "5.3",
+  "title": "Sannsyn -- introduksjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av grunnleggjande sannsyn -- terningkast, myntkast, gunstige og moglege utfall, og korleis vi set tal på uvisse.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke programmering til å utforske sannsyn"
+  ],
+  "linkedChapterId": "8-5-3",
+  "content": [
+    {
+      "id": "8-5-3-n-intro",
+      "type": "text",
+      "content": "## Kan vi måle uvisse?\n\nLivet er fullt av ting vi ikkje veit sikkert. Vil det regne i morgon? Kjem du til å kaste ein seksar? Vinn laget ditt neste kamp? Vi snakkar ofte om sjanse og flaks, men visste du at matematikken har presise verktøy for å *måle* uvisse?\n\n**Sannsyn** er eit tal som fortel oss kor sannsynleg noko er. Det er eit tal mellom $0$ og $1$:\n- $0$ tyder **umogleg** (det kan aldri skje)\n- $1$ tyder **sikkert** (det vil alltid skje)\n- Alt mellom $0$ og $1$ er ulike grader av uvisse\n\nVi kan òg uttrykkje sannsyn som **prosent** mellom $0\\,\\%$ og $100\\,\\%$.\n\nTil dømes: Sannsynet for å få krone med ein rettferdig mynt er $\\frac{1}{2} = 0{,}5 = 50\\,\\%$. Det tyder ikkje at annankvart kast gir krone -- men over mange kast vil omtrent halvparten vere krone."
+    },
+    {
+      "id": "8-5-3-n-section1",
+      "type": "text",
+      "content": "## Utfall og utfallsrom\n\nNår vi gjer eit forsøk (til dømes kastar ein terning), kallar vi dei moglege resultata for **utfall**. Mengda av alle moglege utfall kallast **utfallsrommet**.\n\n**Eksempel 1: Terningkast**\nUtfallsrommet er $\\{1, 2, 3, 4, 5, 6\\}$ -- seks moglege utfall.\n\n**Eksempel 2: Myntkast**\nUtfallsrommet er $\\{\\text{krone, mynt}\\}$ -- to moglege utfall.\n\n**Eksempel 3: Trekkje eit kort frå ein kortstokk**\nUtfallsrommet har $52$ moglege utfall (alle korta).\n\nEi **hending** er noko vi er interesserte i -- til dømes «kaste ein seksar» eller «trekkje eit hjarterkort». Ei hending er ei delmengd av utfallsrommet.\n\nHendinga «kaste eit partal» med ein terning består av utfalla $\\{2, 4, 6\\}$ -- tre av seks moglege utfall. Hendinga «kaste eit tal større enn $4$» består av $\\{5, 6\\}$ -- to av seks moglege utfall."
+    },
+    {
+      "id": "8-5-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-5-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på utfall og utfallsrom:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-5-3-n-quiz1-q0",
+            "task": "Kva er utfallsrommet når du kastar ein vanleg terning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\{1, 2, 3, 4, 5\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\{1, 2, 3, 4, 5, 6\\}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\{1, 6\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\{\\text{partall, oddetall}\\}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Utfallsrommet er alle moglege utfall: $\\{1, 2, 3, 4, 5, 6\\}$. Det er $6$ moglege utfall."
+          },
+          {
+            "id": "8-5-3-n-quiz1-q1",
+            "task": "Hendinga «kaste eit tal mindre enn $3$» med ein terning. Kva utfall høyrer til denne hendinga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\{1, 2, 3\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\{3, 4, 5, 6\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\{1, 2\\}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\{1\\}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tal mindre enn $3$ er $1$ og $2$. Hendinga består av utfalla $\\{1, 2\\}$."
+          },
+          {
+            "id": "8-5-3-n-quiz1-q2",
+            "task": "Sannsynet for ei hending er $0$. Kva tyder det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hendinga er veldig usannsynleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hendinga skjer sjeldan",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi veit ikkje om hendinga skjer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hendinga er umogleg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P = 0$ tyder at hendinga er umogleg. Til dømes er sannsynet for å kaste $7$ med ein vanleg terning lik $0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-5-3-n-section2",
+      "type": "text",
+      "content": "## Rekne ut sannsyn\n\nNår alle utfall er **like sannsynlege** (som med ein rettferdig terning eller mynt), kan vi rekne ut sannsynet med denne formelen:\n\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n$P$ står for «probability» (sannsyn på engelsk). «Gunstige utfall» er dei utfalla som gjer at hendinga inntreff.\n\n**Eksempel 1**: Sannsynet for å kaste ein seksar med ein terning:\n$$P(\\text{sekser}) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nDet er $1$ gunstig utfall (seksar) av $6$ moglege.\n\n**Eksempel 2**: Sannsynet for å kaste eit partal:\n$$P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2} = 0{,}5 = 50\\,\\%$$\n\nDet er $3$ gunstige utfall ($2, 4, 6$) av $6$ moglege.\n\n**Eksempel 3**: Ein pose inneheld $4$ raude, $3$ blå og $2$ grøne kuler ($9$ totalt). Sannsynet for å trekkje ei raud kule:\n$$P(\\text{rød}) = \\frac{4}{9} \\approx 0{,}44 = 44\\,\\%$$\n\n**Viktig**: Formelen gjeld berre når alle utfall er like sannsynlege! Ein skeiv terning eller ein lasta mynt har ikkje like sannsynlege utfall."
+    },
+    {
+      "id": "8-5-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-5-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å rekne ut sannsyn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-5-3-n-quiz2-q0",
+            "task": "Du kastar ein terning. Kva er sannsynet for å få eit tal større enn $4$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\frac{2}{6} = \\frac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{4}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{6}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tal større enn $4$ er $5$ og $6$ -- det er $2$ gunstige utfall av $6$ moglege. $P = \\frac{2}{6} = \\frac{1}{3}$."
+          },
+          {
+            "id": "8-5-3-n-quiz2-q1",
+            "task": "Ein pose har $5$ raude og $3$ blå kuler. Kva er sannsynet for å trekkje ei blå kule?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{3}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3}{8}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{5}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er $3$ blå kuler av totalt $5 + 3 = 8$ kuler. $P(\\text{blå}) = \\frac{3}{8}$."
+          },
+          {
+            "id": "8-5-3-n-quiz2-q2",
+            "task": "Du trekkjer eit kort frå ein standard kortstokk med $52$ kort. Kva er sannsynet for å trekkje eit hjarterkort?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{52}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{4}{52}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{13}{52} = \\frac{1}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{26}{52}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er $13$ hjarterkort i ein kortstokk med $52$ kort. $P(\\text{hjerter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-5-3-n-section3",
+      "type": "text",
+      "content": "## Komplementærhendinga\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko **ikkje** skjer. **Komplementærhendinga** til ei hending $A$ er det motsette -- alt som ikkje er $A$.\n\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Eksempel 1**: Sannsynet for å *ikkje* kaste ein seksar:\n$$P(\\text{ikke sekser}) = 1 - P(\\text{sekser}) = 1 - \\frac{1}{6} = \\frac{5}{6}$$\n\n**Eksempel 2**: I ei bolle med $10$ frukter er $3$ eple. Sannsynet for å trekkje noko anna enn eit eple:\n$$P(\\text{ikke eple}) = 1 - \\frac{3}{10} = \\frac{7}{10}$$\n\nKomplementregelen er spesielt nyttig når det er mange gunstige utfall for det du *ikkje* vil rekne ut. I staden for å telje alle dei gunstige utfalla for ei komplisert hending, kan du nokre gonger enklare rekne ut det motsette og trekkje frå.\n\nLegg merke til at $P(A) + P(\\text{ikke } A) = 1$ alltid. Det tyder at sannsynet for at noko skjer pluss sannsynet for at det ikkje skjer, alltid summerer til $1$ ($100\\,\\%$). Det gir meining -- anten skjer det, eller så skjer det ikkje!"
+    },
+    {
+      "id": "8-5-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-5-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på komplementærhendingar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-5-3-n-quiz3-q0",
+            "task": "Sannsynet for regn i morgon er $0{,}3$. Kva er sannsynet for at det *ikkje* regnar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}03$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1{,}3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}7$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}3 = 0{,}7 = 70\\,\\%$."
+          },
+          {
+            "id": "8-5-3-n-quiz3-q1",
+            "task": "Du kastar ein terning. Kva er sannsynet for å få eit tal som IKKJE er $1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{5}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{4}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{6}{6}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{ikke 1}) = 1 - P(1) = 1 - \\frac{1}{6} = \\frac{5}{6}$."
+          },
+          {
+            "id": "8-5-3-n-quiz3-q2",
+            "task": "Kva er alltid sant om $P(A) + P(\\text{ikke } A)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er alltid større enn $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er alltid lik $1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det er alltid lik $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kjem an på hendinga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Anten skjer hendinga eller så gjer ho det ikkje. Desse to moglegheitene dekkjer alt, så dei summerer alltid til $1$ ($100\\,\\%$)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-5-3-n-section4",
+      "type": "text",
+      "content": "## Eksperiment og relativ frekvens\n\nNokre gonger veit vi ikkje det teoretiske sannsynet. Kva er sannsynet for at ei brødskive landar med smørsida ned? For at du treff blink i dart? Her finst det ingen formel -- men vi kan **eksperimentere**.\n\nViss du gjer eit forsøk mange gonger, kan du **estimere** sannsynet ved hjelp av **relativ frekvens**:\n\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Eksempel**: Du kastar ein mynt $50$ gonger og får krone $28$ gonger.\n\n$$\\text{Relativ frekvens for krone} = \\frac{28}{50} = 0{,}56 = 56\\,\\%$$\n\nDet er litt meir enn $50\\,\\%$, men det er normalt med så få forsøk. Jo fleire gonger du kastar, jo nærare vil den relative frekvensen komme det sanne sannsynet ($50\\,\\%$). Med $1000$ kast ville du sannsynlegvis fått eit resultat nærare $50\\,\\%$.\n\nDette prinsippet kallast **dei store tals lov**: med mange forsøk nærmar den relative frekvensen seg det sanne sannsynet.\n\nDu kan òg bruke programmering for å simulere mange forsøk raskt! Ei datamaskin kan «kaste ein terning» tusenvis av gonger på under eit sekund og rekne ut den relative frekvensen."
+    },
+    {
+      "id": "8-5-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-5-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på relativ frekvens:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-5-3-n-quiz4-q0",
+            "task": "Du kastar ein terning $60$ gonger og får seksar $8$ gonger. Kva er den relative frekvensen for seksar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{8}{60} \\approx 13{,}3\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{60}{8} = 7{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Relativ frekvens $= \\frac{8}{60} = \\frac{2}{15} \\approx 0{,}133 = 13{,}3\\,\\%$. Det teoretiske sannsynet er $\\frac{1}{6} \\approx 16{,}7\\,\\%$, så avviket er normalt med berre $60$ forsøk."
+          },
+          {
+            "id": "8-5-3-n-quiz4-q1",
+            "task": "Kva skjer med den relative frekvensen når vi gjer fleire og fleire forsøk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han blir alltid nøyaktig lik det sanne sannsynet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han aukar alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han svingar meir og meir",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han nærmar seg det sanne sannsynet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Dei store tals lov seier at den relative frekvensen nærmar seg det sanne sannsynet når talet på forsøk aukar. Med få forsøk kan han avvike mykje, men med mange forsøk stabiliserer han seg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-5-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Sannsyn** er eit tal mellom $0$ (umogleg) og $1$ (sikkert) som beskriv kor sannsynleg ei hending er.\n\n**Utfallsrommet** er mengda av alle moglege utfall. Ei **hending** er ei delmengd av utfallsrommet.\n\nNår alle utfall er like sannsynlege:\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n**Komplementregelen**:\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Relativ frekvens** estimerer sannsynet basert på eksperiment:\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Dei store tals lov**: Jo fleire forsøk du gjer, jo nærare kjem den relative frekvensen det sanne sannsynet.\n\nSannsyn gir oss eit presist språk for å snakke om uvisse -- frå terningkast til værmeldingar!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0ab2b48638d3fd99",
+    "translatedAt": "2026-06-17T01:40:01.001Z",
+    "model": "claude-code-agent",
+    "strings": 72,
+    "tm": {
+      "6a1cc882a65aff51": "Sannsyn -- introduksjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "327b5e8182ceff05": "Ein forteljande gjennomgang av grunnleggjande sannsyn -- terningkast, myntkast, gunstige og moglege utfall, og korleis vi set tal på uvisse.",
+      "4bd7662f22288f39": "bruke programmering til å utforske sannsyn",
+      "b0422499ab0289db": "## Kan vi måle uvisse?\n\nLivet er fullt av ting vi ikkje veit sikkert. Vil det regne i morgon? Kjem du til å kaste ein seksar? Vinn laget ditt neste kamp? Vi snakkar ofte om sjanse og flaks, men visste du at matematikken har presise verktøy for å *måle* uvisse?\n\n**Sannsyn** er eit tal som fortel oss kor sannsynleg noko er. Det er eit tal mellom $0$ og $1$:\n- $0$ tyder **umogleg** (det kan aldri skje)\n- $1$ tyder **sikkert** (det vil alltid skje)\n- Alt mellom $0$ og $1$ er ulike grader av uvisse\n\nVi kan òg uttrykkje sannsyn som **prosent** mellom $0\\,\\%$ og $100\\,\\%$.\n\nTil dømes: Sannsynet for å få krone med ein rettferdig mynt er $\\frac{1}{2} = 0{,}5 = 50\\,\\%$. Det tyder ikkje at annankvart kast gir krone -- men over mange kast vil omtrent halvparten vere krone.",
+      "7813d36f6e9b531b": "## Utfall og utfallsrom\n\nNår vi gjer eit forsøk (til dømes kastar ein terning), kallar vi dei moglege resultata for **utfall**. Mengda av alle moglege utfall kallast **utfallsrommet**.\n\n**Eksempel 1: Terningkast**\nUtfallsrommet er $\\{1, 2, 3, 4, 5, 6\\}$ -- seks moglege utfall.\n\n**Eksempel 2: Myntkast**\nUtfallsrommet er $\\{\\text{krone, mynt}\\}$ -- to moglege utfall.\n\n**Eksempel 3: Trekkje eit kort frå ein kortstokk**\nUtfallsrommet har $52$ moglege utfall (alle korta).\n\nEi **hending** er noko vi er interesserte i -- til dømes «kaste ein seksar» eller «trekkje eit hjarterkort». Ei hending er ei delmengd av utfallsrommet.\n\nHendinga «kaste eit partal» med ein terning består av utfalla $\\{2, 4, 6\\}$ -- tre av seks moglege utfall. Hendinga «kaste eit tal større enn $4$» består av $\\{5, 6\\}$ -- to av seks moglege utfall.",
+      "52622a156ec206c6": "Test deg sjølv på utfall og utfallsrom:",
+      "4097889236a2af26": "placeholder",
+      "c883bb031d310e68": "Kva er utfallsrommet når du kastar ein vanleg terning?",
+      "90b274c8ed6c19ef": "$\\{\\text{partall, oddetall}\\}$",
+      "b7dc2a3c5f6f0385": "Utfallsrommet er alle moglege utfall: $\\{1, 2, 3, 4, 5, 6\\}$. Det er $6$ moglege utfall.",
+      "61efb45344c5ea8c": "Hendinga «kaste eit tal mindre enn $3$» med ein terning. Kva utfall høyrer til denne hendinga?",
+      "2976fb73a1ac29a6": "Tal mindre enn $3$ er $1$ og $2$. Hendinga består av utfalla $\\{1, 2\\}$.",
+      "e1de46b6051b8325": "Sannsynet for ei hending er $0$. Kva tyder det?",
+      "96eb70097e42739e": "Hendinga er veldig usannsynleg",
+      "a2455b1bccd888e3": "Hendinga er umogleg",
+      "474b9964cc595f91": "Hendinga skjer sjeldan",
+      "26f6aa37e64511be": "Vi veit ikkje om hendinga skjer",
+      "de74706252720cec": "$P = 0$ tyder at hendinga er umogleg. Til dømes er sannsynet for å kaste $7$ med ein vanleg terning lik $0$.",
+      "1b2f039349ab9b76": "## Rekne ut sannsyn\n\nNår alle utfall er **like sannsynlege** (som med ein rettferdig terning eller mynt), kan vi rekne ut sannsynet med denne formelen:\n\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n$P$ står for «probability» (sannsyn på engelsk). «Gunstige utfall» er dei utfalla som gjer at hendinga inntreff.\n\n**Eksempel 1**: Sannsynet for å kaste ein seksar med ein terning:\n$$P(\\text{sekser}) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nDet er $1$ gunstig utfall (seksar) av $6$ moglege.\n\n**Eksempel 2**: Sannsynet for å kaste eit partal:\n$$P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2} = 0{,}5 = 50\\,\\%$$\n\nDet er $3$ gunstige utfall ($2, 4, 6$) av $6$ moglege.\n\n**Eksempel 3**: Ein pose inneheld $4$ raude, $3$ blå og $2$ grøne kuler ($9$ totalt). Sannsynet for å trekkje ei raud kule:\n$$P(\\text{rød}) = \\frac{4}{9} \\approx 0{,}44 = 44\\,\\%$$\n\n**Viktig**: Formelen gjeld berre når alle utfall er like sannsynlege! Ein skeiv terning eller ein lasta mynt har ikkje like sannsynlege utfall.",
+      "16c509d747797cc8": "Test deg sjølv på å rekne ut sannsyn:",
+      "e2966141125b286f": "Du kastar ein terning. Kva er sannsynet for å få eit tal større enn $4$?",
+      "b51d92817d932fe4": "$\\frac{4}{6}$",
+      "ed2f0dca805db9c6": "$\\frac{1}{6}$",
+      "5bbbc74a721fdbe3": "$\\frac{2}{6} = \\frac{1}{3}$",
+      "2eb9eafebb72aad0": "$\\frac{3}{6}$",
+      "5c8b7a83b1c06101": "Tal større enn $4$ er $5$ og $6$ -- det er $2$ gunstige utfall av $6$ moglege. $P = \\frac{2}{6} = \\frac{1}{3}$.",
+      "e92d41af13c086a8": "Ein pose har $5$ raude og $3$ blå kuler. Kva er sannsynet for å trekkje ei blå kule?",
+      "e1879d7a93f60436": "$\\frac{3}{5}$",
+      "5257a310e0070b54": "$\\frac{5}{8}$",
+      "54c7e9fb31c5b808": "$\\frac{3}{8}$",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "a668481d624410b4": "Det er $3$ blå kuler av totalt $5 + 3 = 8$ kuler. $P(\\text{blå}) = \\frac{3}{8}$.",
+      "84620c9d524e66df": "Du trekkjer eit kort frå ein standard kortstokk med $52$ kort. Kva er sannsynet for å trekkje eit hjarterkort?",
+      "aaa45f3e5ec152bd": "$\\frac{1}{52}$",
+      "e0006258c4de34fe": "$\\frac{13}{52} = \\frac{1}{4}$",
+      "a179331274e689a9": "$\\frac{4}{52}$",
+      "e4d2450e04780c9b": "$\\frac{26}{52}$",
+      "c4393080ed8d4eb5": "Det er $13$ hjarterkort i ein kortstokk med $52$ kort. $P(\\text{hjerter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$.",
+      "266cc66d3c185819": "## Komplementærhendinga\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko **ikkje** skjer. **Komplementærhendinga** til ei hending $A$ er det motsette -- alt som ikkje er $A$.\n\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Eksempel 1**: Sannsynet for å *ikkje* kaste ein seksar:\n$$P(\\text{ikke sekser}) = 1 - P(\\text{sekser}) = 1 - \\frac{1}{6} = \\frac{5}{6}$$\n\n**Eksempel 2**: I ei bolle med $10$ frukter er $3$ eple. Sannsynet for å trekkje noko anna enn eit eple:\n$$P(\\text{ikke eple}) = 1 - \\frac{3}{10} = \\frac{7}{10}$$\n\nKomplementregelen er spesielt nyttig når det er mange gunstige utfall for det du *ikkje* vil rekne ut. I staden for å telje alle dei gunstige utfalla for ei komplisert hending, kan du nokre gonger enklare rekne ut det motsette og trekkje frå.\n\nLegg merke til at $P(A) + P(\\text{ikke } A) = 1$ alltid. Det tyder at sannsynet for at noko skjer pluss sannsynet for at det ikkje skjer, alltid summerer til $1$ ($100\\,\\%$). Det gir meining -- anten skjer det, eller så skjer det ikkje!",
+      "1eefa36514949718": "Test deg sjølv på komplementærhendingar:",
+      "61976c8a52d90046": "Sannsynet for regn i morgon er $0{,}3$. Kva er sannsynet for at det *ikkje* regnar?",
+      "4ead2cc79fd303b1": "$P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}3 = 0{,}7 = 70\\,\\%$.",
+      "8bd7dee36da20cac": "Du kastar ein terning. Kva er sannsynet for å få eit tal som IKKJE er $1$?",
+      "18f9adbf430864eb": "$\\frac{5}{6}$",
+      "8e064360a295d169": "$\\frac{6}{6}$",
+      "80cd2d1e5f6d208c": "$P(\\text{ikke 1}) = 1 - P(1) = 1 - \\frac{1}{6} = \\frac{5}{6}$.",
+      "d1a5edc261098ef0": "Kva er alltid sant om $P(A) + P(\\text{ikke } A)$?",
+      "6d0a817f159c5337": "Det er alltid større enn $1$",
+      "d821da5f598ae1da": "Det er alltid lik $0$",
+      "9fcd859df78c68b3": "Det er alltid lik $1$",
+      "920531a3f5ccbce9": "Det kjem an på hendinga",
+      "3843f02dbb69f4af": "Anten skjer hendinga eller så gjer ho det ikkje. Desse to moglegheitene dekkjer alt, så dei summerer alltid til $1$ ($100\\,\\%$).",
+      "30f38bfc6787445c": "## Eksperiment og relativ frekvens\n\nNokre gonger veit vi ikkje det teoretiske sannsynet. Kva er sannsynet for at ei brødskive landar med smørsida ned? For at du treff blink i dart? Her finst det ingen formel -- men vi kan **eksperimentere**.\n\nViss du gjer eit forsøk mange gonger, kan du **estimere** sannsynet ved hjelp av **relativ frekvens**:\n\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Eksempel**: Du kastar ein mynt $50$ gonger og får krone $28$ gonger.\n\n$$\\text{Relativ frekvens for krone} = \\frac{28}{50} = 0{,}56 = 56\\,\\%$$\n\nDet er litt meir enn $50\\,\\%$, men det er normalt med så få forsøk. Jo fleire gonger du kastar, jo nærare vil den relative frekvensen komme det sanne sannsynet ($50\\,\\%$). Med $1000$ kast ville du sannsynlegvis fått eit resultat nærare $50\\,\\%$.\n\nDette prinsippet kallast **dei store tals lov**: med mange forsøk nærmar den relative frekvensen seg det sanne sannsynet.\n\nDu kan òg bruke programmering for å simulere mange forsøk raskt! Ei datamaskin kan «kaste ein terning» tusenvis av gonger på under eit sekund og rekne ut den relative frekvensen.",
+      "7fb709fcf8cdfd1d": "Test deg sjølv på relativ frekvens:",
+      "d9aa06858e2aef26": "Du kastar ein terning $60$ gonger og får seksar $8$ gonger. Kva er den relative frekvensen for seksar?",
+      "ef0f2997f7772b76": "$\\frac{8}{60} \\approx 13{,}3\\,\\%$",
+      "a931d8d4b0ce9023": "$\\frac{60}{8} = 7{,}5$",
+      "83e2f1136dcb2227": "Relativ frekvens $= \\frac{8}{60} = \\frac{2}{15} \\approx 0{,}133 = 13{,}3\\,\\%$. Det teoretiske sannsynet er $\\frac{1}{6} \\approx 16{,}7\\,\\%$, så avviket er normalt med berre $60$ forsøk.",
+      "afcaf2892801b4da": "Kva skjer med den relative frekvensen når vi gjer fleire og fleire forsøk?",
+      "4233c4ebc6db4ec0": "Han blir alltid nøyaktig lik det sanne sannsynet",
+      "7b453634b83a55b4": "Han nærmar seg det sanne sannsynet",
+      "fd749ffa89e736d4": "Han aukar alltid",
+      "42ee498b9a6c53e1": "Han svingar meir og meir",
+      "e22de8c6ed07cc8e": "Dei store tals lov seier at den relative frekvensen nærmar seg det sanne sannsynet når talet på forsøk aukar. Med få forsøk kan han avvike mykje, men med mange forsøk stabiliserer han seg.",
+      "f22d18a7b34c9388": "## Oppsummering\n\n**Sannsyn** er eit tal mellom $0$ (umogleg) og $1$ (sikkert) som beskriv kor sannsynleg ei hending er.\n\n**Utfallsrommet** er mengda av alle moglege utfall. Ei **hending** er ei delmengd av utfallsrommet.\n\nNår alle utfall er like sannsynlege:\n$$P(\\text{hendelse}) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\n**Komplementregelen**:\n$$P(\\text{ikke } A) = 1 - P(A)$$\n\n**Relativ frekvens** estimerer sannsynet basert på eksperiment:\n$$\\text{Relativ frekvens} = \\frac{\\text{antall ganger hendelsen inntreffer}}{\\text{totalt antall forsøk}}$$\n\n**Dei store tals lov**: Jo fleire forsøk du gjer, jo nærare kjem den relative frekvensen det sanne sannsynet.\n\nSannsyn gir oss eit presist språk for å snakke om uvisse -- frå terningkast til værmeldingar!"
+    }
+  }
+}

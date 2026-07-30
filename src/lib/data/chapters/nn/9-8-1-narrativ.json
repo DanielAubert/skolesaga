@@ -1,1 +1,357 @@
-{"id":"9-8-1-narrativ","courseId":"9","chapterNumber":"8.1","title":"Polygon og vinkelsummar","subtitle":"Narrativ versjon","description":"Ei forteljande utforsking av polygon -- frå trekantar og firkantar til mangekantar med mange sider -- der vi oppdagar ein elegant formel for vinkelsummar og forstår samanhengen mellom indre og ytre vinklar.","estimatedMinutes":35,"competenceGoals":["utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar"],"linkedChapterId":"9-8-1","content":[{"id":"9-8-1-n-intro","type":"text","content":"## Mangekantane si verd\n\nSjå deg rundt. Vindauget ditt er ein firkant. Stoppskiltet utanfor er ein åttekant. Bikubane i naturen er sekskantar. Fotballen du sparkar er dekt av femkantar og sekskantar. Alle desse figurane er **polygon** -- lukka figurar med rette sider.\n\nMen kva veit vi eigentleg om vinklane i desse figurane? Du veit kanskje at vinkelsummen i ein trekant er $180°$, og i ein firkant $360°$. Men kva med ein femkant? Ein sekskant? Ein 100-kant? Det viser seg at det finst ein elegant formel som fungerer for alle polygon -- og han byggjer på ein enkel, men genial idé."},{"id":"9-8-1-n-section1","type":"text","content":"## Kva er eit polygon?\n\nEit **polygon** (eller mangekant) er ein lukka, plan figur avgrensa av rette linjestykke som vi kallar **sider**. Polygon blir namngitt etter tal sider:\n\n| Sider | Namn | Døme |\n|-------|------|----------|\n| 3 | Trekant | Vegskilt |\n| 4 | Firkant | Vindauge |\n| 5 | Femkant (pentagon) | Fotballmønster |\n| 6 | Sekskant (heksagon) | Bikube |\n| 8 | Åttekant (oktogon) | Stoppskilt |\n| $n$ | $n$-kant | |\n\nNokre viktige omgrep: Eit **regulært polygon** har alle sider like lange og alle vinklar like store -- som ein likesidd trekant eller eit kvadrat. Eit **konveks polygon** har alle indre vinklar under $180°$ -- det «bular ikkje innover». Ein **diagonal** er eit linjestykke mellom to hjørne som ikkje er naboar."},{"id":"9-8-1-n-section2","type":"text","content":"## Vinkelsummen -- den geniale idéen\n\nHer er den store idéen: frå eitt hjørne i eit polygon kan du trekkje diagonalar til alle dei andre hjørna (bortsett frå nabohjørna). Dette deler polygonet inn i **trekantar**. Og vinkelsummen i ein trekant er alltid $180°$.\n\nEin firkant ($n = 4$) kan delast i $2$ trekantar: $2 \\cdot 180° = 360°$.\nEin femkant ($n = 5$) kan delast i $3$ trekantar: $3 \\cdot 180° = 540°$.\nEin sekskant ($n = 6$) kan delast i $4$ trekantar: $4 \\cdot 180° = 720°$.\n\nSer du mønsteret? Ein $n$-kant blir delt i $(n - 2)$ trekantar. Dermed er vinkelsummen:\n\n$$S = (n - 2) \\cdot 180°$$\n\nDenne formelen er utruleg nyttig. Han fungerer for alle konvekse polygon, uansett storleik. Ein 100-kant har vinkelsummen $(100 - 2) \\cdot 180° = 17\\,640°$.\n\nI ein **regulær** $n$-kant er alle vinklane like store, så kvar indre vinkel er:\n\n$$v = \\frac{(n - 2) \\cdot 180°}{n}$$\n\nFor ein regulær sekskant: $v = \\frac{4 \\cdot 180°}{6} = \\frac{720°}{6} = 120°$. Det er nettopp difor bier byggjer sekskanta celler -- $120°$-vinklar passar perfekt saman utan mellomrom!"},{"id":"9-8-1-n-quiz1","type":"exercise","exercise":{"id":"9-8-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vinkelsummar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-8-1-n-quiz1-q0","task":"Kva er vinkelsummen i ein åttekant ($n = 8$)?","options":[{"id":"a","text":"$720°$","isCorrect":false},{"id":"b","text":"$1080°$","isCorrect":true},{"id":"c","text":"$1440°$","isCorrect":false},{"id":"d","text":"$900°$","isCorrect":false}],"solution":"$S = (8 - 2) \\cdot 180° = 6 \\cdot 180° = 1080°$."},{"id":"9-8-1-n-quiz1-q1","task":"Kor stor er kvar vinkel i ein regulær femkant?","options":[{"id":"a","text":"$100°$","isCorrect":false},{"id":"b","text":"$108°$","isCorrect":true},{"id":"c","text":"$120°$","isCorrect":false},{"id":"d","text":"$72°$","isCorrect":false}],"solution":"Vinkelsummen er $(5-2) \\cdot 180° = 540°$. Kvar vinkel: $\\frac{540°}{5} = 108°$."},{"id":"9-8-1-n-quiz1-q2","task":"Ein firkant har tre vinklar: $80°$, $110°$ og $95°$. Kor stor er den fjerde vinkelen?","options":[{"id":"a","text":"$85°$","isCorrect":false},{"id":"b","text":"$75°$","isCorrect":true},{"id":"c","text":"$65°$","isCorrect":false},{"id":"d","text":"$90°$","isCorrect":false}],"solution":"Vinkelsummen i ein firkant er $360°$. Fjerde vinkel $= 360° - 80° - 110° - 95° = 75°$."}]}},{"id":"9-8-1-n-section3","type":"text","content":"## Ytre vinklar -- ein runde rundt polygonet\n\nEin **ytre vinkel** er supplementvinkelen til ein indre vinkel. Altså: ytre vinkel $= 180° - $ indre vinkel.\n\nTenk deg at du går langs kantane av eit polygon. Ved kvart hjørne snur du deg litt -- den vinkelen du snur er den ytre vinkelen. Når du har gått heile vegen rundt og er tilbake der du starta, har du snudd deg nøyaktig ein heil runde. Difor gjeld ein universell regel:\n\n$$\\text{Sum av ytre vinklar} = 360°$$\n\nDette gjeld for **alle** konvekse polygon -- uansett om dei har 3, 8, eller 1000 sider!\n\nFor ein regulær $n$-kant er alle ytre vinklane like store: $\\frac{360°}{n}$.\n\nDenne regelen gir oss eit elegant triks for å finne tal sider: Dersom du veit at den indre vinkelen i eit regulært polygon er $150°$, er den ytre vinkelen $180° - 150° = 30°$. Tal sider er då $\\frac{360°}{30°} = 12$ -- ein tolvkant!"},{"id":"9-8-1-n-quiz2","type":"exercise","exercise":{"id":"9-8-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på ytre vinklar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-8-1-n-quiz2-q0","task":"Kor stor er kvar ytre vinkel i ein regulær tikant (10-kant)?","options":[{"id":"a","text":"$30°$","isCorrect":false},{"id":"b","text":"$36°$","isCorrect":true},{"id":"c","text":"$40°$","isCorrect":false},{"id":"d","text":"$144°$","isCorrect":false}],"solution":"Ytre vinkel $= \\frac{360°}{10} = 36°$."},{"id":"9-8-1-n-quiz2-q1","task":"Eit regulært polygon har indre vinklar på $140°$. Kor mange sider har det?","options":[{"id":"a","text":"$8$","isCorrect":false},{"id":"b","text":"$9$","isCorrect":true},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"Ytre vinkel $= 180° - 140° = 40°$. Tal sider $= \\frac{360°}{40°} = 9$ (ein nikant)."},{"id":"9-8-1-n-quiz2-q2","task":"Vinkelsummen i eit polygon er $2340°$. Kor mange sider har det?","options":[{"id":"a","text":"$13$","isCorrect":false},{"id":"b","text":"$15$","isCorrect":true},{"id":"c","text":"$14$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"$(n - 2) \\cdot 180° = 2340°$. $n - 2 = \\frac{2340}{180} = 13$. $n = 15$."}]}},{"id":"9-8-1-n-section4","type":"text","content":"## Diagonalar -- linjer på tvers\n\nEin **diagonal** er eit linjestykke mellom to hjørne som ikkje er nabohjørne. Kor mange diagonalar har eit polygon? Frå kvart av dei $n$ hjørna kan du trekkje diagonalar til $(n - 3)$ andre hjørne (ikkje til seg sjølv eller dei to naboane). Det gir $n(n-3)$ retningar, men kvar diagonal blir talt to gonger (éin gong frå kvart endepunkt). Tal diagonalar er:\n\n$$D = \\frac{n(n - 3)}{2}$$\n\nFor ein sekskant: $D = \\frac{6 \\cdot 3}{2} = 9$ diagonalar.\nFor ein tolvkant: $D = \\frac{12 \\cdot 9}{2} = 54$ diagonalar.\n\nDiagonalar er viktige fordi dei deler polygonet inn i trekantar -- og det er nettopp slik vi utleidde vinkelsumformelen!"},{"id":"9-8-1-n-quiz3","type":"exercise","exercise":{"id":"9-8-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på diagonalar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-8-1-n-quiz3-q0","task":"Kor mange diagonalar har ein åttekant?","options":[{"id":"a","text":"$16$","isCorrect":false},{"id":"b","text":"$20$","isCorrect":true},{"id":"c","text":"$24$","isCorrect":false},{"id":"d","text":"$28$","isCorrect":false}],"solution":"$D = \\frac{8 \\cdot (8 - 3)}{2} = \\frac{8 \\cdot 5}{2} = \\frac{40}{2} = 20$."},{"id":"9-8-1-n-quiz3-q1","task":"Kor mange diagonalar har ein trekant?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"$D = \\frac{3 \\cdot (3-3)}{2} = \\frac{3 \\cdot 0}{2} = 0$. Ein trekant har ingen diagonalar -- alle sider bind saman nabohjørne."}]}},{"id":"9-8-1-n-summary","type":"text","content":"## Oppsummering\n\nEit **polygon** er ein lukka figur med rette sider. Eit **regulært polygon** har like sider og like vinklar.\n\n**Vinkelsummen** i ein $n$-kant: $S = (n - 2) \\cdot 180°$\n\n**Kvar indre vinkel** i ein regulær $n$-kant: $v = \\frac{(n-2) \\cdot 180°}{n}$\n\n**Sum av ytre vinklar**: Alltid $360°$ for eitkvart konveks polygon.\n\n**Kvar ytre vinkel** i ein regulær $n$-kant: $\\frac{360°}{n}$\n\n**Tal diagonalar** i ein $n$-kant: $D = \\frac{n(n-3)}{2}$"}],"exercises":[],"_meta":{"sourceHash":"766510d7892b9f86","translatedAt":"2026-06-17T09:18:17.550Z","model":"claude-code-agent","strings":32,"tm":{"688858cac792a2a7":"Polygon og vinkelsummar","b195b06d1ed59702":"Narrativ versjon","a490c7e72eb3b266":"Ei forteljande utforsking av polygon -- frå trekantar og firkantar til mangekantar med mange sider -- der vi oppdagar ein elegant formel for vinkelsummar og forstår samanhengen mellom indre og ytre vinklar.","6af8feda013eb1cf":"utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar","99aecb56ae2312bb":"## Mangekantane si verd\n\nSjå deg rundt. Vindauget ditt er ein firkant. Stoppskiltet utanfor er ein åttekant. Bikubane i naturen er sekskantar. Fotballen du sparkar er dekt av femkantar og sekskantar. Alle desse figurane er **polygon** -- lukka figurar med rette sider.\n\nMen kva veit vi eigentleg om vinklane i desse figurane? Du veit kanskje at vinkelsummen i ein trekant er $180°$, og i ein firkant $360°$. Men kva med ein femkant? Ein sekskant? Ein 100-kant? Det viser seg at det finst ein elegant formel som fungerer for alle polygon -- og han byggjer på ein enkel, men genial idé.","e9b7c19d5bb61092":"## Kva er eit polygon?\n\nEit **polygon** (eller mangekant) er ein lukka, plan figur avgrensa av rette linjestykke som vi kallar **sider**. Polygon blir namngitt etter tal sider:\n\n| Sider | Namn | Døme |\n|-------|------|----------|\n| 3 | Trekant | Vegskilt |\n| 4 | Firkant | Vindauge |\n| 5 | Femkant (pentagon) | Fotballmønster |\n| 6 | Sekskant (heksagon) | Bikube |\n| 8 | Åttekant (oktogon) | Stoppskilt |\n| $n$ | $n$-kant | |\n\nNokre viktige omgrep: Eit **regulært polygon** har alle sider like lange og alle vinklar like store -- som ein likesidd trekant eller eit kvadrat. Eit **konveks polygon** har alle indre vinklar under $180°$ -- det «bular ikkje innover». Ein **diagonal** er eit linjestykke mellom to hjørne som ikkje er naboar.","2446309966b27715":"## Vinkelsummen -- den geniale idéen\n\nHer er den store idéen: frå eitt hjørne i eit polygon kan du trekkje diagonalar til alle dei andre hjørna (bortsett frå nabohjørna). Dette deler polygonet inn i **trekantar**. Og vinkelsummen i ein trekant er alltid $180°$.\n\nEin firkant ($n = 4$) kan delast i $2$ trekantar: $2 \\cdot 180° = 360°$.\nEin femkant ($n = 5$) kan delast i $3$ trekantar: $3 \\cdot 180° = 540°$.\nEin sekskant ($n = 6$) kan delast i $4$ trekantar: $4 \\cdot 180° = 720°$.\n\nSer du mønsteret? Ein $n$-kant blir delt i $(n - 2)$ trekantar. Dermed er vinkelsummen:\n\n$$S = (n - 2) \\cdot 180°$$\n\nDenne formelen er utruleg nyttig. Han fungerer for alle konvekse polygon, uansett storleik. Ein 100-kant har vinkelsummen $(100 - 2) \\cdot 180° = 17\\,640°$.\n\nI ein **regulær** $n$-kant er alle vinklane like store, så kvar indre vinkel er:\n\n$$v = \\frac{(n - 2) \\cdot 180°}{n}$$\n\nFor ein regulær sekskant: $v = \\frac{4 \\cdot 180°}{6} = \\frac{720°}{6} = 120°$. Det er nettopp difor bier byggjer sekskanta celler -- $120°$-vinklar passar perfekt saman utan mellomrom!","82220ba6c2b36609":"Test deg sjølv på vinkelsummar:","4097889236a2af26":"placeholder","700309ee864bf837":"Kva er vinkelsummen i ein åttekant ($n = 8$)?","b520694d3415335c":"$S = (8 - 2) \\cdot 180° = 6 \\cdot 180° = 1080°$.","20ab39c1ea9240e1":"Kor stor er kvar vinkel i ein regulær femkant?","86dc5878b62b4854":"Vinkelsummen er $(5-2) \\cdot 180° = 540°$. Kvar vinkel: $\\frac{540°}{5} = 108°$.","8a71ff6379afd0b2":"Ein firkant har tre vinklar: $80°$, $110°$ og $95°$. Kor stor er den fjerde vinkelen?","38db411fd8cfb9fd":"Vinkelsummen i ein firkant er $360°$. Fjerde vinkel $= 360° - 80° - 110° - 95° = 75°$.","77c9d1d5a105bc27":"## Ytre vinklar -- ein runde rundt polygonet\n\nEin **ytre vinkel** er supplementvinkelen til ein indre vinkel. Altså: ytre vinkel $= 180° - $ indre vinkel.\n\nTenk deg at du går langs kantane av eit polygon. Ved kvart hjørne snur du deg litt -- den vinkelen du snur er den ytre vinkelen. Når du har gått heile vegen rundt og er tilbake der du starta, har du snudd deg nøyaktig ein heil runde. Difor gjeld ein universell regel:\n\n$$\\text{Sum av ytre vinklar} = 360°$$\n\nDette gjeld for **alle** konvekse polygon -- uansett om dei har 3, 8, eller 1000 sider!\n\nFor ein regulær $n$-kant er alle ytre vinklane like store: $\\frac{360°}{n}$.\n\nDenne regelen gir oss eit elegant triks for å finne tal sider: Dersom du veit at den indre vinkelen i eit regulært polygon er $150°$, er den ytre vinkelen $180° - 150° = 30°$. Tal sider er då $\\frac{360°}{30°} = 12$ -- ein tolvkant!","54e494ee9f29dcc1":"Test deg sjølv på ytre vinklar:","4e2ef887ca4bf614":"Kor stor er kvar ytre vinkel i ein regulær tikant (10-kant)?","b8a8f0efc3b17698":"Ytre vinkel $= \\frac{360°}{10} = 36°$.","03761a12a5c131dc":"Eit regulært polygon har indre vinklar på $140°$. Kor mange sider har det?","2ac63a560f076766":"Ytre vinkel $= 180° - 140° = 40°$. Tal sider $= \\frac{360°}{40°} = 9$ (ein nikant).","1fb4b67876a56a71":"Vinkelsummen i eit polygon er $2340°$. Kor mange sider har det?","a75c20ac4370c13d":"$(n - 2) \\cdot 180° = 2340°$. $n - 2 = \\frac{2340}{180} = 13$. $n = 15$.","1c60db286f3af273":"## Diagonalar -- linjer på tvers\n\nEin **diagonal** er eit linjestykke mellom to hjørne som ikkje er nabohjørne. Kor mange diagonalar har eit polygon? Frå kvart av dei $n$ hjørna kan du trekkje diagonalar til $(n - 3)$ andre hjørne (ikkje til seg sjølv eller dei to naboane). Det gir $n(n-3)$ retningar, men kvar diagonal blir talt to gonger (éin gong frå kvart endepunkt). Tal diagonalar er:\n\n$$D = \\frac{n(n - 3)}{2}$$\n\nFor ein sekskant: $D = \\frac{6 \\cdot 3}{2} = 9$ diagonalar.\nFor ein tolvkant: $D = \\frac{12 \\cdot 9}{2} = 54$ diagonalar.\n\nDiagonalar er viktige fordi dei deler polygonet inn i trekantar -- og det er nettopp slik vi utleidde vinkelsumformelen!","80941fae0e2ed25e":"Test deg sjølv på diagonalar:","a58684df67f2f87d":"Kor mange diagonalar har ein åttekant?","1362a62727e5423c":"$D = \\frac{8 \\cdot (8 - 3)}{2} = \\frac{8 \\cdot 5}{2} = \\frac{40}{2} = 20$.","3be109612d57b2c6":"Kor mange diagonalar har ein trekant?","7a64d082d0d2d2e1":"$D = \\frac{3 \\cdot (3-3)}{2} = \\frac{3 \\cdot 0}{2} = 0$. Ein trekant har ingen diagonalar -- alle sider bind saman nabohjørne.","784409a95c6a4eda":"## Oppsummering\n\nEit **polygon** er ein lukka figur med rette sider. Eit **regulært polygon** har like sider og like vinklar.\n\n**Vinkelsummen** i ein $n$-kant: $S = (n - 2) \\cdot 180°$\n\n**Kvar indre vinkel** i ein regulær $n$-kant: $v = \\frac{(n-2) \\cdot 180°}{n}$\n\n**Sum av ytre vinklar**: Alltid $360°$ for eitkvart konveks polygon.\n\n**Kvar ytre vinkel** i ein regulær $n$-kant: $\\frac{360°}{n}$\n\n**Tal diagonalar** i ein $n$-kant: $D = \\frac{n(n-3)}{2}$"}}}
+{
+  "id": "9-8-1-narrativ",
+  "courseId": "9",
+  "chapterNumber": "8.1",
+  "title": "Polygon og vinkelsummar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljande utforsking av polygon -- frå trekantar og firkantar til mangekantar med mange sider -- der vi oppdagar ein elegant formel for vinkelsummar og forstår samanhengen mellom indre og ytre vinklar.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar"
+  ],
+  "linkedChapterId": "9-8-1",
+  "content": [
+    {
+      "id": "9-8-1-n-intro",
+      "type": "text",
+      "content": "## Mangekantane si verd\n\nSjå deg rundt. Vindauget ditt er ein firkant. Stoppskiltet utanfor er ein åttekant. Bikubane i naturen er sekskantar. Fotballen du sparkar er dekt av femkantar og sekskantar. Alle desse figurane er **polygon** -- lukka figurar med rette sider.\n\nMen kva veit vi eigentleg om vinklane i desse figurane? Du veit kanskje at vinkelsummen i ein trekant er $180°$, og i ein firkant $360°$. Men kva med ein femkant? Ein sekskant? Ein 100-kant? Det viser seg at det finst ein elegant formel som fungerer for alle polygon -- og han byggjer på ein enkel, men genial idé."
+    },
+    {
+      "id": "9-8-1-n-section1",
+      "type": "text",
+      "content": "## Kva er eit polygon?\n\nEit **polygon** (eller mangekant) er ein lukka, plan figur avgrensa av rette linjestykke som vi kallar **sider**. Polygon blir namngitt etter tal sider:\n\n| Sider | Namn | Døme |\n|-------|------|----------|\n| 3 | Trekant | Vegskilt |\n| 4 | Firkant | Vindauge |\n| 5 | Femkant (pentagon) | Fotballmønster |\n| 6 | Sekskant (heksagon) | Bikube |\n| 8 | Åttekant (oktogon) | Stoppskilt |\n| $n$ | $n$-kant | |\n\nNokre viktige omgrep: Eit **regulært polygon** har alle sider like lange og alle vinklar like store -- som ein likesidd trekant eller eit kvadrat. Eit **konveks polygon** har alle indre vinklar under $180°$ -- det «bular ikkje innover». Ein **diagonal** er eit linjestykke mellom to hjørne som ikkje er naboar."
+    },
+    {
+      "id": "9-8-1-n-section2",
+      "type": "text",
+      "content": "## Vinkelsummen -- den geniale idéen\n\nHer er den store idéen: frå eitt hjørne i eit polygon kan du trekkje diagonalar til alle dei andre hjørna (bortsett frå nabohjørna). Dette deler polygonet inn i **trekantar**. Og vinkelsummen i ein trekant er alltid $180°$.\n\nEin firkant ($n = 4$) kan delast i $2$ trekantar: $2 \\cdot 180° = 360°$.\nEin femkant ($n = 5$) kan delast i $3$ trekantar: $3 \\cdot 180° = 540°$.\nEin sekskant ($n = 6$) kan delast i $4$ trekantar: $4 \\cdot 180° = 720°$.\n\nSer du mønsteret? Ein $n$-kant blir delt i $(n - 2)$ trekantar. Dermed er vinkelsummen:\n\n$$S = (n - 2) \\cdot 180°$$\n\nDenne formelen er utruleg nyttig. Han fungerer for alle konvekse polygon, uansett storleik. Ein 100-kant har vinkelsummen $(100 - 2) \\cdot 180° = 17\\,640°$.\n\nI ein **regulær** $n$-kant er alle vinklane like store, så kvar indre vinkel er:\n\n$$v = \\frac{(n - 2) \\cdot 180°}{n}$$\n\nFor ein regulær sekskant: $v = \\frac{4 \\cdot 180°}{6} = \\frac{720°}{6} = 120°$. Det er nettopp difor bier byggjer sekskanta celler -- $120°$-vinklar passar perfekt saman utan mellomrom!"
+    },
+    {
+      "id": "9-8-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-8-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vinkelsummar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-8-1-n-quiz1-q0",
+            "task": "Kva er vinkelsummen i ein åttekant ($n = 8$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1080°$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$720°$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1440°$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$900°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S = (8 - 2) \\cdot 180° = 6 \\cdot 180° = 1080°$."
+          },
+          {
+            "id": "9-8-1-n-quiz1-q1",
+            "task": "Kor stor er kvar vinkel i ein regulær femkant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100°$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$108°$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$120°$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$72°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vinkelsummen er $(5-2) \\cdot 180° = 540°$. Kvar vinkel: $\\frac{540°}{5} = 108°$."
+          },
+          {
+            "id": "9-8-1-n-quiz1-q2",
+            "task": "Ein firkant har tre vinklar: $80°$, $110°$ og $95°$. Kor stor er den fjerde vinkelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$85°$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$65°$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$75°$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$90°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vinkelsummen i ein firkant er $360°$. Fjerde vinkel $= 360° - 80° - 110° - 95° = 75°$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-8-1-n-section3",
+      "type": "text",
+      "content": "## Ytre vinklar -- ein runde rundt polygonet\n\nEin **ytre vinkel** er supplementvinkelen til ein indre vinkel. Altså: ytre vinkel $= 180° - $ indre vinkel.\n\nTenk deg at du går langs kantane av eit polygon. Ved kvart hjørne snur du deg litt -- den vinkelen du snur er den ytre vinkelen. Når du har gått heile vegen rundt og er tilbake der du starta, har du snudd deg nøyaktig ein heil runde. Difor gjeld ein universell regel:\n\n$$\\text{Sum av ytre vinklar} = 360°$$\n\nDette gjeld for **alle** konvekse polygon -- uansett om dei har 3, 8, eller 1000 sider!\n\nFor ein regulær $n$-kant er alle ytre vinklane like store: $\\frac{360°}{n}$.\n\nDenne regelen gir oss eit elegant triks for å finne tal sider: Dersom du veit at den indre vinkelen i eit regulært polygon er $150°$, er den ytre vinkelen $180° - 150° = 30°$. Tal sider er då $\\frac{360°}{30°} = 12$ -- ein tolvkant!"
+    },
+    {
+      "id": "9-8-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-8-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på ytre vinklar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-8-1-n-quiz2-q0",
+            "task": "Kor stor er kvar ytre vinkel i ein regulær tikant (10-kant)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30°$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$36°$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$40°$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$144°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ytre vinkel $= \\frac{360°}{10} = 36°$."
+          },
+          {
+            "id": "9-8-1-n-quiz2-q1",
+            "task": "Eit regulært polygon har indre vinklar på $140°$. Kor mange sider har det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ytre vinkel $= 180° - 140° = 40°$. Tal sider $= \\frac{360°}{40°} = 9$ (ein nikant)."
+          },
+          {
+            "id": "9-8-1-n-quiz2-q2",
+            "task": "Vinkelsummen i eit polygon er $2340°$. Kor mange sider har det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$13$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$14$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$(n - 2) \\cdot 180° = 2340°$. $n - 2 = \\frac{2340}{180} = 13$. $n = 15$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-8-1-n-section4",
+      "type": "text",
+      "content": "## Diagonalar -- linjer på tvers\n\nEin **diagonal** er eit linjestykke mellom to hjørne som ikkje er nabohjørne. Kor mange diagonalar har eit polygon? Frå kvart av dei $n$ hjørna kan du trekkje diagonalar til $(n - 3)$ andre hjørne (ikkje til seg sjølv eller dei to naboane). Det gir $n(n-3)$ retningar, men kvar diagonal blir talt to gonger (éin gong frå kvart endepunkt). Tal diagonalar er:\n\n$$D = \\frac{n(n - 3)}{2}$$\n\nFor ein sekskant: $D = \\frac{6 \\cdot 3}{2} = 9$ diagonalar.\nFor ein tolvkant: $D = \\frac{12 \\cdot 9}{2} = 54$ diagonalar.\n\nDiagonalar er viktige fordi dei deler polygonet inn i trekantar -- og det er nettopp slik vi utleidde vinkelsumformelen!"
+    },
+    {
+      "id": "9-8-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-8-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på diagonalar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-8-1-n-quiz3-q0",
+            "task": "Kor mange diagonalar har ein åttekant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$20$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$24$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$28$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D = \\frac{8 \\cdot (8 - 3)}{2} = \\frac{8 \\cdot 5}{2} = \\frac{40}{2} = 20$."
+          },
+          {
+            "id": "9-8-1-n-quiz3-q1",
+            "task": "Kor mange diagonalar har ein trekant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D = \\frac{3 \\cdot (3-3)}{2} = \\frac{3 \\cdot 0}{2} = 0$. Ein trekant har ingen diagonalar -- alle sider bind saman nabohjørne."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-8-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEit **polygon** er ein lukka figur med rette sider. Eit **regulært polygon** har like sider og like vinklar.\n\n**Vinkelsummen** i ein $n$-kant: $S = (n - 2) \\cdot 180°$\n\n**Kvar indre vinkel** i ein regulær $n$-kant: $v = \\frac{(n-2) \\cdot 180°}{n}$\n\n**Sum av ytre vinklar**: Alltid $360°$ for eitkvart konveks polygon.\n\n**Kvar ytre vinkel** i ein regulær $n$-kant: $\\frac{360°}{n}$\n\n**Tal diagonalar** i ein $n$-kant: $D = \\frac{n(n-3)}{2}$"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "766510d7892b9f86",
+    "translatedAt": "2026-06-17T09:18:17.550Z",
+    "model": "claude-code-agent",
+    "strings": 32,
+    "tm": {
+      "688858cac792a2a7": "Polygon og vinkelsummar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "a490c7e72eb3b266": "Ei forteljande utforsking av polygon -- frå trekantar og firkantar til mangekantar med mange sider -- der vi oppdagar ein elegant formel for vinkelsummar og forstår samanhengen mellom indre og ytre vinklar.",
+      "6af8feda013eb1cf": "utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar",
+      "99aecb56ae2312bb": "## Mangekantane si verd\n\nSjå deg rundt. Vindauget ditt er ein firkant. Stoppskiltet utanfor er ein åttekant. Bikubane i naturen er sekskantar. Fotballen du sparkar er dekt av femkantar og sekskantar. Alle desse figurane er **polygon** -- lukka figurar med rette sider.\n\nMen kva veit vi eigentleg om vinklane i desse figurane? Du veit kanskje at vinkelsummen i ein trekant er $180°$, og i ein firkant $360°$. Men kva med ein femkant? Ein sekskant? Ein 100-kant? Det viser seg at det finst ein elegant formel som fungerer for alle polygon -- og han byggjer på ein enkel, men genial idé.",
+      "e9b7c19d5bb61092": "## Kva er eit polygon?\n\nEit **polygon** (eller mangekant) er ein lukka, plan figur avgrensa av rette linjestykke som vi kallar **sider**. Polygon blir namngitt etter tal sider:\n\n| Sider | Namn | Døme |\n|-------|------|----------|\n| 3 | Trekant | Vegskilt |\n| 4 | Firkant | Vindauge |\n| 5 | Femkant (pentagon) | Fotballmønster |\n| 6 | Sekskant (heksagon) | Bikube |\n| 8 | Åttekant (oktogon) | Stoppskilt |\n| $n$ | $n$-kant | |\n\nNokre viktige omgrep: Eit **regulært polygon** har alle sider like lange og alle vinklar like store -- som ein likesidd trekant eller eit kvadrat. Eit **konveks polygon** har alle indre vinklar under $180°$ -- det «bular ikkje innover». Ein **diagonal** er eit linjestykke mellom to hjørne som ikkje er naboar.",
+      "2446309966b27715": "## Vinkelsummen -- den geniale idéen\n\nHer er den store idéen: frå eitt hjørne i eit polygon kan du trekkje diagonalar til alle dei andre hjørna (bortsett frå nabohjørna). Dette deler polygonet inn i **trekantar**. Og vinkelsummen i ein trekant er alltid $180°$.\n\nEin firkant ($n = 4$) kan delast i $2$ trekantar: $2 \\cdot 180° = 360°$.\nEin femkant ($n = 5$) kan delast i $3$ trekantar: $3 \\cdot 180° = 540°$.\nEin sekskant ($n = 6$) kan delast i $4$ trekantar: $4 \\cdot 180° = 720°$.\n\nSer du mønsteret? Ein $n$-kant blir delt i $(n - 2)$ trekantar. Dermed er vinkelsummen:\n\n$$S = (n - 2) \\cdot 180°$$\n\nDenne formelen er utruleg nyttig. Han fungerer for alle konvekse polygon, uansett storleik. Ein 100-kant har vinkelsummen $(100 - 2) \\cdot 180° = 17\\,640°$.\n\nI ein **regulær** $n$-kant er alle vinklane like store, så kvar indre vinkel er:\n\n$$v = \\frac{(n - 2) \\cdot 180°}{n}$$\n\nFor ein regulær sekskant: $v = \\frac{4 \\cdot 180°}{6} = \\frac{720°}{6} = 120°$. Det er nettopp difor bier byggjer sekskanta celler -- $120°$-vinklar passar perfekt saman utan mellomrom!",
+      "82220ba6c2b36609": "Test deg sjølv på vinkelsummar:",
+      "4097889236a2af26": "placeholder",
+      "700309ee864bf837": "Kva er vinkelsummen i ein åttekant ($n = 8$)?",
+      "b520694d3415335c": "$S = (8 - 2) \\cdot 180° = 6 \\cdot 180° = 1080°$.",
+      "20ab39c1ea9240e1": "Kor stor er kvar vinkel i ein regulær femkant?",
+      "86dc5878b62b4854": "Vinkelsummen er $(5-2) \\cdot 180° = 540°$. Kvar vinkel: $\\frac{540°}{5} = 108°$.",
+      "8a71ff6379afd0b2": "Ein firkant har tre vinklar: $80°$, $110°$ og $95°$. Kor stor er den fjerde vinkelen?",
+      "38db411fd8cfb9fd": "Vinkelsummen i ein firkant er $360°$. Fjerde vinkel $= 360° - 80° - 110° - 95° = 75°$.",
+      "77c9d1d5a105bc27": "## Ytre vinklar -- ein runde rundt polygonet\n\nEin **ytre vinkel** er supplementvinkelen til ein indre vinkel. Altså: ytre vinkel $= 180° - $ indre vinkel.\n\nTenk deg at du går langs kantane av eit polygon. Ved kvart hjørne snur du deg litt -- den vinkelen du snur er den ytre vinkelen. Når du har gått heile vegen rundt og er tilbake der du starta, har du snudd deg nøyaktig ein heil runde. Difor gjeld ein universell regel:\n\n$$\\text{Sum av ytre vinklar} = 360°$$\n\nDette gjeld for **alle** konvekse polygon -- uansett om dei har 3, 8, eller 1000 sider!\n\nFor ein regulær $n$-kant er alle ytre vinklane like store: $\\frac{360°}{n}$.\n\nDenne regelen gir oss eit elegant triks for å finne tal sider: Dersom du veit at den indre vinkelen i eit regulært polygon er $150°$, er den ytre vinkelen $180° - 150° = 30°$. Tal sider er då $\\frac{360°}{30°} = 12$ -- ein tolvkant!",
+      "54e494ee9f29dcc1": "Test deg sjølv på ytre vinklar:",
+      "4e2ef887ca4bf614": "Kor stor er kvar ytre vinkel i ein regulær tikant (10-kant)?",
+      "b8a8f0efc3b17698": "Ytre vinkel $= \\frac{360°}{10} = 36°$.",
+      "03761a12a5c131dc": "Eit regulært polygon har indre vinklar på $140°$. Kor mange sider har det?",
+      "2ac63a560f076766": "Ytre vinkel $= 180° - 140° = 40°$. Tal sider $= \\frac{360°}{40°} = 9$ (ein nikant).",
+      "1fb4b67876a56a71": "Vinkelsummen i eit polygon er $2340°$. Kor mange sider har det?",
+      "a75c20ac4370c13d": "$(n - 2) \\cdot 180° = 2340°$. $n - 2 = \\frac{2340}{180} = 13$. $n = 15$.",
+      "1c60db286f3af273": "## Diagonalar -- linjer på tvers\n\nEin **diagonal** er eit linjestykke mellom to hjørne som ikkje er nabohjørne. Kor mange diagonalar har eit polygon? Frå kvart av dei $n$ hjørna kan du trekkje diagonalar til $(n - 3)$ andre hjørne (ikkje til seg sjølv eller dei to naboane). Det gir $n(n-3)$ retningar, men kvar diagonal blir talt to gonger (éin gong frå kvart endepunkt). Tal diagonalar er:\n\n$$D = \\frac{n(n - 3)}{2}$$\n\nFor ein sekskant: $D = \\frac{6 \\cdot 3}{2} = 9$ diagonalar.\nFor ein tolvkant: $D = \\frac{12 \\cdot 9}{2} = 54$ diagonalar.\n\nDiagonalar er viktige fordi dei deler polygonet inn i trekantar -- og det er nettopp slik vi utleidde vinkelsumformelen!",
+      "80941fae0e2ed25e": "Test deg sjølv på diagonalar:",
+      "a58684df67f2f87d": "Kor mange diagonalar har ein åttekant?",
+      "1362a62727e5423c": "$D = \\frac{8 \\cdot (8 - 3)}{2} = \\frac{8 \\cdot 5}{2} = \\frac{40}{2} = 20$.",
+      "3be109612d57b2c6": "Kor mange diagonalar har ein trekant?",
+      "7a64d082d0d2d2e1": "$D = \\frac{3 \\cdot (3-3)}{2} = \\frac{3 \\cdot 0}{2} = 0$. Ein trekant har ingen diagonalar -- alle sider bind saman nabohjørne.",
+      "784409a95c6a4eda": "## Oppsummering\n\nEit **polygon** er ein lukka figur med rette sider. Eit **regulært polygon** har like sider og like vinklar.\n\n**Vinkelsummen** i ein $n$-kant: $S = (n - 2) \\cdot 180°$\n\n**Kvar indre vinkel** i ein regulær $n$-kant: $v = \\frac{(n-2) \\cdot 180°}{n}$\n\n**Sum av ytre vinklar**: Alltid $360°$ for eitkvart konveks polygon.\n\n**Kvar ytre vinkel** i ein regulær $n$-kant: $\\frac{360°}{n}$\n\n**Tal diagonalar** i ein $n$-kant: $D = \\frac{n(n-3)}{2}$"
+    }
+  }
+}

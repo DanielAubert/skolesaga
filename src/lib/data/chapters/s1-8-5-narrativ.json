@@ -1,1 +1,364 @@
-{"id":"s1-8-5-narrativ","courseId":"s1","chapterNumber":"8.5","title":"Digitale verktøy i modellering","subtitle":"Narrativ versjon","description":"En fortelling om tre ikoner på skjermen — GeoGebra, Excel og Python i samfunnsøkonomisk arbeidsflyt, med ærlighetsregler og fallgruver.","estimatedMinutes":37,"competenceGoals":["planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn","anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"],"linkedChapterId":"s1-8-5","content":[{"id":"s1-8-5-n-intro","type":"text","content":"## Tre verktøy, ett mål\n\nDu sitter med et nedlastet SSB-datasett og tre ikoner på skjermen: GeoGebra, Excel og Python. Hvilket skal du åpne? Svaret styres av én hovedregel: **velg det enkleste verktøyet som løser oppgaven**. Ikke bruk Python når Excel duger; ikke bruk GeoGebra når blyant og papir gjør jobben.\n\nArbeidsdelingen er ganske klar. **GeoGebra** er best til å visualisere små datasett interaktivt, tilpasse regresjonsmodeller med ett klikk og presentere fenomener i klassen. **Excel/Google Sheets** er best til budsjetter og «hva-hvis»-modeller, indeksregulering og reallønnsberegninger — alt som lever i tabeller. **Python** overtar når datasettene blir store (hundrevis eller tusenvis av rader) eller når flere analyser skal automatiseres. Mange profesjonelle bruker alle tre og flytter dataene mellom dem etter behov.\n\nDen typiske arbeidsflyten i et samfunnsøkonomisk prosjekt har fem steg. **(1) Nedlasting:** gå til ssb.no/statbank, velg tabell, last ned som CSV eller Excel. **(2) Rensing i Excel:** fjern overskriftsrader og fotnoter, kontroller at tallene er numeriske, håndter manglende verdier. **(3) Analyse:** importer til GeoGebra for visualisering og regresjon, eller bli i Excel/Python for større jobber. **(4) Eksport:** lagre grafene som bilder. **(5) Rapport:** skriv tolkningen i et tekstdokument, lim inn grafer og tabeller, og oppgi datakilde med nedlastingsdato.\n\nMerk hvor lite av flyten som er «matematikk» i snever forstand — og hvor mye som er håndverk. Det er nettopp håndverket dette kapittelet trener."},{"id":"s1-8-5-n-quiz1","type":"exercise","exercise":{"id":"s1-8-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på verktøyvalg og arbeidsflyt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-5-n-quiz1-q0","task":"Hva er hovedregelen for valg av digitalt verktøy?","options":[{"id":"a","text":"Velg det enkleste verktøyet som løser oppgaven","isCorrect":true},{"id":"b","text":"Bruk alltid Python — det er kraftigst","isCorrect":false},{"id":"c","text":"Bruk alltid alle tre verktøyene","isCorrect":false},{"id":"d","text":"Velg det verktøyet med penest grafikk","isCorrect":false}],"solution":"Det enkleste verktøyet som duger gir minst feilkilder og raskest arbeid."},{"id":"s1-8-5-n-quiz1-q1","task":"Du skal analysere et datasett med 10 000 rader. Hvilket verktøy passer best?","options":[{"id":"a","text":"GeoGebra","isCorrect":false},{"id":"b","text":"Blyant og papir","isCorrect":false},{"id":"c","text":"Python","isCorrect":true},{"id":"d","text":"PowerPoint","isCorrect":false}],"solution":"Ved svært store datasett og automatisering er Python riktig verktøy; GeoGebra egner seg for små, interaktive datasett."},{"id":"s1-8-5-n-quiz1-q2","task":"Hva er riktig rekkefølge i arbeidsflyten?","options":[{"id":"a","text":"Rapport → analyse → nedlasting","isCorrect":false},{"id":"b","text":"Analyse → rensing → nedlasting → rapport","isCorrect":false},{"id":"c","text":"Rensing → nedlasting → eksport → analyse","isCorrect":false},{"id":"d","text":"Nedlasting → rensing → analyse → eksport → rapport","isCorrect":true}],"solution":"Først hentes og renses dataene, så analyseres de, og til slutt eksporteres grafene inn i rapporten med kildehenvisning."}]}},{"id":"s1-8-5-n-section1","type":"text","content":"## Verktøyene i aksjon\n\n**GeoGebra og regresjon.** Boligprisindeksen legges inn som en liste: `data = {(0,100),(1,107),(2,113),(3,117),(4,119),(5,122),(6,138),(7,152),(8,158)}`. Så prøves kandidatene med kommandoene `FitLine(data)`, `FitExp(data)`, `FitPow(data)` og `FitLog(data)`, og `RSquare(data, modell)` gir $R^2$ for hver. Typisk resultat: lineær $\\hat{y} \\approx 7{,}3t + 95{,}3$ med $R^2 \\approx 0{,}93$, eksponentiell $\\hat{y} \\approx 99{,}9 \\cdot 1{,}06^t$ med $R^2 \\approx 0{,}96$ — velg eksponentiell, og tegn residualplottet med en `Sequence`-kommando som trekker modellverdien fra hver observasjon. GeoGebras øvrige statistikk-kommandoer — `Korrelasjon`, `Gjennomsnitt`, `Standardavvik`, `Median`, `FitPoly` — dekker resten av S1-behovet.\n\n**Excel og reallønn.** Et regneark med kolonnene År, Lønn, KPI og Reallønn, der reallønnsformelen er `=B2*100/C2`, viser med én gang forskjellen på nominell lønn og kjøpekraft over årene 2015–2024. Styrken er **hva-hvis-analysen**: endre KPI-verdiene og se umiddelbart hva en annen prisvekst ville betydd. Et linjediagram med både nominell lønn og reallønn forteller historien visuelt.\n\n**Python og vekstrater.** Med boligprisindeksen i en liste beregner en kort løkke den prosentvise veksten år for år — `vekst = (indeks[i] / indeks[i-1] - 1) * 100` — og det **geometriske gjennomsnittet** av vekstfaktoren finner du med `(indeks[-1] / indeks[0]) ** (1 / (len(indeks) - 1))`, som her gir cirka 5,85 % gjennomsnittlig årlig vekst. Tre verktøy, samme datasett — og samme konklusjon, hvilket i seg selv er en fin kontroll."},{"id":"s1-8-5-n-quiz2","type":"exercise","exercise":{"id":"s1-8-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kommandoer og beregninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-5-n-quiz2-q0","task":"Hvilken GeoGebra-kommando tilpasser en eksponentiell regresjonsmodell?","options":[{"id":"a","text":"FitLine(data)","isCorrect":false},{"id":"b","text":"FitExp(data)","isCorrect":true},{"id":"c","text":"RSquare(data)","isCorrect":false},{"id":"d","text":"Median(data)","isCorrect":false}],"solution":"FitExp gir eksponentiell regresjon; FitLine er lineær, og RSquare beregner $R^2$ for en gitt modell."},{"id":"s1-8-5-n-quiz2-q1","task":"I Excel-arket er lønn i B2 og KPI i C2. Hvilken formel gir reallønnen?","options":[{"id":"a","text":"=B2*C2/100","isCorrect":false},{"id":"b","text":"=B2-C2","isCorrect":false},{"id":"c","text":"=B2*100/C2","isCorrect":true},{"id":"d","text":"=C2*100/B2","isCorrect":false}],"solution":"Reallønn $=$ nominell lønn $\\cdot \\frac{100}{\\text{KPI}}$, altså =B2*100/C2."},{"id":"s1-8-5-n-quiz2-q2","task":"Boligprisindeksen gikk fra $100$ til $158$ på $8$ år. Hvordan beregnes gjennomsnittlig årlig vekstfaktor?","options":[{"id":"a","text":"$\\frac{158 - 100}{8}$","isCorrect":false},{"id":"b","text":"$\\frac{158}{100 \\cdot 8}$","isCorrect":false},{"id":"c","text":"$\\sqrt{158}$","isCorrect":false},{"id":"d","text":"$\\left(\\frac{158}{100}\\right)^{1/8}$","isCorrect":true}],"solution":"Geometrisk snitt: $(158/100)^{1/8} \\approx 1{,}0589$, altså ca. 5,9 % årlig vekst."},{"id":"s1-8-5-n-quiz2-q3","task":"To verktøy gir samme konklusjon på samme datasett. Hva er verdien av det?","options":[{"id":"a","text":"Det fungerer som en kontroll av analysen","isCorrect":true},{"id":"b","text":"Det betyr at ett av verktøyene er overflødig","isCorrect":false},{"id":"c","text":"Ingen — verktøyene er alltid enige","isCorrect":false},{"id":"d","text":"Det dobler $R^2$","isCorrect":false}],"solution":"Uavhengige beregningsveier som samsvarer styrker tilliten til resultatet — uenighet avslører feil."}]}},{"id":"s1-8-5-n-section2","type":"text","content":"## Ærlighet og fallgruver\n\nVerktøyene gjør analysen lett — men de gjør det også lett å lyve, bevisst eller ubevisst. Tre regler sikrer ærlig arbeid. **(1) Vis verktøyet:** rapporten skal oppgi hvilket verktøy og hvilke kommandoer eller formler som ble brukt, slik at andre kan etterprøve. **(2) Vis dataene:** legg ved CSV-filen eller lenken til SSB-tabellen, og forklar all rensing. **(3) Vis modellvalget:** ble flere modeller prøvd, skal alle oppgis med begrunnelse for valget — aldri velg modellen som gir ønsket resultat; velg den som passer dataene best.\n\nSå fallgruvene, som feller selv erfarne brukere. **Standardinnstillinger:** verktøy leverer svar uten å varsle om manglende data, gale enheter eller tidssoner — sjekk selv. **Avrunding:** Excel viser gjerne to desimaler i cellene, men regner internt med flere; kopierer du ut tall, kan presisjon forsvinne — bruk `=ROUND()` bevisst. **Cellereferanser:** forskjellen på relativ (A1) og absolutt ($A$1) referanse gjør at en kopiert formel plutselig kan peke feil sted. **Pakkeversjoner:** et Python-skript som virket i fjor, kan gi andre svar i år hvis bibliotekene er oppdatert — spesifiser versjoner i seriøst arbeid. Og **visualiseringsfeller:** akseskalaen kan manipuleres til å overdrive eller skjule trender; for søylediagrammer bør y-aksen normalt starte på null.\n\nDen røde tråden er **reproduserbarhet**: enhver leser skal i prinsippet kunne kjøre din analyse på dine data og få ditt svar. Det er det som skiller dokumentert kunnskap fra påstander — og det er en vane som er gratis å legge seg til nå, og dyr å mangle senere."},{"id":"s1-8-5-n-quiz3","type":"exercise","exercise":{"id":"s1-8-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på ærlighet og fallgruver:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-5-n-quiz3-q0","task":"Du prøvde fire regresjonsmodeller. Hva skal rapporten inneholde?","options":[{"id":"a","text":"Bare modellen med høyest $R^2$","isCorrect":false},{"id":"b","text":"Alle modellene som ble prøvd, med begrunnelse for valget","isCorrect":true},{"id":"c","text":"Bare modellen som støtter hypotesen","isCorrect":false},{"id":"d","text":"Ingen modelldetaljer — bare konklusjonen","isCorrect":false}],"solution":"Å skjule prøvde modeller er en form for cherry-picking. Vis alle og begrunn valget faglig."},{"id":"s1-8-5-n-quiz3-q1","task":"Hvorfor bør y-aksen i et søylediagram normalt starte på null?","options":[{"id":"a","text":"Fordi Excel krever det","isCorrect":false},{"id":"b","text":"Fordi negative tall ikke finnes","isCorrect":false},{"id":"c","text":"For å unngå at akseskalaen overdriver forskjeller","isCorrect":true},{"id":"d","text":"For å spare plass","isCorrect":false}],"solution":"En avkuttet y-akse kan få små forskjeller til å se dramatiske ut — en klassisk visualiseringsfelle."},{"id":"s1-8-5-n-quiz3-q2","task":"Hva betyr reproduserbarhet?","options":[{"id":"a","text":"At analysen kjøres flere ganger på samme maskin","isCorrect":false},{"id":"b","text":"At rapporten kan skrives ut på nytt","isCorrect":false},{"id":"c","text":"At $R^2$ er lik ved hver kjøring","isCorrect":false},{"id":"d","text":"At andre kan kjøre samme analyse på samme data og få samme svar","isCorrect":true}],"solution":"Reproduserbarhet krever at verktøy, kommandoer, data og rensing er dokumentert — da kan andre etterprøve arbeidet."}]}},{"id":"s1-8-5-n-summary","type":"text","content":"## Oppsummering: håndverkerens verktøykasse\n\nTre ikoner på skjermen, og nå vet du når du klikker hvor. **GeoGebra** for interaktiv visualisering og ett-klikks regresjon (FitLine, FitExp, FitPow, RSquare — og residualplott via Sequence). **Excel** for tabelldata, indeksregulering og reallønn (`=B2*100/C2`) med hva-hvis-analysens umiddelbare respons. **Python** for store datasett, vekstrateberegninger og automatisering med full kontroll. Hovedregelen står seg: det enkleste verktøyet som løser oppgaven — og samsvar mellom verktøyene er gratis kvalitetskontroll.\n\nArbeidsflyten fra SSB-tabell til rapport går i fem steg: nedlasting, rensing, analyse, eksport, rapport med kilde og dato. Og rundt det hele: **ærlighetens tre regler** — vis verktøyet, vis dataene, vis modellvalget — samt fallgruvene som nå står på vaktlisten din: tause standardinnstillinger, skjult avrunding, relative kontra absolutte cellereferanser, pakkeversjoner og manipulerte akser.\n\nDet store ordet er **reproduserbarhet**: analysen din skal kunne gjentas av andre med samme resultat. Verktøyene regner; du dokumenterer, vurderer og står inne for. Dermed er alt på plass for finalen — det selvstendige samfunnsøkonomiske prosjektet i neste kapittel, der datasettet, verktøyene og dømmekraften endelig skal spille sammen i fullskala."}],"exercises":[]}
+{
+  "id": "s1-8-5-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "8.5",
+  "title": "Digitale verktøy i modellering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om tre ikoner på skjermen — GeoGebra, Excel og Python i samfunnsøkonomisk arbeidsflyt, med ærlighetsregler og fallgruver.",
+  "estimatedMinutes": 37,
+  "competenceGoals": [
+    "planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn",
+    "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"
+  ],
+  "linkedChapterId": "s1-8-5",
+  "content": [
+    {
+      "id": "s1-8-5-n-intro",
+      "type": "text",
+      "content": "## Tre verktøy, ett mål\n\nDu sitter med et nedlastet SSB-datasett og tre ikoner på skjermen: GeoGebra, Excel og Python. Hvilket skal du åpne? Svaret styres av én hovedregel: **velg det enkleste verktøyet som løser oppgaven**. Ikke bruk Python når Excel duger; ikke bruk GeoGebra når blyant og papir gjør jobben.\n\nArbeidsdelingen er ganske klar. **GeoGebra** er best til å visualisere små datasett interaktivt, tilpasse regresjonsmodeller med ett klikk og presentere fenomener i klassen. **Excel/Google Sheets** er best til budsjetter og «hva-hvis»-modeller, indeksregulering og reallønnsberegninger — alt som lever i tabeller. **Python** overtar når datasettene blir store (hundrevis eller tusenvis av rader) eller når flere analyser skal automatiseres. Mange profesjonelle bruker alle tre og flytter dataene mellom dem etter behov.\n\nDen typiske arbeidsflyten i et samfunnsøkonomisk prosjekt har fem steg. **(1) Nedlasting:** gå til ssb.no/statbank, velg tabell, last ned som CSV eller Excel. **(2) Rensing i Excel:** fjern overskriftsrader og fotnoter, kontroller at tallene er numeriske, håndter manglende verdier. **(3) Analyse:** importer til GeoGebra for visualisering og regresjon, eller bli i Excel/Python for større jobber. **(4) Eksport:** lagre grafene som bilder. **(5) Rapport:** skriv tolkningen i et tekstdokument, lim inn grafer og tabeller, og oppgi datakilde med nedlastingsdato.\n\nMerk hvor lite av flyten som er «matematikk» i snever forstand — og hvor mye som er håndverk. Det er nettopp håndverket dette kapittelet trener."
+    },
+    {
+      "id": "s1-8-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på verktøyvalg og arbeidsflyt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-5-n-quiz1-q0",
+            "task": "Hva er hovedregelen for valg av digitalt verktøy?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bruk alltid Python — det er kraftigst",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Velg det enkleste verktøyet som løser oppgaven",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bruk alltid alle tre verktøyene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Velg det verktøyet med penest grafikk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det enkleste verktøyet som duger gir minst feilkilder og raskest arbeid."
+          },
+          {
+            "id": "s1-8-5-n-quiz1-q1",
+            "task": "Du skal analysere et datasett med 10 000 rader. Hvilket verktøy passer best?",
+            "options": [
+              {
+                "id": "a",
+                "text": "GeoGebra",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Blyant og papir",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Python",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "PowerPoint",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved svært store datasett og automatisering er Python riktig verktøy; GeoGebra egner seg for små, interaktive datasett."
+          },
+          {
+            "id": "s1-8-5-n-quiz1-q2",
+            "task": "Hva er riktig rekkefølge i arbeidsflyten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Rapport → analyse → nedlasting",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Analyse → rensing → nedlasting → rapport",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rensing → nedlasting → eksport → analyse",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nedlasting → rensing → analyse → eksport → rapport",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Først hentes og renses dataene, så analyseres de, og til slutt eksporteres grafene inn i rapporten med kildehenvisning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-5-n-section1",
+      "type": "text",
+      "content": "## Verktøyene i aksjon\n\n**GeoGebra og regresjon.** Boligprisindeksen legges inn som en liste: `data = {(0,100),(1,107),(2,113),(3,117),(4,119),(5,122),(6,138),(7,152),(8,158)}`. Så prøves kandidatene med kommandoene `FitLine(data)`, `FitExp(data)`, `FitPow(data)` og `FitLog(data)`, og `RSquare(data, modell)` gir $R^2$ for hver. Typisk resultat: lineær $\\hat{y} \\approx 7{,}3t + 95{,}3$ med $R^2 \\approx 0{,}93$, eksponentiell $\\hat{y} \\approx 99{,}9 \\cdot 1{,}06^t$ med $R^2 \\approx 0{,}96$ — velg eksponentiell, og tegn residualplottet med en `Sequence`-kommando som trekker modellverdien fra hver observasjon. GeoGebras øvrige statistikk-kommandoer — `Korrelasjon`, `Gjennomsnitt`, `Standardavvik`, `Median`, `FitPoly` — dekker resten av S1-behovet.\n\n**Excel og reallønn.** Et regneark med kolonnene År, Lønn, KPI og Reallønn, der reallønnsformelen er `=B2*100/C2`, viser med én gang forskjellen på nominell lønn og kjøpekraft over årene 2015–2024. Styrken er **hva-hvis-analysen**: endre KPI-verdiene og se umiddelbart hva en annen prisvekst ville betydd. Et linjediagram med både nominell lønn og reallønn forteller historien visuelt.\n\n**Python og vekstrater.** Med boligprisindeksen i en liste beregner en kort løkke den prosentvise veksten år for år — `vekst = (indeks[i] / indeks[i-1] - 1) * 100` — og det **geometriske gjennomsnittet** av vekstfaktoren finner du med `(indeks[-1] / indeks[0]) ** (1 / (len(indeks) - 1))`, som her gir cirka 5,85 % gjennomsnittlig årlig vekst. Tre verktøy, samme datasett — og samme konklusjon, hvilket i seg selv er en fin kontroll."
+    },
+    {
+      "id": "s1-8-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kommandoer og beregninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-5-n-quiz2-q0",
+            "task": "Hvilken GeoGebra-kommando tilpasser en eksponentiell regresjonsmodell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "FitExp(data)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "FitLine(data)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "RSquare(data)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Median(data)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "FitExp gir eksponentiell regresjon; FitLine er lineær, og RSquare beregner $R^2$ for en gitt modell."
+          },
+          {
+            "id": "s1-8-5-n-quiz2-q1",
+            "task": "I Excel-arket er lønn i B2 og KPI i C2. Hvilken formel gir reallønnen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "=B2*C2/100",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "=B2*100/C2",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "=B2-C2",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "=C2*100/B2",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Reallønn $=$ nominell lønn $\\cdot \\frac{100}{\\text{KPI}}$, altså =B2*100/C2."
+          },
+          {
+            "id": "s1-8-5-n-quiz2-q2",
+            "task": "Boligprisindeksen gikk fra $100$ til $158$ på $8$ år. Hvordan beregnes gjennomsnittlig årlig vekstfaktor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{158 - 100}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{158}{100 \\cdot 8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\left(\\frac{158}{100}\\right)^{1/8}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{158}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometrisk snitt: $(158/100)^{1/8} \\approx 1{,}0589$, altså ca. 5,9 % årlig vekst."
+          },
+          {
+            "id": "s1-8-5-n-quiz2-q3",
+            "task": "To verktøy gir samme konklusjon på samme datasett. Hva er verdien av det?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det betyr at ett av verktøyene er overflødig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen — verktøyene er alltid enige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det dobler $R^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Det fungerer som en kontroll av analysen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uavhengige beregningsveier som samsvarer styrker tilliten til resultatet — uenighet avslører feil."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-5-n-section2",
+      "type": "text",
+      "content": "## Ærlighet og fallgruver\n\nVerktøyene gjør analysen lett — men de gjør det også lett å lyve, bevisst eller ubevisst. Tre regler sikrer ærlig arbeid. **(1) Vis verktøyet:** rapporten skal oppgi hvilket verktøy og hvilke kommandoer eller formler som ble brukt, slik at andre kan etterprøve. **(2) Vis dataene:** legg ved CSV-filen eller lenken til SSB-tabellen, og forklar all rensing. **(3) Vis modellvalget:** ble flere modeller prøvd, skal alle oppgis med begrunnelse for valget — aldri velg modellen som gir ønsket resultat; velg den som passer dataene best.\n\nSå fallgruvene, som feller selv erfarne brukere. **Standardinnstillinger:** verktøy leverer svar uten å varsle om manglende data, gale enheter eller tidssoner — sjekk selv. **Avrunding:** Excel viser gjerne to desimaler i cellene, men regner internt med flere; kopierer du ut tall, kan presisjon forsvinne — bruk `=ROUND()` bevisst. **Cellereferanser:** forskjellen på relativ (A1) og absolutt ($A$1) referanse gjør at en kopiert formel plutselig kan peke feil sted. **Pakkeversjoner:** et Python-skript som virket i fjor, kan gi andre svar i år hvis bibliotekene er oppdatert — spesifiser versjoner i seriøst arbeid. Og **visualiseringsfeller:** akseskalaen kan manipuleres til å overdrive eller skjule trender; for søylediagrammer bør y-aksen normalt starte på null.\n\nDen røde tråden er **reproduserbarhet**: enhver leser skal i prinsippet kunne kjøre din analyse på dine data og få ditt svar. Det er det som skiller dokumentert kunnskap fra påstander — og det er en vane som er gratis å legge seg til nå, og dyr å mangle senere."
+    },
+    {
+      "id": "s1-8-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ærlighet og fallgruver:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-5-n-quiz3-q0",
+            "task": "Du prøvde fire regresjonsmodeller. Hva skal rapporten inneholde?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle modellene som ble prøvd, med begrunnelse for valget",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bare modellen med høyest $R^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bare modellen som støtter hypotesen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen modelldetaljer — bare konklusjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å skjule prøvde modeller er en form for cherry-picking. Vis alle og begrunn valget faglig."
+          },
+          {
+            "id": "s1-8-5-n-quiz3-q1",
+            "task": "Hvorfor bør y-aksen i et søylediagram normalt starte på null?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi Excel krever det",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å unngå at akseskalaen overdriver forskjeller",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi negative tall ikke finnes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å spare plass",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En avkuttet y-akse kan få små forskjeller til å se dramatiske ut — en klassisk visualiseringsfelle."
+          },
+          {
+            "id": "s1-8-5-n-quiz3-q2",
+            "task": "Hva betyr reproduserbarhet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At analysen kjøres flere ganger på samme maskin",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At rapporten kan skrives ut på nytt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At andre kan kjøre samme analyse på samme data og få samme svar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "At $R^2$ er lik ved hver kjøring",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Reproduserbarhet krever at verktøy, kommandoer, data og rensing er dokumentert — da kan andre etterprøve arbeidet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: håndverkerens verktøykasse\n\nTre ikoner på skjermen, og nå vet du når du klikker hvor. **GeoGebra** for interaktiv visualisering og ett-klikks regresjon (FitLine, FitExp, FitPow, RSquare — og residualplott via Sequence). **Excel** for tabelldata, indeksregulering og reallønn (`=B2*100/C2`) med hva-hvis-analysens umiddelbare respons. **Python** for store datasett, vekstrateberegninger og automatisering med full kontroll. Hovedregelen står seg: det enkleste verktøyet som løser oppgaven — og samsvar mellom verktøyene er gratis kvalitetskontroll.\n\nArbeidsflyten fra SSB-tabell til rapport går i fem steg: nedlasting, rensing, analyse, eksport, rapport med kilde og dato. Og rundt det hele: **ærlighetens tre regler** — vis verktøyet, vis dataene, vis modellvalget — samt fallgruvene som nå står på vaktlisten din: tause standardinnstillinger, skjult avrunding, relative kontra absolutte cellereferanser, pakkeversjoner og manipulerte akser.\n\nDet store ordet er **reproduserbarhet**: analysen din skal kunne gjentas av andre med samme resultat. Verktøyene regner; du dokumenterer, vurderer og står inne for. Dermed er alt på plass for finalen — det selvstendige samfunnsøkonomiske prosjektet i neste kapittel, der datasettet, verktøyene og dømmekraften endelig skal spille sammen i fullskala."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,345 @@
-{"id":"s1-1-1-narrativ","courseId":"s1","chapterNumber":"1.1","title":"Polynom","subtitle":"Narrativ versjon","description":"Ei forteljing om ein ung gründer som bruker polynomdivisjon og faktorsetninga til å forstå når bedrifta går i null — og når ho tener pengar.","estimatedMinutes":35,"competenceGoals":["faktorisere polynom ved hjelp av polynomdivisjon"],"linkedChapterId":"s1-1-1","content":[{"id":"s1-1-1-n-intro","type":"text","content":"## Modellen bak ei bedrift\n\nTenk deg at du har starta ei lita bedrift som sel abonnementskassar med kortreist mat. Ein økonomistudent du kjenner har hjelpt deg med å lage ein modell for overskotet, og han ser slik ut: $P(x) = 2x^3 - 5x^2 + 3x - 1$, der $x$ er talet på hundre kassar du sel. Uttrykket ser kanskje skremmande ut, men det er eit døme på noko av det mest grunnleggjande i S1-matematikken: eit **polynom**.\n\nEit polynom er eit uttrykk som er sett saman av ledd der variabelen er opphøgd i ikkje-negative heiltal, multipliserte med tal vi kallar koeffisientar. Det generelle polynomet av grad $n$ skriv vi som\n\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder $a_n \\neq 0$ og $n$ er eit ikkje-negativt heiltal. Tala $a_n, a_{n-1}, \\ldots, a_0$ er koeffisientane, $a_n$ blir kalla den **leiande koeffisienten**, og $a_0$ er **konstantleddet**. **Graden** til polynomet er den høgaste eksponenten som finst.\n\nModellen din, $P(x) = 2x^3 - 5x^2 + 3x - 1$, er altså eit tredjegradspolynom. Uttrykket $Q(x) = x^2 - 4$ er eit andregradspolynom, og $R(x) = 5x + 2$ er eit førstegradspolynom. I dette kapittelet skal vi lære to verktøy som lèt oss plukke slike modellar frå kvarandre: polynomdivisjon og faktorsetninga. Med dei kan du svare på det viktigaste spørsmålet ein gründer kan stille: for kva salstal går bedrifta i null?"},{"id":"s1-1-1-n-section1","type":"text","content":"## Polynomdivisjon — lang divisjon for modellar\n\nFør du analyserer din eigen modell, øver vi på eit enklare døme. Ein ven i ein annan startup har kostnadsmodellen $P(x) = x^3 + 2x^2 - 5x - 6$ og mistenkjer at uttrykket kan delast på $D(x) = x + 3$. Polynomdivisjon fungerer akkurat som lang divisjon med tal: vi deler eit polynom $P(x)$ på eit polynom $D(x)$ og får\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nder $P(x)$ er dividenden (det vi deler), $D(x)$ er divisoren (det vi deler på), $Q(x)$ er kvotienten (svaret) og $R(x)$ er resten, som alltid har lågare grad enn $D(x)$.\n\nVi går fram steg for steg. Først deler vi det største leddet i dividenden på det største leddet i divisoren: $x^3 \\div x = x^2$. Så ganger vi tilbake: $x^2(x+3) = x^3 + 3x^2$, og trekkjer frå: $(x^3 + 2x^2) - (x^3 + 3x^2) = -x^2$. Vi hentar ned det neste leddet og gjentek: $-x^2 \\div x = -x$, og $-x(x+3) = -x^2 - 3x$, som gir $(-x^2 - 5x) - (-x^2 - 3x) = -2x$. Til slutt: $-2x \\div x = -2$, og $-2(x+3) = -2x - 6$, som gir resten $(-2x - 6) - (-2x - 6) = 0$.\n\nDivisjonen går altså opp, og vi kan skrive\n\n$$x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$$\n\nNår resten er null, tyder det at $(x+3)$ er ein **faktor** i $P(x)$. Det er som å oppdage at 91 er deleleg med 7: plutseleg forstår du strukturen i talet. Og strukturen er gull verd, for no kan venen din faktorisere vidare og finne nøyaktig kvar modellen blir null."},{"id":"s1-1-1-n-quiz1","type":"exercise","exercise":{"id":"s1-1-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på polynom og polynomdivisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-1-1-n-quiz1-q0","task":"Kva er graden til polynomet $P(x) = 2x^3 - 5x^2 + 3x - 1$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":true},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$-1$","isCorrect":false}],"solution":"Graden er den høgaste eksponenten i polynomet. Her er det høgaste leddet $2x^3$, så graden er $3$."},{"id":"s1-1-1-n-quiz1-q1","task":"Kva er konstantleddet i $P(x) = x^3 + 2x^2 - 5x - 6$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$-5$","isCorrect":false},{"id":"d","text":"$-6$","isCorrect":true}],"solution":"Konstantleddet $a_0$ er leddet utan variabel, altså $-6$."},{"id":"s1-1-1-n-quiz1-q2","task":"I divisjonen $P(x) = D(x) \\cdot Q(x) + R(x)$ blir resten $R(x) = 0$. Kva kan vi konkludere?","options":[{"id":"a","text":"$D(x)$ er ein faktor i $P(x)$","isCorrect":true},{"id":"b","text":"$P(x)$ har ingen nullpunkt","isCorrect":false},{"id":"c","text":"$Q(x)$ må vere lik $P(x)$","isCorrect":false},{"id":"d","text":"Divisjonen er utført feil","isCorrect":false}],"solution":"Når resten er null, er $P(x) = D(x) \\cdot Q(x)$, så $D(x)$ er ein faktor i $P(x)$."},{"id":"s1-1-1-n-quiz1-q3","task":"Vi veit at $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$. Kva er då $P(-3)$?","options":[{"id":"a","text":"$-6$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":true},{"id":"d","text":"$-3$","isCorrect":false}],"solution":"Set vi inn $x = -3$, blir faktoren $(x+3) = 0$, og heile produktet blir null. Altså er $P(-3) = 0$."}]}},{"id":"s1-1-1-n-section2","type":"text","content":"## Faktorsetninga — snarvegen til nullpunkta\n\nObservasjonen frå quizen er faktisk ei av dei viktigaste setningane i algebraen. **Faktorsetninga** seier: dersom $P(a) = 0$ for eit polynom $P(x)$, så er $(x - a)$ ein faktor i $P(x)$. Og omvendt: dersom $(x - a)$ er ein faktor, så er $P(a) = 0$. Nullpunkt og faktorar er to sider av same sak.\n\nDette gir oss ein kraftig strategi for å faktorisere. Vi gjettar på nullpunkt — ofte heiltal som deler konstantleddet — verifiserer ved å setje inn i polynomet, og bruker polynomdivisjon til å finne resten av faktorane.\n\nLa oss seie at ein analytikar har gitt deg modellen $P(x) = x^3 - 6x^2 + 11x - 6$ og bedt deg faktorisere han fullstendig. Konstantleddet er $-6$, så kandidatane til heiltalige nullpunkt er divisorane av 6: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$ først: $P(1) = 1 - 6 + 11 - 6 = 0$. Treff! Då veit vi at $(x - 1)$ er ein faktor.\n\nPolynomdivisjon gir $(x^3 - 6x^2 + 11x - 6) \\div (x - 1) = x^2 - 5x + 6$, og dette andregradsuttrykket kjenner vi att: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$P(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunkta er $x = 1$, $x = 2$ og $x = 3$. I ein overskotsmodell ville desse tre verdiane vore nivåa der bedrifta verken tener eller taper pengar — såkalla nullpunkt i dobbel forstand. Mellom og utanfor dei kan du no resonnere deg fram til kvar overskotet er positivt. Det er nettopp denne typen analyse vi byggjer vidare på i kapitla som kjem."},{"id":"s1-1-1-n-quiz2","type":"exercise","exercise":{"id":"s1-1-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på faktorsetninga og faktorisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-1-1-n-quiz2-q0","task":"Kva seier faktorsetninga?","options":[{"id":"a","text":"Alle polynom kan faktoriserast i førstegradsfaktorar","isCorrect":false},{"id":"b","text":"$(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$","isCorrect":true},{"id":"c","text":"Eit polynom av grad $n$ har alltid $n$ nullpunkt","isCorrect":false},{"id":"d","text":"Resten i ein polynomdivisjon er alltid null","isCorrect":false}],"solution":"Faktorsetninga koplar nullpunkt og faktorar: $P(a) = 0 \\Leftrightarrow (x - a)$ er ein faktor i $P(x)$."},{"id":"s1-1-1-n-quiz2-q1","task":"Du skal finne heiltalige nullpunkt i $P(x) = x^3 - 6x^2 + 11x - 6$. Kva for kandidatar bør du teste?","options":[{"id":"a","text":"Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$","isCorrect":true},{"id":"b","text":"Alle heiltal mellom $-11$ og $11$","isCorrect":false},{"id":"c","text":"Berre positive partal","isCorrect":false},{"id":"d","text":"Koeffisientane i polynomet: $1, -6, 11, -6$","isCorrect":false}],"solution":"Heiltalige nullpunkt må dele konstantleddet. Difor testar vi divisorane av $6$: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$."},{"id":"s1-1-1-n-quiz2-q2","task":"Kva er faktoriseringa av $x^2 - 5x + 6$?","options":[{"id":"a","text":"$(x - 1)(x - 6)$","isCorrect":false},{"id":"b","text":"$(x + 2)(x + 3)$","isCorrect":false},{"id":"c","text":"$(x - 2)(x - 3)$","isCorrect":true},{"id":"d","text":"$(x - 5)(x + 6)$","isCorrect":false}],"solution":"Vi treng to tal med sum $-5$ og produkt $6$, altså $-2$ og $-3$. Det gir $(x - 2)(x - 3)$."},{"id":"s1-1-1-n-quiz2-q3","task":"Eit polynom $P(x)$ oppfyller $P(2) = 0$. Kva for ein divisjon vil garantert gå opp utan rest?","options":[{"id":"a","text":"$P(x) \\div (x + 2)$","isCorrect":false},{"id":"b","text":"$P(x) \\div (x - 2)$","isCorrect":true},{"id":"c","text":"$P(x) \\div (2x)$","isCorrect":false},{"id":"d","text":"$P(x) \\div (x^2 - 2)$","isCorrect":false}],"solution":"Sidan $P(2) = 0$, er $(x - 2)$ ein faktor i $P(x)$ etter faktorsetninga, så divisjonen $P(x) \\div (x - 2)$ gir rest null."}]}},{"id":"s1-1-1-n-summary","type":"text","content":"## Oppsummering: verktøykassa di\n\nLa oss spole tilbake til abonnementsbedrifta. Du starta med eit uttrykk som såg ugjennomtrengeleg ut, men no har du verktøya til å opne det. Eit **polynom** er eit uttrykk på forma $P(x) = a_n x^n + \\ldots + a_1 x + a_0$, der graden $n$ er den høgaste eksponenten, $a_n$ er den leiande koeffisienten og $a_0$ er konstantleddet.\n\nMed **polynomdivisjon** kan du dele $P(x)$ på $D(x)$ og skrive $P(x) = D(x) \\cdot Q(x) + R(x)$, der resten $R(x)$ har lågare grad enn divisoren. Går divisjonen opp — altså $R(x) = 0$ — har du funne ein faktor.\n\n**Faktorsetninga** bind det heile saman: $(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$. Strategien for å faktorisere eit tredjegradspolynom blir dermed ei oppskrift: gjett eit nullpunkt blant divisorane av konstantleddet, verifiser ved innsetjing, del på $(x - a)$ med polynomdivisjon, og faktoriser kvotienten vidare med metodane du kan frå før.\n\nFor ein gründer tyder nullpunkta i ein overskotsmodell dei salstala der bedrifta går i null. For deg som S1-elev er dei nøkkelen til alt som kjem seinare: likningar, ulikskapar, forteiknslinjer og grafdrøfting. Polynomdivisjon og faktorsetninga er ikkje berre rekneteknikk — dei er måten vi avslører strukturen i ein modell på."}],"exercises":[],"_meta":{"sourceHash":"ce331919ca1db917","translatedAt":"2026-06-20T02:52:44.038Z","model":"claude-code-agent","strings":48,"tm":{"b489d716e3315cd9":"Polynom","b195b06d1ed59702":"Narrativ versjon","fe2e54fdfb45596d":"Ei forteljing om ein ung gründer som bruker polynomdivisjon og faktorsetninga til å forstå når bedrifta går i null — og når ho tener pengar.","c43740fb485a4787":"faktorisere polynom ved hjelp av polynomdivisjon","a74f315de272f4d0":"## Modellen bak ei bedrift\n\nTenk deg at du har starta ei lita bedrift som sel abonnementskassar med kortreist mat. Ein økonomistudent du kjenner har hjelpt deg med å lage ein modell for overskotet, og han ser slik ut: $P(x) = 2x^3 - 5x^2 + 3x - 1$, der $x$ er talet på hundre kassar du sel. Uttrykket ser kanskje skremmande ut, men det er eit døme på noko av det mest grunnleggjande i S1-matematikken: eit **polynom**.\n\nEit polynom er eit uttrykk som er sett saman av ledd der variabelen er opphøgd i ikkje-negative heiltal, multipliserte med tal vi kallar koeffisientar. Det generelle polynomet av grad $n$ skriv vi som\n\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder $a_n \\neq 0$ og $n$ er eit ikkje-negativt heiltal. Tala $a_n, a_{n-1}, \\ldots, a_0$ er koeffisientane, $a_n$ blir kalla den **leiande koeffisienten**, og $a_0$ er **konstantleddet**. **Graden** til polynomet er den høgaste eksponenten som finst.\n\nModellen din, $P(x) = 2x^3 - 5x^2 + 3x - 1$, er altså eit tredjegradspolynom. Uttrykket $Q(x) = x^2 - 4$ er eit andregradspolynom, og $R(x) = 5x + 2$ er eit førstegradspolynom. I dette kapittelet skal vi lære to verktøy som lèt oss plukke slike modellar frå kvarandre: polynomdivisjon og faktorsetninga. Med dei kan du svare på det viktigaste spørsmålet ein gründer kan stille: for kva salstal går bedrifta i null?","54997ecb46373782":"## Polynomdivisjon — lang divisjon for modellar\n\nFør du analyserer din eigen modell, øver vi på eit enklare døme. Ein ven i ein annan startup har kostnadsmodellen $P(x) = x^3 + 2x^2 - 5x - 6$ og mistenkjer at uttrykket kan delast på $D(x) = x + 3$. Polynomdivisjon fungerer akkurat som lang divisjon med tal: vi deler eit polynom $P(x)$ på eit polynom $D(x)$ og får\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nder $P(x)$ er dividenden (det vi deler), $D(x)$ er divisoren (det vi deler på), $Q(x)$ er kvotienten (svaret) og $R(x)$ er resten, som alltid har lågare grad enn $D(x)$.\n\nVi går fram steg for steg. Først deler vi det største leddet i dividenden på det største leddet i divisoren: $x^3 \\div x = x^2$. Så ganger vi tilbake: $x^2(x+3) = x^3 + 3x^2$, og trekkjer frå: $(x^3 + 2x^2) - (x^3 + 3x^2) = -x^2$. Vi hentar ned det neste leddet og gjentek: $-x^2 \\div x = -x$, og $-x(x+3) = -x^2 - 3x$, som gir $(-x^2 - 5x) - (-x^2 - 3x) = -2x$. Til slutt: $-2x \\div x = -2$, og $-2(x+3) = -2x - 6$, som gir resten $(-2x - 6) - (-2x - 6) = 0$.\n\nDivisjonen går altså opp, og vi kan skrive\n\n$$x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$$\n\nNår resten er null, tyder det at $(x+3)$ er ein **faktor** i $P(x)$. Det er som å oppdage at 91 er deleleg med 7: plutseleg forstår du strukturen i talet. Og strukturen er gull verd, for no kan venen din faktorisere vidare og finne nøyaktig kvar modellen blir null.","a2246939f733b5ff":"Test deg sjølv på polynom og polynomdivisjon:","4097889236a2af26":"placeholder","c2fe05604a406806":"Kva er graden til polynomet $P(x) = 2x^3 - 5x^2 + 3x - 1$?","57dd219cab3c3d3a":"Graden er den høgaste eksponenten i polynomet. Her er det høgaste leddet $2x^3$, så graden er $3$.","abb08f49803c1843":"Kva er konstantleddet i $P(x) = x^3 + 2x^2 - 5x - 6$?","5259dec70e6fc1ef":"Konstantleddet $a_0$ er leddet utan variabel, altså $-6$.","c4589e9fc799e7aa":"I divisjonen $P(x) = D(x) \\cdot Q(x) + R(x)$ blir resten $R(x) = 0$. Kva kan vi konkludere?","a2641ed6208ba79f":"$D(x)$ er ein faktor i $P(x)$","ee2d18986759372f":"$P(x)$ har ingen nullpunkt","e3eea26f59fcf6f1":"$Q(x)$ må vere lik $P(x)$","c08052e09318a429":"Divisjonen er utført feil","638f41f081c3d446":"Når resten er null, er $P(x) = D(x) \\cdot Q(x)$, så $D(x)$ er ein faktor i $P(x)$.","eeadbebb3bc6ce1e":"Vi veit at $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$. Kva er då $P(-3)$?","5044e3c24e8052d5":"Set vi inn $x = -3$, blir faktoren $(x+3) = 0$, og heile produktet blir null. Altså er $P(-3) = 0$.","b4be41d782d0a88c":"## Faktorsetninga — snarvegen til nullpunkta\n\nObservasjonen frå quizen er faktisk ei av dei viktigaste setningane i algebraen. **Faktorsetninga** seier: dersom $P(a) = 0$ for eit polynom $P(x)$, så er $(x - a)$ ein faktor i $P(x)$. Og omvendt: dersom $(x - a)$ er ein faktor, så er $P(a) = 0$. Nullpunkt og faktorar er to sider av same sak.\n\nDette gir oss ein kraftig strategi for å faktorisere. Vi gjettar på nullpunkt — ofte heiltal som deler konstantleddet — verifiserer ved å setje inn i polynomet, og bruker polynomdivisjon til å finne resten av faktorane.\n\nLa oss seie at ein analytikar har gitt deg modellen $P(x) = x^3 - 6x^2 + 11x - 6$ og bedt deg faktorisere han fullstendig. Konstantleddet er $-6$, så kandidatane til heiltalige nullpunkt er divisorane av 6: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$ først: $P(1) = 1 - 6 + 11 - 6 = 0$. Treff! Då veit vi at $(x - 1)$ er ein faktor.\n\nPolynomdivisjon gir $(x^3 - 6x^2 + 11x - 6) \\div (x - 1) = x^2 - 5x + 6$, og dette andregradsuttrykket kjenner vi att: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$P(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunkta er $x = 1$, $x = 2$ og $x = 3$. I ein overskotsmodell ville desse tre verdiane vore nivåa der bedrifta verken tener eller taper pengar — såkalla nullpunkt i dobbel forstand. Mellom og utanfor dei kan du no resonnere deg fram til kvar overskotet er positivt. Det er nettopp denne typen analyse vi byggjer vidare på i kapitla som kjem.","34a4ede5774991b8":"Test deg sjølv på faktorsetninga og faktorisering:","4e404c3b05273ff5":"Kva seier faktorsetninga?","a1ae3901e7048bf7":"Alle polynom kan faktoriserast i førstegradsfaktorar","cbe9bc723e15d9b2":"$(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$","4678d674ace6aa0c":"Eit polynom av grad $n$ har alltid $n$ nullpunkt","b24b550e00103c6b":"Resten i ein polynomdivisjon er alltid null","e87815d48a011588":"Faktorsetninga koplar nullpunkt og faktorar: $P(a) = 0 \\Leftrightarrow (x - a)$ er ein faktor i $P(x)$.","4d9f7ad4593ed245":"Du skal finne heiltalige nullpunkt i $P(x) = x^3 - 6x^2 + 11x - 6$. Kva for kandidatar bør du teste?","2aa7f5c12f5356e4":"Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$","2296fe67591b6a58":"Alle heiltal mellom $-11$ og $11$","8f048e7fc75922e3":"Berre positive partal","1453612c8ece8907":"Koeffisientane i polynomet: $1, -6, 11, -6$","340b38282f9c3666":"Heiltalige nullpunkt må dele konstantleddet. Difor testar vi divisorane av $6$: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$.","88d2e439ceb0b4dc":"Kva er faktoriseringa av $x^2 - 5x + 6$?","e6ea340aaa501660":"$(x - 1)(x - 6)$","812e442289031ed2":"$(x + 2)(x + 3)$","f40827c51203679f":"$(x - 2)(x - 3)$","613f1a36d9cf8f63":"$(x - 5)(x + 6)$","fb87d92e76a25265":"Vi treng to tal med sum $-5$ og produkt $6$, altså $-2$ og $-3$. Det gir $(x - 2)(x - 3)$.","2e6f5e8c0bb5d67d":"Eit polynom $P(x)$ oppfyller $P(2) = 0$. Kva for ein divisjon vil garantert gå opp utan rest?","3d08d1335fedde03":"$P(x) \\div (x + 2)$","2dcbe005bc08fe44":"$P(x) \\div (x - 2)$","12699534da08bb1e":"$P(x) \\div (2x)$","dd718d35415922a7":"$P(x) \\div (x^2 - 2)$","25cf62d4d712569c":"Sidan $P(2) = 0$, er $(x - 2)$ ein faktor i $P(x)$ etter faktorsetninga, så divisjonen $P(x) \\div (x - 2)$ gir rest null.","ce92b6c9299f234f":"## Oppsummering: verktøykassa di\n\nLa oss spole tilbake til abonnementsbedrifta. Du starta med eit uttrykk som såg ugjennomtrengeleg ut, men no har du verktøya til å opne det. Eit **polynom** er eit uttrykk på forma $P(x) = a_n x^n + \\ldots + a_1 x + a_0$, der graden $n$ er den høgaste eksponenten, $a_n$ er den leiande koeffisienten og $a_0$ er konstantleddet.\n\nMed **polynomdivisjon** kan du dele $P(x)$ på $D(x)$ og skrive $P(x) = D(x) \\cdot Q(x) + R(x)$, der resten $R(x)$ har lågare grad enn divisoren. Går divisjonen opp — altså $R(x) = 0$ — har du funne ein faktor.\n\n**Faktorsetninga** bind det heile saman: $(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$. Strategien for å faktorisere eit tredjegradspolynom blir dermed ei oppskrift: gjett eit nullpunkt blant divisorane av konstantleddet, verifiser ved innsetjing, del på $(x - a)$ med polynomdivisjon, og faktoriser kvotienten vidare med metodane du kan frå før.\n\nFor ein gründer tyder nullpunkta i ein overskotsmodell dei salstala der bedrifta går i null. For deg som S1-elev er dei nøkkelen til alt som kjem seinare: likningar, ulikskapar, forteiknslinjer og grafdrøfting. Polynomdivisjon og faktorsetninga er ikkje berre rekneteknikk — dei er måten vi avslører strukturen i ein modell på."}}}
+{
+  "id": "s1-1-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "1.1",
+  "title": "Polynom",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ein ung gründer som bruker polynomdivisjon og faktorsetninga til å forstå når bedrifta går i null — og når ho tener pengar.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "faktorisere polynom ved hjelp av polynomdivisjon"
+  ],
+  "linkedChapterId": "s1-1-1",
+  "content": [
+    {
+      "id": "s1-1-1-n-intro",
+      "type": "text",
+      "content": "## Modellen bak ei bedrift\n\nTenk deg at du har starta ei lita bedrift som sel abonnementskassar med kortreist mat. Ein økonomistudent du kjenner har hjelpt deg med å lage ein modell for overskotet, og han ser slik ut: $P(x) = 2x^3 - 5x^2 + 3x - 1$, der $x$ er talet på hundre kassar du sel. Uttrykket ser kanskje skremmande ut, men det er eit døme på noko av det mest grunnleggjande i S1-matematikken: eit **polynom**.\n\nEit polynom er eit uttrykk som er sett saman av ledd der variabelen er opphøgd i ikkje-negative heiltal, multipliserte med tal vi kallar koeffisientar. Det generelle polynomet av grad $n$ skriv vi som\n\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder $a_n \\neq 0$ og $n$ er eit ikkje-negativt heiltal. Tala $a_n, a_{n-1}, \\ldots, a_0$ er koeffisientane, $a_n$ blir kalla den **leiande koeffisienten**, og $a_0$ er **konstantleddet**. **Graden** til polynomet er den høgaste eksponenten som finst.\n\nModellen din, $P(x) = 2x^3 - 5x^2 + 3x - 1$, er altså eit tredjegradspolynom. Uttrykket $Q(x) = x^2 - 4$ er eit andregradspolynom, og $R(x) = 5x + 2$ er eit førstegradspolynom. I dette kapittelet skal vi lære to verktøy som lèt oss plukke slike modellar frå kvarandre: polynomdivisjon og faktorsetninga. Med dei kan du svare på det viktigaste spørsmålet ein gründer kan stille: for kva salstal går bedrifta i null?"
+    },
+    {
+      "id": "s1-1-1-n-section1",
+      "type": "text",
+      "content": "## Polynomdivisjon — lang divisjon for modellar\n\nFør du analyserer din eigen modell, øver vi på eit enklare døme. Ein ven i ein annan startup har kostnadsmodellen $P(x) = x^3 + 2x^2 - 5x - 6$ og mistenkjer at uttrykket kan delast på $D(x) = x + 3$. Polynomdivisjon fungerer akkurat som lang divisjon med tal: vi deler eit polynom $P(x)$ på eit polynom $D(x)$ og får\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nder $P(x)$ er dividenden (det vi deler), $D(x)$ er divisoren (det vi deler på), $Q(x)$ er kvotienten (svaret) og $R(x)$ er resten, som alltid har lågare grad enn $D(x)$.\n\nVi går fram steg for steg. Først deler vi det største leddet i dividenden på det største leddet i divisoren: $x^3 \\div x = x^2$. Så ganger vi tilbake: $x^2(x+3) = x^3 + 3x^2$, og trekkjer frå: $(x^3 + 2x^2) - (x^3 + 3x^2) = -x^2$. Vi hentar ned det neste leddet og gjentek: $-x^2 \\div x = -x$, og $-x(x+3) = -x^2 - 3x$, som gir $(-x^2 - 5x) - (-x^2 - 3x) = -2x$. Til slutt: $-2x \\div x = -2$, og $-2(x+3) = -2x - 6$, som gir resten $(-2x - 6) - (-2x - 6) = 0$.\n\nDivisjonen går altså opp, og vi kan skrive\n\n$$x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$$\n\nNår resten er null, tyder det at $(x+3)$ er ein **faktor** i $P(x)$. Det er som å oppdage at 91 er deleleg med 7: plutseleg forstår du strukturen i talet. Og strukturen er gull verd, for no kan venen din faktorisere vidare og finne nøyaktig kvar modellen blir null."
+    },
+    {
+      "id": "s1-1-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på polynom og polynomdivisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-1-1-n-quiz1-q0",
+            "task": "Kva er graden til polynomet $P(x) = 2x^3 - 5x^2 + 3x - 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$-1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Graden er den høgaste eksponenten i polynomet. Her er det høgaste leddet $2x^3$, så graden er $3$."
+          },
+          {
+            "id": "s1-1-1-n-quiz1-q1",
+            "task": "Kva er konstantleddet i $P(x) = x^3 + 2x^2 - 5x - 6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-6$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Konstantleddet $a_0$ er leddet utan variabel, altså $-6$."
+          },
+          {
+            "id": "s1-1-1-n-quiz1-q2",
+            "task": "I divisjonen $P(x) = D(x) \\cdot Q(x) + R(x)$ blir resten $R(x) = 0$. Kva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$D(x)$ er ein faktor i $P(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$P(x)$ har ingen nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$Q(x)$ må vere lik $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Divisjonen er utført feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når resten er null, er $P(x) = D(x) \\cdot Q(x)$, så $D(x)$ er ein faktor i $P(x)$."
+          },
+          {
+            "id": "s1-1-1-n-quiz1-q3",
+            "task": "Vi veit at $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$. Kva er då $P(-3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Set vi inn $x = -3$, blir faktoren $(x+3) = 0$, og heile produktet blir null. Altså er $P(-3) = 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-1-n-section2",
+      "type": "text",
+      "content": "## Faktorsetninga — snarvegen til nullpunkta\n\nObservasjonen frå quizen er faktisk ei av dei viktigaste setningane i algebraen. **Faktorsetninga** seier: dersom $P(a) = 0$ for eit polynom $P(x)$, så er $(x - a)$ ein faktor i $P(x)$. Og omvendt: dersom $(x - a)$ er ein faktor, så er $P(a) = 0$. Nullpunkt og faktorar er to sider av same sak.\n\nDette gir oss ein kraftig strategi for å faktorisere. Vi gjettar på nullpunkt — ofte heiltal som deler konstantleddet — verifiserer ved å setje inn i polynomet, og bruker polynomdivisjon til å finne resten av faktorane.\n\nLa oss seie at ein analytikar har gitt deg modellen $P(x) = x^3 - 6x^2 + 11x - 6$ og bedt deg faktorisere han fullstendig. Konstantleddet er $-6$, så kandidatane til heiltalige nullpunkt er divisorane av 6: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$ først: $P(1) = 1 - 6 + 11 - 6 = 0$. Treff! Då veit vi at $(x - 1)$ er ein faktor.\n\nPolynomdivisjon gir $(x^3 - 6x^2 + 11x - 6) \\div (x - 1) = x^2 - 5x + 6$, og dette andregradsuttrykket kjenner vi att: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$P(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunkta er $x = 1$, $x = 2$ og $x = 3$. I ein overskotsmodell ville desse tre verdiane vore nivåa der bedrifta verken tener eller taper pengar — såkalla nullpunkt i dobbel forstand. Mellom og utanfor dei kan du no resonnere deg fram til kvar overskotet er positivt. Det er nettopp denne typen analyse vi byggjer vidare på i kapitla som kjem."
+    },
+    {
+      "id": "s1-1-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-1-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorsetninga og faktorisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-1-1-n-quiz2-q0",
+            "task": "Kva seier faktorsetninga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle polynom kan faktoriserast i førstegradsfaktorar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit polynom av grad $n$ har alltid $n$ nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Resten i ein polynomdivisjon er alltid null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorsetninga koplar nullpunkt og faktorar: $P(a) = 0 \\Leftrightarrow (x - a)$ er ein faktor i $P(x)$."
+          },
+          {
+            "id": "s1-1-1-n-quiz2-q1",
+            "task": "Du skal finne heiltalige nullpunkt i $P(x) = x^3 - 6x^2 + 11x - 6$. Kva for kandidatar bør du teste?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle heiltal mellom $-11$ og $11$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre positive partal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Koeffisientane i polynomet: $1, -6, 11, -6$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Heiltalige nullpunkt må dele konstantleddet. Difor testar vi divisorane av $6$: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$."
+          },
+          {
+            "id": "s1-1-1-n-quiz2-q2",
+            "task": "Kva er faktoriseringa av $x^2 - 5x + 6$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$(x - 2)(x - 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(x - 1)(x - 6)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x + 2)(x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 5)(x + 6)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng to tal med sum $-5$ og produkt $6$, altså $-2$ og $-3$. Det gir $(x - 2)(x - 3)$."
+          },
+          {
+            "id": "s1-1-1-n-quiz2-q3",
+            "task": "Eit polynom $P(x)$ oppfyller $P(2) = 0$. Kva for ein divisjon vil garantert gå opp utan rest?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(x) \\div (x + 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(x) \\div (x - 2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$P(x) \\div (2x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(x) \\div (x^2 - 2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $P(2) = 0$, er $(x - 2)$ ein faktor i $P(x)$ etter faktorsetninga, så divisjonen $P(x) \\div (x - 2)$ gir rest null."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-1-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: verktøykassa di\n\nLa oss spole tilbake til abonnementsbedrifta. Du starta med eit uttrykk som såg ugjennomtrengeleg ut, men no har du verktøya til å opne det. Eit **polynom** er eit uttrykk på forma $P(x) = a_n x^n + \\ldots + a_1 x + a_0$, der graden $n$ er den høgaste eksponenten, $a_n$ er den leiande koeffisienten og $a_0$ er konstantleddet.\n\nMed **polynomdivisjon** kan du dele $P(x)$ på $D(x)$ og skrive $P(x) = D(x) \\cdot Q(x) + R(x)$, der resten $R(x)$ har lågare grad enn divisoren. Går divisjonen opp — altså $R(x) = 0$ — har du funne ein faktor.\n\n**Faktorsetninga** bind det heile saman: $(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$. Strategien for å faktorisere eit tredjegradspolynom blir dermed ei oppskrift: gjett eit nullpunkt blant divisorane av konstantleddet, verifiser ved innsetjing, del på $(x - a)$ med polynomdivisjon, og faktoriser kvotienten vidare med metodane du kan frå før.\n\nFor ein gründer tyder nullpunkta i ein overskotsmodell dei salstala der bedrifta går i null. For deg som S1-elev er dei nøkkelen til alt som kjem seinare: likningar, ulikskapar, forteiknslinjer og grafdrøfting. Polynomdivisjon og faktorsetninga er ikkje berre rekneteknikk — dei er måten vi avslører strukturen i ein modell på."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "ce331919ca1db917",
+    "translatedAt": "2026-06-20T02:52:44.038Z",
+    "model": "claude-code-agent",
+    "strings": 48,
+    "tm": {
+      "b489d716e3315cd9": "Polynom",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "fe2e54fdfb45596d": "Ei forteljing om ein ung gründer som bruker polynomdivisjon og faktorsetninga til å forstå når bedrifta går i null — og når ho tener pengar.",
+      "c43740fb485a4787": "faktorisere polynom ved hjelp av polynomdivisjon",
+      "a74f315de272f4d0": "## Modellen bak ei bedrift\n\nTenk deg at du har starta ei lita bedrift som sel abonnementskassar med kortreist mat. Ein økonomistudent du kjenner har hjelpt deg med å lage ein modell for overskotet, og han ser slik ut: $P(x) = 2x^3 - 5x^2 + 3x - 1$, der $x$ er talet på hundre kassar du sel. Uttrykket ser kanskje skremmande ut, men det er eit døme på noko av det mest grunnleggjande i S1-matematikken: eit **polynom**.\n\nEit polynom er eit uttrykk som er sett saman av ledd der variabelen er opphøgd i ikkje-negative heiltal, multipliserte med tal vi kallar koeffisientar. Det generelle polynomet av grad $n$ skriv vi som\n\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder $a_n \\neq 0$ og $n$ er eit ikkje-negativt heiltal. Tala $a_n, a_{n-1}, \\ldots, a_0$ er koeffisientane, $a_n$ blir kalla den **leiande koeffisienten**, og $a_0$ er **konstantleddet**. **Graden** til polynomet er den høgaste eksponenten som finst.\n\nModellen din, $P(x) = 2x^3 - 5x^2 + 3x - 1$, er altså eit tredjegradspolynom. Uttrykket $Q(x) = x^2 - 4$ er eit andregradspolynom, og $R(x) = 5x + 2$ er eit førstegradspolynom. I dette kapittelet skal vi lære to verktøy som lèt oss plukke slike modellar frå kvarandre: polynomdivisjon og faktorsetninga. Med dei kan du svare på det viktigaste spørsmålet ein gründer kan stille: for kva salstal går bedrifta i null?",
+      "54997ecb46373782": "## Polynomdivisjon — lang divisjon for modellar\n\nFør du analyserer din eigen modell, øver vi på eit enklare døme. Ein ven i ein annan startup har kostnadsmodellen $P(x) = x^3 + 2x^2 - 5x - 6$ og mistenkjer at uttrykket kan delast på $D(x) = x + 3$. Polynomdivisjon fungerer akkurat som lang divisjon med tal: vi deler eit polynom $P(x)$ på eit polynom $D(x)$ og får\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nder $P(x)$ er dividenden (det vi deler), $D(x)$ er divisoren (det vi deler på), $Q(x)$ er kvotienten (svaret) og $R(x)$ er resten, som alltid har lågare grad enn $D(x)$.\n\nVi går fram steg for steg. Først deler vi det største leddet i dividenden på det største leddet i divisoren: $x^3 \\div x = x^2$. Så ganger vi tilbake: $x^2(x+3) = x^3 + 3x^2$, og trekkjer frå: $(x^3 + 2x^2) - (x^3 + 3x^2) = -x^2$. Vi hentar ned det neste leddet og gjentek: $-x^2 \\div x = -x$, og $-x(x+3) = -x^2 - 3x$, som gir $(-x^2 - 5x) - (-x^2 - 3x) = -2x$. Til slutt: $-2x \\div x = -2$, og $-2(x+3) = -2x - 6$, som gir resten $(-2x - 6) - (-2x - 6) = 0$.\n\nDivisjonen går altså opp, og vi kan skrive\n\n$$x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$$\n\nNår resten er null, tyder det at $(x+3)$ er ein **faktor** i $P(x)$. Det er som å oppdage at 91 er deleleg med 7: plutseleg forstår du strukturen i talet. Og strukturen er gull verd, for no kan venen din faktorisere vidare og finne nøyaktig kvar modellen blir null.",
+      "a2246939f733b5ff": "Test deg sjølv på polynom og polynomdivisjon:",
+      "4097889236a2af26": "placeholder",
+      "c2fe05604a406806": "Kva er graden til polynomet $P(x) = 2x^3 - 5x^2 + 3x - 1$?",
+      "57dd219cab3c3d3a": "Graden er den høgaste eksponenten i polynomet. Her er det høgaste leddet $2x^3$, så graden er $3$.",
+      "abb08f49803c1843": "Kva er konstantleddet i $P(x) = x^3 + 2x^2 - 5x - 6$?",
+      "5259dec70e6fc1ef": "Konstantleddet $a_0$ er leddet utan variabel, altså $-6$.",
+      "c4589e9fc799e7aa": "I divisjonen $P(x) = D(x) \\cdot Q(x) + R(x)$ blir resten $R(x) = 0$. Kva kan vi konkludere?",
+      "a2641ed6208ba79f": "$D(x)$ er ein faktor i $P(x)$",
+      "ee2d18986759372f": "$P(x)$ har ingen nullpunkt",
+      "e3eea26f59fcf6f1": "$Q(x)$ må vere lik $P(x)$",
+      "c08052e09318a429": "Divisjonen er utført feil",
+      "638f41f081c3d446": "Når resten er null, er $P(x) = D(x) \\cdot Q(x)$, så $D(x)$ er ein faktor i $P(x)$.",
+      "eeadbebb3bc6ce1e": "Vi veit at $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$. Kva er då $P(-3)$?",
+      "5044e3c24e8052d5": "Set vi inn $x = -3$, blir faktoren $(x+3) = 0$, og heile produktet blir null. Altså er $P(-3) = 0$.",
+      "b4be41d782d0a88c": "## Faktorsetninga — snarvegen til nullpunkta\n\nObservasjonen frå quizen er faktisk ei av dei viktigaste setningane i algebraen. **Faktorsetninga** seier: dersom $P(a) = 0$ for eit polynom $P(x)$, så er $(x - a)$ ein faktor i $P(x)$. Og omvendt: dersom $(x - a)$ er ein faktor, så er $P(a) = 0$. Nullpunkt og faktorar er to sider av same sak.\n\nDette gir oss ein kraftig strategi for å faktorisere. Vi gjettar på nullpunkt — ofte heiltal som deler konstantleddet — verifiserer ved å setje inn i polynomet, og bruker polynomdivisjon til å finne resten av faktorane.\n\nLa oss seie at ein analytikar har gitt deg modellen $P(x) = x^3 - 6x^2 + 11x - 6$ og bedt deg faktorisere han fullstendig. Konstantleddet er $-6$, så kandidatane til heiltalige nullpunkt er divisorane av 6: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$ først: $P(1) = 1 - 6 + 11 - 6 = 0$. Treff! Då veit vi at $(x - 1)$ er ein faktor.\n\nPolynomdivisjon gir $(x^3 - 6x^2 + 11x - 6) \\div (x - 1) = x^2 - 5x + 6$, og dette andregradsuttrykket kjenner vi att: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$P(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunkta er $x = 1$, $x = 2$ og $x = 3$. I ein overskotsmodell ville desse tre verdiane vore nivåa der bedrifta verken tener eller taper pengar — såkalla nullpunkt i dobbel forstand. Mellom og utanfor dei kan du no resonnere deg fram til kvar overskotet er positivt. Det er nettopp denne typen analyse vi byggjer vidare på i kapitla som kjem.",
+      "34a4ede5774991b8": "Test deg sjølv på faktorsetninga og faktorisering:",
+      "4e404c3b05273ff5": "Kva seier faktorsetninga?",
+      "a1ae3901e7048bf7": "Alle polynom kan faktoriserast i førstegradsfaktorar",
+      "cbe9bc723e15d9b2": "$(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$",
+      "4678d674ace6aa0c": "Eit polynom av grad $n$ har alltid $n$ nullpunkt",
+      "b24b550e00103c6b": "Resten i ein polynomdivisjon er alltid null",
+      "e87815d48a011588": "Faktorsetninga koplar nullpunkt og faktorar: $P(a) = 0 \\Leftrightarrow (x - a)$ er ein faktor i $P(x)$.",
+      "4d9f7ad4593ed245": "Du skal finne heiltalige nullpunkt i $P(x) = x^3 - 6x^2 + 11x - 6$. Kva for kandidatar bør du teste?",
+      "2aa7f5c12f5356e4": "Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+      "2296fe67591b6a58": "Alle heiltal mellom $-11$ og $11$",
+      "8f048e7fc75922e3": "Berre positive partal",
+      "1453612c8ece8907": "Koeffisientane i polynomet: $1, -6, 11, -6$",
+      "340b38282f9c3666": "Heiltalige nullpunkt må dele konstantleddet. Difor testar vi divisorane av $6$: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$.",
+      "88d2e439ceb0b4dc": "Kva er faktoriseringa av $x^2 - 5x + 6$?",
+      "e6ea340aaa501660": "$(x - 1)(x - 6)$",
+      "812e442289031ed2": "$(x + 2)(x + 3)$",
+      "f40827c51203679f": "$(x - 2)(x - 3)$",
+      "613f1a36d9cf8f63": "$(x - 5)(x + 6)$",
+      "fb87d92e76a25265": "Vi treng to tal med sum $-5$ og produkt $6$, altså $-2$ og $-3$. Det gir $(x - 2)(x - 3)$.",
+      "2e6f5e8c0bb5d67d": "Eit polynom $P(x)$ oppfyller $P(2) = 0$. Kva for ein divisjon vil garantert gå opp utan rest?",
+      "3d08d1335fedde03": "$P(x) \\div (x + 2)$",
+      "2dcbe005bc08fe44": "$P(x) \\div (x - 2)$",
+      "12699534da08bb1e": "$P(x) \\div (2x)$",
+      "dd718d35415922a7": "$P(x) \\div (x^2 - 2)$",
+      "25cf62d4d712569c": "Sidan $P(2) = 0$, er $(x - 2)$ ein faktor i $P(x)$ etter faktorsetninga, så divisjonen $P(x) \\div (x - 2)$ gir rest null.",
+      "ce92b6c9299f234f": "## Oppsummering: verktøykassa di\n\nLa oss spole tilbake til abonnementsbedrifta. Du starta med eit uttrykk som såg ugjennomtrengeleg ut, men no har du verktøya til å opne det. Eit **polynom** er eit uttrykk på forma $P(x) = a_n x^n + \\ldots + a_1 x + a_0$, der graden $n$ er den høgaste eksponenten, $a_n$ er den leiande koeffisienten og $a_0$ er konstantleddet.\n\nMed **polynomdivisjon** kan du dele $P(x)$ på $D(x)$ og skrive $P(x) = D(x) \\cdot Q(x) + R(x)$, der resten $R(x)$ har lågare grad enn divisoren. Går divisjonen opp — altså $R(x) = 0$ — har du funne ein faktor.\n\n**Faktorsetninga** bind det heile saman: $(x - a)$ er ein faktor i $P(x)$ viss og berre viss $P(a) = 0$. Strategien for å faktorisere eit tredjegradspolynom blir dermed ei oppskrift: gjett eit nullpunkt blant divisorane av konstantleddet, verifiser ved innsetjing, del på $(x - a)$ med polynomdivisjon, og faktoriser kvotienten vidare med metodane du kan frå før.\n\nFor ein gründer tyder nullpunkta i ein overskotsmodell dei salstala der bedrifta går i null. For deg som S1-elev er dei nøkkelen til alt som kjem seinare: likningar, ulikskapar, forteiknslinjer og grafdrøfting. Polynomdivisjon og faktorsetninga er ikkje berre rekneteknikk — dei er måten vi avslører strukturen i ein modell på."
+    }
+  }
+}

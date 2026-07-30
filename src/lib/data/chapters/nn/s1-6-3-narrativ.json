@@ -1,1 +1,544 @@
-{"id":"s1-6-3-narrativ","courseId":"s1","chapterNumber":"6.3","title":"Normalfordelinga","subtitle":"Narrativ versjon","description":"Ei forteljing om klokkekurva som dukkar opp overalt -- frå sesjonshøgder hos SSB til feilmarginar på valnatta, med 68-95-99,7-regelen, z-score og normalapproksimasjon.","estimatedMinutes":38,"competenceGoals":["bruke normalfordelinga til å berekne sannsynlegheiter og tolke resultat"],"linkedChapterId":"s1-6-3","content":[{"id":"s1-6-3-n-intro","type":"text","content":"## Klokka som dukkar opp overalt\n\nPå Statistisk sentralbyrå sit ein forskar og plottar høgda til tusenvis av norske menn frå sesjonsdata. Eit mønster trer fram: dei fleste klumpar seg rundt 180 cm, færre og færre etter kvart som ein beveger seg ut mot 160 eller 200, og histogrammet formar ei perfekt symmetrisk klokke. Så plottar ho noko heilt anna — måleavvik frå eit fysikkeksperiment. Same klokke. IQ-skårar? Same klokke. Fødselsvekter? Same klokke igjen.\n\nDenne kurva blir kalla **normalfordelinga** (eller Gausskurva), og ho er den viktigaste sannsynsfordelinga i heile statistikken. Ho skildrar høgd og vekt i ein befolkning, måleusikkerheit i eksperiment, testresultat — og, ved store tal, til og med talet på feil i produksjon. At ho dukkar opp overalt er ingen tilfeldigheit: når eit resultat er summen av mange små, uavhengige bidrag — gen, kosthald, målefeil — ordnar totalen seg klokkeforma.\n\nNormalfordelinga skil seg frå dei fordelingane vi har møtt så langt på eitt viktig punkt: ho er **kontinuerleg**, ikkje diskret. Høgd kan vere 180,3 cm eller 180,31 cm — verdiane flyt. I dette kapittelet lærer du anatomien til klokka, tommelfingerregelen 68–95–99,7, det universelle måleinstrumentet **z-score**, og til slutt korleis normalfordelinga kan ta over jobben for binomisk fordeling når talet på forsøk blir stort."},{"id":"s1-6-3-n-section1","type":"text","content":"## Anatomien til klokka og 68–95–99,7-regelen\n\nEin stokastisk variabel $X$ er **normalfordelt** med forventningsverdi $\\mu$ og standardavvik $\\sigma$ — skrive $X \\sim N(\\mu, \\sigma^2)$ — når sannsynstettleiken er\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\cdot e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nFormelen ser fryktinngytande ut, men eigenskapane til kurva er vennlege: ho er symmetrisk om $\\mu$, har toppunkt i $x = \\mu$, nærmar seg $x$-aksen utan å røre han, og arealet under heile kurva er nøyaktig 1. For kontinuerlege fordelingar er det nettopp *areal* som er sannsynlegheiter: $P(a < X < b)$ er arealet under kurva mellom $a$ og $b$. Berre to tal styrer alt — $\\mu$ plasserer klokka, $\\sigma$ avgjer kor brei ho er.\n\nOg her kjem den mest praktiske eigenskapen til fordelinga, **68–95–99,7-regelen** (den empiriske regelen): omtrent 68,3 % av verdiane ligg innanfor eitt standardavvik frå gjennomsnittet, 95,4 % innanfor to, og heile 99,7 % innanfor tre. Det gjeld for *kvar* normalfordeling, uansett $\\mu$ og $\\sigma$.\n\nTilbake til sesjonsdataa: høgda til vaksne norske menn er tilnærma $N(180, 7^2)$. Kor stor del er mellom 166 og 194 cm? Vi kjenner att grensene: $166 = 180 - 2 \\cdot 7$ og $194 = 180 + 2 \\cdot 7$ — intervallet er nøyaktig $\\mu \\pm 2\\sigma$. Regelen svarar med ein gong: cirka **95 %**. Slik bruker både klesprodusentar, møbeldesignarar og helsestyresmakter regelen dagleg: to standardavvik til kvar side dekkjer nesten alle."},{"id":"s1-6-3-n-quiz1","type":"exercise","exercise":{"id":"s1-6-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på eigenskapane til normalfordelinga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-3-n-quiz1-q0","task":"Kva påstand om normalfordelingskurva er rett?","options":[{"id":"a","text":"Ho er symmetrisk om $\\mu$, og arealet under kurva er 1","isCorrect":true},{"id":"b","text":"Ho er symmetrisk om 0 uansett $\\mu$","isCorrect":false},{"id":"c","text":"Ho rører $x$-aksen ved $\\mu \\pm 3\\sigma$","isCorrect":false},{"id":"d","text":"Toppunktet ligg alltid i $x = 0$","isCorrect":false}],"solution":"Kurva er symmetrisk om forventningsverdien $\\mu$ med toppunkt der, nærmar seg aksen utan å røre han, og det totale arealet er 1."},{"id":"s1-6-3-n-quiz1-q1","task":"Kva er hovudskilnaden på normalfordelinga og binomisk fordeling?","options":[{"id":"a","text":"Normalfordelinga er kontinuerleg, binomisk er diskret","isCorrect":true},{"id":"b","text":"Normalfordelinga gjeld berre for høgder","isCorrect":false},{"id":"c","text":"Binomisk fordeling har ikkje forventningsverdi","isCorrect":false},{"id":"d","text":"Normalfordelinga er aldri symmetrisk","isCorrect":false}],"solution":"Binomisk fordeling tel (0, 1, 2, ...), medan normalfordelinga skildrar kontinuerlege storleikar der sannsynlegheiter er areal under kurva."},{"id":"s1-6-3-n-quiz1-q2","task":"IQ-skårar er tilnærma $N(100, 15^2)$. Omtrent kor stor del har IQ mellom 85 og 115?","options":[{"id":"a","text":"Ca. 50 %","isCorrect":false},{"id":"b","text":"Ca. 68 %","isCorrect":true},{"id":"c","text":"Ca. 95 %","isCorrect":false},{"id":"d","text":"Ca. 99,7 %","isCorrect":false}],"solution":"Intervallet $[85, 115]$ er $\\mu \\pm \\sigma$, og 68–95–99,7-regelen gir ca. 68 %."},{"id":"s1-6-3-n-quiz1-q3","task":"Høgder er $N(180, 7^2)$. Omtrent kor stor del av mennene er høgare enn 194 cm?","options":[{"id":"a","text":"Ca. 5 %","isCorrect":false},{"id":"b","text":"Ca. 2,3 %","isCorrect":true},{"id":"c","text":"Ca. 32 %","isCorrect":false},{"id":"d","text":"Ca. 0,3 %","isCorrect":false}],"solution":"$194 = \\mu + 2\\sigma$. Utanfor $\\mu \\pm 2\\sigma$ ligg ca. 4,6 %, og av symmetri er halvparten — ca. 2,3 % — over 194 cm."}]}},{"id":"s1-6-3-n-section2","type":"text","content":"## Z-score — det universelle måleinstrumentet\n\n68–95–99,7-regelen treffer berre ved heile standardavvik. Kva når grensa er 172 cm — som korkje er $\\mu - \\sigma$ eller $\\mu - 2\\sigma$? Då treng vi den nøyaktige metoden: **standardisering**.\n\nTrikset er å omsetje kvar normalfordeling til éin felles referanse, **standardnormalfordelinga** $Z \\sim N(0, 1)$ med gjennomsnitt 0 og standardavvik 1. Omsetjinga heiter **z-score**:\n\n$$Z = \\frac{X - \\mu}{\\sigma}$$\n\nZ-scoren svarar på spørsmålet «kor mange standardavvik frå gjennomsnittet ligg denne verdien?» Positiv $z$ tyder over gjennomsnittet, negativ under, og null tyder midt på. Sannsynlegheiter følgjer med på kjøpet: $P(X \\leq x) = P\\!\\left(Z \\leq \\frac{x-\\mu}{\\sigma}\\right)$, og for $Z$ finst tabellar og kalkulatorfunksjonar.\n\nLat oss rekne. Kor stor del menn er kortare enn 172 cm når $X \\sim N(180, 7^2)$? Først z-scoren: $z = \\frac{172 - 180}{7} \\approx -1{,}14$. Tabellen gir $P(Z < -1{,}14) \\approx 0{,}127$ — cirka 12,7 %.\n\nFor eit *intervall* standardiserer vi begge grensene og tek differansen av areala. Kva er $P(175 < X < 190)$? Grensene gir $z_1 = \\frac{175-180}{7} \\approx -0{,}714$ og $z_2 = \\frac{190-180}{7} \\approx 1{,}429$, og\n\n$$P(175 < X < 190) = P(Z < 1{,}429) - P(Z < -0{,}714) \\approx 0{,}9234 - 0{,}2376 = 0{,}686$$\n\nZ-scoren er dessutan eit samanlikningsverktøy i seg sjølv. Er 187 cm høgd ($z = 1{,}0$) meir uvanleg enn IQ 130 ($z = 2{,}0$)? Z-scorane avgjer: IQ-en er klart sjeldnare. Slik samanliknar forskarar eple og pærer — testresultat, blodverdiar, eksamenskarakterar — på éin felles skala."},{"id":"s1-6-3-n-quiz2","type":"exercise","exercise":{"id":"s1-6-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på z-score:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-3-n-quiz2-q0","task":"Kva er formelen for z-score?","options":[{"id":"a","text":"$z = \\dfrac{x - \\mu}{\\sigma}$","isCorrect":true},{"id":"b","text":"$z = \\dfrac{\\mu - x}{\\sigma^2}$","isCorrect":false},{"id":"c","text":"$z = \\dfrac{x + \\mu}{\\sigma}$","isCorrect":false},{"id":"d","text":"$z = \\sigma(x - \\mu)$","isCorrect":false}],"solution":"$z = \\frac{x - \\mu}{\\sigma}$ — avstanden frå gjennomsnittet målt i standardavvik."},{"id":"s1-6-3-n-quiz2-q1","task":"$X \\sim N(50, 10^2)$. Kva er z-scoren til $x = 35$?","options":[{"id":"a","text":"$1{,}5$","isCorrect":false},{"id":"b","text":"$-1{,}5$","isCorrect":true},{"id":"c","text":"$-15$","isCorrect":false},{"id":"d","text":"$3{,}5$","isCorrect":false}],"solution":"$z = \\frac{35 - 50}{10} = -1{,}5$ — verdien ligg 1,5 standardavvik under gjennomsnittet."},{"id":"s1-6-3-n-quiz2-q2","task":"Kva tyder ein z-score på $0$?","options":[{"id":"a","text":"Verdien er umogleg","isCorrect":false},{"id":"b","text":"Verdien er nøyaktig lik gjennomsnittet","isCorrect":true},{"id":"c","text":"Verdien er eitt standardavvik under gjennomsnittet","isCorrect":false},{"id":"d","text":"Sannsynet er 0","isCorrect":false}],"solution":"$z = 0$ gir $x = \\mu$: verdien ligg midt i fordelinga. Halvparten av verdiane ligg under, halvparten over."},{"id":"s1-6-3-n-quiz2-q3","task":"Korleis bereknar vi $P(a < X < b)$ for ein normalfordelt $X$?","options":[{"id":"a","text":"$P(Z < z_b) - P(Z < z_a)$ der $z_a$ og $z_b$ er dei standardiserte grensene","isCorrect":true},{"id":"b","text":"$P(Z < z_b) + P(Z < z_a)$","isCorrect":false},{"id":"c","text":"$P(Z < z_b) \\cdot P(Z < z_a)$","isCorrect":false},{"id":"d","text":"$1 - P(Z < z_a)$","isCorrect":false}],"solution":"Standardiser begge grensene og ta differansen av dei kumulative sannsynlegheitene: arealet mellom $a$ og $b$."},{"id":"s1-6-3-n-quiz2-q4","task":"Ein elev har $z = 1{,}8$ i matematikk og $z = 0{,}9$ i norsk. Kva kan vi konkludere?","options":[{"id":"a","text":"Eleven er dobbelt så god i matematikk","isCorrect":false},{"id":"b","text":"Prestasjonen i matematikk er meir uvanleg sterk relativt til faget sitt enn prestasjonen i norsk","isCorrect":true},{"id":"c","text":"Eleven fekk høgare poengsum i norsk","isCorrect":false},{"id":"d","text":"Ingenting — z-scorar kan ikkje samanliknast på tvers av fag","isCorrect":false}],"solution":"Z-scoren måler avstand frå gjennomsnittet i standardavvik og gjer prestasjonar i ulike fordelingar samanliknbare — 1,8 standardavvik over snittet er sjeldnare enn 0,9."}]}},{"id":"s1-6-3-n-section3","type":"text","content":"## Når klokka tek over for binomisk fordeling\n\nHugsar du valanalytikaren med $X \\sim \\text{Bin}(100, 0{,}4)$? Å berekne $P(X \\leq 45)$ eksakt krev summering av 46 binomiske ledd. Men teiknar du stolpediagrammet for denne fordelinga, ser du noko påfallande: stolpane formar — ei klokke. Det er ikkje tilfeldig, og det gir oss ein snarveg.\n\n**Normalapproksimasjonen** seier at når $n$ er tilstrekkeleg stor, kan ei binomisk fordeling tilnærmast med ei normalfordeling med same forventning og varians:\n\n$$X \\approx N(np, \\; np(1-p))$$\n\nTommelfingerregelen for når dette er trygt: $np \\geq 5$ *og* $n(1-p) \\geq 5$ — det må vere «nok» av både suksessar og fiaskoar til at klokka får plass utan å bli kutta av ved 0 eller $n$.\n\nÉi finurleg detalj står att. Binomisk fordeling er diskret (stolpar på heiltal), normalfordelinga kontinuerleg (glatt kurve). Stolpen for verdien 45 strekkjer seg eigentleg frå 44,5 til 45,5, så for å få med heile stolpen bruker vi **kontinuitetskorreksjon**: vi flyttar grensa eit halvt hakk utover,\n\n$$P(X \\leq k) \\approx P\\left(Z \\leq \\frac{k + 0{,}5 - np}{\\sqrt{np(1-p)}}\\right)$$\n\nNo løyser vi eksempelet. Parametrane er $\\mu = np = 40$ og $\\sigma = \\sqrt{100 \\cdot 0{,}4 \\cdot 0{,}6} = \\sqrt{24} \\approx 4{,}899$, og sjekken passerer: $np = 40 \\geq 5$, $n(1-p) = 60 \\geq 5$. Med korreksjon: $z = \\frac{45{,}5 - 40}{4{,}899} \\approx 1{,}123$, og tabellen gir\n\n$$P(X \\leq 45) \\approx P(Z \\leq 1{,}123) \\approx 0{,}869$$\n\nÉi enkel z-berekning erstatta 46 ledd. Dette er grunnen til at meiningsmålingar kan oppgi feilmarginar og valkveldar kan kalle resultat tidleg: bak kulissane er det normalapproksimasjonen som reknar."},{"id":"s1-6-3-n-quiz3","type":"exercise","exercise":{"id":"s1-6-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på normalapproksimasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-3-n-quiz3-q0","task":"Kva normalfordeling tilnærmar $X \\sim \\text{Bin}(n, p)$ når $n$ er stor?","options":[{"id":"a","text":"$N(np, \\; np(1-p))$","isCorrect":true},{"id":"b","text":"$N(p, \\; n)$","isCorrect":false},{"id":"c","text":"$N(n, \\; p)$","isCorrect":false},{"id":"d","text":"$N(np, \\; \\sqrt{n})$","isCorrect":false}],"solution":"Forventning og varians blir haldne: $\\mu = np$ og $\\sigma^2 = np(1-p)$."},{"id":"s1-6-3-n-quiz3-q1","task":"Kva er tommelfingerregelen for når normalapproksimasjonen er god?","options":[{"id":"a","text":"$n \\geq 30$","isCorrect":false},{"id":"b","text":"$np \\geq 5$ og $n(1-p) \\geq 5$","isCorrect":true},{"id":"c","text":"$p = 0{,}5$ nøyaktig","isCorrect":false},{"id":"d","text":"$np(1-p) \\leq 5$","isCorrect":false}],"solution":"Både forventa tal på suksessar og forventa tal på fiaskoar må vere minst 5, elles blir klokka for skeiv eller avkutta."},{"id":"s1-6-3-n-quiz3-q2","task":"Kvifor bruker vi kontinuitetskorreksjon?","options":[{"id":"a","text":"Fordi normalfordelinga er skeiv","isCorrect":false},{"id":"b","text":"Fordi den diskrete stolpen for $k$ dekkjer intervallet frå $k - 0{,}5$ til $k + 0{,}5$ på den kontinuerlege skalaen","isCorrect":true},{"id":"c","text":"For å gjere svaret større","isCorrect":false},{"id":"d","text":"Fordi tabellane berre har positive z-verdiar","isCorrect":false}],"solution":"Vi tilnærmar stolpar med areal: grensa blir flytta eit halvt hakk utover slik at heile stolpen for $k$ kjem med."},{"id":"s1-6-3-n-quiz3-q3","task":"$X \\sim \\text{Bin}(400, 0{,}5)$. Kva parametrar får den tilnærma normalfordelinga?","options":[{"id":"a","text":"$\\mu = 200$, $\\sigma = 10$","isCorrect":true},{"id":"b","text":"$\\mu = 200$, $\\sigma = 100$","isCorrect":false},{"id":"c","text":"$\\mu = 400$, $\\sigma = 0{,}5$","isCorrect":false},{"id":"d","text":"$\\mu = 200$, $\\sigma = \\sqrt{200}$","isCorrect":false}],"solution":"$\\mu = np = 200$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{400 \\cdot 0{,}25} = \\sqrt{100} = 10$."}]}},{"id":"s1-6-3-n-summary","type":"text","content":"## Oppsummering: éi kurve for nesten alt\n\nForskaren på SSB såg same klokkeform i høgder, måleavvik og testskårar — og no veit du kvifor den forma fortener tittelen som den viktigaste i statistikken. **Normalfordelinga** $N(\\mu, \\sigma^2)$ er kontinuerleg, symmetrisk om $\\mu$, med toppunkt i $\\mu$ og totalt areal 1 under kurva; sannsynlegheiter er areal, og heile fasongen blir styrt av berre to tal — kor klokka står ($\\mu$) og kor brei ho er ($\\sigma$).\n\nFor raske overslag har vi **68–95–99,7-regelen**: cirka 68 % av verdiane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$ og 99,7 % innanfor $\\mu \\pm 3\\sigma$ — slik fann vi at 95 % av norske menn er mellom 166 og 194 cm. For nøyaktige svar standardiserer vi med **z-scoren** $z = \\frac{x - \\mu}{\\sigma}$, som måler avstanden frå gjennomsnittet i standardavvik og omset alle normalfordelingar til standardnormalen $Z \\sim N(0,1)$. Intervall blir handterte med differansar: $P(a < X < b) = P(Z < z_b) - P(Z < z_a)$. Z-scoren er samtidig samanlikningsverktøyet til forskaren på tvers av skalaar.\n\nTil slutt slo vi bru tilbake til førre kapittel: ei binomisk fordeling med stor $n$ er i praksis ei klokke, og **normalapproksimasjonen** $X \\approx N(np, np(1-p))$ — gyldig når $np \\geq 5$ og $n(1-p) \\geq 5$, og finjustert med det halve hakket til kontinuitetskorreksjonen — erstattar titals ledd med éi z-berekning. Det er denne mekanikken som ligg under feilmarginane i kvar einaste meiningsmåling. I dei neste kapitla skal vi bruke normalfordelinga som arbeidsverktøy i nettopp slike bruksområde."}],"exercises":[],"_meta":{"sourceHash":"9bca6741a3f559db","translatedAt":"2026-06-20T03:17:31.048Z","model":"claude-code-agent","strings":89,"tm":{"42fe12db23a18e60":"Normalfordelinga","b195b06d1ed59702":"Narrativ versjon","bc64242102c35aa1":"Ei forteljing om klokkekurva som dukkar opp overalt -- frå sesjonshøgder hos SSB til feilmarginar på valnatta, med 68-95-99,7-regelen, z-score og normalapproksimasjon.","0fd65aa68fbb7358":"bruke normalfordelinga til å berekne sannsynlegheiter og tolke resultat","d2b1b4ca54b9caf0":"## Klokka som dukkar opp overalt\n\nPå Statistisk sentralbyrå sit ein forskar og plottar høgda til tusenvis av norske menn frå sesjonsdata. Eit mønster trer fram: dei fleste klumpar seg rundt 180 cm, færre og færre etter kvart som ein beveger seg ut mot 160 eller 200, og histogrammet formar ei perfekt symmetrisk klokke. Så plottar ho noko heilt anna — måleavvik frå eit fysikkeksperiment. Same klokke. IQ-skårar? Same klokke. Fødselsvekter? Same klokke igjen.\n\nDenne kurva blir kalla **normalfordelinga** (eller Gausskurva), og ho er den viktigaste sannsynsfordelinga i heile statistikken. Ho skildrar høgd og vekt i ein befolkning, måleusikkerheit i eksperiment, testresultat — og, ved store tal, til og med talet på feil i produksjon. At ho dukkar opp overalt er ingen tilfeldigheit: når eit resultat er summen av mange små, uavhengige bidrag — gen, kosthald, målefeil — ordnar totalen seg klokkeforma.\n\nNormalfordelinga skil seg frå dei fordelingane vi har møtt så langt på eitt viktig punkt: ho er **kontinuerleg**, ikkje diskret. Høgd kan vere 180,3 cm eller 180,31 cm — verdiane flyt. I dette kapittelet lærer du anatomien til klokka, tommelfingerregelen 68–95–99,7, det universelle måleinstrumentet **z-score**, og til slutt korleis normalfordelinga kan ta over jobben for binomisk fordeling når talet på forsøk blir stort.","defe0a88d571124e":"## Anatomien til klokka og 68–95–99,7-regelen\n\nEin stokastisk variabel $X$ er **normalfordelt** med forventningsverdi $\\mu$ og standardavvik $\\sigma$ — skrive $X \\sim N(\\mu, \\sigma^2)$ — når sannsynstettleiken er\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\cdot e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nFormelen ser fryktinngytande ut, men eigenskapane til kurva er vennlege: ho er symmetrisk om $\\mu$, har toppunkt i $x = \\mu$, nærmar seg $x$-aksen utan å røre han, og arealet under heile kurva er nøyaktig 1. For kontinuerlege fordelingar er det nettopp *areal* som er sannsynlegheiter: $P(a < X < b)$ er arealet under kurva mellom $a$ og $b$. Berre to tal styrer alt — $\\mu$ plasserer klokka, $\\sigma$ avgjer kor brei ho er.\n\nOg her kjem den mest praktiske eigenskapen til fordelinga, **68–95–99,7-regelen** (den empiriske regelen): omtrent 68,3 % av verdiane ligg innanfor eitt standardavvik frå gjennomsnittet, 95,4 % innanfor to, og heile 99,7 % innanfor tre. Det gjeld for *kvar* normalfordeling, uansett $\\mu$ og $\\sigma$.\n\nTilbake til sesjonsdataa: høgda til vaksne norske menn er tilnærma $N(180, 7^2)$. Kor stor del er mellom 166 og 194 cm? Vi kjenner att grensene: $166 = 180 - 2 \\cdot 7$ og $194 = 180 + 2 \\cdot 7$ — intervallet er nøyaktig $\\mu \\pm 2\\sigma$. Regelen svarar med ein gong: cirka **95 %**. Slik bruker både klesprodusentar, møbeldesignarar og helsestyresmakter regelen dagleg: to standardavvik til kvar side dekkjer nesten alle.","841eb10ecfce58f5":"Test deg sjølv på eigenskapane til normalfordelinga:","4097889236a2af26":"placeholder","2bd317bcb954103e":"Kva påstand om normalfordelingskurva er rett?","b5235543c3d02331":"Ho er symmetrisk om $\\mu$, og arealet under kurva er 1","7d7477d9d770e415":"Ho er symmetrisk om 0 uansett $\\mu$","d5cbeeeaae6c57db":"Ho rører $x$-aksen ved $\\mu \\pm 3\\sigma$","d5bc2d74b5ceffb9":"Toppunktet ligg alltid i $x = 0$","3bf59240197bf93f":"Kurva er symmetrisk om forventningsverdien $\\mu$ med toppunkt der, nærmar seg aksen utan å røre han, og det totale arealet er 1.","18bb1fe7a76a2c87":"Kva er hovudskilnaden på normalfordelinga og binomisk fordeling?","476cc96ea939c45a":"Normalfordelinga er kontinuerleg, binomisk er diskret","054abf17af68f949":"Normalfordelinga gjeld berre for høgder","af0f0e032412f72d":"Binomisk fordeling har ikkje forventningsverdi","725a06b523df8a67":"Normalfordelinga er aldri symmetrisk","e2de9d27fe06cb42":"Binomisk fordeling tel (0, 1, 2, ...), medan normalfordelinga skildrar kontinuerlege storleikar der sannsynlegheiter er areal under kurva.","c427bd25177fb7ee":"IQ-skårar er tilnærma $N(100, 15^2)$. Omtrent kor stor del har IQ mellom 85 og 115?","9c1ea785671db0ce":"Ca. 50 %","957a95891d180e3d":"Ca. 68 %","8c25c2853e8f21c1":"Ca. 95 %","be48271da5bb3ca7":"Ca. 99,7 %","b1f8552cd365d761":"Intervallet $[85, 115]$ er $\\mu \\pm \\sigma$, og 68–95–99,7-regelen gir ca. 68 %.","3828b0960cdb433c":"Høgder er $N(180, 7^2)$. Omtrent kor stor del av mennene er høgare enn 194 cm?","53c8167509ab6281":"Ca. 5 %","b821f82fcbfdad5e":"Ca. 2,3 %","dc1d3469e1793e6d":"Ca. 32 %","ebea901c5e33658b":"Ca. 0,3 %","d306389492556547":"$194 = \\mu + 2\\sigma$. Utanfor $\\mu \\pm 2\\sigma$ ligg ca. 4,6 %, og av symmetri er halvparten — ca. 2,3 % — over 194 cm.","d17635f5b8738ec8":"## Z-score — det universelle måleinstrumentet\n\n68–95–99,7-regelen treffer berre ved heile standardavvik. Kva når grensa er 172 cm — som korkje er $\\mu - \\sigma$ eller $\\mu - 2\\sigma$? Då treng vi den nøyaktige metoden: **standardisering**.\n\nTrikset er å omsetje kvar normalfordeling til éin felles referanse, **standardnormalfordelinga** $Z \\sim N(0, 1)$ med gjennomsnitt 0 og standardavvik 1. Omsetjinga heiter **z-score**:\n\n$$Z = \\frac{X - \\mu}{\\sigma}$$\n\nZ-scoren svarar på spørsmålet «kor mange standardavvik frå gjennomsnittet ligg denne verdien?» Positiv $z$ tyder over gjennomsnittet, negativ under, og null tyder midt på. Sannsynlegheiter følgjer med på kjøpet: $P(X \\leq x) = P\\!\\left(Z \\leq \\frac{x-\\mu}{\\sigma}\\right)$, og for $Z$ finst tabellar og kalkulatorfunksjonar.\n\nLat oss rekne. Kor stor del menn er kortare enn 172 cm når $X \\sim N(180, 7^2)$? Først z-scoren: $z = \\frac{172 - 180}{7} \\approx -1{,}14$. Tabellen gir $P(Z < -1{,}14) \\approx 0{,}127$ — cirka 12,7 %.\n\nFor eit *intervall* standardiserer vi begge grensene og tek differansen av areala. Kva er $P(175 < X < 190)$? Grensene gir $z_1 = \\frac{175-180}{7} \\approx -0{,}714$ og $z_2 = \\frac{190-180}{7} \\approx 1{,}429$, og\n\n$$P(175 < X < 190) = P(Z < 1{,}429) - P(Z < -0{,}714) \\approx 0{,}9234 - 0{,}2376 = 0{,}686$$\n\nZ-scoren er dessutan eit samanlikningsverktøy i seg sjølv. Er 187 cm høgd ($z = 1{,}0$) meir uvanleg enn IQ 130 ($z = 2{,}0$)? Z-scorane avgjer: IQ-en er klart sjeldnare. Slik samanliknar forskarar eple og pærer — testresultat, blodverdiar, eksamenskarakterar — på éin felles skala.","459463afff64e348":"Test deg sjølv på z-score:","bf564d95300ec5ec":"Kva er formelen for z-score?","622b9e36c0480c96":"$z = \\dfrac{x - \\mu}{\\sigma}$","d82af22f62d9ad36":"$z = \\dfrac{\\mu - x}{\\sigma^2}$","08e61e6615921296":"$z = \\dfrac{x + \\mu}{\\sigma}$","51f7ed406f4d20a9":"$z = \\sigma(x - \\mu)$","72c79295775040f1":"$z = \\frac{x - \\mu}{\\sigma}$ — avstanden frå gjennomsnittet målt i standardavvik.","c2327611d2090d89":"$X \\sim N(50, 10^2)$. Kva er z-scoren til $x = 35$?","08a045643bef45cc":"$z = \\frac{35 - 50}{10} = -1{,}5$ — verdien ligg 1,5 standardavvik under gjennomsnittet.","ac87da9dc1d8028a":"Kva tyder ein z-score på $0$?","c5f4be7ea0e4af34":"Verdien er umogleg","51c09e354aaef466":"Verdien er nøyaktig lik gjennomsnittet","6de94fcebfe86527":"Verdien er eitt standardavvik under gjennomsnittet","12b6a25f57510313":"Sannsynet er 0","7f55145437f896d5":"$z = 0$ gir $x = \\mu$: verdien ligg midt i fordelinga. Halvparten av verdiane ligg under, halvparten over.","aed2c4dcf0d5c83e":"Korleis bereknar vi $P(a < X < b)$ for ein normalfordelt $X$?","2d9bef13dea58973":"$P(Z < z_b) - P(Z < z_a)$ der $z_a$ og $z_b$ er dei standardiserte grensene","cfac493ae172ef49":"$P(Z < z_b) + P(Z < z_a)$","0e4c3d8c2fc46f3c":"$P(Z < z_b) \\cdot P(Z < z_a)$","9e086ad0b38584d7":"$1 - P(Z < z_a)$","7e8c7ff6b9569d65":"Standardiser begge grensene og ta differansen av dei kumulative sannsynlegheitene: arealet mellom $a$ og $b$.","62d7ae90d37b0a35":"Ein elev har $z = 1{,}8$ i matematikk og $z = 0{,}9$ i norsk. Kva kan vi konkludere?","9d6f50d5473c12b7":"Eleven er dobbelt så god i matematikk","ef006a34f621902a":"Prestasjonen i matematikk er meir uvanleg sterk relativt til faget sitt enn prestasjonen i norsk","a4a1ec9860a4b9ab":"Eleven fekk høgare poengsum i norsk","64b842102cf3a8dd":"Ingenting — z-scorar kan ikkje samanliknast på tvers av fag","2d89f5af1bd523c9":"Z-scoren måler avstand frå gjennomsnittet i standardavvik og gjer prestasjonar i ulike fordelingar samanliknbare — 1,8 standardavvik over snittet er sjeldnare enn 0,9.","74b10f3f384c53cb":"## Når klokka tek over for binomisk fordeling\n\nHugsar du valanalytikaren med $X \\sim \\text{Bin}(100, 0{,}4)$? Å berekne $P(X \\leq 45)$ eksakt krev summering av 46 binomiske ledd. Men teiknar du stolpediagrammet for denne fordelinga, ser du noko påfallande: stolpane formar — ei klokke. Det er ikkje tilfeldig, og det gir oss ein snarveg.\n\n**Normalapproksimasjonen** seier at når $n$ er tilstrekkeleg stor, kan ei binomisk fordeling tilnærmast med ei normalfordeling med same forventning og varians:\n\n$$X \\approx N(np, \\; np(1-p))$$\n\nTommelfingerregelen for når dette er trygt: $np \\geq 5$ *og* $n(1-p) \\geq 5$ — det må vere «nok» av både suksessar og fiaskoar til at klokka får plass utan å bli kutta av ved 0 eller $n$.\n\nÉi finurleg detalj står att. Binomisk fordeling er diskret (stolpar på heiltal), normalfordelinga kontinuerleg (glatt kurve). Stolpen for verdien 45 strekkjer seg eigentleg frå 44,5 til 45,5, så for å få med heile stolpen bruker vi **kontinuitetskorreksjon**: vi flyttar grensa eit halvt hakk utover,\n\n$$P(X \\leq k) \\approx P\\left(Z \\leq \\frac{k + 0{,}5 - np}{\\sqrt{np(1-p)}}\\right)$$\n\nNo løyser vi eksempelet. Parametrane er $\\mu = np = 40$ og $\\sigma = \\sqrt{100 \\cdot 0{,}4 \\cdot 0{,}6} = \\sqrt{24} \\approx 4{,}899$, og sjekken passerer: $np = 40 \\geq 5$, $n(1-p) = 60 \\geq 5$. Med korreksjon: $z = \\frac{45{,}5 - 40}{4{,}899} \\approx 1{,}123$, og tabellen gir\n\n$$P(X \\leq 45) \\approx P(Z \\leq 1{,}123) \\approx 0{,}869$$\n\nÉi enkel z-berekning erstatta 46 ledd. Dette er grunnen til at meiningsmålingar kan oppgi feilmarginar og valkveldar kan kalle resultat tidleg: bak kulissane er det normalapproksimasjonen som reknar.","8f184657140eafa6":"Test deg sjølv på normalapproksimasjon:","0dfebafe0ed7b3a9":"Kva normalfordeling tilnærmar $X \\sim \\text{Bin}(n, p)$ når $n$ er stor?","193f47691b9b54ad":"$N(np, \\; np(1-p))$","3deac2c50050b6b9":"$N(p, \\; n)$","35a725db94bae309":"$N(n, \\; p)$","df451b7a493c599f":"$N(np, \\; \\sqrt{n})$","068abd9eded10461":"Forventning og varians blir haldne: $\\mu = np$ og $\\sigma^2 = np(1-p)$.","349e771743293dfb":"Kva er tommelfingerregelen for når normalapproksimasjonen er god?","ac39f761dd8033d7":"$n \\geq 30$","4ec2a16deee2cee5":"$np \\geq 5$ og $n(1-p) \\geq 5$","ec25adf01d9697a8":"$p = 0{,}5$ nøyaktig","cb83232fbc6322a2":"$np(1-p) \\leq 5$","da179eb5304b2281":"Både forventa tal på suksessar og forventa tal på fiaskoar må vere minst 5, elles blir klokka for skeiv eller avkutta.","7b440b0e1adceb08":"Kvifor bruker vi kontinuitetskorreksjon?","b86e6f9da3fa0189":"Fordi normalfordelinga er skeiv","1da69f71bc3362a2":"Fordi den diskrete stolpen for $k$ dekkjer intervallet frå $k - 0{,}5$ til $k + 0{,}5$ på den kontinuerlege skalaen","7057637047f0b868":"For å gjere svaret større","d545308005bcf1d0":"Fordi tabellane berre har positive z-verdiar","ed3e516dcb50536d":"Vi tilnærmar stolpar med areal: grensa blir flytta eit halvt hakk utover slik at heile stolpen for $k$ kjem med.","9211934a3f829761":"$X \\sim \\text{Bin}(400, 0{,}5)$. Kva parametrar får den tilnærma normalfordelinga?","cb9f776bebaa2da8":"$\\mu = 200$, $\\sigma = 10$","26aeff55d9bd3760":"$\\mu = 200$, $\\sigma = 100$","f607fa61aea33fe0":"$\\mu = 400$, $\\sigma = 0{,}5$","45ca53b1fd8b942b":"$\\mu = 200$, $\\sigma = \\sqrt{200}$","b0f9ae2879333aef":"$\\mu = np = 200$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{400 \\cdot 0{,}25} = \\sqrt{100} = 10$.","e9954bd8323fce58":"## Oppsummering: éi kurve for nesten alt\n\nForskaren på SSB såg same klokkeform i høgder, måleavvik og testskårar — og no veit du kvifor den forma fortener tittelen som den viktigaste i statistikken. **Normalfordelinga** $N(\\mu, \\sigma^2)$ er kontinuerleg, symmetrisk om $\\mu$, med toppunkt i $\\mu$ og totalt areal 1 under kurva; sannsynlegheiter er areal, og heile fasongen blir styrt av berre to tal — kor klokka står ($\\mu$) og kor brei ho er ($\\sigma$).\n\nFor raske overslag har vi **68–95–99,7-regelen**: cirka 68 % av verdiane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$ og 99,7 % innanfor $\\mu \\pm 3\\sigma$ — slik fann vi at 95 % av norske menn er mellom 166 og 194 cm. For nøyaktige svar standardiserer vi med **z-scoren** $z = \\frac{x - \\mu}{\\sigma}$, som måler avstanden frå gjennomsnittet i standardavvik og omset alle normalfordelingar til standardnormalen $Z \\sim N(0,1)$. Intervall blir handterte med differansar: $P(a < X < b) = P(Z < z_b) - P(Z < z_a)$. Z-scoren er samtidig samanlikningsverktøyet til forskaren på tvers av skalaar.\n\nTil slutt slo vi bru tilbake til førre kapittel: ei binomisk fordeling med stor $n$ er i praksis ei klokke, og **normalapproksimasjonen** $X \\approx N(np, np(1-p))$ — gyldig når $np \\geq 5$ og $n(1-p) \\geq 5$, og finjustert med det halve hakket til kontinuitetskorreksjonen — erstattar titals ledd med éi z-berekning. Det er denne mekanikken som ligg under feilmarginane i kvar einaste meiningsmåling. I dei neste kapitla skal vi bruke normalfordelinga som arbeidsverktøy i nettopp slike bruksområde."}}}
+{
+  "id": "s1-6-3-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "6.3",
+  "title": "Normalfordelinga",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om klokkekurva som dukkar opp overalt -- frå sesjonshøgder hos SSB til feilmarginar på valnatta, med 68-95-99,7-regelen, z-score og normalapproksimasjon.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke normalfordelinga til å berekne sannsynlegheiter og tolke resultat"
+  ],
+  "linkedChapterId": "s1-6-3",
+  "content": [
+    {
+      "id": "s1-6-3-n-intro",
+      "type": "text",
+      "content": "## Klokka som dukkar opp overalt\n\nPå Statistisk sentralbyrå sit ein forskar og plottar høgda til tusenvis av norske menn frå sesjonsdata. Eit mønster trer fram: dei fleste klumpar seg rundt 180 cm, færre og færre etter kvart som ein beveger seg ut mot 160 eller 200, og histogrammet formar ei perfekt symmetrisk klokke. Så plottar ho noko heilt anna — måleavvik frå eit fysikkeksperiment. Same klokke. IQ-skårar? Same klokke. Fødselsvekter? Same klokke igjen.\n\nDenne kurva blir kalla **normalfordelinga** (eller Gausskurva), og ho er den viktigaste sannsynsfordelinga i heile statistikken. Ho skildrar høgd og vekt i ein befolkning, måleusikkerheit i eksperiment, testresultat — og, ved store tal, til og med talet på feil i produksjon. At ho dukkar opp overalt er ingen tilfeldigheit: når eit resultat er summen av mange små, uavhengige bidrag — gen, kosthald, målefeil — ordnar totalen seg klokkeforma.\n\nNormalfordelinga skil seg frå dei fordelingane vi har møtt så langt på eitt viktig punkt: ho er **kontinuerleg**, ikkje diskret. Høgd kan vere 180,3 cm eller 180,31 cm — verdiane flyt. I dette kapittelet lærer du anatomien til klokka, tommelfingerregelen 68–95–99,7, det universelle måleinstrumentet **z-score**, og til slutt korleis normalfordelinga kan ta over jobben for binomisk fordeling når talet på forsøk blir stort."
+    },
+    {
+      "id": "s1-6-3-n-section1",
+      "type": "text",
+      "content": "## Anatomien til klokka og 68–95–99,7-regelen\n\nEin stokastisk variabel $X$ er **normalfordelt** med forventningsverdi $\\mu$ og standardavvik $\\sigma$ — skrive $X \\sim N(\\mu, \\sigma^2)$ — når sannsynstettleiken er\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\cdot e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nFormelen ser fryktinngytande ut, men eigenskapane til kurva er vennlege: ho er symmetrisk om $\\mu$, har toppunkt i $x = \\mu$, nærmar seg $x$-aksen utan å røre han, og arealet under heile kurva er nøyaktig 1. For kontinuerlege fordelingar er det nettopp *areal* som er sannsynlegheiter: $P(a < X < b)$ er arealet under kurva mellom $a$ og $b$. Berre to tal styrer alt — $\\mu$ plasserer klokka, $\\sigma$ avgjer kor brei ho er.\n\nOg her kjem den mest praktiske eigenskapen til fordelinga, **68–95–99,7-regelen** (den empiriske regelen): omtrent 68,3 % av verdiane ligg innanfor eitt standardavvik frå gjennomsnittet, 95,4 % innanfor to, og heile 99,7 % innanfor tre. Det gjeld for *kvar* normalfordeling, uansett $\\mu$ og $\\sigma$.\n\nTilbake til sesjonsdataa: høgda til vaksne norske menn er tilnærma $N(180, 7^2)$. Kor stor del er mellom 166 og 194 cm? Vi kjenner att grensene: $166 = 180 - 2 \\cdot 7$ og $194 = 180 + 2 \\cdot 7$ — intervallet er nøyaktig $\\mu \\pm 2\\sigma$. Regelen svarar med ein gong: cirka **95 %**. Slik bruker både klesprodusentar, møbeldesignarar og helsestyresmakter regelen dagleg: to standardavvik til kvar side dekkjer nesten alle."
+    },
+    {
+      "id": "s1-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eigenskapane til normalfordelinga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-3-n-quiz1-q0",
+            "task": "Kva påstand om normalfordelingskurva er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ho er symmetrisk om $\\mu$, og arealet under kurva er 1",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ho er symmetrisk om 0 uansett $\\mu$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho rører $x$-aksen ved $\\mu \\pm 3\\sigma$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Toppunktet ligg alltid i $x = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kurva er symmetrisk om forventningsverdien $\\mu$ med toppunkt der, nærmar seg aksen utan å røre han, og det totale arealet er 1."
+          },
+          {
+            "id": "s1-6-3-n-quiz1-q1",
+            "task": "Kva er hovudskilnaden på normalfordelinga og binomisk fordeling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Normalfordelinga gjeld berre for høgder",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Normalfordelinga er kontinuerleg, binomisk er diskret",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Binomisk fordeling har ikkje forventningsverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Normalfordelinga er aldri symmetrisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Binomisk fordeling tel (0, 1, 2, ...), medan normalfordelinga skildrar kontinuerlege storleikar der sannsynlegheiter er areal under kurva."
+          },
+          {
+            "id": "s1-6-3-n-quiz1-q2",
+            "task": "IQ-skårar er tilnærma $N(100, 15^2)$. Omtrent kor stor del har IQ mellom 85 og 115?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 50 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 68 %",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 95 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 99,7 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Intervallet $[85, 115]$ er $\\mu \\pm \\sigma$, og 68–95–99,7-regelen gir ca. 68 %."
+          },
+          {
+            "id": "s1-6-3-n-quiz1-q3",
+            "task": "Høgder er $N(180, 7^2)$. Omtrent kor stor del av mennene er høgare enn 194 cm?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 5 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 32 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 2,3 %",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ca. 0,3 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$194 = \\mu + 2\\sigma$. Utanfor $\\mu \\pm 2\\sigma$ ligg ca. 4,6 %, og av symmetri er halvparten — ca. 2,3 % — over 194 cm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-3-n-section2",
+      "type": "text",
+      "content": "## Z-score — det universelle måleinstrumentet\n\n68–95–99,7-regelen treffer berre ved heile standardavvik. Kva når grensa er 172 cm — som korkje er $\\mu - \\sigma$ eller $\\mu - 2\\sigma$? Då treng vi den nøyaktige metoden: **standardisering**.\n\nTrikset er å omsetje kvar normalfordeling til éin felles referanse, **standardnormalfordelinga** $Z \\sim N(0, 1)$ med gjennomsnitt 0 og standardavvik 1. Omsetjinga heiter **z-score**:\n\n$$Z = \\frac{X - \\mu}{\\sigma}$$\n\nZ-scoren svarar på spørsmålet «kor mange standardavvik frå gjennomsnittet ligg denne verdien?» Positiv $z$ tyder over gjennomsnittet, negativ under, og null tyder midt på. Sannsynlegheiter følgjer med på kjøpet: $P(X \\leq x) = P\\!\\left(Z \\leq \\frac{x-\\mu}{\\sigma}\\right)$, og for $Z$ finst tabellar og kalkulatorfunksjonar.\n\nLat oss rekne. Kor stor del menn er kortare enn 172 cm når $X \\sim N(180, 7^2)$? Først z-scoren: $z = \\frac{172 - 180}{7} \\approx -1{,}14$. Tabellen gir $P(Z < -1{,}14) \\approx 0{,}127$ — cirka 12,7 %.\n\nFor eit *intervall* standardiserer vi begge grensene og tek differansen av areala. Kva er $P(175 < X < 190)$? Grensene gir $z_1 = \\frac{175-180}{7} \\approx -0{,}714$ og $z_2 = \\frac{190-180}{7} \\approx 1{,}429$, og\n\n$$P(175 < X < 190) = P(Z < 1{,}429) - P(Z < -0{,}714) \\approx 0{,}9234 - 0{,}2376 = 0{,}686$$\n\nZ-scoren er dessutan eit samanlikningsverktøy i seg sjølv. Er 187 cm høgd ($z = 1{,}0$) meir uvanleg enn IQ 130 ($z = 2{,}0$)? Z-scorane avgjer: IQ-en er klart sjeldnare. Slik samanliknar forskarar eple og pærer — testresultat, blodverdiar, eksamenskarakterar — på éin felles skala."
+    },
+    {
+      "id": "s1-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på z-score:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-3-n-quiz2-q0",
+            "task": "Kva er formelen for z-score?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$z = \\dfrac{\\mu - x}{\\sigma^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$z = \\dfrac{x + \\mu}{\\sigma}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$z = \\sigma(x - \\mu)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$z = \\dfrac{x - \\mu}{\\sigma}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$z = \\frac{x - \\mu}{\\sigma}$ — avstanden frå gjennomsnittet målt i standardavvik."
+          },
+          {
+            "id": "s1-6-3-n-quiz2-q1",
+            "task": "$X \\sim N(50, 10^2)$. Kva er z-scoren til $x = 35$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-1{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$z = \\frac{35 - 50}{10} = -1{,}5$ — verdien ligg 1,5 standardavvik under gjennomsnittet."
+          },
+          {
+            "id": "s1-6-3-n-quiz2-q2",
+            "task": "Kva tyder ein z-score på $0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Verdien er umogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Verdien er eitt standardavvik under gjennomsnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Verdien er nøyaktig lik gjennomsnittet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Sannsynet er 0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$z = 0$ gir $x = \\mu$: verdien ligg midt i fordelinga. Halvparten av verdiane ligg under, halvparten over."
+          },
+          {
+            "id": "s1-6-3-n-quiz2-q3",
+            "task": "Korleis bereknar vi $P(a < X < b)$ for ein normalfordelt $X$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(Z < z_b) + P(Z < z_a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(Z < z_b) \\cdot P(Z < z_a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1 - P(Z < z_a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$P(Z < z_b) - P(Z < z_a)$ der $z_a$ og $z_b$ er dei standardiserte grensene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Standardiser begge grensene og ta differansen av dei kumulative sannsynlegheitene: arealet mellom $a$ og $b$."
+          },
+          {
+            "id": "s1-6-3-n-quiz2-q4",
+            "task": "Ein elev har $z = 1{,}8$ i matematikk og $z = 0{,}9$ i norsk. Kva kan vi konkludere?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Prestasjonen i matematikk er meir uvanleg sterk relativt til faget sitt enn prestasjonen i norsk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eleven er dobbelt så god i matematikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eleven fekk høgare poengsum i norsk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting — z-scorar kan ikkje samanliknast på tvers av fag",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Z-scoren måler avstand frå gjennomsnittet i standardavvik og gjer prestasjonar i ulike fordelingar samanliknbare — 1,8 standardavvik over snittet er sjeldnare enn 0,9."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-3-n-section3",
+      "type": "text",
+      "content": "## Når klokka tek over for binomisk fordeling\n\nHugsar du valanalytikaren med $X \\sim \\text{Bin}(100, 0{,}4)$? Å berekne $P(X \\leq 45)$ eksakt krev summering av 46 binomiske ledd. Men teiknar du stolpediagrammet for denne fordelinga, ser du noko påfallande: stolpane formar — ei klokke. Det er ikkje tilfeldig, og det gir oss ein snarveg.\n\n**Normalapproksimasjonen** seier at når $n$ er tilstrekkeleg stor, kan ei binomisk fordeling tilnærmast med ei normalfordeling med same forventning og varians:\n\n$$X \\approx N(np, \\; np(1-p))$$\n\nTommelfingerregelen for når dette er trygt: $np \\geq 5$ *og* $n(1-p) \\geq 5$ — det må vere «nok» av både suksessar og fiaskoar til at klokka får plass utan å bli kutta av ved 0 eller $n$.\n\nÉi finurleg detalj står att. Binomisk fordeling er diskret (stolpar på heiltal), normalfordelinga kontinuerleg (glatt kurve). Stolpen for verdien 45 strekkjer seg eigentleg frå 44,5 til 45,5, så for å få med heile stolpen bruker vi **kontinuitetskorreksjon**: vi flyttar grensa eit halvt hakk utover,\n\n$$P(X \\leq k) \\approx P\\left(Z \\leq \\frac{k + 0{,}5 - np}{\\sqrt{np(1-p)}}\\right)$$\n\nNo løyser vi eksempelet. Parametrane er $\\mu = np = 40$ og $\\sigma = \\sqrt{100 \\cdot 0{,}4 \\cdot 0{,}6} = \\sqrt{24} \\approx 4{,}899$, og sjekken passerer: $np = 40 \\geq 5$, $n(1-p) = 60 \\geq 5$. Med korreksjon: $z = \\frac{45{,}5 - 40}{4{,}899} \\approx 1{,}123$, og tabellen gir\n\n$$P(X \\leq 45) \\approx P(Z \\leq 1{,}123) \\approx 0{,}869$$\n\nÉi enkel z-berekning erstatta 46 ledd. Dette er grunnen til at meiningsmålingar kan oppgi feilmarginar og valkveldar kan kalle resultat tidleg: bak kulissane er det normalapproksimasjonen som reknar."
+    },
+    {
+      "id": "s1-6-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på normalapproksimasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-3-n-quiz3-q0",
+            "task": "Kva normalfordeling tilnærmar $X \\sim \\text{Bin}(n, p)$ når $n$ er stor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$N(p, \\; n)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$N(np, \\; np(1-p))$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$N(n, \\; p)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$N(np, \\; \\sqrt{n})$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forventning og varians blir haldne: $\\mu = np$ og $\\sigma^2 = np(1-p)$."
+          },
+          {
+            "id": "s1-6-3-n-quiz3-q1",
+            "task": "Kva er tommelfingerregelen for når normalapproksimasjonen er god?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$n \\geq 30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$p = 0{,}5$ nøyaktig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$np \\geq 5$ og $n(1-p) \\geq 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$np(1-p) \\leq 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Både forventa tal på suksessar og forventa tal på fiaskoar må vere minst 5, elles blir klokka for skeiv eller avkutta."
+          },
+          {
+            "id": "s1-6-3-n-quiz3-q2",
+            "task": "Kvifor bruker vi kontinuitetskorreksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi normalfordelinga er skeiv",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å gjere svaret større",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi tabellane berre har positive z-verdiar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi den diskrete stolpen for $k$ dekkjer intervallet frå $k - 0{,}5$ til $k + 0{,}5$ på den kontinuerlege skalaen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi tilnærmar stolpar med areal: grensa blir flytta eit halvt hakk utover slik at heile stolpen for $k$ kjem med."
+          },
+          {
+            "id": "s1-6-3-n-quiz3-q3",
+            "task": "$X \\sim \\text{Bin}(400, 0{,}5)$. Kva parametrar får den tilnærma normalfordelinga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mu = 200$, $\\sigma = 10$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\mu = 200$, $\\sigma = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mu = 400$, $\\sigma = 0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mu = 200$, $\\sigma = \\sqrt{200}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\mu = np = 200$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{400 \\cdot 0{,}25} = \\sqrt{100} = 10$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: éi kurve for nesten alt\n\nForskaren på SSB såg same klokkeform i høgder, måleavvik og testskårar — og no veit du kvifor den forma fortener tittelen som den viktigaste i statistikken. **Normalfordelinga** $N(\\mu, \\sigma^2)$ er kontinuerleg, symmetrisk om $\\mu$, med toppunkt i $\\mu$ og totalt areal 1 under kurva; sannsynlegheiter er areal, og heile fasongen blir styrt av berre to tal — kor klokka står ($\\mu$) og kor brei ho er ($\\sigma$).\n\nFor raske overslag har vi **68–95–99,7-regelen**: cirka 68 % av verdiane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$ og 99,7 % innanfor $\\mu \\pm 3\\sigma$ — slik fann vi at 95 % av norske menn er mellom 166 og 194 cm. For nøyaktige svar standardiserer vi med **z-scoren** $z = \\frac{x - \\mu}{\\sigma}$, som måler avstanden frå gjennomsnittet i standardavvik og omset alle normalfordelingar til standardnormalen $Z \\sim N(0,1)$. Intervall blir handterte med differansar: $P(a < X < b) = P(Z < z_b) - P(Z < z_a)$. Z-scoren er samtidig samanlikningsverktøyet til forskaren på tvers av skalaar.\n\nTil slutt slo vi bru tilbake til førre kapittel: ei binomisk fordeling med stor $n$ er i praksis ei klokke, og **normalapproksimasjonen** $X \\approx N(np, np(1-p))$ — gyldig når $np \\geq 5$ og $n(1-p) \\geq 5$, og finjustert med det halve hakket til kontinuitetskorreksjonen — erstattar titals ledd med éi z-berekning. Det er denne mekanikken som ligg under feilmarginane i kvar einaste meiningsmåling. I dei neste kapitla skal vi bruke normalfordelinga som arbeidsverktøy i nettopp slike bruksområde."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "9bca6741a3f559db",
+    "translatedAt": "2026-06-20T03:17:31.048Z",
+    "model": "claude-code-agent",
+    "strings": 89,
+    "tm": {
+      "42fe12db23a18e60": "Normalfordelinga",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "bc64242102c35aa1": "Ei forteljing om klokkekurva som dukkar opp overalt -- frå sesjonshøgder hos SSB til feilmarginar på valnatta, med 68-95-99,7-regelen, z-score og normalapproksimasjon.",
+      "0fd65aa68fbb7358": "bruke normalfordelinga til å berekne sannsynlegheiter og tolke resultat",
+      "d2b1b4ca54b9caf0": "## Klokka som dukkar opp overalt\n\nPå Statistisk sentralbyrå sit ein forskar og plottar høgda til tusenvis av norske menn frå sesjonsdata. Eit mønster trer fram: dei fleste klumpar seg rundt 180 cm, færre og færre etter kvart som ein beveger seg ut mot 160 eller 200, og histogrammet formar ei perfekt symmetrisk klokke. Så plottar ho noko heilt anna — måleavvik frå eit fysikkeksperiment. Same klokke. IQ-skårar? Same klokke. Fødselsvekter? Same klokke igjen.\n\nDenne kurva blir kalla **normalfordelinga** (eller Gausskurva), og ho er den viktigaste sannsynsfordelinga i heile statistikken. Ho skildrar høgd og vekt i ein befolkning, måleusikkerheit i eksperiment, testresultat — og, ved store tal, til og med talet på feil i produksjon. At ho dukkar opp overalt er ingen tilfeldigheit: når eit resultat er summen av mange små, uavhengige bidrag — gen, kosthald, målefeil — ordnar totalen seg klokkeforma.\n\nNormalfordelinga skil seg frå dei fordelingane vi har møtt så langt på eitt viktig punkt: ho er **kontinuerleg**, ikkje diskret. Høgd kan vere 180,3 cm eller 180,31 cm — verdiane flyt. I dette kapittelet lærer du anatomien til klokka, tommelfingerregelen 68–95–99,7, det universelle måleinstrumentet **z-score**, og til slutt korleis normalfordelinga kan ta over jobben for binomisk fordeling når talet på forsøk blir stort.",
+      "defe0a88d571124e": "## Anatomien til klokka og 68–95–99,7-regelen\n\nEin stokastisk variabel $X$ er **normalfordelt** med forventningsverdi $\\mu$ og standardavvik $\\sigma$ — skrive $X \\sim N(\\mu, \\sigma^2)$ — når sannsynstettleiken er\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\cdot e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nFormelen ser fryktinngytande ut, men eigenskapane til kurva er vennlege: ho er symmetrisk om $\\mu$, har toppunkt i $x = \\mu$, nærmar seg $x$-aksen utan å røre han, og arealet under heile kurva er nøyaktig 1. For kontinuerlege fordelingar er det nettopp *areal* som er sannsynlegheiter: $P(a < X < b)$ er arealet under kurva mellom $a$ og $b$. Berre to tal styrer alt — $\\mu$ plasserer klokka, $\\sigma$ avgjer kor brei ho er.\n\nOg her kjem den mest praktiske eigenskapen til fordelinga, **68–95–99,7-regelen** (den empiriske regelen): omtrent 68,3 % av verdiane ligg innanfor eitt standardavvik frå gjennomsnittet, 95,4 % innanfor to, og heile 99,7 % innanfor tre. Det gjeld for *kvar* normalfordeling, uansett $\\mu$ og $\\sigma$.\n\nTilbake til sesjonsdataa: høgda til vaksne norske menn er tilnærma $N(180, 7^2)$. Kor stor del er mellom 166 og 194 cm? Vi kjenner att grensene: $166 = 180 - 2 \\cdot 7$ og $194 = 180 + 2 \\cdot 7$ — intervallet er nøyaktig $\\mu \\pm 2\\sigma$. Regelen svarar med ein gong: cirka **95 %**. Slik bruker både klesprodusentar, møbeldesignarar og helsestyresmakter regelen dagleg: to standardavvik til kvar side dekkjer nesten alle.",
+      "841eb10ecfce58f5": "Test deg sjølv på eigenskapane til normalfordelinga:",
+      "4097889236a2af26": "placeholder",
+      "2bd317bcb954103e": "Kva påstand om normalfordelingskurva er rett?",
+      "b5235543c3d02331": "Ho er symmetrisk om $\\mu$, og arealet under kurva er 1",
+      "7d7477d9d770e415": "Ho er symmetrisk om 0 uansett $\\mu$",
+      "d5cbeeeaae6c57db": "Ho rører $x$-aksen ved $\\mu \\pm 3\\sigma$",
+      "d5bc2d74b5ceffb9": "Toppunktet ligg alltid i $x = 0$",
+      "3bf59240197bf93f": "Kurva er symmetrisk om forventningsverdien $\\mu$ med toppunkt der, nærmar seg aksen utan å røre han, og det totale arealet er 1.",
+      "18bb1fe7a76a2c87": "Kva er hovudskilnaden på normalfordelinga og binomisk fordeling?",
+      "476cc96ea939c45a": "Normalfordelinga er kontinuerleg, binomisk er diskret",
+      "054abf17af68f949": "Normalfordelinga gjeld berre for høgder",
+      "af0f0e032412f72d": "Binomisk fordeling har ikkje forventningsverdi",
+      "725a06b523df8a67": "Normalfordelinga er aldri symmetrisk",
+      "e2de9d27fe06cb42": "Binomisk fordeling tel (0, 1, 2, ...), medan normalfordelinga skildrar kontinuerlege storleikar der sannsynlegheiter er areal under kurva.",
+      "c427bd25177fb7ee": "IQ-skårar er tilnærma $N(100, 15^2)$. Omtrent kor stor del har IQ mellom 85 og 115?",
+      "9c1ea785671db0ce": "Ca. 50 %",
+      "957a95891d180e3d": "Ca. 68 %",
+      "8c25c2853e8f21c1": "Ca. 95 %",
+      "be48271da5bb3ca7": "Ca. 99,7 %",
+      "b1f8552cd365d761": "Intervallet $[85, 115]$ er $\\mu \\pm \\sigma$, og 68–95–99,7-regelen gir ca. 68 %.",
+      "3828b0960cdb433c": "Høgder er $N(180, 7^2)$. Omtrent kor stor del av mennene er høgare enn 194 cm?",
+      "53c8167509ab6281": "Ca. 5 %",
+      "b821f82fcbfdad5e": "Ca. 2,3 %",
+      "dc1d3469e1793e6d": "Ca. 32 %",
+      "ebea901c5e33658b": "Ca. 0,3 %",
+      "d306389492556547": "$194 = \\mu + 2\\sigma$. Utanfor $\\mu \\pm 2\\sigma$ ligg ca. 4,6 %, og av symmetri er halvparten — ca. 2,3 % — over 194 cm.",
+      "d17635f5b8738ec8": "## Z-score — det universelle måleinstrumentet\n\n68–95–99,7-regelen treffer berre ved heile standardavvik. Kva når grensa er 172 cm — som korkje er $\\mu - \\sigma$ eller $\\mu - 2\\sigma$? Då treng vi den nøyaktige metoden: **standardisering**.\n\nTrikset er å omsetje kvar normalfordeling til éin felles referanse, **standardnormalfordelinga** $Z \\sim N(0, 1)$ med gjennomsnitt 0 og standardavvik 1. Omsetjinga heiter **z-score**:\n\n$$Z = \\frac{X - \\mu}{\\sigma}$$\n\nZ-scoren svarar på spørsmålet «kor mange standardavvik frå gjennomsnittet ligg denne verdien?» Positiv $z$ tyder over gjennomsnittet, negativ under, og null tyder midt på. Sannsynlegheiter følgjer med på kjøpet: $P(X \\leq x) = P\\!\\left(Z \\leq \\frac{x-\\mu}{\\sigma}\\right)$, og for $Z$ finst tabellar og kalkulatorfunksjonar.\n\nLat oss rekne. Kor stor del menn er kortare enn 172 cm når $X \\sim N(180, 7^2)$? Først z-scoren: $z = \\frac{172 - 180}{7} \\approx -1{,}14$. Tabellen gir $P(Z < -1{,}14) \\approx 0{,}127$ — cirka 12,7 %.\n\nFor eit *intervall* standardiserer vi begge grensene og tek differansen av areala. Kva er $P(175 < X < 190)$? Grensene gir $z_1 = \\frac{175-180}{7} \\approx -0{,}714$ og $z_2 = \\frac{190-180}{7} \\approx 1{,}429$, og\n\n$$P(175 < X < 190) = P(Z < 1{,}429) - P(Z < -0{,}714) \\approx 0{,}9234 - 0{,}2376 = 0{,}686$$\n\nZ-scoren er dessutan eit samanlikningsverktøy i seg sjølv. Er 187 cm høgd ($z = 1{,}0$) meir uvanleg enn IQ 130 ($z = 2{,}0$)? Z-scorane avgjer: IQ-en er klart sjeldnare. Slik samanliknar forskarar eple og pærer — testresultat, blodverdiar, eksamenskarakterar — på éin felles skala.",
+      "459463afff64e348": "Test deg sjølv på z-score:",
+      "bf564d95300ec5ec": "Kva er formelen for z-score?",
+      "622b9e36c0480c96": "$z = \\dfrac{x - \\mu}{\\sigma}$",
+      "d82af22f62d9ad36": "$z = \\dfrac{\\mu - x}{\\sigma^2}$",
+      "08e61e6615921296": "$z = \\dfrac{x + \\mu}{\\sigma}$",
+      "51f7ed406f4d20a9": "$z = \\sigma(x - \\mu)$",
+      "72c79295775040f1": "$z = \\frac{x - \\mu}{\\sigma}$ — avstanden frå gjennomsnittet målt i standardavvik.",
+      "c2327611d2090d89": "$X \\sim N(50, 10^2)$. Kva er z-scoren til $x = 35$?",
+      "08a045643bef45cc": "$z = \\frac{35 - 50}{10} = -1{,}5$ — verdien ligg 1,5 standardavvik under gjennomsnittet.",
+      "ac87da9dc1d8028a": "Kva tyder ein z-score på $0$?",
+      "c5f4be7ea0e4af34": "Verdien er umogleg",
+      "51c09e354aaef466": "Verdien er nøyaktig lik gjennomsnittet",
+      "6de94fcebfe86527": "Verdien er eitt standardavvik under gjennomsnittet",
+      "12b6a25f57510313": "Sannsynet er 0",
+      "7f55145437f896d5": "$z = 0$ gir $x = \\mu$: verdien ligg midt i fordelinga. Halvparten av verdiane ligg under, halvparten over.",
+      "aed2c4dcf0d5c83e": "Korleis bereknar vi $P(a < X < b)$ for ein normalfordelt $X$?",
+      "2d9bef13dea58973": "$P(Z < z_b) - P(Z < z_a)$ der $z_a$ og $z_b$ er dei standardiserte grensene",
+      "cfac493ae172ef49": "$P(Z < z_b) + P(Z < z_a)$",
+      "0e4c3d8c2fc46f3c": "$P(Z < z_b) \\cdot P(Z < z_a)$",
+      "9e086ad0b38584d7": "$1 - P(Z < z_a)$",
+      "7e8c7ff6b9569d65": "Standardiser begge grensene og ta differansen av dei kumulative sannsynlegheitene: arealet mellom $a$ og $b$.",
+      "62d7ae90d37b0a35": "Ein elev har $z = 1{,}8$ i matematikk og $z = 0{,}9$ i norsk. Kva kan vi konkludere?",
+      "9d6f50d5473c12b7": "Eleven er dobbelt så god i matematikk",
+      "ef006a34f621902a": "Prestasjonen i matematikk er meir uvanleg sterk relativt til faget sitt enn prestasjonen i norsk",
+      "a4a1ec9860a4b9ab": "Eleven fekk høgare poengsum i norsk",
+      "64b842102cf3a8dd": "Ingenting — z-scorar kan ikkje samanliknast på tvers av fag",
+      "2d89f5af1bd523c9": "Z-scoren måler avstand frå gjennomsnittet i standardavvik og gjer prestasjonar i ulike fordelingar samanliknbare — 1,8 standardavvik over snittet er sjeldnare enn 0,9.",
+      "74b10f3f384c53cb": "## Når klokka tek over for binomisk fordeling\n\nHugsar du valanalytikaren med $X \\sim \\text{Bin}(100, 0{,}4)$? Å berekne $P(X \\leq 45)$ eksakt krev summering av 46 binomiske ledd. Men teiknar du stolpediagrammet for denne fordelinga, ser du noko påfallande: stolpane formar — ei klokke. Det er ikkje tilfeldig, og det gir oss ein snarveg.\n\n**Normalapproksimasjonen** seier at når $n$ er tilstrekkeleg stor, kan ei binomisk fordeling tilnærmast med ei normalfordeling med same forventning og varians:\n\n$$X \\approx N(np, \\; np(1-p))$$\n\nTommelfingerregelen for når dette er trygt: $np \\geq 5$ *og* $n(1-p) \\geq 5$ — det må vere «nok» av både suksessar og fiaskoar til at klokka får plass utan å bli kutta av ved 0 eller $n$.\n\nÉi finurleg detalj står att. Binomisk fordeling er diskret (stolpar på heiltal), normalfordelinga kontinuerleg (glatt kurve). Stolpen for verdien 45 strekkjer seg eigentleg frå 44,5 til 45,5, så for å få med heile stolpen bruker vi **kontinuitetskorreksjon**: vi flyttar grensa eit halvt hakk utover,\n\n$$P(X \\leq k) \\approx P\\left(Z \\leq \\frac{k + 0{,}5 - np}{\\sqrt{np(1-p)}}\\right)$$\n\nNo løyser vi eksempelet. Parametrane er $\\mu = np = 40$ og $\\sigma = \\sqrt{100 \\cdot 0{,}4 \\cdot 0{,}6} = \\sqrt{24} \\approx 4{,}899$, og sjekken passerer: $np = 40 \\geq 5$, $n(1-p) = 60 \\geq 5$. Med korreksjon: $z = \\frac{45{,}5 - 40}{4{,}899} \\approx 1{,}123$, og tabellen gir\n\n$$P(X \\leq 45) \\approx P(Z \\leq 1{,}123) \\approx 0{,}869$$\n\nÉi enkel z-berekning erstatta 46 ledd. Dette er grunnen til at meiningsmålingar kan oppgi feilmarginar og valkveldar kan kalle resultat tidleg: bak kulissane er det normalapproksimasjonen som reknar.",
+      "8f184657140eafa6": "Test deg sjølv på normalapproksimasjon:",
+      "0dfebafe0ed7b3a9": "Kva normalfordeling tilnærmar $X \\sim \\text{Bin}(n, p)$ når $n$ er stor?",
+      "193f47691b9b54ad": "$N(np, \\; np(1-p))$",
+      "3deac2c50050b6b9": "$N(p, \\; n)$",
+      "35a725db94bae309": "$N(n, \\; p)$",
+      "df451b7a493c599f": "$N(np, \\; \\sqrt{n})$",
+      "068abd9eded10461": "Forventning og varians blir haldne: $\\mu = np$ og $\\sigma^2 = np(1-p)$.",
+      "349e771743293dfb": "Kva er tommelfingerregelen for når normalapproksimasjonen er god?",
+      "ac39f761dd8033d7": "$n \\geq 30$",
+      "4ec2a16deee2cee5": "$np \\geq 5$ og $n(1-p) \\geq 5$",
+      "ec25adf01d9697a8": "$p = 0{,}5$ nøyaktig",
+      "cb83232fbc6322a2": "$np(1-p) \\leq 5$",
+      "da179eb5304b2281": "Både forventa tal på suksessar og forventa tal på fiaskoar må vere minst 5, elles blir klokka for skeiv eller avkutta.",
+      "7b440b0e1adceb08": "Kvifor bruker vi kontinuitetskorreksjon?",
+      "b86e6f9da3fa0189": "Fordi normalfordelinga er skeiv",
+      "1da69f71bc3362a2": "Fordi den diskrete stolpen for $k$ dekkjer intervallet frå $k - 0{,}5$ til $k + 0{,}5$ på den kontinuerlege skalaen",
+      "7057637047f0b868": "For å gjere svaret større",
+      "d545308005bcf1d0": "Fordi tabellane berre har positive z-verdiar",
+      "ed3e516dcb50536d": "Vi tilnærmar stolpar med areal: grensa blir flytta eit halvt hakk utover slik at heile stolpen for $k$ kjem med.",
+      "9211934a3f829761": "$X \\sim \\text{Bin}(400, 0{,}5)$. Kva parametrar får den tilnærma normalfordelinga?",
+      "cb9f776bebaa2da8": "$\\mu = 200$, $\\sigma = 10$",
+      "26aeff55d9bd3760": "$\\mu = 200$, $\\sigma = 100$",
+      "f607fa61aea33fe0": "$\\mu = 400$, $\\sigma = 0{,}5$",
+      "45ca53b1fd8b942b": "$\\mu = 200$, $\\sigma = \\sqrt{200}$",
+      "b0f9ae2879333aef": "$\\mu = np = 200$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{400 \\cdot 0{,}25} = \\sqrt{100} = 10$.",
+      "e9954bd8323fce58": "## Oppsummering: éi kurve for nesten alt\n\nForskaren på SSB såg same klokkeform i høgder, måleavvik og testskårar — og no veit du kvifor den forma fortener tittelen som den viktigaste i statistikken. **Normalfordelinga** $N(\\mu, \\sigma^2)$ er kontinuerleg, symmetrisk om $\\mu$, med toppunkt i $\\mu$ og totalt areal 1 under kurva; sannsynlegheiter er areal, og heile fasongen blir styrt av berre to tal — kor klokka står ($\\mu$) og kor brei ho er ($\\sigma$).\n\nFor raske overslag har vi **68–95–99,7-regelen**: cirka 68 % av verdiane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$ og 99,7 % innanfor $\\mu \\pm 3\\sigma$ — slik fann vi at 95 % av norske menn er mellom 166 og 194 cm. For nøyaktige svar standardiserer vi med **z-scoren** $z = \\frac{x - \\mu}{\\sigma}$, som måler avstanden frå gjennomsnittet i standardavvik og omset alle normalfordelingar til standardnormalen $Z \\sim N(0,1)$. Intervall blir handterte med differansar: $P(a < X < b) = P(Z < z_b) - P(Z < z_a)$. Z-scoren er samtidig samanlikningsverktøyet til forskaren på tvers av skalaar.\n\nTil slutt slo vi bru tilbake til førre kapittel: ei binomisk fordeling med stor $n$ er i praksis ei klokke, og **normalapproksimasjonen** $X \\approx N(np, np(1-p))$ — gyldig når $np \\geq 5$ og $n(1-p) \\geq 5$, og finjustert med det halve hakket til kontinuitetskorreksjonen — erstattar titals ledd med éi z-berekning. Det er denne mekanikken som ligg under feilmarginane i kvar einaste meiningsmåling. I dei neste kapitla skal vi bruke normalfordelinga som arbeidsverktøy i nettopp slike bruksområde."
+    }
+  }
+}

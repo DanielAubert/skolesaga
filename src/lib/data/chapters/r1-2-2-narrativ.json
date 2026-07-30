@@ -1,1 +1,425 @@
-{"id":"r1-2-2-narrativ","courseId":"r1","chapterNumber":"2.2","title":"Omvendte funksjoner","subtitle":"Narrativ versjon","description":"En fortelling om å kjøre funksjoner baklengs -- fra kryptering og dekryptering til speilingen om linjen y = x, og om hvorfor bare en-til-en-funksjoner kan angres.","estimatedMinutes":35,"competenceGoals":["forstå begrepet omvendt (invers) funksjon","avgjøre når en funksjon har en omvendt funksjon","finne omvendt funksjon algebraisk","forstå sammenhengen mellom grafene til $f$ og $f^{-1}$"],"linkedChapterId":"r1-2-2","content":[{"id":"r1-2-2-n-intro","type":"text","content":"## Maskinen som går baklengs\n\nHver gang du logger inn på nettbanken, skjer det en samtale i to retninger: meldingen din *krypteres* -- forvandles til uleselig kode -- og hos mottakeren *dekrypteres* den tilbake til klartekst. Dekrypteringen må angre krypteringen perfekt: hver eneste kodet melding må føre tilbake til nøyaktig den klarteksten den kom fra. Krypteringen er en funksjon; dekrypteringen er dens **omvendte funksjon**.\n\nTanken om å «angre» en funksjon dukker opp overalt. Termometeret regner celsius om til fahrenheit med $F = 1{,}8C + 32$; den omvendte funksjonen regner tilbake. Eksponentialfunksjonen $e^x$ pakker inn, logaritmen $\\ln x$ pakker ut -- det var jo nettopp invers-sammenhengen fra kapittel 1.2. Kvadratet og kvadratroten, dobling og halvering: matematikken er full av operasjonspar som opphever hverandre.\n\nMen legg merke til noe ved krypteringseksempelet: angringen er bare mulig fordi *to ulike meldinger aldri får samme kode*. Hadde både «JA» og «NEI» blitt kryptert til samme tegnstreng, ville dekrypteringen stått hjelpeløs -- hvilken melding var det? Dette er kapittelets dypeste poeng: en funksjon kan bare reverseres hvis den aldri sender to ulike innverdier til samme utverdi. Slike funksjoner kalles **en-til-en**.\n\nI dette kapittelet lærer du å avgjøre når en omvendt funksjon finnes, å regne den ut, og å se det vakre geometriske båndet mellom en funksjon og dens omvendte: grafene deres er speilbilder om linjen $y = x$."},{"id":"r1-2-2-n-section1","type":"text","content":"## Når kan en funksjon angres?\n\nDen **omvendte funksjonen** $f^{-1}$ er definert ved at den snur sammenhengen:\n\n$$f^{-1}(y) = x \\quad \\Leftrightarrow \\quad f(x) = y$$\n\nSetter du de to sammen, opphever de hverandre: $f^{-1}(f(x)) = x$ og $f(f^{-1}(y)) = y$. En viktig advarsel om notasjonen med en gang: $f^{-1}$ betyr *ikke* $\\frac{1}{f}$. Det er et navn på den omvendte funksjonen, ikke en potens.\n\nNår finnes $f^{-1}$? Husk dekrypteringsproblemet: hvis to meldinger får samme kode, kan ingen angre. Kravet er at $f$ er **en-til-en** (injektiv): ulike innverdier gir alltid ulike utverdier, altså $f(x_1) = f(x_2) \\Rightarrow x_1 = x_2$. Grafisk har en-til-en en elegant test: **hver horisontal linje skjærer grafen i høyst ett punkt**. En horisontal linje samler jo alle punkter med samme $y$-verdi -- skjærer den grafen to ganger, finnes det to $x$-er med samme $y$, og angringen bryter sammen.\n\nTest noen kandidater. $f(x) = 2x + 3$: hvis $2x_1 + 3 = 2x_2 + 3$, må $x_1 = x_2$ -- en-til-en, invers finnes. $h(x) = e^x$ er strengt voksende, så to ulike $x$-verdier gir alltid ulike funksjonsverdier -- en-til-en. Men $g(x) = x^2$ stryker på testen: $g(-2) = g(2) = 4$, to innverdier med samme utverdi. Parabelen skjæres to ganger av linjen $y = 4$.\n\nLikevel er ikke alt håp ute for $x^2$. *Begrenser* vi definisjonsmengden til $x \\geq 0$, beholder vi bare høyre halvdel av parabelen -- og den er strengt voksende og en-til-en. Det er nøyaktig derfor kvadratroten finnes: $\\sqrt{x}$ er den omvendte av $x^2$ *på* $[0, \\infty)$. Å skreddersy definisjonsmengden er et standardtriks for å gjøre funksjoner reversible."},{"id":"r1-2-2-n-quiz1","type":"exercise","exercise":{"id":"r1-2-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på en-til-en og eksistens av omvendt funksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-2-n-quiz1-q0","task":"Hvilken av disse funksjonene har en omvendt funksjon på hele $\\mathbb{R}$?","options":[{"id":"a","text":"$g(x) = x^2$","isCorrect":false},{"id":"b","text":"$k(x) = |x|$","isCorrect":false},{"id":"c","text":"$f(x) = 2x + 3$","isCorrect":true},{"id":"d","text":"$m(x) = x^2 + x$","isCorrect":false}],"solution":"$f(x) = 2x+3$ er strengt voksende og dermed en-til-en: $2x_1 + 3 = 2x_2 + 3$ gir $x_1 = x_2$. De andre sender to ulike $x$-verdier til samme $y$."},{"id":"r1-2-2-n-quiz1-q1","task":"Hvorfor har $g(x) = x^2$ ingen omvendt funksjon på hele $\\mathbb{R}$?","options":[{"id":"a","text":"Fordi $g(-2) = g(2) = 4$ -- to innverdier gir samme utverdi","isCorrect":true},{"id":"b","text":"Fordi $g$ ikke er definert for negative $x$","isCorrect":false},{"id":"c","text":"Fordi $g$ vokser for fort","isCorrect":false},{"id":"d","text":"Fordi $g(0) = 0$","isCorrect":false}],"solution":"En omvendt funksjon må kunne svare entydig på «hvilken $x$ ga denne $y$-en?». Når både $-2$ og $2$ gir $4$, finnes ikke noe entydig svar."},{"id":"r1-2-2-n-quiz1-q2","task":"Hva er den grafiske testen for at $f$ er en-til-en?","options":[{"id":"a","text":"Grafen går gjennom origo","isCorrect":false},{"id":"b","text":"Hver horisontal linje skjærer grafen i høyst ett punkt","isCorrect":true},{"id":"c","text":"Hver vertikal linje skjærer grafen i høyst ett punkt","isCorrect":false},{"id":"d","text":"Grafen er symmetrisk om $y$-aksen","isCorrect":false}],"solution":"En horisontal linje samler punkter med samme $y$-verdi. Skjærer den grafen høyst én gang, gir hver $y$-verdi høyst én $x$ -- funksjonen kan angres."},{"id":"r1-2-2-n-quiz1-q3","task":"Hva betyr notasjonen $f^{-1}$?","options":[{"id":"a","text":"$\\frac{1}{f}$","isCorrect":false},{"id":"b","text":"Den deriverte av $f$","isCorrect":false},{"id":"c","text":"$f$ opphøyd i $-1$","isCorrect":false},{"id":"d","text":"Den omvendte funksjonen til $f$","isCorrect":true}],"solution":"$f^{-1}$ er navnet på den omvendte funksjonen, som angrer $f$. Det betyr ikke $\\frac{1}{f}$."}]}},{"id":"r1-2-2-n-section2","type":"text","content":"## Å regne ut den omvendte funksjonen\n\nNår den omvendte funksjonen finnes, finner vi den med en fast oppskrift i tre steg: **skriv $y = f(x)$, løs ligningen for $x$, og bytt om $x$ og $y$** til slutt (slik at den nye funksjonen også får hete «$y$ av $x$»).\n\nEnkleste tilfelle først: $f(x) = 2x + 3$. Vi skriver $y = 2x + 3$, løser for $x$: $x = \\frac{y-3}{2}$, og bytter navn: $f^{-1}(x) = \\frac{x-3}{2}$. Legg merke til logikken i svaret: $f$ ganger med to og legger til tre; $f^{-1}$ trekker fra tre og deler på to -- *omvendte operasjoner i omvendt rekkefølge*, akkurat som når du tar av deg skoene før sokkene.\n\nSamme oppskrift takler tredjegrad: $g(x) = x^3 - 1$ gir $y + 1 = x^3$, så $x = \\sqrt[3]{y+1}$ og $g^{-1}(x) = \\sqrt[3]{x+1}$. Og den takler brøker, med litt mer fingerarbeid: for $h(x) = \\frac{x+1}{x-2}$ ganger vi opp, $y(x-2) = x+1$, samler alle $x$-ledd på én side, $x(y-1) = 2y+1$, og får $h^{-1}(x) = \\frac{2x+1}{x-1}$.\n\nDe mest lærerike eksemplene involverer eksponential- og logaritmefunksjoner, for der er «angringen» selve invers-sammenhengen fra kapittel 1.2. For $f(x) = e^{2x}$: ta $\\ln$ på begge sider, $\\ln y = 2x$, så $f^{-1}(x) = \\frac{\\ln x}{2}$ -- med definisjonsmengde $(0, \\infty)$, siden bare positive tall har logaritme. For $g(x) = \\ln(x-1) + 2$ går vi motsatt vei: $y - 2 = \\ln(x-1)$ gir $e^{y-2} = x - 1$, så $g^{-1}(x) = e^{x-2} + 1$. Logaritmen løses opp med eksponentialfunksjonen, og omvendt -- de to familiene er hverandres omvendte funksjoner, i ordets presise forstand."},{"id":"r1-2-2-n-quiz2","type":"exercise","exercise":{"id":"r1-2-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på å finne omvendt funksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-2-n-quiz2-q0","task":"Hva er den omvendte funksjonen til $f(x) = 2x + 3$?","options":[{"id":"a","text":"$f^{-1}(x) = \\frac{x+3}{2}$","isCorrect":false},{"id":"b","text":"$f^{-1}(x) = \\frac{x-3}{2}$","isCorrect":true},{"id":"c","text":"$f^{-1}(x) = \\frac{2}{x} - 3$","isCorrect":false},{"id":"d","text":"$f^{-1}(x) = 3x + 2$","isCorrect":false}],"solution":"$y = 2x + 3$ gir $x = \\frac{y-3}{2}$, altså $f^{-1}(x) = \\frac{x-3}{2}$: trekk fra 3, del på 2 -- omvendte operasjoner i omvendt rekkefølge."},{"id":"r1-2-2-n-quiz2-q1","task":"Hva er den omvendte funksjonen til $g(x) = x^3 - 1$?","options":[{"id":"a","text":"$g^{-1}(x) = \\sqrt[3]{x} + 1$","isCorrect":false},{"id":"b","text":"$g^{-1}(x) = \\frac{1}{x^3-1}$","isCorrect":false},{"id":"c","text":"$g^{-1}(x) = (x+1)^3$","isCorrect":false},{"id":"d","text":"$g^{-1}(x) = \\sqrt[3]{x+1}$","isCorrect":true}],"solution":"$y = x^3 - 1$ gir $x^3 = y + 1$, så $x = \\sqrt[3]{y+1}$ og $g^{-1}(x) = \\sqrt[3]{x+1}$."},{"id":"r1-2-2-n-quiz2-q2","task":"Hva er den omvendte funksjonen til $f(x) = e^{2x}$?","options":[{"id":"a","text":"$f^{-1}(x) = \\frac{\\ln x}{2}$ for $x > 0$","isCorrect":true},{"id":"b","text":"$f^{-1}(x) = e^{-2x}$","isCorrect":false},{"id":"c","text":"$f^{-1}(x) = 2\\ln x$","isCorrect":false},{"id":"d","text":"$f^{-1}(x) = \\frac{1}{e^{2x}}$","isCorrect":false}],"solution":"$y = e^{2x}$ gir $\\ln y = 2x$, altså $f^{-1}(x) = \\frac{\\ln x}{2}$. Definisjonsmengden er $(0,\\infty)$ -- verdimengden til $e^{2x}$."},{"id":"r1-2-2-n-quiz2-q3","task":"Hva er den omvendte funksjonen til $g(x) = \\ln(x-1) + 2$?","options":[{"id":"a","text":"$g^{-1}(x) = \\ln(x+1) - 2$","isCorrect":false},{"id":"b","text":"$g^{-1}(x) = e^{x+2} - 1$","isCorrect":false},{"id":"c","text":"$g^{-1}(x) = e^{x-2} + 1$","isCorrect":true},{"id":"d","text":"$g^{-1}(x) = \\frac{1}{\\ln(x-1)+2}$","isCorrect":false}],"solution":"$y - 2 = \\ln(x-1)$ gir $x - 1 = e^{y-2}$, altså $g^{-1}(x) = e^{x-2} + 1$."}]}},{"id":"r1-2-2-n-section3","type":"text","content":"## Speilbildet i linjen $y = x$\n\nDet fineste ved omvendte funksjoner er geometrien deres. Hvis punktet $(a, b)$ ligger på grafen til $f$ -- altså $f(a) = b$ -- så sier definisjonen at $f^{-1}(b) = a$, så punktet $(b, a)$ ligger på grafen til $f^{-1}$. Hvert punkt får koordinatene sine *byttet om*. Og å bytte $x$- og $y$-koordinater er nøyaktig det samme som å speile punktet om linjen $y = x$, diagonalen i koordinatsystemet.\n\nDermed: **grafen til $f^{-1}$ er speilbildet av grafen til $f$ om linjen $y = x$.** Tegn $e^x$ og $\\ln x$ i samme koordinatsystem, og du ser to kurver som bøyer seg mot hverandre i perfekt speilsymmetri om diagonalen. Det samme gjelder $x^2$ (for $x \\geq 0$) og $\\sqrt{x}$ -- høyrehalvdelen av parabelen og rotkurven er speiltvillinger.\n\nSpeilingen forklarer også hva som skjer med definisjonsmengde og verdimengde. Når alle punkter bytter koordinater, bytter de to mengdene rolle:\n\n$$D_{f^{-1}} = V_f \\qquad \\text{og} \\qquad V_{f^{-1}} = D_f$$\n\nInnverdiene til den omvendte funksjonen er jo nettopp utverdiene til originalen -- dekrypteringen tar imot nøyaktig de kodene krypteringen produserer.\n\nEt komplett eksempel samler trådene. La $f(x) = \\sqrt{x}$ med $D_f = [0, \\infty)$ og $V_f = [0, \\infty)$. Oppskriften gir $y = \\sqrt{x}$, altså $x = y^2$, så $f^{-1}(x) = x^2$ -- men bare på $D_{f^{-1}} = V_f = [0, \\infty)$! Den omvendte er ikke hele parabelen, bare høyre halvdel. Begrensningen er ikke pedanteri; den er selve grunnen til at paret fungerer som funksjon og omvendt funksjon. Hver gang du oppgir en omvendt funksjon, hører definisjonsmengden med til svaret."},{"id":"r1-2-2-n-quiz3","type":"exercise","exercise":{"id":"r1-2-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på grafisk sammenheng og mengder:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-2-n-quiz3-q0","task":"Hvordan henger grafene til $f$ og $f^{-1}$ sammen?","options":[{"id":"a","text":"De er speilbilder om $x$-aksen","isCorrect":false},{"id":"b","text":"De er parallellforskjøvet","isCorrect":false},{"id":"c","text":"De er speilbilder om linjen $y = x$","isCorrect":true},{"id":"d","text":"De er speilbilder om $y$-aksen","isCorrect":false}],"solution":"Hvis $(a,b)$ ligger på grafen til $f$, ligger $(b,a)$ på grafen til $f^{-1}$. Å bytte koordinater er å speile om diagonalen $y = x$."},{"id":"r1-2-2-n-quiz3-q1","task":"Hva er sammenhengen mellom mengdene til $f$ og $f^{-1}$?","options":[{"id":"a","text":"$D_{f^{-1}} = V_f$ og $V_{f^{-1}} = D_f$","isCorrect":true},{"id":"b","text":"$D_{f^{-1}} = D_f$ og $V_{f^{-1}} = V_f$","isCorrect":false},{"id":"c","text":"$D_{f^{-1}} = \\mathbb{R}$ alltid","isCorrect":false},{"id":"d","text":"Mengdene har ingen sammenheng","isCorrect":false}],"solution":"Den omvendte funksjonen tar imot utverdiene til $f$ og leverer innverdiene -- definisjonsmengde og verdimengde bytter plass."},{"id":"r1-2-2-n-quiz3-q2","task":"Punktet $(2, 5)$ ligger på grafen til $f$. Hvilket punkt ligger da på grafen til $f^{-1}$?","options":[{"id":"a","text":"$(-2, -5)$","isCorrect":false},{"id":"b","text":"$(5, 2)$","isCorrect":true},{"id":"c","text":"$(2, -5)$","isCorrect":false},{"id":"d","text":"$(-5, -2)$","isCorrect":false}],"solution":"$f(2) = 5$ betyr $f^{-1}(5) = 2$, så punktet $(5, 2)$ ligger på grafen til $f^{-1}$."},{"id":"r1-2-2-n-quiz3-q3","task":"Hva er den omvendte funksjonen til $f(x) = \\sqrt{x}$?","options":[{"id":"a","text":"$f^{-1}(x) = x^2$ for alle $x \\in \\mathbb{R}$","isCorrect":false},{"id":"b","text":"$f^{-1}(x) = \\frac{1}{\\sqrt{x}}$","isCorrect":false},{"id":"c","text":"$f^{-1}(x) = -\\sqrt{x}$","isCorrect":false},{"id":"d","text":"$f^{-1}(x) = x^2$ for $x \\geq 0$","isCorrect":true}],"solution":"$y = \\sqrt{x}$ gir $x = y^2$, men definisjonsmengden til $f^{-1}$ er $V_f = [0, \\infty)$. Uten begrensningen ville $x^2$ ikke vært en-til-en."}]}},{"id":"r1-2-2-n-summary","type":"text","content":"## Fortellingen i et nøtteskall\n\nKryptering og dekryptering viste oss ideen: en **omvendt funksjon** $f^{-1}$ angrer $f$, presist uttrykt ved $f^{-1}(y) = x \\Leftrightarrow f(x) = y$, slik at $f^{-1}(f(x)) = x$. Og husk: $f^{-1}$ er et navn, ikke brøken $\\frac{1}{f}$.\n\nAngring krever entydighet. Bare **en-til-en**-funksjoner -- der ulike innverdier alltid gir ulike utverdier -- kan reverseres. Den grafiske testen er horisontale linjer: skjærer ingen av dem grafen mer enn én gang, er funksjonen en-til-en. Strengt voksende eller strengt avtagende funksjoner består alltid testen; $x^2$ stryker på hele $\\mathbb{R}$, men består når vi begrenser til $x \\geq 0$ -- og det er slik kvadratroten blir til.\n\nSelve utregningen følger tre steg: skriv $y = f(x)$, løs for $x$, bytt om $x$ og $y$. Lineære funksjoner, tredjegradsuttrykk, brøker -- og ikke minst eksponential- og logaritmefunksjoner, som viser seg å være hverandres omvendte: $e^x$ og $\\ln x$ pakker inn og pakker ut.\n\nGeometrien binder alt sammen: grafene til $f$ og $f^{-1}$ er **speilbilder om linjen $y = x$**, fordi hvert punkt $(a, b)$ blir til $(b, a)$. Av samme grunn bytter mengdene plass: $D_{f^{-1}} = V_f$ og $V_{f^{-1}} = D_f$.\n\nOmvendte funksjoner er mer enn et kapittel -- de er et tankemønster. Hver gang du «løser en ligning», kjører du i praksis en funksjon baklengs. Og i derivasjonskapitlene får speilingen om $y = x$ et overraskende etterspill for tangentene."}],"exercises":[]}
+{
+  "id": "r1-2-2-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "2.2",
+  "title": "Omvendte funksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å kjøre funksjoner baklengs -- fra kryptering og dekryptering til speilingen om linjen y = x, og om hvorfor bare en-til-en-funksjoner kan angres.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå begrepet omvendt (invers) funksjon",
+    "avgjøre når en funksjon har en omvendt funksjon",
+    "finne omvendt funksjon algebraisk",
+    "forstå sammenhengen mellom grafene til $f$ og $f^{-1}$"
+  ],
+  "linkedChapterId": "r1-2-2",
+  "content": [
+    {
+      "id": "r1-2-2-n-intro",
+      "type": "text",
+      "content": "## Maskinen som går baklengs\n\nHver gang du logger inn på nettbanken, skjer det en samtale i to retninger: meldingen din *krypteres* -- forvandles til uleselig kode -- og hos mottakeren *dekrypteres* den tilbake til klartekst. Dekrypteringen må angre krypteringen perfekt: hver eneste kodet melding må føre tilbake til nøyaktig den klarteksten den kom fra. Krypteringen er en funksjon; dekrypteringen er dens **omvendte funksjon**.\n\nTanken om å «angre» en funksjon dukker opp overalt. Termometeret regner celsius om til fahrenheit med $F = 1{,}8C + 32$; den omvendte funksjonen regner tilbake. Eksponentialfunksjonen $e^x$ pakker inn, logaritmen $\\ln x$ pakker ut -- det var jo nettopp invers-sammenhengen fra kapittel 1.2. Kvadratet og kvadratroten, dobling og halvering: matematikken er full av operasjonspar som opphever hverandre.\n\nMen legg merke til noe ved krypteringseksempelet: angringen er bare mulig fordi *to ulike meldinger aldri får samme kode*. Hadde både «JA» og «NEI» blitt kryptert til samme tegnstreng, ville dekrypteringen stått hjelpeløs -- hvilken melding var det? Dette er kapittelets dypeste poeng: en funksjon kan bare reverseres hvis den aldri sender to ulike innverdier til samme utverdi. Slike funksjoner kalles **en-til-en**.\n\nI dette kapittelet lærer du å avgjøre når en omvendt funksjon finnes, å regne den ut, og å se det vakre geometriske båndet mellom en funksjon og dens omvendte: grafene deres er speilbilder om linjen $y = x$."
+    },
+    {
+      "id": "r1-2-2-n-section1",
+      "type": "text",
+      "content": "## Når kan en funksjon angres?\n\nDen **omvendte funksjonen** $f^{-1}$ er definert ved at den snur sammenhengen:\n\n$$f^{-1}(y) = x \\quad \\Leftrightarrow \\quad f(x) = y$$\n\nSetter du de to sammen, opphever de hverandre: $f^{-1}(f(x)) = x$ og $f(f^{-1}(y)) = y$. En viktig advarsel om notasjonen med en gang: $f^{-1}$ betyr *ikke* $\\frac{1}{f}$. Det er et navn på den omvendte funksjonen, ikke en potens.\n\nNår finnes $f^{-1}$? Husk dekrypteringsproblemet: hvis to meldinger får samme kode, kan ingen angre. Kravet er at $f$ er **en-til-en** (injektiv): ulike innverdier gir alltid ulike utverdier, altså $f(x_1) = f(x_2) \\Rightarrow x_1 = x_2$. Grafisk har en-til-en en elegant test: **hver horisontal linje skjærer grafen i høyst ett punkt**. En horisontal linje samler jo alle punkter med samme $y$-verdi -- skjærer den grafen to ganger, finnes det to $x$-er med samme $y$, og angringen bryter sammen.\n\nTest noen kandidater. $f(x) = 2x + 3$: hvis $2x_1 + 3 = 2x_2 + 3$, må $x_1 = x_2$ -- en-til-en, invers finnes. $h(x) = e^x$ er strengt voksende, så to ulike $x$-verdier gir alltid ulike funksjonsverdier -- en-til-en. Men $g(x) = x^2$ stryker på testen: $g(-2) = g(2) = 4$, to innverdier med samme utverdi. Parabelen skjæres to ganger av linjen $y = 4$.\n\nLikevel er ikke alt håp ute for $x^2$. *Begrenser* vi definisjonsmengden til $x \\geq 0$, beholder vi bare høyre halvdel av parabelen -- og den er strengt voksende og en-til-en. Det er nøyaktig derfor kvadratroten finnes: $\\sqrt{x}$ er den omvendte av $x^2$ *på* $[0, \\infty)$. Å skreddersy definisjonsmengden er et standardtriks for å gjøre funksjoner reversible."
+    },
+    {
+      "id": "r1-2-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på en-til-en og eksistens av omvendt funksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-2-n-quiz1-q0",
+            "task": "Hvilken av disse funksjonene har en omvendt funksjon på hele $\\mathbb{R}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$g(x) = x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$k(x) = |x|$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$m(x) = x^2 + x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = 2x + 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f(x) = 2x+3$ er strengt voksende og dermed en-til-en: $2x_1 + 3 = 2x_2 + 3$ gir $x_1 = x_2$. De andre sender to ulike $x$-verdier til samme $y$."
+          },
+          {
+            "id": "r1-2-2-n-quiz1-q1",
+            "task": "Hvorfor har $g(x) = x^2$ ingen omvendt funksjon på hele $\\mathbb{R}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $g(-2) = g(2) = 4$ -- to innverdier gir samme utverdi",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi $g$ ikke er definert for negative $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $g$ vokser for fort",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $g(0) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En omvendt funksjon må kunne svare entydig på «hvilken $x$ ga denne $y$-en?». Når både $-2$ og $2$ gir $4$, finnes ikke noe entydig svar."
+          },
+          {
+            "id": "r1-2-2-n-quiz1-q2",
+            "task": "Hva er den grafiske testen for at $f$ er en-til-en?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Grafen går gjennom origo",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hver horisontal linje skjærer grafen i høyst ett punkt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Hver vertikal linje skjærer grafen i høyst ett punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafen er symmetrisk om $y$-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En horisontal linje samler punkter med samme $y$-verdi. Skjærer den grafen høyst én gang, gir hver $y$-verdi høyst én $x$ -- funksjonen kan angres."
+          },
+          {
+            "id": "r1-2-2-n-quiz1-q3",
+            "task": "Hva betyr notasjonen $f^{-1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{f}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den deriverte av $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den omvendte funksjonen til $f$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f$ opphøyd i $-1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f^{-1}$ er navnet på den omvendte funksjonen, som angrer $f$. Det betyr ikke $\\frac{1}{f}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-2-n-section2",
+      "type": "text",
+      "content": "## Å regne ut den omvendte funksjonen\n\nNår den omvendte funksjonen finnes, finner vi den med en fast oppskrift i tre steg: **skriv $y = f(x)$, løs ligningen for $x$, og bytt om $x$ og $y$** til slutt (slik at den nye funksjonen også får hete «$y$ av $x$»).\n\nEnkleste tilfelle først: $f(x) = 2x + 3$. Vi skriver $y = 2x + 3$, løser for $x$: $x = \\frac{y-3}{2}$, og bytter navn: $f^{-1}(x) = \\frac{x-3}{2}$. Legg merke til logikken i svaret: $f$ ganger med to og legger til tre; $f^{-1}$ trekker fra tre og deler på to -- *omvendte operasjoner i omvendt rekkefølge*, akkurat som når du tar av deg skoene før sokkene.\n\nSamme oppskrift takler tredjegrad: $g(x) = x^3 - 1$ gir $y + 1 = x^3$, så $x = \\sqrt[3]{y+1}$ og $g^{-1}(x) = \\sqrt[3]{x+1}$. Og den takler brøker, med litt mer fingerarbeid: for $h(x) = \\frac{x+1}{x-2}$ ganger vi opp, $y(x-2) = x+1$, samler alle $x$-ledd på én side, $x(y-1) = 2y+1$, og får $h^{-1}(x) = \\frac{2x+1}{x-1}$.\n\nDe mest lærerike eksemplene involverer eksponential- og logaritmefunksjoner, for der er «angringen» selve invers-sammenhengen fra kapittel 1.2. For $f(x) = e^{2x}$: ta $\\ln$ på begge sider, $\\ln y = 2x$, så $f^{-1}(x) = \\frac{\\ln x}{2}$ -- med definisjonsmengde $(0, \\infty)$, siden bare positive tall har logaritme. For $g(x) = \\ln(x-1) + 2$ går vi motsatt vei: $y - 2 = \\ln(x-1)$ gir $e^{y-2} = x - 1$, så $g^{-1}(x) = e^{x-2} + 1$. Logaritmen løses opp med eksponentialfunksjonen, og omvendt -- de to familiene er hverandres omvendte funksjoner, i ordets presise forstand."
+    },
+    {
+      "id": "r1-2-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å finne omvendt funksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-2-n-quiz2-q0",
+            "task": "Hva er den omvendte funksjonen til $f(x) = 2x + 3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f^{-1}(x) = \\frac{x+3}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f^{-1}(x) = \\frac{2}{x} - 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f^{-1}(x) = 3x + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f^{-1}(x) = \\frac{x-3}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$y = 2x + 3$ gir $x = \\frac{y-3}{2}$, altså $f^{-1}(x) = \\frac{x-3}{2}$: trekk fra 3, del på 2 -- omvendte operasjoner i omvendt rekkefølge."
+          },
+          {
+            "id": "r1-2-2-n-quiz2-q1",
+            "task": "Hva er den omvendte funksjonen til $g(x) = x^3 - 1$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$g^{-1}(x) = \\sqrt[3]{x+1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$g^{-1}(x) = \\sqrt[3]{x} + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$g^{-1}(x) = \\frac{1}{x^3-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$g^{-1}(x) = (x+1)^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y = x^3 - 1$ gir $x^3 = y + 1$, så $x = \\sqrt[3]{y+1}$ og $g^{-1}(x) = \\sqrt[3]{x+1}$."
+          },
+          {
+            "id": "r1-2-2-n-quiz2-q2",
+            "task": "Hva er den omvendte funksjonen til $f(x) = e^{2x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f^{-1}(x) = e^{-2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$f^{-1}(x) = \\frac{\\ln x}{2}$ for $x > 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f^{-1}(x) = 2\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f^{-1}(x) = \\frac{1}{e^{2x}}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y = e^{2x}$ gir $\\ln y = 2x$, altså $f^{-1}(x) = \\frac{\\ln x}{2}$. Definisjonsmengden er $(0,\\infty)$ -- verdimengden til $e^{2x}$."
+          },
+          {
+            "id": "r1-2-2-n-quiz2-q3",
+            "task": "Hva er den omvendte funksjonen til $g(x) = \\ln(x-1) + 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$g^{-1}(x) = \\ln(x+1) - 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$g^{-1}(x) = e^{x+2} - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$g^{-1}(x) = e^{x-2} + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$g^{-1}(x) = \\frac{1}{\\ln(x-1)+2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y - 2 = \\ln(x-1)$ gir $x - 1 = e^{y-2}$, altså $g^{-1}(x) = e^{x-2} + 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-2-n-section3",
+      "type": "text",
+      "content": "## Speilbildet i linjen $y = x$\n\nDet fineste ved omvendte funksjoner er geometrien deres. Hvis punktet $(a, b)$ ligger på grafen til $f$ -- altså $f(a) = b$ -- så sier definisjonen at $f^{-1}(b) = a$, så punktet $(b, a)$ ligger på grafen til $f^{-1}$. Hvert punkt får koordinatene sine *byttet om*. Og å bytte $x$- og $y$-koordinater er nøyaktig det samme som å speile punktet om linjen $y = x$, diagonalen i koordinatsystemet.\n\nDermed: **grafen til $f^{-1}$ er speilbildet av grafen til $f$ om linjen $y = x$.** Tegn $e^x$ og $\\ln x$ i samme koordinatsystem, og du ser to kurver som bøyer seg mot hverandre i perfekt speilsymmetri om diagonalen. Det samme gjelder $x^2$ (for $x \\geq 0$) og $\\sqrt{x}$ -- høyrehalvdelen av parabelen og rotkurven er speiltvillinger.\n\nSpeilingen forklarer også hva som skjer med definisjonsmengde og verdimengde. Når alle punkter bytter koordinater, bytter de to mengdene rolle:\n\n$$D_{f^{-1}} = V_f \\qquad \\text{og} \\qquad V_{f^{-1}} = D_f$$\n\nInnverdiene til den omvendte funksjonen er jo nettopp utverdiene til originalen -- dekrypteringen tar imot nøyaktig de kodene krypteringen produserer.\n\nEt komplett eksempel samler trådene. La $f(x) = \\sqrt{x}$ med $D_f = [0, \\infty)$ og $V_f = [0, \\infty)$. Oppskriften gir $y = \\sqrt{x}$, altså $x = y^2$, så $f^{-1}(x) = x^2$ -- men bare på $D_{f^{-1}} = V_f = [0, \\infty)$! Den omvendte er ikke hele parabelen, bare høyre halvdel. Begrensningen er ikke pedanteri; den er selve grunnen til at paret fungerer som funksjon og omvendt funksjon. Hver gang du oppgir en omvendt funksjon, hører definisjonsmengden med til svaret."
+    },
+    {
+      "id": "r1-2-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grafisk sammenheng og mengder:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-2-n-quiz3-q0",
+            "task": "Hvordan henger grafene til $f$ og $f^{-1}$ sammen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er speilbilder om $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De er parallellforskjøvet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De er speilbilder om $y$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De er speilbilder om linjen $y = x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hvis $(a,b)$ ligger på grafen til $f$, ligger $(b,a)$ på grafen til $f^{-1}$. Å bytte koordinater er å speile om diagonalen $y = x$."
+          },
+          {
+            "id": "r1-2-2-n-quiz3-q1",
+            "task": "Hva er sammenhengen mellom mengdene til $f$ og $f^{-1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$D_{f^{-1}} = V_f$ og $V_{f^{-1}} = D_f$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$D_{f^{-1}} = D_f$ og $V_{f^{-1}} = V_f$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$D_{f^{-1}} = \\mathbb{R}$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Mengdene har ingen sammenheng",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den omvendte funksjonen tar imot utverdiene til $f$ og leverer innverdiene -- definisjonsmengde og verdimengde bytter plass."
+          },
+          {
+            "id": "r1-2-2-n-quiz3-q2",
+            "task": "Punktet $(2, 5)$ ligger på grafen til $f$. Hvilket punkt ligger da på grafen til $f^{-1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(-2, -5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(5, 2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(2, -5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(-5, -2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(2) = 5$ betyr $f^{-1}(5) = 2$, så punktet $(5, 2)$ ligger på grafen til $f^{-1}$."
+          },
+          {
+            "id": "r1-2-2-n-quiz3-q3",
+            "task": "Hva er den omvendte funksjonen til $f(x) = \\sqrt{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f^{-1}(x) = x^2$ for alle $x \\in \\mathbb{R}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f^{-1}(x) = \\frac{1}{\\sqrt{x}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f^{-1}(x) = x^2$ for $x \\geq 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f^{-1}(x) = -\\sqrt{x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y = \\sqrt{x}$ gir $x = y^2$, men definisjonsmengden til $f^{-1}$ er $V_f = [0, \\infty)$. Uten begrensningen ville $x^2$ ikke vært en-til-en."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-2-n-summary",
+      "type": "text",
+      "content": "## Fortellingen i et nøtteskall\n\nKryptering og dekryptering viste oss ideen: en **omvendt funksjon** $f^{-1}$ angrer $f$, presist uttrykt ved $f^{-1}(y) = x \\Leftrightarrow f(x) = y$, slik at $f^{-1}(f(x)) = x$. Og husk: $f^{-1}$ er et navn, ikke brøken $\\frac{1}{f}$.\n\nAngring krever entydighet. Bare **en-til-en**-funksjoner -- der ulike innverdier alltid gir ulike utverdier -- kan reverseres. Den grafiske testen er horisontale linjer: skjærer ingen av dem grafen mer enn én gang, er funksjonen en-til-en. Strengt voksende eller strengt avtagende funksjoner består alltid testen; $x^2$ stryker på hele $\\mathbb{R}$, men består når vi begrenser til $x \\geq 0$ -- og det er slik kvadratroten blir til.\n\nSelve utregningen følger tre steg: skriv $y = f(x)$, løs for $x$, bytt om $x$ og $y$. Lineære funksjoner, tredjegradsuttrykk, brøker -- og ikke minst eksponential- og logaritmefunksjoner, som viser seg å være hverandres omvendte: $e^x$ og $\\ln x$ pakker inn og pakker ut.\n\nGeometrien binder alt sammen: grafene til $f$ og $f^{-1}$ er **speilbilder om linjen $y = x$**, fordi hvert punkt $(a, b)$ blir til $(b, a)$. Av samme grunn bytter mengdene plass: $D_{f^{-1}} = V_f$ og $V_{f^{-1}} = D_f$.\n\nOmvendte funksjoner er mer enn et kapittel -- de er et tankemønster. Hver gang du «løser en ligning», kjører du i praksis en funksjon baklengs. Og i derivasjonskapitlene får speilingen om $y = x$ et overraskende etterspill for tangentene."
+    }
+  ],
+  "exercises": []
+}

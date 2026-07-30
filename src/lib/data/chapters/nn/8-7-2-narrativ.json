@@ -1,1 +1,412 @@
-{"id":"8-7-2-narrativ","courseId":"8","chapterNumber":"7.2","title":"Primtalsfaktorisering","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av primtalsfaktorisering -- kunsten å bryte ned tal til dei minste byggjesteinane sine -- der vi bruker faktortre og gjentatt divisjon for å finne den unike oppskrifta til kvart tal.","estimatedMinutes":30,"competenceGoals":["bruke faktorisering og primtall i berekningar"],"linkedChapterId":"8-7-2","content":[{"id":"8-7-2-n-intro","type":"text","content":"## Kvart tal har si unike oppskrift\n\nTenk deg at kvart tal er ein matrett. Talet $60$ er ei kake med ei heilt bestemt oppskrift: ho inneheld nøyaktig to koppar «$2$», éin kopp «$3$» og éin kopp «$5$». Vi skriv:\n\n$$60 = 2 \\cdot 2 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3 \\cdot 5$$\n\nDenne nedbrytinga av eit tal i eit produkt av primtal blir kalla **primtalsfaktorisering**. Det fantastiske er at oppskrifta er **unik** -- det finst nøyaktig éin måte å skrive kvart tal som eit produkt av primtal (bortsett frå rekkjefølgja). Dette blir kalla **fundamentalteoremet i aritmetikken**.\n\nIkkje eingong det størst tenkjelege talet er unntak: det kan alltid brytast ned i ei unik samling primtal. Det er som å seie at eitkvart molekyl kan brytast ned i atom -- og atomsamansetninga er unik for kvart molekyl."},{"id":"8-7-2-n-section1","type":"text","content":"## Metode 1: Faktortreet\n\nEit **faktortre** er ein visuell metode for å faktorisere eit tal. Du startar med talet på toppen og deler det opp i to faktorar. Deretter deler du opp kvar faktor vidare, heilt til alle greinene endar i primtal.\n\n**Døme: Faktoriser $72$**\n\nVi startar med $72$ og finn to faktorar:\n- $72 = 8 \\cdot 9$\n- $8 = 2 \\cdot 4$, og $4 = 2 \\cdot 2$\n- $9 = 3 \\cdot 3$\n\nAlle «blada» i treet er: $2, 2, 2, 3, 3$\n\n$$72 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 = 2^3 \\cdot 3^2$$\n\nKva om vi hadde starta med ei anna oppdeling?\n- $72 = 6 \\cdot 12$\n- $6 = 2 \\cdot 3$, og $12 = 4 \\cdot 3 = 2 \\cdot 2 \\cdot 3$\n\nBlada er framleis: $2, 3, 2, 2, 3$. Same primtal, berre i anna rekkjefølgje!\n\n**Reglar for faktortreet:**\n1. Start med talet på toppen\n2. Del opp i to faktorar (vel det som er lettast)\n3. Hald fram å dele opp til du berre har primtal\n4. Samle alle primtala (blada) og skriv dei som eit produkt\n5. Bruk potensform for gjentatte primtal"},{"id":"8-7-2-n-quiz1","type":"exercise","exercise":{"id":"8-7-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på faktortre:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-2-n-quiz1-q0","task":"Kva er primtalsfaktoriseringa av $48$?","options":[{"id":"a","text":"$2^3 \\cdot 6$","isCorrect":false},{"id":"b","text":"$2^4 \\cdot 3$","isCorrect":true},{"id":"c","text":"$2^2 \\cdot 12$","isCorrect":false},{"id":"d","text":"$4 \\cdot 12$","isCorrect":false}],"solution":"$48 = 2 \\cdot 24 = 2 \\cdot 2 \\cdot 12 = 2 \\cdot 2 \\cdot 2 \\cdot 6 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$."},{"id":"8-7-2-n-quiz1-q1","task":"Kva er primtalsfaktoriseringa av $90$?","options":[{"id":"a","text":"$2 \\cdot 3^2 \\cdot 5$","isCorrect":true},{"id":"b","text":"$2 \\cdot 3 \\cdot 15$","isCorrect":false},{"id":"c","text":"$2 \\cdot 5 \\cdot 9$","isCorrect":false},{"id":"d","text":"$2^2 \\cdot 3 \\cdot 5$","isCorrect":false}],"solution":"$90 = 2 \\cdot 45 = 2 \\cdot 9 \\cdot 5 = 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2 \\cdot 3^2 \\cdot 5$."},{"id":"8-7-2-n-quiz1-q2","task":"Kvifor er svaret $2^3 \\cdot 6$ IKKJE ei gyldig primtalsfaktorisering?","options":[{"id":"a","text":"Fordi $6$ ikkje er eit primtal","isCorrect":true},{"id":"b","text":"Fordi produktet er feil","isCorrect":false},{"id":"c","text":"Fordi $2^3$ er feil","isCorrect":false},{"id":"d","text":"Fordi vi manglar ein faktor","isCorrect":false}],"solution":"$6 = 2 \\cdot 3$ er eit samansett tal. I ei primtalsfaktorisering skal alle faktorane vere primtal. Rett: $2^3 \\cdot 6 = 2^3 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$."}]}},{"id":"8-7-2-n-section2","type":"text","content":"## Metode 2: Gjentatt divisjon (stigen)\n\nEin meir systematisk metode er **gjentatt divisjon**: del talet på det minste primtalet som går opp, gjenta med kvotienten, og hald fram til du står att med $1$.\n\n**Døme: Faktoriser $180$**\n\nVi set det opp som ei «stige»:\n\n$$180 \\div 2 = 90$$\n$$90 \\div 2 = 45$$\n$$45 \\div 3 = 15$$\n$$15 \\div 3 = 5$$\n$$5 \\div 5 = 1$$\n\nVi samlar divisorane: $180 = 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3^2 \\cdot 5$\n\n**Døme: Faktoriser $252$**\n\n$$252 \\div 2 = 126$$\n$$126 \\div 2 = 63$$\n$$63 \\div 3 = 21$$\n$$21 \\div 3 = 7$$\n$$7 \\div 7 = 1$$\n\nAltså: $252 = 2^2 \\cdot 3^2 \\cdot 7$\n\n**Tip:** Start alltid med det minste primtalet ($2$) og sjekk om det går opp. Viss ikkje, prøv $3$, deretter $5$, deretter $7$, osv. Bruk delelegheitsreglane frå førre kapittel for å sjekke raskt!"},{"id":"8-7-2-n-quiz2","type":"exercise","exercise":{"id":"8-7-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på gjentatt divisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-2-n-quiz2-q0","task":"Kva er primtalsfaktoriseringa av $300$?","options":[{"id":"a","text":"$2^2 \\cdot 3 \\cdot 5^2$","isCorrect":true},{"id":"b","text":"$2 \\cdot 3 \\cdot 5^2$","isCorrect":false},{"id":"c","text":"$2^2 \\cdot 3^2 \\cdot 5$","isCorrect":false},{"id":"d","text":"$2 \\cdot 3 \\cdot 100$","isCorrect":false}],"solution":"$300 \\div 2 = 150$, $150 \\div 2 = 75$, $75 \\div 3 = 25$, $25 \\div 5 = 5$, $5 \\div 5 = 1$. Altså $300 = 2^2 \\cdot 3 \\cdot 5^2$."},{"id":"8-7-2-n-quiz2-q1","task":"Kva er primtalsfaktoriseringa av $84$?","options":[{"id":"a","text":"$2 \\cdot 42$","isCorrect":false},{"id":"b","text":"$2^2 \\cdot 3 \\cdot 7$","isCorrect":true},{"id":"c","text":"$2 \\cdot 3 \\cdot 14$","isCorrect":false},{"id":"d","text":"$4 \\cdot 21$","isCorrect":false}],"solution":"$84 \\div 2 = 42$, $42 \\div 2 = 21$, $21 \\div 3 = 7$, $7 \\div 7 = 1$. Altså $84 = 2^2 \\cdot 3 \\cdot 7$."},{"id":"8-7-2-n-quiz2-q2","task":"Kva er primtalsfaktoriseringa av $147$?","options":[{"id":"a","text":"$3 \\cdot 49$","isCorrect":false},{"id":"b","text":"$7^2 \\cdot 3$","isCorrect":true},{"id":"c","text":"$3 \\cdot 7 \\cdot 7$","isCorrect":false},{"id":"d","text":"Alternativ b og c er begge rette","isCorrect":false}],"solution":"$147 \\div 3 = 49$, $49 \\div 7 = 7$, $7 \\div 7 = 1$. Altså $147 = 3 \\cdot 7^2$. (Alternativ c viser det same utan potensform, men standardforma er $3 \\cdot 7^2$.)"}]}},{"id":"8-7-2-n-section3","type":"text","content":"## Potensform og sortering\n\nNår vi skriv primtalsfaktoriseringar, bruker vi **potensform** for å gjere uttrykket ryddig. I staden for å skrive $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3$, skriv vi $2^3 \\cdot 3^2$.\n\nVi sorterer òg primfaktorane i **stigande rekkjefølgje**: minste primtal først.\n\n**Døme på ryddig primtalsfaktorisering:**\n\n| Tal | Faktorisering | Potensform |\n|------|---------------|------------|\n| $36$ | $2 \\cdot 2 \\cdot 3 \\cdot 3$ | $2^2 \\cdot 3^2$ |\n| $100$ | $2 \\cdot 2 \\cdot 5 \\cdot 5$ | $2^2 \\cdot 5^2$ |\n| $360$ | $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5$ | $2^3 \\cdot 3^2 \\cdot 5$ |\n| $1000$ | $2 \\cdot 2 \\cdot 2 \\cdot 5 \\cdot 5 \\cdot 5$ | $2^3 \\cdot 5^3$ |\n\n**Hugs:** Eksponenten fortel kor mange gonger primtalet førekjem. Viss eit primtal berre førekjem éin gong, skriv vi det utan eksponent (eller med eksponenten $1$): $2 \\cdot 3^2 \\cdot 5$ tyder at $2$ førekjem éin gong, $3$ to gonger og $5$ éin gong.\n\nPrimtalsfaktorisering er nyttig fordi ho gir oss eit «røntgenbilete» av den indre strukturen i talet. I dei neste kapitla skal vi sjå korleis vi bruker ho til å finne SFF, MFM og forenkle brøkar."},{"id":"8-7-2-n-quiz3","type":"exercise","exercise":{"id":"8-7-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på potensform:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-2-n-quiz3-q0","task":"Skriv $2 \\cdot 2 \\cdot 3 \\cdot 5 \\cdot 5 \\cdot 5$ i potensform.","options":[{"id":"a","text":"$2^2 \\cdot 3 \\cdot 5^3$","isCorrect":true},{"id":"b","text":"$2^2 \\cdot 3^1 \\cdot 5^2$","isCorrect":false},{"id":"c","text":"$2 \\cdot 3 \\cdot 5^3$","isCorrect":false},{"id":"d","text":"$2^3 \\cdot 3 \\cdot 5^2$","isCorrect":false}],"solution":"Vi tel: to toarar ($2^2$), éin trear ($3$), tre femmarar ($5^3$). Svar: $2^2 \\cdot 3 \\cdot 5^3$."},{"id":"8-7-2-n-quiz3-q1","task":"Kva er talet $2^3 \\cdot 3 \\cdot 11$ lik?","options":[{"id":"a","text":"$264$","isCorrect":true},{"id":"b","text":"$132$","isCorrect":false},{"id":"c","text":"$198$","isCorrect":false},{"id":"d","text":"$528$","isCorrect":false}],"solution":"$2^3 \\cdot 3 \\cdot 11 = 8 \\cdot 3 \\cdot 11 = 24 \\cdot 11 = 264$."},{"id":"8-7-2-n-quiz3-q2","task":"Kva er primtalsfaktoriseringa av $540$?","options":[{"id":"a","text":"$2^2 \\cdot 3^3 \\cdot 5$","isCorrect":true},{"id":"b","text":"$2^3 \\cdot 3^2 \\cdot 5$","isCorrect":false},{"id":"c","text":"$2^2 \\cdot 3^2 \\cdot 5^2$","isCorrect":false},{"id":"d","text":"$2 \\cdot 3^3 \\cdot 5^2$","isCorrect":false}],"solution":"$540 \\div 2 = 270$, $270 \\div 2 = 135$, $135 \\div 3 = 45$, $45 \\div 3 = 15$, $15 \\div 3 = 5$, $5 \\div 5 = 1$. Altså $540 = 2^2 \\cdot 3^3 \\cdot 5$."}]}},{"id":"8-7-2-n-summary","type":"text","content":"## Oppsummering\n\n**Primtalsfaktorisering** er å skrive eit tal som eit produkt av primtal. Kvart tal har ei unik faktorisering (fundamentalteoremet i aritmetikken).\n\n**To metodar:**\n\n| Metode | Framgangsmåte |\n|--------|---------------|\n| **Faktortre** | Del talet i to faktorar, hald fram til du har berre primtal |\n| **Gjentatt divisjon** | Del på minste primtal som går opp, gjenta til du får $1$ |\n\n**Potensform:** Skriv gjentatte primfaktorar med eksponent og sorter i stigande rekkjefølgje.\n\nDøme: $360 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^3 \\cdot 3^2 \\cdot 5$\n\nBruk delelegheitsreglane for å jobbe effektivt:\n- Deleleg med $2$? Siste siffer er partal\n- Deleleg med $3$? Tverrsummen er deleleg med $3$\n- Deleleg med $5$? Siste siffer er $0$ eller $5$"}],"exercises":[],"_meta":{"sourceHash":"6e696170044d97a7","translatedAt":"2026-06-17T01:55:36.483Z","model":"claude-code-agent","strings":65,"tm":{"f47d71b3f54e00a4":"Primtalsfaktorisering","b195b06d1ed59702":"Narrativ versjon","2481a651f6d10dbc":"Ein forteljande gjennomgang av primtalsfaktorisering -- kunsten å bryte ned tal til dei minste byggjesteinane sine -- der vi bruker faktortre og gjentatt divisjon for å finne den unike oppskrifta til kvart tal.","a9a173982997b684":"bruke faktorisering og primtall i berekningar","77eac250478dd44f":"## Kvart tal har si unike oppskrift\n\nTenk deg at kvart tal er ein matrett. Talet $60$ er ei kake med ei heilt bestemt oppskrift: ho inneheld nøyaktig to koppar «$2$», éin kopp «$3$» og éin kopp «$5$». Vi skriv:\n\n$$60 = 2 \\cdot 2 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3 \\cdot 5$$\n\nDenne nedbrytinga av eit tal i eit produkt av primtal blir kalla **primtalsfaktorisering**. Det fantastiske er at oppskrifta er **unik** -- det finst nøyaktig éin måte å skrive kvart tal som eit produkt av primtal (bortsett frå rekkjefølgja). Dette blir kalla **fundamentalteoremet i aritmetikken**.\n\nIkkje eingong det størst tenkjelege talet er unntak: det kan alltid brytast ned i ei unik samling primtal. Det er som å seie at eitkvart molekyl kan brytast ned i atom -- og atomsamansetninga er unik for kvart molekyl.","9d23ff1f22ca2295":"## Metode 1: Faktortreet\n\nEit **faktortre** er ein visuell metode for å faktorisere eit tal. Du startar med talet på toppen og deler det opp i to faktorar. Deretter deler du opp kvar faktor vidare, heilt til alle greinene endar i primtal.\n\n**Døme: Faktoriser $72$**\n\nVi startar med $72$ og finn to faktorar:\n- $72 = 8 \\cdot 9$\n- $8 = 2 \\cdot 4$, og $4 = 2 \\cdot 2$\n- $9 = 3 \\cdot 3$\n\nAlle «blada» i treet er: $2, 2, 2, 3, 3$\n\n$$72 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 = 2^3 \\cdot 3^2$$\n\nKva om vi hadde starta med ei anna oppdeling?\n- $72 = 6 \\cdot 12$\n- $6 = 2 \\cdot 3$, og $12 = 4 \\cdot 3 = 2 \\cdot 2 \\cdot 3$\n\nBlada er framleis: $2, 3, 2, 2, 3$. Same primtal, berre i anna rekkjefølgje!\n\n**Reglar for faktortreet:**\n1. Start med talet på toppen\n2. Del opp i to faktorar (vel det som er lettast)\n3. Hald fram å dele opp til du berre har primtal\n4. Samle alle primtala (blada) og skriv dei som eit produkt\n5. Bruk potensform for gjentatte primtal","b8a20e9aa0becbda":"Test deg sjølv på faktortre:","4097889236a2af26":"placeholder","9e39c3eed0c81adf":"Kva er primtalsfaktoriseringa av $48$?","4e7d670f2869f2f3":"$2^3 \\cdot 6$","3e3683a1802d9cb1":"$2^4 \\cdot 3$","df6bdfb6fdd03490":"$2^2 \\cdot 12$","8ff1abf0628a104c":"$4 \\cdot 12$","a7716720069c5437":"$48 = 2 \\cdot 24 = 2 \\cdot 2 \\cdot 12 = 2 \\cdot 2 \\cdot 2 \\cdot 6 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$.","114541259c6080fa":"Kva er primtalsfaktoriseringa av $90$?","1dbed8b71fb14bd3":"$2 \\cdot 3^2 \\cdot 5$","e4fd76105a2d4bd1":"$2 \\cdot 3 \\cdot 15$","6f40f181df0d0f4f":"$2 \\cdot 5 \\cdot 9$","f9c15c923d1bfa08":"$2^2 \\cdot 3 \\cdot 5$","104857306e2049b1":"$90 = 2 \\cdot 45 = 2 \\cdot 9 \\cdot 5 = 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2 \\cdot 3^2 \\cdot 5$.","1cd4c3284ab0ece3":"Kvifor er svaret $2^3 \\cdot 6$ IKKJE ei gyldig primtalsfaktorisering?","fd20220dad4ec553":"Fordi $6$ ikkje er eit primtal","e74e386cc23397ac":"Fordi produktet er feil","aa0e4e276c9a0427":"Fordi $2^3$ er feil","0227785692738f40":"Fordi vi manglar ein faktor","79e7ba407ce7bfad":"$6 = 2 \\cdot 3$ er eit samansett tal. I ei primtalsfaktorisering skal alle faktorane vere primtal. Rett: $2^3 \\cdot 6 = 2^3 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$.","ea618939ca703988":"## Metode 2: Gjentatt divisjon (stigen)\n\nEin meir systematisk metode er **gjentatt divisjon**: del talet på det minste primtalet som går opp, gjenta med kvotienten, og hald fram til du står att med $1$.\n\n**Døme: Faktoriser $180$**\n\nVi set det opp som ei «stige»:\n\n$$180 \\div 2 = 90$$\n$$90 \\div 2 = 45$$\n$$45 \\div 3 = 15$$\n$$15 \\div 3 = 5$$\n$$5 \\div 5 = 1$$\n\nVi samlar divisorane: $180 = 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3^2 \\cdot 5$\n\n**Døme: Faktoriser $252$**\n\n$$252 \\div 2 = 126$$\n$$126 \\div 2 = 63$$\n$$63 \\div 3 = 21$$\n$$21 \\div 3 = 7$$\n$$7 \\div 7 = 1$$\n\nAltså: $252 = 2^2 \\cdot 3^2 \\cdot 7$\n\n**Tip:** Start alltid med det minste primtalet ($2$) og sjekk om det går opp. Viss ikkje, prøv $3$, deretter $5$, deretter $7$, osv. Bruk delelegheitsreglane frå førre kapittel for å sjekke raskt!","e3dc2fafef1feba2":"Test deg sjølv på gjentatt divisjon:","e2d6e661e68b468f":"Kva er primtalsfaktoriseringa av $300$?","e063dbbe5aae66c0":"$2^2 \\cdot 3 \\cdot 5^2$","9d5f489f08d9c56e":"$2 \\cdot 3 \\cdot 5^2$","9ed21ee149364ed6":"$2^2 \\cdot 3^2 \\cdot 5$","df55524935cfc4ba":"$2 \\cdot 3 \\cdot 100$","b90f0754cf612305":"$300 \\div 2 = 150$, $150 \\div 2 = 75$, $75 \\div 3 = 25$, $25 \\div 5 = 5$, $5 \\div 5 = 1$. Altså $300 = 2^2 \\cdot 3 \\cdot 5^2$.","8d897230c0dba493":"Kva er primtalsfaktoriseringa av $84$?","8a88b89626f1cc1d":"$2 \\cdot 42$","47eb4a46c57ccb54":"$2^2 \\cdot 3 \\cdot 7$","cf2efcea701bcf69":"$2 \\cdot 3 \\cdot 14$","e5f8d61de0c71258":"$4 \\cdot 21$","75bcd2e3c77cb30c":"$84 \\div 2 = 42$, $42 \\div 2 = 21$, $21 \\div 3 = 7$, $7 \\div 7 = 1$. Altså $84 = 2^2 \\cdot 3 \\cdot 7$.","ea042f83daf0ccd8":"Kva er primtalsfaktoriseringa av $147$?","852a15b71b40ae74":"$3 \\cdot 49$","a28b7b1012a94d58":"$7^2 \\cdot 3$","9cbe4bc1ade28326":"$3 \\cdot 7 \\cdot 7$","52a05bd1382b4a9c":"Alternativ b og c er begge rette","a456fc3dd56b688c":"$147 \\div 3 = 49$, $49 \\div 7 = 7$, $7 \\div 7 = 1$. Altså $147 = 3 \\cdot 7^2$. (Alternativ c viser det same utan potensform, men standardforma er $3 \\cdot 7^2$.)","5b802c1bdc894148":"## Potensform og sortering\n\nNår vi skriv primtalsfaktoriseringar, bruker vi **potensform** for å gjere uttrykket ryddig. I staden for å skrive $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3$, skriv vi $2^3 \\cdot 3^2$.\n\nVi sorterer òg primfaktorane i **stigande rekkjefølgje**: minste primtal først.\n\n**Døme på ryddig primtalsfaktorisering:**\n\n| Tal | Faktorisering | Potensform |\n|------|---------------|------------|\n| $36$ | $2 \\cdot 2 \\cdot 3 \\cdot 3$ | $2^2 \\cdot 3^2$ |\n| $100$ | $2 \\cdot 2 \\cdot 5 \\cdot 5$ | $2^2 \\cdot 5^2$ |\n| $360$ | $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5$ | $2^3 \\cdot 3^2 \\cdot 5$ |\n| $1000$ | $2 \\cdot 2 \\cdot 2 \\cdot 5 \\cdot 5 \\cdot 5$ | $2^3 \\cdot 5^3$ |\n\n**Hugs:** Eksponenten fortel kor mange gonger primtalet førekjem. Viss eit primtal berre førekjem éin gong, skriv vi det utan eksponent (eller med eksponenten $1$): $2 \\cdot 3^2 \\cdot 5$ tyder at $2$ førekjem éin gong, $3$ to gonger og $5$ éin gong.\n\nPrimtalsfaktorisering er nyttig fordi ho gir oss eit «røntgenbilete» av den indre strukturen i talet. I dei neste kapitla skal vi sjå korleis vi bruker ho til å finne SFF, MFM og forenkle brøkar.","c0534c35d80ae4f5":"Test deg sjølv på potensform:","8f3ea02d3a89f68a":"Skriv $2 \\cdot 2 \\cdot 3 \\cdot 5 \\cdot 5 \\cdot 5$ i potensform.","978dc3a5d3186af1":"$2^2 \\cdot 3 \\cdot 5^3$","ac70301e6ac32684":"$2^2 \\cdot 3^1 \\cdot 5^2$","cef23227d8d74a85":"$2 \\cdot 3 \\cdot 5^3$","590ecccbfd643095":"$2^3 \\cdot 3 \\cdot 5^2$","3684094965f50c1b":"Vi tel: to toarar ($2^2$), éin trear ($3$), tre femmarar ($5^3$). Svar: $2^2 \\cdot 3 \\cdot 5^3$.","e910211863841269":"Kva er talet $2^3 \\cdot 3 \\cdot 11$ lik?","087b03ca7d842b4d":"$2^3 \\cdot 3 \\cdot 11 = 8 \\cdot 3 \\cdot 11 = 24 \\cdot 11 = 264$.","037e8b5c74dde8d4":"Kva er primtalsfaktoriseringa av $540$?","7fb3150e6a7727ca":"$2^2 \\cdot 3^3 \\cdot 5$","e04e33ba700107c4":"$2^3 \\cdot 3^2 \\cdot 5$","40d9be206c238d73":"$2^2 \\cdot 3^2 \\cdot 5^2$","b9c34d24265c22fe":"$2 \\cdot 3^3 \\cdot 5^2$","1fb918c12c024980":"$540 \\div 2 = 270$, $270 \\div 2 = 135$, $135 \\div 3 = 45$, $45 \\div 3 = 15$, $15 \\div 3 = 5$, $5 \\div 5 = 1$. Altså $540 = 2^2 \\cdot 3^3 \\cdot 5$.","c740786a7960abfb":"## Oppsummering\n\n**Primtalsfaktorisering** er å skrive eit tal som eit produkt av primtal. Kvart tal har ei unik faktorisering (fundamentalteoremet i aritmetikken).\n\n**To metodar:**\n\n| Metode | Framgangsmåte |\n|--------|---------------|\n| **Faktortre** | Del talet i to faktorar, hald fram til du har berre primtal |\n| **Gjentatt divisjon** | Del på minste primtal som går opp, gjenta til du får $1$ |\n\n**Potensform:** Skriv gjentatte primfaktorar med eksponent og sorter i stigande rekkjefølgje.\n\nDøme: $360 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^3 \\cdot 3^2 \\cdot 5$\n\nBruk delelegheitsreglane for å jobbe effektivt:\n- Deleleg med $2$? Siste siffer er partal\n- Deleleg med $3$? Tverrsummen er deleleg med $3$\n- Deleleg med $5$? Siste siffer er $0$ eller $5$"}}}
+{
+  "id": "8-7-2-narrativ",
+  "courseId": "8",
+  "chapterNumber": "7.2",
+  "title": "Primtalsfaktorisering",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av primtalsfaktorisering -- kunsten å bryte ned tal til dei minste byggjesteinane sine -- der vi bruker faktortre og gjentatt divisjon for å finne den unike oppskrifta til kvart tal.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke faktorisering og primtall i berekningar"
+  ],
+  "linkedChapterId": "8-7-2",
+  "content": [
+    {
+      "id": "8-7-2-n-intro",
+      "type": "text",
+      "content": "## Kvart tal har si unike oppskrift\n\nTenk deg at kvart tal er ein matrett. Talet $60$ er ei kake med ei heilt bestemt oppskrift: ho inneheld nøyaktig to koppar «$2$», éin kopp «$3$» og éin kopp «$5$». Vi skriv:\n\n$$60 = 2 \\cdot 2 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3 \\cdot 5$$\n\nDenne nedbrytinga av eit tal i eit produkt av primtal blir kalla **primtalsfaktorisering**. Det fantastiske er at oppskrifta er **unik** -- det finst nøyaktig éin måte å skrive kvart tal som eit produkt av primtal (bortsett frå rekkjefølgja). Dette blir kalla **fundamentalteoremet i aritmetikken**.\n\nIkkje eingong det størst tenkjelege talet er unntak: det kan alltid brytast ned i ei unik samling primtal. Det er som å seie at eitkvart molekyl kan brytast ned i atom -- og atomsamansetninga er unik for kvart molekyl."
+    },
+    {
+      "id": "8-7-2-n-section1",
+      "type": "text",
+      "content": "## Metode 1: Faktortreet\n\nEit **faktortre** er ein visuell metode for å faktorisere eit tal. Du startar med talet på toppen og deler det opp i to faktorar. Deretter deler du opp kvar faktor vidare, heilt til alle greinene endar i primtal.\n\n**Døme: Faktoriser $72$**\n\nVi startar med $72$ og finn to faktorar:\n- $72 = 8 \\cdot 9$\n- $8 = 2 \\cdot 4$, og $4 = 2 \\cdot 2$\n- $9 = 3 \\cdot 3$\n\nAlle «blada» i treet er: $2, 2, 2, 3, 3$\n\n$$72 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 = 2^3 \\cdot 3^2$$\n\nKva om vi hadde starta med ei anna oppdeling?\n- $72 = 6 \\cdot 12$\n- $6 = 2 \\cdot 3$, og $12 = 4 \\cdot 3 = 2 \\cdot 2 \\cdot 3$\n\nBlada er framleis: $2, 3, 2, 2, 3$. Same primtal, berre i anna rekkjefølgje!\n\n**Reglar for faktortreet:**\n1. Start med talet på toppen\n2. Del opp i to faktorar (vel det som er lettast)\n3. Hald fram å dele opp til du berre har primtal\n4. Samle alle primtala (blada) og skriv dei som eit produkt\n5. Bruk potensform for gjentatte primtal"
+    },
+    {
+      "id": "8-7-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktortre:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-2-n-quiz1-q0",
+            "task": "Kva er primtalsfaktoriseringa av $48$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2^4 \\cdot 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2^3 \\cdot 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2^2 \\cdot 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4 \\cdot 12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$48 = 2 \\cdot 24 = 2 \\cdot 2 \\cdot 12 = 2 \\cdot 2 \\cdot 2 \\cdot 6 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$."
+          },
+          {
+            "id": "8-7-2-n-quiz1-q1",
+            "task": "Kva er primtalsfaktoriseringa av $90$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2 \\cdot 3 \\cdot 15$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2 \\cdot 3^2 \\cdot 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2 \\cdot 5 \\cdot 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2^2 \\cdot 3 \\cdot 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$90 = 2 \\cdot 45 = 2 \\cdot 9 \\cdot 5 = 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2 \\cdot 3^2 \\cdot 5$."
+          },
+          {
+            "id": "8-7-2-n-quiz1-q2",
+            "task": "Kvifor er svaret $2^3 \\cdot 6$ IKKJE ei gyldig primtalsfaktorisering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi produktet er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $2^3$ er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $6$ ikkje er eit primtal",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi vi manglar ein faktor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$6 = 2 \\cdot 3$ er eit samansett tal. I ei primtalsfaktorisering skal alle faktorane vere primtal. Rett: $2^3 \\cdot 6 = 2^3 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-2-n-section2",
+      "type": "text",
+      "content": "## Metode 2: Gjentatt divisjon (stigen)\n\nEin meir systematisk metode er **gjentatt divisjon**: del talet på det minste primtalet som går opp, gjenta med kvotienten, og hald fram til du står att med $1$.\n\n**Døme: Faktoriser $180$**\n\nVi set det opp som ei «stige»:\n\n$$180 \\div 2 = 90$$\n$$90 \\div 2 = 45$$\n$$45 \\div 3 = 15$$\n$$15 \\div 3 = 5$$\n$$5 \\div 5 = 1$$\n\nVi samlar divisorane: $180 = 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3^2 \\cdot 5$\n\n**Døme: Faktoriser $252$**\n\n$$252 \\div 2 = 126$$\n$$126 \\div 2 = 63$$\n$$63 \\div 3 = 21$$\n$$21 \\div 3 = 7$$\n$$7 \\div 7 = 1$$\n\nAltså: $252 = 2^2 \\cdot 3^2 \\cdot 7$\n\n**Tip:** Start alltid med det minste primtalet ($2$) og sjekk om det går opp. Viss ikkje, prøv $3$, deretter $5$, deretter $7$, osv. Bruk delelegheitsreglane frå førre kapittel for å sjekke raskt!"
+    },
+    {
+      "id": "8-7-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på gjentatt divisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-2-n-quiz2-q0",
+            "task": "Kva er primtalsfaktoriseringa av $300$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2 \\cdot 3 \\cdot 5^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2^2 \\cdot 3^2 \\cdot 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2 \\cdot 3 \\cdot 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2^2 \\cdot 3 \\cdot 5^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$300 \\div 2 = 150$, $150 \\div 2 = 75$, $75 \\div 3 = 25$, $25 \\div 5 = 5$, $5 \\div 5 = 1$. Altså $300 = 2^2 \\cdot 3 \\cdot 5^2$."
+          },
+          {
+            "id": "8-7-2-n-quiz2-q1",
+            "task": "Kva er primtalsfaktoriseringa av $84$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2^2 \\cdot 3 \\cdot 7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2 \\cdot 42$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2 \\cdot 3 \\cdot 14$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4 \\cdot 21$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$84 \\div 2 = 42$, $42 \\div 2 = 21$, $21 \\div 3 = 7$, $7 \\div 7 = 1$. Altså $84 = 2^2 \\cdot 3 \\cdot 7$."
+          },
+          {
+            "id": "8-7-2-n-quiz2-q2",
+            "task": "Kva er primtalsfaktoriseringa av $147$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3 \\cdot 49$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7^2 \\cdot 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3 \\cdot 7 \\cdot 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alternativ b og c er begge rette",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$147 \\div 3 = 49$, $49 \\div 7 = 7$, $7 \\div 7 = 1$. Altså $147 = 3 \\cdot 7^2$. (Alternativ c viser det same utan potensform, men standardforma er $3 \\cdot 7^2$.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-2-n-section3",
+      "type": "text",
+      "content": "## Potensform og sortering\n\nNår vi skriv primtalsfaktoriseringar, bruker vi **potensform** for å gjere uttrykket ryddig. I staden for å skrive $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3$, skriv vi $2^3 \\cdot 3^2$.\n\nVi sorterer òg primfaktorane i **stigande rekkjefølgje**: minste primtal først.\n\n**Døme på ryddig primtalsfaktorisering:**\n\n| Tal | Faktorisering | Potensform |\n|------|---------------|------------|\n| $36$ | $2 \\cdot 2 \\cdot 3 \\cdot 3$ | $2^2 \\cdot 3^2$ |\n| $100$ | $2 \\cdot 2 \\cdot 5 \\cdot 5$ | $2^2 \\cdot 5^2$ |\n| $360$ | $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5$ | $2^3 \\cdot 3^2 \\cdot 5$ |\n| $1000$ | $2 \\cdot 2 \\cdot 2 \\cdot 5 \\cdot 5 \\cdot 5$ | $2^3 \\cdot 5^3$ |\n\n**Hugs:** Eksponenten fortel kor mange gonger primtalet førekjem. Viss eit primtal berre førekjem éin gong, skriv vi det utan eksponent (eller med eksponenten $1$): $2 \\cdot 3^2 \\cdot 5$ tyder at $2$ førekjem éin gong, $3$ to gonger og $5$ éin gong.\n\nPrimtalsfaktorisering er nyttig fordi ho gir oss eit «røntgenbilete» av den indre strukturen i talet. I dei neste kapitla skal vi sjå korleis vi bruker ho til å finne SFF, MFM og forenkle brøkar."
+    },
+    {
+      "id": "8-7-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på potensform:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-2-n-quiz3-q0",
+            "task": "Skriv $2 \\cdot 2 \\cdot 3 \\cdot 5 \\cdot 5 \\cdot 5$ i potensform.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2^2 \\cdot 3^1 \\cdot 5^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2 \\cdot 3 \\cdot 5^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2^2 \\cdot 3 \\cdot 5^3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2^3 \\cdot 3 \\cdot 5^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi tel: to toarar ($2^2$), éin trear ($3$), tre femmarar ($5^3$). Svar: $2^2 \\cdot 3 \\cdot 5^3$."
+          },
+          {
+            "id": "8-7-2-n-quiz3-q1",
+            "task": "Kva er talet $2^3 \\cdot 3 \\cdot 11$ lik?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$132$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$198$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$528$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$264$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$2^3 \\cdot 3 \\cdot 11 = 8 \\cdot 3 \\cdot 11 = 24 \\cdot 11 = 264$."
+          },
+          {
+            "id": "8-7-2-n-quiz3-q2",
+            "task": "Kva er primtalsfaktoriseringa av $540$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2^2 \\cdot 3^3 \\cdot 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2^3 \\cdot 3^2 \\cdot 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2^2 \\cdot 3^2 \\cdot 5^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2 \\cdot 3^3 \\cdot 5^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$540 \\div 2 = 270$, $270 \\div 2 = 135$, $135 \\div 3 = 45$, $45 \\div 3 = 15$, $15 \\div 3 = 5$, $5 \\div 5 = 1$. Altså $540 = 2^2 \\cdot 3^3 \\cdot 5$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Primtalsfaktorisering** er å skrive eit tal som eit produkt av primtal. Kvart tal har ei unik faktorisering (fundamentalteoremet i aritmetikken).\n\n**To metodar:**\n\n| Metode | Framgangsmåte |\n|--------|---------------|\n| **Faktortre** | Del talet i to faktorar, hald fram til du har berre primtal |\n| **Gjentatt divisjon** | Del på minste primtal som går opp, gjenta til du får $1$ |\n\n**Potensform:** Skriv gjentatte primfaktorar med eksponent og sorter i stigande rekkjefølgje.\n\nDøme: $360 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^3 \\cdot 3^2 \\cdot 5$\n\nBruk delelegheitsreglane for å jobbe effektivt:\n- Deleleg med $2$? Siste siffer er partal\n- Deleleg med $3$? Tverrsummen er deleleg med $3$\n- Deleleg med $5$? Siste siffer er $0$ eller $5$"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6e696170044d97a7",
+    "translatedAt": "2026-06-17T01:55:36.483Z",
+    "model": "claude-code-agent",
+    "strings": 65,
+    "tm": {
+      "f47d71b3f54e00a4": "Primtalsfaktorisering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "2481a651f6d10dbc": "Ein forteljande gjennomgang av primtalsfaktorisering -- kunsten å bryte ned tal til dei minste byggjesteinane sine -- der vi bruker faktortre og gjentatt divisjon for å finne den unike oppskrifta til kvart tal.",
+      "a9a173982997b684": "bruke faktorisering og primtall i berekningar",
+      "77eac250478dd44f": "## Kvart tal har si unike oppskrift\n\nTenk deg at kvart tal er ein matrett. Talet $60$ er ei kake med ei heilt bestemt oppskrift: ho inneheld nøyaktig to koppar «$2$», éin kopp «$3$» og éin kopp «$5$». Vi skriv:\n\n$$60 = 2 \\cdot 2 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3 \\cdot 5$$\n\nDenne nedbrytinga av eit tal i eit produkt av primtal blir kalla **primtalsfaktorisering**. Det fantastiske er at oppskrifta er **unik** -- det finst nøyaktig éin måte å skrive kvart tal som eit produkt av primtal (bortsett frå rekkjefølgja). Dette blir kalla **fundamentalteoremet i aritmetikken**.\n\nIkkje eingong det størst tenkjelege talet er unntak: det kan alltid brytast ned i ei unik samling primtal. Det er som å seie at eitkvart molekyl kan brytast ned i atom -- og atomsamansetninga er unik for kvart molekyl.",
+      "9d23ff1f22ca2295": "## Metode 1: Faktortreet\n\nEit **faktortre** er ein visuell metode for å faktorisere eit tal. Du startar med talet på toppen og deler det opp i to faktorar. Deretter deler du opp kvar faktor vidare, heilt til alle greinene endar i primtal.\n\n**Døme: Faktoriser $72$**\n\nVi startar med $72$ og finn to faktorar:\n- $72 = 8 \\cdot 9$\n- $8 = 2 \\cdot 4$, og $4 = 2 \\cdot 2$\n- $9 = 3 \\cdot 3$\n\nAlle «blada» i treet er: $2, 2, 2, 3, 3$\n\n$$72 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 = 2^3 \\cdot 3^2$$\n\nKva om vi hadde starta med ei anna oppdeling?\n- $72 = 6 \\cdot 12$\n- $6 = 2 \\cdot 3$, og $12 = 4 \\cdot 3 = 2 \\cdot 2 \\cdot 3$\n\nBlada er framleis: $2, 3, 2, 2, 3$. Same primtal, berre i anna rekkjefølgje!\n\n**Reglar for faktortreet:**\n1. Start med talet på toppen\n2. Del opp i to faktorar (vel det som er lettast)\n3. Hald fram å dele opp til du berre har primtal\n4. Samle alle primtala (blada) og skriv dei som eit produkt\n5. Bruk potensform for gjentatte primtal",
+      "b8a20e9aa0becbda": "Test deg sjølv på faktortre:",
+      "4097889236a2af26": "placeholder",
+      "9e39c3eed0c81adf": "Kva er primtalsfaktoriseringa av $48$?",
+      "4e7d670f2869f2f3": "$2^3 \\cdot 6$",
+      "3e3683a1802d9cb1": "$2^4 \\cdot 3$",
+      "df6bdfb6fdd03490": "$2^2 \\cdot 12$",
+      "8ff1abf0628a104c": "$4 \\cdot 12$",
+      "a7716720069c5437": "$48 = 2 \\cdot 24 = 2 \\cdot 2 \\cdot 12 = 2 \\cdot 2 \\cdot 2 \\cdot 6 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$.",
+      "114541259c6080fa": "Kva er primtalsfaktoriseringa av $90$?",
+      "1dbed8b71fb14bd3": "$2 \\cdot 3^2 \\cdot 5$",
+      "e4fd76105a2d4bd1": "$2 \\cdot 3 \\cdot 15$",
+      "6f40f181df0d0f4f": "$2 \\cdot 5 \\cdot 9$",
+      "f9c15c923d1bfa08": "$2^2 \\cdot 3 \\cdot 5$",
+      "104857306e2049b1": "$90 = 2 \\cdot 45 = 2 \\cdot 9 \\cdot 5 = 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2 \\cdot 3^2 \\cdot 5$.",
+      "1cd4c3284ab0ece3": "Kvifor er svaret $2^3 \\cdot 6$ IKKJE ei gyldig primtalsfaktorisering?",
+      "fd20220dad4ec553": "Fordi $6$ ikkje er eit primtal",
+      "e74e386cc23397ac": "Fordi produktet er feil",
+      "aa0e4e276c9a0427": "Fordi $2^3$ er feil",
+      "0227785692738f40": "Fordi vi manglar ein faktor",
+      "79e7ba407ce7bfad": "$6 = 2 \\cdot 3$ er eit samansett tal. I ei primtalsfaktorisering skal alle faktorane vere primtal. Rett: $2^3 \\cdot 6 = 2^3 \\cdot 2 \\cdot 3 = 2^4 \\cdot 3$.",
+      "ea618939ca703988": "## Metode 2: Gjentatt divisjon (stigen)\n\nEin meir systematisk metode er **gjentatt divisjon**: del talet på det minste primtalet som går opp, gjenta med kvotienten, og hald fram til du står att med $1$.\n\n**Døme: Faktoriser $180$**\n\nVi set det opp som ei «stige»:\n\n$$180 \\div 2 = 90$$\n$$90 \\div 2 = 45$$\n$$45 \\div 3 = 15$$\n$$15 \\div 3 = 5$$\n$$5 \\div 5 = 1$$\n\nVi samlar divisorane: $180 = 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^2 \\cdot 3^2 \\cdot 5$\n\n**Døme: Faktoriser $252$**\n\n$$252 \\div 2 = 126$$\n$$126 \\div 2 = 63$$\n$$63 \\div 3 = 21$$\n$$21 \\div 3 = 7$$\n$$7 \\div 7 = 1$$\n\nAltså: $252 = 2^2 \\cdot 3^2 \\cdot 7$\n\n**Tip:** Start alltid med det minste primtalet ($2$) og sjekk om det går opp. Viss ikkje, prøv $3$, deretter $5$, deretter $7$, osv. Bruk delelegheitsreglane frå førre kapittel for å sjekke raskt!",
+      "e3dc2fafef1feba2": "Test deg sjølv på gjentatt divisjon:",
+      "e2d6e661e68b468f": "Kva er primtalsfaktoriseringa av $300$?",
+      "e063dbbe5aae66c0": "$2^2 \\cdot 3 \\cdot 5^2$",
+      "9d5f489f08d9c56e": "$2 \\cdot 3 \\cdot 5^2$",
+      "9ed21ee149364ed6": "$2^2 \\cdot 3^2 \\cdot 5$",
+      "df55524935cfc4ba": "$2 \\cdot 3 \\cdot 100$",
+      "b90f0754cf612305": "$300 \\div 2 = 150$, $150 \\div 2 = 75$, $75 \\div 3 = 25$, $25 \\div 5 = 5$, $5 \\div 5 = 1$. Altså $300 = 2^2 \\cdot 3 \\cdot 5^2$.",
+      "8d897230c0dba493": "Kva er primtalsfaktoriseringa av $84$?",
+      "8a88b89626f1cc1d": "$2 \\cdot 42$",
+      "47eb4a46c57ccb54": "$2^2 \\cdot 3 \\cdot 7$",
+      "cf2efcea701bcf69": "$2 \\cdot 3 \\cdot 14$",
+      "e5f8d61de0c71258": "$4 \\cdot 21$",
+      "75bcd2e3c77cb30c": "$84 \\div 2 = 42$, $42 \\div 2 = 21$, $21 \\div 3 = 7$, $7 \\div 7 = 1$. Altså $84 = 2^2 \\cdot 3 \\cdot 7$.",
+      "ea042f83daf0ccd8": "Kva er primtalsfaktoriseringa av $147$?",
+      "852a15b71b40ae74": "$3 \\cdot 49$",
+      "a28b7b1012a94d58": "$7^2 \\cdot 3$",
+      "9cbe4bc1ade28326": "$3 \\cdot 7 \\cdot 7$",
+      "52a05bd1382b4a9c": "Alternativ b og c er begge rette",
+      "a456fc3dd56b688c": "$147 \\div 3 = 49$, $49 \\div 7 = 7$, $7 \\div 7 = 1$. Altså $147 = 3 \\cdot 7^2$. (Alternativ c viser det same utan potensform, men standardforma er $3 \\cdot 7^2$.)",
+      "5b802c1bdc894148": "## Potensform og sortering\n\nNår vi skriv primtalsfaktoriseringar, bruker vi **potensform** for å gjere uttrykket ryddig. I staden for å skrive $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3$, skriv vi $2^3 \\cdot 3^2$.\n\nVi sorterer òg primfaktorane i **stigande rekkjefølgje**: minste primtal først.\n\n**Døme på ryddig primtalsfaktorisering:**\n\n| Tal | Faktorisering | Potensform |\n|------|---------------|------------|\n| $36$ | $2 \\cdot 2 \\cdot 3 \\cdot 3$ | $2^2 \\cdot 3^2$ |\n| $100$ | $2 \\cdot 2 \\cdot 5 \\cdot 5$ | $2^2 \\cdot 5^2$ |\n| $360$ | $2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5$ | $2^3 \\cdot 3^2 \\cdot 5$ |\n| $1000$ | $2 \\cdot 2 \\cdot 2 \\cdot 5 \\cdot 5 \\cdot 5$ | $2^3 \\cdot 5^3$ |\n\n**Hugs:** Eksponenten fortel kor mange gonger primtalet førekjem. Viss eit primtal berre førekjem éin gong, skriv vi det utan eksponent (eller med eksponenten $1$): $2 \\cdot 3^2 \\cdot 5$ tyder at $2$ førekjem éin gong, $3$ to gonger og $5$ éin gong.\n\nPrimtalsfaktorisering er nyttig fordi ho gir oss eit «røntgenbilete» av den indre strukturen i talet. I dei neste kapitla skal vi sjå korleis vi bruker ho til å finne SFF, MFM og forenkle brøkar.",
+      "c0534c35d80ae4f5": "Test deg sjølv på potensform:",
+      "8f3ea02d3a89f68a": "Skriv $2 \\cdot 2 \\cdot 3 \\cdot 5 \\cdot 5 \\cdot 5$ i potensform.",
+      "978dc3a5d3186af1": "$2^2 \\cdot 3 \\cdot 5^3$",
+      "ac70301e6ac32684": "$2^2 \\cdot 3^1 \\cdot 5^2$",
+      "cef23227d8d74a85": "$2 \\cdot 3 \\cdot 5^3$",
+      "590ecccbfd643095": "$2^3 \\cdot 3 \\cdot 5^2$",
+      "3684094965f50c1b": "Vi tel: to toarar ($2^2$), éin trear ($3$), tre femmarar ($5^3$). Svar: $2^2 \\cdot 3 \\cdot 5^3$.",
+      "e910211863841269": "Kva er talet $2^3 \\cdot 3 \\cdot 11$ lik?",
+      "087b03ca7d842b4d": "$2^3 \\cdot 3 \\cdot 11 = 8 \\cdot 3 \\cdot 11 = 24 \\cdot 11 = 264$.",
+      "037e8b5c74dde8d4": "Kva er primtalsfaktoriseringa av $540$?",
+      "7fb3150e6a7727ca": "$2^2 \\cdot 3^3 \\cdot 5$",
+      "e04e33ba700107c4": "$2^3 \\cdot 3^2 \\cdot 5$",
+      "40d9be206c238d73": "$2^2 \\cdot 3^2 \\cdot 5^2$",
+      "b9c34d24265c22fe": "$2 \\cdot 3^3 \\cdot 5^2$",
+      "1fb918c12c024980": "$540 \\div 2 = 270$, $270 \\div 2 = 135$, $135 \\div 3 = 45$, $45 \\div 3 = 15$, $15 \\div 3 = 5$, $5 \\div 5 = 1$. Altså $540 = 2^2 \\cdot 3^3 \\cdot 5$.",
+      "c740786a7960abfb": "## Oppsummering\n\n**Primtalsfaktorisering** er å skrive eit tal som eit produkt av primtal. Kvart tal har ei unik faktorisering (fundamentalteoremet i aritmetikken).\n\n**To metodar:**\n\n| Metode | Framgangsmåte |\n|--------|---------------|\n| **Faktortre** | Del talet i to faktorar, hald fram til du har berre primtal |\n| **Gjentatt divisjon** | Del på minste primtal som går opp, gjenta til du får $1$ |\n\n**Potensform:** Skriv gjentatte primfaktorar med eksponent og sorter i stigande rekkjefølgje.\n\nDøme: $360 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 \\cdot 5 = 2^3 \\cdot 3^2 \\cdot 5$\n\nBruk delelegheitsreglane for å jobbe effektivt:\n- Deleleg med $2$? Siste siffer er partal\n- Deleleg med $3$? Tverrsummen er deleleg med $3$\n- Deleleg med $5$? Siste siffer er $0$ eller $5$"
+    }
+  }
+}

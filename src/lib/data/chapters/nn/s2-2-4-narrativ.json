@@ -1,1 +1,359 @@
-{"id":"s2-2-4-narrativ","courseId":"s2","chapterNumber":"2.4","title":"Modellering med differensiallikningar","subtitle":"Narrativ versjon","description":"Ei forteljing om ein samfunnsplanleggjar som vel mellom eksponentiell eksplosjon, logistisk S-kurve og lineær likevekt — og lèt differensiallikningane svare på framtidsspørsmåla til kommunen.","estimatedMinutes":32,"competenceGoals":["bruke differensiallikningar til å modellere praktiske situasjonar","tolke og analysere løysingar av differensiallikningar"],"linkedChapterId":"s2-2-4","content":[{"id":"s2-2-4-n-intro","type":"text","content":"## Verktøykassa til planleggjaren\n\nDu er nytilsett samfunnsplanleggjar i ein veksande kommune, og innboksen er full av spørsmål om framtida. Kor mange innbyggjarar har vi om femten år? Kor raskt spreier influensaen seg i vinter? Kor lenge varer grunnvassreservane? Når flatar hyttebygginga ut? Ingen av spørsmåla kan svarast på ved å sjå på dagens tal åleine — men alle kan ein gå laus på med same strategi: finn ut korleis *endringa* heng saman med *tilstanden*, formuler det som ei differensiallikning, og løys ho.\n\nDet er dette som er **modellering med differensiallikningar**, og etter dei tre føregåande kapitla har du alt det tekniske på plass: direkte integrasjon, separasjon av variablar og integrerande faktor. No handlar det om å velje rett modell — og om å forstå kva løysingane faktisk seier om verkelegheita.\n\nTo vekstmodellar dominerer. Den **eksponentielle** modellen seier at veksten er proporsjonal med mengda — rimeleg for befolkningar med rikeleg plass, kapital med rentes rente, og smitte i ein stor, mottakeleg befolkning. Men ubegrensa eksponentiell vekst er ein matematisk fiksjon: før eller seinare set ressursane grenser. Då tek den **logistiske** modellen over, der veksten blir bremsa når populasjonen nærmar seg bereevna til miljøet.\n\nSkilnaden mellom dei to er skilnaden mellom ein prognose som eksploderer og ein som flatar ut — og å vite kva for ein som gjeld når, er kanskje den viktigaste modelleringskompetansen ein samfunnsplanleggjar kan ha. Lat oss ta dei i tur og orden."},{"id":"s2-2-4-n-section1","type":"text","content":"## Eksponentielle modellar\n\nDen eksponentielle grunnmodellen kjenner du no godt: $\\frac{dN}{dt} = kN$, med løysinga\n\n$$N(t) = N_0 e^{kt}$$\n\nder $N_0$ er startmengda. Forteiknet til $k$ avgjer forteljinga: $k > 0$ gjev eksponentiell vekst (befolkning, kapital, smitte i tidleg fase), $k < 0$ gjev eksponentiell nedgang (radioaktivt forfall, nedbryting av legemiddel i kroppen, verditap på ein bil).\n\nTo karakteristiske tider følgjer med på kjøpet. **Doblingstida** $T_d = \\frac{\\ln 2}{k}$ og **halveringstida** $T_{1/2} = \\frac{\\ln 2}{|k|}$ er konstante: mengda blir dobla (eller halvert) like fort uansett kor stor ho er. Det er sjølve signaturen til eksponentiell utvikling.\n\nLat oss svare på eitt av spørsmåla frå innboksen. Byen i kommunen har 100 000 innbyggjarar og veks med 2 % per år. Når passerer vi 150 000? Modellen er $\\frac{dP}{dt} = 0{,}02P$, så $P(t) = 100\\,000 \\cdot e^{0{,}02t}$. Vi set $P(t) = 150\\,000$:\n\n$$150\\,000 = 100\\,000 \\cdot e^{0{,}02t} \\quad \\Rightarrow \\quad e^{0{,}02t} = 1{,}5 \\quad \\Rightarrow \\quad t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3 \\text{ år}$$\n\nByen passerer 150 000 innbyggjarar om cirka 20 år — gjeve at veksten *held fram* på 2 %. Og der ligg svakheita til modellen i open dag: eksponentialfunksjonen veks over alle grenser, men det gjer ikkje byggjeland, skuleplassar og vassforsyning. Eksponentielle modellar er glimrande på kort og mellomlang sikt, i fasen der ressursane ikkje bind. For lange horisontar treng planleggjaren ein modell som veit at tre ikkje veks inn i himmelen."},{"id":"s2-2-4-n-quiz1","type":"exercise","exercise":{"id":"s2-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på eksponentielle modellar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-4-n-quiz1-q0","task":"Kva er løysinga av $\\frac{dN}{dt} = kN$ med startverdi $N(0) = N_0$?","options":[{"id":"a","text":"$N(t) = N_0 + kt$","isCorrect":false},{"id":"b","text":"$N(t) = N_0 e^{kt}$","isCorrect":true},{"id":"c","text":"$N(t) = kN_0 t$","isCorrect":false},{"id":"d","text":"$N(t) = N_0 t^k$","isCorrect":false}],"solution":"Vekst proporsjonal med mengda gjev eksponentiell utvikling: $N(t) = N_0e^{kt}$. Lineær vekst $N_0 + kt$ ville tydd konstant endring uavhengig av mengda."},{"id":"s2-2-4-n-quiz1-q1","task":"Kva er doblingstida i ein eksponentiell vekstmodell med vekstkonstant $k > 0$?","options":[{"id":"a","text":"$T_d = \\frac{2}{k}$","isCorrect":false},{"id":"b","text":"$T_d = k\\ln 2$","isCorrect":false},{"id":"c","text":"$T_d = \\frac{\\ln 2}{k}$","isCorrect":true},{"id":"d","text":"$T_d = e^{2k}$","isCorrect":false}],"solution":"Av $N_0e^{kT_d} = 2N_0$ følgjer $kT_d = \\ln 2$, altså $T_d = \\frac{\\ln 2}{k}$ — den same uansett kor stor mengda er."},{"id":"s2-2-4-n-quiz1-q2","task":"Ein by med 100 000 innbyggjarar veks med 2 % per år ($P' = 0{,}02P$). Når når byen 150 000?","options":[{"id":"a","text":"Etter ca. $20{,}3$ år","isCorrect":true},{"id":"b","text":"Etter ca. $25$ år","isCorrect":false},{"id":"c","text":"Etter ca. $50$ år","isCorrect":false},{"id":"d","text":"Etter ca. $12{,}5$ år","isCorrect":false}],"solution":"$150\\,000 = 100\\,000e^{0{,}02t}$ gjev $e^{0{,}02t} = 1{,}5$ og $t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3$ år."},{"id":"s2-2-4-n-quiz1-q3","task":"Kva tyder $k < 0$ i modellen $N(t) = N_0e^{kt}$?","options":[{"id":"a","text":"At modellen er ugyldig","isCorrect":false},{"id":"b","text":"At mengda avtek eksponentielt, med halveringstid $\\frac{\\ln 2}{|k|}$","isCorrect":true},{"id":"c","text":"At mengda blir negativ","isCorrect":false},{"id":"d","text":"At veksten er lineær","isCorrect":false}],"solution":"Negativ $k$ gjev eksponentiell nedgang — radioaktivt forfall, legemiddelnedbryting, verditap. Mengda blir halvert kvart $\\frac{\\ln 2}{|k|}$ tidsintervall, men blir aldri negativ."}]}},{"id":"s2-2-4-n-section2","type":"text","content":"## Logistisk vekst og kunsten å velje modell\n\nModellen som «veit» at veksten har grenser, heiter **logistisk vekst**:\n\n$$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$$\n\nder $K$ er **bereevna** — den største populasjonen miljøet kan bere. Les likninga som ei forteljing: når $N$ er liten i forhold til $K$, er parentesen nær 1, og veksten er tilnærma eksponentiell med rate $r$. Når $N$ nærmar seg $K$, går parentesen mot null, og veksten blir kvelt. Og skulle $N$ overstige $K$, blir parentesen negativ — populasjonen krympar tilbake. Bereevna er ei stabil likevekt.\n\nLikninga er separabel, og løysinga er\n\n$$N(t) = \\frac{K}{1 + \\left(\\frac{K - N_0}{N_0}\\right)e^{-rt}}$$\n\nGrafen er den karakteristiske S-kurva: eksponentiell start, så eit vendepunkt, så utflating mot $K$. Eit fint og eksamensrelevant detaljresultat: veksten $\\frac{dN}{dt}$ er størst når $N = \\frac{K}{2}$ — uttrykket $rN(1 - \\frac{N}{K})$ er jo ein parabel i $N$ med topp midt mellom nullpunkta $0$ og $K$. Ein epidemi veks altså raskast når halve «marknaden» av mottakelege er nådd; det same gjeld salet av eit nytt produkt på veg mot metting.\n\nKorleis vel planleggjaren modell? Tommelfingerregelen: **eksponentiell** modell for tidlege fasar og kort sikt, når ressursane er rikelege og begrensingane ikkje bind; **logistisk** når metting, plassmangel eller marknadsgrenser er synlege i horisonten. Og hugs frå førre kapittel at også dei *lineære* modellane — Newtons avkjøling, kontoar med faste innskot, blandingsproblem — høyrer heime i verktøykassa, med sin eigen signatur: eksponentiell innsving mot ei likevekt $\\frac{b}{a}$, utan S-form. Tre kurveformer, tre forteljingar: eksplosjon, S-kurve, utflating mot nivå. Kjenner du att forteljinga i dataene, har du som regel funne rett likning."},{"id":"s2-2-4-n-quiz2","type":"exercise","exercise":{"id":"s2-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på logistisk vekst og modellval:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-4-n-quiz2-q0","task":"Kva for ei differensiallikning skildrar logistisk vekst?","options":[{"id":"a","text":"$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$","isCorrect":true},{"id":"b","text":"$\\frac{dN}{dt} = rN$","isCorrect":false},{"id":"c","text":"$\\frac{dN}{dt} = r(K - N^2)$","isCorrect":false},{"id":"d","text":"$\\frac{dN}{dt} = \\frac{rN}{K}$","isCorrect":false}],"solution":"Logistisk vekst: $N' = rN(1 - \\frac{N}{K})$ — eksponentiell for små $N$, bremsa mot bereevna $K$."},{"id":"s2-2-4-n-quiz2-q1","task":"Kva representerer konstanten $K$ i den logistiske modellen?","options":[{"id":"a","text":"Vekstraten i startfasen","isCorrect":false},{"id":"b","text":"Tida til vendepunktet","isCorrect":false},{"id":"c","text":"Bereevna — den største populasjonen miljøet kan bere","isCorrect":true},{"id":"d","text":"Startpopulasjonen","isCorrect":false}],"solution":"$K$ er bereevna: populasjonen veks så lenge $N < K$, krympar dersom $N > K$, og flatar ut mot $K$ — ei stabil likevekt."},{"id":"s2-2-4-n-quiz2-q2","task":"Ved kva populasjonsstorleik veks ein logistisk populasjon raskast?","options":[{"id":"a","text":"Når $N = K$","isCorrect":false},{"id":"b","text":"Når $N = \\frac{K}{2}$","isCorrect":true},{"id":"c","text":"Når $N$ er nær null","isCorrect":false},{"id":"d","text":"Veksten er konstant heile tida","isCorrect":false}],"solution":"Vekstuttrykket $rN(1 - \\frac{N}{K})$ er ein parabel i $N$ med nullpunkt i $0$ og $K$ — toppen ligg midt imellom, ved $N = \\frac{K}{2}$."},{"id":"s2-2-4-n-quiz2-q3","task":"Når bør du velje logistisk modell framfor eksponentiell?","options":[{"id":"a","text":"Når veksten skal skildrast over lang tid og begrensa ressursar eller metting bremsar veksten","isCorrect":true},{"id":"b","text":"Når mengda avtek","isCorrect":false},{"id":"c","text":"Når du berre har to datapunkt","isCorrect":false},{"id":"d","text":"Aldri — eksponentiell modell er alltid mest nøyaktig","isCorrect":false}],"solution":"Eksponentiell modell passar i tidlege fasar med rikelege ressursar; logistisk modell trengst når bereevne, plassmangel eller marknadsmetting gjer at veksten må flate ut."}]}},{"id":"s2-2-4-n-summary","type":"text","content":"## Tre forteljingar om framtida\n\nInnboksen frå første arbeidsdag kan no svarast på med metode. Modellering med differensiallikningar følgjer alltid same løype: skildr korleis endringa avheng av tilstanden, formuler likninga, løys ho med teknikkane frå kapitla før — og tolk svaret kritisk.\n\nDen eksponentielle modellen $N' = kN$ gjev $N(t) = N_0e^{kt}$, med konstant doblings- eller halveringstid $T = \\frac{\\ln 2}{|k|}$. Han svarte på byspørsmålet — 150 000 innbyggjarar om cirka 20,3 år — men berre med atterhaldet «dersom veksten held fram»: eksponentialfunksjonar kjenner ingen grenser, det gjer verkelegheita. Den logistiske modellen $N' = rN(1 - \\frac{N}{K})$ byggjer grensa inn via bereevna $K$: S-kurva startar eksponentielt, veks raskast ved $N = \\frac{K}{2}$ og flatar ut mot $K$. Og dei lineære modellane frå førre kapittel — avkjøling, kontoar, blandingar — leverer den tredje kurveforma: eksponentiell innsving mot ei likevekt.\n\nModellvalet er sjølve faget: eksponentiell på kort sikt med frie ressursar, logistisk når mettinga nærmar seg, lineær når eit ytre pådrag møter proporsjonal demping. Kjenn att kurveforma i dataene, så finn du likninga — og med ho både prognosen og grensene hans.\n\nDermed har du heile differensiallikningsverktøyet for S2: omgrepa, løysingsteknikkane og modellane. Det som står att, er det viktigaste — å bruke dei med dømmekraft."}],"exercises":[],"_meta":{"sourceHash":"7768d1bdc9ce7ae5","translatedAt":"2026-06-20T08:50:29.291Z","model":"claude-code-agent","strings":61,"tm":{"782efcc41df5a161":"Modellering med differensiallikningar","b195b06d1ed59702":"Narrativ versjon","58d9f7b8b8f732c0":"Ei forteljing om ein samfunnsplanleggjar som vel mellom eksponentiell eksplosjon, logistisk S-kurve og lineær likevekt — og lèt differensiallikningane svare på framtidsspørsmåla til kommunen.","30a5f178f583132a":"bruke differensiallikningar til å modellere praktiske situasjonar","d0106d797daf075e":"tolke og analysere løysingar av differensiallikningar","c1a6afe0d0b0fc4e":"## Verktøykassa til planleggjaren\n\nDu er nytilsett samfunnsplanleggjar i ein veksande kommune, og innboksen er full av spørsmål om framtida. Kor mange innbyggjarar har vi om femten år? Kor raskt spreier influensaen seg i vinter? Kor lenge varer grunnvassreservane? Når flatar hyttebygginga ut? Ingen av spørsmåla kan svarast på ved å sjå på dagens tal åleine — men alle kan ein gå laus på med same strategi: finn ut korleis *endringa* heng saman med *tilstanden*, formuler det som ei differensiallikning, og løys ho.\n\nDet er dette som er **modellering med differensiallikningar**, og etter dei tre føregåande kapitla har du alt det tekniske på plass: direkte integrasjon, separasjon av variablar og integrerande faktor. No handlar det om å velje rett modell — og om å forstå kva løysingane faktisk seier om verkelegheita.\n\nTo vekstmodellar dominerer. Den **eksponentielle** modellen seier at veksten er proporsjonal med mengda — rimeleg for befolkningar med rikeleg plass, kapital med rentes rente, og smitte i ein stor, mottakeleg befolkning. Men ubegrensa eksponentiell vekst er ein matematisk fiksjon: før eller seinare set ressursane grenser. Då tek den **logistiske** modellen over, der veksten blir bremsa når populasjonen nærmar seg bereevna til miljøet.\n\nSkilnaden mellom dei to er skilnaden mellom ein prognose som eksploderer og ein som flatar ut — og å vite kva for ein som gjeld når, er kanskje den viktigaste modelleringskompetansen ein samfunnsplanleggjar kan ha. Lat oss ta dei i tur og orden.","631da9c658822ed0":"## Eksponentielle modellar\n\nDen eksponentielle grunnmodellen kjenner du no godt: $\\frac{dN}{dt} = kN$, med løysinga\n\n$$N(t) = N_0 e^{kt}$$\n\nder $N_0$ er startmengda. Forteiknet til $k$ avgjer forteljinga: $k > 0$ gjev eksponentiell vekst (befolkning, kapital, smitte i tidleg fase), $k < 0$ gjev eksponentiell nedgang (radioaktivt forfall, nedbryting av legemiddel i kroppen, verditap på ein bil).\n\nTo karakteristiske tider følgjer med på kjøpet. **Doblingstida** $T_d = \\frac{\\ln 2}{k}$ og **halveringstida** $T_{1/2} = \\frac{\\ln 2}{|k|}$ er konstante: mengda blir dobla (eller halvert) like fort uansett kor stor ho er. Det er sjølve signaturen til eksponentiell utvikling.\n\nLat oss svare på eitt av spørsmåla frå innboksen. Byen i kommunen har 100 000 innbyggjarar og veks med 2 % per år. Når passerer vi 150 000? Modellen er $\\frac{dP}{dt} = 0{,}02P$, så $P(t) = 100\\,000 \\cdot e^{0{,}02t}$. Vi set $P(t) = 150\\,000$:\n\n$$150\\,000 = 100\\,000 \\cdot e^{0{,}02t} \\quad \\Rightarrow \\quad e^{0{,}02t} = 1{,}5 \\quad \\Rightarrow \\quad t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3 \\text{ år}$$\n\nByen passerer 150 000 innbyggjarar om cirka 20 år — gjeve at veksten *held fram* på 2 %. Og der ligg svakheita til modellen i open dag: eksponentialfunksjonen veks over alle grenser, men det gjer ikkje byggjeland, skuleplassar og vassforsyning. Eksponentielle modellar er glimrande på kort og mellomlang sikt, i fasen der ressursane ikkje bind. For lange horisontar treng planleggjaren ein modell som veit at tre ikkje veks inn i himmelen.","24068dd651f474df":"Test deg sjølv på eksponentielle modellar:","4097889236a2af26":"placeholder","9649bad8aaf69af2":"Kva er løysinga av $\\frac{dN}{dt} = kN$ med startverdi $N(0) = N_0$?","60af129cd537eaa6":"$N(t) = N_0 + kt$","83cd243ba9a96afe":"$N(t) = N_0 e^{kt}$","ab0b307649c0749e":"$N(t) = kN_0 t$","d71cd76cb568b615":"$N(t) = N_0 t^k$","c4b5d35fb5898bc5":"Vekst proporsjonal med mengda gjev eksponentiell utvikling: $N(t) = N_0e^{kt}$. Lineær vekst $N_0 + kt$ ville tydd konstant endring uavhengig av mengda.","247188f6f6ef0b24":"Kva er doblingstida i ein eksponentiell vekstmodell med vekstkonstant $k > 0$?","fb7a7a747576adc9":"$T_d = \\frac{2}{k}$","f5d9e71a36a847c6":"$T_d = k\\ln 2$","353a81ba005448d6":"$T_d = \\frac{\\ln 2}{k}$","097079a709bffe06":"$T_d = e^{2k}$","f49056b5909cf5a8":"Av $N_0e^{kT_d} = 2N_0$ følgjer $kT_d = \\ln 2$, altså $T_d = \\frac{\\ln 2}{k}$ — den same uansett kor stor mengda er.","6cf5e04ad1ce0484":"Ein by med 100 000 innbyggjarar veks med 2 % per år ($P' = 0{,}02P$). Når når byen 150 000?","92dc83ffc0b92b65":"Etter ca. $20{,}3$ år","a25ae63f4dfcc2fc":"Etter ca. $25$ år","86b96ce534f07bdb":"Etter ca. $50$ år","d568d1d830821766":"Etter ca. $12{,}5$ år","49b2b94013e3a0c6":"$150\\,000 = 100\\,000e^{0{,}02t}$ gjev $e^{0{,}02t} = 1{,}5$ og $t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3$ år.","e0264997dc226b3f":"Kva tyder $k < 0$ i modellen $N(t) = N_0e^{kt}$?","93f5179aab9fdd5d":"At modellen er ugyldig","af12e35f4b655908":"At mengda avtek eksponentielt, med halveringstid $\\frac{\\ln 2}{|k|}$","9323cea44f853011":"At mengda blir negativ","6b43f3d94abf112b":"At veksten er lineær","0b816285a4ecb531":"Negativ $k$ gjev eksponentiell nedgang — radioaktivt forfall, legemiddelnedbryting, verditap. Mengda blir halvert kvart $\\frac{\\ln 2}{|k|}$ tidsintervall, men blir aldri negativ.","0a046c4ebf901d29":"## Logistisk vekst og kunsten å velje modell\n\nModellen som «veit» at veksten har grenser, heiter **logistisk vekst**:\n\n$$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$$\n\nder $K$ er **bereevna** — den største populasjonen miljøet kan bere. Les likninga som ei forteljing: når $N$ er liten i forhold til $K$, er parentesen nær 1, og veksten er tilnærma eksponentiell med rate $r$. Når $N$ nærmar seg $K$, går parentesen mot null, og veksten blir kvelt. Og skulle $N$ overstige $K$, blir parentesen negativ — populasjonen krympar tilbake. Bereevna er ei stabil likevekt.\n\nLikninga er separabel, og løysinga er\n\n$$N(t) = \\frac{K}{1 + \\left(\\frac{K - N_0}{N_0}\\right)e^{-rt}}$$\n\nGrafen er den karakteristiske S-kurva: eksponentiell start, så eit vendepunkt, så utflating mot $K$. Eit fint og eksamensrelevant detaljresultat: veksten $\\frac{dN}{dt}$ er størst når $N = \\frac{K}{2}$ — uttrykket $rN(1 - \\frac{N}{K})$ er jo ein parabel i $N$ med topp midt mellom nullpunkta $0$ og $K$. Ein epidemi veks altså raskast når halve «marknaden» av mottakelege er nådd; det same gjeld salet av eit nytt produkt på veg mot metting.\n\nKorleis vel planleggjaren modell? Tommelfingerregelen: **eksponentiell** modell for tidlege fasar og kort sikt, når ressursane er rikelege og begrensingane ikkje bind; **logistisk** når metting, plassmangel eller marknadsgrenser er synlege i horisonten. Og hugs frå førre kapittel at også dei *lineære* modellane — Newtons avkjøling, kontoar med faste innskot, blandingsproblem — høyrer heime i verktøykassa, med sin eigen signatur: eksponentiell innsving mot ei likevekt $\\frac{b}{a}$, utan S-form. Tre kurveformer, tre forteljingar: eksplosjon, S-kurve, utflating mot nivå. Kjenner du att forteljinga i dataene, har du som regel funne rett likning.","c3551b359a81cd29":"Test deg sjølv på logistisk vekst og modellval:","5f1e826c2db028cf":"Kva for ei differensiallikning skildrar logistisk vekst?","5ce75f3fe33f1df9":"$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$","53a8fe1353d859b7":"$\\frac{dN}{dt} = rN$","b5e9370c923f6a6d":"$\\frac{dN}{dt} = r(K - N^2)$","f18a245fb04ea368":"$\\frac{dN}{dt} = \\frac{rN}{K}$","a6f587695dbe5dba":"Logistisk vekst: $N' = rN(1 - \\frac{N}{K})$ — eksponentiell for små $N$, bremsa mot bereevna $K$.","6b79b69c9820b1ef":"Kva representerer konstanten $K$ i den logistiske modellen?","b85fd0476c1a57d8":"Vekstraten i startfasen","c2c715bdbab7eac8":"Tida til vendepunktet","2543ea3a1baf897e":"Bereevna — den største populasjonen miljøet kan bere","39c96b4d9c1afc60":"Startpopulasjonen","707aae908715c68e":"$K$ er bereevna: populasjonen veks så lenge $N < K$, krympar dersom $N > K$, og flatar ut mot $K$ — ei stabil likevekt.","61f498ab13ff3882":"Ved kva populasjonsstorleik veks ein logistisk populasjon raskast?","1cfdd6bed4e45f8f":"Når $N = K$","ae51641e7e2e84f1":"Når $N = \\frac{K}{2}$","a86b70a8287f2d29":"Når $N$ er nær null","4f940027a7a533ef":"Veksten er konstant heile tida","647bad02379d586d":"Vekstuttrykket $rN(1 - \\frac{N}{K})$ er ein parabel i $N$ med nullpunkt i $0$ og $K$ — toppen ligg midt imellom, ved $N = \\frac{K}{2}$.","be3b526e9d23b4d7":"Når bør du velje logistisk modell framfor eksponentiell?","4cbe1d1c59465b1d":"Når veksten skal skildrast over lang tid og begrensa ressursar eller metting bremsar veksten","7823a5ce930c0808":"Når mengda avtek","a453931a70863f43":"Når du berre har to datapunkt","db7b59f337bc8f54":"Aldri — eksponentiell modell er alltid mest nøyaktig","0879ee84faa10feb":"Eksponentiell modell passar i tidlege fasar med rikelege ressursar; logistisk modell trengst når bereevne, plassmangel eller marknadsmetting gjer at veksten må flate ut.","0cf3b547e68ba50e":"## Tre forteljingar om framtida\n\nInnboksen frå første arbeidsdag kan no svarast på med metode. Modellering med differensiallikningar følgjer alltid same løype: skildr korleis endringa avheng av tilstanden, formuler likninga, løys ho med teknikkane frå kapitla før — og tolk svaret kritisk.\n\nDen eksponentielle modellen $N' = kN$ gjev $N(t) = N_0e^{kt}$, med konstant doblings- eller halveringstid $T = \\frac{\\ln 2}{|k|}$. Han svarte på byspørsmålet — 150 000 innbyggjarar om cirka 20,3 år — men berre med atterhaldet «dersom veksten held fram»: eksponentialfunksjonar kjenner ingen grenser, det gjer verkelegheita. Den logistiske modellen $N' = rN(1 - \\frac{N}{K})$ byggjer grensa inn via bereevna $K$: S-kurva startar eksponentielt, veks raskast ved $N = \\frac{K}{2}$ og flatar ut mot $K$. Og dei lineære modellane frå førre kapittel — avkjøling, kontoar, blandingar — leverer den tredje kurveforma: eksponentiell innsving mot ei likevekt.\n\nModellvalet er sjølve faget: eksponentiell på kort sikt med frie ressursar, logistisk når mettinga nærmar seg, lineær når eit ytre pådrag møter proporsjonal demping. Kjenn att kurveforma i dataene, så finn du likninga — og med ho både prognosen og grensene hans.\n\nDermed har du heile differensiallikningsverktøyet for S2: omgrepa, løysingsteknikkane og modellane. Det som står att, er det viktigaste — å bruke dei med dømmekraft."}}}
+{
+  "id": "s2-2-4-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "2.4",
+  "title": "Modellering med differensiallikningar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ein samfunnsplanleggjar som vel mellom eksponentiell eksplosjon, logistisk S-kurve og lineær likevekt — og lèt differensiallikningane svare på framtidsspørsmåla til kommunen.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "bruke differensiallikningar til å modellere praktiske situasjonar",
+    "tolke og analysere løysingar av differensiallikningar"
+  ],
+  "linkedChapterId": "s2-2-4",
+  "content": [
+    {
+      "id": "s2-2-4-n-intro",
+      "type": "text",
+      "content": "## Verktøykassa til planleggjaren\n\nDu er nytilsett samfunnsplanleggjar i ein veksande kommune, og innboksen er full av spørsmål om framtida. Kor mange innbyggjarar har vi om femten år? Kor raskt spreier influensaen seg i vinter? Kor lenge varer grunnvassreservane? Når flatar hyttebygginga ut? Ingen av spørsmåla kan svarast på ved å sjå på dagens tal åleine — men alle kan ein gå laus på med same strategi: finn ut korleis *endringa* heng saman med *tilstanden*, formuler det som ei differensiallikning, og løys ho.\n\nDet er dette som er **modellering med differensiallikningar**, og etter dei tre føregåande kapitla har du alt det tekniske på plass: direkte integrasjon, separasjon av variablar og integrerande faktor. No handlar det om å velje rett modell — og om å forstå kva løysingane faktisk seier om verkelegheita.\n\nTo vekstmodellar dominerer. Den **eksponentielle** modellen seier at veksten er proporsjonal med mengda — rimeleg for befolkningar med rikeleg plass, kapital med rentes rente, og smitte i ein stor, mottakeleg befolkning. Men ubegrensa eksponentiell vekst er ein matematisk fiksjon: før eller seinare set ressursane grenser. Då tek den **logistiske** modellen over, der veksten blir bremsa når populasjonen nærmar seg bereevna til miljøet.\n\nSkilnaden mellom dei to er skilnaden mellom ein prognose som eksploderer og ein som flatar ut — og å vite kva for ein som gjeld når, er kanskje den viktigaste modelleringskompetansen ein samfunnsplanleggjar kan ha. Lat oss ta dei i tur og orden."
+    },
+    {
+      "id": "s2-2-4-n-section1",
+      "type": "text",
+      "content": "## Eksponentielle modellar\n\nDen eksponentielle grunnmodellen kjenner du no godt: $\\frac{dN}{dt} = kN$, med løysinga\n\n$$N(t) = N_0 e^{kt}$$\n\nder $N_0$ er startmengda. Forteiknet til $k$ avgjer forteljinga: $k > 0$ gjev eksponentiell vekst (befolkning, kapital, smitte i tidleg fase), $k < 0$ gjev eksponentiell nedgang (radioaktivt forfall, nedbryting av legemiddel i kroppen, verditap på ein bil).\n\nTo karakteristiske tider følgjer med på kjøpet. **Doblingstida** $T_d = \\frac{\\ln 2}{k}$ og **halveringstida** $T_{1/2} = \\frac{\\ln 2}{|k|}$ er konstante: mengda blir dobla (eller halvert) like fort uansett kor stor ho er. Det er sjølve signaturen til eksponentiell utvikling.\n\nLat oss svare på eitt av spørsmåla frå innboksen. Byen i kommunen har 100 000 innbyggjarar og veks med 2 % per år. Når passerer vi 150 000? Modellen er $\\frac{dP}{dt} = 0{,}02P$, så $P(t) = 100\\,000 \\cdot e^{0{,}02t}$. Vi set $P(t) = 150\\,000$:\n\n$$150\\,000 = 100\\,000 \\cdot e^{0{,}02t} \\quad \\Rightarrow \\quad e^{0{,}02t} = 1{,}5 \\quad \\Rightarrow \\quad t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3 \\text{ år}$$\n\nByen passerer 150 000 innbyggjarar om cirka 20 år — gjeve at veksten *held fram* på 2 %. Og der ligg svakheita til modellen i open dag: eksponentialfunksjonen veks over alle grenser, men det gjer ikkje byggjeland, skuleplassar og vassforsyning. Eksponentielle modellar er glimrande på kort og mellomlang sikt, i fasen der ressursane ikkje bind. For lange horisontar treng planleggjaren ein modell som veit at tre ikkje veks inn i himmelen."
+    },
+    {
+      "id": "s2-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eksponentielle modellar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-4-n-quiz1-q0",
+            "task": "Kva er løysinga av $\\frac{dN}{dt} = kN$ med startverdi $N(0) = N_0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$N(t) = N_0 + kt$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$N(t) = N_0 e^{kt}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$N(t) = kN_0 t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$N(t) = N_0 t^k$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekst proporsjonal med mengda gjev eksponentiell utvikling: $N(t) = N_0e^{kt}$. Lineær vekst $N_0 + kt$ ville tydd konstant endring uavhengig av mengda."
+          },
+          {
+            "id": "s2-2-4-n-quiz1-q1",
+            "task": "Kva er doblingstida i ein eksponentiell vekstmodell med vekstkonstant $k > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$T_d = \\frac{2}{k}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$T_d = k\\ln 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$T_d = \\frac{\\ln 2}{k}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$T_d = e^{2k}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Av $N_0e^{kT_d} = 2N_0$ følgjer $kT_d = \\ln 2$, altså $T_d = \\frac{\\ln 2}{k}$ — den same uansett kor stor mengda er."
+          },
+          {
+            "id": "s2-2-4-n-quiz1-q2",
+            "task": "Ein by med 100 000 innbyggjarar veks med 2 % per år ($P' = 0{,}02P$). Når når byen 150 000?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Etter ca. $20{,}3$ år",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Etter ca. $25$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etter ca. $50$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etter ca. $12{,}5$ år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$150\\,000 = 100\\,000e^{0{,}02t}$ gjev $e^{0{,}02t} = 1{,}5$ og $t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3$ år."
+          },
+          {
+            "id": "s2-2-4-n-quiz1-q3",
+            "task": "Kva tyder $k < 0$ i modellen $N(t) = N_0e^{kt}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At modellen er ugyldig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At mengda blir negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At veksten er lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At mengda avtek eksponentielt, med halveringstid $\\frac{\\ln 2}{|k|}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativ $k$ gjev eksponentiell nedgang — radioaktivt forfall, legemiddelnedbryting, verditap. Mengda blir halvert kvart $\\frac{\\ln 2}{|k|}$ tidsintervall, men blir aldri negativ."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-4-n-section2",
+      "type": "text",
+      "content": "## Logistisk vekst og kunsten å velje modell\n\nModellen som «veit» at veksten har grenser, heiter **logistisk vekst**:\n\n$$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$$\n\nder $K$ er **bereevna** — den største populasjonen miljøet kan bere. Les likninga som ei forteljing: når $N$ er liten i forhold til $K$, er parentesen nær 1, og veksten er tilnærma eksponentiell med rate $r$. Når $N$ nærmar seg $K$, går parentesen mot null, og veksten blir kvelt. Og skulle $N$ overstige $K$, blir parentesen negativ — populasjonen krympar tilbake. Bereevna er ei stabil likevekt.\n\nLikninga er separabel, og løysinga er\n\n$$N(t) = \\frac{K}{1 + \\left(\\frac{K - N_0}{N_0}\\right)e^{-rt}}$$\n\nGrafen er den karakteristiske S-kurva: eksponentiell start, så eit vendepunkt, så utflating mot $K$. Eit fint og eksamensrelevant detaljresultat: veksten $\\frac{dN}{dt}$ er størst når $N = \\frac{K}{2}$ — uttrykket $rN(1 - \\frac{N}{K})$ er jo ein parabel i $N$ med topp midt mellom nullpunkta $0$ og $K$. Ein epidemi veks altså raskast når halve «marknaden» av mottakelege er nådd; det same gjeld salet av eit nytt produkt på veg mot metting.\n\nKorleis vel planleggjaren modell? Tommelfingerregelen: **eksponentiell** modell for tidlege fasar og kort sikt, når ressursane er rikelege og begrensingane ikkje bind; **logistisk** når metting, plassmangel eller marknadsgrenser er synlege i horisonten. Og hugs frå førre kapittel at også dei *lineære* modellane — Newtons avkjøling, kontoar med faste innskot, blandingsproblem — høyrer heime i verktøykassa, med sin eigen signatur: eksponentiell innsving mot ei likevekt $\\frac{b}{a}$, utan S-form. Tre kurveformer, tre forteljingar: eksplosjon, S-kurve, utflating mot nivå. Kjenner du att forteljinga i dataene, har du som regel funne rett likning."
+    },
+    {
+      "id": "s2-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logistisk vekst og modellval:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-4-n-quiz2-q0",
+            "task": "Kva for ei differensiallikning skildrar logistisk vekst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{dN}{dt} = rN$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{dN}{dt} = r(K - N^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{dN}{dt} = \\frac{rN}{K}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logistisk vekst: $N' = rN(1 - \\frac{N}{K})$ — eksponentiell for små $N$, bremsa mot bereevna $K$."
+          },
+          {
+            "id": "s2-2-4-n-quiz2-q1",
+            "task": "Kva representerer konstanten $K$ i den logistiske modellen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vekstraten i startfasen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bereevna — den største populasjonen miljøet kan bere",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Tida til vendepunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Startpopulasjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K$ er bereevna: populasjonen veks så lenge $N < K$, krympar dersom $N > K$, og flatar ut mot $K$ — ei stabil likevekt."
+          },
+          {
+            "id": "s2-2-4-n-quiz2-q2",
+            "task": "Ved kva populasjonsstorleik veks ein logistisk populasjon raskast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $N = K$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $N$ er nær null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $N = \\frac{K}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Veksten er konstant heile tida",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstuttrykket $rN(1 - \\frac{N}{K})$ er ein parabel i $N$ med nullpunkt i $0$ og $K$ — toppen ligg midt imellom, ved $N = \\frac{K}{2}$."
+          },
+          {
+            "id": "s2-2-4-n-quiz2-q3",
+            "task": "Når bør du velje logistisk modell framfor eksponentiell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når mengda avtek",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når du berre har to datapunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aldri — eksponentiell modell er alltid mest nøyaktig",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når veksten skal skildrast over lang tid og begrensa ressursar eller metting bremsar veksten",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eksponentiell modell passar i tidlege fasar med rikelege ressursar; logistisk modell trengst når bereevne, plassmangel eller marknadsmetting gjer at veksten må flate ut."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-4-n-summary",
+      "type": "text",
+      "content": "## Tre forteljingar om framtida\n\nInnboksen frå første arbeidsdag kan no svarast på med metode. Modellering med differensiallikningar følgjer alltid same løype: skildr korleis endringa avheng av tilstanden, formuler likninga, løys ho med teknikkane frå kapitla før — og tolk svaret kritisk.\n\nDen eksponentielle modellen $N' = kN$ gjev $N(t) = N_0e^{kt}$, med konstant doblings- eller halveringstid $T = \\frac{\\ln 2}{|k|}$. Han svarte på byspørsmålet — 150 000 innbyggjarar om cirka 20,3 år — men berre med atterhaldet «dersom veksten held fram»: eksponentialfunksjonar kjenner ingen grenser, det gjer verkelegheita. Den logistiske modellen $N' = rN(1 - \\frac{N}{K})$ byggjer grensa inn via bereevna $K$: S-kurva startar eksponentielt, veks raskast ved $N = \\frac{K}{2}$ og flatar ut mot $K$. Og dei lineære modellane frå førre kapittel — avkjøling, kontoar, blandingar — leverer den tredje kurveforma: eksponentiell innsving mot ei likevekt.\n\nModellvalet er sjølve faget: eksponentiell på kort sikt med frie ressursar, logistisk når mettinga nærmar seg, lineær når eit ytre pådrag møter proporsjonal demping. Kjenn att kurveforma i dataene, så finn du likninga — og med ho både prognosen og grensene hans.\n\nDermed har du heile differensiallikningsverktøyet for S2: omgrepa, løysingsteknikkane og modellane. Det som står att, er det viktigaste — å bruke dei med dømmekraft."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "7768d1bdc9ce7ae5",
+    "translatedAt": "2026-06-20T08:50:29.291Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "782efcc41df5a161": "Modellering med differensiallikningar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "58d9f7b8b8f732c0": "Ei forteljing om ein samfunnsplanleggjar som vel mellom eksponentiell eksplosjon, logistisk S-kurve og lineær likevekt — og lèt differensiallikningane svare på framtidsspørsmåla til kommunen.",
+      "30a5f178f583132a": "bruke differensiallikningar til å modellere praktiske situasjonar",
+      "d0106d797daf075e": "tolke og analysere løysingar av differensiallikningar",
+      "c1a6afe0d0b0fc4e": "## Verktøykassa til planleggjaren\n\nDu er nytilsett samfunnsplanleggjar i ein veksande kommune, og innboksen er full av spørsmål om framtida. Kor mange innbyggjarar har vi om femten år? Kor raskt spreier influensaen seg i vinter? Kor lenge varer grunnvassreservane? Når flatar hyttebygginga ut? Ingen av spørsmåla kan svarast på ved å sjå på dagens tal åleine — men alle kan ein gå laus på med same strategi: finn ut korleis *endringa* heng saman med *tilstanden*, formuler det som ei differensiallikning, og løys ho.\n\nDet er dette som er **modellering med differensiallikningar**, og etter dei tre føregåande kapitla har du alt det tekniske på plass: direkte integrasjon, separasjon av variablar og integrerande faktor. No handlar det om å velje rett modell — og om å forstå kva løysingane faktisk seier om verkelegheita.\n\nTo vekstmodellar dominerer. Den **eksponentielle** modellen seier at veksten er proporsjonal med mengda — rimeleg for befolkningar med rikeleg plass, kapital med rentes rente, og smitte i ein stor, mottakeleg befolkning. Men ubegrensa eksponentiell vekst er ein matematisk fiksjon: før eller seinare set ressursane grenser. Då tek den **logistiske** modellen over, der veksten blir bremsa når populasjonen nærmar seg bereevna til miljøet.\n\nSkilnaden mellom dei to er skilnaden mellom ein prognose som eksploderer og ein som flatar ut — og å vite kva for ein som gjeld når, er kanskje den viktigaste modelleringskompetansen ein samfunnsplanleggjar kan ha. Lat oss ta dei i tur og orden.",
+      "631da9c658822ed0": "## Eksponentielle modellar\n\nDen eksponentielle grunnmodellen kjenner du no godt: $\\frac{dN}{dt} = kN$, med løysinga\n\n$$N(t) = N_0 e^{kt}$$\n\nder $N_0$ er startmengda. Forteiknet til $k$ avgjer forteljinga: $k > 0$ gjev eksponentiell vekst (befolkning, kapital, smitte i tidleg fase), $k < 0$ gjev eksponentiell nedgang (radioaktivt forfall, nedbryting av legemiddel i kroppen, verditap på ein bil).\n\nTo karakteristiske tider følgjer med på kjøpet. **Doblingstida** $T_d = \\frac{\\ln 2}{k}$ og **halveringstida** $T_{1/2} = \\frac{\\ln 2}{|k|}$ er konstante: mengda blir dobla (eller halvert) like fort uansett kor stor ho er. Det er sjølve signaturen til eksponentiell utvikling.\n\nLat oss svare på eitt av spørsmåla frå innboksen. Byen i kommunen har 100 000 innbyggjarar og veks med 2 % per år. Når passerer vi 150 000? Modellen er $\\frac{dP}{dt} = 0{,}02P$, så $P(t) = 100\\,000 \\cdot e^{0{,}02t}$. Vi set $P(t) = 150\\,000$:\n\n$$150\\,000 = 100\\,000 \\cdot e^{0{,}02t} \\quad \\Rightarrow \\quad e^{0{,}02t} = 1{,}5 \\quad \\Rightarrow \\quad t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3 \\text{ år}$$\n\nByen passerer 150 000 innbyggjarar om cirka 20 år — gjeve at veksten *held fram* på 2 %. Og der ligg svakheita til modellen i open dag: eksponentialfunksjonen veks over alle grenser, men det gjer ikkje byggjeland, skuleplassar og vassforsyning. Eksponentielle modellar er glimrande på kort og mellomlang sikt, i fasen der ressursane ikkje bind. For lange horisontar treng planleggjaren ein modell som veit at tre ikkje veks inn i himmelen.",
+      "24068dd651f474df": "Test deg sjølv på eksponentielle modellar:",
+      "4097889236a2af26": "placeholder",
+      "9649bad8aaf69af2": "Kva er løysinga av $\\frac{dN}{dt} = kN$ med startverdi $N(0) = N_0$?",
+      "60af129cd537eaa6": "$N(t) = N_0 + kt$",
+      "83cd243ba9a96afe": "$N(t) = N_0 e^{kt}$",
+      "ab0b307649c0749e": "$N(t) = kN_0 t$",
+      "d71cd76cb568b615": "$N(t) = N_0 t^k$",
+      "c4b5d35fb5898bc5": "Vekst proporsjonal med mengda gjev eksponentiell utvikling: $N(t) = N_0e^{kt}$. Lineær vekst $N_0 + kt$ ville tydd konstant endring uavhengig av mengda.",
+      "247188f6f6ef0b24": "Kva er doblingstida i ein eksponentiell vekstmodell med vekstkonstant $k > 0$?",
+      "fb7a7a747576adc9": "$T_d = \\frac{2}{k}$",
+      "f5d9e71a36a847c6": "$T_d = k\\ln 2$",
+      "353a81ba005448d6": "$T_d = \\frac{\\ln 2}{k}$",
+      "097079a709bffe06": "$T_d = e^{2k}$",
+      "f49056b5909cf5a8": "Av $N_0e^{kT_d} = 2N_0$ følgjer $kT_d = \\ln 2$, altså $T_d = \\frac{\\ln 2}{k}$ — den same uansett kor stor mengda er.",
+      "6cf5e04ad1ce0484": "Ein by med 100 000 innbyggjarar veks med 2 % per år ($P' = 0{,}02P$). Når når byen 150 000?",
+      "92dc83ffc0b92b65": "Etter ca. $20{,}3$ år",
+      "a25ae63f4dfcc2fc": "Etter ca. $25$ år",
+      "86b96ce534f07bdb": "Etter ca. $50$ år",
+      "d568d1d830821766": "Etter ca. $12{,}5$ år",
+      "49b2b94013e3a0c6": "$150\\,000 = 100\\,000e^{0{,}02t}$ gjev $e^{0{,}02t} = 1{,}5$ og $t = \\frac{\\ln 1{,}5}{0{,}02} \\approx 20{,}3$ år.",
+      "e0264997dc226b3f": "Kva tyder $k < 0$ i modellen $N(t) = N_0e^{kt}$?",
+      "93f5179aab9fdd5d": "At modellen er ugyldig",
+      "af12e35f4b655908": "At mengda avtek eksponentielt, med halveringstid $\\frac{\\ln 2}{|k|}$",
+      "9323cea44f853011": "At mengda blir negativ",
+      "6b43f3d94abf112b": "At veksten er lineær",
+      "0b816285a4ecb531": "Negativ $k$ gjev eksponentiell nedgang — radioaktivt forfall, legemiddelnedbryting, verditap. Mengda blir halvert kvart $\\frac{\\ln 2}{|k|}$ tidsintervall, men blir aldri negativ.",
+      "0a046c4ebf901d29": "## Logistisk vekst og kunsten å velje modell\n\nModellen som «veit» at veksten har grenser, heiter **logistisk vekst**:\n\n$$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$$\n\nder $K$ er **bereevna** — den største populasjonen miljøet kan bere. Les likninga som ei forteljing: når $N$ er liten i forhold til $K$, er parentesen nær 1, og veksten er tilnærma eksponentiell med rate $r$. Når $N$ nærmar seg $K$, går parentesen mot null, og veksten blir kvelt. Og skulle $N$ overstige $K$, blir parentesen negativ — populasjonen krympar tilbake. Bereevna er ei stabil likevekt.\n\nLikninga er separabel, og løysinga er\n\n$$N(t) = \\frac{K}{1 + \\left(\\frac{K - N_0}{N_0}\\right)e^{-rt}}$$\n\nGrafen er den karakteristiske S-kurva: eksponentiell start, så eit vendepunkt, så utflating mot $K$. Eit fint og eksamensrelevant detaljresultat: veksten $\\frac{dN}{dt}$ er størst når $N = \\frac{K}{2}$ — uttrykket $rN(1 - \\frac{N}{K})$ er jo ein parabel i $N$ med topp midt mellom nullpunkta $0$ og $K$. Ein epidemi veks altså raskast når halve «marknaden» av mottakelege er nådd; det same gjeld salet av eit nytt produkt på veg mot metting.\n\nKorleis vel planleggjaren modell? Tommelfingerregelen: **eksponentiell** modell for tidlege fasar og kort sikt, når ressursane er rikelege og begrensingane ikkje bind; **logistisk** når metting, plassmangel eller marknadsgrenser er synlege i horisonten. Og hugs frå førre kapittel at også dei *lineære* modellane — Newtons avkjøling, kontoar med faste innskot, blandingsproblem — høyrer heime i verktøykassa, med sin eigen signatur: eksponentiell innsving mot ei likevekt $\\frac{b}{a}$, utan S-form. Tre kurveformer, tre forteljingar: eksplosjon, S-kurve, utflating mot nivå. Kjenner du att forteljinga i dataene, har du som regel funne rett likning.",
+      "c3551b359a81cd29": "Test deg sjølv på logistisk vekst og modellval:",
+      "5f1e826c2db028cf": "Kva for ei differensiallikning skildrar logistisk vekst?",
+      "5ce75f3fe33f1df9": "$\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$",
+      "53a8fe1353d859b7": "$\\frac{dN}{dt} = rN$",
+      "b5e9370c923f6a6d": "$\\frac{dN}{dt} = r(K - N^2)$",
+      "f18a245fb04ea368": "$\\frac{dN}{dt} = \\frac{rN}{K}$",
+      "a6f587695dbe5dba": "Logistisk vekst: $N' = rN(1 - \\frac{N}{K})$ — eksponentiell for små $N$, bremsa mot bereevna $K$.",
+      "6b79b69c9820b1ef": "Kva representerer konstanten $K$ i den logistiske modellen?",
+      "b85fd0476c1a57d8": "Vekstraten i startfasen",
+      "c2c715bdbab7eac8": "Tida til vendepunktet",
+      "2543ea3a1baf897e": "Bereevna — den største populasjonen miljøet kan bere",
+      "39c96b4d9c1afc60": "Startpopulasjonen",
+      "707aae908715c68e": "$K$ er bereevna: populasjonen veks så lenge $N < K$, krympar dersom $N > K$, og flatar ut mot $K$ — ei stabil likevekt.",
+      "61f498ab13ff3882": "Ved kva populasjonsstorleik veks ein logistisk populasjon raskast?",
+      "1cfdd6bed4e45f8f": "Når $N = K$",
+      "ae51641e7e2e84f1": "Når $N = \\frac{K}{2}$",
+      "a86b70a8287f2d29": "Når $N$ er nær null",
+      "4f940027a7a533ef": "Veksten er konstant heile tida",
+      "647bad02379d586d": "Vekstuttrykket $rN(1 - \\frac{N}{K})$ er ein parabel i $N$ med nullpunkt i $0$ og $K$ — toppen ligg midt imellom, ved $N = \\frac{K}{2}$.",
+      "be3b526e9d23b4d7": "Når bør du velje logistisk modell framfor eksponentiell?",
+      "4cbe1d1c59465b1d": "Når veksten skal skildrast over lang tid og begrensa ressursar eller metting bremsar veksten",
+      "7823a5ce930c0808": "Når mengda avtek",
+      "a453931a70863f43": "Når du berre har to datapunkt",
+      "db7b59f337bc8f54": "Aldri — eksponentiell modell er alltid mest nøyaktig",
+      "0879ee84faa10feb": "Eksponentiell modell passar i tidlege fasar med rikelege ressursar; logistisk modell trengst når bereevne, plassmangel eller marknadsmetting gjer at veksten må flate ut.",
+      "0cf3b547e68ba50e": "## Tre forteljingar om framtida\n\nInnboksen frå første arbeidsdag kan no svarast på med metode. Modellering med differensiallikningar følgjer alltid same løype: skildr korleis endringa avheng av tilstanden, formuler likninga, løys ho med teknikkane frå kapitla før — og tolk svaret kritisk.\n\nDen eksponentielle modellen $N' = kN$ gjev $N(t) = N_0e^{kt}$, med konstant doblings- eller halveringstid $T = \\frac{\\ln 2}{|k|}$. Han svarte på byspørsmålet — 150 000 innbyggjarar om cirka 20,3 år — men berre med atterhaldet «dersom veksten held fram»: eksponentialfunksjonar kjenner ingen grenser, det gjer verkelegheita. Den logistiske modellen $N' = rN(1 - \\frac{N}{K})$ byggjer grensa inn via bereevna $K$: S-kurva startar eksponentielt, veks raskast ved $N = \\frac{K}{2}$ og flatar ut mot $K$. Og dei lineære modellane frå førre kapittel — avkjøling, kontoar, blandingar — leverer den tredje kurveforma: eksponentiell innsving mot ei likevekt.\n\nModellvalet er sjølve faget: eksponentiell på kort sikt med frie ressursar, logistisk når mettinga nærmar seg, lineær når eit ytre pådrag møter proporsjonal demping. Kjenn att kurveforma i dataene, så finn du likninga — og med ho både prognosen og grensene hans.\n\nDermed har du heile differensiallikningsverktøyet for S2: omgrepa, løysingsteknikkane og modellane. Det som står att, er det viktigaste — å bruke dei med dømmekraft."
+    }
+  }
+}

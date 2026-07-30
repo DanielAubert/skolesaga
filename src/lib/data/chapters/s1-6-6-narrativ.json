@@ -1,1 +1,262 @@
-{"id":"s1-6-6-narrativ","courseId":"s1","chapterNumber":"6.6","title":"Normalfordelingsapproksimasjon","subtitle":"Narrativ versjon","description":"En fortelling om meningsmålingen med 400 svar — normalapproksimasjon av binomialfordelingen, betingelser og kontinuitetskorreksjon.","estimatedMinutes":31,"competenceGoals":["vurdere når normalapproksimasjon er gyldig","approksimere binomial med normal","anvende kontinuitetskorreksjon","beregne z-verdier og bruke normaltabellen","tolke resultater i praktiske situasjoner"],"linkedChapterId":"s1-6-6","content":[{"id":"s1-6-6-n-intro","type":"text","content":"## Meningsmålingen med 400 svar\n\nEt analysebyrå har spurt 400 tilfeldig valgte velgere, og 35 % av befolkningen støtter et bestemt parti. Hva er sannsynligheten for at høyst 120 av de spurte er tilhengere? Strengt tatt er dette binomialfordeling: $X \\sim \\text{Bin}(400, 0{,}35)$. Men å summere 121 binomialsannsynligheter for hånd er et mareritt. Heldigvis finnes en elegant snarvei.\n\nNår antall forsøk $n$ blir stort, nærmer binomialfordelingens histogram seg normalfordelingens klokkeform — et resultat som springer ut av **sentralgrenseteoremet**. Da kan vi bytte ut den diskrete fordelingen med en kontinuerlig:\n\nHvis $X \\sim \\text{Bin}(n, p)$ og betingelsene\n\n$$np \\geq 5 \\quad \\text{og} \\quad n(1-p) \\geq 5$$\n\ner oppfylt, kan vi approksimere $X \\approx N(\\mu, \\sigma^2)$ med $\\mu = np$ og $\\sigma^2 = np(1-p)$. Deretter standardiserer vi som i 6.4: $Z = \\frac{X - \\mu}{\\sigma} \\approx N(0, 1)$.\n\nFor meningsmålingen: $np = 400 \\cdot 0{,}35 = 140 \\geq 5$ og $n(1-p) = 260 \\geq 5$ — begge betingelsene holder med god margin, så normalapproksimasjonen er gyldig. Forventningen er $\\mu = 140$ tilhengere, og standardavviket $\\sigma = \\sqrt{400 \\cdot 0{,}35 \\cdot 0{,}65} = \\sqrt{91} \\approx 9{,}54$.\n\nDenne teknikken er uunnværlig i samfunnsfag og økonomi: meningsmålinger med usikkerhetsmarginer, kvalitetskontroll av store partier og forsikringsselskapenes skadeestimater bygger alle på at store binomiske forsøksrekker oppfører seg normalt."},{"id":"s1-6-6-n-quiz1","type":"exercise","exercise":{"id":"s1-6-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på normalapproksimasjonens grunnlag:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-6-n-quiz1-q0","task":"Når kan en binomialfordeling approksimeres med en normalfordeling?","options":[{"id":"a","text":"Når $np \\geq 5$ og $n(1-p) \\geq 5$","isCorrect":true},{"id":"b","text":"Når $n < 30$","isCorrect":false},{"id":"c","text":"Når $p = 0{,}5$ nøyaktig","isCorrect":false},{"id":"d","text":"Alltid","isCorrect":false}],"solution":"Tommelfingerregelen krever at både $np$ og $n(1-p)$ er minst 5 (noen lærebøker bruker 10)."},{"id":"s1-6-6-n-quiz1-q1","task":"For $X \\sim \\text{Bin}(400, 0{,}35)$ — hva er $\\mu$ og $\\sigma$ i normalapproksimasjonen?","options":[{"id":"a","text":"$\\mu = 400$, $\\sigma = 0{,}35$","isCorrect":false},{"id":"b","text":"$\\mu = 140$, $\\sigma \\approx 9{,}54$","isCorrect":true},{"id":"c","text":"$\\mu = 140$, $\\sigma = 91$","isCorrect":false},{"id":"d","text":"$\\mu = 200$, $\\sigma = 10$","isCorrect":false}],"solution":"$\\mu = np = 140$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{91} \\approx 9{,}54$."},{"id":"s1-6-6-n-quiz1-q2","task":"Hvilket teorem ligger bak at binomialfordelingen nærmer seg klokkeformen for store $n$?","options":[{"id":"a","text":"Faktorteoremet","isCorrect":false},{"id":"b","text":"Pytagoras' setning","isCorrect":false},{"id":"c","text":"Sentralgrenseteoremet","isCorrect":true},{"id":"d","text":"Store talls lov alene","isCorrect":false}],"solution":"Sentralgrenseteoremet sier at summer av mange uavhengige forsøk nærmer seg normalfordelingen."}]}},{"id":"s1-6-6-n-section1","type":"text","content":"## Kontinuitetskorreksjon — den lille halvdelen som teller\n\nDet er én subtilitet igjen: binomialfordelingen er **diskret** (bare hele tall), mens normalfordelingen er **kontinuerlig**. Søylen for $X = 120$ i binomialhistogrammet strekker seg egentlig fra 119,5 til 120,5. Skal normalkurven fange hele søylen, må vi justere grensen med en halv enhet — det kalles **kontinuitetskorreksjon**:\n\n$$P(X \\leq k) \\approx P\\!\\left(Z \\leq \\frac{k + 0{,}5 - \\mu}{\\sigma}\\right)$$\n\nTommelfingerreglene: for $P(X \\leq k)$ bruker du $k + 0{,}5$; for $P(X \\geq k)$ bruker du $k - 0{,}5$; og for $P(X = k)$ bruker du hele intervallet $[k - 0{,}5,\\ k + 0{,}5]$. Korreksjonen betyr mest når $n$ er moderat (50–200); for svært store $n$ utgjør den lite.\n\nNå løser vi meningsmålingen. Med $\\mu = 140$ og $\\sigma \\approx 9{,}54$:\n\n$$P(X \\leq 120) \\approx P\\!\\left(Z \\leq \\frac{120{,}5 - 140}{9{,}54}\\right) = P(Z \\leq -2{,}04) \\approx 0{,}0207$$\n\nBare cirka 2 % sjanse for at høyst 120 av 400 er tilhengere når den sanne andelen er 35 %.\n\nByrået vil også vite: hva er sjansen for at *utvalgsandelen* $\\hat{p}$ overstiger 40 %, altså $X > 160$?\n\n$$P(X > 160) \\approx P\\!\\left(Z > \\frac{160{,}5 - 140}{9{,}54}\\right) = P(Z > 2{,}15) \\approx 0{,}0158$$\n\nHalvannen prosent. Slike beregninger er selve grunnlaget for feilmarginene du ser i nyhetene — «målingen har en usikkerhet på ± 3 prosentpoeng» er normalapproksimasjon i praksis. Måler en undersøkelse noe langt utenfor det normalfordelingen tilsier, er det et signal om at den antatte andelen $p$ rett og slett ikke stemmer."},{"id":"s1-6-6-n-quiz2","type":"exercise","exercise":{"id":"s1-6-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kontinuitetskorreksjon og beregninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-6-n-quiz2-q0","task":"Hvorfor trenger vi kontinuitetskorreksjon?","options":[{"id":"a","text":"Fordi normalfordelingen er skjev","isCorrect":false},{"id":"b","text":"Fordi vi tilnærmer en diskret fordeling med en kontinuerlig","isCorrect":true},{"id":"c","text":"Fordi $\\sigma$ alltid avrundes","isCorrect":false},{"id":"d","text":"Fordi $p$ er ukjent","isCorrect":false}],"solution":"Binomialfordelingen tar bare heltallsverdier; søylen for $k$ dekker $[k - 0{,}5, k + 0{,}5]$, og grensene justeres deretter."},{"id":"s1-6-6-n-quiz2-q1","task":"Hvordan korrigerer du $P(X \\geq k)$?","options":[{"id":"a","text":"Bruk $k + 0{,}5$","isCorrect":false},{"id":"b","text":"Bruk $k$ uendret","isCorrect":false},{"id":"c","text":"Bruk $k - 0{,}5$","isCorrect":true},{"id":"d","text":"Bruk $2k$","isCorrect":false}],"solution":"$P(X \\geq k)$ skal inkludere hele søylen for $k$, så grensen settes til $k - 0{,}5$."},{"id":"s1-6-6-n-quiz2-q2","task":"Med $\\mu = 140$ og $\\sigma \\approx 9{,}54$: hva er $P(X \\leq 120)$ med kontinuitetskorreksjon?","options":[{"id":"a","text":"Ca. $0{,}02$","isCorrect":true},{"id":"b","text":"Ca. $0{,}15$","isCorrect":false},{"id":"c","text":"Ca. $0{,}30$","isCorrect":false},{"id":"d","text":"Ca. $0{,}50$","isCorrect":false}],"solution":"$z = \\frac{120{,}5 - 140}{9{,}54} \\approx -2{,}04$, og $P(Z \\leq -2{,}04) \\approx 0{,}021$."},{"id":"s1-6-6-n-quiz2-q3","task":"Når er kontinuitetskorreksjonen viktigst?","options":[{"id":"a","text":"Når $p$ er nøyaktig $0{,}5$","isCorrect":false},{"id":"b","text":"Når fordelingene er kontinuerlige fra før","isCorrect":false},{"id":"c","text":"Når $n$ er ekstremt stor","isCorrect":false},{"id":"d","text":"Når $n$ er moderat, omtrent $50$–$200$","isCorrect":true}],"solution":"For moderate $n$ utgjør halvenheten en merkbar andel av $\\sigma$; for svært store $n$ blir korreksjonen ubetydelig."}]}},{"id":"s1-6-6-n-summary","type":"text","content":"## Oppsummering: når søylene blir til en kurve\n\nMeningsmålingens 400 svar lot seg ikke håndtere søyle for søyle — men det trengtes heller ikke. **Normalapproksimasjonen** sier at en binomisk variabel $X \\sim \\text{Bin}(n, p)$ med stor $n$ oppfører seg som $N(np, \\sqrt{np(1-p)})$, gyldig når både $np \\geq 5$ og $n(1-p) \\geq 5$ (strengere lærebøker krever 10). Bak resultatet står sentralgrenseteoremet: mange små, uavhengige bidrag summerer seg til klokkeform.\n\nOppskriften er fast: regn ut $\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$, juster grensen med **kontinuitetskorreksjonen** — $k + 0{,}5$ for $P(X \\leq k)$, $k - 0{,}5$ for $P(X \\geq k)$, hele intervallet for $P(X = k)$ — og standardiser med z-scoren fra 6.4. Slik ble $P(X \\leq 120) \\approx 0{,}02$ og $P(X > 160) \\approx 0{,}016$ to raske regnestykker i stedet for hundrevis av binomialledd.\n\nAnvendelsene er overalt i samfunnet: feilmarginer i valgmålinger, akseptgrenser i kvalitetskontroll, skadefrekvenser i forsikring. Hver gang du hører «innenfor feilmarginen», er det denne matematikken som snakker. Og med normalfordeling, hypergeometrisk fordeling og approksimasjonene på plass har du hele verktøykassen som trengs for det statistiske prosjektarbeidet i neste kapittel."}],"exercises":[]}
+{
+  "id": "s1-6-6-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "6.6",
+  "title": "Normalfordelingsapproksimasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om meningsmålingen med 400 svar — normalapproksimasjon av binomialfordelingen, betingelser og kontinuitetskorreksjon.",
+  "estimatedMinutes": 31,
+  "competenceGoals": [
+    "vurdere når normalapproksimasjon er gyldig",
+    "approksimere binomial med normal",
+    "anvende kontinuitetskorreksjon",
+    "beregne z-verdier og bruke normaltabellen",
+    "tolke resultater i praktiske situasjoner"
+  ],
+  "linkedChapterId": "s1-6-6",
+  "content": [
+    {
+      "id": "s1-6-6-n-intro",
+      "type": "text",
+      "content": "## Meningsmålingen med 400 svar\n\nEt analysebyrå har spurt 400 tilfeldig valgte velgere, og 35 % av befolkningen støtter et bestemt parti. Hva er sannsynligheten for at høyst 120 av de spurte er tilhengere? Strengt tatt er dette binomialfordeling: $X \\sim \\text{Bin}(400, 0{,}35)$. Men å summere 121 binomialsannsynligheter for hånd er et mareritt. Heldigvis finnes en elegant snarvei.\n\nNår antall forsøk $n$ blir stort, nærmer binomialfordelingens histogram seg normalfordelingens klokkeform — et resultat som springer ut av **sentralgrenseteoremet**. Da kan vi bytte ut den diskrete fordelingen med en kontinuerlig:\n\nHvis $X \\sim \\text{Bin}(n, p)$ og betingelsene\n\n$$np \\geq 5 \\quad \\text{og} \\quad n(1-p) \\geq 5$$\n\ner oppfylt, kan vi approksimere $X \\approx N(\\mu, \\sigma^2)$ med $\\mu = np$ og $\\sigma^2 = np(1-p)$. Deretter standardiserer vi som i 6.4: $Z = \\frac{X - \\mu}{\\sigma} \\approx N(0, 1)$.\n\nFor meningsmålingen: $np = 400 \\cdot 0{,}35 = 140 \\geq 5$ og $n(1-p) = 260 \\geq 5$ — begge betingelsene holder med god margin, så normalapproksimasjonen er gyldig. Forventningen er $\\mu = 140$ tilhengere, og standardavviket $\\sigma = \\sqrt{400 \\cdot 0{,}35 \\cdot 0{,}65} = \\sqrt{91} \\approx 9{,}54$.\n\nDenne teknikken er uunnværlig i samfunnsfag og økonomi: meningsmålinger med usikkerhetsmarginer, kvalitetskontroll av store partier og forsikringsselskapenes skadeestimater bygger alle på at store binomiske forsøksrekker oppfører seg normalt."
+    },
+    {
+      "id": "s1-6-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på normalapproksimasjonens grunnlag:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-6-n-quiz1-q0",
+            "task": "Når kan en binomialfordeling approksimeres med en normalfordeling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $np \\geq 5$ og $n(1-p) \\geq 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når $n < 30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $p = 0{,}5$ nøyaktig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tommelfingerregelen krever at både $np$ og $n(1-p)$ er minst 5 (noen lærebøker bruker 10)."
+          },
+          {
+            "id": "s1-6-6-n-quiz1-q1",
+            "task": "For $X \\sim \\text{Bin}(400, 0{,}35)$ — hva er $\\mu$ og $\\sigma$ i normalapproksimasjonen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mu = 400$, $\\sigma = 0{,}35$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mu = 140$, $\\sigma \\approx 9{,}54$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\mu = 140$, $\\sigma = 91$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mu = 200$, $\\sigma = 10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\mu = np = 140$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{91} \\approx 9{,}54$."
+          },
+          {
+            "id": "s1-6-6-n-quiz1-q2",
+            "task": "Hvilket teorem ligger bak at binomialfordelingen nærmer seg klokkeformen for store $n$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Faktorteoremet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Pytagoras' setning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sentralgrenseteoremet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Store talls lov alene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sentralgrenseteoremet sier at summer av mange uavhengige forsøk nærmer seg normalfordelingen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-6-n-section1",
+      "type": "text",
+      "content": "## Kontinuitetskorreksjon — den lille halvdelen som teller\n\nDet er én subtilitet igjen: binomialfordelingen er **diskret** (bare hele tall), mens normalfordelingen er **kontinuerlig**. Søylen for $X = 120$ i binomialhistogrammet strekker seg egentlig fra 119,5 til 120,5. Skal normalkurven fange hele søylen, må vi justere grensen med en halv enhet — det kalles **kontinuitetskorreksjon**:\n\n$$P(X \\leq k) \\approx P\\!\\left(Z \\leq \\frac{k + 0{,}5 - \\mu}{\\sigma}\\right)$$\n\nTommelfingerreglene: for $P(X \\leq k)$ bruker du $k + 0{,}5$; for $P(X \\geq k)$ bruker du $k - 0{,}5$; og for $P(X = k)$ bruker du hele intervallet $[k - 0{,}5,\\ k + 0{,}5]$. Korreksjonen betyr mest når $n$ er moderat (50–200); for svært store $n$ utgjør den lite.\n\nNå løser vi meningsmålingen. Med $\\mu = 140$ og $\\sigma \\approx 9{,}54$:\n\n$$P(X \\leq 120) \\approx P\\!\\left(Z \\leq \\frac{120{,}5 - 140}{9{,}54}\\right) = P(Z \\leq -2{,}04) \\approx 0{,}0207$$\n\nBare cirka 2 % sjanse for at høyst 120 av 400 er tilhengere når den sanne andelen er 35 %.\n\nByrået vil også vite: hva er sjansen for at *utvalgsandelen* $\\hat{p}$ overstiger 40 %, altså $X > 160$?\n\n$$P(X > 160) \\approx P\\!\\left(Z > \\frac{160{,}5 - 140}{9{,}54}\\right) = P(Z > 2{,}15) \\approx 0{,}0158$$\n\nHalvannen prosent. Slike beregninger er selve grunnlaget for feilmarginene du ser i nyhetene — «målingen har en usikkerhet på ± 3 prosentpoeng» er normalapproksimasjon i praksis. Måler en undersøkelse noe langt utenfor det normalfordelingen tilsier, er det et signal om at den antatte andelen $p$ rett og slett ikke stemmer."
+    },
+    {
+      "id": "s1-6-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kontinuitetskorreksjon og beregninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-6-n-quiz2-q0",
+            "task": "Hvorfor trenger vi kontinuitetskorreksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi normalfordelingen er skjev",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $\\sigma$ alltid avrundes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $p$ er ukjent",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi vi tilnærmer en diskret fordeling med en kontinuerlig",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Binomialfordelingen tar bare heltallsverdier; søylen for $k$ dekker $[k - 0{,}5, k + 0{,}5]$, og grensene justeres deretter."
+          },
+          {
+            "id": "s1-6-6-n-quiz2-q1",
+            "task": "Hvordan korrigerer du $P(X \\geq k)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Bruk $k - 0{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bruk $k + 0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bruk $k$ uendret",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bruk $2k$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(X \\geq k)$ skal inkludere hele søylen for $k$, så grensen settes til $k - 0{,}5$."
+          },
+          {
+            "id": "s1-6-6-n-quiz2-q2",
+            "task": "Med $\\mu = 140$ og $\\sigma \\approx 9{,}54$: hva er $P(X \\leq 120)$ med kontinuitetskorreksjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. $0{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. $0{,}02$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. $0{,}30$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $0{,}50$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$z = \\frac{120{,}5 - 140}{9{,}54} \\approx -2{,}04$, og $P(Z \\leq -2{,}04) \\approx 0{,}021$."
+          },
+          {
+            "id": "s1-6-6-n-quiz2-q3",
+            "task": "Når er kontinuitetskorreksjonen viktigst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $p$ er nøyaktig $0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når fordelingene er kontinuerlige fra før",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $n$ er moderat, omtrent $50$–$200$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når $n$ er ekstremt stor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For moderate $n$ utgjør halvenheten en merkbar andel av $\\sigma$; for svært store $n$ blir korreksjonen ubetydelig."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: når søylene blir til en kurve\n\nMeningsmålingens 400 svar lot seg ikke håndtere søyle for søyle — men det trengtes heller ikke. **Normalapproksimasjonen** sier at en binomisk variabel $X \\sim \\text{Bin}(n, p)$ med stor $n$ oppfører seg som $N(np, \\sqrt{np(1-p)})$, gyldig når både $np \\geq 5$ og $n(1-p) \\geq 5$ (strengere lærebøker krever 10). Bak resultatet står sentralgrenseteoremet: mange små, uavhengige bidrag summerer seg til klokkeform.\n\nOppskriften er fast: regn ut $\\mu = np$ og $\\sigma = \\sqrt{np(1-p)}$, juster grensen med **kontinuitetskorreksjonen** — $k + 0{,}5$ for $P(X \\leq k)$, $k - 0{,}5$ for $P(X \\geq k)$, hele intervallet for $P(X = k)$ — og standardiser med z-scoren fra 6.4. Slik ble $P(X \\leq 120) \\approx 0{,}02$ og $P(X > 160) \\approx 0{,}016$ to raske regnestykker i stedet for hundrevis av binomialledd.\n\nAnvendelsene er overalt i samfunnet: feilmarginer i valgmålinger, akseptgrenser i kvalitetskontroll, skadefrekvenser i forsikring. Hver gang du hører «innenfor feilmarginen», er det denne matematikken som snakker. Og med normalfordeling, hypergeometrisk fordeling og approksimasjonene på plass har du hele verktøykassen som trengs for det statistiske prosjektarbeidet i neste kapittel."
+    }
+  ],
+  "exercises": []
+}

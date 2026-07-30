@@ -1,1 +1,410 @@
-{"id":"8-11-3-narrativ","courseId":"8","chapterNumber":"11.3","title":"Algoritmar i matematikk","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av algoritmar der vi lærer kva ein algoritme er, korleis vi skildrar dei med flytdiagram, og utforskar klassiske døme som silen til Eratosthenes for å finne primtal.","estimatedMinutes":30,"competenceGoals":["bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt"],"linkedChapterId":"8-11-3","content":[{"id":"8-11-3-n-intro","type":"text","content":"## Oppskrifter for å løyse problem\n\nNår du bakar ei kake, følgjer du ei oppskrift: «bland mjøl og sukker, tilset egg, rør til jamn masse, stek i 25 minutt.» Oppskrifta er ein **steg-for-steg-instruksjon** som garanterer eit godt resultat -- så lenge du følgjer han nøyaktig.\n\nI matematikk og programmering kallar vi slike oppskrifter for **algoritmar**. Ein algoritme er:\n\n1. Ei **endeleg** rekkje med instruksjonar (han må stoppe på eit tidspunkt)\n2. Kvart steg er **presist** nok til å følgjast utan tvetydigheit\n3. Han tek inn **inndata** og gir ut **utdata**\n\nDu har allereie brukt algoritmar heile livet utan å tenkje over det:\n- **Addisjon med tiarven**: Ein algoritme for å leggje saman fleirsifra tal\n- **Lang divisjon**: Ein algoritme for å dele store tal\n- **Deling på fellesfaktor**: Ein algoritme for å forkorte brøkar\n\nI dette kapittelet skal vi lære å tenkje som algoritmeutviklarar og bruke Python til å gjere algoritmane levande."},{"id":"8-11-3-n-section1","type":"text","content":"## Flytdiagram -- algoritmar som bilete\n\nFør vi kodar, kan det vere lurt å **teikne** algoritmen. Eit **flytdiagram** bruker symbol for å vise flyten:\n\n- **Ovalar**: Start og slutt\n- **Rektangel**: Handlingar (t.d. «rekn ut $x + 3$»)\n- **Rombar**: Val (t.d. «er $x > 10$?» -- ja/nei)\n- **Piler**: Viser retninga frå steg til steg\n\n**Døme:** Ein algoritme for å sjekke om eit tal er positivt, negativt eller null:\n\n1. **Start**\n2. Les inn talet $x$\n3. Er $x > 0$? → Ja: Skriv «Positivt» → Gå til 6\n4. Er $x < 0$? → Ja: Skriv «Negativt» → Gå til 6\n5. Skriv «Null»\n6. **Slutt**\n\nI Python:\n\n```python\nx = int(input(\"Skriv inn et tall: \"))\n\nif x > 0:\n    print(\"Positivt\")\nelif x < 0:\n    print(\"Negativt\")\nelse:\n    print(\"Null\")\n```\n\nLegg merke til korleis «vala» i flytdiagrammet (rombane) svarar til `if`/`elif`/`else` i Python. Å teikne flytdiagrammet først hjelper deg å tenkje gjennom alle moglegheitene før du byrjar å kode."},{"id":"8-11-3-n-quiz1","type":"exercise","exercise":{"id":"8-11-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på algoritmar og flytdiagram:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-3-n-quiz1-q0","task":"Kva er ein algoritme?","options":[{"id":"a","text":"Eit programmeringsspråk","isCorrect":false},{"id":"b","text":"Ei endeleg rekkje presise instruksjonar for å løyse eit problem","isCorrect":true},{"id":"c","text":"Ein type datamaskin","isCorrect":false},{"id":"d","text":"Eit flytdiagram","isCorrect":false}],"solution":"Ein algoritme er ei steg-for-steg-oppskrift som er presis nok til å følgjast utan tvetydigheit. Han må òg vere endeleg -- han må stoppe på eit tidspunkt."},{"id":"8-11-3-n-quiz1-q1","task":"Kva form blir brukt for **val** i eit flytdiagram?","options":[{"id":"a","text":"Oval","isCorrect":false},{"id":"b","text":"Rektangel","isCorrect":false},{"id":"c","text":"Rombe (diamantform)","isCorrect":true},{"id":"d","text":"Sirkel","isCorrect":false}],"solution":"Rombar (diamantformer) blir brukte for val der svaret er ja eller nei. Ovalar blir brukte for start/slutt, og rektangel blir brukte for handlingar."},{"id":"8-11-3-n-quiz1-q2","task":"Kva av desse er IKKJE eit krav til ein algoritme?","options":[{"id":"a","text":"Han må ha presise instruksjonar","isCorrect":false},{"id":"b","text":"Han må stoppe på eit tidspunkt","isCorrect":false},{"id":"c","text":"Han må vere skriven i Python","isCorrect":true},{"id":"d","text":"Han må gi eit resultat","isCorrect":false}],"solution":"Ein algoritme kan skildrast på mange måtar: med ord, flytdiagram, pseudokode eller eit programmeringsspråk. Han treng ikkje vere i Python -- det er berre ein av mange måtar å uttrykkje han på."}]}},{"id":"8-11-3-n-section2","type":"text","content":"## Silen til Eratosthenes -- ein klassisk algoritme\n\nEin av dei mest elegante algoritmane i historia blei funnen opp av den greske matematikaren **Eratosthenes** for over 2000 år sidan. Han finn alle **primtal** opp til eit gitt tal.\n\nHugs: eit **primtal** er eit tal større enn 1 som berre er deleleg med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$\n\n**Algoritmen (for å finne alle primtal opp til 30):**\n\n1. Skriv opp alle tal frå 2 til 30\n2. Det første talet (2) er eit primtal. **Stryk** alle multiplum av 2: $4, 6, 8, 10, 12, \\ldots$\n3. Det neste ustrokne talet (3) er eit primtal. **Stryk** alle multiplum av 3: $6, 9, 12, 15, \\ldots$\n4. Det neste ustrokne talet (5) er eit primtal. **Stryk** alle multiplum av 5: $10, 15, 20, 25, 30$\n5. Hald fram til du har gått gjennom alle tal. Dei attverande (ustrokne) tala er primtala!\n\nResultatet: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$\n\nGenialiteten er at vi ikkje treng å sjekke kvart tal individuelt -- vi «siler bort» samansette tal i store grupper."},{"id":"8-11-3-n-section3","type":"text","content":"## Silen til Eratosthenes i Python\n\nLa oss programmere denne algoritmen:\n\n```python\ngrense = 50\ner_primtall = [True] * (grense + 1)\ner_primtall[0] = False\ner_primtall[1] = False\n\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        # Stryk alle multipler av i\n        for j in range(i * 2, grense + 1, i):\n            er_primtall[j] = False\n\n# Skriv ut alle primtall\nprimtall = []\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        primtall.append(i)\n\nprint(f\"Primtall opp til {grense}:\")\nprint(primtall)\n```\n\nResultat:\n```\nPrimtall opp til 50:\n[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]\n```\n\nHer bruker vi ei **liste** `er_primtall` der kvart element startar som `True`. Når vi finn eit multiplum, set vi det til `False`. Til slutt er alle tal som framleis er `True` primtal.\n\n`range(i * 2, grense + 1, i)` gir alle multiplum av `i`: han startar på `i * 2`, går opp til `grense`, og hoppar `i` steg om gongen. For $i = 3$ gir dette $6, 9, 12, 15, \\ldots$\n\nDenne algoritmen er over 2000 år gammal, men han blir framleis brukt den dag i dag -- berre med større tal!"},{"id":"8-11-3-n-quiz2","type":"exercise","exercise":{"id":"8-11-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på silen til Eratosthenes:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-3-n-quiz2-q0","task":"I silen til Eratosthenes: etter at vi har streka ut alle multiplum av 2 og 3, kva er det neste primtalet vi finn?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$7$","isCorrect":false}],"solution":"Etter å ha streka ut multiplum av 2 ($4, 6, 8, \\ldots$) og 3 ($6, 9, 12, \\ldots$), er det neste ustrokne talet 5. Altså er 5 eit primtal."},{"id":"8-11-3-n-quiz2-q1","task":"Kva gjer `range(6, 51, 3)` i Python?","options":[{"id":"a","text":"Gir tala $6, 7, 8, \\ldots, 50$","isCorrect":false},{"id":"b","text":"Gir tala $6, 9, 12, \\ldots, 48$","isCorrect":true},{"id":"c","text":"Gir tala $3, 6, 9, \\ldots, 51$","isCorrect":false},{"id":"d","text":"Gir tre tal: $6, 51, 3$","isCorrect":false}],"solution":"`range(6, 51, 3)` startar på 6, stoppar før 51, og hoppar 3 om gongen: $6, 9, 12, 15, \\ldots, 48$. Det tredje argumentet er steglengda."},{"id":"8-11-3-n-quiz2-q2","task":"Kor mange primtal er det mellom 1 og 20?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":true},{"id":"c","text":"$9$","isCorrect":false},{"id":"d","text":"$6$","isCorrect":false}],"solution":"Primtala mellom 1 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykk."}]}},{"id":"8-11-3-n-section4","type":"text","content":"## Fleire algoritmar i matematikk\n\nLa oss sjå på to viktige algoritmar til.\n\n**Algoritme: Finn største faktor**\n\n```python\ntall = int(input(\"Skriv inn et tall: \"))\nstorste = 1\n\nfor i in range(2, tall + 1):\n    if tall % i == 0:\n        storste = i\n\nprint(f\"Storste faktor (utenom seg selv) av {tall} er {storste}\")\n```\n\nDenne algoritmen sjekkar alle tal frå 2 til `tall` og hugsar det siste som er ein faktor.\n\n**Algoritme: Algoritmen til Euklid for største felles faktor (SFF)**\n\nEuklid oppdaga for over 2300 år sidan at vi kan finne største felles faktor for to tal ved å gjenta divisjon med rest:\n\n```python\na = int(input(\"Forste tall: \"))\nb = int(input(\"Andre tall: \"))\n\noriginal_a = a\noriginal_b = b\n\nwhile b != 0:\n    rest = a % b\n    a = b\n    b = rest\n\nprint(f\"SFF({original_a}, {original_b}) = {a}\")\n```\n\n**Døme:** SFF(48, 18)\n- $48 \\div 18 = 2$ med rest $12$ → $a = 18$, $b = 12$\n- $18 \\div 12 = 1$ med rest $6$ → $a = 12$, $b = 6$\n- $12 \\div 6 = 2$ med rest $0$ → $a = 6$, $b = 0$\n- Stopp! $\\text{SFF}(48, 18) = 6$\n\nDenne algoritmen er elegant fordi han **alltid** finn svaret og gjer det raskt -- sjølv for veldig store tal."},{"id":"8-11-3-n-quiz3","type":"exercise","exercise":{"id":"8-11-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på matematiske algoritmar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-3-n-quiz3-q0","task":"Bruk algoritmen til Euklid: Kva er SFF(24, 36)?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$8$","isCorrect":false}],"solution":"$36 \\div 24 = 1$ rest $12$ → $a = 24$, $b = 12$. $24 \\div 12 = 2$ rest $0$ → Stopp! $\\text{SFF}(24, 36) = 12$."},{"id":"8-11-3-n-quiz3-q1","task":"Kva er SFF nyttig for i matematikk?","options":[{"id":"a","text":"Finne primtal","isCorrect":false},{"id":"b","text":"Forkorte brøkar","isCorrect":true},{"id":"c","text":"Rekne ut areal","isCorrect":false},{"id":"d","text":"Teikne grafar","isCorrect":false}],"solution":"Største felles faktor blir brukt til å forkorte brøkar. Til dømes: $\\frac{24}{36}$ kan forkortast med SFF = 12 til $\\frac{2}{3}$."},{"id":"8-11-3-n-quiz3-q2","task":"Kva Python-konstruksjon passar best når vi ikkje veit kor mange steg algoritmen treng?","options":[{"id":"a","text":"For-løkke","isCorrect":false},{"id":"b","text":"While-løkke","isCorrect":true},{"id":"c","text":"Print-kommando","isCorrect":false},{"id":"d","text":"Input-kommando","isCorrect":false}],"solution":"Når vi ikkje veit talet på gjentakingar på førehand (som i algoritmen til Euklid der vi gjentek til resten er 0), bruker vi ei while-løkke."}]}},{"id":"8-11-3-n-summary","type":"text","content":"## Oppsummering\n\nAlgoritmar er grunnlaget for all programmering -- og dei finst overalt i matematikken:\n\n- **Algoritme**: Ei endeleg, presis oppskrift for å løyse eit problem steg for steg\n- **Flytdiagram**: Eit visuelt verktøy for å planleggje algoritmar -- med ovalar (start/slutt), rektangel (handlingar) og rombar (val)\n- **Silen til Eratosthenes**: Ein 2000 år gammal algoritme for å finne primtal ved å «sile bort» multiplum\n- **Algoritmen til Euklid**: Finn største felles faktor ved gjentatt divisjon med rest -- nyttig for å forkorte brøkar\n- **Lister**: Blir brukte til å lagre mange verdiar, til dømes alle tal frå 2 til 50\n- **Stegvis tenking**: Bryt problemet ned i små, presise steg før du kodar\n\nDet viktigaste du har lært er ein måte å **tenkje** på: dele opp problem i små steg, vere presis i instruksjonane, og la datamaskinen gjere det tunge arbeidet. Denne algoritmiske tenkjemåten er nyttig langt utanfor matematikken -- han hjelper deg å løyse alle slags problem på ein systematisk måte."}],"exercises":[],"_meta":{"sourceHash":"b0c149270b6cc185","translatedAt":"2026-06-17T01:27:02.998Z","model":"claude-code-agent","strings":58,"tm":{"9520dd24ba45060e":"Algoritmar i matematikk","b195b06d1ed59702":"Narrativ versjon","cde66a7af9dfe1b1":"Ein forteljande gjennomgang av algoritmar der vi lærer kva ein algoritme er, korleis vi skildrar dei med flytdiagram, og utforskar klassiske døme som silen til Eratosthenes for å finne primtal.","38b3f88b8d0434b5":"bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt","9310246aacfa212b":"## Oppskrifter for å løyse problem\n\nNår du bakar ei kake, følgjer du ei oppskrift: «bland mjøl og sukker, tilset egg, rør til jamn masse, stek i 25 minutt.» Oppskrifta er ein **steg-for-steg-instruksjon** som garanterer eit godt resultat -- så lenge du følgjer han nøyaktig.\n\nI matematikk og programmering kallar vi slike oppskrifter for **algoritmar**. Ein algoritme er:\n\n1. Ei **endeleg** rekkje med instruksjonar (han må stoppe på eit tidspunkt)\n2. Kvart steg er **presist** nok til å følgjast utan tvetydigheit\n3. Han tek inn **inndata** og gir ut **utdata**\n\nDu har allereie brukt algoritmar heile livet utan å tenkje over det:\n- **Addisjon med tiarven**: Ein algoritme for å leggje saman fleirsifra tal\n- **Lang divisjon**: Ein algoritme for å dele store tal\n- **Deling på fellesfaktor**: Ein algoritme for å forkorte brøkar\n\nI dette kapittelet skal vi lære å tenkje som algoritmeutviklarar og bruke Python til å gjere algoritmane levande.","babc828da3c06060":"## Flytdiagram -- algoritmar som bilete\n\nFør vi kodar, kan det vere lurt å **teikne** algoritmen. Eit **flytdiagram** bruker symbol for å vise flyten:\n\n- **Ovalar**: Start og slutt\n- **Rektangel**: Handlingar (t.d. «rekn ut $x + 3$»)\n- **Rombar**: Val (t.d. «er $x > 10$?» -- ja/nei)\n- **Piler**: Viser retninga frå steg til steg\n\n**Døme:** Ein algoritme for å sjekke om eit tal er positivt, negativt eller null:\n\n1. **Start**\n2. Les inn talet $x$\n3. Er $x > 0$? → Ja: Skriv «Positivt» → Gå til 6\n4. Er $x < 0$? → Ja: Skriv «Negativt» → Gå til 6\n5. Skriv «Null»\n6. **Slutt**\n\nI Python:\n\n```python\nx = int(input(\"Skriv inn et tall: \"))\n\nif x > 0:\n    print(\"Positivt\")\nelif x < 0:\n    print(\"Negativt\")\nelse:\n    print(\"Null\")\n```\n\nLegg merke til korleis «vala» i flytdiagrammet (rombane) svarar til `if`/`elif`/`else` i Python. Å teikne flytdiagrammet først hjelper deg å tenkje gjennom alle moglegheitene før du byrjar å kode.","9697f930253018a1":"Test deg sjølv på algoritmar og flytdiagram:","4097889236a2af26":"placeholder","83d20e7f3a645fcf":"Kva er ein algoritme?","b156b07dcd6204fb":"Eit programmeringsspråk","8b848e057bc9596f":"Ei endeleg rekkje presise instruksjonar for å løyse eit problem","c98a26207f13749b":"Ein type datamaskin","7250f5d2048f5848":"Eit flytdiagram","1b20acd0af9a5153":"Ein algoritme er ei steg-for-steg-oppskrift som er presis nok til å følgjast utan tvetydigheit. Han må òg vere endeleg -- han må stoppe på eit tidspunkt.","87528ab1ca3cd4f0":"Kva form blir brukt for **val** i eit flytdiagram?","9d560edde60d9990":"Oval","d7fc7a6c88330c66":"Rektangel","140e257d8049e4b5":"Rombe (diamantform)","4fadc05e65ea016f":"Sirkel","27c748393bfd8516":"Rombar (diamantformer) blir brukte for val der svaret er ja eller nei. Ovalar blir brukte for start/slutt, og rektangel blir brukte for handlingar.","54c8c510777c0669":"Kva av desse er IKKJE eit krav til ein algoritme?","8827dc5da1f88b09":"Han må ha presise instruksjonar","979920f794f628a3":"Han må stoppe på eit tidspunkt","193ea4d1f534e30e":"Han må vere skriven i Python","24d0ecca22c6cf4f":"Han må gi eit resultat","6f116477e3268eca":"Ein algoritme kan skildrast på mange måtar: med ord, flytdiagram, pseudokode eller eit programmeringsspråk. Han treng ikkje vere i Python -- det er berre ein av mange måtar å uttrykkje han på.","729bb71e3bfdd944":"## Silen til Eratosthenes -- ein klassisk algoritme\n\nEin av dei mest elegante algoritmane i historia blei funnen opp av den greske matematikaren **Eratosthenes** for over 2000 år sidan. Han finn alle **primtal** opp til eit gitt tal.\n\nHugs: eit **primtal** er eit tal større enn 1 som berre er deleleg med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$\n\n**Algoritmen (for å finne alle primtal opp til 30):**\n\n1. Skriv opp alle tal frå 2 til 30\n2. Det første talet (2) er eit primtal. **Stryk** alle multiplum av 2: $4, 6, 8, 10, 12, \\ldots$\n3. Det neste ustrokne talet (3) er eit primtal. **Stryk** alle multiplum av 3: $6, 9, 12, 15, \\ldots$\n4. Det neste ustrokne talet (5) er eit primtal. **Stryk** alle multiplum av 5: $10, 15, 20, 25, 30$\n5. Hald fram til du har gått gjennom alle tal. Dei attverande (ustrokne) tala er primtala!\n\nResultatet: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$\n\nGenialiteten er at vi ikkje treng å sjekke kvart tal individuelt -- vi «siler bort» samansette tal i store grupper.","cfcd9191a415adbc":"## Silen til Eratosthenes i Python\n\nLa oss programmere denne algoritmen:\n\n```python\ngrense = 50\ner_primtall = [True] * (grense + 1)\ner_primtall[0] = False\ner_primtall[1] = False\n\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        # Stryk alle multipler av i\n        for j in range(i * 2, grense + 1, i):\n            er_primtall[j] = False\n\n# Skriv ut alle primtall\nprimtall = []\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        primtall.append(i)\n\nprint(f\"Primtall opp til {grense}:\")\nprint(primtall)\n```\n\nResultat:\n```\nPrimtall opp til 50:\n[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]\n```\n\nHer bruker vi ei **liste** `er_primtall` der kvart element startar som `True`. Når vi finn eit multiplum, set vi det til `False`. Til slutt er alle tal som framleis er `True` primtal.\n\n`range(i * 2, grense + 1, i)` gir alle multiplum av `i`: han startar på `i * 2`, går opp til `grense`, og hoppar `i` steg om gongen. For $i = 3$ gir dette $6, 9, 12, 15, \\ldots$\n\nDenne algoritmen er over 2000 år gammal, men han blir framleis brukt den dag i dag -- berre med større tal!","d6449d096a21b375":"Test deg sjølv på silen til Eratosthenes:","c2260498e9579d44":"I silen til Eratosthenes: etter at vi har streka ut alle multiplum av 2 og 3, kva er det neste primtalet vi finn?","21df7df5c0f37158":"Etter å ha streka ut multiplum av 2 ($4, 6, 8, \\ldots$) og 3 ($6, 9, 12, \\ldots$), er det neste ustrokne talet 5. Altså er 5 eit primtal.","93aaca634f29cf0b":"Kva gjer `range(6, 51, 3)` i Python?","d9140e9e65ff7c45":"Gir tala $6, 7, 8, \\ldots, 50$","29beabbb2e3c578f":"Gir tala $6, 9, 12, \\ldots, 48$","6d2cfe877e159d36":"Gir tala $3, 6, 9, \\ldots, 51$","f8fd85e2d3613b74":"Gir tre tal: $6, 51, 3$","a8459ab3544bb41a":"`range(6, 51, 3)` startar på 6, stoppar før 51, og hoppar 3 om gongen: $6, 9, 12, 15, \\ldots, 48$. Det tredje argumentet er steglengda.","a392f7e903418cb8":"Kor mange primtal er det mellom 1 og 20?","12dca446eec968d8":"Primtala mellom 1 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykk.","38fa2672108c96ca":"## Fleire algoritmar i matematikk\n\nLa oss sjå på to viktige algoritmar til.\n\n**Algoritme: Finn største faktor**\n\n```python\ntall = int(input(\"Skriv inn et tall: \"))\nstorste = 1\n\nfor i in range(2, tall + 1):\n    if tall % i == 0:\n        storste = i\n\nprint(f\"Storste faktor (utenom seg selv) av {tall} er {storste}\")\n```\n\nDenne algoritmen sjekkar alle tal frå 2 til `tall` og hugsar det siste som er ein faktor.\n\n**Algoritme: Algoritmen til Euklid for største felles faktor (SFF)**\n\nEuklid oppdaga for over 2300 år sidan at vi kan finne største felles faktor for to tal ved å gjenta divisjon med rest:\n\n```python\na = int(input(\"Forste tall: \"))\nb = int(input(\"Andre tall: \"))\n\noriginal_a = a\noriginal_b = b\n\nwhile b != 0:\n    rest = a % b\n    a = b\n    b = rest\n\nprint(f\"SFF({original_a}, {original_b}) = {a}\")\n```\n\n**Døme:** SFF(48, 18)\n- $48 \\div 18 = 2$ med rest $12$ → $a = 18$, $b = 12$\n- $18 \\div 12 = 1$ med rest $6$ → $a = 12$, $b = 6$\n- $12 \\div 6 = 2$ med rest $0$ → $a = 6$, $b = 0$\n- Stopp! $\\text{SFF}(48, 18) = 6$\n\nDenne algoritmen er elegant fordi han **alltid** finn svaret og gjer det raskt -- sjølv for veldig store tal.","6ccc892f950f5081":"Test deg sjølv på matematiske algoritmar:","77b7b2a9fc4205c0":"Bruk algoritmen til Euklid: Kva er SFF(24, 36)?","19c6f26b7b6dee7f":"$36 \\div 24 = 1$ rest $12$ → $a = 24$, $b = 12$. $24 \\div 12 = 2$ rest $0$ → Stopp! $\\text{SFF}(24, 36) = 12$.","513fac4f98ecafda":"Kva er SFF nyttig for i matematikk?","d087635b77c60c8c":"Finne primtal","a32b5ed7bc1b2e9e":"Forkorte brøkar","5fed91d3cd083535":"Rekne ut areal","23f977abd493c885":"Teikne grafar","f7f3bb2d0265d3e2":"Største felles faktor blir brukt til å forkorte brøkar. Til dømes: $\\frac{24}{36}$ kan forkortast med SFF = 12 til $\\frac{2}{3}$.","5932ce0329c8f71e":"Kva Python-konstruksjon passar best når vi ikkje veit kor mange steg algoritmen treng?","6dad08739d4f0f87":"For-løkke","0b995d75c415d301":"While-løkke","4d9f86bbb57aeb1d":"Print-kommando","a3440a4d27d1c5c6":"Input-kommando","578d5cb87658043d":"Når vi ikkje veit talet på gjentakingar på førehand (som i algoritmen til Euklid der vi gjentek til resten er 0), bruker vi ei while-løkke.","da7c9c59eebc61e3":"## Oppsummering\n\nAlgoritmar er grunnlaget for all programmering -- og dei finst overalt i matematikken:\n\n- **Algoritme**: Ei endeleg, presis oppskrift for å løyse eit problem steg for steg\n- **Flytdiagram**: Eit visuelt verktøy for å planleggje algoritmar -- med ovalar (start/slutt), rektangel (handlingar) og rombar (val)\n- **Silen til Eratosthenes**: Ein 2000 år gammal algoritme for å finne primtal ved å «sile bort» multiplum\n- **Algoritmen til Euklid**: Finn største felles faktor ved gjentatt divisjon med rest -- nyttig for å forkorte brøkar\n- **Lister**: Blir brukte til å lagre mange verdiar, til dømes alle tal frå 2 til 50\n- **Stegvis tenking**: Bryt problemet ned i små, presise steg før du kodar\n\nDet viktigaste du har lært er ein måte å **tenkje** på: dele opp problem i små steg, vere presis i instruksjonane, og la datamaskinen gjere det tunge arbeidet. Denne algoritmiske tenkjemåten er nyttig langt utanfor matematikken -- han hjelper deg å løyse alle slags problem på ein systematisk måte."}}}
+{
+  "id": "8-11-3-narrativ",
+  "courseId": "8",
+  "chapterNumber": "11.3",
+  "title": "Algoritmar i matematikk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av algoritmar der vi lærer kva ein algoritme er, korleis vi skildrar dei med flytdiagram, og utforskar klassiske døme som silen til Eratosthenes for å finne primtal.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt"
+  ],
+  "linkedChapterId": "8-11-3",
+  "content": [
+    {
+      "id": "8-11-3-n-intro",
+      "type": "text",
+      "content": "## Oppskrifter for å løyse problem\n\nNår du bakar ei kake, følgjer du ei oppskrift: «bland mjøl og sukker, tilset egg, rør til jamn masse, stek i 25 minutt.» Oppskrifta er ein **steg-for-steg-instruksjon** som garanterer eit godt resultat -- så lenge du følgjer han nøyaktig.\n\nI matematikk og programmering kallar vi slike oppskrifter for **algoritmar**. Ein algoritme er:\n\n1. Ei **endeleg** rekkje med instruksjonar (han må stoppe på eit tidspunkt)\n2. Kvart steg er **presist** nok til å følgjast utan tvetydigheit\n3. Han tek inn **inndata** og gir ut **utdata**\n\nDu har allereie brukt algoritmar heile livet utan å tenkje over det:\n- **Addisjon med tiarven**: Ein algoritme for å leggje saman fleirsifra tal\n- **Lang divisjon**: Ein algoritme for å dele store tal\n- **Deling på fellesfaktor**: Ein algoritme for å forkorte brøkar\n\nI dette kapittelet skal vi lære å tenkje som algoritmeutviklarar og bruke Python til å gjere algoritmane levande."
+    },
+    {
+      "id": "8-11-3-n-section1",
+      "type": "text",
+      "content": "## Flytdiagram -- algoritmar som bilete\n\nFør vi kodar, kan det vere lurt å **teikne** algoritmen. Eit **flytdiagram** bruker symbol for å vise flyten:\n\n- **Ovalar**: Start og slutt\n- **Rektangel**: Handlingar (t.d. «rekn ut $x + 3$»)\n- **Rombar**: Val (t.d. «er $x > 10$?» -- ja/nei)\n- **Piler**: Viser retninga frå steg til steg\n\n**Døme:** Ein algoritme for å sjekke om eit tal er positivt, negativt eller null:\n\n1. **Start**\n2. Les inn talet $x$\n3. Er $x > 0$? → Ja: Skriv «Positivt» → Gå til 6\n4. Er $x < 0$? → Ja: Skriv «Negativt» → Gå til 6\n5. Skriv «Null»\n6. **Slutt**\n\nI Python:\n\n```python\nx = int(input(\"Skriv inn et tall: \"))\n\nif x > 0:\n    print(\"Positivt\")\nelif x < 0:\n    print(\"Negativt\")\nelse:\n    print(\"Null\")\n```\n\nLegg merke til korleis «vala» i flytdiagrammet (rombane) svarar til `if`/`elif`/`else` i Python. Å teikne flytdiagrammet først hjelper deg å tenkje gjennom alle moglegheitene før du byrjar å kode."
+    },
+    {
+      "id": "8-11-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på algoritmar og flytdiagram:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-3-n-quiz1-q0",
+            "task": "Kva er ein algoritme?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei endeleg rekkje presise instruksjonar for å løyse eit problem",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eit programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein type datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit flytdiagram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein algoritme er ei steg-for-steg-oppskrift som er presis nok til å følgjast utan tvetydigheit. Han må òg vere endeleg -- han må stoppe på eit tidspunkt."
+          },
+          {
+            "id": "8-11-3-n-quiz1-q1",
+            "task": "Kva form blir brukt for **val** i eit flytdiagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Oval",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rombe (diamantform)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Rektangel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sirkel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rombar (diamantformer) blir brukte for val der svaret er ja eller nei. Ovalar blir brukte for start/slutt, og rektangel blir brukte for handlingar."
+          },
+          {
+            "id": "8-11-3-n-quiz1-q2",
+            "task": "Kva av desse er IKKJE eit krav til ein algoritme?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han må ha presise instruksjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han må stoppe på eit tidspunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han må vere skriven i Python",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Han må gi eit resultat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein algoritme kan skildrast på mange måtar: med ord, flytdiagram, pseudokode eller eit programmeringsspråk. Han treng ikkje vere i Python -- det er berre ein av mange måtar å uttrykkje han på."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-3-n-section2",
+      "type": "text",
+      "content": "## Silen til Eratosthenes -- ein klassisk algoritme\n\nEin av dei mest elegante algoritmane i historia blei funnen opp av den greske matematikaren **Eratosthenes** for over 2000 år sidan. Han finn alle **primtal** opp til eit gitt tal.\n\nHugs: eit **primtal** er eit tal større enn 1 som berre er deleleg med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$\n\n**Algoritmen (for å finne alle primtal opp til 30):**\n\n1. Skriv opp alle tal frå 2 til 30\n2. Det første talet (2) er eit primtal. **Stryk** alle multiplum av 2: $4, 6, 8, 10, 12, \\ldots$\n3. Det neste ustrokne talet (3) er eit primtal. **Stryk** alle multiplum av 3: $6, 9, 12, 15, \\ldots$\n4. Det neste ustrokne talet (5) er eit primtal. **Stryk** alle multiplum av 5: $10, 15, 20, 25, 30$\n5. Hald fram til du har gått gjennom alle tal. Dei attverande (ustrokne) tala er primtala!\n\nResultatet: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$\n\nGenialiteten er at vi ikkje treng å sjekke kvart tal individuelt -- vi «siler bort» samansette tal i store grupper."
+    },
+    {
+      "id": "8-11-3-n-section3",
+      "type": "text",
+      "content": "## Silen til Eratosthenes i Python\n\nLa oss programmere denne algoritmen:\n\n```python\ngrense = 50\ner_primtall = [True] * (grense + 1)\ner_primtall[0] = False\ner_primtall[1] = False\n\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        # Stryk alle multipler av i\n        for j in range(i * 2, grense + 1, i):\n            er_primtall[j] = False\n\n# Skriv ut alle primtall\nprimtall = []\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        primtall.append(i)\n\nprint(f\"Primtall opp til {grense}:\")\nprint(primtall)\n```\n\nResultat:\n```\nPrimtall opp til 50:\n[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]\n```\n\nHer bruker vi ei **liste** `er_primtall` der kvart element startar som `True`. Når vi finn eit multiplum, set vi det til `False`. Til slutt er alle tal som framleis er `True` primtal.\n\n`range(i * 2, grense + 1, i)` gir alle multiplum av `i`: han startar på `i * 2`, går opp til `grense`, og hoppar `i` steg om gongen. For $i = 3$ gir dette $6, 9, 12, 15, \\ldots$\n\nDenne algoritmen er over 2000 år gammal, men han blir framleis brukt den dag i dag -- berre med større tal!"
+    },
+    {
+      "id": "8-11-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på silen til Eratosthenes:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-3-n-quiz2-q0",
+            "task": "I silen til Eratosthenes: etter at vi har streka ut alle multiplum av 2 og 3, kva er det neste primtalet vi finn?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter å ha streka ut multiplum av 2 ($4, 6, 8, \\ldots$) og 3 ($6, 9, 12, \\ldots$), er det neste ustrokne talet 5. Altså er 5 eit primtal."
+          },
+          {
+            "id": "8-11-3-n-quiz2-q1",
+            "task": "Kva gjer `range(6, 51, 3)` i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gir tala $6, 7, 8, \\ldots, 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gir tala $3, 6, 9, \\ldots, 51$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gir tre tal: $6, 51, 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gir tala $6, 9, 12, \\ldots, 48$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "`range(6, 51, 3)` startar på 6, stoppar før 51, og hoppar 3 om gongen: $6, 9, 12, 15, \\ldots, 48$. Det tredje argumentet er steglengda."
+          },
+          {
+            "id": "8-11-3-n-quiz2-q2",
+            "task": "Kor mange primtal er det mellom 1 og 20?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Primtala mellom 1 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-3-n-section4",
+      "type": "text",
+      "content": "## Fleire algoritmar i matematikk\n\nLa oss sjå på to viktige algoritmar til.\n\n**Algoritme: Finn største faktor**\n\n```python\ntall = int(input(\"Skriv inn et tall: \"))\nstorste = 1\n\nfor i in range(2, tall + 1):\n    if tall % i == 0:\n        storste = i\n\nprint(f\"Storste faktor (utenom seg selv) av {tall} er {storste}\")\n```\n\nDenne algoritmen sjekkar alle tal frå 2 til `tall` og hugsar det siste som er ein faktor.\n\n**Algoritme: Algoritmen til Euklid for største felles faktor (SFF)**\n\nEuklid oppdaga for over 2300 år sidan at vi kan finne største felles faktor for to tal ved å gjenta divisjon med rest:\n\n```python\na = int(input(\"Forste tall: \"))\nb = int(input(\"Andre tall: \"))\n\noriginal_a = a\noriginal_b = b\n\nwhile b != 0:\n    rest = a % b\n    a = b\n    b = rest\n\nprint(f\"SFF({original_a}, {original_b}) = {a}\")\n```\n\n**Døme:** SFF(48, 18)\n- $48 \\div 18 = 2$ med rest $12$ → $a = 18$, $b = 12$\n- $18 \\div 12 = 1$ med rest $6$ → $a = 12$, $b = 6$\n- $12 \\div 6 = 2$ med rest $0$ → $a = 6$, $b = 0$\n- Stopp! $\\text{SFF}(48, 18) = 6$\n\nDenne algoritmen er elegant fordi han **alltid** finn svaret og gjer det raskt -- sjølv for veldig store tal."
+    },
+    {
+      "id": "8-11-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på matematiske algoritmar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-3-n-quiz3-q0",
+            "task": "Bruk algoritmen til Euklid: Kva er SFF(24, 36)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$36 \\div 24 = 1$ rest $12$ → $a = 24$, $b = 12$. $24 \\div 12 = 2$ rest $0$ → Stopp! $\\text{SFF}(24, 36) = 12$."
+          },
+          {
+            "id": "8-11-3-n-quiz3-q1",
+            "task": "Kva er SFF nyttig for i matematikk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Finne primtal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rekne ut areal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Teikne grafar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Forkorte brøkar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Største felles faktor blir brukt til å forkorte brøkar. Til dømes: $\\frac{24}{36}$ kan forkortast med SFF = 12 til $\\frac{2}{3}$."
+          },
+          {
+            "id": "8-11-3-n-quiz3-q2",
+            "task": "Kva Python-konstruksjon passar best når vi ikkje veit kor mange steg algoritmen treng?",
+            "options": [
+              {
+                "id": "b",
+                "text": "While-løkke",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For-løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Print-kommando",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Input-kommando",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når vi ikkje veit talet på gjentakingar på førehand (som i algoritmen til Euklid der vi gjentek til resten er 0), bruker vi ei while-løkke."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nAlgoritmar er grunnlaget for all programmering -- og dei finst overalt i matematikken:\n\n- **Algoritme**: Ei endeleg, presis oppskrift for å løyse eit problem steg for steg\n- **Flytdiagram**: Eit visuelt verktøy for å planleggje algoritmar -- med ovalar (start/slutt), rektangel (handlingar) og rombar (val)\n- **Silen til Eratosthenes**: Ein 2000 år gammal algoritme for å finne primtal ved å «sile bort» multiplum\n- **Algoritmen til Euklid**: Finn største felles faktor ved gjentatt divisjon med rest -- nyttig for å forkorte brøkar\n- **Lister**: Blir brukte til å lagre mange verdiar, til dømes alle tal frå 2 til 50\n- **Stegvis tenking**: Bryt problemet ned i små, presise steg før du kodar\n\nDet viktigaste du har lært er ein måte å **tenkje** på: dele opp problem i små steg, vere presis i instruksjonane, og la datamaskinen gjere det tunge arbeidet. Denne algoritmiske tenkjemåten er nyttig langt utanfor matematikken -- han hjelper deg å løyse alle slags problem på ein systematisk måte."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "b0c149270b6cc185",
+    "translatedAt": "2026-06-17T01:27:02.998Z",
+    "model": "claude-code-agent",
+    "strings": 58,
+    "tm": {
+      "9520dd24ba45060e": "Algoritmar i matematikk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "cde66a7af9dfe1b1": "Ein forteljande gjennomgang av algoritmar der vi lærer kva ein algoritme er, korleis vi skildrar dei med flytdiagram, og utforskar klassiske døme som silen til Eratosthenes for å finne primtal.",
+      "38b3f88b8d0434b5": "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt",
+      "9310246aacfa212b": "## Oppskrifter for å løyse problem\n\nNår du bakar ei kake, følgjer du ei oppskrift: «bland mjøl og sukker, tilset egg, rør til jamn masse, stek i 25 minutt.» Oppskrifta er ein **steg-for-steg-instruksjon** som garanterer eit godt resultat -- så lenge du følgjer han nøyaktig.\n\nI matematikk og programmering kallar vi slike oppskrifter for **algoritmar**. Ein algoritme er:\n\n1. Ei **endeleg** rekkje med instruksjonar (han må stoppe på eit tidspunkt)\n2. Kvart steg er **presist** nok til å følgjast utan tvetydigheit\n3. Han tek inn **inndata** og gir ut **utdata**\n\nDu har allereie brukt algoritmar heile livet utan å tenkje over det:\n- **Addisjon med tiarven**: Ein algoritme for å leggje saman fleirsifra tal\n- **Lang divisjon**: Ein algoritme for å dele store tal\n- **Deling på fellesfaktor**: Ein algoritme for å forkorte brøkar\n\nI dette kapittelet skal vi lære å tenkje som algoritmeutviklarar og bruke Python til å gjere algoritmane levande.",
+      "babc828da3c06060": "## Flytdiagram -- algoritmar som bilete\n\nFør vi kodar, kan det vere lurt å **teikne** algoritmen. Eit **flytdiagram** bruker symbol for å vise flyten:\n\n- **Ovalar**: Start og slutt\n- **Rektangel**: Handlingar (t.d. «rekn ut $x + 3$»)\n- **Rombar**: Val (t.d. «er $x > 10$?» -- ja/nei)\n- **Piler**: Viser retninga frå steg til steg\n\n**Døme:** Ein algoritme for å sjekke om eit tal er positivt, negativt eller null:\n\n1. **Start**\n2. Les inn talet $x$\n3. Er $x > 0$? → Ja: Skriv «Positivt» → Gå til 6\n4. Er $x < 0$? → Ja: Skriv «Negativt» → Gå til 6\n5. Skriv «Null»\n6. **Slutt**\n\nI Python:\n\n```python\nx = int(input(\"Skriv inn et tall: \"))\n\nif x > 0:\n    print(\"Positivt\")\nelif x < 0:\n    print(\"Negativt\")\nelse:\n    print(\"Null\")\n```\n\nLegg merke til korleis «vala» i flytdiagrammet (rombane) svarar til `if`/`elif`/`else` i Python. Å teikne flytdiagrammet først hjelper deg å tenkje gjennom alle moglegheitene før du byrjar å kode.",
+      "9697f930253018a1": "Test deg sjølv på algoritmar og flytdiagram:",
+      "4097889236a2af26": "placeholder",
+      "83d20e7f3a645fcf": "Kva er ein algoritme?",
+      "b156b07dcd6204fb": "Eit programmeringsspråk",
+      "8b848e057bc9596f": "Ei endeleg rekkje presise instruksjonar for å løyse eit problem",
+      "c98a26207f13749b": "Ein type datamaskin",
+      "7250f5d2048f5848": "Eit flytdiagram",
+      "1b20acd0af9a5153": "Ein algoritme er ei steg-for-steg-oppskrift som er presis nok til å følgjast utan tvetydigheit. Han må òg vere endeleg -- han må stoppe på eit tidspunkt.",
+      "87528ab1ca3cd4f0": "Kva form blir brukt for **val** i eit flytdiagram?",
+      "9d560edde60d9990": "Oval",
+      "d7fc7a6c88330c66": "Rektangel",
+      "140e257d8049e4b5": "Rombe (diamantform)",
+      "4fadc05e65ea016f": "Sirkel",
+      "27c748393bfd8516": "Rombar (diamantformer) blir brukte for val der svaret er ja eller nei. Ovalar blir brukte for start/slutt, og rektangel blir brukte for handlingar.",
+      "54c8c510777c0669": "Kva av desse er IKKJE eit krav til ein algoritme?",
+      "8827dc5da1f88b09": "Han må ha presise instruksjonar",
+      "979920f794f628a3": "Han må stoppe på eit tidspunkt",
+      "193ea4d1f534e30e": "Han må vere skriven i Python",
+      "24d0ecca22c6cf4f": "Han må gi eit resultat",
+      "6f116477e3268eca": "Ein algoritme kan skildrast på mange måtar: med ord, flytdiagram, pseudokode eller eit programmeringsspråk. Han treng ikkje vere i Python -- det er berre ein av mange måtar å uttrykkje han på.",
+      "729bb71e3bfdd944": "## Silen til Eratosthenes -- ein klassisk algoritme\n\nEin av dei mest elegante algoritmane i historia blei funnen opp av den greske matematikaren **Eratosthenes** for over 2000 år sidan. Han finn alle **primtal** opp til eit gitt tal.\n\nHugs: eit **primtal** er eit tal større enn 1 som berre er deleleg med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$\n\n**Algoritmen (for å finne alle primtal opp til 30):**\n\n1. Skriv opp alle tal frå 2 til 30\n2. Det første talet (2) er eit primtal. **Stryk** alle multiplum av 2: $4, 6, 8, 10, 12, \\ldots$\n3. Det neste ustrokne talet (3) er eit primtal. **Stryk** alle multiplum av 3: $6, 9, 12, 15, \\ldots$\n4. Det neste ustrokne talet (5) er eit primtal. **Stryk** alle multiplum av 5: $10, 15, 20, 25, 30$\n5. Hald fram til du har gått gjennom alle tal. Dei attverande (ustrokne) tala er primtala!\n\nResultatet: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$\n\nGenialiteten er at vi ikkje treng å sjekke kvart tal individuelt -- vi «siler bort» samansette tal i store grupper.",
+      "cfcd9191a415adbc": "## Silen til Eratosthenes i Python\n\nLa oss programmere denne algoritmen:\n\n```python\ngrense = 50\ner_primtall = [True] * (grense + 1)\ner_primtall[0] = False\ner_primtall[1] = False\n\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        # Stryk alle multipler av i\n        for j in range(i * 2, grense + 1, i):\n            er_primtall[j] = False\n\n# Skriv ut alle primtall\nprimtall = []\nfor i in range(2, grense + 1):\n    if er_primtall[i]:\n        primtall.append(i)\n\nprint(f\"Primtall opp til {grense}:\")\nprint(primtall)\n```\n\nResultat:\n```\nPrimtall opp til 50:\n[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]\n```\n\nHer bruker vi ei **liste** `er_primtall` der kvart element startar som `True`. Når vi finn eit multiplum, set vi det til `False`. Til slutt er alle tal som framleis er `True` primtal.\n\n`range(i * 2, grense + 1, i)` gir alle multiplum av `i`: han startar på `i * 2`, går opp til `grense`, og hoppar `i` steg om gongen. For $i = 3$ gir dette $6, 9, 12, 15, \\ldots$\n\nDenne algoritmen er over 2000 år gammal, men han blir framleis brukt den dag i dag -- berre med større tal!",
+      "d6449d096a21b375": "Test deg sjølv på silen til Eratosthenes:",
+      "c2260498e9579d44": "I silen til Eratosthenes: etter at vi har streka ut alle multiplum av 2 og 3, kva er det neste primtalet vi finn?",
+      "21df7df5c0f37158": "Etter å ha streka ut multiplum av 2 ($4, 6, 8, \\ldots$) og 3 ($6, 9, 12, \\ldots$), er det neste ustrokne talet 5. Altså er 5 eit primtal.",
+      "93aaca634f29cf0b": "Kva gjer `range(6, 51, 3)` i Python?",
+      "d9140e9e65ff7c45": "Gir tala $6, 7, 8, \\ldots, 50$",
+      "29beabbb2e3c578f": "Gir tala $6, 9, 12, \\ldots, 48$",
+      "6d2cfe877e159d36": "Gir tala $3, 6, 9, \\ldots, 51$",
+      "f8fd85e2d3613b74": "Gir tre tal: $6, 51, 3$",
+      "a8459ab3544bb41a": "`range(6, 51, 3)` startar på 6, stoppar før 51, og hoppar 3 om gongen: $6, 9, 12, 15, \\ldots, 48$. Det tredje argumentet er steglengda.",
+      "a392f7e903418cb8": "Kor mange primtal er det mellom 1 og 20?",
+      "12dca446eec968d8": "Primtala mellom 1 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykk.",
+      "38fa2672108c96ca": "## Fleire algoritmar i matematikk\n\nLa oss sjå på to viktige algoritmar til.\n\n**Algoritme: Finn største faktor**\n\n```python\ntall = int(input(\"Skriv inn et tall: \"))\nstorste = 1\n\nfor i in range(2, tall + 1):\n    if tall % i == 0:\n        storste = i\n\nprint(f\"Storste faktor (utenom seg selv) av {tall} er {storste}\")\n```\n\nDenne algoritmen sjekkar alle tal frå 2 til `tall` og hugsar det siste som er ein faktor.\n\n**Algoritme: Algoritmen til Euklid for største felles faktor (SFF)**\n\nEuklid oppdaga for over 2300 år sidan at vi kan finne største felles faktor for to tal ved å gjenta divisjon med rest:\n\n```python\na = int(input(\"Forste tall: \"))\nb = int(input(\"Andre tall: \"))\n\noriginal_a = a\noriginal_b = b\n\nwhile b != 0:\n    rest = a % b\n    a = b\n    b = rest\n\nprint(f\"SFF({original_a}, {original_b}) = {a}\")\n```\n\n**Døme:** SFF(48, 18)\n- $48 \\div 18 = 2$ med rest $12$ → $a = 18$, $b = 12$\n- $18 \\div 12 = 1$ med rest $6$ → $a = 12$, $b = 6$\n- $12 \\div 6 = 2$ med rest $0$ → $a = 6$, $b = 0$\n- Stopp! $\\text{SFF}(48, 18) = 6$\n\nDenne algoritmen er elegant fordi han **alltid** finn svaret og gjer det raskt -- sjølv for veldig store tal.",
+      "6ccc892f950f5081": "Test deg sjølv på matematiske algoritmar:",
+      "77b7b2a9fc4205c0": "Bruk algoritmen til Euklid: Kva er SFF(24, 36)?",
+      "19c6f26b7b6dee7f": "$36 \\div 24 = 1$ rest $12$ → $a = 24$, $b = 12$. $24 \\div 12 = 2$ rest $0$ → Stopp! $\\text{SFF}(24, 36) = 12$.",
+      "513fac4f98ecafda": "Kva er SFF nyttig for i matematikk?",
+      "d087635b77c60c8c": "Finne primtal",
+      "a32b5ed7bc1b2e9e": "Forkorte brøkar",
+      "5fed91d3cd083535": "Rekne ut areal",
+      "23f977abd493c885": "Teikne grafar",
+      "f7f3bb2d0265d3e2": "Største felles faktor blir brukt til å forkorte brøkar. Til dømes: $\\frac{24}{36}$ kan forkortast med SFF = 12 til $\\frac{2}{3}$.",
+      "5932ce0329c8f71e": "Kva Python-konstruksjon passar best når vi ikkje veit kor mange steg algoritmen treng?",
+      "6dad08739d4f0f87": "For-løkke",
+      "0b995d75c415d301": "While-løkke",
+      "4d9f86bbb57aeb1d": "Print-kommando",
+      "a3440a4d27d1c5c6": "Input-kommando",
+      "578d5cb87658043d": "Når vi ikkje veit talet på gjentakingar på førehand (som i algoritmen til Euklid der vi gjentek til resten er 0), bruker vi ei while-løkke.",
+      "da7c9c59eebc61e3": "## Oppsummering\n\nAlgoritmar er grunnlaget for all programmering -- og dei finst overalt i matematikken:\n\n- **Algoritme**: Ei endeleg, presis oppskrift for å løyse eit problem steg for steg\n- **Flytdiagram**: Eit visuelt verktøy for å planleggje algoritmar -- med ovalar (start/slutt), rektangel (handlingar) og rombar (val)\n- **Silen til Eratosthenes**: Ein 2000 år gammal algoritme for å finne primtal ved å «sile bort» multiplum\n- **Algoritmen til Euklid**: Finn største felles faktor ved gjentatt divisjon med rest -- nyttig for å forkorte brøkar\n- **Lister**: Blir brukte til å lagre mange verdiar, til dømes alle tal frå 2 til 50\n- **Stegvis tenking**: Bryt problemet ned i små, presise steg før du kodar\n\nDet viktigaste du har lært er ein måte å **tenkje** på: dele opp problem i små steg, vere presis i instruksjonane, og la datamaskinen gjere det tunge arbeidet. Denne algoritmiske tenkjemåten er nyttig langt utanfor matematikken -- han hjelper deg å løyse alle slags problem på ein systematisk måte."
+    }
+  }
+}

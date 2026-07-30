@@ -1,1 +1,554 @@
-{"id":"r2-6-5-narrativ","courseId":"r2","chapterNumber":"6.5","title":"Modellering med reelle data","subtitle":"Narrativ versjon","description":"En fortelling om dataanalytikerens hverdag — regresjon med minste kvadraters metode, residualer og R², fellene ved ekstrapolasjon, og analysen som derivasjon og integrasjon låser opp.","estimatedMinutes":38,"competenceGoals":["bruke derivasjon og integrasjon til a analysere og tolke eigne matematiske modellar av reelle data"],"linkedChapterId":"r2-6-5","content":[{"id":"r2-6-5-n-intro","type":"text","content":"## Når dataene er ekte\n\nI forrige kapittel valgte vi modeller fra lærebokens ryddige verden, der bakterier dobler seg på klokkeslett. Nå åpner vi døra til virkeligheten: måleserier fra eksperimenter, statistikk fra SSB, sensordata — tall med støy, avvik og overraskelser. En kommune vil vite befolkningen i 2025. Et kraftselskap lurer på om vindturbinens effekt virkelig følger teorien. En klimaforsker stirrer på issmeltingen i Arktis. Felles for dem alle: dataene finnes, men *funksjonen* gjør det ikke — den må finnes, tilpasses og forsvares.\n\nVerktøyet heter **regresjon**: en statistisk metode som finner funksjonen som passer datapunktene best. Men «best» i hvilken forstand? Det skal vi gjøre presist med *minste kvadraters metode*. Og når maskinen har spyttet ut en funksjon med imponerende mange desimaler, begynner den egentlige jobben — analytikerens fire kontrollspørsmål: Passer modellen *egentlig* (residualer, $R^2$)? Hvor *gjelder* den (interpolasjon kontra ekstrapolasjon)? Betyr sammenhengen at det ene *forårsaker* det andre (korrelasjon kontra kausalitet)? Og hva kan modellen *fortelle* oss som dataene alene ikke kan?\n\nDet siste spørsmålet er der R2-verktøyene dine får skinne: **derivasjon** av modellen gir endringsrater — hvor fort vokser befolkningen *nå*? — og **integrasjon** gir totale mengder — hvor mye vann rant forbi i løpet av året? En tilpasset funksjon er ikke et svar; den er et instrument. Dette kapittelet lærer deg å spille det — og å høre når det er ustemt."},{"id":"r2-6-5-n-section1","type":"text","content":"## Minste kvadrater og den rette linjen\n\nHva betyr det at en linje «passer best» til en punktsky? **Minste kvadraters metode** gir det presise svaret: velg funksjonen $f$ som minimerer summen av de kvadrerte avvikene,\n\n$$S = \\sum_{i=1}^{n} (y_i - f(x_i))^2$$\n\nHvert datapunkt måler sin vertikale avstand til kurven; avstandene kvadreres (så positive og negative avvik ikke kan utligne hverandre, og store bommerter straffes hardt) og summeres. Den $f$-en i familien som gir minst sum, vinner. For lineær regresjon $y = ax + b$ finnes til og med eksplisitte formler for $a$ og $b$ — men i praksis lar vi digitale verktøy regne: i GeoGebra legger du dataene i lister og skriver `RegLin(L1, L2)` for lineær, `RegExp` for eksponentiell eller `RegPoly(L1, L2, n)` for polynom av grad $n$.\n\nSe metoden i arbeid på kommunens tall. Befolkningen (i tusen) fra 2010 til 2020 var $45{,}2$, $47{,}1$, $49{,}3$, $51{,}0$, $53{,}2$, $55{,}1$ — målt annethvert år. Med $x$ som år etter 2010 gir lineær regresjon\n\n$$y = 0{,}99x + 45{,}2$$\n\nOg her er analytikerens første plikt: *tolk* parametrene. Stigningstallet $0{,}99$ betyr at byen vokser med omtrent tusen innbyggere i året; konstantleddet $45{,}2$ er nivået i 2010. Prognosen for 2025 blir $y(15) = 0{,}99 \\cdot 15 + 45{,}2 \\approx 60{,}1$ — rundt $60\\,000$ innbyggere.\n\nMen legg merke til den lille advarselen som allerede lurer: 2025 ligger *utenfor* måleperioden. Anslaget hviler på at trenden fortsetter — en antakelse dataene ikke kan garantere. Det skal vi gi et navn og en grundig behandling i seksjon 3."},{"id":"r2-6-5-n-quiz1","type":"exercise","exercise":{"id":"r2-6-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på minste kvadrater og lineær regresjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-5-n-quiz1-q0","task":"Hva minimerer minste kvadraters metode?","options":[{"id":"a","text":"Summen av avvikene $\\sum (y_i - f(x_i))$","isCorrect":false},{"id":"b","text":"Det største enkeltavviket","isCorrect":false},{"id":"c","text":"Summen av de kvadrerte avvikene $\\sum (y_i - f(x_i))^2$","isCorrect":true},{"id":"d","text":"Antall datapunkter utenfor kurven","isCorrect":false}],"solution":"Avvikene kvadreres så fortegn ikke utligner hverandre og store bom straffes hardt; summen minimeres."},{"id":"r2-6-5-n-quiz1-q1","task":"Befolkningsmodellen er $y = 0{,}99x + 45{,}2$ (tusen, $x$ = år etter 2010). Hva er prognosen for 2025?","options":[{"id":"a","text":"ca. $60\\,000$","isCorrect":true},{"id":"b","text":"ca. $55\\,000$","isCorrect":false},{"id":"c","text":"ca. $46\\,000$","isCorrect":false},{"id":"d","text":"ca. $75\\,000$","isCorrect":false}],"solution":"$y(15) = 0{,}99 \\cdot 15 + 45{,}2 \\approx 60{,}1$ tusen — men merk at dette er ekstrapolasjon utenfor måleperioden."},{"id":"r2-6-5-n-quiz1-q2","task":"Hva betyr stigningstallet $0{,}99$ i modellen?","options":[{"id":"a","text":"Befolkningen i 2010","isCorrect":false},{"id":"b","text":"At modellen er $99\\%$ riktig","isCorrect":false},{"id":"c","text":"Antall år mellom målingene","isCorrect":false},{"id":"d","text":"Byen vokser med ca. $990$ innbyggere per år","isCorrect":true}],"solution":"Stigningstallet er endringen i $y$ (tusen innbyggere) per enhet $x$ (år): omtrent tusen nye innbyggere årlig."},{"id":"r2-6-5-n-quiz1-q3","task":"Hvilken GeoGebra-kommando gir lineær regresjon på listene L1 og L2?","options":[{"id":"a","text":"`Linje(L1, L2)`","isCorrect":false},{"id":"b","text":"`RegLin(L1, L2)`","isCorrect":true},{"id":"c","text":"`RegPoly(L1, L2, 5)`","isCorrect":false},{"id":"d","text":"`Tangent(L1, L2)`","isCorrect":false}],"solution":"`RegLin` gir lineær regresjon; `RegExp` og `RegPoly(..., n)` gir eksponentiell og polynomisk tilpasning."}]}},{"id":"r2-6-5-n-section2","type":"text","content":"## Flere familier — og faren ved å passe for godt\n\nIkke alle punktskyer er rette. Laboratoriets bakterietall — $1000$, $1480$, $2190$, $3240$, $4790$ med to timers mellomrom — vokser med (nesten) konstant *faktor*, ikke konstant tillegg: kjennetegnet for **eksponentiell regresjon**. GeoGebra leverer $N(t) = 1000 \\cdot e^{0{,}2t}$, og modellen svarer på laboratoriets spørsmål: doblingstiden er $\\frac{\\ln 2}{0{,}2} \\approx 3{,}5$ timer, og etter tolv timer ventes $1000e^{2{,}4} \\approx 11\\,000$ bakterier.\n\nBallkast-dataene krever **polynomisk regresjon**: høydemålingene følger fysikkens andregradslov, og tilpasningen $h(t) = -4{,}9t^2 + 9{,}8t + 1{,}5$ er ikke bare empiri — koeffisienten $-4{,}9$ er $-\\frac{g}{2}$, gjenkjent fra mekanikk. Derivasjon gir toppen: $h'(t) = -9{,}8t + 9{,}8 = 0$ ved $t = 1$ s, maksimal høyde $6{,}4$ m. Og når teorien forutsier en potenslov, tester regresjonen den: vindturbinens målinger ga $P = 0{,}55v^{3{,}02}$ — eksponenten $\\approx 3$ bekrefter teoriens $P \\propto v^3$ glitrende.\n\nMen her lurer en felle med eget navn: **overtilpasning**. Et polynom av høy nok grad går gjennom *alle* datapunktene — perfekt score, elendig modell, for det er støyen den har lært, ikke trenden. En god modell er enkel nok til å *generalisere*. Velg lavest grad som fanger strukturen, og la gjerne fysikken stemme: andregrad for kast, tredjegrad for vindkraft.\n\nAv og til avslører selve dataformen modellvalget. Smarttelefonandelen i Norge steg fra $30\\%$ i 2010 til $95\\%$ i 2020 — lineær modell ville passert $100\\%$ (umulig), eksponentiell ville eksplodert. S-formen — treg start, rask midtfase, metning — roper **logistisk**: $y = \\frac{100}{1 + e^{-0{,}4(x - 11)}}$, med taket $100\\%$ innebygd. Riktig familie først; finjustering etterpå."},{"id":"r2-6-5-n-quiz2","type":"exercise","exercise":{"id":"r2-6-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på regresjonstyper og overtilpasning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-5-n-quiz2-q0","task":"Bakteriemodellen er $N(t) = 1000 \\cdot e^{0{,}2t}$. Hva er doblingstiden?","options":[{"id":"a","text":"$0{,}2$ timer","isCorrect":false},{"id":"b","text":"$2$ timer","isCorrect":false},{"id":"c","text":"$5$ timer","isCorrect":false},{"id":"d","text":"$\\frac{\\ln 2}{0{,}2} \\approx 3{,}5$ timer","isCorrect":true}],"solution":"$e^{0{,}2t} = 2$ gir $t = \\frac{\\ln 2}{0{,}2} \\approx 3{,}47$ timer."},{"id":"r2-6-5-n-quiz2-q1","task":"Hvilket kjennetegn i dataene tilsier eksponentiell regresjon?","options":[{"id":"a","text":"Konstant absolutt økning per tidsenhet","isCorrect":false},{"id":"b","text":"Tilnærmet konstant prosentvis endring per tidsenhet","isCorrect":true},{"id":"c","text":"Verdier som veksler fortegn","isCorrect":false},{"id":"d","text":"En tydelig topp i midten","isCorrect":false}],"solution":"Eksponentiell vekst betyr samme faktor per tidsenhet — som bakterietallene, der forholdet mellom naboverdier er nesten konstant."},{"id":"r2-6-5-n-quiz2-q2","task":"Hva er overtilpasning?","options":[{"id":"a","text":"At modellen har for få parametre","isCorrect":false},{"id":"b","text":"At $R^2$ er for lavt","isCorrect":false},{"id":"c","text":"At modellen følger støyen i dataene i stedet for trenden — perfekt på data, dårlig til å generalisere","isCorrect":true},{"id":"d","text":"At dataene er målt for nøyaktig","isCorrect":false}],"solution":"Et polynom av høy grad kan treffe alle punktene, men fanger tilfeldig støy. Enkle modeller generaliserer bedre."},{"id":"r2-6-5-n-quiz2-q3","task":"Smarttelefonandelen gikk fra $30\\%$ til $95\\%$ på ti år. Hvorfor er logistisk modell riktig valg?","options":[{"id":"a","text":"Veksten metter mot et naturlig tak på $100\\%$, som lineære og eksponentielle modeller ville sprengt","isCorrect":true},{"id":"b","text":"Fordi logistiske modeller alltid passer best","isCorrect":false},{"id":"c","text":"Fordi dataene er lineære","isCorrect":false},{"id":"d","text":"Fordi andelen svinger periodisk","isCorrect":false}],"solution":"Lineær og eksponentiell modell forutsier over $100\\%$ — umulig for en andel. Logistisk vekst har metningen innebygd."}]}},{"id":"r2-6-5-n-section3","type":"text","content":"## Kontrollspørsmålene: residualer, ekstrapolasjon og kausalitet\n\nMaskinen leverer alltid *en* kurve — spørsmålet er om du bør stole på den. Første kontroll: **residualene**, $e_i = y_i - \\hat{y}_i$, avstandene mellom målt og modellert verdi. I en god modell er de små og *tilfeldige*; følger de et mønster — for eksempel en bue — har du valgt feil modellform. Befolkningsmodellen besto med glans: alle residualer under $0{,}15$, uten mønster. Andre kontroll: **bestemmelseskoeffisienten** $R^2 = 1 - \\frac{\\sum (y_i - \\hat{y}_i)^2}{\\sum (y_i - \\bar{y})^2}$, andelen av variasjonen modellen forklarer — $1$ er perfekt, over $0{,}9$ er meget bra. Men husk overtilpasningen fra forrige seksjon: høy $R^2$ alene beviser ingenting.\n\nTredje kontroll skiller **interpolasjon** fra **ekstrapolasjon**. Innenfor måleområdet er modellen testet mot data og anslagene relativt trygge. Utenfor er den på gyngende grunn — og skrekkeksempelet er kaffekoppen: målinger de første tjue minuttene ga den utmerkede lineære modellen $T = -2{,}1t + 78$, men ved $t = 40$ melder den $-6°$C. *Kaffe kaldere enn isvann, i et varmt rom.* Fysikken (Newtons avkjølingslov, asymptote ved romtemperaturen) sier at den lineære modellen bare gjaldt lokalt. Samme forbehold gjelder klimaprognosen: isutbredelsen i Arktis følger $A = -0{,}095x + 7{,}6$ ($R^2 \\approx 0{,}93$), som gir «isfritt» rundt 2060 — en grov ekstrapolasjon der tilbakekoblinger og tiltak kan endre alt. Eksterne sjokk lurer også: ingen BNP-regresjon på 2000–2019 kunne forutse pandemiåret 2020.\n\nFjerde kontroll er den klassiske: **korrelasjon er ikke kausalitet**. Iskremsalg og drukningsulykker i USA samvarierer nesten perfekt ($r \\approx 0{,}99$) — ikke fordi iskrem drukner folk, men fordi *varmt vær* driver begge. En lurende tredjevariabel kan fabrikkere et hvilket som helst mønster. Modellen beskriver samvariasjonen; *årsaken* må argumenteres for utenfor matematikken."},{"id":"r2-6-5-n-quiz3","type":"exercise","exercise":{"id":"r2-6-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på modellvurdering og feller:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-5-n-quiz3-q0","task":"Hva er et residual?","options":[{"id":"a","text":"Differansen $y_i - \\hat{y}_i$ mellom målt verdi og modellens verdi","isCorrect":true},{"id":"b","text":"Modellens stigningstall","isCorrect":false},{"id":"c","text":"Antall datapunkter","isCorrect":false},{"id":"d","text":"Avstanden mellom to datapunkter","isCorrect":false}],"solution":"Residualet måler hvor mye modellen bommer i hvert punkt; små, tilfeldige residualer kjennetegner en god modell."},{"id":"r2-6-5-n-quiz3-q1","task":"Kaffemodellen $T = -2{,}1t + 78$ gir $T(40) = -6°$C. Hva er lærdommen?","options":[{"id":"a","text":"Kaffen fryser etter $40$ minutter","isCorrect":false},{"id":"b","text":"Modellen må få brattere stigningstall","isCorrect":false},{"id":"c","text":"Lineær ekstrapolasjon langt utenfor måleområdet kan gi fysisk umulige svar","isCorrect":true},{"id":"d","text":"Målingene var feil","isCorrect":false}],"solution":"Avkjøling flater ut mot romtemperaturen (Newtons avkjølingslov); den lineære modellen gjaldt bare de første minuttene."},{"id":"r2-6-5-n-quiz3-q2","task":"Hva er forskjellen på interpolasjon og ekstrapolasjon?","options":[{"id":"a","text":"Interpolasjon bruker derivasjon, ekstrapolasjon integrasjon","isCorrect":false},{"id":"b","text":"Interpolasjon anslår innenfor måleområdet (tryggere), ekstrapolasjon utenfor (usikrere)","isCorrect":true},{"id":"c","text":"De er synonymer","isCorrect":false},{"id":"d","text":"Ekstrapolasjon er alltid mer nøyaktig","isCorrect":false}],"solution":"Innenfor dataområdet er modellen testet; utenfor hviler alt på at trenden fortsetter — en utestet antakelse."},{"id":"r2-6-5-n-quiz3-q3","task":"Iskremsalg og drukningsulykker har korrelasjon $r \\approx 0{,}99$. Hva er forklaringen?","options":[{"id":"a","text":"Iskrem forårsaker drukning","isCorrect":false},{"id":"b","text":"Drukninger øker iskremsalget","isCorrect":false},{"id":"c","text":"Korrelasjonen er regnefeil","isCorrect":false},{"id":"d","text":"En tredjevariabel — varmt vær — driver begge: korrelasjon er ikke kausalitet","isCorrect":true}],"solution":"Varme dager gir både mer iskremsalg og mer bading. Samvariasjon beviser ingen årsakssammenheng."}]}},{"id":"r2-6-5-n-section4","type":"text","content":"## Modellen som instrument: derivér og integrér\n\nEn validert modell er mer enn en prognosemaskin — den er en kontinuerlig funksjon, og dermed kan hele R2-verktøykassen brukes på den. Det er her kompetansemålet bor: *analysere og tolke egne modeller med derivasjon og integrasjon*.\n\n**Derivasjon gir endringsrater.** Byen med logistisk befolkningsvekst $P(t) = \\frac{100}{1 + 9e^{-0{,}1t}}$ (i tusen, $t$ år etter 2000): kjerneregelen gir vekstraten\n\n$$P'(t) = \\frac{90e^{-0{,}1t}}{(1 + 9e^{-0{,}1t})^2}$$\n\n— antall tusen nye innbyggere per år, som funksjon av tiden. Og når vokser byen *raskest*? Logistisk vekst har sin maksimale fart nøyaktig ved halve bæreevnen, $P = \\frac{K}{2} = 50$: likningen $1 + 9e^{-0{,}1t} = 2$ gir $t = \\frac{\\ln 9}{0{,}1} \\approx 22$ — rundt år 2022 toppet veksten seg, og deretter bremser metningen den.\n\n**Integrasjon gir totale mengder.** Vannføringen i en elv følger årsmodellen $Q(t) = 25 + 18\\sin\\left(\\frac{\\pi t}{6}\\right)$ (m³/s, $t$ i måneder). Den totale vannmengden gjennom året er integralet:\n\n$$V = \\int_0^{12} \\left(25 + 18\\sin\\frac{\\pi t}{6}\\right) dt = \\left[25t - \\frac{108}{\\pi}\\cos\\frac{\\pi t}{6}\\right]_0^{12} = 300$$\n\n— sinusleddet integrerer seg selv bort over hele perioder, og bare middelvannføringen teller. Omregnet til kubikkmeter: rundt $7{,}8 \\cdot 10^8$ m³, nesten en milliard kubikkmeter forbi målestasjonen på et år.\n\nTil slutt: en modell skal *presenteres* etterrettelig. Oppgi datakilden, begrunn modellvalget, skriv funksjonen med parametre, dokumentér tilpasningen ($R^2$, residualer), vis graf med data og modell sammen — og angi gyldighetsområdet med usikkerheten ærlig deklarert. Det er forskjellen på tallmagi og fagarbeid."},{"id":"r2-6-5-n-quiz4","type":"exercise","exercise":{"id":"r2-6-5-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på analyse av modeller med derivasjon og integrasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-5-n-quiz4-q0","task":"Hva forteller $P'(t)$ om befolkningsmodellen $P(t)$?","options":[{"id":"a","text":"Befolkningens størrelse ved tid $t$","isCorrect":false},{"id":"b","text":"Vekstraten — hvor mange nye innbyggere per tidsenhet","isCorrect":true},{"id":"c","text":"Total befolkning over alle år","isCorrect":false},{"id":"d","text":"Bæreevnen","isCorrect":false}],"solution":"Den deriverte av en mengdefunksjon er endringsraten — her tusen nye innbyggere per år."},{"id":"r2-6-5-n-quiz4-q1","task":"Når vokser den logistiske modellen $P(t) = \\frac{100}{1 + 9e^{-0{,}1t}}$ raskest?","options":[{"id":"a","text":"Ved $t = 0$","isCorrect":false},{"id":"b","text":"Når $P = 100$","isCorrect":false},{"id":"c","text":"Når $P = \\frac{K}{2} = 50$, dvs. $t = \\frac{\\ln 9}{0{,}1} \\approx 22$","isCorrect":true},{"id":"d","text":"Veksten er konstant","isCorrect":false}],"solution":"Logistisk vekst topper farten ved halve bæreevnen; $1 + 9e^{-0{,}1t} = 2$ gir $t \\approx 22$."},{"id":"r2-6-5-n-quiz4-q2","task":"Hvordan finner du total vannmengde gjennom året fra vannføringsmodellen $Q(t)$?","options":[{"id":"a","text":"Ved å derivere $Q(t)$","isCorrect":false},{"id":"b","text":"Ved å lese av maksimum av $Q(t)$","isCorrect":false},{"id":"c","text":"Ved å multiplisere $Q(0)$ med $12$","isCorrect":false},{"id":"d","text":"Ved å integrere: $V = \\int_0^{12} Q(t)\\,dt$","isCorrect":true}],"solution":"Vannføring er mengde per tid; summen over tid er integralet. Her gir det $300$ måned·m³/s — sinusleddet nuller seg ut over hele perioder."},{"id":"r2-6-5-n-quiz4-q3","task":"Hva bør en etterrettelig modellrapport alltid inneholde?","options":[{"id":"a","text":"Datakilde, modellvalg med begrunnelse, parametre, tilpasningsmål og gyldighetsområde","isCorrect":true},{"id":"b","text":"Bare funksjonsuttrykket","isCorrect":false},{"id":"c","text":"Så mange desimaler som mulig","isCorrect":false},{"id":"d","text":"Kun grafen","isCorrect":false}],"solution":"Uten kilde, begrunnelse, kvalitetsmål og gyldighetsområde kan ingen vurdere — eller etterprøve — modellen."}]}},{"id":"r2-6-5-n-summary","type":"text","content":"## Oppsummering\n\nVirkelighetens tall fikk sin behandling. **Regresjon** med minste kvadraters metode — minimer $\\sum (y_i - f(x_i))^2$ — fant funksjonen som passer best, med digitale verktøy (`RegLin`, `RegExp`, `RegPoly`) som regnemaskin: byens befolkning ble $y = 0{,}99x + 45{,}2$ med tusen nye innbyggere i året, bakteriene $N = 1000e^{0{,}2t}$ med doblingstid $3{,}5$ timer, ballkastet $-4{,}9t^2 + 9{,}8t + 1{,}5$ med fysikkens egen koeffisient, og vindturbinen bekreftet teoriens $v^3$-lov. Datastrukturen valgte familien — og S-formede metningsdata krevde logistisk modell, mens for høy polynomgrad ga **overtilpasning**: støy lært utenat.\n\nKontrollspørsmålene fulgte: **residualene** skal være små og mønsterløse, $R^2$ nær $1$ tallfester forklart variasjon, **interpolasjon** er trygg der **ekstrapolasjon** er gyngende — kaffens lineære modell meldte $-6°$C, og Arktis-prognosen for 2060 bærer alle forbehold. Og iskrem-drukning-korrelasjonen på $0{,}99$ banket inn lærdommen: **korrelasjon er ikke kausalitet**.\n\nTil slutt ble modellen instrument: **derivasjon** ga vekstraten og avslørte at logistisk vekst topper ved halve bæreevnen ($t \\approx 22$ for byen vår), og **integrasjon** summerte elvens år til $300$ måned·m³/s — nesten en milliard kubikkmeter. Med en etterrettelig rapport — kilde, valg, parametre, $R^2$, gyldighetsområde — er analysen komplett.\n\nEtt kapittel gjenstår, og det handler om fagets grunnfjell: hvordan vet vi at noe i matematikken er *sant*? Velkommen til beviset."}],"exercises":[]}
+{
+  "id": "r2-6-5-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "6.5",
+  "title": "Modellering med reelle data",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om dataanalytikerens hverdag — regresjon med minste kvadraters metode, residualer og R², fellene ved ekstrapolasjon, og analysen som derivasjon og integrasjon låser opp.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke derivasjon og integrasjon til a analysere og tolke eigne matematiske modellar av reelle data"
+  ],
+  "linkedChapterId": "r2-6-5",
+  "content": [
+    {
+      "id": "r2-6-5-n-intro",
+      "type": "text",
+      "content": "## Når dataene er ekte\n\nI forrige kapittel valgte vi modeller fra lærebokens ryddige verden, der bakterier dobler seg på klokkeslett. Nå åpner vi døra til virkeligheten: måleserier fra eksperimenter, statistikk fra SSB, sensordata — tall med støy, avvik og overraskelser. En kommune vil vite befolkningen i 2025. Et kraftselskap lurer på om vindturbinens effekt virkelig følger teorien. En klimaforsker stirrer på issmeltingen i Arktis. Felles for dem alle: dataene finnes, men *funksjonen* gjør det ikke — den må finnes, tilpasses og forsvares.\n\nVerktøyet heter **regresjon**: en statistisk metode som finner funksjonen som passer datapunktene best. Men «best» i hvilken forstand? Det skal vi gjøre presist med *minste kvadraters metode*. Og når maskinen har spyttet ut en funksjon med imponerende mange desimaler, begynner den egentlige jobben — analytikerens fire kontrollspørsmål: Passer modellen *egentlig* (residualer, $R^2$)? Hvor *gjelder* den (interpolasjon kontra ekstrapolasjon)? Betyr sammenhengen at det ene *forårsaker* det andre (korrelasjon kontra kausalitet)? Og hva kan modellen *fortelle* oss som dataene alene ikke kan?\n\nDet siste spørsmålet er der R2-verktøyene dine får skinne: **derivasjon** av modellen gir endringsrater — hvor fort vokser befolkningen *nå*? — og **integrasjon** gir totale mengder — hvor mye vann rant forbi i løpet av året? En tilpasset funksjon er ikke et svar; den er et instrument. Dette kapittelet lærer deg å spille det — og å høre når det er ustemt."
+    },
+    {
+      "id": "r2-6-5-n-section1",
+      "type": "text",
+      "content": "## Minste kvadrater og den rette linjen\n\nHva betyr det at en linje «passer best» til en punktsky? **Minste kvadraters metode** gir det presise svaret: velg funksjonen $f$ som minimerer summen av de kvadrerte avvikene,\n\n$$S = \\sum_{i=1}^{n} (y_i - f(x_i))^2$$\n\nHvert datapunkt måler sin vertikale avstand til kurven; avstandene kvadreres (så positive og negative avvik ikke kan utligne hverandre, og store bommerter straffes hardt) og summeres. Den $f$-en i familien som gir minst sum, vinner. For lineær regresjon $y = ax + b$ finnes til og med eksplisitte formler for $a$ og $b$ — men i praksis lar vi digitale verktøy regne: i GeoGebra legger du dataene i lister og skriver `RegLin(L1, L2)` for lineær, `RegExp` for eksponentiell eller `RegPoly(L1, L2, n)` for polynom av grad $n$.\n\nSe metoden i arbeid på kommunens tall. Befolkningen (i tusen) fra 2010 til 2020 var $45{,}2$, $47{,}1$, $49{,}3$, $51{,}0$, $53{,}2$, $55{,}1$ — målt annethvert år. Med $x$ som år etter 2010 gir lineær regresjon\n\n$$y = 0{,}99x + 45{,}2$$\n\nOg her er analytikerens første plikt: *tolk* parametrene. Stigningstallet $0{,}99$ betyr at byen vokser med omtrent tusen innbyggere i året; konstantleddet $45{,}2$ er nivået i 2010. Prognosen for 2025 blir $y(15) = 0{,}99 \\cdot 15 + 45{,}2 \\approx 60{,}1$ — rundt $60\\,000$ innbyggere.\n\nMen legg merke til den lille advarselen som allerede lurer: 2025 ligger *utenfor* måleperioden. Anslaget hviler på at trenden fortsetter — en antakelse dataene ikke kan garantere. Det skal vi gi et navn og en grundig behandling i seksjon 3."
+    },
+    {
+      "id": "r2-6-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på minste kvadrater og lineær regresjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-5-n-quiz1-q0",
+            "task": "Hva minimerer minste kvadraters metode?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Summen av de kvadrerte avvikene $\\sum (y_i - f(x_i))^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Summen av avvikene $\\sum (y_i - f(x_i))$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det største enkeltavviket",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antall datapunkter utenfor kurven",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Avvikene kvadreres så fortegn ikke utligner hverandre og store bom straffes hardt; summen minimeres."
+          },
+          {
+            "id": "r2-6-5-n-quiz1-q1",
+            "task": "Befolkningsmodellen er $y = 0{,}99x + 45{,}2$ (tusen, $x$ = år etter 2010). Hva er prognosen for 2025?",
+            "options": [
+              {
+                "id": "b",
+                "text": "ca. $55\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "ca. $60\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "ca. $46\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "ca. $75\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y(15) = 0{,}99 \\cdot 15 + 45{,}2 \\approx 60{,}1$ tusen — men merk at dette er ekstrapolasjon utenfor måleperioden."
+          },
+          {
+            "id": "r2-6-5-n-quiz1-q2",
+            "task": "Hva betyr stigningstallet $0{,}99$ i modellen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Befolkningen i 2010",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At modellen er $99\\%$ riktig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Byen vokser med ca. $990$ innbyggere per år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Antall år mellom målingene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigningstallet er endringen i $y$ (tusen innbyggere) per enhet $x$ (år): omtrent tusen nye innbyggere årlig."
+          },
+          {
+            "id": "r2-6-5-n-quiz1-q3",
+            "task": "Hvilken GeoGebra-kommando gir lineær regresjon på listene L1 og L2?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`Linje(L1, L2)`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`RegPoly(L1, L2, 5)`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`Tangent(L1, L2)`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`RegLin(L1, L2)`",
+                "isCorrect": true
+              }
+            ],
+            "solution": "`RegLin` gir lineær regresjon; `RegExp` og `RegPoly(..., n)` gir eksponentiell og polynomisk tilpasning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-5-n-section2",
+      "type": "text",
+      "content": "## Flere familier — og faren ved å passe for godt\n\nIkke alle punktskyer er rette. Laboratoriets bakterietall — $1000$, $1480$, $2190$, $3240$, $4790$ med to timers mellomrom — vokser med (nesten) konstant *faktor*, ikke konstant tillegg: kjennetegnet for **eksponentiell regresjon**. GeoGebra leverer $N(t) = 1000 \\cdot e^{0{,}2t}$, og modellen svarer på laboratoriets spørsmål: doblingstiden er $\\frac{\\ln 2}{0{,}2} \\approx 3{,}5$ timer, og etter tolv timer ventes $1000e^{2{,}4} \\approx 11\\,000$ bakterier.\n\nBallkast-dataene krever **polynomisk regresjon**: høydemålingene følger fysikkens andregradslov, og tilpasningen $h(t) = -4{,}9t^2 + 9{,}8t + 1{,}5$ er ikke bare empiri — koeffisienten $-4{,}9$ er $-\\frac{g}{2}$, gjenkjent fra mekanikk. Derivasjon gir toppen: $h'(t) = -9{,}8t + 9{,}8 = 0$ ved $t = 1$ s, maksimal høyde $6{,}4$ m. Og når teorien forutsier en potenslov, tester regresjonen den: vindturbinens målinger ga $P = 0{,}55v^{3{,}02}$ — eksponenten $\\approx 3$ bekrefter teoriens $P \\propto v^3$ glitrende.\n\nMen her lurer en felle med eget navn: **overtilpasning**. Et polynom av høy nok grad går gjennom *alle* datapunktene — perfekt score, elendig modell, for det er støyen den har lært, ikke trenden. En god modell er enkel nok til å *generalisere*. Velg lavest grad som fanger strukturen, og la gjerne fysikken stemme: andregrad for kast, tredjegrad for vindkraft.\n\nAv og til avslører selve dataformen modellvalget. Smarttelefonandelen i Norge steg fra $30\\%$ i 2010 til $95\\%$ i 2020 — lineær modell ville passert $100\\%$ (umulig), eksponentiell ville eksplodert. S-formen — treg start, rask midtfase, metning — roper **logistisk**: $y = \\frac{100}{1 + e^{-0{,}4(x - 11)}}$, med taket $100\\%$ innebygd. Riktig familie først; finjustering etterpå."
+    },
+    {
+      "id": "r2-6-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regresjonstyper og overtilpasning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-5-n-quiz2-q0",
+            "task": "Bakteriemodellen er $N(t) = 1000 \\cdot e^{0{,}2t}$. Hva er doblingstiden?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{\\ln 2}{0{,}2} \\approx 3{,}5$ timer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}2$ timer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$ timer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5$ timer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$e^{0{,}2t} = 2$ gir $t = \\frac{\\ln 2}{0{,}2} \\approx 3{,}47$ timer."
+          },
+          {
+            "id": "r2-6-5-n-quiz2-q1",
+            "task": "Hvilket kjennetegn i dataene tilsier eksponentiell regresjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Konstant absolutt økning per tidsenhet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tilnærmet konstant prosentvis endring per tidsenhet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Verdier som veksler fortegn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En tydelig topp i midten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentiell vekst betyr samme faktor per tidsenhet — som bakterietallene, der forholdet mellom naboverdier er nesten konstant."
+          },
+          {
+            "id": "r2-6-5-n-quiz2-q2",
+            "task": "Hva er overtilpasning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At modellen har for få parametre",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At $R^2$ er for lavt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At modellen følger støyen i dataene i stedet for trenden — perfekt på data, dårlig til å generalisere",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At dataene er målt for nøyaktig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et polynom av høy grad kan treffe alle punktene, men fanger tilfeldig støy. Enkle modeller generaliserer bedre."
+          },
+          {
+            "id": "r2-6-5-n-quiz2-q3",
+            "task": "Smarttelefonandelen gikk fra $30\\%$ til $95\\%$ på ti år. Hvorfor er logistisk modell riktig valg?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi logistiske modeller alltid passer best",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi dataene er lineære",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi andelen svinger periodisk",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Veksten metter mot et naturlig tak på $100\\%$, som lineære og eksponentielle modeller ville sprengt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Lineær og eksponentiell modell forutsier over $100\\%$ — umulig for en andel. Logistisk vekst har metningen innebygd."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-5-n-section3",
+      "type": "text",
+      "content": "## Kontrollspørsmålene: residualer, ekstrapolasjon og kausalitet\n\nMaskinen leverer alltid *en* kurve — spørsmålet er om du bør stole på den. Første kontroll: **residualene**, $e_i = y_i - \\hat{y}_i$, avstandene mellom målt og modellert verdi. I en god modell er de små og *tilfeldige*; følger de et mønster — for eksempel en bue — har du valgt feil modellform. Befolkningsmodellen besto med glans: alle residualer under $0{,}15$, uten mønster. Andre kontroll: **bestemmelseskoeffisienten** $R^2 = 1 - \\frac{\\sum (y_i - \\hat{y}_i)^2}{\\sum (y_i - \\bar{y})^2}$, andelen av variasjonen modellen forklarer — $1$ er perfekt, over $0{,}9$ er meget bra. Men husk overtilpasningen fra forrige seksjon: høy $R^2$ alene beviser ingenting.\n\nTredje kontroll skiller **interpolasjon** fra **ekstrapolasjon**. Innenfor måleområdet er modellen testet mot data og anslagene relativt trygge. Utenfor er den på gyngende grunn — og skrekkeksempelet er kaffekoppen: målinger de første tjue minuttene ga den utmerkede lineære modellen $T = -2{,}1t + 78$, men ved $t = 40$ melder den $-6°$C. *Kaffe kaldere enn isvann, i et varmt rom.* Fysikken (Newtons avkjølingslov, asymptote ved romtemperaturen) sier at den lineære modellen bare gjaldt lokalt. Samme forbehold gjelder klimaprognosen: isutbredelsen i Arktis følger $A = -0{,}095x + 7{,}6$ ($R^2 \\approx 0{,}93$), som gir «isfritt» rundt 2060 — en grov ekstrapolasjon der tilbakekoblinger og tiltak kan endre alt. Eksterne sjokk lurer også: ingen BNP-regresjon på 2000–2019 kunne forutse pandemiåret 2020.\n\nFjerde kontroll er den klassiske: **korrelasjon er ikke kausalitet**. Iskremsalg og drukningsulykker i USA samvarierer nesten perfekt ($r \\approx 0{,}99$) — ikke fordi iskrem drukner folk, men fordi *varmt vær* driver begge. En lurende tredjevariabel kan fabrikkere et hvilket som helst mønster. Modellen beskriver samvariasjonen; *årsaken* må argumenteres for utenfor matematikken."
+    },
+    {
+      "id": "r2-6-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modellvurdering og feller:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-5-n-quiz3-q0",
+            "task": "Hva er et residual?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Differansen $y_i - \\hat{y}_i$ mellom målt verdi og modellens verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Modellens stigningstall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall datapunkter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avstanden mellom to datapunkter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Residualet måler hvor mye modellen bommer i hvert punkt; små, tilfeldige residualer kjennetegner en god modell."
+          },
+          {
+            "id": "r2-6-5-n-quiz3-q1",
+            "task": "Kaffemodellen $T = -2{,}1t + 78$ gir $T(40) = -6°$C. Hva er lærdommen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kaffen fryser etter $40$ minutter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lineær ekstrapolasjon langt utenfor måleområdet kan gi fysisk umulige svar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Modellen må få brattere stigningstall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Målingene var feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Avkjøling flater ut mot romtemperaturen (Newtons avkjølingslov); den lineære modellen gjaldt bare de første minuttene."
+          },
+          {
+            "id": "r2-6-5-n-quiz3-q2",
+            "task": "Hva er forskjellen på interpolasjon og ekstrapolasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Interpolasjon bruker derivasjon, ekstrapolasjon integrasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De er synonymer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Interpolasjon anslår innenfor måleområdet (tryggere), ekstrapolasjon utenfor (usikrere)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ekstrapolasjon er alltid mer nøyaktig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Innenfor dataområdet er modellen testet; utenfor hviler alt på at trenden fortsetter — en utestet antakelse."
+          },
+          {
+            "id": "r2-6-5-n-quiz3-q3",
+            "task": "Iskremsalg og drukningsulykker har korrelasjon $r \\approx 0{,}99$. Hva er forklaringen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Iskrem forårsaker drukning",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Drukninger øker iskremsalget",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Korrelasjonen er regnefeil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En tredjevariabel — varmt vær — driver begge: korrelasjon er ikke kausalitet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Varme dager gir både mer iskremsalg og mer bading. Samvariasjon beviser ingen årsakssammenheng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-5-n-section4",
+      "type": "text",
+      "content": "## Modellen som instrument: derivér og integrér\n\nEn validert modell er mer enn en prognosemaskin — den er en kontinuerlig funksjon, og dermed kan hele R2-verktøykassen brukes på den. Det er her kompetansemålet bor: *analysere og tolke egne modeller med derivasjon og integrasjon*.\n\n**Derivasjon gir endringsrater.** Byen med logistisk befolkningsvekst $P(t) = \\frac{100}{1 + 9e^{-0{,}1t}}$ (i tusen, $t$ år etter 2000): kjerneregelen gir vekstraten\n\n$$P'(t) = \\frac{90e^{-0{,}1t}}{(1 + 9e^{-0{,}1t})^2}$$\n\n— antall tusen nye innbyggere per år, som funksjon av tiden. Og når vokser byen *raskest*? Logistisk vekst har sin maksimale fart nøyaktig ved halve bæreevnen, $P = \\frac{K}{2} = 50$: likningen $1 + 9e^{-0{,}1t} = 2$ gir $t = \\frac{\\ln 9}{0{,}1} \\approx 22$ — rundt år 2022 toppet veksten seg, og deretter bremser metningen den.\n\n**Integrasjon gir totale mengder.** Vannføringen i en elv følger årsmodellen $Q(t) = 25 + 18\\sin\\left(\\frac{\\pi t}{6}\\right)$ (m³/s, $t$ i måneder). Den totale vannmengden gjennom året er integralet:\n\n$$V = \\int_0^{12} \\left(25 + 18\\sin\\frac{\\pi t}{6}\\right) dt = \\left[25t - \\frac{108}{\\pi}\\cos\\frac{\\pi t}{6}\\right]_0^{12} = 300$$\n\n— sinusleddet integrerer seg selv bort over hele perioder, og bare middelvannføringen teller. Omregnet til kubikkmeter: rundt $7{,}8 \\cdot 10^8$ m³, nesten en milliard kubikkmeter forbi målestasjonen på et år.\n\nTil slutt: en modell skal *presenteres* etterrettelig. Oppgi datakilden, begrunn modellvalget, skriv funksjonen med parametre, dokumentér tilpasningen ($R^2$, residualer), vis graf med data og modell sammen — og angi gyldighetsområdet med usikkerheten ærlig deklarert. Det er forskjellen på tallmagi og fagarbeid."
+    },
+    {
+      "id": "r2-6-5-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-5-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på analyse av modeller med derivasjon og integrasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-5-n-quiz4-q0",
+            "task": "Hva forteller $P'(t)$ om befolkningsmodellen $P(t)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Vekstraten — hvor mange nye innbyggere per tidsenhet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Befolkningens størrelse ved tid $t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Total befolkning over alle år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bæreevnen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte av en mengdefunksjon er endringsraten — her tusen nye innbyggere per år."
+          },
+          {
+            "id": "r2-6-5-n-quiz4-q1",
+            "task": "Når vokser den logistiske modellen $P(t) = \\frac{100}{1 + 9e^{-0{,}1t}}$ raskest?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ved $t = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $P = \\frac{K}{2} = 50$, dvs. $t = \\frac{\\ln 9}{0{,}1} \\approx 22$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når $P = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Veksten er konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logistisk vekst topper farten ved halve bæreevnen; $1 + 9e^{-0{,}1t} = 2$ gir $t \\approx 22$."
+          },
+          {
+            "id": "r2-6-5-n-quiz4-q2",
+            "task": "Hvordan finner du total vannmengde gjennom året fra vannføringsmodellen $Q(t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ved å derivere $Q(t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ved å lese av maksimum av $Q(t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ved å integrere: $V = \\int_0^{12} Q(t)\\,dt$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ved å multiplisere $Q(0)$ med $12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vannføring er mengde per tid; summen over tid er integralet. Her gir det $300$ måned·m³/s — sinusleddet nuller seg ut over hele perioder."
+          },
+          {
+            "id": "r2-6-5-n-quiz4-q3",
+            "task": "Hva bør en etterrettelig modellrapport alltid inneholde?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bare funksjonsuttrykket",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Så mange desimaler som mulig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kun grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Datakilde, modellvalg med begrunnelse, parametre, tilpasningsmål og gyldighetsområde",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uten kilde, begrunnelse, kvalitetsmål og gyldighetsområde kan ingen vurdere — eller etterprøve — modellen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVirkelighetens tall fikk sin behandling. **Regresjon** med minste kvadraters metode — minimer $\\sum (y_i - f(x_i))^2$ — fant funksjonen som passer best, med digitale verktøy (`RegLin`, `RegExp`, `RegPoly`) som regnemaskin: byens befolkning ble $y = 0{,}99x + 45{,}2$ med tusen nye innbyggere i året, bakteriene $N = 1000e^{0{,}2t}$ med doblingstid $3{,}5$ timer, ballkastet $-4{,}9t^2 + 9{,}8t + 1{,}5$ med fysikkens egen koeffisient, og vindturbinen bekreftet teoriens $v^3$-lov. Datastrukturen valgte familien — og S-formede metningsdata krevde logistisk modell, mens for høy polynomgrad ga **overtilpasning**: støy lært utenat.\n\nKontrollspørsmålene fulgte: **residualene** skal være små og mønsterløse, $R^2$ nær $1$ tallfester forklart variasjon, **interpolasjon** er trygg der **ekstrapolasjon** er gyngende — kaffens lineære modell meldte $-6°$C, og Arktis-prognosen for 2060 bærer alle forbehold. Og iskrem-drukning-korrelasjonen på $0{,}99$ banket inn lærdommen: **korrelasjon er ikke kausalitet**.\n\nTil slutt ble modellen instrument: **derivasjon** ga vekstraten og avslørte at logistisk vekst topper ved halve bæreevnen ($t \\approx 22$ for byen vår), og **integrasjon** summerte elvens år til $300$ måned·m³/s — nesten en milliard kubikkmeter. Med en etterrettelig rapport — kilde, valg, parametre, $R^2$, gyldighetsområde — er analysen komplett.\n\nEtt kapittel gjenstår, og det handler om fagets grunnfjell: hvordan vet vi at noe i matematikken er *sant*? Velkommen til beviset."
+    }
+  ],
+  "exercises": []
+}

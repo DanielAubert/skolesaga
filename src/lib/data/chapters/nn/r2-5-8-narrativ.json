@@ -1,1 +1,382 @@
-{"id":"r2-5-8-narrativ","courseId":"r2","chapterNumber":"5.8","title":"Avstand punkt-linje og punkt-plan","subtitle":"Narrativ versjon","description":"Ei forteljing om tryggleiksmarginar i rommet — avstand frå punkt til plan og linje, fotpunkt, parallelle plan og den kortaste brua mellom vindskeive linjer.","estimatedMinutes":36,"competenceGoals":["Kunne rekne ut avstanden frå eit punkt til eit plan","Kunne rekne ut avstanden frå eit punkt til ei linje","Kunne rekne ut avstanden mellom parallelle linjer","Kunne rekne ut avstanden mellom vindskeive linjer"],"linkedChapterId":"r2-5-8","content":[{"id":"r2-5-8-n-intro","type":"text","content":"## Kor nær er for nær?\n\nEin drone held posisjonen over eit anleggsområde. Under han strekkjer ei kraftleidning seg som ei rett linje gjennom lufta, og til sida skrår ein glasfasade — eit plan — opp frå bakken. Tryggleikssystemet stiller heile tida same spørsmål: **kor langt unna er vi?** Ikkje avstanden til eit tilfeldig punkt på leidninga eller fasaden, men den *kortaste* avstanden — den som avgjer om alarmen skal gå.\n\nKortaste avstand i rommet blir alltid målt **vinkelrett**: frå punktet, rett ned på planet langs normalen, eller rett bort på linja langs den vinkelrette. Og her haustar vi igjen fruktene av vektorverktøya våre. Normalvektoren frå planlikninga gir avstanden punkt–plan gjennom ein formel så kompakt at han nesten verkar som juks. Kryssproduktet, med parallellogramtolkinga si, gir avstanden punkt–linje. Og for det særeigne fenomenet i rommet — to **vindskeive** linjer som passerer kvarandre utan å møtast — kombinerer vi begge produkta for å finne den kortaste brua mellom dei.\n\nI denne forteljinga utleier og brukar vi alle avstandsformlane: punkt til plan (med fotpunktet som bonus), punkt til linje, avstanden mellom parallelle plan og parallelle linjer, og til slutt vindskeive linjer — med ei innebygd åtvaring om å alltid sjekke *kva slags* linjepar du faktisk har, før du vel formel. Det er presisjonen tryggleikssystemet lever av: arkitektur, ingeniørkunst, datagrafikk og flykontroll brukar nøyaktig desse berekningane kvar einaste dag."},{"id":"r2-5-8-n-section1","type":"text","content":"## Avstanden til eit plan\n\nGlasfasaden har likninga $ax + by + cz = e$, og dronen står i punktet $P = (x_0, y_0, z_0)$. Den kortaste avstanden blir målt langs normalvektoren $\\vec{n} = [a, b, c]$, og formelen er merkverdig enkel:\n\n$$d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$$\n\nHugsregelen: **set punktet inn i likninga, ta avviket frå høgresida i absoluttverdi, og del på lengda av normalvektoren**. Avviket i teljaren måler kor mykje punktet «bommar» på planlikninga, og divisjonen med $|\\vec{n}|$ omset bommen til faktiske lengdeeiningar.\n\nKonkret: dronen i $P = (2, 3, 1)$, fasaden $2x - 2y + z = 6$. Innsetting gir $4 - 6 + 1 = -1$, avviket frå $6$ er $|-1 - 6| = 7$, og normalvektoren har lengd $\\sqrt{4 + 4 + 1} = 3$. Avstanden er $\\frac{7}{3} \\approx 2{,}33$.\n\nAv og til treng vi meir enn avstanden — vi vil vite nøyaktig *kva for eit* punkt på planet som er nærast: **fotpunktet**. Då går vi frå $P$ langs normalen til vi treffer planet. For $P = (1, 0, 2)$ og planet $x + 2y + 2z = 9$: normalen er $[1, 2, 2]$, og linja $\\vec{r} = [1, 0, 2] + t[1, 2, 2]$ blir sett inn i planlikninga: $(1 + t) + 4t + (4 + 4t) = 9$ gir $9t = 4$, altså $t = \\frac{4}{9}$. Fotpunktet er $\\left(\\frac{13}{9}, \\frac{8}{9}, \\frac{26}{9}\\right)$.\n\nOg er det to **parallelle plan** som skal målast mot kvarandre? Då har dei same normalvektor, $ax + by + cz = e_1$ og $= e_2$, og avstanden er berre $d = \\frac{|e_1 - e_2|}{\\sqrt{a^2 + b^2 + c^2}}$. Plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$ ligg $\\frac{9}{3} = 3$ einingar frå kvarandre."},{"id":"r2-5-8-n-quiz1","type":"exercise","exercise":{"id":"r2-5-8-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på avstand til plan:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-8-n-quiz1-q0","task":"Kva er avstanden frå $P = (2, 3, 1)$ til planet $2x - 2y + z = 6$?","options":[{"id":"a","text":"$\\frac{7}{3}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"c","text":"$7$","isCorrect":false},{"id":"d","text":"$\\frac{7}{9}$","isCorrect":false}],"solution":"$d = \\frac{|2 \\cdot 2 - 2 \\cdot 3 + 1 - 6|}{\\sqrt{4 + 4 + 1}} = \\frac{|-7|}{3} = \\frac{7}{3}$."},{"id":"r2-5-8-n-quiz1-q1","task":"Kva står i nemnaren i avstandsformelen punkt–plan?","options":[{"id":"a","text":"Avstanden frå origo til planet","isCorrect":false},{"id":"b","text":"Konstantleddet $e$","isCorrect":false},{"id":"c","text":"Lengda av normalvektoren $\\sqrt{a^2 + b^2 + c^2}$","isCorrect":true},{"id":"d","text":"Lengda av posisjonsvektoren til punktet","isCorrect":false}],"solution":"Teljaren måler avviket frå planlikninga; divisjon med $|\\vec{n}| = \\sqrt{a^2+b^2+c^2}$ gjer det om til lengdeeiningar."},{"id":"r2-5-8-n-quiz1-q2","task":"Kva er avstanden mellom dei parallelle plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$?","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":true},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"d","text":"$\\sqrt{9}$ kan ikkje reknast ut utan eit punkt","isCorrect":false}],"solution":"$d = \\frac{|3 - 12|}{\\sqrt{4 + 1 + 4}} = \\frac{9}{3} = 3$."}]}},{"id":"r2-5-8-n-section2","type":"text","content":"## Avstanden til ei linje\n\nSå til kraftleidninga: linja $\\ell: \\vec{r} = \\vec{r}_0 + t\\vec{v}$, og dronen i punktet $P$. Vel eit kva som helst punkt $Q$ på linja (basispunktet $\\vec{r}_0$ er nærast), og sjå på vektoren $\\overrightarrow{QP}$. Kryssproduktet kjem oss til unnsetning med arealtolkinga si: $|\\overrightarrow{QP} \\times \\vec{v}|$ er arealet av parallellogrammet som er spent ut av $\\overrightarrow{QP}$ og $\\vec{v}$ — og det arealet er òg grunnlinje gonger høgd, der grunnlinja er $|\\vec{v}|$ og høgda er nettopp avstanden frå $P$ til linja. Altså:\n\n$$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$$\n\nLat oss måle. Dronen står i $P = (3, 4, 5)$, leidninga er $\\ell: \\vec{r} = [1, 1, 1] + t[1, 2, 2]$. Med $Q = (1, 1, 1)$ er $\\overrightarrow{QP} = [2, 3, 4]$. Kryssproduktet: $[3 \\cdot 2 - 4 \\cdot 2, \\; 4 \\cdot 1 - 2 \\cdot 2, \\; 2 \\cdot 2 - 3 \\cdot 1] = [-2, 0, 1]$, med lengd $\\sqrt{5}$. Retningsvektoren har lengd $3$, så avstanden er $\\frac{\\sqrt{5}}{3} \\approx 0{,}75$ — truleg for nær; alarmen går.\n\nSame formel løyser **parallelle linjer**: sidan dei held konstant avstand, plukkar du berre eit punkt på den eine og måler til den andre. For $\\ell_1: \\vec{r} = [1, 0, 0] + s[2, 1, 2]$ og $\\ell_2: \\vec{r} = [0, 3, 1] + t[2, 1, 2]$ tek vi punktet $(0, 3, 1)$ frå $\\ell_2$ og $Q = (1, 0, 0)$ på $\\ell_1$: $\\overrightarrow{QP} = [-1, 3, 1]$, kryssproduktet med $[2, 1, 2]$ blir $[5, 4, -7]$ med lengd $\\sqrt{90}$, og avstanden er $\\frac{\\sqrt{90}}{3} = \\sqrt{10} \\approx 3{,}16$.\n\n(Ein alternativ veg går via projeksjon: spalt $\\overrightarrow{QP}$ i ein komponent langs $\\vec{v}$ og ein vinkelrett på; lengda til den vinkelrette komponenten er avstanden. Kryssproduktformelen gjer same jobben i eitt steg.)"},{"id":"r2-5-8-n-quiz2","type":"exercise","exercise":{"id":"r2-5-8-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på avstand til linje:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-8-n-quiz2-q0","task":"Kva for ein formel gir avstanden frå punktet $P$ til linja $\\ell$ med retningsvektor $\\vec{v}$ og punkt $Q$ på linja?","options":[{"id":"a","text":"$d = \\frac{\\overrightarrow{QP} \\cdot \\vec{v}}{|\\vec{v}|}$","isCorrect":false},{"id":"b","text":"$d = |\\overrightarrow{QP} \\times \\vec{v}|$","isCorrect":false},{"id":"c","text":"$d = \\frac{|\\overrightarrow{QP}|}{|\\vec{v}|}$","isCorrect":false},{"id":"d","text":"$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$","isCorrect":true}],"solution":"Lengda til kryssproduktet er parallellogramarealet; delt på grunnlinja $|\\vec{v}|$ står høgda — avstanden — att."},{"id":"r2-5-8-n-quiz2-q1","task":"Kva er avstanden frå $P = (3, 4, 5)$ til linja $\\vec{r} = [1, 1, 1] + t[1, 2, 2]$?","options":[{"id":"a","text":"$\\frac{\\sqrt{5}}{3}$","isCorrect":true},{"id":"b","text":"$\\sqrt{5}$","isCorrect":false},{"id":"c","text":"$\\frac{5}{3}$","isCorrect":false},{"id":"d","text":"$3$","isCorrect":false}],"solution":"$\\overrightarrow{QP} = [2,3,4]$, $\\overrightarrow{QP} \\times \\vec{v} = [-2, 0, 1]$ med lengd $\\sqrt{5}$, og $|\\vec{v}| = 3$: $d = \\frac{\\sqrt{5}}{3}$."}]}},{"id":"r2-5-8-n-section3","type":"text","content":"## Vindskeive linjer — brua mellom to baner\n\nDet vanskelegaste tilfellet: to vindskeive linjer, $\\ell_1: \\vec{r} = \\vec{a} + s\\vec{u}$ og $\\ell_2: \\vec{r} = \\vec{b} + t\\vec{v}$, som korkje er parallelle eller møtest. Kor er den kortaste brua mellom dei? Nøkkelinnsikta: det kortaste forbindelsesstykket må stå vinkelrett på **begge** linjene — og ein vektor vinkelrett på både $\\vec{u}$ og $\\vec{v}$ kjenner vi: kryssproduktet $\\vec{u} \\times \\vec{v}$. Avstanden er då projeksjonen av forbindelsesvektoren $\\vec{b} - \\vec{a}$ på denne fellesnormalen:\n\n$$d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$$\n\nEit reint eksempel: $\\ell_1$ er sjølve $x$-aksen, $\\vec{r} = s[1, 0, 0]$, og $\\ell_2: \\vec{r} = [0, 1, 1] + t[0, 0, 1]$. Kryssproduktet er $[1,0,0] \\times [0,0,1] = [0, -1, 0]$, forbindelsesvektoren er $[0, 1, 1]$, og skalarproduktet blir $-1$. Avstanden: $\\frac{|-1|}{1} = 1$ — linjene passerer kvarandre med nøyaktig éi einings klaring.\n\nMen formelen har ei felle, og ho er lærerik. Prøv $\\ell_1: \\vec{r} = [1, 0, 0] + s[1, 1, 0]$ og $\\ell_2: \\vec{r} = [0, 0, 1] + t[0, 1, 1]$: her er $\\vec{u} \\times \\vec{v} = [1, -1, 1]$, $\\vec{b} - \\vec{a} = [-1, 0, 1]$, og skalarproduktet $-1 + 0 + 1 = 0$. Avstand null? Ja — fordi linjene faktisk **skjer kvarandre**: løyser du likningssettet, møtest dei i $(0, -1, 0)$. Null avstand tyder kontakt.\n\nDdifor, alltid same kontrollrutinen før du vel formel: sjekk først om retningsvektorane er parallelle (då gjeld punkt–linje-metoden); viss ikkje, sjekk om linjene skjer (avstand $0$); først når begge svar er nei, er linjene vindskeive, og fellesnormal-formelen gjer jobben."},{"id":"r2-5-8-n-quiz3","type":"exercise","exercise":{"id":"r2-5-8-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på vindskeive linjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-8-n-quiz3-q0","task":"Kva for ein vektor projiserer vi forbindelsesvektoren på når vi måler avstanden mellom vindskeive linjer?","options":[{"id":"a","text":"$\\vec{u} + \\vec{v}$","isCorrect":false},{"id":"b","text":"$\\vec{u} \\times \\vec{v}$","isCorrect":true},{"id":"c","text":"$\\vec{u} - \\vec{v}$","isCorrect":false},{"id":"d","text":"$\\vec{b} - \\vec{a}$","isCorrect":false}],"solution":"Den kortaste brua står vinkelrett på begge linjene, og $\\vec{u} \\times \\vec{v}$ er nettopp fellesnormalen."},{"id":"r2-5-8-n-quiz3-q1","task":"Kva er avstanden mellom $x$-aksen og linja $\\vec{r} = [0, 1, 1] + t[0, 0, 1]$?","options":[{"id":"a","text":"$\\sqrt{2}$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":true},{"id":"d","text":"$\\frac{1}{2}$","isCorrect":false}],"solution":"$\\vec{u} \\times \\vec{v} = [0, -1, 0]$, $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = -1$, så $d = \\frac{|-1|}{1} = 1$."},{"id":"r2-5-8-n-quiz3-q2","task":"Du reknar ut $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = 0$ for to ikkje-parallelle linjer. Kva tyder det?","options":[{"id":"a","text":"Linjene er vindskeive med stor avstand","isCorrect":false},{"id":"b","text":"Linjene er parallelle likevel","isCorrect":false},{"id":"c","text":"Formelen kan ikkje brukast","isCorrect":false},{"id":"d","text":"Linjene skjer kvarandre — avstanden er null","isCorrect":true}],"solution":"Null i teljaren gir avstand $0$: ikkje-parallelle linjer med avstand null har eit felles punkt. Sjekk alltid skjering først."}]}},{"id":"r2-5-8-n-summary","type":"text","content":"## Oppsummering\n\nSpørsmålet til tryggleikssystemet — kor nær er for nær? — fekk presise svar for alle konstellasjonane i rommet, og alle målte vi vinkelrett, langs den kortaste vegen.\n\nMot planet $ax + by + cz = e$ ga normalvektoren formelen $d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$: set inn punktet, ta avviket i absoluttverdi, del på lengda til normalen — dronen sto $\\frac{7}{3}$ frå glasfasaden. Fotpunktet fann vi ved å følgje normalen frå punktet til han trefte planet, og parallelle plan fekk kortversjonen $d = \\frac{|e_1 - e_2|}{|\\vec{n}|}$.\n\nMot linja brukte vi arealtolkinga til kryssproduktet: $d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$ — parallellogramareal delt på grunnlinje gir høgda. Same formel tok parallelle linjer, ved å låne eit punkt frå den eine.\n\nFor vindskeive linjer bygde vi den kortaste brua langs fellesnormalen $\\vec{u} \\times \\vec{v}$: $d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$ — og lærte fella å kjenne: blir teljaren null for ikkje-parallelle linjer, skjer dei kvarandre. Difor kontrollrutinen: parallelle? skjerande? først då vindskeive.\n\nMed dette er verktøykassa til romgeometrien komplett: punkt, vektorar, produkt, linjer, plan — og avstandane mellom alt saman. Det som står att i R2, er å setje rommet i rørsle: vektorfunksjonar, der posisjonen endrar seg med tida. Det er neste hovudkapittel."}],"exercises":[],"_meta":{"sourceHash":"e22c559ab1114862","translatedAt":"2026-06-20T01:08:18.639Z","model":"claude-code-agent","strings":60,"tm":{"a6d1a51bda6e77b0":"Avstand punkt-linje og punkt-plan","b195b06d1ed59702":"Narrativ versjon","67932e1d70ed161d":"Ei forteljing om tryggleiksmarginar i rommet — avstand frå punkt til plan og linje, fotpunkt, parallelle plan og den kortaste brua mellom vindskeive linjer.","fe02d27ae481ae29":"Kunne rekne ut avstanden frå eit punkt til eit plan","eaab73816a833c3d":"Kunne rekne ut avstanden frå eit punkt til ei linje","dd61f7a10636f5cb":"Kunne rekne ut avstanden mellom parallelle linjer","086f4016668050be":"Kunne rekne ut avstanden mellom vindskeive linjer","62fb16b4cd421880":"## Kor nær er for nær?\n\nEin drone held posisjonen over eit anleggsområde. Under han strekkjer ei kraftleidning seg som ei rett linje gjennom lufta, og til sida skrår ein glasfasade — eit plan — opp frå bakken. Tryggleikssystemet stiller heile tida same spørsmål: **kor langt unna er vi?** Ikkje avstanden til eit tilfeldig punkt på leidninga eller fasaden, men den *kortaste* avstanden — den som avgjer om alarmen skal gå.\n\nKortaste avstand i rommet blir alltid målt **vinkelrett**: frå punktet, rett ned på planet langs normalen, eller rett bort på linja langs den vinkelrette. Og her haustar vi igjen fruktene av vektorverktøya våre. Normalvektoren frå planlikninga gir avstanden punkt–plan gjennom ein formel så kompakt at han nesten verkar som juks. Kryssproduktet, med parallellogramtolkinga si, gir avstanden punkt–linje. Og for det særeigne fenomenet i rommet — to **vindskeive** linjer som passerer kvarandre utan å møtast — kombinerer vi begge produkta for å finne den kortaste brua mellom dei.\n\nI denne forteljinga utleier og brukar vi alle avstandsformlane: punkt til plan (med fotpunktet som bonus), punkt til linje, avstanden mellom parallelle plan og parallelle linjer, og til slutt vindskeive linjer — med ei innebygd åtvaring om å alltid sjekke *kva slags* linjepar du faktisk har, før du vel formel. Det er presisjonen tryggleikssystemet lever av: arkitektur, ingeniørkunst, datagrafikk og flykontroll brukar nøyaktig desse berekningane kvar einaste dag.","9d378e7dc0318206":"## Avstanden til eit plan\n\nGlasfasaden har likninga $ax + by + cz = e$, og dronen står i punktet $P = (x_0, y_0, z_0)$. Den kortaste avstanden blir målt langs normalvektoren $\\vec{n} = [a, b, c]$, og formelen er merkverdig enkel:\n\n$$d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$$\n\nHugsregelen: **set punktet inn i likninga, ta avviket frå høgresida i absoluttverdi, og del på lengda av normalvektoren**. Avviket i teljaren måler kor mykje punktet «bommar» på planlikninga, og divisjonen med $|\\vec{n}|$ omset bommen til faktiske lengdeeiningar.\n\nKonkret: dronen i $P = (2, 3, 1)$, fasaden $2x - 2y + z = 6$. Innsetting gir $4 - 6 + 1 = -1$, avviket frå $6$ er $|-1 - 6| = 7$, og normalvektoren har lengd $\\sqrt{4 + 4 + 1} = 3$. Avstanden er $\\frac{7}{3} \\approx 2{,}33$.\n\nAv og til treng vi meir enn avstanden — vi vil vite nøyaktig *kva for eit* punkt på planet som er nærast: **fotpunktet**. Då går vi frå $P$ langs normalen til vi treffer planet. For $P = (1, 0, 2)$ og planet $x + 2y + 2z = 9$: normalen er $[1, 2, 2]$, og linja $\\vec{r} = [1, 0, 2] + t[1, 2, 2]$ blir sett inn i planlikninga: $(1 + t) + 4t + (4 + 4t) = 9$ gir $9t = 4$, altså $t = \\frac{4}{9}$. Fotpunktet er $\\left(\\frac{13}{9}, \\frac{8}{9}, \\frac{26}{9}\\right)$.\n\nOg er det to **parallelle plan** som skal målast mot kvarandre? Då har dei same normalvektor, $ax + by + cz = e_1$ og $= e_2$, og avstanden er berre $d = \\frac{|e_1 - e_2|}{\\sqrt{a^2 + b^2 + c^2}}$. Plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$ ligg $\\frac{9}{3} = 3$ einingar frå kvarandre.","c98314af8619ecf9":"Test deg sjølv på avstand til plan:","4097889236a2af26":"placeholder","b1c0b013ac5b4867":"Kva er avstanden frå $P = (2, 3, 1)$ til planet $2x - 2y + z = 6$?","8f3c2c4155de2f97":"$\\frac{7}{3}$","b87bda455923b2a6":"$\\frac{1}{3}$","78e7609d04f2d132":"$\\frac{7}{9}$","fe4a686568a6f2c6":"$d = \\frac{|2 \\cdot 2 - 2 \\cdot 3 + 1 - 6|}{\\sqrt{4 + 4 + 1}} = \\frac{|-7|}{3} = \\frac{7}{3}$.","7f9b688ee78c367a":"Kva står i nemnaren i avstandsformelen punkt–plan?","f9ef39068b1fbee9":"Avstanden frå origo til planet","5b328d97b41ed332":"Konstantleddet $e$","b348bc1c01dc2aca":"Lengda av normalvektoren $\\sqrt{a^2 + b^2 + c^2}$","127e8015a48b17de":"Lengda av posisjonsvektoren til punktet","21dda97688a49748":"Teljaren måler avviket frå planlikninga; divisjon med $|\\vec{n}| = \\sqrt{a^2+b^2+c^2}$ gjer det om til lengdeeiningar.","faf7bb4b445cdc7d":"Kva er avstanden mellom dei parallelle plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$?","5c64f781cda6c461":"$\\sqrt{9}$ kan ikkje reknast ut utan eit punkt","2693c895276ff908":"$d = \\frac{|3 - 12|}{\\sqrt{4 + 1 + 4}} = \\frac{9}{3} = 3$.","ec4d4cc8a0d84ab2":"## Avstanden til ei linje\n\nSå til kraftleidninga: linja $\\ell: \\vec{r} = \\vec{r}_0 + t\\vec{v}$, og dronen i punktet $P$. Vel eit kva som helst punkt $Q$ på linja (basispunktet $\\vec{r}_0$ er nærast), og sjå på vektoren $\\overrightarrow{QP}$. Kryssproduktet kjem oss til unnsetning med arealtolkinga si: $|\\overrightarrow{QP} \\times \\vec{v}|$ er arealet av parallellogrammet som er spent ut av $\\overrightarrow{QP}$ og $\\vec{v}$ — og det arealet er òg grunnlinje gonger høgd, der grunnlinja er $|\\vec{v}|$ og høgda er nettopp avstanden frå $P$ til linja. Altså:\n\n$$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$$\n\nLat oss måle. Dronen står i $P = (3, 4, 5)$, leidninga er $\\ell: \\vec{r} = [1, 1, 1] + t[1, 2, 2]$. Med $Q = (1, 1, 1)$ er $\\overrightarrow{QP} = [2, 3, 4]$. Kryssproduktet: $[3 \\cdot 2 - 4 \\cdot 2, \\; 4 \\cdot 1 - 2 \\cdot 2, \\; 2 \\cdot 2 - 3 \\cdot 1] = [-2, 0, 1]$, med lengd $\\sqrt{5}$. Retningsvektoren har lengd $3$, så avstanden er $\\frac{\\sqrt{5}}{3} \\approx 0{,}75$ — truleg for nær; alarmen går.\n\nSame formel løyser **parallelle linjer**: sidan dei held konstant avstand, plukkar du berre eit punkt på den eine og måler til den andre. For $\\ell_1: \\vec{r} = [1, 0, 0] + s[2, 1, 2]$ og $\\ell_2: \\vec{r} = [0, 3, 1] + t[2, 1, 2]$ tek vi punktet $(0, 3, 1)$ frå $\\ell_2$ og $Q = (1, 0, 0)$ på $\\ell_1$: $\\overrightarrow{QP} = [-1, 3, 1]$, kryssproduktet med $[2, 1, 2]$ blir $[5, 4, -7]$ med lengd $\\sqrt{90}$, og avstanden er $\\frac{\\sqrt{90}}{3} = \\sqrt{10} \\approx 3{,}16$.\n\n(Ein alternativ veg går via projeksjon: spalt $\\overrightarrow{QP}$ i ein komponent langs $\\vec{v}$ og ein vinkelrett på; lengda til den vinkelrette komponenten er avstanden. Kryssproduktformelen gjer same jobben i eitt steg.)","d9b5f7746f4f3e8a":"Test deg sjølv på avstand til linje:","4067cd06ae4f4d68":"Kva for ein formel gir avstanden frå punktet $P$ til linja $\\ell$ med retningsvektor $\\vec{v}$ og punkt $Q$ på linja?","5a596ded9dad6b51":"$d = \\frac{\\overrightarrow{QP} \\cdot \\vec{v}}{|\\vec{v}|}$","aa85908e97b849c7":"$d = |\\overrightarrow{QP} \\times \\vec{v}|$","a80582e4ae660910":"$d = \\frac{|\\overrightarrow{QP}|}{|\\vec{v}|}$","e969349e4f38c940":"$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$","6b296744c50c702d":"Lengda til kryssproduktet er parallellogramarealet; delt på grunnlinja $|\\vec{v}|$ står høgda — avstanden — att.","ec69f1e3e3a60c49":"Kva er avstanden frå $P = (3, 4, 5)$ til linja $\\vec{r} = [1, 1, 1] + t[1, 2, 2]$?","ac796832ac41d8fe":"$\\frac{\\sqrt{5}}{3}$","16210e1060b04315":"$\\sqrt{5}$","cbb2286033ab3435":"$\\frac{5}{3}$","fd91ec7684241793":"$\\overrightarrow{QP} = [2,3,4]$, $\\overrightarrow{QP} \\times \\vec{v} = [-2, 0, 1]$ med lengd $\\sqrt{5}$, og $|\\vec{v}| = 3$: $d = \\frac{\\sqrt{5}}{3}$.","7d47c5654c530ed1":"## Vindskeive linjer — brua mellom to baner\n\nDet vanskelegaste tilfellet: to vindskeive linjer, $\\ell_1: \\vec{r} = \\vec{a} + s\\vec{u}$ og $\\ell_2: \\vec{r} = \\vec{b} + t\\vec{v}$, som korkje er parallelle eller møtest. Kor er den kortaste brua mellom dei? Nøkkelinnsikta: det kortaste forbindelsesstykket må stå vinkelrett på **begge** linjene — og ein vektor vinkelrett på både $\\vec{u}$ og $\\vec{v}$ kjenner vi: kryssproduktet $\\vec{u} \\times \\vec{v}$. Avstanden er då projeksjonen av forbindelsesvektoren $\\vec{b} - \\vec{a}$ på denne fellesnormalen:\n\n$$d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$$\n\nEit reint eksempel: $\\ell_1$ er sjølve $x$-aksen, $\\vec{r} = s[1, 0, 0]$, og $\\ell_2: \\vec{r} = [0, 1, 1] + t[0, 0, 1]$. Kryssproduktet er $[1,0,0] \\times [0,0,1] = [0, -1, 0]$, forbindelsesvektoren er $[0, 1, 1]$, og skalarproduktet blir $-1$. Avstanden: $\\frac{|-1|}{1} = 1$ — linjene passerer kvarandre med nøyaktig éi einings klaring.\n\nMen formelen har ei felle, og ho er lærerik. Prøv $\\ell_1: \\vec{r} = [1, 0, 0] + s[1, 1, 0]$ og $\\ell_2: \\vec{r} = [0, 0, 1] + t[0, 1, 1]$: her er $\\vec{u} \\times \\vec{v} = [1, -1, 1]$, $\\vec{b} - \\vec{a} = [-1, 0, 1]$, og skalarproduktet $-1 + 0 + 1 = 0$. Avstand null? Ja — fordi linjene faktisk **skjer kvarandre**: løyser du likningssettet, møtest dei i $(0, -1, 0)$. Null avstand tyder kontakt.\n\nDdifor, alltid same kontrollrutinen før du vel formel: sjekk først om retningsvektorane er parallelle (då gjeld punkt–linje-metoden); viss ikkje, sjekk om linjene skjer (avstand $0$); først når begge svar er nei, er linjene vindskeive, og fellesnormal-formelen gjer jobben.","a5c48c6a132c8c99":"Test deg sjølv på vindskeive linjer:","ba0398c86b5724a3":"Kva for ein vektor projiserer vi forbindelsesvektoren på når vi måler avstanden mellom vindskeive linjer?","f3f4c5b31988dad5":"$\\vec{u} + \\vec{v}$","397b8a2eebc522c3":"$\\vec{u} \\times \\vec{v}$","ed34f2b1e81400ab":"$\\vec{u} - \\vec{v}$","9582ab95ebcccedd":"$\\vec{b} - \\vec{a}$","aefa693b1e6040eb":"Den kortaste brua står vinkelrett på begge linjene, og $\\vec{u} \\times \\vec{v}$ er nettopp fellesnormalen.","a6b55a70a1a6910a":"Kva er avstanden mellom $x$-aksen og linja $\\vec{r} = [0, 1, 1] + t[0, 0, 1]$?","17b0fe9bda962747":"$\\sqrt{2}$","b61def0872c567fe":"$\\frac{1}{2}$","bce03fef925d10ef":"$\\vec{u} \\times \\vec{v} = [0, -1, 0]$, $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = -1$, så $d = \\frac{|-1|}{1} = 1$.","1efeb3907bd04a6f":"Du reknar ut $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = 0$ for to ikkje-parallelle linjer. Kva tyder det?","7cfb5c1177ae59d9":"Linjene er vindskeive med stor avstand","4bf7ddb4622e8e15":"Linjene er parallelle likevel","714d5efa80f2b92a":"Formelen kan ikkje brukast","e15855850af26350":"Linjene skjer kvarandre — avstanden er null","43626fefc4181e66":"Null i teljaren gir avstand $0$: ikkje-parallelle linjer med avstand null har eit felles punkt. Sjekk alltid skjering først.","e8d9bc3a29531563":"## Oppsummering\n\nSpørsmålet til tryggleikssystemet — kor nær er for nær? — fekk presise svar for alle konstellasjonane i rommet, og alle målte vi vinkelrett, langs den kortaste vegen.\n\nMot planet $ax + by + cz = e$ ga normalvektoren formelen $d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$: set inn punktet, ta avviket i absoluttverdi, del på lengda til normalen — dronen sto $\\frac{7}{3}$ frå glasfasaden. Fotpunktet fann vi ved å følgje normalen frå punktet til han trefte planet, og parallelle plan fekk kortversjonen $d = \\frac{|e_1 - e_2|}{|\\vec{n}|}$.\n\nMot linja brukte vi arealtolkinga til kryssproduktet: $d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$ — parallellogramareal delt på grunnlinje gir høgda. Same formel tok parallelle linjer, ved å låne eit punkt frå den eine.\n\nFor vindskeive linjer bygde vi den kortaste brua langs fellesnormalen $\\vec{u} \\times \\vec{v}$: $d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$ — og lærte fella å kjenne: blir teljaren null for ikkje-parallelle linjer, skjer dei kvarandre. Difor kontrollrutinen: parallelle? skjerande? først då vindskeive.\n\nMed dette er verktøykassa til romgeometrien komplett: punkt, vektorar, produkt, linjer, plan — og avstandane mellom alt saman. Det som står att i R2, er å setje rommet i rørsle: vektorfunksjonar, der posisjonen endrar seg med tida. Det er neste hovudkapittel."}}}
+{
+  "id": "r2-5-8-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "5.8",
+  "title": "Avstand punkt-linje og punkt-plan",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om tryggleiksmarginar i rommet — avstand frå punkt til plan og linje, fotpunkt, parallelle plan og den kortaste brua mellom vindskeive linjer.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "Kunne rekne ut avstanden frå eit punkt til eit plan",
+    "Kunne rekne ut avstanden frå eit punkt til ei linje",
+    "Kunne rekne ut avstanden mellom parallelle linjer",
+    "Kunne rekne ut avstanden mellom vindskeive linjer"
+  ],
+  "linkedChapterId": "r2-5-8",
+  "content": [
+    {
+      "id": "r2-5-8-n-intro",
+      "type": "text",
+      "content": "## Kor nær er for nær?\n\nEin drone held posisjonen over eit anleggsområde. Under han strekkjer ei kraftleidning seg som ei rett linje gjennom lufta, og til sida skrår ein glasfasade — eit plan — opp frå bakken. Tryggleikssystemet stiller heile tida same spørsmål: **kor langt unna er vi?** Ikkje avstanden til eit tilfeldig punkt på leidninga eller fasaden, men den *kortaste* avstanden — den som avgjer om alarmen skal gå.\n\nKortaste avstand i rommet blir alltid målt **vinkelrett**: frå punktet, rett ned på planet langs normalen, eller rett bort på linja langs den vinkelrette. Og her haustar vi igjen fruktene av vektorverktøya våre. Normalvektoren frå planlikninga gir avstanden punkt–plan gjennom ein formel så kompakt at han nesten verkar som juks. Kryssproduktet, med parallellogramtolkinga si, gir avstanden punkt–linje. Og for det særeigne fenomenet i rommet — to **vindskeive** linjer som passerer kvarandre utan å møtast — kombinerer vi begge produkta for å finne den kortaste brua mellom dei.\n\nI denne forteljinga utleier og brukar vi alle avstandsformlane: punkt til plan (med fotpunktet som bonus), punkt til linje, avstanden mellom parallelle plan og parallelle linjer, og til slutt vindskeive linjer — med ei innebygd åtvaring om å alltid sjekke *kva slags* linjepar du faktisk har, før du vel formel. Det er presisjonen tryggleikssystemet lever av: arkitektur, ingeniørkunst, datagrafikk og flykontroll brukar nøyaktig desse berekningane kvar einaste dag."
+    },
+    {
+      "id": "r2-5-8-n-section1",
+      "type": "text",
+      "content": "## Avstanden til eit plan\n\nGlasfasaden har likninga $ax + by + cz = e$, og dronen står i punktet $P = (x_0, y_0, z_0)$. Den kortaste avstanden blir målt langs normalvektoren $\\vec{n} = [a, b, c]$, og formelen er merkverdig enkel:\n\n$$d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$$\n\nHugsregelen: **set punktet inn i likninga, ta avviket frå høgresida i absoluttverdi, og del på lengda av normalvektoren**. Avviket i teljaren måler kor mykje punktet «bommar» på planlikninga, og divisjonen med $|\\vec{n}|$ omset bommen til faktiske lengdeeiningar.\n\nKonkret: dronen i $P = (2, 3, 1)$, fasaden $2x - 2y + z = 6$. Innsetting gir $4 - 6 + 1 = -1$, avviket frå $6$ er $|-1 - 6| = 7$, og normalvektoren har lengd $\\sqrt{4 + 4 + 1} = 3$. Avstanden er $\\frac{7}{3} \\approx 2{,}33$.\n\nAv og til treng vi meir enn avstanden — vi vil vite nøyaktig *kva for eit* punkt på planet som er nærast: **fotpunktet**. Då går vi frå $P$ langs normalen til vi treffer planet. For $P = (1, 0, 2)$ og planet $x + 2y + 2z = 9$: normalen er $[1, 2, 2]$, og linja $\\vec{r} = [1, 0, 2] + t[1, 2, 2]$ blir sett inn i planlikninga: $(1 + t) + 4t + (4 + 4t) = 9$ gir $9t = 4$, altså $t = \\frac{4}{9}$. Fotpunktet er $\\left(\\frac{13}{9}, \\frac{8}{9}, \\frac{26}{9}\\right)$.\n\nOg er det to **parallelle plan** som skal målast mot kvarandre? Då har dei same normalvektor, $ax + by + cz = e_1$ og $= e_2$, og avstanden er berre $d = \\frac{|e_1 - e_2|}{\\sqrt{a^2 + b^2 + c^2}}$. Plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$ ligg $\\frac{9}{3} = 3$ einingar frå kvarandre."
+    },
+    {
+      "id": "r2-5-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på avstand til plan:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-8-n-quiz1-q0",
+            "task": "Kva er avstanden frå $P = (2, 3, 1)$ til planet $2x - 2y + z = 6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{7}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{7}{9}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$d = \\frac{|2 \\cdot 2 - 2 \\cdot 3 + 1 - 6|}{\\sqrt{4 + 4 + 1}} = \\frac{|-7|}{3} = \\frac{7}{3}$."
+          },
+          {
+            "id": "r2-5-8-n-quiz1-q1",
+            "task": "Kva står i nemnaren i avstandsformelen punkt–plan?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avstanden frå origo til planet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lengda av normalvektoren $\\sqrt{a^2 + b^2 + c^2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Konstantleddet $e$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lengda av posisjonsvektoren til punktet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Teljaren måler avviket frå planlikninga; divisjon med $|\\vec{n}| = \\sqrt{a^2+b^2+c^2}$ gjer det om til lengdeeiningar."
+          },
+          {
+            "id": "r2-5-8-n-quiz1-q2",
+            "task": "Kva er avstanden mellom dei parallelle plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{9}$ kan ikkje reknast ut utan eit punkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$d = \\frac{|3 - 12|}{\\sqrt{4 + 1 + 4}} = \\frac{9}{3} = 3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-8-n-section2",
+      "type": "text",
+      "content": "## Avstanden til ei linje\n\nSå til kraftleidninga: linja $\\ell: \\vec{r} = \\vec{r}_0 + t\\vec{v}$, og dronen i punktet $P$. Vel eit kva som helst punkt $Q$ på linja (basispunktet $\\vec{r}_0$ er nærast), og sjå på vektoren $\\overrightarrow{QP}$. Kryssproduktet kjem oss til unnsetning med arealtolkinga si: $|\\overrightarrow{QP} \\times \\vec{v}|$ er arealet av parallellogrammet som er spent ut av $\\overrightarrow{QP}$ og $\\vec{v}$ — og det arealet er òg grunnlinje gonger høgd, der grunnlinja er $|\\vec{v}|$ og høgda er nettopp avstanden frå $P$ til linja. Altså:\n\n$$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$$\n\nLat oss måle. Dronen står i $P = (3, 4, 5)$, leidninga er $\\ell: \\vec{r} = [1, 1, 1] + t[1, 2, 2]$. Med $Q = (1, 1, 1)$ er $\\overrightarrow{QP} = [2, 3, 4]$. Kryssproduktet: $[3 \\cdot 2 - 4 \\cdot 2, \\; 4 \\cdot 1 - 2 \\cdot 2, \\; 2 \\cdot 2 - 3 \\cdot 1] = [-2, 0, 1]$, med lengd $\\sqrt{5}$. Retningsvektoren har lengd $3$, så avstanden er $\\frac{\\sqrt{5}}{3} \\approx 0{,}75$ — truleg for nær; alarmen går.\n\nSame formel løyser **parallelle linjer**: sidan dei held konstant avstand, plukkar du berre eit punkt på den eine og måler til den andre. For $\\ell_1: \\vec{r} = [1, 0, 0] + s[2, 1, 2]$ og $\\ell_2: \\vec{r} = [0, 3, 1] + t[2, 1, 2]$ tek vi punktet $(0, 3, 1)$ frå $\\ell_2$ og $Q = (1, 0, 0)$ på $\\ell_1$: $\\overrightarrow{QP} = [-1, 3, 1]$, kryssproduktet med $[2, 1, 2]$ blir $[5, 4, -7]$ med lengd $\\sqrt{90}$, og avstanden er $\\frac{\\sqrt{90}}{3} = \\sqrt{10} \\approx 3{,}16$.\n\n(Ein alternativ veg går via projeksjon: spalt $\\overrightarrow{QP}$ i ein komponent langs $\\vec{v}$ og ein vinkelrett på; lengda til den vinkelrette komponenten er avstanden. Kryssproduktformelen gjer same jobben i eitt steg.)"
+    },
+    {
+      "id": "r2-5-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på avstand til linje:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-8-n-quiz2-q0",
+            "task": "Kva for ein formel gir avstanden frå punktet $P$ til linja $\\ell$ med retningsvektor $\\vec{v}$ og punkt $Q$ på linja?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$d = \\frac{\\overrightarrow{QP} \\cdot \\vec{v}}{|\\vec{v}|}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$d = |\\overrightarrow{QP} \\times \\vec{v}|$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$d = \\frac{|\\overrightarrow{QP}|}{|\\vec{v}|}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Lengda til kryssproduktet er parallellogramarealet; delt på grunnlinja $|\\vec{v}|$ står høgda — avstanden — att."
+          },
+          {
+            "id": "r2-5-8-n-quiz2-q1",
+            "task": "Kva er avstanden frå $P = (3, 4, 5)$ til linja $\\vec{r} = [1, 1, 1] + t[1, 2, 2]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{\\sqrt{5}}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{5}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\overrightarrow{QP} = [2,3,4]$, $\\overrightarrow{QP} \\times \\vec{v} = [-2, 0, 1]$ med lengd $\\sqrt{5}$, og $|\\vec{v}| = 3$: $d = \\frac{\\sqrt{5}}{3}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-8-n-section3",
+      "type": "text",
+      "content": "## Vindskeive linjer — brua mellom to baner\n\nDet vanskelegaste tilfellet: to vindskeive linjer, $\\ell_1: \\vec{r} = \\vec{a} + s\\vec{u}$ og $\\ell_2: \\vec{r} = \\vec{b} + t\\vec{v}$, som korkje er parallelle eller møtest. Kor er den kortaste brua mellom dei? Nøkkelinnsikta: det kortaste forbindelsesstykket må stå vinkelrett på **begge** linjene — og ein vektor vinkelrett på både $\\vec{u}$ og $\\vec{v}$ kjenner vi: kryssproduktet $\\vec{u} \\times \\vec{v}$. Avstanden er då projeksjonen av forbindelsesvektoren $\\vec{b} - \\vec{a}$ på denne fellesnormalen:\n\n$$d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$$\n\nEit reint eksempel: $\\ell_1$ er sjølve $x$-aksen, $\\vec{r} = s[1, 0, 0]$, og $\\ell_2: \\vec{r} = [0, 1, 1] + t[0, 0, 1]$. Kryssproduktet er $[1,0,0] \\times [0,0,1] = [0, -1, 0]$, forbindelsesvektoren er $[0, 1, 1]$, og skalarproduktet blir $-1$. Avstanden: $\\frac{|-1|}{1} = 1$ — linjene passerer kvarandre med nøyaktig éi einings klaring.\n\nMen formelen har ei felle, og ho er lærerik. Prøv $\\ell_1: \\vec{r} = [1, 0, 0] + s[1, 1, 0]$ og $\\ell_2: \\vec{r} = [0, 0, 1] + t[0, 1, 1]$: her er $\\vec{u} \\times \\vec{v} = [1, -1, 1]$, $\\vec{b} - \\vec{a} = [-1, 0, 1]$, og skalarproduktet $-1 + 0 + 1 = 0$. Avstand null? Ja — fordi linjene faktisk **skjer kvarandre**: løyser du likningssettet, møtest dei i $(0, -1, 0)$. Null avstand tyder kontakt.\n\nDdifor, alltid same kontrollrutinen før du vel formel: sjekk først om retningsvektorane er parallelle (då gjeld punkt–linje-metoden); viss ikkje, sjekk om linjene skjer (avstand $0$); først når begge svar er nei, er linjene vindskeive, og fellesnormal-formelen gjer jobben."
+    },
+    {
+      "id": "r2-5-8-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-8-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vindskeive linjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-8-n-quiz3-q0",
+            "task": "Kva for ein vektor projiserer vi forbindelsesvektoren på når vi måler avstanden mellom vindskeive linjer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\vec{u} + \\vec{v}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\vec{u} \\times \\vec{v}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\vec{u} - \\vec{v}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\vec{b} - \\vec{a}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den kortaste brua står vinkelrett på begge linjene, og $\\vec{u} \\times \\vec{v}$ er nettopp fellesnormalen."
+          },
+          {
+            "id": "r2-5-8-n-quiz3-q1",
+            "task": "Kva er avstanden mellom $x$-aksen og linja $\\vec{r} = [0, 1, 1] + t[0, 0, 1]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{u} \\times \\vec{v} = [0, -1, 0]$, $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = -1$, så $d = \\frac{|-1|}{1} = 1$."
+          },
+          {
+            "id": "r2-5-8-n-quiz3-q2",
+            "task": "Du reknar ut $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = 0$ for to ikkje-parallelle linjer. Kva tyder det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Linjene er vindskeive med stor avstand",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Linjene er parallelle likevel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Formelen kan ikkje brukast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Linjene skjer kvarandre — avstanden er null",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Null i teljaren gir avstand $0$: ikkje-parallelle linjer med avstand null har eit felles punkt. Sjekk alltid skjering først."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nSpørsmålet til tryggleikssystemet — kor nær er for nær? — fekk presise svar for alle konstellasjonane i rommet, og alle målte vi vinkelrett, langs den kortaste vegen.\n\nMot planet $ax + by + cz = e$ ga normalvektoren formelen $d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$: set inn punktet, ta avviket i absoluttverdi, del på lengda til normalen — dronen sto $\\frac{7}{3}$ frå glasfasaden. Fotpunktet fann vi ved å følgje normalen frå punktet til han trefte planet, og parallelle plan fekk kortversjonen $d = \\frac{|e_1 - e_2|}{|\\vec{n}|}$.\n\nMot linja brukte vi arealtolkinga til kryssproduktet: $d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$ — parallellogramareal delt på grunnlinje gir høgda. Same formel tok parallelle linjer, ved å låne eit punkt frå den eine.\n\nFor vindskeive linjer bygde vi den kortaste brua langs fellesnormalen $\\vec{u} \\times \\vec{v}$: $d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$ — og lærte fella å kjenne: blir teljaren null for ikkje-parallelle linjer, skjer dei kvarandre. Difor kontrollrutinen: parallelle? skjerande? først då vindskeive.\n\nMed dette er verktøykassa til romgeometrien komplett: punkt, vektorar, produkt, linjer, plan — og avstandane mellom alt saman. Det som står att i R2, er å setje rommet i rørsle: vektorfunksjonar, der posisjonen endrar seg med tida. Det er neste hovudkapittel."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "e22c559ab1114862",
+    "translatedAt": "2026-06-20T01:08:18.639Z",
+    "model": "claude-code-agent",
+    "strings": 60,
+    "tm": {
+      "a6d1a51bda6e77b0": "Avstand punkt-linje og punkt-plan",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "67932e1d70ed161d": "Ei forteljing om tryggleiksmarginar i rommet — avstand frå punkt til plan og linje, fotpunkt, parallelle plan og den kortaste brua mellom vindskeive linjer.",
+      "fe02d27ae481ae29": "Kunne rekne ut avstanden frå eit punkt til eit plan",
+      "eaab73816a833c3d": "Kunne rekne ut avstanden frå eit punkt til ei linje",
+      "dd61f7a10636f5cb": "Kunne rekne ut avstanden mellom parallelle linjer",
+      "086f4016668050be": "Kunne rekne ut avstanden mellom vindskeive linjer",
+      "62fb16b4cd421880": "## Kor nær er for nær?\n\nEin drone held posisjonen over eit anleggsområde. Under han strekkjer ei kraftleidning seg som ei rett linje gjennom lufta, og til sida skrår ein glasfasade — eit plan — opp frå bakken. Tryggleikssystemet stiller heile tida same spørsmål: **kor langt unna er vi?** Ikkje avstanden til eit tilfeldig punkt på leidninga eller fasaden, men den *kortaste* avstanden — den som avgjer om alarmen skal gå.\n\nKortaste avstand i rommet blir alltid målt **vinkelrett**: frå punktet, rett ned på planet langs normalen, eller rett bort på linja langs den vinkelrette. Og her haustar vi igjen fruktene av vektorverktøya våre. Normalvektoren frå planlikninga gir avstanden punkt–plan gjennom ein formel så kompakt at han nesten verkar som juks. Kryssproduktet, med parallellogramtolkinga si, gir avstanden punkt–linje. Og for det særeigne fenomenet i rommet — to **vindskeive** linjer som passerer kvarandre utan å møtast — kombinerer vi begge produkta for å finne den kortaste brua mellom dei.\n\nI denne forteljinga utleier og brukar vi alle avstandsformlane: punkt til plan (med fotpunktet som bonus), punkt til linje, avstanden mellom parallelle plan og parallelle linjer, og til slutt vindskeive linjer — med ei innebygd åtvaring om å alltid sjekke *kva slags* linjepar du faktisk har, før du vel formel. Det er presisjonen tryggleikssystemet lever av: arkitektur, ingeniørkunst, datagrafikk og flykontroll brukar nøyaktig desse berekningane kvar einaste dag.",
+      "9d378e7dc0318206": "## Avstanden til eit plan\n\nGlasfasaden har likninga $ax + by + cz = e$, og dronen står i punktet $P = (x_0, y_0, z_0)$. Den kortaste avstanden blir målt langs normalvektoren $\\vec{n} = [a, b, c]$, og formelen er merkverdig enkel:\n\n$$d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$$\n\nHugsregelen: **set punktet inn i likninga, ta avviket frå høgresida i absoluttverdi, og del på lengda av normalvektoren**. Avviket i teljaren måler kor mykje punktet «bommar» på planlikninga, og divisjonen med $|\\vec{n}|$ omset bommen til faktiske lengdeeiningar.\n\nKonkret: dronen i $P = (2, 3, 1)$, fasaden $2x - 2y + z = 6$. Innsetting gir $4 - 6 + 1 = -1$, avviket frå $6$ er $|-1 - 6| = 7$, og normalvektoren har lengd $\\sqrt{4 + 4 + 1} = 3$. Avstanden er $\\frac{7}{3} \\approx 2{,}33$.\n\nAv og til treng vi meir enn avstanden — vi vil vite nøyaktig *kva for eit* punkt på planet som er nærast: **fotpunktet**. Då går vi frå $P$ langs normalen til vi treffer planet. For $P = (1, 0, 2)$ og planet $x + 2y + 2z = 9$: normalen er $[1, 2, 2]$, og linja $\\vec{r} = [1, 0, 2] + t[1, 2, 2]$ blir sett inn i planlikninga: $(1 + t) + 4t + (4 + 4t) = 9$ gir $9t = 4$, altså $t = \\frac{4}{9}$. Fotpunktet er $\\left(\\frac{13}{9}, \\frac{8}{9}, \\frac{26}{9}\\right)$.\n\nOg er det to **parallelle plan** som skal målast mot kvarandre? Då har dei same normalvektor, $ax + by + cz = e_1$ og $= e_2$, og avstanden er berre $d = \\frac{|e_1 - e_2|}{\\sqrt{a^2 + b^2 + c^2}}$. Plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$ ligg $\\frac{9}{3} = 3$ einingar frå kvarandre.",
+      "c98314af8619ecf9": "Test deg sjølv på avstand til plan:",
+      "4097889236a2af26": "placeholder",
+      "b1c0b013ac5b4867": "Kva er avstanden frå $P = (2, 3, 1)$ til planet $2x - 2y + z = 6$?",
+      "8f3c2c4155de2f97": "$\\frac{7}{3}$",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "78e7609d04f2d132": "$\\frac{7}{9}$",
+      "fe4a686568a6f2c6": "$d = \\frac{|2 \\cdot 2 - 2 \\cdot 3 + 1 - 6|}{\\sqrt{4 + 4 + 1}} = \\frac{|-7|}{3} = \\frac{7}{3}$.",
+      "7f9b688ee78c367a": "Kva står i nemnaren i avstandsformelen punkt–plan?",
+      "f9ef39068b1fbee9": "Avstanden frå origo til planet",
+      "5b328d97b41ed332": "Konstantleddet $e$",
+      "b348bc1c01dc2aca": "Lengda av normalvektoren $\\sqrt{a^2 + b^2 + c^2}$",
+      "127e8015a48b17de": "Lengda av posisjonsvektoren til punktet",
+      "21dda97688a49748": "Teljaren måler avviket frå planlikninga; divisjon med $|\\vec{n}| = \\sqrt{a^2+b^2+c^2}$ gjer det om til lengdeeiningar.",
+      "faf7bb4b445cdc7d": "Kva er avstanden mellom dei parallelle plana $2x - y + 2z = 3$ og $2x - y + 2z = 12$?",
+      "5c64f781cda6c461": "$\\sqrt{9}$ kan ikkje reknast ut utan eit punkt",
+      "2693c895276ff908": "$d = \\frac{|3 - 12|}{\\sqrt{4 + 1 + 4}} = \\frac{9}{3} = 3$.",
+      "ec4d4cc8a0d84ab2": "## Avstanden til ei linje\n\nSå til kraftleidninga: linja $\\ell: \\vec{r} = \\vec{r}_0 + t\\vec{v}$, og dronen i punktet $P$. Vel eit kva som helst punkt $Q$ på linja (basispunktet $\\vec{r}_0$ er nærast), og sjå på vektoren $\\overrightarrow{QP}$. Kryssproduktet kjem oss til unnsetning med arealtolkinga si: $|\\overrightarrow{QP} \\times \\vec{v}|$ er arealet av parallellogrammet som er spent ut av $\\overrightarrow{QP}$ og $\\vec{v}$ — og det arealet er òg grunnlinje gonger høgd, der grunnlinja er $|\\vec{v}|$ og høgda er nettopp avstanden frå $P$ til linja. Altså:\n\n$$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$$\n\nLat oss måle. Dronen står i $P = (3, 4, 5)$, leidninga er $\\ell: \\vec{r} = [1, 1, 1] + t[1, 2, 2]$. Med $Q = (1, 1, 1)$ er $\\overrightarrow{QP} = [2, 3, 4]$. Kryssproduktet: $[3 \\cdot 2 - 4 \\cdot 2, \\; 4 \\cdot 1 - 2 \\cdot 2, \\; 2 \\cdot 2 - 3 \\cdot 1] = [-2, 0, 1]$, med lengd $\\sqrt{5}$. Retningsvektoren har lengd $3$, så avstanden er $\\frac{\\sqrt{5}}{3} \\approx 0{,}75$ — truleg for nær; alarmen går.\n\nSame formel løyser **parallelle linjer**: sidan dei held konstant avstand, plukkar du berre eit punkt på den eine og måler til den andre. For $\\ell_1: \\vec{r} = [1, 0, 0] + s[2, 1, 2]$ og $\\ell_2: \\vec{r} = [0, 3, 1] + t[2, 1, 2]$ tek vi punktet $(0, 3, 1)$ frå $\\ell_2$ og $Q = (1, 0, 0)$ på $\\ell_1$: $\\overrightarrow{QP} = [-1, 3, 1]$, kryssproduktet med $[2, 1, 2]$ blir $[5, 4, -7]$ med lengd $\\sqrt{90}$, og avstanden er $\\frac{\\sqrt{90}}{3} = \\sqrt{10} \\approx 3{,}16$.\n\n(Ein alternativ veg går via projeksjon: spalt $\\overrightarrow{QP}$ i ein komponent langs $\\vec{v}$ og ein vinkelrett på; lengda til den vinkelrette komponenten er avstanden. Kryssproduktformelen gjer same jobben i eitt steg.)",
+      "d9b5f7746f4f3e8a": "Test deg sjølv på avstand til linje:",
+      "4067cd06ae4f4d68": "Kva for ein formel gir avstanden frå punktet $P$ til linja $\\ell$ med retningsvektor $\\vec{v}$ og punkt $Q$ på linja?",
+      "5a596ded9dad6b51": "$d = \\frac{\\overrightarrow{QP} \\cdot \\vec{v}}{|\\vec{v}|}$",
+      "aa85908e97b849c7": "$d = |\\overrightarrow{QP} \\times \\vec{v}|$",
+      "a80582e4ae660910": "$d = \\frac{|\\overrightarrow{QP}|}{|\\vec{v}|}$",
+      "e969349e4f38c940": "$d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$",
+      "6b296744c50c702d": "Lengda til kryssproduktet er parallellogramarealet; delt på grunnlinja $|\\vec{v}|$ står høgda — avstanden — att.",
+      "ec69f1e3e3a60c49": "Kva er avstanden frå $P = (3, 4, 5)$ til linja $\\vec{r} = [1, 1, 1] + t[1, 2, 2]$?",
+      "ac796832ac41d8fe": "$\\frac{\\sqrt{5}}{3}$",
+      "16210e1060b04315": "$\\sqrt{5}$",
+      "cbb2286033ab3435": "$\\frac{5}{3}$",
+      "fd91ec7684241793": "$\\overrightarrow{QP} = [2,3,4]$, $\\overrightarrow{QP} \\times \\vec{v} = [-2, 0, 1]$ med lengd $\\sqrt{5}$, og $|\\vec{v}| = 3$: $d = \\frac{\\sqrt{5}}{3}$.",
+      "7d47c5654c530ed1": "## Vindskeive linjer — brua mellom to baner\n\nDet vanskelegaste tilfellet: to vindskeive linjer, $\\ell_1: \\vec{r} = \\vec{a} + s\\vec{u}$ og $\\ell_2: \\vec{r} = \\vec{b} + t\\vec{v}$, som korkje er parallelle eller møtest. Kor er den kortaste brua mellom dei? Nøkkelinnsikta: det kortaste forbindelsesstykket må stå vinkelrett på **begge** linjene — og ein vektor vinkelrett på både $\\vec{u}$ og $\\vec{v}$ kjenner vi: kryssproduktet $\\vec{u} \\times \\vec{v}$. Avstanden er då projeksjonen av forbindelsesvektoren $\\vec{b} - \\vec{a}$ på denne fellesnormalen:\n\n$$d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$$\n\nEit reint eksempel: $\\ell_1$ er sjølve $x$-aksen, $\\vec{r} = s[1, 0, 0]$, og $\\ell_2: \\vec{r} = [0, 1, 1] + t[0, 0, 1]$. Kryssproduktet er $[1,0,0] \\times [0,0,1] = [0, -1, 0]$, forbindelsesvektoren er $[0, 1, 1]$, og skalarproduktet blir $-1$. Avstanden: $\\frac{|-1|}{1} = 1$ — linjene passerer kvarandre med nøyaktig éi einings klaring.\n\nMen formelen har ei felle, og ho er lærerik. Prøv $\\ell_1: \\vec{r} = [1, 0, 0] + s[1, 1, 0]$ og $\\ell_2: \\vec{r} = [0, 0, 1] + t[0, 1, 1]$: her er $\\vec{u} \\times \\vec{v} = [1, -1, 1]$, $\\vec{b} - \\vec{a} = [-1, 0, 1]$, og skalarproduktet $-1 + 0 + 1 = 0$. Avstand null? Ja — fordi linjene faktisk **skjer kvarandre**: løyser du likningssettet, møtest dei i $(0, -1, 0)$. Null avstand tyder kontakt.\n\nDdifor, alltid same kontrollrutinen før du vel formel: sjekk først om retningsvektorane er parallelle (då gjeld punkt–linje-metoden); viss ikkje, sjekk om linjene skjer (avstand $0$); først når begge svar er nei, er linjene vindskeive, og fellesnormal-formelen gjer jobben.",
+      "a5c48c6a132c8c99": "Test deg sjølv på vindskeive linjer:",
+      "ba0398c86b5724a3": "Kva for ein vektor projiserer vi forbindelsesvektoren på når vi måler avstanden mellom vindskeive linjer?",
+      "f3f4c5b31988dad5": "$\\vec{u} + \\vec{v}$",
+      "397b8a2eebc522c3": "$\\vec{u} \\times \\vec{v}$",
+      "ed34f2b1e81400ab": "$\\vec{u} - \\vec{v}$",
+      "9582ab95ebcccedd": "$\\vec{b} - \\vec{a}$",
+      "aefa693b1e6040eb": "Den kortaste brua står vinkelrett på begge linjene, og $\\vec{u} \\times \\vec{v}$ er nettopp fellesnormalen.",
+      "a6b55a70a1a6910a": "Kva er avstanden mellom $x$-aksen og linja $\\vec{r} = [0, 1, 1] + t[0, 0, 1]$?",
+      "17b0fe9bda962747": "$\\sqrt{2}$",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "bce03fef925d10ef": "$\\vec{u} \\times \\vec{v} = [0, -1, 0]$, $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = -1$, så $d = \\frac{|-1|}{1} = 1$.",
+      "1efeb3907bd04a6f": "Du reknar ut $(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v}) = 0$ for to ikkje-parallelle linjer. Kva tyder det?",
+      "7cfb5c1177ae59d9": "Linjene er vindskeive med stor avstand",
+      "4bf7ddb4622e8e15": "Linjene er parallelle likevel",
+      "714d5efa80f2b92a": "Formelen kan ikkje brukast",
+      "e15855850af26350": "Linjene skjer kvarandre — avstanden er null",
+      "43626fefc4181e66": "Null i teljaren gir avstand $0$: ikkje-parallelle linjer med avstand null har eit felles punkt. Sjekk alltid skjering først.",
+      "e8d9bc3a29531563": "## Oppsummering\n\nSpørsmålet til tryggleikssystemet — kor nær er for nær? — fekk presise svar for alle konstellasjonane i rommet, og alle målte vi vinkelrett, langs den kortaste vegen.\n\nMot planet $ax + by + cz = e$ ga normalvektoren formelen $d = \\frac{|ax_0 + by_0 + cz_0 - e|}{\\sqrt{a^2 + b^2 + c^2}}$: set inn punktet, ta avviket i absoluttverdi, del på lengda til normalen — dronen sto $\\frac{7}{3}$ frå glasfasaden. Fotpunktet fann vi ved å følgje normalen frå punktet til han trefte planet, og parallelle plan fekk kortversjonen $d = \\frac{|e_1 - e_2|}{|\\vec{n}|}$.\n\nMot linja brukte vi arealtolkinga til kryssproduktet: $d = \\frac{|\\overrightarrow{QP} \\times \\vec{v}|}{|\\vec{v}|}$ — parallellogramareal delt på grunnlinje gir høgda. Same formel tok parallelle linjer, ved å låne eit punkt frå den eine.\n\nFor vindskeive linjer bygde vi den kortaste brua langs fellesnormalen $\\vec{u} \\times \\vec{v}$: $d = \\frac{|(\\vec{b} - \\vec{a}) \\cdot (\\vec{u} \\times \\vec{v})|}{|\\vec{u} \\times \\vec{v}|}$ — og lærte fella å kjenne: blir teljaren null for ikkje-parallelle linjer, skjer dei kvarandre. Difor kontrollrutinen: parallelle? skjerande? først då vindskeive.\n\nMed dette er verktøykassa til romgeometrien komplett: punkt, vektorar, produkt, linjer, plan — og avstandane mellom alt saman. Det som står att i R2, er å setje rommet i rørsle: vektorfunksjonar, der posisjonen endrar seg med tida. Det er neste hovudkapittel."
+    }
+  }
+}

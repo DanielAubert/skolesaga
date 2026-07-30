@@ -1,1 +1,450 @@
-{"id":"s2-6-3-narrativ","courseId":"s2","chapterNumber":"6.3","title":"Ikkje-lineær regresjon","subtitle":"Narrativ versjon","description":"Ei forteljing frå naturfagslaben om bakteriar, pattedyrpuls og lønnsvekst — og om korleis logaritmen forvandlar eksponentielle, potensielle og logaritmiske samanhengar til rette linjer.","estimatedMinutes":30,"competenceGoals":["tilpasse eksponentiell, potensiell og logaritmisk regresjonsmodell til data","velje beste modell ved hjelp av R²-samanlikning","linearisere ikkje-lineære modellar ved hjelp av logaritmar"],"linkedChapterId":"s2-6-3","content":[{"id":"s2-6-3-n-intro","type":"text","content":"## Når den rette linja ikkje strekk til\n\nPå naturfagslaben dyrkar klassen din bakteriar. De tel kvar time: 100, 150, 220, 340, 500. Du prøver pliktskuldig å leggje ei rett linje gjennom punkta, men residualplottet viser eit tydeleg bua mønster — linja undervurderer veksten i begge endane og overvurderer han på midten. Det er naturen si måte å seie: «dette er ikkje lineært».\n\nMange fenomen i røyndommen følgjer andre mønster enn den rette linja. Bakterievekst er **eksponentiell**, planetbanar og skaleringslover i biologien er **potensielle**, og avtakande avkastning i økonomien er ofte **logaritmisk**. Når residualplottet frå ein lineær modell viser systematisk krumming, er det på tide å vurdere ein ikkje-lineær modell.\n\nDei tre vanlegaste ikkje-lineære modellane i S2 er den eksponentielle $y = a \\cdot b^x$, den potensielle $y = a \\cdot x^b$ og den logaritmiske $y = a + b \\cdot \\ln x$. Det fine er at vi ikkje treng ny matematikk for å tilpasse dei: med eit smart logaritmetriks — **linearisering** — kan vi gjenbruke heile verktøykassa frå lineær regresjon. Det er dette denne forteljinga handlar om."},{"id":"s2-6-3-n-section1","type":"text","content":"## Eksponentiell regresjon og lineariseringstrikset\n\nEin **eksponentiell modell** har forma $y = a \\cdot b^x$ der $a > 0$, $b > 0$ og $b \\neq 1$. Trikset for å tilpasse han er å ta logaritmen på begge sider:\n\n$$\\ln y = \\ln a + x \\cdot \\ln b$$\n\nSet vi $Y = \\ln y$, $A = \\ln a$ og $B = \\ln b$, står vi igjen med $Y = A + Bx$ — ei rett linje i $x$ og $Y$! Vi kan altså køyre heilt vanleg lineær regresjon på dei transformerte dataa $(x_i, \\ln y_i)$, og etterpå hente tilbake dei opphavlege parametrane med $b = e^B$ og $a = e^A$.\n\nLa oss gjere det med bakteriane. Vi reknar ut $\\ln y$ for kvart punkt: $\\ln 100 = 4{,}605$, $\\ln 150 = 5{,}011$, $\\ln 220 = 5{,}394$, $\\ln 340 = 5{,}829$ og $\\ln 500 = 6{,}215$. Ser du kor jamt desse stig? Lineær regresjon på $(x, \\ln y)$ gir stigingstal $B \\approx 0{,}403$ og konstantledd $A \\approx 4{,}605$. Tilbake til dei opphavlege parametrane: $b = e^{0{,}403} \\approx 1{,}50$ og $a = e^{4{,}605} \\approx 100$.\n\nModellen blir $y = 100 \\cdot 1{,}50^x$: kulturen starta på 100 bakteriar og veks med omtrent 50 % per time. Det stemmer påfallande godt med teljingane — og no *forstår* vi tala i staden for berre å sjå på dei."},{"id":"s2-6-3-n-quiz1","type":"exercise","exercise":{"id":"s2-6-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på eksponentiell regresjon og linearisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-3-n-quiz1-q0","task":"Korleis blir den eksponentielle modellen $y = a \\cdot b^x$ linearisert?","options":[{"id":"a","text":"Plott $(\\ln x, y)$","isCorrect":false},{"id":"b","text":"Plott $(\\ln x, \\ln y)$","isCorrect":false},{"id":"c","text":"Plott $(x, \\ln y)$","isCorrect":true},{"id":"d","text":"Plott $(x^2, y)$","isCorrect":false}],"solution":"Logaritmen gir $\\ln y = \\ln a + x \\ln b$, som er lineær i $x$ og $\\ln y$. Vi brukar difor lineær regresjon på punkta $(x_i, \\ln y_i)$."},{"id":"s2-6-3-n-quiz1-q1","task":"Linearisering av eksponentielle data gir linja $\\ln y = 2 + 0{,}5x$. Kva er $b$ i modellen $y = a \\cdot b^x$?","options":[{"id":"a","text":"$b = e^{0{,}5} \\approx 1{,}65$","isCorrect":true},{"id":"b","text":"$b = 0{,}5$","isCorrect":false},{"id":"c","text":"$b = e^2 \\approx 7{,}39$","isCorrect":false},{"id":"d","text":"$b = 2$","isCorrect":false}],"solution":"Stigingstalet i den lineariserte modellen er $B = \\ln b$, så $b = e^B = e^{0{,}5} \\approx 1{,}65$. Konstantleddet gir $a = e^2 \\approx 7{,}39$."},{"id":"s2-6-3-n-quiz1-q2","task":"Kva fortel modellen $y = 100 \\cdot 1{,}50^x$ om bakteriekulturen?","options":[{"id":"a","text":"Han veks med 150 bakteriar per time","isCorrect":false},{"id":"b","text":"Han startar på 150 bakteriar","isCorrect":false},{"id":"c","text":"Han doblar seg kvar halvtime","isCorrect":false},{"id":"d","text":"Han startar på 100 bakteriar og veks ca. 50 % per time","isCorrect":true}],"solution":"$a = 100$ er startverdien ($x = 0$), og vekstfaktoren $b = 1{,}50$ betyr 50 % vekst per time."}]}},{"id":"s2-6-3-n-section2","type":"text","content":"## Potensmodellen og den logaritmiske modellen\n\nNeste oppdrag: biologilæraren viser ein tabell med kroppsvekt og hjartefrekvens for pattedyr. Ei mus på 0,03 kg har puls 600, ein kanin på 2 kg har 200, ein hund på 20 kg har 100, eit menneske på 70 kg har 72, og ein hest på 500 kg har 38. Her hjelper det ikkje å ta logaritmen berre av $y$ — men ein **potensiell modell** (power model) $y = a \\cdot x^b$ med $a > 0$ og $x > 0$ passar som hand i hanske. Logaritmen gir\n\n$$\\ln y = \\ln a + b \\cdot \\ln x$$\n\nsom er lineær i $X = \\ln x$ og $Y = \\ln y$. Vi køyrer altså lineær regresjon på $(\\ln x_i, \\ln y_i)$. For pattedyra gir det $b \\approx -0{,}27$ og $a = e^{5{,}295} \\approx 200$, altså modellen $y \\approx 200 \\cdot x^{-0{,}27}$. Større dyr har lågare hjartefrekvens, og samanhengen blir kalla **allometrisk skalering**. Potensmodellar er nettopp skaleringslover: når $x$ doblar seg, mangedoblar $y$ seg med faktoren $2^b$.\n\nDen tredje modellen er den **logaritmiske**: $y = a + b \\cdot \\ln x$ for $x > 0$. Han er allereie lineær i $X = \\ln x$, så vi brukar lineær regresjon direkte på $(\\ln x_i, y_i)$. Kjenneteiknet er rask vekst i byrjinga og deretter avtakande vekst — perfekt for situasjonar med metning eller avtakande grensenytte. Eit eksempel: erfaring og lønn for ei gruppe tilsette (1 år: 400 tusen, 2 år: 450, 5 år: 520, 10 år: 570, 20 år: 620) gir modellen $y = 401{,}6 + 72{,}6 \\cdot \\ln x$. Tolkinga er tankevekkjande: frå 1 til 2 års erfaring stig lønna ca. 50 tusen — men du må gå frå 10 til 20 år for å få den same auken igjen. Det trengst stadig fleire år for same lønnshopp."},{"id":"s2-6-3-n-quiz2","type":"exercise","exercise":{"id":"s2-6-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på potensiell og logaritmisk regresjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-3-n-quiz2-q0","task":"Kva transformerte data brukar vi for å tilpasse potensmodellen $y = a \\cdot x^b$?","options":[{"id":"a","text":"$(x, \\ln y)$","isCorrect":false},{"id":"b","text":"$(\\ln x, \\ln y)$","isCorrect":true},{"id":"c","text":"$(\\ln x, y)$","isCorrect":false},{"id":"d","text":"$(x, y^2)$","isCorrect":false}],"solution":"Logaritmen gir $\\ln y = \\ln a + b \\ln x$ — lineær i både $\\ln x$ og $\\ln y$. Difor regresjon på $(\\ln x_i, \\ln y_i)$."},{"id":"s2-6-3-n-quiz2-q1","task":"For pattedyra fann vi $y \\approx 200 \\cdot x^{-0{,}27}$. Kva betyr den negative eksponenten?","options":[{"id":"a","text":"Modellen er ugyldig for store dyr","isCorrect":false},{"id":"b","text":"Hjartefrekvensen er negativ for små dyr","isCorrect":false},{"id":"c","text":"Hjartefrekvensen avtek når kroppsvekta aukar","isCorrect":true},{"id":"d","text":"Korrelasjonen er null","isCorrect":false}],"solution":"Negativ eksponent betyr at $y$ avtek når $x$ aukar: større dyr har lågare puls. Dette er allometrisk skalering."},{"id":"s2-6-3-n-quiz2-q2","task":"Kva modell passar best for «rask vekst først, deretter avtakande vekst mot metning»?","options":[{"id":"a","text":"Lineær $y = ax + b$","isCorrect":false},{"id":"b","text":"Eksponentiell $y = a \\cdot b^x$ med $b > 1$","isCorrect":false},{"id":"c","text":"Potensiell $y = ax^b$ med $b > 1$","isCorrect":false},{"id":"d","text":"Logaritmisk $y = a + b \\ln x$","isCorrect":true}],"solution":"Den logaritmiske modellen veks raskt for små $x$ og stadig langsamare etterpå — typisk for avtakande grensenytte, som lønn mot erfaring."},{"id":"s2-6-3-n-quiz2-q3","task":"Den logaritmiske modellen $y = a + b \\ln x$ blir tilpassa ved lineær regresjon på …","options":[{"id":"a","text":"$(\\ln x, y)$","isCorrect":true},{"id":"b","text":"$(x, \\ln y)$","isCorrect":false},{"id":"c","text":"$(\\ln x, \\ln y)$","isCorrect":false},{"id":"d","text":"$(y, \\ln x)$","isCorrect":false}],"solution":"Modellen er allereie lineær i $X = \\ln x$: $y = a + bX$. Vi transformerer berre $x$-verdiane."}]}},{"id":"s2-6-3-n-section3","type":"text","content":"## Kva modell vinn?\n\nTilbake på laben har du no to kandidatar for bakteriedataa: den lineære $\\hat{y} = 98x + 72$ og den eksponentielle $\\hat{y} = 100 \\cdot 1{,}50^x$. Korleis vel du? Fire kriterium hjelper deg.\n\nFørst **$R^2$-samanlikning**: rekn ut forklaringsgraden for kvar modell — høgast $R^2$ gir best tilpassing. Her vinn den eksponentielle med $R^2 \\approx 0{,}998$ mot $0{,}970$ til den lineære. Ein viktig detalj: samanlikn $R^2$ rekna for $y$ mot $\\hat{y}$ i originale einingar, ikkje for dei lineariserte variablane — det siste gir berre ei tilnærming.\n\nDeretter **residualplottet**: residuala til den lineære modellen vekslar systematisk (negativ–positiv–negativ–positiv–negativ), eit bua mønster, medan residuala til den eksponentielle modellen ligg jamt rundt null. Vel modellen med minst systematikk.\n\nSå den **faglege vurderinga**: kva modell gir meining i konteksten? Bakteriar deler seg med konstant rate, så eksponentiell vekst er biologisk grunngitt. Motsett er eksponentiell vekst *ikkje* rimeleg for til dømes folkevekst over lang tid. Og til slutt **prediksjon**: gir modellen rimelege svar for dei $x$-verdiane du faktisk bryr deg om?\n\nAlt dette kan samlast i ei hugseliste for linearisering: eksponentiell $y = a \\cdot b^x$ blir lineær i plottet $(x, \\ln y)$, potensiell $y = a \\cdot x^b$ i plottet $(\\ln x, \\ln y)$, og logaritmisk $y = a + b\\ln x$ i plottet $(\\ln x, y)$. Kvifor gjer vi alt dette? Fordi lineær regresjon med minste kvadraters metode er enkel, veletablert og har gode statistiske eigenskapar — ved å transformere dataa gjenbrukar vi dei same verktøya overalt."},{"id":"s2-6-3-n-quiz3","type":"exercise","exercise":{"id":"s2-6-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på modellval:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-3-n-quiz3-q0","task":"Lineær modell gir $R^2 = 0{,}970$, eksponentiell gir $R^2 = 0{,}998$ for bakteriedataa. Kva bør du i tillegg sjekke før du vel?","options":[{"id":"a","text":"At begge modellane har same konstantledd","isCorrect":false},{"id":"b","text":"Residualplott og om modellen er fagleg rimeleg","isCorrect":true},{"id":"c","text":"At $r$ er negativ","isCorrect":false},{"id":"d","text":"Ingenting — høgast $R^2$ avgjer alltid åleine","isCorrect":false}],"solution":"$R^2$ er eitt kriterium, men residualplottet (minst systematisk mønster) og fagleg vurdering (bakteriar deler seg med konstant rate) høyrer med i eit godt modellval."},{"id":"s2-6-3-n-quiz3-q1","task":"Data viser eit lineært mønster når du plottar $(\\ln x, \\ln y)$. Kva modelltype passar?","options":[{"id":"a","text":"Logaritmisk","isCorrect":false},{"id":"b","text":"Lineær","isCorrect":false},{"id":"c","text":"Potensiell $y = ax^b$","isCorrect":true},{"id":"d","text":"Eksponentiell $y = ab^x$","isCorrect":false}],"solution":"Log-log-linearitet er signaturen til potensmodellen: $\\ln y = \\ln a + b \\ln x$ er lineær i $\\ln x$ og $\\ln y$."},{"id":"s2-6-3-n-quiz3-q2","task":"Kvifor lineariserer vi ikkje-lineære modellar?","options":[{"id":"a","text":"For å kunne gjenbruke minste kvadraters metode og verktøya frå lineær regresjon","isCorrect":true},{"id":"b","text":"Fordi ikkje-lineære modellar alltid er feil","isCorrect":false},{"id":"c","text":"For å gjere $R^2$ større","isCorrect":false},{"id":"d","text":"Fordi logaritmar fjernar alle residual","isCorrect":false}],"solution":"Linearisering omformar problemet slik at den enkle, veletablerte lineære regresjonen kan brukast. Etterpå transformerer vi parametrane tilbake."}]}},{"id":"s2-6-3-n-summary","type":"text","content":"## Oppsummering: logaritmen som nøkkel\n\nForteljinga byrja med ei rett linje som ikkje passa til bakterieveksten, og enda med ei heil verktøykasse. Dei tre sentrale ikkje-lineære modellane i S2 er den **eksponentielle** $y = a \\cdot b^x$, den **potensielle** $y = a \\cdot x^b$ og den **logaritmiske** $y = a + b \\ln x$. Felles for dei alle er at logaritmen forvandlar dei til rette linjer: eksponentiell blir lineær i $(x, \\ln y)$ med $b = e^B$ og $a = e^A$, potensiell blir lineær i $(\\ln x, \\ln y)$, og logaritmisk er allereie lineær i $(\\ln x, y)$.\n\nDermed kan minste kvadraters metode frå lineær regresjon gjenbrukast på transformerte data — det er heile poenget med **linearisering**. Bakteriane følgde $y = 100 \\cdot 1{,}50^x$ (50 % vekst per time), pattedyrpulsen følgde skaleringsloven $y \\approx 200 \\cdot x^{-0{,}27}$, og lønnsutviklinga følgde $y = 401{,}6 + 72{,}6 \\ln x$ med stadig mindre att for kvart ekstra år.\n\nNår fleire modellar konkurrerer, vel vi med fire kriterium: høgast $R^2$ (rekna i originale einingar), minst systematikk i residualplottet, fagleg rimelegheit og fornuftige prediksjonar. Ein modell er ikkje berre ei kurve som treffer punkta — han er ein påstand om korleis verda fungerer, og den beste modellen er den som både passar dataa og gir meining."}],"exercises":[],"_meta":{"sourceHash":"51f61625cd6269e3","translatedAt":"2026-06-20T09:34:22.773Z","model":"claude-code-agent","strings":77,"tm":{"20ab28ad90d865ae":"Ikkje-lineær regresjon","b195b06d1ed59702":"Narrativ versjon","710d90569304859c":"Ei forteljing frå naturfagslaben om bakteriar, pattedyrpuls og lønnsvekst — og om korleis logaritmen forvandlar eksponentielle, potensielle og logaritmiske samanhengar til rette linjer.","1d43cdc7e73fd10f":"tilpasse eksponentiell, potensiell og logaritmisk regresjonsmodell til data","220c93c60a019357":"velje beste modell ved hjelp av R²-samanlikning","aca021d24d28983f":"linearisere ikkje-lineære modellar ved hjelp av logaritmar","f3871a98b113a073":"## Når den rette linja ikkje strekk til\n\nPå naturfagslaben dyrkar klassen din bakteriar. De tel kvar time: 100, 150, 220, 340, 500. Du prøver pliktskuldig å leggje ei rett linje gjennom punkta, men residualplottet viser eit tydeleg bua mønster — linja undervurderer veksten i begge endane og overvurderer han på midten. Det er naturen si måte å seie: «dette er ikkje lineært».\n\nMange fenomen i røyndommen følgjer andre mønster enn den rette linja. Bakterievekst er **eksponentiell**, planetbanar og skaleringslover i biologien er **potensielle**, og avtakande avkastning i økonomien er ofte **logaritmisk**. Når residualplottet frå ein lineær modell viser systematisk krumming, er det på tide å vurdere ein ikkje-lineær modell.\n\nDei tre vanlegaste ikkje-lineære modellane i S2 er den eksponentielle $y = a \\cdot b^x$, den potensielle $y = a \\cdot x^b$ og den logaritmiske $y = a + b \\cdot \\ln x$. Det fine er at vi ikkje treng ny matematikk for å tilpasse dei: med eit smart logaritmetriks — **linearisering** — kan vi gjenbruke heile verktøykassa frå lineær regresjon. Det er dette denne forteljinga handlar om.","b94fef93a9e98287":"## Eksponentiell regresjon og lineariseringstrikset\n\nEin **eksponentiell modell** har forma $y = a \\cdot b^x$ der $a > 0$, $b > 0$ og $b \\neq 1$. Trikset for å tilpasse han er å ta logaritmen på begge sider:\n\n$$\\ln y = \\ln a + x \\cdot \\ln b$$\n\nSet vi $Y = \\ln y$, $A = \\ln a$ og $B = \\ln b$, står vi igjen med $Y = A + Bx$ — ei rett linje i $x$ og $Y$! Vi kan altså køyre heilt vanleg lineær regresjon på dei transformerte dataa $(x_i, \\ln y_i)$, og etterpå hente tilbake dei opphavlege parametrane med $b = e^B$ og $a = e^A$.\n\nLa oss gjere det med bakteriane. Vi reknar ut $\\ln y$ for kvart punkt: $\\ln 100 = 4{,}605$, $\\ln 150 = 5{,}011$, $\\ln 220 = 5{,}394$, $\\ln 340 = 5{,}829$ og $\\ln 500 = 6{,}215$. Ser du kor jamt desse stig? Lineær regresjon på $(x, \\ln y)$ gir stigingstal $B \\approx 0{,}403$ og konstantledd $A \\approx 4{,}605$. Tilbake til dei opphavlege parametrane: $b = e^{0{,}403} \\approx 1{,}50$ og $a = e^{4{,}605} \\approx 100$.\n\nModellen blir $y = 100 \\cdot 1{,}50^x$: kulturen starta på 100 bakteriar og veks med omtrent 50 % per time. Det stemmer påfallande godt med teljingane — og no *forstår* vi tala i staden for berre å sjå på dei.","3e72b682cf36a2e3":"Test deg sjølv på eksponentiell regresjon og linearisering:","4097889236a2af26":"placeholder","cf8f8d34fccc2252":"Korleis blir den eksponentielle modellen $y = a \\cdot b^x$ linearisert?","4dd4fc20bbe09a6d":"Plott $(\\ln x, y)$","a1027de14e7683e8":"Plott $(\\ln x, \\ln y)$","f8f32e4430b30770":"Plott $(x, \\ln y)$","346ec9edc05c82c1":"Plott $(x^2, y)$","5c582c5849d2bc4b":"Logaritmen gir $\\ln y = \\ln a + x \\ln b$, som er lineær i $x$ og $\\ln y$. Vi brukar difor lineær regresjon på punkta $(x_i, \\ln y_i)$.","3b0398ebcb105970":"Linearisering av eksponentielle data gir linja $\\ln y = 2 + 0{,}5x$. Kva er $b$ i modellen $y = a \\cdot b^x$?","6e06aee00f8344e7":"$b = e^{0{,}5} \\approx 1{,}65$","5a1ad2a4ce73f84f":"$b = 0{,}5$","6a1506a95734c5d2":"$b = e^2 \\approx 7{,}39$","83704dcb4a1ce6a0":"$b = 2$","fe6c81e6811a1778":"Stigingstalet i den lineariserte modellen er $B = \\ln b$, så $b = e^B = e^{0{,}5} \\approx 1{,}65$. Konstantleddet gir $a = e^2 \\approx 7{,}39$.","9c709b384f604e14":"Kva fortel modellen $y = 100 \\cdot 1{,}50^x$ om bakteriekulturen?","c51f0c3e7d7b764d":"Han veks med 150 bakteriar per time","ab3615f7440c857d":"Han startar på 150 bakteriar","9a951cc06ac7adcf":"Han doblar seg kvar halvtime","6b8ed97125900ef7":"Han startar på 100 bakteriar og veks ca. 50 % per time","f59d9becdada00a6":"$a = 100$ er startverdien ($x = 0$), og vekstfaktoren $b = 1{,}50$ betyr 50 % vekst per time.","93d442aad56b5ead":"## Potensmodellen og den logaritmiske modellen\n\nNeste oppdrag: biologilæraren viser ein tabell med kroppsvekt og hjartefrekvens for pattedyr. Ei mus på 0,03 kg har puls 600, ein kanin på 2 kg har 200, ein hund på 20 kg har 100, eit menneske på 70 kg har 72, og ein hest på 500 kg har 38. Her hjelper det ikkje å ta logaritmen berre av $y$ — men ein **potensiell modell** (power model) $y = a \\cdot x^b$ med $a > 0$ og $x > 0$ passar som hand i hanske. Logaritmen gir\n\n$$\\ln y = \\ln a + b \\cdot \\ln x$$\n\nsom er lineær i $X = \\ln x$ og $Y = \\ln y$. Vi køyrer altså lineær regresjon på $(\\ln x_i, \\ln y_i)$. For pattedyra gir det $b \\approx -0{,}27$ og $a = e^{5{,}295} \\approx 200$, altså modellen $y \\approx 200 \\cdot x^{-0{,}27}$. Større dyr har lågare hjartefrekvens, og samanhengen blir kalla **allometrisk skalering**. Potensmodellar er nettopp skaleringslover: når $x$ doblar seg, mangedoblar $y$ seg med faktoren $2^b$.\n\nDen tredje modellen er den **logaritmiske**: $y = a + b \\cdot \\ln x$ for $x > 0$. Han er allereie lineær i $X = \\ln x$, så vi brukar lineær regresjon direkte på $(\\ln x_i, y_i)$. Kjenneteiknet er rask vekst i byrjinga og deretter avtakande vekst — perfekt for situasjonar med metning eller avtakande grensenytte. Eit eksempel: erfaring og lønn for ei gruppe tilsette (1 år: 400 tusen, 2 år: 450, 5 år: 520, 10 år: 570, 20 år: 620) gir modellen $y = 401{,}6 + 72{,}6 \\cdot \\ln x$. Tolkinga er tankevekkjande: frå 1 til 2 års erfaring stig lønna ca. 50 tusen — men du må gå frå 10 til 20 år for å få den same auken igjen. Det trengst stadig fleire år for same lønnshopp.","702537849facb671":"Test deg sjølv på potensiell og logaritmisk regresjon:","a8d071d069f354b6":"Kva transformerte data brukar vi for å tilpasse potensmodellen $y = a \\cdot x^b$?","1c60fe895bd3e5ce":"$(x, \\ln y)$","4037608deadb9a85":"$(\\ln x, \\ln y)$","1b3fc8720906f2d4":"$(\\ln x, y)$","88c68def196de678":"$(x, y^2)$","0dea88bcce0c5a69":"Logaritmen gir $\\ln y = \\ln a + b \\ln x$ — lineær i både $\\ln x$ og $\\ln y$. Difor regresjon på $(\\ln x_i, \\ln y_i)$.","d8fc7f53316d770a":"For pattedyra fann vi $y \\approx 200 \\cdot x^{-0{,}27}$. Kva betyr den negative eksponenten?","880468f13d13cf48":"Modellen er ugyldig for store dyr","dc16ab1292216a55":"Hjartefrekvensen er negativ for små dyr","16931b9736b26029":"Hjartefrekvensen avtek når kroppsvekta aukar","9e401118c9188a4f":"Korrelasjonen er null","1c74e774a3acfa09":"Negativ eksponent betyr at $y$ avtek når $x$ aukar: større dyr har lågare puls. Dette er allometrisk skalering.","26efd13bea39c657":"Kva modell passar best for «rask vekst først, deretter avtakande vekst mot metning»?","217586aedcfd0aef":"Lineær $y = ax + b$","71051df16ef40182":"Eksponentiell $y = a \\cdot b^x$ med $b > 1$","8a71d33adeb2d90e":"Potensiell $y = ax^b$ med $b > 1$","25299b612e24e7ca":"Logaritmisk $y = a + b \\ln x$","46577d490a3bc4b8":"Den logaritmiske modellen veks raskt for små $x$ og stadig langsamare etterpå — typisk for avtakande grensenytte, som lønn mot erfaring.","f28f6b2f1f85f23f":"Den logaritmiske modellen $y = a + b \\ln x$ blir tilpassa ved lineær regresjon på …","e1d3c0c6560a06cf":"$(y, \\ln x)$","18398f7e34c35289":"Modellen er allereie lineær i $X = \\ln x$: $y = a + bX$. Vi transformerer berre $x$-verdiane.","6e43b826ac792f8a":"## Kva modell vinn?\n\nTilbake på laben har du no to kandidatar for bakteriedataa: den lineære $\\hat{y} = 98x + 72$ og den eksponentielle $\\hat{y} = 100 \\cdot 1{,}50^x$. Korleis vel du? Fire kriterium hjelper deg.\n\nFørst **$R^2$-samanlikning**: rekn ut forklaringsgraden for kvar modell — høgast $R^2$ gir best tilpassing. Her vinn den eksponentielle med $R^2 \\approx 0{,}998$ mot $0{,}970$ til den lineære. Ein viktig detalj: samanlikn $R^2$ rekna for $y$ mot $\\hat{y}$ i originale einingar, ikkje for dei lineariserte variablane — det siste gir berre ei tilnærming.\n\nDeretter **residualplottet**: residuala til den lineære modellen vekslar systematisk (negativ–positiv–negativ–positiv–negativ), eit bua mønster, medan residuala til den eksponentielle modellen ligg jamt rundt null. Vel modellen med minst systematikk.\n\nSå den **faglege vurderinga**: kva modell gir meining i konteksten? Bakteriar deler seg med konstant rate, så eksponentiell vekst er biologisk grunngitt. Motsett er eksponentiell vekst *ikkje* rimeleg for til dømes folkevekst over lang tid. Og til slutt **prediksjon**: gir modellen rimelege svar for dei $x$-verdiane du faktisk bryr deg om?\n\nAlt dette kan samlast i ei hugseliste for linearisering: eksponentiell $y = a \\cdot b^x$ blir lineær i plottet $(x, \\ln y)$, potensiell $y = a \\cdot x^b$ i plottet $(\\ln x, \\ln y)$, og logaritmisk $y = a + b\\ln x$ i plottet $(\\ln x, y)$. Kvifor gjer vi alt dette? Fordi lineær regresjon med minste kvadraters metode er enkel, veletablert og har gode statistiske eigenskapar — ved å transformere dataa gjenbrukar vi dei same verktøya overalt.","acae520d11c12127":"Test deg sjølv på modellval:","f3e625b9ead209c1":"Lineær modell gir $R^2 = 0{,}970$, eksponentiell gir $R^2 = 0{,}998$ for bakteriedataa. Kva bør du i tillegg sjekke før du vel?","ce554cb3780a6875":"At begge modellane har same konstantledd","2cc5fe3e5d459006":"Residualplott og om modellen er fagleg rimeleg","7617d1e1896223b4":"At $r$ er negativ","6371262248f850ab":"Ingenting — høgast $R^2$ avgjer alltid åleine","01c2918eff0c2646":"$R^2$ er eitt kriterium, men residualplottet (minst systematisk mønster) og fagleg vurdering (bakteriar deler seg med konstant rate) høyrer med i eit godt modellval.","3c4d3bce50521be9":"Data viser eit lineært mønster når du plottar $(\\ln x, \\ln y)$. Kva modelltype passar?","a02e689507ed59f7":"Logaritmisk","d58da0a972a7c333":"Lineær","580bfd86389e2a66":"Potensiell $y = ax^b$","a87a9c436e0ce5e0":"Eksponentiell $y = ab^x$","9b3bbf3155807796":"Log-log-linearitet er signaturen til potensmodellen: $\\ln y = \\ln a + b \\ln x$ er lineær i $\\ln x$ og $\\ln y$.","3d031c405d55a234":"Kvifor lineariserer vi ikkje-lineære modellar?","0e1f39851f854478":"For å kunne gjenbruke minste kvadraters metode og verktøya frå lineær regresjon","7b7698a982d9cef5":"Fordi ikkje-lineære modellar alltid er feil","b98ab68469944ac8":"For å gjere $R^2$ større","1ef58c3baba3a345":"Fordi logaritmar fjernar alle residual","04be7de5a0a5223e":"Linearisering omformar problemet slik at den enkle, veletablerte lineære regresjonen kan brukast. Etterpå transformerer vi parametrane tilbake.","6e7b0f71f4f92205":"## Oppsummering: logaritmen som nøkkel\n\nForteljinga byrja med ei rett linje som ikkje passa til bakterieveksten, og enda med ei heil verktøykasse. Dei tre sentrale ikkje-lineære modellane i S2 er den **eksponentielle** $y = a \\cdot b^x$, den **potensielle** $y = a \\cdot x^b$ og den **logaritmiske** $y = a + b \\ln x$. Felles for dei alle er at logaritmen forvandlar dei til rette linjer: eksponentiell blir lineær i $(x, \\ln y)$ med $b = e^B$ og $a = e^A$, potensiell blir lineær i $(\\ln x, \\ln y)$, og logaritmisk er allereie lineær i $(\\ln x, y)$.\n\nDermed kan minste kvadraters metode frå lineær regresjon gjenbrukast på transformerte data — det er heile poenget med **linearisering**. Bakteriane følgde $y = 100 \\cdot 1{,}50^x$ (50 % vekst per time), pattedyrpulsen følgde skaleringsloven $y \\approx 200 \\cdot x^{-0{,}27}$, og lønnsutviklinga følgde $y = 401{,}6 + 72{,}6 \\ln x$ med stadig mindre att for kvart ekstra år.\n\nNår fleire modellar konkurrerer, vel vi med fire kriterium: høgast $R^2$ (rekna i originale einingar), minst systematikk i residualplottet, fagleg rimelegheit og fornuftige prediksjonar. Ein modell er ikkje berre ei kurve som treffer punkta — han er ein påstand om korleis verda fungerer, og den beste modellen er den som både passar dataa og gir meining."}}}
+{
+  "id": "s2-6-3-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "6.3",
+  "title": "Ikkje-lineær regresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing frå naturfagslaben om bakteriar, pattedyrpuls og lønnsvekst — og om korleis logaritmen forvandlar eksponentielle, potensielle og logaritmiske samanhengar til rette linjer.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "tilpasse eksponentiell, potensiell og logaritmisk regresjonsmodell til data",
+    "velje beste modell ved hjelp av R²-samanlikning",
+    "linearisere ikkje-lineære modellar ved hjelp av logaritmar"
+  ],
+  "linkedChapterId": "s2-6-3",
+  "content": [
+    {
+      "id": "s2-6-3-n-intro",
+      "type": "text",
+      "content": "## Når den rette linja ikkje strekk til\n\nPå naturfagslaben dyrkar klassen din bakteriar. De tel kvar time: 100, 150, 220, 340, 500. Du prøver pliktskuldig å leggje ei rett linje gjennom punkta, men residualplottet viser eit tydeleg bua mønster — linja undervurderer veksten i begge endane og overvurderer han på midten. Det er naturen si måte å seie: «dette er ikkje lineært».\n\nMange fenomen i røyndommen følgjer andre mønster enn den rette linja. Bakterievekst er **eksponentiell**, planetbanar og skaleringslover i biologien er **potensielle**, og avtakande avkastning i økonomien er ofte **logaritmisk**. Når residualplottet frå ein lineær modell viser systematisk krumming, er det på tide å vurdere ein ikkje-lineær modell.\n\nDei tre vanlegaste ikkje-lineære modellane i S2 er den eksponentielle $y = a \\cdot b^x$, den potensielle $y = a \\cdot x^b$ og den logaritmiske $y = a + b \\cdot \\ln x$. Det fine er at vi ikkje treng ny matematikk for å tilpasse dei: med eit smart logaritmetriks — **linearisering** — kan vi gjenbruke heile verktøykassa frå lineær regresjon. Det er dette denne forteljinga handlar om."
+    },
+    {
+      "id": "s2-6-3-n-section1",
+      "type": "text",
+      "content": "## Eksponentiell regresjon og lineariseringstrikset\n\nEin **eksponentiell modell** har forma $y = a \\cdot b^x$ der $a > 0$, $b > 0$ og $b \\neq 1$. Trikset for å tilpasse han er å ta logaritmen på begge sider:\n\n$$\\ln y = \\ln a + x \\cdot \\ln b$$\n\nSet vi $Y = \\ln y$, $A = \\ln a$ og $B = \\ln b$, står vi igjen med $Y = A + Bx$ — ei rett linje i $x$ og $Y$! Vi kan altså køyre heilt vanleg lineær regresjon på dei transformerte dataa $(x_i, \\ln y_i)$, og etterpå hente tilbake dei opphavlege parametrane med $b = e^B$ og $a = e^A$.\n\nLa oss gjere det med bakteriane. Vi reknar ut $\\ln y$ for kvart punkt: $\\ln 100 = 4{,}605$, $\\ln 150 = 5{,}011$, $\\ln 220 = 5{,}394$, $\\ln 340 = 5{,}829$ og $\\ln 500 = 6{,}215$. Ser du kor jamt desse stig? Lineær regresjon på $(x, \\ln y)$ gir stigingstal $B \\approx 0{,}403$ og konstantledd $A \\approx 4{,}605$. Tilbake til dei opphavlege parametrane: $b = e^{0{,}403} \\approx 1{,}50$ og $a = e^{4{,}605} \\approx 100$.\n\nModellen blir $y = 100 \\cdot 1{,}50^x$: kulturen starta på 100 bakteriar og veks med omtrent 50 % per time. Det stemmer påfallande godt med teljingane — og no *forstår* vi tala i staden for berre å sjå på dei."
+    },
+    {
+      "id": "s2-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eksponentiell regresjon og linearisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-3-n-quiz1-q0",
+            "task": "Korleis blir den eksponentielle modellen $y = a \\cdot b^x$ linearisert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Plott $(\\ln x, y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Plott $(\\ln x, \\ln y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Plott $(x^2, y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Plott $(x, \\ln y)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Logaritmen gir $\\ln y = \\ln a + x \\ln b$, som er lineær i $x$ og $\\ln y$. Vi brukar difor lineær regresjon på punkta $(x_i, \\ln y_i)$."
+          },
+          {
+            "id": "s2-6-3-n-quiz1-q1",
+            "task": "Linearisering av eksponentielle data gir linja $\\ln y = 2 + 0{,}5x$. Kva er $b$ i modellen $y = a \\cdot b^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b = e^{0{,}5} \\approx 1{,}65$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$b = 0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = e^2 \\approx 7{,}39$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$b = 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigingstalet i den lineariserte modellen er $B = \\ln b$, så $b = e^B = e^{0{,}5} \\approx 1{,}65$. Konstantleddet gir $a = e^2 \\approx 7{,}39$."
+          },
+          {
+            "id": "s2-6-3-n-quiz1-q2",
+            "task": "Kva fortel modellen $y = 100 \\cdot 1{,}50^x$ om bakteriekulturen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han veks med 150 bakteriar per time",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han startar på 100 bakteriar og veks ca. 50 % per time",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han startar på 150 bakteriar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han doblar seg kvar halvtime",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a = 100$ er startverdien ($x = 0$), og vekstfaktoren $b = 1{,}50$ betyr 50 % vekst per time."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-3-n-section2",
+      "type": "text",
+      "content": "## Potensmodellen og den logaritmiske modellen\n\nNeste oppdrag: biologilæraren viser ein tabell med kroppsvekt og hjartefrekvens for pattedyr. Ei mus på 0,03 kg har puls 600, ein kanin på 2 kg har 200, ein hund på 20 kg har 100, eit menneske på 70 kg har 72, og ein hest på 500 kg har 38. Her hjelper det ikkje å ta logaritmen berre av $y$ — men ein **potensiell modell** (power model) $y = a \\cdot x^b$ med $a > 0$ og $x > 0$ passar som hand i hanske. Logaritmen gir\n\n$$\\ln y = \\ln a + b \\cdot \\ln x$$\n\nsom er lineær i $X = \\ln x$ og $Y = \\ln y$. Vi køyrer altså lineær regresjon på $(\\ln x_i, \\ln y_i)$. For pattedyra gir det $b \\approx -0{,}27$ og $a = e^{5{,}295} \\approx 200$, altså modellen $y \\approx 200 \\cdot x^{-0{,}27}$. Større dyr har lågare hjartefrekvens, og samanhengen blir kalla **allometrisk skalering**. Potensmodellar er nettopp skaleringslover: når $x$ doblar seg, mangedoblar $y$ seg med faktoren $2^b$.\n\nDen tredje modellen er den **logaritmiske**: $y = a + b \\cdot \\ln x$ for $x > 0$. Han er allereie lineær i $X = \\ln x$, så vi brukar lineær regresjon direkte på $(\\ln x_i, y_i)$. Kjenneteiknet er rask vekst i byrjinga og deretter avtakande vekst — perfekt for situasjonar med metning eller avtakande grensenytte. Eit eksempel: erfaring og lønn for ei gruppe tilsette (1 år: 400 tusen, 2 år: 450, 5 år: 520, 10 år: 570, 20 år: 620) gir modellen $y = 401{,}6 + 72{,}6 \\cdot \\ln x$. Tolkinga er tankevekkjande: frå 1 til 2 års erfaring stig lønna ca. 50 tusen — men du må gå frå 10 til 20 år for å få den same auken igjen. Det trengst stadig fleire år for same lønnshopp."
+    },
+    {
+      "id": "s2-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på potensiell og logaritmisk regresjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-3-n-quiz2-q0",
+            "task": "Kva transformerte data brukar vi for å tilpasse potensmodellen $y = a \\cdot x^b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x, \\ln y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(\\ln x, y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(\\ln x, \\ln y)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(x, y^2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logaritmen gir $\\ln y = \\ln a + b \\ln x$ — lineær i både $\\ln x$ og $\\ln y$. Difor regresjon på $(\\ln x_i, \\ln y_i)$."
+          },
+          {
+            "id": "s2-6-3-n-quiz2-q1",
+            "task": "For pattedyra fann vi $y \\approx 200 \\cdot x^{-0{,}27}$. Kva betyr den negative eksponenten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellen er ugyldig for store dyr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hjartefrekvensen er negativ for små dyr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Korrelasjonen er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hjartefrekvensen avtek når kroppsvekta aukar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativ eksponent betyr at $y$ avtek når $x$ aukar: større dyr har lågare puls. Dette er allometrisk skalering."
+          },
+          {
+            "id": "s2-6-3-n-quiz2-q2",
+            "task": "Kva modell passar best for «rask vekst først, deretter avtakande vekst mot metning»?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Logaritmisk $y = a + b \\ln x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lineær $y = ax + b$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell $y = a \\cdot b^x$ med $b > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Potensiell $y = ax^b$ med $b > 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den logaritmiske modellen veks raskt for små $x$ og stadig langsamare etterpå — typisk for avtakande grensenytte, som lønn mot erfaring."
+          },
+          {
+            "id": "s2-6-3-n-quiz2-q3",
+            "task": "Den logaritmiske modellen $y = a + b \\ln x$ blir tilpassa ved lineær regresjon på …",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x, \\ln y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(\\ln x, y)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(\\ln x, \\ln y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(y, \\ln x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Modellen er allereie lineær i $X = \\ln x$: $y = a + bX$. Vi transformerer berre $x$-verdiane."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-3-n-section3",
+      "type": "text",
+      "content": "## Kva modell vinn?\n\nTilbake på laben har du no to kandidatar for bakteriedataa: den lineære $\\hat{y} = 98x + 72$ og den eksponentielle $\\hat{y} = 100 \\cdot 1{,}50^x$. Korleis vel du? Fire kriterium hjelper deg.\n\nFørst **$R^2$-samanlikning**: rekn ut forklaringsgraden for kvar modell — høgast $R^2$ gir best tilpassing. Her vinn den eksponentielle med $R^2 \\approx 0{,}998$ mot $0{,}970$ til den lineære. Ein viktig detalj: samanlikn $R^2$ rekna for $y$ mot $\\hat{y}$ i originale einingar, ikkje for dei lineariserte variablane — det siste gir berre ei tilnærming.\n\nDeretter **residualplottet**: residuala til den lineære modellen vekslar systematisk (negativ–positiv–negativ–positiv–negativ), eit bua mønster, medan residuala til den eksponentielle modellen ligg jamt rundt null. Vel modellen med minst systematikk.\n\nSå den **faglege vurderinga**: kva modell gir meining i konteksten? Bakteriar deler seg med konstant rate, så eksponentiell vekst er biologisk grunngitt. Motsett er eksponentiell vekst *ikkje* rimeleg for til dømes folkevekst over lang tid. Og til slutt **prediksjon**: gir modellen rimelege svar for dei $x$-verdiane du faktisk bryr deg om?\n\nAlt dette kan samlast i ei hugseliste for linearisering: eksponentiell $y = a \\cdot b^x$ blir lineær i plottet $(x, \\ln y)$, potensiell $y = a \\cdot x^b$ i plottet $(\\ln x, \\ln y)$, og logaritmisk $y = a + b\\ln x$ i plottet $(\\ln x, y)$. Kvifor gjer vi alt dette? Fordi lineær regresjon med minste kvadraters metode er enkel, veletablert og har gode statistiske eigenskapar — ved å transformere dataa gjenbrukar vi dei same verktøya overalt."
+    },
+    {
+      "id": "s2-6-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modellval:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-3-n-quiz3-q0",
+            "task": "Lineær modell gir $R^2 = 0{,}970$, eksponentiell gir $R^2 = 0{,}998$ for bakteriedataa. Kva bør du i tillegg sjekke før du vel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At begge modellane har same konstantledd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At $r$ er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Residualplott og om modellen er fagleg rimeleg",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingenting — høgast $R^2$ avgjer alltid åleine",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2$ er eitt kriterium, men residualplottet (minst systematisk mønster) og fagleg vurdering (bakteriar deler seg med konstant rate) høyrer med i eit godt modellval."
+          },
+          {
+            "id": "s2-6-3-n-quiz3-q1",
+            "task": "Data viser eit lineært mønster når du plottar $(\\ln x, \\ln y)$. Kva modelltype passar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Logaritmisk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eksponentiell $y = ab^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Potensiell $y = ax^b$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Log-log-linearitet er signaturen til potensmodellen: $\\ln y = \\ln a + b \\ln x$ er lineær i $\\ln x$ og $\\ln y$."
+          },
+          {
+            "id": "s2-6-3-n-quiz3-q2",
+            "task": "Kvifor lineariserer vi ikkje-lineære modellar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å kunne gjenbruke minste kvadraters metode og verktøya frå lineær regresjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi ikkje-lineære modellar alltid er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å gjere $R^2$ større",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi logaritmar fjernar alle residual",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Linearisering omformar problemet slik at den enkle, veletablerte lineære regresjonen kan brukast. Etterpå transformerer vi parametrane tilbake."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: logaritmen som nøkkel\n\nForteljinga byrja med ei rett linje som ikkje passa til bakterieveksten, og enda med ei heil verktøykasse. Dei tre sentrale ikkje-lineære modellane i S2 er den **eksponentielle** $y = a \\cdot b^x$, den **potensielle** $y = a \\cdot x^b$ og den **logaritmiske** $y = a + b \\ln x$. Felles for dei alle er at logaritmen forvandlar dei til rette linjer: eksponentiell blir lineær i $(x, \\ln y)$ med $b = e^B$ og $a = e^A$, potensiell blir lineær i $(\\ln x, \\ln y)$, og logaritmisk er allereie lineær i $(\\ln x, y)$.\n\nDermed kan minste kvadraters metode frå lineær regresjon gjenbrukast på transformerte data — det er heile poenget med **linearisering**. Bakteriane følgde $y = 100 \\cdot 1{,}50^x$ (50 % vekst per time), pattedyrpulsen følgde skaleringsloven $y \\approx 200 \\cdot x^{-0{,}27}$, og lønnsutviklinga følgde $y = 401{,}6 + 72{,}6 \\ln x$ med stadig mindre att for kvart ekstra år.\n\nNår fleire modellar konkurrerer, vel vi med fire kriterium: høgast $R^2$ (rekna i originale einingar), minst systematikk i residualplottet, fagleg rimelegheit og fornuftige prediksjonar. Ein modell er ikkje berre ei kurve som treffer punkta — han er ein påstand om korleis verda fungerer, og den beste modellen er den som både passar dataa og gir meining."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "51f61625cd6269e3",
+    "translatedAt": "2026-06-20T09:34:22.773Z",
+    "model": "claude-code-agent",
+    "strings": 77,
+    "tm": {
+      "20ab28ad90d865ae": "Ikkje-lineær regresjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "710d90569304859c": "Ei forteljing frå naturfagslaben om bakteriar, pattedyrpuls og lønnsvekst — og om korleis logaritmen forvandlar eksponentielle, potensielle og logaritmiske samanhengar til rette linjer.",
+      "1d43cdc7e73fd10f": "tilpasse eksponentiell, potensiell og logaritmisk regresjonsmodell til data",
+      "220c93c60a019357": "velje beste modell ved hjelp av R²-samanlikning",
+      "aca021d24d28983f": "linearisere ikkje-lineære modellar ved hjelp av logaritmar",
+      "f3871a98b113a073": "## Når den rette linja ikkje strekk til\n\nPå naturfagslaben dyrkar klassen din bakteriar. De tel kvar time: 100, 150, 220, 340, 500. Du prøver pliktskuldig å leggje ei rett linje gjennom punkta, men residualplottet viser eit tydeleg bua mønster — linja undervurderer veksten i begge endane og overvurderer han på midten. Det er naturen si måte å seie: «dette er ikkje lineært».\n\nMange fenomen i røyndommen følgjer andre mønster enn den rette linja. Bakterievekst er **eksponentiell**, planetbanar og skaleringslover i biologien er **potensielle**, og avtakande avkastning i økonomien er ofte **logaritmisk**. Når residualplottet frå ein lineær modell viser systematisk krumming, er det på tide å vurdere ein ikkje-lineær modell.\n\nDei tre vanlegaste ikkje-lineære modellane i S2 er den eksponentielle $y = a \\cdot b^x$, den potensielle $y = a \\cdot x^b$ og den logaritmiske $y = a + b \\cdot \\ln x$. Det fine er at vi ikkje treng ny matematikk for å tilpasse dei: med eit smart logaritmetriks — **linearisering** — kan vi gjenbruke heile verktøykassa frå lineær regresjon. Det er dette denne forteljinga handlar om.",
+      "b94fef93a9e98287": "## Eksponentiell regresjon og lineariseringstrikset\n\nEin **eksponentiell modell** har forma $y = a \\cdot b^x$ der $a > 0$, $b > 0$ og $b \\neq 1$. Trikset for å tilpasse han er å ta logaritmen på begge sider:\n\n$$\\ln y = \\ln a + x \\cdot \\ln b$$\n\nSet vi $Y = \\ln y$, $A = \\ln a$ og $B = \\ln b$, står vi igjen med $Y = A + Bx$ — ei rett linje i $x$ og $Y$! Vi kan altså køyre heilt vanleg lineær regresjon på dei transformerte dataa $(x_i, \\ln y_i)$, og etterpå hente tilbake dei opphavlege parametrane med $b = e^B$ og $a = e^A$.\n\nLa oss gjere det med bakteriane. Vi reknar ut $\\ln y$ for kvart punkt: $\\ln 100 = 4{,}605$, $\\ln 150 = 5{,}011$, $\\ln 220 = 5{,}394$, $\\ln 340 = 5{,}829$ og $\\ln 500 = 6{,}215$. Ser du kor jamt desse stig? Lineær regresjon på $(x, \\ln y)$ gir stigingstal $B \\approx 0{,}403$ og konstantledd $A \\approx 4{,}605$. Tilbake til dei opphavlege parametrane: $b = e^{0{,}403} \\approx 1{,}50$ og $a = e^{4{,}605} \\approx 100$.\n\nModellen blir $y = 100 \\cdot 1{,}50^x$: kulturen starta på 100 bakteriar og veks med omtrent 50 % per time. Det stemmer påfallande godt med teljingane — og no *forstår* vi tala i staden for berre å sjå på dei.",
+      "3e72b682cf36a2e3": "Test deg sjølv på eksponentiell regresjon og linearisering:",
+      "4097889236a2af26": "placeholder",
+      "cf8f8d34fccc2252": "Korleis blir den eksponentielle modellen $y = a \\cdot b^x$ linearisert?",
+      "4dd4fc20bbe09a6d": "Plott $(\\ln x, y)$",
+      "a1027de14e7683e8": "Plott $(\\ln x, \\ln y)$",
+      "f8f32e4430b30770": "Plott $(x, \\ln y)$",
+      "346ec9edc05c82c1": "Plott $(x^2, y)$",
+      "5c582c5849d2bc4b": "Logaritmen gir $\\ln y = \\ln a + x \\ln b$, som er lineær i $x$ og $\\ln y$. Vi brukar difor lineær regresjon på punkta $(x_i, \\ln y_i)$.",
+      "3b0398ebcb105970": "Linearisering av eksponentielle data gir linja $\\ln y = 2 + 0{,}5x$. Kva er $b$ i modellen $y = a \\cdot b^x$?",
+      "6e06aee00f8344e7": "$b = e^{0{,}5} \\approx 1{,}65$",
+      "5a1ad2a4ce73f84f": "$b = 0{,}5$",
+      "6a1506a95734c5d2": "$b = e^2 \\approx 7{,}39$",
+      "83704dcb4a1ce6a0": "$b = 2$",
+      "fe6c81e6811a1778": "Stigingstalet i den lineariserte modellen er $B = \\ln b$, så $b = e^B = e^{0{,}5} \\approx 1{,}65$. Konstantleddet gir $a = e^2 \\approx 7{,}39$.",
+      "9c709b384f604e14": "Kva fortel modellen $y = 100 \\cdot 1{,}50^x$ om bakteriekulturen?",
+      "c51f0c3e7d7b764d": "Han veks med 150 bakteriar per time",
+      "ab3615f7440c857d": "Han startar på 150 bakteriar",
+      "9a951cc06ac7adcf": "Han doblar seg kvar halvtime",
+      "6b8ed97125900ef7": "Han startar på 100 bakteriar og veks ca. 50 % per time",
+      "f59d9becdada00a6": "$a = 100$ er startverdien ($x = 0$), og vekstfaktoren $b = 1{,}50$ betyr 50 % vekst per time.",
+      "93d442aad56b5ead": "## Potensmodellen og den logaritmiske modellen\n\nNeste oppdrag: biologilæraren viser ein tabell med kroppsvekt og hjartefrekvens for pattedyr. Ei mus på 0,03 kg har puls 600, ein kanin på 2 kg har 200, ein hund på 20 kg har 100, eit menneske på 70 kg har 72, og ein hest på 500 kg har 38. Her hjelper det ikkje å ta logaritmen berre av $y$ — men ein **potensiell modell** (power model) $y = a \\cdot x^b$ med $a > 0$ og $x > 0$ passar som hand i hanske. Logaritmen gir\n\n$$\\ln y = \\ln a + b \\cdot \\ln x$$\n\nsom er lineær i $X = \\ln x$ og $Y = \\ln y$. Vi køyrer altså lineær regresjon på $(\\ln x_i, \\ln y_i)$. For pattedyra gir det $b \\approx -0{,}27$ og $a = e^{5{,}295} \\approx 200$, altså modellen $y \\approx 200 \\cdot x^{-0{,}27}$. Større dyr har lågare hjartefrekvens, og samanhengen blir kalla **allometrisk skalering**. Potensmodellar er nettopp skaleringslover: når $x$ doblar seg, mangedoblar $y$ seg med faktoren $2^b$.\n\nDen tredje modellen er den **logaritmiske**: $y = a + b \\cdot \\ln x$ for $x > 0$. Han er allereie lineær i $X = \\ln x$, så vi brukar lineær regresjon direkte på $(\\ln x_i, y_i)$. Kjenneteiknet er rask vekst i byrjinga og deretter avtakande vekst — perfekt for situasjonar med metning eller avtakande grensenytte. Eit eksempel: erfaring og lønn for ei gruppe tilsette (1 år: 400 tusen, 2 år: 450, 5 år: 520, 10 år: 570, 20 år: 620) gir modellen $y = 401{,}6 + 72{,}6 \\cdot \\ln x$. Tolkinga er tankevekkjande: frå 1 til 2 års erfaring stig lønna ca. 50 tusen — men du må gå frå 10 til 20 år for å få den same auken igjen. Det trengst stadig fleire år for same lønnshopp.",
+      "702537849facb671": "Test deg sjølv på potensiell og logaritmisk regresjon:",
+      "a8d071d069f354b6": "Kva transformerte data brukar vi for å tilpasse potensmodellen $y = a \\cdot x^b$?",
+      "1c60fe895bd3e5ce": "$(x, \\ln y)$",
+      "4037608deadb9a85": "$(\\ln x, \\ln y)$",
+      "1b3fc8720906f2d4": "$(\\ln x, y)$",
+      "88c68def196de678": "$(x, y^2)$",
+      "0dea88bcce0c5a69": "Logaritmen gir $\\ln y = \\ln a + b \\ln x$ — lineær i både $\\ln x$ og $\\ln y$. Difor regresjon på $(\\ln x_i, \\ln y_i)$.",
+      "d8fc7f53316d770a": "For pattedyra fann vi $y \\approx 200 \\cdot x^{-0{,}27}$. Kva betyr den negative eksponenten?",
+      "880468f13d13cf48": "Modellen er ugyldig for store dyr",
+      "dc16ab1292216a55": "Hjartefrekvensen er negativ for små dyr",
+      "16931b9736b26029": "Hjartefrekvensen avtek når kroppsvekta aukar",
+      "9e401118c9188a4f": "Korrelasjonen er null",
+      "1c74e774a3acfa09": "Negativ eksponent betyr at $y$ avtek når $x$ aukar: større dyr har lågare puls. Dette er allometrisk skalering.",
+      "26efd13bea39c657": "Kva modell passar best for «rask vekst først, deretter avtakande vekst mot metning»?",
+      "217586aedcfd0aef": "Lineær $y = ax + b$",
+      "71051df16ef40182": "Eksponentiell $y = a \\cdot b^x$ med $b > 1$",
+      "8a71d33adeb2d90e": "Potensiell $y = ax^b$ med $b > 1$",
+      "25299b612e24e7ca": "Logaritmisk $y = a + b \\ln x$",
+      "46577d490a3bc4b8": "Den logaritmiske modellen veks raskt for små $x$ og stadig langsamare etterpå — typisk for avtakande grensenytte, som lønn mot erfaring.",
+      "f28f6b2f1f85f23f": "Den logaritmiske modellen $y = a + b \\ln x$ blir tilpassa ved lineær regresjon på …",
+      "e1d3c0c6560a06cf": "$(y, \\ln x)$",
+      "18398f7e34c35289": "Modellen er allereie lineær i $X = \\ln x$: $y = a + bX$. Vi transformerer berre $x$-verdiane.",
+      "6e43b826ac792f8a": "## Kva modell vinn?\n\nTilbake på laben har du no to kandidatar for bakteriedataa: den lineære $\\hat{y} = 98x + 72$ og den eksponentielle $\\hat{y} = 100 \\cdot 1{,}50^x$. Korleis vel du? Fire kriterium hjelper deg.\n\nFørst **$R^2$-samanlikning**: rekn ut forklaringsgraden for kvar modell — høgast $R^2$ gir best tilpassing. Her vinn den eksponentielle med $R^2 \\approx 0{,}998$ mot $0{,}970$ til den lineære. Ein viktig detalj: samanlikn $R^2$ rekna for $y$ mot $\\hat{y}$ i originale einingar, ikkje for dei lineariserte variablane — det siste gir berre ei tilnærming.\n\nDeretter **residualplottet**: residuala til den lineære modellen vekslar systematisk (negativ–positiv–negativ–positiv–negativ), eit bua mønster, medan residuala til den eksponentielle modellen ligg jamt rundt null. Vel modellen med minst systematikk.\n\nSå den **faglege vurderinga**: kva modell gir meining i konteksten? Bakteriar deler seg med konstant rate, så eksponentiell vekst er biologisk grunngitt. Motsett er eksponentiell vekst *ikkje* rimeleg for til dømes folkevekst over lang tid. Og til slutt **prediksjon**: gir modellen rimelege svar for dei $x$-verdiane du faktisk bryr deg om?\n\nAlt dette kan samlast i ei hugseliste for linearisering: eksponentiell $y = a \\cdot b^x$ blir lineær i plottet $(x, \\ln y)$, potensiell $y = a \\cdot x^b$ i plottet $(\\ln x, \\ln y)$, og logaritmisk $y = a + b\\ln x$ i plottet $(\\ln x, y)$. Kvifor gjer vi alt dette? Fordi lineær regresjon med minste kvadraters metode er enkel, veletablert og har gode statistiske eigenskapar — ved å transformere dataa gjenbrukar vi dei same verktøya overalt.",
+      "acae520d11c12127": "Test deg sjølv på modellval:",
+      "f3e625b9ead209c1": "Lineær modell gir $R^2 = 0{,}970$, eksponentiell gir $R^2 = 0{,}998$ for bakteriedataa. Kva bør du i tillegg sjekke før du vel?",
+      "ce554cb3780a6875": "At begge modellane har same konstantledd",
+      "2cc5fe3e5d459006": "Residualplott og om modellen er fagleg rimeleg",
+      "7617d1e1896223b4": "At $r$ er negativ",
+      "6371262248f850ab": "Ingenting — høgast $R^2$ avgjer alltid åleine",
+      "01c2918eff0c2646": "$R^2$ er eitt kriterium, men residualplottet (minst systematisk mønster) og fagleg vurdering (bakteriar deler seg med konstant rate) høyrer med i eit godt modellval.",
+      "3c4d3bce50521be9": "Data viser eit lineært mønster når du plottar $(\\ln x, \\ln y)$. Kva modelltype passar?",
+      "a02e689507ed59f7": "Logaritmisk",
+      "d58da0a972a7c333": "Lineær",
+      "580bfd86389e2a66": "Potensiell $y = ax^b$",
+      "a87a9c436e0ce5e0": "Eksponentiell $y = ab^x$",
+      "9b3bbf3155807796": "Log-log-linearitet er signaturen til potensmodellen: $\\ln y = \\ln a + b \\ln x$ er lineær i $\\ln x$ og $\\ln y$.",
+      "3d031c405d55a234": "Kvifor lineariserer vi ikkje-lineære modellar?",
+      "0e1f39851f854478": "For å kunne gjenbruke minste kvadraters metode og verktøya frå lineær regresjon",
+      "7b7698a982d9cef5": "Fordi ikkje-lineære modellar alltid er feil",
+      "b98ab68469944ac8": "For å gjere $R^2$ større",
+      "1ef58c3baba3a345": "Fordi logaritmar fjernar alle residual",
+      "04be7de5a0a5223e": "Linearisering omformar problemet slik at den enkle, veletablerte lineære regresjonen kan brukast. Etterpå transformerer vi parametrane tilbake.",
+      "6e7b0f71f4f92205": "## Oppsummering: logaritmen som nøkkel\n\nForteljinga byrja med ei rett linje som ikkje passa til bakterieveksten, og enda med ei heil verktøykasse. Dei tre sentrale ikkje-lineære modellane i S2 er den **eksponentielle** $y = a \\cdot b^x$, den **potensielle** $y = a \\cdot x^b$ og den **logaritmiske** $y = a + b \\ln x$. Felles for dei alle er at logaritmen forvandlar dei til rette linjer: eksponentiell blir lineær i $(x, \\ln y)$ med $b = e^B$ og $a = e^A$, potensiell blir lineær i $(\\ln x, \\ln y)$, og logaritmisk er allereie lineær i $(\\ln x, y)$.\n\nDermed kan minste kvadraters metode frå lineær regresjon gjenbrukast på transformerte data — det er heile poenget med **linearisering**. Bakteriane følgde $y = 100 \\cdot 1{,}50^x$ (50 % vekst per time), pattedyrpulsen følgde skaleringsloven $y \\approx 200 \\cdot x^{-0{,}27}$, og lønnsutviklinga følgde $y = 401{,}6 + 72{,}6 \\ln x$ med stadig mindre att for kvart ekstra år.\n\nNår fleire modellar konkurrerer, vel vi med fire kriterium: høgast $R^2$ (rekna i originale einingar), minst systematikk i residualplottet, fagleg rimelegheit og fornuftige prediksjonar. Ein modell er ikkje berre ei kurve som treffer punkta — han er ein påstand om korleis verda fungerer, og den beste modellen er den som både passar dataa og gir meining."
+    }
+  }
+}

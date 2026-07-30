@@ -1,1 +1,263 @@
-{"id":"1p-9-1-narrativ","courseId":"1p","chapterNumber":"9.1","title":"Hva er en algoritme?","subtitle":"Narrativ versjon","description":"En fortelling om oppskrifter, veibeskrivelser og Euklids eldgamle triks -- om hva algoritmer er, og hvordan flytskjema og pseudokode beskriver dem.","estimatedMinutes":30,"competenceGoals":["formulere og løse problem ved hjelp av algoritmisk tenkning"],"linkedChapterId":"1p-9-1","content":[{"id":"1p-9-1-n-intro","type":"text","content":"## Oppskriften du følger uten å vite det\n\nHver gang du lager pannekaker etter en oppskrift, bruker du en algoritme. Når du forklarer en venn veien til skolen, beskriver du en algoritme. Og når du sorterer en kortstokk fra lavest til høyest, følger du en algoritme. En **algoritme** er rett og slett en presis, steg-for-steg-beskrivelse av hvordan man løser et problem eller utfører en oppgave.\n\nDet som gjør algoritmer spesielle, er presisjonen: De er så tydelige at hvem som helst -- eller en datamaskin -- kan følge dem og komme fram til riktig resultat. Mer formelt er en algoritme en endelig, ordnet sekvens av entydige instruksjoner som løser et bestemt problem. Fire egenskaper kjennetegner den: Den er **endelig** og stopper etter et bestemt antall steg. Hvert steg er **entydig**, uten rom for tolkning. Den kan ta inn data -- **input** -- og den gir et resultat -- **output**.\n\nTenk på en veibeskrivelse: «Gå ut døren og ta til venstre. Gå rett fram i 200 meter. Ta til høyre ved lyskrysset. Bygningen er den tredje på venstre side.» Klar rekkefølge, tydelige steg, et bestemt resultat -- alle algoritmens kjennetegn på plass. I dette kapittelet skal vi se hva som gjør en algoritme god, prøve noen klassiske matematiske algoritmer, og lære to måter å skrive dem ned på: flytskjema og pseudokode."},{"id":"1p-9-1-n-section1","type":"text","content":"## To klassikere: divisjon og Euklid\n\nLa oss se algoritmetenkningen brukt på ekte matematikk. Hvordan finner du ut hvor mange ganger 6 går opp i 47 -- uten å kunne svaret? En enkel algoritme: Trekk 6 fra 47 igjen og igjen, og tell hvor mange ganger du klarer det før resten blir mindre enn 6. Vi får $47 \\to 41 \\to 35 \\to 29 \\to 23 \\to 17 \\to 11 \\to 5$ -- sju subtraksjoner, og så står vi igjen med 5, som er mindre enn 6. Altså: $47 \\div 6 = 7$ med rest 5. Kontrollen stemmer: $7 \\cdot 6 + 5 = 47$. Hvert steg var entydig, og prosessen stoppet av seg selv -- en ekte algoritme.\n\nDen andre klassikeren er over 2300 år gammel: **Euklids algoritme** for å finne største felles faktor av to tall. Oppskriften: Del det største tallet på det minste, og erstatt det største med resten. Gjenta til resten er 0 -- da er det siste tallet du delte med, svaret.\n\nLa oss finne største felles faktor av 48 og 18. Først: $48 = 2 \\cdot 18 + 12$, rest 12. Så: $18 = 1 \\cdot 12 + 6$, rest 6. Til slutt: $12 = 2 \\cdot 6 + 0$ -- rest 0, og vi stopper. Det siste tallet vi delte med var **6**, så største felles faktor av 48 og 18 er 6. Sjekk: $48 = 6 \\cdot 8$ og $18 = 6 \\cdot 3$, og 8 og 3 har ingen felles faktorer. En eldgammel algoritme -- fortsatt i bruk i datamaskiner verden over."},{"id":"1p-9-1-n-quiz1","type":"exercise","exercise":{"id":"1p-9-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på algoritmer og klassiske eksempler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-9-1-n-quiz1-q0","task":"Hvilken egenskap MÅ en algoritme ha?","options":[{"id":"a","text":"Den må skrives i Python","isCorrect":false},{"id":"b","text":"Hvert steg må være entydig, og den må stoppe etter endelig mange steg","isCorrect":true},{"id":"c","text":"Den må ha minst ti steg","isCorrect":false},{"id":"d","text":"Den må bruke tall","isCorrect":false}],"solution":"En algoritme er en endelig, ordnet sekvens av entydige instruksjoner. Programmeringsspråk er bare én måte å skrive den på."},{"id":"1p-9-1-n-quiz1-q1","task":"Hva er resten når $47$ deles på $6$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$5$","isCorrect":true},{"id":"d","text":"$6$","isCorrect":false}],"solution":"$47 = 7 \\cdot 6 + 5$, så heltallsdivisjonen gir $7$ og resten er $5$."},{"id":"1p-9-1-n-quiz1-q2","task":"Bruk Euklids algoritme: Hva er største felles faktor av $48$ og $18$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$6$","isCorrect":true}],"solution":"$48 = 2 \\cdot 18 + 12$, $18 = 1 \\cdot 12 + 6$, $12 = 2 \\cdot 6 + 0$. Siste divisor er $6$."}]}},{"id":"1p-9-1-n-section2","type":"text","content":"## Å tegne og skrive algoritmer\n\nHvordan deler du en algoritme med andre? To verktøy dominerer. Det første er **flytskjemaet** -- en visuell fremstilling der hver figur har sin betydning: En oval markerer start og stopp, et rektangel er en handling eller beregning, en rombe (diamant) er et valg med ja/nei-svar, og pilene viser rekkefølgen. Vil du sjekke om et tall er partall, tegner du: start, les inn tallet, rombe med spørsmålet «er tallet delelig med 2?», og to piler ut -- ja-pilen til «skriv partall», nei-pilen til «skriv oddetall», før begge møtes i stopp.\n\nDet andre verktøyet er **pseudokode**: algoritmen skrevet med vanlige ord, uavhengig av programmeringsspråk -- en mellomting mellom norsk og programkode. Samme partallssjekk blir: LES inn tallet n. HVIS n er delelig med 2, SKRIV «partall», ELLERS SKRIV «oddetall». Innrykk viser hva som hører sammen, akkurat som i ekte kode.\n\nUansett verktøy bygges alle algoritmer av tre byggesteiner. **Sekvens**: instruksjoner etter hverandre. **Valg** (betingelse): ulike veier avhengig av om noe er sant -- ordene HVIS og ELLERS. Og **iterasjon** (løkke): å gjenta instruksjoner -- ordene FOR og SÅ LENGE. Med disse tre kan enhver algoritme beskrives. Et eksempel som bruker alle: SETT sum lik 0, FOR n fra 1 til 100, SETT sum lik sum pluss n. Etter løkken er summen $1 + 2 + \\ldots + 100 = 5050$ -- som du kan kontrollere med formelen $\\frac{100 \\cdot 101}{2}$. I neste kapittel oversetter vi pseudokoden til ekte Python."},{"id":"1p-9-1-n-quiz2","type":"exercise","exercise":{"id":"1p-9-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på flytskjema, pseudokode og byggesteiner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-9-1-n-quiz2-q0","task":"Hva betyr romben (diamanten) i et flytskjema?","options":[{"id":"a","text":"Start eller stopp","isCorrect":false},{"id":"b","text":"En beregning","isCorrect":false},{"id":"c","text":"Et valg eller en betingelse","isCorrect":true},{"id":"d","text":"En gjentakelse","isCorrect":false}],"solution":"Romben er et valg med ja/nei-utganger. Ovalen er start/stopp, rektangelet en handling."},{"id":"1p-9-1-n-quiz2-q1","task":"Hva er pseudokode?","options":[{"id":"a","text":"En algoritme skrevet i klartekst, uavhengig av programmeringsspråk","isCorrect":true},{"id":"b","text":"Kode med feil i","isCorrect":false},{"id":"c","text":"Et programmeringsspråk for nettsider","isCorrect":false},{"id":"d","text":"En grafisk fremstilling med bokser og piler","isCorrect":false}],"solution":"Pseudokode er en uformell måte å skrive algoritmer på, med vanlige ord og innrykk -- ikke knyttet til noe bestemt språk."},{"id":"1p-9-1-n-quiz2-q2","task":"Pseudokode: SETT sum $= 0$. FOR $i$ fra $1$ til $5$: SETT sum $=$ sum $+ i$. Hva er sum til slutt?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$15$","isCorrect":true},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$25$","isCorrect":false}],"solution":"$1 + 2 + 3 + 4 + 5 = 15$."},{"id":"1p-9-1-n-quiz2-q3","task":"Hvilke tre byggesteiner er nok til å beskrive enhver algoritme?","options":[{"id":"a","text":"Input, output og minne","isCorrect":false},{"id":"b","text":"Tall, tekst og sannhetsverdier","isCorrect":false},{"id":"c","text":"Flytskjema, pseudokode og kode","isCorrect":false},{"id":"d","text":"Sekvens, valg og iterasjon","isCorrect":true}],"solution":"Sekvens (steg etter steg), valg (hvis/ellers) og iterasjon (løkker) er alt som trengs."}]}},{"id":"1p-9-1-n-summary","type":"text","content":"## Fortellingen om oppskriftene\n\nFra pannekakerøre til Euklid: En **algoritme** er en endelig, ordnet sekvens av entydige instruksjoner som løser et problem -- med input inn og output ut. Du har fulgt divisjonsalgoritmen som fant $47 \\div 6 = 7$ med rest 5, og Euklids algoritme som fant største felles faktor av 48 og 18 ved å dele og beholde resten til den ble null.\n\nDu har også fått to språk å uttrykke algoritmer i: **flytskjemaet** med ovaler for start og stopp, rektangler for handlinger og romber for valg -- og **pseudokoden**, som skriver algoritmen i klartekst med HVIS, ELLERS, FOR og innrykk.\n\nOg viktigst av alt: Alle algoritmer, uansett hvor avanserte, bygges av bare tre byggesteiner -- **sekvens**, **valg** og **iterasjon**. Det er disse tre du skal bruke når pseudokoden i neste kapittel blir til ekte Python-kode."}],"exercises":[]}
+{
+  "id": "1p-9-1-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "9.1",
+  "title": "Hva er en algoritme?",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om oppskrifter, veibeskrivelser og Euklids eldgamle triks -- om hva algoritmer er, og hvordan flytskjema og pseudokode beskriver dem.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "formulere og løse problem ved hjelp av algoritmisk tenkning"
+  ],
+  "linkedChapterId": "1p-9-1",
+  "content": [
+    {
+      "id": "1p-9-1-n-intro",
+      "type": "text",
+      "content": "## Oppskriften du følger uten å vite det\n\nHver gang du lager pannekaker etter en oppskrift, bruker du en algoritme. Når du forklarer en venn veien til skolen, beskriver du en algoritme. Og når du sorterer en kortstokk fra lavest til høyest, følger du en algoritme. En **algoritme** er rett og slett en presis, steg-for-steg-beskrivelse av hvordan man løser et problem eller utfører en oppgave.\n\nDet som gjør algoritmer spesielle, er presisjonen: De er så tydelige at hvem som helst -- eller en datamaskin -- kan følge dem og komme fram til riktig resultat. Mer formelt er en algoritme en endelig, ordnet sekvens av entydige instruksjoner som løser et bestemt problem. Fire egenskaper kjennetegner den: Den er **endelig** og stopper etter et bestemt antall steg. Hvert steg er **entydig**, uten rom for tolkning. Den kan ta inn data -- **input** -- og den gir et resultat -- **output**.\n\nTenk på en veibeskrivelse: «Gå ut døren og ta til venstre. Gå rett fram i 200 meter. Ta til høyre ved lyskrysset. Bygningen er den tredje på venstre side.» Klar rekkefølge, tydelige steg, et bestemt resultat -- alle algoritmens kjennetegn på plass. I dette kapittelet skal vi se hva som gjør en algoritme god, prøve noen klassiske matematiske algoritmer, og lære to måter å skrive dem ned på: flytskjema og pseudokode."
+    },
+    {
+      "id": "1p-9-1-n-section1",
+      "type": "text",
+      "content": "## To klassikere: divisjon og Euklid\n\nLa oss se algoritmetenkningen brukt på ekte matematikk. Hvordan finner du ut hvor mange ganger 6 går opp i 47 -- uten å kunne svaret? En enkel algoritme: Trekk 6 fra 47 igjen og igjen, og tell hvor mange ganger du klarer det før resten blir mindre enn 6. Vi får $47 \\to 41 \\to 35 \\to 29 \\to 23 \\to 17 \\to 11 \\to 5$ -- sju subtraksjoner, og så står vi igjen med 5, som er mindre enn 6. Altså: $47 \\div 6 = 7$ med rest 5. Kontrollen stemmer: $7 \\cdot 6 + 5 = 47$. Hvert steg var entydig, og prosessen stoppet av seg selv -- en ekte algoritme.\n\nDen andre klassikeren er over 2300 år gammel: **Euklids algoritme** for å finne største felles faktor av to tall. Oppskriften: Del det største tallet på det minste, og erstatt det største med resten. Gjenta til resten er 0 -- da er det siste tallet du delte med, svaret.\n\nLa oss finne største felles faktor av 48 og 18. Først: $48 = 2 \\cdot 18 + 12$, rest 12. Så: $18 = 1 \\cdot 12 + 6$, rest 6. Til slutt: $12 = 2 \\cdot 6 + 0$ -- rest 0, og vi stopper. Det siste tallet vi delte med var **6**, så største felles faktor av 48 og 18 er 6. Sjekk: $48 = 6 \\cdot 8$ og $18 = 6 \\cdot 3$, og 8 og 3 har ingen felles faktorer. En eldgammel algoritme -- fortsatt i bruk i datamaskiner verden over."
+    },
+    {
+      "id": "1p-9-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-9-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på algoritmer og klassiske eksempler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-9-1-n-quiz1-q0",
+            "task": "Hvilken egenskap MÅ en algoritme ha?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den må skrives i Python",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den må ha minst ti steg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den må bruke tall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hvert steg må være entydig, og den må stoppe etter endelig mange steg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En algoritme er en endelig, ordnet sekvens av entydige instruksjoner. Programmeringsspråk er bare én måte å skrive den på."
+          },
+          {
+            "id": "1p-9-1-n-quiz1-q1",
+            "task": "Hva er resten når $47$ deles på $6$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$47 = 7 \\cdot 6 + 5$, så heltallsdivisjonen gir $7$ og resten er $5$."
+          },
+          {
+            "id": "1p-9-1-n-quiz1-q2",
+            "task": "Bruk Euklids algoritme: Hva er største felles faktor av $48$ og $18$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$48 = 2 \\cdot 18 + 12$, $18 = 1 \\cdot 12 + 6$, $12 = 2 \\cdot 6 + 0$. Siste divisor er $6$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-9-1-n-section2",
+      "type": "text",
+      "content": "## Å tegne og skrive algoritmer\n\nHvordan deler du en algoritme med andre? To verktøy dominerer. Det første er **flytskjemaet** -- en visuell fremstilling der hver figur har sin betydning: En oval markerer start og stopp, et rektangel er en handling eller beregning, en rombe (diamant) er et valg med ja/nei-svar, og pilene viser rekkefølgen. Vil du sjekke om et tall er partall, tegner du: start, les inn tallet, rombe med spørsmålet «er tallet delelig med 2?», og to piler ut -- ja-pilen til «skriv partall», nei-pilen til «skriv oddetall», før begge møtes i stopp.\n\nDet andre verktøyet er **pseudokode**: algoritmen skrevet med vanlige ord, uavhengig av programmeringsspråk -- en mellomting mellom norsk og programkode. Samme partallssjekk blir: LES inn tallet n. HVIS n er delelig med 2, SKRIV «partall», ELLERS SKRIV «oddetall». Innrykk viser hva som hører sammen, akkurat som i ekte kode.\n\nUansett verktøy bygges alle algoritmer av tre byggesteiner. **Sekvens**: instruksjoner etter hverandre. **Valg** (betingelse): ulike veier avhengig av om noe er sant -- ordene HVIS og ELLERS. Og **iterasjon** (løkke): å gjenta instruksjoner -- ordene FOR og SÅ LENGE. Med disse tre kan enhver algoritme beskrives. Et eksempel som bruker alle: SETT sum lik 0, FOR n fra 1 til 100, SETT sum lik sum pluss n. Etter løkken er summen $1 + 2 + \\ldots + 100 = 5050$ -- som du kan kontrollere med formelen $\\frac{100 \\cdot 101}{2}$. I neste kapittel oversetter vi pseudokoden til ekte Python."
+    },
+    {
+      "id": "1p-9-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-9-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på flytskjema, pseudokode og byggesteiner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-9-1-n-quiz2-q0",
+            "task": "Hva betyr romben (diamanten) i et flytskjema?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Start eller stopp",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En beregning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et valg eller en betingelse",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "En gjentakelse",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Romben er et valg med ja/nei-utganger. Ovalen er start/stopp, rektangelet en handling."
+          },
+          {
+            "id": "1p-9-1-n-quiz2-q1",
+            "task": "Hva er pseudokode?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kode med feil i",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et programmeringsspråk for nettsider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En grafisk fremstilling med bokser og piler",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En algoritme skrevet i klartekst, uavhengig av programmeringsspråk",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Pseudokode er en uformell måte å skrive algoritmer på, med vanlige ord og innrykk -- ikke knyttet til noe bestemt språk."
+          },
+          {
+            "id": "1p-9-1-n-quiz2-q2",
+            "task": "Pseudokode: SETT sum $= 0$. FOR $i$ fra $1$ til $5$: SETT sum $=$ sum $+ i$. Hva er sum til slutt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$15$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$1 + 2 + 3 + 4 + 5 = 15$."
+          },
+          {
+            "id": "1p-9-1-n-quiz2-q3",
+            "task": "Hvilke tre byggesteiner er nok til å beskrive enhver algoritme?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Input, output og minne",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sekvens, valg og iterasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Tall, tekst og sannhetsverdier",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Flytskjema, pseudokode og kode",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sekvens (steg etter steg), valg (hvis/ellers) og iterasjon (løkker) er alt som trengs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-9-1-n-summary",
+      "type": "text",
+      "content": "## Fortellingen om oppskriftene\n\nFra pannekakerøre til Euklid: En **algoritme** er en endelig, ordnet sekvens av entydige instruksjoner som løser et problem -- med input inn og output ut. Du har fulgt divisjonsalgoritmen som fant $47 \\div 6 = 7$ med rest 5, og Euklids algoritme som fant største felles faktor av 48 og 18 ved å dele og beholde resten til den ble null.\n\nDu har også fått to språk å uttrykke algoritmer i: **flytskjemaet** med ovaler for start og stopp, rektangler for handlinger og romber for valg -- og **pseudokoden**, som skriver algoritmen i klartekst med HVIS, ELLERS, FOR og innrykk.\n\nOg viktigst av alt: Alle algoritmer, uansett hvor avanserte, bygges av bare tre byggesteiner -- **sekvens**, **valg** og **iterasjon**. Det er disse tre du skal bruke når pseudokoden i neste kapittel blir til ekte Python-kode."
+    }
+  ],
+  "exercises": []
+}

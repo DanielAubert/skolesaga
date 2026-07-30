@@ -1,1 +1,343 @@
-{"id":"it-1-2-4-narrativ","courseId":"it-1","chapterNumber":"2.4","title":"Løkker og gjentakelse","subtitle":"Narrativ versjon","description":"En fortelling om hvordan to linjer kode kan erstatte hundre – for-løkker, while-løkker, range(), break og continue, og løkker inni løkker.","estimatedMinutes":38,"competenceGoals":["bruke for-løkker til å iterere over sekvenser og tallområder","bruke while-løkker for gjentakelse basert på betingelser","forstå og bruke range()-funksjonen","bruke break og continue for å kontrollere løkker","forstå og bruke nøstede løkker"],"linkedChapterId":"it-1-2-4","content":[{"id":"it-1-2-4-n-intro","type":"text","content":"## Hundre linjer blir til to\n\nForestill deg at du skal skrive ut tallene fra 1 til 100. Uten **løkker** måtte du skrive 100 print-setninger. Med en løkke klarer du det med to linjer. En løkke er en kontrollstruktur som gjentar en kodeblokk flere ganger – selve motoren for å automatisere repetitivt arbeid.\n\nPython har to typer. Den første er **for-løkken**, som itererer over en sekvens og kjører blokken én gang for hvert element. Aller vanligst er den sammen med `range()`:\n\n```python\nfor i in range(5):\n    print(i)\n```\n\nDette skriver ut 0, 1, 2, 3, 4 – fem tall, men de starter på 0. Funksjonen `range()` er fleksibel: `range(1, 6)` gir 1 til 5 (stopper *før* 6), `range(0, 20, 5)` gir 0, 5, 10, 15 med steg på 5, og `range(10, 0, -1)` teller nedover fra 10 til 1. For-løkker kan også gå gjennom bokstavene i en tekst eller elementene i en liste, slik som `for frukt in frukter:`.\n\nEt klassisk eksempel er en gangetabell. Med `range(1, 11)` går `i` fra 1 til 10, og for hver verdi skriver du ut `tall * i`. Triks: `\"-\" * 20` gjentar bindestreken 20 ganger og lager en pen skillelinje."},{"id":"it-1-2-4-n-quiz1","type":"exercise","exercise":{"id":"it-1-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på for-løkker og range():","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-4-n-quiz1-q0","task":"Hvilke tall genererer range(5)?","options":[{"id":"a","text":"1, 2, 3, 4, 5","isCorrect":false},{"id":"b","text":"0, 1, 2, 3, 4, 5","isCorrect":false},{"id":"c","text":"5, 4, 3, 2, 1","isCorrect":false},{"id":"d","text":"0, 1, 2, 3, 4","isCorrect":true}],"solution":"range(5) starter på 0 og gir fem tall: 0, 1, 2, 3, 4 – det stopper før 5."},{"id":"it-1-2-4-n-quiz1-q1","task":"Hvilke tall gir range(1, 6)?","options":[{"id":"a","text":"1, 2, 3, 4, 5","isCorrect":true},{"id":"b","text":"1, 2, 3, 4, 5, 6","isCorrect":false},{"id":"c","text":"0, 1, 2, 3, 4, 5","isCorrect":false},{"id":"d","text":"1, 6","isCorrect":false}],"solution":"range(1, 6) starter på 1 og stopper før 6, altså 1, 2, 3, 4, 5."},{"id":"it-1-2-4-n-quiz1-q2","task":"Hva gjør range(10, 0, -1)?","options":[{"id":"a","text":"Gir en feilmelding","isCorrect":false},{"id":"b","text":"Teller nedover fra 10 til 1","isCorrect":true},{"id":"c","text":"Teller fra 0 til 10","isCorrect":false},{"id":"d","text":"Gir bare tallet 10","isCorrect":false}],"solution":"Med steget -1 teller range nedover fra 10 til 1 (stopper før 0)."}]}},{"id":"it-1-2-4-n-section1","type":"text","content":"## Når du ikke vet hvor mange ganger\n\nDen andre løkketypen er **while-løkken**, som gjentar blokken så lenge en betingelse er sann. Betingelsen sjekkes før hver runde:\n\n```python\nteller = 1\nwhile teller <= 5:\n    print(teller)\n    teller += 1\n```\n\nLegg merke til `teller += 1`. Glemmer du den, blir betingelsen alltid sann, og du får en *uendelig løkke* som aldri stopper. Hovedregelen er enkel: bruk **for** når du vet på forhånd hvor mange ganger løkken skal kjøre, og **while** når den skal fortsette til noe endrer seg – for eksempel til brukeren svarer «ja».\n\nNoen ganger vil du styre løkken mer finmasket. Da har du to spesialord. `break` stopper løkken umiddelbart og hopper ut. Skal du finne det første tallet mellom 50 og 100 som er delelig med 7, lar du løkken `break`-e ved første treff (56). `continue` derimot hopper over resten av *denne* runden og går videre til neste – fint hvis du vil skrive ut alle tall fra 1 til 10 unntatt de som er delelige med 3.\n\nEn kraftig kombinasjon er `while True` sammen med `break`. `while True` er en bevisst uendelig løkke som du bryter ut av med `break` når en bestemt ting skjer – perfekt for et gjette-spill der du fortsetter til brukeren gjetter riktig tall."},{"id":"it-1-2-4-n-quiz2","type":"exercise","exercise":{"id":"it-1-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på while, break og continue:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-4-n-quiz2-q0","task":"Når bør du velge en while-løkke framfor en for-løkke?","options":[{"id":"a","text":"Når du vet nøyaktig antall runder på forhånd","isCorrect":false},{"id":"b","text":"Når du skal skrive ut en liste","isCorrect":false},{"id":"c","text":"Når løkken skal fortsette til en betingelse endrer seg","isCorrect":true},{"id":"d","text":"while-løkker bør aldri brukes","isCorrect":false}],"solution":"while passer når du ikke vet antall runder på forhånd, men skal kjøre til en betingelse endrer seg."},{"id":"it-1-2-4-n-quiz2-q1","task":"Hva gjør break inne i en løkke?","options":[{"id":"a","text":"Hopper til neste iterasjon","isCorrect":false},{"id":"b","text":"Starter løkken på nytt","isCorrect":false},{"id":"c","text":"Pauser i ett sekund","isCorrect":false},{"id":"d","text":"Stopper løkken umiddelbart og hopper ut","isCorrect":true}],"solution":"break avbryter løkken med en gang og fortsetter med koden etter løkken."},{"id":"it-1-2-4-n-quiz2-q2","task":"Hva gjør continue?","options":[{"id":"a","text":"Hopper over resten av den aktuelle iterasjonen og går til neste","isCorrect":true},{"id":"b","text":"Avslutter hele programmet","isCorrect":false},{"id":"c","text":"Stopper løkken helt","isCorrect":false},{"id":"d","text":"Gjentar forrige iterasjon","isCorrect":false}],"solution":"continue hopper over det som er igjen av denne runden og går rett til neste iterasjon."},{"id":"it-1-2-4-n-quiz2-q3","task":"Hva er risikoen med en while-løkke uten oppdatering av betingelsen?","options":[{"id":"a","text":"Den kjører for raskt","isCorrect":false},{"id":"b","text":"Den blir en uendelig løkke som aldri stopper","isCorrect":true},{"id":"c","text":"Den gir alltid feil svar","isCorrect":false},{"id":"d","text":"Den kjører bare én gang","isCorrect":false}],"solution":"Hvis betingelsen aldri blir usann (for eksempel fordi telleren ikke økes), kjører løkken i det uendelige."}]}},{"id":"it-1-2-4-n-section2","type":"text","content":"## Løkker inni løkker\n\nDu kan plassere en løkke inne i en annen – det kalles **nøstede løkker**. Den indre løkken kjøres helt ferdig for hver runde i den ytre. Tenk på et rutenett: den ytre løkken styrer radene, den indre styrer kolonnene.\n\n```python\nfor rad in range(1, 6):\n    for stjerne in range(rad):\n        print(\"*\", end=\"\")\n    print()\n```\n\nDette tegner en trapp av stjerner – én på første rad, to på neste, og så videre opp til fem. To detaljer er verdt å forstå: `end=\"\"` gjør at neste utskrift kommer på *samme* linje i stedet for ny, og den tomme `print()` etter den indre løkken lager linjeskiftet mellom radene. Samme teknikk gir en hel gangetabell der `i` er raden og `j` er kolonnen.\n\nTil slutt et praktisk eksempel som samler det meste. Du vil la brukeren skrive inn tall til de skriver 0, og så vise sum, antall og gjennomsnitt:\n\n```python\ntotal = 0\nantall = 0\nwhile True:\n    tall = float(input(\"Tall: \"))\n    if tall == 0:\n        break\n    total += tall\n    antall += 1\nif antall > 0:\n    print(f\"Gjennomsnittet er {total / antall:.2f}\")\n```\n\nVi bruker `while True` med `break` fordi vi ikke vet hvor mange tall som kommer, og vi sjekker `if antall > 0` før vi deler – ellers ville vi risikert divisjon med null."},{"id":"it-1-2-4-n-quiz3","type":"exercise","exercise":{"id":"it-1-2-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på nøstede løkker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-4-n-quiz3-q0","task":"Hvor mange ganger kjøres en indre løkke i forhold til den ytre?","options":[{"id":"a","text":"Bare én gang totalt","isCorrect":false},{"id":"b","text":"Den indre kjøres aldri","isCorrect":false},{"id":"c","text":"Den indre kjøres helt ferdig for hver runde i den ytre","isCorrect":true},{"id":"d","text":"Like mange ganger som den ytre, totalt","isCorrect":false}],"solution":"Den indre løkken fullføres i sin helhet for hver eneste iterasjon av den ytre løkken."},{"id":"it-1-2-4-n-quiz3-q1","task":"Hva gjør end=\"\" i en print()-setning?","options":[{"id":"a","text":"Avslutter programmet","isCorrect":false},{"id":"b","text":"Sletter teksten","isCorrect":false},{"id":"c","text":"Legger til to linjeskift","isCorrect":false},{"id":"d","text":"Hindrer linjeskift, slik at neste utskrift kommer på samme linje","isCorrect":true}],"solution":"end=\"\" bytter ut standard linjeskiftet, så neste print kommer på samme linje."}]}},{"id":"it-1-2-4-n-summary","type":"text","content":"## Oppsummering\n\nLøkker lar deg gjenta kode uten å skrive den om og om igjen. **For-løkken** itererer over en sekvens, ofte laget med `range(start, stopp, steg)`, og passer når du vet antall runder. **While-løkken** gjentar så lenge en betingelse er sann og passer når du ikke vet antallet på forhånd – men husk å oppdatere betingelsen, ellers blir løkken uendelig.\n\nMed `break` hopper du ut av en løkke, og med `continue` hopper du til neste runde. Kombinasjonen `while True` med `break` gir kontrollerte utganger. Og med **nøstede løkker** – løkke inni løkke – kan du bygge rutenett, mønstre og tabeller, der den ytre løkken styrer radene og den indre kolonnene."}],"exercises":[]}
+{
+  "id": "it-1-2-4-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "2.4",
+  "title": "Løkker og gjentakelse",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan to linjer kode kan erstatte hundre – for-løkker, while-løkker, range(), break og continue, og løkker inni løkker.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke for-løkker til å iterere over sekvenser og tallområder",
+    "bruke while-løkker for gjentakelse basert på betingelser",
+    "forstå og bruke range()-funksjonen",
+    "bruke break og continue for å kontrollere løkker",
+    "forstå og bruke nøstede løkker"
+  ],
+  "linkedChapterId": "it-1-2-4",
+  "content": [
+    {
+      "id": "it-1-2-4-n-intro",
+      "type": "text",
+      "content": "## Hundre linjer blir til to\n\nForestill deg at du skal skrive ut tallene fra 1 til 100. Uten **løkker** måtte du skrive 100 print-setninger. Med en løkke klarer du det med to linjer. En løkke er en kontrollstruktur som gjentar en kodeblokk flere ganger – selve motoren for å automatisere repetitivt arbeid.\n\nPython har to typer. Den første er **for-løkken**, som itererer over en sekvens og kjører blokken én gang for hvert element. Aller vanligst er den sammen med `range()`:\n\n```python\nfor i in range(5):\n    print(i)\n```\n\nDette skriver ut 0, 1, 2, 3, 4 – fem tall, men de starter på 0. Funksjonen `range()` er fleksibel: `range(1, 6)` gir 1 til 5 (stopper *før* 6), `range(0, 20, 5)` gir 0, 5, 10, 15 med steg på 5, og `range(10, 0, -1)` teller nedover fra 10 til 1. For-løkker kan også gå gjennom bokstavene i en tekst eller elementene i en liste, slik som `for frukt in frukter:`.\n\nEt klassisk eksempel er en gangetabell. Med `range(1, 11)` går `i` fra 1 til 10, og for hver verdi skriver du ut `tall * i`. Triks: `\"-\" * 20` gjentar bindestreken 20 ganger og lager en pen skillelinje."
+    },
+    {
+      "id": "it-1-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på for-løkker og range():",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-4-n-quiz1-q0",
+            "task": "Hvilke tall genererer range(5)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1, 2, 3, 4, 5",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0, 1, 2, 3, 4, 5",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0, 1, 2, 3, 4",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "5, 4, 3, 2, 1",
+                "isCorrect": false
+              }
+            ],
+            "solution": "range(5) starter på 0 og gir fem tall: 0, 1, 2, 3, 4 – det stopper før 5."
+          },
+          {
+            "id": "it-1-2-4-n-quiz1-q1",
+            "task": "Hvilke tall gir range(1, 6)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "1, 2, 3, 4, 5, 6",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0, 1, 2, 3, 4, 5",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1, 6",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "1, 2, 3, 4, 5",
+                "isCorrect": true
+              }
+            ],
+            "solution": "range(1, 6) starter på 1 og stopper før 6, altså 1, 2, 3, 4, 5."
+          },
+          {
+            "id": "it-1-2-4-n-quiz1-q2",
+            "task": "Hva gjør range(10, 0, -1)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Teller nedover fra 10 til 1",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Gir en feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Teller fra 0 til 10",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gir bare tallet 10",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med steget -1 teller range nedover fra 10 til 1 (stopper før 0)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-4-n-section1",
+      "type": "text",
+      "content": "## Når du ikke vet hvor mange ganger\n\nDen andre løkketypen er **while-løkken**, som gjentar blokken så lenge en betingelse er sann. Betingelsen sjekkes før hver runde:\n\n```python\nteller = 1\nwhile teller <= 5:\n    print(teller)\n    teller += 1\n```\n\nLegg merke til `teller += 1`. Glemmer du den, blir betingelsen alltid sann, og du får en *uendelig løkke* som aldri stopper. Hovedregelen er enkel: bruk **for** når du vet på forhånd hvor mange ganger løkken skal kjøre, og **while** når den skal fortsette til noe endrer seg – for eksempel til brukeren svarer «ja».\n\nNoen ganger vil du styre løkken mer finmasket. Da har du to spesialord. `break` stopper løkken umiddelbart og hopper ut. Skal du finne det første tallet mellom 50 og 100 som er delelig med 7, lar du løkken `break`-e ved første treff (56). `continue` derimot hopper over resten av *denne* runden og går videre til neste – fint hvis du vil skrive ut alle tall fra 1 til 10 unntatt de som er delelige med 3.\n\nEn kraftig kombinasjon er `while True` sammen med `break`. `while True` er en bevisst uendelig løkke som du bryter ut av med `break` når en bestemt ting skjer – perfekt for et gjette-spill der du fortsetter til brukeren gjetter riktig tall."
+    },
+    {
+      "id": "it-1-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på while, break og continue:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-4-n-quiz2-q0",
+            "task": "Når bør du velge en while-løkke framfor en for-løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når du vet nøyaktig antall runder på forhånd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når løkken skal fortsette til en betingelse endrer seg",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når du skal skrive ut en liste",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "while-løkker bør aldri brukes",
+                "isCorrect": false
+              }
+            ],
+            "solution": "while passer når du ikke vet antall runder på forhånd, men skal kjøre til en betingelse endrer seg."
+          },
+          {
+            "id": "it-1-2-4-n-quiz2-q1",
+            "task": "Hva gjør break inne i en løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hopper til neste iterasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Starter løkken på nytt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stopper løkken umiddelbart og hopper ut",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Pauser i ett sekund",
+                "isCorrect": false
+              }
+            ],
+            "solution": "break avbryter løkken med en gang og fortsetter med koden etter løkken."
+          },
+          {
+            "id": "it-1-2-4-n-quiz2-q2",
+            "task": "Hva gjør continue?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Avslutter hele programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stopper løkken helt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gjentar forrige iterasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Hopper over resten av den aktuelle iterasjonen og går til neste",
+                "isCorrect": true
+              }
+            ],
+            "solution": "continue hopper over det som er igjen av denne runden og går rett til neste iterasjon."
+          },
+          {
+            "id": "it-1-2-4-n-quiz2-q3",
+            "task": "Hva er risikoen med en while-løkke uten oppdatering av betingelsen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den blir en uendelig løkke som aldri stopper",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den kjører for raskt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den gir alltid feil svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den kjører bare én gang",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hvis betingelsen aldri blir usann (for eksempel fordi telleren ikke økes), kjører løkken i det uendelige."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-4-n-section2",
+      "type": "text",
+      "content": "## Løkker inni løkker\n\nDu kan plassere en løkke inne i en annen – det kalles **nøstede løkker**. Den indre løkken kjøres helt ferdig for hver runde i den ytre. Tenk på et rutenett: den ytre løkken styrer radene, den indre styrer kolonnene.\n\n```python\nfor rad in range(1, 6):\n    for stjerne in range(rad):\n        print(\"*\", end=\"\")\n    print()\n```\n\nDette tegner en trapp av stjerner – én på første rad, to på neste, og så videre opp til fem. To detaljer er verdt å forstå: `end=\"\"` gjør at neste utskrift kommer på *samme* linje i stedet for ny, og den tomme `print()` etter den indre løkken lager linjeskiftet mellom radene. Samme teknikk gir en hel gangetabell der `i` er raden og `j` er kolonnen.\n\nTil slutt et praktisk eksempel som samler det meste. Du vil la brukeren skrive inn tall til de skriver 0, og så vise sum, antall og gjennomsnitt:\n\n```python\ntotal = 0\nantall = 0\nwhile True:\n    tall = float(input(\"Tall: \"))\n    if tall == 0:\n        break\n    total += tall\n    antall += 1\nif antall > 0:\n    print(f\"Gjennomsnittet er {total / antall:.2f}\")\n```\n\nVi bruker `while True` med `break` fordi vi ikke vet hvor mange tall som kommer, og vi sjekker `if antall > 0` før vi deler – ellers ville vi risikert divisjon med null."
+    },
+    {
+      "id": "it-1-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på nøstede løkker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-4-n-quiz3-q0",
+            "task": "Hvor mange ganger kjøres en indre løkke i forhold til den ytre?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare én gang totalt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den indre kjøres helt ferdig for hver runde i den ytre",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den indre kjøres aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Like mange ganger som den ytre, totalt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den indre løkken fullføres i sin helhet for hver eneste iterasjon av den ytre løkken."
+          },
+          {
+            "id": "it-1-2-4-n-quiz3-q1",
+            "task": "Hva gjør end=\"\" i en print()-setning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avslutter programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sletter teksten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hindrer linjeskift, slik at neste utskrift kommer på samme linje",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Legger til to linjeskift",
+                "isCorrect": false
+              }
+            ],
+            "solution": "end=\"\" bytter ut standard linjeskiftet, så neste print kommer på samme linje."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nLøkker lar deg gjenta kode uten å skrive den om og om igjen. **For-løkken** itererer over en sekvens, ofte laget med `range(start, stopp, steg)`, og passer når du vet antall runder. **While-løkken** gjentar så lenge en betingelse er sann og passer når du ikke vet antallet på forhånd – men husk å oppdatere betingelsen, ellers blir løkken uendelig.\n\nMed `break` hopper du ut av en løkke, og med `continue` hopper du til neste runde. Kombinasjonen `while True` med `break` gir kontrollerte utganger. Og med **nøstede løkker** – løkke inni løkke – kan du bygge rutenett, mønstre og tabeller, der den ytre løkken styrer radene og den indre kolonnene."
+    }
+  ],
+  "exercises": []
+}

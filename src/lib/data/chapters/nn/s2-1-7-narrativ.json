@@ -1,1 +1,480 @@
-{"id":"s2-1-7-narrativ","courseId":"s2","chapterNumber":"1.7","title":"Volum av omdreiingslekamar","subtitle":"Narrativ versjon","description":"Ei forteljing frå eit designfirma der vaser og vasstankar blir matematikk: skiver, skal og ringar gjev volumformlar — og bevis kjegle- og kuleformelen på vegen.","estimatedMinutes":38,"competenceGoals":["bruke integrasjon til å rekne ut volum av omdreiingslekamar","velje mellom skivemetoden og skalmetoden avhengig av rotasjonsaksen"],"linkedChapterId":"s2-1-7","content":[{"id":"s2-1-7-n-intro","type":"text","content":"## Frå flate til form\n\nEit lite norsk designfirma har fått i oppdrag å lage ein serie vaser og ein vasstank til ein hytteprodusent, og du er med som berekningsansvarleg. Designaren teiknar ei elegant kurve på skjermen og seier: «Tenk deg at denne profilen snurrar rundt aksen — det er forma.» Og det er nett slik mange verkelege objekt blir til: vaser på dreieskive, flasker, lampeskjermar, siloar og tankar er alle **omdreiingslekamar** (rotasjonslekamar) — tredimensjonale objekt som oppstår når eit område i planet blir rotert rundt ein akse.\n\nSpørsmålet frå produsenten er praktisk: «Kor mange liter rommar han?» Volum, altså. Og her kjem integralrekninga di inn på sitt mest visuelle.\n\nTenk deg at du roterer området mellom grafen til $f(x)$ og $x$-aksen rundt $x$-aksen. Resultatet er ei vaseliknande form, og det avgjerande er kva du ser viss du *skjer* henne: i kvart punkt $x$ er tverrsnittet ein perfekt sirkel med radius $|f(x)|$. Volumet kan difor byggjast opp av tynne sirkelskiver — og «summen av uendeleg mange tynne skiver» er, som du no veit, eit integral.\n\nI dette kapittelet utleier vi formlane for volum ved rotasjon om både $x$-aksen og $y$-aksen, møter to konkurrerande teknikkar — skivemetoden og skalmetoden — og lærer når du bør velje kva. På vegen skal vi bevise to formlar du har brukt sidan ungdomsskulen utan bevis: volumet av ei kjegle og volumet av ei kule."},{"id":"s2-1-7-n-section1","type":"text","content":"## Skivemetoden\n\nLat oss gjere skivetanken presis. Når området mellom $y = f(x)$ og $x$-aksen for $a \\leq x \\leq b$ blir rotert om **$x$-aksen**, har skiva i posisjon $x$ radius $|f(x)|$ og dermed areal $\\pi [f(x)]^2$. Summerer vi skivene langs aksen, får vi **skivemetoden**:\n\n$$V = \\pi \\int_a^b [f(x)]^2 \\, dx$$\n\nVi integrerer altså *kvadratet* av funksjonen og gangar med $\\pi$ — i praksis arealet av tverrsnittssirkelen, samla opp langs aksen.\n\nNo kan vi innfri eit gammalt lovnad. Volumet av ei kjegle med radius $r$ og høgd $h$: legg kjegla med spissen i origo, slik at den skrå sida er linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$. Rotasjon om $x$-aksen gjev\n\n$$V = \\pi \\int_0^h \\left(\\frac{r}{h}x\\right)^2 dx = \\frac{\\pi r^2}{h^2} \\left[\\frac{x^3}{3}\\right]_0^h = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$$\n\nDer er ho: $V = \\frac{1}{3}\\pi r^2 h$, formelen frå ungdomsskulen, no *utleidd* på tre linjer.\n\nKula går like greitt. Ei kule med radius $R$ er omdreiingslekamen til halvsirkelen $y = \\sqrt{R^2 - x^2}$ for $-R \\leq x \\leq R$. Kvadrering fjernar rotteiknet:\n\n$$V = \\pi \\int_{-R}^{R} (R^2 - x^2) \\, dx = \\pi \\left[R^2x - \\frac{x^3}{3}\\right]_{-R}^{R} = \\pi\\left(\\frac{2R^3}{3} + \\frac{2R^3}{3}\\right) = \\frac{4\\pi R^3}{3}$$\n\nTo av dei berømte formlane i geometrien, begge bevist med eitt og same verktøy. Det er krafta i skivemetoden: kjenn profilen, kvadrer, integrer."},{"id":"s2-1-7-n-quiz1","type":"exercise","exercise":{"id":"s2-1-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på skivemetoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-7-n-quiz1-q0","task":"Området under $y = f(x)$ for $a \\leq x \\leq b$ blir rotert om $x$-aksen. Kva er volumet?","options":[{"id":"a","text":"$V = \\pi \\int_a^b f(x)\\,dx$","isCorrect":false},{"id":"b","text":"$V = 2\\pi \\int_a^b x f(x)\\,dx$","isCorrect":false},{"id":"c","text":"$V = \\pi \\int_a^b [f(x)]^2\\,dx$","isCorrect":true},{"id":"d","text":"$V = \\int_a^b [f(x)]^2\\,dx$","isCorrect":false}],"solution":"Tverrsnittet i punktet $x$ er ein sirkel med radius $f(x)$ og areal $\\pi[f(x)]^2$. Skivemetoden summerer skivene: $V = \\pi\\int_a^b [f(x)]^2\\,dx$."},{"id":"s2-1-7-n-quiz1-q1","task":"Kva er tverrsnittet av omdreiingslekamen vinkelrett på rotasjonsaksen?","options":[{"id":"a","text":"Eit kvadrat med side $f(x)$","isCorrect":false},{"id":"b","text":"Ein sirkel med radius $|f(x)|$ og areal $\\pi[f(x)]^2$","isCorrect":true},{"id":"c","text":"Eit trapes","isCorrect":false},{"id":"d","text":"Ein ellipse med halvakser $x$ og $f(x)$","isCorrect":false}],"solution":"Når punktet $(x, f(x))$ roterer om $x$-aksen, teiknar det ein sirkel med radius $|f(x)|$. Det er desse sirkelskivene integralet summerer."},{"id":"s2-1-7-n-quiz1-q2","task":"Linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$ blir rotert om $x$-aksen. Kva formel utleier vi?","options":[{"id":"a","text":"Kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$","isCorrect":true},{"id":"b","text":"Kulevolumet $V = \\frac{4}{3}\\pi R^3$","isCorrect":false},{"id":"c","text":"Sylindervolumet $V = \\pi r^2 h$","isCorrect":false},{"id":"d","text":"Overflata av ei kjegle","isCorrect":false}],"solution":"$V = \\pi\\int_0^h (\\frac{r}{h}x)^2 dx = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$ — den klassiske kjegleformelen."},{"id":"s2-1-7-n-quiz1-q3","task":"Området under $y = \\sqrt{x}$ for $0 \\leq x \\leq 4$ blir rotert om $x$-aksen. Kva er volumet?","options":[{"id":"a","text":"$4\\pi$","isCorrect":false},{"id":"b","text":"$16\\pi$","isCorrect":false},{"id":"c","text":"$\\frac{64\\pi}{3}$","isCorrect":false},{"id":"d","text":"$8\\pi$","isCorrect":true}],"solution":"$V = \\pi\\int_0^4 (\\sqrt{x})^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi[\\frac{x^2}{2}]_0^4 = 8\\pi$. Kvadreringa fjernar rotteiknet og gjer integralet enkelt."}]}},{"id":"s2-1-7-n-section2","type":"text","content":"## Rotasjon om y-aksen — skive eller skal\n\nVasa til designaren står naturlegvis *oppreist* — ho blir rotert om den vertikale aksen, $y$-aksen. Då har vi to moglegheiter.\n\nDen første er skivemetoden snudd på høgkant. Viss området mellom kurva $x = g(y)$ og $y$-aksen for $c \\leq y \\leq d$ blir rotert om $y$-aksen, er tverrsnittet i høgd $y$ ein sirkel med radius $g(y)$:\n\n$$V = \\pi \\int_c^d [g(y)]^2 \\, dy$$\n\nEr kurva gjeven som $y = f(x)$, må vi først løyse for $x$ — altså finne den omvende funksjonen. Døme: området mellom $y = x^2$ og $y$-aksen for $0 \\leq y \\leq 4$ blir rotert om $y$-aksen. Vi løyser: $x = \\sqrt{y}$, og\n\n$$V = \\pi \\int_0^4 (\\sqrt{y})^2 \\, dy = \\pi \\int_0^4 y \\, dy = \\pi \\cdot \\frac{16}{2} = 8\\pi$$\n\nMen kva om funksjonen er vond å invertere? Då finst ein annan veg: **skalmetoden**. Del området under $y = f(x)$ i tynne *vertikale* strimlar. Når strimmelen ved $x$ (med høgd $f(x)$ og breidd $dx$) roterer om $y$-aksen, dannar han eit tynt sylindrisk skal — som eit røyr — med radius $x$, høgd $f(x)$ og tjukkleik $dx$. Volumet av skalet er omkrinsen gonger høgda gonger tjukkleiken, $2\\pi x \\cdot f(x) \\cdot dx$, og summen blir\n\n$$V = 2\\pi \\int_a^b x \\cdot f(x) \\, dx \\qquad (a \\geq 0)$$\n\nPrøv på same lekamen: området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ rotert om $y$-aksen gjev $V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\big[\\frac{x^4}{4}\\big]_0^2 = 2\\pi \\cdot 4 = 8\\pi$ — nøyaktig same svar som skivemetoden, utan å invertere noko som helst. To metodar, eitt volum: god kontrollrekning og fritt metodeval."},{"id":"s2-1-7-n-quiz2","type":"exercise","exercise":{"id":"s2-1-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på rotasjon om y-aksen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-7-n-quiz2-q0","task":"Vi vil bruke skivemetoden ved rotasjon om $y$-aksen, men kurva er gjeven som $y = f(x)$. Kva må vi gjere først?","options":[{"id":"a","text":"Byte forteikn på funksjonen","isCorrect":false},{"id":"b","text":"Derivere funksjonen","isCorrect":false},{"id":"c","text":"Løyse for $x$, altså finne $x = g(y)$ (den omvende funksjonen)","isCorrect":true},{"id":"d","text":"Multiplisere med $2\\pi$","isCorrect":false}],"solution":"Skivemetoden om $y$-aksen integrerer i $y$-retning: $V = \\pi\\int_c^d [g(y)]^2\\,dy$. Då må radius uttrykkjast som funksjon av $y$, altså $x = g(y)$."},{"id":"s2-1-7-n-quiz2-q1","task":"Kva er formelen for skalmetoden (rotasjon om $y$-aksen)?","options":[{"id":"a","text":"$V = \\pi \\int_a^b [f(x)]^2\\,dx$","isCorrect":false},{"id":"b","text":"$V = 2\\pi \\int_a^b x \\cdot f(x)\\,dx$","isCorrect":true},{"id":"c","text":"$V = 2\\pi \\int_a^b f(x)\\,dx$","isCorrect":false},{"id":"d","text":"$V = \\pi \\int_a^b x^2 f(x)\\,dx$","isCorrect":false}],"solution":"Eit tynt skal ved $x$ har radius $x$, høgd $f(x)$ og tjukkleik $dx$, altså volum $\\approx 2\\pi x f(x)\\,dx$. Summert: $V = 2\\pi\\int_a^b x f(x)\\,dx$."},{"id":"s2-1-7-n-quiz2-q2","task":"I skalmetoden: kva er radius og høgd til skalet ved posisjon $x$?","options":[{"id":"a","text":"Radius $f(x)$, høgd $x$","isCorrect":false},{"id":"b","text":"Radius $x$, høgd $f(x)$","isCorrect":true},{"id":"c","text":"Radius $\\frac{x}{2}$, høgd $2f(x)$","isCorrect":false},{"id":"d","text":"Radius $x^2$, høgd $f(x)$","isCorrect":false}],"solution":"Strimmelen står i avstand $x$ frå $y$-aksen — det er rotasjonsradien. Høgda er funksjonsverdien $f(x)$."},{"id":"s2-1-7-n-quiz2-q3","task":"Området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ blir rotert om $y$-aksen. Kva gjev skalmetoden?","options":[{"id":"a","text":"$8\\pi$","isCorrect":true},{"id":"b","text":"$4\\pi$","isCorrect":false},{"id":"c","text":"$16\\pi$","isCorrect":false},{"id":"d","text":"$\\frac{32\\pi}{5}$","isCorrect":false}],"solution":"$V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\int_0^2 x^3\\,dx = 2\\pi \\cdot \\frac{16}{4} = 8\\pi$ — same svar som skivemetoden med $x = \\sqrt{y}$."}]}},{"id":"s2-1-7-n-section3","type":"text","content":"## Metodeval, hole former og ei klassisk felle\n\nMed to metodar på menyen treng du ein tommelfingerregel. **Skivemetoden** er best når tverrsnittet vinkelrett på rotasjonsaksen er lett å uttrykkje — og, ved rotasjon om $y$-aksen, når funksjonen er lett å invertere. **Skalmetoden** er best når rotasjonen er om $y$-aksen og funksjonen er gjeven som $y = f(x)$, særleg når det er vanskeleg å løyse for $x$. Hugseregelen er verdt å pugge: *skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden integrerer parallelt med han.*\n\nVasstanken til designfirmaet er ikkje massiv — han har veggar, eit holrom. Slike former handterer vi som differansar. Blir området mellom to kurver $f(x) \\geq g(x) \\geq 0$ rotert om $x$-aksen, blir kvart tverrsnitt ein *ring*: ei skive med hol. Arealet av ringen er ytre skive minus indre, $\\pi[f(x)]^2 - \\pi[g(x)]^2$, og volumet blir\n\n$$V = \\pi \\int_a^b \\left([f(x)]^2 - [g(x)]^2\\right) dx$$\n\nDøme: området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Sidan $x \\geq x^2$ der, er linja ytterkant og parabelen innerkant:\n\n$$V = \\pi \\int_0^1 (x^2 - x^4) \\, dx = \\pi \\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\pi\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = \\frac{2\\pi}{15}$$\n\nMerk skilnaden frå arealrekninga: vi kvadrerer *kvar kurve for seg* og trekkjer frå etterpå — $[f]^2 - [g]^2$, ikkje $(f - g)^2$. Det er ei klassisk felle. Den andre klassikaren er endå enklare: å gløyme $\\pi$ i skivemetoden eller $2\\pi$ i skalmetoden. Skriv alltid opp formelen komplett før du byrjar å integrere, så er begge fellene ufarlege."},{"id":"s2-1-7-n-quiz3","type":"exercise","exercise":{"id":"s2-1-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på metodeval og volum mellom kurver:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-7-n-quiz3-q0","task":"Kva er hugseregelen for val mellom skive- og skalmetoden?","options":[{"id":"a","text":"Skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden parallelt med han","isCorrect":true},{"id":"b","text":"Skivemetoden blir berre brukt om $x$-aksen, skalmetoden berre om $y$-aksen","isCorrect":false},{"id":"c","text":"Skalmetoden gjev alltid meir nøyaktig svar","isCorrect":false},{"id":"d","text":"Skivemetoden krev alltid numerisk integrasjon","isCorrect":false}],"solution":"Begge metodane kan brukast om begge akser når geometrien tillèt det — skilnaden er retninga: skiver blir stabla vinkelrett på aksen, skal ligg parallelt med han. Vel den som gjev enklast integral."},{"id":"s2-1-7-n-quiz3-q1","task":"Området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Kva er volumet?","options":[{"id":"a","text":"$\\frac{\\pi}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{3}$","isCorrect":false},{"id":"c","text":"$\\frac{2\\pi}{15}$","isCorrect":true},{"id":"d","text":"$\\frac{4\\pi}{15}$","isCorrect":false}],"solution":"Ringmetoden: $V = \\pi\\int_0^1 (x^2 - x^4)\\,dx = \\pi(\\frac{1}{3} - \\frac{1}{5}) = \\frac{2\\pi}{15}$. Merk: $\\frac{\\pi}{6}$ er det du får viss du feilaktig roterer arealdifferansen $\\int(x - x^2)dx$."},{"id":"s2-1-7-n-quiz3-q2","task":"Kva av desse er ein klassisk feil ved volum mellom to kurver om $x$-aksen?","options":[{"id":"a","text":"Å kvadrere kvar kurve for seg","isCorrect":false},{"id":"b","text":"Å integrere $\\pi\\int (f(x) - g(x))^2\\,dx$ i staden for $\\pi\\int ([f(x)]^2 - [g(x)]^2)\\,dx$","isCorrect":true},{"id":"c","text":"Å finne skjeringspunkta først","isCorrect":false},{"id":"d","text":"Å sjekke kva kurve som ligg ytst","isCorrect":false}],"solution":"Rett formel er differansen av kvadrata, $[f]^2 - [g]^2$ — arealet av ringen. $(f-g)^2$ er noko heilt anna. Og gløym heller ikkje $\\pi$-faktoren!"}]}},{"id":"s2-1-7-n-summary","type":"text","content":"## Volum på integralform\n\nDesignfirmaet fekk svara sine, og du fekk eit heilt nytt bruksområde for integralet. Kjernen er skivetanken: ein omdreiingslekam kan skjerast i tynne sirkelskiver, og volumet er integralet av tverrsnittsarealet. Om $x$-aksen gjev det $V = \\pi\\int_a^b [f(x)]^2\\,dx$, og om $y$-aksen $V = \\pi\\int_c^d [g(y)]^2\\,dy$ — då med kurva løyst for $x$. Med denne eine tanken beviste du både kjegleformelen $\\frac{1}{3}\\pi r^2 h$ og kuleformelen $\\frac{4}{3}\\pi R^3$.\n\nNår invertering er upraktisk, tek skalmetoden over: vertikale strimlar blir sylindriske skal med radius $x$, høgd $f(x)$ og volum $V = 2\\pi\\int_a^b x f(x)\\,dx$. Dømet med $y = x^2$ gav $8\\pi$ med begge metodane — ei påminning om at metodevalet er fritt og at to utrekningar er god kontroll. Hugseregelen: skiver vinkelrett på aksen, skal parallelt med han.\n\nHole lekamar — tankar, røyr, vaser med veggar — blir rekna som ringar: $V = \\pi\\int_a^b ([f(x)]^2 - [g(x)]^2)\\,dx$, med kvar kurve kvadrert for seg. Og dei to klassiske fellene er verdt ei siste gjentaking: aldri $(f-g)^2$, og aldri gløyme $\\pi$ eller $2\\pi$ framfor integralet.\n\nDermed er integrasjonskapittelet komplett — frå antideriverte til tredimensjonale former. I neste hovudkapittel snur vi problemstillinga: i staden for å integrere kjende funksjonar, skal vi finne ukjende funksjonar frå likningar om dei deriverte deira — differensiallikningar."}],"exercises":[],"_meta":{"sourceHash":"9fe95d83baa02bdc","translatedAt":"2026-06-20T09:03:19.001Z","model":"claude-code-agent","strings":82,"tm":{"8efe4ed449517762":"Volum av omdreiingslekamar","b195b06d1ed59702":"Narrativ versjon","b9b813222e632f05":"Ei forteljing frå eit designfirma der vaser og vasstankar blir matematikk: skiver, skal og ringar gjev volumformlar — og bevis kjegle- og kuleformelen på vegen.","a3f078eaff10ca1c":"bruke integrasjon til å rekne ut volum av omdreiingslekamar","5f96e6af121816d2":"velje mellom skivemetoden og skalmetoden avhengig av rotasjonsaksen","92fec96021ca8fc6":"## Frå flate til form\n\nEit lite norsk designfirma har fått i oppdrag å lage ein serie vaser og ein vasstank til ein hytteprodusent, og du er med som berekningsansvarleg. Designaren teiknar ei elegant kurve på skjermen og seier: «Tenk deg at denne profilen snurrar rundt aksen — det er forma.» Og det er nett slik mange verkelege objekt blir til: vaser på dreieskive, flasker, lampeskjermar, siloar og tankar er alle **omdreiingslekamar** (rotasjonslekamar) — tredimensjonale objekt som oppstår når eit område i planet blir rotert rundt ein akse.\n\nSpørsmålet frå produsenten er praktisk: «Kor mange liter rommar han?» Volum, altså. Og her kjem integralrekninga di inn på sitt mest visuelle.\n\nTenk deg at du roterer området mellom grafen til $f(x)$ og $x$-aksen rundt $x$-aksen. Resultatet er ei vaseliknande form, og det avgjerande er kva du ser viss du *skjer* henne: i kvart punkt $x$ er tverrsnittet ein perfekt sirkel med radius $|f(x)|$. Volumet kan difor byggjast opp av tynne sirkelskiver — og «summen av uendeleg mange tynne skiver» er, som du no veit, eit integral.\n\nI dette kapittelet utleier vi formlane for volum ved rotasjon om både $x$-aksen og $y$-aksen, møter to konkurrerande teknikkar — skivemetoden og skalmetoden — og lærer når du bør velje kva. På vegen skal vi bevise to formlar du har brukt sidan ungdomsskulen utan bevis: volumet av ei kjegle og volumet av ei kule.","8669ef75bc279dc9":"## Skivemetoden\n\nLat oss gjere skivetanken presis. Når området mellom $y = f(x)$ og $x$-aksen for $a \\leq x \\leq b$ blir rotert om **$x$-aksen**, har skiva i posisjon $x$ radius $|f(x)|$ og dermed areal $\\pi [f(x)]^2$. Summerer vi skivene langs aksen, får vi **skivemetoden**:\n\n$$V = \\pi \\int_a^b [f(x)]^2 \\, dx$$\n\nVi integrerer altså *kvadratet* av funksjonen og gangar med $\\pi$ — i praksis arealet av tverrsnittssirkelen, samla opp langs aksen.\n\nNo kan vi innfri eit gammalt lovnad. Volumet av ei kjegle med radius $r$ og høgd $h$: legg kjegla med spissen i origo, slik at den skrå sida er linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$. Rotasjon om $x$-aksen gjev\n\n$$V = \\pi \\int_0^h \\left(\\frac{r}{h}x\\right)^2 dx = \\frac{\\pi r^2}{h^2} \\left[\\frac{x^3}{3}\\right]_0^h = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$$\n\nDer er ho: $V = \\frac{1}{3}\\pi r^2 h$, formelen frå ungdomsskulen, no *utleidd* på tre linjer.\n\nKula går like greitt. Ei kule med radius $R$ er omdreiingslekamen til halvsirkelen $y = \\sqrt{R^2 - x^2}$ for $-R \\leq x \\leq R$. Kvadrering fjernar rotteiknet:\n\n$$V = \\pi \\int_{-R}^{R} (R^2 - x^2) \\, dx = \\pi \\left[R^2x - \\frac{x^3}{3}\\right]_{-R}^{R} = \\pi\\left(\\frac{2R^3}{3} + \\frac{2R^3}{3}\\right) = \\frac{4\\pi R^3}{3}$$\n\nTo av dei berømte formlane i geometrien, begge bevist med eitt og same verktøy. Det er krafta i skivemetoden: kjenn profilen, kvadrer, integrer.","e4f68f585064101f":"Test deg sjølv på skivemetoden:","4097889236a2af26":"placeholder","e83a507ab5cab108":"Området under $y = f(x)$ for $a \\leq x \\leq b$ blir rotert om $x$-aksen. Kva er volumet?","ba28b9008107d0fd":"$V = \\pi \\int_a^b f(x)\\,dx$","8c0ff7a1386dd47c":"$V = 2\\pi \\int_a^b x f(x)\\,dx$","98deddbc4b9fc1d3":"$V = \\pi \\int_a^b [f(x)]^2\\,dx$","ebc2a98f55ac2467":"$V = \\int_a^b [f(x)]^2\\,dx$","fda849ae8ac080f1":"Tverrsnittet i punktet $x$ er ein sirkel med radius $f(x)$ og areal $\\pi[f(x)]^2$. Skivemetoden summerer skivene: $V = \\pi\\int_a^b [f(x)]^2\\,dx$.","5d7d70ee679504b3":"Kva er tverrsnittet av omdreiingslekamen vinkelrett på rotasjonsaksen?","d81d1bb74c26a69d":"Eit kvadrat med side $f(x)$","8f7a19f534b5e857":"Ein sirkel med radius $|f(x)|$ og areal $\\pi[f(x)]^2$","ea86e1ee520320b2":"Eit trapes","f0158a7b50da4958":"Ein ellipse med halvakser $x$ og $f(x)$","29bc6ec507214de1":"Når punktet $(x, f(x))$ roterer om $x$-aksen, teiknar det ein sirkel med radius $|f(x)|$. Det er desse sirkelskivene integralet summerer.","5019b779e83e8009":"Linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$ blir rotert om $x$-aksen. Kva formel utleier vi?","189b5ee9cf6c4c4c":"Kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$","27904d47d690e122":"Kulevolumet $V = \\frac{4}{3}\\pi R^3$","86bd08a559d02dd8":"Sylindervolumet $V = \\pi r^2 h$","84abb00432ef6ed5":"Overflata av ei kjegle","9623df25aca72171":"$V = \\pi\\int_0^h (\\frac{r}{h}x)^2 dx = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$ — den klassiske kjegleformelen.","fca0c22219355d43":"Området under $y = \\sqrt{x}$ for $0 \\leq x \\leq 4$ blir rotert om $x$-aksen. Kva er volumet?","29e9b166b9116b4e":"$4\\pi$","17f8d50663e5513a":"$16\\pi$","7cd0798d4998b375":"$\\frac{64\\pi}{3}$","cfd5a6ad7d708eae":"$8\\pi$","8f111eb6e7a16a70":"$V = \\pi\\int_0^4 (\\sqrt{x})^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi[\\frac{x^2}{2}]_0^4 = 8\\pi$. Kvadreringa fjernar rotteiknet og gjer integralet enkelt.","64619ed33f6646e6":"## Rotasjon om y-aksen — skive eller skal\n\nVasa til designaren står naturlegvis *oppreist* — ho blir rotert om den vertikale aksen, $y$-aksen. Då har vi to moglegheiter.\n\nDen første er skivemetoden snudd på høgkant. Viss området mellom kurva $x = g(y)$ og $y$-aksen for $c \\leq y \\leq d$ blir rotert om $y$-aksen, er tverrsnittet i høgd $y$ ein sirkel med radius $g(y)$:\n\n$$V = \\pi \\int_c^d [g(y)]^2 \\, dy$$\n\nEr kurva gjeven som $y = f(x)$, må vi først løyse for $x$ — altså finne den omvende funksjonen. Døme: området mellom $y = x^2$ og $y$-aksen for $0 \\leq y \\leq 4$ blir rotert om $y$-aksen. Vi løyser: $x = \\sqrt{y}$, og\n\n$$V = \\pi \\int_0^4 (\\sqrt{y})^2 \\, dy = \\pi \\int_0^4 y \\, dy = \\pi \\cdot \\frac{16}{2} = 8\\pi$$\n\nMen kva om funksjonen er vond å invertere? Då finst ein annan veg: **skalmetoden**. Del området under $y = f(x)$ i tynne *vertikale* strimlar. Når strimmelen ved $x$ (med høgd $f(x)$ og breidd $dx$) roterer om $y$-aksen, dannar han eit tynt sylindrisk skal — som eit røyr — med radius $x$, høgd $f(x)$ og tjukkleik $dx$. Volumet av skalet er omkrinsen gonger høgda gonger tjukkleiken, $2\\pi x \\cdot f(x) \\cdot dx$, og summen blir\n\n$$V = 2\\pi \\int_a^b x \\cdot f(x) \\, dx \\qquad (a \\geq 0)$$\n\nPrøv på same lekamen: området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ rotert om $y$-aksen gjev $V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\big[\\frac{x^4}{4}\\big]_0^2 = 2\\pi \\cdot 4 = 8\\pi$ — nøyaktig same svar som skivemetoden, utan å invertere noko som helst. To metodar, eitt volum: god kontrollrekning og fritt metodeval.","c6580e6a7cb7bc8b":"Test deg sjølv på rotasjon om y-aksen:","e4ba1d0c83134340":"Vi vil bruke skivemetoden ved rotasjon om $y$-aksen, men kurva er gjeven som $y = f(x)$. Kva må vi gjere først?","e05d79b364a3ae48":"Byte forteikn på funksjonen","39782af052d6b4d4":"Derivere funksjonen","6aee47eddbc6a071":"Løyse for $x$, altså finne $x = g(y)$ (den omvende funksjonen)","eb1d99c7c8b0e6f1":"Multiplisere med $2\\pi$","872b36a9abfb7546":"Skivemetoden om $y$-aksen integrerer i $y$-retning: $V = \\pi\\int_c^d [g(y)]^2\\,dy$. Då må radius uttrykkjast som funksjon av $y$, altså $x = g(y)$.","5a0cf2b956ddafc4":"Kva er formelen for skalmetoden (rotasjon om $y$-aksen)?","f9adf406c3346df5":"$V = 2\\pi \\int_a^b x \\cdot f(x)\\,dx$","f7231ef77a60b1bd":"$V = 2\\pi \\int_a^b f(x)\\,dx$","b1be701c589c2993":"$V = \\pi \\int_a^b x^2 f(x)\\,dx$","70320dfe82267711":"Eit tynt skal ved $x$ har radius $x$, høgd $f(x)$ og tjukkleik $dx$, altså volum $\\approx 2\\pi x f(x)\\,dx$. Summert: $V = 2\\pi\\int_a^b x f(x)\\,dx$.","3495f263ead3578c":"I skalmetoden: kva er radius og høgd til skalet ved posisjon $x$?","78bb2bb5857e7ed8":"Radius $f(x)$, høgd $x$","614209c9b7cd7632":"Radius $x$, høgd $f(x)$","404283d1e203a7a7":"Radius $\\frac{x}{2}$, høgd $2f(x)$","917aedb3f2cd212a":"Radius $x^2$, høgd $f(x)$","3ec17cbd09f814f5":"Strimmelen står i avstand $x$ frå $y$-aksen — det er rotasjonsradien. Høgda er funksjonsverdien $f(x)$.","eca9dee69cff78a0":"Området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ blir rotert om $y$-aksen. Kva gjev skalmetoden?","5946f06217b04727":"$\\frac{32\\pi}{5}$","29dc25a518062167":"$V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\int_0^2 x^3\\,dx = 2\\pi \\cdot \\frac{16}{4} = 8\\pi$ — same svar som skivemetoden med $x = \\sqrt{y}$.","8d6b8f42b453e462":"## Metodeval, hole former og ei klassisk felle\n\nMed to metodar på menyen treng du ein tommelfingerregel. **Skivemetoden** er best når tverrsnittet vinkelrett på rotasjonsaksen er lett å uttrykkje — og, ved rotasjon om $y$-aksen, når funksjonen er lett å invertere. **Skalmetoden** er best når rotasjonen er om $y$-aksen og funksjonen er gjeven som $y = f(x)$, særleg når det er vanskeleg å løyse for $x$. Hugseregelen er verdt å pugge: *skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden integrerer parallelt med han.*\n\nVasstanken til designfirmaet er ikkje massiv — han har veggar, eit holrom. Slike former handterer vi som differansar. Blir området mellom to kurver $f(x) \\geq g(x) \\geq 0$ rotert om $x$-aksen, blir kvart tverrsnitt ein *ring*: ei skive med hol. Arealet av ringen er ytre skive minus indre, $\\pi[f(x)]^2 - \\pi[g(x)]^2$, og volumet blir\n\n$$V = \\pi \\int_a^b \\left([f(x)]^2 - [g(x)]^2\\right) dx$$\n\nDøme: området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Sidan $x \\geq x^2$ der, er linja ytterkant og parabelen innerkant:\n\n$$V = \\pi \\int_0^1 (x^2 - x^4) \\, dx = \\pi \\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\pi\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = \\frac{2\\pi}{15}$$\n\nMerk skilnaden frå arealrekninga: vi kvadrerer *kvar kurve for seg* og trekkjer frå etterpå — $[f]^2 - [g]^2$, ikkje $(f - g)^2$. Det er ei klassisk felle. Den andre klassikaren er endå enklare: å gløyme $\\pi$ i skivemetoden eller $2\\pi$ i skalmetoden. Skriv alltid opp formelen komplett før du byrjar å integrere, så er begge fellene ufarlege.","ed3140f3c27270bf":"Test deg sjølv på metodeval og volum mellom kurver:","a7377d1ac5568620":"Kva er hugseregelen for val mellom skive- og skalmetoden?","761cdac00144dede":"Skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden parallelt med han","d4daf990750f6fc0":"Skivemetoden blir berre brukt om $x$-aksen, skalmetoden berre om $y$-aksen","a7b4f65eb81666a9":"Skalmetoden gjev alltid meir nøyaktig svar","f7b84de5a012cd6a":"Skivemetoden krev alltid numerisk integrasjon","08d270089ac855cd":"Begge metodane kan brukast om begge akser når geometrien tillèt det — skilnaden er retninga: skiver blir stabla vinkelrett på aksen, skal ligg parallelt med han. Vel den som gjev enklast integral.","658b1660372def8c":"Området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Kva er volumet?","6c44995702bf2be7":"$\\frac{\\pi}{6}$","01a79120857df01f":"$\\frac{\\pi}{3}$","27345d871c9b6b2c":"$\\frac{2\\pi}{15}$","c577ca75fd55e2bf":"$\\frac{4\\pi}{15}$","8d43c48b49681e3a":"Ringmetoden: $V = \\pi\\int_0^1 (x^2 - x^4)\\,dx = \\pi(\\frac{1}{3} - \\frac{1}{5}) = \\frac{2\\pi}{15}$. Merk: $\\frac{\\pi}{6}$ er det du får viss du feilaktig roterer arealdifferansen $\\int(x - x^2)dx$.","25cf085933ef0519":"Kva av desse er ein klassisk feil ved volum mellom to kurver om $x$-aksen?","f91fea8afff240bc":"Å kvadrere kvar kurve for seg","b63836adb191328a":"Å integrere $\\pi\\int (f(x) - g(x))^2\\,dx$ i staden for $\\pi\\int ([f(x)]^2 - [g(x)]^2)\\,dx$","48f7c019e307e3ee":"Å finne skjeringspunkta først","afa2853483e447ac":"Å sjekke kva kurve som ligg ytst","8f0b86be1826fd47":"Rett formel er differansen av kvadrata, $[f]^2 - [g]^2$ — arealet av ringen. $(f-g)^2$ er noko heilt anna. Og gløym heller ikkje $\\pi$-faktoren!","65dfe8b82dc1aa1d":"## Volum på integralform\n\nDesignfirmaet fekk svara sine, og du fekk eit heilt nytt bruksområde for integralet. Kjernen er skivetanken: ein omdreiingslekam kan skjerast i tynne sirkelskiver, og volumet er integralet av tverrsnittsarealet. Om $x$-aksen gjev det $V = \\pi\\int_a^b [f(x)]^2\\,dx$, og om $y$-aksen $V = \\pi\\int_c^d [g(y)]^2\\,dy$ — då med kurva løyst for $x$. Med denne eine tanken beviste du både kjegleformelen $\\frac{1}{3}\\pi r^2 h$ og kuleformelen $\\frac{4}{3}\\pi R^3$.\n\nNår invertering er upraktisk, tek skalmetoden over: vertikale strimlar blir sylindriske skal med radius $x$, høgd $f(x)$ og volum $V = 2\\pi\\int_a^b x f(x)\\,dx$. Dømet med $y = x^2$ gav $8\\pi$ med begge metodane — ei påminning om at metodevalet er fritt og at to utrekningar er god kontroll. Hugseregelen: skiver vinkelrett på aksen, skal parallelt med han.\n\nHole lekamar — tankar, røyr, vaser med veggar — blir rekna som ringar: $V = \\pi\\int_a^b ([f(x)]^2 - [g(x)]^2)\\,dx$, med kvar kurve kvadrert for seg. Og dei to klassiske fellene er verdt ei siste gjentaking: aldri $(f-g)^2$, og aldri gløyme $\\pi$ eller $2\\pi$ framfor integralet.\n\nDermed er integrasjonskapittelet komplett — frå antideriverte til tredimensjonale former. I neste hovudkapittel snur vi problemstillinga: i staden for å integrere kjende funksjonar, skal vi finne ukjende funksjonar frå likningar om dei deriverte deira — differensiallikningar."}}}
+{
+  "id": "s2-1-7-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "1.7",
+  "title": "Volum av omdreiingslekamar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing frå eit designfirma der vaser og vasstankar blir matematikk: skiver, skal og ringar gjev volumformlar — og bevis kjegle- og kuleformelen på vegen.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke integrasjon til å rekne ut volum av omdreiingslekamar",
+    "velje mellom skivemetoden og skalmetoden avhengig av rotasjonsaksen"
+  ],
+  "linkedChapterId": "s2-1-7",
+  "content": [
+    {
+      "id": "s2-1-7-n-intro",
+      "type": "text",
+      "content": "## Frå flate til form\n\nEit lite norsk designfirma har fått i oppdrag å lage ein serie vaser og ein vasstank til ein hytteprodusent, og du er med som berekningsansvarleg. Designaren teiknar ei elegant kurve på skjermen og seier: «Tenk deg at denne profilen snurrar rundt aksen — det er forma.» Og det er nett slik mange verkelege objekt blir til: vaser på dreieskive, flasker, lampeskjermar, siloar og tankar er alle **omdreiingslekamar** (rotasjonslekamar) — tredimensjonale objekt som oppstår når eit område i planet blir rotert rundt ein akse.\n\nSpørsmålet frå produsenten er praktisk: «Kor mange liter rommar han?» Volum, altså. Og her kjem integralrekninga di inn på sitt mest visuelle.\n\nTenk deg at du roterer området mellom grafen til $f(x)$ og $x$-aksen rundt $x$-aksen. Resultatet er ei vaseliknande form, og det avgjerande er kva du ser viss du *skjer* henne: i kvart punkt $x$ er tverrsnittet ein perfekt sirkel med radius $|f(x)|$. Volumet kan difor byggjast opp av tynne sirkelskiver — og «summen av uendeleg mange tynne skiver» er, som du no veit, eit integral.\n\nI dette kapittelet utleier vi formlane for volum ved rotasjon om både $x$-aksen og $y$-aksen, møter to konkurrerande teknikkar — skivemetoden og skalmetoden — og lærer når du bør velje kva. På vegen skal vi bevise to formlar du har brukt sidan ungdomsskulen utan bevis: volumet av ei kjegle og volumet av ei kule."
+    },
+    {
+      "id": "s2-1-7-n-section1",
+      "type": "text",
+      "content": "## Skivemetoden\n\nLat oss gjere skivetanken presis. Når området mellom $y = f(x)$ og $x$-aksen for $a \\leq x \\leq b$ blir rotert om **$x$-aksen**, har skiva i posisjon $x$ radius $|f(x)|$ og dermed areal $\\pi [f(x)]^2$. Summerer vi skivene langs aksen, får vi **skivemetoden**:\n\n$$V = \\pi \\int_a^b [f(x)]^2 \\, dx$$\n\nVi integrerer altså *kvadratet* av funksjonen og gangar med $\\pi$ — i praksis arealet av tverrsnittssirkelen, samla opp langs aksen.\n\nNo kan vi innfri eit gammalt lovnad. Volumet av ei kjegle med radius $r$ og høgd $h$: legg kjegla med spissen i origo, slik at den skrå sida er linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$. Rotasjon om $x$-aksen gjev\n\n$$V = \\pi \\int_0^h \\left(\\frac{r}{h}x\\right)^2 dx = \\frac{\\pi r^2}{h^2} \\left[\\frac{x^3}{3}\\right]_0^h = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$$\n\nDer er ho: $V = \\frac{1}{3}\\pi r^2 h$, formelen frå ungdomsskulen, no *utleidd* på tre linjer.\n\nKula går like greitt. Ei kule med radius $R$ er omdreiingslekamen til halvsirkelen $y = \\sqrt{R^2 - x^2}$ for $-R \\leq x \\leq R$. Kvadrering fjernar rotteiknet:\n\n$$V = \\pi \\int_{-R}^{R} (R^2 - x^2) \\, dx = \\pi \\left[R^2x - \\frac{x^3}{3}\\right]_{-R}^{R} = \\pi\\left(\\frac{2R^3}{3} + \\frac{2R^3}{3}\\right) = \\frac{4\\pi R^3}{3}$$\n\nTo av dei berømte formlane i geometrien, begge bevist med eitt og same verktøy. Det er krafta i skivemetoden: kjenn profilen, kvadrer, integrer."
+    },
+    {
+      "id": "s2-1-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på skivemetoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-7-n-quiz1-q0",
+            "task": "Området under $y = f(x)$ for $a \\leq x \\leq b$ blir rotert om $x$-aksen. Kva er volumet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$V = \\pi \\int_a^b f(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$V = \\pi \\int_a^b [f(x)]^2\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$V = 2\\pi \\int_a^b x f(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$V = \\int_a^b [f(x)]^2\\,dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tverrsnittet i punktet $x$ er ein sirkel med radius $f(x)$ og areal $\\pi[f(x)]^2$. Skivemetoden summerer skivene: $V = \\pi\\int_a^b [f(x)]^2\\,dx$."
+          },
+          {
+            "id": "s2-1-7-n-quiz1-q1",
+            "task": "Kva er tverrsnittet av omdreiingslekamen vinkelrett på rotasjonsaksen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eit kvadrat med side $f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit trapes",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein sirkel med radius $|f(x)|$ og areal $\\pi[f(x)]^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ein ellipse med halvakser $x$ og $f(x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når punktet $(x, f(x))$ roterer om $x$-aksen, teiknar det ein sirkel med radius $|f(x)|$. Det er desse sirkelskivene integralet summerer."
+          },
+          {
+            "id": "s2-1-7-n-quiz1-q2",
+            "task": "Linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$ blir rotert om $x$-aksen. Kva formel utleier vi?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kulevolumet $V = \\frac{4}{3}\\pi R^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sylindervolumet $V = \\pi r^2 h$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Overflata av ei kjegle",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$V = \\pi\\int_0^h (\\frac{r}{h}x)^2 dx = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$ — den klassiske kjegleformelen."
+          },
+          {
+            "id": "s2-1-7-n-quiz1-q3",
+            "task": "Området under $y = \\sqrt{x}$ for $0 \\leq x \\leq 4$ blir rotert om $x$-aksen. Kva er volumet?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$8\\pi$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$16\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{64\\pi}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$V = \\pi\\int_0^4 (\\sqrt{x})^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi[\\frac{x^2}{2}]_0^4 = 8\\pi$. Kvadreringa fjernar rotteiknet og gjer integralet enkelt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-7-n-section2",
+      "type": "text",
+      "content": "## Rotasjon om y-aksen — skive eller skal\n\nVasa til designaren står naturlegvis *oppreist* — ho blir rotert om den vertikale aksen, $y$-aksen. Då har vi to moglegheiter.\n\nDen første er skivemetoden snudd på høgkant. Viss området mellom kurva $x = g(y)$ og $y$-aksen for $c \\leq y \\leq d$ blir rotert om $y$-aksen, er tverrsnittet i høgd $y$ ein sirkel med radius $g(y)$:\n\n$$V = \\pi \\int_c^d [g(y)]^2 \\, dy$$\n\nEr kurva gjeven som $y = f(x)$, må vi først løyse for $x$ — altså finne den omvende funksjonen. Døme: området mellom $y = x^2$ og $y$-aksen for $0 \\leq y \\leq 4$ blir rotert om $y$-aksen. Vi løyser: $x = \\sqrt{y}$, og\n\n$$V = \\pi \\int_0^4 (\\sqrt{y})^2 \\, dy = \\pi \\int_0^4 y \\, dy = \\pi \\cdot \\frac{16}{2} = 8\\pi$$\n\nMen kva om funksjonen er vond å invertere? Då finst ein annan veg: **skalmetoden**. Del området under $y = f(x)$ i tynne *vertikale* strimlar. Når strimmelen ved $x$ (med høgd $f(x)$ og breidd $dx$) roterer om $y$-aksen, dannar han eit tynt sylindrisk skal — som eit røyr — med radius $x$, høgd $f(x)$ og tjukkleik $dx$. Volumet av skalet er omkrinsen gonger høgda gonger tjukkleiken, $2\\pi x \\cdot f(x) \\cdot dx$, og summen blir\n\n$$V = 2\\pi \\int_a^b x \\cdot f(x) \\, dx \\qquad (a \\geq 0)$$\n\nPrøv på same lekamen: området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ rotert om $y$-aksen gjev $V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\big[\\frac{x^4}{4}\\big]_0^2 = 2\\pi \\cdot 4 = 8\\pi$ — nøyaktig same svar som skivemetoden, utan å invertere noko som helst. To metodar, eitt volum: god kontrollrekning og fritt metodeval."
+    },
+    {
+      "id": "s2-1-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rotasjon om y-aksen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-7-n-quiz2-q0",
+            "task": "Vi vil bruke skivemetoden ved rotasjon om $y$-aksen, men kurva er gjeven som $y = f(x)$. Kva må vi gjere først?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Byte forteikn på funksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Løyse for $x$, altså finne $x = g(y)$ (den omvende funksjonen)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Derivere funksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Multiplisere med $2\\pi$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skivemetoden om $y$-aksen integrerer i $y$-retning: $V = \\pi\\int_c^d [g(y)]^2\\,dy$. Då må radius uttrykkjast som funksjon av $y$, altså $x = g(y)$."
+          },
+          {
+            "id": "s2-1-7-n-quiz2-q1",
+            "task": "Kva er formelen for skalmetoden (rotasjon om $y$-aksen)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$V = \\pi \\int_a^b [f(x)]^2\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$V = 2\\pi \\int_a^b x \\cdot f(x)\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$V = 2\\pi \\int_a^b f(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$V = \\pi \\int_a^b x^2 f(x)\\,dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit tynt skal ved $x$ har radius $x$, høgd $f(x)$ og tjukkleik $dx$, altså volum $\\approx 2\\pi x f(x)\\,dx$. Summert: $V = 2\\pi\\int_a^b x f(x)\\,dx$."
+          },
+          {
+            "id": "s2-1-7-n-quiz2-q2",
+            "task": "I skalmetoden: kva er radius og høgd til skalet ved posisjon $x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Radius $f(x)$, høgd $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Radius $\\frac{x}{2}$, høgd $2f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Radius $x$, høgd $f(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Radius $x^2$, høgd $f(x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strimmelen står i avstand $x$ frå $y$-aksen — det er rotasjonsradien. Høgda er funksjonsverdien $f(x)$."
+          },
+          {
+            "id": "s2-1-7-n-quiz2-q3",
+            "task": "Området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ blir rotert om $y$-aksen. Kva gjev skalmetoden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{32\\pi}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$8\\pi$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\int_0^2 x^3\\,dx = 2\\pi \\cdot \\frac{16}{4} = 8\\pi$ — same svar som skivemetoden med $x = \\sqrt{y}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-7-n-section3",
+      "type": "text",
+      "content": "## Metodeval, hole former og ei klassisk felle\n\nMed to metodar på menyen treng du ein tommelfingerregel. **Skivemetoden** er best når tverrsnittet vinkelrett på rotasjonsaksen er lett å uttrykkje — og, ved rotasjon om $y$-aksen, når funksjonen er lett å invertere. **Skalmetoden** er best når rotasjonen er om $y$-aksen og funksjonen er gjeven som $y = f(x)$, særleg når det er vanskeleg å løyse for $x$. Hugseregelen er verdt å pugge: *skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden integrerer parallelt med han.*\n\nVasstanken til designfirmaet er ikkje massiv — han har veggar, eit holrom. Slike former handterer vi som differansar. Blir området mellom to kurver $f(x) \\geq g(x) \\geq 0$ rotert om $x$-aksen, blir kvart tverrsnitt ein *ring*: ei skive med hol. Arealet av ringen er ytre skive minus indre, $\\pi[f(x)]^2 - \\pi[g(x)]^2$, og volumet blir\n\n$$V = \\pi \\int_a^b \\left([f(x)]^2 - [g(x)]^2\\right) dx$$\n\nDøme: området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Sidan $x \\geq x^2$ der, er linja ytterkant og parabelen innerkant:\n\n$$V = \\pi \\int_0^1 (x^2 - x^4) \\, dx = \\pi \\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\pi\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = \\frac{2\\pi}{15}$$\n\nMerk skilnaden frå arealrekninga: vi kvadrerer *kvar kurve for seg* og trekkjer frå etterpå — $[f]^2 - [g]^2$, ikkje $(f - g)^2$. Det er ei klassisk felle. Den andre klassikaren er endå enklare: å gløyme $\\pi$ i skivemetoden eller $2\\pi$ i skalmetoden. Skriv alltid opp formelen komplett før du byrjar å integrere, så er begge fellene ufarlege."
+    },
+    {
+      "id": "s2-1-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på metodeval og volum mellom kurver:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-7-n-quiz3-q0",
+            "task": "Kva er hugseregelen for val mellom skive- og skalmetoden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden parallelt med han",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Skivemetoden blir berre brukt om $x$-aksen, skalmetoden berre om $y$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Skalmetoden gjev alltid meir nøyaktig svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Skivemetoden krev alltid numerisk integrasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Begge metodane kan brukast om begge akser når geometrien tillèt det — skilnaden er retninga: skiver blir stabla vinkelrett på aksen, skal ligg parallelt med han. Vel den som gjev enklast integral."
+          },
+          {
+            "id": "s2-1-7-n-quiz3-q1",
+            "task": "Området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Kva er volumet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{\\pi}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2\\pi}{15}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{4\\pi}{15}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ringmetoden: $V = \\pi\\int_0^1 (x^2 - x^4)\\,dx = \\pi(\\frac{1}{3} - \\frac{1}{5}) = \\frac{2\\pi}{15}$. Merk: $\\frac{\\pi}{6}$ er det du får viss du feilaktig roterer arealdifferansen $\\int(x - x^2)dx$."
+          },
+          {
+            "id": "s2-1-7-n-quiz3-q2",
+            "task": "Kva av desse er ein klassisk feil ved volum mellom to kurver om $x$-aksen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å kvadrere kvar kurve for seg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å finne skjeringspunkta først",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sjekke kva kurve som ligg ytst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å integrere $\\pi\\int (f(x) - g(x))^2\\,dx$ i staden for $\\pi\\int ([f(x)]^2 - [g(x)]^2)\\,dx$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Rett formel er differansen av kvadrata, $[f]^2 - [g]^2$ — arealet av ringen. $(f-g)^2$ er noko heilt anna. Og gløym heller ikkje $\\pi$-faktoren!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-7-n-summary",
+      "type": "text",
+      "content": "## Volum på integralform\n\nDesignfirmaet fekk svara sine, og du fekk eit heilt nytt bruksområde for integralet. Kjernen er skivetanken: ein omdreiingslekam kan skjerast i tynne sirkelskiver, og volumet er integralet av tverrsnittsarealet. Om $x$-aksen gjev det $V = \\pi\\int_a^b [f(x)]^2\\,dx$, og om $y$-aksen $V = \\pi\\int_c^d [g(y)]^2\\,dy$ — då med kurva løyst for $x$. Med denne eine tanken beviste du både kjegleformelen $\\frac{1}{3}\\pi r^2 h$ og kuleformelen $\\frac{4}{3}\\pi R^3$.\n\nNår invertering er upraktisk, tek skalmetoden over: vertikale strimlar blir sylindriske skal med radius $x$, høgd $f(x)$ og volum $V = 2\\pi\\int_a^b x f(x)\\,dx$. Dømet med $y = x^2$ gav $8\\pi$ med begge metodane — ei påminning om at metodevalet er fritt og at to utrekningar er god kontroll. Hugseregelen: skiver vinkelrett på aksen, skal parallelt med han.\n\nHole lekamar — tankar, røyr, vaser med veggar — blir rekna som ringar: $V = \\pi\\int_a^b ([f(x)]^2 - [g(x)]^2)\\,dx$, med kvar kurve kvadrert for seg. Og dei to klassiske fellene er verdt ei siste gjentaking: aldri $(f-g)^2$, og aldri gløyme $\\pi$ eller $2\\pi$ framfor integralet.\n\nDermed er integrasjonskapittelet komplett — frå antideriverte til tredimensjonale former. I neste hovudkapittel snur vi problemstillinga: i staden for å integrere kjende funksjonar, skal vi finne ukjende funksjonar frå likningar om dei deriverte deira — differensiallikningar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "9fe95d83baa02bdc",
+    "translatedAt": "2026-06-20T09:03:19.001Z",
+    "model": "claude-code-agent",
+    "strings": 82,
+    "tm": {
+      "8efe4ed449517762": "Volum av omdreiingslekamar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b9b813222e632f05": "Ei forteljing frå eit designfirma der vaser og vasstankar blir matematikk: skiver, skal og ringar gjev volumformlar — og bevis kjegle- og kuleformelen på vegen.",
+      "a3f078eaff10ca1c": "bruke integrasjon til å rekne ut volum av omdreiingslekamar",
+      "5f96e6af121816d2": "velje mellom skivemetoden og skalmetoden avhengig av rotasjonsaksen",
+      "92fec96021ca8fc6": "## Frå flate til form\n\nEit lite norsk designfirma har fått i oppdrag å lage ein serie vaser og ein vasstank til ein hytteprodusent, og du er med som berekningsansvarleg. Designaren teiknar ei elegant kurve på skjermen og seier: «Tenk deg at denne profilen snurrar rundt aksen — det er forma.» Og det er nett slik mange verkelege objekt blir til: vaser på dreieskive, flasker, lampeskjermar, siloar og tankar er alle **omdreiingslekamar** (rotasjonslekamar) — tredimensjonale objekt som oppstår når eit område i planet blir rotert rundt ein akse.\n\nSpørsmålet frå produsenten er praktisk: «Kor mange liter rommar han?» Volum, altså. Og her kjem integralrekninga di inn på sitt mest visuelle.\n\nTenk deg at du roterer området mellom grafen til $f(x)$ og $x$-aksen rundt $x$-aksen. Resultatet er ei vaseliknande form, og det avgjerande er kva du ser viss du *skjer* henne: i kvart punkt $x$ er tverrsnittet ein perfekt sirkel med radius $|f(x)|$. Volumet kan difor byggjast opp av tynne sirkelskiver — og «summen av uendeleg mange tynne skiver» er, som du no veit, eit integral.\n\nI dette kapittelet utleier vi formlane for volum ved rotasjon om både $x$-aksen og $y$-aksen, møter to konkurrerande teknikkar — skivemetoden og skalmetoden — og lærer når du bør velje kva. På vegen skal vi bevise to formlar du har brukt sidan ungdomsskulen utan bevis: volumet av ei kjegle og volumet av ei kule.",
+      "8669ef75bc279dc9": "## Skivemetoden\n\nLat oss gjere skivetanken presis. Når området mellom $y = f(x)$ og $x$-aksen for $a \\leq x \\leq b$ blir rotert om **$x$-aksen**, har skiva i posisjon $x$ radius $|f(x)|$ og dermed areal $\\pi [f(x)]^2$. Summerer vi skivene langs aksen, får vi **skivemetoden**:\n\n$$V = \\pi \\int_a^b [f(x)]^2 \\, dx$$\n\nVi integrerer altså *kvadratet* av funksjonen og gangar med $\\pi$ — i praksis arealet av tverrsnittssirkelen, samla opp langs aksen.\n\nNo kan vi innfri eit gammalt lovnad. Volumet av ei kjegle med radius $r$ og høgd $h$: legg kjegla med spissen i origo, slik at den skrå sida er linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$. Rotasjon om $x$-aksen gjev\n\n$$V = \\pi \\int_0^h \\left(\\frac{r}{h}x\\right)^2 dx = \\frac{\\pi r^2}{h^2} \\left[\\frac{x^3}{3}\\right]_0^h = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$$\n\nDer er ho: $V = \\frac{1}{3}\\pi r^2 h$, formelen frå ungdomsskulen, no *utleidd* på tre linjer.\n\nKula går like greitt. Ei kule med radius $R$ er omdreiingslekamen til halvsirkelen $y = \\sqrt{R^2 - x^2}$ for $-R \\leq x \\leq R$. Kvadrering fjernar rotteiknet:\n\n$$V = \\pi \\int_{-R}^{R} (R^2 - x^2) \\, dx = \\pi \\left[R^2x - \\frac{x^3}{3}\\right]_{-R}^{R} = \\pi\\left(\\frac{2R^3}{3} + \\frac{2R^3}{3}\\right) = \\frac{4\\pi R^3}{3}$$\n\nTo av dei berømte formlane i geometrien, begge bevist med eitt og same verktøy. Det er krafta i skivemetoden: kjenn profilen, kvadrer, integrer.",
+      "e4f68f585064101f": "Test deg sjølv på skivemetoden:",
+      "4097889236a2af26": "placeholder",
+      "e83a507ab5cab108": "Området under $y = f(x)$ for $a \\leq x \\leq b$ blir rotert om $x$-aksen. Kva er volumet?",
+      "ba28b9008107d0fd": "$V = \\pi \\int_a^b f(x)\\,dx$",
+      "8c0ff7a1386dd47c": "$V = 2\\pi \\int_a^b x f(x)\\,dx$",
+      "98deddbc4b9fc1d3": "$V = \\pi \\int_a^b [f(x)]^2\\,dx$",
+      "ebc2a98f55ac2467": "$V = \\int_a^b [f(x)]^2\\,dx$",
+      "fda849ae8ac080f1": "Tverrsnittet i punktet $x$ er ein sirkel med radius $f(x)$ og areal $\\pi[f(x)]^2$. Skivemetoden summerer skivene: $V = \\pi\\int_a^b [f(x)]^2\\,dx$.",
+      "5d7d70ee679504b3": "Kva er tverrsnittet av omdreiingslekamen vinkelrett på rotasjonsaksen?",
+      "d81d1bb74c26a69d": "Eit kvadrat med side $f(x)$",
+      "8f7a19f534b5e857": "Ein sirkel med radius $|f(x)|$ og areal $\\pi[f(x)]^2$",
+      "ea86e1ee520320b2": "Eit trapes",
+      "f0158a7b50da4958": "Ein ellipse med halvakser $x$ og $f(x)$",
+      "29bc6ec507214de1": "Når punktet $(x, f(x))$ roterer om $x$-aksen, teiknar det ein sirkel med radius $|f(x)|$. Det er desse sirkelskivene integralet summerer.",
+      "5019b779e83e8009": "Linja $y = \\frac{r}{h}x$ for $0 \\leq x \\leq h$ blir rotert om $x$-aksen. Kva formel utleier vi?",
+      "189b5ee9cf6c4c4c": "Kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$",
+      "27904d47d690e122": "Kulevolumet $V = \\frac{4}{3}\\pi R^3$",
+      "86bd08a559d02dd8": "Sylindervolumet $V = \\pi r^2 h$",
+      "84abb00432ef6ed5": "Overflata av ei kjegle",
+      "9623df25aca72171": "$V = \\pi\\int_0^h (\\frac{r}{h}x)^2 dx = \\frac{\\pi r^2}{h^2} \\cdot \\frac{h^3}{3} = \\frac{\\pi r^2 h}{3}$ — den klassiske kjegleformelen.",
+      "fca0c22219355d43": "Området under $y = \\sqrt{x}$ for $0 \\leq x \\leq 4$ blir rotert om $x$-aksen. Kva er volumet?",
+      "29e9b166b9116b4e": "$4\\pi$",
+      "17f8d50663e5513a": "$16\\pi$",
+      "7cd0798d4998b375": "$\\frac{64\\pi}{3}$",
+      "cfd5a6ad7d708eae": "$8\\pi$",
+      "8f111eb6e7a16a70": "$V = \\pi\\int_0^4 (\\sqrt{x})^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi[\\frac{x^2}{2}]_0^4 = 8\\pi$. Kvadreringa fjernar rotteiknet og gjer integralet enkelt.",
+      "64619ed33f6646e6": "## Rotasjon om y-aksen — skive eller skal\n\nVasa til designaren står naturlegvis *oppreist* — ho blir rotert om den vertikale aksen, $y$-aksen. Då har vi to moglegheiter.\n\nDen første er skivemetoden snudd på høgkant. Viss området mellom kurva $x = g(y)$ og $y$-aksen for $c \\leq y \\leq d$ blir rotert om $y$-aksen, er tverrsnittet i høgd $y$ ein sirkel med radius $g(y)$:\n\n$$V = \\pi \\int_c^d [g(y)]^2 \\, dy$$\n\nEr kurva gjeven som $y = f(x)$, må vi først løyse for $x$ — altså finne den omvende funksjonen. Døme: området mellom $y = x^2$ og $y$-aksen for $0 \\leq y \\leq 4$ blir rotert om $y$-aksen. Vi løyser: $x = \\sqrt{y}$, og\n\n$$V = \\pi \\int_0^4 (\\sqrt{y})^2 \\, dy = \\pi \\int_0^4 y \\, dy = \\pi \\cdot \\frac{16}{2} = 8\\pi$$\n\nMen kva om funksjonen er vond å invertere? Då finst ein annan veg: **skalmetoden**. Del området under $y = f(x)$ i tynne *vertikale* strimlar. Når strimmelen ved $x$ (med høgd $f(x)$ og breidd $dx$) roterer om $y$-aksen, dannar han eit tynt sylindrisk skal — som eit røyr — med radius $x$, høgd $f(x)$ og tjukkleik $dx$. Volumet av skalet er omkrinsen gonger høgda gonger tjukkleiken, $2\\pi x \\cdot f(x) \\cdot dx$, og summen blir\n\n$$V = 2\\pi \\int_a^b x \\cdot f(x) \\, dx \\qquad (a \\geq 0)$$\n\nPrøv på same lekamen: området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ rotert om $y$-aksen gjev $V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\big[\\frac{x^4}{4}\\big]_0^2 = 2\\pi \\cdot 4 = 8\\pi$ — nøyaktig same svar som skivemetoden, utan å invertere noko som helst. To metodar, eitt volum: god kontrollrekning og fritt metodeval.",
+      "c6580e6a7cb7bc8b": "Test deg sjølv på rotasjon om y-aksen:",
+      "e4ba1d0c83134340": "Vi vil bruke skivemetoden ved rotasjon om $y$-aksen, men kurva er gjeven som $y = f(x)$. Kva må vi gjere først?",
+      "e05d79b364a3ae48": "Byte forteikn på funksjonen",
+      "39782af052d6b4d4": "Derivere funksjonen",
+      "6aee47eddbc6a071": "Løyse for $x$, altså finne $x = g(y)$ (den omvende funksjonen)",
+      "eb1d99c7c8b0e6f1": "Multiplisere med $2\\pi$",
+      "872b36a9abfb7546": "Skivemetoden om $y$-aksen integrerer i $y$-retning: $V = \\pi\\int_c^d [g(y)]^2\\,dy$. Då må radius uttrykkjast som funksjon av $y$, altså $x = g(y)$.",
+      "5a0cf2b956ddafc4": "Kva er formelen for skalmetoden (rotasjon om $y$-aksen)?",
+      "f9adf406c3346df5": "$V = 2\\pi \\int_a^b x \\cdot f(x)\\,dx$",
+      "f7231ef77a60b1bd": "$V = 2\\pi \\int_a^b f(x)\\,dx$",
+      "b1be701c589c2993": "$V = \\pi \\int_a^b x^2 f(x)\\,dx$",
+      "70320dfe82267711": "Eit tynt skal ved $x$ har radius $x$, høgd $f(x)$ og tjukkleik $dx$, altså volum $\\approx 2\\pi x f(x)\\,dx$. Summert: $V = 2\\pi\\int_a^b x f(x)\\,dx$.",
+      "3495f263ead3578c": "I skalmetoden: kva er radius og høgd til skalet ved posisjon $x$?",
+      "78bb2bb5857e7ed8": "Radius $f(x)$, høgd $x$",
+      "614209c9b7cd7632": "Radius $x$, høgd $f(x)$",
+      "404283d1e203a7a7": "Radius $\\frac{x}{2}$, høgd $2f(x)$",
+      "917aedb3f2cd212a": "Radius $x^2$, høgd $f(x)$",
+      "3ec17cbd09f814f5": "Strimmelen står i avstand $x$ frå $y$-aksen — det er rotasjonsradien. Høgda er funksjonsverdien $f(x)$.",
+      "eca9dee69cff78a0": "Området mellom $y = x^2$ og $x$-aksen for $0 \\leq x \\leq 2$ blir rotert om $y$-aksen. Kva gjev skalmetoden?",
+      "5946f06217b04727": "$\\frac{32\\pi}{5}$",
+      "29dc25a518062167": "$V = 2\\pi\\int_0^2 x \\cdot x^2\\,dx = 2\\pi\\int_0^2 x^3\\,dx = 2\\pi \\cdot \\frac{16}{4} = 8\\pi$ — same svar som skivemetoden med $x = \\sqrt{y}$.",
+      "8d6b8f42b453e462": "## Metodeval, hole former og ei klassisk felle\n\nMed to metodar på menyen treng du ein tommelfingerregel. **Skivemetoden** er best når tverrsnittet vinkelrett på rotasjonsaksen er lett å uttrykkje — og, ved rotasjon om $y$-aksen, når funksjonen er lett å invertere. **Skalmetoden** er best når rotasjonen er om $y$-aksen og funksjonen er gjeven som $y = f(x)$, særleg når det er vanskeleg å løyse for $x$. Hugseregelen er verdt å pugge: *skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden integrerer parallelt med han.*\n\nVasstanken til designfirmaet er ikkje massiv — han har veggar, eit holrom. Slike former handterer vi som differansar. Blir området mellom to kurver $f(x) \\geq g(x) \\geq 0$ rotert om $x$-aksen, blir kvart tverrsnitt ein *ring*: ei skive med hol. Arealet av ringen er ytre skive minus indre, $\\pi[f(x)]^2 - \\pi[g(x)]^2$, og volumet blir\n\n$$V = \\pi \\int_a^b \\left([f(x)]^2 - [g(x)]^2\\right) dx$$\n\nDøme: området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Sidan $x \\geq x^2$ der, er linja ytterkant og parabelen innerkant:\n\n$$V = \\pi \\int_0^1 (x^2 - x^4) \\, dx = \\pi \\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\pi\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = \\frac{2\\pi}{15}$$\n\nMerk skilnaden frå arealrekninga: vi kvadrerer *kvar kurve for seg* og trekkjer frå etterpå — $[f]^2 - [g]^2$, ikkje $(f - g)^2$. Det er ei klassisk felle. Den andre klassikaren er endå enklare: å gløyme $\\pi$ i skivemetoden eller $2\\pi$ i skalmetoden. Skriv alltid opp formelen komplett før du byrjar å integrere, så er begge fellene ufarlege.",
+      "ed3140f3c27270bf": "Test deg sjølv på metodeval og volum mellom kurver:",
+      "a7377d1ac5568620": "Kva er hugseregelen for val mellom skive- og skalmetoden?",
+      "761cdac00144dede": "Skivemetoden integrerer vinkelrett på rotasjonsaksen, skalmetoden parallelt med han",
+      "d4daf990750f6fc0": "Skivemetoden blir berre brukt om $x$-aksen, skalmetoden berre om $y$-aksen",
+      "a7b4f65eb81666a9": "Skalmetoden gjev alltid meir nøyaktig svar",
+      "f7b84de5a012cd6a": "Skivemetoden krev alltid numerisk integrasjon",
+      "08d270089ac855cd": "Begge metodane kan brukast om begge akser når geometrien tillèt det — skilnaden er retninga: skiver blir stabla vinkelrett på aksen, skal ligg parallelt med han. Vel den som gjev enklast integral.",
+      "658b1660372def8c": "Området mellom $y = x$ og $y = x^2$ for $0 \\leq x \\leq 1$ blir rotert om $x$-aksen. Kva er volumet?",
+      "6c44995702bf2be7": "$\\frac{\\pi}{6}$",
+      "01a79120857df01f": "$\\frac{\\pi}{3}$",
+      "27345d871c9b6b2c": "$\\frac{2\\pi}{15}$",
+      "c577ca75fd55e2bf": "$\\frac{4\\pi}{15}$",
+      "8d43c48b49681e3a": "Ringmetoden: $V = \\pi\\int_0^1 (x^2 - x^4)\\,dx = \\pi(\\frac{1}{3} - \\frac{1}{5}) = \\frac{2\\pi}{15}$. Merk: $\\frac{\\pi}{6}$ er det du får viss du feilaktig roterer arealdifferansen $\\int(x - x^2)dx$.",
+      "25cf085933ef0519": "Kva av desse er ein klassisk feil ved volum mellom to kurver om $x$-aksen?",
+      "f91fea8afff240bc": "Å kvadrere kvar kurve for seg",
+      "b63836adb191328a": "Å integrere $\\pi\\int (f(x) - g(x))^2\\,dx$ i staden for $\\pi\\int ([f(x)]^2 - [g(x)]^2)\\,dx$",
+      "48f7c019e307e3ee": "Å finne skjeringspunkta først",
+      "afa2853483e447ac": "Å sjekke kva kurve som ligg ytst",
+      "8f0b86be1826fd47": "Rett formel er differansen av kvadrata, $[f]^2 - [g]^2$ — arealet av ringen. $(f-g)^2$ er noko heilt anna. Og gløym heller ikkje $\\pi$-faktoren!",
+      "65dfe8b82dc1aa1d": "## Volum på integralform\n\nDesignfirmaet fekk svara sine, og du fekk eit heilt nytt bruksområde for integralet. Kjernen er skivetanken: ein omdreiingslekam kan skjerast i tynne sirkelskiver, og volumet er integralet av tverrsnittsarealet. Om $x$-aksen gjev det $V = \\pi\\int_a^b [f(x)]^2\\,dx$, og om $y$-aksen $V = \\pi\\int_c^d [g(y)]^2\\,dy$ — då med kurva løyst for $x$. Med denne eine tanken beviste du både kjegleformelen $\\frac{1}{3}\\pi r^2 h$ og kuleformelen $\\frac{4}{3}\\pi R^3$.\n\nNår invertering er upraktisk, tek skalmetoden over: vertikale strimlar blir sylindriske skal med radius $x$, høgd $f(x)$ og volum $V = 2\\pi\\int_a^b x f(x)\\,dx$. Dømet med $y = x^2$ gav $8\\pi$ med begge metodane — ei påminning om at metodevalet er fritt og at to utrekningar er god kontroll. Hugseregelen: skiver vinkelrett på aksen, skal parallelt med han.\n\nHole lekamar — tankar, røyr, vaser med veggar — blir rekna som ringar: $V = \\pi\\int_a^b ([f(x)]^2 - [g(x)]^2)\\,dx$, med kvar kurve kvadrert for seg. Og dei to klassiske fellene er verdt ei siste gjentaking: aldri $(f-g)^2$, og aldri gløyme $\\pi$ eller $2\\pi$ framfor integralet.\n\nDermed er integrasjonskapittelet komplett — frå antideriverte til tredimensjonale former. I neste hovudkapittel snur vi problemstillinga: i staden for å integrere kjende funksjonar, skal vi finne ukjende funksjonar frå likningar om dei deriverte deira — differensiallikningar."
+    }
+  }
+}

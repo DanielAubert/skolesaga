@@ -1,1 +1,415 @@
-{"id":"s1-3-4-narrativ","courseId":"s1","chapterNumber":"3.4","title":"Funksjonsdrøfting","subtitle":"Narrativ versjon","description":"Ei forteljing om å lese funksjonar som historier — der den deriverte avslører stigning, toppar, botnar og vendepunkt.","estimatedMinutes":35,"competenceGoals":["bruke den deriverte til å analysere funksjonar","drøfte funksjonar og tolke resultat"],"linkedChapterId":"s1-3-4","content":[{"id":"s1-3-4-n-intro","type":"text","content":"## Å lese ein funksjon som ei historie\n\nEin ven av deg har starta eit lite bakeri og laga ein modell for overskotet gjennom året. «Grafen går litt opp og ned», seier ho, «men eg skjønar ikkje heilt kva som skjer.» Det er her **funksjonsdrøfting** kjem inn: ein systematisk analyse som avslører alt ein funksjon har å fortelje -- definisjonsmengd og verdimengd, nullpunkt, kvar han stig og synker, topp- og botnpunkt, eventuelle asymptotar og forma til grafen.\n\nTenk på det som å lese ei historie. Nullpunkta er stadene der handlinga kryssar ei grense, toppunkta er klimaks, botnpunkta er krisene -- og den deriverte er forteljarstemma som heile tida seier om det går oppover eller nedover. I dette kapittelet lærer du å bruke $f'$ og $f''$ til å avsløre heile handlingsforløpet, heilt utan å måtte teikne grafen først."},{"id":"s1-3-4-n-section1","type":"text","content":"## Den deriverte som kompass -- stigning og synking\n\nDet første og viktigaste spørsmålet er: kvar går det oppover, og kvar går det nedover? Svaret står i forteiknet til den deriverte. Ein funksjon $f$ er **stigande** på eit intervall der $f'(x) > 0$, **synkande** der $f'(x) < 0$, og **stasjonær** der $f'(x) = 0$. Eit punkt der $f'(x) = 0$ blir kalla eit **stasjonært punkt** (eller kritisk punkt) -- der står grafen eit augneblink stille, som ballen på toppen av kastet.\n\nVerktøyet vi brukar er **forteiknslinja** for $f'$. La oss sjå på $f(x) = x^3 - 3x^2$. Vi deriverer og faktoriserer:\n\n$$f'(x) = 3x^2 - 6x = 3x(x - 2)$$\n\nDei stasjonære punkta er der $f'(x) = 0$, altså $x = 0$ og $x = 2$. Mellom og utanfor desse punkta held $f'$ same forteikn, så vi testar eitt tal i kvart intervall: For $x < 0$ er begge faktorane negative eller den eine negativ -- prøv $x = -1$: $3(-1)(-3) = 9 > 0$, så $f$ stig. For $0 < x < 2$, prøv $x = 1$: $3(1)(-1) = -3 < 0$, så $f$ synker. For $x > 2$, prøv $x = 3$: $3(3)(1) = 9 > 0$, så $f$ stig igjen.\n\nHistoria om $f$ er dermed: opp, ned, opp. Og akkurat i skifta -- ved $x = 0$ og $x = 2$ -- skjer det noko interessant. Det er neste seksjon."},{"id":"s1-3-4-n-quiz1","type":"exercise","exercise":{"id":"s1-3-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på stigning og synking:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-4-n-quiz1-q0","task":"Når er ein funksjon $f$ stigande på eit intervall?","options":[{"id":"a","text":"Når $f(x) > 0$","isCorrect":false},{"id":"b","text":"Når $f'(x) > 0$","isCorrect":true},{"id":"c","text":"Når $f''(x) > 0$","isCorrect":false},{"id":"d","text":"Når $f'(x) = 0$","isCorrect":false}],"solution":"Forteiknet til den deriverte styrer monotonien: $f'(x) > 0$ betyr at $f$ stig. Merk at $f(x) > 0$ berre seier at grafen ligg over $x$-aksen."},{"id":"s1-3-4-n-quiz1-q1","task":"Kva kjenneteiknar eit stasjonært punkt?","options":[{"id":"a","text":"$f'(x) = 0$","isCorrect":true},{"id":"b","text":"$f(x) = 0$","isCorrect":false},{"id":"c","text":"$f''(x) = 0$","isCorrect":false},{"id":"d","text":"$f(x)$ er udefinert","isCorrect":false}],"solution":"Eit stasjonært (kritisk) punkt er eit punkt der den deriverte er null — grafen står eit augneblink stille."},{"id":"s1-3-4-n-quiz1-q2","task":"Kvar har $f(x) = x^3 - 3x^2$ sine stasjonære punkt?","options":[{"id":"a","text":"$x = 0$ og $x = 3$","isCorrect":false},{"id":"b","text":"$x = 3$","isCorrect":false},{"id":"c","text":"$x = -2$ og $x = 0$","isCorrect":false},{"id":"d","text":"$x = 0$ og $x = 2$","isCorrect":true}],"solution":"$f'(x) = 3x^2 - 6x = 3x(x-2) = 0$ gir $x = 0$ og $x = 2$. ($x = 3$ er eit nullpunkt for $f$, ikkje for $f'$.)"}],"solution":""}},{"id":"s1-3-4-n-section2","type":"text","content":"## Toppar, botnar og terrassar\n\nKva skjer i eit stasjonært punkt? Det avheng av kva forteiknet til $f'$ gjer rundt punktet.\n\nEit **toppunkt** (lokalt maksimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå positiv til negativ -- grafen stig inn og synker ut, som toppen av ein bakke. Eit **botnpunkt** (lokalt minimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå negativ til positiv. Og dersom $f'(x) = 0$ utan at forteiknet skiftar, har vi eit **terrassepunkt**: grafen flatar ut eit augneblink og held så fram i same retning, som ein avsats i ei trapp.\n\nLa oss fullføre drøftinga av $f(x) = x^3 - 3x^2$ frå forrige seksjon -- no systematisk, slik ei fullstendig drøfting skal gjerast.\n\n**Definisjonsmengd:** $D_f = \\mathbb{R}$, sidan polynom er definerte overalt. **Nullpunkt:** $x^3 - 3x^2 = x^2(x - 3) = 0$ gir $x = 0$ (dobbelt nullpunkt) og $x = 3$. **Derivert og stasjonære punkt:** $f'(x) = 3x(x - 2) = 0$ gir $x = 0$ og $x = 2$. **Forteiknslinja** viste: stigande for $x < 0$, synkande for $0 < x < 2$, stigande for $x > 2$.\n\nDermed kan vi klassifisere: I $x = 0$ skiftar $f'$ frå pluss til minus, så $(0, 0)$ er eit **toppunkt** med $f(0) = 0$. I $x = 2$ skiftar $f'$ frå minus til pluss, så vi har eit **botnpunkt**, og $f(2) = 8 - 12 = -4$ gir punktet $(2, -4)$.\n\nTil slutt ser vi på endane: når $x \\to -\\infty$ går $f(x) \\to -\\infty$, og når $x \\to +\\infty$ går $f(x) \\to +\\infty$. No kjenner vi heile historia og kan skissere grafen utan å nøle."},{"id":"s1-3-4-n-quiz2","type":"exercise","exercise":{"id":"s1-3-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på topp- og botnpunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-4-n-quiz2-q0","task":"Kva kjenneteiknar eit toppunkt?","options":[{"id":"a","text":"$f'(x) = 0$ og $f'$ skiftar frå negativ til positiv","isCorrect":false},{"id":"b","text":"$f(x) = 0$ og grafen flatar ut","isCorrect":false},{"id":"c","text":"$f'(x) = 0$ og $f'$ skiftar frå positiv til negativ","isCorrect":true},{"id":"d","text":"$f''(x) = 0$","isCorrect":false}],"solution":"I eit toppunkt stig grafen inn og synker ut: $f'$ går frå pluss til minus."},{"id":"s1-3-4-n-quiz2-q1","task":"Kvar har $f(x) = x^3 - 3x^2$ botnpunktet sitt?","options":[{"id":"a","text":"$(2, -4)$","isCorrect":true},{"id":"b","text":"$(0, 0)$","isCorrect":false},{"id":"c","text":"$(3, 0)$","isCorrect":false},{"id":"d","text":"$(2, 4)$","isCorrect":false}],"solution":"$f'$ skiftar frå minus til pluss i $x = 2$, og $f(2) = 8 - 12 = -4$. Botnpunktet er $(2, -4)$."},{"id":"s1-3-4-n-quiz2-q2","task":"Kva er eit terrassepunkt?","options":[{"id":"a","text":"Eit punkt der $f$ er udefinert","isCorrect":false},{"id":"b","text":"Eit punkt der $f'(x) = 0$ utan at forteiknet til $f'$ skiftar","isCorrect":true},{"id":"c","text":"Eit lokalt minimum","isCorrect":false},{"id":"d","text":"Eit punkt der grafen kryssar $x$-aksen","isCorrect":false}],"solution":"I eit terrassepunkt flatar grafen ut og held fram i same retning — $f' = 0$, men ikkje noko forteiknsskifte."}],"solution":""}},{"id":"s1-3-4-n-section3","type":"text","content":"## Andrederivattesten og vendepunkt\n\nForteiknslinjer fungerer alltid, men ofte finst ein snarveg: den **andrederiverte**. Tanken er enkel. Dersom $f''(a) < 0$ i eit stasjonært punkt, krummar grafen nedover der -- som ein sur munn -- og punktet må vere ein topp. Dersom $f''(a) > 0$, krummar grafen oppover -- som eit smil -- og punktet er ein botn.\n\n**Andrederivattesten:** Dersom $f'(a) = 0$, gjeld: $f''(a) < 0$ gir toppunkt i $x = a$, $f''(a) > 0$ gir botnpunkt, og $f''(a) = 0$ gir ikkje noko svar -- då må vi tilbake til forteiknslinja.\n\nLa oss bruke testen på $f(x) = x^4 - 4x^3 + 4x^2$. Først dei stasjonære punkta:\n\n$$f'(x) = 4x^3 - 12x^2 + 8x = 4x(x^2 - 3x + 2) = 4x(x-1)(x-2)$$\n\nStasjonære punkt: $x = 0$, $x = 1$ og $x = 2$. Så den andrederiverte: $f''(x) = 12x^2 - 24x + 8$. Vi testar kvart punkt: $f''(0) = 8 > 0$ gir **botnpunkt** i $(0, 0)$. $f''(1) = 12 - 24 + 8 = -4 < 0$ gir **toppunkt** i $(1, 1)$. Og $f''(2) = 48 - 48 + 8 = 8 > 0$ gir **botnpunkt** i $(2, 0)$. Tre stasjonære punkt klassifiserte med tre raske innsetjingar -- det er styrken til testen.\n\nDen andrederiverte fortel òg si eiga historie. Eit **vendepunkt** er eit punkt der krumminga til grafen skiftar retning -- frå konkav (krummar nedover) til konveks (krummar oppover) eller omvendt. I eit vendepunkt gjeld $f''(x) = 0$, og $f''$ skiftar forteikn der. Vendepunkt spelar ei viktig rolle i økonomien: der skiftar til dømes kostnadsveksten karakter, noko vi kjem tilbake til i kapittel 3.10."},{"id":"s1-3-4-n-quiz3","type":"exercise","exercise":{"id":"s1-3-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på andrederivattesten og vendepunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-4-n-quiz3-q0","task":"Kva fortel andrederivattesten når $f'(a) = 0$ og $f''(a) > 0$?","options":[{"id":"a","text":"$x = a$ er eit toppunkt","isCorrect":false},{"id":"b","text":"$x = a$ er eit vendepunkt","isCorrect":false},{"id":"c","text":"Testen gir ikkje svar","isCorrect":false},{"id":"d","text":"$x = a$ er eit botnpunkt","isCorrect":true}],"solution":"$f''(a) > 0$ betyr at grafen krummar oppover (smiler) — det stasjonære punktet er ein botn."},{"id":"s1-3-4-n-quiz3-q1","task":"For $f(x) = x^4 - 4x^3 + 4x^2$ er $f''(x) = 12x^2 - 24x + 8$. Kva slags punkt er $x = 1$?","options":[{"id":"a","text":"Botnpunkt, fordi $f''(1) > 0$","isCorrect":false},{"id":"b","text":"Toppunkt, fordi $f''(1) = -4 < 0$","isCorrect":true},{"id":"c","text":"Terrassepunkt","isCorrect":false},{"id":"d","text":"Vendepunkt, fordi $f''(1) = 0$","isCorrect":false}],"solution":"$f''(1) = 12 - 24 + 8 = -4 < 0$, så $(1, 1)$ er eit toppunkt."},{"id":"s1-3-4-n-quiz3-q2","task":"Kva kjenneteiknar eit vendepunkt?","options":[{"id":"a","text":"$f''(x) = 0$ og $f''$ skiftar forteikn","isCorrect":true},{"id":"b","text":"$f'(x) = 0$ og $f'$ skiftar forteikn","isCorrect":false},{"id":"c","text":"$f(x) = 0$","isCorrect":false},{"id":"d","text":"$f'(x) = 0$ og $f''(x) < 0$","isCorrect":false}],"solution":"I eit vendepunkt skiftar krumminga retning: $f'' = 0$ med forteiknsskifte. (Alternativ b skildrar eit ekstremalpunkt.)"}],"solution":""}},{"id":"s1-3-4-n-summary","type":"text","content":"## Oppsummering\n\nFunksjonsdrøfting er kunsten å lese historia til ein funksjon systematisk. **Monotonien** står i forteiknet til den deriverte: $f$ veks der $f'(x) > 0$ og avtek der $f'(x) < 0$ -- og forteiknslinja for $f'$ er verktøyet som kartlegg dette.\n\n**Topp- og botnpunkt** finn vi der $f'(x) = 0$ og forteiknet skiftar: frå pluss til minus gir toppunkt, frå minus til pluss gir botnpunkt, og utan skifte har vi eit terrassepunkt. **Andrederivattesten** gir ein snarveg: dersom $f'(a) = 0$, gir $f''(a) < 0$ toppunkt og $f''(a) > 0$ botnpunkt -- men $f''(a) = 0$ sender oss tilbake til forteiknslinja.\n\nDen andrederiverte styrer òg krumminga, og eit **vendepunkt** -- der $f''(x) = 0$ med forteiknsskifte -- er staden der grafen skiftar mellom å krumme opp og ned.\n\nVi drøfta $x^3 - 3x^2$ med forteiknslinje og $x^4 - 4x^3 + 4x^2$ med andrederivattesten. I neste kapittel set vi verktøya i arbeid på ordentlege problem: korleis finne det største arealet, den lågaste kostnaden, det beste valet."}],"exercises":[],"_meta":{"sourceHash":"adf32b2bfc9ba02b","translatedAt":"2026-06-20T03:15:29.346Z","model":"claude-code-agent","strings":66,"tm":{"9d8b0d57039a6bf0":"Funksjonsdrøfting","b195b06d1ed59702":"Narrativ versjon","5b601e58b09e0c35":"Ei forteljing om å lese funksjonar som historier — der den deriverte avslører stigning, toppar, botnar og vendepunkt.","51e51e659f80ad2d":"bruke den deriverte til å analysere funksjonar","bea3f80c4588e360":"drøfte funksjonar og tolke resultat","2920248ddb2e6c40":"## Å lese ein funksjon som ei historie\n\nEin ven av deg har starta eit lite bakeri og laga ein modell for overskotet gjennom året. «Grafen går litt opp og ned», seier ho, «men eg skjønar ikkje heilt kva som skjer.» Det er her **funksjonsdrøfting** kjem inn: ein systematisk analyse som avslører alt ein funksjon har å fortelje -- definisjonsmengd og verdimengd, nullpunkt, kvar han stig og synker, topp- og botnpunkt, eventuelle asymptotar og forma til grafen.\n\nTenk på det som å lese ei historie. Nullpunkta er stadene der handlinga kryssar ei grense, toppunkta er klimaks, botnpunkta er krisene -- og den deriverte er forteljarstemma som heile tida seier om det går oppover eller nedover. I dette kapittelet lærer du å bruke $f'$ og $f''$ til å avsløre heile handlingsforløpet, heilt utan å måtte teikne grafen først.","fb8acacf5ee025f8":"## Den deriverte som kompass -- stigning og synking\n\nDet første og viktigaste spørsmålet er: kvar går det oppover, og kvar går det nedover? Svaret står i forteiknet til den deriverte. Ein funksjon $f$ er **stigande** på eit intervall der $f'(x) > 0$, **synkande** der $f'(x) < 0$, og **stasjonær** der $f'(x) = 0$. Eit punkt der $f'(x) = 0$ blir kalla eit **stasjonært punkt** (eller kritisk punkt) -- der står grafen eit augneblink stille, som ballen på toppen av kastet.\n\nVerktøyet vi brukar er **forteiknslinja** for $f'$. La oss sjå på $f(x) = x^3 - 3x^2$. Vi deriverer og faktoriserer:\n\n$$f'(x) = 3x^2 - 6x = 3x(x - 2)$$\n\nDei stasjonære punkta er der $f'(x) = 0$, altså $x = 0$ og $x = 2$. Mellom og utanfor desse punkta held $f'$ same forteikn, så vi testar eitt tal i kvart intervall: For $x < 0$ er begge faktorane negative eller den eine negativ -- prøv $x = -1$: $3(-1)(-3) = 9 > 0$, så $f$ stig. For $0 < x < 2$, prøv $x = 1$: $3(1)(-1) = -3 < 0$, så $f$ synker. For $x > 2$, prøv $x = 3$: $3(3)(1) = 9 > 0$, så $f$ stig igjen.\n\nHistoria om $f$ er dermed: opp, ned, opp. Og akkurat i skifta -- ved $x = 0$ og $x = 2$ -- skjer det noko interessant. Det er neste seksjon.","7b16b4b37241a3e1":"Test deg sjølv på stigning og synking:","4097889236a2af26":"placeholder","8d4f376d32e56ac5":"Når er ein funksjon $f$ stigande på eit intervall?","85b22bccc2b4537e":"Når $f(x) > 0$","9615a10c40cd1ef6":"Når $f'(x) > 0$","083d3daa9ab0077d":"Når $f''(x) > 0$","2e92db803cc00490":"Når $f'(x) = 0$","a3f998c83ce92976":"Forteiknet til den deriverte styrer monotonien: $f'(x) > 0$ betyr at $f$ stig. Merk at $f(x) > 0$ berre seier at grafen ligg over $x$-aksen.","d88b9841deb60aa9":"Kva kjenneteiknar eit stasjonært punkt?","9335ccb91bab0a34":"$f'(x) = 0$","5ec42a8a4c4a6748":"$f(x) = 0$","3c1ea572399f738d":"$f''(x) = 0$","1be1bcaacd7d8cf4":"$f(x)$ er udefinert","1bef5974eb60b97e":"Eit stasjonært (kritisk) punkt er eit punkt der den deriverte er null — grafen står eit augneblink stille.","3635a118933075ed":"Kvar har $f(x) = x^3 - 3x^2$ sine stasjonære punkt?","b07cd8d0a82bac12":"$x = 0$ og $x = 3$","e48f8a419112d39e":"$x = 3$","5b6d71a8384adbce":"$x = -2$ og $x = 0$","3bcd8f83a343204d":"$x = 0$ og $x = 2$","bf2a7fe15f3e9e1a":"$f'(x) = 3x^2 - 6x = 3x(x-2) = 0$ gir $x = 0$ og $x = 2$. ($x = 3$ er eit nullpunkt for $f$, ikkje for $f'$.)","f8aa762a923c28c1":"## Toppar, botnar og terrassar\n\nKva skjer i eit stasjonært punkt? Det avheng av kva forteiknet til $f'$ gjer rundt punktet.\n\nEit **toppunkt** (lokalt maksimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå positiv til negativ -- grafen stig inn og synker ut, som toppen av ein bakke. Eit **botnpunkt** (lokalt minimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå negativ til positiv. Og dersom $f'(x) = 0$ utan at forteiknet skiftar, har vi eit **terrassepunkt**: grafen flatar ut eit augneblink og held så fram i same retning, som ein avsats i ei trapp.\n\nLa oss fullføre drøftinga av $f(x) = x^3 - 3x^2$ frå forrige seksjon -- no systematisk, slik ei fullstendig drøfting skal gjerast.\n\n**Definisjonsmengd:** $D_f = \\mathbb{R}$, sidan polynom er definerte overalt. **Nullpunkt:** $x^3 - 3x^2 = x^2(x - 3) = 0$ gir $x = 0$ (dobbelt nullpunkt) og $x = 3$. **Derivert og stasjonære punkt:** $f'(x) = 3x(x - 2) = 0$ gir $x = 0$ og $x = 2$. **Forteiknslinja** viste: stigande for $x < 0$, synkande for $0 < x < 2$, stigande for $x > 2$.\n\nDermed kan vi klassifisere: I $x = 0$ skiftar $f'$ frå pluss til minus, så $(0, 0)$ er eit **toppunkt** med $f(0) = 0$. I $x = 2$ skiftar $f'$ frå minus til pluss, så vi har eit **botnpunkt**, og $f(2) = 8 - 12 = -4$ gir punktet $(2, -4)$.\n\nTil slutt ser vi på endane: når $x \\to -\\infty$ går $f(x) \\to -\\infty$, og når $x \\to +\\infty$ går $f(x) \\to +\\infty$. No kjenner vi heile historia og kan skissere grafen utan å nøle.","dd43235044397b7d":"Test deg sjølv på topp- og botnpunkt:","28fae4a467259b82":"Kva kjenneteiknar eit toppunkt?","8c00be2ad6f33b73":"$f'(x) = 0$ og $f'$ skiftar frå negativ til positiv","95bc55fb15e5079e":"$f(x) = 0$ og grafen flatar ut","7a59a672ae544ee3":"$f'(x) = 0$ og $f'$ skiftar frå positiv til negativ","f6a41446288e404e":"I eit toppunkt stig grafen inn og synker ut: $f'$ går frå pluss til minus.","0c39a7cce77966ab":"Kvar har $f(x) = x^3 - 3x^2$ botnpunktet sitt?","52b319e4f4827746":"$f'$ skiftar frå minus til pluss i $x = 2$, og $f(2) = 8 - 12 = -4$. Botnpunktet er $(2, -4)$.","66e49b06003bee60":"Kva er eit terrassepunkt?","118b9a254e069ea0":"Eit punkt der $f$ er udefinert","31ea4c6950a4dea9":"Eit punkt der $f'(x) = 0$ utan at forteiknet til $f'$ skiftar","80f8f5b5f4ac8f1e":"Eit lokalt minimum","8169cf10bf953752":"Eit punkt der grafen kryssar $x$-aksen","a0a2a3732a08aa5d":"I eit terrassepunkt flatar grafen ut og held fram i same retning — $f' = 0$, men ikkje noko forteiknsskifte.","b9f6b885defc38cd":"## Andrederivattesten og vendepunkt\n\nForteiknslinjer fungerer alltid, men ofte finst ein snarveg: den **andrederiverte**. Tanken er enkel. Dersom $f''(a) < 0$ i eit stasjonært punkt, krummar grafen nedover der -- som ein sur munn -- og punktet må vere ein topp. Dersom $f''(a) > 0$, krummar grafen oppover -- som eit smil -- og punktet er ein botn.\n\n**Andrederivattesten:** Dersom $f'(a) = 0$, gjeld: $f''(a) < 0$ gir toppunkt i $x = a$, $f''(a) > 0$ gir botnpunkt, og $f''(a) = 0$ gir ikkje noko svar -- då må vi tilbake til forteiknslinja.\n\nLa oss bruke testen på $f(x) = x^4 - 4x^3 + 4x^2$. Først dei stasjonære punkta:\n\n$$f'(x) = 4x^3 - 12x^2 + 8x = 4x(x^2 - 3x + 2) = 4x(x-1)(x-2)$$\n\nStasjonære punkt: $x = 0$, $x = 1$ og $x = 2$. Så den andrederiverte: $f''(x) = 12x^2 - 24x + 8$. Vi testar kvart punkt: $f''(0) = 8 > 0$ gir **botnpunkt** i $(0, 0)$. $f''(1) = 12 - 24 + 8 = -4 < 0$ gir **toppunkt** i $(1, 1)$. Og $f''(2) = 48 - 48 + 8 = 8 > 0$ gir **botnpunkt** i $(2, 0)$. Tre stasjonære punkt klassifiserte med tre raske innsetjingar -- det er styrken til testen.\n\nDen andrederiverte fortel òg si eiga historie. Eit **vendepunkt** er eit punkt der krumminga til grafen skiftar retning -- frå konkav (krummar nedover) til konveks (krummar oppover) eller omvendt. I eit vendepunkt gjeld $f''(x) = 0$, og $f''$ skiftar forteikn der. Vendepunkt spelar ei viktig rolle i økonomien: der skiftar til dømes kostnadsveksten karakter, noko vi kjem tilbake til i kapittel 3.10.","96210517e5028063":"Test deg sjølv på andrederivattesten og vendepunkt:","f4767a472a388ab3":"Kva fortel andrederivattesten når $f'(a) = 0$ og $f''(a) > 0$?","a0ec50da95c39e59":"$x = a$ er eit toppunkt","3a2cf5fb835077d8":"$x = a$ er eit vendepunkt","eeeb140a5d348dc7":"Testen gir ikkje svar","6bd7ad8e85cc9390":"$x = a$ er eit botnpunkt","77055cc24776930c":"$f''(a) > 0$ betyr at grafen krummar oppover (smiler) — det stasjonære punktet er ein botn.","65eccf45f8760734":"For $f(x) = x^4 - 4x^3 + 4x^2$ er $f''(x) = 12x^2 - 24x + 8$. Kva slags punkt er $x = 1$?","8d81a6f155fdabbe":"Botnpunkt, fordi $f''(1) > 0$","d0f76e65071bb469":"Toppunkt, fordi $f''(1) = -4 < 0$","77269e57e3faf444":"Terrassepunkt","493ce989db70ad07":"Vendepunkt, fordi $f''(1) = 0$","fb88031e7a89db24":"$f''(1) = 12 - 24 + 8 = -4 < 0$, så $(1, 1)$ er eit toppunkt.","0cc4c83d16be5b64":"Kva kjenneteiknar eit vendepunkt?","6d9ec40eb0a07848":"$f''(x) = 0$ og $f''$ skiftar forteikn","275460cb587ec7e6":"$f'(x) = 0$ og $f'$ skiftar forteikn","b7ce05ce3a53bd70":"$f'(x) = 0$ og $f''(x) < 0$","b7ddbfcde01da2e2":"I eit vendepunkt skiftar krumminga retning: $f'' = 0$ med forteiknsskifte. (Alternativ b skildrar eit ekstremalpunkt.)","676885050afc5982":"## Oppsummering\n\nFunksjonsdrøfting er kunsten å lese historia til ein funksjon systematisk. **Monotonien** står i forteiknet til den deriverte: $f$ veks der $f'(x) > 0$ og avtek der $f'(x) < 0$ -- og forteiknslinja for $f'$ er verktøyet som kartlegg dette.\n\n**Topp- og botnpunkt** finn vi der $f'(x) = 0$ og forteiknet skiftar: frå pluss til minus gir toppunkt, frå minus til pluss gir botnpunkt, og utan skifte har vi eit terrassepunkt. **Andrederivattesten** gir ein snarveg: dersom $f'(a) = 0$, gir $f''(a) < 0$ toppunkt og $f''(a) > 0$ botnpunkt -- men $f''(a) = 0$ sender oss tilbake til forteiknslinja.\n\nDen andrederiverte styrer òg krumminga, og eit **vendepunkt** -- der $f''(x) = 0$ med forteiknsskifte -- er staden der grafen skiftar mellom å krumme opp og ned.\n\nVi drøfta $x^3 - 3x^2$ med forteiknslinje og $x^4 - 4x^3 + 4x^2$ med andrederivattesten. I neste kapittel set vi verktøya i arbeid på ordentlege problem: korleis finne det største arealet, den lågaste kostnaden, det beste valet."}}}
+{
+  "id": "s1-3-4-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "3.4",
+  "title": "Funksjonsdrøfting",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å lese funksjonar som historier — der den deriverte avslører stigning, toppar, botnar og vendepunkt.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke den deriverte til å analysere funksjonar",
+    "drøfte funksjonar og tolke resultat"
+  ],
+  "linkedChapterId": "s1-3-4",
+  "content": [
+    {
+      "id": "s1-3-4-n-intro",
+      "type": "text",
+      "content": "## Å lese ein funksjon som ei historie\n\nEin ven av deg har starta eit lite bakeri og laga ein modell for overskotet gjennom året. «Grafen går litt opp og ned», seier ho, «men eg skjønar ikkje heilt kva som skjer.» Det er her **funksjonsdrøfting** kjem inn: ein systematisk analyse som avslører alt ein funksjon har å fortelje -- definisjonsmengd og verdimengd, nullpunkt, kvar han stig og synker, topp- og botnpunkt, eventuelle asymptotar og forma til grafen.\n\nTenk på det som å lese ei historie. Nullpunkta er stadene der handlinga kryssar ei grense, toppunkta er klimaks, botnpunkta er krisene -- og den deriverte er forteljarstemma som heile tida seier om det går oppover eller nedover. I dette kapittelet lærer du å bruke $f'$ og $f''$ til å avsløre heile handlingsforløpet, heilt utan å måtte teikne grafen først."
+    },
+    {
+      "id": "s1-3-4-n-section1",
+      "type": "text",
+      "content": "## Den deriverte som kompass -- stigning og synking\n\nDet første og viktigaste spørsmålet er: kvar går det oppover, og kvar går det nedover? Svaret står i forteiknet til den deriverte. Ein funksjon $f$ er **stigande** på eit intervall der $f'(x) > 0$, **synkande** der $f'(x) < 0$, og **stasjonær** der $f'(x) = 0$. Eit punkt der $f'(x) = 0$ blir kalla eit **stasjonært punkt** (eller kritisk punkt) -- der står grafen eit augneblink stille, som ballen på toppen av kastet.\n\nVerktøyet vi brukar er **forteiknslinja** for $f'$. La oss sjå på $f(x) = x^3 - 3x^2$. Vi deriverer og faktoriserer:\n\n$$f'(x) = 3x^2 - 6x = 3x(x - 2)$$\n\nDei stasjonære punkta er der $f'(x) = 0$, altså $x = 0$ og $x = 2$. Mellom og utanfor desse punkta held $f'$ same forteikn, så vi testar eitt tal i kvart intervall: For $x < 0$ er begge faktorane negative eller den eine negativ -- prøv $x = -1$: $3(-1)(-3) = 9 > 0$, så $f$ stig. For $0 < x < 2$, prøv $x = 1$: $3(1)(-1) = -3 < 0$, så $f$ synker. For $x > 2$, prøv $x = 3$: $3(3)(1) = 9 > 0$, så $f$ stig igjen.\n\nHistoria om $f$ er dermed: opp, ned, opp. Og akkurat i skifta -- ved $x = 0$ og $x = 2$ -- skjer det noko interessant. Det er neste seksjon."
+    },
+    {
+      "id": "s1-3-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på stigning og synking:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-4-n-quiz1-q0",
+            "task": "Når er ein funksjon $f$ stigande på eit intervall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $f(x) > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $f'(x) > 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når $f''(x) > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $f'(x) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forteiknet til den deriverte styrer monotonien: $f'(x) > 0$ betyr at $f$ stig. Merk at $f(x) > 0$ berre seier at grafen ligg over $x$-aksen."
+          },
+          {
+            "id": "s1-3-4-n-quiz1-q1",
+            "task": "Kva kjenneteiknar eit stasjonært punkt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f''(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$f'(x) = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f(x)$ er udefinert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit stasjonært (kritisk) punkt er eit punkt der den deriverte er null — grafen står eit augneblink stille."
+          },
+          {
+            "id": "s1-3-4-n-quiz1-q2",
+            "task": "Kvar har $f(x) = x^3 - 3x^2$ sine stasjonære punkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 0$ og $x = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = -2$ og $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 0$ og $x = 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(x) = 3x^2 - 6x = 3x(x-2) = 0$ gir $x = 0$ og $x = 2$. ($x = 3$ er eit nullpunkt for $f$, ikkje for $f'$.)"
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-4-n-section2",
+      "type": "text",
+      "content": "## Toppar, botnar og terrassar\n\nKva skjer i eit stasjonært punkt? Det avheng av kva forteiknet til $f'$ gjer rundt punktet.\n\nEit **toppunkt** (lokalt maksimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå positiv til negativ -- grafen stig inn og synker ut, som toppen av ein bakke. Eit **botnpunkt** (lokalt minimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå negativ til positiv. Og dersom $f'(x) = 0$ utan at forteiknet skiftar, har vi eit **terrassepunkt**: grafen flatar ut eit augneblink og held så fram i same retning, som ein avsats i ei trapp.\n\nLa oss fullføre drøftinga av $f(x) = x^3 - 3x^2$ frå forrige seksjon -- no systematisk, slik ei fullstendig drøfting skal gjerast.\n\n**Definisjonsmengd:** $D_f = \\mathbb{R}$, sidan polynom er definerte overalt. **Nullpunkt:** $x^3 - 3x^2 = x^2(x - 3) = 0$ gir $x = 0$ (dobbelt nullpunkt) og $x = 3$. **Derivert og stasjonære punkt:** $f'(x) = 3x(x - 2) = 0$ gir $x = 0$ og $x = 2$. **Forteiknslinja** viste: stigande for $x < 0$, synkande for $0 < x < 2$, stigande for $x > 2$.\n\nDermed kan vi klassifisere: I $x = 0$ skiftar $f'$ frå pluss til minus, så $(0, 0)$ er eit **toppunkt** med $f(0) = 0$. I $x = 2$ skiftar $f'$ frå minus til pluss, så vi har eit **botnpunkt**, og $f(2) = 8 - 12 = -4$ gir punktet $(2, -4)$.\n\nTil slutt ser vi på endane: når $x \\to -\\infty$ går $f(x) \\to -\\infty$, og når $x \\to +\\infty$ går $f(x) \\to +\\infty$. No kjenner vi heile historia og kan skissere grafen utan å nøle."
+    },
+    {
+      "id": "s1-3-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på topp- og botnpunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-4-n-quiz2-q0",
+            "task": "Kva kjenneteiknar eit toppunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f'(x) = 0$ og $f'$ skiftar frå negativ til positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = 0$ og grafen flatar ut",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f'(x) = 0$ og $f'$ skiftar frå positiv til negativ",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f''(x) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I eit toppunkt stig grafen inn og synker ut: $f'$ går frå pluss til minus."
+          },
+          {
+            "id": "s1-3-4-n-quiz2-q1",
+            "task": "Kvar har $f(x) = x^3 - 3x^2$ botnpunktet sitt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(2, -4)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(0, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(3, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(2, 4)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'$ skiftar frå minus til pluss i $x = 2$, og $f(2) = 8 - 12 = -4$. Botnpunktet er $(2, -4)$."
+          },
+          {
+            "id": "s1-3-4-n-quiz2-q2",
+            "task": "Kva er eit terrassepunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eit punkt der $f$ er udefinert",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eit punkt der $f'(x) = 0$ utan at forteiknet til $f'$ skiftar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Eit lokalt minimum",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit punkt der grafen kryssar $x$-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I eit terrassepunkt flatar grafen ut og held fram i same retning — $f' = 0$, men ikkje noko forteiknsskifte."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-4-n-section3",
+      "type": "text",
+      "content": "## Andrederivattesten og vendepunkt\n\nForteiknslinjer fungerer alltid, men ofte finst ein snarveg: den **andrederiverte**. Tanken er enkel. Dersom $f''(a) < 0$ i eit stasjonært punkt, krummar grafen nedover der -- som ein sur munn -- og punktet må vere ein topp. Dersom $f''(a) > 0$, krummar grafen oppover -- som eit smil -- og punktet er ein botn.\n\n**Andrederivattesten:** Dersom $f'(a) = 0$, gjeld: $f''(a) < 0$ gir toppunkt i $x = a$, $f''(a) > 0$ gir botnpunkt, og $f''(a) = 0$ gir ikkje noko svar -- då må vi tilbake til forteiknslinja.\n\nLa oss bruke testen på $f(x) = x^4 - 4x^3 + 4x^2$. Først dei stasjonære punkta:\n\n$$f'(x) = 4x^3 - 12x^2 + 8x = 4x(x^2 - 3x + 2) = 4x(x-1)(x-2)$$\n\nStasjonære punkt: $x = 0$, $x = 1$ og $x = 2$. Så den andrederiverte: $f''(x) = 12x^2 - 24x + 8$. Vi testar kvart punkt: $f''(0) = 8 > 0$ gir **botnpunkt** i $(0, 0)$. $f''(1) = 12 - 24 + 8 = -4 < 0$ gir **toppunkt** i $(1, 1)$. Og $f''(2) = 48 - 48 + 8 = 8 > 0$ gir **botnpunkt** i $(2, 0)$. Tre stasjonære punkt klassifiserte med tre raske innsetjingar -- det er styrken til testen.\n\nDen andrederiverte fortel òg si eiga historie. Eit **vendepunkt** er eit punkt der krumminga til grafen skiftar retning -- frå konkav (krummar nedover) til konveks (krummar oppover) eller omvendt. I eit vendepunkt gjeld $f''(x) = 0$, og $f''$ skiftar forteikn der. Vendepunkt spelar ei viktig rolle i økonomien: der skiftar til dømes kostnadsveksten karakter, noko vi kjem tilbake til i kapittel 3.10."
+    },
+    {
+      "id": "s1-3-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på andrederivattesten og vendepunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-4-n-quiz3-q0",
+            "task": "Kva fortel andrederivattesten når $f'(a) = 0$ og $f''(a) > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = a$ er eit toppunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = a$ er eit vendepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Testen gir ikkje svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = a$ er eit botnpunkt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f''(a) > 0$ betyr at grafen krummar oppover (smiler) — det stasjonære punktet er ein botn."
+          },
+          {
+            "id": "s1-3-4-n-quiz3-q1",
+            "task": "For $f(x) = x^4 - 4x^3 + 4x^2$ er $f''(x) = 12x^2 - 24x + 8$. Kva slags punkt er $x = 1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Toppunkt, fordi $f''(1) = -4 < 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Botnpunkt, fordi $f''(1) > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Terrassepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vendepunkt, fordi $f''(1) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(1) = 12 - 24 + 8 = -4 < 0$, så $(1, 1)$ er eit toppunkt."
+          },
+          {
+            "id": "s1-3-4-n-quiz3-q2",
+            "task": "Kva kjenneteiknar eit vendepunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f''(x) = 0$ og $f''$ skiftar forteikn",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$f'(x) = 0$ og $f'$ skiftar forteikn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f'(x) = 0$ og $f''(x) < 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I eit vendepunkt skiftar krumminga retning: $f'' = 0$ med forteiknsskifte. (Alternativ b skildrar eit ekstremalpunkt.)"
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFunksjonsdrøfting er kunsten å lese historia til ein funksjon systematisk. **Monotonien** står i forteiknet til den deriverte: $f$ veks der $f'(x) > 0$ og avtek der $f'(x) < 0$ -- og forteiknslinja for $f'$ er verktøyet som kartlegg dette.\n\n**Topp- og botnpunkt** finn vi der $f'(x) = 0$ og forteiknet skiftar: frå pluss til minus gir toppunkt, frå minus til pluss gir botnpunkt, og utan skifte har vi eit terrassepunkt. **Andrederivattesten** gir ein snarveg: dersom $f'(a) = 0$, gir $f''(a) < 0$ toppunkt og $f''(a) > 0$ botnpunkt -- men $f''(a) = 0$ sender oss tilbake til forteiknslinja.\n\nDen andrederiverte styrer òg krumminga, og eit **vendepunkt** -- der $f''(x) = 0$ med forteiknsskifte -- er staden der grafen skiftar mellom å krumme opp og ned.\n\nVi drøfta $x^3 - 3x^2$ med forteiknslinje og $x^4 - 4x^3 + 4x^2$ med andrederivattesten. I neste kapittel set vi verktøya i arbeid på ordentlege problem: korleis finne det største arealet, den lågaste kostnaden, det beste valet."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "adf32b2bfc9ba02b",
+    "translatedAt": "2026-06-20T03:15:29.346Z",
+    "model": "claude-code-agent",
+    "strings": 66,
+    "tm": {
+      "9d8b0d57039a6bf0": "Funksjonsdrøfting",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "5b601e58b09e0c35": "Ei forteljing om å lese funksjonar som historier — der den deriverte avslører stigning, toppar, botnar og vendepunkt.",
+      "51e51e659f80ad2d": "bruke den deriverte til å analysere funksjonar",
+      "bea3f80c4588e360": "drøfte funksjonar og tolke resultat",
+      "2920248ddb2e6c40": "## Å lese ein funksjon som ei historie\n\nEin ven av deg har starta eit lite bakeri og laga ein modell for overskotet gjennom året. «Grafen går litt opp og ned», seier ho, «men eg skjønar ikkje heilt kva som skjer.» Det er her **funksjonsdrøfting** kjem inn: ein systematisk analyse som avslører alt ein funksjon har å fortelje -- definisjonsmengd og verdimengd, nullpunkt, kvar han stig og synker, topp- og botnpunkt, eventuelle asymptotar og forma til grafen.\n\nTenk på det som å lese ei historie. Nullpunkta er stadene der handlinga kryssar ei grense, toppunkta er klimaks, botnpunkta er krisene -- og den deriverte er forteljarstemma som heile tida seier om det går oppover eller nedover. I dette kapittelet lærer du å bruke $f'$ og $f''$ til å avsløre heile handlingsforløpet, heilt utan å måtte teikne grafen først.",
+      "fb8acacf5ee025f8": "## Den deriverte som kompass -- stigning og synking\n\nDet første og viktigaste spørsmålet er: kvar går det oppover, og kvar går det nedover? Svaret står i forteiknet til den deriverte. Ein funksjon $f$ er **stigande** på eit intervall der $f'(x) > 0$, **synkande** der $f'(x) < 0$, og **stasjonær** der $f'(x) = 0$. Eit punkt der $f'(x) = 0$ blir kalla eit **stasjonært punkt** (eller kritisk punkt) -- der står grafen eit augneblink stille, som ballen på toppen av kastet.\n\nVerktøyet vi brukar er **forteiknslinja** for $f'$. La oss sjå på $f(x) = x^3 - 3x^2$. Vi deriverer og faktoriserer:\n\n$$f'(x) = 3x^2 - 6x = 3x(x - 2)$$\n\nDei stasjonære punkta er der $f'(x) = 0$, altså $x = 0$ og $x = 2$. Mellom og utanfor desse punkta held $f'$ same forteikn, så vi testar eitt tal i kvart intervall: For $x < 0$ er begge faktorane negative eller den eine negativ -- prøv $x = -1$: $3(-1)(-3) = 9 > 0$, så $f$ stig. For $0 < x < 2$, prøv $x = 1$: $3(1)(-1) = -3 < 0$, så $f$ synker. For $x > 2$, prøv $x = 3$: $3(3)(1) = 9 > 0$, så $f$ stig igjen.\n\nHistoria om $f$ er dermed: opp, ned, opp. Og akkurat i skifta -- ved $x = 0$ og $x = 2$ -- skjer det noko interessant. Det er neste seksjon.",
+      "7b16b4b37241a3e1": "Test deg sjølv på stigning og synking:",
+      "4097889236a2af26": "placeholder",
+      "8d4f376d32e56ac5": "Når er ein funksjon $f$ stigande på eit intervall?",
+      "85b22bccc2b4537e": "Når $f(x) > 0$",
+      "9615a10c40cd1ef6": "Når $f'(x) > 0$",
+      "083d3daa9ab0077d": "Når $f''(x) > 0$",
+      "2e92db803cc00490": "Når $f'(x) = 0$",
+      "a3f998c83ce92976": "Forteiknet til den deriverte styrer monotonien: $f'(x) > 0$ betyr at $f$ stig. Merk at $f(x) > 0$ berre seier at grafen ligg over $x$-aksen.",
+      "d88b9841deb60aa9": "Kva kjenneteiknar eit stasjonært punkt?",
+      "9335ccb91bab0a34": "$f'(x) = 0$",
+      "5ec42a8a4c4a6748": "$f(x) = 0$",
+      "3c1ea572399f738d": "$f''(x) = 0$",
+      "1be1bcaacd7d8cf4": "$f(x)$ er udefinert",
+      "1bef5974eb60b97e": "Eit stasjonært (kritisk) punkt er eit punkt der den deriverte er null — grafen står eit augneblink stille.",
+      "3635a118933075ed": "Kvar har $f(x) = x^3 - 3x^2$ sine stasjonære punkt?",
+      "b07cd8d0a82bac12": "$x = 0$ og $x = 3$",
+      "e48f8a419112d39e": "$x = 3$",
+      "5b6d71a8384adbce": "$x = -2$ og $x = 0$",
+      "3bcd8f83a343204d": "$x = 0$ og $x = 2$",
+      "bf2a7fe15f3e9e1a": "$f'(x) = 3x^2 - 6x = 3x(x-2) = 0$ gir $x = 0$ og $x = 2$. ($x = 3$ er eit nullpunkt for $f$, ikkje for $f'$.)",
+      "f8aa762a923c28c1": "## Toppar, botnar og terrassar\n\nKva skjer i eit stasjonært punkt? Det avheng av kva forteiknet til $f'$ gjer rundt punktet.\n\nEit **toppunkt** (lokalt maksimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå positiv til negativ -- grafen stig inn og synker ut, som toppen av ein bakke. Eit **botnpunkt** (lokalt minimum) er eit punkt der $f'(x) = 0$ og $f'$ skiftar frå negativ til positiv. Og dersom $f'(x) = 0$ utan at forteiknet skiftar, har vi eit **terrassepunkt**: grafen flatar ut eit augneblink og held så fram i same retning, som ein avsats i ei trapp.\n\nLa oss fullføre drøftinga av $f(x) = x^3 - 3x^2$ frå forrige seksjon -- no systematisk, slik ei fullstendig drøfting skal gjerast.\n\n**Definisjonsmengd:** $D_f = \\mathbb{R}$, sidan polynom er definerte overalt. **Nullpunkt:** $x^3 - 3x^2 = x^2(x - 3) = 0$ gir $x = 0$ (dobbelt nullpunkt) og $x = 3$. **Derivert og stasjonære punkt:** $f'(x) = 3x(x - 2) = 0$ gir $x = 0$ og $x = 2$. **Forteiknslinja** viste: stigande for $x < 0$, synkande for $0 < x < 2$, stigande for $x > 2$.\n\nDermed kan vi klassifisere: I $x = 0$ skiftar $f'$ frå pluss til minus, så $(0, 0)$ er eit **toppunkt** med $f(0) = 0$. I $x = 2$ skiftar $f'$ frå minus til pluss, så vi har eit **botnpunkt**, og $f(2) = 8 - 12 = -4$ gir punktet $(2, -4)$.\n\nTil slutt ser vi på endane: når $x \\to -\\infty$ går $f(x) \\to -\\infty$, og når $x \\to +\\infty$ går $f(x) \\to +\\infty$. No kjenner vi heile historia og kan skissere grafen utan å nøle.",
+      "dd43235044397b7d": "Test deg sjølv på topp- og botnpunkt:",
+      "28fae4a467259b82": "Kva kjenneteiknar eit toppunkt?",
+      "8c00be2ad6f33b73": "$f'(x) = 0$ og $f'$ skiftar frå negativ til positiv",
+      "95bc55fb15e5079e": "$f(x) = 0$ og grafen flatar ut",
+      "7a59a672ae544ee3": "$f'(x) = 0$ og $f'$ skiftar frå positiv til negativ",
+      "f6a41446288e404e": "I eit toppunkt stig grafen inn og synker ut: $f'$ går frå pluss til minus.",
+      "0c39a7cce77966ab": "Kvar har $f(x) = x^3 - 3x^2$ botnpunktet sitt?",
+      "52b319e4f4827746": "$f'$ skiftar frå minus til pluss i $x = 2$, og $f(2) = 8 - 12 = -4$. Botnpunktet er $(2, -4)$.",
+      "66e49b06003bee60": "Kva er eit terrassepunkt?",
+      "118b9a254e069ea0": "Eit punkt der $f$ er udefinert",
+      "31ea4c6950a4dea9": "Eit punkt der $f'(x) = 0$ utan at forteiknet til $f'$ skiftar",
+      "80f8f5b5f4ac8f1e": "Eit lokalt minimum",
+      "8169cf10bf953752": "Eit punkt der grafen kryssar $x$-aksen",
+      "a0a2a3732a08aa5d": "I eit terrassepunkt flatar grafen ut og held fram i same retning — $f' = 0$, men ikkje noko forteiknsskifte.",
+      "b9f6b885defc38cd": "## Andrederivattesten og vendepunkt\n\nForteiknslinjer fungerer alltid, men ofte finst ein snarveg: den **andrederiverte**. Tanken er enkel. Dersom $f''(a) < 0$ i eit stasjonært punkt, krummar grafen nedover der -- som ein sur munn -- og punktet må vere ein topp. Dersom $f''(a) > 0$, krummar grafen oppover -- som eit smil -- og punktet er ein botn.\n\n**Andrederivattesten:** Dersom $f'(a) = 0$, gjeld: $f''(a) < 0$ gir toppunkt i $x = a$, $f''(a) > 0$ gir botnpunkt, og $f''(a) = 0$ gir ikkje noko svar -- då må vi tilbake til forteiknslinja.\n\nLa oss bruke testen på $f(x) = x^4 - 4x^3 + 4x^2$. Først dei stasjonære punkta:\n\n$$f'(x) = 4x^3 - 12x^2 + 8x = 4x(x^2 - 3x + 2) = 4x(x-1)(x-2)$$\n\nStasjonære punkt: $x = 0$, $x = 1$ og $x = 2$. Så den andrederiverte: $f''(x) = 12x^2 - 24x + 8$. Vi testar kvart punkt: $f''(0) = 8 > 0$ gir **botnpunkt** i $(0, 0)$. $f''(1) = 12 - 24 + 8 = -4 < 0$ gir **toppunkt** i $(1, 1)$. Og $f''(2) = 48 - 48 + 8 = 8 > 0$ gir **botnpunkt** i $(2, 0)$. Tre stasjonære punkt klassifiserte med tre raske innsetjingar -- det er styrken til testen.\n\nDen andrederiverte fortel òg si eiga historie. Eit **vendepunkt** er eit punkt der krumminga til grafen skiftar retning -- frå konkav (krummar nedover) til konveks (krummar oppover) eller omvendt. I eit vendepunkt gjeld $f''(x) = 0$, og $f''$ skiftar forteikn der. Vendepunkt spelar ei viktig rolle i økonomien: der skiftar til dømes kostnadsveksten karakter, noko vi kjem tilbake til i kapittel 3.10.",
+      "96210517e5028063": "Test deg sjølv på andrederivattesten og vendepunkt:",
+      "f4767a472a388ab3": "Kva fortel andrederivattesten når $f'(a) = 0$ og $f''(a) > 0$?",
+      "a0ec50da95c39e59": "$x = a$ er eit toppunkt",
+      "3a2cf5fb835077d8": "$x = a$ er eit vendepunkt",
+      "eeeb140a5d348dc7": "Testen gir ikkje svar",
+      "6bd7ad8e85cc9390": "$x = a$ er eit botnpunkt",
+      "77055cc24776930c": "$f''(a) > 0$ betyr at grafen krummar oppover (smiler) — det stasjonære punktet er ein botn.",
+      "65eccf45f8760734": "For $f(x) = x^4 - 4x^3 + 4x^2$ er $f''(x) = 12x^2 - 24x + 8$. Kva slags punkt er $x = 1$?",
+      "8d81a6f155fdabbe": "Botnpunkt, fordi $f''(1) > 0$",
+      "d0f76e65071bb469": "Toppunkt, fordi $f''(1) = -4 < 0$",
+      "77269e57e3faf444": "Terrassepunkt",
+      "493ce989db70ad07": "Vendepunkt, fordi $f''(1) = 0$",
+      "fb88031e7a89db24": "$f''(1) = 12 - 24 + 8 = -4 < 0$, så $(1, 1)$ er eit toppunkt.",
+      "0cc4c83d16be5b64": "Kva kjenneteiknar eit vendepunkt?",
+      "6d9ec40eb0a07848": "$f''(x) = 0$ og $f''$ skiftar forteikn",
+      "275460cb587ec7e6": "$f'(x) = 0$ og $f'$ skiftar forteikn",
+      "b7ce05ce3a53bd70": "$f'(x) = 0$ og $f''(x) < 0$",
+      "b7ddbfcde01da2e2": "I eit vendepunkt skiftar krumminga retning: $f'' = 0$ med forteiknsskifte. (Alternativ b skildrar eit ekstremalpunkt.)",
+      "676885050afc5982": "## Oppsummering\n\nFunksjonsdrøfting er kunsten å lese historia til ein funksjon systematisk. **Monotonien** står i forteiknet til den deriverte: $f$ veks der $f'(x) > 0$ og avtek der $f'(x) < 0$ -- og forteiknslinja for $f'$ er verktøyet som kartlegg dette.\n\n**Topp- og botnpunkt** finn vi der $f'(x) = 0$ og forteiknet skiftar: frå pluss til minus gir toppunkt, frå minus til pluss gir botnpunkt, og utan skifte har vi eit terrassepunkt. **Andrederivattesten** gir ein snarveg: dersom $f'(a) = 0$, gir $f''(a) < 0$ toppunkt og $f''(a) > 0$ botnpunkt -- men $f''(a) = 0$ sender oss tilbake til forteiknslinja.\n\nDen andrederiverte styrer òg krumminga, og eit **vendepunkt** -- der $f''(x) = 0$ med forteiknsskifte -- er staden der grafen skiftar mellom å krumme opp og ned.\n\nVi drøfta $x^3 - 3x^2$ med forteiknslinje og $x^4 - 4x^3 + 4x^2$ med andrederivattesten. I neste kapittel set vi verktøya i arbeid på ordentlege problem: korleis finne det største arealet, den lågaste kostnaden, det beste valet."
+    }
+  }
+}

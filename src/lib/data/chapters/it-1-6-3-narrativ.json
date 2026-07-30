@@ -1,1 +1,343 @@
-{"id":"it-1-6-3-narrativ","courseId":"it-1","chapterNumber":"6.3","title":"SQL – grunnleggende spørringer (SELECT, INSERT, UPDATE, DELETE)","subtitle":"Narrativ versjon","description":"En fortelling om språket vi snakker med databaser i – de fire CRUD-kommandoene SELECT, INSERT, UPDATE og DELETE, og hvordan WHERE, ORDER BY og LIMIT former resultatet.","estimatedMinutes":42,"competenceGoals":["skrive SQL-spørringer for å hente ut data med SELECT","sette inn nye data med INSERT INTO","oppdatere eksisterende data med UPDATE","slette data med DELETE","bruke WHERE-klausulen for å filtrere data"],"linkedChapterId":"it-1-6-3","content":[{"id":"it-1-6-3-n-intro","type":"text","content":"## Å snakke med databasen\n\nNå skal vi lære selve språket vi bruker for å kommunisere med databasen: **SQL** (Structured Query Language), som uttales «ess-kju-ell» eller «sequel». SQL er et *deklarativt* språk – du beskriver *hva* du vil ha, ikke *hvordan* maskinen skal gjøre det. Skriver du `SELECT fornavn FROM elever WHERE klasse = '10A'`, sier du «gi meg fornavnene til alle elever i klasse 10A», og databasen finner selv den mest effektive måten.\n\nDe fire grunnkommandoene tilsvarer CRUD: `SELECT` (Read), `INSERT INTO` (Create), `UPDATE` (Update) og `DELETE` (Delete). Vi starter med den mest brukte, `SELECT`. Grunnsyntaksen er `SELECT kolonner FROM tabell`. Du bruker `*` for å hente alle kolonner (`SELECT * FROM elever`), eller lister opp navn for å hente bestemte (`SELECT fornavn, etternavn FROM elever`). Med `SELECT DISTINCT klasse_id FROM elever` får du bare de unike verdiene, uten duplikater.\n\nDet virkelig kraftige er **WHERE**, som filtrerer hvilke rader du får. Den bruker sammenligningsoperatorer: `=` (lik), `<>` eller `!=` (ulik), samt `<`, `>`, `<=` og `>=`. For eksempel gir `SELECT fornavn FROM elever WHERE klasse_id = 1` bare elevene i klasse 1. Du kombinerer betingelser med `AND`, `OR` og `NOT`. I tillegg finnes `LIKE` for søk med jokertegn (`'H%'` finner alt som starter med H, der `%` er null eller flere tegn og `_` er nøyaktig ett), `IN (1, 3)` for flere verdier, og `BETWEEN 3 AND 5` for et intervall."},{"id":"it-1-6-3-n-quiz1","type":"exercise","exercise":{"id":"it-1-6-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på SELECT og WHERE:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-3-n-quiz1-q0","task":"Hvilken kommando henter ut data fra en tabell?","options":[{"id":"a","text":"SELECT","isCorrect":true},{"id":"b","text":"GET","isCorrect":false},{"id":"c","text":"FETCH","isCorrect":false},{"id":"d","text":"READ","isCorrect":false}],"solution":"SELECT er SQL-kommandoen for å hente ut data fra en tabell."},{"id":"it-1-6-3-n-quiz1-q1","task":"Hva returnerer: SELECT fornavn, etternavn FROM elever WHERE klasse_id = 2?","options":[{"id":"a","text":"Alle kolonner for alle elever","isCorrect":false},{"id":"b","text":"Fornavn og etternavn for elever i klasse 2","isCorrect":true},{"id":"c","text":"Alle elever sortert etter klasse","isCorrect":false},{"id":"d","text":"Bare fornavn for elever i klasse 2","isCorrect":false}],"solution":"Spørringen henter kolonnene fornavn og etternavn, og WHERE filtrerer til elever med klasse_id = 2."},{"id":"it-1-6-3-n-quiz1-q2","task":"Hva matcher LIKE '%sen%'?","options":[{"id":"a","text":"Bare teksten «sen»","isCorrect":false},{"id":"b","text":"Verdier som starter med «sen»","isCorrect":false},{"id":"c","text":"Verdier som inneholder «sen» et eller annet sted","isCorrect":true},{"id":"d","text":"Bare tall","isCorrect":false}],"solution":"%-tegnet matcher null eller flere tegn, så '%sen%' finner alle verdier som inneholder «sen»."}]}},{"id":"it-1-6-3-n-section1","type":"text","content":"## Å sortere, begrense og forstå rekkefølgen\n\nTo svært nyttige klausuler er ORDER BY og LIMIT. **ORDER BY** sorterer resultatet: `ORDER BY etternavn ASC` gir stigende (A–Å, og ASC er standard), mens `DESC` gir synkende. Du kan til og med sortere etter flere kolonner. **LIMIT** begrenser antallet rader: `ORDER BY karakter DESC LIMIT 3` gir de tre høyeste karakterene.\n\nEn fullstendig SELECT-setning har en fast struktur du må følge: `SELECT [DISTINCT] kolonner FROM tabell [WHERE betingelse] [ORDER BY kolonne [ASC|DESC]] [LIMIT antall]`. Rekkefølgen er ufravikelig – SELECT før FROM, før WHERE, før ORDER BY, før LIMIT. Et interessant poeng er at databasen *behandler* setningen i en annen rekkefølge enn du skriver den: først FROM (finn tabellen), så WHERE (filtrer rader), så SELECT (velg kolonner), så ORDER BY (sorter), og til slutt LIMIT (begrens).\n\nDette er verdt å huske når du leser sammensatte spørringer. Tenk deg: `SELECT fornavn FROM elever WHERE klasse_id = 1 AND fodselsdato > '2008-06-01' ORDER BY fornavn ASC LIMIT 2`. Hvis klasse 1 har Emma (mars), Oliver (juli) og Sofie (mai), filtrerer WHERE først bort alle født før juni – bare Oliver står igjen. Resultatet blir derfor bare Oliver Johansen, selv om LIMIT tillot to. Rekkefølgen WHERE → ORDER BY → LIMIT forklarer hvorfor."},{"id":"it-1-6-3-n-quiz2","type":"exercise","exercise":{"id":"it-1-6-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på ORDER BY, LIMIT og spørringsrekkefølge:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-3-n-quiz2-q0","task":"Hva betyr DESC i ORDER BY?","options":[{"id":"a","text":"Stigende rekkefølge","isCorrect":false},{"id":"b","text":"Sletter rader","isCorrect":false},{"id":"c","text":"Beskriver tabellen","isCorrect":false},{"id":"d","text":"Synkende rekkefølge","isCorrect":true}],"solution":"DESC gir synkende rekkefølge (høyest først), mens ASC (standard) gir stigende."},{"id":"it-1-6-3-n-quiz2-q1","task":"Hva er resultatet? SELECT fornavn FROM elever WHERE klasse_id = 1 AND fodselsdato > '2008-06-01' ORDER BY fornavn ASC LIMIT 2. Klasse 1: Emma (mars), Oliver (juli), Sofie (mai).","options":[{"id":"a","text":"Oliver Johansen","isCorrect":true},{"id":"b","text":"Emma og Sofie","isCorrect":false},{"id":"c","text":"Oliver og Emma","isCorrect":false},{"id":"d","text":"Ingen resultater","isCorrect":false}],"solution":"WHERE filtrerer bort alle født før juni, så bare Oliver (juli) står igjen. LIMIT 2 tillater to, men det finnes bare én."},{"id":"it-1-6-3-n-quiz2-q2","task":"I hvilken rekkefølge behandler databasen en SELECT-setning?","options":[{"id":"a","text":"SELECT, FROM, WHERE, ORDER BY","isCorrect":false},{"id":"b","text":"FROM, WHERE, SELECT, ORDER BY, LIMIT","isCorrect":true},{"id":"c","text":"WHERE, SELECT, FROM","isCorrect":false},{"id":"d","text":"LIMIT, ORDER BY, WHERE, FROM","isCorrect":false}],"solution":"Databasen behandler først FROM, så WHERE, deretter SELECT, så ORDER BY og til slutt LIMIT – selv om du skriver SELECT først."}]}},{"id":"it-1-6-3-n-section2","type":"text","content":"## Skape, endre og slette\n\nDe tre siste CRUD-kommandoene endrer dataene. **INSERT INTO** legger til nye rader:\n\n```sql\nINSERT INTO elever (fornavn, etternavn, klasse_id)\nVALUES ('Maja', 'Strand', 1);\n```\n\nLegg merke til at vi ikke oppgir `elev_id` – den fylles automatisk fordi den er AUTOINCREMENT. Du kan sette inn flere rader på én gang ved å liste flere VALUES-grupper. Det anbefales alltid å skrive kolonnenavnene eksplisitt; da blir koden lesbar og fortsetter å virke selv om tabellstrukturen endres.\n\n**UPDATE** endrer eksisterende data, og her er WHERE livsviktig:\n\n```sql\nUPDATE elever SET klasse_id = 1 WHERE elev_id = 4;\n```\n\n**DELETE** fjerner rader:\n\n```sql\nDELETE FROM elever WHERE elev_id = 6;\n```\n\nEn alvorlig advarsel gjelder begge: glemmer du WHERE, rammer kommandoen *alle* rader. `DELETE FROM karakterer` sletter hver eneste rad i tabellen (men beholder selve tabellstrukturen). Tenk deg alltid godt om før du kjører UPDATE eller DELETE uten WHERE. Til slutt en detalj om **NULL**, som betyr en manglende verdi: du kan ikke sammenligne med `=`, men må bruke `IS NULL` eller `IS NOT NULL`, som i `SELECT * FROM elever WHERE fodselsdato IS NULL`."},{"id":"it-1-6-3-n-quiz3","type":"exercise","exercise":{"id":"it-1-6-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på INSERT, UPDATE og DELETE:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-3-n-quiz3-q0","task":"Hva gjør: UPDATE elever SET klasse_id = 3 WHERE etternavn = 'Hansen'?","options":[{"id":"a","text":"Sletter alle elever med etternavn Hansen","isCorrect":false},{"id":"b","text":"Legger til en ny elev Hansen i klasse 3","isCorrect":false},{"id":"c","text":"Endrer klasse_id til 3 for alle elever med etternavn Hansen","isCorrect":true},{"id":"d","text":"Henter elever med etternavn Hansen","isCorrect":false}],"solution":"UPDATE ... SET ... WHERE endrer klasse_id til 3 for alle rader der etternavnet er Hansen."},{"id":"it-1-6-3-n-quiz3-q1","task":"Hva skjer hvis du kjører DELETE FROM karakterer (uten WHERE)?","options":[{"id":"a","text":"Ingenting – kommandoen er ugyldig uten WHERE","isCorrect":false},{"id":"b","text":"Bare den siste raden slettes","isCorrect":false},{"id":"c","text":"Hele tabellen inkludert strukturen slettes","isCorrect":false},{"id":"d","text":"Alle rader i karakterer-tabellen slettes","isCorrect":true}],"solution":"Uten WHERE sletter DELETE alle rader i tabellen, men selve tabellstrukturen består. Vær alltid forsiktig."},{"id":"it-1-6-3-n-quiz3-q2","task":"Hvordan finner du rader der fodselsdato mangler?","options":[{"id":"a","text":"WHERE fodselsdato IS NULL","isCorrect":true},{"id":"b","text":"WHERE fodselsdato = NULL","isCorrect":false},{"id":"c","text":"WHERE fodselsdato = 0","isCorrect":false},{"id":"d","text":"WHERE fodselsdato != ''","isCorrect":false}],"solution":"Du kan ikke sammenligne med NULL ved hjelp av =. Bruk IS NULL (eller IS NOT NULL)."}]}},{"id":"it-1-6-3-n-summary","type":"text","content":"## Oppsummering\n\nSQL er det deklarative språket vi snakker med databaser i – du sier *hva* du vil ha, og databasen ordner resten. De fire grunnkommandoene følger CRUD: **SELECT** henter data (ofte med **WHERE** for å filtrere, og `LIKE`, `IN` og `BETWEEN` for finere søk), **INSERT INTO** legger til rader, **UPDATE** endrer dem, og **DELETE** fjerner dem.\n\n**ORDER BY** sorterer og **LIMIT** begrenser, og setningen har en fast skriverekkefølge som skiller seg fra databasens behandlingsrekkefølge (FROM → WHERE → SELECT → ORDER BY → LIMIT). Den viktigste sikkerhetsregelen er å aldri glemme WHERE i UPDATE og DELETE – ellers rammer du alle rader. Og husk: NULL sammenlignes med `IS NULL`, ikke `=`."}],"exercises":[]}
+{
+  "id": "it-1-6-3-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "6.3",
+  "title": "SQL – grunnleggende spørringer (SELECT, INSERT, UPDATE, DELETE)",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om språket vi snakker med databaser i – de fire CRUD-kommandoene SELECT, INSERT, UPDATE og DELETE, og hvordan WHERE, ORDER BY og LIMIT former resultatet.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "skrive SQL-spørringer for å hente ut data med SELECT",
+    "sette inn nye data med INSERT INTO",
+    "oppdatere eksisterende data med UPDATE",
+    "slette data med DELETE",
+    "bruke WHERE-klausulen for å filtrere data"
+  ],
+  "linkedChapterId": "it-1-6-3",
+  "content": [
+    {
+      "id": "it-1-6-3-n-intro",
+      "type": "text",
+      "content": "## Å snakke med databasen\n\nNå skal vi lære selve språket vi bruker for å kommunisere med databasen: **SQL** (Structured Query Language), som uttales «ess-kju-ell» eller «sequel». SQL er et *deklarativt* språk – du beskriver *hva* du vil ha, ikke *hvordan* maskinen skal gjøre det. Skriver du `SELECT fornavn FROM elever WHERE klasse = '10A'`, sier du «gi meg fornavnene til alle elever i klasse 10A», og databasen finner selv den mest effektive måten.\n\nDe fire grunnkommandoene tilsvarer CRUD: `SELECT` (Read), `INSERT INTO` (Create), `UPDATE` (Update) og `DELETE` (Delete). Vi starter med den mest brukte, `SELECT`. Grunnsyntaksen er `SELECT kolonner FROM tabell`. Du bruker `*` for å hente alle kolonner (`SELECT * FROM elever`), eller lister opp navn for å hente bestemte (`SELECT fornavn, etternavn FROM elever`). Med `SELECT DISTINCT klasse_id FROM elever` får du bare de unike verdiene, uten duplikater.\n\nDet virkelig kraftige er **WHERE**, som filtrerer hvilke rader du får. Den bruker sammenligningsoperatorer: `=` (lik), `<>` eller `!=` (ulik), samt `<`, `>`, `<=` og `>=`. For eksempel gir `SELECT fornavn FROM elever WHERE klasse_id = 1` bare elevene i klasse 1. Du kombinerer betingelser med `AND`, `OR` og `NOT`. I tillegg finnes `LIKE` for søk med jokertegn (`'H%'` finner alt som starter med H, der `%` er null eller flere tegn og `_` er nøyaktig ett), `IN (1, 3)` for flere verdier, og `BETWEEN 3 AND 5` for et intervall."
+    },
+    {
+      "id": "it-1-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på SELECT og WHERE:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-3-n-quiz1-q0",
+            "task": "Hvilken kommando henter ut data fra en tabell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "GET",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "FETCH",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "READ",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "SELECT",
+                "isCorrect": true
+              }
+            ],
+            "solution": "SELECT er SQL-kommandoen for å hente ut data fra en tabell."
+          },
+          {
+            "id": "it-1-6-3-n-quiz1-q1",
+            "task": "Hva returnerer: SELECT fornavn, etternavn FROM elever WHERE klasse_id = 2?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fornavn og etternavn for elever i klasse 2",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Alle kolonner for alle elever",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alle elever sortert etter klasse",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare fornavn for elever i klasse 2",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Spørringen henter kolonnene fornavn og etternavn, og WHERE filtrerer til elever med klasse_id = 2."
+          },
+          {
+            "id": "it-1-6-3-n-quiz1-q2",
+            "task": "Hva matcher LIKE '%sen%'?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare teksten «sen»",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Verdier som inneholder «sen» et eller annet sted",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Verdier som starter med «sen»",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare tall",
+                "isCorrect": false
+              }
+            ],
+            "solution": "%-tegnet matcher null eller flere tegn, så '%sen%' finner alle verdier som inneholder «sen»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-3-n-section1",
+      "type": "text",
+      "content": "## Å sortere, begrense og forstå rekkefølgen\n\nTo svært nyttige klausuler er ORDER BY og LIMIT. **ORDER BY** sorterer resultatet: `ORDER BY etternavn ASC` gir stigende (A–Å, og ASC er standard), mens `DESC` gir synkende. Du kan til og med sortere etter flere kolonner. **LIMIT** begrenser antallet rader: `ORDER BY karakter DESC LIMIT 3` gir de tre høyeste karakterene.\n\nEn fullstendig SELECT-setning har en fast struktur du må følge: `SELECT [DISTINCT] kolonner FROM tabell [WHERE betingelse] [ORDER BY kolonne [ASC|DESC]] [LIMIT antall]`. Rekkefølgen er ufravikelig – SELECT før FROM, før WHERE, før ORDER BY, før LIMIT. Et interessant poeng er at databasen *behandler* setningen i en annen rekkefølge enn du skriver den: først FROM (finn tabellen), så WHERE (filtrer rader), så SELECT (velg kolonner), så ORDER BY (sorter), og til slutt LIMIT (begrens).\n\nDette er verdt å huske når du leser sammensatte spørringer. Tenk deg: `SELECT fornavn FROM elever WHERE klasse_id = 1 AND fodselsdato > '2008-06-01' ORDER BY fornavn ASC LIMIT 2`. Hvis klasse 1 har Emma (mars), Oliver (juli) og Sofie (mai), filtrerer WHERE først bort alle født før juni – bare Oliver står igjen. Resultatet blir derfor bare Oliver Johansen, selv om LIMIT tillot to. Rekkefølgen WHERE → ORDER BY → LIMIT forklarer hvorfor."
+    },
+    {
+      "id": "it-1-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ORDER BY, LIMIT og spørringsrekkefølge:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-3-n-quiz2-q0",
+            "task": "Hva betyr DESC i ORDER BY?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Stigende rekkefølge",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sletter rader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Synkende rekkefølge",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Beskriver tabellen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "DESC gir synkende rekkefølge (høyest først), mens ASC (standard) gir stigende."
+          },
+          {
+            "id": "it-1-6-3-n-quiz2-q1",
+            "task": "Hva er resultatet? SELECT fornavn FROM elever WHERE klasse_id = 1 AND fodselsdato > '2008-06-01' ORDER BY fornavn ASC LIMIT 2. Klasse 1: Emma (mars), Oliver (juli), Sofie (mai).",
+            "options": [
+              {
+                "id": "b",
+                "text": "Emma og Sofie",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Oliver og Emma",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen resultater",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Oliver Johansen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "WHERE filtrerer bort alle født før juni, så bare Oliver (juli) står igjen. LIMIT 2 tillater to, men det finnes bare én."
+          },
+          {
+            "id": "it-1-6-3-n-quiz2-q2",
+            "task": "I hvilken rekkefølge behandler databasen en SELECT-setning?",
+            "options": [
+              {
+                "id": "b",
+                "text": "FROM, WHERE, SELECT, ORDER BY, LIMIT",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "SELECT, FROM, WHERE, ORDER BY",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "WHERE, SELECT, FROM",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "LIMIT, ORDER BY, WHERE, FROM",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Databasen behandler først FROM, så WHERE, deretter SELECT, så ORDER BY og til slutt LIMIT – selv om du skriver SELECT først."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-3-n-section2",
+      "type": "text",
+      "content": "## Skape, endre og slette\n\nDe tre siste CRUD-kommandoene endrer dataene. **INSERT INTO** legger til nye rader:\n\n```sql\nINSERT INTO elever (fornavn, etternavn, klasse_id)\nVALUES ('Maja', 'Strand', 1);\n```\n\nLegg merke til at vi ikke oppgir `elev_id` – den fylles automatisk fordi den er AUTOINCREMENT. Du kan sette inn flere rader på én gang ved å liste flere VALUES-grupper. Det anbefales alltid å skrive kolonnenavnene eksplisitt; da blir koden lesbar og fortsetter å virke selv om tabellstrukturen endres.\n\n**UPDATE** endrer eksisterende data, og her er WHERE livsviktig:\n\n```sql\nUPDATE elever SET klasse_id = 1 WHERE elev_id = 4;\n```\n\n**DELETE** fjerner rader:\n\n```sql\nDELETE FROM elever WHERE elev_id = 6;\n```\n\nEn alvorlig advarsel gjelder begge: glemmer du WHERE, rammer kommandoen *alle* rader. `DELETE FROM karakterer` sletter hver eneste rad i tabellen (men beholder selve tabellstrukturen). Tenk deg alltid godt om før du kjører UPDATE eller DELETE uten WHERE. Til slutt en detalj om **NULL**, som betyr en manglende verdi: du kan ikke sammenligne med `=`, men må bruke `IS NULL` eller `IS NOT NULL`, som i `SELECT * FROM elever WHERE fodselsdato IS NULL`."
+    },
+    {
+      "id": "it-1-6-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på INSERT, UPDATE og DELETE:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-3-n-quiz3-q0",
+            "task": "Hva gjør: UPDATE elever SET klasse_id = 3 WHERE etternavn = 'Hansen'?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sletter alle elever med etternavn Hansen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Endrer klasse_id til 3 for alle elever med etternavn Hansen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Legger til en ny elev Hansen i klasse 3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Henter elever med etternavn Hansen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "UPDATE ... SET ... WHERE endrer klasse_id til 3 for alle rader der etternavnet er Hansen."
+          },
+          {
+            "id": "it-1-6-3-n-quiz3-q1",
+            "task": "Hva skjer hvis du kjører DELETE FROM karakterer (uten WHERE)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ingenting – kommandoen er ugyldig uten WHERE",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bare den siste raden slettes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle rader i karakterer-tabellen slettes",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Hele tabellen inkludert strukturen slettes",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten WHERE sletter DELETE alle rader i tabellen, men selve tabellstrukturen består. Vær alltid forsiktig."
+          },
+          {
+            "id": "it-1-6-3-n-quiz3-q2",
+            "task": "Hvordan finner du rader der fodselsdato mangler?",
+            "options": [
+              {
+                "id": "b",
+                "text": "WHERE fodselsdato = NULL",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "WHERE fodselsdato = 0",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "WHERE fodselsdato != ''",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "WHERE fodselsdato IS NULL",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Du kan ikke sammenligne med NULL ved hjelp av =. Bruk IS NULL (eller IS NOT NULL)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nSQL er det deklarative språket vi snakker med databaser i – du sier *hva* du vil ha, og databasen ordner resten. De fire grunnkommandoene følger CRUD: **SELECT** henter data (ofte med **WHERE** for å filtrere, og `LIKE`, `IN` og `BETWEEN` for finere søk), **INSERT INTO** legger til rader, **UPDATE** endrer dem, og **DELETE** fjerner dem.\n\n**ORDER BY** sorterer og **LIMIT** begrenser, og setningen har en fast skriverekkefølge som skiller seg fra databasens behandlingsrekkefølge (FROM → WHERE → SELECT → ORDER BY → LIMIT). Den viktigste sikkerhetsregelen er å aldri glemme WHERE i UPDATE og DELETE – ellers rammer du alle rader. Og husk: NULL sammenlignes med `IS NULL`, ikke `=`."
+    }
+  ],
+  "exercises": []
+}

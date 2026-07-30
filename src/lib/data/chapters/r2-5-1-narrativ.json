@@ -1,1 +1,371 @@
-{"id":"r2-5-1-narrativ","courseId":"r2","chapterNumber":"5.1","title":"Vektorer i tre dimensjoner","subtitle":"Narrativ versjon","description":"En fortelling om dronen som forlater planet — det tredimensjonale koordinatsystemet, vektorer på komponentform, lengder, avstander og enhetsvektorer i rommet.","estimatedMinutes":33,"competenceGoals":["forstå og bruke et tredimensjonalt koordinatsystem","representere vektorer i rommet med koordinater","beregne lengden av en vektor i rommet","finne enhetsvektorer i tre dimensjoner"],"linkedChapterId":"r2-5-1","content":[{"id":"r2-5-1-n-intro","type":"text","content":"## Dronen letter\n\nDu står på en åpen slette og sender en drone til værs. Den glir tretti meter mot øst, tjue meter mot nord — og så stiger den femten meter rett opp. I det øyeblikket forlater den matematikken du kjenner fra R1. Der levde vektorene i et flatt plan med to koordinater; dronen din lever i **rommet**, og trenger tre.\n\nHeldigvis er spranget fra planet til rommet mindre dramatisk enn det høres ut. Nesten alle regnereglene du kan fra før, gjelder fortsatt — vi legger bare til en tredje koordinat. Et punkt blir $(x, y, z)$ i stedet for $(x, y)$, en vektor får tre komponenter i stedet for to, og Pytagoras' setning brukes to ganger i stedet for én.\n\nOg behovet er overalt: fly og droner som navigerer i luftrommet, krefter som virker på bruer og bygninger fra alle kanter, molekylenes plassering i en krystall, lyssetting og kamerabevegelser i dataspill, satellitter og GPS. Alt dette er tredimensjonal vektorregning i arbeid.\n\nI denne fortellingen setter vi opp det tredimensjonale koordinatsystemet med høyrehåndsregelen, lærer å skrive vektorer på komponentform, finner vektoren mellom to punkter, måler lengder og avstander i rommet — og lager til slutt enhetsvektorer som peker ut retninger med lengde nøyaktig én. Det er verktøykassen dronen trenger for å vite hvor den er, og hvor den skal."},{"id":"r2-5-1-n-section1","type":"text","content":"## Tre akser og et høyrehåndsgrep\n\nFor å beskrive dronens posisjon trenger vi et koordinatsystem med tre akser som står vinkelrett på hverandre: $x$-aksen og $y$-aksen kjenner du fra planet, og den nye $z$-aksen reiser seg loddrett opp fra dem. Et slikt system kalles rettvinklet eller **ortogonalt**, og vi orienterer det som et **høyrehåndssystem**: pek fingrene på høyre hånd langs positiv $x$-akse, krøll dem mot positiv $y$-akse — da peker tommelen langs positiv $z$-akse. Denne konvensjonen sørger for at alle verdens matematikere og ingeniører tegner rommet på samme måte.\n\nEt punkt $P$ i rommet angis med tre koordinater, $P = (x, y, z)$: hvor langt langs $x$-aksen, hvor langt langs $y$-aksen, og hvor høyt over $xy$-planet. Dronen vår står altså i punktet $(30, 20, 15)$ — tretti øst, tjue nord, femten opp.\n\nAksene deler rommet med tre spesielle plan: $xy$-planet er alle punkter med $z = 0$ (bakkenivå, om du vil), $xz$-planet har $y = 0$, og $yz$-planet har $x = 0$. Origo er $O = (0, 0, 0)$, der du selv står med fjernkontrollen.\n\nNoen eksempler gir følelse for systemet: punktet $(3, 0, 0)$ ligger på selve $x$-aksen, tre enheter ut. Punktet $(2, 4, 0)$ ligger i $xy$-planet, siden høyden er null. Punktet $(1, 2, 3)$ svever én enhet øst, to nord og tre opp. Og $(0, 0, -2)$ ligger på $z$-aksen — to enheter **under** bakkeplanet, kanskje en undervannsdrone denne gangen."},{"id":"r2-5-1-n-quiz1","type":"exercise","exercise":{"id":"r2-5-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på koordinatsystemet i rommet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-1-n-quiz1-q0","task":"Hvor ligger punktet $(2, 4, 0)$?","options":[{"id":"a","text":"På $z$-aksen","isCorrect":false},{"id":"b","text":"I $xy$-planet","isCorrect":true},{"id":"c","text":"I $yz$-planet","isCorrect":false},{"id":"d","text":"På $x$-aksen","isCorrect":false}],"solution":"Siden $z = 0$ ligger punktet i $xy$-planet, 2 enheter langs $x$-aksen og 4 langs $y$-aksen."},{"id":"r2-5-1-n-quiz1-q1","task":"Hvilket plan består av alle punkter med $x = 0$?","options":[{"id":"a","text":"$yz$-planet","isCorrect":true},{"id":"b","text":"$xy$-planet","isCorrect":false},{"id":"c","text":"$xz$-planet","isCorrect":false},{"id":"d","text":"Origo","isCorrect":false}],"solution":"Når $x = 0$ er vi i planet utspent av $y$- og $z$-aksen: $yz$-planet."},{"id":"r2-5-1-n-quiz1-q2","task":"I høyrehåndsregelen: fingrene peker langs positiv $x$-akse og krølles mot positiv $y$-akse. Hva peker tommelen langs?","options":[{"id":"a","text":"Negativ $x$-akse","isCorrect":false},{"id":"b","text":"Positiv $y$-akse","isCorrect":false},{"id":"c","text":"Positiv $z$-akse","isCorrect":true},{"id":"d","text":"Negativ $z$-akse","isCorrect":false}],"solution":"Tommelen peker langs positiv $z$-akse — det definerer et høyrehåndssystem."}]}},{"id":"r2-5-1-n-section2","type":"text","content":"## Vektorer med tre komponenter\n\nDronen skal nå fly fra ett punkt til et annet, og da trenger vi **vektorer**: størrelser med både lengde og retning. Vi skriver dem med pil, $\\vec{a}$, eller med fet skrift, og en vektor fra punkt $A$ til punkt $B$ heter $\\overrightarrow{AB}$.\n\nPå **komponentform** skriver vi $\\vec{a} = [a_1, a_2, a_3]$, der de tre tallene er vektorens utstrekning i henholdsvis $x$-, $y$- og $z$-retning. Det samme kan uttrykkes med enhetsvektorene langs aksene: $\\vec{a} = a_1\\vec{i} + a_2\\vec{j} + a_3\\vec{k}$, der $\\vec{i} = [1, 0, 0]$, $\\vec{j} = [0, 1, 0]$ og $\\vec{k} = [0, 0, 1]$.\n\nHvert punkt har sin **posisjonsvektor** — pilen fra origo til punktet: for $P = (x, y, z)$ er $\\vec{OP} = [x, y, z]$. Det er posisjonsvektorene som lar oss regne med punkter.\n\nOg her kommer formelen du vil bruke aller mest: vektoren fra $A = (a_1, a_2, a_3)$ til $B = (b_1, b_2, b_3)$ er\n\n$$\\overrightarrow{AB} = \\vec{OB} - \\vec{OA} = [b_1 - a_1, b_2 - a_2, b_3 - a_3]$$\n\n**Slutt minus start**, koordinat for koordinat — akkurat som i planet. Skal dronen fly fra $A = (1, 3, 2)$ til $B = (4, -1, 5)$, er flyvektoren $\\overrightarrow{AB} = [4-1, -1-3, 5-2] = [3, -4, 3]$: tre øst, fire sørover (negativ $y$), tre opp. Returen er $\\overrightarrow{BA} = [-3, 4, -3]$, og du ser det generelle mønsteret $\\overrightarrow{BA} = -\\overrightarrow{AB}$ — samme rute, motsatt retning."},{"id":"r2-5-1-n-quiz2","type":"exercise","exercise":{"id":"r2-5-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på vektorer og komponentform:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-1-n-quiz2-q0","task":"La $A = (1, 3, 2)$ og $B = (4, -1, 5)$. Hva er $\\overrightarrow{AB}$?","options":[{"id":"a","text":"$[5, 2, 7]$","isCorrect":false},{"id":"b","text":"$[-3, 4, -3]$","isCorrect":false},{"id":"c","text":"$[3, -4, 3]$","isCorrect":true},{"id":"d","text":"$[4, -3, 10]$","isCorrect":false}],"solution":"Slutt minus start: $\\overrightarrow{AB} = [4-1, -1-3, 5-2] = [3, -4, 3]$."},{"id":"r2-5-1-n-quiz2-q1","task":"Hvilken sammenheng gjelder mellom $\\overrightarrow{AB}$ og $\\overrightarrow{BA}$?","options":[{"id":"a","text":"$\\overrightarrow{BA} = -\\overrightarrow{AB}$","isCorrect":true},{"id":"b","text":"$\\overrightarrow{BA} = \\overrightarrow{AB}$","isCorrect":false},{"id":"c","text":"$\\overrightarrow{BA} = 2\\overrightarrow{AB}$","isCorrect":false},{"id":"d","text":"De er ortogonale","isCorrect":false}],"solution":"Returvektoren har samme lengde, men motsatt retning: $\\overrightarrow{BA} = -\\overrightarrow{AB}$."},{"id":"r2-5-1-n-quiz2-q2","task":"Hva er enhetsvektoren $\\vec{j}$?","options":[{"id":"a","text":"$[1, 0, 0]$","isCorrect":false},{"id":"b","text":"$[0, 0, 1]$","isCorrect":false},{"id":"c","text":"$[1, 1, 1]$","isCorrect":false},{"id":"d","text":"$[0, 1, 0]$","isCorrect":true}],"solution":"$\\vec{j} = [0, 1, 0]$ peker langs $y$-aksen. $\\vec{i} = [1,0,0]$ og $\\vec{k} = [0,0,1]$ tar $x$- og $z$-retningen."}]}},{"id":"r2-5-1-n-section3","type":"text","content":"## Hvor langt? Lengder, avstander og enhetsvektorer\n\nHvor lang er egentlig flyturen $[3, -4, 3]$? I planet ga Pytagoras svaret, og i rommet bruker vi ham rett og slett to ganger. Tenk på vektoren $\\vec{a} = [a_1, a_2, a_3]$ som diagonalen i en eske med sider $a_1$, $a_2$ og $a_3$: først finner vi diagonalen i bunnen, $d = \\sqrt{a_1^2 + a_2^2}$, og så tar vi Pytagoras på nytt med høyden $a_3$. Resultatet er lengdeformelen\n\n$$|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$$\n\nFor eksempel har $\\vec{v} = [2, -3, 6]$ lengden $|\\vec{v}| = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$.\n\nAvstanden mellom to punkter er bare lengden av vektoren mellom dem: $|AB| = \\sqrt{(b_1-a_1)^2 + (b_2-a_2)^2 + (b_3-a_3)^2}$. Avstanden fra $P = (1, -2, 3)$ til $Q = (4, 2, -1)$ blir $\\sqrt{3^2 + 4^2 + (-4)^2} = \\sqrt{41} \\approx 6{,}40$.\n\nTil slutt et verktøy som rendyrker retning: **enhetsvektoren**, en vektor med lengde nøyaktig $1$. Vil du beskrive retningen til $\\vec{a}$ uten å bry deg om hvor lang den er — for eksempel for å si «fly i denne retningen med fart 5 m/s» — deler du vektoren på sin egen lengde:\n\n$$\\hat{a} = \\frac{\\vec{a}}{|\\vec{a}|}$$\n\nTa $\\vec{u} = [3, 4, 0]$ med lengde $5$: enhetsvektoren er $\\hat{u} = \\left[\\frac{3}{5}, \\frac{4}{5}, 0\\right]$, og en rask kontroll gir $|\\hat{u}| = \\sqrt{\\frac{9}{25} + \\frac{16}{25}} = 1$, akkurat som lovet. Nå vet dronen både hvor den er, hvor langt den skal, og i hvilken retning."},{"id":"r2-5-1-n-quiz3","type":"exercise","exercise":{"id":"r2-5-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på lengde, avstand og enhetsvektor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-1-n-quiz3-q0","task":"Hva er lengden av $\\vec{v} = [2, -3, 6]$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$7$","isCorrect":true},{"id":"c","text":"$\\sqrt{11}$","isCorrect":false},{"id":"d","text":"$49$","isCorrect":false}],"solution":"$|\\vec{v}| = \\sqrt{2^2 + (-3)^2 + 6^2} = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$."},{"id":"r2-5-1-n-quiz3-q1","task":"Hva er avstanden mellom $P = (1, -2, 3)$ og $Q = (4, 2, -1)$?","options":[{"id":"a","text":"$\\sqrt{41}$","isCorrect":true},{"id":"b","text":"$41$","isCorrect":false},{"id":"c","text":"$\\sqrt{17}$","isCorrect":false},{"id":"d","text":"$7$","isCorrect":false}],"solution":"$|PQ| = \\sqrt{3^2 + 4^2 + (-4)^2} = \\sqrt{9 + 16 + 16} = \\sqrt{41}$."},{"id":"r2-5-1-n-quiz3-q2","task":"Hva kjennetegner en enhetsvektor?","options":[{"id":"a","text":"Den peker langs en akse","isCorrect":false},{"id":"b","text":"Den har bare positive komponenter","isCorrect":false},{"id":"c","text":"Den har lengde $1$","isCorrect":true},{"id":"d","text":"Den starter i origo","isCorrect":false}],"solution":"En enhetsvektor har lengde $1$ og brukes til å angi en ren retning."},{"id":"r2-5-1-n-quiz3-q3","task":"Hva er enhetsvektoren i samme retning som $\\vec{u} = [3, 4, 0]$?","options":[{"id":"a","text":"$[3, 4, 0]$","isCorrect":false},{"id":"b","text":"$\\left[\\frac{3}{7}, \\frac{4}{7}, 0\\right]$","isCorrect":false},{"id":"c","text":"$[1, 1, 0]$","isCorrect":false},{"id":"d","text":"$\\left[\\frac{3}{5}, \\frac{4}{5}, 0\\right]$","isCorrect":true}],"solution":"$|\\vec{u}| = 5$, så $\\hat{u} = \\frac{1}{5}[3, 4, 0] = \\left[\\frac{3}{5}, \\frac{4}{5}, 0\\right]$."}]}},{"id":"r2-5-1-n-summary","type":"text","content":"## Oppsummering\n\nDronen lettet fra sletta, og med den løftet vi vektorregningen fra planet og ut i rommet. Det tredimensjonale koordinatsystemet ga oss rammen: tre akser vinkelrett på hverandre, orientert etter høyrehåndsregelen, der hvert punkt beskrives av tre koordinater $(x, y, z)$ og spesialplanene $xy$, $xz$ og $yz$ svarer til at én koordinat er null.\n\nVektorene fulgte med på lasset nesten uforandret. På komponentform er $\\vec{a} = [a_1, a_2, a_3]$, eventuelt skrevet som $a_1\\vec{i} + a_2\\vec{j} + a_3\\vec{k}$ med enhetsvektorene langs aksene. Posisjonsvektoren $\\vec{OP}$ peker fra origo til punktet, og arbeidshesten er «slutt minus start»: $\\overrightarrow{AB} = [b_1 - a_1, b_2 - a_2, b_3 - a_3]$, med $\\overrightarrow{BA} = -\\overrightarrow{AB}$ som retur.\n\nLengder målte vi med dobbel Pytagoras: $|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$ — diagonalen i esken med sidene som komponenter. Avstanden mellom to punkter er lengden av vektoren mellom dem, og enhetsvektoren $\\hat{a} = \\frac{\\vec{a}}{|\\vec{a}|}$ destillerer retningen ned til lengde én.\n\nDette er grunnmuren for hele romgeometrien: i de neste kapitlene skal vi regne med vektorene, multiplisere dem på to forskjellige måter, og bruke dem til å beskrive linjer og plan i rommet — alt dronen trenger for å navigere verden i tre dimensjoner."}],"exercises":[]}
+{
+  "id": "r2-5-1-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "5.1",
+  "title": "Vektorer i tre dimensjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om dronen som forlater planet — det tredimensjonale koordinatsystemet, vektorer på komponentform, lengder, avstander og enhetsvektorer i rommet.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "forstå og bruke et tredimensjonalt koordinatsystem",
+    "representere vektorer i rommet med koordinater",
+    "beregne lengden av en vektor i rommet",
+    "finne enhetsvektorer i tre dimensjoner"
+  ],
+  "linkedChapterId": "r2-5-1",
+  "content": [
+    {
+      "id": "r2-5-1-n-intro",
+      "type": "text",
+      "content": "## Dronen letter\n\nDu står på en åpen slette og sender en drone til værs. Den glir tretti meter mot øst, tjue meter mot nord — og så stiger den femten meter rett opp. I det øyeblikket forlater den matematikken du kjenner fra R1. Der levde vektorene i et flatt plan med to koordinater; dronen din lever i **rommet**, og trenger tre.\n\nHeldigvis er spranget fra planet til rommet mindre dramatisk enn det høres ut. Nesten alle regnereglene du kan fra før, gjelder fortsatt — vi legger bare til en tredje koordinat. Et punkt blir $(x, y, z)$ i stedet for $(x, y)$, en vektor får tre komponenter i stedet for to, og Pytagoras' setning brukes to ganger i stedet for én.\n\nOg behovet er overalt: fly og droner som navigerer i luftrommet, krefter som virker på bruer og bygninger fra alle kanter, molekylenes plassering i en krystall, lyssetting og kamerabevegelser i dataspill, satellitter og GPS. Alt dette er tredimensjonal vektorregning i arbeid.\n\nI denne fortellingen setter vi opp det tredimensjonale koordinatsystemet med høyrehåndsregelen, lærer å skrive vektorer på komponentform, finner vektoren mellom to punkter, måler lengder og avstander i rommet — og lager til slutt enhetsvektorer som peker ut retninger med lengde nøyaktig én. Det er verktøykassen dronen trenger for å vite hvor den er, og hvor den skal."
+    },
+    {
+      "id": "r2-5-1-n-section1",
+      "type": "text",
+      "content": "## Tre akser og et høyrehåndsgrep\n\nFor å beskrive dronens posisjon trenger vi et koordinatsystem med tre akser som står vinkelrett på hverandre: $x$-aksen og $y$-aksen kjenner du fra planet, og den nye $z$-aksen reiser seg loddrett opp fra dem. Et slikt system kalles rettvinklet eller **ortogonalt**, og vi orienterer det som et **høyrehåndssystem**: pek fingrene på høyre hånd langs positiv $x$-akse, krøll dem mot positiv $y$-akse — da peker tommelen langs positiv $z$-akse. Denne konvensjonen sørger for at alle verdens matematikere og ingeniører tegner rommet på samme måte.\n\nEt punkt $P$ i rommet angis med tre koordinater, $P = (x, y, z)$: hvor langt langs $x$-aksen, hvor langt langs $y$-aksen, og hvor høyt over $xy$-planet. Dronen vår står altså i punktet $(30, 20, 15)$ — tretti øst, tjue nord, femten opp.\n\nAksene deler rommet med tre spesielle plan: $xy$-planet er alle punkter med $z = 0$ (bakkenivå, om du vil), $xz$-planet har $y = 0$, og $yz$-planet har $x = 0$. Origo er $O = (0, 0, 0)$, der du selv står med fjernkontrollen.\n\nNoen eksempler gir følelse for systemet: punktet $(3, 0, 0)$ ligger på selve $x$-aksen, tre enheter ut. Punktet $(2, 4, 0)$ ligger i $xy$-planet, siden høyden er null. Punktet $(1, 2, 3)$ svever én enhet øst, to nord og tre opp. Og $(0, 0, -2)$ ligger på $z$-aksen — to enheter **under** bakkeplanet, kanskje en undervannsdrone denne gangen."
+    },
+    {
+      "id": "r2-5-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på koordinatsystemet i rommet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-1-n-quiz1-q0",
+            "task": "Hvor ligger punktet $(2, 4, 0)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "I $xy$-planet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "På $z$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "I $yz$-planet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "På $x$-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $z = 0$ ligger punktet i $xy$-planet, 2 enheter langs $x$-aksen og 4 langs $y$-aksen."
+          },
+          {
+            "id": "r2-5-1-n-quiz1-q1",
+            "task": "Hvilket plan består av alle punkter med $x = 0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$xy$-planet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$yz$-planet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$xz$-planet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Origo",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $x = 0$ er vi i planet utspent av $y$- og $z$-aksen: $yz$-planet."
+          },
+          {
+            "id": "r2-5-1-n-quiz1-q2",
+            "task": "I høyrehåndsregelen: fingrene peker langs positiv $x$-akse og krølles mot positiv $y$-akse. Hva peker tommelen langs?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Negativ $x$-akse",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Positiv $y$-akse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Positiv $z$-akse",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Negativ $z$-akse",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tommelen peker langs positiv $z$-akse — det definerer et høyrehåndssystem."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-1-n-section2",
+      "type": "text",
+      "content": "## Vektorer med tre komponenter\n\nDronen skal nå fly fra ett punkt til et annet, og da trenger vi **vektorer**: størrelser med både lengde og retning. Vi skriver dem med pil, $\\vec{a}$, eller med fet skrift, og en vektor fra punkt $A$ til punkt $B$ heter $\\overrightarrow{AB}$.\n\nPå **komponentform** skriver vi $\\vec{a} = [a_1, a_2, a_3]$, der de tre tallene er vektorens utstrekning i henholdsvis $x$-, $y$- og $z$-retning. Det samme kan uttrykkes med enhetsvektorene langs aksene: $\\vec{a} = a_1\\vec{i} + a_2\\vec{j} + a_3\\vec{k}$, der $\\vec{i} = [1, 0, 0]$, $\\vec{j} = [0, 1, 0]$ og $\\vec{k} = [0, 0, 1]$.\n\nHvert punkt har sin **posisjonsvektor** — pilen fra origo til punktet: for $P = (x, y, z)$ er $\\vec{OP} = [x, y, z]$. Det er posisjonsvektorene som lar oss regne med punkter.\n\nOg her kommer formelen du vil bruke aller mest: vektoren fra $A = (a_1, a_2, a_3)$ til $B = (b_1, b_2, b_3)$ er\n\n$$\\overrightarrow{AB} = \\vec{OB} - \\vec{OA} = [b_1 - a_1, b_2 - a_2, b_3 - a_3]$$\n\n**Slutt minus start**, koordinat for koordinat — akkurat som i planet. Skal dronen fly fra $A = (1, 3, 2)$ til $B = (4, -1, 5)$, er flyvektoren $\\overrightarrow{AB} = [4-1, -1-3, 5-2] = [3, -4, 3]$: tre øst, fire sørover (negativ $y$), tre opp. Returen er $\\overrightarrow{BA} = [-3, 4, -3]$, og du ser det generelle mønsteret $\\overrightarrow{BA} = -\\overrightarrow{AB}$ — samme rute, motsatt retning."
+    },
+    {
+      "id": "r2-5-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vektorer og komponentform:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-1-n-quiz2-q0",
+            "task": "La $A = (1, 3, 2)$ og $B = (4, -1, 5)$. Hva er $\\overrightarrow{AB}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[5, 2, 7]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[-3, 4, -3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[4, -3, 10]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[3, -4, 3]$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Slutt minus start: $\\overrightarrow{AB} = [4-1, -1-3, 5-2] = [3, -4, 3]$."
+          },
+          {
+            "id": "r2-5-1-n-quiz2-q1",
+            "task": "Hvilken sammenheng gjelder mellom $\\overrightarrow{AB}$ og $\\overrightarrow{BA}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\overrightarrow{BA} = -\\overrightarrow{AB}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\overrightarrow{BA} = \\overrightarrow{AB}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\overrightarrow{BA} = 2\\overrightarrow{AB}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De er ortogonale",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Returvektoren har samme lengde, men motsatt retning: $\\overrightarrow{BA} = -\\overrightarrow{AB}$."
+          },
+          {
+            "id": "r2-5-1-n-quiz2-q2",
+            "task": "Hva er enhetsvektoren $\\vec{j}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[1, 0, 0]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[0, 1, 0]$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$[0, 0, 1]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[1, 1, 1]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{j} = [0, 1, 0]$ peker langs $y$-aksen. $\\vec{i} = [1,0,0]$ og $\\vec{k} = [0,0,1]$ tar $x$- og $z$-retningen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-1-n-section3",
+      "type": "text",
+      "content": "## Hvor langt? Lengder, avstander og enhetsvektorer\n\nHvor lang er egentlig flyturen $[3, -4, 3]$? I planet ga Pytagoras svaret, og i rommet bruker vi ham rett og slett to ganger. Tenk på vektoren $\\vec{a} = [a_1, a_2, a_3]$ som diagonalen i en eske med sider $a_1$, $a_2$ og $a_3$: først finner vi diagonalen i bunnen, $d = \\sqrt{a_1^2 + a_2^2}$, og så tar vi Pytagoras på nytt med høyden $a_3$. Resultatet er lengdeformelen\n\n$$|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$$\n\nFor eksempel har $\\vec{v} = [2, -3, 6]$ lengden $|\\vec{v}| = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$.\n\nAvstanden mellom to punkter er bare lengden av vektoren mellom dem: $|AB| = \\sqrt{(b_1-a_1)^2 + (b_2-a_2)^2 + (b_3-a_3)^2}$. Avstanden fra $P = (1, -2, 3)$ til $Q = (4, 2, -1)$ blir $\\sqrt{3^2 + 4^2 + (-4)^2} = \\sqrt{41} \\approx 6{,}40$.\n\nTil slutt et verktøy som rendyrker retning: **enhetsvektoren**, en vektor med lengde nøyaktig $1$. Vil du beskrive retningen til $\\vec{a}$ uten å bry deg om hvor lang den er — for eksempel for å si «fly i denne retningen med fart 5 m/s» — deler du vektoren på sin egen lengde:\n\n$$\\hat{a} = \\frac{\\vec{a}}{|\\vec{a}|}$$\n\nTa $\\vec{u} = [3, 4, 0]$ med lengde $5$: enhetsvektoren er $\\hat{u} = \\left[\\frac{3}{5}, \\frac{4}{5}, 0\\right]$, og en rask kontroll gir $|\\hat{u}| = \\sqrt{\\frac{9}{25} + \\frac{16}{25}} = 1$, akkurat som lovet. Nå vet dronen både hvor den er, hvor langt den skal, og i hvilken retning."
+    },
+    {
+      "id": "r2-5-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lengde, avstand og enhetsvektor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-1-n-quiz3-q0",
+            "task": "Hva er lengden av $\\vec{v} = [2, -3, 6]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{11}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$49$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|\\vec{v}| = \\sqrt{2^2 + (-3)^2 + 6^2} = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$."
+          },
+          {
+            "id": "r2-5-1-n-quiz3-q1",
+            "task": "Hva er avstanden mellom $P = (1, -2, 3)$ og $Q = (4, 2, -1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{41}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$41$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{17}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|PQ| = \\sqrt{3^2 + 4^2 + (-4)^2} = \\sqrt{9 + 16 + 16} = \\sqrt{41}$."
+          },
+          {
+            "id": "r2-5-1-n-quiz3-q2",
+            "task": "Hva kjennetegner en enhetsvektor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den peker langs en akse",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den har bare positive komponenter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den har lengde $1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den starter i origo",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En enhetsvektor har lengde $1$ og brukes til å angi en ren retning."
+          },
+          {
+            "id": "r2-5-1-n-quiz3-q3",
+            "task": "Hva er enhetsvektoren i samme retning som $\\vec{u} = [3, 4, 0]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[3, 4, 0]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\left[\\frac{3}{7}, \\frac{4}{7}, 0\\right]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[1, 1, 0]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\left[\\frac{3}{5}, \\frac{4}{5}, 0\\right]$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|\\vec{u}| = 5$, så $\\hat{u} = \\frac{1}{5}[3, 4, 0] = \\left[\\frac{3}{5}, \\frac{4}{5}, 0\\right]$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDronen lettet fra sletta, og med den løftet vi vektorregningen fra planet og ut i rommet. Det tredimensjonale koordinatsystemet ga oss rammen: tre akser vinkelrett på hverandre, orientert etter høyrehåndsregelen, der hvert punkt beskrives av tre koordinater $(x, y, z)$ og spesialplanene $xy$, $xz$ og $yz$ svarer til at én koordinat er null.\n\nVektorene fulgte med på lasset nesten uforandret. På komponentform er $\\vec{a} = [a_1, a_2, a_3]$, eventuelt skrevet som $a_1\\vec{i} + a_2\\vec{j} + a_3\\vec{k}$ med enhetsvektorene langs aksene. Posisjonsvektoren $\\vec{OP}$ peker fra origo til punktet, og arbeidshesten er «slutt minus start»: $\\overrightarrow{AB} = [b_1 - a_1, b_2 - a_2, b_3 - a_3]$, med $\\overrightarrow{BA} = -\\overrightarrow{AB}$ som retur.\n\nLengder målte vi med dobbel Pytagoras: $|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$ — diagonalen i esken med sidene som komponenter. Avstanden mellom to punkter er lengden av vektoren mellom dem, og enhetsvektoren $\\hat{a} = \\frac{\\vec{a}}{|\\vec{a}|}$ destillerer retningen ned til lengde én.\n\nDette er grunnmuren for hele romgeometrien: i de neste kapitlene skal vi regne med vektorene, multiplisere dem på to forskjellige måter, og bruke dem til å beskrive linjer og plan i rommet — alt dronen trenger for å navigere verden i tre dimensjoner."
+    }
+  ],
+  "exercises": []
+}

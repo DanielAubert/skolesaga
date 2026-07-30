@@ -1,1 +1,268 @@
-{"id":"kjemi2-7-1-narrativ","courseId":"kjemi2","chapterNumber":"7.1","title":"Reaksjonshastighet","subtitle":"Narrativ versjon","description":"En fortelling om tempoet i kjemien -- hvorfor noen reaksjoner skjer på et blunk og andre tar år. Vi lærer å måle hastighet fra konsentrasjonsendringer, knytte den til støkiometrien og lese den ut av grafer.","estimatedMinutes":40,"competenceGoals":["definere reaksjonshastighet","beregne gjennomsnittlig og momentan reaksjonshastighet","forklare sammenhengen mellom hastighet og konsentrasjonsendring","tolke konsentrasjon-tid-grafer"],"linkedChapterId":"kjemi2-7-1","content":[{"id":"kjemi2-7-1-n-intro","type":"text","content":"## Tempoet i kjemien\n\nEn eksplosjon er over på millisekunder. Rust på et jernrekkverk tar år. Hva er det egentlig som gjør at noen kjemiske reaksjoner raser av gårde mens andre kryper? Svaret ligger i **reaksjonshastigheten** -- et mål på hvor raskt reaktanter forbrukes eller produkter dannes.\n\nVi definerer hastigheten som endringen i konsentrasjon over tid:\n\n$$\\text{Hastighet} = -\\frac{\\Delta[\\text{reaktant}]}{\\Delta t} = +\\frac{\\Delta[\\text{produkt}]}{\\Delta t}$$\n\nMinustegnet foran reaktantene er der fordi de forbrukes -- konsentrasjonen synker, men hastigheten skal være positiv. Plusstegnet for produktene er der fordi de dannes. Enheten er mol per liter per sekund, mol/(L·s) eller M/s. Et enkelt eksempel: i reaksjonen A → B synker [A] fra 1,0 M til 0,6 M i løpet av 10 sekunder. Da blir hastigheten $-\\frac{0{,}6 - 1{,}0}{10} = -\\frac{-0{,}4}{10} = 0{,}04$ M/s. Det er denne tankegangen -- konsentrasjon delt på tid -- som er fundamentet for alt vi gjør med reaksjonskinetikk."},{"id":"kjemi2-7-1-n-section1","type":"text","content":"## Hastighet og støkiometri\n\nEt problem dukker opp så snart koeffisientene i reaksjonslikningen ikke er 1. I reaksjonen $2\\text{N}_2\\text{O}_5 \\rightarrow 4\\text{NO}_2 + \\text{O}_2$ forbrukes N₂O₅ dobbelt så fort som O₂ dannes, og NO₂ dannes fire ganger så fort. Hvilken «hastighet» mener vi da? Løsningen er å dele på koeffisienten, slik at vi får én entydig reaksjonshastighet. For den generelle reaksjonen $a\\text{A} + b\\text{B} \\rightarrow c\\text{C} + d\\text{D}$ skriver vi:\n\n$$\\text{Hastighet} = -\\frac{1}{a}\\frac{\\Delta[\\text{A}]}{\\Delta t} = -\\frac{1}{b}\\frac{\\Delta[\\text{B}]}{\\Delta t} = +\\frac{1}{c}\\frac{\\Delta[\\text{C}]}{\\Delta t} = +\\frac{1}{d}\\frac{\\Delta[\\text{D}]}{\\Delta t}$$\n\nLa oss bruke dette på N₂O₅-reaksjonen. Si at N₂O₅ forbrukes med 0,020 M/s. Da må NO₂ dannes med $2 \\times 0{,}020 = 0{,}040$ M/s (fordi den har koeffisient 4 mot N₂O₅ sin 2), og O₂ med $\\frac{1}{2} \\times 0{,}020 = 0{,}010$ M/s. Slik knytter koeffisientene sammen hastighetene til alle stoffene i reaksjonen, og lar oss regne fra ett stoff til et annet."},{"id":"kjemi2-7-1-n-quiz1","type":"exercise","exercise":{"id":"kjemi2-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på reaksjonshastighet og støkiometri:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"kjemi2-7-1-n-quiz1-q0","task":"Hvorfor settes det minustegn foran reaktantleddet i hastighetsuttrykket?","options":[{"id":"a","text":"Fordi reaktantene har negativ ladning","isCorrect":false},{"id":"b","text":"Fordi hastigheten alltid er negativ","isCorrect":false},{"id":"c","text":"Fordi reaktantene forbrukes, så konsentrasjonen synker","isCorrect":true},{"id":"d","text":"Det er en tilfeldig konvensjon","isCorrect":false}],"solution":"Reaktantenes konsentrasjon synker (Δ er negativ), men hastigheten skal være positiv. Minustegnet gjør den positiv."},{"id":"kjemi2-7-1-n-quiz1-q1","task":"I A → B synker [A] fra 1,0 M til 0,6 M på 10 s. Hva er hastigheten?","options":[{"id":"a","text":"0,4 M/s","isCorrect":false},{"id":"b","text":"4,0 M/s","isCorrect":false},{"id":"c","text":"0,1 M/s","isCorrect":false},{"id":"d","text":"0,04 M/s","isCorrect":true}],"solution":"Hastighet = −(0,6 − 1,0)/10 = 0,4/10 = 0,04 M/s."},{"id":"kjemi2-7-1-n-quiz1-q2","task":"For 2N₂O₅ → 4NO₂ + O₂ forbrukes N₂O₅ med 0,020 M/s. Hvor fort dannes NO₂?","options":[{"id":"a","text":"0,040 M/s","isCorrect":true},{"id":"b","text":"0,010 M/s","isCorrect":false},{"id":"c","text":"0,020 M/s","isCorrect":false},{"id":"d","text":"0,080 M/s","isCorrect":false}],"solution":"NO₂ har koeffisient 4 mot N₂O₅ sin 2, så NO₂ dannes dobbelt så fort: 2 × 0,020 = 0,040 M/s."},{"id":"kjemi2-7-1-n-quiz1-q3","task":"Hvorfor deler vi på den støkiometriske koeffisienten i hastighetsuttrykket?","options":[{"id":"a","text":"For å gjøre tallene større","isCorrect":false},{"id":"b","text":"For å få én entydig reaksjonshastighet uavhengig av hvilket stoff vi måler","isCorrect":true},{"id":"c","text":"Fordi koeffisientene alltid er like","isCorrect":false},{"id":"d","text":"For å fjerne enhetene","isCorrect":false}],"solution":"Ved å dele på koeffisienten får vi samme reaksjonshastighet uansett hvilket stoff vi følger -- ellers ville hvert stoff gi ulik verdi."}]}},{"id":"kjemi2-7-1-n-section2","type":"text","content":"## Å lese hastighet ut av en graf\n\nMåler vi konsentrasjonen over tid og plotter den, får vi en **konsentrasjon-tid-graf** som forteller mye. For en reaktant synker kurven over tid, og stigningstallet (som er negativt) gir hastigheten. For et produkt stiger kurven, og stigningstallet er positivt. I begge tilfeller flater kurven ut når reaksjonen nærmer seg slutten eller likevekt.\n\nMen kurven er som regel ikke en rett linje, og da må vi skille mellom to typer hastighet. Den **gjennomsnittlige** hastigheten er sekantens stigningstall over et helt tidsintervall $\\Delta t$. Den **momentane** hastigheten er tangentens stigningstall i ett bestemt øyeblikk, matematisk $v = \\frac{d[A]}{dt}$. Et særlig nyttig spesialtilfelle er **initialhastigheten** $v_0$, altså hastigheten helt i starten ved $t = 0$ -- den brukes ofte fordi vi da kjenner konsentrasjonene nøyaktig.\n\nLa oss se det i praksis med $2\\text{NO}_2 \\rightarrow 2\\text{NO} + \\text{O}_2$. Måler vi $[\\text{NO}_2]$ til 0,100 M ved start, 0,079 M etter 50 s og 0,065 M etter 100 s, kan vi regne gjennomsnittshastigheten i hvert intervall. For de første 50 sekundene: $v = -\\frac{1}{2}\\cdot\\frac{0{,}079 - 0{,}100}{50} = 2{,}1 \\times 10^{-4}$ M/s. For de neste: $v = -\\frac{1}{2}\\cdot\\frac{0{,}065 - 0{,}079}{50} = 1{,}4 \\times 10^{-4}$ M/s. Hastigheten avtar! Det er fordi $[\\text{NO}_2]$ synker -- lavere konsentrasjon gir færre kollisjoner og dermed saktere reaksjon. Nettopp dette, at hastigheten avhenger av konsentrasjonen, leder oss videre til hastighetslovene."},{"id":"kjemi2-7-1-n-quiz2","type":"exercise","exercise":{"id":"kjemi2-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på grafer og typer hastighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"kjemi2-7-1-n-quiz2-q0","task":"Hva gir tangentens stigningstall i et punkt på en konsentrasjon-tid-graf?","options":[{"id":"a","text":"Den gjennomsnittlige hastigheten","isCorrect":false},{"id":"b","text":"Likevektskonstanten","isCorrect":false},{"id":"c","text":"Den momentane hastigheten i det punktet","isCorrect":true},{"id":"d","text":"Aktiveringsenergien","isCorrect":false}],"solution":"Tangentens stigningstall i et punkt gir den momentane hastigheten der. Sekanten gir gjennomsnittshastigheten over et intervall."},{"id":"kjemi2-7-1-n-quiz2-q1","task":"Hva er initialhastigheten v₀?","options":[{"id":"a","text":"Hastigheten ved likevekt","isCorrect":false},{"id":"b","text":"Den maksimale hastigheten","isCorrect":false},{"id":"c","text":"Hastigheten når reaksjonen er ferdig","isCorrect":false},{"id":"d","text":"Hastigheten ved t = 0","isCorrect":true}],"solution":"Initialhastigheten er hastigheten helt i starten, ved t = 0, der konsentrasjonene er kjent nøyaktig."},{"id":"kjemi2-7-1-n-quiz2-q2","task":"For 2NO₂ → 2NO + O₂ avtar gjennomsnittshastigheten fra 0-50 s til 50-100 s. Hvorfor?","options":[{"id":"a","text":"Fordi [NO₂] synker, så det blir færre kollisjoner","isCorrect":true},{"id":"b","text":"Fordi temperaturen synker","isCorrect":false},{"id":"c","text":"Fordi katalysatoren forbrukes","isCorrect":false},{"id":"d","text":"Fordi trykket øker","isCorrect":false}],"solution":"Når [NO₂] synker, blir det færre molekyler som kolliderer, og dermed saktere reaksjon. Hastigheten avhenger av konsentrasjonen."}]}},{"id":"kjemi2-7-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har sett at **reaksjonshastigheten** måler hvor raskt reaktanter forbrukes eller produkter dannes, definert som $-\\frac{\\Delta[\\text{reaktant}]}{\\Delta t}$ eller $+\\frac{\\Delta[\\text{produkt}]}{\\Delta t}$, med enhet M/s. For reaksjoner med koeffisienter ulik 1 deler vi på koeffisienten for å få én entydig hastighet, og slik kan vi koble sammen hvor fort hvert stoff endrer seg.\n\nGrafisk lar en **konsentrasjon-tid-graf** oss lese hastigheten som et stigningstall -- sekanten gir **gjennomsnittshastigheten** over et intervall, tangenten gir den **momentane** hastigheten, og **initialhastigheten** $v_0$ er verdien ved $t = 0$. Vi så også at hastigheten avtar etter hvert som reaktantkonsentrasjonen synker, fordi færre molekyler kolliderer. Denne avhengigheten av konsentrasjon er nettopp temaet for hastighetslovene som følger."}],"exercises":[]}
+{
+  "id": "kjemi2-7-1-narrativ",
+  "courseId": "kjemi2",
+  "chapterNumber": "7.1",
+  "title": "Reaksjonshastighet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om tempoet i kjemien -- hvorfor noen reaksjoner skjer på et blunk og andre tar år. Vi lærer å måle hastighet fra konsentrasjonsendringer, knytte den til støkiometrien og lese den ut av grafer.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "definere reaksjonshastighet",
+    "beregne gjennomsnittlig og momentan reaksjonshastighet",
+    "forklare sammenhengen mellom hastighet og konsentrasjonsendring",
+    "tolke konsentrasjon-tid-grafer"
+  ],
+  "linkedChapterId": "kjemi2-7-1",
+  "content": [
+    {
+      "id": "kjemi2-7-1-n-intro",
+      "type": "text",
+      "content": "## Tempoet i kjemien\n\nEn eksplosjon er over på millisekunder. Rust på et jernrekkverk tar år. Hva er det egentlig som gjør at noen kjemiske reaksjoner raser av gårde mens andre kryper? Svaret ligger i **reaksjonshastigheten** -- et mål på hvor raskt reaktanter forbrukes eller produkter dannes.\n\nVi definerer hastigheten som endringen i konsentrasjon over tid:\n\n$$\\text{Hastighet} = -\\frac{\\Delta[\\text{reaktant}]}{\\Delta t} = +\\frac{\\Delta[\\text{produkt}]}{\\Delta t}$$\n\nMinustegnet foran reaktantene er der fordi de forbrukes -- konsentrasjonen synker, men hastigheten skal være positiv. Plusstegnet for produktene er der fordi de dannes. Enheten er mol per liter per sekund, mol/(L·s) eller M/s. Et enkelt eksempel: i reaksjonen A → B synker [A] fra 1,0 M til 0,6 M i løpet av 10 sekunder. Da blir hastigheten $-\\frac{0{,}6 - 1{,}0}{10} = -\\frac{-0{,}4}{10} = 0{,}04$ M/s. Det er denne tankegangen -- konsentrasjon delt på tid -- som er fundamentet for alt vi gjør med reaksjonskinetikk."
+    },
+    {
+      "id": "kjemi2-7-1-n-section1",
+      "type": "text",
+      "content": "## Hastighet og støkiometri\n\nEt problem dukker opp så snart koeffisientene i reaksjonslikningen ikke er 1. I reaksjonen $2\\text{N}_2\\text{O}_5 \\rightarrow 4\\text{NO}_2 + \\text{O}_2$ forbrukes N₂O₅ dobbelt så fort som O₂ dannes, og NO₂ dannes fire ganger så fort. Hvilken «hastighet» mener vi da? Løsningen er å dele på koeffisienten, slik at vi får én entydig reaksjonshastighet. For den generelle reaksjonen $a\\text{A} + b\\text{B} \\rightarrow c\\text{C} + d\\text{D}$ skriver vi:\n\n$$\\text{Hastighet} = -\\frac{1}{a}\\frac{\\Delta[\\text{A}]}{\\Delta t} = -\\frac{1}{b}\\frac{\\Delta[\\text{B}]}{\\Delta t} = +\\frac{1}{c}\\frac{\\Delta[\\text{C}]}{\\Delta t} = +\\frac{1}{d}\\frac{\\Delta[\\text{D}]}{\\Delta t}$$\n\nLa oss bruke dette på N₂O₅-reaksjonen. Si at N₂O₅ forbrukes med 0,020 M/s. Da må NO₂ dannes med $2 \\times 0{,}020 = 0{,}040$ M/s (fordi den har koeffisient 4 mot N₂O₅ sin 2), og O₂ med $\\frac{1}{2} \\times 0{,}020 = 0{,}010$ M/s. Slik knytter koeffisientene sammen hastighetene til alle stoffene i reaksjonen, og lar oss regne fra ett stoff til et annet."
+    },
+    {
+      "id": "kjemi2-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "kjemi2-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på reaksjonshastighet og støkiometri:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "kjemi2-7-1-n-quiz1-q0",
+            "task": "Hvorfor settes det minustegn foran reaktantleddet i hastighetsuttrykket?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi reaktantene har negativ ladning",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi hastigheten alltid er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er en tilfeldig konvensjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi reaktantene forbrukes, så konsentrasjonen synker",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Reaktantenes konsentrasjon synker (Δ er negativ), men hastigheten skal være positiv. Minustegnet gjør den positiv."
+          },
+          {
+            "id": "kjemi2-7-1-n-quiz1-q1",
+            "task": "I A → B synker [A] fra 1,0 M til 0,6 M på 10 s. Hva er hastigheten?",
+            "options": [
+              {
+                "id": "d",
+                "text": "0,04 M/s",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "0,4 M/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "4,0 M/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,1 M/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hastighet = −(0,6 − 1,0)/10 = 0,4/10 = 0,04 M/s."
+          },
+          {
+            "id": "kjemi2-7-1-n-quiz1-q2",
+            "task": "For 2N₂O₅ → 4NO₂ + O₂ forbrukes N₂O₅ med 0,020 M/s. Hvor fort dannes NO₂?",
+            "options": [
+              {
+                "id": "b",
+                "text": "0,010 M/s",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "0,040 M/s",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "0,020 M/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0,080 M/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "NO₂ har koeffisient 4 mot N₂O₅ sin 2, så NO₂ dannes dobbelt så fort: 2 × 0,020 = 0,040 M/s."
+          },
+          {
+            "id": "kjemi2-7-1-n-quiz1-q3",
+            "task": "Hvorfor deler vi på den støkiometriske koeffisienten i hastighetsuttrykket?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å gjøre tallene større",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi koeffisientene alltid er like",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For å få én entydig reaksjonshastighet uavhengig av hvilket stoff vi måler",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "For å fjerne enhetene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved å dele på koeffisienten får vi samme reaksjonshastighet uansett hvilket stoff vi følger -- ellers ville hvert stoff gi ulik verdi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kjemi2-7-1-n-section2",
+      "type": "text",
+      "content": "## Å lese hastighet ut av en graf\n\nMåler vi konsentrasjonen over tid og plotter den, får vi en **konsentrasjon-tid-graf** som forteller mye. For en reaktant synker kurven over tid, og stigningstallet (som er negativt) gir hastigheten. For et produkt stiger kurven, og stigningstallet er positivt. I begge tilfeller flater kurven ut når reaksjonen nærmer seg slutten eller likevekt.\n\nMen kurven er som regel ikke en rett linje, og da må vi skille mellom to typer hastighet. Den **gjennomsnittlige** hastigheten er sekantens stigningstall over et helt tidsintervall $\\Delta t$. Den **momentane** hastigheten er tangentens stigningstall i ett bestemt øyeblikk, matematisk $v = \\frac{d[A]}{dt}$. Et særlig nyttig spesialtilfelle er **initialhastigheten** $v_0$, altså hastigheten helt i starten ved $t = 0$ -- den brukes ofte fordi vi da kjenner konsentrasjonene nøyaktig.\n\nLa oss se det i praksis med $2\\text{NO}_2 \\rightarrow 2\\text{NO} + \\text{O}_2$. Måler vi $[\\text{NO}_2]$ til 0,100 M ved start, 0,079 M etter 50 s og 0,065 M etter 100 s, kan vi regne gjennomsnittshastigheten i hvert intervall. For de første 50 sekundene: $v = -\\frac{1}{2}\\cdot\\frac{0{,}079 - 0{,}100}{50} = 2{,}1 \\times 10^{-4}$ M/s. For de neste: $v = -\\frac{1}{2}\\cdot\\frac{0{,}065 - 0{,}079}{50} = 1{,}4 \\times 10^{-4}$ M/s. Hastigheten avtar! Det er fordi $[\\text{NO}_2]$ synker -- lavere konsentrasjon gir færre kollisjoner og dermed saktere reaksjon. Nettopp dette, at hastigheten avhenger av konsentrasjonen, leder oss videre til hastighetslovene."
+    },
+    {
+      "id": "kjemi2-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "kjemi2-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grafer og typer hastighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "kjemi2-7-1-n-quiz2-q0",
+            "task": "Hva gir tangentens stigningstall i et punkt på en konsentrasjon-tid-graf?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den gjennomsnittlige hastigheten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Likevektskonstanten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aktiveringsenergien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den momentane hastigheten i det punktet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tangentens stigningstall i et punkt gir den momentane hastigheten der. Sekanten gir gjennomsnittshastigheten over et intervall."
+          },
+          {
+            "id": "kjemi2-7-1-n-quiz2-q1",
+            "task": "Hva er initialhastigheten v₀?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Hastigheten ved t = 0",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Hastigheten ved likevekt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den maksimale hastigheten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hastigheten når reaksjonen er ferdig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Initialhastigheten er hastigheten helt i starten, ved t = 0, der konsentrasjonene er kjent nøyaktig."
+          },
+          {
+            "id": "kjemi2-7-1-n-quiz2-q2",
+            "task": "For 2NO₂ → 2NO + O₂ avtar gjennomsnittshastigheten fra 0-50 s til 50-100 s. Hvorfor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi temperaturen synker",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi [NO₂] synker, så det blir færre kollisjoner",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi katalysatoren forbrukes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi trykket øker",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når [NO₂] synker, blir det færre molekyler som kolliderer, og dermed saktere reaksjon. Hastigheten avhenger av konsentrasjonen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kjemi2-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har sett at **reaksjonshastigheten** måler hvor raskt reaktanter forbrukes eller produkter dannes, definert som $-\\frac{\\Delta[\\text{reaktant}]}{\\Delta t}$ eller $+\\frac{\\Delta[\\text{produkt}]}{\\Delta t}$, med enhet M/s. For reaksjoner med koeffisienter ulik 1 deler vi på koeffisienten for å få én entydig hastighet, og slik kan vi koble sammen hvor fort hvert stoff endrer seg.\n\nGrafisk lar en **konsentrasjon-tid-graf** oss lese hastigheten som et stigningstall -- sekanten gir **gjennomsnittshastigheten** over et intervall, tangenten gir den **momentane** hastigheten, og **initialhastigheten** $v_0$ er verdien ved $t = 0$. Vi så også at hastigheten avtar etter hvert som reaktantkonsentrasjonen synker, fordi færre molekyler kolliderer. Denne avhengigheten av konsentrasjon er nettopp temaet for hastighetslovene som følger."
+    }
+  ],
+  "exercises": []
+}

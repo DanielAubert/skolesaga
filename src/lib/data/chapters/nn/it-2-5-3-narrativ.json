@@ -1,1 +1,416 @@
-{"id":"it-2-5-3-narrativ","courseId":"it-2","chapterNumber":"3","title":"Databasar i Python med SQLite","subtitle":"Narrativ versjon","description":"Ei forteljing om å la Python og databasen jobbe saman – frå sqlite3-modulen og CRUD, via den livsviktige skilnaden på trygge og farlege spørjingar, til transaksjonar som anten lukkast heilt eller blir angra.","estimatedMinutes":42,"competenceGoals":["Koble Python til SQLite og utføre CRUD","Bruke parameteriserte spørjingar mot SQL injection","Handtere feil og transaksjonar med commit og rollback"],"linkedChapterId":"it-2-5-3","content":[{"id":"it-2-5-3-n-intro","type":"text","content":"## Python møter databasen\n\nNo skal vi koble saman to ting du allereie kan: Python og databasar. **SQLite** er ein lettvektsdatabase som kjem innebygd i Python – perfekt for lokale applikasjonar, prototypar og mindre system. Du treng ingen eigen server; heile databasen er berre ei fil.\n\nDu brukar den innebygde modulen `sqlite3`. Du koblar til ein database med `sqlite3.connect('skole.db')` – fila blir oppretta dersom ho ikkje finst. For testing kan du bruke `':memory:'`, som lagar ein database som berre lever i RAM. Deretter lagar du ein **cursor**, som er objektet som faktisk utfører SQL-kommandoar og hentar resultat. Den tilrådde måten er ein with-blokk, slik at sambandet blir lukka automatisk:\n\n```python\nimport sqlite3\nwith sqlite3.connect('skole.db') as conn:\n    cursor = conn.cursor()\n    cursor.execute('''CREATE TABLE IF NOT EXISTS Elev (\n        elevID INTEGER PRIMARY KEY AUTOINCREMENT,\n        navn TEXT NOT NULL,\n        epost TEXT UNIQUE)''')\n    conn.commit()\n```\n\nLegg merke til tre ting. `IF NOT EXISTS` hindrar feil dersom tabellen finst frå før. `AUTOINCREMENT` lagar automatisk aukande ID-ar. Og `conn.commit()` må kallast for å faktisk lagre endringane til databasen – utan han forsvinn dei."},{"id":"it-2-5-3-n-quiz1","type":"exercise","exercise":{"id":"it-2-5-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på SQLite-oppsett:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-3-n-quiz1-q0","task":"Kva er ein cursor i sqlite3?","options":[{"id":"a","text":"Ein type indeks","isCorrect":false},{"id":"b","text":"Objektet som utfører SQL-kommandoar og hentar resultat","isCorrect":true},{"id":"c","text":"Eit passord","isCorrect":false},{"id":"d","text":"Ein kolonne","isCorrect":false}],"solution":"Cursoren utfører SQL-kommandoane mot databasen og lèt deg hente ut resultata."},{"id":"it-2-5-3-n-quiz1-q1","task":"Kva må du gjere for at endringar faktisk blir lagra i databasen?","options":[{"id":"a","text":"Kalle conn.close() åleine","isCorrect":false},{"id":"b","text":"Ingenting, det skjer automatisk","isCorrect":false},{"id":"c","text":"Kalle conn.commit()","isCorrect":true},{"id":"d","text":"Lage ein ny cursor","isCorrect":false}],"solution":"commit() lagrar endringane til databasen. Utan han blir ikkje ein INSERT eller UPDATE permanent."},{"id":"it-2-5-3-n-quiz1-q2","task":"Kva tyder ':memory:' som databasenamn?","options":[{"id":"a","text":"Ein kryptert database","isCorrect":false},{"id":"b","text":"Ein database på nettet","isCorrect":false},{"id":"c","text":"Ein skrivebeskytta database","isCorrect":false},{"id":"d","text":"Ein database som berre lever i RAM, nyttig for testing","isCorrect":true}],"solution":"':memory:' lagar ein mellombels database i minnet som forsvinn når programmet blir avslutta."}]}},{"id":"it-2-5-3-n-section1","type":"text","content":"## CRUD i Python\n\nDei fire grunnoperasjonane – Create, Read, Update, Delete – blir alle utførte gjennom cursoren. For å **opprette** brukar du INSERT med parameter, og hentar id-en til den nye rada med `cursor.lastrowid`. For å **lese** har du tre nyttige metodar: `fetchone()` hentar éi rad, `fetchall()` hentar alle, og du kan òg iterere direkte over cursoren rad for rad – det siste er smart for store resultat fordi du slepp å laste alt inn i minnet samtidig:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE elevID = ?\", (1,))\nelev = cursor.fetchone()   # éi rad som tuppel\n```\n\nFor å **oppdatere** brukar du UPDATE, og `cursor.rowcount` fortel kor mange rader som blei endra. For å **slette** brukar du DELETE på tilsvarande måte. Som standard kjem kvar rad tilbake som ein tuppel, der du må bruke indeksar som `elev[0]`. Det blir fort uoversiktleg.\n\nHeldigvis finst eit triks: **row factory**. Set du `conn.row_factory = sqlite3.Row`, kan du etterpå hente verdiar med kolonnenamn i staden for indeks – `elev['navn']` i staden for `elev[1]` – og til og med konvertere rada til ein vanleg dictionary med `dict(elev)`. Dette gjer koden langt meir lesbar og mindre feilutsett. Ein god vane er òg å pakke CRUD-logikken inn i ein klasse, slik at all databasekoden blir samla på éin stad."},{"id":"it-2-5-3-n-quiz2","type":"exercise","exercise":{"id":"it-2-5-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på CRUD:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-3-n-quiz2-q0","task":"Kva gjer fetchone()?","options":[{"id":"a","text":"Hentar éi rad frå resultatet","isCorrect":true},{"id":"b","text":"Hentar alle rader","isCorrect":false},{"id":"c","text":"Slettar ei rad","isCorrect":false},{"id":"d","text":"Lagar ein ny tabell","isCorrect":false}],"solution":"fetchone() returnerer den neste enkeltrada, medan fetchall() hentar alle radene samtidig."},{"id":"it-2-5-3-n-quiz2-q1","task":"Korleis får du id-en til ei nyleg innsett rad?","options":[{"id":"a","text":"cursor.rowcount","isCorrect":false},{"id":"b","text":"cursor.lastrowid","isCorrect":true},{"id":"c","text":"conn.commit()","isCorrect":false},{"id":"d","text":"cursor.fetchall()","isCorrect":false}],"solution":"cursor.lastrowid gir ID-en til den siste innsette rada, nyttig for AUTOINCREMENT-nøklar."},{"id":"it-2-5-3-n-quiz2-q2","task":"Kva oppnår du med conn.row_factory = sqlite3.Row?","options":[{"id":"a","text":"Du krypterer databasen","isCorrect":false},{"id":"b","text":"Du slettar alle rader","isCorrect":false},{"id":"c","text":"Du kan hente verdiar med kolonnenamn i staden for indeks","isCorrect":true},{"id":"d","text":"Du lagar ein indeks","isCorrect":false}],"solution":"Med sqlite3.Row kan du skrive elev['navn'] i staden for elev[1], noko som gir meir lesbar kode."}]}},{"id":"it-2-5-3-n-section2","type":"text","content":"## SQL injection, feil og transaksjonar\n\nNo kjem den viktigaste lærdomen i heile kapittelet. **SQL injection** er ein av dei farlegaste tryggleikssvakheitene som finst. Byggjer du ei spørjing ved å lime brukarinput rett inn med f-strengar, opnar du døra på vidt gap. Skriv ein angripar `Ole' OR '1'='1` der du forventa eit namn, blir spørjinga `... WHERE navn = 'Ole' OR '1'='1'`, og sidan `'1'='1'` alltid er sant, blir *alle* rader returnerte. Endå verre: med `'; DROP TABLE Elev; --` kan angriparen slette heile tabellen.\n\nLøysinga er **parameteriserte spørjingar**. Du skriv `?` der verdiane skal inn, og lèt Python sette dei trygt inn:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE navn = ?\", (bruker_input,))\n```\n\nRegelen er absolutt: bruk alltid `?` for verdiar, aldri f-strengar eller pluss-konkatenering. Då escaper Python verdien automatisk, og injeksjon blir umogleg.\n\nGod databasekode handterer òg feil. Med try-except kan du fange `sqlite3.IntegrityError` (til dømes ein duplikat-epost mot ein UNIQUE-regel), `sqlite3.OperationalError` (som ein tabell som ikkje finst) og den generelle `sqlite3.Error`. Til slutt: ein **transaksjon** er ein sekvens av operasjonar som anten blir utførte heilt eller ikkje i det heile. Skal du sette inn ein elev *og* ein tilhøyrande karakter, vil du ikkje at det eine skal lukkast og det andre feile. Går alt bra, kallar du `conn.commit()`. Går noko gale, kallar du `conn.rollback()`, som angrar alle endringar sidan førre commit. Slik held databasen seg konsistent sjølv når noko sviktar."},{"id":"it-2-5-3-n-quiz3","type":"exercise","exercise":{"id":"it-2-5-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på tryggleik og transaksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-3-n-quiz3-q0","task":"Korleis unngår du SQL injection?","options":[{"id":"a","text":"Bruk f-strengar for å byggje spørjinga","isCorrect":false},{"id":"b","text":"Lim input rett inn med +","isCorrect":false},{"id":"c","text":"Slå av databasen","isCorrect":false},{"id":"d","text":"Bruk parameteriserte spørjingar med ?","isCorrect":true}],"solution":"Parameteriserte spørjingar med ? lèt Python escape verdiane trygt, slik at vondsinna input ikkje kan endre spørjinga."},{"id":"it-2-5-3-n-quiz3-q1","task":"Kva gjer conn.rollback()?","options":[{"id":"a","text":"Angrar alle endringar sidan siste commit","isCorrect":true},{"id":"b","text":"Lagrar endringane permanent","isCorrect":false},{"id":"c","text":"Lukkar databasen","isCorrect":false},{"id":"d","text":"Lagar ein indeks","isCorrect":false}],"solution":"rollback() reverserer endringar sidan førre commit, slik at ein mislukka transaksjon ikkje etterlèt halvferdige data."},{"id":"it-2-5-3-n-quiz3-q2","task":"Kva er ein transaksjon?","options":[{"id":"a","text":"Ein enkel SELECT","isCorrect":false},{"id":"b","text":"Ein sekvens av operasjonar som blir utførte som éi udeleleg eining","isCorrect":true},{"id":"c","text":"Ein type indeks","isCorrect":false},{"id":"d","text":"Ein kolonne med tal","isCorrect":false}],"solution":"Ein transaksjon samlar fleire operasjonar slik at dei anten lukkast alle saman (commit) eller blir angra alle saman (rollback)."}]}},{"id":"it-2-5-3-n-summary","type":"text","content":"## Oppsummering\n\nVi kobla Python til **SQLite** via `sqlite3`-modulen: du connectar til ein fildatabase, lagar ein **cursor**, køyrer SQL og kallar `commit()` for å lagre. CRUD-operasjonane blir utførte gjennom cursoren, med `fetchone()`/`fetchall()` for lesing, `lastrowid` for nye ID-ar, og `sqlite3.Row` for å hente verdiar ved kolonnenamn.\n\nDen viktigaste lærdomen var tryggleik: bruk **parameteriserte spørjingar** med `?` for å hindre **SQL injection** – aldri f-strengar eller konkatenering. God kode fangar feil med try-except, og **transaksjonar** med `commit` og `rollback` sikrar at samansette operasjonar anten lukkast heilt eller blir angra heilt. Med dette kan du byggje ekte databaseapplikasjonar i Python. I neste kapittel ser vi på alternativa til relasjonsdatabasar: NoSQL."}],"exercises":[],"_meta":{"sourceHash":"c0461405e8ccfe57","translatedAt":"2026-06-20T23:58:52.843Z","model":"claude-code-agent","strings":70,"tm":{"9741bdd3c778eab1":"Databasar i Python med SQLite","b195b06d1ed59702":"Narrativ versjon","e283c5faaa9e7616":"Ei forteljing om å la Python og databasen jobbe saman – frå sqlite3-modulen og CRUD, via den livsviktige skilnaden på trygge og farlege spørjingar, til transaksjonar som anten lukkast heilt eller blir angra.","78c697d0112ad845":"Koble Python til SQLite og utføre CRUD","4634bc8f79d41192":"Bruke parameteriserte spørjingar mot SQL injection","95d597490eecba26":"Handtere feil og transaksjonar med commit og rollback","37488ef4d99346ce":"## Python møter databasen\n\nNo skal vi koble saman to ting du allereie kan: Python og databasar. **SQLite** er ein lettvektsdatabase som kjem innebygd i Python – perfekt for lokale applikasjonar, prototypar og mindre system. Du treng ingen eigen server; heile databasen er berre ei fil.\n\nDu brukar den innebygde modulen `sqlite3`. Du koblar til ein database med `sqlite3.connect('skole.db')` – fila blir oppretta dersom ho ikkje finst. For testing kan du bruke `':memory:'`, som lagar ein database som berre lever i RAM. Deretter lagar du ein **cursor**, som er objektet som faktisk utfører SQL-kommandoar og hentar resultat. Den tilrådde måten er ein with-blokk, slik at sambandet blir lukka automatisk:\n\n```python\nimport sqlite3\nwith sqlite3.connect('skole.db') as conn:\n    cursor = conn.cursor()\n    cursor.execute('''CREATE TABLE IF NOT EXISTS Elev (\n        elevID INTEGER PRIMARY KEY AUTOINCREMENT,\n        navn TEXT NOT NULL,\n        epost TEXT UNIQUE)''')\n    conn.commit()\n```\n\nLegg merke til tre ting. `IF NOT EXISTS` hindrar feil dersom tabellen finst frå før. `AUTOINCREMENT` lagar automatisk aukande ID-ar. Og `conn.commit()` må kallast for å faktisk lagre endringane til databasen – utan han forsvinn dei.","887a4c666c348d0d":"Test deg sjølv på SQLite-oppsett:","4097889236a2af26":"placeholder","1d250372740f12b0":"Kva er ein cursor i sqlite3?","5a75f5c96727a084":"Ein type indeks","1cd160a9b3e7ef90":"Objektet som utfører SQL-kommandoar og hentar resultat","9bab5e61dba40a45":"Eit passord","caec3e38a753d8ad":"Ein kolonne","236ff31cb330d114":"Cursoren utfører SQL-kommandoane mot databasen og lèt deg hente ut resultata.","85b0434bae1bfcff":"Kva må du gjere for at endringar faktisk blir lagra i databasen?","d6da65352b7510ae":"Kalle conn.close() åleine","9b551ffcdc4884c4":"Ingenting, det skjer automatisk","2939b5b2910a18f4":"Kalle conn.commit()","8eb322cbfaefd205":"Lage ein ny cursor","5e969e81d76eb515":"commit() lagrar endringane til databasen. Utan han blir ikkje ein INSERT eller UPDATE permanent.","5e637c6b87acdddf":"Kva tyder ':memory:' som databasenamn?","168b1f4be49a4ed0":"Ein kryptert database","c69af4cad506277c":"Ein database på nettet","d4e024e66aec58c2":"Ein skrivebeskytta database","cf171602d8705c52":"Ein database som berre lever i RAM, nyttig for testing","5414fdaa7d24947a":"':memory:' lagar ein mellombels database i minnet som forsvinn når programmet blir avslutta.","2bc72852286b59c6":"## CRUD i Python\n\nDei fire grunnoperasjonane – Create, Read, Update, Delete – blir alle utførte gjennom cursoren. For å **opprette** brukar du INSERT med parameter, og hentar id-en til den nye rada med `cursor.lastrowid`. For å **lese** har du tre nyttige metodar: `fetchone()` hentar éi rad, `fetchall()` hentar alle, og du kan òg iterere direkte over cursoren rad for rad – det siste er smart for store resultat fordi du slepp å laste alt inn i minnet samtidig:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE elevID = ?\", (1,))\nelev = cursor.fetchone()   # éi rad som tuppel\n```\n\nFor å **oppdatere** brukar du UPDATE, og `cursor.rowcount` fortel kor mange rader som blei endra. For å **slette** brukar du DELETE på tilsvarande måte. Som standard kjem kvar rad tilbake som ein tuppel, der du må bruke indeksar som `elev[0]`. Det blir fort uoversiktleg.\n\nHeldigvis finst eit triks: **row factory**. Set du `conn.row_factory = sqlite3.Row`, kan du etterpå hente verdiar med kolonnenamn i staden for indeks – `elev['navn']` i staden for `elev[1]` – og til og med konvertere rada til ein vanleg dictionary med `dict(elev)`. Dette gjer koden langt meir lesbar og mindre feilutsett. Ein god vane er òg å pakke CRUD-logikken inn i ein klasse, slik at all databasekoden blir samla på éin stad.","684ed862f3ad32c0":"Test deg sjølv på CRUD:","a4e26f9a6d99d43d":"Kva gjer fetchone()?","0ab342b167cc5d4b":"Hentar éi rad frå resultatet","0a8f00335d6e63e9":"Hentar alle rader","15e07bdeaa991ff5":"Slettar ei rad","3aeae28785fac4ab":"Lagar ein ny tabell","6eaf25169ff34af4":"fetchone() returnerer den neste enkeltrada, medan fetchall() hentar alle radene samtidig.","547fd46eddbb46db":"Korleis får du id-en til ei nyleg innsett rad?","85b222a9113e5235":"cursor.rowcount","7fc71d7f871c63e9":"cursor.lastrowid","e0503df1373fd727":"conn.commit()","4fcb1c75f7236557":"cursor.fetchall()","3d1275785c525fc2":"cursor.lastrowid gir ID-en til den siste innsette rada, nyttig for AUTOINCREMENT-nøklar.","6703d22434d5b592":"Kva oppnår du med conn.row_factory = sqlite3.Row?","de236d856ceb8336":"Du krypterer databasen","afa91b4c91089cf1":"Du slettar alle rader","e09d4a24a8b6cf6b":"Du kan hente verdiar med kolonnenamn i staden for indeks","9264554b206e5b22":"Du lagar ein indeks","185212a472333cbd":"Med sqlite3.Row kan du skrive elev['navn'] i staden for elev[1], noko som gir meir lesbar kode.","424adad0ab2152ea":"## SQL injection, feil og transaksjonar\n\nNo kjem den viktigaste lærdomen i heile kapittelet. **SQL injection** er ein av dei farlegaste tryggleikssvakheitene som finst. Byggjer du ei spørjing ved å lime brukarinput rett inn med f-strengar, opnar du døra på vidt gap. Skriv ein angripar `Ole' OR '1'='1` der du forventa eit namn, blir spørjinga `... WHERE navn = 'Ole' OR '1'='1'`, og sidan `'1'='1'` alltid er sant, blir *alle* rader returnerte. Endå verre: med `'; DROP TABLE Elev; --` kan angriparen slette heile tabellen.\n\nLøysinga er **parameteriserte spørjingar**. Du skriv `?` der verdiane skal inn, og lèt Python sette dei trygt inn:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE navn = ?\", (bruker_input,))\n```\n\nRegelen er absolutt: bruk alltid `?` for verdiar, aldri f-strengar eller pluss-konkatenering. Då escaper Python verdien automatisk, og injeksjon blir umogleg.\n\nGod databasekode handterer òg feil. Med try-except kan du fange `sqlite3.IntegrityError` (til dømes ein duplikat-epost mot ein UNIQUE-regel), `sqlite3.OperationalError` (som ein tabell som ikkje finst) og den generelle `sqlite3.Error`. Til slutt: ein **transaksjon** er ein sekvens av operasjonar som anten blir utførte heilt eller ikkje i det heile. Skal du sette inn ein elev *og* ein tilhøyrande karakter, vil du ikkje at det eine skal lukkast og det andre feile. Går alt bra, kallar du `conn.commit()`. Går noko gale, kallar du `conn.rollback()`, som angrar alle endringar sidan førre commit. Slik held databasen seg konsistent sjølv når noko sviktar.","9619dfdb454d49dc":"Test deg sjølv på tryggleik og transaksjonar:","56fc1cb9b5eebeac":"Korleis unngår du SQL injection?","3bd3d7509be33242":"Bruk f-strengar for å byggje spørjinga","cfa0eb3b5b2c32a7":"Lim input rett inn med +","6106fcfa85b4f879":"Slå av databasen","8a73c7e837a91804":"Bruk parameteriserte spørjingar med ?","a85b3da67146da0c":"Parameteriserte spørjingar med ? lèt Python escape verdiane trygt, slik at vondsinna input ikkje kan endre spørjinga.","e91b2834ee441dee":"Kva gjer conn.rollback()?","a9a98c8c1a6b2821":"Angrar alle endringar sidan siste commit","56405b9291af49be":"Lagrar endringane permanent","60900972ffbd9bbc":"Lukkar databasen","510a632d42d0bccf":"Lagar ein indeks","68656a1263e42f01":"rollback() reverserer endringar sidan førre commit, slik at ein mislukka transaksjon ikkje etterlèt halvferdige data.","6a35ba70bfa36b4a":"Kva er ein transaksjon?","353115df58235e30":"Ein enkel SELECT","a9884d6a1183177c":"Ein sekvens av operasjonar som blir utførte som éi udeleleg eining","971ab7fd8bc34dc0":"Ein kolonne med tal","441131427258edb2":"Ein transaksjon samlar fleire operasjonar slik at dei anten lukkast alle saman (commit) eller blir angra alle saman (rollback).","9ceadd8169f47b40":"## Oppsummering\n\nVi kobla Python til **SQLite** via `sqlite3`-modulen: du connectar til ein fildatabase, lagar ein **cursor**, køyrer SQL og kallar `commit()` for å lagre. CRUD-operasjonane blir utførte gjennom cursoren, med `fetchone()`/`fetchall()` for lesing, `lastrowid` for nye ID-ar, og `sqlite3.Row` for å hente verdiar ved kolonnenamn.\n\nDen viktigaste lærdomen var tryggleik: bruk **parameteriserte spørjingar** med `?` for å hindre **SQL injection** – aldri f-strengar eller konkatenering. God kode fangar feil med try-except, og **transaksjonar** med `commit` og `rollback` sikrar at samansette operasjonar anten lukkast heilt eller blir angra heilt. Med dette kan du byggje ekte databaseapplikasjonar i Python. I neste kapittel ser vi på alternativa til relasjonsdatabasar: NoSQL."}}}
+{
+  "id": "it-2-5-3-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "3",
+  "title": "Databasar i Python med SQLite",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å la Python og databasen jobbe saman – frå sqlite3-modulen og CRUD, via den livsviktige skilnaden på trygge og farlege spørjingar, til transaksjonar som anten lukkast heilt eller blir angra.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "Koble Python til SQLite og utføre CRUD",
+    "Bruke parameteriserte spørjingar mot SQL injection",
+    "Handtere feil og transaksjonar med commit og rollback"
+  ],
+  "linkedChapterId": "it-2-5-3",
+  "content": [
+    {
+      "id": "it-2-5-3-n-intro",
+      "type": "text",
+      "content": "## Python møter databasen\n\nNo skal vi koble saman to ting du allereie kan: Python og databasar. **SQLite** er ein lettvektsdatabase som kjem innebygd i Python – perfekt for lokale applikasjonar, prototypar og mindre system. Du treng ingen eigen server; heile databasen er berre ei fil.\n\nDu brukar den innebygde modulen `sqlite3`. Du koblar til ein database med `sqlite3.connect('skole.db')` – fila blir oppretta dersom ho ikkje finst. For testing kan du bruke `':memory:'`, som lagar ein database som berre lever i RAM. Deretter lagar du ein **cursor**, som er objektet som faktisk utfører SQL-kommandoar og hentar resultat. Den tilrådde måten er ein with-blokk, slik at sambandet blir lukka automatisk:\n\n```python\nimport sqlite3\nwith sqlite3.connect('skole.db') as conn:\n    cursor = conn.cursor()\n    cursor.execute('''CREATE TABLE IF NOT EXISTS Elev (\n        elevID INTEGER PRIMARY KEY AUTOINCREMENT,\n        navn TEXT NOT NULL,\n        epost TEXT UNIQUE)''')\n    conn.commit()\n```\n\nLegg merke til tre ting. `IF NOT EXISTS` hindrar feil dersom tabellen finst frå før. `AUTOINCREMENT` lagar automatisk aukande ID-ar. Og `conn.commit()` må kallast for å faktisk lagre endringane til databasen – utan han forsvinn dei."
+    },
+    {
+      "id": "it-2-5-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på SQLite-oppsett:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-3-n-quiz1-q0",
+            "task": "Kva er ein cursor i sqlite3?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Objektet som utfører SQL-kommandoar og hentar resultat",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein type indeks",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit passord",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein kolonne",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Cursoren utfører SQL-kommandoane mot databasen og lèt deg hente ut resultata."
+          },
+          {
+            "id": "it-2-5-3-n-quiz1-q1",
+            "task": "Kva må du gjere for at endringar faktisk blir lagra i databasen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kalle conn.close() åleine",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kalle conn.commit()",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ingenting, det skjer automatisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lage ein ny cursor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "commit() lagrar endringane til databasen. Utan han blir ikkje ein INSERT eller UPDATE permanent."
+          },
+          {
+            "id": "it-2-5-3-n-quiz1-q2",
+            "task": "Kva tyder ':memory:' som databasenamn?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein kryptert database",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein database på nettet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein database som berre lever i RAM, nyttig for testing",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ein skrivebeskytta database",
+                "isCorrect": false
+              }
+            ],
+            "solution": "':memory:' lagar ein mellombels database i minnet som forsvinn når programmet blir avslutta."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-3-n-section1",
+      "type": "text",
+      "content": "## CRUD i Python\n\nDei fire grunnoperasjonane – Create, Read, Update, Delete – blir alle utførte gjennom cursoren. For å **opprette** brukar du INSERT med parameter, og hentar id-en til den nye rada med `cursor.lastrowid`. For å **lese** har du tre nyttige metodar: `fetchone()` hentar éi rad, `fetchall()` hentar alle, og du kan òg iterere direkte over cursoren rad for rad – det siste er smart for store resultat fordi du slepp å laste alt inn i minnet samtidig:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE elevID = ?\", (1,))\nelev = cursor.fetchone()   # éi rad som tuppel\n```\n\nFor å **oppdatere** brukar du UPDATE, og `cursor.rowcount` fortel kor mange rader som blei endra. For å **slette** brukar du DELETE på tilsvarande måte. Som standard kjem kvar rad tilbake som ein tuppel, der du må bruke indeksar som `elev[0]`. Det blir fort uoversiktleg.\n\nHeldigvis finst eit triks: **row factory**. Set du `conn.row_factory = sqlite3.Row`, kan du etterpå hente verdiar med kolonnenamn i staden for indeks – `elev['navn']` i staden for `elev[1]` – og til og med konvertere rada til ein vanleg dictionary med `dict(elev)`. Dette gjer koden langt meir lesbar og mindre feilutsett. Ein god vane er òg å pakke CRUD-logikken inn i ein klasse, slik at all databasekoden blir samla på éin stad."
+    },
+    {
+      "id": "it-2-5-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på CRUD:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-3-n-quiz2-q0",
+            "task": "Kva gjer fetchone()?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Hentar alle rader",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Slettar ei rad",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lagar ein ny tabell",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Hentar éi rad frå resultatet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "fetchone() returnerer den neste enkeltrada, medan fetchall() hentar alle radene samtidig."
+          },
+          {
+            "id": "it-2-5-3-n-quiz2-q1",
+            "task": "Korleis får du id-en til ei nyleg innsett rad?",
+            "options": [
+              {
+                "id": "b",
+                "text": "cursor.lastrowid",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "cursor.rowcount",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "conn.commit()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "cursor.fetchall()",
+                "isCorrect": false
+              }
+            ],
+            "solution": "cursor.lastrowid gir ID-en til den siste innsette rada, nyttig for AUTOINCREMENT-nøklar."
+          },
+          {
+            "id": "it-2-5-3-n-quiz2-q2",
+            "task": "Kva oppnår du med conn.row_factory = sqlite3.Row?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Du krypterer databasen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Du kan hente verdiar med kolonnenamn i staden for indeks",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Du slettar alle rader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Du lagar ein indeks",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med sqlite3.Row kan du skrive elev['navn'] i staden for elev[1], noko som gir meir lesbar kode."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-3-n-section2",
+      "type": "text",
+      "content": "## SQL injection, feil og transaksjonar\n\nNo kjem den viktigaste lærdomen i heile kapittelet. **SQL injection** er ein av dei farlegaste tryggleikssvakheitene som finst. Byggjer du ei spørjing ved å lime brukarinput rett inn med f-strengar, opnar du døra på vidt gap. Skriv ein angripar `Ole' OR '1'='1` der du forventa eit namn, blir spørjinga `... WHERE navn = 'Ole' OR '1'='1'`, og sidan `'1'='1'` alltid er sant, blir *alle* rader returnerte. Endå verre: med `'; DROP TABLE Elev; --` kan angriparen slette heile tabellen.\n\nLøysinga er **parameteriserte spørjingar**. Du skriv `?` der verdiane skal inn, og lèt Python sette dei trygt inn:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE navn = ?\", (bruker_input,))\n```\n\nRegelen er absolutt: bruk alltid `?` for verdiar, aldri f-strengar eller pluss-konkatenering. Då escaper Python verdien automatisk, og injeksjon blir umogleg.\n\nGod databasekode handterer òg feil. Med try-except kan du fange `sqlite3.IntegrityError` (til dømes ein duplikat-epost mot ein UNIQUE-regel), `sqlite3.OperationalError` (som ein tabell som ikkje finst) og den generelle `sqlite3.Error`. Til slutt: ein **transaksjon** er ein sekvens av operasjonar som anten blir utførte heilt eller ikkje i det heile. Skal du sette inn ein elev *og* ein tilhøyrande karakter, vil du ikkje at det eine skal lukkast og det andre feile. Går alt bra, kallar du `conn.commit()`. Går noko gale, kallar du `conn.rollback()`, som angrar alle endringar sidan førre commit. Slik held databasen seg konsistent sjølv når noko sviktar."
+    },
+    {
+      "id": "it-2-5-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tryggleik og transaksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-3-n-quiz3-q0",
+            "task": "Korleis unngår du SQL injection?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bruk f-strengar for å byggje spørjinga",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lim input rett inn med +",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bruk parameteriserte spørjingar med ?",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Slå av databasen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Parameteriserte spørjingar med ? lèt Python escape verdiane trygt, slik at vondsinna input ikkje kan endre spørjinga."
+          },
+          {
+            "id": "it-2-5-3-n-quiz3-q1",
+            "task": "Kva gjer conn.rollback()?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Lagrar endringane permanent",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lukkar databasen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lagar ein indeks",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Angrar alle endringar sidan siste commit",
+                "isCorrect": true
+              }
+            ],
+            "solution": "rollback() reverserer endringar sidan førre commit, slik at ein mislukka transaksjon ikkje etterlèt halvferdige data."
+          },
+          {
+            "id": "it-2-5-3-n-quiz3-q2",
+            "task": "Kva er ein transaksjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein sekvens av operasjonar som blir utførte som éi udeleleg eining",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein enkel SELECT",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein type indeks",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein kolonne med tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein transaksjon samlar fleire operasjonar slik at dei anten lukkast alle saman (commit) eller blir angra alle saman (rollback)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi kobla Python til **SQLite** via `sqlite3`-modulen: du connectar til ein fildatabase, lagar ein **cursor**, køyrer SQL og kallar `commit()` for å lagre. CRUD-operasjonane blir utførte gjennom cursoren, med `fetchone()`/`fetchall()` for lesing, `lastrowid` for nye ID-ar, og `sqlite3.Row` for å hente verdiar ved kolonnenamn.\n\nDen viktigaste lærdomen var tryggleik: bruk **parameteriserte spørjingar** med `?` for å hindre **SQL injection** – aldri f-strengar eller konkatenering. God kode fangar feil med try-except, og **transaksjonar** med `commit` og `rollback` sikrar at samansette operasjonar anten lukkast heilt eller blir angra heilt. Med dette kan du byggje ekte databaseapplikasjonar i Python. I neste kapittel ser vi på alternativa til relasjonsdatabasar: NoSQL."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c0461405e8ccfe57",
+    "translatedAt": "2026-06-20T23:58:52.843Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "9741bdd3c778eab1": "Databasar i Python med SQLite",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "e283c5faaa9e7616": "Ei forteljing om å la Python og databasen jobbe saman – frå sqlite3-modulen og CRUD, via den livsviktige skilnaden på trygge og farlege spørjingar, til transaksjonar som anten lukkast heilt eller blir angra.",
+      "78c697d0112ad845": "Koble Python til SQLite og utføre CRUD",
+      "4634bc8f79d41192": "Bruke parameteriserte spørjingar mot SQL injection",
+      "95d597490eecba26": "Handtere feil og transaksjonar med commit og rollback",
+      "37488ef4d99346ce": "## Python møter databasen\n\nNo skal vi koble saman to ting du allereie kan: Python og databasar. **SQLite** er ein lettvektsdatabase som kjem innebygd i Python – perfekt for lokale applikasjonar, prototypar og mindre system. Du treng ingen eigen server; heile databasen er berre ei fil.\n\nDu brukar den innebygde modulen `sqlite3`. Du koblar til ein database med `sqlite3.connect('skole.db')` – fila blir oppretta dersom ho ikkje finst. For testing kan du bruke `':memory:'`, som lagar ein database som berre lever i RAM. Deretter lagar du ein **cursor**, som er objektet som faktisk utfører SQL-kommandoar og hentar resultat. Den tilrådde måten er ein with-blokk, slik at sambandet blir lukka automatisk:\n\n```python\nimport sqlite3\nwith sqlite3.connect('skole.db') as conn:\n    cursor = conn.cursor()\n    cursor.execute('''CREATE TABLE IF NOT EXISTS Elev (\n        elevID INTEGER PRIMARY KEY AUTOINCREMENT,\n        navn TEXT NOT NULL,\n        epost TEXT UNIQUE)''')\n    conn.commit()\n```\n\nLegg merke til tre ting. `IF NOT EXISTS` hindrar feil dersom tabellen finst frå før. `AUTOINCREMENT` lagar automatisk aukande ID-ar. Og `conn.commit()` må kallast for å faktisk lagre endringane til databasen – utan han forsvinn dei.",
+      "887a4c666c348d0d": "Test deg sjølv på SQLite-oppsett:",
+      "4097889236a2af26": "placeholder",
+      "1d250372740f12b0": "Kva er ein cursor i sqlite3?",
+      "5a75f5c96727a084": "Ein type indeks",
+      "1cd160a9b3e7ef90": "Objektet som utfører SQL-kommandoar og hentar resultat",
+      "9bab5e61dba40a45": "Eit passord",
+      "caec3e38a753d8ad": "Ein kolonne",
+      "236ff31cb330d114": "Cursoren utfører SQL-kommandoane mot databasen og lèt deg hente ut resultata.",
+      "85b0434bae1bfcff": "Kva må du gjere for at endringar faktisk blir lagra i databasen?",
+      "d6da65352b7510ae": "Kalle conn.close() åleine",
+      "9b551ffcdc4884c4": "Ingenting, det skjer automatisk",
+      "2939b5b2910a18f4": "Kalle conn.commit()",
+      "8eb322cbfaefd205": "Lage ein ny cursor",
+      "5e969e81d76eb515": "commit() lagrar endringane til databasen. Utan han blir ikkje ein INSERT eller UPDATE permanent.",
+      "5e637c6b87acdddf": "Kva tyder ':memory:' som databasenamn?",
+      "168b1f4be49a4ed0": "Ein kryptert database",
+      "c69af4cad506277c": "Ein database på nettet",
+      "d4e024e66aec58c2": "Ein skrivebeskytta database",
+      "cf171602d8705c52": "Ein database som berre lever i RAM, nyttig for testing",
+      "5414fdaa7d24947a": "':memory:' lagar ein mellombels database i minnet som forsvinn når programmet blir avslutta.",
+      "2bc72852286b59c6": "## CRUD i Python\n\nDei fire grunnoperasjonane – Create, Read, Update, Delete – blir alle utførte gjennom cursoren. For å **opprette** brukar du INSERT med parameter, og hentar id-en til den nye rada med `cursor.lastrowid`. For å **lese** har du tre nyttige metodar: `fetchone()` hentar éi rad, `fetchall()` hentar alle, og du kan òg iterere direkte over cursoren rad for rad – det siste er smart for store resultat fordi du slepp å laste alt inn i minnet samtidig:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE elevID = ?\", (1,))\nelev = cursor.fetchone()   # éi rad som tuppel\n```\n\nFor å **oppdatere** brukar du UPDATE, og `cursor.rowcount` fortel kor mange rader som blei endra. For å **slette** brukar du DELETE på tilsvarande måte. Som standard kjem kvar rad tilbake som ein tuppel, der du må bruke indeksar som `elev[0]`. Det blir fort uoversiktleg.\n\nHeldigvis finst eit triks: **row factory**. Set du `conn.row_factory = sqlite3.Row`, kan du etterpå hente verdiar med kolonnenamn i staden for indeks – `elev['navn']` i staden for `elev[1]` – og til og med konvertere rada til ein vanleg dictionary med `dict(elev)`. Dette gjer koden langt meir lesbar og mindre feilutsett. Ein god vane er òg å pakke CRUD-logikken inn i ein klasse, slik at all databasekoden blir samla på éin stad.",
+      "684ed862f3ad32c0": "Test deg sjølv på CRUD:",
+      "a4e26f9a6d99d43d": "Kva gjer fetchone()?",
+      "0ab342b167cc5d4b": "Hentar éi rad frå resultatet",
+      "0a8f00335d6e63e9": "Hentar alle rader",
+      "15e07bdeaa991ff5": "Slettar ei rad",
+      "3aeae28785fac4ab": "Lagar ein ny tabell",
+      "6eaf25169ff34af4": "fetchone() returnerer den neste enkeltrada, medan fetchall() hentar alle radene samtidig.",
+      "547fd46eddbb46db": "Korleis får du id-en til ei nyleg innsett rad?",
+      "85b222a9113e5235": "cursor.rowcount",
+      "7fc71d7f871c63e9": "cursor.lastrowid",
+      "e0503df1373fd727": "conn.commit()",
+      "4fcb1c75f7236557": "cursor.fetchall()",
+      "3d1275785c525fc2": "cursor.lastrowid gir ID-en til den siste innsette rada, nyttig for AUTOINCREMENT-nøklar.",
+      "6703d22434d5b592": "Kva oppnår du med conn.row_factory = sqlite3.Row?",
+      "de236d856ceb8336": "Du krypterer databasen",
+      "afa91b4c91089cf1": "Du slettar alle rader",
+      "e09d4a24a8b6cf6b": "Du kan hente verdiar med kolonnenamn i staden for indeks",
+      "9264554b206e5b22": "Du lagar ein indeks",
+      "185212a472333cbd": "Med sqlite3.Row kan du skrive elev['navn'] i staden for elev[1], noko som gir meir lesbar kode.",
+      "424adad0ab2152ea": "## SQL injection, feil og transaksjonar\n\nNo kjem den viktigaste lærdomen i heile kapittelet. **SQL injection** er ein av dei farlegaste tryggleikssvakheitene som finst. Byggjer du ei spørjing ved å lime brukarinput rett inn med f-strengar, opnar du døra på vidt gap. Skriv ein angripar `Ole' OR '1'='1` der du forventa eit namn, blir spørjinga `... WHERE navn = 'Ole' OR '1'='1'`, og sidan `'1'='1'` alltid er sant, blir *alle* rader returnerte. Endå verre: med `'; DROP TABLE Elev; --` kan angriparen slette heile tabellen.\n\nLøysinga er **parameteriserte spørjingar**. Du skriv `?` der verdiane skal inn, og lèt Python sette dei trygt inn:\n\n```python\ncursor.execute(\"SELECT * FROM Elev WHERE navn = ?\", (bruker_input,))\n```\n\nRegelen er absolutt: bruk alltid `?` for verdiar, aldri f-strengar eller pluss-konkatenering. Då escaper Python verdien automatisk, og injeksjon blir umogleg.\n\nGod databasekode handterer òg feil. Med try-except kan du fange `sqlite3.IntegrityError` (til dømes ein duplikat-epost mot ein UNIQUE-regel), `sqlite3.OperationalError` (som ein tabell som ikkje finst) og den generelle `sqlite3.Error`. Til slutt: ein **transaksjon** er ein sekvens av operasjonar som anten blir utførte heilt eller ikkje i det heile. Skal du sette inn ein elev *og* ein tilhøyrande karakter, vil du ikkje at det eine skal lukkast og det andre feile. Går alt bra, kallar du `conn.commit()`. Går noko gale, kallar du `conn.rollback()`, som angrar alle endringar sidan førre commit. Slik held databasen seg konsistent sjølv når noko sviktar.",
+      "9619dfdb454d49dc": "Test deg sjølv på tryggleik og transaksjonar:",
+      "56fc1cb9b5eebeac": "Korleis unngår du SQL injection?",
+      "3bd3d7509be33242": "Bruk f-strengar for å byggje spørjinga",
+      "cfa0eb3b5b2c32a7": "Lim input rett inn med +",
+      "6106fcfa85b4f879": "Slå av databasen",
+      "8a73c7e837a91804": "Bruk parameteriserte spørjingar med ?",
+      "a85b3da67146da0c": "Parameteriserte spørjingar med ? lèt Python escape verdiane trygt, slik at vondsinna input ikkje kan endre spørjinga.",
+      "e91b2834ee441dee": "Kva gjer conn.rollback()?",
+      "a9a98c8c1a6b2821": "Angrar alle endringar sidan siste commit",
+      "56405b9291af49be": "Lagrar endringane permanent",
+      "60900972ffbd9bbc": "Lukkar databasen",
+      "510a632d42d0bccf": "Lagar ein indeks",
+      "68656a1263e42f01": "rollback() reverserer endringar sidan førre commit, slik at ein mislukka transaksjon ikkje etterlèt halvferdige data.",
+      "6a35ba70bfa36b4a": "Kva er ein transaksjon?",
+      "353115df58235e30": "Ein enkel SELECT",
+      "a9884d6a1183177c": "Ein sekvens av operasjonar som blir utførte som éi udeleleg eining",
+      "971ab7fd8bc34dc0": "Ein kolonne med tal",
+      "441131427258edb2": "Ein transaksjon samlar fleire operasjonar slik at dei anten lukkast alle saman (commit) eller blir angra alle saman (rollback).",
+      "9ceadd8169f47b40": "## Oppsummering\n\nVi kobla Python til **SQLite** via `sqlite3`-modulen: du connectar til ein fildatabase, lagar ein **cursor**, køyrer SQL og kallar `commit()` for å lagre. CRUD-operasjonane blir utførte gjennom cursoren, med `fetchone()`/`fetchall()` for lesing, `lastrowid` for nye ID-ar, og `sqlite3.Row` for å hente verdiar ved kolonnenamn.\n\nDen viktigaste lærdomen var tryggleik: bruk **parameteriserte spørjingar** med `?` for å hindre **SQL injection** – aldri f-strengar eller konkatenering. God kode fangar feil med try-except, og **transaksjonar** med `commit` og `rollback` sikrar at samansette operasjonar anten lukkast heilt eller blir angra heilt. Med dette kan du byggje ekte databaseapplikasjonar i Python. I neste kapittel ser vi på alternativa til relasjonsdatabasar: NoSQL."
+    }
+  }
+}

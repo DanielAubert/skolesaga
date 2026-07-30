@@ -1,1 +1,370 @@
-{"id":"fysikk2-1-3-narrativ","courseId":"fysikk2","chapterNumber":"1.3","title":"Kastering - horisontal og skrå","subtitle":"Narrativ versjon","description":"En fortelling om buen et prosjektil tegner gjennom lufta — hvordan uavhengig horisontal og vertikal bevegelse gir parabelbaner, og hvordan vi regner ut rekkevidde, høyde og optimal kastvinkel.","estimatedMinutes":35,"competenceGoals":["analysere og beregne størrelser ved kastering","bruke kinematiske likninger i to dimensjoner","utforske, beskrive og modellere bevegelse i to dimensjoner"],"linkedChapterId":"fysikk2-1-3","content":[{"id":"fysikk2-1-3-n-intro","type":"text","content":"## Buen gjennom lufta\n\nDu sparker en fotball mot mål, en venn kaster en basketball mot kurven, vannet spruter i en bue fra hageslangen. Alle disse objektene følger den samme karakteristiske banen gjennom lufta — en bevegelse vi kaller **kastering** eller prosjektilbevegelse. Ser vi bort fra luftmotstand, påvirkes objektet kun av tyngdekraften, og da gjelder en vakker hemmelighet: vi kan dele bevegelsen i to helt uavhengige deler. Bortover (x-retning) holder hastigheten seg konstant fordi ingen kraft virker der. Oppover og nedover (y-retning) er det rent fritt fall med tyngdeakselerasjonen $g$. Disse to bevegelsene skjer samtidig, men påvirker ikke hverandre — og til sammen tegner de en **parabel**.\n\nVi skal møte to typer kast: det horisontale kastet, der objektet sendes vannrett av gårde, og det skrå kastet, der det går ut i en vinkel. Underveis finner vi fluktid, rekkevidde, maksimal høyde og den optimale kastvinkelen."},{"id":"fysikk2-1-3-n-section1","type":"text","content":"## Det horisontale kastet\n\nTenk deg at du ruller en ball ut over en bordkant. I det øyeblikket ballen forlater bordet, har den bare hastighet bortover — den vertikale starthastigheten er null, $v_{0y} = 0$. Bortover beveger den seg jevnt: $x = v_0 t$. Nedover faller den fritt fra høyden $h$: $y = h - \\frac{1}{2}gt^2$, med vertikal hastighet $v_y = -gt$.\n\nNår treffer ballen gulvet? Når $y = 0$, altså når $h = \\frac{1}{2}gt^2$, som gir\n\n$$t = \\sqrt{\\frac{2h}{g}}$$\n\nLegg merke til noe forbløffende: tiden i lufta avhenger **bare av høyden**, ikke av hvor hardt du kaster bortover! Dette er kjernen i det berømte tankeeksperimentet: slipper du én ball rett ned samtidig som du kaster en annen horisontalt fra samme høyde, treffer de bakken *samtidig*. Den horisontale farten endrer ikke hvor fort ballen faller.\n\nRekkevidden — hvor langt bortover ballen kommer — blir $R = v_0\\sqrt{2h/g}$. La oss prøve: en ball ruller av et bord på $1{,}2$ m med fart $3{,}0$ m/s. Da er $t = \\sqrt{2\\cdot 1{,}2/9{,}81} = 0{,}49$ s, og rekkevidden $R = 3{,}0\\cdot 0{,}49 = 1{,}47$ m. Når den lander, er $v_x = 3{,}0$ m/s og $v_y = -9{,}81\\cdot 0{,}49 = -4{,}81$ m/s, så farten er $\\sqrt{3{,}0^2 + 4{,}81^2} = 5{,}67$ m/s, i en vinkel $\\arctan(4{,}81/3{,}0) = 58°$ under horisontalplanet."},{"id":"fysikk2-1-3-n-quiz1","type":"exercise","exercise":{"id":"fysikk2-1-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på horisontalt kast og uavhengighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-1-3-n-quiz1-q0","task":"Hva er den vertikale starthastigheten ved et horisontalt kast?","options":[{"id":"a","text":"Lik den horisontale","isCorrect":false},{"id":"b","text":"Null","isCorrect":true},{"id":"c","text":"Lik $g$","isCorrect":false},{"id":"d","text":"Negativ og stor","isCorrect":false}],"solution":"Ved et horisontalt kast sendes objektet rett bortover, så $v_{0y} = 0$. Hele starthastigheten er horisontal."},{"id":"fysikk2-1-3-n-quiz1-q1","task":"Du slipper én ball og kaster en annen horisontalt fra samme høyde samtidig. Hvilken treffer bakken først?","options":[{"id":"a","text":"Den som slippes","isCorrect":false},{"id":"b","text":"Den som kastes horisontalt","isCorrect":false},{"id":"c","text":"De treffer samtidig","isCorrect":true},{"id":"d","text":"Avhenger av farten","isCorrect":false}],"solution":"Den horisontale og vertikale bevegelsen er uavhengige. Begge faller med samme tyngdeakselerasjon og treffer bakken samtidig."},{"id":"fysikk2-1-3-n-quiz1-q2","task":"Hva avhenger tiden i lufta av ved et horisontalt kast?","options":[{"id":"a","text":"Bare den horisontale farten","isCorrect":false},{"id":"b","text":"Både fart og høyde","isCorrect":false},{"id":"c","text":"Bare massen","isCorrect":false},{"id":"d","text":"Bare høyden","isCorrect":true}],"solution":"Tiden er $t = \\sqrt{2h/g}$, som bare avhenger av høyden $h$ (og $g$), ikke av den horisontale farten."}]}},{"id":"fysikk2-1-3-n-section2","type":"text","content":"## Det skrå kastet\n\nNår en fotball sparkes i en vinkel $\\theta$ over horisontalplanet, har starthastigheten både en bortover- og en oppoverdel. Vi dekomponerer: $v_{0x} = v_0\\cos\\theta$ (konstant) og $v_{0y} = v_0\\sin\\theta$. Bevegelsen blir $x = v_0\\cos\\theta\\cdot t$ og $y = v_0\\sin\\theta\\cdot t - \\frac{1}{2}gt^2$, med vertikal hastighet $v_y = v_0\\sin\\theta - gt$.\n\nBallen når sitt høyeste punkt når $v_y = 0$, altså ved $t_{\\text{topp}} = v_0\\sin\\theta/g$. Setter vi dette inn, får vi **maksimal høyde**\n\n$$h_{\\text{max}} = \\frac{v_0^2\\sin^2\\theta}{2g}$$\n\nFor et kast fra og til samme høyde er banen symmetrisk om toppen, så **fluktiden** er dobbelt så lang som tiden til toppen: $T = 2v_0\\sin\\theta/g$. Da blir **rekkevidden** $R = v_0\\cos\\theta\\cdot T$, som med identiteten $2\\sin\\theta\\cos\\theta = \\sin 2\\theta$ forenkles til den elegante formelen\n\n$$R = \\frac{v_0^2\\sin 2\\theta}{g}$$\n\nLa oss regne: en ball sparkes med $v_0 = 20$ m/s i $30°$, $g = 9{,}81$ m/s². Da er $v_{0x} = 20\\cos 30° = 17{,}3$ m/s og $v_{0y} = 20\\sin 30° = 10$ m/s. Maksimal høyde blir $h_{\\text{max}} = 20^2\\cdot 0{,}25/(2\\cdot 9{,}81) = 5{,}1$ m, fluktiden $T = 2\\cdot 10/9{,}81 = 2{,}04$ s, og rekkevidden $R = 400\\cdot\\sin 60°/9{,}81 = 35{,}3$ m."},{"id":"fysikk2-1-3-n-quiz2","type":"exercise","exercise":{"id":"fysikk2-1-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på skrått kast:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-1-3-n-quiz2-q0","task":"Hvordan finner du den vertikale starthastighetskomponenten ved et skrått kast?","options":[{"id":"a","text":"$v_0\\sin\\theta$","isCorrect":true},{"id":"b","text":"$v_0\\cos\\theta$","isCorrect":false},{"id":"c","text":"$v_0\\tan\\theta$","isCorrect":false},{"id":"d","text":"$v_0/g$","isCorrect":false}],"solution":"Den vertikale komponenten er $v_{0y} = v_0\\sin\\theta$, mens den horisontale er $v_{0x} = v_0\\cos\\theta$."},{"id":"fysikk2-1-3-n-quiz2-q1","task":"Når når en ball sitt høyeste punkt?","options":[{"id":"a","text":"Når $v_x = 0$","isCorrect":false},{"id":"b","text":"Når $v_y = 0$","isCorrect":true},{"id":"c","text":"Når $v = 0$","isCorrect":false},{"id":"d","text":"Etter halve rekkevidden i tid, alltid 1 s","isCorrect":false}],"solution":"Ved det høyeste punktet er den vertikale hastigheten null, $v_y = 0$. Den horisontale hastigheten er fortsatt $v_0\\cos\\theta$."},{"id":"fysikk2-1-3-n-quiz2-q2","task":"En ball sparkes med $v_0 = 20$ m/s i $30°$ ($g=9{,}81$). Hva er rekkevidden?","options":[{"id":"a","text":"17,3 m","isCorrect":false},{"id":"b","text":"70,6 m","isCorrect":false},{"id":"c","text":"35,3 m","isCorrect":true},{"id":"d","text":"20 m","isCorrect":false}],"solution":"$R = v_0^2\\sin 2\\theta/g = 400\\cdot\\sin 60°/9{,}81 = 400\\cdot 0{,}866/9{,}81 \\approx 35{,}3$ m."},{"id":"fysikk2-1-3-n-quiz2-q3","task":"Hva er den horisontale hastigheten $v_x$ i toppen av banen?","options":[{"id":"a","text":"Null","isCorrect":false},{"id":"b","text":"$v_0$","isCorrect":false},{"id":"c","text":"$g$","isCorrect":false},{"id":"d","text":"$v_0\\cos\\theta$","isCorrect":true}],"solution":"Den horisontale hastigheten er konstant gjennom hele kastet og lik $v_0\\cos\\theta$, også i toppen."}]}},{"id":"fysikk2-1-3-n-section3","type":"text","content":"## Optimal vinkel, komplementære vinkler og baneformen\n\nRekkevidden $R = v_0^2\\sin 2\\theta/g$ blir størst når $\\sin 2\\theta = 1$, altså når $2\\theta = 90°$ og $\\theta = 45°$. Da får vi $R_{\\text{max}} = v_0^2/g$. En kanonkule med $v_0 = 50$ m/s når dermed $R_{\\text{max}} = 50^2/9{,}81 = 255$ m ved $45°$.\n\nHer dukker en vakker symmetri opp. Fordi $\\sin 2\\theta = \\sin(180° - 2\\theta)$, gir to **komplementære vinkler** — vinkler som summerer til $90°$ — nøyaktig samme rekkevidde. Med $v_0 = 50$ m/s gir både $30°$ og $60°$ rekkevidden $221$ m. Forskjellen er baneformen: $30°$ gir en flat, lang bane, mens $60°$ gir en høy, kort bane.\n\nHva slags kurve er egentlig banen? Eliminerer vi tiden ved å sette $t = x/(v_0\\cos\\theta)$ inn i y-uttrykket, får vi **banelikningen**\n\n$$y = x\\tan\\theta - \\frac{gx^2}{2v_0^2\\cos^2\\theta}$$\n\nDette er en andregradslikning i $x$ — altså en **parabel**. Vår modell ser bort fra luftmotstand. I virkeligheten reduserer luftmotstand rekkevidden, baneformen blir litt skjev, optimal vinkel blir litt under $45°$, og rotasjon på ballen kan bøye banen via Magnus-effekten. For oppgaver på dette nivået er likevel den parabolske modellen god nok."},{"id":"fysikk2-1-3-n-quiz3","type":"exercise","exercise":{"id":"fysikk2-1-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på optimal vinkel og baneform:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-1-3-n-quiz3-q0","task":"Hvilken vinkel gir størst rekkevidde for et kast fra og til samme høyde?","options":[{"id":"a","text":"45°","isCorrect":true},{"id":"b","text":"30°","isCorrect":false},{"id":"c","text":"60°","isCorrect":false},{"id":"d","text":"90°","isCorrect":false}],"solution":"$\\sin 2\\theta$ er størst når $2\\theta = 90°$, altså ved $\\theta = 45°$. Da blir $R_{\\text{max}} = v_0^2/g$."},{"id":"fysikk2-1-3-n-quiz3-q1","task":"Hvorfor gir 30° og 60° samme rekkevidde?","options":[{"id":"a","text":"Tilfeldighet","isCorrect":false},{"id":"b","text":"Fordi $\\sin 2\\theta = \\sin(180° - 2\\theta)$","isCorrect":true},{"id":"c","text":"Fordi de er like store","isCorrect":false},{"id":"d","text":"Det gjør de ikke","isCorrect":false}],"solution":"Komplementære vinkler (som summerer til 90°) gir samme $\\sin 2\\theta$, og dermed samme rekkevidde — men ulik baneform."},{"id":"fysikk2-1-3-n-quiz3-q2","task":"Hvilken kurveform har en kastebane uten luftmotstand?","options":[{"id":"a","text":"Sirkel","isCorrect":false},{"id":"b","text":"Rett linje","isCorrect":false},{"id":"c","text":"Parabel","isCorrect":true},{"id":"d","text":"Ellipse","isCorrect":false}],"solution":"Banelikningen $y = x\\tan\\theta - gx^2/(2v_0^2\\cos^2\\theta)$ er en andregradslikning i $x$, altså en parabel."}]}},{"id":"fysikk2-1-3-n-summary","type":"text","content":"## Oppsummering\n\nKastering er bevegelse i to dimensjoner der bare tyngdekraften virker. Det bærende prinsippet er **uavhengighet**: horisontalt holder farten seg konstant ($v_x = v_0\\cos\\theta$), vertikalt er det fritt fall med $a_y = -g$. For et **horisontalt kast** er $v_{0y} = 0$, tiden i lufta er $t = \\sqrt{2h/g}$, og rekkevidden $R = v_0\\sqrt{2h/g}$. For et **skrått kast** dekomponerer vi starthastigheten, finner maksimal høyde $h_{\\text{max}} = v_0^2\\sin^2\\theta/(2g)$, fluktid $T = 2v_0\\sin\\theta/g$ og rekkevidde $R = v_0^2\\sin 2\\theta/g$. Rekkevidden er størst ved $45°$, og **komplementære vinkler** gir samme rekkevidde med ulik baneform. Selve banen er alltid en **parabel**, beskrevet av $y = x\\tan\\theta - gx^2/(2v_0^2\\cos^2\\theta)$."}],"exercises":[]}
+{
+  "id": "fysikk2-1-3-narrativ",
+  "courseId": "fysikk2",
+  "chapterNumber": "1.3",
+  "title": "Kastering - horisontal og skrå",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om buen et prosjektil tegner gjennom lufta — hvordan uavhengig horisontal og vertikal bevegelse gir parabelbaner, og hvordan vi regner ut rekkevidde, høyde og optimal kastvinkel.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "analysere og beregne størrelser ved kastering",
+    "bruke kinematiske likninger i to dimensjoner",
+    "utforske, beskrive og modellere bevegelse i to dimensjoner"
+  ],
+  "linkedChapterId": "fysikk2-1-3",
+  "content": [
+    {
+      "id": "fysikk2-1-3-n-intro",
+      "type": "text",
+      "content": "## Buen gjennom lufta\n\nDu sparker en fotball mot mål, en venn kaster en basketball mot kurven, vannet spruter i en bue fra hageslangen. Alle disse objektene følger den samme karakteristiske banen gjennom lufta — en bevegelse vi kaller **kastering** eller prosjektilbevegelse. Ser vi bort fra luftmotstand, påvirkes objektet kun av tyngdekraften, og da gjelder en vakker hemmelighet: vi kan dele bevegelsen i to helt uavhengige deler. Bortover (x-retning) holder hastigheten seg konstant fordi ingen kraft virker der. Oppover og nedover (y-retning) er det rent fritt fall med tyngdeakselerasjonen $g$. Disse to bevegelsene skjer samtidig, men påvirker ikke hverandre — og til sammen tegner de en **parabel**.\n\nVi skal møte to typer kast: det horisontale kastet, der objektet sendes vannrett av gårde, og det skrå kastet, der det går ut i en vinkel. Underveis finner vi fluktid, rekkevidde, maksimal høyde og den optimale kastvinkelen."
+    },
+    {
+      "id": "fysikk2-1-3-n-section1",
+      "type": "text",
+      "content": "## Det horisontale kastet\n\nTenk deg at du ruller en ball ut over en bordkant. I det øyeblikket ballen forlater bordet, har den bare hastighet bortover — den vertikale starthastigheten er null, $v_{0y} = 0$. Bortover beveger den seg jevnt: $x = v_0 t$. Nedover faller den fritt fra høyden $h$: $y = h - \\frac{1}{2}gt^2$, med vertikal hastighet $v_y = -gt$.\n\nNår treffer ballen gulvet? Når $y = 0$, altså når $h = \\frac{1}{2}gt^2$, som gir\n\n$$t = \\sqrt{\\frac{2h}{g}}$$\n\nLegg merke til noe forbløffende: tiden i lufta avhenger **bare av høyden**, ikke av hvor hardt du kaster bortover! Dette er kjernen i det berømte tankeeksperimentet: slipper du én ball rett ned samtidig som du kaster en annen horisontalt fra samme høyde, treffer de bakken *samtidig*. Den horisontale farten endrer ikke hvor fort ballen faller.\n\nRekkevidden — hvor langt bortover ballen kommer — blir $R = v_0\\sqrt{2h/g}$. La oss prøve: en ball ruller av et bord på $1{,}2$ m med fart $3{,}0$ m/s. Da er $t = \\sqrt{2\\cdot 1{,}2/9{,}81} = 0{,}49$ s, og rekkevidden $R = 3{,}0\\cdot 0{,}49 = 1{,}47$ m. Når den lander, er $v_x = 3{,}0$ m/s og $v_y = -9{,}81\\cdot 0{,}49 = -4{,}81$ m/s, så farten er $\\sqrt{3{,}0^2 + 4{,}81^2} = 5{,}67$ m/s, i en vinkel $\\arctan(4{,}81/3{,}0) = 58°$ under horisontalplanet."
+    },
+    {
+      "id": "fysikk2-1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på horisontalt kast og uavhengighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-1-3-n-quiz1-q0",
+            "task": "Hva er den vertikale starthastigheten ved et horisontalt kast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lik den horisontale",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lik $g$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Null",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Negativ og stor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved et horisontalt kast sendes objektet rett bortover, så $v_{0y} = 0$. Hele starthastigheten er horisontal."
+          },
+          {
+            "id": "fysikk2-1-3-n-quiz1-q1",
+            "task": "Du slipper én ball og kaster en annen horisontalt fra samme høyde samtidig. Hvilken treffer bakken først?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den som slippes",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den som kastes horisontalt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avhenger av farten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De treffer samtidig",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den horisontale og vertikale bevegelsen er uavhengige. Begge faller med samme tyngdeakselerasjon og treffer bakken samtidig."
+          },
+          {
+            "id": "fysikk2-1-3-n-quiz1-q2",
+            "task": "Hva avhenger tiden i lufta av ved et horisontalt kast?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Bare høyden",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bare den horisontale farten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Både fart og høyde",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bare massen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tiden er $t = \\sqrt{2h/g}$, som bare avhenger av høyden $h$ (og $g$), ikke av den horisontale farten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-1-3-n-section2",
+      "type": "text",
+      "content": "## Det skrå kastet\n\nNår en fotball sparkes i en vinkel $\\theta$ over horisontalplanet, har starthastigheten både en bortover- og en oppoverdel. Vi dekomponerer: $v_{0x} = v_0\\cos\\theta$ (konstant) og $v_{0y} = v_0\\sin\\theta$. Bevegelsen blir $x = v_0\\cos\\theta\\cdot t$ og $y = v_0\\sin\\theta\\cdot t - \\frac{1}{2}gt^2$, med vertikal hastighet $v_y = v_0\\sin\\theta - gt$.\n\nBallen når sitt høyeste punkt når $v_y = 0$, altså ved $t_{\\text{topp}} = v_0\\sin\\theta/g$. Setter vi dette inn, får vi **maksimal høyde**\n\n$$h_{\\text{max}} = \\frac{v_0^2\\sin^2\\theta}{2g}$$\n\nFor et kast fra og til samme høyde er banen symmetrisk om toppen, så **fluktiden** er dobbelt så lang som tiden til toppen: $T = 2v_0\\sin\\theta/g$. Da blir **rekkevidden** $R = v_0\\cos\\theta\\cdot T$, som med identiteten $2\\sin\\theta\\cos\\theta = \\sin 2\\theta$ forenkles til den elegante formelen\n\n$$R = \\frac{v_0^2\\sin 2\\theta}{g}$$\n\nLa oss regne: en ball sparkes med $v_0 = 20$ m/s i $30°$, $g = 9{,}81$ m/s². Da er $v_{0x} = 20\\cos 30° = 17{,}3$ m/s og $v_{0y} = 20\\sin 30° = 10$ m/s. Maksimal høyde blir $h_{\\text{max}} = 20^2\\cdot 0{,}25/(2\\cdot 9{,}81) = 5{,}1$ m, fluktiden $T = 2\\cdot 10/9{,}81 = 2{,}04$ s, og rekkevidden $R = 400\\cdot\\sin 60°/9{,}81 = 35{,}3$ m."
+    },
+    {
+      "id": "fysikk2-1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på skrått kast:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-1-3-n-quiz2-q0",
+            "task": "Hvordan finner du den vertikale starthastighetskomponenten ved et skrått kast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$v_0\\sin\\theta$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$v_0\\cos\\theta$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$v_0\\tan\\theta$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$v_0/g$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den vertikale komponenten er $v_{0y} = v_0\\sin\\theta$, mens den horisontale er $v_{0x} = v_0\\cos\\theta$."
+          },
+          {
+            "id": "fysikk2-1-3-n-quiz2-q1",
+            "task": "Når når en ball sitt høyeste punkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $v_x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $v_y = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når $v = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etter halve rekkevidden i tid, alltid 1 s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved det høyeste punktet er den vertikale hastigheten null, $v_y = 0$. Den horisontale hastigheten er fortsatt $v_0\\cos\\theta$."
+          },
+          {
+            "id": "fysikk2-1-3-n-quiz2-q2",
+            "task": "En ball sparkes med $v_0 = 20$ m/s i $30°$ ($g=9{,}81$). Hva er rekkevidden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "17,3 m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "70,6 m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "35,3 m",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "20 m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R = v_0^2\\sin 2\\theta/g = 400\\cdot\\sin 60°/9{,}81 = 400\\cdot 0{,}866/9{,}81 \\approx 35{,}3$ m."
+          },
+          {
+            "id": "fysikk2-1-3-n-quiz2-q3",
+            "task": "Hva er den horisontale hastigheten $v_x$ i toppen av banen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$v_0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$g$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$v_0\\cos\\theta$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den horisontale hastigheten er konstant gjennom hele kastet og lik $v_0\\cos\\theta$, også i toppen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-1-3-n-section3",
+      "type": "text",
+      "content": "## Optimal vinkel, komplementære vinkler og baneformen\n\nRekkevidden $R = v_0^2\\sin 2\\theta/g$ blir størst når $\\sin 2\\theta = 1$, altså når $2\\theta = 90°$ og $\\theta = 45°$. Da får vi $R_{\\text{max}} = v_0^2/g$. En kanonkule med $v_0 = 50$ m/s når dermed $R_{\\text{max}} = 50^2/9{,}81 = 255$ m ved $45°$.\n\nHer dukker en vakker symmetri opp. Fordi $\\sin 2\\theta = \\sin(180° - 2\\theta)$, gir to **komplementære vinkler** — vinkler som summerer til $90°$ — nøyaktig samme rekkevidde. Med $v_0 = 50$ m/s gir både $30°$ og $60°$ rekkevidden $221$ m. Forskjellen er baneformen: $30°$ gir en flat, lang bane, mens $60°$ gir en høy, kort bane.\n\nHva slags kurve er egentlig banen? Eliminerer vi tiden ved å sette $t = x/(v_0\\cos\\theta)$ inn i y-uttrykket, får vi **banelikningen**\n\n$$y = x\\tan\\theta - \\frac{gx^2}{2v_0^2\\cos^2\\theta}$$\n\nDette er en andregradslikning i $x$ — altså en **parabel**. Vår modell ser bort fra luftmotstand. I virkeligheten reduserer luftmotstand rekkevidden, baneformen blir litt skjev, optimal vinkel blir litt under $45°$, og rotasjon på ballen kan bøye banen via Magnus-effekten. For oppgaver på dette nivået er likevel den parabolske modellen god nok."
+    },
+    {
+      "id": "fysikk2-1-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-1-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på optimal vinkel og baneform:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-1-3-n-quiz3-q0",
+            "task": "Hvilken vinkel gir størst rekkevidde for et kast fra og til samme høyde?",
+            "options": [
+              {
+                "id": "b",
+                "text": "30°",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "45°",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "60°",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "90°",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin 2\\theta$ er størst når $2\\theta = 90°$, altså ved $\\theta = 45°$. Da blir $R_{\\text{max}} = v_0^2/g$."
+          },
+          {
+            "id": "fysikk2-1-3-n-quiz3-q1",
+            "task": "Hvorfor gir 30° og 60° samme rekkevidde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tilfeldighet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi de er like store",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $\\sin 2\\theta = \\sin(180° - 2\\theta)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det gjør de ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Komplementære vinkler (som summerer til 90°) gir samme $\\sin 2\\theta$, og dermed samme rekkevidde — men ulik baneform."
+          },
+          {
+            "id": "fysikk2-1-3-n-quiz3-q2",
+            "task": "Hvilken kurveform har en kastebane uten luftmotstand?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sirkel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Rett linje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ellipse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Parabel",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Banelikningen $y = x\\tan\\theta - gx^2/(2v_0^2\\cos^2\\theta)$ er en andregradslikning i $x$, altså en parabel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-1-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nKastering er bevegelse i to dimensjoner der bare tyngdekraften virker. Det bærende prinsippet er **uavhengighet**: horisontalt holder farten seg konstant ($v_x = v_0\\cos\\theta$), vertikalt er det fritt fall med $a_y = -g$. For et **horisontalt kast** er $v_{0y} = 0$, tiden i lufta er $t = \\sqrt{2h/g}$, og rekkevidden $R = v_0\\sqrt{2h/g}$. For et **skrått kast** dekomponerer vi starthastigheten, finner maksimal høyde $h_{\\text{max}} = v_0^2\\sin^2\\theta/(2g)$, fluktid $T = 2v_0\\sin\\theta/g$ og rekkevidde $R = v_0^2\\sin 2\\theta/g$. Rekkevidden er størst ved $45°$, og **komplementære vinkler** gir samme rekkevidde med ulik baneform. Selve banen er alltid en **parabel**, beskrevet av $y = x\\tan\\theta - gx^2/(2v_0^2\\cos^2\\theta)$."
+    }
+  ],
+  "exercises": []
+}

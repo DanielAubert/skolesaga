@@ -1,1 +1,503 @@
-{"id":"2p-6-1-narrativ","courseId":"2p","chapterNumber":"6.1","title":"Matematisk modellering","subtitle":"Narrativ versjon","description":"Forteljinga om korleis matematikk kan fange verkelegheita -- frå avfallsprognosar og bakterievekst til å føreseie kor mykje softis du sel neste sommar.","estimatedMinutes":40,"competenceGoals":["forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy","utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tankemåtene sine"],"linkedChapterId":"2p-6-1","content":[{"id":"2p-6-1-n-intro","type":"text","content":"## Verkelegheita i tal\n\nDu jobbar i ein kommune, og sjefen din spør: \"Kor mykje avfall vil vi ha i 2030?\" Du har tala for 2020 og 2024, men ikkje for 2030. Korleis svarar du? Du kan ikkje reise i tid. Du kan ikkje gjette. Men du kan gjere noko anna -- du kan lage ein **matematisk modell**.\n\nMatematisk modellering handlar om å bruke matematikk til å skildre, forstå og føreseie hendingar i den verkelege verda. Ein matematisk modell er ei forenkla skildring av verkelegheita uttrykt med matematisk språk -- ein formel, ein funksjon, ei likning. Han kan aldri gi eit heilt eksakt bilete av verkelegheita, men han kan gi oss nyttige svar og innsikt.\n\nModellering er overalt rundt oss. Meteorologar bruker matematiske modellar for å lage vêrmeldingar. Epidemiologar modellerer spreiinga av sjukdommar. Økonomar modellerer vekst og resesjon. Og du, i matematikk 2P, kan bruke modellering til å forstå alt frå folketalsvekst til bakteriekulturar, frå strøymetenester til softissal."},{"id":"2p-6-1-n-section1","type":"text","content":"## Modelleringsprosessen -- fem steg til svaret\n\nÅ lage ein god matematisk modell er ikkje berre å setje opp ein formel. Det er ein prosess med fem steg, og kvart steg er like viktig.\n\n**Steg 1: Forstå problemet.** Kva er det vi vil finne ut? Kva for data har vi? I kommuneeksempelet veit vi at avfallsmengda var 1 200 tonn i 2020 og 1 350 tonn i 2024. Vi vil predikere mengda i 2030.\n\n**Steg 2: Forenkle.** Verkelegheita er kompleks. Vi kan ikkje ta omsyn til alt -- folketalsendringar, resirkuleringskampanjar, nye reglar. Vi vel å gå ut frå at veksten er jamn, anten lineær eller prosentvis lik.\n\n**Steg 3: Modellere.** No set vi opp sjølve modellen. Ein lineær modell gir oss ein vekst per år på $\\frac{1\\,350 - 1\\,200}{4} = 37{,}5$ tonn per år, altså $f(x) = 37{,}5x + 1\\,200$ der $x$ er år etter 2020. Ein eksponentiell modell gir oss $g(x) = 1\\,200 \\cdot 1{,}030^x$, fordi vekstfaktoren per år er $b = (1{,}125)^{0{,}25} \\approx 1{,}030$, altså omtrent 3 prosent per år.\n\n**Steg 4: Løyse.** For 2030 ($x = 10$) gir den lineære modellen $f(10) = 37{,}5 \\cdot 10 + 1\\,200 = 1\\,575$ tonn. Den eksponentielle gir $g(10) = 1\\,200 \\cdot 1{,}030^{10} \\approx 1\\,613$ tonn.\n\n**Steg 5: Vurdere.** Er desse svara rimelege? For kort framtid er forskjellen liten. Vi bør sjekke med fleire datapunkt for å avgjere kva for modell som passar best. Og vi bør tenkje over om føresetnadene er realistiske -- vil veksten verkeleg halde fram i same tempo?"},{"id":"2p-6-1-n-quiz1","type":"exercise","exercise":{"id":"2p-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på modelleringsprosessen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-1-n-quiz1-q0","task":"Kva er det viktigaste siste steget i modelleringsprosessen?","options":[{"id":"a","text":"Setje inn tal i formelen","isCorrect":false},{"id":"b","text":"Teikne grafen","isCorrect":false},{"id":"c","text":"Vurdere om modellen gir rimelege svar","isCorrect":true},{"id":"d","text":"Samle inn så mange datapunkt som mogleg","isCorrect":false}],"solution":"Det siste og viktigaste steget er å vurdere om resultatet er rimeleg. Utan denne vurderinga veit vi ikkje om svaret gir meining."},{"id":"2p-6-1-n-quiz1-q1","task":"Avfallsmengda i ein kommune var 1 200 tonn i 2020 og 1 350 tonn i 2024. Kva gir ein lineær modell for vekst per år?","options":[{"id":"a","text":"$150$ tonn per år","isCorrect":false},{"id":"b","text":"$37{,}5$ tonn per år","isCorrect":true},{"id":"c","text":"$300$ tonn per år","isCorrect":false},{"id":"d","text":"$75$ tonn per år","isCorrect":false}],"solution":"Stigingstal $= \\frac{1\\,350 - 1\\,200}{2024 - 2020} = \\frac{150}{4} = 37{,}5$ tonn per år."}],"solution":""}},{"id":"2p-6-1-n-section2","type":"text","content":"## Lineær eller eksponentiell -- korleis velje?\n\nNo veit du at du kan bruke anten ein lineær eller ein eksponentiell modell. Men korleis avgjer du kva for ein som passar best? Her er nøkkelen.\n\nEin **lineær modell** har forma $f(x) = ax + b$ og blir brukt når endringa per periode er **tilnærma konstant**. Tenk fast lønsauke i kroner: du får 10 000 kroner meir kvart år, uansett kva du tener frå før. Grafen er ei rett linje.\n\nEin **eksponentiell modell** har forma $f(x) = a \\cdot b^x$ og blir brukt når endringa per periode er ein **fast prosent** av noverande verdi. Tenk rentes rente: 5 prosent av ein stor sum er meir enn 5 prosent av ein liten sum, så beløpet veks raskare og raskare. Grafen er ei kurve som veks stadig brattare (eller avtek stadig saktare).\n\nKorleis avgjer du i praksis? Sjå på dataa dine. Rekn ut differansane mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstala mellom påfølgjande verdiar: er dei omtrent like, er modellen eksponentiell. Lat oss ta eit eksempel med ein bakteriekultur: 100, 150, 225, 338, 506. Differansane er 50, 75, 113, 168 -- absolutt ikkje konstante. Men forholdstala er $150/100 = 1{,}50$, $225/150 = 1{,}50$, $338/225 = 1{,}50$, $506/338 = 1{,}50$. Alle er 1,50. Modellen er altså $f(t) = 100 \\cdot 1{,}50^t$, med 50 prosent vekst per time.\n\nNokre gonger passar ingen av delane heilt. Straumprisen til dømes varierer sesongmessig -- høg om vinteren, låg om sommaren -- og krev ein heilt annan type modell, ein *periodisk* modell. Det er viktig å innsjå at ikkje alt lèt seg fange med ei rett linje eller ei eksponentialkurve."},{"id":"2p-6-1-n-quiz2","type":"exercise","exercise":{"id":"2p-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på lineær vs. eksponentiell modell:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-1-n-quiz2-q0","task":"Ein bakteriekultur veks frå 100 til 150 til 225 til 338 til 506. Kva for type modell passar best?","options":[{"id":"a","text":"Lineær, fordi verdiane aukar","isCorrect":false},{"id":"b","text":"Eksponentiell, fordi forholdstala mellom påfølgjande verdiar er konstante ($\\approx 1{,}50$)","isCorrect":true},{"id":"c","text":"Lineær, fordi differansane aukar jamt","isCorrect":false},{"id":"d","text":"Ingen modell passar","isCorrect":false}],"solution":"Forholdstala er alle $\\approx 1{,}50$ ($150/100$, $225/150$, osv.). Konstante forholdstal tyder eksponentiell vekst: $f(t) = 100 \\cdot 1{,}50^t$."},{"id":"2p-6-1-n-quiz2-q1","task":"Korleis avgjer du om ein dataserie er lineær eller eksponentiell?","options":[{"id":"a","text":"Lineær viss verdiane aukar, eksponentiell viss dei søkk","isCorrect":false},{"id":"b","text":"Lineær viss differansane mellom verdiane er omtrent like, eksponentiell viss forholdstala er omtrent like","isCorrect":true},{"id":"c","text":"Du kan ikkje avgjere det utan digitale verktøy","isCorrect":false},{"id":"d","text":"Lineær har alltid positive tal, eksponentiell kan ha negative","isCorrect":false}],"solution":"Rekn ut differansar mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstal: er dei omtrent like, er modellen eksponentiell."}],"solution":""}},{"id":"2p-6-1-n-section3","type":"text","content":"## Praktisk modellering -- frå kopp til kommune\n\nMatematisk modellering er ikkje berre teori. Lat oss sjå på nokre konkrete situasjonar og korleis du omset dei til matematikk.\n\nDu set ein kopp med vatn i mikrobølgjeomnen. Temperaturen aukar jamt med 15 grader Celsius per minutt, og vatnet startar på 20 grader. Sidan auken er konstant, er dette ein lineær modell: $T(t) = 15t + 20$, der $T$ er temperaturen og $t$ er tida i minutt. Når blir vatnet 100 grader? Vi løyser: $15t + 20 = 100$, som gir $t = 80/15 \\approx 5{,}3$ minutt, altså rundt 5 minutt og 20 sekund. Men pass på -- modellen er ei forenkling. I verkelegheita vil oppvarminga bremse når temperaturen nærmar seg kokepunktet, så den lineære modellen gir eit litt for optimistisk svar.\n\nKva med noko meir komplekst? Tenk på ei bedrift der omsetninga har vakse frå 5,0 millionar i 2019 til 6,5 millionar i 2023. Ein lineær modell gir stigingstal $a = (6{,}5 - 5{,}0)/4 = 0{,}375$ mill per år, altså $f(x) = 0{,}375x + 5{,}0$ (der $x = 0$ for 2019). For 2027 ($x = 8$) gir modellen $f(8) = 0{,}375 \\cdot 8 + 5{,}0 = 8{,}0$ millionar. Er det rimeleg? Kanskje, viss trenden held fram. Men vi har berre data for 5 år, og marknadsforhold kan endre seg. Ekstrapolering fire år fram er alltid usikkert.\n\nHovudpoenget er at modellering handlar like mykje om *vurdering* som om *utrekning*. Ein formel gir deg eit tal, men det er du som må avgjere om talet er fornuftig."},{"id":"2p-6-1-n-quiz3","type":"exercise","exercise":{"id":"2p-6-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på modellval i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-1-n-quiz3-q0","task":"Kva for modell passar best for å skildre korleis prisen på straum varierer gjennom eit år?","options":[{"id":"a","text":"Lineær modell","isCorrect":false},{"id":"b","text":"Eksponentiell modell","isCorrect":false},{"id":"c","text":"Begge passar like godt","isCorrect":false},{"id":"d","text":"Ingen av desse -- straumpris er sesongavhengig og krev ein periodisk modell","isCorrect":true}],"solution":"Straumpris varierer opp og ned gjennom året (sesongvariasjon), som verken blir fanga opp av lineær eller eksponentiell modell. Her treng ein ein periodisk modell."},{"id":"2p-6-1-n-quiz3-q1","task":"Vasstemperaturen i ein kopp aukar med 15 °C per minutt frå 20 °C. Kva for modell passar best?","options":[{"id":"a","text":"Eksponentiell, fordi temperaturen aukar","isCorrect":false},{"id":"b","text":"Lineær: $T(t) = 15t + 20$, fordi auken er konstant","isCorrect":true},{"id":"c","text":"Ingen modell passar","isCorrect":false},{"id":"d","text":"Periodisk, fordi temperaturen svingar","isCorrect":false}],"solution":"Auken er konstant (15 °C per minutt), altså lineær modell: $T(t) = 15t + 20$. Merk at modellen er ei forenkling -- i verkelegheita bremsar oppvarminga nær kokepunktet."}],"solution":""}},{"id":"2p-6-1-n-section4","type":"text","content":"## Vurdere og kritisere modellar -- den viktigaste ferdigheita\n\nKvar modell er ei forenkling. Han fangar nokre trekk ved verkelegheita, men aldri alt. Og di lenger ut i framtida du bruker han, di meir usikker blir han. Å *vurdere* modellen er difor like viktig som å *setje han opp*.\n\nHer er spørsmåla du bør stille. For det første: passar modellen til dataa? Samanlikn verdiane til modellen med dei faktiske verdiane. Viss avviket er stort, er modellen kanskje ikkje god nok. For det andre: er modellen rimeleg *utanfor* dataintervallet? Her er skiljet mellom **interpolasjon** og **ekstrapolering** avgjerande. Interpolasjon tyder å rekne ut verdiar *mellom* kjende datapunkt, og det er relativt påliteleg. Ekstrapolering tyder å rekne ut verdiar *utanfor* kjende datapunkt, og det er mykje meir usikkert.\n\nFor det tredje: kva er avgrensingane til modellen? Ingen modell gjeld for alltid. Ein eksponentiell vekstmodell for ei strøymeteneste vil til slutt spå at heile folketalet i verda abonnerer -- det er openbert urealistisk. For det fjerde: er føresetnadene realistiske? Når vi går ut frå \"jamn vekst,\" føreset vi at ingenting endrar seg -- ingen konkurrentar, ingen kriser, ingen teknologiske gjennombrot. Det er sjeldan tilfellet.\n\nTenk deg ei softisbedrift med 50 000 kr i inntekt i juni 2023 og 65 000 kr i juni 2024. Når når dei 100 000 kr? Ein lineær modell gir $x \\approx 3{,}3$ år (september 2026), ein eksponentiell modell gir $x \\approx 2{,}6$ år (januar 2026). Men hugs at softissal er sesongbasert -- modellen skildrar kanskje berre junimånader. Og 30 prosent årleg vekst er vanskeleg å halde oppe over tid. *Konteksten* er alt."},{"id":"2p-6-1-n-quiz4","type":"exercise","exercise":{"id":"2p-6-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på modellvurdering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-1-n-quiz4-q0","task":"Kva er den viktigaste forskjellen mellom interpolasjon og ekstrapolering?","options":[{"id":"a","text":"Interpolasjon bruker lineære modellar, ekstrapolering eksponentielle","isCorrect":false},{"id":"b","text":"Interpolasjon reknar ut mellom kjende data og er påliteleg, ekstrapolering reknar ut utanfor og er usikkert","isCorrect":true},{"id":"c","text":"Ingen viktig forskjell","isCorrect":false},{"id":"d","text":"Interpolasjon bruker fleire datapunkt","isCorrect":false}],"solution":"Interpolasjon reknar ut innanfor kjende datapunkt (påliteleg). Ekstrapolering reknar ut utanfor (usikkert) -- vi veit ikkje om trenden held fram."},{"id":"2p-6-1-n-quiz4-q1","task":"Ein eksponentiell vekstmodell for ei strøymeteneste føreseier at alle 8 milliardar menneske vil abonnere om 10 år. Kva er problemet?","options":[{"id":"a","text":"Eksponentiell modell er feil -- det burde vore lineær","isCorrect":false},{"id":"b","text":"Modellen gjeld for alltid","isCorrect":false},{"id":"c","text":"Modellen ekstrapolerer for langt -- veksten vil flate ut når marknaden mettar seg","isCorrect":true},{"id":"d","text":"Det er ingenting gale med denne prediksjonen","isCorrect":false}],"solution":"Ingen vekst held fram eksponentielt for alltid. Marknaden mettar seg, konkurranse aukar, og veksten flatar ut (logistisk vekst). Modellen er berre gyldig innanfor eit avgrensa tidsrom."}],"solution":""}},{"id":"2p-6-1-n-section5","type":"text","content":"## Frå elsparkesyklar til folketalsvekst\n\nFor å avslutte, lat oss sjå på eit eksempel som viser at verkelegheita ofte er meir nyansert enn modellane våre. Ein by registrerer tal elsparkesyklar: 200 etter éin månad, 520 etter tre, 1 100 etter seks, 1 600 etter ni og 1 900 etter tolv. Differansane er 320, 580, 500 og 300 -- dei er ikkje konstante, men ser ut til å *avta*. Forholdstala er 2,6 -- 2,12 -- 1,45 -- 1,19, som òg avtek. Verken lineær eller eksponentiell modell passar heilt.\n\nDet som skjer er noko vi ser overalt i verkelegheita: veksten flatar ut. Først veks talet raskt, men etter kvart mettar marknaden seg -- alle som vil ha ein elsparkesykkel, har fått ein. Denne typen vekst blir kalla **logistisk** vekst og har ei S-forma kurve. Han startar eksponentielt, men bremsar og nærmar seg eit tak. I 2P treng du ikkje meistre logistiske modellar, men du bør *kjenne att* fenomenet: ein vekst som avtek over tid.\n\nFolketalsvekst følgjer ofte eit liknande mønster. I starten veks ein populasjon eksponentielt, men avgrensa ressursar bremsar veksten. Spreiing av informasjon i sosiale medium startar eksponentielt, men flatar ut når alle har fått nyheita. Vasstand i ein behaldar med jamn fylling er derimot lineær, og temperaturendring følgjer ofte ei eksponentiell nedkjøling. Modellering handlar om å gjenkjenne desse mønstera og velje rett verktøy for jobben.\n\nDet viktigaste du tek med deg frå dette kapittelet er at ein modell alltid er ei *forenkling*. Han er eit kart, ikkje terrenget. Og akkurat som eit kart, er han nyttig så lenge du hugsar at han ikkje viser alt."},{"id":"2p-6-1-n-quiz5","type":"exercise","exercise":{"id":"2p-6-1-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på modellering i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-1-n-quiz5-q0","task":"Tal abonnentar veks med 600 per år frå 2023 (2 000 stk). Kva gir ein lineær modell for 2028?","options":[{"id":"a","text":"$3\\,200$","isCorrect":false},{"id":"b","text":"$4\\,400$","isCorrect":false},{"id":"c","text":"$5\\,000$","isCorrect":true},{"id":"d","text":"$6\\,440$","isCorrect":false}],"solution":"$f(x) = 600x + 2\\,000$. For 2028 ($x = 5$): $f(5) = 600 \\cdot 5 + 2\\,000 = 5\\,000$."},{"id":"2p-6-1-n-quiz5-q1","task":"Tal elsparkesyklar i ein by: 200, 520, 1100, 1600, 1900. Forholdstala avtek (2,6 -- 2,1 -- 1,5 -- 1,2). Kva slags vekst er dette?","options":[{"id":"a","text":"Lineær vekst","isCorrect":false},{"id":"b","text":"Eksponentiell vekst","isCorrect":false},{"id":"c","text":"Logistisk vekst (veksten flatar ut)","isCorrect":true},{"id":"d","text":"Tilfeldig variasjon","isCorrect":false}],"solution":"Verken differansar eller forholdstal er konstante, og veksten avtek. Dette er logistisk vekst: rask i starten, men avtek etter kvart som marknaden mettar seg."}],"solution":""}},{"id":"2p-6-1-n-summary","type":"text","content":"## Oppsummering\n\nMatematisk modellering er kunsten å omsetje den verkelege verda til matematikk og tilbake igjen. Det er ein prosess i fem steg: forstå problemet, forenkle, modellere, løyse og vurdere.\n\n**Lineær modell** ($f(x) = ax + b$) blir brukt når endringa per periode er tilnærma konstant -- sjekk om *differansane* mellom påfølgjande verdiar er omtrent like. **Eksponentiell modell** ($f(x) = a \\cdot b^x$) blir brukt når endringa er ein fast prosent -- sjekk om *forholdstala* mellom påfølgjande verdiar er omtrent like.\n\nDet viktigaste du tek med deg er at alle modellar er forenklingar. **Interpolasjon** (rekne ut verdiar mellom kjende data) er påliteleg, medan **ekstrapolering** (rekne ut utanfor kjende data) er usikkert. Vurder alltid om føresetnadene til modellen er realistiske, og hugs at konteksten avgjer om svaret gir meining."}],"exercises":[],"_meta":{"sourceHash":"150395afe31a6fda","translatedAt":"2026-06-17T00:07:07.775Z","model":"claude-code-agent","strings":78,"tm":{"a7dee5b83cd1e6bc":"Matematisk modellering","b195b06d1ed59702":"Narrativ versjon","b7e75f01e4170706":"Forteljinga om korleis matematikk kan fange verkelegheita -- frå avfallsprognosar og bakterievekst til å føreseie kor mykje softis du sel neste sommar.","f4c063f77cf50e3f":"forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy","55e9232cc1e15a9b":"utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tankemåtene sine","bc708687146ac676":"## Verkelegheita i tal\n\nDu jobbar i ein kommune, og sjefen din spør: \"Kor mykje avfall vil vi ha i 2030?\" Du har tala for 2020 og 2024, men ikkje for 2030. Korleis svarar du? Du kan ikkje reise i tid. Du kan ikkje gjette. Men du kan gjere noko anna -- du kan lage ein **matematisk modell**.\n\nMatematisk modellering handlar om å bruke matematikk til å skildre, forstå og føreseie hendingar i den verkelege verda. Ein matematisk modell er ei forenkla skildring av verkelegheita uttrykt med matematisk språk -- ein formel, ein funksjon, ei likning. Han kan aldri gi eit heilt eksakt bilete av verkelegheita, men han kan gi oss nyttige svar og innsikt.\n\nModellering er overalt rundt oss. Meteorologar bruker matematiske modellar for å lage vêrmeldingar. Epidemiologar modellerer spreiinga av sjukdommar. Økonomar modellerer vekst og resesjon. Og du, i matematikk 2P, kan bruke modellering til å forstå alt frå folketalsvekst til bakteriekulturar, frå strøymetenester til softissal.","55db95ba2ccc438b":"## Modelleringsprosessen -- fem steg til svaret\n\nÅ lage ein god matematisk modell er ikkje berre å setje opp ein formel. Det er ein prosess med fem steg, og kvart steg er like viktig.\n\n**Steg 1: Forstå problemet.** Kva er det vi vil finne ut? Kva for data har vi? I kommuneeksempelet veit vi at avfallsmengda var 1 200 tonn i 2020 og 1 350 tonn i 2024. Vi vil predikere mengda i 2030.\n\n**Steg 2: Forenkle.** Verkelegheita er kompleks. Vi kan ikkje ta omsyn til alt -- folketalsendringar, resirkuleringskampanjar, nye reglar. Vi vel å gå ut frå at veksten er jamn, anten lineær eller prosentvis lik.\n\n**Steg 3: Modellere.** No set vi opp sjølve modellen. Ein lineær modell gir oss ein vekst per år på $\\frac{1\\,350 - 1\\,200}{4} = 37{,}5$ tonn per år, altså $f(x) = 37{,}5x + 1\\,200$ der $x$ er år etter 2020. Ein eksponentiell modell gir oss $g(x) = 1\\,200 \\cdot 1{,}030^x$, fordi vekstfaktoren per år er $b = (1{,}125)^{0{,}25} \\approx 1{,}030$, altså omtrent 3 prosent per år.\n\n**Steg 4: Løyse.** For 2030 ($x = 10$) gir den lineære modellen $f(10) = 37{,}5 \\cdot 10 + 1\\,200 = 1\\,575$ tonn. Den eksponentielle gir $g(10) = 1\\,200 \\cdot 1{,}030^{10} \\approx 1\\,613$ tonn.\n\n**Steg 5: Vurdere.** Er desse svara rimelege? For kort framtid er forskjellen liten. Vi bør sjekke med fleire datapunkt for å avgjere kva for modell som passar best. Og vi bør tenkje over om føresetnadene er realistiske -- vil veksten verkeleg halde fram i same tempo?","51ae4905135b564f":"Test deg sjølv på modelleringsprosessen:","4097889236a2af26":"placeholder","1c936c9be75dc77f":"Kva er det viktigaste siste steget i modelleringsprosessen?","a596f8fdc5a81651":"Setje inn tal i formelen","078abed307bd9139":"Teikne grafen","88d042328071c267":"Vurdere om modellen gir rimelege svar","ef7741a59c451403":"Samle inn så mange datapunkt som mogleg","394e16a4183bfbbf":"Det siste og viktigaste steget er å vurdere om resultatet er rimeleg. Utan denne vurderinga veit vi ikkje om svaret gir meining.","fe6c33840f8c810d":"Avfallsmengda i ein kommune var 1 200 tonn i 2020 og 1 350 tonn i 2024. Kva gir ein lineær modell for vekst per år?","e229ac1c453d9071":"$150$ tonn per år","5c77573e9d6ffa4a":"$37{,}5$ tonn per år","76d78da771e5923f":"$300$ tonn per år","a9c5d246ad238f6f":"$75$ tonn per år","2a7ac009541c2cff":"Stigingstal $= \\frac{1\\,350 - 1\\,200}{2024 - 2020} = \\frac{150}{4} = 37{,}5$ tonn per år.","48d6f604b694dce1":"## Lineær eller eksponentiell -- korleis velje?\n\nNo veit du at du kan bruke anten ein lineær eller ein eksponentiell modell. Men korleis avgjer du kva for ein som passar best? Her er nøkkelen.\n\nEin **lineær modell** har forma $f(x) = ax + b$ og blir brukt når endringa per periode er **tilnærma konstant**. Tenk fast lønsauke i kroner: du får 10 000 kroner meir kvart år, uansett kva du tener frå før. Grafen er ei rett linje.\n\nEin **eksponentiell modell** har forma $f(x) = a \\cdot b^x$ og blir brukt når endringa per periode er ein **fast prosent** av noverande verdi. Tenk rentes rente: 5 prosent av ein stor sum er meir enn 5 prosent av ein liten sum, så beløpet veks raskare og raskare. Grafen er ei kurve som veks stadig brattare (eller avtek stadig saktare).\n\nKorleis avgjer du i praksis? Sjå på dataa dine. Rekn ut differansane mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstala mellom påfølgjande verdiar: er dei omtrent like, er modellen eksponentiell. Lat oss ta eit eksempel med ein bakteriekultur: 100, 150, 225, 338, 506. Differansane er 50, 75, 113, 168 -- absolutt ikkje konstante. Men forholdstala er $150/100 = 1{,}50$, $225/150 = 1{,}50$, $338/225 = 1{,}50$, $506/338 = 1{,}50$. Alle er 1,50. Modellen er altså $f(t) = 100 \\cdot 1{,}50^t$, med 50 prosent vekst per time.\n\nNokre gonger passar ingen av delane heilt. Straumprisen til dømes varierer sesongmessig -- høg om vinteren, låg om sommaren -- og krev ein heilt annan type modell, ein *periodisk* modell. Det er viktig å innsjå at ikkje alt lèt seg fange med ei rett linje eller ei eksponentialkurve.","3bb1c868eede793f":"Test deg sjølv på lineær vs. eksponentiell modell:","ccc0181b684770f4":"Ein bakteriekultur veks frå 100 til 150 til 225 til 338 til 506. Kva for type modell passar best?","999ca237b051e055":"Lineær, fordi verdiane aukar","df53899aa91434b2":"Eksponentiell, fordi forholdstala mellom påfølgjande verdiar er konstante ($\\approx 1{,}50$)","cc9904bd75bd4c60":"Lineær, fordi differansane aukar jamt","96cc5755965cd640":"Ingen modell passar","349bd99a8111b207":"Forholdstala er alle $\\approx 1{,}50$ ($150/100$, $225/150$, osv.). Konstante forholdstal tyder eksponentiell vekst: $f(t) = 100 \\cdot 1{,}50^t$.","b8b2b6e7427cf502":"Korleis avgjer du om ein dataserie er lineær eller eksponentiell?","12cbb5658dad6e2b":"Lineær viss verdiane aukar, eksponentiell viss dei søkk","08e513e5d30be7ea":"Lineær viss differansane mellom verdiane er omtrent like, eksponentiell viss forholdstala er omtrent like","2989d2c4e05656d0":"Du kan ikkje avgjere det utan digitale verktøy","e69571b1c9517634":"Lineær har alltid positive tal, eksponentiell kan ha negative","a9245bd8275e0a3d":"Rekn ut differansar mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstal: er dei omtrent like, er modellen eksponentiell.","1479460fbcbe9c3e":"## Praktisk modellering -- frå kopp til kommune\n\nMatematisk modellering er ikkje berre teori. Lat oss sjå på nokre konkrete situasjonar og korleis du omset dei til matematikk.\n\nDu set ein kopp med vatn i mikrobølgjeomnen. Temperaturen aukar jamt med 15 grader Celsius per minutt, og vatnet startar på 20 grader. Sidan auken er konstant, er dette ein lineær modell: $T(t) = 15t + 20$, der $T$ er temperaturen og $t$ er tida i minutt. Når blir vatnet 100 grader? Vi løyser: $15t + 20 = 100$, som gir $t = 80/15 \\approx 5{,}3$ minutt, altså rundt 5 minutt og 20 sekund. Men pass på -- modellen er ei forenkling. I verkelegheita vil oppvarminga bremse når temperaturen nærmar seg kokepunktet, så den lineære modellen gir eit litt for optimistisk svar.\n\nKva med noko meir komplekst? Tenk på ei bedrift der omsetninga har vakse frå 5,0 millionar i 2019 til 6,5 millionar i 2023. Ein lineær modell gir stigingstal $a = (6{,}5 - 5{,}0)/4 = 0{,}375$ mill per år, altså $f(x) = 0{,}375x + 5{,}0$ (der $x = 0$ for 2019). For 2027 ($x = 8$) gir modellen $f(8) = 0{,}375 \\cdot 8 + 5{,}0 = 8{,}0$ millionar. Er det rimeleg? Kanskje, viss trenden held fram. Men vi har berre data for 5 år, og marknadsforhold kan endre seg. Ekstrapolering fire år fram er alltid usikkert.\n\nHovudpoenget er at modellering handlar like mykje om *vurdering* som om *utrekning*. Ein formel gir deg eit tal, men det er du som må avgjere om talet er fornuftig.","06c041e7088f608e":"Test deg sjølv på modellval i praksis:","a932f91f127f3928":"Kva for modell passar best for å skildre korleis prisen på straum varierer gjennom eit år?","671eb8ad88875edf":"Lineær modell","2fd8ff8d77d9286a":"Eksponentiell modell","3c5748cf831ad6fd":"Begge passar like godt","1a947cdce312a89f":"Ingen av desse -- straumpris er sesongavhengig og krev ein periodisk modell","4ae8a13a8194c40e":"Straumpris varierer opp og ned gjennom året (sesongvariasjon), som verken blir fanga opp av lineær eller eksponentiell modell. Her treng ein ein periodisk modell.","a1ed358aa55663e8":"Vasstemperaturen i ein kopp aukar med 15 °C per minutt frå 20 °C. Kva for modell passar best?","d21b892a0707dba1":"Eksponentiell, fordi temperaturen aukar","715ae7c650547c14":"Lineær: $T(t) = 15t + 20$, fordi auken er konstant","09d833205aa55b74":"Periodisk, fordi temperaturen svingar","c6832cf8fe5f5a6e":"Auken er konstant (15 °C per minutt), altså lineær modell: $T(t) = 15t + 20$. Merk at modellen er ei forenkling -- i verkelegheita bremsar oppvarminga nær kokepunktet.","8fe0b0afda9f34bb":"## Vurdere og kritisere modellar -- den viktigaste ferdigheita\n\nKvar modell er ei forenkling. Han fangar nokre trekk ved verkelegheita, men aldri alt. Og di lenger ut i framtida du bruker han, di meir usikker blir han. Å *vurdere* modellen er difor like viktig som å *setje han opp*.\n\nHer er spørsmåla du bør stille. For det første: passar modellen til dataa? Samanlikn verdiane til modellen med dei faktiske verdiane. Viss avviket er stort, er modellen kanskje ikkje god nok. For det andre: er modellen rimeleg *utanfor* dataintervallet? Her er skiljet mellom **interpolasjon** og **ekstrapolering** avgjerande. Interpolasjon tyder å rekne ut verdiar *mellom* kjende datapunkt, og det er relativt påliteleg. Ekstrapolering tyder å rekne ut verdiar *utanfor* kjende datapunkt, og det er mykje meir usikkert.\n\nFor det tredje: kva er avgrensingane til modellen? Ingen modell gjeld for alltid. Ein eksponentiell vekstmodell for ei strøymeteneste vil til slutt spå at heile folketalet i verda abonnerer -- det er openbert urealistisk. For det fjerde: er føresetnadene realistiske? Når vi går ut frå \"jamn vekst,\" føreset vi at ingenting endrar seg -- ingen konkurrentar, ingen kriser, ingen teknologiske gjennombrot. Det er sjeldan tilfellet.\n\nTenk deg ei softisbedrift med 50 000 kr i inntekt i juni 2023 og 65 000 kr i juni 2024. Når når dei 100 000 kr? Ein lineær modell gir $x \\approx 3{,}3$ år (september 2026), ein eksponentiell modell gir $x \\approx 2{,}6$ år (januar 2026). Men hugs at softissal er sesongbasert -- modellen skildrar kanskje berre junimånader. Og 30 prosent årleg vekst er vanskeleg å halde oppe over tid. *Konteksten* er alt.","a9c0e215d6a80f65":"Test deg sjølv på modellvurdering:","f5fbd65964326c74":"Kva er den viktigaste forskjellen mellom interpolasjon og ekstrapolering?","8d884cbe6d336f9a":"Interpolasjon bruker lineære modellar, ekstrapolering eksponentielle","62f61d6d5503ac62":"Interpolasjon reknar ut mellom kjende data og er påliteleg, ekstrapolering reknar ut utanfor og er usikkert","13ca803b6801180c":"Ingen viktig forskjell","5702f9d6a13a51f9":"Interpolasjon bruker fleire datapunkt","3fcd159a6e5ec4e0":"Interpolasjon reknar ut innanfor kjende datapunkt (påliteleg). Ekstrapolering reknar ut utanfor (usikkert) -- vi veit ikkje om trenden held fram.","bbfc5ccc5e70ae9e":"Ein eksponentiell vekstmodell for ei strøymeteneste føreseier at alle 8 milliardar menneske vil abonnere om 10 år. Kva er problemet?","b3b72584b5c03ee4":"Eksponentiell modell er feil -- det burde vore lineær","282e2262d98cd2b1":"Modellen gjeld for alltid","2777e8790b861262":"Modellen ekstrapolerer for langt -- veksten vil flate ut når marknaden mettar seg","edfbf62d9d87f253":"Det er ingenting gale med denne prediksjonen","232d5543dd88da29":"Ingen vekst held fram eksponentielt for alltid. Marknaden mettar seg, konkurranse aukar, og veksten flatar ut (logistisk vekst). Modellen er berre gyldig innanfor eit avgrensa tidsrom.","8f7d46d8387e7b2a":"## Frå elsparkesyklar til folketalsvekst\n\nFor å avslutte, lat oss sjå på eit eksempel som viser at verkelegheita ofte er meir nyansert enn modellane våre. Ein by registrerer tal elsparkesyklar: 200 etter éin månad, 520 etter tre, 1 100 etter seks, 1 600 etter ni og 1 900 etter tolv. Differansane er 320, 580, 500 og 300 -- dei er ikkje konstante, men ser ut til å *avta*. Forholdstala er 2,6 -- 2,12 -- 1,45 -- 1,19, som òg avtek. Verken lineær eller eksponentiell modell passar heilt.\n\nDet som skjer er noko vi ser overalt i verkelegheita: veksten flatar ut. Først veks talet raskt, men etter kvart mettar marknaden seg -- alle som vil ha ein elsparkesykkel, har fått ein. Denne typen vekst blir kalla **logistisk** vekst og har ei S-forma kurve. Han startar eksponentielt, men bremsar og nærmar seg eit tak. I 2P treng du ikkje meistre logistiske modellar, men du bør *kjenne att* fenomenet: ein vekst som avtek over tid.\n\nFolketalsvekst følgjer ofte eit liknande mønster. I starten veks ein populasjon eksponentielt, men avgrensa ressursar bremsar veksten. Spreiing av informasjon i sosiale medium startar eksponentielt, men flatar ut når alle har fått nyheita. Vasstand i ein behaldar med jamn fylling er derimot lineær, og temperaturendring følgjer ofte ei eksponentiell nedkjøling. Modellering handlar om å gjenkjenne desse mønstera og velje rett verktøy for jobben.\n\nDet viktigaste du tek med deg frå dette kapittelet er at ein modell alltid er ei *forenkling*. Han er eit kart, ikkje terrenget. Og akkurat som eit kart, er han nyttig så lenge du hugsar at han ikkje viser alt.","5c628e6b58d4fb73":"Test deg sjølv på modellering i praksis:","5d438c89f8e0b56e":"Tal abonnentar veks med 600 per år frå 2023 (2 000 stk). Kva gir ein lineær modell for 2028?","f8967bd044afe8d1":"$f(x) = 600x + 2\\,000$. For 2028 ($x = 5$): $f(5) = 600 \\cdot 5 + 2\\,000 = 5\\,000$.","d9aaa3a059967b55":"Tal elsparkesyklar i ein by: 200, 520, 1100, 1600, 1900. Forholdstala avtek (2,6 -- 2,1 -- 1,5 -- 1,2). Kva slags vekst er dette?","40e9d42979c47c34":"Lineær vekst","9e406c20a9940e41":"Eksponentiell vekst","3ff49a8ca9630f08":"Logistisk vekst (veksten flatar ut)","b36b8f6a32b35109":"Tilfeldig variasjon","9a1f6571e6831233":"Verken differansar eller forholdstal er konstante, og veksten avtek. Dette er logistisk vekst: rask i starten, men avtek etter kvart som marknaden mettar seg.","0f3253c7ce2f3982":"## Oppsummering\n\nMatematisk modellering er kunsten å omsetje den verkelege verda til matematikk og tilbake igjen. Det er ein prosess i fem steg: forstå problemet, forenkle, modellere, løyse og vurdere.\n\n**Lineær modell** ($f(x) = ax + b$) blir brukt når endringa per periode er tilnærma konstant -- sjekk om *differansane* mellom påfølgjande verdiar er omtrent like. **Eksponentiell modell** ($f(x) = a \\cdot b^x$) blir brukt når endringa er ein fast prosent -- sjekk om *forholdstala* mellom påfølgjande verdiar er omtrent like.\n\nDet viktigaste du tek med deg er at alle modellar er forenklingar. **Interpolasjon** (rekne ut verdiar mellom kjende data) er påliteleg, medan **ekstrapolering** (rekne ut utanfor kjende data) er usikkert. Vurder alltid om føresetnadene til modellen er realistiske, og hugs at konteksten avgjer om svaret gir meining."}}}
+{
+  "id": "2p-6-1-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "6.1",
+  "title": "Matematisk modellering",
+  "subtitle": "Narrativ versjon",
+  "description": "Forteljinga om korleis matematikk kan fange verkelegheita -- frå avfallsprognosar og bakterievekst til å føreseie kor mykje softis du sel neste sommar.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy",
+    "utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tankemåtene sine"
+  ],
+  "linkedChapterId": "2p-6-1",
+  "content": [
+    {
+      "id": "2p-6-1-n-intro",
+      "type": "text",
+      "content": "## Verkelegheita i tal\n\nDu jobbar i ein kommune, og sjefen din spør: \"Kor mykje avfall vil vi ha i 2030?\" Du har tala for 2020 og 2024, men ikkje for 2030. Korleis svarar du? Du kan ikkje reise i tid. Du kan ikkje gjette. Men du kan gjere noko anna -- du kan lage ein **matematisk modell**.\n\nMatematisk modellering handlar om å bruke matematikk til å skildre, forstå og føreseie hendingar i den verkelege verda. Ein matematisk modell er ei forenkla skildring av verkelegheita uttrykt med matematisk språk -- ein formel, ein funksjon, ei likning. Han kan aldri gi eit heilt eksakt bilete av verkelegheita, men han kan gi oss nyttige svar og innsikt.\n\nModellering er overalt rundt oss. Meteorologar bruker matematiske modellar for å lage vêrmeldingar. Epidemiologar modellerer spreiinga av sjukdommar. Økonomar modellerer vekst og resesjon. Og du, i matematikk 2P, kan bruke modellering til å forstå alt frå folketalsvekst til bakteriekulturar, frå strøymetenester til softissal."
+    },
+    {
+      "id": "2p-6-1-n-section1",
+      "type": "text",
+      "content": "## Modelleringsprosessen -- fem steg til svaret\n\nÅ lage ein god matematisk modell er ikkje berre å setje opp ein formel. Det er ein prosess med fem steg, og kvart steg er like viktig.\n\n**Steg 1: Forstå problemet.** Kva er det vi vil finne ut? Kva for data har vi? I kommuneeksempelet veit vi at avfallsmengda var 1 200 tonn i 2020 og 1 350 tonn i 2024. Vi vil predikere mengda i 2030.\n\n**Steg 2: Forenkle.** Verkelegheita er kompleks. Vi kan ikkje ta omsyn til alt -- folketalsendringar, resirkuleringskampanjar, nye reglar. Vi vel å gå ut frå at veksten er jamn, anten lineær eller prosentvis lik.\n\n**Steg 3: Modellere.** No set vi opp sjølve modellen. Ein lineær modell gir oss ein vekst per år på $\\frac{1\\,350 - 1\\,200}{4} = 37{,}5$ tonn per år, altså $f(x) = 37{,}5x + 1\\,200$ der $x$ er år etter 2020. Ein eksponentiell modell gir oss $g(x) = 1\\,200 \\cdot 1{,}030^x$, fordi vekstfaktoren per år er $b = (1{,}125)^{0{,}25} \\approx 1{,}030$, altså omtrent 3 prosent per år.\n\n**Steg 4: Løyse.** For 2030 ($x = 10$) gir den lineære modellen $f(10) = 37{,}5 \\cdot 10 + 1\\,200 = 1\\,575$ tonn. Den eksponentielle gir $g(10) = 1\\,200 \\cdot 1{,}030^{10} \\approx 1\\,613$ tonn.\n\n**Steg 5: Vurdere.** Er desse svara rimelege? For kort framtid er forskjellen liten. Vi bør sjekke med fleire datapunkt for å avgjere kva for modell som passar best. Og vi bør tenkje over om føresetnadene er realistiske -- vil veksten verkeleg halde fram i same tempo?"
+    },
+    {
+      "id": "2p-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modelleringsprosessen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-1-n-quiz1-q0",
+            "task": "Kva er det viktigaste siste steget i modelleringsprosessen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Setje inn tal i formelen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Teikne grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Samle inn så mange datapunkt som mogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vurdere om modellen gir rimelege svar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Det siste og viktigaste steget er å vurdere om resultatet er rimeleg. Utan denne vurderinga veit vi ikkje om svaret gir meining."
+          },
+          {
+            "id": "2p-6-1-n-quiz1-q1",
+            "task": "Avfallsmengda i ein kommune var 1 200 tonn i 2020 og 1 350 tonn i 2024. Kva gir ein lineær modell for vekst per år?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$37{,}5$ tonn per år",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$150$ tonn per år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$300$ tonn per år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$75$ tonn per år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigingstal $= \\frac{1\\,350 - 1\\,200}{2024 - 2020} = \\frac{150}{4} = 37{,}5$ tonn per år."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-1-n-section2",
+      "type": "text",
+      "content": "## Lineær eller eksponentiell -- korleis velje?\n\nNo veit du at du kan bruke anten ein lineær eller ein eksponentiell modell. Men korleis avgjer du kva for ein som passar best? Her er nøkkelen.\n\nEin **lineær modell** har forma $f(x) = ax + b$ og blir brukt når endringa per periode er **tilnærma konstant**. Tenk fast lønsauke i kroner: du får 10 000 kroner meir kvart år, uansett kva du tener frå før. Grafen er ei rett linje.\n\nEin **eksponentiell modell** har forma $f(x) = a \\cdot b^x$ og blir brukt når endringa per periode er ein **fast prosent** av noverande verdi. Tenk rentes rente: 5 prosent av ein stor sum er meir enn 5 prosent av ein liten sum, så beløpet veks raskare og raskare. Grafen er ei kurve som veks stadig brattare (eller avtek stadig saktare).\n\nKorleis avgjer du i praksis? Sjå på dataa dine. Rekn ut differansane mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstala mellom påfølgjande verdiar: er dei omtrent like, er modellen eksponentiell. Lat oss ta eit eksempel med ein bakteriekultur: 100, 150, 225, 338, 506. Differansane er 50, 75, 113, 168 -- absolutt ikkje konstante. Men forholdstala er $150/100 = 1{,}50$, $225/150 = 1{,}50$, $338/225 = 1{,}50$, $506/338 = 1{,}50$. Alle er 1,50. Modellen er altså $f(t) = 100 \\cdot 1{,}50^t$, med 50 prosent vekst per time.\n\nNokre gonger passar ingen av delane heilt. Straumprisen til dømes varierer sesongmessig -- høg om vinteren, låg om sommaren -- og krev ein heilt annan type modell, ein *periodisk* modell. Det er viktig å innsjå at ikkje alt lèt seg fange med ei rett linje eller ei eksponentialkurve."
+    },
+    {
+      "id": "2p-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lineær vs. eksponentiell modell:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-1-n-quiz2-q0",
+            "task": "Ein bakteriekultur veks frå 100 til 150 til 225 til 338 til 506. Kva for type modell passar best?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lineær, fordi verdiane aukar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell, fordi forholdstala mellom påfølgjande verdiar er konstante ($\\approx 1{,}50$)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Lineær, fordi differansane aukar jamt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen modell passar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forholdstala er alle $\\approx 1{,}50$ ($150/100$, $225/150$, osv.). Konstante forholdstal tyder eksponentiell vekst: $f(t) = 100 \\cdot 1{,}50^t$."
+          },
+          {
+            "id": "2p-6-1-n-quiz2-q1",
+            "task": "Korleis avgjer du om ein dataserie er lineær eller eksponentiell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lineær viss verdiane aukar, eksponentiell viss dei søkk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Du kan ikkje avgjere det utan digitale verktøy",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lineær viss differansane mellom verdiane er omtrent like, eksponentiell viss forholdstala er omtrent like",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Lineær har alltid positive tal, eksponentiell kan ha negative",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rekn ut differansar mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstal: er dei omtrent like, er modellen eksponentiell."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-1-n-section3",
+      "type": "text",
+      "content": "## Praktisk modellering -- frå kopp til kommune\n\nMatematisk modellering er ikkje berre teori. Lat oss sjå på nokre konkrete situasjonar og korleis du omset dei til matematikk.\n\nDu set ein kopp med vatn i mikrobølgjeomnen. Temperaturen aukar jamt med 15 grader Celsius per minutt, og vatnet startar på 20 grader. Sidan auken er konstant, er dette ein lineær modell: $T(t) = 15t + 20$, der $T$ er temperaturen og $t$ er tida i minutt. Når blir vatnet 100 grader? Vi løyser: $15t + 20 = 100$, som gir $t = 80/15 \\approx 5{,}3$ minutt, altså rundt 5 minutt og 20 sekund. Men pass på -- modellen er ei forenkling. I verkelegheita vil oppvarminga bremse når temperaturen nærmar seg kokepunktet, så den lineære modellen gir eit litt for optimistisk svar.\n\nKva med noko meir komplekst? Tenk på ei bedrift der omsetninga har vakse frå 5,0 millionar i 2019 til 6,5 millionar i 2023. Ein lineær modell gir stigingstal $a = (6{,}5 - 5{,}0)/4 = 0{,}375$ mill per år, altså $f(x) = 0{,}375x + 5{,}0$ (der $x = 0$ for 2019). For 2027 ($x = 8$) gir modellen $f(8) = 0{,}375 \\cdot 8 + 5{,}0 = 8{,}0$ millionar. Er det rimeleg? Kanskje, viss trenden held fram. Men vi har berre data for 5 år, og marknadsforhold kan endre seg. Ekstrapolering fire år fram er alltid usikkert.\n\nHovudpoenget er at modellering handlar like mykje om *vurdering* som om *utrekning*. Ein formel gir deg eit tal, men det er du som må avgjere om talet er fornuftig."
+    },
+    {
+      "id": "2p-6-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modellval i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-1-n-quiz3-q0",
+            "task": "Kva for modell passar best for å skildre korleis prisen på straum varierer gjennom eit år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lineær modell",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell modell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge passar like godt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen av desse -- straumpris er sesongavhengig og krev ein periodisk modell",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Straumpris varierer opp og ned gjennom året (sesongvariasjon), som verken blir fanga opp av lineær eller eksponentiell modell. Her treng ein ein periodisk modell."
+          },
+          {
+            "id": "2p-6-1-n-quiz3-q1",
+            "task": "Vasstemperaturen i ein kopp aukar med 15 °C per minutt frå 20 °C. Kva for modell passar best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Lineær: $T(t) = 15t + 20$, fordi auken er konstant",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eksponentiell, fordi temperaturen aukar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen modell passar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Periodisk, fordi temperaturen svingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Auken er konstant (15 °C per minutt), altså lineær modell: $T(t) = 15t + 20$. Merk at modellen er ei forenkling -- i verkelegheita bremsar oppvarminga nær kokepunktet."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-1-n-section4",
+      "type": "text",
+      "content": "## Vurdere og kritisere modellar -- den viktigaste ferdigheita\n\nKvar modell er ei forenkling. Han fangar nokre trekk ved verkelegheita, men aldri alt. Og di lenger ut i framtida du bruker han, di meir usikker blir han. Å *vurdere* modellen er difor like viktig som å *setje han opp*.\n\nHer er spørsmåla du bør stille. For det første: passar modellen til dataa? Samanlikn verdiane til modellen med dei faktiske verdiane. Viss avviket er stort, er modellen kanskje ikkje god nok. For det andre: er modellen rimeleg *utanfor* dataintervallet? Her er skiljet mellom **interpolasjon** og **ekstrapolering** avgjerande. Interpolasjon tyder å rekne ut verdiar *mellom* kjende datapunkt, og det er relativt påliteleg. Ekstrapolering tyder å rekne ut verdiar *utanfor* kjende datapunkt, og det er mykje meir usikkert.\n\nFor det tredje: kva er avgrensingane til modellen? Ingen modell gjeld for alltid. Ein eksponentiell vekstmodell for ei strøymeteneste vil til slutt spå at heile folketalet i verda abonnerer -- det er openbert urealistisk. For det fjerde: er føresetnadene realistiske? Når vi går ut frå \"jamn vekst,\" føreset vi at ingenting endrar seg -- ingen konkurrentar, ingen kriser, ingen teknologiske gjennombrot. Det er sjeldan tilfellet.\n\nTenk deg ei softisbedrift med 50 000 kr i inntekt i juni 2023 og 65 000 kr i juni 2024. Når når dei 100 000 kr? Ein lineær modell gir $x \\approx 3{,}3$ år (september 2026), ein eksponentiell modell gir $x \\approx 2{,}6$ år (januar 2026). Men hugs at softissal er sesongbasert -- modellen skildrar kanskje berre junimånader. Og 30 prosent årleg vekst er vanskeleg å halde oppe over tid. *Konteksten* er alt."
+    },
+    {
+      "id": "2p-6-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modellvurdering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-1-n-quiz4-q0",
+            "task": "Kva er den viktigaste forskjellen mellom interpolasjon og ekstrapolering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Interpolasjon bruker lineære modellar, ekstrapolering eksponentielle",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Interpolasjon reknar ut mellom kjende data og er påliteleg, ekstrapolering reknar ut utanfor og er usikkert",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ingen viktig forskjell",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Interpolasjon bruker fleire datapunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Interpolasjon reknar ut innanfor kjende datapunkt (påliteleg). Ekstrapolering reknar ut utanfor (usikkert) -- vi veit ikkje om trenden held fram."
+          },
+          {
+            "id": "2p-6-1-n-quiz4-q1",
+            "task": "Ein eksponentiell vekstmodell for ei strøymeteneste føreseier at alle 8 milliardar menneske vil abonnere om 10 år. Kva er problemet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eksponentiell modell er feil -- det burde vore lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Modellen gjeld for alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Modellen ekstrapolerer for langt -- veksten vil flate ut når marknaden mettar seg",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er ingenting gale med denne prediksjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ingen vekst held fram eksponentielt for alltid. Marknaden mettar seg, konkurranse aukar, og veksten flatar ut (logistisk vekst). Modellen er berre gyldig innanfor eit avgrensa tidsrom."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-1-n-section5",
+      "type": "text",
+      "content": "## Frå elsparkesyklar til folketalsvekst\n\nFor å avslutte, lat oss sjå på eit eksempel som viser at verkelegheita ofte er meir nyansert enn modellane våre. Ein by registrerer tal elsparkesyklar: 200 etter éin månad, 520 etter tre, 1 100 etter seks, 1 600 etter ni og 1 900 etter tolv. Differansane er 320, 580, 500 og 300 -- dei er ikkje konstante, men ser ut til å *avta*. Forholdstala er 2,6 -- 2,12 -- 1,45 -- 1,19, som òg avtek. Verken lineær eller eksponentiell modell passar heilt.\n\nDet som skjer er noko vi ser overalt i verkelegheita: veksten flatar ut. Først veks talet raskt, men etter kvart mettar marknaden seg -- alle som vil ha ein elsparkesykkel, har fått ein. Denne typen vekst blir kalla **logistisk** vekst og har ei S-forma kurve. Han startar eksponentielt, men bremsar og nærmar seg eit tak. I 2P treng du ikkje meistre logistiske modellar, men du bør *kjenne att* fenomenet: ein vekst som avtek over tid.\n\nFolketalsvekst følgjer ofte eit liknande mønster. I starten veks ein populasjon eksponentielt, men avgrensa ressursar bremsar veksten. Spreiing av informasjon i sosiale medium startar eksponentielt, men flatar ut når alle har fått nyheita. Vasstand i ein behaldar med jamn fylling er derimot lineær, og temperaturendring følgjer ofte ei eksponentiell nedkjøling. Modellering handlar om å gjenkjenne desse mønstera og velje rett verktøy for jobben.\n\nDet viktigaste du tek med deg frå dette kapittelet er at ein modell alltid er ei *forenkling*. Han er eit kart, ikkje terrenget. Og akkurat som eit kart, er han nyttig så lenge du hugsar at han ikkje viser alt."
+    },
+    {
+      "id": "2p-6-1-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-1-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modellering i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-1-n-quiz5-q0",
+            "task": "Tal abonnentar veks med 600 per år frå 2023 (2 000 stk). Kva gir ein lineær modell for 2028?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3\\,200$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4\\,400$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6\\,440$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5\\,000$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f(x) = 600x + 2\\,000$. For 2028 ($x = 5$): $f(5) = 600 \\cdot 5 + 2\\,000 = 5\\,000$."
+          },
+          {
+            "id": "2p-6-1-n-quiz5-q1",
+            "task": "Tal elsparkesyklar i ein by: 200, 520, 1100, 1600, 1900. Forholdstala avtek (2,6 -- 2,1 -- 1,5 -- 1,2). Kva slags vekst er dette?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Logistisk vekst (veksten flatar ut)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lineær vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tilfeldig variasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Verken differansar eller forholdstal er konstante, og veksten avtek. Dette er logistisk vekst: rask i starten, men avtek etter kvart som marknaden mettar seg."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nMatematisk modellering er kunsten å omsetje den verkelege verda til matematikk og tilbake igjen. Det er ein prosess i fem steg: forstå problemet, forenkle, modellere, løyse og vurdere.\n\n**Lineær modell** ($f(x) = ax + b$) blir brukt når endringa per periode er tilnærma konstant -- sjekk om *differansane* mellom påfølgjande verdiar er omtrent like. **Eksponentiell modell** ($f(x) = a \\cdot b^x$) blir brukt når endringa er ein fast prosent -- sjekk om *forholdstala* mellom påfølgjande verdiar er omtrent like.\n\nDet viktigaste du tek med deg er at alle modellar er forenklingar. **Interpolasjon** (rekne ut verdiar mellom kjende data) er påliteleg, medan **ekstrapolering** (rekne ut utanfor kjende data) er usikkert. Vurder alltid om føresetnadene til modellen er realistiske, og hugs at konteksten avgjer om svaret gir meining."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "150395afe31a6fda",
+    "translatedAt": "2026-06-17T00:07:07.775Z",
+    "model": "claude-code-agent",
+    "strings": 78,
+    "tm": {
+      "a7dee5b83cd1e6bc": "Matematisk modellering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b7e75f01e4170706": "Forteljinga om korleis matematikk kan fange verkelegheita -- frå avfallsprognosar og bakterievekst til å føreseie kor mykje softis du sel neste sommar.",
+      "f4c063f77cf50e3f": "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy",
+      "55e9232cc1e15a9b": "utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tankemåtene sine",
+      "bc708687146ac676": "## Verkelegheita i tal\n\nDu jobbar i ein kommune, og sjefen din spør: \"Kor mykje avfall vil vi ha i 2030?\" Du har tala for 2020 og 2024, men ikkje for 2030. Korleis svarar du? Du kan ikkje reise i tid. Du kan ikkje gjette. Men du kan gjere noko anna -- du kan lage ein **matematisk modell**.\n\nMatematisk modellering handlar om å bruke matematikk til å skildre, forstå og føreseie hendingar i den verkelege verda. Ein matematisk modell er ei forenkla skildring av verkelegheita uttrykt med matematisk språk -- ein formel, ein funksjon, ei likning. Han kan aldri gi eit heilt eksakt bilete av verkelegheita, men han kan gi oss nyttige svar og innsikt.\n\nModellering er overalt rundt oss. Meteorologar bruker matematiske modellar for å lage vêrmeldingar. Epidemiologar modellerer spreiinga av sjukdommar. Økonomar modellerer vekst og resesjon. Og du, i matematikk 2P, kan bruke modellering til å forstå alt frå folketalsvekst til bakteriekulturar, frå strøymetenester til softissal.",
+      "55db95ba2ccc438b": "## Modelleringsprosessen -- fem steg til svaret\n\nÅ lage ein god matematisk modell er ikkje berre å setje opp ein formel. Det er ein prosess med fem steg, og kvart steg er like viktig.\n\n**Steg 1: Forstå problemet.** Kva er det vi vil finne ut? Kva for data har vi? I kommuneeksempelet veit vi at avfallsmengda var 1 200 tonn i 2020 og 1 350 tonn i 2024. Vi vil predikere mengda i 2030.\n\n**Steg 2: Forenkle.** Verkelegheita er kompleks. Vi kan ikkje ta omsyn til alt -- folketalsendringar, resirkuleringskampanjar, nye reglar. Vi vel å gå ut frå at veksten er jamn, anten lineær eller prosentvis lik.\n\n**Steg 3: Modellere.** No set vi opp sjølve modellen. Ein lineær modell gir oss ein vekst per år på $\\frac{1\\,350 - 1\\,200}{4} = 37{,}5$ tonn per år, altså $f(x) = 37{,}5x + 1\\,200$ der $x$ er år etter 2020. Ein eksponentiell modell gir oss $g(x) = 1\\,200 \\cdot 1{,}030^x$, fordi vekstfaktoren per år er $b = (1{,}125)^{0{,}25} \\approx 1{,}030$, altså omtrent 3 prosent per år.\n\n**Steg 4: Løyse.** For 2030 ($x = 10$) gir den lineære modellen $f(10) = 37{,}5 \\cdot 10 + 1\\,200 = 1\\,575$ tonn. Den eksponentielle gir $g(10) = 1\\,200 \\cdot 1{,}030^{10} \\approx 1\\,613$ tonn.\n\n**Steg 5: Vurdere.** Er desse svara rimelege? For kort framtid er forskjellen liten. Vi bør sjekke med fleire datapunkt for å avgjere kva for modell som passar best. Og vi bør tenkje over om føresetnadene er realistiske -- vil veksten verkeleg halde fram i same tempo?",
+      "51ae4905135b564f": "Test deg sjølv på modelleringsprosessen:",
+      "4097889236a2af26": "placeholder",
+      "1c936c9be75dc77f": "Kva er det viktigaste siste steget i modelleringsprosessen?",
+      "a596f8fdc5a81651": "Setje inn tal i formelen",
+      "078abed307bd9139": "Teikne grafen",
+      "88d042328071c267": "Vurdere om modellen gir rimelege svar",
+      "ef7741a59c451403": "Samle inn så mange datapunkt som mogleg",
+      "394e16a4183bfbbf": "Det siste og viktigaste steget er å vurdere om resultatet er rimeleg. Utan denne vurderinga veit vi ikkje om svaret gir meining.",
+      "fe6c33840f8c810d": "Avfallsmengda i ein kommune var 1 200 tonn i 2020 og 1 350 tonn i 2024. Kva gir ein lineær modell for vekst per år?",
+      "e229ac1c453d9071": "$150$ tonn per år",
+      "5c77573e9d6ffa4a": "$37{,}5$ tonn per år",
+      "76d78da771e5923f": "$300$ tonn per år",
+      "a9c5d246ad238f6f": "$75$ tonn per år",
+      "2a7ac009541c2cff": "Stigingstal $= \\frac{1\\,350 - 1\\,200}{2024 - 2020} = \\frac{150}{4} = 37{,}5$ tonn per år.",
+      "48d6f604b694dce1": "## Lineær eller eksponentiell -- korleis velje?\n\nNo veit du at du kan bruke anten ein lineær eller ein eksponentiell modell. Men korleis avgjer du kva for ein som passar best? Her er nøkkelen.\n\nEin **lineær modell** har forma $f(x) = ax + b$ og blir brukt når endringa per periode er **tilnærma konstant**. Tenk fast lønsauke i kroner: du får 10 000 kroner meir kvart år, uansett kva du tener frå før. Grafen er ei rett linje.\n\nEin **eksponentiell modell** har forma $f(x) = a \\cdot b^x$ og blir brukt når endringa per periode er ein **fast prosent** av noverande verdi. Tenk rentes rente: 5 prosent av ein stor sum er meir enn 5 prosent av ein liten sum, så beløpet veks raskare og raskare. Grafen er ei kurve som veks stadig brattare (eller avtek stadig saktare).\n\nKorleis avgjer du i praksis? Sjå på dataa dine. Rekn ut differansane mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstala mellom påfølgjande verdiar: er dei omtrent like, er modellen eksponentiell. Lat oss ta eit eksempel med ein bakteriekultur: 100, 150, 225, 338, 506. Differansane er 50, 75, 113, 168 -- absolutt ikkje konstante. Men forholdstala er $150/100 = 1{,}50$, $225/150 = 1{,}50$, $338/225 = 1{,}50$, $506/338 = 1{,}50$. Alle er 1,50. Modellen er altså $f(t) = 100 \\cdot 1{,}50^t$, med 50 prosent vekst per time.\n\nNokre gonger passar ingen av delane heilt. Straumprisen til dømes varierer sesongmessig -- høg om vinteren, låg om sommaren -- og krev ein heilt annan type modell, ein *periodisk* modell. Det er viktig å innsjå at ikkje alt lèt seg fange med ei rett linje eller ei eksponentialkurve.",
+      "3bb1c868eede793f": "Test deg sjølv på lineær vs. eksponentiell modell:",
+      "ccc0181b684770f4": "Ein bakteriekultur veks frå 100 til 150 til 225 til 338 til 506. Kva for type modell passar best?",
+      "999ca237b051e055": "Lineær, fordi verdiane aukar",
+      "df53899aa91434b2": "Eksponentiell, fordi forholdstala mellom påfølgjande verdiar er konstante ($\\approx 1{,}50$)",
+      "cc9904bd75bd4c60": "Lineær, fordi differansane aukar jamt",
+      "96cc5755965cd640": "Ingen modell passar",
+      "349bd99a8111b207": "Forholdstala er alle $\\approx 1{,}50$ ($150/100$, $225/150$, osv.). Konstante forholdstal tyder eksponentiell vekst: $f(t) = 100 \\cdot 1{,}50^t$.",
+      "b8b2b6e7427cf502": "Korleis avgjer du om ein dataserie er lineær eller eksponentiell?",
+      "12cbb5658dad6e2b": "Lineær viss verdiane aukar, eksponentiell viss dei søkk",
+      "08e513e5d30be7ea": "Lineær viss differansane mellom verdiane er omtrent like, eksponentiell viss forholdstala er omtrent like",
+      "2989d2c4e05656d0": "Du kan ikkje avgjere det utan digitale verktøy",
+      "e69571b1c9517634": "Lineær har alltid positive tal, eksponentiell kan ha negative",
+      "a9245bd8275e0a3d": "Rekn ut differansar mellom påfølgjande verdiar: er dei omtrent like, er modellen lineær. Rekn ut forholdstal: er dei omtrent like, er modellen eksponentiell.",
+      "1479460fbcbe9c3e": "## Praktisk modellering -- frå kopp til kommune\n\nMatematisk modellering er ikkje berre teori. Lat oss sjå på nokre konkrete situasjonar og korleis du omset dei til matematikk.\n\nDu set ein kopp med vatn i mikrobølgjeomnen. Temperaturen aukar jamt med 15 grader Celsius per minutt, og vatnet startar på 20 grader. Sidan auken er konstant, er dette ein lineær modell: $T(t) = 15t + 20$, der $T$ er temperaturen og $t$ er tida i minutt. Når blir vatnet 100 grader? Vi løyser: $15t + 20 = 100$, som gir $t = 80/15 \\approx 5{,}3$ minutt, altså rundt 5 minutt og 20 sekund. Men pass på -- modellen er ei forenkling. I verkelegheita vil oppvarminga bremse når temperaturen nærmar seg kokepunktet, så den lineære modellen gir eit litt for optimistisk svar.\n\nKva med noko meir komplekst? Tenk på ei bedrift der omsetninga har vakse frå 5,0 millionar i 2019 til 6,5 millionar i 2023. Ein lineær modell gir stigingstal $a = (6{,}5 - 5{,}0)/4 = 0{,}375$ mill per år, altså $f(x) = 0{,}375x + 5{,}0$ (der $x = 0$ for 2019). For 2027 ($x = 8$) gir modellen $f(8) = 0{,}375 \\cdot 8 + 5{,}0 = 8{,}0$ millionar. Er det rimeleg? Kanskje, viss trenden held fram. Men vi har berre data for 5 år, og marknadsforhold kan endre seg. Ekstrapolering fire år fram er alltid usikkert.\n\nHovudpoenget er at modellering handlar like mykje om *vurdering* som om *utrekning*. Ein formel gir deg eit tal, men det er du som må avgjere om talet er fornuftig.",
+      "06c041e7088f608e": "Test deg sjølv på modellval i praksis:",
+      "a932f91f127f3928": "Kva for modell passar best for å skildre korleis prisen på straum varierer gjennom eit år?",
+      "671eb8ad88875edf": "Lineær modell",
+      "2fd8ff8d77d9286a": "Eksponentiell modell",
+      "3c5748cf831ad6fd": "Begge passar like godt",
+      "1a947cdce312a89f": "Ingen av desse -- straumpris er sesongavhengig og krev ein periodisk modell",
+      "4ae8a13a8194c40e": "Straumpris varierer opp og ned gjennom året (sesongvariasjon), som verken blir fanga opp av lineær eller eksponentiell modell. Her treng ein ein periodisk modell.",
+      "a1ed358aa55663e8": "Vasstemperaturen i ein kopp aukar med 15 °C per minutt frå 20 °C. Kva for modell passar best?",
+      "d21b892a0707dba1": "Eksponentiell, fordi temperaturen aukar",
+      "715ae7c650547c14": "Lineær: $T(t) = 15t + 20$, fordi auken er konstant",
+      "09d833205aa55b74": "Periodisk, fordi temperaturen svingar",
+      "c6832cf8fe5f5a6e": "Auken er konstant (15 °C per minutt), altså lineær modell: $T(t) = 15t + 20$. Merk at modellen er ei forenkling -- i verkelegheita bremsar oppvarminga nær kokepunktet.",
+      "8fe0b0afda9f34bb": "## Vurdere og kritisere modellar -- den viktigaste ferdigheita\n\nKvar modell er ei forenkling. Han fangar nokre trekk ved verkelegheita, men aldri alt. Og di lenger ut i framtida du bruker han, di meir usikker blir han. Å *vurdere* modellen er difor like viktig som å *setje han opp*.\n\nHer er spørsmåla du bør stille. For det første: passar modellen til dataa? Samanlikn verdiane til modellen med dei faktiske verdiane. Viss avviket er stort, er modellen kanskje ikkje god nok. For det andre: er modellen rimeleg *utanfor* dataintervallet? Her er skiljet mellom **interpolasjon** og **ekstrapolering** avgjerande. Interpolasjon tyder å rekne ut verdiar *mellom* kjende datapunkt, og det er relativt påliteleg. Ekstrapolering tyder å rekne ut verdiar *utanfor* kjende datapunkt, og det er mykje meir usikkert.\n\nFor det tredje: kva er avgrensingane til modellen? Ingen modell gjeld for alltid. Ein eksponentiell vekstmodell for ei strøymeteneste vil til slutt spå at heile folketalet i verda abonnerer -- det er openbert urealistisk. For det fjerde: er føresetnadene realistiske? Når vi går ut frå \"jamn vekst,\" føreset vi at ingenting endrar seg -- ingen konkurrentar, ingen kriser, ingen teknologiske gjennombrot. Det er sjeldan tilfellet.\n\nTenk deg ei softisbedrift med 50 000 kr i inntekt i juni 2023 og 65 000 kr i juni 2024. Når når dei 100 000 kr? Ein lineær modell gir $x \\approx 3{,}3$ år (september 2026), ein eksponentiell modell gir $x \\approx 2{,}6$ år (januar 2026). Men hugs at softissal er sesongbasert -- modellen skildrar kanskje berre junimånader. Og 30 prosent årleg vekst er vanskeleg å halde oppe over tid. *Konteksten* er alt.",
+      "a9c0e215d6a80f65": "Test deg sjølv på modellvurdering:",
+      "f5fbd65964326c74": "Kva er den viktigaste forskjellen mellom interpolasjon og ekstrapolering?",
+      "8d884cbe6d336f9a": "Interpolasjon bruker lineære modellar, ekstrapolering eksponentielle",
+      "62f61d6d5503ac62": "Interpolasjon reknar ut mellom kjende data og er påliteleg, ekstrapolering reknar ut utanfor og er usikkert",
+      "13ca803b6801180c": "Ingen viktig forskjell",
+      "5702f9d6a13a51f9": "Interpolasjon bruker fleire datapunkt",
+      "3fcd159a6e5ec4e0": "Interpolasjon reknar ut innanfor kjende datapunkt (påliteleg). Ekstrapolering reknar ut utanfor (usikkert) -- vi veit ikkje om trenden held fram.",
+      "bbfc5ccc5e70ae9e": "Ein eksponentiell vekstmodell for ei strøymeteneste føreseier at alle 8 milliardar menneske vil abonnere om 10 år. Kva er problemet?",
+      "b3b72584b5c03ee4": "Eksponentiell modell er feil -- det burde vore lineær",
+      "282e2262d98cd2b1": "Modellen gjeld for alltid",
+      "2777e8790b861262": "Modellen ekstrapolerer for langt -- veksten vil flate ut når marknaden mettar seg",
+      "edfbf62d9d87f253": "Det er ingenting gale med denne prediksjonen",
+      "232d5543dd88da29": "Ingen vekst held fram eksponentielt for alltid. Marknaden mettar seg, konkurranse aukar, og veksten flatar ut (logistisk vekst). Modellen er berre gyldig innanfor eit avgrensa tidsrom.",
+      "8f7d46d8387e7b2a": "## Frå elsparkesyklar til folketalsvekst\n\nFor å avslutte, lat oss sjå på eit eksempel som viser at verkelegheita ofte er meir nyansert enn modellane våre. Ein by registrerer tal elsparkesyklar: 200 etter éin månad, 520 etter tre, 1 100 etter seks, 1 600 etter ni og 1 900 etter tolv. Differansane er 320, 580, 500 og 300 -- dei er ikkje konstante, men ser ut til å *avta*. Forholdstala er 2,6 -- 2,12 -- 1,45 -- 1,19, som òg avtek. Verken lineær eller eksponentiell modell passar heilt.\n\nDet som skjer er noko vi ser overalt i verkelegheita: veksten flatar ut. Først veks talet raskt, men etter kvart mettar marknaden seg -- alle som vil ha ein elsparkesykkel, har fått ein. Denne typen vekst blir kalla **logistisk** vekst og har ei S-forma kurve. Han startar eksponentielt, men bremsar og nærmar seg eit tak. I 2P treng du ikkje meistre logistiske modellar, men du bør *kjenne att* fenomenet: ein vekst som avtek over tid.\n\nFolketalsvekst følgjer ofte eit liknande mønster. I starten veks ein populasjon eksponentielt, men avgrensa ressursar bremsar veksten. Spreiing av informasjon i sosiale medium startar eksponentielt, men flatar ut når alle har fått nyheita. Vasstand i ein behaldar med jamn fylling er derimot lineær, og temperaturendring følgjer ofte ei eksponentiell nedkjøling. Modellering handlar om å gjenkjenne desse mønstera og velje rett verktøy for jobben.\n\nDet viktigaste du tek med deg frå dette kapittelet er at ein modell alltid er ei *forenkling*. Han er eit kart, ikkje terrenget. Og akkurat som eit kart, er han nyttig så lenge du hugsar at han ikkje viser alt.",
+      "5c628e6b58d4fb73": "Test deg sjølv på modellering i praksis:",
+      "5d438c89f8e0b56e": "Tal abonnentar veks med 600 per år frå 2023 (2 000 stk). Kva gir ein lineær modell for 2028?",
+      "f8967bd044afe8d1": "$f(x) = 600x + 2\\,000$. For 2028 ($x = 5$): $f(5) = 600 \\cdot 5 + 2\\,000 = 5\\,000$.",
+      "d9aaa3a059967b55": "Tal elsparkesyklar i ein by: 200, 520, 1100, 1600, 1900. Forholdstala avtek (2,6 -- 2,1 -- 1,5 -- 1,2). Kva slags vekst er dette?",
+      "40e9d42979c47c34": "Lineær vekst",
+      "9e406c20a9940e41": "Eksponentiell vekst",
+      "3ff49a8ca9630f08": "Logistisk vekst (veksten flatar ut)",
+      "b36b8f6a32b35109": "Tilfeldig variasjon",
+      "9a1f6571e6831233": "Verken differansar eller forholdstal er konstante, og veksten avtek. Dette er logistisk vekst: rask i starten, men avtek etter kvart som marknaden mettar seg.",
+      "0f3253c7ce2f3982": "## Oppsummering\n\nMatematisk modellering er kunsten å omsetje den verkelege verda til matematikk og tilbake igjen. Det er ein prosess i fem steg: forstå problemet, forenkle, modellere, løyse og vurdere.\n\n**Lineær modell** ($f(x) = ax + b$) blir brukt når endringa per periode er tilnærma konstant -- sjekk om *differansane* mellom påfølgjande verdiar er omtrent like. **Eksponentiell modell** ($f(x) = a \\cdot b^x$) blir brukt når endringa er ein fast prosent -- sjekk om *forholdstala* mellom påfølgjande verdiar er omtrent like.\n\nDet viktigaste du tek med deg er at alle modellar er forenklingar. **Interpolasjon** (rekne ut verdiar mellom kjende data) er påliteleg, medan **ekstrapolering** (rekne ut utanfor kjende data) er usikkert. Vurder alltid om føresetnadene til modellen er realistiske, og hugs at konteksten avgjer om svaret gir meining."
+    }
+  }
+}

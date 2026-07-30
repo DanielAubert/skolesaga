@@ -1,1 +1,339 @@
-{"id":"1p-6-2-narrativ","courseId":"1p","chapterNumber":"6.2","title":"Kombinatorikk","subtitle":"Narrativ versjon","description":"Ei forteljing om å telle moglegheiter -- frå antrekk i klesskapet til PIN-kodar og valgtre, med multiplikasjonsprinsippet som nøkkel.","estimatedMinutes":33,"competenceGoals":["telle antall moglegheiter med multiplikasjonsprinsippet","bruke valgtre og systematisk oppteljing"],"linkedChapterId":"1p-6-2","content":[{"id":"1p-6-2-n-intro","type":"text","content":"## Kor mange moglegheiter finst det eigentleg?\n\nDu står framfor klesskapet ein morgon: $4$ bukser og $5$ skjorter. Kor mange forskjellige antrekk kan du setje saman? Seinare same dag skal du velje ein firesifra PIN-kode til ei ny app, og du lurrar på kor mange kodar ein hacker måtte prøvd for å gjette di.\n\nBegge spørsmåla handlar om det same: å *telle moglegheiter*. Fagfeltet heiter **kombinatorikk**, og det er teljekunsten som ligg under all sannsynsrekningning -- for å finne «antall gunstige» og «antall mogleg» må du jo kunne telle dei! Heldigvis treng du ikkje liste opp alle moglegheitene éin for éin. I dette kapitlet lærer du to verktøy som gjer jobben: **multiplikasjonsprinsippet** og **valgtreet**."},{"id":"1p-6-2-n-section1","type":"text","content":"## Multiplikasjonsprinsippet -- gang moglegheitene saman\n\nTilbake til klesskapet. For *hver* av dei $4$ buksene kan du velje $5$ forskjellige skjorter. Bukse nummer éin gjev $5$ antrekk, bukse nummer to gjev $5$ nye, og så vidare. Totalt:\n\n$$4 \\cdot 5 = 20 \\text{ antrekk}$$\n\nDette er **multiplikasjonsprinsippet**: når du gjer fleire val etter kvarandre, og det er $n_1$ moglegheiter i første val og $n_2$ i andre, er det totale antalet kombinasjonar\n\n$$n_1 \\cdot n_2$$\n\nPrinsippet held fram for så mange val du vil. Legg du til $3$ par sko, blir det $4 \\cdot 5 \\cdot 3 = 60$ komplette antrekk.\n\nOg PIN-koden? Ho har fire sifre, og kvart siffer kan vere $0$–$9$ -- altså $10$ moglegheiter per posisjon. Sidan same siffer kan bli brukt fleire gonger:\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10\\,000 \\text{ kodar}$$\n\nMen kva om appen kravde at alle sifra var *forskjellige*? Då er det framleis $10$ moglegheiter for første siffer, men berre $9$ igjen for det andre, $8$ for det tredje og $7$ for det fjerde:\n\n$$10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040 \\text{ kodar}$$\n\nDette er det viktige skiljet mellom val **med gjentaking** -- antalet er likt i kvar ledd -- og **utan gjentaking** -- antalet minkar med éin for kvart val, fordi brukte moglegheiter forsvinn frå menyen."},{"id":"1p-6-2-n-quiz1","type":"exercise","exercise":{"id":"1p-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjøl på multiplikasjonsprinsippet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-6-2-n-quiz1-q0","task":"Ein kafé tilbyr $3$ typar brød og $4$ typar pålegg. Kor mange forskjellige sandwichs kan du setje saman?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$34$","isCorrect":false},{"id":"d","text":"$81$","isCorrect":false}],"solution":"Multiplikasjonsprinsippet: $3 \\cdot 4 = 12$ kombinasjonar."},{"id":"1p-6-2-n-quiz1-q1","task":"Kor mange firesifra PIN-kodar finst det når sifra $0$–$9$ kan gjentatast?","options":[{"id":"a","text":"$40$","isCorrect":false},{"id":"b","text":"$5\\,040$","isCorrect":false},{"id":"c","text":"$10\\,000$","isCorrect":true},{"id":"d","text":"$6\\,561$","isCorrect":false}],"solution":"Fire val med $10$ moglegheiter kvar: $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$."},{"id":"1p-6-2-n-quiz1-q2","task":"Kor mange firesifra kodar finst det viss alle sifra må vere forskjellige?","options":[{"id":"a","text":"$5\\,040$","isCorrect":true},{"id":"b","text":"$10\\,000$","isCorrect":false},{"id":"c","text":"$6\\,561$","isCorrect":false},{"id":"d","text":"$4\\,000$","isCorrect":false}],"solution":"Utan gjentaking minkar antalet for kvart val: $10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$."},{"id":"1p-6-2-n-quiz1-q3","task":"Du har $2$ jakker, $3$ genserar og $2$ luer. Kor mange kombinasjonar kan du lage?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":false},{"id":"c","text":"$8$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":true}],"solution":"Tre val etter kvarandre: $2 \\cdot 3 \\cdot 2 = 12$ kombinasjonar."}]}},{"id":"1p-6-2-n-section2","type":"text","content":"## Valgtreet -- å teikne seg fram til svaret\n\nMultiplikasjonsprinsippet gjev deg *antalet*, men nokre gonger vil du faktisk *sjå* alle moglegheitene. Då tegnar du eit **valgtre**: du startar i ei rot og lagar éin grein for kvar moglegheit i første val. Frå enden av kvar grein forgreinar du vidare for neste val, og slik held treet fram å vekse.\n\nTenk deg at du kastar ein mynt tre gonger og noterer kron (K) eller mynt (M). Frå rota går to greiner: K og M. Frå kvar av dei to nye: KK, KM, MK, MM. Og etter tredje kast har treet $2 \\cdot 2 \\cdot 2 = 8$ endepunkt: KKK, KKM, KMK, KMM, MKK, MKM, MMK og MMM.\n\nHer ser du den fine samanhengen: **antalet endepunkt i valgtreet er alltid lik svaret frå multiplikasjonsprinsippet**. Treet og formelen er to språk for det same.\n\nValgtreets styrke er oversikta. Vil du vita sannsynet for *nøyaktig to kron* på tre kast, kan du peike på endepunkta der det skjer: KKM, KMK og MKK -- tre av åtte, altså $P = \\frac{3}{8}$. Den typen oppteljing er nesten umogleg å gjere trygt i hovudet, men trivielt med treet framfor deg.\n\nI praksis vel du verktøy etter situasjonen: er det mange val med mange moglegheiter, blir treet uoverkommleg stort -- bruk multiplikasjonsprinsippet. Treng du å sjå og telle bestemte utfall, teikn treet. Saman gjer dei deg rustet til å telle moglegheiter systematisk -- sjølve fundamentet for å rekne sannsyn på alt frå spel til passordtryggleik."},{"id":"1p-6-2-n-quiz2","type":"exercise","exercise":{"id":"1p-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjøl på valgtre og systematisk oppteljing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-6-2-n-quiz2-q0","task":"Du kastar ein mynt tre gonger. Kor mange endepunkt har valgtreet?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":true},{"id":"c","text":"$9$","isCorrect":false},{"id":"d","text":"$3$","isCorrect":false}],"solution":"To moglegheiter per kast, tre kast: $2 \\cdot 2 \\cdot 2 = 8$ endepunkt."},{"id":"1p-6-2-n-quiz2-q1","task":"Kva representerer kvart endepunkt i eit valgtre?","options":[{"id":"a","text":"Éin enkelt val","isCorrect":false},{"id":"b","text":"Antalet greiner i treet","isCorrect":false},{"id":"c","text":"Éin fullstendig kombinasjon av alle vala","isCorrect":true},{"id":"d","text":"Sannsynet for hendinga","isCorrect":false}],"solution":"Følgjer du vegen frå rota til eit endepunkt, har du gjort alle vala éin bestemt veg -- endepunktet er éin komplett kombinasjon."},{"id":"1p-6-2-n-quiz2-q2","task":"På tre myntkast: kva er sannsynet for nøyaktig to kron?","options":[{"id":"a","text":"$\\frac{3}{8}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{2}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{8}$","isCorrect":false}],"solution":"Av dei åtte endepunkta har tre nøyaktig to kron (KKM, KMK, MKK): $P=\\frac{3}{8}$."},{"id":"1p-6-2-n-quiz2-q3","task":"Når er valgtre eit dårleg verktøy?","options":[{"id":"a","text":"Når du vil sjå alle utfalla","isCorrect":false},{"id":"b","text":"Når det berre er to val","isCorrect":false},{"id":"c","text":"Når du skal telle bestemte kombinasjonar","isCorrect":false},{"id":"d","text":"Når det er mange val med mange moglegheiter kvar","isCorrect":true}],"solution":"Treet veks eksplosivt: allereie $10 \\cdot 10 \\cdot 10 \\cdot 10$ gjev $10\\,000$ endepunkt. Då er multiplikasjonsprinsippet vegen å gå."}]}},{"id":"1p-6-2-n-summary","type":"text","content":"## Oppsummering\n\nFrå garderobeskapet om morgonen til PIN-koden på kvelden -- kombinatorikk er kunsten å teljast moglegheiter utan å lista opp alle saman.\n\n**Multiplikasjonsprinsippet** er hovudverktøyet: gjer du fleire val etter kvarandre, gangar du antalet moglegheiter i kvart val. $4$ bukser og $5$ skjorter gir $4 \\cdot 5 = 20$ antrekk; ein firesifra kode gir $10^4 = 10\\,000$ moglegheiter.\n\nSkillet mellom **med og utan gjentaking** avgjer faktorane: kan same moglegheit brukast på nytt, er antalet likt i kvar ledd ($10 \\cdot 10 \\cdot 10 \\cdot 10$); må alt vera ulikt, minkar det med éin for kvart val ($10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$).\n\n**Valgtreet** teiknar alle moglegheitene frå rot til endepunkt, og antalet endepunkt stemmer alltid med multiplikasjonsprinsippet. Treet gir oversikta du treng når bestemte utfall skal tellast -- som dei $3$ av $8$ myntkast-utfalla med nøyaktig to kron.\n\nMed teljeverkty på plass har du grunnlaget for sannsyntrekking: no kan du finna både «antalet gunstige» og «antalet moglege» -- uansett kor mange moglegheiter det er tale om."}],"exercises":[],"_meta":{"sourceHash":"338b3df62c0874e6","translatedAt":"2026-06-16T09:54:39.962Z","model":"claude-haiku-4-5-20251001","strings":41,"tm":{"4ed92842e252201e":"Kombinatorikk","b195b06d1ed59702":"Narrativ versjon","d118ad74303d0619":"Ei forteljing om å telle moglegheiter -- frå antrekk i klesskapet til PIN-kodar og valgtre, med multiplikasjonsprinsippet som nøkkel.","502d0fc47f2dcb13":"telle antall moglegheiter med multiplikasjonsprinsippet","e12b808ee4ec86b0":"bruke valgtre og systematisk oppteljing","c02213de2e542204":"## Kor mange moglegheiter finst det eigentleg?\n\nDu står framfor klesskapet ein morgon: $4$ bukser og $5$ skjorter. Kor mange forskjellige antrekk kan du setje saman? Seinare same dag skal du velje ein firesifra PIN-kode til ei ny app, og du lurrar på kor mange kodar ein hacker måtte prøvd for å gjette di.\n\nBegge spørsmåla handlar om det same: å *telle moglegheiter*. Fagfeltet heiter **kombinatorikk**, og det er teljekunsten som ligg under all sannsynsrekningning -- for å finne «antall gunstige» og «antall mogleg» må du jo kunne telle dei! Heldigvis treng du ikkje liste opp alle moglegheitene éin for éin. I dette kapitlet lærer du to verktøy som gjer jobben: **multiplikasjonsprinsippet** og **valgtreet**.","74643c3e64996db4":"## Multiplikasjonsprinsippet -- gang moglegheitene saman\n\nTilbake til klesskapet. For *hver* av dei $4$ buksene kan du velje $5$ forskjellige skjorter. Bukse nummer éin gjev $5$ antrekk, bukse nummer to gjev $5$ nye, og så vidare. Totalt:\n\n$$4 \\cdot 5 = 20 \\text{ antrekk}$$\n\nDette er **multiplikasjonsprinsippet**: når du gjer fleire val etter kvarandre, og det er $n_1$ moglegheiter i første val og $n_2$ i andre, er det totale antalet kombinasjonar\n\n$$n_1 \\cdot n_2$$\n\nPrinsippet held fram for så mange val du vil. Legg du til $3$ par sko, blir det $4 \\cdot 5 \\cdot 3 = 60$ komplette antrekk.\n\nOg PIN-koden? Ho har fire sifre, og kvart siffer kan vere $0$–$9$ -- altså $10$ moglegheiter per posisjon. Sidan same siffer kan bli brukt fleire gonger:\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10\\,000 \\text{ kodar}$$\n\nMen kva om appen kravde at alle sifra var *forskjellige*? Då er det framleis $10$ moglegheiter for første siffer, men berre $9$ igjen for det andre, $8$ for det tredje og $7$ for det fjerde:\n\n$$10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040 \\text{ kodar}$$\n\nDette er det viktige skiljet mellom val **med gjentaking** -- antalet er likt i kvar ledd -- og **utan gjentaking** -- antalet minkar med éin for kvart val, fordi brukte moglegheiter forsvinn frå menyen.","a75f80d8204ada31":"Test deg sjøl på multiplikasjonsprinsippet:","4097889236a2af26":"placeholder","07ebf17ac26b10ea":"Ein kafé tilbyr $3$ typar brød og $4$ typar pålegg. Kor mange forskjellige sandwichs kan du setje saman?","7011e50ccf1f37a8":"Multiplikasjonsprinsippet: $3 \\cdot 4 = 12$ kombinasjonar.","1591b5ae6e56982f":"Kor mange firesifra PIN-kodar finst det når sifra $0$–$9$ kan gjentatast?","a2fff426952e8cfc":"Fire val med $10$ moglegheiter kvar: $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$.","ae71a311ccbbed20":"Kor mange firesifra kodar finst det viss alle sifra må vere forskjellige?","98d04b2d7ac24f70":"Utan gjentaking minkar antalet for kvart val: $10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$.","b0dba9ce23b8cef0":"Du har $2$ jakker, $3$ genserar og $2$ luer. Kor mange kombinasjonar kan du lage?","6043811bcf277d7f":"Tre val etter kvarandre: $2 \\cdot 3 \\cdot 2 = 12$ kombinasjonar.","a237b91d625ff8e9":"## Valgtreet -- å teikne seg fram til svaret\n\nMultiplikasjonsprinsippet gjev deg *antalet*, men nokre gonger vil du faktisk *sjå* alle moglegheitene. Då tegnar du eit **valgtre**: du startar i ei rot og lagar éin grein for kvar moglegheit i første val. Frå enden av kvar grein forgreinar du vidare for neste val, og slik held treet fram å vekse.\n\nTenk deg at du kastar ein mynt tre gonger og noterer kron (K) eller mynt (M). Frå rota går to greiner: K og M. Frå kvar av dei to nye: KK, KM, MK, MM. Og etter tredje kast har treet $2 \\cdot 2 \\cdot 2 = 8$ endepunkt: KKK, KKM, KMK, KMM, MKK, MKM, MMK og MMM.\n\nHer ser du den fine samanhengen: **antalet endepunkt i valgtreet er alltid lik svaret frå multiplikasjonsprinsippet**. Treet og formelen er to språk for det same.\n\nValgtreets styrke er oversikta. Vil du vita sannsynet for *nøyaktig to kron* på tre kast, kan du peike på endepunkta der det skjer: KKM, KMK og MKK -- tre av åtte, altså $P = \\frac{3}{8}$. Den typen oppteljing er nesten umogleg å gjere trygt i hovudet, men trivielt med treet framfor deg.\n\nI praksis vel du verktøy etter situasjonen: er det mange val med mange moglegheiter, blir treet uoverkommleg stort -- bruk multiplikasjonsprinsippet. Treng du å sjå og telle bestemte utfall, teikn treet. Saman gjer dei deg rustet til å telle moglegheiter systematisk -- sjølve fundamentet for å rekne sannsyn på alt frå spel til passordtryggleik.","348d17ed8001faf3":"Test deg sjøl på valgtre og systematisk oppteljing:","4487f106f29e7ec1":"Du kastar ein mynt tre gonger. Kor mange endepunkt har valgtreet?","9e922e143462a707":"To moglegheiter per kast, tre kast: $2 \\cdot 2 \\cdot 2 = 8$ endepunkt.","dd323b907838d32a":"Kva representerer kvart endepunkt i eit valgtre?","6e8d678076dfbb2c":"Éin enkelt val","5f57ee81f94e6098":"Antalet greiner i treet","a7ed2c01dab537a3":"Éin fullstendig kombinasjon av alle vala","6d1b77d88b5db017":"Sannsynet for hendinga","279f552866ab2031":"Følgjer du vegen frå rota til eit endepunkt, har du gjort alle vala éin bestemt veg -- endepunktet er éin komplett kombinasjon.","038fa67274d29096":"På tre myntkast: kva er sannsynet for nøyaktig to kron?","54c7e9fb31c5b808":"$\\frac{3}{8}$","b61def0872c567fe":"$\\frac{1}{2}$","eaaa0e080202e320":"$\\frac{2}{3}$","de78f6287ac0119a":"$\\frac{1}{8}$","2840688dc6956757":"Av dei åtte endepunkta har tre nøyaktig to kron (KKM, KMK, MKK): $P=\\frac{3}{8}$.","0ebc2092e3cd96d7":"Når er valgtre eit dårleg verktøy?","a215e4ae9cd50416":"Når du vil sjå alle utfalla","9773f201508428de":"Når det berre er to val","ebf70b4361aae06c":"Når du skal telle bestemte kombinasjonar","e06575d99652eee4":"Når det er mange val med mange moglegheiter kvar","c4c23e147beebef2":"Treet veks eksplosivt: allereie $10 \\cdot 10 \\cdot 10 \\cdot 10$ gjev $10\\,000$ endepunkt. Då er multiplikasjonsprinsippet vegen å gå.","40314b90b12e3e9f":"## Oppsummering\n\nFrå garderobeskapet om morgonen til PIN-koden på kvelden -- kombinatorikk er kunsten å teljast moglegheiter utan å lista opp alle saman.\n\n**Multiplikasjonsprinsippet** er hovudverktøyet: gjer du fleire val etter kvarandre, gangar du antalet moglegheiter i kvart val. $4$ bukser og $5$ skjorter gir $4 \\cdot 5 = 20$ antrekk; ein firesifra kode gir $10^4 = 10\\,000$ moglegheiter.\n\nSkillet mellom **med og utan gjentaking** avgjer faktorane: kan same moglegheit brukast på nytt, er antalet likt i kvar ledd ($10 \\cdot 10 \\cdot 10 \\cdot 10$); må alt vera ulikt, minkar det med éin for kvart val ($10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$).\n\n**Valgtreet** teiknar alle moglegheitene frå rot til endepunkt, og antalet endepunkt stemmer alltid med multiplikasjonsprinsippet. Treet gir oversikta du treng når bestemte utfall skal tellast -- som dei $3$ av $8$ myntkast-utfalla med nøyaktig to kron.\n\nMed teljeverkty på plass har du grunnlaget for sannsyntrekking: no kan du finna både «antalet gunstige» og «antalet moglege» -- uansett kor mange moglegheiter det er tale om."}}}
+{
+  "id": "1p-6-2-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "6.2",
+  "title": "Kombinatorikk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å telle moglegheiter -- frå antrekk i klesskapet til PIN-kodar og valgtre, med multiplikasjonsprinsippet som nøkkel.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "telle antall moglegheiter med multiplikasjonsprinsippet",
+    "bruke valgtre og systematisk oppteljing"
+  ],
+  "linkedChapterId": "1p-6-2",
+  "content": [
+    {
+      "id": "1p-6-2-n-intro",
+      "type": "text",
+      "content": "## Kor mange moglegheiter finst det eigentleg?\n\nDu står framfor klesskapet ein morgon: $4$ bukser og $5$ skjorter. Kor mange forskjellige antrekk kan du setje saman? Seinare same dag skal du velje ein firesifra PIN-kode til ei ny app, og du lurrar på kor mange kodar ein hacker måtte prøvd for å gjette di.\n\nBegge spørsmåla handlar om det same: å *telle moglegheiter*. Fagfeltet heiter **kombinatorikk**, og det er teljekunsten som ligg under all sannsynsrekningning -- for å finne «antall gunstige» og «antall mogleg» må du jo kunne telle dei! Heldigvis treng du ikkje liste opp alle moglegheitene éin for éin. I dette kapitlet lærer du to verktøy som gjer jobben: **multiplikasjonsprinsippet** og **valgtreet**."
+    },
+    {
+      "id": "1p-6-2-n-section1",
+      "type": "text",
+      "content": "## Multiplikasjonsprinsippet -- gang moglegheitene saman\n\nTilbake til klesskapet. For *hver* av dei $4$ buksene kan du velje $5$ forskjellige skjorter. Bukse nummer éin gjev $5$ antrekk, bukse nummer to gjev $5$ nye, og så vidare. Totalt:\n\n$$4 \\cdot 5 = 20 \\text{ antrekk}$$\n\nDette er **multiplikasjonsprinsippet**: når du gjer fleire val etter kvarandre, og det er $n_1$ moglegheiter i første val og $n_2$ i andre, er det totale antalet kombinasjonar\n\n$$n_1 \\cdot n_2$$\n\nPrinsippet held fram for så mange val du vil. Legg du til $3$ par sko, blir det $4 \\cdot 5 \\cdot 3 = 60$ komplette antrekk.\n\nOg PIN-koden? Ho har fire sifre, og kvart siffer kan vere $0$–$9$ -- altså $10$ moglegheiter per posisjon. Sidan same siffer kan bli brukt fleire gonger:\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10\\,000 \\text{ kodar}$$\n\nMen kva om appen kravde at alle sifra var *forskjellige*? Då er det framleis $10$ moglegheiter for første siffer, men berre $9$ igjen for det andre, $8$ for det tredje og $7$ for det fjerde:\n\n$$10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040 \\text{ kodar}$$\n\nDette er det viktige skiljet mellom val **med gjentaking** -- antalet er likt i kvar ledd -- og **utan gjentaking** -- antalet minkar med éin for kvart val, fordi brukte moglegheiter forsvinn frå menyen."
+    },
+    {
+      "id": "1p-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjøl på multiplikasjonsprinsippet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-6-2-n-quiz1-q0",
+            "task": "Ein kafé tilbyr $3$ typar brød og $4$ typar pålegg. Kor mange forskjellige sandwichs kan du setje saman?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$34$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$81$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikasjonsprinsippet: $3 \\cdot 4 = 12$ kombinasjonar."
+          },
+          {
+            "id": "1p-6-2-n-quiz1-q1",
+            "task": "Kor mange firesifra PIN-kodar finst det når sifra $0$–$9$ kan gjentatast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$40$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5\\,040$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$6\\,561$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fire val med $10$ moglegheiter kvar: $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$."
+          },
+          {
+            "id": "1p-6-2-n-quiz1-q2",
+            "task": "Kor mange firesifra kodar finst det viss alle sifra må vere forskjellige?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$10\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6\\,561$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$5\\,040$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan gjentaking minkar antalet for kvart val: $10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$."
+          },
+          {
+            "id": "1p-6-2-n-quiz1-q3",
+            "task": "Du har $2$ jakker, $3$ genserar og $2$ luer. Kor mange kombinasjonar kan du lage?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tre val etter kvarandre: $2 \\cdot 3 \\cdot 2 = 12$ kombinasjonar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-6-2-n-section2",
+      "type": "text",
+      "content": "## Valgtreet -- å teikne seg fram til svaret\n\nMultiplikasjonsprinsippet gjev deg *antalet*, men nokre gonger vil du faktisk *sjå* alle moglegheitene. Då tegnar du eit **valgtre**: du startar i ei rot og lagar éin grein for kvar moglegheit i første val. Frå enden av kvar grein forgreinar du vidare for neste val, og slik held treet fram å vekse.\n\nTenk deg at du kastar ein mynt tre gonger og noterer kron (K) eller mynt (M). Frå rota går to greiner: K og M. Frå kvar av dei to nye: KK, KM, MK, MM. Og etter tredje kast har treet $2 \\cdot 2 \\cdot 2 = 8$ endepunkt: KKK, KKM, KMK, KMM, MKK, MKM, MMK og MMM.\n\nHer ser du den fine samanhengen: **antalet endepunkt i valgtreet er alltid lik svaret frå multiplikasjonsprinsippet**. Treet og formelen er to språk for det same.\n\nValgtreets styrke er oversikta. Vil du vita sannsynet for *nøyaktig to kron* på tre kast, kan du peike på endepunkta der det skjer: KKM, KMK og MKK -- tre av åtte, altså $P = \\frac{3}{8}$. Den typen oppteljing er nesten umogleg å gjere trygt i hovudet, men trivielt med treet framfor deg.\n\nI praksis vel du verktøy etter situasjonen: er det mange val med mange moglegheiter, blir treet uoverkommleg stort -- bruk multiplikasjonsprinsippet. Treng du å sjå og telle bestemte utfall, teikn treet. Saman gjer dei deg rustet til å telle moglegheiter systematisk -- sjølve fundamentet for å rekne sannsyn på alt frå spel til passordtryggleik."
+    },
+    {
+      "id": "1p-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjøl på valgtre og systematisk oppteljing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-6-2-n-quiz2-q0",
+            "task": "Du kastar ein mynt tre gonger. Kor mange endepunkt har valgtreet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "To moglegheiter per kast, tre kast: $2 \\cdot 2 \\cdot 2 = 8$ endepunkt."
+          },
+          {
+            "id": "1p-6-2-n-quiz2-q1",
+            "task": "Kva representerer kvart endepunkt i eit valgtre?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Éin enkelt val",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Antalet greiner i treet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Éin fullstendig kombinasjon av alle vala",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Sannsynet for hendinga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Følgjer du vegen frå rota til eit endepunkt, har du gjort alle vala éin bestemt veg -- endepunktet er éin komplett kombinasjon."
+          },
+          {
+            "id": "1p-6-2-n-quiz2-q2",
+            "task": "På tre myntkast: kva er sannsynet for nøyaktig to kron?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{3}{8}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Av dei åtte endepunkta har tre nøyaktig to kron (KKM, KMK, MKK): $P=\\frac{3}{8}$."
+          },
+          {
+            "id": "1p-6-2-n-quiz2-q3",
+            "task": "Når er valgtre eit dårleg verktøy?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Når det er mange val med mange moglegheiter kvar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Når du vil sjå alle utfalla",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når det berre er to val",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når du skal telle bestemte kombinasjonar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Treet veks eksplosivt: allereie $10 \\cdot 10 \\cdot 10 \\cdot 10$ gjev $10\\,000$ endepunkt. Då er multiplikasjonsprinsippet vegen å gå."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFrå garderobeskapet om morgonen til PIN-koden på kvelden -- kombinatorikk er kunsten å teljast moglegheiter utan å lista opp alle saman.\n\n**Multiplikasjonsprinsippet** er hovudverktøyet: gjer du fleire val etter kvarandre, gangar du antalet moglegheiter i kvart val. $4$ bukser og $5$ skjorter gir $4 \\cdot 5 = 20$ antrekk; ein firesifra kode gir $10^4 = 10\\,000$ moglegheiter.\n\nSkillet mellom **med og utan gjentaking** avgjer faktorane: kan same moglegheit brukast på nytt, er antalet likt i kvar ledd ($10 \\cdot 10 \\cdot 10 \\cdot 10$); må alt vera ulikt, minkar det med éin for kvart val ($10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$).\n\n**Valgtreet** teiknar alle moglegheitene frå rot til endepunkt, og antalet endepunkt stemmer alltid med multiplikasjonsprinsippet. Treet gir oversikta du treng når bestemte utfall skal tellast -- som dei $3$ av $8$ myntkast-utfalla med nøyaktig to kron.\n\nMed teljeverkty på plass har du grunnlaget for sannsyntrekking: no kan du finna både «antalet gunstige» og «antalet moglege» -- uansett kor mange moglegheiter det er tale om."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "338b3df62c0874e6",
+    "translatedAt": "2026-06-16T09:54:39.962Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 41,
+    "tm": {
+      "4ed92842e252201e": "Kombinatorikk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "d118ad74303d0619": "Ei forteljing om å telle moglegheiter -- frå antrekk i klesskapet til PIN-kodar og valgtre, med multiplikasjonsprinsippet som nøkkel.",
+      "502d0fc47f2dcb13": "telle antall moglegheiter med multiplikasjonsprinsippet",
+      "e12b808ee4ec86b0": "bruke valgtre og systematisk oppteljing",
+      "c02213de2e542204": "## Kor mange moglegheiter finst det eigentleg?\n\nDu står framfor klesskapet ein morgon: $4$ bukser og $5$ skjorter. Kor mange forskjellige antrekk kan du setje saman? Seinare same dag skal du velje ein firesifra PIN-kode til ei ny app, og du lurrar på kor mange kodar ein hacker måtte prøvd for å gjette di.\n\nBegge spørsmåla handlar om det same: å *telle moglegheiter*. Fagfeltet heiter **kombinatorikk**, og det er teljekunsten som ligg under all sannsynsrekningning -- for å finne «antall gunstige» og «antall mogleg» må du jo kunne telle dei! Heldigvis treng du ikkje liste opp alle moglegheitene éin for éin. I dette kapitlet lærer du to verktøy som gjer jobben: **multiplikasjonsprinsippet** og **valgtreet**.",
+      "74643c3e64996db4": "## Multiplikasjonsprinsippet -- gang moglegheitene saman\n\nTilbake til klesskapet. For *hver* av dei $4$ buksene kan du velje $5$ forskjellige skjorter. Bukse nummer éin gjev $5$ antrekk, bukse nummer to gjev $5$ nye, og så vidare. Totalt:\n\n$$4 \\cdot 5 = 20 \\text{ antrekk}$$\n\nDette er **multiplikasjonsprinsippet**: når du gjer fleire val etter kvarandre, og det er $n_1$ moglegheiter i første val og $n_2$ i andre, er det totale antalet kombinasjonar\n\n$$n_1 \\cdot n_2$$\n\nPrinsippet held fram for så mange val du vil. Legg du til $3$ par sko, blir det $4 \\cdot 5 \\cdot 3 = 60$ komplette antrekk.\n\nOg PIN-koden? Ho har fire sifre, og kvart siffer kan vere $0$–$9$ -- altså $10$ moglegheiter per posisjon. Sidan same siffer kan bli brukt fleire gonger:\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10\\,000 \\text{ kodar}$$\n\nMen kva om appen kravde at alle sifra var *forskjellige*? Då er det framleis $10$ moglegheiter for første siffer, men berre $9$ igjen for det andre, $8$ for det tredje og $7$ for det fjerde:\n\n$$10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040 \\text{ kodar}$$\n\nDette er det viktige skiljet mellom val **med gjentaking** -- antalet er likt i kvar ledd -- og **utan gjentaking** -- antalet minkar med éin for kvart val, fordi brukte moglegheiter forsvinn frå menyen.",
+      "a75f80d8204ada31": "Test deg sjøl på multiplikasjonsprinsippet:",
+      "4097889236a2af26": "placeholder",
+      "07ebf17ac26b10ea": "Ein kafé tilbyr $3$ typar brød og $4$ typar pålegg. Kor mange forskjellige sandwichs kan du setje saman?",
+      "7011e50ccf1f37a8": "Multiplikasjonsprinsippet: $3 \\cdot 4 = 12$ kombinasjonar.",
+      "1591b5ae6e56982f": "Kor mange firesifra PIN-kodar finst det når sifra $0$–$9$ kan gjentatast?",
+      "a2fff426952e8cfc": "Fire val med $10$ moglegheiter kvar: $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$.",
+      "ae71a311ccbbed20": "Kor mange firesifra kodar finst det viss alle sifra må vere forskjellige?",
+      "98d04b2d7ac24f70": "Utan gjentaking minkar antalet for kvart val: $10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$.",
+      "b0dba9ce23b8cef0": "Du har $2$ jakker, $3$ genserar og $2$ luer. Kor mange kombinasjonar kan du lage?",
+      "6043811bcf277d7f": "Tre val etter kvarandre: $2 \\cdot 3 \\cdot 2 = 12$ kombinasjonar.",
+      "a237b91d625ff8e9": "## Valgtreet -- å teikne seg fram til svaret\n\nMultiplikasjonsprinsippet gjev deg *antalet*, men nokre gonger vil du faktisk *sjå* alle moglegheitene. Då tegnar du eit **valgtre**: du startar i ei rot og lagar éin grein for kvar moglegheit i første val. Frå enden av kvar grein forgreinar du vidare for neste val, og slik held treet fram å vekse.\n\nTenk deg at du kastar ein mynt tre gonger og noterer kron (K) eller mynt (M). Frå rota går to greiner: K og M. Frå kvar av dei to nye: KK, KM, MK, MM. Og etter tredje kast har treet $2 \\cdot 2 \\cdot 2 = 8$ endepunkt: KKK, KKM, KMK, KMM, MKK, MKM, MMK og MMM.\n\nHer ser du den fine samanhengen: **antalet endepunkt i valgtreet er alltid lik svaret frå multiplikasjonsprinsippet**. Treet og formelen er to språk for det same.\n\nValgtreets styrke er oversikta. Vil du vita sannsynet for *nøyaktig to kron* på tre kast, kan du peike på endepunkta der det skjer: KKM, KMK og MKK -- tre av åtte, altså $P = \\frac{3}{8}$. Den typen oppteljing er nesten umogleg å gjere trygt i hovudet, men trivielt med treet framfor deg.\n\nI praksis vel du verktøy etter situasjonen: er det mange val med mange moglegheiter, blir treet uoverkommleg stort -- bruk multiplikasjonsprinsippet. Treng du å sjå og telle bestemte utfall, teikn treet. Saman gjer dei deg rustet til å telle moglegheiter systematisk -- sjølve fundamentet for å rekne sannsyn på alt frå spel til passordtryggleik.",
+      "348d17ed8001faf3": "Test deg sjøl på valgtre og systematisk oppteljing:",
+      "4487f106f29e7ec1": "Du kastar ein mynt tre gonger. Kor mange endepunkt har valgtreet?",
+      "9e922e143462a707": "To moglegheiter per kast, tre kast: $2 \\cdot 2 \\cdot 2 = 8$ endepunkt.",
+      "dd323b907838d32a": "Kva representerer kvart endepunkt i eit valgtre?",
+      "6e8d678076dfbb2c": "Éin enkelt val",
+      "5f57ee81f94e6098": "Antalet greiner i treet",
+      "a7ed2c01dab537a3": "Éin fullstendig kombinasjon av alle vala",
+      "6d1b77d88b5db017": "Sannsynet for hendinga",
+      "279f552866ab2031": "Følgjer du vegen frå rota til eit endepunkt, har du gjort alle vala éin bestemt veg -- endepunktet er éin komplett kombinasjon.",
+      "038fa67274d29096": "På tre myntkast: kva er sannsynet for nøyaktig to kron?",
+      "54c7e9fb31c5b808": "$\\frac{3}{8}$",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "eaaa0e080202e320": "$\\frac{2}{3}$",
+      "de78f6287ac0119a": "$\\frac{1}{8}$",
+      "2840688dc6956757": "Av dei åtte endepunkta har tre nøyaktig to kron (KKM, KMK, MKK): $P=\\frac{3}{8}$.",
+      "0ebc2092e3cd96d7": "Når er valgtre eit dårleg verktøy?",
+      "a215e4ae9cd50416": "Når du vil sjå alle utfalla",
+      "9773f201508428de": "Når det berre er to val",
+      "ebf70b4361aae06c": "Når du skal telle bestemte kombinasjonar",
+      "e06575d99652eee4": "Når det er mange val med mange moglegheiter kvar",
+      "c4c23e147beebef2": "Treet veks eksplosivt: allereie $10 \\cdot 10 \\cdot 10 \\cdot 10$ gjev $10\\,000$ endepunkt. Då er multiplikasjonsprinsippet vegen å gå.",
+      "40314b90b12e3e9f": "## Oppsummering\n\nFrå garderobeskapet om morgonen til PIN-koden på kvelden -- kombinatorikk er kunsten å teljast moglegheiter utan å lista opp alle saman.\n\n**Multiplikasjonsprinsippet** er hovudverktøyet: gjer du fleire val etter kvarandre, gangar du antalet moglegheiter i kvart val. $4$ bukser og $5$ skjorter gir $4 \\cdot 5 = 20$ antrekk; ein firesifra kode gir $10^4 = 10\\,000$ moglegheiter.\n\nSkillet mellom **med og utan gjentaking** avgjer faktorane: kan same moglegheit brukast på nytt, er antalet likt i kvar ledd ($10 \\cdot 10 \\cdot 10 \\cdot 10$); må alt vera ulikt, minkar det med éin for kvart val ($10 \\cdot 9 \\cdot 8 \\cdot 7 = 5\\,040$).\n\n**Valgtreet** teiknar alle moglegheitene frå rot til endepunkt, og antalet endepunkt stemmer alltid med multiplikasjonsprinsippet. Treet gir oversikta du treng når bestemte utfall skal tellast -- som dei $3$ av $8$ myntkast-utfalla med nøyaktig to kron.\n\nMed teljeverkty på plass har du grunnlaget for sannsyntrekking: no kan du finna både «antalet gunstige» og «antalet moglege» -- uansett kor mange moglegheiter det er tale om."
+    }
+  }
+}

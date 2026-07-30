@@ -1,1 +1,546 @@
-{"id":"im-vg1-4-6-narrativ","courseId":"im-vg1","chapterNumber":"4.6","title":"Vektorgrafikk og illustrasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om grafikk som er matematikk -- skilnaden på pikslar og vektorar, magien til Bezier-kurvene, prinsippa bak gode logoar og ikon, og SVG-formatet for nett.","estimatedMinutes":32,"competenceGoals":["kjenne til og anvende bransjefaglige metoder og relevant utstyr i produksjon","visualisere og utvikle konsepter og ideer tilpasset ulike plattformer"],"linkedChapterId":"im-vg1-4-6","content":[{"id":"im-vg1-4-6-n-intro","type":"text","content":"## Ein logo i alle storleikar\n\nTenk på Apple-logoen. Det vesle eplet finst overalt -- som eit bittelite ikon i hjørnet av telefonskjermen din, og som eit gigantisk skilt på ein butikkfasade fleire meter høgt. Og uansett storleik er det knivskarpt, aldri uskarpt eller kornete. Korleis er det mogleg? Korleis kan det same biletet vere perfekt både bittelite og enormt?\n\nSvaret ligg i ein grunnleggjande skilnad mellom to typar grafikk. Eit vanleg fotografi er bygd av *pikslar* -- bittesmå fargeprikkar -- og forstørrar du det for mykje, ser du prikkane og biletet blir uskarpt. Men ein logo som Apple sin er bygd på noko heilt anna: **matematikk**. Han består ikkje av prikkar, men av matematiske formlar som skildrar linjer og kurver, og formlar kan skalerast uendeleg. Dette blir kalla **vektorgrafikk**.\n\nI denne forteljinga skal vi forstå denne magien. Vi skal lære den avgjerande skilnaden mellom raster og vektor, og når ein vel kva. Vi skal møte Bezier-kurvene som er sjølve byggjesteinen i all vektorteikning. Vi skal lære prinsippa bak gode logoar og ikon. Og vi skal bli kjende med SVG, formatet til vektorane på nettet."},{"id":"im-vg1-4-6-n-section1","type":"text","content":"## Prikkar mot formlar\n\nLat oss setje dei to typane grafikk opp mot kvarandre. **Rastergrafikk**, òg kalla bitmap, består av eit rutenett av pikslar, der kvar piksel har sin eigen farge. Det er sånn eit fotografi blir lagra. Styrken er at det kan gjengi uendelege fargenyansar og kompleksitet -- perfekt for fotografi. Veikskapen er at når du forstørrar det, må pikslane blåsast opp, og biletet blir uskarpt og «pikselete». JPEG, PNG, GIF og WebP er rasterformat.\n\n**Vektorgrafikk** er noko heilt anna. I staden for prikkar består han av matematiske formlar -- definert av ankerpunkt, linjer og kurver. Fordi det er formlar og ikkje faste prikkar, kan datamaskinen rekne ut biletet på nytt i kva som helst storleik, heilt utan kvalitetstap. Det er derfor logoen er like skarp som ikon og som fasadeskilt. Vektorformat inkluderer SVG, AI, EPS og PDF, og dei eignar seg for logoar, ikon, illustrasjonar og typografi.\n\nSå når vel du kva? Det finst ein enkel og praktisk tommelfingerregel: viss biletet blei *teke med eit kamera*, er det raster -- eit fotografi har for mykje kompleksitet for vektor. Men viss biletet blei *teikna eller designa* -- ein logo, eit ikon, ein illustrasjon -- bør det som regel vere vektor, så det kan skalerast fritt. Kamera tyder raster; teikning tyder vektor."},{"id":"im-vg1-4-6-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på raster og vektor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-4-6-n-quiz1-q0","task":"Kva er hovudskilnaden mellom raster- og vektorgrafikk?","options":[{"id":"a","text":"Rastergrafikk har alltid betre fargar","isCorrect":false},{"id":"b","text":"Vektorgrafikk kan skalerast uendeleg utan kvalitetstap, rastergrafikk ikkje","isCorrect":true},{"id":"c","text":"Rastergrafikk blir berre brukt på nett","isCorrect":false},{"id":"d","text":"Det er ingen skilnad","isCorrect":false}],"solution":"Vektorgrafikk er bygd på matematiske formlar og kan skalerast uendeleg utan kvalitetstap, medan rastergrafikk (pikslar) blir uskarp ved forstørring."},{"id":"im-vg1-4-6-n-quiz1-q1","task":"Kva type bilete eignar seg best som vektorgrafikk?","options":[{"id":"a","text":"Landskapsfotografi","isCorrect":false},{"id":"b","text":"Portrett","isCorrect":false},{"id":"c","text":"Logoar, ikon og illustrasjonar","isCorrect":true},{"id":"d","text":"Bilete frå mobilkamera","isCorrect":false}],"solution":"Logoar, ikon og illustrasjonar eignar seg best som vektor fordi dei er enkle former som må skalerast til ulike storleikar. Fotografi blir lagra som raster."},{"id":"im-vg1-4-6-n-quiz1-q2","task":"Ifølgje tommelfingerregelen, kva slags grafikk er eit bilete teke med kamera?","options":[{"id":"a","text":"Vektorgrafikk","isCorrect":false},{"id":"b","text":"Alltid SVG","isCorrect":false},{"id":"c","text":"Det kjem an på fargen","isCorrect":false},{"id":"d","text":"Rastergrafikk","isCorrect":true}],"solution":"Tommelfingerregelen seier: blei biletet teke med kamera, er det raster. Blei det teikna eller designa, bør det ofte vere vektor."}]}},{"id":"im-vg1-4-6-n-section2","type":"text","content":"## Magien i Bezier-kurva\n\nKorleis teiknar ein eigentleg desse matematiske formene? Grunnlaget for all vektorgrafikk er noko som heiter **Bezier-kurver**, oppkalla etter den franske ingeniøren Pierre Bezier som utvikla dei -- opphavleg for å designe bilkarosseri. I dag ligg dei bak alt frå logoar til sjølve bokstavane i denne teksten.\n\nEi Bezier-kurve blir bygd av nokre få element. **Ankerpunkt** er punkta som definerer forma -- dei kan vere hjørnepunkt for skarpe hjørne, eller kurvepunkt for mjuke svingar. Frå kvart ankerpunkt strekkjer det seg **kontrollhandtak** -- usynlege linjer som bestemmer retninga til kurva og kor «sterk» svingen er. Ved å dra i desse handtaka formar du kurva akkurat slik du vil. Det krev litt øving, men når det sit, kan du teikne kva som helst.\n\nNår du koblar saman fleire ankerpunkt, får du ein **sti**. Ein *open* sti har start- og sluttpunkt som ikkje møtest -- det blir ei linje. Ein *lukka* sti har start- og sluttpunkt som møtest -- det blir ei heil form som kan fyllast med farge. Nokre gode råd når du arbeider med Bezier-kurver: bruk så *få* ankerpunkt som mogleg, for det gir reinare og jamnare kurver. Plasser ankerpunkta der kurva faktisk endrar retning. Og hald kontrollhandtaka parallelle for dei jamnaste overgangane. Det viktigaste rådet av alt er likevel enkelt: øv mykje. Bezier-kurver er ei ferdigheit som sit i fingrane, og som blir betre for kvar gong du teiknar."},{"id":"im-vg1-4-6-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på Bezier-kurver og stiar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-4-6-n-quiz2-q0","task":"Kva definerer ankerpunkta i ei Bezier-kurve?","options":[{"id":"a","text":"Punkta som definerer forma","isCorrect":true},{"id":"b","text":"Fargen på kurva","isCorrect":false},{"id":"c","text":"Filstorleiken","isCorrect":false},{"id":"d","text":"Oppløysinga","isCorrect":false}],"solution":"Ankerpunkta definerer forma til kurva, medan kontrollhandtaka bestemmer retninga og styrken til kurva."},{"id":"im-vg1-4-6-n-quiz2-q1","task":"Kva er skilnaden på ein open og ein lukka sti?","options":[{"id":"a","text":"Ein open sti kan ikkje sjåast","isCorrect":false},{"id":"b","text":"Ein lukka sti har start- og sluttpunkt som møtest og kan fyllast med farge","isCorrect":true},{"id":"c","text":"Ein lukka sti er alltid raud","isCorrect":false},{"id":"d","text":"Det er ingen skilnad","isCorrect":false}],"solution":"Ein open sti har åtskild start og slutt (ei linje), medan ein lukka sti møtest og dannar ei form som kan fyllast med farge."},{"id":"im-vg1-4-6-n-quiz2-q2","task":"Kva er eit godt råd når du teiknar med Bezier-kurver?","options":[{"id":"a","text":"Bruk så mange ankerpunkt som mogleg","isCorrect":false},{"id":"b","text":"Unngå å øve","isCorrect":false},{"id":"c","text":"Bruk så få ankerpunkt som mogleg for reine kurver","isCorrect":true},{"id":"d","text":"Plasser ankerpunkt heilt tilfeldig","isCorrect":false}],"solution":"Bruk så få ankerpunkt som mogleg, plasserte der kurva endrar retning, for å få reine og jamne kurver."}]}},{"id":"im-vg1-4-6-n-section3","type":"text","content":"## Krafta til det enkle: logoar og ikon\n\nVektorgrafikk er det perfekte verktøyet for logoar og ikon, og her gjeld eitt overordna prinsipp: enkelheit er konge. Tenk på dei mest kjende logoane i verda -- Apple, Nike, IKEA. Dei er alle slåande *enkle*. Det er ikkje tilfeldig.\n\nGod **logodesign** kviler på nokre prinsipp. **Enkelheit** gjer logoen lett å kjenne att og hugse, og sørgjer for at han fungerer sjølv bittelita. **Skalerbarheit** tyder at han må sjå bra ut frå eit 16-pikslars favicon til eit storformat -- nettopp derfor blir logoar laga som vektor. **Tidløysleik** handlar om å unngå motar og trendar som raskt gjer logoen utdatert. **Allsidigheit** krev at logoen fungerer i fargar, i svart-kvitt, og mot både mørk og lys bakgrunn. Og **relevans** tyder at han bør seie noko om verdiane til verksemda. Ein logo for ein hageprodusent kan til dømes kombinere eit stilisert blad med ein bokstav -- enkelt, men meiningsfullt.\n\n**Ikon** følgjer same tankegang i miniatyr. Eit ikon er eit lite, forenkla symbol som formidlar ei handling eller eit konsept -- som konvolutten for e-post. Her er råda konkrete: bygg ikonet på eit fast rutenett, ofte 24 gonger 24 pikslar, så alt blir konsekvent. Hald linjene jamne og visuelt balanserte. Test ikonet i den faktiske storleiken det skal brukast i, ofte berre 16 til 32 pikslar -- det som ser flott ut stort, kan bli graut smått. Og sørg for at ikonet er forståeleg *utan* tekst. Eit e-postikon treng berre eit rektangel og to linjer som dannar klaffen til konvolutten -- to enkle former, og alle skjønar kva det tyder. Enkelheit er ikkje mangel på arbeid; det er ofte resultatet av mykje arbeid."},{"id":"im-vg1-4-6-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-4-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på logo- og ikondesign:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-4-6-n-quiz3-q0","task":"Kva prinsipp kjenneteiknar dei mest kjende logoane?","options":[{"id":"a","text":"Dei er svært komplekse og detaljerte","isCorrect":false},{"id":"b","text":"Dei bruker mange fargar","isCorrect":false},{"id":"c","text":"Dei endrar seg kvart år","isCorrect":false},{"id":"d","text":"Dei er enkle","isCorrect":true}],"solution":"Dei mest kjende logoane, som Apple og Nike, blir kjenneteikna av enkelheit, som gjer dei lette å kjenne att og hugse."},{"id":"im-vg1-4-6-n-quiz3-q1","task":"Kvifor blir logoar laga som vektorgrafikk?","options":[{"id":"a","text":"Slik at dei kan skalerast frå favicon til storformat utan kvalitetstap","isCorrect":true},{"id":"b","text":"Fordi vektor alltid har fleire fargar","isCorrect":false},{"id":"c","text":"Fordi vektor berre verkar på papir","isCorrect":false},{"id":"d","text":"Det er ingen grunn","isCorrect":false}],"solution":"Logoar blir laga som vektor fordi dei då kan skalerast frå eit lite favicon til eit stort skilt utan å bli uskarpe."},{"id":"im-vg1-4-6-n-quiz3-q2","task":"Kva bør du gjere når du designar eit ikon?","options":[{"id":"a","text":"Berre teste det i kjempestor storleik","isCorrect":false},{"id":"b","text":"Teste det i den faktiske bruksstorleiken, ofte 16-32 pikslar","isCorrect":true},{"id":"c","text":"Bruke så mange detaljar som mogleg","isCorrect":false},{"id":"d","text":"Sørgje for at det krev tekst for å forståast","isCorrect":false}],"solution":"Du bør teste ikonet i den faktiske storleiken det skal brukast i, ofte 16-32 pikslar, og sørgje for at det er forståeleg utan tekst."}]}},{"id":"im-vg1-4-6-n-section4","type":"text","content":"## Heimen til vektorane på nettet\n\nNår vektorgrafikk skal ut på nettet, har han sitt heilt eige format: **SVG** -- Scalable Vector Graphics. Namnet seier alt: skalerbar vektorgrafikk. Det er standarden for vektorar på web, og det har nokre eigenskapar som gjer det ganske spesielt.\n\nFor det første er SVG **XML-basert**, som tyder at det eigentleg er tekst -- du kan opne ei SVG-fil og *lese* og redigere ho som kode. For det andre er det **skalerbart**, så det er knivskarpt i kva storleik som helst, akkurat som vektor skal vere. For enkel grafikk har SVG dessutan **lita filstorleik**, noko som gir raske nettsider. Fordi det lever i koden, er det òg **interaktivt** -- du kan animere SVG-grafikk med CSS og JavaScript, slik vi lærte om i webdelen. Og ikkje minst er det **tilgjengeleg**: ein SVG kan innehalde tekst som skjermlesarar kan lese opp, noko som er bra for universell utforming.\n\nLat oss samle alt vi har lært i ein liten arbeidsprosess for å lage eit e-postikon. Du startar med eit rutenett på 24 gonger 24 pikslar. Du teiknar grunnforma -- eit rektangel for konvolutten. Du legg til to diagonale linjer frå dei øvre hjørna som møtest på midten, og dannar klaffen. Du tilpassar stilen -- kanskje ei linjetjukkleik på 2 pikslar, med avrunda eller skarpe hjørne alt etter designsystemet. Du testar at det er gjenkjenneleg nede i 16 pikslar. Og til slutt eksporterer du det som SVG for nettbruk. Det ferdige ikonet er berre eit rektangel og to linjer -- og nettopp i den enkelheita ligg styrken. Med vektorgrafikk, Bezier-kurver og SVG har du no verktøya til å lage skarp, skalerbar grafikk for kva plattform som helst. Vanlege verktøy for dette er Illustrator, gratisalternativet Inkscape, og Figma."},{"id":"im-vg1-4-6-n-quiz4","type":"exercise","exercise":{"id":"im-vg1-4-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på SVG-formatet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-4-6-n-quiz4-q0","task":"Kva er SVG?","options":[{"id":"a","text":"Eit rasterbiletformat som JPEG","isCorrect":false},{"id":"b","text":"Eit lydformat","isCorrect":false},{"id":"c","text":"Eit XML-basert vektorformat for nett som kan skalerast utan kvalitetstap","isCorrect":true},{"id":"d","text":"Eit programmeringsspråk for 3D","isCorrect":false}],"solution":"SVG (Scalable Vector Graphics) er eit XML-basert vektorformat, standard for vektorgrafikk på nett, som kan skalerast utan kvalitetstap."},{"id":"im-vg1-4-6-n-quiz4-q1","task":"Kva eigenskap gjer at SVG kan animerast på ei nettside?","options":[{"id":"a","text":"At han er eit fotografi","isCorrect":false},{"id":"b","text":"At han berre finst i svart-kvitt","isCorrect":false},{"id":"c","text":"At han ikkje kan endrast","isCorrect":false},{"id":"d","text":"At han er XML-basert og kan styrast med CSS og JavaScript","isCorrect":true}],"solution":"Fordi SVG er XML-basert og lever i koden, kan han styrast og animerast med CSS og JavaScript."},{"id":"im-vg1-4-6-n-quiz4-q2","task":"Kva verktøy blir vanlegvis brukte til vektorarbeid?","options":[{"id":"a","text":"Illustrator, Inkscape og Figma","isCorrect":true},{"id":"b","text":"Berre eit kamera","isCorrect":false},{"id":"c","text":"Word og Excel","isCorrect":false},{"id":"d","text":"Ein kalkulator","isCorrect":false}],"solution":"Vanlege vektorverktøy er Adobe Illustrator, gratisalternativet Inkscape og Figma."}]}},{"id":"im-vg1-4-6-n-summary","type":"text","content":"## Oppsummering\n\nVi har forstått kvifor ein logo kan vere skarp i alle storleikar: fordi **vektorgrafikk** er bygd på matematiske formlar, ikkje faste pikslar. Vi skilde han frå **rastergrafikk** (pikslar, best for foto) med den enkle regelen: kamera tyder raster, teikning tyder vektor.\n\nVi møtte **Bezier-kurvene** -- ankerpunkt, kontrollhandtak og stiar -- som er byggjesteinen i all vektorteikning, og lærte å bruke få punkt for reine kurver. Vi såg prinsippa bak gode **logoar** (enkelheit, skalerbarheit, tidløysleik, allsidigheit, relevans) og **ikon** (rutenett, testing i faktisk storleik, forståeleg utan tekst). Og til slutt blei vi kjende med **SVG**, det XML-baserte formatet til vektorane på nettet -- skalerbart, lett, animerbart og tilgjengeleg. No har du verktøya til å skape skarp, skalerbar grafikk for kva plattform som helst."}],"exercises":[],"_meta":{"sourceHash":"97393f9a3ea0fd96","translatedAt":"2026-06-21T07:49:50.977Z","model":"claude-code-agent","strings":91,"tm":{"2ea60664b40fc090":"Vektorgrafikk og illustrasjon","b195b06d1ed59702":"Narrativ versjon","5114f69d5bc16304":"Ei forteljing om grafikk som er matematikk -- skilnaden på pikslar og vektorar, magien til Bezier-kurvene, prinsippa bak gode logoar og ikon, og SVG-formatet for nett.","198b499f05220bcb":"kjenne til og anvende bransjefaglige metoder og relevant utstyr i produksjon","89991ad82b1fe8f7":"visualisere og utvikle konsepter og ideer tilpasset ulike plattformer","24027fd3dafc185a":"## Ein logo i alle storleikar\n\nTenk på Apple-logoen. Det vesle eplet finst overalt -- som eit bittelite ikon i hjørnet av telefonskjermen din, og som eit gigantisk skilt på ein butikkfasade fleire meter høgt. Og uansett storleik er det knivskarpt, aldri uskarpt eller kornete. Korleis er det mogleg? Korleis kan det same biletet vere perfekt både bittelite og enormt?\n\nSvaret ligg i ein grunnleggjande skilnad mellom to typar grafikk. Eit vanleg fotografi er bygd av *pikslar* -- bittesmå fargeprikkar -- og forstørrar du det for mykje, ser du prikkane og biletet blir uskarpt. Men ein logo som Apple sin er bygd på noko heilt anna: **matematikk**. Han består ikkje av prikkar, men av matematiske formlar som skildrar linjer og kurver, og formlar kan skalerast uendeleg. Dette blir kalla **vektorgrafikk**.\n\nI denne forteljinga skal vi forstå denne magien. Vi skal lære den avgjerande skilnaden mellom raster og vektor, og når ein vel kva. Vi skal møte Bezier-kurvene som er sjølve byggjesteinen i all vektorteikning. Vi skal lære prinsippa bak gode logoar og ikon. Og vi skal bli kjende med SVG, formatet til vektorane på nettet.","3f4ab9d7ebddc579":"## Prikkar mot formlar\n\nLat oss setje dei to typane grafikk opp mot kvarandre. **Rastergrafikk**, òg kalla bitmap, består av eit rutenett av pikslar, der kvar piksel har sin eigen farge. Det er sånn eit fotografi blir lagra. Styrken er at det kan gjengi uendelege fargenyansar og kompleksitet -- perfekt for fotografi. Veikskapen er at når du forstørrar det, må pikslane blåsast opp, og biletet blir uskarpt og «pikselete». JPEG, PNG, GIF og WebP er rasterformat.\n\n**Vektorgrafikk** er noko heilt anna. I staden for prikkar består han av matematiske formlar -- definert av ankerpunkt, linjer og kurver. Fordi det er formlar og ikkje faste prikkar, kan datamaskinen rekne ut biletet på nytt i kva som helst storleik, heilt utan kvalitetstap. Det er derfor logoen er like skarp som ikon og som fasadeskilt. Vektorformat inkluderer SVG, AI, EPS og PDF, og dei eignar seg for logoar, ikon, illustrasjonar og typografi.\n\nSå når vel du kva? Det finst ein enkel og praktisk tommelfingerregel: viss biletet blei *teke med eit kamera*, er det raster -- eit fotografi har for mykje kompleksitet for vektor. Men viss biletet blei *teikna eller designa* -- ein logo, eit ikon, ein illustrasjon -- bør det som regel vere vektor, så det kan skalerast fritt. Kamera tyder raster; teikning tyder vektor.","7c80c2b22bc4bd42":"Test deg sjølv på raster og vektor:","4097889236a2af26":"placeholder","880a2f74f131bf21":"Kva er hovudskilnaden mellom raster- og vektorgrafikk?","0dcb3bcca2dbd1fd":"Rastergrafikk har alltid betre fargar","31ccbf970a6d24c6":"Vektorgrafikk kan skalerast uendeleg utan kvalitetstap, rastergrafikk ikkje","d598ea9ab40065e5":"Rastergrafikk blir berre brukt på nett","290d93c2e3522153":"Det er ingen skilnad","7ad2be411e0a4848":"Vektorgrafikk er bygd på matematiske formlar og kan skalerast uendeleg utan kvalitetstap, medan rastergrafikk (pikslar) blir uskarp ved forstørring.","9ddadfc29b6bf40a":"Kva type bilete eignar seg best som vektorgrafikk?","6d178e763c7c6ad0":"Landskapsfotografi","ad8f5e97b9bd49f6":"Portrett","b4d14934f7a4aa7e":"Logoar, ikon og illustrasjonar","919c6066f5fd76dc":"Bilete frå mobilkamera","84237c4c097677c7":"Logoar, ikon og illustrasjonar eignar seg best som vektor fordi dei er enkle former som må skalerast til ulike storleikar. Fotografi blir lagra som raster.","6bd6197cf550c8e2":"Ifølgje tommelfingerregelen, kva slags grafikk er eit bilete teke med kamera?","0c2db86142e8f7f4":"Vektorgrafikk","23dd067d4694492a":"Alltid SVG","73c10fc9cf86dbaa":"Det kjem an på fargen","fe50c92b07cc7fc4":"Rastergrafikk","83a74c9f42ec1af8":"Tommelfingerregelen seier: blei biletet teke med kamera, er det raster. Blei det teikna eller designa, bør det ofte vere vektor.","07cd2b0b4e8416c2":"## Magien i Bezier-kurva\n\nKorleis teiknar ein eigentleg desse matematiske formene? Grunnlaget for all vektorgrafikk er noko som heiter **Bezier-kurver**, oppkalla etter den franske ingeniøren Pierre Bezier som utvikla dei -- opphavleg for å designe bilkarosseri. I dag ligg dei bak alt frå logoar til sjølve bokstavane i denne teksten.\n\nEi Bezier-kurve blir bygd av nokre få element. **Ankerpunkt** er punkta som definerer forma -- dei kan vere hjørnepunkt for skarpe hjørne, eller kurvepunkt for mjuke svingar. Frå kvart ankerpunkt strekkjer det seg **kontrollhandtak** -- usynlege linjer som bestemmer retninga til kurva og kor «sterk» svingen er. Ved å dra i desse handtaka formar du kurva akkurat slik du vil. Det krev litt øving, men når det sit, kan du teikne kva som helst.\n\nNår du koblar saman fleire ankerpunkt, får du ein **sti**. Ein *open* sti har start- og sluttpunkt som ikkje møtest -- det blir ei linje. Ein *lukka* sti har start- og sluttpunkt som møtest -- det blir ei heil form som kan fyllast med farge. Nokre gode råd når du arbeider med Bezier-kurver: bruk så *få* ankerpunkt som mogleg, for det gir reinare og jamnare kurver. Plasser ankerpunkta der kurva faktisk endrar retning. Og hald kontrollhandtaka parallelle for dei jamnaste overgangane. Det viktigaste rådet av alt er likevel enkelt: øv mykje. Bezier-kurver er ei ferdigheit som sit i fingrane, og som blir betre for kvar gong du teiknar.","e5b4a98579ff20ea":"Test deg sjølv på Bezier-kurver og stiar:","760a2cdb4afd7ed4":"Kva definerer ankerpunkta i ei Bezier-kurve?","532aff0982f894ec":"Punkta som definerer forma","23658aaaf80d3bdd":"Fargen på kurva","dde215294c04d121":"Filstorleiken","e5bb1a2ca056d388":"Oppløysinga","c0339d924dd02462":"Ankerpunkta definerer forma til kurva, medan kontrollhandtaka bestemmer retninga og styrken til kurva.","0cab115232186631":"Kva er skilnaden på ein open og ein lukka sti?","d0e1f5955d8ee2d6":"Ein open sti kan ikkje sjåast","0d045ec8d5c558ed":"Ein lukka sti har start- og sluttpunkt som møtest og kan fyllast med farge","db157c4a9f82daec":"Ein lukka sti er alltid raud","51e68a09a0495fcc":"Ein open sti har åtskild start og slutt (ei linje), medan ein lukka sti møtest og dannar ei form som kan fyllast med farge.","f9030df2a888fe76":"Kva er eit godt råd når du teiknar med Bezier-kurver?","59b004543f09c6d0":"Bruk så mange ankerpunkt som mogleg","0fca42efc51a9ed2":"Unngå å øve","f77791f8495e7d88":"Bruk så få ankerpunkt som mogleg for reine kurver","3c83307e1847502c":"Plasser ankerpunkt heilt tilfeldig","b81d816ac5bea8b0":"Bruk så få ankerpunkt som mogleg, plasserte der kurva endrar retning, for å få reine og jamne kurver.","f6fb80be74b6866f":"## Krafta til det enkle: logoar og ikon\n\nVektorgrafikk er det perfekte verktøyet for logoar og ikon, og her gjeld eitt overordna prinsipp: enkelheit er konge. Tenk på dei mest kjende logoane i verda -- Apple, Nike, IKEA. Dei er alle slåande *enkle*. Det er ikkje tilfeldig.\n\nGod **logodesign** kviler på nokre prinsipp. **Enkelheit** gjer logoen lett å kjenne att og hugse, og sørgjer for at han fungerer sjølv bittelita. **Skalerbarheit** tyder at han må sjå bra ut frå eit 16-pikslars favicon til eit storformat -- nettopp derfor blir logoar laga som vektor. **Tidløysleik** handlar om å unngå motar og trendar som raskt gjer logoen utdatert. **Allsidigheit** krev at logoen fungerer i fargar, i svart-kvitt, og mot både mørk og lys bakgrunn. Og **relevans** tyder at han bør seie noko om verdiane til verksemda. Ein logo for ein hageprodusent kan til dømes kombinere eit stilisert blad med ein bokstav -- enkelt, men meiningsfullt.\n\n**Ikon** følgjer same tankegang i miniatyr. Eit ikon er eit lite, forenkla symbol som formidlar ei handling eller eit konsept -- som konvolutten for e-post. Her er råda konkrete: bygg ikonet på eit fast rutenett, ofte 24 gonger 24 pikslar, så alt blir konsekvent. Hald linjene jamne og visuelt balanserte. Test ikonet i den faktiske storleiken det skal brukast i, ofte berre 16 til 32 pikslar -- det som ser flott ut stort, kan bli graut smått. Og sørg for at ikonet er forståeleg *utan* tekst. Eit e-postikon treng berre eit rektangel og to linjer som dannar klaffen til konvolutten -- to enkle former, og alle skjønar kva det tyder. Enkelheit er ikkje mangel på arbeid; det er ofte resultatet av mykje arbeid.","28e92a8729f84b0d":"Test deg sjølv på logo- og ikondesign:","1585eafcd1402ac0":"Kva prinsipp kjenneteiknar dei mest kjende logoane?","ab4b1d5bcf1d08fd":"Dei er svært komplekse og detaljerte","37dcc2826bd5e324":"Dei bruker mange fargar","ff9311cc571407ce":"Dei endrar seg kvart år","237d826959251de6":"Dei er enkle","f998948ccdb51fe7":"Dei mest kjende logoane, som Apple og Nike, blir kjenneteikna av enkelheit, som gjer dei lette å kjenne att og hugse.","05c8a383f8e69b52":"Kvifor blir logoar laga som vektorgrafikk?","478ce54c886e4bec":"Slik at dei kan skalerast frå favicon til storformat utan kvalitetstap","01e6cb7c2e7cfc1f":"Fordi vektor alltid har fleire fargar","55cdda9f3701a39b":"Fordi vektor berre verkar på papir","2ca83e01b35dc9bf":"Det er ingen grunn","53bc1d34fac2f5b1":"Logoar blir laga som vektor fordi dei då kan skalerast frå eit lite favicon til eit stort skilt utan å bli uskarpe.","ad034d9f2989ff39":"Kva bør du gjere når du designar eit ikon?","9d2630db26993792":"Berre teste det i kjempestor storleik","ba56c6c02208e52f":"Teste det i den faktiske bruksstorleiken, ofte 16-32 pikslar","cc90772e37aecfb6":"Bruke så mange detaljar som mogleg","f976381ebab2930f":"Sørgje for at det krev tekst for å forståast","d8315dd5bead2ed4":"Du bør teste ikonet i den faktiske storleiken det skal brukast i, ofte 16-32 pikslar, og sørgje for at det er forståeleg utan tekst.","8a7d51fdf4fc1f8d":"## Heimen til vektorane på nettet\n\nNår vektorgrafikk skal ut på nettet, har han sitt heilt eige format: **SVG** -- Scalable Vector Graphics. Namnet seier alt: skalerbar vektorgrafikk. Det er standarden for vektorar på web, og det har nokre eigenskapar som gjer det ganske spesielt.\n\nFor det første er SVG **XML-basert**, som tyder at det eigentleg er tekst -- du kan opne ei SVG-fil og *lese* og redigere ho som kode. For det andre er det **skalerbart**, så det er knivskarpt i kva storleik som helst, akkurat som vektor skal vere. For enkel grafikk har SVG dessutan **lita filstorleik**, noko som gir raske nettsider. Fordi det lever i koden, er det òg **interaktivt** -- du kan animere SVG-grafikk med CSS og JavaScript, slik vi lærte om i webdelen. Og ikkje minst er det **tilgjengeleg**: ein SVG kan innehalde tekst som skjermlesarar kan lese opp, noko som er bra for universell utforming.\n\nLat oss samle alt vi har lært i ein liten arbeidsprosess for å lage eit e-postikon. Du startar med eit rutenett på 24 gonger 24 pikslar. Du teiknar grunnforma -- eit rektangel for konvolutten. Du legg til to diagonale linjer frå dei øvre hjørna som møtest på midten, og dannar klaffen. Du tilpassar stilen -- kanskje ei linjetjukkleik på 2 pikslar, med avrunda eller skarpe hjørne alt etter designsystemet. Du testar at det er gjenkjenneleg nede i 16 pikslar. Og til slutt eksporterer du det som SVG for nettbruk. Det ferdige ikonet er berre eit rektangel og to linjer -- og nettopp i den enkelheita ligg styrken. Med vektorgrafikk, Bezier-kurver og SVG har du no verktøya til å lage skarp, skalerbar grafikk for kva plattform som helst. Vanlege verktøy for dette er Illustrator, gratisalternativet Inkscape, og Figma.","d8a4bc547c511b8a":"Test deg sjølv på SVG-formatet:","76fce4102c9e539c":"Kva er SVG?","40bf05e3a7f1bdcd":"Eit rasterbiletformat som JPEG","0b43c947cb2f6ba2":"Eit lydformat","9c15f76a0b628daa":"Eit XML-basert vektorformat for nett som kan skalerast utan kvalitetstap","2acb3705d14af59e":"Eit programmeringsspråk for 3D","421f0df7269b81fc":"SVG (Scalable Vector Graphics) er eit XML-basert vektorformat, standard for vektorgrafikk på nett, som kan skalerast utan kvalitetstap.","acd94df95978db6f":"Kva eigenskap gjer at SVG kan animerast på ei nettside?","2b508e002d5f5e7c":"At han er eit fotografi","9c5ec7d3efe2fa8d":"At han berre finst i svart-kvitt","2e7158318bf9bf83":"At han ikkje kan endrast","89382509895f0733":"At han er XML-basert og kan styrast med CSS og JavaScript","58b432c872558202":"Fordi SVG er XML-basert og lever i koden, kan han styrast og animerast med CSS og JavaScript.","983aaad751e4ae9b":"Kva verktøy blir vanlegvis brukte til vektorarbeid?","f22effba37af6e54":"Illustrator, Inkscape og Figma","4a96154aaed2376c":"Berre eit kamera","36af7cfba413cf4a":"Word og Excel","cfcf6a9049080a8b":"Ein kalkulator","0ea96e620a63d67b":"Vanlege vektorverktøy er Adobe Illustrator, gratisalternativet Inkscape og Figma.","2b092c3d47e3ea80":"## Oppsummering\n\nVi har forstått kvifor ein logo kan vere skarp i alle storleikar: fordi **vektorgrafikk** er bygd på matematiske formlar, ikkje faste pikslar. Vi skilde han frå **rastergrafikk** (pikslar, best for foto) med den enkle regelen: kamera tyder raster, teikning tyder vektor.\n\nVi møtte **Bezier-kurvene** -- ankerpunkt, kontrollhandtak og stiar -- som er byggjesteinen i all vektorteikning, og lærte å bruke få punkt for reine kurver. Vi såg prinsippa bak gode **logoar** (enkelheit, skalerbarheit, tidløysleik, allsidigheit, relevans) og **ikon** (rutenett, testing i faktisk storleik, forståeleg utan tekst). Og til slutt blei vi kjende med **SVG**, det XML-baserte formatet til vektorane på nettet -- skalerbart, lett, animerbart og tilgjengeleg. No har du verktøya til å skape skarp, skalerbar grafikk for kva plattform som helst."}}}
+{
+  "id": "im-vg1-4-6-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "4.6",
+  "title": "Vektorgrafikk og illustrasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om grafikk som er matematikk -- skilnaden på pikslar og vektorar, magien til Bezier-kurvene, prinsippa bak gode logoar og ikon, og SVG-formatet for nett.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "kjenne til og anvende bransjefaglige metoder og relevant utstyr i produksjon",
+    "visualisere og utvikle konsepter og ideer tilpasset ulike plattformer"
+  ],
+  "linkedChapterId": "im-vg1-4-6",
+  "content": [
+    {
+      "id": "im-vg1-4-6-n-intro",
+      "type": "text",
+      "content": "## Ein logo i alle storleikar\n\nTenk på Apple-logoen. Det vesle eplet finst overalt -- som eit bittelite ikon i hjørnet av telefonskjermen din, og som eit gigantisk skilt på ein butikkfasade fleire meter høgt. Og uansett storleik er det knivskarpt, aldri uskarpt eller kornete. Korleis er det mogleg? Korleis kan det same biletet vere perfekt både bittelite og enormt?\n\nSvaret ligg i ein grunnleggjande skilnad mellom to typar grafikk. Eit vanleg fotografi er bygd av *pikslar* -- bittesmå fargeprikkar -- og forstørrar du det for mykje, ser du prikkane og biletet blir uskarpt. Men ein logo som Apple sin er bygd på noko heilt anna: **matematikk**. Han består ikkje av prikkar, men av matematiske formlar som skildrar linjer og kurver, og formlar kan skalerast uendeleg. Dette blir kalla **vektorgrafikk**.\n\nI denne forteljinga skal vi forstå denne magien. Vi skal lære den avgjerande skilnaden mellom raster og vektor, og når ein vel kva. Vi skal møte Bezier-kurvene som er sjølve byggjesteinen i all vektorteikning. Vi skal lære prinsippa bak gode logoar og ikon. Og vi skal bli kjende med SVG, formatet til vektorane på nettet."
+    },
+    {
+      "id": "im-vg1-4-6-n-section1",
+      "type": "text",
+      "content": "## Prikkar mot formlar\n\nLat oss setje dei to typane grafikk opp mot kvarandre. **Rastergrafikk**, òg kalla bitmap, består av eit rutenett av pikslar, der kvar piksel har sin eigen farge. Det er sånn eit fotografi blir lagra. Styrken er at det kan gjengi uendelege fargenyansar og kompleksitet -- perfekt for fotografi. Veikskapen er at når du forstørrar det, må pikslane blåsast opp, og biletet blir uskarpt og «pikselete». JPEG, PNG, GIF og WebP er rasterformat.\n\n**Vektorgrafikk** er noko heilt anna. I staden for prikkar består han av matematiske formlar -- definert av ankerpunkt, linjer og kurver. Fordi det er formlar og ikkje faste prikkar, kan datamaskinen rekne ut biletet på nytt i kva som helst storleik, heilt utan kvalitetstap. Det er derfor logoen er like skarp som ikon og som fasadeskilt. Vektorformat inkluderer SVG, AI, EPS og PDF, og dei eignar seg for logoar, ikon, illustrasjonar og typografi.\n\nSå når vel du kva? Det finst ein enkel og praktisk tommelfingerregel: viss biletet blei *teke med eit kamera*, er det raster -- eit fotografi har for mykje kompleksitet for vektor. Men viss biletet blei *teikna eller designa* -- ein logo, eit ikon, ein illustrasjon -- bør det som regel vere vektor, så det kan skalerast fritt. Kamera tyder raster; teikning tyder vektor."
+    },
+    {
+      "id": "im-vg1-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på raster og vektor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-4-6-n-quiz1-q0",
+            "task": "Kva er hovudskilnaden mellom raster- og vektorgrafikk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Rastergrafikk har alltid betre fargar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rastergrafikk blir berre brukt på nett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vektorgrafikk kan skalerast uendeleg utan kvalitetstap, rastergrafikk ikkje",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vektorgrafikk er bygd på matematiske formlar og kan skalerast uendeleg utan kvalitetstap, medan rastergrafikk (pikslar) blir uskarp ved forstørring."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz1-q1",
+            "task": "Kva type bilete eignar seg best som vektorgrafikk?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Logoar, ikon og illustrasjonar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Landskapsfotografi",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Portrett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bilete frå mobilkamera",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logoar, ikon og illustrasjonar eignar seg best som vektor fordi dei er enkle former som må skalerast til ulike storleikar. Fotografi blir lagra som raster."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz1-q2",
+            "task": "Ifølgje tommelfingerregelen, kva slags grafikk er eit bilete teke med kamera?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vektorgrafikk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rastergrafikk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Alltid SVG",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det kjem an på fargen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tommelfingerregelen seier: blei biletet teke med kamera, er det raster. Blei det teikna eller designa, bør det ofte vere vektor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-4-6-n-section2",
+      "type": "text",
+      "content": "## Magien i Bezier-kurva\n\nKorleis teiknar ein eigentleg desse matematiske formene? Grunnlaget for all vektorgrafikk er noko som heiter **Bezier-kurver**, oppkalla etter den franske ingeniøren Pierre Bezier som utvikla dei -- opphavleg for å designe bilkarosseri. I dag ligg dei bak alt frå logoar til sjølve bokstavane i denne teksten.\n\nEi Bezier-kurve blir bygd av nokre få element. **Ankerpunkt** er punkta som definerer forma -- dei kan vere hjørnepunkt for skarpe hjørne, eller kurvepunkt for mjuke svingar. Frå kvart ankerpunkt strekkjer det seg **kontrollhandtak** -- usynlege linjer som bestemmer retninga til kurva og kor «sterk» svingen er. Ved å dra i desse handtaka formar du kurva akkurat slik du vil. Det krev litt øving, men når det sit, kan du teikne kva som helst.\n\nNår du koblar saman fleire ankerpunkt, får du ein **sti**. Ein *open* sti har start- og sluttpunkt som ikkje møtest -- det blir ei linje. Ein *lukka* sti har start- og sluttpunkt som møtest -- det blir ei heil form som kan fyllast med farge. Nokre gode råd når du arbeider med Bezier-kurver: bruk så *få* ankerpunkt som mogleg, for det gir reinare og jamnare kurver. Plasser ankerpunkta der kurva faktisk endrar retning. Og hald kontrollhandtaka parallelle for dei jamnaste overgangane. Det viktigaste rådet av alt er likevel enkelt: øv mykje. Bezier-kurver er ei ferdigheit som sit i fingrane, og som blir betre for kvar gong du teiknar."
+    },
+    {
+      "id": "im-vg1-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Bezier-kurver og stiar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-4-6-n-quiz2-q0",
+            "task": "Kva definerer ankerpunkta i ei Bezier-kurve?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fargen på kurva",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Filstorleiken",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Punkta som definerer forma",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Oppløysinga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ankerpunkta definerer forma til kurva, medan kontrollhandtaka bestemmer retninga og styrken til kurva."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz2-q1",
+            "task": "Kva er skilnaden på ein open og ein lukka sti?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein open sti kan ikkje sjåast",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein lukka sti er alltid raud",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein lukka sti har start- og sluttpunkt som møtest og kan fyllast med farge",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein open sti har åtskild start og slutt (ei linje), medan ein lukka sti møtest og dannar ei form som kan fyllast med farge."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz2-q2",
+            "task": "Kva er eit godt råd når du teiknar med Bezier-kurver?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Bruk så få ankerpunkt som mogleg for reine kurver",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bruk så mange ankerpunkt som mogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Unngå å øve",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Plasser ankerpunkt heilt tilfeldig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bruk så få ankerpunkt som mogleg, plasserte der kurva endrar retning, for å få reine og jamne kurver."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-4-6-n-section3",
+      "type": "text",
+      "content": "## Krafta til det enkle: logoar og ikon\n\nVektorgrafikk er det perfekte verktøyet for logoar og ikon, og her gjeld eitt overordna prinsipp: enkelheit er konge. Tenk på dei mest kjende logoane i verda -- Apple, Nike, IKEA. Dei er alle slåande *enkle*. Det er ikkje tilfeldig.\n\nGod **logodesign** kviler på nokre prinsipp. **Enkelheit** gjer logoen lett å kjenne att og hugse, og sørgjer for at han fungerer sjølv bittelita. **Skalerbarheit** tyder at han må sjå bra ut frå eit 16-pikslars favicon til eit storformat -- nettopp derfor blir logoar laga som vektor. **Tidløysleik** handlar om å unngå motar og trendar som raskt gjer logoen utdatert. **Allsidigheit** krev at logoen fungerer i fargar, i svart-kvitt, og mot både mørk og lys bakgrunn. Og **relevans** tyder at han bør seie noko om verdiane til verksemda. Ein logo for ein hageprodusent kan til dømes kombinere eit stilisert blad med ein bokstav -- enkelt, men meiningsfullt.\n\n**Ikon** følgjer same tankegang i miniatyr. Eit ikon er eit lite, forenkla symbol som formidlar ei handling eller eit konsept -- som konvolutten for e-post. Her er råda konkrete: bygg ikonet på eit fast rutenett, ofte 24 gonger 24 pikslar, så alt blir konsekvent. Hald linjene jamne og visuelt balanserte. Test ikonet i den faktiske storleiken det skal brukast i, ofte berre 16 til 32 pikslar -- det som ser flott ut stort, kan bli graut smått. Og sørg for at ikonet er forståeleg *utan* tekst. Eit e-postikon treng berre eit rektangel og to linjer som dannar klaffen til konvolutten -- to enkle former, og alle skjønar kva det tyder. Enkelheit er ikkje mangel på arbeid; det er ofte resultatet av mykje arbeid."
+    },
+    {
+      "id": "im-vg1-4-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-4-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logo- og ikondesign:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-4-6-n-quiz3-q0",
+            "task": "Kva prinsipp kjenneteiknar dei mest kjende logoane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei er svært komplekse og detaljerte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei er enkle",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Dei bruker mange fargar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei endrar seg kvart år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei mest kjende logoane, som Apple og Nike, blir kjenneteikna av enkelheit, som gjer dei lette å kjenne att og hugse."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz3-q1",
+            "task": "Kvifor blir logoar laga som vektorgrafikk?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi vektor alltid har fleire fargar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi vektor berre verkar på papir",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Slik at dei kan skalerast frå favicon til storformat utan kvalitetstap",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen grunn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logoar blir laga som vektor fordi dei då kan skalerast frå eit lite favicon til eit stort skilt utan å bli uskarpe."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz3-q2",
+            "task": "Kva bør du gjere når du designar eit ikon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre teste det i kjempestor storleik",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bruke så mange detaljar som mogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sørgje for at det krev tekst for å forståast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Teste det i den faktiske bruksstorleiken, ofte 16-32 pikslar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Du bør teste ikonet i den faktiske storleiken det skal brukast i, ofte 16-32 pikslar, og sørgje for at det er forståeleg utan tekst."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-4-6-n-section4",
+      "type": "text",
+      "content": "## Heimen til vektorane på nettet\n\nNår vektorgrafikk skal ut på nettet, har han sitt heilt eige format: **SVG** -- Scalable Vector Graphics. Namnet seier alt: skalerbar vektorgrafikk. Det er standarden for vektorar på web, og det har nokre eigenskapar som gjer det ganske spesielt.\n\nFor det første er SVG **XML-basert**, som tyder at det eigentleg er tekst -- du kan opne ei SVG-fil og *lese* og redigere ho som kode. For det andre er det **skalerbart**, så det er knivskarpt i kva storleik som helst, akkurat som vektor skal vere. For enkel grafikk har SVG dessutan **lita filstorleik**, noko som gir raske nettsider. Fordi det lever i koden, er det òg **interaktivt** -- du kan animere SVG-grafikk med CSS og JavaScript, slik vi lærte om i webdelen. Og ikkje minst er det **tilgjengeleg**: ein SVG kan innehalde tekst som skjermlesarar kan lese opp, noko som er bra for universell utforming.\n\nLat oss samle alt vi har lært i ein liten arbeidsprosess for å lage eit e-postikon. Du startar med eit rutenett på 24 gonger 24 pikslar. Du teiknar grunnforma -- eit rektangel for konvolutten. Du legg til to diagonale linjer frå dei øvre hjørna som møtest på midten, og dannar klaffen. Du tilpassar stilen -- kanskje ei linjetjukkleik på 2 pikslar, med avrunda eller skarpe hjørne alt etter designsystemet. Du testar at det er gjenkjenneleg nede i 16 pikslar. Og til slutt eksporterer du det som SVG for nettbruk. Det ferdige ikonet er berre eit rektangel og to linjer -- og nettopp i den enkelheita ligg styrken. Med vektorgrafikk, Bezier-kurver og SVG har du no verktøya til å lage skarp, skalerbar grafikk for kva plattform som helst. Vanlege verktøy for dette er Illustrator, gratisalternativet Inkscape, og Figma."
+    },
+    {
+      "id": "im-vg1-4-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-4-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på SVG-formatet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-4-6-n-quiz4-q0",
+            "task": "Kva er SVG?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Eit XML-basert vektorformat for nett som kan skalerast utan kvalitetstap",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eit rasterbiletformat som JPEG",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eit lydformat",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit programmeringsspråk for 3D",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SVG (Scalable Vector Graphics) er eit XML-basert vektorformat, standard for vektorgrafikk på nett, som kan skalerast utan kvalitetstap."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz4-q1",
+            "task": "Kva eigenskap gjer at SVG kan animerast på ei nettside?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At han er eit fotografi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At han er XML-basert og kan styrast med CSS og JavaScript",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At han berre finst i svart-kvitt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At han ikkje kan endrast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fordi SVG er XML-basert og lever i koden, kan han styrast og animerast med CSS og JavaScript."
+          },
+          {
+            "id": "im-vg1-4-6-n-quiz4-q2",
+            "task": "Kva verktøy blir vanlegvis brukte til vektorarbeid?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Berre eit kamera",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Word og Excel",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Illustrator, Inkscape og Figma",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ein kalkulator",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vanlege vektorverktøy er Adobe Illustrator, gratisalternativet Inkscape og Figma."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-4-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har forstått kvifor ein logo kan vere skarp i alle storleikar: fordi **vektorgrafikk** er bygd på matematiske formlar, ikkje faste pikslar. Vi skilde han frå **rastergrafikk** (pikslar, best for foto) med den enkle regelen: kamera tyder raster, teikning tyder vektor.\n\nVi møtte **Bezier-kurvene** -- ankerpunkt, kontrollhandtak og stiar -- som er byggjesteinen i all vektorteikning, og lærte å bruke få punkt for reine kurver. Vi såg prinsippa bak gode **logoar** (enkelheit, skalerbarheit, tidløysleik, allsidigheit, relevans) og **ikon** (rutenett, testing i faktisk storleik, forståeleg utan tekst). Og til slutt blei vi kjende med **SVG**, det XML-baserte formatet til vektorane på nettet -- skalerbart, lett, animerbart og tilgjengeleg. No har du verktøya til å skape skarp, skalerbar grafikk for kva plattform som helst."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "97393f9a3ea0fd96",
+    "translatedAt": "2026-06-21T07:49:50.977Z",
+    "model": "claude-code-agent",
+    "strings": 91,
+    "tm": {
+      "2ea60664b40fc090": "Vektorgrafikk og illustrasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "5114f69d5bc16304": "Ei forteljing om grafikk som er matematikk -- skilnaden på pikslar og vektorar, magien til Bezier-kurvene, prinsippa bak gode logoar og ikon, og SVG-formatet for nett.",
+      "198b499f05220bcb": "kjenne til og anvende bransjefaglige metoder og relevant utstyr i produksjon",
+      "89991ad82b1fe8f7": "visualisere og utvikle konsepter og ideer tilpasset ulike plattformer",
+      "24027fd3dafc185a": "## Ein logo i alle storleikar\n\nTenk på Apple-logoen. Det vesle eplet finst overalt -- som eit bittelite ikon i hjørnet av telefonskjermen din, og som eit gigantisk skilt på ein butikkfasade fleire meter høgt. Og uansett storleik er det knivskarpt, aldri uskarpt eller kornete. Korleis er det mogleg? Korleis kan det same biletet vere perfekt både bittelite og enormt?\n\nSvaret ligg i ein grunnleggjande skilnad mellom to typar grafikk. Eit vanleg fotografi er bygd av *pikslar* -- bittesmå fargeprikkar -- og forstørrar du det for mykje, ser du prikkane og biletet blir uskarpt. Men ein logo som Apple sin er bygd på noko heilt anna: **matematikk**. Han består ikkje av prikkar, men av matematiske formlar som skildrar linjer og kurver, og formlar kan skalerast uendeleg. Dette blir kalla **vektorgrafikk**.\n\nI denne forteljinga skal vi forstå denne magien. Vi skal lære den avgjerande skilnaden mellom raster og vektor, og når ein vel kva. Vi skal møte Bezier-kurvene som er sjølve byggjesteinen i all vektorteikning. Vi skal lære prinsippa bak gode logoar og ikon. Og vi skal bli kjende med SVG, formatet til vektorane på nettet.",
+      "3f4ab9d7ebddc579": "## Prikkar mot formlar\n\nLat oss setje dei to typane grafikk opp mot kvarandre. **Rastergrafikk**, òg kalla bitmap, består av eit rutenett av pikslar, der kvar piksel har sin eigen farge. Det er sånn eit fotografi blir lagra. Styrken er at det kan gjengi uendelege fargenyansar og kompleksitet -- perfekt for fotografi. Veikskapen er at når du forstørrar det, må pikslane blåsast opp, og biletet blir uskarpt og «pikselete». JPEG, PNG, GIF og WebP er rasterformat.\n\n**Vektorgrafikk** er noko heilt anna. I staden for prikkar består han av matematiske formlar -- definert av ankerpunkt, linjer og kurver. Fordi det er formlar og ikkje faste prikkar, kan datamaskinen rekne ut biletet på nytt i kva som helst storleik, heilt utan kvalitetstap. Det er derfor logoen er like skarp som ikon og som fasadeskilt. Vektorformat inkluderer SVG, AI, EPS og PDF, og dei eignar seg for logoar, ikon, illustrasjonar og typografi.\n\nSå når vel du kva? Det finst ein enkel og praktisk tommelfingerregel: viss biletet blei *teke med eit kamera*, er det raster -- eit fotografi har for mykje kompleksitet for vektor. Men viss biletet blei *teikna eller designa* -- ein logo, eit ikon, ein illustrasjon -- bør det som regel vere vektor, så det kan skalerast fritt. Kamera tyder raster; teikning tyder vektor.",
+      "7c80c2b22bc4bd42": "Test deg sjølv på raster og vektor:",
+      "4097889236a2af26": "placeholder",
+      "880a2f74f131bf21": "Kva er hovudskilnaden mellom raster- og vektorgrafikk?",
+      "0dcb3bcca2dbd1fd": "Rastergrafikk har alltid betre fargar",
+      "31ccbf970a6d24c6": "Vektorgrafikk kan skalerast uendeleg utan kvalitetstap, rastergrafikk ikkje",
+      "d598ea9ab40065e5": "Rastergrafikk blir berre brukt på nett",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "7ad2be411e0a4848": "Vektorgrafikk er bygd på matematiske formlar og kan skalerast uendeleg utan kvalitetstap, medan rastergrafikk (pikslar) blir uskarp ved forstørring.",
+      "9ddadfc29b6bf40a": "Kva type bilete eignar seg best som vektorgrafikk?",
+      "6d178e763c7c6ad0": "Landskapsfotografi",
+      "ad8f5e97b9bd49f6": "Portrett",
+      "b4d14934f7a4aa7e": "Logoar, ikon og illustrasjonar",
+      "919c6066f5fd76dc": "Bilete frå mobilkamera",
+      "84237c4c097677c7": "Logoar, ikon og illustrasjonar eignar seg best som vektor fordi dei er enkle former som må skalerast til ulike storleikar. Fotografi blir lagra som raster.",
+      "6bd6197cf550c8e2": "Ifølgje tommelfingerregelen, kva slags grafikk er eit bilete teke med kamera?",
+      "0c2db86142e8f7f4": "Vektorgrafikk",
+      "23dd067d4694492a": "Alltid SVG",
+      "73c10fc9cf86dbaa": "Det kjem an på fargen",
+      "fe50c92b07cc7fc4": "Rastergrafikk",
+      "83a74c9f42ec1af8": "Tommelfingerregelen seier: blei biletet teke med kamera, er det raster. Blei det teikna eller designa, bør det ofte vere vektor.",
+      "07cd2b0b4e8416c2": "## Magien i Bezier-kurva\n\nKorleis teiknar ein eigentleg desse matematiske formene? Grunnlaget for all vektorgrafikk er noko som heiter **Bezier-kurver**, oppkalla etter den franske ingeniøren Pierre Bezier som utvikla dei -- opphavleg for å designe bilkarosseri. I dag ligg dei bak alt frå logoar til sjølve bokstavane i denne teksten.\n\nEi Bezier-kurve blir bygd av nokre få element. **Ankerpunkt** er punkta som definerer forma -- dei kan vere hjørnepunkt for skarpe hjørne, eller kurvepunkt for mjuke svingar. Frå kvart ankerpunkt strekkjer det seg **kontrollhandtak** -- usynlege linjer som bestemmer retninga til kurva og kor «sterk» svingen er. Ved å dra i desse handtaka formar du kurva akkurat slik du vil. Det krev litt øving, men når det sit, kan du teikne kva som helst.\n\nNår du koblar saman fleire ankerpunkt, får du ein **sti**. Ein *open* sti har start- og sluttpunkt som ikkje møtest -- det blir ei linje. Ein *lukka* sti har start- og sluttpunkt som møtest -- det blir ei heil form som kan fyllast med farge. Nokre gode råd når du arbeider med Bezier-kurver: bruk så *få* ankerpunkt som mogleg, for det gir reinare og jamnare kurver. Plasser ankerpunkta der kurva faktisk endrar retning. Og hald kontrollhandtaka parallelle for dei jamnaste overgangane. Det viktigaste rådet av alt er likevel enkelt: øv mykje. Bezier-kurver er ei ferdigheit som sit i fingrane, og som blir betre for kvar gong du teiknar.",
+      "e5b4a98579ff20ea": "Test deg sjølv på Bezier-kurver og stiar:",
+      "760a2cdb4afd7ed4": "Kva definerer ankerpunkta i ei Bezier-kurve?",
+      "532aff0982f894ec": "Punkta som definerer forma",
+      "23658aaaf80d3bdd": "Fargen på kurva",
+      "dde215294c04d121": "Filstorleiken",
+      "e5bb1a2ca056d388": "Oppløysinga",
+      "c0339d924dd02462": "Ankerpunkta definerer forma til kurva, medan kontrollhandtaka bestemmer retninga og styrken til kurva.",
+      "0cab115232186631": "Kva er skilnaden på ein open og ein lukka sti?",
+      "d0e1f5955d8ee2d6": "Ein open sti kan ikkje sjåast",
+      "0d045ec8d5c558ed": "Ein lukka sti har start- og sluttpunkt som møtest og kan fyllast med farge",
+      "db157c4a9f82daec": "Ein lukka sti er alltid raud",
+      "51e68a09a0495fcc": "Ein open sti har åtskild start og slutt (ei linje), medan ein lukka sti møtest og dannar ei form som kan fyllast med farge.",
+      "f9030df2a888fe76": "Kva er eit godt råd når du teiknar med Bezier-kurver?",
+      "59b004543f09c6d0": "Bruk så mange ankerpunkt som mogleg",
+      "0fca42efc51a9ed2": "Unngå å øve",
+      "f77791f8495e7d88": "Bruk så få ankerpunkt som mogleg for reine kurver",
+      "3c83307e1847502c": "Plasser ankerpunkt heilt tilfeldig",
+      "b81d816ac5bea8b0": "Bruk så få ankerpunkt som mogleg, plasserte der kurva endrar retning, for å få reine og jamne kurver.",
+      "f6fb80be74b6866f": "## Krafta til det enkle: logoar og ikon\n\nVektorgrafikk er det perfekte verktøyet for logoar og ikon, og her gjeld eitt overordna prinsipp: enkelheit er konge. Tenk på dei mest kjende logoane i verda -- Apple, Nike, IKEA. Dei er alle slåande *enkle*. Det er ikkje tilfeldig.\n\nGod **logodesign** kviler på nokre prinsipp. **Enkelheit** gjer logoen lett å kjenne att og hugse, og sørgjer for at han fungerer sjølv bittelita. **Skalerbarheit** tyder at han må sjå bra ut frå eit 16-pikslars favicon til eit storformat -- nettopp derfor blir logoar laga som vektor. **Tidløysleik** handlar om å unngå motar og trendar som raskt gjer logoen utdatert. **Allsidigheit** krev at logoen fungerer i fargar, i svart-kvitt, og mot både mørk og lys bakgrunn. Og **relevans** tyder at han bør seie noko om verdiane til verksemda. Ein logo for ein hageprodusent kan til dømes kombinere eit stilisert blad med ein bokstav -- enkelt, men meiningsfullt.\n\n**Ikon** følgjer same tankegang i miniatyr. Eit ikon er eit lite, forenkla symbol som formidlar ei handling eller eit konsept -- som konvolutten for e-post. Her er råda konkrete: bygg ikonet på eit fast rutenett, ofte 24 gonger 24 pikslar, så alt blir konsekvent. Hald linjene jamne og visuelt balanserte. Test ikonet i den faktiske storleiken det skal brukast i, ofte berre 16 til 32 pikslar -- det som ser flott ut stort, kan bli graut smått. Og sørg for at ikonet er forståeleg *utan* tekst. Eit e-postikon treng berre eit rektangel og to linjer som dannar klaffen til konvolutten -- to enkle former, og alle skjønar kva det tyder. Enkelheit er ikkje mangel på arbeid; det er ofte resultatet av mykje arbeid.",
+      "28e92a8729f84b0d": "Test deg sjølv på logo- og ikondesign:",
+      "1585eafcd1402ac0": "Kva prinsipp kjenneteiknar dei mest kjende logoane?",
+      "ab4b1d5bcf1d08fd": "Dei er svært komplekse og detaljerte",
+      "37dcc2826bd5e324": "Dei bruker mange fargar",
+      "ff9311cc571407ce": "Dei endrar seg kvart år",
+      "237d826959251de6": "Dei er enkle",
+      "f998948ccdb51fe7": "Dei mest kjende logoane, som Apple og Nike, blir kjenneteikna av enkelheit, som gjer dei lette å kjenne att og hugse.",
+      "05c8a383f8e69b52": "Kvifor blir logoar laga som vektorgrafikk?",
+      "478ce54c886e4bec": "Slik at dei kan skalerast frå favicon til storformat utan kvalitetstap",
+      "01e6cb7c2e7cfc1f": "Fordi vektor alltid har fleire fargar",
+      "55cdda9f3701a39b": "Fordi vektor berre verkar på papir",
+      "2ca83e01b35dc9bf": "Det er ingen grunn",
+      "53bc1d34fac2f5b1": "Logoar blir laga som vektor fordi dei då kan skalerast frå eit lite favicon til eit stort skilt utan å bli uskarpe.",
+      "ad034d9f2989ff39": "Kva bør du gjere når du designar eit ikon?",
+      "9d2630db26993792": "Berre teste det i kjempestor storleik",
+      "ba56c6c02208e52f": "Teste det i den faktiske bruksstorleiken, ofte 16-32 pikslar",
+      "cc90772e37aecfb6": "Bruke så mange detaljar som mogleg",
+      "f976381ebab2930f": "Sørgje for at det krev tekst for å forståast",
+      "d8315dd5bead2ed4": "Du bør teste ikonet i den faktiske storleiken det skal brukast i, ofte 16-32 pikslar, og sørgje for at det er forståeleg utan tekst.",
+      "8a7d51fdf4fc1f8d": "## Heimen til vektorane på nettet\n\nNår vektorgrafikk skal ut på nettet, har han sitt heilt eige format: **SVG** -- Scalable Vector Graphics. Namnet seier alt: skalerbar vektorgrafikk. Det er standarden for vektorar på web, og det har nokre eigenskapar som gjer det ganske spesielt.\n\nFor det første er SVG **XML-basert**, som tyder at det eigentleg er tekst -- du kan opne ei SVG-fil og *lese* og redigere ho som kode. For det andre er det **skalerbart**, så det er knivskarpt i kva storleik som helst, akkurat som vektor skal vere. For enkel grafikk har SVG dessutan **lita filstorleik**, noko som gir raske nettsider. Fordi det lever i koden, er det òg **interaktivt** -- du kan animere SVG-grafikk med CSS og JavaScript, slik vi lærte om i webdelen. Og ikkje minst er det **tilgjengeleg**: ein SVG kan innehalde tekst som skjermlesarar kan lese opp, noko som er bra for universell utforming.\n\nLat oss samle alt vi har lært i ein liten arbeidsprosess for å lage eit e-postikon. Du startar med eit rutenett på 24 gonger 24 pikslar. Du teiknar grunnforma -- eit rektangel for konvolutten. Du legg til to diagonale linjer frå dei øvre hjørna som møtest på midten, og dannar klaffen. Du tilpassar stilen -- kanskje ei linjetjukkleik på 2 pikslar, med avrunda eller skarpe hjørne alt etter designsystemet. Du testar at det er gjenkjenneleg nede i 16 pikslar. Og til slutt eksporterer du det som SVG for nettbruk. Det ferdige ikonet er berre eit rektangel og to linjer -- og nettopp i den enkelheita ligg styrken. Med vektorgrafikk, Bezier-kurver og SVG har du no verktøya til å lage skarp, skalerbar grafikk for kva plattform som helst. Vanlege verktøy for dette er Illustrator, gratisalternativet Inkscape, og Figma.",
+      "d8a4bc547c511b8a": "Test deg sjølv på SVG-formatet:",
+      "76fce4102c9e539c": "Kva er SVG?",
+      "40bf05e3a7f1bdcd": "Eit rasterbiletformat som JPEG",
+      "0b43c947cb2f6ba2": "Eit lydformat",
+      "9c15f76a0b628daa": "Eit XML-basert vektorformat for nett som kan skalerast utan kvalitetstap",
+      "2acb3705d14af59e": "Eit programmeringsspråk for 3D",
+      "421f0df7269b81fc": "SVG (Scalable Vector Graphics) er eit XML-basert vektorformat, standard for vektorgrafikk på nett, som kan skalerast utan kvalitetstap.",
+      "acd94df95978db6f": "Kva eigenskap gjer at SVG kan animerast på ei nettside?",
+      "2b508e002d5f5e7c": "At han er eit fotografi",
+      "9c5ec7d3efe2fa8d": "At han berre finst i svart-kvitt",
+      "2e7158318bf9bf83": "At han ikkje kan endrast",
+      "89382509895f0733": "At han er XML-basert og kan styrast med CSS og JavaScript",
+      "58b432c872558202": "Fordi SVG er XML-basert og lever i koden, kan han styrast og animerast med CSS og JavaScript.",
+      "983aaad751e4ae9b": "Kva verktøy blir vanlegvis brukte til vektorarbeid?",
+      "f22effba37af6e54": "Illustrator, Inkscape og Figma",
+      "4a96154aaed2376c": "Berre eit kamera",
+      "36af7cfba413cf4a": "Word og Excel",
+      "cfcf6a9049080a8b": "Ein kalkulator",
+      "0ea96e620a63d67b": "Vanlege vektorverktøy er Adobe Illustrator, gratisalternativet Inkscape og Figma.",
+      "2b092c3d47e3ea80": "## Oppsummering\n\nVi har forstått kvifor ein logo kan vere skarp i alle storleikar: fordi **vektorgrafikk** er bygd på matematiske formlar, ikkje faste pikslar. Vi skilde han frå **rastergrafikk** (pikslar, best for foto) med den enkle regelen: kamera tyder raster, teikning tyder vektor.\n\nVi møtte **Bezier-kurvene** -- ankerpunkt, kontrollhandtak og stiar -- som er byggjesteinen i all vektorteikning, og lærte å bruke få punkt for reine kurver. Vi såg prinsippa bak gode **logoar** (enkelheit, skalerbarheit, tidløysleik, allsidigheit, relevans) og **ikon** (rutenett, testing i faktisk storleik, forståeleg utan tekst). Og til slutt blei vi kjende med **SVG**, det XML-baserte formatet til vektorane på nettet -- skalerbart, lett, animerbart og tilgjengeleg. No har du verktøya til å skape skarp, skalerbar grafikk for kva plattform som helst."
+    }
+  }
+}

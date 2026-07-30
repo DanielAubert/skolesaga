@@ -1,1 +1,555 @@
-{"id":"r2-6-3-narrativ","courseId":"r2","chapterNumber":"6.3","title":"Hastighet og akselerasjon","subtitle":"Narrativ versjon","description":"En fortelling om bevegelsens matematikk — fra posisjon til hastighet til akselerasjon, gjennom skrå kast, karuseller og satellitten som faller rundt jorda.","estimatedMinutes":38,"competenceGoals":["bruke derivasjon til a analysere og tolke vektorfunksjoner som beskriver baner i rommet","lose realfaglige problem som involverer fart og akselerasjon"],"linkedChapterId":"r2-6-3","content":[{"id":"r2-6-3-n-intro","type":"text","content":"## Newtons verktøy\n\nDa Isaac Newton skulle forklare hvorfor planetene går i baner og hvorfor eplet faller, manglet han noe ingen før ham hadde hatt: et matematisk språk for *bevegelse*. Posisjoner som endrer seg, hastigheter som endrer seg, krefter som endrer hastighetene — alt sammen i kontinuerlig flyt. Så han laget språket selv. Kalkulus ble til, bokstavelig talt, for dette kapittelet.\n\nDu har allerede grammatikken. En bevegelse i planet er en **posisjonsvektor** $\\vec{r}(t) = [x(t), y(t)]$ — i rommet $[x(t), y(t), z(t)]$ — og når tiden løper, tegner spissen opp banen. Fra forrige kapittel vet du at derivasjon skjer komponentvis og gir tangentvektoren. Nå setter vi fysikkens navn på hele kjeden:\n\n$$\\vec{v}(t) = \\vec{r}\\,'(t) \\qquad \\text{og} \\qquad \\vec{a}(t) = \\vec{v}\\,'(t) = \\vec{r}\\,''(t)$$\n\nHastigheten er posisjonens deriverte; akselerasjonen er hastighetens. Og veien går begge retninger: *integrerer* du akselerasjonen, får du hastigheten tilbake, og integrerer du igjen, posisjonen — med startverdiene som fastlegger integrasjonskonstantene.\n\nMed denne kjeden skal vi regne på de store klassikerne: det **skrå kastet**, der en fotball følger sin parabel gjennom luften; **sirkelbevegelsen**, der karuseller og satellitter holdes i bane av en akselerasjon som alltid peker mot sentrum; og baner med varierende fart — spiraler og det rullende hjulets sykloide. Det er fysikkens kjernepensum, regnet med vektorfunksjoner — nøyaktig slik Newton tenkte det."},{"id":"r2-6-3-n-section1","type":"text","content":"## Kjeden: posisjon, hastighet, akselerasjon\n\nLa oss få kjeden i fingrene. **Hastighetsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$ er tangent til banen og peker i bevegelsesretningen; **farten** er lengden $v(t) = |\\vec{v}(t)|$. **Akselerasjonsvektoren** $\\vec{a}(t) = \\vec{r}\\,''(t)$ måler hvordan hastigheten endrer seg — i størrelse, retning eller begge deler — og måles i $\\text{m/s}^2$.\n\nEnkleste tilfelle først: $\\vec{r}(t) = [2t + 1, 3t - 2]$. Derivasjon gir $\\vec{v}(t) = [2, 3]$ — konstant. Objektet flytter seg $2$ meter i $x$-retning og $3$ i $y$-retning hvert sekund, langs en rett linje, og $\\vec{a}(t) = [0, 0]$: ingen akselerasjon, ingen endring. Rettlinjet, jevn bevegelse er derivasjonens nullnivå.\n\nSå et rikere eksempel: $\\vec{r}(t) = [t^3 - 3t, t^2]$. Her blir $\\vec{v}(t) = [3t^2 - 3, 2t]$ og $\\vec{a}(t) = [6t, 2]$. Ved $t = 1$ er $\\vec{a}(1) = [6, 2]$ med størrelse $\\sqrt{40} = 2\\sqrt{10}$. Og merk: akselerasjonen er *aldri* null her, for $y$-komponenten er $2$ uansett — banen krummer hele tiden.\n\nKjeden går også baklengs, med integrasjon. Anta $\\vec{a}(t) = [2, 6t]$ med startverdier $\\vec{v}(0) = [1, 0]$ og $\\vec{r}(0) = [0, 0]$. Første integrasjon: $\\vec{v}(t) = [2t + C_1, 3t^2 + C_2]$, og $\\vec{v}(0) = [1, 0]$ gir $C_1 = 1$, $C_2 = 0$, altså $\\vec{v}(t) = [2t + 1, 3t^2]$. Andre integrasjon: $\\vec{r}(t) = [t^2 + t + D_1, t^3 + D_2]$, og startposisjonen gir $D_1 = D_2 = 0$:\n\n$$\\vec{r}(t) = [t^2 + t, t^3]$$\n\nDerivasjon ned, integrasjon opp — med startverdiene som ankerfester. Det er hele maskineriet bak alt som kommer."},{"id":"r2-6-3-n-quiz1","type":"exercise","exercise":{"id":"r2-6-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kjeden posisjon-hastighet-akselerasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-3-n-quiz1-q0","task":"Et objekt har posisjon $\\vec{r}(t) = [2t + 1, 3t - 2]$. Hva er hastighetsvektoren?","options":[{"id":"a","text":"$[2t, 3t]$","isCorrect":false},{"id":"b","text":"$[2, 3]$","isCorrect":true},{"id":"c","text":"$[1, -2]$","isCorrect":false},{"id":"d","text":"$[0, 0]$","isCorrect":false}],"solution":"Deriver komponentvis: $\\vec{v}(t) = [2, 3]$ — konstant hastighet langs en rett linje."},{"id":"r2-6-3-n-quiz1-q1","task":"Hvordan henger akselerasjonen sammen med posisjonen?","options":[{"id":"a","text":"$\\vec{a}(t) = \\vec{r}\\,''(t)$ — den andrederiverte","isCorrect":true},{"id":"b","text":"$\\vec{a}(t) = \\vec{r}\\,'(t)$","isCorrect":false},{"id":"c","text":"$\\vec{a}(t) = |\\vec{r}(t)|$","isCorrect":false},{"id":"d","text":"$\\vec{a}(t) = \\int \\vec{r}(t)\\,dt$","isCorrect":false}],"solution":"Akselerasjonen er den deriverte av hastigheten, som selv er den deriverte av posisjonen: $\\vec{a} = \\vec{v}\\,' = \\vec{r}\\,''$."},{"id":"r2-6-3-n-quiz1-q2","task":"For $\\vec{r}(t) = [t^3 - 3t, t^2]$ er $\\vec{a}(t) = [6t, 2]$. Når er akselerasjonen null?","options":[{"id":"a","text":"Ved $t = 0$","isCorrect":false},{"id":"b","text":"Ved $t = 1$","isCorrect":false},{"id":"c","text":"Ved $t = \\frac{1}{3}$","isCorrect":false},{"id":"d","text":"Aldri — $y$-komponenten er alltid $2$","isCorrect":true}],"solution":"Begge komponentene må være null samtidig, men $y$-komponenten er konstant $2$. Banen krummer hele tiden."},{"id":"r2-6-3-n-quiz1-q3","task":"$\\vec{a}(t) = [2, 6t]$, $\\vec{v}(0) = [1, 0]$. Hva er $\\vec{v}(t)$?","options":[{"id":"a","text":"$[2, 6]$","isCorrect":false},{"id":"b","text":"$[2t, 3t^2]$","isCorrect":false},{"id":"c","text":"$[2t + 1, 3t^2]$","isCorrect":true},{"id":"d","text":"$[t^2, 2t^3]$","isCorrect":false}],"solution":"Integrasjon gir $[2t + C_1, 3t^2 + C_2]$, og startverdien $\\vec{v}(0) = [1, 0]$ bestemmer $C_1 = 1$, $C_2 = 0$."}]}},{"id":"r2-6-3-n-section2","type":"text","content":"## Det skrå kastet\n\nFotballen forlater foten, stiger, flater ut, faller — og lander. Hele dramaet styres av én eneste opplysning: i luften virker bare tyngdekraften, så $\\vec{a}(t) = [0, -g]$. Integrer to ganger (slik vi nettopp lærte), med startfart $v_0$ i vinkel $\\alpha$ fra origo, og du får bevegelseslikningene:\n\n$$\\vec{v}(t) = [v_0 \\cos \\alpha, \\; v_0 \\sin \\alpha - gt] \\qquad \\vec{r}(t) = [v_0 t \\cos \\alpha, \\; v_0 t \\sin \\alpha - \\tfrac{1}{2}gt^2]$$\n\nLes dem som to uavhengige historier: horisontalt skjer *ingenting* — konstant fart $v_0 \\cos\\alpha$, siden ingen kraft virker den veien. Vertikalt er det fritt fall med starthastighet $v_0 \\sin\\alpha$. Kastets parabel er bare disse to enkle bevegelsene lagt oppå hverandre.\n\nKonkret: en fotball sparkes med $v_0 = 20$ m/s i $\\alpha = 30°$, med $g = 10$ m/s². Da er $\\cos 30° \\approx 0{,}866$ og $\\sin 30° = 0{,}5$, så $\\vec{r}(t) = [17{,}32t, \\; 10t - 5t^2]$. **Toppunktet** nås når den vertikale farten er brukt opp: $v_y = 10 - 10t = 0$ gir $t = 1$ s, og høyden der er $y(1) = 10 - 5 = 5$ m. **Landingen** skjer når $y = 0$: $5t(2 - t) = 0$ gir $t = 2$ s — nøyaktig dobbelt så lenge som til toppen, for parabelen er symmetrisk — og skuddlengden blir $x(2) = 17{,}32 \\cdot 2 \\approx 34{,}6$ m.\n\nVarianten med kast fra høyde: en ball kastes *horisontalt* ($\\alpha = 0$) med $15$ m/s fra en klippe $80$ m over bakken. Med origo på klippekanten er $\\vec{r}(t) = [15t, -5t^2]$. Bakken nås når $-5t^2 = -80$, altså $t = 4$ s, hele $60$ m ut fra klippen. Og hastigheten i nedslaget? $\\vec{v}(4) = [15, -40]$, med fart $\\sqrt{225 + 1600} = \\sqrt{1825} \\approx 42{,}7$ m/s. (Virkelighetens baller bremses av luftmotstand — et ledd av typen $-kv$ i akselerasjonen — som korter både høyde og lengde og til slutt gir en terminalfart. Modellen vår er luftens tomme ideal.)"},{"id":"r2-6-3-n-quiz2","type":"exercise","exercise":{"id":"r2-6-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på skrått kast:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-3-n-quiz2-q0","task":"Hva kjennetegner den horisontale bevegelsen i et skrått kast (uten luftmotstand)?","options":[{"id":"a","text":"Den bremses av tyngdekraften","isCorrect":false},{"id":"b","text":"Konstant fart $v_0\\cos\\alpha$ — ingen kraft virker horisontalt","isCorrect":true},{"id":"c","text":"Den akselererer med $g$","isCorrect":false},{"id":"d","text":"Den stopper i toppunktet","isCorrect":false}],"solution":"Tyngden virker bare vertikalt: $\\vec{a} = [0, -g]$. Horisontalfarten $v_0\\cos\\alpha$ er den samme hele veien."},{"id":"r2-6-3-n-quiz2-q1","task":"Fotball: $v_0 = 20$ m/s, $\\alpha = 30°$, $g = 10$. Når og hvor høyt er toppunktet?","options":[{"id":"a","text":"$t = 2$ s, høyde $10$ m","isCorrect":false},{"id":"b","text":"$t = 0{,}5$ s, høyde $2{,}5$ m","isCorrect":false},{"id":"c","text":"$t = 1$ s, høyde $5$ m","isCorrect":true},{"id":"d","text":"$t = 1$ s, høyde $10$ m","isCorrect":false}],"solution":"Toppen nås når $v_y = 10 - 10t = 0$, altså $t = 1$ s, og $y(1) = 10 \\cdot 1 - 5 \\cdot 1 = 5$ m."},{"id":"r2-6-3-n-quiz2-q2","task":"Hvor langt flyr den samme fotballen før den lander?","options":[{"id":"a","text":"$17{,}3$ m","isCorrect":false},{"id":"b","text":"$20$ m","isCorrect":false},{"id":"c","text":"$50$ m","isCorrect":false},{"id":"d","text":"ca. $34{,}6$ m","isCorrect":true}],"solution":"Landing når $10t - 5t^2 = 0$, dvs. $t = 2$ s, og $x(2) = 17{,}32 \\cdot 2 \\approx 34{,}6$ m."},{"id":"r2-6-3-n-quiz2-q3","task":"En ball kastes horisontalt fra en $80$ m høy klippe ($g = 10$). Når treffer den bakken?","options":[{"id":"a","text":"Etter $4$ s","isCorrect":true},{"id":"b","text":"Etter $8$ s","isCorrect":false},{"id":"c","text":"Etter $16$ s","isCorrect":false},{"id":"d","text":"Det avhenger av kastefarten","isCorrect":false}],"solution":"Vertikalt: $-5t^2 = -80$ gir $t^2 = 16$, $t = 4$ s. Fallhøyden styrer tiden — kastefarten påvirker bare hvor langt ut den når."}]}},{"id":"r2-6-3-n-section3","type":"text","content":"## Sirkelbevegelse — å falle rundt jorda\n\nKarusellen snurrer med konstant fart, og likevel kjenner du deg dratt — for *retningen* endres hele tiden, og endring av hastighet er per definisjon akselerasjon. La oss finne den.\n\nUniform sirkelbevegelse med radius $r$ og **vinkelhastighet** $\\omega$ (radianer per sekund, $\\omega = \\frac{2\\pi}{T}$ for omløpstid $T$) har posisjon $\\vec{r}(t) = [r\\cos(\\omega t), r\\sin(\\omega t)]$. Derivasjon gir $\\vec{v}(t) = [-r\\omega\\sin(\\omega t), r\\omega\\cos(\\omega t)]$ med konstant fart $v = r\\omega$, og enda en derivasjon gir gullkornet:\n\n$$\\vec{a}(t) = [-r\\omega^2\\cos(\\omega t), -r\\omega^2\\sin(\\omega t)] = -\\omega^2\\, \\vec{r}(t)$$\n\nAkselerasjonen er posisjonsvektoren *snudd*: den peker alltid rett **mot sentrum**. Dette er **sentripetalakselerasjonen**, med størrelse $|\\vec{a}| = r\\omega^2 = \\frac{v^2}{r}$ — kraften du kjenner i karusellen er nettopp det som trengs for å bøye banen din.\n\nKarusellen i tall: radius $4$ m, ett omløp på $8$ s. Da er $\\omega = \\frac{2\\pi}{8} = \\frac{\\pi}{4}$ rad/s, farten $v = r\\omega = \\pi \\approx 3{,}14$ m/s, og sentripetalakselerasjonen $r\\omega^2 = \\frac{\\pi^2}{4} \\approx 2{,}47$ m/s².\n\nOg nå kapittelets vakreste regnestykke. En satellitt i bane $7000$ km fra jordsenteret bruker $90$ minutter på et omløp. Samme formler: $\\omega = \\frac{2\\pi}{5400} \\approx 1{,}16 \\cdot 10^{-3}$ rad/s, fart $v = r\\omega \\approx 8{,}1$ km/s — og sentripetalakselerasjonen $\\frac{v^2}{r} \\approx 9{,}5$ m/s². Kjenner du igjen tallet? Det er nesten nøyaktig $g$. Tyngdekraften *er* satellittens sentripetalkraft: den faller fritt mot jorda hele tiden, men beveger seg sideveis akkurat fort nok til alltid å bomme. En bane er et evig fall — Newtons innsikt, levert av to derivasjoner."},{"id":"r2-6-3-n-quiz3","type":"exercise","exercise":{"id":"r2-6-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sirkelbevegelse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-3-n-quiz3-q0","task":"En karusell med radius $4$ m bruker $8$ s per omløp. Hva er vinkelhastigheten $\\omega$?","options":[{"id":"a","text":"$\\frac{\\pi}{2}$ rad/s","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{4}$ rad/s","isCorrect":true},{"id":"c","text":"$8\\pi$ rad/s","isCorrect":false},{"id":"d","text":"$2$ rad/s","isCorrect":false}],"solution":"$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{8} = \\frac{\\pi}{4}$ rad/s."},{"id":"r2-6-3-n-quiz3-q1","task":"Hvilken retning har akselerasjonen ved uniform sirkelbevegelse?","options":[{"id":"a","text":"Tangentielt, i fartsretningen","isCorrect":false},{"id":"b","text":"Utover, bort fra sentrum","isCorrect":false},{"id":"c","text":"Alltid inn mot sentrum","isCorrect":true},{"id":"d","text":"Akselerasjonen er null siden farten er konstant","isCorrect":false}],"solution":"$\\vec{a}(t) = -\\omega^2\\vec{r}(t)$ peker motsatt av posisjonsvektoren — mot sentrum. Farten er konstant, men retningen endres hele tiden."},{"id":"r2-6-3-n-quiz3-q2","task":"Hva er sentripetalakselerasjonens størrelse uttrykt ved fart og radius?","options":[{"id":"a","text":"$|\\vec{a}| = \\frac{v^2}{r}$","isCorrect":true},{"id":"b","text":"$|\\vec{a}| = vr$","isCorrect":false},{"id":"c","text":"$|\\vec{a}| = \\frac{r}{v^2}$","isCorrect":false},{"id":"d","text":"$|\\vec{a}| = \\frac{v}{r^2}$","isCorrect":false}],"solution":"$|\\vec{a}| = r\\omega^2 = \\frac{v^2}{r}$ — for karusellen $\\frac{\\pi^2}{4} \\approx 2{,}47$ m/s²."},{"id":"r2-6-3-n-quiz3-q3","task":"Satellitten i $7000$ km bane har sentripetalakselerasjon $\\approx 9{,}5$ m/s². Hva forteller det?","options":[{"id":"a","text":"At satellitten bremser opp","isCorrect":false},{"id":"b","text":"At banen er ustabil","isCorrect":false},{"id":"c","text":"At motorene må gå kontinuerlig","isCorrect":false},{"id":"d","text":"At tyngdekraften er sentripetalkraften — satellitten faller fritt rundt jorda","isCorrect":true}],"solution":"Tallet er nesten $g$: tyngden leverer nøyaktig akselerasjonen banen krever. En bane er et evig, sideveis fall."}]}},{"id":"r2-6-3-n-section4","type":"text","content":"## Når farten varierer: spiraler og det rullende hjulet\n\nKast og jevn sirkelgang er klassikerne, men kjeden posisjon–hastighet–akselerasjon takler hva som helst. To siste baner viser spennvidden.\n\nFørst en **spiral**: $\\vec{r}(t) = [t\\cos t, t\\sin t]$. Avstanden fra origo er $|\\vec{r}(t)| = \\sqrt{t^2\\cos^2 t + t^2 \\sin^2 t} = t$ — partikkelen roterer mens den skrur seg jevnt utover, en arkimedisk spiral. Hastigheten krever produktregelen i hver komponent: $\\vec{v}(t) = [\\cos t - t\\sin t, \\; \\sin t + t\\cos t]$. Og farten? Kvadrér og legg sammen — kryssleddene $\\mp 2t\\sin t\\cos t$ utsletter hverandre, og identiteten $\\cos^2 + \\sin^2 = 1$ rydder resten:\n\n$$v(t) = \\sqrt{1 + t^2}$$\n\nFarten vokser med tiden: hver runde er lengre enn den forrige, men tar like lang tid.\n\nSå **sykloiden** — banen til et punkt på kanten av et hjul som ruller, med $\\vec{r}(t) = [t - \\sin t, 1 - \\cos t]$. Derivasjon gir $\\vec{v}(t) = [1 - \\cos t, \\sin t]$ og $\\vec{a}(t) = [\\sin t, \\cos t]$, og fartsberegningen er en liten perle: $v(t) = \\sqrt{(1-\\cos t)^2 + \\sin^2 t} = \\sqrt{2 - 2\\cos t}$, som identiteten $1 - \\cos t = 2\\sin^2\\frac{t}{2}$ forvandler til\n\n$$v(t) = 2\\left|\\sin\\frac{t}{2}\\right|$$\n\nFarten er null når $\\sin\\frac{t}{2} = 0$, altså ved $t = 0, 2\\pi, 4\\pi, \\ldots$ — nøyaktig der punktet berører bakken. Tenk på det neste gang du ser et hjul rulle: punktet nederst står *stille* i berøringsøyeblikket, mens punktet øverst farer av sted med dobbel fart av navet. Matematikken ser det blotte øyet ikke kan: to derivasjoner, og bevegelsens innerste koreografi ligger åpen."},{"id":"r2-6-3-n-quiz4","type":"exercise","exercise":{"id":"r2-6-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på varierende fart:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-3-n-quiz4-q0","task":"Spiralen $\\vec{r}(t) = [t\\cos t, t\\sin t]$ har fart","options":[{"id":"a","text":"$v(t) = \\sqrt{1 + t^2}$, voksende med tiden","isCorrect":true},{"id":"b","text":"konstant $1$","isCorrect":false},{"id":"c","text":"$v(t) = t^2$","isCorrect":false},{"id":"d","text":"$v(t) = \\cos t + \\sin t$","isCorrect":false}],"solution":"Produktregelen gir $\\vec{v} = [\\cos t - t\\sin t, \\sin t + t\\cos t]$; kryssleddene kansellerer og $v = \\sqrt{1 + t^2}$."},{"id":"r2-6-3-n-quiz4-q1","task":"Sykloiden $\\vec{r}(t) = [t - \\sin t, 1 - \\cos t]$ har fart $v(t) = 2|\\sin\\frac{t}{2}|$. Når er farten null?","options":[{"id":"a","text":"Aldri — hjulet ruller jo","isCorrect":false},{"id":"b","text":"Ved $t = 0, 2\\pi, 4\\pi, \\ldots$, når punktet berører bakken","isCorrect":true},{"id":"c","text":"Bare ved $t = 0$","isCorrect":false},{"id":"d","text":"På toppen av hver bue","isCorrect":false}],"solution":"$\\sin\\frac{t}{2} = 0$ ved $t = 2n\\pi$ — kontaktpunktet med bakken står et øyeblikk helt stille."},{"id":"r2-6-3-n-quiz4-q2","task":"Hvilken identitet forenkler $\\sqrt{2 - 2\\cos t}$ til $2|\\sin\\frac{t}{2}|$?","options":[{"id":"a","text":"$\\sin^2 t + \\cos^2 t = 1$","isCorrect":false},{"id":"b","text":"$\\sin 2t = 2\\sin t\\cos t$","isCorrect":false},{"id":"c","text":"$1 - \\cos t = 2\\sin^2\\frac{t}{2}$","isCorrect":true},{"id":"d","text":"$\\cos(-t) = \\cos t$","isCorrect":false}],"solution":"Halvvinkelidentiteten gir $2 - 2\\cos t = 4\\sin^2\\frac{t}{2}$, og kvadratroten blir $2|\\sin\\frac{t}{2}|$."},{"id":"r2-6-3-n-quiz4-q3","task":"Hvorfor trengs produktregelen for å derivere $x(t) = t\\cos t$?","options":[{"id":"a","text":"Fordi $\\cos t$ ikke kan deriveres alene","isCorrect":false},{"id":"b","text":"Den trengs ikke — svaret er $-\\sin t$","isCorrect":false},{"id":"c","text":"Fordi $t$ er en konstant","isCorrect":false},{"id":"d","text":"Fordi $x(t)$ er et produkt av to funksjoner av $t$","isCorrect":true}],"solution":"$t$ og $\\cos t$ er begge funksjoner av $t$: $(t\\cos t)' = \\cos t - t\\sin t$."}]}},{"id":"r2-6-3-n-summary","type":"text","content":"## Oppsummering\n\nNewtons språk for bevegelse viste seg å være én kjede av derivasjoner: posisjonen $\\vec{r}(t) = [x(t), y(t)]$ gir **hastigheten** $\\vec{v}(t) = \\vec{r}\\,'(t)$ — alltid tangent til banen — med **farten** $v(t) = |\\vec{v}(t)|$ som lengde, og **akselerasjonen** $\\vec{a}(t) = \\vec{r}\\,''(t)$ som neste ledd. Integrasjon går kjeden motsatt vei, med startverdier som fastlegger konstantene: fra $\\vec{a} = [2, 6t]$ klatret vi tilbake til $\\vec{r}(t) = [t^2 + t, t^3]$.\n\n**Det skrå kastet** var to historier i én: konstant horisontalfart $v_0\\cos\\alpha$ og vertikalt fritt fall, samlet i $\\vec{r}(t) = [v_0 t\\cos\\alpha, v_0 t \\sin\\alpha - \\frac{1}{2}gt^2]$. Fotballen toppet ved $v_y = 0$ ($t = 1$ s, $5$ m) og landet symmetrisk ved $t = 2$ s etter $34{,}6$ m; klippekastet falt i $4$ s og traff med $42{,}7$ m/s.\n\n**Sirkelbevegelsen** avslørte sin hemmelighet i $\\vec{a} = -\\omega^2\\vec{r}$: akselerasjonen peker alltid mot sentrum, med størrelse $r\\omega^2 = \\frac{v^2}{r}$. Karusellen ga $\\frac{\\pi^2}{4}$ m/s² — og satellitten ga $9{,}5 \\approx g$: en bane er et evig fall, der tyngdekraften er sentripetalkraften.\n\nTil slutt de varierende fartene: spiralens $v = \\sqrt{1 + t^2}$ og sykloidens $v = 2|\\sin\\frac{t}{2}|$ — null nøyaktig når hjulpunktet berører bakken.\n\nDermed er bevegelsens matematikk komplett. I neste kapittel løfter vi blikket fra baner til virkeligheten i bredden: matematisk modellering — kunsten å velge riktig funksjon for et fenomen."}],"exercises":[]}
+{
+  "id": "r2-6-3-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "6.3",
+  "title": "Hastighet og akselerasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om bevegelsens matematikk — fra posisjon til hastighet til akselerasjon, gjennom skrå kast, karuseller og satellitten som faller rundt jorda.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke derivasjon til a analysere og tolke vektorfunksjoner som beskriver baner i rommet",
+    "lose realfaglige problem som involverer fart og akselerasjon"
+  ],
+  "linkedChapterId": "r2-6-3",
+  "content": [
+    {
+      "id": "r2-6-3-n-intro",
+      "type": "text",
+      "content": "## Newtons verktøy\n\nDa Isaac Newton skulle forklare hvorfor planetene går i baner og hvorfor eplet faller, manglet han noe ingen før ham hadde hatt: et matematisk språk for *bevegelse*. Posisjoner som endrer seg, hastigheter som endrer seg, krefter som endrer hastighetene — alt sammen i kontinuerlig flyt. Så han laget språket selv. Kalkulus ble til, bokstavelig talt, for dette kapittelet.\n\nDu har allerede grammatikken. En bevegelse i planet er en **posisjonsvektor** $\\vec{r}(t) = [x(t), y(t)]$ — i rommet $[x(t), y(t), z(t)]$ — og når tiden løper, tegner spissen opp banen. Fra forrige kapittel vet du at derivasjon skjer komponentvis og gir tangentvektoren. Nå setter vi fysikkens navn på hele kjeden:\n\n$$\\vec{v}(t) = \\vec{r}\\,'(t) \\qquad \\text{og} \\qquad \\vec{a}(t) = \\vec{v}\\,'(t) = \\vec{r}\\,''(t)$$\n\nHastigheten er posisjonens deriverte; akselerasjonen er hastighetens. Og veien går begge retninger: *integrerer* du akselerasjonen, får du hastigheten tilbake, og integrerer du igjen, posisjonen — med startverdiene som fastlegger integrasjonskonstantene.\n\nMed denne kjeden skal vi regne på de store klassikerne: det **skrå kastet**, der en fotball følger sin parabel gjennom luften; **sirkelbevegelsen**, der karuseller og satellitter holdes i bane av en akselerasjon som alltid peker mot sentrum; og baner med varierende fart — spiraler og det rullende hjulets sykloide. Det er fysikkens kjernepensum, regnet med vektorfunksjoner — nøyaktig slik Newton tenkte det."
+    },
+    {
+      "id": "r2-6-3-n-section1",
+      "type": "text",
+      "content": "## Kjeden: posisjon, hastighet, akselerasjon\n\nLa oss få kjeden i fingrene. **Hastighetsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$ er tangent til banen og peker i bevegelsesretningen; **farten** er lengden $v(t) = |\\vec{v}(t)|$. **Akselerasjonsvektoren** $\\vec{a}(t) = \\vec{r}\\,''(t)$ måler hvordan hastigheten endrer seg — i størrelse, retning eller begge deler — og måles i $\\text{m/s}^2$.\n\nEnkleste tilfelle først: $\\vec{r}(t) = [2t + 1, 3t - 2]$. Derivasjon gir $\\vec{v}(t) = [2, 3]$ — konstant. Objektet flytter seg $2$ meter i $x$-retning og $3$ i $y$-retning hvert sekund, langs en rett linje, og $\\vec{a}(t) = [0, 0]$: ingen akselerasjon, ingen endring. Rettlinjet, jevn bevegelse er derivasjonens nullnivå.\n\nSå et rikere eksempel: $\\vec{r}(t) = [t^3 - 3t, t^2]$. Her blir $\\vec{v}(t) = [3t^2 - 3, 2t]$ og $\\vec{a}(t) = [6t, 2]$. Ved $t = 1$ er $\\vec{a}(1) = [6, 2]$ med størrelse $\\sqrt{40} = 2\\sqrt{10}$. Og merk: akselerasjonen er *aldri* null her, for $y$-komponenten er $2$ uansett — banen krummer hele tiden.\n\nKjeden går også baklengs, med integrasjon. Anta $\\vec{a}(t) = [2, 6t]$ med startverdier $\\vec{v}(0) = [1, 0]$ og $\\vec{r}(0) = [0, 0]$. Første integrasjon: $\\vec{v}(t) = [2t + C_1, 3t^2 + C_2]$, og $\\vec{v}(0) = [1, 0]$ gir $C_1 = 1$, $C_2 = 0$, altså $\\vec{v}(t) = [2t + 1, 3t^2]$. Andre integrasjon: $\\vec{r}(t) = [t^2 + t + D_1, t^3 + D_2]$, og startposisjonen gir $D_1 = D_2 = 0$:\n\n$$\\vec{r}(t) = [t^2 + t, t^3]$$\n\nDerivasjon ned, integrasjon opp — med startverdiene som ankerfester. Det er hele maskineriet bak alt som kommer."
+    },
+    {
+      "id": "r2-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kjeden posisjon-hastighet-akselerasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-3-n-quiz1-q0",
+            "task": "Et objekt har posisjon $\\vec{r}(t) = [2t + 1, 3t - 2]$. Hva er hastighetsvektoren?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[2, 3]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[2t, 3t]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[1, -2]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[0, 0]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Deriver komponentvis: $\\vec{v}(t) = [2, 3]$ — konstant hastighet langs en rett linje."
+          },
+          {
+            "id": "r2-6-3-n-quiz1-q1",
+            "task": "Hvordan henger akselerasjonen sammen med posisjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\vec{a}(t) = \\vec{r}\\,'(t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\vec{a}(t) = \\vec{r}\\,''(t)$ — den andrederiverte",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\vec{a}(t) = |\\vec{r}(t)|$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\vec{a}(t) = \\int \\vec{r}(t)\\,dt$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Akselerasjonen er den deriverte av hastigheten, som selv er den deriverte av posisjonen: $\\vec{a} = \\vec{v}\\,' = \\vec{r}\\,''$."
+          },
+          {
+            "id": "r2-6-3-n-quiz1-q2",
+            "task": "For $\\vec{r}(t) = [t^3 - 3t, t^2]$ er $\\vec{a}(t) = [6t, 2]$. Når er akselerasjonen null?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ved $t = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ved $t = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aldri — $y$-komponenten er alltid $2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ved $t = \\frac{1}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Begge komponentene må være null samtidig, men $y$-komponenten er konstant $2$. Banen krummer hele tiden."
+          },
+          {
+            "id": "r2-6-3-n-quiz1-q3",
+            "task": "$\\vec{a}(t) = [2, 6t]$, $\\vec{v}(0) = [1, 0]$. Hva er $\\vec{v}(t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[2, 6]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[2t, 3t^2]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[t^2, 2t^3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[2t + 1, 3t^2]$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Integrasjon gir $[2t + C_1, 3t^2 + C_2]$, og startverdien $\\vec{v}(0) = [1, 0]$ bestemmer $C_1 = 1$, $C_2 = 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-3-n-section2",
+      "type": "text",
+      "content": "## Det skrå kastet\n\nFotballen forlater foten, stiger, flater ut, faller — og lander. Hele dramaet styres av én eneste opplysning: i luften virker bare tyngdekraften, så $\\vec{a}(t) = [0, -g]$. Integrer to ganger (slik vi nettopp lærte), med startfart $v_0$ i vinkel $\\alpha$ fra origo, og du får bevegelseslikningene:\n\n$$\\vec{v}(t) = [v_0 \\cos \\alpha, \\; v_0 \\sin \\alpha - gt] \\qquad \\vec{r}(t) = [v_0 t \\cos \\alpha, \\; v_0 t \\sin \\alpha - \\tfrac{1}{2}gt^2]$$\n\nLes dem som to uavhengige historier: horisontalt skjer *ingenting* — konstant fart $v_0 \\cos\\alpha$, siden ingen kraft virker den veien. Vertikalt er det fritt fall med starthastighet $v_0 \\sin\\alpha$. Kastets parabel er bare disse to enkle bevegelsene lagt oppå hverandre.\n\nKonkret: en fotball sparkes med $v_0 = 20$ m/s i $\\alpha = 30°$, med $g = 10$ m/s². Da er $\\cos 30° \\approx 0{,}866$ og $\\sin 30° = 0{,}5$, så $\\vec{r}(t) = [17{,}32t, \\; 10t - 5t^2]$. **Toppunktet** nås når den vertikale farten er brukt opp: $v_y = 10 - 10t = 0$ gir $t = 1$ s, og høyden der er $y(1) = 10 - 5 = 5$ m. **Landingen** skjer når $y = 0$: $5t(2 - t) = 0$ gir $t = 2$ s — nøyaktig dobbelt så lenge som til toppen, for parabelen er symmetrisk — og skuddlengden blir $x(2) = 17{,}32 \\cdot 2 \\approx 34{,}6$ m.\n\nVarianten med kast fra høyde: en ball kastes *horisontalt* ($\\alpha = 0$) med $15$ m/s fra en klippe $80$ m over bakken. Med origo på klippekanten er $\\vec{r}(t) = [15t, -5t^2]$. Bakken nås når $-5t^2 = -80$, altså $t = 4$ s, hele $60$ m ut fra klippen. Og hastigheten i nedslaget? $\\vec{v}(4) = [15, -40]$, med fart $\\sqrt{225 + 1600} = \\sqrt{1825} \\approx 42{,}7$ m/s. (Virkelighetens baller bremses av luftmotstand — et ledd av typen $-kv$ i akselerasjonen — som korter både høyde og lengde og til slutt gir en terminalfart. Modellen vår er luftens tomme ideal.)"
+    },
+    {
+      "id": "r2-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på skrått kast:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-3-n-quiz2-q0",
+            "task": "Hva kjennetegner den horisontale bevegelsen i et skrått kast (uten luftmotstand)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Konstant fart $v_0\\cos\\alpha$ — ingen kraft virker horisontalt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den bremses av tyngdekraften",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den akselererer med $g$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den stopper i toppunktet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tyngden virker bare vertikalt: $\\vec{a} = [0, -g]$. Horisontalfarten $v_0\\cos\\alpha$ er den samme hele veien."
+          },
+          {
+            "id": "r2-6-3-n-quiz2-q1",
+            "task": "Fotball: $v_0 = 20$ m/s, $\\alpha = 30°$, $g = 10$. Når og hvor høyt er toppunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$t = 2$ s, høyde $10$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$t = 1$ s, høyde $5$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$t = 0{,}5$ s, høyde $2{,}5$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$t = 1$ s, høyde $10$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Toppen nås når $v_y = 10 - 10t = 0$, altså $t = 1$ s, og $y(1) = 10 \\cdot 1 - 5 \\cdot 1 = 5$ m."
+          },
+          {
+            "id": "r2-6-3-n-quiz2-q2",
+            "task": "Hvor langt flyr den samme fotballen før den lander?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$17{,}3$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$20$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "ca. $34{,}6$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$50$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Landing når $10t - 5t^2 = 0$, dvs. $t = 2$ s, og $x(2) = 17{,}32 \\cdot 2 \\approx 34{,}6$ m."
+          },
+          {
+            "id": "r2-6-3-n-quiz2-q3",
+            "task": "En ball kastes horisontalt fra en $80$ m høy klippe ($g = 10$). Når treffer den bakken?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Etter $8$ s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etter $16$ s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det avhenger av kastefarten",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Etter $4$ s",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vertikalt: $-5t^2 = -80$ gir $t^2 = 16$, $t = 4$ s. Fallhøyden styrer tiden — kastefarten påvirker bare hvor langt ut den når."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-3-n-section3",
+      "type": "text",
+      "content": "## Sirkelbevegelse — å falle rundt jorda\n\nKarusellen snurrer med konstant fart, og likevel kjenner du deg dratt — for *retningen* endres hele tiden, og endring av hastighet er per definisjon akselerasjon. La oss finne den.\n\nUniform sirkelbevegelse med radius $r$ og **vinkelhastighet** $\\omega$ (radianer per sekund, $\\omega = \\frac{2\\pi}{T}$ for omløpstid $T$) har posisjon $\\vec{r}(t) = [r\\cos(\\omega t), r\\sin(\\omega t)]$. Derivasjon gir $\\vec{v}(t) = [-r\\omega\\sin(\\omega t), r\\omega\\cos(\\omega t)]$ med konstant fart $v = r\\omega$, og enda en derivasjon gir gullkornet:\n\n$$\\vec{a}(t) = [-r\\omega^2\\cos(\\omega t), -r\\omega^2\\sin(\\omega t)] = -\\omega^2\\, \\vec{r}(t)$$\n\nAkselerasjonen er posisjonsvektoren *snudd*: den peker alltid rett **mot sentrum**. Dette er **sentripetalakselerasjonen**, med størrelse $|\\vec{a}| = r\\omega^2 = \\frac{v^2}{r}$ — kraften du kjenner i karusellen er nettopp det som trengs for å bøye banen din.\n\nKarusellen i tall: radius $4$ m, ett omløp på $8$ s. Da er $\\omega = \\frac{2\\pi}{8} = \\frac{\\pi}{4}$ rad/s, farten $v = r\\omega = \\pi \\approx 3{,}14$ m/s, og sentripetalakselerasjonen $r\\omega^2 = \\frac{\\pi^2}{4} \\approx 2{,}47$ m/s².\n\nOg nå kapittelets vakreste regnestykke. En satellitt i bane $7000$ km fra jordsenteret bruker $90$ minutter på et omløp. Samme formler: $\\omega = \\frac{2\\pi}{5400} \\approx 1{,}16 \\cdot 10^{-3}$ rad/s, fart $v = r\\omega \\approx 8{,}1$ km/s — og sentripetalakselerasjonen $\\frac{v^2}{r} \\approx 9{,}5$ m/s². Kjenner du igjen tallet? Det er nesten nøyaktig $g$. Tyngdekraften *er* satellittens sentripetalkraft: den faller fritt mot jorda hele tiden, men beveger seg sideveis akkurat fort nok til alltid å bomme. En bane er et evig fall — Newtons innsikt, levert av to derivasjoner."
+    },
+    {
+      "id": "r2-6-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sirkelbevegelse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-3-n-quiz3-q0",
+            "task": "En karusell med radius $4$ m bruker $8$ s per omløp. Hva er vinkelhastigheten $\\omega$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{4}$ rad/s",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{\\pi}{2}$ rad/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8\\pi$ rad/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$ rad/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{8} = \\frac{\\pi}{4}$ rad/s."
+          },
+          {
+            "id": "r2-6-3-n-quiz3-q1",
+            "task": "Hvilken retning har akselerasjonen ved uniform sirkelbevegelse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tangentielt, i fartsretningen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alltid inn mot sentrum",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Utover, bort fra sentrum",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Akselerasjonen er null siden farten er konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{a}(t) = -\\omega^2\\vec{r}(t)$ peker motsatt av posisjonsvektoren — mot sentrum. Farten er konstant, men retningen endres hele tiden."
+          },
+          {
+            "id": "r2-6-3-n-quiz3-q2",
+            "task": "Hva er sentripetalakselerasjonens størrelse uttrykt ved fart og radius?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$|\\vec{a}| = vr$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$|\\vec{a}| = \\frac{r}{v^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$|\\vec{a}| = \\frac{v^2}{r}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$|\\vec{a}| = \\frac{v}{r^2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|\\vec{a}| = r\\omega^2 = \\frac{v^2}{r}$ — for karusellen $\\frac{\\pi^2}{4} \\approx 2{,}47$ m/s²."
+          },
+          {
+            "id": "r2-6-3-n-quiz3-q3",
+            "task": "Satellitten i $7000$ km bane har sentripetalakselerasjon $\\approx 9{,}5$ m/s². Hva forteller det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At satellitten bremser opp",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At banen er ustabil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At motorene må gå kontinuerlig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At tyngdekraften er sentripetalkraften — satellitten faller fritt rundt jorda",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tallet er nesten $g$: tyngden leverer nøyaktig akselerasjonen banen krever. En bane er et evig, sideveis fall."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-3-n-section4",
+      "type": "text",
+      "content": "## Når farten varierer: spiraler og det rullende hjulet\n\nKast og jevn sirkelgang er klassikerne, men kjeden posisjon–hastighet–akselerasjon takler hva som helst. To siste baner viser spennvidden.\n\nFørst en **spiral**: $\\vec{r}(t) = [t\\cos t, t\\sin t]$. Avstanden fra origo er $|\\vec{r}(t)| = \\sqrt{t^2\\cos^2 t + t^2 \\sin^2 t} = t$ — partikkelen roterer mens den skrur seg jevnt utover, en arkimedisk spiral. Hastigheten krever produktregelen i hver komponent: $\\vec{v}(t) = [\\cos t - t\\sin t, \\; \\sin t + t\\cos t]$. Og farten? Kvadrér og legg sammen — kryssleddene $\\mp 2t\\sin t\\cos t$ utsletter hverandre, og identiteten $\\cos^2 + \\sin^2 = 1$ rydder resten:\n\n$$v(t) = \\sqrt{1 + t^2}$$\n\nFarten vokser med tiden: hver runde er lengre enn den forrige, men tar like lang tid.\n\nSå **sykloiden** — banen til et punkt på kanten av et hjul som ruller, med $\\vec{r}(t) = [t - \\sin t, 1 - \\cos t]$. Derivasjon gir $\\vec{v}(t) = [1 - \\cos t, \\sin t]$ og $\\vec{a}(t) = [\\sin t, \\cos t]$, og fartsberegningen er en liten perle: $v(t) = \\sqrt{(1-\\cos t)^2 + \\sin^2 t} = \\sqrt{2 - 2\\cos t}$, som identiteten $1 - \\cos t = 2\\sin^2\\frac{t}{2}$ forvandler til\n\n$$v(t) = 2\\left|\\sin\\frac{t}{2}\\right|$$\n\nFarten er null når $\\sin\\frac{t}{2} = 0$, altså ved $t = 0, 2\\pi, 4\\pi, \\ldots$ — nøyaktig der punktet berører bakken. Tenk på det neste gang du ser et hjul rulle: punktet nederst står *stille* i berøringsøyeblikket, mens punktet øverst farer av sted med dobbel fart av navet. Matematikken ser det blotte øyet ikke kan: to derivasjoner, og bevegelsens innerste koreografi ligger åpen."
+    },
+    {
+      "id": "r2-6-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på varierende fart:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-3-n-quiz4-q0",
+            "task": "Spiralen $\\vec{r}(t) = [t\\cos t, t\\sin t]$ har fart",
+            "options": [
+              {
+                "id": "a",
+                "text": "$v(t) = \\sqrt{1 + t^2}$, voksende med tiden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "konstant $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$v(t) = t^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$v(t) = \\cos t + \\sin t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen gir $\\vec{v} = [\\cos t - t\\sin t, \\sin t + t\\cos t]$; kryssleddene kansellerer og $v = \\sqrt{1 + t^2}$."
+          },
+          {
+            "id": "r2-6-3-n-quiz4-q1",
+            "task": "Sykloiden $\\vec{r}(t) = [t - \\sin t, 1 - \\cos t]$ har fart $v(t) = 2|\\sin\\frac{t}{2}|$. Når er farten null?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Aldri — hjulet ruller jo",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ved $t = 0, 2\\pi, 4\\pi, \\ldots$, når punktet berører bakken",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bare ved $t = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "På toppen av hver bue",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin\\frac{t}{2} = 0$ ved $t = 2n\\pi$ — kontaktpunktet med bakken står et øyeblikk helt stille."
+          },
+          {
+            "id": "r2-6-3-n-quiz4-q2",
+            "task": "Hvilken identitet forenkler $\\sqrt{2 - 2\\cos t}$ til $2|\\sin\\frac{t}{2}|$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sin^2 t + \\cos^2 t = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sin 2t = 2\\sin t\\cos t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1 - \\cos t = 2\\sin^2\\frac{t}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\cos(-t) = \\cos t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Halvvinkelidentiteten gir $2 - 2\\cos t = 4\\sin^2\\frac{t}{2}$, og kvadratroten blir $2|\\sin\\frac{t}{2}|$."
+          },
+          {
+            "id": "r2-6-3-n-quiz4-q3",
+            "task": "Hvorfor trengs produktregelen for å derivere $x(t) = t\\cos t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $\\cos t$ ikke kan deriveres alene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den trengs ikke — svaret er $-\\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $t$ er en konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $x(t)$ er et produkt av to funksjoner av $t$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$t$ og $\\cos t$ er begge funksjoner av $t$: $(t\\cos t)' = \\cos t - t\\sin t$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNewtons språk for bevegelse viste seg å være én kjede av derivasjoner: posisjonen $\\vec{r}(t) = [x(t), y(t)]$ gir **hastigheten** $\\vec{v}(t) = \\vec{r}\\,'(t)$ — alltid tangent til banen — med **farten** $v(t) = |\\vec{v}(t)|$ som lengde, og **akselerasjonen** $\\vec{a}(t) = \\vec{r}\\,''(t)$ som neste ledd. Integrasjon går kjeden motsatt vei, med startverdier som fastlegger konstantene: fra $\\vec{a} = [2, 6t]$ klatret vi tilbake til $\\vec{r}(t) = [t^2 + t, t^3]$.\n\n**Det skrå kastet** var to historier i én: konstant horisontalfart $v_0\\cos\\alpha$ og vertikalt fritt fall, samlet i $\\vec{r}(t) = [v_0 t\\cos\\alpha, v_0 t \\sin\\alpha - \\frac{1}{2}gt^2]$. Fotballen toppet ved $v_y = 0$ ($t = 1$ s, $5$ m) og landet symmetrisk ved $t = 2$ s etter $34{,}6$ m; klippekastet falt i $4$ s og traff med $42{,}7$ m/s.\n\n**Sirkelbevegelsen** avslørte sin hemmelighet i $\\vec{a} = -\\omega^2\\vec{r}$: akselerasjonen peker alltid mot sentrum, med størrelse $r\\omega^2 = \\frac{v^2}{r}$. Karusellen ga $\\frac{\\pi^2}{4}$ m/s² — og satellitten ga $9{,}5 \\approx g$: en bane er et evig fall, der tyngdekraften er sentripetalkraften.\n\nTil slutt de varierende fartene: spiralens $v = \\sqrt{1 + t^2}$ og sykloidens $v = 2|\\sin\\frac{t}{2}|$ — null nøyaktig når hjulpunktet berører bakken.\n\nDermed er bevegelsens matematikk komplett. I neste kapittel løfter vi blikket fra baner til virkeligheten i bredden: matematisk modellering — kunsten å velge riktig funksjon for et fenomen."
+    }
+  ],
+  "exercises": []
+}

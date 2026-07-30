@@ -1,1 +1,314 @@
-{"id":"9-7-3-narrativ","courseId":"9","chapterNumber":"7.3","title":"Generalisering med algebra","subtitle":"Narrativ versjon","description":"En fortellende gjennomgang av generalisering -- kunsten å gå fra konkrete eksempler til universelle formler -- der vi bruker differansetabeller som detektivverktøy for å avdekke lineære og kvadratiske mønstre.","estimatedMinutes":35,"competenceGoals":["utforske og beskrive strukturar og forandringar i geometriske mønster og tallmønster med figurar, ord og formlar"],"linkedChapterId":"9-7-3","content":[{"id":"9-7-3-n-intro","type":"text","content":"## Fra det spesielle til det generelle\n\nForestill deg at du er en detektiv som har fått en liste med ledetråder: $5, 8, 11, 14, 17, \\ldots$ Jobben din er å finne den skjulte regelen -- formelen som produserer alle disse tallene. Finner du den, kan du forutsi ethvert tall i rekken, selv det tusende.\n\nDette er kjernen i **generalisering**: å gå fra noen spesifikke eksempler til en formel som gjelder for alle. I stedet for å telle klosser i figur 1, 2, 3 og 4, vil vi ha en formel som forteller oss antall klosser i figur $n$ -- uansett hvor stor $n$ er.\n\nVerktøyet vårt er **differansetabellen**. Den er som et røntgenbilde av tallfølgen: den avslører strukturen som skjuler seg under overflaten."},{"id":"9-7-3-n-section1","type":"text","content":"## Lineære formler -- når differansene er konstante\n\nHvis du regner ut differansene mellom påfølgende ledd og de er **konstante**, har du en lineær formel. Det betyr at formelen ser ut som $a_n = dn + c$, der $d$ er den konstante differansen.\n\nLa oss se det i praksis. Følgen $6, 11, 16, 21, 26, \\ldots$ har differansene $5, 5, 5, 5$. Konstant! Altså:\n\n$$a_n = 5n + c$$\n\nFor å finne $c$ setter vi inn en verdi vi kjenner. For $n = 1$ vet vi at $a_1 = 6$:\n\n$$6 = 5 \\cdot 1 + c \\quad \\Rightarrow \\quad c = 1$$\n\nFormelen er $a_n = 5n + 1$. La oss sjekke: $a_2 = 5 \\cdot 2 + 1 = 11$. Stemmer! $a_4 = 5 \\cdot 4 + 1 = 21$. Perfekt!\n\nNå kan vi finne ethvert ledd: $a_{100} = 5 \\cdot 100 + 1 = 501$. Det hadde tatt evigheter å telle seg frem til dette ledd for ledd, men formelen gir svaret på et øyeblikk.\n\nHusk: differansen $d$ kan også være negativ. Følgen $10, 7, 4, 1, -2, \\ldots$ har $d = -3$, og formelen blir $a_n = -3n + 13$."},{"id":"9-7-3-n-quiz1","type":"exercise","exercise":{"id":"9-7-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på lineære formler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-3-n-quiz1-q0","task":"Følgen $4, 7, 10, 13, 16, \\ldots$ har differanse $d = 3$. Hva er formelen for $a_n$?","options":[{"id":"a","text":"$a_n = 3n + 4$","isCorrect":false},{"id":"b","text":"$a_n = 3n + 1$","isCorrect":true},{"id":"c","text":"$a_n = 4n + 3$","isCorrect":false},{"id":"d","text":"$a_n = 3n - 1$","isCorrect":false}],"solution":"$a_n = 3n + c$. For $n = 1$: $4 = 3 + c$, altså $c = 1$. Formelen er $a_n = 3n + 1$."},{"id":"9-7-3-n-quiz1-q1","task":"Formelen for en følge er $a_n = 5n + 1$. Hvilken figur har 201 enheter?","options":[{"id":"a","text":"Figur $39$","isCorrect":false},{"id":"b","text":"Figur $40$","isCorrect":true},{"id":"c","text":"Figur $41$","isCorrect":false},{"id":"d","text":"Figur $42$","isCorrect":false}],"solution":"Vi løser $5n + 1 = 201$: $5n = 200$, $n = 40$."},{"id":"9-7-3-n-quiz1-q2","task":"Følgen starter med $10, 7, 4, 1, -2, \\ldots$ Hva er $a_{15}$?","options":[{"id":"a","text":"$-35$","isCorrect":false},{"id":"b","text":"$-32$","isCorrect":true},{"id":"c","text":"$-30$","isCorrect":false},{"id":"d","text":"$-28$","isCorrect":false}],"solution":"$d = -3$. $a_n = -3n + c$. For $n = 1$: $10 = -3 + c$, så $c = 13$. $a_{15} = -3 \\cdot 15 + 13 = -45 + 13 = -32$."}]}},{"id":"9-7-3-n-section2","type":"text","content":"## Kvadratiske formler -- når differansene av differansene er konstante\n\nHva gjør vi når de første differansene IKKE er konstante? Da tar vi differansene av differansene -- de **andre differansene**. Hvis disse er konstante, er formelen **kvadratisk**: $a_n = an^2 + bn + c$.\n\nLa oss se på følgen $3, 8, 15, 24, 35, \\ldots$\n\n| $n$ | $a_n$ | $\\Delta_1$ (1. diff.) | $\\Delta_2$ (2. diff.) |\n|-----|--------|----------------------|----------------------|\n| 1 | 3 | | |\n| 2 | 8 | 5 | |\n| 3 | 15 | 7 | 2 |\n| 4 | 24 | 9 | 2 |\n| 5 | 35 | 11 | 2 |\n\nDe andre differansene er konstante ($\\Delta_2 = 2$). Det betyr kvadratisk formel! Vi finner koeffisientene steg for steg:\n\n1. $a = \\frac{\\Delta_2}{2} = \\frac{2}{2} = 1$\n2. Formelen er $a_n = n^2 + bn + c$\n3. Sett inn $n = 1$: $3 = 1 + b + c$, altså $b + c = 2$\n4. Sett inn $n = 2$: $8 = 4 + 2b + c$, altså $2b + c = 4$\n5. Trekk ligning 3 fra ligning 4: $b = 2$, og da $c = 0$\n\n$$a_n = n^2 + 2n = n(n + 2)$$\n\nKontroll: $a_3 = 3 \\cdot 5 = 15$. Stemmer! $a_5 = 5 \\cdot 7 = 35$. Perfekt!"},{"id":"9-7-3-n-quiz2","type":"exercise","exercise":{"id":"9-7-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kvadratiske formler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-3-n-quiz2-q0","task":"En tallfølge har andre differanser $\\Delta_2 = 4$. Hva er koeffisienten $a$ i formelen $a_n = an^2 + bn + c$?","options":[{"id":"a","text":"$a = 4$","isCorrect":false},{"id":"b","text":"$a = 2$","isCorrect":true},{"id":"c","text":"$a = 1$","isCorrect":false},{"id":"d","text":"$a = 8$","isCorrect":false}],"solution":"Koeffisienten foran $n^2$ er alltid $a = \\frac{\\Delta_2}{2} = \\frac{4}{2} = 2$."},{"id":"9-7-3-n-quiz2-q1","task":"Følgen $2, 5, 10, 17, 26, \\ldots$ har formelen $a_n = n^2 + 1$. Hva er $a_{10}$?","options":[{"id":"a","text":"$100$","isCorrect":false},{"id":"b","text":"$101$","isCorrect":true},{"id":"c","text":"$111$","isCorrect":false},{"id":"d","text":"$91$","isCorrect":false}],"solution":"$a_{10} = 10^2 + 1 = 100 + 1 = 101$."},{"id":"9-7-3-n-quiz2-q2","task":"Følgen $0, 3, 8, 15, 24, \\ldots$ har konstante andre differanser. Hva er formelen?","options":[{"id":"a","text":"$a_n = n^2 + 1$","isCorrect":false},{"id":"b","text":"$a_n = n^2 - 1$","isCorrect":true},{"id":"c","text":"$a_n = n^2 - n$","isCorrect":false},{"id":"d","text":"$a_n = n^2 + n$","isCorrect":false}],"solution":"Andre differanser er $2$ (konstant), så $a = 1$. Med $a_n = n^2 + bn + c$: $n=1$: $0 = 1 + b + c$, $n=2$: $3 = 4 + 2b + c$. Vi får $b = 0$, $c = -1$. Altså $a_n = n^2 - 1 = (n-1)(n+1)$."}]}},{"id":"9-7-3-n-section3","type":"text","content":"## Generalisering fra visuelle figurer\n\nEn av de fineste ferdighetene i matematikk er å se en rekke figurer -- bygget av klosser, fyrstikker eller prikker -- og oversette det visuelle mønsteret til en formel.\n\nNøkkelen er å spørre deg selv: *Hvordan kan jeg dele opp figuren i deler jeg kan telle?*\n\nTenk på et L-formet mønster av prikker. Figur 1 har 3 prikker, figur 2 har 5, figur 3 har 7. Differansen er $2$ -- konstant! Altså: $a_n = 2n + 1$.\n\nMen vi kan også forstå formelen ut fra figuren: L-en har en vertikal del med $(n+1)$ prikker og en horisontal del med $(n+1)$ prikker, men hjørnet telles bare en gang. Totalt: $2(n+1) - 1 = 2n + 1$.\n\nDenne doble forståelsen -- både algebraisk (via differansetabell) og visuell (via figurens struktur) -- er gull verdt. Den ene bekrefter den andre, og du bygger en dypere forståelse av mønsteret.\n\n**Sjekk alltid formelen:** Sett inn verdier du kjenner. Hvis formelen gir riktig svar for alle kjente ledd, er du på trygg grunn."},{"id":"9-7-3-n-quiz3","type":"exercise","exercise":{"id":"9-7-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på generalisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-3-n-quiz3-q0","task":"En figur bygges med klosser: figur 1 har 2 klosser, figur 2 har 6, figur 3 har 12, figur 4 har 20. Hva er formelen?","options":[{"id":"a","text":"$a_n = 2n^2$","isCorrect":false},{"id":"b","text":"$a_n = n(n+1)$","isCorrect":true},{"id":"c","text":"$a_n = n^2 + n + 1$","isCorrect":false},{"id":"d","text":"$a_n = 3n - 1$","isCorrect":false}],"solution":"Differansene er $4, 6, 8$ (ikke konstant). Andre differanser: $2, 2$ (konstant). Kvadratisk med $a = 1$. Man finner $a_n = n^2 + n = n(n+1)$. Sjekk: $a_3 = 3 \\cdot 4 = 12$. Stemmer!"},{"id":"9-7-3-n-quiz3-q1","task":"Hva er det første du gjør for å avgjøre om en formel er lineær eller kvadratisk?","options":[{"id":"a","text":"Setter inn $n = 100$ i alle mulige formler","isCorrect":false},{"id":"b","text":"Lager en differansetabell og sjekker om 1. eller 2. differanser er konstante","isCorrect":true},{"id":"c","text":"Ganger alle leddene med hverandre","isCorrect":false},{"id":"d","text":"Sjekker om tallene er partall eller oddetall","isCorrect":false}],"solution":"Differansetabellen er nøkkelverktøyet. Konstante 1. differanser betyr lineær formel. Konstante 2. differanser betyr kvadratisk formel."}]}},{"id":"9-7-3-n-summary","type":"text","content":"## Oppsummering\n\n**Generalisering** er å finne en formel som beskriver et mønster for alle verdier av $n$.\n\n**Lineær formel** ($a_n = dn + c$): Brukes når de første differansene er konstante. Finn $d$ fra differansene, og $c$ ved innsetting.\n\n**Kvadratisk formel** ($a_n = an^2 + bn + c$): Brukes når de andre differansene er konstante. Finn $a = \\frac{\\Delta_2}{2}$, og deretter $b$ og $c$ ved å løse to ligninger.\n\n**Fremgangsmåte:**\n1. Lag en differansetabell\n2. Er 1. differansene konstante? Da er formelen lineær.\n3. Er 2. differansene konstante? Da er formelen kvadratisk.\n4. Finn koeffisientene ved innsetting\n5. **Kontroller alltid** at formelen gir riktige verdier for alle kjente ledd!"}],"exercises":[]}
+{
+  "id": "9-7-3-narrativ",
+  "courseId": "9",
+  "chapterNumber": "7.3",
+  "title": "Generalisering med algebra",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende gjennomgang av generalisering -- kunsten å gå fra konkrete eksempler til universelle formler -- der vi bruker differansetabeller som detektivverktøy for å avdekke lineære og kvadratiske mønstre.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og beskrive strukturar og forandringar i geometriske mønster og tallmønster med figurar, ord og formlar"
+  ],
+  "linkedChapterId": "9-7-3",
+  "content": [
+    {
+      "id": "9-7-3-n-intro",
+      "type": "text",
+      "content": "## Fra det spesielle til det generelle\n\nForestill deg at du er en detektiv som har fått en liste med ledetråder: $5, 8, 11, 14, 17, \\ldots$ Jobben din er å finne den skjulte regelen -- formelen som produserer alle disse tallene. Finner du den, kan du forutsi ethvert tall i rekken, selv det tusende.\n\nDette er kjernen i **generalisering**: å gå fra noen spesifikke eksempler til en formel som gjelder for alle. I stedet for å telle klosser i figur 1, 2, 3 og 4, vil vi ha en formel som forteller oss antall klosser i figur $n$ -- uansett hvor stor $n$ er.\n\nVerktøyet vårt er **differansetabellen**. Den er som et røntgenbilde av tallfølgen: den avslører strukturen som skjuler seg under overflaten."
+    },
+    {
+      "id": "9-7-3-n-section1",
+      "type": "text",
+      "content": "## Lineære formler -- når differansene er konstante\n\nHvis du regner ut differansene mellom påfølgende ledd og de er **konstante**, har du en lineær formel. Det betyr at formelen ser ut som $a_n = dn + c$, der $d$ er den konstante differansen.\n\nLa oss se det i praksis. Følgen $6, 11, 16, 21, 26, \\ldots$ har differansene $5, 5, 5, 5$. Konstant! Altså:\n\n$$a_n = 5n + c$$\n\nFor å finne $c$ setter vi inn en verdi vi kjenner. For $n = 1$ vet vi at $a_1 = 6$:\n\n$$6 = 5 \\cdot 1 + c \\quad \\Rightarrow \\quad c = 1$$\n\nFormelen er $a_n = 5n + 1$. La oss sjekke: $a_2 = 5 \\cdot 2 + 1 = 11$. Stemmer! $a_4 = 5 \\cdot 4 + 1 = 21$. Perfekt!\n\nNå kan vi finne ethvert ledd: $a_{100} = 5 \\cdot 100 + 1 = 501$. Det hadde tatt evigheter å telle seg frem til dette ledd for ledd, men formelen gir svaret på et øyeblikk.\n\nHusk: differansen $d$ kan også være negativ. Følgen $10, 7, 4, 1, -2, \\ldots$ har $d = -3$, og formelen blir $a_n = -3n + 13$."
+    },
+    {
+      "id": "9-7-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lineære formler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-3-n-quiz1-q0",
+            "task": "Følgen $4, 7, 10, 13, 16, \\ldots$ har differanse $d = 3$. Hva er formelen for $a_n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$a_n = 3n + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$a_n = 3n + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = 4n + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 3n - 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_n = 3n + c$. For $n = 1$: $4 = 3 + c$, altså $c = 1$. Formelen er $a_n = 3n + 1$."
+          },
+          {
+            "id": "9-7-3-n-quiz1-q1",
+            "task": "Formelen for en følge er $a_n = 5n + 1$. Hvilken figur har 201 enheter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Figur $39$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Figur $40$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Figur $41$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Figur $42$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi løser $5n + 1 = 201$: $5n = 200$, $n = 40$."
+          },
+          {
+            "id": "9-7-3-n-quiz1-q2",
+            "task": "Følgen starter med $10, 7, 4, 1, -2, \\ldots$ Hva er $a_{15}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-35$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-32$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-30$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-28$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$d = -3$. $a_n = -3n + c$. For $n = 1$: $10 = -3 + c$, så $c = 13$. $a_{15} = -3 \\cdot 15 + 13 = -45 + 13 = -32$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-3-n-section2",
+      "type": "text",
+      "content": "## Kvadratiske formler -- når differansene av differansene er konstante\n\nHva gjør vi når de første differansene IKKE er konstante? Da tar vi differansene av differansene -- de **andre differansene**. Hvis disse er konstante, er formelen **kvadratisk**: $a_n = an^2 + bn + c$.\n\nLa oss se på følgen $3, 8, 15, 24, 35, \\ldots$\n\n| $n$ | $a_n$ | $\\Delta_1$ (1. diff.) | $\\Delta_2$ (2. diff.) |\n|-----|--------|----------------------|----------------------|\n| 1 | 3 | | |\n| 2 | 8 | 5 | |\n| 3 | 15 | 7 | 2 |\n| 4 | 24 | 9 | 2 |\n| 5 | 35 | 11 | 2 |\n\nDe andre differansene er konstante ($\\Delta_2 = 2$). Det betyr kvadratisk formel! Vi finner koeffisientene steg for steg:\n\n1. $a = \\frac{\\Delta_2}{2} = \\frac{2}{2} = 1$\n2. Formelen er $a_n = n^2 + bn + c$\n3. Sett inn $n = 1$: $3 = 1 + b + c$, altså $b + c = 2$\n4. Sett inn $n = 2$: $8 = 4 + 2b + c$, altså $2b + c = 4$\n5. Trekk ligning 3 fra ligning 4: $b = 2$, og da $c = 0$\n\n$$a_n = n^2 + 2n = n(n + 2)$$\n\nKontroll: $a_3 = 3 \\cdot 5 = 15$. Stemmer! $a_5 = 5 \\cdot 7 = 35$. Perfekt!"
+    },
+    {
+      "id": "9-7-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kvadratiske formler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-3-n-quiz2-q0",
+            "task": "En tallfølge har andre differanser $\\Delta_2 = 4$. Hva er koeffisienten $a$ i formelen $a_n = an^2 + bn + c$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a = 8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Koeffisienten foran $n^2$ er alltid $a = \\frac{\\Delta_2}{2} = \\frac{4}{2} = 2$."
+          },
+          {
+            "id": "9-7-3-n-quiz2-q1",
+            "task": "Følgen $2, 5, 10, 17, 26, \\ldots$ har formelen $a_n = n^2 + 1$. Hva er $a_{10}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$111$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$91$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$101$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$a_{10} = 10^2 + 1 = 100 + 1 = 101$."
+          },
+          {
+            "id": "9-7-3-n-quiz2-q2",
+            "task": "Følgen $0, 3, 8, 15, 24, \\ldots$ har konstante andre differanser. Hva er formelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$a_n = n^2 - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$a_n = n^2 + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = n^2 - n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = n^2 + n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Andre differanser er $2$ (konstant), så $a = 1$. Med $a_n = n^2 + bn + c$: $n=1$: $0 = 1 + b + c$, $n=2$: $3 = 4 + 2b + c$. Vi får $b = 0$, $c = -1$. Altså $a_n = n^2 - 1 = (n-1)(n+1)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-3-n-section3",
+      "type": "text",
+      "content": "## Generalisering fra visuelle figurer\n\nEn av de fineste ferdighetene i matematikk er å se en rekke figurer -- bygget av klosser, fyrstikker eller prikker -- og oversette det visuelle mønsteret til en formel.\n\nNøkkelen er å spørre deg selv: *Hvordan kan jeg dele opp figuren i deler jeg kan telle?*\n\nTenk på et L-formet mønster av prikker. Figur 1 har 3 prikker, figur 2 har 5, figur 3 har 7. Differansen er $2$ -- konstant! Altså: $a_n = 2n + 1$.\n\nMen vi kan også forstå formelen ut fra figuren: L-en har en vertikal del med $(n+1)$ prikker og en horisontal del med $(n+1)$ prikker, men hjørnet telles bare en gang. Totalt: $2(n+1) - 1 = 2n + 1$.\n\nDenne doble forståelsen -- både algebraisk (via differansetabell) og visuell (via figurens struktur) -- er gull verdt. Den ene bekrefter den andre, og du bygger en dypere forståelse av mønsteret.\n\n**Sjekk alltid formelen:** Sett inn verdier du kjenner. Hvis formelen gir riktig svar for alle kjente ledd, er du på trygg grunn."
+    },
+    {
+      "id": "9-7-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på generalisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-3-n-quiz3-q0",
+            "task": "En figur bygges med klosser: figur 1 har 2 klosser, figur 2 har 6, figur 3 har 12, figur 4 har 20. Hva er formelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = 2n^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = n^2 + n + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = n(n+1)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 3n - 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Differansene er $4, 6, 8$ (ikke konstant). Andre differanser: $2, 2$ (konstant). Kvadratisk med $a = 1$. Man finner $a_n = n^2 + n = n(n+1)$. Sjekk: $a_3 = 3 \\cdot 4 = 12$. Stemmer!"
+          },
+          {
+            "id": "9-7-3-n-quiz3-q1",
+            "task": "Hva er det første du gjør for å avgjøre om en formel er lineær eller kvadratisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Setter inn $n = 100$ i alle mulige formler",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ganger alle leddene med hverandre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sjekker om tallene er partall eller oddetall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lager en differansetabell og sjekker om 1. eller 2. differanser er konstante",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Differansetabellen er nøkkelverktøyet. Konstante 1. differanser betyr lineær formel. Konstante 2. differanser betyr kvadratisk formel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Generalisering** er å finne en formel som beskriver et mønster for alle verdier av $n$.\n\n**Lineær formel** ($a_n = dn + c$): Brukes når de første differansene er konstante. Finn $d$ fra differansene, og $c$ ved innsetting.\n\n**Kvadratisk formel** ($a_n = an^2 + bn + c$): Brukes når de andre differansene er konstante. Finn $a = \\frac{\\Delta_2}{2}$, og deretter $b$ og $c$ ved å løse to ligninger.\n\n**Fremgangsmåte:**\n1. Lag en differansetabell\n2. Er 1. differansene konstante? Da er formelen lineær.\n3. Er 2. differansene konstante? Da er formelen kvadratisk.\n4. Finn koeffisientene ved innsetting\n5. **Kontroller alltid** at formelen gir riktige verdier for alle kjente ledd!"
+    }
+  ],
+  "exercises": []
+}

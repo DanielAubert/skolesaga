@@ -1,1 +1,419 @@
-{"id":"im-vg1-2-3-narrativ","courseId":"im-vg1","chapterNumber":"2.3","title":"Kontrollstrukturar og betingelsar","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis program lærer å ta val -- if-setningane sine vegkryss, dei logiske operatorane sitt lim, og kunsten å la koden velje rett sti.","estimatedMinutes":34,"competenceGoals":["bruke if-, elif- og else-setninger til å styre programflyten","anvende logiske og sammenligningsoperatorer","konstruere nøstede betingelser for sammensatte beslutninger"],"linkedChapterId":"im-vg1-2-3","content":[{"id":"im-vg1-2-3-n-intro","type":"text","content":"## Eit program ved eit vegkryss\n\nHittil har programma våre vore litt som ei jernbane med eitt enkelt spor: maskina les linje for linje, frå topp til botn, utan val. Men dei aller fleste nyttige programma treng å *velje* -- å gjere éi ting i éin situasjon og noko heilt anna i ein annan. Ein app som sjekkar om du er gammal nok til å sjå ein film, ein automat som gir ut rett billett etter alder, eit spel som svarar ulikt på rett og gale svar -- alle må dei ta avgjerder.\n\nDet er her **kontrollstrukturar** kjem inn. Dei gir programmet eit vegkryss, der det kan velje sti basert på om ein betingelse er sann eller usann. Plutseleg blir den rette skinnegangen til eit heilt nettverk av moglegheiter, og programma dine kan byrje å reagere intelligent på det som skjer.\n\nI denne forteljinga skal vi lære maskina å ta val. Vi skal møte if-setninga som stiller eit ja-eller-nei-spørsmål, vi skal sjå korleis elif og else gir fleire vegar å gå, vi skal kombinere betingelsar med logiske operatorar, og til slutt skal vi byggje samansette avgjerder ved å plassere val inni val."},{"id":"im-vg1-2-3-n-section1","type":"text","content":"## Viss dette, så det\n\nHjartet i all avgjerdstaking er **if-setninga**. Ordet «if» tyder «viss», og det er akkurat det ho gjer: viss ein betingelse er sann, køyr denne koden. Tenk deg ein aldersjekk. Skriv vi `if alder >= 18:` etterfølgt av `print(\"Du er myndig.\")`, så blir setninga berre skriven ut dersom alderen faktisk er 18 eller meir. Vil vi ha eit alternativ for dei yngre, legg vi til `else:` med ein annan beskjed -- «viss ikkje, gjer dette i staden».\n\nLegg nøye merke til to ting i Python-koden, for dei er lette å gløyme. Det skal vere eit kolon, altså `:`, etter betingelsen. Og linjene som høyrer til, skal ha **innrykk** -- vanlegvis fire mellomrom. Innrykket er ikkje berre pynt; det er slik Python forstår kva linjer som høyrer til kva gren. Gløymer du innrykket, blir maskina forvirra.\n\nMen livet har sjeldan berre to utfall. Skal du setje karakter, finst det jo fleire nivå. Då brukar vi **elif**, som er ei forkorting for «else if» -- «elles, viss». Du kan stable opp fleire elif etter kvarandre: viss poengsummen er minst 90, gi A; elles viss minst 80, gi B; elles viss minst 60, gi C; og til slutt ein else som fangar opp resten med F. Maskina sjekkar betingelsane ovanfrå og ned, og stoppar ved den første som er sann."},{"id":"im-vg1-2-3-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-2-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på if, elif og else:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-3-n-quiz1-q0","task":"Kva blir skrive ut viss x = 10 og koden er: if x > 5: print(\"Stor\") else: print(\"Liten\")?","options":[{"id":"a","text":"Liten","isCorrect":false},{"id":"b","text":"Stor","isCorrect":true},{"id":"c","text":"Både Stor og Liten","isCorrect":false},{"id":"d","text":"Ingenting","isCorrect":false}],"solution":"Sidan 10 > 5 er sant, blir if-grena køyrt og «Stor» skrive ut. Berre éi gren blir køyrt."},{"id":"im-vg1-2-3-n-quiz1-q1","task":"Kva tyder elif?","options":[{"id":"a","text":"At løkka skal avbrytast","isCorrect":false},{"id":"b","text":"At programmet skal stoppe","isCorrect":false},{"id":"c","text":"«Else if» -- sjekk ein ny betingelse viss den førre var usann","isCorrect":true},{"id":"d","text":"At alle grener blir køyrde","isCorrect":false}],"solution":"elif er kort for «else if» og lèt deg sjekke ein ny betingelse dersom dei føregåande var usanne."},{"id":"im-vg1-2-3-n-quiz1-q2","task":"Kva er hensikta med innrykket etter ei if-setning i Python?","options":[{"id":"a","text":"Det er berre pynt og kan utelatast","isCorrect":false},{"id":"b","text":"Det gjer koden tregare","isCorrect":false},{"id":"c","text":"Det avsluttar programmet","isCorrect":false},{"id":"d","text":"Det viser kva linjer som høyrer til kodeblokka","isCorrect":true}],"solution":"I Python brukar innrykk (vanlegvis fire mellomrom) til å vise kva linjer som høyrer til ei kodeblokk. Det er ikkje valfritt."}]}},{"id":"im-vg1-2-3-n-section2","type":"text","content":"## Å samanlikne og å kombinere\n\nFor at ein betingelse skal kunne vere sann eller usann, må vi kunne *samanlikne* verdiar. Til det har vi **samanlikningsoperatorar**. Dei fleste er kjende frå matten: `<` er mindre enn, `>` er større enn, `<=` er mindre enn eller lik, og `>=` er større enn eller lik. To av dei er litt spesielle: `==` tyder «er lik», og `!=` tyder «er ulik».\n\nHer lurer ei av dei vanlegaste nybyrjarfellene. Eitt likskapsteikn, `=`, blir brukt til å *tilordne* ein verdi til ein variabel, medan to likskapsteikn, `==`, blir brukt til å *samanlikne*. Skriv du `=` der du meinte `==`, oppfører programmet seg ofte heilt gale. Hald dei frå kvarandre, så sparar du deg for mykje hovudbry.\n\nOfte treng vi fleire betingelsar samtidig, og då brukar vi **logiske operatorar** til å lime dei saman. `and` krev at *begge* betingelsane er sanne. `or` krev at *minst éin* er sann. Og `not` snur ein verdi -- gjer sant til usant og omvendt. Til dømes: `if alder >= 18 or har_tillatelse:` gir tilgang dersom du anten er myndig eller har fått løyve. Eller `if temperatur >= 20 and temperatur <= 30:` som berre er sann når temperaturen ligg i det behagelege området mellom 20 og 30. Ein liten regel om rekkjefølgje: `and` har høgare prioritet enn `or`, så i uttrykket `True and False or True` blir `True and False` rekna først til `False`, og deretter blir `False or True` til `True`."},{"id":"im-vg1-2-3-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-2-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på samanlikning og logikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-3-n-quiz2-q0","task":"Kva operator blir brukt for å sjekke om to verdiar er like?","options":[{"id":"a","text":"==","isCorrect":true},{"id":"b","text":"=","isCorrect":false},{"id":"c","text":"!=","isCorrect":false},{"id":"d","text":">=","isCorrect":false}],"solution":"== sjekkar om to verdiar er like. Eitt likskapsteikn (=) blir derimot brukt til å tilordne ein verdi."},{"id":"im-vg1-2-3-n-quiz2-q1","task":"Når er uttrykket «temperatur >= 20 and temperatur <= 30» sant?","options":[{"id":"a","text":"Når temperaturen er nøyaktig 20 eller nøyaktig 30, men ikkje imellom","isCorrect":false},{"id":"b","text":"Når temperaturen er mellom 20 og 30, inkludert grensene","isCorrect":true},{"id":"c","text":"Aldri","isCorrect":false},{"id":"d","text":"Berre når temperaturen er over 30","isCorrect":false}],"solution":"and krev at begge betingelsane er sanne, altså at temperaturen er minst 20 OG høgst 30 -- altså i intervallet 20 til 30."},{"id":"im-vg1-2-3-n-quiz2-q2","task":"Kva blir resultatet av True and False or True?","options":[{"id":"a","text":"False","isCorrect":false},{"id":"b","text":"Ei feilmelding","isCorrect":false},{"id":"c","text":"True","isCorrect":true},{"id":"d","text":"None","isCorrect":false}],"solution":"and blir rekna først: True and False = False. Deretter: False or True = True."}]}},{"id":"im-vg1-2-3-n-section3","type":"text","content":"## Val inni val\n\nNokre gonger er ikkje eitt vegkryss nok. Du tek eit val, og inne i den eine grena ventar eit nytt val. Dette blir kalla **nøsta betingelsar** -- if-setningar plasserte inni andre if-setningar, og det lèt oss byggje ganske sofistikert logikk.\n\nTenk deg eit program som skal skildre eit tal. Først spør vi: er talet positivt, negativt eller null? Men viss det er positivt, vil vi gå eit steg vidare og spørje: er det eit partal eller eit oddetal? Då legg vi den indre sjekken inni den ytre. Den ytre if-setninga handterer positivt, negativt og null, og *inni* den positive grena har vi ein ny if som brukar modulo -- `tall % 2 == 0` -- for å skilje partal frå oddetal. Kvart nivå av innrykk fortel kva sjekk som høyrer til kva.\n\nDenne teknikken er kraftig, men krev at du held tunga rett i munnen. Eit klassisk døme der både nøsting og logikk møtest, er skotårsregelen. Eit år er skotår viss det er deleleg med 4, men *ikkje* med 100 -- med mindre det òg er deleleg med 400. Det kan skrivast elegant med logiske operatorar: `if (aar % 4 == 0 and aar % 100 != 0) or (aar % 400 == 0):`. Her ser du korleis and, or, parentesar og modulo samarbeider for å fange ein ganske innfløkt regel i éi einaste linje. Det er nettopp slik klar tenking blir til presis kode."},{"id":"im-vg1-2-3-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-2-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på nøsta betingelsar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-3-n-quiz3-q0","task":"Kva er ein nøsta betingelse?","options":[{"id":"a","text":"Ei løkke som aldri stoppar","isCorrect":false},{"id":"b","text":"Ein variabel utan verdi","isCorrect":false},{"id":"c","text":"Ein kommentar i koden","isCorrect":false},{"id":"d","text":"Ei if-setning plassert inni ei anna if-setning","isCorrect":true}],"solution":"Ein nøsta betingelse er ei if-setning som ligg inni ei anna, slik at ein kan ta samansette avgjerder trinn for trinn."},{"id":"im-vg1-2-3-n-quiz3-q1","task":"Kva uttrykk sjekkar om talet i variabelen tall er eit partal?","options":[{"id":"a","text":"tall % 2 == 0","isCorrect":true},{"id":"b","text":"tall // 2 == 1","isCorrect":false},{"id":"c","text":"tall ** 2 == 0","isCorrect":false},{"id":"d","text":"tall = 2","isCorrect":false}],"solution":"tall % 2 == 0 er sant når resten av deling på 2 er null, altså når talet er eit partal."},{"id":"im-vg1-2-3-n-quiz3-q2","task":"Kva blir skrive ut viss a=5, b=10, c=15 og koden sjekkar: if a>b ... elif b>c ... elif a+b>c ... else \"D\"?","options":[{"id":"a","text":"A","isCorrect":false},{"id":"b","text":"D","isCorrect":true},{"id":"c","text":"B","isCorrect":false},{"id":"d","text":"C","isCorrect":false}],"solution":"5>10 er usant, 10>15 er usant, og 15>15 er usant (ikkje større enn). Difor blir else-grena køyrd og «D» skrive ut."}]}},{"id":"im-vg1-2-3-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært programma våre å ta val. **If-setninga** køyrer kode berre når ein betingelse er sann, medan **elif** og **else** gir alternative vegar ved vegkrysset -- alltid med kolon og rett innrykk som markerer kodeblokkene.\n\nFor at betingelsar skal kunne avgjerast, brukar vi **samanlikningsoperatorar** som `==`, `!=`, `<` og `>`, og vi held nøye styr på skilnaden mellom `=` (tilordning) og `==` (samanlikning). Med **logiske operatorar** -- `and`, `or` og `not` -- kan vi lime saman fleire betingelsar, der `and` har høgare prioritet enn `or`. Og med **nøsta betingelsar** kan vi plassere val inni val for å byggje samansett logikk, slik vi såg i skotårsregelen. Programma våre kan no tenkje seg om før dei handlar."}],"exercises":[],"_meta":{"sourceHash":"306f15d7521c1c6f","translatedAt":"2026-06-21T07:30:00.426Z","model":"claude-code-agent","strings":67,"tm":{"1325b09752f6fe89":"Kontrollstrukturar og betingelsar","b195b06d1ed59702":"Narrativ versjon","a8b7d70b083aee4f":"Ei forteljing om korleis program lærer å ta val -- if-setningane sine vegkryss, dei logiske operatorane sitt lim, og kunsten å la koden velje rett sti.","414e3e6e3ca56e10":"bruke if-, elif- og else-setninger til å styre programflyten","7b6754bd2a51f2c3":"anvende logiske og sammenligningsoperatorer","ad63ebb99162ce10":"konstruere nøstede betingelser for sammensatte beslutninger","29b32bdf755d9d2c":"## Eit program ved eit vegkryss\n\nHittil har programma våre vore litt som ei jernbane med eitt enkelt spor: maskina les linje for linje, frå topp til botn, utan val. Men dei aller fleste nyttige programma treng å *velje* -- å gjere éi ting i éin situasjon og noko heilt anna i ein annan. Ein app som sjekkar om du er gammal nok til å sjå ein film, ein automat som gir ut rett billett etter alder, eit spel som svarar ulikt på rett og gale svar -- alle må dei ta avgjerder.\n\nDet er her **kontrollstrukturar** kjem inn. Dei gir programmet eit vegkryss, der det kan velje sti basert på om ein betingelse er sann eller usann. Plutseleg blir den rette skinnegangen til eit heilt nettverk av moglegheiter, og programma dine kan byrje å reagere intelligent på det som skjer.\n\nI denne forteljinga skal vi lære maskina å ta val. Vi skal møte if-setninga som stiller eit ja-eller-nei-spørsmål, vi skal sjå korleis elif og else gir fleire vegar å gå, vi skal kombinere betingelsar med logiske operatorar, og til slutt skal vi byggje samansette avgjerder ved å plassere val inni val.","b3d1bdb523429359":"## Viss dette, så det\n\nHjartet i all avgjerdstaking er **if-setninga**. Ordet «if» tyder «viss», og det er akkurat det ho gjer: viss ein betingelse er sann, køyr denne koden. Tenk deg ein aldersjekk. Skriv vi `if alder >= 18:` etterfølgt av `print(\"Du er myndig.\")`, så blir setninga berre skriven ut dersom alderen faktisk er 18 eller meir. Vil vi ha eit alternativ for dei yngre, legg vi til `else:` med ein annan beskjed -- «viss ikkje, gjer dette i staden».\n\nLegg nøye merke til to ting i Python-koden, for dei er lette å gløyme. Det skal vere eit kolon, altså `:`, etter betingelsen. Og linjene som høyrer til, skal ha **innrykk** -- vanlegvis fire mellomrom. Innrykket er ikkje berre pynt; det er slik Python forstår kva linjer som høyrer til kva gren. Gløymer du innrykket, blir maskina forvirra.\n\nMen livet har sjeldan berre to utfall. Skal du setje karakter, finst det jo fleire nivå. Då brukar vi **elif**, som er ei forkorting for «else if» -- «elles, viss». Du kan stable opp fleire elif etter kvarandre: viss poengsummen er minst 90, gi A; elles viss minst 80, gi B; elles viss minst 60, gi C; og til slutt ein else som fangar opp resten med F. Maskina sjekkar betingelsane ovanfrå og ned, og stoppar ved den første som er sann.","b23bc5f63b7dcf4c":"Test deg sjølv på if, elif og else:","4097889236a2af26":"placeholder","2f9a9f86d44b1786":"Kva blir skrive ut viss x = 10 og koden er: if x > 5: print(\"Stor\") else: print(\"Liten\")?","bdfa30721b809387":"Liten","927886b5853cfa85":"Stor","bc04d2df84eb5517":"Både Stor og Liten","6ba933a4463d2c71":"Ingenting","69b2aa00da186cff":"Sidan 10 > 5 er sant, blir if-grena køyrt og «Stor» skrive ut. Berre éi gren blir køyrt.","736301f11abb7c42":"Kva tyder elif?","ab069eb76482145f":"At løkka skal avbrytast","2b8cd3cb8b517a91":"At programmet skal stoppe","b5568cb2557e6205":"«Else if» -- sjekk ein ny betingelse viss den førre var usann","00e7b06c903d310f":"At alle grener blir køyrde","80799b83e38f75cb":"elif er kort for «else if» og lèt deg sjekke ein ny betingelse dersom dei føregåande var usanne.","d58c9a78105c5800":"Kva er hensikta med innrykket etter ei if-setning i Python?","d56c35dc647b269f":"Det er berre pynt og kan utelatast","995d5575a34cb0fd":"Det gjer koden tregare","e5a159a17aed9f75":"Det avsluttar programmet","e359c0a8dae5838e":"Det viser kva linjer som høyrer til kodeblokka","bd46795f2309eb86":"I Python brukar innrykk (vanlegvis fire mellomrom) til å vise kva linjer som høyrer til ei kodeblokk. Det er ikkje valfritt.","cdfa42baafd35e08":"## Å samanlikne og å kombinere\n\nFor at ein betingelse skal kunne vere sann eller usann, må vi kunne *samanlikne* verdiar. Til det har vi **samanlikningsoperatorar**. Dei fleste er kjende frå matten: `<` er mindre enn, `>` er større enn, `<=` er mindre enn eller lik, og `>=` er større enn eller lik. To av dei er litt spesielle: `==` tyder «er lik», og `!=` tyder «er ulik».\n\nHer lurer ei av dei vanlegaste nybyrjarfellene. Eitt likskapsteikn, `=`, blir brukt til å *tilordne* ein verdi til ein variabel, medan to likskapsteikn, `==`, blir brukt til å *samanlikne*. Skriv du `=` der du meinte `==`, oppfører programmet seg ofte heilt gale. Hald dei frå kvarandre, så sparar du deg for mykje hovudbry.\n\nOfte treng vi fleire betingelsar samtidig, og då brukar vi **logiske operatorar** til å lime dei saman. `and` krev at *begge* betingelsane er sanne. `or` krev at *minst éin* er sann. Og `not` snur ein verdi -- gjer sant til usant og omvendt. Til dømes: `if alder >= 18 or har_tillatelse:` gir tilgang dersom du anten er myndig eller har fått løyve. Eller `if temperatur >= 20 and temperatur <= 30:` som berre er sann når temperaturen ligg i det behagelege området mellom 20 og 30. Ein liten regel om rekkjefølgje: `and` har høgare prioritet enn `or`, så i uttrykket `True and False or True` blir `True and False` rekna først til `False`, og deretter blir `False or True` til `True`.","1ef6e013ce56a61b":"Test deg sjølv på samanlikning og logikk:","1491f89e265e6bbd":"Kva operator blir brukt for å sjekke om to verdiar er like?","fbac0bd5fefe84d6":"== sjekkar om to verdiar er like. Eitt likskapsteikn (=) blir derimot brukt til å tilordne ein verdi.","fd9544543d7a6e6e":"Når er uttrykket «temperatur >= 20 and temperatur <= 30» sant?","b85d82905e4a8d5d":"Når temperaturen er nøyaktig 20 eller nøyaktig 30, men ikkje imellom","5a2105eb9a848790":"Når temperaturen er mellom 20 og 30, inkludert grensene","72816c36bd404a80":"Aldri","9973cd1984048327":"Berre når temperaturen er over 30","c9c7d451403b8a00":"and krev at begge betingelsane er sanne, altså at temperaturen er minst 20 OG høgst 30 -- altså i intervallet 20 til 30.","4fa46f1b0154ed73":"Kva blir resultatet av True and False or True?","60a33e6cf5151f2d":"False","6b16392622e7b20a":"Ei feilmelding","3cbc87c7681f34db":"True","dc937b59892604f5":"None","3362b2f0a950e19d":"and blir rekna først: True and False = False. Deretter: False or True = True.","b2102a3d6e8c5c13":"## Val inni val\n\nNokre gonger er ikkje eitt vegkryss nok. Du tek eit val, og inne i den eine grena ventar eit nytt val. Dette blir kalla **nøsta betingelsar** -- if-setningar plasserte inni andre if-setningar, og det lèt oss byggje ganske sofistikert logikk.\n\nTenk deg eit program som skal skildre eit tal. Først spør vi: er talet positivt, negativt eller null? Men viss det er positivt, vil vi gå eit steg vidare og spørje: er det eit partal eller eit oddetal? Då legg vi den indre sjekken inni den ytre. Den ytre if-setninga handterer positivt, negativt og null, og *inni* den positive grena har vi ein ny if som brukar modulo -- `tall % 2 == 0` -- for å skilje partal frå oddetal. Kvart nivå av innrykk fortel kva sjekk som høyrer til kva.\n\nDenne teknikken er kraftig, men krev at du held tunga rett i munnen. Eit klassisk døme der både nøsting og logikk møtest, er skotårsregelen. Eit år er skotår viss det er deleleg med 4, men *ikkje* med 100 -- med mindre det òg er deleleg med 400. Det kan skrivast elegant med logiske operatorar: `if (aar % 4 == 0 and aar % 100 != 0) or (aar % 400 == 0):`. Her ser du korleis and, or, parentesar og modulo samarbeider for å fange ein ganske innfløkt regel i éi einaste linje. Det er nettopp slik klar tenking blir til presis kode.","2d508f10bf432150":"Test deg sjølv på nøsta betingelsar:","dee4703c554be41d":"Kva er ein nøsta betingelse?","77f7a849ed07864e":"Ei løkke som aldri stoppar","59372617b6f58e95":"Ein variabel utan verdi","9b415be6ef59b9d3":"Ein kommentar i koden","7a4c4b3d6354f1e5":"Ei if-setning plassert inni ei anna if-setning","be7fa54fb56887e7":"Ein nøsta betingelse er ei if-setning som ligg inni ei anna, slik at ein kan ta samansette avgjerder trinn for trinn.","7f62712c4a7e3307":"Kva uttrykk sjekkar om talet i variabelen tall er eit partal?","e0be427626887235":"tall % 2 == 0","d42cd465f7422fd8":"tall // 2 == 1","09b8a81176136392":"tall ** 2 == 0","b7bd3d854c2b4adc":"tall = 2","1543825677ad01b4":"tall % 2 == 0 er sant når resten av deling på 2 er null, altså når talet er eit partal.","79555aab05a7cb26":"Kva blir skrive ut viss a=5, b=10, c=15 og koden sjekkar: if a>b ... elif b>c ... elif a+b>c ... else \"D\"?","559aead08264d579":"A","3f39d5c348e5b79d":"D","df7e70e5021544f4":"B","6b23c0d5f35d1b11":"C","e3a64f5368ecd1fb":"5>10 er usant, 10>15 er usant, og 15>15 er usant (ikkje større enn). Difor blir else-grena køyrd og «D» skrive ut.","84f1a5fac199c485":"## Oppsummering\n\nVi har lært programma våre å ta val. **If-setninga** køyrer kode berre når ein betingelse er sann, medan **elif** og **else** gir alternative vegar ved vegkrysset -- alltid med kolon og rett innrykk som markerer kodeblokkene.\n\nFor at betingelsar skal kunne avgjerast, brukar vi **samanlikningsoperatorar** som `==`, `!=`, `<` og `>`, og vi held nøye styr på skilnaden mellom `=` (tilordning) og `==` (samanlikning). Med **logiske operatorar** -- `and`, `or` og `not` -- kan vi lime saman fleire betingelsar, der `and` har høgare prioritet enn `or`. Og med **nøsta betingelsar** kan vi plassere val inni val for å byggje samansett logikk, slik vi såg i skotårsregelen. Programma våre kan no tenkje seg om før dei handlar."}}}
+{
+  "id": "im-vg1-2-3-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "2.3",
+  "title": "Kontrollstrukturar og betingelsar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis program lærer å ta val -- if-setningane sine vegkryss, dei logiske operatorane sitt lim, og kunsten å la koden velje rett sti.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "bruke if-, elif- og else-setninger til å styre programflyten",
+    "anvende logiske og sammenligningsoperatorer",
+    "konstruere nøstede betingelser for sammensatte beslutninger"
+  ],
+  "linkedChapterId": "im-vg1-2-3",
+  "content": [
+    {
+      "id": "im-vg1-2-3-n-intro",
+      "type": "text",
+      "content": "## Eit program ved eit vegkryss\n\nHittil har programma våre vore litt som ei jernbane med eitt enkelt spor: maskina les linje for linje, frå topp til botn, utan val. Men dei aller fleste nyttige programma treng å *velje* -- å gjere éi ting i éin situasjon og noko heilt anna i ein annan. Ein app som sjekkar om du er gammal nok til å sjå ein film, ein automat som gir ut rett billett etter alder, eit spel som svarar ulikt på rett og gale svar -- alle må dei ta avgjerder.\n\nDet er her **kontrollstrukturar** kjem inn. Dei gir programmet eit vegkryss, der det kan velje sti basert på om ein betingelse er sann eller usann. Plutseleg blir den rette skinnegangen til eit heilt nettverk av moglegheiter, og programma dine kan byrje å reagere intelligent på det som skjer.\n\nI denne forteljinga skal vi lære maskina å ta val. Vi skal møte if-setninga som stiller eit ja-eller-nei-spørsmål, vi skal sjå korleis elif og else gir fleire vegar å gå, vi skal kombinere betingelsar med logiske operatorar, og til slutt skal vi byggje samansette avgjerder ved å plassere val inni val."
+    },
+    {
+      "id": "im-vg1-2-3-n-section1",
+      "type": "text",
+      "content": "## Viss dette, så det\n\nHjartet i all avgjerdstaking er **if-setninga**. Ordet «if» tyder «viss», og det er akkurat det ho gjer: viss ein betingelse er sann, køyr denne koden. Tenk deg ein aldersjekk. Skriv vi `if alder >= 18:` etterfølgt av `print(\"Du er myndig.\")`, så blir setninga berre skriven ut dersom alderen faktisk er 18 eller meir. Vil vi ha eit alternativ for dei yngre, legg vi til `else:` med ein annan beskjed -- «viss ikkje, gjer dette i staden».\n\nLegg nøye merke til to ting i Python-koden, for dei er lette å gløyme. Det skal vere eit kolon, altså `:`, etter betingelsen. Og linjene som høyrer til, skal ha **innrykk** -- vanlegvis fire mellomrom. Innrykket er ikkje berre pynt; det er slik Python forstår kva linjer som høyrer til kva gren. Gløymer du innrykket, blir maskina forvirra.\n\nMen livet har sjeldan berre to utfall. Skal du setje karakter, finst det jo fleire nivå. Då brukar vi **elif**, som er ei forkorting for «else if» -- «elles, viss». Du kan stable opp fleire elif etter kvarandre: viss poengsummen er minst 90, gi A; elles viss minst 80, gi B; elles viss minst 60, gi C; og til slutt ein else som fangar opp resten med F. Maskina sjekkar betingelsane ovanfrå og ned, og stoppar ved den første som er sann."
+    },
+    {
+      "id": "im-vg1-2-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på if, elif og else:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-3-n-quiz1-q0",
+            "task": "Kva blir skrive ut viss x = 10 og koden er: if x > 5: print(\"Stor\") else: print(\"Liten\")?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Liten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Både Stor og Liten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Stor",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sidan 10 > 5 er sant, blir if-grena køyrt og «Stor» skrive ut. Berre éi gren blir køyrt."
+          },
+          {
+            "id": "im-vg1-2-3-n-quiz1-q1",
+            "task": "Kva tyder elif?",
+            "options": [
+              {
+                "id": "c",
+                "text": "«Else if» -- sjekk ein ny betingelse viss den førre var usann",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At løkka skal avbrytast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At programmet skal stoppe",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At alle grener blir køyrde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "elif er kort for «else if» og lèt deg sjekke ein ny betingelse dersom dei føregåande var usanne."
+          },
+          {
+            "id": "im-vg1-2-3-n-quiz1-q2",
+            "task": "Kva er hensikta med innrykket etter ei if-setning i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er berre pynt og kan utelatast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det viser kva linjer som høyrer til kodeblokka",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det gjer koden tregare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det avsluttar programmet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I Python brukar innrykk (vanlegvis fire mellomrom) til å vise kva linjer som høyrer til ei kodeblokk. Det er ikkje valfritt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-3-n-section2",
+      "type": "text",
+      "content": "## Å samanlikne og å kombinere\n\nFor at ein betingelse skal kunne vere sann eller usann, må vi kunne *samanlikne* verdiar. Til det har vi **samanlikningsoperatorar**. Dei fleste er kjende frå matten: `<` er mindre enn, `>` er større enn, `<=` er mindre enn eller lik, og `>=` er større enn eller lik. To av dei er litt spesielle: `==` tyder «er lik», og `!=` tyder «er ulik».\n\nHer lurer ei av dei vanlegaste nybyrjarfellene. Eitt likskapsteikn, `=`, blir brukt til å *tilordne* ein verdi til ein variabel, medan to likskapsteikn, `==`, blir brukt til å *samanlikne*. Skriv du `=` der du meinte `==`, oppfører programmet seg ofte heilt gale. Hald dei frå kvarandre, så sparar du deg for mykje hovudbry.\n\nOfte treng vi fleire betingelsar samtidig, og då brukar vi **logiske operatorar** til å lime dei saman. `and` krev at *begge* betingelsane er sanne. `or` krev at *minst éin* er sann. Og `not` snur ein verdi -- gjer sant til usant og omvendt. Til dømes: `if alder >= 18 or har_tillatelse:` gir tilgang dersom du anten er myndig eller har fått løyve. Eller `if temperatur >= 20 and temperatur <= 30:` som berre er sann når temperaturen ligg i det behagelege området mellom 20 og 30. Ein liten regel om rekkjefølgje: `and` har høgare prioritet enn `or`, så i uttrykket `True and False or True` blir `True and False` rekna først til `False`, og deretter blir `False or True` til `True`."
+    },
+    {
+      "id": "im-vg1-2-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på samanlikning og logikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-3-n-quiz2-q0",
+            "task": "Kva operator blir brukt for å sjekke om to verdiar er like?",
+            "options": [
+              {
+                "id": "b",
+                "text": "=",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "!=",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "==",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": ">=",
+                "isCorrect": false
+              }
+            ],
+            "solution": "== sjekkar om to verdiar er like. Eitt likskapsteikn (=) blir derimot brukt til å tilordne ein verdi."
+          },
+          {
+            "id": "im-vg1-2-3-n-quiz2-q1",
+            "task": "Når er uttrykket «temperatur >= 20 and temperatur <= 30» sant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når temperaturen er nøyaktig 20 eller nøyaktig 30, men ikkje imellom",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre når temperaturen er over 30",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når temperaturen er mellom 20 og 30, inkludert grensene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "and krev at begge betingelsane er sanne, altså at temperaturen er minst 20 OG høgst 30 -- altså i intervallet 20 til 30."
+          },
+          {
+            "id": "im-vg1-2-3-n-quiz2-q2",
+            "task": "Kva blir resultatet av True and False or True?",
+            "options": [
+              {
+                "id": "c",
+                "text": "True",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "False",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "None",
+                "isCorrect": false
+              }
+            ],
+            "solution": "and blir rekna først: True and False = False. Deretter: False or True = True."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-3-n-section3",
+      "type": "text",
+      "content": "## Val inni val\n\nNokre gonger er ikkje eitt vegkryss nok. Du tek eit val, og inne i den eine grena ventar eit nytt val. Dette blir kalla **nøsta betingelsar** -- if-setningar plasserte inni andre if-setningar, og det lèt oss byggje ganske sofistikert logikk.\n\nTenk deg eit program som skal skildre eit tal. Først spør vi: er talet positivt, negativt eller null? Men viss det er positivt, vil vi gå eit steg vidare og spørje: er det eit partal eller eit oddetal? Då legg vi den indre sjekken inni den ytre. Den ytre if-setninga handterer positivt, negativt og null, og *inni* den positive grena har vi ein ny if som brukar modulo -- `tall % 2 == 0` -- for å skilje partal frå oddetal. Kvart nivå av innrykk fortel kva sjekk som høyrer til kva.\n\nDenne teknikken er kraftig, men krev at du held tunga rett i munnen. Eit klassisk døme der både nøsting og logikk møtest, er skotårsregelen. Eit år er skotår viss det er deleleg med 4, men *ikkje* med 100 -- med mindre det òg er deleleg med 400. Det kan skrivast elegant med logiske operatorar: `if (aar % 4 == 0 and aar % 100 != 0) or (aar % 400 == 0):`. Her ser du korleis and, or, parentesar og modulo samarbeider for å fange ein ganske innfløkt regel i éi einaste linje. Det er nettopp slik klar tenking blir til presis kode."
+    },
+    {
+      "id": "im-vg1-2-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på nøsta betingelsar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-3-n-quiz3-q0",
+            "task": "Kva er ein nøsta betingelse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei løkke som aldri stoppar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei if-setning plassert inni ei anna if-setning",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein variabel utan verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein kommentar i koden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein nøsta betingelse er ei if-setning som ligg inni ei anna, slik at ein kan ta samansette avgjerder trinn for trinn."
+          },
+          {
+            "id": "im-vg1-2-3-n-quiz3-q1",
+            "task": "Kva uttrykk sjekkar om talet i variabelen tall er eit partal?",
+            "options": [
+              {
+                "id": "b",
+                "text": "tall // 2 == 1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "tall ** 2 == 0",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "tall % 2 == 0",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "tall = 2",
+                "isCorrect": false
+              }
+            ],
+            "solution": "tall % 2 == 0 er sant når resten av deling på 2 er null, altså når talet er eit partal."
+          },
+          {
+            "id": "im-vg1-2-3-n-quiz3-q2",
+            "task": "Kva blir skrive ut viss a=5, b=10, c=15 og koden sjekkar: if a>b ... elif b>c ... elif a+b>c ... else \"D\"?",
+            "options": [
+              {
+                "id": "a",
+                "text": "A",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "B",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "C",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "D",
+                "isCorrect": true
+              }
+            ],
+            "solution": "5>10 er usant, 10>15 er usant, og 15>15 er usant (ikkje større enn). Difor blir else-grena køyrd og «D» skrive ut."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært programma våre å ta val. **If-setninga** køyrer kode berre når ein betingelse er sann, medan **elif** og **else** gir alternative vegar ved vegkrysset -- alltid med kolon og rett innrykk som markerer kodeblokkene.\n\nFor at betingelsar skal kunne avgjerast, brukar vi **samanlikningsoperatorar** som `==`, `!=`, `<` og `>`, og vi held nøye styr på skilnaden mellom `=` (tilordning) og `==` (samanlikning). Med **logiske operatorar** -- `and`, `or` og `not` -- kan vi lime saman fleire betingelsar, der `and` har høgare prioritet enn `or`. Og med **nøsta betingelsar** kan vi plassere val inni val for å byggje samansett logikk, slik vi såg i skotårsregelen. Programma våre kan no tenkje seg om før dei handlar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "306f15d7521c1c6f",
+    "translatedAt": "2026-06-21T07:30:00.426Z",
+    "model": "claude-code-agent",
+    "strings": 67,
+    "tm": {
+      "1325b09752f6fe89": "Kontrollstrukturar og betingelsar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "a8b7d70b083aee4f": "Ei forteljing om korleis program lærer å ta val -- if-setningane sine vegkryss, dei logiske operatorane sitt lim, og kunsten å la koden velje rett sti.",
+      "414e3e6e3ca56e10": "bruke if-, elif- og else-setninger til å styre programflyten",
+      "7b6754bd2a51f2c3": "anvende logiske og sammenligningsoperatorer",
+      "ad63ebb99162ce10": "konstruere nøstede betingelser for sammensatte beslutninger",
+      "29b32bdf755d9d2c": "## Eit program ved eit vegkryss\n\nHittil har programma våre vore litt som ei jernbane med eitt enkelt spor: maskina les linje for linje, frå topp til botn, utan val. Men dei aller fleste nyttige programma treng å *velje* -- å gjere éi ting i éin situasjon og noko heilt anna i ein annan. Ein app som sjekkar om du er gammal nok til å sjå ein film, ein automat som gir ut rett billett etter alder, eit spel som svarar ulikt på rett og gale svar -- alle må dei ta avgjerder.\n\nDet er her **kontrollstrukturar** kjem inn. Dei gir programmet eit vegkryss, der det kan velje sti basert på om ein betingelse er sann eller usann. Plutseleg blir den rette skinnegangen til eit heilt nettverk av moglegheiter, og programma dine kan byrje å reagere intelligent på det som skjer.\n\nI denne forteljinga skal vi lære maskina å ta val. Vi skal møte if-setninga som stiller eit ja-eller-nei-spørsmål, vi skal sjå korleis elif og else gir fleire vegar å gå, vi skal kombinere betingelsar med logiske operatorar, og til slutt skal vi byggje samansette avgjerder ved å plassere val inni val.",
+      "b3d1bdb523429359": "## Viss dette, så det\n\nHjartet i all avgjerdstaking er **if-setninga**. Ordet «if» tyder «viss», og det er akkurat det ho gjer: viss ein betingelse er sann, køyr denne koden. Tenk deg ein aldersjekk. Skriv vi `if alder >= 18:` etterfølgt av `print(\"Du er myndig.\")`, så blir setninga berre skriven ut dersom alderen faktisk er 18 eller meir. Vil vi ha eit alternativ for dei yngre, legg vi til `else:` med ein annan beskjed -- «viss ikkje, gjer dette i staden».\n\nLegg nøye merke til to ting i Python-koden, for dei er lette å gløyme. Det skal vere eit kolon, altså `:`, etter betingelsen. Og linjene som høyrer til, skal ha **innrykk** -- vanlegvis fire mellomrom. Innrykket er ikkje berre pynt; det er slik Python forstår kva linjer som høyrer til kva gren. Gløymer du innrykket, blir maskina forvirra.\n\nMen livet har sjeldan berre to utfall. Skal du setje karakter, finst det jo fleire nivå. Då brukar vi **elif**, som er ei forkorting for «else if» -- «elles, viss». Du kan stable opp fleire elif etter kvarandre: viss poengsummen er minst 90, gi A; elles viss minst 80, gi B; elles viss minst 60, gi C; og til slutt ein else som fangar opp resten med F. Maskina sjekkar betingelsane ovanfrå og ned, og stoppar ved den første som er sann.",
+      "b23bc5f63b7dcf4c": "Test deg sjølv på if, elif og else:",
+      "4097889236a2af26": "placeholder",
+      "2f9a9f86d44b1786": "Kva blir skrive ut viss x = 10 og koden er: if x > 5: print(\"Stor\") else: print(\"Liten\")?",
+      "bdfa30721b809387": "Liten",
+      "927886b5853cfa85": "Stor",
+      "bc04d2df84eb5517": "Både Stor og Liten",
+      "6ba933a4463d2c71": "Ingenting",
+      "69b2aa00da186cff": "Sidan 10 > 5 er sant, blir if-grena køyrt og «Stor» skrive ut. Berre éi gren blir køyrt.",
+      "736301f11abb7c42": "Kva tyder elif?",
+      "ab069eb76482145f": "At løkka skal avbrytast",
+      "2b8cd3cb8b517a91": "At programmet skal stoppe",
+      "b5568cb2557e6205": "«Else if» -- sjekk ein ny betingelse viss den førre var usann",
+      "00e7b06c903d310f": "At alle grener blir køyrde",
+      "80799b83e38f75cb": "elif er kort for «else if» og lèt deg sjekke ein ny betingelse dersom dei føregåande var usanne.",
+      "d58c9a78105c5800": "Kva er hensikta med innrykket etter ei if-setning i Python?",
+      "d56c35dc647b269f": "Det er berre pynt og kan utelatast",
+      "995d5575a34cb0fd": "Det gjer koden tregare",
+      "e5a159a17aed9f75": "Det avsluttar programmet",
+      "e359c0a8dae5838e": "Det viser kva linjer som høyrer til kodeblokka",
+      "bd46795f2309eb86": "I Python brukar innrykk (vanlegvis fire mellomrom) til å vise kva linjer som høyrer til ei kodeblokk. Det er ikkje valfritt.",
+      "cdfa42baafd35e08": "## Å samanlikne og å kombinere\n\nFor at ein betingelse skal kunne vere sann eller usann, må vi kunne *samanlikne* verdiar. Til det har vi **samanlikningsoperatorar**. Dei fleste er kjende frå matten: `<` er mindre enn, `>` er større enn, `<=` er mindre enn eller lik, og `>=` er større enn eller lik. To av dei er litt spesielle: `==` tyder «er lik», og `!=` tyder «er ulik».\n\nHer lurer ei av dei vanlegaste nybyrjarfellene. Eitt likskapsteikn, `=`, blir brukt til å *tilordne* ein verdi til ein variabel, medan to likskapsteikn, `==`, blir brukt til å *samanlikne*. Skriv du `=` der du meinte `==`, oppfører programmet seg ofte heilt gale. Hald dei frå kvarandre, så sparar du deg for mykje hovudbry.\n\nOfte treng vi fleire betingelsar samtidig, og då brukar vi **logiske operatorar** til å lime dei saman. `and` krev at *begge* betingelsane er sanne. `or` krev at *minst éin* er sann. Og `not` snur ein verdi -- gjer sant til usant og omvendt. Til dømes: `if alder >= 18 or har_tillatelse:` gir tilgang dersom du anten er myndig eller har fått løyve. Eller `if temperatur >= 20 and temperatur <= 30:` som berre er sann når temperaturen ligg i det behagelege området mellom 20 og 30. Ein liten regel om rekkjefølgje: `and` har høgare prioritet enn `or`, så i uttrykket `True and False or True` blir `True and False` rekna først til `False`, og deretter blir `False or True` til `True`.",
+      "1ef6e013ce56a61b": "Test deg sjølv på samanlikning og logikk:",
+      "1491f89e265e6bbd": "Kva operator blir brukt for å sjekke om to verdiar er like?",
+      "fbac0bd5fefe84d6": "== sjekkar om to verdiar er like. Eitt likskapsteikn (=) blir derimot brukt til å tilordne ein verdi.",
+      "fd9544543d7a6e6e": "Når er uttrykket «temperatur >= 20 and temperatur <= 30» sant?",
+      "b85d82905e4a8d5d": "Når temperaturen er nøyaktig 20 eller nøyaktig 30, men ikkje imellom",
+      "5a2105eb9a848790": "Når temperaturen er mellom 20 og 30, inkludert grensene",
+      "72816c36bd404a80": "Aldri",
+      "9973cd1984048327": "Berre når temperaturen er over 30",
+      "c9c7d451403b8a00": "and krev at begge betingelsane er sanne, altså at temperaturen er minst 20 OG høgst 30 -- altså i intervallet 20 til 30.",
+      "4fa46f1b0154ed73": "Kva blir resultatet av True and False or True?",
+      "60a33e6cf5151f2d": "False",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "3cbc87c7681f34db": "True",
+      "dc937b59892604f5": "None",
+      "3362b2f0a950e19d": "and blir rekna først: True and False = False. Deretter: False or True = True.",
+      "b2102a3d6e8c5c13": "## Val inni val\n\nNokre gonger er ikkje eitt vegkryss nok. Du tek eit val, og inne i den eine grena ventar eit nytt val. Dette blir kalla **nøsta betingelsar** -- if-setningar plasserte inni andre if-setningar, og det lèt oss byggje ganske sofistikert logikk.\n\nTenk deg eit program som skal skildre eit tal. Først spør vi: er talet positivt, negativt eller null? Men viss det er positivt, vil vi gå eit steg vidare og spørje: er det eit partal eller eit oddetal? Då legg vi den indre sjekken inni den ytre. Den ytre if-setninga handterer positivt, negativt og null, og *inni* den positive grena har vi ein ny if som brukar modulo -- `tall % 2 == 0` -- for å skilje partal frå oddetal. Kvart nivå av innrykk fortel kva sjekk som høyrer til kva.\n\nDenne teknikken er kraftig, men krev at du held tunga rett i munnen. Eit klassisk døme der både nøsting og logikk møtest, er skotårsregelen. Eit år er skotår viss det er deleleg med 4, men *ikkje* med 100 -- med mindre det òg er deleleg med 400. Det kan skrivast elegant med logiske operatorar: `if (aar % 4 == 0 and aar % 100 != 0) or (aar % 400 == 0):`. Her ser du korleis and, or, parentesar og modulo samarbeider for å fange ein ganske innfløkt regel i éi einaste linje. Det er nettopp slik klar tenking blir til presis kode.",
+      "2d508f10bf432150": "Test deg sjølv på nøsta betingelsar:",
+      "dee4703c554be41d": "Kva er ein nøsta betingelse?",
+      "77f7a849ed07864e": "Ei løkke som aldri stoppar",
+      "59372617b6f58e95": "Ein variabel utan verdi",
+      "9b415be6ef59b9d3": "Ein kommentar i koden",
+      "7a4c4b3d6354f1e5": "Ei if-setning plassert inni ei anna if-setning",
+      "be7fa54fb56887e7": "Ein nøsta betingelse er ei if-setning som ligg inni ei anna, slik at ein kan ta samansette avgjerder trinn for trinn.",
+      "7f62712c4a7e3307": "Kva uttrykk sjekkar om talet i variabelen tall er eit partal?",
+      "e0be427626887235": "tall % 2 == 0",
+      "d42cd465f7422fd8": "tall // 2 == 1",
+      "09b8a81176136392": "tall ** 2 == 0",
+      "b7bd3d854c2b4adc": "tall = 2",
+      "1543825677ad01b4": "tall % 2 == 0 er sant når resten av deling på 2 er null, altså når talet er eit partal.",
+      "79555aab05a7cb26": "Kva blir skrive ut viss a=5, b=10, c=15 og koden sjekkar: if a>b ... elif b>c ... elif a+b>c ... else \"D\"?",
+      "559aead08264d579": "A",
+      "3f39d5c348e5b79d": "D",
+      "df7e70e5021544f4": "B",
+      "6b23c0d5f35d1b11": "C",
+      "e3a64f5368ecd1fb": "5>10 er usant, 10>15 er usant, og 15>15 er usant (ikkje større enn). Difor blir else-grena køyrd og «D» skrive ut.",
+      "84f1a5fac199c485": "## Oppsummering\n\nVi har lært programma våre å ta val. **If-setninga** køyrer kode berre når ein betingelse er sann, medan **elif** og **else** gir alternative vegar ved vegkrysset -- alltid med kolon og rett innrykk som markerer kodeblokkene.\n\nFor at betingelsar skal kunne avgjerast, brukar vi **samanlikningsoperatorar** som `==`, `!=`, `<` og `>`, og vi held nøye styr på skilnaden mellom `=` (tilordning) og `==` (samanlikning). Med **logiske operatorar** -- `and`, `or` og `not` -- kan vi lime saman fleire betingelsar, der `and` har høgare prioritet enn `or`. Og med **nøsta betingelsar** kan vi plassere val inni val for å byggje samansett logikk, slik vi såg i skotårsregelen. Programma våre kan no tenkje seg om før dei handlar."
+    }
+  }
+}

@@ -1,1 +1,514 @@
-{"id":"bi-okonomi-8-3-narrativ","courseId":"bi-okonomi","chapterNumber":"8.3","title":"Integrasjonsmetoder","subtitle":"Narrativ versjon","description":"Ei forteljing om to teknikkar som snur derivasjonsreglane på hovudet -- substitusjon som omvend kjerneregel, og delvis integrasjon som omvend produktregel -- og korleis dei utvidar kva vi kan integrere.","estimatedMinutes":40,"competenceGoals":[],"linkedChapterId":"bi-okonomi-8-3","content":[{"id":"bi-okonomi-8-3-n-intro","type":"text","content":"## Når standardformlane ikkje strekkjer til\n\nTil no har vi integrert ved å kjenne att kjende mønster: potensar, eksponentialar, logaritmar. Men prøv å integrere $\\int x e^{x^2}\\,dx$ eller $\\int x \\ln x\\,dx$, og standardformlane stoppar opp. Desse uttrykka er bygde opp av samansette funksjonar og produkt, og då treng vi tyngre verktøy.\n\nHeldigvis finst det ein djup symmetri i kalkulus: kvar derivasjonsregel har ein integrasjonsregel som speilbilete. I dette kapittelet møter vi to av dei. **Substitusjon** (variabelskift) er den omvende av kjerneregelen, og **delvis integrasjon** er den omvende av produktregelen. Med desse to teknikkane kan vi løyse dei aller fleste integrala ein støyter på i økonomistudiet.\n\nIdeen bak begge er den same: byt eit vanskeleg integral mot eit enklare. Substitusjon gjer det ved å gi ein samansett funksjon ein ny, enkel variabel. Delvis integrasjon gjer det ved å flytte derivasjonen frå den eine faktoren til den andre. Lat oss ta dei etter tur."},{"id":"bi-okonomi-8-3-n-section1","type":"text","content":"## Substitusjon: kjerneregelen baklengs\n\nNår vi deriverer ein samansett funksjon $F(g(x))$ med kjerneregelen, får vi $F'(g(x))\\cdot g'(x)$. Substitusjon snur dette: vi kjenner att eit integral på forma $\\int f(g(x))\\,g'(x)\\,dx$, set $u = g(x)$ og $du = g'(x)\\,dx$, og uttrykkjer alt i den nye variabelen. Då blir $\\int f(g(x))\\,g'(x)\\,dx = \\int f(u)\\,du$. Etter integrasjon byter vi tilbake til $x$.\n\nDet enklaste tilfellet er ein lineær kjerne. For $\\int (3x + 2)^5\\,dx$ set vi $u = 3x + 2$, så $du = 3\\,dx$, altså $dx = \\tfrac{du}{3}$. Då er $\\int u^5\\cdot\\tfrac{du}{3} = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} + C = \\tfrac{(3x+2)^6}{18} + C$. Vi kan alltid sjekke med kjerneregelen: $\\tfrac{d}{dx}\\tfrac{(3x+2)^6}{18} = \\tfrac{6(3x+2)^5\\cdot 3}{18} = (3x+2)^5$.\n\nKrafta ligg i å sjå den indre funksjonen og den deriverte hans saman. For $\\int x e^{x^2}\\,dx$ ser vi at $x^2$ deriverer til $2x$, og vi har ein $x$ utanfor. Set $u = x^2$, så $du = 2x\\,dx$, altså $x\\,dx = \\tfrac{du}{2}$. Då er $\\int e^u\\cdot\\tfrac{du}{2} = \\tfrac{1}{2}e^{x^2} + C$. Eit nærskyldt mønster gir logaritme: i $\\int \\tfrac{2x}{x^2+1}\\,dx$ er teljaren nøyaktig den deriverte av nemnaren. Med $u = x^2 + 1$ blir det $\\int \\tfrac{du}{u} = \\ln(x^2+1) + C$. Generelt: når teljaren er den deriverte av nemnaren, blir integralet $\\ln|g(x)|$. For **bestemte** integral må vi hugse å byte grensene. I $\\int_0^1 x(x^2+1)^3\\,dx$ med $u = x^2 + 1$ går $u$ frå $1$ til $2$, og vi får $\\tfrac{1}{2}\\bigl[\\tfrac{u^4}{4}\\bigr]_1^2 = \\tfrac{1}{8}(16 - 1) = \\tfrac{15}{8}$."},{"id":"bi-okonomi-8-3-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-8-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på substitusjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-3-n-quiz1-q0","task":"Substitusjon er den omvende av kva derivasjonsregel?","options":[{"id":"a","text":"Produktregelen","isCorrect":false},{"id":"b","text":"Potensregelen","isCorrect":false},{"id":"c","text":"Kvotientregelen","isCorrect":false},{"id":"d","text":"Kjerneregelen","isCorrect":true}],"solution":"Substitusjon snur kjerneregelen: eit integral $\\int f(g(x))g'(x)\\,dx$ blir forenkla til $\\int f(u)\\,du$ med $u = g(x)$."},{"id":"bi-okonomi-8-3-n-quiz1-q1","task":"Rekn ut $\\int (3x+2)^5\\,dx$ med $u = 3x+2$.","options":[{"id":"a","text":"$\\tfrac{(3x+2)^6}{18} + C$","isCorrect":true},{"id":"b","text":"$\\tfrac{(3x+2)^6}{6} + C$","isCorrect":false},{"id":"c","text":"$3(3x+2)^6 + C$","isCorrect":false},{"id":"d","text":"$\\tfrac{(3x+2)^6}{3} + C$","isCorrect":false}],"solution":"$du = 3\\,dx$ gir $\\tfrac{1}{3}\\int u^5\\,du = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} = \\tfrac{(3x+2)^6}{18} + C$. Faktoren $\\tfrac{1}{18}$ kjem frå både $\\tfrac{1}{3}$ og $\\tfrac{1}{6}$."},{"id":"bi-okonomi-8-3-n-quiz1-q2","task":"Rekn ut $\\int x e^{x^2}\\,dx$.","options":[{"id":"a","text":"$e^{x^2} + C$","isCorrect":false},{"id":"b","text":"$\\tfrac{1}{2}e^{x^2} + C$","isCorrect":true},{"id":"c","text":"$2x e^{x^2} + C$","isCorrect":false},{"id":"d","text":"$x e^{x^2} + C$","isCorrect":false}],"solution":"Med $u = x^2$ er $du = 2x\\,dx$, så $x\\,dx = \\tfrac{du}{2}$. Då blir $\\tfrac{1}{2}\\int e^u\\,du = \\tfrac{1}{2}e^{x^2} + C$."},{"id":"bi-okonomi-8-3-n-quiz1-q3","task":"Kvifor blir $\\int \\tfrac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$?","options":[{"id":"a","text":"Fordi $x^2+1$ alltid er positiv","isCorrect":false},{"id":"b","text":"Fordi potensregelen gir logaritme","isCorrect":false},{"id":"c","text":"Fordi teljaren $2x$ er den deriverte av nemnaren $x^2+1$","isCorrect":true},{"id":"d","text":"Fordi $2x$ blir derivert til $2$","isCorrect":false}],"solution":"Med $u = x^2+1$ er $du = 2x\\,dx$ = teljaren, så integralet blir $\\int\\tfrac{du}{u} = \\ln|u|$. Mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$."}]}},{"id":"bi-okonomi-8-3-n-section2","type":"text","content":"## Delvis integrasjon: produktregelen baklengs\n\nProduktregelen seier $(uv)' = u'v + uv'$. Integrerer vi begge sider og flyttar om, får vi formelen for **delvis integrasjon**: $$\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx,$$ ofte skriven kompakt som $\\int u\\,dv = uv - \\int v\\,du$. Tanken er å byte eit produkt-integral mot eit enklare eitt. Suksessen avheng av eit lurt val av kva faktor som skal vere $u$ og kva som skal vere $v'$.\n\nEi god rettesnor er **LIATE-regelen**: vel $u$ som det som kjem først i rekkjefølgja **L**ogaritmar, **I**nverse trigfunksjonar, **A**lgebraiske uttrykk (polynom), **T**rigonometriske funksjonar, **E**ksponentialfunksjonar. Den andre faktoren blir $v'$. For $\\int x e^x\\,dx$ er algebraisk ($x$) før eksponential ($e^x$), så $u = x$, $v' = e^x$. Då er $u' = 1$, $v = e^x$, og $\\int x e^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk: $\\tfrac{d}{dx}((x-1)e^x) = e^x + (x-1)e^x = xe^x$.\n\nFor $\\int x \\ln x\\,dx$ kjem logaritme før algebraisk, så $u = \\ln x$, $v' = x$. Med $u' = \\tfrac{1}{x}$ og $v = \\tfrac{x^2}{2}$ blir det $\\tfrac{x^2\\ln x}{2} - \\int \\tfrac{1}{x}\\cdot\\tfrac{x^2}{2}\\,dx = \\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$. Eit lurt knep dukkar opp ved $\\int \\ln x\\,dx$: vi tenkjer på integranden som $1\\cdot\\ln x$, set $u = \\ln x$, $v' = 1$, og får standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$. Nokre gonger må vi integrere delvis **to gonger**, som i $\\int x^2 e^x\\,dx = x^2 e^x - 2\\int x e^x\\,dx = e^x(x^2 - 2x + 2) + C$. Og vel du $u$ slik at det nye integralet blir verre enn det opphavlege, har du valt feil -- byt då om på $u$ og $v'$."},{"id":"bi-okonomi-8-3-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-8-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på delvis integrasjon og LIATE:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-3-n-quiz2-q0","task":"Kva er formelen for delvis integrasjon?","options":[{"id":"a","text":"$\\int u\\,dv = uv + \\int v\\,du$","isCorrect":false},{"id":"b","text":"$\\int u\\,dv = u'v - \\int u v'\\,dx$","isCorrect":false},{"id":"c","text":"$\\int u\\,dv = \\tfrac{uv}{2} - \\int v\\,du$","isCorrect":false},{"id":"d","text":"$\\int u\\,dv = uv - \\int v\\,du$","isCorrect":true}],"solution":"Delvis integrasjon er $\\int u\\,dv = uv - \\int v\\,du$, utleidd frå produktregelen $(uv)' = u'v + uv'$."},{"id":"bi-okonomi-8-3-n-quiz2-q1","task":"I $\\int x \\ln x\\,dx$, kva bør $u$ vere ifølgje LIATE?","options":[{"id":"a","text":"$u = \\ln x$","isCorrect":true},{"id":"b","text":"$u = x$","isCorrect":false},{"id":"c","text":"$u = x\\ln x$","isCorrect":false},{"id":"d","text":"$u = 1$","isCorrect":false}],"solution":"LIATE: Logaritme kjem før Algebraisk, så $u = \\ln x$ og $v' = x$. Det gir $\\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$."},{"id":"bi-okonomi-8-3-n-quiz2-q2","task":"Rekn ut $\\int x e^x\\,dx$.","options":[{"id":"a","text":"$xe^x + C$","isCorrect":false},{"id":"b","text":"$(x-1)e^x + C$","isCorrect":true},{"id":"c","text":"$\\tfrac{x^2}{2}e^x + C$","isCorrect":false},{"id":"d","text":"$(x+1)e^x + C$","isCorrect":false}],"solution":"Med $u = x$, $v' = e^x$: $xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk ved derivasjon: $xe^x$."},{"id":"bi-okonomi-8-3-n-quiz2-q3","task":"Kva er $\\int \\ln x\\,dx$?","options":[{"id":"a","text":"$\\tfrac{1}{x} + C$","isCorrect":false},{"id":"b","text":"$x\\ln x + x + C$","isCorrect":false},{"id":"c","text":"$x\\ln x - x + C$","isCorrect":true},{"id":"d","text":"$\\tfrac{(\\ln x)^2}{2} + C$","isCorrect":false}],"solution":"Skriv $\\ln x = 1\\cdot\\ln x$, vel $u = \\ln x$, $v' = 1$: $x\\ln x - \\int \\tfrac{1}{x}\\cdot x\\,dx = x\\ln x - x + C$. Eit standardresultat verdt å hugse."}]}},{"id":"bi-okonomi-8-3-n-section3","type":"text","content":"## Å velje rett metode -- og bruke han i økonomi\n\nDen verkelege ferdigheita er å sjå kva metode eit integral ropar på. **Substitusjon** passar når du ser ein indre funksjon og den deriverte hans saman: eit polynom i potens ganga med den deriverte sin, $e^{g(x)}$ ganga med $g'(x)$, eller ein brøk der teljaren er den deriverte av nemnaren. **Delvis integrasjon** passar når du har eit produkt av to ulike funksjonstypar, typisk eit polynom ganga med ein eksponential eller logaritme.\n\nNokre integral kan vere kamuflerte. I $\\int \\tfrac{\\ln x}{x}\\,dx$ fristar det å tenkje delvis integrasjon, men her er substitusjon $u = \\ln x$, $du = \\tfrac{1}{x}\\,dx$ langt enklare: $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Og $\\int 2x\\sqrt{x^2+3}\\,dx$ blir løyst med $u = x^2 + 3$: $\\int \\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$.\n\nI økonomi er desse metodane uunnverlege for realistiske grensefunksjonar. Anta ei grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$ med $I(0) = 0$. Her treng vi delvis integrasjon: $u = 100 - x$, $v' = e^{-0{,}05x}$, så $u' = -1$ og $v = -20e^{-0{,}05x}$. Då blir $I(x) = (100-x)(-20e^{-0{,}05x}) - \\int 20e^{-0{,}05x}\\,dx = e^{-0{,}05x}(20x - 1600) + C$. Vilkåret $I(0) = -1600 + C = 0$ gir $C = 1600$, så $I(x) = e^{-0{,}05x}(20x - 1600) + 1600$. Eit eksempel med substitusjon: grensekostnad $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$. Med $u = 0{,}1x^2$ er $du = 0{,}2x\\,dx$, så $10x\\,dx = 50\\,du$, og $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. Frå $K(0) = 50 + C = 500$ får vi $K(x) = 50e^{0{,}1x^2} + 450$."},{"id":"bi-okonomi-8-3-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-8-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på metodeval og økonomiske anvendingar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-3-n-quiz3-q0","task":"Kva metode passar best for $\\int \\tfrac{\\ln x}{x}\\,dx$?","options":[{"id":"a","text":"Delvis integrasjon med $u = \\ln x$","isCorrect":false},{"id":"b","text":"Potensregelen direkte","isCorrect":false},{"id":"c","text":"Standardformelen for $\\tfrac{1}{x}$","isCorrect":false},{"id":"d","text":"Substitusjon med $u = \\ln x$","isCorrect":true}],"solution":"Med $u = \\ln x$ er $du = \\tfrac{1}{x}\\,dx$, så integralet blir $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Substitusjon er klart enklast her."},{"id":"bi-okonomi-8-3-n-quiz3-q1","task":"Kva metode passar for $\\int 2x\\sqrt{x^2+3}\\,dx$?","options":[{"id":"a","text":"Substitusjon med $u = x^2 + 3$","isCorrect":true},{"id":"b","text":"Delvis integrasjon med $u = 2x$","isCorrect":false},{"id":"c","text":"Substitusjon med $u = \\sqrt{x}$","isCorrect":false},{"id":"d","text":"Ingen metode verkar","isCorrect":false}],"solution":"$2x$ er den deriverte av $x^2 + 3$, så $u = x^2 + 3$ gir $\\int\\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$."},{"id":"bi-okonomi-8-3-n-quiz3-q2","task":"For grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$, kva metode bruker vi?","options":[{"id":"a","text":"Substitusjon med $u = -0{,}05x$","isCorrect":false},{"id":"b","text":"Delvis integrasjon med $u = 100 - x$, $v' = e^{-0{,}05x}$","isCorrect":true},{"id":"c","text":"Sumregelen direkte","isCorrect":false},{"id":"d","text":"Potensregelen","isCorrect":false}],"solution":"Eit polynom $(100-x)$ ganga med ein eksponential krev delvis integrasjon. LIATE: algebraisk før eksponential, så $u = 100 - x$."},{"id":"bi-okonomi-8-3-n-quiz3-q3","task":"For $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$, kva er $K(x)$?","options":[{"id":"a","text":"$50e^{0{,}1x^2} + 500$","isCorrect":false},{"id":"b","text":"$10e^{0{,}1x^2} + 490$","isCorrect":false},{"id":"c","text":"$50e^{0{,}1x^2} + 450$","isCorrect":true},{"id":"d","text":"$100e^{0{,}1x^2} + 400$","isCorrect":false}],"solution":"Substitusjon $u = 0{,}1x^2$ gir $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. $K(0) = 50 + C = 500$ gir $C = 450$, så $K(x) = 50e^{0{,}1x^2} + 450$."}]}},{"id":"bi-okonomi-8-3-n-summary","type":"text","content":"## Oppsummering\n\nNår standardformlane ikkje held, snur vi derivasjonsreglane på hovudet. **Substitusjon** er kjerneregelen baklengs: vi set $u = g(x)$, $du = g'(x)\\,dx$, og forenklar $\\int f(g(x))g'(x)\\,dx$ til $\\int f(u)\\,du$. Han fungerer når ein indre funksjon opptrer saman med den deriverte sin, og gir mellom anna mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$. For bestemte integral må grensene bytast.\n\n**Delvis integrasjon** er produktregelen baklengs: $\\int u\\,dv = uv - \\int v\\,du$. **LIATE**-regelen hjelper oss å velje $u$ -- logaritme før algebraisk før eksponential. Standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$ er verdt å hugse, og nokre integral krev to rundar.\n\nFerdigheita ligg i metodevalet: substitusjon ved indre funksjon og den deriverte hans, delvis integrasjon ved produkt av ulike funksjonstypar. I økonomien lèt dette oss integrere realistiske grensefunksjonar som $(100 - x)e^{-0{,}05x}$ og $10x e^{0{,}1x^2}$ tilbake til inntekts- og kostnadsfunksjonar -- og eit startvilkår bestemmer alltid konstanten $C$ til slutt."}],"exercises":[],"_meta":{"sourceHash":"ca530ec348628584","translatedAt":"2026-06-21T01:03:39.686Z","model":"claude-code-agent","strings":86,"tm":{"c83787acc9ff8d2d":"Integrasjonsmetoder","b195b06d1ed59702":"Narrativ versjon","456e67314bf10515":"Ei forteljing om to teknikkar som snur derivasjonsreglane på hovudet -- substitusjon som omvend kjerneregel, og delvis integrasjon som omvend produktregel -- og korleis dei utvidar kva vi kan integrere.","b483878d17c55f18":"## Når standardformlane ikkje strekkjer til\n\nTil no har vi integrert ved å kjenne att kjende mønster: potensar, eksponentialar, logaritmar. Men prøv å integrere $\\int x e^{x^2}\\,dx$ eller $\\int x \\ln x\\,dx$, og standardformlane stoppar opp. Desse uttrykka er bygde opp av samansette funksjonar og produkt, og då treng vi tyngre verktøy.\n\nHeldigvis finst det ein djup symmetri i kalkulus: kvar derivasjonsregel har ein integrasjonsregel som speilbilete. I dette kapittelet møter vi to av dei. **Substitusjon** (variabelskift) er den omvende av kjerneregelen, og **delvis integrasjon** er den omvende av produktregelen. Med desse to teknikkane kan vi løyse dei aller fleste integrala ein støyter på i økonomistudiet.\n\nIdeen bak begge er den same: byt eit vanskeleg integral mot eit enklare. Substitusjon gjer det ved å gi ein samansett funksjon ein ny, enkel variabel. Delvis integrasjon gjer det ved å flytte derivasjonen frå den eine faktoren til den andre. Lat oss ta dei etter tur.","99d9b9d01d7c2bf9":"## Substitusjon: kjerneregelen baklengs\n\nNår vi deriverer ein samansett funksjon $F(g(x))$ med kjerneregelen, får vi $F'(g(x))\\cdot g'(x)$. Substitusjon snur dette: vi kjenner att eit integral på forma $\\int f(g(x))\\,g'(x)\\,dx$, set $u = g(x)$ og $du = g'(x)\\,dx$, og uttrykkjer alt i den nye variabelen. Då blir $\\int f(g(x))\\,g'(x)\\,dx = \\int f(u)\\,du$. Etter integrasjon byter vi tilbake til $x$.\n\nDet enklaste tilfellet er ein lineær kjerne. For $\\int (3x + 2)^5\\,dx$ set vi $u = 3x + 2$, så $du = 3\\,dx$, altså $dx = \\tfrac{du}{3}$. Då er $\\int u^5\\cdot\\tfrac{du}{3} = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} + C = \\tfrac{(3x+2)^6}{18} + C$. Vi kan alltid sjekke med kjerneregelen: $\\tfrac{d}{dx}\\tfrac{(3x+2)^6}{18} = \\tfrac{6(3x+2)^5\\cdot 3}{18} = (3x+2)^5$.\n\nKrafta ligg i å sjå den indre funksjonen og den deriverte hans saman. For $\\int x e^{x^2}\\,dx$ ser vi at $x^2$ deriverer til $2x$, og vi har ein $x$ utanfor. Set $u = x^2$, så $du = 2x\\,dx$, altså $x\\,dx = \\tfrac{du}{2}$. Då er $\\int e^u\\cdot\\tfrac{du}{2} = \\tfrac{1}{2}e^{x^2} + C$. Eit nærskyldt mønster gir logaritme: i $\\int \\tfrac{2x}{x^2+1}\\,dx$ er teljaren nøyaktig den deriverte av nemnaren. Med $u = x^2 + 1$ blir det $\\int \\tfrac{du}{u} = \\ln(x^2+1) + C$. Generelt: når teljaren er den deriverte av nemnaren, blir integralet $\\ln|g(x)|$. For **bestemte** integral må vi hugse å byte grensene. I $\\int_0^1 x(x^2+1)^3\\,dx$ med $u = x^2 + 1$ går $u$ frå $1$ til $2$, og vi får $\\tfrac{1}{2}\\bigl[\\tfrac{u^4}{4}\\bigr]_1^2 = \\tfrac{1}{8}(16 - 1) = \\tfrac{15}{8}$.","8fcdedb7298e3584":"Test deg sjølv på substitusjon:","4097889236a2af26":"placeholder","d3865bb151c342fd":"Substitusjon er den omvende av kva derivasjonsregel?","44ba685640110c1d":"Produktregelen","0f3bdefcb68f4f67":"Potensregelen","ce596530edfde2a9":"Kvotientregelen","b9a825ae6946c4ac":"Kjerneregelen","5684de6cab5f173e":"Substitusjon snur kjerneregelen: eit integral $\\int f(g(x))g'(x)\\,dx$ blir forenkla til $\\int f(u)\\,du$ med $u = g(x)$.","0abb1238d9759437":"Rekn ut $\\int (3x+2)^5\\,dx$ med $u = 3x+2$.","732ef35ac006e9c0":"$\\tfrac{(3x+2)^6}{18} + C$","c3cfeb9bcc6785af":"$\\tfrac{(3x+2)^6}{6} + C$","5faa8ea7a3899ca6":"$3(3x+2)^6 + C$","9a344833db1914e3":"$\\tfrac{(3x+2)^6}{3} + C$","f1e56aac2802cf82":"$du = 3\\,dx$ gir $\\tfrac{1}{3}\\int u^5\\,du = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} = \\tfrac{(3x+2)^6}{18} + C$. Faktoren $\\tfrac{1}{18}$ kjem frå både $\\tfrac{1}{3}$ og $\\tfrac{1}{6}$.","99cf614675f1d5de":"Rekn ut $\\int x e^{x^2}\\,dx$.","7c5a07ddc020f327":"$e^{x^2} + C$","0d9a2d7fd032c74e":"$\\tfrac{1}{2}e^{x^2} + C$","267287403db5701e":"$2x e^{x^2} + C$","1d25eddf0db01739":"$x e^{x^2} + C$","0f861feb6a6c1586":"Med $u = x^2$ er $du = 2x\\,dx$, så $x\\,dx = \\tfrac{du}{2}$. Då blir $\\tfrac{1}{2}\\int e^u\\,du = \\tfrac{1}{2}e^{x^2} + C$.","2e5f4781d69c300c":"Kvifor blir $\\int \\tfrac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$?","4c5dd1040597936c":"Fordi $x^2+1$ alltid er positiv","6498f71ab8a6e867":"Fordi potensregelen gir logaritme","a0a31a71cb50edab":"Fordi teljaren $2x$ er den deriverte av nemnaren $x^2+1$","15e4eec69b3360c9":"Fordi $2x$ blir derivert til $2$","260797d8cfc93cd5":"Med $u = x^2+1$ er $du = 2x\\,dx$ = teljaren, så integralet blir $\\int\\tfrac{du}{u} = \\ln|u|$. Mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$.","ac5cc317bc4a1e3f":"## Delvis integrasjon: produktregelen baklengs\n\nProduktregelen seier $(uv)' = u'v + uv'$. Integrerer vi begge sider og flyttar om, får vi formelen for **delvis integrasjon**: $$\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx,$$ ofte skriven kompakt som $\\int u\\,dv = uv - \\int v\\,du$. Tanken er å byte eit produkt-integral mot eit enklare eitt. Suksessen avheng av eit lurt val av kva faktor som skal vere $u$ og kva som skal vere $v'$.\n\nEi god rettesnor er **LIATE-regelen**: vel $u$ som det som kjem først i rekkjefølgja **L**ogaritmar, **I**nverse trigfunksjonar, **A**lgebraiske uttrykk (polynom), **T**rigonometriske funksjonar, **E**ksponentialfunksjonar. Den andre faktoren blir $v'$. For $\\int x e^x\\,dx$ er algebraisk ($x$) før eksponential ($e^x$), så $u = x$, $v' = e^x$. Då er $u' = 1$, $v = e^x$, og $\\int x e^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk: $\\tfrac{d}{dx}((x-1)e^x) = e^x + (x-1)e^x = xe^x$.\n\nFor $\\int x \\ln x\\,dx$ kjem logaritme før algebraisk, så $u = \\ln x$, $v' = x$. Med $u' = \\tfrac{1}{x}$ og $v = \\tfrac{x^2}{2}$ blir det $\\tfrac{x^2\\ln x}{2} - \\int \\tfrac{1}{x}\\cdot\\tfrac{x^2}{2}\\,dx = \\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$. Eit lurt knep dukkar opp ved $\\int \\ln x\\,dx$: vi tenkjer på integranden som $1\\cdot\\ln x$, set $u = \\ln x$, $v' = 1$, og får standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$. Nokre gonger må vi integrere delvis **to gonger**, som i $\\int x^2 e^x\\,dx = x^2 e^x - 2\\int x e^x\\,dx = e^x(x^2 - 2x + 2) + C$. Og vel du $u$ slik at det nye integralet blir verre enn det opphavlege, har du valt feil -- byt då om på $u$ og $v'$.","49ef0e5cf34e5a8b":"Test deg sjølv på delvis integrasjon og LIATE:","44b796efe19f4bef":"Kva er formelen for delvis integrasjon?","58348ef0358a6420":"$\\int u\\,dv = uv + \\int v\\,du$","6160c66064f580e6":"$\\int u\\,dv = u'v - \\int u v'\\,dx$","8adcad5da3877d2c":"$\\int u\\,dv = \\tfrac{uv}{2} - \\int v\\,du$","1fc4c087023175c8":"$\\int u\\,dv = uv - \\int v\\,du$","52dde268e8b53be8":"Delvis integrasjon er $\\int u\\,dv = uv - \\int v\\,du$, utleidd frå produktregelen $(uv)' = u'v + uv'$.","a190a45faecd056f":"I $\\int x \\ln x\\,dx$, kva bør $u$ vere ifølgje LIATE?","e35cb825a90311eb":"$u = \\ln x$","db5c296bf8d69518":"$u = x$","d0ada3d05c541b3f":"$u = x\\ln x$","c68a562d755e8020":"$u = 1$","2c11f260571311dd":"LIATE: Logaritme kjem før Algebraisk, så $u = \\ln x$ og $v' = x$. Det gir $\\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$.","2a67b7ef681464a1":"Rekn ut $\\int x e^x\\,dx$.","25799a3efc215879":"$xe^x + C$","261d8b0db16b3a25":"$(x-1)e^x + C$","cf3fa6f4e793b2f8":"$\\tfrac{x^2}{2}e^x + C$","55e47686bd4b8810":"$(x+1)e^x + C$","5a8ac7367636f6fc":"Med $u = x$, $v' = e^x$: $xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk ved derivasjon: $xe^x$.","03d96a436f7075b0":"Kva er $\\int \\ln x\\,dx$?","aa5099885387d761":"$\\tfrac{1}{x} + C$","751e3e22375857dd":"$x\\ln x + x + C$","402900280cbd15dd":"$x\\ln x - x + C$","82066638e5e38939":"$\\tfrac{(\\ln x)^2}{2} + C$","c21a5b6d4435e1e1":"Skriv $\\ln x = 1\\cdot\\ln x$, vel $u = \\ln x$, $v' = 1$: $x\\ln x - \\int \\tfrac{1}{x}\\cdot x\\,dx = x\\ln x - x + C$. Eit standardresultat verdt å hugse.","4dc254cf30b5d6ba":"## Å velje rett metode -- og bruke han i økonomi\n\nDen verkelege ferdigheita er å sjå kva metode eit integral ropar på. **Substitusjon** passar når du ser ein indre funksjon og den deriverte hans saman: eit polynom i potens ganga med den deriverte sin, $e^{g(x)}$ ganga med $g'(x)$, eller ein brøk der teljaren er den deriverte av nemnaren. **Delvis integrasjon** passar når du har eit produkt av to ulike funksjonstypar, typisk eit polynom ganga med ein eksponential eller logaritme.\n\nNokre integral kan vere kamuflerte. I $\\int \\tfrac{\\ln x}{x}\\,dx$ fristar det å tenkje delvis integrasjon, men her er substitusjon $u = \\ln x$, $du = \\tfrac{1}{x}\\,dx$ langt enklare: $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Og $\\int 2x\\sqrt{x^2+3}\\,dx$ blir løyst med $u = x^2 + 3$: $\\int \\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$.\n\nI økonomi er desse metodane uunnverlege for realistiske grensefunksjonar. Anta ei grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$ med $I(0) = 0$. Her treng vi delvis integrasjon: $u = 100 - x$, $v' = e^{-0{,}05x}$, så $u' = -1$ og $v = -20e^{-0{,}05x}$. Då blir $I(x) = (100-x)(-20e^{-0{,}05x}) - \\int 20e^{-0{,}05x}\\,dx = e^{-0{,}05x}(20x - 1600) + C$. Vilkåret $I(0) = -1600 + C = 0$ gir $C = 1600$, så $I(x) = e^{-0{,}05x}(20x - 1600) + 1600$. Eit eksempel med substitusjon: grensekostnad $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$. Med $u = 0{,}1x^2$ er $du = 0{,}2x\\,dx$, så $10x\\,dx = 50\\,du$, og $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. Frå $K(0) = 50 + C = 500$ får vi $K(x) = 50e^{0{,}1x^2} + 450$.","257b0ae1b5922645":"Test deg sjølv på metodeval og økonomiske anvendingar:","5aa01be2c7460dc0":"Kva metode passar best for $\\int \\tfrac{\\ln x}{x}\\,dx$?","57595459276854c2":"Delvis integrasjon med $u = \\ln x$","0b1caec06f2e81e9":"Potensregelen direkte","520ab65f6b74eb52":"Standardformelen for $\\tfrac{1}{x}$","eb967fafb4c15e86":"Substitusjon med $u = \\ln x$","fc915c06076b594e":"Med $u = \\ln x$ er $du = \\tfrac{1}{x}\\,dx$, så integralet blir $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Substitusjon er klart enklast her.","f1f1dbd7d6fc5047":"Kva metode passar for $\\int 2x\\sqrt{x^2+3}\\,dx$?","686a060e0212c7c6":"Substitusjon med $u = x^2 + 3$","f4694d791a0d18a0":"Delvis integrasjon med $u = 2x$","c4e9685eed5faaaf":"Substitusjon med $u = \\sqrt{x}$","9868b52a29d57d35":"Ingen metode verkar","68e6e364fe582167":"$2x$ er den deriverte av $x^2 + 3$, så $u = x^2 + 3$ gir $\\int\\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$.","4b0607f52fab0cb6":"For grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$, kva metode bruker vi?","47a67c2a2a67d1f6":"Substitusjon med $u = -0{,}05x$","08ba2872d2e84c47":"Delvis integrasjon med $u = 100 - x$, $v' = e^{-0{,}05x}$","281f889c51fc60a4":"Sumregelen direkte","c18530133e621c65":"Eit polynom $(100-x)$ ganga med ein eksponential krev delvis integrasjon. LIATE: algebraisk før eksponential, så $u = 100 - x$.","1de921b217a94053":"For $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$, kva er $K(x)$?","683d8b196eea55a0":"$50e^{0{,}1x^2} + 500$","d0f7ef7f30b77398":"$10e^{0{,}1x^2} + 490$","a2aada9675ccac87":"$50e^{0{,}1x^2} + 450$","a57067321719fe88":"$100e^{0{,}1x^2} + 400$","d8f9f4722228c2eb":"Substitusjon $u = 0{,}1x^2$ gir $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. $K(0) = 50 + C = 500$ gir $C = 450$, så $K(x) = 50e^{0{,}1x^2} + 450$.","1420f8c1f7b24724":"## Oppsummering\n\nNår standardformlane ikkje held, snur vi derivasjonsreglane på hovudet. **Substitusjon** er kjerneregelen baklengs: vi set $u = g(x)$, $du = g'(x)\\,dx$, og forenklar $\\int f(g(x))g'(x)\\,dx$ til $\\int f(u)\\,du$. Han fungerer når ein indre funksjon opptrer saman med den deriverte sin, og gir mellom anna mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$. For bestemte integral må grensene bytast.\n\n**Delvis integrasjon** er produktregelen baklengs: $\\int u\\,dv = uv - \\int v\\,du$. **LIATE**-regelen hjelper oss å velje $u$ -- logaritme før algebraisk før eksponential. Standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$ er verdt å hugse, og nokre integral krev to rundar.\n\nFerdigheita ligg i metodevalet: substitusjon ved indre funksjon og den deriverte hans, delvis integrasjon ved produkt av ulike funksjonstypar. I økonomien lèt dette oss integrere realistiske grensefunksjonar som $(100 - x)e^{-0{,}05x}$ og $10x e^{0{,}1x^2}$ tilbake til inntekts- og kostnadsfunksjonar -- og eit startvilkår bestemmer alltid konstanten $C$ til slutt."}}}
+{
+  "id": "bi-okonomi-8-3-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "8.3",
+  "title": "Integrasjonsmetoder",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om to teknikkar som snur derivasjonsreglane på hovudet -- substitusjon som omvend kjerneregel, og delvis integrasjon som omvend produktregel -- og korleis dei utvidar kva vi kan integrere.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-8-3",
+  "content": [
+    {
+      "id": "bi-okonomi-8-3-n-intro",
+      "type": "text",
+      "content": "## Når standardformlane ikkje strekkjer til\n\nTil no har vi integrert ved å kjenne att kjende mønster: potensar, eksponentialar, logaritmar. Men prøv å integrere $\\int x e^{x^2}\\,dx$ eller $\\int x \\ln x\\,dx$, og standardformlane stoppar opp. Desse uttrykka er bygde opp av samansette funksjonar og produkt, og då treng vi tyngre verktøy.\n\nHeldigvis finst det ein djup symmetri i kalkulus: kvar derivasjonsregel har ein integrasjonsregel som speilbilete. I dette kapittelet møter vi to av dei. **Substitusjon** (variabelskift) er den omvende av kjerneregelen, og **delvis integrasjon** er den omvende av produktregelen. Med desse to teknikkane kan vi løyse dei aller fleste integrala ein støyter på i økonomistudiet.\n\nIdeen bak begge er den same: byt eit vanskeleg integral mot eit enklare. Substitusjon gjer det ved å gi ein samansett funksjon ein ny, enkel variabel. Delvis integrasjon gjer det ved å flytte derivasjonen frå den eine faktoren til den andre. Lat oss ta dei etter tur."
+    },
+    {
+      "id": "bi-okonomi-8-3-n-section1",
+      "type": "text",
+      "content": "## Substitusjon: kjerneregelen baklengs\n\nNår vi deriverer ein samansett funksjon $F(g(x))$ med kjerneregelen, får vi $F'(g(x))\\cdot g'(x)$. Substitusjon snur dette: vi kjenner att eit integral på forma $\\int f(g(x))\\,g'(x)\\,dx$, set $u = g(x)$ og $du = g'(x)\\,dx$, og uttrykkjer alt i den nye variabelen. Då blir $\\int f(g(x))\\,g'(x)\\,dx = \\int f(u)\\,du$. Etter integrasjon byter vi tilbake til $x$.\n\nDet enklaste tilfellet er ein lineær kjerne. For $\\int (3x + 2)^5\\,dx$ set vi $u = 3x + 2$, så $du = 3\\,dx$, altså $dx = \\tfrac{du}{3}$. Då er $\\int u^5\\cdot\\tfrac{du}{3} = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} + C = \\tfrac{(3x+2)^6}{18} + C$. Vi kan alltid sjekke med kjerneregelen: $\\tfrac{d}{dx}\\tfrac{(3x+2)^6}{18} = \\tfrac{6(3x+2)^5\\cdot 3}{18} = (3x+2)^5$.\n\nKrafta ligg i å sjå den indre funksjonen og den deriverte hans saman. For $\\int x e^{x^2}\\,dx$ ser vi at $x^2$ deriverer til $2x$, og vi har ein $x$ utanfor. Set $u = x^2$, så $du = 2x\\,dx$, altså $x\\,dx = \\tfrac{du}{2}$. Då er $\\int e^u\\cdot\\tfrac{du}{2} = \\tfrac{1}{2}e^{x^2} + C$. Eit nærskyldt mønster gir logaritme: i $\\int \\tfrac{2x}{x^2+1}\\,dx$ er teljaren nøyaktig den deriverte av nemnaren. Med $u = x^2 + 1$ blir det $\\int \\tfrac{du}{u} = \\ln(x^2+1) + C$. Generelt: når teljaren er den deriverte av nemnaren, blir integralet $\\ln|g(x)|$. For **bestemte** integral må vi hugse å byte grensene. I $\\int_0^1 x(x^2+1)^3\\,dx$ med $u = x^2 + 1$ går $u$ frå $1$ til $2$, og vi får $\\tfrac{1}{2}\\bigl[\\tfrac{u^4}{4}\\bigr]_1^2 = \\tfrac{1}{8}(16 - 1) = \\tfrac{15}{8}$."
+    },
+    {
+      "id": "bi-okonomi-8-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på substitusjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-3-n-quiz1-q0",
+            "task": "Substitusjon er den omvende av kva derivasjonsregel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Produktregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kjerneregelen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Potensregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvotientregelen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Substitusjon snur kjerneregelen: eit integral $\\int f(g(x))g'(x)\\,dx$ blir forenkla til $\\int f(u)\\,du$ med $u = g(x)$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz1-q1",
+            "task": "Rekn ut $\\int (3x+2)^5\\,dx$ med $u = 3x+2$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\tfrac{(3x+2)^6}{6} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3(3x+2)^6 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\tfrac{(3x+2)^6}{18} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{(3x+2)^6}{3} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$du = 3\\,dx$ gir $\\tfrac{1}{3}\\int u^5\\,du = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} = \\tfrac{(3x+2)^6}{18} + C$. Faktoren $\\tfrac{1}{18}$ kjem frå både $\\tfrac{1}{3}$ og $\\tfrac{1}{6}$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz1-q2",
+            "task": "Rekn ut $\\int x e^{x^2}\\,dx$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x e^{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x e^{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\tfrac{1}{2}e^{x^2} + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $u = x^2$ er $du = 2x\\,dx$, så $x\\,dx = \\tfrac{du}{2}$. Då blir $\\tfrac{1}{2}\\int e^u\\,du = \\tfrac{1}{2}e^{x^2} + C$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz1-q3",
+            "task": "Kvifor blir $\\int \\tfrac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fordi teljaren $2x$ er den deriverte av nemnaren $x^2+1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi $x^2+1$ alltid er positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi potensregelen gir logaritme",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $2x$ blir derivert til $2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $u = x^2+1$ er $du = 2x\\,dx$ = teljaren, så integralet blir $\\int\\tfrac{du}{u} = \\ln|u|$. Mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-3-n-section2",
+      "type": "text",
+      "content": "## Delvis integrasjon: produktregelen baklengs\n\nProduktregelen seier $(uv)' = u'v + uv'$. Integrerer vi begge sider og flyttar om, får vi formelen for **delvis integrasjon**: $$\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx,$$ ofte skriven kompakt som $\\int u\\,dv = uv - \\int v\\,du$. Tanken er å byte eit produkt-integral mot eit enklare eitt. Suksessen avheng av eit lurt val av kva faktor som skal vere $u$ og kva som skal vere $v'$.\n\nEi god rettesnor er **LIATE-regelen**: vel $u$ som det som kjem først i rekkjefølgja **L**ogaritmar, **I**nverse trigfunksjonar, **A**lgebraiske uttrykk (polynom), **T**rigonometriske funksjonar, **E**ksponentialfunksjonar. Den andre faktoren blir $v'$. For $\\int x e^x\\,dx$ er algebraisk ($x$) før eksponential ($e^x$), så $u = x$, $v' = e^x$. Då er $u' = 1$, $v = e^x$, og $\\int x e^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk: $\\tfrac{d}{dx}((x-1)e^x) = e^x + (x-1)e^x = xe^x$.\n\nFor $\\int x \\ln x\\,dx$ kjem logaritme før algebraisk, så $u = \\ln x$, $v' = x$. Med $u' = \\tfrac{1}{x}$ og $v = \\tfrac{x^2}{2}$ blir det $\\tfrac{x^2\\ln x}{2} - \\int \\tfrac{1}{x}\\cdot\\tfrac{x^2}{2}\\,dx = \\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$. Eit lurt knep dukkar opp ved $\\int \\ln x\\,dx$: vi tenkjer på integranden som $1\\cdot\\ln x$, set $u = \\ln x$, $v' = 1$, og får standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$. Nokre gonger må vi integrere delvis **to gonger**, som i $\\int x^2 e^x\\,dx = x^2 e^x - 2\\int x e^x\\,dx = e^x(x^2 - 2x + 2) + C$. Og vel du $u$ slik at det nye integralet blir verre enn det opphavlege, har du valt feil -- byt då om på $u$ og $v'$."
+    },
+    {
+      "id": "bi-okonomi-8-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på delvis integrasjon og LIATE:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-3-n-quiz2-q0",
+            "task": "Kva er formelen for delvis integrasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\int u\\,dv = uv + \\int v\\,du$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\int u\\,dv = uv - \\int v\\,du$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\int u\\,dv = u'v - \\int u v'\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\int u\\,dv = \\tfrac{uv}{2} - \\int v\\,du$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Delvis integrasjon er $\\int u\\,dv = uv - \\int v\\,du$, utleidd frå produktregelen $(uv)' = u'v + uv'$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz2-q1",
+            "task": "I $\\int x \\ln x\\,dx$, kva bør $u$ vere ifølgje LIATE?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$u = x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$u = x\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$u = \\ln x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$u = 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "LIATE: Logaritme kjem før Algebraisk, så $u = \\ln x$ og $v' = x$. Det gir $\\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz2-q2",
+            "task": "Rekn ut $\\int x e^x\\,dx$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$xe^x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\tfrac{x^2}{2}e^x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x+1)e^x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x-1)e^x + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $u = x$, $v' = e^x$: $xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk ved derivasjon: $xe^x$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz2-q3",
+            "task": "Kva er $\\int \\ln x\\,dx$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x\\ln x - x + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\tfrac{1}{x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x\\ln x + x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{(\\ln x)^2}{2} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skriv $\\ln x = 1\\cdot\\ln x$, vel $u = \\ln x$, $v' = 1$: $x\\ln x - \\int \\tfrac{1}{x}\\cdot x\\,dx = x\\ln x - x + C$. Eit standardresultat verdt å hugse."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-3-n-section3",
+      "type": "text",
+      "content": "## Å velje rett metode -- og bruke han i økonomi\n\nDen verkelege ferdigheita er å sjå kva metode eit integral ropar på. **Substitusjon** passar når du ser ein indre funksjon og den deriverte hans saman: eit polynom i potens ganga med den deriverte sin, $e^{g(x)}$ ganga med $g'(x)$, eller ein brøk der teljaren er den deriverte av nemnaren. **Delvis integrasjon** passar når du har eit produkt av to ulike funksjonstypar, typisk eit polynom ganga med ein eksponential eller logaritme.\n\nNokre integral kan vere kamuflerte. I $\\int \\tfrac{\\ln x}{x}\\,dx$ fristar det å tenkje delvis integrasjon, men her er substitusjon $u = \\ln x$, $du = \\tfrac{1}{x}\\,dx$ langt enklare: $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Og $\\int 2x\\sqrt{x^2+3}\\,dx$ blir løyst med $u = x^2 + 3$: $\\int \\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$.\n\nI økonomi er desse metodane uunnverlege for realistiske grensefunksjonar. Anta ei grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$ med $I(0) = 0$. Her treng vi delvis integrasjon: $u = 100 - x$, $v' = e^{-0{,}05x}$, så $u' = -1$ og $v = -20e^{-0{,}05x}$. Då blir $I(x) = (100-x)(-20e^{-0{,}05x}) - \\int 20e^{-0{,}05x}\\,dx = e^{-0{,}05x}(20x - 1600) + C$. Vilkåret $I(0) = -1600 + C = 0$ gir $C = 1600$, så $I(x) = e^{-0{,}05x}(20x - 1600) + 1600$. Eit eksempel med substitusjon: grensekostnad $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$. Med $u = 0{,}1x^2$ er $du = 0{,}2x\\,dx$, så $10x\\,dx = 50\\,du$, og $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. Frå $K(0) = 50 + C = 500$ får vi $K(x) = 50e^{0{,}1x^2} + 450$."
+    },
+    {
+      "id": "bi-okonomi-8-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på metodeval og økonomiske anvendingar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-3-n-quiz3-q0",
+            "task": "Kva metode passar best for $\\int \\tfrac{\\ln x}{x}\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Delvis integrasjon med $u = \\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Substitusjon med $u = \\ln x$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Potensregelen direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Standardformelen for $\\tfrac{1}{x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $u = \\ln x$ er $du = \\tfrac{1}{x}\\,dx$, så integralet blir $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Substitusjon er klart enklast her."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz3-q1",
+            "task": "Kva metode passar for $\\int 2x\\sqrt{x^2+3}\\,dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Delvis integrasjon med $u = 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Substitusjon med $u = \\sqrt{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Substitusjon med $u = x^2 + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen metode verkar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2x$ er den deriverte av $x^2 + 3$, så $u = x^2 + 3$ gir $\\int\\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz3-q2",
+            "task": "For grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$, kva metode bruker vi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Substitusjon med $u = -0{,}05x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sumregelen direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Potensregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Delvis integrasjon med $u = 100 - x$, $v' = e^{-0{,}05x}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eit polynom $(100-x)$ ganga med ein eksponential krev delvis integrasjon. LIATE: algebraisk før eksponential, så $u = 100 - x$."
+          },
+          {
+            "id": "bi-okonomi-8-3-n-quiz3-q3",
+            "task": "For $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$, kva er $K(x)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$50e^{0{,}1x^2} + 450$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$50e^{0{,}1x^2} + 500$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10e^{0{,}1x^2} + 490$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$100e^{0{,}1x^2} + 400$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Substitusjon $u = 0{,}1x^2$ gir $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. $K(0) = 50 + C = 500$ gir $C = 450$, så $K(x) = 50e^{0{,}1x^2} + 450$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår standardformlane ikkje held, snur vi derivasjonsreglane på hovudet. **Substitusjon** er kjerneregelen baklengs: vi set $u = g(x)$, $du = g'(x)\\,dx$, og forenklar $\\int f(g(x))g'(x)\\,dx$ til $\\int f(u)\\,du$. Han fungerer når ein indre funksjon opptrer saman med den deriverte sin, og gir mellom anna mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$. For bestemte integral må grensene bytast.\n\n**Delvis integrasjon** er produktregelen baklengs: $\\int u\\,dv = uv - \\int v\\,du$. **LIATE**-regelen hjelper oss å velje $u$ -- logaritme før algebraisk før eksponential. Standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$ er verdt å hugse, og nokre integral krev to rundar.\n\nFerdigheita ligg i metodevalet: substitusjon ved indre funksjon og den deriverte hans, delvis integrasjon ved produkt av ulike funksjonstypar. I økonomien lèt dette oss integrere realistiske grensefunksjonar som $(100 - x)e^{-0{,}05x}$ og $10x e^{0{,}1x^2}$ tilbake til inntekts- og kostnadsfunksjonar -- og eit startvilkår bestemmer alltid konstanten $C$ til slutt."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "ca530ec348628584",
+    "translatedAt": "2026-06-21T01:03:39.686Z",
+    "model": "claude-code-agent",
+    "strings": 86,
+    "tm": {
+      "c83787acc9ff8d2d": "Integrasjonsmetoder",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "456e67314bf10515": "Ei forteljing om to teknikkar som snur derivasjonsreglane på hovudet -- substitusjon som omvend kjerneregel, og delvis integrasjon som omvend produktregel -- og korleis dei utvidar kva vi kan integrere.",
+      "b483878d17c55f18": "## Når standardformlane ikkje strekkjer til\n\nTil no har vi integrert ved å kjenne att kjende mønster: potensar, eksponentialar, logaritmar. Men prøv å integrere $\\int x e^{x^2}\\,dx$ eller $\\int x \\ln x\\,dx$, og standardformlane stoppar opp. Desse uttrykka er bygde opp av samansette funksjonar og produkt, og då treng vi tyngre verktøy.\n\nHeldigvis finst det ein djup symmetri i kalkulus: kvar derivasjonsregel har ein integrasjonsregel som speilbilete. I dette kapittelet møter vi to av dei. **Substitusjon** (variabelskift) er den omvende av kjerneregelen, og **delvis integrasjon** er den omvende av produktregelen. Med desse to teknikkane kan vi løyse dei aller fleste integrala ein støyter på i økonomistudiet.\n\nIdeen bak begge er den same: byt eit vanskeleg integral mot eit enklare. Substitusjon gjer det ved å gi ein samansett funksjon ein ny, enkel variabel. Delvis integrasjon gjer det ved å flytte derivasjonen frå den eine faktoren til den andre. Lat oss ta dei etter tur.",
+      "99d9b9d01d7c2bf9": "## Substitusjon: kjerneregelen baklengs\n\nNår vi deriverer ein samansett funksjon $F(g(x))$ med kjerneregelen, får vi $F'(g(x))\\cdot g'(x)$. Substitusjon snur dette: vi kjenner att eit integral på forma $\\int f(g(x))\\,g'(x)\\,dx$, set $u = g(x)$ og $du = g'(x)\\,dx$, og uttrykkjer alt i den nye variabelen. Då blir $\\int f(g(x))\\,g'(x)\\,dx = \\int f(u)\\,du$. Etter integrasjon byter vi tilbake til $x$.\n\nDet enklaste tilfellet er ein lineær kjerne. For $\\int (3x + 2)^5\\,dx$ set vi $u = 3x + 2$, så $du = 3\\,dx$, altså $dx = \\tfrac{du}{3}$. Då er $\\int u^5\\cdot\\tfrac{du}{3} = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} + C = \\tfrac{(3x+2)^6}{18} + C$. Vi kan alltid sjekke med kjerneregelen: $\\tfrac{d}{dx}\\tfrac{(3x+2)^6}{18} = \\tfrac{6(3x+2)^5\\cdot 3}{18} = (3x+2)^5$.\n\nKrafta ligg i å sjå den indre funksjonen og den deriverte hans saman. For $\\int x e^{x^2}\\,dx$ ser vi at $x^2$ deriverer til $2x$, og vi har ein $x$ utanfor. Set $u = x^2$, så $du = 2x\\,dx$, altså $x\\,dx = \\tfrac{du}{2}$. Då er $\\int e^u\\cdot\\tfrac{du}{2} = \\tfrac{1}{2}e^{x^2} + C$. Eit nærskyldt mønster gir logaritme: i $\\int \\tfrac{2x}{x^2+1}\\,dx$ er teljaren nøyaktig den deriverte av nemnaren. Med $u = x^2 + 1$ blir det $\\int \\tfrac{du}{u} = \\ln(x^2+1) + C$. Generelt: når teljaren er den deriverte av nemnaren, blir integralet $\\ln|g(x)|$. For **bestemte** integral må vi hugse å byte grensene. I $\\int_0^1 x(x^2+1)^3\\,dx$ med $u = x^2 + 1$ går $u$ frå $1$ til $2$, og vi får $\\tfrac{1}{2}\\bigl[\\tfrac{u^4}{4}\\bigr]_1^2 = \\tfrac{1}{8}(16 - 1) = \\tfrac{15}{8}$.",
+      "8fcdedb7298e3584": "Test deg sjølv på substitusjon:",
+      "4097889236a2af26": "placeholder",
+      "d3865bb151c342fd": "Substitusjon er den omvende av kva derivasjonsregel?",
+      "44ba685640110c1d": "Produktregelen",
+      "0f3bdefcb68f4f67": "Potensregelen",
+      "ce596530edfde2a9": "Kvotientregelen",
+      "b9a825ae6946c4ac": "Kjerneregelen",
+      "5684de6cab5f173e": "Substitusjon snur kjerneregelen: eit integral $\\int f(g(x))g'(x)\\,dx$ blir forenkla til $\\int f(u)\\,du$ med $u = g(x)$.",
+      "0abb1238d9759437": "Rekn ut $\\int (3x+2)^5\\,dx$ med $u = 3x+2$.",
+      "732ef35ac006e9c0": "$\\tfrac{(3x+2)^6}{18} + C$",
+      "c3cfeb9bcc6785af": "$\\tfrac{(3x+2)^6}{6} + C$",
+      "5faa8ea7a3899ca6": "$3(3x+2)^6 + C$",
+      "9a344833db1914e3": "$\\tfrac{(3x+2)^6}{3} + C$",
+      "f1e56aac2802cf82": "$du = 3\\,dx$ gir $\\tfrac{1}{3}\\int u^5\\,du = \\tfrac{1}{3}\\cdot\\tfrac{u^6}{6} = \\tfrac{(3x+2)^6}{18} + C$. Faktoren $\\tfrac{1}{18}$ kjem frå både $\\tfrac{1}{3}$ og $\\tfrac{1}{6}$.",
+      "99cf614675f1d5de": "Rekn ut $\\int x e^{x^2}\\,dx$.",
+      "7c5a07ddc020f327": "$e^{x^2} + C$",
+      "0d9a2d7fd032c74e": "$\\tfrac{1}{2}e^{x^2} + C$",
+      "267287403db5701e": "$2x e^{x^2} + C$",
+      "1d25eddf0db01739": "$x e^{x^2} + C$",
+      "0f861feb6a6c1586": "Med $u = x^2$ er $du = 2x\\,dx$, så $x\\,dx = \\tfrac{du}{2}$. Då blir $\\tfrac{1}{2}\\int e^u\\,du = \\tfrac{1}{2}e^{x^2} + C$.",
+      "2e5f4781d69c300c": "Kvifor blir $\\int \\tfrac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$?",
+      "4c5dd1040597936c": "Fordi $x^2+1$ alltid er positiv",
+      "6498f71ab8a6e867": "Fordi potensregelen gir logaritme",
+      "a0a31a71cb50edab": "Fordi teljaren $2x$ er den deriverte av nemnaren $x^2+1$",
+      "15e4eec69b3360c9": "Fordi $2x$ blir derivert til $2$",
+      "260797d8cfc93cd5": "Med $u = x^2+1$ er $du = 2x\\,dx$ = teljaren, så integralet blir $\\int\\tfrac{du}{u} = \\ln|u|$. Mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$.",
+      "ac5cc317bc4a1e3f": "## Delvis integrasjon: produktregelen baklengs\n\nProduktregelen seier $(uv)' = u'v + uv'$. Integrerer vi begge sider og flyttar om, får vi formelen for **delvis integrasjon**: $$\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx,$$ ofte skriven kompakt som $\\int u\\,dv = uv - \\int v\\,du$. Tanken er å byte eit produkt-integral mot eit enklare eitt. Suksessen avheng av eit lurt val av kva faktor som skal vere $u$ og kva som skal vere $v'$.\n\nEi god rettesnor er **LIATE-regelen**: vel $u$ som det som kjem først i rekkjefølgja **L**ogaritmar, **I**nverse trigfunksjonar, **A**lgebraiske uttrykk (polynom), **T**rigonometriske funksjonar, **E**ksponentialfunksjonar. Den andre faktoren blir $v'$. For $\\int x e^x\\,dx$ er algebraisk ($x$) før eksponential ($e^x$), så $u = x$, $v' = e^x$. Då er $u' = 1$, $v = e^x$, og $\\int x e^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk: $\\tfrac{d}{dx}((x-1)e^x) = e^x + (x-1)e^x = xe^x$.\n\nFor $\\int x \\ln x\\,dx$ kjem logaritme før algebraisk, så $u = \\ln x$, $v' = x$. Med $u' = \\tfrac{1}{x}$ og $v = \\tfrac{x^2}{2}$ blir det $\\tfrac{x^2\\ln x}{2} - \\int \\tfrac{1}{x}\\cdot\\tfrac{x^2}{2}\\,dx = \\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$. Eit lurt knep dukkar opp ved $\\int \\ln x\\,dx$: vi tenkjer på integranden som $1\\cdot\\ln x$, set $u = \\ln x$, $v' = 1$, og får standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$. Nokre gonger må vi integrere delvis **to gonger**, som i $\\int x^2 e^x\\,dx = x^2 e^x - 2\\int x e^x\\,dx = e^x(x^2 - 2x + 2) + C$. Og vel du $u$ slik at det nye integralet blir verre enn det opphavlege, har du valt feil -- byt då om på $u$ og $v'$.",
+      "49ef0e5cf34e5a8b": "Test deg sjølv på delvis integrasjon og LIATE:",
+      "44b796efe19f4bef": "Kva er formelen for delvis integrasjon?",
+      "58348ef0358a6420": "$\\int u\\,dv = uv + \\int v\\,du$",
+      "6160c66064f580e6": "$\\int u\\,dv = u'v - \\int u v'\\,dx$",
+      "8adcad5da3877d2c": "$\\int u\\,dv = \\tfrac{uv}{2} - \\int v\\,du$",
+      "1fc4c087023175c8": "$\\int u\\,dv = uv - \\int v\\,du$",
+      "52dde268e8b53be8": "Delvis integrasjon er $\\int u\\,dv = uv - \\int v\\,du$, utleidd frå produktregelen $(uv)' = u'v + uv'$.",
+      "a190a45faecd056f": "I $\\int x \\ln x\\,dx$, kva bør $u$ vere ifølgje LIATE?",
+      "e35cb825a90311eb": "$u = \\ln x$",
+      "db5c296bf8d69518": "$u = x$",
+      "d0ada3d05c541b3f": "$u = x\\ln x$",
+      "c68a562d755e8020": "$u = 1$",
+      "2c11f260571311dd": "LIATE: Logaritme kjem før Algebraisk, så $u = \\ln x$ og $v' = x$. Det gir $\\tfrac{x^2\\ln x}{2} - \\tfrac{x^2}{4} + C$.",
+      "2a67b7ef681464a1": "Rekn ut $\\int x e^x\\,dx$.",
+      "25799a3efc215879": "$xe^x + C$",
+      "261d8b0db16b3a25": "$(x-1)e^x + C$",
+      "cf3fa6f4e793b2f8": "$\\tfrac{x^2}{2}e^x + C$",
+      "55e47686bd4b8810": "$(x+1)e^x + C$",
+      "5a8ac7367636f6fc": "Med $u = x$, $v' = e^x$: $xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$. Sjekk ved derivasjon: $xe^x$.",
+      "03d96a436f7075b0": "Kva er $\\int \\ln x\\,dx$?",
+      "aa5099885387d761": "$\\tfrac{1}{x} + C$",
+      "751e3e22375857dd": "$x\\ln x + x + C$",
+      "402900280cbd15dd": "$x\\ln x - x + C$",
+      "82066638e5e38939": "$\\tfrac{(\\ln x)^2}{2} + C$",
+      "c21a5b6d4435e1e1": "Skriv $\\ln x = 1\\cdot\\ln x$, vel $u = \\ln x$, $v' = 1$: $x\\ln x - \\int \\tfrac{1}{x}\\cdot x\\,dx = x\\ln x - x + C$. Eit standardresultat verdt å hugse.",
+      "4dc254cf30b5d6ba": "## Å velje rett metode -- og bruke han i økonomi\n\nDen verkelege ferdigheita er å sjå kva metode eit integral ropar på. **Substitusjon** passar når du ser ein indre funksjon og den deriverte hans saman: eit polynom i potens ganga med den deriverte sin, $e^{g(x)}$ ganga med $g'(x)$, eller ein brøk der teljaren er den deriverte av nemnaren. **Delvis integrasjon** passar når du har eit produkt av to ulike funksjonstypar, typisk eit polynom ganga med ein eksponential eller logaritme.\n\nNokre integral kan vere kamuflerte. I $\\int \\tfrac{\\ln x}{x}\\,dx$ fristar det å tenkje delvis integrasjon, men her er substitusjon $u = \\ln x$, $du = \\tfrac{1}{x}\\,dx$ langt enklare: $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Og $\\int 2x\\sqrt{x^2+3}\\,dx$ blir løyst med $u = x^2 + 3$: $\\int \\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$.\n\nI økonomi er desse metodane uunnverlege for realistiske grensefunksjonar. Anta ei grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$ med $I(0) = 0$. Her treng vi delvis integrasjon: $u = 100 - x$, $v' = e^{-0{,}05x}$, så $u' = -1$ og $v = -20e^{-0{,}05x}$. Då blir $I(x) = (100-x)(-20e^{-0{,}05x}) - \\int 20e^{-0{,}05x}\\,dx = e^{-0{,}05x}(20x - 1600) + C$. Vilkåret $I(0) = -1600 + C = 0$ gir $C = 1600$, så $I(x) = e^{-0{,}05x}(20x - 1600) + 1600$. Eit eksempel med substitusjon: grensekostnad $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$. Med $u = 0{,}1x^2$ er $du = 0{,}2x\\,dx$, så $10x\\,dx = 50\\,du$, og $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. Frå $K(0) = 50 + C = 500$ får vi $K(x) = 50e^{0{,}1x^2} + 450$.",
+      "257b0ae1b5922645": "Test deg sjølv på metodeval og økonomiske anvendingar:",
+      "5aa01be2c7460dc0": "Kva metode passar best for $\\int \\tfrac{\\ln x}{x}\\,dx$?",
+      "57595459276854c2": "Delvis integrasjon med $u = \\ln x$",
+      "0b1caec06f2e81e9": "Potensregelen direkte",
+      "520ab65f6b74eb52": "Standardformelen for $\\tfrac{1}{x}$",
+      "eb967fafb4c15e86": "Substitusjon med $u = \\ln x$",
+      "fc915c06076b594e": "Med $u = \\ln x$ er $du = \\tfrac{1}{x}\\,dx$, så integralet blir $\\int u\\,du = \\tfrac{(\\ln x)^2}{2} + C$. Substitusjon er klart enklast her.",
+      "f1f1dbd7d6fc5047": "Kva metode passar for $\\int 2x\\sqrt{x^2+3}\\,dx$?",
+      "686a060e0212c7c6": "Substitusjon med $u = x^2 + 3$",
+      "f4694d791a0d18a0": "Delvis integrasjon med $u = 2x$",
+      "c4e9685eed5faaaf": "Substitusjon med $u = \\sqrt{x}$",
+      "9868b52a29d57d35": "Ingen metode verkar",
+      "68e6e364fe582167": "$2x$ er den deriverte av $x^2 + 3$, så $u = x^2 + 3$ gir $\\int\\sqrt{u}\\,du = \\tfrac{2}{3}(x^2+3)^{3/2} + C$.",
+      "4b0607f52fab0cb6": "For grenseinntekt $I'(x) = (100 - x)e^{-0{,}05x}$, kva metode bruker vi?",
+      "47a67c2a2a67d1f6": "Substitusjon med $u = -0{,}05x$",
+      "08ba2872d2e84c47": "Delvis integrasjon med $u = 100 - x$, $v' = e^{-0{,}05x}$",
+      "281f889c51fc60a4": "Sumregelen direkte",
+      "c18530133e621c65": "Eit polynom $(100-x)$ ganga med ein eksponential krev delvis integrasjon. LIATE: algebraisk før eksponential, så $u = 100 - x$.",
+      "1de921b217a94053": "For $K'(x) = 10x e^{0{,}1x^2}$ med $K(0) = 500$, kva er $K(x)$?",
+      "683d8b196eea55a0": "$50e^{0{,}1x^2} + 500$",
+      "d0f7ef7f30b77398": "$10e^{0{,}1x^2} + 490$",
+      "a2aada9675ccac87": "$50e^{0{,}1x^2} + 450$",
+      "a57067321719fe88": "$100e^{0{,}1x^2} + 400$",
+      "d8f9f4722228c2eb": "Substitusjon $u = 0{,}1x^2$ gir $\\int 10x e^{0{,}1x^2}\\,dx = 50e^{0{,}1x^2} + C$. $K(0) = 50 + C = 500$ gir $C = 450$, så $K(x) = 50e^{0{,}1x^2} + 450$.",
+      "1420f8c1f7b24724": "## Oppsummering\n\nNår standardformlane ikkje held, snur vi derivasjonsreglane på hovudet. **Substitusjon** er kjerneregelen baklengs: vi set $u = g(x)$, $du = g'(x)\\,dx$, og forenklar $\\int f(g(x))g'(x)\\,dx$ til $\\int f(u)\\,du$. Han fungerer når ein indre funksjon opptrer saman med den deriverte sin, og gir mellom anna mønsteret $\\int\\tfrac{g'}{g}\\,dx = \\ln|g|$. For bestemte integral må grensene bytast.\n\n**Delvis integrasjon** er produktregelen baklengs: $\\int u\\,dv = uv - \\int v\\,du$. **LIATE**-regelen hjelper oss å velje $u$ -- logaritme før algebraisk før eksponential. Standardresultatet $\\int \\ln x\\,dx = x\\ln x - x + C$ er verdt å hugse, og nokre integral krev to rundar.\n\nFerdigheita ligg i metodevalet: substitusjon ved indre funksjon og den deriverte hans, delvis integrasjon ved produkt av ulike funksjonstypar. I økonomien lèt dette oss integrere realistiske grensefunksjonar som $(100 - x)e^{-0{,}05x}$ og $10x e^{0{,}1x^2}$ tilbake til inntekts- og kostnadsfunksjonar -- og eit startvilkår bestemmer alltid konstanten $C$ til slutt."
+    }
+  }
+}

@@ -1,1 +1,369 @@
-{"id":"bi-okonomi-5-7-narrativ","courseId":"bi-okonomi","chapterNumber":"5.7","title":"L'Hôpitals regel og grenseverdier","subtitle":"Narrativ versjon","description":"En fortelling om grenseverdier og ubestemte former -- hvordan L'Hôpitals regel temmer $0/0$ og $\\infty/\\infty$, og hvorfor eksponentialvekst alltid vinner over polynomer på lang sikt.","estimatedMinutes":32,"competenceGoals":[],"linkedChapterId":"bi-okonomi-5-7","content":[{"id":"bi-okonomi-5-7-n-intro","type":"text","content":"## Hva nærmer funksjonen seg?\n\nEn **grenseverdi** beskriver hva en funksjon nærmer seg når variabelen $x$ kryper mot en verdi $a$ -- eller mot $\\pm\\infty$. Vi skriver $\\lim_{x\\to a} f(x) = L$ og leser det «$f(x)$ går mot $L$ når $x$ går mot $a$». For de fleste snille funksjoner kan vi bare sette inn: $\\lim_{x\\to 2} x^2 = 4$. Men noen ganger gir innsetting noe meningsløst som $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$. Da har vi en **ubestemt form**, og vi trenger et skarpere verktøy.\n\nGrenseverdier er ikke bare teknisk gymnastikk. De ligger bak selve definisjonen av den deriverte, $f'(x) = \\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}$, og bak formelen for kontinuerlig forrentning. De lar oss også sammenligne hvor raskt ulike størrelser vokser -- noe som er helt sentralt i finans.\n\nNoen standardgrenser bør du kjenne uten å regne. For $n > 0$ er $\\lim_{x\\to\\infty}\\frac{1}{x^n} = 0$. Eksponentialfunksjonen eksploderer: $\\lim_{x\\to\\infty} e^x = \\infty$, mens $\\lim_{x\\to-\\infty} e^x = 0$. Logaritmen vokser, men sakte: $\\lim_{x\\to\\infty}\\ln x = \\infty$. Og to spesielt viktige er $\\lim_{x\\to 0}\\frac{e^x - 1}{x} = 1$ og $\\lim_{x\\to 0}\\frac{\\ln(1+x)}{x} = 1$ -- begge ubestemte former $\\frac{0}{0}$ som likevel har en pen verdi."},{"id":"bi-okonomi-5-7-n-section1","type":"text","content":"## L'Hôpitals regel\n\nDen viktigste teknikken for ubestemte former heter **L'Hôpitals regel**. Anta at $\\lim_{x\\to a}\\frac{f(x)}{g(x)}$ gir formen $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$. Da er\n\n$$\\lim_{x\\to a}\\frac{f(x)}{g(x)} = \\lim_{x\\to a}\\frac{f'(x)}{g'(x)},$$\n\nforutsatt at grensen på høyresiden eksisterer. Vi deriverer altså teller og nevner **hver for seg**. Dette gjelder også når $x\\to\\pm\\infty$.\n\nVær obs på to ting. For det første er dette **ikke** kvotientregelen -- vi deriverer ikke brøken som helhet, men teller og nevner separat. For det andre må du **alltid sjekke at formen er ubestemt** før du bruker regelen. Hvis innsetting gir $\\frac{2}{0}$ eller $\\frac{0}{3}$, er svaret allerede klart, og L'Hôpital er ulovlig.\n\nLa oss bruke den. Først $\\lim_{x\\to 0}\\frac{e^x - 1}{x}$: innsetting gir $\\frac{0}{0}$, så regelen er lovlig. Vi deriverer teller til $e^x$ og nevner til $1$, og får $\\lim_{x\\to 0}\\frac{e^x}{1} = 1$. Deretter $\\lim_{x\\to\\infty}\\frac{\\ln x}{x}$: form $\\frac{\\infty}{\\infty}$. Deriverer vi, blir det $\\lim_{x\\to\\infty}\\frac{1/x}{1} = 0$. Logaritmen vokser altså, men mye saktere enn $x$. Et viktig prinsipp: **logaritmer vokser tregere enn potenser**."},{"id":"bi-okonomi-5-7-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-5-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på L'Hôpitals regel:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-7-n-quiz1-q0","task":"Når er L'Hôpitals regel tillatt å bruke?","options":[{"id":"a","text":"for alle grenseverdier","isCorrect":false},{"id":"b","text":"for formene $0/0$ og $\\infty/\\infty$","isCorrect":true},{"id":"c","text":"bare når $x\\to 0$","isCorrect":false},{"id":"d","text":"for formen $1/0$","isCorrect":false}],"solution":"Regelen gjelder kun for de ubestemte formene $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$."},{"id":"bi-okonomi-5-7-n-quiz1-q1","task":"Hva sier L'Hôpitals regel at $\\lim\\frac{f}{g}$ er lik?","options":[{"id":"a","text":"$\\lim\\frac{(f/g)'}{1}$","isCorrect":false},{"id":"b","text":"$\\lim\\frac{f'g-fg'}{g^2}$","isCorrect":false},{"id":"c","text":"$\\lim\\frac{f'}{g'}$","isCorrect":true},{"id":"d","text":"$\\lim(f'\\cdot g')$","isCorrect":false}],"solution":"Vi deriverer teller og nevner hver for seg: $\\lim\\frac{f'}{g'}$. Dette er ikke kvotientregelen."},{"id":"bi-okonomi-5-7-n-quiz1-q2","task":"Hva er $\\lim_{x\\to 0}\\frac{e^x-1}{x}$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$\\infty$","isCorrect":false},{"id":"c","text":"$e$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":true}],"solution":"Form $0/0$. Deriver: $\\frac{e^x}{1}\\to\\frac{e^0}{1}=1$."},{"id":"bi-okonomi-5-7-n-quiz1-q3","task":"Hva er $\\lim_{x\\to\\infty}\\frac{\\ln x}{x}$?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$\\infty$","isCorrect":false},{"id":"d","text":"$e$","isCorrect":false}],"solution":"Form $\\infty/\\infty$. Deriver: $\\frac{1/x}{1}=\\frac{1}{x}\\to 0$. Logaritmen taper mot $x$."}]}},{"id":"bi-okonomi-5-7-n-section2","type":"text","content":"## Eksponential dominerer alt\n\nNoen ganger må vi bruke L'Hôpital flere ganger. Ta $\\lim_{x\\to\\infty}\\frac{x^2}{e^x}$, som er $\\frac{\\infty}{\\infty}$. Første runde: deriverer vi, blir det $\\lim_{x\\to\\infty}\\frac{2x}{e^x}$ -- fortsatt $\\frac{\\infty}{\\infty}$. Andre runde: $\\lim_{x\\to\\infty}\\frac{2}{e^x} = 0$. Hver gang sjekker vi at formen fortsatt er ubestemt før vi deriverer på nytt.\n\nKonklusjonen er slående: $\\frac{x^2}{e^x}\\to 0$. Og det gjelder generelt -- for ethvert polynom $P(x)$ er $\\lim_{x\\to\\infty}\\frac{P(x)}{e^x} = 0$. **Eksponentialvekst overgår enhver polynomvekst**, uansett hvor høy graden er. Beviset er enkelt: bruk L'Hôpital like mange ganger som graden, så blir telleren en konstant og nevneren $e^x\\to\\infty$.\n\nDette gir oss en rangering av vekstrater for store $x$, fra langsomst til raskest: $\\ln x \\ll x^a \\ll e^{bx}$ for alle $a, b > 0$, der $\\ll$ betyr «vokser mye saktere enn». Huskeregelen er enkel: **$e^x$ slår alt, og $\\ln x$ taper for alt**. Den økonomiske konsekvensen er dyp. Hvis én investering vokser eksponentielt og en annen polynomisk, vinner den eksponentielle alltid på lang sikt -- uansett hvor små vekstratene er. Det er nettopp derfor rentes rente er så mektig, og hvorfor en lineær lønnsøkning ikke kan måle seg med en eksponentiell investering over tid."},{"id":"bi-okonomi-5-7-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-5-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på gjentatt L'Hôpital og vekstrater:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-7-n-quiz2-q0","task":"Hva er $\\lim_{x\\to\\infty}\\frac{x^2}{e^x}$?","options":[{"id":"a","text":"$\\infty$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":true},{"id":"c","text":"$2$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":false}],"solution":"To runder L'Hôpital: $\\frac{x^2}{e^x}\\to\\frac{2x}{e^x}\\to\\frac{2}{e^x}\\to 0$."},{"id":"bi-okonomi-5-7-n-quiz2-q1","task":"Hva er riktig rangering av vekstrater for store $x$ (langsomst til raskest)?","options":[{"id":"a","text":"$e^{bx}\\ll x^a\\ll\\ln x$","isCorrect":false},{"id":"b","text":"$x^a\\ll\\ln x\\ll e^{bx}$","isCorrect":false},{"id":"c","text":"$\\ln x\\ll x^a\\ll e^{bx}$","isCorrect":true},{"id":"d","text":"$\\ln x\\ll e^{bx}\\ll x^a$","isCorrect":false}],"solution":"$\\ln x\\ll x^a\\ll e^{bx}$ -- logaritmen taper for alt, eksponentialen slår alt."},{"id":"bi-okonomi-5-7-n-quiz2-q2","task":"Hva er $\\lim_{x\\to\\infty}\\frac{P(x)}{e^x}$ for et hvilket som helst polynom $P(x)$?","options":[{"id":"a","text":"$\\infty$","isCorrect":false},{"id":"b","text":"avhenger av graden","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":true}],"solution":"Eksponentialvekst slår enhver polynomvekst, så grensen er alltid $0$."}]}},{"id":"bi-okonomi-5-7-n-section3","type":"text","content":"## Andre ubestemte former og Eulers grense\n\nL'Hôpital virker bare på $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$, men mange andre ubestemte former -- $0\\cdot\\infty$, $\\infty - \\infty$, $0^0$, $1^\\infty$, $\\infty^0$ -- kan **skrives om** til en av de to. Triks: en form $0\\cdot\\infty$ skrives som en brøk, mens potensformer som $1^\\infty$ tas logaritmen av.\n\nTa $\\lim_{x\\to 0^+} x\\ln x$, som er $0\\cdot(-\\infty)$. Vi skriver om til $\\frac{\\ln x}{1/x}$, nå $\\frac{-\\infty}{\\infty}$. L'Hôpital gir $\\lim_{x\\to 0^+}\\frac{1/x}{-1/x^2} = \\lim_{x\\to 0^+}(-x) = 0$. Selv om $\\ln x \\to -\\infty$, går $x$ raskere mot null, og produktet kollapser.\n\nDen mest berømte er **Eulers grense**: $\\lim_{x\\to\\infty}\\left(1 + \\frac{1}{x}\\right)^x$, som er formen $1^\\infty$. Vi setter $y = \\left(1 + \\frac{1}{x}\\right)^x$ og tar logaritmen: $\\ln y = x\\ln\\left(1 + \\frac{1}{x}\\right) = \\frac{\\ln(1 + 1/x)}{1/x}$. Med substitusjonen $u = 1/x$ blir dette $\\lim_{u\\to 0^+}\\frac{\\ln(1+u)}{u} = 1$. Altså $\\ln y \\to 1$, så $y \\to e^1 = e$. Dette er den klassiske definisjonen av $e$, og den forklarer hvorfor $e$ dukker opp i kontinuerlig forrentning: man kan vise at $\\lim_{m\\to\\infty}\\left(1 + \\frac{r}{m}\\right)^{mt} = e^{rt}$. Bak en uskyldig vekstformel ligger altså en grenseverdi -- og bak grensen ligger L'Hôpitals regel."},{"id":"bi-okonomi-5-7-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-5-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på andre ubestemte former og Eulers grense:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-7-n-quiz3-q0","task":"Hvordan håndterer man en ubestemt form $0\\cdot\\infty$ for å bruke L'Hôpital?","options":[{"id":"a","text":"skriv produktet om til en brøk","isCorrect":true},{"id":"b","text":"deriver produktet direkte","isCorrect":false},{"id":"c","text":"sett $x=1$","isCorrect":false},{"id":"d","text":"den kan ikke håndteres","isCorrect":false}],"solution":"Skriv $0\\cdot\\infty$ om som en brøk, så får du $0/0$ eller $\\infty/\\infty$ og kan bruke L'Hôpital."},{"id":"bi-okonomi-5-7-n-quiz3-q1","task":"Hva er $\\lim_{x\\to 0^+} x\\ln x$?","options":[{"id":"a","text":"$-\\infty$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":true},{"id":"c","text":"$-1$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":false}],"solution":"Omskrevet til $\\frac{\\ln x}{1/x}$ gir L'Hôpital $-x\\to 0$. $x$ går raskere mot null enn $\\ln x$ mot $-\\infty$."},{"id":"bi-okonomi-5-7-n-quiz3-q2","task":"Hva er $\\lim_{x\\to\\infty}\\left(1+\\frac{1}{x}\\right)^x$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$\\infty$","isCorrect":false},{"id":"c","text":"$e$","isCorrect":true},{"id":"d","text":"$0$","isCorrect":false}],"solution":"Eulers grense: formen $1^\\infty$ gir $\\ln y\\to 1$, så $y\\to e$. Dette er definisjonen av $e$."}]}},{"id":"bi-okonomi-5-7-n-summary","type":"text","content":"## Oppsummering\n\nEn **grenseverdi** forteller hva en funksjon nærmer seg. Når direkte innsetting gir en **ubestemt form** som $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, bruker vi **L'Hôpitals regel**: $\\lim\\frac{f}{g} = \\lim\\frac{f'}{g'}$ -- deriver teller og nevner hver for seg. Sjekk alltid at formen virkelig er ubestemt før du bruker regelen, og at den fortsatt er det før du gjentar den.\n\nGjentatt bruk viste oss det viktigste prinsippet: **eksponentialvekst slår alt**. Rangeringen $\\ln x \\ll x^a \\ll e^{bx}$ forklarer hvorfor rentes rente er så kraftig på lang sikt. Andre ubestemte former -- $0\\cdot\\infty$, $1^\\infty$ med flere -- skrives om til $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, ofte ved å ta logaritmen, slik vi gjorde for Eulers grense $\\lim_{x\\to\\infty}(1 + 1/x)^x = e$. Grenseverdier er dermed broen mellom kalkulus og finansens vekstmodeller."}],"exercises":[]}
+{
+  "id": "bi-okonomi-5-7-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "5.7",
+  "title": "L'Hôpitals regel og grenseverdier",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om grenseverdier og ubestemte former -- hvordan L'Hôpitals regel temmer $0/0$ og $\\infty/\\infty$, og hvorfor eksponentialvekst alltid vinner over polynomer på lang sikt.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-5-7",
+  "content": [
+    {
+      "id": "bi-okonomi-5-7-n-intro",
+      "type": "text",
+      "content": "## Hva nærmer funksjonen seg?\n\nEn **grenseverdi** beskriver hva en funksjon nærmer seg når variabelen $x$ kryper mot en verdi $a$ -- eller mot $\\pm\\infty$. Vi skriver $\\lim_{x\\to a} f(x) = L$ og leser det «$f(x)$ går mot $L$ når $x$ går mot $a$». For de fleste snille funksjoner kan vi bare sette inn: $\\lim_{x\\to 2} x^2 = 4$. Men noen ganger gir innsetting noe meningsløst som $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$. Da har vi en **ubestemt form**, og vi trenger et skarpere verktøy.\n\nGrenseverdier er ikke bare teknisk gymnastikk. De ligger bak selve definisjonen av den deriverte, $f'(x) = \\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}$, og bak formelen for kontinuerlig forrentning. De lar oss også sammenligne hvor raskt ulike størrelser vokser -- noe som er helt sentralt i finans.\n\nNoen standardgrenser bør du kjenne uten å regne. For $n > 0$ er $\\lim_{x\\to\\infty}\\frac{1}{x^n} = 0$. Eksponentialfunksjonen eksploderer: $\\lim_{x\\to\\infty} e^x = \\infty$, mens $\\lim_{x\\to-\\infty} e^x = 0$. Logaritmen vokser, men sakte: $\\lim_{x\\to\\infty}\\ln x = \\infty$. Og to spesielt viktige er $\\lim_{x\\to 0}\\frac{e^x - 1}{x} = 1$ og $\\lim_{x\\to 0}\\frac{\\ln(1+x)}{x} = 1$ -- begge ubestemte former $\\frac{0}{0}$ som likevel har en pen verdi."
+    },
+    {
+      "id": "bi-okonomi-5-7-n-section1",
+      "type": "text",
+      "content": "## L'Hôpitals regel\n\nDen viktigste teknikken for ubestemte former heter **L'Hôpitals regel**. Anta at $\\lim_{x\\to a}\\frac{f(x)}{g(x)}$ gir formen $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$. Da er\n\n$$\\lim_{x\\to a}\\frac{f(x)}{g(x)} = \\lim_{x\\to a}\\frac{f'(x)}{g'(x)},$$\n\nforutsatt at grensen på høyresiden eksisterer. Vi deriverer altså teller og nevner **hver for seg**. Dette gjelder også når $x\\to\\pm\\infty$.\n\nVær obs på to ting. For det første er dette **ikke** kvotientregelen -- vi deriverer ikke brøken som helhet, men teller og nevner separat. For det andre må du **alltid sjekke at formen er ubestemt** før du bruker regelen. Hvis innsetting gir $\\frac{2}{0}$ eller $\\frac{0}{3}$, er svaret allerede klart, og L'Hôpital er ulovlig.\n\nLa oss bruke den. Først $\\lim_{x\\to 0}\\frac{e^x - 1}{x}$: innsetting gir $\\frac{0}{0}$, så regelen er lovlig. Vi deriverer teller til $e^x$ og nevner til $1$, og får $\\lim_{x\\to 0}\\frac{e^x}{1} = 1$. Deretter $\\lim_{x\\to\\infty}\\frac{\\ln x}{x}$: form $\\frac{\\infty}{\\infty}$. Deriverer vi, blir det $\\lim_{x\\to\\infty}\\frac{1/x}{1} = 0$. Logaritmen vokser altså, men mye saktere enn $x$. Et viktig prinsipp: **logaritmer vokser tregere enn potenser**."
+    },
+    {
+      "id": "bi-okonomi-5-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på L'Hôpitals regel:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-7-n-quiz1-q0",
+            "task": "Når er L'Hôpitals regel tillatt å bruke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "for alle grenseverdier",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "bare når $x\\to 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "for formen $1/0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "for formene $0/0$ og $\\infty/\\infty$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Regelen gjelder kun for de ubestemte formene $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$."
+          },
+          {
+            "id": "bi-okonomi-5-7-n-quiz1-q1",
+            "task": "Hva sier L'Hôpitals regel at $\\lim\\frac{f}{g}$ er lik?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\lim\\frac{f'}{g'}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\lim\\frac{(f/g)'}{1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\lim\\frac{f'g-fg'}{g^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\lim(f'\\cdot g')$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer teller og nevner hver for seg: $\\lim\\frac{f'}{g'}$. Dette er ikke kvotientregelen."
+          },
+          {
+            "id": "bi-okonomi-5-7-n-quiz1-q2",
+            "task": "Hva er $\\lim_{x\\to 0}\\frac{e^x-1}{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Form $0/0$. Deriver: $\\frac{e^x}{1}\\to\\frac{e^0}{1}=1$."
+          },
+          {
+            "id": "bi-okonomi-5-7-n-quiz1-q3",
+            "task": "Hva er $\\lim_{x\\to\\infty}\\frac{\\ln x}{x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$e$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Form $\\infty/\\infty$. Deriver: $\\frac{1/x}{1}=\\frac{1}{x}\\to 0$. Logaritmen taper mot $x$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-7-n-section2",
+      "type": "text",
+      "content": "## Eksponential dominerer alt\n\nNoen ganger må vi bruke L'Hôpital flere ganger. Ta $\\lim_{x\\to\\infty}\\frac{x^2}{e^x}$, som er $\\frac{\\infty}{\\infty}$. Første runde: deriverer vi, blir det $\\lim_{x\\to\\infty}\\frac{2x}{e^x}$ -- fortsatt $\\frac{\\infty}{\\infty}$. Andre runde: $\\lim_{x\\to\\infty}\\frac{2}{e^x} = 0$. Hver gang sjekker vi at formen fortsatt er ubestemt før vi deriverer på nytt.\n\nKonklusjonen er slående: $\\frac{x^2}{e^x}\\to 0$. Og det gjelder generelt -- for ethvert polynom $P(x)$ er $\\lim_{x\\to\\infty}\\frac{P(x)}{e^x} = 0$. **Eksponentialvekst overgår enhver polynomvekst**, uansett hvor høy graden er. Beviset er enkelt: bruk L'Hôpital like mange ganger som graden, så blir telleren en konstant og nevneren $e^x\\to\\infty$.\n\nDette gir oss en rangering av vekstrater for store $x$, fra langsomst til raskest: $\\ln x \\ll x^a \\ll e^{bx}$ for alle $a, b > 0$, der $\\ll$ betyr «vokser mye saktere enn». Huskeregelen er enkel: **$e^x$ slår alt, og $\\ln x$ taper for alt**. Den økonomiske konsekvensen er dyp. Hvis én investering vokser eksponentielt og en annen polynomisk, vinner den eksponentielle alltid på lang sikt -- uansett hvor små vekstratene er. Det er nettopp derfor rentes rente er så mektig, og hvorfor en lineær lønnsøkning ikke kan måle seg med en eksponentiell investering over tid."
+    },
+    {
+      "id": "bi-okonomi-5-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gjentatt L'Hôpital og vekstrater:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-7-n-quiz2-q0",
+            "task": "Hva er $\\lim_{x\\to\\infty}\\frac{x^2}{e^x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "To runder L'Hôpital: $\\frac{x^2}{e^x}\\to\\frac{2x}{e^x}\\to\\frac{2}{e^x}\\to 0$."
+          },
+          {
+            "id": "bi-okonomi-5-7-n-quiz2-q1",
+            "task": "Hva er riktig rangering av vekstrater for store $x$ (langsomst til raskest)?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\ln x\\ll x^a\\ll e^{bx}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$e^{bx}\\ll x^a\\ll\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^a\\ll\\ln x\\ll e^{bx}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln x\\ll e^{bx}\\ll x^a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\ln x\\ll x^a\\ll e^{bx}$ -- logaritmen taper for alt, eksponentialen slår alt."
+          },
+          {
+            "id": "bi-okonomi-5-7-n-quiz2-q2",
+            "task": "Hva er $\\lim_{x\\to\\infty}\\frac{P(x)}{e^x}$ for et hvilket som helst polynom $P(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "avhenger av graden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentialvekst slår enhver polynomvekst, så grensen er alltid $0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-7-n-section3",
+      "type": "text",
+      "content": "## Andre ubestemte former og Eulers grense\n\nL'Hôpital virker bare på $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$, men mange andre ubestemte former -- $0\\cdot\\infty$, $\\infty - \\infty$, $0^0$, $1^\\infty$, $\\infty^0$ -- kan **skrives om** til en av de to. Triks: en form $0\\cdot\\infty$ skrives som en brøk, mens potensformer som $1^\\infty$ tas logaritmen av.\n\nTa $\\lim_{x\\to 0^+} x\\ln x$, som er $0\\cdot(-\\infty)$. Vi skriver om til $\\frac{\\ln x}{1/x}$, nå $\\frac{-\\infty}{\\infty}$. L'Hôpital gir $\\lim_{x\\to 0^+}\\frac{1/x}{-1/x^2} = \\lim_{x\\to 0^+}(-x) = 0$. Selv om $\\ln x \\to -\\infty$, går $x$ raskere mot null, og produktet kollapser.\n\nDen mest berømte er **Eulers grense**: $\\lim_{x\\to\\infty}\\left(1 + \\frac{1}{x}\\right)^x$, som er formen $1^\\infty$. Vi setter $y = \\left(1 + \\frac{1}{x}\\right)^x$ og tar logaritmen: $\\ln y = x\\ln\\left(1 + \\frac{1}{x}\\right) = \\frac{\\ln(1 + 1/x)}{1/x}$. Med substitusjonen $u = 1/x$ blir dette $\\lim_{u\\to 0^+}\\frac{\\ln(1+u)}{u} = 1$. Altså $\\ln y \\to 1$, så $y \\to e^1 = e$. Dette er den klassiske definisjonen av $e$, og den forklarer hvorfor $e$ dukker opp i kontinuerlig forrentning: man kan vise at $\\lim_{m\\to\\infty}\\left(1 + \\frac{r}{m}\\right)^{mt} = e^{rt}$. Bak en uskyldig vekstformel ligger altså en grenseverdi -- og bak grensen ligger L'Hôpitals regel."
+    },
+    {
+      "id": "bi-okonomi-5-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på andre ubestemte former og Eulers grense:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-7-n-quiz3-q0",
+            "task": "Hvordan håndterer man en ubestemt form $0\\cdot\\infty$ for å bruke L'Hôpital?",
+            "options": [
+              {
+                "id": "b",
+                "text": "deriver produktet direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "sett $x=1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "skriv produktet om til en brøk",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "den kan ikke håndteres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skriv $0\\cdot\\infty$ om som en brøk, så får du $0/0$ eller $\\infty/\\infty$ og kan bruke L'Hôpital."
+          },
+          {
+            "id": "bi-okonomi-5-7-n-quiz3-q1",
+            "task": "Hva er $\\lim_{x\\to 0^+} x\\ln x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Omskrevet til $\\frac{\\ln x}{1/x}$ gir L'Hôpital $-x\\to 0$. $x$ går raskere mot null enn $\\ln x$ mot $-\\infty$."
+          },
+          {
+            "id": "bi-okonomi-5-7-n-quiz3-q2",
+            "task": "Hva er $\\lim_{x\\to\\infty}\\left(1+\\frac{1}{x}\\right)^x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$e$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eulers grense: formen $1^\\infty$ gir $\\ln y\\to 1$, så $y\\to e$. Dette er definisjonen av $e$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEn **grenseverdi** forteller hva en funksjon nærmer seg. Når direkte innsetting gir en **ubestemt form** som $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, bruker vi **L'Hôpitals regel**: $\\lim\\frac{f}{g} = \\lim\\frac{f'}{g'}$ -- deriver teller og nevner hver for seg. Sjekk alltid at formen virkelig er ubestemt før du bruker regelen, og at den fortsatt er det før du gjentar den.\n\nGjentatt bruk viste oss det viktigste prinsippet: **eksponentialvekst slår alt**. Rangeringen $\\ln x \\ll x^a \\ll e^{bx}$ forklarer hvorfor rentes rente er så kraftig på lang sikt. Andre ubestemte former -- $0\\cdot\\infty$, $1^\\infty$ med flere -- skrives om til $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, ofte ved å ta logaritmen, slik vi gjorde for Eulers grense $\\lim_{x\\to\\infty}(1 + 1/x)^x = e$. Grenseverdier er dermed broen mellom kalkulus og finansens vekstmodeller."
+    }
+  ],
+  "exercises": []
+}

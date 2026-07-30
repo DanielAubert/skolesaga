@@ -1,1 +1,399 @@
-{"id":"s1-4-1-narrativ","courseId":"s1","chapterNumber":"4.1","title":"Kostnad, inntekt og overskudd","subtitle":"Narrativ versjon","description":"En fortelling fra sykkelfabrikken — om kostnads-, inntekts- og overskuddsfunksjoner, break-even og hva en sykkel egentlig koster.","estimatedMinutes":35,"competenceGoals":["anvende derivasjon til å analysere og forstå optimaliseringsproblemer","anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"],"linkedChapterId":"s1-4-1","content":[{"id":"s1-4-1-n-intro","type":"text","content":"## Sykkelfabrikken -- økonomien som funksjoner\n\nTenk deg at du nettopp har overtatt en liten sykkelfabrikk. Husleien forfaller hver måned uansett om dere produserer noe eller ikke. Hver sykkel som bygges, sluker deler og arbeidstimer. Og hver sykkel som selges, bringer penger inn. Tre pengestrømmer -- og hvis du klarer å beskrive dem som *funksjoner* av produksjonsmengden $x$, kan du svare på de store spørsmålene med matematikk: Hva koster det å produsere? Hva tjener vi? Og når går vi egentlig med overskudd?\n\nDette kapittelet bygger grunnmuren for hele økonomidelen av S1: **kostnadsfunksjonen** $K(x)$, **inntektsfunksjonen** $I(x)$, **overskuddsfunksjonen** $O(x)$ og **enhetskostnaden** $E(x)$. I kapitlene som følger skal vi derivere disse funksjonene og optimere driften -- men først må vi forstå hva de forteller.\n\nBli med inn i fabrikken. Tallene er konkrete, og hvert begrep har en jobb å gjøre i regnskapet."},{"id":"s1-4-1-n-section1","type":"text","content":"## Kostnadsfunksjonen -- faste og variable kostnader\n\nKostnadene i fabrikken er av to slag. De **faste kostnadene** løper uansett produksjon: husleie, forsikring, lønn til fast ansatte. De **variable kostnadene** vokser med produksjonen: rammer, gir, dekk og strøm til maskinene.\n\n**Kostnadsfunksjonen** $K(x)$ beskriver de *totale* kostnadene ved å produsere $x$ enheter -- faste pluss variable. Den kan ofte skrives som et polynom, for eksempel $K(x) = ax^2 + bx + c$, der konstantleddet $c$ er nettopp de faste kostnadene: det du betaler selv om $x = 0$.\n\nSykkelfabrikken vår har kostnadsfunksjonen\n\n$$K(x) = 0{,}1x^2 + 200x + 50000$$\n\nder $x$ er antall sykler og $K(x)$ er kroner. De faste kostnadene leser vi rett ut av konstantleddet: **50 000 kr**. Hva koster det å produsere 100 sykler? Vi setter inn:\n\n$$K(100) = 0{,}1 \\cdot 10000 + 20000 + 50000 = 1000 + 20000 + 50000 = 71000 \\text{ kr}$$\n\nOg hva koster sykkel nummer 101? Vi regner ut $K(101) = 0{,}1 \\cdot 10201 + 20200 + 50000 = 71220{,}1$ kr, så merkostnaden er\n\n$$K(101) - K(100) = 71220{,}1 - 71000 = 220{,}1 \\text{ kr}$$\n\nLegg merke til at sykkel nummer 101 koster mer enn de 200 kr per sykkel som det lineære leddet antyder -- kvadratleddet $0{,}1x^2$ gjør at hver ny sykkel blir litt dyrere enn den forrige. Denne «kostnaden for neste enhet» får et eget navn og en mye smartere beregningsmåte i neste kapittel."},{"id":"s1-4-1-n-quiz1","type":"exercise","exercise":{"id":"s1-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kostnadsfunksjonen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-1-n-quiz1-q0","task":"$K(x) = 0{,}1x^2 + 200x + 50000$. Hva er de faste kostnadene?","options":[{"id":"a","text":"$200$ kr","isCorrect":false},{"id":"b","text":"$50\\,000$ kr","isCorrect":true},{"id":"c","text":"$0{,}1$ kr","isCorrect":false},{"id":"d","text":"$200x$ kr","isCorrect":false}],"solution":"De faste kostnadene er konstantleddet — det bedriften betaler selv når $x = 0$: 50 000 kr."},{"id":"s1-4-1-n-quiz1-q1","task":"Hva koster det å produsere 100 sykler?","options":[{"id":"a","text":"$71\\,000$ kr","isCorrect":true},{"id":"b","text":"$70\\,000$ kr","isCorrect":false},{"id":"c","text":"$21\\,000$ kr","isCorrect":false},{"id":"d","text":"$120\\,000$ kr","isCorrect":false}],"solution":"$K(100) = 0{,}1 \\cdot 100^2 + 200 \\cdot 100 + 50000 = 1000 + 20000 + 50000 = 71\\,000$ kr."},{"id":"s1-4-1-n-quiz1-q2","task":"Hvilke av disse er typisk en variabel kostnad?","options":[{"id":"a","text":"Husleie","isCorrect":false},{"id":"b","text":"Forsikring","isCorrect":false},{"id":"c","text":"Lønn til fast ansatte","isCorrect":false},{"id":"d","text":"Råvarer til produksjonen","isCorrect":true}],"solution":"Variable kostnader øker med produksjonsmengden — som råvarer og strøm til produksjon. Husleie og forsikring er faste."},{"id":"s1-4-1-n-quiz1-q3","task":"Hva er merkostnaden ved å øke produksjonen fra 100 til 101 sykler?","options":[{"id":"a","text":"$200$ kr","isCorrect":false},{"id":"b","text":"$710$ kr","isCorrect":false},{"id":"c","text":"$220{,}1$ kr","isCorrect":true},{"id":"d","text":"$0{,}1$ kr","isCorrect":false}],"solution":"$K(101) - K(100) = 71220{,}1 - 71000 = 220{,}1$ kr. Kvadratleddet gjør neste sykkel litt dyrere enn 200 kr."}],"solution":""}},{"id":"s1-4-1-n-section2","type":"text","content":"## Inntekt, overskudd og break-even\n\nNå til pengene inn. Fabrikken selger syklene for 3500 kr per stykk. Når prisen per enhet er konstant lik $p$, er **inntektsfunksjonen** ganske enkelt $I(x) = p \\cdot x$ -- en lineær funksjon gjennom origo. For oss:\n\n$$I(x) = 3500x$$\n\nSalg av 100 sykler gir $I(100) = 350\\,000$ kr, og vil vi vite hvor mange sykler som trengs for 700 000 kr i inntekt, løser vi $3500x = 700000$ og får $x = 200$ sykler.\n\nMen inntekt er ikke fortjeneste. **Overskuddsfunksjonen** er differansen mellom inntekter og kostnader:\n\n$$O(x) = I(x) - K(x)$$\n\nNår $O(x) > 0$ går bedriften med **overskudd**, når $O(x) < 0$ med **underskudd**, og når $O(x) = 0$ går den **i null** -- på engelsk *break-even*. For sykkelfabrikken:\n\n$$O(x) = 3500x - (0{,}1x^2 + 200x + 50000) = -0{,}1x^2 + 3300x - 50000$$\n\nVed 100 sykler: $O(100) = -1000 + 330000 - 50000 = 279\\,000$ kr i overskudd. Ikke verst!\n\nHvor går grensene? Vi løser $O(x) = 0$ med ABC-formelen og finner to nullpunkter: $x_1 = 15$ og $x_2 = 32985$. Tolkningen er viktig: selger fabrikken færre enn 15 sykler, dekker ikke inntektene engang de faste kostnadene. Og den øvre grensen? Siden $O$ er en nedovervendt parabel, ville et (teoretisk) salg over 32 985 sykler igjen gi tap -- kvadratleddet i kostnadene tar til slutt igjen inntektene. Mellom de to nullpunktene ligger hele det lønnsomme området."},{"id":"s1-4-1-n-quiz2","type":"exercise","exercise":{"id":"s1-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på inntekt og overskudd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-1-n-quiz2-q0","task":"Prisen er 3500 kr per sykkel. Hva er inntektsfunksjonen?","options":[{"id":"a","text":"$I(x) = 3500 + x$","isCorrect":false},{"id":"b","text":"$I(x) = \\frac{3500}{x}$","isCorrect":false},{"id":"c","text":"$I(x) = 3500x$","isCorrect":true},{"id":"d","text":"$I(x) = 3500x^2$","isCorrect":false}],"solution":"Med fast pris $p$ er $I(x) = p \\cdot x = 3500x$ — lineær gjennom origo."},{"id":"s1-4-1-n-quiz2-q1","task":"Hva er overskuddsfunksjonen $O(x) = I(x) - K(x)$ for sykkelfabrikken?","options":[{"id":"a","text":"$O(x) = -0{,}1x^2 + 3300x - 50000$","isCorrect":true},{"id":"b","text":"$O(x) = 0{,}1x^2 + 3300x + 50000$","isCorrect":false},{"id":"c","text":"$O(x) = 3300x - 50000$","isCorrect":false},{"id":"d","text":"$O(x) = -0{,}1x^2 + 3700x - 50000$","isCorrect":false}],"solution":"$O(x) = 3500x - 0{,}1x^2 - 200x - 50000 = -0{,}1x^2 + 3300x - 50000$."},{"id":"s1-4-1-n-quiz2-q2","task":"Hva er overskuddet ved produksjon og salg av 100 sykler?","options":[{"id":"a","text":"$350\\,000$ kr","isCorrect":false},{"id":"b","text":"$279\\,000$ kr","isCorrect":true},{"id":"c","text":"$71\\,000$ kr","isCorrect":false},{"id":"d","text":"$329\\,000$ kr","isCorrect":false}],"solution":"$O(100) = -1000 + 330000 - 50000 = 279\\,000$ kr."},{"id":"s1-4-1-n-quiz2-q3","task":"Hva betyr det at $O(x) = 0$?","options":[{"id":"a","text":"Bedriften har ingen kostnader","isCorrect":false},{"id":"b","text":"Bedriften selger ingenting","isCorrect":false},{"id":"c","text":"Inntekten er på sitt høyeste","isCorrect":false},{"id":"d","text":"Bedriften går i null — inntektene dekker akkurat kostnadene","isCorrect":true}],"solution":"Nullpunktene til overskuddsfunksjonen er break-even-punktene. For fabrikken: $x = 15$ og $x = 32\\,985$ sykler."}],"solution":""}},{"id":"s1-4-1-n-section3","type":"text","content":"## Enhetskostnaden -- hva koster én sykkel egentlig?\n\nStyret stiller et lurt spørsmål: «Hva koster det oss i snitt å lage én sykkel?» Det er ikke det samme som merkostnaden for neste sykkel -- det er totalkostnaden fordelt på alle. **Enhetskostnaden** (eller gjennomsnittskostnaden) er\n\n$$E(x) = \\frac{K(x)}{x}$$\n\nFor sykkelfabrikken:\n\n$$E(x) = \\frac{0{,}1x^2 + 200x + 50000}{x} = 0{,}1x + 200 + \\frac{50000}{x}$$\n\nLa oss regne på to produksjonsnivåer. Ved 100 sykler: $E(100) = 10 + 200 + 500 = 710$ kr per sykkel. Ved 500 sykler: $E(500) = 50 + 200 + 100 = 350$ kr per sykkel. Halvparten!\n\nHvorfor synker enhetskostnaden så dramatisk? Se på leddet $\\frac{50000}{x}$: de faste kostnadene fordeles på stadig flere sykler. Ved 100 sykler bærer hver sykkel 500 kr av husleien; ved 500 sykler bare 100 kr. Dette er **stordriftsfordeler** i sin reneste form, og det er derfor store fabrikker kan produsere billigere enn små.\n\nMen legg merke til motkraften: leddet $0{,}1x$ *vokser* med produksjonen. Til slutt vil økende variable kostnader per enhet ta igjen gevinsten fra fordelte faste kostnader, og enhetskostnaden begynner å stige igjen. Et sted imellom ligger produksjonsnivået med lavest enhetskostnad -- og hvordan vi finner akkurat det punktet med derivasjon, er tema i kapittel 4.8.\n\nTil slutt en oversikt over hele funksjonsfamilien: $K(x)$ gir totale kostnader, $I(x) = p \\cdot x$ totale inntekter, $O(x) = I(x) - K(x)$ overskuddet, og $E(x) = \\frac{K(x)}{x}$ gjennomsnittskostnaden."},{"id":"s1-4-1-n-quiz3","type":"exercise","exercise":{"id":"s1-4-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på enhetskostnaden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-1-n-quiz3-q0","task":"Hva er formelen for enhetskostnaden?","options":[{"id":"a","text":"$E(x) = \\frac{K(x)}{x}$","isCorrect":true},{"id":"b","text":"$E(x) = K(x) - I(x)$","isCorrect":false},{"id":"c","text":"$E(x) = K'(x)$","isCorrect":false},{"id":"d","text":"$E(x) = \\frac{x}{K(x)}$","isCorrect":false}],"solution":"Enhetskostnaden er totalkostnaden delt på antall enheter — gjennomsnittskostnaden per enhet."},{"id":"s1-4-1-n-quiz3-q1","task":"Med $E(x) = 0{,}1x + 200 + \\frac{50000}{x}$: hva er enhetskostnaden ved 100 sykler?","options":[{"id":"a","text":"$350$ kr","isCorrect":false},{"id":"b","text":"$500$ kr","isCorrect":false},{"id":"c","text":"$710$ kr","isCorrect":true},{"id":"d","text":"$300$ kr","isCorrect":false}],"solution":"$E(100) = 0{,}1 \\cdot 100 + 200 + \\frac{50000}{100} = 10 + 200 + 500 = 710$ kr per sykkel."},{"id":"s1-4-1-n-quiz3-q2","task":"Hvorfor synker enhetskostnaden når produksjonen øker fra 100 til 500 sykler?","options":[{"id":"a","text":"Fordi prisen per sykkel øker","isCorrect":false},{"id":"b","text":"Fordi de faste kostnadene fordeles på flere enheter","isCorrect":true},{"id":"c","text":"Fordi de variable kostnadene forsvinner","isCorrect":false},{"id":"d","text":"Fordi inntekten vokser lineært","isCorrect":false}],"solution":"Leddet $\\frac{50000}{x}$ krymper når $x$ vokser — hver sykkel bærer en mindre del av de faste kostnadene. Det er stordriftsfordeler."}],"solution":""}},{"id":"s1-4-1-n-summary","type":"text","content":"## Oppsummering\n\nSykkelfabrikken lærte oss å se en bedrift som et knippe funksjoner av produksjonsmengden $x$.\n\n**Kostnadsfunksjonen** $K(x)$ består av faste kostnader -- konstantleddet, som påløper uansett -- og variable kostnader som vokser med produksjonen. **Inntektsfunksjonen** er $I(x) = p \\cdot x$ når prisen $p$ er fast: en rett linje gjennom origo. **Overskuddsfunksjonen** $O(x) = I(x) - K(x)$ forteller hva bedriften sitter igjen med: positivt betyr overskudd, negativt underskudd, og nullpunktene er break-even-punktene der inntektene akkurat dekker kostnadene -- for fabrikken vår ved 15 og 32 985 sykler, med hele det lønnsomme området imellom.\n\n**Enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ er gjennomsnittskostnaden per enhet. Den synker når produksjonen øker fordi de faste kostnadene fordeles på flere enheter -- stordriftsfordeler -- men stiger igjen til slutt når de variable kostnadene per enhet tar overhånd.\n\nNå har vi språket. I neste kapittel kommer derivasjonen inn i fabrikken: grensekostnad, grenseinntekt -- og svaret på hvor mange sykler vi *egentlig* bør produsere."}],"exercises":[]}
+{
+  "id": "s1-4-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "4.1",
+  "title": "Kostnad, inntekt og overskudd",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling fra sykkelfabrikken — om kostnads-, inntekts- og overskuddsfunksjoner, break-even og hva en sykkel egentlig koster.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "anvende derivasjon til å analysere og forstå optimaliseringsproblemer",
+    "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"
+  ],
+  "linkedChapterId": "s1-4-1",
+  "content": [
+    {
+      "id": "s1-4-1-n-intro",
+      "type": "text",
+      "content": "## Sykkelfabrikken -- økonomien som funksjoner\n\nTenk deg at du nettopp har overtatt en liten sykkelfabrikk. Husleien forfaller hver måned uansett om dere produserer noe eller ikke. Hver sykkel som bygges, sluker deler og arbeidstimer. Og hver sykkel som selges, bringer penger inn. Tre pengestrømmer -- og hvis du klarer å beskrive dem som *funksjoner* av produksjonsmengden $x$, kan du svare på de store spørsmålene med matematikk: Hva koster det å produsere? Hva tjener vi? Og når går vi egentlig med overskudd?\n\nDette kapittelet bygger grunnmuren for hele økonomidelen av S1: **kostnadsfunksjonen** $K(x)$, **inntektsfunksjonen** $I(x)$, **overskuddsfunksjonen** $O(x)$ og **enhetskostnaden** $E(x)$. I kapitlene som følger skal vi derivere disse funksjonene og optimere driften -- men først må vi forstå hva de forteller.\n\nBli med inn i fabrikken. Tallene er konkrete, og hvert begrep har en jobb å gjøre i regnskapet."
+    },
+    {
+      "id": "s1-4-1-n-section1",
+      "type": "text",
+      "content": "## Kostnadsfunksjonen -- faste og variable kostnader\n\nKostnadene i fabrikken er av to slag. De **faste kostnadene** løper uansett produksjon: husleie, forsikring, lønn til fast ansatte. De **variable kostnadene** vokser med produksjonen: rammer, gir, dekk og strøm til maskinene.\n\n**Kostnadsfunksjonen** $K(x)$ beskriver de *totale* kostnadene ved å produsere $x$ enheter -- faste pluss variable. Den kan ofte skrives som et polynom, for eksempel $K(x) = ax^2 + bx + c$, der konstantleddet $c$ er nettopp de faste kostnadene: det du betaler selv om $x = 0$.\n\nSykkelfabrikken vår har kostnadsfunksjonen\n\n$$K(x) = 0{,}1x^2 + 200x + 50000$$\n\nder $x$ er antall sykler og $K(x)$ er kroner. De faste kostnadene leser vi rett ut av konstantleddet: **50 000 kr**. Hva koster det å produsere 100 sykler? Vi setter inn:\n\n$$K(100) = 0{,}1 \\cdot 10000 + 20000 + 50000 = 1000 + 20000 + 50000 = 71000 \\text{ kr}$$\n\nOg hva koster sykkel nummer 101? Vi regner ut $K(101) = 0{,}1 \\cdot 10201 + 20200 + 50000 = 71220{,}1$ kr, så merkostnaden er\n\n$$K(101) - K(100) = 71220{,}1 - 71000 = 220{,}1 \\text{ kr}$$\n\nLegg merke til at sykkel nummer 101 koster mer enn de 200 kr per sykkel som det lineære leddet antyder -- kvadratleddet $0{,}1x^2$ gjør at hver ny sykkel blir litt dyrere enn den forrige. Denne «kostnaden for neste enhet» får et eget navn og en mye smartere beregningsmåte i neste kapittel."
+    },
+    {
+      "id": "s1-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kostnadsfunksjonen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-1-n-quiz1-q0",
+            "task": "$K(x) = 0{,}1x^2 + 200x + 50000$. Hva er de faste kostnadene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$200$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}1$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$50\\,000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$200x$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "De faste kostnadene er konstantleddet — det bedriften betaler selv når $x = 0$: 50 000 kr."
+          },
+          {
+            "id": "s1-4-1-n-quiz1-q1",
+            "task": "Hva koster det å produsere 100 sykler?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$70\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$21\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$120\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$71\\,000$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$K(100) = 0{,}1 \\cdot 100^2 + 200 \\cdot 100 + 50000 = 1000 + 20000 + 50000 = 71\\,000$ kr."
+          },
+          {
+            "id": "s1-4-1-n-quiz1-q2",
+            "task": "Hvilke av disse er typisk en variabel kostnad?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Råvarer til produksjonen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Husleie",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Forsikring",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lønn til fast ansatte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variable kostnader øker med produksjonsmengden — som råvarer og strøm til produksjon. Husleie og forsikring er faste."
+          },
+          {
+            "id": "s1-4-1-n-quiz1-q3",
+            "task": "Hva er merkostnaden ved å øke produksjonen fra 100 til 101 sykler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$200$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$220{,}1$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$710$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}1$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K(101) - K(100) = 71220{,}1 - 71000 = 220{,}1$ kr. Kvadratleddet gjør neste sykkel litt dyrere enn 200 kr."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-4-1-n-section2",
+      "type": "text",
+      "content": "## Inntekt, overskudd og break-even\n\nNå til pengene inn. Fabrikken selger syklene for 3500 kr per stykk. Når prisen per enhet er konstant lik $p$, er **inntektsfunksjonen** ganske enkelt $I(x) = p \\cdot x$ -- en lineær funksjon gjennom origo. For oss:\n\n$$I(x) = 3500x$$\n\nSalg av 100 sykler gir $I(100) = 350\\,000$ kr, og vil vi vite hvor mange sykler som trengs for 700 000 kr i inntekt, løser vi $3500x = 700000$ og får $x = 200$ sykler.\n\nMen inntekt er ikke fortjeneste. **Overskuddsfunksjonen** er differansen mellom inntekter og kostnader:\n\n$$O(x) = I(x) - K(x)$$\n\nNår $O(x) > 0$ går bedriften med **overskudd**, når $O(x) < 0$ med **underskudd**, og når $O(x) = 0$ går den **i null** -- på engelsk *break-even*. For sykkelfabrikken:\n\n$$O(x) = 3500x - (0{,}1x^2 + 200x + 50000) = -0{,}1x^2 + 3300x - 50000$$\n\nVed 100 sykler: $O(100) = -1000 + 330000 - 50000 = 279\\,000$ kr i overskudd. Ikke verst!\n\nHvor går grensene? Vi løser $O(x) = 0$ med ABC-formelen og finner to nullpunkter: $x_1 = 15$ og $x_2 = 32985$. Tolkningen er viktig: selger fabrikken færre enn 15 sykler, dekker ikke inntektene engang de faste kostnadene. Og den øvre grensen? Siden $O$ er en nedovervendt parabel, ville et (teoretisk) salg over 32 985 sykler igjen gi tap -- kvadratleddet i kostnadene tar til slutt igjen inntektene. Mellom de to nullpunktene ligger hele det lønnsomme området."
+    },
+    {
+      "id": "s1-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på inntekt og overskudd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-1-n-quiz2-q0",
+            "task": "Prisen er 3500 kr per sykkel. Hva er inntektsfunksjonen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$I(x) = 3500 + x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$I(x) = \\frac{3500}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$I(x) = 3500x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$I(x) = 3500x^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med fast pris $p$ er $I(x) = p \\cdot x = 3500x$ — lineær gjennom origo."
+          },
+          {
+            "id": "s1-4-1-n-quiz2-q1",
+            "task": "Hva er overskuddsfunksjonen $O(x) = I(x) - K(x)$ for sykkelfabrikken?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$O(x) = 0{,}1x^2 + 3300x + 50000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$O(x) = 3300x - 50000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$O(x) = -0{,}1x^2 + 3700x - 50000$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$O(x) = -0{,}1x^2 + 3300x - 50000$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$O(x) = 3500x - 0{,}1x^2 - 200x - 50000 = -0{,}1x^2 + 3300x - 50000$."
+          },
+          {
+            "id": "s1-4-1-n-quiz2-q2",
+            "task": "Hva er overskuddet ved produksjon og salg av 100 sykler?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$279\\,000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$350\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$71\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$329\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$O(100) = -1000 + 330000 - 50000 = 279\\,000$ kr."
+          },
+          {
+            "id": "s1-4-1-n-quiz2-q3",
+            "task": "Hva betyr det at $O(x) = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bedriften har ingen kostnader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bedriften går i null — inntektene dekker akkurat kostnadene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Bedriften selger ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Inntekten er på sitt høyeste",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nullpunktene til overskuddsfunksjonen er break-even-punktene. For fabrikken: $x = 15$ og $x = 32\\,985$ sykler."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-4-1-n-section3",
+      "type": "text",
+      "content": "## Enhetskostnaden -- hva koster én sykkel egentlig?\n\nStyret stiller et lurt spørsmål: «Hva koster det oss i snitt å lage én sykkel?» Det er ikke det samme som merkostnaden for neste sykkel -- det er totalkostnaden fordelt på alle. **Enhetskostnaden** (eller gjennomsnittskostnaden) er\n\n$$E(x) = \\frac{K(x)}{x}$$\n\nFor sykkelfabrikken:\n\n$$E(x) = \\frac{0{,}1x^2 + 200x + 50000}{x} = 0{,}1x + 200 + \\frac{50000}{x}$$\n\nLa oss regne på to produksjonsnivåer. Ved 100 sykler: $E(100) = 10 + 200 + 500 = 710$ kr per sykkel. Ved 500 sykler: $E(500) = 50 + 200 + 100 = 350$ kr per sykkel. Halvparten!\n\nHvorfor synker enhetskostnaden så dramatisk? Se på leddet $\\frac{50000}{x}$: de faste kostnadene fordeles på stadig flere sykler. Ved 100 sykler bærer hver sykkel 500 kr av husleien; ved 500 sykler bare 100 kr. Dette er **stordriftsfordeler** i sin reneste form, og det er derfor store fabrikker kan produsere billigere enn små.\n\nMen legg merke til motkraften: leddet $0{,}1x$ *vokser* med produksjonen. Til slutt vil økende variable kostnader per enhet ta igjen gevinsten fra fordelte faste kostnader, og enhetskostnaden begynner å stige igjen. Et sted imellom ligger produksjonsnivået med lavest enhetskostnad -- og hvordan vi finner akkurat det punktet med derivasjon, er tema i kapittel 4.8.\n\nTil slutt en oversikt over hele funksjonsfamilien: $K(x)$ gir totale kostnader, $I(x) = p \\cdot x$ totale inntekter, $O(x) = I(x) - K(x)$ overskuddet, og $E(x) = \\frac{K(x)}{x}$ gjennomsnittskostnaden."
+    },
+    {
+      "id": "s1-4-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på enhetskostnaden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-1-n-quiz3-q0",
+            "task": "Hva er formelen for enhetskostnaden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$E(x) = K(x) - I(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E(x) = K'(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$E(x) = \\frac{K(x)}{x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$E(x) = \\frac{x}{K(x)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Enhetskostnaden er totalkostnaden delt på antall enheter — gjennomsnittskostnaden per enhet."
+          },
+          {
+            "id": "s1-4-1-n-quiz3-q1",
+            "task": "Med $E(x) = 0{,}1x + 200 + \\frac{50000}{x}$: hva er enhetskostnaden ved 100 sykler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$350$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$300$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$710$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$E(100) = 0{,}1 \\cdot 100 + 200 + \\frac{50000}{100} = 10 + 200 + 500 = 710$ kr per sykkel."
+          },
+          {
+            "id": "s1-4-1-n-quiz3-q2",
+            "task": "Hvorfor synker enhetskostnaden når produksjonen øker fra 100 til 500 sykler?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi de faste kostnadene fordeles på flere enheter",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi prisen per sykkel øker",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi de variable kostnadene forsvinner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi inntekten vokser lineært",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Leddet $\\frac{50000}{x}$ krymper når $x$ vokser — hver sykkel bærer en mindre del av de faste kostnadene. Det er stordriftsfordeler."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-4-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nSykkelfabrikken lærte oss å se en bedrift som et knippe funksjoner av produksjonsmengden $x$.\n\n**Kostnadsfunksjonen** $K(x)$ består av faste kostnader -- konstantleddet, som påløper uansett -- og variable kostnader som vokser med produksjonen. **Inntektsfunksjonen** er $I(x) = p \\cdot x$ når prisen $p$ er fast: en rett linje gjennom origo. **Overskuddsfunksjonen** $O(x) = I(x) - K(x)$ forteller hva bedriften sitter igjen med: positivt betyr overskudd, negativt underskudd, og nullpunktene er break-even-punktene der inntektene akkurat dekker kostnadene -- for fabrikken vår ved 15 og 32 985 sykler, med hele det lønnsomme området imellom.\n\n**Enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ er gjennomsnittskostnaden per enhet. Den synker når produksjonen øker fordi de faste kostnadene fordeles på flere enheter -- stordriftsfordeler -- men stiger igjen til slutt når de variable kostnadene per enhet tar overhånd.\n\nNå har vi språket. I neste kapittel kommer derivasjonen inn i fabrikken: grensekostnad, grenseinntekt -- og svaret på hvor mange sykler vi *egentlig* bør produsere."
+    }
+  ],
+  "exercises": []
+}

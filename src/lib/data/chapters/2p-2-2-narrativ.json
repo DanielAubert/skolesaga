@@ -1,1 +1,421 @@
-{"id":"2p-2-2-narrativ","courseId":"2p","chapterNumber":"2.2","title":"Eksponentielle modeller","subtitle":"Narrativ versjon","description":"Følg med på en reise gjennom eksponentiell vekst og nedgang -- fra bankinnskudd som vokser med rentes rente til biler som taper verdi og legemidler som brytes ned i kroppen. Opplev kraften i vekstfaktoren.","estimatedMinutes":35,"competenceGoals":["forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"],"linkedChapterId":"2p-2-2","content":[{"id":"2p-2-2-n-intro","type":"text","content":"## Eksponentielle modeller -- når ting vokser (eller krymper) med prosent\n\nEt gammelt sagn forteller om en sjakkmester som ba kongen om ris som belønning: ett korn på det første feltet, to på det andre, fire på det tredje -- dobling for hvert felt. Kongen lo og trodde det var en beskjeden forespørsel. Men på det 64. feltet ville det ligge over 9 trillioner riskorn -- mer enn all ris som noensinne er produsert i historien. Det er eksponentiell vekst: tilsynelatende langsom i starten, men eksplosiv over tid.\n\nI dette kapittelet møter du eksponentielle modeller -- funksjoner som beskriver vekst og nedgang med en fast *prosent* per periode. De er like viktige som lineære modeller, men oppfører seg fundamentalt annerledes."},{"id":"2p-2-2-n-section1","type":"text","content":"## Eksponentiell vekst -- fra bankinnskudd til befolkning\n\nEn eksponentiell funksjon har formen $f(x) = a \\cdot b^x$. Her er $a$ startverdien (verdien når $x = 0$) og $b$ er **vekstfaktoren** -- det tallet vi ganger med for hver periode.\n\nSammenhengen med prosent er enkel: Vekst på $p$ prosent gir vekstfaktor $b = 1 + p/100$. Fem prosent vekst betyr $b = 1{,}05$. Tre prosent nedgang betyr $b = 1 - 0{,}03 = 0{,}97$.\n\nLa oss ta et konkret eksempel. Du setter 100 000 kroner i banken til 4 prosent årlig rente. Vekstfaktoren er $b = 1{,}04$. Etter ett år: $100\\,000 \\cdot 1{,}04 = 104\\,000$ kroner. Etter to år: $100\\,000 \\cdot 1{,}04^2 = 108\\,160$ kroner. Legg merke til at du fikk 4 160 kroner i rente det andre året -- litt mer enn de 4 000 kronene i rente det første året. Det er *rentes rente*: du får rente på renten.\n\nEtter 8 år: $f(8) = 100\\,000 \\cdot 1{,}04^8 = 100\\,000 \\cdot 1{,}3686 \\approx 136\\,857$ kroner. Du har tjent nesten 37 000 kroner i rente uten å gjøre noe som helst.\n\nEt annet eksempel: En by med 80 000 innbyggere vokser med 1,5 prosent per år. Modellen er $f(t) = 80\\,000 \\cdot 1{,}015^t$. Om 10 år: $f(10) = 80\\,000 \\cdot 1{,}015^{10} \\approx 80\\,000 \\cdot 1{,}161 \\approx 92\\,880$ innbyggere. Byen har vokst med nesten 13 000 mennesker."},{"id":"2p-2-2-n-quiz1","type":"exercise","exercise":{"id":"2p-2-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på eksponentiell vekst:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-2-n-quiz1-q0","task":"Et bankinnskudd på 100 000 kr har 4 % årlig rente. Hva er innskuddet verdt etter 8 år?","options":[{"id":"a","text":"132 000 kr","isCorrect":false},{"id":"b","text":"136 857 kr","isCorrect":true},{"id":"c","text":"140 000 kr","isCorrect":false},{"id":"d","text":"125 600 kr","isCorrect":false}],"solution":"$f(8) = 100\\,000 \\cdot 1{,}04^8 \\approx 136\\,857$ kr. Med enkel rente ville det blitt $132\\,000$ kr, men rentes rente gir mer."},{"id":"2p-2-2-n-quiz1-q1","task":"Hva er vekstfaktoren for en årlig vekst på 5 %?","options":[{"id":"a","text":"$0{,}05$","isCorrect":false},{"id":"b","text":"$1{,}05$","isCorrect":true},{"id":"c","text":"$5{,}00$","isCorrect":false},{"id":"d","text":"$0{,}95$","isCorrect":false}],"solution":"Vekstfaktor $= 1 + p/100 = 1 + 5/100 = 1{,}05$."}],"solution":""}},{"id":"2p-2-2-n-section2","type":"text","content":"## Eksponentiell nedgang -- biler, telefoner og medisin\n\nIkke alt vokser. Mye *synker* med en fast prosent per periode, og det gir eksponentiell nedgang -- en vekstfaktor mellom 0 og 1.\n\nEn ny bil til 450 000 kroner mister 18 prosent av verdien hvert år. Vekstfaktoren er $b = 1 - 0{,}18 = 0{,}82$. Etter 5 år: $f(5) = 450\\,000 \\cdot 0{,}82^5 = 450\\,000 \\cdot 0{,}3707 \\approx 166\\,800$ kroner. Bilen har tapt $450\\,000 - 166\\,800 = 283\\,200$ kroner i verdi -- over 60 prosent av kjøpsprisen.\n\nEn mobiltelefon til 12 000 kroner mister 30 prosent per år. $f(t) = 12\\,000 \\cdot 0{,}70^t$. Etter 3 år: $f(3) = 12\\,000 \\cdot 0{,}343 = 4\\,116$ kroner. Etter 6 år: $f(6) = 12\\,000 \\cdot 0{,}1176 \\approx 1\\,412$ kroner. Telefonen som kostet 12 000 kroner er nå verdt mindre enn 1 500 kroner.\n\nDet viktige å huske er at prosentnedgangen beregnes av *gjeldende* verdi, ikke av startverdien. Bilen mister 18 prosent av sin *nåværende* verdi hvert år -- ikke 18 prosent av 450 000. Derfor blir verdifallet i kroner mindre og mindre for hvert år, selv om prosenten er den samme. Det er nettopp det som gjør eksponentiell nedgang forskjellig fra lineær nedgang.\n\nNår noen sier at vekstfaktoren er 0,92, betyr det at 8 prosent forsvinner per periode ($1 - 0{,}92 = 0{,}08$). Vekstfaktoren forteller direkte hvor stor andel som er *igjen* etter hver periode."},{"id":"2p-2-2-n-quiz2","type":"exercise","exercise":{"id":"2p-2-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på eksponentiell nedgang:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-2-n-quiz2-q0","task":"Vekstfaktoren for en prosess er 0,92. Hva betyr dette?","options":[{"id":"a","text":"Mengden øker med 92 % per periode","isCorrect":false},{"id":"b","text":"Mengden minker med 8 % per periode","isCorrect":true},{"id":"c","text":"Mengden minker med 92 % per periode","isCorrect":false},{"id":"d","text":"Mengden øker med 8 % per periode","isCorrect":false}],"solution":"$b = 0{,}92 = 1 - 0{,}08$. Vekstfaktoren er under 1, altså er det nedgang. Nedgangen er $1 - 0{,}92 = 0{,}08 = 8\\%$ per periode."},{"id":"2p-2-2-n-quiz2-q1","task":"En bil til 450 000 kr mister 18 % av verdien hvert år. Hva er bilen verdt etter 5 år?","options":[{"id":"a","text":"Ca. 45 000 kr","isCorrect":false},{"id":"b","text":"Ca. 166 800 kr","isCorrect":true},{"id":"c","text":"Ca. 225 000 kr","isCorrect":false},{"id":"d","text":"Ca. 310 000 kr","isCorrect":false}],"solution":"$f(5) = 450\\,000 \\cdot 0{,}82^5 = 450\\,000 \\cdot 0{,}3707 \\approx 166\\,800$ kr."}],"solution":""}},{"id":"2p-2-2-n-section3","type":"text","content":"## Doblingstid og halveringstid -- magiske tidspunkter\n\nHvor lang tid tar det å doble en investering? Hvor lang tid tar det for en bil å tape halvparten av verdien? Disse spørsmålene leder til begrepene **doblingstid** og **halveringstid**.\n\nFor vekst: Doblingstiden $T$ er den tiden det tar for verdien å doble seg. Vi løser $b^T = 2$, som gir $T = \\frac{\\ln 2}{\\ln b}$.\n\nMen det finnes en fantastisk tommelfingerregel: **70-regelen**. Doblingstiden er omtrent $70$ delt på vekstprosenten. En investering som vokser med 6 prosent per år dobler seg på ca. $70/6 \\approx 11{,}7$ år. Eksakt beregning gir $T = \\frac{\\ln 2}{\\ln 1{,}06} = \\frac{0{,}693}{0{,}0583} \\approx 11{,}9$ år -- veldig nær tommelfingerregelen!\n\nEn befolkning som vokser med 2 prosent per år dobler seg på ca. $70/2 = 35$ år. Tenk på det: bare 2 prosent årlig vekst betyr at det er dobbelt så mange mennesker etter en generasjon.\n\nFor nedgang bruker vi **halveringstiden**: Tiden det tar for verdien å bli halvert. En bil som mister 15 prosent per år har halveringstid $T = \\frac{\\ln 0{,}5}{\\ln 0{,}85} \\approx 4{,}3$ år. Etter drøyt fire år er bilen verdt halvparten av hva du betalte.\n\nNår er en bil til 500 000 kroner verdt under 100 000 kroner med 15 prosent årlig verditap? Vi trenger $0{,}85^t < 100\\,000/500\\,000 = 0{,}2$. Prøving viser at $0{,}85^9 \\approx 0{,}232$ og $0{,}85^{10} \\approx 0{,}197$. Etter ca. 10 år er bilen verdt under 100 000 kroner."},{"id":"2p-2-2-n-quiz3","type":"exercise","exercise":{"id":"2p-2-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på doblingstid og halveringstid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-2-n-quiz3-q0","task":"En befolkning vokser med 2 % per år. Omtrent hvor lang tid tar det å doble befolkningen? (Bruk 70-regelen)","options":[{"id":"a","text":"35 år","isCorrect":true},{"id":"b","text":"50 år","isCorrect":false},{"id":"c","text":"70 år","isCorrect":false},{"id":"d","text":"20 år","isCorrect":false}],"solution":"70-regelen: $T \\approx 70/2 = 35$ år."},{"id":"2p-2-2-n-quiz3-q1","task":"En investering vokser med 6 % per år. Hva er omtrentlig doblingstid?","options":[{"id":"a","text":"Ca. 6 år","isCorrect":false},{"id":"b","text":"Ca. 12 år","isCorrect":true},{"id":"c","text":"Ca. 17 år","isCorrect":false},{"id":"d","text":"Ca. 42 år","isCorrect":false}],"solution":"70-regelen: $T \\approx 70/6 \\approx 11{,}7$ år, altså ca. 12 år."}],"solution":""}},{"id":"2p-2-2-n-section4","type":"text","content":"## Lineær mot eksponentiell -- en kamp med forutsigbar vinner\n\nHva er forskjellen mellom lineær og eksponentiell vekst? Lineær vekst betyr at det legges til et *fast beløp* per periode: 5 000 kroner mer hvert år. Eksponentiell vekst betyr at verdien ganges med en *fast faktor* per periode: 8 prosent mer hvert år.\n\nI starten kan lineær vekst faktisk være raskere. Tenk på to spareavtaler: A starter med 50 000 kroner og øker med 5 000 kroner per år. B starter med 50 000 kroner og øker med 8 prosent per år.\n\n$A(t) = 5\\,000t + 50\\,000$ (lineær)\n$B(t) = 50\\,000 \\cdot 1{,}08^t$ (eksponentiell)\n\nEtter 5 år: $A(5) = 75\\,000$ og $B(5) = 50\\,000 \\cdot 1{,}47 = 73\\,466$. A leder! Men etter 10 år: $A(10) = 100\\,000$ og $B(10) = 50\\,000 \\cdot 2{,}159 = 107\\,946$. B har passert. Og etter 15 år: $A(15) = 125\\,000$ og $B(15) = 50\\,000 \\cdot 3{,}172 = 158\\,608$. B leder nå komfortabelt.\n\nRundt $t = 9$ år krysser grafene hverandre. Etter det vinner eksponentiell vekst -- og forspranget bare øker. Det er en generell lov: eksponentiell vekst vil *alltid* overgå lineær vekst til slutt, uansett hvor bratt den lineære linjen er. Spørsmålet er bare *når*."},{"id":"2p-2-2-n-quiz4","type":"exercise","exercise":{"id":"2p-2-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på å finne vekstfaktor fra data:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-2-n-quiz4-q0","task":"En skole hadde 400 elever og vokste til 520 elever på 5 år. Hva er den årlige vekstprosenten?","options":[{"id":"a","text":"Ca. 4,0 %","isCorrect":false},{"id":"b","text":"Ca. 5,4 %","isCorrect":true},{"id":"c","text":"Ca. 6,0 %","isCorrect":false},{"id":"d","text":"Ca. 3,0 %","isCorrect":false}],"solution":"$b^5 = 520/400 = 1{,}3 \\Rightarrow b = 1{,}3^{1/5} \\approx 1{,}054$. Vekstprosent $\\approx 5{,}4\\%$ per år."},{"id":"2p-2-2-n-quiz4-q1","task":"Hva er hovedforskjellen mellom lineær og eksponentiell vekst?","options":[{"id":"a","text":"Lineær vekst er alltid raskere enn eksponentiell","isCorrect":false},{"id":"b","text":"Lineær legger til et fast beløp per periode, eksponentiell ganger med en fast faktor","isCorrect":true},{"id":"c","text":"Det er ingen forskjell -- de gir samme resultat","isCorrect":false},{"id":"d","text":"Eksponentiell vekst er alltid langsommere","isCorrect":false}],"solution":"Lineær vekst legger til et *fast beløp* per periode (f.eks. 5 000 kr mer hvert år). Eksponentiell vekst ganger med en *fast faktor* (f.eks. 8 % mer hvert år). Eksponentiell vekst vil alltid overgå lineær på lang sikt."}],"solution":""}},{"id":"2p-2-2-n-section5","type":"text","content":"## Eksponentielle modeller i medisin og natur\n\nLa oss avslutte med en fascinerende anvendelse: legemidler i kroppen. Når du tar en smertestillende tablett, bryter kroppen gradvis ned virkestoffet. Denne nedbrytningen følger ofte eksponentiell nedgang.\n\nTenk deg et legemiddel med halveringstid på 6 timer. En pasient tar 400 mg. Modellen er $f(t) = 400 \\cdot 0{,}5^{t/6}$ der $t$ er timer. Etter 6 timer: $f(6) = 400 \\cdot 0{,}5 = 200$ mg. Etter 12 timer: $f(12) = 400 \\cdot 0{,}25 = 100$ mg. Etter 18 timer: $f(18) = 400 \\cdot 0{,}125 = 50$ mg.\n\nPasienten skal ta ny dose når det er under 50 mg igjen. Det skjer etter nøyaktig 18 timer -- tre halveringstider.\n\nVi kan også finne vekstfaktoren per time: $b = 0{,}5^{1/6} \\approx 0{,}891$. Det betyr at ca. 11 prosent av legemiddelet brytes ned *per time*.\n\nNorge er et annet godt eksempel. Med ca. 5,4 millioner innbyggere i 2022 og ca. 0,5 prosent årlig vekst gir modellen $f(t) = 5\\,400\\,000 \\cdot 1{,}005^t$. 70-regelen gir doblingstid $\\approx 70/0{,}5 = 140$ år. Når passerer vi 7 millioner? Vi trenger $1{,}005^t = 7/5{,}4 \\approx 1{,}296$, som gir $t \\approx 52$ år. Men er det realistisk? Sannsynligvis ikke på så lang sikt, fordi vekstraten påvirkes av innvandring, fødselsrate og politikk som endrer seg.\n\nDet er en viktig leksjon: Eksponentielle modeller er kraftige, men de forutsetter at vekstraten holder seg konstant. I virkeligheten endrer forutsetningene seg over tid."},{"id":"2p-2-2-n-quiz5","type":"exercise","exercise":{"id":"2p-2-2-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på eksponentielle modeller i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-2-n-quiz5-q0","task":"Et legemiddel har 400 mg virkestoff og halveringstid på 6 timer. Hvor mye er igjen etter 18 timer?","options":[{"id":"a","text":"100 mg","isCorrect":false},{"id":"b","text":"200 mg","isCorrect":false},{"id":"c","text":"50 mg","isCorrect":true},{"id":"d","text":"25 mg","isCorrect":false}],"solution":"18 timer $= 3$ halveringstider ($18/6 = 3$). Etter 3 halveringstider: $400 \\cdot 0{,}5^3 = 400 \\cdot 0{,}125 = 50$ mg."},{"id":"2p-2-2-n-quiz5-q1","task":"Hvor mye av legemiddelet er igjen etter 12 timer (2 halveringstider)?","options":[{"id":"a","text":"200 mg","isCorrect":false},{"id":"b","text":"100 mg","isCorrect":true},{"id":"c","text":"50 mg","isCorrect":false},{"id":"d","text":"150 mg","isCorrect":false}],"solution":"$400 \\cdot 0{,}5^2 = 400 \\cdot 0{,}25 = 100$ mg. Etter hver halveringstid er halvparten igjen."}],"solution":""}},{"id":"2p-2-2-n-summary","type":"text","content":"## Oppsummering\n\nEksponentielle modeller beskriver vekst og nedgang med fast prosent -- et mønster som dukker opp overalt fra bankvesen til medisin, fra befolkningsutvikling til teknologi.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Eksponentiell funksjon**: $f(x) = a \\cdot b^x$ -- startverdien $a$ ganges med vekstfaktoren $b$ for hver periode\n- **Vekstfaktor**: $b = 1 + p/100$ for vekst, $b = 1 - p/100$ for nedgang\n- **Eksponentiell vekst** ($b > 1$): Verdien øker stadig raskere\n- **Eksponentiell nedgang** ($0 < b < 1$): Verdien avtar, men aldri helt til null\n- **Doblingstid**: Tiden for dobling -- bruk 70-regelen: $T \\approx 70/p$\n- **Halveringstid**: Tiden for halvering -- løs $b^T = 0{,}5$\n- **Lineær vs. eksponentiell**: Fast beløp vs. fast prosent -- eksponentiell vinner alltid til slutt\n\n**Det viktigste du tar med deg:**\nEksponentiell vekst ser harmløs ut i starten, men effekten over tid er enorm. Kongens riskorn-tabbe illustrerer det perfekt. Forstår du vekstfaktor og rentes rente, har du et verktøy som hjelper deg med alt fra å vurdere spareavtaler til å forstå hvorfor klimaendringer akselererer."}],"exercises":[]}
+{
+  "id": "2p-2-2-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "2.2",
+  "title": "Eksponentielle modeller",
+  "subtitle": "Narrativ versjon",
+  "description": "Følg med på en reise gjennom eksponentiell vekst og nedgang -- fra bankinnskudd som vokser med rentes rente til biler som taper verdi og legemidler som brytes ned i kroppen. Opplev kraften i vekstfaktoren.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"
+  ],
+  "linkedChapterId": "2p-2-2",
+  "content": [
+    {
+      "id": "2p-2-2-n-intro",
+      "type": "text",
+      "content": "## Eksponentielle modeller -- når ting vokser (eller krymper) med prosent\n\nEt gammelt sagn forteller om en sjakkmester som ba kongen om ris som belønning: ett korn på det første feltet, to på det andre, fire på det tredje -- dobling for hvert felt. Kongen lo og trodde det var en beskjeden forespørsel. Men på det 64. feltet ville det ligge over 9 trillioner riskorn -- mer enn all ris som noensinne er produsert i historien. Det er eksponentiell vekst: tilsynelatende langsom i starten, men eksplosiv over tid.\n\nI dette kapittelet møter du eksponentielle modeller -- funksjoner som beskriver vekst og nedgang med en fast *prosent* per periode. De er like viktige som lineære modeller, men oppfører seg fundamentalt annerledes."
+    },
+    {
+      "id": "2p-2-2-n-section1",
+      "type": "text",
+      "content": "## Eksponentiell vekst -- fra bankinnskudd til befolkning\n\nEn eksponentiell funksjon har formen $f(x) = a \\cdot b^x$. Her er $a$ startverdien (verdien når $x = 0$) og $b$ er **vekstfaktoren** -- det tallet vi ganger med for hver periode.\n\nSammenhengen med prosent er enkel: Vekst på $p$ prosent gir vekstfaktor $b = 1 + p/100$. Fem prosent vekst betyr $b = 1{,}05$. Tre prosent nedgang betyr $b = 1 - 0{,}03 = 0{,}97$.\n\nLa oss ta et konkret eksempel. Du setter 100 000 kroner i banken til 4 prosent årlig rente. Vekstfaktoren er $b = 1{,}04$. Etter ett år: $100\\,000 \\cdot 1{,}04 = 104\\,000$ kroner. Etter to år: $100\\,000 \\cdot 1{,}04^2 = 108\\,160$ kroner. Legg merke til at du fikk 4 160 kroner i rente det andre året -- litt mer enn de 4 000 kronene i rente det første året. Det er *rentes rente*: du får rente på renten.\n\nEtter 8 år: $f(8) = 100\\,000 \\cdot 1{,}04^8 = 100\\,000 \\cdot 1{,}3686 \\approx 136\\,857$ kroner. Du har tjent nesten 37 000 kroner i rente uten å gjøre noe som helst.\n\nEt annet eksempel: En by med 80 000 innbyggere vokser med 1,5 prosent per år. Modellen er $f(t) = 80\\,000 \\cdot 1{,}015^t$. Om 10 år: $f(10) = 80\\,000 \\cdot 1{,}015^{10} \\approx 80\\,000 \\cdot 1{,}161 \\approx 92\\,880$ innbyggere. Byen har vokst med nesten 13 000 mennesker."
+    },
+    {
+      "id": "2p-2-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentiell vekst:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-2-n-quiz1-q0",
+            "task": "Et bankinnskudd på 100 000 kr har 4 % årlig rente. Hva er innskuddet verdt etter 8 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "132 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "136 857 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "140 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "125 600 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(8) = 100\\,000 \\cdot 1{,}04^8 \\approx 136\\,857$ kr. Med enkel rente ville det blitt $132\\,000$ kr, men rentes rente gir mer."
+          },
+          {
+            "id": "2p-2-2-n-quiz1-q1",
+            "task": "Hva er vekstfaktoren for en årlig vekst på 5 %?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}05$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5{,}00$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}05$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}95$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor $= 1 + p/100 = 1 + 5/100 = 1{,}05$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-2-n-section2",
+      "type": "text",
+      "content": "## Eksponentiell nedgang -- biler, telefoner og medisin\n\nIkke alt vokser. Mye *synker* med en fast prosent per periode, og det gir eksponentiell nedgang -- en vekstfaktor mellom 0 og 1.\n\nEn ny bil til 450 000 kroner mister 18 prosent av verdien hvert år. Vekstfaktoren er $b = 1 - 0{,}18 = 0{,}82$. Etter 5 år: $f(5) = 450\\,000 \\cdot 0{,}82^5 = 450\\,000 \\cdot 0{,}3707 \\approx 166\\,800$ kroner. Bilen har tapt $450\\,000 - 166\\,800 = 283\\,200$ kroner i verdi -- over 60 prosent av kjøpsprisen.\n\nEn mobiltelefon til 12 000 kroner mister 30 prosent per år. $f(t) = 12\\,000 \\cdot 0{,}70^t$. Etter 3 år: $f(3) = 12\\,000 \\cdot 0{,}343 = 4\\,116$ kroner. Etter 6 år: $f(6) = 12\\,000 \\cdot 0{,}1176 \\approx 1\\,412$ kroner. Telefonen som kostet 12 000 kroner er nå verdt mindre enn 1 500 kroner.\n\nDet viktige å huske er at prosentnedgangen beregnes av *gjeldende* verdi, ikke av startverdien. Bilen mister 18 prosent av sin *nåværende* verdi hvert år -- ikke 18 prosent av 450 000. Derfor blir verdifallet i kroner mindre og mindre for hvert år, selv om prosenten er den samme. Det er nettopp det som gjør eksponentiell nedgang forskjellig fra lineær nedgang.\n\nNår noen sier at vekstfaktoren er 0,92, betyr det at 8 prosent forsvinner per periode ($1 - 0{,}92 = 0{,}08$). Vekstfaktoren forteller direkte hvor stor andel som er *igjen* etter hver periode."
+    },
+    {
+      "id": "2p-2-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentiell nedgang:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-2-n-quiz2-q0",
+            "task": "Vekstfaktoren for en prosess er 0,92. Hva betyr dette?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Mengden øker med 92 % per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Mengden minker med 92 % per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Mengden øker med 8 % per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Mengden minker med 8 % per periode",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$b = 0{,}92 = 1 - 0{,}08$. Vekstfaktoren er under 1, altså er det nedgang. Nedgangen er $1 - 0{,}92 = 0{,}08 = 8\\%$ per periode."
+          },
+          {
+            "id": "2p-2-2-n-quiz2-q1",
+            "task": "En bil til 450 000 kr mister 18 % av verdien hvert år. Hva er bilen verdt etter 5 år?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 166 800 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. 45 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 225 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 310 000 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(5) = 450\\,000 \\cdot 0{,}82^5 = 450\\,000 \\cdot 0{,}3707 \\approx 166\\,800$ kr."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-2-n-section3",
+      "type": "text",
+      "content": "## Doblingstid og halveringstid -- magiske tidspunkter\n\nHvor lang tid tar det å doble en investering? Hvor lang tid tar det for en bil å tape halvparten av verdien? Disse spørsmålene leder til begrepene **doblingstid** og **halveringstid**.\n\nFor vekst: Doblingstiden $T$ er den tiden det tar for verdien å doble seg. Vi løser $b^T = 2$, som gir $T = \\frac{\\ln 2}{\\ln b}$.\n\nMen det finnes en fantastisk tommelfingerregel: **70-regelen**. Doblingstiden er omtrent $70$ delt på vekstprosenten. En investering som vokser med 6 prosent per år dobler seg på ca. $70/6 \\approx 11{,}7$ år. Eksakt beregning gir $T = \\frac{\\ln 2}{\\ln 1{,}06} = \\frac{0{,}693}{0{,}0583} \\approx 11{,}9$ år -- veldig nær tommelfingerregelen!\n\nEn befolkning som vokser med 2 prosent per år dobler seg på ca. $70/2 = 35$ år. Tenk på det: bare 2 prosent årlig vekst betyr at det er dobbelt så mange mennesker etter en generasjon.\n\nFor nedgang bruker vi **halveringstiden**: Tiden det tar for verdien å bli halvert. En bil som mister 15 prosent per år har halveringstid $T = \\frac{\\ln 0{,}5}{\\ln 0{,}85} \\approx 4{,}3$ år. Etter drøyt fire år er bilen verdt halvparten av hva du betalte.\n\nNår er en bil til 500 000 kroner verdt under 100 000 kroner med 15 prosent årlig verditap? Vi trenger $0{,}85^t < 100\\,000/500\\,000 = 0{,}2$. Prøving viser at $0{,}85^9 \\approx 0{,}232$ og $0{,}85^{10} \\approx 0{,}197$. Etter ca. 10 år er bilen verdt under 100 000 kroner."
+    },
+    {
+      "id": "2p-2-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på doblingstid og halveringstid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-2-n-quiz3-q0",
+            "task": "En befolkning vokser med 2 % per år. Omtrent hvor lang tid tar det å doble befolkningen? (Bruk 70-regelen)",
+            "options": [
+              {
+                "id": "b",
+                "text": "50 år",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "35 år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "70 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "20 år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "70-regelen: $T \\approx 70/2 = 35$ år."
+          },
+          {
+            "id": "2p-2-2-n-quiz3-q1",
+            "task": "En investering vokser med 6 % per år. Hva er omtrentlig doblingstid?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 6 år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 12 år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 17 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 42 år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "70-regelen: $T \\approx 70/6 \\approx 11{,}7$ år, altså ca. 12 år."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-2-n-section4",
+      "type": "text",
+      "content": "## Lineær mot eksponentiell -- en kamp med forutsigbar vinner\n\nHva er forskjellen mellom lineær og eksponentiell vekst? Lineær vekst betyr at det legges til et *fast beløp* per periode: 5 000 kroner mer hvert år. Eksponentiell vekst betyr at verdien ganges med en *fast faktor* per periode: 8 prosent mer hvert år.\n\nI starten kan lineær vekst faktisk være raskere. Tenk på to spareavtaler: A starter med 50 000 kroner og øker med 5 000 kroner per år. B starter med 50 000 kroner og øker med 8 prosent per år.\n\n$A(t) = 5\\,000t + 50\\,000$ (lineær)\n$B(t) = 50\\,000 \\cdot 1{,}08^t$ (eksponentiell)\n\nEtter 5 år: $A(5) = 75\\,000$ og $B(5) = 50\\,000 \\cdot 1{,}47 = 73\\,466$. A leder! Men etter 10 år: $A(10) = 100\\,000$ og $B(10) = 50\\,000 \\cdot 2{,}159 = 107\\,946$. B har passert. Og etter 15 år: $A(15) = 125\\,000$ og $B(15) = 50\\,000 \\cdot 3{,}172 = 158\\,608$. B leder nå komfortabelt.\n\nRundt $t = 9$ år krysser grafene hverandre. Etter det vinner eksponentiell vekst -- og forspranget bare øker. Det er en generell lov: eksponentiell vekst vil *alltid* overgå lineær vekst til slutt, uansett hvor bratt den lineære linjen er. Spørsmålet er bare *når*."
+    },
+    {
+      "id": "2p-2-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å finne vekstfaktor fra data:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-2-n-quiz4-q0",
+            "task": "En skole hadde 400 elever og vokste til 520 elever på 5 år. Hva er den årlige vekstprosenten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 4,0 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 6,0 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 5,4 %",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ca. 3,0 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$b^5 = 520/400 = 1{,}3 \\Rightarrow b = 1{,}3^{1/5} \\approx 1{,}054$. Vekstprosent $\\approx 5{,}4\\%$ per år."
+          },
+          {
+            "id": "2p-2-2-n-quiz4-q1",
+            "task": "Hva er hovedforskjellen mellom lineær og eksponentiell vekst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lineær vekst er alltid raskere enn eksponentiell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er ingen forskjell -- de gir samme resultat",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eksponentiell vekst er alltid langsommere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lineær legger til et fast beløp per periode, eksponentiell ganger med en fast faktor",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Lineær vekst legger til et *fast beløp* per periode (f.eks. 5 000 kr mer hvert år). Eksponentiell vekst ganger med en *fast faktor* (f.eks. 8 % mer hvert år). Eksponentiell vekst vil alltid overgå lineær på lang sikt."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-2-n-section5",
+      "type": "text",
+      "content": "## Eksponentielle modeller i medisin og natur\n\nLa oss avslutte med en fascinerende anvendelse: legemidler i kroppen. Når du tar en smertestillende tablett, bryter kroppen gradvis ned virkestoffet. Denne nedbrytningen følger ofte eksponentiell nedgang.\n\nTenk deg et legemiddel med halveringstid på 6 timer. En pasient tar 400 mg. Modellen er $f(t) = 400 \\cdot 0{,}5^{t/6}$ der $t$ er timer. Etter 6 timer: $f(6) = 400 \\cdot 0{,}5 = 200$ mg. Etter 12 timer: $f(12) = 400 \\cdot 0{,}25 = 100$ mg. Etter 18 timer: $f(18) = 400 \\cdot 0{,}125 = 50$ mg.\n\nPasienten skal ta ny dose når det er under 50 mg igjen. Det skjer etter nøyaktig 18 timer -- tre halveringstider.\n\nVi kan også finne vekstfaktoren per time: $b = 0{,}5^{1/6} \\approx 0{,}891$. Det betyr at ca. 11 prosent av legemiddelet brytes ned *per time*.\n\nNorge er et annet godt eksempel. Med ca. 5,4 millioner innbyggere i 2022 og ca. 0,5 prosent årlig vekst gir modellen $f(t) = 5\\,400\\,000 \\cdot 1{,}005^t$. 70-regelen gir doblingstid $\\approx 70/0{,}5 = 140$ år. Når passerer vi 7 millioner? Vi trenger $1{,}005^t = 7/5{,}4 \\approx 1{,}296$, som gir $t \\approx 52$ år. Men er det realistisk? Sannsynligvis ikke på så lang sikt, fordi vekstraten påvirkes av innvandring, fødselsrate og politikk som endrer seg.\n\nDet er en viktig leksjon: Eksponentielle modeller er kraftige, men de forutsetter at vekstraten holder seg konstant. I virkeligheten endrer forutsetningene seg over tid."
+    },
+    {
+      "id": "2p-2-2-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-2-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentielle modeller i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-2-n-quiz5-q0",
+            "task": "Et legemiddel har 400 mg virkestoff og halveringstid på 6 timer. Hvor mye er igjen etter 18 timer?",
+            "options": [
+              {
+                "id": "c",
+                "text": "50 mg",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "100 mg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "200 mg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "25 mg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "18 timer $= 3$ halveringstider ($18/6 = 3$). Etter 3 halveringstider: $400 \\cdot 0{,}5^3 = 400 \\cdot 0{,}125 = 50$ mg."
+          },
+          {
+            "id": "2p-2-2-n-quiz5-q1",
+            "task": "Hvor mye av legemiddelet er igjen etter 12 timer (2 halveringstider)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "200 mg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "50 mg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "100 mg",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "150 mg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$400 \\cdot 0{,}5^2 = 400 \\cdot 0{,}25 = 100$ mg. Etter hver halveringstid er halvparten igjen."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEksponentielle modeller beskriver vekst og nedgang med fast prosent -- et mønster som dukker opp overalt fra bankvesen til medisin, fra befolkningsutvikling til teknologi.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Eksponentiell funksjon**: $f(x) = a \\cdot b^x$ -- startverdien $a$ ganges med vekstfaktoren $b$ for hver periode\n- **Vekstfaktor**: $b = 1 + p/100$ for vekst, $b = 1 - p/100$ for nedgang\n- **Eksponentiell vekst** ($b > 1$): Verdien øker stadig raskere\n- **Eksponentiell nedgang** ($0 < b < 1$): Verdien avtar, men aldri helt til null\n- **Doblingstid**: Tiden for dobling -- bruk 70-regelen: $T \\approx 70/p$\n- **Halveringstid**: Tiden for halvering -- løs $b^T = 0{,}5$\n- **Lineær vs. eksponentiell**: Fast beløp vs. fast prosent -- eksponentiell vinner alltid til slutt\n\n**Det viktigste du tar med deg:**\nEksponentiell vekst ser harmløs ut i starten, men effekten over tid er enorm. Kongens riskorn-tabbe illustrerer det perfekt. Forstår du vekstfaktor og rentes rente, har du et verktøy som hjelper deg med alt fra å vurdere spareavtaler til å forstå hvorfor klimaendringer akselererer."
+    }
+  ],
+  "exercises": []
+}

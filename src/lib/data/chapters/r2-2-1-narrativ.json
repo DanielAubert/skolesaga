@@ -1,1 +1,398 @@
-{"id":"r2-2-1-narrativ","courseId":"r2","chapterNumber":"2.1","title":"Repetisjon av derivasjon","subtitle":"Narrativ versjon","description":"En fortelling om derivasjonsreglene fra R1 — verktøykassa som må sitte som støpt før vi snur prosessen og bygger integralregningen i R2.","estimatedMinutes":30,"competenceGoals":["beherske grunnleggende derivasjonsregler","kunne derivere sammensatte funksjoner","anvende produkt- og kvotientregelen","bruke kjerneregelen på sammensatte funksjoner"],"linkedChapterId":"r2-2-1","content":[{"id":"r2-2-1-n-intro","type":"text","content":"## Verktøykassa fra R1 — på tide med en inspeksjon\n\nTenk deg en snekker som skal bygge sitt mest ambisiøse hus til nå. Før første spikerslag går hun gjennom verktøykassa: er sagen skarp, fungerer vateret? I R2 skal vi bygge integralregningen — og siden integrasjon er derivasjon baklengs, må derivasjonsverktøyene fra R1 sitte som støpt.\n\nDerivasjon handler om momentan endring: $f'(x)$ forteller hvor raskt $f$ endrer seg akkurat i punktet $x$ — farten på speedometeret, ikke gjennomsnittsfarten for hele turen. I dette kapittelet pusser vi støvet av hele settet: grunnreglene for potenser og summer, produkt- og kvotientregelen for sammensatte uttrykk, kjerneregelen — derivasjonens universalnøkkel — og de spesielle deriverte til $e^x$, $\\ln x$, $\\sin x$ og $\\cos x$. Alt sammen blir bærebjelker når vi snur prosessen i neste kapittel."},{"id":"r2-2-1-n-section1","type":"text","content":"## Grunnreglene: potenser, summer og konstanter\n\nDe fire grunnreglene gjør at vi kan derivere ethvert polynom nesten uten å tenke. **Konstantregelen** sier at $f(x) = c$ gir $f'(x) = 0$ — en konstant endrer seg ikke, så endringsraten er null. **Potensregelen** er arbeidshesten: $f(x) = x^n$ gir\n\n$$f'(x) = n \\cdot x^{n-1}$$\n\nEksponenten hopper ned som faktor, og den nye eksponenten blir én mindre. Dermed er $(x^4)' = 4x^3$.\n\nDe to siste reglene lar oss kombinere: **sumregelen** $(g + h)' = g' + h'$ sier at vi kan derivere ledd for ledd, og **konstantfaktorregelen** $(c \\cdot g)' = c \\cdot g'$ at tallfaktorer bare blir med på lasset.\n\nSammen tygger de seg gjennom hva som helst av polynomer. Ta $h(x) = 3x^5 - 2x^3 + 7x - 4$. Ledd for ledd: $3 \\cdot 5x^4 = 15x^4$, så $-2 \\cdot 3x^2 = -6x^2$, så $7$, og konstanten $-4$ gir null:\n\n$$h'(x) = 15x^4 - 6x^2 + 7$$\n\nGeometrisk er $f'(x)$ stigningstallet til tangenten. Der grafen har en horisontal tangent — på toppen av en bakke eller i bunnen av en dal — er $f'(x) = 0$. Den koblingen mellom graf og derivert får vi rikelig bruk for i drøftingskapitlene senere."},{"id":"r2-2-1-n-quiz1","type":"exercise","exercise":{"id":"r2-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på grunnreglene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-1-n-quiz1-q0","task":"Hva er den deriverte av $g(x) = x^4$?","options":[{"id":"a","text":"$x^3$","isCorrect":false},{"id":"b","text":"$4x^3$","isCorrect":true},{"id":"c","text":"$4x^4$","isCorrect":false},{"id":"d","text":"$\\frac{x^5}{5}$","isCorrect":false}],"solution":"Potensregelen: $(x^n)' = nx^{n-1}$, så $g'(x) = 4x^3$."},{"id":"r2-2-1-n-quiz1-q1","task":"Hva er den deriverte av $h(x) = 3x^5 - 2x^3 + 7x - 4$?","options":[{"id":"a","text":"$15x^4 - 6x^2 + 7x$","isCorrect":false},{"id":"b","text":"$15x^4 - 6x^2 - 4$","isCorrect":false},{"id":"c","text":"$3x^4 - 2x^2 + 7$","isCorrect":false},{"id":"d","text":"$15x^4 - 6x^2 + 7$","isCorrect":true}],"solution":"Ledd for ledd: $(3x^5)' = 15x^4$, $(-2x^3)' = -6x^2$, $(7x)' = 7$ og $(-4)' = 0$."},{"id":"r2-2-1-n-quiz1-q2","task":"Hva betyr det geometrisk at $f'(2) = 0$?","options":[{"id":"a","text":"Tangenten til grafen i $x = 2$ er horisontal","isCorrect":true},{"id":"b","text":"Grafen krysser $x$-aksen i $x = 2$","isCorrect":false},{"id":"c","text":"Funksjonen er null i $x = 2$","isCorrect":false},{"id":"d","text":"Grafen har et brudd i $x = 2$","isCorrect":false}],"solution":"$f'(x)$ er stigningstallet til tangenten. $f'(2) = 0$ betyr horisontal tangent — et mulig topp-, bunn- eller terrassepunkt."}]}},{"id":"r2-2-1-n-section2","type":"text","content":"## Produkter, brøker og kjernen i det hele\n\nNår funksjoner ganges eller deles, trengs kraftigere verktøy. **Produktregelen** sier at for $f = g \\cdot h$ er\n\n$$f' = g' \\cdot h + g \\cdot h'$$\n\n— «den deriverte av den første ganger den andre, pluss den første ganger den deriverte av den andre». For $f(x) = (x^2+1)(x^3-2x)$ gir den $f'(x) = 2x(x^3-2x) + (x^2+1)(3x^2-2) = 5x^4 - 3x^2 - 2$. (Gang gjerne ut først og deriver — samme svar.)\n\n**Kvotientregelen** håndterer brøker: for $f = \\frac{g}{h}$ er\n\n$$f' = \\frac{g' \\cdot h - g \\cdot h'}{h^2}$$\n\nMerk minustegnet i telleren og kvadratet i nevneren. For $f(x) = \\frac{x^2+1}{x-1}$ får vi $f'(x) = \\frac{2x(x-1) - (x^2+1)}{(x-1)^2} = \\frac{x^2 - 2x - 1}{(x-1)^2}$.\n\nOg så universalnøkkelen: **kjerneregelen**. Er $f(x) = g(u)$ med kjerne $u = h(x)$, er\n\n$$f'(x) = g'(u) \\cdot h'(x)$$\n\n— deriver det ytre med hensyn på kjernen, og gang med kjernens deriverte. For $f(x) = (3x+2)^5$ er kjernen $u = 3x+2$: $f'(x) = 5u^4 \\cdot 3 = 15(3x+2)^4$. For $g(x) = \\sqrt{x^2+1} = (x^2+1)^{1/2}$ blir det $g'(x) = \\frac{1}{2\\sqrt{x^2+1}} \\cdot 2x = \\frac{x}{\\sqrt{x^2+1}}$. Kjerneregelen er regelen du kommer til å savne mest om du glemmer den — hele substitusjonsteknikken i integralregningen er denne regelen kjørt i revers."},{"id":"r2-2-1-n-quiz2","type":"exercise","exercise":{"id":"r2-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på produkt-, kvotient- og kjerneregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-1-n-quiz2-q0","task":"Hvilken formel er produktregelen for $f = g \\cdot h$?","options":[{"id":"a","text":"$f' = g' \\cdot h'$","isCorrect":false},{"id":"b","text":"$f' = g' \\cdot h + g \\cdot h'$","isCorrect":true},{"id":"c","text":"$f' = g' + h'$","isCorrect":false},{"id":"d","text":"$f' = g \\cdot h' - g' \\cdot h$","isCorrect":false}],"solution":"Produktregelen: $(g \\cdot h)' = g'h + gh'$. Den deriverte av et produkt er IKKE produktet av de deriverte."},{"id":"r2-2-1-n-quiz2-q1","task":"Hva er den deriverte av $f(x) = (3x + 2)^5$?","options":[{"id":"a","text":"$5(3x+2)^4$","isCorrect":false},{"id":"b","text":"$15x^4$","isCorrect":false},{"id":"c","text":"$(3x+2)^4 \\cdot 3$","isCorrect":false},{"id":"d","text":"$15(3x+2)^4$","isCorrect":true}],"solution":"Kjerneregel med $u = 3x+2$: $f'(x) = 5u^4 \\cdot u' = 5(3x+2)^4 \\cdot 3 = 15(3x+2)^4$."},{"id":"r2-2-1-n-quiz2-q2","task":"Hva er den deriverte av $g(x) = \\sqrt{x^2 + 1}$?","options":[{"id":"a","text":"$\\frac{1}{2\\sqrt{x^2+1}}$","isCorrect":false},{"id":"b","text":"$\\frac{2x}{\\sqrt{x^2+1}}$","isCorrect":false},{"id":"c","text":"$\\frac{x}{\\sqrt{x^2+1}}$","isCorrect":true},{"id":"d","text":"$\\sqrt{2x}$","isCorrect":false}],"solution":"Skriv $g(x) = (x^2+1)^{1/2}$. Kjerneregelen: $g'(x) = \\frac{1}{2}(x^2+1)^{-1/2} \\cdot 2x = \\frac{x}{\\sqrt{x^2+1}}$."},{"id":"r2-2-1-n-quiz2-q3","task":"I kvotientregelen $\\left(\\frac{g}{h}\\right)' = \\frac{g'h - gh'}{h^2}$: hva er den vanligste feilen?","options":[{"id":"a","text":"Å glemme å derivere telleren","isCorrect":false},{"id":"b","text":"Å bruke $h$ i stedet for $h^2$ i nevneren","isCorrect":false},{"id":"c","text":"Å bytte om rekkefølgen i telleren slik at fortegnet blir feil","isCorrect":true},{"id":"d","text":"Å derivere nevneren to ganger","isCorrect":false}],"solution":"Telleren er $g'h - gh'$ — rekkefølgen er avgjørende på grunn av minustegnet. Bytter du om leddene, får du feil fortegn på hele svaret."}]}},{"id":"r2-2-1-n-section3","type":"text","content":"## De spesielle funksjonene: $e^x$, $\\ln x$ og trigonometrien\n\nNoen deriverte må rett og slett kunnes utenat — de er gangetabellen i R2. Den mest bemerkelsesverdige er eksponentialfunksjonen:\n\n$$(e^x)' = e^x$$\n\nFunksjonen er sin egen deriverte — vekstfarten er alltid lik funksjonsverdien. For andre grunntall gjelder $(a^x)' = a^x \\ln a$. Logaritmen følger som speilbilde: $(\\ln x)' = \\frac{1}{x}$, og generelt $(\\log_a x)' = \\frac{1}{x \\ln a}$.\n\nTrigonometrien danser i ring: $(\\sin x)' = \\cos x$, $(\\cos x)' = -\\sin x$ — merk minusen — og $(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$.\n\nDen virkelige kraften kommer når vi kobler disse med kjerneregelen: $(e^u)' = e^u \\cdot u'$, $(\\ln u)' = \\frac{u'}{u}$, $(\\sin u)' = \\cos u \\cdot u'$ og $(\\cos u)' = -\\sin u \\cdot u'$. La oss ta fire på rappen. $f(x) = e^{3x}$: kjernen $3x$ gir $f'(x) = 3e^{3x}$. $g(x) = \\ln(x^2+1)$: $g'(x) = \\frac{2x}{x^2+1}$. $h(x) = \\sin(2x)$: $h'(x) = 2\\cos(2x)$. Og $p(x) = x^2 e^x$ krever produktregelen: $p'(x) = 2xe^x + x^2e^x = e^x \\cdot x(x+2)$.\n\nLegg spesielt merke til mønsteret $\\frac{u'}{u}$ fra logaritmen — det dukker opp igjen som et av de viktigste integralmønstrene i kapittel 2.3."},{"id":"r2-2-1-n-quiz3","type":"exercise","exercise":{"id":"r2-2-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på spesielle funksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-1-n-quiz3-q0","task":"Hva er den deriverte av $f(x) = e^{3x}$?","options":[{"id":"a","text":"$3e^{3x}$","isCorrect":true},{"id":"b","text":"$e^{3x}$","isCorrect":false},{"id":"c","text":"$3xe^{3x-1}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{3}e^{3x}$","isCorrect":false}],"solution":"Kjerneregelen med $u = 3x$: $f'(x) = e^{3x} \\cdot 3 = 3e^{3x}$."},{"id":"r2-2-1-n-quiz3-q1","task":"Hva er den deriverte av $g(x) = \\ln(x^2 + 1)$?","options":[{"id":"a","text":"$\\frac{1}{x^2+1}$","isCorrect":false},{"id":"b","text":"$\\frac{2x}{x^2+1}$","isCorrect":true},{"id":"c","text":"$\\frac{1}{2x}$","isCorrect":false},{"id":"d","text":"$2x\\ln(x^2+1)$","isCorrect":false}],"solution":"$(\\ln u)' = \\frac{u'}{u}$ med $u = x^2+1$: $g'(x) = \\frac{2x}{x^2+1}$."},{"id":"r2-2-1-n-quiz3-q2","task":"Hva er den deriverte av $\\cos x$?","options":[{"id":"a","text":"$\\sin x$","isCorrect":false},{"id":"b","text":"$\\tan x$","isCorrect":false},{"id":"c","text":"$-\\cos x$","isCorrect":false},{"id":"d","text":"$-\\sin x$","isCorrect":true}],"solution":"$(\\cos x)' = -\\sin x$. Minustegnet er lett å glemme; $(\\sin x)' = \\cos x$ er uten minus."},{"id":"r2-2-1-n-quiz3-q3","task":"Hva er den deriverte av $p(x) = x^2 \\cdot e^x$?","options":[{"id":"a","text":"$2x \\cdot e^x$","isCorrect":false},{"id":"b","text":"$x^2 e^x$","isCorrect":false},{"id":"c","text":"$e^x(2x + x^2)$","isCorrect":true},{"id":"d","text":"$2xe^{2x}$","isCorrect":false}],"solution":"Produktregelen: $p'(x) = 2x \\cdot e^x + x^2 \\cdot e^x = e^x(2x + x^2)$."}]}},{"id":"r2-2-1-n-summary","type":"text","content":"## Oppsummering: verktøykassa er klar\n\nInspeksjonen er fullført, og alt virker. Grunnreglene — konstant $(c)' = 0$, potens $(x^n)' = nx^{n-1}$, sum $(f+g)' = f' + g'$ og konstantfaktor $(cf)' = cf'$ — gjør polynomer til rutine. Produktregelen $(fg)' = f'g + fg'$ og kvotientregelen $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$ håndterer sammensatte uttrykk, og kjerneregelen $(g(u))' = g'(u) \\cdot u'$ er universalnøkkelen som låser opp alle funksjoner-inni-funksjoner.\n\nPå utenat-lista står $(e^x)' = e^x$ — funksjonen som er sin egen deriverte — sammen med $(\\ln x)' = \\frac{1}{x}$, $(\\sin x)' = \\cos x$ og $(\\cos x)' = -\\sin x$. Og med kjerneregelen i bunn: $(e^u)' = e^u u'$, $(\\ln u)' = \\frac{u'}{u}$, $(\\sin u)' = u'\\cos u$.\n\nHvorfor all denne repetisjonen? Fordi neste kapittel snur spørsmålet på hodet. I stedet for «hva er den deriverte av $f$?» spør vi «hvilken funksjon har $f$ som sin deriverte?». Hvert mønster du nå behersker forlengs, skal du snart gjenkjenne baklengs — og da begynner integralregningen."}],"exercises":[]}
+{
+  "id": "r2-2-1-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "2.1",
+  "title": "Repetisjon av derivasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om derivasjonsreglene fra R1 — verktøykassa som må sitte som støpt før vi snur prosessen og bygger integralregningen i R2.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "beherske grunnleggende derivasjonsregler",
+    "kunne derivere sammensatte funksjoner",
+    "anvende produkt- og kvotientregelen",
+    "bruke kjerneregelen på sammensatte funksjoner"
+  ],
+  "linkedChapterId": "r2-2-1",
+  "content": [
+    {
+      "id": "r2-2-1-n-intro",
+      "type": "text",
+      "content": "## Verktøykassa fra R1 — på tide med en inspeksjon\n\nTenk deg en snekker som skal bygge sitt mest ambisiøse hus til nå. Før første spikerslag går hun gjennom verktøykassa: er sagen skarp, fungerer vateret? I R2 skal vi bygge integralregningen — og siden integrasjon er derivasjon baklengs, må derivasjonsverktøyene fra R1 sitte som støpt.\n\nDerivasjon handler om momentan endring: $f'(x)$ forteller hvor raskt $f$ endrer seg akkurat i punktet $x$ — farten på speedometeret, ikke gjennomsnittsfarten for hele turen. I dette kapittelet pusser vi støvet av hele settet: grunnreglene for potenser og summer, produkt- og kvotientregelen for sammensatte uttrykk, kjerneregelen — derivasjonens universalnøkkel — og de spesielle deriverte til $e^x$, $\\ln x$, $\\sin x$ og $\\cos x$. Alt sammen blir bærebjelker når vi snur prosessen i neste kapittel."
+    },
+    {
+      "id": "r2-2-1-n-section1",
+      "type": "text",
+      "content": "## Grunnreglene: potenser, summer og konstanter\n\nDe fire grunnreglene gjør at vi kan derivere ethvert polynom nesten uten å tenke. **Konstantregelen** sier at $f(x) = c$ gir $f'(x) = 0$ — en konstant endrer seg ikke, så endringsraten er null. **Potensregelen** er arbeidshesten: $f(x) = x^n$ gir\n\n$$f'(x) = n \\cdot x^{n-1}$$\n\nEksponenten hopper ned som faktor, og den nye eksponenten blir én mindre. Dermed er $(x^4)' = 4x^3$.\n\nDe to siste reglene lar oss kombinere: **sumregelen** $(g + h)' = g' + h'$ sier at vi kan derivere ledd for ledd, og **konstantfaktorregelen** $(c \\cdot g)' = c \\cdot g'$ at tallfaktorer bare blir med på lasset.\n\nSammen tygger de seg gjennom hva som helst av polynomer. Ta $h(x) = 3x^5 - 2x^3 + 7x - 4$. Ledd for ledd: $3 \\cdot 5x^4 = 15x^4$, så $-2 \\cdot 3x^2 = -6x^2$, så $7$, og konstanten $-4$ gir null:\n\n$$h'(x) = 15x^4 - 6x^2 + 7$$\n\nGeometrisk er $f'(x)$ stigningstallet til tangenten. Der grafen har en horisontal tangent — på toppen av en bakke eller i bunnen av en dal — er $f'(x) = 0$. Den koblingen mellom graf og derivert får vi rikelig bruk for i drøftingskapitlene senere."
+    },
+    {
+      "id": "r2-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grunnreglene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-1-n-quiz1-q0",
+            "task": "Hva er den deriverte av $g(x) = x^4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4x^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4x^3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x^5}{5}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potensregelen: $(x^n)' = nx^{n-1}$, så $g'(x) = 4x^3$."
+          },
+          {
+            "id": "r2-2-1-n-quiz1-q1",
+            "task": "Hva er den deriverte av $h(x) = 3x^5 - 2x^3 + 7x - 4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15x^4 - 6x^2 + 7x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15x^4 - 6x^2 - 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3x^4 - 2x^2 + 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$15x^4 - 6x^2 + 7$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ledd for ledd: $(3x^5)' = 15x^4$, $(-2x^3)' = -6x^2$, $(7x)' = 7$ og $(-4)' = 0$."
+          },
+          {
+            "id": "r2-2-1-n-quiz1-q2",
+            "task": "Hva betyr det geometrisk at $f'(2) = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tangenten til grafen i $x = 2$ er horisontal",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Grafen krysser $x$-aksen i $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonen er null i $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafen har et brudd i $x = 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x)$ er stigningstallet til tangenten. $f'(2) = 0$ betyr horisontal tangent — et mulig topp-, bunn- eller terrassepunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-1-n-section2",
+      "type": "text",
+      "content": "## Produkter, brøker og kjernen i det hele\n\nNår funksjoner ganges eller deles, trengs kraftigere verktøy. **Produktregelen** sier at for $f = g \\cdot h$ er\n\n$$f' = g' \\cdot h + g \\cdot h'$$\n\n— «den deriverte av den første ganger den andre, pluss den første ganger den deriverte av den andre». For $f(x) = (x^2+1)(x^3-2x)$ gir den $f'(x) = 2x(x^3-2x) + (x^2+1)(3x^2-2) = 5x^4 - 3x^2 - 2$. (Gang gjerne ut først og deriver — samme svar.)\n\n**Kvotientregelen** håndterer brøker: for $f = \\frac{g}{h}$ er\n\n$$f' = \\frac{g' \\cdot h - g \\cdot h'}{h^2}$$\n\nMerk minustegnet i telleren og kvadratet i nevneren. For $f(x) = \\frac{x^2+1}{x-1}$ får vi $f'(x) = \\frac{2x(x-1) - (x^2+1)}{(x-1)^2} = \\frac{x^2 - 2x - 1}{(x-1)^2}$.\n\nOg så universalnøkkelen: **kjerneregelen**. Er $f(x) = g(u)$ med kjerne $u = h(x)$, er\n\n$$f'(x) = g'(u) \\cdot h'(x)$$\n\n— deriver det ytre med hensyn på kjernen, og gang med kjernens deriverte. For $f(x) = (3x+2)^5$ er kjernen $u = 3x+2$: $f'(x) = 5u^4 \\cdot 3 = 15(3x+2)^4$. For $g(x) = \\sqrt{x^2+1} = (x^2+1)^{1/2}$ blir det $g'(x) = \\frac{1}{2\\sqrt{x^2+1}} \\cdot 2x = \\frac{x}{\\sqrt{x^2+1}}$. Kjerneregelen er regelen du kommer til å savne mest om du glemmer den — hele substitusjonsteknikken i integralregningen er denne regelen kjørt i revers."
+    },
+    {
+      "id": "r2-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på produkt-, kvotient- og kjerneregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-1-n-quiz2-q0",
+            "task": "Hvilken formel er produktregelen for $f = g \\cdot h$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f' = g' \\cdot h'$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f' = g' \\cdot h + g \\cdot h'$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f' = g' + h'$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f' = g \\cdot h' - g' \\cdot h$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen: $(g \\cdot h)' = g'h + gh'$. Den deriverte av et produkt er IKKE produktet av de deriverte."
+          },
+          {
+            "id": "r2-2-1-n-quiz2-q1",
+            "task": "Hva er den deriverte av $f(x) = (3x + 2)^5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5(3x+2)^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15x^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$15(3x+2)^4$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(3x+2)^4 \\cdot 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregel med $u = 3x+2$: $f'(x) = 5u^4 \\cdot u' = 5(3x+2)^4 \\cdot 3 = 15(3x+2)^4$."
+          },
+          {
+            "id": "r2-2-1-n-quiz2-q2",
+            "task": "Hva er den deriverte av $g(x) = \\sqrt{x^2 + 1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2\\sqrt{x^2+1}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2x}{\\sqrt{x^2+1}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x}{\\sqrt{x^2+1}}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Skriv $g(x) = (x^2+1)^{1/2}$. Kjerneregelen: $g'(x) = \\frac{1}{2}(x^2+1)^{-1/2} \\cdot 2x = \\frac{x}{\\sqrt{x^2+1}}$."
+          },
+          {
+            "id": "r2-2-1-n-quiz2-q3",
+            "task": "I kvotientregelen $\\left(\\frac{g}{h}\\right)' = \\frac{g'h - gh'}{h^2}$: hva er den vanligste feilen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Å bytte om rekkefølgen i telleren slik at fortegnet blir feil",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å glemme å derivere telleren",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å bruke $h$ i stedet for $h^2$ i nevneren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å derivere nevneren to ganger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Telleren er $g'h - gh'$ — rekkefølgen er avgjørende på grunn av minustegnet. Bytter du om leddene, får du feil fortegn på hele svaret."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-1-n-section3",
+      "type": "text",
+      "content": "## De spesielle funksjonene: $e^x$, $\\ln x$ og trigonometrien\n\nNoen deriverte må rett og slett kunnes utenat — de er gangetabellen i R2. Den mest bemerkelsesverdige er eksponentialfunksjonen:\n\n$$(e^x)' = e^x$$\n\nFunksjonen er sin egen deriverte — vekstfarten er alltid lik funksjonsverdien. For andre grunntall gjelder $(a^x)' = a^x \\ln a$. Logaritmen følger som speilbilde: $(\\ln x)' = \\frac{1}{x}$, og generelt $(\\log_a x)' = \\frac{1}{x \\ln a}$.\n\nTrigonometrien danser i ring: $(\\sin x)' = \\cos x$, $(\\cos x)' = -\\sin x$ — merk minusen — og $(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$.\n\nDen virkelige kraften kommer når vi kobler disse med kjerneregelen: $(e^u)' = e^u \\cdot u'$, $(\\ln u)' = \\frac{u'}{u}$, $(\\sin u)' = \\cos u \\cdot u'$ og $(\\cos u)' = -\\sin u \\cdot u'$. La oss ta fire på rappen. $f(x) = e^{3x}$: kjernen $3x$ gir $f'(x) = 3e^{3x}$. $g(x) = \\ln(x^2+1)$: $g'(x) = \\frac{2x}{x^2+1}$. $h(x) = \\sin(2x)$: $h'(x) = 2\\cos(2x)$. Og $p(x) = x^2 e^x$ krever produktregelen: $p'(x) = 2xe^x + x^2e^x = e^x \\cdot x(x+2)$.\n\nLegg spesielt merke til mønsteret $\\frac{u'}{u}$ fra logaritmen — det dukker opp igjen som et av de viktigste integralmønstrene i kapittel 2.3."
+    },
+    {
+      "id": "r2-2-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på spesielle funksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-1-n-quiz3-q0",
+            "task": "Hva er den deriverte av $f(x) = e^{3x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$e^{3x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3e^{3x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3xe^{3x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{3}e^{3x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen med $u = 3x$: $f'(x) = e^{3x} \\cdot 3 = 3e^{3x}$."
+          },
+          {
+            "id": "r2-2-1-n-quiz3-q1",
+            "task": "Hva er den deriverte av $g(x) = \\ln(x^2 + 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{x^2+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2x}{x^2+1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2x\\ln(x^2+1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(\\ln u)' = \\frac{u'}{u}$ med $u = x^2+1$: $g'(x) = \\frac{2x}{x^2+1}$."
+          },
+          {
+            "id": "r2-2-1-n-quiz3-q2",
+            "task": "Hva er den deriverte av $\\cos x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\tan x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\sin x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$(\\cos x)' = -\\sin x$. Minustegnet er lett å glemme; $(\\sin x)' = \\cos x$ er uten minus."
+          },
+          {
+            "id": "r2-2-1-n-quiz3-q3",
+            "task": "Hva er den deriverte av $p(x) = x^2 \\cdot e^x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$e^x(2x + x^2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2x \\cdot e^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^2 e^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2xe^{2x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen: $p'(x) = 2x \\cdot e^x + x^2 \\cdot e^x = e^x(2x + x^2)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: verktøykassa er klar\n\nInspeksjonen er fullført, og alt virker. Grunnreglene — konstant $(c)' = 0$, potens $(x^n)' = nx^{n-1}$, sum $(f+g)' = f' + g'$ og konstantfaktor $(cf)' = cf'$ — gjør polynomer til rutine. Produktregelen $(fg)' = f'g + fg'$ og kvotientregelen $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$ håndterer sammensatte uttrykk, og kjerneregelen $(g(u))' = g'(u) \\cdot u'$ er universalnøkkelen som låser opp alle funksjoner-inni-funksjoner.\n\nPå utenat-lista står $(e^x)' = e^x$ — funksjonen som er sin egen deriverte — sammen med $(\\ln x)' = \\frac{1}{x}$, $(\\sin x)' = \\cos x$ og $(\\cos x)' = -\\sin x$. Og med kjerneregelen i bunn: $(e^u)' = e^u u'$, $(\\ln u)' = \\frac{u'}{u}$, $(\\sin u)' = u'\\cos u$.\n\nHvorfor all denne repetisjonen? Fordi neste kapittel snur spørsmålet på hodet. I stedet for «hva er den deriverte av $f$?» spør vi «hvilken funksjon har $f$ som sin deriverte?». Hvert mønster du nå behersker forlengs, skal du snart gjenkjenne baklengs — og da begynner integralregningen."
+    }
+  ],
+  "exercises": []
+}

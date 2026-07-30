@@ -1,1 +1,449 @@
-{"id":"1p-1-5-narrativ","courseId":"1p","chapterNumber":"1.5","title":"Regnerekkefølge og overslagsregning","subtitle":"Narrativ versjon","description":"En fortelling om hvorfor $2 + 3 \\cdot 4$ bare har ett riktig svar -- om regnerekkefølge, parenteser, hoderegningstriks og kunsten å anslå et svar i farta.","estimatedMinutes":30,"competenceGoals":["utvikle og bruke metoder for hoderegning, overslagsregning og digital regning"],"linkedChapterId":"1p-1-5","content":[{"id":"1p-1-5-n-intro","type":"text","content":"## Krangelen i gruppechatten\n\nEn kveld dukker det opp et regnestykke i gruppechatten: «Hva er $2 + 3 \\cdot 4$?» Halvparten svarer 20, den andre halvparten svarer 14, og diskusjonen raser. Hvem har rett? Hvis alle kunne regne i den rekkefølgen de selv ville, fikk vi kaos -- derfor har matematikken en fast **regnerekkefølge** som alle følger.\n\nRekkefølgen er slik: først regner vi ut alt som står i **parenteser**. Deretter tar vi **potenser**, som $3^2$. Så kommer **multiplikasjon og divisjon**, og helt til slutt **addisjon og subtraksjon**. Multiplikasjon og divisjon har lik prioritet og regnes fra venstre mot høyre -- det samme gjelder addisjon og subtraksjon. I mange land brukes huskeregelen **PEMDAS**: Parentheses, Exponents, Multiplication/Division, Addition/Subtraction.\n\nDermed er svaret i chatten avgjort: multiplikasjonen $3 \\cdot 4$ skal regnes før addisjonen, så $2 + 3 \\cdot 4 = 2 + 12 = 14$. De som svarte 20, regnet fra venstre mot høyre uten å respektere rekkefølgen.\n\nLa oss ta tre eksempler til. $3 + 4 \\cdot 5 = 3 + 20 = 23$, fordi ganging går før pluss. $20 - 12 \\div 4 + 1 = 20 - 3 + 1 = 18$, fordi delingen tas først, og deretter går vi fra venstre mot høyre. Og $2 \\cdot 3^2 - 5 = 2 \\cdot 9 - 5 = 18 - 5 = 13$ -- potensen først, så gangingen, og subtraksjonen til slutt."},{"id":"1p-1-5-n-section1","type":"text","content":"## Parenteser -- sjefen i regnestykket\n\nParenteser overstyrer alt. Det som står inni en parentes, regnes ut først, uansett hva det er. Sammenlign disse to: $3 \\cdot (2 + 5) = 3 \\cdot 7 = 21$, mens $3 \\cdot 2 + 5 = 6 + 5 = 11$. Samme tall, helt forskjellige svar -- parentesen bestemmer.\n\nNoen ganger ligger parenteser inni andre parenteser. Da starter vi alltid med den **innerste** og jobber oss utover: $4 \\cdot (3 + (8 - 5)) = 4 \\cdot (3 + 3) = 4 \\cdot 6 = 24$. I lange uttrykk brukes gjerne hakeparenteser $[\\,]$ og krøllparenteser $\\{\\,\\}$ for å gjøre det lettere å lese, men de fungerer helt likt: $\\{$ ... $[$ ... $($ innerst $)$ ... $]$ ... $\\}$.\n\nTo eksempler som samler alt: $(7 - 3) \\cdot (2 + 6) = 4 \\cdot 8 = 32$ -- begge parentesene først, så gangingen. Og det litt tøffere $50 - 2 \\cdot (4 + 3)^2$: parentesen gir 7, potensen gir 49, gangingen gir 98, og til slutt $50 - 98 = -48$.\n\nNegative tall krever et våkent blikk i slike uttrykk. Husk reglene: $5 + (-3) = 5 - 3 = 2$, og $5 - (-3) = 5 + 3 = 8$ -- to minus etter hverandre blir pluss. Ved ganging gjelder at likt fortegn gir pluss og ulikt fortegn gir minus: $(-4) \\cdot (-3) = 12$, mens $(-4) \\cdot 3 = -12$ og $4 \\cdot (-3) = -12$.\n\nOg så den klassiske fellen: $-3^2 = -(3^2) = -9$, fordi minustegnet ikke hører til potensen -- men $(-3)^2 = (-3) \\cdot (-3) = 9$, fordi parentesen gjør at hele det negative tallet opphøyes. Ett parentespar utgjør forskjellen mellom $-9$ og $9$!"},{"id":"1p-1-5-n-quiz1","type":"exercise","exercise":{"id":"1p-1-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på regnerekkefølge og parenteser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-1-5-n-quiz1-q0","task":"Hva er $2 + 3 \\cdot 4$?","options":[{"id":"a","text":"$20$","isCorrect":false},{"id":"b","text":"$24$","isCorrect":false},{"id":"c","text":"$14$","isCorrect":true},{"id":"d","text":"$9$","isCorrect":false}],"solution":"Multiplikasjon før addisjon: $2 + 12 = 14$."},{"id":"1p-1-5-n-quiz1-q1","task":"Hva er $20 - 12 \\div 4 + 1$?","options":[{"id":"a","text":"$18$","isCorrect":true},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$16$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"Divisjonen først: $20 - 3 + 1$. Deretter fra venstre mot høyre: $17 + 1 = 18$."},{"id":"1p-1-5-n-quiz1-q2","task":"Hva er $50 - 2 \\cdot (4 + 3)^2$?","options":[{"id":"a","text":"$48$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$2304$","isCorrect":false},{"id":"d","text":"$-48$","isCorrect":true}],"solution":"Parentes: $7$. Potens: $49$. Ganging: $98$. Til slutt $50 - 98 = -48$."},{"id":"1p-1-5-n-quiz1-q3","task":"Hva er $(-3)^2$ og $-3^2$?","options":[{"id":"a","text":"Begge er $9$","isCorrect":false},{"id":"b","text":"Henholdsvis $9$ og $-9$","isCorrect":true},{"id":"c","text":"Henholdsvis $-9$ og $9$","isCorrect":false},{"id":"d","text":"Begge er $-9$","isCorrect":false}],"solution":"$(-3)^2 = (-3) \\cdot (-3) = 9$, mens $-3^2 = -(3^2) = -9$ fordi minustegnet ikke hører til potensen."},{"id":"1p-1-5-n-quiz1-q4","task":"Hva er $5 - (-3)$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$-8$","isCorrect":false},{"id":"c","text":"$8$","isCorrect":true},{"id":"d","text":"$-2$","isCorrect":false}],"solution":"To minus etter hverandre blir pluss: $5 - (-3) = 5 + 3 = 8$."}]}},{"id":"1p-1-5-n-section2","type":"text","content":"## Hoderegning -- triksene som gjør deg rask\n\nDu står i kiosken uten mobil og skal regne ut hva tre brus til 36 kr koster... finnes det smartere måter enn å stable tall møysommelig oppå hverandre i hodet? Ja -- gode hoderegningsstrategier gjør deg både raskere og sikrere.\n\n**Omgruppering** betyr å bytte om rekkefølgen så tallene passer sammen: $47 + 86 + 53 = (47 + 53) + 86 = 100 + 86 = 186$. Her så vi at 47 og 53 ble en rund hundrer, og da ble resten lett.\n\n**Kompensasjon** betyr å runde av og justere etterpå: $98 \\cdot 7 = 100 \\cdot 7 - 2 \\cdot 7 = 700 - 14 = 686$. Vi regnet med det enkle tallet 100 og trakk fra det vi la til for mye.\n\n**Oppdeling** betyr å dele opp ett av tallene: $35 \\cdot 12 = 35 \\cdot 10 + 35 \\cdot 2 = 350 + 70 = 420$. Og **halvering og dobling** gjør en faktor enklere: $25 \\cdot 16 = 50 \\cdot 8 = 400$ -- vi doblet 25 og halverte 16, og plutselig var stykket lett.\n\nI tillegg finnes noen klassiske spesialtriks. Skal du gange med 5, kan du gange med 10 og dele på 2: $36 \\cdot 5 = 360 \\div 2 = 180$. Skal du gange med 9, ganger du med 10 og trekker fra tallet: $14 \\cdot 9 = 140 - 14 = 126$. Og å gange et tosifret tall med 11 har et eget mønster: skriv sifrene med summen i midten, slik at $34 \\cdot 11 = 374$ (3, deretter $3+4=7$, så 4). Ved addisjon av store tall kan du runde opp til nærmeste tier og trekke fra differansen etterpå. Brusene dine? $3 \\cdot 36 = 3 \\cdot 35 + 3 = 105 + 3 = 108$ kr."},{"id":"1p-1-5-n-quiz2","type":"exercise","exercise":{"id":"1p-1-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på hoderegningsstrategier:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-1-5-n-quiz2-q0","task":"Hvilken strategi er smartest for $47 + 86 + 53$?","options":[{"id":"a","text":"Regne fra venstre mot høyre","isCorrect":false},{"id":"b","text":"Gruppere $47 + 53 = 100$ først","isCorrect":true},{"id":"c","text":"Runde alle tallene til nærmeste hundrer","isCorrect":false},{"id":"d","text":"Halvere alle tallene","isCorrect":false}],"solution":"Omgruppering: $47 + 53 = 100$, og $100 + 86 = 186$. Let etter tall som blir runde sammen."},{"id":"1p-1-5-n-quiz2-q1","task":"Hva er $98 \\cdot 7$ regnet med kompensasjon?","options":[{"id":"a","text":"$700 - 14 = 686$","isCorrect":true},{"id":"b","text":"$700 - 7 = 693$","isCorrect":false},{"id":"c","text":"$700 + 14 = 714$","isCorrect":false},{"id":"d","text":"$690 - 2 = 688$","isCorrect":false}],"solution":"$98 \\cdot 7 = 100 \\cdot 7 - 2 \\cdot 7 = 700 - 14 = 686$."},{"id":"1p-1-5-n-quiz2-q2","task":"Hva er $25 \\cdot 16$ med halvering og dobling?","options":[{"id":"a","text":"$300$","isCorrect":false},{"id":"b","text":"$350$","isCorrect":false},{"id":"c","text":"$400$","isCorrect":true},{"id":"d","text":"$450$","isCorrect":false}],"solution":"Doble 25 og halver 16: $25 \\cdot 16 = 50 \\cdot 8 = 400$."},{"id":"1p-1-5-n-quiz2-q3","task":"Hva er $36 \\cdot 5$ med femtrikset?","options":[{"id":"a","text":"$150$","isCorrect":false},{"id":"b","text":"$190$","isCorrect":false},{"id":"c","text":"$160$","isCorrect":false},{"id":"d","text":"$180$","isCorrect":true}],"solution":"Gang med 10 og del på 2: $360 \\div 2 = 180$."}]}},{"id":"1p-1-5-n-section3","type":"text","content":"## Overslagsregning -- omtrent riktig, helt nyttig\n\nDu står i butikken med varer til 38 kr, 72 kr, 19 kr og 55 kr i kurven og 200 kr i lomma. Holder det? Du trenger ikke svaret på krona -- du trenger et raskt anslag. Det er **overslagsregning**: å finne et tilnærmet svar ved å runde av tallene til enklere tall *før* du regner. Symbolet $\\approx$ betyr «er omtrent lik».\n\nFramgangsmåten er enkel. Først runder du av tallene til passende nøyaktighet, gjerne nærmeste tier eller hundrer. Så regner du med de avrundede tallene. Til slutt vurderer du om resultatet er nøyaktig nok for formålet. Handlekurven: $38 + 72 + 19 + 55 \\approx 40 + 70 + 20 + 60 = 190$ kr. Det nøyaktige svaret er 184 kr -- avviket er bare 6 kr, og du vet trygt at 200-lappen holder.\n\nOverslag fungerer like godt med ganging: $287 \\cdot 4{,}1 \\approx 300 \\cdot 4 = 1200$ (nøyaktig: $1176{,}7$). Eller håndverkeren som bruker 4,8 timer til 395 kr per time: $4{,}8 \\cdot 395 \\approx 5 \\cdot 400 = 2000$ kr (nøyaktig: 1896 kr) -- nært nok til å vurdere om du har råd. Et siste eksempel med addisjon: $189 + 314 + 78 \\approx 190 + 310 + 80 = 580$.\n\nHvor trengs dette? I butikken for å sjekke at du har nok penger eller at vekslepengene stemmer. På reise for å anslå reisetid, drivstoff og kostnader. I jobb for å estimere materialbruk og timeforbruk. Og ikke minst som **kontroll av kalkulatoren**: hvis du taster $48 \\cdot 21$ og skjermen viser 108, bør alarmen gå. Overslaget $50 \\cdot 20 = 1000$ sier at svaret skal ligge rundt tusen -- du har tastet feil eller mistet et siffer. Et godt overslag fanger riktig størrelsesorden, og det er ofte akkurat det du trenger."},{"id":"1p-1-5-n-quiz3","type":"exercise","exercise":{"id":"1p-1-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på overslagsregning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-1-5-n-quiz3-q0","task":"Hva betyr symbolet $\\approx$?","options":[{"id":"a","text":"Er nøyaktig lik","isCorrect":false},{"id":"b","text":"Er omtrent lik","isCorrect":true},{"id":"c","text":"Er større enn","isCorrect":false},{"id":"d","text":"Er forskjellig fra","isCorrect":false}],"solution":"$\\approx$ betyr «er omtrent lik» og brukes når vi oppgir et tilnærmet svar."},{"id":"1p-1-5-n-quiz3-q1","task":"Gjør et overslag: $38 + 72 + 19 + 55$","options":[{"id":"a","text":"$\\approx 190$","isCorrect":true},{"id":"b","text":"$\\approx 150$","isCorrect":false},{"id":"c","text":"$\\approx 230$","isCorrect":false},{"id":"d","text":"$\\approx 120$","isCorrect":false}],"solution":"Rund av til nærmeste tier: $40 + 70 + 20 + 60 = 190$. Nøyaktig svar er 184."},{"id":"1p-1-5-n-quiz3-q2","task":"En håndverker jobber $4{,}8$ timer for 395 kr/t. Hvilket overslag er best?","options":[{"id":"a","text":"$4 \\cdot 350 = 1400$ kr","isCorrect":false},{"id":"b","text":"$4 \\cdot 400 = 1600$ kr","isCorrect":false},{"id":"c","text":"$5 \\cdot 300 = 1500$ kr","isCorrect":false},{"id":"d","text":"$5 \\cdot 400 = 2000$ kr","isCorrect":true}],"solution":"Rund $4{,}8$ til 5 og 395 til 400: $5 \\cdot 400 = 2000$ kr. Begge avrundingene er små, så overslaget treffer godt (nøyaktig: 1896 kr)."},{"id":"1p-1-5-n-quiz3-q3","task":"Kalkulatoren viser at $48 \\cdot 21 = 108$. Hva forteller et overslag deg?","options":[{"id":"a","text":"At svaret stemmer","isCorrect":false},{"id":"b","text":"At svaret skal være rundt $100$","isCorrect":false},{"id":"c","text":"At svaret skal være rundt $1000$, så noe er galt","isCorrect":true},{"id":"d","text":"At du må regne nøyaktig for å vite","isCorrect":false}],"solution":"Overslag: $50 \\cdot 20 = 1000$. Svaret 108 har feil størrelsesorden -- du har tastet feil."}]}},{"id":"1p-1-5-n-summary","type":"text","content":"## Fortellingen om rekkefølgen -- kort fortalt\n\nKrangelen i gruppechatten fikk sitt svar: $2 + 3 \\cdot 4 = 14$, fordi matematikken har en fast **regnerekkefølge** -- parenteser først, så potenser, deretter multiplikasjon og divisjon, og til slutt addisjon og subtraksjon, alltid fra venstre mot høyre når operasjonene er likeverdige.\n\n**Parentesene** er sjefen: de overstyrer alt annet, og ved nestede parenteser starter vi innerst. Vi lærte også fellen med negative tall: $-3^2 = -9$, men $(-3)^2 = 9$ -- fortegnet hører bare til potensen når parentesen sier det.\n\nSå fylte vi verktøykassa for **hoderegning**: omgruppering ($47 + 53$ først), kompensasjon ($98 \\cdot 7$ via $100 \\cdot 7$), oppdeling ($35 \\cdot 12 = 350 + 70$), halvering og dobling ($25 \\cdot 16 = 50 \\cdot 8$), og triksene for å gange med 5, 9 og 11.\n\nTil slutt **overslagsregning**: rund av til enkle tall, regn, og vurder svaret. Handlekurven på cirka 190 kr, håndverkeren på cirka 2000 kr -- og kalkulatorsvaret som ble avslørt fordi størrelsesordenen var feil. Nøyaktig regning og godt overslag er ikke konkurrenter, men makkere: det ene gir svaret, det andre sjekker at det er til å stole på."}],"exercises":[]}
+{
+  "id": "1p-1-5-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "1.5",
+  "title": "Regnerekkefølge og overslagsregning",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvorfor $2 + 3 \\cdot 4$ bare har ett riktig svar -- om regnerekkefølge, parenteser, hoderegningstriks og kunsten å anslå et svar i farta.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "utvikle og bruke metoder for hoderegning, overslagsregning og digital regning"
+  ],
+  "linkedChapterId": "1p-1-5",
+  "content": [
+    {
+      "id": "1p-1-5-n-intro",
+      "type": "text",
+      "content": "## Krangelen i gruppechatten\n\nEn kveld dukker det opp et regnestykke i gruppechatten: «Hva er $2 + 3 \\cdot 4$?» Halvparten svarer 20, den andre halvparten svarer 14, og diskusjonen raser. Hvem har rett? Hvis alle kunne regne i den rekkefølgen de selv ville, fikk vi kaos -- derfor har matematikken en fast **regnerekkefølge** som alle følger.\n\nRekkefølgen er slik: først regner vi ut alt som står i **parenteser**. Deretter tar vi **potenser**, som $3^2$. Så kommer **multiplikasjon og divisjon**, og helt til slutt **addisjon og subtraksjon**. Multiplikasjon og divisjon har lik prioritet og regnes fra venstre mot høyre -- det samme gjelder addisjon og subtraksjon. I mange land brukes huskeregelen **PEMDAS**: Parentheses, Exponents, Multiplication/Division, Addition/Subtraction.\n\nDermed er svaret i chatten avgjort: multiplikasjonen $3 \\cdot 4$ skal regnes før addisjonen, så $2 + 3 \\cdot 4 = 2 + 12 = 14$. De som svarte 20, regnet fra venstre mot høyre uten å respektere rekkefølgen.\n\nLa oss ta tre eksempler til. $3 + 4 \\cdot 5 = 3 + 20 = 23$, fordi ganging går før pluss. $20 - 12 \\div 4 + 1 = 20 - 3 + 1 = 18$, fordi delingen tas først, og deretter går vi fra venstre mot høyre. Og $2 \\cdot 3^2 - 5 = 2 \\cdot 9 - 5 = 18 - 5 = 13$ -- potensen først, så gangingen, og subtraksjonen til slutt."
+    },
+    {
+      "id": "1p-1-5-n-section1",
+      "type": "text",
+      "content": "## Parenteser -- sjefen i regnestykket\n\nParenteser overstyrer alt. Det som står inni en parentes, regnes ut først, uansett hva det er. Sammenlign disse to: $3 \\cdot (2 + 5) = 3 \\cdot 7 = 21$, mens $3 \\cdot 2 + 5 = 6 + 5 = 11$. Samme tall, helt forskjellige svar -- parentesen bestemmer.\n\nNoen ganger ligger parenteser inni andre parenteser. Da starter vi alltid med den **innerste** og jobber oss utover: $4 \\cdot (3 + (8 - 5)) = 4 \\cdot (3 + 3) = 4 \\cdot 6 = 24$. I lange uttrykk brukes gjerne hakeparenteser $[\\,]$ og krøllparenteser $\\{\\,\\}$ for å gjøre det lettere å lese, men de fungerer helt likt: $\\{$ ... $[$ ... $($ innerst $)$ ... $]$ ... $\\}$.\n\nTo eksempler som samler alt: $(7 - 3) \\cdot (2 + 6) = 4 \\cdot 8 = 32$ -- begge parentesene først, så gangingen. Og det litt tøffere $50 - 2 \\cdot (4 + 3)^2$: parentesen gir 7, potensen gir 49, gangingen gir 98, og til slutt $50 - 98 = -48$.\n\nNegative tall krever et våkent blikk i slike uttrykk. Husk reglene: $5 + (-3) = 5 - 3 = 2$, og $5 - (-3) = 5 + 3 = 8$ -- to minus etter hverandre blir pluss. Ved ganging gjelder at likt fortegn gir pluss og ulikt fortegn gir minus: $(-4) \\cdot (-3) = 12$, mens $(-4) \\cdot 3 = -12$ og $4 \\cdot (-3) = -12$.\n\nOg så den klassiske fellen: $-3^2 = -(3^2) = -9$, fordi minustegnet ikke hører til potensen -- men $(-3)^2 = (-3) \\cdot (-3) = 9$, fordi parentesen gjør at hele det negative tallet opphøyes. Ett parentespar utgjør forskjellen mellom $-9$ og $9$!"
+    },
+    {
+      "id": "1p-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regnerekkefølge og parenteser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-1-5-n-quiz1-q0",
+            "task": "Hva er $2 + 3 \\cdot 4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$24$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$14$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikasjon før addisjon: $2 + 12 = 14$."
+          },
+          {
+            "id": "1p-1-5-n-quiz1-q1",
+            "task": "Hva er $20 - 12 \\div 4 + 1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$18$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Divisjonen først: $20 - 3 + 1$. Deretter fra venstre mot høyre: $17 + 1 = 18$."
+          },
+          {
+            "id": "1p-1-5-n-quiz1-q2",
+            "task": "Hva er $50 - 2 \\cdot (4 + 3)^2$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$-48$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$48$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2304$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Parentes: $7$. Potens: $49$. Ganging: $98$. Til slutt $50 - 98 = -48$."
+          },
+          {
+            "id": "1p-1-5-n-quiz1-q3",
+            "task": "Hva er $(-3)^2$ og $-3^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Begge er $9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Henholdsvis $9$ og $-9$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Henholdsvis $-9$ og $9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge er $-9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(-3)^2 = (-3) \\cdot (-3) = 9$, mens $-3^2 = -(3^2) = -9$ fordi minustegnet ikke hører til potensen."
+          },
+          {
+            "id": "1p-1-5-n-quiz1-q4",
+            "task": "Hva er $5 - (-3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$-2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "To minus etter hverandre blir pluss: $5 - (-3) = 5 + 3 = 8$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-1-5-n-section2",
+      "type": "text",
+      "content": "## Hoderegning -- triksene som gjør deg rask\n\nDu står i kiosken uten mobil og skal regne ut hva tre brus til 36 kr koster... finnes det smartere måter enn å stable tall møysommelig oppå hverandre i hodet? Ja -- gode hoderegningsstrategier gjør deg både raskere og sikrere.\n\n**Omgruppering** betyr å bytte om rekkefølgen så tallene passer sammen: $47 + 86 + 53 = (47 + 53) + 86 = 100 + 86 = 186$. Her så vi at 47 og 53 ble en rund hundrer, og da ble resten lett.\n\n**Kompensasjon** betyr å runde av og justere etterpå: $98 \\cdot 7 = 100 \\cdot 7 - 2 \\cdot 7 = 700 - 14 = 686$. Vi regnet med det enkle tallet 100 og trakk fra det vi la til for mye.\n\n**Oppdeling** betyr å dele opp ett av tallene: $35 \\cdot 12 = 35 \\cdot 10 + 35 \\cdot 2 = 350 + 70 = 420$. Og **halvering og dobling** gjør en faktor enklere: $25 \\cdot 16 = 50 \\cdot 8 = 400$ -- vi doblet 25 og halverte 16, og plutselig var stykket lett.\n\nI tillegg finnes noen klassiske spesialtriks. Skal du gange med 5, kan du gange med 10 og dele på 2: $36 \\cdot 5 = 360 \\div 2 = 180$. Skal du gange med 9, ganger du med 10 og trekker fra tallet: $14 \\cdot 9 = 140 - 14 = 126$. Og å gange et tosifret tall med 11 har et eget mønster: skriv sifrene med summen i midten, slik at $34 \\cdot 11 = 374$ (3, deretter $3+4=7$, så 4). Ved addisjon av store tall kan du runde opp til nærmeste tier og trekke fra differansen etterpå. Brusene dine? $3 \\cdot 36 = 3 \\cdot 35 + 3 = 105 + 3 = 108$ kr."
+    },
+    {
+      "id": "1p-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på hoderegningsstrategier:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-1-5-n-quiz2-q0",
+            "task": "Hvilken strategi er smartest for $47 + 86 + 53$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Regne fra venstre mot høyre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Runde alle tallene til nærmeste hundrer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Halvere alle tallene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gruppere $47 + 53 = 100$ først",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Omgruppering: $47 + 53 = 100$, og $100 + 86 = 186$. Let etter tall som blir runde sammen."
+          },
+          {
+            "id": "1p-1-5-n-quiz2-q1",
+            "task": "Hva er $98 \\cdot 7$ regnet med kompensasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$700 - 14 = 686$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$700 - 7 = 693$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$700 + 14 = 714$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$690 - 2 = 688$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$98 \\cdot 7 = 100 \\cdot 7 - 2 \\cdot 7 = 700 - 14 = 686$."
+          },
+          {
+            "id": "1p-1-5-n-quiz2-q2",
+            "task": "Hva er $25 \\cdot 16$ med halvering og dobling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$300$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$350$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$400$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$450$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Doble 25 og halver 16: $25 \\cdot 16 = 50 \\cdot 8 = 400$."
+          },
+          {
+            "id": "1p-1-5-n-quiz2-q3",
+            "task": "Hva er $36 \\cdot 5$ med femtrikset?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$150$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$180$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$190$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$160$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gang med 10 og del på 2: $360 \\div 2 = 180$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-1-5-n-section3",
+      "type": "text",
+      "content": "## Overslagsregning -- omtrent riktig, helt nyttig\n\nDu står i butikken med varer til 38 kr, 72 kr, 19 kr og 55 kr i kurven og 200 kr i lomma. Holder det? Du trenger ikke svaret på krona -- du trenger et raskt anslag. Det er **overslagsregning**: å finne et tilnærmet svar ved å runde av tallene til enklere tall *før* du regner. Symbolet $\\approx$ betyr «er omtrent lik».\n\nFramgangsmåten er enkel. Først runder du av tallene til passende nøyaktighet, gjerne nærmeste tier eller hundrer. Så regner du med de avrundede tallene. Til slutt vurderer du om resultatet er nøyaktig nok for formålet. Handlekurven: $38 + 72 + 19 + 55 \\approx 40 + 70 + 20 + 60 = 190$ kr. Det nøyaktige svaret er 184 kr -- avviket er bare 6 kr, og du vet trygt at 200-lappen holder.\n\nOverslag fungerer like godt med ganging: $287 \\cdot 4{,}1 \\approx 300 \\cdot 4 = 1200$ (nøyaktig: $1176{,}7$). Eller håndverkeren som bruker 4,8 timer til 395 kr per time: $4{,}8 \\cdot 395 \\approx 5 \\cdot 400 = 2000$ kr (nøyaktig: 1896 kr) -- nært nok til å vurdere om du har råd. Et siste eksempel med addisjon: $189 + 314 + 78 \\approx 190 + 310 + 80 = 580$.\n\nHvor trengs dette? I butikken for å sjekke at du har nok penger eller at vekslepengene stemmer. På reise for å anslå reisetid, drivstoff og kostnader. I jobb for å estimere materialbruk og timeforbruk. Og ikke minst som **kontroll av kalkulatoren**: hvis du taster $48 \\cdot 21$ og skjermen viser 108, bør alarmen gå. Overslaget $50 \\cdot 20 = 1000$ sier at svaret skal ligge rundt tusen -- du har tastet feil eller mistet et siffer. Et godt overslag fanger riktig størrelsesorden, og det er ofte akkurat det du trenger."
+    },
+    {
+      "id": "1p-1-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-1-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på overslagsregning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-1-5-n-quiz3-q0",
+            "task": "Hva betyr symbolet $\\approx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Er nøyaktig lik",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Er større enn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Er forskjellig fra",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Er omtrent lik",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\approx$ betyr «er omtrent lik» og brukes når vi oppgir et tilnærmet svar."
+          },
+          {
+            "id": "1p-1-5-n-quiz3-q1",
+            "task": "Gjør et overslag: $38 + 72 + 19 + 55$",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\approx 190$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\approx 150$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\approx 230$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\approx 120$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rund av til nærmeste tier: $40 + 70 + 20 + 60 = 190$. Nøyaktig svar er 184."
+          },
+          {
+            "id": "1p-1-5-n-quiz3-q2",
+            "task": "En håndverker jobber $4{,}8$ timer for 395 kr/t. Hvilket overslag er best?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4 \\cdot 350 = 1400$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5 \\cdot 400 = 2000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$4 \\cdot 400 = 1600$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5 \\cdot 300 = 1500$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rund $4{,}8$ til 5 og 395 til 400: $5 \\cdot 400 = 2000$ kr. Begge avrundingene er små, så overslaget treffer godt (nøyaktig: 1896 kr)."
+          },
+          {
+            "id": "1p-1-5-n-quiz3-q3",
+            "task": "Kalkulatoren viser at $48 \\cdot 21 = 108$. Hva forteller et overslag deg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At svaret stemmer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At svaret skal være rundt $100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At svaret skal være rundt $1000$, så noe er galt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At du må regne nøyaktig for å vite",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overslag: $50 \\cdot 20 = 1000$. Svaret 108 har feil størrelsesorden -- du har tastet feil."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-1-5-n-summary",
+      "type": "text",
+      "content": "## Fortellingen om rekkefølgen -- kort fortalt\n\nKrangelen i gruppechatten fikk sitt svar: $2 + 3 \\cdot 4 = 14$, fordi matematikken har en fast **regnerekkefølge** -- parenteser først, så potenser, deretter multiplikasjon og divisjon, og til slutt addisjon og subtraksjon, alltid fra venstre mot høyre når operasjonene er likeverdige.\n\n**Parentesene** er sjefen: de overstyrer alt annet, og ved nestede parenteser starter vi innerst. Vi lærte også fellen med negative tall: $-3^2 = -9$, men $(-3)^2 = 9$ -- fortegnet hører bare til potensen når parentesen sier det.\n\nSå fylte vi verktøykassa for **hoderegning**: omgruppering ($47 + 53$ først), kompensasjon ($98 \\cdot 7$ via $100 \\cdot 7$), oppdeling ($35 \\cdot 12 = 350 + 70$), halvering og dobling ($25 \\cdot 16 = 50 \\cdot 8$), og triksene for å gange med 5, 9 og 11.\n\nTil slutt **overslagsregning**: rund av til enkle tall, regn, og vurder svaret. Handlekurven på cirka 190 kr, håndverkeren på cirka 2000 kr -- og kalkulatorsvaret som ble avslørt fordi størrelsesordenen var feil. Nøyaktig regning og godt overslag er ikke konkurrenter, men makkere: det ene gir svaret, det andre sjekker at det er til å stole på."
+    }
+  ],
+  "exercises": []
+}

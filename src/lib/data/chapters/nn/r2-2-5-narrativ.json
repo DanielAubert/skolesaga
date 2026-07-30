@@ -1,1 +1,469 @@
-{"id":"r2-2-5-narrativ","courseId":"r2","chapterNumber":"2.5","title":"Fundamentalsetninga i analysen","subtitle":"Narrativ versjon","description":"Ei forteljing om fundamentalsetninga i analysen — Newton og Leibniz si oppdaging av at derivasjon og integrasjon er inverse operasjonar, brua som gjer arealberekning til to innsetjingar og ein subtraksjon.","estimatedMinutes":33,"competenceGoals":["forstå og bruke fundamentalsetninga i analysen","bereken bestemte integral ved hjelp av antideriverte"],"linkedChapterId":"r2-2-5","content":[{"id":"r2-2-5-n-intro","type":"text","content":"## Brua mellom to verder\n\nPå 1600-talet arbeidde to menn — Isaac Newton i England og Gottfried Leibniz i Tyskland — uavhengig av kvarandre med to tilsynelatande ubeslekta problem. Det eine var *tangentproblemet*: kor bratt er ei kurve i eit punkt? Det andre var *arealproblemet*: kor stort er området under ei kurve? Det første hadde blitt til derivasjonen, det andre — som vi såg hos Arkimedes og Riemann — til møysommelege grenseverdiar av rektangelsummar.\n\nSå kom oppdaginga som forandra alt: dei to problema er *same problem, spegelvendt*. Derivasjon og integrasjon opphevar kvarandre, som pluss og minus, som å pakke inn og pakke ut. Denne innsikta blir kalla **fundamentalsetninga i analysen**, og «fundamental» er inga overdriving: ho gjer at areal som kravde sider med Riemann-rekning, kan bereknast på éi linje med ein antiderivert.\n\nHugsar du slitet med $\\int_0^3 x^2\\,dx = 9$ i førre kapittel? I dette kapittelet får du sjå kvifor $\\frac{3^3}{3} - \\frac{0^3}{3}$ gir nøyaktig same svar — og kvifor det *må* vere slik."},{"id":"r2-2-5-n-section1","type":"text","content":"## Del 1: Arealet veks i takt med funksjonen\n\nFørste del av fundamentalsetninga handlar om ein spesiell funksjon: **arealfunksjonen**. Lat $f$ vere kontinuerleg på $[a,b]$, og definer\n\n$$F(x) = \\int_a^x f(t) \\, dt$$\n\n— arealet under grafen til $f$ frå $a$ og fram til ein flyttbar høgre vegg $x$. (Vi bruker $t$ som integrasjonsvariabel for å ikkje blande han med grensa $x$.)\n\nSetninga seier: $F$ er deriverbar, og\n\n$$F'(x) = f(x)$$\n\nKvifor? Tenk på kva som skjer når veggen blir flytta eit lite stykke $\\Delta x$ mot høgre. Arealet aukar med ei smal stripe som er om lag eit rektangel: høgd $f(x)$, breidd $\\Delta x$, areal $\\approx f(x) \\cdot \\Delta x$. Endringsraten til arealet er dermed\n\n$$F'(x) = \\lim_{\\Delta x \\to 0} \\frac{F(x + \\Delta x) - F(x)}{\\Delta x} = f(x)$$\n\nArealet veks nøyaktig i takt med funksjonsverdien — er grafen høg der veggen står, veks arealet fort; er han låg, veks det sakte.\n\nDette gir ein forbløffande snarveg. Skal du derivere $F(x) = \\int_1^x (t^2 + 1)\\,dt$, treng du ikkje rekne ut integralet: svaret er rett og slett $F'(x) = x^2 + 1$ — integranden med $t$ bytt ut med $x$. Derivasjonen pakkar opp det integrasjonen pakka inn."},{"id":"r2-2-5-n-quiz1","type":"exercise","exercise":{"id":"r2-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på del 1 av fundamentalsetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-5-n-quiz1-q0","task":"Lat $F(x) = \\int_1^x (t^2 + 1)\\,dt$. Kva er $F'(x)$?","options":[{"id":"a","text":"$\\frac{x^3}{3} + x$","isCorrect":false},{"id":"b","text":"$x^2 + 1$","isCorrect":true},{"id":"c","text":"$2x$","isCorrect":false},{"id":"d","text":"$x^2$","isCorrect":false}],"solution":"Fundamentalsetninga del 1: $F'(x) = f(x) = x^2 + 1$. Vi treng ikkje bereken integralet."},{"id":"r2-2-5-n-quiz1-q1","task":"Kva seier del 1 av fundamentalsetninga om arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$?","options":[{"id":"a","text":"At $F(x) = f(x) + C$","isCorrect":false},{"id":"b","text":"At $F$ er ein lineær funksjon","isCorrect":false},{"id":"c","text":"At $F'(x) = f(x)$","isCorrect":true},{"id":"d","text":"At $F(a) = f(a)$","isCorrect":false}],"solution":"Den deriverte av arealfunksjonen er integranden: $F'(x) = f(x)$. Integrasjon og derivasjon er inverse operasjonar."},{"id":"r2-2-5-n-quiz1-q2","task":"Kvifor veks arealfunksjonen raskt der $f$ har store verdiar?","options":[{"id":"a","text":"Fordi den nye areal-stripa er om lag eit rektangel med høgd $f(x)$ — høg graf gir brei vekst per steg","isCorrect":true},{"id":"b","text":"Fordi integralet alltid veks raskare enn funksjonen","isCorrect":false},{"id":"c","text":"Fordi $\\Delta x$ blir større der grafen er høg","isCorrect":false},{"id":"d","text":"Det stemmer ikkje — arealet veks jamt uansett","isCorrect":false}],"solution":"Når øvre grense blir flytta $\\Delta x$ mot høgre, aukar arealet med ca. $f(x) \\cdot \\Delta x$. Endringsraten er altså $f(x)$ — stor funksjonsverdi gir rask arealvekst."}]}},{"id":"r2-2-5-n-section2","type":"text","content":"## Del 2: Snarvegen som endra matematikken\n\nDel 1 sa at arealfunksjonen er *ein* antiderivert til $f$. Del 2 haustar gevinsten: lat $F$ vere *kva som helst* antiderivert til $f$. Då er\n\n$$\\int_a^b f(x) \\, dx = F(b) - F(a)$$\n\nHeile Riemann-maskineriet — inndelingar, rektangel, summeformlar, grenseverdiar — blir erstatta av to innsetjingar og ein subtraksjon. For evalueringa finst ein eigen notasjon, gjerne kalla Newton–Leibniz-notasjonen:\n\n$$\\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nLat oss kjenne på krafta. Først $\\int_1^4 2x\\,dx$: den antideriverte er $x^2$, så\n\n$$\\int_1^4 2x \\, dx = \\left[x^2\\right]_1^4 = 16 - 1 = 15$$\n\nSå gjelda frå førre kapittel — arealet under parabelen:\n\n$$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$$\n\nSame svar som sidene med Riemann-rekning gav, no på éi linje. Eit døme med fleire ledd: $\\int_1^2 (3x^2 - 4x + 1)\\,dx = \\left[x^3 - 2x^2 + x\\right]_1^2 = (8 - 8 + 2) - (1 - 2 + 1) = 2$.\n\nOg legg merke til ein detalj: integrasjonskonstanten $C$ er borte. Det er ikkje slurv — han kansellerer seg sjølv: $(F(b) + C) - (F(a) + C) = F(b) - F(a)$. I bestemte integral spelar valet av antiderivert inga rolle."},{"id":"r2-2-5-n-quiz2","type":"exercise","exercise":{"id":"r2-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på del 2 av fundamentalsetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-5-n-quiz2-q0","task":"Bereken $\\displaystyle\\int_1^4 2x \\, dx$.","options":[{"id":"a","text":"$16$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":false},{"id":"c","text":"$17$","isCorrect":false},{"id":"d","text":"$15$","isCorrect":true}],"solution":"$\\left[x^2\\right]_1^4 = 4^2 - 1^2 = 16 - 1 = 15$."},{"id":"r2-2-5-n-quiz2-q1","task":"Bereken $\\displaystyle\\int_1^2 (3x^2 - 4x + 1) \\, dx$.","options":[{"id":"a","text":"$2$","isCorrect":true},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$6$","isCorrect":false}],"solution":"Antiderivert: $x^3 - 2x^2 + x$. Innsett: $(8 - 8 + 2) - (1 - 2 + 1) = 2 - 0 = 2$."},{"id":"r2-2-5-n-quiz2-q2","task":"Kvifor treng vi ikkje integrasjonskonstanten $C$ i bestemte integral?","options":[{"id":"a","text":"Fordi $C$ alltid er null for bestemte integral","isCorrect":false},{"id":"b","text":"Fordi $C$ kansellerer i differansen $(F(b)+C) - (F(a)+C)$","isCorrect":true},{"id":"c","text":"Fordi bestemte integral ikkje har antideriverte","isCorrect":false},{"id":"d","text":"Vi treng han, men han blir ikkje skriven av konvensjon","isCorrect":false}],"solution":"Same $C$ inngår i begge innsetjingane og forsvinn i subtraksjonen. Resultatet er uavhengig av kva for ein antiderivert vi vel."},{"id":"r2-2-5-n-quiz2-q3","task":"Kva tyder notasjonen $\\left[F(x)\\right]_a^b$?","options":[{"id":"a","text":"$F(a) - F(b)$","isCorrect":false},{"id":"b","text":"$F(b) \\cdot F(a)$","isCorrect":false},{"id":"c","text":"$F(b) - F(a)$","isCorrect":true},{"id":"d","text":"$F(b-a)$","isCorrect":false}],"solution":"Hakeparentesen med grenser tyder: set inn øvre grense, set inn nedre grense, og trekk frå — $F(b) - F(a)$. Rekkjefølgja er øvre minus nedre."}]}},{"id":"r2-2-5-n-section3","type":"text","content":"## Verktøyet i arbeid — og fellene langs vegen\n\nMed fundamentalsetninga i handa blir arealberekning konkret handverk. Arealet under $f(x) = x^2$ frå $0$ til $3$ fann vi til $9$; same oppskrift fungerer for alle dei antideriverte vi har samla:\n\n| $f(x)$ | $F(x)$ |\n|--------|--------|\n| $x^n$ ($n \\neq -1$) | $\\frac{x^{n+1}}{n+1}$ |\n| $\\frac{1}{x}$ | $\\ln|x|$ |\n| $e^x$ | $e^x$ |\n| $\\sin x$ | $-\\cos x$ |\n| $\\cos x$ | $\\sin x$ |\n\nReknereglane følgjer med på kjøpet: konstantfaktorar kan setjast utanfor, og summar blir integrerte ledd for ledd, òg mellom grenser.\n\nTre feller går att til eksamen. Den første er *forteiknsfeil ved nedre grense*: $\\left[x^2\\right]_1^3 = 9 - 1 = 8$, ikkje $9 + 1$. Den andre er å *derivere i staden for å integrere* i farten: $\\int x^2\\,dx = \\frac{x^3}{3}$, ikkje $\\frac{x^2}{2}$ — eksponenten skal opp. Den tredje er *grensene i feil rekkjefølgje*: alltid $F(\\text{øvre}) - F(\\text{nedre})$.\n\nVerdt å dvele ved til slutt: kvifor er setninga «fundamental»? Fordi ho knyter saman dei to halvdelane i analysen. Tangentproblemet (derivasjon) og arealproblemet (integrasjon) viste seg å vere inverse — og dermed kan alt vi veit om derivasjon, heile R1-verktøykassa, gjenbrukast til å bereken areal, volum og akkumulerte storleikar. Få setningar i matematikken har spart menneska for meir rekneabeid."},{"id":"r2-2-5-n-quiz3","type":"exercise","exercise":{"id":"r2-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på berekning av bestemte integral:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-5-n-quiz3-q0","task":"Kva er arealet under grafen til $f(x) = x^2$ frå $x = 0$ til $x = 3$?","options":[{"id":"a","text":"$27$","isCorrect":false},{"id":"b","text":"$6$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$9$","isCorrect":true}],"solution":"$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$ arealeiningar."},{"id":"r2-2-5-n-quiz3-q1","task":"Bereken $\\displaystyle\\int_0^{\\pi} \\sin x \\, dx$.","options":[{"id":"a","text":"$2$","isCorrect":true},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$-2$","isCorrect":false},{"id":"d","text":"$\\pi$","isCorrect":false}],"solution":"Antiderivert til $\\sin x$ er $-\\cos x$: $\\left[-\\cos x\\right]_0^{\\pi} = -\\cos\\pi - (-\\cos 0) = -(-1) + 1 = 2$."},{"id":"r2-2-5-n-quiz3-q2","task":"Ein elev reknar $\\left[x^2\\right]_1^3 = 3^2 + 1^2 = 10$. Kva er feilen?","options":[{"id":"a","text":"Den antideriverte er feil","isCorrect":false},{"id":"b","text":"Nedre grense skal trekkjast frå, ikkje leggjast til: rett svar er $9 - 1 = 8$","isCorrect":true},{"id":"c","text":"Grensene skulle vore bytte om","isCorrect":false},{"id":"d","text":"Det skulle stått $\\frac{x^3}{3}$ i parentesen","isCorrect":false}],"solution":"Notasjonen tyder $F(3) - F(1) = 9 - 1 = 8$. Å leggje til verdien i nedre grense er ein klassisk forteiknsfeil."},{"id":"r2-2-5-n-quiz3-q3","task":"Kvifor blir setninga kalla «fundamentalsetninga i analysen»?","options":[{"id":"a","text":"Fordi ho var den første setninga som vart bevist i analysen","isCorrect":false},{"id":"b","text":"Fordi Newton kalla ho det","isCorrect":false},{"id":"c","text":"Fordi ho viser at derivasjon og integrasjon er inverse operasjonar og knyter saman dei to halvdelane i analysen","isCorrect":true},{"id":"d","text":"Fordi ho berre gjeld for fundamentale funksjonar","isCorrect":false}],"solution":"Setninga foreinar tangentproblemet og arealproblemet: $\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)$ og $\\int_a^b f(x)\\,dx = F(b) - F(a)$. Det gjer ho til berebjelken i analysen."}]}},{"id":"r2-2-5-n-summary","type":"text","content":"## Oppsummering: brua står\n\nOppdaginga til Newton og Leibniz er no di: derivasjon og integrasjon er to retningar over same bru. **Del 1** seier at arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$ er deriverbar med $F'(x) = f(x)$ — arealet veks i takt med funksjonsverdien, fordi kvar ny stripe er om lag eit rektangel med høgd $f(x)$. **Del 2** haustar gevinsten: for ein vilkårleg antiderivert $F$ er\n\n$$\\int_a^b f(x)\\,dx = \\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nSlitet med Riemann-summane blir erstatta av to innsetjingar og ein subtraksjon, og konstanten $C$ kansellerer av seg sjølv. Dermed gav $\\frac{x^3}{3}$ oss $\\int_0^3 x^2\\,dx = 9$ på éi linje — same svar som rektangla, uendeleg mykje raskare. Hugsereglane: øvre minus nedre, eksponenten opp ved integrasjon, og pass forteikna ved innsetjing.\n\nFrå no av er fundamentalsetninga standardverktøyet kvar gong vi møter $\\int_a^b$. Og det skal vi gjere ofte: i dei neste kapitla set vi ho i arbeid på areal under og mellom grafar — òg der grafane stikk under $x$-aksen og forteikna byrjar å spele oss eit puss."}],"exercises":[],"_meta":{"sourceHash":"e03cbe401d62a6d2","translatedAt":"2026-06-20T00:58:40.726Z","model":"claude-code-agent","strings":67,"tm":{"15cc745435ec3cbf":"Fundamentalsetninga i analysen","b195b06d1ed59702":"Narrativ versjon","50b74abcebdbe176":"Ei forteljing om fundamentalsetninga i analysen — Newton og Leibniz si oppdaging av at derivasjon og integrasjon er inverse operasjonar, brua som gjer arealberekning til to innsetjingar og ein subtraksjon.","fcdb36be6763ca58":"forstå og bruke fundamentalsetninga i analysen","0c8b80f0a6ab947f":"bereken bestemte integral ved hjelp av antideriverte","3ea5c477df0533d9":"## Brua mellom to verder\n\nPå 1600-talet arbeidde to menn — Isaac Newton i England og Gottfried Leibniz i Tyskland — uavhengig av kvarandre med to tilsynelatande ubeslekta problem. Det eine var *tangentproblemet*: kor bratt er ei kurve i eit punkt? Det andre var *arealproblemet*: kor stort er området under ei kurve? Det første hadde blitt til derivasjonen, det andre — som vi såg hos Arkimedes og Riemann — til møysommelege grenseverdiar av rektangelsummar.\n\nSå kom oppdaginga som forandra alt: dei to problema er *same problem, spegelvendt*. Derivasjon og integrasjon opphevar kvarandre, som pluss og minus, som å pakke inn og pakke ut. Denne innsikta blir kalla **fundamentalsetninga i analysen**, og «fundamental» er inga overdriving: ho gjer at areal som kravde sider med Riemann-rekning, kan bereknast på éi linje med ein antiderivert.\n\nHugsar du slitet med $\\int_0^3 x^2\\,dx = 9$ i førre kapittel? I dette kapittelet får du sjå kvifor $\\frac{3^3}{3} - \\frac{0^3}{3}$ gir nøyaktig same svar — og kvifor det *må* vere slik.","3c7b993627ac9204":"## Del 1: Arealet veks i takt med funksjonen\n\nFørste del av fundamentalsetninga handlar om ein spesiell funksjon: **arealfunksjonen**. Lat $f$ vere kontinuerleg på $[a,b]$, og definer\n\n$$F(x) = \\int_a^x f(t) \\, dt$$\n\n— arealet under grafen til $f$ frå $a$ og fram til ein flyttbar høgre vegg $x$. (Vi bruker $t$ som integrasjonsvariabel for å ikkje blande han med grensa $x$.)\n\nSetninga seier: $F$ er deriverbar, og\n\n$$F'(x) = f(x)$$\n\nKvifor? Tenk på kva som skjer når veggen blir flytta eit lite stykke $\\Delta x$ mot høgre. Arealet aukar med ei smal stripe som er om lag eit rektangel: høgd $f(x)$, breidd $\\Delta x$, areal $\\approx f(x) \\cdot \\Delta x$. Endringsraten til arealet er dermed\n\n$$F'(x) = \\lim_{\\Delta x \\to 0} \\frac{F(x + \\Delta x) - F(x)}{\\Delta x} = f(x)$$\n\nArealet veks nøyaktig i takt med funksjonsverdien — er grafen høg der veggen står, veks arealet fort; er han låg, veks det sakte.\n\nDette gir ein forbløffande snarveg. Skal du derivere $F(x) = \\int_1^x (t^2 + 1)\\,dt$, treng du ikkje rekne ut integralet: svaret er rett og slett $F'(x) = x^2 + 1$ — integranden med $t$ bytt ut med $x$. Derivasjonen pakkar opp det integrasjonen pakka inn.","2631f05705386614":"Test deg sjølv på del 1 av fundamentalsetninga:","4097889236a2af26":"placeholder","3cf0bc74209cdf89":"Lat $F(x) = \\int_1^x (t^2 + 1)\\,dt$. Kva er $F'(x)$?","ac1d780ae4f60289":"$\\frac{x^3}{3} + x$","712ddf1f83788cbd":"$x^2 + 1$","78a5bb6d2b2ceac0":"$2x$","7f408224ea7b716f":"$x^2$","836ad8ae3a64f80c":"Fundamentalsetninga del 1: $F'(x) = f(x) = x^2 + 1$. Vi treng ikkje bereken integralet.","b221d623df470be0":"Kva seier del 1 av fundamentalsetninga om arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$?","64ef76baadcaf316":"At $F(x) = f(x) + C$","8dac95b1683518bc":"At $F$ er ein lineær funksjon","6f245f5dacbcd620":"At $F'(x) = f(x)$","2adb289c07d38560":"At $F(a) = f(a)$","58c49d53dc2593e9":"Den deriverte av arealfunksjonen er integranden: $F'(x) = f(x)$. Integrasjon og derivasjon er inverse operasjonar.","4aa23a4b84f9c6e3":"Kvifor veks arealfunksjonen raskt der $f$ har store verdiar?","830fc043ce365173":"Fordi den nye areal-stripa er om lag eit rektangel med høgd $f(x)$ — høg graf gir brei vekst per steg","f4a83cbea35be7fe":"Fordi integralet alltid veks raskare enn funksjonen","91ada4cc5a749551":"Fordi $\\Delta x$ blir større der grafen er høg","8190b69c25aeb593":"Det stemmer ikkje — arealet veks jamt uansett","d982d22f681e0edc":"Når øvre grense blir flytta $\\Delta x$ mot høgre, aukar arealet med ca. $f(x) \\cdot \\Delta x$. Endringsraten er altså $f(x)$ — stor funksjonsverdi gir rask arealvekst.","340f9a1a17942e2c":"## Del 2: Snarvegen som endra matematikken\n\nDel 1 sa at arealfunksjonen er *ein* antiderivert til $f$. Del 2 haustar gevinsten: lat $F$ vere *kva som helst* antiderivert til $f$. Då er\n\n$$\\int_a^b f(x) \\, dx = F(b) - F(a)$$\n\nHeile Riemann-maskineriet — inndelingar, rektangel, summeformlar, grenseverdiar — blir erstatta av to innsetjingar og ein subtraksjon. For evalueringa finst ein eigen notasjon, gjerne kalla Newton–Leibniz-notasjonen:\n\n$$\\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nLat oss kjenne på krafta. Først $\\int_1^4 2x\\,dx$: den antideriverte er $x^2$, så\n\n$$\\int_1^4 2x \\, dx = \\left[x^2\\right]_1^4 = 16 - 1 = 15$$\n\nSå gjelda frå førre kapittel — arealet under parabelen:\n\n$$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$$\n\nSame svar som sidene med Riemann-rekning gav, no på éi linje. Eit døme med fleire ledd: $\\int_1^2 (3x^2 - 4x + 1)\\,dx = \\left[x^3 - 2x^2 + x\\right]_1^2 = (8 - 8 + 2) - (1 - 2 + 1) = 2$.\n\nOg legg merke til ein detalj: integrasjonskonstanten $C$ er borte. Det er ikkje slurv — han kansellerer seg sjølv: $(F(b) + C) - (F(a) + C) = F(b) - F(a)$. I bestemte integral spelar valet av antiderivert inga rolle.","9843f91bb704d354":"Test deg sjølv på del 2 av fundamentalsetninga:","c6366e7af0559081":"Bereken $\\displaystyle\\int_1^4 2x \\, dx$.","1f346a73bec740fe":"$\\left[x^2\\right]_1^4 = 4^2 - 1^2 = 16 - 1 = 15$.","46b65d4648f03e47":"Bereken $\\displaystyle\\int_1^2 (3x^2 - 4x + 1) \\, dx$.","5b367e6aa53c860b":"Antiderivert: $x^3 - 2x^2 + x$. Innsett: $(8 - 8 + 2) - (1 - 2 + 1) = 2 - 0 = 2$.","c33a2982fb5fcd80":"Kvifor treng vi ikkje integrasjonskonstanten $C$ i bestemte integral?","1e4ef6de9632aaa2":"Fordi $C$ alltid er null for bestemte integral","4ce0664b2298299a":"Fordi $C$ kansellerer i differansen $(F(b)+C) - (F(a)+C)$","e705694141a2f2b6":"Fordi bestemte integral ikkje har antideriverte","6dd550f7e9dc4fe8":"Vi treng han, men han blir ikkje skriven av konvensjon","d1cd60618780fc5b":"Same $C$ inngår i begge innsetjingane og forsvinn i subtraksjonen. Resultatet er uavhengig av kva for ein antiderivert vi vel.","90d9cf82a1caf007":"Kva tyder notasjonen $\\left[F(x)\\right]_a^b$?","fe8759dc459adca7":"$F(a) - F(b)$","534ae77fd7bd6538":"$F(b) \\cdot F(a)$","c78f118bd707d6a4":"$F(b) - F(a)$","093ef7b87c3f007e":"$F(b-a)$","ce6583ef89db5ee3":"Hakeparentesen med grenser tyder: set inn øvre grense, set inn nedre grense, og trekk frå — $F(b) - F(a)$. Rekkjefølgja er øvre minus nedre.","4f1e9cde1cc01365":"## Verktøyet i arbeid — og fellene langs vegen\n\nMed fundamentalsetninga i handa blir arealberekning konkret handverk. Arealet under $f(x) = x^2$ frå $0$ til $3$ fann vi til $9$; same oppskrift fungerer for alle dei antideriverte vi har samla:\n\n| $f(x)$ | $F(x)$ |\n|--------|--------|\n| $x^n$ ($n \\neq -1$) | $\\frac{x^{n+1}}{n+1}$ |\n| $\\frac{1}{x}$ | $\\ln|x|$ |\n| $e^x$ | $e^x$ |\n| $\\sin x$ | $-\\cos x$ |\n| $\\cos x$ | $\\sin x$ |\n\nReknereglane følgjer med på kjøpet: konstantfaktorar kan setjast utanfor, og summar blir integrerte ledd for ledd, òg mellom grenser.\n\nTre feller går att til eksamen. Den første er *forteiknsfeil ved nedre grense*: $\\left[x^2\\right]_1^3 = 9 - 1 = 8$, ikkje $9 + 1$. Den andre er å *derivere i staden for å integrere* i farten: $\\int x^2\\,dx = \\frac{x^3}{3}$, ikkje $\\frac{x^2}{2}$ — eksponenten skal opp. Den tredje er *grensene i feil rekkjefølgje*: alltid $F(\\text{øvre}) - F(\\text{nedre})$.\n\nVerdt å dvele ved til slutt: kvifor er setninga «fundamental»? Fordi ho knyter saman dei to halvdelane i analysen. Tangentproblemet (derivasjon) og arealproblemet (integrasjon) viste seg å vere inverse — og dermed kan alt vi veit om derivasjon, heile R1-verktøykassa, gjenbrukast til å bereken areal, volum og akkumulerte storleikar. Få setningar i matematikken har spart menneska for meir rekneabeid.","621b69106614c27f":"Test deg sjølv på berekning av bestemte integral:","5a1fe478e5d30a87":"Kva er arealet under grafen til $f(x) = x^2$ frå $x = 0$ til $x = 3$?","1b0f54e4985d7e77":"$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$ arealeiningar.","d43d70b03dd6bc7f":"Bereken $\\displaystyle\\int_0^{\\pi} \\sin x \\, dx$.","7fb34fd76c28bba5":"$\\pi$","4307076242b2e210":"Antiderivert til $\\sin x$ er $-\\cos x$: $\\left[-\\cos x\\right]_0^{\\pi} = -\\cos\\pi - (-\\cos 0) = -(-1) + 1 = 2$.","c7dd8f4f35ae6f9f":"Ein elev reknar $\\left[x^2\\right]_1^3 = 3^2 + 1^2 = 10$. Kva er feilen?","fe42c6439cfba3f3":"Den antideriverte er feil","2f2689737ee8e2ce":"Nedre grense skal trekkjast frå, ikkje leggjast til: rett svar er $9 - 1 = 8$","32c9ef4b0def25e6":"Grensene skulle vore bytte om","4bcad4d7770044e6":"Det skulle stått $\\frac{x^3}{3}$ i parentesen","eff2f7cb5ad88e31":"Notasjonen tyder $F(3) - F(1) = 9 - 1 = 8$. Å leggje til verdien i nedre grense er ein klassisk forteiknsfeil.","6826fd47d84dd1ce":"Kvifor blir setninga kalla «fundamentalsetninga i analysen»?","b84f236ea5fda966":"Fordi ho var den første setninga som vart bevist i analysen","94b477b5133b54df":"Fordi Newton kalla ho det","acc573fafcc92eb1":"Fordi ho viser at derivasjon og integrasjon er inverse operasjonar og knyter saman dei to halvdelane i analysen","b6c60edbc0ba79a1":"Fordi ho berre gjeld for fundamentale funksjonar","459bca17b505bd1a":"Setninga foreinar tangentproblemet og arealproblemet: $\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)$ og $\\int_a^b f(x)\\,dx = F(b) - F(a)$. Det gjer ho til berebjelken i analysen.","2c2a10cf90c7058a":"## Oppsummering: brua står\n\nOppdaginga til Newton og Leibniz er no di: derivasjon og integrasjon er to retningar over same bru. **Del 1** seier at arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$ er deriverbar med $F'(x) = f(x)$ — arealet veks i takt med funksjonsverdien, fordi kvar ny stripe er om lag eit rektangel med høgd $f(x)$. **Del 2** haustar gevinsten: for ein vilkårleg antiderivert $F$ er\n\n$$\\int_a^b f(x)\\,dx = \\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nSlitet med Riemann-summane blir erstatta av to innsetjingar og ein subtraksjon, og konstanten $C$ kansellerer av seg sjølv. Dermed gav $\\frac{x^3}{3}$ oss $\\int_0^3 x^2\\,dx = 9$ på éi linje — same svar som rektangla, uendeleg mykje raskare. Hugsereglane: øvre minus nedre, eksponenten opp ved integrasjon, og pass forteikna ved innsetjing.\n\nFrå no av er fundamentalsetninga standardverktøyet kvar gong vi møter $\\int_a^b$. Og det skal vi gjere ofte: i dei neste kapitla set vi ho i arbeid på areal under og mellom grafar — òg der grafane stikk under $x$-aksen og forteikna byrjar å spele oss eit puss."}}}
+{
+  "id": "r2-2-5-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "2.5",
+  "title": "Fundamentalsetninga i analysen",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om fundamentalsetninga i analysen — Newton og Leibniz si oppdaging av at derivasjon og integrasjon er inverse operasjonar, brua som gjer arealberekning til to innsetjingar og ein subtraksjon.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "forstå og bruke fundamentalsetninga i analysen",
+    "bereken bestemte integral ved hjelp av antideriverte"
+  ],
+  "linkedChapterId": "r2-2-5",
+  "content": [
+    {
+      "id": "r2-2-5-n-intro",
+      "type": "text",
+      "content": "## Brua mellom to verder\n\nPå 1600-talet arbeidde to menn — Isaac Newton i England og Gottfried Leibniz i Tyskland — uavhengig av kvarandre med to tilsynelatande ubeslekta problem. Det eine var *tangentproblemet*: kor bratt er ei kurve i eit punkt? Det andre var *arealproblemet*: kor stort er området under ei kurve? Det første hadde blitt til derivasjonen, det andre — som vi såg hos Arkimedes og Riemann — til møysommelege grenseverdiar av rektangelsummar.\n\nSå kom oppdaginga som forandra alt: dei to problema er *same problem, spegelvendt*. Derivasjon og integrasjon opphevar kvarandre, som pluss og minus, som å pakke inn og pakke ut. Denne innsikta blir kalla **fundamentalsetninga i analysen**, og «fundamental» er inga overdriving: ho gjer at areal som kravde sider med Riemann-rekning, kan bereknast på éi linje med ein antiderivert.\n\nHugsar du slitet med $\\int_0^3 x^2\\,dx = 9$ i førre kapittel? I dette kapittelet får du sjå kvifor $\\frac{3^3}{3} - \\frac{0^3}{3}$ gir nøyaktig same svar — og kvifor det *må* vere slik."
+    },
+    {
+      "id": "r2-2-5-n-section1",
+      "type": "text",
+      "content": "## Del 1: Arealet veks i takt med funksjonen\n\nFørste del av fundamentalsetninga handlar om ein spesiell funksjon: **arealfunksjonen**. Lat $f$ vere kontinuerleg på $[a,b]$, og definer\n\n$$F(x) = \\int_a^x f(t) \\, dt$$\n\n— arealet under grafen til $f$ frå $a$ og fram til ein flyttbar høgre vegg $x$. (Vi bruker $t$ som integrasjonsvariabel for å ikkje blande han med grensa $x$.)\n\nSetninga seier: $F$ er deriverbar, og\n\n$$F'(x) = f(x)$$\n\nKvifor? Tenk på kva som skjer når veggen blir flytta eit lite stykke $\\Delta x$ mot høgre. Arealet aukar med ei smal stripe som er om lag eit rektangel: høgd $f(x)$, breidd $\\Delta x$, areal $\\approx f(x) \\cdot \\Delta x$. Endringsraten til arealet er dermed\n\n$$F'(x) = \\lim_{\\Delta x \\to 0} \\frac{F(x + \\Delta x) - F(x)}{\\Delta x} = f(x)$$\n\nArealet veks nøyaktig i takt med funksjonsverdien — er grafen høg der veggen står, veks arealet fort; er han låg, veks det sakte.\n\nDette gir ein forbløffande snarveg. Skal du derivere $F(x) = \\int_1^x (t^2 + 1)\\,dt$, treng du ikkje rekne ut integralet: svaret er rett og slett $F'(x) = x^2 + 1$ — integranden med $t$ bytt ut med $x$. Derivasjonen pakkar opp det integrasjonen pakka inn."
+    },
+    {
+      "id": "r2-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på del 1 av fundamentalsetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-5-n-quiz1-q0",
+            "task": "Lat $F(x) = \\int_1^x (t^2 + 1)\\,dt$. Kva er $F'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{x^3}{3} + x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^2 + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fundamentalsetninga del 1: $F'(x) = f(x) = x^2 + 1$. Vi treng ikkje bereken integralet."
+          },
+          {
+            "id": "r2-2-5-n-quiz1-q1",
+            "task": "Kva seier del 1 av fundamentalsetninga om arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At $F(x) = f(x) + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At $F$ er ein lineær funksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At $F'(x) = f(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At $F(a) = f(a)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte av arealfunksjonen er integranden: $F'(x) = f(x)$. Integrasjon og derivasjon er inverse operasjonar."
+          },
+          {
+            "id": "r2-2-5-n-quiz1-q2",
+            "task": "Kvifor veks arealfunksjonen raskt der $f$ har store verdiar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi integralet alltid veks raskare enn funksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $\\Delta x$ blir større der grafen er høg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det stemmer ikkje — arealet veks jamt uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi den nye areal-stripa er om lag eit rektangel med høgd $f(x)$ — høg graf gir brei vekst per steg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når øvre grense blir flytta $\\Delta x$ mot høgre, aukar arealet med ca. $f(x) \\cdot \\Delta x$. Endringsraten er altså $f(x)$ — stor funksjonsverdi gir rask arealvekst."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-5-n-section2",
+      "type": "text",
+      "content": "## Del 2: Snarvegen som endra matematikken\n\nDel 1 sa at arealfunksjonen er *ein* antiderivert til $f$. Del 2 haustar gevinsten: lat $F$ vere *kva som helst* antiderivert til $f$. Då er\n\n$$\\int_a^b f(x) \\, dx = F(b) - F(a)$$\n\nHeile Riemann-maskineriet — inndelingar, rektangel, summeformlar, grenseverdiar — blir erstatta av to innsetjingar og ein subtraksjon. For evalueringa finst ein eigen notasjon, gjerne kalla Newton–Leibniz-notasjonen:\n\n$$\\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nLat oss kjenne på krafta. Først $\\int_1^4 2x\\,dx$: den antideriverte er $x^2$, så\n\n$$\\int_1^4 2x \\, dx = \\left[x^2\\right]_1^4 = 16 - 1 = 15$$\n\nSå gjelda frå førre kapittel — arealet under parabelen:\n\n$$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$$\n\nSame svar som sidene med Riemann-rekning gav, no på éi linje. Eit døme med fleire ledd: $\\int_1^2 (3x^2 - 4x + 1)\\,dx = \\left[x^3 - 2x^2 + x\\right]_1^2 = (8 - 8 + 2) - (1 - 2 + 1) = 2$.\n\nOg legg merke til ein detalj: integrasjonskonstanten $C$ er borte. Det er ikkje slurv — han kansellerer seg sjølv: $(F(b) + C) - (F(a) + C) = F(b) - F(a)$. I bestemte integral spelar valet av antiderivert inga rolle."
+    },
+    {
+      "id": "r2-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på del 2 av fundamentalsetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-5-n-quiz2-q0",
+            "task": "Bereken $\\displaystyle\\int_1^4 2x \\, dx$.",
+            "options": [
+              {
+                "id": "d",
+                "text": "$15$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$17$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\left[x^2\\right]_1^4 = 4^2 - 1^2 = 16 - 1 = 15$."
+          },
+          {
+            "id": "r2-2-5-n-quiz2-q1",
+            "task": "Bereken $\\displaystyle\\int_1^2 (3x^2 - 4x + 1) \\, dx$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Antiderivert: $x^3 - 2x^2 + x$. Innsett: $(8 - 8 + 2) - (1 - 2 + 1) = 2 - 0 = 2$."
+          },
+          {
+            "id": "r2-2-5-n-quiz2-q2",
+            "task": "Kvifor treng vi ikkje integrasjonskonstanten $C$ i bestemte integral?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $C$ alltid er null for bestemte integral",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi bestemte integral ikkje har antideriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $C$ kansellerer i differansen $(F(b)+C) - (F(a)+C)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Vi treng han, men han blir ikkje skriven av konvensjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Same $C$ inngår i begge innsetjingane og forsvinn i subtraksjonen. Resultatet er uavhengig av kva for ein antiderivert vi vel."
+          },
+          {
+            "id": "r2-2-5-n-quiz2-q3",
+            "task": "Kva tyder notasjonen $\\left[F(x)\\right]_a^b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$F(a) - F(b)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$F(b) \\cdot F(a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$F(b-a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$F(b) - F(a)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hakeparentesen med grenser tyder: set inn øvre grense, set inn nedre grense, og trekk frå — $F(b) - F(a)$. Rekkjefølgja er øvre minus nedre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-5-n-section3",
+      "type": "text",
+      "content": "## Verktøyet i arbeid — og fellene langs vegen\n\nMed fundamentalsetninga i handa blir arealberekning konkret handverk. Arealet under $f(x) = x^2$ frå $0$ til $3$ fann vi til $9$; same oppskrift fungerer for alle dei antideriverte vi har samla:\n\n| $f(x)$ | $F(x)$ |\n|--------|--------|\n| $x^n$ ($n \\neq -1$) | $\\frac{x^{n+1}}{n+1}$ |\n| $\\frac{1}{x}$ | $\\ln|x|$ |\n| $e^x$ | $e^x$ |\n| $\\sin x$ | $-\\cos x$ |\n| $\\cos x$ | $\\sin x$ |\n\nReknereglane følgjer med på kjøpet: konstantfaktorar kan setjast utanfor, og summar blir integrerte ledd for ledd, òg mellom grenser.\n\nTre feller går att til eksamen. Den første er *forteiknsfeil ved nedre grense*: $\\left[x^2\\right]_1^3 = 9 - 1 = 8$, ikkje $9 + 1$. Den andre er å *derivere i staden for å integrere* i farten: $\\int x^2\\,dx = \\frac{x^3}{3}$, ikkje $\\frac{x^2}{2}$ — eksponenten skal opp. Den tredje er *grensene i feil rekkjefølgje*: alltid $F(\\text{øvre}) - F(\\text{nedre})$.\n\nVerdt å dvele ved til slutt: kvifor er setninga «fundamental»? Fordi ho knyter saman dei to halvdelane i analysen. Tangentproblemet (derivasjon) og arealproblemet (integrasjon) viste seg å vere inverse — og dermed kan alt vi veit om derivasjon, heile R1-verktøykassa, gjenbrukast til å bereken areal, volum og akkumulerte storleikar. Få setningar i matematikken har spart menneska for meir rekneabeid."
+    },
+    {
+      "id": "r2-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på berekning av bestemte integral:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-5-n-quiz3-q0",
+            "task": "Kva er arealet under grafen til $f(x) = x^2$ frå $x = 0$ til $x = 3$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$27$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$ arealeiningar."
+          },
+          {
+            "id": "r2-2-5-n-quiz3-q1",
+            "task": "Bereken $\\displaystyle\\int_0^{\\pi} \\sin x \\, dx$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\pi$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Antiderivert til $\\sin x$ er $-\\cos x$: $\\left[-\\cos x\\right]_0^{\\pi} = -\\cos\\pi - (-\\cos 0) = -(-1) + 1 = 2$."
+          },
+          {
+            "id": "r2-2-5-n-quiz3-q2",
+            "task": "Ein elev reknar $\\left[x^2\\right]_1^3 = 3^2 + 1^2 = 10$. Kva er feilen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den antideriverte er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Grensene skulle vore bytte om",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nedre grense skal trekkjast frå, ikkje leggjast til: rett svar er $9 - 1 = 8$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det skulle stått $\\frac{x^3}{3}$ i parentesen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Notasjonen tyder $F(3) - F(1) = 9 - 1 = 8$. Å leggje til verdien i nedre grense er ein klassisk forteiknsfeil."
+          },
+          {
+            "id": "r2-2-5-n-quiz3-q3",
+            "task": "Kvifor blir setninga kalla «fundamentalsetninga i analysen»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi ho var den første setninga som vart bevist i analysen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi Newton kalla ho det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi ho berre gjeld for fundamentale funksjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi ho viser at derivasjon og integrasjon er inverse operasjonar og knyter saman dei to halvdelane i analysen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Setninga foreinar tangentproblemet og arealproblemet: $\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)$ og $\\int_a^b f(x)\\,dx = F(b) - F(a)$. Det gjer ho til berebjelken i analysen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: brua står\n\nOppdaginga til Newton og Leibniz er no di: derivasjon og integrasjon er to retningar over same bru. **Del 1** seier at arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$ er deriverbar med $F'(x) = f(x)$ — arealet veks i takt med funksjonsverdien, fordi kvar ny stripe er om lag eit rektangel med høgd $f(x)$. **Del 2** haustar gevinsten: for ein vilkårleg antiderivert $F$ er\n\n$$\\int_a^b f(x)\\,dx = \\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nSlitet med Riemann-summane blir erstatta av to innsetjingar og ein subtraksjon, og konstanten $C$ kansellerer av seg sjølv. Dermed gav $\\frac{x^3}{3}$ oss $\\int_0^3 x^2\\,dx = 9$ på éi linje — same svar som rektangla, uendeleg mykje raskare. Hugsereglane: øvre minus nedre, eksponenten opp ved integrasjon, og pass forteikna ved innsetjing.\n\nFrå no av er fundamentalsetninga standardverktøyet kvar gong vi møter $\\int_a^b$. Og det skal vi gjere ofte: i dei neste kapitla set vi ho i arbeid på areal under og mellom grafar — òg der grafane stikk under $x$-aksen og forteikna byrjar å spele oss eit puss."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "e03cbe401d62a6d2",
+    "translatedAt": "2026-06-20T00:58:40.726Z",
+    "model": "claude-code-agent",
+    "strings": 67,
+    "tm": {
+      "15cc745435ec3cbf": "Fundamentalsetninga i analysen",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "50b74abcebdbe176": "Ei forteljing om fundamentalsetninga i analysen — Newton og Leibniz si oppdaging av at derivasjon og integrasjon er inverse operasjonar, brua som gjer arealberekning til to innsetjingar og ein subtraksjon.",
+      "fcdb36be6763ca58": "forstå og bruke fundamentalsetninga i analysen",
+      "0c8b80f0a6ab947f": "bereken bestemte integral ved hjelp av antideriverte",
+      "3ea5c477df0533d9": "## Brua mellom to verder\n\nPå 1600-talet arbeidde to menn — Isaac Newton i England og Gottfried Leibniz i Tyskland — uavhengig av kvarandre med to tilsynelatande ubeslekta problem. Det eine var *tangentproblemet*: kor bratt er ei kurve i eit punkt? Det andre var *arealproblemet*: kor stort er området under ei kurve? Det første hadde blitt til derivasjonen, det andre — som vi såg hos Arkimedes og Riemann — til møysommelege grenseverdiar av rektangelsummar.\n\nSå kom oppdaginga som forandra alt: dei to problema er *same problem, spegelvendt*. Derivasjon og integrasjon opphevar kvarandre, som pluss og minus, som å pakke inn og pakke ut. Denne innsikta blir kalla **fundamentalsetninga i analysen**, og «fundamental» er inga overdriving: ho gjer at areal som kravde sider med Riemann-rekning, kan bereknast på éi linje med ein antiderivert.\n\nHugsar du slitet med $\\int_0^3 x^2\\,dx = 9$ i førre kapittel? I dette kapittelet får du sjå kvifor $\\frac{3^3}{3} - \\frac{0^3}{3}$ gir nøyaktig same svar — og kvifor det *må* vere slik.",
+      "3c7b993627ac9204": "## Del 1: Arealet veks i takt med funksjonen\n\nFørste del av fundamentalsetninga handlar om ein spesiell funksjon: **arealfunksjonen**. Lat $f$ vere kontinuerleg på $[a,b]$, og definer\n\n$$F(x) = \\int_a^x f(t) \\, dt$$\n\n— arealet under grafen til $f$ frå $a$ og fram til ein flyttbar høgre vegg $x$. (Vi bruker $t$ som integrasjonsvariabel for å ikkje blande han med grensa $x$.)\n\nSetninga seier: $F$ er deriverbar, og\n\n$$F'(x) = f(x)$$\n\nKvifor? Tenk på kva som skjer når veggen blir flytta eit lite stykke $\\Delta x$ mot høgre. Arealet aukar med ei smal stripe som er om lag eit rektangel: høgd $f(x)$, breidd $\\Delta x$, areal $\\approx f(x) \\cdot \\Delta x$. Endringsraten til arealet er dermed\n\n$$F'(x) = \\lim_{\\Delta x \\to 0} \\frac{F(x + \\Delta x) - F(x)}{\\Delta x} = f(x)$$\n\nArealet veks nøyaktig i takt med funksjonsverdien — er grafen høg der veggen står, veks arealet fort; er han låg, veks det sakte.\n\nDette gir ein forbløffande snarveg. Skal du derivere $F(x) = \\int_1^x (t^2 + 1)\\,dt$, treng du ikkje rekne ut integralet: svaret er rett og slett $F'(x) = x^2 + 1$ — integranden med $t$ bytt ut med $x$. Derivasjonen pakkar opp det integrasjonen pakka inn.",
+      "2631f05705386614": "Test deg sjølv på del 1 av fundamentalsetninga:",
+      "4097889236a2af26": "placeholder",
+      "3cf0bc74209cdf89": "Lat $F(x) = \\int_1^x (t^2 + 1)\\,dt$. Kva er $F'(x)$?",
+      "ac1d780ae4f60289": "$\\frac{x^3}{3} + x$",
+      "712ddf1f83788cbd": "$x^2 + 1$",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "7f408224ea7b716f": "$x^2$",
+      "836ad8ae3a64f80c": "Fundamentalsetninga del 1: $F'(x) = f(x) = x^2 + 1$. Vi treng ikkje bereken integralet.",
+      "b221d623df470be0": "Kva seier del 1 av fundamentalsetninga om arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$?",
+      "64ef76baadcaf316": "At $F(x) = f(x) + C$",
+      "8dac95b1683518bc": "At $F$ er ein lineær funksjon",
+      "6f245f5dacbcd620": "At $F'(x) = f(x)$",
+      "2adb289c07d38560": "At $F(a) = f(a)$",
+      "58c49d53dc2593e9": "Den deriverte av arealfunksjonen er integranden: $F'(x) = f(x)$. Integrasjon og derivasjon er inverse operasjonar.",
+      "4aa23a4b84f9c6e3": "Kvifor veks arealfunksjonen raskt der $f$ har store verdiar?",
+      "830fc043ce365173": "Fordi den nye areal-stripa er om lag eit rektangel med høgd $f(x)$ — høg graf gir brei vekst per steg",
+      "f4a83cbea35be7fe": "Fordi integralet alltid veks raskare enn funksjonen",
+      "91ada4cc5a749551": "Fordi $\\Delta x$ blir større der grafen er høg",
+      "8190b69c25aeb593": "Det stemmer ikkje — arealet veks jamt uansett",
+      "d982d22f681e0edc": "Når øvre grense blir flytta $\\Delta x$ mot høgre, aukar arealet med ca. $f(x) \\cdot \\Delta x$. Endringsraten er altså $f(x)$ — stor funksjonsverdi gir rask arealvekst.",
+      "340f9a1a17942e2c": "## Del 2: Snarvegen som endra matematikken\n\nDel 1 sa at arealfunksjonen er *ein* antiderivert til $f$. Del 2 haustar gevinsten: lat $F$ vere *kva som helst* antiderivert til $f$. Då er\n\n$$\\int_a^b f(x) \\, dx = F(b) - F(a)$$\n\nHeile Riemann-maskineriet — inndelingar, rektangel, summeformlar, grenseverdiar — blir erstatta av to innsetjingar og ein subtraksjon. For evalueringa finst ein eigen notasjon, gjerne kalla Newton–Leibniz-notasjonen:\n\n$$\\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nLat oss kjenne på krafta. Først $\\int_1^4 2x\\,dx$: den antideriverte er $x^2$, så\n\n$$\\int_1^4 2x \\, dx = \\left[x^2\\right]_1^4 = 16 - 1 = 15$$\n\nSå gjelda frå førre kapittel — arealet under parabelen:\n\n$$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$$\n\nSame svar som sidene med Riemann-rekning gav, no på éi linje. Eit døme med fleire ledd: $\\int_1^2 (3x^2 - 4x + 1)\\,dx = \\left[x^3 - 2x^2 + x\\right]_1^2 = (8 - 8 + 2) - (1 - 2 + 1) = 2$.\n\nOg legg merke til ein detalj: integrasjonskonstanten $C$ er borte. Det er ikkje slurv — han kansellerer seg sjølv: $(F(b) + C) - (F(a) + C) = F(b) - F(a)$. I bestemte integral spelar valet av antiderivert inga rolle.",
+      "9843f91bb704d354": "Test deg sjølv på del 2 av fundamentalsetninga:",
+      "c6366e7af0559081": "Bereken $\\displaystyle\\int_1^4 2x \\, dx$.",
+      "1f346a73bec740fe": "$\\left[x^2\\right]_1^4 = 4^2 - 1^2 = 16 - 1 = 15$.",
+      "46b65d4648f03e47": "Bereken $\\displaystyle\\int_1^2 (3x^2 - 4x + 1) \\, dx$.",
+      "5b367e6aa53c860b": "Antiderivert: $x^3 - 2x^2 + x$. Innsett: $(8 - 8 + 2) - (1 - 2 + 1) = 2 - 0 = 2$.",
+      "c33a2982fb5fcd80": "Kvifor treng vi ikkje integrasjonskonstanten $C$ i bestemte integral?",
+      "1e4ef6de9632aaa2": "Fordi $C$ alltid er null for bestemte integral",
+      "4ce0664b2298299a": "Fordi $C$ kansellerer i differansen $(F(b)+C) - (F(a)+C)$",
+      "e705694141a2f2b6": "Fordi bestemte integral ikkje har antideriverte",
+      "6dd550f7e9dc4fe8": "Vi treng han, men han blir ikkje skriven av konvensjon",
+      "d1cd60618780fc5b": "Same $C$ inngår i begge innsetjingane og forsvinn i subtraksjonen. Resultatet er uavhengig av kva for ein antiderivert vi vel.",
+      "90d9cf82a1caf007": "Kva tyder notasjonen $\\left[F(x)\\right]_a^b$?",
+      "fe8759dc459adca7": "$F(a) - F(b)$",
+      "534ae77fd7bd6538": "$F(b) \\cdot F(a)$",
+      "c78f118bd707d6a4": "$F(b) - F(a)$",
+      "093ef7b87c3f007e": "$F(b-a)$",
+      "ce6583ef89db5ee3": "Hakeparentesen med grenser tyder: set inn øvre grense, set inn nedre grense, og trekk frå — $F(b) - F(a)$. Rekkjefølgja er øvre minus nedre.",
+      "4f1e9cde1cc01365": "## Verktøyet i arbeid — og fellene langs vegen\n\nMed fundamentalsetninga i handa blir arealberekning konkret handverk. Arealet under $f(x) = x^2$ frå $0$ til $3$ fann vi til $9$; same oppskrift fungerer for alle dei antideriverte vi har samla:\n\n| $f(x)$ | $F(x)$ |\n|--------|--------|\n| $x^n$ ($n \\neq -1$) | $\\frac{x^{n+1}}{n+1}$ |\n| $\\frac{1}{x}$ | $\\ln|x|$ |\n| $e^x$ | $e^x$ |\n| $\\sin x$ | $-\\cos x$ |\n| $\\cos x$ | $\\sin x$ |\n\nReknereglane følgjer med på kjøpet: konstantfaktorar kan setjast utanfor, og summar blir integrerte ledd for ledd, òg mellom grenser.\n\nTre feller går att til eksamen. Den første er *forteiknsfeil ved nedre grense*: $\\left[x^2\\right]_1^3 = 9 - 1 = 8$, ikkje $9 + 1$. Den andre er å *derivere i staden for å integrere* i farten: $\\int x^2\\,dx = \\frac{x^3}{3}$, ikkje $\\frac{x^2}{2}$ — eksponenten skal opp. Den tredje er *grensene i feil rekkjefølgje*: alltid $F(\\text{øvre}) - F(\\text{nedre})$.\n\nVerdt å dvele ved til slutt: kvifor er setninga «fundamental»? Fordi ho knyter saman dei to halvdelane i analysen. Tangentproblemet (derivasjon) og arealproblemet (integrasjon) viste seg å vere inverse — og dermed kan alt vi veit om derivasjon, heile R1-verktøykassa, gjenbrukast til å bereken areal, volum og akkumulerte storleikar. Få setningar i matematikken har spart menneska for meir rekneabeid.",
+      "621b69106614c27f": "Test deg sjølv på berekning av bestemte integral:",
+      "5a1fe478e5d30a87": "Kva er arealet under grafen til $f(x) = x^2$ frå $x = 0$ til $x = 3$?",
+      "1b0f54e4985d7e77": "$\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{27}{3} - 0 = 9$ arealeiningar.",
+      "d43d70b03dd6bc7f": "Bereken $\\displaystyle\\int_0^{\\pi} \\sin x \\, dx$.",
+      "7fb34fd76c28bba5": "$\\pi$",
+      "4307076242b2e210": "Antiderivert til $\\sin x$ er $-\\cos x$: $\\left[-\\cos x\\right]_0^{\\pi} = -\\cos\\pi - (-\\cos 0) = -(-1) + 1 = 2$.",
+      "c7dd8f4f35ae6f9f": "Ein elev reknar $\\left[x^2\\right]_1^3 = 3^2 + 1^2 = 10$. Kva er feilen?",
+      "fe42c6439cfba3f3": "Den antideriverte er feil",
+      "2f2689737ee8e2ce": "Nedre grense skal trekkjast frå, ikkje leggjast til: rett svar er $9 - 1 = 8$",
+      "32c9ef4b0def25e6": "Grensene skulle vore bytte om",
+      "4bcad4d7770044e6": "Det skulle stått $\\frac{x^3}{3}$ i parentesen",
+      "eff2f7cb5ad88e31": "Notasjonen tyder $F(3) - F(1) = 9 - 1 = 8$. Å leggje til verdien i nedre grense er ein klassisk forteiknsfeil.",
+      "6826fd47d84dd1ce": "Kvifor blir setninga kalla «fundamentalsetninga i analysen»?",
+      "b84f236ea5fda966": "Fordi ho var den første setninga som vart bevist i analysen",
+      "94b477b5133b54df": "Fordi Newton kalla ho det",
+      "acc573fafcc92eb1": "Fordi ho viser at derivasjon og integrasjon er inverse operasjonar og knyter saman dei to halvdelane i analysen",
+      "b6c60edbc0ba79a1": "Fordi ho berre gjeld for fundamentale funksjonar",
+      "459bca17b505bd1a": "Setninga foreinar tangentproblemet og arealproblemet: $\\frac{d}{dx}\\int_a^x f(t)\\,dt = f(x)$ og $\\int_a^b f(x)\\,dx = F(b) - F(a)$. Det gjer ho til berebjelken i analysen.",
+      "2c2a10cf90c7058a": "## Oppsummering: brua står\n\nOppdaginga til Newton og Leibniz er no di: derivasjon og integrasjon er to retningar over same bru. **Del 1** seier at arealfunksjonen $F(x) = \\int_a^x f(t)\\,dt$ er deriverbar med $F'(x) = f(x)$ — arealet veks i takt med funksjonsverdien, fordi kvar ny stripe er om lag eit rektangel med høgd $f(x)$. **Del 2** haustar gevinsten: for ein vilkårleg antiderivert $F$ er\n\n$$\\int_a^b f(x)\\,dx = \\left[F(x)\\right]_a^b = F(b) - F(a)$$\n\nSlitet med Riemann-summane blir erstatta av to innsetjingar og ein subtraksjon, og konstanten $C$ kansellerer av seg sjølv. Dermed gav $\\frac{x^3}{3}$ oss $\\int_0^3 x^2\\,dx = 9$ på éi linje — same svar som rektangla, uendeleg mykje raskare. Hugsereglane: øvre minus nedre, eksponenten opp ved integrasjon, og pass forteikna ved innsetjing.\n\nFrå no av er fundamentalsetninga standardverktøyet kvar gong vi møter $\\int_a^b$. Og det skal vi gjere ofte: i dei neste kapitla set vi ho i arbeid på areal under og mellom grafar — òg der grafane stikk under $x$-aksen og forteikna byrjar å spele oss eit puss."
+    }
+  }
+}

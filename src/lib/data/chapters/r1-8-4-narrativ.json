@@ -1,1 +1,561 @@
-{"id":"r1-8-4-narrativ","courseId":"r1","chapterNumber":"8.4","title":"Betinget sannsynlighet","subtitle":"Narrativ versjon","description":"En fortelling om hvordan informasjon forandrer sannsynligheter – betingede sannsynligheter, produktsetningen, uavhengighet og totalsetningen.","estimatedMinutes":35,"competenceGoals":["beregne betinget sannsynlighet og tolke den i kontekst","avgjøre om hendelser er uavhengige","anvende produktsetningen for avhengige og uavhengige hendelser","bruke totalsetningen til å beregne sannsynligheter via oppdeling"],"linkedChapterId":"r1-8-4","content":[{"id":"r1-8-4-n-intro","type":"text","content":"## Informasjon forandrer alt\n\nEn venn kaster en terning bak ryggen din og sier: «Det ble et partall.» Hva er nå sannsynligheten for at det er en sekser? Før beskjeden var svaret $\\frac{1}{6}$. Men nå vet du noe: utfallet er $2$, $4$ eller $6$. Tre muligheter, én av dem er seks – sannsynligheten har hoppet til $\\frac{1}{3}$.\n\nDette er kjernen i **betinget sannsynlighet**: ny informasjon krymper utfallsrommet, og sannsynlighetene må beregnes på nytt innenfor det som er igjen. Spørsmålet «hva er sannsynligheten for $A$, gitt at $B$ har inntruffet?» skrives $P(A \\mid B)$, og det er kanskje det viktigste enkeltbegrepet i hele sannsynlighetslæren – det ligger under alt fra medisinske tester til spamfiltre.\n\nI dette kapittelet lærer du definisjonen, produktsetningen for «både-og»-sannsynligheter, det presise skillet mellom *uavhengige* og *disjunkte* hendelser (som altfor mange blander sammen), og totalsetningen – verktøyet for å regne seg gjennom oppdelte situasjoner."},{"id":"r1-8-4-n-section1","type":"text","content":"## Betinget sannsynlighet – det krympede utfallsrommet\n\nFormelt defineres den betingede sannsynligheten for $A$ gitt $B$ som\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n\nLes formelen som et bilde: informasjonen «$B$ har skjedd» innskrenker verden til $B$. Innenfor denne nye, mindre verdenen spør vi hvor stor andel som også tilhører $A$ – altså snittet $A \\cap B$ målt i forhold til hele $B$.\n\nTerningeksempelet i formelspråk: La $A$ = «viser 6» og $B$ = «viser partall». Snittet $A \\cap B$ er bare utfallet 6, så $P(A \\cap B) = \\frac{1}{6}$, mens $P(B) = \\frac{3}{6} = \\frac{1}{2}$. Da blir\n\n$$P(A \\mid B) = \\frac{1/6}{1/2} = \\frac{1}{3}$$\n\n– akkurat som intuisjonen sa: én gunstig av tre gjenværende muligheter.\n\nVær nøye med retningen: $P(A \\mid B)$ og $P(B \\mid A)$ er generelt helt forskjellige tall. Sannsynligheten for at noen er våt gitt at det regner, er ikke den samme som sannsynligheten for at det regner gitt at noen er våt – vedkommende kan jo ha dusjet. Å holde de to retningene fra hverandre er halve kunsten i dette kapittelet, og det er nettopp den forvekslingen Bayes' setning (i kapittel 8.6) er laget for å rydde opp i."},{"id":"r1-8-4-n-quiz1","type":"exercise","exercise":{"id":"r1-8-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på betinget sannsynlighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz1-q0","task":"Hva er definisjonen av betinget sannsynlighet?","options":[{"id":"a","text":"$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$","isCorrect":true},{"id":"b","text":"$P(A \\mid B) = P(A) \\cdot P(B)$","isCorrect":false},{"id":"c","text":"$P(A \\mid B) = \\frac{P(B)}{P(A \\cap B)}$","isCorrect":false},{"id":"d","text":"$P(A \\mid B) = P(A) + P(B)$","isCorrect":false}],"solution":"Vi innskrenker utfallsrommet til $B$ og måler andelen av $B$ som også tilhører $A$."},{"id":"r1-8-4-n-quiz1-q1","task":"En terning viser partall. Hva er sannsynligheten for at den viser 6?","options":[{"id":"a","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\frac{2}{3}$","isCorrect":false}],"solution":"$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{1/6}{1/2} = \\frac{1}{3}$ – én av de tre partallsmulighetene."},{"id":"r1-8-4-n-quiz1-q2","task":"Hva gjør informasjonen «$B$ har inntruffet» med utfallsrommet?","options":[{"id":"a","text":"Den utvider det med nye utfall","isCorrect":false},{"id":"b","text":"Den innskrenker det til utfallene i $B$","isCorrect":true},{"id":"c","text":"Den endrer det ikke","isCorrect":false},{"id":"d","text":"Den gjør alle utfall like sannsynlige","isCorrect":false}],"solution":"Betinging betyr at vi bare ser på den delen av utfallsrommet der $B$ er sann – verden krymper til $B$."},{"id":"r1-8-4-n-quiz1-q3","task":"Er $P(A \\mid B)$ og $P(B \\mid A)$ alltid like?","options":[{"id":"a","text":"Ja, alltid","isCorrect":false},{"id":"b","text":"Ja, men bare for terninger","isCorrect":false},{"id":"c","text":"Bare hvis hendelsene er disjunkte","isCorrect":false},{"id":"d","text":"Nei – de er generelt forskjellige","isCorrect":true}],"solution":"Retningen betyr alt: $P(\\text{våt} \\mid \\text{regn})$ er høy, mens $P(\\text{regn} \\mid \\text{våt})$ kan være lav. Formlene har ulike nevnere."}],"solution":""}},{"id":"r1-8-4-n-section2","type":"text","content":"## Produktsetningen – sannsynlighet i flere steg\n\nSnur vi definisjonen av betinget sannsynlighet rundt, får vi **produktsetningen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A \\mid B) = P(A) \\cdot P(B \\mid A)$$\n\nDen leses naturlig som en historie i to akter: sannsynligheten for at *begge* hendelsene skjer, er sannsynligheten for den første ganger sannsynligheten for den andre *gitt* den første. For tre hendelser fortsetter kjeden: $P(A \\cap B \\cap C) = P(A) \\cdot P(B \\mid A) \\cdot P(C \\mid A \\cap B)$.\n\nParadegrenen er trekning **uten tilbakelegging**. En eske inneholder 8 røde og 4 blå kuler, og du trekker to. Hva er sannsynligheten for at begge er røde? Første trekk: $P(R_1) = \\frac{8}{12} = \\frac{2}{3}$. Men nå er verden endret – én rød kule er borte. Andre trekk: $P(R_2 \\mid R_1) = \\frac{7}{11}$. Produktsetningen limer det sammen:\n\n$$P(R_1 \\cap R_2) = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$$\n\nTenk på det som å vandre nedover et valgtre der grenene er merket med sannsynligheter: du ganger deg nedover langs veien. Hver gren tar hensyn til alt som har skjedd ovenfor – det er nettopp det den betingede sannsynligheten gjør. Dette bildet – tre med sannsynligheter på grenene – er kanskje det nyttigste mentale verktøyet i hele sannsynlighetsregningen, og vi skal bruke det igjen i totalsetningen."},{"id":"r1-8-4-n-quiz2","type":"exercise","exercise":{"id":"r1-8-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på produktsetningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz2-q0","task":"Hva sier produktsetningen?","options":[{"id":"a","text":"$P(A \\cap B) = P(A) + P(B)$","isCorrect":false},{"id":"b","text":"$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$","isCorrect":true},{"id":"c","text":"$P(A \\cup B) = P(A) \\cdot P(B)$","isCorrect":false},{"id":"d","text":"$P(A \\cap B) = P(A \\mid B) \\cdot P(B \\mid A)$","isCorrect":false}],"solution":"Sannsynligheten for begge: først $A$, deretter $B$ gitt $A$. Like gyldig: $P(B) \\cdot P(A \\mid B)$."},{"id":"r1-8-4-n-quiz2-q1","task":"8 røde og 4 blå kuler; du trekker to uten tilbakelegging. Hva er $P(R_2 \\mid R_1)$?","options":[{"id":"a","text":"$\\frac{8}{12}$","isCorrect":false},{"id":"b","text":"$\\frac{8}{11}$","isCorrect":false},{"id":"c","text":"$\\frac{7}{12}$","isCorrect":false},{"id":"d","text":"$\\frac{7}{11}$","isCorrect":true}],"solution":"Etter at én rød er trukket, gjenstår 7 røde av 11 kuler: $P(R_2 \\mid R_1) = \\frac{7}{11}$."},{"id":"r1-8-4-n-quiz2-q2","task":"Hva er sannsynligheten for at begge kulene er røde?","options":[{"id":"a","text":"$\\frac{14}{33}$","isCorrect":true},{"id":"b","text":"$\\frac{4}{9}$","isCorrect":false},{"id":"c","text":"$\\frac{2}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{56}{144}$","isCorrect":false}],"solution":"$P(R_1 \\cap R_2) = \\frac{8}{12} \\cdot \\frac{7}{11} = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$."},{"id":"r1-8-4-n-quiz2-q3","task":"I hvilken situasjon er produktsetningen med betingede sannsynligheter spesielt nyttig?","options":[{"id":"a","text":"Når hendelsene er disjunkte","isCorrect":false},{"id":"b","text":"Når vi kaster mynt","isCorrect":false},{"id":"c","text":"Når vi trekker uten tilbakelegging","isCorrect":true},{"id":"d","text":"Når utfallsrommet er uendelig","isCorrect":false}],"solution":"Uten tilbakelegging endres sannsynlighetene for hvert trekk, og kjeden $P(A)\\cdot P(B \\mid A)$ fanger nøyaktig dette."}],"solution":""}},{"id":"r1-8-4-n-section3","type":"text","content":"## Uavhengighet – og forvekslingen alle gjør\n\nNoen ganger gir informasjon *ingen* effekt. Vet du at første myntkast ga krone, er sannsynligheten for krone i neste kast fortsatt $\\frac{1}{2}$ – mynten har ingen hukommelse. Slike hendelser kalles **uavhengige**: $P(A \\mid B) = P(A)$. Setter vi dette inn i produktsetningen, får vi den ekvivalente og mest brukte betingelsen:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nUavhengighet er en gave når du regner: «både-og»-sannsynligheter blir rene produkter, uten betingede ledd.\n\nMen nå til forvekslingen som feller flest: **uavhengig er ikke det samme som disjunkt**. Faktisk er det nesten motsatt! Disjunkte hendelser har $A \\cap B = \\emptyset$, altså $P(A \\cap B) = 0$: hvis $A$ skjer, kan $B$ *ikke* skje. Det er ekstremt sterk avhengighet – informasjonen om $A$ avgjør $B$ fullstendig. Uavhengige hendelser, derimot, kan utmerket godt skje samtidig; poenget er at den ene ikke påvirker sjansen for den andre.\n\nKonkret: Kast to terninger. La $A$ = «terning 1 viser 6» og $B$ = «terning 2 viser 6». Disse er uavhengige – terningene vet ikke om hverandre – men ikke disjunkte, for begge kan vise 6 samtidig: $P(A \\cap B) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$. Sammenlign med $C$ = «terning 1 viser 6» og $D$ = «terning 1 viser 3»: disse er disjunkte (samme terning kan ikke vise begge), og dermed sterkt avhengige. Memorer eksempelet – det redder deg fra en klassisk eksamensfelle."},{"id":"r1-8-4-n-quiz3","type":"exercise","exercise":{"id":"r1-8-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på uavhengighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz3-q0","task":"Hvilken betingelse kjennetegner uavhengige hendelser?","options":[{"id":"a","text":"$P(A \\cap B) = 0$","isCorrect":false},{"id":"b","text":"$P(A \\cup B) = P(A) + P(B)$","isCorrect":false},{"id":"c","text":"$P(A \\cap B) = P(A) \\cdot P(B)$","isCorrect":true},{"id":"d","text":"$P(A \\mid B) = P(B)$","isCorrect":false}],"solution":"Uavhengighet betyr $P(A \\mid B) = P(A)$, som er ekvivalent med produktformelen $P(A \\cap B) = P(A)P(B)$."},{"id":"r1-8-4-n-quiz3-q1","task":"To hendelser er disjunkte. Hva vet vi da?","options":[{"id":"a","text":"De er uavhengige","isCorrect":false},{"id":"b","text":"$P(A \\cap B) = 0$ – de kan ikke skje samtidig","isCorrect":true},{"id":"c","text":"$P(A) = P(B)$","isCorrect":false},{"id":"d","text":"$P(A \\mid B) = P(A)$","isCorrect":false}],"solution":"Disjunkthet betyr tomt snitt: $P(A \\cap B) = 0$. Det gjør hendelsene sterkt avhengige – skjer den ene, er den andre utelukket."},{"id":"r1-8-4-n-quiz3-q2","task":"«Terning 1 viser 6» og «terning 2 viser 6» – hva er disse hendelsene?","options":[{"id":"a","text":"Uavhengige, men ikke disjunkte","isCorrect":true},{"id":"b","text":"Disjunkte, men ikke uavhengige","isCorrect":false},{"id":"c","text":"Både disjunkte og uavhengige","isCorrect":false},{"id":"d","text":"Verken disjunkte eller uavhengige","isCorrect":false}],"solution":"Terningene påvirker ikke hverandre (uavhengige), og begge kan vise 6 samtidig (ikke disjunkte): $P(A \\cap B) = \\frac{1}{36}$."},{"id":"r1-8-4-n-quiz3-q3","task":"To uavhengige hendelser har $P(A) = 0{,}4$ og $P(B) = 0{,}5$. Hva er $P(A \\cap B)$?","options":[{"id":"a","text":"$0{,}9$","isCorrect":false},{"id":"b","text":"$0{,}1$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$0{,}2$","isCorrect":true}],"solution":"Uavhengighet gir $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2$."}],"solution":""}},{"id":"r1-8-4-n-section4","type":"text","content":"## Totalsetningen – å regne via oppdeling\n\nSiste verktøy i dette kapittelet løser et vanlig praktisk problem: du vil finne $P(A)$, men sannsynligheten avhenger av hvilken «situasjon» man er i – og du kjenner bare de betingede sannsynlighetene i hver situasjon.\n\nEn fabrikk har to maskiner. Maskin I lager 60 % av delene med 3 % defektrate; maskin II lager 40 % med 5 % defektrate. Hva er sannsynligheten for at en tilfeldig del er defekt? Tenk valgtre: først velges maskinen (to grener), deretter avgjøres defekt/ikke (to grener til). Sannsynligheten for «defekt» er summen over de to veiene som ender der:\n\n$$P(D) = P(M_1) \\cdot P(D \\mid M_1) + P(M_2) \\cdot P(D \\mid M_2) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}038$$\n\nAltså 3,8 %. Dette er **totalsetningen** (loven om total sannsynlighet). Generelt: hvis $B_1, B_2, \\ldots, B_n$ er en **partisjon** av utfallsrommet – gjensidig utelukkende hendelser som til sammen dekker alt – gjelder\n\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\cdot P(A \\mid B_i)$$\n\nDet viktigste spesialtilfellet har bare to alternativer, $B$ og komplementet $B^c$: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$.\n\nIntuisjonen er et vektet gjennomsnitt: hver situasjon bidrar med sin betingede sannsynlighet, vektet med hvor sannsynlig situasjonen selv er. Totalsetningen er også springbrettet til neste store tema – i kapittel 8.6 snur Bayes' setning regnestykket og spør: *gitt* at delen var defekt, hvilken maskin kom den fra?"},{"id":"r1-8-4-n-quiz4","type":"exercise","exercise":{"id":"r1-8-4-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på totalsetningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz4-q0","task":"Hva er en partisjon av utfallsrommet?","options":[{"id":"a","text":"Hendelser som alle har samme sannsynlighet","isCorrect":false},{"id":"b","text":"Gjensidig utelukkende hendelser som til sammen dekker hele utfallsrommet","isCorrect":true},{"id":"c","text":"To hendelser som er uavhengige","isCorrect":false},{"id":"d","text":"Delmengder som overlapper hverandre","isCorrect":false}],"solution":"En partisjon deler utfallsrommet i biter uten overlapp og uten hull – hvert utfall tilhører nøyaktig én bit."},{"id":"r1-8-4-n-quiz4-q1","task":"Maskin I: 60 % av produksjonen, 3 % defekt. Maskin II: 40 %, 5 % defekt. Hva er $P(\\text{defekt})$?","options":[{"id":"a","text":"$0{,}08$","isCorrect":false},{"id":"b","text":"$0{,}04$","isCorrect":false},{"id":"c","text":"$0{,}038$","isCorrect":true},{"id":"d","text":"$0{,}018$","isCorrect":false}],"solution":"$P(D) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}018 + 0{,}020 = 0{,}038$."},{"id":"r1-8-4-n-quiz4-q2","task":"Hvordan kan totalsetningen tolkes?","options":[{"id":"a","text":"Som et vektet gjennomsnitt av betingede sannsynligheter","isCorrect":true},{"id":"b","text":"Som en øvre grense for $P(A)$","isCorrect":false},{"id":"c","text":"Som produktet av alle betingede sannsynligheter","isCorrect":false},{"id":"d","text":"Som komplementet til addisjonssetningen","isCorrect":false}],"solution":"Hver situasjon $B_i$ bidrar med $P(A \\mid B_i)$, vektet med sannsynligheten $P(B_i)$ for situasjonen."},{"id":"r1-8-4-n-quiz4-q3","task":"Hva er totalsetningens spesialtilfelle med to alternativer $B$ og $B^c$?","options":[{"id":"a","text":"$P(A) = P(A \\mid B) + P(A \\mid B^c)$","isCorrect":false},{"id":"b","text":"$P(A) = P(B)P(A \\mid B) \\cdot P(B^c)P(A \\mid B^c)$","isCorrect":false},{"id":"c","text":"$P(A) = P(B) + P(B^c)$","isCorrect":false},{"id":"d","text":"$P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$","isCorrect":true}],"solution":"Vi summerer over de to veiene i valgtreet: via $B$ og via $B^c$."}],"solution":""}},{"id":"r1-8-4-n-summary","type":"text","content":"## Oppsummering: å regne med det du vet\n\nNy informasjon krymper utfallsrommet, og betinget sannsynlighet måler verden etter krympingen: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. Snudd om gir dette produktsetningen $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ – historien i to akter, perfekt for trekning uten tilbakelegging, der hvert trekk endrer forutsetningene for det neste.\n\nUavhengige hendelser er de der informasjonen ikke biter: $P(A \\mid B) = P(A)$, ekvivalent med $P(A \\cap B) = P(A)P(B)$. Og husk det avgjørende skillet: disjunkte hendelser er ikke uavhengige – de er ekstremt avhengige, for den ene utelukker den andre. To terninger som begge kan vise seks er uavhengige; én terning som skulle vist både tre og seks er en umulighet.\n\nTotalsetningen $P(A) = \\sum P(B_i) \\cdot P(A \\mid B_i)$ lar deg regne ut en totalsannsynlighet ved å dele verden i situasjoner og ta et vektet gjennomsnitt – som fabrikken med to maskiner og 3,8 % samlet defektrate. Med disse verktøyene er du klar for to kraftfulle fortsettelser: binomisk fordeling, og kronjuvelen Bayes' setning."}],"exercises":[]}
+{
+  "id": "r1-8-4-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "8.4",
+  "title": "Betinget sannsynlighet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan informasjon forandrer sannsynligheter – betingede sannsynligheter, produktsetningen, uavhengighet og totalsetningen.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "beregne betinget sannsynlighet og tolke den i kontekst",
+    "avgjøre om hendelser er uavhengige",
+    "anvende produktsetningen for avhengige og uavhengige hendelser",
+    "bruke totalsetningen til å beregne sannsynligheter via oppdeling"
+  ],
+  "linkedChapterId": "r1-8-4",
+  "content": [
+    {
+      "id": "r1-8-4-n-intro",
+      "type": "text",
+      "content": "## Informasjon forandrer alt\n\nEn venn kaster en terning bak ryggen din og sier: «Det ble et partall.» Hva er nå sannsynligheten for at det er en sekser? Før beskjeden var svaret $\\frac{1}{6}$. Men nå vet du noe: utfallet er $2$, $4$ eller $6$. Tre muligheter, én av dem er seks – sannsynligheten har hoppet til $\\frac{1}{3}$.\n\nDette er kjernen i **betinget sannsynlighet**: ny informasjon krymper utfallsrommet, og sannsynlighetene må beregnes på nytt innenfor det som er igjen. Spørsmålet «hva er sannsynligheten for $A$, gitt at $B$ har inntruffet?» skrives $P(A \\mid B)$, og det er kanskje det viktigste enkeltbegrepet i hele sannsynlighetslæren – det ligger under alt fra medisinske tester til spamfiltre.\n\nI dette kapittelet lærer du definisjonen, produktsetningen for «både-og»-sannsynligheter, det presise skillet mellom *uavhengige* og *disjunkte* hendelser (som altfor mange blander sammen), og totalsetningen – verktøyet for å regne seg gjennom oppdelte situasjoner."
+    },
+    {
+      "id": "r1-8-4-n-section1",
+      "type": "text",
+      "content": "## Betinget sannsynlighet – det krympede utfallsrommet\n\nFormelt defineres den betingede sannsynligheten for $A$ gitt $B$ som\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n\nLes formelen som et bilde: informasjonen «$B$ har skjedd» innskrenker verden til $B$. Innenfor denne nye, mindre verdenen spør vi hvor stor andel som også tilhører $A$ – altså snittet $A \\cap B$ målt i forhold til hele $B$.\n\nTerningeksempelet i formelspråk: La $A$ = «viser 6» og $B$ = «viser partall». Snittet $A \\cap B$ er bare utfallet 6, så $P(A \\cap B) = \\frac{1}{6}$, mens $P(B) = \\frac{3}{6} = \\frac{1}{2}$. Da blir\n\n$$P(A \\mid B) = \\frac{1/6}{1/2} = \\frac{1}{3}$$\n\n– akkurat som intuisjonen sa: én gunstig av tre gjenværende muligheter.\n\nVær nøye med retningen: $P(A \\mid B)$ og $P(B \\mid A)$ er generelt helt forskjellige tall. Sannsynligheten for at noen er våt gitt at det regner, er ikke den samme som sannsynligheten for at det regner gitt at noen er våt – vedkommende kan jo ha dusjet. Å holde de to retningene fra hverandre er halve kunsten i dette kapittelet, og det er nettopp den forvekslingen Bayes' setning (i kapittel 8.6) er laget for å rydde opp i."
+    },
+    {
+      "id": "r1-8-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på betinget sannsynlighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz1-q0",
+            "task": "Hva er definisjonen av betinget sannsynlighet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$P(A \\mid B) = P(A) \\cdot P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A \\mid B) = \\frac{P(B)}{P(A \\cap B)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\mid B) = P(A) + P(B)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi innskrenker utfallsrommet til $B$ og måler andelen av $B$ som også tilhører $A$."
+          },
+          {
+            "id": "r1-8-4-n-quiz1-q1",
+            "task": "En terning viser partall. Hva er sannsynligheten for at den viser 6?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{1/6}{1/2} = \\frac{1}{3}$ – én av de tre partallsmulighetene."
+          },
+          {
+            "id": "r1-8-4-n-quiz1-q2",
+            "task": "Hva gjør informasjonen «$B$ har inntruffet» med utfallsrommet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den utvider det med nye utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den endrer det ikke",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den innskrenker det til utfallene i $B$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den gjør alle utfall like sannsynlige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Betinging betyr at vi bare ser på den delen av utfallsrommet der $B$ er sann – verden krymper til $B$."
+          },
+          {
+            "id": "r1-8-4-n-quiz1-q3",
+            "task": "Er $P(A \\mid B)$ og $P(B \\mid A)$ alltid like?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ja, men bare for terninger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bare hvis hendelsene er disjunkte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei – de er generelt forskjellige",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Retningen betyr alt: $P(\\text{våt} \\mid \\text{regn})$ er høy, mens $P(\\text{regn} \\mid \\text{våt})$ kan være lav. Formlene har ulike nevnere."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-section2",
+      "type": "text",
+      "content": "## Produktsetningen – sannsynlighet i flere steg\n\nSnur vi definisjonen av betinget sannsynlighet rundt, får vi **produktsetningen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A \\mid B) = P(A) \\cdot P(B \\mid A)$$\n\nDen leses naturlig som en historie i to akter: sannsynligheten for at *begge* hendelsene skjer, er sannsynligheten for den første ganger sannsynligheten for den andre *gitt* den første. For tre hendelser fortsetter kjeden: $P(A \\cap B \\cap C) = P(A) \\cdot P(B \\mid A) \\cdot P(C \\mid A \\cap B)$.\n\nParadegrenen er trekning **uten tilbakelegging**. En eske inneholder 8 røde og 4 blå kuler, og du trekker to. Hva er sannsynligheten for at begge er røde? Første trekk: $P(R_1) = \\frac{8}{12} = \\frac{2}{3}$. Men nå er verden endret – én rød kule er borte. Andre trekk: $P(R_2 \\mid R_1) = \\frac{7}{11}$. Produktsetningen limer det sammen:\n\n$$P(R_1 \\cap R_2) = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$$\n\nTenk på det som å vandre nedover et valgtre der grenene er merket med sannsynligheter: du ganger deg nedover langs veien. Hver gren tar hensyn til alt som har skjedd ovenfor – det er nettopp det den betingede sannsynligheten gjør. Dette bildet – tre med sannsynligheter på grenene – er kanskje det nyttigste mentale verktøyet i hele sannsynlighetsregningen, og vi skal bruke det igjen i totalsetningen."
+    },
+    {
+      "id": "r1-8-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på produktsetningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz2-q0",
+            "task": "Hva sier produktsetningen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) = P(A) + P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A \\cup B) = P(A) \\cdot P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\cap B) = P(A \\mid B) \\cdot P(B \\mid A)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sannsynligheten for begge: først $A$, deretter $B$ gitt $A$. Like gyldig: $P(B) \\cdot P(A \\mid B)$."
+          },
+          {
+            "id": "r1-8-4-n-quiz2-q1",
+            "task": "8 røde og 4 blå kuler; du trekker to uten tilbakelegging. Hva er $P(R_2 \\mid R_1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{8}{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{7}{11}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{8}{11}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{7}{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter at én rød er trukket, gjenstår 7 røde av 11 kuler: $P(R_2 \\mid R_1) = \\frac{7}{11}$."
+          },
+          {
+            "id": "r1-8-4-n-quiz2-q2",
+            "task": "Hva er sannsynligheten for at begge kulene er røde?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{4}{9}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{14}{33}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{56}{144}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(R_1 \\cap R_2) = \\frac{8}{12} \\cdot \\frac{7}{11} = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$."
+          },
+          {
+            "id": "r1-8-4-n-quiz2-q3",
+            "task": "I hvilken situasjon er produktsetningen med betingede sannsynligheter spesielt nyttig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når hendelsene er disjunkte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når vi kaster mynt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når utfallsrommet er uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når vi trekker uten tilbakelegging",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uten tilbakelegging endres sannsynlighetene for hvert trekk, og kjeden $P(A)\\cdot P(B \\mid A)$ fanger nøyaktig dette."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-section3",
+      "type": "text",
+      "content": "## Uavhengighet – og forvekslingen alle gjør\n\nNoen ganger gir informasjon *ingen* effekt. Vet du at første myntkast ga krone, er sannsynligheten for krone i neste kast fortsatt $\\frac{1}{2}$ – mynten har ingen hukommelse. Slike hendelser kalles **uavhengige**: $P(A \\mid B) = P(A)$. Setter vi dette inn i produktsetningen, får vi den ekvivalente og mest brukte betingelsen:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nUavhengighet er en gave når du regner: «både-og»-sannsynligheter blir rene produkter, uten betingede ledd.\n\nMen nå til forvekslingen som feller flest: **uavhengig er ikke det samme som disjunkt**. Faktisk er det nesten motsatt! Disjunkte hendelser har $A \\cap B = \\emptyset$, altså $P(A \\cap B) = 0$: hvis $A$ skjer, kan $B$ *ikke* skje. Det er ekstremt sterk avhengighet – informasjonen om $A$ avgjør $B$ fullstendig. Uavhengige hendelser, derimot, kan utmerket godt skje samtidig; poenget er at den ene ikke påvirker sjansen for den andre.\n\nKonkret: Kast to terninger. La $A$ = «terning 1 viser 6» og $B$ = «terning 2 viser 6». Disse er uavhengige – terningene vet ikke om hverandre – men ikke disjunkte, for begge kan vise 6 samtidig: $P(A \\cap B) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$. Sammenlign med $C$ = «terning 1 viser 6» og $D$ = «terning 1 viser 3»: disse er disjunkte (samme terning kan ikke vise begge), og dermed sterkt avhengige. Memorer eksempelet – det redder deg fra en klassisk eksamensfelle."
+    },
+    {
+      "id": "r1-8-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på uavhengighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz3-q0",
+            "task": "Hvilken betingelse kjennetegner uavhengige hendelser?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(A \\cup B) = P(A) + P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\mid B) = P(B)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uavhengighet betyr $P(A \\mid B) = P(A)$, som er ekvivalent med produktformelen $P(A \\cap B) = P(A)P(B)$."
+          },
+          {
+            "id": "r1-8-4-n-quiz3-q1",
+            "task": "To hendelser er disjunkte. Hva vet vi da?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(A \\cap B) = 0$ – de kan ikke skje samtidig",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$P(A) = P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\mid B) = P(A)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Disjunkthet betyr tomt snitt: $P(A \\cap B) = 0$. Det gjør hendelsene sterkt avhengige – skjer den ene, er den andre utelukket."
+          },
+          {
+            "id": "r1-8-4-n-quiz3-q2",
+            "task": "«Terning 1 viser 6» og «terning 2 viser 6» – hva er disse hendelsene?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Disjunkte, men ikke uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Både disjunkte og uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Uavhengige, men ikke disjunkte",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Verken disjunkte eller uavhengige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Terningene påvirker ikke hverandre (uavhengige), og begge kan vise 6 samtidig (ikke disjunkte): $P(A \\cap B) = \\frac{1}{36}$."
+          },
+          {
+            "id": "r1-8-4-n-quiz3-q3",
+            "task": "To uavhengige hendelser har $P(A) = 0{,}4$ og $P(B) = 0{,}5$. Hva er $P(A \\cap B)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uavhengighet gir $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-section4",
+      "type": "text",
+      "content": "## Totalsetningen – å regne via oppdeling\n\nSiste verktøy i dette kapittelet løser et vanlig praktisk problem: du vil finne $P(A)$, men sannsynligheten avhenger av hvilken «situasjon» man er i – og du kjenner bare de betingede sannsynlighetene i hver situasjon.\n\nEn fabrikk har to maskiner. Maskin I lager 60 % av delene med 3 % defektrate; maskin II lager 40 % med 5 % defektrate. Hva er sannsynligheten for at en tilfeldig del er defekt? Tenk valgtre: først velges maskinen (to grener), deretter avgjøres defekt/ikke (to grener til). Sannsynligheten for «defekt» er summen over de to veiene som ender der:\n\n$$P(D) = P(M_1) \\cdot P(D \\mid M_1) + P(M_2) \\cdot P(D \\mid M_2) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}038$$\n\nAltså 3,8 %. Dette er **totalsetningen** (loven om total sannsynlighet). Generelt: hvis $B_1, B_2, \\ldots, B_n$ er en **partisjon** av utfallsrommet – gjensidig utelukkende hendelser som til sammen dekker alt – gjelder\n\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\cdot P(A \\mid B_i)$$\n\nDet viktigste spesialtilfellet har bare to alternativer, $B$ og komplementet $B^c$: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$.\n\nIntuisjonen er et vektet gjennomsnitt: hver situasjon bidrar med sin betingede sannsynlighet, vektet med hvor sannsynlig situasjonen selv er. Totalsetningen er også springbrettet til neste store tema – i kapittel 8.6 snur Bayes' setning regnestykket og spør: *gitt* at delen var defekt, hvilken maskin kom den fra?"
+    },
+    {
+      "id": "r1-8-4-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på totalsetningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz4-q0",
+            "task": "Hva er en partisjon av utfallsrommet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Gjensidig utelukkende hendelser som til sammen dekker hele utfallsrommet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Hendelser som alle har samme sannsynlighet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "To hendelser som er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Delmengder som overlapper hverandre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En partisjon deler utfallsrommet i biter uten overlapp og uten hull – hvert utfall tilhører nøyaktig én bit."
+          },
+          {
+            "id": "r1-8-4-n-quiz4-q1",
+            "task": "Maskin I: 60 % av produksjonen, 3 % defekt. Maskin II: 40 %, 5 % defekt. Hva er $P(\\text{defekt})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}08$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}038$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}04$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}018$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(D) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}018 + 0{,}020 = 0{,}038$."
+          },
+          {
+            "id": "r1-8-4-n-quiz4-q2",
+            "task": "Hvordan kan totalsetningen tolkes?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Som en øvre grense for $P(A)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Som produktet av alle betingede sannsynligheter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Som et vektet gjennomsnitt av betingede sannsynligheter",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Som komplementet til addisjonssetningen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hver situasjon $B_i$ bidrar med $P(A \\mid B_i)$, vektet med sannsynligheten $P(B_i)$ for situasjonen."
+          },
+          {
+            "id": "r1-8-4-n-quiz4-q3",
+            "task": "Hva er totalsetningens spesialtilfelle med to alternativer $B$ og $B^c$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(A) = P(A \\mid B) + P(A \\mid B^c)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(A) = P(B)P(A \\mid B) \\cdot P(B^c)P(A \\mid B^c)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A) = P(B) + P(B^c)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi summerer over de to veiene i valgtreet: via $B$ og via $B^c$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: å regne med det du vet\n\nNy informasjon krymper utfallsrommet, og betinget sannsynlighet måler verden etter krympingen: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. Snudd om gir dette produktsetningen $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ – historien i to akter, perfekt for trekning uten tilbakelegging, der hvert trekk endrer forutsetningene for det neste.\n\nUavhengige hendelser er de der informasjonen ikke biter: $P(A \\mid B) = P(A)$, ekvivalent med $P(A \\cap B) = P(A)P(B)$. Og husk det avgjørende skillet: disjunkte hendelser er ikke uavhengige – de er ekstremt avhengige, for den ene utelukker den andre. To terninger som begge kan vise seks er uavhengige; én terning som skulle vist både tre og seks er en umulighet.\n\nTotalsetningen $P(A) = \\sum P(B_i) \\cdot P(A \\mid B_i)$ lar deg regne ut en totalsannsynlighet ved å dele verden i situasjoner og ta et vektet gjennomsnitt – som fabrikken med to maskiner og 3,8 % samlet defektrate. Med disse verktøyene er du klar for to kraftfulle fortsettelser: binomisk fordeling, og kronjuvelen Bayes' setning."
+    }
+  ],
+  "exercises": []
+}

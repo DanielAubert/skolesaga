@@ -1,1 +1,384 @@
-{"id":"it-1-3-2-narrativ","courseId":"it-1","chapterNumber":"3.2","title":"Problemløysingsstrategiar","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis du tek fatt på ein tom editor – algoritmisk tenking gjennom dekomponering, mønstergjenkjenning, abstraksjon og top-down-design.","estimatedMinutes":36,"competenceGoals":["bruke dekomponering til å bryte ned komplekse problemer i håndterbare delproblemer","gjenkjenne mønstre og bruke abstraksjon i problemløsning","planlegge og utvikle løsninger systematisk ved hjelp av algoritmisk tenkning"],"linkedChapterId":"it-1-3-2","content":[{"id":"it-1-3-2-n-intro","type":"text","content":"## Den tomme editoren\n\nDet vanskelegaste med programmering er ikkje syntaksen – det er å finne ut *korleis* du skal løyse eit problem. Mange nybyrjarar blir lamma av ei litt vanskeleg oppgåve og stirer på ein tom editor utan å vite kvar dei skal byrje. Heldigvis finst det velprøvde strategiar, samla under namnet **algoritmisk tenking** (computational thinking). Det består av fire komponentar: dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign.\n\nDen viktigaste er **dekomponering** – å bryte eit stort, uoverkommeleg problem ned i små bitar. Tenk deg at du skal lage eit quizprogram. Det høyrest overveldande ut, heilt til du deler det opp: definer spørsmål og svar, vis eitt spørsmål, les inn svaret, sjekk om det er rett, tel poeng, og vis resultatet. Kvart av desse stega er enkelt åleine, og til slutt set du dei saman.\n\nFramgangsmåten er: les oppgåva og finn ut kva som er input og output, list opp deloppgåvene, ordne dei i rekkjefølgje, løys kvar for seg, og set dei saman. Ein første versjon av quizen kan godt vere lang og repetitiv – med tre nesten like blokker, éi per spørsmål. Vi bruker `.strip()` for å fjerne mellomrom rundt svaret og `.lower()` for å gjere samanlikninga uavhengig av store og små bokstavar. Det viktige er at problemet no er løyst, bit for bit."},{"id":"it-1-3-2-n-quiz1","type":"exercise","exercise":{"id":"it-1-3-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på algoritmisk tenking og dekomponering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-2-n-quiz1-q0","task":"Kva tyder dekomponering i programmering?","options":[{"id":"a","text":"Å slette delar av koden","isCorrect":false},{"id":"b","text":"Å bryte ned eit stort problem i mindre, handterlege delproblem","isCorrect":true},{"id":"c","text":"Å skrive koden raskare","isCorrect":false},{"id":"d","text":"Å fjerne feil frå programmet","isCorrect":false}],"solution":"Dekomponering tyder å dele eit stort problem opp i mindre delar som kvar for seg er lette å løyse."},{"id":"it-1-3-2-n-quiz1-q1","task":"Kva er dei fire komponentane i algoritmisk tenking?","options":[{"id":"a","text":"Lese, skrive, rekne og munnleg","isCorrect":false},{"id":"b","text":"Variablar, løkker, funksjonar og modular","isCorrect":false},{"id":"c","text":"Dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign","isCorrect":true},{"id":"d","text":"Input, prosess, output og lagring","isCorrect":false}],"solution":"Algoritmisk tenking består av dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign."},{"id":"it-1-3-2-n-quiz1-q2","task":"Kva gjer .lower() når du samanliknar eit svar i ein quiz?","options":[{"id":"a","text":"Gjer teksten kortare","isCorrect":false},{"id":"b","text":"Fjernar alle tal","isCorrect":false},{"id":"c","text":"Gir ei feilmelding","isCorrect":false},{"id":"d","text":"Gjer samanlikninga uavhengig av store og små bokstavar","isCorrect":true}],"solution":".lower() gjer all tekst til små bokstavar, slik at «Oslo» og «oslo» blir rekna som likt."}]}},{"id":"it-1-3-2-n-section1","type":"text","content":"## Når delane byrjar å likne kvarandre\n\nNår du har brote ned problemet, oppdagar du ofte at delane liknar. I quizen gjentok vi nesten identisk kode for kvart spørsmål – det er eit **mønster**. Mønstergjenkjenning tyder å sjå slike gjentakingar, og kople nye problem til ting du har løyst før. Har du funne det største talet i ei liste, kan same mønster finne det dyraste produktet eller den varmaste dagen.\n\nNår du ser eit mønster, kan du bruke ei *løkke* for å gjenta koden med ulike data, lage ein *funksjon* for det gjentakande arbeidet, eller bruke *datastrukturar* som lister. Quizen blir mykje kortare når vi legg spørsmåla i ei liste og køyrer ei løkke:\n\n```python\nsporsmaal = [\n    (\"Hva er hovedstaden i Norge? \", \"oslo\"),\n    (\"Hvilket år ble Norge selvstendig? \", \"1905\"),\n]\nfor sporsmal, fasit in sporsmaal:\n    svar = input(sporsmal).strip().lower()\n    if svar == fasit:\n        poeng += 1\n```\n\nNo legg du til fleire spørsmål berre ved å utvide lista. Den tredje komponenten er **abstraksjon** – å trekkje ut det vesentlege og ignorere det uvesentlege. Når du bruker `print()`, treng du ikkje vite *korleis* teksten hamnar på skjermen; kompleksiteten er gøymd bak eit enkelt funksjonskall. Abstraksjon handlar om å tenkje på *kva* som skal gjerast, ikkje *korleis*. Pakkar du quizen inn i funksjonar som `still_sporsmal`, `kjor_quiz` og `vis_resultat`, blir hovudprogrammet nesten lesbart som norsk: «Kjør quizen. Vis resultatet.»"},{"id":"it-1-3-2-n-quiz2","type":"exercise","exercise":{"id":"it-1-3-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på mønster og abstraksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-2-n-quiz2-q0","task":"Kva for komponent handlar om å fokusere på det vesentlege og ignorere uvesentlege detaljar?","options":[{"id":"a","text":"Abstraksjon","isCorrect":true},{"id":"b","text":"Dekomponering","isCorrect":false},{"id":"c","text":"Mønstergjenkjenning","isCorrect":false},{"id":"d","text":"Algoritmedesign","isCorrect":false}],"solution":"Abstraksjon handlar om å trekkje ut det vesentlege og skjule dei uvesentlege detaljane."},{"id":"it-1-3-2-n-quiz2-q1","task":"Kva er hovudfordelen med å bruke funksjonar i eit program?","options":[{"id":"a","text":"Programmet køyrer alltid raskare","isCorrect":false},{"id":"b","text":"Koden blir organisert, gjenbrukbar og lettare å forstå","isCorrect":true},{"id":"c","text":"Ein slepp å bruke variablar","isCorrect":false},{"id":"d","text":"Programmet bruker mindre minne","isCorrect":false}],"solution":"Funksjonar gir abstraksjon: dei organiserer koden, gjer han gjenbrukbar og lettare å lese."},{"id":"it-1-3-2-n-quiz2-q2","task":"Kva er fordelen med å legge quiz-spørsmål i ei liste og bruke ei løkke?","options":[{"id":"a","text":"Spørsmåla blir vanskelegare","isCorrect":false},{"id":"b","text":"Det fjernar behovet for svar","isCorrect":false},{"id":"c","text":"Du kan legge til fleire spørsmål utan å skrive ny kode","isCorrect":true},{"id":"d","text":"Det gjer koden lengre","isCorrect":false}],"solution":"Med spørsmåla i ei liste og ei løkke gjenbruker du mønsteret – nye spørsmål blir lagde til berre ved å utvide lista."}]}},{"id":"it-1-3-2-n-section2","type":"text","content":"## Frå heilskap til detalj – og ein fast prosess\n\nDen fjerde komponenten er algoritmedesign, og ein kraftig metode her er **top-down-design** med trinnvis forfining. Du startar med den overordna løysinga og bryt henne ned i stadig meir detaljerte delar – som eit kart der du først teiknar landegrensene, så fylka, så gatene. Skal du lage ein karakterkalkulator, byrjar du med tre grove steg: les inn karakterar, berekn gjennomsnitt, vis resultat. Deretter forfinar du kvart steg (les inn = spør om talet på fag, les fagnamn og karakter, lagre i liste), og til slutt skriv du éin funksjon per steg, som `les_karakterer`, `beregn_gjennomsnitt` og `vis_resultater`.\n\nFor kvar oppgåve kan du følgje ein fast, systematisk framgangsmåte. Først **forstå problemet**: les nøye, finn input og output, og tenk på spesialtilfelle og ugyldig input. Så **planlegg** med dekomponering og mønstergjenkjenning, og skriv algoritmen i naturleg språk. Deretter **implementer** éin del om gongen og test undervegs. Så **test** grundig – med normale verdiar, grensetilfelle som 0 og tomme lister, og ugyldig input. Til slutt **forbetra**: kan koden forenklast, kan gjentaking bli ein funksjon, er namna skildrande? Prosessen er iterativ; du går ofte tilbake til eit tidlegare steg, og det er heilt normalt.\n\nEit komplett døme er ein tekstanalysator som tel vokalar, konsonantar og andre teikn. Du forstår problemet (input: tekst; output: tre tal), planlegg (gå gjennom kvart teikn og tel), og implementerer ein funksjon `analyser_tekst` som sjekkar om kvart teikn er i strengen `\"aeiouyæøå\"`, i konsonantane, eller noko anna. Her ser du alle tre prinsippa: dekomponering, mønstergjenkjenning og abstraksjon i eitt."},{"id":"it-1-3-2-n-quiz3","type":"exercise","exercise":{"id":"it-1-3-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på top-down-design og prosess:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-2-n-quiz3-q0","task":"Kva for rekkjefølgje er best med top-down-design for eit BMI-program?","options":[{"id":"a","text":"Skriv all koden i éi lang blokk og test til slutt","isCorrect":false},{"id":"b","text":"Start med dei minste detaljane før du veit heilskapen","isCorrect":false},{"id":"c","text":"Kopier kode frå internett og tilpass","isCorrect":false},{"id":"d","text":"Definer hovudtrinna først, lag funksjonar for kvart trinn, og test trinnvis","isCorrect":true}],"solution":"Top-down-design startar med hovudtrinna (les inn, berekn, kategoriser, vis), lagar funksjonar for kvart og testar trinnvis."},{"id":"it-1-3-2-n-quiz3-q1","task":"Kvifor bør du teste med grensetilfelle som 0 og tomme lister?","options":[{"id":"a","text":"Fordi slike tilfelle ofte avslører feil som vanlege verdiar skjuler","isCorrect":true},{"id":"b","text":"Fordi det får koden til å køyre raskare","isCorrect":false},{"id":"c","text":"Det er aldri naudsynt","isCorrect":false},{"id":"d","text":"Fordi Python krev det","isCorrect":false}],"solution":"Grensetilfelle som 0, negative tal og tomme lister avslører ofte feil som ikkje dukkar opp med vanlege verdiar."}]}},{"id":"it-1-3-2-n-summary","type":"text","content":"## Oppsummering\n\nDen tomme editoren er ikkje skummel når du har strategiar. **Algoritmisk tenking** består av fire komponentar. **Dekomponering** bryt store problem ned i små bitar. **Mønstergjenkjenning** finn gjentakingar du kan løyse med løkker, funksjonar og lister. **Abstraksjon** skjuler detaljar bak enkle funksjonar, slik at du tenkjer på kva som skal gjerast, ikkje korleis.\n\nMed **top-down-design** og trinnvis forfining byggjer du løysinga frå heilskap til detalj, og ein fast prosess – forstå, planlegg, implementer, test, forbetra – tek deg trygt frå oppgåve til ferdig program. Dette er ferdigheiter du får bruk for i alle fag der problem skal løysast systematisk."}],"exercises":[],"_meta":{"sourceHash":"dd2f4fe1ff1cd7c8","translatedAt":"2026-06-20T23:44:55.463Z","model":"claude-code-agent","strings":64,"tm":{"f720a9f3d6560298":"Problemløysingsstrategiar","b195b06d1ed59702":"Narrativ versjon","6710fa4862a5a45f":"Ei forteljing om korleis du tek fatt på ein tom editor – algoritmisk tenking gjennom dekomponering, mønstergjenkjenning, abstraksjon og top-down-design.","321201c04b219d87":"bruke dekomponering til å bryte ned komplekse problemer i håndterbare delproblemer","9b889ea104534be4":"gjenkjenne mønstre og bruke abstraksjon i problemløsning","0dece1c97b311049":"planlegge og utvikle løsninger systematisk ved hjelp av algoritmisk tenkning","f36011032d3332ad":"## Den tomme editoren\n\nDet vanskelegaste med programmering er ikkje syntaksen – det er å finne ut *korleis* du skal løyse eit problem. Mange nybyrjarar blir lamma av ei litt vanskeleg oppgåve og stirer på ein tom editor utan å vite kvar dei skal byrje. Heldigvis finst det velprøvde strategiar, samla under namnet **algoritmisk tenking** (computational thinking). Det består av fire komponentar: dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign.\n\nDen viktigaste er **dekomponering** – å bryte eit stort, uoverkommeleg problem ned i små bitar. Tenk deg at du skal lage eit quizprogram. Det høyrest overveldande ut, heilt til du deler det opp: definer spørsmål og svar, vis eitt spørsmål, les inn svaret, sjekk om det er rett, tel poeng, og vis resultatet. Kvart av desse stega er enkelt åleine, og til slutt set du dei saman.\n\nFramgangsmåten er: les oppgåva og finn ut kva som er input og output, list opp deloppgåvene, ordne dei i rekkjefølgje, løys kvar for seg, og set dei saman. Ein første versjon av quizen kan godt vere lang og repetitiv – med tre nesten like blokker, éi per spørsmål. Vi bruker `.strip()` for å fjerne mellomrom rundt svaret og `.lower()` for å gjere samanlikninga uavhengig av store og små bokstavar. Det viktige er at problemet no er løyst, bit for bit.","6d7b296af2489933":"Test deg sjølv på algoritmisk tenking og dekomponering:","4097889236a2af26":"placeholder","531fbd969498e5d4":"Kva tyder dekomponering i programmering?","0ef122239696c5e1":"Å slette delar av koden","035c1c3188bfa2ea":"Å bryte ned eit stort problem i mindre, handterlege delproblem","2c00dd508aea00f1":"Å skrive koden raskare","06b633405965fa10":"Å fjerne feil frå programmet","3b3a39c75a33c2af":"Dekomponering tyder å dele eit stort problem opp i mindre delar som kvar for seg er lette å løyse.","2ea24cc5f71ab86b":"Kva er dei fire komponentane i algoritmisk tenking?","24ed133b39cb2be9":"Lese, skrive, rekne og munnleg","36f315cdb131853b":"Variablar, løkker, funksjonar og modular","2741d3f28558011c":"Dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign","c0b5aa42d8cf671b":"Input, prosess, output og lagring","b526ce6071b09ee1":"Algoritmisk tenking består av dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign.","92dc9c5fc71d8496":"Kva gjer .lower() når du samanliknar eit svar i ein quiz?","56372982fe7d614e":"Gjer teksten kortare","13c24a48caf4359b":"Fjernar alle tal","4a325858e99a81b5":"Gir ei feilmelding","8338bcee442e0235":"Gjer samanlikninga uavhengig av store og små bokstavar","9e9b7e1efa34cfb3":".lower() gjer all tekst til små bokstavar, slik at «Oslo» og «oslo» blir rekna som likt.","000093f7d14e4215":"## Når delane byrjar å likne kvarandre\n\nNår du har brote ned problemet, oppdagar du ofte at delane liknar. I quizen gjentok vi nesten identisk kode for kvart spørsmål – det er eit **mønster**. Mønstergjenkjenning tyder å sjå slike gjentakingar, og kople nye problem til ting du har løyst før. Har du funne det største talet i ei liste, kan same mønster finne det dyraste produktet eller den varmaste dagen.\n\nNår du ser eit mønster, kan du bruke ei *løkke* for å gjenta koden med ulike data, lage ein *funksjon* for det gjentakande arbeidet, eller bruke *datastrukturar* som lister. Quizen blir mykje kortare når vi legg spørsmåla i ei liste og køyrer ei løkke:\n\n```python\nsporsmaal = [\n    (\"Hva er hovedstaden i Norge? \", \"oslo\"),\n    (\"Hvilket år ble Norge selvstendig? \", \"1905\"),\n]\nfor sporsmal, fasit in sporsmaal:\n    svar = input(sporsmal).strip().lower()\n    if svar == fasit:\n        poeng += 1\n```\n\nNo legg du til fleire spørsmål berre ved å utvide lista. Den tredje komponenten er **abstraksjon** – å trekkje ut det vesentlege og ignorere det uvesentlege. Når du bruker `print()`, treng du ikkje vite *korleis* teksten hamnar på skjermen; kompleksiteten er gøymd bak eit enkelt funksjonskall. Abstraksjon handlar om å tenkje på *kva* som skal gjerast, ikkje *korleis*. Pakkar du quizen inn i funksjonar som `still_sporsmal`, `kjor_quiz` og `vis_resultat`, blir hovudprogrammet nesten lesbart som norsk: «Kjør quizen. Vis resultatet.»","8605e260c966a826":"Test deg sjølv på mønster og abstraksjon:","cd9bc15c2a1e8822":"Kva for komponent handlar om å fokusere på det vesentlege og ignorere uvesentlege detaljar?","033571a61c7e6c42":"Abstraksjon","6f7d66a0d9086573":"Dekomponering","43ccafd0df4c0dfa":"Mønstergjenkjenning","08d2467b37f2a664":"Algoritmedesign","2f97a615abac4756":"Abstraksjon handlar om å trekkje ut det vesentlege og skjule dei uvesentlege detaljane.","330b6dc58f690ba9":"Kva er hovudfordelen med å bruke funksjonar i eit program?","9f87044d06054668":"Programmet køyrer alltid raskare","822b7032e097677e":"Koden blir organisert, gjenbrukbar og lettare å forstå","f1855a6a9ab42a01":"Ein slepp å bruke variablar","3b5d3f47a0c61c54":"Programmet bruker mindre minne","a3cee55f4be25021":"Funksjonar gir abstraksjon: dei organiserer koden, gjer han gjenbrukbar og lettare å lese.","60e416162325c811":"Kva er fordelen med å legge quiz-spørsmål i ei liste og bruke ei løkke?","335bb97b37affbcc":"Spørsmåla blir vanskelegare","ee62ee548b86f105":"Det fjernar behovet for svar","dfeef58a117e07f8":"Du kan legge til fleire spørsmål utan å skrive ny kode","3097e50cd9b9920c":"Det gjer koden lengre","fea45fda7451efd7":"Med spørsmåla i ei liste og ei løkke gjenbruker du mønsteret – nye spørsmål blir lagde til berre ved å utvide lista.","f74b5a6efb900cda":"## Frå heilskap til detalj – og ein fast prosess\n\nDen fjerde komponenten er algoritmedesign, og ein kraftig metode her er **top-down-design** med trinnvis forfining. Du startar med den overordna løysinga og bryt henne ned i stadig meir detaljerte delar – som eit kart der du først teiknar landegrensene, så fylka, så gatene. Skal du lage ein karakterkalkulator, byrjar du med tre grove steg: les inn karakterar, berekn gjennomsnitt, vis resultat. Deretter forfinar du kvart steg (les inn = spør om talet på fag, les fagnamn og karakter, lagre i liste), og til slutt skriv du éin funksjon per steg, som `les_karakterer`, `beregn_gjennomsnitt` og `vis_resultater`.\n\nFor kvar oppgåve kan du følgje ein fast, systematisk framgangsmåte. Først **forstå problemet**: les nøye, finn input og output, og tenk på spesialtilfelle og ugyldig input. Så **planlegg** med dekomponering og mønstergjenkjenning, og skriv algoritmen i naturleg språk. Deretter **implementer** éin del om gongen og test undervegs. Så **test** grundig – med normale verdiar, grensetilfelle som 0 og tomme lister, og ugyldig input. Til slutt **forbetra**: kan koden forenklast, kan gjentaking bli ein funksjon, er namna skildrande? Prosessen er iterativ; du går ofte tilbake til eit tidlegare steg, og det er heilt normalt.\n\nEit komplett døme er ein tekstanalysator som tel vokalar, konsonantar og andre teikn. Du forstår problemet (input: tekst; output: tre tal), planlegg (gå gjennom kvart teikn og tel), og implementerer ein funksjon `analyser_tekst` som sjekkar om kvart teikn er i strengen `\"aeiouyæøå\"`, i konsonantane, eller noko anna. Her ser du alle tre prinsippa: dekomponering, mønstergjenkjenning og abstraksjon i eitt.","b7f317e55248d83c":"Test deg sjølv på top-down-design og prosess:","3c475d57c7927f33":"Kva for rekkjefølgje er best med top-down-design for eit BMI-program?","01c764db30237eb9":"Skriv all koden i éi lang blokk og test til slutt","2611b53dd4b269eb":"Start med dei minste detaljane før du veit heilskapen","f20458b946c15d9a":"Kopier kode frå internett og tilpass","d6b14c5826f9c9ac":"Definer hovudtrinna først, lag funksjonar for kvart trinn, og test trinnvis","bf348e9ebd7846ee":"Top-down-design startar med hovudtrinna (les inn, berekn, kategoriser, vis), lagar funksjonar for kvart og testar trinnvis.","e3c1c167196703a1":"Kvifor bør du teste med grensetilfelle som 0 og tomme lister?","71df57ec2ba0a79c":"Fordi slike tilfelle ofte avslører feil som vanlege verdiar skjuler","f892e64ac3ef177b":"Fordi det får koden til å køyre raskare","beea2f4a79919b52":"Det er aldri naudsynt","43a823d9e437d44b":"Fordi Python krev det","3b1fc1c65695f1c3":"Grensetilfelle som 0, negative tal og tomme lister avslører ofte feil som ikkje dukkar opp med vanlege verdiar.","ba00a2f012f93d90":"## Oppsummering\n\nDen tomme editoren er ikkje skummel når du har strategiar. **Algoritmisk tenking** består av fire komponentar. **Dekomponering** bryt store problem ned i små bitar. **Mønstergjenkjenning** finn gjentakingar du kan løyse med løkker, funksjonar og lister. **Abstraksjon** skjuler detaljar bak enkle funksjonar, slik at du tenkjer på kva som skal gjerast, ikkje korleis.\n\nMed **top-down-design** og trinnvis forfining byggjer du løysinga frå heilskap til detalj, og ein fast prosess – forstå, planlegg, implementer, test, forbetra – tek deg trygt frå oppgåve til ferdig program. Dette er ferdigheiter du får bruk for i alle fag der problem skal løysast systematisk."}}}
+{
+  "id": "it-1-3-2-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "3.2",
+  "title": "Problemløysingsstrategiar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis du tek fatt på ein tom editor – algoritmisk tenking gjennom dekomponering, mønstergjenkjenning, abstraksjon og top-down-design.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "bruke dekomponering til å bryte ned komplekse problemer i håndterbare delproblemer",
+    "gjenkjenne mønstre og bruke abstraksjon i problemløsning",
+    "planlegge og utvikle løsninger systematisk ved hjelp av algoritmisk tenkning"
+  ],
+  "linkedChapterId": "it-1-3-2",
+  "content": [
+    {
+      "id": "it-1-3-2-n-intro",
+      "type": "text",
+      "content": "## Den tomme editoren\n\nDet vanskelegaste med programmering er ikkje syntaksen – det er å finne ut *korleis* du skal løyse eit problem. Mange nybyrjarar blir lamma av ei litt vanskeleg oppgåve og stirer på ein tom editor utan å vite kvar dei skal byrje. Heldigvis finst det velprøvde strategiar, samla under namnet **algoritmisk tenking** (computational thinking). Det består av fire komponentar: dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign.\n\nDen viktigaste er **dekomponering** – å bryte eit stort, uoverkommeleg problem ned i små bitar. Tenk deg at du skal lage eit quizprogram. Det høyrest overveldande ut, heilt til du deler det opp: definer spørsmål og svar, vis eitt spørsmål, les inn svaret, sjekk om det er rett, tel poeng, og vis resultatet. Kvart av desse stega er enkelt åleine, og til slutt set du dei saman.\n\nFramgangsmåten er: les oppgåva og finn ut kva som er input og output, list opp deloppgåvene, ordne dei i rekkjefølgje, løys kvar for seg, og set dei saman. Ein første versjon av quizen kan godt vere lang og repetitiv – med tre nesten like blokker, éi per spørsmål. Vi bruker `.strip()` for å fjerne mellomrom rundt svaret og `.lower()` for å gjere samanlikninga uavhengig av store og små bokstavar. Det viktige er at problemet no er løyst, bit for bit."
+    },
+    {
+      "id": "it-1-3-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på algoritmisk tenking og dekomponering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-2-n-quiz1-q0",
+            "task": "Kva tyder dekomponering i programmering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å bryte ned eit stort problem i mindre, handterlege delproblem",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å slette delar av koden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å skrive koden raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å fjerne feil frå programmet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dekomponering tyder å dele eit stort problem opp i mindre delar som kvar for seg er lette å løyse."
+          },
+          {
+            "id": "it-1-3-2-n-quiz1-q1",
+            "task": "Kva er dei fire komponentane i algoritmisk tenking?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lese, skrive, rekne og munnleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Variablar, løkker, funksjonar og modular",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Input, prosess, output og lagring",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Algoritmisk tenking består av dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign."
+          },
+          {
+            "id": "it-1-3-2-n-quiz1-q2",
+            "task": "Kva gjer .lower() når du samanliknar eit svar i ein quiz?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjer teksten kortare",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fjernar alle tal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gjer samanlikninga uavhengig av store og små bokstavar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Gir ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": ".lower() gjer all tekst til små bokstavar, slik at «Oslo» og «oslo» blir rekna som likt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-2-n-section1",
+      "type": "text",
+      "content": "## Når delane byrjar å likne kvarandre\n\nNår du har brote ned problemet, oppdagar du ofte at delane liknar. I quizen gjentok vi nesten identisk kode for kvart spørsmål – det er eit **mønster**. Mønstergjenkjenning tyder å sjå slike gjentakingar, og kople nye problem til ting du har løyst før. Har du funne det største talet i ei liste, kan same mønster finne det dyraste produktet eller den varmaste dagen.\n\nNår du ser eit mønster, kan du bruke ei *løkke* for å gjenta koden med ulike data, lage ein *funksjon* for det gjentakande arbeidet, eller bruke *datastrukturar* som lister. Quizen blir mykje kortare når vi legg spørsmåla i ei liste og køyrer ei løkke:\n\n```python\nsporsmaal = [\n    (\"Hva er hovedstaden i Norge? \", \"oslo\"),\n    (\"Hvilket år ble Norge selvstendig? \", \"1905\"),\n]\nfor sporsmal, fasit in sporsmaal:\n    svar = input(sporsmal).strip().lower()\n    if svar == fasit:\n        poeng += 1\n```\n\nNo legg du til fleire spørsmål berre ved å utvide lista. Den tredje komponenten er **abstraksjon** – å trekkje ut det vesentlege og ignorere det uvesentlege. Når du bruker `print()`, treng du ikkje vite *korleis* teksten hamnar på skjermen; kompleksiteten er gøymd bak eit enkelt funksjonskall. Abstraksjon handlar om å tenkje på *kva* som skal gjerast, ikkje *korleis*. Pakkar du quizen inn i funksjonar som `still_sporsmal`, `kjor_quiz` og `vis_resultat`, blir hovudprogrammet nesten lesbart som norsk: «Kjør quizen. Vis resultatet.»"
+    },
+    {
+      "id": "it-1-3-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på mønster og abstraksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-2-n-quiz2-q0",
+            "task": "Kva for komponent handlar om å fokusere på det vesentlege og ignorere uvesentlege detaljar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Dekomponering",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Mønstergjenkjenning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Algoritmedesign",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Abstraksjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Abstraksjon handlar om å trekkje ut det vesentlege og skjule dei uvesentlege detaljane."
+          },
+          {
+            "id": "it-1-3-2-n-quiz2-q1",
+            "task": "Kva er hovudfordelen med å bruke funksjonar i eit program?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Koden blir organisert, gjenbrukbar og lettare å forstå",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Programmet køyrer alltid raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein slepp å bruke variablar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Programmet bruker mindre minne",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonar gir abstraksjon: dei organiserer koden, gjer han gjenbrukbar og lettare å lese."
+          },
+          {
+            "id": "it-1-3-2-n-quiz2-q2",
+            "task": "Kva er fordelen med å legge quiz-spørsmål i ei liste og bruke ei løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Spørsmåla blir vanskelegare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Du kan legge til fleire spørsmål utan å skrive ny kode",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det fjernar behovet for svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det gjer koden lengre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med spørsmåla i ei liste og ei løkke gjenbruker du mønsteret – nye spørsmål blir lagde til berre ved å utvide lista."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-2-n-section2",
+      "type": "text",
+      "content": "## Frå heilskap til detalj – og ein fast prosess\n\nDen fjerde komponenten er algoritmedesign, og ein kraftig metode her er **top-down-design** med trinnvis forfining. Du startar med den overordna løysinga og bryt henne ned i stadig meir detaljerte delar – som eit kart der du først teiknar landegrensene, så fylka, så gatene. Skal du lage ein karakterkalkulator, byrjar du med tre grove steg: les inn karakterar, berekn gjennomsnitt, vis resultat. Deretter forfinar du kvart steg (les inn = spør om talet på fag, les fagnamn og karakter, lagre i liste), og til slutt skriv du éin funksjon per steg, som `les_karakterer`, `beregn_gjennomsnitt` og `vis_resultater`.\n\nFor kvar oppgåve kan du følgje ein fast, systematisk framgangsmåte. Først **forstå problemet**: les nøye, finn input og output, og tenk på spesialtilfelle og ugyldig input. Så **planlegg** med dekomponering og mønstergjenkjenning, og skriv algoritmen i naturleg språk. Deretter **implementer** éin del om gongen og test undervegs. Så **test** grundig – med normale verdiar, grensetilfelle som 0 og tomme lister, og ugyldig input. Til slutt **forbetra**: kan koden forenklast, kan gjentaking bli ein funksjon, er namna skildrande? Prosessen er iterativ; du går ofte tilbake til eit tidlegare steg, og det er heilt normalt.\n\nEit komplett døme er ein tekstanalysator som tel vokalar, konsonantar og andre teikn. Du forstår problemet (input: tekst; output: tre tal), planlegg (gå gjennom kvart teikn og tel), og implementerer ein funksjon `analyser_tekst` som sjekkar om kvart teikn er i strengen `\"aeiouyæøå\"`, i konsonantane, eller noko anna. Her ser du alle tre prinsippa: dekomponering, mønstergjenkjenning og abstraksjon i eitt."
+    },
+    {
+      "id": "it-1-3-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på top-down-design og prosess:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-2-n-quiz3-q0",
+            "task": "Kva for rekkjefølgje er best med top-down-design for eit BMI-program?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skriv all koden i éi lang blokk og test til slutt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Start med dei minste detaljane før du veit heilskapen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Definer hovudtrinna først, lag funksjonar for kvart trinn, og test trinnvis",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kopier kode frå internett og tilpass",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Top-down-design startar med hovudtrinna (les inn, berekn, kategoriser, vis), lagar funksjonar for kvart og testar trinnvis."
+          },
+          {
+            "id": "it-1-3-2-n-quiz3-q1",
+            "task": "Kvifor bør du teste med grensetilfelle som 0 og tomme lister?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi det får koden til å køyre raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er aldri naudsynt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi Python krev det",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi slike tilfelle ofte avslører feil som vanlege verdiar skjuler",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Grensetilfelle som 0, negative tal og tomme lister avslører ofte feil som ikkje dukkar opp med vanlege verdiar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDen tomme editoren er ikkje skummel når du har strategiar. **Algoritmisk tenking** består av fire komponentar. **Dekomponering** bryt store problem ned i små bitar. **Mønstergjenkjenning** finn gjentakingar du kan løyse med løkker, funksjonar og lister. **Abstraksjon** skjuler detaljar bak enkle funksjonar, slik at du tenkjer på kva som skal gjerast, ikkje korleis.\n\nMed **top-down-design** og trinnvis forfining byggjer du løysinga frå heilskap til detalj, og ein fast prosess – forstå, planlegg, implementer, test, forbetra – tek deg trygt frå oppgåve til ferdig program. Dette er ferdigheiter du får bruk for i alle fag der problem skal løysast systematisk."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "dd2f4fe1ff1cd7c8",
+    "translatedAt": "2026-06-20T23:44:55.463Z",
+    "model": "claude-code-agent",
+    "strings": 64,
+    "tm": {
+      "f720a9f3d6560298": "Problemløysingsstrategiar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6710fa4862a5a45f": "Ei forteljing om korleis du tek fatt på ein tom editor – algoritmisk tenking gjennom dekomponering, mønstergjenkjenning, abstraksjon og top-down-design.",
+      "321201c04b219d87": "bruke dekomponering til å bryte ned komplekse problemer i håndterbare delproblemer",
+      "9b889ea104534be4": "gjenkjenne mønstre og bruke abstraksjon i problemløsning",
+      "0dece1c97b311049": "planlegge og utvikle løsninger systematisk ved hjelp av algoritmisk tenkning",
+      "f36011032d3332ad": "## Den tomme editoren\n\nDet vanskelegaste med programmering er ikkje syntaksen – det er å finne ut *korleis* du skal løyse eit problem. Mange nybyrjarar blir lamma av ei litt vanskeleg oppgåve og stirer på ein tom editor utan å vite kvar dei skal byrje. Heldigvis finst det velprøvde strategiar, samla under namnet **algoritmisk tenking** (computational thinking). Det består av fire komponentar: dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign.\n\nDen viktigaste er **dekomponering** – å bryte eit stort, uoverkommeleg problem ned i små bitar. Tenk deg at du skal lage eit quizprogram. Det høyrest overveldande ut, heilt til du deler det opp: definer spørsmål og svar, vis eitt spørsmål, les inn svaret, sjekk om det er rett, tel poeng, og vis resultatet. Kvart av desse stega er enkelt åleine, og til slutt set du dei saman.\n\nFramgangsmåten er: les oppgåva og finn ut kva som er input og output, list opp deloppgåvene, ordne dei i rekkjefølgje, løys kvar for seg, og set dei saman. Ein første versjon av quizen kan godt vere lang og repetitiv – med tre nesten like blokker, éi per spørsmål. Vi bruker `.strip()` for å fjerne mellomrom rundt svaret og `.lower()` for å gjere samanlikninga uavhengig av store og små bokstavar. Det viktige er at problemet no er løyst, bit for bit.",
+      "6d7b296af2489933": "Test deg sjølv på algoritmisk tenking og dekomponering:",
+      "4097889236a2af26": "placeholder",
+      "531fbd969498e5d4": "Kva tyder dekomponering i programmering?",
+      "0ef122239696c5e1": "Å slette delar av koden",
+      "035c1c3188bfa2ea": "Å bryte ned eit stort problem i mindre, handterlege delproblem",
+      "2c00dd508aea00f1": "Å skrive koden raskare",
+      "06b633405965fa10": "Å fjerne feil frå programmet",
+      "3b3a39c75a33c2af": "Dekomponering tyder å dele eit stort problem opp i mindre delar som kvar for seg er lette å løyse.",
+      "2ea24cc5f71ab86b": "Kva er dei fire komponentane i algoritmisk tenking?",
+      "24ed133b39cb2be9": "Lese, skrive, rekne og munnleg",
+      "36f315cdb131853b": "Variablar, løkker, funksjonar og modular",
+      "2741d3f28558011c": "Dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign",
+      "c0b5aa42d8cf671b": "Input, prosess, output og lagring",
+      "b526ce6071b09ee1": "Algoritmisk tenking består av dekomponering, mønstergjenkjenning, abstraksjon og algoritmedesign.",
+      "92dc9c5fc71d8496": "Kva gjer .lower() når du samanliknar eit svar i ein quiz?",
+      "56372982fe7d614e": "Gjer teksten kortare",
+      "13c24a48caf4359b": "Fjernar alle tal",
+      "4a325858e99a81b5": "Gir ei feilmelding",
+      "8338bcee442e0235": "Gjer samanlikninga uavhengig av store og små bokstavar",
+      "9e9b7e1efa34cfb3": ".lower() gjer all tekst til små bokstavar, slik at «Oslo» og «oslo» blir rekna som likt.",
+      "000093f7d14e4215": "## Når delane byrjar å likne kvarandre\n\nNår du har brote ned problemet, oppdagar du ofte at delane liknar. I quizen gjentok vi nesten identisk kode for kvart spørsmål – det er eit **mønster**. Mønstergjenkjenning tyder å sjå slike gjentakingar, og kople nye problem til ting du har løyst før. Har du funne det største talet i ei liste, kan same mønster finne det dyraste produktet eller den varmaste dagen.\n\nNår du ser eit mønster, kan du bruke ei *løkke* for å gjenta koden med ulike data, lage ein *funksjon* for det gjentakande arbeidet, eller bruke *datastrukturar* som lister. Quizen blir mykje kortare når vi legg spørsmåla i ei liste og køyrer ei løkke:\n\n```python\nsporsmaal = [\n    (\"Hva er hovedstaden i Norge? \", \"oslo\"),\n    (\"Hvilket år ble Norge selvstendig? \", \"1905\"),\n]\nfor sporsmal, fasit in sporsmaal:\n    svar = input(sporsmal).strip().lower()\n    if svar == fasit:\n        poeng += 1\n```\n\nNo legg du til fleire spørsmål berre ved å utvide lista. Den tredje komponenten er **abstraksjon** – å trekkje ut det vesentlege og ignorere det uvesentlege. Når du bruker `print()`, treng du ikkje vite *korleis* teksten hamnar på skjermen; kompleksiteten er gøymd bak eit enkelt funksjonskall. Abstraksjon handlar om å tenkje på *kva* som skal gjerast, ikkje *korleis*. Pakkar du quizen inn i funksjonar som `still_sporsmal`, `kjor_quiz` og `vis_resultat`, blir hovudprogrammet nesten lesbart som norsk: «Kjør quizen. Vis resultatet.»",
+      "8605e260c966a826": "Test deg sjølv på mønster og abstraksjon:",
+      "cd9bc15c2a1e8822": "Kva for komponent handlar om å fokusere på det vesentlege og ignorere uvesentlege detaljar?",
+      "033571a61c7e6c42": "Abstraksjon",
+      "6f7d66a0d9086573": "Dekomponering",
+      "43ccafd0df4c0dfa": "Mønstergjenkjenning",
+      "08d2467b37f2a664": "Algoritmedesign",
+      "2f97a615abac4756": "Abstraksjon handlar om å trekkje ut det vesentlege og skjule dei uvesentlege detaljane.",
+      "330b6dc58f690ba9": "Kva er hovudfordelen med å bruke funksjonar i eit program?",
+      "9f87044d06054668": "Programmet køyrer alltid raskare",
+      "822b7032e097677e": "Koden blir organisert, gjenbrukbar og lettare å forstå",
+      "f1855a6a9ab42a01": "Ein slepp å bruke variablar",
+      "3b5d3f47a0c61c54": "Programmet bruker mindre minne",
+      "a3cee55f4be25021": "Funksjonar gir abstraksjon: dei organiserer koden, gjer han gjenbrukbar og lettare å lese.",
+      "60e416162325c811": "Kva er fordelen med å legge quiz-spørsmål i ei liste og bruke ei løkke?",
+      "335bb97b37affbcc": "Spørsmåla blir vanskelegare",
+      "ee62ee548b86f105": "Det fjernar behovet for svar",
+      "dfeef58a117e07f8": "Du kan legge til fleire spørsmål utan å skrive ny kode",
+      "3097e50cd9b9920c": "Det gjer koden lengre",
+      "fea45fda7451efd7": "Med spørsmåla i ei liste og ei løkke gjenbruker du mønsteret – nye spørsmål blir lagde til berre ved å utvide lista.",
+      "f74b5a6efb900cda": "## Frå heilskap til detalj – og ein fast prosess\n\nDen fjerde komponenten er algoritmedesign, og ein kraftig metode her er **top-down-design** med trinnvis forfining. Du startar med den overordna løysinga og bryt henne ned i stadig meir detaljerte delar – som eit kart der du først teiknar landegrensene, så fylka, så gatene. Skal du lage ein karakterkalkulator, byrjar du med tre grove steg: les inn karakterar, berekn gjennomsnitt, vis resultat. Deretter forfinar du kvart steg (les inn = spør om talet på fag, les fagnamn og karakter, lagre i liste), og til slutt skriv du éin funksjon per steg, som `les_karakterer`, `beregn_gjennomsnitt` og `vis_resultater`.\n\nFor kvar oppgåve kan du følgje ein fast, systematisk framgangsmåte. Først **forstå problemet**: les nøye, finn input og output, og tenk på spesialtilfelle og ugyldig input. Så **planlegg** med dekomponering og mønstergjenkjenning, og skriv algoritmen i naturleg språk. Deretter **implementer** éin del om gongen og test undervegs. Så **test** grundig – med normale verdiar, grensetilfelle som 0 og tomme lister, og ugyldig input. Til slutt **forbetra**: kan koden forenklast, kan gjentaking bli ein funksjon, er namna skildrande? Prosessen er iterativ; du går ofte tilbake til eit tidlegare steg, og det er heilt normalt.\n\nEit komplett døme er ein tekstanalysator som tel vokalar, konsonantar og andre teikn. Du forstår problemet (input: tekst; output: tre tal), planlegg (gå gjennom kvart teikn og tel), og implementerer ein funksjon `analyser_tekst` som sjekkar om kvart teikn er i strengen `\"aeiouyæøå\"`, i konsonantane, eller noko anna. Her ser du alle tre prinsippa: dekomponering, mønstergjenkjenning og abstraksjon i eitt.",
+      "b7f317e55248d83c": "Test deg sjølv på top-down-design og prosess:",
+      "3c475d57c7927f33": "Kva for rekkjefølgje er best med top-down-design for eit BMI-program?",
+      "01c764db30237eb9": "Skriv all koden i éi lang blokk og test til slutt",
+      "2611b53dd4b269eb": "Start med dei minste detaljane før du veit heilskapen",
+      "f20458b946c15d9a": "Kopier kode frå internett og tilpass",
+      "d6b14c5826f9c9ac": "Definer hovudtrinna først, lag funksjonar for kvart trinn, og test trinnvis",
+      "bf348e9ebd7846ee": "Top-down-design startar med hovudtrinna (les inn, berekn, kategoriser, vis), lagar funksjonar for kvart og testar trinnvis.",
+      "e3c1c167196703a1": "Kvifor bør du teste med grensetilfelle som 0 og tomme lister?",
+      "71df57ec2ba0a79c": "Fordi slike tilfelle ofte avslører feil som vanlege verdiar skjuler",
+      "f892e64ac3ef177b": "Fordi det får koden til å køyre raskare",
+      "beea2f4a79919b52": "Det er aldri naudsynt",
+      "43a823d9e437d44b": "Fordi Python krev det",
+      "3b1fc1c65695f1c3": "Grensetilfelle som 0, negative tal og tomme lister avslører ofte feil som ikkje dukkar opp med vanlege verdiar.",
+      "ba00a2f012f93d90": "## Oppsummering\n\nDen tomme editoren er ikkje skummel når du har strategiar. **Algoritmisk tenking** består av fire komponentar. **Dekomponering** bryt store problem ned i små bitar. **Mønstergjenkjenning** finn gjentakingar du kan løyse med løkker, funksjonar og lister. **Abstraksjon** skjuler detaljar bak enkle funksjonar, slik at du tenkjer på kva som skal gjerast, ikkje korleis.\n\nMed **top-down-design** og trinnvis forfining byggjer du løysinga frå heilskap til detalj, og ein fast prosess – forstå, planlegg, implementer, test, forbetra – tek deg trygt frå oppgåve til ferdig program. Dette er ferdigheiter du får bruk for i alle fag der problem skal løysast systematisk."
+    }
+  }
+}

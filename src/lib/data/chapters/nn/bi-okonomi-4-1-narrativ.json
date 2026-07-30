@@ -1,1 +1,406 @@
-{"id":"bi-okonomi-4-1-narrativ","courseId":"bi-okonomi","chapterNumber":"4.1","title":"Renter og renteberekning","subtitle":"Narrativ versjon","description":"Ei forteljing om renta -- prisen på pengar -- og om korleis rentes rente forvandlar ein sparekonto til ei eksponentiell vekstmaskin.","estimatedMinutes":32,"competenceGoals":["rekne ut framtidsverdi med ulike rentemodellar","forstå skilnaden mellom nominell og effektiv rente"],"linkedChapterId":"bi-okonomi-4-1","content":[{"id":"bi-okonomi-4-1-n-intro","type":"text","content":"## Prisen på pengar\n\nTenk deg at du set $10\\,000$ kr inn på ein sparekonto og gløymer dei. År etter år veks dei heilt av seg sjølv. Kva er det som driv denne veksten? Svaret er **renta** -- prisen på å låne pengar, eller avkastninga du får når du sparer. Renter påverkar alt frå ditt eige banklån til store bedriftsinvesteringar og rentemøta i Noregs Bank.\n\nVi startar med den enklaste modellen, **enkel rente**. Her blir renta rekna berre av startkapitalen, aldri av rentene du allereie har tent. Formelen er $K_n = K_0\\cdot(1 + r\\cdot n)$, der $K_0$ er startkapitalen, $r$ er årleg rente som desimaltal, $n$ er talet på år og $K_n$ er sluttverdien. Set du $10\\,000$ kr inn til $5\\%$ enkel rente i $3$ år, får du $K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr. Du har tent nøyaktig $500$ kr kvart år, til saman $1\\,500$ kr.\n\nEnkel rente blir sjeldan brukt i praksis, men ho er eit nyttig utgangspunkt -- for i røynda gjer bankane noko langt meir kraftfullt."},{"id":"bi-okonomi-4-1-n-section1","type":"text","content":"## Rentes rente -- det åttande underverket\n\nNesten alle bankar bruker **rentes rente**, òg kalla samansett rente. Skilnaden er enkel, men verknaden er enorm: renta blir lagd til kapitalen, og neste periode blir renta rekna av den nye, større summen. Du tener altså rente òg på rentene. Formelen blir $K_n = K_0\\cdot(1 + r)^n$, der faktoren $(1 + r)$ blir kalla **vekstfaktoren**.\n\nLat oss ta dei same $10\\,000$ kr til $5\\%$, men no med rentes rente i $3$ år: $K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr. Samanlikna med enkel rente, som gav $11\\,500$ kr, har du fått $76{,}25$ kr ekstra. Det høyrest lite ut, men skilnaden veks eksponentielt med tida -- over $20$ eller $30$ år blir han dramatisk.\n\nDet finst eit sitat -- ofte tilskrive Albert Einstein, men usikkert om han faktisk sa det -- som lyder: «Rentes rente er det åttande underverket i verda. Den som forstår det, tener det; den som ikkje gjer det, betaler det.» Uansett kven som sa det, fangar det sjølve kjernen: eksponentiell vekst over tid er ei kraft du vil ha på di side når du sparer, og ei du fryktar når du har gjeld."},{"id":"bi-okonomi-4-1-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på enkel rente og rentes rente:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-1-n-quiz1-q0","task":"Kva er skilnaden mellom enkel rente og rentes rente?","options":[{"id":"a","text":"Enkel rente gir alltid meir enn rentes rente","isCorrect":false},{"id":"b","text":"Ved rentes rente blir renta rekna òg av tidlegare opptente renter","isCorrect":true},{"id":"c","text":"Enkel rente blir berre brukt på lån, rentes rente berre på sparing","isCorrect":false},{"id":"d","text":"Det er ingen praktisk skilnad","isCorrect":false}],"solution":"Ved enkel rente blir renta rekna berre av startkapitalen, medan rentes rente reknar renta av kapitalen inkludert tidlegare opptente renter."},{"id":"bi-okonomi-4-1-n-quiz1-q1","task":"Du set inn $10\\,000$ kr til $5\\%$ enkel rente. Kor mykje har du etter $3$ år?","options":[{"id":"a","text":"$11\\,576{,}25$ kr","isCorrect":false},{"id":"b","text":"$10\\,500$ kr","isCorrect":false},{"id":"c","text":"$11\\,500$ kr","isCorrect":true},{"id":"d","text":"$15\\,000$ kr","isCorrect":false}],"solution":"$K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr."},{"id":"bi-okonomi-4-1-n-quiz1-q2","task":"Du set inn $10\\,000$ kr til $5\\%$ rentes rente. Kor mykje har du etter $3$ år?","options":[{"id":"a","text":"$11\\,500$ kr","isCorrect":false},{"id":"b","text":"$10\\,500$ kr","isCorrect":false},{"id":"c","text":"$13\\,310$ kr","isCorrect":false},{"id":"d","text":"$11\\,576{,}25$ kr","isCorrect":true}],"solution":"$K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr -- $76{,}25$ kr meir enn med enkel rente."}]}},{"id":"bi-okonomi-4-1-n-section2","type":"text","content":"## Når renta blir rekna oftare enn éin gong i året\n\nI praksis legg mange bankar renta til fleire gonger i året -- månadleg, kvartalsvis eller til og med dagleg. Då bruker vi **periodisk renteberekning**: $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{m\\cdot n}$, der $r$ er den **nominelle** årlege renta du blir oppgitt, og $m$ er talet på renteperiodar per år. For månadleg er $m = 12$, for kvartalsvis $m = 4$, for dagleg $m = 365$.\n\nSet du $100\\,000$ kr inn til $6\\%$ nominell rente med månadleg berekning i $2$ år, får du $K_2 = 100\\,000\\cdot\\left(1 + \\frac{0{,}06}{12}\\right)^{24} = 100\\,000\\cdot(1{,}005)^{24} = 112\\,716$ kr. Med årleg berekning ville du fått $100\\,000\\cdot(1{,}06)^2 = 112\\,360$ kr. Hyppigare renteberekning gav deg altså $356$ kr ekstra.\n\nDette tyder at den faktiske avkastninga di er høgare enn dei oppgitte $6\\%$. Den ekte avkastninga kallar vi **effektiv årleg rente**, og ho finn vi med $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$. Med $6\\%$ nominell og månadleg berekning blir $r_{eff} = (1{,}005)^{12} - 1 = 0{,}06168$, altså $6{,}168\\%$. Den effektive renta er alltid høgare enn den nominelle når $m > 1$. Difor: når du skal samanlikne lån eller spareprodukt, bruk alltid den effektive renta -- det er den einaste rettferdige målestokken."},{"id":"bi-okonomi-4-1-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på periodisk og effektiv rente:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-1-n-quiz2-q0","task":"Ein bank tilbyr $8\\%$ nominell årleg rente med kvartalsvis renteberekning. Kva er den effektive årlege renta?","options":[{"id":"a","text":"$8{,}24\\%$","isCorrect":true},{"id":"b","text":"$8{,}00\\%$","isCorrect":false},{"id":"c","text":"$32\\%$","isCorrect":false},{"id":"d","text":"$2\\%$","isCorrect":false}],"solution":"$r_{eff} = (1 + 0{,}08/4)^4 - 1 = (1{,}02)^4 - 1 = 0{,}0824 = 8{,}24\\%$."},{"id":"bi-okonomi-4-1-n-quiz2-q1","task":"Kvifor er effektiv rente alltid høgare enn nominell rente når $m > 1$?","options":[{"id":"a","text":"Fordi bankane legg på eit gebyr","isCorrect":false},{"id":"b","text":"Fordi renta blir rekna fleire gonger, så du får rente òg på rentene mellom periodane","isCorrect":true},{"id":"c","text":"Fordi inflasjonen blir trekt frå","isCorrect":false},{"id":"d","text":"Det er tilfeldig kva for ei som er høgast","isCorrect":false}],"solution":"Når renta blir kapitalisert fleire gonger per år, blir kvar ny periode rekna på eit beløp som allereie er auka av førre periode. Denne rentes rente-effekten gjer effektiv rente høgare enn nominell."},{"id":"bi-okonomi-4-1-n-quiz2-q2","task":"Bank A tilbyr $5{,}9\\%$ med årleg renteberekning. Bank B tilbyr $5{,}8\\%$ med månadleg. Kva for ein er best?","options":[{"id":"a","text":"Bank A, fordi nominell rente er høgast","isCorrect":false},{"id":"b","text":"Dei er like gode","isCorrect":false},{"id":"c","text":"Bank B, fordi effektiv rente blir $\\approx 5{,}96\\%$","isCorrect":true},{"id":"d","text":"Umogleg å avgjere","isCorrect":false}],"solution":"Bank A: $r_{eff} = 5{,}9\\%$. Bank B: $r_{eff} = (1 + 0{,}058/12)^{12} - 1 \\approx 5{,}96\\%$. Bank B vinn -- difor samanliknar vi alltid effektive renter."}]}},{"id":"bi-okonomi-4-1-n-section3","type":"text","content":"## Vekstfaktorar, 72-regelen og realrente\n\nDet løner seg å tenkje på renter som **vekstfaktorar**. Ein vekstfaktor $V = 1 + r$ viser forholdet mellom ny og gammal verdi: $5\\%$ auke gir $V = 1{,}05$, $3\\%$ nedgang gir $V = 0{,}97$, ei dobling gir $V = 2$. Den prosentvise endringa er alltid $(V - 1)\\cdot 100\\%$. Det fine er at fleire endringar etter kvarandre berre blir ganga saman. Stig ein aksje $10\\%$, fell $5\\%$ og stig $15\\%$, blir totalfaktoren $1{,}10\\cdot 0{,}95\\cdot 1{,}15 = 1{,}20175$, altså ein samla auke på $20{,}175\\%$ -- ikkje summen $10 - 5 + 15 = 20\\%$.\n\nVil du raskt anslå kor lenge noko bruker på å doble seg, finst **72-regelen**: doblingstida er omtrent $\\frac{72}{r\\cdot 100}$. Ved $6\\%$ rente blir det $72/6 = 12$ år, ved $8\\%$ blir det $9$ år. Ei grov, men nyttig hovudrekning.\n\nTil slutt: den nominelle renta fortel ikkje heile sanninga, for prisane stig òg. **Realrenta** viser den faktiske auken i kjøpekraft: $r_{real} = \\frac{1 + r_{nom}}{1 + \\pi} - 1$, der $\\pi$ er inflasjonen. Gir sparekontoen $4\\%$ medan inflasjonen er $2{,}5\\%$, blir $r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Ei grei tilnærming når tala er små er berre $r_{real} \\approx r_{nom} - \\pi = 1{,}5\\%$. Kjøpekrafta di veks altså med rundt $1{,}5\\%$ i året, ikkje $4\\%$."},{"id":"bi-okonomi-4-1-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-4-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på vekstfaktorar, 72-regelen og realrente:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-1-n-quiz3-q0","task":"Ein pris aukar med $20\\%$ og deretter med $25\\%$. Kva er den totale prosentvise auken?","options":[{"id":"a","text":"$45\\%$","isCorrect":false},{"id":"b","text":"$22{,}5\\%$","isCorrect":false},{"id":"c","text":"$5\\%$","isCorrect":false},{"id":"d","text":"$50\\%$","isCorrect":true}],"solution":"Vi gangar vekstfaktorane: $1{,}20\\cdot 1{,}25 = 1{,}50$, altså $50\\%$ auke -- ikkje summen $20 + 25 = 45\\%$."},{"id":"bi-okonomi-4-1-n-quiz3-q1","task":"Bruk 72-regelen: omtrent kor lang tid tek det å doble ei investering med $9\\%$ årleg rente?","options":[{"id":"a","text":"$8$ år","isCorrect":true},{"id":"b","text":"$12$ år","isCorrect":false},{"id":"c","text":"$18$ år","isCorrect":false},{"id":"d","text":"$9$ år","isCorrect":false}],"solution":"Doblingstid $\\approx 72/9 = 8$ år."},{"id":"bi-okonomi-4-1-n-quiz3-q2","task":"Nominell rente er $4\\%$ og inflasjonen er $2{,}5\\%$. Kva er realrenta (eksakt)?","options":[{"id":"a","text":"$6{,}5\\%$","isCorrect":false},{"id":"b","text":"$1{,}46\\%$","isCorrect":true},{"id":"c","text":"$1{,}5\\%$","isCorrect":false},{"id":"d","text":"$4\\%$","isCorrect":false}],"solution":"$r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Den forenkla tilnærminga $4 - 2{,}5 = 1{,}5\\%$ ligg nær."}]}},{"id":"bi-okonomi-4-1-n-summary","type":"text","content":"## Oppsummering\n\nRenter er prisen på pengar. Ved **enkel rente** veks kapitalen med $K_n = K_0\\cdot(1 + r\\cdot n)$, men i praksis bruker bankane **rentes rente**: $K_n = K_0\\cdot(1 + r)^n$, der vekstfaktoren $(1 + r)$ blir gjenteken kvar periode og gir eksponentiell vekst -- du tener rente òg på rentene.\n\nNår renta blir rekna $m$ gonger i året, blir det $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{mn}$, og den ekte avkastninga er den **effektive renta** $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$, som alltid overgår den nominelle når $m > 1$. Tenk på renter som **vekstfaktorar** $V = 1 + r$ som blir ganga saman over fleire periodar, bruk **72-regelen** $\\frac{72}{r\\cdot 100}$ til å anslå doblingstid, og hugs at **realrenta** $\\frac{1 + r_{nom}}{1 + \\pi} - 1$ fortel kva som verkeleg skjer med kjøpekrafta di når inflasjonen et av avkastninga."}],"exercises":[],"_meta":{"sourceHash":"bf70e566f3c4db22","translatedAt":"2026-06-21T00:51:11.850Z","model":"claude-code-agent","strings":58,"tm":{"462ea7104f783783":"Renter og renteberekning","b195b06d1ed59702":"Narrativ versjon","9ca71a180cbfa1e0":"Ei forteljing om renta -- prisen på pengar -- og om korleis rentes rente forvandlar ein sparekonto til ei eksponentiell vekstmaskin.","8294d7e93af38a5f":"rekne ut framtidsverdi med ulike rentemodellar","539e9d3e98cdf894":"forstå skilnaden mellom nominell og effektiv rente","d6d272c46daef205":"## Prisen på pengar\n\nTenk deg at du set $10\\,000$ kr inn på ein sparekonto og gløymer dei. År etter år veks dei heilt av seg sjølv. Kva er det som driv denne veksten? Svaret er **renta** -- prisen på å låne pengar, eller avkastninga du får når du sparer. Renter påverkar alt frå ditt eige banklån til store bedriftsinvesteringar og rentemøta i Noregs Bank.\n\nVi startar med den enklaste modellen, **enkel rente**. Her blir renta rekna berre av startkapitalen, aldri av rentene du allereie har tent. Formelen er $K_n = K_0\\cdot(1 + r\\cdot n)$, der $K_0$ er startkapitalen, $r$ er årleg rente som desimaltal, $n$ er talet på år og $K_n$ er sluttverdien. Set du $10\\,000$ kr inn til $5\\%$ enkel rente i $3$ år, får du $K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr. Du har tent nøyaktig $500$ kr kvart år, til saman $1\\,500$ kr.\n\nEnkel rente blir sjeldan brukt i praksis, men ho er eit nyttig utgangspunkt -- for i røynda gjer bankane noko langt meir kraftfullt.","626f7bc52acd4570":"## Rentes rente -- det åttande underverket\n\nNesten alle bankar bruker **rentes rente**, òg kalla samansett rente. Skilnaden er enkel, men verknaden er enorm: renta blir lagd til kapitalen, og neste periode blir renta rekna av den nye, større summen. Du tener altså rente òg på rentene. Formelen blir $K_n = K_0\\cdot(1 + r)^n$, der faktoren $(1 + r)$ blir kalla **vekstfaktoren**.\n\nLat oss ta dei same $10\\,000$ kr til $5\\%$, men no med rentes rente i $3$ år: $K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr. Samanlikna med enkel rente, som gav $11\\,500$ kr, har du fått $76{,}25$ kr ekstra. Det høyrest lite ut, men skilnaden veks eksponentielt med tida -- over $20$ eller $30$ år blir han dramatisk.\n\nDet finst eit sitat -- ofte tilskrive Albert Einstein, men usikkert om han faktisk sa det -- som lyder: «Rentes rente er det åttande underverket i verda. Den som forstår det, tener det; den som ikkje gjer det, betaler det.» Uansett kven som sa det, fangar det sjølve kjernen: eksponentiell vekst over tid er ei kraft du vil ha på di side når du sparer, og ei du fryktar når du har gjeld.","fd4d8e40669ad6c9":"Test deg sjølv på enkel rente og rentes rente:","4097889236a2af26":"placeholder","3c1b1c0dd85d85a8":"Kva er skilnaden mellom enkel rente og rentes rente?","efadcbee5c709ac3":"Enkel rente gir alltid meir enn rentes rente","f81676833383f916":"Ved rentes rente blir renta rekna òg av tidlegare opptente renter","219b0b8c3236c9e2":"Enkel rente blir berre brukt på lån, rentes rente berre på sparing","6b54a88bc65ea9aa":"Det er ingen praktisk skilnad","7130e975cf7202c5":"Ved enkel rente blir renta rekna berre av startkapitalen, medan rentes rente reknar renta av kapitalen inkludert tidlegare opptente renter.","4d489b08c3f74b90":"Du set inn $10\\,000$ kr til $5\\%$ enkel rente. Kor mykje har du etter $3$ år?","f0dcdd76c94f952c":"$11\\,576{,}25$ kr","3ed0748a79364f82":"$10\\,500$ kr","3e4b1d6998a6ed77":"$11\\,500$ kr","beb024ce92035d2e":"$15\\,000$ kr","deeff2317c31d06d":"$K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr.","e3af6c4bfb94e4e2":"Du set inn $10\\,000$ kr til $5\\%$ rentes rente. Kor mykje har du etter $3$ år?","f7b806d4ce00a2c9":"$13\\,310$ kr","8c9c734fe7dd77a9":"$K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr -- $76{,}25$ kr meir enn med enkel rente.","e498c395623895a6":"## Når renta blir rekna oftare enn éin gong i året\n\nI praksis legg mange bankar renta til fleire gonger i året -- månadleg, kvartalsvis eller til og med dagleg. Då bruker vi **periodisk renteberekning**: $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{m\\cdot n}$, der $r$ er den **nominelle** årlege renta du blir oppgitt, og $m$ er talet på renteperiodar per år. For månadleg er $m = 12$, for kvartalsvis $m = 4$, for dagleg $m = 365$.\n\nSet du $100\\,000$ kr inn til $6\\%$ nominell rente med månadleg berekning i $2$ år, får du $K_2 = 100\\,000\\cdot\\left(1 + \\frac{0{,}06}{12}\\right)^{24} = 100\\,000\\cdot(1{,}005)^{24} = 112\\,716$ kr. Med årleg berekning ville du fått $100\\,000\\cdot(1{,}06)^2 = 112\\,360$ kr. Hyppigare renteberekning gav deg altså $356$ kr ekstra.\n\nDette tyder at den faktiske avkastninga di er høgare enn dei oppgitte $6\\%$. Den ekte avkastninga kallar vi **effektiv årleg rente**, og ho finn vi med $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$. Med $6\\%$ nominell og månadleg berekning blir $r_{eff} = (1{,}005)^{12} - 1 = 0{,}06168$, altså $6{,}168\\%$. Den effektive renta er alltid høgare enn den nominelle når $m > 1$. Difor: når du skal samanlikne lån eller spareprodukt, bruk alltid den effektive renta -- det er den einaste rettferdige målestokken.","93ce0f603f889ba6":"Test deg sjølv på periodisk og effektiv rente:","58999462f65caa26":"Ein bank tilbyr $8\\%$ nominell årleg rente med kvartalsvis renteberekning. Kva er den effektive årlege renta?","18285f9959ace66b":"$r_{eff} = (1 + 0{,}08/4)^4 - 1 = (1{,}02)^4 - 1 = 0{,}0824 = 8{,}24\\%$.","b7a7b9cb8613d45d":"Kvifor er effektiv rente alltid høgare enn nominell rente når $m > 1$?","27ed2bde6db6b2a3":"Fordi bankane legg på eit gebyr","e9051d49bf7a6166":"Fordi renta blir rekna fleire gonger, så du får rente òg på rentene mellom periodane","b19d3b7e747d545d":"Fordi inflasjonen blir trekt frå","20f0654d331f2aad":"Det er tilfeldig kva for ei som er høgast","3f9770cef8fd5474":"Når renta blir kapitalisert fleire gonger per år, blir kvar ny periode rekna på eit beløp som allereie er auka av førre periode. Denne rentes rente-effekten gjer effektiv rente høgare enn nominell.","e44312a5e695b352":"Bank A tilbyr $5{,}9\\%$ med årleg renteberekning. Bank B tilbyr $5{,}8\\%$ med månadleg. Kva for ein er best?","c47765dca8648882":"Bank A, fordi nominell rente er høgast","d695a67fc6756b57":"Dei er like gode","ad60c8c6a1598d85":"Bank B, fordi effektiv rente blir $\\approx 5{,}96\\%$","68f09193e7f920d5":"Umogleg å avgjere","8edd4ca4048bad0d":"Bank A: $r_{eff} = 5{,}9\\%$. Bank B: $r_{eff} = (1 + 0{,}058/12)^{12} - 1 \\approx 5{,}96\\%$. Bank B vinn -- difor samanliknar vi alltid effektive renter.","8fe200b0124b23dc":"## Vekstfaktorar, 72-regelen og realrente\n\nDet løner seg å tenkje på renter som **vekstfaktorar**. Ein vekstfaktor $V = 1 + r$ viser forholdet mellom ny og gammal verdi: $5\\%$ auke gir $V = 1{,}05$, $3\\%$ nedgang gir $V = 0{,}97$, ei dobling gir $V = 2$. Den prosentvise endringa er alltid $(V - 1)\\cdot 100\\%$. Det fine er at fleire endringar etter kvarandre berre blir ganga saman. Stig ein aksje $10\\%$, fell $5\\%$ og stig $15\\%$, blir totalfaktoren $1{,}10\\cdot 0{,}95\\cdot 1{,}15 = 1{,}20175$, altså ein samla auke på $20{,}175\\%$ -- ikkje summen $10 - 5 + 15 = 20\\%$.\n\nVil du raskt anslå kor lenge noko bruker på å doble seg, finst **72-regelen**: doblingstida er omtrent $\\frac{72}{r\\cdot 100}$. Ved $6\\%$ rente blir det $72/6 = 12$ år, ved $8\\%$ blir det $9$ år. Ei grov, men nyttig hovudrekning.\n\nTil slutt: den nominelle renta fortel ikkje heile sanninga, for prisane stig òg. **Realrenta** viser den faktiske auken i kjøpekraft: $r_{real} = \\frac{1 + r_{nom}}{1 + \\pi} - 1$, der $\\pi$ er inflasjonen. Gir sparekontoen $4\\%$ medan inflasjonen er $2{,}5\\%$, blir $r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Ei grei tilnærming når tala er små er berre $r_{real} \\approx r_{nom} - \\pi = 1{,}5\\%$. Kjøpekrafta di veks altså med rundt $1{,}5\\%$ i året, ikkje $4\\%$.","11591f7da9d6d963":"Test deg sjølv på vekstfaktorar, 72-regelen og realrente:","058c5897c99ff32e":"Ein pris aukar med $20\\%$ og deretter med $25\\%$. Kva er den totale prosentvise auken?","0ecb435deec59f50":"Vi gangar vekstfaktorane: $1{,}20\\cdot 1{,}25 = 1{,}50$, altså $50\\%$ auke -- ikkje summen $20 + 25 = 45\\%$.","b149232be19eab52":"Bruk 72-regelen: omtrent kor lang tid tek det å doble ei investering med $9\\%$ årleg rente?","982dba16a053b68e":"$8$ år","3a3a6b167308d271":"$12$ år","f5df5105b988084a":"$18$ år","1f9aa4f01719551e":"$9$ år","060fb3f7f070fddd":"Doblingstid $\\approx 72/9 = 8$ år.","604e36bd4a0db09a":"Nominell rente er $4\\%$ og inflasjonen er $2{,}5\\%$. Kva er realrenta (eksakt)?","36dff43c15bbc6e2":"$r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Den forenkla tilnærminga $4 - 2{,}5 = 1{,}5\\%$ ligg nær.","2153ad4001a59db6":"## Oppsummering\n\nRenter er prisen på pengar. Ved **enkel rente** veks kapitalen med $K_n = K_0\\cdot(1 + r\\cdot n)$, men i praksis bruker bankane **rentes rente**: $K_n = K_0\\cdot(1 + r)^n$, der vekstfaktoren $(1 + r)$ blir gjenteken kvar periode og gir eksponentiell vekst -- du tener rente òg på rentene.\n\nNår renta blir rekna $m$ gonger i året, blir det $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{mn}$, og den ekte avkastninga er den **effektive renta** $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$, som alltid overgår den nominelle når $m > 1$. Tenk på renter som **vekstfaktorar** $V = 1 + r$ som blir ganga saman over fleire periodar, bruk **72-regelen** $\\frac{72}{r\\cdot 100}$ til å anslå doblingstid, og hugs at **realrenta** $\\frac{1 + r_{nom}}{1 + \\pi} - 1$ fortel kva som verkeleg skjer med kjøpekrafta di når inflasjonen et av avkastninga."}}}
+{
+  "id": "bi-okonomi-4-1-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "4.1",
+  "title": "Renter og renteberekning",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om renta -- prisen på pengar -- og om korleis rentes rente forvandlar ein sparekonto til ei eksponentiell vekstmaskin.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "rekne ut framtidsverdi med ulike rentemodellar",
+    "forstå skilnaden mellom nominell og effektiv rente"
+  ],
+  "linkedChapterId": "bi-okonomi-4-1",
+  "content": [
+    {
+      "id": "bi-okonomi-4-1-n-intro",
+      "type": "text",
+      "content": "## Prisen på pengar\n\nTenk deg at du set $10\\,000$ kr inn på ein sparekonto og gløymer dei. År etter år veks dei heilt av seg sjølv. Kva er det som driv denne veksten? Svaret er **renta** -- prisen på å låne pengar, eller avkastninga du får når du sparer. Renter påverkar alt frå ditt eige banklån til store bedriftsinvesteringar og rentemøta i Noregs Bank.\n\nVi startar med den enklaste modellen, **enkel rente**. Her blir renta rekna berre av startkapitalen, aldri av rentene du allereie har tent. Formelen er $K_n = K_0\\cdot(1 + r\\cdot n)$, der $K_0$ er startkapitalen, $r$ er årleg rente som desimaltal, $n$ er talet på år og $K_n$ er sluttverdien. Set du $10\\,000$ kr inn til $5\\%$ enkel rente i $3$ år, får du $K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr. Du har tent nøyaktig $500$ kr kvart år, til saman $1\\,500$ kr.\n\nEnkel rente blir sjeldan brukt i praksis, men ho er eit nyttig utgangspunkt -- for i røynda gjer bankane noko langt meir kraftfullt."
+    },
+    {
+      "id": "bi-okonomi-4-1-n-section1",
+      "type": "text",
+      "content": "## Rentes rente -- det åttande underverket\n\nNesten alle bankar bruker **rentes rente**, òg kalla samansett rente. Skilnaden er enkel, men verknaden er enorm: renta blir lagd til kapitalen, og neste periode blir renta rekna av den nye, større summen. Du tener altså rente òg på rentene. Formelen blir $K_n = K_0\\cdot(1 + r)^n$, der faktoren $(1 + r)$ blir kalla **vekstfaktoren**.\n\nLat oss ta dei same $10\\,000$ kr til $5\\%$, men no med rentes rente i $3$ år: $K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr. Samanlikna med enkel rente, som gav $11\\,500$ kr, har du fått $76{,}25$ kr ekstra. Det høyrest lite ut, men skilnaden veks eksponentielt med tida -- over $20$ eller $30$ år blir han dramatisk.\n\nDet finst eit sitat -- ofte tilskrive Albert Einstein, men usikkert om han faktisk sa det -- som lyder: «Rentes rente er det åttande underverket i verda. Den som forstår det, tener det; den som ikkje gjer det, betaler det.» Uansett kven som sa det, fangar det sjølve kjernen: eksponentiell vekst over tid er ei kraft du vil ha på di side når du sparer, og ei du fryktar når du har gjeld."
+    },
+    {
+      "id": "bi-okonomi-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på enkel rente og rentes rente:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-1-n-quiz1-q0",
+            "task": "Kva er skilnaden mellom enkel rente og rentes rente?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Enkel rente gir alltid meir enn rentes rente",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Enkel rente blir berre brukt på lån, rentes rente berre på sparing",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen praktisk skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ved rentes rente blir renta rekna òg av tidlegare opptente renter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ved enkel rente blir renta rekna berre av startkapitalen, medan rentes rente reknar renta av kapitalen inkludert tidlegare opptente renter."
+          },
+          {
+            "id": "bi-okonomi-4-1-n-quiz1-q1",
+            "task": "Du set inn $10\\,000$ kr til $5\\%$ enkel rente. Kor mykje har du etter $3$ år?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$11\\,500$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$11\\,576{,}25$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10\\,500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$15\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr."
+          },
+          {
+            "id": "bi-okonomi-4-1-n-quiz1-q2",
+            "task": "Du set inn $10\\,000$ kr til $5\\%$ rentes rente. Kor mykje har du etter $3$ år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$11\\,500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$11\\,576{,}25$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$10\\,500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$13\\,310$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr -- $76{,}25$ kr meir enn med enkel rente."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-1-n-section2",
+      "type": "text",
+      "content": "## Når renta blir rekna oftare enn éin gong i året\n\nI praksis legg mange bankar renta til fleire gonger i året -- månadleg, kvartalsvis eller til og med dagleg. Då bruker vi **periodisk renteberekning**: $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{m\\cdot n}$, der $r$ er den **nominelle** årlege renta du blir oppgitt, og $m$ er talet på renteperiodar per år. For månadleg er $m = 12$, for kvartalsvis $m = 4$, for dagleg $m = 365$.\n\nSet du $100\\,000$ kr inn til $6\\%$ nominell rente med månadleg berekning i $2$ år, får du $K_2 = 100\\,000\\cdot\\left(1 + \\frac{0{,}06}{12}\\right)^{24} = 100\\,000\\cdot(1{,}005)^{24} = 112\\,716$ kr. Med årleg berekning ville du fått $100\\,000\\cdot(1{,}06)^2 = 112\\,360$ kr. Hyppigare renteberekning gav deg altså $356$ kr ekstra.\n\nDette tyder at den faktiske avkastninga di er høgare enn dei oppgitte $6\\%$. Den ekte avkastninga kallar vi **effektiv årleg rente**, og ho finn vi med $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$. Med $6\\%$ nominell og månadleg berekning blir $r_{eff} = (1{,}005)^{12} - 1 = 0{,}06168$, altså $6{,}168\\%$. Den effektive renta er alltid høgare enn den nominelle når $m > 1$. Difor: når du skal samanlikne lån eller spareprodukt, bruk alltid den effektive renta -- det er den einaste rettferdige målestokken."
+    },
+    {
+      "id": "bi-okonomi-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på periodisk og effektiv rente:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-1-n-quiz2-q0",
+            "task": "Ein bank tilbyr $8\\%$ nominell årleg rente med kvartalsvis renteberekning. Kva er den effektive årlege renta?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$8{,}00\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$32\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$8{,}24\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$r_{eff} = (1 + 0{,}08/4)^4 - 1 = (1{,}02)^4 - 1 = 0{,}0824 = 8{,}24\\%$."
+          },
+          {
+            "id": "bi-okonomi-4-1-n-quiz2-q1",
+            "task": "Kvifor er effektiv rente alltid høgare enn nominell rente når $m > 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi bankane legg på eit gebyr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi inflasjonen blir trekt frå",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er tilfeldig kva for ei som er høgast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi renta blir rekna fleire gonger, så du får rente òg på rentene mellom periodane",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når renta blir kapitalisert fleire gonger per år, blir kvar ny periode rekna på eit beløp som allereie er auka av førre periode. Denne rentes rente-effekten gjer effektiv rente høgare enn nominell."
+          },
+          {
+            "id": "bi-okonomi-4-1-n-quiz2-q2",
+            "task": "Bank A tilbyr $5{,}9\\%$ med årleg renteberekning. Bank B tilbyr $5{,}8\\%$ med månadleg. Kva for ein er best?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Bank B, fordi effektiv rente blir $\\approx 5{,}96\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bank A, fordi nominell rente er høgast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei er like gode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Umogleg å avgjere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bank A: $r_{eff} = 5{,}9\\%$. Bank B: $r_{eff} = (1 + 0{,}058/12)^{12} - 1 \\approx 5{,}96\\%$. Bank B vinn -- difor samanliknar vi alltid effektive renter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-1-n-section3",
+      "type": "text",
+      "content": "## Vekstfaktorar, 72-regelen og realrente\n\nDet løner seg å tenkje på renter som **vekstfaktorar**. Ein vekstfaktor $V = 1 + r$ viser forholdet mellom ny og gammal verdi: $5\\%$ auke gir $V = 1{,}05$, $3\\%$ nedgang gir $V = 0{,}97$, ei dobling gir $V = 2$. Den prosentvise endringa er alltid $(V - 1)\\cdot 100\\%$. Det fine er at fleire endringar etter kvarandre berre blir ganga saman. Stig ein aksje $10\\%$, fell $5\\%$ og stig $15\\%$, blir totalfaktoren $1{,}10\\cdot 0{,}95\\cdot 1{,}15 = 1{,}20175$, altså ein samla auke på $20{,}175\\%$ -- ikkje summen $10 - 5 + 15 = 20\\%$.\n\nVil du raskt anslå kor lenge noko bruker på å doble seg, finst **72-regelen**: doblingstida er omtrent $\\frac{72}{r\\cdot 100}$. Ved $6\\%$ rente blir det $72/6 = 12$ år, ved $8\\%$ blir det $9$ år. Ei grov, men nyttig hovudrekning.\n\nTil slutt: den nominelle renta fortel ikkje heile sanninga, for prisane stig òg. **Realrenta** viser den faktiske auken i kjøpekraft: $r_{real} = \\frac{1 + r_{nom}}{1 + \\pi} - 1$, der $\\pi$ er inflasjonen. Gir sparekontoen $4\\%$ medan inflasjonen er $2{,}5\\%$, blir $r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Ei grei tilnærming når tala er små er berre $r_{real} \\approx r_{nom} - \\pi = 1{,}5\\%$. Kjøpekrafta di veks altså med rundt $1{,}5\\%$ i året, ikkje $4\\%$."
+    },
+    {
+      "id": "bi-okonomi-4-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vekstfaktorar, 72-regelen og realrente:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-1-n-quiz3-q0",
+            "task": "Ein pris aukar med $20\\%$ og deretter med $25\\%$. Kva er den totale prosentvise auken?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$45\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$50\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$22{,}5\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi gangar vekstfaktorane: $1{,}20\\cdot 1{,}25 = 1{,}50$, altså $50\\%$ auke -- ikkje summen $20 + 25 = 45\\%$."
+          },
+          {
+            "id": "bi-okonomi-4-1-n-quiz3-q1",
+            "task": "Bruk 72-regelen: omtrent kor lang tid tek det å doble ei investering med $9\\%$ årleg rente?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$12$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$18$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$8$ år",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$9$ år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Doblingstid $\\approx 72/9 = 8$ år."
+          },
+          {
+            "id": "bi-okonomi-4-1-n-quiz3-q2",
+            "task": "Nominell rente er $4\\%$ og inflasjonen er $2{,}5\\%$. Kva er realrenta (eksakt)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6{,}5\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}5\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}46\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Den forenkla tilnærminga $4 - 2{,}5 = 1{,}5\\%$ ligg nær."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nRenter er prisen på pengar. Ved **enkel rente** veks kapitalen med $K_n = K_0\\cdot(1 + r\\cdot n)$, men i praksis bruker bankane **rentes rente**: $K_n = K_0\\cdot(1 + r)^n$, der vekstfaktoren $(1 + r)$ blir gjenteken kvar periode og gir eksponentiell vekst -- du tener rente òg på rentene.\n\nNår renta blir rekna $m$ gonger i året, blir det $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{mn}$, og den ekte avkastninga er den **effektive renta** $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$, som alltid overgår den nominelle når $m > 1$. Tenk på renter som **vekstfaktorar** $V = 1 + r$ som blir ganga saman over fleire periodar, bruk **72-regelen** $\\frac{72}{r\\cdot 100}$ til å anslå doblingstid, og hugs at **realrenta** $\\frac{1 + r_{nom}}{1 + \\pi} - 1$ fortel kva som verkeleg skjer med kjøpekrafta di når inflasjonen et av avkastninga."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "bf70e566f3c4db22",
+    "translatedAt": "2026-06-21T00:51:11.850Z",
+    "model": "claude-code-agent",
+    "strings": 58,
+    "tm": {
+      "462ea7104f783783": "Renter og renteberekning",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "9ca71a180cbfa1e0": "Ei forteljing om renta -- prisen på pengar -- og om korleis rentes rente forvandlar ein sparekonto til ei eksponentiell vekstmaskin.",
+      "8294d7e93af38a5f": "rekne ut framtidsverdi med ulike rentemodellar",
+      "539e9d3e98cdf894": "forstå skilnaden mellom nominell og effektiv rente",
+      "d6d272c46daef205": "## Prisen på pengar\n\nTenk deg at du set $10\\,000$ kr inn på ein sparekonto og gløymer dei. År etter år veks dei heilt av seg sjølv. Kva er det som driv denne veksten? Svaret er **renta** -- prisen på å låne pengar, eller avkastninga du får når du sparer. Renter påverkar alt frå ditt eige banklån til store bedriftsinvesteringar og rentemøta i Noregs Bank.\n\nVi startar med den enklaste modellen, **enkel rente**. Her blir renta rekna berre av startkapitalen, aldri av rentene du allereie har tent. Formelen er $K_n = K_0\\cdot(1 + r\\cdot n)$, der $K_0$ er startkapitalen, $r$ er årleg rente som desimaltal, $n$ er talet på år og $K_n$ er sluttverdien. Set du $10\\,000$ kr inn til $5\\%$ enkel rente i $3$ år, får du $K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr. Du har tent nøyaktig $500$ kr kvart år, til saman $1\\,500$ kr.\n\nEnkel rente blir sjeldan brukt i praksis, men ho er eit nyttig utgangspunkt -- for i røynda gjer bankane noko langt meir kraftfullt.",
+      "626f7bc52acd4570": "## Rentes rente -- det åttande underverket\n\nNesten alle bankar bruker **rentes rente**, òg kalla samansett rente. Skilnaden er enkel, men verknaden er enorm: renta blir lagd til kapitalen, og neste periode blir renta rekna av den nye, større summen. Du tener altså rente òg på rentene. Formelen blir $K_n = K_0\\cdot(1 + r)^n$, der faktoren $(1 + r)$ blir kalla **vekstfaktoren**.\n\nLat oss ta dei same $10\\,000$ kr til $5\\%$, men no med rentes rente i $3$ år: $K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr. Samanlikna med enkel rente, som gav $11\\,500$ kr, har du fått $76{,}25$ kr ekstra. Det høyrest lite ut, men skilnaden veks eksponentielt med tida -- over $20$ eller $30$ år blir han dramatisk.\n\nDet finst eit sitat -- ofte tilskrive Albert Einstein, men usikkert om han faktisk sa det -- som lyder: «Rentes rente er det åttande underverket i verda. Den som forstår det, tener det; den som ikkje gjer det, betaler det.» Uansett kven som sa det, fangar det sjølve kjernen: eksponentiell vekst over tid er ei kraft du vil ha på di side når du sparer, og ei du fryktar når du har gjeld.",
+      "fd4d8e40669ad6c9": "Test deg sjølv på enkel rente og rentes rente:",
+      "4097889236a2af26": "placeholder",
+      "3c1b1c0dd85d85a8": "Kva er skilnaden mellom enkel rente og rentes rente?",
+      "efadcbee5c709ac3": "Enkel rente gir alltid meir enn rentes rente",
+      "f81676833383f916": "Ved rentes rente blir renta rekna òg av tidlegare opptente renter",
+      "219b0b8c3236c9e2": "Enkel rente blir berre brukt på lån, rentes rente berre på sparing",
+      "6b54a88bc65ea9aa": "Det er ingen praktisk skilnad",
+      "7130e975cf7202c5": "Ved enkel rente blir renta rekna berre av startkapitalen, medan rentes rente reknar renta av kapitalen inkludert tidlegare opptente renter.",
+      "4d489b08c3f74b90": "Du set inn $10\\,000$ kr til $5\\%$ enkel rente. Kor mykje har du etter $3$ år?",
+      "f0dcdd76c94f952c": "$11\\,576{,}25$ kr",
+      "3ed0748a79364f82": "$10\\,500$ kr",
+      "3e4b1d6998a6ed77": "$11\\,500$ kr",
+      "beb024ce92035d2e": "$15\\,000$ kr",
+      "deeff2317c31d06d": "$K_3 = 10\\,000\\cdot(1 + 0{,}05\\cdot 3) = 10\\,000\\cdot 1{,}15 = 11\\,500$ kr.",
+      "e3af6c4bfb94e4e2": "Du set inn $10\\,000$ kr til $5\\%$ rentes rente. Kor mykje har du etter $3$ år?",
+      "f7b806d4ce00a2c9": "$13\\,310$ kr",
+      "8c9c734fe7dd77a9": "$K_3 = 10\\,000\\cdot(1{,}05)^3 = 10\\,000\\cdot 1{,}157625 = 11\\,576{,}25$ kr -- $76{,}25$ kr meir enn med enkel rente.",
+      "e498c395623895a6": "## Når renta blir rekna oftare enn éin gong i året\n\nI praksis legg mange bankar renta til fleire gonger i året -- månadleg, kvartalsvis eller til og med dagleg. Då bruker vi **periodisk renteberekning**: $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{m\\cdot n}$, der $r$ er den **nominelle** årlege renta du blir oppgitt, og $m$ er talet på renteperiodar per år. For månadleg er $m = 12$, for kvartalsvis $m = 4$, for dagleg $m = 365$.\n\nSet du $100\\,000$ kr inn til $6\\%$ nominell rente med månadleg berekning i $2$ år, får du $K_2 = 100\\,000\\cdot\\left(1 + \\frac{0{,}06}{12}\\right)^{24} = 100\\,000\\cdot(1{,}005)^{24} = 112\\,716$ kr. Med årleg berekning ville du fått $100\\,000\\cdot(1{,}06)^2 = 112\\,360$ kr. Hyppigare renteberekning gav deg altså $356$ kr ekstra.\n\nDette tyder at den faktiske avkastninga di er høgare enn dei oppgitte $6\\%$. Den ekte avkastninga kallar vi **effektiv årleg rente**, og ho finn vi med $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$. Med $6\\%$ nominell og månadleg berekning blir $r_{eff} = (1{,}005)^{12} - 1 = 0{,}06168$, altså $6{,}168\\%$. Den effektive renta er alltid høgare enn den nominelle når $m > 1$. Difor: når du skal samanlikne lån eller spareprodukt, bruk alltid den effektive renta -- det er den einaste rettferdige målestokken.",
+      "93ce0f603f889ba6": "Test deg sjølv på periodisk og effektiv rente:",
+      "58999462f65caa26": "Ein bank tilbyr $8\\%$ nominell årleg rente med kvartalsvis renteberekning. Kva er den effektive årlege renta?",
+      "18285f9959ace66b": "$r_{eff} = (1 + 0{,}08/4)^4 - 1 = (1{,}02)^4 - 1 = 0{,}0824 = 8{,}24\\%$.",
+      "b7a7b9cb8613d45d": "Kvifor er effektiv rente alltid høgare enn nominell rente når $m > 1$?",
+      "27ed2bde6db6b2a3": "Fordi bankane legg på eit gebyr",
+      "e9051d49bf7a6166": "Fordi renta blir rekna fleire gonger, så du får rente òg på rentene mellom periodane",
+      "b19d3b7e747d545d": "Fordi inflasjonen blir trekt frå",
+      "20f0654d331f2aad": "Det er tilfeldig kva for ei som er høgast",
+      "3f9770cef8fd5474": "Når renta blir kapitalisert fleire gonger per år, blir kvar ny periode rekna på eit beløp som allereie er auka av førre periode. Denne rentes rente-effekten gjer effektiv rente høgare enn nominell.",
+      "e44312a5e695b352": "Bank A tilbyr $5{,}9\\%$ med årleg renteberekning. Bank B tilbyr $5{,}8\\%$ med månadleg. Kva for ein er best?",
+      "c47765dca8648882": "Bank A, fordi nominell rente er høgast",
+      "d695a67fc6756b57": "Dei er like gode",
+      "ad60c8c6a1598d85": "Bank B, fordi effektiv rente blir $\\approx 5{,}96\\%$",
+      "68f09193e7f920d5": "Umogleg å avgjere",
+      "8edd4ca4048bad0d": "Bank A: $r_{eff} = 5{,}9\\%$. Bank B: $r_{eff} = (1 + 0{,}058/12)^{12} - 1 \\approx 5{,}96\\%$. Bank B vinn -- difor samanliknar vi alltid effektive renter.",
+      "8fe200b0124b23dc": "## Vekstfaktorar, 72-regelen og realrente\n\nDet løner seg å tenkje på renter som **vekstfaktorar**. Ein vekstfaktor $V = 1 + r$ viser forholdet mellom ny og gammal verdi: $5\\%$ auke gir $V = 1{,}05$, $3\\%$ nedgang gir $V = 0{,}97$, ei dobling gir $V = 2$. Den prosentvise endringa er alltid $(V - 1)\\cdot 100\\%$. Det fine er at fleire endringar etter kvarandre berre blir ganga saman. Stig ein aksje $10\\%$, fell $5\\%$ og stig $15\\%$, blir totalfaktoren $1{,}10\\cdot 0{,}95\\cdot 1{,}15 = 1{,}20175$, altså ein samla auke på $20{,}175\\%$ -- ikkje summen $10 - 5 + 15 = 20\\%$.\n\nVil du raskt anslå kor lenge noko bruker på å doble seg, finst **72-regelen**: doblingstida er omtrent $\\frac{72}{r\\cdot 100}$. Ved $6\\%$ rente blir det $72/6 = 12$ år, ved $8\\%$ blir det $9$ år. Ei grov, men nyttig hovudrekning.\n\nTil slutt: den nominelle renta fortel ikkje heile sanninga, for prisane stig òg. **Realrenta** viser den faktiske auken i kjøpekraft: $r_{real} = \\frac{1 + r_{nom}}{1 + \\pi} - 1$, der $\\pi$ er inflasjonen. Gir sparekontoen $4\\%$ medan inflasjonen er $2{,}5\\%$, blir $r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Ei grei tilnærming når tala er små er berre $r_{real} \\approx r_{nom} - \\pi = 1{,}5\\%$. Kjøpekrafta di veks altså med rundt $1{,}5\\%$ i året, ikkje $4\\%$.",
+      "11591f7da9d6d963": "Test deg sjølv på vekstfaktorar, 72-regelen og realrente:",
+      "058c5897c99ff32e": "Ein pris aukar med $20\\%$ og deretter med $25\\%$. Kva er den totale prosentvise auken?",
+      "0ecb435deec59f50": "Vi gangar vekstfaktorane: $1{,}20\\cdot 1{,}25 = 1{,}50$, altså $50\\%$ auke -- ikkje summen $20 + 25 = 45\\%$.",
+      "b149232be19eab52": "Bruk 72-regelen: omtrent kor lang tid tek det å doble ei investering med $9\\%$ årleg rente?",
+      "982dba16a053b68e": "$8$ år",
+      "3a3a6b167308d271": "$12$ år",
+      "f5df5105b988084a": "$18$ år",
+      "1f9aa4f01719551e": "$9$ år",
+      "060fb3f7f070fddd": "Doblingstid $\\approx 72/9 = 8$ år.",
+      "604e36bd4a0db09a": "Nominell rente er $4\\%$ og inflasjonen er $2{,}5\\%$. Kva er realrenta (eksakt)?",
+      "36dff43c15bbc6e2": "$r_{real} = \\frac{1{,}04}{1{,}025} - 1 = 1{,}46\\%$. Den forenkla tilnærminga $4 - 2{,}5 = 1{,}5\\%$ ligg nær.",
+      "2153ad4001a59db6": "## Oppsummering\n\nRenter er prisen på pengar. Ved **enkel rente** veks kapitalen med $K_n = K_0\\cdot(1 + r\\cdot n)$, men i praksis bruker bankane **rentes rente**: $K_n = K_0\\cdot(1 + r)^n$, der vekstfaktoren $(1 + r)$ blir gjenteken kvar periode og gir eksponentiell vekst -- du tener rente òg på rentene.\n\nNår renta blir rekna $m$ gonger i året, blir det $K_n = K_0\\cdot\\left(1 + \\frac{r}{m}\\right)^{mn}$, og den ekte avkastninga er den **effektive renta** $r_{eff} = \\left(1 + \\frac{r_{nom}}{m}\\right)^m - 1$, som alltid overgår den nominelle når $m > 1$. Tenk på renter som **vekstfaktorar** $V = 1 + r$ som blir ganga saman over fleire periodar, bruk **72-regelen** $\\frac{72}{r\\cdot 100}$ til å anslå doblingstid, og hugs at **realrenta** $\\frac{1 + r_{nom}}{1 + \\pi} - 1$ fortel kva som verkeleg skjer med kjøpekrafta di når inflasjonen et av avkastninga."
+    }
+  }
+}

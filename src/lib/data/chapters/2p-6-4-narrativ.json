@@ -1,1 +1,368 @@
-{"id":"2p-6-4-narrativ","courseId":"2p","chapterNumber":"6.4","title":"Kritisk vurdering av modeller","subtitle":"Narrativ versjon","description":"En fortelling om kart og terreng – hvorfor ingen matematisk modell er perfekt, og hvordan du avslører når en modell lurer deg.","estimatedMinutes":30,"competenceGoals":["vurdere og argumentere for om statistiske framstillingar og konklusjonar er gyldige"],"linkedChapterId":"2p-6-4","content":[{"id":"2p-6-4-n-intro","type":"text","content":"## Kartet er ikke terrenget\n\nTenk deg at du har laget en modell for strømforbruket hjemme: $y = -0{,}5x + 30$, der $x$ er utetemperaturen i grader og $y$ er forbruket i kWh. Modellen passer fint med målingene dine fra vinteren. Men en varm sommerdag setter du inn $x = 70$ – og modellen påstår at forbruket blir *negativt*. Huset ditt produserer altså strøm når det er varmt nok? Neppe.\n\nEn matematisk modell er alltid en **forenkling** av virkeligheten. Den bygger på antakelser som kan være mer eller mindre realistiske, og den er laget ut fra data fra et begrenset område. Noen modeller er svært nyttige – men ingen er perfekte. Derfor er en av de viktigste ferdighetene i matematikk ikke å *lage* modeller, men å *vurdere* dem kritisk: Når kan vi stole på modellen, og når lurer den oss?\n\nI denne fortellingen skal vi se på tre verktøy for kritisk vurdering: gyldighetsområde, residualer og modellvalg – og til slutt den klassiske fellen som heter «korrelasjon er ikke årsak»."},{"id":"2p-6-4-n-section1","type":"text","content":"## Gyldighetsområdet – hvor langt rekker modellen?\n\nLa oss vende tilbake til strømmodellen $y = -0{,}5x + 30$. Den er laget ut fra målinger gjort mellom kanskje $0$ og $25$ grader. Innenfor dette området – der vi faktisk har data – sier vi at vi **interpolerer**, og der er modellen mest pålitelig. Går vi utenfor dataområdet, **ekstrapolerer** vi, og da kan det gå riktig galt: for $x > 60$ gir modellen negativt forbruk, noe som er fysisk umulig. **Gyldighetsområdet** er intervallet der modellen gir fornuftige resultater.\n\nDet samme gjelder når flere modeller konkurrerer. Tenk deg en by med 10 000 innbyggere i 2010 og 12 500 i 2020. En lineær modell sier $f(x) = 250x + 10\\,000$, der $x$ er år etter 2010. En eksponentiell modell sier $g(x) = 10\\,000 \\cdot 1{,}0225^x$. Begge passer perfekt med de to datapunktene vi har! For 2030, altså $x = 20$, gir den lineære $f(20) = 250 \\cdot 20 + 10\\,000 = 15\\,000$ innbyggere, mens den eksponentielle gir $g(20) = 10\\,000 \\cdot 1{,}0225^{20} \\approx 15\\,620$. Forskjellen er bare 620 nå – men jo lenger fram vi spår, desto mer spriker de. Med bare to datapunkter kan vi ikke avgjøre hvilken som er best; vi trenger mer data.\n\nDerfor bør du alltid spørre: Hvilke antakelser bygger modellen på? Er det rimelig at veksten fortsetter likt i all framtid, eller finnes det begrensninger – plass, ressurser, metning? En husleiemodell som $y = 850x + 3\\,000$ kr per måned for en leilighet på $x$ kvadratmeter har for eksempel flere svakheter: den tar ikke hensyn til beliggenhet, den gir 3 000 kr for en leilighet på null kvadratmeter, og den er neppe gyldig utenfor området dataene kommer fra."},{"id":"2p-6-4-n-quiz1","type":"exercise","exercise":{"id":"2p-6-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på gyldighetsområde og modellens begrensninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-4-n-quiz1-q0","task":"Hva er gyldighetsområdet til en modell?","options":[{"id":"a","text":"Intervallet der modellen gir fornuftige resultater","isCorrect":true},{"id":"b","text":"Alle verdier av $x$ fra $0$ til uendelig","isCorrect":false},{"id":"c","text":"Området der grafen er stigende","isCorrect":false},{"id":"d","text":"Perioden modellen ble laget i","isCorrect":false}],"solution":"Gyldighetsområdet er intervallet der modellen gir fornuftige resultater – som regel i nærheten av dataene den ble laget fra."},{"id":"2p-6-4-n-quiz1-q1","task":"Modellen $y = -0{,}5x + 30$ beskriver strømforbruk (kWh) som funksjon av temperaturen $x$ (°C). Når blir modellen urealistisk?","options":[{"id":"a","text":"Mellom 10 og 20 °C","isCorrect":false},{"id":"b","text":"Når $x > 60$, fordi forbruket blir negativt","isCorrect":true},{"id":"c","text":"Under 0 °C","isCorrect":false},{"id":"d","text":"Den er alltid realistisk","isCorrect":false}],"solution":"For $x > 60$ blir $y = -0{,}5x + 30 < 0$ – negativt strømforbruk er umulig. Gyldighetsområdet er begrenset."},{"id":"2p-6-4-n-quiz1-q2","task":"Hva kalles det å bruke en modell utenfor området der vi har data?","options":[{"id":"a","text":"Interpolasjon","isCorrect":false},{"id":"b","text":"Regresjon","isCorrect":false},{"id":"c","text":"Korrelasjon","isCorrect":false},{"id":"d","text":"Ekstrapolasjon","isCorrect":true}],"solution":"Ekstrapolasjon betyr å bruke modellen utenfor dataområdet. Da er resultatene mer usikre enn ved interpolasjon innenfor dataområdet."},{"id":"2p-6-4-n-quiz1-q3","task":"Lineær modell gir $15\\,000$ innbyggere i 2030, eksponentiell gir $15\\,620$. Begge passer dataene fra 2010 og 2020. Hva er riktig konklusjon?","options":[{"id":"a","text":"Den eksponentielle er riktig fordi befolkning alltid vokser eksponentielt","isCorrect":false},{"id":"b","text":"Den lineære er riktig fordi den er enklest","isCorrect":false},{"id":"c","text":"Vi trenger mer data for å avgjøre hvilken modell som er best","isCorrect":true},{"id":"d","text":"Gjennomsnittet av de to er det riktige svaret","isCorrect":false}],"solution":"Med bare to datapunkter passer begge modellene like godt. Først med flere observasjoner kan vi se hvilken modell som beskriver utviklingen best."}]}},{"id":"2p-6-4-n-section2","type":"text","content":"## Residualer og kunsten å velge enkelt\n\nHvordan måler vi egentlig hvor godt en modell passer? Vi sammenlikner modellens verdier med de observerte dataene. Forskjellen mellom en observert verdi $y_i$ og modellens verdi $\\hat{y}_i$ kalles en **residual**: $e_i = y_i - \\hat{y}_i$. Residualene er rett og slett modellens bomskudd – noen ganger bommer den litt over, andre ganger litt under.\n\nHer kommer et viktig prinsipp: Residualene bør være **tilfeldig spredt**. Hvis de viser et systematisk mønster – for eksempel at modellen alltid bommer over for små $x$ og under for store $x$ – betyr det at modellen systematisk bommer, og at en annen modelltype trolig passer bedre. Tilfeldig spredte avvik er greit; mønster i avvikene er et varselsignal.\n\nMen hva om to modeller begge passer godt? Tenk deg at en lineær modell har forklaringsgrad $R^2 = 0{,}91$, mens en kvadratisk modell har $R^2 = 0{,}93$. Den kvadratiske vinner så vidt på tallet – men forskjellen er liten, og da sier et gammelt prinsipp i vitenskapen at vi bør velge den *enkleste* modellen. Dette kalles **parsimoni**. En mer kompleks modell kan nemlig bli «overtilpasset»: den følger tilfeldige svingninger i akkurat dette datasettet i stedet for det egentlige mønsteret, og treffer derfor dårligere på nye data.\n\nOppskriften for å vurdere en modell blir altså: Sjekk antakelsene, sjekk gyldighetsområdet, sammenlikn med observerte data – og velg den enkleste modellen som gjør jobben."},{"id":"2p-6-4-n-quiz2","type":"exercise","exercise":{"id":"2p-6-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på residualer og modellvalg:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-4-n-quiz2-q0","task":"Hva er en residual?","options":[{"id":"a","text":"Modellens største verdi","isCorrect":false},{"id":"b","text":"Forskjellen mellom observert verdi og modellens verdi: $e_i = y_i - \\hat{y}_i$","isCorrect":true},{"id":"c","text":"Gjennomsnittet av alle observasjonene","isCorrect":false},{"id":"d","text":"Stigningstallet til modellen","isCorrect":false}],"solution":"Residualen $e_i = y_i - \\hat{y}_i$ er avviket mellom det vi faktisk observerte og det modellen forutsa."},{"id":"2p-6-4-n-quiz2-q1","task":"Hvorfor bør residualene være tilfeldig spredt?","options":[{"id":"a","text":"Fordi modellen da har $R^2 = 1$","isCorrect":false},{"id":"b","text":"Fordi residualene da blir lik null","isCorrect":false},{"id":"c","text":"Et systematisk mønster betyr at modellen systematisk bommer","isCorrect":true},{"id":"d","text":"Fordi tilfeldige residualer er lettere å regne ut","isCorrect":false}],"solution":"Mønster i residualene betyr at modellen bommer på en systematisk måte – da finnes det trolig en annen modelltype som passer bedre."},{"id":"2p-6-4-n-quiz2-q2","task":"En lineær modell har $R^2 = 0{,}91$ og en kvadratisk har $R^2 = 0{,}93$. Hvilken bør du velge?","options":[{"id":"a","text":"Den lineære – liten forskjell i $R^2$, og enklere er bedre","isCorrect":true},{"id":"b","text":"Den kvadratiske – høyest $R^2$ vinner alltid","isCorrect":false},{"id":"c","text":"Ingen av dem – $R^2$ må være nøyaktig 1","isCorrect":false},{"id":"d","text":"Det er umulig å velge mellom modeller","isCorrect":false}],"solution":"Når forskjellen i $R^2$ er liten, velger vi den enkleste modellen (parsimoni). En kompleks modell kan bli overtilpasset til tilfeldige svingninger i dataene."}]}},{"id":"2p-6-4-n-section3","type":"text","content":"## Iskrem og drukningsulykker\n\nTil slutt skal vi se på den kanskje vanligste tabben i all bruk av statistikk. Her er et klassisk eksempel: Når issalget øker, øker også antallet drukningsulykker. Tallene følger hverandre tett, år etter år. Betyr det at iskrem forårsaker drukning – at vi bør forby softis ved badestrender?\n\nSelvsagt ikke. Begge størrelsene påvirkes av en tredje, bakenforliggende faktor: varmt vær. Når sola steker, kjøper folk mer is *og* flere bader – og dermed drukner dessverre også flere. Dette er kjernen i prinsippet **korrelasjon er ikke årsak**: At to størrelser følger hverandre, betyr ikke at den ene forårsaker den andre.\n\nEt annet eksempel: I store byer finner man en sterk samvariasjon mellom antall brannstasjoner og antall forbrytelser. Forårsaker brannstasjoner kriminalitet? Nei – større byer har flere innbyggere, og dermed både flere brannstasjoner og mer kriminalitet. Befolkningsstørrelsen er den bakenforliggende faktoren.\n\nDette betyr at selv en modell som passer dataene perfekt, ikke *beviser* at den ene variabelen styrer den andre. En god regresjonsmodell viser samvariasjon – årsakssammenheng krever mer: kontrollerte forsøk eller god faglig begrunnelse. Neste gang du leser en overskrift som «Forskere finner sammenheng mellom X og Y», vet du hvilket spørsmål du skal stille: Kan det finnes en tredje faktor som påvirker begge?"},{"id":"2p-6-4-n-quiz3","type":"exercise","exercise":{"id":"2p-6-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på korrelasjon og årsak:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-4-n-quiz3-q0","task":"Issalg og drukningsulykker øker samtidig. Hva er den beste forklaringen?","options":[{"id":"a","text":"Iskrem gjør folk dårligere til å svømme","isCorrect":false},{"id":"b","text":"Drukningsulykker får folk til å kjøpe is","isCorrect":false},{"id":"c","text":"Tallene er tilfeldige og betyr ingenting","isCorrect":false},{"id":"d","text":"Varmt vær påvirker begge – en bakenforliggende faktor","isCorrect":true}],"solution":"Begge størrelsene styres av en tredje faktor: varmt vær. Da bader flere (flere ulykker) og flere kjøper is – uten at det ene forårsaker det andre."},{"id":"2p-6-4-n-quiz3-q1","task":"Det er sterk samvariasjon mellom antall brannstasjoner og antall forbrytelser i byer. Hva er den bakenforliggende faktoren?","options":[{"id":"a","text":"Befolkningsstørrelsen – store byer har mer av begge","isCorrect":true},{"id":"b","text":"Brannstasjoner tiltrekker seg kriminelle","isCorrect":false},{"id":"c","text":"Kriminalitet fører til flere branner","isCorrect":false},{"id":"d","text":"Det finnes ingen forklaring","isCorrect":false}],"solution":"Større byer har både flere brannstasjoner og mer kriminalitet. Befolkningsstørrelsen påvirker begge størrelsene."},{"id":"2p-6-4-n-quiz3-q2","task":"En modell passer dataene svært godt. Hva kan vi konkludere?","options":[{"id":"a","text":"At den ene variabelen forårsaker den andre","isCorrect":false},{"id":"b","text":"At det er samvariasjon – men ikke nødvendigvis årsakssammenheng","isCorrect":true},{"id":"c","text":"At modellen gjelder for alle verdier av $x$","isCorrect":false},{"id":"d","text":"At residualene er store","isCorrect":false}],"solution":"God tilpasning viser samvariasjon. Årsakssammenheng krever mer – for eksempel kontrollerte forsøk eller faglig begrunnelse."}]}},{"id":"2p-6-4-n-summary","type":"text","content":"## Den kritiske blikkets verktøykasse\n\nVi startet med en strømmodell som påsto at huset produserer strøm i varmen, og endte med iskrem som «forårsaker» drukning. Underveis har du fått verktøyene som skiller naiv modellbruk fra kritisk vurdering.\n\nHusk at en **modell** alltid er en forenkling av virkeligheten, bygget på **antakelser** som kan diskuteres. Sjekk alltid **gyldighetsområdet**: innenfor dataområdet (interpolasjon) er modellen mest pålitelig, utenfor (ekstrapolasjon) kan den gi meningsløse svar. Sammenlikn modellen med observerte data – **residualene** $e_i = y_i - \\hat{y}_i$ skal være tilfeldig spredt, for mønster i avvikene betyr at modellen systematisk bommer. Når to modeller passer omtrent like godt, velger du den enkleste, slik at du unngår overtilpasning. Og fremfor alt: **korrelasjon er ikke årsak** – at to størrelser følger hverandre, kan skyldes en bakenforliggende faktor som påvirker begge.\n\nNår du møter en modell eller en statistisk påstand, har du nå en sjekkliste: Hvilke antakelser bygger den på? Hvilket område gjelder den for? Hvor godt stemmer den med data? Og gir den rimelige svar på lang sikt? Den som stiller disse spørsmålene, lar seg ikke lure – verken av reklame, overskrifter eller sine egne regnestykker."}],"exercises":[]}
+{
+  "id": "2p-6-4-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "6.4",
+  "title": "Kritisk vurdering av modeller",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kart og terreng – hvorfor ingen matematisk modell er perfekt, og hvordan du avslører når en modell lurer deg.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "vurdere og argumentere for om statistiske framstillingar og konklusjonar er gyldige"
+  ],
+  "linkedChapterId": "2p-6-4",
+  "content": [
+    {
+      "id": "2p-6-4-n-intro",
+      "type": "text",
+      "content": "## Kartet er ikke terrenget\n\nTenk deg at du har laget en modell for strømforbruket hjemme: $y = -0{,}5x + 30$, der $x$ er utetemperaturen i grader og $y$ er forbruket i kWh. Modellen passer fint med målingene dine fra vinteren. Men en varm sommerdag setter du inn $x = 70$ – og modellen påstår at forbruket blir *negativt*. Huset ditt produserer altså strøm når det er varmt nok? Neppe.\n\nEn matematisk modell er alltid en **forenkling** av virkeligheten. Den bygger på antakelser som kan være mer eller mindre realistiske, og den er laget ut fra data fra et begrenset område. Noen modeller er svært nyttige – men ingen er perfekte. Derfor er en av de viktigste ferdighetene i matematikk ikke å *lage* modeller, men å *vurdere* dem kritisk: Når kan vi stole på modellen, og når lurer den oss?\n\nI denne fortellingen skal vi se på tre verktøy for kritisk vurdering: gyldighetsområde, residualer og modellvalg – og til slutt den klassiske fellen som heter «korrelasjon er ikke årsak»."
+    },
+    {
+      "id": "2p-6-4-n-section1",
+      "type": "text",
+      "content": "## Gyldighetsområdet – hvor langt rekker modellen?\n\nLa oss vende tilbake til strømmodellen $y = -0{,}5x + 30$. Den er laget ut fra målinger gjort mellom kanskje $0$ og $25$ grader. Innenfor dette området – der vi faktisk har data – sier vi at vi **interpolerer**, og der er modellen mest pålitelig. Går vi utenfor dataområdet, **ekstrapolerer** vi, og da kan det gå riktig galt: for $x > 60$ gir modellen negativt forbruk, noe som er fysisk umulig. **Gyldighetsområdet** er intervallet der modellen gir fornuftige resultater.\n\nDet samme gjelder når flere modeller konkurrerer. Tenk deg en by med 10 000 innbyggere i 2010 og 12 500 i 2020. En lineær modell sier $f(x) = 250x + 10\\,000$, der $x$ er år etter 2010. En eksponentiell modell sier $g(x) = 10\\,000 \\cdot 1{,}0225^x$. Begge passer perfekt med de to datapunktene vi har! For 2030, altså $x = 20$, gir den lineære $f(20) = 250 \\cdot 20 + 10\\,000 = 15\\,000$ innbyggere, mens den eksponentielle gir $g(20) = 10\\,000 \\cdot 1{,}0225^{20} \\approx 15\\,620$. Forskjellen er bare 620 nå – men jo lenger fram vi spår, desto mer spriker de. Med bare to datapunkter kan vi ikke avgjøre hvilken som er best; vi trenger mer data.\n\nDerfor bør du alltid spørre: Hvilke antakelser bygger modellen på? Er det rimelig at veksten fortsetter likt i all framtid, eller finnes det begrensninger – plass, ressurser, metning? En husleiemodell som $y = 850x + 3\\,000$ kr per måned for en leilighet på $x$ kvadratmeter har for eksempel flere svakheter: den tar ikke hensyn til beliggenhet, den gir 3 000 kr for en leilighet på null kvadratmeter, og den er neppe gyldig utenfor området dataene kommer fra."
+    },
+    {
+      "id": "2p-6-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gyldighetsområde og modellens begrensninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-4-n-quiz1-q0",
+            "task": "Hva er gyldighetsområdet til en modell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle verdier av $x$ fra $0$ til uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Området der grafen er stigende",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Intervallet der modellen gir fornuftige resultater",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Perioden modellen ble laget i",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gyldighetsområdet er intervallet der modellen gir fornuftige resultater – som regel i nærheten av dataene den ble laget fra."
+          },
+          {
+            "id": "2p-6-4-n-quiz1-q1",
+            "task": "Modellen $y = -0{,}5x + 30$ beskriver strømforbruk (kWh) som funksjon av temperaturen $x$ (°C). Når blir modellen urealistisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Mellom 10 og 20 °C",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Under 0 °C",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den er alltid realistisk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $x > 60$, fordi forbruket blir negativt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "For $x > 60$ blir $y = -0{,}5x + 30 < 0$ – negativt strømforbruk er umulig. Gyldighetsområdet er begrenset."
+          },
+          {
+            "id": "2p-6-4-n-quiz1-q2",
+            "task": "Hva kalles det å bruke en modell utenfor området der vi har data?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Ekstrapolasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Interpolasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Regresjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Korrelasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ekstrapolasjon betyr å bruke modellen utenfor dataområdet. Da er resultatene mer usikre enn ved interpolasjon innenfor dataområdet."
+          },
+          {
+            "id": "2p-6-4-n-quiz1-q3",
+            "task": "Lineær modell gir $15\\,000$ innbyggere i 2030, eksponentiell gir $15\\,620$. Begge passer dataene fra 2010 og 2020. Hva er riktig konklusjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den eksponentielle er riktig fordi befolkning alltid vokser eksponentielt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi trenger mer data for å avgjøre hvilken modell som er best",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den lineære er riktig fordi den er enklest",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gjennomsnittet av de to er det riktige svaret",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med bare to datapunkter passer begge modellene like godt. Først med flere observasjoner kan vi se hvilken modell som beskriver utviklingen best."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-6-4-n-section2",
+      "type": "text",
+      "content": "## Residualer og kunsten å velge enkelt\n\nHvordan måler vi egentlig hvor godt en modell passer? Vi sammenlikner modellens verdier med de observerte dataene. Forskjellen mellom en observert verdi $y_i$ og modellens verdi $\\hat{y}_i$ kalles en **residual**: $e_i = y_i - \\hat{y}_i$. Residualene er rett og slett modellens bomskudd – noen ganger bommer den litt over, andre ganger litt under.\n\nHer kommer et viktig prinsipp: Residualene bør være **tilfeldig spredt**. Hvis de viser et systematisk mønster – for eksempel at modellen alltid bommer over for små $x$ og under for store $x$ – betyr det at modellen systematisk bommer, og at en annen modelltype trolig passer bedre. Tilfeldig spredte avvik er greit; mønster i avvikene er et varselsignal.\n\nMen hva om to modeller begge passer godt? Tenk deg at en lineær modell har forklaringsgrad $R^2 = 0{,}91$, mens en kvadratisk modell har $R^2 = 0{,}93$. Den kvadratiske vinner så vidt på tallet – men forskjellen er liten, og da sier et gammelt prinsipp i vitenskapen at vi bør velge den *enkleste* modellen. Dette kalles **parsimoni**. En mer kompleks modell kan nemlig bli «overtilpasset»: den følger tilfeldige svingninger i akkurat dette datasettet i stedet for det egentlige mønsteret, og treffer derfor dårligere på nye data.\n\nOppskriften for å vurdere en modell blir altså: Sjekk antakelsene, sjekk gyldighetsområdet, sammenlikn med observerte data – og velg den enkleste modellen som gjør jobben."
+    },
+    {
+      "id": "2p-6-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på residualer og modellvalg:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-4-n-quiz2-q0",
+            "task": "Hva er en residual?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellens største verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjennomsnittet av alle observasjonene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Forskjellen mellom observert verdi og modellens verdi: $e_i = y_i - \\hat{y}_i$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Stigningstallet til modellen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Residualen $e_i = y_i - \\hat{y}_i$ er avviket mellom det vi faktisk observerte og det modellen forutsa."
+          },
+          {
+            "id": "2p-6-4-n-quiz2-q1",
+            "task": "Hvorfor bør residualene være tilfeldig spredt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi modellen da har $R^2 = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi residualene da blir lik null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi tilfeldige residualer er lettere å regne ut",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et systematisk mønster betyr at modellen systematisk bommer",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Mønster i residualene betyr at modellen bommer på en systematisk måte – da finnes det trolig en annen modelltype som passer bedre."
+          },
+          {
+            "id": "2p-6-4-n-quiz2-q2",
+            "task": "En lineær modell har $R^2 = 0{,}91$ og en kvadratisk har $R^2 = 0{,}93$. Hvilken bør du velge?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den lineære – liten forskjell i $R^2$, og enklere er bedre",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den kvadratiske – høyest $R^2$ vinner alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen av dem – $R^2$ må være nøyaktig 1",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er umulig å velge mellom modeller",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når forskjellen i $R^2$ er liten, velger vi den enkleste modellen (parsimoni). En kompleks modell kan bli overtilpasset til tilfeldige svingninger i dataene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-6-4-n-section3",
+      "type": "text",
+      "content": "## Iskrem og drukningsulykker\n\nTil slutt skal vi se på den kanskje vanligste tabben i all bruk av statistikk. Her er et klassisk eksempel: Når issalget øker, øker også antallet drukningsulykker. Tallene følger hverandre tett, år etter år. Betyr det at iskrem forårsaker drukning – at vi bør forby softis ved badestrender?\n\nSelvsagt ikke. Begge størrelsene påvirkes av en tredje, bakenforliggende faktor: varmt vær. Når sola steker, kjøper folk mer is *og* flere bader – og dermed drukner dessverre også flere. Dette er kjernen i prinsippet **korrelasjon er ikke årsak**: At to størrelser følger hverandre, betyr ikke at den ene forårsaker den andre.\n\nEt annet eksempel: I store byer finner man en sterk samvariasjon mellom antall brannstasjoner og antall forbrytelser. Forårsaker brannstasjoner kriminalitet? Nei – større byer har flere innbyggere, og dermed både flere brannstasjoner og mer kriminalitet. Befolkningsstørrelsen er den bakenforliggende faktoren.\n\nDette betyr at selv en modell som passer dataene perfekt, ikke *beviser* at den ene variabelen styrer den andre. En god regresjonsmodell viser samvariasjon – årsakssammenheng krever mer: kontrollerte forsøk eller god faglig begrunnelse. Neste gang du leser en overskrift som «Forskere finner sammenheng mellom X og Y», vet du hvilket spørsmål du skal stille: Kan det finnes en tredje faktor som påvirker begge?"
+    },
+    {
+      "id": "2p-6-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på korrelasjon og årsak:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-4-n-quiz3-q0",
+            "task": "Issalg og drukningsulykker øker samtidig. Hva er den beste forklaringen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Iskrem gjør folk dårligere til å svømme",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Varmt vær påvirker begge – en bakenforliggende faktor",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Drukningsulykker får folk til å kjøpe is",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tallene er tilfeldige og betyr ingenting",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Begge størrelsene styres av en tredje faktor: varmt vær. Da bader flere (flere ulykker) og flere kjøper is – uten at det ene forårsaker det andre."
+          },
+          {
+            "id": "2p-6-4-n-quiz3-q1",
+            "task": "Det er sterk samvariasjon mellom antall brannstasjoner og antall forbrytelser i byer. Hva er den bakenforliggende faktoren?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Brannstasjoner tiltrekker seg kriminelle",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kriminalitet fører til flere branner",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Befolkningsstørrelsen – store byer har mer av begge",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det finnes ingen forklaring",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Større byer har både flere brannstasjoner og mer kriminalitet. Befolkningsstørrelsen påvirker begge størrelsene."
+          },
+          {
+            "id": "2p-6-4-n-quiz3-q2",
+            "task": "En modell passer dataene svært godt. Hva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At den ene variabelen forårsaker den andre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At modellen gjelder for alle verdier av $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At residualene er store",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At det er samvariasjon – men ikke nødvendigvis årsakssammenheng",
+                "isCorrect": true
+              }
+            ],
+            "solution": "God tilpasning viser samvariasjon. Årsakssammenheng krever mer – for eksempel kontrollerte forsøk eller faglig begrunnelse."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-6-4-n-summary",
+      "type": "text",
+      "content": "## Den kritiske blikkets verktøykasse\n\nVi startet med en strømmodell som påsto at huset produserer strøm i varmen, og endte med iskrem som «forårsaker» drukning. Underveis har du fått verktøyene som skiller naiv modellbruk fra kritisk vurdering.\n\nHusk at en **modell** alltid er en forenkling av virkeligheten, bygget på **antakelser** som kan diskuteres. Sjekk alltid **gyldighetsområdet**: innenfor dataområdet (interpolasjon) er modellen mest pålitelig, utenfor (ekstrapolasjon) kan den gi meningsløse svar. Sammenlikn modellen med observerte data – **residualene** $e_i = y_i - \\hat{y}_i$ skal være tilfeldig spredt, for mønster i avvikene betyr at modellen systematisk bommer. Når to modeller passer omtrent like godt, velger du den enkleste, slik at du unngår overtilpasning. Og fremfor alt: **korrelasjon er ikke årsak** – at to størrelser følger hverandre, kan skyldes en bakenforliggende faktor som påvirker begge.\n\nNår du møter en modell eller en statistisk påstand, har du nå en sjekkliste: Hvilke antakelser bygger den på? Hvilket område gjelder den for? Hvor godt stemmer den med data? Og gir den rimelige svar på lang sikt? Den som stiller disse spørsmålene, lar seg ikke lure – verken av reklame, overskrifter eller sine egne regnestykker."
+    }
+  ],
+  "exercises": []
+}

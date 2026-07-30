@@ -1,1 +1,341 @@
-{"id":"it-2-5-4-narrativ","courseId":"it-2","chapterNumber":"4","title":"NoSQL og alternative datalagring","subtitle":"Narrativ versjon","description":"En fortelling om databasene som bryter med tabellene – fra dokumentdatabaser og nøkkel-verdi-lagring til det evige valget mellom SQL og NoSQL, og hybridene som bruker begge.","estimatedMinutes":35,"competenceGoals":["Forstå hva NoSQL er og hvilke typer som finnes","Kjenne dokumentdatabaser og nøkkel-verdi-lagring","Vurdere når SQL eller NoSQL passer best"],"linkedChapterId":"it-2-5-4","content":[{"id":"it-2-5-4-n-intro","type":"text","content":"## Når dataene ikke passer i tabeller\n\nRelasjonsdatabaser er fantastiske for strukturerte data med klare relasjoner. Men hva når dataene dine ikke passer pent i tabeller? Hva hvis du trenger ekstrem skalerbarhet eller fleksibilitet til å endre struktur underveis? Da kan **NoSQL-databaser** være løsningen.\n\nNoSQL står for «Not Only SQL» – ikke bare SQL. Det er et samlebegrep for databaser som ikke følger den tradisjonelle relasjonsmodellen. De oppsto fordi relasjonsdatabaser sliter med tre ting når skalaen blir enorm: **skalerbarhet**, fordi det er vanskelig å spre data over mange servere; **fleksibilitet**, fordi de krever et fast skjema definert på forhånd; og **ytelse**, fordi JOIN-operasjoner kan bli trege på svært store datasett. NoSQL er designet for horisontal skalering (spre data over mange servere), skjemafrihet (endre struktur underveis), og spesialiserte bruksområder.\n\nDet finnes fire hovedtyper. **Dokumentdatabaser** som MongoDB lagrer data som dokumenter, vanligvis JSON. **Nøkkel-verdi-lagring** som Redis lagrer enkelt en nøkkel som peker til en verdi. **Kolonneorienterte** databaser som Cassandra er optimalisert for store datasett med mange kolonner, som tidsseriedata og loggfiler. Og **grafdatabaser** som Neo4j er optimalisert for data med mange relasjoner, som sosiale nettverk og anbefalingssystemer."},{"id":"it-2-5-4-n-quiz1","type":"exercise","exercise":{"id":"it-2-5-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på NoSQL-grunnlaget:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-4-n-quiz1-q0","task":"Hva står NoSQL for?","options":[{"id":"a","text":"No SQL ever","isCorrect":false},{"id":"b","text":"New Object SQL","isCorrect":false},{"id":"c","text":"Not Only SQL","isCorrect":true},{"id":"d","text":"Normalized SQL","isCorrect":false}],"solution":"NoSQL betyr «Not Only SQL» – databaser som ikke følger den tradisjonelle relasjonsmodellen."},{"id":"it-2-5-4-n-quiz1-q1","task":"Hvilken NoSQL-type passer best for data med mange relasjoner, som sosiale nettverk?","options":[{"id":"a","text":"Dokumentdatabase","isCorrect":false},{"id":"b","text":"Nøkkel-verdi-lagring","isCorrect":false},{"id":"c","text":"Kolonneorientert","isCorrect":false},{"id":"d","text":"Grafdatabase","isCorrect":true}],"solution":"Grafdatabaser som Neo4j er optimalisert for data med mange relasjoner, som sosiale nettverk og anbefalinger."},{"id":"it-2-5-4-n-quiz1-q2","task":"Hva er en sentral styrke ved NoSQL framfor relasjonsdatabaser?","options":[{"id":"a","text":"Horisontal skalering og skjemafrihet","isCorrect":true},{"id":"b","text":"Garantert ACID i alle tilfeller","isCorrect":false},{"id":"c","text":"Alltid komplekse JOIN-operasjoner","isCorrect":false},{"id":"d","text":"Et fast skjema definert på forhånd","isCorrect":false}],"solution":"NoSQL er designet for å skalere horisontalt over mange servere og for å endre struktur uten fast skjema."}]}},{"id":"it-2-5-4-n-section1","type":"text","content":"## Dokumenter og nøkkel-verdi\n\nDen mest populære NoSQL-typen er **dokumentdatabasen**, der data lagres som dokumenter, vanligvis JSON eller BSON. Et brukerdokument i MongoDB kan ha en adresse som et nestet objekt og interesser som en array – alt i ett dokument. Fordelene er klare: du får nestede strukturer, arrays uten egen tabell, og fleksibelt skjema der ett dokument kan ha felt et annet mangler. Ulempene er dataredundans, mindre støtte for komplekse spørringer over relasjoner, og ikke alltid garanterte ACID-egenskaper. MongoDB har sin egen terminologi som speiler SQL: en *collection* tilsvarer en tabell, et *document* tilsvarer en rad, og et *field* tilsvarer en kolonne. Grunnoperasjonene er `insertOne` (create), `find`/`findOne` (read), `updateOne` (update) og `deleteOne` (delete). Et blogginnlegg med forfatter og en liste av kommentarer kan lagres som ett enkelt dokument – noe som ville krevd tre tabeller i SQL.\n\nDen enkleste NoSQL-formen er **nøkkel-verdi-lagring**, som fungerer som en gigantisk Python-dictionary. Redis er det mest kjente eksempelet, med `set` for å lagre og `get` for å hente. Du kan til og med lagre JSON som verdi, og sette en utløpstid (TTL) med `setex`, slik at data forsvinner automatisk etter en gitt tid. Dette gjør nøkkel-verdi-lagring perfekt for **caching** (ofte brukte data midlertidig), **sessions** i webapplikasjoner, **rate limiting** og enkle køer. Det er ekstremt raskt, ofte fordi det ligger i RAM, og veldig enkelt å bruke – men det har intet egentlig spørrespråk utover GET og SET, ingen relasjoner, og er ofte begrenset av tilgjengelig minne."},{"id":"it-2-5-4-n-quiz2","type":"exercise","exercise":{"id":"it-2-5-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på dokumenter og nøkkel-verdi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-4-n-quiz2-q0","task":"Hva tilsvarer en «collection» i MongoDB i SQL-verdenen?","options":[{"id":"a","text":"En kolonne","isCorrect":false},{"id":"b","text":"En tabell","isCorrect":true},{"id":"c","text":"En primærnøkkel","isCorrect":false},{"id":"d","text":"En indeks","isCorrect":false}],"solution":"En collection i MongoDB tilsvarer en tabell i SQL, et document tilsvarer en rad, og et field en kolonne."},{"id":"it-2-5-4-n-quiz2-q1","task":"Hva er et typisk bruksområde for nøkkel-verdi-lagring som Redis?","options":[{"id":"a","text":"Komplekse JOIN-spørringer","isCorrect":false},{"id":"b","text":"Langtidslagring av regnskap","isCorrect":false},{"id":"c","text":"Caching og sessions","isCorrect":true},{"id":"d","text":"Skjemavalidering","isCorrect":false}],"solution":"Nøkkel-verdi-lagring er lynraskt og passer for caching, sessions, rate limiting og enkle køer."},{"id":"it-2-5-4-n-quiz2-q2","task":"Hva er en fordel med å lagre et blogginnlegg med kommentarer som ett dokument?","options":[{"id":"a","text":"Det garanterer ACID","isCorrect":false},{"id":"b","text":"Det fjerner all redundans","isCorrect":false},{"id":"c","text":"Det krever tre JOIN-er","isCorrect":false},{"id":"d","text":"Nestede strukturer og arrays samles ett sted, uten flere tabeller","isCorrect":true}],"solution":"Et dokument kan inneholde forfatter og kommentarer nestet, noe som i SQL ville krevd flere tabeller og JOIN-er."}]}},{"id":"it-2-5-4-n-section2","type":"text","content":"## SQL eller NoSQL – og hybridene\n\nDet finnes ikke ett svar som passer alle. Valget avhenger av behovet. Du bør bruke **SQL** når dataene har klare relasjoner (kunder, ordrer, produkter), når du trenger ACID-garantier (banker, bookingsystemer), når skjemaet er stabilt og kjent på forhånd, når du trenger komplekse spørringer med JOIN, og når dataintegritet er kritisk. Typiske eksempler er banksystemer, e-handel og HR-systemer.\n\nDu bør vurdere **NoSQL** når du trenger ekstrem skalerbarhet til millioner av brukere, når dataene ofte endrer struktur, når du har hierarkiske eller JSON-lignende data, når du trenger høy ytelse på enkle operasjoner, eller når du jobber med store mengder ustrukturerte data. Typiske eksempler er sosiale medier, sanntidsanalyse, IoT-data og logger. Et nyttig teoretisk bakteppe er **CAP-teoremet**, som sier at du i et distribuert system bare kan ha to av tre egenskaper samtidig: Consistency, Availability og Partition tolerance.\n\nI praksis trenger du sjelden å velge bare én. Mange moderne systemer er **hybrider** som bruker begge: SQL for kritiske transaksjoner som ordrer og betalinger, NoSQL for produktkataloger og brukerprofiler, og Redis for caching av ofte brukte data. En typisk arkitektur kan være PostgreSQL for ordrer, MongoDB for produkter og Redis for sessions – hver database brukt til det den er best på."},{"id":"it-2-5-4-n-quiz3","type":"exercise","exercise":{"id":"it-2-5-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på valget SQL vs NoSQL:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-4-n-quiz3-q0","task":"Når passer SQL best?","options":[{"id":"a","text":"Når dataene har klare relasjoner og du trenger ACID-garantier","isCorrect":true},{"id":"b","text":"Når strukturen endrer seg hver dag","isCorrect":false},{"id":"c","text":"Aldri","isCorrect":false},{"id":"d","text":"Bare for caching","isCorrect":false}],"solution":"SQL egner seg for strukturerte data med klare relasjoner og krav til dataintegritet, som banker og e-handel."},{"id":"it-2-5-4-n-quiz3-q1","task":"Hva sier CAP-teoremet?","options":[{"id":"a","text":"Alle databaser må være SQL","isCorrect":false},{"id":"b","text":"Du kan bare ha to av tre: Consistency, Availability, Partition tolerance","isCorrect":true},{"id":"c","text":"NoSQL er alltid raskere","isCorrect":false},{"id":"d","text":"En tabell kan bare ha tre kolonner","isCorrect":false}],"solution":"CAP-teoremet sier at et distribuert system bare kan garantere to av de tre egenskapene samtidig."},{"id":"it-2-5-4-n-quiz3-q2","task":"Hva er en hybridløsning?","options":[{"id":"a","text":"En database uten tabeller","isCorrect":false},{"id":"b","text":"En SQL-database uten nøkler","isCorrect":false},{"id":"c","text":"Et system som bruker både SQL og NoSQL der hver passer best","isCorrect":true},{"id":"d","text":"En database som bare bruker RAM","isCorrect":false}],"solution":"Hybridløsninger kombinerer for eksempel SQL for transaksjoner, NoSQL for fleksible data og Redis for caching."}]}},{"id":"it-2-5-4-n-summary","type":"text","content":"## Oppsummering\n\nNår data ikke passer i tabeller, eller når skala og fleksibilitet blir avgjørende, trer **NoSQL** inn – «Not Only SQL». De fire hovedtypene er dokumentdatabaser (MongoDB), nøkkel-verdi-lagring (Redis), kolonneorienterte (Cassandra) og grafdatabaser (Neo4j). **Dokumentdatabaser** lagrer JSON-lignende dokumenter med nestede strukturer, mens **nøkkel-verdi-lagring** er lynraskt og perfekt for caching og sessions.\n\nValget mellom SQL og NoSQL avhenger av behovet: SQL for klare relasjoner og ACID, NoSQL for skalerbarhet og fleksibilitet, med CAP-teoremet som teoretisk bakteppe. Og i praksis bruker mange systemer **hybridløsninger** som kombinerer flere databasetyper. I neste kapittel ser vi på datamodellering for komplekse systemer."}],"exercises":[]}
+{
+  "id": "it-2-5-4-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "4",
+  "title": "NoSQL og alternative datalagring",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om databasene som bryter med tabellene – fra dokumentdatabaser og nøkkel-verdi-lagring til det evige valget mellom SQL og NoSQL, og hybridene som bruker begge.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "Forstå hva NoSQL er og hvilke typer som finnes",
+    "Kjenne dokumentdatabaser og nøkkel-verdi-lagring",
+    "Vurdere når SQL eller NoSQL passer best"
+  ],
+  "linkedChapterId": "it-2-5-4",
+  "content": [
+    {
+      "id": "it-2-5-4-n-intro",
+      "type": "text",
+      "content": "## Når dataene ikke passer i tabeller\n\nRelasjonsdatabaser er fantastiske for strukturerte data med klare relasjoner. Men hva når dataene dine ikke passer pent i tabeller? Hva hvis du trenger ekstrem skalerbarhet eller fleksibilitet til å endre struktur underveis? Da kan **NoSQL-databaser** være løsningen.\n\nNoSQL står for «Not Only SQL» – ikke bare SQL. Det er et samlebegrep for databaser som ikke følger den tradisjonelle relasjonsmodellen. De oppsto fordi relasjonsdatabaser sliter med tre ting når skalaen blir enorm: **skalerbarhet**, fordi det er vanskelig å spre data over mange servere; **fleksibilitet**, fordi de krever et fast skjema definert på forhånd; og **ytelse**, fordi JOIN-operasjoner kan bli trege på svært store datasett. NoSQL er designet for horisontal skalering (spre data over mange servere), skjemafrihet (endre struktur underveis), og spesialiserte bruksområder.\n\nDet finnes fire hovedtyper. **Dokumentdatabaser** som MongoDB lagrer data som dokumenter, vanligvis JSON. **Nøkkel-verdi-lagring** som Redis lagrer enkelt en nøkkel som peker til en verdi. **Kolonneorienterte** databaser som Cassandra er optimalisert for store datasett med mange kolonner, som tidsseriedata og loggfiler. Og **grafdatabaser** som Neo4j er optimalisert for data med mange relasjoner, som sosiale nettverk og anbefalingssystemer."
+    },
+    {
+      "id": "it-2-5-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på NoSQL-grunnlaget:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-4-n-quiz1-q0",
+            "task": "Hva står NoSQL for?",
+            "options": [
+              {
+                "id": "a",
+                "text": "No SQL ever",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Not Only SQL",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "New Object SQL",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Normalized SQL",
+                "isCorrect": false
+              }
+            ],
+            "solution": "NoSQL betyr «Not Only SQL» – databaser som ikke følger den tradisjonelle relasjonsmodellen."
+          },
+          {
+            "id": "it-2-5-4-n-quiz1-q1",
+            "task": "Hvilken NoSQL-type passer best for data med mange relasjoner, som sosiale nettverk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dokumentdatabase",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nøkkel-verdi-lagring",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafdatabase",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kolonneorientert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grafdatabaser som Neo4j er optimalisert for data med mange relasjoner, som sosiale nettverk og anbefalinger."
+          },
+          {
+            "id": "it-2-5-4-n-quiz1-q2",
+            "task": "Hva er en sentral styrke ved NoSQL framfor relasjonsdatabaser?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Garantert ACID i alle tilfeller",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alltid komplekse JOIN-operasjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et fast skjema definert på forhånd",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Horisontal skalering og skjemafrihet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "NoSQL er designet for å skalere horisontalt over mange servere og for å endre struktur uten fast skjema."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-4-n-section1",
+      "type": "text",
+      "content": "## Dokumenter og nøkkel-verdi\n\nDen mest populære NoSQL-typen er **dokumentdatabasen**, der data lagres som dokumenter, vanligvis JSON eller BSON. Et brukerdokument i MongoDB kan ha en adresse som et nestet objekt og interesser som en array – alt i ett dokument. Fordelene er klare: du får nestede strukturer, arrays uten egen tabell, og fleksibelt skjema der ett dokument kan ha felt et annet mangler. Ulempene er dataredundans, mindre støtte for komplekse spørringer over relasjoner, og ikke alltid garanterte ACID-egenskaper. MongoDB har sin egen terminologi som speiler SQL: en *collection* tilsvarer en tabell, et *document* tilsvarer en rad, og et *field* tilsvarer en kolonne. Grunnoperasjonene er `insertOne` (create), `find`/`findOne` (read), `updateOne` (update) og `deleteOne` (delete). Et blogginnlegg med forfatter og en liste av kommentarer kan lagres som ett enkelt dokument – noe som ville krevd tre tabeller i SQL.\n\nDen enkleste NoSQL-formen er **nøkkel-verdi-lagring**, som fungerer som en gigantisk Python-dictionary. Redis er det mest kjente eksempelet, med `set` for å lagre og `get` for å hente. Du kan til og med lagre JSON som verdi, og sette en utløpstid (TTL) med `setex`, slik at data forsvinner automatisk etter en gitt tid. Dette gjør nøkkel-verdi-lagring perfekt for **caching** (ofte brukte data midlertidig), **sessions** i webapplikasjoner, **rate limiting** og enkle køer. Det er ekstremt raskt, ofte fordi det ligger i RAM, og veldig enkelt å bruke – men det har intet egentlig spørrespråk utover GET og SET, ingen relasjoner, og er ofte begrenset av tilgjengelig minne."
+    },
+    {
+      "id": "it-2-5-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på dokumenter og nøkkel-verdi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-4-n-quiz2-q0",
+            "task": "Hva tilsvarer en «collection» i MongoDB i SQL-verdenen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En tabell",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En kolonne",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En primærnøkkel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En indeks",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En collection i MongoDB tilsvarer en tabell i SQL, et document tilsvarer en rad, og et field en kolonne."
+          },
+          {
+            "id": "it-2-5-4-n-quiz2-q1",
+            "task": "Hva er et typisk bruksområde for nøkkel-verdi-lagring som Redis?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Komplekse JOIN-spørringer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Caching og sessions",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Langtidslagring av regnskap",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Skjemavalidering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nøkkel-verdi-lagring er lynraskt og passer for caching, sessions, rate limiting og enkle køer."
+          },
+          {
+            "id": "it-2-5-4-n-quiz2-q2",
+            "task": "Hva er en fordel med å lagre et blogginnlegg med kommentarer som ett dokument?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det garanterer ACID",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det fjerner all redundans",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nestede strukturer og arrays samles ett sted, uten flere tabeller",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det krever tre JOIN-er",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et dokument kan inneholde forfatter og kommentarer nestet, noe som i SQL ville krevd flere tabeller og JOIN-er."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-4-n-section2",
+      "type": "text",
+      "content": "## SQL eller NoSQL – og hybridene\n\nDet finnes ikke ett svar som passer alle. Valget avhenger av behovet. Du bør bruke **SQL** når dataene har klare relasjoner (kunder, ordrer, produkter), når du trenger ACID-garantier (banker, bookingsystemer), når skjemaet er stabilt og kjent på forhånd, når du trenger komplekse spørringer med JOIN, og når dataintegritet er kritisk. Typiske eksempler er banksystemer, e-handel og HR-systemer.\n\nDu bør vurdere **NoSQL** når du trenger ekstrem skalerbarhet til millioner av brukere, når dataene ofte endrer struktur, når du har hierarkiske eller JSON-lignende data, når du trenger høy ytelse på enkle operasjoner, eller når du jobber med store mengder ustrukturerte data. Typiske eksempler er sosiale medier, sanntidsanalyse, IoT-data og logger. Et nyttig teoretisk bakteppe er **CAP-teoremet**, som sier at du i et distribuert system bare kan ha to av tre egenskaper samtidig: Consistency, Availability og Partition tolerance.\n\nI praksis trenger du sjelden å velge bare én. Mange moderne systemer er **hybrider** som bruker begge: SQL for kritiske transaksjoner som ordrer og betalinger, NoSQL for produktkataloger og brukerprofiler, og Redis for caching av ofte brukte data. En typisk arkitektur kan være PostgreSQL for ordrer, MongoDB for produkter og Redis for sessions – hver database brukt til det den er best på."
+    },
+    {
+      "id": "it-2-5-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på valget SQL vs NoSQL:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-4-n-quiz3-q0",
+            "task": "Når passer SQL best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når strukturen endrer seg hver dag",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare for caching",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når dataene har klare relasjoner og du trenger ACID-garantier",
+                "isCorrect": true
+              }
+            ],
+            "solution": "SQL egner seg for strukturerte data med klare relasjoner og krav til dataintegritet, som banker og e-handel."
+          },
+          {
+            "id": "it-2-5-4-n-quiz3-q1",
+            "task": "Hva sier CAP-teoremet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Du kan bare ha to av tre: Consistency, Availability, Partition tolerance",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Alle databaser må være SQL",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "NoSQL er alltid raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En tabell kan bare ha tre kolonner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CAP-teoremet sier at et distribuert system bare kan garantere to av de tre egenskapene samtidig."
+          },
+          {
+            "id": "it-2-5-4-n-quiz3-q2",
+            "task": "Hva er en hybridløsning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En database uten tabeller",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et system som bruker både SQL og NoSQL der hver passer best",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "En SQL-database uten nøkler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En database som bare bruker RAM",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hybridløsninger kombinerer for eksempel SQL for transaksjoner, NoSQL for fleksible data og Redis for caching."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår data ikke passer i tabeller, eller når skala og fleksibilitet blir avgjørende, trer **NoSQL** inn – «Not Only SQL». De fire hovedtypene er dokumentdatabaser (MongoDB), nøkkel-verdi-lagring (Redis), kolonneorienterte (Cassandra) og grafdatabaser (Neo4j). **Dokumentdatabaser** lagrer JSON-lignende dokumenter med nestede strukturer, mens **nøkkel-verdi-lagring** er lynraskt og perfekt for caching og sessions.\n\nValget mellom SQL og NoSQL avhenger av behovet: SQL for klare relasjoner og ACID, NoSQL for skalerbarhet og fleksibilitet, med CAP-teoremet som teoretisk bakteppe. Og i praksis bruker mange systemer **hybridløsninger** som kombinerer flere databasetyper. I neste kapittel ser vi på datamodellering for komplekse systemer."
+    }
+  ],
+  "exercises": []
+}

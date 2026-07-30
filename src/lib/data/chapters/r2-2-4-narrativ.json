@@ -1,1 +1,396 @@
-{"id":"r2-2-4-narrativ","courseId":"r2","chapterNumber":"2.4","title":"Bestemt integral som grenseverdi","subtitle":"Narrativ versjon","description":"En fortelling om arealberegningens historie — fra Arkimedes' uttømmingsmetode i antikkens Syrakus til Riemanns rektangelsummer som definerer det bestemte integralet som en grenseverdi.","estimatedMinutes":36,"competenceGoals":["forsta integralet som en grenseverdi av summer","beregne Riemannsummer"],"linkedChapterId":"r2-2-4","content":[{"id":"r2-2-4-n-intro","type":"text","content":"## Arkimedes og kunsten å temme det krumme\n\nÅret er 212 f.Kr. Romerske soldater stormer Syrakus, og i sanden sitter en gammel mann fordypet i geometriske figurer. «Ikke rør sirklene mine,» skal Arkimedes ha sagt — hans siste ord. Det han hadde viet livet til, var blant annet et problem som hadde trosset menneskeheten i årtusener: *hvordan måler man arealet av noe krumt?*\n\nRektangler og trekanter er enkle. Men arealet under en parabel? Arkimedes' geniale idé var å fange det krumme med det rette: fyll området med mange smale figurer du *kan* regne på, og se hva som skjer når de blir flere og smalere. Med denne «uttømmingsmetoden» beregnet han parabelsegmenter og sirkler med forbløffende presisjon — to tusen år før kalkulus.\n\nPå 1800-tallet gjorde den tyske matematikeren Bernhard Riemann ideen vanntett. Hans **Riemannsummer** av rektangler, drevet til grensen der antallet går mot uendelig, er den moderne *definisjonen* av det bestemte integralet. I dette kapittelet følger vi den linjen fra Syrakus til presis matematikk — og regner ut et areal helt fra grunnen, uten antideriverte."},{"id":"r2-2-4-n-section1","type":"text","content":"## Rektanglene rykker inn: inndeling og Riemannsummer\n\nStrategien begynner med å dele opp. Et intervall $[a, b]$ deles i $n$ like brede delintervaller av punktene $a = x_0 < x_1 < \\cdots < x_n = b$, hvert med bredde\n\n$$\\Delta x = \\frac{b - a}{n}$$\n\nFor $[0, 4]$ med $n = 4$ blir $\\Delta x = 1$ og delingspunktene $0, 1, 2, 3, 4$.\n\nPå hvert delintervall reiser vi et rektangel med høyde lik en funksjonsverdi $f(x_i^*)$, der $x_i^*$ er et valgt punkt i delintervallet. Summen av rektangelarealene er en **Riemannsum**:\n\n$$S_n = \\sum_{i=1}^{n} f(x_i^*) \\cdot \\Delta x$$\n\nVelger vi venstre endepunkt, får vi *venstresummen*; høyre endepunkt gir *høyresummen*; midtpunktet gir *midtpunktsummen*.\n\nLa oss regne en: $f(x) = x^2$ på $[0, 2]$ med $n = 4$, høyresum. $\\Delta x = 0{,}5$, og høyre endepunkter er $0{,}5$, $1$, $1{,}5$ og $2$:\n\n$$S_4 = (0{,}25 + 1 + 2{,}25 + 4) \\cdot 0{,}5 = 3{,}75$$\n\nDen eksakte verdien er $\\frac{8}{3} \\approx 2{,}67$, så høyresummen bommer oppover. Det er ikke tilfeldig: for en *voksende* funksjon er høyresummen alltid en **oversum** og venstresummen en **undersum** — det sanne arealet ligger klemt mellom dem. Og her kommer det avgjørende: når $n$ vokser, krymper gapet mellom over- og undersum mot null. Rektanglene tømmer det krumme området, akkurat som Arkimedes så for seg."},{"id":"r2-2-4-n-quiz1","type":"exercise","exercise":{"id":"r2-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på inndeling og Riemannsummer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-4-n-quiz1-q0","task":"Intervallet $[0, 2]$ deles i $n = 4$ like delintervaller. Hva er $\\Delta x$?","options":[{"id":"a","text":"$0{,}25$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$0{,}5$","isCorrect":true},{"id":"d","text":"$1$","isCorrect":false}],"solution":"$\\Delta x = \\frac{b-a}{n} = \\frac{2-0}{4} = 0{,}5$."},{"id":"r2-2-4-n-quiz1-q1","task":"Hva er høyresummen $S_4$ for $f(x) = x^2$ på $[0,2]$ med $n = 4$?","options":[{"id":"a","text":"$3{,}75$","isCorrect":true},{"id":"b","text":"$2{,}67$","isCorrect":false},{"id":"c","text":"$1{,}75$","isCorrect":false},{"id":"d","text":"$3{,}5$","isCorrect":false}],"solution":"$S_4 = \\left(f(0{,}5) + f(1) + f(1{,}5) + f(2)\\right) \\cdot 0{,}5 = (0{,}25 + 1 + 2{,}25 + 4) \\cdot 0{,}5 = 3{,}75$."},{"id":"r2-2-4-n-quiz1-q2","task":"Hvorfor overestimerer høyresummen arealet under $f(x) = x^2$ på $[0,2]$?","options":[{"id":"a","text":"Fordi $\\Delta x$ er for stor","isCorrect":false},{"id":"b","text":"Fordi $f$ er voksende, slik at høyre endepunkt gir den største funksjonsverdien i hvert delintervall","isCorrect":true},{"id":"c","text":"Fordi $f$ er positiv","isCorrect":false},{"id":"d","text":"Høyresummer overestimerer alltid, uansett funksjon","isCorrect":false}],"solution":"For en voksende funksjon ligger rektangeltoppen (høyre endepunkt) over grafen i hele delintervallet. For en avtagende funksjon ville høyresummen tvert imot underestimere."},{"id":"r2-2-4-n-quiz1-q3","task":"Hva skjer med over- og undersummen når $n \\to \\infty$?","options":[{"id":"a","text":"Oversummen vokser og undersummen synker","isCorrect":false},{"id":"b","text":"Begge går mot null","isCorrect":false},{"id":"c","text":"Differansen mellom dem er konstant","isCorrect":false},{"id":"d","text":"Begge konvergerer mot det eksakte arealet","isCorrect":true}],"solution":"Når rektanglene blir smalere, klemmes over- og undersum sammen mot samme grenseverdi — det eksakte arealet. Det er kjernen i integralets definisjon."}]}},{"id":"r2-2-4-n-section2","type":"text","content":"## Grensen tas: et areal regnet fra grunnen\n\nNå gjennomfører vi Arkimedes' program med moderne verktøy: vi beregner $\\int_0^3 x^2\\,dx$ *eksakt* — kun med rektangler og en grenseverdi.\n\nFørst skriver vi høyresummen generelt. Med $n$ delintervaller er $\\Delta x = \\frac{3}{n}$ og $x_i = \\frac{3i}{n}$, så\n\n$$S_n = \\sum_{i=1}^{n} \\left(\\frac{3i}{n}\\right)^2 \\cdot \\frac{3}{n} = \\frac{27}{n^3} \\sum_{i=1}^{n} i^2$$\n\nHer trenger vi summeformlene — gamle kjenninger fra rekkekapitlene:\n\n$$\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}, \\qquad \\sum_{i=1}^{n} i^2 = \\frac{n(n+1)(2n+1)}{6}$$\n\nInnsatt og forenklet:\n\n$$S_n = \\frac{27}{n^3} \\cdot \\frac{n(n+1)(2n+1)}{6} = \\frac{27(n+1)(2n+1)}{6n^2} = 9 + \\frac{13{,}5}{n} + \\frac{4{,}5}{n^2}$$\n\nOg så grensen. Når $n \\to \\infty$ forsvinner brøkleddene, og\n\n$$\\lim_{n \\to \\infty} S_n = 9$$\n\nArealet under parabelen fra $0$ til $3$ er nøyaktig $9$. Ingen antideriverte, ingen snarveier — bare rektangler, summeformler og en grenseverdi. Hvert ledd i formelen har mening: $9$ er arealet, og $\\frac{13{,}5}{n}$ er omtrent overskuddet rektanglene stikker over grafen med, et overskudd som tynnes ut når rektanglene blir smale."},{"id":"r2-2-4-n-quiz2","type":"exercise","exercise":{"id":"r2-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på grenseverdiberegningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-4-n-quiz2-q0","task":"Hvilken summeformel trengs for å beregne $\\sum_{i=1}^{n} i^2$?","options":[{"id":"a","text":"$\\frac{n(n+1)}{2}$","isCorrect":false},{"id":"b","text":"$\\left(\\frac{n(n+1)}{2}\\right)^2$","isCorrect":false},{"id":"c","text":"$\\frac{n(n+1)(2n+1)}{6}$","isCorrect":true},{"id":"d","text":"$n^2$","isCorrect":false}],"solution":"$\\sum_{i=1}^{n} i^2 = \\frac{n(n+1)(2n+1)}{6}$. Formelen $\\frac{n(n+1)}{2}$ gjelder for $\\sum i$, og kvadratet av denne for $\\sum i^3$."},{"id":"r2-2-4-n-quiz2-q1","task":"Høyresummen for $\\int_0^3 x^2\\,dx$ kan skrives $S_n = 9 + \\frac{13{,}5}{n} + \\frac{4{,}5}{n^2}$. Hva er $\\lim_{n \\to \\infty} S_n$?","options":[{"id":"a","text":"$9$","isCorrect":true},{"id":"b","text":"$13{,}5$","isCorrect":false},{"id":"c","text":"$22{,}5$","isCorrect":false},{"id":"d","text":"Grenseverdien finnes ikke","isCorrect":false}],"solution":"Leddene $\\frac{13{,}5}{n}$ og $\\frac{4{,}5}{n^2}$ går mot null når $n \\to \\infty$, så $S_n \\to 9$. Altså er $\\int_0^3 x^2\\,dx = 9$."},{"id":"r2-2-4-n-quiz2-q2","task":"Hva representerer leddet $\\frac{13{,}5}{n}$ i uttrykket for $S_n$?","options":[{"id":"a","text":"Arealet av det første rektangelet","isCorrect":false},{"id":"b","text":"Tilnærmingsfeilen som krymper når rektanglene blir smalere","isCorrect":true},{"id":"c","text":"Bredden av hvert delintervall","isCorrect":false},{"id":"d","text":"Summen av funksjonsverdiene","isCorrect":false}],"solution":"De $n$-avhengige leddene er differansen mellom Riemannsummen og det eksakte arealet — feilen fra rektanglene som stikker over grafen. Den forsvinner i grensen."}]}},{"id":"r2-2-4-n-section3","type":"text","content":"## Definisjonen: integralet som grenseverdi\n\nNå kan vi reise byggverket. For en kontinuerlig funksjon $f$ på $[a, b]$ *definerer* vi det bestemte integralet som grenseverdien av Riemannsummene:\n\n$$\\int_a^b f(x) \\, dx = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i^*) \\cdot \\Delta x$$\n\nNå avsløres også integraltegnets hemmelighet fra kapittel 2.2: $\\int$ er en strukket S for *summa* — integralet er en uendelig forfinet sum, der $\\Delta x$ er blitt til $dx$.\n\nDefinisjonen rommer mer enn areal. Er $f(x) \\geq 0$ på intervallet, gir integralet arealet mellom grafen og $x$-aksen. Men er $f$ negativ noen steder, bidrar rektanglene der med negative «høyder» — integralet måler **fortegnsareal**, med plusstegn over aksen og minustegn under. Den nyansen får et helt kapittel snart.\n\nEn sunnhetskontroll til slutt: $\\int_0^2 3\\,dx$. Geometrisk er dette et rektangel med bredde $2$ og høyde $3$ — areal $6$. Via Riemannsummer: $S_n = \\sum_{i=1}^n 3 \\cdot \\frac{2}{n} = \\frac{6}{n} \\cdot n = 6$ for alle $n$, så grensen er selvsagt $6$. Definisjonen leverer det åpenbare svaret når fasiten er kjent — og det er nettopp slike kontroller som gir oss tillit til den når fasiten ikke er det.\n\nMen én ting skurrer: grenseverdi-regningen for $\\int_0^3 x^2\\,dx$ var *mye* jobb for å få svaret $9$ — som antideriverten $\\frac{x^3}{3}$ gir på sekunder via $\\frac{27}{3} - 0$. Er det en tilfeldighet? Slett ikke. Sammenhengen mellom Riemannsummer og antideriverte er selve fundamentalsetningen — neste kapittels tema."},{"id":"r2-2-4-n-quiz3","type":"exercise","exercise":{"id":"r2-2-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på integralets definisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-4-n-quiz3-q0","task":"Hvordan er det bestemte integralet $\\int_a^b f(x)\\,dx$ definert?","options":[{"id":"a","text":"Som $F(b) - F(a)$ for en antiderivert $F$","isCorrect":false},{"id":"b","text":"Som arealet av det største rektangelet under grafen","isCorrect":false},{"id":"c","text":"Som gjennomsnittet av over- og undersummen","isCorrect":false},{"id":"d","text":"Som grenseverdien av Riemannsummene når $n \\to \\infty$","isCorrect":true}],"solution":"Definisjonen er $\\int_a^b f(x)\\,dx = \\lim_{n \\to \\infty} \\sum_{i=1}^n f(x_i^*)\\,\\Delta x$. At dette er lik $F(b) - F(a)$ er et teorem (fundamentalsetningen), ikke definisjonen."},{"id":"r2-2-4-n-quiz3-q1","task":"Beregn $\\displaystyle\\int_0^2 3 \\, dx$.","options":[{"id":"a","text":"$3$","isCorrect":false},{"id":"b","text":"$6$","isCorrect":true},{"id":"c","text":"$2$","isCorrect":false},{"id":"d","text":"$9$","isCorrect":false}],"solution":"Geometrisk: et rektangel med bredde $2$ og høyde $3$, areal $6$. Riemannsummen gir det samme: $\\frac{6}{n} \\cdot n = 6$ for alle $n$."},{"id":"r2-2-4-n-quiz3-q2","task":"Hva måler $\\int_a^b f(x)\\,dx$ hvis $f$ er negativ på deler av $[a,b]$?","options":[{"id":"a","text":"Fortegnsarealet: positivt bidrag over $x$-aksen, negativt under","isCorrect":true},{"id":"b","text":"Det totale arealet, alltid positivt","isCorrect":false},{"id":"c","text":"Bare arealet over $x$-aksen","isCorrect":false},{"id":"d","text":"Integralet er udefinert","isCorrect":false}],"solution":"Rektanglene under aksen har negative funksjonsverdier som «høyder» og bidrar negativt. Integralet er derfor et fortegnsareal."},{"id":"r2-2-4-n-quiz3-q3","task":"Hva symboliserer integraltegnet $\\int$?","options":[{"id":"a","text":"Den greske bokstaven gamma","isCorrect":false},{"id":"b","text":"En forkortelse for «integral»","isCorrect":false},{"id":"c","text":"En strukket S for «summa» — integralet er en grense av summer","isCorrect":true},{"id":"d","text":"Newtons personlige signatur","isCorrect":false}],"solution":"Leibniz valgte en strukket S fordi integralet er en uendelig forfinet sum: $\\sum f(x_i)\\,\\Delta x$ blir til $\\int f(x)\\,dx$."}]}},{"id":"r2-2-4-n-summary","type":"text","content":"## Oppsummering: fra sandtegninger til presis definisjon\n\nLinjen fra Arkimedes' sirkler i sanden til Riemanns rektangler er en av matematikkhistoriens lengste og fineste: det krumme temmes ved å fylles med det rette, og presisjonen kommer i grensen. Oppskriften er nå din: del $[a,b]$ i $n$ biter med bredde $\\Delta x = \\frac{b-a}{n}$, reis rektangler med høyder $f(x_i^*)$, og summer til Riemannsummen $S_n = \\sum f(x_i^*)\\,\\Delta x$. For voksende funksjoner klemmer venstresum (undersum) og høyresum (oversum) det sanne arealet mellom seg, og når $n \\to \\infty$ møtes de i én verdi — det bestemte integralet:\n\n$$\\int_a^b f(x)\\,dx = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i^*)\\,\\Delta x$$\n\nMed summeformlene $\\sum i = \\frac{n(n+1)}{2}$ og $\\sum i^2 = \\frac{n(n+1)(2n+1)}{6}$ gjennomførte vi hele programmet for hånd og fant $\\int_0^3 x^2\\,dx = 9$ — og lærte samtidig at integralet egentlig måler fortegnsareal, ikke bare areal. Men regningen var tung, og antideriverten ga samme svar på et øyeblikk. Den mistanken — at uendelige summer og antideriverte er to sider av samme sak — er blant de største innsiktene i matematikkens historie. Den har til og med et navn som skinner: analysens fundamentalsetning."}],"exercises":[]}
+{
+  "id": "r2-2-4-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "2.4",
+  "title": "Bestemt integral som grenseverdi",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om arealberegningens historie — fra Arkimedes' uttømmingsmetode i antikkens Syrakus til Riemanns rektangelsummer som definerer det bestemte integralet som en grenseverdi.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "forsta integralet som en grenseverdi av summer",
+    "beregne Riemannsummer"
+  ],
+  "linkedChapterId": "r2-2-4",
+  "content": [
+    {
+      "id": "r2-2-4-n-intro",
+      "type": "text",
+      "content": "## Arkimedes og kunsten å temme det krumme\n\nÅret er 212 f.Kr. Romerske soldater stormer Syrakus, og i sanden sitter en gammel mann fordypet i geometriske figurer. «Ikke rør sirklene mine,» skal Arkimedes ha sagt — hans siste ord. Det han hadde viet livet til, var blant annet et problem som hadde trosset menneskeheten i årtusener: *hvordan måler man arealet av noe krumt?*\n\nRektangler og trekanter er enkle. Men arealet under en parabel? Arkimedes' geniale idé var å fange det krumme med det rette: fyll området med mange smale figurer du *kan* regne på, og se hva som skjer når de blir flere og smalere. Med denne «uttømmingsmetoden» beregnet han parabelsegmenter og sirkler med forbløffende presisjon — to tusen år før kalkulus.\n\nPå 1800-tallet gjorde den tyske matematikeren Bernhard Riemann ideen vanntett. Hans **Riemannsummer** av rektangler, drevet til grensen der antallet går mot uendelig, er den moderne *definisjonen* av det bestemte integralet. I dette kapittelet følger vi den linjen fra Syrakus til presis matematikk — og regner ut et areal helt fra grunnen, uten antideriverte."
+    },
+    {
+      "id": "r2-2-4-n-section1",
+      "type": "text",
+      "content": "## Rektanglene rykker inn: inndeling og Riemannsummer\n\nStrategien begynner med å dele opp. Et intervall $[a, b]$ deles i $n$ like brede delintervaller av punktene $a = x_0 < x_1 < \\cdots < x_n = b$, hvert med bredde\n\n$$\\Delta x = \\frac{b - a}{n}$$\n\nFor $[0, 4]$ med $n = 4$ blir $\\Delta x = 1$ og delingspunktene $0, 1, 2, 3, 4$.\n\nPå hvert delintervall reiser vi et rektangel med høyde lik en funksjonsverdi $f(x_i^*)$, der $x_i^*$ er et valgt punkt i delintervallet. Summen av rektangelarealene er en **Riemannsum**:\n\n$$S_n = \\sum_{i=1}^{n} f(x_i^*) \\cdot \\Delta x$$\n\nVelger vi venstre endepunkt, får vi *venstresummen*; høyre endepunkt gir *høyresummen*; midtpunktet gir *midtpunktsummen*.\n\nLa oss regne en: $f(x) = x^2$ på $[0, 2]$ med $n = 4$, høyresum. $\\Delta x = 0{,}5$, og høyre endepunkter er $0{,}5$, $1$, $1{,}5$ og $2$:\n\n$$S_4 = (0{,}25 + 1 + 2{,}25 + 4) \\cdot 0{,}5 = 3{,}75$$\n\nDen eksakte verdien er $\\frac{8}{3} \\approx 2{,}67$, så høyresummen bommer oppover. Det er ikke tilfeldig: for en *voksende* funksjon er høyresummen alltid en **oversum** og venstresummen en **undersum** — det sanne arealet ligger klemt mellom dem. Og her kommer det avgjørende: når $n$ vokser, krymper gapet mellom over- og undersum mot null. Rektanglene tømmer det krumme området, akkurat som Arkimedes så for seg."
+    },
+    {
+      "id": "r2-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på inndeling og Riemannsummer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-4-n-quiz1-q0",
+            "task": "Intervallet $[0, 2]$ deles i $n = 4$ like delintervaller. Hva er $\\Delta x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\Delta x = \\frac{b-a}{n} = \\frac{2-0}{4} = 0{,}5$."
+          },
+          {
+            "id": "r2-2-4-n-quiz1-q1",
+            "task": "Hva er høyresummen $S_4$ for $f(x) = x^2$ på $[0,2]$ med $n = 4$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2{,}67$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}75$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3{,}75$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$S_4 = \\left(f(0{,}5) + f(1) + f(1{,}5) + f(2)\\right) \\cdot 0{,}5 = (0{,}25 + 1 + 2{,}25 + 4) \\cdot 0{,}5 = 3{,}75$."
+          },
+          {
+            "id": "r2-2-4-n-quiz1-q2",
+            "task": "Hvorfor overestimerer høyresummen arealet under $f(x) = x^2$ på $[0,2]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $f$ er voksende, slik at høyre endepunkt gir den største funksjonsverdien i hvert delintervall",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi $\\Delta x$ er for stor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $f$ er positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Høyresummer overestimerer alltid, uansett funksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For en voksende funksjon ligger rektangeltoppen (høyre endepunkt) over grafen i hele delintervallet. For en avtagende funksjon ville høyresummen tvert imot underestimere."
+          },
+          {
+            "id": "r2-2-4-n-quiz1-q3",
+            "task": "Hva skjer med over- og undersummen når $n \\to \\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Oversummen vokser og undersummen synker",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge konvergerer mot det eksakte arealet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Begge går mot null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Differansen mellom dem er konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når rektanglene blir smalere, klemmes over- og undersum sammen mot samme grenseverdi — det eksakte arealet. Det er kjernen i integralets definisjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-4-n-section2",
+      "type": "text",
+      "content": "## Grensen tas: et areal regnet fra grunnen\n\nNå gjennomfører vi Arkimedes' program med moderne verktøy: vi beregner $\\int_0^3 x^2\\,dx$ *eksakt* — kun med rektangler og en grenseverdi.\n\nFørst skriver vi høyresummen generelt. Med $n$ delintervaller er $\\Delta x = \\frac{3}{n}$ og $x_i = \\frac{3i}{n}$, så\n\n$$S_n = \\sum_{i=1}^{n} \\left(\\frac{3i}{n}\\right)^2 \\cdot \\frac{3}{n} = \\frac{27}{n^3} \\sum_{i=1}^{n} i^2$$\n\nHer trenger vi summeformlene — gamle kjenninger fra rekkekapitlene:\n\n$$\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}, \\qquad \\sum_{i=1}^{n} i^2 = \\frac{n(n+1)(2n+1)}{6}$$\n\nInnsatt og forenklet:\n\n$$S_n = \\frac{27}{n^3} \\cdot \\frac{n(n+1)(2n+1)}{6} = \\frac{27(n+1)(2n+1)}{6n^2} = 9 + \\frac{13{,}5}{n} + \\frac{4{,}5}{n^2}$$\n\nOg så grensen. Når $n \\to \\infty$ forsvinner brøkleddene, og\n\n$$\\lim_{n \\to \\infty} S_n = 9$$\n\nArealet under parabelen fra $0$ til $3$ er nøyaktig $9$. Ingen antideriverte, ingen snarveier — bare rektangler, summeformler og en grenseverdi. Hvert ledd i formelen har mening: $9$ er arealet, og $\\frac{13{,}5}{n}$ er omtrent overskuddet rektanglene stikker over grafen med, et overskudd som tynnes ut når rektanglene blir smale."
+    },
+    {
+      "id": "r2-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grenseverdiberegningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-4-n-quiz2-q0",
+            "task": "Hvilken summeformel trengs for å beregne $\\sum_{i=1}^{n} i^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{n(n+1)}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\left(\\frac{n(n+1)}{2}\\right)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{n(n+1)(2n+1)}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$n^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sum_{i=1}^{n} i^2 = \\frac{n(n+1)(2n+1)}{6}$. Formelen $\\frac{n(n+1)}{2}$ gjelder for $\\sum i$, og kvadratet av denne for $\\sum i^3$."
+          },
+          {
+            "id": "r2-2-4-n-quiz2-q1",
+            "task": "Høyresummen for $\\int_0^3 x^2\\,dx$ kan skrives $S_n = 9 + \\frac{13{,}5}{n} + \\frac{4{,}5}{n^2}$. Hva er $\\lim_{n \\to \\infty} S_n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$13{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$22{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grenseverdien finnes ikke",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Leddene $\\frac{13{,}5}{n}$ og $\\frac{4{,}5}{n^2}$ går mot null når $n \\to \\infty$, så $S_n \\to 9$. Altså er $\\int_0^3 x^2\\,dx = 9$."
+          },
+          {
+            "id": "r2-2-4-n-quiz2-q2",
+            "task": "Hva representerer leddet $\\frac{13{,}5}{n}$ i uttrykket for $S_n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Tilnærmingsfeilen som krymper når rektanglene blir smalere",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Arealet av det første rektangelet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bredden av hvert delintervall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Summen av funksjonsverdiene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "De $n$-avhengige leddene er differansen mellom Riemannsummen og det eksakte arealet — feilen fra rektanglene som stikker over grafen. Den forsvinner i grensen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-4-n-section3",
+      "type": "text",
+      "content": "## Definisjonen: integralet som grenseverdi\n\nNå kan vi reise byggverket. For en kontinuerlig funksjon $f$ på $[a, b]$ *definerer* vi det bestemte integralet som grenseverdien av Riemannsummene:\n\n$$\\int_a^b f(x) \\, dx = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i^*) \\cdot \\Delta x$$\n\nNå avsløres også integraltegnets hemmelighet fra kapittel 2.2: $\\int$ er en strukket S for *summa* — integralet er en uendelig forfinet sum, der $\\Delta x$ er blitt til $dx$.\n\nDefinisjonen rommer mer enn areal. Er $f(x) \\geq 0$ på intervallet, gir integralet arealet mellom grafen og $x$-aksen. Men er $f$ negativ noen steder, bidrar rektanglene der med negative «høyder» — integralet måler **fortegnsareal**, med plusstegn over aksen og minustegn under. Den nyansen får et helt kapittel snart.\n\nEn sunnhetskontroll til slutt: $\\int_0^2 3\\,dx$. Geometrisk er dette et rektangel med bredde $2$ og høyde $3$ — areal $6$. Via Riemannsummer: $S_n = \\sum_{i=1}^n 3 \\cdot \\frac{2}{n} = \\frac{6}{n} \\cdot n = 6$ for alle $n$, så grensen er selvsagt $6$. Definisjonen leverer det åpenbare svaret når fasiten er kjent — og det er nettopp slike kontroller som gir oss tillit til den når fasiten ikke er det.\n\nMen én ting skurrer: grenseverdi-regningen for $\\int_0^3 x^2\\,dx$ var *mye* jobb for å få svaret $9$ — som antideriverten $\\frac{x^3}{3}$ gir på sekunder via $\\frac{27}{3} - 0$. Er det en tilfeldighet? Slett ikke. Sammenhengen mellom Riemannsummer og antideriverte er selve fundamentalsetningen — neste kapittels tema."
+    },
+    {
+      "id": "r2-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på integralets definisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-4-n-quiz3-q0",
+            "task": "Hvordan er det bestemte integralet $\\int_a^b f(x)\\,dx$ definert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Som $F(b) - F(a)$ for en antiderivert $F$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Som grenseverdien av Riemannsummene når $n \\to \\infty$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Som arealet av det største rektangelet under grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Som gjennomsnittet av over- og undersummen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Definisjonen er $\\int_a^b f(x)\\,dx = \\lim_{n \\to \\infty} \\sum_{i=1}^n f(x_i^*)\\,\\Delta x$. At dette er lik $F(b) - F(a)$ er et teorem (fundamentalsetningen), ikke definisjonen."
+          },
+          {
+            "id": "r2-2-4-n-quiz3-q1",
+            "task": "Beregn $\\displaystyle\\int_0^2 3 \\, dx$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometrisk: et rektangel med bredde $2$ og høyde $3$, areal $6$. Riemannsummen gir det samme: $\\frac{6}{n} \\cdot n = 6$ for alle $n$."
+          },
+          {
+            "id": "r2-2-4-n-quiz3-q2",
+            "task": "Hva måler $\\int_a^b f(x)\\,dx$ hvis $f$ er negativ på deler av $[a,b]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det totale arealet, alltid positivt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bare arealet over $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Integralet er udefinert",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fortegnsarealet: positivt bidrag over $x$-aksen, negativt under",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Rektanglene under aksen har negative funksjonsverdier som «høyder» og bidrar negativt. Integralet er derfor et fortegnsareal."
+          },
+          {
+            "id": "r2-2-4-n-quiz3-q3",
+            "task": "Hva symboliserer integraltegnet $\\int$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "En strukket S for «summa» — integralet er en grense av summer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den greske bokstaven gamma",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En forkortelse for «integral»",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Newtons personlige signatur",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Leibniz valgte en strukket S fordi integralet er en uendelig forfinet sum: $\\sum f(x_i)\\,\\Delta x$ blir til $\\int f(x)\\,dx$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: fra sandtegninger til presis definisjon\n\nLinjen fra Arkimedes' sirkler i sanden til Riemanns rektangler er en av matematikkhistoriens lengste og fineste: det krumme temmes ved å fylles med det rette, og presisjonen kommer i grensen. Oppskriften er nå din: del $[a,b]$ i $n$ biter med bredde $\\Delta x = \\frac{b-a}{n}$, reis rektangler med høyder $f(x_i^*)$, og summer til Riemannsummen $S_n = \\sum f(x_i^*)\\,\\Delta x$. For voksende funksjoner klemmer venstresum (undersum) og høyresum (oversum) det sanne arealet mellom seg, og når $n \\to \\infty$ møtes de i én verdi — det bestemte integralet:\n\n$$\\int_a^b f(x)\\,dx = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i^*)\\,\\Delta x$$\n\nMed summeformlene $\\sum i = \\frac{n(n+1)}{2}$ og $\\sum i^2 = \\frac{n(n+1)(2n+1)}{6}$ gjennomførte vi hele programmet for hånd og fant $\\int_0^3 x^2\\,dx = 9$ — og lærte samtidig at integralet egentlig måler fortegnsareal, ikke bare areal. Men regningen var tung, og antideriverten ga samme svar på et øyeblikk. Den mistanken — at uendelige summer og antideriverte er to sider av samme sak — er blant de største innsiktene i matematikkens historie. Den har til og med et navn som skinner: analysens fundamentalsetning."
+    }
+  ],
+  "exercises": []
+}

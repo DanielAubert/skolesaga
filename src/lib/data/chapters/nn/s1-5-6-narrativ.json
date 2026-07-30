@@ -1,1 +1,365 @@
-{"id":"s1-5-6-narrativ","courseId":"s1","chapterNumber":"5.6","title":"Simulering med digitale verktøy","subtitle":"Narrativ versjon","description":"Ei forteljing om å la maskinen kaste terningane -- Monte Carlo-metoden, store tals lov og forsikringsmatematikk, med simuleringar i GeoGebra og Python.","estimatedMinutes":28,"competenceGoals":["forklare prinsippa bak simulering","bruke GeoGebra til enkle sannsynssimuleringar","kjenne til Monte Carlo-metoden","illustrere store tals lov gjennom simulering","tolke simuleringsresultat kritisk"],"linkedChapterId":"s1-5-6","content":[{"id":"s1-5-6-n-intro","type":"text","content":"## Når reknestykket blir for vanskeleg — la maskinen kaste terningane\n\nEin analytikar i eit forsikringsselskap får eit spørsmål frå leiinga: «Kor stort er sannsynet for at samla skadeutbetalingar neste år overstig budsjettet?» Utbetalingane avheng av tusenvis av kundar, vêr, trafikk og tilfeldigheiter — eit analytisk reknestykke ville blitt uoverkommeleg. Men analytikaren har eit ess i ermet: ho lèt datamaskinen *spele gjennom* neste år ti tusen gonger, med tilfeldige utfall kvar gong, og tel kor ofte budsjettet sprekk.\n\nDette er **simulering**: å etterlikne eit tilfeldig eksperiment digitalt, gjenta det tusenvis av gonger, og lese svaret ut av mønstera som oppstår. Når analytiske utrekningar blir kompliserte — eller når vi vil studere eit system over tid — er simulering ofte det raskaste og nokre gonger det einaste farbare verktøyet. Næringslivet bruker det dagleg: simulere kundeankomstar i ein butikk, estimere risiko i finansporteføljar, planleggje lagerbehaldning under usikker etterspurnad og teste prisstrategiar før dei blir rulla ut.\n\nI dette kapittelet lærer du prinsippet bak **Monte Carlo-metoden**, korleis du set opp enkle simuleringar i GeoGebra og Python, kva **store tals lov** lovar oss — og, like viktig, korleis du tolkar simuleringsresultat med eit kritisk blikk."},{"id":"s1-5-6-n-section1","type":"text","content":"## Monte Carlo-metoden og store tals lov\n\nNamnet kjem frå kasinobyen Monte Carlo, og ideen er like enkel som han er kraftig. Vil du vite sannsynet for ei hending $A$? Gjenta eksperimentet $n$ gonger med tilfeldige tal, tel talet på gunstige utfall $f$, og bruk den relative frekvensen som estimat:\n\n$$P(A) \\approx \\frac{f}{n}$$\n\nGarantien for at dette verkar, heiter **store tals lov**: når talet på forsøk veks mot uendeleg, nærmar den relative hyppigheita seg det teoretiske sannsynet, $\\frac{f}{n} \\to P(A)$. Estimatet er aldri eksakt, men uvissa krympar med talet på forsøk — typisk som $\\frac{1}{\\sqrt{n}}$. Det tyder ein viktig tommelfingerregel: vil du ha omtrent to gyldige desimalar, treng du rundt $n \\approx 10\\,000$ repetisjonar. Og fordi feilen avtek med kvadratrota, må du *firedoble* talet på forsøk for å *halvere* uvissa.\n\nStore tals lov er ikkje berre eit simuleringsverktøy — han er sjølve grunnlaget for forsikringsbransjen. Selskapet kan umogleg seie om akkurat du får ein skade neste år. Men gjennomsnittet over mange kundar er svært forutseieleg: blant 100 000 kundar kan delen med skade anslåast med stor presisjon, og dermed kan premiane setjast rett. Enkeltutfall er kaos; gjennomsnitt av mange er nesten lovmessige.\n\nMerk likevel kva loven *ikkje* seier: han lovar ikkje at ein mynt som har vist kron fem gonger, «skuldar» oss mynt. Kvart kast er like uavhengig som før — det er delane over lange seriar som stabiliserer seg, ikkje dei neste enkeltutfalla."},{"id":"s1-5-6-n-quiz1","type":"exercise","exercise":{"id":"s1-5-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på Monte Carlo og store tals lov:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-6-n-quiz1-q0","task":"Kva er grunnprinsippet i Monte Carlo-simulering?","options":[{"id":"a","text":"Å løyse problemet eksakt med algebra","isCorrect":false},{"id":"b","text":"Å gjenta eksperimentet mange gonger med tilfeldige tal og bruke relativ frekvens som estimat","isCorrect":true},{"id":"c","text":"Å alltid bruke nøyaktig 100 forsøk","isCorrect":false},{"id":"d","text":"Å fjerne tilfeldigheita frå modellen","isCorrect":false}],"solution":"Monte Carlo: gjenta $n$ gonger, tel gunstige utfall $f$, og estimer $P(A) \\approx \\frac{f}{n}$."},{"id":"s1-5-6-n-quiz1-q1","task":"Kva seier store tals lov?","options":[{"id":"a","text":"Den relative frekvensen nærmar seg det teoretiske sannsynet når talet på forsøk aukar","isCorrect":true},{"id":"b","text":"Store tal er meir sannsynlege enn små tal","isCorrect":false},{"id":"c","text":"Etter mange kron «skuldar» mynten oss mynt","isCorrect":false},{"id":"d","text":"Gjennomsnittet av få forsøk er alltid rett","isCorrect":false}],"solution":"$\\frac{f}{n} \\to P(A)$ når $n \\to \\infty$. Loven gjeld delar over lange seriar — han seier ingenting om neste enkeltutfall."},{"id":"s1-5-6-n-quiz1-q2","task":"Typisk uvisse i eit Monte Carlo-estimat med $n$ forsøk er omtrent $\\frac{1}{\\sqrt{n}}$. Kva må du gjere for å halvere uvissa?","options":[{"id":"a","text":"Doble talet på forsøk","isCorrect":false},{"id":"b","text":"Firedoble talet på forsøk","isCorrect":true},{"id":"c","text":"Halvere talet på forsøk","isCorrect":false},{"id":"d","text":"Bruke færre desimalar","isCorrect":false}],"solution":"Sidan feilen går som $\\frac{1}{\\sqrt{n}}$, krev halvert feil at $\\sqrt{n}$ blir dobla — altså fire gonger så mange forsøk."},{"id":"s1-5-6-n-quiz1-q3","task":"Kvifor kan eit forsikringsselskap setje presise premiar sjølv om kvar enkelt skade er uforutseieleg?","options":[{"id":"a","text":"Fordi dei veit kven som får skadar","isCorrect":false},{"id":"b","text":"Fordi store tals lov gjer delen skadar blant svært mange kundar forutseieleg","isCorrect":true},{"id":"c","text":"Fordi skadar alltid skjer i faste mønster","isCorrect":false},{"id":"d","text":"Fordi premiane ikkje avheng av skadesannsynet","isCorrect":false}],"solution":"Gjennomsnittet over 100 000 kundar er svært stabilt sjølv om enkeltutfall er tilfeldige — det er store tals lov i praksis."}]}},{"id":"s1-5-6-n-section2","type":"text","content":"## Frå idé til kode — terningar i GeoGebra og Python\n\nLat oss gjere metoden konkret med eit eksperiment vi kan fasitsjekke: kast to terningar og estimer sannsynet for at summen blir 7. Teorien kjenner vi — av dei 36 like sannsynlege utfalla gir 6 av dei sum 7, så $P(\\text{sum}=7) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$.\n\nI **GeoGebra** lagar vi tilfeldige kast med kommandoen `RandomBetween`. I CAS- eller reknearkvisninga kan du skrive\n\n```\nn = 1000\nkast1 = RandomBetween(1, 6, n)\nkast2 = RandomBetween(1, 6, n)\n```\n\nog deretter telje kor ofte summen av para blir 7. I **Python** blir heile eksperimentet nokre få linjer:\n\n```python\nimport random\nn = 10000\nantall7 = sum(1 for _ in range(n)\n               if random.randint(1,6) + random.randint(1,6) == 7)\nprint(f\"Estimert P(sum=7) = {antall7/n:.4f}\")\n```\n\nKøyrer du koden, får du kanskje 0,1641 éin gong og 0,1689 neste gong — aldri nøyaktig $\\frac{1}{6}$, men med $n = 10\\,000$ ligg estimatet vanlegvis innanfor om lag $\\pm 0{,}004$ av den sanne verdien. Køyr gjerne programmet fleire gonger og sjå korleis estimata klumpar seg rundt fasiten: det er store tals lov du ser i sving.\n\nDette peikar på den kritiske haldninga ein simulerande statistikar må ha. Eit simuleringsresultat er eit *estimat med uvisse*, ikkje ein fasit. Spør alltid: Er $n$ stort nok for presisjonen eg treng? Får eg omtrent same svar om eg køyrer på nytt? Og — viktigast av alt — etterliknar modellen min røyndomen godt nok? Ei perfekt simulering av ein feil modell gir presise, men gale svar. Når fasiten finst, slik som her, er han dessutan ei gyllen moglegheit til å validere oppsettet før du slepp simuleringa laus på problem utan kjent svar."},{"id":"s1-5-6-n-quiz2","type":"exercise","exercise":{"id":"s1-5-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på simulering i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-6-n-quiz2-q0","task":"Kva GeoGebra-kommando gir tilfeldige heiltal mellom 1 og 6?","options":[{"id":"a","text":"RandomBetween(1, 6)","isCorrect":true},{"id":"b","text":"Random(6)","isCorrect":false},{"id":"c","text":"Terning(1, 6)","isCorrect":false},{"id":"d","text":"Sum(1, 6)","isCorrect":false}],"solution":"`RandomBetween(1, 6)` trekkjer eit tilfeldig heiltal frå 1 til 6 — perfekt for terningkast."},{"id":"s1-5-6-n-quiz2-q1","task":"Ei simulering med $n = 10\\,000$ gir estimatet $0{,}1689$ for $P(\\text{sum}=7)$, medan teorien seier $\\frac{1}{6} \\approx 0{,}1667$. Kva er rett tolking?","options":[{"id":"a","text":"Simuleringa er feilprogrammert","isCorrect":false},{"id":"b","text":"Avviket er normal tilfeldig variasjon for denne $n$-verdien","isCorrect":true},{"id":"c","text":"Teorien er feil","isCorrect":false},{"id":"d","text":"Terningen i koden er skeiv","isCorrect":false}],"solution":"Med $n = 10\\,000$ er typisk avvik rundt $\\pm 0{,}004$. Eit estimat på 0,1689 ligg godt innanfor forventa variasjon."},{"id":"s1-5-6-n-quiz2-q2","task":"Omtrent kor mange repetisjonar treng du for to gyldige desimalars nøyaktigheit?","options":[{"id":"a","text":"Ca. 100","isCorrect":false},{"id":"b","text":"Ca. 1000","isCorrect":false},{"id":"c","text":"Ca. 10 000","isCorrect":true},{"id":"d","text":"Ca. 1 000 000","isCorrect":false}],"solution":"Tommelfingerregelen: uvissa er omtrent $\\frac{1}{\\sqrt{n}}$, så $n \\approx 10\\,000$ gir feil rundt 0,01 — to gyldige desimalar."},{"id":"s1-5-6-n-quiz2-q3","task":"Kva er den største faren ved å stole blindt på ei simulering?","options":[{"id":"a","text":"At datamaskinen blir sliten","isCorrect":false},{"id":"b","text":"At modellen ikkje etterliknar røyndomen godt nok — presise svar på ein feil modell er framleis gale","isCorrect":true},{"id":"c","text":"At tilfeldige tal er ulovlege i forsking","isCorrect":false},{"id":"d","text":"At svaret blir for nøyaktig","isCorrect":false}],"solution":"Simulering estimerer berre det modellen skildrar. Valider modellen — gjerne mot tilfelle med kjent fasit — før du stolar på resultata."}]}},{"id":"s1-5-6-n-summary","type":"text","content":"## Oppsummering: ti tusen røyndomar på eit sekund\n\nForsikringsanalytikaren frå innleiinga trong aldri den umoglege formelen: ved å la maskinen spele gjennom neste år tusenvis av gonger fekk ho eit påliteleg estimat på sannsynet for budsjettsprekk. Det er essensen i **simulering** — digital etterlikning av tilfeldigheit, der mønster i mange gjentakingar avslører sannsyna.\n\nVerktøykassa er kompakt. **Monte Carlo-metoden** seier: gjenta forsøket $n$ gonger, tel dei gunstige utfalla $f$, og estimer $P(A) \\approx \\frac{f}{n}$. **Store tals lov** garanterer at estimatet treffer i det lange løp — den relative frekvensen stabiliserer seg mot det teoretiske sannsynet — og den same loven er grunnen til at forsikringsselskap kan seie kor stor del av 100 000 kundar som får skade utan å kunne seie noko om den enkelte.\n\nPraktisk hugsar vi presisjonsregelen: uvissa avtek som $\\frac{1}{\\sqrt{n}}$, så to gyldige desimalar krev rundt 10 000 repetisjonar, og halvert feil krev firedobla innsats. Verktøya er lett tilgjengelege — `RandomBetween` i GeoGebra og `random.randint` i Python gjer terningkast, kundeankomstar og porteføljar til nokre få kodelinjer.\n\nOg så det kritiske blikket, som skil analytikaren frå kalkulatoren: ei simulering gir estimat, aldri eksakte svar; køyr fleire gonger og sjå om resultata er stabile; og hugs at ei presis simulering av ein dårleg modell berre gir presist gale svar. Med desse vanane på plass har du eit verktøy som rekk dit formlane ikkje når — og i neste hovudkapittel møter du fordelingane som ofte lèt deg sleppe å simulere i det heile."}],"exercises":[],"_meta":{"sourceHash":"28fda8aaf88e81b6","translatedAt":"2026-06-20T03:30:22.029Z","model":"claude-code-agent","strings":64,"tm":{"1f384fea627f33b3":"Simulering med digitale verktøy","b195b06d1ed59702":"Narrativ versjon","20010f2392107ef3":"Ei forteljing om å la maskinen kaste terningane -- Monte Carlo-metoden, store tals lov og forsikringsmatematikk, med simuleringar i GeoGebra og Python.","90bc7e2feb7c2aad":"forklare prinsippa bak simulering","21bb89b33740a5c0":"bruke GeoGebra til enkle sannsynssimuleringar","4855fc6b7ea8c32a":"kjenne til Monte Carlo-metoden","f80fcee426d5a4d4":"illustrere store tals lov gjennom simulering","36c4d7c80fd087ed":"tolke simuleringsresultat kritisk","b1654769781ae525":"## Når reknestykket blir for vanskeleg — la maskinen kaste terningane\n\nEin analytikar i eit forsikringsselskap får eit spørsmål frå leiinga: «Kor stort er sannsynet for at samla skadeutbetalingar neste år overstig budsjettet?» Utbetalingane avheng av tusenvis av kundar, vêr, trafikk og tilfeldigheiter — eit analytisk reknestykke ville blitt uoverkommeleg. Men analytikaren har eit ess i ermet: ho lèt datamaskinen *spele gjennom* neste år ti tusen gonger, med tilfeldige utfall kvar gong, og tel kor ofte budsjettet sprekk.\n\nDette er **simulering**: å etterlikne eit tilfeldig eksperiment digitalt, gjenta det tusenvis av gonger, og lese svaret ut av mønstera som oppstår. Når analytiske utrekningar blir kompliserte — eller når vi vil studere eit system over tid — er simulering ofte det raskaste og nokre gonger det einaste farbare verktøyet. Næringslivet bruker det dagleg: simulere kundeankomstar i ein butikk, estimere risiko i finansporteføljar, planleggje lagerbehaldning under usikker etterspurnad og teste prisstrategiar før dei blir rulla ut.\n\nI dette kapittelet lærer du prinsippet bak **Monte Carlo-metoden**, korleis du set opp enkle simuleringar i GeoGebra og Python, kva **store tals lov** lovar oss — og, like viktig, korleis du tolkar simuleringsresultat med eit kritisk blikk.","9d8a00fe2b39cb5f":"## Monte Carlo-metoden og store tals lov\n\nNamnet kjem frå kasinobyen Monte Carlo, og ideen er like enkel som han er kraftig. Vil du vite sannsynet for ei hending $A$? Gjenta eksperimentet $n$ gonger med tilfeldige tal, tel talet på gunstige utfall $f$, og bruk den relative frekvensen som estimat:\n\n$$P(A) \\approx \\frac{f}{n}$$\n\nGarantien for at dette verkar, heiter **store tals lov**: når talet på forsøk veks mot uendeleg, nærmar den relative hyppigheita seg det teoretiske sannsynet, $\\frac{f}{n} \\to P(A)$. Estimatet er aldri eksakt, men uvissa krympar med talet på forsøk — typisk som $\\frac{1}{\\sqrt{n}}$. Det tyder ein viktig tommelfingerregel: vil du ha omtrent to gyldige desimalar, treng du rundt $n \\approx 10\\,000$ repetisjonar. Og fordi feilen avtek med kvadratrota, må du *firedoble* talet på forsøk for å *halvere* uvissa.\n\nStore tals lov er ikkje berre eit simuleringsverktøy — han er sjølve grunnlaget for forsikringsbransjen. Selskapet kan umogleg seie om akkurat du får ein skade neste år. Men gjennomsnittet over mange kundar er svært forutseieleg: blant 100 000 kundar kan delen med skade anslåast med stor presisjon, og dermed kan premiane setjast rett. Enkeltutfall er kaos; gjennomsnitt av mange er nesten lovmessige.\n\nMerk likevel kva loven *ikkje* seier: han lovar ikkje at ein mynt som har vist kron fem gonger, «skuldar» oss mynt. Kvart kast er like uavhengig som før — det er delane over lange seriar som stabiliserer seg, ikkje dei neste enkeltutfalla.","051a26ae78c3bfa3":"Test deg sjølv på Monte Carlo og store tals lov:","4097889236a2af26":"placeholder","93e913dbaa37d276":"Kva er grunnprinsippet i Monte Carlo-simulering?","9bd9e7685ddd0cba":"Å løyse problemet eksakt med algebra","a776d98aac41b337":"Å gjenta eksperimentet mange gonger med tilfeldige tal og bruke relativ frekvens som estimat","cb3901732493f623":"Å alltid bruke nøyaktig 100 forsøk","09553ea68595cb9d":"Å fjerne tilfeldigheita frå modellen","0f00ea4b5c686a77":"Monte Carlo: gjenta $n$ gonger, tel gunstige utfall $f$, og estimer $P(A) \\approx \\frac{f}{n}$.","aa01a3d59c1f194c":"Kva seier store tals lov?","c3caaea976ee3fb7":"Den relative frekvensen nærmar seg det teoretiske sannsynet når talet på forsøk aukar","51be9a2975784b8a":"Store tal er meir sannsynlege enn små tal","75afba96577fe484":"Etter mange kron «skuldar» mynten oss mynt","4e8769876de85e81":"Gjennomsnittet av få forsøk er alltid rett","253a211dfdedb9e3":"$\\frac{f}{n} \\to P(A)$ når $n \\to \\infty$. Loven gjeld delar over lange seriar — han seier ingenting om neste enkeltutfall.","4738ac51b147d357":"Typisk uvisse i eit Monte Carlo-estimat med $n$ forsøk er omtrent $\\frac{1}{\\sqrt{n}}$. Kva må du gjere for å halvere uvissa?","dbb46257b2acfbc9":"Doble talet på forsøk","50fe93493a8d4a87":"Firedoble talet på forsøk","8a5e7261fc01da19":"Halvere talet på forsøk","dfa89dfa46d7fdb1":"Bruke færre desimalar","cf0f9fcbe2ff7866":"Sidan feilen går som $\\frac{1}{\\sqrt{n}}$, krev halvert feil at $\\sqrt{n}$ blir dobla — altså fire gonger så mange forsøk.","853108c02b610126":"Kvifor kan eit forsikringsselskap setje presise premiar sjølv om kvar enkelt skade er uforutseieleg?","3ed9174c7a9b1e6c":"Fordi dei veit kven som får skadar","9c62070dfce4acc9":"Fordi store tals lov gjer delen skadar blant svært mange kundar forutseieleg","562194cd2d4d1c53":"Fordi skadar alltid skjer i faste mønster","04b5d3efe465916e":"Fordi premiane ikkje avheng av skadesannsynet","a40eba6205a1ce51":"Gjennomsnittet over 100 000 kundar er svært stabilt sjølv om enkeltutfall er tilfeldige — det er store tals lov i praksis.","02ae0ff87dc8e87c":"## Frå idé til kode — terningar i GeoGebra og Python\n\nLat oss gjere metoden konkret med eit eksperiment vi kan fasitsjekke: kast to terningar og estimer sannsynet for at summen blir 7. Teorien kjenner vi — av dei 36 like sannsynlege utfalla gir 6 av dei sum 7, så $P(\\text{sum}=7) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$.\n\nI **GeoGebra** lagar vi tilfeldige kast med kommandoen `RandomBetween`. I CAS- eller reknearkvisninga kan du skrive\n\n```\nn = 1000\nkast1 = RandomBetween(1, 6, n)\nkast2 = RandomBetween(1, 6, n)\n```\n\nog deretter telje kor ofte summen av para blir 7. I **Python** blir heile eksperimentet nokre få linjer:\n\n```python\nimport random\nn = 10000\nantall7 = sum(1 for _ in range(n)\n               if random.randint(1,6) + random.randint(1,6) == 7)\nprint(f\"Estimert P(sum=7) = {antall7/n:.4f}\")\n```\n\nKøyrer du koden, får du kanskje 0,1641 éin gong og 0,1689 neste gong — aldri nøyaktig $\\frac{1}{6}$, men med $n = 10\\,000$ ligg estimatet vanlegvis innanfor om lag $\\pm 0{,}004$ av den sanne verdien. Køyr gjerne programmet fleire gonger og sjå korleis estimata klumpar seg rundt fasiten: det er store tals lov du ser i sving.\n\nDette peikar på den kritiske haldninga ein simulerande statistikar må ha. Eit simuleringsresultat er eit *estimat med uvisse*, ikkje ein fasit. Spør alltid: Er $n$ stort nok for presisjonen eg treng? Får eg omtrent same svar om eg køyrer på nytt? Og — viktigast av alt — etterliknar modellen min røyndomen godt nok? Ei perfekt simulering av ein feil modell gir presise, men gale svar. Når fasiten finst, slik som her, er han dessutan ei gyllen moglegheit til å validere oppsettet før du slepp simuleringa laus på problem utan kjent svar.","70a141d7ce587c8c":"Test deg sjølv på simulering i praksis:","6839594e8949798a":"Kva GeoGebra-kommando gir tilfeldige heiltal mellom 1 og 6?","c9cdd226b7620ea2":"RandomBetween(1, 6)","283643892a3da088":"Random(6)","4fba46924f5956cc":"Terning(1, 6)","f45fe942bd142a63":"Sum(1, 6)","45384ef506f752b9":"`RandomBetween(1, 6)` trekkjer eit tilfeldig heiltal frå 1 til 6 — perfekt for terningkast.","fbeaa3e261165b82":"Ei simulering med $n = 10\\,000$ gir estimatet $0{,}1689$ for $P(\\text{sum}=7)$, medan teorien seier $\\frac{1}{6} \\approx 0{,}1667$. Kva er rett tolking?","b53f8941ee72cbc6":"Simuleringa er feilprogrammert","afaf7b2999a336f6":"Avviket er normal tilfeldig variasjon for denne $n$-verdien","c79a6d90cc219232":"Teorien er feil","2830df7ab5c58c75":"Terningen i koden er skeiv","05d8fdb514fda24c":"Med $n = 10\\,000$ er typisk avvik rundt $\\pm 0{,}004$. Eit estimat på 0,1689 ligg godt innanfor forventa variasjon.","dec22a337df3e9ce":"Omtrent kor mange repetisjonar treng du for to gyldige desimalars nøyaktigheit?","33ad6611354949fb":"Ca. 100","3017a47a3bd8ba05":"Ca. 1000","f3d3df740cddcb58":"Ca. 10 000","a46217cbb220fa61":"Ca. 1 000 000","9326de7f3c8520a1":"Tommelfingerregelen: uvissa er omtrent $\\frac{1}{\\sqrt{n}}$, så $n \\approx 10\\,000$ gir feil rundt 0,01 — to gyldige desimalar.","af950b1d3567679b":"Kva er den største faren ved å stole blindt på ei simulering?","4bb31fff2a419caf":"At datamaskinen blir sliten","fb2eec9043e75c12":"At modellen ikkje etterliknar røyndomen godt nok — presise svar på ein feil modell er framleis gale","6e1d759fcff759ad":"At tilfeldige tal er ulovlege i forsking","0036c1077bc602da":"At svaret blir for nøyaktig","693487ccf588db50":"Simulering estimerer berre det modellen skildrar. Valider modellen — gjerne mot tilfelle med kjent fasit — før du stolar på resultata.","51e45afc07a0e410":"## Oppsummering: ti tusen røyndomar på eit sekund\n\nForsikringsanalytikaren frå innleiinga trong aldri den umoglege formelen: ved å la maskinen spele gjennom neste år tusenvis av gonger fekk ho eit påliteleg estimat på sannsynet for budsjettsprekk. Det er essensen i **simulering** — digital etterlikning av tilfeldigheit, der mønster i mange gjentakingar avslører sannsyna.\n\nVerktøykassa er kompakt. **Monte Carlo-metoden** seier: gjenta forsøket $n$ gonger, tel dei gunstige utfalla $f$, og estimer $P(A) \\approx \\frac{f}{n}$. **Store tals lov** garanterer at estimatet treffer i det lange løp — den relative frekvensen stabiliserer seg mot det teoretiske sannsynet — og den same loven er grunnen til at forsikringsselskap kan seie kor stor del av 100 000 kundar som får skade utan å kunne seie noko om den enkelte.\n\nPraktisk hugsar vi presisjonsregelen: uvissa avtek som $\\frac{1}{\\sqrt{n}}$, så to gyldige desimalar krev rundt 10 000 repetisjonar, og halvert feil krev firedobla innsats. Verktøya er lett tilgjengelege — `RandomBetween` i GeoGebra og `random.randint` i Python gjer terningkast, kundeankomstar og porteføljar til nokre få kodelinjer.\n\nOg så det kritiske blikket, som skil analytikaren frå kalkulatoren: ei simulering gir estimat, aldri eksakte svar; køyr fleire gonger og sjå om resultata er stabile; og hugs at ei presis simulering av ein dårleg modell berre gir presist gale svar. Med desse vanane på plass har du eit verktøy som rekk dit formlane ikkje når — og i neste hovudkapittel møter du fordelingane som ofte lèt deg sleppe å simulere i det heile."}}}
+{
+  "id": "s1-5-6-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "5.6",
+  "title": "Simulering med digitale verktøy",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å la maskinen kaste terningane -- Monte Carlo-metoden, store tals lov og forsikringsmatematikk, med simuleringar i GeoGebra og Python.",
+  "estimatedMinutes": 28,
+  "competenceGoals": [
+    "forklare prinsippa bak simulering",
+    "bruke GeoGebra til enkle sannsynssimuleringar",
+    "kjenne til Monte Carlo-metoden",
+    "illustrere store tals lov gjennom simulering",
+    "tolke simuleringsresultat kritisk"
+  ],
+  "linkedChapterId": "s1-5-6",
+  "content": [
+    {
+      "id": "s1-5-6-n-intro",
+      "type": "text",
+      "content": "## Når reknestykket blir for vanskeleg — la maskinen kaste terningane\n\nEin analytikar i eit forsikringsselskap får eit spørsmål frå leiinga: «Kor stort er sannsynet for at samla skadeutbetalingar neste år overstig budsjettet?» Utbetalingane avheng av tusenvis av kundar, vêr, trafikk og tilfeldigheiter — eit analytisk reknestykke ville blitt uoverkommeleg. Men analytikaren har eit ess i ermet: ho lèt datamaskinen *spele gjennom* neste år ti tusen gonger, med tilfeldige utfall kvar gong, og tel kor ofte budsjettet sprekk.\n\nDette er **simulering**: å etterlikne eit tilfeldig eksperiment digitalt, gjenta det tusenvis av gonger, og lese svaret ut av mønstera som oppstår. Når analytiske utrekningar blir kompliserte — eller når vi vil studere eit system over tid — er simulering ofte det raskaste og nokre gonger det einaste farbare verktøyet. Næringslivet bruker det dagleg: simulere kundeankomstar i ein butikk, estimere risiko i finansporteføljar, planleggje lagerbehaldning under usikker etterspurnad og teste prisstrategiar før dei blir rulla ut.\n\nI dette kapittelet lærer du prinsippet bak **Monte Carlo-metoden**, korleis du set opp enkle simuleringar i GeoGebra og Python, kva **store tals lov** lovar oss — og, like viktig, korleis du tolkar simuleringsresultat med eit kritisk blikk."
+    },
+    {
+      "id": "s1-5-6-n-section1",
+      "type": "text",
+      "content": "## Monte Carlo-metoden og store tals lov\n\nNamnet kjem frå kasinobyen Monte Carlo, og ideen er like enkel som han er kraftig. Vil du vite sannsynet for ei hending $A$? Gjenta eksperimentet $n$ gonger med tilfeldige tal, tel talet på gunstige utfall $f$, og bruk den relative frekvensen som estimat:\n\n$$P(A) \\approx \\frac{f}{n}$$\n\nGarantien for at dette verkar, heiter **store tals lov**: når talet på forsøk veks mot uendeleg, nærmar den relative hyppigheita seg det teoretiske sannsynet, $\\frac{f}{n} \\to P(A)$. Estimatet er aldri eksakt, men uvissa krympar med talet på forsøk — typisk som $\\frac{1}{\\sqrt{n}}$. Det tyder ein viktig tommelfingerregel: vil du ha omtrent to gyldige desimalar, treng du rundt $n \\approx 10\\,000$ repetisjonar. Og fordi feilen avtek med kvadratrota, må du *firedoble* talet på forsøk for å *halvere* uvissa.\n\nStore tals lov er ikkje berre eit simuleringsverktøy — han er sjølve grunnlaget for forsikringsbransjen. Selskapet kan umogleg seie om akkurat du får ein skade neste år. Men gjennomsnittet over mange kundar er svært forutseieleg: blant 100 000 kundar kan delen med skade anslåast med stor presisjon, og dermed kan premiane setjast rett. Enkeltutfall er kaos; gjennomsnitt av mange er nesten lovmessige.\n\nMerk likevel kva loven *ikkje* seier: han lovar ikkje at ein mynt som har vist kron fem gonger, «skuldar» oss mynt. Kvart kast er like uavhengig som før — det er delane over lange seriar som stabiliserer seg, ikkje dei neste enkeltutfalla."
+    },
+    {
+      "id": "s1-5-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Monte Carlo og store tals lov:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-6-n-quiz1-q0",
+            "task": "Kva er grunnprinsippet i Monte Carlo-simulering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å løyse problemet eksakt med algebra",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å gjenta eksperimentet mange gonger med tilfeldige tal og bruke relativ frekvens som estimat",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å alltid bruke nøyaktig 100 forsøk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å fjerne tilfeldigheita frå modellen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Monte Carlo: gjenta $n$ gonger, tel gunstige utfall $f$, og estimer $P(A) \\approx \\frac{f}{n}$."
+          },
+          {
+            "id": "s1-5-6-n-quiz1-q1",
+            "task": "Kva seier store tals lov?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Store tal er meir sannsynlege enn små tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etter mange kron «skuldar» mynten oss mynt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den relative frekvensen nærmar seg det teoretiske sannsynet når talet på forsøk aukar",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Gjennomsnittet av få forsøk er alltid rett",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{f}{n} \\to P(A)$ når $n \\to \\infty$. Loven gjeld delar over lange seriar — han seier ingenting om neste enkeltutfall."
+          },
+          {
+            "id": "s1-5-6-n-quiz1-q2",
+            "task": "Typisk uvisse i eit Monte Carlo-estimat med $n$ forsøk er omtrent $\\frac{1}{\\sqrt{n}}$. Kva må du gjere for å halvere uvissa?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Doble talet på forsøk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Halvere talet på forsøk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bruke færre desimalar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Firedoble talet på forsøk",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sidan feilen går som $\\frac{1}{\\sqrt{n}}$, krev halvert feil at $\\sqrt{n}$ blir dobla — altså fire gonger så mange forsøk."
+          },
+          {
+            "id": "s1-5-6-n-quiz1-q3",
+            "task": "Kvifor kan eit forsikringsselskap setje presise premiar sjølv om kvar enkelt skade er uforutseieleg?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi store tals lov gjer delen skadar blant svært mange kundar forutseieleg",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi dei veit kven som får skadar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi skadar alltid skjer i faste mønster",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi premiane ikkje avheng av skadesannsynet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittet over 100 000 kundar er svært stabilt sjølv om enkeltutfall er tilfeldige — det er store tals lov i praksis."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-6-n-section2",
+      "type": "text",
+      "content": "## Frå idé til kode — terningar i GeoGebra og Python\n\nLat oss gjere metoden konkret med eit eksperiment vi kan fasitsjekke: kast to terningar og estimer sannsynet for at summen blir 7. Teorien kjenner vi — av dei 36 like sannsynlege utfalla gir 6 av dei sum 7, så $P(\\text{sum}=7) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$.\n\nI **GeoGebra** lagar vi tilfeldige kast med kommandoen `RandomBetween`. I CAS- eller reknearkvisninga kan du skrive\n\n```\nn = 1000\nkast1 = RandomBetween(1, 6, n)\nkast2 = RandomBetween(1, 6, n)\n```\n\nog deretter telje kor ofte summen av para blir 7. I **Python** blir heile eksperimentet nokre få linjer:\n\n```python\nimport random\nn = 10000\nantall7 = sum(1 for _ in range(n)\n               if random.randint(1,6) + random.randint(1,6) == 7)\nprint(f\"Estimert P(sum=7) = {antall7/n:.4f}\")\n```\n\nKøyrer du koden, får du kanskje 0,1641 éin gong og 0,1689 neste gong — aldri nøyaktig $\\frac{1}{6}$, men med $n = 10\\,000$ ligg estimatet vanlegvis innanfor om lag $\\pm 0{,}004$ av den sanne verdien. Køyr gjerne programmet fleire gonger og sjå korleis estimata klumpar seg rundt fasiten: det er store tals lov du ser i sving.\n\nDette peikar på den kritiske haldninga ein simulerande statistikar må ha. Eit simuleringsresultat er eit *estimat med uvisse*, ikkje ein fasit. Spør alltid: Er $n$ stort nok for presisjonen eg treng? Får eg omtrent same svar om eg køyrer på nytt? Og — viktigast av alt — etterliknar modellen min røyndomen godt nok? Ei perfekt simulering av ein feil modell gir presise, men gale svar. Når fasiten finst, slik som her, er han dessutan ei gyllen moglegheit til å validere oppsettet før du slepp simuleringa laus på problem utan kjent svar."
+    },
+    {
+      "id": "s1-5-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på simulering i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-6-n-quiz2-q0",
+            "task": "Kva GeoGebra-kommando gir tilfeldige heiltal mellom 1 og 6?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Random(6)",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "RandomBetween(1, 6)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Terning(1, 6)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sum(1, 6)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`RandomBetween(1, 6)` trekkjer eit tilfeldig heiltal frå 1 til 6 — perfekt for terningkast."
+          },
+          {
+            "id": "s1-5-6-n-quiz2-q1",
+            "task": "Ei simulering med $n = 10\\,000$ gir estimatet $0{,}1689$ for $P(\\text{sum}=7)$, medan teorien seier $\\frac{1}{6} \\approx 0{,}1667$. Kva er rett tolking?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Simuleringa er feilprogrammert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Teorien er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Avviket er normal tilfeldig variasjon for denne $n$-verdien",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Terningen i koden er skeiv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $n = 10\\,000$ er typisk avvik rundt $\\pm 0{,}004$. Eit estimat på 0,1689 ligg godt innanfor forventa variasjon."
+          },
+          {
+            "id": "s1-5-6-n-quiz2-q2",
+            "task": "Omtrent kor mange repetisjonar treng du for to gyldige desimalars nøyaktigheit?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 100",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 1000",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 1 000 000",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 10 000",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tommelfingerregelen: uvissa er omtrent $\\frac{1}{\\sqrt{n}}$, så $n \\approx 10\\,000$ gir feil rundt 0,01 — to gyldige desimalar."
+          },
+          {
+            "id": "s1-5-6-n-quiz2-q3",
+            "task": "Kva er den største faren ved å stole blindt på ei simulering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At modellen ikkje etterliknar røyndomen godt nok — presise svar på ein feil modell er framleis gale",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At datamaskinen blir sliten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At tilfeldige tal er ulovlege i forsking",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At svaret blir for nøyaktig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Simulering estimerer berre det modellen skildrar. Valider modellen — gjerne mot tilfelle med kjent fasit — før du stolar på resultata."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: ti tusen røyndomar på eit sekund\n\nForsikringsanalytikaren frå innleiinga trong aldri den umoglege formelen: ved å la maskinen spele gjennom neste år tusenvis av gonger fekk ho eit påliteleg estimat på sannsynet for budsjettsprekk. Det er essensen i **simulering** — digital etterlikning av tilfeldigheit, der mønster i mange gjentakingar avslører sannsyna.\n\nVerktøykassa er kompakt. **Monte Carlo-metoden** seier: gjenta forsøket $n$ gonger, tel dei gunstige utfalla $f$, og estimer $P(A) \\approx \\frac{f}{n}$. **Store tals lov** garanterer at estimatet treffer i det lange løp — den relative frekvensen stabiliserer seg mot det teoretiske sannsynet — og den same loven er grunnen til at forsikringsselskap kan seie kor stor del av 100 000 kundar som får skade utan å kunne seie noko om den enkelte.\n\nPraktisk hugsar vi presisjonsregelen: uvissa avtek som $\\frac{1}{\\sqrt{n}}$, så to gyldige desimalar krev rundt 10 000 repetisjonar, og halvert feil krev firedobla innsats. Verktøya er lett tilgjengelege — `RandomBetween` i GeoGebra og `random.randint` i Python gjer terningkast, kundeankomstar og porteføljar til nokre få kodelinjer.\n\nOg så det kritiske blikket, som skil analytikaren frå kalkulatoren: ei simulering gir estimat, aldri eksakte svar; køyr fleire gonger og sjå om resultata er stabile; og hugs at ei presis simulering av ein dårleg modell berre gir presist gale svar. Med desse vanane på plass har du eit verktøy som rekk dit formlane ikkje når — og i neste hovudkapittel møter du fordelingane som ofte lèt deg sleppe å simulere i det heile."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "28fda8aaf88e81b6",
+    "translatedAt": "2026-06-20T03:30:22.029Z",
+    "model": "claude-code-agent",
+    "strings": 64,
+    "tm": {
+      "1f384fea627f33b3": "Simulering med digitale verktøy",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "20010f2392107ef3": "Ei forteljing om å la maskinen kaste terningane -- Monte Carlo-metoden, store tals lov og forsikringsmatematikk, med simuleringar i GeoGebra og Python.",
+      "90bc7e2feb7c2aad": "forklare prinsippa bak simulering",
+      "21bb89b33740a5c0": "bruke GeoGebra til enkle sannsynssimuleringar",
+      "4855fc6b7ea8c32a": "kjenne til Monte Carlo-metoden",
+      "f80fcee426d5a4d4": "illustrere store tals lov gjennom simulering",
+      "36c4d7c80fd087ed": "tolke simuleringsresultat kritisk",
+      "b1654769781ae525": "## Når reknestykket blir for vanskeleg — la maskinen kaste terningane\n\nEin analytikar i eit forsikringsselskap får eit spørsmål frå leiinga: «Kor stort er sannsynet for at samla skadeutbetalingar neste år overstig budsjettet?» Utbetalingane avheng av tusenvis av kundar, vêr, trafikk og tilfeldigheiter — eit analytisk reknestykke ville blitt uoverkommeleg. Men analytikaren har eit ess i ermet: ho lèt datamaskinen *spele gjennom* neste år ti tusen gonger, med tilfeldige utfall kvar gong, og tel kor ofte budsjettet sprekk.\n\nDette er **simulering**: å etterlikne eit tilfeldig eksperiment digitalt, gjenta det tusenvis av gonger, og lese svaret ut av mønstera som oppstår. Når analytiske utrekningar blir kompliserte — eller når vi vil studere eit system over tid — er simulering ofte det raskaste og nokre gonger det einaste farbare verktøyet. Næringslivet bruker det dagleg: simulere kundeankomstar i ein butikk, estimere risiko i finansporteføljar, planleggje lagerbehaldning under usikker etterspurnad og teste prisstrategiar før dei blir rulla ut.\n\nI dette kapittelet lærer du prinsippet bak **Monte Carlo-metoden**, korleis du set opp enkle simuleringar i GeoGebra og Python, kva **store tals lov** lovar oss — og, like viktig, korleis du tolkar simuleringsresultat med eit kritisk blikk.",
+      "9d8a00fe2b39cb5f": "## Monte Carlo-metoden og store tals lov\n\nNamnet kjem frå kasinobyen Monte Carlo, og ideen er like enkel som han er kraftig. Vil du vite sannsynet for ei hending $A$? Gjenta eksperimentet $n$ gonger med tilfeldige tal, tel talet på gunstige utfall $f$, og bruk den relative frekvensen som estimat:\n\n$$P(A) \\approx \\frac{f}{n}$$\n\nGarantien for at dette verkar, heiter **store tals lov**: når talet på forsøk veks mot uendeleg, nærmar den relative hyppigheita seg det teoretiske sannsynet, $\\frac{f}{n} \\to P(A)$. Estimatet er aldri eksakt, men uvissa krympar med talet på forsøk — typisk som $\\frac{1}{\\sqrt{n}}$. Det tyder ein viktig tommelfingerregel: vil du ha omtrent to gyldige desimalar, treng du rundt $n \\approx 10\\,000$ repetisjonar. Og fordi feilen avtek med kvadratrota, må du *firedoble* talet på forsøk for å *halvere* uvissa.\n\nStore tals lov er ikkje berre eit simuleringsverktøy — han er sjølve grunnlaget for forsikringsbransjen. Selskapet kan umogleg seie om akkurat du får ein skade neste år. Men gjennomsnittet over mange kundar er svært forutseieleg: blant 100 000 kundar kan delen med skade anslåast med stor presisjon, og dermed kan premiane setjast rett. Enkeltutfall er kaos; gjennomsnitt av mange er nesten lovmessige.\n\nMerk likevel kva loven *ikkje* seier: han lovar ikkje at ein mynt som har vist kron fem gonger, «skuldar» oss mynt. Kvart kast er like uavhengig som før — det er delane over lange seriar som stabiliserer seg, ikkje dei neste enkeltutfalla.",
+      "051a26ae78c3bfa3": "Test deg sjølv på Monte Carlo og store tals lov:",
+      "4097889236a2af26": "placeholder",
+      "93e913dbaa37d276": "Kva er grunnprinsippet i Monte Carlo-simulering?",
+      "9bd9e7685ddd0cba": "Å løyse problemet eksakt med algebra",
+      "a776d98aac41b337": "Å gjenta eksperimentet mange gonger med tilfeldige tal og bruke relativ frekvens som estimat",
+      "cb3901732493f623": "Å alltid bruke nøyaktig 100 forsøk",
+      "09553ea68595cb9d": "Å fjerne tilfeldigheita frå modellen",
+      "0f00ea4b5c686a77": "Monte Carlo: gjenta $n$ gonger, tel gunstige utfall $f$, og estimer $P(A) \\approx \\frac{f}{n}$.",
+      "aa01a3d59c1f194c": "Kva seier store tals lov?",
+      "c3caaea976ee3fb7": "Den relative frekvensen nærmar seg det teoretiske sannsynet når talet på forsøk aukar",
+      "51be9a2975784b8a": "Store tal er meir sannsynlege enn små tal",
+      "75afba96577fe484": "Etter mange kron «skuldar» mynten oss mynt",
+      "4e8769876de85e81": "Gjennomsnittet av få forsøk er alltid rett",
+      "253a211dfdedb9e3": "$\\frac{f}{n} \\to P(A)$ når $n \\to \\infty$. Loven gjeld delar over lange seriar — han seier ingenting om neste enkeltutfall.",
+      "4738ac51b147d357": "Typisk uvisse i eit Monte Carlo-estimat med $n$ forsøk er omtrent $\\frac{1}{\\sqrt{n}}$. Kva må du gjere for å halvere uvissa?",
+      "dbb46257b2acfbc9": "Doble talet på forsøk",
+      "50fe93493a8d4a87": "Firedoble talet på forsøk",
+      "8a5e7261fc01da19": "Halvere talet på forsøk",
+      "dfa89dfa46d7fdb1": "Bruke færre desimalar",
+      "cf0f9fcbe2ff7866": "Sidan feilen går som $\\frac{1}{\\sqrt{n}}$, krev halvert feil at $\\sqrt{n}$ blir dobla — altså fire gonger så mange forsøk.",
+      "853108c02b610126": "Kvifor kan eit forsikringsselskap setje presise premiar sjølv om kvar enkelt skade er uforutseieleg?",
+      "3ed9174c7a9b1e6c": "Fordi dei veit kven som får skadar",
+      "9c62070dfce4acc9": "Fordi store tals lov gjer delen skadar blant svært mange kundar forutseieleg",
+      "562194cd2d4d1c53": "Fordi skadar alltid skjer i faste mønster",
+      "04b5d3efe465916e": "Fordi premiane ikkje avheng av skadesannsynet",
+      "a40eba6205a1ce51": "Gjennomsnittet over 100 000 kundar er svært stabilt sjølv om enkeltutfall er tilfeldige — det er store tals lov i praksis.",
+      "02ae0ff87dc8e87c": "## Frå idé til kode — terningar i GeoGebra og Python\n\nLat oss gjere metoden konkret med eit eksperiment vi kan fasitsjekke: kast to terningar og estimer sannsynet for at summen blir 7. Teorien kjenner vi — av dei 36 like sannsynlege utfalla gir 6 av dei sum 7, så $P(\\text{sum}=7) = \\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$.\n\nI **GeoGebra** lagar vi tilfeldige kast med kommandoen `RandomBetween`. I CAS- eller reknearkvisninga kan du skrive\n\n```\nn = 1000\nkast1 = RandomBetween(1, 6, n)\nkast2 = RandomBetween(1, 6, n)\n```\n\nog deretter telje kor ofte summen av para blir 7. I **Python** blir heile eksperimentet nokre få linjer:\n\n```python\nimport random\nn = 10000\nantall7 = sum(1 for _ in range(n)\n               if random.randint(1,6) + random.randint(1,6) == 7)\nprint(f\"Estimert P(sum=7) = {antall7/n:.4f}\")\n```\n\nKøyrer du koden, får du kanskje 0,1641 éin gong og 0,1689 neste gong — aldri nøyaktig $\\frac{1}{6}$, men med $n = 10\\,000$ ligg estimatet vanlegvis innanfor om lag $\\pm 0{,}004$ av den sanne verdien. Køyr gjerne programmet fleire gonger og sjå korleis estimata klumpar seg rundt fasiten: det er store tals lov du ser i sving.\n\nDette peikar på den kritiske haldninga ein simulerande statistikar må ha. Eit simuleringsresultat er eit *estimat med uvisse*, ikkje ein fasit. Spør alltid: Er $n$ stort nok for presisjonen eg treng? Får eg omtrent same svar om eg køyrer på nytt? Og — viktigast av alt — etterliknar modellen min røyndomen godt nok? Ei perfekt simulering av ein feil modell gir presise, men gale svar. Når fasiten finst, slik som her, er han dessutan ei gyllen moglegheit til å validere oppsettet før du slepp simuleringa laus på problem utan kjent svar.",
+      "70a141d7ce587c8c": "Test deg sjølv på simulering i praksis:",
+      "6839594e8949798a": "Kva GeoGebra-kommando gir tilfeldige heiltal mellom 1 og 6?",
+      "c9cdd226b7620ea2": "RandomBetween(1, 6)",
+      "283643892a3da088": "Random(6)",
+      "4fba46924f5956cc": "Terning(1, 6)",
+      "f45fe942bd142a63": "Sum(1, 6)",
+      "45384ef506f752b9": "`RandomBetween(1, 6)` trekkjer eit tilfeldig heiltal frå 1 til 6 — perfekt for terningkast.",
+      "fbeaa3e261165b82": "Ei simulering med $n = 10\\,000$ gir estimatet $0{,}1689$ for $P(\\text{sum}=7)$, medan teorien seier $\\frac{1}{6} \\approx 0{,}1667$. Kva er rett tolking?",
+      "b53f8941ee72cbc6": "Simuleringa er feilprogrammert",
+      "afaf7b2999a336f6": "Avviket er normal tilfeldig variasjon for denne $n$-verdien",
+      "c79a6d90cc219232": "Teorien er feil",
+      "2830df7ab5c58c75": "Terningen i koden er skeiv",
+      "05d8fdb514fda24c": "Med $n = 10\\,000$ er typisk avvik rundt $\\pm 0{,}004$. Eit estimat på 0,1689 ligg godt innanfor forventa variasjon.",
+      "dec22a337df3e9ce": "Omtrent kor mange repetisjonar treng du for to gyldige desimalars nøyaktigheit?",
+      "33ad6611354949fb": "Ca. 100",
+      "3017a47a3bd8ba05": "Ca. 1000",
+      "f3d3df740cddcb58": "Ca. 10 000",
+      "a46217cbb220fa61": "Ca. 1 000 000",
+      "9326de7f3c8520a1": "Tommelfingerregelen: uvissa er omtrent $\\frac{1}{\\sqrt{n}}$, så $n \\approx 10\\,000$ gir feil rundt 0,01 — to gyldige desimalar.",
+      "af950b1d3567679b": "Kva er den største faren ved å stole blindt på ei simulering?",
+      "4bb31fff2a419caf": "At datamaskinen blir sliten",
+      "fb2eec9043e75c12": "At modellen ikkje etterliknar røyndomen godt nok — presise svar på ein feil modell er framleis gale",
+      "6e1d759fcff759ad": "At tilfeldige tal er ulovlege i forsking",
+      "0036c1077bc602da": "At svaret blir for nøyaktig",
+      "693487ccf588db50": "Simulering estimerer berre det modellen skildrar. Valider modellen — gjerne mot tilfelle med kjent fasit — før du stolar på resultata.",
+      "51e45afc07a0e410": "## Oppsummering: ti tusen røyndomar på eit sekund\n\nForsikringsanalytikaren frå innleiinga trong aldri den umoglege formelen: ved å la maskinen spele gjennom neste år tusenvis av gonger fekk ho eit påliteleg estimat på sannsynet for budsjettsprekk. Det er essensen i **simulering** — digital etterlikning av tilfeldigheit, der mønster i mange gjentakingar avslører sannsyna.\n\nVerktøykassa er kompakt. **Monte Carlo-metoden** seier: gjenta forsøket $n$ gonger, tel dei gunstige utfalla $f$, og estimer $P(A) \\approx \\frac{f}{n}$. **Store tals lov** garanterer at estimatet treffer i det lange løp — den relative frekvensen stabiliserer seg mot det teoretiske sannsynet — og den same loven er grunnen til at forsikringsselskap kan seie kor stor del av 100 000 kundar som får skade utan å kunne seie noko om den enkelte.\n\nPraktisk hugsar vi presisjonsregelen: uvissa avtek som $\\frac{1}{\\sqrt{n}}$, så to gyldige desimalar krev rundt 10 000 repetisjonar, og halvert feil krev firedobla innsats. Verktøya er lett tilgjengelege — `RandomBetween` i GeoGebra og `random.randint` i Python gjer terningkast, kundeankomstar og porteføljar til nokre få kodelinjer.\n\nOg så det kritiske blikket, som skil analytikaren frå kalkulatoren: ei simulering gir estimat, aldri eksakte svar; køyr fleire gonger og sjå om resultata er stabile; og hugs at ei presis simulering av ein dårleg modell berre gir presist gale svar. Med desse vanane på plass har du eit verktøy som rekk dit formlane ikkje når — og i neste hovudkapittel møter du fordelingane som ofte lèt deg sleppe å simulere i det heile."
+    }
+  }
+}

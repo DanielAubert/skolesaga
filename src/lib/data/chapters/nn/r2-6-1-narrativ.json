@@ -1,1 +1,667 @@
-{"id":"r2-6-1-narrativ","courseId":"r2","chapterNumber":"6.1","title":"Parameterframstilling av kurver","subtitle":"Narrativ versjon","description":"Ei forteljing om ferdsskrivaren til dronen — kurver skildra med tida som parameter, sirklar og ellipsar, eliminering av parameteren og tangentvektoren som viser vegen.","estimatedMinutes":35,"competenceGoals":["bruke parameterframstilling til å skildre kurver i planet","eliminere parameteren for å finne kartesisk likning","finne retning og fart langs parameterkurver","teikne parameterkurver for hand og med digitale verktøy"],"linkedChapterId":"r2-6-1","content":[{"id":"r2-6-1-n-intro","type":"text","content":"## Ferdsskrivaren fortel\n\nDronen frå kapittel 5 har landa trygt, og du sit med ferdsskrivaren — loggen over heile flyturen. Han inneheld ikkje noka «kurve» i matematisk forstand. Han inneheld noko betre: For kvart tidspunkt $t$ står posisjonen oppført, ein $x$-koordinat og ein $y$-koordinat. Flyruta er ikkje gitt som $y = f(x)$ — ho er gitt som *to funksjonar av tida*.\n\nOg godt er det, for $y = f(x)$ ville aldri klart jobben. Dronen flaug ein runde i sløyfe og kryssa si eiga bane — då høyrer det to $y$-verdiar til same $x$, og ingen funksjon $f$ tillèt det. Han flaug òg eit heilt sirkulært søk over eit område, og ein sirkel har same problemet: øvre og nedre halvdel deler $x$-verdiar. Forma $y = f(x)$ er rett og slett for trong for verkelege rørsler.\n\n**Parameterframstilling** er løysinga, og ho er nøyaktig det ferdsskrivaren gjer: la både $x$ og $y$ avhenge av ein tredje variabel — **parameteren** $t$:\n\n$$\\begin{cases} x = x(t) \\\\ y = y(t) \\end{cases}, \\quad t \\in I$$\n\nFor kvar $t$ i parameterintervallet $I$ får vi eit punkt $(x(t), y(t))$, og kurva er bana punktet teiknar opp. Tolkar vi $t$ som tid, får vi meir enn forma på kurva med på kjøpet: vi får *retninga* rørsla går i, *farten* langs bana, og start- og sluttpunkt når intervallet er avgrensa. Ei kartesisk likning viser kvar dronen har vore — parameterframstillinga viser sjølve flyturen."},{"id":"r2-6-1-n-section1","type":"text","content":"## Dei første flyrutene: linjer og parablar\n\nVi les ferdsskrivaren nedanfrå. Det enklaste loggutdraget ser slik ut: $x = 1 + 2t$, $y = 3 - t$ for $t \\in \\mathbb{R}$. Set inn nokre tider: ved $t = 0$ er dronen i $(1, 3)$, ved $t = 1$ i $(3, 2)$, ved $t = 2$ i $(5, 1)$. Kvart tidssteg flyttar han $2$ i $x$-retning og $-1$ i $y$-retning — punkta ligg på ei rett linje, og forflytninga per tidseining er **retningsvektoren** $[2, -1]$. Mønsteret er heilt generelt: linja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ har parameterframstillinga\n\n$$\\begin{cases} x = x_0 + at \\\\ y = y_0 + bt \\end{cases}$$\n\n— du kjenner ho att frå linjene i rommet i kapittel 5, berre med éin koordinat mindre.\n\nNeste loggutdrag: $x = t$, $y = t^2$. Sidan $x = t$ kan vi byte ut $t$ med $x$ i den andre likninga og få $y = x^2$ — dronen følgde parabelen, frå venstre mot høgre sidan $x$ veks med $t$.\n\nOg her kjem ein detalj med stor verknad: **parameterintervallet**. Den same parametriseringa med $t \\in [0, 2]$ gir ikkje heile parabelen, men berre bogen frå startpunktet $(0, 0)$ ved $t = 0$ til sluttpunktet $(2, 4)$ ved $t = 2$. Intervallet avgjer kva for del av kurva som faktisk vart flogen — ein flytur har trass alt ein avgang og ei landing. Skal du teikne ei parameterkurve for hand, gjer du som vi nett gjorde: lag ein verditabell over $t$, plott punkta $(x(t), y(t))$, bind dei saman i $t$-rekkjefølgje, og marker retninga med ei pil."},{"id":"r2-6-1-n-quiz1","type":"exercise","exercise":{"id":"r2-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på parameterframstilling, linjer og intervall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-1-n-quiz1-q0","task":"Kurva er gitt ved $x = 1 + 2t$, $y = 3 - t$. Kvar er punktet ved $t = 2$?","options":[{"id":"a","text":"$(5, 1)$","isCorrect":true},{"id":"b","text":"$(3, 2)$","isCorrect":false},{"id":"c","text":"$(1, 3)$","isCorrect":false},{"id":"d","text":"$(2, 5)$","isCorrect":false}],"solution":"$x = 1 + 2 \\cdot 2 = 5$ og $y = 3 - 2 = 1$, altså $(5, 1)$."},{"id":"r2-6-1-n-quiz1-q1","task":"Kva er retningsvektoren til linja $x = 1 + 2t$, $y = 3 - t$?","options":[{"id":"a","text":"$[1, 3]$","isCorrect":false},{"id":"b","text":"$[2, -1]$","isCorrect":true},{"id":"c","text":"$[-1, 2]$","isCorrect":false},{"id":"d","text":"$[2, 1]$","isCorrect":false}],"solution":"Når $t$ aukar med $1$, aukar $x$ med $2$ og $y$ avtek med $1$ — retningsvektoren er $[2, -1]$."},{"id":"r2-6-1-n-quiz1-q2","task":"Kvifor kan ikkje ein sirkel skrivast som $y = f(x)$?","options":[{"id":"a","text":"Fordi sirklar ikkje har likningar","isCorrect":false},{"id":"b","text":"Fordi $x$ ikkje kan vere negativ","isCorrect":false},{"id":"c","text":"Fordi same $x$-verdi svarar til to $y$-verdiar på sirkelen","isCorrect":true},{"id":"d","text":"Fordi sirkelen ikkje går gjennom origo","isCorrect":false}],"solution":"Øvre og nedre halvdel av sirkelen deler $x$-verdiar, og ein funksjon kan berre gi éin $y$ per $x$. Parameterframstilling løyser dette."},{"id":"r2-6-1-n-quiz1-q3","task":"Kva avgjer parameterintervallet $t \\in [0, 2]$ for kurva $x = t$, $y = t^2$?","options":[{"id":"a","text":"Kor bratt parabelen er","isCorrect":false},{"id":"b","text":"Forma på kurva","isCorrect":false},{"id":"c","text":"Kva veg aksane peikar","isCorrect":false},{"id":"d","text":"Kva for del av parabelen vi får — bogen frå $(0,0)$ til $(2,4)$","isCorrect":true}],"solution":"Parametriseringa gir parabelen $y = x^2$, men intervallet plukkar ut delen frå startpunktet $(0, 0)$ til sluttpunktet $(2, 4)$."}]}},{"id":"r2-6-1-n-section2","type":"text","content":"## Søkjemønsteret: sirklar og ellipsar\n\nSå til det sirkulære søket til dronen — den viktigaste kurva i kapittelet. Eit punkt som går rundt ein sirkel med radius $r$ og sentrum i origo, blir naturleg skildra med *vinkelen* som parameter. Når punktet står ved vinkelen $t$ (i radianar, målt frå positiv $x$-akse), er koordinatane per definisjon av sinus og cosinus:\n\n$$\\begin{cases} x = r\\cos t \\\\ y = r\\sin t \\end{cases}, \\quad t \\in [0, 2\\pi]$$\n\nKontrollen er identiteten du kjenner så godt: $x^2 + y^2 = r^2\\cos^2 t + r^2\\sin^2 t = r^2$ — avstanden til origo er konstant $r$, akkurat som ein sirkel krev. Ved $t = 0$ står punktet i $(r, 0)$, ved $t = \\frac{\\pi}{2}$ i $(0, r)$, ved $\\pi$ i $(-r, 0)$: rørsla går **mot klokka**. Skal sirkelen ha sentrum i $(a, b)$, flyttar vi berre heile rørsla dit: $x = a + r\\cos t$, $y = b + r\\sin t$. Sirkelen med sentrum $(2, -1)$ og radius $3$ blir $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$, med start i $(5, -1)$ — tre einingar rett til høgre for sentrum.\n\nRetninga sit i forteikna: $x = r\\cos t$, $y = -r\\sin t$ gir same sirkel gjennomløpt *med* klokka, og $x = r\\sin t$, $y = r\\cos t$ startar på toppen $(0, r)$ og går med klokka.\n\n**Ellipsen** er ein strekt sirkel: skaler einingssirkelen med faktor $a$ i $x$-retning og $b$ i $y$-retning, og du får $x = a\\cos t$, $y = b\\sin t$. Den kartesiske likninga er $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, med halvaksar $a$ og $b$. Likninga $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ har $a = 3$ og $b = 2$ — ein liggjande ellipse, parametrisert ved $x = 3\\cos t$, $y = 2\\sin t$ — og kontrollen $\\frac{9\\cos^2 t}{9} + \\frac{4\\sin^2 t}{4} = \\cos^2 t + \\sin^2 t = 1$ stemmer på øyret."},{"id":"r2-6-1-n-quiz2","type":"exercise","exercise":{"id":"r2-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på sirklar og ellipsar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-1-n-quiz2-q0","task":"Kva for parameterframstilling gir sirkelen med sentrum $(2, -1)$ og radius $3$?","options":[{"id":"a","text":"$x = 3 + 2\\cos t$, $y = 3 - \\sin t$","isCorrect":false},{"id":"b","text":"$x = 2\\cos t$, $y = -\\sin t$","isCorrect":false},{"id":"c","text":"$x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$","isCorrect":true},{"id":"d","text":"$x = 2 + 3t$, $y = -1 + 3t$","isCorrect":false}],"solution":"Sentrum $(a, b) = (2, -1)$ og radius $r = 3$ gir $x = a + r\\cos t$, $y = b + r\\sin t$."},{"id":"r2-6-1-n-quiz2-q1","task":"Kva for identitet blir brukt for å vise at $x = \\cos t$, $y = \\sin t$ ligg på einingssirkelen?","options":[{"id":"a","text":"$\\cos^2 t + \\sin^2 t = 1$","isCorrect":true},{"id":"b","text":"$\\sin 2t = 2\\sin t \\cos t$","isCorrect":false},{"id":"c","text":"$\\cos 2t = 1 - 2\\sin^2 t$","isCorrect":false},{"id":"d","text":"$\\tan t = \\frac{\\sin t}{\\cos t}$","isCorrect":false}],"solution":"$x^2 + y^2 = \\cos^2 t + \\sin^2 t = 1$ — punktet ligg alltid i avstand $1$ frå origo."},{"id":"r2-6-1-n-quiz2-q2","task":"I kva for retning rører punktet $(r\\cos t, r\\sin t)$ seg når $t$ aukar?","options":[{"id":"a","text":"Med klokka","isCorrect":false},{"id":"b","text":"Rett oppover","isCorrect":false},{"id":"c","text":"Innover mot sentrum","isCorrect":false},{"id":"d","text":"Mot klokka","isCorrect":true}],"solution":"Frå $(r, 0)$ ved $t = 0$ til $(0, r)$ ved $t = \\frac{\\pi}{2}$: rørsla går mot klokka, den positive omløpsretninga."},{"id":"r2-6-1-n-quiz2-q3","task":"Ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ skal parametriserast som $x = a\\cos t$, $y = b\\sin t$. Kva er $a$ og $b$?","options":[{"id":"a","text":"$a = 9$, $b = 4$","isCorrect":false},{"id":"b","text":"$a = 3$, $b = 2$","isCorrect":true},{"id":"c","text":"$a = 2$, $b = 3$","isCorrect":false},{"id":"d","text":"$a = 81$, $b = 16$","isCorrect":false}],"solution":"Halvaksane er $a = \\sqrt{9} = 3$ og $b = \\sqrt{4} = 2$ — innsetjing gir $\\cos^2 t + \\sin^2 t = 1$."}]}},{"id":"r2-6-1-n-section3","type":"text","content":"## Å eliminere parameteren — og kva som går tapt\n\nNokre gonger vil vi gå motsett veg: frå tidsloggen til ferdsskrivaren til eit reint kart — ei likning i berre $x$ og $y$. Det blir kalla å **eliminere parameteren**, og strategien har to variantar. Variant éin: løys den eine likninga for $t$ og set inn i den andre. For linja $x = 1 + 2t$, $y = 3 - t$ gir den første $t = \\frac{x-1}{2}$, og innsetjing i den andre gir $y = 3 - \\frac{x-1}{2}$, som blir rydda til $x + 2y = 7$ — ei rett linje, som venta.\n\nVariant to blir brukt når trigonometrien er involvert: isoler $\\cos t$ og $\\sin t$, og la identiteten $\\cos^2 t + \\sin^2 t = 1$ gjere jobben. For $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$ er $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$, og identiteten gir\n\n$$\\left(\\frac{x-2}{3}\\right)^2 + \\left(\\frac{y+1}{3}\\right)^2 = 1 \\quad \\Longrightarrow \\quad (x-2)^2 + (y+1)^2 = 9$$\n\n— sirkelen med sentrum $(2, -1)$ og radius $3$, avslørt.\n\nMen pass på avgrensingane parameteren ber med seg. Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ gir $xy = 1$ — men sidan $y = t > 0$ og dermed $x > 0$, er det berre hyperbelgreina i *første kvadrant* som faktisk ligg på kurva. Likninga $xy = 1$ åleine påstår meir enn loggen dekkjer.\n\nOg det peikar mot det viktigaste: **eliminering kastar bort informasjon**. Den kartesiske likninga viser berre *kvar* kurva ligg. Parametriseringa veit i tillegg retninga, tidsskjemaet og kva for del som vart gjennomløpt. Både $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir likninga $x^2 + y^2 = 1$ — men rørslene går kvar sin veg rundt. Og $(\\cos 2t, \\sin 2t)$ med $t \\in [0, \\pi]$ gir same sirkel i dobbelt tempo. Same kart — heilt ulike flyturar."},{"id":"r2-6-1-n-quiz3","type":"exercise","exercise":{"id":"r2-6-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på eliminering av parameteren:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-1-n-quiz3-q0","task":"Kva er den kartesiske likninga for kurva $x = 1 + 2t$, $y = 3 - t$?","options":[{"id":"a","text":"$x + 2y = 7$","isCorrect":true},{"id":"b","text":"$2x + y = 7$","isCorrect":false},{"id":"c","text":"$x - 2y = 7$","isCorrect":false},{"id":"d","text":"$x + 2y = 5$","isCorrect":false}],"solution":"$t = \\frac{x-1}{2}$ innsett i $y = 3 - t$ gir $y = 3 - \\frac{x-1}{2}$, altså $2y = 7 - x$ og $x + 2y = 7$."},{"id":"r2-6-1-n-quiz3-q1","task":"Kva for triks eliminerer parameteren frå $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$?","options":[{"id":"a","text":"Derivere begge likningane","isCorrect":false},{"id":"b","text":"Setje $t = 0$","isCorrect":false},{"id":"c","text":"Isolere $\\cos t$ og $\\sin t$ og bruke $\\cos^2 t + \\sin^2 t = 1$","isCorrect":true},{"id":"d","text":"Multiplisere likningane med kvarandre","isCorrect":false}],"solution":"Med $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$ gir identiteten $(x-2)^2 + (y+1)^2 = 9$."},{"id":"r2-6-1-n-quiz3-q2","task":"Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ tilfredsstiller $xy = 1$. Kva for del av hyperbelen er kurva?","options":[{"id":"a","text":"Heile hyperbelen","isCorrect":false},{"id":"b","text":"Greina i tredje kvadrant","isCorrect":false},{"id":"c","text":"Begge greinene","isCorrect":false},{"id":"d","text":"Greina i første kvadrant","isCorrect":true}],"solution":"$t > 0$ gir $y = t > 0$ og $x = \\frac{1}{t} > 0$ — berre punkta med begge koordinatar positive ligg på kurva."},{"id":"r2-6-1-n-quiz3-q3","task":"Kva slags informasjon mistar vi når parameteren blir eliminert?","options":[{"id":"a","text":"Forma på kurva","isCorrect":false},{"id":"b","text":"Retning, fart og kva for del av kurva som blir gjennomløpt","isCorrect":true},{"id":"c","text":"Skjeringspunkta med aksane","isCorrect":false},{"id":"d","text":"Ingenting — likninga inneheld alt","isCorrect":false}],"solution":"Den kartesiske likninga viser berre punktmengda. $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir same likning, men motsett omløpsretning."}]}},{"id":"r2-6-1-n-section4","type":"text","content":"## Tangentvektoren — fartsmålaren i loggen\n\nFerdsskrivaren har éin skatt att: han kan fortelje kor fort og i kva for retning dronen rørde seg i kvart augneblink. Deriver komponentane kvar for seg, og du får **tangentvektoren**\n\n$$\\vec{v}(t) = [x'(t), y'(t)]$$\n\nHan peikar i rørsleretninga — tangentielt til kurva — og lengda $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$ er *farten*, viss $t$ er tid. På sirkelen $x = 2\\cos t$, $y = 2\\sin t$ blir $\\vec{v}(t) = [-2\\sin t, 2\\cos t]$, og skalarproduktet med posisjonsvektoren er $-4\\cos t \\sin t + 4\\sin t \\cos t = 0$ for alle $t$: tangentvektoren står alltid vinkelrett på radien — den gamle sanninga til geometrien om sirkeltangentar, attfunnen med derivasjon.\n\nTangentvektoren gir òg tangent*linjer*. For kurva $x = t^2$, $y = t^3$ i $t = 2$: punktet er $(4, 8)$, tangentvektoren $\\vec{v}(2) = [2t, 3t^2]_{t=2} = [4, 12]$, og stigingstalet er forholdet $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$. Linja gjennom $(4, 8)$ med stigingstal $3$ er $y = 3x - 4$.\n\nSpesialtilfella blir lesne rett av komponentane: tangenten er **horisontal** der $y'(t) = 0$ (og $x'(t) \\neq 0$), **vertikal** der $x'(t) = 0$ (og $y'(t) \\neq 0$). For $x = t^2 - 4t$, $y = t^2 - 2t$ gir $y' = 2t - 2 = 0$ tidspunktet $t = 1$ og det horisontale tangentpunktet $(-3, -1)$, medan $x' = 2t - 4 = 0$ gir $t = 2$ og det vertikale tangentpunktet $(-4, 0)$.\n\nVerktøykassa toler meir enn flyrutene: **sykloiden** $x = r(t - \\sin t)$, $y = r(1 - \\cos t)$ er bana til eit punkt på kanten av eit rullande hjul — bogar som rører bakken ved kvar $2\\pi$ — og **Lissajous-kurvene** $x = \\sin(3t)$, $y = \\sin(2t)$ flettar sjølvkryssande mønster som fysikarar bruker til å samanlikne svingefrekvensar. Parameterframstillinga teiknar dei alle like ubesvera."},{"id":"r2-6-1-n-quiz4","type":"exercise","exercise":{"id":"r2-6-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på tangentvektor og fart:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-1-n-quiz4-q0","task":"Kva er tangentvektoren til kurva $(x(t), y(t))$?","options":[{"id":"a","text":"$[x(t), y(t)]$","isCorrect":false},{"id":"b","text":"$[y'(t), x'(t)]$","isCorrect":false},{"id":"c","text":"$[x'(t), y'(t)]$","isCorrect":true},{"id":"d","text":"$[x''(t), y''(t)]$","isCorrect":false}],"solution":"Deriver komponentvis: $\\vec{v}(t) = [x'(t), y'(t)]$ peikar i rørsleretninga langs kurva."},{"id":"r2-6-1-n-quiz4-q1","task":"For kurva $x = t^2$, $y = t^3$: kva er stigingstalet til tangenten i $t = 2$?","options":[{"id":"a","text":"$3$","isCorrect":true},{"id":"b","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"c","text":"$12$","isCorrect":false},{"id":"d","text":"$4$","isCorrect":false}],"solution":"$\\vec{v}(2) = [4, 12]$, og stigingstalet er $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$ — tangenten blir $y = 3x - 4$."},{"id":"r2-6-1-n-quiz4-q2","task":"Når har parameterkurva horisontal tangent?","options":[{"id":"a","text":"Når $x'(t) = 0$ og $y'(t) \\neq 0$","isCorrect":false},{"id":"b","text":"Når $x(t) = 0$","isCorrect":false},{"id":"c","text":"Når $y(t) = 0$","isCorrect":false},{"id":"d","text":"Når $y'(t) = 0$ og $x'(t) \\neq 0$","isCorrect":true}],"solution":"Horisontal tangent krev at den vertikale farten $y'$ er null medan den horisontale $x'$ ikkje er det. Motsett for vertikal tangent."},{"id":"r2-6-1-n-quiz4-q3","task":"Kva viser skalarproduktet $\\vec{r}(t) \\cdot \\vec{v}(t) = 0$ for sirkelen $\\vec{r}(t) = [2\\cos t, 2\\sin t]$?","options":[{"id":"a","text":"At farten er null","isCorrect":false},{"id":"b","text":"At tangentvektoren alltid står vinkelrett på radien","isCorrect":true},{"id":"c","text":"At kurva ikkje er ein sirkel","isCorrect":false},{"id":"d","text":"At rørsla går med klokka","isCorrect":false}],"solution":"Skalarprodukt null for alle $t$ tyder at tangenten alltid er vinkelrett på posisjonsvektoren — den klassiske eigenskapen til sirkeltangenten."}]}},{"id":"r2-6-1-n-summary","type":"text","content":"## Oppsummering\n\nFerdsskrivaren viste seg å vere matematikk: ei **parameterframstilling** $x = x(t)$, $y = y(t)$, $t \\in I$, der kvar tid gir eit punkt og kurva er bana som blir teikna opp. Forma rommar alt $y = f(x)$ ikkje maktar — sjølvkryssande sløyfer, sirklar, heile rørsler med retning, tidsskjema og start og slutt avgjort av parameterintervallet.\n\nLinja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ fekk forma $x = x_0 + at$, $y = y_0 + bt$. Sirkelen med sentrum $(a, b)$ og radius $r$ vart $x = a + r\\cos t$, $y = b + r\\sin t$, gjennomløpt mot klokka, med $\\cos^2 t + \\sin^2 t = 1$ som kontroll, og ellipsen $x = a\\cos t$, $y = b\\sin t$ svara til $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$.\n\nÅ **eliminere parameteren** — løyse for $t$ og setje inn, eller la trig-identiteten rydde — gav det kartesiske kartet: $x + 2y = 7$ for linja, $(x-2)^2 + (y+1)^2 = 9$ for sirkelen, hyperbelgreina $xy = 1$ i første kvadrant. Men kartet gløymer flyturen: retning, fart og gjennomløpt del finst berre i parametriseringa.\n\n**Tangentvektoren** $\\vec{v}(t) = [x'(t), y'(t)]$ gav rørsleretning og fart $|\\vec{v}(t)|$, stigingstal $\\frac{y'}{x'}$ for tangentlinjer, horisontale tangentar der $y' = 0$ og vertikale der $x' = 0$ — og på sirkelen stod han alltid vinkelrett på radien.\n\nI neste kapittel får parameterkurva nytt namn — vektorfunksjon — og derivasjonen av han blir hovudpersonen: fart, snøggleik, akselerasjon og lengda av sjølve flyturen."}],"exercises":[],"_meta":{"sourceHash":"3e03eb994f98a009","translatedAt":"2026-06-20T01:08:18.643Z","model":"claude-code-agent","strings":106,"tm":{"a08449545e20bab0":"Parameterframstilling av kurver","b195b06d1ed59702":"Narrativ versjon","6f535c1c4fa82492":"Ei forteljing om ferdsskrivaren til dronen — kurver skildra med tida som parameter, sirklar og ellipsar, eliminering av parameteren og tangentvektoren som viser vegen.","930016a0ac2c155a":"bruke parameterframstilling til å skildre kurver i planet","b5a5df2cd7416080":"eliminere parameteren for å finne kartesisk likning","37dc57a7b2bc9c76":"finne retning og fart langs parameterkurver","de201f465f401253":"teikne parameterkurver for hand og med digitale verktøy","c448116deb42eae7":"## Ferdsskrivaren fortel\n\nDronen frå kapittel 5 har landa trygt, og du sit med ferdsskrivaren — loggen over heile flyturen. Han inneheld ikkje noka «kurve» i matematisk forstand. Han inneheld noko betre: For kvart tidspunkt $t$ står posisjonen oppført, ein $x$-koordinat og ein $y$-koordinat. Flyruta er ikkje gitt som $y = f(x)$ — ho er gitt som *to funksjonar av tida*.\n\nOg godt er det, for $y = f(x)$ ville aldri klart jobben. Dronen flaug ein runde i sløyfe og kryssa si eiga bane — då høyrer det to $y$-verdiar til same $x$, og ingen funksjon $f$ tillèt det. Han flaug òg eit heilt sirkulært søk over eit område, og ein sirkel har same problemet: øvre og nedre halvdel deler $x$-verdiar. Forma $y = f(x)$ er rett og slett for trong for verkelege rørsler.\n\n**Parameterframstilling** er løysinga, og ho er nøyaktig det ferdsskrivaren gjer: la både $x$ og $y$ avhenge av ein tredje variabel — **parameteren** $t$:\n\n$$\\begin{cases} x = x(t) \\\\ y = y(t) \\end{cases}, \\quad t \\in I$$\n\nFor kvar $t$ i parameterintervallet $I$ får vi eit punkt $(x(t), y(t))$, og kurva er bana punktet teiknar opp. Tolkar vi $t$ som tid, får vi meir enn forma på kurva med på kjøpet: vi får *retninga* rørsla går i, *farten* langs bana, og start- og sluttpunkt når intervallet er avgrensa. Ei kartesisk likning viser kvar dronen har vore — parameterframstillinga viser sjølve flyturen.","2b3e08fd611298e1":"## Dei første flyrutene: linjer og parablar\n\nVi les ferdsskrivaren nedanfrå. Det enklaste loggutdraget ser slik ut: $x = 1 + 2t$, $y = 3 - t$ for $t \\in \\mathbb{R}$. Set inn nokre tider: ved $t = 0$ er dronen i $(1, 3)$, ved $t = 1$ i $(3, 2)$, ved $t = 2$ i $(5, 1)$. Kvart tidssteg flyttar han $2$ i $x$-retning og $-1$ i $y$-retning — punkta ligg på ei rett linje, og forflytninga per tidseining er **retningsvektoren** $[2, -1]$. Mønsteret er heilt generelt: linja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ har parameterframstillinga\n\n$$\\begin{cases} x = x_0 + at \\\\ y = y_0 + bt \\end{cases}$$\n\n— du kjenner ho att frå linjene i rommet i kapittel 5, berre med éin koordinat mindre.\n\nNeste loggutdrag: $x = t$, $y = t^2$. Sidan $x = t$ kan vi byte ut $t$ med $x$ i den andre likninga og få $y = x^2$ — dronen følgde parabelen, frå venstre mot høgre sidan $x$ veks med $t$.\n\nOg her kjem ein detalj med stor verknad: **parameterintervallet**. Den same parametriseringa med $t \\in [0, 2]$ gir ikkje heile parabelen, men berre bogen frå startpunktet $(0, 0)$ ved $t = 0$ til sluttpunktet $(2, 4)$ ved $t = 2$. Intervallet avgjer kva for del av kurva som faktisk vart flogen — ein flytur har trass alt ein avgang og ei landing. Skal du teikne ei parameterkurve for hand, gjer du som vi nett gjorde: lag ein verditabell over $t$, plott punkta $(x(t), y(t))$, bind dei saman i $t$-rekkjefølgje, og marker retninga med ei pil.","6b26e9b6ed5312ac":"Test deg sjølv på parameterframstilling, linjer og intervall:","4097889236a2af26":"placeholder","ae0072496b856130":"Kurva er gitt ved $x = 1 + 2t$, $y = 3 - t$. Kvar er punktet ved $t = 2$?","dcdec8e816ef3e4b":"$x = 1 + 2 \\cdot 2 = 5$ og $y = 3 - 2 = 1$, altså $(5, 1)$.","9a7b0b721aaaa57e":"Kva er retningsvektoren til linja $x = 1 + 2t$, $y = 3 - t$?","8dd90e0f546ba2bd":"Når $t$ aukar med $1$, aukar $x$ med $2$ og $y$ avtek med $1$ — retningsvektoren er $[2, -1]$.","476c29044d7a3a56":"Kvifor kan ikkje ein sirkel skrivast som $y = f(x)$?","52022f12409268f5":"Fordi sirklar ikkje har likningar","abd3a8772fa033c0":"Fordi $x$ ikkje kan vere negativ","3600d7ce8eb31d25":"Fordi same $x$-verdi svarar til to $y$-verdiar på sirkelen","e12ff02b124be87d":"Fordi sirkelen ikkje går gjennom origo","1b73f494ef2ec509":"Øvre og nedre halvdel av sirkelen deler $x$-verdiar, og ein funksjon kan berre gi éin $y$ per $x$. Parameterframstilling løyser dette.","3bed62d33ef6c060":"Kva avgjer parameterintervallet $t \\in [0, 2]$ for kurva $x = t$, $y = t^2$?","5fc9e29b1a3d599e":"Kor bratt parabelen er","baeef1207eb68abe":"Forma på kurva","d4cdb7e613d0d4f9":"Kva veg aksane peikar","101a0c50616fc7fa":"Kva for del av parabelen vi får — bogen frå $(0,0)$ til $(2,4)$","aa7a85d910d5f6a6":"Parametriseringa gir parabelen $y = x^2$, men intervallet plukkar ut delen frå startpunktet $(0, 0)$ til sluttpunktet $(2, 4)$.","a26c519f417b96f8":"## Søkjemønsteret: sirklar og ellipsar\n\nSå til det sirkulære søket til dronen — den viktigaste kurva i kapittelet. Eit punkt som går rundt ein sirkel med radius $r$ og sentrum i origo, blir naturleg skildra med *vinkelen* som parameter. Når punktet står ved vinkelen $t$ (i radianar, målt frå positiv $x$-akse), er koordinatane per definisjon av sinus og cosinus:\n\n$$\\begin{cases} x = r\\cos t \\\\ y = r\\sin t \\end{cases}, \\quad t \\in [0, 2\\pi]$$\n\nKontrollen er identiteten du kjenner så godt: $x^2 + y^2 = r^2\\cos^2 t + r^2\\sin^2 t = r^2$ — avstanden til origo er konstant $r$, akkurat som ein sirkel krev. Ved $t = 0$ står punktet i $(r, 0)$, ved $t = \\frac{\\pi}{2}$ i $(0, r)$, ved $\\pi$ i $(-r, 0)$: rørsla går **mot klokka**. Skal sirkelen ha sentrum i $(a, b)$, flyttar vi berre heile rørsla dit: $x = a + r\\cos t$, $y = b + r\\sin t$. Sirkelen med sentrum $(2, -1)$ og radius $3$ blir $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$, med start i $(5, -1)$ — tre einingar rett til høgre for sentrum.\n\nRetninga sit i forteikna: $x = r\\cos t$, $y = -r\\sin t$ gir same sirkel gjennomløpt *med* klokka, og $x = r\\sin t$, $y = r\\cos t$ startar på toppen $(0, r)$ og går med klokka.\n\n**Ellipsen** er ein strekt sirkel: skaler einingssirkelen med faktor $a$ i $x$-retning og $b$ i $y$-retning, og du får $x = a\\cos t$, $y = b\\sin t$. Den kartesiske likninga er $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, med halvaksar $a$ og $b$. Likninga $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ har $a = 3$ og $b = 2$ — ein liggjande ellipse, parametrisert ved $x = 3\\cos t$, $y = 2\\sin t$ — og kontrollen $\\frac{9\\cos^2 t}{9} + \\frac{4\\sin^2 t}{4} = \\cos^2 t + \\sin^2 t = 1$ stemmer på øyret.","4702517acd770522":"Test deg sjølv på sirklar og ellipsar:","05ff544d268508ac":"Kva for parameterframstilling gir sirkelen med sentrum $(2, -1)$ og radius $3$?","798fc3a741a147c8":"$x = 3 + 2\\cos t$, $y = 3 - \\sin t$","27a9b0a12cc5529b":"$x = 2\\cos t$, $y = -\\sin t$","82a45a7c35d060d1":"$x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$","70746c75b81cc661":"$x = 2 + 3t$, $y = -1 + 3t$","d507f6c47b2a43d7":"Sentrum $(a, b) = (2, -1)$ og radius $r = 3$ gir $x = a + r\\cos t$, $y = b + r\\sin t$.","8b24f6b9b6268dfc":"Kva for identitet blir brukt for å vise at $x = \\cos t$, $y = \\sin t$ ligg på einingssirkelen?","f8a2296720e0d3c1":"$\\cos^2 t + \\sin^2 t = 1$","6c14b84ac1bada53":"$\\sin 2t = 2\\sin t \\cos t$","4332af8d68573645":"$\\cos 2t = 1 - 2\\sin^2 t$","2b298b133e1eb456":"$\\tan t = \\frac{\\sin t}{\\cos t}$","625a159607193d9a":"$x^2 + y^2 = \\cos^2 t + \\sin^2 t = 1$ — punktet ligg alltid i avstand $1$ frå origo.","d26ed670bc3e5c62":"I kva for retning rører punktet $(r\\cos t, r\\sin t)$ seg når $t$ aukar?","8771cee9901fb700":"Med klokka","b4dd0ec1ec5fdf90":"Rett oppover","11c7c7a7da357287":"Innover mot sentrum","ef9c7e8d869633d5":"Mot klokka","4907f72b98e3ef59":"Frå $(r, 0)$ ved $t = 0$ til $(0, r)$ ved $t = \\frac{\\pi}{2}$: rørsla går mot klokka, den positive omløpsretninga.","81b4e285a99c9cda":"Ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ skal parametriserast som $x = a\\cos t$, $y = b\\sin t$. Kva er $a$ og $b$?","adba137123775de8":"$a = 9$, $b = 4$","997ca2440f8189fa":"$a = 3$, $b = 2$","120b63034fadc7be":"$a = 2$, $b = 3$","8fc91103db52ec10":"$a = 81$, $b = 16$","8447f915fe3c775e":"Halvaksane er $a = \\sqrt{9} = 3$ og $b = \\sqrt{4} = 2$ — innsetjing gir $\\cos^2 t + \\sin^2 t = 1$.","2650370f3fa320bc":"## Å eliminere parameteren — og kva som går tapt\n\nNokre gonger vil vi gå motsett veg: frå tidsloggen til ferdsskrivaren til eit reint kart — ei likning i berre $x$ og $y$. Det blir kalla å **eliminere parameteren**, og strategien har to variantar. Variant éin: løys den eine likninga for $t$ og set inn i den andre. For linja $x = 1 + 2t$, $y = 3 - t$ gir den første $t = \\frac{x-1}{2}$, og innsetjing i den andre gir $y = 3 - \\frac{x-1}{2}$, som blir rydda til $x + 2y = 7$ — ei rett linje, som venta.\n\nVariant to blir brukt når trigonometrien er involvert: isoler $\\cos t$ og $\\sin t$, og la identiteten $\\cos^2 t + \\sin^2 t = 1$ gjere jobben. For $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$ er $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$, og identiteten gir\n\n$$\\left(\\frac{x-2}{3}\\right)^2 + \\left(\\frac{y+1}{3}\\right)^2 = 1 \\quad \\Longrightarrow \\quad (x-2)^2 + (y+1)^2 = 9$$\n\n— sirkelen med sentrum $(2, -1)$ og radius $3$, avslørt.\n\nMen pass på avgrensingane parameteren ber med seg. Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ gir $xy = 1$ — men sidan $y = t > 0$ og dermed $x > 0$, er det berre hyperbelgreina i *første kvadrant* som faktisk ligg på kurva. Likninga $xy = 1$ åleine påstår meir enn loggen dekkjer.\n\nOg det peikar mot det viktigaste: **eliminering kastar bort informasjon**. Den kartesiske likninga viser berre *kvar* kurva ligg. Parametriseringa veit i tillegg retninga, tidsskjemaet og kva for del som vart gjennomløpt. Både $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir likninga $x^2 + y^2 = 1$ — men rørslene går kvar sin veg rundt. Og $(\\cos 2t, \\sin 2t)$ med $t \\in [0, \\pi]$ gir same sirkel i dobbelt tempo. Same kart — heilt ulike flyturar.","e9a6d38de0508595":"Test deg sjølv på eliminering av parameteren:","ff90bd49b15f5541":"Kva er den kartesiske likninga for kurva $x = 1 + 2t$, $y = 3 - t$?","19b57fe3224a9a9c":"$x + 2y = 7$","1fa1edb0a1b95380":"$2x + y = 7$","29048d427367cb0c":"$x - 2y = 7$","be93895dd1ea4fe6":"$x + 2y = 5$","bf1d20d547653ef1":"$t = \\frac{x-1}{2}$ innsett i $y = 3 - t$ gir $y = 3 - \\frac{x-1}{2}$, altså $2y = 7 - x$ og $x + 2y = 7$.","46b51a155a8bf9d8":"Kva for triks eliminerer parameteren frå $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$?","4caf7608504add41":"Derivere begge likningane","3dde720be698c0de":"Setje $t = 0$","b6d040662fd0476b":"Isolere $\\cos t$ og $\\sin t$ og bruke $\\cos^2 t + \\sin^2 t = 1$","43f3c371f34fcfd1":"Multiplisere likningane med kvarandre","f435291abc0be875":"Med $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$ gir identiteten $(x-2)^2 + (y+1)^2 = 9$.","d457b0d2464cfe50":"Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ tilfredsstiller $xy = 1$. Kva for del av hyperbelen er kurva?","14e17ab5a5071714":"Heile hyperbelen","17e9bae5e3c52e69":"Greina i tredje kvadrant","602026d3f0ac5ea0":"Begge greinene","0194214a611ea437":"Greina i første kvadrant","1670590cb75687d1":"$t > 0$ gir $y = t > 0$ og $x = \\frac{1}{t} > 0$ — berre punkta med begge koordinatar positive ligg på kurva.","da2e9b322ba7d906":"Kva slags informasjon mistar vi når parameteren blir eliminert?","2dbc83798fd1e59b":"Retning, fart og kva for del av kurva som blir gjennomløpt","223712fddb3b70a4":"Skjeringspunkta med aksane","11445d87aa6f5765":"Ingenting — likninga inneheld alt","63ca6ef36ff7c47c":"Den kartesiske likninga viser berre punktmengda. $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir same likning, men motsett omløpsretning.","a765ace974e7dd98":"## Tangentvektoren — fartsmålaren i loggen\n\nFerdsskrivaren har éin skatt att: han kan fortelje kor fort og i kva for retning dronen rørde seg i kvart augneblink. Deriver komponentane kvar for seg, og du får **tangentvektoren**\n\n$$\\vec{v}(t) = [x'(t), y'(t)]$$\n\nHan peikar i rørsleretninga — tangentielt til kurva — og lengda $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$ er *farten*, viss $t$ er tid. På sirkelen $x = 2\\cos t$, $y = 2\\sin t$ blir $\\vec{v}(t) = [-2\\sin t, 2\\cos t]$, og skalarproduktet med posisjonsvektoren er $-4\\cos t \\sin t + 4\\sin t \\cos t = 0$ for alle $t$: tangentvektoren står alltid vinkelrett på radien — den gamle sanninga til geometrien om sirkeltangentar, attfunnen med derivasjon.\n\nTangentvektoren gir òg tangent*linjer*. For kurva $x = t^2$, $y = t^3$ i $t = 2$: punktet er $(4, 8)$, tangentvektoren $\\vec{v}(2) = [2t, 3t^2]_{t=2} = [4, 12]$, og stigingstalet er forholdet $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$. Linja gjennom $(4, 8)$ med stigingstal $3$ er $y = 3x - 4$.\n\nSpesialtilfella blir lesne rett av komponentane: tangenten er **horisontal** der $y'(t) = 0$ (og $x'(t) \\neq 0$), **vertikal** der $x'(t) = 0$ (og $y'(t) \\neq 0$). For $x = t^2 - 4t$, $y = t^2 - 2t$ gir $y' = 2t - 2 = 0$ tidspunktet $t = 1$ og det horisontale tangentpunktet $(-3, -1)$, medan $x' = 2t - 4 = 0$ gir $t = 2$ og det vertikale tangentpunktet $(-4, 0)$.\n\nVerktøykassa toler meir enn flyrutene: **sykloiden** $x = r(t - \\sin t)$, $y = r(1 - \\cos t)$ er bana til eit punkt på kanten av eit rullande hjul — bogar som rører bakken ved kvar $2\\pi$ — og **Lissajous-kurvene** $x = \\sin(3t)$, $y = \\sin(2t)$ flettar sjølvkryssande mønster som fysikarar bruker til å samanlikne svingefrekvensar. Parameterframstillinga teiknar dei alle like ubesvera.","2e7110bdfc59eed2":"Test deg sjølv på tangentvektor og fart:","72a7d597faedf6b2":"Kva er tangentvektoren til kurva $(x(t), y(t))$?","11bb52d49b6f0dbb":"$[x(t), y(t)]$","771cd9ce1071690a":"$[y'(t), x'(t)]$","3a125808a0e2dd5c":"$[x'(t), y'(t)]$","c681b6e32436843a":"$[x''(t), y''(t)]$","f65d055e82c6499a":"Deriver komponentvis: $\\vec{v}(t) = [x'(t), y'(t)]$ peikar i rørsleretninga langs kurva.","6209fb2df6a3e937":"For kurva $x = t^2$, $y = t^3$: kva er stigingstalet til tangenten i $t = 2$?","b87bda455923b2a6":"$\\frac{1}{3}$","2c2f4dba4e782332":"$\\vec{v}(2) = [4, 12]$, og stigingstalet er $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$ — tangenten blir $y = 3x - 4$.","0ebd467639e5f5d8":"Når har parameterkurva horisontal tangent?","0b8ebd2ba87560cd":"Når $x'(t) = 0$ og $y'(t) \\neq 0$","aff83efcfb46d3a8":"Når $x(t) = 0$","267c2252b1cd93ef":"Når $y(t) = 0$","4c95d72a21b6ce55":"Når $y'(t) = 0$ og $x'(t) \\neq 0$","c0b883bc7bb4ee83":"Horisontal tangent krev at den vertikale farten $y'$ er null medan den horisontale $x'$ ikkje er det. Motsett for vertikal tangent.","2dbea908c2afde4b":"Kva viser skalarproduktet $\\vec{r}(t) \\cdot \\vec{v}(t) = 0$ for sirkelen $\\vec{r}(t) = [2\\cos t, 2\\sin t]$?","c3604c334e522211":"At farten er null","5368ed1541999cd8":"At tangentvektoren alltid står vinkelrett på radien","423051bbd504146c":"At kurva ikkje er ein sirkel","1120ea43b9e78d9f":"At rørsla går med klokka","dbc24720955d49ae":"Skalarprodukt null for alle $t$ tyder at tangenten alltid er vinkelrett på posisjonsvektoren — den klassiske eigenskapen til sirkeltangenten.","b9a381fda6f5d48a":"## Oppsummering\n\nFerdsskrivaren viste seg å vere matematikk: ei **parameterframstilling** $x = x(t)$, $y = y(t)$, $t \\in I$, der kvar tid gir eit punkt og kurva er bana som blir teikna opp. Forma rommar alt $y = f(x)$ ikkje maktar — sjølvkryssande sløyfer, sirklar, heile rørsler med retning, tidsskjema og start og slutt avgjort av parameterintervallet.\n\nLinja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ fekk forma $x = x_0 + at$, $y = y_0 + bt$. Sirkelen med sentrum $(a, b)$ og radius $r$ vart $x = a + r\\cos t$, $y = b + r\\sin t$, gjennomløpt mot klokka, med $\\cos^2 t + \\sin^2 t = 1$ som kontroll, og ellipsen $x = a\\cos t$, $y = b\\sin t$ svara til $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$.\n\nÅ **eliminere parameteren** — løyse for $t$ og setje inn, eller la trig-identiteten rydde — gav det kartesiske kartet: $x + 2y = 7$ for linja, $(x-2)^2 + (y+1)^2 = 9$ for sirkelen, hyperbelgreina $xy = 1$ i første kvadrant. Men kartet gløymer flyturen: retning, fart og gjennomløpt del finst berre i parametriseringa.\n\n**Tangentvektoren** $\\vec{v}(t) = [x'(t), y'(t)]$ gav rørsleretning og fart $|\\vec{v}(t)|$, stigingstal $\\frac{y'}{x'}$ for tangentlinjer, horisontale tangentar der $y' = 0$ og vertikale der $x' = 0$ — og på sirkelen stod han alltid vinkelrett på radien.\n\nI neste kapittel får parameterkurva nytt namn — vektorfunksjon — og derivasjonen av han blir hovudpersonen: fart, snøggleik, akselerasjon og lengda av sjølve flyturen."}}}
+{
+  "id": "r2-6-1-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "6.1",
+  "title": "Parameterframstilling av kurver",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ferdsskrivaren til dronen — kurver skildra med tida som parameter, sirklar og ellipsar, eliminering av parameteren og tangentvektoren som viser vegen.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke parameterframstilling til å skildre kurver i planet",
+    "eliminere parameteren for å finne kartesisk likning",
+    "finne retning og fart langs parameterkurver",
+    "teikne parameterkurver for hand og med digitale verktøy"
+  ],
+  "linkedChapterId": "r2-6-1",
+  "content": [
+    {
+      "id": "r2-6-1-n-intro",
+      "type": "text",
+      "content": "## Ferdsskrivaren fortel\n\nDronen frå kapittel 5 har landa trygt, og du sit med ferdsskrivaren — loggen over heile flyturen. Han inneheld ikkje noka «kurve» i matematisk forstand. Han inneheld noko betre: For kvart tidspunkt $t$ står posisjonen oppført, ein $x$-koordinat og ein $y$-koordinat. Flyruta er ikkje gitt som $y = f(x)$ — ho er gitt som *to funksjonar av tida*.\n\nOg godt er det, for $y = f(x)$ ville aldri klart jobben. Dronen flaug ein runde i sløyfe og kryssa si eiga bane — då høyrer det to $y$-verdiar til same $x$, og ingen funksjon $f$ tillèt det. Han flaug òg eit heilt sirkulært søk over eit område, og ein sirkel har same problemet: øvre og nedre halvdel deler $x$-verdiar. Forma $y = f(x)$ er rett og slett for trong for verkelege rørsler.\n\n**Parameterframstilling** er løysinga, og ho er nøyaktig det ferdsskrivaren gjer: la både $x$ og $y$ avhenge av ein tredje variabel — **parameteren** $t$:\n\n$$\\begin{cases} x = x(t) \\\\ y = y(t) \\end{cases}, \\quad t \\in I$$\n\nFor kvar $t$ i parameterintervallet $I$ får vi eit punkt $(x(t), y(t))$, og kurva er bana punktet teiknar opp. Tolkar vi $t$ som tid, får vi meir enn forma på kurva med på kjøpet: vi får *retninga* rørsla går i, *farten* langs bana, og start- og sluttpunkt når intervallet er avgrensa. Ei kartesisk likning viser kvar dronen har vore — parameterframstillinga viser sjølve flyturen."
+    },
+    {
+      "id": "r2-6-1-n-section1",
+      "type": "text",
+      "content": "## Dei første flyrutene: linjer og parablar\n\nVi les ferdsskrivaren nedanfrå. Det enklaste loggutdraget ser slik ut: $x = 1 + 2t$, $y = 3 - t$ for $t \\in \\mathbb{R}$. Set inn nokre tider: ved $t = 0$ er dronen i $(1, 3)$, ved $t = 1$ i $(3, 2)$, ved $t = 2$ i $(5, 1)$. Kvart tidssteg flyttar han $2$ i $x$-retning og $-1$ i $y$-retning — punkta ligg på ei rett linje, og forflytninga per tidseining er **retningsvektoren** $[2, -1]$. Mønsteret er heilt generelt: linja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ har parameterframstillinga\n\n$$\\begin{cases} x = x_0 + at \\\\ y = y_0 + bt \\end{cases}$$\n\n— du kjenner ho att frå linjene i rommet i kapittel 5, berre med éin koordinat mindre.\n\nNeste loggutdrag: $x = t$, $y = t^2$. Sidan $x = t$ kan vi byte ut $t$ med $x$ i den andre likninga og få $y = x^2$ — dronen følgde parabelen, frå venstre mot høgre sidan $x$ veks med $t$.\n\nOg her kjem ein detalj med stor verknad: **parameterintervallet**. Den same parametriseringa med $t \\in [0, 2]$ gir ikkje heile parabelen, men berre bogen frå startpunktet $(0, 0)$ ved $t = 0$ til sluttpunktet $(2, 4)$ ved $t = 2$. Intervallet avgjer kva for del av kurva som faktisk vart flogen — ein flytur har trass alt ein avgang og ei landing. Skal du teikne ei parameterkurve for hand, gjer du som vi nett gjorde: lag ein verditabell over $t$, plott punkta $(x(t), y(t))$, bind dei saman i $t$-rekkjefølgje, og marker retninga med ei pil."
+    },
+    {
+      "id": "r2-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på parameterframstilling, linjer og intervall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-1-n-quiz1-q0",
+            "task": "Kurva er gitt ved $x = 1 + 2t$, $y = 3 - t$. Kvar er punktet ved $t = 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(5, 1)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(3, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(1, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(2, 5)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = 1 + 2 \\cdot 2 = 5$ og $y = 3 - 2 = 1$, altså $(5, 1)$."
+          },
+          {
+            "id": "r2-6-1-n-quiz1-q1",
+            "task": "Kva er retningsvektoren til linja $x = 1 + 2t$, $y = 3 - t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[1, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[2, -1]$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$[-1, 2]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[2, 1]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $t$ aukar med $1$, aukar $x$ med $2$ og $y$ avtek med $1$ — retningsvektoren er $[2, -1]$."
+          },
+          {
+            "id": "r2-6-1-n-quiz1-q2",
+            "task": "Kvifor kan ikkje ein sirkel skrivast som $y = f(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi sirklar ikkje har likningar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $x$ ikkje kan vere negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi same $x$-verdi svarar til to $y$-verdiar på sirkelen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi sirkelen ikkje går gjennom origo",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Øvre og nedre halvdel av sirkelen deler $x$-verdiar, og ein funksjon kan berre gi éin $y$ per $x$. Parameterframstilling løyser dette."
+          },
+          {
+            "id": "r2-6-1-n-quiz1-q3",
+            "task": "Kva avgjer parameterintervallet $t \\in [0, 2]$ for kurva $x = t$, $y = t^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kor bratt parabelen er",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Forma på kurva",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kva veg aksane peikar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kva for del av parabelen vi får — bogen frå $(0,0)$ til $(2,4)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Parametriseringa gir parabelen $y = x^2$, men intervallet plukkar ut delen frå startpunktet $(0, 0)$ til sluttpunktet $(2, 4)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-1-n-section2",
+      "type": "text",
+      "content": "## Søkjemønsteret: sirklar og ellipsar\n\nSå til det sirkulære søket til dronen — den viktigaste kurva i kapittelet. Eit punkt som går rundt ein sirkel med radius $r$ og sentrum i origo, blir naturleg skildra med *vinkelen* som parameter. Når punktet står ved vinkelen $t$ (i radianar, målt frå positiv $x$-akse), er koordinatane per definisjon av sinus og cosinus:\n\n$$\\begin{cases} x = r\\cos t \\\\ y = r\\sin t \\end{cases}, \\quad t \\in [0, 2\\pi]$$\n\nKontrollen er identiteten du kjenner så godt: $x^2 + y^2 = r^2\\cos^2 t + r^2\\sin^2 t = r^2$ — avstanden til origo er konstant $r$, akkurat som ein sirkel krev. Ved $t = 0$ står punktet i $(r, 0)$, ved $t = \\frac{\\pi}{2}$ i $(0, r)$, ved $\\pi$ i $(-r, 0)$: rørsla går **mot klokka**. Skal sirkelen ha sentrum i $(a, b)$, flyttar vi berre heile rørsla dit: $x = a + r\\cos t$, $y = b + r\\sin t$. Sirkelen med sentrum $(2, -1)$ og radius $3$ blir $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$, med start i $(5, -1)$ — tre einingar rett til høgre for sentrum.\n\nRetninga sit i forteikna: $x = r\\cos t$, $y = -r\\sin t$ gir same sirkel gjennomløpt *med* klokka, og $x = r\\sin t$, $y = r\\cos t$ startar på toppen $(0, r)$ og går med klokka.\n\n**Ellipsen** er ein strekt sirkel: skaler einingssirkelen med faktor $a$ i $x$-retning og $b$ i $y$-retning, og du får $x = a\\cos t$, $y = b\\sin t$. Den kartesiske likninga er $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, med halvaksar $a$ og $b$. Likninga $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ har $a = 3$ og $b = 2$ — ein liggjande ellipse, parametrisert ved $x = 3\\cos t$, $y = 2\\sin t$ — og kontrollen $\\frac{9\\cos^2 t}{9} + \\frac{4\\sin^2 t}{4} = \\cos^2 t + \\sin^2 t = 1$ stemmer på øyret."
+    },
+    {
+      "id": "r2-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sirklar og ellipsar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-1-n-quiz2-q0",
+            "task": "Kva for parameterframstilling gir sirkelen med sentrum $(2, -1)$ og radius $3$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = 3 + 2\\cos t$, $y = 3 - \\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 2\\cos t$, $y = -\\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 2 + 3t$, $y = -1 + 3t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sentrum $(a, b) = (2, -1)$ og radius $r = 3$ gir $x = a + r\\cos t$, $y = b + r\\sin t$."
+          },
+          {
+            "id": "r2-6-1-n-quiz2-q1",
+            "task": "Kva for identitet blir brukt for å vise at $x = \\cos t$, $y = \\sin t$ ligg på einingssirkelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\sin 2t = 2\\sin t \\cos t$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\cos^2 t + \\sin^2 t = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\cos 2t = 1 - 2\\sin^2 t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\tan t = \\frac{\\sin t}{\\cos t}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^2 + y^2 = \\cos^2 t + \\sin^2 t = 1$ — punktet ligg alltid i avstand $1$ frå origo."
+          },
+          {
+            "id": "r2-6-1-n-quiz2-q2",
+            "task": "I kva for retning rører punktet $(r\\cos t, r\\sin t)$ seg når $t$ aukar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Med klokka",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Rett oppover",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Mot klokka",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Innover mot sentrum",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå $(r, 0)$ ved $t = 0$ til $(0, r)$ ved $t = \\frac{\\pi}{2}$: rørsla går mot klokka, den positive omløpsretninga."
+          },
+          {
+            "id": "r2-6-1-n-quiz2-q3",
+            "task": "Ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ skal parametriserast som $x = a\\cos t$, $y = b\\sin t$. Kva er $a$ og $b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a = 9$, $b = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a = 2$, $b = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a = 81$, $b = 16$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a = 3$, $b = 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Halvaksane er $a = \\sqrt{9} = 3$ og $b = \\sqrt{4} = 2$ — innsetjing gir $\\cos^2 t + \\sin^2 t = 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-1-n-section3",
+      "type": "text",
+      "content": "## Å eliminere parameteren — og kva som går tapt\n\nNokre gonger vil vi gå motsett veg: frå tidsloggen til ferdsskrivaren til eit reint kart — ei likning i berre $x$ og $y$. Det blir kalla å **eliminere parameteren**, og strategien har to variantar. Variant éin: løys den eine likninga for $t$ og set inn i den andre. For linja $x = 1 + 2t$, $y = 3 - t$ gir den første $t = \\frac{x-1}{2}$, og innsetjing i den andre gir $y = 3 - \\frac{x-1}{2}$, som blir rydda til $x + 2y = 7$ — ei rett linje, som venta.\n\nVariant to blir brukt når trigonometrien er involvert: isoler $\\cos t$ og $\\sin t$, og la identiteten $\\cos^2 t + \\sin^2 t = 1$ gjere jobben. For $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$ er $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$, og identiteten gir\n\n$$\\left(\\frac{x-2}{3}\\right)^2 + \\left(\\frac{y+1}{3}\\right)^2 = 1 \\quad \\Longrightarrow \\quad (x-2)^2 + (y+1)^2 = 9$$\n\n— sirkelen med sentrum $(2, -1)$ og radius $3$, avslørt.\n\nMen pass på avgrensingane parameteren ber med seg. Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ gir $xy = 1$ — men sidan $y = t > 0$ og dermed $x > 0$, er det berre hyperbelgreina i *første kvadrant* som faktisk ligg på kurva. Likninga $xy = 1$ åleine påstår meir enn loggen dekkjer.\n\nOg det peikar mot det viktigaste: **eliminering kastar bort informasjon**. Den kartesiske likninga viser berre *kvar* kurva ligg. Parametriseringa veit i tillegg retninga, tidsskjemaet og kva for del som vart gjennomløpt. Både $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir likninga $x^2 + y^2 = 1$ — men rørslene går kvar sin veg rundt. Og $(\\cos 2t, \\sin 2t)$ med $t \\in [0, \\pi]$ gir same sirkel i dobbelt tempo. Same kart — heilt ulike flyturar."
+    },
+    {
+      "id": "r2-6-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eliminering av parameteren:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-1-n-quiz3-q0",
+            "task": "Kva er den kartesiske likninga for kurva $x = 1 + 2t$, $y = 3 - t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x + 2y = 7$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2x + y = 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x - 2y = 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x + 2y = 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$t = \\frac{x-1}{2}$ innsett i $y = 3 - t$ gir $y = 3 - \\frac{x-1}{2}$, altså $2y = 7 - x$ og $x + 2y = 7$."
+          },
+          {
+            "id": "r2-6-1-n-quiz3-q1",
+            "task": "Kva for triks eliminerer parameteren frå $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Derivere begge likningane",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Isolere $\\cos t$ og $\\sin t$ og bruke $\\cos^2 t + \\sin^2 t = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Setje $t = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Multiplisere likningane med kvarandre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$ gir identiteten $(x-2)^2 + (y+1)^2 = 9$."
+          },
+          {
+            "id": "r2-6-1-n-quiz3-q2",
+            "task": "Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ tilfredsstiller $xy = 1$. Kva for del av hyperbelen er kurva?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Heile hyperbelen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Greina i tredje kvadrant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Greina i første kvadrant",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Begge greinene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$t > 0$ gir $y = t > 0$ og $x = \\frac{1}{t} > 0$ — berre punkta med begge koordinatar positive ligg på kurva."
+          },
+          {
+            "id": "r2-6-1-n-quiz3-q3",
+            "task": "Kva slags informasjon mistar vi når parameteren blir eliminert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Forma på kurva",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Skjeringspunkta med aksane",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting — likninga inneheld alt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Retning, fart og kva for del av kurva som blir gjennomløpt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den kartesiske likninga viser berre punktmengda. $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir same likning, men motsett omløpsretning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-1-n-section4",
+      "type": "text",
+      "content": "## Tangentvektoren — fartsmålaren i loggen\n\nFerdsskrivaren har éin skatt att: han kan fortelje kor fort og i kva for retning dronen rørde seg i kvart augneblink. Deriver komponentane kvar for seg, og du får **tangentvektoren**\n\n$$\\vec{v}(t) = [x'(t), y'(t)]$$\n\nHan peikar i rørsleretninga — tangentielt til kurva — og lengda $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$ er *farten*, viss $t$ er tid. På sirkelen $x = 2\\cos t$, $y = 2\\sin t$ blir $\\vec{v}(t) = [-2\\sin t, 2\\cos t]$, og skalarproduktet med posisjonsvektoren er $-4\\cos t \\sin t + 4\\sin t \\cos t = 0$ for alle $t$: tangentvektoren står alltid vinkelrett på radien — den gamle sanninga til geometrien om sirkeltangentar, attfunnen med derivasjon.\n\nTangentvektoren gir òg tangent*linjer*. For kurva $x = t^2$, $y = t^3$ i $t = 2$: punktet er $(4, 8)$, tangentvektoren $\\vec{v}(2) = [2t, 3t^2]_{t=2} = [4, 12]$, og stigingstalet er forholdet $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$. Linja gjennom $(4, 8)$ med stigingstal $3$ er $y = 3x - 4$.\n\nSpesialtilfella blir lesne rett av komponentane: tangenten er **horisontal** der $y'(t) = 0$ (og $x'(t) \\neq 0$), **vertikal** der $x'(t) = 0$ (og $y'(t) \\neq 0$). For $x = t^2 - 4t$, $y = t^2 - 2t$ gir $y' = 2t - 2 = 0$ tidspunktet $t = 1$ og det horisontale tangentpunktet $(-3, -1)$, medan $x' = 2t - 4 = 0$ gir $t = 2$ og det vertikale tangentpunktet $(-4, 0)$.\n\nVerktøykassa toler meir enn flyrutene: **sykloiden** $x = r(t - \\sin t)$, $y = r(1 - \\cos t)$ er bana til eit punkt på kanten av eit rullande hjul — bogar som rører bakken ved kvar $2\\pi$ — og **Lissajous-kurvene** $x = \\sin(3t)$, $y = \\sin(2t)$ flettar sjølvkryssande mønster som fysikarar bruker til å samanlikne svingefrekvensar. Parameterframstillinga teiknar dei alle like ubesvera."
+    },
+    {
+      "id": "r2-6-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tangentvektor og fart:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-1-n-quiz4-q0",
+            "task": "Kva er tangentvektoren til kurva $(x(t), y(t))$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$[x'(t), y'(t)]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[x(t), y(t)]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[y'(t), x'(t)]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[x''(t), y''(t)]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Deriver komponentvis: $\\vec{v}(t) = [x'(t), y'(t)]$ peikar i rørsleretninga langs kurva."
+          },
+          {
+            "id": "r2-6-1-n-quiz4-q1",
+            "task": "For kurva $x = t^2$, $y = t^3$: kva er stigingstalet til tangenten i $t = 2$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{v}(2) = [4, 12]$, og stigingstalet er $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$ — tangenten blir $y = 3x - 4$."
+          },
+          {
+            "id": "r2-6-1-n-quiz4-q2",
+            "task": "Når har parameterkurva horisontal tangent?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $x'(t) = 0$ og $y'(t) \\neq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $x(t) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $y'(t) = 0$ og $x'(t) \\neq 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når $y(t) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Horisontal tangent krev at den vertikale farten $y'$ er null medan den horisontale $x'$ ikkje er det. Motsett for vertikal tangent."
+          },
+          {
+            "id": "r2-6-1-n-quiz4-q3",
+            "task": "Kva viser skalarproduktet $\\vec{r}(t) \\cdot \\vec{v}(t) = 0$ for sirkelen $\\vec{r}(t) = [2\\cos t, 2\\sin t]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At farten er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At kurva ikkje er ein sirkel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At rørsla går med klokka",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At tangentvektoren alltid står vinkelrett på radien",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Skalarprodukt null for alle $t$ tyder at tangenten alltid er vinkelrett på posisjonsvektoren — den klassiske eigenskapen til sirkeltangenten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFerdsskrivaren viste seg å vere matematikk: ei **parameterframstilling** $x = x(t)$, $y = y(t)$, $t \\in I$, der kvar tid gir eit punkt og kurva er bana som blir teikna opp. Forma rommar alt $y = f(x)$ ikkje maktar — sjølvkryssande sløyfer, sirklar, heile rørsler med retning, tidsskjema og start og slutt avgjort av parameterintervallet.\n\nLinja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ fekk forma $x = x_0 + at$, $y = y_0 + bt$. Sirkelen med sentrum $(a, b)$ og radius $r$ vart $x = a + r\\cos t$, $y = b + r\\sin t$, gjennomløpt mot klokka, med $\\cos^2 t + \\sin^2 t = 1$ som kontroll, og ellipsen $x = a\\cos t$, $y = b\\sin t$ svara til $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$.\n\nÅ **eliminere parameteren** — løyse for $t$ og setje inn, eller la trig-identiteten rydde — gav det kartesiske kartet: $x + 2y = 7$ for linja, $(x-2)^2 + (y+1)^2 = 9$ for sirkelen, hyperbelgreina $xy = 1$ i første kvadrant. Men kartet gløymer flyturen: retning, fart og gjennomløpt del finst berre i parametriseringa.\n\n**Tangentvektoren** $\\vec{v}(t) = [x'(t), y'(t)]$ gav rørsleretning og fart $|\\vec{v}(t)|$, stigingstal $\\frac{y'}{x'}$ for tangentlinjer, horisontale tangentar der $y' = 0$ og vertikale der $x' = 0$ — og på sirkelen stod han alltid vinkelrett på radien.\n\nI neste kapittel får parameterkurva nytt namn — vektorfunksjon — og derivasjonen av han blir hovudpersonen: fart, snøggleik, akselerasjon og lengda av sjølve flyturen."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3e03eb994f98a009",
+    "translatedAt": "2026-06-20T01:08:18.643Z",
+    "model": "claude-code-agent",
+    "strings": 106,
+    "tm": {
+      "a08449545e20bab0": "Parameterframstilling av kurver",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6f535c1c4fa82492": "Ei forteljing om ferdsskrivaren til dronen — kurver skildra med tida som parameter, sirklar og ellipsar, eliminering av parameteren og tangentvektoren som viser vegen.",
+      "930016a0ac2c155a": "bruke parameterframstilling til å skildre kurver i planet",
+      "b5a5df2cd7416080": "eliminere parameteren for å finne kartesisk likning",
+      "37dc57a7b2bc9c76": "finne retning og fart langs parameterkurver",
+      "de201f465f401253": "teikne parameterkurver for hand og med digitale verktøy",
+      "c448116deb42eae7": "## Ferdsskrivaren fortel\n\nDronen frå kapittel 5 har landa trygt, og du sit med ferdsskrivaren — loggen over heile flyturen. Han inneheld ikkje noka «kurve» i matematisk forstand. Han inneheld noko betre: For kvart tidspunkt $t$ står posisjonen oppført, ein $x$-koordinat og ein $y$-koordinat. Flyruta er ikkje gitt som $y = f(x)$ — ho er gitt som *to funksjonar av tida*.\n\nOg godt er det, for $y = f(x)$ ville aldri klart jobben. Dronen flaug ein runde i sløyfe og kryssa si eiga bane — då høyrer det to $y$-verdiar til same $x$, og ingen funksjon $f$ tillèt det. Han flaug òg eit heilt sirkulært søk over eit område, og ein sirkel har same problemet: øvre og nedre halvdel deler $x$-verdiar. Forma $y = f(x)$ er rett og slett for trong for verkelege rørsler.\n\n**Parameterframstilling** er løysinga, og ho er nøyaktig det ferdsskrivaren gjer: la både $x$ og $y$ avhenge av ein tredje variabel — **parameteren** $t$:\n\n$$\\begin{cases} x = x(t) \\\\ y = y(t) \\end{cases}, \\quad t \\in I$$\n\nFor kvar $t$ i parameterintervallet $I$ får vi eit punkt $(x(t), y(t))$, og kurva er bana punktet teiknar opp. Tolkar vi $t$ som tid, får vi meir enn forma på kurva med på kjøpet: vi får *retninga* rørsla går i, *farten* langs bana, og start- og sluttpunkt når intervallet er avgrensa. Ei kartesisk likning viser kvar dronen har vore — parameterframstillinga viser sjølve flyturen.",
+      "2b3e08fd611298e1": "## Dei første flyrutene: linjer og parablar\n\nVi les ferdsskrivaren nedanfrå. Det enklaste loggutdraget ser slik ut: $x = 1 + 2t$, $y = 3 - t$ for $t \\in \\mathbb{R}$. Set inn nokre tider: ved $t = 0$ er dronen i $(1, 3)$, ved $t = 1$ i $(3, 2)$, ved $t = 2$ i $(5, 1)$. Kvart tidssteg flyttar han $2$ i $x$-retning og $-1$ i $y$-retning — punkta ligg på ei rett linje, og forflytninga per tidseining er **retningsvektoren** $[2, -1]$. Mønsteret er heilt generelt: linja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ har parameterframstillinga\n\n$$\\begin{cases} x = x_0 + at \\\\ y = y_0 + bt \\end{cases}$$\n\n— du kjenner ho att frå linjene i rommet i kapittel 5, berre med éin koordinat mindre.\n\nNeste loggutdrag: $x = t$, $y = t^2$. Sidan $x = t$ kan vi byte ut $t$ med $x$ i den andre likninga og få $y = x^2$ — dronen følgde parabelen, frå venstre mot høgre sidan $x$ veks med $t$.\n\nOg her kjem ein detalj med stor verknad: **parameterintervallet**. Den same parametriseringa med $t \\in [0, 2]$ gir ikkje heile parabelen, men berre bogen frå startpunktet $(0, 0)$ ved $t = 0$ til sluttpunktet $(2, 4)$ ved $t = 2$. Intervallet avgjer kva for del av kurva som faktisk vart flogen — ein flytur har trass alt ein avgang og ei landing. Skal du teikne ei parameterkurve for hand, gjer du som vi nett gjorde: lag ein verditabell over $t$, plott punkta $(x(t), y(t))$, bind dei saman i $t$-rekkjefølgje, og marker retninga med ei pil.",
+      "6b26e9b6ed5312ac": "Test deg sjølv på parameterframstilling, linjer og intervall:",
+      "4097889236a2af26": "placeholder",
+      "ae0072496b856130": "Kurva er gitt ved $x = 1 + 2t$, $y = 3 - t$. Kvar er punktet ved $t = 2$?",
+      "dcdec8e816ef3e4b": "$x = 1 + 2 \\cdot 2 = 5$ og $y = 3 - 2 = 1$, altså $(5, 1)$.",
+      "9a7b0b721aaaa57e": "Kva er retningsvektoren til linja $x = 1 + 2t$, $y = 3 - t$?",
+      "8dd90e0f546ba2bd": "Når $t$ aukar med $1$, aukar $x$ med $2$ og $y$ avtek med $1$ — retningsvektoren er $[2, -1]$.",
+      "476c29044d7a3a56": "Kvifor kan ikkje ein sirkel skrivast som $y = f(x)$?",
+      "52022f12409268f5": "Fordi sirklar ikkje har likningar",
+      "abd3a8772fa033c0": "Fordi $x$ ikkje kan vere negativ",
+      "3600d7ce8eb31d25": "Fordi same $x$-verdi svarar til to $y$-verdiar på sirkelen",
+      "e12ff02b124be87d": "Fordi sirkelen ikkje går gjennom origo",
+      "1b73f494ef2ec509": "Øvre og nedre halvdel av sirkelen deler $x$-verdiar, og ein funksjon kan berre gi éin $y$ per $x$. Parameterframstilling løyser dette.",
+      "3bed62d33ef6c060": "Kva avgjer parameterintervallet $t \\in [0, 2]$ for kurva $x = t$, $y = t^2$?",
+      "5fc9e29b1a3d599e": "Kor bratt parabelen er",
+      "baeef1207eb68abe": "Forma på kurva",
+      "d4cdb7e613d0d4f9": "Kva veg aksane peikar",
+      "101a0c50616fc7fa": "Kva for del av parabelen vi får — bogen frå $(0,0)$ til $(2,4)$",
+      "aa7a85d910d5f6a6": "Parametriseringa gir parabelen $y = x^2$, men intervallet plukkar ut delen frå startpunktet $(0, 0)$ til sluttpunktet $(2, 4)$.",
+      "a26c519f417b96f8": "## Søkjemønsteret: sirklar og ellipsar\n\nSå til det sirkulære søket til dronen — den viktigaste kurva i kapittelet. Eit punkt som går rundt ein sirkel med radius $r$ og sentrum i origo, blir naturleg skildra med *vinkelen* som parameter. Når punktet står ved vinkelen $t$ (i radianar, målt frå positiv $x$-akse), er koordinatane per definisjon av sinus og cosinus:\n\n$$\\begin{cases} x = r\\cos t \\\\ y = r\\sin t \\end{cases}, \\quad t \\in [0, 2\\pi]$$\n\nKontrollen er identiteten du kjenner så godt: $x^2 + y^2 = r^2\\cos^2 t + r^2\\sin^2 t = r^2$ — avstanden til origo er konstant $r$, akkurat som ein sirkel krev. Ved $t = 0$ står punktet i $(r, 0)$, ved $t = \\frac{\\pi}{2}$ i $(0, r)$, ved $\\pi$ i $(-r, 0)$: rørsla går **mot klokka**. Skal sirkelen ha sentrum i $(a, b)$, flyttar vi berre heile rørsla dit: $x = a + r\\cos t$, $y = b + r\\sin t$. Sirkelen med sentrum $(2, -1)$ og radius $3$ blir $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$, med start i $(5, -1)$ — tre einingar rett til høgre for sentrum.\n\nRetninga sit i forteikna: $x = r\\cos t$, $y = -r\\sin t$ gir same sirkel gjennomløpt *med* klokka, og $x = r\\sin t$, $y = r\\cos t$ startar på toppen $(0, r)$ og går med klokka.\n\n**Ellipsen** er ein strekt sirkel: skaler einingssirkelen med faktor $a$ i $x$-retning og $b$ i $y$-retning, og du får $x = a\\cos t$, $y = b\\sin t$. Den kartesiske likninga er $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$, med halvaksar $a$ og $b$. Likninga $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ har $a = 3$ og $b = 2$ — ein liggjande ellipse, parametrisert ved $x = 3\\cos t$, $y = 2\\sin t$ — og kontrollen $\\frac{9\\cos^2 t}{9} + \\frac{4\\sin^2 t}{4} = \\cos^2 t + \\sin^2 t = 1$ stemmer på øyret.",
+      "4702517acd770522": "Test deg sjølv på sirklar og ellipsar:",
+      "05ff544d268508ac": "Kva for parameterframstilling gir sirkelen med sentrum $(2, -1)$ og radius $3$?",
+      "798fc3a741a147c8": "$x = 3 + 2\\cos t$, $y = 3 - \\sin t$",
+      "27a9b0a12cc5529b": "$x = 2\\cos t$, $y = -\\sin t$",
+      "82a45a7c35d060d1": "$x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$",
+      "70746c75b81cc661": "$x = 2 + 3t$, $y = -1 + 3t$",
+      "d507f6c47b2a43d7": "Sentrum $(a, b) = (2, -1)$ og radius $r = 3$ gir $x = a + r\\cos t$, $y = b + r\\sin t$.",
+      "8b24f6b9b6268dfc": "Kva for identitet blir brukt for å vise at $x = \\cos t$, $y = \\sin t$ ligg på einingssirkelen?",
+      "f8a2296720e0d3c1": "$\\cos^2 t + \\sin^2 t = 1$",
+      "6c14b84ac1bada53": "$\\sin 2t = 2\\sin t \\cos t$",
+      "4332af8d68573645": "$\\cos 2t = 1 - 2\\sin^2 t$",
+      "2b298b133e1eb456": "$\\tan t = \\frac{\\sin t}{\\cos t}$",
+      "625a159607193d9a": "$x^2 + y^2 = \\cos^2 t + \\sin^2 t = 1$ — punktet ligg alltid i avstand $1$ frå origo.",
+      "d26ed670bc3e5c62": "I kva for retning rører punktet $(r\\cos t, r\\sin t)$ seg når $t$ aukar?",
+      "8771cee9901fb700": "Med klokka",
+      "b4dd0ec1ec5fdf90": "Rett oppover",
+      "11c7c7a7da357287": "Innover mot sentrum",
+      "ef9c7e8d869633d5": "Mot klokka",
+      "4907f72b98e3ef59": "Frå $(r, 0)$ ved $t = 0$ til $(0, r)$ ved $t = \\frac{\\pi}{2}$: rørsla går mot klokka, den positive omløpsretninga.",
+      "81b4e285a99c9cda": "Ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ skal parametriserast som $x = a\\cos t$, $y = b\\sin t$. Kva er $a$ og $b$?",
+      "adba137123775de8": "$a = 9$, $b = 4$",
+      "997ca2440f8189fa": "$a = 3$, $b = 2$",
+      "120b63034fadc7be": "$a = 2$, $b = 3$",
+      "8fc91103db52ec10": "$a = 81$, $b = 16$",
+      "8447f915fe3c775e": "Halvaksane er $a = \\sqrt{9} = 3$ og $b = \\sqrt{4} = 2$ — innsetjing gir $\\cos^2 t + \\sin^2 t = 1$.",
+      "2650370f3fa320bc": "## Å eliminere parameteren — og kva som går tapt\n\nNokre gonger vil vi gå motsett veg: frå tidsloggen til ferdsskrivaren til eit reint kart — ei likning i berre $x$ og $y$. Det blir kalla å **eliminere parameteren**, og strategien har to variantar. Variant éin: løys den eine likninga for $t$ og set inn i den andre. For linja $x = 1 + 2t$, $y = 3 - t$ gir den første $t = \\frac{x-1}{2}$, og innsetjing i den andre gir $y = 3 - \\frac{x-1}{2}$, som blir rydda til $x + 2y = 7$ — ei rett linje, som venta.\n\nVariant to blir brukt når trigonometrien er involvert: isoler $\\cos t$ og $\\sin t$, og la identiteten $\\cos^2 t + \\sin^2 t = 1$ gjere jobben. For $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$ er $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$, og identiteten gir\n\n$$\\left(\\frac{x-2}{3}\\right)^2 + \\left(\\frac{y+1}{3}\\right)^2 = 1 \\quad \\Longrightarrow \\quad (x-2)^2 + (y+1)^2 = 9$$\n\n— sirkelen med sentrum $(2, -1)$ og radius $3$, avslørt.\n\nMen pass på avgrensingane parameteren ber med seg. Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ gir $xy = 1$ — men sidan $y = t > 0$ og dermed $x > 0$, er det berre hyperbelgreina i *første kvadrant* som faktisk ligg på kurva. Likninga $xy = 1$ åleine påstår meir enn loggen dekkjer.\n\nOg det peikar mot det viktigaste: **eliminering kastar bort informasjon**. Den kartesiske likninga viser berre *kvar* kurva ligg. Parametriseringa veit i tillegg retninga, tidsskjemaet og kva for del som vart gjennomløpt. Både $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir likninga $x^2 + y^2 = 1$ — men rørslene går kvar sin veg rundt. Og $(\\cos 2t, \\sin 2t)$ med $t \\in [0, \\pi]$ gir same sirkel i dobbelt tempo. Same kart — heilt ulike flyturar.",
+      "e9a6d38de0508595": "Test deg sjølv på eliminering av parameteren:",
+      "ff90bd49b15f5541": "Kva er den kartesiske likninga for kurva $x = 1 + 2t$, $y = 3 - t$?",
+      "19b57fe3224a9a9c": "$x + 2y = 7$",
+      "1fa1edb0a1b95380": "$2x + y = 7$",
+      "29048d427367cb0c": "$x - 2y = 7$",
+      "be93895dd1ea4fe6": "$x + 2y = 5$",
+      "bf1d20d547653ef1": "$t = \\frac{x-1}{2}$ innsett i $y = 3 - t$ gir $y = 3 - \\frac{x-1}{2}$, altså $2y = 7 - x$ og $x + 2y = 7$.",
+      "46b51a155a8bf9d8": "Kva for triks eliminerer parameteren frå $x = 2 + 3\\cos t$, $y = -1 + 3\\sin t$?",
+      "4caf7608504add41": "Derivere begge likningane",
+      "3dde720be698c0de": "Setje $t = 0$",
+      "b6d040662fd0476b": "Isolere $\\cos t$ og $\\sin t$ og bruke $\\cos^2 t + \\sin^2 t = 1$",
+      "43f3c371f34fcfd1": "Multiplisere likningane med kvarandre",
+      "f435291abc0be875": "Med $\\cos t = \\frac{x-2}{3}$ og $\\sin t = \\frac{y+1}{3}$ gir identiteten $(x-2)^2 + (y+1)^2 = 9$.",
+      "d457b0d2464cfe50": "Kurva $x = \\frac{1}{t}$, $y = t$ med $t > 0$ tilfredsstiller $xy = 1$. Kva for del av hyperbelen er kurva?",
+      "14e17ab5a5071714": "Heile hyperbelen",
+      "17e9bae5e3c52e69": "Greina i tredje kvadrant",
+      "602026d3f0ac5ea0": "Begge greinene",
+      "0194214a611ea437": "Greina i første kvadrant",
+      "1670590cb75687d1": "$t > 0$ gir $y = t > 0$ og $x = \\frac{1}{t} > 0$ — berre punkta med begge koordinatar positive ligg på kurva.",
+      "da2e9b322ba7d906": "Kva slags informasjon mistar vi når parameteren blir eliminert?",
+      "2dbc83798fd1e59b": "Retning, fart og kva for del av kurva som blir gjennomløpt",
+      "223712fddb3b70a4": "Skjeringspunkta med aksane",
+      "11445d87aa6f5765": "Ingenting — likninga inneheld alt",
+      "63ca6ef36ff7c47c": "Den kartesiske likninga viser berre punktmengda. $(\\cos t, \\sin t)$ og $(\\cos t, -\\sin t)$ gir same likning, men motsett omløpsretning.",
+      "a765ace974e7dd98": "## Tangentvektoren — fartsmålaren i loggen\n\nFerdsskrivaren har éin skatt att: han kan fortelje kor fort og i kva for retning dronen rørde seg i kvart augneblink. Deriver komponentane kvar for seg, og du får **tangentvektoren**\n\n$$\\vec{v}(t) = [x'(t), y'(t)]$$\n\nHan peikar i rørsleretninga — tangentielt til kurva — og lengda $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$ er *farten*, viss $t$ er tid. På sirkelen $x = 2\\cos t$, $y = 2\\sin t$ blir $\\vec{v}(t) = [-2\\sin t, 2\\cos t]$, og skalarproduktet med posisjonsvektoren er $-4\\cos t \\sin t + 4\\sin t \\cos t = 0$ for alle $t$: tangentvektoren står alltid vinkelrett på radien — den gamle sanninga til geometrien om sirkeltangentar, attfunnen med derivasjon.\n\nTangentvektoren gir òg tangent*linjer*. For kurva $x = t^2$, $y = t^3$ i $t = 2$: punktet er $(4, 8)$, tangentvektoren $\\vec{v}(2) = [2t, 3t^2]_{t=2} = [4, 12]$, og stigingstalet er forholdet $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$. Linja gjennom $(4, 8)$ med stigingstal $3$ er $y = 3x - 4$.\n\nSpesialtilfella blir lesne rett av komponentane: tangenten er **horisontal** der $y'(t) = 0$ (og $x'(t) \\neq 0$), **vertikal** der $x'(t) = 0$ (og $y'(t) \\neq 0$). For $x = t^2 - 4t$, $y = t^2 - 2t$ gir $y' = 2t - 2 = 0$ tidspunktet $t = 1$ og det horisontale tangentpunktet $(-3, -1)$, medan $x' = 2t - 4 = 0$ gir $t = 2$ og det vertikale tangentpunktet $(-4, 0)$.\n\nVerktøykassa toler meir enn flyrutene: **sykloiden** $x = r(t - \\sin t)$, $y = r(1 - \\cos t)$ er bana til eit punkt på kanten av eit rullande hjul — bogar som rører bakken ved kvar $2\\pi$ — og **Lissajous-kurvene** $x = \\sin(3t)$, $y = \\sin(2t)$ flettar sjølvkryssande mønster som fysikarar bruker til å samanlikne svingefrekvensar. Parameterframstillinga teiknar dei alle like ubesvera.",
+      "2e7110bdfc59eed2": "Test deg sjølv på tangentvektor og fart:",
+      "72a7d597faedf6b2": "Kva er tangentvektoren til kurva $(x(t), y(t))$?",
+      "11bb52d49b6f0dbb": "$[x(t), y(t)]$",
+      "771cd9ce1071690a": "$[y'(t), x'(t)]$",
+      "3a125808a0e2dd5c": "$[x'(t), y'(t)]$",
+      "c681b6e32436843a": "$[x''(t), y''(t)]$",
+      "f65d055e82c6499a": "Deriver komponentvis: $\\vec{v}(t) = [x'(t), y'(t)]$ peikar i rørsleretninga langs kurva.",
+      "6209fb2df6a3e937": "For kurva $x = t^2$, $y = t^3$: kva er stigingstalet til tangenten i $t = 2$?",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "2c2f4dba4e782332": "$\\vec{v}(2) = [4, 12]$, og stigingstalet er $\\frac{y'(2)}{x'(2)} = \\frac{12}{4} = 3$ — tangenten blir $y = 3x - 4$.",
+      "0ebd467639e5f5d8": "Når har parameterkurva horisontal tangent?",
+      "0b8ebd2ba87560cd": "Når $x'(t) = 0$ og $y'(t) \\neq 0$",
+      "aff83efcfb46d3a8": "Når $x(t) = 0$",
+      "267c2252b1cd93ef": "Når $y(t) = 0$",
+      "4c95d72a21b6ce55": "Når $y'(t) = 0$ og $x'(t) \\neq 0$",
+      "c0b883bc7bb4ee83": "Horisontal tangent krev at den vertikale farten $y'$ er null medan den horisontale $x'$ ikkje er det. Motsett for vertikal tangent.",
+      "2dbea908c2afde4b": "Kva viser skalarproduktet $\\vec{r}(t) \\cdot \\vec{v}(t) = 0$ for sirkelen $\\vec{r}(t) = [2\\cos t, 2\\sin t]$?",
+      "c3604c334e522211": "At farten er null",
+      "5368ed1541999cd8": "At tangentvektoren alltid står vinkelrett på radien",
+      "423051bbd504146c": "At kurva ikkje er ein sirkel",
+      "1120ea43b9e78d9f": "At rørsla går med klokka",
+      "dbc24720955d49ae": "Skalarprodukt null for alle $t$ tyder at tangenten alltid er vinkelrett på posisjonsvektoren — den klassiske eigenskapen til sirkeltangenten.",
+      "b9a381fda6f5d48a": "## Oppsummering\n\nFerdsskrivaren viste seg å vere matematikk: ei **parameterframstilling** $x = x(t)$, $y = y(t)$, $t \\in I$, der kvar tid gir eit punkt og kurva er bana som blir teikna opp. Forma rommar alt $y = f(x)$ ikkje maktar — sjølvkryssande sløyfer, sirklar, heile rørsler med retning, tidsskjema og start og slutt avgjort av parameterintervallet.\n\nLinja gjennom $(x_0, y_0)$ med retningsvektor $[a, b]$ fekk forma $x = x_0 + at$, $y = y_0 + bt$. Sirkelen med sentrum $(a, b)$ og radius $r$ vart $x = a + r\\cos t$, $y = b + r\\sin t$, gjennomløpt mot klokka, med $\\cos^2 t + \\sin^2 t = 1$ som kontroll, og ellipsen $x = a\\cos t$, $y = b\\sin t$ svara til $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$.\n\nÅ **eliminere parameteren** — løyse for $t$ og setje inn, eller la trig-identiteten rydde — gav det kartesiske kartet: $x + 2y = 7$ for linja, $(x-2)^2 + (y+1)^2 = 9$ for sirkelen, hyperbelgreina $xy = 1$ i første kvadrant. Men kartet gløymer flyturen: retning, fart og gjennomløpt del finst berre i parametriseringa.\n\n**Tangentvektoren** $\\vec{v}(t) = [x'(t), y'(t)]$ gav rørsleretning og fart $|\\vec{v}(t)|$, stigingstal $\\frac{y'}{x'}$ for tangentlinjer, horisontale tangentar der $y' = 0$ og vertikale der $x' = 0$ — og på sirkelen stod han alltid vinkelrett på radien.\n\nI neste kapittel får parameterkurva nytt namn — vektorfunksjon — og derivasjonen av han blir hovudpersonen: fart, snøggleik, akselerasjon og lengda av sjølve flyturen."
+    }
+  }
+}

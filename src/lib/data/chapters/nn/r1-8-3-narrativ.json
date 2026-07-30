@@ -1,1 +1,513 @@
-{"id":"r1-8-3-narrativ","courseId":"r1","chapterNumber":"8.3","title":"Grunnleggjande sannsyn","subtitle":"Narrativ versjon","description":"Ei forteljing om å setje tal på det usikre – utfallsrom, klassisk sannsyn, komplementsetninga og addisjonssetninga i praksis.","estimatedMinutes":32,"competenceGoals":["definere utfallsrom og hendingar for eit forsøk","rekne ut sannsyn ved hjelp av klassisk sannsyn","bruke komplementsetninga til å forenkle utrekningar","bruke addisjonssetninga for sannsyn"],"linkedChapterId":"r1-8-3","content":[{"id":"r1-8-3-n-intro","type":"text","content":"## Å setje tal på det usikre\n\n«Det er nok femti-femti.» «Sjansen er liten.» «Det skjer garantert.» Vi snakkar om uvisse heile tida – men upresist. Sannsynsrekninga gjer det presist: ho set eit tal mellom $0$ og $1$ på kor truleg noko er, der $0$ tyder umogleg og $1$ tyder sikkert.\n\nOg her kjem gevinsten frå kombinatorikken du nettopp har lært: Når alle utfall er like sannsynlege, er sannsynet rett og slett eit *teljeforhold* – talet på gunstige utfall delt på talet på moglege. Kast ein terning: seks moglege utfall, tre av dei er partal, så sannsynet for partal er $\\frac{3}{6} = \\frac{1}{2}$. Å rekne sannsyn blir å telje, og telje kan du no.\n\nI dette kapittelet byggjer vi det formelle fundamentet: utfallsrom og hendingar, den klassiske sannsynsdefinisjonen, og to reknereglar du kjem til å bruke heile tida – komplementsetninga og addisjonssetninga."},{"id":"r1-8-3-n-section1","type":"text","content":"## Utfallsrom, hendingar og klassisk sannsyn\n\nFørst litt vokabular. Eit **stokastisk forsøk** er eit forsøk med usikkert utfall – eit terningkast, eit korttrekk, eit lottotrekk. **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall; for eitt terningkast er $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Ei **hending** $A$ er ei delmengd av utfallsrommet – «å kaste partal» er hendinga $A = \\{2, 4, 6\\}$. Vi skriv $|\\Omega|$ for talet på moglege utfall og $|A|$ for talet på gunstige.\n\nNår alle utfalla er *like sannsynlege*, gjeld den klassiske sannsynsdefinisjonen (Laplace):\n\n$$P(A) = \\frac{|A|}{|\\Omega|} = \\frac{\\text{talet på gunstige utfall}}{\\text{totalt tal på utfall}}$$\n\nSannsyn ligg alltid mellom $0$ og $1$: $P(A) = 0$ tyder at hendinga er umogleg, $P(A) = 1$ at ho er sikker.\n\nLat oss kaste *to* terningar og spørje: kva er sannsynet for at summen blir $7$? Utfallsrommet består av alle par $(første, andre)$ – det er $6 \\cdot 6 = 36$ like sannsynlege utfall (multiplikasjonsprinsippet!). Dei gunstige er $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ – seks stykke. Altså $P(\\text{sum} = 7) = \\frac{6}{36} = \\frac{1}{6}$.\n\nMerk føresetnaden «like sannsynlege»: han er avgjerande. Summane $2$ til $12$ er til dømes *ikkje* like sannsynlege – det finst seks vegar til sum $7$, men berre éin til sum $2$. Vel alltid eit utfallsrom der symmetrien garanterer like sannsynlege utfall."},{"id":"r1-8-3-n-quiz1","type":"exercise","exercise":{"id":"r1-8-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på utfallsrom og klassisk sannsyn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-3-n-quiz1-q0","task":"Kva er utfallsrommet for eitt terningkast?","options":[{"id":"a","text":"$\\{1, 2, 3, 4, 5, 6\\}$","isCorrect":true},{"id":"b","text":"$\\{partal, oddetal\\}$","isCorrect":false},{"id":"c","text":"$\\{6\\}$","isCorrect":false},{"id":"d","text":"Alle tal mellom 1 og 6, også desimaltal","isCorrect":false}],"solution":"Utfallsrommet er mengda av alle moglege utfall: $\\Omega = \\{1,2,3,4,5,6\\}$."},{"id":"r1-8-3-n-quiz1-q1","task":"Kva krevst for å bruke formelen $P(A) = \\frac{|A|}{|\\Omega|}$?","options":[{"id":"a","text":"At hendinga er umogleg","isCorrect":false},{"id":"b","text":"At det er meir enn ti utfall","isCorrect":false},{"id":"c","text":"At alle utfall i utfallsrommet er like sannsynlege","isCorrect":true},{"id":"d","text":"At forsøket blir gjenteke mange gonger","isCorrect":false}],"solution":"Den klassiske definisjonen gjeld berre når alle utfall er like sannsynlege – som ved symmetriske terningar, myntar og kortstokkar."},{"id":"r1-8-3-n-quiz1-q2","task":"Du kastar to terningar. Kor mange utfall har utfallsrommet?","options":[{"id":"a","text":"$12$","isCorrect":false},{"id":"b","text":"$36$","isCorrect":true},{"id":"c","text":"$21$","isCorrect":false},{"id":"d","text":"$6$","isCorrect":false}],"solution":"Kvar terning har 6 utfall, og multiplikasjonsprinsippet gir $6 \\cdot 6 = 36$ ordna par."},{"id":"r1-8-3-n-quiz1-q3","task":"Kva er sannsynet for at summen av to terningar blir $7$?","options":[{"id":"a","text":"$\\frac{7}{36}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{12}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{7}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{6}$","isCorrect":true}],"solution":"Seks gunstige par: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$. $P = \\frac{6}{36} = \\frac{1}{6}$."}],"solution":""}},{"id":"r1-8-3-n-section2","type":"text","content":"## Komplement og addisjon – to uunnverlege reglar\n\nNokre hendingar er lettare å telje baklengs. Kast tre myntar: kva er sannsynet for *minst éin* krone? Å telje alle utfalla med éin, to eller tre kroner er mogleg, men tungvint. Snu heller på det: motsetnaden til «minst éin krone» er «ingen krone» – og den hendinga har berre eitt utfall (mynt-mynt-mynt) av $2^3 = 8$ moglege. **Komplementsetninga** seier at for komplementet $A^c$ («$A$ inntreff ikkje») gjeld\n\n$$P(A^c) = 1 - P(A)$$\n\nDermed: $P(\\text{minst éin krone}) = 1 - \\frac{1}{8} = \\frac{7}{8}$. Kvar gong du ser orda «minst éin», bør komplementet vere den første tanken din.\n\nDen andre regelen handterer «eller». For to hendingar $A$ og $B$ gjeld **addisjonssetninga**:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nder $A \\cup B$ tyder «$A$ eller $B$ (eller begge)» og $A \\cap B$ tyder «både $A$ og $B$». Kvifor minusleddet? Trekk eit kort og spør: hjarter eller ess? $P(\\text{hjarter}) = \\frac{13}{52}$ og $P(\\text{ess}) = \\frac{4}{52}$ – men hjarter ess ligg i begge buntane og ville blitt telt dobbelt. Vi trekkjer frå $P(A \\cap B) = \\frac{1}{52}$:\n\n$$P(A \\cup B) = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$$\n\nBerre når $A$ og $B$ er **disjunkte** – utan felles utfall – forenklar regelen seg til rein addisjon $P(A \\cup B) = P(A) + P(B)$."},{"id":"r1-8-3-n-quiz2","type":"exercise","exercise":{"id":"r1-8-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på komplement- og addisjonssetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-3-n-quiz2-q0","task":"Kva seier komplementsetninga?","options":[{"id":"a","text":"$P(A^c) = 1 - P(A)$","isCorrect":true},{"id":"b","text":"$P(A^c) = P(A)$","isCorrect":false},{"id":"c","text":"$P(A^c) = 1 + P(A)$","isCorrect":false},{"id":"d","text":"$P(A^c) = \\frac{1}{P(A)}$","isCorrect":false}],"solution":"Anten inntreff $A$ eller så gjer ho det ikkje – sannsyna summerer seg til $1$."},{"id":"r1-8-3-n-quiz2-q1","task":"Du kastar 3 myntar. Kva er sannsynet for minst éin krone?","options":[{"id":"a","text":"$\\frac{1}{8}$","isCorrect":false},{"id":"b","text":"$\\frac{3}{8}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{7}{8}$","isCorrect":true}],"solution":"Komplementet «ingen krone» har sannsyn $\\frac{1}{8}$ (berre MMM). $P(\\text{minst éin}) = 1 - \\frac{1}{8} = \\frac{7}{8}$."},{"id":"r1-8-3-n-quiz2-q2","task":"Kvifor trekkjer vi frå $P(A \\cap B)$ i addisjonssetninga?","options":[{"id":"a","text":"Fordi snittet er umogleg","isCorrect":false},{"id":"b","text":"For at svaret ikkje skal bli negativt","isCorrect":false},{"id":"c","text":"Fordi utfalla i snittet elles blir telde dobbelt","isCorrect":true},{"id":"d","text":"Fordi sannsyn alltid skal reduserast","isCorrect":false}],"solution":"Utfall som ligg i både $A$ og $B$ blir telde med i både $P(A)$ og $P(B)$ – vi må trekkje frå snittet éin gong."},{"id":"r1-8-3-n-quiz2-q3","task":"Kva er sannsynet for å trekkje hjarter eller ess frå ein kortstokk?","options":[{"id":"a","text":"$\\frac{17}{52}$","isCorrect":false},{"id":"b","text":"$\\frac{4}{13}$","isCorrect":true},{"id":"c","text":"$\\frac{13}{52}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{4}$","isCorrect":false}],"solution":"$P = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$ – hjarter ess blir trekt frå éin gong."}],"solution":""}},{"id":"r1-8-3-n-section3","type":"text","content":"## Når kombinatorikken tek over teljinga\n\nFor terningar og myntar kan vi telje på fingrane. Men kva med dette: du trekkjer 5 kort frå ein kortstokk – kva er sannsynet for *nøyaktig* 3 hjarter? No er det millionar av utfall, og det er her verktøya frå kapittel 8.2 kjem inn. Oppskrifta er alltid den same: avgjer utfallsrommet og rekn ut $|\\Omega|$, tel dei gunstige utfalla $|A|$, og del.\n\nUtfallsrommet er alle femkorts-hender: $|\\Omega| = \\binom{52}{5} = 2\\,598\\,960$.\n\nDei gunstige hendene har nøyaktig 3 hjarter og 2 ikkje-hjarter. Her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vel 3 av dei 13 hjarterkorta *og* 2 av dei 39 andre korta:\n\n$$|A| = \\binom{13}{3} \\cdot \\binom{39}{2} = 286 \\cdot 741 = 211\\,926$$\n\nDermed blir sannsynet\n\n$$P(A) = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$$\n\n– litt over 8 prosent. Legg merke til strukturen i teljaren: den typen «vel $k$ av suksessane og resten av dei andre»-uttrykk kjem du til å sjå att mange gonger, mellom anna i den hypergeometriske fordelinga seinare i kapittelet. Sannsynsrekning på dette nivået er nitti prosent ryddig teljing – og ti prosent å hugse å dele på rett totaltal."},{"id":"r1-8-3-n-quiz3","type":"exercise","exercise":{"id":"r1-8-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på sannsyn med kombinatorikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-3-n-quiz3-q0","task":"Kva er oppskrifta for å rekne ut sannsyn med kombinatorikk?","options":[{"id":"a","text":"Tel gunstige utfall, tel moglege utfall, og del: $P(A) = \\frac{|A|}{|\\Omega|}$","isCorrect":true},{"id":"b","text":"Multipliser talet på gunstige med talet på moglege","isCorrect":false},{"id":"c","text":"Bruk alltid komplementsetninga først","isCorrect":false},{"id":"d","text":"Tel berre dei gunstige utfalla","isCorrect":false}],"solution":"Avgjer $|\\Omega|$, avgjer $|A|$, og bruk den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$."},{"id":"r1-8-3-n-quiz3-q1","task":"Kor mange måtar kan ein trekkje 5 kort frå 52 på?","options":[{"id":"a","text":"$52 \\cdot 5$","isCorrect":false},{"id":"b","text":"$P(52,5)$","isCorrect":false},{"id":"c","text":"$\\binom{52}{5} = 2\\,598\\,960$","isCorrect":true},{"id":"d","text":"$52^5$","isCorrect":false}],"solution":"Ei hand er eit uordna utval: $\\binom{52}{5} = 2\\,598\\,960$."},{"id":"r1-8-3-n-quiz3-q2","task":"Korleis blir hender med nøyaktig 3 hjarter og 2 andre kort telde?","options":[{"id":"a","text":"$\\binom{13}{3} + \\binom{39}{2}$","isCorrect":false},{"id":"b","text":"$\\binom{13}{3} \\cdot \\binom{39}{2}$","isCorrect":true},{"id":"c","text":"$\\binom{52}{3} \\cdot \\binom{52}{2}$","isCorrect":false},{"id":"d","text":"$\\binom{13}{3}$","isCorrect":false}],"solution":"Vel 3 av 13 hjarter OG 2 av 39 ikkje-hjarter – «og» gir multiplikasjon: $286 \\cdot 741 = 211\\,926$."},{"id":"r1-8-3-n-quiz3-q3","task":"Kva er sannsynet for nøyaktig 3 hjarter i ei femkorts hand (omtrent)?","options":[{"id":"a","text":"$0{,}25$","isCorrect":false},{"id":"b","text":"$0{,}5$","isCorrect":false},{"id":"c","text":"$0{,}015$","isCorrect":false},{"id":"d","text":"$0{,}08$","isCorrect":true}],"solution":"$P = \\frac{\\binom{13}{3}\\binom{39}{2}}{\\binom{52}{5}} = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$, altså ca. 8 %."}],"solution":""}},{"id":"r1-8-3-n-summary","type":"text","content":"## Oppsummering: sannsyn er teljing med fornuft\n\nVi har gjort uvisse om til matematikk. Eit stokastisk forsøk har eit utfallsrom $\\Omega$ av moglege utfall, ei hending $A$ er ei delmengd av det, og når alle utfalla er like sannsynlege, gjeld den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$ – med verdiar som alltid ligg mellom $0$ (umogleg) og $1$ (sikkert).\n\nTo reknereglar gjer livet enklare. Komplementsetninga $P(A^c) = 1 - P(A)$ er snarvegen for «minst éin»-spørsmål: tel den enkle motsetnaden i staden. Addisjonssetninga $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$ handterer «eller»-spørsmål, der minusleddet hindrar dobbeltteljing av utfalla i snittet – og forsvinn heilt når hendingane er disjunkte.\n\nOg når utfallsromma blir store, tek kombinatorikken over: binomialkoeffisientane tel både totalen ($\\binom{52}{5}$ pokerhender) og dei gunstige ($\\binom{13}{3}\\binom{39}{2}$ hender med tre hjarter). I neste kapittel skrur vi opp vanskegraden med spørsmålet som forandrar alt: kva skjer med sannsynet når du får ny informasjon?"}],"exercises":[],"_meta":{"sourceHash":"dc87cdd75e29cc5f","translatedAt":"2026-06-20T00:28:21.922Z","model":"claude-code-agent","strings":79,"tm":{"2cc9770f81ef2c1b":"Grunnleggjande sannsyn","b195b06d1ed59702":"Narrativ versjon","7980db6c1a942afd":"Ei forteljing om å setje tal på det usikre – utfallsrom, klassisk sannsyn, komplementsetninga og addisjonssetninga i praksis.","138ad1c543961a06":"definere utfallsrom og hendingar for eit forsøk","7bda8c9a9752b14a":"rekne ut sannsyn ved hjelp av klassisk sannsyn","ad99467c16685548":"bruke komplementsetninga til å forenkle utrekningar","04305fdc4f852a14":"bruke addisjonssetninga for sannsyn","1608275dd3878342":"## Å setje tal på det usikre\n\n«Det er nok femti-femti.» «Sjansen er liten.» «Det skjer garantert.» Vi snakkar om uvisse heile tida – men upresist. Sannsynsrekninga gjer det presist: ho set eit tal mellom $0$ og $1$ på kor truleg noko er, der $0$ tyder umogleg og $1$ tyder sikkert.\n\nOg her kjem gevinsten frå kombinatorikken du nettopp har lært: Når alle utfall er like sannsynlege, er sannsynet rett og slett eit *teljeforhold* – talet på gunstige utfall delt på talet på moglege. Kast ein terning: seks moglege utfall, tre av dei er partal, så sannsynet for partal er $\\frac{3}{6} = \\frac{1}{2}$. Å rekne sannsyn blir å telje, og telje kan du no.\n\nI dette kapittelet byggjer vi det formelle fundamentet: utfallsrom og hendingar, den klassiske sannsynsdefinisjonen, og to reknereglar du kjem til å bruke heile tida – komplementsetninga og addisjonssetninga.","a83d2f4c31761d1f":"## Utfallsrom, hendingar og klassisk sannsyn\n\nFørst litt vokabular. Eit **stokastisk forsøk** er eit forsøk med usikkert utfall – eit terningkast, eit korttrekk, eit lottotrekk. **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall; for eitt terningkast er $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Ei **hending** $A$ er ei delmengd av utfallsrommet – «å kaste partal» er hendinga $A = \\{2, 4, 6\\}$. Vi skriv $|\\Omega|$ for talet på moglege utfall og $|A|$ for talet på gunstige.\n\nNår alle utfalla er *like sannsynlege*, gjeld den klassiske sannsynsdefinisjonen (Laplace):\n\n$$P(A) = \\frac{|A|}{|\\Omega|} = \\frac{\\text{talet på gunstige utfall}}{\\text{totalt tal på utfall}}$$\n\nSannsyn ligg alltid mellom $0$ og $1$: $P(A) = 0$ tyder at hendinga er umogleg, $P(A) = 1$ at ho er sikker.\n\nLat oss kaste *to* terningar og spørje: kva er sannsynet for at summen blir $7$? Utfallsrommet består av alle par $(første, andre)$ – det er $6 \\cdot 6 = 36$ like sannsynlege utfall (multiplikasjonsprinsippet!). Dei gunstige er $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ – seks stykke. Altså $P(\\text{sum} = 7) = \\frac{6}{36} = \\frac{1}{6}$.\n\nMerk føresetnaden «like sannsynlege»: han er avgjerande. Summane $2$ til $12$ er til dømes *ikkje* like sannsynlege – det finst seks vegar til sum $7$, men berre éin til sum $2$. Vel alltid eit utfallsrom der symmetrien garanterer like sannsynlege utfall.","6742ccda6c9ddc5f":"Test deg sjølv på utfallsrom og klassisk sannsyn:","4097889236a2af26":"placeholder","ceea439f9eff45d4":"Kva er utfallsrommet for eitt terningkast?","61d7a6316d0b5802":"$\\{partal, oddetal\\}$","efe0821586d4fe1f":"Alle tal mellom 1 og 6, også desimaltal","437d262974f525b3":"Utfallsrommet er mengda av alle moglege utfall: $\\Omega = \\{1,2,3,4,5,6\\}$.","083770a3b20c038c":"Kva krevst for å bruke formelen $P(A) = \\frac{|A|}{|\\Omega|}$?","a5bc001587477eca":"At hendinga er umogleg","65a043d58a58fab3":"At det er meir enn ti utfall","977965bf28d67d53":"At alle utfall i utfallsrommet er like sannsynlege","2479fbc6a5cda581":"At forsøket blir gjenteke mange gonger","4d8be95cc5baf4e6":"Den klassiske definisjonen gjeld berre når alle utfall er like sannsynlege – som ved symmetriske terningar, myntar og kortstokkar.","6d150b9298f465b6":"Du kastar to terningar. Kor mange utfall har utfallsrommet?","d01bf16fd7af117c":"Kvar terning har 6 utfall, og multiplikasjonsprinsippet gir $6 \\cdot 6 = 36$ ordna par.","fb6f3efeee388713":"Kva er sannsynet for at summen av to terningar blir $7$?","187f8d6e88e7f585":"$\\frac{7}{36}$","a397bbc7d5591722":"$\\frac{1}{12}$","125b0b86b1f22c3c":"$\\frac{1}{7}$","ed2f0dca805db9c6":"$\\frac{1}{6}$","39da4a3769d34be6":"Seks gunstige par: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$. $P = \\frac{6}{36} = \\frac{1}{6}$.","ba881ab5607d9816":"## Komplement og addisjon – to uunnverlege reglar\n\nNokre hendingar er lettare å telje baklengs. Kast tre myntar: kva er sannsynet for *minst éin* krone? Å telje alle utfalla med éin, to eller tre kroner er mogleg, men tungvint. Snu heller på det: motsetnaden til «minst éin krone» er «ingen krone» – og den hendinga har berre eitt utfall (mynt-mynt-mynt) av $2^3 = 8$ moglege. **Komplementsetninga** seier at for komplementet $A^c$ («$A$ inntreff ikkje») gjeld\n\n$$P(A^c) = 1 - P(A)$$\n\nDermed: $P(\\text{minst éin krone}) = 1 - \\frac{1}{8} = \\frac{7}{8}$. Kvar gong du ser orda «minst éin», bør komplementet vere den første tanken din.\n\nDen andre regelen handterer «eller». For to hendingar $A$ og $B$ gjeld **addisjonssetninga**:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nder $A \\cup B$ tyder «$A$ eller $B$ (eller begge)» og $A \\cap B$ tyder «både $A$ og $B$». Kvifor minusleddet? Trekk eit kort og spør: hjarter eller ess? $P(\\text{hjarter}) = \\frac{13}{52}$ og $P(\\text{ess}) = \\frac{4}{52}$ – men hjarter ess ligg i begge buntane og ville blitt telt dobbelt. Vi trekkjer frå $P(A \\cap B) = \\frac{1}{52}$:\n\n$$P(A \\cup B) = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$$\n\nBerre når $A$ og $B$ er **disjunkte** – utan felles utfall – forenklar regelen seg til rein addisjon $P(A \\cup B) = P(A) + P(B)$.","dd80591388dc038b":"Test deg sjølv på komplement- og addisjonssetninga:","048d7161705486a9":"Kva seier komplementsetninga?","c917c2fb0b398d51":"$P(A^c) = 1 - P(A)$","4902439e6a200216":"$P(A^c) = P(A)$","893e49713aaa4aab":"$P(A^c) = 1 + P(A)$","d61a5086d3f6d47d":"$P(A^c) = \\frac{1}{P(A)}$","4466ecfe5db944e1":"Anten inntreff $A$ eller så gjer ho det ikkje – sannsyna summerer seg til $1$.","64753fafa4fc7956":"Du kastar 3 myntar. Kva er sannsynet for minst éin krone?","de78f6287ac0119a":"$\\frac{1}{8}$","54c7e9fb31c5b808":"$\\frac{3}{8}$","b61def0872c567fe":"$\\frac{1}{2}$","0643140ef414cbf6":"$\\frac{7}{8}$","c6190cef552e8974":"Komplementet «ingen krone» har sannsyn $\\frac{1}{8}$ (berre MMM). $P(\\text{minst éin}) = 1 - \\frac{1}{8} = \\frac{7}{8}$.","8b1d02bffe2572d5":"Kvifor trekkjer vi frå $P(A \\cap B)$ i addisjonssetninga?","0c9179fa5cfd9141":"Fordi snittet er umogleg","841414beffd9c839":"For at svaret ikkje skal bli negativt","5426322e004e03c7":"Fordi utfalla i snittet elles blir telde dobbelt","63a47716e6a85408":"Fordi sannsyn alltid skal reduserast","3bc2f90f517cf9d9":"Utfall som ligg i både $A$ og $B$ blir telde med i både $P(A)$ og $P(B)$ – vi må trekkje frå snittet éin gong.","71c779431a0e5b90":"Kva er sannsynet for å trekkje hjarter eller ess frå ein kortstokk?","0f8f22e85c2e8576":"$\\frac{17}{52}$","093bb865b4b00e44":"$\\frac{4}{13}$","556166fb5968675a":"$\\frac{13}{52}$","f2bf6d932e14b55c":"$\\frac{1}{4}$","f1085e6c1a9a382e":"$P = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$ – hjarter ess blir trekt frå éin gong.","c4ca5ffd8c585df2":"## Når kombinatorikken tek over teljinga\n\nFor terningar og myntar kan vi telje på fingrane. Men kva med dette: du trekkjer 5 kort frå ein kortstokk – kva er sannsynet for *nøyaktig* 3 hjarter? No er det millionar av utfall, og det er her verktøya frå kapittel 8.2 kjem inn. Oppskrifta er alltid den same: avgjer utfallsrommet og rekn ut $|\\Omega|$, tel dei gunstige utfalla $|A|$, og del.\n\nUtfallsrommet er alle femkorts-hender: $|\\Omega| = \\binom{52}{5} = 2\\,598\\,960$.\n\nDei gunstige hendene har nøyaktig 3 hjarter og 2 ikkje-hjarter. Her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vel 3 av dei 13 hjarterkorta *og* 2 av dei 39 andre korta:\n\n$$|A| = \\binom{13}{3} \\cdot \\binom{39}{2} = 286 \\cdot 741 = 211\\,926$$\n\nDermed blir sannsynet\n\n$$P(A) = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$$\n\n– litt over 8 prosent. Legg merke til strukturen i teljaren: den typen «vel $k$ av suksessane og resten av dei andre»-uttrykk kjem du til å sjå att mange gonger, mellom anna i den hypergeometriske fordelinga seinare i kapittelet. Sannsynsrekning på dette nivået er nitti prosent ryddig teljing – og ti prosent å hugse å dele på rett totaltal.","8c47184427d7c698":"Test deg sjølv på sannsyn med kombinatorikk:","056b4b23e69f0817":"Kva er oppskrifta for å rekne ut sannsyn med kombinatorikk?","11b3b008c2cb008b":"Tel gunstige utfall, tel moglege utfall, og del: $P(A) = \\frac{|A|}{|\\Omega|}$","19f5725902d2662c":"Multipliser talet på gunstige med talet på moglege","abfc1c8fba596271":"Bruk alltid komplementsetninga først","438d6ea48420b523":"Tel berre dei gunstige utfalla","d698379df2d338b4":"Avgjer $|\\Omega|$, avgjer $|A|$, og bruk den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$.","1804c4b3208e2a98":"Kor mange måtar kan ein trekkje 5 kort frå 52 på?","01142b0443832c85":"$52 \\cdot 5$","778449b8f2b266a2":"$P(52,5)$","c3dc284734c166fa":"$\\binom{52}{5} = 2\\,598\\,960$","bb02fd42f10bbab0":"Ei hand er eit uordna utval: $\\binom{52}{5} = 2\\,598\\,960$.","4a3b4cd0a3735527":"Korleis blir hender med nøyaktig 3 hjarter og 2 andre kort telde?","96e87a8bdc19e19e":"$\\binom{13}{3} + \\binom{39}{2}$","10423eb5efbaca8d":"$\\binom{13}{3} \\cdot \\binom{39}{2}$","05bac87ffd3919bf":"$\\binom{52}{3} \\cdot \\binom{52}{2}$","f2bba5a67987228a":"$\\binom{13}{3}$","e328e7b9b3829af5":"Vel 3 av 13 hjarter OG 2 av 39 ikkje-hjarter – «og» gir multiplikasjon: $286 \\cdot 741 = 211\\,926$.","97f0f04dd051e7c3":"Kva er sannsynet for nøyaktig 3 hjarter i ei femkorts hand (omtrent)?","86256687ef66b1ae":"$P = \\frac{\\binom{13}{3}\\binom{39}{2}}{\\binom{52}{5}} = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$, altså ca. 8 %.","19f6f29d12e8fc82":"## Oppsummering: sannsyn er teljing med fornuft\n\nVi har gjort uvisse om til matematikk. Eit stokastisk forsøk har eit utfallsrom $\\Omega$ av moglege utfall, ei hending $A$ er ei delmengd av det, og når alle utfalla er like sannsynlege, gjeld den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$ – med verdiar som alltid ligg mellom $0$ (umogleg) og $1$ (sikkert).\n\nTo reknereglar gjer livet enklare. Komplementsetninga $P(A^c) = 1 - P(A)$ er snarvegen for «minst éin»-spørsmål: tel den enkle motsetnaden i staden. Addisjonssetninga $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$ handterer «eller»-spørsmål, der minusleddet hindrar dobbeltteljing av utfalla i snittet – og forsvinn heilt når hendingane er disjunkte.\n\nOg når utfallsromma blir store, tek kombinatorikken over: binomialkoeffisientane tel både totalen ($\\binom{52}{5}$ pokerhender) og dei gunstige ($\\binom{13}{3}\\binom{39}{2}$ hender med tre hjarter). I neste kapittel skrur vi opp vanskegraden med spørsmålet som forandrar alt: kva skjer med sannsynet når du får ny informasjon?"}}}
+{
+  "id": "r1-8-3-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "8.3",
+  "title": "Grunnleggjande sannsyn",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å setje tal på det usikre – utfallsrom, klassisk sannsyn, komplementsetninga og addisjonssetninga i praksis.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "definere utfallsrom og hendingar for eit forsøk",
+    "rekne ut sannsyn ved hjelp av klassisk sannsyn",
+    "bruke komplementsetninga til å forenkle utrekningar",
+    "bruke addisjonssetninga for sannsyn"
+  ],
+  "linkedChapterId": "r1-8-3",
+  "content": [
+    {
+      "id": "r1-8-3-n-intro",
+      "type": "text",
+      "content": "## Å setje tal på det usikre\n\n«Det er nok femti-femti.» «Sjansen er liten.» «Det skjer garantert.» Vi snakkar om uvisse heile tida – men upresist. Sannsynsrekninga gjer det presist: ho set eit tal mellom $0$ og $1$ på kor truleg noko er, der $0$ tyder umogleg og $1$ tyder sikkert.\n\nOg her kjem gevinsten frå kombinatorikken du nettopp har lært: Når alle utfall er like sannsynlege, er sannsynet rett og slett eit *teljeforhold* – talet på gunstige utfall delt på talet på moglege. Kast ein terning: seks moglege utfall, tre av dei er partal, så sannsynet for partal er $\\frac{3}{6} = \\frac{1}{2}$. Å rekne sannsyn blir å telje, og telje kan du no.\n\nI dette kapittelet byggjer vi det formelle fundamentet: utfallsrom og hendingar, den klassiske sannsynsdefinisjonen, og to reknereglar du kjem til å bruke heile tida – komplementsetninga og addisjonssetninga."
+    },
+    {
+      "id": "r1-8-3-n-section1",
+      "type": "text",
+      "content": "## Utfallsrom, hendingar og klassisk sannsyn\n\nFørst litt vokabular. Eit **stokastisk forsøk** er eit forsøk med usikkert utfall – eit terningkast, eit korttrekk, eit lottotrekk. **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall; for eitt terningkast er $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Ei **hending** $A$ er ei delmengd av utfallsrommet – «å kaste partal» er hendinga $A = \\{2, 4, 6\\}$. Vi skriv $|\\Omega|$ for talet på moglege utfall og $|A|$ for talet på gunstige.\n\nNår alle utfalla er *like sannsynlege*, gjeld den klassiske sannsynsdefinisjonen (Laplace):\n\n$$P(A) = \\frac{|A|}{|\\Omega|} = \\frac{\\text{talet på gunstige utfall}}{\\text{totalt tal på utfall}}$$\n\nSannsyn ligg alltid mellom $0$ og $1$: $P(A) = 0$ tyder at hendinga er umogleg, $P(A) = 1$ at ho er sikker.\n\nLat oss kaste *to* terningar og spørje: kva er sannsynet for at summen blir $7$? Utfallsrommet består av alle par $(første, andre)$ – det er $6 \\cdot 6 = 36$ like sannsynlege utfall (multiplikasjonsprinsippet!). Dei gunstige er $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ – seks stykke. Altså $P(\\text{sum} = 7) = \\frac{6}{36} = \\frac{1}{6}$.\n\nMerk føresetnaden «like sannsynlege»: han er avgjerande. Summane $2$ til $12$ er til dømes *ikkje* like sannsynlege – det finst seks vegar til sum $7$, men berre éin til sum $2$. Vel alltid eit utfallsrom der symmetrien garanterer like sannsynlege utfall."
+    },
+    {
+      "id": "r1-8-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på utfallsrom og klassisk sannsyn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-3-n-quiz1-q0",
+            "task": "Kva er utfallsrommet for eitt terningkast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\{1, 2, 3, 4, 5, 6\\}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\{partal, oddetal\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\{6\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle tal mellom 1 og 6, også desimaltal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Utfallsrommet er mengda av alle moglege utfall: $\\Omega = \\{1,2,3,4,5,6\\}$."
+          },
+          {
+            "id": "r1-8-3-n-quiz1-q1",
+            "task": "Kva krevst for å bruke formelen $P(A) = \\frac{|A|}{|\\Omega|}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At hendinga er umogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At alle utfall i utfallsrommet er like sannsynlege",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At det er meir enn ti utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At forsøket blir gjenteke mange gonger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den klassiske definisjonen gjeld berre når alle utfall er like sannsynlege – som ved symmetriske terningar, myntar og kortstokkar."
+          },
+          {
+            "id": "r1-8-3-n-quiz1-q2",
+            "task": "Du kastar to terningar. Kor mange utfall har utfallsrommet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$21$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$36$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvar terning har 6 utfall, og multiplikasjonsprinsippet gir $6 \\cdot 6 = 36$ ordna par."
+          },
+          {
+            "id": "r1-8-3-n-quiz1-q3",
+            "task": "Kva er sannsynet for at summen av to terningar blir $7$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{7}{36}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Seks gunstige par: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$. $P = \\frac{6}{36} = \\frac{1}{6}$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-3-n-section2",
+      "type": "text",
+      "content": "## Komplement og addisjon – to uunnverlege reglar\n\nNokre hendingar er lettare å telje baklengs. Kast tre myntar: kva er sannsynet for *minst éin* krone? Å telje alle utfalla med éin, to eller tre kroner er mogleg, men tungvint. Snu heller på det: motsetnaden til «minst éin krone» er «ingen krone» – og den hendinga har berre eitt utfall (mynt-mynt-mynt) av $2^3 = 8$ moglege. **Komplementsetninga** seier at for komplementet $A^c$ («$A$ inntreff ikkje») gjeld\n\n$$P(A^c) = 1 - P(A)$$\n\nDermed: $P(\\text{minst éin krone}) = 1 - \\frac{1}{8} = \\frac{7}{8}$. Kvar gong du ser orda «minst éin», bør komplementet vere den første tanken din.\n\nDen andre regelen handterer «eller». For to hendingar $A$ og $B$ gjeld **addisjonssetninga**:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nder $A \\cup B$ tyder «$A$ eller $B$ (eller begge)» og $A \\cap B$ tyder «både $A$ og $B$». Kvifor minusleddet? Trekk eit kort og spør: hjarter eller ess? $P(\\text{hjarter}) = \\frac{13}{52}$ og $P(\\text{ess}) = \\frac{4}{52}$ – men hjarter ess ligg i begge buntane og ville blitt telt dobbelt. Vi trekkjer frå $P(A \\cap B) = \\frac{1}{52}$:\n\n$$P(A \\cup B) = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$$\n\nBerre når $A$ og $B$ er **disjunkte** – utan felles utfall – forenklar regelen seg til rein addisjon $P(A \\cup B) = P(A) + P(B)$."
+    },
+    {
+      "id": "r1-8-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på komplement- og addisjonssetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-3-n-quiz2-q0",
+            "task": "Kva seier komplementsetninga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(A^c) = 1 - P(A)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$P(A^c) = P(A)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A^c) = 1 + P(A)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A^c) = \\frac{1}{P(A)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Anten inntreff $A$ eller så gjer ho det ikkje – sannsyna summerer seg til $1$."
+          },
+          {
+            "id": "r1-8-3-n-quiz2-q1",
+            "task": "Du kastar 3 myntar. Kva er sannsynet for minst éin krone?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{7}{8}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{3}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Komplementet «ingen krone» har sannsyn $\\frac{1}{8}$ (berre MMM). $P(\\text{minst éin}) = 1 - \\frac{1}{8} = \\frac{7}{8}$."
+          },
+          {
+            "id": "r1-8-3-n-quiz2-q2",
+            "task": "Kvifor trekkjer vi frå $P(A \\cap B)$ i addisjonssetninga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi snittet er umogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For at svaret ikkje skal bli negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi utfalla i snittet elles blir telde dobbelt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi sannsyn alltid skal reduserast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Utfall som ligg i både $A$ og $B$ blir telde med i både $P(A)$ og $P(B)$ – vi må trekkje frå snittet éin gong."
+          },
+          {
+            "id": "r1-8-3-n-quiz2-q3",
+            "task": "Kva er sannsynet for å trekkje hjarter eller ess frå ein kortstokk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{17}{52}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{13}{52}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{4}{13}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$ – hjarter ess blir trekt frå éin gong."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-3-n-section3",
+      "type": "text",
+      "content": "## Når kombinatorikken tek over teljinga\n\nFor terningar og myntar kan vi telje på fingrane. Men kva med dette: du trekkjer 5 kort frå ein kortstokk – kva er sannsynet for *nøyaktig* 3 hjarter? No er det millionar av utfall, og det er her verktøya frå kapittel 8.2 kjem inn. Oppskrifta er alltid den same: avgjer utfallsrommet og rekn ut $|\\Omega|$, tel dei gunstige utfalla $|A|$, og del.\n\nUtfallsrommet er alle femkorts-hender: $|\\Omega| = \\binom{52}{5} = 2\\,598\\,960$.\n\nDei gunstige hendene har nøyaktig 3 hjarter og 2 ikkje-hjarter. Her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vel 3 av dei 13 hjarterkorta *og* 2 av dei 39 andre korta:\n\n$$|A| = \\binom{13}{3} \\cdot \\binom{39}{2} = 286 \\cdot 741 = 211\\,926$$\n\nDermed blir sannsynet\n\n$$P(A) = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$$\n\n– litt over 8 prosent. Legg merke til strukturen i teljaren: den typen «vel $k$ av suksessane og resten av dei andre»-uttrykk kjem du til å sjå att mange gonger, mellom anna i den hypergeometriske fordelinga seinare i kapittelet. Sannsynsrekning på dette nivået er nitti prosent ryddig teljing – og ti prosent å hugse å dele på rett totaltal."
+    },
+    {
+      "id": "r1-8-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sannsyn med kombinatorikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-3-n-quiz3-q0",
+            "task": "Kva er oppskrifta for å rekne ut sannsyn med kombinatorikk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tel gunstige utfall, tel moglege utfall, og del: $P(A) = \\frac{|A|}{|\\Omega|}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Multipliser talet på gunstige med talet på moglege",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bruk alltid komplementsetninga først",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tel berre dei gunstige utfalla",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Avgjer $|\\Omega|$, avgjer $|A|$, og bruk den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$."
+          },
+          {
+            "id": "r1-8-3-n-quiz3-q1",
+            "task": "Kor mange måtar kan ein trekkje 5 kort frå 52 på?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$52 \\cdot 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\binom{52}{5} = 2\\,598\\,960$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$P(52,5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$52^5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei hand er eit uordna utval: $\\binom{52}{5} = 2\\,598\\,960$."
+          },
+          {
+            "id": "r1-8-3-n-quiz3-q2",
+            "task": "Korleis blir hender med nøyaktig 3 hjarter og 2 andre kort telde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\binom{13}{3} + \\binom{39}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\binom{52}{3} \\cdot \\binom{52}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\binom{13}{3} \\cdot \\binom{39}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\binom{13}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vel 3 av 13 hjarter OG 2 av 39 ikkje-hjarter – «og» gir multiplikasjon: $286 \\cdot 741 = 211\\,926$."
+          },
+          {
+            "id": "r1-8-3-n-quiz3-q3",
+            "task": "Kva er sannsynet for nøyaktig 3 hjarter i ei femkorts hand (omtrent)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}015$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}08$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P = \\frac{\\binom{13}{3}\\binom{39}{2}}{\\binom{52}{5}} = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$, altså ca. 8 %."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: sannsyn er teljing med fornuft\n\nVi har gjort uvisse om til matematikk. Eit stokastisk forsøk har eit utfallsrom $\\Omega$ av moglege utfall, ei hending $A$ er ei delmengd av det, og når alle utfalla er like sannsynlege, gjeld den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$ – med verdiar som alltid ligg mellom $0$ (umogleg) og $1$ (sikkert).\n\nTo reknereglar gjer livet enklare. Komplementsetninga $P(A^c) = 1 - P(A)$ er snarvegen for «minst éin»-spørsmål: tel den enkle motsetnaden i staden. Addisjonssetninga $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$ handterer «eller»-spørsmål, der minusleddet hindrar dobbeltteljing av utfalla i snittet – og forsvinn heilt når hendingane er disjunkte.\n\nOg når utfallsromma blir store, tek kombinatorikken over: binomialkoeffisientane tel både totalen ($\\binom{52}{5}$ pokerhender) og dei gunstige ($\\binom{13}{3}\\binom{39}{2}$ hender med tre hjarter). I neste kapittel skrur vi opp vanskegraden med spørsmålet som forandrar alt: kva skjer med sannsynet når du får ny informasjon?"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "dc87cdd75e29cc5f",
+    "translatedAt": "2026-06-20T00:28:21.922Z",
+    "model": "claude-code-agent",
+    "strings": 79,
+    "tm": {
+      "2cc9770f81ef2c1b": "Grunnleggjande sannsyn",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7980db6c1a942afd": "Ei forteljing om å setje tal på det usikre – utfallsrom, klassisk sannsyn, komplementsetninga og addisjonssetninga i praksis.",
+      "138ad1c543961a06": "definere utfallsrom og hendingar for eit forsøk",
+      "7bda8c9a9752b14a": "rekne ut sannsyn ved hjelp av klassisk sannsyn",
+      "ad99467c16685548": "bruke komplementsetninga til å forenkle utrekningar",
+      "04305fdc4f852a14": "bruke addisjonssetninga for sannsyn",
+      "1608275dd3878342": "## Å setje tal på det usikre\n\n«Det er nok femti-femti.» «Sjansen er liten.» «Det skjer garantert.» Vi snakkar om uvisse heile tida – men upresist. Sannsynsrekninga gjer det presist: ho set eit tal mellom $0$ og $1$ på kor truleg noko er, der $0$ tyder umogleg og $1$ tyder sikkert.\n\nOg her kjem gevinsten frå kombinatorikken du nettopp har lært: Når alle utfall er like sannsynlege, er sannsynet rett og slett eit *teljeforhold* – talet på gunstige utfall delt på talet på moglege. Kast ein terning: seks moglege utfall, tre av dei er partal, så sannsynet for partal er $\\frac{3}{6} = \\frac{1}{2}$. Å rekne sannsyn blir å telje, og telje kan du no.\n\nI dette kapittelet byggjer vi det formelle fundamentet: utfallsrom og hendingar, den klassiske sannsynsdefinisjonen, og to reknereglar du kjem til å bruke heile tida – komplementsetninga og addisjonssetninga.",
+      "a83d2f4c31761d1f": "## Utfallsrom, hendingar og klassisk sannsyn\n\nFørst litt vokabular. Eit **stokastisk forsøk** er eit forsøk med usikkert utfall – eit terningkast, eit korttrekk, eit lottotrekk. **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall; for eitt terningkast er $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Ei **hending** $A$ er ei delmengd av utfallsrommet – «å kaste partal» er hendinga $A = \\{2, 4, 6\\}$. Vi skriv $|\\Omega|$ for talet på moglege utfall og $|A|$ for talet på gunstige.\n\nNår alle utfalla er *like sannsynlege*, gjeld den klassiske sannsynsdefinisjonen (Laplace):\n\n$$P(A) = \\frac{|A|}{|\\Omega|} = \\frac{\\text{talet på gunstige utfall}}{\\text{totalt tal på utfall}}$$\n\nSannsyn ligg alltid mellom $0$ og $1$: $P(A) = 0$ tyder at hendinga er umogleg, $P(A) = 1$ at ho er sikker.\n\nLat oss kaste *to* terningar og spørje: kva er sannsynet for at summen blir $7$? Utfallsrommet består av alle par $(første, andre)$ – det er $6 \\cdot 6 = 36$ like sannsynlege utfall (multiplikasjonsprinsippet!). Dei gunstige er $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ – seks stykke. Altså $P(\\text{sum} = 7) = \\frac{6}{36} = \\frac{1}{6}$.\n\nMerk føresetnaden «like sannsynlege»: han er avgjerande. Summane $2$ til $12$ er til dømes *ikkje* like sannsynlege – det finst seks vegar til sum $7$, men berre éin til sum $2$. Vel alltid eit utfallsrom der symmetrien garanterer like sannsynlege utfall.",
+      "6742ccda6c9ddc5f": "Test deg sjølv på utfallsrom og klassisk sannsyn:",
+      "4097889236a2af26": "placeholder",
+      "ceea439f9eff45d4": "Kva er utfallsrommet for eitt terningkast?",
+      "61d7a6316d0b5802": "$\\{partal, oddetal\\}$",
+      "efe0821586d4fe1f": "Alle tal mellom 1 og 6, også desimaltal",
+      "437d262974f525b3": "Utfallsrommet er mengda av alle moglege utfall: $\\Omega = \\{1,2,3,4,5,6\\}$.",
+      "083770a3b20c038c": "Kva krevst for å bruke formelen $P(A) = \\frac{|A|}{|\\Omega|}$?",
+      "a5bc001587477eca": "At hendinga er umogleg",
+      "65a043d58a58fab3": "At det er meir enn ti utfall",
+      "977965bf28d67d53": "At alle utfall i utfallsrommet er like sannsynlege",
+      "2479fbc6a5cda581": "At forsøket blir gjenteke mange gonger",
+      "4d8be95cc5baf4e6": "Den klassiske definisjonen gjeld berre når alle utfall er like sannsynlege – som ved symmetriske terningar, myntar og kortstokkar.",
+      "6d150b9298f465b6": "Du kastar to terningar. Kor mange utfall har utfallsrommet?",
+      "d01bf16fd7af117c": "Kvar terning har 6 utfall, og multiplikasjonsprinsippet gir $6 \\cdot 6 = 36$ ordna par.",
+      "fb6f3efeee388713": "Kva er sannsynet for at summen av to terningar blir $7$?",
+      "187f8d6e88e7f585": "$\\frac{7}{36}$",
+      "a397bbc7d5591722": "$\\frac{1}{12}$",
+      "125b0b86b1f22c3c": "$\\frac{1}{7}$",
+      "ed2f0dca805db9c6": "$\\frac{1}{6}$",
+      "39da4a3769d34be6": "Seks gunstige par: $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$. $P = \\frac{6}{36} = \\frac{1}{6}$.",
+      "ba881ab5607d9816": "## Komplement og addisjon – to uunnverlege reglar\n\nNokre hendingar er lettare å telje baklengs. Kast tre myntar: kva er sannsynet for *minst éin* krone? Å telje alle utfalla med éin, to eller tre kroner er mogleg, men tungvint. Snu heller på det: motsetnaden til «minst éin krone» er «ingen krone» – og den hendinga har berre eitt utfall (mynt-mynt-mynt) av $2^3 = 8$ moglege. **Komplementsetninga** seier at for komplementet $A^c$ («$A$ inntreff ikkje») gjeld\n\n$$P(A^c) = 1 - P(A)$$\n\nDermed: $P(\\text{minst éin krone}) = 1 - \\frac{1}{8} = \\frac{7}{8}$. Kvar gong du ser orda «minst éin», bør komplementet vere den første tanken din.\n\nDen andre regelen handterer «eller». For to hendingar $A$ og $B$ gjeld **addisjonssetninga**:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\nder $A \\cup B$ tyder «$A$ eller $B$ (eller begge)» og $A \\cap B$ tyder «både $A$ og $B$». Kvifor minusleddet? Trekk eit kort og spør: hjarter eller ess? $P(\\text{hjarter}) = \\frac{13}{52}$ og $P(\\text{ess}) = \\frac{4}{52}$ – men hjarter ess ligg i begge buntane og ville blitt telt dobbelt. Vi trekkjer frå $P(A \\cap B) = \\frac{1}{52}$:\n\n$$P(A \\cup B) = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$$\n\nBerre når $A$ og $B$ er **disjunkte** – utan felles utfall – forenklar regelen seg til rein addisjon $P(A \\cup B) = P(A) + P(B)$.",
+      "dd80591388dc038b": "Test deg sjølv på komplement- og addisjonssetninga:",
+      "048d7161705486a9": "Kva seier komplementsetninga?",
+      "c917c2fb0b398d51": "$P(A^c) = 1 - P(A)$",
+      "4902439e6a200216": "$P(A^c) = P(A)$",
+      "893e49713aaa4aab": "$P(A^c) = 1 + P(A)$",
+      "d61a5086d3f6d47d": "$P(A^c) = \\frac{1}{P(A)}$",
+      "4466ecfe5db944e1": "Anten inntreff $A$ eller så gjer ho det ikkje – sannsyna summerer seg til $1$.",
+      "64753fafa4fc7956": "Du kastar 3 myntar. Kva er sannsynet for minst éin krone?",
+      "de78f6287ac0119a": "$\\frac{1}{8}$",
+      "54c7e9fb31c5b808": "$\\frac{3}{8}$",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "0643140ef414cbf6": "$\\frac{7}{8}$",
+      "c6190cef552e8974": "Komplementet «ingen krone» har sannsyn $\\frac{1}{8}$ (berre MMM). $P(\\text{minst éin}) = 1 - \\frac{1}{8} = \\frac{7}{8}$.",
+      "8b1d02bffe2572d5": "Kvifor trekkjer vi frå $P(A \\cap B)$ i addisjonssetninga?",
+      "0c9179fa5cfd9141": "Fordi snittet er umogleg",
+      "841414beffd9c839": "For at svaret ikkje skal bli negativt",
+      "5426322e004e03c7": "Fordi utfalla i snittet elles blir telde dobbelt",
+      "63a47716e6a85408": "Fordi sannsyn alltid skal reduserast",
+      "3bc2f90f517cf9d9": "Utfall som ligg i både $A$ og $B$ blir telde med i både $P(A)$ og $P(B)$ – vi må trekkje frå snittet éin gong.",
+      "71c779431a0e5b90": "Kva er sannsynet for å trekkje hjarter eller ess frå ein kortstokk?",
+      "0f8f22e85c2e8576": "$\\frac{17}{52}$",
+      "093bb865b4b00e44": "$\\frac{4}{13}$",
+      "556166fb5968675a": "$\\frac{13}{52}$",
+      "f2bf6d932e14b55c": "$\\frac{1}{4}$",
+      "f1085e6c1a9a382e": "$P = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$ – hjarter ess blir trekt frå éin gong.",
+      "c4ca5ffd8c585df2": "## Når kombinatorikken tek over teljinga\n\nFor terningar og myntar kan vi telje på fingrane. Men kva med dette: du trekkjer 5 kort frå ein kortstokk – kva er sannsynet for *nøyaktig* 3 hjarter? No er det millionar av utfall, og det er her verktøya frå kapittel 8.2 kjem inn. Oppskrifta er alltid den same: avgjer utfallsrommet og rekn ut $|\\Omega|$, tel dei gunstige utfalla $|A|$, og del.\n\nUtfallsrommet er alle femkorts-hender: $|\\Omega| = \\binom{52}{5} = 2\\,598\\,960$.\n\nDei gunstige hendene har nøyaktig 3 hjarter og 2 ikkje-hjarter. Her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vel 3 av dei 13 hjarterkorta *og* 2 av dei 39 andre korta:\n\n$$|A| = \\binom{13}{3} \\cdot \\binom{39}{2} = 286 \\cdot 741 = 211\\,926$$\n\nDermed blir sannsynet\n\n$$P(A) = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$$\n\n– litt over 8 prosent. Legg merke til strukturen i teljaren: den typen «vel $k$ av suksessane og resten av dei andre»-uttrykk kjem du til å sjå att mange gonger, mellom anna i den hypergeometriske fordelinga seinare i kapittelet. Sannsynsrekning på dette nivået er nitti prosent ryddig teljing – og ti prosent å hugse å dele på rett totaltal.",
+      "8c47184427d7c698": "Test deg sjølv på sannsyn med kombinatorikk:",
+      "056b4b23e69f0817": "Kva er oppskrifta for å rekne ut sannsyn med kombinatorikk?",
+      "11b3b008c2cb008b": "Tel gunstige utfall, tel moglege utfall, og del: $P(A) = \\frac{|A|}{|\\Omega|}$",
+      "19f5725902d2662c": "Multipliser talet på gunstige med talet på moglege",
+      "abfc1c8fba596271": "Bruk alltid komplementsetninga først",
+      "438d6ea48420b523": "Tel berre dei gunstige utfalla",
+      "d698379df2d338b4": "Avgjer $|\\Omega|$, avgjer $|A|$, og bruk den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$.",
+      "1804c4b3208e2a98": "Kor mange måtar kan ein trekkje 5 kort frå 52 på?",
+      "01142b0443832c85": "$52 \\cdot 5$",
+      "778449b8f2b266a2": "$P(52,5)$",
+      "c3dc284734c166fa": "$\\binom{52}{5} = 2\\,598\\,960$",
+      "bb02fd42f10bbab0": "Ei hand er eit uordna utval: $\\binom{52}{5} = 2\\,598\\,960$.",
+      "4a3b4cd0a3735527": "Korleis blir hender med nøyaktig 3 hjarter og 2 andre kort telde?",
+      "96e87a8bdc19e19e": "$\\binom{13}{3} + \\binom{39}{2}$",
+      "10423eb5efbaca8d": "$\\binom{13}{3} \\cdot \\binom{39}{2}$",
+      "05bac87ffd3919bf": "$\\binom{52}{3} \\cdot \\binom{52}{2}$",
+      "f2bba5a67987228a": "$\\binom{13}{3}$",
+      "e328e7b9b3829af5": "Vel 3 av 13 hjarter OG 2 av 39 ikkje-hjarter – «og» gir multiplikasjon: $286 \\cdot 741 = 211\\,926$.",
+      "97f0f04dd051e7c3": "Kva er sannsynet for nøyaktig 3 hjarter i ei femkorts hand (omtrent)?",
+      "86256687ef66b1ae": "$P = \\frac{\\binom{13}{3}\\binom{39}{2}}{\\binom{52}{5}} = \\frac{211\\,926}{2\\,598\\,960} \\approx 0{,}0815$, altså ca. 8 %.",
+      "19f6f29d12e8fc82": "## Oppsummering: sannsyn er teljing med fornuft\n\nVi har gjort uvisse om til matematikk. Eit stokastisk forsøk har eit utfallsrom $\\Omega$ av moglege utfall, ei hending $A$ er ei delmengd av det, og når alle utfalla er like sannsynlege, gjeld den klassiske definisjonen $P(A) = \\frac{|A|}{|\\Omega|}$ – med verdiar som alltid ligg mellom $0$ (umogleg) og $1$ (sikkert).\n\nTo reknereglar gjer livet enklare. Komplementsetninga $P(A^c) = 1 - P(A)$ er snarvegen for «minst éin»-spørsmål: tel den enkle motsetnaden i staden. Addisjonssetninga $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$ handterer «eller»-spørsmål, der minusleddet hindrar dobbeltteljing av utfalla i snittet – og forsvinn heilt når hendingane er disjunkte.\n\nOg når utfallsromma blir store, tek kombinatorikken over: binomialkoeffisientane tel både totalen ($\\binom{52}{5}$ pokerhender) og dei gunstige ($\\binom{13}{3}\\binom{39}{2}$ hender med tre hjarter). I neste kapittel skrur vi opp vanskegraden med spørsmålet som forandrar alt: kva skjer med sannsynet når du får ny informasjon?"
+    }
+  }
+}

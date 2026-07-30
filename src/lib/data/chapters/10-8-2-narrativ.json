@@ -1,1 +1,268 @@
-{"id":"10-8-2-narrativ","courseId":"10","chapterNumber":"8.2","title":"Kvadratsetningene","subtitle":"Narrativ versjon","description":"En fortellende utforskning av de tre kvadratsetningene -- algebraiske snarveier som lar deg utvide og faktorisere uttrykk raskt, med geometriske bevis som gir dyp forståelse.","estimatedMinutes":35,"competenceGoals":["utforske og generalisere multiplikasjon av polynom algebraisk og geometrisk"],"linkedChapterId":"10-8-2","content":[{"id":"10-8-2-n-intro","type":"text","content":"## Tre snarveier du må kunne\n\nNår vi multipliserer polynomer, dukker det opp noen mønstre som går igjen så ofte at det lønner seg å lære dem utenat. De tre **kvadratsetningene** er slike mønstre -- elegante snarveier som sparer deg for mye regning og gir deg et kraftig verktøy for å faktorisere uttrykk.\n\nDisse setningene er blant de viktigste verktøyene i algebra, og du vil bruke dem i mange sammenhenger: likningslosning, funksjonsanalyse og videre i matematikken."},{"id":"10-8-2-n-section1","type":"text","content":"## Første kvadratsetning: $(a + b)^2 = a^2 + 2ab + b^2$\n\nDen første kvadratsetningen sier at **kvadratet av en sum** er lik summen av kvadratene pluss det dobbelte av produktet:\n\n$$(a + b)^2 = a^2 + 2ab + b^2$$\n\nHvorfor? Jo, $(a + b)^2 = (a + b)(a + b)$. Med FOIL får vi $a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$. Det dobbelte produktet $2ab$ kommer fra at vi får $ab$ to ganger.\n\nLa oss ta et konkret eksempel: $(x + 4)^2 = x^2 + 2 \\cdot x \\cdot 4 + 4^2 = x^2 + 8x + 16$. Med koeffisienter: $(2x + 1)^2 = (2x)^2 + 2 \\cdot 2x \\cdot 1 + 1^2 = 4x^2 + 4x + 1$. Og $(3x + 2)^2 = 9x^2 + 12x + 4$.\n\nGeometrisk kan vi se dette som et kvadrat med side $(a + b)$ delt i fire deler: et stort kvadrat ($a^2$), to rektangler (hvert med areal $ab$) og et lite kvadrat ($b^2$). De to rektanglene forklarer nøyaktig hvorfor $2ab$ dukker opp.\n\n**Vanlig feil!** Mange skriver $(a + b)^2 = a^2 + b^2$ -- men dette er **galt**! Du glemmer det dobbelte produktet $2ab$. En rask sjekk: $(3 + 4)^2 = 49$, men $9 + 16 = 25 \\neq 49$. Det manglende leddet er $2 \\cdot 3 \\cdot 4 = 24$, og $25 + 24 = 49$."},{"id":"10-8-2-n-quiz1","type":"exercise","exercise":{"id":"10-8-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på første kvadratsetning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-8-2-n-quiz1-q0","task":"Hva er $(x + 5)^2$?","options":[{"id":"a","text":"$x^2 + 25$","isCorrect":false},{"id":"b","text":"$x^2 + 10x + 25$","isCorrect":true},{"id":"c","text":"$x^2 + 5x + 25$","isCorrect":false},{"id":"d","text":"$2x^2 + 10x + 25$","isCorrect":false}],"solution":"$(x + 5)^2 = x^2 + 2 \\cdot x \\cdot 5 + 5^2 = x^2 + 10x + 25$. Husk det dobbelte produktet!"},{"id":"10-8-2-n-quiz1-q1","task":"Hva er $(3x + 2)^2$?","options":[{"id":"a","text":"$9x^2 + 12x + 4$","isCorrect":true},{"id":"b","text":"$3x^2 + 12x + 4$","isCorrect":false},{"id":"c","text":"$9x^2 + 6x + 4$","isCorrect":false},{"id":"d","text":"$9x^2 + 4$","isCorrect":false}],"solution":"$a = 3x, b = 2$. $(3x)^2 = 9x^2$, $2 \\cdot 3x \\cdot 2 = 12x$, $2^2 = 4$. Svaret er $9x^2 + 12x + 4$."}]}},{"id":"10-8-2-n-section2","type":"text","content":"## Andre kvadratsetning: $(a - b)^2 = a^2 - 2ab + b^2$\n\nDen andre kvadratsetningen handler om **kvadratet av en differanse**:\n\n$$(a - b)^2 = a^2 - 2ab + b^2$$\n\nDen ligner veldig på den første, men midtleddet er **negativt**. Beviset: $(a - b)^2 = (a - b)(a - b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$. Legg merke til at siste ledd $b^2$ alltid er *positivt*, fordi $(-b)(-b) = b^2$.\n\nEksempler: $(x - 6)^2 = x^2 - 12x + 36$. $(3x - 4)^2 = 9x^2 - 24x + 16$. $(5x - 1)^2 = 25x^2 - 10x + 1$.\n\nGeometrisk: start med et stort kvadrat med side $a$ og areal $a^2$. Trekk fra to rektangler med areal $ab$ (langs to sider). Men da har du trukket fra hjornekvadratet $b^2$ to ganger, så du legger det til en gang. Resultatet er $a^2 - 2ab + b^2$, som er arealet av et kvadrat med side $(a - b)$."},{"id":"10-8-2-n-section3","type":"text","content":"## Konjugatsetningen: $(a + b)(a - b) = a^2 - b^2$\n\nDen tredje og siste er **konjugatsetningen** (også kalt tredje kvadratsetning). Den sier at produktet av to **konjugerte** binomier -- uttrykk på formen $(a + b)$ og $(a - b)$ -- gir differansen av kvadratene:\n\n$$(a + b)(a - b) = a^2 - b^2$$\n\nBeviset er vakkert enkelt: $(a + b)(a - b) = a^2 - ab + ab - b^2 = a^2 - b^2$. De to midtleddene $+ab$ og $-ab$ slår hverandre ut!\n\nEksempler: $(x + 8)(x - 8) = x^2 - 64$. $(2x + 3)(2x - 3) = 4x^2 - 9$. $(4x + 7)(4x - 7) = 16x^2 - 49$.\n\nKonjugatsetningen er også et fantastisk verktøy for **hoderegning**! $47 \\cdot 53 = (50 - 3)(50 + 3) = 2500 - 9 = 2491$. $99 \\cdot 101 = (100 - 1)(100 + 1) = 10000 - 1 = 9999$. $28 \\cdot 32 = (30 - 2)(30 + 2) = 900 - 4 = 896$. Smart, ikke sant?\n\nGeometrisk: et stort kvadrat med side $a$ mister et lite hjornekvadrat med side $b$. Den L-formede figuren som gjensatar kan omarrangeres til et rektangel med sider $(a + b)$ og $(a - b)$. Arealet er det samme: $a^2 - b^2 = (a + b)(a - b)$."},{"id":"10-8-2-n-quiz2","type":"exercise","exercise":{"id":"10-8-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på alle tre kvadratsetningene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-8-2-n-quiz2-q0","task":"Hvilket uttrykk er lik $(x - 3)^2$?","options":[{"id":"a","text":"$x^2 - 9$","isCorrect":false},{"id":"b","text":"$x^2 + 6x + 9$","isCorrect":false},{"id":"c","text":"$x^2 - 6x + 9$","isCorrect":true},{"id":"d","text":"$x^2 - 3x + 9$","isCorrect":false}],"solution":"$(x - 3)^2 = x^2 - 2 \\cdot x \\cdot 3 + 3^2 = x^2 - 6x + 9$. Alternativ a) er $(x + 3)(x - 3)$ (konjugatsetningen), og b) er $(x + 3)^2$."},{"id":"10-8-2-n-quiz2-q1","task":"Hva er $(x + 5)(x - 5)$?","options":[{"id":"a","text":"$x^2 + 10x - 25$","isCorrect":false},{"id":"b","text":"$x^2 - 10x + 25$","isCorrect":false},{"id":"c","text":"$x^2 + 25$","isCorrect":false},{"id":"d","text":"$x^2 - 25$","isCorrect":true}],"solution":"Konjugatsetningen: $(x + 5)(x - 5) = x^2 - 5^2 = x^2 - 25$. Midtleddene slår hverandre ut."},{"id":"10-8-2-n-quiz2-q2","task":"Bruk konjugatsetningen til å regne ut $43 \\cdot 37$ i hodet.","options":[{"id":"a","text":"$1591$","isCorrect":true},{"id":"b","text":"$1601$","isCorrect":false},{"id":"c","text":"$1491$","isCorrect":false},{"id":"d","text":"$1581$","isCorrect":false}],"solution":"$43 \\cdot 37 = (40 + 3)(40 - 3) = 40^2 - 3^2 = 1600 - 9 = 1591$."},{"id":"10-8-2-n-quiz2-q3","task":"Hva er $(x + 3)^2 - (x - 3)^2$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$18$","isCorrect":false},{"id":"c","text":"$12x$","isCorrect":true},{"id":"d","text":"$6x$","isCorrect":false}],"solution":"$(x^2 + 6x + 9) - (x^2 - 6x + 9) = 6x + 6x = 12x$. Her forsvinner både $x^2$-leddene og konstantleddene."},{"id":"10-8-2-n-quiz2-q4","task":"Et hagebed har side $x$ m. Eieren utvider med $3$ m i begge retninger. Hvor mye oker arealet?","options":[{"id":"a","text":"$3x + 9$","isCorrect":false},{"id":"b","text":"$6x + 9$","isCorrect":true},{"id":"c","text":"$9$","isCorrect":false},{"id":"d","text":"$6x$","isCorrect":false}],"solution":"Nytt areal: $(x + 3)^2 = x^2 + 6x + 9$. Gammelt areal: $x^2$. Økning: $6x + 9$. De $6x$ kommer fra to rektangler ($3x$ hver) og $9$ fra hjornekvadratet."}]}},{"id":"10-8-2-n-summary","type":"text","content":"## Oppsummering\n\nDe tre kvadratsetningene er:\n\n| Setning | Formel |\n|---|---|\n| Første kvadratsetning | $(a + b)^2 = a^2 + 2ab + b^2$ |\n| Andre kvadratsetning | $(a - b)^2 = a^2 - 2ab + b^2$ |\n| Konjugatsetningen | $(a + b)(a - b) = a^2 - b^2$ |\n\nTips for å huske: I de to første har svaret **tre ledd** -- ikke glem midtleddet $\\pm 2ab$. I konjugatsetningen er det bare **to ledd** -- midtleddene slår hverandre ut. Siste ledd i første og andre kvadratsetning er alltid positivt ($b^2$). Alle tre kan vises geometrisk med arealer av kvadrater og rektangler."}],"exercises":[]}
+{
+  "id": "10-8-2-narrativ",
+  "courseId": "10",
+  "chapterNumber": "8.2",
+  "title": "Kvadratsetningene",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende utforskning av de tre kvadratsetningene -- algebraiske snarveier som lar deg utvide og faktorisere uttrykk raskt, med geometriske bevis som gir dyp forståelse.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og generalisere multiplikasjon av polynom algebraisk og geometrisk"
+  ],
+  "linkedChapterId": "10-8-2",
+  "content": [
+    {
+      "id": "10-8-2-n-intro",
+      "type": "text",
+      "content": "## Tre snarveier du må kunne\n\nNår vi multipliserer polynomer, dukker det opp noen mønstre som går igjen så ofte at det lønner seg å lære dem utenat. De tre **kvadratsetningene** er slike mønstre -- elegante snarveier som sparer deg for mye regning og gir deg et kraftig verktøy for å faktorisere uttrykk.\n\nDisse setningene er blant de viktigste verktøyene i algebra, og du vil bruke dem i mange sammenhenger: likningslosning, funksjonsanalyse og videre i matematikken."
+    },
+    {
+      "id": "10-8-2-n-section1",
+      "type": "text",
+      "content": "## Første kvadratsetning: $(a + b)^2 = a^2 + 2ab + b^2$\n\nDen første kvadratsetningen sier at **kvadratet av en sum** er lik summen av kvadratene pluss det dobbelte av produktet:\n\n$$(a + b)^2 = a^2 + 2ab + b^2$$\n\nHvorfor? Jo, $(a + b)^2 = (a + b)(a + b)$. Med FOIL får vi $a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$. Det dobbelte produktet $2ab$ kommer fra at vi får $ab$ to ganger.\n\nLa oss ta et konkret eksempel: $(x + 4)^2 = x^2 + 2 \\cdot x \\cdot 4 + 4^2 = x^2 + 8x + 16$. Med koeffisienter: $(2x + 1)^2 = (2x)^2 + 2 \\cdot 2x \\cdot 1 + 1^2 = 4x^2 + 4x + 1$. Og $(3x + 2)^2 = 9x^2 + 12x + 4$.\n\nGeometrisk kan vi se dette som et kvadrat med side $(a + b)$ delt i fire deler: et stort kvadrat ($a^2$), to rektangler (hvert med areal $ab$) og et lite kvadrat ($b^2$). De to rektanglene forklarer nøyaktig hvorfor $2ab$ dukker opp.\n\n**Vanlig feil!** Mange skriver $(a + b)^2 = a^2 + b^2$ -- men dette er **galt**! Du glemmer det dobbelte produktet $2ab$. En rask sjekk: $(3 + 4)^2 = 49$, men $9 + 16 = 25 \\neq 49$. Det manglende leddet er $2 \\cdot 3 \\cdot 4 = 24$, og $25 + 24 = 49$."
+    },
+    {
+      "id": "10-8-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-8-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på første kvadratsetning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-8-2-n-quiz1-q0",
+            "task": "Hva er $(x + 5)^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^2 + 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 + 5x + 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^2 + 10x + 25$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2x^2 + 10x + 25$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(x + 5)^2 = x^2 + 2 \\cdot x \\cdot 5 + 5^2 = x^2 + 10x + 25$. Husk det dobbelte produktet!"
+          },
+          {
+            "id": "10-8-2-n-quiz1-q1",
+            "task": "Hva er $(3x + 2)^2$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3x^2 + 12x + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$9x^2 + 6x + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$9x^2 + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$9x^2 + 12x + 4$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$a = 3x, b = 2$. $(3x)^2 = 9x^2$, $2 \\cdot 3x \\cdot 2 = 12x$, $2^2 = 4$. Svaret er $9x^2 + 12x + 4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-8-2-n-section2",
+      "type": "text",
+      "content": "## Andre kvadratsetning: $(a - b)^2 = a^2 - 2ab + b^2$\n\nDen andre kvadratsetningen handler om **kvadratet av en differanse**:\n\n$$(a - b)^2 = a^2 - 2ab + b^2$$\n\nDen ligner veldig på den første, men midtleddet er **negativt**. Beviset: $(a - b)^2 = (a - b)(a - b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$. Legg merke til at siste ledd $b^2$ alltid er *positivt*, fordi $(-b)(-b) = b^2$.\n\nEksempler: $(x - 6)^2 = x^2 - 12x + 36$. $(3x - 4)^2 = 9x^2 - 24x + 16$. $(5x - 1)^2 = 25x^2 - 10x + 1$.\n\nGeometrisk: start med et stort kvadrat med side $a$ og areal $a^2$. Trekk fra to rektangler med areal $ab$ (langs to sider). Men da har du trukket fra hjornekvadratet $b^2$ to ganger, så du legger det til en gang. Resultatet er $a^2 - 2ab + b^2$, som er arealet av et kvadrat med side $(a - b)$."
+    },
+    {
+      "id": "10-8-2-n-section3",
+      "type": "text",
+      "content": "## Konjugatsetningen: $(a + b)(a - b) = a^2 - b^2$\n\nDen tredje og siste er **konjugatsetningen** (også kalt tredje kvadratsetning). Den sier at produktet av to **konjugerte** binomier -- uttrykk på formen $(a + b)$ og $(a - b)$ -- gir differansen av kvadratene:\n\n$$(a + b)(a - b) = a^2 - b^2$$\n\nBeviset er vakkert enkelt: $(a + b)(a - b) = a^2 - ab + ab - b^2 = a^2 - b^2$. De to midtleddene $+ab$ og $-ab$ slår hverandre ut!\n\nEksempler: $(x + 8)(x - 8) = x^2 - 64$. $(2x + 3)(2x - 3) = 4x^2 - 9$. $(4x + 7)(4x - 7) = 16x^2 - 49$.\n\nKonjugatsetningen er også et fantastisk verktøy for **hoderegning**! $47 \\cdot 53 = (50 - 3)(50 + 3) = 2500 - 9 = 2491$. $99 \\cdot 101 = (100 - 1)(100 + 1) = 10000 - 1 = 9999$. $28 \\cdot 32 = (30 - 2)(30 + 2) = 900 - 4 = 896$. Smart, ikke sant?\n\nGeometrisk: et stort kvadrat med side $a$ mister et lite hjornekvadrat med side $b$. Den L-formede figuren som gjensatar kan omarrangeres til et rektangel med sider $(a + b)$ og $(a - b)$. Arealet er det samme: $a^2 - b^2 = (a + b)(a - b)$."
+    },
+    {
+      "id": "10-8-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-8-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på alle tre kvadratsetningene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-8-2-n-quiz2-q0",
+            "task": "Hvilket uttrykk er lik $(x - 3)^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^2 - 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^2 + 6x + 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 - 6x + 9$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x^2 - 3x + 9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(x - 3)^2 = x^2 - 2 \\cdot x \\cdot 3 + 3^2 = x^2 - 6x + 9$. Alternativ a) er $(x + 3)(x - 3)$ (konjugatsetningen), og b) er $(x + 3)^2$."
+          },
+          {
+            "id": "10-8-2-n-quiz2-q1",
+            "task": "Hva er $(x + 5)(x - 5)$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$x^2 - 25$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x^2 + 10x - 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^2 - 10x + 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 + 25$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konjugatsetningen: $(x + 5)(x - 5) = x^2 - 5^2 = x^2 - 25$. Midtleddene slår hverandre ut."
+          },
+          {
+            "id": "10-8-2-n-quiz2-q2",
+            "task": "Bruk konjugatsetningen til å regne ut $43 \\cdot 37$ i hodet.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1601$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$1591$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1491$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1581$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$43 \\cdot 37 = (40 + 3)(40 - 3) = 40^2 - 3^2 = 1600 - 9 = 1591$."
+          },
+          {
+            "id": "10-8-2-n-quiz2-q3",
+            "task": "Hva er $(x + 3)^2 - (x - 3)^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$(x^2 + 6x + 9) - (x^2 - 6x + 9) = 6x + 6x = 12x$. Her forsvinner både $x^2$-leddene og konstantleddene."
+          },
+          {
+            "id": "10-8-2-n-quiz2-q4",
+            "task": "Et hagebed har side $x$ m. Eieren utvider med $3$ m i begge retninger. Hvor mye oker arealet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$6x + 9$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$3x + 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nytt areal: $(x + 3)^2 = x^2 + 6x + 9$. Gammelt areal: $x^2$. Økning: $6x + 9$. De $6x$ kommer fra to rektangler ($3x$ hver) og $9$ fra hjornekvadratet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-8-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDe tre kvadratsetningene er:\n\n| Setning | Formel |\n|---|---|\n| Første kvadratsetning | $(a + b)^2 = a^2 + 2ab + b^2$ |\n| Andre kvadratsetning | $(a - b)^2 = a^2 - 2ab + b^2$ |\n| Konjugatsetningen | $(a + b)(a - b) = a^2 - b^2$ |\n\nTips for å huske: I de to første har svaret **tre ledd** -- ikke glem midtleddet $\\pm 2ab$. I konjugatsetningen er det bare **to ledd** -- midtleddene slår hverandre ut. Siste ledd i første og andre kvadratsetning er alltid positivt ($b^2$). Alle tre kan vises geometrisk med arealer av kvadrater og rektangler."
+    }
+  ],
+  "exercises": []
+}

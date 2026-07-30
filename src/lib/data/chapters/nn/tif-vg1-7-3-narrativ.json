@@ -1,1 +1,361 @@
-{"id":"tif-vg1-7-3-narrativ","courseId":"tif-vg1","chapterNumber":"7.3","title":"Kvalitetskontroll og måling","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi viser at ein del er god nok -- toleransar, måleverktøy, Go/NoGo-lærer og statistisk prosesskontroll som fangar feil før dei skjer.","estimatedMinutes":30,"competenceGoals":["bruke måleverktøy og kontrollere at produkter er i samsvar med spesifikasjoner","dokumentere og vurdere eget arbeid"],"linkedChapterId":"tif-vg1-7-3","content":[{"id":"tif-vg1-7-3-n-intro","type":"text","content":"## Beviset på at delen er god\n\nDu har laga ein aksel som ser perfekt ut. Men 'ser bra ut' held ikkje i industrien -- du må kunne *bevise* at han oppfyller spesifikasjonen. Det er det **kvalitetskontroll og måling** handlar om, og alt byrjar med å forstå **toleransar**.\n\nEin toleranse er det tillatne avviket frå den nominelle verdien. Står det $\\varnothing 50 \\pm 0{,}05$ mm, tyder det at den nominelle verdien er $50{,}00$ mm, øvre grense er $50{,}05$ mm, nedre grense er $49{,}95$ mm, og den totale toleransen er $0{,}10$ mm. Lat oss kontrollere med ein aksel på $\\varnothing 30 \\pm 0{,}03$ mm: grensene blir $29{,}97$ til $30{,}03$ mm, så eit mål på $30{,}02$ mm er godkjent, medan $29{,}96$ er for lite og $30{,}04$ for stort.\n\nFor å sleppe pluss og minus overalt har vi **ISO-toleransesystemet**, der ein bokstav gjev posisjonen og eit tal gjev storleiken -- H7 for eit hol med øvre grense ved nominell, h6 for ein aksel med nedre grense ved nominell, og større tal gjev større toleranse.\n\nKombinerer du hol og aksel, får du ein **pasning**. Ein glidepasning (H7/g6) gjev litt klaring, ein overgangspasning (H7/k6) kan gje anten klaring eller press, og ein presspasning (H7/p6) gjev alltid press. Toleransane er altså ikkje pirk -- dei avgjer om to delar glir, sit eller må pressast saman. Og for å sjekke at ein del faktisk held seg innanfor, treng vi rett måleverktøy."},{"id":"tif-vg1-7-3-n-section1","type":"text","content":"## Verktøya og metodane for å kontrollere\n\nFor å måle rett må du velje rett verktøy. **Skuvelæret** er allroundaren -- det måler lengder, diameterar og djupner med ein nøyaktigheit på $0{,}02$--$0{,}05$ mm, og finst digitalt eller analogt med nonius. Det er førstevalet ditt for dei fleste oppgåver. **Mikrometeret** gjev høgare presisjon på $0{,}01$ mm og blir brukt når toleransen er trang, i typane utvendig, innvendig og djupne. **Måleklokka** måler avvik frå ein referanse med $0{,}01$ mm nøyaktigheit og blir brukt til rundheit, planheit og parallellitet. Tommelregelen: start med skuvelæret, og gå til mikrometeret når toleransen krev det.\n\nEit smart verktøy for rask kontroll er **grensemålet (Go/NoGo)**. Det har to mål -- 'Go' svarar til den romslegaste grensa og 'NoGo' den trangaste. For ein aksel skal han passe gjennom Go-ringen (viser at han ikkje er for stor), men *ikkje* gjennom NoGo-ringen (viser at han ikkje er for liten). Då veit du på eit sekund at han er innanfor, utan å lese av eit einaste tal -- fordelen er fart, ulempen er at du ikkje får vite det faktiske målet.\n\nKor mykje skal du kontrollere? Det finst tre metodar. **100 % kontroll** måler kvar einaste del -- nødvendig for tryggleikskritiske delar som flydelar, men tidkrevjande og dyrt. **Stikkprøvekontroll** måler eit utval basert på statistiske prinsipp -- meir effektivt, men med ein viss risiko for at ein feil slepp gjennom. Og **prosesskontroll** kontrollerer sjølve prosessen i staden for produktet, ved å måle parametrar som temperatur, trykk og fart -- og dermed *hindrar* feil i staden for å oppdage dei etterpå. For ein aksel på $25{,}00 \\pm 0{,}02$ mm tyder 100 % kontroll at kvar blir målt og alt utanfor $24{,}98$--$25{,}02$ blir kassert, medan ei stikkprøve måler til dømes 5 av 100."},{"id":"tif-vg1-7-3-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-7-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på toleransar, måleverktøy og metodar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-7-3-n-quiz1-q0","task":"Ein aksel har toleranse $\\varnothing 30 \\pm 0{,}03$ mm. Kva for mål er innanfor?","options":[{"id":"a","text":"$30{,}02$ mm","isCorrect":true},{"id":"b","text":"$29{,}96$ mm","isCorrect":false},{"id":"c","text":"$30{,}04$ mm","isCorrect":false},{"id":"d","text":"$29{,}90$ mm","isCorrect":false}],"solution":"Grensene er $29{,}97$ til $30{,}03$ mm. $30{,}02$ mm er innanfor, medan $29{,}96$ er for lite og $30{,}04$ for stort."},{"id":"tif-vg1-7-3-n-quiz1-q1","task":"Kva for verktøy gjev høgast presisjon?","options":[{"id":"a","text":"Skuvelær ($0{,}02$--$0{,}05$ mm)","isCorrect":false},{"id":"b","text":"Mikrometer ($0{,}01$ mm)","isCorrect":true},{"id":"c","text":"Tommestokk","isCorrect":false},{"id":"d","text":"Augemål","isCorrect":false}],"solution":"Mikrometeret gjev høgare presisjon ($0{,}01$ mm) enn skuvelæret. Du startar med skuvelær og bruker mikrometer når toleransen krev det."},{"id":"tif-vg1-7-3-n-quiz1-q2","task":"Kva er prinsippet bak eit Go/NoGo-grensemål for ein aksel?","options":[{"id":"a","text":"Akselen skal passe gjennom begge ringane","isCorrect":false},{"id":"b","text":"Akselen skal ikkje passe gjennom nokon av ringane","isCorrect":false},{"id":"c","text":"Akselen skal passe gjennom Go-ringen, men ikkje gjennom NoGo-ringen","isCorrect":true},{"id":"d","text":"Det måler den nøyaktige diameteren","isCorrect":false}],"solution":"Akselen skal passe gjennom Go-ringen (ikkje for stor), men ikkje gjennom NoGo-ringen (ikkje for liten). Det gjev rask OK/ikkje OK utan å lese tal."},{"id":"tif-vg1-7-3-n-quiz1-q3","task":"Kva er fordelen med prosesskontroll framfor produktkontroll?","options":[{"id":"a","text":"Han krev inga måling","isCorrect":false},{"id":"b","text":"Han måler alltid alle produkt","isCorrect":false},{"id":"c","text":"Han er alltid gratis","isCorrect":false},{"id":"d","text":"Han hindrar feil i staden for berre å oppdage dei","isCorrect":true}],"solution":"Prosesskontroll måler prosessparametrar som temperatur og trykk, og hindrar dermed feil i staden for berre å oppdage dei etter at delane er laga."}]}},{"id":"tif-vg1-7-3-n-section2","type":"text","content":"## Statistikk som vakthund: SPC\n\nTenk deg at du måler diameteren på dreidde akslar time etter time. Kvar einskild kan vere innanfor toleransen -- men kva om du kunne sjå ein feil *kome*, før han faktisk skjer? Det er nettopp det **statistisk prosesskontroll (SPC)** gjer: han bruker statistikk til å overvake og styre produksjonsprosessen.\n\nKjernen er **kontrolldiagrammet**, der du plottar målingar over tid. Det har tre linjer: ei **midtlinje** som er gjennomsnittet (ønskt verdi), ei **øvre kontrollgrense (UCL)** ved pluss tre standardavvik, og ei **nedre kontrollgrense (LCL)** ved minus tre standardavvik. Så lenge punkta sprett tilfeldig rundt midtlinja innanfor grensene, er prosessen under kontroll.\n\nDet interessante er mønstera som avslører problem. Eit **punkt utanfor grensene** tyder at prosessen er ute av kontroll -- undersøk straks. Ein **trend** der 7 eller fleire punkt stig eller søkk, tyder at noko endrar seg gradvis -- kanskje eit verktøy som blir slite. Eit **skift** der 7--8 punkt ligg på same side av midtlinja, tyder at gjennomsnittet til prosessen har flytta seg -- sjølv om alle punkta er innanfor grensene. Det er statistisk svært usannsynleg at det skjer tilfeldig, så noko har endra seg: nytt råmateriale, verktøyslitasje, ny operatør. Då undersøkjer du, justerer tilbake, og oppdaterer eventuelt grensene viss endringa er permanent og ønskt.\n\nLat oss kontrollere ei stikkprøve frå ei CNC-maskin med mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm (grenser $11{,}98$--$12{,}02$): målingane $11{,}99$, $12{,}01$, $12{,}02$, $12{,}00$ og $12{,}03$ gjev fire godkjende, men $12{,}03$ er vrak. Mønsteret viser at prosessen ligg høgt i toleransen og er på veg ut -- så du justerer maskinoffset litt ned og sjekkar verktøyet. SPC fangar altså problemet før heile partiet ryk, reduserer vrak og omarbeid, og gjev data til forbetring."},{"id":"tif-vg1-7-3-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-7-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på statistisk prosesskontroll:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-7-3-n-quiz2-q0","task":"Kva markerer øvre kontrollgrense (UCL) i eit kontrolldiagram?","options":[{"id":"a","text":"Pluss tre standardavvik frå midtlinja","isCorrect":true},{"id":"b","text":"Gjennomsnittet","isCorrect":false},{"id":"c","text":"Den nominelle verdien","isCorrect":false},{"id":"d","text":"Nedre toleransegrense","isCorrect":false}],"solution":"UCL ligg ved pluss tre standardavvik over midtlinja, og LCL ved minus tre standardavvik. Midtlinja er gjennomsnittet."},{"id":"tif-vg1-7-3-n-quiz2-q1","task":"8 punkt på rad ligg over midtlinja, men innanfor grensene. Kva tyder dette?","options":[{"id":"a","text":"Alt er heilt normalt","isCorrect":false},{"id":"b","text":"Eit skift -- gjennomsnittet til prosessen har endra seg; undersøk","isCorrect":true},{"id":"c","text":"Maskina er øydelagd og må skrotast","isCorrect":false},{"id":"d","text":"Punkta skal ignorerast","isCorrect":false}],"solution":"Eit skift med 8 punkt på same side er statistisk svært usannsynleg tilfeldig og tyder at gjennomsnittet til prosessen har flytta seg. Du undersøkjer årsaka og justerer."},{"id":"tif-vg1-7-3-n-quiz2-q2","task":"Ei stikkprøve frå mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm gjev 12,03 mm. Kva er status?","options":[{"id":"a","text":"Godkjent","isCorrect":false},{"id":"b","text":"Perfekt","isCorrect":false},{"id":"c","text":"Vrak -- over øvre grense $12{,}02$ mm","isCorrect":true},{"id":"d","text":"Umogleg å avgjere","isCorrect":false}],"solution":"Grensene er $11{,}98$--$12{,}02$ mm. $12{,}03$ mm ligg over øvre grense og er vrak. Mønsteret tyder på at prosessen er på veg ut og bør justerast."},{"id":"tif-vg1-7-3-n-quiz2-q3","task":"Kva er ein hovudfordel med SPC?","options":[{"id":"a","text":"Han fjernar behovet for toleransar","isCorrect":false},{"id":"b","text":"Han gjer produkta dyrare","isCorrect":false},{"id":"c","text":"Han krev at ingen måler noko","isCorrect":false},{"id":"d","text":"Han oppdagar problem tidleg og reduserer vrak","isCorrect":true}],"solution":"SPC oppdagar problem tidleg, reduserer vrak og omarbeid, og gjev data som grunnlag for forbetring."}]}},{"id":"tif-vg1-7-3-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært å bevise at ein del er god nok. **Toleransar** gjev tillate avvik frå nominell verdi, og **ISO-systemet** med bokstav og tal lèt oss kombinere hol og aksel til glide-, overgangs- eller presspasningar.\n\nFor å kontrollere bruker vi rett **måleverktøy**: skuvelæret som allroundar ($0{,}02$--$0{,}05$ mm), mikrometeret for presisjon ($0{,}01$ mm), måleklokka for form, og **Go/NoGo-grensemål** for lynrask sjekk. Vi vel mellom 100 % kontroll, stikkprøve og prosesskontroll etter kor kritisk eigenskapen er.\n\nTil slutt såg vi at **statistisk prosesskontroll (SPC)** med kontrolldiagram fangar problem før dei blir vrak: punkt utanfor grensene, trendar og skift fortel at noko har endra seg. Slik blir statistikken ein vakthund som reduserer vrak, sparer kostnader og gjev data til kontinuerleg forbetring. God kvalitet er målbar -- og målinga er beviset."}],"exercises":[],"_meta":{"sourceHash":"1265e80782856ed5","translatedAt":"2026-06-21T09:54:23.206Z","model":"claude-code-agent","strings":61,"tm":{"23a3d9316a8be3b1":"Kvalitetskontroll og måling","b195b06d1ed59702":"Narrativ versjon","4079daef551843d4":"Ei forteljing om korleis vi viser at ein del er god nok -- toleransar, måleverktøy, Go/NoGo-lærer og statistisk prosesskontroll som fangar feil før dei skjer.","6235ef3b03bb8fed":"bruke måleverktøy og kontrollere at produkter er i samsvar med spesifikasjoner","2b1fc10f62121df4":"dokumentere og vurdere eget arbeid","a1f5ae8c1ae389ca":"## Beviset på at delen er god\n\nDu har laga ein aksel som ser perfekt ut. Men 'ser bra ut' held ikkje i industrien -- du må kunne *bevise* at han oppfyller spesifikasjonen. Det er det **kvalitetskontroll og måling** handlar om, og alt byrjar med å forstå **toleransar**.\n\nEin toleranse er det tillatne avviket frå den nominelle verdien. Står det $\\varnothing 50 \\pm 0{,}05$ mm, tyder det at den nominelle verdien er $50{,}00$ mm, øvre grense er $50{,}05$ mm, nedre grense er $49{,}95$ mm, og den totale toleransen er $0{,}10$ mm. Lat oss kontrollere med ein aksel på $\\varnothing 30 \\pm 0{,}03$ mm: grensene blir $29{,}97$ til $30{,}03$ mm, så eit mål på $30{,}02$ mm er godkjent, medan $29{,}96$ er for lite og $30{,}04$ for stort.\n\nFor å sleppe pluss og minus overalt har vi **ISO-toleransesystemet**, der ein bokstav gjev posisjonen og eit tal gjev storleiken -- H7 for eit hol med øvre grense ved nominell, h6 for ein aksel med nedre grense ved nominell, og større tal gjev større toleranse.\n\nKombinerer du hol og aksel, får du ein **pasning**. Ein glidepasning (H7/g6) gjev litt klaring, ein overgangspasning (H7/k6) kan gje anten klaring eller press, og ein presspasning (H7/p6) gjev alltid press. Toleransane er altså ikkje pirk -- dei avgjer om to delar glir, sit eller må pressast saman. Og for å sjekke at ein del faktisk held seg innanfor, treng vi rett måleverktøy.","348b5c94d11f013c":"## Verktøya og metodane for å kontrollere\n\nFor å måle rett må du velje rett verktøy. **Skuvelæret** er allroundaren -- det måler lengder, diameterar og djupner med ein nøyaktigheit på $0{,}02$--$0{,}05$ mm, og finst digitalt eller analogt med nonius. Det er førstevalet ditt for dei fleste oppgåver. **Mikrometeret** gjev høgare presisjon på $0{,}01$ mm og blir brukt når toleransen er trang, i typane utvendig, innvendig og djupne. **Måleklokka** måler avvik frå ein referanse med $0{,}01$ mm nøyaktigheit og blir brukt til rundheit, planheit og parallellitet. Tommelregelen: start med skuvelæret, og gå til mikrometeret når toleransen krev det.\n\nEit smart verktøy for rask kontroll er **grensemålet (Go/NoGo)**. Det har to mål -- 'Go' svarar til den romslegaste grensa og 'NoGo' den trangaste. For ein aksel skal han passe gjennom Go-ringen (viser at han ikkje er for stor), men *ikkje* gjennom NoGo-ringen (viser at han ikkje er for liten). Då veit du på eit sekund at han er innanfor, utan å lese av eit einaste tal -- fordelen er fart, ulempen er at du ikkje får vite det faktiske målet.\n\nKor mykje skal du kontrollere? Det finst tre metodar. **100 % kontroll** måler kvar einaste del -- nødvendig for tryggleikskritiske delar som flydelar, men tidkrevjande og dyrt. **Stikkprøvekontroll** måler eit utval basert på statistiske prinsipp -- meir effektivt, men med ein viss risiko for at ein feil slepp gjennom. Og **prosesskontroll** kontrollerer sjølve prosessen i staden for produktet, ved å måle parametrar som temperatur, trykk og fart -- og dermed *hindrar* feil i staden for å oppdage dei etterpå. For ein aksel på $25{,}00 \\pm 0{,}02$ mm tyder 100 % kontroll at kvar blir målt og alt utanfor $24{,}98$--$25{,}02$ blir kassert, medan ei stikkprøve måler til dømes 5 av 100.","5d75411425ec0f38":"Test deg sjølv på toleransar, måleverktøy og metodar:","4097889236a2af26":"placeholder","cb4ed1cb91f9eb38":"Ein aksel har toleranse $\\varnothing 30 \\pm 0{,}03$ mm. Kva for mål er innanfor?","ddc10b444a0896b9":"$30{,}02$ mm","7f2d10e130adff74":"$29{,}96$ mm","f50e1a60e094a5cf":"$30{,}04$ mm","1845a963ac0c341a":"$29{,}90$ mm","d5824751f51c8360":"Grensene er $29{,}97$ til $30{,}03$ mm. $30{,}02$ mm er innanfor, medan $29{,}96$ er for lite og $30{,}04$ for stort.","0c18717c316aa1af":"Kva for verktøy gjev høgast presisjon?","078ea4b403fa2fa0":"Skuvelær ($0{,}02$--$0{,}05$ mm)","1928a2f900142a1e":"Mikrometer ($0{,}01$ mm)","cd3c88f0943338e8":"Tommestokk","00741db8b3418758":"Augemål","74dfb3fa3830ed0f":"Mikrometeret gjev høgare presisjon ($0{,}01$ mm) enn skuvelæret. Du startar med skuvelær og bruker mikrometer når toleransen krev det.","c65fa576a2282d75":"Kva er prinsippet bak eit Go/NoGo-grensemål for ein aksel?","c539b4b706bb2724":"Akselen skal passe gjennom begge ringane","0799db62d753e15b":"Akselen skal ikkje passe gjennom nokon av ringane","e9c1f46b689d2c0b":"Akselen skal passe gjennom Go-ringen, men ikkje gjennom NoGo-ringen","7d5b48c496eaa5a4":"Det måler den nøyaktige diameteren","75e26d01a80e8d4d":"Akselen skal passe gjennom Go-ringen (ikkje for stor), men ikkje gjennom NoGo-ringen (ikkje for liten). Det gjev rask OK/ikkje OK utan å lese tal.","29700d8a87f75854":"Kva er fordelen med prosesskontroll framfor produktkontroll?","1c2e3ba1696803fd":"Han krev inga måling","a4e2a9aabdc0183b":"Han måler alltid alle produkt","b5951981807f2289":"Han er alltid gratis","447b63b6deea20c7":"Han hindrar feil i staden for berre å oppdage dei","a008c4dcfe7e131b":"Prosesskontroll måler prosessparametrar som temperatur og trykk, og hindrar dermed feil i staden for berre å oppdage dei etter at delane er laga.","affa86411a7f6f55":"## Statistikk som vakthund: SPC\n\nTenk deg at du måler diameteren på dreidde akslar time etter time. Kvar einskild kan vere innanfor toleransen -- men kva om du kunne sjå ein feil *kome*, før han faktisk skjer? Det er nettopp det **statistisk prosesskontroll (SPC)** gjer: han bruker statistikk til å overvake og styre produksjonsprosessen.\n\nKjernen er **kontrolldiagrammet**, der du plottar målingar over tid. Det har tre linjer: ei **midtlinje** som er gjennomsnittet (ønskt verdi), ei **øvre kontrollgrense (UCL)** ved pluss tre standardavvik, og ei **nedre kontrollgrense (LCL)** ved minus tre standardavvik. Så lenge punkta sprett tilfeldig rundt midtlinja innanfor grensene, er prosessen under kontroll.\n\nDet interessante er mønstera som avslører problem. Eit **punkt utanfor grensene** tyder at prosessen er ute av kontroll -- undersøk straks. Ein **trend** der 7 eller fleire punkt stig eller søkk, tyder at noko endrar seg gradvis -- kanskje eit verktøy som blir slite. Eit **skift** der 7--8 punkt ligg på same side av midtlinja, tyder at gjennomsnittet til prosessen har flytta seg -- sjølv om alle punkta er innanfor grensene. Det er statistisk svært usannsynleg at det skjer tilfeldig, så noko har endra seg: nytt råmateriale, verktøyslitasje, ny operatør. Då undersøkjer du, justerer tilbake, og oppdaterer eventuelt grensene viss endringa er permanent og ønskt.\n\nLat oss kontrollere ei stikkprøve frå ei CNC-maskin med mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm (grenser $11{,}98$--$12{,}02$): målingane $11{,}99$, $12{,}01$, $12{,}02$, $12{,}00$ og $12{,}03$ gjev fire godkjende, men $12{,}03$ er vrak. Mønsteret viser at prosessen ligg høgt i toleransen og er på veg ut -- så du justerer maskinoffset litt ned og sjekkar verktøyet. SPC fangar altså problemet før heile partiet ryk, reduserer vrak og omarbeid, og gjev data til forbetring.","62a7dc14b6d7b6e7":"Test deg sjølv på statistisk prosesskontroll:","66c4199c1067770c":"Kva markerer øvre kontrollgrense (UCL) i eit kontrolldiagram?","edb3d262e57084ec":"Pluss tre standardavvik frå midtlinja","7188d975b56db5b6":"Gjennomsnittet","8f921a16f9535946":"Den nominelle verdien","5a599621651148db":"Nedre toleransegrense","e001f66aa0be3c54":"UCL ligg ved pluss tre standardavvik over midtlinja, og LCL ved minus tre standardavvik. Midtlinja er gjennomsnittet.","2a8022c678395bdb":"8 punkt på rad ligg over midtlinja, men innanfor grensene. Kva tyder dette?","97d94a8b1a9d4c7d":"Alt er heilt normalt","747490db7269b16d":"Eit skift -- gjennomsnittet til prosessen har endra seg; undersøk","08f82bc1f250f968":"Maskina er øydelagd og må skrotast","69212de76e159fef":"Punkta skal ignorerast","66aa97bdc9a2a38a":"Eit skift med 8 punkt på same side er statistisk svært usannsynleg tilfeldig og tyder at gjennomsnittet til prosessen har flytta seg. Du undersøkjer årsaka og justerer.","501a657f71e2bf0a":"Ei stikkprøve frå mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm gjev 12,03 mm. Kva er status?","f144bc18007c6f8e":"Godkjent","75319a13529a55f4":"Perfekt","4fb4f7a05e8ec229":"Vrak -- over øvre grense $12{,}02$ mm","68f09193e7f920d5":"Umogleg å avgjere","130b47a862e92e77":"Grensene er $11{,}98$--$12{,}02$ mm. $12{,}03$ mm ligg over øvre grense og er vrak. Mønsteret tyder på at prosessen er på veg ut og bør justerast.","97405a869ad99c6e":"Kva er ein hovudfordel med SPC?","fce89a4cd3bb7e6f":"Han fjernar behovet for toleransar","d7a1479f239c837e":"Han gjer produkta dyrare","450ee923aa02c936":"Han krev at ingen måler noko","a425dcc990b23b2b":"Han oppdagar problem tidleg og reduserer vrak","2b86573cd24d554c":"SPC oppdagar problem tidleg, reduserer vrak og omarbeid, og gjev data som grunnlag for forbetring.","94d1013ae13087b3":"## Oppsummering\n\nVi har lært å bevise at ein del er god nok. **Toleransar** gjev tillate avvik frå nominell verdi, og **ISO-systemet** med bokstav og tal lèt oss kombinere hol og aksel til glide-, overgangs- eller presspasningar.\n\nFor å kontrollere bruker vi rett **måleverktøy**: skuvelæret som allroundar ($0{,}02$--$0{,}05$ mm), mikrometeret for presisjon ($0{,}01$ mm), måleklokka for form, og **Go/NoGo-grensemål** for lynrask sjekk. Vi vel mellom 100 % kontroll, stikkprøve og prosesskontroll etter kor kritisk eigenskapen er.\n\nTil slutt såg vi at **statistisk prosesskontroll (SPC)** med kontrolldiagram fangar problem før dei blir vrak: punkt utanfor grensene, trendar og skift fortel at noko har endra seg. Slik blir statistikken ein vakthund som reduserer vrak, sparer kostnader og gjev data til kontinuerleg forbetring. God kvalitet er målbar -- og målinga er beviset."}}}
+{
+  "id": "tif-vg1-7-3-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "7.3",
+  "title": "Kvalitetskontroll og måling",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi viser at ein del er god nok -- toleransar, måleverktøy, Go/NoGo-lærer og statistisk prosesskontroll som fangar feil før dei skjer.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke måleverktøy og kontrollere at produkter er i samsvar med spesifikasjoner",
+    "dokumentere og vurdere eget arbeid"
+  ],
+  "linkedChapterId": "tif-vg1-7-3",
+  "content": [
+    {
+      "id": "tif-vg1-7-3-n-intro",
+      "type": "text",
+      "content": "## Beviset på at delen er god\n\nDu har laga ein aksel som ser perfekt ut. Men 'ser bra ut' held ikkje i industrien -- du må kunne *bevise* at han oppfyller spesifikasjonen. Det er det **kvalitetskontroll og måling** handlar om, og alt byrjar med å forstå **toleransar**.\n\nEin toleranse er det tillatne avviket frå den nominelle verdien. Står det $\\varnothing 50 \\pm 0{,}05$ mm, tyder det at den nominelle verdien er $50{,}00$ mm, øvre grense er $50{,}05$ mm, nedre grense er $49{,}95$ mm, og den totale toleransen er $0{,}10$ mm. Lat oss kontrollere med ein aksel på $\\varnothing 30 \\pm 0{,}03$ mm: grensene blir $29{,}97$ til $30{,}03$ mm, så eit mål på $30{,}02$ mm er godkjent, medan $29{,}96$ er for lite og $30{,}04$ for stort.\n\nFor å sleppe pluss og minus overalt har vi **ISO-toleransesystemet**, der ein bokstav gjev posisjonen og eit tal gjev storleiken -- H7 for eit hol med øvre grense ved nominell, h6 for ein aksel med nedre grense ved nominell, og større tal gjev større toleranse.\n\nKombinerer du hol og aksel, får du ein **pasning**. Ein glidepasning (H7/g6) gjev litt klaring, ein overgangspasning (H7/k6) kan gje anten klaring eller press, og ein presspasning (H7/p6) gjev alltid press. Toleransane er altså ikkje pirk -- dei avgjer om to delar glir, sit eller må pressast saman. Og for å sjekke at ein del faktisk held seg innanfor, treng vi rett måleverktøy."
+    },
+    {
+      "id": "tif-vg1-7-3-n-section1",
+      "type": "text",
+      "content": "## Verktøya og metodane for å kontrollere\n\nFor å måle rett må du velje rett verktøy. **Skuvelæret** er allroundaren -- det måler lengder, diameterar og djupner med ein nøyaktigheit på $0{,}02$--$0{,}05$ mm, og finst digitalt eller analogt med nonius. Det er førstevalet ditt for dei fleste oppgåver. **Mikrometeret** gjev høgare presisjon på $0{,}01$ mm og blir brukt når toleransen er trang, i typane utvendig, innvendig og djupne. **Måleklokka** måler avvik frå ein referanse med $0{,}01$ mm nøyaktigheit og blir brukt til rundheit, planheit og parallellitet. Tommelregelen: start med skuvelæret, og gå til mikrometeret når toleransen krev det.\n\nEit smart verktøy for rask kontroll er **grensemålet (Go/NoGo)**. Det har to mål -- 'Go' svarar til den romslegaste grensa og 'NoGo' den trangaste. For ein aksel skal han passe gjennom Go-ringen (viser at han ikkje er for stor), men *ikkje* gjennom NoGo-ringen (viser at han ikkje er for liten). Då veit du på eit sekund at han er innanfor, utan å lese av eit einaste tal -- fordelen er fart, ulempen er at du ikkje får vite det faktiske målet.\n\nKor mykje skal du kontrollere? Det finst tre metodar. **100 % kontroll** måler kvar einaste del -- nødvendig for tryggleikskritiske delar som flydelar, men tidkrevjande og dyrt. **Stikkprøvekontroll** måler eit utval basert på statistiske prinsipp -- meir effektivt, men med ein viss risiko for at ein feil slepp gjennom. Og **prosesskontroll** kontrollerer sjølve prosessen i staden for produktet, ved å måle parametrar som temperatur, trykk og fart -- og dermed *hindrar* feil i staden for å oppdage dei etterpå. For ein aksel på $25{,}00 \\pm 0{,}02$ mm tyder 100 % kontroll at kvar blir målt og alt utanfor $24{,}98$--$25{,}02$ blir kassert, medan ei stikkprøve måler til dømes 5 av 100."
+    },
+    {
+      "id": "tif-vg1-7-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-7-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på toleransar, måleverktøy og metodar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-7-3-n-quiz1-q0",
+            "task": "Ein aksel har toleranse $\\varnothing 30 \\pm 0{,}03$ mm. Kva for mål er innanfor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$29{,}96$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$30{,}04$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$29{,}90$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$30{,}02$ mm",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Grensene er $29{,}97$ til $30{,}03$ mm. $30{,}02$ mm er innanfor, medan $29{,}96$ er for lite og $30{,}04$ for stort."
+          },
+          {
+            "id": "tif-vg1-7-3-n-quiz1-q1",
+            "task": "Kva for verktøy gjev høgast presisjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Mikrometer ($0{,}01$ mm)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Skuvelær ($0{,}02$--$0{,}05$ mm)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tommestokk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Augemål",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mikrometeret gjev høgare presisjon ($0{,}01$ mm) enn skuvelæret. Du startar med skuvelær og bruker mikrometer når toleransen krev det."
+          },
+          {
+            "id": "tif-vg1-7-3-n-quiz1-q2",
+            "task": "Kva er prinsippet bak eit Go/NoGo-grensemål for ein aksel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Akselen skal passe gjennom begge ringane",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Akselen skal passe gjennom Go-ringen, men ikkje gjennom NoGo-ringen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Akselen skal ikkje passe gjennom nokon av ringane",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det måler den nøyaktige diameteren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Akselen skal passe gjennom Go-ringen (ikkje for stor), men ikkje gjennom NoGo-ringen (ikkje for liten). Det gjev rask OK/ikkje OK utan å lese tal."
+          },
+          {
+            "id": "tif-vg1-7-3-n-quiz1-q3",
+            "task": "Kva er fordelen med prosesskontroll framfor produktkontroll?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han krev inga måling",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han måler alltid alle produkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han hindrar feil i staden for berre å oppdage dei",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han er alltid gratis",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Prosesskontroll måler prosessparametrar som temperatur og trykk, og hindrar dermed feil i staden for berre å oppdage dei etter at delane er laga."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-7-3-n-section2",
+      "type": "text",
+      "content": "## Statistikk som vakthund: SPC\n\nTenk deg at du måler diameteren på dreidde akslar time etter time. Kvar einskild kan vere innanfor toleransen -- men kva om du kunne sjå ein feil *kome*, før han faktisk skjer? Det er nettopp det **statistisk prosesskontroll (SPC)** gjer: han bruker statistikk til å overvake og styre produksjonsprosessen.\n\nKjernen er **kontrolldiagrammet**, der du plottar målingar over tid. Det har tre linjer: ei **midtlinje** som er gjennomsnittet (ønskt verdi), ei **øvre kontrollgrense (UCL)** ved pluss tre standardavvik, og ei **nedre kontrollgrense (LCL)** ved minus tre standardavvik. Så lenge punkta sprett tilfeldig rundt midtlinja innanfor grensene, er prosessen under kontroll.\n\nDet interessante er mønstera som avslører problem. Eit **punkt utanfor grensene** tyder at prosessen er ute av kontroll -- undersøk straks. Ein **trend** der 7 eller fleire punkt stig eller søkk, tyder at noko endrar seg gradvis -- kanskje eit verktøy som blir slite. Eit **skift** der 7--8 punkt ligg på same side av midtlinja, tyder at gjennomsnittet til prosessen har flytta seg -- sjølv om alle punkta er innanfor grensene. Det er statistisk svært usannsynleg at det skjer tilfeldig, så noko har endra seg: nytt råmateriale, verktøyslitasje, ny operatør. Då undersøkjer du, justerer tilbake, og oppdaterer eventuelt grensene viss endringa er permanent og ønskt.\n\nLat oss kontrollere ei stikkprøve frå ei CNC-maskin med mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm (grenser $11{,}98$--$12{,}02$): målingane $11{,}99$, $12{,}01$, $12{,}02$, $12{,}00$ og $12{,}03$ gjev fire godkjende, men $12{,}03$ er vrak. Mønsteret viser at prosessen ligg høgt i toleransen og er på veg ut -- så du justerer maskinoffset litt ned og sjekkar verktøyet. SPC fangar altså problemet før heile partiet ryk, reduserer vrak og omarbeid, og gjev data til forbetring."
+    },
+    {
+      "id": "tif-vg1-7-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-7-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på statistisk prosesskontroll:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-7-3-n-quiz2-q0",
+            "task": "Kva markerer øvre kontrollgrense (UCL) i eit kontrolldiagram?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Gjennomsnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den nominelle verdien",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nedre toleransegrense",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Pluss tre standardavvik frå midtlinja",
+                "isCorrect": true
+              }
+            ],
+            "solution": "UCL ligg ved pluss tre standardavvik over midtlinja, og LCL ved minus tre standardavvik. Midtlinja er gjennomsnittet."
+          },
+          {
+            "id": "tif-vg1-7-3-n-quiz2-q1",
+            "task": "8 punkt på rad ligg over midtlinja, men innanfor grensene. Kva tyder dette?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Eit skift -- gjennomsnittet til prosessen har endra seg; undersøk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Alt er heilt normalt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Maskina er øydelagd og må skrotast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Punkta skal ignorerast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit skift med 8 punkt på same side er statistisk svært usannsynleg tilfeldig og tyder at gjennomsnittet til prosessen har flytta seg. Du undersøkjer årsaka og justerer."
+          },
+          {
+            "id": "tif-vg1-7-3-n-quiz2-q2",
+            "task": "Ei stikkprøve frå mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm gjev 12,03 mm. Kva er status?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Godkjent",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vrak -- over øvre grense $12{,}02$ mm",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Perfekt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Umogleg å avgjere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grensene er $11{,}98$--$12{,}02$ mm. $12{,}03$ mm ligg over øvre grense og er vrak. Mønsteret tyder på at prosessen er på veg ut og bør justerast."
+          },
+          {
+            "id": "tif-vg1-7-3-n-quiz2-q3",
+            "task": "Kva er ein hovudfordel med SPC?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han fjernar behovet for toleransar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han gjer produkta dyrare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han oppdagar problem tidleg og reduserer vrak",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han krev at ingen måler noko",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SPC oppdagar problem tidleg, reduserer vrak og omarbeid, og gjev data som grunnlag for forbetring."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-7-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært å bevise at ein del er god nok. **Toleransar** gjev tillate avvik frå nominell verdi, og **ISO-systemet** med bokstav og tal lèt oss kombinere hol og aksel til glide-, overgangs- eller presspasningar.\n\nFor å kontrollere bruker vi rett **måleverktøy**: skuvelæret som allroundar ($0{,}02$--$0{,}05$ mm), mikrometeret for presisjon ($0{,}01$ mm), måleklokka for form, og **Go/NoGo-grensemål** for lynrask sjekk. Vi vel mellom 100 % kontroll, stikkprøve og prosesskontroll etter kor kritisk eigenskapen er.\n\nTil slutt såg vi at **statistisk prosesskontroll (SPC)** med kontrolldiagram fangar problem før dei blir vrak: punkt utanfor grensene, trendar og skift fortel at noko har endra seg. Slik blir statistikken ein vakthund som reduserer vrak, sparer kostnader og gjev data til kontinuerleg forbetring. God kvalitet er målbar -- og målinga er beviset."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "1265e80782856ed5",
+    "translatedAt": "2026-06-21T09:54:23.206Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "23a3d9316a8be3b1": "Kvalitetskontroll og måling",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "4079daef551843d4": "Ei forteljing om korleis vi viser at ein del er god nok -- toleransar, måleverktøy, Go/NoGo-lærer og statistisk prosesskontroll som fangar feil før dei skjer.",
+      "6235ef3b03bb8fed": "bruke måleverktøy og kontrollere at produkter er i samsvar med spesifikasjoner",
+      "2b1fc10f62121df4": "dokumentere og vurdere eget arbeid",
+      "a1f5ae8c1ae389ca": "## Beviset på at delen er god\n\nDu har laga ein aksel som ser perfekt ut. Men 'ser bra ut' held ikkje i industrien -- du må kunne *bevise* at han oppfyller spesifikasjonen. Det er det **kvalitetskontroll og måling** handlar om, og alt byrjar med å forstå **toleransar**.\n\nEin toleranse er det tillatne avviket frå den nominelle verdien. Står det $\\varnothing 50 \\pm 0{,}05$ mm, tyder det at den nominelle verdien er $50{,}00$ mm, øvre grense er $50{,}05$ mm, nedre grense er $49{,}95$ mm, og den totale toleransen er $0{,}10$ mm. Lat oss kontrollere med ein aksel på $\\varnothing 30 \\pm 0{,}03$ mm: grensene blir $29{,}97$ til $30{,}03$ mm, så eit mål på $30{,}02$ mm er godkjent, medan $29{,}96$ er for lite og $30{,}04$ for stort.\n\nFor å sleppe pluss og minus overalt har vi **ISO-toleransesystemet**, der ein bokstav gjev posisjonen og eit tal gjev storleiken -- H7 for eit hol med øvre grense ved nominell, h6 for ein aksel med nedre grense ved nominell, og større tal gjev større toleranse.\n\nKombinerer du hol og aksel, får du ein **pasning**. Ein glidepasning (H7/g6) gjev litt klaring, ein overgangspasning (H7/k6) kan gje anten klaring eller press, og ein presspasning (H7/p6) gjev alltid press. Toleransane er altså ikkje pirk -- dei avgjer om to delar glir, sit eller må pressast saman. Og for å sjekke at ein del faktisk held seg innanfor, treng vi rett måleverktøy.",
+      "348b5c94d11f013c": "## Verktøya og metodane for å kontrollere\n\nFor å måle rett må du velje rett verktøy. **Skuvelæret** er allroundaren -- det måler lengder, diameterar og djupner med ein nøyaktigheit på $0{,}02$--$0{,}05$ mm, og finst digitalt eller analogt med nonius. Det er førstevalet ditt for dei fleste oppgåver. **Mikrometeret** gjev høgare presisjon på $0{,}01$ mm og blir brukt når toleransen er trang, i typane utvendig, innvendig og djupne. **Måleklokka** måler avvik frå ein referanse med $0{,}01$ mm nøyaktigheit og blir brukt til rundheit, planheit og parallellitet. Tommelregelen: start med skuvelæret, og gå til mikrometeret når toleransen krev det.\n\nEit smart verktøy for rask kontroll er **grensemålet (Go/NoGo)**. Det har to mål -- 'Go' svarar til den romslegaste grensa og 'NoGo' den trangaste. For ein aksel skal han passe gjennom Go-ringen (viser at han ikkje er for stor), men *ikkje* gjennom NoGo-ringen (viser at han ikkje er for liten). Då veit du på eit sekund at han er innanfor, utan å lese av eit einaste tal -- fordelen er fart, ulempen er at du ikkje får vite det faktiske målet.\n\nKor mykje skal du kontrollere? Det finst tre metodar. **100 % kontroll** måler kvar einaste del -- nødvendig for tryggleikskritiske delar som flydelar, men tidkrevjande og dyrt. **Stikkprøvekontroll** måler eit utval basert på statistiske prinsipp -- meir effektivt, men med ein viss risiko for at ein feil slepp gjennom. Og **prosesskontroll** kontrollerer sjølve prosessen i staden for produktet, ved å måle parametrar som temperatur, trykk og fart -- og dermed *hindrar* feil i staden for å oppdage dei etterpå. For ein aksel på $25{,}00 \\pm 0{,}02$ mm tyder 100 % kontroll at kvar blir målt og alt utanfor $24{,}98$--$25{,}02$ blir kassert, medan ei stikkprøve måler til dømes 5 av 100.",
+      "5d75411425ec0f38": "Test deg sjølv på toleransar, måleverktøy og metodar:",
+      "4097889236a2af26": "placeholder",
+      "cb4ed1cb91f9eb38": "Ein aksel har toleranse $\\varnothing 30 \\pm 0{,}03$ mm. Kva for mål er innanfor?",
+      "ddc10b444a0896b9": "$30{,}02$ mm",
+      "7f2d10e130adff74": "$29{,}96$ mm",
+      "f50e1a60e094a5cf": "$30{,}04$ mm",
+      "1845a963ac0c341a": "$29{,}90$ mm",
+      "d5824751f51c8360": "Grensene er $29{,}97$ til $30{,}03$ mm. $30{,}02$ mm er innanfor, medan $29{,}96$ er for lite og $30{,}04$ for stort.",
+      "0c18717c316aa1af": "Kva for verktøy gjev høgast presisjon?",
+      "078ea4b403fa2fa0": "Skuvelær ($0{,}02$--$0{,}05$ mm)",
+      "1928a2f900142a1e": "Mikrometer ($0{,}01$ mm)",
+      "cd3c88f0943338e8": "Tommestokk",
+      "00741db8b3418758": "Augemål",
+      "74dfb3fa3830ed0f": "Mikrometeret gjev høgare presisjon ($0{,}01$ mm) enn skuvelæret. Du startar med skuvelær og bruker mikrometer når toleransen krev det.",
+      "c65fa576a2282d75": "Kva er prinsippet bak eit Go/NoGo-grensemål for ein aksel?",
+      "c539b4b706bb2724": "Akselen skal passe gjennom begge ringane",
+      "0799db62d753e15b": "Akselen skal ikkje passe gjennom nokon av ringane",
+      "e9c1f46b689d2c0b": "Akselen skal passe gjennom Go-ringen, men ikkje gjennom NoGo-ringen",
+      "7d5b48c496eaa5a4": "Det måler den nøyaktige diameteren",
+      "75e26d01a80e8d4d": "Akselen skal passe gjennom Go-ringen (ikkje for stor), men ikkje gjennom NoGo-ringen (ikkje for liten). Det gjev rask OK/ikkje OK utan å lese tal.",
+      "29700d8a87f75854": "Kva er fordelen med prosesskontroll framfor produktkontroll?",
+      "1c2e3ba1696803fd": "Han krev inga måling",
+      "a4e2a9aabdc0183b": "Han måler alltid alle produkt",
+      "b5951981807f2289": "Han er alltid gratis",
+      "447b63b6deea20c7": "Han hindrar feil i staden for berre å oppdage dei",
+      "a008c4dcfe7e131b": "Prosesskontroll måler prosessparametrar som temperatur og trykk, og hindrar dermed feil i staden for berre å oppdage dei etter at delane er laga.",
+      "affa86411a7f6f55": "## Statistikk som vakthund: SPC\n\nTenk deg at du måler diameteren på dreidde akslar time etter time. Kvar einskild kan vere innanfor toleransen -- men kva om du kunne sjå ein feil *kome*, før han faktisk skjer? Det er nettopp det **statistisk prosesskontroll (SPC)** gjer: han bruker statistikk til å overvake og styre produksjonsprosessen.\n\nKjernen er **kontrolldiagrammet**, der du plottar målingar over tid. Det har tre linjer: ei **midtlinje** som er gjennomsnittet (ønskt verdi), ei **øvre kontrollgrense (UCL)** ved pluss tre standardavvik, og ei **nedre kontrollgrense (LCL)** ved minus tre standardavvik. Så lenge punkta sprett tilfeldig rundt midtlinja innanfor grensene, er prosessen under kontroll.\n\nDet interessante er mønstera som avslører problem. Eit **punkt utanfor grensene** tyder at prosessen er ute av kontroll -- undersøk straks. Ein **trend** der 7 eller fleire punkt stig eller søkk, tyder at noko endrar seg gradvis -- kanskje eit verktøy som blir slite. Eit **skift** der 7--8 punkt ligg på same side av midtlinja, tyder at gjennomsnittet til prosessen har flytta seg -- sjølv om alle punkta er innanfor grensene. Det er statistisk svært usannsynleg at det skjer tilfeldig, så noko har endra seg: nytt råmateriale, verktøyslitasje, ny operatør. Då undersøkjer du, justerer tilbake, og oppdaterer eventuelt grensene viss endringa er permanent og ønskt.\n\nLat oss kontrollere ei stikkprøve frå ei CNC-maskin med mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm (grenser $11{,}98$--$12{,}02$): målingane $11{,}99$, $12{,}01$, $12{,}02$, $12{,}00$ og $12{,}03$ gjev fire godkjende, men $12{,}03$ er vrak. Mønsteret viser at prosessen ligg høgt i toleransen og er på veg ut -- så du justerer maskinoffset litt ned og sjekkar verktøyet. SPC fangar altså problemet før heile partiet ryk, reduserer vrak og omarbeid, og gjev data til forbetring.",
+      "62a7dc14b6d7b6e7": "Test deg sjølv på statistisk prosesskontroll:",
+      "66c4199c1067770c": "Kva markerer øvre kontrollgrense (UCL) i eit kontrolldiagram?",
+      "edb3d262e57084ec": "Pluss tre standardavvik frå midtlinja",
+      "7188d975b56db5b6": "Gjennomsnittet",
+      "8f921a16f9535946": "Den nominelle verdien",
+      "5a599621651148db": "Nedre toleransegrense",
+      "e001f66aa0be3c54": "UCL ligg ved pluss tre standardavvik over midtlinja, og LCL ved minus tre standardavvik. Midtlinja er gjennomsnittet.",
+      "2a8022c678395bdb": "8 punkt på rad ligg over midtlinja, men innanfor grensene. Kva tyder dette?",
+      "97d94a8b1a9d4c7d": "Alt er heilt normalt",
+      "747490db7269b16d": "Eit skift -- gjennomsnittet til prosessen har endra seg; undersøk",
+      "08f82bc1f250f968": "Maskina er øydelagd og må skrotast",
+      "69212de76e159fef": "Punkta skal ignorerast",
+      "66aa97bdc9a2a38a": "Eit skift med 8 punkt på same side er statistisk svært usannsynleg tilfeldig og tyder at gjennomsnittet til prosessen har flytta seg. Du undersøkjer årsaka og justerer.",
+      "501a657f71e2bf0a": "Ei stikkprøve frå mål $\\varnothing 12{,}00 \\pm 0{,}02$ mm gjev 12,03 mm. Kva er status?",
+      "f144bc18007c6f8e": "Godkjent",
+      "75319a13529a55f4": "Perfekt",
+      "4fb4f7a05e8ec229": "Vrak -- over øvre grense $12{,}02$ mm",
+      "68f09193e7f920d5": "Umogleg å avgjere",
+      "130b47a862e92e77": "Grensene er $11{,}98$--$12{,}02$ mm. $12{,}03$ mm ligg over øvre grense og er vrak. Mønsteret tyder på at prosessen er på veg ut og bør justerast.",
+      "97405a869ad99c6e": "Kva er ein hovudfordel med SPC?",
+      "fce89a4cd3bb7e6f": "Han fjernar behovet for toleransar",
+      "d7a1479f239c837e": "Han gjer produkta dyrare",
+      "450ee923aa02c936": "Han krev at ingen måler noko",
+      "a425dcc990b23b2b": "Han oppdagar problem tidleg og reduserer vrak",
+      "2b86573cd24d554c": "SPC oppdagar problem tidleg, reduserer vrak og omarbeid, og gjev data som grunnlag for forbetring.",
+      "94d1013ae13087b3": "## Oppsummering\n\nVi har lært å bevise at ein del er god nok. **Toleransar** gjev tillate avvik frå nominell verdi, og **ISO-systemet** med bokstav og tal lèt oss kombinere hol og aksel til glide-, overgangs- eller presspasningar.\n\nFor å kontrollere bruker vi rett **måleverktøy**: skuvelæret som allroundar ($0{,}02$--$0{,}05$ mm), mikrometeret for presisjon ($0{,}01$ mm), måleklokka for form, og **Go/NoGo-grensemål** for lynrask sjekk. Vi vel mellom 100 % kontroll, stikkprøve og prosesskontroll etter kor kritisk eigenskapen er.\n\nTil slutt såg vi at **statistisk prosesskontroll (SPC)** med kontrolldiagram fangar problem før dei blir vrak: punkt utanfor grensene, trendar og skift fortel at noko har endra seg. Slik blir statistikken ein vakthund som reduserer vrak, sparer kostnader og gjev data til kontinuerleg forbetring. God kvalitet er målbar -- og målinga er beviset."
+    }
+  }
+}

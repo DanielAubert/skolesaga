@@ -1,1 +1,417 @@
-{"id":"it-2-3-5-narrativ","courseId":"it-2","chapterNumber":"5","title":"Databehandling og filhandtering","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi hentar verkelege data inn i Python – frå with-blokka som lukkar filer trygt, via CSV og JSON, til datareinsing og pandas som gjer tabellar til innsikt.","estimatedMinutes":40,"competenceGoals":["Lese og skrive tekstfiler, CSV og JSON i Python","Reinse data og handtere manglande verdiar","Bruke pandas til grunnleggjande dataanalyse"],"linkedChapterId":"it-2-3-5","content":[{"id":"it-2-3-5-n-intro","type":"text","content":"## Data ligg sjeldan klare i ei liste\n\nI den verkelege verda ligg data sjeldan ferdige i ei Python-liste. Dei ligg i filer, databasar og på nettet. For å bruke dei må du kunne lese dei inn, behandle dei og ofte lagre resultatet tilbake. Det startar med **filhandtering**.\n\nDu opnar ei fil med `open(\"filnavn.txt\", modus)`. Dei viktigaste modusane er `\"r\"` for å lese (standard), `\"w\"` for å skrive (som overskriv fila), `\"a\"` for å leggje til på slutten, og `\"x\"` for å opprette ei ny fil. Men den aller viktigaste regelen er denne: bruk ei **with-blokk**. Skriv du `with open(\"data.txt\", \"r\") as fil:`, blir fila lukka automatisk når blokka er ferdig – òg viss det skjer ein feil. Opnar du fila utan with, må du hugse `fil.close()` sjølv, og det er lett å gløyme.\n\nFor norske teikn som æ, ø og å må du oppgi teiknsett: `encoding=\"utf-8\"`. Når du les, har du fleire val: `fil.read()` gir heile fila som éin streng, ei `for linje in fil`-løkke gir éi linje om gongen (bruk `.strip()` for å fjerne linjeskift), og `fil.readlines()` gir alle linjer som ei liste. Med dette kan du til dømes gå gjennom ei loggfil og telje kor mange linjer som inneheld «ERROR» eller «WARNING»."},{"id":"it-2-3-5-n-quiz1","type":"exercise","exercise":{"id":"it-2-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på filhandtering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-5-n-quiz1-q0","task":"Kvifor bør du bruke ei with-blokk når du opnar filer?","options":[{"id":"a","text":"Fila blir kryptert","isCorrect":false},{"id":"b","text":"Fila blir lukka automatisk, òg ved feil","isCorrect":true},{"id":"c","text":"Det gjer lesinga treg","isCorrect":false},{"id":"d","text":"Det er den einaste måten å opne filer på","isCorrect":false}],"solution":"Ei with-blokk lukkar fila automatisk når blokka blir avslutta, sjølv om det oppstår ein feil, så du slepp å hugse close()."},{"id":"it-2-3-5-n-quiz1-q1","task":"Kva modus overskriv ei eksisterande fil?","options":[{"id":"a","text":"\"r\"","isCorrect":false},{"id":"b","text":"\"a\"","isCorrect":false},{"id":"c","text":"\"w\"","isCorrect":true},{"id":"d","text":"\"x\"","isCorrect":false}],"solution":"Modus \"w\" (write) overskriv fila. \"a\" legg til, \"r\" les, og \"x\" opprettar ei ny fil og feilar viss ho finst."},{"id":"it-2-3-5-n-quiz1-q2","task":"Kva må du oppgi for å lese norske teikn (æ, ø, å) korrekt?","options":[{"id":"a","text":"mode=\"norsk\"","isCorrect":false},{"id":"b","text":"delimiter=\";\"","isCorrect":false},{"id":"c","text":"Ingenting, det skjer automatisk alltid","isCorrect":false},{"id":"d","text":"encoding=\"utf-8\"","isCorrect":true}],"solution":"Med encoding=\"utf-8\" blir norske teikn tolka rett ved lesing og skriving."}]}},{"id":"it-2-3-5-n-section1","type":"text","content":"## CSV og JSON – to format for data\n\nRein tekst er fleksibelt, men strukturerte data treng struktur. To format dominerer. **CSV** (Comma Separated Values) er eit tekstbasert tabellformat med rader og kolonnar, skilde med komma. Det er enkelt, lesbart, kan opnast i Excel og Google Sheets, og er standard for datautveksling. `csv`-modulen til Python har to lesarar: `csv.reader` gir kvar rad som ei liste, medan `csv.DictReader` brukar første rad som nøklar så du kan vise til kolonnar ved namn, til dømes `elev['karakter']`. DictReader er tilrådd fordi det er mykje lettare å lese. To norske fallgruver er verdt å hugse: norske CSV-filer brukar ofte semikolon som skiljeteikn – då må du skrive `delimiter=\";\"` – og desimaltal blir ofte skrivne med komma i staden for punktum.\n\n**JSON** (JavaScript Object Notation) er eit tekstbasert format for strukturerte data, brukt overalt i web-API-ar og konfigurasjonsfiler. Det fine er at JSON blir omsett nesten direkte til Python: eit JSON-objekt `{}` blir ein dict, ein array `[]` blir ei liste, `true`/`false` blir `True`/`False`, og `null` blir `None`. `json`-modulen til Python har fire nøkkelfunksjonar: `json.load` les JSON frå ei fil, `json.loads` frå ein streng, `json.dump` skriv til ei fil, og `json.dumps` til ein streng. Når du skriv til fil, gjer `indent=2` fila lesbar, og `ensure_ascii=False` tek vare på dei norske teikna. Den store styrken JSON har over CSV er at det støttar nesta strukturar – objekt inni objekt, lister inni lister."},{"id":"it-2-3-5-n-quiz2","type":"exercise","exercise":{"id":"it-2-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på CSV og JSON:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-5-n-quiz2-q0","task":"Kvifor er csv.DictReader ofte å føretrekkje framfor csv.reader?","options":[{"id":"a","text":"Han lèt deg vise til kolonnar ved namn, ikkje posisjon","isCorrect":true},{"id":"b","text":"Han er den einaste som verkar på norske filer","isCorrect":false},{"id":"c","text":"Han krypterer dataene","isCorrect":false},{"id":"d","text":"Han fjernar duplikat","isCorrect":false}],"solution":"DictReader brukar overskriftsraden som nøklar, så du kan skrive elev['karakter'] i staden for å telje posisjonar."},{"id":"it-2-3-5-n-quiz2-q1","task":"Kva blir eit JSON-objekt `{}` til i Python?","options":[{"id":"a","text":"Ei liste","isCorrect":false},{"id":"b","text":"Ein dict","isCorrect":true},{"id":"c","text":"Ein tuppel","isCorrect":false},{"id":"d","text":"Ein streng","isCorrect":false}],"solution":"Eit JSON-objekt blir ein Python-dict, medan ein JSON-array blir ei liste."},{"id":"it-2-3-5-n-quiz2-q2","task":"Kva gjer ensure_ascii=False i json.dump?","options":[{"id":"a","text":"Fjernar alle norske teikn","isCorrect":false},{"id":"b","text":"Gjer fila uleseleg","isCorrect":false},{"id":"c","text":"Tek vare på norske teikn som æ, ø, å i fila","isCorrect":true},{"id":"d","text":"Sorterer nøklane","isCorrect":false}],"solution":"ensure_ascii=False skriv norske teikn direkte i staden for som escape-kodar, slik at fila blir lesbar."}]}},{"id":"it-2-3-5-n-section2","type":"text","content":"## Datareinsing og pandas\n\nVerkelege data er rotete. **Datareinsing** er prosessen med å oppdage og rette feil, manglar og inkonsistensar. Vanlege problem er manglande verdiar (tomme celler eller «N/A»), feil datatype («atten» i staden for 18), duplikat, inkonsistent format («Oslo», «oslo», «OSLO»), ekstra mellomrom, og uteliggjarar som ein alder på 999. Arbeidsflyten går i fire steg: *inspiser* dataene for å finne problem, *valider* datatypar og verdiar, *reins* systematisk, og *verifiser* at reinsinga verka. Ein tankevekkjande tommelregel: du brukar ofte 80 prosent av tida på datareinsing og berre 20 prosent på sjølve analysen.\n\nI praksis reinsar du gjerne medan du les. Du fjernar mellomrom med `strip()`, standardiserer namn med `title()`, og brukar `try`/`except` rundt `int()` for å fange verdiar som ikkje lèt seg konvertere – og forkastar eller markerer rader som ikkje består validering, som ein alder utanfor eit rimeleg intervall.\n\nFor større datasett finst eit kraftigare verktøy: **pandas**, standardbiblioteket for dataanalyse i Python. Kjernekonseptet er **DataFrame** – ein tabell med rader og kolonnar, som eit rekneark – medan ein enkelt kolonne blir kalla ein **Series**. Du les data med `pd.read_csv` eller `pd.read_json` (hugs `sep=\";\"` for norske filer), og inspiserer med `df.head()`, `df.info()` og `df.describe()`. Du filtrerer rader med `df[df[\"alder\"] >= 18]`, reknar ut statistikk som `df[\"karakter\"].mean()`, og grupperer med `df.groupby(\"alder\")[\"karakter\"].mean()`. Pandas har òg innebygd reinsing: `dropna()` fjernar rader med manglande verdiar, `fillna()` fyller dei inn, og `drop_duplicates()` fjernar duplikat. Det er både raskare enn løkker og langt kortare å skrive."},{"id":"it-2-3-5-n-quiz3","type":"exercise","exercise":{"id":"it-2-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på datareinsing og pandas:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-5-n-quiz3-q0","task":"Kva er ein DataFrame i pandas?","options":[{"id":"a","text":"Ein enkelt tekststreng","isCorrect":false},{"id":"b","text":"Ein type løkke","isCorrect":false},{"id":"c","text":"Ei feilmelding","isCorrect":false},{"id":"d","text":"Ein tabell med rader og kolonnar, som eit rekneark","isCorrect":true}],"solution":"Ein DataFrame er tabellstrukturen til pandas med rader og kolonnar. Ein enkelt kolonne blir kalla ein Series."},{"id":"it-2-3-5-n-quiz3-q1","task":"Kva pandas-metode fjernar rader med manglande verdiar?","options":[{"id":"a","text":"dropna()","isCorrect":true},{"id":"b","text":"fillna()","isCorrect":false},{"id":"c","text":"groupby()","isCorrect":false},{"id":"d","text":"describe()","isCorrect":false}],"solution":"dropna() fjernar rader med manglande verdiar, medan fillna() fyller dei inn og drop_duplicates() fjernar duplikat."},{"id":"it-2-3-5-n-quiz3-q2","task":"Kva er eit typisk steg i datareinsing av eit fritekstfelt med ekstra mellomrom?","options":[{"id":"a","text":"Gjere feltet om til eit tal","isCorrect":false},{"id":"b","text":"Bruke strip() for å fjerne mellomrom","isCorrect":true},{"id":"c","text":"Slette heile kolonnen","isCorrect":false},{"id":"d","text":"Kryptere verdien","isCorrect":false}],"solution":"strip() fjernar leiande og etterfølgjande mellomrom, eit vanleg steg i å standardisere tekstdata."}]}},{"id":"it-2-3-5-n-summary","type":"text","content":"## Oppsummering\n\nData ligg sjeldan klare i ei liste – vi må hente dei frå filer. Grunnregelen for **filhandtering** er å bruke `with open(...)`, som lukkar fila trygt, og `encoding=\"utf-8\"` for norske teikn. **CSV** er eit flatt tabellformat der `csv.DictReader` gir tilgang til kolonnar ved namn (hugs `delimiter=\";\"` for norske filer), medan **JSON** støttar nesta strukturar og blir omsett nesten direkte til Python sine dict og list, med `indent=2` og `ensure_ascii=False` for lesbare filer.\n\nVerkelege data krev **datareinsing** – inspiser, valider, reins og verifiser – og det tek ofte mesteparten av tida. For tyngre analyse brukar vi **pandas**, der ein DataFrame er ein tabell vi kan filtrere, gruppere og reinse med innebygde metodar som `dropna`, `fillna` og `drop_duplicates`. Dermed kan rådata frå den verkelege verda bli til ryddig innsikt. Med dette har du fullført seksjonen om algoritmar og datastrukturar. I neste seksjon ser vi på API-ar og nettverkskommunikasjon."}],"exercises":[],"_meta":{"sourceHash":"cdd5fe94b410a768","translatedAt":"2026-06-20T23:59:09.033Z","model":"claude-code-agent","strings":70,"tm":{"b8e7b88e12b49c55":"Databehandling og filhandtering","b195b06d1ed59702":"Narrativ versjon","0c3daf02a50061a2":"Ei forteljing om korleis vi hentar verkelege data inn i Python – frå with-blokka som lukkar filer trygt, via CSV og JSON, til datareinsing og pandas som gjer tabellar til innsikt.","ee989031e99ea87f":"Lese og skrive tekstfiler, CSV og JSON i Python","9155b6897351e999":"Reinse data og handtere manglande verdiar","d831b02e51978f8e":"Bruke pandas til grunnleggjande dataanalyse","72d476d22f70e1a7":"## Data ligg sjeldan klare i ei liste\n\nI den verkelege verda ligg data sjeldan ferdige i ei Python-liste. Dei ligg i filer, databasar og på nettet. For å bruke dei må du kunne lese dei inn, behandle dei og ofte lagre resultatet tilbake. Det startar med **filhandtering**.\n\nDu opnar ei fil med `open(\"filnavn.txt\", modus)`. Dei viktigaste modusane er `\"r\"` for å lese (standard), `\"w\"` for å skrive (som overskriv fila), `\"a\"` for å leggje til på slutten, og `\"x\"` for å opprette ei ny fil. Men den aller viktigaste regelen er denne: bruk ei **with-blokk**. Skriv du `with open(\"data.txt\", \"r\") as fil:`, blir fila lukka automatisk når blokka er ferdig – òg viss det skjer ein feil. Opnar du fila utan with, må du hugse `fil.close()` sjølv, og det er lett å gløyme.\n\nFor norske teikn som æ, ø og å må du oppgi teiknsett: `encoding=\"utf-8\"`. Når du les, har du fleire val: `fil.read()` gir heile fila som éin streng, ei `for linje in fil`-løkke gir éi linje om gongen (bruk `.strip()` for å fjerne linjeskift), og `fil.readlines()` gir alle linjer som ei liste. Med dette kan du til dømes gå gjennom ei loggfil og telje kor mange linjer som inneheld «ERROR» eller «WARNING».","2e910e19d0d988dc":"Test deg sjølv på filhandtering:","4097889236a2af26":"placeholder","90102a85c8071e94":"Kvifor bør du bruke ei with-blokk når du opnar filer?","96c04b16a76dd97c":"Fila blir kryptert","c8c6d820148c6eef":"Fila blir lukka automatisk, òg ved feil","4779282ffc2ae88e":"Det gjer lesinga treg","b10597ea663211e4":"Det er den einaste måten å opne filer på","03fa4532eb8c5357":"Ei with-blokk lukkar fila automatisk når blokka blir avslutta, sjølv om det oppstår ein feil, så du slepp å hugse close().","921e526d9cd22bcd":"Kva modus overskriv ei eksisterande fil?","2659efe5502f101c":"\"r\"","ac8d8342bbb2362d":"\"a\"","7265b875feb0d173":"\"w\"","ba2df4903a2c14e8":"\"x\"","33b12331d7027fd5":"Modus \"w\" (write) overskriv fila. \"a\" legg til, \"r\" les, og \"x\" opprettar ei ny fil og feilar viss ho finst.","53f875be20b39b7b":"Kva må du oppgi for å lese norske teikn (æ, ø, å) korrekt?","bc7ef561e7872698":"mode=\"norsk\"","35736d18047a5368":"delimiter=\";\"","9a12497894b6f169":"Ingenting, det skjer automatisk alltid","79a411528d27669e":"encoding=\"utf-8\"","21ef8db9c3777235":"Med encoding=\"utf-8\" blir norske teikn tolka rett ved lesing og skriving.","50c5faedaefa8b7b":"## CSV og JSON – to format for data\n\nRein tekst er fleksibelt, men strukturerte data treng struktur. To format dominerer. **CSV** (Comma Separated Values) er eit tekstbasert tabellformat med rader og kolonnar, skilde med komma. Det er enkelt, lesbart, kan opnast i Excel og Google Sheets, og er standard for datautveksling. `csv`-modulen til Python har to lesarar: `csv.reader` gir kvar rad som ei liste, medan `csv.DictReader` brukar første rad som nøklar så du kan vise til kolonnar ved namn, til dømes `elev['karakter']`. DictReader er tilrådd fordi det er mykje lettare å lese. To norske fallgruver er verdt å hugse: norske CSV-filer brukar ofte semikolon som skiljeteikn – då må du skrive `delimiter=\";\"` – og desimaltal blir ofte skrivne med komma i staden for punktum.\n\n**JSON** (JavaScript Object Notation) er eit tekstbasert format for strukturerte data, brukt overalt i web-API-ar og konfigurasjonsfiler. Det fine er at JSON blir omsett nesten direkte til Python: eit JSON-objekt `{}` blir ein dict, ein array `[]` blir ei liste, `true`/`false` blir `True`/`False`, og `null` blir `None`. `json`-modulen til Python har fire nøkkelfunksjonar: `json.load` les JSON frå ei fil, `json.loads` frå ein streng, `json.dump` skriv til ei fil, og `json.dumps` til ein streng. Når du skriv til fil, gjer `indent=2` fila lesbar, og `ensure_ascii=False` tek vare på dei norske teikna. Den store styrken JSON har over CSV er at det støttar nesta strukturar – objekt inni objekt, lister inni lister.","460129f50d21eba8":"Test deg sjølv på CSV og JSON:","3dbb74805ebb020a":"Kvifor er csv.DictReader ofte å føretrekkje framfor csv.reader?","0b165bbda4f4dc68":"Han lèt deg vise til kolonnar ved namn, ikkje posisjon","9e9fd1fd02819bff":"Han er den einaste som verkar på norske filer","5a73a62c8125a1bc":"Han krypterer dataene","c822a2893f15ada8":"Han fjernar duplikat","c01757b56509594c":"DictReader brukar overskriftsraden som nøklar, så du kan skrive elev['karakter'] i staden for å telje posisjonar.","118e14109e82ce50":"Kva blir eit JSON-objekt `{}` til i Python?","fa363ae9126769ed":"Ei liste","6138f29a5dd50a08":"Ein dict","99b1cb39014a1b95":"Ein tuppel","a2bdb8d35acca33f":"Ein streng","b0e2a2b99d4fb36c":"Eit JSON-objekt blir ein Python-dict, medan ein JSON-array blir ei liste.","dad73ceafb707b74":"Kva gjer ensure_ascii=False i json.dump?","7f70a262cf0728cd":"Fjernar alle norske teikn","43c4c4d04d66d569":"Gjer fila uleseleg","bae4fc1a45e7662b":"Tek vare på norske teikn som æ, ø, å i fila","851bb7ebf14153d8":"Sorterer nøklane","377ec865df81a79f":"ensure_ascii=False skriv norske teikn direkte i staden for som escape-kodar, slik at fila blir lesbar.","55b93d636ce01943":"## Datareinsing og pandas\n\nVerkelege data er rotete. **Datareinsing** er prosessen med å oppdage og rette feil, manglar og inkonsistensar. Vanlege problem er manglande verdiar (tomme celler eller «N/A»), feil datatype («atten» i staden for 18), duplikat, inkonsistent format («Oslo», «oslo», «OSLO»), ekstra mellomrom, og uteliggjarar som ein alder på 999. Arbeidsflyten går i fire steg: *inspiser* dataene for å finne problem, *valider* datatypar og verdiar, *reins* systematisk, og *verifiser* at reinsinga verka. Ein tankevekkjande tommelregel: du brukar ofte 80 prosent av tida på datareinsing og berre 20 prosent på sjølve analysen.\n\nI praksis reinsar du gjerne medan du les. Du fjernar mellomrom med `strip()`, standardiserer namn med `title()`, og brukar `try`/`except` rundt `int()` for å fange verdiar som ikkje lèt seg konvertere – og forkastar eller markerer rader som ikkje består validering, som ein alder utanfor eit rimeleg intervall.\n\nFor større datasett finst eit kraftigare verktøy: **pandas**, standardbiblioteket for dataanalyse i Python. Kjernekonseptet er **DataFrame** – ein tabell med rader og kolonnar, som eit rekneark – medan ein enkelt kolonne blir kalla ein **Series**. Du les data med `pd.read_csv` eller `pd.read_json` (hugs `sep=\";\"` for norske filer), og inspiserer med `df.head()`, `df.info()` og `df.describe()`. Du filtrerer rader med `df[df[\"alder\"] >= 18]`, reknar ut statistikk som `df[\"karakter\"].mean()`, og grupperer med `df.groupby(\"alder\")[\"karakter\"].mean()`. Pandas har òg innebygd reinsing: `dropna()` fjernar rader med manglande verdiar, `fillna()` fyller dei inn, og `drop_duplicates()` fjernar duplikat. Det er både raskare enn løkker og langt kortare å skrive.","4da7a32dc0809e00":"Test deg sjølv på datareinsing og pandas:","0ee3205a6ab317b3":"Kva er ein DataFrame i pandas?","2e3920b890fd1e48":"Ein enkelt tekststreng","4ca369627b439380":"Ein type løkke","6b16392622e7b20a":"Ei feilmelding","d0de64afbb58ff18":"Ein tabell med rader og kolonnar, som eit rekneark","3e7ae94cff7edccd":"Ein DataFrame er tabellstrukturen til pandas med rader og kolonnar. Ein enkelt kolonne blir kalla ein Series.","f80d3fe2ff307fbf":"Kva pandas-metode fjernar rader med manglande verdiar?","a06115b4f6c50479":"dropna()","6a4e5738d91fe828":"fillna()","4e8326c5bb4a43c9":"groupby()","f4031ec249ccd132":"describe()","b1952ed9bee32c8e":"dropna() fjernar rader med manglande verdiar, medan fillna() fyller dei inn og drop_duplicates() fjernar duplikat.","c56a3a39c30a8613":"Kva er eit typisk steg i datareinsing av eit fritekstfelt med ekstra mellomrom?","aec1d4f7d323c2c8":"Gjere feltet om til eit tal","045e9ff11369ec4b":"Bruke strip() for å fjerne mellomrom","a39a45a5ea7dd463":"Slette heile kolonnen","960ee89eb74b5ecb":"Kryptere verdien","aa55f3cdaedc38d4":"strip() fjernar leiande og etterfølgjande mellomrom, eit vanleg steg i å standardisere tekstdata.","0315bb82c2cc8100":"## Oppsummering\n\nData ligg sjeldan klare i ei liste – vi må hente dei frå filer. Grunnregelen for **filhandtering** er å bruke `with open(...)`, som lukkar fila trygt, og `encoding=\"utf-8\"` for norske teikn. **CSV** er eit flatt tabellformat der `csv.DictReader` gir tilgang til kolonnar ved namn (hugs `delimiter=\";\"` for norske filer), medan **JSON** støttar nesta strukturar og blir omsett nesten direkte til Python sine dict og list, med `indent=2` og `ensure_ascii=False` for lesbare filer.\n\nVerkelege data krev **datareinsing** – inspiser, valider, reins og verifiser – og det tek ofte mesteparten av tida. For tyngre analyse brukar vi **pandas**, der ein DataFrame er ein tabell vi kan filtrere, gruppere og reinse med innebygde metodar som `dropna`, `fillna` og `drop_duplicates`. Dermed kan rådata frå den verkelege verda bli til ryddig innsikt. Med dette har du fullført seksjonen om algoritmar og datastrukturar. I neste seksjon ser vi på API-ar og nettverkskommunikasjon."}}}
+{
+  "id": "it-2-3-5-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "5",
+  "title": "Databehandling og filhandtering",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi hentar verkelege data inn i Python – frå with-blokka som lukkar filer trygt, via CSV og JSON, til datareinsing og pandas som gjer tabellar til innsikt.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "Lese og skrive tekstfiler, CSV og JSON i Python",
+    "Reinse data og handtere manglande verdiar",
+    "Bruke pandas til grunnleggjande dataanalyse"
+  ],
+  "linkedChapterId": "it-2-3-5",
+  "content": [
+    {
+      "id": "it-2-3-5-n-intro",
+      "type": "text",
+      "content": "## Data ligg sjeldan klare i ei liste\n\nI den verkelege verda ligg data sjeldan ferdige i ei Python-liste. Dei ligg i filer, databasar og på nettet. For å bruke dei må du kunne lese dei inn, behandle dei og ofte lagre resultatet tilbake. Det startar med **filhandtering**.\n\nDu opnar ei fil med `open(\"filnavn.txt\", modus)`. Dei viktigaste modusane er `\"r\"` for å lese (standard), `\"w\"` for å skrive (som overskriv fila), `\"a\"` for å leggje til på slutten, og `\"x\"` for å opprette ei ny fil. Men den aller viktigaste regelen er denne: bruk ei **with-blokk**. Skriv du `with open(\"data.txt\", \"r\") as fil:`, blir fila lukka automatisk når blokka er ferdig – òg viss det skjer ein feil. Opnar du fila utan with, må du hugse `fil.close()` sjølv, og det er lett å gløyme.\n\nFor norske teikn som æ, ø og å må du oppgi teiknsett: `encoding=\"utf-8\"`. Når du les, har du fleire val: `fil.read()` gir heile fila som éin streng, ei `for linje in fil`-løkke gir éi linje om gongen (bruk `.strip()` for å fjerne linjeskift), og `fil.readlines()` gir alle linjer som ei liste. Med dette kan du til dømes gå gjennom ei loggfil og telje kor mange linjer som inneheld «ERROR» eller «WARNING»."
+    },
+    {
+      "id": "it-2-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på filhandtering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-5-n-quiz1-q0",
+            "task": "Kvifor bør du bruke ei with-blokk når du opnar filer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fila blir lukka automatisk, òg ved feil",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fila blir kryptert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det gjer lesinga treg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er den einaste måten å opne filer på",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei with-blokk lukkar fila automatisk når blokka blir avslutta, sjølv om det oppstår ein feil, så du slepp å hugse close()."
+          },
+          {
+            "id": "it-2-3-5-n-quiz1-q1",
+            "task": "Kva modus overskriv ei eksisterande fil?",
+            "options": [
+              {
+                "id": "a",
+                "text": "\"r\"",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "\"w\"",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "\"a\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "\"x\"",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Modus \"w\" (write) overskriv fila. \"a\" legg til, \"r\" les, og \"x\" opprettar ei ny fil og feilar viss ho finst."
+          },
+          {
+            "id": "it-2-3-5-n-quiz1-q2",
+            "task": "Kva må du oppgi for å lese norske teikn (æ, ø, å) korrekt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "mode=\"norsk\"",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "delimiter=\";\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "encoding=\"utf-8\"",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ingenting, det skjer automatisk alltid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med encoding=\"utf-8\" blir norske teikn tolka rett ved lesing og skriving."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-5-n-section1",
+      "type": "text",
+      "content": "## CSV og JSON – to format for data\n\nRein tekst er fleksibelt, men strukturerte data treng struktur. To format dominerer. **CSV** (Comma Separated Values) er eit tekstbasert tabellformat med rader og kolonnar, skilde med komma. Det er enkelt, lesbart, kan opnast i Excel og Google Sheets, og er standard for datautveksling. `csv`-modulen til Python har to lesarar: `csv.reader` gir kvar rad som ei liste, medan `csv.DictReader` brukar første rad som nøklar så du kan vise til kolonnar ved namn, til dømes `elev['karakter']`. DictReader er tilrådd fordi det er mykje lettare å lese. To norske fallgruver er verdt å hugse: norske CSV-filer brukar ofte semikolon som skiljeteikn – då må du skrive `delimiter=\";\"` – og desimaltal blir ofte skrivne med komma i staden for punktum.\n\n**JSON** (JavaScript Object Notation) er eit tekstbasert format for strukturerte data, brukt overalt i web-API-ar og konfigurasjonsfiler. Det fine er at JSON blir omsett nesten direkte til Python: eit JSON-objekt `{}` blir ein dict, ein array `[]` blir ei liste, `true`/`false` blir `True`/`False`, og `null` blir `None`. `json`-modulen til Python har fire nøkkelfunksjonar: `json.load` les JSON frå ei fil, `json.loads` frå ein streng, `json.dump` skriv til ei fil, og `json.dumps` til ein streng. Når du skriv til fil, gjer `indent=2` fila lesbar, og `ensure_ascii=False` tek vare på dei norske teikna. Den store styrken JSON har over CSV er at det støttar nesta strukturar – objekt inni objekt, lister inni lister."
+    },
+    {
+      "id": "it-2-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på CSV og JSON:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-5-n-quiz2-q0",
+            "task": "Kvifor er csv.DictReader ofte å føretrekkje framfor csv.reader?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han er den einaste som verkar på norske filer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han krypterer dataene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han fjernar duplikat",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Han lèt deg vise til kolonnar ved namn, ikkje posisjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "DictReader brukar overskriftsraden som nøklar, så du kan skrive elev['karakter'] i staden for å telje posisjonar."
+          },
+          {
+            "id": "it-2-3-5-n-quiz2-q1",
+            "task": "Kva blir eit JSON-objekt `{}` til i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein dict",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ei liste",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein tuppel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein streng",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit JSON-objekt blir ein Python-dict, medan ein JSON-array blir ei liste."
+          },
+          {
+            "id": "it-2-3-5-n-quiz2-q2",
+            "task": "Kva gjer ensure_ascii=False i json.dump?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fjernar alle norske teikn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tek vare på norske teikn som æ, ø, å i fila",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Gjer fila uleseleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sorterer nøklane",
+                "isCorrect": false
+              }
+            ],
+            "solution": "ensure_ascii=False skriv norske teikn direkte i staden for som escape-kodar, slik at fila blir lesbar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-5-n-section2",
+      "type": "text",
+      "content": "## Datareinsing og pandas\n\nVerkelege data er rotete. **Datareinsing** er prosessen med å oppdage og rette feil, manglar og inkonsistensar. Vanlege problem er manglande verdiar (tomme celler eller «N/A»), feil datatype («atten» i staden for 18), duplikat, inkonsistent format («Oslo», «oslo», «OSLO»), ekstra mellomrom, og uteliggjarar som ein alder på 999. Arbeidsflyten går i fire steg: *inspiser* dataene for å finne problem, *valider* datatypar og verdiar, *reins* systematisk, og *verifiser* at reinsinga verka. Ein tankevekkjande tommelregel: du brukar ofte 80 prosent av tida på datareinsing og berre 20 prosent på sjølve analysen.\n\nI praksis reinsar du gjerne medan du les. Du fjernar mellomrom med `strip()`, standardiserer namn med `title()`, og brukar `try`/`except` rundt `int()` for å fange verdiar som ikkje lèt seg konvertere – og forkastar eller markerer rader som ikkje består validering, som ein alder utanfor eit rimeleg intervall.\n\nFor større datasett finst eit kraftigare verktøy: **pandas**, standardbiblioteket for dataanalyse i Python. Kjernekonseptet er **DataFrame** – ein tabell med rader og kolonnar, som eit rekneark – medan ein enkelt kolonne blir kalla ein **Series**. Du les data med `pd.read_csv` eller `pd.read_json` (hugs `sep=\";\"` for norske filer), og inspiserer med `df.head()`, `df.info()` og `df.describe()`. Du filtrerer rader med `df[df[\"alder\"] >= 18]`, reknar ut statistikk som `df[\"karakter\"].mean()`, og grupperer med `df.groupby(\"alder\")[\"karakter\"].mean()`. Pandas har òg innebygd reinsing: `dropna()` fjernar rader med manglande verdiar, `fillna()` fyller dei inn, og `drop_duplicates()` fjernar duplikat. Det er både raskare enn løkker og langt kortare å skrive."
+    },
+    {
+      "id": "it-2-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på datareinsing og pandas:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-5-n-quiz3-q0",
+            "task": "Kva er ein DataFrame i pandas?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein enkelt tekststreng",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein type løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein tabell med rader og kolonnar, som eit rekneark",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein DataFrame er tabellstrukturen til pandas med rader og kolonnar. Ein enkelt kolonne blir kalla ein Series."
+          },
+          {
+            "id": "it-2-3-5-n-quiz3-q1",
+            "task": "Kva pandas-metode fjernar rader med manglande verdiar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "fillna()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "groupby()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "describe()",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "dropna()",
+                "isCorrect": true
+              }
+            ],
+            "solution": "dropna() fjernar rader med manglande verdiar, medan fillna() fyller dei inn og drop_duplicates() fjernar duplikat."
+          },
+          {
+            "id": "it-2-3-5-n-quiz3-q2",
+            "task": "Kva er eit typisk steg i datareinsing av eit fritekstfelt med ekstra mellomrom?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bruke strip() for å fjerne mellomrom",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Gjere feltet om til eit tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Slette heile kolonnen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kryptere verdien",
+                "isCorrect": false
+              }
+            ],
+            "solution": "strip() fjernar leiande og etterfølgjande mellomrom, eit vanleg steg i å standardisere tekstdata."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nData ligg sjeldan klare i ei liste – vi må hente dei frå filer. Grunnregelen for **filhandtering** er å bruke `with open(...)`, som lukkar fila trygt, og `encoding=\"utf-8\"` for norske teikn. **CSV** er eit flatt tabellformat der `csv.DictReader` gir tilgang til kolonnar ved namn (hugs `delimiter=\";\"` for norske filer), medan **JSON** støttar nesta strukturar og blir omsett nesten direkte til Python sine dict og list, med `indent=2` og `ensure_ascii=False` for lesbare filer.\n\nVerkelege data krev **datareinsing** – inspiser, valider, reins og verifiser – og det tek ofte mesteparten av tida. For tyngre analyse brukar vi **pandas**, der ein DataFrame er ein tabell vi kan filtrere, gruppere og reinse med innebygde metodar som `dropna`, `fillna` og `drop_duplicates`. Dermed kan rådata frå den verkelege verda bli til ryddig innsikt. Med dette har du fullført seksjonen om algoritmar og datastrukturar. I neste seksjon ser vi på API-ar og nettverkskommunikasjon."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "cdd5fe94b410a768",
+    "translatedAt": "2026-06-20T23:59:09.033Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "b8e7b88e12b49c55": "Databehandling og filhandtering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "0c3daf02a50061a2": "Ei forteljing om korleis vi hentar verkelege data inn i Python – frå with-blokka som lukkar filer trygt, via CSV og JSON, til datareinsing og pandas som gjer tabellar til innsikt.",
+      "ee989031e99ea87f": "Lese og skrive tekstfiler, CSV og JSON i Python",
+      "9155b6897351e999": "Reinse data og handtere manglande verdiar",
+      "d831b02e51978f8e": "Bruke pandas til grunnleggjande dataanalyse",
+      "72d476d22f70e1a7": "## Data ligg sjeldan klare i ei liste\n\nI den verkelege verda ligg data sjeldan ferdige i ei Python-liste. Dei ligg i filer, databasar og på nettet. For å bruke dei må du kunne lese dei inn, behandle dei og ofte lagre resultatet tilbake. Det startar med **filhandtering**.\n\nDu opnar ei fil med `open(\"filnavn.txt\", modus)`. Dei viktigaste modusane er `\"r\"` for å lese (standard), `\"w\"` for å skrive (som overskriv fila), `\"a\"` for å leggje til på slutten, og `\"x\"` for å opprette ei ny fil. Men den aller viktigaste regelen er denne: bruk ei **with-blokk**. Skriv du `with open(\"data.txt\", \"r\") as fil:`, blir fila lukka automatisk når blokka er ferdig – òg viss det skjer ein feil. Opnar du fila utan with, må du hugse `fil.close()` sjølv, og det er lett å gløyme.\n\nFor norske teikn som æ, ø og å må du oppgi teiknsett: `encoding=\"utf-8\"`. Når du les, har du fleire val: `fil.read()` gir heile fila som éin streng, ei `for linje in fil`-løkke gir éi linje om gongen (bruk `.strip()` for å fjerne linjeskift), og `fil.readlines()` gir alle linjer som ei liste. Med dette kan du til dømes gå gjennom ei loggfil og telje kor mange linjer som inneheld «ERROR» eller «WARNING».",
+      "2e910e19d0d988dc": "Test deg sjølv på filhandtering:",
+      "4097889236a2af26": "placeholder",
+      "90102a85c8071e94": "Kvifor bør du bruke ei with-blokk når du opnar filer?",
+      "96c04b16a76dd97c": "Fila blir kryptert",
+      "c8c6d820148c6eef": "Fila blir lukka automatisk, òg ved feil",
+      "4779282ffc2ae88e": "Det gjer lesinga treg",
+      "b10597ea663211e4": "Det er den einaste måten å opne filer på",
+      "03fa4532eb8c5357": "Ei with-blokk lukkar fila automatisk når blokka blir avslutta, sjølv om det oppstår ein feil, så du slepp å hugse close().",
+      "921e526d9cd22bcd": "Kva modus overskriv ei eksisterande fil?",
+      "2659efe5502f101c": "\"r\"",
+      "ac8d8342bbb2362d": "\"a\"",
+      "7265b875feb0d173": "\"w\"",
+      "ba2df4903a2c14e8": "\"x\"",
+      "33b12331d7027fd5": "Modus \"w\" (write) overskriv fila. \"a\" legg til, \"r\" les, og \"x\" opprettar ei ny fil og feilar viss ho finst.",
+      "53f875be20b39b7b": "Kva må du oppgi for å lese norske teikn (æ, ø, å) korrekt?",
+      "bc7ef561e7872698": "mode=\"norsk\"",
+      "35736d18047a5368": "delimiter=\";\"",
+      "9a12497894b6f169": "Ingenting, det skjer automatisk alltid",
+      "79a411528d27669e": "encoding=\"utf-8\"",
+      "21ef8db9c3777235": "Med encoding=\"utf-8\" blir norske teikn tolka rett ved lesing og skriving.",
+      "50c5faedaefa8b7b": "## CSV og JSON – to format for data\n\nRein tekst er fleksibelt, men strukturerte data treng struktur. To format dominerer. **CSV** (Comma Separated Values) er eit tekstbasert tabellformat med rader og kolonnar, skilde med komma. Det er enkelt, lesbart, kan opnast i Excel og Google Sheets, og er standard for datautveksling. `csv`-modulen til Python har to lesarar: `csv.reader` gir kvar rad som ei liste, medan `csv.DictReader` brukar første rad som nøklar så du kan vise til kolonnar ved namn, til dømes `elev['karakter']`. DictReader er tilrådd fordi det er mykje lettare å lese. To norske fallgruver er verdt å hugse: norske CSV-filer brukar ofte semikolon som skiljeteikn – då må du skrive `delimiter=\";\"` – og desimaltal blir ofte skrivne med komma i staden for punktum.\n\n**JSON** (JavaScript Object Notation) er eit tekstbasert format for strukturerte data, brukt overalt i web-API-ar og konfigurasjonsfiler. Det fine er at JSON blir omsett nesten direkte til Python: eit JSON-objekt `{}` blir ein dict, ein array `[]` blir ei liste, `true`/`false` blir `True`/`False`, og `null` blir `None`. `json`-modulen til Python har fire nøkkelfunksjonar: `json.load` les JSON frå ei fil, `json.loads` frå ein streng, `json.dump` skriv til ei fil, og `json.dumps` til ein streng. Når du skriv til fil, gjer `indent=2` fila lesbar, og `ensure_ascii=False` tek vare på dei norske teikna. Den store styrken JSON har over CSV er at det støttar nesta strukturar – objekt inni objekt, lister inni lister.",
+      "460129f50d21eba8": "Test deg sjølv på CSV og JSON:",
+      "3dbb74805ebb020a": "Kvifor er csv.DictReader ofte å føretrekkje framfor csv.reader?",
+      "0b165bbda4f4dc68": "Han lèt deg vise til kolonnar ved namn, ikkje posisjon",
+      "9e9fd1fd02819bff": "Han er den einaste som verkar på norske filer",
+      "5a73a62c8125a1bc": "Han krypterer dataene",
+      "c822a2893f15ada8": "Han fjernar duplikat",
+      "c01757b56509594c": "DictReader brukar overskriftsraden som nøklar, så du kan skrive elev['karakter'] i staden for å telje posisjonar.",
+      "118e14109e82ce50": "Kva blir eit JSON-objekt `{}` til i Python?",
+      "fa363ae9126769ed": "Ei liste",
+      "6138f29a5dd50a08": "Ein dict",
+      "99b1cb39014a1b95": "Ein tuppel",
+      "a2bdb8d35acca33f": "Ein streng",
+      "b0e2a2b99d4fb36c": "Eit JSON-objekt blir ein Python-dict, medan ein JSON-array blir ei liste.",
+      "dad73ceafb707b74": "Kva gjer ensure_ascii=False i json.dump?",
+      "7f70a262cf0728cd": "Fjernar alle norske teikn",
+      "43c4c4d04d66d569": "Gjer fila uleseleg",
+      "bae4fc1a45e7662b": "Tek vare på norske teikn som æ, ø, å i fila",
+      "851bb7ebf14153d8": "Sorterer nøklane",
+      "377ec865df81a79f": "ensure_ascii=False skriv norske teikn direkte i staden for som escape-kodar, slik at fila blir lesbar.",
+      "55b93d636ce01943": "## Datareinsing og pandas\n\nVerkelege data er rotete. **Datareinsing** er prosessen med å oppdage og rette feil, manglar og inkonsistensar. Vanlege problem er manglande verdiar (tomme celler eller «N/A»), feil datatype («atten» i staden for 18), duplikat, inkonsistent format («Oslo», «oslo», «OSLO»), ekstra mellomrom, og uteliggjarar som ein alder på 999. Arbeidsflyten går i fire steg: *inspiser* dataene for å finne problem, *valider* datatypar og verdiar, *reins* systematisk, og *verifiser* at reinsinga verka. Ein tankevekkjande tommelregel: du brukar ofte 80 prosent av tida på datareinsing og berre 20 prosent på sjølve analysen.\n\nI praksis reinsar du gjerne medan du les. Du fjernar mellomrom med `strip()`, standardiserer namn med `title()`, og brukar `try`/`except` rundt `int()` for å fange verdiar som ikkje lèt seg konvertere – og forkastar eller markerer rader som ikkje består validering, som ein alder utanfor eit rimeleg intervall.\n\nFor større datasett finst eit kraftigare verktøy: **pandas**, standardbiblioteket for dataanalyse i Python. Kjernekonseptet er **DataFrame** – ein tabell med rader og kolonnar, som eit rekneark – medan ein enkelt kolonne blir kalla ein **Series**. Du les data med `pd.read_csv` eller `pd.read_json` (hugs `sep=\";\"` for norske filer), og inspiserer med `df.head()`, `df.info()` og `df.describe()`. Du filtrerer rader med `df[df[\"alder\"] >= 18]`, reknar ut statistikk som `df[\"karakter\"].mean()`, og grupperer med `df.groupby(\"alder\")[\"karakter\"].mean()`. Pandas har òg innebygd reinsing: `dropna()` fjernar rader med manglande verdiar, `fillna()` fyller dei inn, og `drop_duplicates()` fjernar duplikat. Det er både raskare enn løkker og langt kortare å skrive.",
+      "4da7a32dc0809e00": "Test deg sjølv på datareinsing og pandas:",
+      "0ee3205a6ab317b3": "Kva er ein DataFrame i pandas?",
+      "2e3920b890fd1e48": "Ein enkelt tekststreng",
+      "4ca369627b439380": "Ein type løkke",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "d0de64afbb58ff18": "Ein tabell med rader og kolonnar, som eit rekneark",
+      "3e7ae94cff7edccd": "Ein DataFrame er tabellstrukturen til pandas med rader og kolonnar. Ein enkelt kolonne blir kalla ein Series.",
+      "f80d3fe2ff307fbf": "Kva pandas-metode fjernar rader med manglande verdiar?",
+      "a06115b4f6c50479": "dropna()",
+      "6a4e5738d91fe828": "fillna()",
+      "4e8326c5bb4a43c9": "groupby()",
+      "f4031ec249ccd132": "describe()",
+      "b1952ed9bee32c8e": "dropna() fjernar rader med manglande verdiar, medan fillna() fyller dei inn og drop_duplicates() fjernar duplikat.",
+      "c56a3a39c30a8613": "Kva er eit typisk steg i datareinsing av eit fritekstfelt med ekstra mellomrom?",
+      "aec1d4f7d323c2c8": "Gjere feltet om til eit tal",
+      "045e9ff11369ec4b": "Bruke strip() for å fjerne mellomrom",
+      "a39a45a5ea7dd463": "Slette heile kolonnen",
+      "960ee89eb74b5ecb": "Kryptere verdien",
+      "aa55f3cdaedc38d4": "strip() fjernar leiande og etterfølgjande mellomrom, eit vanleg steg i å standardisere tekstdata.",
+      "0315bb82c2cc8100": "## Oppsummering\n\nData ligg sjeldan klare i ei liste – vi må hente dei frå filer. Grunnregelen for **filhandtering** er å bruke `with open(...)`, som lukkar fila trygt, og `encoding=\"utf-8\"` for norske teikn. **CSV** er eit flatt tabellformat der `csv.DictReader` gir tilgang til kolonnar ved namn (hugs `delimiter=\";\"` for norske filer), medan **JSON** støttar nesta strukturar og blir omsett nesten direkte til Python sine dict og list, med `indent=2` og `ensure_ascii=False` for lesbare filer.\n\nVerkelege data krev **datareinsing** – inspiser, valider, reins og verifiser – og det tek ofte mesteparten av tida. For tyngre analyse brukar vi **pandas**, der ein DataFrame er ein tabell vi kan filtrere, gruppere og reinse med innebygde metodar som `dropna`, `fillna` og `drop_duplicates`. Dermed kan rådata frå den verkelege verda bli til ryddig innsikt. Med dette har du fullført seksjonen om algoritmar og datastrukturar. I neste seksjon ser vi på API-ar og nettverkskommunikasjon."
+    }
+  }
+}

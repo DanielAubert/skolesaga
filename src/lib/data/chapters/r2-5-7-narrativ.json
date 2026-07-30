@@ -1,1 +1,344 @@
-{"id":"r2-5-7-narrativ","courseId":"r2","chapterNumber":"5.7","title":"Linjer i rommet","subtitle":"Narrativ versjon","description":"En fortelling om to droner i samme luftrom — parameterframstilling for linjer, klassifisering som parallelle, skjærende eller vindskjeve, skjæringspunkter og vinkler mellom kurser.","estimatedMinutes":33,"competenceGoals":["Kunne sette opp parameterframstilling for en linje i rommet","Kunne finne skjæringspunktet mellom to linjer","Kunne avgjøre om linjer er parallelle, skjærende eller vindskjeve","Kunne beregne vinkelen mellom to linjer"],"linkedChapterId":"r2-5-7","content":[{"id":"r2-5-7-n-intro","type":"text","content":"## To droner i samme luftrom\n\nTo droner flyr i hver sin rett linje gjennom det samme luftrommet. Kontrollsystemet må svare på et kritisk spørsmål: kommer banene deres til å krysse hverandre? I planet ville svaret vært enkelt — to linjer som ikke er parallelle, må skjære hverandre. Men i rommet finnes en tredje mulighet som overrasker mange: linjene kan passere forbi hverandre uten å møtes, som to motorveier i hver sin etasje av et kryss. Slike linjer kalles **vindskjeve**.\n\nFør vi kan svare, trenger vi en måte å beskrive linjer i rommet på. Og her møter vi en liten overraskelse til: en linje i rommet kan *ikke* fanges i én enkelt ligning, slik $y = ax + b$ gjorde jobben i planet. (Én lineær ligning i $x$, $y$ og $z$ beskriver som kjent et helt plan.) Løsningen er **parameterframstillingen**: vi beskriver linjen som en bevegelse — start i et punkt, og gå langs en retningsvektor, der parameteren $t$ forteller hvor langt du har kommet. Det passer en flyvende drone perfekt: $t$ kan til og med tolkes som tiden.\n\nI denne fortellingen setter vi opp parameterframstillinger for linjer, lærer å klassifisere linjepar som parallelle, skjærende eller vindskjeve, finner skjæringspunkter ved å løse likningssett — og måler til slutt vinkelen mellom to kurser med skalarproduktet. Alt kontrollsystemet trenger for å holde dronene fra hverandre."},{"id":"r2-5-7-n-section1","type":"text","content":"## Linjen som bevegelse\n\nEn linje i rommet bestemmes av et punkt og en retning. Står du i punktet $P_0 = (x_0, y_0, z_0)$ og beveger deg langs retningsvektoren $\\vec{v} = [a, b, c]$, sveiper du ut hele linjen:\n\n$$\\vec{r} = \\vec{r}_0 + t\\vec{v}$$\n\nder parameteren $t$ løper gjennom alle reelle tall. På koordinatform: $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$. Hver verdi av $t$ gir ett punkt på linjen — negative $t$ tar deg bakover, positive framover.\n\nSkal linjen gå gjennom to gitte punkter, lager du retningsvektoren selv. For linjen gjennom $A = (1, 2, 3)$ og $B = (4, -1, 5)$ er $\\vec{v} = \\overrightarrow{AB} = [3, -3, 2]$, og med $A$ som basispunkt:\n\n$$\\vec{r} = [1, 2, 3] + t[3, -3, 2]$$\n\naltså $x = 1 + 3t$, $y = 2 - 3t$, $z = 3 + 2t$. Kontrollér gjerne: $t = 0$ gir $A$, og $t = 1$ gir $B$ — parameteren teller brøkdeler av veien fra $A$ til $B$.\n\nÉn linje, mange framstillinger: du kan fritt velge et annet basispunkt på linjen, og en hvilken som helst vektor parallell med $\\vec{v}$ som retning. For eksempel beskriver $\\vec{r} = [4, -1, 5] + t[-6, 6, -4]$ nøyaktig samme linje som over — start i $B$, dobbel fart, motsatt vei. To framstillinger som ser helt ulike ut, kan altså være samme linje; det du sammenligner, er om retningsvektorene er parallelle og om de deler et punkt."},{"id":"r2-5-7-n-quiz1","type":"exercise","exercise":{"id":"r2-5-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på parameterframstilling for linjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-7-n-quiz1-q0","task":"Hvorfor kan ikke en linje i rommet beskrives med én enkelt lineær ligning?","options":[{"id":"a","text":"Fordi linjer i rommet er krumme","isCorrect":false},{"id":"b","text":"Fordi én lineær ligning i $x, y, z$ beskriver et plan, ikke en linje","isCorrect":true},{"id":"c","text":"Fordi linjen mangler retningsvektor","isCorrect":false},{"id":"d","text":"Det kan den — $y = ax + b$ fungerer også i rommet","isCorrect":false}],"solution":"Én lineær ligning i tre variabler gir et helt plan. En linje trenger parameterframstilling (eller to ligninger)."},{"id":"r2-5-7-n-quiz1-q1","task":"Hva er en retningsvektor for linjen gjennom $A = (1, 2, 3)$ og $B = (4, -1, 5)$?","options":[{"id":"a","text":"$[5, 1, 8]$","isCorrect":false},{"id":"b","text":"$[4, -1, 5]$","isCorrect":false},{"id":"c","text":"$[3, -3, 2]$","isCorrect":true},{"id":"d","text":"$[1, 2, 3]$","isCorrect":false}],"solution":"$\\vec{v} = \\overrightarrow{AB} = [4-1, -1-2, 5-3] = [3, -3, 2]$."},{"id":"r2-5-7-n-quiz1-q2","task":"Linjen er gitt ved $\\vec{r} = [1, 2, 3] + t[3, -3, 2]$. Hvilket punkt får du for $t = 1$?","options":[{"id":"a","text":"$(4, -1, 5)$","isCorrect":true},{"id":"b","text":"$(1, 2, 3)$","isCorrect":false},{"id":"c","text":"$(3, -3, 2)$","isCorrect":false},{"id":"d","text":"$(4, 5, 5)$","isCorrect":false}],"solution":"$t = 1$ gir $(1+3, 2-3, 3+2) = (4, -1, 5)$ — punktet $B$."}]}},{"id":"r2-5-7-n-section2","type":"text","content":"## Parallelle, skjærende eller vindskjeve?\n\nTilbake til de to dronene. I rommet kan to linjer forholde seg til hverandre på tre måter. De kan være **parallelle**: retningsvektorene er skalarmultipler av hverandre, $\\vec{v}_1 = k\\vec{v}_2$ — og da er de enten *sammenfallende* (samme linje) eller *ekte parallelle* (møtes aldri). De kan være **skjærende**, med nøyaktig ett felles punkt. Eller de kan være **vindskjeve**: verken parallelle eller skjærende, men glidende forbi hverandre i hver sin «etasje» av rommet. Den siste muligheten finnes ikke i planet, og glemmes derfor lett.\n\nHvordan avgjør vi det i praksis? Først sjekker du retningsvektorene: parallelle vektorer betyr parallelle linjer (test så et punkt for å skille sammenfallende fra ekte parallelle). Hvis ikke, leter du etter et skjæringspunkt: sett framstillingene lik hverandre — og her lurer klassikerfellen: **bruk ulike parameternavn**, for eksempel $s$ og $t$, siden dronene ikke trenger å være på samme sted *samtidig* i parameterverdiene sine.\n\nTa $\\ell_1: \\vec{r} = [0, 1, 2] + s[1, 2, 1]$ og $\\ell_2: \\vec{r} = [3, 5, 1] + t[1, 1, -1]$. Koordinatvis likhet gir tre likninger: $s = 3 + t$, $1 + 2s = 5 + t$, $2 + s = 1 - t$. De to første gir $t = -2$ og $s = 1$, og den tredje stemmer som kontroll: $3 = 3$. Linjene skjærer, og innsetting av $s = 1$ gir skjæringspunktet $(1, 3, 3)$.\n\nMen prøv $\\ell_1: \\vec{r} = [1, 2, 0] + s[1, 1, 1]$ og $\\ell_2: \\vec{r} = [2, 1, 1] + t[1, -1, 0]$: to av likningene gir $s = 1$ og $t = 0$, men kontrollikningen gir $3 \\neq 1$. Ingen løsning — og siden retningsvektorene $[1,1,1]$ og $[1,-1,0]$ heller ikke er parallelle, er linjene **vindskjeve**. Kontrollsystemet kan puste lettet ut: banene krysser aldri."},{"id":"r2-5-7-n-quiz2","type":"exercise","exercise":{"id":"r2-5-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på klassifisering og skjæringspunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-7-n-quiz2-q0","task":"Hva kjennetegner vindskjeve linjer?","options":[{"id":"a","text":"De er parallelle, men ikke sammenfallende","isCorrect":false},{"id":"b","text":"De skjærer hverandre i nøyaktig ett punkt","isCorrect":false},{"id":"c","text":"De ligger begge i $xy$-planet","isCorrect":false},{"id":"d","text":"De er verken parallelle eller skjærende","isCorrect":true}],"solution":"Vindskjeve linjer ligger i ulike plan og passerer forbi hverandre uten å møtes — en mulighet som bare finnes i rommet."},{"id":"r2-5-7-n-quiz2-q1","task":"Hvorfor må du bruke ulike parameternavn ($s$ og $t$) når du leter etter skjæringspunkt mellom to linjer?","options":[{"id":"a","text":"Fordi linjene kan ha ulik lengde","isCorrect":false},{"id":"b","text":"Fordi skjæringspunktet kan svare til ulike parameterverdier på de to linjene","isCorrect":true},{"id":"c","text":"Fordi retningsvektorene må normeres først","isCorrect":false},{"id":"d","text":"Det er bare en konvensjon uten betydning","isCorrect":false}],"solution":"Linjene kan passere samme punkt ved helt forskjellige parameterverdier. Samme bokstav ville lagt på et kunstig ekstra krav."},{"id":"r2-5-7-n-quiz2-q2","task":"Hva er skjæringspunktet mellom $\\ell_1: \\vec{r} = [0,1,2] + s[1,2,1]$ og $\\ell_2: \\vec{r} = [3,5,1] + t[1,1,-1]$?","options":[{"id":"a","text":"$(0, 1, 2)$","isCorrect":false},{"id":"b","text":"$(3, 5, 1)$","isCorrect":false},{"id":"c","text":"$(1, 3, 3)$","isCorrect":true},{"id":"d","text":"De skjærer ikke","isCorrect":false}],"solution":"Likningssettet gir $s = 1$, $t = -2$, og kontrollikningen stemmer. Innsetting i $\\ell_1$: $(0+1, 1+2, 2+1) = (1, 3, 3)$."}]}},{"id":"r2-5-7-n-section3","type":"text","content":"## Vinkelen mellom to kurser\n\nSelv når banene ikke krysser, vil kontrollsystemet vite hvor mye kursene spriker. Vinkelen mellom to linjer defineres som vinkelen mellom retningsvektorene deres — med én justering: en linje har ingen foretrukket retning, så vi vil alltid ha den **spisse** vinkelen. Det ordner absoluttverdien:\n\n$$\\cos\\theta = \\frac{|\\vec{v}_1 \\cdot \\vec{v}_2|}{|\\vec{v}_1| \\cdot |\\vec{v}_2|}, \\qquad 0° \\leq \\theta \\leq 90°$$\n\nUten absoluttverdien kunne vi fått den stumpe tvillingvinkelen i stedet, avhengig av hvilken vei retningsvektorene tilfeldigvis peker.\n\nEt eksempel: $\\ell_1$ har retningsvektor $\\vec{v}_1 = [2, 1, 1]$ og $\\ell_2$ har $\\vec{v}_2 = [1, -1, 2]$. Skalarproduktet er $2 - 1 + 2 = 3$, og begge lengdene er $\\sqrt{6}$. Dermed er $\\cos\\theta = \\frac{|3|}{6} = \\frac{1}{2}$, og $\\theta = 60°$ — en ren tabellverdi til slutt.\n\nOg parallellitetstesten fortjener et siste eksempel. Linjene $\\ell_1: \\vec{r} = [1, 2, 3] + s[2, -4, 6]$ og $\\ell_2: \\vec{r} = [0, 0, 1] + t[-1, 2, -3]$ har retningsvektorer der $[2, -4, 6] = -2 \\cdot [-1, 2, -3]$: parallelle. Sammenfallende? Test punktet $(0, 0, 1)$ fra $\\ell_2$ på $\\ell_1$: første koordinat krever $s = -\\frac{1}{2}$, andre krever $s = \\frac{1}{2}$ — motstridende, så punktet ligger ikke på $\\ell_1$. Konklusjon: ekte parallelle, aldri i kontakt, og kursvinkelen er $0°$.\n\nDermed har kontrollsystemet hele bildet: klassifiser linjeparet, finn eventuelt skjæringspunkt, og mål vinkelen. Tre verktøy — parameterframstilling, likningssett og skalarprodukt — og luftrommet er kartlagt."},{"id":"r2-5-7-n-quiz3","type":"exercise","exercise":{"id":"r2-5-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på vinkel og parallellitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-7-n-quiz3-q0","task":"Hva er vinkelen mellom linjene med retningsvektorer $\\vec{v}_1 = [2, 1, 1]$ og $\\vec{v}_2 = [1, -1, 2]$?","options":[{"id":"a","text":"$30°$","isCorrect":false},{"id":"b","text":"$60°$","isCorrect":true},{"id":"c","text":"$45°$","isCorrect":false},{"id":"d","text":"$90°$","isCorrect":false}],"solution":"$\\cos\\theta = \\frac{|2 - 1 + 2|}{\\sqrt{6}\\sqrt{6}} = \\frac{3}{6} = \\frac{1}{2}$, så $\\theta = 60°$."},{"id":"r2-5-7-n-quiz3-q1","task":"Hvorfor brukes absoluttverdi i formelen $\\cos\\theta = \\frac{|\\vec{v}_1 \\cdot \\vec{v}_2|}{|\\vec{v}_1||\\vec{v}_2|}$?","options":[{"id":"a","text":"For å unngå divisjon med null","isCorrect":false},{"id":"b","text":"Fordi skalarproduktet alltid er negativt","isCorrect":false},{"id":"c","text":"For alltid å få den spisse vinkelen mellom linjene","isCorrect":true},{"id":"d","text":"Fordi lengdene kan være negative","isCorrect":false}],"solution":"En linje har ingen retning «fremover»; absoluttverdien sikrer $0° \\leq \\theta \\leq 90°$ uansett hvordan retningsvektorene peker."},{"id":"r2-5-7-n-quiz3-q2","task":"Linjene har retningsvektorer $[2, -4, 6]$ og $[-1, 2, -3]$, og deler ikke punkt. Hva er de?","options":[{"id":"a","text":"Ekte parallelle","isCorrect":true},{"id":"b","text":"Skjærende","isCorrect":false},{"id":"c","text":"Vindskjeve","isCorrect":false},{"id":"d","text":"Sammenfallende","isCorrect":false}],"solution":"$[2, -4, 6] = -2 \\cdot [-1, 2, -3]$ gir parallelle retninger, og uten felles punkt er linjene ekte parallelle."}]}},{"id":"r2-5-7-n-summary","type":"text","content":"## Oppsummering\n\nTo droner i samme luftrom satte dagsordenen: beskriv banene, og avgjør om de møtes. Beskrivelsen ble parameterframstillingen $\\vec{r} = \\vec{r}_0 + t\\vec{v}$ — linjen som bevegelse fra et basispunkt langs en retningsvektor, med koordinatformen $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$. Gjennom to punkter lagde vi retningsvektoren med «slutt minus start», og vi så at samme linje har uendelig mange framstillinger: andre basispunkter, parallelle retningsvektorer.\n\nKlassifiseringen av linjepar ga rommets tre muligheter: **parallelle** (retningsvektorene er skalarmultipler — sammenfallende hvis de også deler et punkt), **skjærende** (ett felles punkt), og den tredimensjonale spesialiteten **vindskjeve** — verken parallelle eller skjærende. Skjæringspunkter fant vi ved å sette framstillingene lik hverandre med *ulike* parametre $s$ og $t$, løse to av likningene og bruke den tredje som dommer: stemmer den, skjærer linjene; stryker den, og retningene ikke er parallelle, er linjene vindskjeve.\n\nVinkelen mellom kursene målte skalarproduktet: $\\cos\\theta = \\frac{|\\vec{v}_1 \\cdot \\vec{v}_2|}{|\\vec{v}_1||\\vec{v}_2|}$, der absoluttverdien alltid leverer den spisse vinkelen — våre to eksempelkurser spriket nøyaktig $60°$.\n\nLinjer og plan er nå begge på plass som parameterframstillinger og ligninger. Det som gjenstår, er avstandene mellom dem — hvor nær den vindskjeve naboen egentlig kommer. Det er neste kapittel."}],"exercises":[]}
+{
+  "id": "r2-5-7-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "5.7",
+  "title": "Linjer i rommet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om to droner i samme luftrom — parameterframstilling for linjer, klassifisering som parallelle, skjærende eller vindskjeve, skjæringspunkter og vinkler mellom kurser.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "Kunne sette opp parameterframstilling for en linje i rommet",
+    "Kunne finne skjæringspunktet mellom to linjer",
+    "Kunne avgjøre om linjer er parallelle, skjærende eller vindskjeve",
+    "Kunne beregne vinkelen mellom to linjer"
+  ],
+  "linkedChapterId": "r2-5-7",
+  "content": [
+    {
+      "id": "r2-5-7-n-intro",
+      "type": "text",
+      "content": "## To droner i samme luftrom\n\nTo droner flyr i hver sin rett linje gjennom det samme luftrommet. Kontrollsystemet må svare på et kritisk spørsmål: kommer banene deres til å krysse hverandre? I planet ville svaret vært enkelt — to linjer som ikke er parallelle, må skjære hverandre. Men i rommet finnes en tredje mulighet som overrasker mange: linjene kan passere forbi hverandre uten å møtes, som to motorveier i hver sin etasje av et kryss. Slike linjer kalles **vindskjeve**.\n\nFør vi kan svare, trenger vi en måte å beskrive linjer i rommet på. Og her møter vi en liten overraskelse til: en linje i rommet kan *ikke* fanges i én enkelt ligning, slik $y = ax + b$ gjorde jobben i planet. (Én lineær ligning i $x$, $y$ og $z$ beskriver som kjent et helt plan.) Løsningen er **parameterframstillingen**: vi beskriver linjen som en bevegelse — start i et punkt, og gå langs en retningsvektor, der parameteren $t$ forteller hvor langt du har kommet. Det passer en flyvende drone perfekt: $t$ kan til og med tolkes som tiden.\n\nI denne fortellingen setter vi opp parameterframstillinger for linjer, lærer å klassifisere linjepar som parallelle, skjærende eller vindskjeve, finner skjæringspunkter ved å løse likningssett — og måler til slutt vinkelen mellom to kurser med skalarproduktet. Alt kontrollsystemet trenger for å holde dronene fra hverandre."
+    },
+    {
+      "id": "r2-5-7-n-section1",
+      "type": "text",
+      "content": "## Linjen som bevegelse\n\nEn linje i rommet bestemmes av et punkt og en retning. Står du i punktet $P_0 = (x_0, y_0, z_0)$ og beveger deg langs retningsvektoren $\\vec{v} = [a, b, c]$, sveiper du ut hele linjen:\n\n$$\\vec{r} = \\vec{r}_0 + t\\vec{v}$$\n\nder parameteren $t$ løper gjennom alle reelle tall. På koordinatform: $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$. Hver verdi av $t$ gir ett punkt på linjen — negative $t$ tar deg bakover, positive framover.\n\nSkal linjen gå gjennom to gitte punkter, lager du retningsvektoren selv. For linjen gjennom $A = (1, 2, 3)$ og $B = (4, -1, 5)$ er $\\vec{v} = \\overrightarrow{AB} = [3, -3, 2]$, og med $A$ som basispunkt:\n\n$$\\vec{r} = [1, 2, 3] + t[3, -3, 2]$$\n\naltså $x = 1 + 3t$, $y = 2 - 3t$, $z = 3 + 2t$. Kontrollér gjerne: $t = 0$ gir $A$, og $t = 1$ gir $B$ — parameteren teller brøkdeler av veien fra $A$ til $B$.\n\nÉn linje, mange framstillinger: du kan fritt velge et annet basispunkt på linjen, og en hvilken som helst vektor parallell med $\\vec{v}$ som retning. For eksempel beskriver $\\vec{r} = [4, -1, 5] + t[-6, 6, -4]$ nøyaktig samme linje som over — start i $B$, dobbel fart, motsatt vei. To framstillinger som ser helt ulike ut, kan altså være samme linje; det du sammenligner, er om retningsvektorene er parallelle og om de deler et punkt."
+    },
+    {
+      "id": "r2-5-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på parameterframstilling for linjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-7-n-quiz1-q0",
+            "task": "Hvorfor kan ikke en linje i rommet beskrives med én enkelt lineær ligning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi linjer i rommet er krumme",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi linjen mangler retningsvektor",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kan den — $y = ax + b$ fungerer også i rommet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi én lineær ligning i $x, y, z$ beskriver et plan, ikke en linje",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Én lineær ligning i tre variabler gir et helt plan. En linje trenger parameterframstilling (eller to ligninger)."
+          },
+          {
+            "id": "r2-5-7-n-quiz1-q1",
+            "task": "Hva er en retningsvektor for linjen gjennom $A = (1, 2, 3)$ og $B = (4, -1, 5)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$[3, -3, 2]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[5, 1, 8]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[4, -1, 5]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[1, 2, 3]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{v} = \\overrightarrow{AB} = [4-1, -1-2, 5-3] = [3, -3, 2]$."
+          },
+          {
+            "id": "r2-5-7-n-quiz1-q2",
+            "task": "Linjen er gitt ved $\\vec{r} = [1, 2, 3] + t[3, -3, 2]$. Hvilket punkt får du for $t = 1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(1, 2, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(4, -1, 5)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(3, -3, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(4, 5, 5)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$t = 1$ gir $(1+3, 2-3, 3+2) = (4, -1, 5)$ — punktet $B$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-7-n-section2",
+      "type": "text",
+      "content": "## Parallelle, skjærende eller vindskjeve?\n\nTilbake til de to dronene. I rommet kan to linjer forholde seg til hverandre på tre måter. De kan være **parallelle**: retningsvektorene er skalarmultipler av hverandre, $\\vec{v}_1 = k\\vec{v}_2$ — og da er de enten *sammenfallende* (samme linje) eller *ekte parallelle* (møtes aldri). De kan være **skjærende**, med nøyaktig ett felles punkt. Eller de kan være **vindskjeve**: verken parallelle eller skjærende, men glidende forbi hverandre i hver sin «etasje» av rommet. Den siste muligheten finnes ikke i planet, og glemmes derfor lett.\n\nHvordan avgjør vi det i praksis? Først sjekker du retningsvektorene: parallelle vektorer betyr parallelle linjer (test så et punkt for å skille sammenfallende fra ekte parallelle). Hvis ikke, leter du etter et skjæringspunkt: sett framstillingene lik hverandre — og her lurer klassikerfellen: **bruk ulike parameternavn**, for eksempel $s$ og $t$, siden dronene ikke trenger å være på samme sted *samtidig* i parameterverdiene sine.\n\nTa $\\ell_1: \\vec{r} = [0, 1, 2] + s[1, 2, 1]$ og $\\ell_2: \\vec{r} = [3, 5, 1] + t[1, 1, -1]$. Koordinatvis likhet gir tre likninger: $s = 3 + t$, $1 + 2s = 5 + t$, $2 + s = 1 - t$. De to første gir $t = -2$ og $s = 1$, og den tredje stemmer som kontroll: $3 = 3$. Linjene skjærer, og innsetting av $s = 1$ gir skjæringspunktet $(1, 3, 3)$.\n\nMen prøv $\\ell_1: \\vec{r} = [1, 2, 0] + s[1, 1, 1]$ og $\\ell_2: \\vec{r} = [2, 1, 1] + t[1, -1, 0]$: to av likningene gir $s = 1$ og $t = 0$, men kontrollikningen gir $3 \\neq 1$. Ingen løsning — og siden retningsvektorene $[1,1,1]$ og $[1,-1,0]$ heller ikke er parallelle, er linjene **vindskjeve**. Kontrollsystemet kan puste lettet ut: banene krysser aldri."
+    },
+    {
+      "id": "r2-5-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på klassifisering og skjæringspunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-7-n-quiz2-q0",
+            "task": "Hva kjennetegner vindskjeve linjer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er parallelle, men ikke sammenfallende",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De skjærer hverandre i nøyaktig ett punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De er verken parallelle eller skjærende",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "De ligger begge i $xy$-planet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vindskjeve linjer ligger i ulike plan og passerer forbi hverandre uten å møtes — en mulighet som bare finnes i rommet."
+          },
+          {
+            "id": "r2-5-7-n-quiz2-q1",
+            "task": "Hvorfor må du bruke ulike parameternavn ($s$ og $t$) når du leter etter skjæringspunkt mellom to linjer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi linjene kan ha ulik lengde",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi retningsvektorene må normeres først",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er bare en konvensjon uten betydning",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi skjæringspunktet kan svare til ulike parameterverdier på de to linjene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Linjene kan passere samme punkt ved helt forskjellige parameterverdier. Samme bokstav ville lagt på et kunstig ekstra krav."
+          },
+          {
+            "id": "r2-5-7-n-quiz2-q2",
+            "task": "Hva er skjæringspunktet mellom $\\ell_1: \\vec{r} = [0,1,2] + s[1,2,1]$ og $\\ell_2: \\vec{r} = [3,5,1] + t[1,1,-1]$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$(1, 3, 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(0, 1, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(3, 5, 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De skjærer ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likningssettet gir $s = 1$, $t = -2$, og kontrollikningen stemmer. Innsetting i $\\ell_1$: $(0+1, 1+2, 2+1) = (1, 3, 3)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-7-n-section3",
+      "type": "text",
+      "content": "## Vinkelen mellom to kurser\n\nSelv når banene ikke krysser, vil kontrollsystemet vite hvor mye kursene spriker. Vinkelen mellom to linjer defineres som vinkelen mellom retningsvektorene deres — med én justering: en linje har ingen foretrukket retning, så vi vil alltid ha den **spisse** vinkelen. Det ordner absoluttverdien:\n\n$$\\cos\\theta = \\frac{|\\vec{v}_1 \\cdot \\vec{v}_2|}{|\\vec{v}_1| \\cdot |\\vec{v}_2|}, \\qquad 0° \\leq \\theta \\leq 90°$$\n\nUten absoluttverdien kunne vi fått den stumpe tvillingvinkelen i stedet, avhengig av hvilken vei retningsvektorene tilfeldigvis peker.\n\nEt eksempel: $\\ell_1$ har retningsvektor $\\vec{v}_1 = [2, 1, 1]$ og $\\ell_2$ har $\\vec{v}_2 = [1, -1, 2]$. Skalarproduktet er $2 - 1 + 2 = 3$, og begge lengdene er $\\sqrt{6}$. Dermed er $\\cos\\theta = \\frac{|3|}{6} = \\frac{1}{2}$, og $\\theta = 60°$ — en ren tabellverdi til slutt.\n\nOg parallellitetstesten fortjener et siste eksempel. Linjene $\\ell_1: \\vec{r} = [1, 2, 3] + s[2, -4, 6]$ og $\\ell_2: \\vec{r} = [0, 0, 1] + t[-1, 2, -3]$ har retningsvektorer der $[2, -4, 6] = -2 \\cdot [-1, 2, -3]$: parallelle. Sammenfallende? Test punktet $(0, 0, 1)$ fra $\\ell_2$ på $\\ell_1$: første koordinat krever $s = -\\frac{1}{2}$, andre krever $s = \\frac{1}{2}$ — motstridende, så punktet ligger ikke på $\\ell_1$. Konklusjon: ekte parallelle, aldri i kontakt, og kursvinkelen er $0°$.\n\nDermed har kontrollsystemet hele bildet: klassifiser linjeparet, finn eventuelt skjæringspunkt, og mål vinkelen. Tre verktøy — parameterframstilling, likningssett og skalarprodukt — og luftrommet er kartlagt."
+    },
+    {
+      "id": "r2-5-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vinkel og parallellitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-7-n-quiz3-q0",
+            "task": "Hva er vinkelen mellom linjene med retningsvektorer $\\vec{v}_1 = [2, 1, 1]$ og $\\vec{v}_2 = [1, -1, 2]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30°$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$60°$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$45°$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$90°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos\\theta = \\frac{|2 - 1 + 2|}{\\sqrt{6}\\sqrt{6}} = \\frac{3}{6} = \\frac{1}{2}$, så $\\theta = 60°$."
+          },
+          {
+            "id": "r2-5-7-n-quiz3-q1",
+            "task": "Hvorfor brukes absoluttverdi i formelen $\\cos\\theta = \\frac{|\\vec{v}_1 \\cdot \\vec{v}_2|}{|\\vec{v}_1||\\vec{v}_2|}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å unngå divisjon med null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi skalarproduktet alltid er negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For alltid å få den spisse vinkelen mellom linjene",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi lengdene kan være negative",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En linje har ingen retning «fremover»; absoluttverdien sikrer $0° \\leq \\theta \\leq 90°$ uansett hvordan retningsvektorene peker."
+          },
+          {
+            "id": "r2-5-7-n-quiz3-q2",
+            "task": "Linjene har retningsvektorer $[2, -4, 6]$ og $[-1, 2, -3]$, og deler ikke punkt. Hva er de?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Skjærende",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vindskjeve",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sammenfallende",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ekte parallelle",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$[2, -4, 6] = -2 \\cdot [-1, 2, -3]$ gir parallelle retninger, og uten felles punkt er linjene ekte parallelle."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nTo droner i samme luftrom satte dagsordenen: beskriv banene, og avgjør om de møtes. Beskrivelsen ble parameterframstillingen $\\vec{r} = \\vec{r}_0 + t\\vec{v}$ — linjen som bevegelse fra et basispunkt langs en retningsvektor, med koordinatformen $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$. Gjennom to punkter lagde vi retningsvektoren med «slutt minus start», og vi så at samme linje har uendelig mange framstillinger: andre basispunkter, parallelle retningsvektorer.\n\nKlassifiseringen av linjepar ga rommets tre muligheter: **parallelle** (retningsvektorene er skalarmultipler — sammenfallende hvis de også deler et punkt), **skjærende** (ett felles punkt), og den tredimensjonale spesialiteten **vindskjeve** — verken parallelle eller skjærende. Skjæringspunkter fant vi ved å sette framstillingene lik hverandre med *ulike* parametre $s$ og $t$, løse to av likningene og bruke den tredje som dommer: stemmer den, skjærer linjene; stryker den, og retningene ikke er parallelle, er linjene vindskjeve.\n\nVinkelen mellom kursene målte skalarproduktet: $\\cos\\theta = \\frac{|\\vec{v}_1 \\cdot \\vec{v}_2|}{|\\vec{v}_1||\\vec{v}_2|}$, der absoluttverdien alltid leverer den spisse vinkelen — våre to eksempelkurser spriket nøyaktig $60°$.\n\nLinjer og plan er nå begge på plass som parameterframstillinger og ligninger. Det som gjenstår, er avstandene mellom dem — hvor nær den vindskjeve naboen egentlig kommer. Det er neste kapittel."
+    }
+  ],
+  "exercises": []
+}

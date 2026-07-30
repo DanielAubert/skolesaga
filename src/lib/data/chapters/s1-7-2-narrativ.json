@@ -1,1 +1,286 @@
-{"id":"s1-7-2-narrativ","courseId":"s1","chapterNumber":"7.2","title":"Korrelasjon og kausalitet","subtitle":"Narrativ versjon","description":"En fortelling om avisoverskriften som måtte granskes — Pearsons r, spuriøse korrelasjoner og konfunderende variabler.","estimatedMinutes":31,"competenceGoals":["planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn","uttrykke egne resonnementer ved hjelp av matematiske begreper og symbolspråk"],"linkedChapterId":"s1-7-2","content":[{"id":"s1-7-2-n-intro","type":"text","content":"## Tallet som måler samvariasjon\n\nEn avis melder: «Forskere finner sterk sammenheng mellom skjermtid og dårlig søvn.» Men hvor sterk er «sterk»? Og betyr sammenhengen at skjermen *forårsaker* søvnproblemene? De to spørsmålene — styrke og årsak — er dette kapittelets tema, og de må holdes strengt fra hverandre.\n\nStyrken måles med **Pearsons korrelasjonskoeffisient** $r$. For et datasett $(x_1, y_1), \\ldots, (x_n, y_n)$ er\n\n$$r = \\frac{\\sum(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum(x_i - \\bar{x})^2 \\cdot \\sum(y_i - \\bar{y})^2}}$$\n\nTallet ligger alltid mellom $-1$ og $1$. Er $r > 0$, har vi en positiv lineær sammenheng (begge øker sammen); er $r < 0$, en negativ (den ene øker når den andre synker); og $r = 0$ betyr ingen *lineær* sammenheng. Jo nærmere $|r|$ er 1, desto strammere ligger punktene langs en linje. En vanlig tommelfingerregel: $|r|$ under 0,3 er svakt, 0,3–0,7 moderat, og over 0,7 sterkt.\n\nDet er en vakker kobling til forrige kapittel: for enkel lineær regresjon er $R^2 = r^2$. Klassens studiedata med $R^2 \\approx 0{,}976$ gir dermed $r = \\sqrt{0{,}976} \\approx 0{,}988$ — positivt fortegn siden mer lesing ga flere poeng. En nesten perfekt positiv korrelasjon.\n\nMen husk begrensningen: $r$ ser bare **lineære** mønstre. To variabler kan følge en perfekt parabel — en sterk sammenheng — og likevel gi $r \\approx 0$. Et lavt $r$-tall betyr derfor «ingen lineær sammenheng», ikke «ingen sammenheng». Plott alltid dataene før du konkluderer."},{"id":"s1-7-2-n-quiz1","type":"exercise","exercise":{"id":"s1-7-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på korrelasjonskoeffisienten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-7-2-n-quiz1-q0","task":"Hvilke verdier kan Pearsons $r$ ta?","options":[{"id":"a","text":"Alle verdier mellom $-1$ og $1$","isCorrect":true},{"id":"b","text":"Bare verdier mellom $0$ og $1$","isCorrect":false},{"id":"c","text":"Alle positive tall","isCorrect":false},{"id":"d","text":"Bare $-1$, $0$ eller $1$","isCorrect":false}],"solution":"$r \\in [-1, 1]$. Fortegnet gir retningen, tallverdien styrken."},{"id":"s1-7-2-n-quiz1-q1","task":"Hva betyr $r = -0{,}9$?","options":[{"id":"a","text":"Svak positiv sammenheng","isCorrect":false},{"id":"b","text":"Sterk negativ lineær sammenheng","isCorrect":true},{"id":"c","text":"Ingen sammenheng","isCorrect":false},{"id":"d","text":"At dataene har målefeil","isCorrect":false}],"solution":"$|r| = 0{,}9$ er nær 1: sterk lineær sammenheng. Negativt fortegn: den ene øker når den andre synker."},{"id":"s1-7-2-n-quiz1-q2","task":"For enkel lineær regresjon — hva er sammenhengen mellom $r$ og $R^2$?","options":[{"id":"a","text":"$r = R^2 + 1$","isCorrect":false},{"id":"b","text":"$r = 2R^2$","isCorrect":false},{"id":"c","text":"$R^2 = r^2$","isCorrect":true},{"id":"d","text":"De er uavhengige av hverandre","isCorrect":false}],"solution":"Determinasjonskoeffisienten er kvadratet av korrelasjonskoeffisienten: $R^2 = r^2$."},{"id":"s1-7-2-n-quiz1-q3","task":"To variabler følger en perfekt parabelformet sammenheng. Hva kan $r$ likevel være?","options":[{"id":"a","text":"Nøyaktig $1$","isCorrect":false},{"id":"b","text":"Nøyaktig $-1$","isCorrect":false},{"id":"c","text":"Større enn $1$","isCorrect":false},{"id":"d","text":"Nær $0$ — $r$ måler bare lineære sammenhenger","isCorrect":true}],"solution":"$r$ fanger kun lineær samvariasjon. En sterk ikke-lineær sammenheng kan gi $r \\approx 0$ — derfor må dataene alltid plottes."}]}},{"id":"s1-7-2-n-section1","type":"text","content":"## Korrelasjon er ikke kausalitet\n\nNå til kapittelets viktigste innsikt — kanskje den viktigste i hele statistikken: **korrelasjon betyr ikke årsakssammenheng**. At to variabler samvarierer, beviser ikke at den ene forårsaker den andre.\n\nDen vanligste forklaringen på en ikke-kausal korrelasjon er en **konfunderende variabel** (lurende eller bakenforliggende variabel): en tredje størrelse som påvirker *begge* variablene og dermed skaper en tilsynelatende sammenheng. Klassikeren: issalg og drukningsulykker korrelerer sterkt. Men is forårsaker ikke drukning — den konfunderende variabelen er sommervarmen, som gir både mer iskremspising og mer bading.\n\nPrøv selv på dette eksempelet: ved branner er det sterk korrelasjon mellom antall brannmenn på stedet og skadeomfanget. Bør kommunen sende færre brannmenn for å redusere skadene? Selvsagt ikke. Den konfunderende variabelen er **brannens størrelse**: store branner tilkaller mange brannmenn *og* gjør stor skade. Korrelasjonen mellom brannmenn og skade er ekte i tallene, men kausalt sett en illusjon — den forklares av den felles årsaken.\n\nSlike villedende sammenhenger kalles **spuriøse korrelasjoner**. Noen oppstår via konfundere, andre av ren tilfeldighet — særlig når man leter i store datamengder. Kjente kuriositeter: antall filmer Nicolas Cage spilte i per år korrelerer med drukningsulykker i svømmebasseng; margarinforbruket per innbygger korrelerer med skilsmisseraten i Maine; utgifter til romforskning korrelerer med antall selvmord. Ingen av dem har noen kausal forklaring — de er statistisk støy som tilfeldigvis danner mønster.\n\nHva kreves da for å sannsynliggjøre **kausalitet**? Mer enn et regneark: kontrollerte eksperimenter der andre faktorer holdes like, eller solid faglig begrunnelse kombinert med kontroll for kjente konfundere. Inntil det foreligger, er den ærlige formuleringen alltid «henger sammen med» — aldri «fører til»."},{"id":"s1-7-2-n-quiz2","type":"exercise","exercise":{"id":"s1-7-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kausalitet og konfunderende variabler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-7-2-n-quiz2-q0","task":"Issalg og drukningsulykker korrelerer sterkt. Hva er den beste forklaringen?","options":[{"id":"a","text":"Iskrem gjør folk dårligere svømmere","isCorrect":false},{"id":"b","text":"Drukningsulykker øker issalget","isCorrect":false},{"id":"c","text":"En konfunderende variabel — varmt vær — påvirker begge","isCorrect":true},{"id":"d","text":"Korrelasjonen må skyldes målefeil","isCorrect":false}],"solution":"Sommervarmen gir både mer issalg og mer bading. Temperaturen er den bakenforliggende variabelen."},{"id":"s1-7-2-n-quiz2-q1","task":"Antall brannmenn på stedet korrelerer med skadeomfanget. Hva er den konfunderende variabelen?","options":[{"id":"a","text":"Brannens størrelse","isCorrect":true},{"id":"b","text":"Brannbilenes hastighet","isCorrect":false},{"id":"c","text":"Antall vitner","isCorrect":false},{"id":"d","text":"Tidspunktet på døgnet","isCorrect":false}],"solution":"Store branner tilkaller mange brannmenn og gir store skader — brannens størrelse forårsaker begge."},{"id":"s1-7-2-n-quiz2-q2","task":"Hva er en spuriøs korrelasjon?","options":[{"id":"a","text":"En korrelasjon sterkere enn $0{,}9$","isCorrect":false},{"id":"b","text":"En statistisk sammenheng uten reell årsakssammenheng — skapt av tilfeldighet eller konfundere","isCorrect":true},{"id":"c","text":"En korrelasjon mellom mer enn to variabler","isCorrect":false},{"id":"d","text":"En negativ korrelasjon","isCorrect":false}],"solution":"Spuriøse korrelasjoner ser ekte ut i tallene, men har ingen kausal forklaring — som Nicolas Cage-filmer og drukningsulykker."},{"id":"s1-7-2-n-quiz2-q3","task":"Hva kreves for å sannsynliggjøre en årsakssammenheng?","options":[{"id":"a","text":"$r > 0{,}7$","isCorrect":false},{"id":"b","text":"$R^2 > 0{,}9$","isCorrect":false},{"id":"c","text":"At sammenhengen omtales i media","isCorrect":false},{"id":"d","text":"Kontrollerte eksperimenter eller solid faglig begrunnelse med kontroll for konfundere","isCorrect":true}],"solution":"Korrelasjon alene er aldri nok — kausalitet krever eksperimentell kontroll eller grundig faglig argumentasjon."}]}},{"id":"s1-7-2-n-summary","type":"text","content":"## Oppsummering: mål styrken, men vokt deg for årsaken\n\nAvisens «sterke sammenheng» kan du nå både tallfeste og kritisere. **Pearsons korrelasjonskoeffisient** $r$ måler styrken og retningen på en *lineær* samvariasjon: $r \\in [-1, 1]$, der fortegnet gir retningen og tallverdien styrken — under 0,3 svakt, 0,3–0,7 moderat, over 0,7 sterkt. Koblingen $R^2 = r^2$ binder den til regresjonsanalysen fra 7.1, og begrensningen er innebygd: $r$ ser bare rette linjer, så krumme sammenhenger kan gjemme seg bak et lavt tall. Plott alltid først.\n\nDen andre — og største — lærdommen: **korrelasjon er ikke kausalitet**. En samvariasjon kan skyldes en **konfunderende variabel** som driver begge størrelsene (varmen bak is og drukning, brannstørrelsen bak brannmenn og skade), eller ren tilfeldighet i store datamengder (**spuriøse korrelasjoner** som Nicolas Cage og bassengulykker). Å sannsynliggjøre årsak krever kontrollerte eksperimenter eller solid fagkunnskap med kontroll for alternative forklaringer.\n\nFor ditt eget prosjektarbeid betyr det to regler: rapporter $r$ med plott, og formuler funnene som «henger sammen med», ikke «fører til» — med en eksplisitt drøfting av mulige konfundere. Det er den forskjellen som skiller statistisk håndverk fra avisoverskrifter. I neste kapittel utvider vi verktøykassen til sammenhenger som ikke er rette linjer."}],"exercises":[]}
+{
+  "id": "s1-7-2-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "7.2",
+  "title": "Korrelasjon og kausalitet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om avisoverskriften som måtte granskes — Pearsons r, spuriøse korrelasjoner og konfunderende variabler.",
+  "estimatedMinutes": 31,
+  "competenceGoals": [
+    "planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn",
+    "uttrykke egne resonnementer ved hjelp av matematiske begreper og symbolspråk"
+  ],
+  "linkedChapterId": "s1-7-2",
+  "content": [
+    {
+      "id": "s1-7-2-n-intro",
+      "type": "text",
+      "content": "## Tallet som måler samvariasjon\n\nEn avis melder: «Forskere finner sterk sammenheng mellom skjermtid og dårlig søvn.» Men hvor sterk er «sterk»? Og betyr sammenhengen at skjermen *forårsaker* søvnproblemene? De to spørsmålene — styrke og årsak — er dette kapittelets tema, og de må holdes strengt fra hverandre.\n\nStyrken måles med **Pearsons korrelasjonskoeffisient** $r$. For et datasett $(x_1, y_1), \\ldots, (x_n, y_n)$ er\n\n$$r = \\frac{\\sum(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum(x_i - \\bar{x})^2 \\cdot \\sum(y_i - \\bar{y})^2}}$$\n\nTallet ligger alltid mellom $-1$ og $1$. Er $r > 0$, har vi en positiv lineær sammenheng (begge øker sammen); er $r < 0$, en negativ (den ene øker når den andre synker); og $r = 0$ betyr ingen *lineær* sammenheng. Jo nærmere $|r|$ er 1, desto strammere ligger punktene langs en linje. En vanlig tommelfingerregel: $|r|$ under 0,3 er svakt, 0,3–0,7 moderat, og over 0,7 sterkt.\n\nDet er en vakker kobling til forrige kapittel: for enkel lineær regresjon er $R^2 = r^2$. Klassens studiedata med $R^2 \\approx 0{,}976$ gir dermed $r = \\sqrt{0{,}976} \\approx 0{,}988$ — positivt fortegn siden mer lesing ga flere poeng. En nesten perfekt positiv korrelasjon.\n\nMen husk begrensningen: $r$ ser bare **lineære** mønstre. To variabler kan følge en perfekt parabel — en sterk sammenheng — og likevel gi $r \\approx 0$. Et lavt $r$-tall betyr derfor «ingen lineær sammenheng», ikke «ingen sammenheng». Plott alltid dataene før du konkluderer."
+    },
+    {
+      "id": "s1-7-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-7-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på korrelasjonskoeffisienten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-7-2-n-quiz1-q0",
+            "task": "Hvilke verdier kan Pearsons $r$ ta?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bare verdier mellom $0$ og $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Alle verdier mellom $-1$ og $1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Alle positive tall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare $-1$, $0$ eller $1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$r \\in [-1, 1]$. Fortegnet gir retningen, tallverdien styrken."
+          },
+          {
+            "id": "s1-7-2-n-quiz1-q1",
+            "task": "Hva betyr $r = -0{,}9$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Svak positiv sammenheng",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen sammenheng",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sterk negativ lineær sammenheng",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At dataene har målefeil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|r| = 0{,}9$ er nær 1: sterk lineær sammenheng. Negativt fortegn: den ene øker når den andre synker."
+          },
+          {
+            "id": "s1-7-2-n-quiz1-q2",
+            "task": "For enkel lineær regresjon — hva er sammenhengen mellom $r$ og $R^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$r = R^2 + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$r = 2R^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De er uavhengige av hverandre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$R^2 = r^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Determinasjonskoeffisienten er kvadratet av korrelasjonskoeffisienten: $R^2 = r^2$."
+          },
+          {
+            "id": "s1-7-2-n-quiz1-q3",
+            "task": "To variabler følger en perfekt parabelformet sammenheng. Hva kan $r$ likevel være?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Nær $0$ — $r$ måler bare lineære sammenhenger",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nøyaktig $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nøyaktig $-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Større enn $1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$r$ fanger kun lineær samvariasjon. En sterk ikke-lineær sammenheng kan gi $r \\approx 0$ — derfor må dataene alltid plottes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-7-2-n-section1",
+      "type": "text",
+      "content": "## Korrelasjon er ikke kausalitet\n\nNå til kapittelets viktigste innsikt — kanskje den viktigste i hele statistikken: **korrelasjon betyr ikke årsakssammenheng**. At to variabler samvarierer, beviser ikke at den ene forårsaker den andre.\n\nDen vanligste forklaringen på en ikke-kausal korrelasjon er en **konfunderende variabel** (lurende eller bakenforliggende variabel): en tredje størrelse som påvirker *begge* variablene og dermed skaper en tilsynelatende sammenheng. Klassikeren: issalg og drukningsulykker korrelerer sterkt. Men is forårsaker ikke drukning — den konfunderende variabelen er sommervarmen, som gir både mer iskremspising og mer bading.\n\nPrøv selv på dette eksempelet: ved branner er det sterk korrelasjon mellom antall brannmenn på stedet og skadeomfanget. Bør kommunen sende færre brannmenn for å redusere skadene? Selvsagt ikke. Den konfunderende variabelen er **brannens størrelse**: store branner tilkaller mange brannmenn *og* gjør stor skade. Korrelasjonen mellom brannmenn og skade er ekte i tallene, men kausalt sett en illusjon — den forklares av den felles årsaken.\n\nSlike villedende sammenhenger kalles **spuriøse korrelasjoner**. Noen oppstår via konfundere, andre av ren tilfeldighet — særlig når man leter i store datamengder. Kjente kuriositeter: antall filmer Nicolas Cage spilte i per år korrelerer med drukningsulykker i svømmebasseng; margarinforbruket per innbygger korrelerer med skilsmisseraten i Maine; utgifter til romforskning korrelerer med antall selvmord. Ingen av dem har noen kausal forklaring — de er statistisk støy som tilfeldigvis danner mønster.\n\nHva kreves da for å sannsynliggjøre **kausalitet**? Mer enn et regneark: kontrollerte eksperimenter der andre faktorer holdes like, eller solid faglig begrunnelse kombinert med kontroll for kjente konfundere. Inntil det foreligger, er den ærlige formuleringen alltid «henger sammen med» — aldri «fører til»."
+    },
+    {
+      "id": "s1-7-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-7-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kausalitet og konfunderende variabler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-7-2-n-quiz2-q0",
+            "task": "Issalg og drukningsulykker korrelerer sterkt. Hva er den beste forklaringen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Iskrem gjør folk dårligere svømmere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En konfunderende variabel — varmt vær — påvirker begge",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Drukningsulykker øker issalget",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Korrelasjonen må skyldes målefeil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sommervarmen gir både mer issalg og mer bading. Temperaturen er den bakenforliggende variabelen."
+          },
+          {
+            "id": "s1-7-2-n-quiz2-q1",
+            "task": "Antall brannmenn på stedet korrelerer med skadeomfanget. Hva er den konfunderende variabelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Brannbilenes hastighet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall vitner",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Brannens størrelse",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Tidspunktet på døgnet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Store branner tilkaller mange brannmenn og gir store skader — brannens størrelse forårsaker begge."
+          },
+          {
+            "id": "s1-7-2-n-quiz2-q2",
+            "task": "Hva er en spuriøs korrelasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En korrelasjon sterkere enn $0{,}9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En korrelasjon mellom mer enn to variabler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En negativ korrelasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En statistisk sammenheng uten reell årsakssammenheng — skapt av tilfeldighet eller konfundere",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Spuriøse korrelasjoner ser ekte ut i tallene, men har ingen kausal forklaring — som Nicolas Cage-filmer og drukningsulykker."
+          },
+          {
+            "id": "s1-7-2-n-quiz2-q3",
+            "task": "Hva kreves for å sannsynliggjøre en årsakssammenheng?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Kontrollerte eksperimenter eller solid faglig begrunnelse med kontroll for konfundere",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$r > 0{,}7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$R^2 > 0{,}9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At sammenhengen omtales i media",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Korrelasjon alene er aldri nok — kausalitet krever eksperimentell kontroll eller grundig faglig argumentasjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-7-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: mål styrken, men vokt deg for årsaken\n\nAvisens «sterke sammenheng» kan du nå både tallfeste og kritisere. **Pearsons korrelasjonskoeffisient** $r$ måler styrken og retningen på en *lineær* samvariasjon: $r \\in [-1, 1]$, der fortegnet gir retningen og tallverdien styrken — under 0,3 svakt, 0,3–0,7 moderat, over 0,7 sterkt. Koblingen $R^2 = r^2$ binder den til regresjonsanalysen fra 7.1, og begrensningen er innebygd: $r$ ser bare rette linjer, så krumme sammenhenger kan gjemme seg bak et lavt tall. Plott alltid først.\n\nDen andre — og største — lærdommen: **korrelasjon er ikke kausalitet**. En samvariasjon kan skyldes en **konfunderende variabel** som driver begge størrelsene (varmen bak is og drukning, brannstørrelsen bak brannmenn og skade), eller ren tilfeldighet i store datamengder (**spuriøse korrelasjoner** som Nicolas Cage og bassengulykker). Å sannsynliggjøre årsak krever kontrollerte eksperimenter eller solid fagkunnskap med kontroll for alternative forklaringer.\n\nFor ditt eget prosjektarbeid betyr det to regler: rapporter $r$ med plott, og formuler funnene som «henger sammen med», ikke «fører til» — med en eksplisitt drøfting av mulige konfundere. Det er den forskjellen som skiller statistisk håndverk fra avisoverskrifter. I neste kapittel utvider vi verktøykassen til sammenhenger som ikke er rette linjer."
+    }
+  ],
+  "exercises": []
+}

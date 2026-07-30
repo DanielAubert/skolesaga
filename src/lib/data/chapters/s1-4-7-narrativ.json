@@ -1,1 +1,391 @@
-{"id":"s1-4-7-narrativ","courseId":"s1","chapterNumber":"4.7","title":"Tilbud og etterspørsel","subtitle":"Narrativ versjon","description":"En fortelling om markedet som finner sin egen pris — likevekt, konsument- og produsentoverskudd og skift i kurvene.","estimatedMinutes":34,"competenceGoals":["anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett","planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn"],"linkedChapterId":"s1-4-7","content":[{"id":"s1-4-7-n-intro","type":"text","content":"## Markedet som finner sin egen pris\n\nHvem bestemmer egentlig hva en sykkel koster? Ikke produsenten alene — setter de prisen for høyt, blir syklene stående usolgt. Ikke kundene alene — byr de for lavt, vil ingen produsere. I et fritt marked oppstår prisen i samspillet mellom **tilbud** og **etterspørsel**, og det samspillet kan modelleres med funksjoner.\n\nI S1 skriver vi funksjonene slik at $x$ er antall enheter og funksjonsverdien er prisen per enhet. **Etterspørselsfunksjonen** $E(x)$ gir prisen kundene er villige til å betale for enhet nummer $x$; den er avtagende, $E'(x) < 0$. **Tilbudsfunksjonen** $T(x)$ gir prisen produsentene krever for å tilby enhet nummer $x$; den er voksende, $T'(x) > 0$. Typiske lineære modeller er\n\n$$E(x) = a - bx \\quad \\text{og} \\quad T(x) = c + dx$$\n\nmed $a, b, d > 0$ og $c \\geq 0$.\n\nDer de to kurvene krysser hverandre, skjer det noe spesielt: **markedslikevekt**. Likevekten er definert ved $T(x_0) = E(x_0)$, der $x_0$ kalles **likevektsmengden** og $p_0 = T(x_0) = E(x_0)$ **likevektsprisen**. Ved akkurat denne prisen er det verken overproduksjon eller mangel — alt som produseres, blir kjøpt.\n\nEt regneeksempel: $T(x) = 100 + 2x$ og $E(x) = 500 - 4x$ (i kroner, $x$ i tusen enheter). Likevekt: $100 + 2x = 500 - 4x$ gir $6x = 400$, altså $x_0 \\approx 66{,}7$ og $p_0 = 100 + 2 \\cdot 66{,}7 \\approx 233$ kr. Hva om prisen settes til 300 i stedet? Da etterspørres bare 50, mens 100 tilbys — et overskudd på 50 000 enheter presser prisen ned igjen. Markedet drar mot likevekten som mot en magnet."},{"id":"s1-4-7-n-quiz1","type":"exercise","exercise":{"id":"s1-4-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på markedslikevekt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-7-n-quiz1-q0","task":"Hva kjennetegner etterspørselsfunksjonen $E(x)$ og tilbudsfunksjonen $T(x)$?","options":[{"id":"a","text":"Begge er voksende","isCorrect":false},{"id":"b","text":"$E$ er avtagende, $T$ er voksende","isCorrect":true},{"id":"c","text":"$E$ er voksende, $T$ er avtagende","isCorrect":false},{"id":"d","text":"Begge er konstante","isCorrect":false}],"solution":"Kundene betaler mindre per enhet jo flere som omsettes ($E'(x) < 0$); produsentene krever mer for å tilby flere ($T'(x) > 0$)."},{"id":"s1-4-7-n-quiz1-q1","task":"Hvordan finner vi markedslikevekten?","options":[{"id":"a","text":"Der $T(x) = 0$","isCorrect":false},{"id":"b","text":"Der $E(x)$ er størst","isCorrect":false},{"id":"c","text":"Vi løser $T(x) = E(x)$","isCorrect":true},{"id":"d","text":"Vi deriverer $E(x)$ og setter lik null","isCorrect":false}],"solution":"Likevekten er skjæringspunktet mellom kurvene: $T(x_0) = E(x_0)$ gir likevektsmengden $x_0$ og likevektsprisen $p_0$."},{"id":"s1-4-7-n-quiz1-q2","task":"Med $T(x) = 100 + 2x$ og $E(x) = 500 - 4x$ — hva er likevektsmengden?","options":[{"id":"a","text":"$x_0 = \\frac{400}{6} \\approx 66{,}7$","isCorrect":true},{"id":"b","text":"$x_0 = 100$","isCorrect":false},{"id":"c","text":"$x_0 = 50$","isCorrect":false},{"id":"d","text":"$x_0 = 400$","isCorrect":false}],"solution":"$100 + 2x = 500 - 4x$ gir $6x = 400$, altså $x_0 \\approx 66{,}7$ (tusen enheter)."},{"id":"s1-4-7-n-quiz1-q3","task":"Prisen settes over likevektsprisen. Hva skjer i markedet?","options":[{"id":"a","text":"Det oppstår mangel på varen","isCorrect":false},{"id":"b","text":"Likevektsmengden øker","isCorrect":false},{"id":"c","text":"Etterspørselen øker","isCorrect":false},{"id":"d","text":"Tilbudet overstiger etterspørselen, og prisen presses ned","isCorrect":true}],"solution":"Over likevektsprisen produseres mer enn kundene vil kjøpe. Overskuddet presser prisen ned mot likevekten."}]}},{"id":"s1-4-7-n-section1","type":"text","content":"## Hvem tjener på handelen? Konsument- og produsentoverskudd\n\nLikevekten er ikke bare et krysningspunkt — den skaper gevinster på begge sider av disken. Noen kunder ville vært villige til å betale mer enn likevektsprisen, men slipper med $p_0$. Den samlede gevinsten deres kalles **konsumentoverskuddet** (KO) og er geometrisk arealet mellom etterspørselskurven og prislinja, fra $x = 0$ til $x_0$:\n\n$$\\text{KO} = \\int_0^{x_0} E(x)\\,dx - p_0 \\cdot x_0$$\n\nTilsvarende ville noen produsenter akseptert lavere pris enn $p_0$, men får full likevektspris. Deres gevinst er **produsentoverskuddet** (PO) — arealet mellom prislinja og tilbudskurven:\n\n$$\\text{PO} = p_0 \\cdot x_0 - \\int_0^{x_0} T(x)\\,dx$$\n\nFor lineære funksjoner trenger vi ikke integraler — overskuddene er trekantarealer. Ta $E(x) = 600 - 3x$ og $T(x) = 150 + 1{,}5x$. Likevekt: $600 - 3x = 150 + 1{,}5x$ gir $4{,}5x = 450$, altså $x_0 = 100$ og $p_0 = 150 + 1{,}5 \\cdot 100 = 300$ kr.\n\nKonsumentoverskuddet er trekanten mellom etterspørselskurven og prislinja:\n\n$$\\text{KO} = \\frac{1}{2} \\cdot x_0 \\cdot (E(0) - p_0) = \\frac{1}{2} \\cdot 100 \\cdot (600 - 300) = 15\\,000 \\text{ kr}$$\n\nProdusentoverskuddet tilsvarende:\n\n$$\\text{PO} = \\frac{1}{2} \\cdot x_0 \\cdot (p_0 - T(0)) = \\frac{1}{2} \\cdot 100 \\cdot (300 - 150) = 7\\,500 \\text{ kr}$$\n\nSummen $\\text{KO} + \\text{PO} = 22\\,500$ kr kalles det **samfunnsøkonomiske overskuddet** — den totale verdien handelen skaper utover det partene minst krevde. Det er dette overskuddet økonomer sikter til når de sier at frivillig handel «skaper verdi for begge parter»."},{"id":"s1-4-7-n-quiz2","type":"exercise","exercise":{"id":"s1-4-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på konsument- og produsentoverskudd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-7-n-quiz2-q0","task":"Hva er konsumentoverskuddet?","options":[{"id":"a","text":"Gevinsten kundene får fordi noen var villige til å betale mer enn likevektsprisen","isCorrect":true},{"id":"b","text":"Det bedriften tjener på hver enhet","isCorrect":false},{"id":"c","text":"Differansen mellom tilbud og etterspørsel","isCorrect":false},{"id":"d","text":"Statens avgiftsinntekter","isCorrect":false}],"solution":"KO er arealet mellom etterspørselskurven og likevektsprisen — kjøpernes samlede gevinst."},{"id":"s1-4-7-n-quiz2-q1","task":"Med $E(x) = 600 - 3x$, likevekt $x_0 = 100$ og $p_0 = 300$: hva er konsumentoverskuddet?","options":[{"id":"a","text":"$30\\,000$ kr","isCorrect":false},{"id":"b","text":"$15\\,000$ kr","isCorrect":true},{"id":"c","text":"$7\\,500$ kr","isCorrect":false},{"id":"d","text":"$22\\,500$ kr","isCorrect":false}],"solution":"$\\text{KO} = \\frac{1}{2} \\cdot 100 \\cdot (600 - 300) = 15\\,000$ kr — trekanten mellom kurven og prislinja."},{"id":"s1-4-7-n-quiz2-q2","task":"Hva er produsentoverskuddet i samme marked, med $T(x) = 150 + 1{,}5x$?","options":[{"id":"a","text":"$15\\,000$ kr","isCorrect":false},{"id":"b","text":"$22\\,500$ kr","isCorrect":false},{"id":"c","text":"$30\\,000$ kr","isCorrect":false},{"id":"d","text":"$7\\,500$ kr","isCorrect":true}],"solution":"$\\text{PO} = \\frac{1}{2} \\cdot 100 \\cdot (300 - 150) = 7\\,500$ kr."},{"id":"s1-4-7-n-quiz2-q3","task":"Hva kalles summen $\\text{KO} + \\text{PO}$?","options":[{"id":"a","text":"Bruttonasjonalproduktet","isCorrect":false},{"id":"b","text":"Dekningsbidraget","isCorrect":false},{"id":"c","text":"Det samfunnsøkonomiske overskuddet","isCorrect":true},{"id":"d","text":"Markedsverdien","isCorrect":false}],"solution":"KO + PO er det totale samfunnsøkonomiske overskuddet — verdien handelen skaper for begge parter, her $22\\,500$ kr."}]}},{"id":"s1-4-7-n-section2","type":"text","content":"## Når kurvene flytter seg\n\nLikevekten er ikke hugget i stein. Endrer markedsforholdene seg, **skifter** hele kurver — og likevekten flytter etter.\n\n**Etterspørselskurven skifter utover** (øker) når befolkningen får høyere inntekt, når preferansen for varen øker, når substitutter (erstatningsvarer) blir dyrere, eller når komplementer blir billigere. **Tilbudskurven skifter utover** når produksjonskostnadene faller, teknologien forbedres eller flere produsenter kommer inn i markedet.\n\nLa oss se hva et etterspørselsskift gjør med sykkelmarkedet vårt. Anta at en ny trend løfter betalingsviljen slik at etterspørselen skifter fra $E(x) = 600 - 3x$ til $E_1(x) = 720 - 3x$, mens tilbudet $T(x) = 150 + 1{,}5x$ står fast. Ny likevekt:\n\n$$720 - 3x = 150 + 1{,}5x \\quad \\Rightarrow \\quad 4{,}5x = 570 \\quad \\Rightarrow \\quad x_1 \\approx 126{,}7$$\n\nog ny pris $p_1 = 150 + 1{,}5 \\cdot 126{,}7 \\approx 340$ kr. Sammenlignet med utgangspunktet ($x_0 = 100$, $p_0 = 300$) har mengden økt cirka 27 % og prisen cirka 13 %. Økt etterspørsel gir altså **både** høyere pris **og** større omsatt mengde — det typiske resultatet ved etterspørselsskift utover.\n\nDette er nyhetenes økonomi i funksjonsform. «Rentekutt løfter boligprisene» er et etterspørselsskift. «Billigere batterier presser elbilprisene» er et tilbudsskift. Med to lineære funksjoner og en likning kan du regne på begge — og i et prosjektarbeid kan du teste modellen mot ekte pris- og omsetningsdata fra SSB."},{"id":"s1-4-7-n-quiz3","type":"exercise","exercise":{"id":"s1-4-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på skift i kurvene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-7-n-quiz3-q0","task":"Hva kan få etterspørselskurven til å skifte utover?","options":[{"id":"a","text":"Lavere produksjonskostnader","isCorrect":false},{"id":"b","text":"Økt inntekt i befolkningen","isCorrect":true},{"id":"c","text":"Flere produsenter i markedet","isCorrect":false},{"id":"d","text":"Teknologisk forbedring","isCorrect":false}],"solution":"Økt inntekt, sterkere preferanser, dyrere substitutter eller billigere komplementer skifter etterspørselen utover. De tre andre alternativene skifter tilbudskurven."},{"id":"s1-4-7-n-quiz3-q1","task":"Etterspørselen skifter fra $E(x) = 600 - 3x$ til $E_1(x) = 720 - 3x$ med tilbud $T(x) = 150 + 1{,}5x$. Hva er den nye likevektsmengden?","options":[{"id":"a","text":"$x_1 = 100$","isCorrect":false},{"id":"b","text":"$x_1 = 570$","isCorrect":false},{"id":"c","text":"$x_1 \\approx 126{,}7$","isCorrect":true},{"id":"d","text":"$x_1 = 80$","isCorrect":false}],"solution":"$720 - 3x = 150 + 1{,}5x$ gir $4{,}5x = 570$, altså $x_1 \\approx 126{,}7$."},{"id":"s1-4-7-n-quiz3-q2","task":"Hva skjer med likevektspris og likevektsmengde når etterspørselen øker (skifter utover)?","options":[{"id":"a","text":"Begge øker","isCorrect":true},{"id":"b","text":"Prisen øker, mengden synker","isCorrect":false},{"id":"c","text":"Prisen synker, mengden øker","isCorrect":false},{"id":"d","text":"Begge synker","isCorrect":false}],"solution":"Etterspørselsskift utover gir både høyere likevektspris og større omsatt mengde — her fra (100, 300) til (126,7, 340)."}]}},{"id":"s1-4-7-n-summary","type":"text","content":"## Oppsummering: krysset der prisen blir til\n\nSykkelprisen bestemmes verken av produsent eller kunde alene, men i krysset mellom to kurver. **Etterspørselskurven** $E(x)$ er avtagende — kundene betaler mindre per enhet jo flere som omsettes. **Tilbudskurven** $T(x)$ er voksende — produsentene krever mer for å levere mer. **Markedslikevekten** $T(x_0) = E(x_0)$ gir likevektsmengden $x_0$ og likevektsprisen $p_0$, og priser over eller under likevekten skaper overskudd eller mangel som presser markedet tilbake.\n\nLikevekten skaper målbare gevinster. **Konsumentoverskuddet** er arealet mellom etterspørselskurven og prislinja — for lineære kurver trekanten $\\frac{1}{2} x_0 (E(0) - p_0)$. **Produsentoverskuddet** er arealet mellom prislinja og tilbudskurven, $\\frac{1}{2} x_0 (p_0 - T(0))$. Summen er det samfunnsøkonomiske overskuddet — verdien handelen skaper.\n\nOg når verden endrer seg, **skifter** kurvene: inntektsvekst og trender flytter etterspørselen, kostnader og teknologi flytter tilbudet. Et etterspørselsskift utover ga i vårt eksempel både høyere pris og større mengde. Med dette har du en komplett, regnbar modell av et marked — og neste kapittel skrur optimeringsblikket på: hvordan bedriften finner produksjonen som maksimerer profitten i nettopp slike markeder."}],"exercises":[]}
+{
+  "id": "s1-4-7-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "4.7",
+  "title": "Tilbud og etterspørsel",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om markedet som finner sin egen pris — likevekt, konsument- og produsentoverskudd og skift i kurvene.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett",
+    "planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn"
+  ],
+  "linkedChapterId": "s1-4-7",
+  "content": [
+    {
+      "id": "s1-4-7-n-intro",
+      "type": "text",
+      "content": "## Markedet som finner sin egen pris\n\nHvem bestemmer egentlig hva en sykkel koster? Ikke produsenten alene — setter de prisen for høyt, blir syklene stående usolgt. Ikke kundene alene — byr de for lavt, vil ingen produsere. I et fritt marked oppstår prisen i samspillet mellom **tilbud** og **etterspørsel**, og det samspillet kan modelleres med funksjoner.\n\nI S1 skriver vi funksjonene slik at $x$ er antall enheter og funksjonsverdien er prisen per enhet. **Etterspørselsfunksjonen** $E(x)$ gir prisen kundene er villige til å betale for enhet nummer $x$; den er avtagende, $E'(x) < 0$. **Tilbudsfunksjonen** $T(x)$ gir prisen produsentene krever for å tilby enhet nummer $x$; den er voksende, $T'(x) > 0$. Typiske lineære modeller er\n\n$$E(x) = a - bx \\quad \\text{og} \\quad T(x) = c + dx$$\n\nmed $a, b, d > 0$ og $c \\geq 0$.\n\nDer de to kurvene krysser hverandre, skjer det noe spesielt: **markedslikevekt**. Likevekten er definert ved $T(x_0) = E(x_0)$, der $x_0$ kalles **likevektsmengden** og $p_0 = T(x_0) = E(x_0)$ **likevektsprisen**. Ved akkurat denne prisen er det verken overproduksjon eller mangel — alt som produseres, blir kjøpt.\n\nEt regneeksempel: $T(x) = 100 + 2x$ og $E(x) = 500 - 4x$ (i kroner, $x$ i tusen enheter). Likevekt: $100 + 2x = 500 - 4x$ gir $6x = 400$, altså $x_0 \\approx 66{,}7$ og $p_0 = 100 + 2 \\cdot 66{,}7 \\approx 233$ kr. Hva om prisen settes til 300 i stedet? Da etterspørres bare 50, mens 100 tilbys — et overskudd på 50 000 enheter presser prisen ned igjen. Markedet drar mot likevekten som mot en magnet."
+    },
+    {
+      "id": "s1-4-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på markedslikevekt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-7-n-quiz1-q0",
+            "task": "Hva kjennetegner etterspørselsfunksjonen $E(x)$ og tilbudsfunksjonen $T(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Begge er voksende",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E$ er voksende, $T$ er avtagende",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge er konstante",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$E$ er avtagende, $T$ er voksende",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kundene betaler mindre per enhet jo flere som omsettes ($E'(x) < 0$); produsentene krever mer for å tilby flere ($T'(x) > 0$)."
+          },
+          {
+            "id": "s1-4-7-n-quiz1-q1",
+            "task": "Hvordan finner vi markedslikevekten?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Vi løser $T(x) = E(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Der $T(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Der $E(x)$ er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi deriverer $E(x)$ og setter lik null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likevekten er skjæringspunktet mellom kurvene: $T(x_0) = E(x_0)$ gir likevektsmengden $x_0$ og likevektsprisen $p_0$."
+          },
+          {
+            "id": "s1-4-7-n-quiz1-q2",
+            "task": "Med $T(x) = 100 + 2x$ og $E(x) = 500 - 4x$ — hva er likevektsmengden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x_0 = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x_0 = \\frac{400}{6} \\approx 66{,}7$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x_0 = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x_0 = 400$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$100 + 2x = 500 - 4x$ gir $6x = 400$, altså $x_0 \\approx 66{,}7$ (tusen enheter)."
+          },
+          {
+            "id": "s1-4-7-n-quiz1-q3",
+            "task": "Prisen settes over likevektsprisen. Hva skjer i markedet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det oppstår mangel på varen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Likevektsmengden øker",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tilbudet overstiger etterspørselen, og prisen presses ned",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Etterspørselen øker",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Over likevektsprisen produseres mer enn kundene vil kjøpe. Overskuddet presser prisen ned mot likevekten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-7-n-section1",
+      "type": "text",
+      "content": "## Hvem tjener på handelen? Konsument- og produsentoverskudd\n\nLikevekten er ikke bare et krysningspunkt — den skaper gevinster på begge sider av disken. Noen kunder ville vært villige til å betale mer enn likevektsprisen, men slipper med $p_0$. Den samlede gevinsten deres kalles **konsumentoverskuddet** (KO) og er geometrisk arealet mellom etterspørselskurven og prislinja, fra $x = 0$ til $x_0$:\n\n$$\\text{KO} = \\int_0^{x_0} E(x)\\,dx - p_0 \\cdot x_0$$\n\nTilsvarende ville noen produsenter akseptert lavere pris enn $p_0$, men får full likevektspris. Deres gevinst er **produsentoverskuddet** (PO) — arealet mellom prislinja og tilbudskurven:\n\n$$\\text{PO} = p_0 \\cdot x_0 - \\int_0^{x_0} T(x)\\,dx$$\n\nFor lineære funksjoner trenger vi ikke integraler — overskuddene er trekantarealer. Ta $E(x) = 600 - 3x$ og $T(x) = 150 + 1{,}5x$. Likevekt: $600 - 3x = 150 + 1{,}5x$ gir $4{,}5x = 450$, altså $x_0 = 100$ og $p_0 = 150 + 1{,}5 \\cdot 100 = 300$ kr.\n\nKonsumentoverskuddet er trekanten mellom etterspørselskurven og prislinja:\n\n$$\\text{KO} = \\frac{1}{2} \\cdot x_0 \\cdot (E(0) - p_0) = \\frac{1}{2} \\cdot 100 \\cdot (600 - 300) = 15\\,000 \\text{ kr}$$\n\nProdusentoverskuddet tilsvarende:\n\n$$\\text{PO} = \\frac{1}{2} \\cdot x_0 \\cdot (p_0 - T(0)) = \\frac{1}{2} \\cdot 100 \\cdot (300 - 150) = 7\\,500 \\text{ kr}$$\n\nSummen $\\text{KO} + \\text{PO} = 22\\,500$ kr kalles det **samfunnsøkonomiske overskuddet** — den totale verdien handelen skaper utover det partene minst krevde. Det er dette overskuddet økonomer sikter til når de sier at frivillig handel «skaper verdi for begge parter»."
+    },
+    {
+      "id": "s1-4-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på konsument- og produsentoverskudd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-7-n-quiz2-q0",
+            "task": "Hva er konsumentoverskuddet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det bedriften tjener på hver enhet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Differansen mellom tilbud og etterspørsel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Statens avgiftsinntekter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Gevinsten kundene får fordi noen var villige til å betale mer enn likevektsprisen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "KO er arealet mellom etterspørselskurven og likevektsprisen — kjøpernes samlede gevinst."
+          },
+          {
+            "id": "s1-4-7-n-quiz2-q1",
+            "task": "Med $E(x) = 600 - 3x$, likevekt $x_0 = 100$ og $p_0 = 300$: hva er konsumentoverskuddet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$15\\,000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$30\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7\\,500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$22\\,500$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{KO} = \\frac{1}{2} \\cdot 100 \\cdot (600 - 300) = 15\\,000$ kr — trekanten mellom kurven og prislinja."
+          },
+          {
+            "id": "s1-4-7-n-quiz2-q2",
+            "task": "Hva er produsentoverskuddet i samme marked, med $T(x) = 150 + 1{,}5x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7\\,500$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$22\\,500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$30\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{PO} = \\frac{1}{2} \\cdot 100 \\cdot (300 - 150) = 7\\,500$ kr."
+          },
+          {
+            "id": "s1-4-7-n-quiz2-q3",
+            "task": "Hva kalles summen $\\text{KO} + \\text{PO}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bruttonasjonalproduktet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dekningsbidraget",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det samfunnsøkonomiske overskuddet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Markedsverdien",
+                "isCorrect": false
+              }
+            ],
+            "solution": "KO + PO er det totale samfunnsøkonomiske overskuddet — verdien handelen skaper for begge parter, her $22\\,500$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-7-n-section2",
+      "type": "text",
+      "content": "## Når kurvene flytter seg\n\nLikevekten er ikke hugget i stein. Endrer markedsforholdene seg, **skifter** hele kurver — og likevekten flytter etter.\n\n**Etterspørselskurven skifter utover** (øker) når befolkningen får høyere inntekt, når preferansen for varen øker, når substitutter (erstatningsvarer) blir dyrere, eller når komplementer blir billigere. **Tilbudskurven skifter utover** når produksjonskostnadene faller, teknologien forbedres eller flere produsenter kommer inn i markedet.\n\nLa oss se hva et etterspørselsskift gjør med sykkelmarkedet vårt. Anta at en ny trend løfter betalingsviljen slik at etterspørselen skifter fra $E(x) = 600 - 3x$ til $E_1(x) = 720 - 3x$, mens tilbudet $T(x) = 150 + 1{,}5x$ står fast. Ny likevekt:\n\n$$720 - 3x = 150 + 1{,}5x \\quad \\Rightarrow \\quad 4{,}5x = 570 \\quad \\Rightarrow \\quad x_1 \\approx 126{,}7$$\n\nog ny pris $p_1 = 150 + 1{,}5 \\cdot 126{,}7 \\approx 340$ kr. Sammenlignet med utgangspunktet ($x_0 = 100$, $p_0 = 300$) har mengden økt cirka 27 % og prisen cirka 13 %. Økt etterspørsel gir altså **både** høyere pris **og** større omsatt mengde — det typiske resultatet ved etterspørselsskift utover.\n\nDette er nyhetenes økonomi i funksjonsform. «Rentekutt løfter boligprisene» er et etterspørselsskift. «Billigere batterier presser elbilprisene» er et tilbudsskift. Med to lineære funksjoner og en likning kan du regne på begge — og i et prosjektarbeid kan du teste modellen mot ekte pris- og omsetningsdata fra SSB."
+    },
+    {
+      "id": "s1-4-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på skift i kurvene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-7-n-quiz3-q0",
+            "task": "Hva kan få etterspørselskurven til å skifte utover?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lavere produksjonskostnader",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Flere produsenter i markedet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Teknologisk forbedring",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Økt inntekt i befolkningen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Økt inntekt, sterkere preferanser, dyrere substitutter eller billigere komplementer skifter etterspørselen utover. De tre andre alternativene skifter tilbudskurven."
+          },
+          {
+            "id": "s1-4-7-n-quiz3-q1",
+            "task": "Etterspørselen skifter fra $E(x) = 600 - 3x$ til $E_1(x) = 720 - 3x$ med tilbud $T(x) = 150 + 1{,}5x$. Hva er den nye likevektsmengden?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x_1 \\approx 126{,}7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x_1 = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x_1 = 570$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x_1 = 80$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$720 - 3x = 150 + 1{,}5x$ gir $4{,}5x = 570$, altså $x_1 \\approx 126{,}7$."
+          },
+          {
+            "id": "s1-4-7-n-quiz3-q2",
+            "task": "Hva skjer med likevektspris og likevektsmengde når etterspørselen øker (skifter utover)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Prisen øker, mengden synker",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Begge øker",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Prisen synker, mengden øker",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge synker",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etterspørselsskift utover gir både høyere likevektspris og større omsatt mengde — her fra (100, 300) til (126,7, 340)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: krysset der prisen blir til\n\nSykkelprisen bestemmes verken av produsent eller kunde alene, men i krysset mellom to kurver. **Etterspørselskurven** $E(x)$ er avtagende — kundene betaler mindre per enhet jo flere som omsettes. **Tilbudskurven** $T(x)$ er voksende — produsentene krever mer for å levere mer. **Markedslikevekten** $T(x_0) = E(x_0)$ gir likevektsmengden $x_0$ og likevektsprisen $p_0$, og priser over eller under likevekten skaper overskudd eller mangel som presser markedet tilbake.\n\nLikevekten skaper målbare gevinster. **Konsumentoverskuddet** er arealet mellom etterspørselskurven og prislinja — for lineære kurver trekanten $\\frac{1}{2} x_0 (E(0) - p_0)$. **Produsentoverskuddet** er arealet mellom prislinja og tilbudskurven, $\\frac{1}{2} x_0 (p_0 - T(0))$. Summen er det samfunnsøkonomiske overskuddet — verdien handelen skaper.\n\nOg når verden endrer seg, **skifter** kurvene: inntektsvekst og trender flytter etterspørselen, kostnader og teknologi flytter tilbudet. Et etterspørselsskift utover ga i vårt eksempel både høyere pris og større mengde. Med dette har du en komplett, regnbar modell av et marked — og neste kapittel skrur optimeringsblikket på: hvordan bedriften finner produksjonen som maksimerer profitten i nettopp slike markeder."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,565 @@
-{"id":"r2-4-3-narrativ","courseId":"r2","chapterNumber":"4.3","title":"Sinuslikningar","subtitle":"Narrativ versjon","description":"Ei forteljing om tidvatn og svingingar — korleis du løyser sin x = a, finn alle løysingane med n, handterer sin(kx + c) = a og brukar det på verkelege periodiske fenomen.","estimatedMinutes":36,"competenceGoals":["bruke trigonometriske funksjonar til å løyse praktiske problem","analysere og tolke trigonometriske funksjonar grafisk","finne alle løysingar av trigonometriske likningar i gitte intervall"],"linkedChapterId":"r2-4-3","content":[{"id":"r2-4-3-n-intro","type":"text","content":"## Når er vatnet høgt nok?\n\nDu står på kaia og ventar på at båten skal kunne leggje ut. Tidvatnet stig og søkk i ein jamn, bølgjande rytme, og hamnekontoret brukar ein sinusfunksjon for å skildre vassdjupna gjennom døgnet. Spørsmålet «når er djupna nøyaktig fire meter?» er i verkelegheita ei **sinuslikning**: ei likning der den ukjende står inne i ein sinusfunksjon, som $\\sin x = a$.\n\nSlike likningar dukkar opp overalt der noko svingar — i havbølgjer, lydbølgjer, vekselstraum og pendelrørsler. Men dei oppfører seg annleis enn likningane du er van med. Ei vanleg førstegradslikning har éi løysing. Ei sinuslikning har anten ingen løysingar eller **uendeleg mange**, fordi sinusfunksjonen gjentek seg i det uendelege med periode $2\\pi$. Viss vatnet er fire meter djupt klokka to i dag, er det fire meter djupt på same tidspunkt i morgon òg.\n\nI denne forteljinga lærer du å løyse grunnlikninga $\\sin x = a$ og skrive opp den generelle løysinga med heiltalsparameteren $n$, å plukke ut løysingane som ligg i eit bestemt intervall, å handtere samansette likningar som $\\sin(kx + c) = a$, og til slutt å bruke alt saman på praktiske problem — som tidvatnet ved kaia."},{"id":"r2-4-3-n-section1","type":"text","content":"## Grunnlikninga og den generelle løysinga\n\nFørst det viktigaste spørsmålet: har likninga $\\sin x = a$ i det heile teke ei løysing? Sinusfunksjonen svingar evig mellom $-1$ og $1$, så likninga er løysbar berre når $-1 \\leq a \\leq 1$. Ei likning som $\\sin x = 2$ har ingen løysing — eit vanleg feilgrep er å gløyme denne sjekken.\n\nAnta no at $|a| \\leq 1$, og at vi har funne éin vinkel $v$ med $\\sin v = a$ (for pene verdiar brukar vi tabellen: $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, $\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$; elles gir kalkulatoren $v = \\arcsin a$). På einingssirkelen er sinus $y$-koordinaten, og ei vassrett linje i høgda $a$ skjer sirkelen i **to** punkt: eitt ved vinkelen $v$ og eitt ved den spegelvende vinkelen $\\pi - v$. Begge har same sinusverdi. I tillegg gjentek alt seg for kvar heile runde. Den generelle løysinga blir difor\n\n$$x = v + 2\\pi n \\quad \\text{eller} \\quad x = \\pi - v + 2\\pi n, \\quad n \\in \\mathbb{Z}$$\n\nTa $\\sin x = \\frac{1}{2}$ som eksempel. Vi veit at $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, så løysingane er $x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\pi - \\frac{\\pi}{6} + 2\\pi n = \\frac{5\\pi}{6} + 2\\pi n$. To uendelege familiar av løysingar, jamt fordelte med $2\\pi$ mellomrom.\n\nYtterpunkta er spesielle: $\\sin x = 1$ har berre éi løysing per periode, $x = \\frac{\\pi}{2} + 2\\pi n$, fordi linja $y = 1$ akkurat tangerer toppen av sirkelen. Tilsvarande gir $\\sin x = -1$ løysinga $x = \\frac{3\\pi}{2} + 2\\pi n$."},{"id":"r2-4-3-n-quiz1","type":"exercise","exercise":{"id":"r2-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grunnleggjande sinuslikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-3-n-quiz1-q0","task":"For kva verdiar av $a$ har likninga $\\sin x = a$ løysingar?","options":[{"id":"a","text":"$-1 \\leq a \\leq 1$","isCorrect":true},{"id":"b","text":"$a > 0$","isCorrect":false},{"id":"c","text":"$a \\neq 0$","isCorrect":false},{"id":"d","text":"Alle reelle $a$","isCorrect":false}],"solution":"Sinus svingar mellom $-1$ og $1$, så likninga er løysbar berre når $|a| \\leq 1$."},{"id":"r2-4-3-n-quiz1-q1","task":"Kva er den generelle løysinga av $\\sin x = \\frac{1}{2}$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{6} + 2\\pi n$","isCorrect":false},{"id":"b","text":"$x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\frac{5\\pi}{6} + 2\\pi n$","isCorrect":true},{"id":"c","text":"$x = \\pm\\frac{\\pi}{6} + 2\\pi n$","isCorrect":false},{"id":"d","text":"$x = \\frac{\\pi}{6} + \\pi n$","isCorrect":false}],"solution":"Med $\\sin v = a$ er løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$. Her er $v = \\frac{\\pi}{6}$ og $\\pi - v = \\frac{5\\pi}{6}$."},{"id":"r2-4-3-n-quiz1-q2","task":"Kor mange løysingar har likninga $\\sin x = 2$?","options":[{"id":"a","text":"Éi","isCorrect":false},{"id":"b","text":"To","isCorrect":false},{"id":"c","text":"Uendeleg mange","isCorrect":false},{"id":"d","text":"Ingen","isCorrect":true}],"solution":"$2 > 1$ ligg utanfor verdimengda til sinus, så likninga har inga løysing."},{"id":"r2-4-3-n-quiz1-q3","task":"Kva er den generelle løysinga av $\\sin x = -1$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{2} + 2\\pi n$","isCorrect":false},{"id":"b","text":"$x = \\pi + 2\\pi n$","isCorrect":false},{"id":"c","text":"$x = \\frac{3\\pi}{2} + 2\\pi n$","isCorrect":true},{"id":"d","text":"$x = \\pm\\frac{\\pi}{2} + 2\\pi n$","isCorrect":false}],"solution":"Sinus er $-1$ berre i botnpunktet av einingssirkelen, ved $x = \\frac{3\\pi}{2} + 2\\pi n$ — éi løysing per periode."}]}},{"id":"r2-4-3-n-section2","type":"text","content":"## Løysingar i eit intervall og det grafiske biletet\n\nHamnekontoret bryr seg sjeldan om alle tidspunkt i all æve — dei vil vite når djupna passar **i dag**. Då treng vi løysingane i eit gitt intervall, til dømes $[0, 2\\pi)$. Framgangsmåten er rett fram: finn først den generelle løysinga, set deretter inn heiltalsverdiar $n = 0, \\pm 1, \\pm 2, \\ldots$, og behald berre dei løysingane som fell innanfor intervallet. For $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$ gir $n = 0$ løysingane $x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$; andre verdiar av $n$ hamnar utanfor.\n\nDet grafiske biletet gjer alt dette intuitivt. Å løyse $\\sin x = a$ er det same som å finne skjeringspunkta mellom sinuskurva $y = \\sin x$ og den vassrette linja $y = a$. Sinuskurva bølgjer mellom $-1$ og $1$ med periode $2\\pi$, og då ser du straks mønsteret: for $-1 < a < 1$ skjer linja kurva **to gonger** per periode, for $a = \\pm 1$ tangerer ho toppane eller botnane og treffer **éin gong** per periode, og for $|a| > 1$ treffer ho **aldri**.\n\nDenne forståinga gir deg tre superkrefter: du kan raskt avgjere om ei likning har løysing, du kan telje talet på løysingar i eit intervall utan å rekne dei ut — eit intervall med $k$ fulle periodar gir $2k$ løysingar når $-1 < a < 1$ — og du kan anslå løysingane visuelt før du reknar, som ein kontroll på at svaret ditt er rimeleg."},{"id":"r2-4-3-n-quiz2","type":"exercise","exercise":{"id":"r2-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på løysingar i intervall og grafisk tolking:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-3-n-quiz2-q0","task":"Kor mange løysingar har $\\sin x = 0{,}3$ i intervallet $[0, 2\\pi)$?","options":[{"id":"a","text":"0","isCorrect":false},{"id":"b","text":"1","isCorrect":false},{"id":"c","text":"2","isCorrect":true},{"id":"d","text":"4","isCorrect":false}],"solution":"For $-1 < a < 1$ skjer linja $y = a$ sinuskurva to gonger per periode, og $[0, 2\\pi)$ er nøyaktig éin periode."},{"id":"r2-4-3-n-quiz2-q1","task":"Kva løysingar har $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{4}$ og $x = \\frac{7\\pi}{4}$","isCorrect":false},{"id":"b","text":"$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$","isCorrect":true},{"id":"c","text":"$x = \\frac{\\pi}{3}$ og $x = \\frac{2\\pi}{3}$","isCorrect":false},{"id":"d","text":"Berre $x = \\frac{\\pi}{4}$","isCorrect":false}],"solution":"$\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, og den andre løysinga er $\\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}$."},{"id":"r2-4-3-n-quiz2-q2","task":"Kor mange gonger per periode skjer linja $y = 1$ grafen til $y = \\sin x$?","options":[{"id":"a","text":"0","isCorrect":false},{"id":"b","text":"2","isCorrect":false},{"id":"c","text":"Uendeleg mange","isCorrect":false},{"id":"d","text":"1","isCorrect":true}],"solution":"Linja $y = 1$ tangerer sinuskurva i toppunkta — nøyaktig éin gong per periode."}]}},{"id":"r2-4-3-n-section3","type":"text","content":"## Samansette likningar: $\\sin(kx + c) = a$\n\nTidvassmodellar har sjeldan eit nake $x$ inne i sinusen. Oftare ser du noko som $\\sin(2x + \\frac{\\pi}{3})$ eller $\\sin(3x - 1)$, der argumentet er eit heilt uttrykk. Strategien er **substitusjon**: kall det indre uttrykket $u = kx + c$, løys den velkjende likninga $\\sin u = a$ for $u$, og løys deretter for $x$.\n\nLat oss løyse $\\sin(2x) = 1$. Med $u = 2x$ får vi $\\sin u = 1$, som gir $u = \\frac{\\pi}{2} + 2\\pi n$. Då er $2x = \\frac{\\pi}{2} + 2\\pi n$, og deler vi på $2$: $x = \\frac{\\pi}{4} + \\pi n$. Legg merke til det viktige som skjedde i siste steg: også perioden $2\\pi n$ blei delt på $k = 2$. Det er nettopp dette som speglar at $\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, ikkje $2\\pi$ — funksjonen svingar $k$ gonger raskare, så løysingane ligg tettare.\n\nDet får konsekvensar for talet på løysingar i eit intervall. Likninga $\\sin(2x) = 0{,}5$ har periode $\\pi$, så i $[0, 2\\pi)$ rekk funksjonen to fulle periodar med to løysingar i kvar — fire løysingar totalt, dobbelt så mange som for $\\sin x = 0{,}5$.\n\nNokre likningar treng litt rydding først. Står det $2\\sin(3x) - 1 = 0$, isolerer du sinusleddet til $\\sin(3x) = \\frac{1}{2}$ før du substituerer. Og uansett kor samansett likninga ser ut: så lenge du kan koke ho ned til «sinus av noko er lik eit tal», er resten rein rutine — løys for «noko», og pakk ut $x$ til slutt."},{"id":"r2-4-3-n-quiz3","type":"exercise","exercise":{"id":"r2-4-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på samansette sinuslikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-3-n-quiz3-q0","task":"Kva er perioden til $\\sin(3x)$?","options":[{"id":"a","text":"$2\\pi$","isCorrect":false},{"id":"b","text":"$\\frac{2\\pi}{3}$","isCorrect":true},{"id":"c","text":"$3\\pi$","isCorrect":false},{"id":"d","text":"$\\frac{\\pi}{3}$","isCorrect":false}],"solution":"$\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, så $\\sin(3x)$ har periode $\\frac{2\\pi}{3}$."},{"id":"r2-4-3-n-quiz3-q1","task":"Kva er den generelle løysinga av $\\sin(2x) = 1$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{4} + \\pi n$","isCorrect":true},{"id":"b","text":"$x = \\frac{\\pi}{2} + 2\\pi n$","isCorrect":false},{"id":"c","text":"$x = \\frac{\\pi}{4} + 2\\pi n$","isCorrect":false},{"id":"d","text":"$x = \\frac{\\pi}{8} + \\pi n$","isCorrect":false}],"solution":"$\\sin u = 1$ gir $u = 2x = \\frac{\\pi}{2} + 2\\pi n$. Delt på 2: $x = \\frac{\\pi}{4} + \\pi n$."},{"id":"r2-4-3-n-quiz3-q2","task":"Kor mange løysingar har $\\sin(2x) = 0{,}5$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"2","isCorrect":false},{"id":"b","text":"3","isCorrect":false},{"id":"c","text":"4","isCorrect":true},{"id":"d","text":"8","isCorrect":false}],"solution":"Perioden er $\\pi$, så intervallet rommar to fulle periodar med to løysingar i kvar: $2 \\cdot 2 = 4$ løysingar."}]}},{"id":"r2-4-3-n-section4","type":"text","content":"## Tilbake til kaia — praktiske bruksområde\n\nNo har vi verktøya, så lat oss løyse problemet vi starta med. Sei at vassdjupna ved kaia følgjer modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$, der $h$ er djupna i meter og $t$ er timar etter midnatt. Kva fortel modellen oss?\n\nAmplituden $2$ og likevektsnivået $5$ seier at djupna svingar mellom $3$ og $7$ meter. Perioden er $\\frac{2\\pi}{\\pi/6} = 12$ timar — to høgvatn i døgnet, slik tidvatn gjerne oppfører seg. Og når er djupna på sitt største? Når sinusleddet er $1$, altså når $\\frac{\\pi}{6}t = \\frac{\\pi}{2} + 2\\pi n$, som gir $t = 3 + 12n$: klokka 03 og klokka 15.\n\nVil båten ha nøyaktig $6$ meter, løyser vi $2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5 = 6$. Først isolerer vi: $\\sin\\left(\\frac{\\pi}{6}t\\right) = \\frac{1}{2}$. Substitusjonen $u = \\frac{\\pi}{6}t$ gir $u = \\frac{\\pi}{6} + 2\\pi n$ eller $u = \\frac{5\\pi}{6} + 2\\pi n$, og dermed $t = 1 + 12n$ eller $t = 5 + 12n$. I løpet av det første halve døgnet er djupna seks meter klokka 01 og klokka 05 — på veg opp og på veg ned.\n\nDette mønsteret — modell, isolér sinusleddet, generell løysing, plukk verdiar i intervallet, tolk svaret — er nøyaktig det same anten det handlar om tidvatn, temperatursvingingar gjennom året eller spenninga i ein stikkontakt. Sinuslikningane er nøkkelen som låser opp tidspunkta i eitkvart periodisk fenomen."},{"id":"r2-4-3-n-quiz4","type":"exercise","exercise":{"id":"r2-4-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på praktiske sinuslikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-3-n-quiz4-q0","task":"Djupna følgjer $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$. Kva er den største djupna?","options":[{"id":"a","text":"$2$ m","isCorrect":false},{"id":"b","text":"$5$ m","isCorrect":false},{"id":"c","text":"$10$ m","isCorrect":false},{"id":"d","text":"$7$ m","isCorrect":true}],"solution":"Maksimum blir nådd når sinusleddet er $1$: $h_{\\max} = 2 \\cdot 1 + 5 = 7$ m."},{"id":"r2-4-3-n-quiz4-q1","task":"Når er djupna størst for første gong etter midnatt ($t = 0$)?","options":[{"id":"a","text":"$t = 3$","isCorrect":true},{"id":"b","text":"$t = 6$","isCorrect":false},{"id":"c","text":"$t = 12$","isCorrect":false},{"id":"d","text":"$t = 1{,}5$","isCorrect":false}],"solution":"$\\sin\\left(\\frac{\\pi}{6}t\\right) = 1$ gir $\\frac{\\pi}{6}t = \\frac{\\pi}{2}$, altså $t = 3$ — klokka 03."},{"id":"r2-4-3-n-quiz4-q2","task":"Kva er perioden til modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$?","options":[{"id":"a","text":"$6$ timar","isCorrect":false},{"id":"b","text":"$12$ timar","isCorrect":true},{"id":"c","text":"$2\\pi$ timar","isCorrect":false},{"id":"d","text":"$12\\pi$ timar","isCorrect":false}],"solution":"Perioden er $\\frac{2\\pi}{k} = \\frac{2\\pi}{\\pi/6} = 12$ timar."}]}},{"id":"r2-4-3-n-summary","type":"text","content":"## Oppsummering\n\nForteljinga byrja ved kaia, med tidvatnet som steig og sokk etter ein sinusfunksjon. For å svare på «når er djupna fire meter?» trong vi sinuslikningar, og undervegs bygde vi opp ein komplett verktøykasse.\n\nFørst løysbarheita: $\\sin x = a$ har løysingar berre når $-1 \\leq a \\leq 1$ — sjekk alltid dette først. Deretter den generelle løysinga: finn du éin vinkel $v$ med $\\sin v = a$, er alle løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$ for $n \\in \\mathbb{Z}$. Dei to familiane kjem frå at den vassrette linja $y = a$ skjer einingssirkelen i to punkt, $v$ og $\\pi - v$, og periodisiteten legg til $2\\pi n$. Spesialtilfella $a = \\pm 1$ gir berre éi løysing per periode.\n\nGrafisk såg vi at løysingane er skjeringspunkta mellom sinuskurva og linja $y = a$: to per periode når $-1 < a < 1$. Skal du finne løysingar i eit intervall, set du inn heiltalsverdiar av $n$ og held dei som passar.\n\nFor samansette likningar $\\sin(kx + c) = a$ var oppskrifta substitusjon: løys for heile argumentet $u = kx + c$ først, og løys deretter for $x$. Hugs at perioden krympar til $\\frac{2\\pi}{|k|}$, slik at intervall rommar fleire løysingar. Og til slutt såg vi at praktiske problem — tidvatn, temperatur, svingingar — alltid følgjer same mønster: isolér sinusleddet, løys generelt, vel løysingane i intervallet, og tolk svaret i situasjonen."}],"exercises":[],"_meta":{"sourceHash":"8ca58f816cf398ef","translatedAt":"2026-06-20T00:36:24.863Z","model":"claude-code-agent","strings":87,"tm":{"81b139ff3bb94bc4":"Sinuslikningar","b195b06d1ed59702":"Narrativ versjon","5760218edbc9a824":"Ei forteljing om tidvatn og svingingar — korleis du løyser sin x = a, finn alle løysingane med n, handterer sin(kx + c) = a og brukar det på verkelege periodiske fenomen.","95400e81b2640c6a":"bruke trigonometriske funksjonar til å løyse praktiske problem","a2d81c1eac53512a":"analysere og tolke trigonometriske funksjonar grafisk","b826313316e47f4e":"finne alle løysingar av trigonometriske likningar i gitte intervall","6d652f569f60756f":"## Når er vatnet høgt nok?\n\nDu står på kaia og ventar på at båten skal kunne leggje ut. Tidvatnet stig og søkk i ein jamn, bølgjande rytme, og hamnekontoret brukar ein sinusfunksjon for å skildre vassdjupna gjennom døgnet. Spørsmålet «når er djupna nøyaktig fire meter?» er i verkelegheita ei **sinuslikning**: ei likning der den ukjende står inne i ein sinusfunksjon, som $\\sin x = a$.\n\nSlike likningar dukkar opp overalt der noko svingar — i havbølgjer, lydbølgjer, vekselstraum og pendelrørsler. Men dei oppfører seg annleis enn likningane du er van med. Ei vanleg førstegradslikning har éi løysing. Ei sinuslikning har anten ingen løysingar eller **uendeleg mange**, fordi sinusfunksjonen gjentek seg i det uendelege med periode $2\\pi$. Viss vatnet er fire meter djupt klokka to i dag, er det fire meter djupt på same tidspunkt i morgon òg.\n\nI denne forteljinga lærer du å løyse grunnlikninga $\\sin x = a$ og skrive opp den generelle løysinga med heiltalsparameteren $n$, å plukke ut løysingane som ligg i eit bestemt intervall, å handtere samansette likningar som $\\sin(kx + c) = a$, og til slutt å bruke alt saman på praktiske problem — som tidvatnet ved kaia.","aa452785075773e4":"## Grunnlikninga og den generelle løysinga\n\nFørst det viktigaste spørsmålet: har likninga $\\sin x = a$ i det heile teke ei løysing? Sinusfunksjonen svingar evig mellom $-1$ og $1$, så likninga er løysbar berre når $-1 \\leq a \\leq 1$. Ei likning som $\\sin x = 2$ har ingen løysing — eit vanleg feilgrep er å gløyme denne sjekken.\n\nAnta no at $|a| \\leq 1$, og at vi har funne éin vinkel $v$ med $\\sin v = a$ (for pene verdiar brukar vi tabellen: $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, $\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$; elles gir kalkulatoren $v = \\arcsin a$). På einingssirkelen er sinus $y$-koordinaten, og ei vassrett linje i høgda $a$ skjer sirkelen i **to** punkt: eitt ved vinkelen $v$ og eitt ved den spegelvende vinkelen $\\pi - v$. Begge har same sinusverdi. I tillegg gjentek alt seg for kvar heile runde. Den generelle løysinga blir difor\n\n$$x = v + 2\\pi n \\quad \\text{eller} \\quad x = \\pi - v + 2\\pi n, \\quad n \\in \\mathbb{Z}$$\n\nTa $\\sin x = \\frac{1}{2}$ som eksempel. Vi veit at $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, så løysingane er $x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\pi - \\frac{\\pi}{6} + 2\\pi n = \\frac{5\\pi}{6} + 2\\pi n$. To uendelege familiar av løysingar, jamt fordelte med $2\\pi$ mellomrom.\n\nYtterpunkta er spesielle: $\\sin x = 1$ har berre éi løysing per periode, $x = \\frac{\\pi}{2} + 2\\pi n$, fordi linja $y = 1$ akkurat tangerer toppen av sirkelen. Tilsvarande gir $\\sin x = -1$ løysinga $x = \\frac{3\\pi}{2} + 2\\pi n$.","6dd9f91dbb3ed026":"Test deg sjølv på grunnleggjande sinuslikningar:","4097889236a2af26":"placeholder","e35ddaf6d72f0c34":"For kva verdiar av $a$ har likninga $\\sin x = a$ løysingar?","c7b023911ec2c5a8":"$-1 \\leq a \\leq 1$","c8873354293be9e4":"$a > 0$","f066f655dc4fe919":"$a \\neq 0$","1197e9e7556a9e20":"Alle reelle $a$","b0cd50ef27b3b284":"Sinus svingar mellom $-1$ og $1$, så likninga er løysbar berre når $|a| \\leq 1$.","44a07eb36bae8e42":"Kva er den generelle løysinga av $\\sin x = \\frac{1}{2}$?","24159f7832d1ece0":"$x = \\frac{\\pi}{6} + 2\\pi n$","e20d7f543e239a8d":"$x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\frac{5\\pi}{6} + 2\\pi n$","78768f7abb643b10":"$x = \\pm\\frac{\\pi}{6} + 2\\pi n$","6d12c29f64fde999":"$x = \\frac{\\pi}{6} + \\pi n$","d388d459b771a27c":"Med $\\sin v = a$ er løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$. Her er $v = \\frac{\\pi}{6}$ og $\\pi - v = \\frac{5\\pi}{6}$.","5087897cb57df514":"Kor mange løysingar har likninga $\\sin x = 2$?","6505c19e57c6684e":"Éi","f4b06ef6d3c81436":"To","6b5eccd31267a114":"Uendeleg mange","4caa44f124d9c5e5":"Ingen","0e4b3b2da9ed0036":"$2 > 1$ ligg utanfor verdimengda til sinus, så likninga har inga løysing.","fdeff4e871b6e136":"Kva er den generelle løysinga av $\\sin x = -1$?","bbe53ed81b05d7eb":"$x = \\frac{\\pi}{2} + 2\\pi n$","9331bc6402b93651":"$x = \\pi + 2\\pi n$","258d559d6f0d252a":"$x = \\frac{3\\pi}{2} + 2\\pi n$","2ed3711b16b6dc54":"$x = \\pm\\frac{\\pi}{2} + 2\\pi n$","2604c414a2229a97":"Sinus er $-1$ berre i botnpunktet av einingssirkelen, ved $x = \\frac{3\\pi}{2} + 2\\pi n$ — éi løysing per periode.","0ae4cec12ed51d5f":"## Løysingar i eit intervall og det grafiske biletet\n\nHamnekontoret bryr seg sjeldan om alle tidspunkt i all æve — dei vil vite når djupna passar **i dag**. Då treng vi løysingane i eit gitt intervall, til dømes $[0, 2\\pi)$. Framgangsmåten er rett fram: finn først den generelle løysinga, set deretter inn heiltalsverdiar $n = 0, \\pm 1, \\pm 2, \\ldots$, og behald berre dei løysingane som fell innanfor intervallet. For $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$ gir $n = 0$ løysingane $x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$; andre verdiar av $n$ hamnar utanfor.\n\nDet grafiske biletet gjer alt dette intuitivt. Å løyse $\\sin x = a$ er det same som å finne skjeringspunkta mellom sinuskurva $y = \\sin x$ og den vassrette linja $y = a$. Sinuskurva bølgjer mellom $-1$ og $1$ med periode $2\\pi$, og då ser du straks mønsteret: for $-1 < a < 1$ skjer linja kurva **to gonger** per periode, for $a = \\pm 1$ tangerer ho toppane eller botnane og treffer **éin gong** per periode, og for $|a| > 1$ treffer ho **aldri**.\n\nDenne forståinga gir deg tre superkrefter: du kan raskt avgjere om ei likning har løysing, du kan telje talet på løysingar i eit intervall utan å rekne dei ut — eit intervall med $k$ fulle periodar gir $2k$ løysingar når $-1 < a < 1$ — og du kan anslå løysingane visuelt før du reknar, som ein kontroll på at svaret ditt er rimeleg.","6602667c103b5fbb":"Test deg sjølv på løysingar i intervall og grafisk tolking:","0855cc8b7129aed7":"Kor mange løysingar har $\\sin x = 0{,}3$ i intervallet $[0, 2\\pi)$?","bac0a13fbced58bc":"For $-1 < a < 1$ skjer linja $y = a$ sinuskurva to gonger per periode, og $[0, 2\\pi)$ er nøyaktig éin periode.","f959c08df0b77c7d":"Kva løysingar har $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$?","7ef52b863ef1882a":"$x = \\frac{\\pi}{4}$ og $x = \\frac{7\\pi}{4}$","3b1c049676466940":"$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$","43883e1879d3bea6":"$x = \\frac{\\pi}{3}$ og $x = \\frac{2\\pi}{3}$","c80a429f88b1b380":"Berre $x = \\frac{\\pi}{4}$","5534e6a305670eba":"$\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, og den andre løysinga er $\\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}$.","03eec122444d9a74":"Kor mange gonger per periode skjer linja $y = 1$ grafen til $y = \\sin x$?","7c49179358b11b58":"Linja $y = 1$ tangerer sinuskurva i toppunkta — nøyaktig éin gong per periode.","4df5a0387842bc51":"## Samansette likningar: $\\sin(kx + c) = a$\n\nTidvassmodellar har sjeldan eit nake $x$ inne i sinusen. Oftare ser du noko som $\\sin(2x + \\frac{\\pi}{3})$ eller $\\sin(3x - 1)$, der argumentet er eit heilt uttrykk. Strategien er **substitusjon**: kall det indre uttrykket $u = kx + c$, løys den velkjende likninga $\\sin u = a$ for $u$, og løys deretter for $x$.\n\nLat oss løyse $\\sin(2x) = 1$. Med $u = 2x$ får vi $\\sin u = 1$, som gir $u = \\frac{\\pi}{2} + 2\\pi n$. Då er $2x = \\frac{\\pi}{2} + 2\\pi n$, og deler vi på $2$: $x = \\frac{\\pi}{4} + \\pi n$. Legg merke til det viktige som skjedde i siste steg: også perioden $2\\pi n$ blei delt på $k = 2$. Det er nettopp dette som speglar at $\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, ikkje $2\\pi$ — funksjonen svingar $k$ gonger raskare, så løysingane ligg tettare.\n\nDet får konsekvensar for talet på løysingar i eit intervall. Likninga $\\sin(2x) = 0{,}5$ har periode $\\pi$, så i $[0, 2\\pi)$ rekk funksjonen to fulle periodar med to løysingar i kvar — fire løysingar totalt, dobbelt så mange som for $\\sin x = 0{,}5$.\n\nNokre likningar treng litt rydding først. Står det $2\\sin(3x) - 1 = 0$, isolerer du sinusleddet til $\\sin(3x) = \\frac{1}{2}$ før du substituerer. Og uansett kor samansett likninga ser ut: så lenge du kan koke ho ned til «sinus av noko er lik eit tal», er resten rein rutine — løys for «noko», og pakk ut $x$ til slutt.","9965f77464d59ba0":"Test deg sjølv på samansette sinuslikningar:","de92d35a4af0b087":"Kva er perioden til $\\sin(3x)$?","168b576751641805":"$2\\pi$","67e7d8a4c141e7b4":"$\\frac{2\\pi}{3}$","5af201af7a0698a2":"$3\\pi$","01a79120857df01f":"$\\frac{\\pi}{3}$","999d516a11249718":"$\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, så $\\sin(3x)$ har periode $\\frac{2\\pi}{3}$.","2fbefd0cc0c77f94":"Kva er den generelle løysinga av $\\sin(2x) = 1$?","ec470041283de481":"$x = \\frac{\\pi}{4} + \\pi n$","0c1f8fee4507ba02":"$x = \\frac{\\pi}{4} + 2\\pi n$","4a23fb9d035aa062":"$x = \\frac{\\pi}{8} + \\pi n$","8c8b43893e9c9865":"$\\sin u = 1$ gir $u = 2x = \\frac{\\pi}{2} + 2\\pi n$. Delt på 2: $x = \\frac{\\pi}{4} + \\pi n$.","48c1dc951a761ee4":"Kor mange løysingar har $\\sin(2x) = 0{,}5$ i $[0, 2\\pi)$?","2a41e213cd7922c8":"Perioden er $\\pi$, så intervallet rommar to fulle periodar med to løysingar i kvar: $2 \\cdot 2 = 4$ løysingar.","e07f9a7a083f9ae1":"## Tilbake til kaia — praktiske bruksområde\n\nNo har vi verktøya, så lat oss løyse problemet vi starta med. Sei at vassdjupna ved kaia følgjer modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$, der $h$ er djupna i meter og $t$ er timar etter midnatt. Kva fortel modellen oss?\n\nAmplituden $2$ og likevektsnivået $5$ seier at djupna svingar mellom $3$ og $7$ meter. Perioden er $\\frac{2\\pi}{\\pi/6} = 12$ timar — to høgvatn i døgnet, slik tidvatn gjerne oppfører seg. Og når er djupna på sitt største? Når sinusleddet er $1$, altså når $\\frac{\\pi}{6}t = \\frac{\\pi}{2} + 2\\pi n$, som gir $t = 3 + 12n$: klokka 03 og klokka 15.\n\nVil båten ha nøyaktig $6$ meter, løyser vi $2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5 = 6$. Først isolerer vi: $\\sin\\left(\\frac{\\pi}{6}t\\right) = \\frac{1}{2}$. Substitusjonen $u = \\frac{\\pi}{6}t$ gir $u = \\frac{\\pi}{6} + 2\\pi n$ eller $u = \\frac{5\\pi}{6} + 2\\pi n$, og dermed $t = 1 + 12n$ eller $t = 5 + 12n$. I løpet av det første halve døgnet er djupna seks meter klokka 01 og klokka 05 — på veg opp og på veg ned.\n\nDette mønsteret — modell, isolér sinusleddet, generell løysing, plukk verdiar i intervallet, tolk svaret — er nøyaktig det same anten det handlar om tidvatn, temperatursvingingar gjennom året eller spenninga i ein stikkontakt. Sinuslikningane er nøkkelen som låser opp tidspunkta i eitkvart periodisk fenomen.","18324db5ead0ccbf":"Test deg sjølv på praktiske sinuslikningar:","4f944f796e223847":"Djupna følgjer $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$. Kva er den største djupna?","74fbbf37999f5676":"$2$ m","b3a5e4a06f612041":"$5$ m","02655e0752feb755":"$10$ m","6876a00b5c97144c":"$7$ m","bce7cc6ef5dbd598":"Maksimum blir nådd når sinusleddet er $1$: $h_{\\max} = 2 \\cdot 1 + 5 = 7$ m.","e83844491359b181":"Når er djupna størst for første gong etter midnatt ($t = 0$)?","c01d631a54c9636b":"$t = 3$","cedc2d845a71798a":"$t = 6$","948b374d8e56dda5":"$t = 12$","88188bff6dc80795":"$t = 1{,}5$","a3cb0a1eac023fcc":"$\\sin\\left(\\frac{\\pi}{6}t\\right) = 1$ gir $\\frac{\\pi}{6}t = \\frac{\\pi}{2}$, altså $t = 3$ — klokka 03.","47386445a1e0fe1e":"Kva er perioden til modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$?","b1c9b0320f048143":"$6$ timar","2710e8f1d9c1befc":"$12$ timar","1c9925df00b4ee04":"$2\\pi$ timar","d1123e59964dc02d":"$12\\pi$ timar","1721d0835f2f4847":"Perioden er $\\frac{2\\pi}{k} = \\frac{2\\pi}{\\pi/6} = 12$ timar.","31dbd9e0f92afe7b":"## Oppsummering\n\nForteljinga byrja ved kaia, med tidvatnet som steig og sokk etter ein sinusfunksjon. For å svare på «når er djupna fire meter?» trong vi sinuslikningar, og undervegs bygde vi opp ein komplett verktøykasse.\n\nFørst løysbarheita: $\\sin x = a$ har løysingar berre når $-1 \\leq a \\leq 1$ — sjekk alltid dette først. Deretter den generelle løysinga: finn du éin vinkel $v$ med $\\sin v = a$, er alle løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$ for $n \\in \\mathbb{Z}$. Dei to familiane kjem frå at den vassrette linja $y = a$ skjer einingssirkelen i to punkt, $v$ og $\\pi - v$, og periodisiteten legg til $2\\pi n$. Spesialtilfella $a = \\pm 1$ gir berre éi løysing per periode.\n\nGrafisk såg vi at løysingane er skjeringspunkta mellom sinuskurva og linja $y = a$: to per periode når $-1 < a < 1$. Skal du finne løysingar i eit intervall, set du inn heiltalsverdiar av $n$ og held dei som passar.\n\nFor samansette likningar $\\sin(kx + c) = a$ var oppskrifta substitusjon: løys for heile argumentet $u = kx + c$ først, og løys deretter for $x$. Hugs at perioden krympar til $\\frac{2\\pi}{|k|}$, slik at intervall rommar fleire løysingar. Og til slutt såg vi at praktiske problem — tidvatn, temperatur, svingingar — alltid følgjer same mønster: isolér sinusleddet, løys generelt, vel løysingane i intervallet, og tolk svaret i situasjonen."}}}
+{
+  "id": "r2-4-3-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "4.3",
+  "title": "Sinuslikningar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om tidvatn og svingingar — korleis du løyser sin x = a, finn alle løysingane med n, handterer sin(kx + c) = a og brukar det på verkelege periodiske fenomen.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "bruke trigonometriske funksjonar til å løyse praktiske problem",
+    "analysere og tolke trigonometriske funksjonar grafisk",
+    "finne alle løysingar av trigonometriske likningar i gitte intervall"
+  ],
+  "linkedChapterId": "r2-4-3",
+  "content": [
+    {
+      "id": "r2-4-3-n-intro",
+      "type": "text",
+      "content": "## Når er vatnet høgt nok?\n\nDu står på kaia og ventar på at båten skal kunne leggje ut. Tidvatnet stig og søkk i ein jamn, bølgjande rytme, og hamnekontoret brukar ein sinusfunksjon for å skildre vassdjupna gjennom døgnet. Spørsmålet «når er djupna nøyaktig fire meter?» er i verkelegheita ei **sinuslikning**: ei likning der den ukjende står inne i ein sinusfunksjon, som $\\sin x = a$.\n\nSlike likningar dukkar opp overalt der noko svingar — i havbølgjer, lydbølgjer, vekselstraum og pendelrørsler. Men dei oppfører seg annleis enn likningane du er van med. Ei vanleg førstegradslikning har éi løysing. Ei sinuslikning har anten ingen løysingar eller **uendeleg mange**, fordi sinusfunksjonen gjentek seg i det uendelege med periode $2\\pi$. Viss vatnet er fire meter djupt klokka to i dag, er det fire meter djupt på same tidspunkt i morgon òg.\n\nI denne forteljinga lærer du å løyse grunnlikninga $\\sin x = a$ og skrive opp den generelle løysinga med heiltalsparameteren $n$, å plukke ut løysingane som ligg i eit bestemt intervall, å handtere samansette likningar som $\\sin(kx + c) = a$, og til slutt å bruke alt saman på praktiske problem — som tidvatnet ved kaia."
+    },
+    {
+      "id": "r2-4-3-n-section1",
+      "type": "text",
+      "content": "## Grunnlikninga og den generelle løysinga\n\nFørst det viktigaste spørsmålet: har likninga $\\sin x = a$ i det heile teke ei løysing? Sinusfunksjonen svingar evig mellom $-1$ og $1$, så likninga er løysbar berre når $-1 \\leq a \\leq 1$. Ei likning som $\\sin x = 2$ har ingen løysing — eit vanleg feilgrep er å gløyme denne sjekken.\n\nAnta no at $|a| \\leq 1$, og at vi har funne éin vinkel $v$ med $\\sin v = a$ (for pene verdiar brukar vi tabellen: $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, $\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$; elles gir kalkulatoren $v = \\arcsin a$). På einingssirkelen er sinus $y$-koordinaten, og ei vassrett linje i høgda $a$ skjer sirkelen i **to** punkt: eitt ved vinkelen $v$ og eitt ved den spegelvende vinkelen $\\pi - v$. Begge har same sinusverdi. I tillegg gjentek alt seg for kvar heile runde. Den generelle løysinga blir difor\n\n$$x = v + 2\\pi n \\quad \\text{eller} \\quad x = \\pi - v + 2\\pi n, \\quad n \\in \\mathbb{Z}$$\n\nTa $\\sin x = \\frac{1}{2}$ som eksempel. Vi veit at $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, så løysingane er $x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\pi - \\frac{\\pi}{6} + 2\\pi n = \\frac{5\\pi}{6} + 2\\pi n$. To uendelege familiar av løysingar, jamt fordelte med $2\\pi$ mellomrom.\n\nYtterpunkta er spesielle: $\\sin x = 1$ har berre éi løysing per periode, $x = \\frac{\\pi}{2} + 2\\pi n$, fordi linja $y = 1$ akkurat tangerer toppen av sirkelen. Tilsvarande gir $\\sin x = -1$ løysinga $x = \\frac{3\\pi}{2} + 2\\pi n$."
+    },
+    {
+      "id": "r2-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grunnleggjande sinuslikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-3-n-quiz1-q0",
+            "task": "For kva verdiar av $a$ har likninga $\\sin x = a$ løysingar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$a > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a \\neq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle reelle $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$-1 \\leq a \\leq 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sinus svingar mellom $-1$ og $1$, så likninga er løysbar berre når $|a| \\leq 1$."
+          },
+          {
+            "id": "r2-4-3-n-quiz1-q1",
+            "task": "Kva er den generelle løysinga av $\\sin x = \\frac{1}{2}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\frac{5\\pi}{6} + 2\\pi n$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{6} + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\pm\\frac{\\pi}{6} + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{\\pi}{6} + \\pi n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $\\sin v = a$ er løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$. Her er $v = \\frac{\\pi}{6}$ og $\\pi - v = \\frac{5\\pi}{6}$."
+          },
+          {
+            "id": "r2-4-3-n-quiz1-q2",
+            "task": "Kor mange løysingar har likninga $\\sin x = 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Éi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendeleg mange",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2 > 1$ ligg utanfor verdimengda til sinus, så likninga har inga løysing."
+          },
+          {
+            "id": "r2-4-3-n-quiz1-q3",
+            "task": "Kva er den generelle løysinga av $\\sin x = -1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{2} + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\pi + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{3\\pi}{2} + 2\\pi n$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = \\pm\\frac{\\pi}{2} + 2\\pi n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sinus er $-1$ berre i botnpunktet av einingssirkelen, ved $x = \\frac{3\\pi}{2} + 2\\pi n$ — éi løysing per periode."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-3-n-section2",
+      "type": "text",
+      "content": "## Løysingar i eit intervall og det grafiske biletet\n\nHamnekontoret bryr seg sjeldan om alle tidspunkt i all æve — dei vil vite når djupna passar **i dag**. Då treng vi løysingane i eit gitt intervall, til dømes $[0, 2\\pi)$. Framgangsmåten er rett fram: finn først den generelle løysinga, set deretter inn heiltalsverdiar $n = 0, \\pm 1, \\pm 2, \\ldots$, og behald berre dei løysingane som fell innanfor intervallet. For $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$ gir $n = 0$ løysingane $x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$; andre verdiar av $n$ hamnar utanfor.\n\nDet grafiske biletet gjer alt dette intuitivt. Å løyse $\\sin x = a$ er det same som å finne skjeringspunkta mellom sinuskurva $y = \\sin x$ og den vassrette linja $y = a$. Sinuskurva bølgjer mellom $-1$ og $1$ med periode $2\\pi$, og då ser du straks mønsteret: for $-1 < a < 1$ skjer linja kurva **to gonger** per periode, for $a = \\pm 1$ tangerer ho toppane eller botnane og treffer **éin gong** per periode, og for $|a| > 1$ treffer ho **aldri**.\n\nDenne forståinga gir deg tre superkrefter: du kan raskt avgjere om ei likning har løysing, du kan telje talet på løysingar i eit intervall utan å rekne dei ut — eit intervall med $k$ fulle periodar gir $2k$ løysingar når $-1 < a < 1$ — og du kan anslå løysingane visuelt før du reknar, som ein kontroll på at svaret ditt er rimeleg."
+    },
+    {
+      "id": "r2-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på løysingar i intervall og grafisk tolking:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-3-n-quiz2-q0",
+            "task": "Kor mange løysingar har $\\sin x = 0{,}3$ i intervallet $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "0",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "2",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "4",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $-1 < a < 1$ skjer linja $y = a$ sinuskurva to gonger per periode, og $[0, 2\\pi)$ er nøyaktig éin periode."
+          },
+          {
+            "id": "r2-4-3-n-quiz2-q1",
+            "task": "Kva løysingar har $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{4}$ og $x = \\frac{7\\pi}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{\\pi}{3}$ og $x = \\frac{2\\pi}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre $x = \\frac{\\pi}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, og den andre løysinga er $\\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}$."
+          },
+          {
+            "id": "r2-4-3-n-quiz2-q2",
+            "task": "Kor mange gonger per periode skjer linja $y = 1$ grafen til $y = \\sin x$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "1",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "0",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendeleg mange",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Linja $y = 1$ tangerer sinuskurva i toppunkta — nøyaktig éin gong per periode."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-3-n-section3",
+      "type": "text",
+      "content": "## Samansette likningar: $\\sin(kx + c) = a$\n\nTidvassmodellar har sjeldan eit nake $x$ inne i sinusen. Oftare ser du noko som $\\sin(2x + \\frac{\\pi}{3})$ eller $\\sin(3x - 1)$, der argumentet er eit heilt uttrykk. Strategien er **substitusjon**: kall det indre uttrykket $u = kx + c$, løys den velkjende likninga $\\sin u = a$ for $u$, og løys deretter for $x$.\n\nLat oss løyse $\\sin(2x) = 1$. Med $u = 2x$ får vi $\\sin u = 1$, som gir $u = \\frac{\\pi}{2} + 2\\pi n$. Då er $2x = \\frac{\\pi}{2} + 2\\pi n$, og deler vi på $2$: $x = \\frac{\\pi}{4} + \\pi n$. Legg merke til det viktige som skjedde i siste steg: også perioden $2\\pi n$ blei delt på $k = 2$. Det er nettopp dette som speglar at $\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, ikkje $2\\pi$ — funksjonen svingar $k$ gonger raskare, så løysingane ligg tettare.\n\nDet får konsekvensar for talet på løysingar i eit intervall. Likninga $\\sin(2x) = 0{,}5$ har periode $\\pi$, så i $[0, 2\\pi)$ rekk funksjonen to fulle periodar med to løysingar i kvar — fire løysingar totalt, dobbelt så mange som for $\\sin x = 0{,}5$.\n\nNokre likningar treng litt rydding først. Står det $2\\sin(3x) - 1 = 0$, isolerer du sinusleddet til $\\sin(3x) = \\frac{1}{2}$ før du substituerer. Og uansett kor samansett likninga ser ut: så lenge du kan koke ho ned til «sinus av noko er lik eit tal», er resten rein rutine — løys for «noko», og pakk ut $x$ til slutt."
+    },
+    {
+      "id": "r2-4-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på samansette sinuslikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-3-n-quiz3-q0",
+            "task": "Kva er perioden til $\\sin(3x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2\\pi}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\pi}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, så $\\sin(3x)$ har periode $\\frac{2\\pi}{3}$."
+          },
+          {
+            "id": "r2-4-3-n-quiz3-q1",
+            "task": "Kva er den generelle løysinga av $\\sin(2x) = 1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{2} + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{\\pi}{4} + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{\\pi}{8} + \\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{4} + \\pi n$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\sin u = 1$ gir $u = 2x = \\frac{\\pi}{2} + 2\\pi n$. Delt på 2: $x = \\frac{\\pi}{4} + \\pi n$."
+          },
+          {
+            "id": "r2-4-3-n-quiz3-q2",
+            "task": "Kor mange løysingar har $\\sin(2x) = 0{,}5$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "4",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "8",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Perioden er $\\pi$, så intervallet rommar to fulle periodar med to løysingar i kvar: $2 \\cdot 2 = 4$ løysingar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-3-n-section4",
+      "type": "text",
+      "content": "## Tilbake til kaia — praktiske bruksområde\n\nNo har vi verktøya, så lat oss løyse problemet vi starta med. Sei at vassdjupna ved kaia følgjer modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$, der $h$ er djupna i meter og $t$ er timar etter midnatt. Kva fortel modellen oss?\n\nAmplituden $2$ og likevektsnivået $5$ seier at djupna svingar mellom $3$ og $7$ meter. Perioden er $\\frac{2\\pi}{\\pi/6} = 12$ timar — to høgvatn i døgnet, slik tidvatn gjerne oppfører seg. Og når er djupna på sitt største? Når sinusleddet er $1$, altså når $\\frac{\\pi}{6}t = \\frac{\\pi}{2} + 2\\pi n$, som gir $t = 3 + 12n$: klokka 03 og klokka 15.\n\nVil båten ha nøyaktig $6$ meter, løyser vi $2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5 = 6$. Først isolerer vi: $\\sin\\left(\\frac{\\pi}{6}t\\right) = \\frac{1}{2}$. Substitusjonen $u = \\frac{\\pi}{6}t$ gir $u = \\frac{\\pi}{6} + 2\\pi n$ eller $u = \\frac{5\\pi}{6} + 2\\pi n$, og dermed $t = 1 + 12n$ eller $t = 5 + 12n$. I løpet av det første halve døgnet er djupna seks meter klokka 01 og klokka 05 — på veg opp og på veg ned.\n\nDette mønsteret — modell, isolér sinusleddet, generell løysing, plukk verdiar i intervallet, tolk svaret — er nøyaktig det same anten det handlar om tidvatn, temperatursvingingar gjennom året eller spenninga i ein stikkontakt. Sinuslikningane er nøkkelen som låser opp tidspunkta i eitkvart periodisk fenomen."
+    },
+    {
+      "id": "r2-4-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på praktiske sinuslikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-3-n-quiz4-q0",
+            "task": "Djupna følgjer $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$. Kva er den største djupna?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$7$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Maksimum blir nådd når sinusleddet er $1$: $h_{\\max} = 2 \\cdot 1 + 5 = 7$ m."
+          },
+          {
+            "id": "r2-4-3-n-quiz4-q1",
+            "task": "Når er djupna størst for første gong etter midnatt ($t = 0$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$t = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$t = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$t = 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$t = 1{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin\\left(\\frac{\\pi}{6}t\\right) = 1$ gir $\\frac{\\pi}{6}t = \\frac{\\pi}{2}$, altså $t = 3$ — klokka 03."
+          },
+          {
+            "id": "r2-4-3-n-quiz4-q2",
+            "task": "Kva er perioden til modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2\\pi$ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12\\pi$ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$ timar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Perioden er $\\frac{2\\pi}{k} = \\frac{2\\pi}{\\pi/6} = 12$ timar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nForteljinga byrja ved kaia, med tidvatnet som steig og sokk etter ein sinusfunksjon. For å svare på «når er djupna fire meter?» trong vi sinuslikningar, og undervegs bygde vi opp ein komplett verktøykasse.\n\nFørst løysbarheita: $\\sin x = a$ har løysingar berre når $-1 \\leq a \\leq 1$ — sjekk alltid dette først. Deretter den generelle løysinga: finn du éin vinkel $v$ med $\\sin v = a$, er alle løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$ for $n \\in \\mathbb{Z}$. Dei to familiane kjem frå at den vassrette linja $y = a$ skjer einingssirkelen i to punkt, $v$ og $\\pi - v$, og periodisiteten legg til $2\\pi n$. Spesialtilfella $a = \\pm 1$ gir berre éi løysing per periode.\n\nGrafisk såg vi at løysingane er skjeringspunkta mellom sinuskurva og linja $y = a$: to per periode når $-1 < a < 1$. Skal du finne løysingar i eit intervall, set du inn heiltalsverdiar av $n$ og held dei som passar.\n\nFor samansette likningar $\\sin(kx + c) = a$ var oppskrifta substitusjon: løys for heile argumentet $u = kx + c$ først, og løys deretter for $x$. Hugs at perioden krympar til $\\frac{2\\pi}{|k|}$, slik at intervall rommar fleire løysingar. Og til slutt såg vi at praktiske problem — tidvatn, temperatur, svingingar — alltid følgjer same mønster: isolér sinusleddet, løys generelt, vel løysingane i intervallet, og tolk svaret i situasjonen."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "8ca58f816cf398ef",
+    "translatedAt": "2026-06-20T00:36:24.863Z",
+    "model": "claude-code-agent",
+    "strings": 87,
+    "tm": {
+      "81b139ff3bb94bc4": "Sinuslikningar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "5760218edbc9a824": "Ei forteljing om tidvatn og svingingar — korleis du løyser sin x = a, finn alle løysingane med n, handterer sin(kx + c) = a og brukar det på verkelege periodiske fenomen.",
+      "95400e81b2640c6a": "bruke trigonometriske funksjonar til å løyse praktiske problem",
+      "a2d81c1eac53512a": "analysere og tolke trigonometriske funksjonar grafisk",
+      "b826313316e47f4e": "finne alle løysingar av trigonometriske likningar i gitte intervall",
+      "6d652f569f60756f": "## Når er vatnet høgt nok?\n\nDu står på kaia og ventar på at båten skal kunne leggje ut. Tidvatnet stig og søkk i ein jamn, bølgjande rytme, og hamnekontoret brukar ein sinusfunksjon for å skildre vassdjupna gjennom døgnet. Spørsmålet «når er djupna nøyaktig fire meter?» er i verkelegheita ei **sinuslikning**: ei likning der den ukjende står inne i ein sinusfunksjon, som $\\sin x = a$.\n\nSlike likningar dukkar opp overalt der noko svingar — i havbølgjer, lydbølgjer, vekselstraum og pendelrørsler. Men dei oppfører seg annleis enn likningane du er van med. Ei vanleg førstegradslikning har éi løysing. Ei sinuslikning har anten ingen løysingar eller **uendeleg mange**, fordi sinusfunksjonen gjentek seg i det uendelege med periode $2\\pi$. Viss vatnet er fire meter djupt klokka to i dag, er det fire meter djupt på same tidspunkt i morgon òg.\n\nI denne forteljinga lærer du å løyse grunnlikninga $\\sin x = a$ og skrive opp den generelle løysinga med heiltalsparameteren $n$, å plukke ut løysingane som ligg i eit bestemt intervall, å handtere samansette likningar som $\\sin(kx + c) = a$, og til slutt å bruke alt saman på praktiske problem — som tidvatnet ved kaia.",
+      "aa452785075773e4": "## Grunnlikninga og den generelle løysinga\n\nFørst det viktigaste spørsmålet: har likninga $\\sin x = a$ i det heile teke ei løysing? Sinusfunksjonen svingar evig mellom $-1$ og $1$, så likninga er løysbar berre når $-1 \\leq a \\leq 1$. Ei likning som $\\sin x = 2$ har ingen løysing — eit vanleg feilgrep er å gløyme denne sjekken.\n\nAnta no at $|a| \\leq 1$, og at vi har funne éin vinkel $v$ med $\\sin v = a$ (for pene verdiar brukar vi tabellen: $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, $\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$; elles gir kalkulatoren $v = \\arcsin a$). På einingssirkelen er sinus $y$-koordinaten, og ei vassrett linje i høgda $a$ skjer sirkelen i **to** punkt: eitt ved vinkelen $v$ og eitt ved den spegelvende vinkelen $\\pi - v$. Begge har same sinusverdi. I tillegg gjentek alt seg for kvar heile runde. Den generelle løysinga blir difor\n\n$$x = v + 2\\pi n \\quad \\text{eller} \\quad x = \\pi - v + 2\\pi n, \\quad n \\in \\mathbb{Z}$$\n\nTa $\\sin x = \\frac{1}{2}$ som eksempel. Vi veit at $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, så løysingane er $x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\pi - \\frac{\\pi}{6} + 2\\pi n = \\frac{5\\pi}{6} + 2\\pi n$. To uendelege familiar av løysingar, jamt fordelte med $2\\pi$ mellomrom.\n\nYtterpunkta er spesielle: $\\sin x = 1$ har berre éi løysing per periode, $x = \\frac{\\pi}{2} + 2\\pi n$, fordi linja $y = 1$ akkurat tangerer toppen av sirkelen. Tilsvarande gir $\\sin x = -1$ løysinga $x = \\frac{3\\pi}{2} + 2\\pi n$.",
+      "6dd9f91dbb3ed026": "Test deg sjølv på grunnleggjande sinuslikningar:",
+      "4097889236a2af26": "placeholder",
+      "e35ddaf6d72f0c34": "For kva verdiar av $a$ har likninga $\\sin x = a$ løysingar?",
+      "c7b023911ec2c5a8": "$-1 \\leq a \\leq 1$",
+      "c8873354293be9e4": "$a > 0$",
+      "f066f655dc4fe919": "$a \\neq 0$",
+      "1197e9e7556a9e20": "Alle reelle $a$",
+      "b0cd50ef27b3b284": "Sinus svingar mellom $-1$ og $1$, så likninga er løysbar berre når $|a| \\leq 1$.",
+      "44a07eb36bae8e42": "Kva er den generelle løysinga av $\\sin x = \\frac{1}{2}$?",
+      "24159f7832d1ece0": "$x = \\frac{\\pi}{6} + 2\\pi n$",
+      "e20d7f543e239a8d": "$x = \\frac{\\pi}{6} + 2\\pi n$ eller $x = \\frac{5\\pi}{6} + 2\\pi n$",
+      "78768f7abb643b10": "$x = \\pm\\frac{\\pi}{6} + 2\\pi n$",
+      "6d12c29f64fde999": "$x = \\frac{\\pi}{6} + \\pi n$",
+      "d388d459b771a27c": "Med $\\sin v = a$ er løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$. Her er $v = \\frac{\\pi}{6}$ og $\\pi - v = \\frac{5\\pi}{6}$.",
+      "5087897cb57df514": "Kor mange løysingar har likninga $\\sin x = 2$?",
+      "6505c19e57c6684e": "Éi",
+      "f4b06ef6d3c81436": "To",
+      "6b5eccd31267a114": "Uendeleg mange",
+      "4caa44f124d9c5e5": "Ingen",
+      "0e4b3b2da9ed0036": "$2 > 1$ ligg utanfor verdimengda til sinus, så likninga har inga løysing.",
+      "fdeff4e871b6e136": "Kva er den generelle løysinga av $\\sin x = -1$?",
+      "bbe53ed81b05d7eb": "$x = \\frac{\\pi}{2} + 2\\pi n$",
+      "9331bc6402b93651": "$x = \\pi + 2\\pi n$",
+      "258d559d6f0d252a": "$x = \\frac{3\\pi}{2} + 2\\pi n$",
+      "2ed3711b16b6dc54": "$x = \\pm\\frac{\\pi}{2} + 2\\pi n$",
+      "2604c414a2229a97": "Sinus er $-1$ berre i botnpunktet av einingssirkelen, ved $x = \\frac{3\\pi}{2} + 2\\pi n$ — éi løysing per periode.",
+      "0ae4cec12ed51d5f": "## Løysingar i eit intervall og det grafiske biletet\n\nHamnekontoret bryr seg sjeldan om alle tidspunkt i all æve — dei vil vite når djupna passar **i dag**. Då treng vi løysingane i eit gitt intervall, til dømes $[0, 2\\pi)$. Framgangsmåten er rett fram: finn først den generelle løysinga, set deretter inn heiltalsverdiar $n = 0, \\pm 1, \\pm 2, \\ldots$, og behald berre dei løysingane som fell innanfor intervallet. For $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$ gir $n = 0$ løysingane $x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$; andre verdiar av $n$ hamnar utanfor.\n\nDet grafiske biletet gjer alt dette intuitivt. Å løyse $\\sin x = a$ er det same som å finne skjeringspunkta mellom sinuskurva $y = \\sin x$ og den vassrette linja $y = a$. Sinuskurva bølgjer mellom $-1$ og $1$ med periode $2\\pi$, og då ser du straks mønsteret: for $-1 < a < 1$ skjer linja kurva **to gonger** per periode, for $a = \\pm 1$ tangerer ho toppane eller botnane og treffer **éin gong** per periode, og for $|a| > 1$ treffer ho **aldri**.\n\nDenne forståinga gir deg tre superkrefter: du kan raskt avgjere om ei likning har løysing, du kan telje talet på løysingar i eit intervall utan å rekne dei ut — eit intervall med $k$ fulle periodar gir $2k$ løysingar når $-1 < a < 1$ — og du kan anslå løysingane visuelt før du reknar, som ein kontroll på at svaret ditt er rimeleg.",
+      "6602667c103b5fbb": "Test deg sjølv på løysingar i intervall og grafisk tolking:",
+      "0855cc8b7129aed7": "Kor mange løysingar har $\\sin x = 0{,}3$ i intervallet $[0, 2\\pi)$?",
+      "bac0a13fbced58bc": "For $-1 < a < 1$ skjer linja $y = a$ sinuskurva to gonger per periode, og $[0, 2\\pi)$ er nøyaktig éin periode.",
+      "f959c08df0b77c7d": "Kva løysingar har $\\sin x = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$?",
+      "7ef52b863ef1882a": "$x = \\frac{\\pi}{4}$ og $x = \\frac{7\\pi}{4}$",
+      "3b1c049676466940": "$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$",
+      "43883e1879d3bea6": "$x = \\frac{\\pi}{3}$ og $x = \\frac{2\\pi}{3}$",
+      "c80a429f88b1b380": "Berre $x = \\frac{\\pi}{4}$",
+      "5534e6a305670eba": "$\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, og den andre løysinga er $\\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}$.",
+      "03eec122444d9a74": "Kor mange gonger per periode skjer linja $y = 1$ grafen til $y = \\sin x$?",
+      "7c49179358b11b58": "Linja $y = 1$ tangerer sinuskurva i toppunkta — nøyaktig éin gong per periode.",
+      "4df5a0387842bc51": "## Samansette likningar: $\\sin(kx + c) = a$\n\nTidvassmodellar har sjeldan eit nake $x$ inne i sinusen. Oftare ser du noko som $\\sin(2x + \\frac{\\pi}{3})$ eller $\\sin(3x - 1)$, der argumentet er eit heilt uttrykk. Strategien er **substitusjon**: kall det indre uttrykket $u = kx + c$, løys den velkjende likninga $\\sin u = a$ for $u$, og løys deretter for $x$.\n\nLat oss løyse $\\sin(2x) = 1$. Med $u = 2x$ får vi $\\sin u = 1$, som gir $u = \\frac{\\pi}{2} + 2\\pi n$. Då er $2x = \\frac{\\pi}{2} + 2\\pi n$, og deler vi på $2$: $x = \\frac{\\pi}{4} + \\pi n$. Legg merke til det viktige som skjedde i siste steg: også perioden $2\\pi n$ blei delt på $k = 2$. Det er nettopp dette som speglar at $\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, ikkje $2\\pi$ — funksjonen svingar $k$ gonger raskare, så løysingane ligg tettare.\n\nDet får konsekvensar for talet på løysingar i eit intervall. Likninga $\\sin(2x) = 0{,}5$ har periode $\\pi$, så i $[0, 2\\pi)$ rekk funksjonen to fulle periodar med to løysingar i kvar — fire løysingar totalt, dobbelt så mange som for $\\sin x = 0{,}5$.\n\nNokre likningar treng litt rydding først. Står det $2\\sin(3x) - 1 = 0$, isolerer du sinusleddet til $\\sin(3x) = \\frac{1}{2}$ før du substituerer. Og uansett kor samansett likninga ser ut: så lenge du kan koke ho ned til «sinus av noko er lik eit tal», er resten rein rutine — løys for «noko», og pakk ut $x$ til slutt.",
+      "9965f77464d59ba0": "Test deg sjølv på samansette sinuslikningar:",
+      "de92d35a4af0b087": "Kva er perioden til $\\sin(3x)$?",
+      "168b576751641805": "$2\\pi$",
+      "67e7d8a4c141e7b4": "$\\frac{2\\pi}{3}$",
+      "5af201af7a0698a2": "$3\\pi$",
+      "01a79120857df01f": "$\\frac{\\pi}{3}$",
+      "999d516a11249718": "$\\sin(kx)$ har periode $\\frac{2\\pi}{|k|}$, så $\\sin(3x)$ har periode $\\frac{2\\pi}{3}$.",
+      "2fbefd0cc0c77f94": "Kva er den generelle løysinga av $\\sin(2x) = 1$?",
+      "ec470041283de481": "$x = \\frac{\\pi}{4} + \\pi n$",
+      "0c1f8fee4507ba02": "$x = \\frac{\\pi}{4} + 2\\pi n$",
+      "4a23fb9d035aa062": "$x = \\frac{\\pi}{8} + \\pi n$",
+      "8c8b43893e9c9865": "$\\sin u = 1$ gir $u = 2x = \\frac{\\pi}{2} + 2\\pi n$. Delt på 2: $x = \\frac{\\pi}{4} + \\pi n$.",
+      "48c1dc951a761ee4": "Kor mange løysingar har $\\sin(2x) = 0{,}5$ i $[0, 2\\pi)$?",
+      "2a41e213cd7922c8": "Perioden er $\\pi$, så intervallet rommar to fulle periodar med to løysingar i kvar: $2 \\cdot 2 = 4$ løysingar.",
+      "e07f9a7a083f9ae1": "## Tilbake til kaia — praktiske bruksområde\n\nNo har vi verktøya, så lat oss løyse problemet vi starta med. Sei at vassdjupna ved kaia følgjer modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$, der $h$ er djupna i meter og $t$ er timar etter midnatt. Kva fortel modellen oss?\n\nAmplituden $2$ og likevektsnivået $5$ seier at djupna svingar mellom $3$ og $7$ meter. Perioden er $\\frac{2\\pi}{\\pi/6} = 12$ timar — to høgvatn i døgnet, slik tidvatn gjerne oppfører seg. Og når er djupna på sitt største? Når sinusleddet er $1$, altså når $\\frac{\\pi}{6}t = \\frac{\\pi}{2} + 2\\pi n$, som gir $t = 3 + 12n$: klokka 03 og klokka 15.\n\nVil båten ha nøyaktig $6$ meter, løyser vi $2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5 = 6$. Først isolerer vi: $\\sin\\left(\\frac{\\pi}{6}t\\right) = \\frac{1}{2}$. Substitusjonen $u = \\frac{\\pi}{6}t$ gir $u = \\frac{\\pi}{6} + 2\\pi n$ eller $u = \\frac{5\\pi}{6} + 2\\pi n$, og dermed $t = 1 + 12n$ eller $t = 5 + 12n$. I løpet av det første halve døgnet er djupna seks meter klokka 01 og klokka 05 — på veg opp og på veg ned.\n\nDette mønsteret — modell, isolér sinusleddet, generell løysing, plukk verdiar i intervallet, tolk svaret — er nøyaktig det same anten det handlar om tidvatn, temperatursvingingar gjennom året eller spenninga i ein stikkontakt. Sinuslikningane er nøkkelen som låser opp tidspunkta i eitkvart periodisk fenomen.",
+      "18324db5ead0ccbf": "Test deg sjølv på praktiske sinuslikningar:",
+      "4f944f796e223847": "Djupna følgjer $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$. Kva er den største djupna?",
+      "74fbbf37999f5676": "$2$ m",
+      "b3a5e4a06f612041": "$5$ m",
+      "02655e0752feb755": "$10$ m",
+      "6876a00b5c97144c": "$7$ m",
+      "bce7cc6ef5dbd598": "Maksimum blir nådd når sinusleddet er $1$: $h_{\\max} = 2 \\cdot 1 + 5 = 7$ m.",
+      "e83844491359b181": "Når er djupna størst for første gong etter midnatt ($t = 0$)?",
+      "c01d631a54c9636b": "$t = 3$",
+      "cedc2d845a71798a": "$t = 6$",
+      "948b374d8e56dda5": "$t = 12$",
+      "88188bff6dc80795": "$t = 1{,}5$",
+      "a3cb0a1eac023fcc": "$\\sin\\left(\\frac{\\pi}{6}t\\right) = 1$ gir $\\frac{\\pi}{6}t = \\frac{\\pi}{2}$, altså $t = 3$ — klokka 03.",
+      "47386445a1e0fe1e": "Kva er perioden til modellen $h(t) = 2\\sin\\left(\\frac{\\pi}{6}t\\right) + 5$?",
+      "b1c9b0320f048143": "$6$ timar",
+      "2710e8f1d9c1befc": "$12$ timar",
+      "1c9925df00b4ee04": "$2\\pi$ timar",
+      "d1123e59964dc02d": "$12\\pi$ timar",
+      "1721d0835f2f4847": "Perioden er $\\frac{2\\pi}{k} = \\frac{2\\pi}{\\pi/6} = 12$ timar.",
+      "31dbd9e0f92afe7b": "## Oppsummering\n\nForteljinga byrja ved kaia, med tidvatnet som steig og sokk etter ein sinusfunksjon. For å svare på «når er djupna fire meter?» trong vi sinuslikningar, og undervegs bygde vi opp ein komplett verktøykasse.\n\nFørst løysbarheita: $\\sin x = a$ har løysingar berre når $-1 \\leq a \\leq 1$ — sjekk alltid dette først. Deretter den generelle løysinga: finn du éin vinkel $v$ med $\\sin v = a$, er alle løysingane $x = v + 2\\pi n$ eller $x = \\pi - v + 2\\pi n$ for $n \\in \\mathbb{Z}$. Dei to familiane kjem frå at den vassrette linja $y = a$ skjer einingssirkelen i to punkt, $v$ og $\\pi - v$, og periodisiteten legg til $2\\pi n$. Spesialtilfella $a = \\pm 1$ gir berre éi løysing per periode.\n\nGrafisk såg vi at løysingane er skjeringspunkta mellom sinuskurva og linja $y = a$: to per periode når $-1 < a < 1$. Skal du finne løysingar i eit intervall, set du inn heiltalsverdiar av $n$ og held dei som passar.\n\nFor samansette likningar $\\sin(kx + c) = a$ var oppskrifta substitusjon: løys for heile argumentet $u = kx + c$ først, og løys deretter for $x$. Hugs at perioden krympar til $\\frac{2\\pi}{|k|}$, slik at intervall rommar fleire løysingar. Og til slutt såg vi at praktiske problem — tidvatn, temperatur, svingingar — alltid følgjer same mønster: isolér sinusleddet, løys generelt, vel løysingane i intervallet, og tolk svaret i situasjonen."
+    }
+  }
+}

@@ -1,1 +1,341 @@
-{"id":"it-2-7-1-narrativ","courseId":"it-2","chapterNumber":"1","title":"IT-sikkerhet og trusselmodellering","subtitle":"Narrativ versjon","description":"En fortelling om å tenke som en angriper for å beskytte som en forsvarer – fra trusselaktører og OWASP Top 10 til risikovurdering og STRIDE-modellen for systematisk trusselmodellering.","estimatedMinutes":32,"competenceGoals":["Kjenne trusselaktører og vanlige angrepstyper","Forstå OWASP Top 10 og risikovurdering","Bruke STRIDE til trusselmodellering"],"linkedChapterId":"it-2-7-1","content":[{"id":"it-2-7-1-n-intro","type":"text","content":"## Tenk som en angriper\n\nIT-sikkerhet handler om å beskytte data, systemer og tjenester mot uønskede hendelser. Når vi bygger stadig mer komplekse applikasjoner som håndterer sensitiv informasjon, er det avgjørende å forstå hvilke trusler som finnes. **Trusselmodellering** er prosessen med å identifisere mulige sikkerhetsrisikoer, vurdere alvorlighet og planlegge mottiltak. Som utvikler er det din oppgave å tenke sikkerhet inn i alle faser av arbeidet.\n\nFor å forsvare må du forstå angriperen. **Trusselaktører** kommer i flere typer. *Script kiddies* er uerfarne angripere som bruker ferdige verktøy uten dyp forståelse. *Hacktivister* er motivert av politiske eller ideologiske formål. *Organisert kriminalitet* søker økonomisk gevinst profesjonelt. *Statlige aktører* har enorme ressurser og avanserte metoder. Og *innsidere* er ansatte eller tidligere ansatte med legitim tilgang.\n\nDe vanligste angrepstypene bør du kjenne igjen. **Phishing og social engineering** lurer brukere til å gi fra seg informasjon ved å utgi seg for noen de stoler på. **Malware** er skadelig programvare som virus, ormer, ransomware og trojanere. **DDoS** overbelaster et system med trafikk så ekte brukere stenges ute. Og **man-in-the-middle** avlytter eller manipulerer kommunikasjonen mellom to parter."},{"id":"it-2-7-1-n-quiz1","type":"exercise","exercise":{"id":"it-2-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på trusler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-7-1-n-quiz1-q0","task":"Hva er en innsider som trusselaktør?","options":[{"id":"a","text":"En nasjonalstat","isCorrect":false},{"id":"b","text":"En ansatt eller tidligere ansatt med legitim tilgang","isCorrect":true},{"id":"c","text":"Et virus","isCorrect":false},{"id":"d","text":"En nettleser","isCorrect":false}],"solution":"Innsidere har legitim tilgang til systemet og utgjør en egen risiko nettopp fordi de allerede er innenfor."},{"id":"it-2-7-1-n-quiz1-q1","task":"Hva er phishing?","options":[{"id":"a","text":"Å overbelaste en server med trafikk","isCorrect":false},{"id":"b","text":"Å kryptere data","isCorrect":false},{"id":"c","text":"Å lure brukere til å gi fra seg informasjon ved å utgi seg for noen de stoler på","isCorrect":true},{"id":"d","text":"Å sikkerhetskopiere data","isCorrect":false}],"solution":"Phishing er en form for social engineering der angriperen utgir seg for en tillitsverdig avsender for å lure ut informasjon."},{"id":"it-2-7-1-n-quiz1-q2","task":"Hva gjør et DDoS-angrep?","options":[{"id":"a","text":"Stjeler passord fra databasen","isCorrect":false},{"id":"b","text":"Krypterer harddisken","isCorrect":false},{"id":"c","text":"Endrer HTML på en side","isCorrect":false},{"id":"d","text":"Overbelaster et system med trafikk så ekte brukere ikke får tilgang","isCorrect":true}],"solution":"DDoS (Distributed Denial of Service) flommer systemet med trafikk slik at legitime brukere stenges ute."}]}},{"id":"it-2-7-1-n-section1","type":"text","content":"## OWASP Top 10 og risikovurdering\n\nFor å vite hvor man bør sette inn forsvaret, finnes en uvurderlig liste. **OWASP** (Open Web Application Security Project) publiserer hvert fjerde år en liste over de ti mest kritiske sikkerhetstruslene i webapplikasjoner. Blant de viktigste i 2021-versjonen er **Broken Access Control** (A01), der brukere får tilgang til ressurser de ikke skal ha – for eksempel ved å endre bruker-ID i en URL for å se andres data. **Cryptographic Failures** (A02) er manglende eller svak kryptering, som å lagre passord i klartekst. **Injection** (A03) er innsetting av ondsinnet kode gjennom brukerinput, som SQL injection. **Insecure Design** (A04) er grunnleggende designfeil, som å mangle trusselmodellering helt. Og **Security Misconfiguration** (A05) er feilkonfigurert sikkerhet, som standardpassord som aldri ble endret.\n\nFor å prioritere bruker vi **risikovurdering**, basert på en enkel formel: Risiko = Sannsynlighet × Konsekvens. Sannsynligheten kan være lav, middels eller høy, og det samme kan konsekvensen – fra minimal påvirkning til alvorlig økonomisk tap, omdømmetap eller personskade. En trussel med høy sannsynlighet og høy konsekvens er kritisk og må håndteres først, mens en med lav sannsynlighet og lav konsekvens kan vente. Slik kan du fordele begrenset tid og ressurser der de gjør mest nytte."},{"id":"it-2-7-1-n-quiz2","type":"exercise","exercise":{"id":"it-2-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på OWASP og risiko:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-7-1-n-quiz2-q0","task":"Hva er OWASP Top 10?","options":[{"id":"a","text":"En liste over de ti mest kritiske sikkerhetstruslene i webapplikasjoner","isCorrect":true},{"id":"b","text":"En liste over de raskeste algoritmene","isCorrect":false},{"id":"c","text":"En type kryptering","isCorrect":false},{"id":"d","text":"Ti programmeringsspråk","isCorrect":false}],"solution":"OWASP Top 10 er en jevnlig oppdatert liste over de mest kritiske websikkerhetstruslene."},{"id":"it-2-7-1-n-quiz2-q1","task":"Hva er formelen for risiko?","options":[{"id":"a","text":"Risiko = Tid × Penger","isCorrect":false},{"id":"b","text":"Risiko = Sannsynlighet × Konsekvens","isCorrect":true},{"id":"c","text":"Risiko = Antall brukere","isCorrect":false},{"id":"d","text":"Risiko = Kode / Tid","isCorrect":false}],"solution":"Risiko vurderes som sannsynligheten for en hendelse multiplisert med konsekvensen av den."},{"id":"it-2-7-1-n-quiz2-q2","task":"Hva er et eksempel på Cryptographic Failures (A02)?","options":[{"id":"a","text":"Å bruke for mange farger","isCorrect":false},{"id":"b","text":"Å ha en treg database","isCorrect":false},{"id":"c","text":"Å lagre passord i klartekst","isCorrect":true},{"id":"d","text":"Å skrive lange variabelnavn","isCorrect":false}],"solution":"Manglende eller svak kryptering, som passord lagret i klartekst, hører inn under Cryptographic Failures."}]}},{"id":"it-2-7-1-n-section2","type":"text","content":"## STRIDE og trusselmodellering i praksis\n\nFor å gjøre trusselmodellering systematisk bruker vi en metode som heter **STRIDE**. Bokstavene står for seks trusselkategorier. **S**poofing er forfalskning av identitet. **T**ampering er manipulering av data. **R**epudiation er at noen benekter en handling de gjorde. **I**nformation disclosure er avsløring av informasjon. **D**enial of service er tjenestenektangrep. Og **E**levation of privilege er å skaffe seg uautorisert tilgang. Ved å gå gjennom hver kategori sikrer du at du ikke glemmer noen type trussel.\n\nSelve prosessen har faste steg. Først *identifiserer du verdifulle ressurser* – hva skal beskyttes? Deretter *lager du et dataflytdiagram* som viser hvordan data beveger seg i systemet. Så *identifiserer du truslene* med STRIDE, og til slutt *planlegger du mottiltak*.\n\nTa et innloggingssystem som eksempel. De verdifulle ressursene er brukerkontoer, brukerdata som personnummer og betalingsinfo, og sesjonstokens. Dataflyten går fra bruker via nettleser til webserver til database. STRIDE avdekker trusler som phishing (spoofing), SQL injection (tampering), svakt passord (elevation), sesjonshijacking (information disclosure) og brute force (spoofing). Hver vurderes for sannsynlighet og konsekvens, og får mottiltak: parameteriserte spørringer mot SQL injection, krav til passordstyrke og tofaktor mot svake passord, rate limiting og CAPTCHA mot brute force, og HTTPS mot sesjonshijacking. Slik blir abstrakte trusler til konkrete tiltak."},{"id":"it-2-7-1-n-quiz3","type":"exercise","exercise":{"id":"it-2-7-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på STRIDE:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-7-1-n-quiz3-q0","task":"Hva står S-en i STRIDE for?","options":[{"id":"a","text":"Storage","isCorrect":false},{"id":"b","text":"Security","isCorrect":false},{"id":"c","text":"Server","isCorrect":false},{"id":"d","text":"Spoofing (forfalskning av identitet)","isCorrect":true}],"solution":"S i STRIDE står for Spoofing, altså forfalskning av identitet."},{"id":"it-2-7-1-n-quiz3-q1","task":"Hva er et fornuftig første steg i trusselmodellering?","options":[{"id":"a","text":"Identifisere hvilke verdifulle ressurser som skal beskyttes","isCorrect":true},{"id":"b","text":"Slette databasen","isCorrect":false},{"id":"c","text":"Slå av serveren","isCorrect":false},{"id":"d","text":"Velge farger til grensesnittet","isCorrect":false}],"solution":"Man begynner med å identifisere de verdifulle ressursene, før man kartlegger dataflyt og trusler."},{"id":"it-2-7-1-n-quiz3-q2","task":"Hvilket mottiltak passer mot brute force-angrep på innlogging?","options":[{"id":"a","text":"Å lagre passord i klartekst","isCorrect":false},{"id":"b","text":"Rate limiting og CAPTCHA etter flere mislykkede forsøk","isCorrect":true},{"id":"c","text":"Å fjerne all validering","isCorrect":false},{"id":"d","text":"Å bruke HTTP i stedet for HTTPS","isCorrect":false}],"solution":"Rate limiting og CAPTCHA bremser automatiske gjettangrep ved å begrense antall forsøk."}]}},{"id":"it-2-7-1-n-summary","type":"text","content":"## Oppsummering\n\nGodt forsvar begynner med å tenke som en angriper. **Trusselaktører** spenner fra script kiddies til statlige aktører og innsidere, og vanlige angrep inkluderer phishing, malware, DDoS og man-in-the-middle. **OWASP Top 10** gir en prioritert oversikt over de mest kritiske websikkerhetstruslene, fra broken access control til injection og misconfiguration.\n\nFor å prioritere bruker vi **risikovurdering** (Risiko = Sannsynlighet × Konsekvens), og for å være systematiske bruker vi **STRIDE** til trusselmodellering: identifiser ressurser, kartlegg dataflyt, finn trusler, planlegg mottiltak. Slik gjør vi abstrakte trusler om til konkrete tiltak. I neste kapittel går vi fra modellering til kode – sikker programmering."}],"exercises":[]}
+{
+  "id": "it-2-7-1-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "1",
+  "title": "IT-sikkerhet og trusselmodellering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å tenke som en angriper for å beskytte som en forsvarer – fra trusselaktører og OWASP Top 10 til risikovurdering og STRIDE-modellen for systematisk trusselmodellering.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "Kjenne trusselaktører og vanlige angrepstyper",
+    "Forstå OWASP Top 10 og risikovurdering",
+    "Bruke STRIDE til trusselmodellering"
+  ],
+  "linkedChapterId": "it-2-7-1",
+  "content": [
+    {
+      "id": "it-2-7-1-n-intro",
+      "type": "text",
+      "content": "## Tenk som en angriper\n\nIT-sikkerhet handler om å beskytte data, systemer og tjenester mot uønskede hendelser. Når vi bygger stadig mer komplekse applikasjoner som håndterer sensitiv informasjon, er det avgjørende å forstå hvilke trusler som finnes. **Trusselmodellering** er prosessen med å identifisere mulige sikkerhetsrisikoer, vurdere alvorlighet og planlegge mottiltak. Som utvikler er det din oppgave å tenke sikkerhet inn i alle faser av arbeidet.\n\nFor å forsvare må du forstå angriperen. **Trusselaktører** kommer i flere typer. *Script kiddies* er uerfarne angripere som bruker ferdige verktøy uten dyp forståelse. *Hacktivister* er motivert av politiske eller ideologiske formål. *Organisert kriminalitet* søker økonomisk gevinst profesjonelt. *Statlige aktører* har enorme ressurser og avanserte metoder. Og *innsidere* er ansatte eller tidligere ansatte med legitim tilgang.\n\nDe vanligste angrepstypene bør du kjenne igjen. **Phishing og social engineering** lurer brukere til å gi fra seg informasjon ved å utgi seg for noen de stoler på. **Malware** er skadelig programvare som virus, ormer, ransomware og trojanere. **DDoS** overbelaster et system med trafikk så ekte brukere stenges ute. Og **man-in-the-middle** avlytter eller manipulerer kommunikasjonen mellom to parter."
+    },
+    {
+      "id": "it-2-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på trusler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-7-1-n-quiz1-q0",
+            "task": "Hva er en innsider som trusselaktør?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En ansatt eller tidligere ansatt med legitim tilgang",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En nasjonalstat",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et virus",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En nettleser",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Innsidere har legitim tilgang til systemet og utgjør en egen risiko nettopp fordi de allerede er innenfor."
+          },
+          {
+            "id": "it-2-7-1-n-quiz1-q1",
+            "task": "Hva er phishing?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å overbelaste en server med trafikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å lure brukere til å gi fra seg informasjon ved å utgi seg for noen de stoler på",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å kryptere data",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sikkerhetskopiere data",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Phishing er en form for social engineering der angriperen utgir seg for en tillitsverdig avsender for å lure ut informasjon."
+          },
+          {
+            "id": "it-2-7-1-n-quiz1-q2",
+            "task": "Hva gjør et DDoS-angrep?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Stjeler passord fra databasen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Krypterer harddisken",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Overbelaster et system med trafikk så ekte brukere ikke får tilgang",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Endrer HTML på en side",
+                "isCorrect": false
+              }
+            ],
+            "solution": "DDoS (Distributed Denial of Service) flommer systemet med trafikk slik at legitime brukere stenges ute."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-7-1-n-section1",
+      "type": "text",
+      "content": "## OWASP Top 10 og risikovurdering\n\nFor å vite hvor man bør sette inn forsvaret, finnes en uvurderlig liste. **OWASP** (Open Web Application Security Project) publiserer hvert fjerde år en liste over de ti mest kritiske sikkerhetstruslene i webapplikasjoner. Blant de viktigste i 2021-versjonen er **Broken Access Control** (A01), der brukere får tilgang til ressurser de ikke skal ha – for eksempel ved å endre bruker-ID i en URL for å se andres data. **Cryptographic Failures** (A02) er manglende eller svak kryptering, som å lagre passord i klartekst. **Injection** (A03) er innsetting av ondsinnet kode gjennom brukerinput, som SQL injection. **Insecure Design** (A04) er grunnleggende designfeil, som å mangle trusselmodellering helt. Og **Security Misconfiguration** (A05) er feilkonfigurert sikkerhet, som standardpassord som aldri ble endret.\n\nFor å prioritere bruker vi **risikovurdering**, basert på en enkel formel: Risiko = Sannsynlighet × Konsekvens. Sannsynligheten kan være lav, middels eller høy, og det samme kan konsekvensen – fra minimal påvirkning til alvorlig økonomisk tap, omdømmetap eller personskade. En trussel med høy sannsynlighet og høy konsekvens er kritisk og må håndteres først, mens en med lav sannsynlighet og lav konsekvens kan vente. Slik kan du fordele begrenset tid og ressurser der de gjør mest nytte."
+    },
+    {
+      "id": "it-2-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på OWASP og risiko:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-7-1-n-quiz2-q0",
+            "task": "Hva er OWASP Top 10?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En liste over de raskeste algoritmene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En type kryptering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ti programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En liste over de ti mest kritiske sikkerhetstruslene i webapplikasjoner",
+                "isCorrect": true
+              }
+            ],
+            "solution": "OWASP Top 10 er en jevnlig oppdatert liste over de mest kritiske websikkerhetstruslene."
+          },
+          {
+            "id": "it-2-7-1-n-quiz2-q1",
+            "task": "Hva er formelen for risiko?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Risiko = Sannsynlighet × Konsekvens",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Risiko = Tid × Penger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Risiko = Antall brukere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Risiko = Kode / Tid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Risiko vurderes som sannsynligheten for en hendelse multiplisert med konsekvensen av den."
+          },
+          {
+            "id": "it-2-7-1-n-quiz2-q2",
+            "task": "Hva er et eksempel på Cryptographic Failures (A02)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å bruke for mange farger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å lagre passord i klartekst",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å ha en treg database",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å skrive lange variabelnavn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Manglende eller svak kryptering, som passord lagret i klartekst, hører inn under Cryptographic Failures."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-7-1-n-section2",
+      "type": "text",
+      "content": "## STRIDE og trusselmodellering i praksis\n\nFor å gjøre trusselmodellering systematisk bruker vi en metode som heter **STRIDE**. Bokstavene står for seks trusselkategorier. **S**poofing er forfalskning av identitet. **T**ampering er manipulering av data. **R**epudiation er at noen benekter en handling de gjorde. **I**nformation disclosure er avsløring av informasjon. **D**enial of service er tjenestenektangrep. Og **E**levation of privilege er å skaffe seg uautorisert tilgang. Ved å gå gjennom hver kategori sikrer du at du ikke glemmer noen type trussel.\n\nSelve prosessen har faste steg. Først *identifiserer du verdifulle ressurser* – hva skal beskyttes? Deretter *lager du et dataflytdiagram* som viser hvordan data beveger seg i systemet. Så *identifiserer du truslene* med STRIDE, og til slutt *planlegger du mottiltak*.\n\nTa et innloggingssystem som eksempel. De verdifulle ressursene er brukerkontoer, brukerdata som personnummer og betalingsinfo, og sesjonstokens. Dataflyten går fra bruker via nettleser til webserver til database. STRIDE avdekker trusler som phishing (spoofing), SQL injection (tampering), svakt passord (elevation), sesjonshijacking (information disclosure) og brute force (spoofing). Hver vurderes for sannsynlighet og konsekvens, og får mottiltak: parameteriserte spørringer mot SQL injection, krav til passordstyrke og tofaktor mot svake passord, rate limiting og CAPTCHA mot brute force, og HTTPS mot sesjonshijacking. Slik blir abstrakte trusler til konkrete tiltak."
+    },
+    {
+      "id": "it-2-7-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-7-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på STRIDE:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-7-1-n-quiz3-q0",
+            "task": "Hva står S-en i STRIDE for?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Storage",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Security",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Spoofing (forfalskning av identitet)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Server",
+                "isCorrect": false
+              }
+            ],
+            "solution": "S i STRIDE står for Spoofing, altså forfalskning av identitet."
+          },
+          {
+            "id": "it-2-7-1-n-quiz3-q1",
+            "task": "Hva er et fornuftig første steg i trusselmodellering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Slette databasen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Slå av serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Velge farger til grensesnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Identifisere hvilke verdifulle ressurser som skal beskyttes",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Man begynner med å identifisere de verdifulle ressursene, før man kartlegger dataflyt og trusler."
+          },
+          {
+            "id": "it-2-7-1-n-quiz3-q2",
+            "task": "Hvilket mottiltak passer mot brute force-angrep på innlogging?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Rate limiting og CAPTCHA etter flere mislykkede forsøk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å lagre passord i klartekst",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å fjerne all validering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å bruke HTTP i stedet for HTTPS",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rate limiting og CAPTCHA bremser automatiske gjettangrep ved å begrense antall forsøk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nGodt forsvar begynner med å tenke som en angriper. **Trusselaktører** spenner fra script kiddies til statlige aktører og innsidere, og vanlige angrep inkluderer phishing, malware, DDoS og man-in-the-middle. **OWASP Top 10** gir en prioritert oversikt over de mest kritiske websikkerhetstruslene, fra broken access control til injection og misconfiguration.\n\nFor å prioritere bruker vi **risikovurdering** (Risiko = Sannsynlighet × Konsekvens), og for å være systematiske bruker vi **STRIDE** til trusselmodellering: identifiser ressurser, kartlegg dataflyt, finn trusler, planlegg mottiltak. Slik gjør vi abstrakte trusler om til konkrete tiltak. I neste kapittel går vi fra modellering til kode – sikker programmering."
+    }
+  ],
+  "exercises": []
+}

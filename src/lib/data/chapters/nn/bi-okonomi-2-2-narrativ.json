@@ -1,1 +1,447 @@
-{"id":"bi-okonomi-2-2-narrativ","courseId":"bi-okonomi","chapterNumber":"2.2","title":"ABC-formelen","subtitle":"Narrativ versjon","description":"Ei forteljing om andregradslikningar -- korleis abc-formelen alltid finn løysingane, kva diskriminanten avslører, og korleis nullpunktsfaktorisering og produktregelen heng saman.","estimatedMinutes":40,"competenceGoals":["løse andregradslikninger med abc-formelen","faktorisere andregradsuttrykk ved nullpunktsfaktorisering"],"linkedChapterId":"bi-okonomi-2-2","content":[{"id":"bi-okonomi-2-2-n-intro","type":"text","content":"## Når $x$ kjem i andre potens\n\nI førre kapittel løyste vi likningar der $x$ sto åleine. Men kva gjer du når den ukjende er opphøgd i andre, slik som $x^2-5x+6=0$? Slike **andregradslikningar** har forma $ax^2+bx+c=0$, og dei dukkar opp overalt i økonomi -- til dømes når ein inntektsfunksjon er ein parabel og du leitar etter kva prisar som gir null forteneste. Heldigvis finst det éin formel som alltid verkar.\n\n**abc-formelen** seier at løysingane er $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Her er $a$, $b$ og $c$ tala framfor høvesvis $x^2$, $x$ og konstantleddet. Teiknet $\\pm$ tyder at vi reknar ut to gonger: éin gong med pluss og éin gong med minus -- difor får andregradslikningar ofte to løysingar.\n\nLat oss prøve på $x^2-5x+6=0$. Her er $a=1$, $b=-5$ og $c=6$. Vi set inn: $x=\\frac{-(-5)\\pm\\sqrt{(-5)^2-4\\cdot 1\\cdot 6}}{2\\cdot 1}=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$. Det gir $x_1=\\frac{4}{2}=2$ og $x_2=\\frac{6}{2}=3$. Står likninga ikkje på rett form, ryddar vi først: $2x^2-12x=-16$ blir til $2x^2-12x+16=0$, og med $a=2$, $b=-12$, $c=16$ får vi $x=\\frac{12\\pm\\sqrt{144-128}}{4}=\\frac{12\\pm 4}{4}$, altså $x_1=4$ og $x_2=2$."},{"id":"bi-okonomi-2-2-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-2-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på abc-formelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-2-2-n-quiz1-q0","task":"I likninga $x^2-5x+6=0$, kva er $a$, $b$ og $c$?","options":[{"id":"a","text":"$a=1$, $b=5$, $c=6$","isCorrect":false},{"id":"b","text":"$a=0$, $b=-5$, $c=6$","isCorrect":false},{"id":"c","text":"$a=1$, $b=-5$, $c=6$","isCorrect":true},{"id":"d","text":"$a=-5$, $b=6$, $c=1$","isCorrect":false}],"solution":"Tala framfor $x^2$, $x$ og konstanten: $a=1$ (underforstått), $b=-5$, $c=6$."},{"id":"bi-okonomi-2-2-n-quiz1-q1","task":"Kva blir løysingane av $x^2-5x+6=0$?","options":[{"id":"a","text":"$x=5$ og $x=6$","isCorrect":false},{"id":"b","text":"$x=-2$ og $x=-3$","isCorrect":false},{"id":"c","text":"$x=1$ og $x=6$","isCorrect":false},{"id":"d","text":"$x=2$ og $x=3$","isCorrect":true}],"solution":"$x=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$ gir $x_1=2$ og $x_2=3$."},{"id":"bi-okonomi-2-2-n-quiz1-q2","task":"Før du brukar abc-formelen på $2x^2-12x=-16$, kva blir rett standardform?","options":[{"id":"a","text":"$2x^2-12x+16=0$","isCorrect":true},{"id":"b","text":"$2x^2-12x-16=0$","isCorrect":false},{"id":"c","text":"$2x^2+12x+16=0$","isCorrect":false},{"id":"d","text":"$2x^2-12x=16$","isCorrect":false}],"solution":"Flytt $-16$ over likskapsteiknet: $2x^2-12x+16=0$."}]}},{"id":"bi-okonomi-2-2-n-section1","type":"text","content":"## Når det blir éi eller inga løysing\n\nUttrykket under rotteiknet, $b^2-4ac$, blir kalla **diskriminanten**, og det avgjer kor mange løysingar likninga har. Vanlegvis er det positivt, og vi får to løysingar. Men to spesialtilfelle er verdt å kjenne.\n\nBlir diskriminanten **null**, står det $\\pm\\sqrt{0}$ i formelen. Å leggje til eller trekkje frå null gir same resultat, så dei to løysingane smeltar saman til éi. Ta $x^2+10x+25=0$ med $a=1$, $b=10$, $c=25$: $x=\\frac{-10\\pm\\sqrt{100-100}}{2}=\\frac{-10\\pm 0}{2}=-5$. Her finst altså berre den eine løysinga $x=-5$.\n\nBlir diskriminanten **negativ**, hamnar vi i trøbbel: kvadratrøter av negative tal er ikkje definerte blant dei reelle tala. Då finst inga løysing. Sjå på $x^2-5x+8=0$: $x=\\frac{5\\pm\\sqrt{25-32}}{2}=\\frac{5\\pm\\sqrt{-7}}{2}$. Sidan $\\sqrt{-7}$ ikkje gir meining, skriv vi løysingsmengda som den tomme mengda, $L=\\emptyset$. Eit raskt blikk på diskriminanten fortel deg altså med éin gong om du ventar to, éi eller inga løysingar."},{"id":"bi-okonomi-2-2-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-2-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på diskriminanten og talet på løysingar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-2-2-n-quiz2-q0","task":"Kva blir uttrykket $b^2-4ac$ under rotteiknet kalla?","options":[{"id":"a","text":"Koeffisienten","isCorrect":false},{"id":"b","text":"Diskriminanten","isCorrect":true},{"id":"c","text":"Standardform","isCorrect":false},{"id":"d","text":"Faktoren","isCorrect":false}],"solution":"Det er diskriminanten, som avgjer kor mange løysingar likninga har."},{"id":"bi-okonomi-2-2-n-quiz2-q1","task":"Kor mange løysingar har $x^2+10x+25=0$?","options":[{"id":"a","text":"To ulike","isCorrect":false},{"id":"b","text":"Inga","isCorrect":false},{"id":"c","text":"Nøyaktig éi","isCorrect":true},{"id":"d","text":"Uendeleg mange","isCorrect":false}],"solution":"Diskriminanten er $100-100=0$, så $\\pm\\sqrt{0}$ gir éi løysing, $x=-5$."},{"id":"bi-okonomi-2-2-n-quiz2-q2","task":"Kva er løysingsmengda til $x^2-5x+8=0$?","options":[{"id":"a","text":"$x=2$ og $x=3$","isCorrect":false},{"id":"b","text":"$x=4$","isCorrect":false},{"id":"c","text":"$x=-7$","isCorrect":false},{"id":"d","text":"$L=\\emptyset$","isCorrect":true}],"solution":"Diskriminanten er $25-32=-7<0$. $\\sqrt{-7}$ er ikkje definert, så $L=\\emptyset$."}]}},{"id":"bi-okonomi-2-2-n-section2","type":"text","content":"## Faktorisering og produktregelen\n\nNår vi først har funne nullpunkta $x_1$ og $x_2$, kan vi bruke dei til å **faktorisere** andregradsuttrykket. Formelen er $ax^2+bx+c=a(x-x_1)(x-x_2)$. For $x^2-5x+6$ fann vi $x_1=2$ og $x_2=3$, så uttrykket blir $1(x-2)(x-3)=(x-2)(x-3)$. For $2x^2-12x+16$, der $x_1=2$ og $x_2=4$, hugsar vi $a=2$ framfor: $2(x-2)(x-4)$. Får vi berre éi løysing, set vi henne inn for begge: $3x^2+18x+27=3(x^2+6x+9)$ har den eine løysinga $x=-3$, så det blir faktorisert til $3(x+3)^2$.\n\nFaktorisering peikar rett mot eit anna kraftig reiskap: **produktregelen**. Han seier at dersom $a\\cdot b=0$, så må anten $a=0$ eller $b=0$ -- eit produkt blir berre null dersom minst éin faktor er null. Står likninga allereie som eit produkt lik null, slepp vi abc-formelen heilt.\n\nI $(x-4)(x+2)=0$ er løysinga at anten $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$. Regelen gjeld uansett kor mange faktorar du har: i $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$ blir kvar parentes lik null i tur og orden, og løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$. Talet $3$ framfor kan aldri bli null, så det gir inga løysing."},{"id":"bi-okonomi-2-2-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-2-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på faktorisering og produktregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-2-2-n-quiz3-q0","task":"Nullpunkta til $x^2-5x+6$ er $2$ og $3$. Kva blir faktoriseringa?","options":[{"id":"a","text":"$(x-2)(x-3)$","isCorrect":true},{"id":"b","text":"$(x+2)(x+3)$","isCorrect":false},{"id":"c","text":"$(x-5)(x-6)$","isCorrect":false},{"id":"d","text":"$5(x-2)(x-3)$","isCorrect":false}],"solution":"Med $a=1$: $a(x-x_1)(x-x_2)=(x-2)(x-3)$."},{"id":"bi-okonomi-2-2-n-quiz3-q1","task":"Faktoriser $2x^2-12x+16$ når nullpunkta er $2$ og $4$.","options":[{"id":"a","text":"$(x-2)(x-4)$","isCorrect":false},{"id":"b","text":"$2(x-2)(x-4)$","isCorrect":true},{"id":"c","text":"$2(x+2)(x+4)$","isCorrect":false},{"id":"d","text":"$(x-2)(x-8)$","isCorrect":false}],"solution":"Hugs $a=2$ framfor: $2(x-2)(x-4)$."},{"id":"bi-okonomi-2-2-n-quiz3-q2","task":"Løys $(x-4)(x+2)=0$ med produktregelen.","options":[{"id":"a","text":"$x=4$ og $x=2$","isCorrect":false},{"id":"b","text":"$x=-4$ og $x=2$","isCorrect":false},{"id":"c","text":"$x=4$ og $x=-2$","isCorrect":true},{"id":"d","text":"$x=-4$ og $x=-2$","isCorrect":false}],"solution":"Produktet er null når ein faktor er null: $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$."},{"id":"bi-okonomi-2-2-n-quiz3-q3","task":"Løys $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$.","options":[{"id":"a","text":"$x=3$, $x=-\\frac{1}{2}$, $x=0{,}3$","isCorrect":false},{"id":"b","text":"$x=\\frac{1}{2}$, $x=-0{,}3$, $x=-\\sqrt{5}$","isCorrect":false},{"id":"c","text":"$x=3$ er einaste løysing","isCorrect":false},{"id":"d","text":"$x=-\\frac{1}{2}$, $x=0{,}3$, $x=\\sqrt{5}$","isCorrect":true}],"solution":"Kvar parentes blir sett lik null. Talet $3$ kan aldri bli null, så løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$."}]}},{"id":"bi-okonomi-2-2-n-summary","type":"text","content":"## Oppsummering\n\nEi **andregradslikning** har forma $ax^2+bx+c=0$, og henne løyser vi med **abc-formelen** $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Teiknet $\\pm$ gir oss to reknestykke og dermed gjerne to løysingar. Uttrykket $b^2-4ac$, **diskriminanten**, avslører talet: positivt gir to løysingar, null gir nøyaktig éi, og negativt gir inga reell løysing ($L=\\emptyset$).\n\nNullpunkta lèt oss **faktorisere**: $ax^2+bx+c=a(x-x_1)(x-x_2)$, slik at $x^2-5x+6=(x-2)(x-3)$. Og motsett veg gir **produktregelen** oss løysingane direkte når likninga alt er eit produkt: er $a\\cdot b=0$, må minst éin faktor vere null. Desse tre grepa -- formelen, diskriminanten og produktregelen -- gir deg full kontroll over andregradslikningar, som du snart skal bruke på inntekts- og kostnadsmodellar."}],"exercises":[],"_meta":{"sourceHash":"a7d642b81cc92ad1","translatedAt":"2026-06-21T00:50:52.209Z","model":"claude-code-agent","strings":75,"tm":{"9efc46003bf35df6":"ABC-formelen","b195b06d1ed59702":"Narrativ versjon","a6e89d88f3e40638":"Ei forteljing om andregradslikningar -- korleis abc-formelen alltid finn løysingane, kva diskriminanten avslører, og korleis nullpunktsfaktorisering og produktregelen heng saman.","70622d29f423c6b3":"løse andregradslikninger med abc-formelen","04d4ad0b6858f4ce":"faktorisere andregradsuttrykk ved nullpunktsfaktorisering","5846689b6fe22e1a":"## Når $x$ kjem i andre potens\n\nI førre kapittel løyste vi likningar der $x$ sto åleine. Men kva gjer du når den ukjende er opphøgd i andre, slik som $x^2-5x+6=0$? Slike **andregradslikningar** har forma $ax^2+bx+c=0$, og dei dukkar opp overalt i økonomi -- til dømes når ein inntektsfunksjon er ein parabel og du leitar etter kva prisar som gir null forteneste. Heldigvis finst det éin formel som alltid verkar.\n\n**abc-formelen** seier at løysingane er $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Her er $a$, $b$ og $c$ tala framfor høvesvis $x^2$, $x$ og konstantleddet. Teiknet $\\pm$ tyder at vi reknar ut to gonger: éin gong med pluss og éin gong med minus -- difor får andregradslikningar ofte to løysingar.\n\nLat oss prøve på $x^2-5x+6=0$. Her er $a=1$, $b=-5$ og $c=6$. Vi set inn: $x=\\frac{-(-5)\\pm\\sqrt{(-5)^2-4\\cdot 1\\cdot 6}}{2\\cdot 1}=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$. Det gir $x_1=\\frac{4}{2}=2$ og $x_2=\\frac{6}{2}=3$. Står likninga ikkje på rett form, ryddar vi først: $2x^2-12x=-16$ blir til $2x^2-12x+16=0$, og med $a=2$, $b=-12$, $c=16$ får vi $x=\\frac{12\\pm\\sqrt{144-128}}{4}=\\frac{12\\pm 4}{4}$, altså $x_1=4$ og $x_2=2$.","df4c8774ebd1461f":"Test deg sjølv på abc-formelen:","4097889236a2af26":"placeholder","fab28b6c869d623d":"I likninga $x^2-5x+6=0$, kva er $a$, $b$ og $c$?","045ea9ca8c03b64e":"$a=1$, $b=5$, $c=6$","c8d3340cf19535c3":"$a=0$, $b=-5$, $c=6$","a0a53e72eb841a67":"$a=1$, $b=-5$, $c=6$","eee65e43f9cfa3b2":"$a=-5$, $b=6$, $c=1$","266f5edb65fcf0a2":"Tala framfor $x^2$, $x$ og konstanten: $a=1$ (underforstått), $b=-5$, $c=6$.","b23cf71aaded1958":"Kva blir løysingane av $x^2-5x+6=0$?","922c026797a706d0":"$x=5$ og $x=6$","717ad4062f3758c3":"$x=-2$ og $x=-3$","a6f152a459515c68":"$x=1$ og $x=6$","61b3572acfe21b40":"$x=2$ og $x=3$","a26d0dc544dd641f":"$x=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$ gir $x_1=2$ og $x_2=3$.","facc818162ff68f6":"Før du brukar abc-formelen på $2x^2-12x=-16$, kva blir rett standardform?","609b318eb22132ce":"$2x^2-12x+16=0$","df37843e94015d9f":"$2x^2-12x-16=0$","ff705960f52ae5ba":"$2x^2+12x+16=0$","28a3ec2645d4da5e":"$2x^2-12x=16$","29fb9e30833ce19f":"Flytt $-16$ over likskapsteiknet: $2x^2-12x+16=0$.","9ddbd3d5b1abca4c":"## Når det blir éi eller inga løysing\n\nUttrykket under rotteiknet, $b^2-4ac$, blir kalla **diskriminanten**, og det avgjer kor mange løysingar likninga har. Vanlegvis er det positivt, og vi får to løysingar. Men to spesialtilfelle er verdt å kjenne.\n\nBlir diskriminanten **null**, står det $\\pm\\sqrt{0}$ i formelen. Å leggje til eller trekkje frå null gir same resultat, så dei to løysingane smeltar saman til éi. Ta $x^2+10x+25=0$ med $a=1$, $b=10$, $c=25$: $x=\\frac{-10\\pm\\sqrt{100-100}}{2}=\\frac{-10\\pm 0}{2}=-5$. Her finst altså berre den eine løysinga $x=-5$.\n\nBlir diskriminanten **negativ**, hamnar vi i trøbbel: kvadratrøter av negative tal er ikkje definerte blant dei reelle tala. Då finst inga løysing. Sjå på $x^2-5x+8=0$: $x=\\frac{5\\pm\\sqrt{25-32}}{2}=\\frac{5\\pm\\sqrt{-7}}{2}$. Sidan $\\sqrt{-7}$ ikkje gir meining, skriv vi løysingsmengda som den tomme mengda, $L=\\emptyset$. Eit raskt blikk på diskriminanten fortel deg altså med éin gong om du ventar to, éi eller inga løysingar.","b56179e3b7bd3f87":"Test deg sjølv på diskriminanten og talet på løysingar:","74c7d7b9b4a7c5b9":"Kva blir uttrykket $b^2-4ac$ under rotteiknet kalla?","3e2cecd4cd15f42c":"Koeffisienten","85a3a4596014e4ff":"Diskriminanten","dce4b657771adfed":"Standardform","a5807be3ad9ac484":"Faktoren","b777729dc55fd3b5":"Det er diskriminanten, som avgjer kor mange løysingar likninga har.","26f4c24d86123cc0":"Kor mange løysingar har $x^2+10x+25=0$?","dbdf3b2c220130b8":"To ulike","4caa44f124d9c5e5":"Inga","91028c139b59ba1c":"Nøyaktig éi","6b5eccd31267a114":"Uendeleg mange","c2d6e9a533417dfd":"Diskriminanten er $100-100=0$, så $\\pm\\sqrt{0}$ gir éi løysing, $x=-5$.","8896f4fac1624bbf":"Kva er løysingsmengda til $x^2-5x+8=0$?","d847dadd3c0fdaed":"$x=4$","a4ec473163a9ea49":"$x=-7$","6b513c57194282bb":"$L=\\emptyset$","a732e436f324dc47":"Diskriminanten er $25-32=-7<0$. $\\sqrt{-7}$ er ikkje definert, så $L=\\emptyset$.","88c39c0b529fff5c":"## Faktorisering og produktregelen\n\nNår vi først har funne nullpunkta $x_1$ og $x_2$, kan vi bruke dei til å **faktorisere** andregradsuttrykket. Formelen er $ax^2+bx+c=a(x-x_1)(x-x_2)$. For $x^2-5x+6$ fann vi $x_1=2$ og $x_2=3$, så uttrykket blir $1(x-2)(x-3)=(x-2)(x-3)$. For $2x^2-12x+16$, der $x_1=2$ og $x_2=4$, hugsar vi $a=2$ framfor: $2(x-2)(x-4)$. Får vi berre éi løysing, set vi henne inn for begge: $3x^2+18x+27=3(x^2+6x+9)$ har den eine løysinga $x=-3$, så det blir faktorisert til $3(x+3)^2$.\n\nFaktorisering peikar rett mot eit anna kraftig reiskap: **produktregelen**. Han seier at dersom $a\\cdot b=0$, så må anten $a=0$ eller $b=0$ -- eit produkt blir berre null dersom minst éin faktor er null. Står likninga allereie som eit produkt lik null, slepp vi abc-formelen heilt.\n\nI $(x-4)(x+2)=0$ er løysinga at anten $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$. Regelen gjeld uansett kor mange faktorar du har: i $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$ blir kvar parentes lik null i tur og orden, og løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$. Talet $3$ framfor kan aldri bli null, så det gir inga løysing.","707e2385d49c31b8":"Test deg sjølv på faktorisering og produktregelen:","292bd8504111bc70":"Nullpunkta til $x^2-5x+6$ er $2$ og $3$. Kva blir faktoriseringa?","540e61278539f308":"$(x-2)(x-3)$","6dbabac970c25cdc":"$(x+2)(x+3)$","5062c5b7d2399c72":"$(x-5)(x-6)$","b163e958ff10fa1e":"$5(x-2)(x-3)$","fc100a88ba1d134d":"Med $a=1$: $a(x-x_1)(x-x_2)=(x-2)(x-3)$.","9dcb70eaccc621e2":"Faktoriser $2x^2-12x+16$ når nullpunkta er $2$ og $4$.","4ee1a3670a3ac723":"$(x-2)(x-4)$","a7223b65b2ec6870":"$2(x-2)(x-4)$","e6ab00f284539826":"$2(x+2)(x+4)$","60322e7c15cc2be1":"$(x-2)(x-8)$","d70b541123a8b07c":"Hugs $a=2$ framfor: $2(x-2)(x-4)$.","efb18a92e64d8704":"Løys $(x-4)(x+2)=0$ med produktregelen.","45c0debf01803d6a":"$x=4$ og $x=2$","e58722e0220db059":"$x=-4$ og $x=2$","e69853cf10e3ca12":"$x=4$ og $x=-2$","402696d36a9a4502":"$x=-4$ og $x=-2$","450c033758f5e3d3":"Produktet er null når ein faktor er null: $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$.","d3d2d551cda5b9ea":"Løys $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$.","68d7e0f69d27a3a8":"$x=3$, $x=-\\frac{1}{2}$, $x=0{,}3$","cebb012396945c66":"$x=\\frac{1}{2}$, $x=-0{,}3$, $x=-\\sqrt{5}$","6c5f9c2eae86bbbb":"$x=3$ er einaste løysing","8bc37697d2d22d5e":"$x=-\\frac{1}{2}$, $x=0{,}3$, $x=\\sqrt{5}$","1ad60bc5ea17dc04":"Kvar parentes blir sett lik null. Talet $3$ kan aldri bli null, så løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$.","d1f4dc701d08f1ea":"## Oppsummering\n\nEi **andregradslikning** har forma $ax^2+bx+c=0$, og henne løyser vi med **abc-formelen** $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Teiknet $\\pm$ gir oss to reknestykke og dermed gjerne to løysingar. Uttrykket $b^2-4ac$, **diskriminanten**, avslører talet: positivt gir to løysingar, null gir nøyaktig éi, og negativt gir inga reell løysing ($L=\\emptyset$).\n\nNullpunkta lèt oss **faktorisere**: $ax^2+bx+c=a(x-x_1)(x-x_2)$, slik at $x^2-5x+6=(x-2)(x-3)$. Og motsett veg gir **produktregelen** oss løysingane direkte når likninga alt er eit produkt: er $a\\cdot b=0$, må minst éin faktor vere null. Desse tre grepa -- formelen, diskriminanten og produktregelen -- gir deg full kontroll over andregradslikningar, som du snart skal bruke på inntekts- og kostnadsmodellar."}}}
+{
+  "id": "bi-okonomi-2-2-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "2.2",
+  "title": "ABC-formelen",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om andregradslikningar -- korleis abc-formelen alltid finn løysingane, kva diskriminanten avslører, og korleis nullpunktsfaktorisering og produktregelen heng saman.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "løse andregradslikninger med abc-formelen",
+    "faktorisere andregradsuttrykk ved nullpunktsfaktorisering"
+  ],
+  "linkedChapterId": "bi-okonomi-2-2",
+  "content": [
+    {
+      "id": "bi-okonomi-2-2-n-intro",
+      "type": "text",
+      "content": "## Når $x$ kjem i andre potens\n\nI førre kapittel løyste vi likningar der $x$ sto åleine. Men kva gjer du når den ukjende er opphøgd i andre, slik som $x^2-5x+6=0$? Slike **andregradslikningar** har forma $ax^2+bx+c=0$, og dei dukkar opp overalt i økonomi -- til dømes når ein inntektsfunksjon er ein parabel og du leitar etter kva prisar som gir null forteneste. Heldigvis finst det éin formel som alltid verkar.\n\n**abc-formelen** seier at løysingane er $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Her er $a$, $b$ og $c$ tala framfor høvesvis $x^2$, $x$ og konstantleddet. Teiknet $\\pm$ tyder at vi reknar ut to gonger: éin gong med pluss og éin gong med minus -- difor får andregradslikningar ofte to løysingar.\n\nLat oss prøve på $x^2-5x+6=0$. Her er $a=1$, $b=-5$ og $c=6$. Vi set inn: $x=\\frac{-(-5)\\pm\\sqrt{(-5)^2-4\\cdot 1\\cdot 6}}{2\\cdot 1}=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$. Det gir $x_1=\\frac{4}{2}=2$ og $x_2=\\frac{6}{2}=3$. Står likninga ikkje på rett form, ryddar vi først: $2x^2-12x=-16$ blir til $2x^2-12x+16=0$, og med $a=2$, $b=-12$, $c=16$ får vi $x=\\frac{12\\pm\\sqrt{144-128}}{4}=\\frac{12\\pm 4}{4}$, altså $x_1=4$ og $x_2=2$."
+    },
+    {
+      "id": "bi-okonomi-2-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-2-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på abc-formelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-2-2-n-quiz1-q0",
+            "task": "I likninga $x^2-5x+6=0$, kva er $a$, $b$ og $c$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$a=1$, $b=-5$, $c=6$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$a=1$, $b=5$, $c=6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a=0$, $b=-5$, $c=6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a=-5$, $b=6$, $c=1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tala framfor $x^2$, $x$ og konstanten: $a=1$ (underforstått), $b=-5$, $c=6$."
+          },
+          {
+            "id": "bi-okonomi-2-2-n-quiz1-q1",
+            "task": "Kva blir løysingane av $x^2-5x+6=0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=5$ og $x=6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x=2$ og $x=3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x=-2$ og $x=-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=1$ og $x=6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$ gir $x_1=2$ og $x_2=3$."
+          },
+          {
+            "id": "bi-okonomi-2-2-n-quiz1-q2",
+            "task": "Før du brukar abc-formelen på $2x^2-12x=-16$, kva blir rett standardform?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2x^2-12x-16=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x^2+12x+16=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2x^2-12x+16=0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2x^2-12x=16$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Flytt $-16$ over likskapsteiknet: $2x^2-12x+16=0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-2-2-n-section1",
+      "type": "text",
+      "content": "## Når det blir éi eller inga løysing\n\nUttrykket under rotteiknet, $b^2-4ac$, blir kalla **diskriminanten**, og det avgjer kor mange løysingar likninga har. Vanlegvis er det positivt, og vi får to løysingar. Men to spesialtilfelle er verdt å kjenne.\n\nBlir diskriminanten **null**, står det $\\pm\\sqrt{0}$ i formelen. Å leggje til eller trekkje frå null gir same resultat, så dei to løysingane smeltar saman til éi. Ta $x^2+10x+25=0$ med $a=1$, $b=10$, $c=25$: $x=\\frac{-10\\pm\\sqrt{100-100}}{2}=\\frac{-10\\pm 0}{2}=-5$. Her finst altså berre den eine løysinga $x=-5$.\n\nBlir diskriminanten **negativ**, hamnar vi i trøbbel: kvadratrøter av negative tal er ikkje definerte blant dei reelle tala. Då finst inga løysing. Sjå på $x^2-5x+8=0$: $x=\\frac{5\\pm\\sqrt{25-32}}{2}=\\frac{5\\pm\\sqrt{-7}}{2}$. Sidan $\\sqrt{-7}$ ikkje gir meining, skriv vi løysingsmengda som den tomme mengda, $L=\\emptyset$. Eit raskt blikk på diskriminanten fortel deg altså med éin gong om du ventar to, éi eller inga løysingar."
+    },
+    {
+      "id": "bi-okonomi-2-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-2-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på diskriminanten og talet på løysingar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-2-2-n-quiz2-q0",
+            "task": "Kva blir uttrykket $b^2-4ac$ under rotteiknet kalla?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Koeffisienten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Standardform",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Faktoren",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Diskriminanten",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Det er diskriminanten, som avgjer kor mange løysingar likninga har."
+          },
+          {
+            "id": "bi-okonomi-2-2-n-quiz2-q1",
+            "task": "Kor mange løysingar har $x^2+10x+25=0$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Nøyaktig éi",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "To ulike",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Inga",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Uendeleg mange",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Diskriminanten er $100-100=0$, så $\\pm\\sqrt{0}$ gir éi løysing, $x=-5$."
+          },
+          {
+            "id": "bi-okonomi-2-2-n-quiz2-q2",
+            "task": "Kva er løysingsmengda til $x^2-5x+8=0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=2$ og $x=3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$L=\\emptyset$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x=4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=-7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Diskriminanten er $25-32=-7<0$. $\\sqrt{-7}$ er ikkje definert, så $L=\\emptyset$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-2-2-n-section2",
+      "type": "text",
+      "content": "## Faktorisering og produktregelen\n\nNår vi først har funne nullpunkta $x_1$ og $x_2$, kan vi bruke dei til å **faktorisere** andregradsuttrykket. Formelen er $ax^2+bx+c=a(x-x_1)(x-x_2)$. For $x^2-5x+6$ fann vi $x_1=2$ og $x_2=3$, så uttrykket blir $1(x-2)(x-3)=(x-2)(x-3)$. For $2x^2-12x+16$, der $x_1=2$ og $x_2=4$, hugsar vi $a=2$ framfor: $2(x-2)(x-4)$. Får vi berre éi løysing, set vi henne inn for begge: $3x^2+18x+27=3(x^2+6x+9)$ har den eine løysinga $x=-3$, så det blir faktorisert til $3(x+3)^2$.\n\nFaktorisering peikar rett mot eit anna kraftig reiskap: **produktregelen**. Han seier at dersom $a\\cdot b=0$, så må anten $a=0$ eller $b=0$ -- eit produkt blir berre null dersom minst éin faktor er null. Står likninga allereie som eit produkt lik null, slepp vi abc-formelen heilt.\n\nI $(x-4)(x+2)=0$ er løysinga at anten $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$. Regelen gjeld uansett kor mange faktorar du har: i $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$ blir kvar parentes lik null i tur og orden, og løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$. Talet $3$ framfor kan aldri bli null, så det gir inga løysing."
+    },
+    {
+      "id": "bi-okonomi-2-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-2-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisering og produktregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-2-2-n-quiz3-q0",
+            "task": "Nullpunkta til $x^2-5x+6$ er $2$ og $3$. Kva blir faktoriseringa?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x+2)(x+3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x-5)(x-6)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(x-2)(x-3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$5(x-2)(x-3)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $a=1$: $a(x-x_1)(x-x_2)=(x-2)(x-3)$."
+          },
+          {
+            "id": "bi-okonomi-2-2-n-quiz3-q1",
+            "task": "Faktoriser $2x^2-12x+16$ når nullpunkta er $2$ og $4$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x-2)(x-4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2(x+2)(x+4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x-2)(x-8)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2(x-2)(x-4)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hugs $a=2$ framfor: $2(x-2)(x-4)$."
+          },
+          {
+            "id": "bi-okonomi-2-2-n-quiz3-q2",
+            "task": "Løys $(x-4)(x+2)=0$ med produktregelen.",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x=4$ og $x=-2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x=4$ og $x=2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=-4$ og $x=2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x=-4$ og $x=-2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktet er null når ein faktor er null: $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$."
+          },
+          {
+            "id": "bi-okonomi-2-2-n-quiz3-q3",
+            "task": "Løys $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=3$, $x=-\\frac{1}{2}$, $x=0{,}3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x=-\\frac{1}{2}$, $x=0{,}3$, $x=\\sqrt{5}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x=\\frac{1}{2}$, $x=-0{,}3$, $x=-\\sqrt{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=3$ er einaste løysing",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvar parentes blir sett lik null. Talet $3$ kan aldri bli null, så løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-2-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEi **andregradslikning** har forma $ax^2+bx+c=0$, og henne løyser vi med **abc-formelen** $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Teiknet $\\pm$ gir oss to reknestykke og dermed gjerne to løysingar. Uttrykket $b^2-4ac$, **diskriminanten**, avslører talet: positivt gir to løysingar, null gir nøyaktig éi, og negativt gir inga reell løysing ($L=\\emptyset$).\n\nNullpunkta lèt oss **faktorisere**: $ax^2+bx+c=a(x-x_1)(x-x_2)$, slik at $x^2-5x+6=(x-2)(x-3)$. Og motsett veg gir **produktregelen** oss løysingane direkte når likninga alt er eit produkt: er $a\\cdot b=0$, må minst éin faktor vere null. Desse tre grepa -- formelen, diskriminanten og produktregelen -- gir deg full kontroll over andregradslikningar, som du snart skal bruke på inntekts- og kostnadsmodellar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "a7d642b81cc92ad1",
+    "translatedAt": "2026-06-21T00:50:52.209Z",
+    "model": "claude-code-agent",
+    "strings": 75,
+    "tm": {
+      "9efc46003bf35df6": "ABC-formelen",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "a6e89d88f3e40638": "Ei forteljing om andregradslikningar -- korleis abc-formelen alltid finn løysingane, kva diskriminanten avslører, og korleis nullpunktsfaktorisering og produktregelen heng saman.",
+      "70622d29f423c6b3": "løse andregradslikninger med abc-formelen",
+      "04d4ad0b6858f4ce": "faktorisere andregradsuttrykk ved nullpunktsfaktorisering",
+      "5846689b6fe22e1a": "## Når $x$ kjem i andre potens\n\nI førre kapittel løyste vi likningar der $x$ sto åleine. Men kva gjer du når den ukjende er opphøgd i andre, slik som $x^2-5x+6=0$? Slike **andregradslikningar** har forma $ax^2+bx+c=0$, og dei dukkar opp overalt i økonomi -- til dømes når ein inntektsfunksjon er ein parabel og du leitar etter kva prisar som gir null forteneste. Heldigvis finst det éin formel som alltid verkar.\n\n**abc-formelen** seier at løysingane er $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Her er $a$, $b$ og $c$ tala framfor høvesvis $x^2$, $x$ og konstantleddet. Teiknet $\\pm$ tyder at vi reknar ut to gonger: éin gong med pluss og éin gong med minus -- difor får andregradslikningar ofte to løysingar.\n\nLat oss prøve på $x^2-5x+6=0$. Her er $a=1$, $b=-5$ og $c=6$. Vi set inn: $x=\\frac{-(-5)\\pm\\sqrt{(-5)^2-4\\cdot 1\\cdot 6}}{2\\cdot 1}=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$. Det gir $x_1=\\frac{4}{2}=2$ og $x_2=\\frac{6}{2}=3$. Står likninga ikkje på rett form, ryddar vi først: $2x^2-12x=-16$ blir til $2x^2-12x+16=0$, og med $a=2$, $b=-12$, $c=16$ får vi $x=\\frac{12\\pm\\sqrt{144-128}}{4}=\\frac{12\\pm 4}{4}$, altså $x_1=4$ og $x_2=2$.",
+      "df4c8774ebd1461f": "Test deg sjølv på abc-formelen:",
+      "4097889236a2af26": "placeholder",
+      "fab28b6c869d623d": "I likninga $x^2-5x+6=0$, kva er $a$, $b$ og $c$?",
+      "045ea9ca8c03b64e": "$a=1$, $b=5$, $c=6$",
+      "c8d3340cf19535c3": "$a=0$, $b=-5$, $c=6$",
+      "a0a53e72eb841a67": "$a=1$, $b=-5$, $c=6$",
+      "eee65e43f9cfa3b2": "$a=-5$, $b=6$, $c=1$",
+      "266f5edb65fcf0a2": "Tala framfor $x^2$, $x$ og konstanten: $a=1$ (underforstått), $b=-5$, $c=6$.",
+      "b23cf71aaded1958": "Kva blir løysingane av $x^2-5x+6=0$?",
+      "922c026797a706d0": "$x=5$ og $x=6$",
+      "717ad4062f3758c3": "$x=-2$ og $x=-3$",
+      "a6f152a459515c68": "$x=1$ og $x=6$",
+      "61b3572acfe21b40": "$x=2$ og $x=3$",
+      "a26d0dc544dd641f": "$x=\\frac{5\\pm\\sqrt{25-24}}{2}=\\frac{5\\pm 1}{2}$ gir $x_1=2$ og $x_2=3$.",
+      "facc818162ff68f6": "Før du brukar abc-formelen på $2x^2-12x=-16$, kva blir rett standardform?",
+      "609b318eb22132ce": "$2x^2-12x+16=0$",
+      "df37843e94015d9f": "$2x^2-12x-16=0$",
+      "ff705960f52ae5ba": "$2x^2+12x+16=0$",
+      "28a3ec2645d4da5e": "$2x^2-12x=16$",
+      "29fb9e30833ce19f": "Flytt $-16$ over likskapsteiknet: $2x^2-12x+16=0$.",
+      "9ddbd3d5b1abca4c": "## Når det blir éi eller inga løysing\n\nUttrykket under rotteiknet, $b^2-4ac$, blir kalla **diskriminanten**, og det avgjer kor mange løysingar likninga har. Vanlegvis er det positivt, og vi får to løysingar. Men to spesialtilfelle er verdt å kjenne.\n\nBlir diskriminanten **null**, står det $\\pm\\sqrt{0}$ i formelen. Å leggje til eller trekkje frå null gir same resultat, så dei to løysingane smeltar saman til éi. Ta $x^2+10x+25=0$ med $a=1$, $b=10$, $c=25$: $x=\\frac{-10\\pm\\sqrt{100-100}}{2}=\\frac{-10\\pm 0}{2}=-5$. Her finst altså berre den eine løysinga $x=-5$.\n\nBlir diskriminanten **negativ**, hamnar vi i trøbbel: kvadratrøter av negative tal er ikkje definerte blant dei reelle tala. Då finst inga løysing. Sjå på $x^2-5x+8=0$: $x=\\frac{5\\pm\\sqrt{25-32}}{2}=\\frac{5\\pm\\sqrt{-7}}{2}$. Sidan $\\sqrt{-7}$ ikkje gir meining, skriv vi løysingsmengda som den tomme mengda, $L=\\emptyset$. Eit raskt blikk på diskriminanten fortel deg altså med éin gong om du ventar to, éi eller inga løysingar.",
+      "b56179e3b7bd3f87": "Test deg sjølv på diskriminanten og talet på løysingar:",
+      "74c7d7b9b4a7c5b9": "Kva blir uttrykket $b^2-4ac$ under rotteiknet kalla?",
+      "3e2cecd4cd15f42c": "Koeffisienten",
+      "85a3a4596014e4ff": "Diskriminanten",
+      "dce4b657771adfed": "Standardform",
+      "a5807be3ad9ac484": "Faktoren",
+      "b777729dc55fd3b5": "Det er diskriminanten, som avgjer kor mange løysingar likninga har.",
+      "26f4c24d86123cc0": "Kor mange løysingar har $x^2+10x+25=0$?",
+      "dbdf3b2c220130b8": "To ulike",
+      "4caa44f124d9c5e5": "Inga",
+      "91028c139b59ba1c": "Nøyaktig éi",
+      "6b5eccd31267a114": "Uendeleg mange",
+      "c2d6e9a533417dfd": "Diskriminanten er $100-100=0$, så $\\pm\\sqrt{0}$ gir éi løysing, $x=-5$.",
+      "8896f4fac1624bbf": "Kva er løysingsmengda til $x^2-5x+8=0$?",
+      "d847dadd3c0fdaed": "$x=4$",
+      "a4ec473163a9ea49": "$x=-7$",
+      "6b513c57194282bb": "$L=\\emptyset$",
+      "a732e436f324dc47": "Diskriminanten er $25-32=-7<0$. $\\sqrt{-7}$ er ikkje definert, så $L=\\emptyset$.",
+      "88c39c0b529fff5c": "## Faktorisering og produktregelen\n\nNår vi først har funne nullpunkta $x_1$ og $x_2$, kan vi bruke dei til å **faktorisere** andregradsuttrykket. Formelen er $ax^2+bx+c=a(x-x_1)(x-x_2)$. For $x^2-5x+6$ fann vi $x_1=2$ og $x_2=3$, så uttrykket blir $1(x-2)(x-3)=(x-2)(x-3)$. For $2x^2-12x+16$, der $x_1=2$ og $x_2=4$, hugsar vi $a=2$ framfor: $2(x-2)(x-4)$. Får vi berre éi løysing, set vi henne inn for begge: $3x^2+18x+27=3(x^2+6x+9)$ har den eine løysinga $x=-3$, så det blir faktorisert til $3(x+3)^2$.\n\nFaktorisering peikar rett mot eit anna kraftig reiskap: **produktregelen**. Han seier at dersom $a\\cdot b=0$, så må anten $a=0$ eller $b=0$ -- eit produkt blir berre null dersom minst éin faktor er null. Står likninga allereie som eit produkt lik null, slepp vi abc-formelen heilt.\n\nI $(x-4)(x+2)=0$ er løysinga at anten $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$. Regelen gjeld uansett kor mange faktorar du har: i $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$ blir kvar parentes lik null i tur og orden, og løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$. Talet $3$ framfor kan aldri bli null, så det gir inga løysing.",
+      "707e2385d49c31b8": "Test deg sjølv på faktorisering og produktregelen:",
+      "292bd8504111bc70": "Nullpunkta til $x^2-5x+6$ er $2$ og $3$. Kva blir faktoriseringa?",
+      "540e61278539f308": "$(x-2)(x-3)$",
+      "6dbabac970c25cdc": "$(x+2)(x+3)$",
+      "5062c5b7d2399c72": "$(x-5)(x-6)$",
+      "b163e958ff10fa1e": "$5(x-2)(x-3)$",
+      "fc100a88ba1d134d": "Med $a=1$: $a(x-x_1)(x-x_2)=(x-2)(x-3)$.",
+      "9dcb70eaccc621e2": "Faktoriser $2x^2-12x+16$ når nullpunkta er $2$ og $4$.",
+      "4ee1a3670a3ac723": "$(x-2)(x-4)$",
+      "a7223b65b2ec6870": "$2(x-2)(x-4)$",
+      "e6ab00f284539826": "$2(x+2)(x+4)$",
+      "60322e7c15cc2be1": "$(x-2)(x-8)$",
+      "d70b541123a8b07c": "Hugs $a=2$ framfor: $2(x-2)(x-4)$.",
+      "efb18a92e64d8704": "Løys $(x-4)(x+2)=0$ med produktregelen.",
+      "45c0debf01803d6a": "$x=4$ og $x=2$",
+      "e58722e0220db059": "$x=-4$ og $x=2$",
+      "e69853cf10e3ca12": "$x=4$ og $x=-2$",
+      "402696d36a9a4502": "$x=-4$ og $x=-2$",
+      "450c033758f5e3d3": "Produktet er null når ein faktor er null: $x-4=0$ eller $x+2=0$, altså $x=4$ eller $x=-2$.",
+      "d3d2d551cda5b9ea": "Løys $3\\left(x+\\frac{1}{2}\\right)(x-0{,}3)(x-\\sqrt{5})=0$.",
+      "68d7e0f69d27a3a8": "$x=3$, $x=-\\frac{1}{2}$, $x=0{,}3$",
+      "cebb012396945c66": "$x=\\frac{1}{2}$, $x=-0{,}3$, $x=-\\sqrt{5}$",
+      "6c5f9c2eae86bbbb": "$x=3$ er einaste løysing",
+      "8bc37697d2d22d5e": "$x=-\\frac{1}{2}$, $x=0{,}3$, $x=\\sqrt{5}$",
+      "1ad60bc5ea17dc04": "Kvar parentes blir sett lik null. Talet $3$ kan aldri bli null, så løysingane er $x=-\\frac{1}{2}$, $x=0{,}3$ og $x=\\sqrt{5}$.",
+      "d1f4dc701d08f1ea": "## Oppsummering\n\nEi **andregradslikning** har forma $ax^2+bx+c=0$, og henne løyser vi med **abc-formelen** $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Teiknet $\\pm$ gir oss to reknestykke og dermed gjerne to løysingar. Uttrykket $b^2-4ac$, **diskriminanten**, avslører talet: positivt gir to løysingar, null gir nøyaktig éi, og negativt gir inga reell løysing ($L=\\emptyset$).\n\nNullpunkta lèt oss **faktorisere**: $ax^2+bx+c=a(x-x_1)(x-x_2)$, slik at $x^2-5x+6=(x-2)(x-3)$. Og motsett veg gir **produktregelen** oss løysingane direkte når likninga alt er eit produkt: er $a\\cdot b=0$, må minst éin faktor vere null. Desse tre grepa -- formelen, diskriminanten og produktregelen -- gir deg full kontroll over andregradslikningar, som du snart skal bruke på inntekts- og kostnadsmodellar."
+    }
+  }
+}

@@ -1,1 +1,452 @@
-{"id":"r1-2-1-narrativ","courseId":"r1","chapterNumber":"2.1","title":"Funksjonstyper og egenskaper","subtitle":"Narrativ versjon","description":"En fortelling om funksjonenes artsmangfold -- hvordan vi klassifiserer dem, finner ut hvor de lever, og leser symmetrien og fortegnet deres.","estimatedMinutes":35,"competenceGoals":["gjenkjenne og beskrive ulike funksjonstyper","finne definisjonsmengde og verdimengde","avgjøre om en funksjon er odde eller like","finne nullpunkter og analysere fortegn"],"linkedChapterId":"r1-2-1","content":[{"id":"r1-2-1-n-intro","type":"text","content":"## Funksjonenes artsmangfold\n\nEn biolog som finner en ukjent skapning, stiller alltid de samme spørsmålene først: Hvilken art er dette? Hvor lever den? Hvilke kjennetegn har den? I dette kapittelet skal vi gjøre nøyaktig det samme -- med funksjoner.\n\nFor naturvitenskapen er full av funksjoner, og de kommer i bestemte «arter». Når en fysiker beskriver et fallende eple, dukker det opp et *polynom*: $h(t) = h_0 - \\frac{1}{2}gt^2$. Når en kjemiker følger et radioaktivt stoff, er det en *eksponentialfunksjon* som styrer. Lydstyrke i desibel? En *logaritmefunksjon*. Tyngdekraftens avtagende grep med avstanden? En *potensfunksjon*. Og forholdet mellom to størrelser som begge endrer seg, blir gjerne en *rasjonal funksjon* -- en brøk av polynomer.\n\nÅ gjenkjenne arten er første steg, for hver art har sin karakteristiske oppførsel. Men så kommer biologens neste spørsmål: hvor *lever* funksjonen? Det er **definisjonsmengden** -- alle $x$-verdier funksjonen tåler -- og dens makker **verdimengden**, alle $y$-verdier den faktisk produserer.\n\nTil slutt ser vi på kjennetegnene: noen funksjoner er perfekt symmetriske om $y$-aksen, andre er punktsymmetriske om origo. Og alle kan kartlegges med nullpunkter og fortegnsanalyse -- hvor er funksjonen null, hvor er den positiv, hvor er den negativ? Når kapittelet er over, kan du møte en vilt fremmed funksjon og raskt lage en feltrapport om den. La oss begynne med artsbestemmelsen."},{"id":"r1-2-1-n-section1","type":"text","content":"## De fem store funksjonsfamiliene\n\nI R1 møter du fem funksjonsfamilier igjen og igjen, og du bør kjenne dem på utseendet.\n\n**Polynomfunksjonene** $P(x) = a_n x^n + \\ldots + a_1 x + a_0$ er de mest godlynte: definert overalt, glatte og forutsigbare. Du kjenner allerede spesialtilfellene -- lineære funksjoner (grad 1) og andregradsfunksjoner (grad 2). $f(x) = 3x^4 - 2x^2 + 1$ er et fjerdegradsmedlem av familien.\n\n**Rasjonale funksjoner** er brøker av polynomer, $R(x) = \\frac{P(x)}{Q(x)}$, som $g(x) = \\frac{x^2-1}{x+3}$. De arver mye fra polynomene, men har et dramatisk trekk: der nevneren blir null, bryter de sammen -- ofte med asymptoter som resultat.\n\n**Eksponentialfunksjonene** $f(x) = a \\cdot b^x$ eller $a \\cdot e^{kx}$ har den ukjente i eksponenten, og det gjør hele forskjellen: de vokser (eller avtar) i et tempo som er proporsjonalt med sin egen størrelse. Derfor styrer de bakterievekst, renters rente og radioaktiv nedbryting. $h(x) = 2 \\cdot 3^x$ er en av dem.\n\n**Logaritmefunksjonene** $f(x) = \\ln x$ eller $\\log_a x$ er eksponentialfunksjonenes motstykker fra kapittel 1 -- de vokser, men stadig langsommere, og finnes bare for positive $x$.\n\n**Potensfunksjonene** $f(x) = x^r$ har fast eksponent og variabel base -- motsatt av eksponentialfunksjonene. Familien er stor: $r = 2$ gir parabelen, $r = \\frac{1}{2}$ gir kvadratroten $k(x) = \\sqrt{x} = x^{1/2}$, og $r = -1$ gir hyperbelen $\\frac{1}{x}$.\n\nForveksl aldri de to siste med hverandre: i $x^3$ er det *grunntallet* som varierer, i $3^x$ er det *eksponenten*. De oppfører seg fundamentalt forskjellig -- noe du får se tydelig når vi sammenligner veksten deres i kapittel 3."},{"id":"r1-2-1-n-quiz1","type":"exercise","exercise":{"id":"r1-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på funksjonstyper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-1-n-quiz1-q0","task":"Hvilken funksjonstype er $f(x) = 3x^4 - 2x^2 + 1$?","options":[{"id":"a","text":"Eksponentialfunksjon","isCorrect":false},{"id":"b","text":"Polynomfunksjon av grad 4","isCorrect":true},{"id":"c","text":"Potensfunksjon","isCorrect":false},{"id":"d","text":"Rasjonal funksjon","isCorrect":false}],"solution":"Uttrykket er en sum av ledd med ikke-negative heltallspotenser av $x$ -- et polynom. Høyeste potens er $4$."},{"id":"r1-2-1-n-quiz1-q1","task":"Hvilken funksjonstype er $h(x) = 2 \\cdot 3^x$?","options":[{"id":"a","text":"Potensfunksjon","isCorrect":false},{"id":"b","text":"Polynomfunksjon","isCorrect":false},{"id":"c","text":"Eksponentialfunksjon","isCorrect":true},{"id":"d","text":"Logaritmefunksjon","isCorrect":false}],"solution":"Den ukjente $x$ står i eksponenten, og grunntallet $3$ er fast -- en eksponentialfunksjon."},{"id":"r1-2-1-n-quiz1-q2","task":"Hvilken funksjonstype er $k(x) = \\sqrt{x}$?","options":[{"id":"a","text":"Potensfunksjon med eksponent $\\frac{1}{2}$","isCorrect":true},{"id":"b","text":"Eksponentialfunksjon med grunntall $\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"Rasjonal funksjon","isCorrect":false},{"id":"d","text":"Logaritmefunksjon","isCorrect":false}],"solution":"$\\sqrt{x} = x^{1/2}$: fast eksponent, variabel base -- en potensfunksjon."},{"id":"r1-2-1-n-quiz1-q3","task":"Hvilken funksjonstype er $g(x) = \\frac{x^2-1}{x+3}$?","options":[{"id":"a","text":"Polynomfunksjon","isCorrect":false},{"id":"b","text":"Potensfunksjon","isCorrect":false},{"id":"c","text":"Eksponentialfunksjon","isCorrect":false},{"id":"d","text":"Rasjonal funksjon","isCorrect":true}],"solution":"En brøk der både teller og nevner er polynomer, er en rasjonal funksjon."}]}},{"id":"r1-2-1-n-section2","type":"text","content":"## Hvor funksjonen lever: definisjonsmengde og verdimengde\n\n**Definisjonsmengden** $D_f$ er alle $x$-verdier der funksjonsuttrykket gir mening; **verdimengden** $V_f$ er alle $y$-verdier funksjonen faktisk treffer. Tre ting kan innskrenke definisjonsmengden, og du kjenner dem alle fra kapittel 1: vi kan ikke **dele på null**, ikke ta **kvadratrot av negative tall**, og ikke ta **logaritmen av tall som ikke er positive**.\n\nJakten på $D_f$ er derfor en jakt på forbudte soner. For $f(x) = \\frac{1}{x-2}$ er det bare ett forbudt punkt: $x = 2$, så $D_f = \\mathbb{R} \\setminus \\{2\\}$. For $g(x) = \\sqrt{4 - x^2}$ krever roten $4 - x^2 \\geq 0$, altså $x^2 \\leq 4$ -- en ulikhet fra kapittel 1.5! Løsningen er $D_g = [-2, 2]$. For $h(x) = \\ln(x-1)$ krever logaritmen $x - 1 > 0$, så $D_h = (1, \\infty)$ -- og merk forskjellen fra roten: streng ulikhet, åpen parentes.\n\nVerdimengden krever litt mer fantasi: du må spørre hvilke $y$-verdier som er *oppnåelige*. For $f(x) = x^2$ er svaret $[0, \\infty)$ -- kvadrater er aldri negative, men når alt fra null og oppover. For $g(x) = e^x$ er svaret $(0, \\infty)$: eksponentialfunksjonen er alltid strengt positiv, kommer vilkårlig nær null når $x \\to -\\infty$, men *når* aldri null. Og for $h(x) = \\frac{1}{x}$ med $x > 0$ ser vi det samme bildet: verdiene spenner over $(0, \\infty)$, der yttergrensene nærmes, men aldri berøres.\n\nDette lille ordet «nærmer seg, men når aldri» kommer du til å høre mye mer om -- det er grenseverdibegrepet som banker på døren."},{"id":"r1-2-1-n-quiz2","type":"exercise","exercise":{"id":"r1-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på definisjonsmengde og verdimengde:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-1-n-quiz2-q0","task":"Hva er definisjonsmengden til $f(x) = \\frac{1}{x-2}$?","options":[{"id":"a","text":"$\\mathbb{R} \\setminus \\{2\\}$","isCorrect":true},{"id":"b","text":"$\\mathbb{R} \\setminus \\{-2\\}$","isCorrect":false},{"id":"c","text":"$(2, \\infty)$","isCorrect":false},{"id":"d","text":"$\\mathbb{R}$","isCorrect":false}],"solution":"Nevneren er null når $x = 2$, så denne verdien må utelukkes: $D_f = \\mathbb{R} \\setminus \\{2\\}$."},{"id":"r1-2-1-n-quiz2-q1","task":"Hva er definisjonsmengden til $g(x) = \\sqrt{4 - x^2}$?","options":[{"id":"a","text":"$(-2, 2)$","isCorrect":false},{"id":"b","text":"$x \\geq 2$","isCorrect":false},{"id":"c","text":"$[-2, 2]$","isCorrect":true},{"id":"d","text":"$[0, 2]$","isCorrect":false}],"solution":"Kravet er $4 - x^2 \\geq 0$, altså $x^2 \\leq 4$, som gir $-2 \\leq x \\leq 2$. Endepunktene er med fordi roten av null er lov."},{"id":"r1-2-1-n-quiz2-q2","task":"Hva er definisjonsmengden til $h(x) = \\ln(x - 1)$?","options":[{"id":"a","text":"$[1, \\infty)$","isCorrect":false},{"id":"b","text":"$(1, \\infty)$","isCorrect":true},{"id":"c","text":"$\\mathbb{R} \\setminus \\{1\\}$","isCorrect":false},{"id":"d","text":"$(0, \\infty)$","isCorrect":false}],"solution":"Logaritmen krever strengt positivt argument: $x - 1 > 0$, altså $x > 1$. Åpen parentes siden $\\ln 0$ ikke finnes."},{"id":"r1-2-1-n-quiz2-q3","task":"Hva er verdimengden til $g(x) = e^x$?","options":[{"id":"a","text":"$[0, \\infty)$","isCorrect":false},{"id":"b","text":"$\\mathbb{R}$","isCorrect":false},{"id":"c","text":"$(1, \\infty)$","isCorrect":false},{"id":"d","text":"$(0, \\infty)$","isCorrect":true}],"solution":"$e^x$ er alltid strengt positiv, kan bli vilkårlig stor og vilkårlig nær null -- men når aldri null. $V_g = (0, \\infty)$."}]}},{"id":"r1-2-1-n-section3","type":"text","content":"## Kjennetegn: symmetri, nullpunkter og fortegn\n\nNoen funksjoner bærer en innebygd symmetri som halverer arbeidet med å forstå dem. En **like funksjon** oppfyller $f(-x) = f(x)$: å speile $x$ endrer ingenting, og grafen er symmetrisk om $y$-aksen. En **odde funksjon** oppfyller $f(-x) = -f(x)$: speiling av $x$ speiler også $y$, og grafen er punktsymmetrisk om origo. Navnene er ingen tilfeldighet -- $x^2$, $x^4$ og alle jevne potenser er like, mens $x$, $x^3$ og alle odde potenser er odde.\n\nTesten er ren regning: bytt ut $x$ med $-x$ og se hva som skjer. For $f(x) = x^4 - 3x^2 + 1$: $f(-x) = x^4 - 3x^2 + 1 = f(x)$ -- like. For $g(x) = x^3 - x$: $g(-x) = -x^3 + x = -g(x)$ -- odde. Men $h(x) = x^2 + x$ blander jevn og odd potens: $h(-x) = x^2 - x$, som verken er $h(x)$ eller $-h(x)$. De fleste funksjoner er som $h$ -- uten symmetri.\n\nDet siste kjennetegnet i feltrapporten er fortegnskartet. **Nullpunktene** er der $f(x) = 0$, og mellom dem kan ikke en kontinuerlig funksjon bytte fortegn -- nøyaktig samme logikk som fortegnslinjen i kapittel 1.5. Ta $f(x) = x^3 - 4x = x(x-2)(x+2)$, med nullpunkter $-2$, $0$ og $2$. Tallinja deles i fire soner, og vi tester ett punkt i hver: $x = -3$ gir negativt, $x = -1$ positivt, $x = 1$ negativt, $x = 3$ positivt. Dermed vet vi *alt* om hvor grafen ligger over og under $x$-aksen -- uten å tegne den.\n\nLegg merke til at $f(x) = x^3 - 4x$ er odde, og se hvordan fortegnsmønsteret $-, +, -, +$ speiler seg antisymmetrisk om origo. Kjennetegnene henger sammen -- og sammen utgjør de feltrapporten som gjør en fremmed funksjon kjent."},{"id":"r1-2-1-n-quiz3","type":"exercise","exercise":{"id":"r1-2-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på symmetri, nullpunkter og fortegn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-1-n-quiz3-q0","task":"Er $f(x) = x^4 - 3x^2 + 1$ like, odde eller ingen av delene?","options":[{"id":"a","text":"Odde","isCorrect":false},{"id":"b","text":"Like","isCorrect":true},{"id":"c","text":"Begge deler","isCorrect":false},{"id":"d","text":"Ingen av delene","isCorrect":false}],"solution":"$f(-x) = (-x)^4 - 3(-x)^2 + 1 = x^4 - 3x^2 + 1 = f(x)$. Funksjonen er like, og grafen er symmetrisk om $y$-aksen."},{"id":"r1-2-1-n-quiz3-q1","task":"Er $g(x) = x^3 - x$ like, odde eller ingen av delene?","options":[{"id":"a","text":"Odde","isCorrect":true},{"id":"b","text":"Like","isCorrect":false},{"id":"c","text":"Ingen av delene","isCorrect":false},{"id":"d","text":"Begge deler","isCorrect":false}],"solution":"$g(-x) = -x^3 + x = -(x^3 - x) = -g(x)$. Funksjonen er odde -- punktsymmetrisk om origo."},{"id":"r1-2-1-n-quiz3-q2","task":"Hva er nullpunktene til $f(x) = x^3 - 4x$?","options":[{"id":"a","text":"$x = 0$ og $x = 4$","isCorrect":false},{"id":"b","text":"$x = 2$ og $x = -2$","isCorrect":false},{"id":"c","text":"$x = 0$, $x = 2$ og $x = -2$","isCorrect":true},{"id":"d","text":"$x = 0$, $x = 4$ og $x = -4$","isCorrect":false}],"solution":"$x^3 - 4x = x(x^2-4) = x(x-2)(x+2) = 0$ gir $x = 0$, $x = 2$ og $x = -2$."},{"id":"r1-2-1-n-quiz3-q3","task":"Hvilket fortegn har $f(x) = x^3 - 4x$ på intervallet $(0, 2)$?","options":[{"id":"a","text":"Positivt","isCorrect":false},{"id":"b","text":"Negativt","isCorrect":true},{"id":"c","text":"Både positivt og negativt","isCorrect":false},{"id":"d","text":"Null","isCorrect":false}],"solution":"Test for eksempel $x = 1$: $f(1) = 1 - 4 = -3 < 0$. Mellom nullpunktene er fortegnet konstant, så $f$ er negativ på hele $(0, 2)$."},{"id":"r1-2-1-n-quiz3-q4","task":"Er $h(x) = x^2 + x$ like, odde eller ingen av delene?","options":[{"id":"a","text":"Like","isCorrect":false},{"id":"b","text":"Odde","isCorrect":false},{"id":"c","text":"Begge deler","isCorrect":false},{"id":"d","text":"Ingen av delene","isCorrect":true}],"solution":"$h(-x) = x^2 - x$, som verken er lik $h(x)$ eller $-h(x)$. Funksjonen blander jevn og odd potens og har ingen av symmetriene."}]}},{"id":"r1-2-1-n-summary","type":"text","content":"## Fortellingen i et nøtteskall\n\nSom biologen med sin feltrapport kan du nå artsbestemme, stedfeste og beskrive en funksjon.\n\n**Artene**: polynomfunksjoner (summer av potenser med heltallseksponenter), rasjonale funksjoner (brøker av polynomer), eksponentialfunksjoner ($x$ i eksponenten -- vekst proporsjonal med egen størrelse), logaritmefunksjoner (eksponentialens motstykke, kun for positive $x$) og potensfunksjoner (fast eksponent $x^r$). Husk den avgjørende forskjellen: $x^3$ er potens, $3^x$ er eksponential.\n\n**Levestedet**: definisjonsmengden $D_f$ finner du ved å lete etter de tre forbudene -- divisjon med null, rot av negativt tall og logaritme av ikke-positivt tall. Verdimengden $V_f$ er de $y$-verdiene som faktisk nås, og krever at du tenker gjennom funksjonens oppførsel, inkludert verdier den nærmer seg uten å nå.\n\n**Kjennetegnene**: like funksjoner ($f(-x) = f(x)$) speiler seg om $y$-aksen, odde funksjoner ($f(-x) = -f(x)$) er punktsymmetriske om origo, og testen er å sette inn $-x$. Nullpunktene deler tallinja i soner med konstant fortegn, og ett testpunkt per sone gir hele fortegnskartet.\n\nDette er funksjonsanalysens grunnmur. I de neste kapitlene bygger vi videre: omvendte funksjoner som kjører maskineriet baklengs, sammensatte funksjoner som kobler maskiner i serie -- og i kapittel 3 det store spørsmålet om hvor *fort* funksjonene endrer seg."}],"exercises":[]}
+{
+  "id": "r1-2-1-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "2.1",
+  "title": "Funksjonstyper og egenskaper",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om funksjonenes artsmangfold -- hvordan vi klassifiserer dem, finner ut hvor de lever, og leser symmetrien og fortegnet deres.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "gjenkjenne og beskrive ulike funksjonstyper",
+    "finne definisjonsmengde og verdimengde",
+    "avgjøre om en funksjon er odde eller like",
+    "finne nullpunkter og analysere fortegn"
+  ],
+  "linkedChapterId": "r1-2-1",
+  "content": [
+    {
+      "id": "r1-2-1-n-intro",
+      "type": "text",
+      "content": "## Funksjonenes artsmangfold\n\nEn biolog som finner en ukjent skapning, stiller alltid de samme spørsmålene først: Hvilken art er dette? Hvor lever den? Hvilke kjennetegn har den? I dette kapittelet skal vi gjøre nøyaktig det samme -- med funksjoner.\n\nFor naturvitenskapen er full av funksjoner, og de kommer i bestemte «arter». Når en fysiker beskriver et fallende eple, dukker det opp et *polynom*: $h(t) = h_0 - \\frac{1}{2}gt^2$. Når en kjemiker følger et radioaktivt stoff, er det en *eksponentialfunksjon* som styrer. Lydstyrke i desibel? En *logaritmefunksjon*. Tyngdekraftens avtagende grep med avstanden? En *potensfunksjon*. Og forholdet mellom to størrelser som begge endrer seg, blir gjerne en *rasjonal funksjon* -- en brøk av polynomer.\n\nÅ gjenkjenne arten er første steg, for hver art har sin karakteristiske oppførsel. Men så kommer biologens neste spørsmål: hvor *lever* funksjonen? Det er **definisjonsmengden** -- alle $x$-verdier funksjonen tåler -- og dens makker **verdimengden**, alle $y$-verdier den faktisk produserer.\n\nTil slutt ser vi på kjennetegnene: noen funksjoner er perfekt symmetriske om $y$-aksen, andre er punktsymmetriske om origo. Og alle kan kartlegges med nullpunkter og fortegnsanalyse -- hvor er funksjonen null, hvor er den positiv, hvor er den negativ? Når kapittelet er over, kan du møte en vilt fremmed funksjon og raskt lage en feltrapport om den. La oss begynne med artsbestemmelsen."
+    },
+    {
+      "id": "r1-2-1-n-section1",
+      "type": "text",
+      "content": "## De fem store funksjonsfamiliene\n\nI R1 møter du fem funksjonsfamilier igjen og igjen, og du bør kjenne dem på utseendet.\n\n**Polynomfunksjonene** $P(x) = a_n x^n + \\ldots + a_1 x + a_0$ er de mest godlynte: definert overalt, glatte og forutsigbare. Du kjenner allerede spesialtilfellene -- lineære funksjoner (grad 1) og andregradsfunksjoner (grad 2). $f(x) = 3x^4 - 2x^2 + 1$ er et fjerdegradsmedlem av familien.\n\n**Rasjonale funksjoner** er brøker av polynomer, $R(x) = \\frac{P(x)}{Q(x)}$, som $g(x) = \\frac{x^2-1}{x+3}$. De arver mye fra polynomene, men har et dramatisk trekk: der nevneren blir null, bryter de sammen -- ofte med asymptoter som resultat.\n\n**Eksponentialfunksjonene** $f(x) = a \\cdot b^x$ eller $a \\cdot e^{kx}$ har den ukjente i eksponenten, og det gjør hele forskjellen: de vokser (eller avtar) i et tempo som er proporsjonalt med sin egen størrelse. Derfor styrer de bakterievekst, renters rente og radioaktiv nedbryting. $h(x) = 2 \\cdot 3^x$ er en av dem.\n\n**Logaritmefunksjonene** $f(x) = \\ln x$ eller $\\log_a x$ er eksponentialfunksjonenes motstykker fra kapittel 1 -- de vokser, men stadig langsommere, og finnes bare for positive $x$.\n\n**Potensfunksjonene** $f(x) = x^r$ har fast eksponent og variabel base -- motsatt av eksponentialfunksjonene. Familien er stor: $r = 2$ gir parabelen, $r = \\frac{1}{2}$ gir kvadratroten $k(x) = \\sqrt{x} = x^{1/2}$, og $r = -1$ gir hyperbelen $\\frac{1}{x}$.\n\nForveksl aldri de to siste med hverandre: i $x^3$ er det *grunntallet* som varierer, i $3^x$ er det *eksponenten*. De oppfører seg fundamentalt forskjellig -- noe du får se tydelig når vi sammenligner veksten deres i kapittel 3."
+    },
+    {
+      "id": "r1-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på funksjonstyper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-1-n-quiz1-q0",
+            "task": "Hvilken funksjonstype er $f(x) = 3x^4 - 2x^2 + 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eksponentialfunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Potensfunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Polynomfunksjon av grad 4",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Rasjonal funksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uttrykket er en sum av ledd med ikke-negative heltallspotenser av $x$ -- et polynom. Høyeste potens er $4$."
+          },
+          {
+            "id": "r1-2-1-n-quiz1-q1",
+            "task": "Hvilken funksjonstype er $h(x) = 2 \\cdot 3^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Potensfunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Polynomfunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Logaritmefunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eksponentialfunksjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den ukjente $x$ står i eksponenten, og grunntallet $3$ er fast -- en eksponentialfunksjon."
+          },
+          {
+            "id": "r1-2-1-n-quiz1-q2",
+            "task": "Hvilken funksjonstype er $k(x) = \\sqrt{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Potensfunksjon med eksponent $\\frac{1}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Eksponentialfunksjon med grunntall $\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rasjonal funksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Logaritmefunksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{x} = x^{1/2}$: fast eksponent, variabel base -- en potensfunksjon."
+          },
+          {
+            "id": "r1-2-1-n-quiz1-q3",
+            "task": "Hvilken funksjonstype er $g(x) = \\frac{x^2-1}{x+3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Polynomfunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rasjonal funksjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Potensfunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eksponentialfunksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En brøk der både teller og nevner er polynomer, er en rasjonal funksjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-1-n-section2",
+      "type": "text",
+      "content": "## Hvor funksjonen lever: definisjonsmengde og verdimengde\n\n**Definisjonsmengden** $D_f$ er alle $x$-verdier der funksjonsuttrykket gir mening; **verdimengden** $V_f$ er alle $y$-verdier funksjonen faktisk treffer. Tre ting kan innskrenke definisjonsmengden, og du kjenner dem alle fra kapittel 1: vi kan ikke **dele på null**, ikke ta **kvadratrot av negative tall**, og ikke ta **logaritmen av tall som ikke er positive**.\n\nJakten på $D_f$ er derfor en jakt på forbudte soner. For $f(x) = \\frac{1}{x-2}$ er det bare ett forbudt punkt: $x = 2$, så $D_f = \\mathbb{R} \\setminus \\{2\\}$. For $g(x) = \\sqrt{4 - x^2}$ krever roten $4 - x^2 \\geq 0$, altså $x^2 \\leq 4$ -- en ulikhet fra kapittel 1.5! Løsningen er $D_g = [-2, 2]$. For $h(x) = \\ln(x-1)$ krever logaritmen $x - 1 > 0$, så $D_h = (1, \\infty)$ -- og merk forskjellen fra roten: streng ulikhet, åpen parentes.\n\nVerdimengden krever litt mer fantasi: du må spørre hvilke $y$-verdier som er *oppnåelige*. For $f(x) = x^2$ er svaret $[0, \\infty)$ -- kvadrater er aldri negative, men når alt fra null og oppover. For $g(x) = e^x$ er svaret $(0, \\infty)$: eksponentialfunksjonen er alltid strengt positiv, kommer vilkårlig nær null når $x \\to -\\infty$, men *når* aldri null. Og for $h(x) = \\frac{1}{x}$ med $x > 0$ ser vi det samme bildet: verdiene spenner over $(0, \\infty)$, der yttergrensene nærmes, men aldri berøres.\n\nDette lille ordet «nærmer seg, men når aldri» kommer du til å høre mye mer om -- det er grenseverdibegrepet som banker på døren."
+    },
+    {
+      "id": "r1-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på definisjonsmengde og verdimengde:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-1-n-quiz2-q0",
+            "task": "Hva er definisjonsmengden til $f(x) = \\frac{1}{x-2}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\mathbb{R} \\setminus \\{-2\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(2, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\mathbb{R} \\setminus \\{2\\}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\mathbb{R}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nevneren er null når $x = 2$, så denne verdien må utelukkes: $D_f = \\mathbb{R} \\setminus \\{2\\}$."
+          },
+          {
+            "id": "r1-2-1-n-quiz2-q1",
+            "task": "Hva er definisjonsmengden til $g(x) = \\sqrt{4 - x^2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(-2, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x \\geq 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[0, 2]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[-2, 2]$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kravet er $4 - x^2 \\geq 0$, altså $x^2 \\leq 4$, som gir $-2 \\leq x \\leq 2$. Endepunktene er med fordi roten av null er lov."
+          },
+          {
+            "id": "r1-2-1-n-quiz2-q2",
+            "task": "Hva er definisjonsmengden til $h(x) = \\ln(x - 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[1, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(1, \\infty)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\mathbb{R} \\setminus \\{1\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(0, \\infty)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logaritmen krever strengt positivt argument: $x - 1 > 0$, altså $x > 1$. Åpen parentes siden $\\ln 0$ ikke finnes."
+          },
+          {
+            "id": "r1-2-1-n-quiz2-q3",
+            "task": "Hva er verdimengden til $g(x) = e^x$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$(0, \\infty)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[0, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mathbb{R}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(1, \\infty)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$e^x$ er alltid strengt positiv, kan bli vilkårlig stor og vilkårlig nær null -- men når aldri null. $V_g = (0, \\infty)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-1-n-section3",
+      "type": "text",
+      "content": "## Kjennetegn: symmetri, nullpunkter og fortegn\n\nNoen funksjoner bærer en innebygd symmetri som halverer arbeidet med å forstå dem. En **like funksjon** oppfyller $f(-x) = f(x)$: å speile $x$ endrer ingenting, og grafen er symmetrisk om $y$-aksen. En **odde funksjon** oppfyller $f(-x) = -f(x)$: speiling av $x$ speiler også $y$, og grafen er punktsymmetrisk om origo. Navnene er ingen tilfeldighet -- $x^2$, $x^4$ og alle jevne potenser er like, mens $x$, $x^3$ og alle odde potenser er odde.\n\nTesten er ren regning: bytt ut $x$ med $-x$ og se hva som skjer. For $f(x) = x^4 - 3x^2 + 1$: $f(-x) = x^4 - 3x^2 + 1 = f(x)$ -- like. For $g(x) = x^3 - x$: $g(-x) = -x^3 + x = -g(x)$ -- odde. Men $h(x) = x^2 + x$ blander jevn og odd potens: $h(-x) = x^2 - x$, som verken er $h(x)$ eller $-h(x)$. De fleste funksjoner er som $h$ -- uten symmetri.\n\nDet siste kjennetegnet i feltrapporten er fortegnskartet. **Nullpunktene** er der $f(x) = 0$, og mellom dem kan ikke en kontinuerlig funksjon bytte fortegn -- nøyaktig samme logikk som fortegnslinjen i kapittel 1.5. Ta $f(x) = x^3 - 4x = x(x-2)(x+2)$, med nullpunkter $-2$, $0$ og $2$. Tallinja deles i fire soner, og vi tester ett punkt i hver: $x = -3$ gir negativt, $x = -1$ positivt, $x = 1$ negativt, $x = 3$ positivt. Dermed vet vi *alt* om hvor grafen ligger over og under $x$-aksen -- uten å tegne den.\n\nLegg merke til at $f(x) = x^3 - 4x$ er odde, og se hvordan fortegnsmønsteret $-, +, -, +$ speiler seg antisymmetrisk om origo. Kjennetegnene henger sammen -- og sammen utgjør de feltrapporten som gjør en fremmed funksjon kjent."
+    },
+    {
+      "id": "r1-2-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på symmetri, nullpunkter og fortegn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-1-n-quiz3-q0",
+            "task": "Er $f(x) = x^4 - 3x^2 + 1$ like, odde eller ingen av delene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Odde",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge deler",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Like",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen av delene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(-x) = (-x)^4 - 3(-x)^2 + 1 = x^4 - 3x^2 + 1 = f(x)$. Funksjonen er like, og grafen er symmetrisk om $y$-aksen."
+          },
+          {
+            "id": "r1-2-1-n-quiz3-q1",
+            "task": "Er $g(x) = x^3 - x$ like, odde eller ingen av delene?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Like",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen av delene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge deler",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Odde",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$g(-x) = -x^3 + x = -(x^3 - x) = -g(x)$. Funksjonen er odde -- punktsymmetrisk om origo."
+          },
+          {
+            "id": "r1-2-1-n-quiz3-q2",
+            "task": "Hva er nullpunktene til $f(x) = x^3 - 4x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x = 0$, $x = 2$ og $x = -2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = 0$ og $x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 2$ og $x = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 0$, $x = 4$ og $x = -4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^3 - 4x = x(x^2-4) = x(x-2)(x+2) = 0$ gir $x = 0$, $x = 2$ og $x = -2$."
+          },
+          {
+            "id": "r1-2-1-n-quiz3-q3",
+            "task": "Hvilket fortegn har $f(x) = x^3 - 4x$ på intervallet $(0, 2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Positivt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Negativt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Både positivt og negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Test for eksempel $x = 1$: $f(1) = 1 - 4 = -3 < 0$. Mellom nullpunktene er fortegnet konstant, så $f$ er negativ på hele $(0, 2)$."
+          },
+          {
+            "id": "r1-2-1-n-quiz3-q4",
+            "task": "Er $h(x) = x^2 + x$ like, odde eller ingen av delene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Like",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Odde",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen av delene",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Begge deler",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h(-x) = x^2 - x$, som verken er lik $h(x)$ eller $-h(x)$. Funksjonen blander jevn og odd potens og har ingen av symmetriene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-1-n-summary",
+      "type": "text",
+      "content": "## Fortellingen i et nøtteskall\n\nSom biologen med sin feltrapport kan du nå artsbestemme, stedfeste og beskrive en funksjon.\n\n**Artene**: polynomfunksjoner (summer av potenser med heltallseksponenter), rasjonale funksjoner (brøker av polynomer), eksponentialfunksjoner ($x$ i eksponenten -- vekst proporsjonal med egen størrelse), logaritmefunksjoner (eksponentialens motstykke, kun for positive $x$) og potensfunksjoner (fast eksponent $x^r$). Husk den avgjørende forskjellen: $x^3$ er potens, $3^x$ er eksponential.\n\n**Levestedet**: definisjonsmengden $D_f$ finner du ved å lete etter de tre forbudene -- divisjon med null, rot av negativt tall og logaritme av ikke-positivt tall. Verdimengden $V_f$ er de $y$-verdiene som faktisk nås, og krever at du tenker gjennom funksjonens oppførsel, inkludert verdier den nærmer seg uten å nå.\n\n**Kjennetegnene**: like funksjoner ($f(-x) = f(x)$) speiler seg om $y$-aksen, odde funksjoner ($f(-x) = -f(x)$) er punktsymmetriske om origo, og testen er å sette inn $-x$. Nullpunktene deler tallinja i soner med konstant fortegn, og ett testpunkt per sone gir hele fortegnskartet.\n\nDette er funksjonsanalysens grunnmur. I de neste kapitlene bygger vi videre: omvendte funksjoner som kjører maskineriet baklengs, sammensatte funksjoner som kobler maskiner i serie -- og i kapittel 3 det store spørsmålet om hvor *fort* funksjonene endrer seg."
+    }
+  ],
+  "exercises": []
+}

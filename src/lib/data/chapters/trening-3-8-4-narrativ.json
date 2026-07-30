@@ -1,1 +1,346 @@
-{"id":"trening-3-8-4-narrativ","courseId":"trening-3","chapterNumber":"8.4","title":"Statistisk analyse","subtitle":"Narrativ versjon","description":"En fortelling om hvordan tall blir til mening -- om gjennomsnitt og standardavvik som forteller om typisk og spredning, om effektstørrelse som måler praktisk betydning, og om p-verdien som skiller reelt fra tilfeldig.","estimatedMinutes":13,"competenceGoals":["kunne beregne og tolke gjennomsnitt og standardavvik","forstå begrepene effektstørrelse og statistisk signifikans","kunne presentere og tolke data fra treningsstudier"],"linkedChapterId":"trening-3-8-4","content":[{"id":"trening-3-8-4-n-intro","type":"text","content":"## Når tallene skal snakke\n\nDu har samlet inn dataene dine -- kanskje hundrevis av målinger. Men en bunke med tall sier ingenting i seg selv. Du må analysere dem for å finne svar på problemstillingen. Det er her statistisk analyse kommer inn: kunsten å organisere, beskrive og tolke talldata.\n\nI treningslære bruker vi statistikk til å avgjøre om en treningsmetode har effekt, om det finnes forskjeller mellom grupper, eller om det er sammenhenger mellom variabler. Du trenger ikke å bli statistiker, men du bør forstå de grunnleggende begrepene og kunne bruke dem i fordypningsoppgaven din.\n\nHva kan statistikken egentlig fortelle oss? Den kan si hva som er typisk for en gruppe -- sentraltendensen. Den kan si hvor stor spredning det er i dataene -- variasjonen. Den kan si om en effekt er stor nok til å ha praktisk betydning -- effektstørrelsen. Og den kan si om et resultat sannsynligvis er reelt eller bare tilfeldig -- signifikansen. I dette kapittelet skal vi ta for oss alle disse, slik at tallene dine faktisk begynner å snakke."},{"id":"trening-3-8-4-n-section1","type":"text","content":"## Det typiske og spredningen\n\nLa oss begynne med det mest grunnleggende: hva er typisk for gruppen din? Det vanligste målet er **gjennomsnittet**, som du finner ved å summere alle verdiene og dele på antallet. Si at fem elever har 1RM i benkpress på 60, 65, 70, 75 og 80 kg. Da blir summen 350, og gjennomsnittet $350/5 = 70$ kg. Det finnes også andre sentralmål: **medianen** er den midterste verdien når dataene er sortert, og den påvirkes mindre av ekstremverdier. **Modus** er den verdien som forekommer oftest, mest brukt for kategoriske data. Tommelfingerregelen er at gjennomsnitt passer ved normalfordelte data uten store uteliggere, mens medianen er bedre når dataene er skjeve eller har ekstreme verdier.\n\nMen gjennomsnittet alene kan lure deg. Derfor trenger vi **standardavvik**, forkortet SD, som forteller hvor mye verdiene sprer seg rundt gjennomsnittet. Et lavt standardavvik betyr at verdiene ligger tett samlet, et høyt betyr stor spredning. Tenk på to grupper som begge har et spensthopp på 40 cm i snitt. Gruppe A har 38, 39, 40, 41, 42 cm -- liten spredning, SD rundt 1,6 cm. Gruppe B har 25, 32, 40, 48, 55 cm -- stor spredning, SD rundt 11,4 cm. Selv om gjennomsnittet er likt, er gruppe B mye mer uensartet, og det har stor betydning for hvordan vi tolker resultatene.\n\nFor normalfordelte data finnes en nyttig regel: omtrent 68 prosent av verdiene ligger innenfor ett standardavvik fra gjennomsnittet, omtrent 95 prosent innenfor to, og omtrent 99,7 prosent innenfor tre. Derfor rapporteres resultater gjerne som gjennomsnitt pluss/minus standardavvik, for eksempel VO2maks på $55{,}3 \\pm 5{,}2$ ml/kg/min -- det forteller leseren både hva som er typisk og hvor stor spredningen er. Et praktisk eksempel: i en Cooper-test har klasse A snitt 2450 m med SD 180 m, der de fleste løper mellom 2270 og 2630 m, mens klasse B har snitt 2480 m men SD 350 m, der de fleste løper mellom 2130 og 2830 m -- en langt mer uensartet klasse, som krever mye mer differensiert undervisning."},{"id":"trening-3-8-4-n-quiz1","type":"exercise","exercise":{"id":"trening-3-8-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på gjennomsnitt og standardavvik:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"trening-3-8-4-n-quiz1-q0","task":"Hva blir gjennomsnittet av verdiene 50, 60, 70, 80 og 90?","options":[{"id":"a","text":"60","isCorrect":false},{"id":"b","text":"70","isCorrect":true},{"id":"c","text":"75","isCorrect":false},{"id":"d","text":"80","isCorrect":false}],"solution":"Gjennomsnittet er summen delt på antallet: (50 + 60 + 70 + 80 + 90) / 5 = 350 / 5 = 70."},{"id":"trening-3-8-4-n-quiz1-q1","task":"Hva forteller standardavviket oss?","options":[{"id":"a","text":"Hvor mange deltakere det er","isCorrect":false},{"id":"b","text":"Den høyeste verdien i datasettet","isCorrect":false},{"id":"c","text":"Hvor mye verdiene sprer seg rundt gjennomsnittet","isCorrect":true},{"id":"d","text":"Den vanligste verdien","isCorrect":false}],"solution":"Standardavvik (SD) forteller hvor mye verdiene sprer seg rundt gjennomsnittet. Lavt SD betyr liten spredning, høyt SD betyr stor spredning."},{"id":"trening-3-8-4-n-quiz1-q2","task":"To grupper har samme gjennomsnitt, men gruppe B har mye høyere standardavvik. Hva betyr det?","options":[{"id":"a","text":"Gruppe B presterer bedre","isCorrect":false},{"id":"b","text":"Gruppene er helt like","isCorrect":false},{"id":"c","text":"Gruppe B har flere deltakere","isCorrect":false},{"id":"d","text":"Gruppe B er mer uensartet, med større variasjon mellom deltakerne","isCorrect":true}],"solution":"Et høyere standardavvik betyr større spredning. Selv med samme gjennomsnitt er gruppe B mer uensartet, med større variasjon mellom de individuelle verdiene enn gruppe A."}]}},{"id":"trening-3-8-4-n-section2","type":"text","content":"## Stor nok til å bety noe?\n\nSi at en treningsmetode gir bedre resultat enn en annen. Men er forskjellen stor nok til å bety noe i praksis? Det er nettopp dette **effektstørrelse** svarer på -- hvor stor den praktiske betydningen av en forskjell faktisk er. Det er en viktig forskjell: signifikans forteller om en forskjell sannsynligvis er reell, mens effektstørrelsen forteller om den er meningsfull.\n\nDet vanligste målet er **Cohens d**, som brukes når vi sammenligner to grupper. Det beregnes som forskjellen mellom de to gjennomsnittene delt på det samlede standardavviket. Tolkningen følger en grov skala: en verdi rundt 0,2 betyr liten effekt, rundt 0,5 betyr moderat effekt, og rundt 0,8 betyr stor effekt. La oss regne på et eksempel. En studie finner at HIIT-gruppen forbedrer VO2maks med 3,5 ml/kg/min mer enn kontrollgruppen, og det samlede standardavviket er 5,0 ml/kg/min. Da blir Cohens d lik $3{,}5/5{,}0 = 0{,}7$ -- en moderat til stor effekt, som tyder på at HIIT har en praktisk meningsfull virkning på utholdenheten.\n\nHvorfor er dette så viktig? Fordi med et stort nok utvalg kan selv ørsmå, ubetydelige forskjeller bli statistisk signifikante. Effektstørrelsen hjelper oss å vurdere om en forskjell virkelig har praktisk betydning i treningssammenheng -- ikke bare om den er målbar. Den gir tallene perspektiv."},{"id":"trening-3-8-4-n-quiz2","type":"exercise","exercise":{"id":"trening-3-8-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på effektstørrelse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"trening-3-8-4-n-quiz2-q0","task":"Hva forteller effektstørrelse (Cohens d) oss?","options":[{"id":"a","text":"Hvor stor den praktiske betydningen av en forskjell er","isCorrect":true},{"id":"b","text":"Hvor mange deltakere som var med","isCorrect":false},{"id":"c","text":"Hvor lang studien varte","isCorrect":false},{"id":"d","text":"Hvilken database som ble brukt","isCorrect":false}],"solution":"Effektstørrelse, målt med Cohens d, forteller hvor stor den praktiske betydningen av en forskjell er. Mens signifikans sier om forskjellen er reell, sier effektstørrelsen om den er meningsfull."},{"id":"trening-3-8-4-n-quiz2-q1","task":"En studie finner en forskjell på 4,0 mellom to gruppers gjennomsnitt, og det samlede standardavviket er 5,0. Hva blir Cohens d?","options":[{"id":"a","text":"2,0","isCorrect":false},{"id":"b","text":"0,8","isCorrect":true},{"id":"c","text":"0,2","isCorrect":false},{"id":"d","text":"9,0","isCorrect":false}],"solution":"Cohens d = forskjellen mellom gjennomsnittene delt på samlet standardavvik = 4,0 / 5,0 = 0,8. Det tilsvarer en stor effekt."},{"id":"trening-3-8-4-n-quiz2-q2","task":"Hvordan tolkes en Cohens d på cirka 0,2?","options":[{"id":"a","text":"Stor effekt","isCorrect":false},{"id":"b","text":"Ingen effekt i det hele tatt","isCorrect":false},{"id":"c","text":"Liten effekt","isCorrect":true},{"id":"d","text":"Negativ effekt","isCorrect":false}],"solution":"En Cohens d på rundt 0,2 tolkes som en liten effekt. Rundt 0,5 er moderat effekt, og rundt 0,8 er stor effekt."}]}},{"id":"trening-3-8-4-n-section3","type":"text","content":"## Reelt eller tilfeldig?\n\nDet siste store spørsmålet er om et resultat er til å stole på. **Statistisk signifikans** forteller oss om et resultat sannsynligvis er reelt, eller om det kan skyldes tilfeldig variasjon. I treningsforskning bruker vi signifikanstesting for å avgjøre om en observert forskjell mellom grupper er pålitelig nok til å trekke slutninger.\n\nNøkkelen her er **p-verdien**. Den angir sannsynligheten for å observere det aktuelle resultatet -- eller et enda mer ekstremt -- dersom det i virkeligheten ikke er noen forskjell. En lav p-verdi tyder altså på at resultatet neppe skyldes tilfeldigheter. Konvensjonen er at $p < 0{,}05$ regnes som statistisk signifikant -- det er mindre enn 5 prosent sjanse for at resultatet skyldes tilfeldigheter. $p < 0{,}01$ er sterkt signifikant, mens $p > 0{,}05$ ikke er signifikant.\n\nMen her er det noen avgjørende ting å forstå. Statistisk signifikans betyr ikke at resultatet nødvendigvis har praktisk betydning. En stor studie kan gi signifikante resultater for svært små, ubetydelige forskjeller. En liten studie kan mangle kraft til å påvise reelle forskjeller. Og p-verdien sier ingenting om størrelsen på effekten -- derfor bør du alltid rapportere effektstørrelse i tillegg. Tenk på et eksempel: en studie med 200 deltakere finner at program A gir 0,5 kg mer styrkeøkning enn program B, med $p = 0{,}03$. Det er statistisk signifikant -- men er 0,5 kg ekstra praktisk meningsfullt? Neppe. Effektstørrelsen, en Cohens d på bare 0,1, bekrefter at forskjellen er neglisjerbar. Når du så skal presentere alt dette i rapporten, velger du riktig format: tabeller for nøyaktige tall, stolpediagram for å sammenligne grupper, linjediagram for endring over tid, og spredningsplott for sammenhenger -- alltid med tydelige titler, merkede akser og riktige enheter."},{"id":"trening-3-8-4-n-quiz3","type":"exercise","exercise":{"id":"trening-3-8-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på signifikans:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"trening-3-8-4-n-quiz3-q0","task":"Hva betyr en p-verdi under 0,05?","options":[{"id":"a","text":"At resultatet helt sikkert er feil","isCorrect":false},{"id":"b","text":"At effekten er stor","isCorrect":false},{"id":"c","text":"At studien hadde få deltakere","isCorrect":false},{"id":"d","text":"At det er mindre enn 5 % sannsynlighet for at resultatet skyldes tilfeldigheter - resultatet er statistisk signifikant","isCorrect":true}],"solution":"En p-verdi under 0,05 betyr at det er mindre enn 5 prosent sannsynlighet for å observere resultatet dersom det egentlig ikke er noen forskjell. Resultatet regnes da som statistisk signifikant."},{"id":"trening-3-8-4-n-quiz3-q1","task":"Hvorfor bør man rapportere effektstørrelse i tillegg til p-verdi?","options":[{"id":"a","text":"Fordi p-verdien sier ingenting om hvor stor effekten faktisk er","isCorrect":true},{"id":"b","text":"Fordi p-verdien alltid er feil","isCorrect":false},{"id":"c","text":"Fordi effektstørrelse erstatter behovet for data","isCorrect":false},{"id":"d","text":"Det er ingen grunn til det","isCorrect":false}],"solution":"P-verdien sier om en forskjell sannsynligvis er reell, men ingenting om hvor stor den er. Med et stort utvalg kan selv ubetydelige forskjeller bli signifikante, derfor trengs effektstørrelse for å vurdere praktisk betydning."},{"id":"trening-3-8-4-n-quiz3-q2","task":"En stor studie finner en statistisk signifikant forskjell på 0,5 kg med Cohens d = 0,1. Hva er den rette tolkningen?","options":[{"id":"a","text":"Forskjellen er både signifikant og praktisk svært viktig","isCorrect":false},{"id":"b","text":"Forskjellen er statistisk signifikant, men praktisk neglisjerbar","isCorrect":true},{"id":"c","text":"Studien er verdiløs","isCorrect":false},{"id":"d","text":"Forskjellen er ikke signifikant","isCorrect":false}],"solution":"Forskjellen er statistisk signifikant (p under 0,05), men effektstørrelsen på 0,1 viser at den er praktisk neglisjerbar. Dette illustrerer hvorfor man må se på både signifikans og effektstørrelse."}]}},{"id":"trening-3-8-4-n-summary","type":"text","content":"## Oppsummering\n\nVi lærte hvordan tall blir til mening gjennom statistisk analyse. **Gjennomsnittet** forteller hva som er typisk, mens **standardavviket** avslører spredningen -- og to grupper med samme snitt kan være svært ulike.\n\nVi så at **effektstørrelse** med Cohens d måler den praktiske betydningen av en forskjell, der 0,2 er liten, 0,5 moderat og 0,8 stor effekt. Og vi forstod **statistisk signifikans** og **p-verdien**, som skiller reelle resultater fra tilfeldige ved grensen $p < 0{,}05$. Det viktigste poenget: signifikans og effektstørrelse må leses sammen, for en signifikant forskjell kan likevel være praktisk ubetydelig. Til slutt så vi hvordan dataene presenteres ryddig i tabeller og figurer. Slik lar vi tallene snakke -- ærlig og presist."}],"exercises":[]}
+{
+  "id": "trening-3-8-4-narrativ",
+  "courseId": "trening-3",
+  "chapterNumber": "8.4",
+  "title": "Statistisk analyse",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan tall blir til mening -- om gjennomsnitt og standardavvik som forteller om typisk og spredning, om effektstørrelse som måler praktisk betydning, og om p-verdien som skiller reelt fra tilfeldig.",
+  "estimatedMinutes": 13,
+  "competenceGoals": [
+    "kunne beregne og tolke gjennomsnitt og standardavvik",
+    "forstå begrepene effektstørrelse og statistisk signifikans",
+    "kunne presentere og tolke data fra treningsstudier"
+  ],
+  "linkedChapterId": "trening-3-8-4",
+  "content": [
+    {
+      "id": "trening-3-8-4-n-intro",
+      "type": "text",
+      "content": "## Når tallene skal snakke\n\nDu har samlet inn dataene dine -- kanskje hundrevis av målinger. Men en bunke med tall sier ingenting i seg selv. Du må analysere dem for å finne svar på problemstillingen. Det er her statistisk analyse kommer inn: kunsten å organisere, beskrive og tolke talldata.\n\nI treningslære bruker vi statistikk til å avgjøre om en treningsmetode har effekt, om det finnes forskjeller mellom grupper, eller om det er sammenhenger mellom variabler. Du trenger ikke å bli statistiker, men du bør forstå de grunnleggende begrepene og kunne bruke dem i fordypningsoppgaven din.\n\nHva kan statistikken egentlig fortelle oss? Den kan si hva som er typisk for en gruppe -- sentraltendensen. Den kan si hvor stor spredning det er i dataene -- variasjonen. Den kan si om en effekt er stor nok til å ha praktisk betydning -- effektstørrelsen. Og den kan si om et resultat sannsynligvis er reelt eller bare tilfeldig -- signifikansen. I dette kapittelet skal vi ta for oss alle disse, slik at tallene dine faktisk begynner å snakke."
+    },
+    {
+      "id": "trening-3-8-4-n-section1",
+      "type": "text",
+      "content": "## Det typiske og spredningen\n\nLa oss begynne med det mest grunnleggende: hva er typisk for gruppen din? Det vanligste målet er **gjennomsnittet**, som du finner ved å summere alle verdiene og dele på antallet. Si at fem elever har 1RM i benkpress på 60, 65, 70, 75 og 80 kg. Da blir summen 350, og gjennomsnittet $350/5 = 70$ kg. Det finnes også andre sentralmål: **medianen** er den midterste verdien når dataene er sortert, og den påvirkes mindre av ekstremverdier. **Modus** er den verdien som forekommer oftest, mest brukt for kategoriske data. Tommelfingerregelen er at gjennomsnitt passer ved normalfordelte data uten store uteliggere, mens medianen er bedre når dataene er skjeve eller har ekstreme verdier.\n\nMen gjennomsnittet alene kan lure deg. Derfor trenger vi **standardavvik**, forkortet SD, som forteller hvor mye verdiene sprer seg rundt gjennomsnittet. Et lavt standardavvik betyr at verdiene ligger tett samlet, et høyt betyr stor spredning. Tenk på to grupper som begge har et spensthopp på 40 cm i snitt. Gruppe A har 38, 39, 40, 41, 42 cm -- liten spredning, SD rundt 1,6 cm. Gruppe B har 25, 32, 40, 48, 55 cm -- stor spredning, SD rundt 11,4 cm. Selv om gjennomsnittet er likt, er gruppe B mye mer uensartet, og det har stor betydning for hvordan vi tolker resultatene.\n\nFor normalfordelte data finnes en nyttig regel: omtrent 68 prosent av verdiene ligger innenfor ett standardavvik fra gjennomsnittet, omtrent 95 prosent innenfor to, og omtrent 99,7 prosent innenfor tre. Derfor rapporteres resultater gjerne som gjennomsnitt pluss/minus standardavvik, for eksempel VO2maks på $55{,}3 \\pm 5{,}2$ ml/kg/min -- det forteller leseren både hva som er typisk og hvor stor spredningen er. Et praktisk eksempel: i en Cooper-test har klasse A snitt 2450 m med SD 180 m, der de fleste løper mellom 2270 og 2630 m, mens klasse B har snitt 2480 m men SD 350 m, der de fleste løper mellom 2130 og 2830 m -- en langt mer uensartet klasse, som krever mye mer differensiert undervisning."
+    },
+    {
+      "id": "trening-3-8-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "trening-3-8-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gjennomsnitt og standardavvik:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "trening-3-8-4-n-quiz1-q0",
+            "task": "Hva blir gjennomsnittet av verdiene 50, 60, 70, 80 og 90?",
+            "options": [
+              {
+                "id": "a",
+                "text": "60",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "70",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "75",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "80",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittet er summen delt på antallet: (50 + 60 + 70 + 80 + 90) / 5 = 350 / 5 = 70."
+          },
+          {
+            "id": "trening-3-8-4-n-quiz1-q1",
+            "task": "Hva forteller standardavviket oss?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hvor mange deltakere det er",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den høyeste verdien i datasettet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den vanligste verdien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hvor mye verdiene sprer seg rundt gjennomsnittet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Standardavvik (SD) forteller hvor mye verdiene sprer seg rundt gjennomsnittet. Lavt SD betyr liten spredning, høyt SD betyr stor spredning."
+          },
+          {
+            "id": "trening-3-8-4-n-quiz1-q2",
+            "task": "To grupper har samme gjennomsnitt, men gruppe B har mye høyere standardavvik. Hva betyr det?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Gruppe B er mer uensartet, med større variasjon mellom deltakerne",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Gruppe B presterer bedre",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gruppene er helt like",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gruppe B har flere deltakere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et høyere standardavvik betyr større spredning. Selv med samme gjennomsnitt er gruppe B mer uensartet, med større variasjon mellom de individuelle verdiene enn gruppe A."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trening-3-8-4-n-section2",
+      "type": "text",
+      "content": "## Stor nok til å bety noe?\n\nSi at en treningsmetode gir bedre resultat enn en annen. Men er forskjellen stor nok til å bety noe i praksis? Det er nettopp dette **effektstørrelse** svarer på -- hvor stor den praktiske betydningen av en forskjell faktisk er. Det er en viktig forskjell: signifikans forteller om en forskjell sannsynligvis er reell, mens effektstørrelsen forteller om den er meningsfull.\n\nDet vanligste målet er **Cohens d**, som brukes når vi sammenligner to grupper. Det beregnes som forskjellen mellom de to gjennomsnittene delt på det samlede standardavviket. Tolkningen følger en grov skala: en verdi rundt 0,2 betyr liten effekt, rundt 0,5 betyr moderat effekt, og rundt 0,8 betyr stor effekt. La oss regne på et eksempel. En studie finner at HIIT-gruppen forbedrer VO2maks med 3,5 ml/kg/min mer enn kontrollgruppen, og det samlede standardavviket er 5,0 ml/kg/min. Da blir Cohens d lik $3{,}5/5{,}0 = 0{,}7$ -- en moderat til stor effekt, som tyder på at HIIT har en praktisk meningsfull virkning på utholdenheten.\n\nHvorfor er dette så viktig? Fordi med et stort nok utvalg kan selv ørsmå, ubetydelige forskjeller bli statistisk signifikante. Effektstørrelsen hjelper oss å vurdere om en forskjell virkelig har praktisk betydning i treningssammenheng -- ikke bare om den er målbar. Den gir tallene perspektiv."
+    },
+    {
+      "id": "trening-3-8-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "trening-3-8-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på effektstørrelse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "trening-3-8-4-n-quiz2-q0",
+            "task": "Hva forteller effektstørrelse (Cohens d) oss?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Hvor mange deltakere som var med",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hvor lang studien varte",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Hvor stor den praktiske betydningen av en forskjell er",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Hvilken database som ble brukt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Effektstørrelse, målt med Cohens d, forteller hvor stor den praktiske betydningen av en forskjell er. Mens signifikans sier om forskjellen er reell, sier effektstørrelsen om den er meningsfull."
+          },
+          {
+            "id": "trening-3-8-4-n-quiz2-q1",
+            "task": "En studie finner en forskjell på 4,0 mellom to gruppers gjennomsnitt, og det samlede standardavviket er 5,0. Hva blir Cohens d?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2,0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,2",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "9,0",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0,8",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Cohens d = forskjellen mellom gjennomsnittene delt på samlet standardavvik = 4,0 / 5,0 = 0,8. Det tilsvarer en stor effekt."
+          },
+          {
+            "id": "trening-3-8-4-n-quiz2-q2",
+            "task": "Hvordan tolkes en Cohens d på cirka 0,2?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Liten effekt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Stor effekt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ingen effekt i det hele tatt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Negativ effekt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En Cohens d på rundt 0,2 tolkes som en liten effekt. Rundt 0,5 er moderat effekt, og rundt 0,8 er stor effekt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trening-3-8-4-n-section3",
+      "type": "text",
+      "content": "## Reelt eller tilfeldig?\n\nDet siste store spørsmålet er om et resultat er til å stole på. **Statistisk signifikans** forteller oss om et resultat sannsynligvis er reelt, eller om det kan skyldes tilfeldig variasjon. I treningsforskning bruker vi signifikanstesting for å avgjøre om en observert forskjell mellom grupper er pålitelig nok til å trekke slutninger.\n\nNøkkelen her er **p-verdien**. Den angir sannsynligheten for å observere det aktuelle resultatet -- eller et enda mer ekstremt -- dersom det i virkeligheten ikke er noen forskjell. En lav p-verdi tyder altså på at resultatet neppe skyldes tilfeldigheter. Konvensjonen er at $p < 0{,}05$ regnes som statistisk signifikant -- det er mindre enn 5 prosent sjanse for at resultatet skyldes tilfeldigheter. $p < 0{,}01$ er sterkt signifikant, mens $p > 0{,}05$ ikke er signifikant.\n\nMen her er det noen avgjørende ting å forstå. Statistisk signifikans betyr ikke at resultatet nødvendigvis har praktisk betydning. En stor studie kan gi signifikante resultater for svært små, ubetydelige forskjeller. En liten studie kan mangle kraft til å påvise reelle forskjeller. Og p-verdien sier ingenting om størrelsen på effekten -- derfor bør du alltid rapportere effektstørrelse i tillegg. Tenk på et eksempel: en studie med 200 deltakere finner at program A gir 0,5 kg mer styrkeøkning enn program B, med $p = 0{,}03$. Det er statistisk signifikant -- men er 0,5 kg ekstra praktisk meningsfullt? Neppe. Effektstørrelsen, en Cohens d på bare 0,1, bekrefter at forskjellen er neglisjerbar. Når du så skal presentere alt dette i rapporten, velger du riktig format: tabeller for nøyaktige tall, stolpediagram for å sammenligne grupper, linjediagram for endring over tid, og spredningsplott for sammenhenger -- alltid med tydelige titler, merkede akser og riktige enheter."
+    },
+    {
+      "id": "trening-3-8-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "trening-3-8-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på signifikans:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "trening-3-8-4-n-quiz3-q0",
+            "task": "Hva betyr en p-verdi under 0,05?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At resultatet helt sikkert er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At det er mindre enn 5 % sannsynlighet for at resultatet skyldes tilfeldigheter - resultatet er statistisk signifikant",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At effekten er stor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At studien hadde få deltakere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En p-verdi under 0,05 betyr at det er mindre enn 5 prosent sannsynlighet for å observere resultatet dersom det egentlig ikke er noen forskjell. Resultatet regnes da som statistisk signifikant."
+          },
+          {
+            "id": "trening-3-8-4-n-quiz3-q1",
+            "task": "Hvorfor bør man rapportere effektstørrelse i tillegg til p-verdi?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi p-verdien alltid er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi effektstørrelse erstatter behovet for data",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi p-verdien sier ingenting om hvor stor effekten faktisk er",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen grunn til det",
+                "isCorrect": false
+              }
+            ],
+            "solution": "P-verdien sier om en forskjell sannsynligvis er reell, men ingenting om hvor stor den er. Med et stort utvalg kan selv ubetydelige forskjeller bli signifikante, derfor trengs effektstørrelse for å vurdere praktisk betydning."
+          },
+          {
+            "id": "trening-3-8-4-n-quiz3-q2",
+            "task": "En stor studie finner en statistisk signifikant forskjell på 0,5 kg med Cohens d = 0,1. Hva er den rette tolkningen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Forskjellen er både signifikant og praktisk svært viktig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Studien er verdiløs",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forskjellen er ikke signifikant",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Forskjellen er statistisk signifikant, men praktisk neglisjerbar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Forskjellen er statistisk signifikant (p under 0,05), men effektstørrelsen på 0,1 viser at den er praktisk neglisjerbar. Dette illustrerer hvorfor man må se på både signifikans og effektstørrelse."
+          }
+        ]
+      }
+    },
+    {
+      "id": "trening-3-8-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi lærte hvordan tall blir til mening gjennom statistisk analyse. **Gjennomsnittet** forteller hva som er typisk, mens **standardavviket** avslører spredningen -- og to grupper med samme snitt kan være svært ulike.\n\nVi så at **effektstørrelse** med Cohens d måler den praktiske betydningen av en forskjell, der 0,2 er liten, 0,5 moderat og 0,8 stor effekt. Og vi forstod **statistisk signifikans** og **p-verdien**, som skiller reelle resultater fra tilfeldige ved grensen $p < 0{,}05$. Det viktigste poenget: signifikans og effektstørrelse må leses sammen, for en signifikant forskjell kan likevel være praktisk ubetydelig. Til slutt så vi hvordan dataene presenteres ryddig i tabeller og figurer. Slik lar vi tallene snakke -- ærlig og presist."
+    }
+  ],
+  "exercises": []
+}

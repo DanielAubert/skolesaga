@@ -1,1 +1,369 @@
-{"id":"bi-okonomi-5-5-narrativ","courseId":"bi-okonomi","chapterNumber":"5.5","title":"Optimering","subtitle":"Narrativ versjon","description":"En fortelling om å forvandle valg til regnestykker -- profittmaksimering, optimal bestillingsmengde, beste salgstidspunkt, og når svaret ligger i et hjørne fremfor der den deriverte er null.","estimatedMinutes":45,"competenceGoals":[],"linkedChapterId":"bi-okonomi-5-5","content":[{"id":"bi-okonomi-5-5-n-intro","type":"text","content":"## Når matematikken treffer beslutninger\n\nDu er bedriftsleder. Du har en overskuddsfunksjon. Hvordan finner du nivået som maksimerer profitten? **Optimering** er kunsten å forvandle et praktisk valg til et regnestykke. Bak hvert budsjett, hver lagerstrategi og hver pris ligger en optimeringsmodell: maksimer det vi vil ha mye av -- overskudd, inntekt -- eller minimer det vi vil ha lite av -- kostnad, ventetid.\n\nVerktøyene har vi alt. Vi finner stasjonære punkter ved $f'(x) = 0$, klassifiserer dem med $f''$, og leser fortegnsskjema. Et **optimeringsproblem** har tre deler: en **målfunksjon** $f(x)$ vi vil maksimere eller minimere, en **beslutningsvariabel** $x$ vi kan velge, og eventuelle **bibetingelser** $x$ må oppfylle. Prosessen følger seks trinn: formulér problemet, modellér målfunksjonen som funksjon av én variabel, deriver, løs $f'(x) = 0$, klassifiser, og til slutt -- **tolk** svaret tilbake til virkeligheten.\n\nEt nyttig snarvei-prinsipp: hvis $f$ er strengt **konkav** ($f'' < 0$ overalt), har den høyst ett lokalt maksimum, og det er da automatisk globalt. Tilsvarende har en strengt **konveks** funksjon ($f'' > 0$) ett globalt minimum. Mange økonomiske målfunksjoner er nettopp slike, og det gjør optimeringen trygg og entydig."},{"id":"bi-okonomi-5-5-n-section1","type":"text","content":"## Profittmaksimering for en monopolist\n\nLa oss ta det klassiske eksempelet. En monopolist møter etterspørselen $p(x) = 100 - 2x$ -- jo mer den selger, desto lavere pris. Kostnaden er $K(x) = 20x + 100$, altså faste kostnader på $100$ kroner og marginalkostnad på $20$ kroner per enhet. Hvor mye bør den selge?\n\nFørst modellerer vi. Inntekten er pris ganger mengde: $I(x) = (100 - 2x)\\cdot x = 100x - 2x^2$. Profitten er inntekt minus kostnad: $\\pi(x) = 100x - 2x^2 - 20x - 100 = -2x^2 + 80x - 100$. Nå deriverer vi og løser: $\\pi'(x) = -4x + 80 = 0$ gir $x = 20$. For å klassifisere ser vi at $\\pi''(x) = -4 < 0$ overalt -- strengt konkav -- så $x = 20$ er et globalt maksimum.\n\nVi regner ut: optimal mengde er $20$ enheter, prisen blir $p = 100 - 2\\cdot 20 = 60$ kroner, og maksimal profitt er $\\pi = -2\\cdot 400 + 80\\cdot 20 - 100 = -800 + 1600 - 100 = 700$ kroner. Monopolisten holder bevisst mengden lav for å holde prisen oppe. En vakker kontroll: marginalinntekten er $I'(x) = 100 - 4x$, og ved $x = 20$ er $I'(20) = 20 = K'(20)$. Dette er den berømte regelen **MR = MC** -- maksimal profitt der grenseinntekt møter grensekostnad."},{"id":"bi-okonomi-5-5-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-5-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på modellering og profittmaksimering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-5-n-quiz1-q0","task":"Hva er de tre delene av et optimeringsproblem?","options":[{"id":"a","text":"derivert, integral og grense","isCorrect":false},{"id":"b","text":"målfunksjon, beslutningsvariabel og bibetingelser","isCorrect":true},{"id":"c","text":"maksimum, minimum og vendepunkt","isCorrect":false},{"id":"d","text":"pris, mengde og kostnad","isCorrect":false}],"solution":"Et optimeringsproblem består av en målfunksjon, en beslutningsvariabel og eventuelle bibetingelser."},{"id":"bi-okonomi-5-5-n-quiz1-q1","task":"Med etterspørsel $p(x)=100-2x$ og kostnad $K(x)=20x+100$, hva er profittfunksjonen?","options":[{"id":"a","text":"$100x-2x^2$","isCorrect":false},{"id":"b","text":"$-2x^2+100x+100$","isCorrect":false},{"id":"c","text":"$-2x^2+80x-100$","isCorrect":true},{"id":"d","text":"$80x-100$","isCorrect":false}],"solution":"$\\pi=I-K=(100x-2x^2)-(20x+100)=-2x^2+80x-100$."},{"id":"bi-okonomi-5-5-n-quiz1-q2","task":"For $\\pi(x)=-2x^2+80x-100$, hvilken mengde maksimerer profitten?","options":[{"id":"a","text":"$x=10$","isCorrect":false},{"id":"b","text":"$x=40$","isCorrect":false},{"id":"c","text":"$x=50$","isCorrect":false},{"id":"d","text":"$x=20$","isCorrect":true}],"solution":"$\\pi'(x)=-4x+80=0$ gir $x=20$, og $\\pi''=-4<0$ bekrefter maksimum."},{"id":"bi-okonomi-5-5-n-quiz1-q3","task":"Hvilken regel beskriver profittmaksimering der grenseinntekt og grensekostnad er like?","options":[{"id":"a","text":"MR = MC","isCorrect":true},{"id":"b","text":"$K'=0$","isCorrect":false},{"id":"c","text":"pris = 0","isCorrect":false},{"id":"d","text":"EOQ","isCorrect":false}],"solution":"Maksimal profitt inntreffer der marginalinntekt (MR) er lik marginalkostnad (MC), altså $I'(x)=K'(x)$."}]}},{"id":"bi-okonomi-5-5-n-section2","type":"text","content":"## Lager og salgstid -- optimering i hverdagen\n\nOptimering er ikke bare for monopolister. Tenk på et lager. En bedrift selger $D = 1000$ enheter i året. Hver bestilling koster $c = 10$ kroner i administrasjon, og lagerholdskostnaden er $h = 2$ kroner per enhet per år. Hvor mye bør den bestille hver gang? Bestiller den $Q$ av gangen, gjør den $1000/Q$ bestillinger, så bestillingskostnaden blir $\\frac{10000}{Q}$. Gjennomsnittslageret er $Q/2$, så lagerkostnaden blir $\\frac{2\\cdot Q}{2} = Q$. Totalkostnaden er\n\n$$TC(Q) = \\frac{10000}{Q} + Q.$$\n\nVi deriverer: $TC'(Q) = -\\frac{10000}{Q^2} + 1 = 0$ gir $Q^2 = 10000$, altså $Q = 100$. Siden $TC''(Q) = \\frac{20000}{Q^3} > 0$, er det et minimum. Dette er den berømte **EOQ-formelen**, $Q^* = \\sqrt{\\frac{2Dc}{h}}$, og vi kan sjekke: $\\sqrt{\\frac{2\\cdot 1000\\cdot 10}{2}} = \\sqrt{10000} = 100$.\n\nEt annet hverdagsproblem: når bør du selge noe som stiger i verdi? Si en vinflaske med verdi $V(t) = 100\\sqrt{1 + t}$ etter $t$ år, og en diskonteringsrente på $5\\,\\%$. Nåverdien er $NV(t) = 100\\sqrt{1+t}\\cdot e^{-0{,}05t}$. Det er enklest å maksimere logaritmen, $L(t) = \\ln 100 + \\frac{1}{2}\\ln(1+t) - 0{,}05t$. Da blir $L'(t) = \\frac{1}{2(1+t)} - 0{,}05 = 0$, som gir $1 + t = \\frac{1}{0{,}1} = 10$, altså $t = 9$ år. Betingelsen $L'(t) = \\frac{V'}{V} - r = 0$ sier at du skal selge når eiendelens **relative vekstrate** er lik renten."},{"id":"bi-okonomi-5-5-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-5-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på lageroptimering og salgstidspunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-5-n-quiz2-q0","task":"For $TC(Q)=\\frac{10000}{Q}+Q$, hvilken bestillingsmengde minimerer totalkostnaden?","options":[{"id":"a","text":"$Q=50$","isCorrect":false},{"id":"b","text":"$Q=100$","isCorrect":true},{"id":"c","text":"$Q=200$","isCorrect":false},{"id":"d","text":"$Q=1000$","isCorrect":false}],"solution":"$TC'(Q)=-\\frac{10000}{Q^2}+1=0$ gir $Q^2=10000$, altså $Q=100$."},{"id":"bi-okonomi-5-5-n-quiz2-q1","task":"Hva er EOQ-formelen for optimal bestillingsmengde?","options":[{"id":"a","text":"$Q^*=\\frac{Dc}{h}$","isCorrect":false},{"id":"b","text":"$Q^*=\\sqrt{Dch}$","isCorrect":false},{"id":"c","text":"$Q^*=\\sqrt{\\frac{2Dc}{h}}$","isCorrect":true},{"id":"d","text":"$Q^*=2Dc/h^2$","isCorrect":false}],"solution":"EOQ-formelen er $Q^*=\\sqrt{\\frac{2Dc}{h}}$, der $D$ er etterspørsel, $c$ bestillingskostnad og $h$ lagerholdskostnad."},{"id":"bi-okonomi-5-5-n-quiz2-q2","task":"For vinflasken med $L'(t)=\\frac{1}{2(1+t)}-0{,}05=0$, når lønner det seg å selge?","options":[{"id":"a","text":"etter 5 år","isCorrect":false},{"id":"b","text":"etter 20 år","isCorrect":false},{"id":"c","text":"etter 10 år","isCorrect":false},{"id":"d","text":"etter 9 år","isCorrect":true}],"solution":"$\\frac{1}{2(1+t)}=0{,}05$ gir $1+t=10$, altså $t=9$ år."}]}},{"id":"bi-okonomi-5-5-n-section3","type":"text","content":"## Når svaret ligger i et hjørne\n\nHittil har optimum ligget der $f'(x) = 0$. Men ikke alltid. Forestill deg en bedrift med profitt $\\pi(x) = -\\frac{1}{5}x^2 + 30x - 800$, men med en produksjonskapasitet begrenset til $0 \\leq x \\leq 50$. Det frie maksimum finner vi som vanlig: $\\pi'(x) = -\\frac{2}{5}x + 30 = 0$ gir $x = 75$. Men $75$ ligger *utenfor* det tillatte intervallet! Bibetingelsen $x \\leq 50$ er **bindende**.\n\nNår dette skjer, lager vi en **kandidatliste**: stasjonære punkter inni intervallet pluss endepunktene. Her er det ingen stasjonære punkter mellom $0$ og $50$, så vi sjekker bare endene: $\\pi(0) = -800$ (tap) og $\\pi(50) = -\\frac{1}{5}\\cdot 2500 + 30\\cdot 50 - 800 = -500 + 1500 - 800 = 200$. Maksimum ligger ved $x = 50$ med profitt $200$ kroner. Profitten stiger hele veien fra $0$ til $75$, så når vi ikke kan produsere mer enn $50$, lønner det seg å kjøre på full kapasitet.\n\nDette illustrerer **ekstremalverdiens teorem**: på et lukket, begrenset intervall $[a, b]$ har en kontinuerlig funksjon alltid globalt maksimum og minimum, men de kan ligge i et endepunkt. Generelt sjekker vi en ulikhetsbibetingelse $g(x) \\leq c$ slik: løs det frie problemet først. Hvis svaret overholder begrensningen, er den ikke-bindende og vi ignorerer den. Hvis ikke, er den bindende, og vi setter $g(x) = c$. Dette er en enkel forsmak på de såkalte KKT-betingelsene. Den vanligste eksamensfeilen er å skrive «$x = 5$» uten å klassifisere -- husk alltid å bekrefte om det faktisk er maksimum, og å sjekke endepunktene."},{"id":"bi-okonomi-5-5-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-5-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på lukkede intervaller og bindende bibetingelser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-5-n-quiz3-q0","task":"For $\\pi(x)=-\\frac{1}{5}x^2+30x-800$ ligger det frie maksimum ved $x=75$. Hva er maksimal profitt på intervallet $[0,50]$?","options":[{"id":"a","text":"ved $x=50$, profitt $200$","isCorrect":true},{"id":"b","text":"ved $x=75$, profitt finnes ikke","isCorrect":false},{"id":"c","text":"ved $x=0$, profitt $-800$","isCorrect":false},{"id":"d","text":"ved $x=25$, profitt $325$","isCorrect":false}],"solution":"Det frie optimum ($x=75$) ligger utenfor $[0,50]$. Profitten stiger mot 75, så maks på intervallet er endepunktet $x=50$ med $\\pi(50)=200$."},{"id":"bi-okonomi-5-5-n-quiz3-q1","task":"Hva sier ekstremalverdiens teorem om en kontinuerlig funksjon på et lukket intervall $[a,b]$?","options":[{"id":"a","text":"den har verken maks eller min","isCorrect":false},{"id":"b","text":"den har alltid både globalt maks og min","isCorrect":true},{"id":"c","text":"maks ligger alltid i et stasjonært punkt","isCorrect":false},{"id":"d","text":"den har bare maks","isCorrect":false}],"solution":"Teoremet garanterer både globalt maksimum og minimum på $[a,b]$ -- de kan ligge i stasjonære punkter eller i endepunktene."},{"id":"bi-okonomi-5-5-n-quiz3-q2","task":"Hvordan sjekker du om en ulikhetsbibetingelse $g(x)\\leq c$ er bindende?","options":[{"id":"a","text":"den er alltid bindende","isCorrect":false},{"id":"b","text":"den er aldri bindende","isCorrect":false},{"id":"c","text":"løs det frie problemet; hvis svaret bryter $g(x)\\leq c$, er den bindende","isCorrect":true},{"id":"d","text":"sett alltid $g(x)=c$","isCorrect":false}],"solution":"Løs det frie problemet først. Overholdes begrensningen, er den ikke-bindende. Brytes den, er den bindende og vi setter $g(x)=c$."}]}},{"id":"bi-okonomi-5-5-n-summary","type":"text","content":"## Oppsummering\n\nOptimering forvandler beslutninger til regnestykker. Vi identifiserer en **målfunksjon**, en **beslutningsvariabel** og eventuelle **bibetingelser**, skriver alt som funksjon av én variabel, deriverer, løser $f'(x) = 0$, klassifiserer og **tolker**. Er $f$ strengt konkav, er det ene stasjonære punktet et globalt maksimum; er den strengt konveks, et globalt minimum.\n\nVi maksimerte en monopolists profitt og gjenfant regelen **MR = MC** ($x = 20$, profitt $700$). Vi minimerte lagerkostnad med **EOQ-formelen** $Q^* = \\sqrt{2Dc/h} = 100$, og vi fant optimal salgstid der eiendelens relative vekstrate møter renten ($t = 9$ år). Til slutt så vi at optimum ikke alltid ligger der $f'(x) = 0$: på et **lukket intervall** kan svaret ligge i et endepunkt, og en **bindende bibetingelse** kan tvinge oss til full kapasitet. Husk alltid å klassifisere og å sjekke endepunktene."}],"exercises":[]}
+{
+  "id": "bi-okonomi-5-5-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "5.5",
+  "title": "Optimering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å forvandle valg til regnestykker -- profittmaksimering, optimal bestillingsmengde, beste salgstidspunkt, og når svaret ligger i et hjørne fremfor der den deriverte er null.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-5-5",
+  "content": [
+    {
+      "id": "bi-okonomi-5-5-n-intro",
+      "type": "text",
+      "content": "## Når matematikken treffer beslutninger\n\nDu er bedriftsleder. Du har en overskuddsfunksjon. Hvordan finner du nivået som maksimerer profitten? **Optimering** er kunsten å forvandle et praktisk valg til et regnestykke. Bak hvert budsjett, hver lagerstrategi og hver pris ligger en optimeringsmodell: maksimer det vi vil ha mye av -- overskudd, inntekt -- eller minimer det vi vil ha lite av -- kostnad, ventetid.\n\nVerktøyene har vi alt. Vi finner stasjonære punkter ved $f'(x) = 0$, klassifiserer dem med $f''$, og leser fortegnsskjema. Et **optimeringsproblem** har tre deler: en **målfunksjon** $f(x)$ vi vil maksimere eller minimere, en **beslutningsvariabel** $x$ vi kan velge, og eventuelle **bibetingelser** $x$ må oppfylle. Prosessen følger seks trinn: formulér problemet, modellér målfunksjonen som funksjon av én variabel, deriver, løs $f'(x) = 0$, klassifiser, og til slutt -- **tolk** svaret tilbake til virkeligheten.\n\nEt nyttig snarvei-prinsipp: hvis $f$ er strengt **konkav** ($f'' < 0$ overalt), har den høyst ett lokalt maksimum, og det er da automatisk globalt. Tilsvarende har en strengt **konveks** funksjon ($f'' > 0$) ett globalt minimum. Mange økonomiske målfunksjoner er nettopp slike, og det gjør optimeringen trygg og entydig."
+    },
+    {
+      "id": "bi-okonomi-5-5-n-section1",
+      "type": "text",
+      "content": "## Profittmaksimering for en monopolist\n\nLa oss ta det klassiske eksempelet. En monopolist møter etterspørselen $p(x) = 100 - 2x$ -- jo mer den selger, desto lavere pris. Kostnaden er $K(x) = 20x + 100$, altså faste kostnader på $100$ kroner og marginalkostnad på $20$ kroner per enhet. Hvor mye bør den selge?\n\nFørst modellerer vi. Inntekten er pris ganger mengde: $I(x) = (100 - 2x)\\cdot x = 100x - 2x^2$. Profitten er inntekt minus kostnad: $\\pi(x) = 100x - 2x^2 - 20x - 100 = -2x^2 + 80x - 100$. Nå deriverer vi og løser: $\\pi'(x) = -4x + 80 = 0$ gir $x = 20$. For å klassifisere ser vi at $\\pi''(x) = -4 < 0$ overalt -- strengt konkav -- så $x = 20$ er et globalt maksimum.\n\nVi regner ut: optimal mengde er $20$ enheter, prisen blir $p = 100 - 2\\cdot 20 = 60$ kroner, og maksimal profitt er $\\pi = -2\\cdot 400 + 80\\cdot 20 - 100 = -800 + 1600 - 100 = 700$ kroner. Monopolisten holder bevisst mengden lav for å holde prisen oppe. En vakker kontroll: marginalinntekten er $I'(x) = 100 - 4x$, og ved $x = 20$ er $I'(20) = 20 = K'(20)$. Dette er den berømte regelen **MR = MC** -- maksimal profitt der grenseinntekt møter grensekostnad."
+    },
+    {
+      "id": "bi-okonomi-5-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modellering og profittmaksimering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-5-n-quiz1-q0",
+            "task": "Hva er de tre delene av et optimeringsproblem?",
+            "options": [
+              {
+                "id": "a",
+                "text": "derivert, integral og grense",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "maksimum, minimum og vendepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "pris, mengde og kostnad",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "målfunksjon, beslutningsvariabel og bibetingelser",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Et optimeringsproblem består av en målfunksjon, en beslutningsvariabel og eventuelle bibetingelser."
+          },
+          {
+            "id": "bi-okonomi-5-5-n-quiz1-q1",
+            "task": "Med etterspørsel $p(x)=100-2x$ og kostnad $K(x)=20x+100$, hva er profittfunksjonen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$-2x^2+80x-100$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$100x-2x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-2x^2+100x+100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$80x-100$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\pi=I-K=(100x-2x^2)-(20x+100)=-2x^2+80x-100$."
+          },
+          {
+            "id": "bi-okonomi-5-5-n-quiz1-q2",
+            "task": "For $\\pi(x)=-2x^2+80x-100$, hvilken mengde maksimerer profitten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x=20$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x=40$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=50$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\pi'(x)=-4x+80=0$ gir $x=20$, og $\\pi''=-4<0$ bekrefter maksimum."
+          },
+          {
+            "id": "bi-okonomi-5-5-n-quiz1-q3",
+            "task": "Hvilken regel beskriver profittmaksimering der grenseinntekt og grensekostnad er like?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$K'=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "pris = 0",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "MR = MC",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "EOQ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Maksimal profitt inntreffer der marginalinntekt (MR) er lik marginalkostnad (MC), altså $I'(x)=K'(x)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-5-n-section2",
+      "type": "text",
+      "content": "## Lager og salgstid -- optimering i hverdagen\n\nOptimering er ikke bare for monopolister. Tenk på et lager. En bedrift selger $D = 1000$ enheter i året. Hver bestilling koster $c = 10$ kroner i administrasjon, og lagerholdskostnaden er $h = 2$ kroner per enhet per år. Hvor mye bør den bestille hver gang? Bestiller den $Q$ av gangen, gjør den $1000/Q$ bestillinger, så bestillingskostnaden blir $\\frac{10000}{Q}$. Gjennomsnittslageret er $Q/2$, så lagerkostnaden blir $\\frac{2\\cdot Q}{2} = Q$. Totalkostnaden er\n\n$$TC(Q) = \\frac{10000}{Q} + Q.$$\n\nVi deriverer: $TC'(Q) = -\\frac{10000}{Q^2} + 1 = 0$ gir $Q^2 = 10000$, altså $Q = 100$. Siden $TC''(Q) = \\frac{20000}{Q^3} > 0$, er det et minimum. Dette er den berømte **EOQ-formelen**, $Q^* = \\sqrt{\\frac{2Dc}{h}}$, og vi kan sjekke: $\\sqrt{\\frac{2\\cdot 1000\\cdot 10}{2}} = \\sqrt{10000} = 100$.\n\nEt annet hverdagsproblem: når bør du selge noe som stiger i verdi? Si en vinflaske med verdi $V(t) = 100\\sqrt{1 + t}$ etter $t$ år, og en diskonteringsrente på $5\\,\\%$. Nåverdien er $NV(t) = 100\\sqrt{1+t}\\cdot e^{-0{,}05t}$. Det er enklest å maksimere logaritmen, $L(t) = \\ln 100 + \\frac{1}{2}\\ln(1+t) - 0{,}05t$. Da blir $L'(t) = \\frac{1}{2(1+t)} - 0{,}05 = 0$, som gir $1 + t = \\frac{1}{0{,}1} = 10$, altså $t = 9$ år. Betingelsen $L'(t) = \\frac{V'}{V} - r = 0$ sier at du skal selge når eiendelens **relative vekstrate** er lik renten."
+    },
+    {
+      "id": "bi-okonomi-5-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lageroptimering og salgstidspunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-5-n-quiz2-q0",
+            "task": "For $TC(Q)=\\frac{10000}{Q}+Q$, hvilken bestillingsmengde minimerer totalkostnaden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$Q=50$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$Q=100$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$Q=200$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$Q=1000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$TC'(Q)=-\\frac{10000}{Q^2}+1=0$ gir $Q^2=10000$, altså $Q=100$."
+          },
+          {
+            "id": "bi-okonomi-5-5-n-quiz2-q1",
+            "task": "Hva er EOQ-formelen for optimal bestillingsmengde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$Q^*=\\frac{Dc}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$Q^*=\\sqrt{Dch}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$Q^*=2Dc/h^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$Q^*=\\sqrt{\\frac{2Dc}{h}}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "EOQ-formelen er $Q^*=\\sqrt{\\frac{2Dc}{h}}$, der $D$ er etterspørsel, $c$ bestillingskostnad og $h$ lagerholdskostnad."
+          },
+          {
+            "id": "bi-okonomi-5-5-n-quiz2-q2",
+            "task": "For vinflasken med $L'(t)=\\frac{1}{2(1+t)}-0{,}05=0$, når lønner det seg å selge?",
+            "options": [
+              {
+                "id": "d",
+                "text": "etter 9 år",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "etter 5 år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "etter 20 år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "etter 10 år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{1}{2(1+t)}=0{,}05$ gir $1+t=10$, altså $t=9$ år."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-5-n-section3",
+      "type": "text",
+      "content": "## Når svaret ligger i et hjørne\n\nHittil har optimum ligget der $f'(x) = 0$. Men ikke alltid. Forestill deg en bedrift med profitt $\\pi(x) = -\\frac{1}{5}x^2 + 30x - 800$, men med en produksjonskapasitet begrenset til $0 \\leq x \\leq 50$. Det frie maksimum finner vi som vanlig: $\\pi'(x) = -\\frac{2}{5}x + 30 = 0$ gir $x = 75$. Men $75$ ligger *utenfor* det tillatte intervallet! Bibetingelsen $x \\leq 50$ er **bindende**.\n\nNår dette skjer, lager vi en **kandidatliste**: stasjonære punkter inni intervallet pluss endepunktene. Her er det ingen stasjonære punkter mellom $0$ og $50$, så vi sjekker bare endene: $\\pi(0) = -800$ (tap) og $\\pi(50) = -\\frac{1}{5}\\cdot 2500 + 30\\cdot 50 - 800 = -500 + 1500 - 800 = 200$. Maksimum ligger ved $x = 50$ med profitt $200$ kroner. Profitten stiger hele veien fra $0$ til $75$, så når vi ikke kan produsere mer enn $50$, lønner det seg å kjøre på full kapasitet.\n\nDette illustrerer **ekstremalverdiens teorem**: på et lukket, begrenset intervall $[a, b]$ har en kontinuerlig funksjon alltid globalt maksimum og minimum, men de kan ligge i et endepunkt. Generelt sjekker vi en ulikhetsbibetingelse $g(x) \\leq c$ slik: løs det frie problemet først. Hvis svaret overholder begrensningen, er den ikke-bindende og vi ignorerer den. Hvis ikke, er den bindende, og vi setter $g(x) = c$. Dette er en enkel forsmak på de såkalte KKT-betingelsene. Den vanligste eksamensfeilen er å skrive «$x = 5$» uten å klassifisere -- husk alltid å bekrefte om det faktisk er maksimum, og å sjekke endepunktene."
+    },
+    {
+      "id": "bi-okonomi-5-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lukkede intervaller og bindende bibetingelser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-5-n-quiz3-q0",
+            "task": "For $\\pi(x)=-\\frac{1}{5}x^2+30x-800$ ligger det frie maksimum ved $x=75$. Hva er maksimal profitt på intervallet $[0,50]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "ved $x=75$, profitt finnes ikke",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "ved $x=0$, profitt $-800$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "ved $x=50$, profitt $200$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "ved $x=25$, profitt $325$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det frie optimum ($x=75$) ligger utenfor $[0,50]$. Profitten stiger mot 75, så maks på intervallet er endepunktet $x=50$ med $\\pi(50)=200$."
+          },
+          {
+            "id": "bi-okonomi-5-5-n-quiz3-q1",
+            "task": "Hva sier ekstremalverdiens teorem om en kontinuerlig funksjon på et lukket intervall $[a,b]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "den har verken maks eller min",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "maks ligger alltid i et stasjonært punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "den har bare maks",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "den har alltid både globalt maks og min",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Teoremet garanterer både globalt maksimum og minimum på $[a,b]$ -- de kan ligge i stasjonære punkter eller i endepunktene."
+          },
+          {
+            "id": "bi-okonomi-5-5-n-quiz3-q2",
+            "task": "Hvordan sjekker du om en ulikhetsbibetingelse $g(x)\\leq c$ er bindende?",
+            "options": [
+              {
+                "id": "c",
+                "text": "løs det frie problemet; hvis svaret bryter $g(x)\\leq c$, er den bindende",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "den er alltid bindende",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "den er aldri bindende",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "sett alltid $g(x)=c$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Løs det frie problemet først. Overholdes begrensningen, er den ikke-bindende. Brytes den, er den bindende og vi setter $g(x)=c$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nOptimering forvandler beslutninger til regnestykker. Vi identifiserer en **målfunksjon**, en **beslutningsvariabel** og eventuelle **bibetingelser**, skriver alt som funksjon av én variabel, deriverer, løser $f'(x) = 0$, klassifiserer og **tolker**. Er $f$ strengt konkav, er det ene stasjonære punktet et globalt maksimum; er den strengt konveks, et globalt minimum.\n\nVi maksimerte en monopolists profitt og gjenfant regelen **MR = MC** ($x = 20$, profitt $700$). Vi minimerte lagerkostnad med **EOQ-formelen** $Q^* = \\sqrt{2Dc/h} = 100$, og vi fant optimal salgstid der eiendelens relative vekstrate møter renten ($t = 9$ år). Til slutt så vi at optimum ikke alltid ligger der $f'(x) = 0$: på et **lukket intervall** kan svaret ligge i et endepunkt, og en **bindende bibetingelse** kan tvinge oss til full kapasitet. Husk alltid å klassifisere og å sjekke endepunktene."
+    }
+  ],
+  "exercises": []
+}

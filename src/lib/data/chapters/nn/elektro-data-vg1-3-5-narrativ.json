@@ -1,1 +1,283 @@
-{"id":"elektro-data-vg1-3-5-narrativ","courseId":"elektro-data-vg1","chapterNumber":"3.5","title":"Lister og datastrukturar","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi samlar mange verdiar i éin variabel -- lister, tuplar og ordbøker -- og brukar for-løkker til å gå gjennom sensordata på ein effektiv måte.","estimatedMinutes":33,"competenceGoals":["bruke datastrukturar for å organisere data"],"linkedChapterId":"elektro-data-vg1-3-5","content":[{"id":"elektro-data-vg1-3-5-n-intro","type":"text","content":"## 60 målingar, éin variabel\n\nTenk deg at du koplar ein temperatursensor til ein mikrokontrollar og vil lagre temperaturen kvart minutt i ein time. Det vert 60 verdiar. Vil du lage 60 separate variablar -- `temp1`, `temp2`, heilt til `temp60`? Det ville vore eit mareritt. Heldigvis finst **datastrukturar**, som lèt oss samle mange verdiar i éin variabel.\n\nI Python er det særleg tre datastrukturar du må kjenne. **Lister** er fleksible samlingar der vi kan leggje til, fjerne og endre element. **Tuplar** er uforanderlege samlingar som er låste etter at dei er oppretta. **Ordbøker** lèt kvar verdi få ein nøkkel, akkurat som eit oppslagsverk. Vi skal òg sjå korleis ei **for-løkke** kan gå gjennom alle elementa i ein slik struktur -- noko som er gull verdt når du jobbar med sensordata."},{"id":"elektro-data-vg1-3-5-n-section1","type":"text","content":"## Lister og tuplar\n\nEi **liste** er ei ordna samling av verdiar, laga med hakeparentesar. Du kan skrive `temperaturer = [22.5, 23.1, 21.8, 24.0, 22.9]`, eller blande typar som tal og tekst i same liste. Kvart element har ein **indeks** -- ein posisjon -- og her er det viktig: indeksen startar på 0. So `temperaturer[0]` er den første verdien (22.5), `temperaturer[2]` er den tredje (21.8), og `temperaturer[-1]` er den siste (22.9). Med **slicing** kan du hente ut ein bit: `temperaturer[1:3]` gjev elementa på indeks 1 og 2, altso `[23.1, 21.8]`, medan `temperaturer[:2]` gjev dei to første.\n\nLister har mange nyttige metodar: `append(x)` legg til på slutten, `insert(i, x)` set inn på ein posisjon, `remove(x)` fjernar, `pop(i)` plukkar ut, `len()` tel, og `sort()` sorterer. Og sidan lister med tal fungerer rett inn i `sum()`, `len()`, `max()` og `min()`, kan du rekne ut gjennomsnittet av ei målerekkje på éi linje: `sum(temperaturer) / len(temperaturer)`.\n\nEin **tuppel** liknar på ei liste, men kan *ikkje endrast* etter at han er laga. Han vert skriven med vanlege parentesar, som `koordinat = (59.91, 10.75)`. Indeksering fungerer akkurat som for lister, men prøver du å skrive `koordinat[0] = 60.0`, får du ein feil. Kvifor bruke noko so stivt? Fordi nokre data *ikkje skal* endrast -- koordinatar, fargar, innstillingar. Tuplar er dessutan raskare, brukar mindre minne, og kan brukast som nøklar i ordbøker, noko lister ikkje kan."},{"id":"elektro-data-vg1-3-5-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på lister og tuplar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-3-5-n-quiz1-q0","task":"Kva gjev `farger[1]` når `farger = [\"rød\", \"grønn\", \"blå\", \"gul\"]`?","options":[{"id":"a","text":"rød","isCorrect":false},{"id":"b","text":"grønn","isCorrect":true},{"id":"c","text":"blå","isCorrect":false},{"id":"d","text":"gul","isCorrect":false}],"solution":"Indeksering startar på 0, so farger[0] er \"rød\" og farger[1] er \"grønn\"."},{"id":"elektro-data-vg1-3-5-n-quiz1-q1","task":"Kva er hovudskilnaden mellom ei liste og ein tuppel?","options":[{"id":"a","text":"Ei liste brukar () og ein tuppel brukar []","isCorrect":false},{"id":"b","text":"Ein tuppel kan berre innehalde tal","isCorrect":false},{"id":"c","text":"Ein tuppel kan ikkje endrast etter at han er oppretta","isCorrect":true},{"id":"d","text":"Det er ingen skilnad","isCorrect":false}],"solution":"Ein tuppel er uforanderleg (immutable). Lister kan endrast fritt, tuplar kan ikkje."},{"id":"elektro-data-vg1-3-5-n-quiz1-q2","task":"Kva gjev `tall[1:4]` når `tall = [10, 20, 30, 40, 50]`?","options":[{"id":"a","text":"[10, 20, 30, 40]","isCorrect":false},{"id":"b","text":"[20, 30, 40, 50]","isCorrect":false},{"id":"c","text":"[10, 20, 30]","isCorrect":false},{"id":"d","text":"[20, 30, 40]","isCorrect":true}],"solution":"Slicing [1:4] hentar indeks 1, 2 og 3, men ikkje 4. Det gjev 20, 30, 40."}]}},{"id":"elektro-data-vg1-3-5-n-section2","type":"text","content":"## Ordbøker og iterering\n\nNokre gonger held det ikkje å nummerere data -- du vil gje dei namn. Då brukar du ei **ordbok** (dictionary), som lagrar **nøkkel-verdi-par** med krøllparentesar. Ein sensor kan skildrast slik: `sensor = {\"type\": \"temperatur\", \"verdi\": 22.5, \"enhet\": \"°C\"}`. Vil du hente verdien, slår du opp med nøkkelen: `sensor[\"type\"]` gjev \"temperatur\". Du legg til eller endrar like enkelt: `sensor[\"verdi\"] = 23.1` endrar ein verdi, og `sensor[\"plassering\"] = \"stue\"` legg til ein heilt ny nøkkel. Nyttige metodar er `keys()`, `values()`, `items()` og `get()`, der den siste lèt deg hente ein verdi trygt med ein standard dersom nøkkelen manglar.\n\nDet verkeleg kraftfulle skjer når vi kombinerer datastrukturar med løkker. **Iterering** tyder å gå gjennom alle elementa, eitt om gongen. Ei for-løkke som `for sensor in sensorer:` går gjennom kvar verdi i ei liste. Treng du indeksen i tillegg, brukar du `enumerate()`, som gjev både posisjon og verdi. For ei ordbok brukar du `for nøkkel, verdi in sensor.items():` for å få med begge delar.\n\nIterering gjer det enkelt å filtrere data. Vil du finne alle målingar over 25 grader, kan du gå gjennom lista og bruke `append()` på ei ny liste kvar gong `temp > 25`. Det same kan skrivast kompakt med **list comprehension**: `[temp for temp in malinger if temp > 25]`. For-løkka er lettast å forstå, medan list comprehension er kortare -- begge gjev same resultat, og du vel sjølv kva som passar."},{"id":"elektro-data-vg1-3-5-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på ordbøker og iterering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-3-5-n-quiz2-q0","task":"Kva gjev `elev[\"klasse\"]` når `elev = {\"navn\": \"Kari\", \"alder\": 17, \"klasse\": \"1EDA\"}`?","options":[{"id":"a","text":"1EDA","isCorrect":true},{"id":"b","text":"klasse","isCorrect":false},{"id":"c","text":"17","isCorrect":false},{"id":"d","text":"Ein KeyError","isCorrect":false}],"solution":"I ei ordbok hentar vi verdien ved å slå opp nøkkelen. Nøkkelen \"klasse\" gjev verdien \"1EDA\"."},{"id":"elektro-data-vg1-3-5-n-quiz2-q1","task":"Kva for metode gjev deg både nøkkel og verdi når du itererer over ei ordbok?","options":[{"id":"a","text":".keys()","isCorrect":false},{"id":"b","text":".items()","isCorrect":true},{"id":"c","text":".values()","isCorrect":false},{"id":"d","text":".pop()","isCorrect":false}],"solution":"items() returnerer alle nøkkel-verdi-par, perfekt for ei for-løkke som `for nøkkel, verdi in d.items():`."},{"id":"elektro-data-vg1-3-5-n-quiz2-q2","task":"Kva gjev list comprehension `[temp for temp in malinger if temp > 25]` med `malinger = [22.5, 26.1, 24.8, 27.3, 23.0]`?","options":[{"id":"a","text":"[22.5, 24.8, 23.0]","isCorrect":false},{"id":"b","text":"[26.1, 24.8, 27.3]","isCorrect":false},{"id":"c","text":"[26.1, 27.3]","isCorrect":true},{"id":"d","text":"Heile lista","isCorrect":false}],"solution":"Berre verdiane som er større enn 25 vert tekne med: 26.1 og 27.3."}]}},{"id":"elektro-data-vg1-3-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har samla mange verdiar i éin variabel. **Lister** med `[]` er fleksible og kan endrast, med indeksering frå 0 og slicing for å hente ut delar. **Tuplar** med `()` er uforanderlege og vert brukte når data skal stå fast. **Ordbøker** med `{}` knyter kvar verdi til ein nøkkel, slik at vi kan slå opp data ved namn i staden for posisjon.\n\nMed **for-løkker** kan vi iterere gjennom alle element -- `enumerate()` gjev oss indeks undervegs, og `items()` gjev nøkkel og verdi frå ei ordbok. **List comprehension** er ein kompakt måte å byggje nye lister på, til dømes når vi filtrerer ut alle sensormålingar over ein grenseverdi. Dette er grunnverktøya for å handtere ekte datamengder i programma dine."}],"exercises":[],"_meta":{"sourceHash":"ded8164933da629a","translatedAt":"2026-06-21T06:50:09.409Z","model":"claude-code-agent","strings":40,"tm":{"e8594d1b71aaa59f":"Lister og datastrukturar","b195b06d1ed59702":"Narrativ versjon","0049082c55a1a569":"Ei forteljing om korleis vi samlar mange verdiar i éin variabel -- lister, tuplar og ordbøker -- og brukar for-løkker til å gå gjennom sensordata på ein effektiv måte.","14aaf33b4a6d578c":"bruke datastrukturar for å organisere data","b5edb36eda514c0a":"## 60 målingar, éin variabel\n\nTenk deg at du koplar ein temperatursensor til ein mikrokontrollar og vil lagre temperaturen kvart minutt i ein time. Det vert 60 verdiar. Vil du lage 60 separate variablar -- `temp1`, `temp2`, heilt til `temp60`? Det ville vore eit mareritt. Heldigvis finst **datastrukturar**, som lèt oss samle mange verdiar i éin variabel.\n\nI Python er det særleg tre datastrukturar du må kjenne. **Lister** er fleksible samlingar der vi kan leggje til, fjerne og endre element. **Tuplar** er uforanderlege samlingar som er låste etter at dei er oppretta. **Ordbøker** lèt kvar verdi få ein nøkkel, akkurat som eit oppslagsverk. Vi skal òg sjå korleis ei **for-løkke** kan gå gjennom alle elementa i ein slik struktur -- noko som er gull verdt når du jobbar med sensordata.","f261c80ed03db536":"## Lister og tuplar\n\nEi **liste** er ei ordna samling av verdiar, laga med hakeparentesar. Du kan skrive `temperaturer = [22.5, 23.1, 21.8, 24.0, 22.9]`, eller blande typar som tal og tekst i same liste. Kvart element har ein **indeks** -- ein posisjon -- og her er det viktig: indeksen startar på 0. So `temperaturer[0]` er den første verdien (22.5), `temperaturer[2]` er den tredje (21.8), og `temperaturer[-1]` er den siste (22.9). Med **slicing** kan du hente ut ein bit: `temperaturer[1:3]` gjev elementa på indeks 1 og 2, altso `[23.1, 21.8]`, medan `temperaturer[:2]` gjev dei to første.\n\nLister har mange nyttige metodar: `append(x)` legg til på slutten, `insert(i, x)` set inn på ein posisjon, `remove(x)` fjernar, `pop(i)` plukkar ut, `len()` tel, og `sort()` sorterer. Og sidan lister med tal fungerer rett inn i `sum()`, `len()`, `max()` og `min()`, kan du rekne ut gjennomsnittet av ei målerekkje på éi linje: `sum(temperaturer) / len(temperaturer)`.\n\nEin **tuppel** liknar på ei liste, men kan *ikkje endrast* etter at han er laga. Han vert skriven med vanlege parentesar, som `koordinat = (59.91, 10.75)`. Indeksering fungerer akkurat som for lister, men prøver du å skrive `koordinat[0] = 60.0`, får du ein feil. Kvifor bruke noko so stivt? Fordi nokre data *ikkje skal* endrast -- koordinatar, fargar, innstillingar. Tuplar er dessutan raskare, brukar mindre minne, og kan brukast som nøklar i ordbøker, noko lister ikkje kan.","8dcb02ff150285c3":"Test deg sjølv på lister og tuplar:","4097889236a2af26":"placeholder","20723be7aec02c4f":"Kva gjev `farger[1]` når `farger = [\"rød\", \"grønn\", \"blå\", \"gul\"]`?","3ed4f1235c948980":"rød","f9733851d96c5564":"grønn","f10944f4633d8e2c":"blå","7cd942e027250115":"gul","07e4d9d4beaf3d2e":"Indeksering startar på 0, so farger[0] er \"rød\" og farger[1] er \"grønn\".","90a649d9abe9bfa5":"Kva er hovudskilnaden mellom ei liste og ein tuppel?","21b359854423d58a":"Ei liste brukar () og ein tuppel brukar []","8ca574d8904f4d15":"Ein tuppel kan berre innehalde tal","218ddc0b88bb28b3":"Ein tuppel kan ikkje endrast etter at han er oppretta","290d93c2e3522153":"Det er ingen skilnad","e834a11ec748a531":"Ein tuppel er uforanderleg (immutable). Lister kan endrast fritt, tuplar kan ikkje.","40d812f8970e52af":"Kva gjev `tall[1:4]` når `tall = [10, 20, 30, 40, 50]`?","c3d6a1d5faaef028":"Slicing [1:4] hentar indeks 1, 2 og 3, men ikkje 4. Det gjev 20, 30, 40.","e57ac77b1f9a5122":"## Ordbøker og iterering\n\nNokre gonger held det ikkje å nummerere data -- du vil gje dei namn. Då brukar du ei **ordbok** (dictionary), som lagrar **nøkkel-verdi-par** med krøllparentesar. Ein sensor kan skildrast slik: `sensor = {\"type\": \"temperatur\", \"verdi\": 22.5, \"enhet\": \"°C\"}`. Vil du hente verdien, slår du opp med nøkkelen: `sensor[\"type\"]` gjev \"temperatur\". Du legg til eller endrar like enkelt: `sensor[\"verdi\"] = 23.1` endrar ein verdi, og `sensor[\"plassering\"] = \"stue\"` legg til ein heilt ny nøkkel. Nyttige metodar er `keys()`, `values()`, `items()` og `get()`, der den siste lèt deg hente ein verdi trygt med ein standard dersom nøkkelen manglar.\n\nDet verkeleg kraftfulle skjer når vi kombinerer datastrukturar med løkker. **Iterering** tyder å gå gjennom alle elementa, eitt om gongen. Ei for-løkke som `for sensor in sensorer:` går gjennom kvar verdi i ei liste. Treng du indeksen i tillegg, brukar du `enumerate()`, som gjev både posisjon og verdi. For ei ordbok brukar du `for nøkkel, verdi in sensor.items():` for å få med begge delar.\n\nIterering gjer det enkelt å filtrere data. Vil du finne alle målingar over 25 grader, kan du gå gjennom lista og bruke `append()` på ei ny liste kvar gong `temp > 25`. Det same kan skrivast kompakt med **list comprehension**: `[temp for temp in malinger if temp > 25]`. For-løkka er lettast å forstå, medan list comprehension er kortare -- begge gjev same resultat, og du vel sjølv kva som passar.","294b284d972e34a9":"Test deg sjølv på ordbøker og iterering:","0478b7cc25bc8ec2":"Kva gjev `elev[\"klasse\"]` når `elev = {\"navn\": \"Kari\", \"alder\": 17, \"klasse\": \"1EDA\"}`?","37612f31c447211b":"1EDA","d3aeb05498c29e44":"klasse","28bb0bb237d26685":"Ein KeyError","131f624821da4523":"I ei ordbok hentar vi verdien ved å slå opp nøkkelen. Nøkkelen \"klasse\" gjev verdien \"1EDA\".","6f37d11ecbd83fab":"Kva for metode gjev deg både nøkkel og verdi når du itererer over ei ordbok?","a18d105b47df9a7f":".keys()","864c56b36fa867df":".items()","6b6e2baa0975fe72":".values()","6c77580c06a073cd":".pop()","3abfcde5707aaf02":"items() returnerer alle nøkkel-verdi-par, perfekt for ei for-løkke som `for nøkkel, verdi in d.items():`.","73fdd3166e1c02db":"Kva gjev list comprehension `[temp for temp in malinger if temp > 25]` med `malinger = [22.5, 26.1, 24.8, 27.3, 23.0]`?","18f09b24d0091cba":"Heile lista","834f47e7ad9cc904":"Berre verdiane som er større enn 25 vert tekne med: 26.1 og 27.3.","0ea660da4bcccec9":"## Oppsummering\n\nVi har samla mange verdiar i éin variabel. **Lister** med `[]` er fleksible og kan endrast, med indeksering frå 0 og slicing for å hente ut delar. **Tuplar** med `()` er uforanderlege og vert brukte når data skal stå fast. **Ordbøker** med `{}` knyter kvar verdi til ein nøkkel, slik at vi kan slå opp data ved namn i staden for posisjon.\n\nMed **for-løkker** kan vi iterere gjennom alle element -- `enumerate()` gjev oss indeks undervegs, og `items()` gjev nøkkel og verdi frå ei ordbok. **List comprehension** er ein kompakt måte å byggje nye lister på, til dømes når vi filtrerer ut alle sensormålingar over ein grenseverdi. Dette er grunnverktøya for å handtere ekte datamengder i programma dine."}}}
+{
+  "id": "elektro-data-vg1-3-5-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "3.5",
+  "title": "Lister og datastrukturar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi samlar mange verdiar i éin variabel -- lister, tuplar og ordbøker -- og brukar for-løkker til å gå gjennom sensordata på ein effektiv måte.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "bruke datastrukturar for å organisere data"
+  ],
+  "linkedChapterId": "elektro-data-vg1-3-5",
+  "content": [
+    {
+      "id": "elektro-data-vg1-3-5-n-intro",
+      "type": "text",
+      "content": "## 60 målingar, éin variabel\n\nTenk deg at du koplar ein temperatursensor til ein mikrokontrollar og vil lagre temperaturen kvart minutt i ein time. Det vert 60 verdiar. Vil du lage 60 separate variablar -- `temp1`, `temp2`, heilt til `temp60`? Det ville vore eit mareritt. Heldigvis finst **datastrukturar**, som lèt oss samle mange verdiar i éin variabel.\n\nI Python er det særleg tre datastrukturar du må kjenne. **Lister** er fleksible samlingar der vi kan leggje til, fjerne og endre element. **Tuplar** er uforanderlege samlingar som er låste etter at dei er oppretta. **Ordbøker** lèt kvar verdi få ein nøkkel, akkurat som eit oppslagsverk. Vi skal òg sjå korleis ei **for-løkke** kan gå gjennom alle elementa i ein slik struktur -- noko som er gull verdt når du jobbar med sensordata."
+    },
+    {
+      "id": "elektro-data-vg1-3-5-n-section1",
+      "type": "text",
+      "content": "## Lister og tuplar\n\nEi **liste** er ei ordna samling av verdiar, laga med hakeparentesar. Du kan skrive `temperaturer = [22.5, 23.1, 21.8, 24.0, 22.9]`, eller blande typar som tal og tekst i same liste. Kvart element har ein **indeks** -- ein posisjon -- og her er det viktig: indeksen startar på 0. So `temperaturer[0]` er den første verdien (22.5), `temperaturer[2]` er den tredje (21.8), og `temperaturer[-1]` er den siste (22.9). Med **slicing** kan du hente ut ein bit: `temperaturer[1:3]` gjev elementa på indeks 1 og 2, altso `[23.1, 21.8]`, medan `temperaturer[:2]` gjev dei to første.\n\nLister har mange nyttige metodar: `append(x)` legg til på slutten, `insert(i, x)` set inn på ein posisjon, `remove(x)` fjernar, `pop(i)` plukkar ut, `len()` tel, og `sort()` sorterer. Og sidan lister med tal fungerer rett inn i `sum()`, `len()`, `max()` og `min()`, kan du rekne ut gjennomsnittet av ei målerekkje på éi linje: `sum(temperaturer) / len(temperaturer)`.\n\nEin **tuppel** liknar på ei liste, men kan *ikkje endrast* etter at han er laga. Han vert skriven med vanlege parentesar, som `koordinat = (59.91, 10.75)`. Indeksering fungerer akkurat som for lister, men prøver du å skrive `koordinat[0] = 60.0`, får du ein feil. Kvifor bruke noko so stivt? Fordi nokre data *ikkje skal* endrast -- koordinatar, fargar, innstillingar. Tuplar er dessutan raskare, brukar mindre minne, og kan brukast som nøklar i ordbøker, noko lister ikkje kan."
+    },
+    {
+      "id": "elektro-data-vg1-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lister og tuplar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-3-5-n-quiz1-q0",
+            "task": "Kva gjev `farger[1]` når `farger = [\"rød\", \"grønn\", \"blå\", \"gul\"]`?",
+            "options": [
+              {
+                "id": "a",
+                "text": "rød",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "blå",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "grønn",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "gul",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Indeksering startar på 0, so farger[0] er \"rød\" og farger[1] er \"grønn\"."
+          },
+          {
+            "id": "elektro-data-vg1-3-5-n-quiz1-q1",
+            "task": "Kva er hovudskilnaden mellom ei liste og ein tuppel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei liste brukar () og ein tuppel brukar []",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein tuppel kan berre innehalde tal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein tuppel kan ikkje endrast etter at han er oppretta",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein tuppel er uforanderleg (immutable). Lister kan endrast fritt, tuplar kan ikkje."
+          },
+          {
+            "id": "elektro-data-vg1-3-5-n-quiz1-q2",
+            "task": "Kva gjev `tall[1:4]` når `tall = [10, 20, 30, 40, 50]`?",
+            "options": [
+              {
+                "id": "d",
+                "text": "[20, 30, 40]",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "[10, 20, 30, 40]",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "[20, 30, 40, 50]",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "[10, 20, 30]",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Slicing [1:4] hentar indeks 1, 2 og 3, men ikkje 4. Det gjev 20, 30, 40."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-3-5-n-section2",
+      "type": "text",
+      "content": "## Ordbøker og iterering\n\nNokre gonger held det ikkje å nummerere data -- du vil gje dei namn. Då brukar du ei **ordbok** (dictionary), som lagrar **nøkkel-verdi-par** med krøllparentesar. Ein sensor kan skildrast slik: `sensor = {\"type\": \"temperatur\", \"verdi\": 22.5, \"enhet\": \"°C\"}`. Vil du hente verdien, slår du opp med nøkkelen: `sensor[\"type\"]` gjev \"temperatur\". Du legg til eller endrar like enkelt: `sensor[\"verdi\"] = 23.1` endrar ein verdi, og `sensor[\"plassering\"] = \"stue\"` legg til ein heilt ny nøkkel. Nyttige metodar er `keys()`, `values()`, `items()` og `get()`, der den siste lèt deg hente ein verdi trygt med ein standard dersom nøkkelen manglar.\n\nDet verkeleg kraftfulle skjer når vi kombinerer datastrukturar med løkker. **Iterering** tyder å gå gjennom alle elementa, eitt om gongen. Ei for-løkke som `for sensor in sensorer:` går gjennom kvar verdi i ei liste. Treng du indeksen i tillegg, brukar du `enumerate()`, som gjev både posisjon og verdi. For ei ordbok brukar du `for nøkkel, verdi in sensor.items():` for å få med begge delar.\n\nIterering gjer det enkelt å filtrere data. Vil du finne alle målingar over 25 grader, kan du gå gjennom lista og bruke `append()` på ei ny liste kvar gong `temp > 25`. Det same kan skrivast kompakt med **list comprehension**: `[temp for temp in malinger if temp > 25]`. For-løkka er lettast å forstå, medan list comprehension er kortare -- begge gjev same resultat, og du vel sjølv kva som passar."
+    },
+    {
+      "id": "elektro-data-vg1-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på ordbøker og iterering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-3-5-n-quiz2-q0",
+            "task": "Kva gjev `elev[\"klasse\"]` når `elev = {\"navn\": \"Kari\", \"alder\": 17, \"klasse\": \"1EDA\"}`?",
+            "options": [
+              {
+                "id": "b",
+                "text": "klasse",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "1EDA",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "17",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein KeyError",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I ei ordbok hentar vi verdien ved å slå opp nøkkelen. Nøkkelen \"klasse\" gjev verdien \"1EDA\"."
+          },
+          {
+            "id": "elektro-data-vg1-3-5-n-quiz2-q1",
+            "task": "Kva for metode gjev deg både nøkkel og verdi når du itererer over ei ordbok?",
+            "options": [
+              {
+                "id": "a",
+                "text": ".keys()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": ".values()",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": ".items()",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": ".pop()",
+                "isCorrect": false
+              }
+            ],
+            "solution": "items() returnerer alle nøkkel-verdi-par, perfekt for ei for-løkke som `for nøkkel, verdi in d.items():`."
+          },
+          {
+            "id": "elektro-data-vg1-3-5-n-quiz2-q2",
+            "task": "Kva gjev list comprehension `[temp for temp in malinger if temp > 25]` med `malinger = [22.5, 26.1, 24.8, 27.3, 23.0]`?",
+            "options": [
+              {
+                "id": "a",
+                "text": "[22.5, 24.8, 23.0]",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "[26.1, 24.8, 27.3]",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Heile lista",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "[26.1, 27.3]",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Berre verdiane som er større enn 25 vert tekne med: 26.1 og 27.3."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har samla mange verdiar i éin variabel. **Lister** med `[]` er fleksible og kan endrast, med indeksering frå 0 og slicing for å hente ut delar. **Tuplar** med `()` er uforanderlege og vert brukte når data skal stå fast. **Ordbøker** med `{}` knyter kvar verdi til ein nøkkel, slik at vi kan slå opp data ved namn i staden for posisjon.\n\nMed **for-løkker** kan vi iterere gjennom alle element -- `enumerate()` gjev oss indeks undervegs, og `items()` gjev nøkkel og verdi frå ei ordbok. **List comprehension** er ein kompakt måte å byggje nye lister på, til dømes når vi filtrerer ut alle sensormålingar over ein grenseverdi. Dette er grunnverktøya for å handtere ekte datamengder i programma dine."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "ded8164933da629a",
+    "translatedAt": "2026-06-21T06:50:09.409Z",
+    "model": "claude-code-agent",
+    "strings": 40,
+    "tm": {
+      "e8594d1b71aaa59f": "Lister og datastrukturar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "0049082c55a1a569": "Ei forteljing om korleis vi samlar mange verdiar i éin variabel -- lister, tuplar og ordbøker -- og brukar for-løkker til å gå gjennom sensordata på ein effektiv måte.",
+      "14aaf33b4a6d578c": "bruke datastrukturar for å organisere data",
+      "b5edb36eda514c0a": "## 60 målingar, éin variabel\n\nTenk deg at du koplar ein temperatursensor til ein mikrokontrollar og vil lagre temperaturen kvart minutt i ein time. Det vert 60 verdiar. Vil du lage 60 separate variablar -- `temp1`, `temp2`, heilt til `temp60`? Det ville vore eit mareritt. Heldigvis finst **datastrukturar**, som lèt oss samle mange verdiar i éin variabel.\n\nI Python er det særleg tre datastrukturar du må kjenne. **Lister** er fleksible samlingar der vi kan leggje til, fjerne og endre element. **Tuplar** er uforanderlege samlingar som er låste etter at dei er oppretta. **Ordbøker** lèt kvar verdi få ein nøkkel, akkurat som eit oppslagsverk. Vi skal òg sjå korleis ei **for-løkke** kan gå gjennom alle elementa i ein slik struktur -- noko som er gull verdt når du jobbar med sensordata.",
+      "f261c80ed03db536": "## Lister og tuplar\n\nEi **liste** er ei ordna samling av verdiar, laga med hakeparentesar. Du kan skrive `temperaturer = [22.5, 23.1, 21.8, 24.0, 22.9]`, eller blande typar som tal og tekst i same liste. Kvart element har ein **indeks** -- ein posisjon -- og her er det viktig: indeksen startar på 0. So `temperaturer[0]` er den første verdien (22.5), `temperaturer[2]` er den tredje (21.8), og `temperaturer[-1]` er den siste (22.9). Med **slicing** kan du hente ut ein bit: `temperaturer[1:3]` gjev elementa på indeks 1 og 2, altso `[23.1, 21.8]`, medan `temperaturer[:2]` gjev dei to første.\n\nLister har mange nyttige metodar: `append(x)` legg til på slutten, `insert(i, x)` set inn på ein posisjon, `remove(x)` fjernar, `pop(i)` plukkar ut, `len()` tel, og `sort()` sorterer. Og sidan lister med tal fungerer rett inn i `sum()`, `len()`, `max()` og `min()`, kan du rekne ut gjennomsnittet av ei målerekkje på éi linje: `sum(temperaturer) / len(temperaturer)`.\n\nEin **tuppel** liknar på ei liste, men kan *ikkje endrast* etter at han er laga. Han vert skriven med vanlege parentesar, som `koordinat = (59.91, 10.75)`. Indeksering fungerer akkurat som for lister, men prøver du å skrive `koordinat[0] = 60.0`, får du ein feil. Kvifor bruke noko so stivt? Fordi nokre data *ikkje skal* endrast -- koordinatar, fargar, innstillingar. Tuplar er dessutan raskare, brukar mindre minne, og kan brukast som nøklar i ordbøker, noko lister ikkje kan.",
+      "8dcb02ff150285c3": "Test deg sjølv på lister og tuplar:",
+      "4097889236a2af26": "placeholder",
+      "20723be7aec02c4f": "Kva gjev `farger[1]` når `farger = [\"rød\", \"grønn\", \"blå\", \"gul\"]`?",
+      "3ed4f1235c948980": "rød",
+      "f9733851d96c5564": "grønn",
+      "f10944f4633d8e2c": "blå",
+      "7cd942e027250115": "gul",
+      "07e4d9d4beaf3d2e": "Indeksering startar på 0, so farger[0] er \"rød\" og farger[1] er \"grønn\".",
+      "90a649d9abe9bfa5": "Kva er hovudskilnaden mellom ei liste og ein tuppel?",
+      "21b359854423d58a": "Ei liste brukar () og ein tuppel brukar []",
+      "8ca574d8904f4d15": "Ein tuppel kan berre innehalde tal",
+      "218ddc0b88bb28b3": "Ein tuppel kan ikkje endrast etter at han er oppretta",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "e834a11ec748a531": "Ein tuppel er uforanderleg (immutable). Lister kan endrast fritt, tuplar kan ikkje.",
+      "40d812f8970e52af": "Kva gjev `tall[1:4]` når `tall = [10, 20, 30, 40, 50]`?",
+      "c3d6a1d5faaef028": "Slicing [1:4] hentar indeks 1, 2 og 3, men ikkje 4. Det gjev 20, 30, 40.",
+      "e57ac77b1f9a5122": "## Ordbøker og iterering\n\nNokre gonger held det ikkje å nummerere data -- du vil gje dei namn. Då brukar du ei **ordbok** (dictionary), som lagrar **nøkkel-verdi-par** med krøllparentesar. Ein sensor kan skildrast slik: `sensor = {\"type\": \"temperatur\", \"verdi\": 22.5, \"enhet\": \"°C\"}`. Vil du hente verdien, slår du opp med nøkkelen: `sensor[\"type\"]` gjev \"temperatur\". Du legg til eller endrar like enkelt: `sensor[\"verdi\"] = 23.1` endrar ein verdi, og `sensor[\"plassering\"] = \"stue\"` legg til ein heilt ny nøkkel. Nyttige metodar er `keys()`, `values()`, `items()` og `get()`, der den siste lèt deg hente ein verdi trygt med ein standard dersom nøkkelen manglar.\n\nDet verkeleg kraftfulle skjer når vi kombinerer datastrukturar med løkker. **Iterering** tyder å gå gjennom alle elementa, eitt om gongen. Ei for-løkke som `for sensor in sensorer:` går gjennom kvar verdi i ei liste. Treng du indeksen i tillegg, brukar du `enumerate()`, som gjev både posisjon og verdi. For ei ordbok brukar du `for nøkkel, verdi in sensor.items():` for å få med begge delar.\n\nIterering gjer det enkelt å filtrere data. Vil du finne alle målingar over 25 grader, kan du gå gjennom lista og bruke `append()` på ei ny liste kvar gong `temp > 25`. Det same kan skrivast kompakt med **list comprehension**: `[temp for temp in malinger if temp > 25]`. For-løkka er lettast å forstå, medan list comprehension er kortare -- begge gjev same resultat, og du vel sjølv kva som passar.",
+      "294b284d972e34a9": "Test deg sjølv på ordbøker og iterering:",
+      "0478b7cc25bc8ec2": "Kva gjev `elev[\"klasse\"]` når `elev = {\"navn\": \"Kari\", \"alder\": 17, \"klasse\": \"1EDA\"}`?",
+      "37612f31c447211b": "1EDA",
+      "d3aeb05498c29e44": "klasse",
+      "28bb0bb237d26685": "Ein KeyError",
+      "131f624821da4523": "I ei ordbok hentar vi verdien ved å slå opp nøkkelen. Nøkkelen \"klasse\" gjev verdien \"1EDA\".",
+      "6f37d11ecbd83fab": "Kva for metode gjev deg både nøkkel og verdi når du itererer over ei ordbok?",
+      "a18d105b47df9a7f": ".keys()",
+      "864c56b36fa867df": ".items()",
+      "6b6e2baa0975fe72": ".values()",
+      "6c77580c06a073cd": ".pop()",
+      "3abfcde5707aaf02": "items() returnerer alle nøkkel-verdi-par, perfekt for ei for-løkke som `for nøkkel, verdi in d.items():`.",
+      "73fdd3166e1c02db": "Kva gjev list comprehension `[temp for temp in malinger if temp > 25]` med `malinger = [22.5, 26.1, 24.8, 27.3, 23.0]`?",
+      "18f09b24d0091cba": "Heile lista",
+      "834f47e7ad9cc904": "Berre verdiane som er større enn 25 vert tekne med: 26.1 og 27.3.",
+      "0ea660da4bcccec9": "## Oppsummering\n\nVi har samla mange verdiar i éin variabel. **Lister** med `[]` er fleksible og kan endrast, med indeksering frå 0 og slicing for å hente ut delar. **Tuplar** med `()` er uforanderlege og vert brukte når data skal stå fast. **Ordbøker** med `{}` knyter kvar verdi til ein nøkkel, slik at vi kan slå opp data ved namn i staden for posisjon.\n\nMed **for-løkker** kan vi iterere gjennom alle element -- `enumerate()` gjev oss indeks undervegs, og `items()` gjev nøkkel og verdi frå ei ordbok. **List comprehension** er ein kompakt måte å byggje nye lister på, til dømes når vi filtrerer ut alle sensormålingar over ein grenseverdi. Dette er grunnverktøya for å handtere ekte datamengder i programma dine."
+    }
+  }
+}

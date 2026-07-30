@@ -1,1 +1,500 @@
-{"id":"s1-5-2-narrativ","courseId":"s1","chapterNumber":"5.2","title":"Betinget sannsynlighet","subtitle":"Narrativ versjon","description":"En fortelling om hvordan ny informasjon endrer sannsynligheter -- fra studieveilederens eksamenstall til kvalitetskontroll på fabrikkgulvet, med produktregel, uavhengighet og totalsetning.","estimatedMinutes":32,"competenceGoals":["bruke kombinatorikk til å berekne sannsyn"],"linkedChapterId":"s1-5-2","content":[{"id":"s1-5-2-n-intro","type":"text","content":"## Når ny informasjon endrer alt\n\nEn studieveileder ved et universitet sitter med tallene fra fjorårets eksamen. Av alle studentene besto 78 %. Men så stiller en kollega et mer interessant spørsmål: «Hva er sannsynligheten for at en student består, *gitt at* studenten har gjort alle de obligatoriske innleveringene?» Plutselig handler det ikke lenger om hele kullet, men om en bestemt delgruppe — og svaret viser seg å bli et helt annet.\n\nDette er kjernen i **betinget sannsynlighet**: hvordan sannsynligheter endrer seg når vi får ny informasjon. Vi skriver $P(A|B)$ og leser det «sannsynligheten for $A$ gitt $B$». Tankegangen er overalt i samfunnet: Hva er sannsynligheten for at en pasient er syk, gitt en positiv test? At en del er defekt, gitt at den kommer fra en bestemt maskin? At en velger stemmer på et parti, gitt aldersgruppen?\n\nI dette kapittelet skal vi først definere betinget sannsynlighet presist, deretter utlede **produktregelen** for trekninger uten tilbakelegging, lære å avgjøre om hendelser er **uavhengige**, og til slutt bruke **totalsetningen** til å veie sammen sannsynligheter fra ulike kilder — slik kvalitetskontrollører i industrien gjør hver dag."},{"id":"s1-5-2-n-section1","type":"text","content":"## Definisjonen — å krympe utfallsrommet\n\nHva betyr egentlig «gitt at»? Tenk deg et venndiagram med hele utfallsrommet $S$, og to overlappende hendelser $A$ og $B$. Når vi får vite at $B$ har inntruffet, kan vi glemme alt utenfor $B$ — sirkelen $B$ blir vårt nye, krympede utfallsrom. Spørsmålet «hvor sannsynlig er $A$ nå?» blir da: hvor stor del av $B$ tilhører også $A$? Det gir definisjonen, som krever $P(B) > 0$:\n\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\n\nder $P(A \\cap B)$ er sannsynligheten for at *både* $A$ og $B$ inntreffer.\n\nLa oss prøve den på en kortstokk. Du trekker ett kort og får vite at det er et bildekort (knekt, dame eller konge). Hva er sannsynligheten for at det er hjerter? La $A$ være «hjerter» og $B$ «bildekort». Kortstokken har 12 bildekort, hvorav 3 er hjerter, så $P(B) = \\frac{12}{52}$ og $P(A \\cap B) = \\frac{3}{52}$. Formelen gir\n\n$$P(A|B) = \\frac{3/52}{12/52} = \\frac{3}{12} = \\frac{1}{4}$$\n\nMen legg merke til at vi kunne tenkt direkte: gitt et bildekort er det 12 muligheter, og 3 av dem er hjerter — altså $\\frac{1}{4}$. Begge veier fører til 25 %. Det er nettopp dette «krympe utfallsrommet»-bildet som gjør betinget sannsynlighet håndterlig: tell på nytt innenfor den nye totalmengden."},{"id":"s1-5-2-n-quiz1","type":"exercise","exercise":{"id":"s1-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på betinget sannsynlighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz1-q0","task":"Hva er definisjonen av $P(A|B)$ når $P(B) > 0$?","options":[{"id":"a","text":"$P(A \\cap B) \\cdot P(B)$","isCorrect":false},{"id":"b","text":"$\\dfrac{P(A \\cap B)}{P(B)}$","isCorrect":true},{"id":"c","text":"$\\dfrac{P(B)}{P(A \\cap B)}$","isCorrect":false},{"id":"d","text":"$P(A) + P(B) - P(A \\cap B)$","isCorrect":false}],"solution":"Betinget sannsynlighet: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$ — andelen av $B$ som også ligger i $A$."},{"id":"s1-5-2-n-quiz1-q1","task":"Du kaster en terning og får vite at resultatet er et partall. Hva er sannsynligheten for at det er en sekser?","options":[{"id":"a","text":"$\\dfrac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\dfrac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\dfrac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\dfrac{2}{3}$","isCorrect":false}],"solution":"Det nye utfallsrommet er $\\{2, 4, 6\\}$ med tre like sannsynlige utfall. $P(\\text{seks}|\\text{partall}) = \\frac{1}{3}$."},{"id":"s1-5-2-n-quiz1-q2","task":"I en klasse har 60 % av elevene mobilforbud hjemme, og 24 % har både mobilforbud og leser daglig. Hva er $P(\\text{leser daglig}|\\text{mobilforbud})$?","options":[{"id":"a","text":"$0{,}24$","isCorrect":false},{"id":"b","text":"$0{,}40$","isCorrect":true},{"id":"c","text":"$0{,}36$","isCorrect":false},{"id":"d","text":"$0{,}60$","isCorrect":false}],"solution":"$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}24}{0{,}60} = 0{,}40$."}]}},{"id":"s1-5-2-n-section2","type":"text","content":"## Produktregelen — sannsynlighet trinn for trinn\n\nSnur vi definisjonen på hodet, får vi et av de mest brukte verktøyene i sannsynlighetsregning. Ganger vi begge sider av definisjonen med $P(B)$, står vi igjen med **produktregelen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n\nI ord: sannsynligheten for at to ting begge skjer, er sannsynligheten for den første ganget med den betingede sannsynligheten for den andre. Regelen kan forlenges til tre hendelser: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$ — hvert nytt ledd er betinget av alt som har skjedd før.\n\nProduktregelen skinner når vi trekker *uten tilbakelegging*. Tenk deg en veske med 5 røde og 3 blå kuler, og at du trekker to kuler. Hva er sannsynligheten for at begge er røde? Tegn gjerne et trediagram: første gren deler seg i rød ($\\frac{5}{8}$) og blå ($\\frac{3}{8}$). Har du trukket en rød, ligger det 4 røde igjen blant 7 kuler, så den betingede sannsynligheten for rød nummer to er $\\frac{4}{7}$. Produktregelen gir\n\n$$P(\\text{rød} \\cap \\text{rød}) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 35{,}7\\,\\%$$\n\nLegg merke til logikken i trediagrammet: du *ganger langs grenene*. Hver gren bærer en betinget sannsynlighet som tar hensyn til alt som allerede er trukket. Samme tankegang brukes når et meningsmålingsbyrå trekker respondenter fra et register, eller når en kvalitetskontrollør plukker komponenter fra et parti — hvert trekk endrer sammensetningen av det som er igjen."},{"id":"s1-5-2-n-quiz2","type":"exercise","exercise":{"id":"s1-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på produktregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz2-q0","task":"Hvilken formel er produktregelen for to hendelser?","options":[{"id":"a","text":"$P(A \\cap B) = P(A) \\cdot P(B|A)$","isCorrect":true},{"id":"b","text":"$P(A \\cap B) = P(A) \\cdot P(B)$ alltid","isCorrect":false},{"id":"c","text":"$P(A \\cup B) = P(A) + P(B)$","isCorrect":false},{"id":"d","text":"$P(A \\cap B) = P(A|B) \\cdot P(A)$","isCorrect":false}],"solution":"Produktregelen: $P(A \\cap B) = P(A) \\cdot P(B|A) = P(B) \\cdot P(A|B)$. Formelen $P(A)P(B)$ gjelder bare når hendelsene er uavhengige."},{"id":"s1-5-2-n-quiz2-q1","task":"En skuff har 4 hvite og 2 sorte sokker. Du trekker to uten å se. Hva er sannsynligheten for to hvite?","options":[{"id":"a","text":"$\\dfrac{4}{6} \\cdot \\dfrac{4}{6} = \\dfrac{4}{9}$","isCorrect":false},{"id":"b","text":"$\\dfrac{4}{6} \\cdot \\dfrac{3}{5} = \\dfrac{2}{5}$","isCorrect":true},{"id":"c","text":"$\\dfrac{4}{6} \\cdot \\dfrac{3}{6} = \\dfrac{1}{3}$","isCorrect":false},{"id":"d","text":"$\\dfrac{2}{6} \\cdot \\dfrac{1}{5} = \\dfrac{1}{15}$","isCorrect":false}],"solution":"Uten tilbakelegging: $P = \\frac{4}{6} \\cdot \\frac{3}{5} = \\frac{12}{30} = \\frac{2}{5}$. Etter første hvite sokk gjenstår 3 hvite av 5."},{"id":"s1-5-2-n-quiz2-q2","task":"Hva representerer tallene langs grenene i et trediagram for trekning uten tilbakelegging?","options":[{"id":"a","text":"Ubetingede sannsynligheter for hver hendelse","isCorrect":false},{"id":"b","text":"Betingede sannsynligheter gitt det som har skjedd tidligere i treet","isCorrect":true},{"id":"c","text":"Antall gunstige utfall","isCorrect":false},{"id":"d","text":"Alltid de samme verdiene i hvert trinn","isCorrect":false}],"solution":"Hver gren bærer sannsynligheten betinget av veien dit — derfor endres brøkene fra trinn til trinn, og vi ganger langs grenene."}]}},{"id":"s1-5-2-n-section3","type":"text","content":"## Uavhengighet — når informasjonen ikke betyr noe\n\nNoen ganger er den nye informasjonen verdiløs: at mynten viste kron, forteller ingenting om hva terningen vil vise. Da sier vi at hendelsene er **uavhengige**, og definisjonen er presis:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nEkvivalent kan vi si at $P(A|B) = P(A)$ — å få vite $B$ endrer ikke sannsynligheten for $A$. Kaster du mynt og terning, er $P(\\text{kron} \\cap \\text{seks}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$. Klassiske eksempler er to terningkast, mynt pluss terning, og trekning *med* tilbakelegging.\n\nMen pass på en klassisk felle: uavhengighet er **ikke** det samme som disjunkte hendelser. Disjunkte hendelser ($A \\cap B = \\emptyset$) kan ikke skje samtidig — og nettopp derfor er de sterkt *avhengige* når begge har positiv sannsynlighet: skjer $A$, vet du med sikkerhet at $B$ ikke skjedde.\n\nUavhengighet kan også *testes* mot data, og her vender vi tilbake til studieveilederen. I en undersøkelse av 100 studenter gjorde 60 obligene, 78 besto, og 54 gjorde begge deler. Er «gjør obliger» og «består» uavhengige? Vi sammenligner: $P(A) \\cdot P(B) = 0{,}78 \\cdot 0{,}60 = 0{,}468$, mens $P(A \\cap B) = 0{,}54$. Siden $0{,}54 \\neq 0{,}468$ er hendelsene avhengige. Enda tydeligere: $P(\\text{består}|\\text{obliger}) = \\frac{54}{60} = 0{,}90$, klart høyere enn de 78 % som gjelder hele kullet. Akkurat slike krysstabell-tester bruker forskere når de leter etter sammenhenger i spørreundersøkelser."},{"id":"s1-5-2-n-quiz3","type":"exercise","exercise":{"id":"s1-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på uavhengighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz3-q0","task":"Når er $A$ og $B$ uavhengige?","options":[{"id":"a","text":"Når $P(A \\cap B) = P(A) \\cdot P(B)$","isCorrect":true},{"id":"b","text":"Når $A \\cap B = \\emptyset$","isCorrect":false},{"id":"c","text":"Når $P(A) = P(B)$","isCorrect":false},{"id":"d","text":"Når $P(A \\cup B) = 1$","isCorrect":false}],"solution":"Definisjonen: $P(A \\cap B) = P(A) \\cdot P(B)$, ekvivalent $P(A|B) = P(A)$. Disjunkthet er noe annet."},{"id":"s1-5-2-n-quiz3-q1","task":"To hendelser $A$ og $B$ er disjunkte, og begge har positiv sannsynlighet. Hva kan vi konkludere?","options":[{"id":"a","text":"De er uavhengige","isCorrect":false},{"id":"b","text":"De er avhengige","isCorrect":true},{"id":"c","text":"De er komplementære","isCorrect":false},{"id":"d","text":"Vi kan ikke vite noe","isCorrect":false}],"solution":"Disjunkte hendelser med positiv sannsynlighet er avhengige: hvis $A$ inntreffer, vet vi at $B$ ikke kan inntreffe, så $P(B|A) = 0 \\neq P(B)$."},{"id":"s1-5-2-n-quiz3-q2","task":"I en undersøkelse er $P(A) = 0{,}5$, $P(B) = 0{,}4$ og $P(A \\cap B) = 0{,}2$. Er $A$ og $B$ uavhengige?","options":[{"id":"a","text":"Ja, fordi $0{,}5 \\cdot 0{,}4 = 0{,}2 = P(A \\cap B)$","isCorrect":true},{"id":"b","text":"Nei, fordi $P(A) \\neq P(B)$","isCorrect":false},{"id":"c","text":"Nei, fordi $P(A \\cap B) < P(B)$","isCorrect":false},{"id":"d","text":"Ja, fordi $P(A) + P(B)$ er mindre enn 1","isCorrect":false}],"solution":"Test: $P(A) \\cdot P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$, som er nøyaktig $P(A \\cap B)$. Hendelsene er uavhengige."},{"id":"s1-5-2-n-quiz3-q3","task":"En terning kastes to ganger. Hva er sannsynligheten for to seksere?","options":[{"id":"a","text":"$\\dfrac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\dfrac{2}{6}$","isCorrect":false},{"id":"c","text":"$\\dfrac{1}{36}$","isCorrect":true},{"id":"d","text":"$\\dfrac{1}{12}$","isCorrect":false}],"solution":"Kastene er uavhengige: $P = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$."}]}},{"id":"s1-5-2-n-section4","type":"text","content":"## Totalsetningen — å veie sammen kildene\n\nVi avslutter på en fabrikk, der en kvalitetsansvarlig får et tilsynelatende enkelt spørsmål: «Hvor stor andel av delene våre er defekte?» Problemet er at delene kommer fra to maskiner med ulik kvalitet. Maskin M1 lager 60 % av produksjonen med 2 % defekte; M2 lager 40 % med 5 % defekte. Hva er den samlede defektandelen?\n\nTrikset er å dele opp i tilfeller. Hendelsene $M_1$ og $M_2$ er gjensidig utelukkende og dekker hele produksjonen — de utgjør en *partisjon* av utfallsrommet. Da sier **totalsetningen** (setningen om total sannsynlighet) at vi kan regne sannsynligheten for «defekt» vei for vei og legge sammen:\n\n$$P(D) = P(D|M_1) \\cdot P(M_1) + P(D|M_2) \\cdot P(M_2) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032$$\n\nAltså 3,2 % defekte totalt. I trediagrammet er dette å gange langs hver gren som ender i «defekt», og så *summere grenene*.\n\nGenerelt, hvis $B_1, B_2, \\ldots, B_n$ er gjensidig utelukkende og til sammen dekker hele utfallsrommet:\n\n$$P(A) = P(A|B_1) \\cdot P(B_1) + P(A|B_2) \\cdot P(B_2) + \\ldots + P(A|B_n) \\cdot P(B_n)$$\n\nOftest brukes den med bare to tilfeller, en hendelse $B$ og komplementet $\\overline{B}$: $P(A) = P(A|B) \\cdot P(B) + P(A|\\overline{B}) \\cdot P(\\overline{B})$.\n\nTotalsetningen er arbeidshesten bak utallige beregninger i samfunnet: et forsikringsselskap veier sammen skaderisiko for ulike kundegrupper, en epidemiolog veier sammen smitterater i ulike aldersgrupper. Og i neste kapittel skal vi snu hele resonnementet på hodet med Bayes' setning: gitt at delen *er* defekt — hvilken maskin kom den mest sannsynlig fra?"},{"id":"s1-5-2-n-quiz4","type":"exercise","exercise":{"id":"s1-5-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på totalsetningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz4-q0","task":"Hva kreves av hendelsene $B_1, \\ldots, B_n$ for at totalsetningen skal gjelde?","options":[{"id":"a","text":"De må være uavhengige av $A$","isCorrect":false},{"id":"b","text":"De må være gjensidig utelukkende og dekke hele utfallsrommet","isCorrect":true},{"id":"c","text":"De må ha like stor sannsynlighet","isCorrect":false},{"id":"d","text":"De må alle inneholde $A$","isCorrect":false}],"solution":"Hendelsene må utgjøre en partisjon: gjensidig utelukkende og til sammen dekke hele utfallsrommet."},{"id":"s1-5-2-n-quiz4-q1","task":"To maskiner: M1 lager 70 % av delene med 4 % defekte, M2 lager 30 % med 10 % defekte. Hva er $P(\\text{defekt})$?","options":[{"id":"a","text":"$0{,}070$","isCorrect":false},{"id":"b","text":"$0{,}14$","isCorrect":false},{"id":"c","text":"$0{,}058$","isCorrect":true},{"id":"d","text":"$0{,}028$","isCorrect":false}],"solution":"Totalsetningen: $P(D) = 0{,}04 \\cdot 0{,}70 + 0{,}10 \\cdot 0{,}30 = 0{,}028 + 0{,}030 = 0{,}058$, altså 5,8 %."},{"id":"s1-5-2-n-quiz4-q2","task":"I et trediagram svarer totalsetningen til å ...","options":[{"id":"a","text":"gange sannsynlighetene langs én gren","isCorrect":false},{"id":"b","text":"summere sluttsannsynlighetene for alle grener som ender i hendelsen","isCorrect":true},{"id":"c","text":"dele antall grener på totalt antall utfall","isCorrect":false},{"id":"d","text":"velge grenen med høyest sannsynlighet","isCorrect":false}],"solution":"Vi ganger langs hver gren (produktregelen) og summerer alle grenene som fører til hendelsen — det er totalsetningen i praksis."},{"id":"s1-5-2-n-quiz4-q3","task":"20 % av kundene i et forsikringsselskap er unge sjåfører med skadesannsynlighet 0,15; resten har skadesannsynlighet 0,05. Hva er sannsynligheten for at en tilfeldig kunde får skade?","options":[{"id":"a","text":"$0{,}07$","isCorrect":true},{"id":"b","text":"$0{,}10$","isCorrect":false},{"id":"c","text":"$0{,}20$","isCorrect":false},{"id":"d","text":"$0{,}03$","isCorrect":false}],"solution":"$P(S) = 0{,}15 \\cdot 0{,}20 + 0{,}05 \\cdot 0{,}80 = 0{,}03 + 0{,}04 = 0{,}07$."}]}},{"id":"s1-5-2-n-summary","type":"text","content":"## Oppsummering: informasjonens pris\n\nVi startet hos studieveilederen, som oppdaget at sannsynligheten for å bestå hoppet fra 78 % til 90 % i det øyeblikket vi visste at studenten hadde gjort obligene. Det er essensen i **betinget sannsynlighet**: ny informasjon krymper utfallsrommet, og vi regner på nytt innenfor det som er igjen. Formelt: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$.\n\nFra definisjonen fulgte **produktregelen**, $P(A \\cap B) = P(A) \\cdot P(B|A)$, som lar oss regne trinn for trinn gjennom et trediagram — uunnværlig ved trekning uten tilbakelegging, der hvert trekk endrer sammensetningen av det som gjenstår.\n\nVi så også når informasjon *ikke* har verdi: hendelser er **uavhengige** nettopp når $P(A \\cap B) = P(A) \\cdot P(B)$, eller ekvivalent $P(A|B) = P(A)$. Det ga oss både en regneregel for ting som mynt- og terningkast, og en test vi kan kjøre på data i en krysstabell. Og vi avslørte fellen: disjunkte hendelser er ikke uavhengige — de er ekstremt avhengige.\n\nTil slutt samlet **totalsetningen** trådene: når $B_1, \\ldots, B_n$ deler opp utfallsrommet, er $P(A) = \\sum_i P(A|B_i) \\cdot P(B_i)$ — gang langs grenene, summer grenene. Slik fant kvalitetskontrolløren at 3,2 % av fabrikkens deler var defekte.\n\nMen ett spørsmål henger igjen fra fabrikkgulvet: hvis du står med en defekt del i hånden, hvilken maskin er synderen? Å snu betingingen — fra $P(D|M_1)$ til $P(M_1|D)$ — er tema for neste kapittel: Bayes' setning."}],"exercises":[]}
+{
+  "id": "s1-5-2-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "5.2",
+  "title": "Betinget sannsynlighet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan ny informasjon endrer sannsynligheter -- fra studieveilederens eksamenstall til kvalitetskontroll på fabrikkgulvet, med produktregel, uavhengighet og totalsetning.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "bruke kombinatorikk til å berekne sannsyn"
+  ],
+  "linkedChapterId": "s1-5-2",
+  "content": [
+    {
+      "id": "s1-5-2-n-intro",
+      "type": "text",
+      "content": "## Når ny informasjon endrer alt\n\nEn studieveileder ved et universitet sitter med tallene fra fjorårets eksamen. Av alle studentene besto 78 %. Men så stiller en kollega et mer interessant spørsmål: «Hva er sannsynligheten for at en student består, *gitt at* studenten har gjort alle de obligatoriske innleveringene?» Plutselig handler det ikke lenger om hele kullet, men om en bestemt delgruppe — og svaret viser seg å bli et helt annet.\n\nDette er kjernen i **betinget sannsynlighet**: hvordan sannsynligheter endrer seg når vi får ny informasjon. Vi skriver $P(A|B)$ og leser det «sannsynligheten for $A$ gitt $B$». Tankegangen er overalt i samfunnet: Hva er sannsynligheten for at en pasient er syk, gitt en positiv test? At en del er defekt, gitt at den kommer fra en bestemt maskin? At en velger stemmer på et parti, gitt aldersgruppen?\n\nI dette kapittelet skal vi først definere betinget sannsynlighet presist, deretter utlede **produktregelen** for trekninger uten tilbakelegging, lære å avgjøre om hendelser er **uavhengige**, og til slutt bruke **totalsetningen** til å veie sammen sannsynligheter fra ulike kilder — slik kvalitetskontrollører i industrien gjør hver dag."
+    },
+    {
+      "id": "s1-5-2-n-section1",
+      "type": "text",
+      "content": "## Definisjonen — å krympe utfallsrommet\n\nHva betyr egentlig «gitt at»? Tenk deg et venndiagram med hele utfallsrommet $S$, og to overlappende hendelser $A$ og $B$. Når vi får vite at $B$ har inntruffet, kan vi glemme alt utenfor $B$ — sirkelen $B$ blir vårt nye, krympede utfallsrom. Spørsmålet «hvor sannsynlig er $A$ nå?» blir da: hvor stor del av $B$ tilhører også $A$? Det gir definisjonen, som krever $P(B) > 0$:\n\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\n\nder $P(A \\cap B)$ er sannsynligheten for at *både* $A$ og $B$ inntreffer.\n\nLa oss prøve den på en kortstokk. Du trekker ett kort og får vite at det er et bildekort (knekt, dame eller konge). Hva er sannsynligheten for at det er hjerter? La $A$ være «hjerter» og $B$ «bildekort». Kortstokken har 12 bildekort, hvorav 3 er hjerter, så $P(B) = \\frac{12}{52}$ og $P(A \\cap B) = \\frac{3}{52}$. Formelen gir\n\n$$P(A|B) = \\frac{3/52}{12/52} = \\frac{3}{12} = \\frac{1}{4}$$\n\nMen legg merke til at vi kunne tenkt direkte: gitt et bildekort er det 12 muligheter, og 3 av dem er hjerter — altså $\\frac{1}{4}$. Begge veier fører til 25 %. Det er nettopp dette «krympe utfallsrommet»-bildet som gjør betinget sannsynlighet håndterlig: tell på nytt innenfor den nye totalmengden."
+    },
+    {
+      "id": "s1-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på betinget sannsynlighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz1-q0",
+            "task": "Hva er definisjonen av $P(A|B)$ når $P(B) > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) \\cdot P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\dfrac{P(B)}{P(A \\cap B)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A) + P(B) - P(A \\cap B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{P(A \\cap B)}{P(B)}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Betinget sannsynlighet: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$ — andelen av $B$ som også ligger i $A$."
+          },
+          {
+            "id": "s1-5-2-n-quiz1-q1",
+            "task": "Du kaster en terning og får vite at resultatet er et partall. Hva er sannsynligheten for at det er en sekser?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\dfrac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det nye utfallsrommet er $\\{2, 4, 6\\}$ med tre like sannsynlige utfall. $P(\\text{seks}|\\text{partall}) = \\frac{1}{3}$."
+          },
+          {
+            "id": "s1-5-2-n-quiz1-q2",
+            "task": "I en klasse har 60 % av elevene mobilforbud hjemme, og 24 % har både mobilforbud og leser daglig. Hva er $P(\\text{leser daglig}|\\text{mobilforbud})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}24$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}40$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$0{,}36$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}60$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}24}{0{,}60} = 0{,}40$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-section2",
+      "type": "text",
+      "content": "## Produktregelen — sannsynlighet trinn for trinn\n\nSnur vi definisjonen på hodet, får vi et av de mest brukte verktøyene i sannsynlighetsregning. Ganger vi begge sider av definisjonen med $P(B)$, står vi igjen med **produktregelen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n\nI ord: sannsynligheten for at to ting begge skjer, er sannsynligheten for den første ganget med den betingede sannsynligheten for den andre. Regelen kan forlenges til tre hendelser: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$ — hvert nytt ledd er betinget av alt som har skjedd før.\n\nProduktregelen skinner når vi trekker *uten tilbakelegging*. Tenk deg en veske med 5 røde og 3 blå kuler, og at du trekker to kuler. Hva er sannsynligheten for at begge er røde? Tegn gjerne et trediagram: første gren deler seg i rød ($\\frac{5}{8}$) og blå ($\\frac{3}{8}$). Har du trukket en rød, ligger det 4 røde igjen blant 7 kuler, så den betingede sannsynligheten for rød nummer to er $\\frac{4}{7}$. Produktregelen gir\n\n$$P(\\text{rød} \\cap \\text{rød}) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 35{,}7\\,\\%$$\n\nLegg merke til logikken i trediagrammet: du *ganger langs grenene*. Hver gren bærer en betinget sannsynlighet som tar hensyn til alt som allerede er trukket. Samme tankegang brukes når et meningsmålingsbyrå trekker respondenter fra et register, eller når en kvalitetskontrollør plukker komponenter fra et parti — hvert trekk endrer sammensetningen av det som er igjen."
+    },
+    {
+      "id": "s1-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på produktregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz2-q0",
+            "task": "Hvilken formel er produktregelen for to hendelser?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B)$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A \\cup B) = P(A) + P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B|A)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\cap B) = P(A|B) \\cdot P(A)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen: $P(A \\cap B) = P(A) \\cdot P(B|A) = P(B) \\cdot P(A|B)$. Formelen $P(A)P(B)$ gjelder bare når hendelsene er uavhengige."
+          },
+          {
+            "id": "s1-5-2-n-quiz2-q1",
+            "task": "En skuff har 4 hvite og 2 sorte sokker. Du trekker to uten å se. Hva er sannsynligheten for to hvite?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\dfrac{4}{6} \\cdot \\dfrac{4}{6} = \\dfrac{4}{9}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\dfrac{4}{6} \\cdot \\dfrac{3}{6} = \\dfrac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{2}{6} \\cdot \\dfrac{1}{5} = \\dfrac{1}{15}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{4}{6} \\cdot \\dfrac{3}{5} = \\dfrac{2}{5}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uten tilbakelegging: $P = \\frac{4}{6} \\cdot \\frac{3}{5} = \\frac{12}{30} = \\frac{2}{5}$. Etter første hvite sokk gjenstår 3 hvite av 5."
+          },
+          {
+            "id": "s1-5-2-n-quiz2-q2",
+            "task": "Hva representerer tallene langs grenene i et trediagram for trekning uten tilbakelegging?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Betingede sannsynligheter gitt det som har skjedd tidligere i treet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ubetingede sannsynligheter for hver hendelse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall gunstige utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid de samme verdiene i hvert trinn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hver gren bærer sannsynligheten betinget av veien dit — derfor endres brøkene fra trinn til trinn, og vi ganger langs grenene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-section3",
+      "type": "text",
+      "content": "## Uavhengighet — når informasjonen ikke betyr noe\n\nNoen ganger er den nye informasjonen verdiløs: at mynten viste kron, forteller ingenting om hva terningen vil vise. Da sier vi at hendelsene er **uavhengige**, og definisjonen er presis:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nEkvivalent kan vi si at $P(A|B) = P(A)$ — å få vite $B$ endrer ikke sannsynligheten for $A$. Kaster du mynt og terning, er $P(\\text{kron} \\cap \\text{seks}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$. Klassiske eksempler er to terningkast, mynt pluss terning, og trekning *med* tilbakelegging.\n\nMen pass på en klassisk felle: uavhengighet er **ikke** det samme som disjunkte hendelser. Disjunkte hendelser ($A \\cap B = \\emptyset$) kan ikke skje samtidig — og nettopp derfor er de sterkt *avhengige* når begge har positiv sannsynlighet: skjer $A$, vet du med sikkerhet at $B$ ikke skjedde.\n\nUavhengighet kan også *testes* mot data, og her vender vi tilbake til studieveilederen. I en undersøkelse av 100 studenter gjorde 60 obligene, 78 besto, og 54 gjorde begge deler. Er «gjør obliger» og «består» uavhengige? Vi sammenligner: $P(A) \\cdot P(B) = 0{,}78 \\cdot 0{,}60 = 0{,}468$, mens $P(A \\cap B) = 0{,}54$. Siden $0{,}54 \\neq 0{,}468$ er hendelsene avhengige. Enda tydeligere: $P(\\text{består}|\\text{obliger}) = \\frac{54}{60} = 0{,}90$, klart høyere enn de 78 % som gjelder hele kullet. Akkurat slike krysstabell-tester bruker forskere når de leter etter sammenhenger i spørreundersøkelser."
+    },
+    {
+      "id": "s1-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på uavhengighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz3-q0",
+            "task": "Når er $A$ og $B$ uavhengige?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når $A \\cap B = \\emptyset$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når $P(A \\cap B) = P(A) \\cdot P(B)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når $P(A) = P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $P(A \\cup B) = 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Definisjonen: $P(A \\cap B) = P(A) \\cdot P(B)$, ekvivalent $P(A|B) = P(A)$. Disjunkthet er noe annet."
+          },
+          {
+            "id": "s1-5-2-n-quiz3-q1",
+            "task": "To hendelser $A$ og $B$ er disjunkte, og begge har positiv sannsynlighet. Hva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De er komplementære",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De er avhengige",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Vi kan ikke vite noe",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Disjunkte hendelser med positiv sannsynlighet er avhengige: hvis $A$ inntreffer, vet vi at $B$ ikke kan inntreffe, så $P(B|A) = 0 \\neq P(B)$."
+          },
+          {
+            "id": "s1-5-2-n-quiz3-q2",
+            "task": "I en undersøkelse er $P(A) = 0{,}5$, $P(B) = 0{,}4$ og $P(A \\cap B) = 0{,}2$. Er $A$ og $B$ uavhengige?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nei, fordi $P(A) \\neq P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, fordi $P(A \\cap B) < P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja, fordi $P(A) + P(B)$ er mindre enn 1",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ja, fordi $0{,}5 \\cdot 0{,}4 = 0{,}2 = P(A \\cap B)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Test: $P(A) \\cdot P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$, som er nøyaktig $P(A \\cap B)$. Hendelsene er uavhengige."
+          },
+          {
+            "id": "s1-5-2-n-quiz3-q3",
+            "task": "En terning kastes to ganger. Hva er sannsynligheten for to seksere?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\dfrac{1}{36}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{2}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{1}{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kastene er uavhengige: $P = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-section4",
+      "type": "text",
+      "content": "## Totalsetningen — å veie sammen kildene\n\nVi avslutter på en fabrikk, der en kvalitetsansvarlig får et tilsynelatende enkelt spørsmål: «Hvor stor andel av delene våre er defekte?» Problemet er at delene kommer fra to maskiner med ulik kvalitet. Maskin M1 lager 60 % av produksjonen med 2 % defekte; M2 lager 40 % med 5 % defekte. Hva er den samlede defektandelen?\n\nTrikset er å dele opp i tilfeller. Hendelsene $M_1$ og $M_2$ er gjensidig utelukkende og dekker hele produksjonen — de utgjør en *partisjon* av utfallsrommet. Da sier **totalsetningen** (setningen om total sannsynlighet) at vi kan regne sannsynligheten for «defekt» vei for vei og legge sammen:\n\n$$P(D) = P(D|M_1) \\cdot P(M_1) + P(D|M_2) \\cdot P(M_2) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032$$\n\nAltså 3,2 % defekte totalt. I trediagrammet er dette å gange langs hver gren som ender i «defekt», og så *summere grenene*.\n\nGenerelt, hvis $B_1, B_2, \\ldots, B_n$ er gjensidig utelukkende og til sammen dekker hele utfallsrommet:\n\n$$P(A) = P(A|B_1) \\cdot P(B_1) + P(A|B_2) \\cdot P(B_2) + \\ldots + P(A|B_n) \\cdot P(B_n)$$\n\nOftest brukes den med bare to tilfeller, en hendelse $B$ og komplementet $\\overline{B}$: $P(A) = P(A|B) \\cdot P(B) + P(A|\\overline{B}) \\cdot P(\\overline{B})$.\n\nTotalsetningen er arbeidshesten bak utallige beregninger i samfunnet: et forsikringsselskap veier sammen skaderisiko for ulike kundegrupper, en epidemiolog veier sammen smitterater i ulike aldersgrupper. Og i neste kapittel skal vi snu hele resonnementet på hodet med Bayes' setning: gitt at delen *er* defekt — hvilken maskin kom den mest sannsynlig fra?"
+    },
+    {
+      "id": "s1-5-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på totalsetningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz4-q0",
+            "task": "Hva kreves av hendelsene $B_1, \\ldots, B_n$ for at totalsetningen skal gjelde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De må være uavhengige av $A$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De må være gjensidig utelukkende og dekke hele utfallsrommet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "De må ha like stor sannsynlighet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De må alle inneholde $A$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hendelsene må utgjøre en partisjon: gjensidig utelukkende og til sammen dekke hele utfallsrommet."
+          },
+          {
+            "id": "s1-5-2-n-quiz4-q1",
+            "task": "To maskiner: M1 lager 70 % av delene med 4 % defekte, M2 lager 30 % med 10 % defekte. Hva er $P(\\text{defekt})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}070$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}14$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}058$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}028$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Totalsetningen: $P(D) = 0{,}04 \\cdot 0{,}70 + 0{,}10 \\cdot 0{,}30 = 0{,}028 + 0{,}030 = 0{,}058$, altså 5,8 %."
+          },
+          {
+            "id": "s1-5-2-n-quiz4-q2",
+            "task": "I et trediagram svarer totalsetningen til å ...",
+            "options": [
+              {
+                "id": "a",
+                "text": "gange sannsynlighetene langs én gren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "dele antall grener på totalt antall utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "velge grenen med høyest sannsynlighet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "summere sluttsannsynlighetene for alle grener som ender i hendelsen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi ganger langs hver gren (produktregelen) og summerer alle grenene som fører til hendelsen — det er totalsetningen i praksis."
+          },
+          {
+            "id": "s1-5-2-n-quiz4-q3",
+            "task": "20 % av kundene i et forsikringsselskap er unge sjåfører med skadesannsynlighet 0,15; resten har skadesannsynlighet 0,05. Hva er sannsynligheten for at en tilfeldig kunde får skade?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}07$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}03$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(S) = 0{,}15 \\cdot 0{,}20 + 0{,}05 \\cdot 0{,}80 = 0{,}03 + 0{,}04 = 0{,}07$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: informasjonens pris\n\nVi startet hos studieveilederen, som oppdaget at sannsynligheten for å bestå hoppet fra 78 % til 90 % i det øyeblikket vi visste at studenten hadde gjort obligene. Det er essensen i **betinget sannsynlighet**: ny informasjon krymper utfallsrommet, og vi regner på nytt innenfor det som er igjen. Formelt: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$.\n\nFra definisjonen fulgte **produktregelen**, $P(A \\cap B) = P(A) \\cdot P(B|A)$, som lar oss regne trinn for trinn gjennom et trediagram — uunnværlig ved trekning uten tilbakelegging, der hvert trekk endrer sammensetningen av det som gjenstår.\n\nVi så også når informasjon *ikke* har verdi: hendelser er **uavhengige** nettopp når $P(A \\cap B) = P(A) \\cdot P(B)$, eller ekvivalent $P(A|B) = P(A)$. Det ga oss både en regneregel for ting som mynt- og terningkast, og en test vi kan kjøre på data i en krysstabell. Og vi avslørte fellen: disjunkte hendelser er ikke uavhengige — de er ekstremt avhengige.\n\nTil slutt samlet **totalsetningen** trådene: når $B_1, \\ldots, B_n$ deler opp utfallsrommet, er $P(A) = \\sum_i P(A|B_i) \\cdot P(B_i)$ — gang langs grenene, summer grenene. Slik fant kvalitetskontrolløren at 3,2 % av fabrikkens deler var defekte.\n\nMen ett spørsmål henger igjen fra fabrikkgulvet: hvis du står med en defekt del i hånden, hvilken maskin er synderen? Å snu betingingen — fra $P(D|M_1)$ til $P(M_1|D)$ — er tema for neste kapittel: Bayes' setning."
+    }
+  ],
+  "exercises": []
+}

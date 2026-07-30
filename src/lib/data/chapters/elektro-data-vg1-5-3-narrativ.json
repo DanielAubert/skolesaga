@@ -1,1 +1,341 @@
-{"id":"elektro-data-vg1-5-3-narrativ","courseId":"elektro-data-vg1","chapterNumber":"5.3","title":"Vindkraft og andre fornybare energikilder","subtitle":"Narrativ versjon","description":"En fortelling om hvordan vi høster energi fra vind, bølger og varm luft – og hvordan vi lagrer den til den trengs.","estimatedMinutes":33,"competenceGoals":["forklare prinsippene bak fornybare energikilder"],"linkedChapterId":"elektro-data-vg1-5-3","content":[{"id":"elektro-data-vg1-5-3-n-intro","type":"text","content":"## Energi som aldri tar slutt\n\nStå et øyeblikk ute på en blåsig dag og kjenn vinden dytte deg bakover. Den krafta du kjenner, er bevegelsesenergi – og den kan gjøres om til strøm. Norge er heldig stilt: vi har vannkraft i fjellene, vind langs kysten, bølger som ruller inn fra havet, og varme gjemt i grunnen under føttene våre. Til sammen utgjør dette en skattekiste av fornybar energi.\n\nMen for å hente ut energien må vi forstå teknikken bak. Hvordan klarer en vindturbin å fange vinden og gjøre den til elektrisitet? Hva skiller en turbin med vannrett aksling fra en med loddrett? Hvordan kan en varmepumpe gi deg flere kilowattimer varme enn strømmen den bruker? Og kanskje viktigst av alt – siden sola ikke alltid skinner og vinden ikke alltid blåser: hvordan lagrer vi energien til den faktisk trengs? Det er reisen vi skal ut på nå."},{"id":"elektro-data-vg1-5-3-n-section1","type":"text","content":"## Vindturbinen og kubens makt\n\nEn **vindturbin** gjør bevegelsesenergien i vinden om til elektrisk energi via en generator. Det finnes to hovedformer. **Horisontalakse-turbinen** (HAWT) er den du ser i store vindparker: rotorbladene står vannrett, vinkelrett på vinden, gjerne tre blad, og turbinen må vri seg mot vinden med et yaw-system. Tårnet kan være 80 til 150 meter høyt. **Vertikalakse-turbinen** (VAWT) har derimot en loddrett aksling og fanger vind fra alle retninger uten å måtte snu seg. Den er enklere og kjekk i bystrøk, men har lavere virkningsgrad.\n\nNå kommer det viktigste, og det er litt overraskende. Den tilgjengelige effekten fra vinden er gitt ved $P = \\frac{1}{2} \\rho A v^3$, der $\\rho$ er lufttettheten på rundt 1,225 kg/m³, $A$ er sveiparealet til rotoren, og $v$ er vindhastigheten. Legg merke til at hastigheten står i *tredje potens*. Det betyr at hvis vinden dobler seg, blir effekten ikke dobbelt så stor – den blir åtte ganger så stor, fordi $2^3 = 8$. Litt mer vind gir altså enormt mye mer energi.\n\nLa oss regne på en turbin med rotordiameter 90 meter i 12 m/s vind. Først sveiparealet: radien er 45 m, så $A = \\pi r^2 = \\pi \\cdot 45^2 = \\pi \\cdot 2025 \\approx 6362$ m². Så effekten: $P = \\frac{1}{2} \\cdot 1{,}225 \\cdot 6362 \\cdot 12^3 = \\frac{1}{2} \\cdot 1{,}225 \\cdot 6362 \\cdot 1728 \\approx 6{,}73$ MW. Men en turbin klarer ikke å fange alt – med en virkningsgrad på 40 % blir den faktiske elektriske effekten $6{,}73 \\cdot 0{,}40 \\approx 2{,}69$ MW. Selve omdanningen skjer i generatoren, som via elektromagnetisk induksjon gjør rotasjon til strøm – enten med girboks som veksler det lave rotorturtallet opp, eller direktedrevet uten girboks for færre bevegelige deler og mindre vedlikehold."},{"id":"elektro-data-vg1-5-3-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-5-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på vindturbiner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-5-3-n-quiz1-q0","task":"Hva skjer med den tilgjengelige vindeffekten hvis vindhastigheten dobles?","options":[{"id":"a","text":"Den dobles","isCorrect":false},{"id":"b","text":"Den åttedobles","isCorrect":true},{"id":"c","text":"Den firedobles","isCorrect":false},{"id":"d","text":"Den blir uendret","isCorrect":false}],"solution":"Effekten er proporsjonal med $v^3$. Når vinden dobles, blir effekten $2^3 = 8$ ganger større – altså åttedoblet."},{"id":"elektro-data-vg1-5-3-n-quiz1-q1","task":"Hva er en fordel med vertikalakse-turbinen (VAWT) sammenlignet med horisontalakse (HAWT)?","options":[{"id":"a","text":"Den har høyere virkningsgrad","isCorrect":false},{"id":"b","text":"Den gir alltid mest effekt","isCorrect":false},{"id":"c","text":"Den fanger vind fra alle retninger uten å snu seg mot vinden","isCorrect":true},{"id":"d","text":"Den trenger ingen generator","isCorrect":false}],"solution":"VAWT har loddrett aksling og fanger vind fra alle retninger uten yaw-system. Ulempen er lavere virkningsgrad enn HAWT."},{"id":"elektro-data-vg1-5-3-n-quiz1-q2","task":"En turbin har tilgjengelig vindeffekt 6,73 MW og virkningsgrad 40 %. Hva er faktisk elektrisk effekt?","options":[{"id":"a","text":"Ca. 16,8 MW","isCorrect":false},{"id":"b","text":"Ca. 6,73 MW","isCorrect":false},{"id":"c","text":"Ca. 0,40 MW","isCorrect":false},{"id":"d","text":"Ca. 2,69 MW","isCorrect":true}],"solution":"Faktisk effekt = tilgjengelig effekt × virkningsgrad = $6{,}73 \\cdot 0{,}40 \\approx 2{,}69$ MW."}]}},{"id":"elektro-data-vg1-5-3-n-section2","type":"text","content":"## Bølger som ruller og varme som pumpes\n\nVinden er ikke den eneste kraften vi kan høste. Havet rundt Norge er fullt av energi, og **bølgekraft** utnytter bevegelsen i bølgene til å lage strøm. Det finnes flere oppfinnsomme løsninger: Pelamis er en flytende \"slange\" som bøyer seg når bølgene løfter den, og bøyningen driver hydrauliske pumper. En oscillerende vannsøyle presser luft fram og tilbake gjennom en turbin når bølgene stiger og synker. Og punktabsorbenter er flytende bøyer som beveger seg opp og ned. Vestkysten av Norge, med sin lange kystlinje og kraftige bølger, er som skapt for dette.\n\nMen en av de mest forbløffende teknologiene står kanskje i mange hjem allerede: **varmepumpen**. Den henter varme fra omgivelsene – uteluft, bakken eller vann – og \"pumper\" den opp til en høyere temperatur du kan varme huset med. Den jobber egentlig som et kjøleskap, bare baklengs: et kuldemedium fordamper ved lav temperatur, blir komprimert, og avgir så varme ved høy temperatur. Det magiske målet på en varmepumpe er **COP**, Coefficient of Performance, som typisk ligger på mellom 2 og 5. En COP på 3 betyr at for hver kilowattime strøm du putter inn, får du ut 3 kilowattimer varme. Varmepumpen trikser ikke med energiloven – den \"stjeler\" gratis varme fra omgivelsene og bruker bare strøm til å flytte den inn.\n\nLa oss se hvor mye det betyr. Et hus bruker 20 000 kWh i året på direkte elektrisk oppvarming. Setter vi inn en varmepumpe med COP = 3, blir det nye strømforbruket $20\\,000 / 3 \\approx 6667$ kWh. Besparelsen er $20\\,000 - 6667 = 13\\,333$ kWh – altså rundt 67 % mindre strøm til oppvarming. Med en strømpris på 1,50 kr/kWh sparer huset $13\\,333 \\cdot 1{,}50 \\approx 20\\,000$ kr i året."},{"id":"elektro-data-vg1-5-3-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-5-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på bølgekraft og varmepumper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-5-3-n-quiz2-q0","task":"Hva betyr COP = 3 for en varmepumpe?","options":[{"id":"a","text":"For hver kWh strøm får du ut 3 kWh varme","isCorrect":true},{"id":"b","text":"Den bruker 3 ganger mer strøm enn den gir varme","isCorrect":false},{"id":"c","text":"Den taper 3 kWh per time","isCorrect":false},{"id":"d","text":"Den virker bare ved 3 grader ute","isCorrect":false}],"solution":"COP = 3 betyr at varmepumpen leverer 3 ganger mer varme enn strømmen den bruker, fordi den henter gratis varme fra omgivelsene."},{"id":"elektro-data-vg1-5-3-n-quiz2-q1","task":"Et hus bruker 20 000 kWh til oppvarming. Med varmepumpe COP = 3, hvor mye strøm trengs?","options":[{"id":"a","text":"Ca. 60 000 kWh","isCorrect":false},{"id":"b","text":"Ca. 6 667 kWh","isCorrect":true},{"id":"c","text":"Ca. 20 000 kWh","isCorrect":false},{"id":"d","text":"Ca. 13 333 kWh","isCorrect":false}],"solution":"Strømforbruk = varmebehov / COP = $20\\,000 / 3 \\approx 6667$ kWh. Besparelsen blir da ca. 13 333 kWh."},{"id":"elektro-data-vg1-5-3-n-quiz2-q2","task":"Hvilket prinsipp bygger en varmepumpe på?","options":[{"id":"a","text":"Den brenner fornybart drivstoff","isCorrect":false},{"id":"b","text":"Den lager varme av ingenting","isCorrect":false},{"id":"c","text":"Samme prinsipp som et kjøleskap, men i motsatt retning","isCorrect":true},{"id":"d","text":"Den bruker solceller","isCorrect":false}],"solution":"En varmepumpe virker som et kjøleskap baklengs: kuldemediet fordamper ved lav temperatur, komprimeres og avgir varme ved høy temperatur."}]}},{"id":"elektro-data-vg1-5-3-n-section3","type":"text","content":"## Å fange energien til senere\n\nDet store problemet med fornybar energi er enkelt å formulere: den lages ikke alltid når vi trenger den. Vinden blåser om natta når ingen bruker strøm, og solskinnet er på sitt sterkeste midt på sommeren. Derfor er **energilagring** helt avgjørende, og her finnes det flere strategier.\n\nFørst **batterier**. De vanligste er litiumion (Li-ion) med høy energitetthet, brukt i mobiler, elbiler og stasjonær lagring. En tryggere variant er litiumjernfosfat (LFP) med lang levetid, mens de gamle blybatteriene er billige men tunge. Batterier har en stor styrke: de er svært effektive, med 85 til 95 % tur-retur-virkningsgrad, og de svarer lynraskt. Svakheten er at de blir dyre i virkelig stor skala og taper kapasitet over tid. De passer derfor best til *korttidslagring*, fra timer til noen dager.\n\nSå har vi **hydrogen**, som spiller en helt annen rolle. Med elektrolyse spalter vi vann til hydrogen og oksygen ved hjelp av strøm: $2H_2O \\rightarrow 2H_2 + O_2$. Senere kan en brenselcelle gjøre det motsatte og lage strøm igjen. Hydrogen kan lagres i enorme mengder over lang tid uten selvutlading – perfekt for *sesonglagring*, der vi tar vare på sommerstrøm til vinteren. Haken er den lave totalvirkningsgraden på bare 30 til 40 %, fordi vi taper energi både ved elektrolyse og i brenselcellen. I tillegg finnes velprøvde metoder som **pumpekraftverk**, der vann pumpes opp i et magasin når strømmen er billig og slippes ned gjennom en turbin når behovet er stort, samt svinghjul og komprimert luft.\n\nSkal du lagre overskudd fra en vindpark over en hel sesong, vinner derfor hydrogen klart over batterier: batterier blir altfor dyre i så store mengder og mister kapasitet over tid, mens hydrogen kan ligge og vente til kulda kommer."},{"id":"elektro-data-vg1-5-3-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-5-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på energilagring:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-5-3-n-quiz3-q0","task":"Hvilken lagringsmetode egner seg best for sesonglagring (sommer til vinter)?","options":[{"id":"a","text":"Li-ion batterier","isCorrect":false},{"id":"b","text":"Blybatterier","isCorrect":false},{"id":"c","text":"Svinghjul","isCorrect":false},{"id":"d","text":"Hydrogen","isCorrect":true}],"solution":"Hydrogen kan lagres i store mengder over lang tid uten selvutlading, og egner seg derfor for sesonglagring. Batterier blir for dyre og mister kapasitet over tid."},{"id":"elektro-data-vg1-5-3-n-quiz3-q1","task":"Hva er en viktig fordel med batterier (Li-ion) som energilagring?","options":[{"id":"a","text":"De har svært høy virkningsgrad (85-95 %) og rask respons","isCorrect":true},{"id":"b","text":"De kan lagre energi i flere år uten tap","isCorrect":false},{"id":"c","text":"De er ubegrenset billige i stor skala","isCorrect":false},{"id":"d","text":"De krever ingen råstoffer","isCorrect":false}],"solution":"Batterier har høy tur-retur-virkningsgrad (85-95 %) og svarer lynraskt. Svakheten er høy kostnad i stor skala og at de taper kapasitet over tid."},{"id":"elektro-data-vg1-5-3-n-quiz3-q2","task":"Hvordan fungerer et pumpekraftverk som energilagring?","options":[{"id":"a","text":"Det lagrer strøm direkte i store batterier","isCorrect":false},{"id":"b","text":"Det pumper vann opp i et magasin når strøm er billig, og slipper det ned gjennom turbin ved behov","isCorrect":true},{"id":"c","text":"Det spalter vann til hydrogen","isCorrect":false},{"id":"d","text":"Det lagrer varme i bakken","isCorrect":false}],"solution":"Pumpekraftverk pumper vann opp i et høyereliggende magasin når strømmen er billig, og lar vannet renne ned gjennom en turbin når behovet er stort."}]}},{"id":"elektro-data-vg1-5-3-n-summary","type":"text","content":"## Oppsummering\n\nVi har sett hvordan Norge kan høste energi fra naturen og ta vare på den. **Vindturbiner** gjør bevegelsesenergi om til strøm via en generator, med effekten $P = \\frac{1}{2}\\rho A v^3$ – der vinden teller i tredje potens, slik at dobbel vind gir åtte ganger effekten. **Horisontalakse**-turbiner er mest effektive i store parker, mens **vertikalakse**-turbiner fanger vind fra alle kanter. **Bølgekraft** utnytter havets bevegelse, og **varmepumper** leverer 2 til 5 ganger mer varme enn strømmen de bruker, med COP som mål.\n\nSiden fornybar energi ikke lages når vi trenger den, må vi lagre den. **Batterier** er effektive og raske til korttidslagring, **hydrogen** egner seg for sesonglagring tross lav virkningsgrad, og **pumpekraftverk** er en velprøvd løsning for storskala. Kunsten er å koble riktig lagringsmetode til riktig behov."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-5-3-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "5.3",
+  "title": "Vindkraft og andre fornybare energikilder",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan vi høster energi fra vind, bølger og varm luft – og hvordan vi lagrer den til den trengs.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "forklare prinsippene bak fornybare energikilder"
+  ],
+  "linkedChapterId": "elektro-data-vg1-5-3",
+  "content": [
+    {
+      "id": "elektro-data-vg1-5-3-n-intro",
+      "type": "text",
+      "content": "## Energi som aldri tar slutt\n\nStå et øyeblikk ute på en blåsig dag og kjenn vinden dytte deg bakover. Den krafta du kjenner, er bevegelsesenergi – og den kan gjøres om til strøm. Norge er heldig stilt: vi har vannkraft i fjellene, vind langs kysten, bølger som ruller inn fra havet, og varme gjemt i grunnen under føttene våre. Til sammen utgjør dette en skattekiste av fornybar energi.\n\nMen for å hente ut energien må vi forstå teknikken bak. Hvordan klarer en vindturbin å fange vinden og gjøre den til elektrisitet? Hva skiller en turbin med vannrett aksling fra en med loddrett? Hvordan kan en varmepumpe gi deg flere kilowattimer varme enn strømmen den bruker? Og kanskje viktigst av alt – siden sola ikke alltid skinner og vinden ikke alltid blåser: hvordan lagrer vi energien til den faktisk trengs? Det er reisen vi skal ut på nå."
+    },
+    {
+      "id": "elektro-data-vg1-5-3-n-section1",
+      "type": "text",
+      "content": "## Vindturbinen og kubens makt\n\nEn **vindturbin** gjør bevegelsesenergien i vinden om til elektrisk energi via en generator. Det finnes to hovedformer. **Horisontalakse-turbinen** (HAWT) er den du ser i store vindparker: rotorbladene står vannrett, vinkelrett på vinden, gjerne tre blad, og turbinen må vri seg mot vinden med et yaw-system. Tårnet kan være 80 til 150 meter høyt. **Vertikalakse-turbinen** (VAWT) har derimot en loddrett aksling og fanger vind fra alle retninger uten å måtte snu seg. Den er enklere og kjekk i bystrøk, men har lavere virkningsgrad.\n\nNå kommer det viktigste, og det er litt overraskende. Den tilgjengelige effekten fra vinden er gitt ved $P = \\frac{1}{2} \\rho A v^3$, der $\\rho$ er lufttettheten på rundt 1,225 kg/m³, $A$ er sveiparealet til rotoren, og $v$ er vindhastigheten. Legg merke til at hastigheten står i *tredje potens*. Det betyr at hvis vinden dobler seg, blir effekten ikke dobbelt så stor – den blir åtte ganger så stor, fordi $2^3 = 8$. Litt mer vind gir altså enormt mye mer energi.\n\nLa oss regne på en turbin med rotordiameter 90 meter i 12 m/s vind. Først sveiparealet: radien er 45 m, så $A = \\pi r^2 = \\pi \\cdot 45^2 = \\pi \\cdot 2025 \\approx 6362$ m². Så effekten: $P = \\frac{1}{2} \\cdot 1{,}225 \\cdot 6362 \\cdot 12^3 = \\frac{1}{2} \\cdot 1{,}225 \\cdot 6362 \\cdot 1728 \\approx 6{,}73$ MW. Men en turbin klarer ikke å fange alt – med en virkningsgrad på 40 % blir den faktiske elektriske effekten $6{,}73 \\cdot 0{,}40 \\approx 2{,}69$ MW. Selve omdanningen skjer i generatoren, som via elektromagnetisk induksjon gjør rotasjon til strøm – enten med girboks som veksler det lave rotorturtallet opp, eller direktedrevet uten girboks for færre bevegelige deler og mindre vedlikehold."
+    },
+    {
+      "id": "elektro-data-vg1-5-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-5-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vindturbiner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz1-q0",
+            "task": "Hva skjer med den tilgjengelige vindeffekten hvis vindhastigheten dobles?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den åttedobles",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den dobles",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den firedobles",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den blir uendret",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Effekten er proporsjonal med $v^3$. Når vinden dobles, blir effekten $2^3 = 8$ ganger større – altså åttedoblet."
+          },
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz1-q1",
+            "task": "Hva er en fordel med vertikalakse-turbinen (VAWT) sammenlignet med horisontalakse (HAWT)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den har høyere virkningsgrad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den fanger vind fra alle retninger uten å snu seg mot vinden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den gir alltid mest effekt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den trenger ingen generator",
+                "isCorrect": false
+              }
+            ],
+            "solution": "VAWT har loddrett aksling og fanger vind fra alle retninger uten yaw-system. Ulempen er lavere virkningsgrad enn HAWT."
+          },
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz1-q2",
+            "task": "En turbin har tilgjengelig vindeffekt 6,73 MW og virkningsgrad 40 %. Hva er faktisk elektrisk effekt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 16,8 MW",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 6,73 MW",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 2,69 MW",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 0,40 MW",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktisk effekt = tilgjengelig effekt × virkningsgrad = $6{,}73 \\cdot 0{,}40 \\approx 2{,}69$ MW."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-5-3-n-section2",
+      "type": "text",
+      "content": "## Bølger som ruller og varme som pumpes\n\nVinden er ikke den eneste kraften vi kan høste. Havet rundt Norge er fullt av energi, og **bølgekraft** utnytter bevegelsen i bølgene til å lage strøm. Det finnes flere oppfinnsomme løsninger: Pelamis er en flytende \"slange\" som bøyer seg når bølgene løfter den, og bøyningen driver hydrauliske pumper. En oscillerende vannsøyle presser luft fram og tilbake gjennom en turbin når bølgene stiger og synker. Og punktabsorbenter er flytende bøyer som beveger seg opp og ned. Vestkysten av Norge, med sin lange kystlinje og kraftige bølger, er som skapt for dette.\n\nMen en av de mest forbløffende teknologiene står kanskje i mange hjem allerede: **varmepumpen**. Den henter varme fra omgivelsene – uteluft, bakken eller vann – og \"pumper\" den opp til en høyere temperatur du kan varme huset med. Den jobber egentlig som et kjøleskap, bare baklengs: et kuldemedium fordamper ved lav temperatur, blir komprimert, og avgir så varme ved høy temperatur. Det magiske målet på en varmepumpe er **COP**, Coefficient of Performance, som typisk ligger på mellom 2 og 5. En COP på 3 betyr at for hver kilowattime strøm du putter inn, får du ut 3 kilowattimer varme. Varmepumpen trikser ikke med energiloven – den \"stjeler\" gratis varme fra omgivelsene og bruker bare strøm til å flytte den inn.\n\nLa oss se hvor mye det betyr. Et hus bruker 20 000 kWh i året på direkte elektrisk oppvarming. Setter vi inn en varmepumpe med COP = 3, blir det nye strømforbruket $20\\,000 / 3 \\approx 6667$ kWh. Besparelsen er $20\\,000 - 6667 = 13\\,333$ kWh – altså rundt 67 % mindre strøm til oppvarming. Med en strømpris på 1,50 kr/kWh sparer huset $13\\,333 \\cdot 1{,}50 \\approx 20\\,000$ kr i året."
+    },
+    {
+      "id": "elektro-data-vg1-5-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-5-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på bølgekraft og varmepumper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz2-q0",
+            "task": "Hva betyr COP = 3 for en varmepumpe?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For hver kWh strøm får du ut 3 kWh varme",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den bruker 3 ganger mer strøm enn den gir varme",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den taper 3 kWh per time",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den virker bare ved 3 grader ute",
+                "isCorrect": false
+              }
+            ],
+            "solution": "COP = 3 betyr at varmepumpen leverer 3 ganger mer varme enn strømmen den bruker, fordi den henter gratis varme fra omgivelsene."
+          },
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz2-q1",
+            "task": "Et hus bruker 20 000 kWh til oppvarming. Med varmepumpe COP = 3, hvor mye strøm trengs?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 60 000 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 20 000 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 13 333 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 6 667 kWh",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Strømforbruk = varmebehov / COP = $20\\,000 / 3 \\approx 6667$ kWh. Besparelsen blir da ca. 13 333 kWh."
+          },
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz2-q2",
+            "task": "Hvilket prinsipp bygger en varmepumpe på?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den brenner fornybart drivstoff",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Samme prinsipp som et kjøleskap, men i motsatt retning",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den lager varme av ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den bruker solceller",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En varmepumpe virker som et kjøleskap baklengs: kuldemediet fordamper ved lav temperatur, komprimeres og avgir varme ved høy temperatur."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-5-3-n-section3",
+      "type": "text",
+      "content": "## Å fange energien til senere\n\nDet store problemet med fornybar energi er enkelt å formulere: den lages ikke alltid når vi trenger den. Vinden blåser om natta når ingen bruker strøm, og solskinnet er på sitt sterkeste midt på sommeren. Derfor er **energilagring** helt avgjørende, og her finnes det flere strategier.\n\nFørst **batterier**. De vanligste er litiumion (Li-ion) med høy energitetthet, brukt i mobiler, elbiler og stasjonær lagring. En tryggere variant er litiumjernfosfat (LFP) med lang levetid, mens de gamle blybatteriene er billige men tunge. Batterier har en stor styrke: de er svært effektive, med 85 til 95 % tur-retur-virkningsgrad, og de svarer lynraskt. Svakheten er at de blir dyre i virkelig stor skala og taper kapasitet over tid. De passer derfor best til *korttidslagring*, fra timer til noen dager.\n\nSå har vi **hydrogen**, som spiller en helt annen rolle. Med elektrolyse spalter vi vann til hydrogen og oksygen ved hjelp av strøm: $2H_2O \\rightarrow 2H_2 + O_2$. Senere kan en brenselcelle gjøre det motsatte og lage strøm igjen. Hydrogen kan lagres i enorme mengder over lang tid uten selvutlading – perfekt for *sesonglagring*, der vi tar vare på sommerstrøm til vinteren. Haken er den lave totalvirkningsgraden på bare 30 til 40 %, fordi vi taper energi både ved elektrolyse og i brenselcellen. I tillegg finnes velprøvde metoder som **pumpekraftverk**, der vann pumpes opp i et magasin når strømmen er billig og slippes ned gjennom en turbin når behovet er stort, samt svinghjul og komprimert luft.\n\nSkal du lagre overskudd fra en vindpark over en hel sesong, vinner derfor hydrogen klart over batterier: batterier blir altfor dyre i så store mengder og mister kapasitet over tid, mens hydrogen kan ligge og vente til kulda kommer."
+    },
+    {
+      "id": "elektro-data-vg1-5-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-5-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på energilagring:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz3-q0",
+            "task": "Hvilken lagringsmetode egner seg best for sesonglagring (sommer til vinter)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Li-ion batterier",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Blybatterier",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hydrogen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Svinghjul",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hydrogen kan lagres i store mengder over lang tid uten selvutlading, og egner seg derfor for sesonglagring. Batterier blir for dyre og mister kapasitet over tid."
+          },
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz3-q1",
+            "task": "Hva er en viktig fordel med batterier (Li-ion) som energilagring?",
+            "options": [
+              {
+                "id": "b",
+                "text": "De kan lagre energi i flere år uten tap",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De er ubegrenset billige i stor skala",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De krever ingen råstoffer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "De har svært høy virkningsgrad (85-95 %) og rask respons",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Batterier har høy tur-retur-virkningsgrad (85-95 %) og svarer lynraskt. Svakheten er høy kostnad i stor skala og at de taper kapasitet over tid."
+          },
+          {
+            "id": "elektro-data-vg1-5-3-n-quiz3-q2",
+            "task": "Hvordan fungerer et pumpekraftverk som energilagring?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det pumper vann opp i et magasin når strøm er billig, og slipper det ned gjennom turbin ved behov",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det lagrer strøm direkte i store batterier",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det spalter vann til hydrogen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det lagrer varme i bakken",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Pumpekraftverk pumper vann opp i et høyereliggende magasin når strømmen er billig, og lar vannet renne ned gjennom en turbin når behovet er stort."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-5-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har sett hvordan Norge kan høste energi fra naturen og ta vare på den. **Vindturbiner** gjør bevegelsesenergi om til strøm via en generator, med effekten $P = \\frac{1}{2}\\rho A v^3$ – der vinden teller i tredje potens, slik at dobbel vind gir åtte ganger effekten. **Horisontalakse**-turbiner er mest effektive i store parker, mens **vertikalakse**-turbiner fanger vind fra alle kanter. **Bølgekraft** utnytter havets bevegelse, og **varmepumper** leverer 2 til 5 ganger mer varme enn strømmen de bruker, med COP som mål.\n\nSiden fornybar energi ikke lages når vi trenger den, må vi lagre den. **Batterier** er effektive og raske til korttidslagring, **hydrogen** egner seg for sesonglagring tross lav virkningsgrad, og **pumpekraftverk** er en velprøvd løsning for storskala. Kunsten er å koble riktig lagringsmetode til riktig behov."
+    }
+  ],
+  "exercises": []
+}

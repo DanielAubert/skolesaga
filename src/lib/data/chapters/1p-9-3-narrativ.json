@@ -1,1 +1,447 @@
-{"id":"1p-9-3-narrativ","courseId":"1p","chapterNumber":"9.3","title":"Matematikk med programmering","subtitle":"Narrativ versjon","description":"En fortelling om datamaskinen som regnehjelp -- om rentesrente med løkker, terningkast-simuleringer, halveringsmetoden og statistikk på autopilot.","estimatedMinutes":35,"competenceGoals":["bruke programmering til å utforske matematiske sammenhenger","bruke digitale verktøy i utforsking og problemløsning"],"linkedChapterId":"1p-9-3","content":[{"id":"1p-9-3-n-intro","type":"text","content":"## Regnekraft uten grenser\n\nTenk deg å gjenta samme renteutregning 50 ganger, eller kaste en terning 10 000 ganger og notere hvert kast. Du hadde gitt opp -- men datamaskinen gjør det på et brøkdels sekund, uten å bli sliten og uten å slurve. Det er nettopp dette som gjør programmering til et kraftig verktøy i matematikken: Alt som krever mange beregninger eller gjentakelser, er datamaskinens hjemmebane.\n\nI de to forrige kapitlene lærte du å tenke i algoritmer og å skrive Python. Nå skal ferdighetene brukes på ekte matematiske problemer, og planen er ambisiøs: Vi skal beregne hvordan sparepenger vokser med rentesrente, år for år. Vi skal simulere tilfeldige forsøk -- tusenvis av terningkast -- og sammenligne med teorien. Vi skal løse likninger med rå regnekraft og med en smart metode som halverer søkeområdet igjen og igjen. Og vi skal la programmet regne ut statistiske mål fra hele datasett på et blunk.\n\nUnderveis møter du igjen gamle kjente fra tidligere kapitler -- vekstfaktoren, sannsynligheten og nullpunktene -- men nå med en datamaskin som gjør tungarbeidet. La oss sette i gang."},{"id":"1p-9-3-n-section1","type":"text","content":"## Renter år for år\n\nNår du setter penger i banken, får du renter -- og med **rentesrente** får du renter av rentene. Formelen kjenner du fra eksponentialfunksjonene: $K_n = K_0 \\cdot \\left(1 + \\frac{r}{100}\\right)^n$, der $K_0$ er startbeløpet, $r$ rentesatsen og $n$ antall år. Men med et program kan vi *se* veksten år for år i stedet for å hoppe rett til svaret.\n\nIdeen er enkel: Gang beløpet med vekstfaktoren én gang per runde i en løkke.\n```python\nbelop = 5000\nrente = 4\nfor ar in range(1, 21):\n    belop = belop * (1 + rente/100)\n    print(\"År\", ar, \":\", round(belop, 2), \"kr\")\n```\nProgrammet starter med 5000 kroner til 4 prosent rente. Kjøringen viser 5200 kroner etter år 1, cirka 6083 etter år 5, 7401 etter år 10 -- og 10 955,62 kroner etter 20 år. Beløpet er mer enn doblet, og du ser med egne øyne hvordan veksten akselererer: Rentene fra de første årene gir selv renter senere. Funksjonen `round(belop, 2)` runder av til to desimaler for pen utskrift.\n\nDet fine med program framfor formel er fleksibiliteten. Vil du vite *når* beløpet passerer 6000 kroner, lar du løkken sjekke underveis -- med 5000 kroner og 4 prosent skjer det i løpet av år 5. Og månedlig sparing med rente? Bare legg innskuddet til i hver runde: `saldo = saldo * 1.003 + 500`."},{"id":"1p-9-3-n-quiz1","type":"exercise","exercise":{"id":"1p-9-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på renter med løkker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-9-3-n-quiz1-q0","task":"`belop = 1000`, deretter `for i in range(2): belop = belop * 1.05`. Hva er `belop` etterpå?","options":[{"id":"a","text":"$1100$","isCorrect":false},{"id":"b","text":"$1050$","isCorrect":false},{"id":"c","text":"$1102{,}50$","isCorrect":true},{"id":"d","text":"$1102{,}05$","isCorrect":false}],"solution":"To runder: $1000 \\cdot 1{,}05 \\cdot 1{,}05 = 1102{,}50$."},{"id":"1p-9-3-n-quiz1-q1","task":"Hva gjør løkken i et rentesrente-program i hver runde?","options":[{"id":"a","text":"Ganger beløpet med vekstfaktoren","isCorrect":true},{"id":"b","text":"Legger til et fast rentebeløp","isCorrect":false},{"id":"c","text":"Deler beløpet på antall år","isCorrect":false},{"id":"d","text":"Trekker fra skatten","isCorrect":false}],"solution":"Hver runde tilsvarer ett år: beløpet ganges med vekstfaktoren $(1 + r/100)$, slik at rentene også gir renter."},{"id":"1p-9-3-n-quiz1-q2","task":"$5000$ kr står i $20$ år til $4\\%$ rente og blir til ca. $10\\,956$ kr. Hva viser dette?","options":[{"id":"a","text":"At renten er for lav til å merkes","isCorrect":false},{"id":"b","text":"At beløpet mer enn dobles -- rentesrenten akselererer veksten","isCorrect":true},{"id":"c","text":"At beløpet vokser med likt beløp hvert år","isCorrect":false},{"id":"d","text":"At banken tar gebyrer","isCorrect":false}],"solution":"$5000 \\cdot 1{,}04^{20} \\approx 10\\,956$ -- mer enn en dobling. Veksten er eksponentiell, ikke lineær."}]}},{"id":"1p-9-3-n-section2","type":"text","content":"## Datamaskinen kaster terning\n\nHva er sannsynligheten for en sekser? $\\frac{1}{6} \\approx 16{,}7\\%$, sier teorien. Men stemmer det? Med programmering kan vi teste -- ikke med seks kast, men med ti tusen. Et dataeksperiment som etterligner en virkelig situasjon, kalles en **simulering**, og nøkkelen i Python er `random.randint(1, 6)`, som gir et tilfeldig heltall fra 1 til 6 -- et digitalt terningkast.\n\n```python\nimport random\nantall_seksere = 0\nfor i in range(10000):\n    if random.randint(1, 6) == 6:\n        antall_seksere = antall_seksere + 1\nprint(antall_seksere / 10000)\n```\nProgrammet teller sekserne og regner ut **den relative frekvensen**: antall ganger hendelsen skjedde delt på antall forsøk. En typisk kjøring gir kanskje 1672 seksere, altså relativ frekvens 0,1672 -- imponerende nær teoriens 0,1667. Kjører du på nytt, får du et litt annet tall, for tilfeldighet er tilfeldig. Men jo flere kast, desto nærmere teorien kommer du -- det kalles **de store talls lov**.\n\nSimuleringer skinner når teorien blir vanskeligere. Hva er sjansen for at to terninger gir sum 7? Programmet kaster to terninger per runde og teller. Teorien sier $\\frac{6}{36} = \\frac{1}{6}$, siden 6 av 36 mulige utfall gir sum 7 -- og simuleringen lander pent rundt 0,167. Når regnestykket blir for komplisert, kan du alltid la datamaskinen prøve seg fram."},{"id":"1p-9-3-n-quiz2","type":"exercise","exercise":{"id":"1p-9-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på simulering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-9-3-n-quiz2-q0","task":"Du simulerer $10\\,000$ terningkast. Omtrent hvor mange seksere forventer du?","options":[{"id":"a","text":"Ca. $6000$","isCorrect":false},{"id":"b","text":"Ca. $1000$","isCorrect":false},{"id":"c","text":"Ca. $1667$","isCorrect":true},{"id":"d","text":"Ca. $600$","isCorrect":false}],"solution":"Forventet antall $=$ sannsynlighet $\\cdot$ antall forsøk $= \\frac{1}{6} \\cdot 10\\,000 \\approx 1667$."},{"id":"1p-9-3-n-quiz2-q1","task":"Hva er relativ frekvens?","options":[{"id":"a","text":"Antall ganger hendelsen skjer delt på totalt antall forsøk","isCorrect":true},{"id":"b","text":"Sannsynligheten ganger $100$","isCorrect":false},{"id":"c","text":"Antall forsøk delt på antall hendelser","isCorrect":false},{"id":"d","text":"Det samme som forventningsverdi","isCorrect":false}],"solution":"Relativ frekvens $= \\frac{\\text{antall ganger hendelsen skjer}}{\\text{totalt antall forsøk}}$ -- og den nærmer seg sannsynligheten når antall forsøk øker."},{"id":"1p-9-3-n-quiz2-q2","task":"To simuleringer av $10\\,000$ kast gir $1648$ og $1689$ seksere. Hvorfor er ikke tallene like?","options":[{"id":"a","text":"Programmet har en feil","isCorrect":false},{"id":"b","text":"Terningen er urettferdig","isCorrect":false},{"id":"c","text":"Datamaskinen mister noen kast","isCorrect":false},{"id":"d","text":"Tilfeldig variasjon -- resultatene varierer rundt forventningsverdien","isCorrect":true}],"solution":"Simuleringen bruker tilfeldige tall, så resultatet varierer. Med flere kast blir den relative variasjonen mindre (de store talls lov)."}]}},{"id":"1p-9-3-n-section3","type":"text","content":"## Likninger løst med rå kraft -- og med list\n\nNoen likninger er stri tobakk for hånd, men trivielle for en datamaskin. Den enkleste metoden kalles **brute force** (rå kraft): prøv mange verdier og se hva som passer. Skal du løse $3x + 7 = 22$, kan du la en løkke teste alle heltall fra $-100$ til 100 og skrive ut den som stemmer -- programmet finner $x = 5$ på et øyeblikk. For desimalsvar lar du programmet lete etter verdien som gjør avviket minst, med små steg på for eksempel 0,01.\n\nMen det finnes en smartere idé: **halveringsmetoden** (biseksjonsmetoden) for å finne nullpunkter. Prinsippet: Hvis $f(a)$ og $f(b)$ har *ulikt fortegn*, må grafen krysse null et sted mellom $a$ og $b$. Sjekk midtpunktet $m = \\frac{a+b}{2}$: Har $f(m)$ samme fortegn som $f(a)$, ligger nullpunktet mellom $m$ og $b$; ellers mellom $a$ og $m$. Halver, halver, halver -- og intervallet krymper lynraskt rundt svaret.\n\nLa oss finne $\\sqrt{7}$, altså nullpunktet til $f(x) = x^2 - 7$. Vi starter med $a = 2$ (der $f(2) = -3$, negativ) og $b = 3$ (der $f(3) = 2$, positiv). Etter 50 halveringer i en løkke melder programmet $x \\approx 2{,}6457513111$ -- kvadratroten av 7 med ti desimaler. Samme metode knekker $x^3 - 2x - 5 = 0$: Fortegnsskifte mellom $f(1) = -6$ og $f(3) = 16$, og etter 40 halveringer står svaret der: $x \\approx 2{,}0946$. Ikke elegant algebra -- bare systematisk, ustoppelig halvering."},{"id":"1p-9-3-n-quiz3","type":"exercise","exercise":{"id":"1p-9-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på brute force og halveringsmetoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-9-3-n-quiz3-q0","task":"Hva krever halveringsmetoden av startverdiene $a$ og $b$?","options":[{"id":"a","text":"At $f(a)$ og $f(b)$ har ulikt fortegn","isCorrect":true},{"id":"b","text":"At $a$ og $b$ er heltall","isCorrect":false},{"id":"c","text":"At $f(a) = f(b)$","isCorrect":false},{"id":"d","text":"At $a$ er negativ og $b$ positiv","isCorrect":false}],"solution":"Ulikt fortegn på $f(a)$ og $f(b)$ garanterer at grafen krysser null et sted mellom dem."},{"id":"1p-9-3-n-quiz3-q1","task":"Du leter etter $\\sqrt{20}$ i intervallet $[4, 5]$ med halveringsmetoden. Hva er det første midtpunktet?","options":[{"id":"a","text":"$4{,}25$","isCorrect":false},{"id":"b","text":"$4{,}5$","isCorrect":true},{"id":"c","text":"$4{,}75$","isCorrect":false},{"id":"d","text":"$20$","isCorrect":false}],"solution":"$m = \\frac{4 + 5}{2} = 4{,}5$."},{"id":"1p-9-3-n-quiz3-q2","task":"$4{,}5^2 = 20{,}25 > 20$. Hvilket intervall fortsetter du med for å finne $\\sqrt{20}$?","options":[{"id":"a","text":"$[4{,}5, \\, 5]$","isCorrect":false},{"id":"b","text":"$[4{,}25, \\, 4{,}75]$","isCorrect":false},{"id":"c","text":"$[4, \\, 4{,}5]$","isCorrect":true},{"id":"d","text":"$[5, \\, 20]$","isCorrect":false}],"solution":"Siden $4{,}5$ ga for stor verdi, ligger $\\sqrt{20}$ under $4{,}5$ -- i intervallet $[4, \\, 4{,}5]$. (Fasit: $\\sqrt{20} \\approx 4{,}47$.)"}]}},{"id":"1p-9-3-n-section4","type":"text","content":"## Statistikk og grafer på autopilot\n\nHusker du gjennomsnitt, median og variasjonsbredde fra statistikken? Med ti tall går det greit for hånd -- med tusen blir det program. Og det fine er at de statistiske målene er som skapt for funksjoner: **Gjennomsnittet** er `sum(data) / len(data)` -- summen delt på antallet. **Medianen** krever litt mer: Sortér listen med `sorted(data)`; er antallet odde, er medianen den midterste verdien, ellers snittet av de to midterste. **Variasjonsbredden** er kort og godt `max(data) - min(data)`.\n\nMed prøveresultatene `[78, 85, 62, 91, 74, 88, 67, 95, 73, 80]` svarer programmet umiddelbart: gjennomsnitt 79,3, median 79,0 og variasjonsbredde 33. Samme funksjoner virker på hundre tusen tall uten å nøle.\n\nPython tegner også grafer, med tilleggsbiblioteket **matplotlib**. Prinsippet er enkelt: Regn ut $f(x)$ for mange tette x-verdier, og la `plt.plot(x_verdier, y_verdier)` tegne punktene som en sammenhengende kurve -- jo tettere punkter, desto jevnere kurve. Slik kan du tegne $f(x) = x^2 - 4$ fra $-5$ til $5$ med steg på 0,1 og se parabelen vokse fram.\n\nOg dette er bare begynnelsen: Med verktøyene fra disse tre kapitlene kan du utforske tallmønstre, bygge dine egne kalkulatorer -- som et program som beregner hele strømregningen med forbruk, nettleie og 25 prosent MVA -- og visualisere data. Det viktigste er å eksperimentere: Programmering lærer du med fingrene på tastaturet."},{"id":"1p-9-3-n-quiz4","type":"exercise","exercise":{"id":"1p-9-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på statistikk og grafer med Python:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-9-3-n-quiz4-q0","task":"Hvordan beregnes gjennomsnittet av en talliste i Python?","options":[{"id":"a","text":"`max(data) - min(data)`","isCorrect":false},{"id":"b","text":"`sorted(data)`","isCorrect":false},{"id":"c","text":"`sum(data) / len(data)`","isCorrect":true},{"id":"d","text":"`data / len(data)`","isCorrect":false}],"solution":"Gjennomsnitt $=$ summen delt på antallet: `sum(data) / len(data)`."},{"id":"1p-9-3-n-quiz4-q1","task":"Hva er variasjonsbredden til datasettet?","options":[{"id":"a","text":"Største verdi minus minste verdi","isCorrect":true},{"id":"b","text":"Den midterste verdien","isCorrect":false},{"id":"c","text":"Summen delt på antallet","isCorrect":false},{"id":"d","text":"Antall verdier i settet","isCorrect":false}],"solution":"Variasjonsbredde $=$ `max(data) - min(data)` -- avstanden mellom største og minste verdi."},{"id":"1p-9-3-n-quiz4-q2","task":"Hva brukes biblioteket matplotlib til?","options":[{"id":"a","text":"Å løse likninger","isCorrect":false},{"id":"b","text":"Å lage tilfeldige tall","isCorrect":false},{"id":"c","text":"Å sortere lister","isCorrect":false},{"id":"d","text":"Å tegne grafer og visualisere data","isCorrect":true}],"solution":"matplotlib tegner grafer: du beregner mange punkter og `plt.plot` tegner dem som en kurve."}]}},{"id":"1p-9-3-n-summary","type":"text","content":"## Fortellingen om datamaskinen som regnehjelp\n\nTre kapitler om algoritmisk tenkning ender her, med datamaskinen som fullverdig mattepartner. **Rentesrente** beregnet vi med en løkke som ganger med vekstfaktoren år for år -- og så 5000 kroner mer enn dobles til 10 956 på 20 år med 4 prosent rente. **Simuleringer** med `random.randint` kastet terning ti tusen ganger, og den relative frekvensen la seg tett inntil teoriens sannsynlighet -- akkurat som de store talls lov lover.\n\nLikninger angrep vi på to måter: **brute force**, som prøver mange verdier systematisk, og den elegante **halveringsmetoden**, som finner nullpunkter ved å halvere intervallet der fortegnet skifter -- og ga oss $\\sqrt{7}$ med ti desimaler. Og **statistikken** ble automatisk: gjennomsnitt, median og variasjonsbredde som korte funksjoner, pluss grafer tegnet med matplotlib.\n\nDen røde tråden er datamaskinens natur: Den gjentar uten å bli sliten. Din jobb er å formulere algoritmen -- maskinens jobb er å kjøre den ti tusen ganger. Med den arbeidsdelingen kan du utforske matematikk som ellers ville vært utenfor rekkevidde."}],"exercises":[]}
+{
+  "id": "1p-9-3-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "9.3",
+  "title": "Matematikk med programmering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om datamaskinen som regnehjelp -- om rentesrente med løkker, terningkast-simuleringer, halveringsmetoden og statistikk på autopilot.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke programmering til å utforske matematiske sammenhenger",
+    "bruke digitale verktøy i utforsking og problemløsning"
+  ],
+  "linkedChapterId": "1p-9-3",
+  "content": [
+    {
+      "id": "1p-9-3-n-intro",
+      "type": "text",
+      "content": "## Regnekraft uten grenser\n\nTenk deg å gjenta samme renteutregning 50 ganger, eller kaste en terning 10 000 ganger og notere hvert kast. Du hadde gitt opp -- men datamaskinen gjør det på et brøkdels sekund, uten å bli sliten og uten å slurve. Det er nettopp dette som gjør programmering til et kraftig verktøy i matematikken: Alt som krever mange beregninger eller gjentakelser, er datamaskinens hjemmebane.\n\nI de to forrige kapitlene lærte du å tenke i algoritmer og å skrive Python. Nå skal ferdighetene brukes på ekte matematiske problemer, og planen er ambisiøs: Vi skal beregne hvordan sparepenger vokser med rentesrente, år for år. Vi skal simulere tilfeldige forsøk -- tusenvis av terningkast -- og sammenligne med teorien. Vi skal løse likninger med rå regnekraft og med en smart metode som halverer søkeområdet igjen og igjen. Og vi skal la programmet regne ut statistiske mål fra hele datasett på et blunk.\n\nUnderveis møter du igjen gamle kjente fra tidligere kapitler -- vekstfaktoren, sannsynligheten og nullpunktene -- men nå med en datamaskin som gjør tungarbeidet. La oss sette i gang."
+    },
+    {
+      "id": "1p-9-3-n-section1",
+      "type": "text",
+      "content": "## Renter år for år\n\nNår du setter penger i banken, får du renter -- og med **rentesrente** får du renter av rentene. Formelen kjenner du fra eksponentialfunksjonene: $K_n = K_0 \\cdot \\left(1 + \\frac{r}{100}\\right)^n$, der $K_0$ er startbeløpet, $r$ rentesatsen og $n$ antall år. Men med et program kan vi *se* veksten år for år i stedet for å hoppe rett til svaret.\n\nIdeen er enkel: Gang beløpet med vekstfaktoren én gang per runde i en løkke.\n```python\nbelop = 5000\nrente = 4\nfor ar in range(1, 21):\n    belop = belop * (1 + rente/100)\n    print(\"År\", ar, \":\", round(belop, 2), \"kr\")\n```\nProgrammet starter med 5000 kroner til 4 prosent rente. Kjøringen viser 5200 kroner etter år 1, cirka 6083 etter år 5, 7401 etter år 10 -- og 10 955,62 kroner etter 20 år. Beløpet er mer enn doblet, og du ser med egne øyne hvordan veksten akselererer: Rentene fra de første årene gir selv renter senere. Funksjonen `round(belop, 2)` runder av til to desimaler for pen utskrift.\n\nDet fine med program framfor formel er fleksibiliteten. Vil du vite *når* beløpet passerer 6000 kroner, lar du løkken sjekke underveis -- med 5000 kroner og 4 prosent skjer det i løpet av år 5. Og månedlig sparing med rente? Bare legg innskuddet til i hver runde: `saldo = saldo * 1.003 + 500`."
+    },
+    {
+      "id": "1p-9-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-9-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på renter med løkker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-9-3-n-quiz1-q0",
+            "task": "`belop = 1000`, deretter `for i in range(2): belop = belop * 1.05`. Hva er `belop` etterpå?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$1102{,}50$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1050$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1102{,}05$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "To runder: $1000 \\cdot 1{,}05 \\cdot 1{,}05 = 1102{,}50$."
+          },
+          {
+            "id": "1p-9-3-n-quiz1-q1",
+            "task": "Hva gjør løkken i et rentesrente-program i hver runde?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Legger til et fast rentebeløp",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ganger beløpet med vekstfaktoren",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Deler beløpet på antall år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Trekker fra skatten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hver runde tilsvarer ett år: beløpet ganges med vekstfaktoren $(1 + r/100)$, slik at rentene også gir renter."
+          },
+          {
+            "id": "1p-9-3-n-quiz1-q2",
+            "task": "$5000$ kr står i $20$ år til $4\\%$ rente og blir til ca. $10\\,956$ kr. Hva viser dette?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At renten er for lav til å merkes",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At beløpet vokser med likt beløp hvert år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At beløpet mer enn dobles -- rentesrenten akselererer veksten",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At banken tar gebyrer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$5000 \\cdot 1{,}04^{20} \\approx 10\\,956$ -- mer enn en dobling. Veksten er eksponentiell, ikke lineær."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-9-3-n-section2",
+      "type": "text",
+      "content": "## Datamaskinen kaster terning\n\nHva er sannsynligheten for en sekser? $\\frac{1}{6} \\approx 16{,}7\\%$, sier teorien. Men stemmer det? Med programmering kan vi teste -- ikke med seks kast, men med ti tusen. Et dataeksperiment som etterligner en virkelig situasjon, kalles en **simulering**, og nøkkelen i Python er `random.randint(1, 6)`, som gir et tilfeldig heltall fra 1 til 6 -- et digitalt terningkast.\n\n```python\nimport random\nantall_seksere = 0\nfor i in range(10000):\n    if random.randint(1, 6) == 6:\n        antall_seksere = antall_seksere + 1\nprint(antall_seksere / 10000)\n```\nProgrammet teller sekserne og regner ut **den relative frekvensen**: antall ganger hendelsen skjedde delt på antall forsøk. En typisk kjøring gir kanskje 1672 seksere, altså relativ frekvens 0,1672 -- imponerende nær teoriens 0,1667. Kjører du på nytt, får du et litt annet tall, for tilfeldighet er tilfeldig. Men jo flere kast, desto nærmere teorien kommer du -- det kalles **de store talls lov**.\n\nSimuleringer skinner når teorien blir vanskeligere. Hva er sjansen for at to terninger gir sum 7? Programmet kaster to terninger per runde og teller. Teorien sier $\\frac{6}{36} = \\frac{1}{6}$, siden 6 av 36 mulige utfall gir sum 7 -- og simuleringen lander pent rundt 0,167. Når regnestykket blir for komplisert, kan du alltid la datamaskinen prøve seg fram."
+    },
+    {
+      "id": "1p-9-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-9-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på simulering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-9-3-n-quiz2-q0",
+            "task": "Du simulerer $10\\,000$ terningkast. Omtrent hvor mange seksere forventer du?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. $6000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. $1000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $600$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $1667$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Forventet antall $=$ sannsynlighet $\\cdot$ antall forsøk $= \\frac{1}{6} \\cdot 10\\,000 \\approx 1667$."
+          },
+          {
+            "id": "1p-9-3-n-quiz2-q1",
+            "task": "Hva er relativ frekvens?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Antall ganger hendelsen skjer delt på totalt antall forsøk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Sannsynligheten ganger $100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall forsøk delt på antall hendelser",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det samme som forventningsverdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Relativ frekvens $= \\frac{\\text{antall ganger hendelsen skjer}}{\\text{totalt antall forsøk}}$ -- og den nærmer seg sannsynligheten når antall forsøk øker."
+          },
+          {
+            "id": "1p-9-3-n-quiz2-q2",
+            "task": "To simuleringer av $10\\,000$ kast gir $1648$ og $1689$ seksere. Hvorfor er ikke tallene like?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Programmet har en feil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tilfeldig variasjon -- resultatene varierer rundt forventningsverdien",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Terningen er urettferdig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Datamaskinen mister noen kast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Simuleringen bruker tilfeldige tall, så resultatet varierer. Med flere kast blir den relative variasjonen mindre (de store talls lov)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-9-3-n-section3",
+      "type": "text",
+      "content": "## Likninger løst med rå kraft -- og med list\n\nNoen likninger er stri tobakk for hånd, men trivielle for en datamaskin. Den enkleste metoden kalles **brute force** (rå kraft): prøv mange verdier og se hva som passer. Skal du løse $3x + 7 = 22$, kan du la en løkke teste alle heltall fra $-100$ til 100 og skrive ut den som stemmer -- programmet finner $x = 5$ på et øyeblikk. For desimalsvar lar du programmet lete etter verdien som gjør avviket minst, med små steg på for eksempel 0,01.\n\nMen det finnes en smartere idé: **halveringsmetoden** (biseksjonsmetoden) for å finne nullpunkter. Prinsippet: Hvis $f(a)$ og $f(b)$ har *ulikt fortegn*, må grafen krysse null et sted mellom $a$ og $b$. Sjekk midtpunktet $m = \\frac{a+b}{2}$: Har $f(m)$ samme fortegn som $f(a)$, ligger nullpunktet mellom $m$ og $b$; ellers mellom $a$ og $m$. Halver, halver, halver -- og intervallet krymper lynraskt rundt svaret.\n\nLa oss finne $\\sqrt{7}$, altså nullpunktet til $f(x) = x^2 - 7$. Vi starter med $a = 2$ (der $f(2) = -3$, negativ) og $b = 3$ (der $f(3) = 2$, positiv). Etter 50 halveringer i en løkke melder programmet $x \\approx 2{,}6457513111$ -- kvadratroten av 7 med ti desimaler. Samme metode knekker $x^3 - 2x - 5 = 0$: Fortegnsskifte mellom $f(1) = -6$ og $f(3) = 16$, og etter 40 halveringer står svaret der: $x \\approx 2{,}0946$. Ikke elegant algebra -- bare systematisk, ustoppelig halvering."
+    },
+    {
+      "id": "1p-9-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-9-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på brute force og halveringsmetoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-9-3-n-quiz3-q0",
+            "task": "Hva krever halveringsmetoden av startverdiene $a$ og $b$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At $a$ og $b$ er heltall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At $f(a) = f(b)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At $f(a)$ og $f(b)$ har ulikt fortegn",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At $a$ er negativ og $b$ positiv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ulikt fortegn på $f(a)$ og $f(b)$ garanterer at grafen krysser null et sted mellom dem."
+          },
+          {
+            "id": "1p-9-3-n-quiz3-q1",
+            "task": "Du leter etter $\\sqrt{20}$ i intervallet $[4, 5]$ med halveringsmetoden. Hva er det første midtpunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4{,}25$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4{,}75$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4{,}5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$m = \\frac{4 + 5}{2} = 4{,}5$."
+          },
+          {
+            "id": "1p-9-3-n-quiz3-q2",
+            "task": "$4{,}5^2 = 20{,}25 > 20$. Hvilket intervall fortsetter du med for å finne $\\sqrt{20}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$[4, \\, 4{,}5]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[4{,}5, \\, 5]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[4{,}25, \\, 4{,}75]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[5, \\, 20]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $4{,}5$ ga for stor verdi, ligger $\\sqrt{20}$ under $4{,}5$ -- i intervallet $[4, \\, 4{,}5]$. (Fasit: $\\sqrt{20} \\approx 4{,}47$.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-9-3-n-section4",
+      "type": "text",
+      "content": "## Statistikk og grafer på autopilot\n\nHusker du gjennomsnitt, median og variasjonsbredde fra statistikken? Med ti tall går det greit for hånd -- med tusen blir det program. Og det fine er at de statistiske målene er som skapt for funksjoner: **Gjennomsnittet** er `sum(data) / len(data)` -- summen delt på antallet. **Medianen** krever litt mer: Sortér listen med `sorted(data)`; er antallet odde, er medianen den midterste verdien, ellers snittet av de to midterste. **Variasjonsbredden** er kort og godt `max(data) - min(data)`.\n\nMed prøveresultatene `[78, 85, 62, 91, 74, 88, 67, 95, 73, 80]` svarer programmet umiddelbart: gjennomsnitt 79,3, median 79,0 og variasjonsbredde 33. Samme funksjoner virker på hundre tusen tall uten å nøle.\n\nPython tegner også grafer, med tilleggsbiblioteket **matplotlib**. Prinsippet er enkelt: Regn ut $f(x)$ for mange tette x-verdier, og la `plt.plot(x_verdier, y_verdier)` tegne punktene som en sammenhengende kurve -- jo tettere punkter, desto jevnere kurve. Slik kan du tegne $f(x) = x^2 - 4$ fra $-5$ til $5$ med steg på 0,1 og se parabelen vokse fram.\n\nOg dette er bare begynnelsen: Med verktøyene fra disse tre kapitlene kan du utforske tallmønstre, bygge dine egne kalkulatorer -- som et program som beregner hele strømregningen med forbruk, nettleie og 25 prosent MVA -- og visualisere data. Det viktigste er å eksperimentere: Programmering lærer du med fingrene på tastaturet."
+    },
+    {
+      "id": "1p-9-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-9-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på statistikk og grafer med Python:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-9-3-n-quiz4-q0",
+            "task": "Hvordan beregnes gjennomsnittet av en talliste i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`max(data) - min(data)`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`sum(data) / len(data)`",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "`sorted(data)`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`data / len(data)`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnitt $=$ summen delt på antallet: `sum(data) / len(data)`."
+          },
+          {
+            "id": "1p-9-3-n-quiz4-q1",
+            "task": "Hva er variasjonsbredden til datasettet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den midterste verdien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Summen delt på antallet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Største verdi minus minste verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Antall verdier i settet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variasjonsbredde $=$ `max(data) - min(data)` -- avstanden mellom største og minste verdi."
+          },
+          {
+            "id": "1p-9-3-n-quiz4-q2",
+            "task": "Hva brukes biblioteket matplotlib til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å løse likninger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å lage tilfeldige tall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å sortere lister",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å tegne grafer og visualisere data",
+                "isCorrect": true
+              }
+            ],
+            "solution": "matplotlib tegner grafer: du beregner mange punkter og `plt.plot` tegner dem som en kurve."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-9-3-n-summary",
+      "type": "text",
+      "content": "## Fortellingen om datamaskinen som regnehjelp\n\nTre kapitler om algoritmisk tenkning ender her, med datamaskinen som fullverdig mattepartner. **Rentesrente** beregnet vi med en løkke som ganger med vekstfaktoren år for år -- og så 5000 kroner mer enn dobles til 10 956 på 20 år med 4 prosent rente. **Simuleringer** med `random.randint` kastet terning ti tusen ganger, og den relative frekvensen la seg tett inntil teoriens sannsynlighet -- akkurat som de store talls lov lover.\n\nLikninger angrep vi på to måter: **brute force**, som prøver mange verdier systematisk, og den elegante **halveringsmetoden**, som finner nullpunkter ved å halvere intervallet der fortegnet skifter -- og ga oss $\\sqrt{7}$ med ti desimaler. Og **statistikken** ble automatisk: gjennomsnitt, median og variasjonsbredde som korte funksjoner, pluss grafer tegnet med matplotlib.\n\nDen røde tråden er datamaskinens natur: Den gjentar uten å bli sliten. Din jobb er å formulere algoritmen -- maskinens jobb er å kjøre den ti tusen ganger. Med den arbeidsdelingen kan du utforske matematikk som ellers ville vært utenfor rekkevidde."
+    }
+  ],
+  "exercises": []
+}

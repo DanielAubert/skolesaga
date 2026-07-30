@@ -1,1 +1,510 @@
-{"id":"r1-5-3-narrativ","courseId":"r1","chapterNumber":"5.3","title":"Modellering med reelle datasett","subtitle":"Narrativ versjon","description":"Ei forteljing om modellering med ekte data -- om å lese forma på eit datasett, la regresjonen talfeste modellen, tolke R², og om det kritiske blikket som avslører når modellen lyg.","estimatedMinutes":40,"competenceGoals":["vurdere kva modell som passar til eit datasett","utføre eksponentiell og logistisk regresjon","vurdere gyldigheita og avgrensingane til modellen","presentere og tolke resultat frå modellering"],"linkedChapterId":"r1-5-3","content":[{"id":"r1-5-3-n-intro","type":"text","content":"## Når verkelegheita ikkje følgjer formelen\n\nI dei to førre kapitla levde vi i ei ryddig verd: pene formlar med kjende parametrar gav eksakte svar. Men opne eit rekneark med ekte tal – talet på el-bilar i Noreg, brukarar av ein ny app, smittetilfelle veke for veke – og du møter ei anna verkelegheit. Punkta ligg aldri perfekt på ei kurve. Data inneheld alltid tilfeldig variasjon, det vi kallar *støy*. Vi kjenner ikkje parametrane $K$, $r$ eller vekstfaktoren på førehand. Fleire ulike modellar kan passe sånn passe bra. Og kvar modell har grenser for kva han kan seie.\n\nDette kapittelet handlar om handverket som blir kalla **modellering**: kunsten å gå frå rotete tal til ein matematisk modell ein kan stole på – og å vite kor langt ein kan stole på han. Arbeidsgangen har fire steg. Først vel vi *kva type* modell som passar, ut frå forma på dataa. Så bruker vi *regresjon* til å finne parametrane som gir best tilpassing. Deretter *vurderer* vi kor god modellen faktisk er. Og til slutt *tolkar og presenterer* vi resultata på ein ryddig måte.\n\nDet høyrest kanskje teknisk ut, men i botnen ligg eit detektivarbeid: dataa er spora, modellane er teoriane, og jobben din er å finne teorien som best forklarer spora – utan å bli lurt av tilfeldigheiter. La oss starte der kvar god detektiv startar: med å sjå nøye på spora."},{"id":"r1-5-3-n-section1","type":"text","content":"## Å lese forma på dataa\n\nFør du rører ein kalkulator, skal du *sjå* på dataa. Forma avslører veksttypen. **Lineær vekst** aukar med eit fast beløp per tidseining og gir ei rett linje – som eit fast lønstillegg kvart år. **Eksponentiell vekst** aukar med ein fast *prosent* og gir ei kurve som blir stadig brattare; eit fikst triks er at ho blir ei rett linje i eit semilogaritmisk diagram. **Logistisk vekst** gir den karakteristiske S-kurva som flatar ut mot ei øvre grense – typisk for produkt som spreier seg i ein marknad eller epidemiar i ei befolkning. Og **polynomisk vekst** ligg imellom: ho aukar, men ikkje så eksplosivt som eksponentiell.\n\nLa oss trene blikket på to datasett. Først talet på brukarar av ein ny app, i tusen, veke for veke: 2, 6, 18, 50, 120, 200. Frå veke 1 til 3 blir talet om lag tredobla kvar veke – det luktar eksponentielt. Men frå veke 4 til 6 bremsar veksten: 50, 120, 200 er ikkje lenger tredobling. Kurva er i ferd med å flate ut, og ein **logistisk** modell passar truleg best – akkurat det vi ventar når ein app nærmar seg metning blant moglege brukarar.\n\nSå månadstemperaturen frå januar til juni: $-3$, $-1$, 4, 9, 14, 18 grader. Auken per månad er $+2$, $+5$, $+5$, $+5$, $+4$ – påfallande jamn. For akkurat denne perioden passar ein **lineær** modell godt. Men her trengst òg sunn fornuft: temperaturen held jo ikkje fram med å stige inn i æva. Over eit heilt år følgjer han ei bølgje, og ein sinusmodell ville vore rettare. Same data, ulike modellar for ulike føremål – det er lekse nummer éin i modellering."},{"id":"r1-5-3-n-quiz1","type":"exercise","exercise":{"id":"r1-5-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på val av modell:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-3-n-quiz1-q0","task":"Ein storleik aukar med ein fast prosent per tidseining. Kva modelltype passar?","options":[{"id":"a","text":"Lineær","isCorrect":false},{"id":"b","text":"Eksponentiell","isCorrect":true},{"id":"c","text":"Logistisk","isCorrect":false},{"id":"d","text":"Polynomisk","isCorrect":false}],"solution":"Konstant prosentvis auke er sjølve definisjonen på eksponentiell vekst. Konstant auke i kroner/tal ville vore lineær."},{"id":"r1-5-3-n-quiz1-q1","task":"Eit datasett viser ei S-forma kurve som flatar ut mot ei øvre grense. Kva modell bør du velje?","options":[{"id":"a","text":"Logistisk","isCorrect":true},{"id":"b","text":"Eksponentiell","isCorrect":false},{"id":"c","text":"Lineær","isCorrect":false},{"id":"d","text":"Omvendt proporsjonal","isCorrect":false}],"solution":"S-form med utflating mot ei øvre grense er kjenneteiknet på logistisk vekst med berekapasitet."},{"id":"r1-5-3-n-quiz1-q2","task":"App-brukarar per veke (i tusen): 2, 6, 18, 50, 120, 200. Kva kjenneteiknar dataa?","options":[{"id":"a","text":"Jamn lineær vekst heile vegen","isCorrect":false},{"id":"b","text":"Eksponentiell vekst heile vegen","isCorrect":false},{"id":"c","text":"Avtakande verdiar","isCorrect":false},{"id":"d","text":"Nesten eksponentiell start, deretter oppbremsing -- logistisk mønster","isCorrect":true}],"solution":"Tidleg blir talet om lag tredobla per veke (2, 6, 18), men mot slutten bremsar veksten (50, 120, 200). Det er typisk logistisk: rask start, så metning."},{"id":"r1-5-3-n-quiz1-q3","task":"Du får eit fast lønstillegg på 10\\,000 kr kvart år. Kva veksttype skildrar løna di?","options":[{"id":"a","text":"Eksponentiell","isCorrect":false},{"id":"b","text":"Logistisk","isCorrect":false},{"id":"c","text":"Lineær","isCorrect":true},{"id":"d","text":"Polynomisk","isCorrect":false}],"solution":"Eit fast beløp per år gir konstant auke – lineær vekst. Hadde du fått ein fast prosent kvart år, ville det vore eksponentielt."}]}},{"id":"r1-5-3-n-section2","type":"text","content":"## Regresjon – å la dataa velje parametrane\n\nNår modelltypen er vald, skal parametrane talfestast. Det blir gjort med **regresjon**: vi lèt eit digitalt verktøy – GeoGebra, Excel eller kalkulator – finne den kurva av vald type som passar dataa best. «Best» tyder som regel **minste kvadraters metode**: verktøyet minimerer summen av dei kvadrerte avvika mellom datapunkta og kurva.\n\nMen kor god vart tilpassinga? Det måler **forklaringsgraden** $R^2$, definert som $R^2 = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$. Du treng ikkje pugge formelen, men tolkinga må sitje: $R^2 = 1$ tyder perfekt tilpassing der alle punkt ligg på kurva, $R^2 = 0$ tyder at modellen ikkje forklarer noko. Som tommelfingerregel er $R^2 \\geq 0{,}9$ svært godt, $R^2 \\geq 0{,}7$ godt, og under $0{,}5$ svakt.\n\nSjå det i praksis. Befolkninga i ein by, i tusen, er målt kvart femte år frå 2000: 50, 58, 67, 78, 90. Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$ med $R^2 \\approx 0{,}998$ – ei svært god tilpassing. Vekstfaktoren $1{,}030$ les vi direkte som 3,0 % årleg vekst, og modellen spår $N(30) \\approx 121$ tusen i 2030. Men hugs atterhaldet: det føreset at veksten *held fram* eksponentielt.\n\nFlatar dataa ut, byter vi verktøy. Kumulative smittetal gjennom ein epidemi – 1, 5, 25, 100, 250, 400, 480 tusen over 60 dagar – viser logistisk mønster: nesten eksponentiell start, så oppbremsing. Logistisk regresjon (FitLogistic i GeoGebra) gir $N(t) = \\frac{500}{1 + 499e^{-0{,}12t}}$ med $R^2 \\approx 0{,}996$. Den viktigaste premien er asymptoten: berekapasiteten $L = 500$ tusen er anslaget til modellen for kor mange som totalt blir smitta i bølgja. Med eitt atterhald til: berekapasiteten i smittemodellar avheng av tiltak og åtferd – han kan flytte seg undervegs."},{"id":"r1-5-3-n-quiz2","type":"exercise","exercise":{"id":"r1-5-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på regresjon og forklaringsgrad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-3-n-quiz2-q0","task":"Kva tyder $R^2 = 1$?","options":[{"id":"a","text":"Perfekt tilpassing -- alle datapunkt ligg på kurva","isCorrect":true},{"id":"b","text":"Modellen forklarer ingenting","isCorrect":false},{"id":"c","text":"Modellen har nøyaktig éin parameter","isCorrect":false},{"id":"d","text":"Dataa er lineære","isCorrect":false}],"solution":"$R^2 = 1$ tyder at modellen forklarer all variasjon i dataa – alle punkta ligg nøyaktig på kurva."},{"id":"r1-5-3-n-quiz2-q1","task":"Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$. Kva er den årlege vekstraten?","options":[{"id":"a","text":"$1{,}03\\,\\%$","isCorrect":false},{"id":"b","text":"$30\\,\\%$","isCorrect":false},{"id":"c","text":"$3{,}0\\,\\%$","isCorrect":true},{"id":"d","text":"$0{,}3\\,\\%$","isCorrect":false}],"solution":"Vekstfaktoren er $b = 1{,}030 = 1 + 0{,}030$, så den årlege vekstraten er 3,0 %."},{"id":"r1-5-3-n-quiz2-q2","task":"I logistisk regresjon $y = \\frac{L}{1 + ae^{-bx}}$: kva representerer $L$?","options":[{"id":"a","text":"Startverdien","isCorrect":false},{"id":"b","text":"Berekapasiteten -- den øvre grensa dataa flatar ut mot","isCorrect":true},{"id":"c","text":"Vendepunktet","isCorrect":false},{"id":"d","text":"Vekstraten","isCorrect":false}],"solution":"$L$ er asymptoten kurva flatar ut mot – berekapasiteten. I smitteeksempelet var $L = 500$ tusen det totale anslaget for bølgja."},{"id":"r1-5-3-n-quiz2-q3","task":"Ein regresjon gir $R^2 = 0{,}93$. Korleis vurderer du tilpassinga?","options":[{"id":"a","text":"Svak","isCorrect":false},{"id":"b","text":"Ubrukeleg","isCorrect":false},{"id":"c","text":"Middels","isCorrect":false},{"id":"d","text":"Svært god","isCorrect":true}],"solution":"$R^2 \\geq 0{,}9$ blir rekna som svært god tilpassing. Men hugs: høg $R^2$ åleine bevisar ikkje at modellen er rett!"}]}},{"id":"r1-5-3-n-section3","type":"text","content":"## Det kritiske blikket\n\nNo kjem den delen som skil ein reknemaskin frå ein modellerar: dømmekrafta. For her lurer fire feller. Den første er å tru at **høg $R^2$ tyder rett modell**. Ein komplisert modell kan følgje kvar krusing i dataa – inkludert støyen – og likevel bomme på den verkelege samanhengen. Det blir kalla *overfitting*. Den andre er **ekstrapolering**: modellen er berre påliteleg innanfor dataområdet han vart tilpassa på, og prediksjonar langt utanfor kan gå fullstendig gale. Den tredje er å gløyme at **korrelasjon ikkje er kausalitet** – at dataa passar ei kurve, bevisar ikkje at den eine storleiken forårsakar den andre. Og den fjerde er å gå ut frå at tilhøva er konstante: vekstratar og berekapasitetar kan endre seg over tid. Eit godt sjekkpunkt er å sjå på *residualane*, avvika mellom data og modell: er dei tilfeldig spreidde, er alt vel; har dei eit mønster, har modellen oversett noko.\n\nEit klassisk skrekkeksempel: eit selskap har vakse som $N(t) = 1000 \\cdot 1{,}1^t$ i ti år, og nokon framskriv til år 50: $N(50) \\approx 117\\,000$ – 117 gonger startverdien! Men ingen marknad er uendeleg, konkurrentar strøymer til, og kapasitet, tilsette og kapital set grenser. Knapt noko selskap veks eksponentielt i 50 år. Ein logistisk modell med berekapasitet ville gitt ein langt ærlegare prognose.\n\nTil slutt skal arbeidet presenterast, og ein god modelleringsrapport svarar på sju spørsmål: Kva er dataa, og kvar kjem dei frå? Kvifor valde du denne modelltypen? Kva vart modellen, med talfesta parametrar? Kor god er tilpassinga ($R^2$)? Kva *tyder* parametrane? Kva avgrensingar har modellen? Og kva er konklusjonen? For norske el-biltal 2015–2023 kan det sjå slik ut: S-forma vekst tilseier logistisk modell, regresjonen gir $N(t) = \\frac{1200}{1 + 16e^{-0{,}35(t-2015)}}$ med $R^2 = 0{,}997$, berekapasiteten blir tolka som cirka 1,2 millionar el-bilar med vendepunkt rundt 2023 – og avgrensinga er at politikk, infrastruktur og teknologi kan flytte heile taket."},{"id":"r1-5-3-n-quiz3","type":"exercise","exercise":{"id":"r1-5-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på kritisk vurdering av modellar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-3-n-quiz3-q0","task":"Kva er ekstrapolering?","options":[{"id":"a","text":"Å finne parametrar med minste kvadraters metode","isCorrect":false},{"id":"b","text":"Å fjerne støy frå dataa","isCorrect":false},{"id":"c","text":"Å bruke modellen til prediksjonar langt utanfor dataområdet","isCorrect":true},{"id":"d","text":"Å samanlikne to modellar med $R^2$","isCorrect":false}],"solution":"Ekstrapolering er å føreseie utanfor området modellen vart tilpassa på. Det er risikabelt – modellen kan passe perfekt i dataområdet og likevel bomme grovt utanfor."},{"id":"r1-5-3-n-quiz3-q1","task":"Kva påstand er rett om forklaringsgraden?","options":[{"id":"a","text":"Høg $R^2$ tyder ikkje nødvendigvis at modellen er rett","isCorrect":true},{"id":"b","text":"Høg $R^2$ bevisar at modellen er rett","isCorrect":false},{"id":"c","text":"$R^2$ måler kor mange datapunkt som er brukte","isCorrect":false},{"id":"d","text":"Låg $R^2$ tyder alltid at dataa er feil","isCorrect":false}],"solution":"Ein komplisert modell kan få høg $R^2$ ved å følgje støyen i dataa (overfitting) utan å fange den verkelege samanhengen. $R^2$ er eit hjelpemiddel, ikkje eit bevis."},{"id":"r1-5-3-n-quiz3-q2","task":"Modellen $N(t) = 1000 \\cdot 1{,}1^t$ passar veksten til eit selskap i 10 år. Kvifor er prediksjonen $N(50) \\approx 117\\,000$ truleg feil?","options":[{"id":"a","text":"Fordi $1{,}1^{50}$ er rekna feil","isCorrect":false},{"id":"b","text":"Fordi $R^2$ alltid søkk over tid","isCorrect":false},{"id":"c","text":"Fordi eksponentiell vekst alltid undervurderer framtida","isCorrect":false},{"id":"d","text":"Fordi marknader, konkurranse og ressursar avgrensar vekst -- ein logistisk modell er meir realistisk","isCorrect":true}],"solution":"Reknestykket stemmer ($1{,}1^{50} \\approx 117$), men føresetnaden sviktar: ingen marknad er uendeleg. Ein logistisk modell med berekapasitet $K$ fangar metninga."},{"id":"r1-5-3-n-quiz3-q3","task":"Dataa dine passar godt til ein modell der $x$ og $y$ veks saman. Kva kan du konkludere?","options":[{"id":"a","text":"At $x$ forårsakar $y$","isCorrect":false},{"id":"b","text":"At det er samvariasjon -- men ikkje nødvendigvis at $x$ forårsakar $y$","isCorrect":true},{"id":"c","text":"At $y$ forårsakar $x$","isCorrect":false},{"id":"d","text":"At samanhengen vil halde fram i framtida","isCorrect":false}],"solution":"Korrelasjon er ikkje kausalitet. At dataa følgjer same mønster, bevisar ikkje noko årsaksforhold – ein tredje faktor kan styre begge."}]}},{"id":"r1-5-3-n-summary","type":"text","content":"## Forteljinga om detektiven og dataa\n\nDu starta med rotete verkelege tal og enda med eit komplett modelleringshandverk. Først *les du forma* på dataa: rett linje tyder lineær vekst, stadig brattare kurve tyder eksponentiell, og S-form med utflating tyder logistisk – som app-brukarane som vart tredobla vekentleg til metninga sette inn.\n\nSå lèt du *regresjonen* talfeste modellen: minste kvadraters metode finn kurva som passar best, og forklaringsgraden $R^2$ måler kor godt – frå perfekte 1 ned mot verdilause 0, med $0{,}9$ som grensa for «svært god». Slik fann vi at befolkninga i byen voks 3,0 % i året, og at bølgja til epidemien ville stoppe rundt 500 tusen smitta.\n\nMen det viktigaste verktøyet er *det kritiske blikket*. Høg $R^2$ bevisar ikkje at modellen er rett – overfitting kan lure deg. Ekstrapolering utanfor dataområdet er risikosport, slik selskapet som «skulle» vekse 117 gonger på 50 år viste. Korrelasjon er ikkje kausalitet, tilhøva endrar seg, og residualane bør alltid sjekkast for mønster. Til slutt samlar du alt i ein ryddig rapport: data, modellval, modell med parametrar, $R^2$, tolking, avgrensingar og konklusjon.\n\nDermed er sirkelen slutta for heile veksttemaet: eksponentiell vekst gav oss motoren, logistisk vekst gav oss bremsen, og modellering gav oss dømmekrafta til å bruke begge på verkelegheita. Det er den kombinasjonen – reknekraft pluss kritisk sans – som gjer matematikk til eit verktøy for å forstå verda."}],"exercises":[],"_meta":{"sourceHash":"8735ac3449aed52a","translatedAt":"2026-06-19T23:57:59.187Z","model":"claude-code-agent","strings":86,"tm":{"bb2a3fe1a61092c9":"Modellering med reelle datasett","b195b06d1ed59702":"Narrativ versjon","ecc33d076125cdc8":"Ei forteljing om modellering med ekte data -- om å lese forma på eit datasett, la regresjonen talfeste modellen, tolke R², og om det kritiske blikket som avslører når modellen lyg.","14e8691496ee8201":"vurdere kva modell som passar til eit datasett","d7b039f737fb6e9a":"utføre eksponentiell og logistisk regresjon","82464644e3f87791":"vurdere gyldigheita og avgrensingane til modellen","c95cdbdb50aad804":"presentere og tolke resultat frå modellering","25c1da1025ed925a":"## Når verkelegheita ikkje følgjer formelen\n\nI dei to førre kapitla levde vi i ei ryddig verd: pene formlar med kjende parametrar gav eksakte svar. Men opne eit rekneark med ekte tal – talet på el-bilar i Noreg, brukarar av ein ny app, smittetilfelle veke for veke – og du møter ei anna verkelegheit. Punkta ligg aldri perfekt på ei kurve. Data inneheld alltid tilfeldig variasjon, det vi kallar *støy*. Vi kjenner ikkje parametrane $K$, $r$ eller vekstfaktoren på førehand. Fleire ulike modellar kan passe sånn passe bra. Og kvar modell har grenser for kva han kan seie.\n\nDette kapittelet handlar om handverket som blir kalla **modellering**: kunsten å gå frå rotete tal til ein matematisk modell ein kan stole på – og å vite kor langt ein kan stole på han. Arbeidsgangen har fire steg. Først vel vi *kva type* modell som passar, ut frå forma på dataa. Så bruker vi *regresjon* til å finne parametrane som gir best tilpassing. Deretter *vurderer* vi kor god modellen faktisk er. Og til slutt *tolkar og presenterer* vi resultata på ein ryddig måte.\n\nDet høyrest kanskje teknisk ut, men i botnen ligg eit detektivarbeid: dataa er spora, modellane er teoriane, og jobben din er å finne teorien som best forklarer spora – utan å bli lurt av tilfeldigheiter. La oss starte der kvar god detektiv startar: med å sjå nøye på spora.","3f4c73d9418a9778":"## Å lese forma på dataa\n\nFør du rører ein kalkulator, skal du *sjå* på dataa. Forma avslører veksttypen. **Lineær vekst** aukar med eit fast beløp per tidseining og gir ei rett linje – som eit fast lønstillegg kvart år. **Eksponentiell vekst** aukar med ein fast *prosent* og gir ei kurve som blir stadig brattare; eit fikst triks er at ho blir ei rett linje i eit semilogaritmisk diagram. **Logistisk vekst** gir den karakteristiske S-kurva som flatar ut mot ei øvre grense – typisk for produkt som spreier seg i ein marknad eller epidemiar i ei befolkning. Og **polynomisk vekst** ligg imellom: ho aukar, men ikkje så eksplosivt som eksponentiell.\n\nLa oss trene blikket på to datasett. Først talet på brukarar av ein ny app, i tusen, veke for veke: 2, 6, 18, 50, 120, 200. Frå veke 1 til 3 blir talet om lag tredobla kvar veke – det luktar eksponentielt. Men frå veke 4 til 6 bremsar veksten: 50, 120, 200 er ikkje lenger tredobling. Kurva er i ferd med å flate ut, og ein **logistisk** modell passar truleg best – akkurat det vi ventar når ein app nærmar seg metning blant moglege brukarar.\n\nSå månadstemperaturen frå januar til juni: $-3$, $-1$, 4, 9, 14, 18 grader. Auken per månad er $+2$, $+5$, $+5$, $+5$, $+4$ – påfallande jamn. For akkurat denne perioden passar ein **lineær** modell godt. Men her trengst òg sunn fornuft: temperaturen held jo ikkje fram med å stige inn i æva. Over eit heilt år følgjer han ei bølgje, og ein sinusmodell ville vore rettare. Same data, ulike modellar for ulike føremål – det er lekse nummer éin i modellering.","3d276a3c548e9e40":"Test deg sjølv på val av modell:","4097889236a2af26":"placeholder","8ac39ce78b61ee7b":"Ein storleik aukar med ein fast prosent per tidseining. Kva modelltype passar?","d58da0a972a7c333":"Lineær","8229f2f24cebd996":"Eksponentiell","25a802fecf7d526e":"Logistisk","14ab77646a9aeee9":"Polynomisk","59b3b1373b5dc692":"Konstant prosentvis auke er sjølve definisjonen på eksponentiell vekst. Konstant auke i kroner/tal ville vore lineær.","a52fc92a2f107c0b":"Eit datasett viser ei S-forma kurve som flatar ut mot ei øvre grense. Kva modell bør du velje?","75671f720572cf35":"Omvendt proporsjonal","cccbf7e8005faf13":"S-form med utflating mot ei øvre grense er kjenneteiknet på logistisk vekst med berekapasitet.","2c1e5bcb4e33d0e0":"App-brukarar per veke (i tusen): 2, 6, 18, 50, 120, 200. Kva kjenneteiknar dataa?","bfebf221e70c389d":"Jamn lineær vekst heile vegen","1a7e6e48c771af82":"Eksponentiell vekst heile vegen","5c824b5336aae8fc":"Avtakande verdiar","bf4aeb6edba9360b":"Nesten eksponentiell start, deretter oppbremsing -- logistisk mønster","a8263baa94a0f638":"Tidleg blir talet om lag tredobla per veke (2, 6, 18), men mot slutten bremsar veksten (50, 120, 200). Det er typisk logistisk: rask start, så metning.","501396163e87f43f":"Du får eit fast lønstillegg på 10\\,000 kr kvart år. Kva veksttype skildrar løna di?","b29c489e69a2f951":"Eit fast beløp per år gir konstant auke – lineær vekst. Hadde du fått ein fast prosent kvart år, ville det vore eksponentielt.","7f82610374e710e9":"## Regresjon – å la dataa velje parametrane\n\nNår modelltypen er vald, skal parametrane talfestast. Det blir gjort med **regresjon**: vi lèt eit digitalt verktøy – GeoGebra, Excel eller kalkulator – finne den kurva av vald type som passar dataa best. «Best» tyder som regel **minste kvadraters metode**: verktøyet minimerer summen av dei kvadrerte avvika mellom datapunkta og kurva.\n\nMen kor god vart tilpassinga? Det måler **forklaringsgraden** $R^2$, definert som $R^2 = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$. Du treng ikkje pugge formelen, men tolkinga må sitje: $R^2 = 1$ tyder perfekt tilpassing der alle punkt ligg på kurva, $R^2 = 0$ tyder at modellen ikkje forklarer noko. Som tommelfingerregel er $R^2 \\geq 0{,}9$ svært godt, $R^2 \\geq 0{,}7$ godt, og under $0{,}5$ svakt.\n\nSjå det i praksis. Befolkninga i ein by, i tusen, er målt kvart femte år frå 2000: 50, 58, 67, 78, 90. Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$ med $R^2 \\approx 0{,}998$ – ei svært god tilpassing. Vekstfaktoren $1{,}030$ les vi direkte som 3,0 % årleg vekst, og modellen spår $N(30) \\approx 121$ tusen i 2030. Men hugs atterhaldet: det føreset at veksten *held fram* eksponentielt.\n\nFlatar dataa ut, byter vi verktøy. Kumulative smittetal gjennom ein epidemi – 1, 5, 25, 100, 250, 400, 480 tusen over 60 dagar – viser logistisk mønster: nesten eksponentiell start, så oppbremsing. Logistisk regresjon (FitLogistic i GeoGebra) gir $N(t) = \\frac{500}{1 + 499e^{-0{,}12t}}$ med $R^2 \\approx 0{,}996$. Den viktigaste premien er asymptoten: berekapasiteten $L = 500$ tusen er anslaget til modellen for kor mange som totalt blir smitta i bølgja. Med eitt atterhald til: berekapasiteten i smittemodellar avheng av tiltak og åtferd – han kan flytte seg undervegs.","f709e9557aa92adb":"Test deg sjølv på regresjon og forklaringsgrad:","890394106ef0755a":"Kva tyder $R^2 = 1$?","d253807f3789efa3":"Perfekt tilpassing -- alle datapunkt ligg på kurva","d5a7fbff3ed1cc27":"Modellen forklarer ingenting","fae28aacb5404867":"Modellen har nøyaktig éin parameter","bb204fab6fa610f6":"Dataa er lineære","ff5163864b84c85c":"$R^2 = 1$ tyder at modellen forklarer all variasjon i dataa – alle punkta ligg nøyaktig på kurva.","3dfda6bd37feda7f":"Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$. Kva er den årlege vekstraten?","8f40027f181f2b0c":"Vekstfaktoren er $b = 1{,}030 = 1 + 0{,}030$, så den årlege vekstraten er 3,0 %.","6ca1cca9013b7aeb":"I logistisk regresjon $y = \\frac{L}{1 + ae^{-bx}}$: kva representerer $L$?","bb089b8c2af94481":"Startverdien","58cd2e3ea4912e4f":"Berekapasiteten -- den øvre grensa dataa flatar ut mot","0685137b89af8230":"Vendepunktet","796bdd12d22ab6e4":"Vekstraten","c7d755315526c1b1":"$L$ er asymptoten kurva flatar ut mot – berekapasiteten. I smitteeksempelet var $L = 500$ tusen det totale anslaget for bølgja.","84d68b2bd0ccf885":"Ein regresjon gir $R^2 = 0{,}93$. Korleis vurderer du tilpassinga?","4e4379fb636824b8":"Svak","d6403a0a9fb7bf01":"Ubrukeleg","2c7a17cf890053a1":"Middels","ebd46ac4dfe65de0":"Svært god","791a2aa37e8cf4fc":"$R^2 \\geq 0{,}9$ blir rekna som svært god tilpassing. Men hugs: høg $R^2$ åleine bevisar ikkje at modellen er rett!","38fff4006788d64f":"## Det kritiske blikket\n\nNo kjem den delen som skil ein reknemaskin frå ein modellerar: dømmekrafta. For her lurer fire feller. Den første er å tru at **høg $R^2$ tyder rett modell**. Ein komplisert modell kan følgje kvar krusing i dataa – inkludert støyen – og likevel bomme på den verkelege samanhengen. Det blir kalla *overfitting*. Den andre er **ekstrapolering**: modellen er berre påliteleg innanfor dataområdet han vart tilpassa på, og prediksjonar langt utanfor kan gå fullstendig gale. Den tredje er å gløyme at **korrelasjon ikkje er kausalitet** – at dataa passar ei kurve, bevisar ikkje at den eine storleiken forårsakar den andre. Og den fjerde er å gå ut frå at tilhøva er konstante: vekstratar og berekapasitetar kan endre seg over tid. Eit godt sjekkpunkt er å sjå på *residualane*, avvika mellom data og modell: er dei tilfeldig spreidde, er alt vel; har dei eit mønster, har modellen oversett noko.\n\nEit klassisk skrekkeksempel: eit selskap har vakse som $N(t) = 1000 \\cdot 1{,}1^t$ i ti år, og nokon framskriv til år 50: $N(50) \\approx 117\\,000$ – 117 gonger startverdien! Men ingen marknad er uendeleg, konkurrentar strøymer til, og kapasitet, tilsette og kapital set grenser. Knapt noko selskap veks eksponentielt i 50 år. Ein logistisk modell med berekapasitet ville gitt ein langt ærlegare prognose.\n\nTil slutt skal arbeidet presenterast, og ein god modelleringsrapport svarar på sju spørsmål: Kva er dataa, og kvar kjem dei frå? Kvifor valde du denne modelltypen? Kva vart modellen, med talfesta parametrar? Kor god er tilpassinga ($R^2$)? Kva *tyder* parametrane? Kva avgrensingar har modellen? Og kva er konklusjonen? For norske el-biltal 2015–2023 kan det sjå slik ut: S-forma vekst tilseier logistisk modell, regresjonen gir $N(t) = \\frac{1200}{1 + 16e^{-0{,}35(t-2015)}}$ med $R^2 = 0{,}997$, berekapasiteten blir tolka som cirka 1,2 millionar el-bilar med vendepunkt rundt 2023 – og avgrensinga er at politikk, infrastruktur og teknologi kan flytte heile taket.","eef97887beb0c041":"Test deg sjølv på kritisk vurdering av modellar:","dae371ddaae4d641":"Kva er ekstrapolering?","eb755b7d1a96a9e7":"Å finne parametrar med minste kvadraters metode","0258efd1ef1bea26":"Å fjerne støy frå dataa","ebcdf9e32678c290":"Å bruke modellen til prediksjonar langt utanfor dataområdet","239f2e12a07ad0c1":"Å samanlikne to modellar med $R^2$","c962f845213abda8":"Ekstrapolering er å føreseie utanfor området modellen vart tilpassa på. Det er risikabelt – modellen kan passe perfekt i dataområdet og likevel bomme grovt utanfor.","c27c75d9d48c4c53":"Kva påstand er rett om forklaringsgraden?","861b8b4e9174b15b":"Høg $R^2$ tyder ikkje nødvendigvis at modellen er rett","d09114c8d873c82d":"Høg $R^2$ bevisar at modellen er rett","3ba8c86b6c3f85b3":"$R^2$ måler kor mange datapunkt som er brukte","09a03d95edfe8715":"Låg $R^2$ tyder alltid at dataa er feil","58ff601c3f7c0278":"Ein komplisert modell kan få høg $R^2$ ved å følgje støyen i dataa (overfitting) utan å fange den verkelege samanhengen. $R^2$ er eit hjelpemiddel, ikkje eit bevis.","1a312d8276bfcd54":"Modellen $N(t) = 1000 \\cdot 1{,}1^t$ passar veksten til eit selskap i 10 år. Kvifor er prediksjonen $N(50) \\approx 117\\,000$ truleg feil?","6d97d65d36a81544":"Fordi $1{,}1^{50}$ er rekna feil","e1431e6fd9ada017":"Fordi $R^2$ alltid søkk over tid","e735044571736bdd":"Fordi eksponentiell vekst alltid undervurderer framtida","70b92f9b423e675d":"Fordi marknader, konkurranse og ressursar avgrensar vekst -- ein logistisk modell er meir realistisk","6c9c5ea467b9a4a7":"Reknestykket stemmer ($1{,}1^{50} \\approx 117$), men føresetnaden sviktar: ingen marknad er uendeleg. Ein logistisk modell med berekapasitet $K$ fangar metninga.","4c9e7249e2df39c8":"Dataa dine passar godt til ein modell der $x$ og $y$ veks saman. Kva kan du konkludere?","ec9cca652fe1323e":"At $x$ forårsakar $y$","cc8aa18c3bf88bd1":"At det er samvariasjon -- men ikkje nødvendigvis at $x$ forårsakar $y$","7e1dceb6e657508f":"At $y$ forårsakar $x$","ea89f4201291a743":"At samanhengen vil halde fram i framtida","fbd0716785290860":"Korrelasjon er ikkje kausalitet. At dataa følgjer same mønster, bevisar ikkje noko årsaksforhold – ein tredje faktor kan styre begge.","830beb372fbc5ec7":"## Forteljinga om detektiven og dataa\n\nDu starta med rotete verkelege tal og enda med eit komplett modelleringshandverk. Først *les du forma* på dataa: rett linje tyder lineær vekst, stadig brattare kurve tyder eksponentiell, og S-form med utflating tyder logistisk – som app-brukarane som vart tredobla vekentleg til metninga sette inn.\n\nSå lèt du *regresjonen* talfeste modellen: minste kvadraters metode finn kurva som passar best, og forklaringsgraden $R^2$ måler kor godt – frå perfekte 1 ned mot verdilause 0, med $0{,}9$ som grensa for «svært god». Slik fann vi at befolkninga i byen voks 3,0 % i året, og at bølgja til epidemien ville stoppe rundt 500 tusen smitta.\n\nMen det viktigaste verktøyet er *det kritiske blikket*. Høg $R^2$ bevisar ikkje at modellen er rett – overfitting kan lure deg. Ekstrapolering utanfor dataområdet er risikosport, slik selskapet som «skulle» vekse 117 gonger på 50 år viste. Korrelasjon er ikkje kausalitet, tilhøva endrar seg, og residualane bør alltid sjekkast for mønster. Til slutt samlar du alt i ein ryddig rapport: data, modellval, modell med parametrar, $R^2$, tolking, avgrensingar og konklusjon.\n\nDermed er sirkelen slutta for heile veksttemaet: eksponentiell vekst gav oss motoren, logistisk vekst gav oss bremsen, og modellering gav oss dømmekrafta til å bruke begge på verkelegheita. Det er den kombinasjonen – reknekraft pluss kritisk sans – som gjer matematikk til eit verktøy for å forstå verda."}}}
+{
+  "id": "r1-5-3-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "5.3",
+  "title": "Modellering med reelle datasett",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om modellering med ekte data -- om å lese forma på eit datasett, la regresjonen talfeste modellen, tolke R², og om det kritiske blikket som avslører når modellen lyg.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "vurdere kva modell som passar til eit datasett",
+    "utføre eksponentiell og logistisk regresjon",
+    "vurdere gyldigheita og avgrensingane til modellen",
+    "presentere og tolke resultat frå modellering"
+  ],
+  "linkedChapterId": "r1-5-3",
+  "content": [
+    {
+      "id": "r1-5-3-n-intro",
+      "type": "text",
+      "content": "## Når verkelegheita ikkje følgjer formelen\n\nI dei to førre kapitla levde vi i ei ryddig verd: pene formlar med kjende parametrar gav eksakte svar. Men opne eit rekneark med ekte tal – talet på el-bilar i Noreg, brukarar av ein ny app, smittetilfelle veke for veke – og du møter ei anna verkelegheit. Punkta ligg aldri perfekt på ei kurve. Data inneheld alltid tilfeldig variasjon, det vi kallar *støy*. Vi kjenner ikkje parametrane $K$, $r$ eller vekstfaktoren på førehand. Fleire ulike modellar kan passe sånn passe bra. Og kvar modell har grenser for kva han kan seie.\n\nDette kapittelet handlar om handverket som blir kalla **modellering**: kunsten å gå frå rotete tal til ein matematisk modell ein kan stole på – og å vite kor langt ein kan stole på han. Arbeidsgangen har fire steg. Først vel vi *kva type* modell som passar, ut frå forma på dataa. Så bruker vi *regresjon* til å finne parametrane som gir best tilpassing. Deretter *vurderer* vi kor god modellen faktisk er. Og til slutt *tolkar og presenterer* vi resultata på ein ryddig måte.\n\nDet høyrest kanskje teknisk ut, men i botnen ligg eit detektivarbeid: dataa er spora, modellane er teoriane, og jobben din er å finne teorien som best forklarer spora – utan å bli lurt av tilfeldigheiter. La oss starte der kvar god detektiv startar: med å sjå nøye på spora."
+    },
+    {
+      "id": "r1-5-3-n-section1",
+      "type": "text",
+      "content": "## Å lese forma på dataa\n\nFør du rører ein kalkulator, skal du *sjå* på dataa. Forma avslører veksttypen. **Lineær vekst** aukar med eit fast beløp per tidseining og gir ei rett linje – som eit fast lønstillegg kvart år. **Eksponentiell vekst** aukar med ein fast *prosent* og gir ei kurve som blir stadig brattare; eit fikst triks er at ho blir ei rett linje i eit semilogaritmisk diagram. **Logistisk vekst** gir den karakteristiske S-kurva som flatar ut mot ei øvre grense – typisk for produkt som spreier seg i ein marknad eller epidemiar i ei befolkning. Og **polynomisk vekst** ligg imellom: ho aukar, men ikkje så eksplosivt som eksponentiell.\n\nLa oss trene blikket på to datasett. Først talet på brukarar av ein ny app, i tusen, veke for veke: 2, 6, 18, 50, 120, 200. Frå veke 1 til 3 blir talet om lag tredobla kvar veke – det luktar eksponentielt. Men frå veke 4 til 6 bremsar veksten: 50, 120, 200 er ikkje lenger tredobling. Kurva er i ferd med å flate ut, og ein **logistisk** modell passar truleg best – akkurat det vi ventar når ein app nærmar seg metning blant moglege brukarar.\n\nSå månadstemperaturen frå januar til juni: $-3$, $-1$, 4, 9, 14, 18 grader. Auken per månad er $+2$, $+5$, $+5$, $+5$, $+4$ – påfallande jamn. For akkurat denne perioden passar ein **lineær** modell godt. Men her trengst òg sunn fornuft: temperaturen held jo ikkje fram med å stige inn i æva. Over eit heilt år følgjer han ei bølgje, og ein sinusmodell ville vore rettare. Same data, ulike modellar for ulike føremål – det er lekse nummer éin i modellering."
+    },
+    {
+      "id": "r1-5-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på val av modell:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-3-n-quiz1-q0",
+            "task": "Ein storleik aukar med ein fast prosent per tidseining. Kva modelltype passar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Logistisk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Polynomisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstant prosentvis auke er sjølve definisjonen på eksponentiell vekst. Konstant auke i kroner/tal ville vore lineær."
+          },
+          {
+            "id": "r1-5-3-n-quiz1-q1",
+            "task": "Eit datasett viser ei S-forma kurve som flatar ut mot ei øvre grense. Kva modell bør du velje?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Eksponentiell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Omvendt proporsjonal",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Logistisk",
+                "isCorrect": true
+              }
+            ],
+            "solution": "S-form med utflating mot ei øvre grense er kjenneteiknet på logistisk vekst med berekapasitet."
+          },
+          {
+            "id": "r1-5-3-n-quiz1-q2",
+            "task": "App-brukarar per veke (i tusen): 2, 6, 18, 50, 120, 200. Kva kjenneteiknar dataa?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Nesten eksponentiell start, deretter oppbremsing -- logistisk mønster",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Jamn lineær vekst heile vegen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell vekst heile vegen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Avtakande verdiar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tidleg blir talet om lag tredobla per veke (2, 6, 18), men mot slutten bremsar veksten (50, 120, 200). Det er typisk logistisk: rask start, så metning."
+          },
+          {
+            "id": "r1-5-3-n-quiz1-q3",
+            "task": "Du får eit fast lønstillegg på 10\\,000 kr kvart år. Kva veksttype skildrar løna di?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eksponentiell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lineær",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Logistisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Polynomisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit fast beløp per år gir konstant auke – lineær vekst. Hadde du fått ein fast prosent kvart år, ville det vore eksponentielt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-3-n-section2",
+      "type": "text",
+      "content": "## Regresjon – å la dataa velje parametrane\n\nNår modelltypen er vald, skal parametrane talfestast. Det blir gjort med **regresjon**: vi lèt eit digitalt verktøy – GeoGebra, Excel eller kalkulator – finne den kurva av vald type som passar dataa best. «Best» tyder som regel **minste kvadraters metode**: verktøyet minimerer summen av dei kvadrerte avvika mellom datapunkta og kurva.\n\nMen kor god vart tilpassinga? Det måler **forklaringsgraden** $R^2$, definert som $R^2 = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$. Du treng ikkje pugge formelen, men tolkinga må sitje: $R^2 = 1$ tyder perfekt tilpassing der alle punkt ligg på kurva, $R^2 = 0$ tyder at modellen ikkje forklarer noko. Som tommelfingerregel er $R^2 \\geq 0{,}9$ svært godt, $R^2 \\geq 0{,}7$ godt, og under $0{,}5$ svakt.\n\nSjå det i praksis. Befolkninga i ein by, i tusen, er målt kvart femte år frå 2000: 50, 58, 67, 78, 90. Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$ med $R^2 \\approx 0{,}998$ – ei svært god tilpassing. Vekstfaktoren $1{,}030$ les vi direkte som 3,0 % årleg vekst, og modellen spår $N(30) \\approx 121$ tusen i 2030. Men hugs atterhaldet: det føreset at veksten *held fram* eksponentielt.\n\nFlatar dataa ut, byter vi verktøy. Kumulative smittetal gjennom ein epidemi – 1, 5, 25, 100, 250, 400, 480 tusen over 60 dagar – viser logistisk mønster: nesten eksponentiell start, så oppbremsing. Logistisk regresjon (FitLogistic i GeoGebra) gir $N(t) = \\frac{500}{1 + 499e^{-0{,}12t}}$ med $R^2 \\approx 0{,}996$. Den viktigaste premien er asymptoten: berekapasiteten $L = 500$ tusen er anslaget til modellen for kor mange som totalt blir smitta i bølgja. Med eitt atterhald til: berekapasiteten i smittemodellar avheng av tiltak og åtferd – han kan flytte seg undervegs."
+    },
+    {
+      "id": "r1-5-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på regresjon og forklaringsgrad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-3-n-quiz2-q0",
+            "task": "Kva tyder $R^2 = 1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Modellen forklarer ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Modellen har nøyaktig éin parameter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Perfekt tilpassing -- alle datapunkt ligg på kurva",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Dataa er lineære",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2 = 1$ tyder at modellen forklarer all variasjon i dataa – alle punkta ligg nøyaktig på kurva."
+          },
+          {
+            "id": "r1-5-3-n-quiz2-q1",
+            "task": "Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$. Kva er den årlege vekstraten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}03\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$30\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}3\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3{,}0\\,\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vekstfaktoren er $b = 1{,}030 = 1 + 0{,}030$, så den årlege vekstraten er 3,0 %."
+          },
+          {
+            "id": "r1-5-3-n-quiz2-q2",
+            "task": "I logistisk regresjon $y = \\frac{L}{1 + ae^{-bx}}$: kva representerer $L$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Berekapasiteten -- den øvre grensa dataa flatar ut mot",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Startverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vendepunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vekstraten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$L$ er asymptoten kurva flatar ut mot – berekapasiteten. I smitteeksempelet var $L = 500$ tusen det totale anslaget for bølgja."
+          },
+          {
+            "id": "r1-5-3-n-quiz2-q3",
+            "task": "Ein regresjon gir $R^2 = 0{,}93$. Korleis vurderer du tilpassinga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Svak",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Svært god",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ubrukeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Middels",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2 \\geq 0{,}9$ blir rekna som svært god tilpassing. Men hugs: høg $R^2$ åleine bevisar ikkje at modellen er rett!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-3-n-section3",
+      "type": "text",
+      "content": "## Det kritiske blikket\n\nNo kjem den delen som skil ein reknemaskin frå ein modellerar: dømmekrafta. For her lurer fire feller. Den første er å tru at **høg $R^2$ tyder rett modell**. Ein komplisert modell kan følgje kvar krusing i dataa – inkludert støyen – og likevel bomme på den verkelege samanhengen. Det blir kalla *overfitting*. Den andre er **ekstrapolering**: modellen er berre påliteleg innanfor dataområdet han vart tilpassa på, og prediksjonar langt utanfor kan gå fullstendig gale. Den tredje er å gløyme at **korrelasjon ikkje er kausalitet** – at dataa passar ei kurve, bevisar ikkje at den eine storleiken forårsakar den andre. Og den fjerde er å gå ut frå at tilhøva er konstante: vekstratar og berekapasitetar kan endre seg over tid. Eit godt sjekkpunkt er å sjå på *residualane*, avvika mellom data og modell: er dei tilfeldig spreidde, er alt vel; har dei eit mønster, har modellen oversett noko.\n\nEit klassisk skrekkeksempel: eit selskap har vakse som $N(t) = 1000 \\cdot 1{,}1^t$ i ti år, og nokon framskriv til år 50: $N(50) \\approx 117\\,000$ – 117 gonger startverdien! Men ingen marknad er uendeleg, konkurrentar strøymer til, og kapasitet, tilsette og kapital set grenser. Knapt noko selskap veks eksponentielt i 50 år. Ein logistisk modell med berekapasitet ville gitt ein langt ærlegare prognose.\n\nTil slutt skal arbeidet presenterast, og ein god modelleringsrapport svarar på sju spørsmål: Kva er dataa, og kvar kjem dei frå? Kvifor valde du denne modelltypen? Kva vart modellen, med talfesta parametrar? Kor god er tilpassinga ($R^2$)? Kva *tyder* parametrane? Kva avgrensingar har modellen? Og kva er konklusjonen? For norske el-biltal 2015–2023 kan det sjå slik ut: S-forma vekst tilseier logistisk modell, regresjonen gir $N(t) = \\frac{1200}{1 + 16e^{-0{,}35(t-2015)}}$ med $R^2 = 0{,}997$, berekapasiteten blir tolka som cirka 1,2 millionar el-bilar med vendepunkt rundt 2023 – og avgrensinga er at politikk, infrastruktur og teknologi kan flytte heile taket."
+    },
+    {
+      "id": "r1-5-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kritisk vurdering av modellar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-3-n-quiz3-q0",
+            "task": "Kva er ekstrapolering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å finne parametrar med minste kvadraters metode",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å fjerne støy frå dataa",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bruke modellen til prediksjonar langt utanfor dataområdet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å samanlikne to modellar med $R^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ekstrapolering er å føreseie utanfor området modellen vart tilpassa på. Det er risikabelt – modellen kan passe perfekt i dataområdet og likevel bomme grovt utanfor."
+          },
+          {
+            "id": "r1-5-3-n-quiz3-q1",
+            "task": "Kva påstand er rett om forklaringsgraden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Høg $R^2$ tyder ikkje nødvendigvis at modellen er rett",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Høg $R^2$ bevisar at modellen er rett",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$R^2$ måler kor mange datapunkt som er brukte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Låg $R^2$ tyder alltid at dataa er feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein komplisert modell kan få høg $R^2$ ved å følgje støyen i dataa (overfitting) utan å fange den verkelege samanhengen. $R^2$ er eit hjelpemiddel, ikkje eit bevis."
+          },
+          {
+            "id": "r1-5-3-n-quiz3-q2",
+            "task": "Modellen $N(t) = 1000 \\cdot 1{,}1^t$ passar veksten til eit selskap i 10 år. Kvifor er prediksjonen $N(50) \\approx 117\\,000$ truleg feil?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $1{,}1^{50}$ er rekna feil",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $R^2$ alltid søkk over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi eksponentiell vekst alltid undervurderer framtida",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi marknader, konkurranse og ressursar avgrensar vekst -- ein logistisk modell er meir realistisk",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Reknestykket stemmer ($1{,}1^{50} \\approx 117$), men føresetnaden sviktar: ingen marknad er uendeleg. Ein logistisk modell med berekapasitet $K$ fangar metninga."
+          },
+          {
+            "id": "r1-5-3-n-quiz3-q3",
+            "task": "Dataa dine passar godt til ein modell der $x$ og $y$ veks saman. Kva kan du konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At $x$ forårsakar $y$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At det er samvariasjon -- men ikkje nødvendigvis at $x$ forårsakar $y$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "At $y$ forårsakar $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At samanhengen vil halde fram i framtida",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Korrelasjon er ikkje kausalitet. At dataa følgjer same mønster, bevisar ikkje noko årsaksforhold – ein tredje faktor kan styre begge."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-3-n-summary",
+      "type": "text",
+      "content": "## Forteljinga om detektiven og dataa\n\nDu starta med rotete verkelege tal og enda med eit komplett modelleringshandverk. Først *les du forma* på dataa: rett linje tyder lineær vekst, stadig brattare kurve tyder eksponentiell, og S-form med utflating tyder logistisk – som app-brukarane som vart tredobla vekentleg til metninga sette inn.\n\nSå lèt du *regresjonen* talfeste modellen: minste kvadraters metode finn kurva som passar best, og forklaringsgraden $R^2$ måler kor godt – frå perfekte 1 ned mot verdilause 0, med $0{,}9$ som grensa for «svært god». Slik fann vi at befolkninga i byen voks 3,0 % i året, og at bølgja til epidemien ville stoppe rundt 500 tusen smitta.\n\nMen det viktigaste verktøyet er *det kritiske blikket*. Høg $R^2$ bevisar ikkje at modellen er rett – overfitting kan lure deg. Ekstrapolering utanfor dataområdet er risikosport, slik selskapet som «skulle» vekse 117 gonger på 50 år viste. Korrelasjon er ikkje kausalitet, tilhøva endrar seg, og residualane bør alltid sjekkast for mønster. Til slutt samlar du alt i ein ryddig rapport: data, modellval, modell med parametrar, $R^2$, tolking, avgrensingar og konklusjon.\n\nDermed er sirkelen slutta for heile veksttemaet: eksponentiell vekst gav oss motoren, logistisk vekst gav oss bremsen, og modellering gav oss dømmekrafta til å bruke begge på verkelegheita. Det er den kombinasjonen – reknekraft pluss kritisk sans – som gjer matematikk til eit verktøy for å forstå verda."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "8735ac3449aed52a",
+    "translatedAt": "2026-06-19T23:57:59.187Z",
+    "model": "claude-code-agent",
+    "strings": 86,
+    "tm": {
+      "bb2a3fe1a61092c9": "Modellering med reelle datasett",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ecc33d076125cdc8": "Ei forteljing om modellering med ekte data -- om å lese forma på eit datasett, la regresjonen talfeste modellen, tolke R², og om det kritiske blikket som avslører når modellen lyg.",
+      "14e8691496ee8201": "vurdere kva modell som passar til eit datasett",
+      "d7b039f737fb6e9a": "utføre eksponentiell og logistisk regresjon",
+      "82464644e3f87791": "vurdere gyldigheita og avgrensingane til modellen",
+      "c95cdbdb50aad804": "presentere og tolke resultat frå modellering",
+      "25c1da1025ed925a": "## Når verkelegheita ikkje følgjer formelen\n\nI dei to førre kapitla levde vi i ei ryddig verd: pene formlar med kjende parametrar gav eksakte svar. Men opne eit rekneark med ekte tal – talet på el-bilar i Noreg, brukarar av ein ny app, smittetilfelle veke for veke – og du møter ei anna verkelegheit. Punkta ligg aldri perfekt på ei kurve. Data inneheld alltid tilfeldig variasjon, det vi kallar *støy*. Vi kjenner ikkje parametrane $K$, $r$ eller vekstfaktoren på førehand. Fleire ulike modellar kan passe sånn passe bra. Og kvar modell har grenser for kva han kan seie.\n\nDette kapittelet handlar om handverket som blir kalla **modellering**: kunsten å gå frå rotete tal til ein matematisk modell ein kan stole på – og å vite kor langt ein kan stole på han. Arbeidsgangen har fire steg. Først vel vi *kva type* modell som passar, ut frå forma på dataa. Så bruker vi *regresjon* til å finne parametrane som gir best tilpassing. Deretter *vurderer* vi kor god modellen faktisk er. Og til slutt *tolkar og presenterer* vi resultata på ein ryddig måte.\n\nDet høyrest kanskje teknisk ut, men i botnen ligg eit detektivarbeid: dataa er spora, modellane er teoriane, og jobben din er å finne teorien som best forklarer spora – utan å bli lurt av tilfeldigheiter. La oss starte der kvar god detektiv startar: med å sjå nøye på spora.",
+      "3f4c73d9418a9778": "## Å lese forma på dataa\n\nFør du rører ein kalkulator, skal du *sjå* på dataa. Forma avslører veksttypen. **Lineær vekst** aukar med eit fast beløp per tidseining og gir ei rett linje – som eit fast lønstillegg kvart år. **Eksponentiell vekst** aukar med ein fast *prosent* og gir ei kurve som blir stadig brattare; eit fikst triks er at ho blir ei rett linje i eit semilogaritmisk diagram. **Logistisk vekst** gir den karakteristiske S-kurva som flatar ut mot ei øvre grense – typisk for produkt som spreier seg i ein marknad eller epidemiar i ei befolkning. Og **polynomisk vekst** ligg imellom: ho aukar, men ikkje så eksplosivt som eksponentiell.\n\nLa oss trene blikket på to datasett. Først talet på brukarar av ein ny app, i tusen, veke for veke: 2, 6, 18, 50, 120, 200. Frå veke 1 til 3 blir talet om lag tredobla kvar veke – det luktar eksponentielt. Men frå veke 4 til 6 bremsar veksten: 50, 120, 200 er ikkje lenger tredobling. Kurva er i ferd med å flate ut, og ein **logistisk** modell passar truleg best – akkurat det vi ventar når ein app nærmar seg metning blant moglege brukarar.\n\nSå månadstemperaturen frå januar til juni: $-3$, $-1$, 4, 9, 14, 18 grader. Auken per månad er $+2$, $+5$, $+5$, $+5$, $+4$ – påfallande jamn. For akkurat denne perioden passar ein **lineær** modell godt. Men her trengst òg sunn fornuft: temperaturen held jo ikkje fram med å stige inn i æva. Over eit heilt år følgjer han ei bølgje, og ein sinusmodell ville vore rettare. Same data, ulike modellar for ulike føremål – det er lekse nummer éin i modellering.",
+      "3d276a3c548e9e40": "Test deg sjølv på val av modell:",
+      "4097889236a2af26": "placeholder",
+      "8ac39ce78b61ee7b": "Ein storleik aukar med ein fast prosent per tidseining. Kva modelltype passar?",
+      "d58da0a972a7c333": "Lineær",
+      "8229f2f24cebd996": "Eksponentiell",
+      "25a802fecf7d526e": "Logistisk",
+      "14ab77646a9aeee9": "Polynomisk",
+      "59b3b1373b5dc692": "Konstant prosentvis auke er sjølve definisjonen på eksponentiell vekst. Konstant auke i kroner/tal ville vore lineær.",
+      "a52fc92a2f107c0b": "Eit datasett viser ei S-forma kurve som flatar ut mot ei øvre grense. Kva modell bør du velje?",
+      "75671f720572cf35": "Omvendt proporsjonal",
+      "cccbf7e8005faf13": "S-form med utflating mot ei øvre grense er kjenneteiknet på logistisk vekst med berekapasitet.",
+      "2c1e5bcb4e33d0e0": "App-brukarar per veke (i tusen): 2, 6, 18, 50, 120, 200. Kva kjenneteiknar dataa?",
+      "bfebf221e70c389d": "Jamn lineær vekst heile vegen",
+      "1a7e6e48c771af82": "Eksponentiell vekst heile vegen",
+      "5c824b5336aae8fc": "Avtakande verdiar",
+      "bf4aeb6edba9360b": "Nesten eksponentiell start, deretter oppbremsing -- logistisk mønster",
+      "a8263baa94a0f638": "Tidleg blir talet om lag tredobla per veke (2, 6, 18), men mot slutten bremsar veksten (50, 120, 200). Det er typisk logistisk: rask start, så metning.",
+      "501396163e87f43f": "Du får eit fast lønstillegg på 10\\,000 kr kvart år. Kva veksttype skildrar løna di?",
+      "b29c489e69a2f951": "Eit fast beløp per år gir konstant auke – lineær vekst. Hadde du fått ein fast prosent kvart år, ville det vore eksponentielt.",
+      "7f82610374e710e9": "## Regresjon – å la dataa velje parametrane\n\nNår modelltypen er vald, skal parametrane talfestast. Det blir gjort med **regresjon**: vi lèt eit digitalt verktøy – GeoGebra, Excel eller kalkulator – finne den kurva av vald type som passar dataa best. «Best» tyder som regel **minste kvadraters metode**: verktøyet minimerer summen av dei kvadrerte avvika mellom datapunkta og kurva.\n\nMen kor god vart tilpassinga? Det måler **forklaringsgraden** $R^2$, definert som $R^2 = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$. Du treng ikkje pugge formelen, men tolkinga må sitje: $R^2 = 1$ tyder perfekt tilpassing der alle punkt ligg på kurva, $R^2 = 0$ tyder at modellen ikkje forklarer noko. Som tommelfingerregel er $R^2 \\geq 0{,}9$ svært godt, $R^2 \\geq 0{,}7$ godt, og under $0{,}5$ svakt.\n\nSjå det i praksis. Befolkninga i ein by, i tusen, er målt kvart femte år frå 2000: 50, 58, 67, 78, 90. Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$ med $R^2 \\approx 0{,}998$ – ei svært god tilpassing. Vekstfaktoren $1{,}030$ les vi direkte som 3,0 % årleg vekst, og modellen spår $N(30) \\approx 121$ tusen i 2030. Men hugs atterhaldet: det føreset at veksten *held fram* eksponentielt.\n\nFlatar dataa ut, byter vi verktøy. Kumulative smittetal gjennom ein epidemi – 1, 5, 25, 100, 250, 400, 480 tusen over 60 dagar – viser logistisk mønster: nesten eksponentiell start, så oppbremsing. Logistisk regresjon (FitLogistic i GeoGebra) gir $N(t) = \\frac{500}{1 + 499e^{-0{,}12t}}$ med $R^2 \\approx 0{,}996$. Den viktigaste premien er asymptoten: berekapasiteten $L = 500$ tusen er anslaget til modellen for kor mange som totalt blir smitta i bølgja. Med eitt atterhald til: berekapasiteten i smittemodellar avheng av tiltak og åtferd – han kan flytte seg undervegs.",
+      "f709e9557aa92adb": "Test deg sjølv på regresjon og forklaringsgrad:",
+      "890394106ef0755a": "Kva tyder $R^2 = 1$?",
+      "d253807f3789efa3": "Perfekt tilpassing -- alle datapunkt ligg på kurva",
+      "d5a7fbff3ed1cc27": "Modellen forklarer ingenting",
+      "fae28aacb5404867": "Modellen har nøyaktig éin parameter",
+      "bb204fab6fa610f6": "Dataa er lineære",
+      "ff5163864b84c85c": "$R^2 = 1$ tyder at modellen forklarer all variasjon i dataa – alle punkta ligg nøyaktig på kurva.",
+      "3dfda6bd37feda7f": "Eksponentiell regresjon gir $N(t) = 50{,}0 \\cdot 1{,}030^t$. Kva er den årlege vekstraten?",
+      "8f40027f181f2b0c": "Vekstfaktoren er $b = 1{,}030 = 1 + 0{,}030$, så den årlege vekstraten er 3,0 %.",
+      "6ca1cca9013b7aeb": "I logistisk regresjon $y = \\frac{L}{1 + ae^{-bx}}$: kva representerer $L$?",
+      "bb089b8c2af94481": "Startverdien",
+      "58cd2e3ea4912e4f": "Berekapasiteten -- den øvre grensa dataa flatar ut mot",
+      "0685137b89af8230": "Vendepunktet",
+      "796bdd12d22ab6e4": "Vekstraten",
+      "c7d755315526c1b1": "$L$ er asymptoten kurva flatar ut mot – berekapasiteten. I smitteeksempelet var $L = 500$ tusen det totale anslaget for bølgja.",
+      "84d68b2bd0ccf885": "Ein regresjon gir $R^2 = 0{,}93$. Korleis vurderer du tilpassinga?",
+      "4e4379fb636824b8": "Svak",
+      "d6403a0a9fb7bf01": "Ubrukeleg",
+      "2c7a17cf890053a1": "Middels",
+      "ebd46ac4dfe65de0": "Svært god",
+      "791a2aa37e8cf4fc": "$R^2 \\geq 0{,}9$ blir rekna som svært god tilpassing. Men hugs: høg $R^2$ åleine bevisar ikkje at modellen er rett!",
+      "38fff4006788d64f": "## Det kritiske blikket\n\nNo kjem den delen som skil ein reknemaskin frå ein modellerar: dømmekrafta. For her lurer fire feller. Den første er å tru at **høg $R^2$ tyder rett modell**. Ein komplisert modell kan følgje kvar krusing i dataa – inkludert støyen – og likevel bomme på den verkelege samanhengen. Det blir kalla *overfitting*. Den andre er **ekstrapolering**: modellen er berre påliteleg innanfor dataområdet han vart tilpassa på, og prediksjonar langt utanfor kan gå fullstendig gale. Den tredje er å gløyme at **korrelasjon ikkje er kausalitet** – at dataa passar ei kurve, bevisar ikkje at den eine storleiken forårsakar den andre. Og den fjerde er å gå ut frå at tilhøva er konstante: vekstratar og berekapasitetar kan endre seg over tid. Eit godt sjekkpunkt er å sjå på *residualane*, avvika mellom data og modell: er dei tilfeldig spreidde, er alt vel; har dei eit mønster, har modellen oversett noko.\n\nEit klassisk skrekkeksempel: eit selskap har vakse som $N(t) = 1000 \\cdot 1{,}1^t$ i ti år, og nokon framskriv til år 50: $N(50) \\approx 117\\,000$ – 117 gonger startverdien! Men ingen marknad er uendeleg, konkurrentar strøymer til, og kapasitet, tilsette og kapital set grenser. Knapt noko selskap veks eksponentielt i 50 år. Ein logistisk modell med berekapasitet ville gitt ein langt ærlegare prognose.\n\nTil slutt skal arbeidet presenterast, og ein god modelleringsrapport svarar på sju spørsmål: Kva er dataa, og kvar kjem dei frå? Kvifor valde du denne modelltypen? Kva vart modellen, med talfesta parametrar? Kor god er tilpassinga ($R^2$)? Kva *tyder* parametrane? Kva avgrensingar har modellen? Og kva er konklusjonen? For norske el-biltal 2015–2023 kan det sjå slik ut: S-forma vekst tilseier logistisk modell, regresjonen gir $N(t) = \\frac{1200}{1 + 16e^{-0{,}35(t-2015)}}$ med $R^2 = 0{,}997$, berekapasiteten blir tolka som cirka 1,2 millionar el-bilar med vendepunkt rundt 2023 – og avgrensinga er at politikk, infrastruktur og teknologi kan flytte heile taket.",
+      "eef97887beb0c041": "Test deg sjølv på kritisk vurdering av modellar:",
+      "dae371ddaae4d641": "Kva er ekstrapolering?",
+      "eb755b7d1a96a9e7": "Å finne parametrar med minste kvadraters metode",
+      "0258efd1ef1bea26": "Å fjerne støy frå dataa",
+      "ebcdf9e32678c290": "Å bruke modellen til prediksjonar langt utanfor dataområdet",
+      "239f2e12a07ad0c1": "Å samanlikne to modellar med $R^2$",
+      "c962f845213abda8": "Ekstrapolering er å føreseie utanfor området modellen vart tilpassa på. Det er risikabelt – modellen kan passe perfekt i dataområdet og likevel bomme grovt utanfor.",
+      "c27c75d9d48c4c53": "Kva påstand er rett om forklaringsgraden?",
+      "861b8b4e9174b15b": "Høg $R^2$ tyder ikkje nødvendigvis at modellen er rett",
+      "d09114c8d873c82d": "Høg $R^2$ bevisar at modellen er rett",
+      "3ba8c86b6c3f85b3": "$R^2$ måler kor mange datapunkt som er brukte",
+      "09a03d95edfe8715": "Låg $R^2$ tyder alltid at dataa er feil",
+      "58ff601c3f7c0278": "Ein komplisert modell kan få høg $R^2$ ved å følgje støyen i dataa (overfitting) utan å fange den verkelege samanhengen. $R^2$ er eit hjelpemiddel, ikkje eit bevis.",
+      "1a312d8276bfcd54": "Modellen $N(t) = 1000 \\cdot 1{,}1^t$ passar veksten til eit selskap i 10 år. Kvifor er prediksjonen $N(50) \\approx 117\\,000$ truleg feil?",
+      "6d97d65d36a81544": "Fordi $1{,}1^{50}$ er rekna feil",
+      "e1431e6fd9ada017": "Fordi $R^2$ alltid søkk over tid",
+      "e735044571736bdd": "Fordi eksponentiell vekst alltid undervurderer framtida",
+      "70b92f9b423e675d": "Fordi marknader, konkurranse og ressursar avgrensar vekst -- ein logistisk modell er meir realistisk",
+      "6c9c5ea467b9a4a7": "Reknestykket stemmer ($1{,}1^{50} \\approx 117$), men føresetnaden sviktar: ingen marknad er uendeleg. Ein logistisk modell med berekapasitet $K$ fangar metninga.",
+      "4c9e7249e2df39c8": "Dataa dine passar godt til ein modell der $x$ og $y$ veks saman. Kva kan du konkludere?",
+      "ec9cca652fe1323e": "At $x$ forårsakar $y$",
+      "cc8aa18c3bf88bd1": "At det er samvariasjon -- men ikkje nødvendigvis at $x$ forårsakar $y$",
+      "7e1dceb6e657508f": "At $y$ forårsakar $x$",
+      "ea89f4201291a743": "At samanhengen vil halde fram i framtida",
+      "fbd0716785290860": "Korrelasjon er ikkje kausalitet. At dataa følgjer same mønster, bevisar ikkje noko årsaksforhold – ein tredje faktor kan styre begge.",
+      "830beb372fbc5ec7": "## Forteljinga om detektiven og dataa\n\nDu starta med rotete verkelege tal og enda med eit komplett modelleringshandverk. Først *les du forma* på dataa: rett linje tyder lineær vekst, stadig brattare kurve tyder eksponentiell, og S-form med utflating tyder logistisk – som app-brukarane som vart tredobla vekentleg til metninga sette inn.\n\nSå lèt du *regresjonen* talfeste modellen: minste kvadraters metode finn kurva som passar best, og forklaringsgraden $R^2$ måler kor godt – frå perfekte 1 ned mot verdilause 0, med $0{,}9$ som grensa for «svært god». Slik fann vi at befolkninga i byen voks 3,0 % i året, og at bølgja til epidemien ville stoppe rundt 500 tusen smitta.\n\nMen det viktigaste verktøyet er *det kritiske blikket*. Høg $R^2$ bevisar ikkje at modellen er rett – overfitting kan lure deg. Ekstrapolering utanfor dataområdet er risikosport, slik selskapet som «skulle» vekse 117 gonger på 50 år viste. Korrelasjon er ikkje kausalitet, tilhøva endrar seg, og residualane bør alltid sjekkast for mønster. Til slutt samlar du alt i ein ryddig rapport: data, modellval, modell med parametrar, $R^2$, tolking, avgrensingar og konklusjon.\n\nDermed er sirkelen slutta for heile veksttemaet: eksponentiell vekst gav oss motoren, logistisk vekst gav oss bremsen, og modellering gav oss dømmekrafta til å bruke begge på verkelegheita. Det er den kombinasjonen – reknekraft pluss kritisk sans – som gjer matematikk til eit verktøy for å forstå verda."
+    }
+  }
+}

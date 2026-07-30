@@ -1,1 +1,383 @@
-{"id":"8-11-1-narrativ","courseId":"8","chapterNumber":"11.1","title":"Introduksjon til programmering","subtitle":"Narrativ versjon","description":"Ei forteljande innføring i programmering der vi startar med Scratch som visuelt språk og bevegar oss over til Python -- frå dei fyrste print-kommandoane til enkle berekningar og brukarinndata.","estimatedMinutes":30,"competenceGoals":["bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt"],"linkedChapterId":"8-11-1","content":[{"id":"8-11-1-n-intro","type":"text","content":"## Snakke med datamaskinen\n\nTenk deg at du har ein veldig lydig, men litt bokstavleg venn. Denne vennen gjer **nøyaktig** det du seier -- verken meir eller mindre. Seier du «hopp tre gonger», hoppar hen tre gonger. Seier du «hopp til du blir sliten», hoppar hen til hen blir sliten. Men seier du berre «gjer noko gøy», står hen og ser forvirra på deg.\n\nDenne vennen er datamaskinen. Og språket de snakkar saman heiter **programmering**.\n\nEit program er rett og slett ei **liste med instruksjonar** som datamaskinen følgjer, steg for steg. Datamaskinen er lynrask og gjer aldri reknefeil -- men han forstår berre det du skriv, ikkje det du **meiner**. Derfor er det viktig å vere presis.\n\nI dette kapittelet skal vi ta dei aller fyrste stega. Vi byrjar med **Scratch**, eit visuelt programmeringsspråk der du byggjer program med klossar, og går deretter vidare til **Python**, eit tekstbasert språk der du skriv instruksjonane sjølv."},{"id":"8-11-1-n-section1","type":"text","content":"## Scratch -- programmering med klossar\n\nScratch er utvikla av MIT og er designa for å gjere det enkelt å lære programmering. I staden for å skrive tekst, dreg du fargerike **klossar** inn på arbeidsflata og set dei saman som puslespelbrikker.\n\nHer er nokre viktige Scratch-klossar:\n\n- **«sei [Hei!] i [2] sekund»** -- katten på skjermen seier noko\n- **«gå [10] steg»** -- katten flyttar seg\n- **«gjenta [4] gonger»** -- gjentar klossane inni eit bestemt tal gonger\n- **«set [x] til [0]»** -- lagrar ein verdi i ein variabel\n- **«spør [Kva heiter du?] og vent»** -- lèt brukaren skrive inn noko\n\nDet fine med Scratch er at du **ser resultatet med éin gong**. Katten bevegar seg, snakkar, og reagerer -- og du lærer dei grunnleggjande ideane i programmering utan å måtte hugse vanskeleg syntaks.\n\n**Døme i Scratch (skildra med tekst):**\n1. Når det grøne flagget blir trykt\n2. Sei «Hei! Eg skal rekne for deg!» i 2 sekund\n3. Spør «Skriv inn eit tal:» og vent\n4. Set variabel «svar_tall» til (svar)\n5. Sei (set saman «Dobbelt av talet er: » og (svar_tall * 2)) i 3 sekund\n\nDette vesle programmet ber brukaren om eit tal og viser det doble. Dei same ideane -- inndata, berekning, utdata -- finst i alle programmeringsspråk."},{"id":"8-11-1-n-quiz1","type":"exercise","exercise":{"id":"8-11-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grunnleggjande programmering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-1-n-quiz1-q0","task":"Kva er eit program?","options":[{"id":"a","text":"Ein type datamaskin","isCorrect":false},{"id":"b","text":"Ei liste med instruksjonar som datamaskinen følgjer steg for steg","isCorrect":true},{"id":"c","text":"Eit reknestykke som datamaskinen finn opp sjølv","isCorrect":false},{"id":"d","text":"Eit spel på nettet","isCorrect":false}],"solution":"Eit program er ein serie instruksjonar som datamaskinen utfører i rekkjefølgje. Datamaskinen gjer nøyaktig det han får beskjed om -- verken meir eller mindre."},{"id":"8-11-1-n-quiz1-q1","task":"Kva er den største fordelen med Scratch for nybyrjarar?","options":[{"id":"a","text":"Det er det raskaste programmeringsspråket","isCorrect":false},{"id":"b","text":"Du slepp å hugse vanskeleg syntaks -- du byggjer med visuelle klossar","isCorrect":true},{"id":"c","text":"Det kan berre brukast til matematikk","isCorrect":false},{"id":"d","text":"Det fungerer utan datamaskin","isCorrect":false}],"solution":"Scratch bruker fargerike klossar som du dreg og slepp. Du treng ikkje å hugse kommandoar eller bekymre deg for skrivefeil -- du fokuserer på logikken."}]}},{"id":"8-11-1-n-section2","type":"text","content":"## Python -- frå klossar til tekst\n\nScratch er fantastisk for å kome i gang, men etter kvart vil du ønskje noko kraftigare. **Python** er eit av dei mest populære programmeringsspråka i verda, og det er overraskande enkelt å lære.\n\nDet aller fyrste du lærer i Python er å skrive noko på skjermen med `print()`:\n\n```python\nprint(\"Hei, verda!\")\n```\n\nNår du køyrer dette programmet, dukkar teksten `Hei, verda!` opp på skjermen. Ferdig! Ditt fyrste Python-program.\n\nVi kan også bruke `print()` til å vise resultat av berekningar:\n\n```python\nprint(3 + 7)\nprint(12 * 5)\nprint(100 / 4)\n```\n\nDette skriv ut:\n```\n10\n60\n25.0\n```\n\nLegg merke til at divisjon alltid gjev eit desimaltal i Python (25.0 i staden for 25). Dei fire rekneartane i Python er:\n- `+` addisjon\n- `-` subtraksjon\n- `*` multiplikasjon\n- `/` divisjon\n- `**` potens (til dømes gjev `3 ** 2` $3^2 = 9$)"},{"id":"8-11-1-n-section3","type":"text","content":"## Variablar -- namnelappar på verdiar\n\nI Scratch brukte vi variablar når vi skreiv «set [svar_tall] til (svar)». I Python gjer vi det slik:\n\n```python\nnavn = \"Nora\"\nalder = 14\npi = 3.14159\n```\n\nEin **variabel** er eit namn som peikar på ein verdi. Tenk på det som ei eske med ein lapp på: lappen er namnet, og inni eska ligg verdien.\n\nVi kan bruke variablar i berekningar:\n\n```python\nlengde = 8\nbredde = 5\nareal = lengde * bredde\nprint(f\"Arealet er {areal} kvadratmeter\")\n```\n\nResultatet: `Arealet er 40 kvadratmeter`\n\nHer bruker vi ein **f-streng** (legg merke til `f` framom hermeteikna). Alt inni krøllparentesane `{}` blir erstatta med verdien til variabelen.\n\nVi kan også la brukaren skrive inn verdiar med `input()`:\n\n```python\nnavn = input(\"Hva heter du? \")\nprint(f\"Hei, {navn}!\")\n```\n\n**Viktig:** `input()` gjev alltid **tekst** tilbake. Viss du vil bruke svaret som eit tal, må du gjere det om:\n\n```python\ntall = int(input(\"Skriv et heltall: \"))\ndesimaltall = float(input(\"Skriv et desimaltall: \"))\n```\n\n`int()` gjer om til heiltal og `float()` gjer om til desimaltal."},{"id":"8-11-1-n-quiz2","type":"exercise","exercise":{"id":"8-11-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på Python-grunnleggjande:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-1-n-quiz2-q0","task":"Kva skriv dette programmet ut?\n\n```python\na = 7\nb = 3\nprint(a * b)\n```","options":[{"id":"a","text":"`a * b`","isCorrect":false},{"id":"b","text":"`10`","isCorrect":false},{"id":"c","text":"`21`","isCorrect":true},{"id":"d","text":"`73`","isCorrect":false}],"solution":"Python reknar ut $7 \\cdot 3 = 21$ og skriv ut resultatet. Variabelnamna blir erstatta med verdiane sine."},{"id":"8-11-1-n-quiz2-q1","task":"Kva er resultatet av `int(input(\"Tall: \"))` når brukaren skriv inn `5`?","options":[{"id":"a","text":"Teksten `\"5\"`","isCorrect":false},{"id":"b","text":"Heiltalet `5`","isCorrect":true},{"id":"c","text":"Desimaltalet `5.0`","isCorrect":false},{"id":"d","text":"Ei feilmelding","isCorrect":false}],"solution":"`input()` gjev teksten `\"5\"`. Når vi pakkar inn i `int()`, blir teksten konvertert til heiltalet `5`. Hadde vi brukt `float()`, ville vi fått `5.0`."},{"id":"8-11-1-n-quiz2-q2","task":"Kva tyder `**` i Python?","options":[{"id":"a","text":"Multiplikasjon","isCorrect":false},{"id":"b","text":"Divisjon","isCorrect":false},{"id":"c","text":"Opphøgd i (potens)","isCorrect":true},{"id":"d","text":"Gjenta","isCorrect":false}],"solution":"`**` er potensoperatoren. Til dømes er `2 ** 3` det same som $2^3 = 8$. Vanleg multiplikasjon er `*`."}]}},{"id":"8-11-1-n-section4","type":"text","content":"## Eit komplett døme: Arealreknar\n\nLat oss setje alt saman i eit lite program som reknar arealet av ein trekant:\n\n```python\nprint(\"=== Arealberegner for trekant ===\")\n\ngrunnlinje = float(input(\"Skriv inn grunnlinjen (cm): \"))\nhoyde = float(input(\"Skriv inn hoyden (cm): \"))\n\nareal = (grunnlinje * hoyde) / 2\n\nprint(f\"Grunnlinje: {grunnlinje} cm\")\nprint(f\"Hoyde: {hoyde} cm\")\nprint(f\"Areal: {areal} cm²\")\n```\n\nNår programmet blir køyrt:\n```\n=== Arealberegner for trekant ===\nSkriv inn grunnlinjen (cm): 10\nSkriv inn hoyden (cm): 6\nGrunnlinje: 10.0 cm\nHoyde: 6.0 cm\nAreal: 30.0 cm²\n```\n\nProgrammet bruker formelen $A = \\frac{g \\cdot h}{2}$. Det tek imot to tal frå brukaren, reknar arealet og viser resultatet. Dette er den grunnleggjande strukturen i nesten alle program:\n\n1. **Inndata** -- ta imot informasjon (med `input()`)\n2. **Berekning** -- gjer noko med informasjonen\n3. **Utdata** -- vis resultatet (med `print()`)\n\nDu kan lett endre programmet til å rekne arealet av eit rektangel, ein sirkel, eller kva som helst anna -- berre byt ut formelen!"},{"id":"8-11-1-n-quiz3","type":"exercise","exercise":{"id":"8-11-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på eit komplett program:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-1-n-quiz3-q0","task":"Kva er dei tre hovuddelane i eit typisk program?","options":[{"id":"a","text":"Start, midten, slutt","isCorrect":false},{"id":"b","text":"Inndata, berekning, utdata","isCorrect":true},{"id":"c","text":"Variablar, funksjonar, klasser","isCorrect":false},{"id":"d","text":"Print, input, if","isCorrect":false}],"solution":"Dei tre hovuddelane er: inndata (ta imot informasjon), berekning (gjere noko med han) og utdata (vise resultatet). Nesten alle program følgjer dette mønsteret."},{"id":"8-11-1-n-quiz3-q1","task":"Kva skriv dette programmet ut?\n\n```python\nside = 4\nareal = side ** 2\nprint(areal)\n```","options":[{"id":"a","text":"`8`","isCorrect":false},{"id":"b","text":"`16`","isCorrect":true},{"id":"c","text":"`44`","isCorrect":false},{"id":"d","text":"`side ** 2`","isCorrect":false}],"solution":"`side ** 2` tyder $4^2 = 16$. Programmet reknar arealet av eit kvadrat med sidelengd 4."},{"id":"8-11-1-n-quiz3-q2","task":"Kva linje gjer om svaret til brukaren frå tekst til eit desimaltal?","options":[{"id":"a","text":"`input(\"Skriv et tall: \")`","isCorrect":false},{"id":"b","text":"`print(tall)`","isCorrect":false},{"id":"c","text":"`float(input(\"Skriv et tall: \"))`","isCorrect":true},{"id":"d","text":"`str(input(\"Skriv et tall: \"))`","isCorrect":false}],"solution":"`input()` gjev alltid tekst. `float()` gjer teksten om til eit desimaltal. Utan `float()` ville Python behandla svaret som tekst og ikkje kunna rekne med det."}]}},{"id":"8-11-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har teke dei fyrste stega i programmering:\n\n- **Scratch**: Visuelt programmeringsspråk med klossar -- perfekt for å lære grunnideane\n- **Python**: Tekstbasert språk som er enkelt å lære og kraftig nok for profesjonell bruk\n- **print()**: Skriv ut tekst eller berekningsresultat på skjermen\n- **Rekneoperasjonar**: `+`, `-`, `*`, `/`, `**` (potens)\n- **Variablar**: Namnelappar på verdiar (`alder = 14`)\n- **input()**: Tek imot tekst frå brukaren\n- **int()** og **float()**: Gjer tekst om til heiltal eller desimaltal\n- **f-strengar**: Pen formatering med `f\"Svaret er {variabel}\"`\n- **Dei tre delane i programmet**: Inndata, berekning, utdata\n\nMed desse verktøya kan du allereie lage program som reknar areal, reknar om temperaturar, og mykje meir. I neste kapittel skal vi lære noko som gjer programmering verkeleg kraftig: **lykkjer** -- å få datamaskinen til å gjenta ting tusenvis av gonger!"}],"exercises":[],"_meta":{"sourceHash":"2be73419c40b6862","translatedAt":"2026-06-17T01:24:05.100Z","model":"claude-code-agent","strings":58,"tm":{"4d110a2b844c580b":"Introduksjon til programmering","b195b06d1ed59702":"Narrativ versjon","1f07da8f11033939":"Ei forteljande innføring i programmering der vi startar med Scratch som visuelt språk og bevegar oss over til Python -- frå dei fyrste print-kommandoane til enkle berekningar og brukarinndata.","38b3f88b8d0434b5":"bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt","fb1aec24a9d671e6":"## Snakke med datamaskinen\n\nTenk deg at du har ein veldig lydig, men litt bokstavleg venn. Denne vennen gjer **nøyaktig** det du seier -- verken meir eller mindre. Seier du «hopp tre gonger», hoppar hen tre gonger. Seier du «hopp til du blir sliten», hoppar hen til hen blir sliten. Men seier du berre «gjer noko gøy», står hen og ser forvirra på deg.\n\nDenne vennen er datamaskinen. Og språket de snakkar saman heiter **programmering**.\n\nEit program er rett og slett ei **liste med instruksjonar** som datamaskinen følgjer, steg for steg. Datamaskinen er lynrask og gjer aldri reknefeil -- men han forstår berre det du skriv, ikkje det du **meiner**. Derfor er det viktig å vere presis.\n\nI dette kapittelet skal vi ta dei aller fyrste stega. Vi byrjar med **Scratch**, eit visuelt programmeringsspråk der du byggjer program med klossar, og går deretter vidare til **Python**, eit tekstbasert språk der du skriv instruksjonane sjølv.","c6e762abf236765f":"## Scratch -- programmering med klossar\n\nScratch er utvikla av MIT og er designa for å gjere det enkelt å lære programmering. I staden for å skrive tekst, dreg du fargerike **klossar** inn på arbeidsflata og set dei saman som puslespelbrikker.\n\nHer er nokre viktige Scratch-klossar:\n\n- **«sei [Hei!] i [2] sekund»** -- katten på skjermen seier noko\n- **«gå [10] steg»** -- katten flyttar seg\n- **«gjenta [4] gonger»** -- gjentar klossane inni eit bestemt tal gonger\n- **«set [x] til [0]»** -- lagrar ein verdi i ein variabel\n- **«spør [Kva heiter du?] og vent»** -- lèt brukaren skrive inn noko\n\nDet fine med Scratch er at du **ser resultatet med éin gong**. Katten bevegar seg, snakkar, og reagerer -- og du lærer dei grunnleggjande ideane i programmering utan å måtte hugse vanskeleg syntaks.\n\n**Døme i Scratch (skildra med tekst):**\n1. Når det grøne flagget blir trykt\n2. Sei «Hei! Eg skal rekne for deg!» i 2 sekund\n3. Spør «Skriv inn eit tal:» og vent\n4. Set variabel «svar_tall» til (svar)\n5. Sei (set saman «Dobbelt av talet er: » og (svar_tall * 2)) i 3 sekund\n\nDette vesle programmet ber brukaren om eit tal og viser det doble. Dei same ideane -- inndata, berekning, utdata -- finst i alle programmeringsspråk.","b8ca0ecf19b21fd5":"Test deg sjølv på grunnleggjande programmering:","4097889236a2af26":"placeholder","e7ef20db44175b54":"Kva er eit program?","c98a26207f13749b":"Ein type datamaskin","fe5c81100504b0c7":"Ei liste med instruksjonar som datamaskinen følgjer steg for steg","6286aff71ab80857":"Eit reknestykke som datamaskinen finn opp sjølv","939094ccd0a8c655":"Eit spel på nettet","c3a58d2b7b332e88":"Eit program er ein serie instruksjonar som datamaskinen utfører i rekkjefølgje. Datamaskinen gjer nøyaktig det han får beskjed om -- verken meir eller mindre.","209317e7621796ae":"Kva er den største fordelen med Scratch for nybyrjarar?","651bc7bc950306f5":"Det er det raskaste programmeringsspråket","1c815b29a0b65d3d":"Du slepp å hugse vanskeleg syntaks -- du byggjer med visuelle klossar","98e858e59585a85a":"Det kan berre brukast til matematikk","5f8fb487fa9cfd9a":"Det fungerer utan datamaskin","3695ec6c7712fc24":"Scratch bruker fargerike klossar som du dreg og slepp. Du treng ikkje å hugse kommandoar eller bekymre deg for skrivefeil -- du fokuserer på logikken.","65a9d126549f70aa":"## Python -- frå klossar til tekst\n\nScratch er fantastisk for å kome i gang, men etter kvart vil du ønskje noko kraftigare. **Python** er eit av dei mest populære programmeringsspråka i verda, og det er overraskande enkelt å lære.\n\nDet aller fyrste du lærer i Python er å skrive noko på skjermen med `print()`:\n\n```python\nprint(\"Hei, verda!\")\n```\n\nNår du køyrer dette programmet, dukkar teksten `Hei, verda!` opp på skjermen. Ferdig! Ditt fyrste Python-program.\n\nVi kan også bruke `print()` til å vise resultat av berekningar:\n\n```python\nprint(3 + 7)\nprint(12 * 5)\nprint(100 / 4)\n```\n\nDette skriv ut:\n```\n10\n60\n25.0\n```\n\nLegg merke til at divisjon alltid gjev eit desimaltal i Python (25.0 i staden for 25). Dei fire rekneartane i Python er:\n- `+` addisjon\n- `-` subtraksjon\n- `*` multiplikasjon\n- `/` divisjon\n- `**` potens (til dømes gjev `3 ** 2` $3^2 = 9$)","88abf874704da013":"## Variablar -- namnelappar på verdiar\n\nI Scratch brukte vi variablar når vi skreiv «set [svar_tall] til (svar)». I Python gjer vi det slik:\n\n```python\nnavn = \"Nora\"\nalder = 14\npi = 3.14159\n```\n\nEin **variabel** er eit namn som peikar på ein verdi. Tenk på det som ei eske med ein lapp på: lappen er namnet, og inni eska ligg verdien.\n\nVi kan bruke variablar i berekningar:\n\n```python\nlengde = 8\nbredde = 5\nareal = lengde * bredde\nprint(f\"Arealet er {areal} kvadratmeter\")\n```\n\nResultatet: `Arealet er 40 kvadratmeter`\n\nHer bruker vi ein **f-streng** (legg merke til `f` framom hermeteikna). Alt inni krøllparentesane `{}` blir erstatta med verdien til variabelen.\n\nVi kan også la brukaren skrive inn verdiar med `input()`:\n\n```python\nnavn = input(\"Hva heter du? \")\nprint(f\"Hei, {navn}!\")\n```\n\n**Viktig:** `input()` gjev alltid **tekst** tilbake. Viss du vil bruke svaret som eit tal, må du gjere det om:\n\n```python\ntall = int(input(\"Skriv et heltall: \"))\ndesimaltall = float(input(\"Skriv et desimaltall: \"))\n```\n\n`int()` gjer om til heiltal og `float()` gjer om til desimaltal.","c788eefa5dbf0215":"Test deg sjølv på Python-grunnleggjande:","8fa8679dee21e0aa":"Kva skriv dette programmet ut?\n\n```python\na = 7\nb = 3\nprint(a * b)\n```","0f26d482a469952b":"`a * b`","f66d236b4e33272a":"Python reknar ut $7 \\cdot 3 = 21$ og skriv ut resultatet. Variabelnamna blir erstatta med verdiane sine.","b3719308b539d054":"Kva er resultatet av `int(input(\"Tall: \"))` når brukaren skriv inn `5`?","e32112f09887f55d":"Teksten `\"5\"`","67ecac973477f45a":"Heiltalet `5`","4dd52fa4a7aa807a":"Desimaltalet `5.0`","6b16392622e7b20a":"Ei feilmelding","df2301089ac6b023":"`input()` gjev teksten `\"5\"`. Når vi pakkar inn i `int()`, blir teksten konvertert til heiltalet `5`. Hadde vi brukt `float()`, ville vi fått `5.0`.","115bbd7438db1eae":"Kva tyder `**` i Python?","86fe1545a033d1c7":"Multiplikasjon","68c04867be0f9bd1":"Divisjon","c77fdb4b94222461":"Opphøgd i (potens)","1e259f4cd6eabe0c":"Gjenta","b888c2e3bd53be75":"`**` er potensoperatoren. Til dømes er `2 ** 3` det same som $2^3 = 8$. Vanleg multiplikasjon er `*`.","1f4ec3bba6cbd89a":"## Eit komplett døme: Arealreknar\n\nLat oss setje alt saman i eit lite program som reknar arealet av ein trekant:\n\n```python\nprint(\"=== Arealberegner for trekant ===\")\n\ngrunnlinje = float(input(\"Skriv inn grunnlinjen (cm): \"))\nhoyde = float(input(\"Skriv inn hoyden (cm): \"))\n\nareal = (grunnlinje * hoyde) / 2\n\nprint(f\"Grunnlinje: {grunnlinje} cm\")\nprint(f\"Hoyde: {hoyde} cm\")\nprint(f\"Areal: {areal} cm²\")\n```\n\nNår programmet blir køyrt:\n```\n=== Arealberegner for trekant ===\nSkriv inn grunnlinjen (cm): 10\nSkriv inn hoyden (cm): 6\nGrunnlinje: 10.0 cm\nHoyde: 6.0 cm\nAreal: 30.0 cm²\n```\n\nProgrammet bruker formelen $A = \\frac{g \\cdot h}{2}$. Det tek imot to tal frå brukaren, reknar arealet og viser resultatet. Dette er den grunnleggjande strukturen i nesten alle program:\n\n1. **Inndata** -- ta imot informasjon (med `input()`)\n2. **Berekning** -- gjer noko med informasjonen\n3. **Utdata** -- vis resultatet (med `print()`)\n\nDu kan lett endre programmet til å rekne arealet av eit rektangel, ein sirkel, eller kva som helst anna -- berre byt ut formelen!","9e186a8e65dcbb65":"Test deg sjølv på eit komplett program:","0e96cb645615d174":"Kva er dei tre hovuddelane i eit typisk program?","b8ea047807cd8f25":"Start, midten, slutt","ec47a50ba702f89e":"Inndata, berekning, utdata","428dd616f193eb75":"Variablar, funksjonar, klasser","7acd6a2fd3123829":"Print, input, if","a47cfc437181c914":"Dei tre hovuddelane er: inndata (ta imot informasjon), berekning (gjere noko med han) og utdata (vise resultatet). Nesten alle program følgjer dette mønsteret.","9e7dffef507ff4ce":"Kva skriv dette programmet ut?\n\n```python\nside = 4\nareal = side ** 2\nprint(areal)\n```","bbd65accdc74cf23":"`side ** 2`","cf7aa44fe613f502":"`side ** 2` tyder $4^2 = 16$. Programmet reknar arealet av eit kvadrat med sidelengd 4.","af8c2f344c5c8629":"Kva linje gjer om svaret til brukaren frå tekst til eit desimaltal?","f76dbc68e308e70a":"`input(\"Skriv et tall: \")`","49ab5884427ac523":"`print(tall)`","c308f87de12e208f":"`float(input(\"Skriv et tall: \"))`","0c6024be05cc0394":"`str(input(\"Skriv et tall: \"))`","a579875ecbf15e5a":"`input()` gjev alltid tekst. `float()` gjer teksten om til eit desimaltal. Utan `float()` ville Python behandla svaret som tekst og ikkje kunna rekne med det.","78f0c2c2ee3e1ac7":"## Oppsummering\n\nVi har teke dei fyrste stega i programmering:\n\n- **Scratch**: Visuelt programmeringsspråk med klossar -- perfekt for å lære grunnideane\n- **Python**: Tekstbasert språk som er enkelt å lære og kraftig nok for profesjonell bruk\n- **print()**: Skriv ut tekst eller berekningsresultat på skjermen\n- **Rekneoperasjonar**: `+`, `-`, `*`, `/`, `**` (potens)\n- **Variablar**: Namnelappar på verdiar (`alder = 14`)\n- **input()**: Tek imot tekst frå brukaren\n- **int()** og **float()**: Gjer tekst om til heiltal eller desimaltal\n- **f-strengar**: Pen formatering med `f\"Svaret er {variabel}\"`\n- **Dei tre delane i programmet**: Inndata, berekning, utdata\n\nMed desse verktøya kan du allereie lage program som reknar areal, reknar om temperaturar, og mykje meir. I neste kapittel skal vi lære noko som gjer programmering verkeleg kraftig: **lykkjer** -- å få datamaskinen til å gjenta ting tusenvis av gonger!"}}}
+{
+  "id": "8-11-1-narrativ",
+  "courseId": "8",
+  "chapterNumber": "11.1",
+  "title": "Introduksjon til programmering",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljande innføring i programmering der vi startar med Scratch som visuelt språk og bevegar oss over til Python -- frå dei fyrste print-kommandoane til enkle berekningar og brukarinndata.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt"
+  ],
+  "linkedChapterId": "8-11-1",
+  "content": [
+    {
+      "id": "8-11-1-n-intro",
+      "type": "text",
+      "content": "## Snakke med datamaskinen\n\nTenk deg at du har ein veldig lydig, men litt bokstavleg venn. Denne vennen gjer **nøyaktig** det du seier -- verken meir eller mindre. Seier du «hopp tre gonger», hoppar hen tre gonger. Seier du «hopp til du blir sliten», hoppar hen til hen blir sliten. Men seier du berre «gjer noko gøy», står hen og ser forvirra på deg.\n\nDenne vennen er datamaskinen. Og språket de snakkar saman heiter **programmering**.\n\nEit program er rett og slett ei **liste med instruksjonar** som datamaskinen følgjer, steg for steg. Datamaskinen er lynrask og gjer aldri reknefeil -- men han forstår berre det du skriv, ikkje det du **meiner**. Derfor er det viktig å vere presis.\n\nI dette kapittelet skal vi ta dei aller fyrste stega. Vi byrjar med **Scratch**, eit visuelt programmeringsspråk der du byggjer program med klossar, og går deretter vidare til **Python**, eit tekstbasert språk der du skriv instruksjonane sjølv."
+    },
+    {
+      "id": "8-11-1-n-section1",
+      "type": "text",
+      "content": "## Scratch -- programmering med klossar\n\nScratch er utvikla av MIT og er designa for å gjere det enkelt å lære programmering. I staden for å skrive tekst, dreg du fargerike **klossar** inn på arbeidsflata og set dei saman som puslespelbrikker.\n\nHer er nokre viktige Scratch-klossar:\n\n- **«sei [Hei!] i [2] sekund»** -- katten på skjermen seier noko\n- **«gå [10] steg»** -- katten flyttar seg\n- **«gjenta [4] gonger»** -- gjentar klossane inni eit bestemt tal gonger\n- **«set [x] til [0]»** -- lagrar ein verdi i ein variabel\n- **«spør [Kva heiter du?] og vent»** -- lèt brukaren skrive inn noko\n\nDet fine med Scratch er at du **ser resultatet med éin gong**. Katten bevegar seg, snakkar, og reagerer -- og du lærer dei grunnleggjande ideane i programmering utan å måtte hugse vanskeleg syntaks.\n\n**Døme i Scratch (skildra med tekst):**\n1. Når det grøne flagget blir trykt\n2. Sei «Hei! Eg skal rekne for deg!» i 2 sekund\n3. Spør «Skriv inn eit tal:» og vent\n4. Set variabel «svar_tall» til (svar)\n5. Sei (set saman «Dobbelt av talet er: » og (svar_tall * 2)) i 3 sekund\n\nDette vesle programmet ber brukaren om eit tal og viser det doble. Dei same ideane -- inndata, berekning, utdata -- finst i alle programmeringsspråk."
+    },
+    {
+      "id": "8-11-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grunnleggjande programmering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-1-n-quiz1-q0",
+            "task": "Kva er eit program?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein type datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit reknestykke som datamaskinen finn opp sjølv",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit spel på nettet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ei liste med instruksjonar som datamaskinen følgjer steg for steg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eit program er ein serie instruksjonar som datamaskinen utfører i rekkjefølgje. Datamaskinen gjer nøyaktig det han får beskjed om -- verken meir eller mindre."
+          },
+          {
+            "id": "8-11-1-n-quiz1-q1",
+            "task": "Kva er den største fordelen med Scratch for nybyrjarar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Du slepp å hugse vanskeleg syntaks -- du byggjer med visuelle klossar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det er det raskaste programmeringsspråket",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det kan berre brukast til matematikk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det fungerer utan datamaskin",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Scratch bruker fargerike klossar som du dreg og slepp. Du treng ikkje å hugse kommandoar eller bekymre deg for skrivefeil -- du fokuserer på logikken."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-1-n-section2",
+      "type": "text",
+      "content": "## Python -- frå klossar til tekst\n\nScratch er fantastisk for å kome i gang, men etter kvart vil du ønskje noko kraftigare. **Python** er eit av dei mest populære programmeringsspråka i verda, og det er overraskande enkelt å lære.\n\nDet aller fyrste du lærer i Python er å skrive noko på skjermen med `print()`:\n\n```python\nprint(\"Hei, verda!\")\n```\n\nNår du køyrer dette programmet, dukkar teksten `Hei, verda!` opp på skjermen. Ferdig! Ditt fyrste Python-program.\n\nVi kan også bruke `print()` til å vise resultat av berekningar:\n\n```python\nprint(3 + 7)\nprint(12 * 5)\nprint(100 / 4)\n```\n\nDette skriv ut:\n```\n10\n60\n25.0\n```\n\nLegg merke til at divisjon alltid gjev eit desimaltal i Python (25.0 i staden for 25). Dei fire rekneartane i Python er:\n- `+` addisjon\n- `-` subtraksjon\n- `*` multiplikasjon\n- `/` divisjon\n- `**` potens (til dømes gjev `3 ** 2` $3^2 = 9$)"
+    },
+    {
+      "id": "8-11-1-n-section3",
+      "type": "text",
+      "content": "## Variablar -- namnelappar på verdiar\n\nI Scratch brukte vi variablar når vi skreiv «set [svar_tall] til (svar)». I Python gjer vi det slik:\n\n```python\nnavn = \"Nora\"\nalder = 14\npi = 3.14159\n```\n\nEin **variabel** er eit namn som peikar på ein verdi. Tenk på det som ei eske med ein lapp på: lappen er namnet, og inni eska ligg verdien.\n\nVi kan bruke variablar i berekningar:\n\n```python\nlengde = 8\nbredde = 5\nareal = lengde * bredde\nprint(f\"Arealet er {areal} kvadratmeter\")\n```\n\nResultatet: `Arealet er 40 kvadratmeter`\n\nHer bruker vi ein **f-streng** (legg merke til `f` framom hermeteikna). Alt inni krøllparentesane `{}` blir erstatta med verdien til variabelen.\n\nVi kan også la brukaren skrive inn verdiar med `input()`:\n\n```python\nnavn = input(\"Hva heter du? \")\nprint(f\"Hei, {navn}!\")\n```\n\n**Viktig:** `input()` gjev alltid **tekst** tilbake. Viss du vil bruke svaret som eit tal, må du gjere det om:\n\n```python\ntall = int(input(\"Skriv et heltall: \"))\ndesimaltall = float(input(\"Skriv et desimaltall: \"))\n```\n\n`int()` gjer om til heiltal og `float()` gjer om til desimaltal."
+    },
+    {
+      "id": "8-11-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Python-grunnleggjande:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-1-n-quiz2-q0",
+            "task": "Kva skriv dette programmet ut?\n\n```python\na = 7\nb = 3\nprint(a * b)\n```",
+            "options": [
+              {
+                "id": "a",
+                "text": "`a * b`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`21`",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "`10`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`73`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Python reknar ut $7 \\cdot 3 = 21$ og skriv ut resultatet. Variabelnamna blir erstatta med verdiane sine."
+          },
+          {
+            "id": "8-11-1-n-quiz2-q1",
+            "task": "Kva er resultatet av `int(input(\"Tall: \"))` når brukaren skriv inn `5`?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Teksten `\"5\"`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Desimaltalet `5.0`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Heiltalet `5`",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`input()` gjev teksten `\"5\"`. Når vi pakkar inn i `int()`, blir teksten konvertert til heiltalet `5`. Hadde vi brukt `float()`, ville vi fått `5.0`."
+          },
+          {
+            "id": "8-11-1-n-quiz2-q2",
+            "task": "Kva tyder `**` i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Multiplikasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Divisjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gjenta",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Opphøgd i (potens)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "`**` er potensoperatoren. Til dømes er `2 ** 3` det same som $2^3 = 8$. Vanleg multiplikasjon er `*`."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-1-n-section4",
+      "type": "text",
+      "content": "## Eit komplett døme: Arealreknar\n\nLat oss setje alt saman i eit lite program som reknar arealet av ein trekant:\n\n```python\nprint(\"=== Arealberegner for trekant ===\")\n\ngrunnlinje = float(input(\"Skriv inn grunnlinjen (cm): \"))\nhoyde = float(input(\"Skriv inn hoyden (cm): \"))\n\nareal = (grunnlinje * hoyde) / 2\n\nprint(f\"Grunnlinje: {grunnlinje} cm\")\nprint(f\"Hoyde: {hoyde} cm\")\nprint(f\"Areal: {areal} cm²\")\n```\n\nNår programmet blir køyrt:\n```\n=== Arealberegner for trekant ===\nSkriv inn grunnlinjen (cm): 10\nSkriv inn hoyden (cm): 6\nGrunnlinje: 10.0 cm\nHoyde: 6.0 cm\nAreal: 30.0 cm²\n```\n\nProgrammet bruker formelen $A = \\frac{g \\cdot h}{2}$. Det tek imot to tal frå brukaren, reknar arealet og viser resultatet. Dette er den grunnleggjande strukturen i nesten alle program:\n\n1. **Inndata** -- ta imot informasjon (med `input()`)\n2. **Berekning** -- gjer noko med informasjonen\n3. **Utdata** -- vis resultatet (med `print()`)\n\nDu kan lett endre programmet til å rekne arealet av eit rektangel, ein sirkel, eller kva som helst anna -- berre byt ut formelen!"
+    },
+    {
+      "id": "8-11-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eit komplett program:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-1-n-quiz3-q0",
+            "task": "Kva er dei tre hovuddelane i eit typisk program?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Inndata, berekning, utdata",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Start, midten, slutt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Variablar, funksjonar, klasser",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Print, input, if",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei tre hovuddelane er: inndata (ta imot informasjon), berekning (gjere noko med han) og utdata (vise resultatet). Nesten alle program følgjer dette mønsteret."
+          },
+          {
+            "id": "8-11-1-n-quiz3-q1",
+            "task": "Kva skriv dette programmet ut?\n\n```python\nside = 4\nareal = side ** 2\nprint(areal)\n```",
+            "options": [
+              {
+                "id": "a",
+                "text": "`8`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`16`",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "`44`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`side ** 2`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`side ** 2` tyder $4^2 = 16$. Programmet reknar arealet av eit kvadrat med sidelengd 4."
+          },
+          {
+            "id": "8-11-1-n-quiz3-q2",
+            "task": "Kva linje gjer om svaret til brukaren frå tekst til eit desimaltal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`input(\"Skriv et tall: \")`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`print(tall)`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`float(input(\"Skriv et tall: \"))`",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "`str(input(\"Skriv et tall: \"))`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`input()` gjev alltid tekst. `float()` gjer teksten om til eit desimaltal. Utan `float()` ville Python behandla svaret som tekst og ikkje kunna rekne med det."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har teke dei fyrste stega i programmering:\n\n- **Scratch**: Visuelt programmeringsspråk med klossar -- perfekt for å lære grunnideane\n- **Python**: Tekstbasert språk som er enkelt å lære og kraftig nok for profesjonell bruk\n- **print()**: Skriv ut tekst eller berekningsresultat på skjermen\n- **Rekneoperasjonar**: `+`, `-`, `*`, `/`, `**` (potens)\n- **Variablar**: Namnelappar på verdiar (`alder = 14`)\n- **input()**: Tek imot tekst frå brukaren\n- **int()** og **float()**: Gjer tekst om til heiltal eller desimaltal\n- **f-strengar**: Pen formatering med `f\"Svaret er {variabel}\"`\n- **Dei tre delane i programmet**: Inndata, berekning, utdata\n\nMed desse verktøya kan du allereie lage program som reknar areal, reknar om temperaturar, og mykje meir. I neste kapittel skal vi lære noko som gjer programmering verkeleg kraftig: **lykkjer** -- å få datamaskinen til å gjenta ting tusenvis av gonger!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "2be73419c40b6862",
+    "translatedAt": "2026-06-17T01:24:05.100Z",
+    "model": "claude-code-agent",
+    "strings": 58,
+    "tm": {
+      "4d110a2b844c580b": "Introduksjon til programmering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1f07da8f11033939": "Ei forteljande innføring i programmering der vi startar med Scratch som visuelt språk og bevegar oss over til Python -- frå dei fyrste print-kommandoane til enkle berekningar og brukarinndata.",
+      "38b3f88b8d0434b5": "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt",
+      "fb1aec24a9d671e6": "## Snakke med datamaskinen\n\nTenk deg at du har ein veldig lydig, men litt bokstavleg venn. Denne vennen gjer **nøyaktig** det du seier -- verken meir eller mindre. Seier du «hopp tre gonger», hoppar hen tre gonger. Seier du «hopp til du blir sliten», hoppar hen til hen blir sliten. Men seier du berre «gjer noko gøy», står hen og ser forvirra på deg.\n\nDenne vennen er datamaskinen. Og språket de snakkar saman heiter **programmering**.\n\nEit program er rett og slett ei **liste med instruksjonar** som datamaskinen følgjer, steg for steg. Datamaskinen er lynrask og gjer aldri reknefeil -- men han forstår berre det du skriv, ikkje det du **meiner**. Derfor er det viktig å vere presis.\n\nI dette kapittelet skal vi ta dei aller fyrste stega. Vi byrjar med **Scratch**, eit visuelt programmeringsspråk der du byggjer program med klossar, og går deretter vidare til **Python**, eit tekstbasert språk der du skriv instruksjonane sjølv.",
+      "c6e762abf236765f": "## Scratch -- programmering med klossar\n\nScratch er utvikla av MIT og er designa for å gjere det enkelt å lære programmering. I staden for å skrive tekst, dreg du fargerike **klossar** inn på arbeidsflata og set dei saman som puslespelbrikker.\n\nHer er nokre viktige Scratch-klossar:\n\n- **«sei [Hei!] i [2] sekund»** -- katten på skjermen seier noko\n- **«gå [10] steg»** -- katten flyttar seg\n- **«gjenta [4] gonger»** -- gjentar klossane inni eit bestemt tal gonger\n- **«set [x] til [0]»** -- lagrar ein verdi i ein variabel\n- **«spør [Kva heiter du?] og vent»** -- lèt brukaren skrive inn noko\n\nDet fine med Scratch er at du **ser resultatet med éin gong**. Katten bevegar seg, snakkar, og reagerer -- og du lærer dei grunnleggjande ideane i programmering utan å måtte hugse vanskeleg syntaks.\n\n**Døme i Scratch (skildra med tekst):**\n1. Når det grøne flagget blir trykt\n2. Sei «Hei! Eg skal rekne for deg!» i 2 sekund\n3. Spør «Skriv inn eit tal:» og vent\n4. Set variabel «svar_tall» til (svar)\n5. Sei (set saman «Dobbelt av talet er: » og (svar_tall * 2)) i 3 sekund\n\nDette vesle programmet ber brukaren om eit tal og viser det doble. Dei same ideane -- inndata, berekning, utdata -- finst i alle programmeringsspråk.",
+      "b8ca0ecf19b21fd5": "Test deg sjølv på grunnleggjande programmering:",
+      "4097889236a2af26": "placeholder",
+      "e7ef20db44175b54": "Kva er eit program?",
+      "c98a26207f13749b": "Ein type datamaskin",
+      "fe5c81100504b0c7": "Ei liste med instruksjonar som datamaskinen følgjer steg for steg",
+      "6286aff71ab80857": "Eit reknestykke som datamaskinen finn opp sjølv",
+      "939094ccd0a8c655": "Eit spel på nettet",
+      "c3a58d2b7b332e88": "Eit program er ein serie instruksjonar som datamaskinen utfører i rekkjefølgje. Datamaskinen gjer nøyaktig det han får beskjed om -- verken meir eller mindre.",
+      "209317e7621796ae": "Kva er den største fordelen med Scratch for nybyrjarar?",
+      "651bc7bc950306f5": "Det er det raskaste programmeringsspråket",
+      "1c815b29a0b65d3d": "Du slepp å hugse vanskeleg syntaks -- du byggjer med visuelle klossar",
+      "98e858e59585a85a": "Det kan berre brukast til matematikk",
+      "5f8fb487fa9cfd9a": "Det fungerer utan datamaskin",
+      "3695ec6c7712fc24": "Scratch bruker fargerike klossar som du dreg og slepp. Du treng ikkje å hugse kommandoar eller bekymre deg for skrivefeil -- du fokuserer på logikken.",
+      "65a9d126549f70aa": "## Python -- frå klossar til tekst\n\nScratch er fantastisk for å kome i gang, men etter kvart vil du ønskje noko kraftigare. **Python** er eit av dei mest populære programmeringsspråka i verda, og det er overraskande enkelt å lære.\n\nDet aller fyrste du lærer i Python er å skrive noko på skjermen med `print()`:\n\n```python\nprint(\"Hei, verda!\")\n```\n\nNår du køyrer dette programmet, dukkar teksten `Hei, verda!` opp på skjermen. Ferdig! Ditt fyrste Python-program.\n\nVi kan også bruke `print()` til å vise resultat av berekningar:\n\n```python\nprint(3 + 7)\nprint(12 * 5)\nprint(100 / 4)\n```\n\nDette skriv ut:\n```\n10\n60\n25.0\n```\n\nLegg merke til at divisjon alltid gjev eit desimaltal i Python (25.0 i staden for 25). Dei fire rekneartane i Python er:\n- `+` addisjon\n- `-` subtraksjon\n- `*` multiplikasjon\n- `/` divisjon\n- `**` potens (til dømes gjev `3 ** 2` $3^2 = 9$)",
+      "88abf874704da013": "## Variablar -- namnelappar på verdiar\n\nI Scratch brukte vi variablar når vi skreiv «set [svar_tall] til (svar)». I Python gjer vi det slik:\n\n```python\nnavn = \"Nora\"\nalder = 14\npi = 3.14159\n```\n\nEin **variabel** er eit namn som peikar på ein verdi. Tenk på det som ei eske med ein lapp på: lappen er namnet, og inni eska ligg verdien.\n\nVi kan bruke variablar i berekningar:\n\n```python\nlengde = 8\nbredde = 5\nareal = lengde * bredde\nprint(f\"Arealet er {areal} kvadratmeter\")\n```\n\nResultatet: `Arealet er 40 kvadratmeter`\n\nHer bruker vi ein **f-streng** (legg merke til `f` framom hermeteikna). Alt inni krøllparentesane `{}` blir erstatta med verdien til variabelen.\n\nVi kan også la brukaren skrive inn verdiar med `input()`:\n\n```python\nnavn = input(\"Hva heter du? \")\nprint(f\"Hei, {navn}!\")\n```\n\n**Viktig:** `input()` gjev alltid **tekst** tilbake. Viss du vil bruke svaret som eit tal, må du gjere det om:\n\n```python\ntall = int(input(\"Skriv et heltall: \"))\ndesimaltall = float(input(\"Skriv et desimaltall: \"))\n```\n\n`int()` gjer om til heiltal og `float()` gjer om til desimaltal.",
+      "c788eefa5dbf0215": "Test deg sjølv på Python-grunnleggjande:",
+      "8fa8679dee21e0aa": "Kva skriv dette programmet ut?\n\n```python\na = 7\nb = 3\nprint(a * b)\n```",
+      "0f26d482a469952b": "`a * b`",
+      "f66d236b4e33272a": "Python reknar ut $7 \\cdot 3 = 21$ og skriv ut resultatet. Variabelnamna blir erstatta med verdiane sine.",
+      "b3719308b539d054": "Kva er resultatet av `int(input(\"Tall: \"))` når brukaren skriv inn `5`?",
+      "e32112f09887f55d": "Teksten `\"5\"`",
+      "67ecac973477f45a": "Heiltalet `5`",
+      "4dd52fa4a7aa807a": "Desimaltalet `5.0`",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "df2301089ac6b023": "`input()` gjev teksten `\"5\"`. Når vi pakkar inn i `int()`, blir teksten konvertert til heiltalet `5`. Hadde vi brukt `float()`, ville vi fått `5.0`.",
+      "115bbd7438db1eae": "Kva tyder `**` i Python?",
+      "86fe1545a033d1c7": "Multiplikasjon",
+      "68c04867be0f9bd1": "Divisjon",
+      "c77fdb4b94222461": "Opphøgd i (potens)",
+      "1e259f4cd6eabe0c": "Gjenta",
+      "b888c2e3bd53be75": "`**` er potensoperatoren. Til dømes er `2 ** 3` det same som $2^3 = 8$. Vanleg multiplikasjon er `*`.",
+      "1f4ec3bba6cbd89a": "## Eit komplett døme: Arealreknar\n\nLat oss setje alt saman i eit lite program som reknar arealet av ein trekant:\n\n```python\nprint(\"=== Arealberegner for trekant ===\")\n\ngrunnlinje = float(input(\"Skriv inn grunnlinjen (cm): \"))\nhoyde = float(input(\"Skriv inn hoyden (cm): \"))\n\nareal = (grunnlinje * hoyde) / 2\n\nprint(f\"Grunnlinje: {grunnlinje} cm\")\nprint(f\"Hoyde: {hoyde} cm\")\nprint(f\"Areal: {areal} cm²\")\n```\n\nNår programmet blir køyrt:\n```\n=== Arealberegner for trekant ===\nSkriv inn grunnlinjen (cm): 10\nSkriv inn hoyden (cm): 6\nGrunnlinje: 10.0 cm\nHoyde: 6.0 cm\nAreal: 30.0 cm²\n```\n\nProgrammet bruker formelen $A = \\frac{g \\cdot h}{2}$. Det tek imot to tal frå brukaren, reknar arealet og viser resultatet. Dette er den grunnleggjande strukturen i nesten alle program:\n\n1. **Inndata** -- ta imot informasjon (med `input()`)\n2. **Berekning** -- gjer noko med informasjonen\n3. **Utdata** -- vis resultatet (med `print()`)\n\nDu kan lett endre programmet til å rekne arealet av eit rektangel, ein sirkel, eller kva som helst anna -- berre byt ut formelen!",
+      "9e186a8e65dcbb65": "Test deg sjølv på eit komplett program:",
+      "0e96cb645615d174": "Kva er dei tre hovuddelane i eit typisk program?",
+      "b8ea047807cd8f25": "Start, midten, slutt",
+      "ec47a50ba702f89e": "Inndata, berekning, utdata",
+      "428dd616f193eb75": "Variablar, funksjonar, klasser",
+      "7acd6a2fd3123829": "Print, input, if",
+      "a47cfc437181c914": "Dei tre hovuddelane er: inndata (ta imot informasjon), berekning (gjere noko med han) og utdata (vise resultatet). Nesten alle program følgjer dette mønsteret.",
+      "9e7dffef507ff4ce": "Kva skriv dette programmet ut?\n\n```python\nside = 4\nareal = side ** 2\nprint(areal)\n```",
+      "bbd65accdc74cf23": "`side ** 2`",
+      "cf7aa44fe613f502": "`side ** 2` tyder $4^2 = 16$. Programmet reknar arealet av eit kvadrat med sidelengd 4.",
+      "af8c2f344c5c8629": "Kva linje gjer om svaret til brukaren frå tekst til eit desimaltal?",
+      "f76dbc68e308e70a": "`input(\"Skriv et tall: \")`",
+      "49ab5884427ac523": "`print(tall)`",
+      "c308f87de12e208f": "`float(input(\"Skriv et tall: \"))`",
+      "0c6024be05cc0394": "`str(input(\"Skriv et tall: \"))`",
+      "a579875ecbf15e5a": "`input()` gjev alltid tekst. `float()` gjer teksten om til eit desimaltal. Utan `float()` ville Python behandla svaret som tekst og ikkje kunna rekne med det.",
+      "78f0c2c2ee3e1ac7": "## Oppsummering\n\nVi har teke dei fyrste stega i programmering:\n\n- **Scratch**: Visuelt programmeringsspråk med klossar -- perfekt for å lære grunnideane\n- **Python**: Tekstbasert språk som er enkelt å lære og kraftig nok for profesjonell bruk\n- **print()**: Skriv ut tekst eller berekningsresultat på skjermen\n- **Rekneoperasjonar**: `+`, `-`, `*`, `/`, `**` (potens)\n- **Variablar**: Namnelappar på verdiar (`alder = 14`)\n- **input()**: Tek imot tekst frå brukaren\n- **int()** og **float()**: Gjer tekst om til heiltal eller desimaltal\n- **f-strengar**: Pen formatering med `f\"Svaret er {variabel}\"`\n- **Dei tre delane i programmet**: Inndata, berekning, utdata\n\nMed desse verktøya kan du allereie lage program som reknar areal, reknar om temperaturar, og mykje meir. I neste kapittel skal vi lære noko som gjer programmering verkeleg kraftig: **lykkjer** -- å få datamaskinen til å gjenta ting tusenvis av gonger!"
+    }
+  }
+}

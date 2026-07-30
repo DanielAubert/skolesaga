@@ -1,1 +1,399 @@
-{"id":"8-8-3-narrativ","courseId":"8","chapterNumber":"8.3","title":"Generalisering med variablar og formlar","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av generalisering -- frå konkrete talmønster til allmenne formlar med variabelen $n$ -- der vi oppdagar krafta i algebraisk tenking.","estimatedMinutes":35,"competenceGoals":["utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar"],"linkedChapterId":"8-8-3","content":[{"id":"8-8-3-n-intro","type":"text","content":"## Frå «neste tal» til «kva som helst tal»\n\nI dei førre kapitla lærte vi å finne det neste talet i ei følgje. Det er nyttig -- men kva om vi treng det $100$-de leddet? Eller det $1000$-de? Då er det upraktisk å leggje til differansen hundrevis av gonger.\n\nDet er her **generalisering** kjem inn. Å generalisere tyder å finne ein **formel** som verkar for **alle** verdiar av $n$ -- ikkje berre dei vi allereie kjenner. I staden for å seie «legg til $3$ kvar gong», skriv vi $a_n = 3n + 2$ og kan rekne ut kva ledd som helst direkte.\n\nVariabelen $n$ representerer figurnummeret, og formelen gjev oss verdien. Dette er overgangen frå aritmetisk tenking (å telje steg for steg) til **algebraisk tenking** (å uttrykkje det generelle mønsteret). Det er ein av dei viktigaste idéane i all matematikk!\n\nI dette kapittelet lærer vi:\n- Å setje opp formlar frå talfølgjer og figurar\n- Å jobbe med både lineære ($an + b$) og kvadratiske ($an^2 + bn + c$) formlar\n- Å **verifisere** at formelen stemmer\n- Å bruke formlar til å svare på spørsmål om store tal"},{"id":"8-8-3-n-section1","type":"text","content":"## Lineære formlar -- når differansen er konstant\n\nNår ei talfølgje har **konstant differanse**, veit vi at ho er aritmetisk. Då kan vi skrive ein lineær formel:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\neller, omskriven:\n\n$$a_n = d \\cdot n + (a_1 - d)$$\n\nDenne formelen har forma $a_n = kn + m$, der $k$ er differansen og $m$ er ein konstant. Lat oss prøve med nokre døme.\n\n**Døme 1:** Følgja $5, 8, 11, 14, \\ldots$ har $d = 3$ og $a_1 = 5$.\n$$a_n = 3n + (5 - 3) = 3n + 2$$\nSjekk: $a_1 = 3 \\cdot 1 + 2 = 5$ ✓, $a_2 = 3 \\cdot 2 + 2 = 8$ ✓, $a_3 = 3 \\cdot 3 + 2 = 11$ ✓.\nDet $50$-de leddet: $a_{50} = 3 \\cdot 50 + 2 = 152$.\n\n**Døme 2:** Fyrstikkfigurane frå førre kapittel: $4, 7, 10, 13, \\ldots$ med $d = 3$ og $a_1 = 4$.\n$$a_n = 3n + 1$$\nFigur $100$ har $3 \\cdot 100 + 1 = 301$ fyrstikker. Så enkelt!\n\n**Døme 3:** Ein taxitur kostar $50$ kr fast pluss $12$ kr per kilometer.\n$$\\text{Pris}(n) = 12n + 50$$\nEin tur på $15$ km kostar $12 \\cdot 15 + 50 = 230$ kr.\n\nLegg merke til strukturen: differansen ($d$) er talet framfor $n$ (stigningstalet), og konstantleddet fortel oss startverdien justert for at vi byrjar på $n = 1$."},{"id":"8-8-3-n-quiz1","type":"exercise","exercise":{"id":"8-8-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på lineære formlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-3-n-quiz1-q0","task":"Følgja $7, 12, 17, 22, \\ldots$ -- kva for ein formel skildrar det $n$-te leddet?","options":[{"id":"a","text":"$a_n = 5n + 7$","isCorrect":false},{"id":"b","text":"$a_n = 5n + 2$","isCorrect":true},{"id":"c","text":"$a_n = 7n + 5$","isCorrect":false},{"id":"d","text":"$a_n = 5n - 2$","isCorrect":false}],"solution":"$d = 5$, $a_1 = 7$. $a_n = 5n + (7 - 5) = 5n + 2$. Sjekk: $a_1 = 7$ ✓, $a_2 = 12$ ✓."},{"id":"8-8-3-n-quiz1-q1","task":"Formelen $a_n = 4n - 1$ gjev ei talfølgje. Kva er det $25$-de leddet?","options":[{"id":"a","text":"$96$","isCorrect":false},{"id":"b","text":"$99$","isCorrect":true},{"id":"c","text":"$100$","isCorrect":false},{"id":"d","text":"$101$","isCorrect":false}],"solution":"$a_{25} = 4 \\cdot 25 - 1 = 100 - 1 = 99$."},{"id":"8-8-3-n-quiz1-q2","task":"Eit symjebasseng blir fylt med $200$ liter i minne frå starten, pluss $15$ liter per minutt. Kor mykje vatn er det etter $30$ minutt?","options":[{"id":"a","text":"$450$ liter","isCorrect":false},{"id":"b","text":"$650$ liter","isCorrect":true},{"id":"c","text":"$600$ liter","isCorrect":false},{"id":"d","text":"$6200$ liter","isCorrect":false}],"solution":"$V(n) = 15n + 200$. Etter $30$ minutt: $15 \\cdot 30 + 200 = 450 + 200 = 650$ liter."}]}},{"id":"8-8-3-n-section2","type":"text","content":"## Kvadratiske formlar -- når differansane aukar\n\nNokre gonger er differansane **ikkje** konstante, men **aukar jamt**. Då treng vi ein formel med $n^2$ i seg.\n\n**Døme: Trekanttala** $1, 3, 6, 10, 15, \\ldots$\n- Differansar: $2, 3, 4, 5$ (aukar med $1$)\n- Andre differanse: $1, 1, 1$ (konstant!)\n- Formel: $T_n = \\frac{n(n+1)}{2} = \\frac{n^2 + n}{2} = \\frac{1}{2}n^2 + \\frac{1}{2}n$\n\n**Døme: Figur med $3, 8, 15, 24, 35$ element**\n- Differansar: $5, 7, 9, 11$ (aukar med $2$)\n- Andre differanse: $2, 2, 2$ (konstant!)\n\nNår den andre differansen er $2$, er koeffisienten framfor $n^2$ lik $\\frac{2}{2} = 1$. Vi startar med $a_n = n^2$ og justerer.\n\n| $n$ | $n^2$ | Ønskt verdi | Skilnad |\n|-----|-------|--------------|-----------|\n| $1$ | $1$ | $3$ | $+2$ |\n| $2$ | $4$ | $8$ | $+4$ |\n| $3$ | $9$ | $15$ | $+6$ |\n| $4$ | $16$ | $24$ | $+8$ |\n\nSkilnadene er $2, 4, 6, 8$ -- altså $2n$. Dermed: $a_n = n^2 + 2n = n(n + 2)$.\n\nSjekk: $a_5 = 5 \\cdot 7 = 35$ ✓. Det $20$-de leddet: $a_{20} = 20 \\cdot 22 = 440$.\n\n**Generell metode:**\n1. Finn andre differanse (han er $2a$ der $a$ er koeffisienten framfor $n^2$)\n2. Start med $an^2$ og finn skilnaden mellom $an^2$ og dei faktiske verdiane\n3. Denne skilnaden bør vere ei lineær følgje $bn + c$\n4. Totalformelen er $an^2 + bn + c$"},{"id":"8-8-3-n-quiz2","type":"exercise","exercise":{"id":"8-8-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kvadratiske formlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-3-n-quiz2-q0","task":"Følgja $2, 8, 18, 32, 50, \\ldots$ -- kva er formelen?","options":[{"id":"a","text":"$a_n = n^2 + 1$","isCorrect":false},{"id":"b","text":"$a_n = 2n^2$","isCorrect":true},{"id":"c","text":"$a_n = n^2 + n$","isCorrect":false},{"id":"d","text":"$a_n = 3n^2 - 1$","isCorrect":false}],"solution":"Differansar: $6, 10, 14, 18$. Andre differanse: $4$, altså $a = \\frac{4}{2} = 2$. Prøv $2n^2$: $2, 8, 18, 32, 50$ ✓. Formelen er $a_n = 2n^2$."},{"id":"8-8-3-n-quiz2-q1","task":"Det $n$-te trekanttalet er $T_n = \\frac{n(n+1)}{2}$. Kva er $T_{100}$?","options":[{"id":"a","text":"$5000$","isCorrect":false},{"id":"b","text":"$5050$","isCorrect":true},{"id":"c","text":"$10\\,000$","isCorrect":false},{"id":"d","text":"$10\\,100$","isCorrect":false}],"solution":"$T_{100} = \\frac{100 \\cdot 101}{2} = \\frac{10\\,100}{2} = 5050$. (Det berømte resultatet til Gauss!)"},{"id":"8-8-3-n-quiz2-q2","task":"Figurtala $0, 3, 8, 15, 24$ -- kva er formelen?","options":[{"id":"a","text":"$a_n = n^2 + n - 2$","isCorrect":false},{"id":"b","text":"$a_n = n^2 - 1$","isCorrect":true},{"id":"c","text":"$a_n = n^2 + 1$","isCorrect":false},{"id":"d","text":"$a_n = n^2 - n$","isCorrect":false}],"solution":"Differansar: $3, 5, 7, 9$. Andre differanse: $2$, altså $a = 1$. Prøv $n^2$: $1, 4, 9, 16, 25$. Skilnad: $-1$ for alle. Formel: $n^2 - 1$. Sjekk: $1^2 - 1 = 0$ ✓, $2^2 - 1 = 3$ ✓."}]}},{"id":"8-8-3-n-section3","type":"text","content":"## Å bruke formlar til å løyse problem\n\nNo som vi har formlar, kan vi stille og svare på spørsmål som ville vore umoglege å løyse manuelt.\n\n**Døme 1: Når når vi eit bestemt tal?**\nEi aritmetisk følgje er gjeven ved $a_n = 4n + 3$. Kva for eit ledd er lik $163$?\n\nVi set opp likninga: $4n + 3 = 163 \\Rightarrow 4n = 160 \\Rightarrow n = 40$. Det er det $40$-de leddet.\n\n**Døme 2: Stolar i eit amfiteater**\nEit amfiteater har rader med $20, 24, 28, 32, \\ldots$ stolar. Rad $n$ har $4n + 16$ stolar.\n- Kor mange stolar har rad $15$? Svar: $4 \\cdot 15 + 16 = 76$ stolar.\n- Kor mange stolar er det totalt i dei $15$ første radene? Då treng vi summen $\\sum_{n=1}^{15}(4n + 16)$. Vi kan bruke formelen for summen av ei aritmetisk følgje: $S = \\frac{\\text{tal på ledd}}{2} \\cdot (\\text{første} + \\text{siste}) = \\frac{15}{2} \\cdot (20 + 76) = 7{,}5 \\cdot 96 = 720$ stolar.\n\n**Døme 3: Verifisering**\nSara finn formelen $a_n = 2n^2 - n + 1$ for ein figurserie. Korleis sjekkar ho at han stemmer?\n\nHo set inn $n = 1, 2, 3$ og samanliknar med dei kjende verdiane:\n- $a_1 = 2 - 1 + 1 = 2$ ✓\n- $a_2 = 8 - 2 + 1 = 7$ ✓\n- $a_3 = 18 - 3 + 1 = 16$ ✓\n\nAlle stemmer -- formelen er truleg rett!\n\nVerifisering er alltid viktig. Ein formel kan gje rette verdiar for nokre få ledd ved rein tilfeldigheit, men å sjekke alle kjende verdiar gjev oss stor tryggleik."},{"id":"8-8-3-n-quiz3","type":"exercise","exercise":{"id":"8-8-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på å bruke formlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-3-n-quiz3-q0","task":"Følgja er gjeven ved $a_n = 6n - 5$. Kva for eit ledd er lik $91$?","options":[{"id":"a","text":"Ledd nr. $15$","isCorrect":false},{"id":"b","text":"Ledd nr. $16$","isCorrect":true},{"id":"c","text":"Ledd nr. $14$","isCorrect":false},{"id":"d","text":"Ledd nr. $17$","isCorrect":false}],"solution":"$6n - 5 = 91 \\Rightarrow 6n = 96 \\Rightarrow n = 16$. Det er ledd nummer $16$."},{"id":"8-8-3-n-quiz3-q1","task":"Ein konsertsal har $n$-te rad med $2n + 10$ sete. Rad $1$ har $12$ sete og rad $20$ har $50$ sete. Kor mange sete er det totalt i alle $20$ radene?","options":[{"id":"a","text":"$620$","isCorrect":true},{"id":"b","text":"$600$","isCorrect":false},{"id":"c","text":"$500$","isCorrect":false},{"id":"d","text":"$720$","isCorrect":false}],"solution":"Summen av ei aritmetisk følgje: $S = \\frac{20}{2} \\cdot (12 + 50) = 10 \\cdot 62 = 620$ sete."},{"id":"8-8-3-n-quiz3-q2","task":"Formelen $a_n = n^2 + 3n$ gjev verdiane $4, 10, 18, 28, 40$ for $n = 1$ til $5$. Kva er $a_{12}$?","options":[{"id":"a","text":"$168$","isCorrect":false},{"id":"b","text":"$180$","isCorrect":true},{"id":"c","text":"$192$","isCorrect":false},{"id":"d","text":"$156$","isCorrect":false}],"solution":"$a_{12} = 12^2 + 3 \\cdot 12 = 144 + 36 = 180$."}]}},{"id":"8-8-3-n-summary","type":"text","content":"## Oppsummering\n\nGeneralisering handlar om å gå frå det spesielle til det allmenne -- frå nokre konkrete tal til ein formel som verkar for alle.\n\n**Lineære formlar** ($a_n = kn + m$):\n- Blir brukte når differansen er konstant\n- $k$ er differansen, $m$ er konstantleddet\n- Døme: $5, 8, 11, 14 \\Rightarrow a_n = 3n + 2$\n\n**Kvadratiske formlar** ($a_n = an^2 + bn + c$):\n- Blir brukte når den andre differansen er konstant\n- Koeffisienten $a = \\frac{\\text{andre differanse}}{2}$\n- Døme: $1, 3, 6, 10 \\Rightarrow T_n = \\frac{n(n+1)}{2}$\n\n**Framgangsmåte:**\n1. Lag tabell med verdiar og differansar\n2. Avgjer om formelen er lineær (konstant differanse) eller kvadratisk (konstant andre differanse)\n3. Finn koeffisientane\n4. **Verifiser** ved å sjekke kjende verdiar\n\nÅ meistre generalisering tyder at du kan rekne ut kva ledd som helst i ei følgje -- anten det er det $10$-de, det $100$-de eller det $1\\,000\\,000$-te!"}],"exercises":[],"_meta":{"sourceHash":"7fc8839b3169784e","translatedAt":"2026-06-17T01:53:04.657Z","model":"claude-code-agent","strings":53,"tm":{"f3cbb417ac31b238":"Generalisering med variablar og formlar","b195b06d1ed59702":"Narrativ versjon","77f53d5c2332649f":"Ein forteljande gjennomgang av generalisering -- frå konkrete talmønster til allmenne formlar med variabelen $n$ -- der vi oppdagar krafta i algebraisk tenking.","d82ccdb0762ab113":"utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar","5c48b4794a97d959":"## Frå «neste tal» til «kva som helst tal»\n\nI dei førre kapitla lærte vi å finne det neste talet i ei følgje. Det er nyttig -- men kva om vi treng det $100$-de leddet? Eller det $1000$-de? Då er det upraktisk å leggje til differansen hundrevis av gonger.\n\nDet er her **generalisering** kjem inn. Å generalisere tyder å finne ein **formel** som verkar for **alle** verdiar av $n$ -- ikkje berre dei vi allereie kjenner. I staden for å seie «legg til $3$ kvar gong», skriv vi $a_n = 3n + 2$ og kan rekne ut kva ledd som helst direkte.\n\nVariabelen $n$ representerer figurnummeret, og formelen gjev oss verdien. Dette er overgangen frå aritmetisk tenking (å telje steg for steg) til **algebraisk tenking** (å uttrykkje det generelle mønsteret). Det er ein av dei viktigaste idéane i all matematikk!\n\nI dette kapittelet lærer vi:\n- Å setje opp formlar frå talfølgjer og figurar\n- Å jobbe med både lineære ($an + b$) og kvadratiske ($an^2 + bn + c$) formlar\n- Å **verifisere** at formelen stemmer\n- Å bruke formlar til å svare på spørsmål om store tal","bf72825edfbf5aa8":"## Lineære formlar -- når differansen er konstant\n\nNår ei talfølgje har **konstant differanse**, veit vi at ho er aritmetisk. Då kan vi skrive ein lineær formel:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\neller, omskriven:\n\n$$a_n = d \\cdot n + (a_1 - d)$$\n\nDenne formelen har forma $a_n = kn + m$, der $k$ er differansen og $m$ er ein konstant. Lat oss prøve med nokre døme.\n\n**Døme 1:** Følgja $5, 8, 11, 14, \\ldots$ har $d = 3$ og $a_1 = 5$.\n$$a_n = 3n + (5 - 3) = 3n + 2$$\nSjekk: $a_1 = 3 \\cdot 1 + 2 = 5$ ✓, $a_2 = 3 \\cdot 2 + 2 = 8$ ✓, $a_3 = 3 \\cdot 3 + 2 = 11$ ✓.\nDet $50$-de leddet: $a_{50} = 3 \\cdot 50 + 2 = 152$.\n\n**Døme 2:** Fyrstikkfigurane frå førre kapittel: $4, 7, 10, 13, \\ldots$ med $d = 3$ og $a_1 = 4$.\n$$a_n = 3n + 1$$\nFigur $100$ har $3 \\cdot 100 + 1 = 301$ fyrstikker. Så enkelt!\n\n**Døme 3:** Ein taxitur kostar $50$ kr fast pluss $12$ kr per kilometer.\n$$\\text{Pris}(n) = 12n + 50$$\nEin tur på $15$ km kostar $12 \\cdot 15 + 50 = 230$ kr.\n\nLegg merke til strukturen: differansen ($d$) er talet framfor $n$ (stigningstalet), og konstantleddet fortel oss startverdien justert for at vi byrjar på $n = 1$.","a0173134a89a943c":"Test deg sjølv på lineære formlar:","4097889236a2af26":"placeholder","2a49feaa3b89ab05":"Følgja $7, 12, 17, 22, \\ldots$ -- kva for ein formel skildrar det $n$-te leddet?","1f47a33241a27074":"$a_n = 5n + 7$","cdb08f94895a2066":"$a_n = 5n + 2$","aadfa959e2dfbd57":"$a_n = 7n + 5$","8522efdb7c4966ed":"$a_n = 5n - 2$","e6668d3f691c07ac":"$d = 5$, $a_1 = 7$. $a_n = 5n + (7 - 5) = 5n + 2$. Sjekk: $a_1 = 7$ ✓, $a_2 = 12$ ✓.","c00b514462bf50e9":"Formelen $a_n = 4n - 1$ gjev ei talfølgje. Kva er det $25$-de leddet?","2e5870def4047574":"$a_{25} = 4 \\cdot 25 - 1 = 100 - 1 = 99$.","25ec6057e98cd69d":"Eit symjebasseng blir fylt med $200$ liter i minne frå starten, pluss $15$ liter per minutt. Kor mykje vatn er det etter $30$ minutt?","0aaada74edd66a17":"$450$ liter","ad7abf0a88ab23f7":"$650$ liter","c46a4069093e7457":"$600$ liter","3c93412ce2b68c2a":"$6200$ liter","aab1d1d606b585ec":"$V(n) = 15n + 200$. Etter $30$ minutt: $15 \\cdot 30 + 200 = 450 + 200 = 650$ liter.","7e58fb0c03e2caae":"## Kvadratiske formlar -- når differansane aukar\n\nNokre gonger er differansane **ikkje** konstante, men **aukar jamt**. Då treng vi ein formel med $n^2$ i seg.\n\n**Døme: Trekanttala** $1, 3, 6, 10, 15, \\ldots$\n- Differansar: $2, 3, 4, 5$ (aukar med $1$)\n- Andre differanse: $1, 1, 1$ (konstant!)\n- Formel: $T_n = \\frac{n(n+1)}{2} = \\frac{n^2 + n}{2} = \\frac{1}{2}n^2 + \\frac{1}{2}n$\n\n**Døme: Figur med $3, 8, 15, 24, 35$ element**\n- Differansar: $5, 7, 9, 11$ (aukar med $2$)\n- Andre differanse: $2, 2, 2$ (konstant!)\n\nNår den andre differansen er $2$, er koeffisienten framfor $n^2$ lik $\\frac{2}{2} = 1$. Vi startar med $a_n = n^2$ og justerer.\n\n| $n$ | $n^2$ | Ønskt verdi | Skilnad |\n|-----|-------|--------------|-----------|\n| $1$ | $1$ | $3$ | $+2$ |\n| $2$ | $4$ | $8$ | $+4$ |\n| $3$ | $9$ | $15$ | $+6$ |\n| $4$ | $16$ | $24$ | $+8$ |\n\nSkilnadene er $2, 4, 6, 8$ -- altså $2n$. Dermed: $a_n = n^2 + 2n = n(n + 2)$.\n\nSjekk: $a_5 = 5 \\cdot 7 = 35$ ✓. Det $20$-de leddet: $a_{20} = 20 \\cdot 22 = 440$.\n\n**Generell metode:**\n1. Finn andre differanse (han er $2a$ der $a$ er koeffisienten framfor $n^2$)\n2. Start med $an^2$ og finn skilnaden mellom $an^2$ og dei faktiske verdiane\n3. Denne skilnaden bør vere ei lineær følgje $bn + c$\n4. Totalformelen er $an^2 + bn + c$","913e982e75dcc901":"Test deg sjølv på kvadratiske formlar:","b18f7de056079ff0":"Følgja $2, 8, 18, 32, 50, \\ldots$ -- kva er formelen?","d7f8d2f2f2b340f5":"$a_n = n^2 + 1$","ecfac24539535b59":"$a_n = 2n^2$","e57c342109be3a5b":"$a_n = n^2 + n$","0dd7e30cbe885943":"$a_n = 3n^2 - 1$","2cd25ec7b8145efb":"Differansar: $6, 10, 14, 18$. Andre differanse: $4$, altså $a = \\frac{4}{2} = 2$. Prøv $2n^2$: $2, 8, 18, 32, 50$ ✓. Formelen er $a_n = 2n^2$.","ba5348c4a66026ad":"Det $n$-te trekanttalet er $T_n = \\frac{n(n+1)}{2}$. Kva er $T_{100}$?","425214f29283f99a":"$T_{100} = \\frac{100 \\cdot 101}{2} = \\frac{10\\,100}{2} = 5050$. (Det berømte resultatet til Gauss!)","2dc8676d5b04cbd9":"Figurtala $0, 3, 8, 15, 24$ -- kva er formelen?","c03b2c03c90c0ffd":"$a_n = n^2 + n - 2$","5d9707dd38bb6fa5":"$a_n = n^2 - 1$","f42165dec3079f7f":"$a_n = n^2 - n$","65f46986a6152086":"Differansar: $3, 5, 7, 9$. Andre differanse: $2$, altså $a = 1$. Prøv $n^2$: $1, 4, 9, 16, 25$. Skilnad: $-1$ for alle. Formel: $n^2 - 1$. Sjekk: $1^2 - 1 = 0$ ✓, $2^2 - 1 = 3$ ✓.","d5ebebed7c2090cc":"## Å bruke formlar til å løyse problem\n\nNo som vi har formlar, kan vi stille og svare på spørsmål som ville vore umoglege å løyse manuelt.\n\n**Døme 1: Når når vi eit bestemt tal?**\nEi aritmetisk følgje er gjeven ved $a_n = 4n + 3$. Kva for eit ledd er lik $163$?\n\nVi set opp likninga: $4n + 3 = 163 \\Rightarrow 4n = 160 \\Rightarrow n = 40$. Det er det $40$-de leddet.\n\n**Døme 2: Stolar i eit amfiteater**\nEit amfiteater har rader med $20, 24, 28, 32, \\ldots$ stolar. Rad $n$ har $4n + 16$ stolar.\n- Kor mange stolar har rad $15$? Svar: $4 \\cdot 15 + 16 = 76$ stolar.\n- Kor mange stolar er det totalt i dei $15$ første radene? Då treng vi summen $\\sum_{n=1}^{15}(4n + 16)$. Vi kan bruke formelen for summen av ei aritmetisk følgje: $S = \\frac{\\text{tal på ledd}}{2} \\cdot (\\text{første} + \\text{siste}) = \\frac{15}{2} \\cdot (20 + 76) = 7{,}5 \\cdot 96 = 720$ stolar.\n\n**Døme 3: Verifisering**\nSara finn formelen $a_n = 2n^2 - n + 1$ for ein figurserie. Korleis sjekkar ho at han stemmer?\n\nHo set inn $n = 1, 2, 3$ og samanliknar med dei kjende verdiane:\n- $a_1 = 2 - 1 + 1 = 2$ ✓\n- $a_2 = 8 - 2 + 1 = 7$ ✓\n- $a_3 = 18 - 3 + 1 = 16$ ✓\n\nAlle stemmer -- formelen er truleg rett!\n\nVerifisering er alltid viktig. Ein formel kan gje rette verdiar for nokre få ledd ved rein tilfeldigheit, men å sjekke alle kjende verdiar gjev oss stor tryggleik.","19b8c9bedeb05977":"Test deg sjølv på å bruke formlar:","371b66f1ef36b014":"Følgja er gjeven ved $a_n = 6n - 5$. Kva for eit ledd er lik $91$?","5e1b46a2b9eb0518":"Ledd nr. $15$","63b217ad24fd0540":"Ledd nr. $16$","24a0db2ce39227cd":"Ledd nr. $14$","be41c389c7cdb814":"Ledd nr. $17$","81626db93509ec47":"$6n - 5 = 91 \\Rightarrow 6n = 96 \\Rightarrow n = 16$. Det er ledd nummer $16$.","ff18f025ed1015a2":"Ein konsertsal har $n$-te rad med $2n + 10$ sete. Rad $1$ har $12$ sete og rad $20$ har $50$ sete. Kor mange sete er det totalt i alle $20$ radene?","32af1e53c8f45e3c":"Summen av ei aritmetisk følgje: $S = \\frac{20}{2} \\cdot (12 + 50) = 10 \\cdot 62 = 620$ sete.","d7ad5b79034706bd":"Formelen $a_n = n^2 + 3n$ gjev verdiane $4, 10, 18, 28, 40$ for $n = 1$ til $5$. Kva er $a_{12}$?","4f1dfd6d66dc4ac2":"$a_{12} = 12^2 + 3 \\cdot 12 = 144 + 36 = 180$.","aa6f266afcfbb3b3":"## Oppsummering\n\nGeneralisering handlar om å gå frå det spesielle til det allmenne -- frå nokre konkrete tal til ein formel som verkar for alle.\n\n**Lineære formlar** ($a_n = kn + m$):\n- Blir brukte når differansen er konstant\n- $k$ er differansen, $m$ er konstantleddet\n- Døme: $5, 8, 11, 14 \\Rightarrow a_n = 3n + 2$\n\n**Kvadratiske formlar** ($a_n = an^2 + bn + c$):\n- Blir brukte når den andre differansen er konstant\n- Koeffisienten $a = \\frac{\\text{andre differanse}}{2}$\n- Døme: $1, 3, 6, 10 \\Rightarrow T_n = \\frac{n(n+1)}{2}$\n\n**Framgangsmåte:**\n1. Lag tabell med verdiar og differansar\n2. Avgjer om formelen er lineær (konstant differanse) eller kvadratisk (konstant andre differanse)\n3. Finn koeffisientane\n4. **Verifiser** ved å sjekke kjende verdiar\n\nÅ meistre generalisering tyder at du kan rekne ut kva ledd som helst i ei følgje -- anten det er det $10$-de, det $100$-de eller det $1\\,000\\,000$-te!"}}}
+{
+  "id": "8-8-3-narrativ",
+  "courseId": "8",
+  "chapterNumber": "8.3",
+  "title": "Generalisering med variablar og formlar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av generalisering -- frå konkrete talmønster til allmenne formlar med variabelen $n$ -- der vi oppdagar krafta i algebraisk tenking.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar"
+  ],
+  "linkedChapterId": "8-8-3",
+  "content": [
+    {
+      "id": "8-8-3-n-intro",
+      "type": "text",
+      "content": "## Frå «neste tal» til «kva som helst tal»\n\nI dei førre kapitla lærte vi å finne det neste talet i ei følgje. Det er nyttig -- men kva om vi treng det $100$-de leddet? Eller det $1000$-de? Då er det upraktisk å leggje til differansen hundrevis av gonger.\n\nDet er her **generalisering** kjem inn. Å generalisere tyder å finne ein **formel** som verkar for **alle** verdiar av $n$ -- ikkje berre dei vi allereie kjenner. I staden for å seie «legg til $3$ kvar gong», skriv vi $a_n = 3n + 2$ og kan rekne ut kva ledd som helst direkte.\n\nVariabelen $n$ representerer figurnummeret, og formelen gjev oss verdien. Dette er overgangen frå aritmetisk tenking (å telje steg for steg) til **algebraisk tenking** (å uttrykkje det generelle mønsteret). Det er ein av dei viktigaste idéane i all matematikk!\n\nI dette kapittelet lærer vi:\n- Å setje opp formlar frå talfølgjer og figurar\n- Å jobbe med både lineære ($an + b$) og kvadratiske ($an^2 + bn + c$) formlar\n- Å **verifisere** at formelen stemmer\n- Å bruke formlar til å svare på spørsmål om store tal"
+    },
+    {
+      "id": "8-8-3-n-section1",
+      "type": "text",
+      "content": "## Lineære formlar -- når differansen er konstant\n\nNår ei talfølgje har **konstant differanse**, veit vi at ho er aritmetisk. Då kan vi skrive ein lineær formel:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\neller, omskriven:\n\n$$a_n = d \\cdot n + (a_1 - d)$$\n\nDenne formelen har forma $a_n = kn + m$, der $k$ er differansen og $m$ er ein konstant. Lat oss prøve med nokre døme.\n\n**Døme 1:** Følgja $5, 8, 11, 14, \\ldots$ har $d = 3$ og $a_1 = 5$.\n$$a_n = 3n + (5 - 3) = 3n + 2$$\nSjekk: $a_1 = 3 \\cdot 1 + 2 = 5$ ✓, $a_2 = 3 \\cdot 2 + 2 = 8$ ✓, $a_3 = 3 \\cdot 3 + 2 = 11$ ✓.\nDet $50$-de leddet: $a_{50} = 3 \\cdot 50 + 2 = 152$.\n\n**Døme 2:** Fyrstikkfigurane frå førre kapittel: $4, 7, 10, 13, \\ldots$ med $d = 3$ og $a_1 = 4$.\n$$a_n = 3n + 1$$\nFigur $100$ har $3 \\cdot 100 + 1 = 301$ fyrstikker. Så enkelt!\n\n**Døme 3:** Ein taxitur kostar $50$ kr fast pluss $12$ kr per kilometer.\n$$\\text{Pris}(n) = 12n + 50$$\nEin tur på $15$ km kostar $12 \\cdot 15 + 50 = 230$ kr.\n\nLegg merke til strukturen: differansen ($d$) er talet framfor $n$ (stigningstalet), og konstantleddet fortel oss startverdien justert for at vi byrjar på $n = 1$."
+    },
+    {
+      "id": "8-8-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lineære formlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-3-n-quiz1-q0",
+            "task": "Følgja $7, 12, 17, 22, \\ldots$ -- kva for ein formel skildrar det $n$-te leddet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = 5n + 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = 7n + 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 5n - 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = 5n + 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$d = 5$, $a_1 = 7$. $a_n = 5n + (7 - 5) = 5n + 2$. Sjekk: $a_1 = 7$ ✓, $a_2 = 12$ ✓."
+          },
+          {
+            "id": "8-8-3-n-quiz1-q1",
+            "task": "Formelen $a_n = 4n - 1$ gjev ei talfølgje. Kva er det $25$-de leddet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$96$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$99$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$101$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{25} = 4 \\cdot 25 - 1 = 100 - 1 = 99$."
+          },
+          {
+            "id": "8-8-3-n-quiz1-q2",
+            "task": "Eit symjebasseng blir fylt med $200$ liter i minne frå starten, pluss $15$ liter per minutt. Kor mykje vatn er det etter $30$ minutt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$650$ liter",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$450$ liter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$600$ liter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6200$ liter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$V(n) = 15n + 200$. Etter $30$ minutt: $15 \\cdot 30 + 200 = 450 + 200 = 650$ liter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-3-n-section2",
+      "type": "text",
+      "content": "## Kvadratiske formlar -- når differansane aukar\n\nNokre gonger er differansane **ikkje** konstante, men **aukar jamt**. Då treng vi ein formel med $n^2$ i seg.\n\n**Døme: Trekanttala** $1, 3, 6, 10, 15, \\ldots$\n- Differansar: $2, 3, 4, 5$ (aukar med $1$)\n- Andre differanse: $1, 1, 1$ (konstant!)\n- Formel: $T_n = \\frac{n(n+1)}{2} = \\frac{n^2 + n}{2} = \\frac{1}{2}n^2 + \\frac{1}{2}n$\n\n**Døme: Figur med $3, 8, 15, 24, 35$ element**\n- Differansar: $5, 7, 9, 11$ (aukar med $2$)\n- Andre differanse: $2, 2, 2$ (konstant!)\n\nNår den andre differansen er $2$, er koeffisienten framfor $n^2$ lik $\\frac{2}{2} = 1$. Vi startar med $a_n = n^2$ og justerer.\n\n| $n$ | $n^2$ | Ønskt verdi | Skilnad |\n|-----|-------|--------------|-----------|\n| $1$ | $1$ | $3$ | $+2$ |\n| $2$ | $4$ | $8$ | $+4$ |\n| $3$ | $9$ | $15$ | $+6$ |\n| $4$ | $16$ | $24$ | $+8$ |\n\nSkilnadene er $2, 4, 6, 8$ -- altså $2n$. Dermed: $a_n = n^2 + 2n = n(n + 2)$.\n\nSjekk: $a_5 = 5 \\cdot 7 = 35$ ✓. Det $20$-de leddet: $a_{20} = 20 \\cdot 22 = 440$.\n\n**Generell metode:**\n1. Finn andre differanse (han er $2a$ der $a$ er koeffisienten framfor $n^2$)\n2. Start med $an^2$ og finn skilnaden mellom $an^2$ og dei faktiske verdiane\n3. Denne skilnaden bør vere ei lineær følgje $bn + c$\n4. Totalformelen er $an^2 + bn + c$"
+    },
+    {
+      "id": "8-8-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kvadratiske formlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-3-n-quiz2-q0",
+            "task": "Følgja $2, 8, 18, 32, 50, \\ldots$ -- kva er formelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = n^2 + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = n^2 + n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 3n^2 - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = 2n^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Differansar: $6, 10, 14, 18$. Andre differanse: $4$, altså $a = \\frac{4}{2} = 2$. Prøv $2n^2$: $2, 8, 18, 32, 50$ ✓. Formelen er $a_n = 2n^2$."
+          },
+          {
+            "id": "8-8-3-n-quiz2-q1",
+            "task": "Det $n$-te trekanttalet er $T_n = \\frac{n(n+1)}{2}$. Kva er $T_{100}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$5050$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10\\,100$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_{100} = \\frac{100 \\cdot 101}{2} = \\frac{10\\,100}{2} = 5050$. (Det berømte resultatet til Gauss!)"
+          },
+          {
+            "id": "8-8-3-n-quiz2-q2",
+            "task": "Figurtala $0, 3, 8, 15, 24$ -- kva er formelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = n^2 + n - 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = n^2 - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$a_n = n^2 + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = n^2 - n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Differansar: $3, 5, 7, 9$. Andre differanse: $2$, altså $a = 1$. Prøv $n^2$: $1, 4, 9, 16, 25$. Skilnad: $-1$ for alle. Formel: $n^2 - 1$. Sjekk: $1^2 - 1 = 0$ ✓, $2^2 - 1 = 3$ ✓."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-3-n-section3",
+      "type": "text",
+      "content": "## Å bruke formlar til å løyse problem\n\nNo som vi har formlar, kan vi stille og svare på spørsmål som ville vore umoglege å løyse manuelt.\n\n**Døme 1: Når når vi eit bestemt tal?**\nEi aritmetisk følgje er gjeven ved $a_n = 4n + 3$. Kva for eit ledd er lik $163$?\n\nVi set opp likninga: $4n + 3 = 163 \\Rightarrow 4n = 160 \\Rightarrow n = 40$. Det er det $40$-de leddet.\n\n**Døme 2: Stolar i eit amfiteater**\nEit amfiteater har rader med $20, 24, 28, 32, \\ldots$ stolar. Rad $n$ har $4n + 16$ stolar.\n- Kor mange stolar har rad $15$? Svar: $4 \\cdot 15 + 16 = 76$ stolar.\n- Kor mange stolar er det totalt i dei $15$ første radene? Då treng vi summen $\\sum_{n=1}^{15}(4n + 16)$. Vi kan bruke formelen for summen av ei aritmetisk følgje: $S = \\frac{\\text{tal på ledd}}{2} \\cdot (\\text{første} + \\text{siste}) = \\frac{15}{2} \\cdot (20 + 76) = 7{,}5 \\cdot 96 = 720$ stolar.\n\n**Døme 3: Verifisering**\nSara finn formelen $a_n = 2n^2 - n + 1$ for ein figurserie. Korleis sjekkar ho at han stemmer?\n\nHo set inn $n = 1, 2, 3$ og samanliknar med dei kjende verdiane:\n- $a_1 = 2 - 1 + 1 = 2$ ✓\n- $a_2 = 8 - 2 + 1 = 7$ ✓\n- $a_3 = 18 - 3 + 1 = 16$ ✓\n\nAlle stemmer -- formelen er truleg rett!\n\nVerifisering er alltid viktig. Ein formel kan gje rette verdiar for nokre få ledd ved rein tilfeldigheit, men å sjekke alle kjende verdiar gjev oss stor tryggleik."
+    },
+    {
+      "id": "8-8-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å bruke formlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-3-n-quiz3-q0",
+            "task": "Følgja er gjeven ved $a_n = 6n - 5$. Kva for eit ledd er lik $91$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ledd nr. $15$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ledd nr. $14$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ledd nr. $17$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ledd nr. $16$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$6n - 5 = 91 \\Rightarrow 6n = 96 \\Rightarrow n = 16$. Det er ledd nummer $16$."
+          },
+          {
+            "id": "8-8-3-n-quiz3-q1",
+            "task": "Ein konsertsal har $n$-te rad med $2n + 10$ sete. Rad $1$ har $12$ sete og rad $20$ har $50$ sete. Kor mange sete er det totalt i alle $20$ radene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$620$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$600$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$500$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$720$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Summen av ei aritmetisk følgje: $S = \\frac{20}{2} \\cdot (12 + 50) = 10 \\cdot 62 = 620$ sete."
+          },
+          {
+            "id": "8-8-3-n-quiz3-q2",
+            "task": "Formelen $a_n = n^2 + 3n$ gjev verdiane $4, 10, 18, 28, 40$ for $n = 1$ til $5$. Kva er $a_{12}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$168$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$180$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$192$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$156$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{12} = 12^2 + 3 \\cdot 12 = 144 + 36 = 180$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nGeneralisering handlar om å gå frå det spesielle til det allmenne -- frå nokre konkrete tal til ein formel som verkar for alle.\n\n**Lineære formlar** ($a_n = kn + m$):\n- Blir brukte når differansen er konstant\n- $k$ er differansen, $m$ er konstantleddet\n- Døme: $5, 8, 11, 14 \\Rightarrow a_n = 3n + 2$\n\n**Kvadratiske formlar** ($a_n = an^2 + bn + c$):\n- Blir brukte når den andre differansen er konstant\n- Koeffisienten $a = \\frac{\\text{andre differanse}}{2}$\n- Døme: $1, 3, 6, 10 \\Rightarrow T_n = \\frac{n(n+1)}{2}$\n\n**Framgangsmåte:**\n1. Lag tabell med verdiar og differansar\n2. Avgjer om formelen er lineær (konstant differanse) eller kvadratisk (konstant andre differanse)\n3. Finn koeffisientane\n4. **Verifiser** ved å sjekke kjende verdiar\n\nÅ meistre generalisering tyder at du kan rekne ut kva ledd som helst i ei følgje -- anten det er det $10$-de, det $100$-de eller det $1\\,000\\,000$-te!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "7fc8839b3169784e",
+    "translatedAt": "2026-06-17T01:53:04.657Z",
+    "model": "claude-code-agent",
+    "strings": 53,
+    "tm": {
+      "f3cbb417ac31b238": "Generalisering med variablar og formlar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "77f53d5c2332649f": "Ein forteljande gjennomgang av generalisering -- frå konkrete talmønster til allmenne formlar med variabelen $n$ -- der vi oppdagar krafta i algebraisk tenking.",
+      "d82ccdb0762ab113": "utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar",
+      "5c48b4794a97d959": "## Frå «neste tal» til «kva som helst tal»\n\nI dei førre kapitla lærte vi å finne det neste talet i ei følgje. Det er nyttig -- men kva om vi treng det $100$-de leddet? Eller det $1000$-de? Då er det upraktisk å leggje til differansen hundrevis av gonger.\n\nDet er her **generalisering** kjem inn. Å generalisere tyder å finne ein **formel** som verkar for **alle** verdiar av $n$ -- ikkje berre dei vi allereie kjenner. I staden for å seie «legg til $3$ kvar gong», skriv vi $a_n = 3n + 2$ og kan rekne ut kva ledd som helst direkte.\n\nVariabelen $n$ representerer figurnummeret, og formelen gjev oss verdien. Dette er overgangen frå aritmetisk tenking (å telje steg for steg) til **algebraisk tenking** (å uttrykkje det generelle mønsteret). Det er ein av dei viktigaste idéane i all matematikk!\n\nI dette kapittelet lærer vi:\n- Å setje opp formlar frå talfølgjer og figurar\n- Å jobbe med både lineære ($an + b$) og kvadratiske ($an^2 + bn + c$) formlar\n- Å **verifisere** at formelen stemmer\n- Å bruke formlar til å svare på spørsmål om store tal",
+      "bf72825edfbf5aa8": "## Lineære formlar -- når differansen er konstant\n\nNår ei talfølgje har **konstant differanse**, veit vi at ho er aritmetisk. Då kan vi skrive ein lineær formel:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\neller, omskriven:\n\n$$a_n = d \\cdot n + (a_1 - d)$$\n\nDenne formelen har forma $a_n = kn + m$, der $k$ er differansen og $m$ er ein konstant. Lat oss prøve med nokre døme.\n\n**Døme 1:** Følgja $5, 8, 11, 14, \\ldots$ har $d = 3$ og $a_1 = 5$.\n$$a_n = 3n + (5 - 3) = 3n + 2$$\nSjekk: $a_1 = 3 \\cdot 1 + 2 = 5$ ✓, $a_2 = 3 \\cdot 2 + 2 = 8$ ✓, $a_3 = 3 \\cdot 3 + 2 = 11$ ✓.\nDet $50$-de leddet: $a_{50} = 3 \\cdot 50 + 2 = 152$.\n\n**Døme 2:** Fyrstikkfigurane frå førre kapittel: $4, 7, 10, 13, \\ldots$ med $d = 3$ og $a_1 = 4$.\n$$a_n = 3n + 1$$\nFigur $100$ har $3 \\cdot 100 + 1 = 301$ fyrstikker. Så enkelt!\n\n**Døme 3:** Ein taxitur kostar $50$ kr fast pluss $12$ kr per kilometer.\n$$\\text{Pris}(n) = 12n + 50$$\nEin tur på $15$ km kostar $12 \\cdot 15 + 50 = 230$ kr.\n\nLegg merke til strukturen: differansen ($d$) er talet framfor $n$ (stigningstalet), og konstantleddet fortel oss startverdien justert for at vi byrjar på $n = 1$.",
+      "a0173134a89a943c": "Test deg sjølv på lineære formlar:",
+      "4097889236a2af26": "placeholder",
+      "2a49feaa3b89ab05": "Følgja $7, 12, 17, 22, \\ldots$ -- kva for ein formel skildrar det $n$-te leddet?",
+      "1f47a33241a27074": "$a_n = 5n + 7$",
+      "cdb08f94895a2066": "$a_n = 5n + 2$",
+      "aadfa959e2dfbd57": "$a_n = 7n + 5$",
+      "8522efdb7c4966ed": "$a_n = 5n - 2$",
+      "e6668d3f691c07ac": "$d = 5$, $a_1 = 7$. $a_n = 5n + (7 - 5) = 5n + 2$. Sjekk: $a_1 = 7$ ✓, $a_2 = 12$ ✓.",
+      "c00b514462bf50e9": "Formelen $a_n = 4n - 1$ gjev ei talfølgje. Kva er det $25$-de leddet?",
+      "2e5870def4047574": "$a_{25} = 4 \\cdot 25 - 1 = 100 - 1 = 99$.",
+      "25ec6057e98cd69d": "Eit symjebasseng blir fylt med $200$ liter i minne frå starten, pluss $15$ liter per minutt. Kor mykje vatn er det etter $30$ minutt?",
+      "0aaada74edd66a17": "$450$ liter",
+      "ad7abf0a88ab23f7": "$650$ liter",
+      "c46a4069093e7457": "$600$ liter",
+      "3c93412ce2b68c2a": "$6200$ liter",
+      "aab1d1d606b585ec": "$V(n) = 15n + 200$. Etter $30$ minutt: $15 \\cdot 30 + 200 = 450 + 200 = 650$ liter.",
+      "7e58fb0c03e2caae": "## Kvadratiske formlar -- når differansane aukar\n\nNokre gonger er differansane **ikkje** konstante, men **aukar jamt**. Då treng vi ein formel med $n^2$ i seg.\n\n**Døme: Trekanttala** $1, 3, 6, 10, 15, \\ldots$\n- Differansar: $2, 3, 4, 5$ (aukar med $1$)\n- Andre differanse: $1, 1, 1$ (konstant!)\n- Formel: $T_n = \\frac{n(n+1)}{2} = \\frac{n^2 + n}{2} = \\frac{1}{2}n^2 + \\frac{1}{2}n$\n\n**Døme: Figur med $3, 8, 15, 24, 35$ element**\n- Differansar: $5, 7, 9, 11$ (aukar med $2$)\n- Andre differanse: $2, 2, 2$ (konstant!)\n\nNår den andre differansen er $2$, er koeffisienten framfor $n^2$ lik $\\frac{2}{2} = 1$. Vi startar med $a_n = n^2$ og justerer.\n\n| $n$ | $n^2$ | Ønskt verdi | Skilnad |\n|-----|-------|--------------|-----------|\n| $1$ | $1$ | $3$ | $+2$ |\n| $2$ | $4$ | $8$ | $+4$ |\n| $3$ | $9$ | $15$ | $+6$ |\n| $4$ | $16$ | $24$ | $+8$ |\n\nSkilnadene er $2, 4, 6, 8$ -- altså $2n$. Dermed: $a_n = n^2 + 2n = n(n + 2)$.\n\nSjekk: $a_5 = 5 \\cdot 7 = 35$ ✓. Det $20$-de leddet: $a_{20} = 20 \\cdot 22 = 440$.\n\n**Generell metode:**\n1. Finn andre differanse (han er $2a$ der $a$ er koeffisienten framfor $n^2$)\n2. Start med $an^2$ og finn skilnaden mellom $an^2$ og dei faktiske verdiane\n3. Denne skilnaden bør vere ei lineær følgje $bn + c$\n4. Totalformelen er $an^2 + bn + c$",
+      "913e982e75dcc901": "Test deg sjølv på kvadratiske formlar:",
+      "b18f7de056079ff0": "Følgja $2, 8, 18, 32, 50, \\ldots$ -- kva er formelen?",
+      "d7f8d2f2f2b340f5": "$a_n = n^2 + 1$",
+      "ecfac24539535b59": "$a_n = 2n^2$",
+      "e57c342109be3a5b": "$a_n = n^2 + n$",
+      "0dd7e30cbe885943": "$a_n = 3n^2 - 1$",
+      "2cd25ec7b8145efb": "Differansar: $6, 10, 14, 18$. Andre differanse: $4$, altså $a = \\frac{4}{2} = 2$. Prøv $2n^2$: $2, 8, 18, 32, 50$ ✓. Formelen er $a_n = 2n^2$.",
+      "ba5348c4a66026ad": "Det $n$-te trekanttalet er $T_n = \\frac{n(n+1)}{2}$. Kva er $T_{100}$?",
+      "425214f29283f99a": "$T_{100} = \\frac{100 \\cdot 101}{2} = \\frac{10\\,100}{2} = 5050$. (Det berømte resultatet til Gauss!)",
+      "2dc8676d5b04cbd9": "Figurtala $0, 3, 8, 15, 24$ -- kva er formelen?",
+      "c03b2c03c90c0ffd": "$a_n = n^2 + n - 2$",
+      "5d9707dd38bb6fa5": "$a_n = n^2 - 1$",
+      "f42165dec3079f7f": "$a_n = n^2 - n$",
+      "65f46986a6152086": "Differansar: $3, 5, 7, 9$. Andre differanse: $2$, altså $a = 1$. Prøv $n^2$: $1, 4, 9, 16, 25$. Skilnad: $-1$ for alle. Formel: $n^2 - 1$. Sjekk: $1^2 - 1 = 0$ ✓, $2^2 - 1 = 3$ ✓.",
+      "d5ebebed7c2090cc": "## Å bruke formlar til å løyse problem\n\nNo som vi har formlar, kan vi stille og svare på spørsmål som ville vore umoglege å løyse manuelt.\n\n**Døme 1: Når når vi eit bestemt tal?**\nEi aritmetisk følgje er gjeven ved $a_n = 4n + 3$. Kva for eit ledd er lik $163$?\n\nVi set opp likninga: $4n + 3 = 163 \\Rightarrow 4n = 160 \\Rightarrow n = 40$. Det er det $40$-de leddet.\n\n**Døme 2: Stolar i eit amfiteater**\nEit amfiteater har rader med $20, 24, 28, 32, \\ldots$ stolar. Rad $n$ har $4n + 16$ stolar.\n- Kor mange stolar har rad $15$? Svar: $4 \\cdot 15 + 16 = 76$ stolar.\n- Kor mange stolar er det totalt i dei $15$ første radene? Då treng vi summen $\\sum_{n=1}^{15}(4n + 16)$. Vi kan bruke formelen for summen av ei aritmetisk følgje: $S = \\frac{\\text{tal på ledd}}{2} \\cdot (\\text{første} + \\text{siste}) = \\frac{15}{2} \\cdot (20 + 76) = 7{,}5 \\cdot 96 = 720$ stolar.\n\n**Døme 3: Verifisering**\nSara finn formelen $a_n = 2n^2 - n + 1$ for ein figurserie. Korleis sjekkar ho at han stemmer?\n\nHo set inn $n = 1, 2, 3$ og samanliknar med dei kjende verdiane:\n- $a_1 = 2 - 1 + 1 = 2$ ✓\n- $a_2 = 8 - 2 + 1 = 7$ ✓\n- $a_3 = 18 - 3 + 1 = 16$ ✓\n\nAlle stemmer -- formelen er truleg rett!\n\nVerifisering er alltid viktig. Ein formel kan gje rette verdiar for nokre få ledd ved rein tilfeldigheit, men å sjekke alle kjende verdiar gjev oss stor tryggleik.",
+      "19b8c9bedeb05977": "Test deg sjølv på å bruke formlar:",
+      "371b66f1ef36b014": "Følgja er gjeven ved $a_n = 6n - 5$. Kva for eit ledd er lik $91$?",
+      "5e1b46a2b9eb0518": "Ledd nr. $15$",
+      "63b217ad24fd0540": "Ledd nr. $16$",
+      "24a0db2ce39227cd": "Ledd nr. $14$",
+      "be41c389c7cdb814": "Ledd nr. $17$",
+      "81626db93509ec47": "$6n - 5 = 91 \\Rightarrow 6n = 96 \\Rightarrow n = 16$. Det er ledd nummer $16$.",
+      "ff18f025ed1015a2": "Ein konsertsal har $n$-te rad med $2n + 10$ sete. Rad $1$ har $12$ sete og rad $20$ har $50$ sete. Kor mange sete er det totalt i alle $20$ radene?",
+      "32af1e53c8f45e3c": "Summen av ei aritmetisk følgje: $S = \\frac{20}{2} \\cdot (12 + 50) = 10 \\cdot 62 = 620$ sete.",
+      "d7ad5b79034706bd": "Formelen $a_n = n^2 + 3n$ gjev verdiane $4, 10, 18, 28, 40$ for $n = 1$ til $5$. Kva er $a_{12}$?",
+      "4f1dfd6d66dc4ac2": "$a_{12} = 12^2 + 3 \\cdot 12 = 144 + 36 = 180$.",
+      "aa6f266afcfbb3b3": "## Oppsummering\n\nGeneralisering handlar om å gå frå det spesielle til det allmenne -- frå nokre konkrete tal til ein formel som verkar for alle.\n\n**Lineære formlar** ($a_n = kn + m$):\n- Blir brukte når differansen er konstant\n- $k$ er differansen, $m$ er konstantleddet\n- Døme: $5, 8, 11, 14 \\Rightarrow a_n = 3n + 2$\n\n**Kvadratiske formlar** ($a_n = an^2 + bn + c$):\n- Blir brukte når den andre differansen er konstant\n- Koeffisienten $a = \\frac{\\text{andre differanse}}{2}$\n- Døme: $1, 3, 6, 10 \\Rightarrow T_n = \\frac{n(n+1)}{2}$\n\n**Framgangsmåte:**\n1. Lag tabell med verdiar og differansar\n2. Avgjer om formelen er lineær (konstant differanse) eller kvadratisk (konstant andre differanse)\n3. Finn koeffisientane\n4. **Verifiser** ved å sjekke kjende verdiar\n\nÅ meistre generalisering tyder at du kan rekne ut kva ledd som helst i ei følgje -- anten det er det $10$-de, det $100$-de eller det $1\\,000\\,000$-te!"
+    }
+  }
+}

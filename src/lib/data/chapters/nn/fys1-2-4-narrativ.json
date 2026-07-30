@@ -1,1 +1,454 @@
-{"id":"fys1-2-4-narrativ","courseId":"fys1","chapterNumber":"2.4","title":"Todimensjonal rørsle","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis ein kasta ball eigentleg gjer to ting samtidig -- og kvifor 45 grader gir det lengste kastet.","estimatedMinutes":40,"competenceGoals":["løse opp vektorer i x- og y-komponenter","analysere todimensjonal bevegelse uavhengig i hver retning","løse problemer med skrå kast","finne rekkevidde og maksimal høyde for skrå kast"],"linkedChapterId":"fys1-2-4","content":[{"id":"fys1-2-4-n-intro","type":"text","content":"## Ein ball som gjer to ting på ein gong\n\nKast ein ball på skrå opp i lufta og følg han med blikket. Han skildrar ein mjuk boge, ein parabel, før han fell ned att. Det ser komplisert ut -- men løyndomen i todimensjonal rørsle er forbløffande enkel: ballen gjer eigentleg to *uavhengige* rørsler samtidig.\n\nDette er **prinsippet om uavhengige komponentar**, og det er nøkkelen til heile kapittelet. Rørsla langs x-aksen (vassrett) og rørsla langs y-aksen (loddrett) påverkar ikkje kvarandre i det heile teke. Den vassrette rørsla rullar jamt av garde med konstant fart, fordi ingenting bremsar ho i vassrett retning (vi ser bort frå luftmotstand). Den loddrette rørsla, derimot, er reint fritt fall med akselerasjonen $-g$.\n\nDet tyder at vi kan løyse kvar retning for seg, med bevegelseslikningane vi alt kan, og så setje komponentane saman til slutt. To enkle problem i staden for eitt vanskeleg. Det er denne splitten som gjer at vi i det heile teke kan rekne på skrå kast."},{"id":"fys1-2-4-n-section1","type":"text","content":"## Å løyse opp ein vektor\n\nFør vi kan splitte rørsla, må vi kunne splitte startfarten i dei to retningane. Det kallar vi **vektoroppløysing**. Har du ein fart med beløp $v$ og ein vinkel $\\theta$ med x-aksen, finn du komponentane med trigonometri: x-komponenten er $v_x = v \\cos\\theta$, og y-komponenten er $v_y = v \\sin\\theta$.\n\nNokre vinklar dukkar opp om og om att, så det løner seg å kjenne dei: $\\cos 0° = 1$ og $\\sin 0° = 0$ (heilt vassrett), $\\sin 30° = 0{,}5$, $\\cos 45° = \\sin 45° \\approx 0{,}707$, $\\sin 60° \\approx 0{,}866$, og $\\cos 90° = 0$ med $\\sin 90° = 1$ (heilt loddrett).\n\nLat oss prøve. Ein ball blir kasta med 20 m/s i 30 grader vinkel. Kva blir komponentane? Vassrett: $v_{0x} = 20\\cos 30° = 20 \\cdot 0{,}866 \\approx 17{,}3$ m/s. Loddrett: $v_{0y} = 20\\sin 30° = 20 \\cdot 0{,}5 = 10$ m/s. Ballen startar altså med 17,3 m/s framover og 10 m/s oppover -- to tal vi no kan handsame kvar for seg. Vegen tilbake finst òg: frå komponentar til vektor bruker vi $v = \\sqrt{v_x^2 + v_y^2}$ for beløpet og $\\theta = \\arctan\\left(\\frac{v_y}{v_x}\\right)$ for vinkelen."},{"id":"fys1-2-4-n-quiz1","type":"exercise","exercise":{"id":"fys1-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på uavhengige komponentar og vektoroppløysing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-2-4-n-quiz1-q0","task":"Kva er hovudprinsippet i todimensjonal rørsle?","options":[{"id":"a","text":"X- og y-rørsla påverkar kvarandre sterkt","isCorrect":false},{"id":"b","text":"Berre y-retninga betyr noko","isCorrect":false},{"id":"c","text":"X- og y-rørsla er uavhengige og kan analyserast kvar for seg","isCorrect":true},{"id":"d","text":"Rørsla kan ikkje reknast ut","isCorrect":false}],"solution":"Den vassrette og den loddrette rørsla er uavhengige. Vi løyser kvar retning separat og kombinerer komponentane til slutt."},{"id":"fys1-2-4-n-quiz1-q1","task":"Ein ball blir kasta med 20 m/s i 30°. Kva er den vassrette komponenten?","options":[{"id":"a","text":"10 m/s","isCorrect":false},{"id":"b","text":"20 m/s","isCorrect":false},{"id":"c","text":"0 m/s","isCorrect":false},{"id":"d","text":"17,3 m/s","isCorrect":true}],"solution":"$v_{0x}=v\\cos\\theta=20\\cos 30°=20\\cdot 0{,}866\\approx 17{,}3$ m/s. Den loddrette er $20\\sin 30°=10$ m/s."},{"id":"fys1-2-4-n-quiz1-q2","task":"Korleis finn du beløpet av ein vektor frå komponentane $v_x$ og $v_y$?","options":[{"id":"a","text":"$\\sqrt{v_x^2 + v_y^2}$","isCorrect":true},{"id":"b","text":"$v_x + v_y$","isCorrect":false},{"id":"c","text":"$v_x \\cdot v_y$","isCorrect":false},{"id":"d","text":"$v_x - v_y$","isCorrect":false}],"solution":"Beløpet finn du med Pytagoras: $v=\\sqrt{v_x^2+v_y^2}$, og vinkelen med $\\theta=\\arctan(v_y/v_x)$."}]}},{"id":"fys1-2-4-n-section2","type":"text","content":"## Skrå kast -- rørsla i to spor\n\nNo set vi saman alt til eit **skrå kast**. Eit objekt blir kasta med startfart $v_0$ i vinkel $\\theta$. Vi splittar startfarten: $v_{0x} = v_0\\cos\\theta$ vassrett og $v_{0y} = v_0\\sin\\theta$ loddrett. Så følgjer vi kvar retning for seg.\n\nI **x-retning** er det ingen akselerasjon, $a_x = 0$, fordi ingenting trekkjer i ballen vassrett. Difor er den vassrette farten konstant heile vegen: $v_x = v_0\\cos\\theta$, og posisjonen blir rett og slett $x = v_0\\cos\\theta \\cdot t$ -- akkurat som konstant fart.\n\nI **y-retning** verkar tyngdekrafta, så $a_y = -g$. Den loddrette farten avtek, snur og aukar att: $v_y = v_0\\sin\\theta - gt$, og høgda blir $y = v_0\\sin\\theta \\cdot t - \\frac{1}{2}gt^2$ -- akkurat som fritt fall.\n\nKombinasjonen av ei jamn vassrett rørsle og ei kvadratisk loddrett rørsle gir nettopp ein **parabel**. Eliminerer du tida, får du banelikninga $y = x\\tan\\theta - \\frac{gx^2}{2v_0^2\\cos^2\\theta}$ -- ei andregradslikning i $x$, som jo alltid teiknar ein parabel. Den vakre bogen til den kasta ballen er altså berre matematikk: konstant fart i den eine retninga, fritt fall i den andre, samtidig."},{"id":"fys1-2-4-n-quiz2","type":"exercise","exercise":{"id":"fys1-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på skrå kast:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-2-4-n-quiz2-q0","task":"Kva er akselerasjonen i vassrett retning under eit skrå kast (utan luftmotstand)?","options":[{"id":"a","text":"$-g$","isCorrect":false},{"id":"b","text":"Null","isCorrect":true},{"id":"c","text":"$g$","isCorrect":false},{"id":"d","text":"Han varierer","isCorrect":false}],"solution":"Ingenting trekkjer i ballen vassrett, så $a_x=0$ og den vassrette farten er konstant. Berre i loddrett retning verkar tyngdekrafta, $a_y=-g$."},{"id":"fys1-2-4-n-quiz2-q1","task":"Kva form har bana til eit skrå kast?","options":[{"id":"a","text":"Ein sirkel","isCorrect":false},{"id":"b","text":"Ei rett linje","isCorrect":false},{"id":"c","text":"Ein parabel","isCorrect":true},{"id":"d","text":"Ein hyperbel","isCorrect":false}],"solution":"Konstant vassrett fart kombinert med kvadratisk loddrett rørsle gir ei andregradslikning i $x$ -- altså ein parabel."},{"id":"fys1-2-4-n-quiz2-q2","task":"Kva skjer med den vassrette farten $v_x$ medan ballen er i lufta?","options":[{"id":"a","text":"Han aukar heile tida","isCorrect":false},{"id":"b","text":"Han blir null i toppunktet","isCorrect":false},{"id":"c","text":"Han avtek jamt","isCorrect":false},{"id":"d","text":"Han held seg konstant","isCorrect":true}],"solution":"Sidan $a_x=0$, held $v_x=v_0\\cos\\theta$ seg konstant heile vegen. Det er berre $v_y$ som endrar seg på grunn av tyngdekrafta."}]}},{"id":"fys1-2-4-n-section3","type":"text","content":"## Rekkjevidd, høgd og kvifor 45 grader vinn\n\nTo spørsmål dukkar alltid opp ved skrå kast: kor langt når det, og kor høgt? Lat oss utleie svara.\n\n**Rekkjevidda** $R$ er kor langt vassrett ballen når før han landar på same høgd. Ballen er i lufta så lenge $y > 0$. Set vi $y = 0$, får vi at lufttida er $T = \\frac{2v_0\\sin\\theta}{g}$. Gongar vi det med den konstante vassrette farten, og bruker den trigonometriske regelen $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, fell alt på plass: $R = \\frac{v_0^2\\sin(2\\theta)}{g}$.\n\nHer ligg ei perle. Rekkjevidda er størst når $\\sin(2\\theta)$ er størst, og $\\sin$ toppar seg ved 90 grader. Altså er $2\\theta = 90°$, som gir $\\theta = 45°$. **Det lengste kastet får du på nøyaktig 45 grader** -- anten du kastar ball, spyd eller kanonkule. Då blir maksimal rekkjevidd $R_{maks} = \\frac{v_0^2}{g}$.\n\n**Maksimal høgd** $H$ når ballen når den loddrette farten $v_y$ blir null. Litt algebra gir $H = \\frac{v_0^2\\sin^2\\theta}{2g}$.\n\nLat oss rekne eit eksempel med $v_0 = 30$ m/s, $\\theta = 45°$ og $g = 10$ m/s². Høgda: $H = \\frac{30^2 \\cdot \\sin^2 45°}{2 \\cdot 10} = \\frac{900 \\cdot 0{,}5}{20} = 22{,}5$ m. Rekkjevidda: $R = \\frac{900 \\cdot \\sin 90°}{10} = \\frac{900 \\cdot 1}{10} = 90$ m. Lufttida: $T = \\frac{2 \\cdot 30 \\cdot \\sin 45°}{10} \\approx 4{,}24$ s.\n\nEit spesialtilfelle er det **vassrette kastet**, der ballen blir sendt rett fram frå ei høgd. Då er $v_{0y} = 0$, og lufttida blir bestemt utelukkande av fallet. Kastar du ein ball på 15 m/s vassrett frå ein 80 m høg klippe, fell han i $0 = 80 - 5t^2$, altså $t = 4$ s -- heilt uavhengig av den vassrette farten. På dei fire sekunda rekk han vassrett $x = 15 \\cdot 4 = 60$ m. Det loddrette og det vassrette held seg åtskilde, heilt til ballen treffer."},{"id":"fys1-2-4-n-quiz3","type":"exercise","exercise":{"id":"fys1-2-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på rekkjevidd og høgd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-2-4-n-quiz3-q0","task":"Ved kva for ein vinkel blir rekkjevidda størst (på flatt underlag)?","options":[{"id":"a","text":"45°","isCorrect":true},{"id":"b","text":"30°","isCorrect":false},{"id":"c","text":"60°","isCorrect":false},{"id":"d","text":"90°","isCorrect":false}],"solution":"$R=\\frac{v_0^2\\sin(2\\theta)}{g}$ er størst når $\\sin(2\\theta)=1$, altså $2\\theta=90°$ og $\\theta=45°$."},{"id":"fys1-2-4-n-quiz3-q1","task":"Ein ball blir kasta med 30 m/s i 45° ($g=10$ m/s²). Kva er rekkjevidda?","options":[{"id":"a","text":"45 m","isCorrect":false},{"id":"b","text":"90 m","isCorrect":true},{"id":"c","text":"22,5 m","isCorrect":false},{"id":"d","text":"180 m","isCorrect":false}],"solution":"$R=\\frac{v_0^2\\sin(2\\theta)}{g}=\\frac{900\\cdot\\sin 90°}{10}=\\frac{900}{10}=90$ m."},{"id":"fys1-2-4-n-quiz3-q2","task":"Ein ball blir kasta vassrett (15 m/s) frå 80 m høgd. Kva bestemmer lufttida?","options":[{"id":"a","text":"Berre den vassrette farten","isCorrect":false},{"id":"b","text":"Summen av begge fartane","isCorrect":false},{"id":"c","text":"Berre det loddrette fallet frå høgda","isCorrect":true},{"id":"d","text":"Ingenting -- han fell ikkje","isCorrect":false}],"solution":"Lufttida blir bestemt berre av den loddrette rørsla: $0=80-5t^2$ gir $t=4$ s, uavhengig av den vassrette farten på 15 m/s."},{"id":"fys1-2-4-n-quiz3-q3","task":"Same vassrette kast: kor langt rekk ballen vassrett?","options":[{"id":"a","text":"80 m","isCorrect":false},{"id":"b","text":"15 m","isCorrect":false},{"id":"c","text":"320 m","isCorrect":false},{"id":"d","text":"60 m","isCorrect":true}],"solution":"$x=v_{0x}\\cdot t=15\\cdot 4=60$ m."}]}},{"id":"fys1-2-4-n-summary","type":"text","content":"## Oppsummering\n\nDen vakre bogen til den kasta ballen viste seg å vere to enkle rørsler på ein gong. **Prinsippet om uavhengige komponentar** lèt oss splitte rørsla: vassrett (x) går med konstant fart fordi $a_x = 0$, medan loddrett (y) er fritt fall med $a_y = -g$. Vi løyser kvar retning for seg og set komponentane saman.\n\n**Vektoroppløysing** gir startkomponentane $v_{0x} = v_0\\cos\\theta$ og $v_{0y} = v_0\\sin\\theta$, og vegen tilbake er $v = \\sqrt{v_x^2 + v_y^2}$ og $\\theta = \\arctan(v_y/v_x)$. Kombinasjonen av konstant vassrett og kvadratisk loddrett rørsle gir alltid ein **parabel**.\n\nFor skrå kast lærte vi dei tre nøkkelformlane: rekkjevidd $R = \\frac{v_0^2\\sin(2\\theta)}{g}$, maksimal høgd $H = \\frac{v_0^2\\sin^2\\theta}{2g}$, og lufttid $T = \\frac{2v_0\\sin\\theta}{g}$. Det viktigaste enkeltresultatet: rekkjevidda er størst ved **45 grader**. Og for det vassrette kastet frå ei høgd blir lufttida bestemt utelukkande av fallet, medan rekkjevidda er den vassrette farten ganga med den tida. To uavhengige spor -- det er heile løyndomen bak todimensjonal rørsle."}],"exercises":[],"_meta":{"sourceHash":"2f880c3f0b156109","translatedAt":"2026-06-20T22:48:16.810Z","model":"claude-code-agent","strings":74,"tm":{"b3f7e07ed27763a9":"Todimensjonal rørsle","b195b06d1ed59702":"Narrativ versjon","4aab5bc82b89f3cd":"Ei forteljing om korleis ein kasta ball eigentleg gjer to ting samtidig -- og kvifor 45 grader gir det lengste kastet.","534d5ab657a9c522":"løse opp vektorer i x- og y-komponenter","8863906aee73ec99":"analysere todimensjonal bevegelse uavhengig i hver retning","b9fbb80ea621cdf4":"løse problemer med skrå kast","3cca509d7470399f":"finne rekkevidde og maksimal høyde for skrå kast","8830d1a86de9594a":"## Ein ball som gjer to ting på ein gong\n\nKast ein ball på skrå opp i lufta og følg han med blikket. Han skildrar ein mjuk boge, ein parabel, før han fell ned att. Det ser komplisert ut -- men løyndomen i todimensjonal rørsle er forbløffande enkel: ballen gjer eigentleg to *uavhengige* rørsler samtidig.\n\nDette er **prinsippet om uavhengige komponentar**, og det er nøkkelen til heile kapittelet. Rørsla langs x-aksen (vassrett) og rørsla langs y-aksen (loddrett) påverkar ikkje kvarandre i det heile teke. Den vassrette rørsla rullar jamt av garde med konstant fart, fordi ingenting bremsar ho i vassrett retning (vi ser bort frå luftmotstand). Den loddrette rørsla, derimot, er reint fritt fall med akselerasjonen $-g$.\n\nDet tyder at vi kan løyse kvar retning for seg, med bevegelseslikningane vi alt kan, og så setje komponentane saman til slutt. To enkle problem i staden for eitt vanskeleg. Det er denne splitten som gjer at vi i det heile teke kan rekne på skrå kast.","61da89187882ba9c":"## Å løyse opp ein vektor\n\nFør vi kan splitte rørsla, må vi kunne splitte startfarten i dei to retningane. Det kallar vi **vektoroppløysing**. Har du ein fart med beløp $v$ og ein vinkel $\\theta$ med x-aksen, finn du komponentane med trigonometri: x-komponenten er $v_x = v \\cos\\theta$, og y-komponenten er $v_y = v \\sin\\theta$.\n\nNokre vinklar dukkar opp om og om att, så det løner seg å kjenne dei: $\\cos 0° = 1$ og $\\sin 0° = 0$ (heilt vassrett), $\\sin 30° = 0{,}5$, $\\cos 45° = \\sin 45° \\approx 0{,}707$, $\\sin 60° \\approx 0{,}866$, og $\\cos 90° = 0$ med $\\sin 90° = 1$ (heilt loddrett).\n\nLat oss prøve. Ein ball blir kasta med 20 m/s i 30 grader vinkel. Kva blir komponentane? Vassrett: $v_{0x} = 20\\cos 30° = 20 \\cdot 0{,}866 \\approx 17{,}3$ m/s. Loddrett: $v_{0y} = 20\\sin 30° = 20 \\cdot 0{,}5 = 10$ m/s. Ballen startar altså med 17,3 m/s framover og 10 m/s oppover -- to tal vi no kan handsame kvar for seg. Vegen tilbake finst òg: frå komponentar til vektor bruker vi $v = \\sqrt{v_x^2 + v_y^2}$ for beløpet og $\\theta = \\arctan\\left(\\frac{v_y}{v_x}\\right)$ for vinkelen.","ef5cec8dd8f83c3a":"Test deg sjølv på uavhengige komponentar og vektoroppløysing:","4097889236a2af26":"placeholder","d287c3c06b109cba":"Kva er hovudprinsippet i todimensjonal rørsle?","33c471a218223484":"X- og y-rørsla påverkar kvarandre sterkt","f06bec27286b26ad":"Berre y-retninga betyr noko","ae5311913848a6db":"X- og y-rørsla er uavhengige og kan analyserast kvar for seg","35c4745db646b40d":"Rørsla kan ikkje reknast ut","ce7483724d6dba8b":"Den vassrette og den loddrette rørsla er uavhengige. Vi løyser kvar retning separat og kombinerer komponentane til slutt.","3209c83af05485ec":"Ein ball blir kasta med 20 m/s i 30°. Kva er den vassrette komponenten?","e52bf51eec99486c":"10 m/s","a5b2df1fa3892eb5":"20 m/s","fed2107681a9482d":"0 m/s","59b3ed0f49a43a12":"17,3 m/s","33def81d5d08719a":"$v_{0x}=v\\cos\\theta=20\\cos 30°=20\\cdot 0{,}866\\approx 17{,}3$ m/s. Den loddrette er $20\\sin 30°=10$ m/s.","8d21741c5ebb1a9a":"Korleis finn du beløpet av ein vektor frå komponentane $v_x$ og $v_y$?","3d745964c18787c9":"$\\sqrt{v_x^2 + v_y^2}$","e3f4409b83729727":"$v_x + v_y$","36546b994e34e689":"$v_x \\cdot v_y$","527cda5512fd9e24":"$v_x - v_y$","5c84b7f5d6ba33eb":"Beløpet finn du med Pytagoras: $v=\\sqrt{v_x^2+v_y^2}$, og vinkelen med $\\theta=\\arctan(v_y/v_x)$.","8c196d2ee0752ee7":"## Skrå kast -- rørsla i to spor\n\nNo set vi saman alt til eit **skrå kast**. Eit objekt blir kasta med startfart $v_0$ i vinkel $\\theta$. Vi splittar startfarten: $v_{0x} = v_0\\cos\\theta$ vassrett og $v_{0y} = v_0\\sin\\theta$ loddrett. Så følgjer vi kvar retning for seg.\n\nI **x-retning** er det ingen akselerasjon, $a_x = 0$, fordi ingenting trekkjer i ballen vassrett. Difor er den vassrette farten konstant heile vegen: $v_x = v_0\\cos\\theta$, og posisjonen blir rett og slett $x = v_0\\cos\\theta \\cdot t$ -- akkurat som konstant fart.\n\nI **y-retning** verkar tyngdekrafta, så $a_y = -g$. Den loddrette farten avtek, snur og aukar att: $v_y = v_0\\sin\\theta - gt$, og høgda blir $y = v_0\\sin\\theta \\cdot t - \\frac{1}{2}gt^2$ -- akkurat som fritt fall.\n\nKombinasjonen av ei jamn vassrett rørsle og ei kvadratisk loddrett rørsle gir nettopp ein **parabel**. Eliminerer du tida, får du banelikninga $y = x\\tan\\theta - \\frac{gx^2}{2v_0^2\\cos^2\\theta}$ -- ei andregradslikning i $x$, som jo alltid teiknar ein parabel. Den vakre bogen til den kasta ballen er altså berre matematikk: konstant fart i den eine retninga, fritt fall i den andre, samtidig.","bc1280e68db50d9c":"Test deg sjølv på skrå kast:","3a3f8f3529e223ec":"Kva er akselerasjonen i vassrett retning under eit skrå kast (utan luftmotstand)?","c303a2dd0cb23c4c":"$-g$","fa1d2db62d4d952e":"Null","bdec6f8ff124d571":"$g$","fb865d38aad29319":"Han varierer","73fccce6d8fb034f":"Ingenting trekkjer i ballen vassrett, så $a_x=0$ og den vassrette farten er konstant. Berre i loddrett retning verkar tyngdekrafta, $a_y=-g$.","5ac451aeb54c8a33":"Kva form har bana til eit skrå kast?","3b6c5e6834a664e0":"Ein sirkel","014bed2d1bfe40f8":"Ei rett linje","adc8c93e76e18e13":"Ein parabel","994510ec716e1e3f":"Ein hyperbel","796fa2b345d4147a":"Konstant vassrett fart kombinert med kvadratisk loddrett rørsle gir ei andregradslikning i $x$ -- altså ein parabel.","e84aa3a1d90af770":"Kva skjer med den vassrette farten $v_x$ medan ballen er i lufta?","ac41c1d3b1cdbb86":"Han aukar heile tida","b39f4fdbf8ea2083":"Han blir null i toppunktet","bcab289e0a4793ec":"Han avtek jamt","9567970339a850d8":"Han held seg konstant","fec774c585a9b9e5":"Sidan $a_x=0$, held $v_x=v_0\\cos\\theta$ seg konstant heile vegen. Det er berre $v_y$ som endrar seg på grunn av tyngdekrafta.","27b9b68205c2ed9c":"## Rekkjevidd, høgd og kvifor 45 grader vinn\n\nTo spørsmål dukkar alltid opp ved skrå kast: kor langt når det, og kor høgt? Lat oss utleie svara.\n\n**Rekkjevidda** $R$ er kor langt vassrett ballen når før han landar på same høgd. Ballen er i lufta så lenge $y > 0$. Set vi $y = 0$, får vi at lufttida er $T = \\frac{2v_0\\sin\\theta}{g}$. Gongar vi det med den konstante vassrette farten, og bruker den trigonometriske regelen $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, fell alt på plass: $R = \\frac{v_0^2\\sin(2\\theta)}{g}$.\n\nHer ligg ei perle. Rekkjevidda er størst når $\\sin(2\\theta)$ er størst, og $\\sin$ toppar seg ved 90 grader. Altså er $2\\theta = 90°$, som gir $\\theta = 45°$. **Det lengste kastet får du på nøyaktig 45 grader** -- anten du kastar ball, spyd eller kanonkule. Då blir maksimal rekkjevidd $R_{maks} = \\frac{v_0^2}{g}$.\n\n**Maksimal høgd** $H$ når ballen når den loddrette farten $v_y$ blir null. Litt algebra gir $H = \\frac{v_0^2\\sin^2\\theta}{2g}$.\n\nLat oss rekne eit eksempel med $v_0 = 30$ m/s, $\\theta = 45°$ og $g = 10$ m/s². Høgda: $H = \\frac{30^2 \\cdot \\sin^2 45°}{2 \\cdot 10} = \\frac{900 \\cdot 0{,}5}{20} = 22{,}5$ m. Rekkjevidda: $R = \\frac{900 \\cdot \\sin 90°}{10} = \\frac{900 \\cdot 1}{10} = 90$ m. Lufttida: $T = \\frac{2 \\cdot 30 \\cdot \\sin 45°}{10} \\approx 4{,}24$ s.\n\nEit spesialtilfelle er det **vassrette kastet**, der ballen blir sendt rett fram frå ei høgd. Då er $v_{0y} = 0$, og lufttida blir bestemt utelukkande av fallet. Kastar du ein ball på 15 m/s vassrett frå ein 80 m høg klippe, fell han i $0 = 80 - 5t^2$, altså $t = 4$ s -- heilt uavhengig av den vassrette farten. På dei fire sekunda rekk han vassrett $x = 15 \\cdot 4 = 60$ m. Det loddrette og det vassrette held seg åtskilde, heilt til ballen treffer.","e07126ed348ab180":"Test deg sjølv på rekkjevidd og høgd:","2cbd60e90f1d35e9":"Ved kva for ein vinkel blir rekkjevidda størst (på flatt underlag)?","dd74283d3e896bd0":"$R=\\frac{v_0^2\\sin(2\\theta)}{g}$ er størst når $\\sin(2\\theta)=1$, altså $2\\theta=90°$ og $\\theta=45°$.","ef7dc60b5e337d18":"Ein ball blir kasta med 30 m/s i 45° ($g=10$ m/s²). Kva er rekkjevidda?","8ab090e2f06d3078":"45 m","16fcd0f98ed7d601":"90 m","ca75a5615f370a19":"22,5 m","1798a35894abaee4":"180 m","adc4925471eb219d":"$R=\\frac{v_0^2\\sin(2\\theta)}{g}=\\frac{900\\cdot\\sin 90°}{10}=\\frac{900}{10}=90$ m.","1d98f1249c9391a3":"Ein ball blir kasta vassrett (15 m/s) frå 80 m høgd. Kva bestemmer lufttida?","98107bddc262ef22":"Berre den vassrette farten","93f2c84a9825ccbc":"Summen av begge fartane","ff322b89d50d5655":"Berre det loddrette fallet frå høgda","facc4a007f3991e0":"Ingenting -- han fell ikkje","1a744181ba2c94eb":"Lufttida blir bestemt berre av den loddrette rørsla: $0=80-5t^2$ gir $t=4$ s, uavhengig av den vassrette farten på 15 m/s.","1995b634256c223a":"Same vassrette kast: kor langt rekk ballen vassrett?","6f63135582a9c51e":"80 m","604d10da1d0ba386":"15 m","ed7b712b61754f71":"320 m","4f458acf18f1f7a4":"60 m","bfa59e4ac6da03d0":"$x=v_{0x}\\cdot t=15\\cdot 4=60$ m.","25af4912d6c6a2d6":"## Oppsummering\n\nDen vakre bogen til den kasta ballen viste seg å vere to enkle rørsler på ein gong. **Prinsippet om uavhengige komponentar** lèt oss splitte rørsla: vassrett (x) går med konstant fart fordi $a_x = 0$, medan loddrett (y) er fritt fall med $a_y = -g$. Vi løyser kvar retning for seg og set komponentane saman.\n\n**Vektoroppløysing** gir startkomponentane $v_{0x} = v_0\\cos\\theta$ og $v_{0y} = v_0\\sin\\theta$, og vegen tilbake er $v = \\sqrt{v_x^2 + v_y^2}$ og $\\theta = \\arctan(v_y/v_x)$. Kombinasjonen av konstant vassrett og kvadratisk loddrett rørsle gir alltid ein **parabel**.\n\nFor skrå kast lærte vi dei tre nøkkelformlane: rekkjevidd $R = \\frac{v_0^2\\sin(2\\theta)}{g}$, maksimal høgd $H = \\frac{v_0^2\\sin^2\\theta}{2g}$, og lufttid $T = \\frac{2v_0\\sin\\theta}{g}$. Det viktigaste enkeltresultatet: rekkjevidda er størst ved **45 grader**. Og for det vassrette kastet frå ei høgd blir lufttida bestemt utelukkande av fallet, medan rekkjevidda er den vassrette farten ganga med den tida. To uavhengige spor -- det er heile løyndomen bak todimensjonal rørsle."}}}
+{
+  "id": "fys1-2-4-narrativ",
+  "courseId": "fys1",
+  "chapterNumber": "2.4",
+  "title": "Todimensjonal rørsle",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis ein kasta ball eigentleg gjer to ting samtidig -- og kvifor 45 grader gir det lengste kastet.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "løse opp vektorer i x- og y-komponenter",
+    "analysere todimensjonal bevegelse uavhengig i hver retning",
+    "løse problemer med skrå kast",
+    "finne rekkevidde og maksimal høyde for skrå kast"
+  ],
+  "linkedChapterId": "fys1-2-4",
+  "content": [
+    {
+      "id": "fys1-2-4-n-intro",
+      "type": "text",
+      "content": "## Ein ball som gjer to ting på ein gong\n\nKast ein ball på skrå opp i lufta og følg han med blikket. Han skildrar ein mjuk boge, ein parabel, før han fell ned att. Det ser komplisert ut -- men løyndomen i todimensjonal rørsle er forbløffande enkel: ballen gjer eigentleg to *uavhengige* rørsler samtidig.\n\nDette er **prinsippet om uavhengige komponentar**, og det er nøkkelen til heile kapittelet. Rørsla langs x-aksen (vassrett) og rørsla langs y-aksen (loddrett) påverkar ikkje kvarandre i det heile teke. Den vassrette rørsla rullar jamt av garde med konstant fart, fordi ingenting bremsar ho i vassrett retning (vi ser bort frå luftmotstand). Den loddrette rørsla, derimot, er reint fritt fall med akselerasjonen $-g$.\n\nDet tyder at vi kan løyse kvar retning for seg, med bevegelseslikningane vi alt kan, og så setje komponentane saman til slutt. To enkle problem i staden for eitt vanskeleg. Det er denne splitten som gjer at vi i det heile teke kan rekne på skrå kast."
+    },
+    {
+      "id": "fys1-2-4-n-section1",
+      "type": "text",
+      "content": "## Å løyse opp ein vektor\n\nFør vi kan splitte rørsla, må vi kunne splitte startfarten i dei to retningane. Det kallar vi **vektoroppløysing**. Har du ein fart med beløp $v$ og ein vinkel $\\theta$ med x-aksen, finn du komponentane med trigonometri: x-komponenten er $v_x = v \\cos\\theta$, og y-komponenten er $v_y = v \\sin\\theta$.\n\nNokre vinklar dukkar opp om og om att, så det løner seg å kjenne dei: $\\cos 0° = 1$ og $\\sin 0° = 0$ (heilt vassrett), $\\sin 30° = 0{,}5$, $\\cos 45° = \\sin 45° \\approx 0{,}707$, $\\sin 60° \\approx 0{,}866$, og $\\cos 90° = 0$ med $\\sin 90° = 1$ (heilt loddrett).\n\nLat oss prøve. Ein ball blir kasta med 20 m/s i 30 grader vinkel. Kva blir komponentane? Vassrett: $v_{0x} = 20\\cos 30° = 20 \\cdot 0{,}866 \\approx 17{,}3$ m/s. Loddrett: $v_{0y} = 20\\sin 30° = 20 \\cdot 0{,}5 = 10$ m/s. Ballen startar altså med 17,3 m/s framover og 10 m/s oppover -- to tal vi no kan handsame kvar for seg. Vegen tilbake finst òg: frå komponentar til vektor bruker vi $v = \\sqrt{v_x^2 + v_y^2}$ for beløpet og $\\theta = \\arctan\\left(\\frac{v_y}{v_x}\\right)$ for vinkelen."
+    },
+    {
+      "id": "fys1-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på uavhengige komponentar og vektoroppløysing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-2-4-n-quiz1-q0",
+            "task": "Kva er hovudprinsippet i todimensjonal rørsle?",
+            "options": [
+              {
+                "id": "c",
+                "text": "X- og y-rørsla er uavhengige og kan analyserast kvar for seg",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "X- og y-rørsla påverkar kvarandre sterkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre y-retninga betyr noko",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rørsla kan ikkje reknast ut",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den vassrette og den loddrette rørsla er uavhengige. Vi løyser kvar retning separat og kombinerer komponentane til slutt."
+          },
+          {
+            "id": "fys1-2-4-n-quiz1-q1",
+            "task": "Ein ball blir kasta med 20 m/s i 30°. Kva er den vassrette komponenten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "10 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "20 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "17,3 m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "0 m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$v_{0x}=v\\cos\\theta=20\\cos 30°=20\\cdot 0{,}866\\approx 17{,}3$ m/s. Den loddrette er $20\\sin 30°=10$ m/s."
+          },
+          {
+            "id": "fys1-2-4-n-quiz1-q2",
+            "task": "Korleis finn du beløpet av ein vektor frå komponentane $v_x$ og $v_y$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$v_x + v_y$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$v_x \\cdot v_y$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$v_x - v_y$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\sqrt{v_x^2 + v_y^2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Beløpet finn du med Pytagoras: $v=\\sqrt{v_x^2+v_y^2}$, og vinkelen med $\\theta=\\arctan(v_y/v_x)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-2-4-n-section2",
+      "type": "text",
+      "content": "## Skrå kast -- rørsla i to spor\n\nNo set vi saman alt til eit **skrå kast**. Eit objekt blir kasta med startfart $v_0$ i vinkel $\\theta$. Vi splittar startfarten: $v_{0x} = v_0\\cos\\theta$ vassrett og $v_{0y} = v_0\\sin\\theta$ loddrett. Så følgjer vi kvar retning for seg.\n\nI **x-retning** er det ingen akselerasjon, $a_x = 0$, fordi ingenting trekkjer i ballen vassrett. Difor er den vassrette farten konstant heile vegen: $v_x = v_0\\cos\\theta$, og posisjonen blir rett og slett $x = v_0\\cos\\theta \\cdot t$ -- akkurat som konstant fart.\n\nI **y-retning** verkar tyngdekrafta, så $a_y = -g$. Den loddrette farten avtek, snur og aukar att: $v_y = v_0\\sin\\theta - gt$, og høgda blir $y = v_0\\sin\\theta \\cdot t - \\frac{1}{2}gt^2$ -- akkurat som fritt fall.\n\nKombinasjonen av ei jamn vassrett rørsle og ei kvadratisk loddrett rørsle gir nettopp ein **parabel**. Eliminerer du tida, får du banelikninga $y = x\\tan\\theta - \\frac{gx^2}{2v_0^2\\cos^2\\theta}$ -- ei andregradslikning i $x$, som jo alltid teiknar ein parabel. Den vakre bogen til den kasta ballen er altså berre matematikk: konstant fart i den eine retninga, fritt fall i den andre, samtidig."
+    },
+    {
+      "id": "fys1-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på skrå kast:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-2-4-n-quiz2-q0",
+            "task": "Kva er akselerasjonen i vassrett retning under eit skrå kast (utan luftmotstand)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Null",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-g$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$g$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han varierer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ingenting trekkjer i ballen vassrett, så $a_x=0$ og den vassrette farten er konstant. Berre i loddrett retning verkar tyngdekrafta, $a_y=-g$."
+          },
+          {
+            "id": "fys1-2-4-n-quiz2-q1",
+            "task": "Kva form har bana til eit skrå kast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein sirkel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein parabel",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ei rett linje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein hyperbel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstant vassrett fart kombinert med kvadratisk loddrett rørsle gir ei andregradslikning i $x$ -- altså ein parabel."
+          },
+          {
+            "id": "fys1-2-4-n-quiz2-q2",
+            "task": "Kva skjer med den vassrette farten $v_x$ medan ballen er i lufta?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han aukar heile tida",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han blir null i toppunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han held seg konstant",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han avtek jamt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $a_x=0$, held $v_x=v_0\\cos\\theta$ seg konstant heile vegen. Det er berre $v_y$ som endrar seg på grunn av tyngdekrafta."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-2-4-n-section3",
+      "type": "text",
+      "content": "## Rekkjevidd, høgd og kvifor 45 grader vinn\n\nTo spørsmål dukkar alltid opp ved skrå kast: kor langt når det, og kor høgt? Lat oss utleie svara.\n\n**Rekkjevidda** $R$ er kor langt vassrett ballen når før han landar på same høgd. Ballen er i lufta så lenge $y > 0$. Set vi $y = 0$, får vi at lufttida er $T = \\frac{2v_0\\sin\\theta}{g}$. Gongar vi det med den konstante vassrette farten, og bruker den trigonometriske regelen $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, fell alt på plass: $R = \\frac{v_0^2\\sin(2\\theta)}{g}$.\n\nHer ligg ei perle. Rekkjevidda er størst når $\\sin(2\\theta)$ er størst, og $\\sin$ toppar seg ved 90 grader. Altså er $2\\theta = 90°$, som gir $\\theta = 45°$. **Det lengste kastet får du på nøyaktig 45 grader** -- anten du kastar ball, spyd eller kanonkule. Då blir maksimal rekkjevidd $R_{maks} = \\frac{v_0^2}{g}$.\n\n**Maksimal høgd** $H$ når ballen når den loddrette farten $v_y$ blir null. Litt algebra gir $H = \\frac{v_0^2\\sin^2\\theta}{2g}$.\n\nLat oss rekne eit eksempel med $v_0 = 30$ m/s, $\\theta = 45°$ og $g = 10$ m/s². Høgda: $H = \\frac{30^2 \\cdot \\sin^2 45°}{2 \\cdot 10} = \\frac{900 \\cdot 0{,}5}{20} = 22{,}5$ m. Rekkjevidda: $R = \\frac{900 \\cdot \\sin 90°}{10} = \\frac{900 \\cdot 1}{10} = 90$ m. Lufttida: $T = \\frac{2 \\cdot 30 \\cdot \\sin 45°}{10} \\approx 4{,}24$ s.\n\nEit spesialtilfelle er det **vassrette kastet**, der ballen blir sendt rett fram frå ei høgd. Då er $v_{0y} = 0$, og lufttida blir bestemt utelukkande av fallet. Kastar du ein ball på 15 m/s vassrett frå ein 80 m høg klippe, fell han i $0 = 80 - 5t^2$, altså $t = 4$ s -- heilt uavhengig av den vassrette farten. På dei fire sekunda rekk han vassrett $x = 15 \\cdot 4 = 60$ m. Det loddrette og det vassrette held seg åtskilde, heilt til ballen treffer."
+    },
+    {
+      "id": "fys1-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rekkjevidd og høgd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-2-4-n-quiz3-q0",
+            "task": "Ved kva for ein vinkel blir rekkjevidda størst (på flatt underlag)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "30°",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "60°",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "90°",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "45°",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$R=\\frac{v_0^2\\sin(2\\theta)}{g}$ er størst når $\\sin(2\\theta)=1$, altså $2\\theta=90°$ og $\\theta=45°$."
+          },
+          {
+            "id": "fys1-2-4-n-quiz3-q1",
+            "task": "Ein ball blir kasta med 30 m/s i 45° ($g=10$ m/s²). Kva er rekkjevidda?",
+            "options": [
+              {
+                "id": "b",
+                "text": "90 m",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "45 m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "22,5 m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "180 m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R=\\frac{v_0^2\\sin(2\\theta)}{g}=\\frac{900\\cdot\\sin 90°}{10}=\\frac{900}{10}=90$ m."
+          },
+          {
+            "id": "fys1-2-4-n-quiz3-q2",
+            "task": "Ein ball blir kasta vassrett (15 m/s) frå 80 m høgd. Kva bestemmer lufttida?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre den vassrette farten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre det loddrette fallet frå høgda",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Summen av begge fartane",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting -- han fell ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lufttida blir bestemt berre av den loddrette rørsla: $0=80-5t^2$ gir $t=4$ s, uavhengig av den vassrette farten på 15 m/s."
+          },
+          {
+            "id": "fys1-2-4-n-quiz3-q3",
+            "task": "Same vassrette kast: kor langt rekk ballen vassrett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "80 m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "15 m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "60 m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "320 m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x=v_{0x}\\cdot t=15\\cdot 4=60$ m."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDen vakre bogen til den kasta ballen viste seg å vere to enkle rørsler på ein gong. **Prinsippet om uavhengige komponentar** lèt oss splitte rørsla: vassrett (x) går med konstant fart fordi $a_x = 0$, medan loddrett (y) er fritt fall med $a_y = -g$. Vi løyser kvar retning for seg og set komponentane saman.\n\n**Vektoroppløysing** gir startkomponentane $v_{0x} = v_0\\cos\\theta$ og $v_{0y} = v_0\\sin\\theta$, og vegen tilbake er $v = \\sqrt{v_x^2 + v_y^2}$ og $\\theta = \\arctan(v_y/v_x)$. Kombinasjonen av konstant vassrett og kvadratisk loddrett rørsle gir alltid ein **parabel**.\n\nFor skrå kast lærte vi dei tre nøkkelformlane: rekkjevidd $R = \\frac{v_0^2\\sin(2\\theta)}{g}$, maksimal høgd $H = \\frac{v_0^2\\sin^2\\theta}{2g}$, og lufttid $T = \\frac{2v_0\\sin\\theta}{g}$. Det viktigaste enkeltresultatet: rekkjevidda er størst ved **45 grader**. Og for det vassrette kastet frå ei høgd blir lufttida bestemt utelukkande av fallet, medan rekkjevidda er den vassrette farten ganga med den tida. To uavhengige spor -- det er heile løyndomen bak todimensjonal rørsle."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "2f880c3f0b156109",
+    "translatedAt": "2026-06-20T22:48:16.810Z",
+    "model": "claude-code-agent",
+    "strings": 74,
+    "tm": {
+      "b3f7e07ed27763a9": "Todimensjonal rørsle",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "4aab5bc82b89f3cd": "Ei forteljing om korleis ein kasta ball eigentleg gjer to ting samtidig -- og kvifor 45 grader gir det lengste kastet.",
+      "534d5ab657a9c522": "løse opp vektorer i x- og y-komponenter",
+      "8863906aee73ec99": "analysere todimensjonal bevegelse uavhengig i hver retning",
+      "b9fbb80ea621cdf4": "løse problemer med skrå kast",
+      "3cca509d7470399f": "finne rekkevidde og maksimal høyde for skrå kast",
+      "8830d1a86de9594a": "## Ein ball som gjer to ting på ein gong\n\nKast ein ball på skrå opp i lufta og følg han med blikket. Han skildrar ein mjuk boge, ein parabel, før han fell ned att. Det ser komplisert ut -- men løyndomen i todimensjonal rørsle er forbløffande enkel: ballen gjer eigentleg to *uavhengige* rørsler samtidig.\n\nDette er **prinsippet om uavhengige komponentar**, og det er nøkkelen til heile kapittelet. Rørsla langs x-aksen (vassrett) og rørsla langs y-aksen (loddrett) påverkar ikkje kvarandre i det heile teke. Den vassrette rørsla rullar jamt av garde med konstant fart, fordi ingenting bremsar ho i vassrett retning (vi ser bort frå luftmotstand). Den loddrette rørsla, derimot, er reint fritt fall med akselerasjonen $-g$.\n\nDet tyder at vi kan løyse kvar retning for seg, med bevegelseslikningane vi alt kan, og så setje komponentane saman til slutt. To enkle problem i staden for eitt vanskeleg. Det er denne splitten som gjer at vi i det heile teke kan rekne på skrå kast.",
+      "61da89187882ba9c": "## Å løyse opp ein vektor\n\nFør vi kan splitte rørsla, må vi kunne splitte startfarten i dei to retningane. Det kallar vi **vektoroppløysing**. Har du ein fart med beløp $v$ og ein vinkel $\\theta$ med x-aksen, finn du komponentane med trigonometri: x-komponenten er $v_x = v \\cos\\theta$, og y-komponenten er $v_y = v \\sin\\theta$.\n\nNokre vinklar dukkar opp om og om att, så det løner seg å kjenne dei: $\\cos 0° = 1$ og $\\sin 0° = 0$ (heilt vassrett), $\\sin 30° = 0{,}5$, $\\cos 45° = \\sin 45° \\approx 0{,}707$, $\\sin 60° \\approx 0{,}866$, og $\\cos 90° = 0$ med $\\sin 90° = 1$ (heilt loddrett).\n\nLat oss prøve. Ein ball blir kasta med 20 m/s i 30 grader vinkel. Kva blir komponentane? Vassrett: $v_{0x} = 20\\cos 30° = 20 \\cdot 0{,}866 \\approx 17{,}3$ m/s. Loddrett: $v_{0y} = 20\\sin 30° = 20 \\cdot 0{,}5 = 10$ m/s. Ballen startar altså med 17,3 m/s framover og 10 m/s oppover -- to tal vi no kan handsame kvar for seg. Vegen tilbake finst òg: frå komponentar til vektor bruker vi $v = \\sqrt{v_x^2 + v_y^2}$ for beløpet og $\\theta = \\arctan\\left(\\frac{v_y}{v_x}\\right)$ for vinkelen.",
+      "ef5cec8dd8f83c3a": "Test deg sjølv på uavhengige komponentar og vektoroppløysing:",
+      "4097889236a2af26": "placeholder",
+      "d287c3c06b109cba": "Kva er hovudprinsippet i todimensjonal rørsle?",
+      "33c471a218223484": "X- og y-rørsla påverkar kvarandre sterkt",
+      "f06bec27286b26ad": "Berre y-retninga betyr noko",
+      "ae5311913848a6db": "X- og y-rørsla er uavhengige og kan analyserast kvar for seg",
+      "35c4745db646b40d": "Rørsla kan ikkje reknast ut",
+      "ce7483724d6dba8b": "Den vassrette og den loddrette rørsla er uavhengige. Vi løyser kvar retning separat og kombinerer komponentane til slutt.",
+      "3209c83af05485ec": "Ein ball blir kasta med 20 m/s i 30°. Kva er den vassrette komponenten?",
+      "e52bf51eec99486c": "10 m/s",
+      "a5b2df1fa3892eb5": "20 m/s",
+      "fed2107681a9482d": "0 m/s",
+      "59b3ed0f49a43a12": "17,3 m/s",
+      "33def81d5d08719a": "$v_{0x}=v\\cos\\theta=20\\cos 30°=20\\cdot 0{,}866\\approx 17{,}3$ m/s. Den loddrette er $20\\sin 30°=10$ m/s.",
+      "8d21741c5ebb1a9a": "Korleis finn du beløpet av ein vektor frå komponentane $v_x$ og $v_y$?",
+      "3d745964c18787c9": "$\\sqrt{v_x^2 + v_y^2}$",
+      "e3f4409b83729727": "$v_x + v_y$",
+      "36546b994e34e689": "$v_x \\cdot v_y$",
+      "527cda5512fd9e24": "$v_x - v_y$",
+      "5c84b7f5d6ba33eb": "Beløpet finn du med Pytagoras: $v=\\sqrt{v_x^2+v_y^2}$, og vinkelen med $\\theta=\\arctan(v_y/v_x)$.",
+      "8c196d2ee0752ee7": "## Skrå kast -- rørsla i to spor\n\nNo set vi saman alt til eit **skrå kast**. Eit objekt blir kasta med startfart $v_0$ i vinkel $\\theta$. Vi splittar startfarten: $v_{0x} = v_0\\cos\\theta$ vassrett og $v_{0y} = v_0\\sin\\theta$ loddrett. Så følgjer vi kvar retning for seg.\n\nI **x-retning** er det ingen akselerasjon, $a_x = 0$, fordi ingenting trekkjer i ballen vassrett. Difor er den vassrette farten konstant heile vegen: $v_x = v_0\\cos\\theta$, og posisjonen blir rett og slett $x = v_0\\cos\\theta \\cdot t$ -- akkurat som konstant fart.\n\nI **y-retning** verkar tyngdekrafta, så $a_y = -g$. Den loddrette farten avtek, snur og aukar att: $v_y = v_0\\sin\\theta - gt$, og høgda blir $y = v_0\\sin\\theta \\cdot t - \\frac{1}{2}gt^2$ -- akkurat som fritt fall.\n\nKombinasjonen av ei jamn vassrett rørsle og ei kvadratisk loddrett rørsle gir nettopp ein **parabel**. Eliminerer du tida, får du banelikninga $y = x\\tan\\theta - \\frac{gx^2}{2v_0^2\\cos^2\\theta}$ -- ei andregradslikning i $x$, som jo alltid teiknar ein parabel. Den vakre bogen til den kasta ballen er altså berre matematikk: konstant fart i den eine retninga, fritt fall i den andre, samtidig.",
+      "bc1280e68db50d9c": "Test deg sjølv på skrå kast:",
+      "3a3f8f3529e223ec": "Kva er akselerasjonen i vassrett retning under eit skrå kast (utan luftmotstand)?",
+      "c303a2dd0cb23c4c": "$-g$",
+      "fa1d2db62d4d952e": "Null",
+      "bdec6f8ff124d571": "$g$",
+      "fb865d38aad29319": "Han varierer",
+      "73fccce6d8fb034f": "Ingenting trekkjer i ballen vassrett, så $a_x=0$ og den vassrette farten er konstant. Berre i loddrett retning verkar tyngdekrafta, $a_y=-g$.",
+      "5ac451aeb54c8a33": "Kva form har bana til eit skrå kast?",
+      "3b6c5e6834a664e0": "Ein sirkel",
+      "014bed2d1bfe40f8": "Ei rett linje",
+      "adc8c93e76e18e13": "Ein parabel",
+      "994510ec716e1e3f": "Ein hyperbel",
+      "796fa2b345d4147a": "Konstant vassrett fart kombinert med kvadratisk loddrett rørsle gir ei andregradslikning i $x$ -- altså ein parabel.",
+      "e84aa3a1d90af770": "Kva skjer med den vassrette farten $v_x$ medan ballen er i lufta?",
+      "ac41c1d3b1cdbb86": "Han aukar heile tida",
+      "b39f4fdbf8ea2083": "Han blir null i toppunktet",
+      "bcab289e0a4793ec": "Han avtek jamt",
+      "9567970339a850d8": "Han held seg konstant",
+      "fec774c585a9b9e5": "Sidan $a_x=0$, held $v_x=v_0\\cos\\theta$ seg konstant heile vegen. Det er berre $v_y$ som endrar seg på grunn av tyngdekrafta.",
+      "27b9b68205c2ed9c": "## Rekkjevidd, høgd og kvifor 45 grader vinn\n\nTo spørsmål dukkar alltid opp ved skrå kast: kor langt når det, og kor høgt? Lat oss utleie svara.\n\n**Rekkjevidda** $R$ er kor langt vassrett ballen når før han landar på same høgd. Ballen er i lufta så lenge $y > 0$. Set vi $y = 0$, får vi at lufttida er $T = \\frac{2v_0\\sin\\theta}{g}$. Gongar vi det med den konstante vassrette farten, og bruker den trigonometriske regelen $\\sin(2\\theta) = 2\\sin\\theta\\cos\\theta$, fell alt på plass: $R = \\frac{v_0^2\\sin(2\\theta)}{g}$.\n\nHer ligg ei perle. Rekkjevidda er størst når $\\sin(2\\theta)$ er størst, og $\\sin$ toppar seg ved 90 grader. Altså er $2\\theta = 90°$, som gir $\\theta = 45°$. **Det lengste kastet får du på nøyaktig 45 grader** -- anten du kastar ball, spyd eller kanonkule. Då blir maksimal rekkjevidd $R_{maks} = \\frac{v_0^2}{g}$.\n\n**Maksimal høgd** $H$ når ballen når den loddrette farten $v_y$ blir null. Litt algebra gir $H = \\frac{v_0^2\\sin^2\\theta}{2g}$.\n\nLat oss rekne eit eksempel med $v_0 = 30$ m/s, $\\theta = 45°$ og $g = 10$ m/s². Høgda: $H = \\frac{30^2 \\cdot \\sin^2 45°}{2 \\cdot 10} = \\frac{900 \\cdot 0{,}5}{20} = 22{,}5$ m. Rekkjevidda: $R = \\frac{900 \\cdot \\sin 90°}{10} = \\frac{900 \\cdot 1}{10} = 90$ m. Lufttida: $T = \\frac{2 \\cdot 30 \\cdot \\sin 45°}{10} \\approx 4{,}24$ s.\n\nEit spesialtilfelle er det **vassrette kastet**, der ballen blir sendt rett fram frå ei høgd. Då er $v_{0y} = 0$, og lufttida blir bestemt utelukkande av fallet. Kastar du ein ball på 15 m/s vassrett frå ein 80 m høg klippe, fell han i $0 = 80 - 5t^2$, altså $t = 4$ s -- heilt uavhengig av den vassrette farten. På dei fire sekunda rekk han vassrett $x = 15 \\cdot 4 = 60$ m. Det loddrette og det vassrette held seg åtskilde, heilt til ballen treffer.",
+      "e07126ed348ab180": "Test deg sjølv på rekkjevidd og høgd:",
+      "2cbd60e90f1d35e9": "Ved kva for ein vinkel blir rekkjevidda størst (på flatt underlag)?",
+      "dd74283d3e896bd0": "$R=\\frac{v_0^2\\sin(2\\theta)}{g}$ er størst når $\\sin(2\\theta)=1$, altså $2\\theta=90°$ og $\\theta=45°$.",
+      "ef7dc60b5e337d18": "Ein ball blir kasta med 30 m/s i 45° ($g=10$ m/s²). Kva er rekkjevidda?",
+      "8ab090e2f06d3078": "45 m",
+      "16fcd0f98ed7d601": "90 m",
+      "ca75a5615f370a19": "22,5 m",
+      "1798a35894abaee4": "180 m",
+      "adc4925471eb219d": "$R=\\frac{v_0^2\\sin(2\\theta)}{g}=\\frac{900\\cdot\\sin 90°}{10}=\\frac{900}{10}=90$ m.",
+      "1d98f1249c9391a3": "Ein ball blir kasta vassrett (15 m/s) frå 80 m høgd. Kva bestemmer lufttida?",
+      "98107bddc262ef22": "Berre den vassrette farten",
+      "93f2c84a9825ccbc": "Summen av begge fartane",
+      "ff322b89d50d5655": "Berre det loddrette fallet frå høgda",
+      "facc4a007f3991e0": "Ingenting -- han fell ikkje",
+      "1a744181ba2c94eb": "Lufttida blir bestemt berre av den loddrette rørsla: $0=80-5t^2$ gir $t=4$ s, uavhengig av den vassrette farten på 15 m/s.",
+      "1995b634256c223a": "Same vassrette kast: kor langt rekk ballen vassrett?",
+      "6f63135582a9c51e": "80 m",
+      "604d10da1d0ba386": "15 m",
+      "ed7b712b61754f71": "320 m",
+      "4f458acf18f1f7a4": "60 m",
+      "bfa59e4ac6da03d0": "$x=v_{0x}\\cdot t=15\\cdot 4=60$ m.",
+      "25af4912d6c6a2d6": "## Oppsummering\n\nDen vakre bogen til den kasta ballen viste seg å vere to enkle rørsler på ein gong. **Prinsippet om uavhengige komponentar** lèt oss splitte rørsla: vassrett (x) går med konstant fart fordi $a_x = 0$, medan loddrett (y) er fritt fall med $a_y = -g$. Vi løyser kvar retning for seg og set komponentane saman.\n\n**Vektoroppløysing** gir startkomponentane $v_{0x} = v_0\\cos\\theta$ og $v_{0y} = v_0\\sin\\theta$, og vegen tilbake er $v = \\sqrt{v_x^2 + v_y^2}$ og $\\theta = \\arctan(v_y/v_x)$. Kombinasjonen av konstant vassrett og kvadratisk loddrett rørsle gir alltid ein **parabel**.\n\nFor skrå kast lærte vi dei tre nøkkelformlane: rekkjevidd $R = \\frac{v_0^2\\sin(2\\theta)}{g}$, maksimal høgd $H = \\frac{v_0^2\\sin^2\\theta}{2g}$, og lufttid $T = \\frac{2v_0\\sin\\theta}{g}$. Det viktigaste enkeltresultatet: rekkjevidda er størst ved **45 grader**. Og for det vassrette kastet frå ei høgd blir lufttida bestemt utelukkande av fallet, medan rekkjevidda er den vassrette farten ganga med den tida. To uavhengige spor -- det er heile løyndomen bak todimensjonal rørsle."
+    }
+  }
+}

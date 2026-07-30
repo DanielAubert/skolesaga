@@ -1,1 +1,340 @@
-{"id":"bi-okonomi-10-2-narrativ","courseId":"bi-okonomi","chapterNumber":"10.2","title":"Aritmetiske rekkjer","subtitle":"Narrativ versjon","description":"Ei forteljing om aritmetiske følgjer -- der noko aukar eller minkar med eit fast beløp per periode -- og om Gauss' geniale triks for å summere dei på eit augneblink.","estimatedMinutes":29,"competenceGoals":[],"linkedChapterId":"bi-okonomi-10-2","content":[{"id":"bi-okonomi-10-2-n-intro","type":"text","content":"## Når noko aukar med fast beløp\n\nSjå for deg at du startar i ein ny jobb, og sjefen lovar deg $24\\,000$ kr i lønnsauke kvart einaste år. Lønna di dannar då ei heilt spesiell talfølgje: ho veks med nøyaktig same beløp år etter år. Slike følgjer kallar vi **aritmetiske**, og dei dukkar opp overalt der noko endrar seg med eit fast beløp per periode -- lineært stigande lønn, faste avdrag på eit serielån, eller jamt aukande månadlege innskot.\n\nEi følgje er aritmetisk når differansen mellom to nabolledd alltid er den same: $a_{n+1} - a_n = d$ for alle $n$. Talet $d$ blir kalla **differansen**, og den rekursive formelen er ganske enkelt $a_{n+1} = a_n + d$. Følgja $3, 7, 11, 15, 19, \\ldots$ er aritmetisk med $a_1 = 3$ og $d = 4$, fordi vi legg til $4$ for kvart skritt.\n\nDet vakre er at vi slepp å rekne oss fram ledd for ledd. Sidan vi tek $n-1$ skritt på $d$ frå $a_1$ til $a_n$, får vi ein **eksplisitt formel**: $a_n = a_1 + (n-1)d$. Vil du vite det femtiande leddet i ei følgje med $a_1 = 5$ og $d = 3$, reknar du berre $a_{50} = 5 + 49\\cdot 3 = 5 + 147 = 152$. Og kjenner du to ledd, kan du finne $d$: er $a_3 = 14$ og $a_8 = 39$, er skilnaden $5d = 25$, altså $d = 5$, og dermed $a_1 = 14 - 2\\cdot 5 = 4$."},{"id":"bi-okonomi-10-2-n-section1","type":"text","content":"## Gauss' triks: å summere bakvendt\n\nDet finst ei kjend historie om den unge Carl Friedrich Gauss. Læraren bad klassen summere alle tal frå $1$ til $100$, truleg for å få litt arbeidsro. Medan dei andre la saman tal etter tal, leverte Gauss svaret nesten med ein gong: $5050$. Kva var trikset hans?\n\nLat $S_n = a_1 + a_2 + \\ldots + a_n$ vere summen av dei $n$ første ledda -- ei **aritmetisk rekkje**. Gauss skreiv summen to gonger, éin gong forfrå og éin gong bakfrå, og la dei saman ledd for ledd. I kvar kolonne fekk han då $a_1 + a_n$, og fordi følgja er aritmetisk, er denne kolonnesummen den same heile vegen. Med $n$ like kolonnar blir $2S_n = n(a_1 + a_n)$, og dermed $S_n = \\frac{n(a_1 + a_n)}{2}$. Set vi inn den eksplisitte formelen, får vi den likeverdige forma $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$.\n\nFor Gauss' eiga oppgåve er $a_1 = 1$, $a_n = 100$ og $n = 100$, så $S_{100} = \\frac{100(1 + 100)}{2} = \\frac{10\\,100}{2} = 5050$. Tenk kor mykje dette tyder i økonomi. Sparer du $5\\,000$ kr første år og aukar innskotet med $1\\,000$ kr årleg, har du etter $10$ år sett inn $a_{10} = 5\\,000 + 9\\cdot 1\\,000 = 14\\,000$ kr det siste året, og totalt $S_{10} = \\frac{10(5\\,000 + 14\\,000)}{2} = 95\\,000$ kr -- rekna ut på sekund."},{"id":"bi-okonomi-10-2-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-10-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på aritmetiske følgjer og summen av dei:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-2-n-quiz1-q0","task":"Ei aritmetisk følgje har $a_1 = 7$ og $d = 4$. Kva er $a_{10}$?","options":[{"id":"a","text":"$47$","isCorrect":false},{"id":"b","text":"$40$","isCorrect":false},{"id":"c","text":"$28$","isCorrect":false},{"id":"d","text":"$43$","isCorrect":true}],"solution":"Vi brukar $a_n = a_1 + (n-1)d$: $a_{10} = 7 + 9\\cdot 4 = 7 + 36 = 43$."},{"id":"bi-okonomi-10-2-n-quiz1-q1","task":"I ei aritmetisk følgje er $a_2 = 11$ og $a_5 = 26$. Kva er differansen $d$?","options":[{"id":"a","text":"$5$","isCorrect":true},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$15$","isCorrect":false},{"id":"d","text":"$6$","isCorrect":false}],"solution":"Frå $a_2$ til $a_5$ er det tre skritt: $a_5 - a_2 = 3d = 26 - 11 = 15$, så $d = 5$."},{"id":"bi-okonomi-10-2-n-quiz1-q2","task":"Kva er summen $1 + 2 + 3 + \\ldots + 50$?","options":[{"id":"a","text":"$2500$","isCorrect":false},{"id":"b","text":"$1275$","isCorrect":true},{"id":"c","text":"$1225$","isCorrect":false},{"id":"d","text":"$1250$","isCorrect":false}],"solution":"Med Gauss' formel: $S_{50} = \\frac{50(1 + 50)}{2} = \\frac{50\\cdot 51}{2} = \\frac{2550}{2} = 1275$."},{"id":"bi-okonomi-10-2-n-quiz1-q3","task":"Kva idé ligg bak Gauss' sumformel $S_n = \\frac{n(a_1 + a_n)}{2}$?","options":[{"id":"a","text":"At alle ledda er like store","isCorrect":false},{"id":"b","text":"At ein gangar første ledd med talet på ledd","isCorrect":false},{"id":"c","text":"At ein skriv summen forfrå og bakfrå, så kvar kolonne får same sum $a_1 + a_n$","isCorrect":true},{"id":"d","text":"At differansen $d$ alltid er $1$","isCorrect":false}],"solution":"Gauss skreiv summen forlengs og baklengs og la dei saman. Kvar kolonne gav $a_1 + a_n$, og med $n$ kolonnar blir $2S_n = n(a_1 + a_n)$."}]}},{"id":"bi-okonomi-10-2-n-section2","type":"text","content":"## Aritmetikk i lommeboka: serielån og lønn\n\nNo skal vi sjå krafta i sumformelen i to praktiske situasjonar. Først lønnsutviklinga frå innleiinga. Startar du på $480\\,000$ kr og får $24\\,000$ kr meir kvart år, tener du i år $15$ akkurat $a_{15} = 480\\,000 + 14\\cdot 24\\,000 = 816\\,000$ kr. Den samla lønna over $15$ år blir $S_{15} = \\frac{15(480\\,000 + 816\\,000)}{2} = \\frac{15\\cdot 1\\,296\\,000}{2} = 9\\,720\\,000$ kr -- nesten ni og ein halv million, rekna ut i éi linje.\n\nEit endå finare døme er **serielånet**. Her er avdraget per termin konstant, medan renta blir betalt av restgjelda -- som søkk jamt etter kvart som du nedbetaler. Difor søkk terminbeløpa lineært, og dei dannar ei aritmetisk følgje vi kan summere. Ta eit serielån på $200\\,000$ kr med $4\\,\\%$ rente over $5$ år. Avdraget er $\\frac{200\\,000}{5} = 40\\,000$ kr i året. Første år betaler du $40\\,000$ avdrag pluss $4\\,\\%$ av $200\\,000 = 8\\,000$ kr i rente, altså $48\\,000$ kr. Året etter er restgjelda $160\\,000$ kr, så renta fell til $6\\,400$ kr, og terminen blir $46\\,400$ kr. Slik held det fram: $48\\,000,\\ 46\\,400,\\ 44\\,800,\\ 43\\,200,\\ 41\\,600$ -- ei aritmetisk følgje med $d = -1\\,600$.\n\nTotal betaling blir $S_5 = \\frac{5(48\\,000 + 41\\,600)}{2} = \\frac{5\\cdot 89\\,600}{2} = 224\\,000$ kr, og sidan du lånte $200\\,000$ kr, har du betalt $24\\,000$ kr i renter. Det er verdt å merke seg skilnaden frå neste kapittel: aritmetiske følgjer handlar om endring med eit fast **beløp**, medan geometriske følgjer handlar om endring med ein fast **prosent**."},{"id":"bi-okonomi-10-2-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-10-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på bruksområde og sum-likningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-2-n-quiz2-q0","task":"Ein seljar får $3\\,000$ kr i provisjon første månad, og han aukar med $500$ kr kvar månad. Kva blir den totale provisjonen over $12$ månader?","options":[{"id":"a","text":"$36\\,000$ kr","isCorrect":false},{"id":"b","text":"$102\\,000$ kr","isCorrect":false},{"id":"c","text":"$8\\,500$ kr","isCorrect":false},{"id":"d","text":"$69\\,000$ kr","isCorrect":true}],"solution":"Siste månad: $a_{12} = 3\\,000 + 11\\cdot 500 = 8\\,500$ kr. Sum: $S_{12} = \\frac{12(3\\,000 + 8\\,500)}{2} = 6\\cdot 11\\,500 = 69\\,000$ kr."},{"id":"bi-okonomi-10-2-n-quiz2-q1","task":"Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?","options":[{"id":"a","text":"Fordi avdraget er konstant og renta søkk lineært med restgjelda","isCorrect":true},{"id":"b","text":"Fordi renta veks med fast prosent","isCorrect":false},{"id":"c","text":"Fordi terminbeløpet er likt kvart år","isCorrect":false},{"id":"d","text":"Fordi gjelda blir dobla kvart år","isCorrect":false}],"solution":"I eit serielån er avdraget per termin konstant, medan renta blir betalt av ei restgjeld som søkk jamt. Då søkk terminbeløpa lineært -- altså ei aritmetisk følgje."},{"id":"bi-okonomi-10-2-n-quiz2-q2","task":"Ei aritmetisk rekkje har $a_1 = 4$ og $a_n = 16$, og summen er $S_n = 100$. Kor mange ledd $n$ er det?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":true},{"id":"c","text":"$8$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"$S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n(4 + 16)}{2} = 10n = 100$, så $n = 10$."},{"id":"bi-okonomi-10-2-n-quiz2-q3","task":"Kva skil ei aritmetisk følgje frå ei geometrisk?","options":[{"id":"a","text":"Aritmetisk endrar seg med fast prosent, geometrisk med fast beløp","isCorrect":false},{"id":"b","text":"Begge endrar seg med fast beløp","isCorrect":false},{"id":"c","text":"Aritmetisk endrar seg med fast beløp, geometrisk med fast prosent","isCorrect":true},{"id":"d","text":"Aritmetiske følgjer kan ikkje summerast","isCorrect":false}],"solution":"Ei aritmetisk følgje legg til eit fast beløp $d$ per periode (lineær vekst), medan ei geometrisk gangar med ein fast faktor (prosentvis, eksponentiell vekst)."}]}},{"id":"bi-okonomi-10-2-n-summary","type":"text","content":"## Oppsummering\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom nabolledd alltid er den same: $a_{n+1} - a_n = d$. Den eksplisitte formelen $a_n = a_1 + (n-1)d$ lèt oss hoppe rett til eit kva som helst ledd, og kjenner vi to ledd, kan vi alltid rekne oss tilbake til $a_1$ og $d$.\n\nSummerer vi dei $n$ første ledda, får vi ei **aritmetisk rekkje**, og takka vere Gauss' triks med å leggje summen forlengs og baklengs er $S_n = \\frac{n(a_1 + a_n)}{2}$, som òg kan skrivast $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$. Dette gjer det lett å rekne ut samla lønn, total provisjon eller totalkostnaden i eit serielån -- der konstant avdrag og lineært søkkande rente gir nettopp aritmetiske terminbeløp. Hugs hovudskiljet: aritmetiske følgjer skildrar endring med fast **beløp**, medan dei geometriske følgjene i neste kapittel skildrar endring med fast **prosent**."}],"exercises":[],"_meta":{"sourceHash":"0b22edfa6ccad1fc","translatedAt":"2026-06-21T00:50:52.207Z","model":"claude-code-agent","strings":43,"tm":{"dc28de7f3df9de09":"Aritmetiske rekkjer","b195b06d1ed59702":"Narrativ versjon","5cb3ee65377f2ce1":"Ei forteljing om aritmetiske følgjer -- der noko aukar eller minkar med eit fast beløp per periode -- og om Gauss' geniale triks for å summere dei på eit augneblink.","127444faa45d4a75":"## Når noko aukar med fast beløp\n\nSjå for deg at du startar i ein ny jobb, og sjefen lovar deg $24\\,000$ kr i lønnsauke kvart einaste år. Lønna di dannar då ei heilt spesiell talfølgje: ho veks med nøyaktig same beløp år etter år. Slike følgjer kallar vi **aritmetiske**, og dei dukkar opp overalt der noko endrar seg med eit fast beløp per periode -- lineært stigande lønn, faste avdrag på eit serielån, eller jamt aukande månadlege innskot.\n\nEi følgje er aritmetisk når differansen mellom to nabolledd alltid er den same: $a_{n+1} - a_n = d$ for alle $n$. Talet $d$ blir kalla **differansen**, og den rekursive formelen er ganske enkelt $a_{n+1} = a_n + d$. Følgja $3, 7, 11, 15, 19, \\ldots$ er aritmetisk med $a_1 = 3$ og $d = 4$, fordi vi legg til $4$ for kvart skritt.\n\nDet vakre er at vi slepp å rekne oss fram ledd for ledd. Sidan vi tek $n-1$ skritt på $d$ frå $a_1$ til $a_n$, får vi ein **eksplisitt formel**: $a_n = a_1 + (n-1)d$. Vil du vite det femtiande leddet i ei følgje med $a_1 = 5$ og $d = 3$, reknar du berre $a_{50} = 5 + 49\\cdot 3 = 5 + 147 = 152$. Og kjenner du to ledd, kan du finne $d$: er $a_3 = 14$ og $a_8 = 39$, er skilnaden $5d = 25$, altså $d = 5$, og dermed $a_1 = 14 - 2\\cdot 5 = 4$.","8ebe35cbee5a290d":"## Gauss' triks: å summere bakvendt\n\nDet finst ei kjend historie om den unge Carl Friedrich Gauss. Læraren bad klassen summere alle tal frå $1$ til $100$, truleg for å få litt arbeidsro. Medan dei andre la saman tal etter tal, leverte Gauss svaret nesten med ein gong: $5050$. Kva var trikset hans?\n\nLat $S_n = a_1 + a_2 + \\ldots + a_n$ vere summen av dei $n$ første ledda -- ei **aritmetisk rekkje**. Gauss skreiv summen to gonger, éin gong forfrå og éin gong bakfrå, og la dei saman ledd for ledd. I kvar kolonne fekk han då $a_1 + a_n$, og fordi følgja er aritmetisk, er denne kolonnesummen den same heile vegen. Med $n$ like kolonnar blir $2S_n = n(a_1 + a_n)$, og dermed $S_n = \\frac{n(a_1 + a_n)}{2}$. Set vi inn den eksplisitte formelen, får vi den likeverdige forma $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$.\n\nFor Gauss' eiga oppgåve er $a_1 = 1$, $a_n = 100$ og $n = 100$, så $S_{100} = \\frac{100(1 + 100)}{2} = \\frac{10\\,100}{2} = 5050$. Tenk kor mykje dette tyder i økonomi. Sparer du $5\\,000$ kr første år og aukar innskotet med $1\\,000$ kr årleg, har du etter $10$ år sett inn $a_{10} = 5\\,000 + 9\\cdot 1\\,000 = 14\\,000$ kr det siste året, og totalt $S_{10} = \\frac{10(5\\,000 + 14\\,000)}{2} = 95\\,000$ kr -- rekna ut på sekund.","cd94dd6d4aaa76ff":"Test deg sjølv på aritmetiske følgjer og summen av dei:","4097889236a2af26":"placeholder","a88a81893d8023e8":"Ei aritmetisk følgje har $a_1 = 7$ og $d = 4$. Kva er $a_{10}$?","ea5c2d0ecfb4a113":"Vi brukar $a_n = a_1 + (n-1)d$: $a_{10} = 7 + 9\\cdot 4 = 7 + 36 = 43$.","f17a720fd2b7a293":"I ei aritmetisk følgje er $a_2 = 11$ og $a_5 = 26$. Kva er differansen $d$?","103b191d076f42a1":"Frå $a_2$ til $a_5$ er det tre skritt: $a_5 - a_2 = 3d = 26 - 11 = 15$, så $d = 5$.","f4f2830ac002663a":"Kva er summen $1 + 2 + 3 + \\ldots + 50$?","82b727042152365e":"Med Gauss' formel: $S_{50} = \\frac{50(1 + 50)}{2} = \\frac{50\\cdot 51}{2} = \\frac{2550}{2} = 1275$.","df50da380f3f8915":"Kva idé ligg bak Gauss' sumformel $S_n = \\frac{n(a_1 + a_n)}{2}$?","692043fd370590fa":"At alle ledda er like store","add285649cbfb5d2":"At ein gangar første ledd med talet på ledd","3d5c209d75216685":"At ein skriv summen forfrå og bakfrå, så kvar kolonne får same sum $a_1 + a_n$","556b5b587922de13":"At differansen $d$ alltid er $1$","f0bca88434c3da44":"Gauss skreiv summen forlengs og baklengs og la dei saman. Kvar kolonne gav $a_1 + a_n$, og med $n$ kolonnar blir $2S_n = n(a_1 + a_n)$.","baf543da626b00d5":"## Aritmetikk i lommeboka: serielån og lønn\n\nNo skal vi sjå krafta i sumformelen i to praktiske situasjonar. Først lønnsutviklinga frå innleiinga. Startar du på $480\\,000$ kr og får $24\\,000$ kr meir kvart år, tener du i år $15$ akkurat $a_{15} = 480\\,000 + 14\\cdot 24\\,000 = 816\\,000$ kr. Den samla lønna over $15$ år blir $S_{15} = \\frac{15(480\\,000 + 816\\,000)}{2} = \\frac{15\\cdot 1\\,296\\,000}{2} = 9\\,720\\,000$ kr -- nesten ni og ein halv million, rekna ut i éi linje.\n\nEit endå finare døme er **serielånet**. Her er avdraget per termin konstant, medan renta blir betalt av restgjelda -- som søkk jamt etter kvart som du nedbetaler. Difor søkk terminbeløpa lineært, og dei dannar ei aritmetisk følgje vi kan summere. Ta eit serielån på $200\\,000$ kr med $4\\,\\%$ rente over $5$ år. Avdraget er $\\frac{200\\,000}{5} = 40\\,000$ kr i året. Første år betaler du $40\\,000$ avdrag pluss $4\\,\\%$ av $200\\,000 = 8\\,000$ kr i rente, altså $48\\,000$ kr. Året etter er restgjelda $160\\,000$ kr, så renta fell til $6\\,400$ kr, og terminen blir $46\\,400$ kr. Slik held det fram: $48\\,000,\\ 46\\,400,\\ 44\\,800,\\ 43\\,200,\\ 41\\,600$ -- ei aritmetisk følgje med $d = -1\\,600$.\n\nTotal betaling blir $S_5 = \\frac{5(48\\,000 + 41\\,600)}{2} = \\frac{5\\cdot 89\\,600}{2} = 224\\,000$ kr, og sidan du lånte $200\\,000$ kr, har du betalt $24\\,000$ kr i renter. Det er verdt å merke seg skilnaden frå neste kapittel: aritmetiske følgjer handlar om endring med eit fast **beløp**, medan geometriske følgjer handlar om endring med ein fast **prosent**.","1f81ffaae1c52832":"Test deg sjølv på bruksområde og sum-likningar:","6d2fa3c589931b74":"Ein seljar får $3\\,000$ kr i provisjon første månad, og han aukar med $500$ kr kvar månad. Kva blir den totale provisjonen over $12$ månader?","3cfbb3f8ca8d5f51":"$36\\,000$ kr","eeebcd8bf797c066":"$102\\,000$ kr","92951e8b72470162":"$8\\,500$ kr","8b55e7da4c249e0c":"$69\\,000$ kr","0d2d3ce147e24413":"Siste månad: $a_{12} = 3\\,000 + 11\\cdot 500 = 8\\,500$ kr. Sum: $S_{12} = \\frac{12(3\\,000 + 8\\,500)}{2} = 6\\cdot 11\\,500 = 69\\,000$ kr.","93ef21841eb9b9ce":"Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?","002d84100fdc40b9":"Fordi avdraget er konstant og renta søkk lineært med restgjelda","d638c1951d5a94f9":"Fordi renta veks med fast prosent","ae3c0e0408bb27ee":"Fordi terminbeløpet er likt kvart år","d19c18825b2da57d":"Fordi gjelda blir dobla kvart år","d11f718f65aad069":"I eit serielån er avdraget per termin konstant, medan renta blir betalt av ei restgjeld som søkk jamt. Då søkk terminbeløpa lineært -- altså ei aritmetisk følgje.","f0d3a025f4330150":"Ei aritmetisk rekkje har $a_1 = 4$ og $a_n = 16$, og summen er $S_n = 100$. Kor mange ledd $n$ er det?","222d87fd8e8ef71a":"$S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n(4 + 16)}{2} = 10n = 100$, så $n = 10$.","adb3303133f9a324":"Kva skil ei aritmetisk følgje frå ei geometrisk?","6a02641f75381208":"Aritmetisk endrar seg med fast prosent, geometrisk med fast beløp","23234f0f6e4084bd":"Begge endrar seg med fast beløp","d2522fe440bae128":"Aritmetisk endrar seg med fast beløp, geometrisk med fast prosent","d4a5e485666c77ff":"Aritmetiske følgjer kan ikkje summerast","0bce4dc41b0be6e3":"Ei aritmetisk følgje legg til eit fast beløp $d$ per periode (lineær vekst), medan ei geometrisk gangar med ein fast faktor (prosentvis, eksponentiell vekst).","afa2685885749b3d":"## Oppsummering\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom nabolledd alltid er den same: $a_{n+1} - a_n = d$. Den eksplisitte formelen $a_n = a_1 + (n-1)d$ lèt oss hoppe rett til eit kva som helst ledd, og kjenner vi to ledd, kan vi alltid rekne oss tilbake til $a_1$ og $d$.\n\nSummerer vi dei $n$ første ledda, får vi ei **aritmetisk rekkje**, og takka vere Gauss' triks med å leggje summen forlengs og baklengs er $S_n = \\frac{n(a_1 + a_n)}{2}$, som òg kan skrivast $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$. Dette gjer det lett å rekne ut samla lønn, total provisjon eller totalkostnaden i eit serielån -- der konstant avdrag og lineært søkkande rente gir nettopp aritmetiske terminbeløp. Hugs hovudskiljet: aritmetiske følgjer skildrar endring med fast **beløp**, medan dei geometriske følgjene i neste kapittel skildrar endring med fast **prosent**."}}}
+{
+  "id": "bi-okonomi-10-2-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "10.2",
+  "title": "Aritmetiske rekkjer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om aritmetiske følgjer -- der noko aukar eller minkar med eit fast beløp per periode -- og om Gauss' geniale triks for å summere dei på eit augneblink.",
+  "estimatedMinutes": 29,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-10-2",
+  "content": [
+    {
+      "id": "bi-okonomi-10-2-n-intro",
+      "type": "text",
+      "content": "## Når noko aukar med fast beløp\n\nSjå for deg at du startar i ein ny jobb, og sjefen lovar deg $24\\,000$ kr i lønnsauke kvart einaste år. Lønna di dannar då ei heilt spesiell talfølgje: ho veks med nøyaktig same beløp år etter år. Slike følgjer kallar vi **aritmetiske**, og dei dukkar opp overalt der noko endrar seg med eit fast beløp per periode -- lineært stigande lønn, faste avdrag på eit serielån, eller jamt aukande månadlege innskot.\n\nEi følgje er aritmetisk når differansen mellom to nabolledd alltid er den same: $a_{n+1} - a_n = d$ for alle $n$. Talet $d$ blir kalla **differansen**, og den rekursive formelen er ganske enkelt $a_{n+1} = a_n + d$. Følgja $3, 7, 11, 15, 19, \\ldots$ er aritmetisk med $a_1 = 3$ og $d = 4$, fordi vi legg til $4$ for kvart skritt.\n\nDet vakre er at vi slepp å rekne oss fram ledd for ledd. Sidan vi tek $n-1$ skritt på $d$ frå $a_1$ til $a_n$, får vi ein **eksplisitt formel**: $a_n = a_1 + (n-1)d$. Vil du vite det femtiande leddet i ei følgje med $a_1 = 5$ og $d = 3$, reknar du berre $a_{50} = 5 + 49\\cdot 3 = 5 + 147 = 152$. Og kjenner du to ledd, kan du finne $d$: er $a_3 = 14$ og $a_8 = 39$, er skilnaden $5d = 25$, altså $d = 5$, og dermed $a_1 = 14 - 2\\cdot 5 = 4$."
+    },
+    {
+      "id": "bi-okonomi-10-2-n-section1",
+      "type": "text",
+      "content": "## Gauss' triks: å summere bakvendt\n\nDet finst ei kjend historie om den unge Carl Friedrich Gauss. Læraren bad klassen summere alle tal frå $1$ til $100$, truleg for å få litt arbeidsro. Medan dei andre la saman tal etter tal, leverte Gauss svaret nesten med ein gong: $5050$. Kva var trikset hans?\n\nLat $S_n = a_1 + a_2 + \\ldots + a_n$ vere summen av dei $n$ første ledda -- ei **aritmetisk rekkje**. Gauss skreiv summen to gonger, éin gong forfrå og éin gong bakfrå, og la dei saman ledd for ledd. I kvar kolonne fekk han då $a_1 + a_n$, og fordi følgja er aritmetisk, er denne kolonnesummen den same heile vegen. Med $n$ like kolonnar blir $2S_n = n(a_1 + a_n)$, og dermed $S_n = \\frac{n(a_1 + a_n)}{2}$. Set vi inn den eksplisitte formelen, får vi den likeverdige forma $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$.\n\nFor Gauss' eiga oppgåve er $a_1 = 1$, $a_n = 100$ og $n = 100$, så $S_{100} = \\frac{100(1 + 100)}{2} = \\frac{10\\,100}{2} = 5050$. Tenk kor mykje dette tyder i økonomi. Sparer du $5\\,000$ kr første år og aukar innskotet med $1\\,000$ kr årleg, har du etter $10$ år sett inn $a_{10} = 5\\,000 + 9\\cdot 1\\,000 = 14\\,000$ kr det siste året, og totalt $S_{10} = \\frac{10(5\\,000 + 14\\,000)}{2} = 95\\,000$ kr -- rekna ut på sekund."
+    },
+    {
+      "id": "bi-okonomi-10-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på aritmetiske følgjer og summen av dei:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-2-n-quiz1-q0",
+            "task": "Ei aritmetisk følgje har $a_1 = 7$ og $d = 4$. Kva er $a_{10}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$47$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$43$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$40$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$28$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi brukar $a_n = a_1 + (n-1)d$: $a_{10} = 7 + 9\\cdot 4 = 7 + 36 = 43$."
+          },
+          {
+            "id": "bi-okonomi-10-2-n-quiz1-q1",
+            "task": "I ei aritmetisk følgje er $a_2 = 11$ og $a_5 = 26$. Kva er differansen $d$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå $a_2$ til $a_5$ er det tre skritt: $a_5 - a_2 = 3d = 26 - 11 = 15$, så $d = 5$."
+          },
+          {
+            "id": "bi-okonomi-10-2-n-quiz1-q2",
+            "task": "Kva er summen $1 + 2 + 3 + \\ldots + 50$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2500$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1225$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1250$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1275$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med Gauss' formel: $S_{50} = \\frac{50(1 + 50)}{2} = \\frac{50\\cdot 51}{2} = \\frac{2550}{2} = 1275$."
+          },
+          {
+            "id": "bi-okonomi-10-2-n-quiz1-q3",
+            "task": "Kva idé ligg bak Gauss' sumformel $S_n = \\frac{n(a_1 + a_n)}{2}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "At ein skriv summen forfrå og bakfrå, så kvar kolonne får same sum $a_1 + a_n$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At alle ledda er like store",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At ein gangar første ledd med talet på ledd",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At differansen $d$ alltid er $1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gauss skreiv summen forlengs og baklengs og la dei saman. Kvar kolonne gav $a_1 + a_n$, og med $n$ kolonnar blir $2S_n = n(a_1 + a_n)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-2-n-section2",
+      "type": "text",
+      "content": "## Aritmetikk i lommeboka: serielån og lønn\n\nNo skal vi sjå krafta i sumformelen i to praktiske situasjonar. Først lønnsutviklinga frå innleiinga. Startar du på $480\\,000$ kr og får $24\\,000$ kr meir kvart år, tener du i år $15$ akkurat $a_{15} = 480\\,000 + 14\\cdot 24\\,000 = 816\\,000$ kr. Den samla lønna over $15$ år blir $S_{15} = \\frac{15(480\\,000 + 816\\,000)}{2} = \\frac{15\\cdot 1\\,296\\,000}{2} = 9\\,720\\,000$ kr -- nesten ni og ein halv million, rekna ut i éi linje.\n\nEit endå finare døme er **serielånet**. Her er avdraget per termin konstant, medan renta blir betalt av restgjelda -- som søkk jamt etter kvart som du nedbetaler. Difor søkk terminbeløpa lineært, og dei dannar ei aritmetisk følgje vi kan summere. Ta eit serielån på $200\\,000$ kr med $4\\,\\%$ rente over $5$ år. Avdraget er $\\frac{200\\,000}{5} = 40\\,000$ kr i året. Første år betaler du $40\\,000$ avdrag pluss $4\\,\\%$ av $200\\,000 = 8\\,000$ kr i rente, altså $48\\,000$ kr. Året etter er restgjelda $160\\,000$ kr, så renta fell til $6\\,400$ kr, og terminen blir $46\\,400$ kr. Slik held det fram: $48\\,000,\\ 46\\,400,\\ 44\\,800,\\ 43\\,200,\\ 41\\,600$ -- ei aritmetisk følgje med $d = -1\\,600$.\n\nTotal betaling blir $S_5 = \\frac{5(48\\,000 + 41\\,600)}{2} = \\frac{5\\cdot 89\\,600}{2} = 224\\,000$ kr, og sidan du lånte $200\\,000$ kr, har du betalt $24\\,000$ kr i renter. Det er verdt å merke seg skilnaden frå neste kapittel: aritmetiske følgjer handlar om endring med eit fast **beløp**, medan geometriske følgjer handlar om endring med ein fast **prosent**."
+    },
+    {
+      "id": "bi-okonomi-10-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på bruksområde og sum-likningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-2-n-quiz2-q0",
+            "task": "Ein seljar får $3\\,000$ kr i provisjon første månad, og han aukar med $500$ kr kvar månad. Kva blir den totale provisjonen over $12$ månader?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$36\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$69\\,000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$102\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8\\,500$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siste månad: $a_{12} = 3\\,000 + 11\\cdot 500 = 8\\,500$ kr. Sum: $S_{12} = \\frac{12(3\\,000 + 8\\,500)}{2} = 6\\cdot 11\\,500 = 69\\,000$ kr."
+          },
+          {
+            "id": "bi-okonomi-10-2-n-quiz2-q1",
+            "task": "Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi renta veks med fast prosent",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi terminbeløpet er likt kvart år",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi avdraget er konstant og renta søkk lineært med restgjelda",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi gjelda blir dobla kvart år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I eit serielån er avdraget per termin konstant, medan renta blir betalt av ei restgjeld som søkk jamt. Då søkk terminbeløpa lineært -- altså ei aritmetisk følgje."
+          },
+          {
+            "id": "bi-okonomi-10-2-n-quiz2-q2",
+            "task": "Ei aritmetisk rekkje har $a_1 = 4$ og $a_n = 16$, og summen er $S_n = 100$. Kor mange ledd $n$ er det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n(4 + 16)}{2} = 10n = 100$, så $n = 10$."
+          },
+          {
+            "id": "bi-okonomi-10-2-n-quiz2-q3",
+            "task": "Kva skil ei aritmetisk følgje frå ei geometrisk?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Aritmetisk endrar seg med fast beløp, geometrisk med fast prosent",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Aritmetisk endrar seg med fast prosent, geometrisk med fast beløp",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Begge endrar seg med fast beløp",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aritmetiske følgjer kan ikkje summerast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei aritmetisk følgje legg til eit fast beløp $d$ per periode (lineær vekst), medan ei geometrisk gangar med ein fast faktor (prosentvis, eksponentiell vekst)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom nabolledd alltid er den same: $a_{n+1} - a_n = d$. Den eksplisitte formelen $a_n = a_1 + (n-1)d$ lèt oss hoppe rett til eit kva som helst ledd, og kjenner vi to ledd, kan vi alltid rekne oss tilbake til $a_1$ og $d$.\n\nSummerer vi dei $n$ første ledda, får vi ei **aritmetisk rekkje**, og takka vere Gauss' triks med å leggje summen forlengs og baklengs er $S_n = \\frac{n(a_1 + a_n)}{2}$, som òg kan skrivast $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$. Dette gjer det lett å rekne ut samla lønn, total provisjon eller totalkostnaden i eit serielån -- der konstant avdrag og lineært søkkande rente gir nettopp aritmetiske terminbeløp. Hugs hovudskiljet: aritmetiske følgjer skildrar endring med fast **beløp**, medan dei geometriske følgjene i neste kapittel skildrar endring med fast **prosent**."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0b22edfa6ccad1fc",
+    "translatedAt": "2026-06-21T00:50:52.207Z",
+    "model": "claude-code-agent",
+    "strings": 43,
+    "tm": {
+      "dc28de7f3df9de09": "Aritmetiske rekkjer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "5cb3ee65377f2ce1": "Ei forteljing om aritmetiske følgjer -- der noko aukar eller minkar med eit fast beløp per periode -- og om Gauss' geniale triks for å summere dei på eit augneblink.",
+      "127444faa45d4a75": "## Når noko aukar med fast beløp\n\nSjå for deg at du startar i ein ny jobb, og sjefen lovar deg $24\\,000$ kr i lønnsauke kvart einaste år. Lønna di dannar då ei heilt spesiell talfølgje: ho veks med nøyaktig same beløp år etter år. Slike følgjer kallar vi **aritmetiske**, og dei dukkar opp overalt der noko endrar seg med eit fast beløp per periode -- lineært stigande lønn, faste avdrag på eit serielån, eller jamt aukande månadlege innskot.\n\nEi følgje er aritmetisk når differansen mellom to nabolledd alltid er den same: $a_{n+1} - a_n = d$ for alle $n$. Talet $d$ blir kalla **differansen**, og den rekursive formelen er ganske enkelt $a_{n+1} = a_n + d$. Følgja $3, 7, 11, 15, 19, \\ldots$ er aritmetisk med $a_1 = 3$ og $d = 4$, fordi vi legg til $4$ for kvart skritt.\n\nDet vakre er at vi slepp å rekne oss fram ledd for ledd. Sidan vi tek $n-1$ skritt på $d$ frå $a_1$ til $a_n$, får vi ein **eksplisitt formel**: $a_n = a_1 + (n-1)d$. Vil du vite det femtiande leddet i ei følgje med $a_1 = 5$ og $d = 3$, reknar du berre $a_{50} = 5 + 49\\cdot 3 = 5 + 147 = 152$. Og kjenner du to ledd, kan du finne $d$: er $a_3 = 14$ og $a_8 = 39$, er skilnaden $5d = 25$, altså $d = 5$, og dermed $a_1 = 14 - 2\\cdot 5 = 4$.",
+      "8ebe35cbee5a290d": "## Gauss' triks: å summere bakvendt\n\nDet finst ei kjend historie om den unge Carl Friedrich Gauss. Læraren bad klassen summere alle tal frå $1$ til $100$, truleg for å få litt arbeidsro. Medan dei andre la saman tal etter tal, leverte Gauss svaret nesten med ein gong: $5050$. Kva var trikset hans?\n\nLat $S_n = a_1 + a_2 + \\ldots + a_n$ vere summen av dei $n$ første ledda -- ei **aritmetisk rekkje**. Gauss skreiv summen to gonger, éin gong forfrå og éin gong bakfrå, og la dei saman ledd for ledd. I kvar kolonne fekk han då $a_1 + a_n$, og fordi følgja er aritmetisk, er denne kolonnesummen den same heile vegen. Med $n$ like kolonnar blir $2S_n = n(a_1 + a_n)$, og dermed $S_n = \\frac{n(a_1 + a_n)}{2}$. Set vi inn den eksplisitte formelen, får vi den likeverdige forma $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$.\n\nFor Gauss' eiga oppgåve er $a_1 = 1$, $a_n = 100$ og $n = 100$, så $S_{100} = \\frac{100(1 + 100)}{2} = \\frac{10\\,100}{2} = 5050$. Tenk kor mykje dette tyder i økonomi. Sparer du $5\\,000$ kr første år og aukar innskotet med $1\\,000$ kr årleg, har du etter $10$ år sett inn $a_{10} = 5\\,000 + 9\\cdot 1\\,000 = 14\\,000$ kr det siste året, og totalt $S_{10} = \\frac{10(5\\,000 + 14\\,000)}{2} = 95\\,000$ kr -- rekna ut på sekund.",
+      "cd94dd6d4aaa76ff": "Test deg sjølv på aritmetiske følgjer og summen av dei:",
+      "4097889236a2af26": "placeholder",
+      "a88a81893d8023e8": "Ei aritmetisk følgje har $a_1 = 7$ og $d = 4$. Kva er $a_{10}$?",
+      "ea5c2d0ecfb4a113": "Vi brukar $a_n = a_1 + (n-1)d$: $a_{10} = 7 + 9\\cdot 4 = 7 + 36 = 43$.",
+      "f17a720fd2b7a293": "I ei aritmetisk følgje er $a_2 = 11$ og $a_5 = 26$. Kva er differansen $d$?",
+      "103b191d076f42a1": "Frå $a_2$ til $a_5$ er det tre skritt: $a_5 - a_2 = 3d = 26 - 11 = 15$, så $d = 5$.",
+      "f4f2830ac002663a": "Kva er summen $1 + 2 + 3 + \\ldots + 50$?",
+      "82b727042152365e": "Med Gauss' formel: $S_{50} = \\frac{50(1 + 50)}{2} = \\frac{50\\cdot 51}{2} = \\frac{2550}{2} = 1275$.",
+      "df50da380f3f8915": "Kva idé ligg bak Gauss' sumformel $S_n = \\frac{n(a_1 + a_n)}{2}$?",
+      "692043fd370590fa": "At alle ledda er like store",
+      "add285649cbfb5d2": "At ein gangar første ledd med talet på ledd",
+      "3d5c209d75216685": "At ein skriv summen forfrå og bakfrå, så kvar kolonne får same sum $a_1 + a_n$",
+      "556b5b587922de13": "At differansen $d$ alltid er $1$",
+      "f0bca88434c3da44": "Gauss skreiv summen forlengs og baklengs og la dei saman. Kvar kolonne gav $a_1 + a_n$, og med $n$ kolonnar blir $2S_n = n(a_1 + a_n)$.",
+      "baf543da626b00d5": "## Aritmetikk i lommeboka: serielån og lønn\n\nNo skal vi sjå krafta i sumformelen i to praktiske situasjonar. Først lønnsutviklinga frå innleiinga. Startar du på $480\\,000$ kr og får $24\\,000$ kr meir kvart år, tener du i år $15$ akkurat $a_{15} = 480\\,000 + 14\\cdot 24\\,000 = 816\\,000$ kr. Den samla lønna over $15$ år blir $S_{15} = \\frac{15(480\\,000 + 816\\,000)}{2} = \\frac{15\\cdot 1\\,296\\,000}{2} = 9\\,720\\,000$ kr -- nesten ni og ein halv million, rekna ut i éi linje.\n\nEit endå finare døme er **serielånet**. Her er avdraget per termin konstant, medan renta blir betalt av restgjelda -- som søkk jamt etter kvart som du nedbetaler. Difor søkk terminbeløpa lineært, og dei dannar ei aritmetisk følgje vi kan summere. Ta eit serielån på $200\\,000$ kr med $4\\,\\%$ rente over $5$ år. Avdraget er $\\frac{200\\,000}{5} = 40\\,000$ kr i året. Første år betaler du $40\\,000$ avdrag pluss $4\\,\\%$ av $200\\,000 = 8\\,000$ kr i rente, altså $48\\,000$ kr. Året etter er restgjelda $160\\,000$ kr, så renta fell til $6\\,400$ kr, og terminen blir $46\\,400$ kr. Slik held det fram: $48\\,000,\\ 46\\,400,\\ 44\\,800,\\ 43\\,200,\\ 41\\,600$ -- ei aritmetisk følgje med $d = -1\\,600$.\n\nTotal betaling blir $S_5 = \\frac{5(48\\,000 + 41\\,600)}{2} = \\frac{5\\cdot 89\\,600}{2} = 224\\,000$ kr, og sidan du lånte $200\\,000$ kr, har du betalt $24\\,000$ kr i renter. Det er verdt å merke seg skilnaden frå neste kapittel: aritmetiske følgjer handlar om endring med eit fast **beløp**, medan geometriske følgjer handlar om endring med ein fast **prosent**.",
+      "1f81ffaae1c52832": "Test deg sjølv på bruksområde og sum-likningar:",
+      "6d2fa3c589931b74": "Ein seljar får $3\\,000$ kr i provisjon første månad, og han aukar med $500$ kr kvar månad. Kva blir den totale provisjonen over $12$ månader?",
+      "3cfbb3f8ca8d5f51": "$36\\,000$ kr",
+      "eeebcd8bf797c066": "$102\\,000$ kr",
+      "92951e8b72470162": "$8\\,500$ kr",
+      "8b55e7da4c249e0c": "$69\\,000$ kr",
+      "0d2d3ce147e24413": "Siste månad: $a_{12} = 3\\,000 + 11\\cdot 500 = 8\\,500$ kr. Sum: $S_{12} = \\frac{12(3\\,000 + 8\\,500)}{2} = 6\\cdot 11\\,500 = 69\\,000$ kr.",
+      "93ef21841eb9b9ce": "Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?",
+      "002d84100fdc40b9": "Fordi avdraget er konstant og renta søkk lineært med restgjelda",
+      "d638c1951d5a94f9": "Fordi renta veks med fast prosent",
+      "ae3c0e0408bb27ee": "Fordi terminbeløpet er likt kvart år",
+      "d19c18825b2da57d": "Fordi gjelda blir dobla kvart år",
+      "d11f718f65aad069": "I eit serielån er avdraget per termin konstant, medan renta blir betalt av ei restgjeld som søkk jamt. Då søkk terminbeløpa lineært -- altså ei aritmetisk følgje.",
+      "f0d3a025f4330150": "Ei aritmetisk rekkje har $a_1 = 4$ og $a_n = 16$, og summen er $S_n = 100$. Kor mange ledd $n$ er det?",
+      "222d87fd8e8ef71a": "$S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n(4 + 16)}{2} = 10n = 100$, så $n = 10$.",
+      "adb3303133f9a324": "Kva skil ei aritmetisk følgje frå ei geometrisk?",
+      "6a02641f75381208": "Aritmetisk endrar seg med fast prosent, geometrisk med fast beløp",
+      "23234f0f6e4084bd": "Begge endrar seg med fast beløp",
+      "d2522fe440bae128": "Aritmetisk endrar seg med fast beløp, geometrisk med fast prosent",
+      "d4a5e485666c77ff": "Aritmetiske følgjer kan ikkje summerast",
+      "0bce4dc41b0be6e3": "Ei aritmetisk følgje legg til eit fast beløp $d$ per periode (lineær vekst), medan ei geometrisk gangar med ein fast faktor (prosentvis, eksponentiell vekst).",
+      "afa2685885749b3d": "## Oppsummering\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom nabolledd alltid er den same: $a_{n+1} - a_n = d$. Den eksplisitte formelen $a_n = a_1 + (n-1)d$ lèt oss hoppe rett til eit kva som helst ledd, og kjenner vi to ledd, kan vi alltid rekne oss tilbake til $a_1$ og $d$.\n\nSummerer vi dei $n$ første ledda, får vi ei **aritmetisk rekkje**, og takka vere Gauss' triks med å leggje summen forlengs og baklengs er $S_n = \\frac{n(a_1 + a_n)}{2}$, som òg kan skrivast $S_n = \\frac{n(2a_1 + (n-1)d)}{2}$. Dette gjer det lett å rekne ut samla lønn, total provisjon eller totalkostnaden i eit serielån -- der konstant avdrag og lineært søkkande rente gir nettopp aritmetiske terminbeløp. Hugs hovudskiljet: aritmetiske følgjer skildrar endring med fast **beløp**, medan dei geometriske følgjene i neste kapittel skildrar endring med fast **prosent**."
+    }
+  }
+}

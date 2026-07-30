@@ -1,1 +1,399 @@
-{"id":"elektro-data-vg1-2-narrativ","courseId":"elektro-data-vg1","chapterNumber":"2","title":"Kretser og komponenter","subtitle":"Narrativ versjon","description":"En fortelling om den lukkede banen strømmen må følge – og forskjellen mellom å koble komponenter på rad og side ved side, fra julelys til stikkontakter.","estimatedMinutes":40,"competenceGoals":["bygge og analysere elektriske kretser","forstå serie- og parallellkobling"],"linkedChapterId":"elektro-data-vg1-2","content":[{"id":"elektro-data-vg1-2-n-intro","type":"text","content":"## En vei strømmen kan gå\n\nHar du noen gang lurt på hvorfor en lampe slukker i det øyeblikket du skrur av bryteren? Svaret er enkelt, men grunnleggende: du bryter **kretsen**. En elektrisk krets er en lukket bane som strømmen kan gå rundt i, og er banen ikke komplett, stopper strømmen umiddelbart. Et eneste brudd, og alt blir mørkt.\n\nEnhver krets er bygd av de samme delene: en **spenningskilde** som batteri eller strømforsyning, **ledere** som frakter strømmen, en **last** som faktisk bruker energien – en lampe, en motor – og gjerne en **bryter** for å styre det hele. For å tegne disse bruker vi standardiserte symboler i et kretsdiagram, slik at en elektriker i Norge og en i Japan forstår nøyaktig den samme tegningen.\n\nI dette kapittelet skal vi lære de to grunnleggende måtene å koble komponenter på – i serie og i parallell – og hvordan de oppfører seg helt forskjellig. Vi skal regne på motstand, strøm og spenning, møte Kirchhoffs to lover som holder regnskapet i orden, og til slutt sette det sammen i kretser som blander begge koblingsmåtene."},{"id":"elektro-data-vg1-2-n-section1","type":"text","content":"## Seriekobling – alt på rad\n\nDen første måten å koble på er **seriekobling**, der komponentene står etter hverandre i en kjede. Strømmen har bare én vei å gå, så den må passere gjennom hver eneste komponent i tur og orden. Det får tre viktige konsekvenser.\n\nFor det første er strømmen den samme overalt: $I_1 = I_2 = I_3$. Det er jo bare én bane, så det som går inn må gå videre. For det andre fordeler spenningen seg – kildespenningen deles mellom komponentene, så $U_{tot} = U_1 + U_2 + U_3$. For det tredje legges motstandene rett sammen: $R_{tot} = R_1 + R_2 + R_3$.\n\nLa oss regne. Tre motstander på 10 $\\Omega$, 20 $\\Omega$ og 30 $\\Omega$ kobles i serie med et 12 V-batteri. Total motstand blir $R_{tot} = 10 + 20 + 30 = 60\\,\\Omega$, og strømmen $I = U/R = 12/60 = 0{,}2$ A, altså 200 mA. Samme strøm går gjennom alle tre.\n\nMen seriekobling har en svakhet: går én komponent i stykker, brytes hele kjeden, og alt stopper. Det er nettopp dette som skjer med de gamle julelysrekkene der hele rekka slukner hvis én pære ryker. Til gjengjeld er serien nyttig der vi vil dele opp spenning eller begrense strøm – akkurat som motstanden vi setter i serie med en LED."},{"id":"elektro-data-vg1-2-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på seriekobling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-2-n-quiz1-q0","task":"Hva er likt for alle komponentene i en seriekobling?","options":[{"id":"a","text":"Strømmen","isCorrect":true},{"id":"b","text":"Spenningen","isCorrect":false},{"id":"c","text":"Motstanden","isCorrect":false},{"id":"d","text":"Effekten","isCorrect":false}],"solution":"I en seriekobling er det bare én bane, så strømmen er den samme gjennom alle komponentene."},{"id":"elektro-data-vg1-2-n-quiz1-q1","task":"Tre motstander på 10 $\\Omega$, 20 $\\Omega$ og 30 $\\Omega$ i serie med et 12 V-batteri. Hvor stor blir strømmen?","options":[{"id":"a","text":"2 A","isCorrect":false},{"id":"b","text":"0,2 A","isCorrect":true},{"id":"c","text":"0,6 A","isCorrect":false},{"id":"d","text":"1,2 A","isCorrect":false}],"solution":"$R_{tot} = 10+20+30 = 60\\,\\Omega$, $I = 12/60 = 0{,}2$ A."},{"id":"elektro-data-vg1-2-n-quiz1-q2","task":"Hva skjer i en seriekobling hvis én komponent svikter?","options":[{"id":"a","text":"Strømmen fortsetter uforandret","isCorrect":false},{"id":"b","text":"Strømmen dobles","isCorrect":false},{"id":"c","text":"Strømmen stopper i hele kretsen","isCorrect":true},{"id":"d","text":"Bare den ene komponenten påvirkes","isCorrect":false}],"solution":"Strømmen må gjennom alle komponentene. Svikter én (åpen krets), brytes hele banen og strømmen stopper overalt."}]}},{"id":"elektro-data-vg1-2-n-section2","type":"text","content":"## Parallellkobling – flere veier samtidig\n\nDen andre måten er **parallellkobling**, der komponentene sitter side ved side mellom de samme to punktene. Nå har strømmen flere veier å velge mellom, og den deler seg mellom grenene. Egenskapene blir nesten speilvendt av seriekoblingen.\n\nHer er spenningen lik over alle komponenter: $U_1 = U_2 = U_3$. Strømmen deler seg, så totalstrømmen er summen av grenstrømmene: $I_{tot} = I_1 + I_2 + I_3$. Og motstanden regnes med den omvendte formelen: $\\frac{1}{R_{tot}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3}$. Et viktig poeng: totalmotstanden i en parallellkobling er alltid mindre enn den minste enkeltmotstanden, fordi flere veier gjør det lettere for strømmen.\n\nLa oss prøve. To motstander på 100 $\\Omega$ i parallell gir $\\frac{1}{R_{tot}} = \\frac{1}{100} + \\frac{1}{100} = \\frac{2}{100}$, så $R_{tot} = 50\\,\\Omega$ – halvparten. Tre like motstander på 60 $\\Omega$ gir $R_{tot} = 60/3 = 20\\,\\Omega$. Generelt er $n$ like motstander i parallell lik $R/n$. Med ulike verdier, som 50 $\\Omega$ og 150 $\\Omega$ over 9 V, blir $\\frac{1}{R_{tot}} = \\frac{3}{150} + \\frac{1}{150} = \\frac{4}{150}$, altså $R_{tot} = 37{,}5\\,\\Omega$, og strømmen fra kilden $I = 9/37{,}5 = 0{,}24$ A.\n\nStyrken til parallellkoblingen er uavhengigheten. Lysene i huset er parallellkoblet, så de får alle full spenning og virker hver for seg – ryker én pære, lyser de andre videre. Hadde de vært i serie, ville alle blitt svakere når du la til flere, og alt slukket hvis én gikk."},{"id":"elektro-data-vg1-2-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på parallellkobling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-2-n-quiz2-q0","task":"Hva er likt for alle komponentene i en parallellkobling?","options":[{"id":"a","text":"Strømmen","isCorrect":false},{"id":"b","text":"Motstanden","isCorrect":false},{"id":"c","text":"Antallet ledere","isCorrect":false},{"id":"d","text":"Spenningen","isCorrect":true}],"solution":"I parallellkobling er spenningen lik over alle grener, mens strømmen deler seg."},{"id":"elektro-data-vg1-2-n-quiz2-q1","task":"Tre motstander på 60 $\\Omega$ hver er parallellkoblet. Hva er total motstand?","options":[{"id":"a","text":"20 $\\Omega$","isCorrect":true},{"id":"b","text":"180 $\\Omega$","isCorrect":false},{"id":"c","text":"60 $\\Omega$","isCorrect":false},{"id":"d","text":"30 $\\Omega$","isCorrect":false}],"solution":"For $n$ like motstander: $R_{tot} = R/n = 60/3 = 20\\,\\Omega$."},{"id":"elektro-data-vg1-2-n-quiz2-q2","task":"Hvorfor brukes parallellkobling til lys i hus?","options":[{"id":"a","text":"Fordi lysene da blir svakere når man legger til flere","isCorrect":false},{"id":"b","text":"Fordi alle lysene får full spenning og virker uavhengig av hverandre","isCorrect":true},{"id":"c","text":"Fordi det krever færre ledninger","isCorrect":false},{"id":"d","text":"Fordi strømmen da blir mindre","isCorrect":false}],"solution":"I parallell får hvert lys 230 V og fungerer for seg selv. Ryker én pære, lyser de andre videre."},{"id":"elektro-data-vg1-2-n-quiz2-q3","task":"Hva er alltid sant om total motstand i en parallellkobling?","options":[{"id":"a","text":"Den er lik summen av motstandene","isCorrect":false},{"id":"b","text":"Den er alltid 0","isCorrect":false},{"id":"c","text":"Den er mindre enn den minste enkeltmotstanden","isCorrect":true},{"id":"d","text":"Den er lik den største motstanden","isCorrect":false}],"solution":"Flere veier gjør det lettere for strømmen, så totalmotstanden blir alltid mindre enn den minste enkeltmotstanden."}]}},{"id":"elektro-data-vg1-2-n-section3","type":"text","content":"## Kirchhoffs lover og kombinerte kretser\n\nFor å holde styr på kretser som blander serie og parallell, har vi to regler som alltid gjelder – **Kirchhoffs lover**. De er rett og slett bokføringen for strøm og spenning.\n\n**Kirchhoffs strømlov (KCL)** sier at total strøm inn i et knutepunkt er lik total strøm ut: $\\sum I_{inn} = \\sum I_{ut}$. Strøm kan verken oppstå eller forsvinne. Kommer det 2 A inn i et forgreningspunkt og deler seg, kan grenene føre for eksempel 1,3 A og 0,7 A – til sammen fortsatt 2 A. **Kirchhoffs spenningslov (KVL)** sier at summen av spenningsfallene rundt en lukket sløyfe er null: $\\sum U = 0$. Det betyr at kildespenningen alltid er lik summen av spenningsfallene over komponentene – energien kilden gir, brukes opp i kretsen.\n\nMed disse verktøyene kan vi løse kombinerte kretser ved å forenkle steg for steg. Ta et eksempel: et 12 V-batteri med to parallelle grener. Gren A har 20 $\\Omega$ og 40 $\\Omega$ i serie, og gren B har én motstand på 30 $\\Omega$. Først serien i gren A: $20 + 40 = 60\\,\\Omega$. Så parallellen med gren B: $\\frac{1}{R_{tot}} = \\frac{1}{60} + \\frac{1}{30} = \\frac{1}{60} + \\frac{2}{60} = \\frac{3}{60}$, altså $R_{tot} = 20\\,\\Omega$. Totalstrømmen blir $I = 12/20 = 0{,}6$ A. Siden begge grener har 12 V over seg, fører gren A $12/60 = 0{,}2$ A og gren B $12/30 = 0{,}4$ A. Kontroll med strømloven: $0{,}2 + 0{,}4 = 0{,}6$ A – akkurat totalstrømmen."},{"id":"elektro-data-vg1-2-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på Kirchhoffs lover og kombinerte kretser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-2-n-quiz3-q0","task":"Hva sier Kirchhoffs strømlov?","options":[{"id":"a","text":"Spenningen er lik over alle komponenter","isCorrect":false},{"id":"b","text":"Summen av spenninger er kildespenningen","isCorrect":false},{"id":"c","text":"Motstanden i en sløyfe er null","isCorrect":false},{"id":"d","text":"Strøm inn i et knutepunkt er lik strøm ut","isCorrect":true}],"solution":"Strømloven (KCL): $\\sum I_{inn} = \\sum I_{ut}$. Strøm kan verken oppstå eller forsvinne i et knutepunkt."},{"id":"elektro-data-vg1-2-n-quiz3-q1","task":"Hva sier Kirchhoffs spenningslov?","options":[{"id":"a","text":"Summen av spenningsfallene rundt en lukket sløyfe er null","isCorrect":true},{"id":"b","text":"Strømmen er null i en lukket sløyfe","isCorrect":false},{"id":"c","text":"Motstanden er lik summen av spenningene","isCorrect":false},{"id":"d","text":"Effekten er konstant","isCorrect":false}],"solution":"Spenningsloven (KVL): $\\sum U = 0$. Kildespenningen er lik summen av spenningsfallene over komponentene."},{"id":"elektro-data-vg1-2-n-quiz3-q2","task":"En 100 $\\Omega$ og en 200 $\\Omega$ i serie kobles parallelt med en 300 $\\Omega$. Hva er total motstand?","options":[{"id":"a","text":"600 $\\Omega$","isCorrect":false},{"id":"b","text":"150 $\\Omega$","isCorrect":true},{"id":"c","text":"300 $\\Omega$","isCorrect":false},{"id":"d","text":"100 $\\Omega$","isCorrect":false}],"solution":"Serien: $100+200 = 300\\,\\Omega$. Parallelt med 300 $\\Omega$: $\\frac{1}{R} = \\frac{1}{300} + \\frac{1}{300} = \\frac{2}{300}$, så $R = 150\\,\\Omega$."},{"id":"elektro-data-vg1-2-n-quiz3-q3","task":"I et knutepunkt kommer det inn 2 A. En gren fører 0,7 A. Hvor mye fører den andre grenen?","options":[{"id":"a","text":"2,7 A","isCorrect":false},{"id":"b","text":"0,7 A","isCorrect":false},{"id":"c","text":"1,3 A","isCorrect":true},{"id":"d","text":"1,0 A","isCorrect":false}],"solution":"Strøm inn = strøm ut: $2 - 0{,}7 = 1{,}3$ A i den andre grenen."}]}},{"id":"elektro-data-vg1-2-n-summary","type":"text","content":"## Oppsummering\n\nNå vet du hvordan en elektrisk krets er bygd opp og analysert. En **krets** er en lukket bane med spenningskilde, ledere, last og gjerne en bryter, tegnet med standardiserte symboler. I en **seriekobling** er strømmen den samme overalt, spenningen deles, motstandene legges sammen, og én svikt stopper alt. I en **parallellkobling** er spenningen lik, strømmen deler seg, $\\frac{1}{R_{tot}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$, og komponentene virker uavhengig.\n\n**Kirchhoffs lover** holder regnskapet: strømloven sier at strøm inn er lik strøm ut i et knutepunkt, og spenningsloven sier at spenningsfallene rundt en sløyfe summerer til null. Kombinerte kretser løser vi ved å forenkle steg for steg med Ohms lov og Kirchhoffs lover – akkurat slik vi gjorde med batteriet og de to grenene."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-2-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "2",
+  "title": "Kretser og komponenter",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om den lukkede banen strømmen må følge – og forskjellen mellom å koble komponenter på rad og side ved side, fra julelys til stikkontakter.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bygge og analysere elektriske kretser",
+    "forstå serie- og parallellkobling"
+  ],
+  "linkedChapterId": "elektro-data-vg1-2",
+  "content": [
+    {
+      "id": "elektro-data-vg1-2-n-intro",
+      "type": "text",
+      "content": "## En vei strømmen kan gå\n\nHar du noen gang lurt på hvorfor en lampe slukker i det øyeblikket du skrur av bryteren? Svaret er enkelt, men grunnleggende: du bryter **kretsen**. En elektrisk krets er en lukket bane som strømmen kan gå rundt i, og er banen ikke komplett, stopper strømmen umiddelbart. Et eneste brudd, og alt blir mørkt.\n\nEnhver krets er bygd av de samme delene: en **spenningskilde** som batteri eller strømforsyning, **ledere** som frakter strømmen, en **last** som faktisk bruker energien – en lampe, en motor – og gjerne en **bryter** for å styre det hele. For å tegne disse bruker vi standardiserte symboler i et kretsdiagram, slik at en elektriker i Norge og en i Japan forstår nøyaktig den samme tegningen.\n\nI dette kapittelet skal vi lære de to grunnleggende måtene å koble komponenter på – i serie og i parallell – og hvordan de oppfører seg helt forskjellig. Vi skal regne på motstand, strøm og spenning, møte Kirchhoffs to lover som holder regnskapet i orden, og til slutt sette det sammen i kretser som blander begge koblingsmåtene."
+    },
+    {
+      "id": "elektro-data-vg1-2-n-section1",
+      "type": "text",
+      "content": "## Seriekobling – alt på rad\n\nDen første måten å koble på er **seriekobling**, der komponentene står etter hverandre i en kjede. Strømmen har bare én vei å gå, så den må passere gjennom hver eneste komponent i tur og orden. Det får tre viktige konsekvenser.\n\nFor det første er strømmen den samme overalt: $I_1 = I_2 = I_3$. Det er jo bare én bane, så det som går inn må gå videre. For det andre fordeler spenningen seg – kildespenningen deles mellom komponentene, så $U_{tot} = U_1 + U_2 + U_3$. For det tredje legges motstandene rett sammen: $R_{tot} = R_1 + R_2 + R_3$.\n\nLa oss regne. Tre motstander på 10 $\\Omega$, 20 $\\Omega$ og 30 $\\Omega$ kobles i serie med et 12 V-batteri. Total motstand blir $R_{tot} = 10 + 20 + 30 = 60\\,\\Omega$, og strømmen $I = U/R = 12/60 = 0{,}2$ A, altså 200 mA. Samme strøm går gjennom alle tre.\n\nMen seriekobling har en svakhet: går én komponent i stykker, brytes hele kjeden, og alt stopper. Det er nettopp dette som skjer med de gamle julelysrekkene der hele rekka slukner hvis én pære ryker. Til gjengjeld er serien nyttig der vi vil dele opp spenning eller begrense strøm – akkurat som motstanden vi setter i serie med en LED."
+    },
+    {
+      "id": "elektro-data-vg1-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på seriekobling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-2-n-quiz1-q0",
+            "task": "Hva er likt for alle komponentene i en seriekobling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Spenningen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Motstanden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Effekten",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Strømmen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I en seriekobling er det bare én bane, så strømmen er den samme gjennom alle komponentene."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz1-q1",
+            "task": "Tre motstander på 10 $\\Omega$, 20 $\\Omega$ og 30 $\\Omega$ i serie med et 12 V-batteri. Hvor stor blir strømmen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "0,2 A",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "2 A",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,6 A",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1,2 A",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R_{tot} = 10+20+30 = 60\\,\\Omega$, $I = 12/60 = 0{,}2$ A."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz1-q2",
+            "task": "Hva skjer i en seriekobling hvis én komponent svikter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Strømmen fortsetter uforandret",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Strømmen stopper i hele kretsen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Strømmen dobles",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare den ene komponenten påvirkes",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strømmen må gjennom alle komponentene. Svikter én (åpen krets), brytes hele banen og strømmen stopper overalt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-2-n-section2",
+      "type": "text",
+      "content": "## Parallellkobling – flere veier samtidig\n\nDen andre måten er **parallellkobling**, der komponentene sitter side ved side mellom de samme to punktene. Nå har strømmen flere veier å velge mellom, og den deler seg mellom grenene. Egenskapene blir nesten speilvendt av seriekoblingen.\n\nHer er spenningen lik over alle komponenter: $U_1 = U_2 = U_3$. Strømmen deler seg, så totalstrømmen er summen av grenstrømmene: $I_{tot} = I_1 + I_2 + I_3$. Og motstanden regnes med den omvendte formelen: $\\frac{1}{R_{tot}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3}$. Et viktig poeng: totalmotstanden i en parallellkobling er alltid mindre enn den minste enkeltmotstanden, fordi flere veier gjør det lettere for strømmen.\n\nLa oss prøve. To motstander på 100 $\\Omega$ i parallell gir $\\frac{1}{R_{tot}} = \\frac{1}{100} + \\frac{1}{100} = \\frac{2}{100}$, så $R_{tot} = 50\\,\\Omega$ – halvparten. Tre like motstander på 60 $\\Omega$ gir $R_{tot} = 60/3 = 20\\,\\Omega$. Generelt er $n$ like motstander i parallell lik $R/n$. Med ulike verdier, som 50 $\\Omega$ og 150 $\\Omega$ over 9 V, blir $\\frac{1}{R_{tot}} = \\frac{3}{150} + \\frac{1}{150} = \\frac{4}{150}$, altså $R_{tot} = 37{,}5\\,\\Omega$, og strømmen fra kilden $I = 9/37{,}5 = 0{,}24$ A.\n\nStyrken til parallellkoblingen er uavhengigheten. Lysene i huset er parallellkoblet, så de får alle full spenning og virker hver for seg – ryker én pære, lyser de andre videre. Hadde de vært i serie, ville alle blitt svakere når du la til flere, og alt slukket hvis én gikk."
+    },
+    {
+      "id": "elektro-data-vg1-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på parallellkobling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-2-n-quiz2-q0",
+            "task": "Hva er likt for alle komponentene i en parallellkobling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Strømmen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Motstanden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Spenningen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Antallet ledere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I parallellkobling er spenningen lik over alle grener, mens strømmen deler seg."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz2-q1",
+            "task": "Tre motstander på 60 $\\Omega$ hver er parallellkoblet. Hva er total motstand?",
+            "options": [
+              {
+                "id": "b",
+                "text": "180 $\\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "60 $\\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "30 $\\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "20 $\\Omega$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "For $n$ like motstander: $R_{tot} = R/n = 60/3 = 20\\,\\Omega$."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz2-q2",
+            "task": "Hvorfor brukes parallellkobling til lys i hus?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi alle lysene får full spenning og virker uavhengig av hverandre",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi lysene da blir svakere når man legger til flere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det krever færre ledninger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi strømmen da blir mindre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I parallell får hvert lys 230 V og fungerer for seg selv. Ryker én pære, lyser de andre videre."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz2-q3",
+            "task": "Hva er alltid sant om total motstand i en parallellkobling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den er lik summen av motstandene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den er mindre enn den minste enkeltmotstanden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den er alltid 0",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den er lik den største motstanden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Flere veier gjør det lettere for strømmen, så totalmotstanden blir alltid mindre enn den minste enkeltmotstanden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-2-n-section3",
+      "type": "text",
+      "content": "## Kirchhoffs lover og kombinerte kretser\n\nFor å holde styr på kretser som blander serie og parallell, har vi to regler som alltid gjelder – **Kirchhoffs lover**. De er rett og slett bokføringen for strøm og spenning.\n\n**Kirchhoffs strømlov (KCL)** sier at total strøm inn i et knutepunkt er lik total strøm ut: $\\sum I_{inn} = \\sum I_{ut}$. Strøm kan verken oppstå eller forsvinne. Kommer det 2 A inn i et forgreningspunkt og deler seg, kan grenene føre for eksempel 1,3 A og 0,7 A – til sammen fortsatt 2 A. **Kirchhoffs spenningslov (KVL)** sier at summen av spenningsfallene rundt en lukket sløyfe er null: $\\sum U = 0$. Det betyr at kildespenningen alltid er lik summen av spenningsfallene over komponentene – energien kilden gir, brukes opp i kretsen.\n\nMed disse verktøyene kan vi løse kombinerte kretser ved å forenkle steg for steg. Ta et eksempel: et 12 V-batteri med to parallelle grener. Gren A har 20 $\\Omega$ og 40 $\\Omega$ i serie, og gren B har én motstand på 30 $\\Omega$. Først serien i gren A: $20 + 40 = 60\\,\\Omega$. Så parallellen med gren B: $\\frac{1}{R_{tot}} = \\frac{1}{60} + \\frac{1}{30} = \\frac{1}{60} + \\frac{2}{60} = \\frac{3}{60}$, altså $R_{tot} = 20\\,\\Omega$. Totalstrømmen blir $I = 12/20 = 0{,}6$ A. Siden begge grener har 12 V over seg, fører gren A $12/60 = 0{,}2$ A og gren B $12/30 = 0{,}4$ A. Kontroll med strømloven: $0{,}2 + 0{,}4 = 0{,}6$ A – akkurat totalstrømmen."
+    },
+    {
+      "id": "elektro-data-vg1-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Kirchhoffs lover og kombinerte kretser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-2-n-quiz3-q0",
+            "task": "Hva sier Kirchhoffs strømlov?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Spenningen er lik over alle komponenter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Summen av spenninger er kildespenningen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Strøm inn i et knutepunkt er lik strøm ut",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Motstanden i en sløyfe er null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strømloven (KCL): $\\sum I_{inn} = \\sum I_{ut}$. Strøm kan verken oppstå eller forsvinne i et knutepunkt."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz3-q1",
+            "task": "Hva sier Kirchhoffs spenningslov?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Strømmen er null i en lukket sløyfe",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Motstanden er lik summen av spenningene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Effekten er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Summen av spenningsfallene rundt en lukket sløyfe er null",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Spenningsloven (KVL): $\\sum U = 0$. Kildespenningen er lik summen av spenningsfallene over komponentene."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz3-q2",
+            "task": "En 100 $\\Omega$ og en 200 $\\Omega$ i serie kobles parallelt med en 300 $\\Omega$. Hva er total motstand?",
+            "options": [
+              {
+                "id": "b",
+                "text": "150 $\\Omega$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "600 $\\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "300 $\\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "100 $\\Omega$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Serien: $100+200 = 300\\,\\Omega$. Parallelt med 300 $\\Omega$: $\\frac{1}{R} = \\frac{1}{300} + \\frac{1}{300} = \\frac{2}{300}$, så $R = 150\\,\\Omega$."
+          },
+          {
+            "id": "elektro-data-vg1-2-n-quiz3-q3",
+            "task": "I et knutepunkt kommer det inn 2 A. En gren fører 0,7 A. Hvor mye fører den andre grenen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2,7 A",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "1,3 A",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "0,7 A",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1,0 A",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strøm inn = strøm ut: $2 - 0{,}7 = 1{,}3$ A i den andre grenen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNå vet du hvordan en elektrisk krets er bygd opp og analysert. En **krets** er en lukket bane med spenningskilde, ledere, last og gjerne en bryter, tegnet med standardiserte symboler. I en **seriekobling** er strømmen den samme overalt, spenningen deles, motstandene legges sammen, og én svikt stopper alt. I en **parallellkobling** er spenningen lik, strømmen deler seg, $\\frac{1}{R_{tot}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$, og komponentene virker uavhengig.\n\n**Kirchhoffs lover** holder regnskapet: strømloven sier at strøm inn er lik strøm ut i et knutepunkt, og spenningsloven sier at spenningsfallene rundt en sløyfe summerer til null. Kombinerte kretser løser vi ved å forenkle steg for steg med Ohms lov og Kirchhoffs lover – akkurat slik vi gjorde med batteriet og de to grenene."
+    }
+  ],
+  "exercises": []
+}

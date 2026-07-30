@@ -1,1 +1,359 @@
-{"id":"tif-vg1-4-4-narrativ","courseId":"tif-vg1","chapterNumber":"4.4","title":"2D-DAK med tegneprogrammer","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis dataassistert konstruksjon gjer deg til ein lynrask, knivskarp teiknar -- frå koordinatar og kommandoar til lag som held teikninga ryddig.","estimatedMinutes":38,"competenceGoals":["bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon"],"linkedChapterId":"tif-vg1-4-4","content":[{"id":"tif-vg1-4-4-n-intro","type":"text","content":"## Frå blyant til datamus\n\nFør i tida sat teiknarar bøygde over store teiknebrett med linjal, passar og blyant. Skulle dei endre noko, måtte dei ofte teikne heile arket på nytt. I dag teiknar vi med **DAK** -- Dataassistert Konstruksjon, på engelsk CAD -- og det forandrar alt.\n\nKva vinn du? Teikning og endring går lynraskt, alt blir nøyaktig og konsistent, du kan kopiere og gjenbruke element, organisere teikninga i lag, målsetje automatisk, og dele og arkivere filene enkelt. Ein feil som før tydde timar med ny teikning, blir no retta på sekund.\n\nDei vanlegaste 2D-programma er AutoCAD (ein industristandard), DraftSight (AutoCAD-kompatibel), gratis LibreCAD med open kjeldekode, og Fusion 360 som lagar 2D frå 3D. Grensesnittet er nokså likt i alle: eit teikneområde der teikninga blir laga, ei kommandolinje for tekstinput, verktøylinjer med ikon, eit eigenskapspanel for å endre objekt, og eit lag-panel.\n\nDet aller mest grunnleggjande du må forstå, er **koordinatsystema**. **Absolutte** koordinatar tel frå eit fast nullpunkt (0,0). **Relative** koordinatar tel frå det siste punktet og blir skrivne med ein @ framfor, som @50,30. **Polare** koordinatar angir avstand og vinkel, som @avstand<vinkel. Vil du teikne ei linje frå (0,0) til (50,30), kan du altså skrive `LINE 0,0 50,30` med absolutte koordinatar, eller `LINE 0,0 @50,30` med relative. Desse systema er fundamentet for alt du gjer vidare."},{"id":"tif-vg1-4-4-n-section1","type":"text","content":"## Verktøykassa: å teikne og å endre\n\nNår koordinatane sit, treng du kommandoar for å faktisk lage geometri. **LINE** teiknar rette linjer mellom punkt. **CIRCLE** lagar sirklar på fleire måtar -- frå senter og radius, senter og diameter, to punkt, eller tre punkt. **ARC** teiknar bogar, **RECTANGLE** rektangel, og **POLYGON** regulære mangekantar du kan velje innskrivne eller omskrivne. **PLINE** (polylinje) bind linjer og bogar saman til eitt objekt, perfekt for konturar, og **HATCH** fyller eit avgrensa område med eit mønster -- til dømes ANSI31 til skravering i snitt.\n\nMen den verkelege krafta i DAK ligg i å *endre* det du har laga. Her kjem redigeringskommandoane inn. **MOVE** flyttar, **COPY** kopierer (som MOVE, men beheld originalen), **ROTATE** roterer rundt eit punkt, **MIRROR** spegelvender langs ein akse, og **SCALE** endrar storleik med ein skaleringsfaktor.\n\nEi eiga gruppe ryddar opp i geometrien. **TRIM** kuttar bort den delen av ei linje som stikk forbi eit skjeringspunkt -- du vel først kuttekantane, så segmenta som skal bort. **EXTEND** gjer det motsette og forlengjer ei linje til ho når ein kant. **OFFSET** lagar parallelle kopiar med fast avstand, uunnverleg for veggar og konturar. **FILLET** avrundar eit hjørne med ein gitt radius, og **CHAMFER** lagar ein fas. Med desse få kommandoane kan du byggje og finpusse nesten kvar 2D-geometri raskt og presist."},{"id":"tif-vg1-4-4-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-4-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på koordinatar og kommandoar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-4-n-quiz1-q0","task":"Kva tyder @50,30 i ein DAK-kommando?","options":[{"id":"a","text":"50 og 30 frå det faste nullpunktet (0,0)","isCorrect":false},{"id":"b","text":"Avstand 50 i vinkel 30 grader","isCorrect":false},{"id":"c","text":"50 i X og 30 i Y frå det siste punktet (relativt)","isCorrect":true},{"id":"d","text":"Ein sirkel med radius 50","isCorrect":false}],"solution":"@-teiknet tyder relative koordinatar: @50,30 er 50 i X og 30 i Y frå det siste punktet. Utan @ er det absolutte koordinatar frå origo."},{"id":"tif-vg1-4-4-n-quiz1-q1","task":"Kva for ein kommando lagar parallelle kopiar med fast avstand?","options":[{"id":"a","text":"COPY","isCorrect":false},{"id":"b","text":"MIRROR","isCorrect":false},{"id":"c","text":"ROTATE","isCorrect":false},{"id":"d","text":"OFFSET","isCorrect":true}],"solution":"OFFSET lagar parallelle kopiar av linjer, sirklar og polylinjer med ein spesifisert avstand. COPY lagar ein eksakt kopi, og MIRROR spegelvender."},{"id":"tif-vg1-4-4-n-quiz1-q2","task":"Kva gjer kommandoen TRIM?","options":[{"id":"a","text":"Kuttar bort linjedelar ved eit skjeringspunkt","isCorrect":true},{"id":"b","text":"Forlengjer linjer til ein kant","isCorrect":false},{"id":"c","text":"Roterer objekt","isCorrect":false},{"id":"d","text":"Kopierer linjer","isCorrect":false}],"solution":"TRIM kuttar bort delen av ei linje som stikk forbi eit skjeringspunkt. Du vel kuttekantar først, deretter segmenta som skal fjernast. EXTEND gjer det motsette."},{"id":"tif-vg1-4-4-n-quiz1-q3","task":"Kva for ein kommando avrundar eit hjørne med ein gitt radius?","options":[{"id":"a","text":"CHAMFER","isCorrect":false},{"id":"b","text":"FILLET","isCorrect":true},{"id":"c","text":"SCALE","isCorrect":false},{"id":"d","text":"HATCH","isCorrect":false}],"solution":"FILLET avrundar eit hjørne med ein angitt radius. CHAMFER lagar ein rett fas i staden for ei avrunding."}]}},{"id":"tif-vg1-4-4-n-section2","type":"text","content":"## Lag og målsetjing: orden i kaoset\n\nEi teikning kan fort bestå av hundrevis av linjer -- synlege kantar, skjulte kantar, senterlinjer, mål, tekst og skravering om kvarandre. Korleis held du orden? Svaret er **lag** (layers). Du kan tenkje på lag som gjennomsiktige transparentar du legg oppå kvarandre, der kvart lag inneheld éin type informasjon.\n\nEi typisk lag-struktur har eit lag for konturar (synlege kantar, tjukk linje), eit for skjulte kantar (stipla), eit for senterlinjer (strek-prikk), eit for målsetjing, eit for tekst og merknader, eit for skravering, og gjerne eit hjelpekonstruksjon-lag som blir sletta før utskrift. Kvart lag har eigenskapar du styrer samla: namn, farge, linjetype, linjetjukkleik, synlegheit (på/av), frys/tine for å spare minne, og lås så det ikkje kan redigerast. Treng du å skjule alle skjulte linjer? Slå av det laget. Det er heile poenget -- du styrer store grupper med eitt klikk.\n\nDen andre store fordelen med DAK er **automatisk målsetjing**. I staden for å skrive tal for hand peikar du på geometrien, og programmet hentar målet sjølv. **DIMLINEAR** gir horisontale og vertikale mål, **DIMALIGNED** måler parallelt med ei skrå linje, **DIMRADIUS** og **DIMDIAMETER** måler bogar og sirklar, og **DIMANGULAR** måler vinklar. Korleis måla ser ut, blir styrt av **målestilar** der du bestemmer piltypar, teksthøgd, toleransevisning og kor mange desimalar som blir viste.\n\nLa oss teikne ei $100 \\times 60$ mm plate med eit $\\varnothing 20$-hol i senter. Du set opp laga, teiknar konturen med `RECTANGLE 0,0 100,60` på kontur-laget, legg senterlinjer på senter-laget, teiknar holet med `CIRCLE` i 50,30 med radius 10, målset alt på mål-laget, og set inn tittelfeltet. Ryddig, presist og raskt å endre."},{"id":"tif-vg1-4-4-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-4-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på lag og målsetjing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-4-n-quiz2-q0","task":"Kva er hovudhensikta med lag (layers) i DAK?","options":[{"id":"a","text":"Å gjere teikninga meir fargerik","isCorrect":false},{"id":"b","text":"Å auke filstorleiken","isCorrect":false},{"id":"c","text":"Å organisere ulike typar objekt slik at dei kan styrast samla","isCorrect":true},{"id":"d","text":"Å erstatte målsetjinga","isCorrect":false}],"solution":"Lag fungerer som gjennomsiktige transparentar som grupperer objekttypar (konturar, skjulte, senter, mål osv.), slik at du kan slå av/på, låse og styre dei samla."},{"id":"tif-vg1-4-4-n-quiz2-q1","task":"Kva for ein målekommando blir brukt for diameteren på ein sirkel?","options":[{"id":"a","text":"DIMLINEAR","isCorrect":false},{"id":"b","text":"DIMANGULAR","isCorrect":false},{"id":"c","text":"DIMALIGNED","isCorrect":false},{"id":"d","text":"DIMDIAMETER","isCorrect":true}],"solution":"DIMDIAMETER måler diameteren på ein sirkel. DIMRADIUS måler radius, DIMLINEAR måler rette mål, og DIMANGULAR måler vinklar."},{"id":"tif-vg1-4-4-n-quiz2-q2","task":"Kva styrer ein målestil?","options":[{"id":"a","text":"Utsjånaden på måla: piltypar, teksthøgd, toleransar og tal på desimalar","isCorrect":true},{"id":"b","text":"Kva for eit lag teikninga ligg på","isCorrect":false},{"id":"c","text":"Kva for kommandoar som er tilgjengelege","isCorrect":false},{"id":"d","text":"Koordinatsystemet","isCorrect":false}],"solution":"Ein målestil definerer korleis målsetjinga ser ut -- piltypar, teksthøgd, toleransevisning og presisjon (tal på desimalar)."},{"id":"tif-vg1-4-4-n-quiz2-q3","task":"Kva er ein klar fordel med DAK framfor manuell teikning på papir?","options":[{"id":"a","text":"Det krev inga opplæring","isCorrect":false},{"id":"b","text":"Endringar kan gjerast raskt utan å teikne på nytt","isCorrect":true},{"id":"c","text":"Det fungerer utan datamaskin","isCorrect":false},{"id":"d","text":"Det er alltid gratis","isCorrect":false}],"solution":"Ein stor fordel med DAK er at endringar blir gjorde raskt utan å teikne på nytt, saman med høg nøyaktigheit og enkel gjenbruk. Ulempa er ei læringskurve."}]}},{"id":"tif-vg1-4-4-n-summary","type":"text","content":"## Oppsummering\n\nVi har gått frå teiknebrett til skjerm. **DAK** gir rask teikning og endring, høg nøyaktigheit, gjenbruk, lagdeling og automatisk målsetjing. Fundamentet er **koordinatsystema**: absolutte frå origo, relative frå siste punkt med @, og polare med avstand og vinkel.\n\nMed teiknekommandoar som LINE, CIRCLE, ARC, RECTANGLE, PLINE og HATCH byggjer du geometri, og med redigeringskommandoane MOVE, COPY, ROTATE, MIRROR, SCALE, TRIM, EXTEND, OFFSET, FILLET og CHAMFER endrar og finpussar du han lynraskt.\n\n**Lag** held teikninga ryddig ved å gruppere objekttypar du kan styre samla, og **automatisk målsetjing** med DIM-kommandoane hentar måla sjølv, styrt av ein målestil. Samanlikna med papir vinn DAK på endring, nøyaktigheit og gjenbruk -- den einaste reelle ulempa er læringskurva. Når du meistrar desse byggjeklossane, kan du lage profesjonelle produksjonsteikningar raskt og presist."}],"exercises":[],"_meta":{"sourceHash":"055c743216077b82","translatedAt":"2026-06-21T09:54:37.909Z","model":"claude-code-agent","strings":60,"tm":{"65e60b1df59804d8":"2D-DAK med tegneprogrammer","b195b06d1ed59702":"Narrativ versjon","91f5d3293909b29f":"Ei forteljing om korleis dataassistert konstruksjon gjer deg til ein lynrask, knivskarp teiknar -- frå koordinatar og kommandoar til lag som held teikninga ryddig.","731c2606c0f6a43d":"bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon","26a8c09ba305febb":"## Frå blyant til datamus\n\nFør i tida sat teiknarar bøygde over store teiknebrett med linjal, passar og blyant. Skulle dei endre noko, måtte dei ofte teikne heile arket på nytt. I dag teiknar vi med **DAK** -- Dataassistert Konstruksjon, på engelsk CAD -- og det forandrar alt.\n\nKva vinn du? Teikning og endring går lynraskt, alt blir nøyaktig og konsistent, du kan kopiere og gjenbruke element, organisere teikninga i lag, målsetje automatisk, og dele og arkivere filene enkelt. Ein feil som før tydde timar med ny teikning, blir no retta på sekund.\n\nDei vanlegaste 2D-programma er AutoCAD (ein industristandard), DraftSight (AutoCAD-kompatibel), gratis LibreCAD med open kjeldekode, og Fusion 360 som lagar 2D frå 3D. Grensesnittet er nokså likt i alle: eit teikneområde der teikninga blir laga, ei kommandolinje for tekstinput, verktøylinjer med ikon, eit eigenskapspanel for å endre objekt, og eit lag-panel.\n\nDet aller mest grunnleggjande du må forstå, er **koordinatsystema**. **Absolutte** koordinatar tel frå eit fast nullpunkt (0,0). **Relative** koordinatar tel frå det siste punktet og blir skrivne med ein @ framfor, som @50,30. **Polare** koordinatar angir avstand og vinkel, som @avstand<vinkel. Vil du teikne ei linje frå (0,0) til (50,30), kan du altså skrive `LINE 0,0 50,30` med absolutte koordinatar, eller `LINE 0,0 @50,30` med relative. Desse systema er fundamentet for alt du gjer vidare.","a31f8d24890a66f6":"## Verktøykassa: å teikne og å endre\n\nNår koordinatane sit, treng du kommandoar for å faktisk lage geometri. **LINE** teiknar rette linjer mellom punkt. **CIRCLE** lagar sirklar på fleire måtar -- frå senter og radius, senter og diameter, to punkt, eller tre punkt. **ARC** teiknar bogar, **RECTANGLE** rektangel, og **POLYGON** regulære mangekantar du kan velje innskrivne eller omskrivne. **PLINE** (polylinje) bind linjer og bogar saman til eitt objekt, perfekt for konturar, og **HATCH** fyller eit avgrensa område med eit mønster -- til dømes ANSI31 til skravering i snitt.\n\nMen den verkelege krafta i DAK ligg i å *endre* det du har laga. Her kjem redigeringskommandoane inn. **MOVE** flyttar, **COPY** kopierer (som MOVE, men beheld originalen), **ROTATE** roterer rundt eit punkt, **MIRROR** spegelvender langs ein akse, og **SCALE** endrar storleik med ein skaleringsfaktor.\n\nEi eiga gruppe ryddar opp i geometrien. **TRIM** kuttar bort den delen av ei linje som stikk forbi eit skjeringspunkt -- du vel først kuttekantane, så segmenta som skal bort. **EXTEND** gjer det motsette og forlengjer ei linje til ho når ein kant. **OFFSET** lagar parallelle kopiar med fast avstand, uunnverleg for veggar og konturar. **FILLET** avrundar eit hjørne med ein gitt radius, og **CHAMFER** lagar ein fas. Med desse få kommandoane kan du byggje og finpusse nesten kvar 2D-geometri raskt og presist.","08f785b913f42f0b":"Test deg sjølv på koordinatar og kommandoar:","4097889236a2af26":"placeholder","1ceb2bfd1c0f7152":"Kva tyder @50,30 i ein DAK-kommando?","db6a66a7d344a71a":"50 og 30 frå det faste nullpunktet (0,0)","92cbdfd0e070c595":"Avstand 50 i vinkel 30 grader","0daac6f7e65eedc0":"50 i X og 30 i Y frå det siste punktet (relativt)","cc11f609344cf6f2":"Ein sirkel med radius 50","74f4fd6ec81296b9":"@-teiknet tyder relative koordinatar: @50,30 er 50 i X og 30 i Y frå det siste punktet. Utan @ er det absolutte koordinatar frå origo.","95b299171989cc08":"Kva for ein kommando lagar parallelle kopiar med fast avstand?","dc26bc50abf8ce9c":"COPY","ddb33d9a4e289a68":"MIRROR","e5e86f0f7fce93ab":"ROTATE","82047faf5f269ba2":"OFFSET","b5211fb0d7e75490":"OFFSET lagar parallelle kopiar av linjer, sirklar og polylinjer med ein spesifisert avstand. COPY lagar ein eksakt kopi, og MIRROR spegelvender.","52f74618570bd551":"Kva gjer kommandoen TRIM?","61c88171410b50d3":"Kuttar bort linjedelar ved eit skjeringspunkt","59e31882e07b201a":"Forlengjer linjer til ein kant","8e30b1cd105db6dd":"Roterer objekt","873e40c5449013be":"Kopierer linjer","45df9a54494c9e10":"TRIM kuttar bort delen av ei linje som stikk forbi eit skjeringspunkt. Du vel kuttekantar først, deretter segmenta som skal fjernast. EXTEND gjer det motsette.","a8d0c01a971ebc4b":"Kva for ein kommando avrundar eit hjørne med ein gitt radius?","2b26f1a574c6c9fa":"CHAMFER","95caafda4753b8ba":"FILLET","ea4bee9597b89d39":"SCALE","207578d053b646b8":"HATCH","22d3ed55894fb18c":"FILLET avrundar eit hjørne med ein angitt radius. CHAMFER lagar ein rett fas i staden for ei avrunding.","3ddfeb8f925d7a82":"## Lag og målsetjing: orden i kaoset\n\nEi teikning kan fort bestå av hundrevis av linjer -- synlege kantar, skjulte kantar, senterlinjer, mål, tekst og skravering om kvarandre. Korleis held du orden? Svaret er **lag** (layers). Du kan tenkje på lag som gjennomsiktige transparentar du legg oppå kvarandre, der kvart lag inneheld éin type informasjon.\n\nEi typisk lag-struktur har eit lag for konturar (synlege kantar, tjukk linje), eit for skjulte kantar (stipla), eit for senterlinjer (strek-prikk), eit for målsetjing, eit for tekst og merknader, eit for skravering, og gjerne eit hjelpekonstruksjon-lag som blir sletta før utskrift. Kvart lag har eigenskapar du styrer samla: namn, farge, linjetype, linjetjukkleik, synlegheit (på/av), frys/tine for å spare minne, og lås så det ikkje kan redigerast. Treng du å skjule alle skjulte linjer? Slå av det laget. Det er heile poenget -- du styrer store grupper med eitt klikk.\n\nDen andre store fordelen med DAK er **automatisk målsetjing**. I staden for å skrive tal for hand peikar du på geometrien, og programmet hentar målet sjølv. **DIMLINEAR** gir horisontale og vertikale mål, **DIMALIGNED** måler parallelt med ei skrå linje, **DIMRADIUS** og **DIMDIAMETER** måler bogar og sirklar, og **DIMANGULAR** måler vinklar. Korleis måla ser ut, blir styrt av **målestilar** der du bestemmer piltypar, teksthøgd, toleransevisning og kor mange desimalar som blir viste.\n\nLa oss teikne ei $100 \\times 60$ mm plate med eit $\\varnothing 20$-hol i senter. Du set opp laga, teiknar konturen med `RECTANGLE 0,0 100,60` på kontur-laget, legg senterlinjer på senter-laget, teiknar holet med `CIRCLE` i 50,30 med radius 10, målset alt på mål-laget, og set inn tittelfeltet. Ryddig, presist og raskt å endre.","77eb438275652ea9":"Test deg sjølv på lag og målsetjing:","75f3178b61e750aa":"Kva er hovudhensikta med lag (layers) i DAK?","8af24e7f7471acfd":"Å gjere teikninga meir fargerik","9e088eb5ecc13798":"Å auke filstorleiken","20307d148eeaa78b":"Å organisere ulike typar objekt slik at dei kan styrast samla","4140672ccd06a9f3":"Å erstatte målsetjinga","1d6ae1e1e8646db3":"Lag fungerer som gjennomsiktige transparentar som grupperer objekttypar (konturar, skjulte, senter, mål osv.), slik at du kan slå av/på, låse og styre dei samla.","f869b342be1798ac":"Kva for ein målekommando blir brukt for diameteren på ein sirkel?","9e4ee0cc30d9837d":"DIMLINEAR","836385fd206cf7a9":"DIMANGULAR","c90bc322593d2507":"DIMALIGNED","be3d0cc2e175786e":"DIMDIAMETER","bab47128df5f3d5f":"DIMDIAMETER måler diameteren på ein sirkel. DIMRADIUS måler radius, DIMLINEAR måler rette mål, og DIMANGULAR måler vinklar.","47e066d038482d13":"Kva styrer ein målestil?","87dab265fb21d37e":"Utsjånaden på måla: piltypar, teksthøgd, toleransar og tal på desimalar","6528eb0a77e4b969":"Kva for eit lag teikninga ligg på","251b61aa61e893c7":"Kva for kommandoar som er tilgjengelege","599839fc4edf80ef":"Koordinatsystemet","2f8b6a28bbbef649":"Ein målestil definerer korleis målsetjinga ser ut -- piltypar, teksthøgd, toleransevisning og presisjon (tal på desimalar).","1cc8c020c6a72736":"Kva er ein klar fordel med DAK framfor manuell teikning på papir?","9c07a6455d6bcd4f":"Det krev inga opplæring","939f5b067a946af7":"Endringar kan gjerast raskt utan å teikne på nytt","5f8fb487fa9cfd9a":"Det fungerer utan datamaskin","1311d9e183c013a9":"Det er alltid gratis","e0fbb1daa5f3ae5c":"Ein stor fordel med DAK er at endringar blir gjorde raskt utan å teikne på nytt, saman med høg nøyaktigheit og enkel gjenbruk. Ulempa er ei læringskurve.","336a57e67218c79f":"## Oppsummering\n\nVi har gått frå teiknebrett til skjerm. **DAK** gir rask teikning og endring, høg nøyaktigheit, gjenbruk, lagdeling og automatisk målsetjing. Fundamentet er **koordinatsystema**: absolutte frå origo, relative frå siste punkt med @, og polare med avstand og vinkel.\n\nMed teiknekommandoar som LINE, CIRCLE, ARC, RECTANGLE, PLINE og HATCH byggjer du geometri, og med redigeringskommandoane MOVE, COPY, ROTATE, MIRROR, SCALE, TRIM, EXTEND, OFFSET, FILLET og CHAMFER endrar og finpussar du han lynraskt.\n\n**Lag** held teikninga ryddig ved å gruppere objekttypar du kan styre samla, og **automatisk målsetjing** med DIM-kommandoane hentar måla sjølv, styrt av ein målestil. Samanlikna med papir vinn DAK på endring, nøyaktigheit og gjenbruk -- den einaste reelle ulempa er læringskurva. Når du meistrar desse byggjeklossane, kan du lage profesjonelle produksjonsteikningar raskt og presist."}}}
+{
+  "id": "tif-vg1-4-4-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "4.4",
+  "title": "2D-DAK med tegneprogrammer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis dataassistert konstruksjon gjer deg til ein lynrask, knivskarp teiknar -- frå koordinatar og kommandoar til lag som held teikninga ryddig.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon"
+  ],
+  "linkedChapterId": "tif-vg1-4-4",
+  "content": [
+    {
+      "id": "tif-vg1-4-4-n-intro",
+      "type": "text",
+      "content": "## Frå blyant til datamus\n\nFør i tida sat teiknarar bøygde over store teiknebrett med linjal, passar og blyant. Skulle dei endre noko, måtte dei ofte teikne heile arket på nytt. I dag teiknar vi med **DAK** -- Dataassistert Konstruksjon, på engelsk CAD -- og det forandrar alt.\n\nKva vinn du? Teikning og endring går lynraskt, alt blir nøyaktig og konsistent, du kan kopiere og gjenbruke element, organisere teikninga i lag, målsetje automatisk, og dele og arkivere filene enkelt. Ein feil som før tydde timar med ny teikning, blir no retta på sekund.\n\nDei vanlegaste 2D-programma er AutoCAD (ein industristandard), DraftSight (AutoCAD-kompatibel), gratis LibreCAD med open kjeldekode, og Fusion 360 som lagar 2D frå 3D. Grensesnittet er nokså likt i alle: eit teikneområde der teikninga blir laga, ei kommandolinje for tekstinput, verktøylinjer med ikon, eit eigenskapspanel for å endre objekt, og eit lag-panel.\n\nDet aller mest grunnleggjande du må forstå, er **koordinatsystema**. **Absolutte** koordinatar tel frå eit fast nullpunkt (0,0). **Relative** koordinatar tel frå det siste punktet og blir skrivne med ein @ framfor, som @50,30. **Polare** koordinatar angir avstand og vinkel, som @avstand<vinkel. Vil du teikne ei linje frå (0,0) til (50,30), kan du altså skrive `LINE 0,0 50,30` med absolutte koordinatar, eller `LINE 0,0 @50,30` med relative. Desse systema er fundamentet for alt du gjer vidare."
+    },
+    {
+      "id": "tif-vg1-4-4-n-section1",
+      "type": "text",
+      "content": "## Verktøykassa: å teikne og å endre\n\nNår koordinatane sit, treng du kommandoar for å faktisk lage geometri. **LINE** teiknar rette linjer mellom punkt. **CIRCLE** lagar sirklar på fleire måtar -- frå senter og radius, senter og diameter, to punkt, eller tre punkt. **ARC** teiknar bogar, **RECTANGLE** rektangel, og **POLYGON** regulære mangekantar du kan velje innskrivne eller omskrivne. **PLINE** (polylinje) bind linjer og bogar saman til eitt objekt, perfekt for konturar, og **HATCH** fyller eit avgrensa område med eit mønster -- til dømes ANSI31 til skravering i snitt.\n\nMen den verkelege krafta i DAK ligg i å *endre* det du har laga. Her kjem redigeringskommandoane inn. **MOVE** flyttar, **COPY** kopierer (som MOVE, men beheld originalen), **ROTATE** roterer rundt eit punkt, **MIRROR** spegelvender langs ein akse, og **SCALE** endrar storleik med ein skaleringsfaktor.\n\nEi eiga gruppe ryddar opp i geometrien. **TRIM** kuttar bort den delen av ei linje som stikk forbi eit skjeringspunkt -- du vel først kuttekantane, så segmenta som skal bort. **EXTEND** gjer det motsette og forlengjer ei linje til ho når ein kant. **OFFSET** lagar parallelle kopiar med fast avstand, uunnverleg for veggar og konturar. **FILLET** avrundar eit hjørne med ein gitt radius, og **CHAMFER** lagar ein fas. Med desse få kommandoane kan du byggje og finpusse nesten kvar 2D-geometri raskt og presist."
+    },
+    {
+      "id": "tif-vg1-4-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på koordinatar og kommandoar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-4-n-quiz1-q0",
+            "task": "Kva tyder @50,30 i ein DAK-kommando?",
+            "options": [
+              {
+                "id": "a",
+                "text": "50 og 30 frå det faste nullpunktet (0,0)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "50 i X og 30 i Y frå det siste punktet (relativt)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Avstand 50 i vinkel 30 grader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein sirkel med radius 50",
+                "isCorrect": false
+              }
+            ],
+            "solution": "@-teiknet tyder relative koordinatar: @50,30 er 50 i X og 30 i Y frå det siste punktet. Utan @ er det absolutte koordinatar frå origo."
+          },
+          {
+            "id": "tif-vg1-4-4-n-quiz1-q1",
+            "task": "Kva for ein kommando lagar parallelle kopiar med fast avstand?",
+            "options": [
+              {
+                "id": "a",
+                "text": "COPY",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "MIRROR",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "OFFSET",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "ROTATE",
+                "isCorrect": false
+              }
+            ],
+            "solution": "OFFSET lagar parallelle kopiar av linjer, sirklar og polylinjer med ein spesifisert avstand. COPY lagar ein eksakt kopi, og MIRROR spegelvender."
+          },
+          {
+            "id": "tif-vg1-4-4-n-quiz1-q2",
+            "task": "Kva gjer kommandoen TRIM?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Forlengjer linjer til ein kant",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Roterer objekt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kopierer linjer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Kuttar bort linjedelar ved eit skjeringspunkt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "TRIM kuttar bort delen av ei linje som stikk forbi eit skjeringspunkt. Du vel kuttekantar først, deretter segmenta som skal fjernast. EXTEND gjer det motsette."
+          },
+          {
+            "id": "tif-vg1-4-4-n-quiz1-q3",
+            "task": "Kva for ein kommando avrundar eit hjørne med ein gitt radius?",
+            "options": [
+              {
+                "id": "b",
+                "text": "FILLET",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "CHAMFER",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "SCALE",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "HATCH",
+                "isCorrect": false
+              }
+            ],
+            "solution": "FILLET avrundar eit hjørne med ein angitt radius. CHAMFER lagar ein rett fas i staden for ei avrunding."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-4-n-section2",
+      "type": "text",
+      "content": "## Lag og målsetjing: orden i kaoset\n\nEi teikning kan fort bestå av hundrevis av linjer -- synlege kantar, skjulte kantar, senterlinjer, mål, tekst og skravering om kvarandre. Korleis held du orden? Svaret er **lag** (layers). Du kan tenkje på lag som gjennomsiktige transparentar du legg oppå kvarandre, der kvart lag inneheld éin type informasjon.\n\nEi typisk lag-struktur har eit lag for konturar (synlege kantar, tjukk linje), eit for skjulte kantar (stipla), eit for senterlinjer (strek-prikk), eit for målsetjing, eit for tekst og merknader, eit for skravering, og gjerne eit hjelpekonstruksjon-lag som blir sletta før utskrift. Kvart lag har eigenskapar du styrer samla: namn, farge, linjetype, linjetjukkleik, synlegheit (på/av), frys/tine for å spare minne, og lås så det ikkje kan redigerast. Treng du å skjule alle skjulte linjer? Slå av det laget. Det er heile poenget -- du styrer store grupper med eitt klikk.\n\nDen andre store fordelen med DAK er **automatisk målsetjing**. I staden for å skrive tal for hand peikar du på geometrien, og programmet hentar målet sjølv. **DIMLINEAR** gir horisontale og vertikale mål, **DIMALIGNED** måler parallelt med ei skrå linje, **DIMRADIUS** og **DIMDIAMETER** måler bogar og sirklar, og **DIMANGULAR** måler vinklar. Korleis måla ser ut, blir styrt av **målestilar** der du bestemmer piltypar, teksthøgd, toleransevisning og kor mange desimalar som blir viste.\n\nLa oss teikne ei $100 \\times 60$ mm plate med eit $\\varnothing 20$-hol i senter. Du set opp laga, teiknar konturen med `RECTANGLE 0,0 100,60` på kontur-laget, legg senterlinjer på senter-laget, teiknar holet med `CIRCLE` i 50,30 med radius 10, målset alt på mål-laget, og set inn tittelfeltet. Ryddig, presist og raskt å endre."
+    },
+    {
+      "id": "tif-vg1-4-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lag og målsetjing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-4-n-quiz2-q0",
+            "task": "Kva er hovudhensikta med lag (layers) i DAK?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gjere teikninga meir fargerik",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å organisere ulike typar objekt slik at dei kan styrast samla",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å auke filstorleiken",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å erstatte målsetjinga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lag fungerer som gjennomsiktige transparentar som grupperer objekttypar (konturar, skjulte, senter, mål osv.), slik at du kan slå av/på, låse og styre dei samla."
+          },
+          {
+            "id": "tif-vg1-4-4-n-quiz2-q1",
+            "task": "Kva for ein målekommando blir brukt for diameteren på ein sirkel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "DIMLINEAR",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "DIMANGULAR",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "DIMDIAMETER",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "DIMALIGNED",
+                "isCorrect": false
+              }
+            ],
+            "solution": "DIMDIAMETER måler diameteren på ein sirkel. DIMRADIUS måler radius, DIMLINEAR måler rette mål, og DIMANGULAR måler vinklar."
+          },
+          {
+            "id": "tif-vg1-4-4-n-quiz2-q2",
+            "task": "Kva styrer ein målestil?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kva for eit lag teikninga ligg på",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kva for kommandoar som er tilgjengelege",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Koordinatsystemet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Utsjånaden på måla: piltypar, teksthøgd, toleransar og tal på desimalar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein målestil definerer korleis målsetjinga ser ut -- piltypar, teksthøgd, toleransevisning og presisjon (tal på desimalar)."
+          },
+          {
+            "id": "tif-vg1-4-4-n-quiz2-q3",
+            "task": "Kva er ein klar fordel med DAK framfor manuell teikning på papir?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Endringar kan gjerast raskt utan å teikne på nytt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det krev inga opplæring",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det fungerer utan datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er alltid gratis",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein stor fordel med DAK er at endringar blir gjorde raskt utan å teikne på nytt, saman med høg nøyaktigheit og enkel gjenbruk. Ulempa er ei læringskurve."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har gått frå teiknebrett til skjerm. **DAK** gir rask teikning og endring, høg nøyaktigheit, gjenbruk, lagdeling og automatisk målsetjing. Fundamentet er **koordinatsystema**: absolutte frå origo, relative frå siste punkt med @, og polare med avstand og vinkel.\n\nMed teiknekommandoar som LINE, CIRCLE, ARC, RECTANGLE, PLINE og HATCH byggjer du geometri, og med redigeringskommandoane MOVE, COPY, ROTATE, MIRROR, SCALE, TRIM, EXTEND, OFFSET, FILLET og CHAMFER endrar og finpussar du han lynraskt.\n\n**Lag** held teikninga ryddig ved å gruppere objekttypar du kan styre samla, og **automatisk målsetjing** med DIM-kommandoane hentar måla sjølv, styrt av ein målestil. Samanlikna med papir vinn DAK på endring, nøyaktigheit og gjenbruk -- den einaste reelle ulempa er læringskurva. Når du meistrar desse byggjeklossane, kan du lage profesjonelle produksjonsteikningar raskt og presist."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "055c743216077b82",
+    "translatedAt": "2026-06-21T09:54:37.909Z",
+    "model": "claude-code-agent",
+    "strings": 60,
+    "tm": {
+      "65e60b1df59804d8": "2D-DAK med tegneprogrammer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "91f5d3293909b29f": "Ei forteljing om korleis dataassistert konstruksjon gjer deg til ein lynrask, knivskarp teiknar -- frå koordinatar og kommandoar til lag som held teikninga ryddig.",
+      "731c2606c0f6a43d": "bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon",
+      "26a8c09ba305febb": "## Frå blyant til datamus\n\nFør i tida sat teiknarar bøygde over store teiknebrett med linjal, passar og blyant. Skulle dei endre noko, måtte dei ofte teikne heile arket på nytt. I dag teiknar vi med **DAK** -- Dataassistert Konstruksjon, på engelsk CAD -- og det forandrar alt.\n\nKva vinn du? Teikning og endring går lynraskt, alt blir nøyaktig og konsistent, du kan kopiere og gjenbruke element, organisere teikninga i lag, målsetje automatisk, og dele og arkivere filene enkelt. Ein feil som før tydde timar med ny teikning, blir no retta på sekund.\n\nDei vanlegaste 2D-programma er AutoCAD (ein industristandard), DraftSight (AutoCAD-kompatibel), gratis LibreCAD med open kjeldekode, og Fusion 360 som lagar 2D frå 3D. Grensesnittet er nokså likt i alle: eit teikneområde der teikninga blir laga, ei kommandolinje for tekstinput, verktøylinjer med ikon, eit eigenskapspanel for å endre objekt, og eit lag-panel.\n\nDet aller mest grunnleggjande du må forstå, er **koordinatsystema**. **Absolutte** koordinatar tel frå eit fast nullpunkt (0,0). **Relative** koordinatar tel frå det siste punktet og blir skrivne med ein @ framfor, som @50,30. **Polare** koordinatar angir avstand og vinkel, som @avstand<vinkel. Vil du teikne ei linje frå (0,0) til (50,30), kan du altså skrive `LINE 0,0 50,30` med absolutte koordinatar, eller `LINE 0,0 @50,30` med relative. Desse systema er fundamentet for alt du gjer vidare.",
+      "a31f8d24890a66f6": "## Verktøykassa: å teikne og å endre\n\nNår koordinatane sit, treng du kommandoar for å faktisk lage geometri. **LINE** teiknar rette linjer mellom punkt. **CIRCLE** lagar sirklar på fleire måtar -- frå senter og radius, senter og diameter, to punkt, eller tre punkt. **ARC** teiknar bogar, **RECTANGLE** rektangel, og **POLYGON** regulære mangekantar du kan velje innskrivne eller omskrivne. **PLINE** (polylinje) bind linjer og bogar saman til eitt objekt, perfekt for konturar, og **HATCH** fyller eit avgrensa område med eit mønster -- til dømes ANSI31 til skravering i snitt.\n\nMen den verkelege krafta i DAK ligg i å *endre* det du har laga. Her kjem redigeringskommandoane inn. **MOVE** flyttar, **COPY** kopierer (som MOVE, men beheld originalen), **ROTATE** roterer rundt eit punkt, **MIRROR** spegelvender langs ein akse, og **SCALE** endrar storleik med ein skaleringsfaktor.\n\nEi eiga gruppe ryddar opp i geometrien. **TRIM** kuttar bort den delen av ei linje som stikk forbi eit skjeringspunkt -- du vel først kuttekantane, så segmenta som skal bort. **EXTEND** gjer det motsette og forlengjer ei linje til ho når ein kant. **OFFSET** lagar parallelle kopiar med fast avstand, uunnverleg for veggar og konturar. **FILLET** avrundar eit hjørne med ein gitt radius, og **CHAMFER** lagar ein fas. Med desse få kommandoane kan du byggje og finpusse nesten kvar 2D-geometri raskt og presist.",
+      "08f785b913f42f0b": "Test deg sjølv på koordinatar og kommandoar:",
+      "4097889236a2af26": "placeholder",
+      "1ceb2bfd1c0f7152": "Kva tyder @50,30 i ein DAK-kommando?",
+      "db6a66a7d344a71a": "50 og 30 frå det faste nullpunktet (0,0)",
+      "92cbdfd0e070c595": "Avstand 50 i vinkel 30 grader",
+      "0daac6f7e65eedc0": "50 i X og 30 i Y frå det siste punktet (relativt)",
+      "cc11f609344cf6f2": "Ein sirkel med radius 50",
+      "74f4fd6ec81296b9": "@-teiknet tyder relative koordinatar: @50,30 er 50 i X og 30 i Y frå det siste punktet. Utan @ er det absolutte koordinatar frå origo.",
+      "95b299171989cc08": "Kva for ein kommando lagar parallelle kopiar med fast avstand?",
+      "dc26bc50abf8ce9c": "COPY",
+      "ddb33d9a4e289a68": "MIRROR",
+      "e5e86f0f7fce93ab": "ROTATE",
+      "82047faf5f269ba2": "OFFSET",
+      "b5211fb0d7e75490": "OFFSET lagar parallelle kopiar av linjer, sirklar og polylinjer med ein spesifisert avstand. COPY lagar ein eksakt kopi, og MIRROR spegelvender.",
+      "52f74618570bd551": "Kva gjer kommandoen TRIM?",
+      "61c88171410b50d3": "Kuttar bort linjedelar ved eit skjeringspunkt",
+      "59e31882e07b201a": "Forlengjer linjer til ein kant",
+      "8e30b1cd105db6dd": "Roterer objekt",
+      "873e40c5449013be": "Kopierer linjer",
+      "45df9a54494c9e10": "TRIM kuttar bort delen av ei linje som stikk forbi eit skjeringspunkt. Du vel kuttekantar først, deretter segmenta som skal fjernast. EXTEND gjer det motsette.",
+      "a8d0c01a971ebc4b": "Kva for ein kommando avrundar eit hjørne med ein gitt radius?",
+      "2b26f1a574c6c9fa": "CHAMFER",
+      "95caafda4753b8ba": "FILLET",
+      "ea4bee9597b89d39": "SCALE",
+      "207578d053b646b8": "HATCH",
+      "22d3ed55894fb18c": "FILLET avrundar eit hjørne med ein angitt radius. CHAMFER lagar ein rett fas i staden for ei avrunding.",
+      "3ddfeb8f925d7a82": "## Lag og målsetjing: orden i kaoset\n\nEi teikning kan fort bestå av hundrevis av linjer -- synlege kantar, skjulte kantar, senterlinjer, mål, tekst og skravering om kvarandre. Korleis held du orden? Svaret er **lag** (layers). Du kan tenkje på lag som gjennomsiktige transparentar du legg oppå kvarandre, der kvart lag inneheld éin type informasjon.\n\nEi typisk lag-struktur har eit lag for konturar (synlege kantar, tjukk linje), eit for skjulte kantar (stipla), eit for senterlinjer (strek-prikk), eit for målsetjing, eit for tekst og merknader, eit for skravering, og gjerne eit hjelpekonstruksjon-lag som blir sletta før utskrift. Kvart lag har eigenskapar du styrer samla: namn, farge, linjetype, linjetjukkleik, synlegheit (på/av), frys/tine for å spare minne, og lås så det ikkje kan redigerast. Treng du å skjule alle skjulte linjer? Slå av det laget. Det er heile poenget -- du styrer store grupper med eitt klikk.\n\nDen andre store fordelen med DAK er **automatisk målsetjing**. I staden for å skrive tal for hand peikar du på geometrien, og programmet hentar målet sjølv. **DIMLINEAR** gir horisontale og vertikale mål, **DIMALIGNED** måler parallelt med ei skrå linje, **DIMRADIUS** og **DIMDIAMETER** måler bogar og sirklar, og **DIMANGULAR** måler vinklar. Korleis måla ser ut, blir styrt av **målestilar** der du bestemmer piltypar, teksthøgd, toleransevisning og kor mange desimalar som blir viste.\n\nLa oss teikne ei $100 \\times 60$ mm plate med eit $\\varnothing 20$-hol i senter. Du set opp laga, teiknar konturen med `RECTANGLE 0,0 100,60` på kontur-laget, legg senterlinjer på senter-laget, teiknar holet med `CIRCLE` i 50,30 med radius 10, målset alt på mål-laget, og set inn tittelfeltet. Ryddig, presist og raskt å endre.",
+      "77eb438275652ea9": "Test deg sjølv på lag og målsetjing:",
+      "75f3178b61e750aa": "Kva er hovudhensikta med lag (layers) i DAK?",
+      "8af24e7f7471acfd": "Å gjere teikninga meir fargerik",
+      "9e088eb5ecc13798": "Å auke filstorleiken",
+      "20307d148eeaa78b": "Å organisere ulike typar objekt slik at dei kan styrast samla",
+      "4140672ccd06a9f3": "Å erstatte målsetjinga",
+      "1d6ae1e1e8646db3": "Lag fungerer som gjennomsiktige transparentar som grupperer objekttypar (konturar, skjulte, senter, mål osv.), slik at du kan slå av/på, låse og styre dei samla.",
+      "f869b342be1798ac": "Kva for ein målekommando blir brukt for diameteren på ein sirkel?",
+      "9e4ee0cc30d9837d": "DIMLINEAR",
+      "836385fd206cf7a9": "DIMANGULAR",
+      "c90bc322593d2507": "DIMALIGNED",
+      "be3d0cc2e175786e": "DIMDIAMETER",
+      "bab47128df5f3d5f": "DIMDIAMETER måler diameteren på ein sirkel. DIMRADIUS måler radius, DIMLINEAR måler rette mål, og DIMANGULAR måler vinklar.",
+      "47e066d038482d13": "Kva styrer ein målestil?",
+      "87dab265fb21d37e": "Utsjånaden på måla: piltypar, teksthøgd, toleransar og tal på desimalar",
+      "6528eb0a77e4b969": "Kva for eit lag teikninga ligg på",
+      "251b61aa61e893c7": "Kva for kommandoar som er tilgjengelege",
+      "599839fc4edf80ef": "Koordinatsystemet",
+      "2f8b6a28bbbef649": "Ein målestil definerer korleis målsetjinga ser ut -- piltypar, teksthøgd, toleransevisning og presisjon (tal på desimalar).",
+      "1cc8c020c6a72736": "Kva er ein klar fordel med DAK framfor manuell teikning på papir?",
+      "9c07a6455d6bcd4f": "Det krev inga opplæring",
+      "939f5b067a946af7": "Endringar kan gjerast raskt utan å teikne på nytt",
+      "5f8fb487fa9cfd9a": "Det fungerer utan datamaskin",
+      "1311d9e183c013a9": "Det er alltid gratis",
+      "e0fbb1daa5f3ae5c": "Ein stor fordel med DAK er at endringar blir gjorde raskt utan å teikne på nytt, saman med høg nøyaktigheit og enkel gjenbruk. Ulempa er ei læringskurve.",
+      "336a57e67218c79f": "## Oppsummering\n\nVi har gått frå teiknebrett til skjerm. **DAK** gir rask teikning og endring, høg nøyaktigheit, gjenbruk, lagdeling og automatisk målsetjing. Fundamentet er **koordinatsystema**: absolutte frå origo, relative frå siste punkt med @, og polare med avstand og vinkel.\n\nMed teiknekommandoar som LINE, CIRCLE, ARC, RECTANGLE, PLINE og HATCH byggjer du geometri, og med redigeringskommandoane MOVE, COPY, ROTATE, MIRROR, SCALE, TRIM, EXTEND, OFFSET, FILLET og CHAMFER endrar og finpussar du han lynraskt.\n\n**Lag** held teikninga ryddig ved å gruppere objekttypar du kan styre samla, og **automatisk målsetjing** med DIM-kommandoane hentar måla sjølv, styrt av ein målestil. Samanlikna med papir vinn DAK på endring, nøyaktigheit og gjenbruk -- den einaste reelle ulempa er læringskurva. Når du meistrar desse byggjeklossane, kan du lage profesjonelle produksjonsteikningar raskt og presist."
+    }
+  }
+}

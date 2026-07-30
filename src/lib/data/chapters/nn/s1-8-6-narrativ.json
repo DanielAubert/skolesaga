@@ -1,1 +1,481 @@
-{"id":"s1-8-6-narrativ","courseId":"s1","chapterNumber":"8.6","title":"Sjølvstendig samfunnsøkonomisk prosjekt","subtitle":"Narrativ versjon","description":"Ei forteljing om sveinestykket i S1 — temaval, rapportstruktur, eksempelprosjektet om bustadprisar og rente, og krava til ærleg analyse.","estimatedMinutes":56,"competenceGoals":["planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn","uttrykkje eigne resonnement ved hjelp av matematiske omgrep og symbolspråk","bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett","bruke derivasjon til å analysere og forstå optimaliseringsproblem"],"linkedChapterId":"s1-8-6","content":[{"id":"s1-8-6-n-intro","type":"text","content":"## No er det din tur\n\nAlt du har lært i S1 — økonomifunksjonane i kapittel 4, regresjonen i kapittel 7, modelleringa i kapittel 8 — har peika mot dette: eit **sjølvstendig prosjekt** der du undersøkjer eit samfunnsøkonomisk spørsmål du sjølv vel, med ekte data. Dette kapittelet er ei arbeidsbok, ikkje ei lærebok: her er malen, eksempelet og kvalitetskrava.\n\nProsjektet er profilmålet til faget, og det viser at du kan formulere eit undersøkbart spørsmål, finne og forstå reelle data, velje og bruke matematiske verktøy, vurdere kvaliteten på modellane dine, og presentere funn ærleg og forståeleg.\n\nFørst temavalet. Eit godt prosjekttema er **konkret**, **datatilgjengeleg** og **personleg interessant**, og tre innfallsvinklar fungerer godt. **Ei eiga forundring:** «Kvifor er straum dyrare på Sørlandet?» — ekte spørsmål gir betre rapportar enn påtvinga. **Eit samfunnsfenomen:** bustadprisar, arbeidsløyse, prisvekst, lønsskilnader, energiprisar, valutakurs. **Ein lokal samanheng:** rekneskapen til ei bedrift, prisane i nærbutikken, leigeprisane i byen din.\n\nTemabanken er stor: marknad og prisar (bustadprisar og rente, bensinpris og oljepris, matprisar under inflasjon), arbeidsmarknad (løn etter utdanning, arbeidsløyse og BNP), demografi (folkevekst, utdanning og inntekt), bedriftsøkonomi (lønsemd i bransjar via BRREG) og berekraft (CO₂-utslepp og BNP, elbilandel).\n\nFør du startar, fire kontrollspørsmål: Finst det data, og kvar? Får du nok datapunkt (minst 6–8 for regresjon)? Er datasettet samfunnsøkonomisk relevant? Og kan du fullføre på 2–4 veker? Svarar du ja på alle, har du eit prosjekt."},{"id":"s1-8-6-n-quiz1","type":"exercise","exercise":{"id":"s1-8-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på temaval og førebuing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-6-n-quiz1-q0","task":"Kva kjenneteiknar eit godt prosjekttema?","options":[{"id":"a","text":"Det er konkret, datatilgjengeleg og personleg interessant","isCorrect":true},{"id":"b","text":"Det er så breitt som mogleg","isCorrect":false},{"id":"c","text":"Det krev data ingen har samla inn","isCorrect":false},{"id":"d","text":"Det garanterer eit spennande resultat","isCorrect":false}],"solution":"Konkret spørsmål, tilgjengelege data og ekte interesse er dei tre suksesskriteria."},{"id":"s1-8-6-n-quiz1-q1","task":"Kor mange datapunkt blir tilrådde som minimum for regresjon i prosjektet?","options":[{"id":"a","text":"2–3","isCorrect":false},{"id":"b","text":"Minst 6–8","isCorrect":true},{"id":"c","text":"Minst 100","isCorrect":false},{"id":"d","text":"Minst 1000","isCorrect":false}],"solution":"Med færre enn 6–8 punkt blir regresjonsresultata for usikre til å vere meiningsfulle."},{"id":"s1-8-6-n-quiz1-q2","task":"Kva av desse er eit eigna S1-prosjekttema?","options":[{"id":"a","text":"«Korleis heng økonomi saman?»","isCorrect":false},{"id":"b","text":"«Er matematikk viktig?»","isCorrect":false},{"id":"c","text":"«Kva er meininga med pengar?»","isCorrect":false},{"id":"d","text":"«Kor sterk er samanhengen mellom styringsrenta og bustadprisindeksen i Noreg 2014–2024?»","isCorrect":true}],"solution":"Det siste er konkret, målbart, avgrensa og har offentleg tilgjengelege data frå SSB og Noregs Bank."}]}},{"id":"s1-8-6-n-section1","type":"text","content":"## Skjelettet i rapporten — og eit heilt eksempel\n\nEin typisk S1-prosjektrapport er på 4–8 sider og følgjer ein fast struktur: **(1) Samandrag** (eitt avsnitt: kva spurde du om, kva fann du), **(2) Innleiing og problemstilling** (bakgrunn, motivasjon, presist spørsmål), **(3) Data og metode** (kjelder med URL og nedlastingsdato, datahandsaming, verktøy), **(4) Analyse og resultat** (tabellar, grafar, berekningar), **(5) Drøfting** (kva betyr funna, avgrensingar, korrelasjon vs. kausalitet), **(6) Konklusjon** (direkte svar på problemstillinga) og **(7) Kjeldeliste**.\n\nSjå strukturen i eit fullført eksempel: *Bustadprisar og rente i Noreg 2014–2024*. **Problemstillinga:** Kor sterk er korrelasjonen mellom styringsrenta til Noregs Bank og bustadprisindeksen? Grunngivinga er økonomisk: renta avgjer kva folk kan betene i lån. **Data og metode:** SSB tabell 06035 (bustadprisindeks) og styringsrenta til Noregs Bank, lasta ned som CSV, årlege snitt rekna i Excel. **Analyse:** spreiingsplott av (årleg snittrente, bustadprisindeks) og lineær regresjon i GeoGebra gav $\\hat{y} = -7{,}4r + 145$ med $R^2 \\approx 0{,}42$ og $r \\approx -0{,}65$.\n\n**Drøftinga** er hjartet i rapporten: $R^2 = 0{,}42$ er moderat — renta forklarer ein del, men langt frå alt; demografi, byggjekostnader og pandemiåra 2020–2022 (låge renter *og* bustadprishopp) speler inn. Korrelasjon er ikkje kausalitet, men her finst god teoretisk grunn til å tru at låg rente *delvis* driv prisane. **Konklusjonen** svarar direkte: moderat negativ samanheng ($r \\approx -0{,}65$); bustadprisane heng saman med rentenivået, men blir ikkje avgjorde av det åleine. Vidare arbeid kunne inkludert folketal, bygging og løn.\n\nLegg merke til tonen: presis, nøktern, open om avgrensingar. Det er slik ein rapport byggjer tillit — ikkje ved å overdrive funna, men ved å vise at du forstår dei."},{"id":"s1-8-6-n-quiz2","type":"exercise","exercise":{"id":"s1-8-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på rapportstruktur og eksempelprosjektet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-6-n-quiz2-q0","task":"Kva skal stå i samandraget til rapporten?","options":[{"id":"a","text":"Alle berekningane","isCorrect":false},{"id":"b","text":"Kjeldelista","isCorrect":false},{"id":"c","text":"Kva du spurde om og kva du fann — i eitt avsnitt","isCorrect":true},{"id":"d","text":"Ei detaljert metodeskildring","isCorrect":false}],"solution":"Samandraget er kortversjonen: problemstilling og hovudfunn, lesbart på under eitt minutt."},{"id":"s1-8-6-n-quiz2-q1","task":"Eksempelprosjektet fann $r \\approx -0{,}65$ mellom styringsrente og bustadprisindeks. Kva betyr det?","options":[{"id":"a","text":"Låg rente forårsakar beviseleg høge bustadprisar","isCorrect":false},{"id":"b","text":"Moderat negativ samvariasjon — lågare rente er forbunde med høgare bustadprisar","isCorrect":true},{"id":"c","text":"Renta har ingen betydning for bustadprisane","isCorrect":false},{"id":"d","text":"Bustadprisane avgjer renta","isCorrect":false}],"solution":"Korrelasjonen er moderat negativ. Teorien støttar ei delvis kausal tolking, men dataene åleine beviser han ikkje."},{"id":"s1-8-6-n-quiz2-q2","task":"$R^2 = 0{,}42$ i eksempelet. Kva er rett tolking i drøftinga?","options":[{"id":"a","text":"Renta forklarer ein del av variasjonen, men andre faktorar speler også inn","isCorrect":true},{"id":"b","text":"Modellen er ubrukeleg","isCorrect":false},{"id":"c","text":"$42\\,\\%$ av bustadene blir påverka av renta","isCorrect":false},{"id":"d","text":"Analysen må gjerast på nytt til $R^2$ blir høgare","isCorrect":false}],"solution":"Moderat $R^2$ er eit ærleg og informativt resultat: renta er ein av fleire drivarar — demografi, bygging og løn bidreg også."},{"id":"s1-8-6-n-quiz2-q3","task":"Kva kjenneteiknar ein god drøftingsdel?","options":[{"id":"a","text":"Han gjentek resultata utan vurdering","isCorrect":false},{"id":"b","text":"Han utelèt alt som svekkjer konklusjonen","isCorrect":false},{"id":"c","text":"Han fastslår kausalitet når $r$ er sterk","isCorrect":false},{"id":"d","text":"Han diskuterer avgrensingar, konfundere og skiljet mellom korrelasjon og kausalitet","isCorrect":true}],"solution":"Drøftinga viser at du forstår rekkjevidda til funna — inkludert det analysen ikkje kan svare på."}]}},{"id":"s1-8-6-n-section2","type":"text","content":"## Kvalitetskrava — og fellene som feller prosjekt\n\nKva skil ein svak rapport frå ein sterk? Vurderingskriteria peikar på det same mønsteret heile vegen: **problemstillinga** skal vere presis, målbar og avgrensa (ikkje vag og vid); **datakjeldene** skal oppgivast med URL og dato, kontrollerbare; **handsaminga** skal dokumenterast val for val; **metodebruken** skal vere rett *og grunngitt*; **matematikken** korrekt med regresjon og derivasjon der det passar; **tolkinga** skal drøfte uvisse, konfundere og kausalitet; **kritisk vurdering** skal innrømme avgrensingar og foreslå forbetringar; **presentasjonen** skal ha klar struktur og gode figurar; og **ærlegheita** skal tole dagslys — også resultat som ikkje passa hypotesen, skal med.\n\nDet siste fortener ei åtvaring. Det freistar å «pynte» eit prosjekt: skjule data som ikkje passar, velje variablane som gir høgast $R^2$, selje korrelasjon som kausalitet, strekkje akseskalaen. **Det er ikkje fagleg arbeid — det er reklame.** Ein ærleg analyse med moderat $R^2$ er meir verdfull enn ein overdriven med høg.\n\nDei sju klassiske fellene, til slutt, som sjekkliste: **(1)** for vid problemstilling, **(2)** for lite data ($n = 4$ gir meiningslaus regresjon), **(3)** verktøy utan forståing (rapportere $R^2$ utan residualsjekk), **(4)** vill ekstrapolering (BNP i 2050 frå data 2015–2024), **(5)** korrelasjon seld som kausalitet, **(6)** manglande kjeldetilvisingar («ifølgje SSB» utan tabellnummer og dato), og **(7)** ingen avgrensingar nemnde — ein seriøs rapport seier også kva analysen *ikkje* kan svare på.\n\nTidsplanen er overkommeleg: veke 1 til tema, problemstilling og datanedlasting (cirka 7 timar), veke 2 til handsaming, analyse, grafar og modellsjekk (cirka 9 timar), veke 3 til skriving, korrektur og levering (cirka 6 timar). Rundt 22 timar totalt — og sjekklista frå kapittel 6.7 tek du fram før du leverer."},{"id":"s1-8-6-n-quiz3","type":"exercise","exercise":{"id":"s1-8-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på kvalitet, ærlegheit og fallgruver:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-6-n-quiz3-q0","task":"Kvifor er det gale å velje variablane som gir høgast $R^2$?","options":[{"id":"a","text":"Fordi høg $R^2$ alltid er feil","isCorrect":false},{"id":"b","text":"Det er cherry-picking — analysen skal styrast av problemstillinga, ikkje av ønskt resultat","isCorrect":true},{"id":"c","text":"Fordi $R^2$ ikkje kan samanliknast mellom modellar","isCorrect":false},{"id":"d","text":"Det er heilt i orden","isCorrect":false}],"solution":"Å leite etter resultat som pyntar rapporten er reklame, ikkje fagleg arbeid. Variablane blir valde ut frå spørsmålet."},{"id":"s1-8-6-n-quiz3-q1","task":"Kva er gale med å predikere BNP i 2050 frå data for 2015–2024?","options":[{"id":"a","text":"BNP kan ikkje modellerast matematisk","isCorrect":false},{"id":"b","text":"Datasettet er for gammalt","isCorrect":false},{"id":"c","text":"Regresjon verkar ikkje på årstal","isCorrect":false},{"id":"d","text":"Det er ekstrem ekstrapolering — modellen veit ingenting om 25 år med moglege strukturskift","isCorrect":true}],"solution":"Langt utanfor dataområdet bryt føresetnadene til modellen saman — pandemiar, krigar og teknologiskift blir ikkje fanga."},{"id":"s1-8-6-n-quiz3-q2","task":"Korleis skal kjelder oppgivast i rapporten?","options":[{"id":"a","text":"«Ifølgje SSB» held","isCorrect":false},{"id":"b","text":"Kjelder er unødvendige for offentlege data","isCorrect":false},{"id":"c","text":"Med tabellnummer/URL og dato for nedlasting, slik at dei kan kontrollerast","isCorrect":true},{"id":"d","text":"Berre i munnleg presentasjon","isCorrect":false}],"solution":"Verifiserbare kjelder — tabell, lenkje og lesedato — er eit absolutt krav for etterprøvbarheit."},{"id":"s1-8-6-n-quiz3-q3","task":"Resultata dine støttar ikkje hypotesen din. Kva gjer du?","options":[{"id":"a","text":"Rapporterer dei ope og drøftar kva dei betyr","isCorrect":true},{"id":"b","text":"Endrar hypotesen i etterkant utan å nemne det","isCorrect":false},{"id":"c","text":"Utelèt dei ubehagelege tala","isCorrect":false},{"id":"d","text":"Samlar nye data til hypotesen stemmer","isCorrect":false}],"solution":"Ærlegheit er det tyngste vurderingskriteriet: vis det du fann, også når det er kjedeleg eller ubelageleg."}]}},{"id":"s1-8-6-n-summary","type":"text","content":"## Oppsummering: prosjektet som samlar heile faget\n\nDette er sveinestykket til S1. **Prosessen** kjenner du no frå ende til annan: eit konkret, datatilgjengeleg tema → presis problemstilling → data frå SSB, Noregs Bank eller BRREG med URL og dato → handsaming dokumentert val for val → analyse med regresjon, korrelasjon og indeksrekning → drøfting av uvisse, konfundere og kausalitet → konklusjon som svarar direkte på spørsmålet → kjeldeliste. Dei sju delane av rapporten gir skjelettet, og eksempelprosjektet om bustadprisar og rente viste kjøtet på beina: $r \\approx -0{,}65$, $R^2 \\approx 0{,}42$, og ei drøfting som verken overdreiv eller underslo.\n\n**Kvaliteten** blir målt på presisjon, dokumentasjon, metodeforståing og — tyngst av alt — **fagleg integritet**: ingen cherry-picking, ingen korrelasjon seld som kausalitet, ingen manipulerte aksar, og avgrensingane ope på bordet. Dei sju fellene har du som sjekkliste, og tidsplanen på cirka 22 timar over tre veker gjer prosjektet handterleg.\n\nNår rapporten er levert, har du gjort det kompetansemålet skildrar: planlagt og gjennomført eit sjølvstendig arbeid med reelle datasett, analysert og presentert funn. Men du har også gjort noko meir: du har øvd på den arbeidsforma som møter deg i studium og arbeidsliv — å forvandle eit ekte spørsmål til data, dataene til innsikt, og innsikta til ein tekst andre kan stole på. Det er matematikk som samfunnskompetanse. Lykke til!"}],"exercises":[],"_meta":{"sourceHash":"a7ab01677c3187bb","translatedAt":"2026-06-20T08:46:57.362Z","model":"claude-code-agent","strings":82,"tm":{"6057b07a58e607ab":"Sjølvstendig samfunnsøkonomisk prosjekt","b195b06d1ed59702":"Narrativ versjon","3a2d2b122246fe7d":"Ei forteljing om sveinestykket i S1 — temaval, rapportstruktur, eksempelprosjektet om bustadprisar og rente, og krava til ærleg analyse.","f19afc4d3d0e5171":"planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn","3565806786e010f7":"uttrykkje eigne resonnement ved hjelp av matematiske omgrep og symbolspråk","6c8c1b0ca1a567ea":"bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett","b977895472710067":"bruke derivasjon til å analysere og forstå optimaliseringsproblem","34c5635304f64fe5":"## No er det din tur\n\nAlt du har lært i S1 — økonomifunksjonane i kapittel 4, regresjonen i kapittel 7, modelleringa i kapittel 8 — har peika mot dette: eit **sjølvstendig prosjekt** der du undersøkjer eit samfunnsøkonomisk spørsmål du sjølv vel, med ekte data. Dette kapittelet er ei arbeidsbok, ikkje ei lærebok: her er malen, eksempelet og kvalitetskrava.\n\nProsjektet er profilmålet til faget, og det viser at du kan formulere eit undersøkbart spørsmål, finne og forstå reelle data, velje og bruke matematiske verktøy, vurdere kvaliteten på modellane dine, og presentere funn ærleg og forståeleg.\n\nFørst temavalet. Eit godt prosjekttema er **konkret**, **datatilgjengeleg** og **personleg interessant**, og tre innfallsvinklar fungerer godt. **Ei eiga forundring:** «Kvifor er straum dyrare på Sørlandet?» — ekte spørsmål gir betre rapportar enn påtvinga. **Eit samfunnsfenomen:** bustadprisar, arbeidsløyse, prisvekst, lønsskilnader, energiprisar, valutakurs. **Ein lokal samanheng:** rekneskapen til ei bedrift, prisane i nærbutikken, leigeprisane i byen din.\n\nTemabanken er stor: marknad og prisar (bustadprisar og rente, bensinpris og oljepris, matprisar under inflasjon), arbeidsmarknad (løn etter utdanning, arbeidsløyse og BNP), demografi (folkevekst, utdanning og inntekt), bedriftsøkonomi (lønsemd i bransjar via BRREG) og berekraft (CO₂-utslepp og BNP, elbilandel).\n\nFør du startar, fire kontrollspørsmål: Finst det data, og kvar? Får du nok datapunkt (minst 6–8 for regresjon)? Er datasettet samfunnsøkonomisk relevant? Og kan du fullføre på 2–4 veker? Svarar du ja på alle, har du eit prosjekt.","2c3549820cc4fe49":"Test deg sjølv på temaval og førebuing:","4097889236a2af26":"placeholder","90b31cf12b805974":"Kva kjenneteiknar eit godt prosjekttema?","795c5d6774295bda":"Det er konkret, datatilgjengeleg og personleg interessant","3991f1dfbab8294d":"Det er så breitt som mogleg","c9eaa5c601bf68c3":"Det krev data ingen har samla inn","0c81d0450ce6544f":"Det garanterer eit spennande resultat","877d4d96ab2ead76":"Konkret spørsmål, tilgjengelege data og ekte interesse er dei tre suksesskriteria.","e89bfde32f94df9b":"Kor mange datapunkt blir tilrådde som minimum for regresjon i prosjektet?","b1a24a9620d2b6f1":"Minst 6–8","ad361b212e5f6d3b":"Minst 100","716f4e8dcd46599c":"Minst 1000","b296aa0d42dbda60":"Med færre enn 6–8 punkt blir regresjonsresultata for usikre til å vere meiningsfulle.","9ae7736dbbcb6786":"Kva av desse er eit eigna S1-prosjekttema?","327d42554fabb17c":"«Korleis heng økonomi saman?»","6fe272622c6955dd":"«Er matematikk viktig?»","a849512af106b484":"«Kva er meininga med pengar?»","5180becf0fa95a92":"«Kor sterk er samanhengen mellom styringsrenta og bustadprisindeksen i Noreg 2014–2024?»","a91b2c7248aaadee":"Det siste er konkret, målbart, avgrensa og har offentleg tilgjengelege data frå SSB og Noregs Bank.","4b0b90e8bc920af2":"## Skjelettet i rapporten — og eit heilt eksempel\n\nEin typisk S1-prosjektrapport er på 4–8 sider og følgjer ein fast struktur: **(1) Samandrag** (eitt avsnitt: kva spurde du om, kva fann du), **(2) Innleiing og problemstilling** (bakgrunn, motivasjon, presist spørsmål), **(3) Data og metode** (kjelder med URL og nedlastingsdato, datahandsaming, verktøy), **(4) Analyse og resultat** (tabellar, grafar, berekningar), **(5) Drøfting** (kva betyr funna, avgrensingar, korrelasjon vs. kausalitet), **(6) Konklusjon** (direkte svar på problemstillinga) og **(7) Kjeldeliste**.\n\nSjå strukturen i eit fullført eksempel: *Bustadprisar og rente i Noreg 2014–2024*. **Problemstillinga:** Kor sterk er korrelasjonen mellom styringsrenta til Noregs Bank og bustadprisindeksen? Grunngivinga er økonomisk: renta avgjer kva folk kan betene i lån. **Data og metode:** SSB tabell 06035 (bustadprisindeks) og styringsrenta til Noregs Bank, lasta ned som CSV, årlege snitt rekna i Excel. **Analyse:** spreiingsplott av (årleg snittrente, bustadprisindeks) og lineær regresjon i GeoGebra gav $\\hat{y} = -7{,}4r + 145$ med $R^2 \\approx 0{,}42$ og $r \\approx -0{,}65$.\n\n**Drøftinga** er hjartet i rapporten: $R^2 = 0{,}42$ er moderat — renta forklarer ein del, men langt frå alt; demografi, byggjekostnader og pandemiåra 2020–2022 (låge renter *og* bustadprishopp) speler inn. Korrelasjon er ikkje kausalitet, men her finst god teoretisk grunn til å tru at låg rente *delvis* driv prisane. **Konklusjonen** svarar direkte: moderat negativ samanheng ($r \\approx -0{,}65$); bustadprisane heng saman med rentenivået, men blir ikkje avgjorde av det åleine. Vidare arbeid kunne inkludert folketal, bygging og løn.\n\nLegg merke til tonen: presis, nøktern, open om avgrensingar. Det er slik ein rapport byggjer tillit — ikkje ved å overdrive funna, men ved å vise at du forstår dei.","ab7fb9045641bf56":"Test deg sjølv på rapportstruktur og eksempelprosjektet:","ac154cf7fd108d7d":"Kva skal stå i samandraget til rapporten?","384977470ba70daf":"Alle berekningane","cf582de51a8844cb":"Kjeldelista","fea2f6951db1437b":"Kva du spurde om og kva du fann — i eitt avsnitt","ae5d99a72541b76e":"Ei detaljert metodeskildring","0aa9edfe5923c115":"Samandraget er kortversjonen: problemstilling og hovudfunn, lesbart på under eitt minutt.","b4aa2d5662f0820b":"Eksempelprosjektet fann $r \\approx -0{,}65$ mellom styringsrente og bustadprisindeks. Kva betyr det?","48eb6b2a69179a9b":"Låg rente forårsakar beviseleg høge bustadprisar","e6aae3925d71c31b":"Moderat negativ samvariasjon — lågare rente er forbunde med høgare bustadprisar","a903d38e7b8c3a1b":"Renta har ingen betydning for bustadprisane","710f9e9422c7b839":"Bustadprisane avgjer renta","f8399e7c91022d3d":"Korrelasjonen er moderat negativ. Teorien støttar ei delvis kausal tolking, men dataene åleine beviser han ikkje.","e11eab1abaa79e99":"$R^2 = 0{,}42$ i eksempelet. Kva er rett tolking i drøftinga?","5f44f9da46eec56b":"Renta forklarer ein del av variasjonen, men andre faktorar speler også inn","2b549e0c7fed8934":"Modellen er ubrukeleg","facde358c103837b":"$42\\,\\%$ av bustadene blir påverka av renta","d175f0aacaa8c293":"Analysen må gjerast på nytt til $R^2$ blir høgare","b9dbc6b831bf69d0":"Moderat $R^2$ er eit ærleg og informativt resultat: renta er ein av fleire drivarar — demografi, bygging og løn bidreg også.","e39c87974bb95240":"Kva kjenneteiknar ein god drøftingsdel?","fcbe79f6a30ff874":"Han gjentek resultata utan vurdering","83ce3a217c4b7331":"Han utelèt alt som svekkjer konklusjonen","f87adf9384721cdd":"Han fastslår kausalitet når $r$ er sterk","4d198d9d586ade2e":"Han diskuterer avgrensingar, konfundere og skiljet mellom korrelasjon og kausalitet","f6d25e6d036164c5":"Drøftinga viser at du forstår rekkjevidda til funna — inkludert det analysen ikkje kan svare på.","46afa75ad7bc569b":"## Kvalitetskrava — og fellene som feller prosjekt\n\nKva skil ein svak rapport frå ein sterk? Vurderingskriteria peikar på det same mønsteret heile vegen: **problemstillinga** skal vere presis, målbar og avgrensa (ikkje vag og vid); **datakjeldene** skal oppgivast med URL og dato, kontrollerbare; **handsaminga** skal dokumenterast val for val; **metodebruken** skal vere rett *og grunngitt*; **matematikken** korrekt med regresjon og derivasjon der det passar; **tolkinga** skal drøfte uvisse, konfundere og kausalitet; **kritisk vurdering** skal innrømme avgrensingar og foreslå forbetringar; **presentasjonen** skal ha klar struktur og gode figurar; og **ærlegheita** skal tole dagslys — også resultat som ikkje passa hypotesen, skal med.\n\nDet siste fortener ei åtvaring. Det freistar å «pynte» eit prosjekt: skjule data som ikkje passar, velje variablane som gir høgast $R^2$, selje korrelasjon som kausalitet, strekkje akseskalaen. **Det er ikkje fagleg arbeid — det er reklame.** Ein ærleg analyse med moderat $R^2$ er meir verdfull enn ein overdriven med høg.\n\nDei sju klassiske fellene, til slutt, som sjekkliste: **(1)** for vid problemstilling, **(2)** for lite data ($n = 4$ gir meiningslaus regresjon), **(3)** verktøy utan forståing (rapportere $R^2$ utan residualsjekk), **(4)** vill ekstrapolering (BNP i 2050 frå data 2015–2024), **(5)** korrelasjon seld som kausalitet, **(6)** manglande kjeldetilvisingar («ifølgje SSB» utan tabellnummer og dato), og **(7)** ingen avgrensingar nemnde — ein seriøs rapport seier også kva analysen *ikkje* kan svare på.\n\nTidsplanen er overkommeleg: veke 1 til tema, problemstilling og datanedlasting (cirka 7 timar), veke 2 til handsaming, analyse, grafar og modellsjekk (cirka 9 timar), veke 3 til skriving, korrektur og levering (cirka 6 timar). Rundt 22 timar totalt — og sjekklista frå kapittel 6.7 tek du fram før du leverer.","d2b7530c79a43f79":"Test deg sjølv på kvalitet, ærlegheit og fallgruver:","e92bad6b24e514da":"Kvifor er det gale å velje variablane som gir høgast $R^2$?","9c1f0e33ab816278":"Fordi høg $R^2$ alltid er feil","9963752a02400191":"Det er cherry-picking — analysen skal styrast av problemstillinga, ikkje av ønskt resultat","bbed9c1caa948f79":"Fordi $R^2$ ikkje kan samanliknast mellom modellar","326e78472169d736":"Det er heilt i orden","9806f209f865407a":"Å leite etter resultat som pyntar rapporten er reklame, ikkje fagleg arbeid. Variablane blir valde ut frå spørsmålet.","16ccd356813f4e65":"Kva er gale med å predikere BNP i 2050 frå data for 2015–2024?","e55fd9fc8af3fb56":"BNP kan ikkje modellerast matematisk","b2c7112a077d5758":"Datasettet er for gammalt","44fa8ae9a636ce42":"Regresjon verkar ikkje på årstal","cf71b9e608d4be7c":"Det er ekstrem ekstrapolering — modellen veit ingenting om 25 år med moglege strukturskift","d51e53904b5f5497":"Langt utanfor dataområdet bryt føresetnadene til modellen saman — pandemiar, krigar og teknologiskift blir ikkje fanga.","4d76e2e8bdb020e9":"Korleis skal kjelder oppgivast i rapporten?","671b70c631f5f1d5":"«Ifølgje SSB» held","85b4fd2cc8219fb1":"Kjelder er unødvendige for offentlege data","f6acf59bc8c30521":"Med tabellnummer/URL og dato for nedlasting, slik at dei kan kontrollerast","c08568115057e9d0":"Berre i munnleg presentasjon","9277ede5450b00c0":"Verifiserbare kjelder — tabell, lenkje og lesedato — er eit absolutt krav for etterprøvbarheit.","1557025337f1defa":"Resultata dine støttar ikkje hypotesen din. Kva gjer du?","a27f66399b999e3f":"Rapporterer dei ope og drøftar kva dei betyr","ed7183ecc68f998f":"Endrar hypotesen i etterkant utan å nemne det","8bde2fca04022af0":"Utelèt dei ubehagelege tala","1dcf8ab8a9bd3315":"Samlar nye data til hypotesen stemmer","e8c0a033690055ee":"Ærlegheit er det tyngste vurderingskriteriet: vis det du fann, også når det er kjedeleg eller ubelageleg.","e3db8650c3a1d721":"## Oppsummering: prosjektet som samlar heile faget\n\nDette er sveinestykket til S1. **Prosessen** kjenner du no frå ende til annan: eit konkret, datatilgjengeleg tema → presis problemstilling → data frå SSB, Noregs Bank eller BRREG med URL og dato → handsaming dokumentert val for val → analyse med regresjon, korrelasjon og indeksrekning → drøfting av uvisse, konfundere og kausalitet → konklusjon som svarar direkte på spørsmålet → kjeldeliste. Dei sju delane av rapporten gir skjelettet, og eksempelprosjektet om bustadprisar og rente viste kjøtet på beina: $r \\approx -0{,}65$, $R^2 \\approx 0{,}42$, og ei drøfting som verken overdreiv eller underslo.\n\n**Kvaliteten** blir målt på presisjon, dokumentasjon, metodeforståing og — tyngst av alt — **fagleg integritet**: ingen cherry-picking, ingen korrelasjon seld som kausalitet, ingen manipulerte aksar, og avgrensingane ope på bordet. Dei sju fellene har du som sjekkliste, og tidsplanen på cirka 22 timar over tre veker gjer prosjektet handterleg.\n\nNår rapporten er levert, har du gjort det kompetansemålet skildrar: planlagt og gjennomført eit sjølvstendig arbeid med reelle datasett, analysert og presentert funn. Men du har også gjort noko meir: du har øvd på den arbeidsforma som møter deg i studium og arbeidsliv — å forvandle eit ekte spørsmål til data, dataene til innsikt, og innsikta til ein tekst andre kan stole på. Det er matematikk som samfunnskompetanse. Lykke til!"}}}
+{
+  "id": "s1-8-6-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "8.6",
+  "title": "Sjølvstendig samfunnsøkonomisk prosjekt",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om sveinestykket i S1 — temaval, rapportstruktur, eksempelprosjektet om bustadprisar og rente, og krava til ærleg analyse.",
+  "estimatedMinutes": 56,
+  "competenceGoals": [
+    "planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn",
+    "uttrykkje eigne resonnement ved hjelp av matematiske omgrep og symbolspråk",
+    "bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett",
+    "bruke derivasjon til å analysere og forstå optimaliseringsproblem"
+  ],
+  "linkedChapterId": "s1-8-6",
+  "content": [
+    {
+      "id": "s1-8-6-n-intro",
+      "type": "text",
+      "content": "## No er det din tur\n\nAlt du har lært i S1 — økonomifunksjonane i kapittel 4, regresjonen i kapittel 7, modelleringa i kapittel 8 — har peika mot dette: eit **sjølvstendig prosjekt** der du undersøkjer eit samfunnsøkonomisk spørsmål du sjølv vel, med ekte data. Dette kapittelet er ei arbeidsbok, ikkje ei lærebok: her er malen, eksempelet og kvalitetskrava.\n\nProsjektet er profilmålet til faget, og det viser at du kan formulere eit undersøkbart spørsmål, finne og forstå reelle data, velje og bruke matematiske verktøy, vurdere kvaliteten på modellane dine, og presentere funn ærleg og forståeleg.\n\nFørst temavalet. Eit godt prosjekttema er **konkret**, **datatilgjengeleg** og **personleg interessant**, og tre innfallsvinklar fungerer godt. **Ei eiga forundring:** «Kvifor er straum dyrare på Sørlandet?» — ekte spørsmål gir betre rapportar enn påtvinga. **Eit samfunnsfenomen:** bustadprisar, arbeidsløyse, prisvekst, lønsskilnader, energiprisar, valutakurs. **Ein lokal samanheng:** rekneskapen til ei bedrift, prisane i nærbutikken, leigeprisane i byen din.\n\nTemabanken er stor: marknad og prisar (bustadprisar og rente, bensinpris og oljepris, matprisar under inflasjon), arbeidsmarknad (løn etter utdanning, arbeidsløyse og BNP), demografi (folkevekst, utdanning og inntekt), bedriftsøkonomi (lønsemd i bransjar via BRREG) og berekraft (CO₂-utslepp og BNP, elbilandel).\n\nFør du startar, fire kontrollspørsmål: Finst det data, og kvar? Får du nok datapunkt (minst 6–8 for regresjon)? Er datasettet samfunnsøkonomisk relevant? Og kan du fullføre på 2–4 veker? Svarar du ja på alle, har du eit prosjekt."
+    },
+    {
+      "id": "s1-8-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på temaval og førebuing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-6-n-quiz1-q0",
+            "task": "Kva kjenneteiknar eit godt prosjekttema?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det er så breitt som mogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det krev data ingen har samla inn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det garanterer eit spennande resultat",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Det er konkret, datatilgjengeleg og personleg interessant",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Konkret spørsmål, tilgjengelege data og ekte interesse er dei tre suksesskriteria."
+          },
+          {
+            "id": "s1-8-6-n-quiz1-q1",
+            "task": "Kor mange datapunkt blir tilrådde som minimum for regresjon i prosjektet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Minst 6–8",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "2–3",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Minst 100",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Minst 1000",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med færre enn 6–8 punkt blir regresjonsresultata for usikre til å vere meiningsfulle."
+          },
+          {
+            "id": "s1-8-6-n-quiz1-q2",
+            "task": "Kva av desse er eit eigna S1-prosjekttema?",
+            "options": [
+              {
+                "id": "a",
+                "text": "«Korleis heng økonomi saman?»",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "«Kor sterk er samanhengen mellom styringsrenta og bustadprisindeksen i Noreg 2014–2024?»",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "«Er matematikk viktig?»",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "«Kva er meininga med pengar?»",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det siste er konkret, målbart, avgrensa og har offentleg tilgjengelege data frå SSB og Noregs Bank."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-6-n-section1",
+      "type": "text",
+      "content": "## Skjelettet i rapporten — og eit heilt eksempel\n\nEin typisk S1-prosjektrapport er på 4–8 sider og følgjer ein fast struktur: **(1) Samandrag** (eitt avsnitt: kva spurde du om, kva fann du), **(2) Innleiing og problemstilling** (bakgrunn, motivasjon, presist spørsmål), **(3) Data og metode** (kjelder med URL og nedlastingsdato, datahandsaming, verktøy), **(4) Analyse og resultat** (tabellar, grafar, berekningar), **(5) Drøfting** (kva betyr funna, avgrensingar, korrelasjon vs. kausalitet), **(6) Konklusjon** (direkte svar på problemstillinga) og **(7) Kjeldeliste**.\n\nSjå strukturen i eit fullført eksempel: *Bustadprisar og rente i Noreg 2014–2024*. **Problemstillinga:** Kor sterk er korrelasjonen mellom styringsrenta til Noregs Bank og bustadprisindeksen? Grunngivinga er økonomisk: renta avgjer kva folk kan betene i lån. **Data og metode:** SSB tabell 06035 (bustadprisindeks) og styringsrenta til Noregs Bank, lasta ned som CSV, årlege snitt rekna i Excel. **Analyse:** spreiingsplott av (årleg snittrente, bustadprisindeks) og lineær regresjon i GeoGebra gav $\\hat{y} = -7{,}4r + 145$ med $R^2 \\approx 0{,}42$ og $r \\approx -0{,}65$.\n\n**Drøftinga** er hjartet i rapporten: $R^2 = 0{,}42$ er moderat — renta forklarer ein del, men langt frå alt; demografi, byggjekostnader og pandemiåra 2020–2022 (låge renter *og* bustadprishopp) speler inn. Korrelasjon er ikkje kausalitet, men her finst god teoretisk grunn til å tru at låg rente *delvis* driv prisane. **Konklusjonen** svarar direkte: moderat negativ samanheng ($r \\approx -0{,}65$); bustadprisane heng saman med rentenivået, men blir ikkje avgjorde av det åleine. Vidare arbeid kunne inkludert folketal, bygging og løn.\n\nLegg merke til tonen: presis, nøktern, open om avgrensingar. Det er slik ein rapport byggjer tillit — ikkje ved å overdrive funna, men ved å vise at du forstår dei."
+    },
+    {
+      "id": "s1-8-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rapportstruktur og eksempelprosjektet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-6-n-quiz2-q0",
+            "task": "Kva skal stå i samandraget til rapporten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle berekningane",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kjeldelista",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kva du spurde om og kva du fann — i eitt avsnitt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ei detaljert metodeskildring",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Samandraget er kortversjonen: problemstilling og hovudfunn, lesbart på under eitt minutt."
+          },
+          {
+            "id": "s1-8-6-n-quiz2-q1",
+            "task": "Eksempelprosjektet fann $r \\approx -0{,}65$ mellom styringsrente og bustadprisindeks. Kva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Låg rente forårsakar beviseleg høge bustadprisar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Renta har ingen betydning for bustadprisane",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bustadprisane avgjer renta",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Moderat negativ samvariasjon — lågare rente er forbunde med høgare bustadprisar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Korrelasjonen er moderat negativ. Teorien støttar ei delvis kausal tolking, men dataene åleine beviser han ikkje."
+          },
+          {
+            "id": "s1-8-6-n-quiz2-q2",
+            "task": "$R^2 = 0{,}42$ i eksempelet. Kva er rett tolking i drøftinga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Renta forklarer ein del av variasjonen, men andre faktorar speler også inn",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Modellen er ubrukeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$42\\,\\%$ av bustadene blir påverka av renta",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Analysen må gjerast på nytt til $R^2$ blir høgare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Moderat $R^2$ er eit ærleg og informativt resultat: renta er ein av fleire drivarar — demografi, bygging og løn bidreg også."
+          },
+          {
+            "id": "s1-8-6-n-quiz2-q3",
+            "task": "Kva kjenneteiknar ein god drøftingsdel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han gjentek resultata utan vurdering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han diskuterer avgrensingar, konfundere og skiljet mellom korrelasjon og kausalitet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han utelèt alt som svekkjer konklusjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han fastslår kausalitet når $r$ er sterk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Drøftinga viser at du forstår rekkjevidda til funna — inkludert det analysen ikkje kan svare på."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-6-n-section2",
+      "type": "text",
+      "content": "## Kvalitetskrava — og fellene som feller prosjekt\n\nKva skil ein svak rapport frå ein sterk? Vurderingskriteria peikar på det same mønsteret heile vegen: **problemstillinga** skal vere presis, målbar og avgrensa (ikkje vag og vid); **datakjeldene** skal oppgivast med URL og dato, kontrollerbare; **handsaminga** skal dokumenterast val for val; **metodebruken** skal vere rett *og grunngitt*; **matematikken** korrekt med regresjon og derivasjon der det passar; **tolkinga** skal drøfte uvisse, konfundere og kausalitet; **kritisk vurdering** skal innrømme avgrensingar og foreslå forbetringar; **presentasjonen** skal ha klar struktur og gode figurar; og **ærlegheita** skal tole dagslys — også resultat som ikkje passa hypotesen, skal med.\n\nDet siste fortener ei åtvaring. Det freistar å «pynte» eit prosjekt: skjule data som ikkje passar, velje variablane som gir høgast $R^2$, selje korrelasjon som kausalitet, strekkje akseskalaen. **Det er ikkje fagleg arbeid — det er reklame.** Ein ærleg analyse med moderat $R^2$ er meir verdfull enn ein overdriven med høg.\n\nDei sju klassiske fellene, til slutt, som sjekkliste: **(1)** for vid problemstilling, **(2)** for lite data ($n = 4$ gir meiningslaus regresjon), **(3)** verktøy utan forståing (rapportere $R^2$ utan residualsjekk), **(4)** vill ekstrapolering (BNP i 2050 frå data 2015–2024), **(5)** korrelasjon seld som kausalitet, **(6)** manglande kjeldetilvisingar («ifølgje SSB» utan tabellnummer og dato), og **(7)** ingen avgrensingar nemnde — ein seriøs rapport seier også kva analysen *ikkje* kan svare på.\n\nTidsplanen er overkommeleg: veke 1 til tema, problemstilling og datanedlasting (cirka 7 timar), veke 2 til handsaming, analyse, grafar og modellsjekk (cirka 9 timar), veke 3 til skriving, korrektur og levering (cirka 6 timar). Rundt 22 timar totalt — og sjekklista frå kapittel 6.7 tek du fram før du leverer."
+    },
+    {
+      "id": "s1-8-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kvalitet, ærlegheit og fallgruver:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-6-n-quiz3-q0",
+            "task": "Kvifor er det gale å velje variablane som gir høgast $R^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi høg $R^2$ alltid er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $R^2$ ikkje kan samanliknast mellom modellar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det er cherry-picking — analysen skal styrast av problemstillinga, ikkje av ønskt resultat",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er heilt i orden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å leite etter resultat som pyntar rapporten er reklame, ikkje fagleg arbeid. Variablane blir valde ut frå spørsmålet."
+          },
+          {
+            "id": "s1-8-6-n-quiz3-q1",
+            "task": "Kva er gale med å predikere BNP i 2050 frå data for 2015–2024?",
+            "options": [
+              {
+                "id": "a",
+                "text": "BNP kan ikkje modellerast matematisk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Datasettet er for gammalt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Regresjon verkar ikkje på årstal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ekstrem ekstrapolering — modellen veit ingenting om 25 år med moglege strukturskift",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Langt utanfor dataområdet bryt føresetnadene til modellen saman — pandemiar, krigar og teknologiskift blir ikkje fanga."
+          },
+          {
+            "id": "s1-8-6-n-quiz3-q2",
+            "task": "Korleis skal kjelder oppgivast i rapporten?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Med tabellnummer/URL og dato for nedlasting, slik at dei kan kontrollerast",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "«Ifølgje SSB» held",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kjelder er unødvendige for offentlege data",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre i munnleg presentasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Verifiserbare kjelder — tabell, lenkje og lesedato — er eit absolutt krav for etterprøvbarheit."
+          },
+          {
+            "id": "s1-8-6-n-quiz3-q3",
+            "task": "Resultata dine støttar ikkje hypotesen din. Kva gjer du?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Endrar hypotesen i etterkant utan å nemne det",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Rapporterer dei ope og drøftar kva dei betyr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Utelèt dei ubehagelege tala",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Samlar nye data til hypotesen stemmer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ærlegheit er det tyngste vurderingskriteriet: vis det du fann, også når det er kjedeleg eller ubelageleg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: prosjektet som samlar heile faget\n\nDette er sveinestykket til S1. **Prosessen** kjenner du no frå ende til annan: eit konkret, datatilgjengeleg tema → presis problemstilling → data frå SSB, Noregs Bank eller BRREG med URL og dato → handsaming dokumentert val for val → analyse med regresjon, korrelasjon og indeksrekning → drøfting av uvisse, konfundere og kausalitet → konklusjon som svarar direkte på spørsmålet → kjeldeliste. Dei sju delane av rapporten gir skjelettet, og eksempelprosjektet om bustadprisar og rente viste kjøtet på beina: $r \\approx -0{,}65$, $R^2 \\approx 0{,}42$, og ei drøfting som verken overdreiv eller underslo.\n\n**Kvaliteten** blir målt på presisjon, dokumentasjon, metodeforståing og — tyngst av alt — **fagleg integritet**: ingen cherry-picking, ingen korrelasjon seld som kausalitet, ingen manipulerte aksar, og avgrensingane ope på bordet. Dei sju fellene har du som sjekkliste, og tidsplanen på cirka 22 timar over tre veker gjer prosjektet handterleg.\n\nNår rapporten er levert, har du gjort det kompetansemålet skildrar: planlagt og gjennomført eit sjølvstendig arbeid med reelle datasett, analysert og presentert funn. Men du har også gjort noko meir: du har øvd på den arbeidsforma som møter deg i studium og arbeidsliv — å forvandle eit ekte spørsmål til data, dataene til innsikt, og innsikta til ein tekst andre kan stole på. Det er matematikk som samfunnskompetanse. Lykke til!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "a7ab01677c3187bb",
+    "translatedAt": "2026-06-20T08:46:57.362Z",
+    "model": "claude-code-agent",
+    "strings": 82,
+    "tm": {
+      "6057b07a58e607ab": "Sjølvstendig samfunnsøkonomisk prosjekt",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "3a2d2b122246fe7d": "Ei forteljing om sveinestykket i S1 — temaval, rapportstruktur, eksempelprosjektet om bustadprisar og rente, og krava til ærleg analyse.",
+      "f19afc4d3d0e5171": "planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn",
+      "3565806786e010f7": "uttrykkje eigne resonnement ved hjelp av matematiske omgrep og symbolspråk",
+      "6c8c1b0ca1a567ea": "bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett",
+      "b977895472710067": "bruke derivasjon til å analysere og forstå optimaliseringsproblem",
+      "34c5635304f64fe5": "## No er det din tur\n\nAlt du har lært i S1 — økonomifunksjonane i kapittel 4, regresjonen i kapittel 7, modelleringa i kapittel 8 — har peika mot dette: eit **sjølvstendig prosjekt** der du undersøkjer eit samfunnsøkonomisk spørsmål du sjølv vel, med ekte data. Dette kapittelet er ei arbeidsbok, ikkje ei lærebok: her er malen, eksempelet og kvalitetskrava.\n\nProsjektet er profilmålet til faget, og det viser at du kan formulere eit undersøkbart spørsmål, finne og forstå reelle data, velje og bruke matematiske verktøy, vurdere kvaliteten på modellane dine, og presentere funn ærleg og forståeleg.\n\nFørst temavalet. Eit godt prosjekttema er **konkret**, **datatilgjengeleg** og **personleg interessant**, og tre innfallsvinklar fungerer godt. **Ei eiga forundring:** «Kvifor er straum dyrare på Sørlandet?» — ekte spørsmål gir betre rapportar enn påtvinga. **Eit samfunnsfenomen:** bustadprisar, arbeidsløyse, prisvekst, lønsskilnader, energiprisar, valutakurs. **Ein lokal samanheng:** rekneskapen til ei bedrift, prisane i nærbutikken, leigeprisane i byen din.\n\nTemabanken er stor: marknad og prisar (bustadprisar og rente, bensinpris og oljepris, matprisar under inflasjon), arbeidsmarknad (løn etter utdanning, arbeidsløyse og BNP), demografi (folkevekst, utdanning og inntekt), bedriftsøkonomi (lønsemd i bransjar via BRREG) og berekraft (CO₂-utslepp og BNP, elbilandel).\n\nFør du startar, fire kontrollspørsmål: Finst det data, og kvar? Får du nok datapunkt (minst 6–8 for regresjon)? Er datasettet samfunnsøkonomisk relevant? Og kan du fullføre på 2–4 veker? Svarar du ja på alle, har du eit prosjekt.",
+      "2c3549820cc4fe49": "Test deg sjølv på temaval og førebuing:",
+      "4097889236a2af26": "placeholder",
+      "90b31cf12b805974": "Kva kjenneteiknar eit godt prosjekttema?",
+      "795c5d6774295bda": "Det er konkret, datatilgjengeleg og personleg interessant",
+      "3991f1dfbab8294d": "Det er så breitt som mogleg",
+      "c9eaa5c601bf68c3": "Det krev data ingen har samla inn",
+      "0c81d0450ce6544f": "Det garanterer eit spennande resultat",
+      "877d4d96ab2ead76": "Konkret spørsmål, tilgjengelege data og ekte interesse er dei tre suksesskriteria.",
+      "e89bfde32f94df9b": "Kor mange datapunkt blir tilrådde som minimum for regresjon i prosjektet?",
+      "b1a24a9620d2b6f1": "Minst 6–8",
+      "ad361b212e5f6d3b": "Minst 100",
+      "716f4e8dcd46599c": "Minst 1000",
+      "b296aa0d42dbda60": "Med færre enn 6–8 punkt blir regresjonsresultata for usikre til å vere meiningsfulle.",
+      "9ae7736dbbcb6786": "Kva av desse er eit eigna S1-prosjekttema?",
+      "327d42554fabb17c": "«Korleis heng økonomi saman?»",
+      "6fe272622c6955dd": "«Er matematikk viktig?»",
+      "a849512af106b484": "«Kva er meininga med pengar?»",
+      "5180becf0fa95a92": "«Kor sterk er samanhengen mellom styringsrenta og bustadprisindeksen i Noreg 2014–2024?»",
+      "a91b2c7248aaadee": "Det siste er konkret, målbart, avgrensa og har offentleg tilgjengelege data frå SSB og Noregs Bank.",
+      "4b0b90e8bc920af2": "## Skjelettet i rapporten — og eit heilt eksempel\n\nEin typisk S1-prosjektrapport er på 4–8 sider og følgjer ein fast struktur: **(1) Samandrag** (eitt avsnitt: kva spurde du om, kva fann du), **(2) Innleiing og problemstilling** (bakgrunn, motivasjon, presist spørsmål), **(3) Data og metode** (kjelder med URL og nedlastingsdato, datahandsaming, verktøy), **(4) Analyse og resultat** (tabellar, grafar, berekningar), **(5) Drøfting** (kva betyr funna, avgrensingar, korrelasjon vs. kausalitet), **(6) Konklusjon** (direkte svar på problemstillinga) og **(7) Kjeldeliste**.\n\nSjå strukturen i eit fullført eksempel: *Bustadprisar og rente i Noreg 2014–2024*. **Problemstillinga:** Kor sterk er korrelasjonen mellom styringsrenta til Noregs Bank og bustadprisindeksen? Grunngivinga er økonomisk: renta avgjer kva folk kan betene i lån. **Data og metode:** SSB tabell 06035 (bustadprisindeks) og styringsrenta til Noregs Bank, lasta ned som CSV, årlege snitt rekna i Excel. **Analyse:** spreiingsplott av (årleg snittrente, bustadprisindeks) og lineær regresjon i GeoGebra gav $\\hat{y} = -7{,}4r + 145$ med $R^2 \\approx 0{,}42$ og $r \\approx -0{,}65$.\n\n**Drøftinga** er hjartet i rapporten: $R^2 = 0{,}42$ er moderat — renta forklarer ein del, men langt frå alt; demografi, byggjekostnader og pandemiåra 2020–2022 (låge renter *og* bustadprishopp) speler inn. Korrelasjon er ikkje kausalitet, men her finst god teoretisk grunn til å tru at låg rente *delvis* driv prisane. **Konklusjonen** svarar direkte: moderat negativ samanheng ($r \\approx -0{,}65$); bustadprisane heng saman med rentenivået, men blir ikkje avgjorde av det åleine. Vidare arbeid kunne inkludert folketal, bygging og løn.\n\nLegg merke til tonen: presis, nøktern, open om avgrensingar. Det er slik ein rapport byggjer tillit — ikkje ved å overdrive funna, men ved å vise at du forstår dei.",
+      "ab7fb9045641bf56": "Test deg sjølv på rapportstruktur og eksempelprosjektet:",
+      "ac154cf7fd108d7d": "Kva skal stå i samandraget til rapporten?",
+      "384977470ba70daf": "Alle berekningane",
+      "cf582de51a8844cb": "Kjeldelista",
+      "fea2f6951db1437b": "Kva du spurde om og kva du fann — i eitt avsnitt",
+      "ae5d99a72541b76e": "Ei detaljert metodeskildring",
+      "0aa9edfe5923c115": "Samandraget er kortversjonen: problemstilling og hovudfunn, lesbart på under eitt minutt.",
+      "b4aa2d5662f0820b": "Eksempelprosjektet fann $r \\approx -0{,}65$ mellom styringsrente og bustadprisindeks. Kva betyr det?",
+      "48eb6b2a69179a9b": "Låg rente forårsakar beviseleg høge bustadprisar",
+      "e6aae3925d71c31b": "Moderat negativ samvariasjon — lågare rente er forbunde med høgare bustadprisar",
+      "a903d38e7b8c3a1b": "Renta har ingen betydning for bustadprisane",
+      "710f9e9422c7b839": "Bustadprisane avgjer renta",
+      "f8399e7c91022d3d": "Korrelasjonen er moderat negativ. Teorien støttar ei delvis kausal tolking, men dataene åleine beviser han ikkje.",
+      "e11eab1abaa79e99": "$R^2 = 0{,}42$ i eksempelet. Kva er rett tolking i drøftinga?",
+      "5f44f9da46eec56b": "Renta forklarer ein del av variasjonen, men andre faktorar speler også inn",
+      "2b549e0c7fed8934": "Modellen er ubrukeleg",
+      "facde358c103837b": "$42\\,\\%$ av bustadene blir påverka av renta",
+      "d175f0aacaa8c293": "Analysen må gjerast på nytt til $R^2$ blir høgare",
+      "b9dbc6b831bf69d0": "Moderat $R^2$ er eit ærleg og informativt resultat: renta er ein av fleire drivarar — demografi, bygging og løn bidreg også.",
+      "e39c87974bb95240": "Kva kjenneteiknar ein god drøftingsdel?",
+      "fcbe79f6a30ff874": "Han gjentek resultata utan vurdering",
+      "83ce3a217c4b7331": "Han utelèt alt som svekkjer konklusjonen",
+      "f87adf9384721cdd": "Han fastslår kausalitet når $r$ er sterk",
+      "4d198d9d586ade2e": "Han diskuterer avgrensingar, konfundere og skiljet mellom korrelasjon og kausalitet",
+      "f6d25e6d036164c5": "Drøftinga viser at du forstår rekkjevidda til funna — inkludert det analysen ikkje kan svare på.",
+      "46afa75ad7bc569b": "## Kvalitetskrava — og fellene som feller prosjekt\n\nKva skil ein svak rapport frå ein sterk? Vurderingskriteria peikar på det same mønsteret heile vegen: **problemstillinga** skal vere presis, målbar og avgrensa (ikkje vag og vid); **datakjeldene** skal oppgivast med URL og dato, kontrollerbare; **handsaminga** skal dokumenterast val for val; **metodebruken** skal vere rett *og grunngitt*; **matematikken** korrekt med regresjon og derivasjon der det passar; **tolkinga** skal drøfte uvisse, konfundere og kausalitet; **kritisk vurdering** skal innrømme avgrensingar og foreslå forbetringar; **presentasjonen** skal ha klar struktur og gode figurar; og **ærlegheita** skal tole dagslys — også resultat som ikkje passa hypotesen, skal med.\n\nDet siste fortener ei åtvaring. Det freistar å «pynte» eit prosjekt: skjule data som ikkje passar, velje variablane som gir høgast $R^2$, selje korrelasjon som kausalitet, strekkje akseskalaen. **Det er ikkje fagleg arbeid — det er reklame.** Ein ærleg analyse med moderat $R^2$ er meir verdfull enn ein overdriven med høg.\n\nDei sju klassiske fellene, til slutt, som sjekkliste: **(1)** for vid problemstilling, **(2)** for lite data ($n = 4$ gir meiningslaus regresjon), **(3)** verktøy utan forståing (rapportere $R^2$ utan residualsjekk), **(4)** vill ekstrapolering (BNP i 2050 frå data 2015–2024), **(5)** korrelasjon seld som kausalitet, **(6)** manglande kjeldetilvisingar («ifølgje SSB» utan tabellnummer og dato), og **(7)** ingen avgrensingar nemnde — ein seriøs rapport seier også kva analysen *ikkje* kan svare på.\n\nTidsplanen er overkommeleg: veke 1 til tema, problemstilling og datanedlasting (cirka 7 timar), veke 2 til handsaming, analyse, grafar og modellsjekk (cirka 9 timar), veke 3 til skriving, korrektur og levering (cirka 6 timar). Rundt 22 timar totalt — og sjekklista frå kapittel 6.7 tek du fram før du leverer.",
+      "d2b7530c79a43f79": "Test deg sjølv på kvalitet, ærlegheit og fallgruver:",
+      "e92bad6b24e514da": "Kvifor er det gale å velje variablane som gir høgast $R^2$?",
+      "9c1f0e33ab816278": "Fordi høg $R^2$ alltid er feil",
+      "9963752a02400191": "Det er cherry-picking — analysen skal styrast av problemstillinga, ikkje av ønskt resultat",
+      "bbed9c1caa948f79": "Fordi $R^2$ ikkje kan samanliknast mellom modellar",
+      "326e78472169d736": "Det er heilt i orden",
+      "9806f209f865407a": "Å leite etter resultat som pyntar rapporten er reklame, ikkje fagleg arbeid. Variablane blir valde ut frå spørsmålet.",
+      "16ccd356813f4e65": "Kva er gale med å predikere BNP i 2050 frå data for 2015–2024?",
+      "e55fd9fc8af3fb56": "BNP kan ikkje modellerast matematisk",
+      "b2c7112a077d5758": "Datasettet er for gammalt",
+      "44fa8ae9a636ce42": "Regresjon verkar ikkje på årstal",
+      "cf71b9e608d4be7c": "Det er ekstrem ekstrapolering — modellen veit ingenting om 25 år med moglege strukturskift",
+      "d51e53904b5f5497": "Langt utanfor dataområdet bryt føresetnadene til modellen saman — pandemiar, krigar og teknologiskift blir ikkje fanga.",
+      "4d76e2e8bdb020e9": "Korleis skal kjelder oppgivast i rapporten?",
+      "671b70c631f5f1d5": "«Ifølgje SSB» held",
+      "85b4fd2cc8219fb1": "Kjelder er unødvendige for offentlege data",
+      "f6acf59bc8c30521": "Med tabellnummer/URL og dato for nedlasting, slik at dei kan kontrollerast",
+      "c08568115057e9d0": "Berre i munnleg presentasjon",
+      "9277ede5450b00c0": "Verifiserbare kjelder — tabell, lenkje og lesedato — er eit absolutt krav for etterprøvbarheit.",
+      "1557025337f1defa": "Resultata dine støttar ikkje hypotesen din. Kva gjer du?",
+      "a27f66399b999e3f": "Rapporterer dei ope og drøftar kva dei betyr",
+      "ed7183ecc68f998f": "Endrar hypotesen i etterkant utan å nemne det",
+      "8bde2fca04022af0": "Utelèt dei ubehagelege tala",
+      "1dcf8ab8a9bd3315": "Samlar nye data til hypotesen stemmer",
+      "e8c0a033690055ee": "Ærlegheit er det tyngste vurderingskriteriet: vis det du fann, også når det er kjedeleg eller ubelageleg.",
+      "e3db8650c3a1d721": "## Oppsummering: prosjektet som samlar heile faget\n\nDette er sveinestykket til S1. **Prosessen** kjenner du no frå ende til annan: eit konkret, datatilgjengeleg tema → presis problemstilling → data frå SSB, Noregs Bank eller BRREG med URL og dato → handsaming dokumentert val for val → analyse med regresjon, korrelasjon og indeksrekning → drøfting av uvisse, konfundere og kausalitet → konklusjon som svarar direkte på spørsmålet → kjeldeliste. Dei sju delane av rapporten gir skjelettet, og eksempelprosjektet om bustadprisar og rente viste kjøtet på beina: $r \\approx -0{,}65$, $R^2 \\approx 0{,}42$, og ei drøfting som verken overdreiv eller underslo.\n\n**Kvaliteten** blir målt på presisjon, dokumentasjon, metodeforståing og — tyngst av alt — **fagleg integritet**: ingen cherry-picking, ingen korrelasjon seld som kausalitet, ingen manipulerte aksar, og avgrensingane ope på bordet. Dei sju fellene har du som sjekkliste, og tidsplanen på cirka 22 timar over tre veker gjer prosjektet handterleg.\n\nNår rapporten er levert, har du gjort det kompetansemålet skildrar: planlagt og gjennomført eit sjølvstendig arbeid med reelle datasett, analysert og presentert funn. Men du har også gjort noko meir: du har øvd på den arbeidsforma som møter deg i studium og arbeidsliv — å forvandle eit ekte spørsmål til data, dataene til innsikt, og innsikta til ein tekst andre kan stole på. Det er matematikk som samfunnskompetanse. Lykke til!"
+    }
+  }
+}

@@ -1,1 +1,292 @@
-{"id":"s2-3-8-narrativ","courseId":"s2","chapterNumber":"3.8","title":"Implisitt derivasjon og relaterte rater","subtitle":"Narrativ versjon","description":"En fortelling om sammenfiltrede størrelser — fra sirkellikninger til stigen som glir — og derivasjonen som løser flokene.","estimatedMinutes":36,"competenceGoals":["derivere implisitt gitte funksjoner","bruke derivasjon til å analysere relaterte endringsrater","modellere og løse praktiske problemer med relaterte rater"],"linkedChapterId":"s2-3-8","content":[{"id":"s2-3-8-n-intro","type":"text","content":"## Likninger uten fasit for y\n\nDu sitter med likningen $x^2 + y^2 = 25$ — en sirkel med radius 5 — og skal finne hvor bratt kurven er i et bestemt punkt. Men det finnes ingen formel $y = f(x)$ å derivere; $x$ og $y$ opptrer sammen i likningen, sammenfiltret. Sammenhengen er gitt **implisitt**.\n\nHittil har vi derivert funksjoner der $y$ er gitt eksplisitt, som $y = x^2 + 3x$. For sirkelen kunne vi i nødsfall løse ut $y = \\pm\\sqrt{25 - x^2}$, men det blir to funksjoner og stygge røtter — og for mange kurver er det helt umulig. I stedet deriverer vi begge sider av likningen med hensyn på $x$ og behandler $y$ som en funksjon av $x$ hele veien.\n\nNøkkelregelen er kjerneregelen: siden $y = y(x)$, blir den deriverte av et uttrykk med $y$ alltid ganget med $\\frac{dy}{dx}$. Spesielt er $\\frac{d}{dx}[y^n] = n y^{n-1} \\cdot \\frac{dy}{dx}$. Fremgangsmåten i fire steg: deriver begge sider med hensyn på $x$; bruk kjerneregelen på alle ledd med $y$; samle leddene med $\\frac{dy}{dx}$ på én side; løs for $\\frac{dy}{dx}$. Svaret vil vanligvis inneholde både $x$ og $y$ — naturlig nok, siden stigningen avhenger av hvilket punkt på kurven du står i.\n\nOg teknikken har en praktisk superkraft: når den underliggende variabelen er **tiden**, gir den oss «relaterte rater» — verktøyet brannmannskaper, ingeniører og fysikere bruker når flere størrelser endrer seg samtidig."},{"id":"s2-3-8-n-section1","type":"text","content":"## Sirkelen og produktregelen\n\nVi deriverer sirkellikningen $x^2 + y^2 = 25$ med hensyn på $x$: $\\frac{d}{dx}[x^2] + \\frac{d}{dx}[y^2] = \\frac{d}{dx}[25]$ gir $2x + 2y\\frac{dy}{dx} = 0$. Vi løser: $2y\\frac{dy}{dx} = -2x$, altså $\\frac{dy}{dx} = -\\frac{x}{y}$.\n\nTolkningen er konkret: stigningstallet til tangenten i punktet $(x, y)$ på sirkelen er $-\\frac{x}{y}$. I punktet $(3, 4)$ er tangenten altså $-\\frac{3}{4}$ bratt. Vi kan sjekke mot den eksplisitte øvre halvsirkelen $y = \\sqrt{25 - x^2}$: vanlig derivasjon gir $y' = \\frac{-x}{\\sqrt{25-x^2}} = -\\frac{x}{y}$ — samme svar, men det implisitte resultatet dekker hele sirkelen i én formel.\n\nSå en likning der eksplisitt løsning er uaktuell: $x^2y + xy^2 = 6$. Begge leddene er produkter av noe med $x$ og noe med $y$, så vi trenger produktregelen. Første ledd: $\\frac{d}{dx}[x^2y] = 2xy + x^2\\frac{dy}{dx}$. Andre ledd: $\\frac{d}{dx}[xy^2] = y^2 + 2xy\\frac{dy}{dx}$. Samlet: $2xy + x^2\\frac{dy}{dx} + y^2 + 2xy\\frac{dy}{dx} = 0$. Vi samler leddene med $\\frac{dy}{dx}$: $\\frac{dy}{dx}(x^2 + 2xy) = -2xy - y^2$, og dermed $\\frac{dy}{dx} = \\frac{-2xy - y^2}{x^2 + 2xy} = \\frac{-y(2x+y)}{x(x+2y)}$.\n\nLegg merke til hvor mekanisk det egentlig er: hvert $y$-ledd får sin $\\frac{dy}{dx}$-faktor via kjerneregelen, produktregelen brukes der det trengs, og resten er algebra. Det som så ut som en umulig likning, ga fra seg stigningstallet på fire linjer."},{"id":"s2-3-8-n-quiz1","type":"exercise","exercise":{"id":"s2-3-8-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på implisitt derivasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-8-n-quiz1-q0","task":"Hva er $\\frac{d}{dx}[y^n]$ ved implisitt derivasjon?","options":[{"id":"a","text":"$n y^{n-1}$","isCorrect":false},{"id":"b","text":"$y^n \\frac{dy}{dx}$","isCorrect":false},{"id":"c","text":"$n y^{n-1} \\cdot \\frac{dy}{dx}$","isCorrect":true},{"id":"d","text":"$n x^{n-1}$","isCorrect":false}],"solution":"Siden $y$ er en funksjon av $x$, krever kjerneregelen at vi ganger med $\\frac{dy}{dx}$: $\\frac{d}{dx}[y^n] = ny^{n-1}\\frac{dy}{dx}$."},{"id":"s2-3-8-n-quiz1-q1","task":"Hva er stigningstallet til tangenten til sirkelen $x^2 + y^2 = 25$ i punktet $(3, 4)$?","options":[{"id":"a","text":"$-\\frac{3}{4}$","isCorrect":true},{"id":"b","text":"$\\frac{3}{4}$","isCorrect":false},{"id":"c","text":"$-\\frac{4}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{4}{3}$","isCorrect":false}],"solution":"Implisitt derivasjon gir $\\frac{dy}{dx} = -\\frac{x}{y}$, og i $(3,4)$ blir det $-\\frac{3}{4}$."},{"id":"s2-3-8-n-quiz1-q2","task":"Hvilken regel trengs i tillegg til kjerneregelen for å derivere $x^2 y$ implisitt?","options":[{"id":"a","text":"Brøkregelen","isCorrect":false},{"id":"b","text":"Produktregelen","isCorrect":true},{"id":"c","text":"Logaritmeregelen","isCorrect":false},{"id":"d","text":"Ingen — leddet er en konstant","isCorrect":false}],"solution":"$x^2y$ er et produkt av $x^2$ og $y(x)$: $\\frac{d}{dx}[x^2y] = 2xy + x^2\\frac{dy}{dx}$."},{"id":"s2-3-8-n-quiz1-q3","task":"Etter derivasjonen står du med $2xy + y^2 + (x^2 + 2xy)\\frac{dy}{dx} = 0$. Hva er neste steg?","options":[{"id":"a","text":"Sette $x = 0$","isCorrect":false},{"id":"b","text":"Derivere en gang til","isCorrect":false},{"id":"c","text":"Integrere begge sider","isCorrect":false},{"id":"d","text":"Løse for $\\frac{dy}{dx}$ ved å isolere leddet med $\\frac{dy}{dx}$","isCorrect":true}],"solution":"Siste steg i fremgangsmåten: samle leddene med $\\frac{dy}{dx}$ og løs: $\\frac{dy}{dx} = \\frac{-2xy - y^2}{x^2 + 2xy}$."}]}},{"id":"s2-3-8-n-section2","type":"text","content":"## Stigen som glir\n\nNå lar vi tiden komme inn i bildet. En 5 meter lang stige står lent mot en husvegg. Foten av stigen glir utover med en fart på $0{,}5$ m/s. Spørsmålet en sikkerhetsingeniør ville stilt: hvor raskt synker toppen av stigen i det øyeblikket foten er 3 meter fra veggen?\n\nDette er et problem med **relaterte rater**: to størrelser — avstanden $x$ fra veggen til stigefoten og høyden $y$ der stigen treffer veggen — endrer seg begge med tiden, og de er bundet sammen av en likning. Kjenner vi den ene endringsraten, finner vi den andre.\n\nFremgangsmåten har fire steg. **Identifiser variablene**: $x$ og $y$ er funksjoner av $t$; gitt er $\\frac{dx}{dt} = 0{,}5$ m/s, og vi søker $\\frac{dy}{dt}$ når $x = 3$. **Skriv opp likningen** som knytter dem sammen — her Pytagoras: $x^2 + y^2 = 25$. (Når $x = 3$ er $y = \\sqrt{25 - 9} = 4$.) **Deriver implisitt med hensyn på $t$**: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$. **Sett inn kjente verdier og løs**: $2 \\cdot 3 \\cdot 0{,}5 + 2 \\cdot 4 \\cdot \\frac{dy}{dt} = 0$ gir $3 + 8\\frac{dy}{dt} = 0$, altså $\\frac{dy}{dt} = -\\frac{3}{8} = -0{,}375$ m/s. Toppen synker med $0{,}375$ m/s — det negative fortegnet betyr nettopp at $y$ avtar.\n\nÉn regel er hellig: **ikke sett inn tallverdier før du deriverer**. Likningen $x^2 + y^2 = 25$ beskriver sammenhengen til alle tider; setter du inn $x = 3$ og $y = 4$ først, står du igjen med konstanten $9 + 16 = 25$, og all informasjon om endring er borte. Derivasjonen gjøres alltid på den generelle likningen — tallene kommer til slutt."},{"id":"s2-3-8-n-quiz2","type":"exercise","exercise":{"id":"s2-3-8-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på relaterte rater:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-8-n-quiz2-q0","task":"Hvilken likning knytter sammen $x$ og $y$ i stigeproblemet?","options":[{"id":"a","text":"$x + y = 5$","isCorrect":false},{"id":"b","text":"$x^2 + y^2 = 25$ (Pytagoras)","isCorrect":true},{"id":"c","text":"$xy = 25$","isCorrect":false},{"id":"d","text":"$y = 5x$","isCorrect":false}],"solution":"Stigen, veggen og bakken danner en rettvinklet trekant med hypotenus 5: $x^2 + y^2 = 5^2 = 25$."},{"id":"s2-3-8-n-quiz2-q1","task":"Hva gir implisitt derivasjon av $x^2 + y^2 = 25$ med hensyn på tiden $t$?","options":[{"id":"a","text":"$2x + 2y = 0$","isCorrect":false},{"id":"b","text":"$2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 25$","isCorrect":false},{"id":"c","text":"$2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$","isCorrect":true},{"id":"d","text":"$\\frac{dx}{dt} + \\frac{dy}{dt} = 0$","isCorrect":false}],"solution":"Begge variablene er funksjoner av $t$, så kjerneregelen gir $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$ (høyresiden er konstant og deriveres til null)."},{"id":"s2-3-8-n-quiz2-q2","task":"Med $\\frac{dx}{dt} = 0{,}5$, $x = 3$ og $y = 4$: hvor raskt synker stigetoppen?","options":[{"id":"a","text":"$0{,}5$ m/s","isCorrect":false},{"id":"b","text":"$0{,}375$ m/s","isCorrect":true},{"id":"c","text":"$0{,}75$ m/s","isCorrect":false},{"id":"d","text":"$0{,}188$ m/s","isCorrect":false}],"solution":"$2(3)(0{,}5) + 2(4)\\frac{dy}{dt} = 0$ gir $\\frac{dy}{dt} = -\\frac{3}{8} = -0{,}375$ m/s. Toppen synker med 0,375 m/s."},{"id":"s2-3-8-n-quiz2-q3","task":"Hva betyr det negative fortegnet i $\\frac{dy}{dt} = -0{,}375$ m/s?","options":[{"id":"a","text":"At vi har regnet feil","isCorrect":false},{"id":"b","text":"At stigen blir kortere","isCorrect":false},{"id":"c","text":"At høyden $y$ avtar — toppen er på vei ned","isCorrect":true},{"id":"d","text":"At farten er mindre enn null meter","isCorrect":false}],"solution":"Negativ endringsrate betyr at størrelsen avtar. Høyden minker mens foten glir utover — akkurat som forventet."}]}},{"id":"s2-3-8-n-summary","type":"text","content":"## Oppsummering: floker som lar seg derivere\n\nVi har lært å hente stigningstall ut av likninger som aldri røper $y$ direkte. **Implisitt derivasjon** brukes når $y$ ikke er gitt eksplisitt som funksjon av $x$: deriver begge sider av likningen med hensyn på $x$, bruk kjerneregelen på alle ledd med $y$ — slik at $\\frac{d}{dx}[y^n] = ny^{n-1}\\frac{dy}{dx}$ — og løs for $\\frac{dy}{dx}$. Svaret kan inneholde både $x$ og $y$, for stigningen avhenger av punktet: på sirkelen $x^2 + y^2 = 25$ ble den $-\\frac{x}{y}$, og med produktregelen taklet vi til og med $x^2y + xy^2 = 6$.\n\nNår tiden er den underliggende variabelen, blir samme teknikk til **relaterte rater**: flere størrelser endrer seg samtidig og er bundet sammen av en likning. Oppskriften er fast: identifiser variablene og hva som er gitt og etterspurt, skriv opp likningen som knytter dem sammen, deriver implisitt med hensyn på $t$, og sett inn kjente verdier til slutt. Slik fant vi at stigetoppen sank med $0{,}375$ m/s når foten gled utover med $0{,}5$ m/s — og det negative fortegnet fortalte oss selv at størrelsen avtok.\n\nDen viktigste regelen å ta med videre: derivér den generelle likningen først, og sett inn tall etterpå. Setter du inn verdiene for tidlig, fryser du situasjonen til et stillbilde, og all informasjon om endring går tapt. Implisitt derivasjon handler nettopp om det motsatte — å holde alle størrelsene levende og sammenkoblede til vi vet nøyaktig hvordan de drar i hverandre."}],"exercises":[]}
+{
+  "id": "s2-3-8-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "3.8",
+  "title": "Implisitt derivasjon og relaterte rater",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om sammenfiltrede størrelser — fra sirkellikninger til stigen som glir — og derivasjonen som løser flokene.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "derivere implisitt gitte funksjoner",
+    "bruke derivasjon til å analysere relaterte endringsrater",
+    "modellere og løse praktiske problemer med relaterte rater"
+  ],
+  "linkedChapterId": "s2-3-8",
+  "content": [
+    {
+      "id": "s2-3-8-n-intro",
+      "type": "text",
+      "content": "## Likninger uten fasit for y\n\nDu sitter med likningen $x^2 + y^2 = 25$ — en sirkel med radius 5 — og skal finne hvor bratt kurven er i et bestemt punkt. Men det finnes ingen formel $y = f(x)$ å derivere; $x$ og $y$ opptrer sammen i likningen, sammenfiltret. Sammenhengen er gitt **implisitt**.\n\nHittil har vi derivert funksjoner der $y$ er gitt eksplisitt, som $y = x^2 + 3x$. For sirkelen kunne vi i nødsfall løse ut $y = \\pm\\sqrt{25 - x^2}$, men det blir to funksjoner og stygge røtter — og for mange kurver er det helt umulig. I stedet deriverer vi begge sider av likningen med hensyn på $x$ og behandler $y$ som en funksjon av $x$ hele veien.\n\nNøkkelregelen er kjerneregelen: siden $y = y(x)$, blir den deriverte av et uttrykk med $y$ alltid ganget med $\\frac{dy}{dx}$. Spesielt er $\\frac{d}{dx}[y^n] = n y^{n-1} \\cdot \\frac{dy}{dx}$. Fremgangsmåten i fire steg: deriver begge sider med hensyn på $x$; bruk kjerneregelen på alle ledd med $y$; samle leddene med $\\frac{dy}{dx}$ på én side; løs for $\\frac{dy}{dx}$. Svaret vil vanligvis inneholde både $x$ og $y$ — naturlig nok, siden stigningen avhenger av hvilket punkt på kurven du står i.\n\nOg teknikken har en praktisk superkraft: når den underliggende variabelen er **tiden**, gir den oss «relaterte rater» — verktøyet brannmannskaper, ingeniører og fysikere bruker når flere størrelser endrer seg samtidig."
+    },
+    {
+      "id": "s2-3-8-n-section1",
+      "type": "text",
+      "content": "## Sirkelen og produktregelen\n\nVi deriverer sirkellikningen $x^2 + y^2 = 25$ med hensyn på $x$: $\\frac{d}{dx}[x^2] + \\frac{d}{dx}[y^2] = \\frac{d}{dx}[25]$ gir $2x + 2y\\frac{dy}{dx} = 0$. Vi løser: $2y\\frac{dy}{dx} = -2x$, altså $\\frac{dy}{dx} = -\\frac{x}{y}$.\n\nTolkningen er konkret: stigningstallet til tangenten i punktet $(x, y)$ på sirkelen er $-\\frac{x}{y}$. I punktet $(3, 4)$ er tangenten altså $-\\frac{3}{4}$ bratt. Vi kan sjekke mot den eksplisitte øvre halvsirkelen $y = \\sqrt{25 - x^2}$: vanlig derivasjon gir $y' = \\frac{-x}{\\sqrt{25-x^2}} = -\\frac{x}{y}$ — samme svar, men det implisitte resultatet dekker hele sirkelen i én formel.\n\nSå en likning der eksplisitt løsning er uaktuell: $x^2y + xy^2 = 6$. Begge leddene er produkter av noe med $x$ og noe med $y$, så vi trenger produktregelen. Første ledd: $\\frac{d}{dx}[x^2y] = 2xy + x^2\\frac{dy}{dx}$. Andre ledd: $\\frac{d}{dx}[xy^2] = y^2 + 2xy\\frac{dy}{dx}$. Samlet: $2xy + x^2\\frac{dy}{dx} + y^2 + 2xy\\frac{dy}{dx} = 0$. Vi samler leddene med $\\frac{dy}{dx}$: $\\frac{dy}{dx}(x^2 + 2xy) = -2xy - y^2$, og dermed $\\frac{dy}{dx} = \\frac{-2xy - y^2}{x^2 + 2xy} = \\frac{-y(2x+y)}{x(x+2y)}$.\n\nLegg merke til hvor mekanisk det egentlig er: hvert $y$-ledd får sin $\\frac{dy}{dx}$-faktor via kjerneregelen, produktregelen brukes der det trengs, og resten er algebra. Det som så ut som en umulig likning, ga fra seg stigningstallet på fire linjer."
+    },
+    {
+      "id": "s2-3-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på implisitt derivasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-8-n-quiz1-q0",
+            "task": "Hva er $\\frac{d}{dx}[y^n]$ ved implisitt derivasjon?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$n y^{n-1} \\cdot \\frac{dy}{dx}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$n y^{n-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y^n \\frac{dy}{dx}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n x^{n-1}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $y$ er en funksjon av $x$, krever kjerneregelen at vi ganger med $\\frac{dy}{dx}$: $\\frac{d}{dx}[y^n] = ny^{n-1}\\frac{dy}{dx}$."
+          },
+          {
+            "id": "s2-3-8-n-quiz1-q1",
+            "task": "Hva er stigningstallet til tangenten til sirkelen $x^2 + y^2 = 25$ i punktet $(3, 4)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{3}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{3}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{4}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{4}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Implisitt derivasjon gir $\\frac{dy}{dx} = -\\frac{x}{y}$, og i $(3,4)$ blir det $-\\frac{3}{4}$."
+          },
+          {
+            "id": "s2-3-8-n-quiz1-q2",
+            "task": "Hvilken regel trengs i tillegg til kjerneregelen for å derivere $x^2 y$ implisitt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Brøkregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Logaritmeregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Produktregelen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen — leddet er en konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^2y$ er et produkt av $x^2$ og $y(x)$: $\\frac{d}{dx}[x^2y] = 2xy + x^2\\frac{dy}{dx}$."
+          },
+          {
+            "id": "s2-3-8-n-quiz1-q3",
+            "task": "Etter derivasjonen står du med $2xy + y^2 + (x^2 + 2xy)\\frac{dy}{dx} = 0$. Hva er neste steg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sette $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Derivere en gang til",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Integrere begge sider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Løse for $\\frac{dy}{dx}$ ved å isolere leddet med $\\frac{dy}{dx}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Siste steg i fremgangsmåten: samle leddene med $\\frac{dy}{dx}$ og løs: $\\frac{dy}{dx} = \\frac{-2xy - y^2}{x^2 + 2xy}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-8-n-section2",
+      "type": "text",
+      "content": "## Stigen som glir\n\nNå lar vi tiden komme inn i bildet. En 5 meter lang stige står lent mot en husvegg. Foten av stigen glir utover med en fart på $0{,}5$ m/s. Spørsmålet en sikkerhetsingeniør ville stilt: hvor raskt synker toppen av stigen i det øyeblikket foten er 3 meter fra veggen?\n\nDette er et problem med **relaterte rater**: to størrelser — avstanden $x$ fra veggen til stigefoten og høyden $y$ der stigen treffer veggen — endrer seg begge med tiden, og de er bundet sammen av en likning. Kjenner vi den ene endringsraten, finner vi den andre.\n\nFremgangsmåten har fire steg. **Identifiser variablene**: $x$ og $y$ er funksjoner av $t$; gitt er $\\frac{dx}{dt} = 0{,}5$ m/s, og vi søker $\\frac{dy}{dt}$ når $x = 3$. **Skriv opp likningen** som knytter dem sammen — her Pytagoras: $x^2 + y^2 = 25$. (Når $x = 3$ er $y = \\sqrt{25 - 9} = 4$.) **Deriver implisitt med hensyn på $t$**: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$. **Sett inn kjente verdier og løs**: $2 \\cdot 3 \\cdot 0{,}5 + 2 \\cdot 4 \\cdot \\frac{dy}{dt} = 0$ gir $3 + 8\\frac{dy}{dt} = 0$, altså $\\frac{dy}{dt} = -\\frac{3}{8} = -0{,}375$ m/s. Toppen synker med $0{,}375$ m/s — det negative fortegnet betyr nettopp at $y$ avtar.\n\nÉn regel er hellig: **ikke sett inn tallverdier før du deriverer**. Likningen $x^2 + y^2 = 25$ beskriver sammenhengen til alle tider; setter du inn $x = 3$ og $y = 4$ først, står du igjen med konstanten $9 + 16 = 25$, og all informasjon om endring er borte. Derivasjonen gjøres alltid på den generelle likningen — tallene kommer til slutt."
+    },
+    {
+      "id": "s2-3-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på relaterte rater:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-8-n-quiz2-q0",
+            "task": "Hvilken likning knytter sammen $x$ og $y$ i stigeproblemet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^2 + y^2 = 25$ (Pytagoras)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x + y = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$xy = 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = 5x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigen, veggen og bakken danner en rettvinklet trekant med hypotenus 5: $x^2 + y^2 = 5^2 = 25$."
+          },
+          {
+            "id": "s2-3-8-n-quiz2-q1",
+            "task": "Hva gir implisitt derivasjon av $x^2 + y^2 = 25$ med hensyn på tiden $t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x + 2y = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{dx}{dt} + \\frac{dy}{dt} = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Begge variablene er funksjoner av $t$, så kjerneregelen gir $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$ (høyresiden er konstant og deriveres til null)."
+          },
+          {
+            "id": "s2-3-8-n-quiz2-q2",
+            "task": "Med $\\frac{dx}{dt} = 0{,}5$, $x = 3$ og $y = 4$: hvor raskt synker stigetoppen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}5$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}75$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}375$ m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}188$ m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2(3)(0{,}5) + 2(4)\\frac{dy}{dt} = 0$ gir $\\frac{dy}{dt} = -\\frac{3}{8} = -0{,}375$ m/s. Toppen synker med 0,375 m/s."
+          },
+          {
+            "id": "s2-3-8-n-quiz2-q3",
+            "task": "Hva betyr det negative fortegnet i $\\frac{dy}{dt} = -0{,}375$ m/s?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At vi har regnet feil",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At stigen blir kortere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At farten er mindre enn null meter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At høyden $y$ avtar — toppen er på vei ned",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativ endringsrate betyr at størrelsen avtar. Høyden minker mens foten glir utover — akkurat som forventet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: floker som lar seg derivere\n\nVi har lært å hente stigningstall ut av likninger som aldri røper $y$ direkte. **Implisitt derivasjon** brukes når $y$ ikke er gitt eksplisitt som funksjon av $x$: deriver begge sider av likningen med hensyn på $x$, bruk kjerneregelen på alle ledd med $y$ — slik at $\\frac{d}{dx}[y^n] = ny^{n-1}\\frac{dy}{dx}$ — og løs for $\\frac{dy}{dx}$. Svaret kan inneholde både $x$ og $y$, for stigningen avhenger av punktet: på sirkelen $x^2 + y^2 = 25$ ble den $-\\frac{x}{y}$, og med produktregelen taklet vi til og med $x^2y + xy^2 = 6$.\n\nNår tiden er den underliggende variabelen, blir samme teknikk til **relaterte rater**: flere størrelser endrer seg samtidig og er bundet sammen av en likning. Oppskriften er fast: identifiser variablene og hva som er gitt og etterspurt, skriv opp likningen som knytter dem sammen, deriver implisitt med hensyn på $t$, og sett inn kjente verdier til slutt. Slik fant vi at stigetoppen sank med $0{,}375$ m/s når foten gled utover med $0{,}5$ m/s — og det negative fortegnet fortalte oss selv at størrelsen avtok.\n\nDen viktigste regelen å ta med videre: derivér den generelle likningen først, og sett inn tall etterpå. Setter du inn verdiene for tidlig, fryser du situasjonen til et stillbilde, og all informasjon om endring går tapt. Implisitt derivasjon handler nettopp om det motsatte — å holde alle størrelsene levende og sammenkoblede til vi vet nøyaktig hvordan de drar i hverandre."
+    }
+  ],
+  "exercises": []
+}

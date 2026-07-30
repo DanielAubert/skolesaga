@@ -1,1 +1,294 @@
-{"id":"10-3-3-narrativ","courseId":"10","chapterNumber":"3.3","title":"Praktiske funksjonar","subtitle":"Narrativ versjon","description":"Ein forteljing om korleis funksjonar blir brukte til å modelera alt frå straumregningar til bedriftsøkonomi.","estimatedMinutes":30,"competenceGoals":["modelera situasjonar knytte til kvardagen ved å bruka funksjonar","tolka og presentera funksjonar grafisk og algebraisk"],"linkedChapterId":"10-3-3","content":[{"id":"10-3-3-n-intro","type":"text","content":"## Funksjonar i røynda\n\nHittil har vi lært om lineære funksjonar og andregradsfunksjonar som matematiske objekt. Men den verkelege krafta i funksjonar ligg i moglegheita til å modelera røynda. Når du les ein graf, kan du henta ut ei overraskande mengd informasjon: startverdien der $x = 0$, nullpunkt der grafen kryssar $x$-aksen, om verdien stig eller synk, og topp- og bunnpunkt.\n\nFor å setja opp ein funksjon frå ein praktisk situasjon fylgjer vi fire steg. Først identifiserer vi variablane -- kva er $x$ og kva er $f(x)$? Deretter finn vi samanhengen: er det ein fast verdi pluss noko som varierer? Så skriv vi funksjonsuttrykket, og til slutt kontrollerer vi ved å setja inn kjende verdiar. Med denne framgangsmåten kan du beskriva alt frå bilkøyring til kafftemperatur med matematikk."},{"id":"10-3-3-n-section1","type":"text","content":"## Frå tekst til funksjon\n\nLa oss sjå på nokre døme. Ein straumregning består av eit fastbeløp på 200 kr per månad pluss 1,20 kr per kWh. Kostnaden som funksjon av forbruket $x$ i kWh blir $K(x) = 1{,}20x + 200$. Ved 350 kWh forbruk: $K(350) = 1{,}20 \\cdot 350 + 200 = 620$ kr. Og med budsjett på 500 kr: $500 = 1{,}20x + 200$ gir $x = 250$ kWh.\n\nEin bil køyrer frå Oslo med fart 80 km/t. Distansen etter $t$ timar er $s(t) = 80t$. Her er stigingstalet 80 -- det er farten. Etter 2,5 timar: $s(2{,}5) = 200$ km. Og det tek $t = \\frac{360}{80} = 4{,}5$ timar å køyra 360 km.\n\nNokon situasjonar fylgjer eksponentiell vekst. Ein sparplan med 3 prosent rente gir saldo $S(t) = 10\\,000 \\cdot 1{,}03^t$ etter $t$ år. Ved start: 10 000 kr. Etter 5 år: $10\\,000 \\cdot 1{,}03^5 \\approx 11\\,593$ kr. Legg merke til at dette ikkje er ei rett linje -- pengane veks raskare og raskare."},{"id":"10-3-3-n-quiz1","type":"exercise","exercise":{"id":"10-3-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Prøv deg sjølv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-3-3-n-quiz1-q0","task":"Ein tank har 100 liter vatn og blir fylld med 30 liter per minutt. Kva er riktig funksjon for vetnmengda $V(t)$?","options":[{"id":"a","text":"$V(t) = 100t + 30$","isCorrect":false},{"id":"b","text":"$V(t) = 30t + 100$","isCorrect":true},{"id":"c","text":"$V(t) = 30t - 100$","isCorrect":false},{"id":"d","text":"$V(t) = 130t$","isCorrect":false}],"solution":"Stigingstalet er 30 (liter/minutt) og startverdien er 100 (liter ved start). Altså $V(t) = 30t + 100$."},{"id":"10-3-3-n-quiz1-q1","task":"Ein kaffekopps temperatur $T(t) = 20 + 70 \\cdot 0{,}95^t$. Kva blir temperaturen til slutt?","options":[{"id":"a","text":"90 grader","isCorrect":false},{"id":"b","text":"70 grader","isCorrect":false},{"id":"c","text":"0 grader","isCorrect":false},{"id":"d","text":"20 grader","isCorrect":true}],"solution":"Når $t$ blir veldig stor, går $0{,}95^t$ mot 0. Da nærmar temperaturen seg $20 + 0 = 20$ grader (romtemperaturen)."},{"id":"10-3-3-n-quiz1-q2","task":"Ein straumregning er $K(x) = 1{,}20x + 200$. Kor mange kWh kan du bruka for 500 kr?","options":[{"id":"a","text":"417 kWh","isCorrect":false},{"id":"b","text":"250 kWh","isCorrect":true},{"id":"c","text":"300 kWh","isCorrect":false},{"id":"d","text":"200 kWh","isCorrect":false}],"solution":"$500 = 1{,}20x + 200$ gir $1{,}20x = 300$ og $x = 250$ kWh."}]}},{"id":"10-3-3-n-section2","type":"text","content":"## Samanlikna alternativ og bedriftsøkonomi\n\nFunksjonar er spesielt nyttige når du skal samanlikna alternativ. To treningssentre tilbyd: Senter A kostar 300 kr per månad pluss 30 kr per trening, medan Senter B kostar 600 kr med ubegrensa trening. Vi set $K_A(x) = 30x + 300$ og $K_B(x) = 600$. Skjeringspunktet: $30x + 300 = 600$ gir $x = 10$. Trener du meir enn 10 gonger i månaden, løner B seg.\n\nI bedriftsøkonomi er funksjonar heilt essensielle. Ein bedrift har kostnad $K(x) = 20x + 500$ og inntekt $I(x) = 50x$. Fortjenesten blir $F(x) = I(x) - K(x) = 30x - 500$. Break-even (der fortjenesten er null) oppstår ved $30x - 500 = 0$, altså $x \\approx 17$ einingar. Ved 50 selde einingar er fortjenesten $F(50) = 30 \\cdot 50 - 500 = 1000$ kr. Slike berekning hjelper bedrifter å ta gode avgjerder.\n\nEin rakett blir skoten opp med $h(t) = -5t^2 + 100t$. Maksimalhøgda blir nådd ved $t = 10$ sekund: $h(10) = 500$ meter. Ho lender etter 20 sekund. Her ser vi korleis andregradsfunksjonar modelerer rørsle der akselerasjon er involvert."},{"id":"10-3-3-n-quiz2","type":"exercise","exercise":{"id":"10-3-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Prøv deg sjølv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-3-3-n-quiz2-q0","task":"Senter A: $K_A(x) = 30x + 300$, Senter B: $K_B = 600$. Kva løner seg hvis du trener 15 gonger i månaden?","options":[{"id":"a","text":"Senter A (billigast)","isCorrect":false},{"id":"b","text":"Dei kostar like mykje","isCorrect":false},{"id":"c","text":"Senter B (billigast)","isCorrect":true},{"id":"d","text":"Umogleg å avgjerda","isCorrect":false}],"solution":"$K_A(15) = 30 \\cdot 15 + 300 = 750$ kr, medan $K_B = 600$ kr. Senter B er billigast."},{"id":"10-3-3-n-quiz2-q1","task":"Ein bedrift har $K(x) = 50x + 2000$ og $I(x) = 80x$. Kor mange einingar må seljast for å gå i null?","options":[{"id":"a","text":"Ca. 67 einingar","isCorrect":true},{"id":"b","text":"Ca. 25 einingar","isCorrect":false},{"id":"c","text":"Ca. 40 einingar","isCorrect":false},{"id":"d","text":"Ca. 100 einingar","isCorrect":false}],"solution":"$80x = 50x + 2000$ gir $30x = 2000$ og $x \\approx 67$ einingar."},{"id":"10-3-3-n-quiz2-q2","task":"Ein bondi har 60 m gjerde langs ein vegg og lagar ein rektangulær innhegning. Størst areal fåst med dimensjonane:","options":[{"id":"a","text":"20 m $\\times$ 20 m","isCorrect":false},{"id":"b","text":"10 m $\\times$ 40 m","isCorrect":false},{"id":"c","text":"15 m $\\times$ 30 m","isCorrect":true},{"id":"d","text":"12 m $\\times$ 36 m","isCorrect":false}],"solution":"$A(x) = x(60 - 2x) = -2x^2 + 60x$. Toppunkt: $x = 15$ m, lengd $= 60 - 30 = 30$ m."}]}},{"id":"10-3-3-n-summary","type":"text","content":"## Oppsummering\n\nFunksjonar er eit kraftig verktøy for å modellera røyndommen. For å setja opp ein funksjon frå ein situasjon: identifiser variablane, finn samanhengen, skriv uttrykket og sjekk med kjende verdiar. Lineære funksjonar beskriver jamn vekst, andregradsfunksjonar beskriver situasjonar med akselerasjon eller optimering, og eksponentielle funksjonar beskriver prosentvis vekst. Ved å samanlikna funksjonar kan du finna når alternativa er like dyre, og i bedriftsøkonomi finn du break-even ved å setja inntekt lik kostnad."}],"exercises":[],"_meta":{"sourceHash":"64f9404b038357ae","translatedAt":"2026-06-16T09:43:25.219Z","model":"claude-haiku-4-5-20251001","strings":49,"tm":{"489f6d920e8be8f0":"Praktiske funksjonar","b195b06d1ed59702":"Narrativ versjon","7832da842e2c3947":"Ein forteljing om korleis funksjonar blir brukte til å modelera alt frå straumregningar til bedriftsøkonomi.","637caf5fa2b66337":"modelera situasjonar knytte til kvardagen ved å bruka funksjonar","e06a1b595520187d":"tolka og presentera funksjonar grafisk og algebraisk","adc4d6f2fa12e283":"## Funksjonar i røynda\n\nHittil har vi lært om lineære funksjonar og andregradsfunksjonar som matematiske objekt. Men den verkelege krafta i funksjonar ligg i moglegheita til å modelera røynda. Når du les ein graf, kan du henta ut ei overraskande mengd informasjon: startverdien der $x = 0$, nullpunkt der grafen kryssar $x$-aksen, om verdien stig eller synk, og topp- og bunnpunkt.\n\nFor å setja opp ein funksjon frå ein praktisk situasjon fylgjer vi fire steg. Først identifiserer vi variablane -- kva er $x$ og kva er $f(x)$? Deretter finn vi samanhengen: er det ein fast verdi pluss noko som varierer? Så skriv vi funksjonsuttrykket, og til slutt kontrollerer vi ved å setja inn kjende verdiar. Med denne framgangsmåten kan du beskriva alt frå bilkøyring til kafftemperatur med matematikk.","b9d940a5c119e455":"## Frå tekst til funksjon\n\nLa oss sjå på nokre døme. Ein straumregning består av eit fastbeløp på 200 kr per månad pluss 1,20 kr per kWh. Kostnaden som funksjon av forbruket $x$ i kWh blir $K(x) = 1{,}20x + 200$. Ved 350 kWh forbruk: $K(350) = 1{,}20 \\cdot 350 + 200 = 620$ kr. Og med budsjett på 500 kr: $500 = 1{,}20x + 200$ gir $x = 250$ kWh.\n\nEin bil køyrer frå Oslo med fart 80 km/t. Distansen etter $t$ timar er $s(t) = 80t$. Her er stigingstalet 80 -- det er farten. Etter 2,5 timar: $s(2{,}5) = 200$ km. Og det tek $t = \\frac{360}{80} = 4{,}5$ timar å køyra 360 km.\n\nNokon situasjonar fylgjer eksponentiell vekst. Ein sparplan med 3 prosent rente gir saldo $S(t) = 10\\,000 \\cdot 1{,}03^t$ etter $t$ år. Ved start: 10 000 kr. Etter 5 år: $10\\,000 \\cdot 1{,}03^5 \\approx 11\\,593$ kr. Legg merke til at dette ikkje er ei rett linje -- pengane veks raskare og raskare.","9654e25982570594":"Prøv deg sjølv:","4097889236a2af26":"placeholder","6b0f5fc8e5d4378a":"Ein tank har 100 liter vatn og blir fylld med 30 liter per minutt. Kva er riktig funksjon for vetnmengda $V(t)$?","99c4cac9c9351c19":"$V(t) = 100t + 30$","db984737b13c94ca":"$V(t) = 30t + 100$","60f5b3075ff314ee":"$V(t) = 30t - 100$","765423cb5aacffa8":"$V(t) = 130t$","88d0ab1612b31fba":"Stigingstalet er 30 (liter/minutt) og startverdien er 100 (liter ved start). Altså $V(t) = 30t + 100$.","f6b81ea6d2848533":"Ein kaffekopps temperatur $T(t) = 20 + 70 \\cdot 0{,}95^t$. Kva blir temperaturen til slutt?","16147e769d13ef10":"90 grader","2852c9fe830c53bb":"70 grader","0d1146af26f5262d":"0 grader","3911ca8de3251a3e":"20 grader","30c94997741d9989":"Når $t$ blir veldig stor, går $0{,}95^t$ mot 0. Da nærmar temperaturen seg $20 + 0 = 20$ grader (romtemperaturen).","16a16d057a5abcb0":"Ein straumregning er $K(x) = 1{,}20x + 200$. Kor mange kWh kan du bruka for 500 kr?","cca42073a5914855":"417 kWh","63c97b19737f6cb6":"250 kWh","45edccf46937244a":"300 kWh","330a198ee0aad7d7":"200 kWh","ecdb0289cb610d43":"$500 = 1{,}20x + 200$ gir $1{,}20x = 300$ og $x = 250$ kWh.","48e29325c0654add":"## Samanlikna alternativ og bedriftsøkonomi\n\nFunksjonar er spesielt nyttige når du skal samanlikna alternativ. To treningssentre tilbyd: Senter A kostar 300 kr per månad pluss 30 kr per trening, medan Senter B kostar 600 kr med ubegrensa trening. Vi set $K_A(x) = 30x + 300$ og $K_B(x) = 600$. Skjeringspunktet: $30x + 300 = 600$ gir $x = 10$. Trener du meir enn 10 gonger i månaden, løner B seg.\n\nI bedriftsøkonomi er funksjonar heilt essensielle. Ein bedrift har kostnad $K(x) = 20x + 500$ og inntekt $I(x) = 50x$. Fortjenesten blir $F(x) = I(x) - K(x) = 30x - 500$. Break-even (der fortjenesten er null) oppstår ved $30x - 500 = 0$, altså $x \\approx 17$ einingar. Ved 50 selde einingar er fortjenesten $F(50) = 30 \\cdot 50 - 500 = 1000$ kr. Slike berekning hjelper bedrifter å ta gode avgjerder.\n\nEin rakett blir skoten opp med $h(t) = -5t^2 + 100t$. Maksimalhøgda blir nådd ved $t = 10$ sekund: $h(10) = 500$ meter. Ho lender etter 20 sekund. Her ser vi korleis andregradsfunksjonar modelerer rørsle der akselerasjon er involvert.","2550bd3db8272e18":"Senter A: $K_A(x) = 30x + 300$, Senter B: $K_B = 600$. Kva løner seg hvis du trener 15 gonger i månaden?","0a01ed88b744ef53":"Senter A (billigast)","6847386f85fdc60e":"Dei kostar like mykje","8d98b0be7713c272":"Senter B (billigast)","68f09193e7f920d5":"Umogleg å avgjerda","b9c1f68f585b5453":"$K_A(15) = 30 \\cdot 15 + 300 = 750$ kr, medan $K_B = 600$ kr. Senter B er billigast.","c6ce9f1f5c0ccf22":"Ein bedrift har $K(x) = 50x + 2000$ og $I(x) = 80x$. Kor mange einingar må seljast for å gå i null?","55f9c4ddbd5950da":"Ca. 67 einingar","cd5da5cf6bb99b00":"Ca. 25 einingar","2bb6d95d9a41da30":"Ca. 40 einingar","81d0c1befc981fbc":"Ca. 100 einingar","655b8c175c0a2bec":"$80x = 50x + 2000$ gir $30x = 2000$ og $x \\approx 67$ einingar.","112397f3ee4d74ff":"Ein bondi har 60 m gjerde langs ein vegg og lagar ein rektangulær innhegning. Størst areal fåst med dimensjonane:","cf353891c9e58d8b":"20 m $\\times$ 20 m","ebdf834c0f67cc3d":"10 m $\\times$ 40 m","fecd8302ba11840d":"15 m $\\times$ 30 m","03016d11ddbc1eaa":"12 m $\\times$ 36 m","5d31d6d92bf0fb6c":"$A(x) = x(60 - 2x) = -2x^2 + 60x$. Toppunkt: $x = 15$ m, lengd $= 60 - 30 = 30$ m.","09a5b4c14f95a265":"## Oppsummering\n\nFunksjonar er eit kraftig verktøy for å modellera røyndommen. For å setja opp ein funksjon frå ein situasjon: identifiser variablane, finn samanhengen, skriv uttrykket og sjekk med kjende verdiar. Lineære funksjonar beskriver jamn vekst, andregradsfunksjonar beskriver situasjonar med akselerasjon eller optimering, og eksponentielle funksjonar beskriver prosentvis vekst. Ved å samanlikna funksjonar kan du finna når alternativa er like dyre, og i bedriftsøkonomi finn du break-even ved å setja inntekt lik kostnad."}}}
+{
+  "id": "10-3-3-narrativ",
+  "courseId": "10",
+  "chapterNumber": "3.3",
+  "title": "Praktiske funksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljing om korleis funksjonar blir brukte til å modelera alt frå straumregningar til bedriftsøkonomi.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "modelera situasjonar knytte til kvardagen ved å bruka funksjonar",
+    "tolka og presentera funksjonar grafisk og algebraisk"
+  ],
+  "linkedChapterId": "10-3-3",
+  "content": [
+    {
+      "id": "10-3-3-n-intro",
+      "type": "text",
+      "content": "## Funksjonar i røynda\n\nHittil har vi lært om lineære funksjonar og andregradsfunksjonar som matematiske objekt. Men den verkelege krafta i funksjonar ligg i moglegheita til å modelera røynda. Når du les ein graf, kan du henta ut ei overraskande mengd informasjon: startverdien der $x = 0$, nullpunkt der grafen kryssar $x$-aksen, om verdien stig eller synk, og topp- og bunnpunkt.\n\nFor å setja opp ein funksjon frå ein praktisk situasjon fylgjer vi fire steg. Først identifiserer vi variablane -- kva er $x$ og kva er $f(x)$? Deretter finn vi samanhengen: er det ein fast verdi pluss noko som varierer? Så skriv vi funksjonsuttrykket, og til slutt kontrollerer vi ved å setja inn kjende verdiar. Med denne framgangsmåten kan du beskriva alt frå bilkøyring til kafftemperatur med matematikk."
+    },
+    {
+      "id": "10-3-3-n-section1",
+      "type": "text",
+      "content": "## Frå tekst til funksjon\n\nLa oss sjå på nokre døme. Ein straumregning består av eit fastbeløp på 200 kr per månad pluss 1,20 kr per kWh. Kostnaden som funksjon av forbruket $x$ i kWh blir $K(x) = 1{,}20x + 200$. Ved 350 kWh forbruk: $K(350) = 1{,}20 \\cdot 350 + 200 = 620$ kr. Og med budsjett på 500 kr: $500 = 1{,}20x + 200$ gir $x = 250$ kWh.\n\nEin bil køyrer frå Oslo med fart 80 km/t. Distansen etter $t$ timar er $s(t) = 80t$. Her er stigingstalet 80 -- det er farten. Etter 2,5 timar: $s(2{,}5) = 200$ km. Og det tek $t = \\frac{360}{80} = 4{,}5$ timar å køyra 360 km.\n\nNokon situasjonar fylgjer eksponentiell vekst. Ein sparplan med 3 prosent rente gir saldo $S(t) = 10\\,000 \\cdot 1{,}03^t$ etter $t$ år. Ved start: 10 000 kr. Etter 5 år: $10\\,000 \\cdot 1{,}03^5 \\approx 11\\,593$ kr. Legg merke til at dette ikkje er ei rett linje -- pengane veks raskare og raskare."
+    },
+    {
+      "id": "10-3-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-3-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Prøv deg sjølv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-3-3-n-quiz1-q0",
+            "task": "Ein tank har 100 liter vatn og blir fylld med 30 liter per minutt. Kva er riktig funksjon for vetnmengda $V(t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$V(t) = 100t + 30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$V(t) = 30t - 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$V(t) = 30t + 100$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$V(t) = 130t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigingstalet er 30 (liter/minutt) og startverdien er 100 (liter ved start). Altså $V(t) = 30t + 100$."
+          },
+          {
+            "id": "10-3-3-n-quiz1-q1",
+            "task": "Ein kaffekopps temperatur $T(t) = 20 + 70 \\cdot 0{,}95^t$. Kva blir temperaturen til slutt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "90 grader",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "70 grader",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0 grader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "20 grader",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når $t$ blir veldig stor, går $0{,}95^t$ mot 0. Da nærmar temperaturen seg $20 + 0 = 20$ grader (romtemperaturen)."
+          },
+          {
+            "id": "10-3-3-n-quiz1-q2",
+            "task": "Ein straumregning er $K(x) = 1{,}20x + 200$. Kor mange kWh kan du bruka for 500 kr?",
+            "options": [
+              {
+                "id": "b",
+                "text": "250 kWh",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "417 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "300 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "200 kWh",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$500 = 1{,}20x + 200$ gir $1{,}20x = 300$ og $x = 250$ kWh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-3-3-n-section2",
+      "type": "text",
+      "content": "## Samanlikna alternativ og bedriftsøkonomi\n\nFunksjonar er spesielt nyttige når du skal samanlikna alternativ. To treningssentre tilbyd: Senter A kostar 300 kr per månad pluss 30 kr per trening, medan Senter B kostar 600 kr med ubegrensa trening. Vi set $K_A(x) = 30x + 300$ og $K_B(x) = 600$. Skjeringspunktet: $30x + 300 = 600$ gir $x = 10$. Trener du meir enn 10 gonger i månaden, løner B seg.\n\nI bedriftsøkonomi er funksjonar heilt essensielle. Ein bedrift har kostnad $K(x) = 20x + 500$ og inntekt $I(x) = 50x$. Fortjenesten blir $F(x) = I(x) - K(x) = 30x - 500$. Break-even (der fortjenesten er null) oppstår ved $30x - 500 = 0$, altså $x \\approx 17$ einingar. Ved 50 selde einingar er fortjenesten $F(50) = 30 \\cdot 50 - 500 = 1000$ kr. Slike berekning hjelper bedrifter å ta gode avgjerder.\n\nEin rakett blir skoten opp med $h(t) = -5t^2 + 100t$. Maksimalhøgda blir nådd ved $t = 10$ sekund: $h(10) = 500$ meter. Ho lender etter 20 sekund. Her ser vi korleis andregradsfunksjonar modelerer rørsle der akselerasjon er involvert."
+    },
+    {
+      "id": "10-3-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-3-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Prøv deg sjølv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-3-3-n-quiz2-q0",
+            "task": "Senter A: $K_A(x) = 30x + 300$, Senter B: $K_B = 600$. Kva løner seg hvis du trener 15 gonger i månaden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Senter A (billigast)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Senter B (billigast)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Dei kostar like mykje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Umogleg å avgjerda",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K_A(15) = 30 \\cdot 15 + 300 = 750$ kr, medan $K_B = 600$ kr. Senter B er billigast."
+          },
+          {
+            "id": "10-3-3-n-quiz2-q1",
+            "task": "Ein bedrift har $K(x) = 50x + 2000$ og $I(x) = 80x$. Kor mange einingar må seljast for å gå i null?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 25 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 40 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. 67 einingar",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ca. 100 einingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$80x = 50x + 2000$ gir $30x = 2000$ og $x \\approx 67$ einingar."
+          },
+          {
+            "id": "10-3-3-n-quiz2-q2",
+            "task": "Ein bondi har 60 m gjerde langs ein vegg og lagar ein rektangulær innhegning. Størst areal fåst med dimensjonane:",
+            "options": [
+              {
+                "id": "a",
+                "text": "20 m $\\times$ 20 m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "10 m $\\times$ 40 m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "12 m $\\times$ 36 m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "15 m $\\times$ 30 m",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$A(x) = x(60 - 2x) = -2x^2 + 60x$. Toppunkt: $x = 15$ m, lengd $= 60 - 30 = 30$ m."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-3-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFunksjonar er eit kraftig verktøy for å modellera røyndommen. For å setja opp ein funksjon frå ein situasjon: identifiser variablane, finn samanhengen, skriv uttrykket og sjekk med kjende verdiar. Lineære funksjonar beskriver jamn vekst, andregradsfunksjonar beskriver situasjonar med akselerasjon eller optimering, og eksponentielle funksjonar beskriver prosentvis vekst. Ved å samanlikna funksjonar kan du finna når alternativa er like dyre, og i bedriftsøkonomi finn du break-even ved å setja inntekt lik kostnad."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "64f9404b038357ae",
+    "translatedAt": "2026-06-16T09:43:25.219Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 49,
+    "tm": {
+      "489f6d920e8be8f0": "Praktiske funksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7832da842e2c3947": "Ein forteljing om korleis funksjonar blir brukte til å modelera alt frå straumregningar til bedriftsøkonomi.",
+      "637caf5fa2b66337": "modelera situasjonar knytte til kvardagen ved å bruka funksjonar",
+      "e06a1b595520187d": "tolka og presentera funksjonar grafisk og algebraisk",
+      "adc4d6f2fa12e283": "## Funksjonar i røynda\n\nHittil har vi lært om lineære funksjonar og andregradsfunksjonar som matematiske objekt. Men den verkelege krafta i funksjonar ligg i moglegheita til å modelera røynda. Når du les ein graf, kan du henta ut ei overraskande mengd informasjon: startverdien der $x = 0$, nullpunkt der grafen kryssar $x$-aksen, om verdien stig eller synk, og topp- og bunnpunkt.\n\nFor å setja opp ein funksjon frå ein praktisk situasjon fylgjer vi fire steg. Først identifiserer vi variablane -- kva er $x$ og kva er $f(x)$? Deretter finn vi samanhengen: er det ein fast verdi pluss noko som varierer? Så skriv vi funksjonsuttrykket, og til slutt kontrollerer vi ved å setja inn kjende verdiar. Med denne framgangsmåten kan du beskriva alt frå bilkøyring til kafftemperatur med matematikk.",
+      "b9d940a5c119e455": "## Frå tekst til funksjon\n\nLa oss sjå på nokre døme. Ein straumregning består av eit fastbeløp på 200 kr per månad pluss 1,20 kr per kWh. Kostnaden som funksjon av forbruket $x$ i kWh blir $K(x) = 1{,}20x + 200$. Ved 350 kWh forbruk: $K(350) = 1{,}20 \\cdot 350 + 200 = 620$ kr. Og med budsjett på 500 kr: $500 = 1{,}20x + 200$ gir $x = 250$ kWh.\n\nEin bil køyrer frå Oslo med fart 80 km/t. Distansen etter $t$ timar er $s(t) = 80t$. Her er stigingstalet 80 -- det er farten. Etter 2,5 timar: $s(2{,}5) = 200$ km. Og det tek $t = \\frac{360}{80} = 4{,}5$ timar å køyra 360 km.\n\nNokon situasjonar fylgjer eksponentiell vekst. Ein sparplan med 3 prosent rente gir saldo $S(t) = 10\\,000 \\cdot 1{,}03^t$ etter $t$ år. Ved start: 10 000 kr. Etter 5 år: $10\\,000 \\cdot 1{,}03^5 \\approx 11\\,593$ kr. Legg merke til at dette ikkje er ei rett linje -- pengane veks raskare og raskare.",
+      "9654e25982570594": "Prøv deg sjølv:",
+      "4097889236a2af26": "placeholder",
+      "6b0f5fc8e5d4378a": "Ein tank har 100 liter vatn og blir fylld med 30 liter per minutt. Kva er riktig funksjon for vetnmengda $V(t)$?",
+      "99c4cac9c9351c19": "$V(t) = 100t + 30$",
+      "db984737b13c94ca": "$V(t) = 30t + 100$",
+      "60f5b3075ff314ee": "$V(t) = 30t - 100$",
+      "765423cb5aacffa8": "$V(t) = 130t$",
+      "88d0ab1612b31fba": "Stigingstalet er 30 (liter/minutt) og startverdien er 100 (liter ved start). Altså $V(t) = 30t + 100$.",
+      "f6b81ea6d2848533": "Ein kaffekopps temperatur $T(t) = 20 + 70 \\cdot 0{,}95^t$. Kva blir temperaturen til slutt?",
+      "16147e769d13ef10": "90 grader",
+      "2852c9fe830c53bb": "70 grader",
+      "0d1146af26f5262d": "0 grader",
+      "3911ca8de3251a3e": "20 grader",
+      "30c94997741d9989": "Når $t$ blir veldig stor, går $0{,}95^t$ mot 0. Da nærmar temperaturen seg $20 + 0 = 20$ grader (romtemperaturen).",
+      "16a16d057a5abcb0": "Ein straumregning er $K(x) = 1{,}20x + 200$. Kor mange kWh kan du bruka for 500 kr?",
+      "cca42073a5914855": "417 kWh",
+      "63c97b19737f6cb6": "250 kWh",
+      "45edccf46937244a": "300 kWh",
+      "330a198ee0aad7d7": "200 kWh",
+      "ecdb0289cb610d43": "$500 = 1{,}20x + 200$ gir $1{,}20x = 300$ og $x = 250$ kWh.",
+      "48e29325c0654add": "## Samanlikna alternativ og bedriftsøkonomi\n\nFunksjonar er spesielt nyttige når du skal samanlikna alternativ. To treningssentre tilbyd: Senter A kostar 300 kr per månad pluss 30 kr per trening, medan Senter B kostar 600 kr med ubegrensa trening. Vi set $K_A(x) = 30x + 300$ og $K_B(x) = 600$. Skjeringspunktet: $30x + 300 = 600$ gir $x = 10$. Trener du meir enn 10 gonger i månaden, løner B seg.\n\nI bedriftsøkonomi er funksjonar heilt essensielle. Ein bedrift har kostnad $K(x) = 20x + 500$ og inntekt $I(x) = 50x$. Fortjenesten blir $F(x) = I(x) - K(x) = 30x - 500$. Break-even (der fortjenesten er null) oppstår ved $30x - 500 = 0$, altså $x \\approx 17$ einingar. Ved 50 selde einingar er fortjenesten $F(50) = 30 \\cdot 50 - 500 = 1000$ kr. Slike berekning hjelper bedrifter å ta gode avgjerder.\n\nEin rakett blir skoten opp med $h(t) = -5t^2 + 100t$. Maksimalhøgda blir nådd ved $t = 10$ sekund: $h(10) = 500$ meter. Ho lender etter 20 sekund. Her ser vi korleis andregradsfunksjonar modelerer rørsle der akselerasjon er involvert.",
+      "2550bd3db8272e18": "Senter A: $K_A(x) = 30x + 300$, Senter B: $K_B = 600$. Kva løner seg hvis du trener 15 gonger i månaden?",
+      "0a01ed88b744ef53": "Senter A (billigast)",
+      "6847386f85fdc60e": "Dei kostar like mykje",
+      "8d98b0be7713c272": "Senter B (billigast)",
+      "68f09193e7f920d5": "Umogleg å avgjerda",
+      "b9c1f68f585b5453": "$K_A(15) = 30 \\cdot 15 + 300 = 750$ kr, medan $K_B = 600$ kr. Senter B er billigast.",
+      "c6ce9f1f5c0ccf22": "Ein bedrift har $K(x) = 50x + 2000$ og $I(x) = 80x$. Kor mange einingar må seljast for å gå i null?",
+      "55f9c4ddbd5950da": "Ca. 67 einingar",
+      "cd5da5cf6bb99b00": "Ca. 25 einingar",
+      "2bb6d95d9a41da30": "Ca. 40 einingar",
+      "81d0c1befc981fbc": "Ca. 100 einingar",
+      "655b8c175c0a2bec": "$80x = 50x + 2000$ gir $30x = 2000$ og $x \\approx 67$ einingar.",
+      "112397f3ee4d74ff": "Ein bondi har 60 m gjerde langs ein vegg og lagar ein rektangulær innhegning. Størst areal fåst med dimensjonane:",
+      "cf353891c9e58d8b": "20 m $\\times$ 20 m",
+      "ebdf834c0f67cc3d": "10 m $\\times$ 40 m",
+      "fecd8302ba11840d": "15 m $\\times$ 30 m",
+      "03016d11ddbc1eaa": "12 m $\\times$ 36 m",
+      "5d31d6d92bf0fb6c": "$A(x) = x(60 - 2x) = -2x^2 + 60x$. Toppunkt: $x = 15$ m, lengd $= 60 - 30 = 30$ m.",
+      "09a5b4c14f95a265": "## Oppsummering\n\nFunksjonar er eit kraftig verktøy for å modellera røyndommen. For å setja opp ein funksjon frå ein situasjon: identifiser variablane, finn samanhengen, skriv uttrykket og sjekk med kjende verdiar. Lineære funksjonar beskriver jamn vekst, andregradsfunksjonar beskriver situasjonar med akselerasjon eller optimering, og eksponentielle funksjonar beskriver prosentvis vekst. Ved å samanlikna funksjonar kan du finna når alternativa er like dyre, og i bedriftsøkonomi finn du break-even ved å setja inntekt lik kostnad."
+    }
+  }
+}

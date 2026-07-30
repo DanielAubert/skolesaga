@@ -1,1 +1,293 @@
-{"id":"s2-4-6-narrativ","courseId":"s2","chapterNumber":"4.6","title":"Kontinuerlige sannsynlighetsfordelinger","subtitle":"Narrativ versjon","description":"En fortelling om ventetider og tetthetskurver — når sannsynlighet blir areal og integrasjon overtar for summering.","estimatedMinutes":40,"competenceGoals":["forklare hva en tetthetsfunksjon er og tolke sannsynligheter som areal","beregne sannsynligheter for kontinuerlige fordelinger ved integrasjon","bruke uniform fordeling og eksponentialfordeling i modellering","finne og tolke den kumulative fordelingsfunksjonen"],"linkedChapterId":"s2-4-6","content":[{"id":"s2-4-6-n-intro","type":"text","content":"## Når verdiene ikke kan telles\n\nPå et kundesenter ringer telefonen — men nøyaktig *når* neste anrop kommer, kan ingen si. Ventetiden kan bli 3 minutter, 3,7 minutter eller 3,7124 minutter; den kan ta **alle** verdier i et intervall. Det samme gjelder høyden til en tilfeldig person, temperaturen i morgen og feilen i en produksjonsprosess. Slike størrelser er **kontinuerlige**, i motsetning til de diskrete variablene vi har telt oss gjennom så langt.\n\nOg her skjer noe som først virker paradoksalt: for en kontinuerlig variabel $X$ er $P(X = x) = 0$ for hver enkelt verdi. Sannsynligheten for at ventetiden blir *nøyaktig* 3,7124000... minutter er null — det finnes uendelig mange kandidater. Det som har mening, er sannsynligheter for **intervaller**, og de beregnes med integrasjon: $$P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$$ der $f(x)$ er **tetthetsfunksjonen** (pdf) til $X$.\n\nEn funksjon kan være tetthetsfunksjon hvis den oppfyller to krav: $f(x) \\geq 0$ overalt, og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$ — den totale sannsynligheten er 1. Geometrisk er sannsynlighet **areal under kurven**. Merk en vanlig misforståelse: $f(x)$ er ikke selv en sannsynlighet og kan godt være større enn 1 — det er arealet som teller.\n\nForventning og varians defineres med integraler i stedet for summer: $E(X) = \\int_{-\\infty}^{\\infty} x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$ der $E(X^2) = \\int x^2 f(x)\\,dx$. Alt vi kunne om diskrete fordelinger, har altså en kontinuerlig tvilling — med $\\int$ der det før sto $\\sum$."},{"id":"s2-4-6-n-section1","type":"text","content":"## Å regne med tettheter\n\nVi prøver maskineriet på en konkret tetthet. La $f(x) = cx^2$ for $0 \\leq x \\leq 3$ og $f(x) = 0$ ellers. Tre spørsmål: Hva må $c$ være? Hva er $P(1 \\leq X \\leq 2)$? Og hva er $E(X)$?\n\n**Konstanten** bestemmes av kravet om totalareal 1: $\\int_0^3 cx^2\\,dx = c\\left[\\frac{x^3}{3}\\right]_0^3 = 9c = 1$, så $c = \\frac{1}{9}$. **Sannsynligheten**: $P(1 \\leq X \\leq 2) = \\int_1^2 \\frac{x^2}{9}\\,dx = \\frac{1}{9} \\cdot \\frac{8 - 1}{3} = \\frac{7}{27} \\approx 0{,}259$. **Forventningen**: $E(X) = \\int_0^3 x \\cdot \\frac{x^2}{9}\\,dx = \\frac{1}{9}\\left[\\frac{x^4}{4}\\right]_0^3 = \\frac{81}{36} = 2{,}25$.\n\nVed siden av tetthetsfunksjonen finnes en annen funksjon som ofte er enda mer praktisk: den **kumulative fordelingsfunksjonen** (cdf), $$F(x) = P(X \\leq x) = \\int_{-\\infty}^{x} f(t)\\,dt$$ Den samler opp all sannsynlighet til venstre for $x$. Egenskapene følger av definisjonen: $F$ er ikke-avtagende, $F(-\\infty) = 0$, $F(\\infty) = 1$, og — vakkert nok — $F'(x) = f(x)$: tettheten er den deriverte av den kumulative fordelingen. Analysens fundamentalteorem binder altså sannsynlighetsteorien sammen.\n\nNytten er umiddelbar: $P(a \\leq X \\leq b) = F(b) - F(a)$ og $P(X > a) = 1 - F(a)$. Har du først funnet $F$, slipper du å integrere på nytt for hvert spørsmål — det er derfor tabeller (som for normalfordelingen) alltid er tabeller over cdf-en. Du kan alltid utlede cdf ved å integrere pdf, og alltid kontrollere en tetthet ved å sjekke at integralet er 1."},{"id":"s2-4-6-n-quiz1","type":"exercise","exercise":{"id":"s2-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på tetthetsfunksjoner og kumulativ fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-6-n-quiz1-q0","task":"Hvorfor er $P(X = x) = 0$ for en kontinuerlig stokastisk variabel?","options":[{"id":"a","text":"Fordi det finnes uendelig mange mulige verdier — bare intervaller har positiv sannsynlighet","isCorrect":true},{"id":"b","text":"Fordi tetthetsfunksjonen alltid er null","isCorrect":false},{"id":"c","text":"Fordi kontinuerlige variabler ikke kan observeres","isCorrect":false},{"id":"d","text":"Det stemmer ikke — punktsannsynligheter er positive","isCorrect":false}],"solution":"Et enkelt punkt har «bredde null», og arealet under kurven over et punkt er null. Sannsynlighet får vi bare over intervaller: $P(a \\leq X \\leq b) = \\int_a^b f(x)dx$."},{"id":"s2-4-6-n-quiz1-q1","task":"Hvilke to krav må en tetthetsfunksjon oppfylle?","options":[{"id":"a","text":"$f(x) \\leq 1$ og $f(0) = 0$","isCorrect":false},{"id":"b","text":"$f(x) \\geq 0$ og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$","isCorrect":true},{"id":"c","text":"$f$ er voksende og kontinuerlig","isCorrect":false},{"id":"d","text":"$f(x) \\geq 0$ og $f$ er symmetrisk","isCorrect":false}],"solution":"Ikke-negativitet og totalareal 1. Merk at $f(x)$ gjerne kan være større enn 1 — det er arealet, ikke funksjonsverdien, som er sannsynlighet."},{"id":"s2-4-6-n-quiz1-q2","task":"For $f(x) = cx^2$ på $[0, 3]$: hva må $c$ være?","options":[{"id":"a","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{27}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{9}$","isCorrect":true},{"id":"d","text":"$9$","isCorrect":false}],"solution":"$\\int_0^3 cx^2 dx = c \\cdot \\frac{27}{3} = 9c = 1$ gir $c = \\frac{1}{9}$."},{"id":"s2-4-6-n-quiz1-q3","task":"Hva er sammenhengen mellom cdf $F(x)$ og pdf $f(x)$?","options":[{"id":"a","text":"$F(x) = f(x)^2$","isCorrect":false},{"id":"b","text":"$f(x) = \\int F(x)\\,dx$","isCorrect":false},{"id":"c","text":"De er samme funksjon","isCorrect":false},{"id":"d","text":"$F'(x) = f(x)$ — tettheten er den deriverte av den kumulative fordelingen","isCorrect":true}],"solution":"$F(x) = \\int_{-\\infty}^x f(t)dt$, så $F'(x) = f(x)$. Og $P(a \\leq X \\leq b) = F(b) - F(a)$ gjør cdf-en til et praktisk oppslagsverktøy."}]}},{"id":"s2-4-6-n-section2","type":"text","content":"## Den flate og den glemsomme\n\nTo kontinuerlige fordelinger går igjen i modellering, og de har helt ulik personlighet.\n\nDen første er **uniform fordeling**, $X \\sim U(a, b)$: fullstendig tilfeldighet der alle verdier i intervallet $[a, b]$ er like «tette». Tetthetsfunksjonen er flat, $f(x) = \\frac{1}{b-a}$ på intervallet og null utenfor, og cdf-en vokser lineært: $F(x) = \\frac{x-a}{b-a}$ for $a \\leq x \\leq b$. Forventningen ligger naturlig nok i midten, $E(X) = \\frac{a+b}{2}$, og variansen er $\\text{Var}(X) = \\frac{(b-a)^2}{12}$. En buss som kommer «en eller annen gang» i et kvarters vindu, et tilfeldig tall fra `random.random()` — uniforme fordelinger begge to.\n\nDen andre er **eksponentialfordelingen**, $X \\sim \\text{Exp}(\\lambda)$ med $\\lambda > 0$: modellen for **ventetider** mellom hendelser — tid til neste telefonsamtale, levetiden til en komponent. Tettheten er $f(x) = \\lambda e^{-\\lambda x}$ for $x \\geq 0$, cdf-en er $F(x) = 1 - e^{-\\lambda x}$, og dermed er «overlevelsessannsynligheten» $P(X > t) = e^{-\\lambda t}$. Forventningen er $E(X) = \\frac{1}{\\lambda}$ og variansen $\\frac{1}{\\lambda^2}$.\n\nTilbake til kundesenteret: anrop kommer i snitt 4 per time, så ventetiden mellom anrop er $\\text{Exp}(4)$ (målt i timer). Sannsynligheten for at det går mer enn 30 minutter ($0{,}5$ timer) til neste anrop: $P(X > 0{,}5) = e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$. Innen 10 minutter ($\\frac{1}{6}$ time): $P(X \\leq \\frac{1}{6}) = 1 - e^{-2/3} \\approx 0{,}487$. Og forventet ventetid: $\\frac{1}{4}$ time, altså 15 minutter.\n\nEksponentialfordelingens signatur er **hukommelsesløsheten**: $P(X > s + t \\mid X > s) = P(X > t)$. Har du alt ventet en halvtime, er sannsynligheten for å vente ti minutter til nøyaktig den samme som da du begynte. Fordelingen «husker ikke» fortiden — akkurat som mynten i forrige kapittel."},{"id":"s2-4-6-n-quiz2","type":"exercise","exercise":{"id":"s2-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på uniform fordeling og eksponentialfordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-6-n-quiz2-q0","task":"Hva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim U(a, b)$?","options":[{"id":"a","text":"$E(X) = \\frac{a+b}{2}$ og $\\text{Var}(X) = \\frac{(b-a)^2}{12}$","isCorrect":true},{"id":"b","text":"$E(X) = \\frac{b-a}{2}$ og $\\text{Var}(X) = \\frac{a+b}{12}$","isCorrect":false},{"id":"c","text":"$E(X) = \\frac{1}{b-a}$ og $\\text{Var}(X) = \\frac{1}{(b-a)^2}$","isCorrect":false},{"id":"d","text":"$E(X) = ab$ og $\\text{Var}(X) = \\frac{(ab)^2}{12}$","isCorrect":false}],"solution":"Den uniforme fordelingen har senter midt i intervallet, $\\frac{a+b}{2}$, og varians $\\frac{(b-a)^2}{12}$."},{"id":"s2-4-6-n-quiz2-q1","task":"Anrop kommer med rate $\\lambda = 4$ per time. Hva er sannsynligheten for mer enn 30 minutter til neste anrop?","options":[{"id":"a","text":"$e^{-2} \\approx 0{,}135$","isCorrect":true},{"id":"b","text":"$1 - e^{-2} \\approx 0{,}865$","isCorrect":false},{"id":"c","text":"$e^{-4} \\approx 0{,}018$","isCorrect":false},{"id":"d","text":"$0{,}5$","isCorrect":false}],"solution":"$P(X > t) = e^{-\\lambda t}$ med $t = 0{,}5$ timer: $e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$."},{"id":"s2-4-6-n-quiz2-q2","task":"Hva er forventet ventetid når $\\lambda = 4$ anrop per time?","options":[{"id":"a","text":"4 timer","isCorrect":false},{"id":"b","text":"30 minutter","isCorrect":false},{"id":"c","text":"15 minutter","isCorrect":true},{"id":"d","text":"4 minutter","isCorrect":false}],"solution":"$E(X) = \\frac{1}{\\lambda} = \\frac{1}{4}$ time $= 15$ minutter."},{"id":"s2-4-6-n-quiz2-q3","task":"Hva betyr det at eksponentialfordelingen er «hukommelsesløs»?","options":[{"id":"a","text":"At forventningsverdien er null","isCorrect":false},{"id":"b","text":"At $P(X > s + t \\mid X > s) = P(X > t)$ — tiden du alt har ventet, påvirker ikke gjenstående ventetid","isCorrect":true},{"id":"c","text":"At fordelingen endrer seg over tid","isCorrect":false},{"id":"d","text":"At variansen er uendelig","isCorrect":false}],"solution":"Hukommelsesløshet: sannsynligheten for å vente $t$ til er den samme uansett hvor lenge du allerede har ventet. Det er eksponentialfordelingens særtrekk."}]}},{"id":"s2-4-6-n-summary","type":"text","content":"## Oppsummering: sannsynlighet som areal\n\nKundesenterets ventetider førte oss fra det tellbare til det kontinuerlige. For kontinuerlige stokastiske variabler er punktsannsynligheter null; alt uttrykkes gjennom **tetthetsfunksjonen** $f(x)$, som må være ikke-negativ og ha totalareal 1, og sannsynligheter er arealer: $P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$. Husk at $f(x)$ selv ikke er en sannsynlighet og godt kan overstige 1. Forventning og varians beregnes med integraler: $E(X) = \\int x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDen **kumulative fordelingsfunksjonen** $F(x) = P(X \\leq x) = \\int_{-\\infty}^x f(t)\\,dt$ er det praktiske oppslagsverktøyet: $P(a \\leq X \\leq b) = F(b) - F(a)$, $P(X > a) = 1 - F(a)$, og $F'(x) = f(x)$ knytter de to funksjonene sammen via fundamentalteoremet. Du kan alltid utlede cdf fra pdf ved integrasjon — og alltid kontrollere en tetthet ved å sjekke at integralet blir 1.\n\nTo standardmodeller bør du kjenne igjen på avstand. Den **uniforme fordelingen** $U(a,b)$ — flat tetthet $\\frac{1}{b-a}$, $E(X) = \\frac{a+b}{2}$, $\\text{Var}(X) = \\frac{(b-a)^2}{12}$ — beskriver ren tilfeldighet i et intervall. **Eksponentialfordelingen** $\\text{Exp}(\\lambda)$ — tetthet $\\lambda e^{-\\lambda x}$, $E(X) = \\frac{1}{\\lambda}$, overlevelse $P(X > t) = e^{-\\lambda t}$ — beskriver ventetider, og dens hukommelsesløshet betyr at fortiden aldri endrer utsiktene. Sammen med normalfordelingen utgjør disse verktøykassen for kontinuerlig sannsynlighet — og broen over til neste tema: å bruke fordelingene til å trekke konklusjoner fra data."}],"exercises":[]}
+{
+  "id": "s2-4-6-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "4.6",
+  "title": "Kontinuerlige sannsynlighetsfordelinger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om ventetider og tetthetskurver — når sannsynlighet blir areal og integrasjon overtar for summering.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forklare hva en tetthetsfunksjon er og tolke sannsynligheter som areal",
+    "beregne sannsynligheter for kontinuerlige fordelinger ved integrasjon",
+    "bruke uniform fordeling og eksponentialfordeling i modellering",
+    "finne og tolke den kumulative fordelingsfunksjonen"
+  ],
+  "linkedChapterId": "s2-4-6",
+  "content": [
+    {
+      "id": "s2-4-6-n-intro",
+      "type": "text",
+      "content": "## Når verdiene ikke kan telles\n\nPå et kundesenter ringer telefonen — men nøyaktig *når* neste anrop kommer, kan ingen si. Ventetiden kan bli 3 minutter, 3,7 minutter eller 3,7124 minutter; den kan ta **alle** verdier i et intervall. Det samme gjelder høyden til en tilfeldig person, temperaturen i morgen og feilen i en produksjonsprosess. Slike størrelser er **kontinuerlige**, i motsetning til de diskrete variablene vi har telt oss gjennom så langt.\n\nOg her skjer noe som først virker paradoksalt: for en kontinuerlig variabel $X$ er $P(X = x) = 0$ for hver enkelt verdi. Sannsynligheten for at ventetiden blir *nøyaktig* 3,7124000... minutter er null — det finnes uendelig mange kandidater. Det som har mening, er sannsynligheter for **intervaller**, og de beregnes med integrasjon: $$P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$$ der $f(x)$ er **tetthetsfunksjonen** (pdf) til $X$.\n\nEn funksjon kan være tetthetsfunksjon hvis den oppfyller to krav: $f(x) \\geq 0$ overalt, og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$ — den totale sannsynligheten er 1. Geometrisk er sannsynlighet **areal under kurven**. Merk en vanlig misforståelse: $f(x)$ er ikke selv en sannsynlighet og kan godt være større enn 1 — det er arealet som teller.\n\nForventning og varians defineres med integraler i stedet for summer: $E(X) = \\int_{-\\infty}^{\\infty} x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$ der $E(X^2) = \\int x^2 f(x)\\,dx$. Alt vi kunne om diskrete fordelinger, har altså en kontinuerlig tvilling — med $\\int$ der det før sto $\\sum$."
+    },
+    {
+      "id": "s2-4-6-n-section1",
+      "type": "text",
+      "content": "## Å regne med tettheter\n\nVi prøver maskineriet på en konkret tetthet. La $f(x) = cx^2$ for $0 \\leq x \\leq 3$ og $f(x) = 0$ ellers. Tre spørsmål: Hva må $c$ være? Hva er $P(1 \\leq X \\leq 2)$? Og hva er $E(X)$?\n\n**Konstanten** bestemmes av kravet om totalareal 1: $\\int_0^3 cx^2\\,dx = c\\left[\\frac{x^3}{3}\\right]_0^3 = 9c = 1$, så $c = \\frac{1}{9}$. **Sannsynligheten**: $P(1 \\leq X \\leq 2) = \\int_1^2 \\frac{x^2}{9}\\,dx = \\frac{1}{9} \\cdot \\frac{8 - 1}{3} = \\frac{7}{27} \\approx 0{,}259$. **Forventningen**: $E(X) = \\int_0^3 x \\cdot \\frac{x^2}{9}\\,dx = \\frac{1}{9}\\left[\\frac{x^4}{4}\\right]_0^3 = \\frac{81}{36} = 2{,}25$.\n\nVed siden av tetthetsfunksjonen finnes en annen funksjon som ofte er enda mer praktisk: den **kumulative fordelingsfunksjonen** (cdf), $$F(x) = P(X \\leq x) = \\int_{-\\infty}^{x} f(t)\\,dt$$ Den samler opp all sannsynlighet til venstre for $x$. Egenskapene følger av definisjonen: $F$ er ikke-avtagende, $F(-\\infty) = 0$, $F(\\infty) = 1$, og — vakkert nok — $F'(x) = f(x)$: tettheten er den deriverte av den kumulative fordelingen. Analysens fundamentalteorem binder altså sannsynlighetsteorien sammen.\n\nNytten er umiddelbar: $P(a \\leq X \\leq b) = F(b) - F(a)$ og $P(X > a) = 1 - F(a)$. Har du først funnet $F$, slipper du å integrere på nytt for hvert spørsmål — det er derfor tabeller (som for normalfordelingen) alltid er tabeller over cdf-en. Du kan alltid utlede cdf ved å integrere pdf, og alltid kontrollere en tetthet ved å sjekke at integralet er 1."
+    },
+    {
+      "id": "s2-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på tetthetsfunksjoner og kumulativ fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-6-n-quiz1-q0",
+            "task": "Hvorfor er $P(X = x) = 0$ for en kontinuerlig stokastisk variabel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det finnes uendelig mange mulige verdier — bare intervaller har positiv sannsynlighet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi tetthetsfunksjonen alltid er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi kontinuerlige variabler ikke kan observeres",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det stemmer ikke — punktsannsynligheter er positive",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et enkelt punkt har «bredde null», og arealet under kurven over et punkt er null. Sannsynlighet får vi bare over intervaller: $P(a \\leq X \\leq b) = \\int_a^b f(x)dx$."
+          },
+          {
+            "id": "s2-4-6-n-quiz1-q1",
+            "task": "Hvilke to krav må en tetthetsfunksjon oppfylle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) \\leq 1$ og $f(0) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) \\geq 0$ og $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f$ er voksende og kontinuerlig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) \\geq 0$ og $f$ er symmetrisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ikke-negativitet og totalareal 1. Merk at $f(x)$ gjerne kan være større enn 1 — det er arealet, ikke funksjonsverdien, som er sannsynlighet."
+          },
+          {
+            "id": "s2-4-6-n-quiz1-q2",
+            "task": "For $f(x) = cx^2$ på $[0, 3]$: hva må $c$ være?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{27}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{9}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_0^3 cx^2 dx = c \\cdot \\frac{27}{3} = 9c = 1$ gir $c = \\frac{1}{9}$."
+          },
+          {
+            "id": "s2-4-6-n-quiz1-q3",
+            "task": "Hva er sammenhengen mellom cdf $F(x)$ og pdf $f(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$F(x) = f(x)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = \\int F(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De er samme funksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$F'(x) = f(x)$ — tettheten er den deriverte av den kumulative fordelingen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$F(x) = \\int_{-\\infty}^x f(t)dt$, så $F'(x) = f(x)$. Og $P(a \\leq X \\leq b) = F(b) - F(a)$ gjør cdf-en til et praktisk oppslagsverktøy."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-6-n-section2",
+      "type": "text",
+      "content": "## Den flate og den glemsomme\n\nTo kontinuerlige fordelinger går igjen i modellering, og de har helt ulik personlighet.\n\nDen første er **uniform fordeling**, $X \\sim U(a, b)$: fullstendig tilfeldighet der alle verdier i intervallet $[a, b]$ er like «tette». Tetthetsfunksjonen er flat, $f(x) = \\frac{1}{b-a}$ på intervallet og null utenfor, og cdf-en vokser lineært: $F(x) = \\frac{x-a}{b-a}$ for $a \\leq x \\leq b$. Forventningen ligger naturlig nok i midten, $E(X) = \\frac{a+b}{2}$, og variansen er $\\text{Var}(X) = \\frac{(b-a)^2}{12}$. En buss som kommer «en eller annen gang» i et kvarters vindu, et tilfeldig tall fra `random.random()` — uniforme fordelinger begge to.\n\nDen andre er **eksponentialfordelingen**, $X \\sim \\text{Exp}(\\lambda)$ med $\\lambda > 0$: modellen for **ventetider** mellom hendelser — tid til neste telefonsamtale, levetiden til en komponent. Tettheten er $f(x) = \\lambda e^{-\\lambda x}$ for $x \\geq 0$, cdf-en er $F(x) = 1 - e^{-\\lambda x}$, og dermed er «overlevelsessannsynligheten» $P(X > t) = e^{-\\lambda t}$. Forventningen er $E(X) = \\frac{1}{\\lambda}$ og variansen $\\frac{1}{\\lambda^2}$.\n\nTilbake til kundesenteret: anrop kommer i snitt 4 per time, så ventetiden mellom anrop er $\\text{Exp}(4)$ (målt i timer). Sannsynligheten for at det går mer enn 30 minutter ($0{,}5$ timer) til neste anrop: $P(X > 0{,}5) = e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$. Innen 10 minutter ($\\frac{1}{6}$ time): $P(X \\leq \\frac{1}{6}) = 1 - e^{-2/3} \\approx 0{,}487$. Og forventet ventetid: $\\frac{1}{4}$ time, altså 15 minutter.\n\nEksponentialfordelingens signatur er **hukommelsesløsheten**: $P(X > s + t \\mid X > s) = P(X > t)$. Har du alt ventet en halvtime, er sannsynligheten for å vente ti minutter til nøyaktig den samme som da du begynte. Fordelingen «husker ikke» fortiden — akkurat som mynten i forrige kapittel."
+    },
+    {
+      "id": "s2-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på uniform fordeling og eksponentialfordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-6-n-quiz2-q0",
+            "task": "Hva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim U(a, b)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$E(X) = \\frac{a+b}{2}$ og $\\text{Var}(X) = \\frac{(b-a)^2}{12}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$E(X) = \\frac{b-a}{2}$ og $\\text{Var}(X) = \\frac{a+b}{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E(X) = \\frac{1}{b-a}$ og $\\text{Var}(X) = \\frac{1}{(b-a)^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$E(X) = ab$ og $\\text{Var}(X) = \\frac{(ab)^2}{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den uniforme fordelingen har senter midt i intervallet, $\\frac{a+b}{2}$, og varians $\\frac{(b-a)^2}{12}$."
+          },
+          {
+            "id": "s2-4-6-n-quiz2-q1",
+            "task": "Anrop kommer med rate $\\lambda = 4$ per time. Hva er sannsynligheten for mer enn 30 minutter til neste anrop?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1 - e^{-2} \\approx 0{,}865$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$e^{-2} \\approx 0{,}135$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$e^{-4} \\approx 0{,}018$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(X > t) = e^{-\\lambda t}$ med $t = 0{,}5$ timer: $e^{-4 \\cdot 0{,}5} = e^{-2} \\approx 0{,}135$."
+          },
+          {
+            "id": "s2-4-6-n-quiz2-q2",
+            "task": "Hva er forventet ventetid når $\\lambda = 4$ anrop per time?",
+            "options": [
+              {
+                "id": "a",
+                "text": "4 timer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "30 minutter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "15 minutter",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "4 minutter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = \\frac{1}{\\lambda} = \\frac{1}{4}$ time $= 15$ minutter."
+          },
+          {
+            "id": "s2-4-6-n-quiz2-q3",
+            "task": "Hva betyr det at eksponentialfordelingen er «hukommelsesløs»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At forventningsverdien er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At fordelingen endrer seg over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At variansen er uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At $P(X > s + t \\mid X > s) = P(X > t)$ — tiden du alt har ventet, påvirker ikke gjenstående ventetid",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hukommelsesløshet: sannsynligheten for å vente $t$ til er den samme uansett hvor lenge du allerede har ventet. Det er eksponentialfordelingens særtrekk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: sannsynlighet som areal\n\nKundesenterets ventetider førte oss fra det tellbare til det kontinuerlige. For kontinuerlige stokastiske variabler er punktsannsynligheter null; alt uttrykkes gjennom **tetthetsfunksjonen** $f(x)$, som må være ikke-negativ og ha totalareal 1, og sannsynligheter er arealer: $P(a \\leq X \\leq b) = \\int_a^b f(x)\\,dx$. Husk at $f(x)$ selv ikke er en sannsynlighet og godt kan overstige 1. Forventning og varians beregnes med integraler: $E(X) = \\int x f(x)\\,dx$ og $\\text{Var}(X) = E(X^2) - [E(X)]^2$.\n\nDen **kumulative fordelingsfunksjonen** $F(x) = P(X \\leq x) = \\int_{-\\infty}^x f(t)\\,dt$ er det praktiske oppslagsverktøyet: $P(a \\leq X \\leq b) = F(b) - F(a)$, $P(X > a) = 1 - F(a)$, og $F'(x) = f(x)$ knytter de to funksjonene sammen via fundamentalteoremet. Du kan alltid utlede cdf fra pdf ved integrasjon — og alltid kontrollere en tetthet ved å sjekke at integralet blir 1.\n\nTo standardmodeller bør du kjenne igjen på avstand. Den **uniforme fordelingen** $U(a,b)$ — flat tetthet $\\frac{1}{b-a}$, $E(X) = \\frac{a+b}{2}$, $\\text{Var}(X) = \\frac{(b-a)^2}{12}$ — beskriver ren tilfeldighet i et intervall. **Eksponentialfordelingen** $\\text{Exp}(\\lambda)$ — tetthet $\\lambda e^{-\\lambda x}$, $E(X) = \\frac{1}{\\lambda}$, overlevelse $P(X > t) = e^{-\\lambda t}$ — beskriver ventetider, og dens hukommelsesløshet betyr at fortiden aldri endrer utsiktene. Sammen med normalfordelingen utgjør disse verktøykassen for kontinuerlig sannsynlighet — og broen over til neste tema: å bruke fordelingene til å trekke konklusjoner fra data."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,364 @@
-{"id":"s1-4-3-narrativ","courseId":"s1","chapterNumber":"4.3","title":"Etterspørsel og elastisitet","subtitle":"Narrativ versjon","description":"En fortelling om smartklokka som skal prissettes — etterspørselsfunksjon, inntektsmaksimering og priselastisitet.","estimatedMinutes":34,"competenceGoals":["anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett","anvende derivasjon til å analysere og forstå optimaliseringsproblemer"],"linkedChapterId":"s1-4-3","content":[{"id":"s1-4-3-n-intro","type":"text","content":"## Når prisen bestemmer salget\n\nEn liten teknologibedrift har utviklet en smartklokke og skal sette prisen. Så langt i kurset har vi latt bedrifter selge så mye de vil til fast pris — men i virkeligheten påvirker prisen hvor mange som kjøper. Setter de prisen opp, faller salget. Den sammenhengen fanges av **etterspørselsfunksjonen**.\n\nEtterspørselsfunksjonen $x(p)$ angir hvor mange enheter som etterspørres når prisen er $p$. Alternativt kan vi snu den og skrive prisen som funksjon av mengden, $p(x)$. Typisk er begge avtagende: $x'(p) < 0$ — etterspørselen synker når prisen øker — og $p'(x) < 0$ — prisen må senkes for å selge mer.\n\nMarkedsavdelingen har estimert $x(p) = 1000 - 5p$ for klokka. La oss lese modellen. Ved pris $p = 100$ kr blir etterspørselen $x(100) = 1000 - 500 = 500$ enheter. Vil vi vite hvilken pris som gir akkurat 500 solgte, løser vi $1000 - 5p = 500$ og får $p = 100$ — samme punkt, lest fra motsatt kant. Og den høyeste prisen noen i det hele tatt vil betale? Den finner vi der etterspørselen dør ut: $1000 - 5p = 0$ gir $p = 200$ kr. Over 200 kr selger bedriften ingenting.\n\nModellen er enkel, men den åpner et helt nytt landskap: nå henger inntekten sammen med prisen på en mer subtil måte enn «pris ganger et fast antall». Det landskapet skal vi utforske — og finne toppen av."},{"id":"s1-4-3-n-quiz1","type":"exercise","exercise":{"id":"s1-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på etterspørselsfunksjonen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-3-n-quiz1-q0","task":"Etterspørselen er $x(p) = 1000 - 5p$. Hvor mange enheter etterspørres ved pris $p = 100$?","options":[{"id":"a","text":"$500$","isCorrect":true},{"id":"b","text":"$950$","isCorrect":false},{"id":"c","text":"$1000$","isCorrect":false},{"id":"d","text":"$100$","isCorrect":false}],"solution":"$x(100) = 1000 - 5 \\cdot 100 = 500$ enheter."},{"id":"s1-4-3-n-quiz1-q1","task":"Hva er typisk fortegn på $x'(p)$ for en etterspørselsfunksjon?","options":[{"id":"a","text":"Positivt — flere kjøper når prisen øker","isCorrect":false},{"id":"b","text":"Negativt — etterspørselen synker når prisen øker","isCorrect":true},{"id":"c","text":"Null — etterspørselen er konstant","isCorrect":false},{"id":"d","text":"Det varierer tilfeldig","isCorrect":false}],"solution":"Etterspørselen avtar når prisen øker, så $x'(p) < 0$."},{"id":"s1-4-3-n-quiz1-q2","task":"For $x(p) = 1000 - 5p$: ved hvilken pris blir etterspørselen null?","options":[{"id":"a","text":"$p = 1000$","isCorrect":false},{"id":"b","text":"$p = 100$","isCorrect":false},{"id":"c","text":"$p = 200$","isCorrect":true},{"id":"d","text":"$p = 500$","isCorrect":false}],"solution":"$1000 - 5p = 0$ gir $p = 200$ kr. Over denne prisen kjøper ingen produktet."}]}},{"id":"s1-4-3-n-section1","type":"text","content":"## Inntekten — pris ganger mengde, men begge teller\n\nNår prisen styrer etterspørselen, blir inntekten produktet av to størrelser som drar i hver sin retning. Med etterspørselen $x(p) = a - bp$ blir inntekten som funksjon av prisen\n\n$$I(p) = p \\cdot x(p) = p(a - bp) = ap - bp^2$$\n\nHar vi i stedet prisen som funksjon av mengden, skriver vi $I(x) = p(x) \\cdot x$.\n\nFor smartklokka: $I(p) = p(1000 - 5p) = 1000p - 5p^2$. Dette er en nedovervendt parabel — lav pris gir mange solgte men lite per stykk, høy pris gir mye per stykk men få solgte. Et sted imellom ligger toppen. Vi deriverer og setter lik null:\n\n$$I'(p) = 1000 - 10p = 0 \\quad \\Rightarrow \\quad p = 100 \\text{ kr}$$\n\nMaksimal inntekt blir $I(100) = 1000 \\cdot 100 - 5 \\cdot 100^2 = 100\\,000 - 50\\,000 = 50\\,000$ kr, og ved den prisen selges $x(100) = 500$ klokker.\n\nLegg merke til hva som skjedde: derivasjon, som du lærte som et verktøy for tangenter og ekstremalpunkter, ble her et **prissettingsverktøy**. Bedriften trenger ikke prøve seg fram i markedet — modellen peker direkte på prisen som maksimerer inntekten. Men ett spørsmål gjenstår: *hvor følsom* er egentlig etterspørselen for prisendringer? Hvis bedriften setter prisen opp én prosent, mister den da en halv prosent av kundene, eller tre prosent? Det spørsmålet har et eget navn i økonomien, og svaret avgjør om en prisøkning lønner seg."},{"id":"s1-4-3-n-quiz2","type":"exercise","exercise":{"id":"s1-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på inntekt med etterspørsel:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-3-n-quiz2-q0","task":"Etterspørselen er $x(p) = 1000 - 5p$. Hva er inntektsfunksjonen $I(p)$?","options":[{"id":"a","text":"$I(p) = 1000 - 5p^2$","isCorrect":false},{"id":"b","text":"$I(p) = 1000p$","isCorrect":false},{"id":"c","text":"$I(p) = p + 1000 - 5p$","isCorrect":false},{"id":"d","text":"$I(p) = 1000p - 5p^2$","isCorrect":true}],"solution":"$I(p) = p \\cdot x(p) = p(1000 - 5p) = 1000p - 5p^2$."},{"id":"s1-4-3-n-quiz2-q1","task":"Hvilken pris maksimerer inntekten $I(p) = 1000p - 5p^2$?","options":[{"id":"a","text":"$p = 100$","isCorrect":true},{"id":"b","text":"$p = 200$","isCorrect":false},{"id":"c","text":"$p = 50$","isCorrect":false},{"id":"d","text":"$p = 1000$","isCorrect":false}],"solution":"$I'(p) = 1000 - 10p = 0$ gir $p = 100$ kr."},{"id":"s1-4-3-n-quiz2-q2","task":"Hva er den maksimale inntekten i samme modell?","options":[{"id":"a","text":"$100\\,000$ kr","isCorrect":false},{"id":"b","text":"$50\\,000$ kr","isCorrect":true},{"id":"c","text":"$5\\,000$ kr","isCorrect":false},{"id":"d","text":"$500\\,000$ kr","isCorrect":false}],"solution":"$I(100) = 1000 \\cdot 100 - 5 \\cdot 100^2 = 100\\,000 - 50\\,000 = 50\\,000$ kr."}]}},{"id":"s1-4-3-n-section2","type":"text","content":"## Priselastisitet — markedets følsomhet\n\n**Priselastisiteten** $e$ måler den prosentvise endringen i etterspørsel i forhold til den prosentvise endringen i pris:\n\n$$e = \\frac{\\frac{\\Delta x}{x}}{\\frac{\\Delta p}{p}} = \\frac{p}{x} \\cdot \\frac{\\Delta x}{\\Delta p}$$\n\nMed derivasjon blir den eksakt: $e = \\frac{p}{x(p)} \\cdot x'(p)$. Fordi etterspørselen synker når prisen øker, er $e$ vanligvis negativ, og vi tolker ofte tallverdien $|e|$. Er $|e| > 1$, kalles etterspørselen **elastisk** — følsom for pris. Er $|e| < 1$, er den **uelastisk** — lite følsom. Og $|e| = 1$ kalles **enhetselastisk**.\n\nFor smartklokka: $x(p) = 1000 - 5p$ gir $x'(p) = -5$, så\n\n$$e = \\frac{p}{1000 - 5p} \\cdot (-5) = \\frac{-5p}{1000 - 5p}$$\n\nVed $p = 50$: $e = \\frac{-250}{750} = -\\frac{1}{3}$. Uelastisk — en prisøkning på 1 % koster bare 0,33 % av salget, så prisøkning lønner seg. Ved $p = 100$: $e = \\frac{-500}{500} = -1$. Enhetselastisk. Og setter vi $e = -1$ og løser, får vi nettopp $p = 100$.\n\nDet er ingen tilfeldighet. Det gjelder en vakker sammenheng: **priselastisiteten ved inntektsmaksimum er alltid $e = -1$**. Når $|e| > 1$ øker inntekten ved prisreduksjon; når $|e| < 1$ øker den ved prisøkning; og ved $|e| = 1$ står inntekten på toppen. Elastisiteten forteller altså ikke bare hvor følsomt markedet er — den forteller bedriften hvilken retning prisen bør justeres."},{"id":"s1-4-3-n-quiz3","type":"exercise","exercise":{"id":"s1-4-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på priselastisitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-3-n-quiz3-q0","task":"Hva betyr det at etterspørselen er elastisk ($|e| > 1$)?","options":[{"id":"a","text":"Etterspørselen er svært følsom for prisendringer","isCorrect":true},{"id":"b","text":"Etterspørselen påvirkes ikke av prisen","isCorrect":false},{"id":"c","text":"Prisen er på sitt høyeste","isCorrect":false},{"id":"d","text":"Etterspørselen er lite følsom for prisendringer","isCorrect":false}],"solution":"Elastisk betyr at en prisendring på 1 % gir mer enn 1 % endring i etterspørselen."},{"id":"s1-4-3-n-quiz3-q1","task":"For $x(p) = 1000 - 5p$ er elastisiteten ved $p = 50$ lik $e = -\\frac{1}{3}$. Hva bør bedriften gjøre for å øke inntekten?","options":[{"id":"a","text":"Senke prisen","isCorrect":false},{"id":"b","text":"Holde prisen uendret","isCorrect":false},{"id":"c","text":"Øke prisen","isCorrect":true},{"id":"d","text":"Slutte å selge","isCorrect":false}],"solution":"$|e| = \\frac{1}{3} < 1$: uelastisk. Da gir prisøkning høyere inntekt — kundene forsvinner langsommere enn prisen stiger."},{"id":"s1-4-3-n-quiz3-q2","task":"Hva er priselastisiteten ved prisen som maksimerer inntekten?","options":[{"id":"a","text":"$e = 0$","isCorrect":false},{"id":"b","text":"$e = -1$","isCorrect":true},{"id":"c","text":"$e = 1$","isCorrect":false},{"id":"d","text":"$e = -\\infty$","isCorrect":false}],"solution":"Ved inntektsmaksimum er etterspørselen alltid enhetselastisk: $e = -1$."},{"id":"s1-4-3-n-quiz3-q3","task":"Etterspørselen etter en vare har $|e| = 3$ ved dagens pris. Hva skjer med inntekten hvis prisen settes opp?","options":[{"id":"a","text":"Inntekten øker","isCorrect":false},{"id":"b","text":"Inntekten er uendret","isCorrect":false},{"id":"c","text":"Inntekten dobles","isCorrect":false},{"id":"d","text":"Inntekten synker","isCorrect":true}],"solution":"Elastisk etterspørsel ($|e| > 1$): prisøkning gir så stort salgsfall at inntekten synker."}]}},{"id":"s1-4-3-n-summary","type":"text","content":"## Oppsummering: prisen, salget og følsomheten\n\nSmartklokke-bedriften startet med ett spørsmål — hva skal klokka koste? — og endte med tre verktøy. **Etterspørselsfunksjonen** $x(p)$ beskriver hvor mye markedet kjøper ved pris $p$; den er avtagende, og dens nullpunkt angir den høyeste prisen noen vil betale.\n\n**Inntekten** med etterspørsel er $I(p) = p \\cdot x(p)$ — et produkt der prisen og mengden drar hver sin vei, slik at inntektskurven blir en nedovervendt parabel med en topp som derivasjon finner eksakt: $I'(p) = 0$ ga $p = 100$ kr og 50 000 kr i maksimal inntekt.\n\n**Priselastisiteten** $e = \\frac{p}{x(p)} \\cdot x'(p)$ måler markedets følsomhet: prosentvis endring i etterspørsel per prosent prisendring. Tolkningen styrer strategien — $|e| < 1$ (uelastisk) betyr at prisøkning øker inntekten, $|e| > 1$ (elastisk) betyr at prisøkning senker den, og toppen av inntektskurven ligger nøyaktig der $e = -1$.\n\nDermed henger alt sammen: etterspørselen gir inntekten, inntekten gir optimumet, og elastisiteten forklarer *hvorfor* optimumet ligger der det ligger. I kapittel 4.5 går vi dypere inn i elastisitetsbegrepet og møter slektningene krysspriselastisitet og inntektselastisitet."}],"exercises":[]}
+{
+  "id": "s1-4-3-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "4.3",
+  "title": "Etterspørsel og elastisitet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om smartklokka som skal prissettes — etterspørselsfunksjon, inntektsmaksimering og priselastisitet.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett",
+    "anvende derivasjon til å analysere og forstå optimaliseringsproblemer"
+  ],
+  "linkedChapterId": "s1-4-3",
+  "content": [
+    {
+      "id": "s1-4-3-n-intro",
+      "type": "text",
+      "content": "## Når prisen bestemmer salget\n\nEn liten teknologibedrift har utviklet en smartklokke og skal sette prisen. Så langt i kurset har vi latt bedrifter selge så mye de vil til fast pris — men i virkeligheten påvirker prisen hvor mange som kjøper. Setter de prisen opp, faller salget. Den sammenhengen fanges av **etterspørselsfunksjonen**.\n\nEtterspørselsfunksjonen $x(p)$ angir hvor mange enheter som etterspørres når prisen er $p$. Alternativt kan vi snu den og skrive prisen som funksjon av mengden, $p(x)$. Typisk er begge avtagende: $x'(p) < 0$ — etterspørselen synker når prisen øker — og $p'(x) < 0$ — prisen må senkes for å selge mer.\n\nMarkedsavdelingen har estimert $x(p) = 1000 - 5p$ for klokka. La oss lese modellen. Ved pris $p = 100$ kr blir etterspørselen $x(100) = 1000 - 500 = 500$ enheter. Vil vi vite hvilken pris som gir akkurat 500 solgte, løser vi $1000 - 5p = 500$ og får $p = 100$ — samme punkt, lest fra motsatt kant. Og den høyeste prisen noen i det hele tatt vil betale? Den finner vi der etterspørselen dør ut: $1000 - 5p = 0$ gir $p = 200$ kr. Over 200 kr selger bedriften ingenting.\n\nModellen er enkel, men den åpner et helt nytt landskap: nå henger inntekten sammen med prisen på en mer subtil måte enn «pris ganger et fast antall». Det landskapet skal vi utforske — og finne toppen av."
+    },
+    {
+      "id": "s1-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på etterspørselsfunksjonen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-3-n-quiz1-q0",
+            "task": "Etterspørselen er $x(p) = 1000 - 5p$. Hvor mange enheter etterspørres ved pris $p = 100$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$950$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1000$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$500$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$100$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x(100) = 1000 - 5 \\cdot 100 = 500$ enheter."
+          },
+          {
+            "id": "s1-4-3-n-quiz1-q1",
+            "task": "Hva er typisk fortegn på $x'(p)$ for en etterspørselsfunksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Positivt — flere kjøper når prisen øker",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Null — etterspørselen er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det varierer tilfeldig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Negativt — etterspørselen synker når prisen øker",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Etterspørselen avtar når prisen øker, så $x'(p) < 0$."
+          },
+          {
+            "id": "s1-4-3-n-quiz1-q2",
+            "task": "For $x(p) = 1000 - 5p$: ved hvilken pris blir etterspørselen null?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$p = 200$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$p = 1000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$p = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$p = 500$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$1000 - 5p = 0$ gir $p = 200$ kr. Over denne prisen kjøper ingen produktet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-3-n-section1",
+      "type": "text",
+      "content": "## Inntekten — pris ganger mengde, men begge teller\n\nNår prisen styrer etterspørselen, blir inntekten produktet av to størrelser som drar i hver sin retning. Med etterspørselen $x(p) = a - bp$ blir inntekten som funksjon av prisen\n\n$$I(p) = p \\cdot x(p) = p(a - bp) = ap - bp^2$$\n\nHar vi i stedet prisen som funksjon av mengden, skriver vi $I(x) = p(x) \\cdot x$.\n\nFor smartklokka: $I(p) = p(1000 - 5p) = 1000p - 5p^2$. Dette er en nedovervendt parabel — lav pris gir mange solgte men lite per stykk, høy pris gir mye per stykk men få solgte. Et sted imellom ligger toppen. Vi deriverer og setter lik null:\n\n$$I'(p) = 1000 - 10p = 0 \\quad \\Rightarrow \\quad p = 100 \\text{ kr}$$\n\nMaksimal inntekt blir $I(100) = 1000 \\cdot 100 - 5 \\cdot 100^2 = 100\\,000 - 50\\,000 = 50\\,000$ kr, og ved den prisen selges $x(100) = 500$ klokker.\n\nLegg merke til hva som skjedde: derivasjon, som du lærte som et verktøy for tangenter og ekstremalpunkter, ble her et **prissettingsverktøy**. Bedriften trenger ikke prøve seg fram i markedet — modellen peker direkte på prisen som maksimerer inntekten. Men ett spørsmål gjenstår: *hvor følsom* er egentlig etterspørselen for prisendringer? Hvis bedriften setter prisen opp én prosent, mister den da en halv prosent av kundene, eller tre prosent? Det spørsmålet har et eget navn i økonomien, og svaret avgjør om en prisøkning lønner seg."
+    },
+    {
+      "id": "s1-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på inntekt med etterspørsel:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-3-n-quiz2-q0",
+            "task": "Etterspørselen er $x(p) = 1000 - 5p$. Hva er inntektsfunksjonen $I(p)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$I(p) = 1000 - 5p^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$I(p) = 1000p - 5p^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$I(p) = 1000p$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$I(p) = p + 1000 - 5p$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I(p) = p \\cdot x(p) = p(1000 - 5p) = 1000p - 5p^2$."
+          },
+          {
+            "id": "s1-4-3-n-quiz2-q1",
+            "task": "Hvilken pris maksimerer inntekten $I(p) = 1000p - 5p^2$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$p = 200$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$p = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$p = 100$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$p = 1000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I'(p) = 1000 - 10p = 0$ gir $p = 100$ kr."
+          },
+          {
+            "id": "s1-4-3-n-quiz2-q2",
+            "task": "Hva er den maksimale inntekten i samme modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$500\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$50\\,000$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$I(100) = 1000 \\cdot 100 - 5 \\cdot 100^2 = 100\\,000 - 50\\,000 = 50\\,000$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-3-n-section2",
+      "type": "text",
+      "content": "## Priselastisitet — markedets følsomhet\n\n**Priselastisiteten** $e$ måler den prosentvise endringen i etterspørsel i forhold til den prosentvise endringen i pris:\n\n$$e = \\frac{\\frac{\\Delta x}{x}}{\\frac{\\Delta p}{p}} = \\frac{p}{x} \\cdot \\frac{\\Delta x}{\\Delta p}$$\n\nMed derivasjon blir den eksakt: $e = \\frac{p}{x(p)} \\cdot x'(p)$. Fordi etterspørselen synker når prisen øker, er $e$ vanligvis negativ, og vi tolker ofte tallverdien $|e|$. Er $|e| > 1$, kalles etterspørselen **elastisk** — følsom for pris. Er $|e| < 1$, er den **uelastisk** — lite følsom. Og $|e| = 1$ kalles **enhetselastisk**.\n\nFor smartklokka: $x(p) = 1000 - 5p$ gir $x'(p) = -5$, så\n\n$$e = \\frac{p}{1000 - 5p} \\cdot (-5) = \\frac{-5p}{1000 - 5p}$$\n\nVed $p = 50$: $e = \\frac{-250}{750} = -\\frac{1}{3}$. Uelastisk — en prisøkning på 1 % koster bare 0,33 % av salget, så prisøkning lønner seg. Ved $p = 100$: $e = \\frac{-500}{500} = -1$. Enhetselastisk. Og setter vi $e = -1$ og løser, får vi nettopp $p = 100$.\n\nDet er ingen tilfeldighet. Det gjelder en vakker sammenheng: **priselastisiteten ved inntektsmaksimum er alltid $e = -1$**. Når $|e| > 1$ øker inntekten ved prisreduksjon; når $|e| < 1$ øker den ved prisøkning; og ved $|e| = 1$ står inntekten på toppen. Elastisiteten forteller altså ikke bare hvor følsomt markedet er — den forteller bedriften hvilken retning prisen bør justeres."
+    },
+    {
+      "id": "s1-4-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på priselastisitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-3-n-quiz3-q0",
+            "task": "Hva betyr det at etterspørselen er elastisk ($|e| > 1$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Etterspørselen er svært følsom for prisendringer",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Etterspørselen påvirkes ikke av prisen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Prisen er på sitt høyeste",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etterspørselen er lite følsom for prisendringer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Elastisk betyr at en prisendring på 1 % gir mer enn 1 % endring i etterspørselen."
+          },
+          {
+            "id": "s1-4-3-n-quiz3-q1",
+            "task": "For $x(p) = 1000 - 5p$ er elastisiteten ved $p = 50$ lik $e = -\\frac{1}{3}$. Hva bør bedriften gjøre for å øke inntekten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Senke prisen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Øke prisen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Holde prisen uendret",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Slutte å selge",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|e| = \\frac{1}{3} < 1$: uelastisk. Da gir prisøkning høyere inntekt — kundene forsvinner langsommere enn prisen stiger."
+          },
+          {
+            "id": "s1-4-3-n-quiz3-q2",
+            "task": "Hva er priselastisiteten ved prisen som maksimerer inntekten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$e = -1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$e = -\\infty$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved inntektsmaksimum er etterspørselen alltid enhetselastisk: $e = -1$."
+          },
+          {
+            "id": "s1-4-3-n-quiz3-q3",
+            "task": "Etterspørselen etter en vare har $|e| = 3$ ved dagens pris. Hva skjer med inntekten hvis prisen settes opp?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Inntekten øker",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Inntekten er uendret",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Inntekten dobles",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Inntekten synker",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Elastisk etterspørsel ($|e| > 1$): prisøkning gir så stort salgsfall at inntekten synker."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: prisen, salget og følsomheten\n\nSmartklokke-bedriften startet med ett spørsmål — hva skal klokka koste? — og endte med tre verktøy. **Etterspørselsfunksjonen** $x(p)$ beskriver hvor mye markedet kjøper ved pris $p$; den er avtagende, og dens nullpunkt angir den høyeste prisen noen vil betale.\n\n**Inntekten** med etterspørsel er $I(p) = p \\cdot x(p)$ — et produkt der prisen og mengden drar hver sin vei, slik at inntektskurven blir en nedovervendt parabel med en topp som derivasjon finner eksakt: $I'(p) = 0$ ga $p = 100$ kr og 50 000 kr i maksimal inntekt.\n\n**Priselastisiteten** $e = \\frac{p}{x(p)} \\cdot x'(p)$ måler markedets følsomhet: prosentvis endring i etterspørsel per prosent prisendring. Tolkningen styrer strategien — $|e| < 1$ (uelastisk) betyr at prisøkning øker inntekten, $|e| > 1$ (elastisk) betyr at prisøkning senker den, og toppen av inntektskurven ligger nøyaktig der $e = -1$.\n\nDermed henger alt sammen: etterspørselen gir inntekten, inntekten gir optimumet, og elastisiteten forklarer *hvorfor* optimumet ligger der det ligger. I kapittel 4.5 går vi dypere inn i elastisitetsbegrepet og møter slektningene krysspriselastisitet og inntektselastisitet."
+    }
+  ],
+  "exercises": []
+}

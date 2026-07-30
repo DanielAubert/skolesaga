@@ -1,1 +1,384 @@
-{"id":"8-8-1-narrativ","courseId":"8","chapterNumber":"8.1","title":"Talmønster og talfølgjer","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av talmønster og talfølgjer -- frå enkle rekkjer til aritmetiske følgjer -- der vi oppdagar reglane som styrer talverda.","estimatedMinutes":30,"competenceGoals":["utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar"],"linkedChapterId":"8-8-1","content":[{"id":"8-8-1-n-intro","type":"text","content":"## Verda er full av mønster\n\nTenk deg at du sit på bussen og ser på husnummera langs vegen: $2, 4, 6, 8, 10, \\ldots$ Du veit med ein gong kva det neste nummeret er. Eller tenk på ei trapp: kvart trinn er like høgt. Eller på lommepengeauken du har forhandla deg til: $50$ kr ekstra kvar månad.\n\nAlt dette er **talmønster** -- seriar med tal der det finst ein regel som avgjer korleis tala heng saman. Å finne og skildre slike mønster er ein av dei mest grunnleggjande ferdigheitene i matematikk.\n\nI dette kapittelet lærer vi å:\n- Kjenne att mønster i talrekkjer\n- Skildre reglar med ord\n- Finne neste tal i ei følgje\n- Jobbe med **aritmetiske følgjer** -- følgjer der skilnaden mellom tala alltid er den same"},{"id":"8-8-1-n-section1","type":"text","content":"## Kva er ei talfølgje?\n\nEi **talfølgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Kvart tal i følgja blir kalla eit **ledd**. Det første talet er **første ledd**, det neste er **andre ledd**, og så vidare.\n\nHer er nokre døme:\n\n- $1, 3, 5, 7, 9, \\ldots$ (oddetala -- vi legg til $2$ kvar gong)\n- $3, 6, 9, 12, 15, \\ldots$ (tregangerbordet -- vi legg til $3$ kvar gong)\n- $1, 4, 9, 16, 25, \\ldots$ (kvadrattala -- $1^2, 2^2, 3^2, 4^2, 5^2$)\n- $1, 1, 2, 3, 5, 8, 13, \\ldots$ (Fibonacci-tala -- kvart tal er summen av dei to føregåande)\n\nFor å finne mønsteret i ei talfølgje er det lurt å sjå på **differansen** mellom kvart ledd -- altså kor mykje tala endrar seg frå det eine til det neste:\n\n| Følgje | $2$ | $5$ | $8$ | $11$ | $14$ |\n|-------|-----|-----|-----|------|------|\n| Differanse | | $+3$ | $+3$ | $+3$ | $+3$ |\n\nHer er differansen alltid $3$. Det tyder at vi legg til $3$ for kvart nytt ledd. Det neste talet i følgja er $14 + 3 = 17$.\n\nNår differansen er **konstant** (alltid den same), kallar vi det ei **aritmetisk følgje**. Dette er den vanlegaste typen talfølgje du møter i 8. klasse."},{"id":"8-8-1-n-quiz1","type":"exercise","exercise":{"id":"8-8-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på talmønster:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-1-n-quiz1-q0","task":"Kva er det neste talet i følgja $4, 7, 10, 13, 16, \\ldots$?","options":[{"id":"a","text":"$18$","isCorrect":false},{"id":"b","text":"$19$","isCorrect":true},{"id":"c","text":"$20$","isCorrect":false},{"id":"d","text":"$17$","isCorrect":false}],"solution":"Differansen er $+3$ mellom kvart ledd. Neste tal: $16 + 3 = 19$."},{"id":"8-8-1-n-quiz1-q1","task":"Følgja $20, 17, 14, 11, \\ldots$ er ei aritmetisk følgje. Kva er differansen?","options":[{"id":"a","text":"$+3$","isCorrect":false},{"id":"b","text":"$-3$","isCorrect":true},{"id":"c","text":"$-6$","isCorrect":false},{"id":"d","text":"$+6$","isCorrect":false}],"solution":"$17 - 20 = -3$, $14 - 17 = -3$, $11 - 14 = -3$. Differansen er $-3$ -- tala synkar med $3$ for kvart ledd."},{"id":"8-8-1-n-quiz1-q2","task":"Kva for ei av desse er IKKJE ei aritmetisk følgje?","options":[{"id":"a","text":"$5, 10, 15, 20, 25$","isCorrect":false},{"id":"b","text":"$3, 6, 12, 24, 48$","isCorrect":true},{"id":"c","text":"$100, 90, 80, 70, 60$","isCorrect":false},{"id":"d","text":"$1, 4, 7, 10, 13$","isCorrect":false}],"solution":"$3, 6, 12, 24, 48$ er ikkje aritmetisk fordi differansane er $3, 6, 12, 24$ -- dei er ikkje konstante. Her doblast kvart tal, noko som gjev ei **geometrisk** følgje."}]}},{"id":"8-8-1-n-section2","type":"text","content":"## Aritmetiske følgjer i detalj\n\nI ei aritmetisk følgje har vi to viktige storleikar:\n\n- **Første ledd** ($a_1$): det første talet i følgja\n- **Differansen** ($d$): kor mykje vi legg til (eller trekkjer frå) for kvart nytt ledd\n\nMed desse to kan vi skildre heile følgja. Til dømes: «Første ledd er $5$ og differansen er $3$» gjev oss følgja $5, 8, 11, 14, 17, \\ldots$\n\nVi kan finne kva som helst ledd direkte:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nHer er $a_n$ det $n$-te leddet. Lat oss sjekke: det femte leddet ($n = 5$) i følgja $5, 8, 11, 14, 17$ er $a_5 = 5 + (5 - 1) \\cdot 3 = 5 + 12 = 17$. Stemmer!\n\nFormelen verkar fordi vi startar med $a_1$ og legg til differansen $d$ nøyaktig $(n - 1)$ gonger. For å komme til det $10$-de leddet treng vi $9$ hopp frå det første:\n\n$$a_{10} = 5 + 9 \\cdot 3 = 5 + 27 = 32$$\n\nLat oss prøve eit kvardagsdøme: Mia har $200$ kr på konto og set inn $50$ kr kvar veke. Etter veke $1$ har ho $250$ kr, etter veke $2$ har ho $300$ kr, og så vidare. Her er $a_1 = 200$ og $d = 50$. Etter $12$ veker: $a_{12} = 200 + 11 \\cdot 50 = 200 + 550 = 750$ kr."},{"id":"8-8-1-n-quiz2","type":"exercise","exercise":{"id":"8-8-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på aritmetiske følgjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-1-n-quiz2-q0","task":"Ei aritmetisk følgje har $a_1 = 3$ og $d = 4$. Kva er det $8$-de leddet?","options":[{"id":"a","text":"$31$","isCorrect":true},{"id":"b","text":"$35$","isCorrect":false},{"id":"c","text":"$32$","isCorrect":false},{"id":"d","text":"$28$","isCorrect":false}],"solution":"$a_8 = 3 + (8 - 1) \\cdot 4 = 3 + 28 = 31$."},{"id":"8-8-1-n-quiz2-q1","task":"I følgja $12, 9, 6, 3, 0, -3, \\ldots$ -- kva er det $10$-de leddet?","options":[{"id":"a","text":"$-12$","isCorrect":false},{"id":"b","text":"$-15$","isCorrect":true},{"id":"c","text":"$-18$","isCorrect":false},{"id":"d","text":"$-9$","isCorrect":false}],"solution":"$a_1 = 12$, $d = -3$. $a_{10} = 12 + 9 \\cdot (-3) = 12 - 27 = -15$."},{"id":"8-8-1-n-quiz2-q2","task":"Jonas startar med $500$ kr og bruker $35$ kr per dag. Etter kor mange dagar har han $0$ kr att? (Gå ut frå at dag $0$ er startbeløpet.)","options":[{"id":"a","text":"Etter $14$ dagar","isCorrect":false},{"id":"b","text":"Etter $15$ dagar","isCorrect":false},{"id":"c","text":"Etter ca. $14{,}3$ dagar -- han går tom under dag $15$","isCorrect":true},{"id":"d","text":"Etter $13$ dagar","isCorrect":false}],"solution":"Vi treng $a_n = 0$: $500 + (n-1) \\cdot (-35) = 0 \\Rightarrow (n-1) = \\frac{500}{35} \\approx 14{,}3$. Altså $n \\approx 15{,}3$. Etter $14$ fulle dagar har han $500 - 14 \\cdot 35 = 10$ kr att. Han har $0$ kr midt i dag $15$."}]}},{"id":"8-8-1-n-section3","type":"text","content":"## Å skildre mønster med ord\n\nEi viktig ferdigheit er å kunne skildre eit mønster med **ord** -- ikkje berre tal. Her er nokre døme:\n\n**Følgje:** $6, 11, 16, 21, 26, \\ldots$\n**Skildring med ord:** «Følgja startar på $6$ og aukar med $5$ for kvart ledd.»\n\n**Følgje:** $100, 85, 70, 55, 40, \\ldots$\n**Skildring med ord:** «Følgja startar på $100$ og minkar med $15$ for kvart ledd.»\n\n**Følgje:** $1, 4, 9, 16, 25, \\ldots$\n**Skildring med ord:** «Kvart ledd er eit kvadrattal. Ledd nummer $n$ er $n^2$.»\n\nNokre mønster krev meir merksemd. Sjå på følgja $2, 6, 12, 20, 30, \\ldots$\n\nDifferansane er $4, 6, 8, 10$ -- dei er ikkje konstante, men **dei aukar med $2$**! Når vi ser på differansane mellom differansane (andre differanse), er dei konstante. Slike følgjer blir kalla **andregradsfølgjer** og dukkar opp att når vi lærer om figurtal i neste kapittel.\n\nEin nyttig metode er å lage ein tabell:\n\n| Ledd nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ |\n|----------------|-----|-----|-----|-----|-----|\n| Verdi | $2$ | $6$ | $12$ | $20$ | $30$ |\n| Første differanse | | $4$ | $6$ | $8$ | $10$ |\n| Andre differanse | | | $2$ | $2$ | $2$ |\n\nNår den andre differansen er konstant, veit vi at mønsteret kan skildrast med ein formel av typen $an^2 + bn + c$."},{"id":"8-8-1-n-quiz3","type":"exercise","exercise":{"id":"8-8-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på å skildre mønster:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-1-n-quiz3-q0","task":"Kva er det neste talet i følgja $1, 3, 6, 10, 15, \\ldots$?","options":[{"id":"a","text":"$20$","isCorrect":false},{"id":"b","text":"$21$","isCorrect":true},{"id":"c","text":"$18$","isCorrect":false},{"id":"d","text":"$25$","isCorrect":false}],"solution":"Differansane er $2, 3, 4, 5$ -- dei aukar med $1$. Neste differanse er $6$, og $15 + 6 = 21$. (Dette er trekanttala!)"},{"id":"8-8-1-n-quiz3-q1","task":"Skildringa er: «Start med $7$ og legg til $6$ for kvart nytt ledd.» Kva er det fjerde leddet?","options":[{"id":"a","text":"$19$","isCorrect":false},{"id":"b","text":"$25$","isCorrect":true},{"id":"c","text":"$31$","isCorrect":false},{"id":"d","text":"$28$","isCorrect":false}],"solution":"Følgja er $7, 13, 19, 25, \\ldots$ Det fjerde leddet er $25$. Eller med formelen: $a_4 = 7 + 3 \\cdot 6 = 25$."},{"id":"8-8-1-n-quiz3-q2","task":"Følgja $3, 5, 9, 15, 23, \\ldots$ har differansar $2, 4, 6, 8$. Kva er det sjette leddet?","options":[{"id":"a","text":"$31$","isCorrect":false},{"id":"b","text":"$33$","isCorrect":true},{"id":"c","text":"$35$","isCorrect":false},{"id":"d","text":"$29$","isCorrect":false}],"solution":"Differansane aukar med $2$: neste differanse er $10$. Det sjette leddet er $23 + 10 = 33$."}]}},{"id":"8-8-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har utforska talmønster og talfølgjer -- grunnlaget for mykje av matematikken.\n\n**Nøkkelomgrep:**\n- Ei **talfølgje** er ei ordna liste med tal som følgjer eit mønster\n- Kvart tal er eit **ledd**, og skilnaden mellom ledda er **differansen**\n- Ei **aritmetisk følgje** har konstant differanse: $a_n = a_1 + (n-1) \\cdot d$\n\n**Strategi for å finne mønster:**\n1. Rekn ut differansane mellom ledda\n2. Er differansen konstant? Då er det ei aritmetisk følgje\n3. Aukar differansane jamt? Då er det ei andregradsfølgje\n4. Prøv å skildre mønsteret med ord\n\n| Type følgje | Døme | Kjenneteikn |\n|------------|----------|------------|\n| Aritmetisk | $3, 7, 11, 15$ | Konstant differanse ($d = 4$) |\n| Kvadrattal | $1, 4, 9, 16$ | Differansar: $3, 5, 7$ (aukar med $2$) |\n| Trekanttal | $1, 3, 6, 10$ | Differansar: $2, 3, 4$ (aukar med $1$) |"}],"exercises":[],"_meta":{"sourceHash":"dd758d481783de9a","translatedAt":"2026-06-17T01:53:04.653Z","model":"claude-code-agent","strings":37,"tm":{"a963ba447cf47b7a":"Talmønster og talfølgjer","b195b06d1ed59702":"Narrativ versjon","1dfccf20247e01e2":"Ein forteljande gjennomgang av talmønster og talfølgjer -- frå enkle rekkjer til aritmetiske følgjer -- der vi oppdagar reglane som styrer talverda.","d82ccdb0762ab113":"utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar","9b7c86257443222a":"## Verda er full av mønster\n\nTenk deg at du sit på bussen og ser på husnummera langs vegen: $2, 4, 6, 8, 10, \\ldots$ Du veit med ein gong kva det neste nummeret er. Eller tenk på ei trapp: kvart trinn er like høgt. Eller på lommepengeauken du har forhandla deg til: $50$ kr ekstra kvar månad.\n\nAlt dette er **talmønster** -- seriar med tal der det finst ein regel som avgjer korleis tala heng saman. Å finne og skildre slike mønster er ein av dei mest grunnleggjande ferdigheitene i matematikk.\n\nI dette kapittelet lærer vi å:\n- Kjenne att mønster i talrekkjer\n- Skildre reglar med ord\n- Finne neste tal i ei følgje\n- Jobbe med **aritmetiske følgjer** -- følgjer der skilnaden mellom tala alltid er den same","f84daa4cf73b5f66":"## Kva er ei talfølgje?\n\nEi **talfølgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Kvart tal i følgja blir kalla eit **ledd**. Det første talet er **første ledd**, det neste er **andre ledd**, og så vidare.\n\nHer er nokre døme:\n\n- $1, 3, 5, 7, 9, \\ldots$ (oddetala -- vi legg til $2$ kvar gong)\n- $3, 6, 9, 12, 15, \\ldots$ (tregangerbordet -- vi legg til $3$ kvar gong)\n- $1, 4, 9, 16, 25, \\ldots$ (kvadrattala -- $1^2, 2^2, 3^2, 4^2, 5^2$)\n- $1, 1, 2, 3, 5, 8, 13, \\ldots$ (Fibonacci-tala -- kvart tal er summen av dei to føregåande)\n\nFor å finne mønsteret i ei talfølgje er det lurt å sjå på **differansen** mellom kvart ledd -- altså kor mykje tala endrar seg frå det eine til det neste:\n\n| Følgje | $2$ | $5$ | $8$ | $11$ | $14$ |\n|-------|-----|-----|-----|------|------|\n| Differanse | | $+3$ | $+3$ | $+3$ | $+3$ |\n\nHer er differansen alltid $3$. Det tyder at vi legg til $3$ for kvart nytt ledd. Det neste talet i følgja er $14 + 3 = 17$.\n\nNår differansen er **konstant** (alltid den same), kallar vi det ei **aritmetisk følgje**. Dette er den vanlegaste typen talfølgje du møter i 8. klasse.","2cfef1ae6ac27d08":"Test deg sjølv på talmønster:","4097889236a2af26":"placeholder","0e16e75cb36ed78d":"Kva er det neste talet i følgja $4, 7, 10, 13, 16, \\ldots$?","8d13875454010917":"Differansen er $+3$ mellom kvart ledd. Neste tal: $16 + 3 = 19$.","10dffa34beadec17":"Følgja $20, 17, 14, 11, \\ldots$ er ei aritmetisk følgje. Kva er differansen?","fcd1de6c9bdcfe39":"$17 - 20 = -3$, $14 - 17 = -3$, $11 - 14 = -3$. Differansen er $-3$ -- tala synkar med $3$ for kvart ledd.","1511441f04667ba4":"Kva for ei av desse er IKKJE ei aritmetisk følgje?","05578d473d561463":"$3, 6, 12, 24, 48$ er ikkje aritmetisk fordi differansane er $3, 6, 12, 24$ -- dei er ikkje konstante. Her doblast kvart tal, noko som gjev ei **geometrisk** følgje.","a0b373fa18f3204c":"## Aritmetiske følgjer i detalj\n\nI ei aritmetisk følgje har vi to viktige storleikar:\n\n- **Første ledd** ($a_1$): det første talet i følgja\n- **Differansen** ($d$): kor mykje vi legg til (eller trekkjer frå) for kvart nytt ledd\n\nMed desse to kan vi skildre heile følgja. Til dømes: «Første ledd er $5$ og differansen er $3$» gjev oss følgja $5, 8, 11, 14, 17, \\ldots$\n\nVi kan finne kva som helst ledd direkte:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nHer er $a_n$ det $n$-te leddet. Lat oss sjekke: det femte leddet ($n = 5$) i følgja $5, 8, 11, 14, 17$ er $a_5 = 5 + (5 - 1) \\cdot 3 = 5 + 12 = 17$. Stemmer!\n\nFormelen verkar fordi vi startar med $a_1$ og legg til differansen $d$ nøyaktig $(n - 1)$ gonger. For å komme til det $10$-de leddet treng vi $9$ hopp frå det første:\n\n$$a_{10} = 5 + 9 \\cdot 3 = 5 + 27 = 32$$\n\nLat oss prøve eit kvardagsdøme: Mia har $200$ kr på konto og set inn $50$ kr kvar veke. Etter veke $1$ har ho $250$ kr, etter veke $2$ har ho $300$ kr, og så vidare. Her er $a_1 = 200$ og $d = 50$. Etter $12$ veker: $a_{12} = 200 + 11 \\cdot 50 = 200 + 550 = 750$ kr.","b08c2ba712cfe9bd":"Test deg sjølv på aritmetiske følgjer:","a58d56d63435b4ff":"Ei aritmetisk følgje har $a_1 = 3$ og $d = 4$. Kva er det $8$-de leddet?","c21194809a63beb5":"$a_8 = 3 + (8 - 1) \\cdot 4 = 3 + 28 = 31$.","c4a97fc79276d4ff":"I følgja $12, 9, 6, 3, 0, -3, \\ldots$ -- kva er det $10$-de leddet?","8e714cf774651776":"$a_1 = 12$, $d = -3$. $a_{10} = 12 + 9 \\cdot (-3) = 12 - 27 = -15$.","bb0a8cccfd0d48fb":"Jonas startar med $500$ kr og bruker $35$ kr per dag. Etter kor mange dagar har han $0$ kr att? (Gå ut frå at dag $0$ er startbeløpet.)","2a894bbb821f0066":"Etter $14$ dagar","b544d68c9311ff69":"Etter $15$ dagar","a201e3ec79899807":"Etter ca. $14{,}3$ dagar -- han går tom under dag $15$","4742baf0e00f1593":"Etter $13$ dagar","43245ab62befed87":"Vi treng $a_n = 0$: $500 + (n-1) \\cdot (-35) = 0 \\Rightarrow (n-1) = \\frac{500}{35} \\approx 14{,}3$. Altså $n \\approx 15{,}3$. Etter $14$ fulle dagar har han $500 - 14 \\cdot 35 = 10$ kr att. Han har $0$ kr midt i dag $15$.","4efce24b397e3bf4":"## Å skildre mønster med ord\n\nEi viktig ferdigheit er å kunne skildre eit mønster med **ord** -- ikkje berre tal. Her er nokre døme:\n\n**Følgje:** $6, 11, 16, 21, 26, \\ldots$\n**Skildring med ord:** «Følgja startar på $6$ og aukar med $5$ for kvart ledd.»\n\n**Følgje:** $100, 85, 70, 55, 40, \\ldots$\n**Skildring med ord:** «Følgja startar på $100$ og minkar med $15$ for kvart ledd.»\n\n**Følgje:** $1, 4, 9, 16, 25, \\ldots$\n**Skildring med ord:** «Kvart ledd er eit kvadrattal. Ledd nummer $n$ er $n^2$.»\n\nNokre mønster krev meir merksemd. Sjå på følgja $2, 6, 12, 20, 30, \\ldots$\n\nDifferansane er $4, 6, 8, 10$ -- dei er ikkje konstante, men **dei aukar med $2$**! Når vi ser på differansane mellom differansane (andre differanse), er dei konstante. Slike følgjer blir kalla **andregradsfølgjer** og dukkar opp att når vi lærer om figurtal i neste kapittel.\n\nEin nyttig metode er å lage ein tabell:\n\n| Ledd nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ |\n|----------------|-----|-----|-----|-----|-----|\n| Verdi | $2$ | $6$ | $12$ | $20$ | $30$ |\n| Første differanse | | $4$ | $6$ | $8$ | $10$ |\n| Andre differanse | | | $2$ | $2$ | $2$ |\n\nNår den andre differansen er konstant, veit vi at mønsteret kan skildrast med ein formel av typen $an^2 + bn + c$.","2049e3a53d66da32":"Test deg sjølv på å skildre mønster:","fc62ee641e468766":"Kva er det neste talet i følgja $1, 3, 6, 10, 15, \\ldots$?","48144a5cdfaf61b7":"Differansane er $2, 3, 4, 5$ -- dei aukar med $1$. Neste differanse er $6$, og $15 + 6 = 21$. (Dette er trekanttala!)","8c4b070d619dca23":"Skildringa er: «Start med $7$ og legg til $6$ for kvart nytt ledd.» Kva er det fjerde leddet?","81d178e955b3b04f":"Følgja er $7, 13, 19, 25, \\ldots$ Det fjerde leddet er $25$. Eller med formelen: $a_4 = 7 + 3 \\cdot 6 = 25$.","c1eec045ff61a995":"Følgja $3, 5, 9, 15, 23, \\ldots$ har differansar $2, 4, 6, 8$. Kva er det sjette leddet?","98c9b33ee18184c1":"Differansane aukar med $2$: neste differanse er $10$. Det sjette leddet er $23 + 10 = 33$.","065877b00f7c5cdf":"## Oppsummering\n\nVi har utforska talmønster og talfølgjer -- grunnlaget for mykje av matematikken.\n\n**Nøkkelomgrep:**\n- Ei **talfølgje** er ei ordna liste med tal som følgjer eit mønster\n- Kvart tal er eit **ledd**, og skilnaden mellom ledda er **differansen**\n- Ei **aritmetisk følgje** har konstant differanse: $a_n = a_1 + (n-1) \\cdot d$\n\n**Strategi for å finne mønster:**\n1. Rekn ut differansane mellom ledda\n2. Er differansen konstant? Då er det ei aritmetisk følgje\n3. Aukar differansane jamt? Då er det ei andregradsfølgje\n4. Prøv å skildre mønsteret med ord\n\n| Type følgje | Døme | Kjenneteikn |\n|------------|----------|------------|\n| Aritmetisk | $3, 7, 11, 15$ | Konstant differanse ($d = 4$) |\n| Kvadrattal | $1, 4, 9, 16$ | Differansar: $3, 5, 7$ (aukar med $2$) |\n| Trekanttal | $1, 3, 6, 10$ | Differansar: $2, 3, 4$ (aukar med $1$) |"}}}
+{
+  "id": "8-8-1-narrativ",
+  "courseId": "8",
+  "chapterNumber": "8.1",
+  "title": "Talmønster og talfølgjer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av talmønster og talfølgjer -- frå enkle rekkjer til aritmetiske følgjer -- der vi oppdagar reglane som styrer talverda.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar"
+  ],
+  "linkedChapterId": "8-8-1",
+  "content": [
+    {
+      "id": "8-8-1-n-intro",
+      "type": "text",
+      "content": "## Verda er full av mønster\n\nTenk deg at du sit på bussen og ser på husnummera langs vegen: $2, 4, 6, 8, 10, \\ldots$ Du veit med ein gong kva det neste nummeret er. Eller tenk på ei trapp: kvart trinn er like høgt. Eller på lommepengeauken du har forhandla deg til: $50$ kr ekstra kvar månad.\n\nAlt dette er **talmønster** -- seriar med tal der det finst ein regel som avgjer korleis tala heng saman. Å finne og skildre slike mønster er ein av dei mest grunnleggjande ferdigheitene i matematikk.\n\nI dette kapittelet lærer vi å:\n- Kjenne att mønster i talrekkjer\n- Skildre reglar med ord\n- Finne neste tal i ei følgje\n- Jobbe med **aritmetiske følgjer** -- følgjer der skilnaden mellom tala alltid er den same"
+    },
+    {
+      "id": "8-8-1-n-section1",
+      "type": "text",
+      "content": "## Kva er ei talfølgje?\n\nEi **talfølgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Kvart tal i følgja blir kalla eit **ledd**. Det første talet er **første ledd**, det neste er **andre ledd**, og så vidare.\n\nHer er nokre døme:\n\n- $1, 3, 5, 7, 9, \\ldots$ (oddetala -- vi legg til $2$ kvar gong)\n- $3, 6, 9, 12, 15, \\ldots$ (tregangerbordet -- vi legg til $3$ kvar gong)\n- $1, 4, 9, 16, 25, \\ldots$ (kvadrattala -- $1^2, 2^2, 3^2, 4^2, 5^2$)\n- $1, 1, 2, 3, 5, 8, 13, \\ldots$ (Fibonacci-tala -- kvart tal er summen av dei to føregåande)\n\nFor å finne mønsteret i ei talfølgje er det lurt å sjå på **differansen** mellom kvart ledd -- altså kor mykje tala endrar seg frå det eine til det neste:\n\n| Følgje | $2$ | $5$ | $8$ | $11$ | $14$ |\n|-------|-----|-----|-----|------|------|\n| Differanse | | $+3$ | $+3$ | $+3$ | $+3$ |\n\nHer er differansen alltid $3$. Det tyder at vi legg til $3$ for kvart nytt ledd. Det neste talet i følgja er $14 + 3 = 17$.\n\nNår differansen er **konstant** (alltid den same), kallar vi det ei **aritmetisk følgje**. Dette er den vanlegaste typen talfølgje du møter i 8. klasse."
+    },
+    {
+      "id": "8-8-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på talmønster:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-1-n-quiz1-q0",
+            "task": "Kva er det neste talet i følgja $4, 7, 10, 13, 16, \\ldots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$17$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$19$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Differansen er $+3$ mellom kvart ledd. Neste tal: $16 + 3 = 19$."
+          },
+          {
+            "id": "8-8-1-n-quiz1-q1",
+            "task": "Følgja $20, 17, 14, 11, \\ldots$ er ei aritmetisk følgje. Kva er differansen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$+3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$+6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$17 - 20 = -3$, $14 - 17 = -3$, $11 - 14 = -3$. Differansen er $-3$ -- tala synkar med $3$ for kvart ledd."
+          },
+          {
+            "id": "8-8-1-n-quiz1-q2",
+            "task": "Kva for ei av desse er IKKJE ei aritmetisk følgje?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5, 10, 15, 20, 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3, 6, 12, 24, 48$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$100, 90, 80, 70, 60$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1, 4, 7, 10, 13$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3, 6, 12, 24, 48$ er ikkje aritmetisk fordi differansane er $3, 6, 12, 24$ -- dei er ikkje konstante. Her doblast kvart tal, noko som gjev ei **geometrisk** følgje."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-1-n-section2",
+      "type": "text",
+      "content": "## Aritmetiske følgjer i detalj\n\nI ei aritmetisk følgje har vi to viktige storleikar:\n\n- **Første ledd** ($a_1$): det første talet i følgja\n- **Differansen** ($d$): kor mykje vi legg til (eller trekkjer frå) for kvart nytt ledd\n\nMed desse to kan vi skildre heile følgja. Til dømes: «Første ledd er $5$ og differansen er $3$» gjev oss følgja $5, 8, 11, 14, 17, \\ldots$\n\nVi kan finne kva som helst ledd direkte:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nHer er $a_n$ det $n$-te leddet. Lat oss sjekke: det femte leddet ($n = 5$) i følgja $5, 8, 11, 14, 17$ er $a_5 = 5 + (5 - 1) \\cdot 3 = 5 + 12 = 17$. Stemmer!\n\nFormelen verkar fordi vi startar med $a_1$ og legg til differansen $d$ nøyaktig $(n - 1)$ gonger. For å komme til det $10$-de leddet treng vi $9$ hopp frå det første:\n\n$$a_{10} = 5 + 9 \\cdot 3 = 5 + 27 = 32$$\n\nLat oss prøve eit kvardagsdøme: Mia har $200$ kr på konto og set inn $50$ kr kvar veke. Etter veke $1$ har ho $250$ kr, etter veke $2$ har ho $300$ kr, og så vidare. Her er $a_1 = 200$ og $d = 50$. Etter $12$ veker: $a_{12} = 200 + 11 \\cdot 50 = 200 + 550 = 750$ kr."
+    },
+    {
+      "id": "8-8-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på aritmetiske følgjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-1-n-quiz2-q0",
+            "task": "Ei aritmetisk følgje har $a_1 = 3$ og $d = 4$. Kva er det $8$-de leddet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$35$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$32$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$31$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$28$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_8 = 3 + (8 - 1) \\cdot 4 = 3 + 28 = 31$."
+          },
+          {
+            "id": "8-8-1-n-quiz2-q1",
+            "task": "I følgja $12, 9, 6, 3, 0, -3, \\ldots$ -- kva er det $10$-de leddet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-18$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-15$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$a_1 = 12$, $d = -3$. $a_{10} = 12 + 9 \\cdot (-3) = 12 - 27 = -15$."
+          },
+          {
+            "id": "8-8-1-n-quiz2-q2",
+            "task": "Jonas startar med $500$ kr og bruker $35$ kr per dag. Etter kor mange dagar har han $0$ kr att? (Gå ut frå at dag $0$ er startbeløpet.)",
+            "options": [
+              {
+                "id": "c",
+                "text": "Etter ca. $14{,}3$ dagar -- han går tom under dag $15$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Etter $14$ dagar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Etter $15$ dagar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etter $13$ dagar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng $a_n = 0$: $500 + (n-1) \\cdot (-35) = 0 \\Rightarrow (n-1) = \\frac{500}{35} \\approx 14{,}3$. Altså $n \\approx 15{,}3$. Etter $14$ fulle dagar har han $500 - 14 \\cdot 35 = 10$ kr att. Han har $0$ kr midt i dag $15$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-1-n-section3",
+      "type": "text",
+      "content": "## Å skildre mønster med ord\n\nEi viktig ferdigheit er å kunne skildre eit mønster med **ord** -- ikkje berre tal. Her er nokre døme:\n\n**Følgje:** $6, 11, 16, 21, 26, \\ldots$\n**Skildring med ord:** «Følgja startar på $6$ og aukar med $5$ for kvart ledd.»\n\n**Følgje:** $100, 85, 70, 55, 40, \\ldots$\n**Skildring med ord:** «Følgja startar på $100$ og minkar med $15$ for kvart ledd.»\n\n**Følgje:** $1, 4, 9, 16, 25, \\ldots$\n**Skildring med ord:** «Kvart ledd er eit kvadrattal. Ledd nummer $n$ er $n^2$.»\n\nNokre mønster krev meir merksemd. Sjå på følgja $2, 6, 12, 20, 30, \\ldots$\n\nDifferansane er $4, 6, 8, 10$ -- dei er ikkje konstante, men **dei aukar med $2$**! Når vi ser på differansane mellom differansane (andre differanse), er dei konstante. Slike følgjer blir kalla **andregradsfølgjer** og dukkar opp att når vi lærer om figurtal i neste kapittel.\n\nEin nyttig metode er å lage ein tabell:\n\n| Ledd nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ |\n|----------------|-----|-----|-----|-----|-----|\n| Verdi | $2$ | $6$ | $12$ | $20$ | $30$ |\n| Første differanse | | $4$ | $6$ | $8$ | $10$ |\n| Andre differanse | | | $2$ | $2$ | $2$ |\n\nNår den andre differansen er konstant, veit vi at mønsteret kan skildrast med ein formel av typen $an^2 + bn + c$."
+    },
+    {
+      "id": "8-8-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å skildre mønster:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-1-n-quiz3-q0",
+            "task": "Kva er det neste talet i følgja $1, 3, 6, 10, 15, \\ldots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$21$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Differansane er $2, 3, 4, 5$ -- dei aukar med $1$. Neste differanse er $6$, og $15 + 6 = 21$. (Dette er trekanttala!)"
+          },
+          {
+            "id": "8-8-1-n-quiz3-q1",
+            "task": "Skildringa er: «Start med $7$ og legg til $6$ for kvart nytt ledd.» Kva er det fjerde leddet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$19$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$31$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$25$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$28$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Følgja er $7, 13, 19, 25, \\ldots$ Det fjerde leddet er $25$. Eller med formelen: $a_4 = 7 + 3 \\cdot 6 = 25$."
+          },
+          {
+            "id": "8-8-1-n-quiz3-q2",
+            "task": "Følgja $3, 5, 9, 15, 23, \\ldots$ har differansar $2, 4, 6, 8$. Kva er det sjette leddet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$31$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$35$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$29$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$33$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Differansane aukar med $2$: neste differanse er $10$. Det sjette leddet er $23 + 10 = 33$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har utforska talmønster og talfølgjer -- grunnlaget for mykje av matematikken.\n\n**Nøkkelomgrep:**\n- Ei **talfølgje** er ei ordna liste med tal som følgjer eit mønster\n- Kvart tal er eit **ledd**, og skilnaden mellom ledda er **differansen**\n- Ei **aritmetisk følgje** har konstant differanse: $a_n = a_1 + (n-1) \\cdot d$\n\n**Strategi for å finne mønster:**\n1. Rekn ut differansane mellom ledda\n2. Er differansen konstant? Då er det ei aritmetisk følgje\n3. Aukar differansane jamt? Då er det ei andregradsfølgje\n4. Prøv å skildre mønsteret med ord\n\n| Type følgje | Døme | Kjenneteikn |\n|------------|----------|------------|\n| Aritmetisk | $3, 7, 11, 15$ | Konstant differanse ($d = 4$) |\n| Kvadrattal | $1, 4, 9, 16$ | Differansar: $3, 5, 7$ (aukar med $2$) |\n| Trekanttal | $1, 3, 6, 10$ | Differansar: $2, 3, 4$ (aukar med $1$) |"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "dd758d481783de9a",
+    "translatedAt": "2026-06-17T01:53:04.653Z",
+    "model": "claude-code-agent",
+    "strings": 37,
+    "tm": {
+      "a963ba447cf47b7a": "Talmønster og talfølgjer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1dfccf20247e01e2": "Ein forteljande gjennomgang av talmønster og talfølgjer -- frå enkle rekkjer til aritmetiske følgjer -- der vi oppdagar reglane som styrer talverda.",
+      "d82ccdb0762ab113": "utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar",
+      "9b7c86257443222a": "## Verda er full av mønster\n\nTenk deg at du sit på bussen og ser på husnummera langs vegen: $2, 4, 6, 8, 10, \\ldots$ Du veit med ein gong kva det neste nummeret er. Eller tenk på ei trapp: kvart trinn er like høgt. Eller på lommepengeauken du har forhandla deg til: $50$ kr ekstra kvar månad.\n\nAlt dette er **talmønster** -- seriar med tal der det finst ein regel som avgjer korleis tala heng saman. Å finne og skildre slike mønster er ein av dei mest grunnleggjande ferdigheitene i matematikk.\n\nI dette kapittelet lærer vi å:\n- Kjenne att mønster i talrekkjer\n- Skildre reglar med ord\n- Finne neste tal i ei følgje\n- Jobbe med **aritmetiske følgjer** -- følgjer der skilnaden mellom tala alltid er den same",
+      "f84daa4cf73b5f66": "## Kva er ei talfølgje?\n\nEi **talfølgje** er ei ordna liste med tal som følgjer eit bestemt mønster. Kvart tal i følgja blir kalla eit **ledd**. Det første talet er **første ledd**, det neste er **andre ledd**, og så vidare.\n\nHer er nokre døme:\n\n- $1, 3, 5, 7, 9, \\ldots$ (oddetala -- vi legg til $2$ kvar gong)\n- $3, 6, 9, 12, 15, \\ldots$ (tregangerbordet -- vi legg til $3$ kvar gong)\n- $1, 4, 9, 16, 25, \\ldots$ (kvadrattala -- $1^2, 2^2, 3^2, 4^2, 5^2$)\n- $1, 1, 2, 3, 5, 8, 13, \\ldots$ (Fibonacci-tala -- kvart tal er summen av dei to føregåande)\n\nFor å finne mønsteret i ei talfølgje er det lurt å sjå på **differansen** mellom kvart ledd -- altså kor mykje tala endrar seg frå det eine til det neste:\n\n| Følgje | $2$ | $5$ | $8$ | $11$ | $14$ |\n|-------|-----|-----|-----|------|------|\n| Differanse | | $+3$ | $+3$ | $+3$ | $+3$ |\n\nHer er differansen alltid $3$. Det tyder at vi legg til $3$ for kvart nytt ledd. Det neste talet i følgja er $14 + 3 = 17$.\n\nNår differansen er **konstant** (alltid den same), kallar vi det ei **aritmetisk følgje**. Dette er den vanlegaste typen talfølgje du møter i 8. klasse.",
+      "2cfef1ae6ac27d08": "Test deg sjølv på talmønster:",
+      "4097889236a2af26": "placeholder",
+      "0e16e75cb36ed78d": "Kva er det neste talet i følgja $4, 7, 10, 13, 16, \\ldots$?",
+      "8d13875454010917": "Differansen er $+3$ mellom kvart ledd. Neste tal: $16 + 3 = 19$.",
+      "10dffa34beadec17": "Følgja $20, 17, 14, 11, \\ldots$ er ei aritmetisk følgje. Kva er differansen?",
+      "fcd1de6c9bdcfe39": "$17 - 20 = -3$, $14 - 17 = -3$, $11 - 14 = -3$. Differansen er $-3$ -- tala synkar med $3$ for kvart ledd.",
+      "1511441f04667ba4": "Kva for ei av desse er IKKJE ei aritmetisk følgje?",
+      "05578d473d561463": "$3, 6, 12, 24, 48$ er ikkje aritmetisk fordi differansane er $3, 6, 12, 24$ -- dei er ikkje konstante. Her doblast kvart tal, noko som gjev ei **geometrisk** følgje.",
+      "a0b373fa18f3204c": "## Aritmetiske følgjer i detalj\n\nI ei aritmetisk følgje har vi to viktige storleikar:\n\n- **Første ledd** ($a_1$): det første talet i følgja\n- **Differansen** ($d$): kor mykje vi legg til (eller trekkjer frå) for kvart nytt ledd\n\nMed desse to kan vi skildre heile følgja. Til dømes: «Første ledd er $5$ og differansen er $3$» gjev oss følgja $5, 8, 11, 14, 17, \\ldots$\n\nVi kan finne kva som helst ledd direkte:\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nHer er $a_n$ det $n$-te leddet. Lat oss sjekke: det femte leddet ($n = 5$) i følgja $5, 8, 11, 14, 17$ er $a_5 = 5 + (5 - 1) \\cdot 3 = 5 + 12 = 17$. Stemmer!\n\nFormelen verkar fordi vi startar med $a_1$ og legg til differansen $d$ nøyaktig $(n - 1)$ gonger. For å komme til det $10$-de leddet treng vi $9$ hopp frå det første:\n\n$$a_{10} = 5 + 9 \\cdot 3 = 5 + 27 = 32$$\n\nLat oss prøve eit kvardagsdøme: Mia har $200$ kr på konto og set inn $50$ kr kvar veke. Etter veke $1$ har ho $250$ kr, etter veke $2$ har ho $300$ kr, og så vidare. Her er $a_1 = 200$ og $d = 50$. Etter $12$ veker: $a_{12} = 200 + 11 \\cdot 50 = 200 + 550 = 750$ kr.",
+      "b08c2ba712cfe9bd": "Test deg sjølv på aritmetiske følgjer:",
+      "a58d56d63435b4ff": "Ei aritmetisk følgje har $a_1 = 3$ og $d = 4$. Kva er det $8$-de leddet?",
+      "c21194809a63beb5": "$a_8 = 3 + (8 - 1) \\cdot 4 = 3 + 28 = 31$.",
+      "c4a97fc79276d4ff": "I følgja $12, 9, 6, 3, 0, -3, \\ldots$ -- kva er det $10$-de leddet?",
+      "8e714cf774651776": "$a_1 = 12$, $d = -3$. $a_{10} = 12 + 9 \\cdot (-3) = 12 - 27 = -15$.",
+      "bb0a8cccfd0d48fb": "Jonas startar med $500$ kr og bruker $35$ kr per dag. Etter kor mange dagar har han $0$ kr att? (Gå ut frå at dag $0$ er startbeløpet.)",
+      "2a894bbb821f0066": "Etter $14$ dagar",
+      "b544d68c9311ff69": "Etter $15$ dagar",
+      "a201e3ec79899807": "Etter ca. $14{,}3$ dagar -- han går tom under dag $15$",
+      "4742baf0e00f1593": "Etter $13$ dagar",
+      "43245ab62befed87": "Vi treng $a_n = 0$: $500 + (n-1) \\cdot (-35) = 0 \\Rightarrow (n-1) = \\frac{500}{35} \\approx 14{,}3$. Altså $n \\approx 15{,}3$. Etter $14$ fulle dagar har han $500 - 14 \\cdot 35 = 10$ kr att. Han har $0$ kr midt i dag $15$.",
+      "4efce24b397e3bf4": "## Å skildre mønster med ord\n\nEi viktig ferdigheit er å kunne skildre eit mønster med **ord** -- ikkje berre tal. Her er nokre døme:\n\n**Følgje:** $6, 11, 16, 21, 26, \\ldots$\n**Skildring med ord:** «Følgja startar på $6$ og aukar med $5$ for kvart ledd.»\n\n**Følgje:** $100, 85, 70, 55, 40, \\ldots$\n**Skildring med ord:** «Følgja startar på $100$ og minkar med $15$ for kvart ledd.»\n\n**Følgje:** $1, 4, 9, 16, 25, \\ldots$\n**Skildring med ord:** «Kvart ledd er eit kvadrattal. Ledd nummer $n$ er $n^2$.»\n\nNokre mønster krev meir merksemd. Sjå på følgja $2, 6, 12, 20, 30, \\ldots$\n\nDifferansane er $4, 6, 8, 10$ -- dei er ikkje konstante, men **dei aukar med $2$**! Når vi ser på differansane mellom differansane (andre differanse), er dei konstante. Slike følgjer blir kalla **andregradsfølgjer** og dukkar opp att når vi lærer om figurtal i neste kapittel.\n\nEin nyttig metode er å lage ein tabell:\n\n| Ledd nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ |\n|----------------|-----|-----|-----|-----|-----|\n| Verdi | $2$ | $6$ | $12$ | $20$ | $30$ |\n| Første differanse | | $4$ | $6$ | $8$ | $10$ |\n| Andre differanse | | | $2$ | $2$ | $2$ |\n\nNår den andre differansen er konstant, veit vi at mønsteret kan skildrast med ein formel av typen $an^2 + bn + c$.",
+      "2049e3a53d66da32": "Test deg sjølv på å skildre mønster:",
+      "fc62ee641e468766": "Kva er det neste talet i følgja $1, 3, 6, 10, 15, \\ldots$?",
+      "48144a5cdfaf61b7": "Differansane er $2, 3, 4, 5$ -- dei aukar med $1$. Neste differanse er $6$, og $15 + 6 = 21$. (Dette er trekanttala!)",
+      "8c4b070d619dca23": "Skildringa er: «Start med $7$ og legg til $6$ for kvart nytt ledd.» Kva er det fjerde leddet?",
+      "81d178e955b3b04f": "Følgja er $7, 13, 19, 25, \\ldots$ Det fjerde leddet er $25$. Eller med formelen: $a_4 = 7 + 3 \\cdot 6 = 25$.",
+      "c1eec045ff61a995": "Følgja $3, 5, 9, 15, 23, \\ldots$ har differansar $2, 4, 6, 8$. Kva er det sjette leddet?",
+      "98c9b33ee18184c1": "Differansane aukar med $2$: neste differanse er $10$. Det sjette leddet er $23 + 10 = 33$.",
+      "065877b00f7c5cdf": "## Oppsummering\n\nVi har utforska talmønster og talfølgjer -- grunnlaget for mykje av matematikken.\n\n**Nøkkelomgrep:**\n- Ei **talfølgje** er ei ordna liste med tal som følgjer eit mønster\n- Kvart tal er eit **ledd**, og skilnaden mellom ledda er **differansen**\n- Ei **aritmetisk følgje** har konstant differanse: $a_n = a_1 + (n-1) \\cdot d$\n\n**Strategi for å finne mønster:**\n1. Rekn ut differansane mellom ledda\n2. Er differansen konstant? Då er det ei aritmetisk følgje\n3. Aukar differansane jamt? Då er det ei andregradsfølgje\n4. Prøv å skildre mønsteret med ord\n\n| Type følgje | Døme | Kjenneteikn |\n|------------|----------|------------|\n| Aritmetisk | $3, 7, 11, 15$ | Konstant differanse ($d = 4$) |\n| Kvadrattal | $1, 4, 9, 16$ | Differansar: $3, 5, 7$ (aukar med $2$) |\n| Trekanttal | $1, 3, 6, 10$ | Differansar: $2, 3, 4$ (aukar med $1$) |"
+    }
+  }
+}

@@ -1,1 +1,508 @@
-{"id":"fys1-4-3-narrativ","courseId":"fys1","chapterNumber":"4.3","title":"Bevegelsesmengde og støt","subtitle":"Narrativ versjon","description":"En fortelling om hvorfor en lastebil er så vanskelig å stoppe, hvordan en airbag redder liv, og hvorfor den totale bevegelsesmengden alltid holder seg lik gjennom enhver kollisjon.","estimatedMinutes":42,"competenceGoals":["definere og beregne bevegelsesmengde","anvende prinsippet om bevaring av bevegelsesmengde","definere og beregne impuls","skille mellom elastiske og uelastiske støt","analysere kollisjoner og eksplosjoner"],"linkedChapterId":"fys1-4-3","content":[{"id":"fys1-4-3-n-intro","type":"text","content":"## Hva er vanskeligst å stoppe?\n\nEn lastebil og en sykkel kjører like fort mot deg. Hvilken er vanskeligst å stoppe? Svaret er åpenbart -- lastebilen -- og det avslører en helt egen størrelse ved bevegelse, forskjellig fra både fart og energi: **bevegelsesmengden**.\n\nBevegelsesmengde (også kalt momentum) måler liksom «hvor mye bevegelse» et objekt har, og den avhenger av både masse og fart. Den er en av fysikkens aller viktigste bevaringsstørrelser -- like grunnleggende som energi, men med sin egen logikk.\n\nI dette kapittelet skal vi se hva bevegelsesmengde er, hvordan den henger sammen med kraft og tid gjennom begrepet impuls, og fremfor alt det mektige prinsippet om at den totale bevegelsesmengden *aldri* endrer seg i et lukket system. Det prinsippet lar oss forutsi utfallet av kollisjoner og eksplosjoner -- og forklarer hvorfor airbager og kollisjonsputer redder liv. La oss begynne."},{"id":"fys1-4-3-n-section1","type":"text","content":"## Bevegelsesmengde -- masse ganger fart\n\n**Bevegelsesmengden** $\\vec{p}$ til et objekt er rett og slett massen ganger hastigheten: $\\vec{p} = m\\vec{v}$. Enheten er kg·m/s (også skrevet N·s). Legg merke til pilen -- bevegelsesmengde er en *vektor*, med både størrelse og retning. Retningen er den samme som hastighetens.\n\nDet er nyttig å sammenligne den med kinetisk energi, for de beskriver bevegelse på ulikt vis. Bevegelsesmengde $p = mv$ er en vektor og vokser *lineært* med farten. Kinetisk energi $E_k = \\frac{1}{2}mv^2$ er en skalar og vokser *kvadratisk* med farten. Forskjellen blir slående med to biler som kjører mot hverandre med samme fart: i kinetisk energi har de begge positiv energi som *legges sammen*, men i bevegelsesmengde peker de motsatt vei, så de *kansellerer* til null totalt.\n\nHvorfor er bevegelsesmengde så viktig? For det første måler den motstanden mot å endre bevegelsen -- stort $p$ betyr vanskelig å stoppe. For det andre bevares den alltid i lukkede systemer, til og med med friksjon, noe som gjør den til et formidabelt verktøy for kollisjoner. Og for det tredje er den knyttet rett til kraft gjennom Newtons andre lov i sin mest grunnleggende form: $\\vec{F} = \\frac{d\\vec{p}}{dt}$.\n\nLa oss regne litt. En fotball på 0,43 kg i 20 m/s har $p = 0{,}43 \\cdot 20 = 8{,}6$ kg·m/s. En bil på 1200 kg i 25 m/s har $p = 1200 \\cdot 25 = 30\\,000$ kg·m/s -- rundt 3500 ganger mer, selv om fotballen er raskere. Massen veier tungt. Et stillestående tre har derimot $p = 0$, uansett hvor massivt det er."},{"id":"fys1-4-3-n-quiz1","type":"exercise","exercise":{"id":"fys1-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på bevegelsesmengde:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-4-3-n-quiz1-q0","task":"Hva er formelen for bevegelsesmengde?","options":[{"id":"a","text":"$\\vec{p} = \\frac{1}{2}mv^2$","isCorrect":false},{"id":"b","text":"$\\vec{p} = m\\vec{v}$","isCorrect":true},{"id":"c","text":"$\\vec{p} = mg$","isCorrect":false},{"id":"d","text":"$\\vec{p} = \\frac{m}{v}$","isCorrect":false}],"solution":"Bevegelsesmengde er masse ganger hastighet, $\\vec{p}=m\\vec{v}$, en vektor med enhet kg·m/s."},{"id":"fys1-4-3-n-quiz1-q1","task":"To biler kjører mot hverandre med samme fart. Hva er total bevegelsesmengde?","options":[{"id":"a","text":"Dobbelt så stor som for én bil","isCorrect":false},{"id":"b","text":"Lik den ene bilens","isCorrect":false},{"id":"c","text":"Null, fordi de peker motsatt vei og kansellerer","isCorrect":true},{"id":"d","text":"Uendelig","isCorrect":false}],"solution":"Bevegelsesmengde er en vektor. Motsatt rettede bevegelsesmengder kansellerer, så totalen blir null -- selv om den totale kinetiske energien er positiv."},{"id":"fys1-4-3-n-quiz1-q2","task":"En fotball (0,43 kg) i 20 m/s og en bil (1200 kg) i 25 m/s. Hvilken har størst bevegelsesmengde?","options":[{"id":"a","text":"Fotballen, fordi den er raskest","isCorrect":false},{"id":"b","text":"De er like","isCorrect":false},{"id":"c","text":"Det kan ikke avgjøres","isCorrect":false},{"id":"d","text":"Bilen, med ca. 3500 ganger større","isCorrect":true}],"solution":"Bilen: $p=1200\\cdot 25=30\\,000$ kg·m/s mot fotballens $0{,}43\\cdot 20=8{,}6$ kg·m/s. Massen dominerer."}]}},{"id":"fys1-4-3-n-section2","type":"text","content":"## Impuls -- og hvorfor airbager redder liv\n\nHvordan endrer man bevegelsesmengden til noe? Med en kraft over tid. **Impulsen** $\\vec{J}$ er kraften ganget med tiden den virker: $\\vec{J} = \\vec{F}\\cdot\\Delta t$, med enhet N·s. Og her kommer en vakker sammenheng, **impuls-bevegelsesmengde-teoremet**: impulsen er nøyaktig lik endringen i bevegelsesmengde, $\\vec{J} = \\Delta\\vec{p}$.\n\nDet følger direkte fra Newton. Siden $\\vec{F} = m\\frac{\\Delta\\vec{v}}{\\Delta t}$, gir multiplikasjon med $\\Delta t$ at $\\vec{F}\\cdot\\Delta t = m\\Delta\\vec{v} = \\Delta\\vec{p}$. Det avgjørende poenget er at samme endring i bevegelsesmengde kan oppnås med *stor kraft i kort tid* eller *liten kraft i lang tid*. Vil du redusere kraften, må du forlenge tiden.\n\nDette er hele hemmeligheten bak sikkerhetsutstyr. Tenk på en passasjer på 70 kg i en bil som krasjer fra 20 m/s. Endringen i bevegelsesmengde er den samme uansett: $\\Delta p = 70 \\cdot 20 = 1400$ kg·m/s, altså en impuls på 1400 N·s. Uten airbag stopper kroppen på kanskje 0,010 s, og kraften blir $F = \\frac{1400}{0{,}010} = 140\\,000$ N -- som å bli truffet av 14 tonn. Dødelig. Med airbag forlenges stoppetiden til 0,15 s, og kraften synker til $F = \\frac{1400}{0{,}15} \\approx 9300$ N -- rundt 15 ganger mindre, og overlevelig. Airbagen endrer ikke impulsen, bare tiden den fordeles over.\n\nLa oss også regne et enkelt spark. En fotball på 0,43 kg i ro sparkes med 300 N i 0,020 s. Impulsen er $J = 300 \\cdot 0{,}020 = 6{,}0$ N·s, og siden $J = \\Delta p = mv$, blir farten $v = \\frac{6{,}0}{0{,}43} \\approx 14$ m/s."},{"id":"fys1-4-3-n-quiz2","type":"exercise","exercise":{"id":"fys1-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på impuls:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-4-3-n-quiz2-q0","task":"Hva sier impuls-bevegelsesmengde-teoremet?","options":[{"id":"a","text":"Impuls er lik endringen i bevegelsesmengde, $\\vec{J}=\\Delta\\vec{p}$","isCorrect":true},{"id":"b","text":"Impuls er lik kinetisk energi","isCorrect":false},{"id":"c","text":"Impuls er alltid null","isCorrect":false},{"id":"d","text":"Impuls er masse ganger fart","isCorrect":false}],"solution":"$\\vec{J}=\\vec{F}\\cdot\\Delta t=\\Delta\\vec{p}$ -- kraften over tid gir nettopp endringen i bevegelsesmengde."},{"id":"fys1-4-3-n-quiz2-q1","task":"Hvordan reduserer en airbag kraften på en passasjer?","options":[{"id":"a","text":"Ved å redusere impulsen","isCorrect":false},{"id":"b","text":"Ved å forlenge stoppetiden, slik at samme impuls gir mindre kraft","isCorrect":true},{"id":"c","text":"Ved å øke passasjerens masse","isCorrect":false},{"id":"d","text":"Ved å fjerne bevegelsesmengden","isCorrect":false}],"solution":"Impulsen (endringen i bevegelsesmengde) er den samme, men airbagen sprer den over lengre tid, så $F=J/\\Delta t$ blir mye mindre."},{"id":"fys1-4-3-n-quiz2-q2","task":"En fotball (0,43 kg) i ro sparkes med 300 N i 0,020 s. Hva blir farten?","options":[{"id":"a","text":"6,0 m/s","isCorrect":false},{"id":"b","text":"300 m/s","isCorrect":false},{"id":"c","text":"14 m/s","isCorrect":true},{"id":"d","text":"0,43 m/s","isCorrect":false}],"solution":"Impuls $J=300\\cdot 0{,}020=6{,}0$ N·s. Da $J=mv$: $v=6{,}0/0{,}43\\approx 14$ m/s."}]}},{"id":"fys1-4-3-n-section3","type":"text","content":"## Bevaring av bevegelsesmengde -- det urokkelige regnskapet\n\nNå kommer kapittelets kronjuvel. I et **lukket system** -- der ingen ytre krefter virker -- er den totale bevegelsesmengden konstant. For to objekter som kolliderer:\n\n$$m_1\\vec{v}_{1,før} + m_2\\vec{v}_{2,før} = m_1\\vec{v}_{1,etter} + m_2\\vec{v}_{2,etter}$$\n\nDet utrolige er at dette gjelder *alltid* -- selv med friksjon, deformasjon, varmetap. Hvorfor? Det følger av Newtons tredje lov. Når to objekter kolliderer, virker de på hverandre med like store, motsatt rettede krefter i nøyaktig like lang tid. Da blir impulsene like store og motsatte, så $\\Delta\\vec{p}_1 = -\\Delta\\vec{p}_2$, og summen av endringene er null. Den totale bevegelsesmengden rikker seg ikke.\n\nLa oss bruke det. En vogn på 2,0 kg i 3,0 m/s treffer en stillestående vogn på 3,0 kg, og de hekter seg sammen. Bevaring gir $2{,}0 \\cdot 3{,}0 + 3{,}0 \\cdot 0 = (2{,}0 + 3{,}0)v$, så $6{,}0 = 5{,}0v$ og $v = 1{,}2$ m/s. Sjekker vi energien, finner vi at den *ikke* bevares: $E_k$ gikk fra 9,0 J til 3,6 J, så 5,4 J ble til varme og deformasjon. Bevegelsesmengden bevares, men kinetisk energi gjør det ikke.\n\nPrinsippet virker også «baklengs», ved **eksplosjoner**. En granat på 2,0 kg i ro eksploderer i to deler. Del A (1,2 kg) flyr mot øst med 30 m/s. Siden total bevegelsesmengde var null, må den fortsatt være null: $0 = 1{,}2 \\cdot 30 + 0{,}8 \\cdot v_B$, så $v_B = -\\frac{36}{0{,}8} = -45$ m/s -- del B flyr mot vest med 45 m/s. Akkurat dette er prinsippet bak en rakett."},{"id":"fys1-4-3-n-quiz3","type":"exercise","exercise":{"id":"fys1-4-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på bevaring av bevegelsesmengde:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-4-3-n-quiz3-q0","task":"Når bevares total bevegelsesmengde?","options":[{"id":"a","text":"Bare ved elastiske støt","isCorrect":false},{"id":"b","text":"Bare når det ikke er friksjon","isCorrect":false},{"id":"c","text":"Aldri ved kollisjoner","isCorrect":false},{"id":"d","text":"Alltid i et lukket system, selv med friksjon og energitap","isCorrect":true}],"solution":"I et lukket system bevares bevegelsesmengden alltid -- uavhengig av om støtet er elastisk eller uelastisk, og om det er friksjon eller deformasjon."},{"id":"fys1-4-3-n-quiz3-q1","task":"En vogn (2,0 kg, 3,0 m/s) treffer en stillestående vogn (3,0 kg) og henger seg fast. Felles fart?","options":[{"id":"a","text":"1,2 m/s","isCorrect":true},{"id":"b","text":"3,0 m/s","isCorrect":false},{"id":"c","text":"0,6 m/s","isCorrect":false},{"id":"d","text":"5,0 m/s","isCorrect":false}],"solution":"$6{,}0=(2{,}0+3{,}0)v$ gir $v=1{,}2$ m/s. Bevegelsesmengden bevares, men kinetisk energi synker fra 9,0 til 3,6 J."},{"id":"fys1-4-3-n-quiz3-q2","task":"En granat (2,0 kg) i ro eksploderer. Del A (1,2 kg) flyr 30 m/s øst. Hva med del B (0,8 kg)?","options":[{"id":"a","text":"30 m/s mot øst","isCorrect":false},{"id":"b","text":"45 m/s mot vest","isCorrect":true},{"id":"c","text":"36 m/s mot øst","isCorrect":false},{"id":"d","text":"Den står stille","isCorrect":false}],"solution":"Total bevegelsesmengde var null: $0=1{,}2\\cdot 30+0{,}8\\cdot v_B$, så $v_B=-45$ m/s -- 45 m/s mot vest."},{"id":"fys1-4-3-n-quiz3-q3","task":"Hvilken lov forklarer hvorfor bevegelsesmengde bevares i en kollisjon?","options":[{"id":"a","text":"Newtons 1. lov","isCorrect":false},{"id":"b","text":"Hookes lov","isCorrect":false},{"id":"c","text":"Newtons 3. lov (aksjon-reaksjon)","isCorrect":true},{"id":"d","text":"Keplers lov","isCorrect":false}],"solution":"Aksjon-reaksjon gir like store, motsatte krefter i lik tid, så impulsene er like og motsatte: $\\Delta\\vec{p}_1=-\\Delta\\vec{p}_2$, og summen endres ikke."}]}},{"id":"fys1-4-3-n-section4","type":"text","content":"## Elastiske og uelastiske støt -- og to dimensjoner\n\nKollisjoner deles inn etter hva som skjer med den *kinetiske energien*. I et **elastisk støt** bevares både bevegelsesmengde og kinetisk energi -- som mellom ideelle biljardkuler eller gassmolekyler. I et **uelastisk støt** bevares bevegelsesmengden, men kinetisk energi går tapt til varme, lyd og deformasjon. Et **fullstendig uelastisk** støt er når objektene henger sammen etterpå, som to biler som kræsjer og kiler seg i hverandre -- da tapes mest mulig energi. Men i *alle* støt bevares bevegelsesmengden.\n\nElastiske støt har en pen egenskap. To like masser, der den ene er i ro: de «bytter» farter. Treffer en vogn på 1,0 kg i 4,0 m/s en lik vogn i ro, kan vi løse de to bevaringsligningene (for bevegelsesmengde og energi) og finne at den første stopper helt opp ($v_1' = 0$) mens den andre overtar all farten ($v_2' = 4{,}0$ m/s). Du har sett det i et biljardstøt eller i Newtons vugge.\n\nTil slutt: bevaring av bevegelsesmengde gjelder også i to dimensjoner, da bevarer vi hver komponent for seg. Tenk på et trafikkuhell der en bil på 1000 kg kjører nordover i 20 m/s og treffer en bil på 1500 kg som kjører østover i 15 m/s, og de henger sammen. I øst-retning: $p_x = 1500 \\cdot 15 = 22\\,500$ kg·m/s, så $v_x = \\frac{22\\,500}{2500} = 9{,}0$ m/s. I nord-retning: $p_y = 1000 \\cdot 20 = 20\\,000$, så $v_y = \\frac{20\\,000}{2500} = 8{,}0$ m/s. Vrakets fart blir $v = \\sqrt{9{,}0^2 + 8{,}0^2} = \\sqrt{145} = 12{,}0$ m/s, i retning $\\theta = \\arctan\\frac{8{,}0}{9{,}0} \\approx 42°$ nord for øst. To bevaringsligninger, ett vrak -- og politiet kan rekonstruere ulykken fra sluttposisjonen alene."},{"id":"fys1-4-3-n-quiz4","type":"exercise","exercise":{"id":"fys1-4-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på støttyper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-4-3-n-quiz4-q0","task":"Hva kjennetegner et elastisk støt?","options":[{"id":"a","text":"Bare bevegelsesmengde bevares","isCorrect":false},{"id":"b","text":"Objektene henger alltid sammen etterpå","isCorrect":false},{"id":"c","text":"All energi blir til varme","isCorrect":false},{"id":"d","text":"Både bevegelsesmengde og kinetisk energi bevares","isCorrect":true}],"solution":"I et elastisk støt bevares både bevegelsesmengde og kinetisk energi -- som mellom ideelle biljardkuler."},{"id":"fys1-4-3-n-quiz4-q1","task":"Hva skjer i et fullstendig uelastisk støt?","options":[{"id":"a","text":"Objektene henger sammen, og mest mulig kinetisk energi tapes","isCorrect":true},{"id":"b","text":"Kinetisk energi bevares fullstendig","isCorrect":false},{"id":"c","text":"Bevegelsesmengden går tapt","isCorrect":false},{"id":"d","text":"Ingenting skjer","isCorrect":false}],"solution":"Fullstendig uelastisk støt: objektene henger sammen og taper mest mulig kinetisk energi. Bevegelsesmengden bevares likevel."},{"id":"fys1-4-3-n-quiz4-q2","task":"En vogn (1,0 kg, 4 m/s) treffer en lik vogn i ro elastisk. Hva skjer?","options":[{"id":"a","text":"Begge fortsetter med 2 m/s","isCorrect":false},{"id":"b","text":"Den første stopper, den andre overtar all farten (4 m/s)","isCorrect":true},{"id":"c","text":"De henger sammen","isCorrect":false},{"id":"d","text":"Begge stopper","isCorrect":false}],"solution":"Ved elastisk støt mellom like masser bytter de farter: den første stopper, den andre får 4 m/s -- som i Newtons vugge."},{"id":"fys1-4-3-n-quiz4-q3","task":"I en todimensjonal kollisjon, hva bevares?","options":[{"id":"a","text":"Bare farten","isCorrect":false},{"id":"b","text":"Bare x-komponenten","isCorrect":false},{"id":"c","text":"Bevegelsesmengden i hver retning (x og y) separat","isCorrect":true},{"id":"d","text":"Bare den kinetiske energien","isCorrect":false}],"solution":"Bevegelsesmengde er en vektor, så hver komponent bevares for seg: $p_{x,før}=p_{x,etter}$ og $p_{y,før}=p_{y,etter}$."}]}},{"id":"fys1-4-3-n-summary","type":"text","content":"## Oppsummering\n\nLastebilen er vanskelig å stoppe fordi den har stor **bevegelsesmengde** $\\vec{p} = m\\vec{v}$ -- en vektor som vokser lineært med farten, til forskjell fra kinetisk energi som vokser kvadratisk. Bevegelsesmengde er knyttet til kraft via $\\vec{F} = \\frac{d\\vec{p}}{dt}$.\n\n**Impulsen** $\\vec{J} = \\vec{F}\\cdot\\Delta t = \\Delta\\vec{p}$ er endringen i bevegelsesmengde, og siden samme impuls kan fordeles over kort eller lang tid, kan vi senke kraften ved å forlenge tiden -- nettopp slik en airbag reduserer kraften rundt 15 ganger og redder liv.\n\nKapittelets kjerne er **bevaring av bevegelsesmengde**: i et lukket system er $\\vec{p}_{total}$ alltid konstant, selv med friksjon og energitap, fordi Newtons tredje lov gir like og motsatte impulser. Det gjelder i **elastiske støt** (også kinetisk energi bevares), **uelastiske støt** (energi tapes til varme), eksplosjoner og todimensjonale kollisjoner -- der vi bevarer hver komponent for seg. Bevegelsesmengden er fysikkens urokkelige regnskap som lar oss rekonstruere alt fra biljardstøt til trafikkulykker."}],"exercises":[]}
+{
+  "id": "fys1-4-3-narrativ",
+  "courseId": "fys1",
+  "chapterNumber": "4.3",
+  "title": "Bevegelsesmengde og støt",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvorfor en lastebil er så vanskelig å stoppe, hvordan en airbag redder liv, og hvorfor den totale bevegelsesmengden alltid holder seg lik gjennom enhver kollisjon.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "definere og beregne bevegelsesmengde",
+    "anvende prinsippet om bevaring av bevegelsesmengde",
+    "definere og beregne impuls",
+    "skille mellom elastiske og uelastiske støt",
+    "analysere kollisjoner og eksplosjoner"
+  ],
+  "linkedChapterId": "fys1-4-3",
+  "content": [
+    {
+      "id": "fys1-4-3-n-intro",
+      "type": "text",
+      "content": "## Hva er vanskeligst å stoppe?\n\nEn lastebil og en sykkel kjører like fort mot deg. Hvilken er vanskeligst å stoppe? Svaret er åpenbart -- lastebilen -- og det avslører en helt egen størrelse ved bevegelse, forskjellig fra både fart og energi: **bevegelsesmengden**.\n\nBevegelsesmengde (også kalt momentum) måler liksom «hvor mye bevegelse» et objekt har, og den avhenger av både masse og fart. Den er en av fysikkens aller viktigste bevaringsstørrelser -- like grunnleggende som energi, men med sin egen logikk.\n\nI dette kapittelet skal vi se hva bevegelsesmengde er, hvordan den henger sammen med kraft og tid gjennom begrepet impuls, og fremfor alt det mektige prinsippet om at den totale bevegelsesmengden *aldri* endrer seg i et lukket system. Det prinsippet lar oss forutsi utfallet av kollisjoner og eksplosjoner -- og forklarer hvorfor airbager og kollisjonsputer redder liv. La oss begynne."
+    },
+    {
+      "id": "fys1-4-3-n-section1",
+      "type": "text",
+      "content": "## Bevegelsesmengde -- masse ganger fart\n\n**Bevegelsesmengden** $\\vec{p}$ til et objekt er rett og slett massen ganger hastigheten: $\\vec{p} = m\\vec{v}$. Enheten er kg·m/s (også skrevet N·s). Legg merke til pilen -- bevegelsesmengde er en *vektor*, med både størrelse og retning. Retningen er den samme som hastighetens.\n\nDet er nyttig å sammenligne den med kinetisk energi, for de beskriver bevegelse på ulikt vis. Bevegelsesmengde $p = mv$ er en vektor og vokser *lineært* med farten. Kinetisk energi $E_k = \\frac{1}{2}mv^2$ er en skalar og vokser *kvadratisk* med farten. Forskjellen blir slående med to biler som kjører mot hverandre med samme fart: i kinetisk energi har de begge positiv energi som *legges sammen*, men i bevegelsesmengde peker de motsatt vei, så de *kansellerer* til null totalt.\n\nHvorfor er bevegelsesmengde så viktig? For det første måler den motstanden mot å endre bevegelsen -- stort $p$ betyr vanskelig å stoppe. For det andre bevares den alltid i lukkede systemer, til og med med friksjon, noe som gjør den til et formidabelt verktøy for kollisjoner. Og for det tredje er den knyttet rett til kraft gjennom Newtons andre lov i sin mest grunnleggende form: $\\vec{F} = \\frac{d\\vec{p}}{dt}$.\n\nLa oss regne litt. En fotball på 0,43 kg i 20 m/s har $p = 0{,}43 \\cdot 20 = 8{,}6$ kg·m/s. En bil på 1200 kg i 25 m/s har $p = 1200 \\cdot 25 = 30\\,000$ kg·m/s -- rundt 3500 ganger mer, selv om fotballen er raskere. Massen veier tungt. Et stillestående tre har derimot $p = 0$, uansett hvor massivt det er."
+    },
+    {
+      "id": "fys1-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på bevegelsesmengde:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-4-3-n-quiz1-q0",
+            "task": "Hva er formelen for bevegelsesmengde?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\vec{p} = m\\vec{v}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\vec{p} = \\frac{1}{2}mv^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\vec{p} = mg$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\vec{p} = \\frac{m}{v}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bevegelsesmengde er masse ganger hastighet, $\\vec{p}=m\\vec{v}$, en vektor med enhet kg·m/s."
+          },
+          {
+            "id": "fys1-4-3-n-quiz1-q1",
+            "task": "To biler kjører mot hverandre med samme fart. Hva er total bevegelsesmengde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dobbelt så stor som for én bil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Null, fordi de peker motsatt vei og kansellerer",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Lik den ene bilens",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Uendelig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bevegelsesmengde er en vektor. Motsatt rettede bevegelsesmengder kansellerer, så totalen blir null -- selv om den totale kinetiske energien er positiv."
+          },
+          {
+            "id": "fys1-4-3-n-quiz1-q2",
+            "task": "En fotball (0,43 kg) i 20 m/s og en bil (1200 kg) i 25 m/s. Hvilken har størst bevegelsesmengde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fotballen, fordi den er raskest",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De er like",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bilen, med ca. 3500 ganger større",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det kan ikke avgjøres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bilen: $p=1200\\cdot 25=30\\,000$ kg·m/s mot fotballens $0{,}43\\cdot 20=8{,}6$ kg·m/s. Massen dominerer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-4-3-n-section2",
+      "type": "text",
+      "content": "## Impuls -- og hvorfor airbager redder liv\n\nHvordan endrer man bevegelsesmengden til noe? Med en kraft over tid. **Impulsen** $\\vec{J}$ er kraften ganget med tiden den virker: $\\vec{J} = \\vec{F}\\cdot\\Delta t$, med enhet N·s. Og her kommer en vakker sammenheng, **impuls-bevegelsesmengde-teoremet**: impulsen er nøyaktig lik endringen i bevegelsesmengde, $\\vec{J} = \\Delta\\vec{p}$.\n\nDet følger direkte fra Newton. Siden $\\vec{F} = m\\frac{\\Delta\\vec{v}}{\\Delta t}$, gir multiplikasjon med $\\Delta t$ at $\\vec{F}\\cdot\\Delta t = m\\Delta\\vec{v} = \\Delta\\vec{p}$. Det avgjørende poenget er at samme endring i bevegelsesmengde kan oppnås med *stor kraft i kort tid* eller *liten kraft i lang tid*. Vil du redusere kraften, må du forlenge tiden.\n\nDette er hele hemmeligheten bak sikkerhetsutstyr. Tenk på en passasjer på 70 kg i en bil som krasjer fra 20 m/s. Endringen i bevegelsesmengde er den samme uansett: $\\Delta p = 70 \\cdot 20 = 1400$ kg·m/s, altså en impuls på 1400 N·s. Uten airbag stopper kroppen på kanskje 0,010 s, og kraften blir $F = \\frac{1400}{0{,}010} = 140\\,000$ N -- som å bli truffet av 14 tonn. Dødelig. Med airbag forlenges stoppetiden til 0,15 s, og kraften synker til $F = \\frac{1400}{0{,}15} \\approx 9300$ N -- rundt 15 ganger mindre, og overlevelig. Airbagen endrer ikke impulsen, bare tiden den fordeles over.\n\nLa oss også regne et enkelt spark. En fotball på 0,43 kg i ro sparkes med 300 N i 0,020 s. Impulsen er $J = 300 \\cdot 0{,}020 = 6{,}0$ N·s, og siden $J = \\Delta p = mv$, blir farten $v = \\frac{6{,}0}{0{,}43} \\approx 14$ m/s."
+    },
+    {
+      "id": "fys1-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på impuls:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-4-3-n-quiz2-q0",
+            "task": "Hva sier impuls-bevegelsesmengde-teoremet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Impuls er lik kinetisk energi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Impuls er alltid null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Impuls er masse ganger fart",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Impuls er lik endringen i bevegelsesmengde, $\\vec{J}=\\Delta\\vec{p}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\vec{J}=\\vec{F}\\cdot\\Delta t=\\Delta\\vec{p}$ -- kraften over tid gir nettopp endringen i bevegelsesmengde."
+          },
+          {
+            "id": "fys1-4-3-n-quiz2-q1",
+            "task": "Hvordan reduserer en airbag kraften på en passasjer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ved å forlenge stoppetiden, slik at samme impuls gir mindre kraft",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ved å redusere impulsen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ved å øke passasjerens masse",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ved å fjerne bevegelsesmengden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Impulsen (endringen i bevegelsesmengde) er den samme, men airbagen sprer den over lengre tid, så $F=J/\\Delta t$ blir mye mindre."
+          },
+          {
+            "id": "fys1-4-3-n-quiz2-q2",
+            "task": "En fotball (0,43 kg) i ro sparkes med 300 N i 0,020 s. Hva blir farten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "6,0 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "14 m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "300 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0,43 m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Impuls $J=300\\cdot 0{,}020=6{,}0$ N·s. Da $J=mv$: $v=6{,}0/0{,}43\\approx 14$ m/s."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-4-3-n-section3",
+      "type": "text",
+      "content": "## Bevaring av bevegelsesmengde -- det urokkelige regnskapet\n\nNå kommer kapittelets kronjuvel. I et **lukket system** -- der ingen ytre krefter virker -- er den totale bevegelsesmengden konstant. For to objekter som kolliderer:\n\n$$m_1\\vec{v}_{1,før} + m_2\\vec{v}_{2,før} = m_1\\vec{v}_{1,etter} + m_2\\vec{v}_{2,etter}$$\n\nDet utrolige er at dette gjelder *alltid* -- selv med friksjon, deformasjon, varmetap. Hvorfor? Det følger av Newtons tredje lov. Når to objekter kolliderer, virker de på hverandre med like store, motsatt rettede krefter i nøyaktig like lang tid. Da blir impulsene like store og motsatte, så $\\Delta\\vec{p}_1 = -\\Delta\\vec{p}_2$, og summen av endringene er null. Den totale bevegelsesmengden rikker seg ikke.\n\nLa oss bruke det. En vogn på 2,0 kg i 3,0 m/s treffer en stillestående vogn på 3,0 kg, og de hekter seg sammen. Bevaring gir $2{,}0 \\cdot 3{,}0 + 3{,}0 \\cdot 0 = (2{,}0 + 3{,}0)v$, så $6{,}0 = 5{,}0v$ og $v = 1{,}2$ m/s. Sjekker vi energien, finner vi at den *ikke* bevares: $E_k$ gikk fra 9,0 J til 3,6 J, så 5,4 J ble til varme og deformasjon. Bevegelsesmengden bevares, men kinetisk energi gjør det ikke.\n\nPrinsippet virker også «baklengs», ved **eksplosjoner**. En granat på 2,0 kg i ro eksploderer i to deler. Del A (1,2 kg) flyr mot øst med 30 m/s. Siden total bevegelsesmengde var null, må den fortsatt være null: $0 = 1{,}2 \\cdot 30 + 0{,}8 \\cdot v_B$, så $v_B = -\\frac{36}{0{,}8} = -45$ m/s -- del B flyr mot vest med 45 m/s. Akkurat dette er prinsippet bak en rakett."
+    },
+    {
+      "id": "fys1-4-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-4-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på bevaring av bevegelsesmengde:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-4-3-n-quiz3-q0",
+            "task": "Når bevares total bevegelsesmengde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare ved elastiske støt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bare når det ikke er friksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid i et lukket system, selv med friksjon og energitap",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Aldri ved kollisjoner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I et lukket system bevares bevegelsesmengden alltid -- uavhengig av om støtet er elastisk eller uelastisk, og om det er friksjon eller deformasjon."
+          },
+          {
+            "id": "fys1-4-3-n-quiz3-q1",
+            "task": "En vogn (2,0 kg, 3,0 m/s) treffer en stillestående vogn (3,0 kg) og henger seg fast. Felles fart?",
+            "options": [
+              {
+                "id": "b",
+                "text": "3,0 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,6 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "5,0 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "1,2 m/s",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$6{,}0=(2{,}0+3{,}0)v$ gir $v=1{,}2$ m/s. Bevegelsesmengden bevares, men kinetisk energi synker fra 9,0 til 3,6 J."
+          },
+          {
+            "id": "fys1-4-3-n-quiz3-q2",
+            "task": "En granat (2,0 kg) i ro eksploderer. Del A (1,2 kg) flyr 30 m/s øst. Hva med del B (0,8 kg)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "45 m/s mot vest",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "30 m/s mot øst",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "36 m/s mot øst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den står stille",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Total bevegelsesmengde var null: $0=1{,}2\\cdot 30+0{,}8\\cdot v_B$, så $v_B=-45$ m/s -- 45 m/s mot vest."
+          },
+          {
+            "id": "fys1-4-3-n-quiz3-q3",
+            "task": "Hvilken lov forklarer hvorfor bevegelsesmengde bevares i en kollisjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Newtons 1. lov",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Newtons 3. lov (aksjon-reaksjon)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Hookes lov",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Keplers lov",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Aksjon-reaksjon gir like store, motsatte krefter i lik tid, så impulsene er like og motsatte: $\\Delta\\vec{p}_1=-\\Delta\\vec{p}_2$, og summen endres ikke."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-4-3-n-section4",
+      "type": "text",
+      "content": "## Elastiske og uelastiske støt -- og to dimensjoner\n\nKollisjoner deles inn etter hva som skjer med den *kinetiske energien*. I et **elastisk støt** bevares både bevegelsesmengde og kinetisk energi -- som mellom ideelle biljardkuler eller gassmolekyler. I et **uelastisk støt** bevares bevegelsesmengden, men kinetisk energi går tapt til varme, lyd og deformasjon. Et **fullstendig uelastisk** støt er når objektene henger sammen etterpå, som to biler som kræsjer og kiler seg i hverandre -- da tapes mest mulig energi. Men i *alle* støt bevares bevegelsesmengden.\n\nElastiske støt har en pen egenskap. To like masser, der den ene er i ro: de «bytter» farter. Treffer en vogn på 1,0 kg i 4,0 m/s en lik vogn i ro, kan vi løse de to bevaringsligningene (for bevegelsesmengde og energi) og finne at den første stopper helt opp ($v_1' = 0$) mens den andre overtar all farten ($v_2' = 4{,}0$ m/s). Du har sett det i et biljardstøt eller i Newtons vugge.\n\nTil slutt: bevaring av bevegelsesmengde gjelder også i to dimensjoner, da bevarer vi hver komponent for seg. Tenk på et trafikkuhell der en bil på 1000 kg kjører nordover i 20 m/s og treffer en bil på 1500 kg som kjører østover i 15 m/s, og de henger sammen. I øst-retning: $p_x = 1500 \\cdot 15 = 22\\,500$ kg·m/s, så $v_x = \\frac{22\\,500}{2500} = 9{,}0$ m/s. I nord-retning: $p_y = 1000 \\cdot 20 = 20\\,000$, så $v_y = \\frac{20\\,000}{2500} = 8{,}0$ m/s. Vrakets fart blir $v = \\sqrt{9{,}0^2 + 8{,}0^2} = \\sqrt{145} = 12{,}0$ m/s, i retning $\\theta = \\arctan\\frac{8{,}0}{9{,}0} \\approx 42°$ nord for øst. To bevaringsligninger, ett vrak -- og politiet kan rekonstruere ulykken fra sluttposisjonen alene."
+    },
+    {
+      "id": "fys1-4-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-4-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på støttyper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-4-3-n-quiz4-q0",
+            "task": "Hva kjennetegner et elastisk støt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare bevegelsesmengde bevares",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Objektene henger alltid sammen etterpå",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Både bevegelsesmengde og kinetisk energi bevares",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "All energi blir til varme",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I et elastisk støt bevares både bevegelsesmengde og kinetisk energi -- som mellom ideelle biljardkuler."
+          },
+          {
+            "id": "fys1-4-3-n-quiz4-q1",
+            "task": "Hva skjer i et fullstendig uelastisk støt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kinetisk energi bevares fullstendig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bevegelsesmengden går tapt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting skjer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Objektene henger sammen, og mest mulig kinetisk energi tapes",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fullstendig uelastisk støt: objektene henger sammen og taper mest mulig kinetisk energi. Bevegelsesmengden bevares likevel."
+          },
+          {
+            "id": "fys1-4-3-n-quiz4-q2",
+            "task": "En vogn (1,0 kg, 4 m/s) treffer en lik vogn i ro elastisk. Hva skjer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den første stopper, den andre overtar all farten (4 m/s)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Begge fortsetter med 2 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De henger sammen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge stopper",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved elastisk støt mellom like masser bytter de farter: den første stopper, den andre får 4 m/s -- som i Newtons vugge."
+          },
+          {
+            "id": "fys1-4-3-n-quiz4-q3",
+            "task": "I en todimensjonal kollisjon, hva bevares?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare farten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bevegelsesmengden i hver retning (x og y) separat",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Bare x-komponenten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare den kinetiske energien",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bevegelsesmengde er en vektor, så hver komponent bevares for seg: $p_{x,før}=p_{x,etter}$ og $p_{y,før}=p_{y,etter}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-4-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nLastebilen er vanskelig å stoppe fordi den har stor **bevegelsesmengde** $\\vec{p} = m\\vec{v}$ -- en vektor som vokser lineært med farten, til forskjell fra kinetisk energi som vokser kvadratisk. Bevegelsesmengde er knyttet til kraft via $\\vec{F} = \\frac{d\\vec{p}}{dt}$.\n\n**Impulsen** $\\vec{J} = \\vec{F}\\cdot\\Delta t = \\Delta\\vec{p}$ er endringen i bevegelsesmengde, og siden samme impuls kan fordeles over kort eller lang tid, kan vi senke kraften ved å forlenge tiden -- nettopp slik en airbag reduserer kraften rundt 15 ganger og redder liv.\n\nKapittelets kjerne er **bevaring av bevegelsesmengde**: i et lukket system er $\\vec{p}_{total}$ alltid konstant, selv med friksjon og energitap, fordi Newtons tredje lov gir like og motsatte impulser. Det gjelder i **elastiske støt** (også kinetisk energi bevares), **uelastiske støt** (energi tapes til varme), eksplosjoner og todimensjonale kollisjoner -- der vi bevarer hver komponent for seg. Bevegelsesmengden er fysikkens urokkelige regnskap som lar oss rekonstruere alt fra biljardstøt til trafikkulykker."
+    }
+  ],
+  "exercises": []
+}

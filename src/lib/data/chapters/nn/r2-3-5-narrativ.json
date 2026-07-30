@@ -1,1 +1,523 @@
-{"id":"r2-3-5-narrativ","courseId":"r2","chapterNumber":"3.5","title":"Programmering av integrasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om programmering av integrasjon — rektangel, trapes og Simpson som Python-funksjonar, SciPy sine proffverktøy og Monte Carlo-metoden der tilfeldige tal reknar ut areal og estimerer pi.","estimatedMinutes":80,"competenceGoals":["implementere numeriske integrasjonsmetodar i Python","bruke NumPy og SciPy for numerisk integrasjon","visualisere numerisk integrasjon med Matplotlib","forstå feilanalyse og konvergens for ulike metodar","bruke numerisk integrasjon på praktiske problem"],"linkedChapterId":"r2-3-5","content":[{"id":"r2-3-5-n-intro","type":"text","content":"## Maskina overtek reknearbeidet\n\nI førre kapittel rekna du trapessummar for hand og kjende på kor fort det blir slitsamt — fire delintervall er greitt, fire hundre er utenkjeleg. Men metodane er jo berre oppskrifter: del opp, rekn funksjonsverdiar, summer med rette vekter. Og oppskrifter er nøyaktig det datamaskiner er laga for å følgje.\n\nI dette kapittelet set vi om rektangel-, trapes- og Simpsons metode til Python — kvar av dei blir ein funksjon på under ti linjer — og slepper dei laus med tusenvis av delintervall. Vi måler feila og *ser* konvergensordenane frå teorien dukke opp i utskriftene: faktor 4 for trapes, faktor 16 for Simpson. Deretter opnar vi proffverktøya i NumPy og SciPy, der éi linje kode integrerer med maskinpresisjon, og avsluttar med ein metode som er like overraskande som han er nyttig: Monte Carlo-integrasjon, der *tilfeldige tal* reknar ut areal — og estimerer $\\pi$."},{"id":"r2-3-5-n-section1","type":"text","content":"## Metodane blir kode\n\nLat oss starte der førre kapittel slutta: venstre rektangelmetode. Som Python-funksjon:\n\n```python\ndef rektangelmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = 0\n    for i in range(n):\n        total += f(a + i * h)\n    return h * total\n```\n\nMønsteret er metoden sjølv: steglengd $h = \\frac{b-a}{n}$, ei løkke som summerer funksjonsverdiar, og multiplikasjon med $h$ til slutt. Med `f = lambda x: x**2` og $n = 1000$ gir han $0{,}332834$ for $\\int_0^1 x^2\\,dx = \\frac{1}{3}$ — feil $0{,}0005$, omtrent $0{,}15\\,\\%$.\n\nTrapesmetoden er nesten lik; berre endepunkta blir behandla spesielt (vekt $\\frac{1}{2}$):\n\n```python\ndef trapesmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = (f(a) + f(b)) / 2\n    for i in range(1, n):\n        total += f(a + i * h)\n    return h * total\n```\n\nOg Simpson krev partal $n$ og to løkker — éi for vekt $4$ (odde indeksar), éi for vekt $2$ (indre like indeksar):\n\n```python\ndef simpson(f, a, b, n):\n    if n % 2 != 0:\n        raise ValueError(\"n må være et partall\")\n    h = (b - a) / n\n    total = f(a) + f(b)\n    for i in range(1, n, 2):\n        total += 4 * f(a + i * h)\n    for i in range(2, n, 2):\n        total += 2 * f(a + i * h)\n    return (h / 3) * total\n```\n\nStyrkeprøva: $\\int_0^{\\pi} \\sin x\\,dx = 2$. Med berre $n = 10$ gir trapesmetoden feil $1{,}65 \\cdot 10^{-2}$, medan Simpson gir $6{,}78 \\cdot 10^{-6}$ — over to tusen gonger meir nøyaktig for same arbeid. Ti linjer kode gjenskaper heile teorien frå førre kapittel."},{"id":"r2-3-5-n-quiz1","type":"exercise","exercise":{"id":"r2-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på implementering av metodane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-5-n-quiz1-q0","task":"I koden for trapesmetoden startar total med (f(a) + f(b)) / 2. Kvifor?","options":[{"id":"a","text":"For å unngå deling på null","isCorrect":false},{"id":"b","text":"Fordi endepunkta har vekt $\\frac{1}{2}$ i trapesformelen, medan dei indre punkta har vekt $1$","isCorrect":true},{"id":"c","text":"Fordi gjennomsnittet av endepunkta er integralet","isCorrect":false},{"id":"d","text":"For å gjere koden raskare","isCorrect":false}],"solution":"Trapesformelen er $h\\left[\\frac{f(a)+f(b)}{2} + \\sum_{i=1}^{n-1} f(x_i)\\right]$ — ytterpunkta blir ikkje delte av to trapes og tel halvt."},{"id":"r2-3-5-n-quiz1-q1","task":"Kva gjer simpson-funksjonen dersom n er eit oddetal?","options":[{"id":"a","text":"Han rundar $n$ opp til nærmaste partal","isCorrect":false},{"id":"b","text":"Han gir eit unøyaktig, men gyldig svar","isCorrect":false},{"id":"c","text":"Han utløyser ein ValueError, sidan Simpsons metode krev partal $n$","isCorrect":true},{"id":"d","text":"Han byter automatisk til trapesmetoden","isCorrect":false}],"solution":"Koden sjekkar n % 2 != 0 og kastar ein feil — parablane blir lagde over par av delintervall, så $n$ må vere deleleg på $2$."},{"id":"r2-3-5-n-quiz1-q2","task":"For $\\int_0^{\\pi} \\sin x\\,dx$ med $n = 10$: omtrent kor mykje meir nøyaktig var Simpson enn trapes?","options":[{"id":"a","text":"Over $2000$ gonger","isCorrect":true},{"id":"b","text":"Dobbelt så nøyaktig","isCorrect":false},{"id":"c","text":"Ti gonger","isCorrect":false},{"id":"d","text":"Dei var omtrent like nøyaktige","isCorrect":false}],"solution":"Trapes: feil $1{,}65 \\cdot 10^{-2}$; Simpson: $6{,}78 \\cdot 10^{-6}$. Forholdet er over $2000$ — parabeltilnærminga løner seg."},{"id":"r2-3-5-n-quiz1-q3","task":"Kva vekter bruker Simpson-koden på funksjonsverdiane i indre punkt?","options":[{"id":"a","text":"Vekt $2$ på alle indre punkt","isCorrect":false},{"id":"b","text":"Vekt $1$ på alle indre punkt","isCorrect":false},{"id":"c","text":"Vekt $3$ og $1$ annankvar gong","isCorrect":false},{"id":"d","text":"Vekt $4$ på odde indeksar og $2$ på like indre indeksar","isCorrect":true}],"solution":"Dei to løkkene gir mønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$: range(1, n, 2) får vekt $4$, range(2, n, 2) får vekt $2$."}]}},{"id":"r2-3-5-n-section2","type":"text","content":"## Konvergens du kan sjå — og proffverktøya\n\nTeorien lova at trapesfeilen går som $O(1/n^2)$. Med ei lita testløkke kan vi *sjå* det. For $\\int_0^1 e^x\\,dx = e - 1$ skriv vi ut feilen for $n = 10, 20, 40, 80, 160, 320$ og forholdet mellom påfølgjande feil:\n\n```\nn      Feil        Faktor\n10     3.87e-05    -\n20     9.68e-06    4.00\n40     2.42e-06    4.00\n80     6.05e-07    4.00\n```\n\nFaktoren er nøyaktig $4$ kvar gong $n$ blir dobla — konvergensorden $O(1/n^2)$, eksperimentelt stadfesta. For Simpson ville den tilsvarande tabellen vist faktor $16$. Slik feilanalyse er god praksis kvar gong du bruker numerikk: køyr med aukande $n$, og sjå at svaret stabiliserer seg.\n\nI praksis slepp du ofte å skrive metodane sjølv. **SciPy** har ferdige, optimaliserte rutinar:\n\n```python\nfrom scipy import integrate\nresultat, feil = integrate.quad(f, 0, np.inf)\n```\n\n`quad` vel punkt adaptivt, handterer til og med uendelege grenser, og returnerer både svaret og eit feilestimat — for $\\int_0^{\\infty} e^{-x^2}\\,dx$ treffer han fasiten $\\frac{\\sqrt{\\pi}}{2}$ med feil under $10^{-8}$. For *måledata* finst `numpy.trapz`: har du tidspunkt `t = [0, 1, 2, 3, 4, 5]` og målte farter `v = [0, 5, 8, 10, 9, 6]`, gir `np.trapz(v, t)` tilbakelagd strekning $34{,}5$ meter direkte frå tabellen — trapesmetoden på ekte data, éi linje.\n\nArbeidsdelinga er typisk for berekningsorientert matematikk: skriv metodane sjølv éin gong for å *forstå* dei, bruk biblioteket etterpå for å *bruke* dei."},{"id":"r2-3-5-n-quiz2","type":"exercise","exercise":{"id":"r2-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på konvergens og SciPy:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-5-n-quiz2-q0","task":"Feiltabellen for trapesmetoden viser faktor $4{,}00$ kvar gong $n$ blir dobla. Kva stadfestar dette?","options":[{"id":"a","text":"At metoden er eksakt for polynom","isCorrect":false},{"id":"b","text":"At feilen veks med $n$","isCorrect":false},{"id":"c","text":"At konvergensordenen er $O(1/n^2)$","isCorrect":true},{"id":"d","text":"At funksjonen er lineær","isCorrect":false}],"solution":"Dersom feilen $\\sim \\frac{1}{n^2}$, gir dobling av $n$ feilreduksjon $\\frac{1}{4}$. Den konstante faktoren $4$ i tabellen er fingeravtrykket til teorien."},{"id":"r2-3-5-n-quiz2-q1","task":"Kva returnerer scipy.integrate.quad(f, a, b)?","options":[{"id":"a","text":"Berre integralverdien","isCorrect":false},{"id":"b","text":"Både integralverdien og eit feilestimat","isCorrect":true},{"id":"c","text":"Ei liste med delsummar","isCorrect":false},{"id":"d","text":"Den antideriverte som funksjon","isCorrect":false}],"solution":"quad returnerer paret (resultat, feilestimat) — du får både svaret og eit mål på kor nøyaktig det er."},{"id":"r2-3-5-n-quiz2-q2","task":"Du har måledata: tider t og farter v frå eit eksperiment. Korleis reknar du ut tilbakelagd strekning enklast?","options":[{"id":"a","text":"Finn ein antiderivert til farten","isCorrect":false},{"id":"b","text":"Bruk scipy.integrate.quad på dataa","isCorrect":false},{"id":"c","text":"Summer fartene og gang med total tid","isCorrect":false},{"id":"d","text":"Bruk np.trapz(v, t) — trapesmetoden på tabelldata","isCorrect":true}],"solution":"np.trapz integrerer diskrete datapunkt med trapesmetoden. quad krev ein funksjon, ikkje ein tabell — og ein antiderivert finst ikkje for reine måledata."},{"id":"r2-3-5-n-quiz2-q3","task":"Kvifor er det god praksis å køyre ein numerisk integrasjon med fleire aukande verdiar av $n$?","options":[{"id":"a","text":"For å sjå at svaret stabiliserer seg og dermed kontrollere nøyaktigheita","isCorrect":true},{"id":"b","text":"Fordi metodane krev minst tre køyringar","isCorrect":false},{"id":"c","text":"For å unngå avrundingsfeil i Python","isCorrect":false},{"id":"d","text":"Fordi $n$ må kalibrerast mot $h$","isCorrect":false}],"solution":"Når svaret sluttar å endre seg (innanfor ønskt presisjon) ved aukande $n$, har metoden konvergert. Endrar det seg mykje, trengst fleire delintervall — eller ein betre metode."}]}},{"id":"r2-3-5-n-section3","type":"text","content":"## Monte Carlo: tilfeldigheita som reknar\n\nTil slutt ein metode frå ein heilt annan planet. **Monte Carlo-integrasjon** — oppkalla etter kasinobyen — bruker tilfeldige tal: trekk $N$ tilfeldige $x$-verdiar uniformt frå $[a,b]$, rekn gjennomsnittet av funksjonsverdiane, og gang med intervallbreidda:\n\n$$\\int_a^b f(x)\\,dx \\approx (b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^{N} f(x_i)$$\n\nLogikken: integralet er gjennomsnittsverdien av $f$ ganga med breidda, og eit tilfeldig utval estimerer gjennomsnittet. I kode:\n\n```python\ndef monte_carlo(f, a, b, N):\n    x = np.random.uniform(a, b, N)\n    return (b - a) * np.mean(f(x))\n```\n\nDen morosamaste bruken: estimere $\\pi$. Halvsirkelen $f(x) = \\sqrt{1-x^2}$ over $[-1,1]$ har areal $\\frac{\\pi}{2}$, så $2 \\cdot$ Monte Carlo-estimatet $\\approx \\pi$. Med $N = 100$ får vi kanskje $3{,}02$; med $N = 10^6$ rundt $3{,}1410$. (Beslekta er «dartskive-varianten»: kast tilfeldige punkt i kvadratet $[-1,1] \\times [-1,1]$ og tel delen som landar i einingssirkelen — delen ganga med $4$ estimerer $\\pi$.)\n\nKonvergensen er ærleg talt treg: feilen går som $O(1/\\sqrt{N})$, så *fire* gonger fleire punkt gir berre *halvert* feil — langt bak Simpsons $O(1/n^4)$. Kvifor bry seg, då? Fordi Monte Carlo har to superkrefter: feilordenen er *uavhengig av dimensjonen* (gull verdt for integral i mange variablar, der rutenettmetodar kollapsar), og metoden er robust og latterleg enkel å implementere. SciPy byr forresten òg på `dblquad` for dobbeltintegral — og verktøykassa veks med behovet: adaptive metodar som forfinar seg sjølve der funksjonen varierer mest, Romberg-ekstrapolasjon som pumpar opp trapesresultat, og Gauss-kvadratur med optimalt plasserte punkt. Prinsippet bak dei alle har du no: summer smarte stikkprøver av funksjonen."},{"id":"r2-3-5-n-quiz3","type":"exercise","exercise":{"id":"r2-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på Monte Carlo og vegen vidare:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-5-n-quiz3-q0","task":"Kva er grunnformelen for Monte Carlo-integrasjon på $[a,b]$?","options":[{"id":"a","text":"$h\\sum f(x_i)$ med faste punkt","isCorrect":false},{"id":"b","text":"$(b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^N f(x_i)$ med tilfeldige $x_i$","isCorrect":true},{"id":"c","text":"$\\frac{h}{3}[1,4,2,\\ldots]$-summen","isCorrect":false},{"id":"d","text":"Gjennomsnittet av $f(a)$ og $f(b)$ ganga med $N$","isCorrect":false}],"solution":"Tilfeldige punkt estimerer gjennomsnittsverdien av $f$; ganga med intervallbreidda $(b-a)$ gir det integralet."},{"id":"r2-3-5-n-quiz3-q1","task":"Monte Carlo-feilen går som $O(1/\\sqrt{N})$. Kor mange gonger fleire punkt trengst for å halvere feilen?","options":[{"id":"a","text":"Dobbelt så mange","isCorrect":false},{"id":"b","text":"Åtte gonger så mange","isCorrect":false},{"id":"c","text":"Fire gonger så mange","isCorrect":true},{"id":"d","text":"Seksten gonger så mange","isCorrect":false}],"solution":"$\\frac{1}{\\sqrt{4N}} = \\frac{1}{2} \\cdot \\frac{1}{\\sqrt{N}}$ — feilen blir halvert først når $N$ blir firedobla. Konvergensen er langsam."},{"id":"r2-3-5-n-quiz3-q2","task":"Korleis kan Monte Carlo brukast til å estimere $\\pi$?","options":[{"id":"a","text":"Ved å integrere halvsirkelen $\\sqrt{1-x^2}$ over $[-1,1]$, som har areal $\\frac{\\pi}{2}$","isCorrect":true},{"id":"b","text":"Ved å summere rekkja $\\sum \\frac{1}{n^2}$","isCorrect":false},{"id":"c","text":"Ved å integrere $e^{-x^2}$","isCorrect":false},{"id":"d","text":"Ved å telje desimalar i tilfeldige tal","isCorrect":false}],"solution":"$\\int_{-1}^1 \\sqrt{1-x^2}\\,dx = \\frac{\\pi}{2}$, så to gonger Monte Carlo-estimatet nærmar seg $\\pi$ når $N$ veks. Dartskive-varianten med punkt i kvadratet fungerer òg."},{"id":"r2-3-5-n-quiz3-q3","task":"Kva er det største fortrinnet til Monte Carlo-metoden framfor Simpson og trapes?","options":[{"id":"a","text":"Han konvergerer raskare for glatte funksjonar","isCorrect":false},{"id":"b","text":"Han krev ingen funksjonsverdiar","isCorrect":false},{"id":"c","text":"Han gir alltid eksakt svar","isCorrect":false},{"id":"d","text":"Feilordenen er uavhengig av talet på dimensjonar — han skalerer til høgdimensjonale integral","isCorrect":true}],"solution":"Rutenettbaserte metodar eksploderer i kostnad når dimensjonen aukar; $O(1/\\sqrt{N})$ til Monte Carlo gjeld uansett dimensjon. Difor dominerer han i mangedimensjonale problem."}]}},{"id":"r2-3-5-n-summary","type":"text","content":"## Oppsummering: ti linjer kode, tusen rektangel\n\nNumerisk integrasjon gjekk i dette kapittelet frå handarbeid til maskinkraft. Dei tre klassiske metodane vart Python-funksjonar på under ti linjer kvar: rektangelmetoden som ei rein sum-løkke, trapesmetoden med halve vekter på endepunkta, og Simpson med vekslande vekter $4$ og $2$ (og partalskrav på $n$). Eksperimenta stadfesta teorien i sanntid: trapesfeilen fall med faktor $4$ per dobling av $n$ ($O(1/n^2)$), og Simpson slo trapes med ein faktor over $2000$ på $\\int_0^{\\pi}\\sin x\\,dx$ allereie ved $n = 10$.\n\nProffverktøya tek over derfrå: `scipy.integrate.quad` integrerer adaptivt med feilestimat på kjøpet — òg over uendelege intervall — og `np.trapz` integrerer reine måledata. Og Monte Carlo viste den ville sida av numerikken: tilfeldige punkt som estimerer integral (og $\\pi$), med treg, men dimensjonsuavhengig konvergens $O(1/\\sqrt{N})$ som gjer metoden uunnverleg i mange dimensjonar.\n\nArbeidsregelen du tek med deg vidare: forstå metoden ved å skrive han sjølv, bruk biblioteket i produksjon, og verifiser alltid mot kjende integral eller aukande $n$. Med både analytiske og numeriske verktøy i kassa er du klar for den mest handgripelege bruken av integralrekninga: å rekne ut volumet av ting — frå vinglas til planetar."}],"exercises":[],"_meta":{"sourceHash":"3a68e77a56637457","translatedAt":"2026-06-20T00:37:51.010Z","model":"claude-code-agent","strings":91,"tm":{"7f23e061e1a4b21d":"Programmering av integrasjon","b195b06d1ed59702":"Narrativ versjon","b4e897ce19f59778":"Ei forteljing om programmering av integrasjon — rektangel, trapes og Simpson som Python-funksjonar, SciPy sine proffverktøy og Monte Carlo-metoden der tilfeldige tal reknar ut areal og estimerer pi.","9d3340e3935d1b53":"implementere numeriske integrasjonsmetodar i Python","66b2f0a2743ab2e3":"bruke NumPy og SciPy for numerisk integrasjon","1ae8e082839543fb":"visualisere numerisk integrasjon med Matplotlib","587fa2ad45062fc3":"forstå feilanalyse og konvergens for ulike metodar","6ff1d8eff4a87112":"bruke numerisk integrasjon på praktiske problem","82fe770cd7bfa1fa":"## Maskina overtek reknearbeidet\n\nI førre kapittel rekna du trapessummar for hand og kjende på kor fort det blir slitsamt — fire delintervall er greitt, fire hundre er utenkjeleg. Men metodane er jo berre oppskrifter: del opp, rekn funksjonsverdiar, summer med rette vekter. Og oppskrifter er nøyaktig det datamaskiner er laga for å følgje.\n\nI dette kapittelet set vi om rektangel-, trapes- og Simpsons metode til Python — kvar av dei blir ein funksjon på under ti linjer — og slepper dei laus med tusenvis av delintervall. Vi måler feila og *ser* konvergensordenane frå teorien dukke opp i utskriftene: faktor 4 for trapes, faktor 16 for Simpson. Deretter opnar vi proffverktøya i NumPy og SciPy, der éi linje kode integrerer med maskinpresisjon, og avsluttar med ein metode som er like overraskande som han er nyttig: Monte Carlo-integrasjon, der *tilfeldige tal* reknar ut areal — og estimerer $\\pi$.","3dd68927cd38c441":"## Metodane blir kode\n\nLat oss starte der førre kapittel slutta: venstre rektangelmetode. Som Python-funksjon:\n\n```python\ndef rektangelmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = 0\n    for i in range(n):\n        total += f(a + i * h)\n    return h * total\n```\n\nMønsteret er metoden sjølv: steglengd $h = \\frac{b-a}{n}$, ei løkke som summerer funksjonsverdiar, og multiplikasjon med $h$ til slutt. Med `f = lambda x: x**2` og $n = 1000$ gir han $0{,}332834$ for $\\int_0^1 x^2\\,dx = \\frac{1}{3}$ — feil $0{,}0005$, omtrent $0{,}15\\,\\%$.\n\nTrapesmetoden er nesten lik; berre endepunkta blir behandla spesielt (vekt $\\frac{1}{2}$):\n\n```python\ndef trapesmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = (f(a) + f(b)) / 2\n    for i in range(1, n):\n        total += f(a + i * h)\n    return h * total\n```\n\nOg Simpson krev partal $n$ og to løkker — éi for vekt $4$ (odde indeksar), éi for vekt $2$ (indre like indeksar):\n\n```python\ndef simpson(f, a, b, n):\n    if n % 2 != 0:\n        raise ValueError(\"n må være et partall\")\n    h = (b - a) / n\n    total = f(a) + f(b)\n    for i in range(1, n, 2):\n        total += 4 * f(a + i * h)\n    for i in range(2, n, 2):\n        total += 2 * f(a + i * h)\n    return (h / 3) * total\n```\n\nStyrkeprøva: $\\int_0^{\\pi} \\sin x\\,dx = 2$. Med berre $n = 10$ gir trapesmetoden feil $1{,}65 \\cdot 10^{-2}$, medan Simpson gir $6{,}78 \\cdot 10^{-6}$ — over to tusen gonger meir nøyaktig for same arbeid. Ti linjer kode gjenskaper heile teorien frå førre kapittel.","5a98a2af071996cf":"Test deg sjølv på implementering av metodane:","4097889236a2af26":"placeholder","124495e36595131e":"I koden for trapesmetoden startar total med (f(a) + f(b)) / 2. Kvifor?","97068f3b84ce4422":"For å unngå deling på null","4c9f629c55635742":"Fordi endepunkta har vekt $\\frac{1}{2}$ i trapesformelen, medan dei indre punkta har vekt $1$","f3fecc1ec475fae7":"Fordi gjennomsnittet av endepunkta er integralet","c6fd49915a042dd3":"For å gjere koden raskare","e44b600d39233d89":"Trapesformelen er $h\\left[\\frac{f(a)+f(b)}{2} + \\sum_{i=1}^{n-1} f(x_i)\\right]$ — ytterpunkta blir ikkje delte av to trapes og tel halvt.","dd9d787c2ab9e95f":"Kva gjer simpson-funksjonen dersom n er eit oddetal?","e3050462ec61c79d":"Han rundar $n$ opp til nærmaste partal","3e2a84914cb21702":"Han gir eit unøyaktig, men gyldig svar","0fd1b9fe759f3bbb":"Han utløyser ein ValueError, sidan Simpsons metode krev partal $n$","5a41068603112b94":"Han byter automatisk til trapesmetoden","0bd0a104fc910a86":"Koden sjekkar n % 2 != 0 og kastar ein feil — parablane blir lagde over par av delintervall, så $n$ må vere deleleg på $2$.","159ad2da731e3f2f":"For $\\int_0^{\\pi} \\sin x\\,dx$ med $n = 10$: omtrent kor mykje meir nøyaktig var Simpson enn trapes?","56cdf0c5604183e5":"Over $2000$ gonger","1d19515f379a753e":"Dobbelt så nøyaktig","29fd4ef3d345d9ff":"Ti gonger","adfe0b8a4cbf1c1c":"Dei var omtrent like nøyaktige","5569b8995f0d7e80":"Trapes: feil $1{,}65 \\cdot 10^{-2}$; Simpson: $6{,}78 \\cdot 10^{-6}$. Forholdet er over $2000$ — parabeltilnærminga løner seg.","3a0ebaa23404769a":"Kva vekter bruker Simpson-koden på funksjonsverdiane i indre punkt?","7f47d07839597659":"Vekt $2$ på alle indre punkt","0c058156774dcf0c":"Vekt $1$ på alle indre punkt","d3a03189674da729":"Vekt $3$ og $1$ annankvar gong","261441bd499e8757":"Vekt $4$ på odde indeksar og $2$ på like indre indeksar","2588b95f2c269c3b":"Dei to løkkene gir mønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$: range(1, n, 2) får vekt $4$, range(2, n, 2) får vekt $2$.","35b6275636966f31":"## Konvergens du kan sjå — og proffverktøya\n\nTeorien lova at trapesfeilen går som $O(1/n^2)$. Med ei lita testløkke kan vi *sjå* det. For $\\int_0^1 e^x\\,dx = e - 1$ skriv vi ut feilen for $n = 10, 20, 40, 80, 160, 320$ og forholdet mellom påfølgjande feil:\n\n```\nn      Feil        Faktor\n10     3.87e-05    -\n20     9.68e-06    4.00\n40     2.42e-06    4.00\n80     6.05e-07    4.00\n```\n\nFaktoren er nøyaktig $4$ kvar gong $n$ blir dobla — konvergensorden $O(1/n^2)$, eksperimentelt stadfesta. For Simpson ville den tilsvarande tabellen vist faktor $16$. Slik feilanalyse er god praksis kvar gong du bruker numerikk: køyr med aukande $n$, og sjå at svaret stabiliserer seg.\n\nI praksis slepp du ofte å skrive metodane sjølv. **SciPy** har ferdige, optimaliserte rutinar:\n\n```python\nfrom scipy import integrate\nresultat, feil = integrate.quad(f, 0, np.inf)\n```\n\n`quad` vel punkt adaptivt, handterer til og med uendelege grenser, og returnerer både svaret og eit feilestimat — for $\\int_0^{\\infty} e^{-x^2}\\,dx$ treffer han fasiten $\\frac{\\sqrt{\\pi}}{2}$ med feil under $10^{-8}$. For *måledata* finst `numpy.trapz`: har du tidspunkt `t = [0, 1, 2, 3, 4, 5]` og målte farter `v = [0, 5, 8, 10, 9, 6]`, gir `np.trapz(v, t)` tilbakelagd strekning $34{,}5$ meter direkte frå tabellen — trapesmetoden på ekte data, éi linje.\n\nArbeidsdelinga er typisk for berekningsorientert matematikk: skriv metodane sjølv éin gong for å *forstå* dei, bruk biblioteket etterpå for å *bruke* dei.","5f772e97afaba3cf":"Test deg sjølv på konvergens og SciPy:","58c4d45f8c8a0c44":"Feiltabellen for trapesmetoden viser faktor $4{,}00$ kvar gong $n$ blir dobla. Kva stadfestar dette?","df5099f417490e64":"At metoden er eksakt for polynom","01fb64d7506a5875":"At feilen veks med $n$","37fcae3a83b11276":"At konvergensordenen er $O(1/n^2)$","71e66bfb031d0a92":"At funksjonen er lineær","b236689edc2208d3":"Dersom feilen $\\sim \\frac{1}{n^2}$, gir dobling av $n$ feilreduksjon $\\frac{1}{4}$. Den konstante faktoren $4$ i tabellen er fingeravtrykket til teorien.","aeefdbe70e7e4d93":"Kva returnerer scipy.integrate.quad(f, a, b)?","87b8d223f8ab3bda":"Berre integralverdien","4fbbe93d384db6ee":"Både integralverdien og eit feilestimat","8c931380982c9a3b":"Ei liste med delsummar","ac14421f61c641b5":"Den antideriverte som funksjon","fa51c9e1034f9f4b":"quad returnerer paret (resultat, feilestimat) — du får både svaret og eit mål på kor nøyaktig det er.","d1013fef0eec9e31":"Du har måledata: tider t og farter v frå eit eksperiment. Korleis reknar du ut tilbakelagd strekning enklast?","33cf39d842aee825":"Finn ein antiderivert til farten","624a7e7d6619f1e7":"Bruk scipy.integrate.quad på dataa","7400fb24f634ab45":"Summer fartene og gang med total tid","ce5c2e2c71b0d39d":"Bruk np.trapz(v, t) — trapesmetoden på tabelldata","e5e4c4d1c45f17b7":"np.trapz integrerer diskrete datapunkt med trapesmetoden. quad krev ein funksjon, ikkje ein tabell — og ein antiderivert finst ikkje for reine måledata.","c9deb8848ab24c06":"Kvifor er det god praksis å køyre ein numerisk integrasjon med fleire aukande verdiar av $n$?","fc0f2be776076935":"For å sjå at svaret stabiliserer seg og dermed kontrollere nøyaktigheita","93d6ba57535eba98":"Fordi metodane krev minst tre køyringar","85a58c36d019ba74":"For å unngå avrundingsfeil i Python","0d60d982526f8ec5":"Fordi $n$ må kalibrerast mot $h$","853524abf1c8426f":"Når svaret sluttar å endre seg (innanfor ønskt presisjon) ved aukande $n$, har metoden konvergert. Endrar det seg mykje, trengst fleire delintervall — eller ein betre metode.","a0f9d3a241ce5759":"## Monte Carlo: tilfeldigheita som reknar\n\nTil slutt ein metode frå ein heilt annan planet. **Monte Carlo-integrasjon** — oppkalla etter kasinobyen — bruker tilfeldige tal: trekk $N$ tilfeldige $x$-verdiar uniformt frå $[a,b]$, rekn gjennomsnittet av funksjonsverdiane, og gang med intervallbreidda:\n\n$$\\int_a^b f(x)\\,dx \\approx (b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^{N} f(x_i)$$\n\nLogikken: integralet er gjennomsnittsverdien av $f$ ganga med breidda, og eit tilfeldig utval estimerer gjennomsnittet. I kode:\n\n```python\ndef monte_carlo(f, a, b, N):\n    x = np.random.uniform(a, b, N)\n    return (b - a) * np.mean(f(x))\n```\n\nDen morosamaste bruken: estimere $\\pi$. Halvsirkelen $f(x) = \\sqrt{1-x^2}$ over $[-1,1]$ har areal $\\frac{\\pi}{2}$, så $2 \\cdot$ Monte Carlo-estimatet $\\approx \\pi$. Med $N = 100$ får vi kanskje $3{,}02$; med $N = 10^6$ rundt $3{,}1410$. (Beslekta er «dartskive-varianten»: kast tilfeldige punkt i kvadratet $[-1,1] \\times [-1,1]$ og tel delen som landar i einingssirkelen — delen ganga med $4$ estimerer $\\pi$.)\n\nKonvergensen er ærleg talt treg: feilen går som $O(1/\\sqrt{N})$, så *fire* gonger fleire punkt gir berre *halvert* feil — langt bak Simpsons $O(1/n^4)$. Kvifor bry seg, då? Fordi Monte Carlo har to superkrefter: feilordenen er *uavhengig av dimensjonen* (gull verdt for integral i mange variablar, der rutenettmetodar kollapsar), og metoden er robust og latterleg enkel å implementere. SciPy byr forresten òg på `dblquad` for dobbeltintegral — og verktøykassa veks med behovet: adaptive metodar som forfinar seg sjølve der funksjonen varierer mest, Romberg-ekstrapolasjon som pumpar opp trapesresultat, og Gauss-kvadratur med optimalt plasserte punkt. Prinsippet bak dei alle har du no: summer smarte stikkprøver av funksjonen.","d9fd9ef443a52ca6":"Test deg sjølv på Monte Carlo og vegen vidare:","3d4ce4d34e3d70a6":"Kva er grunnformelen for Monte Carlo-integrasjon på $[a,b]$?","26d6c2273b85a533":"$h\\sum f(x_i)$ med faste punkt","b15edbb083b2e214":"$(b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^N f(x_i)$ med tilfeldige $x_i$","af135a454f57de45":"$\\frac{h}{3}[1,4,2,\\ldots]$-summen","7afa2fd72f83ec75":"Gjennomsnittet av $f(a)$ og $f(b)$ ganga med $N$","f2ce11fa5dd1e70e":"Tilfeldige punkt estimerer gjennomsnittsverdien av $f$; ganga med intervallbreidda $(b-a)$ gir det integralet.","3ed40a12af8a72cc":"Monte Carlo-feilen går som $O(1/\\sqrt{N})$. Kor mange gonger fleire punkt trengst for å halvere feilen?","c85b775439e84f6e":"Dobbelt så mange","89d2a8089a26c664":"Åtte gonger så mange","b9ad4a2bb55e467f":"Fire gonger så mange","b0ab4e806ed601b9":"Seksten gonger så mange","56cb715e5a858aa2":"$\\frac{1}{\\sqrt{4N}} = \\frac{1}{2} \\cdot \\frac{1}{\\sqrt{N}}$ — feilen blir halvert først når $N$ blir firedobla. Konvergensen er langsam.","a7a0080ebc5a5e1c":"Korleis kan Monte Carlo brukast til å estimere $\\pi$?","76b9742018e7babe":"Ved å integrere halvsirkelen $\\sqrt{1-x^2}$ over $[-1,1]$, som har areal $\\frac{\\pi}{2}$","f0fd94e37011898d":"Ved å summere rekkja $\\sum \\frac{1}{n^2}$","a8be795c53caac62":"Ved å integrere $e^{-x^2}$","95d738a691f65cbb":"Ved å telje desimalar i tilfeldige tal","6a8aa903941f9f03":"$\\int_{-1}^1 \\sqrt{1-x^2}\\,dx = \\frac{\\pi}{2}$, så to gonger Monte Carlo-estimatet nærmar seg $\\pi$ når $N$ veks. Dartskive-varianten med punkt i kvadratet fungerer òg.","2b1f5930a1489658":"Kva er det største fortrinnet til Monte Carlo-metoden framfor Simpson og trapes?","faa9dd543faf2d37":"Han konvergerer raskare for glatte funksjonar","0ad417cf65e3a1f2":"Han krev ingen funksjonsverdiar","1c92ea48c92a9b84":"Han gir alltid eksakt svar","f26e08943b2a1764":"Feilordenen er uavhengig av talet på dimensjonar — han skalerer til høgdimensjonale integral","e9350f559d7aeaba":"Rutenettbaserte metodar eksploderer i kostnad når dimensjonen aukar; $O(1/\\sqrt{N})$ til Monte Carlo gjeld uansett dimensjon. Difor dominerer han i mangedimensjonale problem.","1df37b16e1898604":"## Oppsummering: ti linjer kode, tusen rektangel\n\nNumerisk integrasjon gjekk i dette kapittelet frå handarbeid til maskinkraft. Dei tre klassiske metodane vart Python-funksjonar på under ti linjer kvar: rektangelmetoden som ei rein sum-løkke, trapesmetoden med halve vekter på endepunkta, og Simpson med vekslande vekter $4$ og $2$ (og partalskrav på $n$). Eksperimenta stadfesta teorien i sanntid: trapesfeilen fall med faktor $4$ per dobling av $n$ ($O(1/n^2)$), og Simpson slo trapes med ein faktor over $2000$ på $\\int_0^{\\pi}\\sin x\\,dx$ allereie ved $n = 10$.\n\nProffverktøya tek over derfrå: `scipy.integrate.quad` integrerer adaptivt med feilestimat på kjøpet — òg over uendelege intervall — og `np.trapz` integrerer reine måledata. Og Monte Carlo viste den ville sida av numerikken: tilfeldige punkt som estimerer integral (og $\\pi$), med treg, men dimensjonsuavhengig konvergens $O(1/\\sqrt{N})$ som gjer metoden uunnverleg i mange dimensjonar.\n\nArbeidsregelen du tek med deg vidare: forstå metoden ved å skrive han sjølv, bruk biblioteket i produksjon, og verifiser alltid mot kjende integral eller aukande $n$. Med både analytiske og numeriske verktøy i kassa er du klar for den mest handgripelege bruken av integralrekninga: å rekne ut volumet av ting — frå vinglas til planetar."}}}
+{
+  "id": "r2-3-5-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "3.5",
+  "title": "Programmering av integrasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om programmering av integrasjon — rektangel, trapes og Simpson som Python-funksjonar, SciPy sine proffverktøy og Monte Carlo-metoden der tilfeldige tal reknar ut areal og estimerer pi.",
+  "estimatedMinutes": 80,
+  "competenceGoals": [
+    "implementere numeriske integrasjonsmetodar i Python",
+    "bruke NumPy og SciPy for numerisk integrasjon",
+    "visualisere numerisk integrasjon med Matplotlib",
+    "forstå feilanalyse og konvergens for ulike metodar",
+    "bruke numerisk integrasjon på praktiske problem"
+  ],
+  "linkedChapterId": "r2-3-5",
+  "content": [
+    {
+      "id": "r2-3-5-n-intro",
+      "type": "text",
+      "content": "## Maskina overtek reknearbeidet\n\nI førre kapittel rekna du trapessummar for hand og kjende på kor fort det blir slitsamt — fire delintervall er greitt, fire hundre er utenkjeleg. Men metodane er jo berre oppskrifter: del opp, rekn funksjonsverdiar, summer med rette vekter. Og oppskrifter er nøyaktig det datamaskiner er laga for å følgje.\n\nI dette kapittelet set vi om rektangel-, trapes- og Simpsons metode til Python — kvar av dei blir ein funksjon på under ti linjer — og slepper dei laus med tusenvis av delintervall. Vi måler feila og *ser* konvergensordenane frå teorien dukke opp i utskriftene: faktor 4 for trapes, faktor 16 for Simpson. Deretter opnar vi proffverktøya i NumPy og SciPy, der éi linje kode integrerer med maskinpresisjon, og avsluttar med ein metode som er like overraskande som han er nyttig: Monte Carlo-integrasjon, der *tilfeldige tal* reknar ut areal — og estimerer $\\pi$."
+    },
+    {
+      "id": "r2-3-5-n-section1",
+      "type": "text",
+      "content": "## Metodane blir kode\n\nLat oss starte der førre kapittel slutta: venstre rektangelmetode. Som Python-funksjon:\n\n```python\ndef rektangelmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = 0\n    for i in range(n):\n        total += f(a + i * h)\n    return h * total\n```\n\nMønsteret er metoden sjølv: steglengd $h = \\frac{b-a}{n}$, ei løkke som summerer funksjonsverdiar, og multiplikasjon med $h$ til slutt. Med `f = lambda x: x**2` og $n = 1000$ gir han $0{,}332834$ for $\\int_0^1 x^2\\,dx = \\frac{1}{3}$ — feil $0{,}0005$, omtrent $0{,}15\\,\\%$.\n\nTrapesmetoden er nesten lik; berre endepunkta blir behandla spesielt (vekt $\\frac{1}{2}$):\n\n```python\ndef trapesmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = (f(a) + f(b)) / 2\n    for i in range(1, n):\n        total += f(a + i * h)\n    return h * total\n```\n\nOg Simpson krev partal $n$ og to løkker — éi for vekt $4$ (odde indeksar), éi for vekt $2$ (indre like indeksar):\n\n```python\ndef simpson(f, a, b, n):\n    if n % 2 != 0:\n        raise ValueError(\"n må være et partall\")\n    h = (b - a) / n\n    total = f(a) + f(b)\n    for i in range(1, n, 2):\n        total += 4 * f(a + i * h)\n    for i in range(2, n, 2):\n        total += 2 * f(a + i * h)\n    return (h / 3) * total\n```\n\nStyrkeprøva: $\\int_0^{\\pi} \\sin x\\,dx = 2$. Med berre $n = 10$ gir trapesmetoden feil $1{,}65 \\cdot 10^{-2}$, medan Simpson gir $6{,}78 \\cdot 10^{-6}$ — over to tusen gonger meir nøyaktig for same arbeid. Ti linjer kode gjenskaper heile teorien frå førre kapittel."
+    },
+    {
+      "id": "r2-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på implementering av metodane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-5-n-quiz1-q0",
+            "task": "I koden for trapesmetoden startar total med (f(a) + f(b)) / 2. Kvifor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi endepunkta har vekt $\\frac{1}{2}$ i trapesformelen, medan dei indre punkta har vekt $1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For å unngå deling på null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi gjennomsnittet av endepunkta er integralet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å gjere koden raskare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trapesformelen er $h\\left[\\frac{f(a)+f(b)}{2} + \\sum_{i=1}^{n-1} f(x_i)\\right]$ — ytterpunkta blir ikkje delte av to trapes og tel halvt."
+          },
+          {
+            "id": "r2-3-5-n-quiz1-q1",
+            "task": "Kva gjer simpson-funksjonen dersom n er eit oddetal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han rundar $n$ opp til nærmaste partal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han utløyser ein ValueError, sidan Simpsons metode krev partal $n$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han gir eit unøyaktig, men gyldig svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han byter automatisk til trapesmetoden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Koden sjekkar n % 2 != 0 og kastar ein feil — parablane blir lagde over par av delintervall, så $n$ må vere deleleg på $2$."
+          },
+          {
+            "id": "r2-3-5-n-quiz1-q2",
+            "task": "For $\\int_0^{\\pi} \\sin x\\,dx$ med $n = 10$: omtrent kor mykje meir nøyaktig var Simpson enn trapes?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Dobbelt så nøyaktig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ti gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Over $2000$ gonger",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Dei var omtrent like nøyaktige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trapes: feil $1{,}65 \\cdot 10^{-2}$; Simpson: $6{,}78 \\cdot 10^{-6}$. Forholdet er over $2000$ — parabeltilnærminga løner seg."
+          },
+          {
+            "id": "r2-3-5-n-quiz1-q3",
+            "task": "Kva vekter bruker Simpson-koden på funksjonsverdiane i indre punkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vekt $2$ på alle indre punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vekt $1$ på alle indre punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vekt $3$ og $1$ annankvar gong",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vekt $4$ på odde indeksar og $2$ på like indre indeksar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Dei to løkkene gir mønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$: range(1, n, 2) får vekt $4$, range(2, n, 2) får vekt $2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-5-n-section2",
+      "type": "text",
+      "content": "## Konvergens du kan sjå — og proffverktøya\n\nTeorien lova at trapesfeilen går som $O(1/n^2)$. Med ei lita testløkke kan vi *sjå* det. For $\\int_0^1 e^x\\,dx = e - 1$ skriv vi ut feilen for $n = 10, 20, 40, 80, 160, 320$ og forholdet mellom påfølgjande feil:\n\n```\nn      Feil        Faktor\n10     3.87e-05    -\n20     9.68e-06    4.00\n40     2.42e-06    4.00\n80     6.05e-07    4.00\n```\n\nFaktoren er nøyaktig $4$ kvar gong $n$ blir dobla — konvergensorden $O(1/n^2)$, eksperimentelt stadfesta. For Simpson ville den tilsvarande tabellen vist faktor $16$. Slik feilanalyse er god praksis kvar gong du bruker numerikk: køyr med aukande $n$, og sjå at svaret stabiliserer seg.\n\nI praksis slepp du ofte å skrive metodane sjølv. **SciPy** har ferdige, optimaliserte rutinar:\n\n```python\nfrom scipy import integrate\nresultat, feil = integrate.quad(f, 0, np.inf)\n```\n\n`quad` vel punkt adaptivt, handterer til og med uendelege grenser, og returnerer både svaret og eit feilestimat — for $\\int_0^{\\infty} e^{-x^2}\\,dx$ treffer han fasiten $\\frac{\\sqrt{\\pi}}{2}$ med feil under $10^{-8}$. For *måledata* finst `numpy.trapz`: har du tidspunkt `t = [0, 1, 2, 3, 4, 5]` og målte farter `v = [0, 5, 8, 10, 9, 6]`, gir `np.trapz(v, t)` tilbakelagd strekning $34{,}5$ meter direkte frå tabellen — trapesmetoden på ekte data, éi linje.\n\nArbeidsdelinga er typisk for berekningsorientert matematikk: skriv metodane sjølv éin gong for å *forstå* dei, bruk biblioteket etterpå for å *bruke* dei."
+    },
+    {
+      "id": "r2-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på konvergens og SciPy:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-5-n-quiz2-q0",
+            "task": "Feiltabellen for trapesmetoden viser faktor $4{,}00$ kvar gong $n$ blir dobla. Kva stadfestar dette?",
+            "options": [
+              {
+                "id": "c",
+                "text": "At konvergensordenen er $O(1/n^2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At metoden er eksakt for polynom",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At feilen veks med $n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At funksjonen er lineær",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dersom feilen $\\sim \\frac{1}{n^2}$, gir dobling av $n$ feilreduksjon $\\frac{1}{4}$. Den konstante faktoren $4$ i tabellen er fingeravtrykket til teorien."
+          },
+          {
+            "id": "r2-3-5-n-quiz2-q1",
+            "task": "Kva returnerer scipy.integrate.quad(f, a, b)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre integralverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Både integralverdien og eit feilestimat",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ei liste med delsummar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den antideriverte som funksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "quad returnerer paret (resultat, feilestimat) — du får både svaret og eit mål på kor nøyaktig det er."
+          },
+          {
+            "id": "r2-3-5-n-quiz2-q2",
+            "task": "Du har måledata: tider t og farter v frå eit eksperiment. Korleis reknar du ut tilbakelagd strekning enklast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Finn ein antiderivert til farten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bruk scipy.integrate.quad på dataa",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bruk np.trapz(v, t) — trapesmetoden på tabelldata",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Summer fartene og gang med total tid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "np.trapz integrerer diskrete datapunkt med trapesmetoden. quad krev ein funksjon, ikkje ein tabell — og ein antiderivert finst ikkje for reine måledata."
+          },
+          {
+            "id": "r2-3-5-n-quiz2-q3",
+            "task": "Kvifor er det god praksis å køyre ein numerisk integrasjon med fleire aukande verdiar av $n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi metodane krev minst tre køyringar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å unngå avrundingsfeil i Python",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $n$ må kalibrerast mot $h$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For å sjå at svaret stabiliserer seg og dermed kontrollere nøyaktigheita",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når svaret sluttar å endre seg (innanfor ønskt presisjon) ved aukande $n$, har metoden konvergert. Endrar det seg mykje, trengst fleire delintervall — eller ein betre metode."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-5-n-section3",
+      "type": "text",
+      "content": "## Monte Carlo: tilfeldigheita som reknar\n\nTil slutt ein metode frå ein heilt annan planet. **Monte Carlo-integrasjon** — oppkalla etter kasinobyen — bruker tilfeldige tal: trekk $N$ tilfeldige $x$-verdiar uniformt frå $[a,b]$, rekn gjennomsnittet av funksjonsverdiane, og gang med intervallbreidda:\n\n$$\\int_a^b f(x)\\,dx \\approx (b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^{N} f(x_i)$$\n\nLogikken: integralet er gjennomsnittsverdien av $f$ ganga med breidda, og eit tilfeldig utval estimerer gjennomsnittet. I kode:\n\n```python\ndef monte_carlo(f, a, b, N):\n    x = np.random.uniform(a, b, N)\n    return (b - a) * np.mean(f(x))\n```\n\nDen morosamaste bruken: estimere $\\pi$. Halvsirkelen $f(x) = \\sqrt{1-x^2}$ over $[-1,1]$ har areal $\\frac{\\pi}{2}$, så $2 \\cdot$ Monte Carlo-estimatet $\\approx \\pi$. Med $N = 100$ får vi kanskje $3{,}02$; med $N = 10^6$ rundt $3{,}1410$. (Beslekta er «dartskive-varianten»: kast tilfeldige punkt i kvadratet $[-1,1] \\times [-1,1]$ og tel delen som landar i einingssirkelen — delen ganga med $4$ estimerer $\\pi$.)\n\nKonvergensen er ærleg talt treg: feilen går som $O(1/\\sqrt{N})$, så *fire* gonger fleire punkt gir berre *halvert* feil — langt bak Simpsons $O(1/n^4)$. Kvifor bry seg, då? Fordi Monte Carlo har to superkrefter: feilordenen er *uavhengig av dimensjonen* (gull verdt for integral i mange variablar, der rutenettmetodar kollapsar), og metoden er robust og latterleg enkel å implementere. SciPy byr forresten òg på `dblquad` for dobbeltintegral — og verktøykassa veks med behovet: adaptive metodar som forfinar seg sjølve der funksjonen varierer mest, Romberg-ekstrapolasjon som pumpar opp trapesresultat, og Gauss-kvadratur med optimalt plasserte punkt. Prinsippet bak dei alle har du no: summer smarte stikkprøver av funksjonen."
+    },
+    {
+      "id": "r2-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Monte Carlo og vegen vidare:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-5-n-quiz3-q0",
+            "task": "Kva er grunnformelen for Monte Carlo-integrasjon på $[a,b]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^N f(x_i)$ med tilfeldige $x_i$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$h\\sum f(x_i)$ med faste punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{h}{3}[1,4,2,\\ldots]$-summen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gjennomsnittet av $f(a)$ og $f(b)$ ganga med $N$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tilfeldige punkt estimerer gjennomsnittsverdien av $f$; ganga med intervallbreidda $(b-a)$ gir det integralet."
+          },
+          {
+            "id": "r2-3-5-n-quiz3-q1",
+            "task": "Monte Carlo-feilen går som $O(1/\\sqrt{N})$. Kor mange gonger fleire punkt trengst for å halvere feilen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dobbelt så mange",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fire gonger så mange",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Åtte gonger så mange",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Seksten gonger så mange",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{1}{\\sqrt{4N}} = \\frac{1}{2} \\cdot \\frac{1}{\\sqrt{N}}$ — feilen blir halvert først når $N$ blir firedobla. Konvergensen er langsam."
+          },
+          {
+            "id": "r2-3-5-n-quiz3-q2",
+            "task": "Korleis kan Monte Carlo brukast til å estimere $\\pi$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ved å summere rekkja $\\sum \\frac{1}{n^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ved å integrere $e^{-x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ved å integrere halvsirkelen $\\sqrt{1-x^2}$ over $[-1,1]$, som har areal $\\frac{\\pi}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ved å telje desimalar i tilfeldige tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_{-1}^1 \\sqrt{1-x^2}\\,dx = \\frac{\\pi}{2}$, så to gonger Monte Carlo-estimatet nærmar seg $\\pi$ når $N$ veks. Dartskive-varianten med punkt i kvadratet fungerer òg."
+          },
+          {
+            "id": "r2-3-5-n-quiz3-q3",
+            "task": "Kva er det største fortrinnet til Monte Carlo-metoden framfor Simpson og trapes?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han konvergerer raskare for glatte funksjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han krev ingen funksjonsverdiar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han gir alltid eksakt svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Feilordenen er uavhengig av talet på dimensjonar — han skalerer til høgdimensjonale integral",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Rutenettbaserte metodar eksploderer i kostnad når dimensjonen aukar; $O(1/\\sqrt{N})$ til Monte Carlo gjeld uansett dimensjon. Difor dominerer han i mangedimensjonale problem."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: ti linjer kode, tusen rektangel\n\nNumerisk integrasjon gjekk i dette kapittelet frå handarbeid til maskinkraft. Dei tre klassiske metodane vart Python-funksjonar på under ti linjer kvar: rektangelmetoden som ei rein sum-løkke, trapesmetoden med halve vekter på endepunkta, og Simpson med vekslande vekter $4$ og $2$ (og partalskrav på $n$). Eksperimenta stadfesta teorien i sanntid: trapesfeilen fall med faktor $4$ per dobling av $n$ ($O(1/n^2)$), og Simpson slo trapes med ein faktor over $2000$ på $\\int_0^{\\pi}\\sin x\\,dx$ allereie ved $n = 10$.\n\nProffverktøya tek over derfrå: `scipy.integrate.quad` integrerer adaptivt med feilestimat på kjøpet — òg over uendelege intervall — og `np.trapz` integrerer reine måledata. Og Monte Carlo viste den ville sida av numerikken: tilfeldige punkt som estimerer integral (og $\\pi$), med treg, men dimensjonsuavhengig konvergens $O(1/\\sqrt{N})$ som gjer metoden uunnverleg i mange dimensjonar.\n\nArbeidsregelen du tek med deg vidare: forstå metoden ved å skrive han sjølv, bruk biblioteket i produksjon, og verifiser alltid mot kjende integral eller aukande $n$. Med både analytiske og numeriske verktøy i kassa er du klar for den mest handgripelege bruken av integralrekninga: å rekne ut volumet av ting — frå vinglas til planetar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3a68e77a56637457",
+    "translatedAt": "2026-06-20T00:37:51.010Z",
+    "model": "claude-code-agent",
+    "strings": 91,
+    "tm": {
+      "7f23e061e1a4b21d": "Programmering av integrasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b4e897ce19f59778": "Ei forteljing om programmering av integrasjon — rektangel, trapes og Simpson som Python-funksjonar, SciPy sine proffverktøy og Monte Carlo-metoden der tilfeldige tal reknar ut areal og estimerer pi.",
+      "9d3340e3935d1b53": "implementere numeriske integrasjonsmetodar i Python",
+      "66b2f0a2743ab2e3": "bruke NumPy og SciPy for numerisk integrasjon",
+      "1ae8e082839543fb": "visualisere numerisk integrasjon med Matplotlib",
+      "587fa2ad45062fc3": "forstå feilanalyse og konvergens for ulike metodar",
+      "6ff1d8eff4a87112": "bruke numerisk integrasjon på praktiske problem",
+      "82fe770cd7bfa1fa": "## Maskina overtek reknearbeidet\n\nI førre kapittel rekna du trapessummar for hand og kjende på kor fort det blir slitsamt — fire delintervall er greitt, fire hundre er utenkjeleg. Men metodane er jo berre oppskrifter: del opp, rekn funksjonsverdiar, summer med rette vekter. Og oppskrifter er nøyaktig det datamaskiner er laga for å følgje.\n\nI dette kapittelet set vi om rektangel-, trapes- og Simpsons metode til Python — kvar av dei blir ein funksjon på under ti linjer — og slepper dei laus med tusenvis av delintervall. Vi måler feila og *ser* konvergensordenane frå teorien dukke opp i utskriftene: faktor 4 for trapes, faktor 16 for Simpson. Deretter opnar vi proffverktøya i NumPy og SciPy, der éi linje kode integrerer med maskinpresisjon, og avsluttar med ein metode som er like overraskande som han er nyttig: Monte Carlo-integrasjon, der *tilfeldige tal* reknar ut areal — og estimerer $\\pi$.",
+      "3dd68927cd38c441": "## Metodane blir kode\n\nLat oss starte der førre kapittel slutta: venstre rektangelmetode. Som Python-funksjon:\n\n```python\ndef rektangelmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = 0\n    for i in range(n):\n        total += f(a + i * h)\n    return h * total\n```\n\nMønsteret er metoden sjølv: steglengd $h = \\frac{b-a}{n}$, ei løkke som summerer funksjonsverdiar, og multiplikasjon med $h$ til slutt. Med `f = lambda x: x**2` og $n = 1000$ gir han $0{,}332834$ for $\\int_0^1 x^2\\,dx = \\frac{1}{3}$ — feil $0{,}0005$, omtrent $0{,}15\\,\\%$.\n\nTrapesmetoden er nesten lik; berre endepunkta blir behandla spesielt (vekt $\\frac{1}{2}$):\n\n```python\ndef trapesmetoden(f, a, b, n):\n    h = (b - a) / n\n    total = (f(a) + f(b)) / 2\n    for i in range(1, n):\n        total += f(a + i * h)\n    return h * total\n```\n\nOg Simpson krev partal $n$ og to løkker — éi for vekt $4$ (odde indeksar), éi for vekt $2$ (indre like indeksar):\n\n```python\ndef simpson(f, a, b, n):\n    if n % 2 != 0:\n        raise ValueError(\"n må være et partall\")\n    h = (b - a) / n\n    total = f(a) + f(b)\n    for i in range(1, n, 2):\n        total += 4 * f(a + i * h)\n    for i in range(2, n, 2):\n        total += 2 * f(a + i * h)\n    return (h / 3) * total\n```\n\nStyrkeprøva: $\\int_0^{\\pi} \\sin x\\,dx = 2$. Med berre $n = 10$ gir trapesmetoden feil $1{,}65 \\cdot 10^{-2}$, medan Simpson gir $6{,}78 \\cdot 10^{-6}$ — over to tusen gonger meir nøyaktig for same arbeid. Ti linjer kode gjenskaper heile teorien frå førre kapittel.",
+      "5a98a2af071996cf": "Test deg sjølv på implementering av metodane:",
+      "4097889236a2af26": "placeholder",
+      "124495e36595131e": "I koden for trapesmetoden startar total med (f(a) + f(b)) / 2. Kvifor?",
+      "97068f3b84ce4422": "For å unngå deling på null",
+      "4c9f629c55635742": "Fordi endepunkta har vekt $\\frac{1}{2}$ i trapesformelen, medan dei indre punkta har vekt $1$",
+      "f3fecc1ec475fae7": "Fordi gjennomsnittet av endepunkta er integralet",
+      "c6fd49915a042dd3": "For å gjere koden raskare",
+      "e44b600d39233d89": "Trapesformelen er $h\\left[\\frac{f(a)+f(b)}{2} + \\sum_{i=1}^{n-1} f(x_i)\\right]$ — ytterpunkta blir ikkje delte av to trapes og tel halvt.",
+      "dd9d787c2ab9e95f": "Kva gjer simpson-funksjonen dersom n er eit oddetal?",
+      "e3050462ec61c79d": "Han rundar $n$ opp til nærmaste partal",
+      "3e2a84914cb21702": "Han gir eit unøyaktig, men gyldig svar",
+      "0fd1b9fe759f3bbb": "Han utløyser ein ValueError, sidan Simpsons metode krev partal $n$",
+      "5a41068603112b94": "Han byter automatisk til trapesmetoden",
+      "0bd0a104fc910a86": "Koden sjekkar n % 2 != 0 og kastar ein feil — parablane blir lagde over par av delintervall, så $n$ må vere deleleg på $2$.",
+      "159ad2da731e3f2f": "For $\\int_0^{\\pi} \\sin x\\,dx$ med $n = 10$: omtrent kor mykje meir nøyaktig var Simpson enn trapes?",
+      "56cdf0c5604183e5": "Over $2000$ gonger",
+      "1d19515f379a753e": "Dobbelt så nøyaktig",
+      "29fd4ef3d345d9ff": "Ti gonger",
+      "adfe0b8a4cbf1c1c": "Dei var omtrent like nøyaktige",
+      "5569b8995f0d7e80": "Trapes: feil $1{,}65 \\cdot 10^{-2}$; Simpson: $6{,}78 \\cdot 10^{-6}$. Forholdet er over $2000$ — parabeltilnærminga løner seg.",
+      "3a0ebaa23404769a": "Kva vekter bruker Simpson-koden på funksjonsverdiane i indre punkt?",
+      "7f47d07839597659": "Vekt $2$ på alle indre punkt",
+      "0c058156774dcf0c": "Vekt $1$ på alle indre punkt",
+      "d3a03189674da729": "Vekt $3$ og $1$ annankvar gong",
+      "261441bd499e8757": "Vekt $4$ på odde indeksar og $2$ på like indre indeksar",
+      "2588b95f2c269c3b": "Dei to løkkene gir mønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$: range(1, n, 2) får vekt $4$, range(2, n, 2) får vekt $2$.",
+      "35b6275636966f31": "## Konvergens du kan sjå — og proffverktøya\n\nTeorien lova at trapesfeilen går som $O(1/n^2)$. Med ei lita testløkke kan vi *sjå* det. For $\\int_0^1 e^x\\,dx = e - 1$ skriv vi ut feilen for $n = 10, 20, 40, 80, 160, 320$ og forholdet mellom påfølgjande feil:\n\n```\nn      Feil        Faktor\n10     3.87e-05    -\n20     9.68e-06    4.00\n40     2.42e-06    4.00\n80     6.05e-07    4.00\n```\n\nFaktoren er nøyaktig $4$ kvar gong $n$ blir dobla — konvergensorden $O(1/n^2)$, eksperimentelt stadfesta. For Simpson ville den tilsvarande tabellen vist faktor $16$. Slik feilanalyse er god praksis kvar gong du bruker numerikk: køyr med aukande $n$, og sjå at svaret stabiliserer seg.\n\nI praksis slepp du ofte å skrive metodane sjølv. **SciPy** har ferdige, optimaliserte rutinar:\n\n```python\nfrom scipy import integrate\nresultat, feil = integrate.quad(f, 0, np.inf)\n```\n\n`quad` vel punkt adaptivt, handterer til og med uendelege grenser, og returnerer både svaret og eit feilestimat — for $\\int_0^{\\infty} e^{-x^2}\\,dx$ treffer han fasiten $\\frac{\\sqrt{\\pi}}{2}$ med feil under $10^{-8}$. For *måledata* finst `numpy.trapz`: har du tidspunkt `t = [0, 1, 2, 3, 4, 5]` og målte farter `v = [0, 5, 8, 10, 9, 6]`, gir `np.trapz(v, t)` tilbakelagd strekning $34{,}5$ meter direkte frå tabellen — trapesmetoden på ekte data, éi linje.\n\nArbeidsdelinga er typisk for berekningsorientert matematikk: skriv metodane sjølv éin gong for å *forstå* dei, bruk biblioteket etterpå for å *bruke* dei.",
+      "5f772e97afaba3cf": "Test deg sjølv på konvergens og SciPy:",
+      "58c4d45f8c8a0c44": "Feiltabellen for trapesmetoden viser faktor $4{,}00$ kvar gong $n$ blir dobla. Kva stadfestar dette?",
+      "df5099f417490e64": "At metoden er eksakt for polynom",
+      "01fb64d7506a5875": "At feilen veks med $n$",
+      "37fcae3a83b11276": "At konvergensordenen er $O(1/n^2)$",
+      "71e66bfb031d0a92": "At funksjonen er lineær",
+      "b236689edc2208d3": "Dersom feilen $\\sim \\frac{1}{n^2}$, gir dobling av $n$ feilreduksjon $\\frac{1}{4}$. Den konstante faktoren $4$ i tabellen er fingeravtrykket til teorien.",
+      "aeefdbe70e7e4d93": "Kva returnerer scipy.integrate.quad(f, a, b)?",
+      "87b8d223f8ab3bda": "Berre integralverdien",
+      "4fbbe93d384db6ee": "Både integralverdien og eit feilestimat",
+      "8c931380982c9a3b": "Ei liste med delsummar",
+      "ac14421f61c641b5": "Den antideriverte som funksjon",
+      "fa51c9e1034f9f4b": "quad returnerer paret (resultat, feilestimat) — du får både svaret og eit mål på kor nøyaktig det er.",
+      "d1013fef0eec9e31": "Du har måledata: tider t og farter v frå eit eksperiment. Korleis reknar du ut tilbakelagd strekning enklast?",
+      "33cf39d842aee825": "Finn ein antiderivert til farten",
+      "624a7e7d6619f1e7": "Bruk scipy.integrate.quad på dataa",
+      "7400fb24f634ab45": "Summer fartene og gang med total tid",
+      "ce5c2e2c71b0d39d": "Bruk np.trapz(v, t) — trapesmetoden på tabelldata",
+      "e5e4c4d1c45f17b7": "np.trapz integrerer diskrete datapunkt med trapesmetoden. quad krev ein funksjon, ikkje ein tabell — og ein antiderivert finst ikkje for reine måledata.",
+      "c9deb8848ab24c06": "Kvifor er det god praksis å køyre ein numerisk integrasjon med fleire aukande verdiar av $n$?",
+      "fc0f2be776076935": "For å sjå at svaret stabiliserer seg og dermed kontrollere nøyaktigheita",
+      "93d6ba57535eba98": "Fordi metodane krev minst tre køyringar",
+      "85a58c36d019ba74": "For å unngå avrundingsfeil i Python",
+      "0d60d982526f8ec5": "Fordi $n$ må kalibrerast mot $h$",
+      "853524abf1c8426f": "Når svaret sluttar å endre seg (innanfor ønskt presisjon) ved aukande $n$, har metoden konvergert. Endrar det seg mykje, trengst fleire delintervall — eller ein betre metode.",
+      "a0f9d3a241ce5759": "## Monte Carlo: tilfeldigheita som reknar\n\nTil slutt ein metode frå ein heilt annan planet. **Monte Carlo-integrasjon** — oppkalla etter kasinobyen — bruker tilfeldige tal: trekk $N$ tilfeldige $x$-verdiar uniformt frå $[a,b]$, rekn gjennomsnittet av funksjonsverdiane, og gang med intervallbreidda:\n\n$$\\int_a^b f(x)\\,dx \\approx (b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^{N} f(x_i)$$\n\nLogikken: integralet er gjennomsnittsverdien av $f$ ganga med breidda, og eit tilfeldig utval estimerer gjennomsnittet. I kode:\n\n```python\ndef monte_carlo(f, a, b, N):\n    x = np.random.uniform(a, b, N)\n    return (b - a) * np.mean(f(x))\n```\n\nDen morosamaste bruken: estimere $\\pi$. Halvsirkelen $f(x) = \\sqrt{1-x^2}$ over $[-1,1]$ har areal $\\frac{\\pi}{2}$, så $2 \\cdot$ Monte Carlo-estimatet $\\approx \\pi$. Med $N = 100$ får vi kanskje $3{,}02$; med $N = 10^6$ rundt $3{,}1410$. (Beslekta er «dartskive-varianten»: kast tilfeldige punkt i kvadratet $[-1,1] \\times [-1,1]$ og tel delen som landar i einingssirkelen — delen ganga med $4$ estimerer $\\pi$.)\n\nKonvergensen er ærleg talt treg: feilen går som $O(1/\\sqrt{N})$, så *fire* gonger fleire punkt gir berre *halvert* feil — langt bak Simpsons $O(1/n^4)$. Kvifor bry seg, då? Fordi Monte Carlo har to superkrefter: feilordenen er *uavhengig av dimensjonen* (gull verdt for integral i mange variablar, der rutenettmetodar kollapsar), og metoden er robust og latterleg enkel å implementere. SciPy byr forresten òg på `dblquad` for dobbeltintegral — og verktøykassa veks med behovet: adaptive metodar som forfinar seg sjølve der funksjonen varierer mest, Romberg-ekstrapolasjon som pumpar opp trapesresultat, og Gauss-kvadratur med optimalt plasserte punkt. Prinsippet bak dei alle har du no: summer smarte stikkprøver av funksjonen.",
+      "d9fd9ef443a52ca6": "Test deg sjølv på Monte Carlo og vegen vidare:",
+      "3d4ce4d34e3d70a6": "Kva er grunnformelen for Monte Carlo-integrasjon på $[a,b]$?",
+      "26d6c2273b85a533": "$h\\sum f(x_i)$ med faste punkt",
+      "b15edbb083b2e214": "$(b-a) \\cdot \\frac{1}{N}\\sum_{i=1}^N f(x_i)$ med tilfeldige $x_i$",
+      "af135a454f57de45": "$\\frac{h}{3}[1,4,2,\\ldots]$-summen",
+      "7afa2fd72f83ec75": "Gjennomsnittet av $f(a)$ og $f(b)$ ganga med $N$",
+      "f2ce11fa5dd1e70e": "Tilfeldige punkt estimerer gjennomsnittsverdien av $f$; ganga med intervallbreidda $(b-a)$ gir det integralet.",
+      "3ed40a12af8a72cc": "Monte Carlo-feilen går som $O(1/\\sqrt{N})$. Kor mange gonger fleire punkt trengst for å halvere feilen?",
+      "c85b775439e84f6e": "Dobbelt så mange",
+      "89d2a8089a26c664": "Åtte gonger så mange",
+      "b9ad4a2bb55e467f": "Fire gonger så mange",
+      "b0ab4e806ed601b9": "Seksten gonger så mange",
+      "56cb715e5a858aa2": "$\\frac{1}{\\sqrt{4N}} = \\frac{1}{2} \\cdot \\frac{1}{\\sqrt{N}}$ — feilen blir halvert først når $N$ blir firedobla. Konvergensen er langsam.",
+      "a7a0080ebc5a5e1c": "Korleis kan Monte Carlo brukast til å estimere $\\pi$?",
+      "76b9742018e7babe": "Ved å integrere halvsirkelen $\\sqrt{1-x^2}$ over $[-1,1]$, som har areal $\\frac{\\pi}{2}$",
+      "f0fd94e37011898d": "Ved å summere rekkja $\\sum \\frac{1}{n^2}$",
+      "a8be795c53caac62": "Ved å integrere $e^{-x^2}$",
+      "95d738a691f65cbb": "Ved å telje desimalar i tilfeldige tal",
+      "6a8aa903941f9f03": "$\\int_{-1}^1 \\sqrt{1-x^2}\\,dx = \\frac{\\pi}{2}$, så to gonger Monte Carlo-estimatet nærmar seg $\\pi$ når $N$ veks. Dartskive-varianten med punkt i kvadratet fungerer òg.",
+      "2b1f5930a1489658": "Kva er det største fortrinnet til Monte Carlo-metoden framfor Simpson og trapes?",
+      "faa9dd543faf2d37": "Han konvergerer raskare for glatte funksjonar",
+      "0ad417cf65e3a1f2": "Han krev ingen funksjonsverdiar",
+      "1c92ea48c92a9b84": "Han gir alltid eksakt svar",
+      "f26e08943b2a1764": "Feilordenen er uavhengig av talet på dimensjonar — han skalerer til høgdimensjonale integral",
+      "e9350f559d7aeaba": "Rutenettbaserte metodar eksploderer i kostnad når dimensjonen aukar; $O(1/\\sqrt{N})$ til Monte Carlo gjeld uansett dimensjon. Difor dominerer han i mangedimensjonale problem.",
+      "1df37b16e1898604": "## Oppsummering: ti linjer kode, tusen rektangel\n\nNumerisk integrasjon gjekk i dette kapittelet frå handarbeid til maskinkraft. Dei tre klassiske metodane vart Python-funksjonar på under ti linjer kvar: rektangelmetoden som ei rein sum-løkke, trapesmetoden med halve vekter på endepunkta, og Simpson med vekslande vekter $4$ og $2$ (og partalskrav på $n$). Eksperimenta stadfesta teorien i sanntid: trapesfeilen fall med faktor $4$ per dobling av $n$ ($O(1/n^2)$), og Simpson slo trapes med ein faktor over $2000$ på $\\int_0^{\\pi}\\sin x\\,dx$ allereie ved $n = 10$.\n\nProffverktøya tek over derfrå: `scipy.integrate.quad` integrerer adaptivt med feilestimat på kjøpet — òg over uendelege intervall — og `np.trapz` integrerer reine måledata. Og Monte Carlo viste den ville sida av numerikken: tilfeldige punkt som estimerer integral (og $\\pi$), med treg, men dimensjonsuavhengig konvergens $O(1/\\sqrt{N})$ som gjer metoden uunnverleg i mange dimensjonar.\n\nArbeidsregelen du tek med deg vidare: forstå metoden ved å skrive han sjølv, bruk biblioteket i produksjon, og verifiser alltid mot kjende integral eller aukande $n$. Med både analytiske og numeriske verktøy i kassa er du klar for den mest handgripelege bruken av integralrekninga: å rekne ut volumet av ting — frå vinglas til planetar."
+    }
+  }
+}

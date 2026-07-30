@@ -1,1 +1,379 @@
-{"id":"10-5-2-narrativ","courseId":"10","chapterNumber":"5.2","title":"Sannsynlighetsberegning","subtitle":"Narrativ versjon","description":"Fra terningkast og korttrekk til medisinske tester -- lær å beregne sjansen for at ting skjer, også når hendelser påvirker hverandre.","estimatedMinutes":40,"competenceGoals":["beregne sannsynligheter for sammensatte hendelser","skille mellom uavhengige og avhengige hendelser","bruke formler for betinget sannsynlighet","anvende addisjons- og multiplikasjonssetningen"],"linkedChapterId":"10-5-2","content":[{"id":"10-5-2-n-intro","type":"text","content":"## Hva er sjansen for det?\n\nHver gang du kaster en terning, trekker et kort eller krysser fingre for grønt lys, tenker du på sannsynlighet. Men sannsynlighetsregning handler om mer enn flaks -- det er et presist verktøy som brukes i alt fra forsikring og medisin til værmeldinger og spill.\n\n**Klassisk sannsynlighet** er formelen du sannsynligvis kjenner fra før:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\nSannsynligheten ligger alltid mellom 0 (umulig) og 1 (sikkert). Sannsynligheten for at noe IKKE skjer er $P(\\text{ikke } A) = 1 - P(A)$.\n\nLa oss varme opp. En terning kastes: $P(4) = \\frac{1}{6}$, $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2}$, og $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$."},{"id":"10-5-2-n-section1","type":"text","content":"## Addisjonssetningen -- \"eller\"\n\nHva er sannsynligheten for å trekke ruter eller et ess fra en kortstokk med 52 kort?\n\nHer må vi være forsiktige: ruter-esset er BÅDE ruter OG ess. Hvis vi bare legger sammen, teller vi det dobbelt. Løsningen er **addisjonssetningen**:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\n\"$A \\cup B$\" betyr \"$A$ eller $B$ (eller begge)\", og \"$A \\cap B$\" betyr \"$A$ og $B$ (begge skjer)\". Så for ruter eller ess:\n\n$$P(\\text{ruter eller ess}) = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$$\n\nHvis hendelsene er **disjunkte** (de kan ikke skje samtidig), forenkles formelen til bare $P(A) + P(B)$. For eksempel er sannsynligheten for å kaste 2 eller 5 på en terning: $\\frac{1}{6} + \\frac{1}{6} = \\frac{1}{3}$.\n\nEn kortstokk har for øvrig 52 kort fordelt på 4 farger (hjerter, ruter, spar, kløver) med 13 kort i hver. 26 røde kort (hjerter + ruter) og 26 sorte (spar + kløver)."},{"id":"10-5-2-n-quiz1","type":"exercise","exercise":{"id":"10-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på grunnleggende sannsynlighet og addisjonssetningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-5-2-n-quiz1-q0","task":"I en pose er det 4 røde, 3 blå og 2 grønne kuler. Hva er sannsynligheten for å trekke en rød kule?","options":[{"id":"a","text":"$\\frac{4}{9}$","isCorrect":true},{"id":"b","text":"$\\frac{4}{7}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{2}{9}$","isCorrect":false}],"solution":"Totalt 9 kuler, 4 er røde: $P(\\text{rød}) = \\frac{4}{9}$."},{"id":"10-5-2-n-quiz1-q1","task":"Et kort trekkes fra kortstokken. Hva er sannsynligheten for spar eller knekt?","options":[{"id":"a","text":"$\\frac{17}{52}$","isCorrect":false},{"id":"b","text":"$\\frac{4}{13}$","isCorrect":true},{"id":"c","text":"$\\frac{1}{4}$","isCorrect":false},{"id":"d","text":"$\\frac{13}{52}$","isCorrect":false}],"solution":"Spar: 13 kort. Knekt: 4 kort. Spar-knekt (telt dobbelt): 1 kort. $P = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$."},{"id":"10-5-2-n-quiz1-q2","task":"I en klasse er 15 med i fotball og 12 i håndball, hvorav 5 i begge. Klassen har 30 elever. Hva er sannsynligheten for at en tilfeldig elev er med i fotball eller håndball?","options":[{"id":"a","text":"$\\frac{22}{30}$","isCorrect":false},{"id":"b","text":"$\\frac{27}{30}$","isCorrect":false},{"id":"c","text":"$\\frac{11}{15}$","isCorrect":true},{"id":"d","text":"$\\frac{9}{10}$","isCorrect":false}],"solution":"$P = \\frac{15}{30} + \\frac{12}{30} - \\frac{5}{30} = \\frac{22}{30} = \\frac{11}{15}$."}]}},{"id":"10-5-2-n-section2","type":"text","content":"## Uavhengige hendelser -- når den ene ikke påvirker den andre\n\nTo terninger kastes. Påvirker resultatet av den første terningen den andre? Nei -- de er **uavhengige**. For uavhengige hendelser ganger vi sannsynlighetene:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nSannsynligheten for dobbelt sekser: $\\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$.\n\nEn mynt kastes 4 ganger. Sannsynligheten for kron alle gangene: $\\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$.\n\nEt lyskryss er grønt 40% av tiden. Sannsynligheten for å få grønt i to kryss etter hverandre: $0{,}40 \\cdot 0{,}40 = 0{,}16 = 16\\%$.\n\nEn basketballspiller treffer 70% av frikast. Tre på rad: $0{,}70^3 = 0{,}343 = 34{,}3\\%$.\n\nHva med trekking av kort? Med tilbakelegging er trekkene uavhengige: sannsynligheten for to ess etter hverandre er $\\frac{4}{52} \\cdot \\frac{4}{52} = \\frac{1}{169}$."},{"id":"10-5-2-n-section3","type":"text","content":"## Avhengige hendelser -- når den ene påvirker den andre\n\nMen hva om du trekker kort UTEN tilbakelegging? Da er første trekk påvirker det andre -- hendelsene er **avhengige**. Vi bruker **multiplikasjonssetningen**:\n\n$$P(A \\cap B) = P(A) \\cdot P(B|A)$$\n\nder $P(B|A)$ betyr \"sannsynligheten for $B$ gitt at $A$ har skjedd\".\n\nTrekk to kort uten tilbakelegging. Sannsynligheten for to ess:\n- Første ess: $P = \\frac{4}{52}$\n- Andre ess (gitt at første var ess): $P = \\frac{3}{51}$ (3 ess igjen av 51 kort)\n\n$$P(\\text{to ess}) = \\frac{4}{52} \\cdot \\frac{3}{51} = \\frac{12}{2652} = \\frac{1}{221}$$\n\nEn pose har 5 røde og 3 blå kuler. To trekkes uten tilbakelegging. Begge røde?\n\n$$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$$\n\nFor tre kort av spar uten tilbakelegging: $\\frac{13}{52} \\cdot \\frac{12}{51} \\cdot \\frac{11}{50} = \\frac{11}{850}$."},{"id":"10-5-2-n-quiz2","type":"exercise","exercise":{"id":"10-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på uavhengige og avhengige hendelser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-5-2-n-quiz2-q0","task":"En terning kastes 5 ganger. Hva er sannsynligheten for å IKKE få 6 noen av gangene?","options":[{"id":"a","text":"$83{,}3\\%$","isCorrect":false},{"id":"b","text":"$40{,}2\\%$","isCorrect":true},{"id":"c","text":"$16{,}7\\%$","isCorrect":false},{"id":"d","text":"$59{,}8\\%$","isCorrect":false}],"solution":"$P(\\text{ikke 6}) = \\frac{5}{6}$ for hvert kast. For 5 kast: $\\left(\\frac{5}{6}\\right)^5 \\approx 0{,}402 = 40{,}2\\%$."},{"id":"10-5-2-n-quiz2-q1","task":"To kort trekkes uten tilbakelegging. Hva er sannsynligheten for to hjerter?","options":[{"id":"a","text":"$\\frac{1}{16}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{17}$","isCorrect":true},{"id":"c","text":"$\\frac{13}{52}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{4}$","isCorrect":false}],"solution":"Avhengige hendelser: $P = \\frac{13}{52} \\cdot \\frac{12}{51} = \\frac{156}{2652} = \\frac{1}{17}$."},{"id":"10-5-2-n-quiz2-q2","task":"En mynt kastes og en terning kastes. Hva er $P$(kron OG 6)?","options":[{"id":"a","text":"$\\frac{1}{12}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{8}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"d","text":"$\\frac{2}{8}$","isCorrect":false}],"solution":"Uavhengige hendelser: $P = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$."}]}},{"id":"10-5-2-n-section4","type":"text","content":"## Betinget sannsynlighet og komplementmetoden\n\n**Betinget sannsynlighet** $P(B|A)$ er sannsynligheten for $B$ gitt at $A$ allerede har skjedd:\n\n$$P(B|A) = \\frac{P(A \\cap B)}{P(A)}$$\n\nEt praktisk eksempel: I en klasse er 60% jenter. 30% av jentene spiller fotball, og 50% av guttene. Hva er sannsynligheten for at en tilfeldig fotballspiller er jente?\n\nFørst: $P(\\text{fotball}) = 0{,}60 \\cdot 0{,}30 + 0{,}40 \\cdot 0{,}50 = 0{,}18 + 0{,}20 = 0{,}38$\n\nSå med Bayes' setning: $P(\\text{jente}|\\text{fotball}) = \\frac{0{,}18}{0{,}38} \\approx 47{,}4\\%$\n\nFor \"minst en\"-problemer bruker vi **komplementmetoden**: $P(\\text{minst en}) = 1 - P(\\text{ingen})$.\n\nEn terning kastes 4 ganger. Sannsynligheten for minst en 6-er:\n\n$$P = 1 - \\left(\\frac{5}{6}\\right)^4 = 1 - \\frac{625}{1296} = \\frac{671}{1296} \\approx 51{,}8\\%$$\n\nTo terninger kastes. Summen 7 er mest sannsynlig -- det finnes 6 gunstige utfall (1+6, 2+5, 3+4, 4+3, 5+2, 6+1) av 36 mulige, så $P(\\text{sum} = 7) = \\frac{6}{36} = \\frac{1}{6}$."},{"id":"10-5-2-n-quiz3","type":"exercise","exercise":{"id":"10-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på betinget sannsynlighet og komplementmetoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-5-2-n-quiz3-q0","task":"En mynt kastes 5 ganger. Hva er sannsynligheten for minst en kron?","options":[{"id":"a","text":"$\\frac{5}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{31}{32}$","isCorrect":true},{"id":"c","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{15}{16}$","isCorrect":false}],"solution":"$P = 1 - P(\\text{ingen kron}) = 1 - \\left(\\frac{1}{2}\\right)^5 = 1 - \\frac{1}{32} = \\frac{31}{32}$."},{"id":"10-5-2-n-quiz3-q1","task":"En test for en sykdom er positiv 95% av tiden for syke, og 3% for friske. 1% av befolkningen er syk. Hva er sannsynligheten for å være syk gitt positiv test?","options":[{"id":"a","text":"$95\\%$","isCorrect":false},{"id":"b","text":"$\\approx 24{,}2\\%$","isCorrect":true},{"id":"c","text":"$1\\%$","isCorrect":false},{"id":"d","text":"$3\\%$","isCorrect":false}],"solution":"$P(\\text{positiv}) = 0{,}01 \\cdot 0{,}95 + 0{,}99 \\cdot 0{,}03 = 0{,}0392$. $P(\\text{syk}|\\text{positiv}) = \\frac{0{,}0095}{0{,}0392} \\approx 24{,}2\\%$. Overraskende lavt!"},{"id":"10-5-2-n-quiz3-q2","task":"Et lag vinner hver kamp med 60% sannsynlighet. Hva er sannsynligheten for å vinne minst 2 av 3 kamper?","options":[{"id":"a","text":"$43{,}2\\%$","isCorrect":false},{"id":"b","text":"$60\\%$","isCorrect":false},{"id":"c","text":"$64{,}8\\%$","isCorrect":true},{"id":"d","text":"$21{,}6\\%$","isCorrect":false}],"solution":"2 seire: $\\binom{3}{2} \\cdot 0{,}6^2 \\cdot 0{,}4 = 0{,}432$. 3 seire: $0{,}6^3 = 0{,}216$. Totalt: $0{,}648 = 64{,}8\\%$."},{"id":"10-5-2-n-quiz3-q3","task":"Du kaster 3 terninger. Hva er sannsynligheten for at alle viser samme tall (Yatzy)?","options":[{"id":"a","text":"$\\frac{1}{216}$","isCorrect":false},{"id":"b","text":"$\\frac{6}{216}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{36}$","isCorrect":true},{"id":"d","text":"$\\frac{1}{6}$","isCorrect":false}],"solution":"6 gunstige (111, 222, ..., 666) av $6^3 = 216$ mulige: $P = \\frac{6}{216} = \\frac{1}{36}$."}]}},{"id":"10-5-2-n-summary","type":"text","content":"## Oppsummering\n\n- **Klassisk sannsynlighet:** $P(A) = \\frac{\\text{gunstige}}{\\text{mulige}}$, alltid mellom 0 og 1.\n\n- **Addisjonssetningen** (\"eller\"): $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$. For disjunkte hendelser: bare $P(A) + P(B)$.\n\n- **Uavhengige hendelser** (ganger): $P(A \\cap B) = P(A) \\cdot P(B)$. Typisk: terningkast, myntkast, trekk med tilbakelegging.\n\n- **Avhengige hendelser** (multiplikasjonssetningen): $P(A \\cap B) = P(A) \\cdot P(B|A)$. Typisk: trekk uten tilbakelegging.\n\n- **Betinget sannsynlighet:** $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$.\n\n- **Komplementmetoden:** $P(\\text{minst en}) = 1 - P(\\text{ingen})$ -- ofte enklest for \"minst en\"-problemer.\n\n**Nøkkelspørsmål:** Er hendelsene uavhengige eller avhengige? Tilbakelegging = uavhengig. Uten tilbakelegging = avhengig."}],"exercises":[]}
+{
+  "id": "10-5-2-narrativ",
+  "courseId": "10",
+  "chapterNumber": "5.2",
+  "title": "Sannsynlighetsberegning",
+  "subtitle": "Narrativ versjon",
+  "description": "Fra terningkast og korttrekk til medisinske tester -- lær å beregne sjansen for at ting skjer, også når hendelser påvirker hverandre.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "beregne sannsynligheter for sammensatte hendelser",
+    "skille mellom uavhengige og avhengige hendelser",
+    "bruke formler for betinget sannsynlighet",
+    "anvende addisjons- og multiplikasjonssetningen"
+  ],
+  "linkedChapterId": "10-5-2",
+  "content": [
+    {
+      "id": "10-5-2-n-intro",
+      "type": "text",
+      "content": "## Hva er sjansen for det?\n\nHver gang du kaster en terning, trekker et kort eller krysser fingre for grønt lys, tenker du på sannsynlighet. Men sannsynlighetsregning handler om mer enn flaks -- det er et presist verktøy som brukes i alt fra forsikring og medisin til værmeldinger og spill.\n\n**Klassisk sannsynlighet** er formelen du sannsynligvis kjenner fra før:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$$\n\nSannsynligheten ligger alltid mellom 0 (umulig) og 1 (sikkert). Sannsynligheten for at noe IKKE skjer er $P(\\text{ikke } A) = 1 - P(A)$.\n\nLa oss varme opp. En terning kastes: $P(4) = \\frac{1}{6}$, $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2}$, og $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$."
+    },
+    {
+      "id": "10-5-2-n-section1",
+      "type": "text",
+      "content": "## Addisjonssetningen -- \"eller\"\n\nHva er sannsynligheten for å trekke ruter eller et ess fra en kortstokk med 52 kort?\n\nHer må vi være forsiktige: ruter-esset er BÅDE ruter OG ess. Hvis vi bare legger sammen, teller vi det dobbelt. Løsningen er **addisjonssetningen**:\n\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n\n\"$A \\cup B$\" betyr \"$A$ eller $B$ (eller begge)\", og \"$A \\cap B$\" betyr \"$A$ og $B$ (begge skjer)\". Så for ruter eller ess:\n\n$$P(\\text{ruter eller ess}) = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$$\n\nHvis hendelsene er **disjunkte** (de kan ikke skje samtidig), forenkles formelen til bare $P(A) + P(B)$. For eksempel er sannsynligheten for å kaste 2 eller 5 på en terning: $\\frac{1}{6} + \\frac{1}{6} = \\frac{1}{3}$.\n\nEn kortstokk har for øvrig 52 kort fordelt på 4 farger (hjerter, ruter, spar, kløver) med 13 kort i hver. 26 røde kort (hjerter + ruter) og 26 sorte (spar + kløver)."
+    },
+    {
+      "id": "10-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grunnleggende sannsynlighet og addisjonssetningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-5-2-n-quiz1-q0",
+            "task": "I en pose er det 4 røde, 3 blå og 2 grønne kuler. Hva er sannsynligheten for å trekke en rød kule?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{4}{7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{9}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{4}{9}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Totalt 9 kuler, 4 er røde: $P(\\text{rød}) = \\frac{4}{9}$."
+          },
+          {
+            "id": "10-5-2-n-quiz1-q1",
+            "task": "Et kort trekkes fra kortstokken. Hva er sannsynligheten for spar eller knekt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{4}{13}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{17}{52}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{13}{52}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Spar: 13 kort. Knekt: 4 kort. Spar-knekt (telt dobbelt): 1 kort. $P = \\frac{13}{52} + \\frac{4}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13}$."
+          },
+          {
+            "id": "10-5-2-n-quiz1-q2",
+            "task": "I en klasse er 15 med i fotball og 12 i håndball, hvorav 5 i begge. Klassen har 30 elever. Hva er sannsynligheten for at en tilfeldig elev er med i fotball eller håndball?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{22}{30}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{11}{15}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{27}{30}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{9}{10}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P = \\frac{15}{30} + \\frac{12}{30} - \\frac{5}{30} = \\frac{22}{30} = \\frac{11}{15}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-5-2-n-section2",
+      "type": "text",
+      "content": "## Uavhengige hendelser -- når den ene ikke påvirker den andre\n\nTo terninger kastes. Påvirker resultatet av den første terningen den andre? Nei -- de er **uavhengige**. For uavhengige hendelser ganger vi sannsynlighetene:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nSannsynligheten for dobbelt sekser: $\\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$.\n\nEn mynt kastes 4 ganger. Sannsynligheten for kron alle gangene: $\\left(\\frac{1}{2}\\right)^4 = \\frac{1}{16}$.\n\nEt lyskryss er grønt 40% av tiden. Sannsynligheten for å få grønt i to kryss etter hverandre: $0{,}40 \\cdot 0{,}40 = 0{,}16 = 16\\%$.\n\nEn basketballspiller treffer 70% av frikast. Tre på rad: $0{,}70^3 = 0{,}343 = 34{,}3\\%$.\n\nHva med trekking av kort? Med tilbakelegging er trekkene uavhengige: sannsynligheten for to ess etter hverandre er $\\frac{4}{52} \\cdot \\frac{4}{52} = \\frac{1}{169}$."
+    },
+    {
+      "id": "10-5-2-n-section3",
+      "type": "text",
+      "content": "## Avhengige hendelser -- når den ene påvirker den andre\n\nMen hva om du trekker kort UTEN tilbakelegging? Da er første trekk påvirker det andre -- hendelsene er **avhengige**. Vi bruker **multiplikasjonssetningen**:\n\n$$P(A \\cap B) = P(A) \\cdot P(B|A)$$\n\nder $P(B|A)$ betyr \"sannsynligheten for $B$ gitt at $A$ har skjedd\".\n\nTrekk to kort uten tilbakelegging. Sannsynligheten for to ess:\n- Første ess: $P = \\frac{4}{52}$\n- Andre ess (gitt at første var ess): $P = \\frac{3}{51}$ (3 ess igjen av 51 kort)\n\n$$P(\\text{to ess}) = \\frac{4}{52} \\cdot \\frac{3}{51} = \\frac{12}{2652} = \\frac{1}{221}$$\n\nEn pose har 5 røde og 3 blå kuler. To trekkes uten tilbakelegging. Begge røde?\n\n$$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$$\n\nFor tre kort av spar uten tilbakelegging: $\\frac{13}{52} \\cdot \\frac{12}{51} \\cdot \\frac{11}{50} = \\frac{11}{850}$."
+    },
+    {
+      "id": "10-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på uavhengige og avhengige hendelser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-5-2-n-quiz2-q0",
+            "task": "En terning kastes 5 ganger. Hva er sannsynligheten for å IKKE få 6 noen av gangene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$83{,}3\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16{,}7\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$40{,}2\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$59{,}8\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{ikke 6}) = \\frac{5}{6}$ for hvert kast. For 5 kast: $\\left(\\frac{5}{6}\\right)^5 \\approx 0{,}402 = 40{,}2\\%$."
+          },
+          {
+            "id": "10-5-2-n-quiz2-q1",
+            "task": "To kort trekkes uten tilbakelegging. Hva er sannsynligheten for to hjerter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{16}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{13}{52}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{17}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Avhengige hendelser: $P = \\frac{13}{52} \\cdot \\frac{12}{51} = \\frac{156}{2652} = \\frac{1}{17}$."
+          },
+          {
+            "id": "10-5-2-n-quiz2-q2",
+            "task": "En mynt kastes og en terning kastes. Hva er $P$(kron OG 6)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{12}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{8}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uavhengige hendelser: $P = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-5-2-n-section4",
+      "type": "text",
+      "content": "## Betinget sannsynlighet og komplementmetoden\n\n**Betinget sannsynlighet** $P(B|A)$ er sannsynligheten for $B$ gitt at $A$ allerede har skjedd:\n\n$$P(B|A) = \\frac{P(A \\cap B)}{P(A)}$$\n\nEt praktisk eksempel: I en klasse er 60% jenter. 30% av jentene spiller fotball, og 50% av guttene. Hva er sannsynligheten for at en tilfeldig fotballspiller er jente?\n\nFørst: $P(\\text{fotball}) = 0{,}60 \\cdot 0{,}30 + 0{,}40 \\cdot 0{,}50 = 0{,}18 + 0{,}20 = 0{,}38$\n\nSå med Bayes' setning: $P(\\text{jente}|\\text{fotball}) = \\frac{0{,}18}{0{,}38} \\approx 47{,}4\\%$\n\nFor \"minst en\"-problemer bruker vi **komplementmetoden**: $P(\\text{minst en}) = 1 - P(\\text{ingen})$.\n\nEn terning kastes 4 ganger. Sannsynligheten for minst en 6-er:\n\n$$P = 1 - \\left(\\frac{5}{6}\\right)^4 = 1 - \\frac{625}{1296} = \\frac{671}{1296} \\approx 51{,}8\\%$$\n\nTo terninger kastes. Summen 7 er mest sannsynlig -- det finnes 6 gunstige utfall (1+6, 2+5, 3+4, 4+3, 5+2, 6+1) av 36 mulige, så $P(\\text{sum} = 7) = \\frac{6}{36} = \\frac{1}{6}$."
+    },
+    {
+      "id": "10-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på betinget sannsynlighet og komplementmetoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-5-2-n-quiz3-q0",
+            "task": "En mynt kastes 5 ganger. Hva er sannsynligheten for minst en kron?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{5}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{31}{32}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{15}{16}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P = 1 - P(\\text{ingen kron}) = 1 - \\left(\\frac{1}{2}\\right)^5 = 1 - \\frac{1}{32} = \\frac{31}{32}$."
+          },
+          {
+            "id": "10-5-2-n-quiz3-q1",
+            "task": "En test for en sykdom er positiv 95% av tiden for syke, og 3% for friske. 1% av befolkningen er syk. Hva er sannsynligheten for å være syk gitt positiv test?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$95\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\approx 24{,}2\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$3\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{positiv}) = 0{,}01 \\cdot 0{,}95 + 0{,}99 \\cdot 0{,}03 = 0{,}0392$. $P(\\text{syk}|\\text{positiv}) = \\frac{0{,}0095}{0{,}0392} \\approx 24{,}2\\%$. Overraskende lavt!"
+          },
+          {
+            "id": "10-5-2-n-quiz3-q2",
+            "task": "Et lag vinner hver kamp med 60% sannsynlighet. Hva er sannsynligheten for å vinne minst 2 av 3 kamper?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$43{,}2\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$60\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$21{,}6\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$64{,}8\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "2 seire: $\\binom{3}{2} \\cdot 0{,}6^2 \\cdot 0{,}4 = 0{,}432$. 3 seire: $0{,}6^3 = 0{,}216$. Totalt: $0{,}648 = 64{,}8\\%$."
+          },
+          {
+            "id": "10-5-2-n-quiz3-q3",
+            "task": "Du kaster 3 terninger. Hva er sannsynligheten for at alle viser samme tall (Yatzy)?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\frac{1}{36}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{216}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{6}{216}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "6 gunstige (111, 222, ..., 666) av $6^3 = 216$ mulige: $P = \\frac{6}{216} = \\frac{1}{36}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n- **Klassisk sannsynlighet:** $P(A) = \\frac{\\text{gunstige}}{\\text{mulige}}$, alltid mellom 0 og 1.\n\n- **Addisjonssetningen** (\"eller\"): $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$. For disjunkte hendelser: bare $P(A) + P(B)$.\n\n- **Uavhengige hendelser** (ganger): $P(A \\cap B) = P(A) \\cdot P(B)$. Typisk: terningkast, myntkast, trekk med tilbakelegging.\n\n- **Avhengige hendelser** (multiplikasjonssetningen): $P(A \\cap B) = P(A) \\cdot P(B|A)$. Typisk: trekk uten tilbakelegging.\n\n- **Betinget sannsynlighet:** $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$.\n\n- **Komplementmetoden:** $P(\\text{minst en}) = 1 - P(\\text{ingen})$ -- ofte enklest for \"minst en\"-problemer.\n\n**Nøkkelspørsmål:** Er hendelsene uavhengige eller avhengige? Tilbakelegging = uavhengig. Uten tilbakelegging = avhengig."
+    }
+  ],
+  "exercises": []
+}

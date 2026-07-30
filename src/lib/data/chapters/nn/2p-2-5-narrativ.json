@@ -1,1 +1,411 @@
-{"id":"2p-2-5-narrativ","courseId":"2p","chapterNumber":"2.5","title":"Regresjonsanalyse","subtitle":"Narrativ versjon","description":"Ei forteljing om å finne linja som passar best – korleis iskremsal, treningstimar og nettbutikkbesøk kan omsetjast til matematiske modellar.","estimatedMinutes":30,"competenceGoals":["bruke digitale verktøy til regresjonsanalyse og vurdere resultatet"],"linkedChapterId":"2p-2-5","content":[{"id":"2p-2-5-n-intro","type":"text","content":"## Punkta som nesten dannar ei linje\n\nTenk deg at du jobbar i ein iskiosk i sommarferien. Kvar dag noterer du temperaturen og kor mange is du sel. Etter nokre veker plottar du tala i eit koordinatsystem – og ser noko interessant: punkta ligg ikkje perfekt på ei linje, men dei *antydar* ei. Varmare dag, fleire selde is. Kan du bruke dette til å føreseie salet i morgon, når meldinga seier 20 grader?\n\nDet er akkurat dette **regresjonsanalyse** handlar om: å finne den matematiske funksjonen som passar best til eit datasett, og deretter bruke han til å seie noko om verdiar vi ikkje har målt. I denne forteljinga lærer du korleis datamaskina finn den beste linja, korleis du vurderer om modellen er god, og – kanskje viktigast – når du *ikkje* bør stole på han."},{"id":"2p-2-5-n-section1","type":"text","content":"## Den beste linja og talet som måler han\n\nNår du bed GeoGebra eller eit rekneark om **lineær regresjon**, leitar verktøyet etter linja $y = ax + b$ som ligg så tett på alle datapunkta som mogleg. Metoden bak vert kalla **minste kvadraters metode**: for kvar mogleg linje vert avstanden frå kvart punkt til linja målt, avstandane vert kvadrerte og summerte – og linja med minst sum vinn. Du slepp å rekne dette for hand; poenget er å forstå kva verktøyet gjer.\n\nFor iskiosken kan resultatet verte noko slikt som $y = 2{,}5x - 18$, der $x$ er temperaturen og $y$ er talet på selde is. No kan du svare på spørsmålet frå i stad: ved $20$ grader anslår modellen $y = 2{,}5 \\cdot 20 - 18 = 32$ is. Stigingstalet $2{,}5$ har òg ei konkret tolking: for kvar grad varmare sel du i snitt $2{,}5$ fleire is.\n\nMen kor god er eigentleg modellen? Det vert målt med **forklaringsgraden** $R^2$, eit tal mellom $0$ og $1$. Er $R^2 = 1$, ligg alle punkta perfekt på linja. Er $R^2 = 0{,}92$, seier vi at modellen forklarar $92\\,\\%$ av variasjonen i dataa – ei svært god tilpassing. Som tommelfingerregel: over $0{,}9$ er svært godt, under $0{,}5$ er svakt. Merk at $R^2 = 0{,}92$ *ikkje* betyr at modellen er «92 % rett» eller at 92 % av punkta ligg på linja – det er delen av variasjonen som vert forklart."},{"id":"2p-2-5-n-quiz1","type":"exercise","exercise":{"id":"2p-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på regresjon og forklaringsgrad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"2p-2-5-n-quiz1-q0","task":"Regresjonslinja for issalet er $y = 2{,}5x - 18$. Kor mange is anslår modellen ved 20 °C?","options":[{"id":"a","text":"50 is","isCorrect":false},{"id":"b","text":"32 is","isCorrect":true},{"id":"c","text":"68 is","isCorrect":false},{"id":"d","text":"25 is","isCorrect":false}],"solution":"$y = 2{,}5 \\cdot 20 - 18 = 50 - 18 = 32$ is."},{"id":"2p-2-5-n-quiz1-q1","task":"Kva betyr $R^2 = 0{,}92$?","options":[{"id":"a","text":"Modellen er 92 % rett","isCorrect":false},{"id":"b","text":"92 % av punkta ligg på linja","isCorrect":false},{"id":"c","text":"Modellen forklarar 92 % av variasjonen i dataa","isCorrect":true},{"id":"d","text":"Stigingstalet er 0,92","isCorrect":false}],"solution":"$R^2$ (forklaringsgraden) angir kor stor del av variasjonen i dataa modellen forklarar. $0{,}92$ betyr 92 % – ei svært god tilpassing."},{"id":"2p-2-5-n-quiz1-q2","task":"Modell 1 har $R^2 = 0{,}98$ og modell 2 har $R^2 = 0{,}65$. Kva kan vi konkludere?","options":[{"id":"a","text":"Modell 2 passar best fordi han er enklast","isCorrect":false},{"id":"b","text":"Begge modellane er like gode","isCorrect":false},{"id":"c","text":"Ingen av modellane kan brukast","isCorrect":false},{"id":"d","text":"Modell 1 passar best til dataa sine, sidan 0,98 er nærast 1","isCorrect":true}],"solution":"Jo nærare $R^2$ er $1$, dess betre tilpassing. $0{,}98$ viser ei mykje betre tilpassing enn $0{,}65$."}]}},{"id":"2p-2-5-n-section2","type":"text","content":"## Innanfor og utanfor – interpolering og ekstrapolering\n\nNo har du ein modell med høg $R^2$. Betyr det at du kan bruke han til kva som helst? Absolutt ikkje – og her kjem den viktigaste åtvaringa i kapittelet.\n\nEin treningsmodell seier at tida på 3000-meteren avheng av vekentlege treningstimar: $y = -0{,}8x + 16$, der $y$ er tida i minutt. For $x = 5$ treningstimar gir modellen $y = -0{,}8 \\cdot 5 + 16 = 12$ minutt – rimeleg nok. Men kva med ein som trenar $25$ timar i veka? Modellen seier $y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Minus fire minutt! Ingen spring 3000 meter på negativ tid – modellen har brote saman.\n\nProblemet er at modellen vart laga med data frå eit avgrensa område, kanskje $2$ til $10$ treningstimar. Å bruke modellen *innanfor* dataområdet vert kalla **interpolering**, og det er som regel trygt. Å bruke han *utanfor* vert kalla **ekstrapolering**, og då rører du deg på tynn is: du går ut frå at mønsteret fortset, utan data som støttar det. Jo lenger ut du går, dess meir usikkert vert anslaget – og til slutt vert det meiningslaust, som negativt issal på kalde dagar eller negative løpstider.\n\nEit fornuftig eksempel på interpolering: ein nettbutikk har ei regresjonslinje $y = 6{,}9x + 1{,}1$ for omsetning (i tusen kroner) mot talet på besøkjande (i tusen), basert på data mellom $2\\,000$ og $12\\,000$ besøkjande. Ved $7\\,000$ besøkjande anslår modellen $y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$, altså rundt $49\\,400$ kroner. Det er innanfor dataområdet – eit anslag vi kan stole på."},{"id":"2p-2-5-n-quiz2","type":"exercise","exercise":{"id":"2p-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på interpolering og ekstrapolering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"2p-2-5-n-quiz2-q0","task":"Når er det trygt å bruke ein regresjonsmodell til å føreseie verdiar?","options":[{"id":"a","text":"Innanfor dataområdet (interpolering)","isCorrect":true},{"id":"b","text":"Alltid, så lenge R² er høg","isCorrect":false},{"id":"c","text":"Berre når alle punkta ligg på linja","isCorrect":false},{"id":"d","text":"Berre utanfor dataområdet","isCorrect":false}],"solution":"Innanfor dataområdet (interpolering) gir modellen pålitelege anslag. Utanfor (ekstrapolering) veit vi ikkje om mønsteret fortset – sjølv med høg $R^2$."},{"id":"2p-2-5-n-quiz2-q1","task":"Modellen $y = -0{,}8x + 16$ gir 3000 m-tid i minutt ut frå $x$ treningstimar. Kva gir modellen for $x = 25$, og kva fortel det?","options":[{"id":"a","text":"$y = 12$ – eit rimeleg anslag","isCorrect":false},{"id":"b","text":"$y = 4$ – verdas beste tid","isCorrect":false},{"id":"c","text":"$y = -4$ – eit umogleg svar som viser at ekstrapolering kan gi meiningslause resultat","isCorrect":true},{"id":"d","text":"$y = 36$ – ei svak tid","isCorrect":false}],"solution":"$y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Negativ løpstid er umogleg – modellen vert brukt langt utanfor dataområdet, og ekstrapoleringa gir eit meiningslaust svar."},{"id":"2p-2-5-n-quiz2-q2","task":"Regresjonslinja til nettbutikken er $y = 6{,}9x + 1{,}1$ (begge i tusen). Kva anslår modellen ved 7 000 besøkjande?","options":[{"id":"a","text":"Ca. 8 000 kr","isCorrect":false},{"id":"b","text":"Ca. 49 400 kr","isCorrect":true},{"id":"c","text":"Ca. 70 000 kr","isCorrect":false},{"id":"d","text":"Ca. 484 000 kr","isCorrect":false}],"solution":"$y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$ tusen kroner, altså ca. $49\\,400$ kr."}]}},{"id":"2p-2-5-n-section3","type":"text","content":"## Kva for ein modell skal du velje?\n\nHittil har vi berre snakka om rette linjer, men ikkje alle samanhengar er lineære. Heldigvis finst det eit enkelt detektivtriks for å velje rett modelltype: sjå på korleis $y$-verdiane endrar seg når $x$ aukar jamt.\n\nViss **differansen** mellom påfølgjande $y$-verdiar er omtrent konstant – for eksempel $10, 20, 30, 40$ – veks dataa like mykje kvar gong, og ein *lineær* modell passar. Viss derimot **forholdet** mellom påfølgjande verdiar er konstant, veks dataa med same prosent kvar gong, og då passar ein *eksponentiell* modell $y = a \\cdot b^x$.\n\nSjå på dette datasettet: når $x$ er $0, 1, 2, 3$, er $y$ høvesvis $5, 15, 45, 135$. Differansane er $10, 30, 90$ – ikkje konstante i det heile teke. Men forholda? $\\frac{15}{5} = 3$, $\\frac{45}{15} = 3$, $\\frac{135}{45} = 3$. Konstant forhold! Her vert verdien tredobla for kvart steg, og den eksponentielle modellen $y = 5 \\cdot 3^x$ passar perfekt. For $x = 4$ gir han $y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$.\n\nEit eksempel frå verkelegheita: eksponentiell regresjon på medlemstalet i ein klubb gav modellen $N(t) = 200 \\cdot 1{,}05^t$, der $t$ er år etter 2020. Startverdien $200$ er medlemstalet i 2020, og vekstfaktoren $1{,}05$ betyr $5\\,\\%$ vekst per år. Hugs til slutt at kvar modell – lineær eller eksponentiell – er ei forenkling av verkelegheita. Spør alltid: er svaret rimeleg?"},{"id":"2p-2-5-n-quiz3","type":"exercise","exercise":{"id":"2p-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på val av modell:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"2p-2-5-n-quiz3-q0","task":"Eit datasett har $y$-verdiane 5, 15, 45, 135 for $x = 0, 1, 2, 3$. Kva for ein modelltype passar best?","options":[{"id":"a","text":"Lineær, fordi verdiane aukar","isCorrect":false},{"id":"b","text":"Eksponentiell, fordi forholdet mellom påfølgjande verdiar er konstant (3)","isCorrect":true},{"id":"c","text":"Lineær, fordi differansane er konstante","isCorrect":false},{"id":"d","text":"Ingen modell passar","isCorrect":false}],"solution":"$\\frac{15}{5} = \\frac{45}{15} = \\frac{135}{45} = 3$. Konstant forhold er kjenneteiknet på eksponentiell vekst, så $y = 5 \\cdot 3^x$ passar."},{"id":"2p-2-5-n-quiz3-q1","task":"Kva gir modellen $y = 5 \\cdot 3^x$ for $x = 4$?","options":[{"id":"a","text":"$60$","isCorrect":false},{"id":"b","text":"$243$","isCorrect":false},{"id":"c","text":"$405$","isCorrect":true},{"id":"d","text":"$135$","isCorrect":false}],"solution":"$y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$."},{"id":"2p-2-5-n-quiz3-q2","task":"Modellen $N(t) = 200 \\cdot 1{,}05^t$ skildrar medlemstalet i ein klubb ($t$ = år etter 2020). Kor mange prosent veks medlemstalet per år?","options":[{"id":"a","text":"1,05 %","isCorrect":false},{"id":"b","text":"5 %","isCorrect":true},{"id":"c","text":"105 %","isCorrect":false},{"id":"d","text":"200 %","isCorrect":false}],"solution":"Vekstfaktoren er $1{,}05$, som svarar til ein årleg vekst på $5\\,\\%$. Startverdien $200$ er medlemstalet i 2020."}]}},{"id":"2p-2-5-n-summary","type":"text","content":"## Oppsummering\n\nFrå notatboka til iskiosken til ferdig modell: **regresjonsanalyse** finn funksjonen som passar best til eit datasett, ved hjelp av minste kvadraters metode. **Forklaringsgraden** $R^2$ fortel kor godt modellen passar – jo nærare $1$, dess betre, og verdiar over $0{,}9$ vert rekna som svært gode.\n\nMen ein god modell har grenser. **Interpolering** – å bruke modellen innanfor dataområdet – er som regel påliteleg. **Ekstrapolering** – å bruke han utanfor – kan gi meiningslause svar, som negative løpstider og negativt issal. Og når du skal velje modelltype, ser du på mønsteret i dataa: konstant *differanse* mellom verdiane peikar mot ein lineær modell, konstant *forhold* peikar mot ein eksponentiell. Uansett kva for ein modell du endar med, gjeld den same grunnregelen: ein modell er ei forenkling av verkelegheita, så vurder alltid om svaret er rimeleg før du stoler på han."}],"exercises":[],"_meta":{"sourceHash":"67727db676123d04","translatedAt":"2026-06-17T00:06:01.272Z","model":"claude-code-agent","strings":61,"tm":{"7742efe059860c21":"Regresjonsanalyse","b195b06d1ed59702":"Narrativ versjon","5e1721d935c0798a":"Ei forteljing om å finne linja som passar best – korleis iskremsal, treningstimar og nettbutikkbesøk kan omsetjast til matematiske modellar.","e307acf837d11a86":"bruke digitale verktøy til regresjonsanalyse og vurdere resultatet","76dc354cca384125":"## Punkta som nesten dannar ei linje\n\nTenk deg at du jobbar i ein iskiosk i sommarferien. Kvar dag noterer du temperaturen og kor mange is du sel. Etter nokre veker plottar du tala i eit koordinatsystem – og ser noko interessant: punkta ligg ikkje perfekt på ei linje, men dei *antydar* ei. Varmare dag, fleire selde is. Kan du bruke dette til å føreseie salet i morgon, når meldinga seier 20 grader?\n\nDet er akkurat dette **regresjonsanalyse** handlar om: å finne den matematiske funksjonen som passar best til eit datasett, og deretter bruke han til å seie noko om verdiar vi ikkje har målt. I denne forteljinga lærer du korleis datamaskina finn den beste linja, korleis du vurderer om modellen er god, og – kanskje viktigast – når du *ikkje* bør stole på han.","af351a604027b4e5":"## Den beste linja og talet som måler han\n\nNår du bed GeoGebra eller eit rekneark om **lineær regresjon**, leitar verktøyet etter linja $y = ax + b$ som ligg så tett på alle datapunkta som mogleg. Metoden bak vert kalla **minste kvadraters metode**: for kvar mogleg linje vert avstanden frå kvart punkt til linja målt, avstandane vert kvadrerte og summerte – og linja med minst sum vinn. Du slepp å rekne dette for hand; poenget er å forstå kva verktøyet gjer.\n\nFor iskiosken kan resultatet verte noko slikt som $y = 2{,}5x - 18$, der $x$ er temperaturen og $y$ er talet på selde is. No kan du svare på spørsmålet frå i stad: ved $20$ grader anslår modellen $y = 2{,}5 \\cdot 20 - 18 = 32$ is. Stigingstalet $2{,}5$ har òg ei konkret tolking: for kvar grad varmare sel du i snitt $2{,}5$ fleire is.\n\nMen kor god er eigentleg modellen? Det vert målt med **forklaringsgraden** $R^2$, eit tal mellom $0$ og $1$. Er $R^2 = 1$, ligg alle punkta perfekt på linja. Er $R^2 = 0{,}92$, seier vi at modellen forklarar $92\\,\\%$ av variasjonen i dataa – ei svært god tilpassing. Som tommelfingerregel: over $0{,}9$ er svært godt, under $0{,}5$ er svakt. Merk at $R^2 = 0{,}92$ *ikkje* betyr at modellen er «92 % rett» eller at 92 % av punkta ligg på linja – det er delen av variasjonen som vert forklart.","f709e9557aa92adb":"Test deg sjølv på regresjon og forklaringsgrad:","4097889236a2af26":"placeholder","a5bfa89fa34411bc":"Regresjonslinja for issalet er $y = 2{,}5x - 18$. Kor mange is anslår modellen ved 20 °C?","71c0c71a90906ff8":"50 is","7b7751d1c66f3efb":"32 is","ac9773703054de8b":"68 is","d10e7f1d299e5ad9":"25 is","f233f7e7333f8033":"$y = 2{,}5 \\cdot 20 - 18 = 50 - 18 = 32$ is.","557952257ae0c75c":"Kva betyr $R^2 = 0{,}92$?","5b734e0cae6aeeeb":"Modellen er 92 % rett","54e14f67078c1e64":"92 % av punkta ligg på linja","49bb01398f4245e3":"Modellen forklarar 92 % av variasjonen i dataa","98e45f7172e0be3b":"Stigingstalet er 0,92","a7d34b37d3634ea5":"$R^2$ (forklaringsgraden) angir kor stor del av variasjonen i dataa modellen forklarar. $0{,}92$ betyr 92 % – ei svært god tilpassing.","50ed23fb006895a0":"Modell 1 har $R^2 = 0{,}98$ og modell 2 har $R^2 = 0{,}65$. Kva kan vi konkludere?","03157a3f2ab6868d":"Modell 2 passar best fordi han er enklast","beeef63a6d248dc9":"Begge modellane er like gode","a6c75ca32da6c4cb":"Ingen av modellane kan brukast","79c40554cee70b07":"Modell 1 passar best til dataa sine, sidan 0,98 er nærast 1","940619ecd5905d2c":"Jo nærare $R^2$ er $1$, dess betre tilpassing. $0{,}98$ viser ei mykje betre tilpassing enn $0{,}65$.","b38097a889a426f3":"## Innanfor og utanfor – interpolering og ekstrapolering\n\nNo har du ein modell med høg $R^2$. Betyr det at du kan bruke han til kva som helst? Absolutt ikkje – og her kjem den viktigaste åtvaringa i kapittelet.\n\nEin treningsmodell seier at tida på 3000-meteren avheng av vekentlege treningstimar: $y = -0{,}8x + 16$, der $y$ er tida i minutt. For $x = 5$ treningstimar gir modellen $y = -0{,}8 \\cdot 5 + 16 = 12$ minutt – rimeleg nok. Men kva med ein som trenar $25$ timar i veka? Modellen seier $y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Minus fire minutt! Ingen spring 3000 meter på negativ tid – modellen har brote saman.\n\nProblemet er at modellen vart laga med data frå eit avgrensa område, kanskje $2$ til $10$ treningstimar. Å bruke modellen *innanfor* dataområdet vert kalla **interpolering**, og det er som regel trygt. Å bruke han *utanfor* vert kalla **ekstrapolering**, og då rører du deg på tynn is: du går ut frå at mønsteret fortset, utan data som støttar det. Jo lenger ut du går, dess meir usikkert vert anslaget – og til slutt vert det meiningslaust, som negativt issal på kalde dagar eller negative løpstider.\n\nEit fornuftig eksempel på interpolering: ein nettbutikk har ei regresjonslinje $y = 6{,}9x + 1{,}1$ for omsetning (i tusen kroner) mot talet på besøkjande (i tusen), basert på data mellom $2\\,000$ og $12\\,000$ besøkjande. Ved $7\\,000$ besøkjande anslår modellen $y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$, altså rundt $49\\,400$ kroner. Det er innanfor dataområdet – eit anslag vi kan stole på.","5cd8fa9f0977e368":"Test deg sjølv på interpolering og ekstrapolering:","dc6bcfe9f719831c":"Når er det trygt å bruke ein regresjonsmodell til å føreseie verdiar?","8bad66cb8cee5bd2":"Innanfor dataområdet (interpolering)","73d7835380a93be2":"Alltid, så lenge R² er høg","532434a39b040ac4":"Berre når alle punkta ligg på linja","61c7d18bb9160900":"Berre utanfor dataområdet","fe08ba8caa17281e":"Innanfor dataområdet (interpolering) gir modellen pålitelege anslag. Utanfor (ekstrapolering) veit vi ikkje om mønsteret fortset – sjølv med høg $R^2$.","fa6578bfd3e5d201":"Modellen $y = -0{,}8x + 16$ gir 3000 m-tid i minutt ut frå $x$ treningstimar. Kva gir modellen for $x = 25$, og kva fortel det?","b8458df8be8cb143":"$y = 12$ – eit rimeleg anslag","ea5dbd99d2172f69":"$y = 4$ – verdas beste tid","bc4532fdd4f58342":"$y = -4$ – eit umogleg svar som viser at ekstrapolering kan gi meiningslause resultat","4b9a111a0c522227":"$y = 36$ – ei svak tid","c310eea64500854c":"$y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Negativ løpstid er umogleg – modellen vert brukt langt utanfor dataområdet, og ekstrapoleringa gir eit meiningslaust svar.","61e8cd4d9a12b5ec":"Regresjonslinja til nettbutikken er $y = 6{,}9x + 1{,}1$ (begge i tusen). Kva anslår modellen ved 7 000 besøkjande?","c2802cb6ee635b81":"Ca. 8 000 kr","467706e1a6b8e8da":"Ca. 49 400 kr","2de813a1d9009f5e":"Ca. 70 000 kr","e609418ba3083e44":"Ca. 484 000 kr","54a9649905890409":"$y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$ tusen kroner, altså ca. $49\\,400$ kr.","dda9f392d78f5eff":"## Kva for ein modell skal du velje?\n\nHittil har vi berre snakka om rette linjer, men ikkje alle samanhengar er lineære. Heldigvis finst det eit enkelt detektivtriks for å velje rett modelltype: sjå på korleis $y$-verdiane endrar seg når $x$ aukar jamt.\n\nViss **differansen** mellom påfølgjande $y$-verdiar er omtrent konstant – for eksempel $10, 20, 30, 40$ – veks dataa like mykje kvar gong, og ein *lineær* modell passar. Viss derimot **forholdet** mellom påfølgjande verdiar er konstant, veks dataa med same prosent kvar gong, og då passar ein *eksponentiell* modell $y = a \\cdot b^x$.\n\nSjå på dette datasettet: når $x$ er $0, 1, 2, 3$, er $y$ høvesvis $5, 15, 45, 135$. Differansane er $10, 30, 90$ – ikkje konstante i det heile teke. Men forholda? $\\frac{15}{5} = 3$, $\\frac{45}{15} = 3$, $\\frac{135}{45} = 3$. Konstant forhold! Her vert verdien tredobla for kvart steg, og den eksponentielle modellen $y = 5 \\cdot 3^x$ passar perfekt. For $x = 4$ gir han $y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$.\n\nEit eksempel frå verkelegheita: eksponentiell regresjon på medlemstalet i ein klubb gav modellen $N(t) = 200 \\cdot 1{,}05^t$, der $t$ er år etter 2020. Startverdien $200$ er medlemstalet i 2020, og vekstfaktoren $1{,}05$ betyr $5\\,\\%$ vekst per år. Hugs til slutt at kvar modell – lineær eller eksponentiell – er ei forenkling av verkelegheita. Spør alltid: er svaret rimeleg?","3d276a3c548e9e40":"Test deg sjølv på val av modell:","8e54c8cc596ccb1c":"Eit datasett har $y$-verdiane 5, 15, 45, 135 for $x = 0, 1, 2, 3$. Kva for ein modelltype passar best?","999ca237b051e055":"Lineær, fordi verdiane aukar","7d4779f0b213dd5f":"Eksponentiell, fordi forholdet mellom påfølgjande verdiar er konstant (3)","33bc4eaabedf2038":"Lineær, fordi differansane er konstante","96cc5755965cd640":"Ingen modell passar","3106b25dee4ca4f8":"$\\frac{15}{5} = \\frac{45}{15} = \\frac{135}{45} = 3$. Konstant forhold er kjenneteiknet på eksponentiell vekst, så $y = 5 \\cdot 3^x$ passar.","2c3224a60bd53c9c":"Kva gir modellen $y = 5 \\cdot 3^x$ for $x = 4$?","f718fc2c6cce18bd":"$y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$.","085465b41585c7d2":"Modellen $N(t) = 200 \\cdot 1{,}05^t$ skildrar medlemstalet i ein klubb ($t$ = år etter 2020). Kor mange prosent veks medlemstalet per år?","62b752da4286f785":"Vekstfaktoren er $1{,}05$, som svarar til ein årleg vekst på $5\\,\\%$. Startverdien $200$ er medlemstalet i 2020.","4a2a1ea883ab9af2":"## Oppsummering\n\nFrå notatboka til iskiosken til ferdig modell: **regresjonsanalyse** finn funksjonen som passar best til eit datasett, ved hjelp av minste kvadraters metode. **Forklaringsgraden** $R^2$ fortel kor godt modellen passar – jo nærare $1$, dess betre, og verdiar over $0{,}9$ vert rekna som svært gode.\n\nMen ein god modell har grenser. **Interpolering** – å bruke modellen innanfor dataområdet – er som regel påliteleg. **Ekstrapolering** – å bruke han utanfor – kan gi meiningslause svar, som negative løpstider og negativt issal. Og når du skal velje modelltype, ser du på mønsteret i dataa: konstant *differanse* mellom verdiane peikar mot ein lineær modell, konstant *forhold* peikar mot ein eksponentiell. Uansett kva for ein modell du endar med, gjeld den same grunnregelen: ein modell er ei forenkling av verkelegheita, så vurder alltid om svaret er rimeleg før du stoler på han."}}}
+{
+  "id": "2p-2-5-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "2.5",
+  "title": "Regresjonsanalyse",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å finne linja som passar best – korleis iskremsal, treningstimar og nettbutikkbesøk kan omsetjast til matematiske modellar.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke digitale verktøy til regresjonsanalyse og vurdere resultatet"
+  ],
+  "linkedChapterId": "2p-2-5",
+  "content": [
+    {
+      "id": "2p-2-5-n-intro",
+      "type": "text",
+      "content": "## Punkta som nesten dannar ei linje\n\nTenk deg at du jobbar i ein iskiosk i sommarferien. Kvar dag noterer du temperaturen og kor mange is du sel. Etter nokre veker plottar du tala i eit koordinatsystem – og ser noko interessant: punkta ligg ikkje perfekt på ei linje, men dei *antydar* ei. Varmare dag, fleire selde is. Kan du bruke dette til å føreseie salet i morgon, når meldinga seier 20 grader?\n\nDet er akkurat dette **regresjonsanalyse** handlar om: å finne den matematiske funksjonen som passar best til eit datasett, og deretter bruke han til å seie noko om verdiar vi ikkje har målt. I denne forteljinga lærer du korleis datamaskina finn den beste linja, korleis du vurderer om modellen er god, og – kanskje viktigast – når du *ikkje* bør stole på han."
+    },
+    {
+      "id": "2p-2-5-n-section1",
+      "type": "text",
+      "content": "## Den beste linja og talet som måler han\n\nNår du bed GeoGebra eller eit rekneark om **lineær regresjon**, leitar verktøyet etter linja $y = ax + b$ som ligg så tett på alle datapunkta som mogleg. Metoden bak vert kalla **minste kvadraters metode**: for kvar mogleg linje vert avstanden frå kvart punkt til linja målt, avstandane vert kvadrerte og summerte – og linja med minst sum vinn. Du slepp å rekne dette for hand; poenget er å forstå kva verktøyet gjer.\n\nFor iskiosken kan resultatet verte noko slikt som $y = 2{,}5x - 18$, der $x$ er temperaturen og $y$ er talet på selde is. No kan du svare på spørsmålet frå i stad: ved $20$ grader anslår modellen $y = 2{,}5 \\cdot 20 - 18 = 32$ is. Stigingstalet $2{,}5$ har òg ei konkret tolking: for kvar grad varmare sel du i snitt $2{,}5$ fleire is.\n\nMen kor god er eigentleg modellen? Det vert målt med **forklaringsgraden** $R^2$, eit tal mellom $0$ og $1$. Er $R^2 = 1$, ligg alle punkta perfekt på linja. Er $R^2 = 0{,}92$, seier vi at modellen forklarar $92\\,\\%$ av variasjonen i dataa – ei svært god tilpassing. Som tommelfingerregel: over $0{,}9$ er svært godt, under $0{,}5$ er svakt. Merk at $R^2 = 0{,}92$ *ikkje* betyr at modellen er «92 % rett» eller at 92 % av punkta ligg på linja – det er delen av variasjonen som vert forklart."
+    },
+    {
+      "id": "2p-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på regresjon og forklaringsgrad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-2-5-n-quiz1-q0",
+            "task": "Regresjonslinja for issalet er $y = 2{,}5x - 18$. Kor mange is anslår modellen ved 20 °C?",
+            "options": [
+              {
+                "id": "a",
+                "text": "50 is",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "68 is",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "25 is",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "32 is",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$y = 2{,}5 \\cdot 20 - 18 = 50 - 18 = 32$ is."
+          },
+          {
+            "id": "2p-2-5-n-quiz1-q1",
+            "task": "Kva betyr $R^2 = 0{,}92$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellen er 92 % rett",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "92 % av punkta ligg på linja",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Modellen forklarar 92 % av variasjonen i dataa",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Stigingstalet er 0,92",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2$ (forklaringsgraden) angir kor stor del av variasjonen i dataa modellen forklarar. $0{,}92$ betyr 92 % – ei svært god tilpassing."
+          },
+          {
+            "id": "2p-2-5-n-quiz1-q2",
+            "task": "Modell 1 har $R^2 = 0{,}98$ og modell 2 har $R^2 = 0{,}65$. Kva kan vi konkludere?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Modell 1 passar best til dataa sine, sidan 0,98 er nærast 1",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Modell 2 passar best fordi han er enklast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Begge modellane er like gode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen av modellane kan brukast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Jo nærare $R^2$ er $1$, dess betre tilpassing. $0{,}98$ viser ei mykje betre tilpassing enn $0{,}65$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-2-5-n-section2",
+      "type": "text",
+      "content": "## Innanfor og utanfor – interpolering og ekstrapolering\n\nNo har du ein modell med høg $R^2$. Betyr det at du kan bruke han til kva som helst? Absolutt ikkje – og her kjem den viktigaste åtvaringa i kapittelet.\n\nEin treningsmodell seier at tida på 3000-meteren avheng av vekentlege treningstimar: $y = -0{,}8x + 16$, der $y$ er tida i minutt. For $x = 5$ treningstimar gir modellen $y = -0{,}8 \\cdot 5 + 16 = 12$ minutt – rimeleg nok. Men kva med ein som trenar $25$ timar i veka? Modellen seier $y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Minus fire minutt! Ingen spring 3000 meter på negativ tid – modellen har brote saman.\n\nProblemet er at modellen vart laga med data frå eit avgrensa område, kanskje $2$ til $10$ treningstimar. Å bruke modellen *innanfor* dataområdet vert kalla **interpolering**, og det er som regel trygt. Å bruke han *utanfor* vert kalla **ekstrapolering**, og då rører du deg på tynn is: du går ut frå at mønsteret fortset, utan data som støttar det. Jo lenger ut du går, dess meir usikkert vert anslaget – og til slutt vert det meiningslaust, som negativt issal på kalde dagar eller negative løpstider.\n\nEit fornuftig eksempel på interpolering: ein nettbutikk har ei regresjonslinje $y = 6{,}9x + 1{,}1$ for omsetning (i tusen kroner) mot talet på besøkjande (i tusen), basert på data mellom $2\\,000$ og $12\\,000$ besøkjande. Ved $7\\,000$ besøkjande anslår modellen $y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$, altså rundt $49\\,400$ kroner. Det er innanfor dataområdet – eit anslag vi kan stole på."
+    },
+    {
+      "id": "2p-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på interpolering og ekstrapolering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-2-5-n-quiz2-q0",
+            "task": "Når er det trygt å bruke ein regresjonsmodell til å føreseie verdiar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alltid, så lenge R² er høg",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Innanfor dataområdet (interpolering)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Berre når alle punkta ligg på linja",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre utanfor dataområdet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Innanfor dataområdet (interpolering) gir modellen pålitelege anslag. Utanfor (ekstrapolering) veit vi ikkje om mønsteret fortset – sjølv med høg $R^2$."
+          },
+          {
+            "id": "2p-2-5-n-quiz2-q1",
+            "task": "Modellen $y = -0{,}8x + 16$ gir 3000 m-tid i minutt ut frå $x$ treningstimar. Kva gir modellen for $x = 25$, og kva fortel det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = 12$ – eit rimeleg anslag",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = 4$ – verdas beste tid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = 36$ – ei svak tid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = -4$ – eit umogleg svar som viser at ekstrapolering kan gi meiningslause resultat",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Negativ løpstid er umogleg – modellen vert brukt langt utanfor dataområdet, og ekstrapoleringa gir eit meiningslaust svar."
+          },
+          {
+            "id": "2p-2-5-n-quiz2-q2",
+            "task": "Regresjonslinja til nettbutikken er $y = 6{,}9x + 1{,}1$ (begge i tusen). Kva anslår modellen ved 7 000 besøkjande?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 49 400 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. 8 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 70 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 484 000 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$ tusen kroner, altså ca. $49\\,400$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-2-5-n-section3",
+      "type": "text",
+      "content": "## Kva for ein modell skal du velje?\n\nHittil har vi berre snakka om rette linjer, men ikkje alle samanhengar er lineære. Heldigvis finst det eit enkelt detektivtriks for å velje rett modelltype: sjå på korleis $y$-verdiane endrar seg når $x$ aukar jamt.\n\nViss **differansen** mellom påfølgjande $y$-verdiar er omtrent konstant – for eksempel $10, 20, 30, 40$ – veks dataa like mykje kvar gong, og ein *lineær* modell passar. Viss derimot **forholdet** mellom påfølgjande verdiar er konstant, veks dataa med same prosent kvar gong, og då passar ein *eksponentiell* modell $y = a \\cdot b^x$.\n\nSjå på dette datasettet: når $x$ er $0, 1, 2, 3$, er $y$ høvesvis $5, 15, 45, 135$. Differansane er $10, 30, 90$ – ikkje konstante i det heile teke. Men forholda? $\\frac{15}{5} = 3$, $\\frac{45}{15} = 3$, $\\frac{135}{45} = 3$. Konstant forhold! Her vert verdien tredobla for kvart steg, og den eksponentielle modellen $y = 5 \\cdot 3^x$ passar perfekt. For $x = 4$ gir han $y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$.\n\nEit eksempel frå verkelegheita: eksponentiell regresjon på medlemstalet i ein klubb gav modellen $N(t) = 200 \\cdot 1{,}05^t$, der $t$ er år etter 2020. Startverdien $200$ er medlemstalet i 2020, og vekstfaktoren $1{,}05$ betyr $5\\,\\%$ vekst per år. Hugs til slutt at kvar modell – lineær eller eksponentiell – er ei forenkling av verkelegheita. Spør alltid: er svaret rimeleg?"
+    },
+    {
+      "id": "2p-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på val av modell:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-2-5-n-quiz3-q0",
+            "task": "Eit datasett har $y$-verdiane 5, 15, 45, 135 for $x = 0, 1, 2, 3$. Kva for ein modelltype passar best?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lineær, fordi verdiane aukar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell, fordi forholdet mellom påfølgjande verdiar er konstant (3)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Lineær, fordi differansane er konstante",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen modell passar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{15}{5} = \\frac{45}{15} = \\frac{135}{45} = 3$. Konstant forhold er kjenneteiknet på eksponentiell vekst, så $y = 5 \\cdot 3^x$ passar."
+          },
+          {
+            "id": "2p-2-5-n-quiz3-q1",
+            "task": "Kva gir modellen $y = 5 \\cdot 3^x$ for $x = 4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$60$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$243$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$405$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$135$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$."
+          },
+          {
+            "id": "2p-2-5-n-quiz3-q2",
+            "task": "Modellen $N(t) = 200 \\cdot 1{,}05^t$ skildrar medlemstalet i ein klubb ($t$ = år etter 2020). Kor mange prosent veks medlemstalet per år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1,05 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "5 %",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "105 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "200 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktoren er $1{,}05$, som svarar til ein årleg vekst på $5\\,\\%$. Startverdien $200$ er medlemstalet i 2020."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-2-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFrå notatboka til iskiosken til ferdig modell: **regresjonsanalyse** finn funksjonen som passar best til eit datasett, ved hjelp av minste kvadraters metode. **Forklaringsgraden** $R^2$ fortel kor godt modellen passar – jo nærare $1$, dess betre, og verdiar over $0{,}9$ vert rekna som svært gode.\n\nMen ein god modell har grenser. **Interpolering** – å bruke modellen innanfor dataområdet – er som regel påliteleg. **Ekstrapolering** – å bruke han utanfor – kan gi meiningslause svar, som negative løpstider og negativt issal. Og når du skal velje modelltype, ser du på mønsteret i dataa: konstant *differanse* mellom verdiane peikar mot ein lineær modell, konstant *forhold* peikar mot ein eksponentiell. Uansett kva for ein modell du endar med, gjeld den same grunnregelen: ein modell er ei forenkling av verkelegheita, så vurder alltid om svaret er rimeleg før du stoler på han."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "67727db676123d04",
+    "translatedAt": "2026-06-17T00:06:01.272Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "7742efe059860c21": "Regresjonsanalyse",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "5e1721d935c0798a": "Ei forteljing om å finne linja som passar best – korleis iskremsal, treningstimar og nettbutikkbesøk kan omsetjast til matematiske modellar.",
+      "e307acf837d11a86": "bruke digitale verktøy til regresjonsanalyse og vurdere resultatet",
+      "76dc354cca384125": "## Punkta som nesten dannar ei linje\n\nTenk deg at du jobbar i ein iskiosk i sommarferien. Kvar dag noterer du temperaturen og kor mange is du sel. Etter nokre veker plottar du tala i eit koordinatsystem – og ser noko interessant: punkta ligg ikkje perfekt på ei linje, men dei *antydar* ei. Varmare dag, fleire selde is. Kan du bruke dette til å føreseie salet i morgon, når meldinga seier 20 grader?\n\nDet er akkurat dette **regresjonsanalyse** handlar om: å finne den matematiske funksjonen som passar best til eit datasett, og deretter bruke han til å seie noko om verdiar vi ikkje har målt. I denne forteljinga lærer du korleis datamaskina finn den beste linja, korleis du vurderer om modellen er god, og – kanskje viktigast – når du *ikkje* bør stole på han.",
+      "af351a604027b4e5": "## Den beste linja og talet som måler han\n\nNår du bed GeoGebra eller eit rekneark om **lineær regresjon**, leitar verktøyet etter linja $y = ax + b$ som ligg så tett på alle datapunkta som mogleg. Metoden bak vert kalla **minste kvadraters metode**: for kvar mogleg linje vert avstanden frå kvart punkt til linja målt, avstandane vert kvadrerte og summerte – og linja med minst sum vinn. Du slepp å rekne dette for hand; poenget er å forstå kva verktøyet gjer.\n\nFor iskiosken kan resultatet verte noko slikt som $y = 2{,}5x - 18$, der $x$ er temperaturen og $y$ er talet på selde is. No kan du svare på spørsmålet frå i stad: ved $20$ grader anslår modellen $y = 2{,}5 \\cdot 20 - 18 = 32$ is. Stigingstalet $2{,}5$ har òg ei konkret tolking: for kvar grad varmare sel du i snitt $2{,}5$ fleire is.\n\nMen kor god er eigentleg modellen? Det vert målt med **forklaringsgraden** $R^2$, eit tal mellom $0$ og $1$. Er $R^2 = 1$, ligg alle punkta perfekt på linja. Er $R^2 = 0{,}92$, seier vi at modellen forklarar $92\\,\\%$ av variasjonen i dataa – ei svært god tilpassing. Som tommelfingerregel: over $0{,}9$ er svært godt, under $0{,}5$ er svakt. Merk at $R^2 = 0{,}92$ *ikkje* betyr at modellen er «92 % rett» eller at 92 % av punkta ligg på linja – det er delen av variasjonen som vert forklart.",
+      "f709e9557aa92adb": "Test deg sjølv på regresjon og forklaringsgrad:",
+      "4097889236a2af26": "placeholder",
+      "a5bfa89fa34411bc": "Regresjonslinja for issalet er $y = 2{,}5x - 18$. Kor mange is anslår modellen ved 20 °C?",
+      "71c0c71a90906ff8": "50 is",
+      "7b7751d1c66f3efb": "32 is",
+      "ac9773703054de8b": "68 is",
+      "d10e7f1d299e5ad9": "25 is",
+      "f233f7e7333f8033": "$y = 2{,}5 \\cdot 20 - 18 = 50 - 18 = 32$ is.",
+      "557952257ae0c75c": "Kva betyr $R^2 = 0{,}92$?",
+      "5b734e0cae6aeeeb": "Modellen er 92 % rett",
+      "54e14f67078c1e64": "92 % av punkta ligg på linja",
+      "49bb01398f4245e3": "Modellen forklarar 92 % av variasjonen i dataa",
+      "98e45f7172e0be3b": "Stigingstalet er 0,92",
+      "a7d34b37d3634ea5": "$R^2$ (forklaringsgraden) angir kor stor del av variasjonen i dataa modellen forklarar. $0{,}92$ betyr 92 % – ei svært god tilpassing.",
+      "50ed23fb006895a0": "Modell 1 har $R^2 = 0{,}98$ og modell 2 har $R^2 = 0{,}65$. Kva kan vi konkludere?",
+      "03157a3f2ab6868d": "Modell 2 passar best fordi han er enklast",
+      "beeef63a6d248dc9": "Begge modellane er like gode",
+      "a6c75ca32da6c4cb": "Ingen av modellane kan brukast",
+      "79c40554cee70b07": "Modell 1 passar best til dataa sine, sidan 0,98 er nærast 1",
+      "940619ecd5905d2c": "Jo nærare $R^2$ er $1$, dess betre tilpassing. $0{,}98$ viser ei mykje betre tilpassing enn $0{,}65$.",
+      "b38097a889a426f3": "## Innanfor og utanfor – interpolering og ekstrapolering\n\nNo har du ein modell med høg $R^2$. Betyr det at du kan bruke han til kva som helst? Absolutt ikkje – og her kjem den viktigaste åtvaringa i kapittelet.\n\nEin treningsmodell seier at tida på 3000-meteren avheng av vekentlege treningstimar: $y = -0{,}8x + 16$, der $y$ er tida i minutt. For $x = 5$ treningstimar gir modellen $y = -0{,}8 \\cdot 5 + 16 = 12$ minutt – rimeleg nok. Men kva med ein som trenar $25$ timar i veka? Modellen seier $y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Minus fire minutt! Ingen spring 3000 meter på negativ tid – modellen har brote saman.\n\nProblemet er at modellen vart laga med data frå eit avgrensa område, kanskje $2$ til $10$ treningstimar. Å bruke modellen *innanfor* dataområdet vert kalla **interpolering**, og det er som regel trygt. Å bruke han *utanfor* vert kalla **ekstrapolering**, og då rører du deg på tynn is: du går ut frå at mønsteret fortset, utan data som støttar det. Jo lenger ut du går, dess meir usikkert vert anslaget – og til slutt vert det meiningslaust, som negativt issal på kalde dagar eller negative løpstider.\n\nEit fornuftig eksempel på interpolering: ein nettbutikk har ei regresjonslinje $y = 6{,}9x + 1{,}1$ for omsetning (i tusen kroner) mot talet på besøkjande (i tusen), basert på data mellom $2\\,000$ og $12\\,000$ besøkjande. Ved $7\\,000$ besøkjande anslår modellen $y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$, altså rundt $49\\,400$ kroner. Det er innanfor dataområdet – eit anslag vi kan stole på.",
+      "5cd8fa9f0977e368": "Test deg sjølv på interpolering og ekstrapolering:",
+      "dc6bcfe9f719831c": "Når er det trygt å bruke ein regresjonsmodell til å føreseie verdiar?",
+      "8bad66cb8cee5bd2": "Innanfor dataområdet (interpolering)",
+      "73d7835380a93be2": "Alltid, så lenge R² er høg",
+      "532434a39b040ac4": "Berre når alle punkta ligg på linja",
+      "61c7d18bb9160900": "Berre utanfor dataområdet",
+      "fe08ba8caa17281e": "Innanfor dataområdet (interpolering) gir modellen pålitelege anslag. Utanfor (ekstrapolering) veit vi ikkje om mønsteret fortset – sjølv med høg $R^2$.",
+      "fa6578bfd3e5d201": "Modellen $y = -0{,}8x + 16$ gir 3000 m-tid i minutt ut frå $x$ treningstimar. Kva gir modellen for $x = 25$, og kva fortel det?",
+      "b8458df8be8cb143": "$y = 12$ – eit rimeleg anslag",
+      "ea5dbd99d2172f69": "$y = 4$ – verdas beste tid",
+      "bc4532fdd4f58342": "$y = -4$ – eit umogleg svar som viser at ekstrapolering kan gi meiningslause resultat",
+      "4b9a111a0c522227": "$y = 36$ – ei svak tid",
+      "c310eea64500854c": "$y = -0{,}8 \\cdot 25 + 16 = -4$ minutt. Negativ løpstid er umogleg – modellen vert brukt langt utanfor dataområdet, og ekstrapoleringa gir eit meiningslaust svar.",
+      "61e8cd4d9a12b5ec": "Regresjonslinja til nettbutikken er $y = 6{,}9x + 1{,}1$ (begge i tusen). Kva anslår modellen ved 7 000 besøkjande?",
+      "c2802cb6ee635b81": "Ca. 8 000 kr",
+      "467706e1a6b8e8da": "Ca. 49 400 kr",
+      "2de813a1d9009f5e": "Ca. 70 000 kr",
+      "e609418ba3083e44": "Ca. 484 000 kr",
+      "54a9649905890409": "$y = 6{,}9 \\cdot 7 + 1{,}1 = 49{,}4$ tusen kroner, altså ca. $49\\,400$ kr.",
+      "dda9f392d78f5eff": "## Kva for ein modell skal du velje?\n\nHittil har vi berre snakka om rette linjer, men ikkje alle samanhengar er lineære. Heldigvis finst det eit enkelt detektivtriks for å velje rett modelltype: sjå på korleis $y$-verdiane endrar seg når $x$ aukar jamt.\n\nViss **differansen** mellom påfølgjande $y$-verdiar er omtrent konstant – for eksempel $10, 20, 30, 40$ – veks dataa like mykje kvar gong, og ein *lineær* modell passar. Viss derimot **forholdet** mellom påfølgjande verdiar er konstant, veks dataa med same prosent kvar gong, og då passar ein *eksponentiell* modell $y = a \\cdot b^x$.\n\nSjå på dette datasettet: når $x$ er $0, 1, 2, 3$, er $y$ høvesvis $5, 15, 45, 135$. Differansane er $10, 30, 90$ – ikkje konstante i det heile teke. Men forholda? $\\frac{15}{5} = 3$, $\\frac{45}{15} = 3$, $\\frac{135}{45} = 3$. Konstant forhold! Her vert verdien tredobla for kvart steg, og den eksponentielle modellen $y = 5 \\cdot 3^x$ passar perfekt. For $x = 4$ gir han $y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$.\n\nEit eksempel frå verkelegheita: eksponentiell regresjon på medlemstalet i ein klubb gav modellen $N(t) = 200 \\cdot 1{,}05^t$, der $t$ er år etter 2020. Startverdien $200$ er medlemstalet i 2020, og vekstfaktoren $1{,}05$ betyr $5\\,\\%$ vekst per år. Hugs til slutt at kvar modell – lineær eller eksponentiell – er ei forenkling av verkelegheita. Spør alltid: er svaret rimeleg?",
+      "3d276a3c548e9e40": "Test deg sjølv på val av modell:",
+      "8e54c8cc596ccb1c": "Eit datasett har $y$-verdiane 5, 15, 45, 135 for $x = 0, 1, 2, 3$. Kva for ein modelltype passar best?",
+      "999ca237b051e055": "Lineær, fordi verdiane aukar",
+      "7d4779f0b213dd5f": "Eksponentiell, fordi forholdet mellom påfølgjande verdiar er konstant (3)",
+      "33bc4eaabedf2038": "Lineær, fordi differansane er konstante",
+      "96cc5755965cd640": "Ingen modell passar",
+      "3106b25dee4ca4f8": "$\\frac{15}{5} = \\frac{45}{15} = \\frac{135}{45} = 3$. Konstant forhold er kjenneteiknet på eksponentiell vekst, så $y = 5 \\cdot 3^x$ passar.",
+      "2c3224a60bd53c9c": "Kva gir modellen $y = 5 \\cdot 3^x$ for $x = 4$?",
+      "f718fc2c6cce18bd": "$y = 5 \\cdot 3^4 = 5 \\cdot 81 = 405$.",
+      "085465b41585c7d2": "Modellen $N(t) = 200 \\cdot 1{,}05^t$ skildrar medlemstalet i ein klubb ($t$ = år etter 2020). Kor mange prosent veks medlemstalet per år?",
+      "62b752da4286f785": "Vekstfaktoren er $1{,}05$, som svarar til ein årleg vekst på $5\\,\\%$. Startverdien $200$ er medlemstalet i 2020.",
+      "4a2a1ea883ab9af2": "## Oppsummering\n\nFrå notatboka til iskiosken til ferdig modell: **regresjonsanalyse** finn funksjonen som passar best til eit datasett, ved hjelp av minste kvadraters metode. **Forklaringsgraden** $R^2$ fortel kor godt modellen passar – jo nærare $1$, dess betre, og verdiar over $0{,}9$ vert rekna som svært gode.\n\nMen ein god modell har grenser. **Interpolering** – å bruke modellen innanfor dataområdet – er som regel påliteleg. **Ekstrapolering** – å bruke han utanfor – kan gi meiningslause svar, som negative løpstider og negativt issal. Og når du skal velje modelltype, ser du på mønsteret i dataa: konstant *differanse* mellom verdiane peikar mot ein lineær modell, konstant *forhold* peikar mot ein eksponentiell. Uansett kva for ein modell du endar med, gjeld den same grunnregelen: ein modell er ei forenkling av verkelegheita, så vurder alltid om svaret er rimeleg før du stoler på han."
+    }
+  }
+}

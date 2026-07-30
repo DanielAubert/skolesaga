@@ -1,1 +1,425 @@
-{"id":"r1-1-5-narrativ","courseId":"r1","chapterNumber":"1.5","title":"Ulikheter og absoluttverdier","subtitle":"Narrativ versjon","description":"En fortelling om toleranser og intervaller -- hvorfor ingeniører tenker i ulikheter, hvordan fortegnslinjen løser kvadratiske ulikheter, og hva absoluttverdien egentlig måler.","estimatedMinutes":35,"competenceGoals":["løse lineære ulikheter og angi løsningen med intervallnotasjon","løse kvadratiske ulikheter ved hjelp av fortegnslinje","forstå definisjonen av absoluttverdi og løse likninger og ulikheter med absoluttverdi","bruke intervallnotasjon og mengdenotasjon"],"linkedChapterId":"r1-1-5","content":[{"id":"r1-1-5-n-intro","type":"text","content":"## Verden er ikke eksakt -- den er innenfor toleranse\n\nPå en fabrikk som lager kulelagre, er ingen kule *nøyaktig* $10{,}000$ mm i diameter. Kravet i tegningen lyder i stedet: diameteren skal avvike fra $10$ mm med mindre enn $0{,}05$ mm. Matematisk er det en ulikhet med absoluttverdi:\n\n$$|d - 10| < 0{,}05$$\n\nAvstanden fra $d$ til $10$ skal være under $0{,}05$. Slik tenker ingeniører, kjemikere og programmerere hele tiden: medisindoser skal ligge i et trygt intervall, en rakettbane innenfor en korridor, en numerisk feil under en toleranse. Mens likninger handler om *eksakte* treff, handler ulikheter om *områder* -- og svarene er ikke enkeltpunkter, men intervaller.\n\nI dette kapittelet bygger vi opp verktøykassen i tre etapper. Først **lineære ulikheter** og språket for å beskrive svarene: intervallnotasjon, med runde og firkantede parenteser som forteller om endepunktene er med eller ikke. Underveis møter du regelen alle snubler i minst én gang: ganger eller deler du med et negativt tall, *snur* ulikhetstegnet.\n\nDeretter **kvadratiske og rasjonale ulikheter**, der løsningen krever et genialt lite diagram: fortegnslinjen, som viser hvor hvert uttrykk er positivt og negativt. Og til slutt **absoluttverdien** -- avstandsmåleren som gjorde kulelager-kravet så kompakt -- med sine egne likninger og ulikheter. La oss starte der alt er kjent: med det lineære."},{"id":"r1-1-5-n-section1","type":"text","content":"## Lineære ulikheter og intervallenes språk\n\nEn ulikhet løses nesten som en likning: du kan legge til og trekke fra det samme på begge sider, og du kan gange og dele med positive tall. Men **ganger eller deler du med et negativt tall, snur ulikhetstegnet**. Hvorfor? Tenk på $2 < 5$. Gang begge sider med $-1$: $-2$ og $-5$. På tallinja ligger $-5$ til *venstre* for $-2$, så nå er $-5 < -2$ -- rekkefølgen er speilvendt.\n\nSe det i praksis. Ulikheten $3x - 7 < 2x + 5$ gir $x < 12$ uten dramatikk. Men $-2x + 3 \\geq 7$ gir $-2x \\geq 4$, og når vi deler med $-2$, snur tegnet: $x \\leq -2$.\n\nSvarene skriver vi med **intervallnotasjon**. Rund parentes betyr at endepunktet *ikke* er med, hakeparentes at det *er* med: $(a, b)$ er alle $x$ med $a < x < b$, mens $[a, b]$ tar med endepunktene. Blandinger som $[a, b)$ er lov, og mot uendelig bruker vi alltid rund parentes -- $\\infty$ er ikke et tall man kan «nå». Løsningene ovenfor blir dermed $(-\\infty, 12)$ og $(-\\infty, -2]$.\n\n**Doble ulikheter** klemmer $x$ fra begge kanter og løses ved å gjøre samme operasjon på alle tre deler. Fra $-1 \\leq 2x - 3 < 5$ legger vi til $3$ over hele linja: $2 \\leq 2x < 8$, og deler på $2$: $1 \\leq x < 4$. Svaret er det halvåpne intervallet $[1, 4)$ -- venstre endepunkt med, høyre ikke. Legg merke til hvordan notasjonen bærer presis informasjon: én parentesform skiller «minst 1» fra «mer enn 1»."},{"id":"r1-1-5-n-quiz1","type":"exercise","exercise":{"id":"r1-1-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på lineære ulikheter og intervallnotasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-5-n-quiz1-q0","task":"Løs ulikheten $3x - 7 < 2x + 5$.","options":[{"id":"a","text":"$x < 2$","isCorrect":false},{"id":"b","text":"$x > 12$","isCorrect":false},{"id":"c","text":"$x < 12$","isCorrect":true},{"id":"d","text":"$x \\leq 12$","isCorrect":false}],"solution":"Trekk $2x$ fra begge sider og legg til $7$: $x < 12$, altså $(-\\infty, 12)$."},{"id":"r1-1-5-n-quiz1-q1","task":"Løs ulikheten $-2x + 3 \\geq 7$.","options":[{"id":"a","text":"$x \\geq -2$","isCorrect":false},{"id":"b","text":"$x \\leq -2$","isCorrect":true},{"id":"c","text":"$x \\geq 2$","isCorrect":false},{"id":"d","text":"$x \\leq 2$","isCorrect":false}],"solution":"$-2x \\geq 4$. Divisjon med $-2$ snur tegnet: $x \\leq -2$."},{"id":"r1-1-5-n-quiz1-q2","task":"Løs den doble ulikheten $-1 \\leq 2x - 3 < 5$.","options":[{"id":"a","text":"$x \\in [1, 4)$","isCorrect":true},{"id":"b","text":"$x \\in (1, 4]$","isCorrect":false},{"id":"c","text":"$x \\in [-2, 1)$","isCorrect":false},{"id":"d","text":"$x \\in (1, 4)$","isCorrect":false}],"solution":"Legg til $3$: $2 \\leq 2x < 8$. Del på $2$: $1 \\leq x < 4$, altså $[1, 4)$."},{"id":"r1-1-5-n-quiz1-q3","task":"Hvordan skrives mengden $\\{x \\mid x > a\\}$ med intervallnotasjon?","options":[{"id":"a","text":"$[a, \\infty)$","isCorrect":false},{"id":"b","text":"$(\\infty, a)$","isCorrect":false},{"id":"c","text":"$[a, \\infty]$","isCorrect":false},{"id":"d","text":"$(a, \\infty)$","isCorrect":true}],"solution":"Streng ulikhet gir rund parentes ved $a$, og mot $\\infty$ bruker vi alltid rund parentes: $(a, \\infty)$."}]}},{"id":"r1-1-5-n-section2","type":"text","content":"## Fortegnslinjen -- kart over pluss og minus\n\nHva med $x^2 - x - 6 > 0$? Å «ta kvadratrot på begge sider» fører galt av sted. Nøkkelinnsikten er en annen: et faktorisert uttrykk kan bare skifte fortegn i nullpunktene sine. Mellom nullpunktene er fortegnet konstant. Så vi faktoriserer, finner nullpunktene, og tegner et kart -- **fortegnslinjen**.\n\nHer: $x^2 - x - 6 = (x-3)(x+2)$, med nullpunkter $x = -2$ og $x = 3$. De deler tallinja i tre soner. For $x < -2$ er begge faktorene negative, og produktet positivt. Mellom $-2$ og $3$ er $(x+2)$ positiv men $(x-3)$ negativ -- produktet negativt. For $x > 3$ er begge positive. Vi ville ha produktet *positivt*, så svaret er\n\n$$x \\in (-\\infty, -2) \\cup (3, \\infty)$$\n\nTo adskilte intervaller, limt sammen med unionstegnet. Endepunktene er ikke med, siden ulikheten var streng.\n\nSamme metode tar **rasjonale ulikheter** som $\\frac{x-1}{x+3} \\geq 0$ -- en brøk skifter jo også bare fortegn der teller eller nevner er null. Kritiske punkter: $x = 1$ (teller) og $x = -3$ (nevner). Fortegnslinjen gir positivt utenfor og negativt mellom, så løsningen er $(-\\infty, -3) \\cup [1, \\infty)$. Legg nøye merke til parentesene: $x = 1$ er med (brøken er null, og «$\\geq$» tillater null), men $x = -3$ er *aldri* med -- der er brøken udefinert.\n\nOg en advarsel med rød skrift: **gang aldri en ulikhet med et uttrykk som kan være negativt**, slik som nevneren $(x+3)$. Du vet ikke om tegnet skal snus eller ikke, for det avhenger av $x$. Fortegnslinjen omgår hele problemet -- den spør bare hvor ting er positivt og negativt, og den svarer alltid riktig."},{"id":"r1-1-5-n-quiz2","type":"exercise","exercise":{"id":"r1-1-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kvadratiske og rasjonale ulikheter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-5-n-quiz2-q0","task":"Løs ulikheten $x^2 - x - 6 > 0$.","options":[{"id":"a","text":"$x \\in (-2, 3)$","isCorrect":false},{"id":"b","text":"$x \\in (-\\infty, -2) \\cup (3, \\infty)$","isCorrect":true},{"id":"c","text":"$x \\in (-\\infty, -3) \\cup (2, \\infty)$","isCorrect":false},{"id":"d","text":"$x \\in (-3, 2)$","isCorrect":false}],"solution":"Faktoriser: $(x-3)(x+2) > 0$. Fortegnslinjen viser at produktet er positivt når begge faktorer har samme fortegn: $x < -2$ eller $x > 3$."},{"id":"r1-1-5-n-quiz2-q1","task":"Hvorfor bør du IKKE gange begge sider av $\\frac{x-1}{x+3} \\geq 0$ med $(x+3)$?","options":[{"id":"a","text":"Fordi $(x+3)$ kan være negativt, og da må tegnet snus -- men vi vet ikke for hvilke $x$","isCorrect":true},{"id":"b","text":"Fordi det gir en tredjegradsulikhet","isCorrect":false},{"id":"c","text":"Fordi $(x+3)$ alltid er negativt","isCorrect":false},{"id":"d","text":"Fordi brøker ikke kan ganges","isCorrect":false}],"solution":"Fortegnet til $(x+3)$ avhenger av $x$. Ganger vi med et uttrykk med ukjent fortegn, vet vi ikke om ulikhetstegnet skal snus. Bruk fortegnslinje i stedet."},{"id":"r1-1-5-n-quiz2-q2","task":"Hva er løsningen av $\\frac{x-1}{x+3} \\geq 0$?","options":[{"id":"a","text":"$(-\\infty, -3] \\cup [1, \\infty)$","isCorrect":false},{"id":"b","text":"$[-3, 1]$","isCorrect":false},{"id":"c","text":"$(-3, 1)$","isCorrect":false},{"id":"d","text":"$(-\\infty, -3) \\cup [1, \\infty)$","isCorrect":true}],"solution":"Kritiske punkter: $x = 1$ (teller null, tas med pga. $\\geq$) og $x = -3$ (nevner null, tas aldri med). Fortegnslinjen gir positivt utenfor punktene."},{"id":"r1-1-5-n-quiz2-q3","task":"Løs ulikheten $x^2 \\leq 4$.","options":[{"id":"a","text":"$x \\leq 2$","isCorrect":false},{"id":"b","text":"$x \\leq -2$ eller $x \\geq 2$","isCorrect":false},{"id":"c","text":"$x \\in [-2, 2]$","isCorrect":true},{"id":"d","text":"$x \\in (-2, 2)$","isCorrect":false}],"solution":"$x^2 - 4 \\leq 0$ gir $(x-2)(x+2) \\leq 0$, som er oppfylt mellom nullpunktene: $-2 \\leq x \\leq 2$. Endepunktene er med."}]}},{"id":"r1-1-5-n-section3","type":"text","content":"## Absoluttverdien -- matematikkens avstandsmåler\n\nTilbake til kulelageret: $|d - 10| < 0{,}05$. Nå har vi verktøyene til å forstå og løse slike krav. **Absoluttverdien** er definert stykkevis:\n\n$$|a| = \\begin{cases} a & \\text{hvis } a \\geq 0 \\\\ -a & \\text{hvis } a < 0 \\end{cases}$$\n\nmen den geometriske tolkningen er den du bør tenke med: $|a|$ er *avstanden* fra $a$ til null, og $|a - b|$ er avstanden mellom $a$ og $b$. Avstander er aldri negative, og $|-a| = |a|$. Absoluttverdien oppfører seg pent med produkt og kvotient, $|ab| = |a||b|$, og for summer gjelder **trekantulikheten** $|a+b| \\leq |a| + |b|$ -- en omvei er aldri kortere enn den rette veien.\n\n**Likninger** med absoluttverdi har typisk to løsninger, for to tall har samme avstand til null. $|2x-3| = 7$ betyr at $2x - 3$ er enten $7$ eller $-7$, som gir $x = 5$ eller $x = -2$.\n\n**Ulikheter** med absoluttverdi deler seg i to mønstre, og begge blir åpenbare med avstandsbildet. *Innenfor*: $|f(x)| < c$ betyr at $f(x)$ ligger mellom $-c$ og $c$, altså $-c < f(x) < c$ -- en dobbel ulikhet. *Utenfor*: $|f(x)| > c$ betyr at $f(x)$ ligger lenger ute enn $c$ på en av sidene: $f(x) < -c$ eller $f(x) > c$ -- to adskilte intervaller.\n\nEksempel på hver: $|x - 2| < 5$ sier at $x$ er nærmere $2$ enn $5$ enheter, altså $-3 < x < 7$, svaret er $(-3, 7)$. Og $|2x+1| \\geq 3$ gir $2x + 1 \\leq -3$ eller $2x + 1 \\geq 3$, altså $x \\leq -2$ eller $x \\geq 1$: svaret er $(-\\infty, -2] \\cup [1, \\infty)$. Kulelager-kravet? $|d - 10| < 0{,}05$ betyr $d \\in (9{,}95,\\; 10{,}05)$ -- toleranseintervallet, sort på hvitt."},{"id":"r1-1-5-n-quiz3","type":"exercise","exercise":{"id":"r1-1-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på absoluttverdi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-5-n-quiz3-q0","task":"Løs likningen $|2x - 3| = 7$.","options":[{"id":"a","text":"$x = 5$","isCorrect":false},{"id":"b","text":"$x = 5$ eller $x = -2$","isCorrect":true},{"id":"c","text":"$x = -5$ eller $x = 2$","isCorrect":false},{"id":"d","text":"$x = \\pm 7$","isCorrect":false}],"solution":"$2x - 3 = 7$ gir $x = 5$, og $2x - 3 = -7$ gir $x = -2$. Begge har avstand $7$ fra null."},{"id":"r1-1-5-n-quiz3-q1","task":"Løs ulikheten $|x - 2| < 5$.","options":[{"id":"a","text":"$x < 7$","isCorrect":false},{"id":"b","text":"$x \\in (-5, 5)$","isCorrect":false},{"id":"c","text":"$x \\in (-3, 7)$","isCorrect":true},{"id":"d","text":"$x \\in (-\\infty, -3) \\cup (7, \\infty)$","isCorrect":false}],"solution":"$|x-2| < 5$ betyr $-5 < x - 2 < 5$, altså $-3 < x < 7$. Geometrisk: $x$ er nærmere $2$ enn $5$ enheter."},{"id":"r1-1-5-n-quiz3-q2","task":"Løs ulikheten $|2x + 1| \\geq 3$.","options":[{"id":"a","text":"$x \\in (-\\infty, -2] \\cup [1, \\infty)$","isCorrect":true},{"id":"b","text":"$x \\in [-2, 1]$","isCorrect":false},{"id":"c","text":"$x \\in [-1, 2]$","isCorrect":false},{"id":"d","text":"$x \\geq 1$","isCorrect":false}],"solution":"«Utenfor»-mønsteret: $2x+1 \\leq -3$ eller $2x+1 \\geq 3$, som gir $x \\leq -2$ eller $x \\geq 1$."},{"id":"r1-1-5-n-quiz3-q3","task":"Hva betyr $|a - b|$ geometrisk?","options":[{"id":"a","text":"Summen av $a$ og $b$","isCorrect":false},{"id":"b","text":"Avstanden fra $a$ til null","isCorrect":false},{"id":"c","text":"At $a > b$","isCorrect":false},{"id":"d","text":"Avstanden mellom $a$ og $b$ på tallinja","isCorrect":true}],"solution":"$|a - b|$ måler avstanden mellom tallene $a$ og $b$ -- derfor er $|x - 2| < 5$ det samme som «$x$ ligger mindre enn $5$ unna $2$»."}]}},{"id":"r1-1-5-n-summary","type":"text","content":"## Fortellingen i et nøtteskall\n\nKulelagerfabrikken lærte oss at virkeligheten sjelden krever eksakte verdier -- den krever verdier *innenfor grenser*. Det er ulikhetenes domene, og nå behersker du det.\n\n**Lineære ulikheter** løses som likninger, med ett unntak hugget i stein: multiplikasjon eller divisjon med negativt tall snur ulikhetstegnet. Svarene formuleres med **intervallnotasjon** -- rund parentes for endepunkter som ikke er med, hakeparentes for dem som er med, og alltid rund parentes mot $\\pm\\infty$.\n\n**Kvadratiske og rasjonale ulikheter** løses med fortegnslinjen: flytt alt over på én side, faktoriser, finn nullpunktene (og nevnerens nullpunkter), og les av hvor uttrykket har riktig fortegn. Husk at nevnerens nullpunkter aldri er med i løsningen, og gang aldri med et uttrykk hvis fortegn du ikke kjenner.\n\n**Absoluttverdien** $|a|$ er avstanden fra $a$ til null, og $|a-b|$ er avstanden mellom $a$ og $b$. Likningen $|f(x)| = c$ spalter seg i to tilfeller, og ulikhetene følger to mønstre: $|f(x)| < c$ gir det sammenhengende båndet $-c < f(x) < c$, mens $|f(x)| > c$ gir to ytterintervaller.\n\nDisse verktøyene er ikke pensum for pensumets skyld. Fortegnslinjen blir selve arbeidsmetoden når du skal drøfte monotoni med $f'(x) > 0$ i derivasjonskapitlene, og absoluttverdi-tenkningen om «vilkårlig nær» er kjernen i grenseverdibegrepet som venter i kapittel 3. Du har nettopp lært presisjonsspråket for resten av R1."}],"exercises":[]}
+{
+  "id": "r1-1-5-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "1.5",
+  "title": "Ulikheter og absoluttverdier",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om toleranser og intervaller -- hvorfor ingeniører tenker i ulikheter, hvordan fortegnslinjen løser kvadratiske ulikheter, og hva absoluttverdien egentlig måler.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "løse lineære ulikheter og angi løsningen med intervallnotasjon",
+    "løse kvadratiske ulikheter ved hjelp av fortegnslinje",
+    "forstå definisjonen av absoluttverdi og løse likninger og ulikheter med absoluttverdi",
+    "bruke intervallnotasjon og mengdenotasjon"
+  ],
+  "linkedChapterId": "r1-1-5",
+  "content": [
+    {
+      "id": "r1-1-5-n-intro",
+      "type": "text",
+      "content": "## Verden er ikke eksakt -- den er innenfor toleranse\n\nPå en fabrikk som lager kulelagre, er ingen kule *nøyaktig* $10{,}000$ mm i diameter. Kravet i tegningen lyder i stedet: diameteren skal avvike fra $10$ mm med mindre enn $0{,}05$ mm. Matematisk er det en ulikhet med absoluttverdi:\n\n$$|d - 10| < 0{,}05$$\n\nAvstanden fra $d$ til $10$ skal være under $0{,}05$. Slik tenker ingeniører, kjemikere og programmerere hele tiden: medisindoser skal ligge i et trygt intervall, en rakettbane innenfor en korridor, en numerisk feil under en toleranse. Mens likninger handler om *eksakte* treff, handler ulikheter om *områder* -- og svarene er ikke enkeltpunkter, men intervaller.\n\nI dette kapittelet bygger vi opp verktøykassen i tre etapper. Først **lineære ulikheter** og språket for å beskrive svarene: intervallnotasjon, med runde og firkantede parenteser som forteller om endepunktene er med eller ikke. Underveis møter du regelen alle snubler i minst én gang: ganger eller deler du med et negativt tall, *snur* ulikhetstegnet.\n\nDeretter **kvadratiske og rasjonale ulikheter**, der løsningen krever et genialt lite diagram: fortegnslinjen, som viser hvor hvert uttrykk er positivt og negativt. Og til slutt **absoluttverdien** -- avstandsmåleren som gjorde kulelager-kravet så kompakt -- med sine egne likninger og ulikheter. La oss starte der alt er kjent: med det lineære."
+    },
+    {
+      "id": "r1-1-5-n-section1",
+      "type": "text",
+      "content": "## Lineære ulikheter og intervallenes språk\n\nEn ulikhet løses nesten som en likning: du kan legge til og trekke fra det samme på begge sider, og du kan gange og dele med positive tall. Men **ganger eller deler du med et negativt tall, snur ulikhetstegnet**. Hvorfor? Tenk på $2 < 5$. Gang begge sider med $-1$: $-2$ og $-5$. På tallinja ligger $-5$ til *venstre* for $-2$, så nå er $-5 < -2$ -- rekkefølgen er speilvendt.\n\nSe det i praksis. Ulikheten $3x - 7 < 2x + 5$ gir $x < 12$ uten dramatikk. Men $-2x + 3 \\geq 7$ gir $-2x \\geq 4$, og når vi deler med $-2$, snur tegnet: $x \\leq -2$.\n\nSvarene skriver vi med **intervallnotasjon**. Rund parentes betyr at endepunktet *ikke* er med, hakeparentes at det *er* med: $(a, b)$ er alle $x$ med $a < x < b$, mens $[a, b]$ tar med endepunktene. Blandinger som $[a, b)$ er lov, og mot uendelig bruker vi alltid rund parentes -- $\\infty$ er ikke et tall man kan «nå». Løsningene ovenfor blir dermed $(-\\infty, 12)$ og $(-\\infty, -2]$.\n\n**Doble ulikheter** klemmer $x$ fra begge kanter og løses ved å gjøre samme operasjon på alle tre deler. Fra $-1 \\leq 2x - 3 < 5$ legger vi til $3$ over hele linja: $2 \\leq 2x < 8$, og deler på $2$: $1 \\leq x < 4$. Svaret er det halvåpne intervallet $[1, 4)$ -- venstre endepunkt med, høyre ikke. Legg merke til hvordan notasjonen bærer presis informasjon: én parentesform skiller «minst 1» fra «mer enn 1»."
+    },
+    {
+      "id": "r1-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lineære ulikheter og intervallnotasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-5-n-quiz1-q0",
+            "task": "Løs ulikheten $3x - 7 < 2x + 5$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x < 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x > 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x < 12$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x \\leq 12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trekk $2x$ fra begge sider og legg til $7$: $x < 12$, altså $(-\\infty, 12)$."
+          },
+          {
+            "id": "r1-1-5-n-quiz1-q1",
+            "task": "Løs ulikheten $-2x + 3 \\geq 7$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x \\geq -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x \\leq -2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x \\geq 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x \\leq 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$-2x \\geq 4$. Divisjon med $-2$ snur tegnet: $x \\leq -2$."
+          },
+          {
+            "id": "r1-1-5-n-quiz1-q2",
+            "task": "Løs den doble ulikheten $-1 \\leq 2x - 3 < 5$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x \\in (1, 4]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x \\in [-2, 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x \\in (1, 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x \\in [1, 4)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Legg til $3$: $2 \\leq 2x < 8$. Del på $2$: $1 \\leq x < 4$, altså $[1, 4)$."
+          },
+          {
+            "id": "r1-1-5-n-quiz1-q3",
+            "task": "Hvordan skrives mengden $\\{x \\mid x > a\\}$ med intervallnotasjon?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$(a, \\infty)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[a, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(\\infty, a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[a, \\infty]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Streng ulikhet gir rund parentes ved $a$, og mot $\\infty$ bruker vi alltid rund parentes: $(a, \\infty)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-5-n-section2",
+      "type": "text",
+      "content": "## Fortegnslinjen -- kart over pluss og minus\n\nHva med $x^2 - x - 6 > 0$? Å «ta kvadratrot på begge sider» fører galt av sted. Nøkkelinnsikten er en annen: et faktorisert uttrykk kan bare skifte fortegn i nullpunktene sine. Mellom nullpunktene er fortegnet konstant. Så vi faktoriserer, finner nullpunktene, og tegner et kart -- **fortegnslinjen**.\n\nHer: $x^2 - x - 6 = (x-3)(x+2)$, med nullpunkter $x = -2$ og $x = 3$. De deler tallinja i tre soner. For $x < -2$ er begge faktorene negative, og produktet positivt. Mellom $-2$ og $3$ er $(x+2)$ positiv men $(x-3)$ negativ -- produktet negativt. For $x > 3$ er begge positive. Vi ville ha produktet *positivt*, så svaret er\n\n$$x \\in (-\\infty, -2) \\cup (3, \\infty)$$\n\nTo adskilte intervaller, limt sammen med unionstegnet. Endepunktene er ikke med, siden ulikheten var streng.\n\nSamme metode tar **rasjonale ulikheter** som $\\frac{x-1}{x+3} \\geq 0$ -- en brøk skifter jo også bare fortegn der teller eller nevner er null. Kritiske punkter: $x = 1$ (teller) og $x = -3$ (nevner). Fortegnslinjen gir positivt utenfor og negativt mellom, så løsningen er $(-\\infty, -3) \\cup [1, \\infty)$. Legg nøye merke til parentesene: $x = 1$ er med (brøken er null, og «$\\geq$» tillater null), men $x = -3$ er *aldri* med -- der er brøken udefinert.\n\nOg en advarsel med rød skrift: **gang aldri en ulikhet med et uttrykk som kan være negativt**, slik som nevneren $(x+3)$. Du vet ikke om tegnet skal snus eller ikke, for det avhenger av $x$. Fortegnslinjen omgår hele problemet -- den spør bare hvor ting er positivt og negativt, og den svarer alltid riktig."
+    },
+    {
+      "id": "r1-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kvadratiske og rasjonale ulikheter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-5-n-quiz2-q0",
+            "task": "Løs ulikheten $x^2 - x - 6 > 0$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x \\in (-2, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x \\in (-\\infty, -3) \\cup (2, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x \\in (-\\infty, -2) \\cup (3, \\infty)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x \\in (-3, 2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktoriser: $(x-3)(x+2) > 0$. Fortegnslinjen viser at produktet er positivt når begge faktorer har samme fortegn: $x < -2$ eller $x > 3$."
+          },
+          {
+            "id": "r1-1-5-n-quiz2-q1",
+            "task": "Hvorfor bør du IKKE gange begge sider av $\\frac{x-1}{x+3} \\geq 0$ med $(x+3)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi det gir en tredjegradsulikhet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $(x+3)$ alltid er negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi brøker ikke kan ganges",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $(x+3)$ kan være negativt, og da må tegnet snus -- men vi vet ikke for hvilke $x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fortegnet til $(x+3)$ avhenger av $x$. Ganger vi med et uttrykk med ukjent fortegn, vet vi ikke om ulikhetstegnet skal snus. Bruk fortegnslinje i stedet."
+          },
+          {
+            "id": "r1-1-5-n-quiz2-q2",
+            "task": "Hva er løsningen av $\\frac{x-1}{x+3} \\geq 0$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$(-\\infty, -3) \\cup [1, \\infty)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(-\\infty, -3] \\cup [1, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[-3, 1]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(-3, 1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kritiske punkter: $x = 1$ (teller null, tas med pga. $\\geq$) og $x = -3$ (nevner null, tas aldri med). Fortegnslinjen gir positivt utenfor punktene."
+          },
+          {
+            "id": "r1-1-5-n-quiz2-q3",
+            "task": "Løs ulikheten $x^2 \\leq 4$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x \\leq 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x \\in [-2, 2]$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x \\leq -2$ eller $x \\geq 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x \\in (-2, 2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^2 - 4 \\leq 0$ gir $(x-2)(x+2) \\leq 0$, som er oppfylt mellom nullpunktene: $-2 \\leq x \\leq 2$. Endepunktene er med."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-5-n-section3",
+      "type": "text",
+      "content": "## Absoluttverdien -- matematikkens avstandsmåler\n\nTilbake til kulelageret: $|d - 10| < 0{,}05$. Nå har vi verktøyene til å forstå og løse slike krav. **Absoluttverdien** er definert stykkevis:\n\n$$|a| = \\begin{cases} a & \\text{hvis } a \\geq 0 \\\\ -a & \\text{hvis } a < 0 \\end{cases}$$\n\nmen den geometriske tolkningen er den du bør tenke med: $|a|$ er *avstanden* fra $a$ til null, og $|a - b|$ er avstanden mellom $a$ og $b$. Avstander er aldri negative, og $|-a| = |a|$. Absoluttverdien oppfører seg pent med produkt og kvotient, $|ab| = |a||b|$, og for summer gjelder **trekantulikheten** $|a+b| \\leq |a| + |b|$ -- en omvei er aldri kortere enn den rette veien.\n\n**Likninger** med absoluttverdi har typisk to løsninger, for to tall har samme avstand til null. $|2x-3| = 7$ betyr at $2x - 3$ er enten $7$ eller $-7$, som gir $x = 5$ eller $x = -2$.\n\n**Ulikheter** med absoluttverdi deler seg i to mønstre, og begge blir åpenbare med avstandsbildet. *Innenfor*: $|f(x)| < c$ betyr at $f(x)$ ligger mellom $-c$ og $c$, altså $-c < f(x) < c$ -- en dobbel ulikhet. *Utenfor*: $|f(x)| > c$ betyr at $f(x)$ ligger lenger ute enn $c$ på en av sidene: $f(x) < -c$ eller $f(x) > c$ -- to adskilte intervaller.\n\nEksempel på hver: $|x - 2| < 5$ sier at $x$ er nærmere $2$ enn $5$ enheter, altså $-3 < x < 7$, svaret er $(-3, 7)$. Og $|2x+1| \\geq 3$ gir $2x + 1 \\leq -3$ eller $2x + 1 \\geq 3$, altså $x \\leq -2$ eller $x \\geq 1$: svaret er $(-\\infty, -2] \\cup [1, \\infty)$. Kulelager-kravet? $|d - 10| < 0{,}05$ betyr $d \\in (9{,}95,\\; 10{,}05)$ -- toleranseintervallet, sort på hvitt."
+    },
+    {
+      "id": "r1-1-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på absoluttverdi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-5-n-quiz3-q0",
+            "task": "Løs likningen $|2x - 3| = 7$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = -5$ eller $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 5$ eller $x = -2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = \\pm 7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2x - 3 = 7$ gir $x = 5$, og $2x - 3 = -7$ gir $x = -2$. Begge har avstand $7$ fra null."
+          },
+          {
+            "id": "r1-1-5-n-quiz3-q1",
+            "task": "Løs ulikheten $|x - 2| < 5$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x < 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x \\in (-5, 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x \\in (-\\infty, -3) \\cup (7, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x \\in (-3, 7)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|x-2| < 5$ betyr $-5 < x - 2 < 5$, altså $-3 < x < 7$. Geometrisk: $x$ er nærmere $2$ enn $5$ enheter."
+          },
+          {
+            "id": "r1-1-5-n-quiz3-q2",
+            "task": "Løs ulikheten $|2x + 1| \\geq 3$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x \\in (-\\infty, -2] \\cup [1, \\infty)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x \\in [-2, 1]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x \\in [-1, 2]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x \\geq 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "«Utenfor»-mønsteret: $2x+1 \\leq -3$ eller $2x+1 \\geq 3$, som gir $x \\leq -2$ eller $x \\geq 1$."
+          },
+          {
+            "id": "r1-1-5-n-quiz3-q3",
+            "task": "Hva betyr $|a - b|$ geometrisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Summen av $a$ og $b$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avstanden mellom $a$ og $b$ på tallinja",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Avstanden fra $a$ til null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At $a > b$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|a - b|$ måler avstanden mellom tallene $a$ og $b$ -- derfor er $|x - 2| < 5$ det samme som «$x$ ligger mindre enn $5$ unna $2$»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-5-n-summary",
+      "type": "text",
+      "content": "## Fortellingen i et nøtteskall\n\nKulelagerfabrikken lærte oss at virkeligheten sjelden krever eksakte verdier -- den krever verdier *innenfor grenser*. Det er ulikhetenes domene, og nå behersker du det.\n\n**Lineære ulikheter** løses som likninger, med ett unntak hugget i stein: multiplikasjon eller divisjon med negativt tall snur ulikhetstegnet. Svarene formuleres med **intervallnotasjon** -- rund parentes for endepunkter som ikke er med, hakeparentes for dem som er med, og alltid rund parentes mot $\\pm\\infty$.\n\n**Kvadratiske og rasjonale ulikheter** løses med fortegnslinjen: flytt alt over på én side, faktoriser, finn nullpunktene (og nevnerens nullpunkter), og les av hvor uttrykket har riktig fortegn. Husk at nevnerens nullpunkter aldri er med i løsningen, og gang aldri med et uttrykk hvis fortegn du ikke kjenner.\n\n**Absoluttverdien** $|a|$ er avstanden fra $a$ til null, og $|a-b|$ er avstanden mellom $a$ og $b$. Likningen $|f(x)| = c$ spalter seg i to tilfeller, og ulikhetene følger to mønstre: $|f(x)| < c$ gir det sammenhengende båndet $-c < f(x) < c$, mens $|f(x)| > c$ gir to ytterintervaller.\n\nDisse verktøyene er ikke pensum for pensumets skyld. Fortegnslinjen blir selve arbeidsmetoden når du skal drøfte monotoni med $f'(x) > 0$ i derivasjonskapitlene, og absoluttverdi-tenkningen om «vilkårlig nær» er kjernen i grenseverdibegrepet som venter i kapittel 3. Du har nettopp lært presisjonsspråket for resten av R1."
+    }
+  ],
+  "exercises": []
+}

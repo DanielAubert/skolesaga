@@ -1,1 +1,424 @@
-{"id":"s2-8-6-narrativ","courseId":"s2","chapterNumber":"8.6","title":"Kostnad, inntekt og overskudd","subtitle":"Narrativ versjon","description":"En fortelling om tante Majas keramikkverksted — om kostnads-, inntekts- og overskuddsfunksjonen, break-even-punktene og enhetskostnaden som avgjør om driften kan lønne seg.","estimatedMinutes":30,"competenceGoals":["modellere og analysere økonomiske problemstillinger ved hjelp av funksjoner","bruke derivasjon til å finne optimale løsninger i økonomi","tolke funksjoner og grafer i økonomiske sammenhenger"],"linkedChapterId":"s2-8-6","content":[{"id":"s2-8-6-n-intro","type":"text","content":"## Tre funksjoner som forteller om bedriften går rundt\n\nTante Maja har startet et lite keramikkverksted og spør deg, familiens mattetalent, om hjelp: «Jeg vet hva jeg betaler i husleie og hva leiren koster, og jeg vet hva jeg får per kopp. Men går jeg egentlig med overskudd?» Spørsmålet hennes er presist nok til å bli matematikk — og svaret bor i tre funksjoner.\n\n**Kostnadsfunksjonen** $K(x)$ gir de totale kostnadene ved å produsere $x$ enheter. **Inntektsfunksjonen** $I(x)$ gir de totale inntektene ved å selge dem. Og **overskuddsfunksjonen** er forskjellen:\n\n$$O(x) = I(x) - K(x)$$\n\nEr $O(x) > 0$, har verkstedet **fortjeneste**; er $O(x) < 0$, går det med **tap**. De produksjonsnivåene der $O(x) = 0$ — der inntektene akkurat dekker kostnadene — kalles **nullpunkter** eller **break-even-punkter**.\n\nI denne fortellingen bygger vi opp de tre funksjonene, finner ut hvor tante Maja går i null, hvor overskuddet er størst, og hvordan enhetskostnaden avslører om driften i det hele tatt kan bli lønnsom."},{"id":"s2-8-6-n-section1","type":"text","content":"## Kostnader og inntekter på funksjonsform\n\nVi starter med kostnadene. Totalkostnaden består av **faste kostnader** $K(0)$ — husleie, forsikring, lån, som påløper uansett produksjon — og **variable kostnader** $V(x) = K(x) - K(0)$, som øker med produksjonen: leire, glasur, strøm til ovnen. I tillegg er **enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ den gjennomsnittlige kostnaden per kopp.\n\nI S2 møter du tre typiske kostnadsformer. En **lineær** kostnadsfunksjon $K(x) = ax + b$ har konstant variabel kostnad per enhet. En **kvadratisk** $K(x) = ax^2 + bx + c$ har økende marginalkostnad — hver ny enhet koster mer enn forrige. Og en **kubisk** $K(x) = ax^3 + bx^2 + cx + d$ gir et S-formet kostnadsforløp som fanger både stordriftsfordeler (midt i) og kapasitetsproblemer (på slutten).\n\nInntektssiden: selges $x$ kopper til pris $p(x)$, er totalinntekten $I(x) = p(x) \\cdot x$. Med fast pris er $I(x) = p \\cdot x$, en rett linje. Møter verkstedet en lineær etterspørsel $p(x) = a - bx$, blir $I(x) = ax - bx^2$, en parabel.\n\nOg dermed: $O(x) = I(x) - K(x)$, med **break-even** der $O(x) = 0$, altså $I(x) = K(x)$ — grafisk der inntektslinjen krysser kostnadskurven. Tegner du $I$ og $K$ i samme koordinatsystem, er overskuddet den vertikale avstanden mellom dem: over break-even-intervallet ligger $I$ øverst, og bedriften tjener penger."},{"id":"s2-8-6-n-quiz1","type":"exercise","exercise":{"id":"s2-8-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kostnads-, inntekts- og overskuddsfunksjonen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-6-n-quiz1-q0","task":"Hva er overskuddsfunksjonen?","options":[{"id":"a","text":"$O(x) = I(x) - K(x)$","isCorrect":true},{"id":"b","text":"$O(x) = K(x) - I(x)$","isCorrect":false},{"id":"c","text":"$O(x) = I(x) \\cdot K(x)$","isCorrect":false},{"id":"d","text":"$O(x) = p(x) \\cdot x$","isCorrect":false}],"solution":"Overskuddet er inntekter minus kostnader. Positiv $O(x)$ betyr fortjeneste, negativ betyr tap."},{"id":"s2-8-6-n-quiz1-q1","task":"Verkstedet har $K(x) = 0{,}5x^2 + 10x + 200$. Hva er de variable kostnadene?","options":[{"id":"a","text":"$200$","isCorrect":false},{"id":"b","text":"$0{,}5x^2 + 10x + 200$","isCorrect":false},{"id":"c","text":"$0{,}5x^2 + 10x$","isCorrect":true},{"id":"d","text":"$10x$","isCorrect":false}],"solution":"Variable kostnader er $V(x) = K(x) - K(0) = 0{,}5x^2 + 10x$. De faste er $K(0) = 200$."},{"id":"s2-8-6-n-quiz1-q2","task":"Hvilken kostnadsform fanger både stordriftsfordeler og kapasitetsproblemer?","options":[{"id":"a","text":"Lineær $K(x) = ax + b$","isCorrect":false},{"id":"b","text":"Konstant $K(x) = b$","isCorrect":false},{"id":"c","text":"Kvadratisk $K(x) = ax^2 + bx + c$","isCorrect":false},{"id":"d","text":"Kubisk $K(x) = ax^3 + bx^2 + cx + d$","isCorrect":true}],"solution":"Den kubiske gir et S-formet forløp: kostnadene per enhet faller først (stordrift) og stiger så bratt (kapasitetstak)."},{"id":"s2-8-6-n-quiz1-q3","task":"Hva betyr break-even grafisk?","options":[{"id":"a","text":"Toppunktet på $O(x)$","isCorrect":false},{"id":"b","text":"Skjæringspunktene mellom grafene til $I(x)$ og $K(x)$","isCorrect":true},{"id":"c","text":"Bunnpunktet på $K(x)$","isCorrect":false},{"id":"d","text":"Der $I(x)$ har størst stigning","isCorrect":false}],"solution":"Break-even er der $I(x) = K(x)$ — inntektskurven krysser kostnadskurven, og overskuddet skifter fortegn."}]}},{"id":"s2-8-6-n-section2","type":"text","content":"## Hvor er overskuddet størst?\n\nTante Majas kostnadsfunksjon viser seg å være $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner for $x$ kopper, og hun selger til fast pris 50 kroner per kopp. Da er $I(x) = 50x$ og\n\n$$O(x) = 50x - (0{,}01x^3 - 0{,}9x^2 + 30x + 500) = -0{,}01x^3 + 0{,}9x^2 + 20x - 500$$\n\nFørst: hvor går hun i null? $O(x) = 0$ er en tredjegradslikning som løses numerisk eller med CAS: $x \\approx 15$ og $x \\approx 75$. Verkstedet tjener penger for produksjon mellom 15 og 75 kopper — under 15 spiser de faste kostnadene alt, over 75 tar de økende produksjonskostnadene over.\n\nSå: hvor er overskuddet *størst*? Vi deriverer og setter lik null — det generelle prinsippet er at $O'(x) = I'(x) - K'(x) = 0$, altså $I'(x) = K'(x)$: **grenseinntekt lik marginalkostnad**. Her: $O'(x) = -0{,}03x^2 + 1{,}8x + 20 = 0$, som med abc-formelen gir $x \\approx 69{,}6$ (den negative løsningen forkastes). Andrederiverttesten: $O''(69{,}6) = -0{,}06 \\cdot 69{,}6 + 1{,}8 \\approx -2{,}4 < 0$ — et maksimum. Cirka 70 kopper er altså Majas optimale produksjon.\n\nSamme metode med variabel pris: med $K(x) = x^2 + 20x + 400$ og etterspørsel $p(x) = 100 - x$ blir $I(x) = 100x - x^2$ og $O(x) = -2x^2 + 80x - 400$. Break-even: $x = 20 \\pm 10\\sqrt{2}$, altså cirka 5,9 og 34,1. Maksimum: $O'(x) = -4x + 80 = 0$ gir $x = 20$ med $O(20) = 400$ kroner og pris $p(20) = 80$ kroner. Oppskriften er den samme hver gang: sett opp funksjonene, finn nullpunktene, deriver, og test med andrederiverten."},{"id":"s2-8-6-n-quiz2","type":"exercise","exercise":{"id":"s2-8-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på break-even og maksimalt overskudd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-6-n-quiz2-q0","task":"Majas verksted har break-even ved $x \\approx 15$ og $x \\approx 75$. Hva skjer ved produksjon av 80 kopper?","options":[{"id":"a","text":"Maksimalt overskudd","isCorrect":false},{"id":"b","text":"Inntektene er null","isCorrect":false},{"id":"c","text":"Hun går akkurat i null","isCorrect":false},{"id":"d","text":"Verkstedet går med tap","isCorrect":true}],"solution":"Overskudd finnes bare mellom break-even-punktene. $x = 80 > 75$ gir $O(x) < 0$ — tap."},{"id":"s2-8-6-n-quiz2-q1","task":"Hvilken betingelse gir maksimalt overskudd?","options":[{"id":"a","text":"$I(x) = K(x)$","isCorrect":false},{"id":"b","text":"$O'(x) = 0$, altså $I'(x) = K'(x)$, med $O''(x) < 0$","isCorrect":true},{"id":"c","text":"$K'(x) = 0$","isCorrect":false},{"id":"d","text":"$I(x)$ er størst mulig","isCorrect":false}],"solution":"Overskuddet maksimeres der grenseinntekten er lik marginalkostnaden — og andrederiverten må være negativ for at det skal være et toppunkt."},{"id":"s2-8-6-n-quiz2-q2","task":"Med $O(x) = -2x^2 + 80x - 400$: hva er maksimalt overskudd?","options":[{"id":"a","text":"$O(20) = 400$ kr","isCorrect":true},{"id":"b","text":"$O(40) = 0$ kr","isCorrect":false},{"id":"c","text":"$O(20) = 600$ kr","isCorrect":false},{"id":"d","text":"$O(80) = 400$ kr","isCorrect":false}],"solution":"$O'(x) = -4x + 80 = 0$ gir $x = 20$, og $O(20) = -800 + 1600 - 400 = 400$ kr. $O''= -4 < 0$ bekrefter maksimum."},{"id":"s2-8-6-n-quiz2-q3","task":"Hvorfor er produksjon under første break-even-punkt ulønnsom?","options":[{"id":"a","text":"Fordi prisen er for høy","isCorrect":false},{"id":"b","text":"Fordi marginalkostnaden er null der","isCorrect":false},{"id":"c","text":"Fordi de faste kostnadene ennå ikke er dekket av inntektene","isCorrect":true},{"id":"d","text":"Fordi etterspørselen er elastisk","isCorrect":false}],"solution":"Ved lav produksjon fordeles de faste kostnadene på få enheter, og inntektene rekker ikke over totalkostnadene før første nullpunkt."}]}},{"id":"s2-8-6-n-section3","type":"text","content":"## Enhetskostnaden — lakmustesten for lønnsomhet\n\nDet siste verktøyet svarer på et spørsmål enhver bedriftseier bør stille: *kan* dette i det hele tatt bli lønnsomt? Sammenlign prisen med enhetskostnaden. Er prisen per kopp høyere enn kostnaden per kopp, finnes det rom for fortjeneste; er den lavere, hjelper ingen produksjonsmengde i verden.\n\nTa et verksted med $K(x) = 0{,}5x^2 + 10x + 200$ som selger til fast pris 40 kroner. Enhetskostnaden er\n\n$$E(x) = \\frac{K(x)}{x} = 0{,}5x + 10 + \\frac{200}{x}$$\n\nHvor er den lavest? Vi deriverer: $E'(x) = 0{,}5 - \\frac{200}{x^2} = 0$ gir $x^2 = 400$, altså $x = 20$, og\n\n$$E(20) = 10 + 10 + 10 = 30 \\text{ kroner per enhet}$$\n\nLegg merke til strukturen i $E(x)$: leddet $0{,}5x + 10$ vokser med produksjonen (variable kostnader per enhet), mens $\\frac{200}{x}$ krymper (faste kostnader fordeles på flere enheter). Minimum ligger der de to kreftene balanserer.\n\nEr bedriften lønnsom? Ved $x = 20$ er enhetskostnaden 30 kroner og prisen 40 — overskudd på 10 kroner per enhet, og totalt $O(20) = 40 \\cdot 20 - K(20) = 800 - 600 = 200$ kroner. Svaret er ja: den minimale enhetskostnaden ligger under salgsprisen, så det finnes produksjonsnivåer som gir fortjeneste. Hadde minimum vært 45 kroner, ville ingen mengde reddet regnskapet — da måtte enten prisen opp eller kostnadene ned. Slik gir $E(x)$ et raskt lønnsomhetssjekkpunkt før den fulle overskuddsanalysen."},{"id":"s2-8-6-n-quiz3","type":"exercise","exercise":{"id":"s2-8-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på enhetskostnad og lønnsomhet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-6-n-quiz3-q0","task":"$K(x) = 0{,}5x^2 + 10x + 200$. For hvilken $x$ er enhetskostnaden minst?","options":[{"id":"a","text":"$x = 10$","isCorrect":false},{"id":"b","text":"$x = 20$","isCorrect":true},{"id":"c","text":"$x = 40$","isCorrect":false},{"id":"d","text":"$x = 200$","isCorrect":false}],"solution":"$E'(x) = 0{,}5 - \\frac{200}{x^2} = 0 \\Rightarrow x^2 = 400 \\Rightarrow x = 20$, med $E(20) = 30$ kr/enhet."},{"id":"s2-8-6-n-quiz3-q1","task":"Prisen er 40 kr og minimal enhetskostnad 30 kr. Hva kan vi konkludere?","options":[{"id":"a","text":"Bedriften taper penger uansett","isCorrect":false},{"id":"b","text":"Bedriften går akkurat i null","isCorrect":false},{"id":"c","text":"Bedriften kan drive lønnsomt — prisen overstiger enhetskostnaden","isCorrect":true},{"id":"d","text":"Prisen må senkes","isCorrect":false}],"solution":"Når $p > E(x)$ for noen $x$, finnes produksjonsnivåer med fortjeneste; ved $x = 20$ er marginen 10 kr per enhet."},{"id":"s2-8-6-n-quiz3-q2","task":"Hvorfor synker leddet $\\frac{200}{x}$ i enhetskostnaden når produksjonen øker?","options":[{"id":"a","text":"Fordi de faste kostnadene fordeles på stadig flere enheter","isCorrect":true},{"id":"b","text":"Fordi husleien synker med produksjonen","isCorrect":false},{"id":"c","text":"Fordi variable kostnader er null","isCorrect":false},{"id":"d","text":"Fordi prisen synker","isCorrect":false}],"solution":"De faste kostnadene på 200 kr er konstante; per enhet blir de $\\frac{200}{x}$, som krymper når $x$ vokser — en stordriftseffekt."},{"id":"s2-8-6-n-quiz3-q3","task":"Hva skjer hvis salgsprisen ligger under den minimale enhetskostnaden?","options":[{"id":"a","text":"Bedriften bør produsere mer for å kompensere","isCorrect":false},{"id":"b","text":"Overskuddet maksimeres ved break-even","isCorrect":false},{"id":"c","text":"De faste kostnadene forsvinner","isCorrect":false},{"id":"d","text":"Ingen produksjonsmengde gir overskudd — pris eller kostnader må endres","isCorrect":true}],"solution":"Hvis $p < E(x)$ for alle $x$, koster hver enhet i snitt mer enn den innbringer, uansett volum. Da må prisen opp eller kostnadene ned."}]}},{"id":"s2-8-6-n-summary","type":"text","content":"## Oppsummering: keramikkverkstedets regnskap\n\nTante Maja fikk svar — og du fikk metoden. **Overskuddsfunksjonen** $O(x) = I(x) - K(x)$ samler hele driften: kostnader med faste ($K(0)$) og variable ($K(x) - K(0)$) deler, og inntekter $I(x) = p(x) \\cdot x$, lineære ved fast pris og parabelformede ved lineær etterspørsel $p(x) = a - bx$.\n\n**Break-even** finner du ved å løse $O(x) = 0$, altså $I(x) = K(x)$: mellom nullpunktene tjener bedriften penger, utenfor taper den. **Maksimalt overskudd** ligger der $O'(x) = 0$ — det vil si der grenseinntekt er lik marginalkostnad, $I'(x) = K'(x)$ — bekreftet med $O''(x) < 0$. Grafisk er overskuddet den vertikale avstanden mellom inntekts- og kostnadskurven, størst der tangentene er parallelle.\n\nOg **enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ er lakmustesten: bedriften kan drive lønnsomt bare hvis prisen overstiger den minimale enhetskostnaden — som for verkstedet med $E(20) = 30$ kroner mot prisen 40. Tre funksjoner, tre spørsmål, tre svar: Går vi rundt? Hvor går vi i null? Og hvor tjener vi mest? Det er bedriftsøkonomi på funksjonsform."}],"exercises":[]}
+{
+  "id": "s2-8-6-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "8.6",
+  "title": "Kostnad, inntekt og overskudd",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om tante Majas keramikkverksted — om kostnads-, inntekts- og overskuddsfunksjonen, break-even-punktene og enhetskostnaden som avgjør om driften kan lønne seg.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "modellere og analysere økonomiske problemstillinger ved hjelp av funksjoner",
+    "bruke derivasjon til å finne optimale løsninger i økonomi",
+    "tolke funksjoner og grafer i økonomiske sammenhenger"
+  ],
+  "linkedChapterId": "s2-8-6",
+  "content": [
+    {
+      "id": "s2-8-6-n-intro",
+      "type": "text",
+      "content": "## Tre funksjoner som forteller om bedriften går rundt\n\nTante Maja har startet et lite keramikkverksted og spør deg, familiens mattetalent, om hjelp: «Jeg vet hva jeg betaler i husleie og hva leiren koster, og jeg vet hva jeg får per kopp. Men går jeg egentlig med overskudd?» Spørsmålet hennes er presist nok til å bli matematikk — og svaret bor i tre funksjoner.\n\n**Kostnadsfunksjonen** $K(x)$ gir de totale kostnadene ved å produsere $x$ enheter. **Inntektsfunksjonen** $I(x)$ gir de totale inntektene ved å selge dem. Og **overskuddsfunksjonen** er forskjellen:\n\n$$O(x) = I(x) - K(x)$$\n\nEr $O(x) > 0$, har verkstedet **fortjeneste**; er $O(x) < 0$, går det med **tap**. De produksjonsnivåene der $O(x) = 0$ — der inntektene akkurat dekker kostnadene — kalles **nullpunkter** eller **break-even-punkter**.\n\nI denne fortellingen bygger vi opp de tre funksjonene, finner ut hvor tante Maja går i null, hvor overskuddet er størst, og hvordan enhetskostnaden avslører om driften i det hele tatt kan bli lønnsom."
+    },
+    {
+      "id": "s2-8-6-n-section1",
+      "type": "text",
+      "content": "## Kostnader og inntekter på funksjonsform\n\nVi starter med kostnadene. Totalkostnaden består av **faste kostnader** $K(0)$ — husleie, forsikring, lån, som påløper uansett produksjon — og **variable kostnader** $V(x) = K(x) - K(0)$, som øker med produksjonen: leire, glasur, strøm til ovnen. I tillegg er **enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ den gjennomsnittlige kostnaden per kopp.\n\nI S2 møter du tre typiske kostnadsformer. En **lineær** kostnadsfunksjon $K(x) = ax + b$ har konstant variabel kostnad per enhet. En **kvadratisk** $K(x) = ax^2 + bx + c$ har økende marginalkostnad — hver ny enhet koster mer enn forrige. Og en **kubisk** $K(x) = ax^3 + bx^2 + cx + d$ gir et S-formet kostnadsforløp som fanger både stordriftsfordeler (midt i) og kapasitetsproblemer (på slutten).\n\nInntektssiden: selges $x$ kopper til pris $p(x)$, er totalinntekten $I(x) = p(x) \\cdot x$. Med fast pris er $I(x) = p \\cdot x$, en rett linje. Møter verkstedet en lineær etterspørsel $p(x) = a - bx$, blir $I(x) = ax - bx^2$, en parabel.\n\nOg dermed: $O(x) = I(x) - K(x)$, med **break-even** der $O(x) = 0$, altså $I(x) = K(x)$ — grafisk der inntektslinjen krysser kostnadskurven. Tegner du $I$ og $K$ i samme koordinatsystem, er overskuddet den vertikale avstanden mellom dem: over break-even-intervallet ligger $I$ øverst, og bedriften tjener penger."
+    },
+    {
+      "id": "s2-8-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kostnads-, inntekts- og overskuddsfunksjonen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-6-n-quiz1-q0",
+            "task": "Hva er overskuddsfunksjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$O(x) = K(x) - I(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$O(x) = I(x) \\cdot K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$O(x) = I(x) - K(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$O(x) = p(x) \\cdot x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overskuddet er inntekter minus kostnader. Positiv $O(x)$ betyr fortjeneste, negativ betyr tap."
+          },
+          {
+            "id": "s2-8-6-n-quiz1-q1",
+            "task": "Verkstedet har $K(x) = 0{,}5x^2 + 10x + 200$. Hva er de variable kostnadene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$200$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}5x^2 + 10x + 200$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}5x^2 + 10x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Variable kostnader er $V(x) = K(x) - K(0) = 0{,}5x^2 + 10x$. De faste er $K(0) = 200$."
+          },
+          {
+            "id": "s2-8-6-n-quiz1-q2",
+            "task": "Hvilken kostnadsform fanger både stordriftsfordeler og kapasitetsproblemer?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Kubisk $K(x) = ax^3 + bx^2 + cx + d$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lineær $K(x) = ax + b$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Konstant $K(x) = b$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvadratisk $K(x) = ax^2 + bx + c$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den kubiske gir et S-formet forløp: kostnadene per enhet faller først (stordrift) og stiger så bratt (kapasitetstak)."
+          },
+          {
+            "id": "s2-8-6-n-quiz1-q3",
+            "task": "Hva betyr break-even grafisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Toppunktet på $O(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Skjæringspunktene mellom grafene til $I(x)$ og $K(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bunnpunktet på $K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Der $I(x)$ har størst stigning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Break-even er der $I(x) = K(x)$ — inntektskurven krysser kostnadskurven, og overskuddet skifter fortegn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-6-n-section2",
+      "type": "text",
+      "content": "## Hvor er overskuddet størst?\n\nTante Majas kostnadsfunksjon viser seg å være $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner for $x$ kopper, og hun selger til fast pris 50 kroner per kopp. Da er $I(x) = 50x$ og\n\n$$O(x) = 50x - (0{,}01x^3 - 0{,}9x^2 + 30x + 500) = -0{,}01x^3 + 0{,}9x^2 + 20x - 500$$\n\nFørst: hvor går hun i null? $O(x) = 0$ er en tredjegradslikning som løses numerisk eller med CAS: $x \\approx 15$ og $x \\approx 75$. Verkstedet tjener penger for produksjon mellom 15 og 75 kopper — under 15 spiser de faste kostnadene alt, over 75 tar de økende produksjonskostnadene over.\n\nSå: hvor er overskuddet *størst*? Vi deriverer og setter lik null — det generelle prinsippet er at $O'(x) = I'(x) - K'(x) = 0$, altså $I'(x) = K'(x)$: **grenseinntekt lik marginalkostnad**. Her: $O'(x) = -0{,}03x^2 + 1{,}8x + 20 = 0$, som med abc-formelen gir $x \\approx 69{,}6$ (den negative løsningen forkastes). Andrederiverttesten: $O''(69{,}6) = -0{,}06 \\cdot 69{,}6 + 1{,}8 \\approx -2{,}4 < 0$ — et maksimum. Cirka 70 kopper er altså Majas optimale produksjon.\n\nSamme metode med variabel pris: med $K(x) = x^2 + 20x + 400$ og etterspørsel $p(x) = 100 - x$ blir $I(x) = 100x - x^2$ og $O(x) = -2x^2 + 80x - 400$. Break-even: $x = 20 \\pm 10\\sqrt{2}$, altså cirka 5,9 og 34,1. Maksimum: $O'(x) = -4x + 80 = 0$ gir $x = 20$ med $O(20) = 400$ kroner og pris $p(20) = 80$ kroner. Oppskriften er den samme hver gang: sett opp funksjonene, finn nullpunktene, deriver, og test med andrederiverten."
+    },
+    {
+      "id": "s2-8-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på break-even og maksimalt overskudd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-6-n-quiz2-q0",
+            "task": "Majas verksted har break-even ved $x \\approx 15$ og $x \\approx 75$. Hva skjer ved produksjon av 80 kopper?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Maksimalt overskudd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Inntektene er null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verkstedet går med tap",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Hun går akkurat i null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overskudd finnes bare mellom break-even-punktene. $x = 80 > 75$ gir $O(x) < 0$ — tap."
+          },
+          {
+            "id": "s2-8-6-n-quiz2-q1",
+            "task": "Hvilken betingelse gir maksimalt overskudd?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$I(x) = K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$K'(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$I(x)$ er størst mulig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$O'(x) = 0$, altså $I'(x) = K'(x)$, med $O''(x) < 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Overskuddet maksimeres der grenseinntekten er lik marginalkostnaden — og andrederiverten må være negativ for at det skal være et toppunkt."
+          },
+          {
+            "id": "s2-8-6-n-quiz2-q2",
+            "task": "Med $O(x) = -2x^2 + 80x - 400$: hva er maksimalt overskudd?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$O(20) = 400$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$O(40) = 0$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$O(20) = 600$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$O(80) = 400$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$O'(x) = -4x + 80 = 0$ gir $x = 20$, og $O(20) = -800 + 1600 - 400 = 400$ kr. $O''= -4 < 0$ bekrefter maksimum."
+          },
+          {
+            "id": "s2-8-6-n-quiz2-q3",
+            "task": "Hvorfor er produksjon under første break-even-punkt ulønnsom?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi prisen er for høy",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi de faste kostnadene ennå ikke er dekket av inntektene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi marginalkostnaden er null der",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi etterspørselen er elastisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved lav produksjon fordeles de faste kostnadene på få enheter, og inntektene rekker ikke over totalkostnadene før første nullpunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-6-n-section3",
+      "type": "text",
+      "content": "## Enhetskostnaden — lakmustesten for lønnsomhet\n\nDet siste verktøyet svarer på et spørsmål enhver bedriftseier bør stille: *kan* dette i det hele tatt bli lønnsomt? Sammenlign prisen med enhetskostnaden. Er prisen per kopp høyere enn kostnaden per kopp, finnes det rom for fortjeneste; er den lavere, hjelper ingen produksjonsmengde i verden.\n\nTa et verksted med $K(x) = 0{,}5x^2 + 10x + 200$ som selger til fast pris 40 kroner. Enhetskostnaden er\n\n$$E(x) = \\frac{K(x)}{x} = 0{,}5x + 10 + \\frac{200}{x}$$\n\nHvor er den lavest? Vi deriverer: $E'(x) = 0{,}5 - \\frac{200}{x^2} = 0$ gir $x^2 = 400$, altså $x = 20$, og\n\n$$E(20) = 10 + 10 + 10 = 30 \\text{ kroner per enhet}$$\n\nLegg merke til strukturen i $E(x)$: leddet $0{,}5x + 10$ vokser med produksjonen (variable kostnader per enhet), mens $\\frac{200}{x}$ krymper (faste kostnader fordeles på flere enheter). Minimum ligger der de to kreftene balanserer.\n\nEr bedriften lønnsom? Ved $x = 20$ er enhetskostnaden 30 kroner og prisen 40 — overskudd på 10 kroner per enhet, og totalt $O(20) = 40 \\cdot 20 - K(20) = 800 - 600 = 200$ kroner. Svaret er ja: den minimale enhetskostnaden ligger under salgsprisen, så det finnes produksjonsnivåer som gir fortjeneste. Hadde minimum vært 45 kroner, ville ingen mengde reddet regnskapet — da måtte enten prisen opp eller kostnadene ned. Slik gir $E(x)$ et raskt lønnsomhetssjekkpunkt før den fulle overskuddsanalysen."
+    },
+    {
+      "id": "s2-8-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på enhetskostnad og lønnsomhet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-6-n-quiz3-q0",
+            "task": "$K(x) = 0{,}5x^2 + 10x + 200$. For hvilken $x$ er enhetskostnaden minst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 20$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 40$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 200$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E'(x) = 0{,}5 - \\frac{200}{x^2} = 0 \\Rightarrow x^2 = 400 \\Rightarrow x = 20$, med $E(20) = 30$ kr/enhet."
+          },
+          {
+            "id": "s2-8-6-n-quiz3-q1",
+            "task": "Prisen er 40 kr og minimal enhetskostnad 30 kr. Hva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bedriften taper penger uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bedriften går akkurat i null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bedriften kan drive lønnsomt — prisen overstiger enhetskostnaden",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Prisen må senkes",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $p > E(x)$ for noen $x$, finnes produksjonsnivåer med fortjeneste; ved $x = 20$ er marginen 10 kr per enhet."
+          },
+          {
+            "id": "s2-8-6-n-quiz3-q2",
+            "task": "Hvorfor synker leddet $\\frac{200}{x}$ i enhetskostnaden når produksjonen øker?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi husleien synker med produksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi variable kostnader er null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi prisen synker",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi de faste kostnadene fordeles på stadig flere enheter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "De faste kostnadene på 200 kr er konstante; per enhet blir de $\\frac{200}{x}$, som krymper når $x$ vokser — en stordriftseffekt."
+          },
+          {
+            "id": "s2-8-6-n-quiz3-q3",
+            "task": "Hva skjer hvis salgsprisen ligger under den minimale enhetskostnaden?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Ingen produksjonsmengde gir overskudd — pris eller kostnader må endres",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bedriften bør produsere mer for å kompensere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Overskuddet maksimeres ved break-even",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De faste kostnadene forsvinner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hvis $p < E(x)$ for alle $x$, koster hver enhet i snitt mer enn den innbringer, uansett volum. Da må prisen opp eller kostnadene ned."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: keramikkverkstedets regnskap\n\nTante Maja fikk svar — og du fikk metoden. **Overskuddsfunksjonen** $O(x) = I(x) - K(x)$ samler hele driften: kostnader med faste ($K(0)$) og variable ($K(x) - K(0)$) deler, og inntekter $I(x) = p(x) \\cdot x$, lineære ved fast pris og parabelformede ved lineær etterspørsel $p(x) = a - bx$.\n\n**Break-even** finner du ved å løse $O(x) = 0$, altså $I(x) = K(x)$: mellom nullpunktene tjener bedriften penger, utenfor taper den. **Maksimalt overskudd** ligger der $O'(x) = 0$ — det vil si der grenseinntekt er lik marginalkostnad, $I'(x) = K'(x)$ — bekreftet med $O''(x) < 0$. Grafisk er overskuddet den vertikale avstanden mellom inntekts- og kostnadskurven, størst der tangentene er parallelle.\n\nOg **enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ er lakmustesten: bedriften kan drive lønnsomt bare hvis prisen overstiger den minimale enhetskostnaden — som for verkstedet med $E(20) = 30$ kroner mot prisen 40. Tre funksjoner, tre spørsmål, tre svar: Går vi rundt? Hvor går vi i null? Og hvor tjener vi mest? Det er bedriftsøkonomi på funksjonsform."
+    }
+  ],
+  "exercises": []
+}

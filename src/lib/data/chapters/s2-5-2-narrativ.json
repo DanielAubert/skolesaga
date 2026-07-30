@@ -1,1 +1,424 @@
-{"id":"s2-5-2-narrativ","courseId":"s2","chapterNumber":"5.2","title":"Hypotesetesting","subtitle":"Narrativ versjon","description":"En fortelling om påstander som settes på prøve — fra sjokoladevekter til undervisningsmetoder — og bevisbyrden i statistikken.","estimatedMinutes":43,"competenceGoals":["formulere null- og alternativhypoteser","gjennomføre og tolke z-tester for gjennomsnitt og andel","forstå sammenhengen mellom p-verdi og signifikansnivå"],"linkedChapterId":"s2-5-2","content":[{"id":"s2-5-2-n-intro","type":"text","content":"## Påstand mot bevis\n\nEn produsent hevder at sjokoladeplatene veier 500 gram. En forsker hevder at en ny medisin virker bedre enn placebo. Et parti hevder å ha minst 15 prosent oppslutning. Hvordan avgjør vi om slike påstander holder — når alt vi har, er et utvalg med tilfeldig variasjon i?\n\n**Hypotesetesting** er statistikkens rettssal: en systematisk metode for å avgjøre om data gir nok bevis til å forkaste en påstand om populasjonen. Og som i rettssalen er rollene strengt fordelt. **Nullhypotesen** $H_0$ er antakelsen vi starter med — den «tiltalte» som er uskyldig til det motsatte er bevist. Den uttrykker typisk «ingen effekt» eller «ingen forskjell»: $\\mu = 500$, $p = 0{,}15$. **Alternativhypotesen** $H_1$ er det vi ønsker å påvise: at det finnes en effekt eller forskjell — $\\mu \\neq 500$, $p < 0{,}15$ eller $\\mu > 72$, avhengig av spørsmålet. En tommelfingerregel for formuleringen: $H_0$ inneholder alltid likhet, mens $H_1$ uttrykker ulikheten vi leter etter ($\\neq$, $>$ eller $<$).\n\nLogikken er kontraintuitiv, men viktig: vi antar at $H_0$ er sann, og spør hvor usannsynlig det observerte resultatet da ville vært. Bare hvis dataene er **tilstrekkelig usannsynlige** under $H_0$, forkaster vi den. Og merk språket: vi «aksepterer» aldri $H_0$ — vi bare unnlater å forkaste den. Mangel på bevis er ikke bevis for mangel.\n\nFor å gjøre «tilstrekkelig usannsynlig» presist trenger vi tre verktøy: en testobservator, en p-verdi og et signifikansnivå. Dem bygger vi i neste seksjon — og så setter vi retten."},{"id":"s2-5-2-n-section1","type":"text","content":"## Verktøyene: testobservator, p-verdi og signifikansnivå\n\n**Testobservatoren** måler hvor langt utvalget ligger fra det nullhypotesen forutsier, regnet i standardfeil. For et gjennomsnitt (med stor $n$ eller kjent $\\sigma$): $$z = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}}$$ For en andel: $$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}}$$ der $\\mu_0$ og $p_0$ er verdiene fra $H_0$. Merk at vi i andelstesten bruker $p_0$ i standardfeilen — vi regner jo under antakelsen om at $H_0$ er sann.\n\n**P-verdien** er kjernen i hele metoden: sannsynligheten for å observere et resultat like ekstremt eller mer ekstremt enn det vi fikk, **gitt at $H_0$ er sann**. Lav p-verdi betyr at dataene er usannsynlige under $H_0$ — bevis mot den; høy p-verdi betyr at dataene er forenlige med $H_0$. Hvordan «ekstremt» regnes, avhenger av $H_1$: for tosidig test ($H_1: \\mu \\neq \\mu_0$) er p-verdien $2 \\cdot P(Z > |z|)$; for ensidig høyre ($H_1: \\mu > \\mu_0$) er den $P(Z > z)$; for ensidig venstre ($H_1: \\mu < \\mu_0$) er den $P(Z < z)$.\n\n**Signifikansnivået** $\\alpha$ er grensen vi setter på forhånd — vanligvis 0,05, noen ganger 0,01 eller 0,10. Beslutningsregelen er enkel: er p-verdien $\\leq \\alpha$, forkaster vi $H_0$ og kaller resultatet **statistisk signifikant**; ellers forkaster vi ikke.\n\nDermed har vi en fast fremgangsmåte i seks steg: (1) formuler $H_0$ og $H_1$, (2) velg $\\alpha$, (3) beregn testobservatoren, (4) finn p-verdien, (5) konkluder — forkast eller ikke, og (6) tolk resultatet i kontekst. Det siste steget glemmes oftest og er likevel det viktigste: et tall blir først til kunnskap når det oversettes tilbake til virkeligheten."},{"id":"s2-5-2-n-quiz1","type":"exercise","exercise":{"id":"s2-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på hypoteser, p-verdi og signifikansnivå:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-5-2-n-quiz1-q0","task":"Hva uttrykker nullhypotesen $H_0$ vanligvis?","options":[{"id":"a","text":"Det forskeren ønsker å bevise","isCorrect":false},{"id":"b","text":"«Ingen effekt / ingen forskjell» — antakelsen vi tester mot","isCorrect":true},{"id":"c","text":"At dataene er normalfordelte","isCorrect":false},{"id":"d","text":"Den mest sannsynlige forklaringen","isCorrect":false}],"solution":"$H_0$ er utgangsantakelsen, typisk «ingen effekt» (f.eks. $\\mu = 500$). Den inneholder alltid likhet, mens $H_1$ uttrykker det vi vil påvise."},{"id":"s2-5-2-n-quiz1-q1","task":"Hva er p-verdien?","options":[{"id":"a","text":"Sannsynligheten for at $H_0$ er sann","isCorrect":false},{"id":"b","text":"Sannsynligheten for at $H_1$ er sann","isCorrect":false},{"id":"c","text":"Sannsynligheten, gitt at $H_0$ er sann, for et minst like ekstremt resultat som det observerte","isCorrect":true},{"id":"d","text":"Andelen feil i utvalget","isCorrect":false}],"solution":"P-verdien er en betinget sannsynlighet under $H_0$ — ikke sannsynligheten for at noen av hypotesene er sanne. Lav p-verdi = bevis mot $H_0$."},{"id":"s2-5-2-n-quiz1-q2","task":"P-verdien er 0,03 og $\\alpha = 0{,}05$. Hva konkluderer vi?","options":[{"id":"a","text":"Vi forkaster $H_0$ — resultatet er statistisk signifikant","isCorrect":true},{"id":"b","text":"Vi aksepterer $H_0$","isCorrect":false},{"id":"c","text":"Vi forkaster $H_1$","isCorrect":false},{"id":"d","text":"Testen er ugyldig","isCorrect":false}],"solution":"$0{,}03 < 0{,}05$, så $H_0$ forkastes på 5 %-nivået. Dataene er for usannsynlige under $H_0$ til at vi beholder den."},{"id":"s2-5-2-n-quiz1-q3","task":"Hvorfor sier vi «forkaster ikke $H_0$» i stedet for «aksepterer $H_0$»?","options":[{"id":"a","text":"Det er bare en språklig konvensjon uten innhold","isCorrect":false},{"id":"b","text":"Fordi manglende bevis mot $H_0$ ikke er det samme som bevis for at $H_0$ er sann","isCorrect":true},{"id":"c","text":"Fordi $H_0$ alltid er usann","isCorrect":false},{"id":"d","text":"Fordi p-verdien aldri kan bli stor","isCorrect":false}],"solution":"Et ikke-signifikant resultat kan skyldes at effekten ikke finnes — eller at utvalget var for lite til å avsløre den. Mangel på bevis er ikke bevis for mangel."}]}},{"id":"s2-5-2-n-section2","type":"text","content":"## To rettssaker\n\n**Sak 1: sjokoladevekten (tosidig test).** Produsenten hevder $\\mu = 500$ g. Et utvalg på $n = 64$ plater gir $\\bar{x} = 497{,}5$ g og $s = 8$ g. Vi tester på nivå $\\alpha = 0{,}05$.\n\nHypotesene: $H_0: \\mu = 500$ mot $H_1: \\mu \\neq 500$ — tosidig, for et avvik i begge retninger ville interessert oss. Testobservatoren: $$z = \\frac{497{,}5 - 500}{8/\\sqrt{64}} = \\frac{-2{,}5}{1} = -2{,}50$$ Utvalget ligger altså 2,5 standardfeil under påstanden. P-verdien (tosidig): $2 \\cdot P(Z > 2{,}50) = 2 \\cdot 0{,}0062 = 0{,}0124$. Siden $0{,}0124 < 0{,}05$ forkaster vi $H_0$: det er statistisk signifikant bevis for at vekten avviker fra 500 g — og dataene peker mot at platene er for lette.\n\n**Sak 2: partioppslutningen (ensidig test).** Et parti hevder minst 15 % oppslutning. I en undersøkelse svarer 52 av 400 at de ville stemt på partiet. Er oppslutningen lavere enn påstått? Hypotesene: $H_0: p = 0{,}15$ mot $H_1: p < 0{,}15$ — ensidig venstre, for det er bare lavere oppslutning vi leter etter. Utvalgsandelen er $\\hat{p} = \\frac{52}{400} = 0{,}13$, og $$z = \\frac{0{,}13 - 0{,}15}{\\sqrt{\\frac{0{,}15 \\cdot 0{,}85}{400}}} = \\frac{-0{,}02}{0{,}01786} \\approx -1{,}12$$ P-verdien: $P(Z < -1{,}12) \\approx 0{,}131$. Siden $0{,}131 > 0{,}05$ forkaster vi **ikke** $H_0$: avviket på to prosentpoeng er godt innenfor det tilfeldigheten kan forklare med 400 spurte. Vi har ikke grunnlag for å hevde at partiet overdriver — men husk: det beviser heller ikke at oppslutningen faktisk er 15 %.\n\nLegg merke til kontrasten: i sak 1 var beviset sterkt nok til domfellelse, i sak 2 ikke. Begge konklusjonene refererer til signifikansnivået, bruker riktig språk om forkasting, og oversetter resultatet til praktisk mening."},{"id":"s2-5-2-n-quiz2","type":"exercise","exercise":{"id":"s2-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på gjennomføring av z-tester:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-5-2-n-quiz2-q0","task":"Sjokoladetesten ga $z = -2{,}50$. Hva betyr det?","options":[{"id":"a","text":"Utvalgsgjennomsnittet ligger 2,5 standardfeil under verdien i $H_0$","isCorrect":true},{"id":"b","text":"Platene veier 2,5 gram for lite","isCorrect":false},{"id":"c","text":"P-verdien er 2,5 %","isCorrect":false},{"id":"d","text":"2,5 % av platene er for lette","isCorrect":false}],"solution":"Testobservatoren standardiserer avviket: $\\bar{x}$ ligger 2,5 standardfeil under $\\mu_0 = 500$. Det er langt nok ute til å gi p-verdi 0,0124."},{"id":"s2-5-2-n-quiz2-q1","task":"Hvorfor dobles halesannsynligheten i en tosidig test?","options":[{"id":"a","text":"For sikkerhets skyld","isCorrect":false},{"id":"b","text":"Fordi det er to utvalg","isCorrect":false},{"id":"c","text":"Fordi «minst like ekstremt» omfatter avvik i begge retninger når $H_1: \\mu \\neq \\mu_0$","isCorrect":true},{"id":"d","text":"Fordi standardfeilen halveres","isCorrect":false}],"solution":"I en tosidig test teller både svært lave og svært høye verdier som ekstreme, så p-verdien er $2 \\cdot P(Z > |z|)$."},{"id":"s2-5-2-n-quiz2-q2","task":"Partitesten ga p-verdi 0,131 med $\\alpha = 0{,}05$. Hva er riktig konklusjon?","options":[{"id":"a","text":"Oppslutningen er bevist å være 15 %","isCorrect":false},{"id":"b","text":"Vi forkaster ikke $H_0$ — det er ikke tilstrekkelig bevis for at oppslutningen er under 15 %","isCorrect":true},{"id":"c","text":"Vi forkaster $H_0$ — partiet overdriver","isCorrect":false},{"id":"d","text":"Testen må gjentas med samme utvalg","isCorrect":false}],"solution":"$0{,}131 > 0{,}05$: resultatet er ikke signifikant. Vi beholder $H_0$, men har ikke dermed bevist at den er sann."},{"id":"s2-5-2-n-quiz2-q3","task":"I andelstesten brukes $\\sqrt{\\frac{p_0(1-p_0)}{n}}$ i nevneren. Hvorfor $p_0$ og ikke $\\hat{p}$?","options":[{"id":"a","text":"Fordi $\\hat{p}$ er ukjent","isCorrect":false},{"id":"b","text":"Fordi testen beregnes under antakelsen om at $H_0$ (og dermed $p_0$) er sann","isCorrect":true},{"id":"c","text":"Fordi $p_0$ alltid er størst","isCorrect":false},{"id":"d","text":"Det er likegyldig hvilken som brukes","isCorrect":false}],"solution":"Hele testlogikken er betinget på $H_0$: vi spør hvor usannsynlig resultatet er hvis $p = p_0$. Derfor brukes $p_0$ i standardfeilen (i motsetning til i konfidensintervaller)."}]}},{"id":"s2-5-2-n-section3","type":"text","content":"## Ensidig eller tosidig — og kunsten å konkludere\n\nValget mellom ensidig og tosidig test er et veivalg som må tas **før** du ser på dataene. En tosidig test ($H_1: \\mu \\neq \\mu_0$, p-verdi $2P(Z > |z|)$) brukes når du undersøker om det er en forskjell, uansett retning. En ensidig test ($H_1: \\mu > \\mu_0$ eller $\\mu < \\mu_0$) brukes når bare én retning er faglig interessant. Den ensidige testen er mer «kraftfull» — det er lettere å forkaste $H_0$ fordi all $\\alpha$ legges i én hale — men prisen er at du er blind for avvik i motsatt retning. Å bytte til ensidig test *etter* å ha sett dataene er juks: da har du i praksis doblet sjansen for falsk alarm.\n\nEt eksempel på berettiget ensidig test: en ny undervisningsmetode hevdes å gi **bedre** resultater enn den tradisjonelle, som gir $\\mu_0 = 72$ poeng. Et utvalg på 50 elever med ny metode gir $\\bar{x} = 74{,}8$ og $s = 9{,}5$. Hypotesene er $H_0: \\mu = 72$ mot $H_1: \\mu > 72$, og $$z = \\frac{74{,}8 - 72}{9{,}5/\\sqrt{50}} = \\frac{2{,}8}{1{,}3435} \\approx 2{,}08$$ P-verdien er $P(Z > 2{,}08) \\approx 0{,}019 < 0{,}05$: vi forkaster $H_0$. På 5 %-nivå er det signifikant bevis for at den nye metoden gir bedre resultater.\n\nTil slutt: konklusjonen skal alltid formuleres ordentlig. Referer til signifikansnivået («på 5 % signifikansnivå …»), bruk riktig språk («forkaster / forkaster ikke $H_0$») og oversett til kontekst. Ved forkasting: «Det er statistisk signifikant bevis for at [alternativhypotesen].» Uten forkasting: «Det er ikke tilstrekkelig bevis for å hevde at [alternativhypotesen]; vi beholder $H_0$.» Og igjen — et ikke-signifikant resultat betyr ikke at $H_0$ er sann, bare at bevisene ikke holdt denne gangen."},{"id":"s2-5-2-n-quiz3","type":"exercise","exercise":{"id":"s2-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på ensidige og tosidige tester:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-5-2-n-quiz3-q0","task":"Når skal valget mellom ensidig og tosidig test tas?","options":[{"id":"a","text":"Etter at p-verdien er beregnet","isCorrect":false},{"id":"b","text":"Før man ser på dataene","isCorrect":true},{"id":"c","text":"Etter at man har sett om $z$ er positiv eller negativ","isCorrect":false},{"id":"d","text":"Det spiller ingen rolle","isCorrect":false}],"solution":"Velger man retning etter å ha sett dataene, blir testen skjev og sannsynligheten for falsk alarm i praksis doblet. Retningen må begrunnes faglig på forhånd."},{"id":"s2-5-2-n-quiz3-q1","task":"Undervisningstesten: $z \\approx 2{,}08$ og $H_1: \\mu > 72$. Hva er p-verdien?","options":[{"id":"a","text":"$P(Z > 2{,}08) \\approx 0{,}019$","isCorrect":true},{"id":"b","text":"$2 \\cdot P(Z > 2{,}08) \\approx 0{,}038$","isCorrect":false},{"id":"c","text":"$P(Z < 2{,}08) \\approx 0{,}981$","isCorrect":false},{"id":"d","text":"$0{,}05$","isCorrect":false}],"solution":"Ensidig høyre test bruker bare øvre hale: p-verdien er $P(Z > z) \\approx 0{,}019$. Tosidig ville gitt det dobbelte."},{"id":"s2-5-2-n-quiz3-q2","task":"Hva er fordelen og ulempen med en ensidig test?","options":[{"id":"a","text":"Lettere å forkaste $H_0$ i den valgte retningen, men blind for avvik i motsatt retning","isCorrect":true},{"id":"b","text":"Den er alltid mer pålitelig","isCorrect":false},{"id":"c","text":"Den krever mindre utvalg, men flere hypoteser","isCorrect":false},{"id":"d","text":"Den gir lavere $z$-verdi","isCorrect":false}],"solution":"All $\\alpha$ legges i én hale, så testen er mer kraftfull der — men avvik den andre veien kan aldri oppdages."},{"id":"s2-5-2-n-quiz3-q3","task":"Hvilken formulering er en korrekt konklusjon etter forkasting av $H_0$?","options":[{"id":"a","text":"«$H_1$ er bevist sann»","isCorrect":false},{"id":"b","text":"«$H_0$ har sannsynlighet under 5 %»","isCorrect":false},{"id":"c","text":"«På 5 % signifikansnivå er det statistisk signifikant bevis for [alternativhypotesen]»","isCorrect":true},{"id":"d","text":"«Resultatet skyldes tilfeldigheter»","isCorrect":false}],"solution":"God konklusjon refererer til nivået, bruker forkastingsspråket og tolker i kontekst. Statistikk gir aldri absolutte bevis, og p-verdien er ikke sannsynligheten for $H_0$."}]}},{"id":"s2-5-2-n-summary","type":"text","content":"## Oppsummering: bevisbyrden i tall\n\nHypotesetesting er en rettssak der tilfeldigheten er forsvarsadvokat. **Nullhypotesen** $H_0$ — «ingen effekt», alltid med likhet — er uskyldig til det motsatte er bevist, og **alternativhypotesen** $H_1$ er det vi vil påvise, med retning ($>$, $<$) eller uten ($\\neq$).\n\nBevisene veies i tre steg. **Testobservatoren** $z = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}}$ (eller $z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$ for andeler) måler avviket fra $H_0$ i standardfeil. **P-verdien** er sannsynligheten, gitt at $H_0$ er sann, for et minst like ekstremt resultat — én hale for ensidige tester, dobbel hale for tosidige. Og **signifikansnivået** $\\alpha$ (oftest 5 %) er domsterskelen: $p \\leq \\alpha$ gir forkasting og et «statistisk signifikant» resultat.\n\nFortellingene viste begge utfall: sjokoladeplatene ble dømt ($z = -2{,}5$, $p = 0{,}0124$), partipåstanden ble frikjent på tvil ($z = -1{,}12$, $p = 0{,}131$), og den nye undervisningsmetoden fikk medhold i en ensidig test ($p = 0{,}019$). Husk kjørereglene: velg ensidig eller tosidig **før** du ser dataene; bruk $p_0$ i standardfeilen for andelstester; og formuler konklusjonen med nivå, forkastingsspråk og kontekst.\n\nOg den dypeste regelen av alle: vi aksepterer aldri $H_0$. Et ikke-signifikant resultat betyr at bevisene ikke holdt — kanskje fordi effekten ikke finnes, kanskje fordi utvalget var for lite. Akkurat dét skillet, mellom å frikjenne og å bevise uskyld, er temaet for neste kapittel: feiltyper og teststyrke."}],"exercises":[]}
+{
+  "id": "s2-5-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "5.2",
+  "title": "Hypotesetesting",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om påstander som settes på prøve — fra sjokoladevekter til undervisningsmetoder — og bevisbyrden i statistikken.",
+  "estimatedMinutes": 43,
+  "competenceGoals": [
+    "formulere null- og alternativhypoteser",
+    "gjennomføre og tolke z-tester for gjennomsnitt og andel",
+    "forstå sammenhengen mellom p-verdi og signifikansnivå"
+  ],
+  "linkedChapterId": "s2-5-2",
+  "content": [
+    {
+      "id": "s2-5-2-n-intro",
+      "type": "text",
+      "content": "## Påstand mot bevis\n\nEn produsent hevder at sjokoladeplatene veier 500 gram. En forsker hevder at en ny medisin virker bedre enn placebo. Et parti hevder å ha minst 15 prosent oppslutning. Hvordan avgjør vi om slike påstander holder — når alt vi har, er et utvalg med tilfeldig variasjon i?\n\n**Hypotesetesting** er statistikkens rettssal: en systematisk metode for å avgjøre om data gir nok bevis til å forkaste en påstand om populasjonen. Og som i rettssalen er rollene strengt fordelt. **Nullhypotesen** $H_0$ er antakelsen vi starter med — den «tiltalte» som er uskyldig til det motsatte er bevist. Den uttrykker typisk «ingen effekt» eller «ingen forskjell»: $\\mu = 500$, $p = 0{,}15$. **Alternativhypotesen** $H_1$ er det vi ønsker å påvise: at det finnes en effekt eller forskjell — $\\mu \\neq 500$, $p < 0{,}15$ eller $\\mu > 72$, avhengig av spørsmålet. En tommelfingerregel for formuleringen: $H_0$ inneholder alltid likhet, mens $H_1$ uttrykker ulikheten vi leter etter ($\\neq$, $>$ eller $<$).\n\nLogikken er kontraintuitiv, men viktig: vi antar at $H_0$ er sann, og spør hvor usannsynlig det observerte resultatet da ville vært. Bare hvis dataene er **tilstrekkelig usannsynlige** under $H_0$, forkaster vi den. Og merk språket: vi «aksepterer» aldri $H_0$ — vi bare unnlater å forkaste den. Mangel på bevis er ikke bevis for mangel.\n\nFor å gjøre «tilstrekkelig usannsynlig» presist trenger vi tre verktøy: en testobservator, en p-verdi og et signifikansnivå. Dem bygger vi i neste seksjon — og så setter vi retten."
+    },
+    {
+      "id": "s2-5-2-n-section1",
+      "type": "text",
+      "content": "## Verktøyene: testobservator, p-verdi og signifikansnivå\n\n**Testobservatoren** måler hvor langt utvalget ligger fra det nullhypotesen forutsier, regnet i standardfeil. For et gjennomsnitt (med stor $n$ eller kjent $\\sigma$): $$z = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}}$$ For en andel: $$z = \\frac{\\hat{p} - p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}}$$ der $\\mu_0$ og $p_0$ er verdiene fra $H_0$. Merk at vi i andelstesten bruker $p_0$ i standardfeilen — vi regner jo under antakelsen om at $H_0$ er sann.\n\n**P-verdien** er kjernen i hele metoden: sannsynligheten for å observere et resultat like ekstremt eller mer ekstremt enn det vi fikk, **gitt at $H_0$ er sann**. Lav p-verdi betyr at dataene er usannsynlige under $H_0$ — bevis mot den; høy p-verdi betyr at dataene er forenlige med $H_0$. Hvordan «ekstremt» regnes, avhenger av $H_1$: for tosidig test ($H_1: \\mu \\neq \\mu_0$) er p-verdien $2 \\cdot P(Z > |z|)$; for ensidig høyre ($H_1: \\mu > \\mu_0$) er den $P(Z > z)$; for ensidig venstre ($H_1: \\mu < \\mu_0$) er den $P(Z < z)$.\n\n**Signifikansnivået** $\\alpha$ er grensen vi setter på forhånd — vanligvis 0,05, noen ganger 0,01 eller 0,10. Beslutningsregelen er enkel: er p-verdien $\\leq \\alpha$, forkaster vi $H_0$ og kaller resultatet **statistisk signifikant**; ellers forkaster vi ikke.\n\nDermed har vi en fast fremgangsmåte i seks steg: (1) formuler $H_0$ og $H_1$, (2) velg $\\alpha$, (3) beregn testobservatoren, (4) finn p-verdien, (5) konkluder — forkast eller ikke, og (6) tolk resultatet i kontekst. Det siste steget glemmes oftest og er likevel det viktigste: et tall blir først til kunnskap når det oversettes tilbake til virkeligheten."
+    },
+    {
+      "id": "s2-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på hypoteser, p-verdi og signifikansnivå:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-5-2-n-quiz1-q0",
+            "task": "Hva uttrykker nullhypotesen $H_0$ vanligvis?",
+            "options": [
+              {
+                "id": "b",
+                "text": "«Ingen effekt / ingen forskjell» — antakelsen vi tester mot",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det forskeren ønsker å bevise",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At dataene er normalfordelte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den mest sannsynlige forklaringen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$H_0$ er utgangsantakelsen, typisk «ingen effekt» (f.eks. $\\mu = 500$). Den inneholder alltid likhet, mens $H_1$ uttrykker det vi vil påvise."
+          },
+          {
+            "id": "s2-5-2-n-quiz1-q1",
+            "task": "Hva er p-verdien?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sannsynligheten for at $H_0$ er sann",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sannsynligheten, gitt at $H_0$ er sann, for et minst like ekstremt resultat som det observerte",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Sannsynligheten for at $H_1$ er sann",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Andelen feil i utvalget",
+                "isCorrect": false
+              }
+            ],
+            "solution": "P-verdien er en betinget sannsynlighet under $H_0$ — ikke sannsynligheten for at noen av hypotesene er sanne. Lav p-verdi = bevis mot $H_0$."
+          },
+          {
+            "id": "s2-5-2-n-quiz1-q2",
+            "task": "P-verdien er 0,03 og $\\alpha = 0{,}05$. Hva konkluderer vi?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Vi aksepterer $H_0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi forkaster $H_1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Vi forkaster $H_0$ — resultatet er statistisk signifikant",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Testen er ugyldig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$0{,}03 < 0{,}05$, så $H_0$ forkastes på 5 %-nivået. Dataene er for usannsynlige under $H_0$ til at vi beholder den."
+          },
+          {
+            "id": "s2-5-2-n-quiz1-q3",
+            "task": "Hvorfor sier vi «forkaster ikke $H_0$» i stedet for «aksepterer $H_0$»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er bare en språklig konvensjon uten innhold",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $H_0$ alltid er usann",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi p-verdien aldri kan bli stor",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi manglende bevis mot $H_0$ ikke er det samme som bevis for at $H_0$ er sann",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Et ikke-signifikant resultat kan skyldes at effekten ikke finnes — eller at utvalget var for lite til å avsløre den. Mangel på bevis er ikke bevis for mangel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-5-2-n-section2",
+      "type": "text",
+      "content": "## To rettssaker\n\n**Sak 1: sjokoladevekten (tosidig test).** Produsenten hevder $\\mu = 500$ g. Et utvalg på $n = 64$ plater gir $\\bar{x} = 497{,}5$ g og $s = 8$ g. Vi tester på nivå $\\alpha = 0{,}05$.\n\nHypotesene: $H_0: \\mu = 500$ mot $H_1: \\mu \\neq 500$ — tosidig, for et avvik i begge retninger ville interessert oss. Testobservatoren: $$z = \\frac{497{,}5 - 500}{8/\\sqrt{64}} = \\frac{-2{,}5}{1} = -2{,}50$$ Utvalget ligger altså 2,5 standardfeil under påstanden. P-verdien (tosidig): $2 \\cdot P(Z > 2{,}50) = 2 \\cdot 0{,}0062 = 0{,}0124$. Siden $0{,}0124 < 0{,}05$ forkaster vi $H_0$: det er statistisk signifikant bevis for at vekten avviker fra 500 g — og dataene peker mot at platene er for lette.\n\n**Sak 2: partioppslutningen (ensidig test).** Et parti hevder minst 15 % oppslutning. I en undersøkelse svarer 52 av 400 at de ville stemt på partiet. Er oppslutningen lavere enn påstått? Hypotesene: $H_0: p = 0{,}15$ mot $H_1: p < 0{,}15$ — ensidig venstre, for det er bare lavere oppslutning vi leter etter. Utvalgsandelen er $\\hat{p} = \\frac{52}{400} = 0{,}13$, og $$z = \\frac{0{,}13 - 0{,}15}{\\sqrt{\\frac{0{,}15 \\cdot 0{,}85}{400}}} = \\frac{-0{,}02}{0{,}01786} \\approx -1{,}12$$ P-verdien: $P(Z < -1{,}12) \\approx 0{,}131$. Siden $0{,}131 > 0{,}05$ forkaster vi **ikke** $H_0$: avviket på to prosentpoeng er godt innenfor det tilfeldigheten kan forklare med 400 spurte. Vi har ikke grunnlag for å hevde at partiet overdriver — men husk: det beviser heller ikke at oppslutningen faktisk er 15 %.\n\nLegg merke til kontrasten: i sak 1 var beviset sterkt nok til domfellelse, i sak 2 ikke. Begge konklusjonene refererer til signifikansnivået, bruker riktig språk om forkasting, og oversetter resultatet til praktisk mening."
+    },
+    {
+      "id": "s2-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gjennomføring av z-tester:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-5-2-n-quiz2-q0",
+            "task": "Sjokoladetesten ga $z = -2{,}50$. Hva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Utvalgsgjennomsnittet ligger 2,5 standardfeil under verdien i $H_0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Platene veier 2,5 gram for lite",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "P-verdien er 2,5 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "2,5 % av platene er for lette",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Testobservatoren standardiserer avviket: $\\bar{x}$ ligger 2,5 standardfeil under $\\mu_0 = 500$. Det er langt nok ute til å gi p-verdi 0,0124."
+          },
+          {
+            "id": "s2-5-2-n-quiz2-q1",
+            "task": "Hvorfor dobles halesannsynligheten i en tosidig test?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For sikkerhets skyld",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi «minst like ekstremt» omfatter avvik i begge retninger når $H_1: \\mu \\neq \\mu_0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi det er to utvalg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi standardfeilen halveres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I en tosidig test teller både svært lave og svært høye verdier som ekstreme, så p-verdien er $2 \\cdot P(Z > |z|)$."
+          },
+          {
+            "id": "s2-5-2-n-quiz2-q2",
+            "task": "Partitesten ga p-verdi 0,131 med $\\alpha = 0{,}05$. Hva er riktig konklusjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Oppslutningen er bevist å være 15 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi forkaster $H_0$ — partiet overdriver",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vi forkaster ikke $H_0$ — det er ikke tilstrekkelig bevis for at oppslutningen er under 15 %",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Testen må gjentas med samme utvalg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$0{,}131 > 0{,}05$: resultatet er ikke signifikant. Vi beholder $H_0$, men har ikke dermed bevist at den er sann."
+          },
+          {
+            "id": "s2-5-2-n-quiz2-q3",
+            "task": "I andelstesten brukes $\\sqrt{\\frac{p_0(1-p_0)}{n}}$ i nevneren. Hvorfor $p_0$ og ikke $\\hat{p}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $\\hat{p}$ er ukjent",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $p_0$ alltid er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er likegyldig hvilken som brukes",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi testen beregnes under antakelsen om at $H_0$ (og dermed $p_0$) er sann",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hele testlogikken er betinget på $H_0$: vi spør hvor usannsynlig resultatet er hvis $p = p_0$. Derfor brukes $p_0$ i standardfeilen (i motsetning til i konfidensintervaller)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-5-2-n-section3",
+      "type": "text",
+      "content": "## Ensidig eller tosidig — og kunsten å konkludere\n\nValget mellom ensidig og tosidig test er et veivalg som må tas **før** du ser på dataene. En tosidig test ($H_1: \\mu \\neq \\mu_0$, p-verdi $2P(Z > |z|)$) brukes når du undersøker om det er en forskjell, uansett retning. En ensidig test ($H_1: \\mu > \\mu_0$ eller $\\mu < \\mu_0$) brukes når bare én retning er faglig interessant. Den ensidige testen er mer «kraftfull» — det er lettere å forkaste $H_0$ fordi all $\\alpha$ legges i én hale — men prisen er at du er blind for avvik i motsatt retning. Å bytte til ensidig test *etter* å ha sett dataene er juks: da har du i praksis doblet sjansen for falsk alarm.\n\nEt eksempel på berettiget ensidig test: en ny undervisningsmetode hevdes å gi **bedre** resultater enn den tradisjonelle, som gir $\\mu_0 = 72$ poeng. Et utvalg på 50 elever med ny metode gir $\\bar{x} = 74{,}8$ og $s = 9{,}5$. Hypotesene er $H_0: \\mu = 72$ mot $H_1: \\mu > 72$, og $$z = \\frac{74{,}8 - 72}{9{,}5/\\sqrt{50}} = \\frac{2{,}8}{1{,}3435} \\approx 2{,}08$$ P-verdien er $P(Z > 2{,}08) \\approx 0{,}019 < 0{,}05$: vi forkaster $H_0$. På 5 %-nivå er det signifikant bevis for at den nye metoden gir bedre resultater.\n\nTil slutt: konklusjonen skal alltid formuleres ordentlig. Referer til signifikansnivået («på 5 % signifikansnivå …»), bruk riktig språk («forkaster / forkaster ikke $H_0$») og oversett til kontekst. Ved forkasting: «Det er statistisk signifikant bevis for at [alternativhypotesen].» Uten forkasting: «Det er ikke tilstrekkelig bevis for å hevde at [alternativhypotesen]; vi beholder $H_0$.» Og igjen — et ikke-signifikant resultat betyr ikke at $H_0$ er sann, bare at bevisene ikke holdt denne gangen."
+    },
+    {
+      "id": "s2-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ensidige og tosidige tester:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-5-2-n-quiz3-q0",
+            "task": "Når skal valget mellom ensidig og tosidig test tas?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Før man ser på dataene",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Etter at p-verdien er beregnet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etter at man har sett om $z$ er positiv eller negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det spiller ingen rolle",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Velger man retning etter å ha sett dataene, blir testen skjev og sannsynligheten for falsk alarm i praksis doblet. Retningen må begrunnes faglig på forhånd."
+          },
+          {
+            "id": "s2-5-2-n-quiz3-q1",
+            "task": "Undervisningstesten: $z \\approx 2{,}08$ og $H_1: \\mu > 72$. Hva er p-verdien?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2 \\cdot P(Z > 2{,}08) \\approx 0{,}038$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$P(Z > 2{,}08) \\approx 0{,}019$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$P(Z < 2{,}08) \\approx 0{,}981$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}05$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ensidig høyre test bruker bare øvre hale: p-verdien er $P(Z > z) \\approx 0{,}019$. Tosidig ville gitt det dobbelte."
+          },
+          {
+            "id": "s2-5-2-n-quiz3-q2",
+            "task": "Hva er fordelen og ulempen med en ensidig test?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den er alltid mer pålitelig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den krever mindre utvalg, men flere hypoteser",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Lettere å forkaste $H_0$ i den valgte retningen, men blind for avvik i motsatt retning",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den gir lavere $z$-verdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "All $\\alpha$ legges i én hale, så testen er mer kraftfull der — men avvik den andre veien kan aldri oppdages."
+          },
+          {
+            "id": "s2-5-2-n-quiz3-q3",
+            "task": "Hvilken formulering er en korrekt konklusjon etter forkasting av $H_0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "«$H_1$ er bevist sann»",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "«$H_0$ har sannsynlighet under 5 %»",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "«Resultatet skyldes tilfeldigheter»",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "«På 5 % signifikansnivå er det statistisk signifikant bevis for [alternativhypotesen]»",
+                "isCorrect": true
+              }
+            ],
+            "solution": "God konklusjon refererer til nivået, bruker forkastingsspråket og tolker i kontekst. Statistikk gir aldri absolutte bevis, og p-verdien er ikke sannsynligheten for $H_0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: bevisbyrden i tall\n\nHypotesetesting er en rettssak der tilfeldigheten er forsvarsadvokat. **Nullhypotesen** $H_0$ — «ingen effekt», alltid med likhet — er uskyldig til det motsatte er bevist, og **alternativhypotesen** $H_1$ er det vi vil påvise, med retning ($>$, $<$) eller uten ($\\neq$).\n\nBevisene veies i tre steg. **Testobservatoren** $z = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}}$ (eller $z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$ for andeler) måler avviket fra $H_0$ i standardfeil. **P-verdien** er sannsynligheten, gitt at $H_0$ er sann, for et minst like ekstremt resultat — én hale for ensidige tester, dobbel hale for tosidige. Og **signifikansnivået** $\\alpha$ (oftest 5 %) er domsterskelen: $p \\leq \\alpha$ gir forkasting og et «statistisk signifikant» resultat.\n\nFortellingene viste begge utfall: sjokoladeplatene ble dømt ($z = -2{,}5$, $p = 0{,}0124$), partipåstanden ble frikjent på tvil ($z = -1{,}12$, $p = 0{,}131$), og den nye undervisningsmetoden fikk medhold i en ensidig test ($p = 0{,}019$). Husk kjørereglene: velg ensidig eller tosidig **før** du ser dataene; bruk $p_0$ i standardfeilen for andelstester; og formuler konklusjonen med nivå, forkastingsspråk og kontekst.\n\nOg den dypeste regelen av alle: vi aksepterer aldri $H_0$. Et ikke-signifikant resultat betyr at bevisene ikke holdt — kanskje fordi effekten ikke finnes, kanskje fordi utvalget var for lite. Akkurat dét skillet, mellom å frikjenne og å bevise uskyld, er temaet for neste kapittel: feiltyper og teststyrke."
+    }
+  ],
+  "exercises": []
+}

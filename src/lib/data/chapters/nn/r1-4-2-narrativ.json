@@ -1,1 +1,454 @@
-{"id":"r1-4-2-narrativ","courseId":"r1","chapterNumber":"4.2","title":"Derivasjon av eksponential- og logaritmefunksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om funksjonen som er sin eigen deriverte -- korleis $e^x$, $a^x$, $\\ln x$ og $\\log_a x$ vert deriverte, og kvifor talet $e$ er det naturlege grunntalet til veksten.","estimatedMinutes":32,"competenceGoals":["kunne derivere $e^x$","kunne derivere $a^x$ for vilkårleg grunntal $a > 0$","kunne derivere $\\ln x$","kunne derivere logaritmar med vilkårleg grunntal","forstå samanhengen mellom eksponential- og logaritmefunksjonar"],"linkedChapterId":"r1-4-2","content":[{"id":"r1-4-2-n-intro","type":"text","content":"## Funksjonen som speglar seg sjølv\n\nTenk deg ein bakteriekoloni i ei petriskål. Jo fleire bakteriar det er, dess fleire nye bakteriar vert danna per time. Vekstfarten er med andre ord proporsjonal med kor mykje som alt finst – og det er nettopp dette som kjenneteiknar eksponentiell vekst. Men her ligg eit matematisk spørsmål og lurer: viss $f(x)$ skildrar mengda, kva er då $f'(x)$, altså vekstfarten?\n\nI førre kapittel bygde vi ei verktøykasse for å derivere polynom, brøkar og røter. Men eksponentialfunksjonar som $2^x$ og logaritmefunksjonar som $\\ln x$ passar ikkje inn i potensregelen – her står $x$ i eksponenten eller inne i ein logaritme, ikkje i grunntalet. Dei treng eigne reglar.\n\nI dette kapittelet skal du møte ei av dei vakraste overraskingane i matematikken: det finst ein funksjon som er *sin eigen deriverte*. Talet $e \\approx 2{,}718$ er definert nettopp slik at dette skal stemme, og det gjer $e^x$ til sjølve navet i alt som handlar om vekst og forfall – frå renter og radioaktivitet til folketalsmodellar. Vi skal derivere $e^x$, generelle eksponentialfunksjonar $a^x$, den naturlege logaritmen $\\ln x$ og logaritmar med vilkårleg grunntal."},{"id":"r1-4-2-n-section1","type":"text","content":"## Funksjonen som er sin eigen deriverte\n\nHer er hovudpersonen i kapittelet: viss $f(x) = e^x$, så er $f'(x) = e^x$. Funksjonen og den deriverte hans er identiske. Teiknar du grafen til $e^x$, er stigingstalet i kvart einaste punkt nøyaktig likt funksjonsverdien i det same punktet. Når grafen passerer høgda 5, stig han med fart 5. Når han passerer 100, stig han med fart 100.\n\nDette er ikkje eit tilfelle, men sjølve definisjonen av talet $e$. Av alle eksponentialfunksjonar $a^x$ finst det nøyaktig eitt grunntal der vekstfarten vert lik funksjonsverdien sjølv, og det grunntalet er $e \\approx 2{,}718$. Faktisk er $e^x$ den *einaste* funksjonen – bortsett frå den keisame $f(x) = 0$ – som er lik sin eigen deriverte. Det er difor $e^x$ dukkar opp overalt i fysikk, biologi og økonomi: naturen er full av prosessar der endringa er proporsjonal med mengda.\n\nDet fine er at dei gamle reglane våre framleis gjeld. Konstant faktor: $g(x) = 3e^x$ gir $g'(x) = 3e^x$. Sumregelen: $h(x) = e^x + x^2$ gir $h'(x) = e^x + 2x$. Vi har berre fått ei ny brikke som passar rett inn i verktøykassa frå førre kapittel – og den brikka er forbløffande lett å hugse: $e^x$ deriverer seg sjølv."},{"id":"r1-4-2-n-quiz1","type":"exercise","exercise":{"id":"r1-4-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på derivasjon av $e^x$:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-2-n-quiz1-q0","task":"Kva er den deriverte av $f(x) = e^x$?","options":[{"id":"a","text":"$x \\cdot e^{x-1}$","isCorrect":false},{"id":"b","text":"$e$","isCorrect":false},{"id":"c","text":"$e^x$","isCorrect":true},{"id":"d","text":"$\\frac{e^x}{x}$","isCorrect":false}],"solution":"$e^x$ er sin eigen deriverte: $(e^x)' = e^x$. Potensregelen gjeld ikkje her, fordi $x$ står i eksponenten."},{"id":"r1-4-2-n-quiz1-q1","task":"Kva er den deriverte av $g(x) = 3e^x$?","options":[{"id":"a","text":"$3e^x$","isCorrect":true},{"id":"b","text":"$e^x$","isCorrect":false},{"id":"c","text":"$3xe^{x-1}$","isCorrect":false},{"id":"d","text":"$3e$","isCorrect":false}],"solution":"Konstant faktor-regelen: $(3e^x)' = 3 \\cdot (e^x)' = 3e^x$."},{"id":"r1-4-2-n-quiz1-q2","task":"Kva er den deriverte av $h(x) = e^x + x^2$?","options":[{"id":"a","text":"$e^x + x^2$","isCorrect":false},{"id":"b","text":"$e^x + 2x$","isCorrect":true},{"id":"c","text":"$2x$","isCorrect":false},{"id":"d","text":"$e^x \\cdot 2x$","isCorrect":false}],"solution":"Sumregelen lèt oss derivere ledd for ledd: $(e^x)' = e^x$ og $(x^2)' = 2x$, så $h'(x) = e^x + 2x$."}]}},{"id":"r1-4-2-n-section2","type":"text","content":"## Kva med andre grunntal?\n\nBakteriar doblar seg gjerne: mengda følgjer $2^x$. Og kva med $10^x$, som ligg bak heile desibel- og pH-skalaen? Desse funksjonane er ikkje lik sin eigen deriverte – men dei er nesten. Regelen lyder: viss $f(x) = a^x$ der $a > 0$ og $a \\neq 1$, så er $f'(x) = a^x \\cdot \\ln a$. Den deriverte er funksjonen sjølv, ganga med ein korreksjonsfaktor $\\ln a$.\n\nKvifor akkurat $\\ln a$? Trikset er å skrive om $a^x$ ved hjelp av $e$. Sidan $e^{\\ln a} = a$, har vi $a^x = (e^{\\ln a})^x = e^{x \\ln a}$. Deriverer vi dette (med kjerneregelen, som du møter i neste kapittel), kjem faktoren $\\ln a$ ut: $(e^{x \\ln a})' = e^{x \\ln a} \\cdot \\ln a = a^x \\cdot \\ln a$. Alle eksponentialfunksjonar er altså forkledde utgåver av $e^x$ – det er difor $e$ er så sentral.\n\nKonkret: $(2^x)' = 2^x \\cdot \\ln 2$, og $(10^x)' = 10^x \\cdot \\ln 10$. Med konstant faktor: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$.\n\nOg legg merke til korleis alt heng saman: set vi $a = e$ i den generelle formelen, vert korreksjonsfaktoren $\\ln e = 1$, og vi får $(e^x)' = e^x \\cdot 1 = e^x$. Spesialtilfellet vårt frå førre seksjon er berre den generelle regelen med den penaste moglege konstanten. Matematikk på sitt mest elegante."},{"id":"r1-4-2-n-quiz2","type":"exercise","exercise":{"id":"r1-4-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på derivasjon av $a^x$:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-2-n-quiz2-q0","task":"Kva er den deriverte av $f(x) = 2^x$?","options":[{"id":"a","text":"$x \\cdot 2^{x-1}$","isCorrect":false},{"id":"b","text":"$2^x$","isCorrect":false},{"id":"c","text":"$2^x \\ln x$","isCorrect":false},{"id":"d","text":"$2^x \\cdot \\ln 2$","isCorrect":true}],"solution":"Regelen for generelle eksponentialfunksjonar: $(a^x)' = a^x \\cdot \\ln a$. Med $a = 2$ får vi $2^x \\cdot \\ln 2$."},{"id":"r1-4-2-n-quiz2-q1","task":"Kvifor gir formelen $(a^x)' = a^x \\ln a$ akkurat $(e^x)' = e^x$ når $a = e$?","options":[{"id":"a","text":"Fordi $e^x$ alltid er positiv","isCorrect":false},{"id":"b","text":"Fordi $\\ln e = 1$","isCorrect":true},{"id":"c","text":"Fordi $e$ er irrasjonal","isCorrect":false},{"id":"d","text":"Fordi $\\ln e = 0$","isCorrect":false}],"solution":"Set vi $a = e$, vert korreksjonsfaktoren $\\ln e = 1$, og dermed $(e^x)' = e^x \\cdot 1 = e^x$."},{"id":"r1-4-2-n-quiz2-q2","task":"Kva er den deriverte av $h(x) = 3 \\cdot 5^x$?","options":[{"id":"a","text":"$3 \\cdot 5^x \\cdot \\ln 5$","isCorrect":true},{"id":"b","text":"$15^x \\ln 5$","isCorrect":false},{"id":"c","text":"$3x \\cdot 5^{x-1}$","isCorrect":false},{"id":"d","text":"$5^x \\cdot \\ln 5$","isCorrect":false}],"solution":"Konstant faktor følgjer med: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$."}]}},{"id":"r1-4-2-n-section3","type":"text","content":"## Logaritmen svarar med ein brøk\n\nDen naturlege logaritmen $\\ln x$ er den inverse funksjonen til $e^x$ – han «angrar» eksponentialfunksjonen. Ein kunne kanskje gjette at den deriverte vart noko komplisert, men resultatet er overraskande enkelt: for $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Ein logaritme vert derivert til ein heilt vanleg brøk.\n\nBeviset utnyttar nettopp at funksjonane er inverse. Viss $y = \\ln x$, så er $e^y = x$. Deriverer vi begge sider med omsyn på $x$, får vi $e^y \\cdot \\frac{dy}{dx} = 1$, og dermed $\\frac{dy}{dx} = \\frac{1}{e^y} = \\frac{1}{x}$. Legg òg merke til kva formelen fortel: når $x$ er stor, er $\\frac{1}{x}$ liten – logaritmekurva flatar ut og veks stadig saktare, akkurat slik grafen ser ut.\n\nFor logaritmar med andre grunntal brukar vi omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$. Sidan $\\frac{1}{\\ln a}$ berre er ein konstant faktor, får vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$. Til dømes er $(\\log_2 x)' = \\frac{1}{x \\ln 2}$ og $(\\lg x)' = (\\log_{10} x)' = \\frac{1}{x \\ln 10}$, og med konstant: $(3\\log_5 x)' = \\frac{3}{x \\ln 5}$.\n\nNo kan vi blande alt saman. Funksjonen $f(x) = x^2 + 3e^x - 2\\ln x$ vert derivert ledd for ledd: $f'(x) = 2x + 3e^x - \\frac{2}{x}$. Og tangentar fungerer som før: for $f(x) = e^x$ i punktet $(0, 1)$ er stigingstalet $f'(0) = e^0 = 1$, så eittpunktsformelen gir $y - 1 = 1 \\cdot (x - 0)$, altså tangenten $y = x + 1$."},{"id":"r1-4-2-n-quiz3","type":"exercise","exercise":{"id":"r1-4-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på logaritmar og kombinerte funksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-2-n-quiz3-q0","task":"Kva er den deriverte av $f(x) = \\ln x$?","options":[{"id":"a","text":"$\\ln x$","isCorrect":false},{"id":"b","text":"$\\frac{1}{x}$","isCorrect":true},{"id":"c","text":"$e^x$","isCorrect":false},{"id":"d","text":"$x \\ln x$","isCorrect":false}],"solution":"For $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Logaritmen vert derivert til ein enkel brøk."},{"id":"r1-4-2-n-quiz3-q1","task":"Kva er den deriverte av $f(x) = \\log_2 x$?","options":[{"id":"a","text":"$\\frac{1}{x}$","isCorrect":false},{"id":"b","text":"$\\frac{\\ln 2}{x}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{x \\ln 2}$","isCorrect":true},{"id":"d","text":"$\\frac{1}{2x}$","isCorrect":false}],"solution":"Vi brukar $\\log_2 x = \\frac{\\ln x}{\\ln 2}$, der $\\frac{1}{\\ln 2}$ er ein konstant. Då vert $(\\log_2 x)' = \\frac{1}{x \\ln 2}$."},{"id":"r1-4-2-n-quiz3-q2","task":"Kva er den deriverte av $f(x) = x^2 + 3e^x - 2\\ln x$?","options":[{"id":"a","text":"$2x + 3e^x - \\frac{2}{x}$","isCorrect":true},{"id":"b","text":"$2x + 3e^x - \\frac{1}{x}$","isCorrect":false},{"id":"c","text":"$2x + e^x - \\frac{2}{x}$","isCorrect":false},{"id":"d","text":"$x + 3e^x - 2x$","isCorrect":false}],"solution":"Ledd for ledd: $(x^2)' = 2x$, $(3e^x)' = 3e^x$ og $(2\\ln x)' = \\frac{2}{x}$. Altså $f'(x) = 2x + 3e^x - \\frac{2}{x}$."},{"id":"r1-4-2-n-quiz3-q3","task":"Kva er likninga for tangenten til $f(x) = e^x$ i punktet $(0, 1)$?","options":[{"id":"a","text":"$y = ex + 1$","isCorrect":false},{"id":"b","text":"$y = x$","isCorrect":false},{"id":"c","text":"$y = e^x + 1$","isCorrect":false},{"id":"d","text":"$y = x + 1$","isCorrect":true}],"solution":"$f'(x) = e^x$ gir stigingstal $f'(0) = e^0 = 1$. Eittpunktsformelen: $y - 1 = 1(x - 0)$, altså $y = x + 1$."}]}},{"id":"r1-4-2-n-summary","type":"text","content":"## Grammatikken til veksten\n\nI dette kapittelet har du lært å derivere funksjonane som skildrar vekst og forfall. Kjernen er éin merkverdig funksjon: $e^x$, som er sin eigen deriverte – $(e^x)' = e^x$. Talet $e \\approx 2{,}718$ er skreddarsydd for nettopp dette, og det gjer $e^x$ til den naturlege byggjesteinen i alle vekstmodellar.\n\nFor andre grunntal kjem ein korreksjonsfaktor: $(a^x)' = a^x \\cdot \\ln a$. Formelen følgjer av at kvar eksponentialfunksjon kan skrivast som $a^x = e^{x \\ln a}$ – dei er alle forkledde utgåver av $e^x$. Set du $a = e$, vert faktoren $\\ln e = 1$, og spesialtilfellet fell pent på plass.\n\nLogaritmane svarte med uventa enkelheit: $(\\ln x)' = \\frac{1}{x}$, eit resultat vi beviste ved å utnytte at $\\ln x$ og $e^x$ er inverse funksjonar. Og med omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$ fekk vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$.\n\nSaman med reglane frå førre kapittel kan du no derivere kombinasjonar som $x^2 + 3e^x - 2\\ln x$ utan å nøle, og finne tangentar til eksponentialkurver. I neste kapittel løftar vi verktøykassa endå eit hakk: kjerneregelen lèt oss derivere samansette funksjonar som $e^{3x}$ og $\\ln(x^2 + 1)$ – funksjonar med funksjonar inni."}],"exercises":[],"_meta":{"sourceHash":"b43350b588a5d013","translatedAt":"2026-06-19T23:58:08.286Z","model":"claude-code-agent","strings":79,"tm":{"0a3c61bbcda5a945":"Derivasjon av eksponential- og logaritmefunksjonar","b195b06d1ed59702":"Narrativ versjon","69d57c1069cb4e46":"Ei forteljing om funksjonen som er sin eigen deriverte -- korleis $e^x$, $a^x$, $\\ln x$ og $\\log_a x$ vert deriverte, og kvifor talet $e$ er det naturlege grunntalet til veksten.","2c43c41d275e7678":"kunne derivere $e^x$","3f54dfd6f336a12a":"kunne derivere $a^x$ for vilkårleg grunntal $a > 0$","4b367b89357efd7c":"kunne derivere $\\ln x$","8ce156a47be689e5":"kunne derivere logaritmar med vilkårleg grunntal","522422934182406d":"forstå samanhengen mellom eksponential- og logaritmefunksjonar","d857019f5fdb72bb":"## Funksjonen som speglar seg sjølv\n\nTenk deg ein bakteriekoloni i ei petriskål. Jo fleire bakteriar det er, dess fleire nye bakteriar vert danna per time. Vekstfarten er med andre ord proporsjonal med kor mykje som alt finst – og det er nettopp dette som kjenneteiknar eksponentiell vekst. Men her ligg eit matematisk spørsmål og lurer: viss $f(x)$ skildrar mengda, kva er då $f'(x)$, altså vekstfarten?\n\nI førre kapittel bygde vi ei verktøykasse for å derivere polynom, brøkar og røter. Men eksponentialfunksjonar som $2^x$ og logaritmefunksjonar som $\\ln x$ passar ikkje inn i potensregelen – her står $x$ i eksponenten eller inne i ein logaritme, ikkje i grunntalet. Dei treng eigne reglar.\n\nI dette kapittelet skal du møte ei av dei vakraste overraskingane i matematikken: det finst ein funksjon som er *sin eigen deriverte*. Talet $e \\approx 2{,}718$ er definert nettopp slik at dette skal stemme, og det gjer $e^x$ til sjølve navet i alt som handlar om vekst og forfall – frå renter og radioaktivitet til folketalsmodellar. Vi skal derivere $e^x$, generelle eksponentialfunksjonar $a^x$, den naturlege logaritmen $\\ln x$ og logaritmar med vilkårleg grunntal.","6152c4db86f98da5":"## Funksjonen som er sin eigen deriverte\n\nHer er hovudpersonen i kapittelet: viss $f(x) = e^x$, så er $f'(x) = e^x$. Funksjonen og den deriverte hans er identiske. Teiknar du grafen til $e^x$, er stigingstalet i kvart einaste punkt nøyaktig likt funksjonsverdien i det same punktet. Når grafen passerer høgda 5, stig han med fart 5. Når han passerer 100, stig han med fart 100.\n\nDette er ikkje eit tilfelle, men sjølve definisjonen av talet $e$. Av alle eksponentialfunksjonar $a^x$ finst det nøyaktig eitt grunntal der vekstfarten vert lik funksjonsverdien sjølv, og det grunntalet er $e \\approx 2{,}718$. Faktisk er $e^x$ den *einaste* funksjonen – bortsett frå den keisame $f(x) = 0$ – som er lik sin eigen deriverte. Det er difor $e^x$ dukkar opp overalt i fysikk, biologi og økonomi: naturen er full av prosessar der endringa er proporsjonal med mengda.\n\nDet fine er at dei gamle reglane våre framleis gjeld. Konstant faktor: $g(x) = 3e^x$ gir $g'(x) = 3e^x$. Sumregelen: $h(x) = e^x + x^2$ gir $h'(x) = e^x + 2x$. Vi har berre fått ei ny brikke som passar rett inn i verktøykassa frå førre kapittel – og den brikka er forbløffande lett å hugse: $e^x$ deriverer seg sjølv.","7f6d81f23ea8d150":"Test deg sjølv på derivasjon av $e^x$:","4097889236a2af26":"placeholder","b659754e01668399":"Kva er den deriverte av $f(x) = e^x$?","925308d46543072d":"$x \\cdot e^{x-1}$","11510e9ccde57f11":"$e$","d61cf6ef09ec53a6":"$e^x$","ea69431104068da4":"$\\frac{e^x}{x}$","1911fddaf97a657a":"$e^x$ er sin eigen deriverte: $(e^x)' = e^x$. Potensregelen gjeld ikkje her, fordi $x$ står i eksponenten.","d9b1cbafcffc321f":"Kva er den deriverte av $g(x) = 3e^x$?","5c7f3d2cd9a0e36a":"$3e^x$","32e6116cbcc927c5":"$3xe^{x-1}$","0e51249e1284e585":"$3e$","9c992cd683b10135":"Konstant faktor-regelen: $(3e^x)' = 3 \\cdot (e^x)' = 3e^x$.","1a994e11d8bdce56":"Kva er den deriverte av $h(x) = e^x + x^2$?","9d79de1d35d3eff1":"$e^x + x^2$","9c51c3f3cea2a122":"$e^x + 2x$","78a5bb6d2b2ceac0":"$2x$","ae0f4a43df9b0e96":"$e^x \\cdot 2x$","fc520ee073ee630c":"Sumregelen lèt oss derivere ledd for ledd: $(e^x)' = e^x$ og $(x^2)' = 2x$, så $h'(x) = e^x + 2x$.","81b7d780f416d86b":"## Kva med andre grunntal?\n\nBakteriar doblar seg gjerne: mengda følgjer $2^x$. Og kva med $10^x$, som ligg bak heile desibel- og pH-skalaen? Desse funksjonane er ikkje lik sin eigen deriverte – men dei er nesten. Regelen lyder: viss $f(x) = a^x$ der $a > 0$ og $a \\neq 1$, så er $f'(x) = a^x \\cdot \\ln a$. Den deriverte er funksjonen sjølv, ganga med ein korreksjonsfaktor $\\ln a$.\n\nKvifor akkurat $\\ln a$? Trikset er å skrive om $a^x$ ved hjelp av $e$. Sidan $e^{\\ln a} = a$, har vi $a^x = (e^{\\ln a})^x = e^{x \\ln a}$. Deriverer vi dette (med kjerneregelen, som du møter i neste kapittel), kjem faktoren $\\ln a$ ut: $(e^{x \\ln a})' = e^{x \\ln a} \\cdot \\ln a = a^x \\cdot \\ln a$. Alle eksponentialfunksjonar er altså forkledde utgåver av $e^x$ – det er difor $e$ er så sentral.\n\nKonkret: $(2^x)' = 2^x \\cdot \\ln 2$, og $(10^x)' = 10^x \\cdot \\ln 10$. Med konstant faktor: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$.\n\nOg legg merke til korleis alt heng saman: set vi $a = e$ i den generelle formelen, vert korreksjonsfaktoren $\\ln e = 1$, og vi får $(e^x)' = e^x \\cdot 1 = e^x$. Spesialtilfellet vårt frå førre seksjon er berre den generelle regelen med den penaste moglege konstanten. Matematikk på sitt mest elegante.","6aa952af2eff398d":"Test deg sjølv på derivasjon av $a^x$:","11955883c1469ef2":"Kva er den deriverte av $f(x) = 2^x$?","7b9b17c097962b8c":"$x \\cdot 2^{x-1}$","e4a2d282c55d53f1":"$2^x$","0c8722e14e30b693":"$2^x \\ln x$","967d4d2999b50416":"$2^x \\cdot \\ln 2$","782299000596a51b":"Regelen for generelle eksponentialfunksjonar: $(a^x)' = a^x \\cdot \\ln a$. Med $a = 2$ får vi $2^x \\cdot \\ln 2$.","4a1baedff7ac571e":"Kvifor gir formelen $(a^x)' = a^x \\ln a$ akkurat $(e^x)' = e^x$ når $a = e$?","f52f4a29f3541e36":"Fordi $e^x$ alltid er positiv","3d9766ae50ff1dc7":"Fordi $\\ln e = 1$","d4467d45a8dad6cf":"Fordi $e$ er irrasjonal","9cb814f88814a724":"Fordi $\\ln e = 0$","4b6fa81357e075e1":"Set vi $a = e$, vert korreksjonsfaktoren $\\ln e = 1$, og dermed $(e^x)' = e^x \\cdot 1 = e^x$.","838f053765af883b":"Kva er den deriverte av $h(x) = 3 \\cdot 5^x$?","4986f8fddae49400":"$3 \\cdot 5^x \\cdot \\ln 5$","60db3d76b4c652fa":"$15^x \\ln 5$","16976740a1d4f5f3":"$3x \\cdot 5^{x-1}$","23e65a7f21a73712":"$5^x \\cdot \\ln 5$","07e163cd5dd9c92a":"Konstant faktor følgjer med: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$.","9cb9d84232fa967a":"## Logaritmen svarar med ein brøk\n\nDen naturlege logaritmen $\\ln x$ er den inverse funksjonen til $e^x$ – han «angrar» eksponentialfunksjonen. Ein kunne kanskje gjette at den deriverte vart noko komplisert, men resultatet er overraskande enkelt: for $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Ein logaritme vert derivert til ein heilt vanleg brøk.\n\nBeviset utnyttar nettopp at funksjonane er inverse. Viss $y = \\ln x$, så er $e^y = x$. Deriverer vi begge sider med omsyn på $x$, får vi $e^y \\cdot \\frac{dy}{dx} = 1$, og dermed $\\frac{dy}{dx} = \\frac{1}{e^y} = \\frac{1}{x}$. Legg òg merke til kva formelen fortel: når $x$ er stor, er $\\frac{1}{x}$ liten – logaritmekurva flatar ut og veks stadig saktare, akkurat slik grafen ser ut.\n\nFor logaritmar med andre grunntal brukar vi omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$. Sidan $\\frac{1}{\\ln a}$ berre er ein konstant faktor, får vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$. Til dømes er $(\\log_2 x)' = \\frac{1}{x \\ln 2}$ og $(\\lg x)' = (\\log_{10} x)' = \\frac{1}{x \\ln 10}$, og med konstant: $(3\\log_5 x)' = \\frac{3}{x \\ln 5}$.\n\nNo kan vi blande alt saman. Funksjonen $f(x) = x^2 + 3e^x - 2\\ln x$ vert derivert ledd for ledd: $f'(x) = 2x + 3e^x - \\frac{2}{x}$. Og tangentar fungerer som før: for $f(x) = e^x$ i punktet $(0, 1)$ er stigingstalet $f'(0) = e^0 = 1$, så eittpunktsformelen gir $y - 1 = 1 \\cdot (x - 0)$, altså tangenten $y = x + 1$.","ca7896e0a3102969":"Test deg sjølv på logaritmar og kombinerte funksjonar:","88c7330ef601d757":"Kva er den deriverte av $f(x) = \\ln x$?","5baeaa2459d35eaa":"$\\ln x$","67a691bb8a51fd28":"$\\frac{1}{x}$","f9f3ee476f418a27":"$x \\ln x$","da7096d309c9da2d":"For $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Logaritmen vert derivert til ein enkel brøk.","1fe9314c97851e7c":"Kva er den deriverte av $f(x) = \\log_2 x$?","6b3cf1c71d943c4d":"$\\frac{\\ln 2}{x}$","3ee87c1420fcf23c":"$\\frac{1}{x \\ln 2}$","eae785a9c5b92ff5":"$\\frac{1}{2x}$","913d9b116bc082f4":"Vi brukar $\\log_2 x = \\frac{\\ln x}{\\ln 2}$, der $\\frac{1}{\\ln 2}$ er ein konstant. Då vert $(\\log_2 x)' = \\frac{1}{x \\ln 2}$.","8f2c5a4b974c65c9":"Kva er den deriverte av $f(x) = x^2 + 3e^x - 2\\ln x$?","deeeb6889361148c":"$2x + 3e^x - \\frac{2}{x}$","bd9e135521bc4096":"$2x + 3e^x - \\frac{1}{x}$","410292d04be3de14":"$2x + e^x - \\frac{2}{x}$","f6e0da3e98bd8974":"$x + 3e^x - 2x$","f894e30ef8cb5479":"Ledd for ledd: $(x^2)' = 2x$, $(3e^x)' = 3e^x$ og $(2\\ln x)' = \\frac{2}{x}$. Altså $f'(x) = 2x + 3e^x - \\frac{2}{x}$.","d84d0d59254212bc":"Kva er likninga for tangenten til $f(x) = e^x$ i punktet $(0, 1)$?","d22dfde5a9841511":"$y = ex + 1$","4727dfb8fbab1fa7":"$y = x$","a1bd9136c19e6ce9":"$y = e^x + 1$","6585fbbf3e5a29fc":"$y = x + 1$","dce1543c1c6f49c8":"$f'(x) = e^x$ gir stigingstal $f'(0) = e^0 = 1$. Eittpunktsformelen: $y - 1 = 1(x - 0)$, altså $y = x + 1$.","2fa1fe58a743ebd8":"## Grammatikken til veksten\n\nI dette kapittelet har du lært å derivere funksjonane som skildrar vekst og forfall. Kjernen er éin merkverdig funksjon: $e^x$, som er sin eigen deriverte – $(e^x)' = e^x$. Talet $e \\approx 2{,}718$ er skreddarsydd for nettopp dette, og det gjer $e^x$ til den naturlege byggjesteinen i alle vekstmodellar.\n\nFor andre grunntal kjem ein korreksjonsfaktor: $(a^x)' = a^x \\cdot \\ln a$. Formelen følgjer av at kvar eksponentialfunksjon kan skrivast som $a^x = e^{x \\ln a}$ – dei er alle forkledde utgåver av $e^x$. Set du $a = e$, vert faktoren $\\ln e = 1$, og spesialtilfellet fell pent på plass.\n\nLogaritmane svarte med uventa enkelheit: $(\\ln x)' = \\frac{1}{x}$, eit resultat vi beviste ved å utnytte at $\\ln x$ og $e^x$ er inverse funksjonar. Og med omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$ fekk vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$.\n\nSaman med reglane frå førre kapittel kan du no derivere kombinasjonar som $x^2 + 3e^x - 2\\ln x$ utan å nøle, og finne tangentar til eksponentialkurver. I neste kapittel løftar vi verktøykassa endå eit hakk: kjerneregelen lèt oss derivere samansette funksjonar som $e^{3x}$ og $\\ln(x^2 + 1)$ – funksjonar med funksjonar inni."}}}
+{
+  "id": "r1-4-2-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "4.2",
+  "title": "Derivasjon av eksponential- og logaritmefunksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om funksjonen som er sin eigen deriverte -- korleis $e^x$, $a^x$, $\\ln x$ og $\\log_a x$ vert deriverte, og kvifor talet $e$ er det naturlege grunntalet til veksten.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "kunne derivere $e^x$",
+    "kunne derivere $a^x$ for vilkårleg grunntal $a > 0$",
+    "kunne derivere $\\ln x$",
+    "kunne derivere logaritmar med vilkårleg grunntal",
+    "forstå samanhengen mellom eksponential- og logaritmefunksjonar"
+  ],
+  "linkedChapterId": "r1-4-2",
+  "content": [
+    {
+      "id": "r1-4-2-n-intro",
+      "type": "text",
+      "content": "## Funksjonen som speglar seg sjølv\n\nTenk deg ein bakteriekoloni i ei petriskål. Jo fleire bakteriar det er, dess fleire nye bakteriar vert danna per time. Vekstfarten er med andre ord proporsjonal med kor mykje som alt finst – og det er nettopp dette som kjenneteiknar eksponentiell vekst. Men her ligg eit matematisk spørsmål og lurer: viss $f(x)$ skildrar mengda, kva er då $f'(x)$, altså vekstfarten?\n\nI førre kapittel bygde vi ei verktøykasse for å derivere polynom, brøkar og røter. Men eksponentialfunksjonar som $2^x$ og logaritmefunksjonar som $\\ln x$ passar ikkje inn i potensregelen – her står $x$ i eksponenten eller inne i ein logaritme, ikkje i grunntalet. Dei treng eigne reglar.\n\nI dette kapittelet skal du møte ei av dei vakraste overraskingane i matematikken: det finst ein funksjon som er *sin eigen deriverte*. Talet $e \\approx 2{,}718$ er definert nettopp slik at dette skal stemme, og det gjer $e^x$ til sjølve navet i alt som handlar om vekst og forfall – frå renter og radioaktivitet til folketalsmodellar. Vi skal derivere $e^x$, generelle eksponentialfunksjonar $a^x$, den naturlege logaritmen $\\ln x$ og logaritmar med vilkårleg grunntal."
+    },
+    {
+      "id": "r1-4-2-n-section1",
+      "type": "text",
+      "content": "## Funksjonen som er sin eigen deriverte\n\nHer er hovudpersonen i kapittelet: viss $f(x) = e^x$, så er $f'(x) = e^x$. Funksjonen og den deriverte hans er identiske. Teiknar du grafen til $e^x$, er stigingstalet i kvart einaste punkt nøyaktig likt funksjonsverdien i det same punktet. Når grafen passerer høgda 5, stig han med fart 5. Når han passerer 100, stig han med fart 100.\n\nDette er ikkje eit tilfelle, men sjølve definisjonen av talet $e$. Av alle eksponentialfunksjonar $a^x$ finst det nøyaktig eitt grunntal der vekstfarten vert lik funksjonsverdien sjølv, og det grunntalet er $e \\approx 2{,}718$. Faktisk er $e^x$ den *einaste* funksjonen – bortsett frå den keisame $f(x) = 0$ – som er lik sin eigen deriverte. Det er difor $e^x$ dukkar opp overalt i fysikk, biologi og økonomi: naturen er full av prosessar der endringa er proporsjonal med mengda.\n\nDet fine er at dei gamle reglane våre framleis gjeld. Konstant faktor: $g(x) = 3e^x$ gir $g'(x) = 3e^x$. Sumregelen: $h(x) = e^x + x^2$ gir $h'(x) = e^x + 2x$. Vi har berre fått ei ny brikke som passar rett inn i verktøykassa frå førre kapittel – og den brikka er forbløffande lett å hugse: $e^x$ deriverer seg sjølv."
+    },
+    {
+      "id": "r1-4-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på derivasjon av $e^x$:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-2-n-quiz1-q0",
+            "task": "Kva er den deriverte av $f(x) = e^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x \\cdot e^{x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$e$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{e^x}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e^x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$e^x$ er sin eigen deriverte: $(e^x)' = e^x$. Potensregelen gjeld ikkje her, fordi $x$ står i eksponenten."
+          },
+          {
+            "id": "r1-4-2-n-quiz1-q1",
+            "task": "Kva er den deriverte av $g(x) = 3e^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3e^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$e^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3xe^{x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3e$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstant faktor-regelen: $(3e^x)' = 3 \\cdot (e^x)' = 3e^x$."
+          },
+          {
+            "id": "r1-4-2-n-quiz1-q2",
+            "task": "Kva er den deriverte av $h(x) = e^x + x^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^x + x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$e^x + 2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^x \\cdot 2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sumregelen lèt oss derivere ledd for ledd: $(e^x)' = e^x$ og $(x^2)' = 2x$, så $h'(x) = e^x + 2x$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-2-n-section2",
+      "type": "text",
+      "content": "## Kva med andre grunntal?\n\nBakteriar doblar seg gjerne: mengda følgjer $2^x$. Og kva med $10^x$, som ligg bak heile desibel- og pH-skalaen? Desse funksjonane er ikkje lik sin eigen deriverte – men dei er nesten. Regelen lyder: viss $f(x) = a^x$ der $a > 0$ og $a \\neq 1$, så er $f'(x) = a^x \\cdot \\ln a$. Den deriverte er funksjonen sjølv, ganga med ein korreksjonsfaktor $\\ln a$.\n\nKvifor akkurat $\\ln a$? Trikset er å skrive om $a^x$ ved hjelp av $e$. Sidan $e^{\\ln a} = a$, har vi $a^x = (e^{\\ln a})^x = e^{x \\ln a}$. Deriverer vi dette (med kjerneregelen, som du møter i neste kapittel), kjem faktoren $\\ln a$ ut: $(e^{x \\ln a})' = e^{x \\ln a} \\cdot \\ln a = a^x \\cdot \\ln a$. Alle eksponentialfunksjonar er altså forkledde utgåver av $e^x$ – det er difor $e$ er så sentral.\n\nKonkret: $(2^x)' = 2^x \\cdot \\ln 2$, og $(10^x)' = 10^x \\cdot \\ln 10$. Med konstant faktor: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$.\n\nOg legg merke til korleis alt heng saman: set vi $a = e$ i den generelle formelen, vert korreksjonsfaktoren $\\ln e = 1$, og vi får $(e^x)' = e^x \\cdot 1 = e^x$. Spesialtilfellet vårt frå førre seksjon er berre den generelle regelen med den penaste moglege konstanten. Matematikk på sitt mest elegante."
+    },
+    {
+      "id": "r1-4-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på derivasjon av $a^x$:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-2-n-quiz2-q0",
+            "task": "Kva er den deriverte av $f(x) = 2^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x \\cdot 2^{x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2^x \\cdot \\ln 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2^x \\ln x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Regelen for generelle eksponentialfunksjonar: $(a^x)' = a^x \\cdot \\ln a$. Med $a = 2$ får vi $2^x \\cdot \\ln 2$."
+          },
+          {
+            "id": "r1-4-2-n-quiz2-q1",
+            "task": "Kvifor gir formelen $(a^x)' = a^x \\ln a$ akkurat $(e^x)' = e^x$ når $a = e$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $e^x$ alltid er positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $e$ er irrasjonal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $\\ln e = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $\\ln e = 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Set vi $a = e$, vert korreksjonsfaktoren $\\ln e = 1$, og dermed $(e^x)' = e^x \\cdot 1 = e^x$."
+          },
+          {
+            "id": "r1-4-2-n-quiz2-q2",
+            "task": "Kva er den deriverte av $h(x) = 3 \\cdot 5^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3 \\cdot 5^x \\cdot \\ln 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$15^x \\ln 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3x \\cdot 5^{x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5^x \\cdot \\ln 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstant faktor følgjer med: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-2-n-section3",
+      "type": "text",
+      "content": "## Logaritmen svarar med ein brøk\n\nDen naturlege logaritmen $\\ln x$ er den inverse funksjonen til $e^x$ – han «angrar» eksponentialfunksjonen. Ein kunne kanskje gjette at den deriverte vart noko komplisert, men resultatet er overraskande enkelt: for $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Ein logaritme vert derivert til ein heilt vanleg brøk.\n\nBeviset utnyttar nettopp at funksjonane er inverse. Viss $y = \\ln x$, så er $e^y = x$. Deriverer vi begge sider med omsyn på $x$, får vi $e^y \\cdot \\frac{dy}{dx} = 1$, og dermed $\\frac{dy}{dx} = \\frac{1}{e^y} = \\frac{1}{x}$. Legg òg merke til kva formelen fortel: når $x$ er stor, er $\\frac{1}{x}$ liten – logaritmekurva flatar ut og veks stadig saktare, akkurat slik grafen ser ut.\n\nFor logaritmar med andre grunntal brukar vi omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$. Sidan $\\frac{1}{\\ln a}$ berre er ein konstant faktor, får vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$. Til dømes er $(\\log_2 x)' = \\frac{1}{x \\ln 2}$ og $(\\lg x)' = (\\log_{10} x)' = \\frac{1}{x \\ln 10}$, og med konstant: $(3\\log_5 x)' = \\frac{3}{x \\ln 5}$.\n\nNo kan vi blande alt saman. Funksjonen $f(x) = x^2 + 3e^x - 2\\ln x$ vert derivert ledd for ledd: $f'(x) = 2x + 3e^x - \\frac{2}{x}$. Og tangentar fungerer som før: for $f(x) = e^x$ i punktet $(0, 1)$ er stigingstalet $f'(0) = e^0 = 1$, så eittpunktsformelen gir $y - 1 = 1 \\cdot (x - 0)$, altså tangenten $y = x + 1$."
+    },
+    {
+      "id": "r1-4-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logaritmar og kombinerte funksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-2-n-quiz3-q0",
+            "task": "Kva er den deriverte av $f(x) = \\ln x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$e^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x \\ln x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Logaritmen vert derivert til ein enkel brøk."
+          },
+          {
+            "id": "r1-4-2-n-quiz3-q1",
+            "task": "Kva er den deriverte av $f(x) = \\log_2 x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\ln 2}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{x \\ln 2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi brukar $\\log_2 x = \\frac{\\ln x}{\\ln 2}$, der $\\frac{1}{\\ln 2}$ er ein konstant. Då vert $(\\log_2 x)' = \\frac{1}{x \\ln 2}$."
+          },
+          {
+            "id": "r1-4-2-n-quiz3-q2",
+            "task": "Kva er den deriverte av $f(x) = x^2 + 3e^x - 2\\ln x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2x + 3e^x - \\frac{1}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x + e^x - \\frac{2}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x + 3e^x - 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2x + 3e^x - \\frac{2}{x}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ledd for ledd: $(x^2)' = 2x$, $(3e^x)' = 3e^x$ og $(2\\ln x)' = \\frac{2}{x}$. Altså $f'(x) = 2x + 3e^x - \\frac{2}{x}$."
+          },
+          {
+            "id": "r1-4-2-n-quiz3-q3",
+            "task": "Kva er likninga for tangenten til $f(x) = e^x$ i punktet $(0, 1)$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$y = x + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$y = ex + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = e^x + 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = e^x$ gir stigingstal $f'(0) = e^0 = 1$. Eittpunktsformelen: $y - 1 = 1(x - 0)$, altså $y = x + 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-2-n-summary",
+      "type": "text",
+      "content": "## Grammatikken til veksten\n\nI dette kapittelet har du lært å derivere funksjonane som skildrar vekst og forfall. Kjernen er éin merkverdig funksjon: $e^x$, som er sin eigen deriverte – $(e^x)' = e^x$. Talet $e \\approx 2{,}718$ er skreddarsydd for nettopp dette, og det gjer $e^x$ til den naturlege byggjesteinen i alle vekstmodellar.\n\nFor andre grunntal kjem ein korreksjonsfaktor: $(a^x)' = a^x \\cdot \\ln a$. Formelen følgjer av at kvar eksponentialfunksjon kan skrivast som $a^x = e^{x \\ln a}$ – dei er alle forkledde utgåver av $e^x$. Set du $a = e$, vert faktoren $\\ln e = 1$, og spesialtilfellet fell pent på plass.\n\nLogaritmane svarte med uventa enkelheit: $(\\ln x)' = \\frac{1}{x}$, eit resultat vi beviste ved å utnytte at $\\ln x$ og $e^x$ er inverse funksjonar. Og med omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$ fekk vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$.\n\nSaman med reglane frå førre kapittel kan du no derivere kombinasjonar som $x^2 + 3e^x - 2\\ln x$ utan å nøle, og finne tangentar til eksponentialkurver. I neste kapittel løftar vi verktøykassa endå eit hakk: kjerneregelen lèt oss derivere samansette funksjonar som $e^{3x}$ og $\\ln(x^2 + 1)$ – funksjonar med funksjonar inni."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "b43350b588a5d013",
+    "translatedAt": "2026-06-19T23:58:08.286Z",
+    "model": "claude-code-agent",
+    "strings": 79,
+    "tm": {
+      "0a3c61bbcda5a945": "Derivasjon av eksponential- og logaritmefunksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "69d57c1069cb4e46": "Ei forteljing om funksjonen som er sin eigen deriverte -- korleis $e^x$, $a^x$, $\\ln x$ og $\\log_a x$ vert deriverte, og kvifor talet $e$ er det naturlege grunntalet til veksten.",
+      "2c43c41d275e7678": "kunne derivere $e^x$",
+      "3f54dfd6f336a12a": "kunne derivere $a^x$ for vilkårleg grunntal $a > 0$",
+      "4b367b89357efd7c": "kunne derivere $\\ln x$",
+      "8ce156a47be689e5": "kunne derivere logaritmar med vilkårleg grunntal",
+      "522422934182406d": "forstå samanhengen mellom eksponential- og logaritmefunksjonar",
+      "d857019f5fdb72bb": "## Funksjonen som speglar seg sjølv\n\nTenk deg ein bakteriekoloni i ei petriskål. Jo fleire bakteriar det er, dess fleire nye bakteriar vert danna per time. Vekstfarten er med andre ord proporsjonal med kor mykje som alt finst – og det er nettopp dette som kjenneteiknar eksponentiell vekst. Men her ligg eit matematisk spørsmål og lurer: viss $f(x)$ skildrar mengda, kva er då $f'(x)$, altså vekstfarten?\n\nI førre kapittel bygde vi ei verktøykasse for å derivere polynom, brøkar og røter. Men eksponentialfunksjonar som $2^x$ og logaritmefunksjonar som $\\ln x$ passar ikkje inn i potensregelen – her står $x$ i eksponenten eller inne i ein logaritme, ikkje i grunntalet. Dei treng eigne reglar.\n\nI dette kapittelet skal du møte ei av dei vakraste overraskingane i matematikken: det finst ein funksjon som er *sin eigen deriverte*. Talet $e \\approx 2{,}718$ er definert nettopp slik at dette skal stemme, og det gjer $e^x$ til sjølve navet i alt som handlar om vekst og forfall – frå renter og radioaktivitet til folketalsmodellar. Vi skal derivere $e^x$, generelle eksponentialfunksjonar $a^x$, den naturlege logaritmen $\\ln x$ og logaritmar med vilkårleg grunntal.",
+      "6152c4db86f98da5": "## Funksjonen som er sin eigen deriverte\n\nHer er hovudpersonen i kapittelet: viss $f(x) = e^x$, så er $f'(x) = e^x$. Funksjonen og den deriverte hans er identiske. Teiknar du grafen til $e^x$, er stigingstalet i kvart einaste punkt nøyaktig likt funksjonsverdien i det same punktet. Når grafen passerer høgda 5, stig han med fart 5. Når han passerer 100, stig han med fart 100.\n\nDette er ikkje eit tilfelle, men sjølve definisjonen av talet $e$. Av alle eksponentialfunksjonar $a^x$ finst det nøyaktig eitt grunntal der vekstfarten vert lik funksjonsverdien sjølv, og det grunntalet er $e \\approx 2{,}718$. Faktisk er $e^x$ den *einaste* funksjonen – bortsett frå den keisame $f(x) = 0$ – som er lik sin eigen deriverte. Det er difor $e^x$ dukkar opp overalt i fysikk, biologi og økonomi: naturen er full av prosessar der endringa er proporsjonal med mengda.\n\nDet fine er at dei gamle reglane våre framleis gjeld. Konstant faktor: $g(x) = 3e^x$ gir $g'(x) = 3e^x$. Sumregelen: $h(x) = e^x + x^2$ gir $h'(x) = e^x + 2x$. Vi har berre fått ei ny brikke som passar rett inn i verktøykassa frå førre kapittel – og den brikka er forbløffande lett å hugse: $e^x$ deriverer seg sjølv.",
+      "7f6d81f23ea8d150": "Test deg sjølv på derivasjon av $e^x$:",
+      "4097889236a2af26": "placeholder",
+      "b659754e01668399": "Kva er den deriverte av $f(x) = e^x$?",
+      "925308d46543072d": "$x \\cdot e^{x-1}$",
+      "11510e9ccde57f11": "$e$",
+      "d61cf6ef09ec53a6": "$e^x$",
+      "ea69431104068da4": "$\\frac{e^x}{x}$",
+      "1911fddaf97a657a": "$e^x$ er sin eigen deriverte: $(e^x)' = e^x$. Potensregelen gjeld ikkje her, fordi $x$ står i eksponenten.",
+      "d9b1cbafcffc321f": "Kva er den deriverte av $g(x) = 3e^x$?",
+      "5c7f3d2cd9a0e36a": "$3e^x$",
+      "32e6116cbcc927c5": "$3xe^{x-1}$",
+      "0e51249e1284e585": "$3e$",
+      "9c992cd683b10135": "Konstant faktor-regelen: $(3e^x)' = 3 \\cdot (e^x)' = 3e^x$.",
+      "1a994e11d8bdce56": "Kva er den deriverte av $h(x) = e^x + x^2$?",
+      "9d79de1d35d3eff1": "$e^x + x^2$",
+      "9c51c3f3cea2a122": "$e^x + 2x$",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "ae0f4a43df9b0e96": "$e^x \\cdot 2x$",
+      "fc520ee073ee630c": "Sumregelen lèt oss derivere ledd for ledd: $(e^x)' = e^x$ og $(x^2)' = 2x$, så $h'(x) = e^x + 2x$.",
+      "81b7d780f416d86b": "## Kva med andre grunntal?\n\nBakteriar doblar seg gjerne: mengda følgjer $2^x$. Og kva med $10^x$, som ligg bak heile desibel- og pH-skalaen? Desse funksjonane er ikkje lik sin eigen deriverte – men dei er nesten. Regelen lyder: viss $f(x) = a^x$ der $a > 0$ og $a \\neq 1$, så er $f'(x) = a^x \\cdot \\ln a$. Den deriverte er funksjonen sjølv, ganga med ein korreksjonsfaktor $\\ln a$.\n\nKvifor akkurat $\\ln a$? Trikset er å skrive om $a^x$ ved hjelp av $e$. Sidan $e^{\\ln a} = a$, har vi $a^x = (e^{\\ln a})^x = e^{x \\ln a}$. Deriverer vi dette (med kjerneregelen, som du møter i neste kapittel), kjem faktoren $\\ln a$ ut: $(e^{x \\ln a})' = e^{x \\ln a} \\cdot \\ln a = a^x \\cdot \\ln a$. Alle eksponentialfunksjonar er altså forkledde utgåver av $e^x$ – det er difor $e$ er så sentral.\n\nKonkret: $(2^x)' = 2^x \\cdot \\ln 2$, og $(10^x)' = 10^x \\cdot \\ln 10$. Med konstant faktor: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$.\n\nOg legg merke til korleis alt heng saman: set vi $a = e$ i den generelle formelen, vert korreksjonsfaktoren $\\ln e = 1$, og vi får $(e^x)' = e^x \\cdot 1 = e^x$. Spesialtilfellet vårt frå førre seksjon er berre den generelle regelen med den penaste moglege konstanten. Matematikk på sitt mest elegante.",
+      "6aa952af2eff398d": "Test deg sjølv på derivasjon av $a^x$:",
+      "11955883c1469ef2": "Kva er den deriverte av $f(x) = 2^x$?",
+      "7b9b17c097962b8c": "$x \\cdot 2^{x-1}$",
+      "e4a2d282c55d53f1": "$2^x$",
+      "0c8722e14e30b693": "$2^x \\ln x$",
+      "967d4d2999b50416": "$2^x \\cdot \\ln 2$",
+      "782299000596a51b": "Regelen for generelle eksponentialfunksjonar: $(a^x)' = a^x \\cdot \\ln a$. Med $a = 2$ får vi $2^x \\cdot \\ln 2$.",
+      "4a1baedff7ac571e": "Kvifor gir formelen $(a^x)' = a^x \\ln a$ akkurat $(e^x)' = e^x$ når $a = e$?",
+      "f52f4a29f3541e36": "Fordi $e^x$ alltid er positiv",
+      "3d9766ae50ff1dc7": "Fordi $\\ln e = 1$",
+      "d4467d45a8dad6cf": "Fordi $e$ er irrasjonal",
+      "9cb814f88814a724": "Fordi $\\ln e = 0$",
+      "4b6fa81357e075e1": "Set vi $a = e$, vert korreksjonsfaktoren $\\ln e = 1$, og dermed $(e^x)' = e^x \\cdot 1 = e^x$.",
+      "838f053765af883b": "Kva er den deriverte av $h(x) = 3 \\cdot 5^x$?",
+      "4986f8fddae49400": "$3 \\cdot 5^x \\cdot \\ln 5$",
+      "60db3d76b4c652fa": "$15^x \\ln 5$",
+      "16976740a1d4f5f3": "$3x \\cdot 5^{x-1}$",
+      "23e65a7f21a73712": "$5^x \\cdot \\ln 5$",
+      "07e163cd5dd9c92a": "Konstant faktor følgjer med: $(3 \\cdot 5^x)' = 3 \\cdot 5^x \\cdot \\ln 5$.",
+      "9cb9d84232fa967a": "## Logaritmen svarar med ein brøk\n\nDen naturlege logaritmen $\\ln x$ er den inverse funksjonen til $e^x$ – han «angrar» eksponentialfunksjonen. Ein kunne kanskje gjette at den deriverte vart noko komplisert, men resultatet er overraskande enkelt: for $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Ein logaritme vert derivert til ein heilt vanleg brøk.\n\nBeviset utnyttar nettopp at funksjonane er inverse. Viss $y = \\ln x$, så er $e^y = x$. Deriverer vi begge sider med omsyn på $x$, får vi $e^y \\cdot \\frac{dy}{dx} = 1$, og dermed $\\frac{dy}{dx} = \\frac{1}{e^y} = \\frac{1}{x}$. Legg òg merke til kva formelen fortel: når $x$ er stor, er $\\frac{1}{x}$ liten – logaritmekurva flatar ut og veks stadig saktare, akkurat slik grafen ser ut.\n\nFor logaritmar med andre grunntal brukar vi omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$. Sidan $\\frac{1}{\\ln a}$ berre er ein konstant faktor, får vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$. Til dømes er $(\\log_2 x)' = \\frac{1}{x \\ln 2}$ og $(\\lg x)' = (\\log_{10} x)' = \\frac{1}{x \\ln 10}$, og med konstant: $(3\\log_5 x)' = \\frac{3}{x \\ln 5}$.\n\nNo kan vi blande alt saman. Funksjonen $f(x) = x^2 + 3e^x - 2\\ln x$ vert derivert ledd for ledd: $f'(x) = 2x + 3e^x - \\frac{2}{x}$. Og tangentar fungerer som før: for $f(x) = e^x$ i punktet $(0, 1)$ er stigingstalet $f'(0) = e^0 = 1$, så eittpunktsformelen gir $y - 1 = 1 \\cdot (x - 0)$, altså tangenten $y = x + 1$.",
+      "ca7896e0a3102969": "Test deg sjølv på logaritmar og kombinerte funksjonar:",
+      "88c7330ef601d757": "Kva er den deriverte av $f(x) = \\ln x$?",
+      "5baeaa2459d35eaa": "$\\ln x$",
+      "67a691bb8a51fd28": "$\\frac{1}{x}$",
+      "f9f3ee476f418a27": "$x \\ln x$",
+      "da7096d309c9da2d": "For $x > 0$ er $(\\ln x)' = \\frac{1}{x}$. Logaritmen vert derivert til ein enkel brøk.",
+      "1fe9314c97851e7c": "Kva er den deriverte av $f(x) = \\log_2 x$?",
+      "6b3cf1c71d943c4d": "$\\frac{\\ln 2}{x}$",
+      "3ee87c1420fcf23c": "$\\frac{1}{x \\ln 2}$",
+      "eae785a9c5b92ff5": "$\\frac{1}{2x}$",
+      "913d9b116bc082f4": "Vi brukar $\\log_2 x = \\frac{\\ln x}{\\ln 2}$, der $\\frac{1}{\\ln 2}$ er ein konstant. Då vert $(\\log_2 x)' = \\frac{1}{x \\ln 2}$.",
+      "8f2c5a4b974c65c9": "Kva er den deriverte av $f(x) = x^2 + 3e^x - 2\\ln x$?",
+      "deeeb6889361148c": "$2x + 3e^x - \\frac{2}{x}$",
+      "bd9e135521bc4096": "$2x + 3e^x - \\frac{1}{x}$",
+      "410292d04be3de14": "$2x + e^x - \\frac{2}{x}$",
+      "f6e0da3e98bd8974": "$x + 3e^x - 2x$",
+      "f894e30ef8cb5479": "Ledd for ledd: $(x^2)' = 2x$, $(3e^x)' = 3e^x$ og $(2\\ln x)' = \\frac{2}{x}$. Altså $f'(x) = 2x + 3e^x - \\frac{2}{x}$.",
+      "d84d0d59254212bc": "Kva er likninga for tangenten til $f(x) = e^x$ i punktet $(0, 1)$?",
+      "d22dfde5a9841511": "$y = ex + 1$",
+      "4727dfb8fbab1fa7": "$y = x$",
+      "a1bd9136c19e6ce9": "$y = e^x + 1$",
+      "6585fbbf3e5a29fc": "$y = x + 1$",
+      "dce1543c1c6f49c8": "$f'(x) = e^x$ gir stigingstal $f'(0) = e^0 = 1$. Eittpunktsformelen: $y - 1 = 1(x - 0)$, altså $y = x + 1$.",
+      "2fa1fe58a743ebd8": "## Grammatikken til veksten\n\nI dette kapittelet har du lært å derivere funksjonane som skildrar vekst og forfall. Kjernen er éin merkverdig funksjon: $e^x$, som er sin eigen deriverte – $(e^x)' = e^x$. Talet $e \\approx 2{,}718$ er skreddarsydd for nettopp dette, og det gjer $e^x$ til den naturlege byggjesteinen i alle vekstmodellar.\n\nFor andre grunntal kjem ein korreksjonsfaktor: $(a^x)' = a^x \\cdot \\ln a$. Formelen følgjer av at kvar eksponentialfunksjon kan skrivast som $a^x = e^{x \\ln a}$ – dei er alle forkledde utgåver av $e^x$. Set du $a = e$, vert faktoren $\\ln e = 1$, og spesialtilfellet fell pent på plass.\n\nLogaritmane svarte med uventa enkelheit: $(\\ln x)' = \\frac{1}{x}$, eit resultat vi beviste ved å utnytte at $\\ln x$ og $e^x$ er inverse funksjonar. Og med omskrivinga $\\log_a x = \\frac{\\ln x}{\\ln a}$ fekk vi $(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}$.\n\nSaman med reglane frå førre kapittel kan du no derivere kombinasjonar som $x^2 + 3e^x - 2\\ln x$ utan å nøle, og finne tangentar til eksponentialkurver. I neste kapittel løftar vi verktøykassa endå eit hakk: kjerneregelen lèt oss derivere samansette funksjonar som $e^{3x}$ og $\\ln(x^2 + 1)$ – funksjonar med funksjonar inni."
+    }
+  }
+}

@@ -1,1 +1,344 @@
-{"id": "2p-6-3-narrativ", "courseId": "2p", "chapterNumber": "6.3", "title": "Modellering med regresjon", "subtitle": "Narrativ versjon", "description": "En fortelling om å oversette virkeligheten til formler – fra issalg og bakteriekolonier til kunsten å velge riktig modell.", "estimatedMinutes": 30, "competenceGoals": ["bruke digitale verktøy til a analysere store datamengder, finne mønster og presentere funn"], "linkedChapterId": "2p-6-3", "content": [{"id": "2p-6-3-n-intro", "type": "text", "content": "## Fra rotete data til ren formel\n\nKioskeieren ved stranda har et regneark fullt av tall: temperatur og issalg, dag for dag, en hel sommer. Tallene spriker – noen dager solgte hun mye, andre lite – men når hun plotter dem, aner hun et mønster. Tenk om hun kunne *fange* mønsteret i en formel og bruke den til å planlegge innkjøpene?\n\nDet er nøyaktig hva **modellering med regresjon** gjør: et digitalt verktøy finner den matematiske funksjonen som best beskriver dataene dine. Men verktøyet stiller ett krav tilbake til deg: *du* må velge hvilken type funksjon som passer – en rett linje, en bue eller en eksplosiv vekstkurve – og du må vite når modellen kan brukes, og når den lyver. Den dømmekraften skal vi bygge opp i denne fortellingen."}, {"id": "2p-6-3-n-section1", "type": "text", "content": "## Maskinen finner linjen – og gir den karakter\n\nNår kioskeieren mater dataene inn i GeoGebra og ber om **lineær regresjon**, leter programmet etter linjen $y = ax + b$ som samlet sett ligger nærmest alle punktene. For issalget får hun kanskje modellen $y = 7x - 67$, der $x$ er temperaturen og $y$ er antall solgte is. Stigningstallet $7$ betyr at hun i snitt selger $7$ flere is per grad varmere.\n\nMen hvor god er modellen? Det svarer **forklaringsgraden** $R^2$ på – et tall mellom $0$ og $1$ som verktøyet alltid leverer sammen med modellen. Tolkningen er konkret: $R^2 = 0{,}99$ betyr at modellen forklarer $99\\,\\%$ av variasjonen i dataene, en nesten perfekt tilpasning. $R^2 = 0{,}42$ betyr at modellen bare forklarer $42\\,\\%$ – da ligger punktene spredt langt fra linjen, og modellen er upålitelig. Tommelfingerregelen: over $0{,}9$ er svært godt, under $0{,}5$ er dårlig.\n\nMed $R^2 = 0{,}99$ tør kioskeieren bruke modellen. Værmeldingen lover $22$ grader i morgen, og modellen anslår $y = 7 \\cdot 22 - 67 = 154 - 67 = 87$ is. Hun legger $90$ is i fryseren og føler seg trygg.\n\nMerk hva $R^2$ *ikke* sier: at modellen er «99 % riktig», eller at 99 % av punktene ligger på linjen. Det er andelen av variasjonen som modellen fanger opp – verken mer eller mindre. Og som vi snart skal se, kan selv en modell med skyhøy $R^2$ gå fullstendig i baret utenfor sitt eget område."}, {"id": "2p-6-3-n-quiz1", "type": "exercise", "exercise": {"id": "2p-6-3-n-quiz1", "number": "Quiz 1", "type": "multiple-choice", "task": "Test deg selv på regresjon og forklaringsgrad:", "options": [{"id": "a", "text": "placeholder", "isCorrect": true}], "solution": "", "questions": [{"id": "2p-6-3-n-quiz1-q0", "task": "En modell har $R^2 = 0{,}42$. Hva betyr det?", "options": [{"id": "a", "text": "Modellen forklarer 42 % av variasjonen i dataene – en ganske dårlig tilpasning", "isCorrect": true}, {"id": "b", "text": "Modellen er 42 % riktig", "isCorrect": false}, {"id": "c", "text": "42 % av punktene ligger på linjen", "isCorrect": false}, {"id": "d", "text": "Stigningstallet er 0,42", "isCorrect": false}], "solution": "$R^2$ er forklaringsgraden: andelen av variasjonen i dataene som modellen forklarer. $0{,}42$ er under $0{,}5$ og regnes som dårlig tilpasning."}, {"id": "2p-6-3-n-quiz1-q1", "task": "Issalgmodellen er $y = 7x - 67$. Hvor mange is anslår modellen ved 22 °C?", "options": [{"id": "a", "text": "Ca. 110 is", "isCorrect": false}, {"id": "b", "text": "Ca. 87 is", "isCorrect": true}, {"id": "c", "text": "Ca. 154 is", "isCorrect": false}, {"id": "d", "text": "Ca. 67 is", "isCorrect": false}], "solution": "$y = 7 \\cdot 22 - 67 = 154 - 67 = 87$ is."}, {"id": "2p-6-3-n-quiz1-q2", "task": "Modellen $y = 5{,}2x + 32$ beskriver prøvepoeng ut fra antall timer øving. Hva anslår modellen for 6 timer øving?", "options": [{"id": "a", "text": "37,2 poeng", "isCorrect": false}, {"id": "b", "text": "31,2 poeng", "isCorrect": false}, {"id": "c", "text": "55,4 poeng", "isCorrect": false}, {"id": "d", "text": "63,2 poeng", "isCorrect": true}], "solution": "$y = 5{,}2 \\cdot 6 + 32 = 31{,}2 + 32 = 63{,}2$ poeng."}]}}, {"id": "2p-6-3-n-section2", "type": "text", "content": "## Linje, bue eller eksplosjon – kunsten å velge modell\n\nIkke alt i verden vokser langs en rett linje. Regresjonsverktøyene tilbyr derfor flere modelltyper, og de tre viktigste er **lineær** ($y = ax + b$), **kvadratisk** ($y = ax^2 + bx + c$) og **eksponentiell** ($y = a \\cdot b^x$).\n\nHvordan velger du? Se på mønsteret i dataene. Øker $y$-verdiene med et fast *antall* for hvert steg, er veksten lineær. Øker de med en fast *prosent* – slik at verdiene dobles eller tredobles med jevne mellomrom – er veksten eksponentiell. Stiger dataene først og synker etterpå (eller omvendt), som en ball i lufta, peker det mot en kvadratisk modell. Hører du «populasjonen dobles hvert femte år», skal alarmen ringe: dobling med jevne mellomrom er eksponentialfunksjonens signatur.\n\nTa en bakteriekoloni som vokser etter modellen $y = 100 \\cdot 1{,}3^x$, der $x$ er tiden i timer. Startverdien er $100$ bakterier, og vekstfaktoren $1{,}3$ betyr $30\\,\\%$ vekst per time. Etter $5$ timer gir modellen $y = 100 \\cdot 1{,}3^5 \\approx 371$ bakterier. Prøv å beskrive den veksten med en rett linje – den vil bomme grovt i begge ender, og $R^2$ vil avsløre det.\n\nVerktøyet regner altså ut modellen, men *du* velger modelltype – og det valget bør bygge på både mønsteret i tallene og forståelsen av situasjonen. Vokser noe med fast prosent? Velg eksponentiell. Jevn økning i antall? Lineær. La aldri maskinen velge for deg i blinde."}, {"id": "2p-6-3-n-quiz2", "type": "exercise", "exercise": {"id": "2p-6-3-n-quiz2", "number": "Quiz 2", "type": "multiple-choice", "task": "Test deg selv på valg av modelltype:", "options": [{"id": "a", "text": "placeholder", "isCorrect": true}], "solution": "", "questions": [{"id": "2p-6-3-n-quiz2-q0", "task": "En populasjon dobles hvert 5. år. Hvilken regresjonstype passer best?", "options": [{"id": "a", "text": "Lineær", "isCorrect": false}, {"id": "b", "text": "Kvadratisk", "isCorrect": false}, {"id": "c", "text": "Eksponentiell", "isCorrect": true}, {"id": "d", "text": "Ingen modell passer", "isCorrect": false}], "solution": "Dobling med jevne mellomrom betyr vekst med fast prosent – det er kjennetegnet på eksponentiell vekst: $y = a \\cdot b^x$."}, {"id": "2p-6-3-n-quiz2-q1", "task": "Bakteriemodellen er $y = 100 \\cdot 1{,}3^x$ ($x$ i timer). Omtrent hvor mange bakterier er det etter 5 timer?", "options": [{"id": "a", "text": "Ca. 371", "isCorrect": true}, {"id": "b", "text": "Ca. 650", "isCorrect": false}, {"id": "c", "text": "Ca. 150", "isCorrect": false}, {"id": "d", "text": "Ca. 130", "isCorrect": false}], "solution": "$y = 100 \\cdot 1{,}3^5 = 100 \\cdot 3{,}71 \\approx 371$ bakterier."}, {"id": "2p-6-3-n-quiz2-q2", "task": "Hva forteller vekstfaktoren 1,3 i modellen $y = 100 \\cdot 1{,}3^x$?", "options": [{"id": "a", "text": "Verdien øker med 1,3 enheter per time", "isCorrect": false}, {"id": "b", "text": "Verdien øker med 30 % per time", "isCorrect": true}, {"id": "c", "text": "Verdien øker med 13 % per time", "isCorrect": false}, {"id": "d", "text": "Verdien tredobles hver time", "isCorrect": false}], "solution": "Vekstfaktor $1{,}3 = 1 + 0{,}30$ betyr 30 % vekst per time. Startverdien er 100."}]}}, {"id": "2p-6-3-n-section3", "type": "text", "content": "## Når modellen lyver – grensene for ekstrapolering\n\nTilbake til kioskeieren og hennes nesten perfekte modell $y = 7x - 67$ med $R^2 = 0{,}99$. En kjølig vårdag viser gradestokken $5$ grader, og hun taster inn: $y = 7 \\cdot 5 - 67 = -32$. Modellen spår at hun selger *minus* trettito is. Skal kundene levere is tilbake?\n\nSelvsagt ikke – modellen har brutt sammen. Dataene hennes kom fra sommerdager mellom $15$ og $30$ grader, og innenfor det området er modellen utmerket. Men ved $5$ grader er hun langt *utenfor* dataområdet, og der finnes ingen garanti for at mønsteret holder. Å bruke modellen innenfor dataområdet kalles **interpolasjon** og er som regel trygt; å bruke den utenfor kalles **ekstrapolasjon** og blir mer og mer usikkert jo lenger ut du går – til svarene blir direkte meningsløse, som negativt issalg.\n\nDet viktige er at $R^2$ ikke redder deg her. Forklaringsgraden måler bare hvor godt modellen passer *de dataene den ble laget av* – den sier ingenting om verden utenfor. En modell med $R^2 = 0{,}99$ kan være katastrofalt feil ti grader unna sitt eget område.\n\nDerfor avsluttes all god modellering med det samme spørsmålet: *Er svaret rimelig?* En modell er en forenkling av virkeligheten, gyldig innenfor et begrenset område. Bruk den der den hører hjemme, vær ydmyk utenfor – og stol mer på sunn fornuft enn på desimalene fra regresjonsverktøyet."}, {"id": "2p-6-3-n-quiz3", "type": "exercise", "exercise": {"id": "2p-6-3-n-quiz3", "number": "Quiz 3", "type": "multiple-choice", "task": "Test deg selv på modellens grenser:", "options": [{"id": "a", "text": "placeholder", "isCorrect": true}], "solution": "", "questions": [{"id": "2p-6-3-n-quiz3-q0", "task": "Issalgmodellen $y = 7x - 67$ gir $y = -32$ for $x = 5$ °C. Hva forteller dette?", "options": [{"id": "a", "text": "Modellen er upålitelig utenfor dataintervallet den ble laget for", "isCorrect": true}, {"id": "b", "text": "Kiosken skylder kundene 32 is", "isCorrect": false}, {"id": "c", "text": "Modellen bør forkastes også for sommertemperaturer", "isCorrect": false}, {"id": "d", "text": "R² må være lav", "isCorrect": false}], "solution": "Negativt salg er meningsløst. Modellen ble laget med data fra varme dager, og ved 5 °C ekstrapolerer vi langt utenfor dataområdet. Innenfor området kan modellen fortsatt være god."}, {"id": "2p-6-3-n-quiz3-q1", "task": "Hva kalles det å bruke en modell innenfor dataområdet, og hva kalles det å bruke den utenfor?", "options": [{"id": "a", "text": "Ekstrapolasjon / interpolasjon", "isCorrect": false}, {"id": "b", "text": "Regresjon / korrelasjon", "isCorrect": false}, {"id": "c", "text": "Interpolasjon / ekstrapolasjon", "isCorrect": true}, {"id": "d", "text": "Validering / simulering", "isCorrect": false}], "solution": "Innenfor dataområdet: interpolasjon (pålitelig). Utenfor: ekstrapolasjon (usikkert, kan gi urimelige svar)."}, {"id": "2p-6-3-n-quiz3-q2", "task": "Kan en modell med $R^2 = 0{,}99$ gi helt feil svar?", "options": [{"id": "a", "text": "Nei, høy R² garanterer riktige svar overalt", "isCorrect": false}, {"id": "b", "text": "Ja, men bare hvis dataene er feil", "isCorrect": false}, {"id": "c", "text": "Nei, R² over 0,9 betyr at modellen er bevist", "isCorrect": false}, {"id": "d", "text": "Ja – R² måler bare tilpasningen til dataene modellen ble laget av, ikke gyldigheten utenfor", "isCorrect": true}], "solution": "R² sier hvor godt modellen passer sine egne data. Utenfor dataområdet kan selv en modell med R² = 0,99 gi meningsløse svar, som negativt issalg."}]}}, {"id": "2p-6-3-n-summary", "type": "text", "content": "## Oppsummering\n\nKioskeierens regneark viste veien gjennom hele modelleringsprosessen. **Regresjon** lar et digitalt verktøy finne funksjonen som passer best til et datasett, og **forklaringsgraden** $R^2$ gir modellen karakter: nær $1$ er svært godt, under $0{,}5$ er dårlig – men husk at $R^2$ måler andelen av variasjonen som forklares, ikke at modellen er «riktig».\n\nValget av modelltype er ditt: konstant økning i *antall* peker mot en **lineær** modell $y = ax + b$, vekst med fast *prosent* – som bakteriene med vekstfaktor $1{,}3$ – peker mot en **eksponentiell** modell $y = a \\cdot b^x$, og data som snur, mot en kvadratisk. Og uansett hvor høy $R^2$ er, gjelder modellen bare innenfor sitt dataområde: **interpolasjon** er trygt, **ekstrapolasjon** er risikabelt, og minus trettito solgte is er en umulighet uansett hvor fin formelen ser ut. Det siste ordet har alltid rimelighetssjekken din."}], "exercises": []}
+{
+  "id": "2p-6-3-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "6.3",
+  "title": "Modellering med regresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å oversette virkeligheten til formler – fra issalg og bakteriekolonier til kunsten å velge riktig modell.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke digitale verktøy til a analysere store datamengder, finne mønster og presentere funn"
+  ],
+  "linkedChapterId": "2p-6-3",
+  "content": [
+    {
+      "id": "2p-6-3-n-intro",
+      "type": "text",
+      "content": "## Fra rotete data til ren formel\n\nKioskeieren ved stranda har et regneark fullt av tall: temperatur og issalg, dag for dag, en hel sommer. Tallene spriker – noen dager solgte hun mye, andre lite – men når hun plotter dem, aner hun et mønster. Tenk om hun kunne *fange* mønsteret i en formel og bruke den til å planlegge innkjøpene?\n\nDet er nøyaktig hva **modellering med regresjon** gjør: et digitalt verktøy finner den matematiske funksjonen som best beskriver dataene dine. Men verktøyet stiller ett krav tilbake til deg: *du* må velge hvilken type funksjon som passer – en rett linje, en bue eller en eksplosiv vekstkurve – og du må vite når modellen kan brukes, og når den lyver. Den dømmekraften skal vi bygge opp i denne fortellingen."
+    },
+    {
+      "id": "2p-6-3-n-section1",
+      "type": "text",
+      "content": "## Maskinen finner linjen – og gir den karakter\n\nNår kioskeieren mater dataene inn i GeoGebra og ber om **lineær regresjon**, leter programmet etter linjen $y = ax + b$ som samlet sett ligger nærmest alle punktene. For issalget får hun kanskje modellen $y = 7x - 67$, der $x$ er temperaturen og $y$ er antall solgte is. Stigningstallet $7$ betyr at hun i snitt selger $7$ flere is per grad varmere.\n\nMen hvor god er modellen? Det svarer **forklaringsgraden** $R^2$ på – et tall mellom $0$ og $1$ som verktøyet alltid leverer sammen med modellen. Tolkningen er konkret: $R^2 = 0{,}99$ betyr at modellen forklarer $99\\,\\%$ av variasjonen i dataene, en nesten perfekt tilpasning. $R^2 = 0{,}42$ betyr at modellen bare forklarer $42\\,\\%$ – da ligger punktene spredt langt fra linjen, og modellen er upålitelig. Tommelfingerregelen: over $0{,}9$ er svært godt, under $0{,}5$ er dårlig.\n\nMed $R^2 = 0{,}99$ tør kioskeieren bruke modellen. Værmeldingen lover $22$ grader i morgen, og modellen anslår $y = 7 \\cdot 22 - 67 = 154 - 67 = 87$ is. Hun legger $90$ is i fryseren og føler seg trygg.\n\nMerk hva $R^2$ *ikke* sier: at modellen er «99 % riktig», eller at 99 % av punktene ligger på linjen. Det er andelen av variasjonen som modellen fanger opp – verken mer eller mindre. Og som vi snart skal se, kan selv en modell med skyhøy $R^2$ gå fullstendig i baret utenfor sitt eget område."
+    },
+    {
+      "id": "2p-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regresjon og forklaringsgrad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-6-3-n-quiz1-q0",
+            "task": "En modell har $R^2 = 0{,}42$. Hva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellen forklarer 42 % av variasjonen i dataene – en ganske dårlig tilpasning",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Modellen er 42 % riktig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "42 % av punktene ligger på linjen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stigningstallet er 0,42",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2$ er forklaringsgraden: andelen av variasjonen i dataene som modellen forklarer. $0{,}42$ er under $0{,}5$ og regnes som dårlig tilpasning."
+          },
+          {
+            "id": "2p-6-3-n-quiz1-q1",
+            "task": "Issalgmodellen er $y = 7x - 67$. Hvor mange is anslår modellen ved 22 °C?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 110 is",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 87 is",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 154 is",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 67 is",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y = 7 \\cdot 22 - 67 = 154 - 67 = 87$ is."
+          },
+          {
+            "id": "2p-6-3-n-quiz1-q2",
+            "task": "Modellen $y = 5{,}2x + 32$ beskriver prøvepoeng ut fra antall timer øving. Hva anslår modellen for 6 timer øving?",
+            "options": [
+              {
+                "id": "a",
+                "text": "37,2 poeng",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "31,2 poeng",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "55,4 poeng",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "63,2 poeng",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$y = 5{,}2 \\cdot 6 + 32 = 31{,}2 + 32 = 63{,}2$ poeng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-6-3-n-section2",
+      "type": "text",
+      "content": "## Linje, bue eller eksplosjon – kunsten å velge modell\n\nIkke alt i verden vokser langs en rett linje. Regresjonsverktøyene tilbyr derfor flere modelltyper, og de tre viktigste er **lineær** ($y = ax + b$), **kvadratisk** ($y = ax^2 + bx + c$) og **eksponentiell** ($y = a \\cdot b^x$).\n\nHvordan velger du? Se på mønsteret i dataene. Øker $y$-verdiene med et fast *antall* for hvert steg, er veksten lineær. Øker de med en fast *prosent* – slik at verdiene dobles eller tredobles med jevne mellomrom – er veksten eksponentiell. Stiger dataene først og synker etterpå (eller omvendt), som en ball i lufta, peker det mot en kvadratisk modell. Hører du «populasjonen dobles hvert femte år», skal alarmen ringe: dobling med jevne mellomrom er eksponentialfunksjonens signatur.\n\nTa en bakteriekoloni som vokser etter modellen $y = 100 \\cdot 1{,}3^x$, der $x$ er tiden i timer. Startverdien er $100$ bakterier, og vekstfaktoren $1{,}3$ betyr $30\\,\\%$ vekst per time. Etter $5$ timer gir modellen $y = 100 \\cdot 1{,}3^5 \\approx 371$ bakterier. Prøv å beskrive den veksten med en rett linje – den vil bomme grovt i begge ender, og $R^2$ vil avsløre det.\n\nVerktøyet regner altså ut modellen, men *du* velger modelltype – og det valget bør bygge på både mønsteret i tallene og forståelsen av situasjonen. Vokser noe med fast prosent? Velg eksponentiell. Jevn økning i antall? Lineær. La aldri maskinen velge for deg i blinde."
+    },
+    {
+      "id": "2p-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på valg av modelltype:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-6-3-n-quiz2-q0",
+            "task": "En populasjon dobles hvert 5. år. Hvilken regresjonstype passer best?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Eksponentiell",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kvadratisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen modell passer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dobling med jevne mellomrom betyr vekst med fast prosent – det er kjennetegnet på eksponentiell vekst: $y = a \\cdot b^x$."
+          },
+          {
+            "id": "2p-6-3-n-quiz2-q1",
+            "task": "Bakteriemodellen er $y = 100 \\cdot 1{,}3^x$ ($x$ i timer). Omtrent hvor mange bakterier er det etter 5 timer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 650",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. 371",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 150",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 130",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y = 100 \\cdot 1{,}3^5 = 100 \\cdot 3{,}71 \\approx 371$ bakterier."
+          },
+          {
+            "id": "2p-6-3-n-quiz2-q2",
+            "task": "Hva forteller vekstfaktoren 1,3 i modellen $y = 100 \\cdot 1{,}3^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Verdien øker med 1,3 enheter per time",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Verdien øker med 13 % per time",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Verdien øker med 30 % per time",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Verdien tredobles hver time",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor $1{,}3 = 1 + 0{,}30$ betyr 30 % vekst per time. Startverdien er 100."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-6-3-n-section3",
+      "type": "text",
+      "content": "## Når modellen lyver – grensene for ekstrapolering\n\nTilbake til kioskeieren og hennes nesten perfekte modell $y = 7x - 67$ med $R^2 = 0{,}99$. En kjølig vårdag viser gradestokken $5$ grader, og hun taster inn: $y = 7 \\cdot 5 - 67 = -32$. Modellen spår at hun selger *minus* trettito is. Skal kundene levere is tilbake?\n\nSelvsagt ikke – modellen har brutt sammen. Dataene hennes kom fra sommerdager mellom $15$ og $30$ grader, og innenfor det området er modellen utmerket. Men ved $5$ grader er hun langt *utenfor* dataområdet, og der finnes ingen garanti for at mønsteret holder. Å bruke modellen innenfor dataområdet kalles **interpolasjon** og er som regel trygt; å bruke den utenfor kalles **ekstrapolasjon** og blir mer og mer usikkert jo lenger ut du går – til svarene blir direkte meningsløse, som negativt issalg.\n\nDet viktige er at $R^2$ ikke redder deg her. Forklaringsgraden måler bare hvor godt modellen passer *de dataene den ble laget av* – den sier ingenting om verden utenfor. En modell med $R^2 = 0{,}99$ kan være katastrofalt feil ti grader unna sitt eget område.\n\nDerfor avsluttes all god modellering med det samme spørsmålet: *Er svaret rimelig?* En modell er en forenkling av virkeligheten, gyldig innenfor et begrenset område. Bruk den der den hører hjemme, vær ydmyk utenfor – og stol mer på sunn fornuft enn på desimalene fra regresjonsverktøyet."
+    },
+    {
+      "id": "2p-6-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modellens grenser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-6-3-n-quiz3-q0",
+            "task": "Issalgmodellen $y = 7x - 67$ gir $y = -32$ for $x = 5$ °C. Hva forteller dette?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kiosken skylder kundene 32 is",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Modellen bør forkastes også for sommertemperaturer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "R² må være lav",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Modellen er upålitelig utenfor dataintervallet den ble laget for",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativt salg er meningsløst. Modellen ble laget med data fra varme dager, og ved 5 °C ekstrapolerer vi langt utenfor dataområdet. Innenfor området kan modellen fortsatt være god."
+          },
+          {
+            "id": "2p-6-3-n-quiz3-q1",
+            "task": "Hva kalles det å bruke en modell innenfor dataområdet, og hva kalles det å bruke den utenfor?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Interpolasjon / ekstrapolasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ekstrapolasjon / interpolasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Regresjon / korrelasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Validering / simulering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Innenfor dataområdet: interpolasjon (pålitelig). Utenfor: ekstrapolasjon (usikkert, kan gi urimelige svar)."
+          },
+          {
+            "id": "2p-6-3-n-quiz3-q2",
+            "task": "Kan en modell med $R^2 = 0{,}99$ gi helt feil svar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nei, høy R² garanterer riktige svar overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja – R² måler bare tilpasningen til dataene modellen ble laget av, ikke gyldigheten utenfor",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ja, men bare hvis dataene er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, R² over 0,9 betyr at modellen er bevist",
+                "isCorrect": false
+              }
+            ],
+            "solution": "R² sier hvor godt modellen passer sine egne data. Utenfor dataområdet kan selv en modell med R² = 0,99 gi meningsløse svar, som negativt issalg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-6-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nKioskeierens regneark viste veien gjennom hele modelleringsprosessen. **Regresjon** lar et digitalt verktøy finne funksjonen som passer best til et datasett, og **forklaringsgraden** $R^2$ gir modellen karakter: nær $1$ er svært godt, under $0{,}5$ er dårlig – men husk at $R^2$ måler andelen av variasjonen som forklares, ikke at modellen er «riktig».\n\nValget av modelltype er ditt: konstant økning i *antall* peker mot en **lineær** modell $y = ax + b$, vekst med fast *prosent* – som bakteriene med vekstfaktor $1{,}3$ – peker mot en **eksponentiell** modell $y = a \\cdot b^x$, og data som snur, mot en kvadratisk. Og uansett hvor høy $R^2$ er, gjelder modellen bare innenfor sitt dataområde: **interpolasjon** er trygt, **ekstrapolasjon** er risikabelt, og minus trettito solgte is er en umulighet uansett hvor fin formelen ser ut. Det siste ordet har alltid rimelighetssjekken din."
+    }
+  ],
+  "exercises": []
+}

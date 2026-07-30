@@ -1,1 +1,501 @@
-{"id":"r2-4-1-narrativ","courseId":"r2","chapterNumber":"4.1","title":"Radianer og vinkelmål","subtitle":"Narrativ versjon","description":"En fortelling om naturens eget vinkelmål — fra pariserhjul og pizzastykker til radianer, buelengde, sektorareal og enhetssirkelen.","estimatedMinutes":30,"competenceGoals":["utforske eigenskapar ved radianer og samanhengen mellom gradar og radianer","bruke radianmål i utrekningar av buelengde og sektorareal"],"linkedChapterId":"r2-4-1","content":[{"id":"r2-4-1-n-intro","type":"text","content":"## Naturens eget vinkelmål\n\nTenk deg at du sitter i et pariserhjul som sakte begynner å rotere. Hvor langt har du egentlig reist når hjulet har dreid en åttendedels runde? Du kunne svart «45 grader», men det sier ingenting om avstanden du har beveget deg langs sirkelbuen. Grader er et gammelt, menneskeskapt mål — babylonerne valgte 360 fordi tallet var lett å dele opp. Naturen bryr seg ikke om 360.\n\nI høyere matematikk, og spesielt når vi skal derivere trigonometriske funksjoner senere i R2, bruker vi i stedet **radianer**. Ideen er forbløffende enkel: vi måler vinkelen ved hjelp av selve sirkelbuen. En radian er vinkelen som spenner over en bue som er nøyaktig like lang som radiusen. Hvis buelengden er $s$ og radiusen er $r$, er vinkelen i radianer rett og slett $v = \\frac{s}{r}$.\n\nMed dette målet blir formlene for buelengde og sektorareal påfallende enkle, og derivasjonsreglene blir elegante. I denne fortellingen skal vi bli kjent med radianbegrepet, lære å veksle mellom grader og radianer, regne ut buelengder og sektorarealer, og til slutt møte enhetssirkelen — verktøyet som binder hele trigonometrien sammen."},{"id":"r2-4-1-n-section1","type":"text","content":"## Fra grader til radianer og tilbake\n\nLa oss rulle ut en bue langs sirkelen i pariserhjulet. Hvis buen er nøyaktig like lang som radiusen, har vi dreid **1 radian** — det tilsvarer omtrent $57{,}3°$ (mer presist $\\frac{180°}{\\pi} \\approx 57{,}2958°$). Siden omkretsen til en sirkel er $2\\pi r$, får vi plass til nøyaktig $2\\pi$ slike radius-buer rundt hele sirkelen. En hel omdreining er derfor $2\\pi$ radianer, og dermed er $360° = 2\\pi$ radianer, eller enklere: $180° = \\pi$ radianer.\n\nDenne sammenhengen gir oss omregningsformlene. Fra grader til radianer ganger vi med $\\frac{\\pi}{180}$: $v_{\\text{rad}} = v_{\\text{grad}} \\cdot \\frac{\\pi}{180}$. Fra radianer til grader ganger vi motsatt vei med $\\frac{180}{\\pi}$. Vil du for eksempel vite hva $60°$ er i radianer, regner du $60 \\cdot \\frac{\\pi}{180} = \\frac{\\pi}{3}$. Og skal du tilbake fra $\\frac{3\\pi}{4}$, får du $\\frac{3\\pi}{4} \\cdot \\frac{180}{\\pi} = 135°$. Når svaret kan forkortes, gjør vi det: $72° = \\frac{72\\pi}{180} = \\frac{2\\pi}{5}$, der vi forkortet med $36$.\n\nNoen vinkler dukker opp så ofte at du bør kunne dem utenat: $30° = \\frac{\\pi}{6}$, $45° = \\frac{\\pi}{4}$, $60° = \\frac{\\pi}{3}$ og $90° = \\frac{\\pi}{2}$. Legg merke til mønsteret: nevnerne synker ($6, 4, 3, 2$) mens vinklene vokser. Videre er $120° = \\frac{2\\pi}{3}$, $135° = \\frac{3\\pi}{4}$, $150° = \\frac{5\\pi}{6}$, $180° = \\pi$, $270° = \\frac{3\\pi}{2}$ og $360° = 2\\pi$. Vinkler i andre kvadranter finner du med symmetri: $120° = 180° - 60°$ gir $\\frac{2\\pi}{3} = \\pi - \\frac{\\pi}{3}$."},{"id":"r2-4-1-n-quiz1","type":"exercise","exercise":{"id":"r2-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på radianer og omregning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-1-n-quiz1-q0","task":"Hva er $60°$ i radianer?","options":[{"id":"a","text":"$\\frac{\\pi}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{3}$","isCorrect":true},{"id":"c","text":"$\\frac{\\pi}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{2\\pi}{3}$","isCorrect":false}],"solution":"$60° = 60 \\cdot \\frac{\\pi}{180} = \\frac{\\pi}{3}$."},{"id":"r2-4-1-n-quiz1-q1","task":"Hva er $\\frac{3\\pi}{4}$ i grader?","options":[{"id":"a","text":"$135°$","isCorrect":true},{"id":"b","text":"$120°$","isCorrect":false},{"id":"c","text":"$150°$","isCorrect":false},{"id":"d","text":"$45°$","isCorrect":false}],"solution":"$\\frac{3\\pi}{4} \\cdot \\frac{180}{\\pi} = \\frac{3 \\cdot 180}{4} = 135°$."},{"id":"r2-4-1-n-quiz1-q2","task":"Omtrent hvor mange grader er 1 radian?","options":[{"id":"a","text":"$45°$","isCorrect":false},{"id":"b","text":"$90°$","isCorrect":false},{"id":"c","text":"$57{,}3°$","isCorrect":true},{"id":"d","text":"$31{,}4°$","isCorrect":false}],"solution":"1 radian er $\\frac{180°}{\\pi} \\approx 57{,}3°$."},{"id":"r2-4-1-n-quiz1-q3","task":"Hva definerer en radian?","options":[{"id":"a","text":"Vinkelen som er $\\frac{1}{360}$ av en hel sirkel","isCorrect":false},{"id":"b","text":"Vinkelen der buen er like lang som diameteren","isCorrect":false},{"id":"c","text":"Vinkelen der korden er like lang som radiusen","isCorrect":false},{"id":"d","text":"Vinkelen der buelengden er like lang som radiusen","isCorrect":true}],"solution":"En radian er vinkelen som spenner over en bue med lengde lik radiusen: $v = \\frac{s}{r}$."}]}},{"id":"r2-4-1-n-section2","type":"text","content":"## Buelengde — hvor langt rundt har du reist?\n\nTilbake i pariserhjulet: nå kan vi faktisk svare på hvor langt du har beveget deg. Definisjonen $v = \\frac{s}{r}$ kan løses for buelengden, og da får vi den forbilledlig enkle formelen $s = rv$ — buelengden er radius ganger vinkelen, så lenge vinkelen er i radianer. Nettopp denne enkelheten er en av hovedgrunnene til at matematikere foretrekker radianer. Er vinkelen oppgitt i grader, må vi regne om først, og formelen blir $s = \\frac{\\pi r v_{\\text{grad}}}{180}$.\n\nLa oss prøve: en sirkelbue med radius $8$ cm og sentralvinkel $\\frac{3\\pi}{4}$ har buelengde $s = 8 \\cdot \\frac{3\\pi}{4} = 6\\pi$ cm, omtrent $18{,}85$ cm. Med grader: radius $10$ cm og vinkel $72°$ gir $s = 10 \\cdot \\frac{2\\pi}{5} = 4\\pi$ cm, siden $72° = \\frac{2\\pi}{5}$ radianer.\n\nFormelen kan også snus. Kjenner du buelengden og radiusen, finner du vinkelen: en bue på $10$ cm i en sirkel med radius $5$ cm spenner over vinkelen $v = \\frac{s}{r} = \\frac{10}{5} = 2$ radianer, som er $2 \\cdot \\frac{180}{\\pi} \\approx 114{,}6°$.\n\nDette får praktisk betydning når noe roterer. Et hjul med radius $30$ cm som spinner med vinkelhastighet $\\omega = 2$ rad/s, dreier på $5$ sekunder vinkelen $v = \\omega t = 10$ radianer. Et punkt på kanten har da reist $s = rv = 30 \\cdot 10 = 300$ cm, altså $3$ meter. Og på $10$ sekunder dreier hjulet $20$ radianer, som er $\\frac{20}{2\\pi} \\approx 3{,}18$ omdreininger — altså $3$ hele runder."},{"id":"r2-4-1-n-quiz2","type":"exercise","exercise":{"id":"r2-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på buelengde:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-1-n-quiz2-q0","task":"En sirkelbue har radius $r = 8$ cm og sentralvinkel $v = \\frac{3\\pi}{4}$. Hva er buelengden?","options":[{"id":"a","text":"$3\\pi$ cm","isCorrect":false},{"id":"b","text":"$6\\pi$ cm","isCorrect":true},{"id":"c","text":"$24\\pi$ cm","isCorrect":false},{"id":"d","text":"$\\frac{32\\pi}{3}$ cm","isCorrect":false}],"solution":"$s = rv = 8 \\cdot \\frac{3\\pi}{4} = 6\\pi$ cm."},{"id":"r2-4-1-n-quiz2-q1","task":"En bue har radius $5$ cm og buelengde $10$ cm. Hva er sentralvinkelen?","options":[{"id":"a","text":"$2$ radianer","isCorrect":true},{"id":"b","text":"$0{,}5$ radianer","isCorrect":false},{"id":"c","text":"$50$ radianer","isCorrect":false},{"id":"d","text":"$\\frac{\\pi}{2}$ radianer","isCorrect":false}],"solution":"$v = \\frac{s}{r} = \\frac{10}{5} = 2$ radianer."},{"id":"r2-4-1-n-quiz2-q2","task":"Et hjul med radius $30$ cm roterer med $\\omega = 2$ rad/s. Hvor langt beveger et punkt på kanten seg på $5$ sekunder?","options":[{"id":"a","text":"$1{,}5$ m","isCorrect":false},{"id":"b","text":"$60$ cm","isCorrect":false},{"id":"c","text":"$3$ m","isCorrect":true},{"id":"d","text":"$6$ m","isCorrect":false}],"solution":"Vinkelen er $v = 2 \\cdot 5 = 10$ radianer, så $s = rv = 30 \\cdot 10 = 300$ cm $= 3$ m."}]}},{"id":"r2-4-1-n-section3","type":"text","content":"## Sektorareal — kakestykket\n\nSe for deg en pizza. Hvert stykke er en **sirkelsektor**: området avgrenset av to radier og sirkelbuen mellom dem. Hvor stort er et slikt stykke? Resonnementet er vakkert i sin enkelhet. Hele sirkelen har areal $\\pi r^2$ og sentralvinkel $2\\pi$ radianer. En sektor med vinkel $v$ utgjør andelen $\\frac{v}{2\\pi}$ av hele sirkelen, og da blir arealet $A = \\frac{v}{2\\pi} \\cdot \\pi r^2 = \\frac{1}{2}r^2 v$.\n\nFormelen $A = \\frac{1}{2}r^2 v$ gjelder altså når vinkelen er i radianer. Med grader blir den $A = \\frac{\\pi r^2 v_{\\text{grad}}}{360}$. Og siden buelengden er $s = rv$, kan vi også skrive arealet som $A = \\frac{1}{2}rs$ — en halv ganger radius ganger buelengde. Den varianten er praktisk når du kjenner buen, men ikke vinkelen.\n\nEt par eksempler: en sektor med radius $6$ cm og vinkel $\\frac{\\pi}{3}$ har areal $A = \\frac{1}{2} \\cdot 36 \\cdot \\frac{\\pi}{3} = 6\\pi$ cm². Med radius $10$ cm og $45°$ får vi $A = \\frac{1}{2} \\cdot 100 \\cdot \\frac{\\pi}{4} = \\frac{25\\pi}{2}$ cm². Formelen kan også snus: en sektor med radius $8$ cm og areal $16\\pi$ cm² gir $16\\pi = \\frac{1}{2} \\cdot 64 \\cdot v$, altså $v = \\frac{\\pi}{2}$.\n\nDet fine er at de to formlene kan kombineres når vi har to ukjente. Kjenner vi buelengden $s = 12$ cm og arealet $A = 36$ cm², gir $A = \\frac{1}{2}rs$ at $36 = 6r$, så $r = 6$ cm — og da følger vinkelen fra $s = rv$: $v = \\frac{12}{6} = 2$ radianer."},{"id":"r2-4-1-n-quiz3","type":"exercise","exercise":{"id":"r2-4-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sektorareal:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-1-n-quiz3-q0","task":"Hva er arealet av en sirkelsektor med radius $6$ cm og sentralvinkel $\\frac{\\pi}{3}$?","options":[{"id":"a","text":"$12\\pi$ cm$^2$","isCorrect":false},{"id":"b","text":"$3\\pi$ cm$^2$","isCorrect":false},{"id":"c","text":"$36\\pi$ cm$^2$","isCorrect":false},{"id":"d","text":"$6\\pi$ cm$^2$","isCorrect":true}],"solution":"$A = \\frac{1}{2}r^2v = \\frac{1}{2} \\cdot 36 \\cdot \\frac{\\pi}{3} = 6\\pi$ cm$^2$."},{"id":"r2-4-1-n-quiz3-q1","task":"En sektor har radius $8$ cm og areal $16\\pi$ cm$^2$. Hva er sentralvinkelen?","options":[{"id":"a","text":"$\\frac{\\pi}{4}$","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{2}$","isCorrect":true},{"id":"c","text":"$\\pi$","isCorrect":false},{"id":"d","text":"$2\\pi$","isCorrect":false}],"solution":"$16\\pi = \\frac{1}{2} \\cdot 64 \\cdot v = 32v$ gir $v = \\frac{\\pi}{2}$."},{"id":"r2-4-1-n-quiz3-q2","task":"Hvilken alternativ formel gjelder for sektorarealet når $s$ er buelengden?","options":[{"id":"a","text":"$A = \\frac{1}{2}rs$","isCorrect":true},{"id":"b","text":"$A = rs$","isCorrect":false},{"id":"c","text":"$A = 2rs$","isCorrect":false},{"id":"d","text":"$A = \\frac{1}{2}r^2 s$","isCorrect":false}],"solution":"Siden $s = rv$ er $A = \\frac{1}{2}r^2v = \\frac{1}{2}r \\cdot rv = \\frac{1}{2}rs$."}]}},{"id":"r2-4-1-n-section4","type":"text","content":"## Enhetssirkelen — trigonometriens kart\n\nTil slutt skal vi møte det viktigste verktøyet i hele trigonometrien. **Enhetssirkelen** er sirkelen med sentrum i origo og radius $1$, gitt ved ligningen $x^2 + y^2 = 1$. Tenk deg at du starter i punktet $(1, 0)$ på $x$-aksen og vandrer mot klokken langs sirkelen. Etter å ha gått en buelengde $v$ — som på enhetssirkelen er nøyaktig det samme tallet som vinkelen i radianer, siden $r = 1$ — befinner du deg i punktet $(\\cos v, \\sin v)$. Cosinus er altså $x$-koordinaten og sinus er $y$-koordinaten til punktet ditt.\n\nNoen holdepunkter på vandringen: ved $v = 0$ står du i $(1, 0)$, ved $\\frac{\\pi}{2}$ i $(0, 1)$, ved $\\pi$ i $(-1, 0)$, ved $\\frac{3\\pi}{2}$ i $(0, -1)$, og ved $2\\pi$ er du tilbake i $(1, 0)$. For standardvinklene gjelder de eksakte verdiene $\\cos\\frac{\\pi}{6} = \\frac{\\sqrt{3}}{2}$ og $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, $\\cos\\frac{\\pi}{4} = \\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, samt $\\cos\\frac{\\pi}{3} = \\frac{1}{2}$ og $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$. En fin huskeregel: sinusverdiene for $0, \\frac{\\pi}{6}, \\frac{\\pi}{4}, \\frac{\\pi}{3}, \\frac{\\pi}{2}$ er $\\frac{\\sqrt{0}}{2}, \\frac{\\sqrt{1}}{2}, \\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{3}}{2}, \\frac{\\sqrt{4}}{2}$ — cosinus er de samme i omvendt rekkefølge.\n\nVinkler utenfor første kvadrant håndterer du med symmetri: $\\cos(\\pi - v) = -\\cos v$ mens $\\sin(\\pi - v) = \\sin v$, $\\cos(\\pi + v) = -\\cos v$ og $\\sin(\\pi + v) = -\\sin v$, og $\\cos(2\\pi - v) = \\cos v$ mens $\\sin(2\\pi - v) = -\\sin v$. For eksempel er $\\sin\\frac{5\\pi}{6} = \\sin\\frac{\\pi}{6} = \\frac{1}{2}$ og $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$.\n\nÉn praktisk advarsel: sjekk at kalkulatoren står i riktig vinkelmodus. Får du $\\sin\\frac{\\pi}{2} \\approx 0{,}027$ i stedet for $1$, tolker kalkulatoren tallet $\\frac{\\pi}{2} \\approx 1{,}57$ som grader. Testen $\\sin\\frac{\\pi}{2} = 1$ avslører alltid om du er i radianmodus."},{"id":"r2-4-1-n-quiz4","type":"exercise","exercise":{"id":"r2-4-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på enhetssirkelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-1-n-quiz4-q0","task":"Hvilket punkt på enhetssirkelen tilsvarer vinkelen $v = \\pi$?","options":[{"id":"a","text":"$(1, 0)$","isCorrect":false},{"id":"b","text":"$(0, -1)$","isCorrect":false},{"id":"c","text":"$(-1, 0)$","isCorrect":true},{"id":"d","text":"$(0, 1)$","isCorrect":false}],"solution":"Etter en halv omdreining fra $(1,0)$ er du i $(-1, 0)$, så $\\cos\\pi = -1$ og $\\sin\\pi = 0$."},{"id":"r2-4-1-n-quiz4-q1","task":"Hva er $\\cos\\frac{2\\pi}{3}$?","options":[{"id":"a","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"b","text":"$-\\frac{1}{2}$","isCorrect":true},{"id":"c","text":"$-\\frac{\\sqrt{3}}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{\\sqrt{3}}{2}$","isCorrect":false}],"solution":"$\\frac{2\\pi}{3} = \\pi - \\frac{\\pi}{3}$, og $\\cos(\\pi - v) = -\\cos v$, så $\\cos\\frac{2\\pi}{3} = -\\cos\\frac{\\pi}{3} = -\\frac{1}{2}$."},{"id":"r2-4-1-n-quiz4-q2","task":"Hva er $\\sin\\frac{5\\pi}{6}$?","options":[{"id":"a","text":"$-\\frac{1}{2}$","isCorrect":false},{"id":"b","text":"$\\frac{\\sqrt{3}}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{\\sqrt{2}}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{2}$","isCorrect":true}],"solution":"$\\frac{5\\pi}{6} = \\pi - \\frac{\\pi}{6}$, og $\\sin(\\pi - v) = \\sin v$, så $\\sin\\frac{5\\pi}{6} = \\sin\\frac{\\pi}{6} = \\frac{1}{2}$."},{"id":"r2-4-1-n-quiz4-q3","task":"Hvordan kan du sjekke at kalkulatoren er i radianmodus?","options":[{"id":"a","text":"Sjekk at $\\sin\\frac{\\pi}{2} = 1$","isCorrect":true},{"id":"b","text":"Sjekk at $\\sin 90 = 1$","isCorrect":false},{"id":"c","text":"Sjekk at $\\cos 0 = 0$","isCorrect":false},{"id":"d","text":"Sjekk at $\\tan\\pi = 1$","isCorrect":false}],"solution":"I radianmodus er $\\sin\\frac{\\pi}{2} = 1$. Får du $\\approx 0{,}027$, står kalkulatoren i gradmodus."}]}},{"id":"r2-4-1-n-summary","type":"text","content":"## Oppsummering\n\nVi startet i pariserhjulet med et enkelt spørsmål: hvor langt har du reist når hjulet dreier? Svaret ledet oss til radianer — naturens eget vinkelmål, der vinkelen defineres ved $v = \\frac{s}{r}$, altså buelengde delt på radius. Nøkkelen til all omregning er at $180° = \\pi$ radianer: fra grader til radianer ganger du med $\\frac{\\pi}{180}$, og motsatt vei med $\\frac{180}{\\pi}$. Standardvinklene $\\frac{\\pi}{6}, \\frac{\\pi}{4}, \\frac{\\pi}{3}, \\frac{\\pi}{2}$ og $\\pi$ tilsvarer $30°, 45°, 60°, 90°$ og $180°$, og dem bør du kjenne igjen på strak arm.\n\nMed radianer ble formlene våre påfallende enkle: buelengden er $s = rv$, og sektorarealet er $A = \\frac{1}{2}r^2v$, som også kan skrives $A = \\frac{1}{2}rs$. Disse to kan kombineres når oppgaven gir deg to av størrelsene og spør etter resten.\n\nTil slutt møtte vi enhetssirkelen, sirkelen $x^2 + y^2 = 1$ med radius $1$ om origo. Vandrer du buelengden $v$ mot klokken fra $(1,0)$, lander du i punktet $(\\cos v, \\sin v)$ — cosinus er $x$-koordinaten og sinus er $y$-koordinaten. Verdiene for standardvinklene følger mønsteret $\\frac{\\sqrt{0}}{2}$ til $\\frac{\\sqrt{4}}{2}$, og symmetriene $\\sin(\\pi - v) = \\sin v$ og $\\cos(\\pi - v) = -\\cos v$ gir deg resten av sirkelen gratis. Dette kartet over trigonometrien blir følgesvennen vår gjennom hele resten av kapitlet om trigonometri."}],"exercises":[]}
+{
+  "id": "r2-4-1-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "4.1",
+  "title": "Radianer og vinkelmål",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om naturens eget vinkelmål — fra pariserhjul og pizzastykker til radianer, buelengde, sektorareal og enhetssirkelen.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "utforske eigenskapar ved radianer og samanhengen mellom gradar og radianer",
+    "bruke radianmål i utrekningar av buelengde og sektorareal"
+  ],
+  "linkedChapterId": "r2-4-1",
+  "content": [
+    {
+      "id": "r2-4-1-n-intro",
+      "type": "text",
+      "content": "## Naturens eget vinkelmål\n\nTenk deg at du sitter i et pariserhjul som sakte begynner å rotere. Hvor langt har du egentlig reist når hjulet har dreid en åttendedels runde? Du kunne svart «45 grader», men det sier ingenting om avstanden du har beveget deg langs sirkelbuen. Grader er et gammelt, menneskeskapt mål — babylonerne valgte 360 fordi tallet var lett å dele opp. Naturen bryr seg ikke om 360.\n\nI høyere matematikk, og spesielt når vi skal derivere trigonometriske funksjoner senere i R2, bruker vi i stedet **radianer**. Ideen er forbløffende enkel: vi måler vinkelen ved hjelp av selve sirkelbuen. En radian er vinkelen som spenner over en bue som er nøyaktig like lang som radiusen. Hvis buelengden er $s$ og radiusen er $r$, er vinkelen i radianer rett og slett $v = \\frac{s}{r}$.\n\nMed dette målet blir formlene for buelengde og sektorareal påfallende enkle, og derivasjonsreglene blir elegante. I denne fortellingen skal vi bli kjent med radianbegrepet, lære å veksle mellom grader og radianer, regne ut buelengder og sektorarealer, og til slutt møte enhetssirkelen — verktøyet som binder hele trigonometrien sammen."
+    },
+    {
+      "id": "r2-4-1-n-section1",
+      "type": "text",
+      "content": "## Fra grader til radianer og tilbake\n\nLa oss rulle ut en bue langs sirkelen i pariserhjulet. Hvis buen er nøyaktig like lang som radiusen, har vi dreid **1 radian** — det tilsvarer omtrent $57{,}3°$ (mer presist $\\frac{180°}{\\pi} \\approx 57{,}2958°$). Siden omkretsen til en sirkel er $2\\pi r$, får vi plass til nøyaktig $2\\pi$ slike radius-buer rundt hele sirkelen. En hel omdreining er derfor $2\\pi$ radianer, og dermed er $360° = 2\\pi$ radianer, eller enklere: $180° = \\pi$ radianer.\n\nDenne sammenhengen gir oss omregningsformlene. Fra grader til radianer ganger vi med $\\frac{\\pi}{180}$: $v_{\\text{rad}} = v_{\\text{grad}} \\cdot \\frac{\\pi}{180}$. Fra radianer til grader ganger vi motsatt vei med $\\frac{180}{\\pi}$. Vil du for eksempel vite hva $60°$ er i radianer, regner du $60 \\cdot \\frac{\\pi}{180} = \\frac{\\pi}{3}$. Og skal du tilbake fra $\\frac{3\\pi}{4}$, får du $\\frac{3\\pi}{4} \\cdot \\frac{180}{\\pi} = 135°$. Når svaret kan forkortes, gjør vi det: $72° = \\frac{72\\pi}{180} = \\frac{2\\pi}{5}$, der vi forkortet med $36$.\n\nNoen vinkler dukker opp så ofte at du bør kunne dem utenat: $30° = \\frac{\\pi}{6}$, $45° = \\frac{\\pi}{4}$, $60° = \\frac{\\pi}{3}$ og $90° = \\frac{\\pi}{2}$. Legg merke til mønsteret: nevnerne synker ($6, 4, 3, 2$) mens vinklene vokser. Videre er $120° = \\frac{2\\pi}{3}$, $135° = \\frac{3\\pi}{4}$, $150° = \\frac{5\\pi}{6}$, $180° = \\pi$, $270° = \\frac{3\\pi}{2}$ og $360° = 2\\pi$. Vinkler i andre kvadranter finner du med symmetri: $120° = 180° - 60°$ gir $\\frac{2\\pi}{3} = \\pi - \\frac{\\pi}{3}$."
+    },
+    {
+      "id": "r2-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på radianer og omregning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-1-n-quiz1-q0",
+            "task": "Hva er $60°$ i radianer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{\\pi}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\pi}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2\\pi}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$60° = 60 \\cdot \\frac{\\pi}{180} = \\frac{\\pi}{3}$."
+          },
+          {
+            "id": "r2-4-1-n-quiz1-q1",
+            "task": "Hva er $\\frac{3\\pi}{4}$ i grader?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$120°$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$135°$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$150°$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$45°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{3\\pi}{4} \\cdot \\frac{180}{\\pi} = \\frac{3 \\cdot 180}{4} = 135°$."
+          },
+          {
+            "id": "r2-4-1-n-quiz1-q2",
+            "task": "Omtrent hvor mange grader er 1 radian?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$45°$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$90°$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$57{,}3°$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$31{,}4°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "1 radian er $\\frac{180°}{\\pi} \\approx 57{,}3°$."
+          },
+          {
+            "id": "r2-4-1-n-quiz1-q3",
+            "task": "Hva definerer en radian?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vinkelen som er $\\frac{1}{360}$ av en hel sirkel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vinkelen der buen er like lang som diameteren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vinkelen der korden er like lang som radiusen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vinkelen der buelengden er like lang som radiusen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En radian er vinkelen som spenner over en bue med lengde lik radiusen: $v = \\frac{s}{r}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-1-n-section2",
+      "type": "text",
+      "content": "## Buelengde — hvor langt rundt har du reist?\n\nTilbake i pariserhjulet: nå kan vi faktisk svare på hvor langt du har beveget deg. Definisjonen $v = \\frac{s}{r}$ kan løses for buelengden, og da får vi den forbilledlig enkle formelen $s = rv$ — buelengden er radius ganger vinkelen, så lenge vinkelen er i radianer. Nettopp denne enkelheten er en av hovedgrunnene til at matematikere foretrekker radianer. Er vinkelen oppgitt i grader, må vi regne om først, og formelen blir $s = \\frac{\\pi r v_{\\text{grad}}}{180}$.\n\nLa oss prøve: en sirkelbue med radius $8$ cm og sentralvinkel $\\frac{3\\pi}{4}$ har buelengde $s = 8 \\cdot \\frac{3\\pi}{4} = 6\\pi$ cm, omtrent $18{,}85$ cm. Med grader: radius $10$ cm og vinkel $72°$ gir $s = 10 \\cdot \\frac{2\\pi}{5} = 4\\pi$ cm, siden $72° = \\frac{2\\pi}{5}$ radianer.\n\nFormelen kan også snus. Kjenner du buelengden og radiusen, finner du vinkelen: en bue på $10$ cm i en sirkel med radius $5$ cm spenner over vinkelen $v = \\frac{s}{r} = \\frac{10}{5} = 2$ radianer, som er $2 \\cdot \\frac{180}{\\pi} \\approx 114{,}6°$.\n\nDette får praktisk betydning når noe roterer. Et hjul med radius $30$ cm som spinner med vinkelhastighet $\\omega = 2$ rad/s, dreier på $5$ sekunder vinkelen $v = \\omega t = 10$ radianer. Et punkt på kanten har da reist $s = rv = 30 \\cdot 10 = 300$ cm, altså $3$ meter. Og på $10$ sekunder dreier hjulet $20$ radianer, som er $\\frac{20}{2\\pi} \\approx 3{,}18$ omdreininger — altså $3$ hele runder."
+    },
+    {
+      "id": "r2-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på buelengde:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-1-n-quiz2-q0",
+            "task": "En sirkelbue har radius $r = 8$ cm og sentralvinkel $v = \\frac{3\\pi}{4}$. Hva er buelengden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$6\\pi$ cm",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$3\\pi$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$24\\pi$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{32\\pi}{3}$ cm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$s = rv = 8 \\cdot \\frac{3\\pi}{4} = 6\\pi$ cm."
+          },
+          {
+            "id": "r2-4-1-n-quiz2-q1",
+            "task": "En bue har radius $5$ cm og buelengde $10$ cm. Hva er sentralvinkelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}5$ radianer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2$ radianer",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$50$ radianer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\pi}{2}$ radianer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$v = \\frac{s}{r} = \\frac{10}{5} = 2$ radianer."
+          },
+          {
+            "id": "r2-4-1-n-quiz2-q2",
+            "task": "Et hjul med radius $30$ cm roterer med $\\omega = 2$ rad/s. Hvor langt beveger et punkt på kanten seg på $5$ sekunder?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}5$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$60$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$6$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vinkelen er $v = 2 \\cdot 5 = 10$ radianer, så $s = rv = 30 \\cdot 10 = 300$ cm $= 3$ m."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-1-n-section3",
+      "type": "text",
+      "content": "## Sektorareal — kakestykket\n\nSe for deg en pizza. Hvert stykke er en **sirkelsektor**: området avgrenset av to radier og sirkelbuen mellom dem. Hvor stort er et slikt stykke? Resonnementet er vakkert i sin enkelhet. Hele sirkelen har areal $\\pi r^2$ og sentralvinkel $2\\pi$ radianer. En sektor med vinkel $v$ utgjør andelen $\\frac{v}{2\\pi}$ av hele sirkelen, og da blir arealet $A = \\frac{v}{2\\pi} \\cdot \\pi r^2 = \\frac{1}{2}r^2 v$.\n\nFormelen $A = \\frac{1}{2}r^2 v$ gjelder altså når vinkelen er i radianer. Med grader blir den $A = \\frac{\\pi r^2 v_{\\text{grad}}}{360}$. Og siden buelengden er $s = rv$, kan vi også skrive arealet som $A = \\frac{1}{2}rs$ — en halv ganger radius ganger buelengde. Den varianten er praktisk når du kjenner buen, men ikke vinkelen.\n\nEt par eksempler: en sektor med radius $6$ cm og vinkel $\\frac{\\pi}{3}$ har areal $A = \\frac{1}{2} \\cdot 36 \\cdot \\frac{\\pi}{3} = 6\\pi$ cm². Med radius $10$ cm og $45°$ får vi $A = \\frac{1}{2} \\cdot 100 \\cdot \\frac{\\pi}{4} = \\frac{25\\pi}{2}$ cm². Formelen kan også snus: en sektor med radius $8$ cm og areal $16\\pi$ cm² gir $16\\pi = \\frac{1}{2} \\cdot 64 \\cdot v$, altså $v = \\frac{\\pi}{2}$.\n\nDet fine er at de to formlene kan kombineres når vi har to ukjente. Kjenner vi buelengden $s = 12$ cm og arealet $A = 36$ cm², gir $A = \\frac{1}{2}rs$ at $36 = 6r$, så $r = 6$ cm — og da følger vinkelen fra $s = rv$: $v = \\frac{12}{6} = 2$ radianer."
+    },
+    {
+      "id": "r2-4-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sektorareal:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-1-n-quiz3-q0",
+            "task": "Hva er arealet av en sirkelsektor med radius $6$ cm og sentralvinkel $\\frac{\\pi}{3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12\\pi$ cm$^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3\\pi$ cm$^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$36\\pi$ cm$^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6\\pi$ cm$^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$A = \\frac{1}{2}r^2v = \\frac{1}{2} \\cdot 36 \\cdot \\frac{\\pi}{3} = 6\\pi$ cm$^2$."
+          },
+          {
+            "id": "r2-4-1-n-quiz3-q1",
+            "task": "En sektor har radius $8$ cm og areal $16\\pi$ cm$^2$. Hva er sentralvinkelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{\\pi}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\pi$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$16\\pi = \\frac{1}{2} \\cdot 64 \\cdot v = 32v$ gir $v = \\frac{\\pi}{2}$."
+          },
+          {
+            "id": "r2-4-1-n-quiz3-q2",
+            "task": "Hvilken alternativ formel gjelder for sektorarealet når $s$ er buelengden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$A = rs$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$A = \\frac{1}{2}rs$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$A = 2rs$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$A = \\frac{1}{2}r^2 s$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $s = rv$ er $A = \\frac{1}{2}r^2v = \\frac{1}{2}r \\cdot rv = \\frac{1}{2}rs$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-1-n-section4",
+      "type": "text",
+      "content": "## Enhetssirkelen — trigonometriens kart\n\nTil slutt skal vi møte det viktigste verktøyet i hele trigonometrien. **Enhetssirkelen** er sirkelen med sentrum i origo og radius $1$, gitt ved ligningen $x^2 + y^2 = 1$. Tenk deg at du starter i punktet $(1, 0)$ på $x$-aksen og vandrer mot klokken langs sirkelen. Etter å ha gått en buelengde $v$ — som på enhetssirkelen er nøyaktig det samme tallet som vinkelen i radianer, siden $r = 1$ — befinner du deg i punktet $(\\cos v, \\sin v)$. Cosinus er altså $x$-koordinaten og sinus er $y$-koordinaten til punktet ditt.\n\nNoen holdepunkter på vandringen: ved $v = 0$ står du i $(1, 0)$, ved $\\frac{\\pi}{2}$ i $(0, 1)$, ved $\\pi$ i $(-1, 0)$, ved $\\frac{3\\pi}{2}$ i $(0, -1)$, og ved $2\\pi$ er du tilbake i $(1, 0)$. For standardvinklene gjelder de eksakte verdiene $\\cos\\frac{\\pi}{6} = \\frac{\\sqrt{3}}{2}$ og $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$, $\\cos\\frac{\\pi}{4} = \\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, samt $\\cos\\frac{\\pi}{3} = \\frac{1}{2}$ og $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$. En fin huskeregel: sinusverdiene for $0, \\frac{\\pi}{6}, \\frac{\\pi}{4}, \\frac{\\pi}{3}, \\frac{\\pi}{2}$ er $\\frac{\\sqrt{0}}{2}, \\frac{\\sqrt{1}}{2}, \\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{3}}{2}, \\frac{\\sqrt{4}}{2}$ — cosinus er de samme i omvendt rekkefølge.\n\nVinkler utenfor første kvadrant håndterer du med symmetri: $\\cos(\\pi - v) = -\\cos v$ mens $\\sin(\\pi - v) = \\sin v$, $\\cos(\\pi + v) = -\\cos v$ og $\\sin(\\pi + v) = -\\sin v$, og $\\cos(2\\pi - v) = \\cos v$ mens $\\sin(2\\pi - v) = -\\sin v$. For eksempel er $\\sin\\frac{5\\pi}{6} = \\sin\\frac{\\pi}{6} = \\frac{1}{2}$ og $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$.\n\nÉn praktisk advarsel: sjekk at kalkulatoren står i riktig vinkelmodus. Får du $\\sin\\frac{\\pi}{2} \\approx 0{,}027$ i stedet for $1$, tolker kalkulatoren tallet $\\frac{\\pi}{2} \\approx 1{,}57$ som grader. Testen $\\sin\\frac{\\pi}{2} = 1$ avslører alltid om du er i radianmodus."
+    },
+    {
+      "id": "r2-4-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på enhetssirkelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-1-n-quiz4-q0",
+            "task": "Hvilket punkt på enhetssirkelen tilsvarer vinkelen $v = \\pi$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(1, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(0, -1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(-1, 0)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(0, 1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter en halv omdreining fra $(1,0)$ er du i $(-1, 0)$, så $\\cos\\pi = -1$ og $\\sin\\pi = 0$."
+          },
+          {
+            "id": "r2-4-1-n-quiz4-q1",
+            "task": "Hva er $\\cos\\frac{2\\pi}{3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{\\sqrt{3}}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\sqrt{3}}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-\\frac{1}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{2\\pi}{3} = \\pi - \\frac{\\pi}{3}$, og $\\cos(\\pi - v) = -\\cos v$, så $\\cos\\frac{2\\pi}{3} = -\\cos\\frac{\\pi}{3} = -\\frac{1}{2}$."
+          },
+          {
+            "id": "r2-4-1-n-quiz4-q2",
+            "task": "Hva er $\\sin\\frac{5\\pi}{6}$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\sqrt{3}}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\sqrt{2}}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{5\\pi}{6} = \\pi - \\frac{\\pi}{6}$, og $\\sin(\\pi - v) = \\sin v$, så $\\sin\\frac{5\\pi}{6} = \\sin\\frac{\\pi}{6} = \\frac{1}{2}$."
+          },
+          {
+            "id": "r2-4-1-n-quiz4-q3",
+            "task": "Hvordan kan du sjekke at kalkulatoren er i radianmodus?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sjekk at $\\sin 90 = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Sjekk at $\\sin\\frac{\\pi}{2} = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Sjekk at $\\cos 0 = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sjekk at $\\tan\\pi = 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I radianmodus er $\\sin\\frac{\\pi}{2} = 1$. Får du $\\approx 0{,}027$, står kalkulatoren i gradmodus."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi startet i pariserhjulet med et enkelt spørsmål: hvor langt har du reist når hjulet dreier? Svaret ledet oss til radianer — naturens eget vinkelmål, der vinkelen defineres ved $v = \\frac{s}{r}$, altså buelengde delt på radius. Nøkkelen til all omregning er at $180° = \\pi$ radianer: fra grader til radianer ganger du med $\\frac{\\pi}{180}$, og motsatt vei med $\\frac{180}{\\pi}$. Standardvinklene $\\frac{\\pi}{6}, \\frac{\\pi}{4}, \\frac{\\pi}{3}, \\frac{\\pi}{2}$ og $\\pi$ tilsvarer $30°, 45°, 60°, 90°$ og $180°$, og dem bør du kjenne igjen på strak arm.\n\nMed radianer ble formlene våre påfallende enkle: buelengden er $s = rv$, og sektorarealet er $A = \\frac{1}{2}r^2v$, som også kan skrives $A = \\frac{1}{2}rs$. Disse to kan kombineres når oppgaven gir deg to av størrelsene og spør etter resten.\n\nTil slutt møtte vi enhetssirkelen, sirkelen $x^2 + y^2 = 1$ med radius $1$ om origo. Vandrer du buelengden $v$ mot klokken fra $(1,0)$, lander du i punktet $(\\cos v, \\sin v)$ — cosinus er $x$-koordinaten og sinus er $y$-koordinaten. Verdiene for standardvinklene følger mønsteret $\\frac{\\sqrt{0}}{2}$ til $\\frac{\\sqrt{4}}{2}$, og symmetriene $\\sin(\\pi - v) = \\sin v$ og $\\cos(\\pi - v) = -\\cos v$ gir deg resten av sirkelen gratis. Dette kartet over trigonometrien blir følgesvennen vår gjennom hele resten av kapitlet om trigonometri."
+    }
+  ],
+  "exercises": []
+}

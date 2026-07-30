@@ -1,1 +1,337 @@
-{"id":"1p-6-1-narrativ","courseId":"1p","chapterNumber":"6.1","title":"Grunnleggjande sannsynlegheit","subtitle":"Narrativ versjon","description":"Ei forteljing om å setje tal på flaks -- frå terningkast og lykkehjul til kortstokken sine hemlegheiter og komplementregelen.","estimatedMinutes":30,"competenceGoals":["rekne ut sannsynlegheit for enkle hendingar","bruke uniforme sannsynleiksmodellar"],"linkedChapterId":"1p-6-1","content":[{"id":"1p-6-1-n-intro","type":"text","content":"## Spillkvelden og den siste sekseren\n\nDet er spillkveld, og du treng ein sekser for å vinna. Du ristar terningen i handa og kjenn spenningen: kor stor er eigentleg sjansen? Ein venn meiner «fifty-fifty -- anten får du den eller ikkje». Ein annan seier «éin av seks». Kven har rett?\n\nSpørsmål som dette er det **sannsynleiksrekning** handlar om: å setje tal på det usikre. Ein sannsynlegheit er eit tal mellom $0$ og $1$ som skildrar kor sannsynleg ein hendinga er. $0$ betyr umogleg -- terningen viser sju. $1$ betyr heilt sikkert -- terningen viser eit tal mellom éin og seks. Og $0{,}5$ betyr $50\\,\\%$ sjanse, som myntkast.\n\nI dette kapitlet lærer du å rekne ut slike tal for terningar, kortstokkane og lykkehjul -- og du får vita kven av vennene dine som hadde rett."},{"id":"1p-6-1-n-section1","type":"text","content":"## Gunstige delt på moglege\n\nLat oss undersøkje terningen. Når du kastar henne, finst det seks moglege resultat -- me kallar dei **utfall**: $1$, $2$, $3$, $4$, $5$ og $6$. Ein rettferdig terning har ingen favorittar; alle seks utfalla er like sannsynlege. Ein slik situasjon kallast ein **uniform sannsynleiksmodell**, og då gjeld ein vakkert enkel formel:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nEtt **gunstig utfall** er eit utfall der hendinga du ventar på, faktisk skjer. Du ventar på ein sekser -- berre eitt av dei seks utfalla er gunstig:\n\n$$P(6) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nSo vennen som sa «éin av seks» hadde rett, og «fifty-fifty»-vennen tok feil: at noko anten skjer eller ikkje skjer, betyr ikkje at sjansane er like store!\n\nFormelen fungerer for alt der utfalla er like sannsynlege. Kva er sjansen for å få eit partal på terningen? Dei gunstige utfalla er $2$, $4$ og $6$ -- tre stykke:\n\n$$P(\\text{partal}) = \\frac{3}{6} = \\frac{1}{2} = 50\\,\\%$$\n\nEller eit lykkehjul med $8$ like store felt der $2$ gir gevinst: $P(\\text{gevinst}) = \\frac{2}{8} = \\frac{1}{4}$. Tell moglege, tell gunstige, del -- det er heile oppskrifta."},{"id":"1p-6-1-n-quiz1","type":"exercise","exercise":{"id":"1p-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på klassisk sannsynlegheit:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-6-1-n-quiz1-q0","task":"Kva er sannsynlegheiten for å få ein sekser på eitt terningkast?","options":[{"id":"a","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{6}$","isCorrect":true},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{6}{1}$","isCorrect":false}],"solution":"Eitt gunstig utfall (sekseren) av seks moglege: $P(6)=\\frac{1}{6}\\approx 16{,}7\\,\\%$."},{"id":"1p-6-1-n-quiz1-q1","task":"Kva er sannsynlegheiten for å få eit tal mindre enn $3$ på ein terning?","options":[{"id":"a","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\frac{2}{3}$","isCorrect":false}],"solution":"Gunstige utfall er $1$ og $2$ -- to av seks: $P=\\frac{2}{6}=\\frac{1}{3}$."},{"id":"1p-6-1-n-quiz1-q2","task":"Eit lykkehjul har $10$ like store felt, og $3$ av dei gir gevinst. Kva er $P(\\text{gevinst})$?","options":[{"id":"a","text":"$0{,}3$","isCorrect":true},{"id":"b","text":"$0{,}1$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$0{,}7$","isCorrect":false}],"solution":"$P=\\frac{3}{10}=0{,}3$. Husk at sannsynlegheiten alltid er eit tal mellom $0$ og $1$."},{"id":"1p-6-1-n-quiz1-q3","task":"Kva tal kan IKKJE vera ein sannsynlegheit?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$0{,}5$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$1{,}4$","isCorrect":true}],"solution":"Sannsynlegheiter ligg alltid mellom $0$ (umogleg) og $1$ (sikkert). $1{,}4$ er større enn $1$ og kan difor ikkje vera ein sannsynlegheit."}]}},{"id":"1p-6-1-n-section2","type":"text","content":"## Kortstokken og kunsten å snu problemet\n\nEtter terningspillet finn de fram kortstokken. Ho er ein gullgruve for sannsynleiksrekning, så lat oss bli kjend med henne: ein standard kortstokk har $52$ kort fordelt på $4$ fargar -- hjarter, rutar, kløver og spar -- med $13$ verdiar i kvar fargar: ess, $2$ til $10$, knekt, dame og konge.\n\nDu trekkjer eitt kort. Kva er sjansen for hjarter? Det finst $13$ hjarterkort av $52$ totalt:\n\n$$P(\\text{hjarter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$$\n\nOg sjansen for å trekkje eit ess? Det er fire ess i stokken, éin i kvar fargar:\n\n$$P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13} \\approx 7{,}7\\,\\%$$\n\nNokon gonger er det lurare å rekne på det *motsette* av det du lurer på. Kva er sannsynlegheiten for å *ikkje* trekkje eit ess? Du kunne teljast opp alle $48$ ikkje-essane, men det finst ein snarveg. Hendinga «ikkje ess» kallast **komplementet** til «ess», og sidan eitt av dei to *må* skje, er summen av sannsynlegheitene deira alltid $1$:\n\n$$P(\\text{ikkje } A) = 1 - P(A)$$\n\nDermed: $P(\\text{ikkje ess}) = 1 - \\frac{4}{52} = \\frac{48}{52} = \\frac{12}{13}$. Komplementregelen virkar kanskje som ein bagatell no, men ho er eitt av dei mest brukte tryksa i heile sannsynleiksregninga -- ofte er «minst éin ...»-spørsmål nesten umoglege å angripe direkte, men enkle via komplementet."},{"id":"1p-6-1-n-quiz2","type":"exercise","exercise":{"id":"1p-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kortstokk og komplement:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-6-1-n-quiz2-q0","task":"Du trekkjer eitt kort frå ein full kortstokk. Kva er sannsynlegheiten for å trekkje spar?","options":[{"id":"a","text":"$\\frac{1}{13}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{4}$","isCorrect":true},{"id":"d","text":"$\\frac{4}{13}$","isCorrect":false}],"solution":"Det er $13$ sparkort av $52$: $P=\\frac{13}{52}=\\frac{1}{4}$."},{"id":"1p-6-1-n-quiz2-q1","task":"Kva er sannsynlegheiten for å trekkje ein konge?","options":[{"id":"a","text":"$\\frac{1}{13}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{4}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{52}$","isCorrect":false},{"id":"d","text":"$\\frac{4}{13}$","isCorrect":false}],"solution":"Det er $4$ kongar av $52$ kort: $P=\\frac{4}{52}=\\frac{1}{13}$."},{"id":"1p-6-1-n-quiz2-q2","task":"Sannsynlegheita for regn i morgon er $0{,}3$. Kva er sannsynlegheita for at det IKKJE regner?","options":[{"id":"a","text":"$0{,}3$","isCorrect":false},{"id":"b","text":"$0{,}5$","isCorrect":false},{"id":"c","text":"$1{,}3$","isCorrect":false},{"id":"d","text":"$0{,}7$","isCorrect":true}],"solution":"Komplementregelen: $P(\\text{ikkje regn})=1-0{,}3=0{,}7$."},{"id":"1p-6-1-n-quiz2-q3","task":"Kva er sannsynlegheita for å IKKJE få ein seksar på eitt terningkast?","options":[{"id":"a","text":"$\\frac{5}{6}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{2}{3}$","isCorrect":false}],"solution":"$P(\\text{ikkje }6)=1-\\frac{1}{6}=\\frac{5}{6}$. Komplementet sparar oss for å telje dei fem gunstige utfalla direkte."}]}},{"id":"1p-6-1-n-summary","type":"text","content":"## Oppsummering\n\nSpillkvelden gav oss heile grunnmuren i sannsynlighetsrekning.\n\nEin **sannsynlegheit** er eit tal mellom $0$ (umogleg) og $1$ (heilt sikkert) som måler kor sannsynleg ein hendelse er. Når alle **utfall** er like sannsynlege -- som på ein rettferdig terning eller i ein stokkad kortstokk -- brukar vi den klassiske formelen:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nSlik fann vi $P(6) = \\frac{1}{6}$ for terningen, $P(\\text{hjarte}) = \\frac{13}{52} = \\frac{1}{4}$ for kortstokken, og avslørte at «fifty-fifty»-argumentet ikkje held: like få mogleikar betyr ikkje like store sjansar.\n\nTil slutt lærte vi **komplementregelen**: $P(\\text{ikkje } A) = 1 - P(A)$. Ho snur vanskelege spørsmål til enkle, og ho blir berre viktigare jo lenger du kjem i sannsynlighetsrekningan.\n\nNeste gong du rislar terningen og treng ein seksar, veit du nøyaktig kva du har å forholde deg til: $16{,}7\\,\\%$ -- verken meir eller mindre."}],"exercises":[],"_meta":{"sourceHash":"d34ffd528cf100e1","translatedAt":"2026-06-16T09:54:29.000Z","model":"claude-haiku-4-5-20251001","strings":49,"tm":{"2cc9770f81ef2c1b":"Grunnleggjande sannsynlegheit","b195b06d1ed59702":"Narrativ versjon","dc3f01fef7ab4bc1":"Ei forteljing om å setje tal på flaks -- frå terningkast og lykkehjul til kortstokken sine hemlegheiter og komplementregelen.","033be3b9e947d49e":"rekne ut sannsynlegheit for enkle hendingar","c4a6dc454afe2166":"bruke uniforme sannsynleiksmodellar","ea2733bc5b4d9696":"## Spillkvelden og den siste sekseren\n\nDet er spillkveld, og du treng ein sekser for å vinna. Du ristar terningen i handa og kjenn spenningen: kor stor er eigentleg sjansen? Ein venn meiner «fifty-fifty -- anten får du den eller ikkje». Ein annan seier «éin av seks». Kven har rett?\n\nSpørsmål som dette er det **sannsynleiksrekning** handlar om: å setje tal på det usikre. Ein sannsynlegheit er eit tal mellom $0$ og $1$ som skildrar kor sannsynleg ein hendinga er. $0$ betyr umogleg -- terningen viser sju. $1$ betyr heilt sikkert -- terningen viser eit tal mellom éin og seks. Og $0{,}5$ betyr $50\\,\\%$ sjanse, som myntkast.\n\nI dette kapitlet lærer du å rekne ut slike tal for terningar, kortstokkane og lykkehjul -- og du får vita kven av vennene dine som hadde rett.","2ddec94f0857181b":"## Gunstige delt på moglege\n\nLat oss undersøkje terningen. Når du kastar henne, finst det seks moglege resultat -- me kallar dei **utfall**: $1$, $2$, $3$, $4$, $5$ og $6$. Ein rettferdig terning har ingen favorittar; alle seks utfalla er like sannsynlege. Ein slik situasjon kallast ein **uniform sannsynleiksmodell**, og då gjeld ein vakkert enkel formel:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nEtt **gunstig utfall** er eit utfall der hendinga du ventar på, faktisk skjer. Du ventar på ein sekser -- berre eitt av dei seks utfalla er gunstig:\n\n$$P(6) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nSo vennen som sa «éin av seks» hadde rett, og «fifty-fifty»-vennen tok feil: at noko anten skjer eller ikkje skjer, betyr ikkje at sjansane er like store!\n\nFormelen fungerer for alt der utfalla er like sannsynlege. Kva er sjansen for å få eit partal på terningen? Dei gunstige utfalla er $2$, $4$ og $6$ -- tre stykke:\n\n$$P(\\text{partal}) = \\frac{3}{6} = \\frac{1}{2} = 50\\,\\%$$\n\nEller eit lykkehjul med $8$ like store felt der $2$ gir gevinst: $P(\\text{gevinst}) = \\frac{2}{8} = \\frac{1}{4}$. Tell moglege, tell gunstige, del -- det er heile oppskrifta.","a70583aeba60c61b":"Test deg sjølv på klassisk sannsynlegheit:","4097889236a2af26":"placeholder","dd72a7c19c267a81":"Kva er sannsynlegheiten for å få ein sekser på eitt terningkast?","b61def0872c567fe":"$\\frac{1}{2}$","ed2f0dca805db9c6":"$\\frac{1}{6}$","b87bda455923b2a6":"$\\frac{1}{3}$","1f93ee2c0176f52e":"$\\frac{6}{1}$","df865063ea9548b9":"Eitt gunstig utfall (sekseren) av seks moglege: $P(6)=\\frac{1}{6}\\approx 16{,}7\\,\\%$.","35040baba2bca884":"Kva er sannsynlegheiten for å få eit tal mindre enn $3$ på ein terning?","eaaa0e080202e320":"$\\frac{2}{3}$","379ac589453af654":"Gunstige utfall er $1$ og $2$ -- to av seks: $P=\\frac{2}{6}=\\frac{1}{3}$.","849a2fd9c46fd3a3":"Eit lykkehjul har $10$ like store felt, og $3$ av dei gir gevinst. Kva er $P(\\text{gevinst})$?","829cdf2cc935413a":"$P=\\frac{3}{10}=0{,}3$. Husk at sannsynlegheiten alltid er eit tal mellom $0$ og $1$.","423daed1ac298623":"Kva tal kan IKKJE vera ein sannsynlegheit?","2d428ea6fecdeb38":"Sannsynlegheiter ligg alltid mellom $0$ (umogleg) og $1$ (sikkert). $1{,}4$ er større enn $1$ og kan difor ikkje vera ein sannsynlegheit.","8956755ca11b553d":"## Kortstokken og kunsten å snu problemet\n\nEtter terningspillet finn de fram kortstokken. Ho er ein gullgruve for sannsynleiksrekning, så lat oss bli kjend med henne: ein standard kortstokk har $52$ kort fordelt på $4$ fargar -- hjarter, rutar, kløver og spar -- med $13$ verdiar i kvar fargar: ess, $2$ til $10$, knekt, dame og konge.\n\nDu trekkjer eitt kort. Kva er sjansen for hjarter? Det finst $13$ hjarterkort av $52$ totalt:\n\n$$P(\\text{hjarter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$$\n\nOg sjansen for å trekkje eit ess? Det er fire ess i stokken, éin i kvar fargar:\n\n$$P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13} \\approx 7{,}7\\,\\%$$\n\nNokon gonger er det lurare å rekne på det *motsette* av det du lurer på. Kva er sannsynlegheiten for å *ikkje* trekkje eit ess? Du kunne teljast opp alle $48$ ikkje-essane, men det finst ein snarveg. Hendinga «ikkje ess» kallast **komplementet** til «ess», og sidan eitt av dei to *må* skje, er summen av sannsynlegheitene deira alltid $1$:\n\n$$P(\\text{ikkje } A) = 1 - P(A)$$\n\nDermed: $P(\\text{ikkje ess}) = 1 - \\frac{4}{52} = \\frac{48}{52} = \\frac{12}{13}$. Komplementregelen virkar kanskje som ein bagatell no, men ho er eitt av dei mest brukte tryksa i heile sannsynleiksregninga -- ofte er «minst éin ...»-spørsmål nesten umoglege å angripe direkte, men enkle via komplementet.","50d43ac8361f3393":"Test deg sjølv på kortstokk og komplement:","dfae9883afb474fd":"Du trekkjer eitt kort frå ein full kortstokk. Kva er sannsynlegheiten for å trekkje spar?","51c89183784da353":"$\\frac{1}{13}$","f2bf6d932e14b55c":"$\\frac{1}{4}$","093bb865b4b00e44":"$\\frac{4}{13}$","a4747bd4b4d63517":"Det er $13$ sparkort av $52$: $P=\\frac{13}{52}=\\frac{1}{4}$.","03fb99a8616bfe56":"Kva er sannsynlegheiten for å trekkje ein konge?","aaa45f3e5ec152bd":"$\\frac{1}{52}$","7d481649267daaa2":"Det er $4$ kongar av $52$ kort: $P=\\frac{4}{52}=\\frac{1}{13}$.","fc638d8aaa3ab571":"Sannsynlegheita for regn i morgon er $0{,}3$. Kva er sannsynlegheita for at det IKKJE regner?","7a9715735b4e8e39":"Komplementregelen: $P(\\text{ikkje regn})=1-0{,}3=0{,}7$.","4eead8f906b5fc46":"Kva er sannsynlegheita for å IKKJE få ein seksar på eitt terningkast?","18f9adbf430864eb":"$\\frac{5}{6}$","8d397f73ab0950e1":"$P(\\text{ikkje }6)=1-\\frac{1}{6}=\\frac{5}{6}$. Komplementet sparar oss for å telje dei fem gunstige utfalla direkte.","3cbb92ad95d9d8ac":"## Oppsummering\n\nSpillkvelden gav oss heile grunnmuren i sannsynlighetsrekning.\n\nEin **sannsynlegheit** er eit tal mellom $0$ (umogleg) og $1$ (heilt sikkert) som måler kor sannsynleg ein hendelse er. Når alle **utfall** er like sannsynlege -- som på ein rettferdig terning eller i ein stokkad kortstokk -- brukar vi den klassiske formelen:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nSlik fann vi $P(6) = \\frac{1}{6}$ for terningen, $P(\\text{hjarte}) = \\frac{13}{52} = \\frac{1}{4}$ for kortstokken, og avslørte at «fifty-fifty»-argumentet ikkje held: like få mogleikar betyr ikkje like store sjansar.\n\nTil slutt lærte vi **komplementregelen**: $P(\\text{ikkje } A) = 1 - P(A)$. Ho snur vanskelege spørsmål til enkle, og ho blir berre viktigare jo lenger du kjem i sannsynlighetsrekningan.\n\nNeste gong du rislar terningen og treng ein seksar, veit du nøyaktig kva du har å forholde deg til: $16{,}7\\,\\%$ -- verken meir eller mindre."}}}
+{
+  "id": "1p-6-1-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "6.1",
+  "title": "Grunnleggjande sannsynlegheit",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å setje tal på flaks -- frå terningkast og lykkehjul til kortstokken sine hemlegheiter og komplementregelen.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "rekne ut sannsynlegheit for enkle hendingar",
+    "bruke uniforme sannsynleiksmodellar"
+  ],
+  "linkedChapterId": "1p-6-1",
+  "content": [
+    {
+      "id": "1p-6-1-n-intro",
+      "type": "text",
+      "content": "## Spillkvelden og den siste sekseren\n\nDet er spillkveld, og du treng ein sekser for å vinna. Du ristar terningen i handa og kjenn spenningen: kor stor er eigentleg sjansen? Ein venn meiner «fifty-fifty -- anten får du den eller ikkje». Ein annan seier «éin av seks». Kven har rett?\n\nSpørsmål som dette er det **sannsynleiksrekning** handlar om: å setje tal på det usikre. Ein sannsynlegheit er eit tal mellom $0$ og $1$ som skildrar kor sannsynleg ein hendinga er. $0$ betyr umogleg -- terningen viser sju. $1$ betyr heilt sikkert -- terningen viser eit tal mellom éin og seks. Og $0{,}5$ betyr $50\\,\\%$ sjanse, som myntkast.\n\nI dette kapitlet lærer du å rekne ut slike tal for terningar, kortstokkane og lykkehjul -- og du får vita kven av vennene dine som hadde rett."
+    },
+    {
+      "id": "1p-6-1-n-section1",
+      "type": "text",
+      "content": "## Gunstige delt på moglege\n\nLat oss undersøkje terningen. Når du kastar henne, finst det seks moglege resultat -- me kallar dei **utfall**: $1$, $2$, $3$, $4$, $5$ og $6$. Ein rettferdig terning har ingen favorittar; alle seks utfalla er like sannsynlege. Ein slik situasjon kallast ein **uniform sannsynleiksmodell**, og då gjeld ein vakkert enkel formel:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nEtt **gunstig utfall** er eit utfall der hendinga du ventar på, faktisk skjer. Du ventar på ein sekser -- berre eitt av dei seks utfalla er gunstig:\n\n$$P(6) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nSo vennen som sa «éin av seks» hadde rett, og «fifty-fifty»-vennen tok feil: at noko anten skjer eller ikkje skjer, betyr ikkje at sjansane er like store!\n\nFormelen fungerer for alt der utfalla er like sannsynlege. Kva er sjansen for å få eit partal på terningen? Dei gunstige utfalla er $2$, $4$ og $6$ -- tre stykke:\n\n$$P(\\text{partal}) = \\frac{3}{6} = \\frac{1}{2} = 50\\,\\%$$\n\nEller eit lykkehjul med $8$ like store felt der $2$ gir gevinst: $P(\\text{gevinst}) = \\frac{2}{8} = \\frac{1}{4}$. Tell moglege, tell gunstige, del -- det er heile oppskrifta."
+    },
+    {
+      "id": "1p-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på klassisk sannsynlegheit:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-6-1-n-quiz1-q0",
+            "task": "Kva er sannsynlegheiten for å få ein sekser på eitt terningkast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{6}{1}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eitt gunstig utfall (sekseren) av seks moglege: $P(6)=\\frac{1}{6}\\approx 16{,}7\\,\\%$."
+          },
+          {
+            "id": "1p-6-1-n-quiz1-q1",
+            "task": "Kva er sannsynlegheiten for å få eit tal mindre enn $3$ på ein terning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gunstige utfall er $1$ og $2$ -- to av seks: $P=\\frac{2}{6}=\\frac{1}{3}$."
+          },
+          {
+            "id": "1p-6-1-n-quiz1-q2",
+            "task": "Eit lykkehjul har $10$ like store felt, og $3$ av dei gir gevinst. Kva er $P(\\text{gevinst})$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}7$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0{,}3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P=\\frac{3}{10}=0{,}3$. Husk at sannsynlegheiten alltid er eit tal mellom $0$ og $1$."
+          },
+          {
+            "id": "1p-6-1-n-quiz1-q3",
+            "task": "Kva tal kan IKKJE vera ein sannsynlegheit?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$1{,}4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sannsynlegheiter ligg alltid mellom $0$ (umogleg) og $1$ (sikkert). $1{,}4$ er større enn $1$ og kan difor ikkje vera ein sannsynlegheit."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-6-1-n-section2",
+      "type": "text",
+      "content": "## Kortstokken og kunsten å snu problemet\n\nEtter terningspillet finn de fram kortstokken. Ho er ein gullgruve for sannsynleiksrekning, så lat oss bli kjend med henne: ein standard kortstokk har $52$ kort fordelt på $4$ fargar -- hjarter, rutar, kløver og spar -- med $13$ verdiar i kvar fargar: ess, $2$ til $10$, knekt, dame og konge.\n\nDu trekkjer eitt kort. Kva er sjansen for hjarter? Det finst $13$ hjarterkort av $52$ totalt:\n\n$$P(\\text{hjarter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$$\n\nOg sjansen for å trekkje eit ess? Det er fire ess i stokken, éin i kvar fargar:\n\n$$P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13} \\approx 7{,}7\\,\\%$$\n\nNokon gonger er det lurare å rekne på det *motsette* av det du lurer på. Kva er sannsynlegheiten for å *ikkje* trekkje eit ess? Du kunne teljast opp alle $48$ ikkje-essane, men det finst ein snarveg. Hendinga «ikkje ess» kallast **komplementet** til «ess», og sidan eitt av dei to *må* skje, er summen av sannsynlegheitene deira alltid $1$:\n\n$$P(\\text{ikkje } A) = 1 - P(A)$$\n\nDermed: $P(\\text{ikkje ess}) = 1 - \\frac{4}{52} = \\frac{48}{52} = \\frac{12}{13}$. Komplementregelen virkar kanskje som ein bagatell no, men ho er eitt av dei mest brukte tryksa i heile sannsynleiksregninga -- ofte er «minst éin ...»-spørsmål nesten umoglege å angripe direkte, men enkle via komplementet."
+    },
+    {
+      "id": "1p-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kortstokk og komplement:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-6-1-n-quiz2-q0",
+            "task": "Du trekkjer eitt kort frå ein full kortstokk. Kva er sannsynlegheiten for å trekkje spar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{13}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{4}{13}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er $13$ sparkort av $52$: $P=\\frac{13}{52}=\\frac{1}{4}$."
+          },
+          {
+            "id": "1p-6-1-n-quiz2-q1",
+            "task": "Kva er sannsynlegheiten for å trekkje ein konge?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{52}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{13}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{4}{13}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er $4$ kongar av $52$ kort: $P=\\frac{4}{52}=\\frac{1}{13}$."
+          },
+          {
+            "id": "1p-6-1-n-quiz2-q2",
+            "task": "Sannsynlegheita for regn i morgon er $0{,}3$. Kva er sannsynlegheita for at det IKKJE regner?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}7$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Komplementregelen: $P(\\text{ikkje regn})=1-0{,}3=0{,}7$."
+          },
+          {
+            "id": "1p-6-1-n-quiz2-q3",
+            "task": "Kva er sannsynlegheita for å IKKJE få ein seksar på eitt terningkast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{5}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{ikkje }6)=1-\\frac{1}{6}=\\frac{5}{6}$. Komplementet sparar oss for å telje dei fem gunstige utfalla direkte."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nSpillkvelden gav oss heile grunnmuren i sannsynlighetsrekning.\n\nEin **sannsynlegheit** er eit tal mellom $0$ (umogleg) og $1$ (heilt sikkert) som måler kor sannsynleg ein hendelse er. Når alle **utfall** er like sannsynlege -- som på ein rettferdig terning eller i ein stokkad kortstokk -- brukar vi den klassiske formelen:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nSlik fann vi $P(6) = \\frac{1}{6}$ for terningen, $P(\\text{hjarte}) = \\frac{13}{52} = \\frac{1}{4}$ for kortstokken, og avslørte at «fifty-fifty»-argumentet ikkje held: like få mogleikar betyr ikkje like store sjansar.\n\nTil slutt lærte vi **komplementregelen**: $P(\\text{ikkje } A) = 1 - P(A)$. Ho snur vanskelege spørsmål til enkle, og ho blir berre viktigare jo lenger du kjem i sannsynlighetsrekningan.\n\nNeste gong du rislar terningen og treng ein seksar, veit du nøyaktig kva du har å forholde deg til: $16{,}7\\,\\%$ -- verken meir eller mindre."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d34ffd528cf100e1",
+    "translatedAt": "2026-06-16T09:54:29.000Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 49,
+    "tm": {
+      "2cc9770f81ef2c1b": "Grunnleggjande sannsynlegheit",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "dc3f01fef7ab4bc1": "Ei forteljing om å setje tal på flaks -- frå terningkast og lykkehjul til kortstokken sine hemlegheiter og komplementregelen.",
+      "033be3b9e947d49e": "rekne ut sannsynlegheit for enkle hendingar",
+      "c4a6dc454afe2166": "bruke uniforme sannsynleiksmodellar",
+      "ea2733bc5b4d9696": "## Spillkvelden og den siste sekseren\n\nDet er spillkveld, og du treng ein sekser for å vinna. Du ristar terningen i handa og kjenn spenningen: kor stor er eigentleg sjansen? Ein venn meiner «fifty-fifty -- anten får du den eller ikkje». Ein annan seier «éin av seks». Kven har rett?\n\nSpørsmål som dette er det **sannsynleiksrekning** handlar om: å setje tal på det usikre. Ein sannsynlegheit er eit tal mellom $0$ og $1$ som skildrar kor sannsynleg ein hendinga er. $0$ betyr umogleg -- terningen viser sju. $1$ betyr heilt sikkert -- terningen viser eit tal mellom éin og seks. Og $0{,}5$ betyr $50\\,\\%$ sjanse, som myntkast.\n\nI dette kapitlet lærer du å rekne ut slike tal for terningar, kortstokkane og lykkehjul -- og du får vita kven av vennene dine som hadde rett.",
+      "2ddec94f0857181b": "## Gunstige delt på moglege\n\nLat oss undersøkje terningen. Når du kastar henne, finst det seks moglege resultat -- me kallar dei **utfall**: $1$, $2$, $3$, $4$, $5$ og $6$. Ein rettferdig terning har ingen favorittar; alle seks utfalla er like sannsynlege. Ein slik situasjon kallast ein **uniform sannsynleiksmodell**, og då gjeld ein vakkert enkel formel:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nEtt **gunstig utfall** er eit utfall der hendinga du ventar på, faktisk skjer. Du ventar på ein sekser -- berre eitt av dei seks utfalla er gunstig:\n\n$$P(6) = \\frac{1}{6} \\approx 0{,}167 = 16{,}7\\,\\%$$\n\nSo vennen som sa «éin av seks» hadde rett, og «fifty-fifty»-vennen tok feil: at noko anten skjer eller ikkje skjer, betyr ikkje at sjansane er like store!\n\nFormelen fungerer for alt der utfalla er like sannsynlege. Kva er sjansen for å få eit partal på terningen? Dei gunstige utfalla er $2$, $4$ og $6$ -- tre stykke:\n\n$$P(\\text{partal}) = \\frac{3}{6} = \\frac{1}{2} = 50\\,\\%$$\n\nEller eit lykkehjul med $8$ like store felt der $2$ gir gevinst: $P(\\text{gevinst}) = \\frac{2}{8} = \\frac{1}{4}$. Tell moglege, tell gunstige, del -- det er heile oppskrifta.",
+      "a70583aeba60c61b": "Test deg sjølv på klassisk sannsynlegheit:",
+      "4097889236a2af26": "placeholder",
+      "dd72a7c19c267a81": "Kva er sannsynlegheiten for å få ein sekser på eitt terningkast?",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "ed2f0dca805db9c6": "$\\frac{1}{6}$",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "1f93ee2c0176f52e": "$\\frac{6}{1}$",
+      "df865063ea9548b9": "Eitt gunstig utfall (sekseren) av seks moglege: $P(6)=\\frac{1}{6}\\approx 16{,}7\\,\\%$.",
+      "35040baba2bca884": "Kva er sannsynlegheiten for å få eit tal mindre enn $3$ på ein terning?",
+      "eaaa0e080202e320": "$\\frac{2}{3}$",
+      "379ac589453af654": "Gunstige utfall er $1$ og $2$ -- to av seks: $P=\\frac{2}{6}=\\frac{1}{3}$.",
+      "849a2fd9c46fd3a3": "Eit lykkehjul har $10$ like store felt, og $3$ av dei gir gevinst. Kva er $P(\\text{gevinst})$?",
+      "829cdf2cc935413a": "$P=\\frac{3}{10}=0{,}3$. Husk at sannsynlegheiten alltid er eit tal mellom $0$ og $1$.",
+      "423daed1ac298623": "Kva tal kan IKKJE vera ein sannsynlegheit?",
+      "2d428ea6fecdeb38": "Sannsynlegheiter ligg alltid mellom $0$ (umogleg) og $1$ (sikkert). $1{,}4$ er større enn $1$ og kan difor ikkje vera ein sannsynlegheit.",
+      "8956755ca11b553d": "## Kortstokken og kunsten å snu problemet\n\nEtter terningspillet finn de fram kortstokken. Ho er ein gullgruve for sannsynleiksrekning, så lat oss bli kjend med henne: ein standard kortstokk har $52$ kort fordelt på $4$ fargar -- hjarter, rutar, kløver og spar -- med $13$ verdiar i kvar fargar: ess, $2$ til $10$, knekt, dame og konge.\n\nDu trekkjer eitt kort. Kva er sjansen for hjarter? Det finst $13$ hjarterkort av $52$ totalt:\n\n$$P(\\text{hjarter}) = \\frac{13}{52} = \\frac{1}{4} = 25\\,\\%$$\n\nOg sjansen for å trekkje eit ess? Det er fire ess i stokken, éin i kvar fargar:\n\n$$P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13} \\approx 7{,}7\\,\\%$$\n\nNokon gonger er det lurare å rekne på det *motsette* av det du lurer på. Kva er sannsynlegheiten for å *ikkje* trekkje eit ess? Du kunne teljast opp alle $48$ ikkje-essane, men det finst ein snarveg. Hendinga «ikkje ess» kallast **komplementet** til «ess», og sidan eitt av dei to *må* skje, er summen av sannsynlegheitene deira alltid $1$:\n\n$$P(\\text{ikkje } A) = 1 - P(A)$$\n\nDermed: $P(\\text{ikkje ess}) = 1 - \\frac{4}{52} = \\frac{48}{52} = \\frac{12}{13}$. Komplementregelen virkar kanskje som ein bagatell no, men ho er eitt av dei mest brukte tryksa i heile sannsynleiksregninga -- ofte er «minst éin ...»-spørsmål nesten umoglege å angripe direkte, men enkle via komplementet.",
+      "50d43ac8361f3393": "Test deg sjølv på kortstokk og komplement:",
+      "dfae9883afb474fd": "Du trekkjer eitt kort frå ein full kortstokk. Kva er sannsynlegheiten for å trekkje spar?",
+      "51c89183784da353": "$\\frac{1}{13}$",
+      "f2bf6d932e14b55c": "$\\frac{1}{4}$",
+      "093bb865b4b00e44": "$\\frac{4}{13}$",
+      "a4747bd4b4d63517": "Det er $13$ sparkort av $52$: $P=\\frac{13}{52}=\\frac{1}{4}$.",
+      "03fb99a8616bfe56": "Kva er sannsynlegheiten for å trekkje ein konge?",
+      "aaa45f3e5ec152bd": "$\\frac{1}{52}$",
+      "7d481649267daaa2": "Det er $4$ kongar av $52$ kort: $P=\\frac{4}{52}=\\frac{1}{13}$.",
+      "fc638d8aaa3ab571": "Sannsynlegheita for regn i morgon er $0{,}3$. Kva er sannsynlegheita for at det IKKJE regner?",
+      "7a9715735b4e8e39": "Komplementregelen: $P(\\text{ikkje regn})=1-0{,}3=0{,}7$.",
+      "4eead8f906b5fc46": "Kva er sannsynlegheita for å IKKJE få ein seksar på eitt terningkast?",
+      "18f9adbf430864eb": "$\\frac{5}{6}$",
+      "8d397f73ab0950e1": "$P(\\text{ikkje }6)=1-\\frac{1}{6}=\\frac{5}{6}$. Komplementet sparar oss for å telje dei fem gunstige utfalla direkte.",
+      "3cbb92ad95d9d8ac": "## Oppsummering\n\nSpillkvelden gav oss heile grunnmuren i sannsynlighetsrekning.\n\nEin **sannsynlegheit** er eit tal mellom $0$ (umogleg) og $1$ (heilt sikkert) som måler kor sannsynleg ein hendelse er. Når alle **utfall** er like sannsynlege -- som på ein rettferdig terning eller i ein stokkad kortstokk -- brukar vi den klassiske formelen:\n\n$$P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall moglege utfall}}$$\n\nSlik fann vi $P(6) = \\frac{1}{6}$ for terningen, $P(\\text{hjarte}) = \\frac{13}{52} = \\frac{1}{4}$ for kortstokken, og avslørte at «fifty-fifty»-argumentet ikkje held: like få mogleikar betyr ikkje like store sjansar.\n\nTil slutt lærte vi **komplementregelen**: $P(\\text{ikkje } A) = 1 - P(A)$. Ho snur vanskelege spørsmål til enkle, og ho blir berre viktigare jo lenger du kjem i sannsynlighetsrekningan.\n\nNeste gong du rislar terningen og treng ein seksar, veit du nøyaktig kva du har å forholde deg til: $16{,}7\\,\\%$ -- verken meir eller mindre."
+    }
+  }
+}

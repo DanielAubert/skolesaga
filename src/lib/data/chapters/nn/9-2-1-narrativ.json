@@ -1,1 +1,416 @@
-{"id":"9-2-1-narrativ","courseId":"9","chapterNumber":"2.1","title":"Faktorisering","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av faktorisering -- kunsten å bryte ned algebraiske uttrykk i faktorar, frå å finne felles faktor til å faktorisere trinom, med konkrete eksempel og analogiar.","estimatedMinutes":35,"competenceGoals":["handtere algebraiske uttrykk, bruke faktorisering og forkorting av brøkuttrykk"],"linkedChapterId":"9-2-1","content":[{"id":"9-2-1-n-intro","type":"text","content":"## Å pakke ut og pakke inn\n\nI algebra lærer vi tidleg å **multiplisere ut** parentesar: $3(x + 2) = 3x + 6$. Men kva om vi vil gå **den andre vegen**? Kva om vi startar med $3x + 6$ og vil finne ut at det eigentleg er $3(x + 2)$?\n\nDenne «omvende» operasjonen blir kalla **faktorisering**. Å faktorisere tyder å skrive eit uttrykk som eit **produkt av faktorar**. Det er som å pakke inn ei gåve: i staden for å sjå alle delane spreidde utover, pakkar vi dei pent saman i ein «pakke» (ein parentes) multiplisert med noko.\n\nFaktorisering er eitt av dei viktigaste verktøya i algebra. Det hjelper oss å:\n- Forenkle brøkuttrykk\n- Løyse likningar\n- Finne nullpunkt til funksjonar\n- Sjå strukturen i matematiske uttrykk"},{"id":"9-2-1-n-section1","type":"text","content":"## Felles faktor -- det første steget\n\nDen enklaste forma for faktorisering er å **trekkje ut ein felles faktor**. Viss alle ledda i eit uttrykk har noko til felles, kan vi «løfte det ut» framfor ein parentes.\n\n**Eksempel 1:** $6x + 9$\n\nBegge ledda er delelege med $3$:\n$$6x + 9 = 3 \\cdot 2x + 3 \\cdot 3 = 3(2x + 3)$$\n\n**Eksempel 2:** $4x^2 + 10x$\n\nHer er den felles faktoren $2x$ (både $4x^2$ og $10x$ er delelege med $2x$):\n$$4x^2 + 10x = 2x \\cdot 2x + 2x \\cdot 5 = 2x(2x + 5)$$\n\n**Eksempel 3:** $12a^3b - 8a^2b^2 + 4ab$\n\nDen største felles faktoren er $4ab$:\n$$12a^3b - 8a^2b^2 + 4ab = 4ab(3a^2 - 2ab + 1)$$\n\nFramgangsmåten er:\n1. Finn den **største felles faktoren (SFF)** for alle koeffisientane (tala framfor)\n2. Finn den **lågaste potensen** av kvar variabel som førekjem i alle ledd\n3. Del kvart ledd på den felles faktoren -- resultatet hamnar inni parentesen\n\n**Tips:** Du kan alltid sjekke svaret ved å multiplisere ut igjen! Viss $2x(2x + 5) = 4x^2 + 10x$, veit du at faktoriseringa er rett."},{"id":"9-2-1-n-quiz1","type":"exercise","exercise":{"id":"9-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på felles faktor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-2-1-n-quiz1-q0","task":"Faktoriser $15x + 25$.","options":[{"id":"a","text":"$5(3x + 5)$","isCorrect":true},{"id":"b","text":"$3(5x + 25)$","isCorrect":false},{"id":"c","text":"$15(x + 25)$","isCorrect":false},{"id":"d","text":"$5(3x + 25)$","isCorrect":false}],"solution":"SFF av $15$ og $25$ er $5$. $15x \\div 5 = 3x$ og $25 \\div 5 = 5$. Altså $5(3x + 5)$."},{"id":"9-2-1-n-quiz1-q1","task":"Faktoriser $6x^3 - 9x^2$.","options":[{"id":"a","text":"$3x(2x^2 - 3x)$","isCorrect":false},{"id":"b","text":"$3x^2(2x - 3)$","isCorrect":true},{"id":"c","text":"$x^2(6x - 9)$","isCorrect":false},{"id":"d","text":"$9x^2(\\frac{2}{3}x - 1)$","isCorrect":false}],"solution":"SFF er $3x^2$: $6x^3 = 3x^2 \\cdot 2x$ og $9x^2 = 3x^2 \\cdot 3$. Altså $3x^2(2x - 3)$. Alternativ a) er ikkje fullt faktorisert."},{"id":"9-2-1-n-quiz1-q2","task":"Faktoriser $8ab + 12a^2$.","options":[{"id":"a","text":"$4a(2b + 3a)$","isCorrect":true},{"id":"b","text":"$2a(4b + 6a)$","isCorrect":false},{"id":"c","text":"$4(2ab + 3a^2)$","isCorrect":false},{"id":"d","text":"$8a(b + \\frac{3}{2}a)$","isCorrect":false}],"solution":"SFF er $4a$: $8ab = 4a \\cdot 2b$ og $12a^2 = 4a \\cdot 3a$. Altså $4a(2b + 3a)$."}]}},{"id":"9-2-1-n-section2","type":"text","content":"## Faktorisering av $x^2 + bx + c$\n\nNo tek vi eit steg vidare. Kan vi faktorisere uttrykk som $x^2 + 5x + 6$? Ja! Vi leitar etter to tal som:\n- **multiplisert** gir $c$ (konstantleddet)\n- **addert** gir $b$ (koeffisienten framfor $x$)\n\nFor $x^2 + 5x + 6$: Vi treng to tal med produkt $6$ og sum $5$. Svaret er $2$ og $3$:\n\n$$x^2 + 5x + 6 = (x + 2)(x + 3)$$\n\n**Sjekk:** $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$ ✓\n\nLa oss sjå på nokre fleire eksempel:\n\n**$x^2 - 7x + 12$:** Produkt $= 12$, sum $= -7$. Tala er $-3$ og $-4$:\n$$x^2 - 7x + 12 = (x - 3)(x - 4)$$\n\n**$x^2 + 2x - 15$:** Produkt $= -15$, sum $= 2$. Tala er $5$ og $-3$:\n$$x^2 + 2x - 15 = (x + 5)(x - 3)$$\n\n**$x^2 - 9$:** Dette er eit spesialtilfelle! Vi kan skrive det som $x^2 + 0x - 9$. Produkt $= -9$, sum $= 0$. Tala er $3$ og $-3$:\n$$x^2 - 9 = (x + 3)(x - 3)$$\n\nDette er eit eksempel på **konjugatsetninga**: $a^2 - b^2 = (a + b)(a - b)$. Denne er så nyttig at ho er verd å hugse som ein eigen formel!\n\nHer er ein systematisk framgangsmåte:\n1. List opp alle faktorpar av $|c|$\n2. Bestem forteikna ut frå $b$ og $c$:\n   - $c > 0$ og $b > 0$: begge tal er positive\n   - $c > 0$ og $b < 0$: begge tal er negative\n   - $c < 0$: eitt tal er positivt, eitt er negativt\n3. Finn paret som gir rett sum"},{"id":"9-2-1-n-quiz2","type":"exercise","exercise":{"id":"9-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på faktorisering av andregraduttrykk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-2-1-n-quiz2-q0","task":"Faktoriser $x^2 + 7x + 10$.","options":[{"id":"a","text":"$(x + 1)(x + 10)$","isCorrect":false},{"id":"b","text":"$(x + 2)(x + 5)$","isCorrect":true},{"id":"c","text":"$(x + 3)(x + 4)$","isCorrect":false},{"id":"d","text":"$(x - 2)(x - 5)$","isCorrect":false}],"solution":"Vi treng to tal med produkt $10$ og sum $7$. Det er $2$ og $5$. Altså $(x + 2)(x + 5)$."},{"id":"9-2-1-n-quiz2-q1","task":"Faktoriser $x^2 - 4x - 21$.","options":[{"id":"a","text":"$(x - 7)(x + 3)$","isCorrect":true},{"id":"b","text":"$(x + 7)(x - 3)$","isCorrect":false},{"id":"c","text":"$(x - 7)(x - 3)$","isCorrect":false},{"id":"d","text":"$(x + 7)(x + 3)$","isCorrect":false}],"solution":"Produkt $= -21$, sum $= -4$. Tala er $-7$ og $3$ (fordi $-7 \\times 3 = -21$ og $-7 + 3 = -4$). Altså $(x - 7)(x + 3)$."},{"id":"9-2-1-n-quiz2-q2","task":"Faktoriser $x^2 - 25$.","options":[{"id":"a","text":"$(x - 5)^2$","isCorrect":false},{"id":"b","text":"$(x + 5)(x - 5)$","isCorrect":true},{"id":"c","text":"$(x + 25)(x - 1)$","isCorrect":false},{"id":"d","text":"Kan ikkje faktoriserast","isCorrect":false}],"solution":"Dette er ein differanse av kvadrat: $x^2 - 25 = x^2 - 5^2 = (x + 5)(x - 5)$. Konjugatsetninga!"}]}},{"id":"9-2-1-n-section3","type":"text","content":"## Faktorisering i fleire steg\n\nNokre gonger krev faktorisering at du kombinerer fleire teknikkar. Start alltid med å **trekkje ut felles faktor** før du prøver andre metodar.\n\n**Eksempel 1:** $2x^2 + 10x + 12$\n\nSteg 1: Trekk ut felles faktor $2$:\n$$2x^2 + 10x + 12 = 2(x^2 + 5x + 6)$$\n\nSteg 2: Faktoriser trinomet $x^2 + 5x + 6$. Produkt $= 6$, sum $= 5$. Tala er $2$ og $3$:\n$$2(x^2 + 5x + 6) = 2(x + 2)(x + 3)$$\n\n**Eksempel 2:** $3x^2 - 27$\n\nSteg 1: Trekk ut felles faktor $3$:\n$$3x^2 - 27 = 3(x^2 - 9)$$\n\nSteg 2: Bruk konjugatsetninga:\n$$3(x^2 - 9) = 3(x + 3)(x - 3)$$\n\n**Eksempel 3:** $5x^3 + 10x^2 - 15x$\n\nSteg 1: Felles faktor $5x$:\n$$5x^3 + 10x^2 - 15x = 5x(x^2 + 2x - 3)$$\n\nSteg 2: Faktoriser trinomet. Produkt $= -3$, sum $= 2$. Tala er $3$ og $-1$:\n$$5x(x^2 + 2x - 3) = 5x(x + 3)(x - 1)$$\n\n**Tommelfingerregel:** Eit uttrykk er fullt faktorisert når ingen av faktorane kan faktoriserast vidare."},{"id":"9-2-1-n-quiz3","type":"exercise","exercise":{"id":"9-2-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på faktorisering i fleire steg:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-2-1-n-quiz3-q0","task":"Faktoriser $4x^2 - 16$ fullstendig.","options":[{"id":"a","text":"$4(x^2 - 4)$","isCorrect":false},{"id":"b","text":"$(2x + 4)(2x - 4)$","isCorrect":false},{"id":"c","text":"$4(x + 2)(x - 2)$","isCorrect":true},{"id":"d","text":"$2(2x^2 - 8)$","isCorrect":false}],"solution":"Først: $4x^2 - 16 = 4(x^2 - 4)$. Deretter konjugatsetninga: $4(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert."},{"id":"9-2-1-n-quiz3-q1","task":"Faktoriser $3x^2 + 12x + 9$ fullstendig.","options":[{"id":"a","text":"$3(x + 1)(x + 3)$","isCorrect":true},{"id":"b","text":"$(3x + 3)(x + 3)$","isCorrect":false},{"id":"c","text":"$3(x^2 + 4x + 3)$","isCorrect":false},{"id":"d","text":"$(x + 1)(3x + 9)$","isCorrect":false}],"solution":"Felles faktor $3$: $3(x^2 + 4x + 3)$. Produkt $= 3$, sum $= 4$: tala er $1$ og $3$. Fullt faktorisert: $3(x + 1)(x + 3)$."},{"id":"9-2-1-n-quiz3-q2","task":"Kva for ei faktorisering er korrekt for $x^3 - 4x$?","options":[{"id":"a","text":"$x(x^2 - 4)$","isCorrect":false},{"id":"b","text":"$x(x + 4)(x - 4)$","isCorrect":false},{"id":"c","text":"$x(x + 2)(x - 2)$","isCorrect":true},{"id":"d","text":"$(x - 2)(x^2 + 2x)$","isCorrect":false}],"solution":"Felles faktor $x$: $x(x^2 - 4)$. Konjugatsetninga: $x(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert."}]}},{"id":"9-2-1-n-summary","type":"text","content":"## Oppsummering\n\n**Faktorisering** er det omvende av å multiplisere ut parentesar. Vi skriv eit uttrykk som eit produkt av faktorar.\n\n**Tre hovudteknikkar:**\n\n| Teknikk | Eksempel |\n|---------|---------|\n| Felles faktor | $6x + 9 = 3(2x + 3)$ |\n| Trinom $x^2 + bx + c$ | $x^2 + 5x + 6 = (x + 2)(x + 3)$ |\n| Konjugatsetninga | $x^2 - 16 = (x + 4)(x - 4)$ |\n\n**Framgangsmåte:**\n1. Start alltid med å trekkje ut felles faktor\n2. Sjå om du kjenner att eit mønster (trinom, konjugat)\n3. Sjekk at ingen faktor kan faktoriserast vidare\n4. Kontroller ved å multiplisere ut!"}],"exercises":[],"_meta":{"sourceHash":"81e65e51d3ac0d38","translatedAt":"2026-06-17T07:43:55.915Z","model":"claude-code-agent","strings":69,"tm":{"4c3ede14bb9968ed":"Faktorisering","b195b06d1ed59702":"Narrativ versjon","899981b007b4b006":"Ein forteljande gjennomgang av faktorisering -- kunsten å bryte ned algebraiske uttrykk i faktorar, frå å finne felles faktor til å faktorisere trinom, med konkrete eksempel og analogiar.","9fd07b56794ebbcb":"handtere algebraiske uttrykk, bruke faktorisering og forkorting av brøkuttrykk","8ef0da48b23501bb":"## Å pakke ut og pakke inn\n\nI algebra lærer vi tidleg å **multiplisere ut** parentesar: $3(x + 2) = 3x + 6$. Men kva om vi vil gå **den andre vegen**? Kva om vi startar med $3x + 6$ og vil finne ut at det eigentleg er $3(x + 2)$?\n\nDenne «omvende» operasjonen blir kalla **faktorisering**. Å faktorisere tyder å skrive eit uttrykk som eit **produkt av faktorar**. Det er som å pakke inn ei gåve: i staden for å sjå alle delane spreidde utover, pakkar vi dei pent saman i ein «pakke» (ein parentes) multiplisert med noko.\n\nFaktorisering er eitt av dei viktigaste verktøya i algebra. Det hjelper oss å:\n- Forenkle brøkuttrykk\n- Løyse likningar\n- Finne nullpunkt til funksjonar\n- Sjå strukturen i matematiske uttrykk","38e40fc5a0ea1c3a":"## Felles faktor -- det første steget\n\nDen enklaste forma for faktorisering er å **trekkje ut ein felles faktor**. Viss alle ledda i eit uttrykk har noko til felles, kan vi «løfte det ut» framfor ein parentes.\n\n**Eksempel 1:** $6x + 9$\n\nBegge ledda er delelege med $3$:\n$$6x + 9 = 3 \\cdot 2x + 3 \\cdot 3 = 3(2x + 3)$$\n\n**Eksempel 2:** $4x^2 + 10x$\n\nHer er den felles faktoren $2x$ (både $4x^2$ og $10x$ er delelege med $2x$):\n$$4x^2 + 10x = 2x \\cdot 2x + 2x \\cdot 5 = 2x(2x + 5)$$\n\n**Eksempel 3:** $12a^3b - 8a^2b^2 + 4ab$\n\nDen største felles faktoren er $4ab$:\n$$12a^3b - 8a^2b^2 + 4ab = 4ab(3a^2 - 2ab + 1)$$\n\nFramgangsmåten er:\n1. Finn den **største felles faktoren (SFF)** for alle koeffisientane (tala framfor)\n2. Finn den **lågaste potensen** av kvar variabel som førekjem i alle ledd\n3. Del kvart ledd på den felles faktoren -- resultatet hamnar inni parentesen\n\n**Tips:** Du kan alltid sjekke svaret ved å multiplisere ut igjen! Viss $2x(2x + 5) = 4x^2 + 10x$, veit du at faktoriseringa er rett.","2bbd058c641ca175":"Test deg sjølv på felles faktor:","4097889236a2af26":"placeholder","ce4964eab44a0cc3":"Faktoriser $15x + 25$.","da1a32634ec6deec":"$5(3x + 5)$","867b9d78ca6e3679":"$3(5x + 25)$","a6be2789d68e63d6":"$15(x + 25)$","52760645587e27d6":"$5(3x + 25)$","ef34467879a50fdf":"SFF av $15$ og $25$ er $5$. $15x \\div 5 = 3x$ og $25 \\div 5 = 5$. Altså $5(3x + 5)$.","844e3fced83ae634":"Faktoriser $6x^3 - 9x^2$.","2a23dffae794fc16":"$3x(2x^2 - 3x)$","a43699139509965c":"$3x^2(2x - 3)$","ddbeed5254f5d900":"$x^2(6x - 9)$","5aed7134c116ff6e":"$9x^2(\\frac{2}{3}x - 1)$","3758d1dc5dda62c7":"SFF er $3x^2$: $6x^3 = 3x^2 \\cdot 2x$ og $9x^2 = 3x^2 \\cdot 3$. Altså $3x^2(2x - 3)$. Alternativ a) er ikkje fullt faktorisert.","3a748805f8b551f5":"Faktoriser $8ab + 12a^2$.","d26792c8f7d9635d":"$4a(2b + 3a)$","a33a515079c5f441":"$2a(4b + 6a)$","69379d6d276b47a4":"$4(2ab + 3a^2)$","d3d221930b4c14eb":"$8a(b + \\frac{3}{2}a)$","a31fdd74cdeddb99":"SFF er $4a$: $8ab = 4a \\cdot 2b$ og $12a^2 = 4a \\cdot 3a$. Altså $4a(2b + 3a)$.","7dc69e8205993247":"## Faktorisering av $x^2 + bx + c$\n\nNo tek vi eit steg vidare. Kan vi faktorisere uttrykk som $x^2 + 5x + 6$? Ja! Vi leitar etter to tal som:\n- **multiplisert** gir $c$ (konstantleddet)\n- **addert** gir $b$ (koeffisienten framfor $x$)\n\nFor $x^2 + 5x + 6$: Vi treng to tal med produkt $6$ og sum $5$. Svaret er $2$ og $3$:\n\n$$x^2 + 5x + 6 = (x + 2)(x + 3)$$\n\n**Sjekk:** $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$ ✓\n\nLa oss sjå på nokre fleire eksempel:\n\n**$x^2 - 7x + 12$:** Produkt $= 12$, sum $= -7$. Tala er $-3$ og $-4$:\n$$x^2 - 7x + 12 = (x - 3)(x - 4)$$\n\n**$x^2 + 2x - 15$:** Produkt $= -15$, sum $= 2$. Tala er $5$ og $-3$:\n$$x^2 + 2x - 15 = (x + 5)(x - 3)$$\n\n**$x^2 - 9$:** Dette er eit spesialtilfelle! Vi kan skrive det som $x^2 + 0x - 9$. Produkt $= -9$, sum $= 0$. Tala er $3$ og $-3$:\n$$x^2 - 9 = (x + 3)(x - 3)$$\n\nDette er eit eksempel på **konjugatsetninga**: $a^2 - b^2 = (a + b)(a - b)$. Denne er så nyttig at ho er verd å hugse som ein eigen formel!\n\nHer er ein systematisk framgangsmåte:\n1. List opp alle faktorpar av $|c|$\n2. Bestem forteikna ut frå $b$ og $c$:\n   - $c > 0$ og $b > 0$: begge tal er positive\n   - $c > 0$ og $b < 0$: begge tal er negative\n   - $c < 0$: eitt tal er positivt, eitt er negativt\n3. Finn paret som gir rett sum","5dac36b4609fde90":"Test deg sjølv på faktorisering av andregraduttrykk:","3fb67085a6975c87":"Faktoriser $x^2 + 7x + 10$.","202833b757cf8eb5":"$(x + 1)(x + 10)$","5d50a5eecd106e45":"$(x + 2)(x + 5)$","0c823999de8b7f02":"$(x + 3)(x + 4)$","5702d07bac4e7c82":"$(x - 2)(x - 5)$","893942465734587c":"Vi treng to tal med produkt $10$ og sum $7$. Det er $2$ og $5$. Altså $(x + 2)(x + 5)$.","38c73982139f8c10":"Faktoriser $x^2 - 4x - 21$.","889608da0e29f6d0":"$(x - 7)(x + 3)$","8758d8d6e35c41f7":"$(x + 7)(x - 3)$","b66b9f64334887c5":"$(x - 7)(x - 3)$","9c52364248e3971b":"$(x + 7)(x + 3)$","4f084dfc631bed93":"Produkt $= -21$, sum $= -4$. Tala er $-7$ og $3$ (fordi $-7 \\times 3 = -21$ og $-7 + 3 = -4$). Altså $(x - 7)(x + 3)$.","0a7f2dd734aead2c":"Faktoriser $x^2 - 25$.","63323cffb668518d":"$(x - 5)^2$","2d2f87c2e108391f":"$(x + 5)(x - 5)$","a83e016acfbb19fb":"$(x + 25)(x - 1)$","720557f0d10235ee":"Kan ikkje faktoriserast","1dcd0635f33406b2":"Dette er ein differanse av kvadrat: $x^2 - 25 = x^2 - 5^2 = (x + 5)(x - 5)$. Konjugatsetninga!","2b3e16ee3f03008f":"## Faktorisering i fleire steg\n\nNokre gonger krev faktorisering at du kombinerer fleire teknikkar. Start alltid med å **trekkje ut felles faktor** før du prøver andre metodar.\n\n**Eksempel 1:** $2x^2 + 10x + 12$\n\nSteg 1: Trekk ut felles faktor $2$:\n$$2x^2 + 10x + 12 = 2(x^2 + 5x + 6)$$\n\nSteg 2: Faktoriser trinomet $x^2 + 5x + 6$. Produkt $= 6$, sum $= 5$. Tala er $2$ og $3$:\n$$2(x^2 + 5x + 6) = 2(x + 2)(x + 3)$$\n\n**Eksempel 2:** $3x^2 - 27$\n\nSteg 1: Trekk ut felles faktor $3$:\n$$3x^2 - 27 = 3(x^2 - 9)$$\n\nSteg 2: Bruk konjugatsetninga:\n$$3(x^2 - 9) = 3(x + 3)(x - 3)$$\n\n**Eksempel 3:** $5x^3 + 10x^2 - 15x$\n\nSteg 1: Felles faktor $5x$:\n$$5x^3 + 10x^2 - 15x = 5x(x^2 + 2x - 3)$$\n\nSteg 2: Faktoriser trinomet. Produkt $= -3$, sum $= 2$. Tala er $3$ og $-1$:\n$$5x(x^2 + 2x - 3) = 5x(x + 3)(x - 1)$$\n\n**Tommelfingerregel:** Eit uttrykk er fullt faktorisert når ingen av faktorane kan faktoriserast vidare.","3d2a2b73a47a214b":"Test deg sjølv på faktorisering i fleire steg:","43543f8ac23e2dd1":"Faktoriser $4x^2 - 16$ fullstendig.","e331dbd851fb20e1":"$4(x^2 - 4)$","303dc6487c0530b2":"$(2x + 4)(2x - 4)$","cd9af40c1d6a6143":"$4(x + 2)(x - 2)$","da39afcda47dedb1":"$2(2x^2 - 8)$","9ce6ca8dd0e234cd":"Først: $4x^2 - 16 = 4(x^2 - 4)$. Deretter konjugatsetninga: $4(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert.","9dcf9f3e141eb8ad":"Faktoriser $3x^2 + 12x + 9$ fullstendig.","23eaeab5b5db0da5":"$3(x + 1)(x + 3)$","e08ff87f3a1afa9b":"$(3x + 3)(x + 3)$","52ec7546f04d97f1":"$3(x^2 + 4x + 3)$","63b8af2a9d94dbbe":"$(x + 1)(3x + 9)$","b3b30fd0d10eb0ba":"Felles faktor $3$: $3(x^2 + 4x + 3)$. Produkt $= 3$, sum $= 4$: tala er $1$ og $3$. Fullt faktorisert: $3(x + 1)(x + 3)$.","8ca2652ec53ac0a3":"Kva for ei faktorisering er korrekt for $x^3 - 4x$?","89a35f4cb231ed9b":"$x(x^2 - 4)$","fb8073e4735a5f67":"$x(x + 4)(x - 4)$","e94b1366424b8b8d":"$x(x + 2)(x - 2)$","3d67a556a1a17e99":"$(x - 2)(x^2 + 2x)$","bbf3a69876acc7f3":"Felles faktor $x$: $x(x^2 - 4)$. Konjugatsetninga: $x(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert.","800846e4f9de9f17":"## Oppsummering\n\n**Faktorisering** er det omvende av å multiplisere ut parentesar. Vi skriv eit uttrykk som eit produkt av faktorar.\n\n**Tre hovudteknikkar:**\n\n| Teknikk | Eksempel |\n|---------|---------|\n| Felles faktor | $6x + 9 = 3(2x + 3)$ |\n| Trinom $x^2 + bx + c$ | $x^2 + 5x + 6 = (x + 2)(x + 3)$ |\n| Konjugatsetninga | $x^2 - 16 = (x + 4)(x - 4)$ |\n\n**Framgangsmåte:**\n1. Start alltid med å trekkje ut felles faktor\n2. Sjå om du kjenner att eit mønster (trinom, konjugat)\n3. Sjekk at ingen faktor kan faktoriserast vidare\n4. Kontroller ved å multiplisere ut!"}}}
+{
+  "id": "9-2-1-narrativ",
+  "courseId": "9",
+  "chapterNumber": "2.1",
+  "title": "Faktorisering",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av faktorisering -- kunsten å bryte ned algebraiske uttrykk i faktorar, frå å finne felles faktor til å faktorisere trinom, med konkrete eksempel og analogiar.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "handtere algebraiske uttrykk, bruke faktorisering og forkorting av brøkuttrykk"
+  ],
+  "linkedChapterId": "9-2-1",
+  "content": [
+    {
+      "id": "9-2-1-n-intro",
+      "type": "text",
+      "content": "## Å pakke ut og pakke inn\n\nI algebra lærer vi tidleg å **multiplisere ut** parentesar: $3(x + 2) = 3x + 6$. Men kva om vi vil gå **den andre vegen**? Kva om vi startar med $3x + 6$ og vil finne ut at det eigentleg er $3(x + 2)$?\n\nDenne «omvende» operasjonen blir kalla **faktorisering**. Å faktorisere tyder å skrive eit uttrykk som eit **produkt av faktorar**. Det er som å pakke inn ei gåve: i staden for å sjå alle delane spreidde utover, pakkar vi dei pent saman i ein «pakke» (ein parentes) multiplisert med noko.\n\nFaktorisering er eitt av dei viktigaste verktøya i algebra. Det hjelper oss å:\n- Forenkle brøkuttrykk\n- Løyse likningar\n- Finne nullpunkt til funksjonar\n- Sjå strukturen i matematiske uttrykk"
+    },
+    {
+      "id": "9-2-1-n-section1",
+      "type": "text",
+      "content": "## Felles faktor -- det første steget\n\nDen enklaste forma for faktorisering er å **trekkje ut ein felles faktor**. Viss alle ledda i eit uttrykk har noko til felles, kan vi «løfte det ut» framfor ein parentes.\n\n**Eksempel 1:** $6x + 9$\n\nBegge ledda er delelege med $3$:\n$$6x + 9 = 3 \\cdot 2x + 3 \\cdot 3 = 3(2x + 3)$$\n\n**Eksempel 2:** $4x^2 + 10x$\n\nHer er den felles faktoren $2x$ (både $4x^2$ og $10x$ er delelege med $2x$):\n$$4x^2 + 10x = 2x \\cdot 2x + 2x \\cdot 5 = 2x(2x + 5)$$\n\n**Eksempel 3:** $12a^3b - 8a^2b^2 + 4ab$\n\nDen største felles faktoren er $4ab$:\n$$12a^3b - 8a^2b^2 + 4ab = 4ab(3a^2 - 2ab + 1)$$\n\nFramgangsmåten er:\n1. Finn den **største felles faktoren (SFF)** for alle koeffisientane (tala framfor)\n2. Finn den **lågaste potensen** av kvar variabel som førekjem i alle ledd\n3. Del kvart ledd på den felles faktoren -- resultatet hamnar inni parentesen\n\n**Tips:** Du kan alltid sjekke svaret ved å multiplisere ut igjen! Viss $2x(2x + 5) = 4x^2 + 10x$, veit du at faktoriseringa er rett."
+    },
+    {
+      "id": "9-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på felles faktor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-2-1-n-quiz1-q0",
+            "task": "Faktoriser $15x + 25$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5(3x + 5)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3(5x + 25)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15(x + 25)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5(3x + 25)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SFF av $15$ og $25$ er $5$. $15x \\div 5 = 3x$ og $25 \\div 5 = 5$. Altså $5(3x + 5)$."
+          },
+          {
+            "id": "9-2-1-n-quiz1-q1",
+            "task": "Faktoriser $6x^3 - 9x^2$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x(2x^2 - 3x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3x^2(2x - 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x^2(6x - 9)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$9x^2(\\frac{2}{3}x - 1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SFF er $3x^2$: $6x^3 = 3x^2 \\cdot 2x$ og $9x^2 = 3x^2 \\cdot 3$. Altså $3x^2(2x - 3)$. Alternativ a) er ikkje fullt faktorisert."
+          },
+          {
+            "id": "9-2-1-n-quiz1-q2",
+            "task": "Faktoriser $8ab + 12a^2$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2a(4b + 6a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4(2ab + 3a^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$4a(2b + 3a)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$8a(b + \\frac{3}{2}a)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SFF er $4a$: $8ab = 4a \\cdot 2b$ og $12a^2 = 4a \\cdot 3a$. Altså $4a(2b + 3a)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-2-1-n-section2",
+      "type": "text",
+      "content": "## Faktorisering av $x^2 + bx + c$\n\nNo tek vi eit steg vidare. Kan vi faktorisere uttrykk som $x^2 + 5x + 6$? Ja! Vi leitar etter to tal som:\n- **multiplisert** gir $c$ (konstantleddet)\n- **addert** gir $b$ (koeffisienten framfor $x$)\n\nFor $x^2 + 5x + 6$: Vi treng to tal med produkt $6$ og sum $5$. Svaret er $2$ og $3$:\n\n$$x^2 + 5x + 6 = (x + 2)(x + 3)$$\n\n**Sjekk:** $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$ ✓\n\nLa oss sjå på nokre fleire eksempel:\n\n**$x^2 - 7x + 12$:** Produkt $= 12$, sum $= -7$. Tala er $-3$ og $-4$:\n$$x^2 - 7x + 12 = (x - 3)(x - 4)$$\n\n**$x^2 + 2x - 15$:** Produkt $= -15$, sum $= 2$. Tala er $5$ og $-3$:\n$$x^2 + 2x - 15 = (x + 5)(x - 3)$$\n\n**$x^2 - 9$:** Dette er eit spesialtilfelle! Vi kan skrive det som $x^2 + 0x - 9$. Produkt $= -9$, sum $= 0$. Tala er $3$ og $-3$:\n$$x^2 - 9 = (x + 3)(x - 3)$$\n\nDette er eit eksempel på **konjugatsetninga**: $a^2 - b^2 = (a + b)(a - b)$. Denne er så nyttig at ho er verd å hugse som ein eigen formel!\n\nHer er ein systematisk framgangsmåte:\n1. List opp alle faktorpar av $|c|$\n2. Bestem forteikna ut frå $b$ og $c$:\n   - $c > 0$ og $b > 0$: begge tal er positive\n   - $c > 0$ og $b < 0$: begge tal er negative\n   - $c < 0$: eitt tal er positivt, eitt er negativt\n3. Finn paret som gir rett sum"
+    },
+    {
+      "id": "9-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisering av andregraduttrykk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-2-1-n-quiz2-q0",
+            "task": "Faktoriser $x^2 + 7x + 10$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x + 1)(x + 10)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x + 3)(x + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 2)(x - 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x + 2)(x + 5)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi treng to tal med produkt $10$ og sum $7$. Det er $2$ og $5$. Altså $(x + 2)(x + 5)$."
+          },
+          {
+            "id": "9-2-1-n-quiz2-q1",
+            "task": "Faktoriser $x^2 - 4x - 21$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x - 7)(x + 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(x + 7)(x - 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x - 7)(x - 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x + 7)(x + 3)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produkt $= -21$, sum $= -4$. Tala er $-7$ og $3$ (fordi $-7 \\times 3 = -21$ og $-7 + 3 = -4$). Altså $(x - 7)(x + 3)$."
+          },
+          {
+            "id": "9-2-1-n-quiz2-q2",
+            "task": "Faktoriser $x^2 - 25$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x - 5)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x + 25)(x - 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x + 5)(x - 5)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Kan ikkje faktoriserast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dette er ein differanse av kvadrat: $x^2 - 25 = x^2 - 5^2 = (x + 5)(x - 5)$. Konjugatsetninga!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-2-1-n-section3",
+      "type": "text",
+      "content": "## Faktorisering i fleire steg\n\nNokre gonger krev faktorisering at du kombinerer fleire teknikkar. Start alltid med å **trekkje ut felles faktor** før du prøver andre metodar.\n\n**Eksempel 1:** $2x^2 + 10x + 12$\n\nSteg 1: Trekk ut felles faktor $2$:\n$$2x^2 + 10x + 12 = 2(x^2 + 5x + 6)$$\n\nSteg 2: Faktoriser trinomet $x^2 + 5x + 6$. Produkt $= 6$, sum $= 5$. Tala er $2$ og $3$:\n$$2(x^2 + 5x + 6) = 2(x + 2)(x + 3)$$\n\n**Eksempel 2:** $3x^2 - 27$\n\nSteg 1: Trekk ut felles faktor $3$:\n$$3x^2 - 27 = 3(x^2 - 9)$$\n\nSteg 2: Bruk konjugatsetninga:\n$$3(x^2 - 9) = 3(x + 3)(x - 3)$$\n\n**Eksempel 3:** $5x^3 + 10x^2 - 15x$\n\nSteg 1: Felles faktor $5x$:\n$$5x^3 + 10x^2 - 15x = 5x(x^2 + 2x - 3)$$\n\nSteg 2: Faktoriser trinomet. Produkt $= -3$, sum $= 2$. Tala er $3$ og $-1$:\n$$5x(x^2 + 2x - 3) = 5x(x + 3)(x - 1)$$\n\n**Tommelfingerregel:** Eit uttrykk er fullt faktorisert når ingen av faktorane kan faktoriserast vidare."
+    },
+    {
+      "id": "9-2-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-2-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisering i fleire steg:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-2-1-n-quiz3-q0",
+            "task": "Faktoriser $4x^2 - 16$ fullstendig.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4(x^2 - 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(2x + 4)(2x - 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4(x + 2)(x - 2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2(2x^2 - 8)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først: $4x^2 - 16 = 4(x^2 - 4)$. Deretter konjugatsetninga: $4(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert."
+          },
+          {
+            "id": "9-2-1-n-quiz3-q1",
+            "task": "Faktoriser $3x^2 + 12x + 9$ fullstendig.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(3x + 3)(x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3(x^2 + 4x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x + 1)(3x + 9)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3(x + 1)(x + 3)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Felles faktor $3$: $3(x^2 + 4x + 3)$. Produkt $= 3$, sum $= 4$: tala er $1$ og $3$. Fullt faktorisert: $3(x + 1)(x + 3)$."
+          },
+          {
+            "id": "9-2-1-n-quiz3-q2",
+            "task": "Kva for ei faktorisering er korrekt for $x^3 - 4x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x(x^2 - 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x(x + 4)(x - 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x(x + 2)(x - 2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(x - 2)(x^2 + 2x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Felles faktor $x$: $x(x^2 - 4)$. Konjugatsetninga: $x(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Faktorisering** er det omvende av å multiplisere ut parentesar. Vi skriv eit uttrykk som eit produkt av faktorar.\n\n**Tre hovudteknikkar:**\n\n| Teknikk | Eksempel |\n|---------|---------|\n| Felles faktor | $6x + 9 = 3(2x + 3)$ |\n| Trinom $x^2 + bx + c$ | $x^2 + 5x + 6 = (x + 2)(x + 3)$ |\n| Konjugatsetninga | $x^2 - 16 = (x + 4)(x - 4)$ |\n\n**Framgangsmåte:**\n1. Start alltid med å trekkje ut felles faktor\n2. Sjå om du kjenner att eit mønster (trinom, konjugat)\n3. Sjekk at ingen faktor kan faktoriserast vidare\n4. Kontroller ved å multiplisere ut!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "81e65e51d3ac0d38",
+    "translatedAt": "2026-06-17T07:43:55.915Z",
+    "model": "claude-code-agent",
+    "strings": 69,
+    "tm": {
+      "4c3ede14bb9968ed": "Faktorisering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "899981b007b4b006": "Ein forteljande gjennomgang av faktorisering -- kunsten å bryte ned algebraiske uttrykk i faktorar, frå å finne felles faktor til å faktorisere trinom, med konkrete eksempel og analogiar.",
+      "9fd07b56794ebbcb": "handtere algebraiske uttrykk, bruke faktorisering og forkorting av brøkuttrykk",
+      "8ef0da48b23501bb": "## Å pakke ut og pakke inn\n\nI algebra lærer vi tidleg å **multiplisere ut** parentesar: $3(x + 2) = 3x + 6$. Men kva om vi vil gå **den andre vegen**? Kva om vi startar med $3x + 6$ og vil finne ut at det eigentleg er $3(x + 2)$?\n\nDenne «omvende» operasjonen blir kalla **faktorisering**. Å faktorisere tyder å skrive eit uttrykk som eit **produkt av faktorar**. Det er som å pakke inn ei gåve: i staden for å sjå alle delane spreidde utover, pakkar vi dei pent saman i ein «pakke» (ein parentes) multiplisert med noko.\n\nFaktorisering er eitt av dei viktigaste verktøya i algebra. Det hjelper oss å:\n- Forenkle brøkuttrykk\n- Løyse likningar\n- Finne nullpunkt til funksjonar\n- Sjå strukturen i matematiske uttrykk",
+      "38e40fc5a0ea1c3a": "## Felles faktor -- det første steget\n\nDen enklaste forma for faktorisering er å **trekkje ut ein felles faktor**. Viss alle ledda i eit uttrykk har noko til felles, kan vi «løfte det ut» framfor ein parentes.\n\n**Eksempel 1:** $6x + 9$\n\nBegge ledda er delelege med $3$:\n$$6x + 9 = 3 \\cdot 2x + 3 \\cdot 3 = 3(2x + 3)$$\n\n**Eksempel 2:** $4x^2 + 10x$\n\nHer er den felles faktoren $2x$ (både $4x^2$ og $10x$ er delelege med $2x$):\n$$4x^2 + 10x = 2x \\cdot 2x + 2x \\cdot 5 = 2x(2x + 5)$$\n\n**Eksempel 3:** $12a^3b - 8a^2b^2 + 4ab$\n\nDen største felles faktoren er $4ab$:\n$$12a^3b - 8a^2b^2 + 4ab = 4ab(3a^2 - 2ab + 1)$$\n\nFramgangsmåten er:\n1. Finn den **største felles faktoren (SFF)** for alle koeffisientane (tala framfor)\n2. Finn den **lågaste potensen** av kvar variabel som førekjem i alle ledd\n3. Del kvart ledd på den felles faktoren -- resultatet hamnar inni parentesen\n\n**Tips:** Du kan alltid sjekke svaret ved å multiplisere ut igjen! Viss $2x(2x + 5) = 4x^2 + 10x$, veit du at faktoriseringa er rett.",
+      "2bbd058c641ca175": "Test deg sjølv på felles faktor:",
+      "4097889236a2af26": "placeholder",
+      "ce4964eab44a0cc3": "Faktoriser $15x + 25$.",
+      "da1a32634ec6deec": "$5(3x + 5)$",
+      "867b9d78ca6e3679": "$3(5x + 25)$",
+      "a6be2789d68e63d6": "$15(x + 25)$",
+      "52760645587e27d6": "$5(3x + 25)$",
+      "ef34467879a50fdf": "SFF av $15$ og $25$ er $5$. $15x \\div 5 = 3x$ og $25 \\div 5 = 5$. Altså $5(3x + 5)$.",
+      "844e3fced83ae634": "Faktoriser $6x^3 - 9x^2$.",
+      "2a23dffae794fc16": "$3x(2x^2 - 3x)$",
+      "a43699139509965c": "$3x^2(2x - 3)$",
+      "ddbeed5254f5d900": "$x^2(6x - 9)$",
+      "5aed7134c116ff6e": "$9x^2(\\frac{2}{3}x - 1)$",
+      "3758d1dc5dda62c7": "SFF er $3x^2$: $6x^3 = 3x^2 \\cdot 2x$ og $9x^2 = 3x^2 \\cdot 3$. Altså $3x^2(2x - 3)$. Alternativ a) er ikkje fullt faktorisert.",
+      "3a748805f8b551f5": "Faktoriser $8ab + 12a^2$.",
+      "d26792c8f7d9635d": "$4a(2b + 3a)$",
+      "a33a515079c5f441": "$2a(4b + 6a)$",
+      "69379d6d276b47a4": "$4(2ab + 3a^2)$",
+      "d3d221930b4c14eb": "$8a(b + \\frac{3}{2}a)$",
+      "a31fdd74cdeddb99": "SFF er $4a$: $8ab = 4a \\cdot 2b$ og $12a^2 = 4a \\cdot 3a$. Altså $4a(2b + 3a)$.",
+      "7dc69e8205993247": "## Faktorisering av $x^2 + bx + c$\n\nNo tek vi eit steg vidare. Kan vi faktorisere uttrykk som $x^2 + 5x + 6$? Ja! Vi leitar etter to tal som:\n- **multiplisert** gir $c$ (konstantleddet)\n- **addert** gir $b$ (koeffisienten framfor $x$)\n\nFor $x^2 + 5x + 6$: Vi treng to tal med produkt $6$ og sum $5$. Svaret er $2$ og $3$:\n\n$$x^2 + 5x + 6 = (x + 2)(x + 3)$$\n\n**Sjekk:** $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$ ✓\n\nLa oss sjå på nokre fleire eksempel:\n\n**$x^2 - 7x + 12$:** Produkt $= 12$, sum $= -7$. Tala er $-3$ og $-4$:\n$$x^2 - 7x + 12 = (x - 3)(x - 4)$$\n\n**$x^2 + 2x - 15$:** Produkt $= -15$, sum $= 2$. Tala er $5$ og $-3$:\n$$x^2 + 2x - 15 = (x + 5)(x - 3)$$\n\n**$x^2 - 9$:** Dette er eit spesialtilfelle! Vi kan skrive det som $x^2 + 0x - 9$. Produkt $= -9$, sum $= 0$. Tala er $3$ og $-3$:\n$$x^2 - 9 = (x + 3)(x - 3)$$\n\nDette er eit eksempel på **konjugatsetninga**: $a^2 - b^2 = (a + b)(a - b)$. Denne er så nyttig at ho er verd å hugse som ein eigen formel!\n\nHer er ein systematisk framgangsmåte:\n1. List opp alle faktorpar av $|c|$\n2. Bestem forteikna ut frå $b$ og $c$:\n   - $c > 0$ og $b > 0$: begge tal er positive\n   - $c > 0$ og $b < 0$: begge tal er negative\n   - $c < 0$: eitt tal er positivt, eitt er negativt\n3. Finn paret som gir rett sum",
+      "5dac36b4609fde90": "Test deg sjølv på faktorisering av andregraduttrykk:",
+      "3fb67085a6975c87": "Faktoriser $x^2 + 7x + 10$.",
+      "202833b757cf8eb5": "$(x + 1)(x + 10)$",
+      "5d50a5eecd106e45": "$(x + 2)(x + 5)$",
+      "0c823999de8b7f02": "$(x + 3)(x + 4)$",
+      "5702d07bac4e7c82": "$(x - 2)(x - 5)$",
+      "893942465734587c": "Vi treng to tal med produkt $10$ og sum $7$. Det er $2$ og $5$. Altså $(x + 2)(x + 5)$.",
+      "38c73982139f8c10": "Faktoriser $x^2 - 4x - 21$.",
+      "889608da0e29f6d0": "$(x - 7)(x + 3)$",
+      "8758d8d6e35c41f7": "$(x + 7)(x - 3)$",
+      "b66b9f64334887c5": "$(x - 7)(x - 3)$",
+      "9c52364248e3971b": "$(x + 7)(x + 3)$",
+      "4f084dfc631bed93": "Produkt $= -21$, sum $= -4$. Tala er $-7$ og $3$ (fordi $-7 \\times 3 = -21$ og $-7 + 3 = -4$). Altså $(x - 7)(x + 3)$.",
+      "0a7f2dd734aead2c": "Faktoriser $x^2 - 25$.",
+      "63323cffb668518d": "$(x - 5)^2$",
+      "2d2f87c2e108391f": "$(x + 5)(x - 5)$",
+      "a83e016acfbb19fb": "$(x + 25)(x - 1)$",
+      "720557f0d10235ee": "Kan ikkje faktoriserast",
+      "1dcd0635f33406b2": "Dette er ein differanse av kvadrat: $x^2 - 25 = x^2 - 5^2 = (x + 5)(x - 5)$. Konjugatsetninga!",
+      "2b3e16ee3f03008f": "## Faktorisering i fleire steg\n\nNokre gonger krev faktorisering at du kombinerer fleire teknikkar. Start alltid med å **trekkje ut felles faktor** før du prøver andre metodar.\n\n**Eksempel 1:** $2x^2 + 10x + 12$\n\nSteg 1: Trekk ut felles faktor $2$:\n$$2x^2 + 10x + 12 = 2(x^2 + 5x + 6)$$\n\nSteg 2: Faktoriser trinomet $x^2 + 5x + 6$. Produkt $= 6$, sum $= 5$. Tala er $2$ og $3$:\n$$2(x^2 + 5x + 6) = 2(x + 2)(x + 3)$$\n\n**Eksempel 2:** $3x^2 - 27$\n\nSteg 1: Trekk ut felles faktor $3$:\n$$3x^2 - 27 = 3(x^2 - 9)$$\n\nSteg 2: Bruk konjugatsetninga:\n$$3(x^2 - 9) = 3(x + 3)(x - 3)$$\n\n**Eksempel 3:** $5x^3 + 10x^2 - 15x$\n\nSteg 1: Felles faktor $5x$:\n$$5x^3 + 10x^2 - 15x = 5x(x^2 + 2x - 3)$$\n\nSteg 2: Faktoriser trinomet. Produkt $= -3$, sum $= 2$. Tala er $3$ og $-1$:\n$$5x(x^2 + 2x - 3) = 5x(x + 3)(x - 1)$$\n\n**Tommelfingerregel:** Eit uttrykk er fullt faktorisert når ingen av faktorane kan faktoriserast vidare.",
+      "3d2a2b73a47a214b": "Test deg sjølv på faktorisering i fleire steg:",
+      "43543f8ac23e2dd1": "Faktoriser $4x^2 - 16$ fullstendig.",
+      "e331dbd851fb20e1": "$4(x^2 - 4)$",
+      "303dc6487c0530b2": "$(2x + 4)(2x - 4)$",
+      "cd9af40c1d6a6143": "$4(x + 2)(x - 2)$",
+      "da39afcda47dedb1": "$2(2x^2 - 8)$",
+      "9ce6ca8dd0e234cd": "Først: $4x^2 - 16 = 4(x^2 - 4)$. Deretter konjugatsetninga: $4(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert.",
+      "9dcf9f3e141eb8ad": "Faktoriser $3x^2 + 12x + 9$ fullstendig.",
+      "23eaeab5b5db0da5": "$3(x + 1)(x + 3)$",
+      "e08ff87f3a1afa9b": "$(3x + 3)(x + 3)$",
+      "52ec7546f04d97f1": "$3(x^2 + 4x + 3)$",
+      "63b8af2a9d94dbbe": "$(x + 1)(3x + 9)$",
+      "b3b30fd0d10eb0ba": "Felles faktor $3$: $3(x^2 + 4x + 3)$. Produkt $= 3$, sum $= 4$: tala er $1$ og $3$. Fullt faktorisert: $3(x + 1)(x + 3)$.",
+      "8ca2652ec53ac0a3": "Kva for ei faktorisering er korrekt for $x^3 - 4x$?",
+      "89a35f4cb231ed9b": "$x(x^2 - 4)$",
+      "fb8073e4735a5f67": "$x(x + 4)(x - 4)$",
+      "e94b1366424b8b8d": "$x(x + 2)(x - 2)$",
+      "3d67a556a1a17e99": "$(x - 2)(x^2 + 2x)$",
+      "bbf3a69876acc7f3": "Felles faktor $x$: $x(x^2 - 4)$. Konjugatsetninga: $x(x + 2)(x - 2)$. Alternativ a) er ikkje fullt faktorisert.",
+      "800846e4f9de9f17": "## Oppsummering\n\n**Faktorisering** er det omvende av å multiplisere ut parentesar. Vi skriv eit uttrykk som eit produkt av faktorar.\n\n**Tre hovudteknikkar:**\n\n| Teknikk | Eksempel |\n|---------|---------|\n| Felles faktor | $6x + 9 = 3(2x + 3)$ |\n| Trinom $x^2 + bx + c$ | $x^2 + 5x + 6 = (x + 2)(x + 3)$ |\n| Konjugatsetninga | $x^2 - 16 = (x + 4)(x - 4)$ |\n\n**Framgangsmåte:**\n1. Start alltid med å trekkje ut felles faktor\n2. Sjå om du kjenner att eit mønster (trinom, konjugat)\n3. Sjekk at ingen faktor kan faktoriserast vidare\n4. Kontroller ved å multiplisere ut!"
+    }
+  }
+}

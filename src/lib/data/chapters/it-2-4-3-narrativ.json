@@ -1,1 +1,341 @@
-{"id":"it-2-4-3-narrativ","courseId":"it-2","chapterNumber":"4.3","title":"Dataformater – JSON og XML","subtitle":"Narrativ versjon","description":"En fortelling om språkene programmer bruker for å utveksle data – fra parsing og serialisering med Pythons json-modul, via nestede strukturer, til XML med tagger og det evige spørsmålet: JSON eller XML?","estimatedMinutes":38,"competenceGoals":["Forklare forskjellen mellom JSON og XML","Parse og serialisere JSON i Python, også fra fil","Arbeide med nestede strukturer og parse enkel XML"],"linkedChapterId":"it-2-4-3","content":[{"id":"it-2-4-3-n-intro","type":"text","content":"## Et felles språk for data\n\nNår to programmer skal utveksle data, trenger de et format begge forstår. De to mest brukte er **JSON** (JavaScript Object Notation) og **XML** (eXtensible Markup Language). Men før vi sammenligner dem, må vi lære to nøkkelord. **Parsing** betyr å lese og tolke data fra et format til Python-objekter – dictionaries, lister og så videre. **Serialisering** er motsatt vei: å konvertere Python-objekter til et tekstformat som kan lagres eller sendes. JSON til Python er parsing; Python til JSON er serialisering.\n\nPython har en innebygd `json`-modul med fire sentrale funksjoner. `json.loads()` parser en JSON-streng til et Python-objekt, `json.dumps()` serialiserer et Python-objekt til en JSON-streng, `json.load()` leser JSON fra en fil, og `json.dump()` skriver JSON til en fil. Et lite minneknep: funksjonene med `s` på slutten jobber med strenger.\n\nNår du parser, oversettes typene automatisk: et JSON-objekt blir en dict, en array blir en liste, en streng blir str, et tall blir int eller float, `true`/`false` blir `True`/`False`, og `null` blir `None`. Parser du en JSON-streng om en student, kan du etterpå skrive `student['navn']` som om det alltid var en vanlig Python-dictionary."},{"id":"it-2-4-3-n-quiz1","type":"exercise","exercise":{"id":"it-2-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på parsing og serialisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-4-3-n-quiz1-q0","task":"Hva betyr å parse JSON-data?","options":[{"id":"a","text":"Å konvertere JSON-tekst til Python-objekter","isCorrect":true},{"id":"b","text":"Å sende JSON over nettverket","isCorrect":false},{"id":"c","text":"Å kryptere JSON","isCorrect":false},{"id":"d","text":"Å komprimere en fil","isCorrect":false}],"solution":"Parsing er å tolke JSON-tekst og gjøre den om til Python-objekter som dict og list."},{"id":"it-2-4-3-n-quiz1-q1","task":"Hvilken funksjon konverterer et Python-dictionary til en JSON-streng?","options":[{"id":"a","text":"json.loads()","isCorrect":false},{"id":"b","text":"json.dumps()","isCorrect":true},{"id":"c","text":"json.parse()","isCorrect":false},{"id":"d","text":"json.stringify()","isCorrect":false}],"solution":"json.dumps() serialiserer et Python-objekt til en JSON-streng. json.loads() gjør det motsatte."},{"id":"it-2-4-3-n-quiz1-q2","task":"Hva blir et JSON-tall til i Python?","options":[{"id":"a","text":"En streng","isCorrect":false},{"id":"b","text":"En liste","isCorrect":false},{"id":"c","text":"int eller float","isCorrect":true},{"id":"d","text":"None","isCorrect":false}],"solution":"Et JSON-tall blir et Python int eller float, avhengig av om det har desimaler."}]}},{"id":"it-2-4-3-n-section1","type":"text","content":"## JSON i praksis – strenger, filer og nesting\n\nNår du serialiserer med `json.dumps()`, får du som standard alt på én linje. To parametere gjør resultatet pent: `indent=2` legger til innrykk så det blir lesbart, og `ensure_ascii=False` bevarer norske tegn som æ, ø og å i stedet for å skrive dem som escape-koder. Disse to brukes nesten alltid sammen når et menneske skal lese filen.\n\nÅ jobbe med JSON-filer følger samme mønster som filhåndtering ellers. Du skriver med `json.dump(data, f, indent=2, ensure_ascii=False)` inni en with-blokk, og leser tilbake med `json.load(f)`. Slik kan du lagre konfigurasjoner og data lokalt mellom kjøringer.\n\nJSON sin store styrke er **nesting** – objekter inni objekter og lister inni lister – som lar deg representere komplekse strukturer. En skole kan inneholde en liste av klasser, der hver klasse inneholder en liste av elever, der hver elev har en liste av karakterer. Du navigerer ned i strukturen ved å veksle mellom `['nøkkel']` for dictionaries og `[indeks]` for lister. For å hente den første karakteren til den første eleven i den første klassen skriver du `data['klasser'][0]['elever'][0]['karakterer'][0]`. Det ser tett ut, men hvert ledd er bare ett steg dypere inn i strukturen."},{"id":"it-2-4-3-n-quiz2","type":"exercise","exercise":{"id":"it-2-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på JSON i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-4-3-n-quiz2-q0","task":"Hva er forskjellen på json.loads() og json.load()?","options":[{"id":"a","text":"loads() leser fra fil, load() fra streng","isCorrect":false},{"id":"b","text":"De gjør nøyaktig det samme","isCorrect":false},{"id":"c","text":"loads() er bare raskere","isCorrect":false},{"id":"d","text":"loads() leser fra en streng, load() leser fra en fil","isCorrect":true}],"solution":"json.loads() parser en streng, mens json.load() leser og parser fra en fil. s-en står for string."},{"id":"it-2-4-3-n-quiz2-q1","task":"Hva gjør indent=2 i json.dumps()?","options":[{"id":"a","text":"Legger til innrykk for å gjøre JSON-en lesbar","isCorrect":true},{"id":"b","text":"Fjerner alle mellomrom","isCorrect":false},{"id":"c","text":"Krypterer dataene","isCorrect":false},{"id":"d","text":"Begrenser til to nøkler","isCorrect":false}],"solution":"indent=2 formaterer JSON-en med innrykk på to mellomrom, slik at den blir lett å lese for mennesker."},{"id":"it-2-4-3-n-quiz2-q2","task":"Gitt {\"klasse\": {\"elever\": [{\"navn\":\"Emma\"},{\"navn\":\"Lars\"}]}}, hvordan henter du Lars sitt navn?","options":[{"id":"a","text":"data['Lars']","isCorrect":false},{"id":"b","text":"data['klasse']['elever'][1]['navn']","isCorrect":true},{"id":"c","text":"data['elever']['Lars']","isCorrect":false},{"id":"d","text":"data[1]['navn']","isCorrect":false}],"solution":"Du navigerer ned i strukturen: klasse, så elever-listen, så indeks 1 (Lars), så navn-nøkkelen."}]}},{"id":"it-2-4-3-n-section2","type":"text","content":"## XML og det store valget\n\nDet andre formatet er **XML**, et markup-språk som strukturerer data med tagger, omtrent som HTML. Samme student som i JSON ville i XML hatt `<navn>Emma Hansen</navn>` og `<alder>18</alder>` inni en `<student>`-tagg. XML er mer ordrikt enn JSON, men har noen ekstra muligheter: det støtter **attributter** som `<elev id=\"123\">`, det tillater kommentarer, og det støtter skjemavalidering. XML brukes mye i eldre systemer og bedriftsapplikasjoner.\n\nI Python parser du XML med den innebygde modulen `xml.etree.ElementTree`, ofte importert som `ET`. Du leser inn med `ET.fromstring(xml_data)`, finner elementer med `root.findall('elev')`, henter attributter med `.get('id')` og tekstinnhold med `.find('navn').text`. Det er mer omstendelig enn JSON, men nødvendig for mange API-er og systemer.\n\nSå når velger du hva? **JSON** er enklere, mer kompakt, lettere å lese for mennesker, og oversettes naturlig til Python-objekter – det er standard for moderne web-API-er og raskt å parse. Svakhetene er at det ikke støtter kommentarer eller skjemaer. **XML** støtter attributter, kommentarer og skjemavalidering, og egner seg for dokumentorientert data, men er mer ordrikt og tyngre å parse. Tommelfingerregelen er enkel: bruk JSON for moderne API-er og enkle datastrukturer, og bruk XML når du må – ved eldre systemer, SOAP-tjenester eller RSS-feeds."},{"id":"it-2-4-3-n-quiz3","type":"exercise","exercise":{"id":"it-2-4-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på XML og valget:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-4-3-n-quiz3-q0","task":"Hva er en fordel XML har over JSON?","options":[{"id":"a","text":"Det er alltid kortere","isCorrect":false},{"id":"b","text":"Det er raskere å parse","isCorrect":false},{"id":"c","text":"Det støtter attributter, kommentarer og skjemavalidering","isCorrect":true},{"id":"d","text":"Det er standard for moderne web-API-er","isCorrect":false}],"solution":"XML støtter attributter, kommentarer og skjemaer (XSD/DTD), noe JSON ikke gjør. Men XML er mer ordrikt."},{"id":"it-2-4-3-n-quiz3-q1","task":"Hvilken modul parser XML i Python?","options":[{"id":"a","text":"json","isCorrect":false},{"id":"b","text":"requests","isCorrect":false},{"id":"c","text":"pandas","isCorrect":false},{"id":"d","text":"xml.etree.ElementTree","isCorrect":true}],"solution":"xml.etree.ElementTree er Pythons innebygde modul for å parse XML."},{"id":"it-2-4-3-n-quiz3-q2","task":"Når bør du foretrekke JSON?","options":[{"id":"a","text":"For moderne web-API-er og enkle datastrukturer","isCorrect":true},{"id":"b","text":"Kun for eldre SOAP-tjenester","isCorrect":false},{"id":"c","text":"Aldri","isCorrect":false},{"id":"d","text":"Bare når du trenger kommentarer","isCorrect":false}],"solution":"JSON er førstevalget for moderne API-er og enkle strukturer fordi det er kompakt, lesbart og oversettes naturlig til Python."}]}},{"id":"it-2-4-3-n-summary","type":"text","content":"## Oppsummering\n\nProgrammer trenger et felles språk for data, og to dominerer: JSON og XML. Vi lærte at **parsing** er å lese et format til Python-objekter, mens **serialisering** er den motsatte veien. Pythons `json`-modul gir oss `loads`/`dumps` for strenger og `load`/`dump` for filer, med `indent=2` og `ensure_ascii=False` for pene, norske filer. JSON sin styrke er **nesting**, der du navigerer dype strukturer ved å veksle mellom nøkler og indekser.\n\n**XML** strukturerer data med tagger, støtter attributter, kommentarer og skjemavalidering, og parses med `xml.etree.ElementTree` – men er mer ordrikt. Konklusjonen: velg JSON for moderne API-er og enkle data, og XML når du må, ved eldre systemer og feeds. I neste kapittel snur vi rollene og bygger vårt eget API med Flask."}],"exercises":[]}
+{
+  "id": "it-2-4-3-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "4.3",
+  "title": "Dataformater – JSON og XML",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om språkene programmer bruker for å utveksle data – fra parsing og serialisering med Pythons json-modul, via nestede strukturer, til XML med tagger og det evige spørsmålet: JSON eller XML?",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "Forklare forskjellen mellom JSON og XML",
+    "Parse og serialisere JSON i Python, også fra fil",
+    "Arbeide med nestede strukturer og parse enkel XML"
+  ],
+  "linkedChapterId": "it-2-4-3",
+  "content": [
+    {
+      "id": "it-2-4-3-n-intro",
+      "type": "text",
+      "content": "## Et felles språk for data\n\nNår to programmer skal utveksle data, trenger de et format begge forstår. De to mest brukte er **JSON** (JavaScript Object Notation) og **XML** (eXtensible Markup Language). Men før vi sammenligner dem, må vi lære to nøkkelord. **Parsing** betyr å lese og tolke data fra et format til Python-objekter – dictionaries, lister og så videre. **Serialisering** er motsatt vei: å konvertere Python-objekter til et tekstformat som kan lagres eller sendes. JSON til Python er parsing; Python til JSON er serialisering.\n\nPython har en innebygd `json`-modul med fire sentrale funksjoner. `json.loads()` parser en JSON-streng til et Python-objekt, `json.dumps()` serialiserer et Python-objekt til en JSON-streng, `json.load()` leser JSON fra en fil, og `json.dump()` skriver JSON til en fil. Et lite minneknep: funksjonene med `s` på slutten jobber med strenger.\n\nNår du parser, oversettes typene automatisk: et JSON-objekt blir en dict, en array blir en liste, en streng blir str, et tall blir int eller float, `true`/`false` blir `True`/`False`, og `null` blir `None`. Parser du en JSON-streng om en student, kan du etterpå skrive `student['navn']` som om det alltid var en vanlig Python-dictionary."
+    },
+    {
+      "id": "it-2-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på parsing og serialisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-4-3-n-quiz1-q0",
+            "task": "Hva betyr å parse JSON-data?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å sende JSON over nettverket",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å kryptere JSON",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å komprimere en fil",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å konvertere JSON-tekst til Python-objekter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Parsing er å tolke JSON-tekst og gjøre den om til Python-objekter som dict og list."
+          },
+          {
+            "id": "it-2-4-3-n-quiz1-q1",
+            "task": "Hvilken funksjon konverterer et Python-dictionary til en JSON-streng?",
+            "options": [
+              {
+                "id": "b",
+                "text": "json.dumps()",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "json.loads()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "json.parse()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "json.stringify()",
+                "isCorrect": false
+              }
+            ],
+            "solution": "json.dumps() serialiserer et Python-objekt til en JSON-streng. json.loads() gjør det motsatte."
+          },
+          {
+            "id": "it-2-4-3-n-quiz1-q2",
+            "task": "Hva blir et JSON-tall til i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En streng",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "int eller float",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "En liste",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "None",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et JSON-tall blir et Python int eller float, avhengig av om det har desimaler."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-4-3-n-section1",
+      "type": "text",
+      "content": "## JSON i praksis – strenger, filer og nesting\n\nNår du serialiserer med `json.dumps()`, får du som standard alt på én linje. To parametere gjør resultatet pent: `indent=2` legger til innrykk så det blir lesbart, og `ensure_ascii=False` bevarer norske tegn som æ, ø og å i stedet for å skrive dem som escape-koder. Disse to brukes nesten alltid sammen når et menneske skal lese filen.\n\nÅ jobbe med JSON-filer følger samme mønster som filhåndtering ellers. Du skriver med `json.dump(data, f, indent=2, ensure_ascii=False)` inni en with-blokk, og leser tilbake med `json.load(f)`. Slik kan du lagre konfigurasjoner og data lokalt mellom kjøringer.\n\nJSON sin store styrke er **nesting** – objekter inni objekter og lister inni lister – som lar deg representere komplekse strukturer. En skole kan inneholde en liste av klasser, der hver klasse inneholder en liste av elever, der hver elev har en liste av karakterer. Du navigerer ned i strukturen ved å veksle mellom `['nøkkel']` for dictionaries og `[indeks]` for lister. For å hente den første karakteren til den første eleven i den første klassen skriver du `data['klasser'][0]['elever'][0]['karakterer'][0]`. Det ser tett ut, men hvert ledd er bare ett steg dypere inn i strukturen."
+    },
+    {
+      "id": "it-2-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på JSON i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-4-3-n-quiz2-q0",
+            "task": "Hva er forskjellen på json.loads() og json.load()?",
+            "options": [
+              {
+                "id": "a",
+                "text": "loads() leser fra fil, load() fra streng",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De gjør nøyaktig det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "loads() leser fra en streng, load() leser fra en fil",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "loads() er bare raskere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "json.loads() parser en streng, mens json.load() leser og parser fra en fil. s-en står for string."
+          },
+          {
+            "id": "it-2-4-3-n-quiz2-q1",
+            "task": "Hva gjør indent=2 i json.dumps()?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fjerner alle mellomrom",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Krypterer dataene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begrenser til to nøkler",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Legger til innrykk for å gjøre JSON-en lesbar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "indent=2 formaterer JSON-en med innrykk på to mellomrom, slik at den blir lett å lese for mennesker."
+          },
+          {
+            "id": "it-2-4-3-n-quiz2-q2",
+            "task": "Gitt {\"klasse\": {\"elever\": [{\"navn\":\"Emma\"},{\"navn\":\"Lars\"}]}}, hvordan henter du Lars sitt navn?",
+            "options": [
+              {
+                "id": "b",
+                "text": "data['klasse']['elever'][1]['navn']",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "data['Lars']",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "data['elever']['Lars']",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "data[1]['navn']",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du navigerer ned i strukturen: klasse, så elever-listen, så indeks 1 (Lars), så navn-nøkkelen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-4-3-n-section2",
+      "type": "text",
+      "content": "## XML og det store valget\n\nDet andre formatet er **XML**, et markup-språk som strukturerer data med tagger, omtrent som HTML. Samme student som i JSON ville i XML hatt `<navn>Emma Hansen</navn>` og `<alder>18</alder>` inni en `<student>`-tagg. XML er mer ordrikt enn JSON, men har noen ekstra muligheter: det støtter **attributter** som `<elev id=\"123\">`, det tillater kommentarer, og det støtter skjemavalidering. XML brukes mye i eldre systemer og bedriftsapplikasjoner.\n\nI Python parser du XML med den innebygde modulen `xml.etree.ElementTree`, ofte importert som `ET`. Du leser inn med `ET.fromstring(xml_data)`, finner elementer med `root.findall('elev')`, henter attributter med `.get('id')` og tekstinnhold med `.find('navn').text`. Det er mer omstendelig enn JSON, men nødvendig for mange API-er og systemer.\n\nSå når velger du hva? **JSON** er enklere, mer kompakt, lettere å lese for mennesker, og oversettes naturlig til Python-objekter – det er standard for moderne web-API-er og raskt å parse. Svakhetene er at det ikke støtter kommentarer eller skjemaer. **XML** støtter attributter, kommentarer og skjemavalidering, og egner seg for dokumentorientert data, men er mer ordrikt og tyngre å parse. Tommelfingerregelen er enkel: bruk JSON for moderne API-er og enkle datastrukturer, og bruk XML når du må – ved eldre systemer, SOAP-tjenester eller RSS-feeds."
+    },
+    {
+      "id": "it-2-4-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-4-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på XML og valget:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-4-3-n-quiz3-q0",
+            "task": "Hva er en fordel XML har over JSON?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er alltid kortere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det støtter attributter, kommentarer og skjemavalidering",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det er raskere å parse",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er standard for moderne web-API-er",
+                "isCorrect": false
+              }
+            ],
+            "solution": "XML støtter attributter, kommentarer og skjemaer (XSD/DTD), noe JSON ikke gjør. Men XML er mer ordrikt."
+          },
+          {
+            "id": "it-2-4-3-n-quiz3-q1",
+            "task": "Hvilken modul parser XML i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "json",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "requests",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "xml.etree.ElementTree",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "pandas",
+                "isCorrect": false
+              }
+            ],
+            "solution": "xml.etree.ElementTree er Pythons innebygde modul for å parse XML."
+          },
+          {
+            "id": "it-2-4-3-n-quiz3-q2",
+            "task": "Når bør du foretrekke JSON?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kun for eldre SOAP-tjenester",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare når du trenger kommentarer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For moderne web-API-er og enkle datastrukturer",
+                "isCorrect": true
+              }
+            ],
+            "solution": "JSON er førstevalget for moderne API-er og enkle strukturer fordi det er kompakt, lesbart og oversettes naturlig til Python."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-4-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nProgrammer trenger et felles språk for data, og to dominerer: JSON og XML. Vi lærte at **parsing** er å lese et format til Python-objekter, mens **serialisering** er den motsatte veien. Pythons `json`-modul gir oss `loads`/`dumps` for strenger og `load`/`dump` for filer, med `indent=2` og `ensure_ascii=False` for pene, norske filer. JSON sin styrke er **nesting**, der du navigerer dype strukturer ved å veksle mellom nøkler og indekser.\n\n**XML** strukturerer data med tagger, støtter attributter, kommentarer og skjemavalidering, og parses med `xml.etree.ElementTree` – men er mer ordrikt. Konklusjonen: velg JSON for moderne API-er og enkle data, og XML når du må, ved eldre systemer og feeds. I neste kapittel snur vi rollene og bygger vårt eget API med Flask."
+    }
+  ],
+  "exercises": []
+}

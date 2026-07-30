@@ -1,1 +1,503 @@
-{"id":"r1-4-3-narrativ","courseId":"r1","chapterNumber":"4.3","title":"Kjerneregelen","subtitle":"Narrativ versjon","description":"En fortelling om kjerneregelen -- hvordan sykkelgir og russiske dukker forklarer derivasjon av sammensatte funksjoner som $e^{2x}$, $(x^2+1)^5$ og $\\ln(x^2+1)$.","estimatedMinutes":35,"competenceGoals":["forstå hva en sammensatt funksjon er","beherske kjerneregelen for derivasjon","kunne identifisere ytre og indre funksjon","kunne kombinere kjerneregelen med andre derivasjonsregler"],"linkedChapterId":"r1-4-3","content":[{"id":"r1-4-3-n-intro","type":"text","content":"## Tannhjul i tannhjul\n\nTenk deg girene på en sykkel. Når du tråkker én omdreining på pedalene, drar kjedet det bakre tannhjulet rundt, si, tre ganger. Og hver omdreining på hjulet flytter sykkelen to meter. Hvor fort beveger du deg per pedaltråkk? Selvfølgelig: $3 \\cdot 2 = 6$ meter. Endringer som skjer i ledd, *ganges sammen*.\n\nAkkurat den samme ideen ligger bak kjerneregelen – kanskje den viktigste derivasjonsregelen av alle. Mange funksjoner er nemlig bygget som funksjoner *inni* funksjoner. Ta $f(x) = e^{2x}$: her er det egentlig to maskiner i serie. Først dobles $x$ til $2x$, deretter sendes resultatet inn i eksponentialfunksjonen. Eller $(x^2 + 1)^5$: først regnes $x^2 + 1$ ut, så opphøyes alt i femte.\n\nMed reglene vi har så langt, kan vi derivere $e^x$ og $x^5$ – men ikke $e^{2x}$ eller $(x^2+1)^5$. Den indre funksjonen ødelegger for oss. Kjerneregelen (også kalt kjederegelen) fikser dette med sykkelgir-logikken: vi deriverer den ytre funksjonen, deriverer den indre, og ganger sammen. I dette kapittelet lærer du å gjenkjenne sammensatte funksjoner, plukke dem fra hverandre i ytre og indre del, og derivere dem med én elegant regel."},{"id":"r1-4-3-n-section1","type":"text","content":"## Å se de skjulte lagene\n\nFør vi kan derivere en sammensatt funksjon, må vi kunne *se* at den er sammensatt – og hva den er sammensatt av. En **sammensatt funksjon** $f(g(x))$ består av en **ytre funksjon** $f(u)$ og en **indre funksjon** $g(x)$, som vi også kaller **kjernen**. Vi setter kjernen inn i den ytre funksjonen, som en matrjosjka-dukke med en mindre dukke inni.\n\nTrikset for å identifisere delene er å spørre: *hva ville jeg regnet ut først hvis jeg satte inn et tall?* Det du regner først, er kjernen. Ta $f(x) = (x^2 + 1)^5$. Setter du inn $x = 2$, regner du først $2^2 + 1 = 5$, og deretter $5^5$. Altså: kjernen er $u = x^2 + 1$, og den ytre funksjonen er $u^5$.\n\nLa oss trene blikket på flere. I $g(x) = \\ln(3x)$ er kjernen $u = 3x$ og den ytre funksjonen $\\ln u$. I $h(x) = e^{x^2}$ er kjernen $u = x^2$ og den ytre $e^u$. Og i $p(x) = \\sqrt{x^3 - 2}$ lønner det seg å skrive roten som potens: $p(x) = (x^3 - 2)^{1/2}$, med kjerne $u = x^3 - 2$ og ytre funksjon $u^{1/2}$.\n\nLegg merke til mønsteret: kjernen er det som står «innerst» – i parentesen, i eksponenten eller under rottegnet. Når du har klart å dele funksjonen i ytre og indre, er selve derivasjonen nesten mekanisk. Det er det neste seksjon handler om."},{"id":"r1-4-3-n-quiz1","type":"exercise","exercise":{"id":"r1-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på ytre og indre funksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-3-n-quiz1-q0","task":"Hva er kjernen (den indre funksjonen) i $f(x) = (x^2 + 1)^5$?","options":[{"id":"a","text":"$u^5$","isCorrect":false},{"id":"b","text":"$x^2$","isCorrect":false},{"id":"c","text":"$x^2 + 1$","isCorrect":true},{"id":"d","text":"$5x$","isCorrect":false}],"solution":"Kjernen er det vi regner ut først: $u = x^2 + 1$. Den ytre funksjonen er $u^5$."},{"id":"r1-4-3-n-quiz1-q1","task":"Hva er den ytre funksjonen i $h(x) = e^{x^2}$?","options":[{"id":"a","text":"$e^u$","isCorrect":true},{"id":"b","text":"$x^2$","isCorrect":false},{"id":"c","text":"$u^2$","isCorrect":false},{"id":"d","text":"$e^x \\cdot x$","isCorrect":false}],"solution":"Kjernen er $u = x^2$, og den settes inn i eksponentialfunksjonen. Ytre funksjon: $e^u$."},{"id":"r1-4-3-n-quiz1-q2","task":"Hvordan deler vi opp $p(x) = \\sqrt{x^3 - 2}$?","options":[{"id":"a","text":"Ytre: $\\sqrt{u}$, kjerne: $x^3$","isCorrect":false},{"id":"b","text":"Ytre: $x^3 - 2$, kjerne: $u^{1/2}$","isCorrect":false},{"id":"c","text":"Ytre: $u^3$, kjerne: $\\sqrt{x}$","isCorrect":false},{"id":"d","text":"Ytre: $u^{1/2}$, kjerne: $x^3 - 2$","isCorrect":true}],"solution":"Skriv roten som potens: $p(x) = (x^3 - 2)^{1/2}$. Kjernen er det innerste, $u = x^3 - 2$, og den ytre funksjonen er $u^{1/2}$."}]}},{"id":"r1-4-3-n-section2","type":"text","content":"## Ytre derivert ganger indre derivert\n\nHer er selve regelen. Hvis $f(x) = h(g(x))$, så er $f'(x) = h'(g(x)) \\cdot g'(x)$. Med ord: **ytre derivert ganger indre derivert**. Med Leibniz-notasjon, der $y = f(u)$ og $u = g(x)$, skrives den $\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}$ – og da ser du sykkelgirene igjen: endringsratene i hvert ledd ganges sammen.\n\nFremgangsmåten er alltid den samme. Først identifiserer du ytre funksjon og kjerne. Så deriverer du den ytre funksjonen *mens du lar kjernen stå urørt*. Til slutt ganger du med den deriverte av kjernen.\n\nDen vanligste varianten er «noe opphøyd i $n$-te»: hvis $f(x) = (g(x))^n$, gir kjerneregelen den **generaliserte potensregelen** $f'(x) = n \\cdot (g(x))^{n-1} \\cdot g'(x)$. La oss derivere $f(x) = (x^2 + 1)^5$. Ytre derivert: $5(x^2+1)^4$ – kjernen står urørt. Indre derivert: $(x^2+1)' = 2x$. Ganger sammen: $f'(x) = 5(x^2+1)^4 \\cdot 2x = 10x(x^2+1)^4$. Uten kjerneregelen måtte vi ha multiplisert ut en femtegradspotens – nå tok det tre linjer.\n\nFlere på rappen: $(3x - 2)^4$ har kjerne med derivert 3, så svaret blir $4(3x-2)^3 \\cdot 3 = 12(3x-2)^3$. Roten $\\sqrt{x^2 + 4} = (x^2+4)^{1/2}$ gir $\\frac{1}{2}(x^2+4)^{-1/2} \\cdot 2x = \\frac{x}{\\sqrt{x^2+4}}$. Og brøken $\\frac{1}{(2x+1)^3} = (2x+1)^{-3}$ gir $-3(2x+1)^{-4} \\cdot 2 = -\\frac{6}{(2x+1)^4}$. Tre helt ulike utseender – nøyaktig samme regel."},{"id":"r1-4-3-n-quiz2","type":"exercise","exercise":{"id":"r1-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kjerneregelen med potenser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-3-n-quiz2-q0","task":"Hva er den deriverte av $f(x) = (x^2 + 1)^5$?","options":[{"id":"a","text":"$5(x^2+1)^4$","isCorrect":false},{"id":"b","text":"$10x(x^2+1)^4$","isCorrect":true},{"id":"c","text":"$5(2x)^4$","isCorrect":false},{"id":"d","text":"$10x^4$","isCorrect":false}],"solution":"Ytre derivert: $5(x^2+1)^4$. Indre derivert: $2x$. Produktet blir $5(x^2+1)^4 \\cdot 2x = 10x(x^2+1)^4$. Svaret $5(x^2+1)^4$ mangler den indre deriverte."},{"id":"r1-4-3-n-quiz2-q1","task":"Hva er den deriverte av $f(x) = (3x - 2)^4$?","options":[{"id":"a","text":"$12(3x-2)^3$","isCorrect":true},{"id":"b","text":"$4(3x-2)^3$","isCorrect":false},{"id":"c","text":"$12(3x-2)^4$","isCorrect":false},{"id":"d","text":"$4 \\cdot 3^3$","isCorrect":false}],"solution":"Ytre derivert: $4(3x-2)^3$. Indre derivert: $3$. Til sammen $4(3x-2)^3 \\cdot 3 = 12(3x-2)^3$."},{"id":"r1-4-3-n-quiz2-q2","task":"Hva er den deriverte av $g(x) = \\sqrt{x^2 + 4}$?","options":[{"id":"a","text":"$\\frac{1}{2\\sqrt{x^2+4}}$","isCorrect":false},{"id":"b","text":"$\\frac{2x}{x^2+4}$","isCorrect":false},{"id":"c","text":"$2x\\sqrt{x^2+4}$","isCorrect":false},{"id":"d","text":"$\\frac{x}{\\sqrt{x^2+4}}$","isCorrect":true}],"solution":"Skriv som $(x^2+4)^{1/2}$. Da blir den deriverte $\\frac{1}{2}(x^2+4)^{-1/2} \\cdot 2x = \\frac{x}{\\sqrt{x^2+4}}$."},{"id":"r1-4-3-n-quiz2-q3","task":"Hva er den deriverte av $h(x) = \\frac{1}{(2x+1)^3}$?","options":[{"id":"a","text":"$\\frac{3}{(2x+1)^2}$","isCorrect":false},{"id":"b","text":"$-\\frac{3}{(2x+1)^4}$","isCorrect":false},{"id":"c","text":"$-\\frac{6}{(2x+1)^4}$","isCorrect":true},{"id":"d","text":"$\\frac{6}{(2x+1)^4}$","isCorrect":false}],"solution":"Skriv som $(2x+1)^{-3}$. Da blir den deriverte $-3(2x+1)^{-4} \\cdot 2 = -\\frac{6}{(2x+1)^4}$. Husk å gange med den indre deriverte 2."}]}},{"id":"r1-4-3-n-section3","type":"text","content":"## Kjerneregelen møter $e^x$ og $\\ln x$\n\nNå kombinerer vi kjerneregelen med stjernene fra forrige kapittel. Siden $(e^u)' = e^u$, sier kjerneregelen at hvis $f(x) = e^{g(x)}$, så er $f'(x) = e^{g(x)} \\cdot g'(x)$. Eksponentialfunksjonen kopierer seg selv, og så ganger vi med den deriverte av eksponenten.\n\nSe hvor glatt det går: $f(x) = e^{2x}$ har kjerne $u = 2x$ med derivert 2, så $f'(x) = 2e^{2x}$. Funksjonen $g(x) = e^{x^2}$ har kjerne $x^2$ med derivert $2x$, så $g'(x) = 2xe^{x^2}$. Og $h(x) = e^{-x}$, som beskriver radioaktiv nedbrytning og avkjøling, har kjerne $-x$ med derivert $-1$: $h'(x) = -e^{-x}$.\n\nFor logaritmen bruker vi at $(\\ln u)' = \\frac{1}{u}$. Hvis $f(x) = \\ln(g(x))$ der $g(x) > 0$, gir kjerneregelen den lekre formelen $f'(x) = \\frac{g'(x)}{g(x)}$ – *den indre deriverte delt på kjernen selv*.\n\nPrøv den: $\\ln(2x)$ gir $\\frac{2}{2x} = \\frac{1}{x}$. Funksjonen $\\ln(x^2+1)$ gir $\\frac{2x}{x^2+1}$. Og $\\ln(3x^2)$ gir $\\frac{6x}{3x^2} = \\frac{2}{x}$.\n\nLa du merke til noe i det første og siste eksempelet? Vi kunne nådd samme svar via logaritmereglene: $\\ln(2x) = \\ln 2 + \\ln x$, og siden $\\ln 2$ er en konstant, blir den deriverte $\\frac{1}{x}$ direkte. Matematikken er konsistent – ulike veier, samme mål. Til slutt: for generelle grunntall gjelder $\\left(a^{g(x)}\\right)' = a^{g(x)} \\cdot \\ln a \\cdot g'(x)$, en kombinasjon av regelen for $a^x$ og kjerneregelen."},{"id":"r1-4-3-n-quiz3","type":"exercise","exercise":{"id":"r1-4-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på kjerneregelen med eksponential- og logaritmefunksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-3-n-quiz3-q0","task":"Hva er den deriverte av $f(x) = e^{2x}$?","options":[{"id":"a","text":"$e^{2x}$","isCorrect":false},{"id":"b","text":"$2e^{2x}$","isCorrect":true},{"id":"c","text":"$2xe^{2x}$","isCorrect":false},{"id":"d","text":"$e^2$","isCorrect":false}],"solution":"Kjernen $2x$ har derivert 2, så $f'(x) = e^{2x} \\cdot 2 = 2e^{2x}$."},{"id":"r1-4-3-n-quiz3-q1","task":"Hva er den deriverte av $g(x) = e^{x^2}$?","options":[{"id":"a","text":"$e^{x^2}$","isCorrect":false},{"id":"b","text":"$x^2 e^{x^2}$","isCorrect":false},{"id":"c","text":"$e^{2x}$","isCorrect":false},{"id":"d","text":"$2xe^{x^2}$","isCorrect":true}],"solution":"Kjernen $x^2$ har derivert $2x$, så $g'(x) = e^{x^2} \\cdot 2x = 2xe^{x^2}$."},{"id":"r1-4-3-n-quiz3-q2","task":"Hva er den deriverte av $f(x) = \\ln(x^2 + 1)$?","options":[{"id":"a","text":"$\\frac{2x}{x^2+1}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{x^2+1}$","isCorrect":false},{"id":"c","text":"$\\frac{2x}{\\ln(x^2+1)}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{2x}$","isCorrect":false}],"solution":"Formelen $(\\ln g)' = \\frac{g'}{g}$ gir $\\frac{2x}{x^2+1}$."},{"id":"r1-4-3-n-quiz3-q3","task":"Hva er den deriverte av $h(x) = \\ln(3x^2)$?","options":[{"id":"a","text":"$\\frac{1}{3x^2}$","isCorrect":false},{"id":"b","text":"$\\frac{6}{x}$","isCorrect":false},{"id":"c","text":"$\\frac{2}{x}$","isCorrect":true},{"id":"d","text":"$\\frac{3}{x^2}$","isCorrect":false}],"solution":"$h'(x) = \\frac{6x}{3x^2} = \\frac{2}{x}$. Alternativt via logaritmeregler: $\\ln(3x^2) = \\ln 3 + 2\\ln x$, som har derivert $\\frac{2}{x}$."}]}},{"id":"r1-4-3-n-section4","type":"text","content":"## Hele orkesteret spiller sammen\n\nI praksis møter du sjelden en sammensatt funksjon helt alene – den kommer gjerne i et uttrykk med flere ledd. Da bruker du sumregelen til å dele opp, og kjerneregelen på de leddene som trenger den.\n\nTa $f(x) = x^2 + e^{3x} - \\ln(x + 1)$. Vi går ledd for ledd: $(x^2)' = 2x$ er ren potensregel. $(e^{3x})' = 3e^{3x}$ er kjerneregelen med indre derivert 3. Og $(\\ln(x+1))' = \\frac{1}{x+1}$, siden kjernen $x + 1$ har derivert 1. Til sammen: $f'(x) = 2x + 3e^{3x} - \\frac{1}{x+1}$.\n\nOg hva om dukkene ligger i *tre* lag? Se på $f(x) = e^{(x^2+1)^3}$. Her er ytterste lag $e^v$, mellomste lag $v = u^3$, og innerste lag $u = x^2 + 1$. Løsningen er å bruke kjerneregelen trinnvis, utenfra og innover. Først: $(e^{g(x)})' = e^{g(x)} \\cdot g'(x)$ der $g(x) = (x^2+1)^3$. Så trenger vi $g'(x)$ – som selv krever kjerneregelen: $g'(x) = 3(x^2+1)^2 \\cdot 2x = 6x(x^2+1)^2$. Settes alt sammen: $f'(x) = e^{(x^2+1)^3} \\cdot 6x(x^2+1)^2$.\n\nSykkelmetaforen holder fortsatt: tre gir i serie betyr tre endringsrater ganget sammen. Uansett hvor mange lag funksjonen har, skreller du dem av ett om gangen – deriver ytterst, behold resten, gang med den deriverte av det som er innenfor, og gjenta til du når innerste lag."},{"id":"r1-4-3-n-quiz4","type":"exercise","exercise":{"id":"r1-4-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på kombinerte og doble kjerner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-3-n-quiz4-q0","task":"Hva er den deriverte av $f(x) = x^2 + e^{3x} - \\ln(x+1)$?","options":[{"id":"a","text":"$2x + 3e^{3x} - \\frac{1}{x+1}$","isCorrect":true},{"id":"b","text":"$2x + e^{3x} - \\frac{1}{x+1}$","isCorrect":false},{"id":"c","text":"$2x + 3e^{3x} - \\ln(x+1)$","isCorrect":false},{"id":"d","text":"$2x + 3e^{3x} + \\frac{1}{x+1}$","isCorrect":false}],"solution":"Ledd for ledd: $(x^2)' = 2x$, $(e^{3x})' = 3e^{3x}$, og $(\\ln(x+1))' = \\frac{1}{x+1}$. Fortegnet foran logaritmeleddet er minus."},{"id":"r1-4-3-n-quiz4-q1","task":"Hva er den deriverte av $f(x) = e^{(x^2+1)^3}$?","options":[{"id":"a","text":"$e^{(x^2+1)^3}$","isCorrect":false},{"id":"b","text":"$3(x^2+1)^2 e^{(x^2+1)^3}$","isCorrect":false},{"id":"c","text":"$6x(x^2+1)^2 \\, e^{(x^2+1)^3}$","isCorrect":true},{"id":"d","text":"$e^{6x(x^2+1)^2}$","isCorrect":false}],"solution":"Kjerneregelen i to lag: $f'(x) = e^{(x^2+1)^3} \\cdot g'(x)$ der $g(x) = (x^2+1)^3$ har $g'(x) = 3(x^2+1)^2 \\cdot 2x = 6x(x^2+1)^2$."},{"id":"r1-4-3-n-quiz4-q2","task":"Hva er den deriverte av $h(x) = e^{-x}$?","options":[{"id":"a","text":"$e^{-x}$","isCorrect":false},{"id":"b","text":"$-e^{-x}$","isCorrect":true},{"id":"c","text":"$-xe^{-x}$","isCorrect":false},{"id":"d","text":"$e^{x}$","isCorrect":false}],"solution":"Kjernen $-x$ har derivert $-1$, så $h'(x) = e^{-x} \\cdot (-1) = -e^{-x}$."}]}},{"id":"r1-4-3-n-summary","type":"text","content":"## Én regel, uendelig rekkevidde\n\nKjerneregelen er limet som holder hele derivasjonen sammen. Du har lært å se en sammensatt funksjon $f(g(x))$ som to maskiner i serie – en **ytre funksjon** og en **kjerne** – og å finne dem ved å spørre hva du ville regnet ut først. Selve regelen er sykkelgir-logikk: $\\big(f(g(x))\\big)' = f'(g(x)) \\cdot g'(x)$, altså *ytre derivert ganger indre derivert*, eller i Leibniz-notasjon $\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}$.\n\nTre spesialtilfeller gjør hverdagen lett: potenser følger $\\left((g(x))^n\\right)' = n(g(x))^{n-1} \\cdot g'(x)$, eksponentialfunksjoner følger $\\left(e^{g(x)}\\right)' = e^{g(x)} \\cdot g'(x)$, og logaritmer følger $\\left(\\ln(g(x))\\right)' = \\frac{g'(x)}{g(x)}$. For andre grunntall henger faktoren $\\ln a$ med: $\\left(a^{g(x)}\\right)' = a^{g(x)} \\ln a \\cdot g'(x)$.\n\nOg når funksjonen har flere lag, skreller du dem av utenfra og innover, ett lag om gangen – kjerneregelen brukt på kjerneregelen. Kombinert med sum- og konstantreglene kan du nå derivere uttrykk som $x^2 + e^{3x} - \\ln(x+1)$ uten å blunke.\n\nDen vanligste feilen? Å glemme den indre deriverte. Gjør det til en refleks å spørre: *hva er kjernen, og hva er dens deriverte?* I neste kapittel fullfører vi verktøykassa med produktregelen og kvotientregelen – for funksjoner som ganges og deles."}],"exercises":[]}
+{
+  "id": "r1-4-3-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "4.3",
+  "title": "Kjerneregelen",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kjerneregelen -- hvordan sykkelgir og russiske dukker forklarer derivasjon av sammensatte funksjoner som $e^{2x}$, $(x^2+1)^5$ og $\\ln(x^2+1)$.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå hva en sammensatt funksjon er",
+    "beherske kjerneregelen for derivasjon",
+    "kunne identifisere ytre og indre funksjon",
+    "kunne kombinere kjerneregelen med andre derivasjonsregler"
+  ],
+  "linkedChapterId": "r1-4-3",
+  "content": [
+    {
+      "id": "r1-4-3-n-intro",
+      "type": "text",
+      "content": "## Tannhjul i tannhjul\n\nTenk deg girene på en sykkel. Når du tråkker én omdreining på pedalene, drar kjedet det bakre tannhjulet rundt, si, tre ganger. Og hver omdreining på hjulet flytter sykkelen to meter. Hvor fort beveger du deg per pedaltråkk? Selvfølgelig: $3 \\cdot 2 = 6$ meter. Endringer som skjer i ledd, *ganges sammen*.\n\nAkkurat den samme ideen ligger bak kjerneregelen – kanskje den viktigste derivasjonsregelen av alle. Mange funksjoner er nemlig bygget som funksjoner *inni* funksjoner. Ta $f(x) = e^{2x}$: her er det egentlig to maskiner i serie. Først dobles $x$ til $2x$, deretter sendes resultatet inn i eksponentialfunksjonen. Eller $(x^2 + 1)^5$: først regnes $x^2 + 1$ ut, så opphøyes alt i femte.\n\nMed reglene vi har så langt, kan vi derivere $e^x$ og $x^5$ – men ikke $e^{2x}$ eller $(x^2+1)^5$. Den indre funksjonen ødelegger for oss. Kjerneregelen (også kalt kjederegelen) fikser dette med sykkelgir-logikken: vi deriverer den ytre funksjonen, deriverer den indre, og ganger sammen. I dette kapittelet lærer du å gjenkjenne sammensatte funksjoner, plukke dem fra hverandre i ytre og indre del, og derivere dem med én elegant regel."
+    },
+    {
+      "id": "r1-4-3-n-section1",
+      "type": "text",
+      "content": "## Å se de skjulte lagene\n\nFør vi kan derivere en sammensatt funksjon, må vi kunne *se* at den er sammensatt – og hva den er sammensatt av. En **sammensatt funksjon** $f(g(x))$ består av en **ytre funksjon** $f(u)$ og en **indre funksjon** $g(x)$, som vi også kaller **kjernen**. Vi setter kjernen inn i den ytre funksjonen, som en matrjosjka-dukke med en mindre dukke inni.\n\nTrikset for å identifisere delene er å spørre: *hva ville jeg regnet ut først hvis jeg satte inn et tall?* Det du regner først, er kjernen. Ta $f(x) = (x^2 + 1)^5$. Setter du inn $x = 2$, regner du først $2^2 + 1 = 5$, og deretter $5^5$. Altså: kjernen er $u = x^2 + 1$, og den ytre funksjonen er $u^5$.\n\nLa oss trene blikket på flere. I $g(x) = \\ln(3x)$ er kjernen $u = 3x$ og den ytre funksjonen $\\ln u$. I $h(x) = e^{x^2}$ er kjernen $u = x^2$ og den ytre $e^u$. Og i $p(x) = \\sqrt{x^3 - 2}$ lønner det seg å skrive roten som potens: $p(x) = (x^3 - 2)^{1/2}$, med kjerne $u = x^3 - 2$ og ytre funksjon $u^{1/2}$.\n\nLegg merke til mønsteret: kjernen er det som står «innerst» – i parentesen, i eksponenten eller under rottegnet. Når du har klart å dele funksjonen i ytre og indre, er selve derivasjonen nesten mekanisk. Det er det neste seksjon handler om."
+    },
+    {
+      "id": "r1-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ytre og indre funksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-3-n-quiz1-q0",
+            "task": "Hva er kjernen (den indre funksjonen) i $f(x) = (x^2 + 1)^5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$u^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernen er det vi regner ut først: $u = x^2 + 1$. Den ytre funksjonen er $u^5$."
+          },
+          {
+            "id": "r1-4-3-n-quiz1-q1",
+            "task": "Hva er den ytre funksjonen i $h(x) = e^{x^2}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$u^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$e^u$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$e^x \\cdot x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernen er $u = x^2$, og den settes inn i eksponentialfunksjonen. Ytre funksjon: $e^u$."
+          },
+          {
+            "id": "r1-4-3-n-quiz1-q2",
+            "task": "Hvordan deler vi opp $p(x) = \\sqrt{x^3 - 2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ytre: $\\sqrt{u}$, kjerne: $x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ytre: $x^3 - 2$, kjerne: $u^{1/2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ytre: $u^3$, kjerne: $\\sqrt{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ytre: $u^{1/2}$, kjerne: $x^3 - 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Skriv roten som potens: $p(x) = (x^3 - 2)^{1/2}$. Kjernen er det innerste, $u = x^3 - 2$, og den ytre funksjonen er $u^{1/2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-3-n-section2",
+      "type": "text",
+      "content": "## Ytre derivert ganger indre derivert\n\nHer er selve regelen. Hvis $f(x) = h(g(x))$, så er $f'(x) = h'(g(x)) \\cdot g'(x)$. Med ord: **ytre derivert ganger indre derivert**. Med Leibniz-notasjon, der $y = f(u)$ og $u = g(x)$, skrives den $\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}$ – og da ser du sykkelgirene igjen: endringsratene i hvert ledd ganges sammen.\n\nFremgangsmåten er alltid den samme. Først identifiserer du ytre funksjon og kjerne. Så deriverer du den ytre funksjonen *mens du lar kjernen stå urørt*. Til slutt ganger du med den deriverte av kjernen.\n\nDen vanligste varianten er «noe opphøyd i $n$-te»: hvis $f(x) = (g(x))^n$, gir kjerneregelen den **generaliserte potensregelen** $f'(x) = n \\cdot (g(x))^{n-1} \\cdot g'(x)$. La oss derivere $f(x) = (x^2 + 1)^5$. Ytre derivert: $5(x^2+1)^4$ – kjernen står urørt. Indre derivert: $(x^2+1)' = 2x$. Ganger sammen: $f'(x) = 5(x^2+1)^4 \\cdot 2x = 10x(x^2+1)^4$. Uten kjerneregelen måtte vi ha multiplisert ut en femtegradspotens – nå tok det tre linjer.\n\nFlere på rappen: $(3x - 2)^4$ har kjerne med derivert 3, så svaret blir $4(3x-2)^3 \\cdot 3 = 12(3x-2)^3$. Roten $\\sqrt{x^2 + 4} = (x^2+4)^{1/2}$ gir $\\frac{1}{2}(x^2+4)^{-1/2} \\cdot 2x = \\frac{x}{\\sqrt{x^2+4}}$. Og brøken $\\frac{1}{(2x+1)^3} = (2x+1)^{-3}$ gir $-3(2x+1)^{-4} \\cdot 2 = -\\frac{6}{(2x+1)^4}$. Tre helt ulike utseender – nøyaktig samme regel."
+    },
+    {
+      "id": "r1-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kjerneregelen med potenser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-3-n-quiz2-q0",
+            "task": "Hva er den deriverte av $f(x) = (x^2 + 1)^5$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$10x(x^2+1)^4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5(x^2+1)^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5(2x)^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10x^4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ytre derivert: $5(x^2+1)^4$. Indre derivert: $2x$. Produktet blir $5(x^2+1)^4 \\cdot 2x = 10x(x^2+1)^4$. Svaret $5(x^2+1)^4$ mangler den indre deriverte."
+          },
+          {
+            "id": "r1-4-3-n-quiz2-q1",
+            "task": "Hva er den deriverte av $f(x) = (3x - 2)^4$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4(3x-2)^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$12(3x-2)^3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$12(3x-2)^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4 \\cdot 3^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ytre derivert: $4(3x-2)^3$. Indre derivert: $3$. Til sammen $4(3x-2)^3 \\cdot 3 = 12(3x-2)^3$."
+          },
+          {
+            "id": "r1-4-3-n-quiz2-q2",
+            "task": "Hva er den deriverte av $g(x) = \\sqrt{x^2 + 4}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2\\sqrt{x^2+4}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2x}{x^2+4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x}{\\sqrt{x^2+4}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2x\\sqrt{x^2+4}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skriv som $(x^2+4)^{1/2}$. Da blir den deriverte $\\frac{1}{2}(x^2+4)^{-1/2} \\cdot 2x = \\frac{x}{\\sqrt{x^2+4}}$."
+          },
+          {
+            "id": "r1-4-3-n-quiz2-q3",
+            "task": "Hva er den deriverte av $h(x) = \\frac{1}{(2x+1)^3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{3}{(2x+1)^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-\\frac{3}{(2x+1)^4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{6}{(2x+1)^4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{6}{(2x+1)^4}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Skriv som $(2x+1)^{-3}$. Da blir den deriverte $-3(2x+1)^{-4} \\cdot 2 = -\\frac{6}{(2x+1)^4}$. Husk å gange med den indre deriverte 2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-3-n-section3",
+      "type": "text",
+      "content": "## Kjerneregelen møter $e^x$ og $\\ln x$\n\nNå kombinerer vi kjerneregelen med stjernene fra forrige kapittel. Siden $(e^u)' = e^u$, sier kjerneregelen at hvis $f(x) = e^{g(x)}$, så er $f'(x) = e^{g(x)} \\cdot g'(x)$. Eksponentialfunksjonen kopierer seg selv, og så ganger vi med den deriverte av eksponenten.\n\nSe hvor glatt det går: $f(x) = e^{2x}$ har kjerne $u = 2x$ med derivert 2, så $f'(x) = 2e^{2x}$. Funksjonen $g(x) = e^{x^2}$ har kjerne $x^2$ med derivert $2x$, så $g'(x) = 2xe^{x^2}$. Og $h(x) = e^{-x}$, som beskriver radioaktiv nedbrytning og avkjøling, har kjerne $-x$ med derivert $-1$: $h'(x) = -e^{-x}$.\n\nFor logaritmen bruker vi at $(\\ln u)' = \\frac{1}{u}$. Hvis $f(x) = \\ln(g(x))$ der $g(x) > 0$, gir kjerneregelen den lekre formelen $f'(x) = \\frac{g'(x)}{g(x)}$ – *den indre deriverte delt på kjernen selv*.\n\nPrøv den: $\\ln(2x)$ gir $\\frac{2}{2x} = \\frac{1}{x}$. Funksjonen $\\ln(x^2+1)$ gir $\\frac{2x}{x^2+1}$. Og $\\ln(3x^2)$ gir $\\frac{6x}{3x^2} = \\frac{2}{x}$.\n\nLa du merke til noe i det første og siste eksempelet? Vi kunne nådd samme svar via logaritmereglene: $\\ln(2x) = \\ln 2 + \\ln x$, og siden $\\ln 2$ er en konstant, blir den deriverte $\\frac{1}{x}$ direkte. Matematikken er konsistent – ulike veier, samme mål. Til slutt: for generelle grunntall gjelder $\\left(a^{g(x)}\\right)' = a^{g(x)} \\cdot \\ln a \\cdot g'(x)$, en kombinasjon av regelen for $a^x$ og kjerneregelen."
+    },
+    {
+      "id": "r1-4-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kjerneregelen med eksponential- og logaritmefunksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-3-n-quiz3-q0",
+            "task": "Hva er den deriverte av $f(x) = e^{2x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2e^{2x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$e^{2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2xe^{2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernen $2x$ har derivert 2, så $f'(x) = e^{2x} \\cdot 2 = 2e^{2x}$."
+          },
+          {
+            "id": "r1-4-3-n-quiz3-q1",
+            "task": "Hva er den deriverte av $g(x) = e^{x^2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2xe^{x^2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x^2 e^{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e^{2x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernen $x^2$ har derivert $2x$, så $g'(x) = e^{x^2} \\cdot 2x = 2xe^{x^2}$."
+          },
+          {
+            "id": "r1-4-3-n-quiz3-q2",
+            "task": "Hva er den deriverte av $f(x) = \\ln(x^2 + 1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{x^2+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2x}{\\ln(x^2+1)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{2x}{x^2+1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formelen $(\\ln g)' = \\frac{g'}{g}$ gir $\\frac{2x}{x^2+1}$."
+          },
+          {
+            "id": "r1-4-3-n-quiz3-q3",
+            "task": "Hva er den deriverte av $h(x) = \\ln(3x^2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{3x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{6}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{x}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$h'(x) = \\frac{6x}{3x^2} = \\frac{2}{x}$. Alternativt via logaritmeregler: $\\ln(3x^2) = \\ln 3 + 2\\ln x$, som har derivert $\\frac{2}{x}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-3-n-section4",
+      "type": "text",
+      "content": "## Hele orkesteret spiller sammen\n\nI praksis møter du sjelden en sammensatt funksjon helt alene – den kommer gjerne i et uttrykk med flere ledd. Da bruker du sumregelen til å dele opp, og kjerneregelen på de leddene som trenger den.\n\nTa $f(x) = x^2 + e^{3x} - \\ln(x + 1)$. Vi går ledd for ledd: $(x^2)' = 2x$ er ren potensregel. $(e^{3x})' = 3e^{3x}$ er kjerneregelen med indre derivert 3. Og $(\\ln(x+1))' = \\frac{1}{x+1}$, siden kjernen $x + 1$ har derivert 1. Til sammen: $f'(x) = 2x + 3e^{3x} - \\frac{1}{x+1}$.\n\nOg hva om dukkene ligger i *tre* lag? Se på $f(x) = e^{(x^2+1)^3}$. Her er ytterste lag $e^v$, mellomste lag $v = u^3$, og innerste lag $u = x^2 + 1$. Løsningen er å bruke kjerneregelen trinnvis, utenfra og innover. Først: $(e^{g(x)})' = e^{g(x)} \\cdot g'(x)$ der $g(x) = (x^2+1)^3$. Så trenger vi $g'(x)$ – som selv krever kjerneregelen: $g'(x) = 3(x^2+1)^2 \\cdot 2x = 6x(x^2+1)^2$. Settes alt sammen: $f'(x) = e^{(x^2+1)^3} \\cdot 6x(x^2+1)^2$.\n\nSykkelmetaforen holder fortsatt: tre gir i serie betyr tre endringsrater ganget sammen. Uansett hvor mange lag funksjonen har, skreller du dem av ett om gangen – deriver ytterst, behold resten, gang med den deriverte av det som er innenfor, og gjenta til du når innerste lag."
+    },
+    {
+      "id": "r1-4-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kombinerte og doble kjerner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-3-n-quiz4-q0",
+            "task": "Hva er den deriverte av $f(x) = x^2 + e^{3x} - \\ln(x+1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x + 3e^{3x} - \\frac{1}{x+1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2x + e^{3x} - \\frac{1}{x+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x + 3e^{3x} - \\ln(x+1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x + 3e^{3x} + \\frac{1}{x+1}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledd for ledd: $(x^2)' = 2x$, $(e^{3x})' = 3e^{3x}$, og $(\\ln(x+1))' = \\frac{1}{x+1}$. Fortegnet foran logaritmeleddet er minus."
+          },
+          {
+            "id": "r1-4-3-n-quiz4-q1",
+            "task": "Hva er den deriverte av $f(x) = e^{(x^2+1)^3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{(x^2+1)^3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6x(x^2+1)^2 \\, e^{(x^2+1)^3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3(x^2+1)^2 e^{(x^2+1)^3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^{6x(x^2+1)^2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen i to lag: $f'(x) = e^{(x^2+1)^3} \\cdot g'(x)$ der $g(x) = (x^2+1)^3$ har $g'(x) = 3(x^2+1)^2 \\cdot 2x = 6x(x^2+1)^2$."
+          },
+          {
+            "id": "r1-4-3-n-quiz4-q2",
+            "task": "Hva er den deriverte av $h(x) = e^{-x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{-x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-xe^{-x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-e^{-x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$e^{x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernen $-x$ har derivert $-1$, så $h'(x) = e^{-x} \\cdot (-1) = -e^{-x}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-3-n-summary",
+      "type": "text",
+      "content": "## Én regel, uendelig rekkevidde\n\nKjerneregelen er limet som holder hele derivasjonen sammen. Du har lært å se en sammensatt funksjon $f(g(x))$ som to maskiner i serie – en **ytre funksjon** og en **kjerne** – og å finne dem ved å spørre hva du ville regnet ut først. Selve regelen er sykkelgir-logikk: $\\big(f(g(x))\\big)' = f'(g(x)) \\cdot g'(x)$, altså *ytre derivert ganger indre derivert*, eller i Leibniz-notasjon $\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}$.\n\nTre spesialtilfeller gjør hverdagen lett: potenser følger $\\left((g(x))^n\\right)' = n(g(x))^{n-1} \\cdot g'(x)$, eksponentialfunksjoner følger $\\left(e^{g(x)}\\right)' = e^{g(x)} \\cdot g'(x)$, og logaritmer følger $\\left(\\ln(g(x))\\right)' = \\frac{g'(x)}{g(x)}$. For andre grunntall henger faktoren $\\ln a$ med: $\\left(a^{g(x)}\\right)' = a^{g(x)} \\ln a \\cdot g'(x)$.\n\nOg når funksjonen har flere lag, skreller du dem av utenfra og innover, ett lag om gangen – kjerneregelen brukt på kjerneregelen. Kombinert med sum- og konstantreglene kan du nå derivere uttrykk som $x^2 + e^{3x} - \\ln(x+1)$ uten å blunke.\n\nDen vanligste feilen? Å glemme den indre deriverte. Gjør det til en refleks å spørre: *hva er kjernen, og hva er dens deriverte?* I neste kapittel fullfører vi verktøykassa med produktregelen og kvotientregelen – for funksjoner som ganges og deles."
+    }
+  ],
+  "exercises": []
+}

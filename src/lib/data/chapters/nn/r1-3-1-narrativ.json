@@ -1,1 +1,651 @@
-{"id":"r1-3-1-narrativ","courseId":"r1","chapterNumber":"3.1","title":"Grenseverdi","subtitle":"Narrativ versjon","description":"Ei forteljing om å nærme seg utan å nå -- frå Zenons paradoks om Akilles og skjelpadda til teknikkane som temjer forma 0/0.","estimatedMinutes":35,"competenceGoals":["forstå omgrepet grenseverdi intuitivt og formelt","berekne grenseverdiar ved innsetjing, faktorisering og konjugering","forstå og berekne einsidige grenseverdiar","berekne grenseverdiar når $x \\to \\pm\\infty$","bruke reknereglar for grenseverdiar"],"linkedChapterId":"r1-3-1","content":[{"id":"r1-3-1-n-intro","type":"text","content":"## Akilles, skjelpadda og kunsten å nærme seg\n\nFor 2400 år sidan formulerte den greske filosofen Zenon eit paradoks som skulle plage matematikarar i to årtusen. Helten Akilles spring om kapp med ei skjelpadde som får hundre meter forsprang. Når Akilles har sprunge dei hundre meterane, har skjelpadda krope ti meter vidare. Når han har teke att dei ti, har ho flytta seg éin meter til. Og slik held det fram: kvar gong Akilles når dit skjelpadda *var*, er ho litt lenger framme. Uendeleg mange etappar -- kan han då nokon gong ta henne att?\n\nSjølvsagt gjer han det, det veit kvar den som har sett eit kappløp. Men *kvifor* tek reknestykket feil? Svaret krev eit omgrep grekarane mangla: **grenseverdien**. Dei uendeleg mange etappane blir raskt uendeleg korte, og summen av dei *nærmar seg* ein bestemt, endeleg verdi. Å gjere «nærmar seg» til presis matematikk -- det er prosjektet til dette kapittelet, og det er fundamentet under heile matematisk analyse.\n\nDu såg behovet allereie i kapittel 2.5: den deriverte vart definert som noko differansekvotienten nærma seg når $h$ krympa mot null. Men der sneik det seg inn eit problem vi feidde under teppet: set du $h = 0$ rett inn, får du $\\frac{0}{0}$ -- eit meiningslaust uttrykk. Grenseverdiomgrepet er verktøyet som gjer slike berekningar stuereine.\n\nI dette kapittelet lærer du kva $\\lim_{x \\to a} f(x) = L$ tyder, reknereglane som gjer grenseverdiar handterbare, teknikkane faktorisering og konjugering som temjer forma $\\frac{0}{0}$, einsidige grenseverdiar -- og til slutt kva som skjer når $x$ veks mot uendeleg."},{"id":"r1-3-1-n-section1","type":"text","content":"## Kva grenseverdien er -- og reknereglane\n\nSjå på $f(x) = \\frac{x^2-1}{x-1}$. I $x = 1$ er funksjonen udefinert -- innsetjing gir $\\frac{0}{0}$. Men sjå kva som skjer *nær* $1$: $f(0{,}9) = 1{,}9$, $f(0{,}99) = 1{,}99$, $f(0{,}999) = 1{,}999$, og frå den andre sida $f(1{,}001) = 2{,}001$, $f(1{,}01) = 2{,}01$. Verdiane klemmer seg inn mot $2$ frå begge kantar. Vi skriv\n\n$$\\lim_{x \\to 1} \\frac{x^2-1}{x-1} = 2$$\n\nog seier at *grenseverdien når $x$ går mot $1$ er $2$*. Den presise meininga: $f(x)$ kan gjerast vilkårleg nær $2$ ved å velje $x$ tilstrekkeleg nær $1$ -- men $x \\neq 1$. Det siste er viktig: grenseverdien bryr seg utelukkande om verdiane *nær* punktet, aldri om verdien *i* punktet. Funksjonen treng ikkje eingong vere definert der, og det er nettopp difor omgrepet bergar $\\frac{0}{0}$ i derivasjonen.\n\nAlgebraen bak talleksempelet er enkel: $\\frac{x^2-1}{x-1} = \\frac{(x-1)(x+1)}{x-1} = x + 1$ for $x \\neq 1$, og $x + 1$ siktar openbert mot $2$.\n\nHeldigvis slepp vi tabellrekning i det daglege, for grenseverdiar følgjer fornuftige **reknereglar**. Dersom $\\lim_{x \\to a} f(x) = L$ og $\\lim_{x \\to a} g(x) = M$, så er grensa av sum, differanse og produkt høvesvis $L + M$, $L - M$ og $L \\cdot M$, og $\\lim \\frac{f(x)}{g(x)} = \\frac{L}{M}$ *føresett* $M \\neq 0$. Konstantar kan flyttast utanfor, og potensar følgjer med: $\\lim [f(x)]^n = L^n$.\n\nFor pene funksjonar tyder dette at grenseverdi = innsetjing: $\\lim_{x \\to 2}(3x^2 - 2x + 1) = 12 - 4 + 1 = 9$, og $\\lim_{x \\to 1} \\frac{x^2+1}{x+2} = \\frac{2}{3}$ sidan nemnaren ikkje er null. Dramaet oppstår først når innsetjing gir $\\frac{0}{0}$ -- og det tek vi no."},{"id":"r1-3-1-n-quiz1","type":"exercise","exercise":{"id":"r1-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grenseverdiomgrepet og reknereglane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-1-n-quiz1-q0","task":"Kva er $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"Eksisterer ikkje","isCorrect":false},{"id":"c","text":"$2$","isCorrect":true},{"id":"d","text":"$1$","isCorrect":false}],"solution":"$\\frac{x^2-1}{x-1} = x+1$ for $x \\neq 1$, og $x + 1 \\to 2$ når $x \\to 1$. At funksjonen er udefinert i sjølve punktet, spelar inga rolle for grenseverdien."},{"id":"r1-3-1-n-quiz1-q1","task":"Kva for ei påstand om $\\lim_{x \\to a} f(x)$ er rett?","options":[{"id":"a","text":"Grenseverdien er alltid lik $f(a)$","isCorrect":false},{"id":"b","text":"Grenseverdien avheng berre av verdiane til $f$ nær $a$, ikkje av $f(a)$","isCorrect":true},{"id":"c","text":"Grenseverdien finst berre når $f$ er definert i $a$","isCorrect":false},{"id":"d","text":"Grenseverdien er alltid $0$ eller $\\infty$","isCorrect":false}],"solution":"Grenseverdien skildrar kva $f(x)$ nærmar seg når $x$ nærmar seg $a$ -- verdien i sjølve punktet, om han finst, er irrelevant."},{"id":"r1-3-1-n-quiz1-q2","task":"Kva er $\\lim_{x \\to 2} (3x^2 - 2x + 1)$?","options":[{"id":"a","text":"$13$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":false},{"id":"c","text":"$11$","isCorrect":false},{"id":"d","text":"$9$","isCorrect":true}],"solution":"Polynom er snille: grenseverdien får vi ved innsetjing, $3 \\cdot 4 - 4 + 1 = 9$."},{"id":"r1-3-1-n-quiz1-q3","task":"Når gjeld regelen $\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\frac{L}{M}$?","options":[{"id":"a","text":"Når $M \\neq 0$","isCorrect":true},{"id":"b","text":"Alltid","isCorrect":false},{"id":"c","text":"Berre når $L \\neq 0$","isCorrect":false},{"id":"d","text":"Berre for polynom","isCorrect":false}],"solution":"Kvotientregelen krev at nemnargrensa $M$ ikkje er null -- elles må vi gripe til algebraiske teknikkar."}]}},{"id":"r1-3-1-n-section2","type":"text","content":"## Forma $\\frac{0}{0}$: faktorisering og konjugering\n\nNår innsetjing gir $\\frac{0}{0}$, har du møtt ei **ubestemt form**. Merk ordet: $\\frac{0}{0}$ er ikkje eit tal, og det er heller ikkje automatisk «udefinert, ferdig med det». Det er eit *varsel* om at teljar og nemnar kappast mot null, og at grenseverdien kan bli kva som helst -- alt avheng av kven som taper kappløpet. Ubestemte former krev etterforsking, og verktøyet i etterforskinga er algebra.\n\n**Teknikk 1: Faktorisering.** Når teljar og nemnar er polynom som begge blir null i $x = a$, veit du frå faktorteoremet at begge inneheld faktoren $(x - a)$ -- det er den som skaper problemet, og den kan forkortast bort. For $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$: innsetjing gir $\\frac{0}{0}$, men konjugatsetninga faktoriserer teljaren, og\n\n$$\\lim_{x \\to 3} \\frac{(x-3)(x+3)}{x-3} = \\lim_{x \\to 3} (x+3) = 6$$\n\nForkortinga er lovleg fordi grenseprosessen aldri lèt $x$ vere nøyaktig $3$ -- og for alle andre $x$ er uttrykka like.\n\n**Teknikk 2: Konjugering.** Når rotuttrykk er innblanda, gongar vi med konjugatet. For $\\lim_{x \\to 0} \\frac{\\sqrt{x+4} - 2}{x}$ utvidar vi med $\\sqrt{x+4} + 2$ oppe og nede. Teljaren blir $(\\sqrt{x+4})^2 - 2^2 = x + 4 - 4 = x$ -- rota er borte! Vi forkortar $x$:\n\n$$\\lim_{x \\to 0} \\frac{x}{x(\\sqrt{x+4}+2)} = \\lim_{x \\to 0} \\frac{1}{\\sqrt{x+4}+2} = \\frac{1}{4}$$\n\nTrikset byggjer på tredje kvadratsetning: $(\\sqrt{a} - b)(\\sqrt{a} + b) = a - b^2$, som viskar ut kvadratrøter.\n\nStrategien er altså alltid den same: omform uttrykket til ein variant der den problematiske faktoren er forkorta vekk, og set så inn. Du etterforskar forma $\\frac{0}{0}$ til ho tilstår sin eigentlege verdi."},{"id":"r1-3-1-n-quiz2","type":"exercise","exercise":{"id":"r1-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på ubestemte former:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-1-n-quiz2-q0","task":"Kva er $\\frac{0}{0}$?","options":[{"id":"a","text":"Lik $1$","isCorrect":false},{"id":"b","text":"Ei ubestemt form -- grenseverdien kan vere kva som helst og må undersøkjast","isCorrect":true},{"id":"c","text":"Lik $0$","isCorrect":false},{"id":"d","text":"Alltid uendeleg","isCorrect":false}],"solution":"$\\frac{0}{0}$ er ikkje eit tal, men eit varsel om at teljar og nemnar kappast mot null. Grenseverdien blir avgjord ved algebraisk omforming."},{"id":"r1-3-1-n-quiz2-q1","task":"Kva er $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$?","options":[{"id":"a","text":"$6$","isCorrect":true},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"Eksisterer ikkje","isCorrect":false}],"solution":"Faktoriser: $\\frac{(x-3)(x+3)}{x-3} = x+3$ for $x \\neq 3$, som går mot $6$."},{"id":"r1-3-1-n-quiz2-q2","task":"Kva er $\\lim_{x \\to 0} \\frac{\\sqrt{x+4}-2}{x}$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{4}$","isCorrect":true}],"solution":"Gong med konjugatet $\\sqrt{x+4}+2$: teljaren blir $x$, som blir forkorta, og att står $\\frac{1}{\\sqrt{x+4}+2} \\to \\frac{1}{4}$."},{"id":"r1-3-1-n-quiz2-q3","task":"Kva er konjugatet til $\\sqrt{a} - b$?","options":[{"id":"a","text":"$b - \\sqrt{a}$","isCorrect":false},{"id":"b","text":"$\\sqrt{a - b}$","isCorrect":false},{"id":"c","text":"$\\sqrt{a} + b$","isCorrect":true},{"id":"d","text":"$a + b^2$","isCorrect":false}],"solution":"Konjugatet byter forteikn på det eine leddet: $\\sqrt{a}+b$. Produktet $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$ fjernar rota."}]}},{"id":"r1-3-1-n-section3","type":"text","content":"## Einsidige grenseverdiar -- når sidene er usamde\n\nTil no har funksjonane våre sikta mot same verdi uansett kva for side $x$ kom frå. Men det er inga sjølvfølgje. Tenk på ein stykkevis definert funksjon frå kapittel 2.4 -- delane til venstre og høgre for eit skøytepunkt kan sikte kvar sin stad.\n\nDifor treng vi **einsidige grenseverdiar**. Den *venstresidige*, $\\lim_{x \\to a^-} f(x)$, skildrar kva $f(x)$ nærmar seg når $x$ kryp mot $a$ nedanfrå ($x < a$); den *høgresidige*, $\\lim_{x \\to a^+} f(x)$, tilsvarande ovanfrå ($x > a$). Det vesle minus- eller plussteiknet i eksponenten oppgir altså retninga på tilnærminga.\n\nKlassikaren er forteiknsfunksjonen $f(x) = \\frac{|x|}{x}$. For positive $x$ er $|x| = x$, så $f(x) = 1$; for negative $x$ er $|x| = -x$, så $f(x) = -1$. Dermed:\n\n$$\\lim_{x \\to 0^+} \\frac{|x|}{x} = 1 \\qquad \\text{og} \\qquad \\lim_{x \\to 0^-} \\frac{|x|}{x} = -1$$\n\nGrafen ligg som to åtskilde hyller, éi i høgd $-1$ og éi i høgd $1$, med eit gap i null.\n\nOg her kjem regelen som bind alt saman: den tosidige grenseverdien $\\lim_{x \\to a} f(x)$ **eksisterer dersom og berre dersom begge dei einsidige eksisterer og er like**. For forteiknsfunksjonen er $1 \\neq -1$, så $\\lim_{x \\to 0} \\frac{|x|}{x}$ eksisterer ikkje. Det finst ikkje noko enkelt tal funksjonen nærmar seg -- svaret avheng av reiseruta, og då er det ikkje ein grenseverdi.\n\nEinsidige grenser er ikkje ein kuriositet. Dei er sjølve verktøyet for å undersøkje skøytepunkta i stykkevis definerte funksjonar, og i neste kapittel blir dei berebjelken i kontinuitetsomgrepet: kontinuitet i eit punkt er nettopp at venstregrense, høgregrense og funksjonsverdi alle stemmer overeins."},{"id":"r1-3-1-n-quiz3","type":"exercise","exercise":{"id":"r1-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på einsidige grenseverdiar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-1-n-quiz3-q0","task":"Kva er $\\lim_{x \\to 0^+} \\frac{|x|}{x}$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":true},{"id":"c","text":"$-1$","isCorrect":false},{"id":"d","text":"Eksisterer ikkje","isCorrect":false}],"solution":"For $x > 0$ er $|x| = x$, så $\\frac{|x|}{x} = 1$ heile vegen -- grensa frå høgre er $1$."},{"id":"r1-3-1-n-quiz3-q1","task":"Kva er $\\lim_{x \\to 0^-} \\frac{|x|}{x}$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"Eksisterer ikkje","isCorrect":false},{"id":"d","text":"$-1$","isCorrect":true}],"solution":"For $x < 0$ er $|x| = -x$, så $\\frac{|x|}{x} = -1$ -- grensa frå venstre er $-1$."},{"id":"r1-3-1-n-quiz3-q2","task":"Eksisterer $\\lim_{x \\to 0} \\frac{|x|}{x}$?","options":[{"id":"a","text":"Nei -- dei einsidige grenseverdiane er forskjellige","isCorrect":true},{"id":"b","text":"Ja, han er $0$","isCorrect":false},{"id":"c","text":"Ja, han er $1$","isCorrect":false},{"id":"d","text":"Ja, han er både $1$ og $-1$","isCorrect":false}],"solution":"Tosidig grenseverdi krev at venstre- og høgresidig grense er like. Her er dei $-1$ og $1$, så grenseverdien eksisterer ikkje."},{"id":"r1-3-1-n-quiz3-q3","task":"Kva er samanhengen mellom tosidig og einsidige grenseverdiar?","options":[{"id":"a","text":"Den tosidige er gjennomsnittet av dei einsidige","isCorrect":false},{"id":"b","text":"Dei einsidige finst berre når den tosidige ikkje gjer det","isCorrect":false},{"id":"c","text":"$\\lim_{x \\to a} f(x) = L$ dersom og berre dersom begge einsidige grenser er lik $L$","isCorrect":true},{"id":"d","text":"Den tosidige er alltid den største av dei to","isCorrect":false}],"solution":"Grenseverdien eksisterer nøyaktig når begge dei einsidige eksisterer og er like -- då er fellesverdien grenseverdien."}]}},{"id":"r1-3-1-n-section4","type":"text","content":"## Mot uendeleg: horisontale asymptotar\n\nDet siste spørsmålet snur perspektivet: ikkje «kva skjer nær eit punkt», men «kva skjer der ute» -- når $x$ veks over alle grenser. Vi skriv $\\lim_{x \\to \\infty} f(x) = L$ dersom $f(x)$ kjem vilkårleg nær $L$ når $x$ blir stor nok, og tilsvarande for $x \\to -\\infty$. Dersom grenseverdien er eit endeleg tal $L$, flatar grafen ut langs linja $y = L$ -- ein **horisontal asymptote**.\n\nByggjesteinen for alt som følgjer er éi enkel observasjon: for $n > 0$ er\n\n$$\\lim_{x \\to \\pm\\infty} \\frac{1}{x^n} = 0$$\n\nÉin delt på noko enormt er nesten ingenting.\n\nFor rasjonale funksjonar gir dette ein kraftig metode: **del teljar og nemnar på den høgaste potensen i nemnaren**. Ta $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$. Vi deler alt på $x^2$:\n\n$$\\lim_{x \\to \\infty} \\frac{3 - \\frac{2}{x} + \\frac{1}{x^2}}{1 + \\frac{5}{x^2}} = \\frac{3 - 0 + 0}{1 + 0} = 3$$\n\nAlle småbrøkane døyr ut, og berre dei leiande koeffisientane overlever. For $\\frac{x+1}{x^2-1}$ gir same manøver $\\frac{0}{1} = 0$: teljaren er av lågare grad og taper kappløpet.\n\nMønsteret kondenserer til ein tommelfingerregel for $\\frac{a_n x^n + \\ldots}{b_m x^m + \\ldots}$: er teljargraden *lågare* enn nemnargraden ($n < m$), er grensa $0$. Er gradene *like* ($n = m$), er grensa forholdet $\\frac{a_n}{b_m}$ mellom dei leiande koeffisientane. Er teljargraden *størst* ($n > m$), stikk uttrykket av mot $\\pm\\infty$, og ingen horisontal asymptote finst.\n\nIntuisjonen bak alt saman: når $x$ er enorm, er det dei høgaste potensane som avgjer -- alt anna er støy. Slik tenkjer også fysikarar og informatikarar når dei spør korleis system og algoritmar oppfører seg «i det lange løp»."},{"id":"r1-3-1-n-quiz4","type":"exercise","exercise":{"id":"r1-3-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på grenseverdiar i uendeleg:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-1-n-quiz4-q0","task":"Kva er $\\lim_{x \\to \\infty} \\frac{1}{x^n}$ for $n > 0$?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$\\infty$","isCorrect":false},{"id":"d","text":"$n$","isCorrect":false}],"solution":"Når $x$ veks over alle grenser, blir $\\frac{1}{x^n}$ vilkårleg liten -- grensa er $0$."},{"id":"r1-3-1-n-quiz4-q1","task":"Kva er $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$?","options":[{"id":"a","text":"$\\infty$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":true},{"id":"d","text":"$\\frac{3}{5}$","isCorrect":false}],"solution":"Del på $x^2$: $\\frac{3 - 2/x + 1/x^2}{1 + 5/x^2} \\to \\frac{3}{1} = 3$. Like grader gir forholdet mellom leiande koeffisientar."},{"id":"r1-3-1-n-quiz4-q2","task":"Kva er $\\lim_{x \\to \\infty} \\frac{x+1}{x^2-1}$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":true},{"id":"c","text":"$-1$","isCorrect":false},{"id":"d","text":"$\\infty$","isCorrect":false}],"solution":"Teljargraden ($1$) er lågare enn nemnargraden ($2$), så nemnaren vinn kappløpet og grensa er $0$."},{"id":"r1-3-1-n-quiz4-q3","task":"Når har ein rasjonal funksjon $\\frac{P(x)}{Q(x)}$ ein horisontal asymptote forskjellig frå $y = 0$?","options":[{"id":"a","text":"Når $\\text{grad}(P) > \\text{grad}(Q)$","isCorrect":false},{"id":"b","text":"Aldri","isCorrect":false},{"id":"c","text":"Når $P$ har eit konstantledd","isCorrect":false},{"id":"d","text":"Når $\\text{grad}(P) = \\text{grad}(Q)$ -- asymptoten er $y = \\frac{a_n}{b_m}$","isCorrect":true}],"solution":"Like grader gir grenseverdi lik forholdet mellom dei leiande koeffisientane, altså horisontal asymptote $y = \\frac{a_n}{b_m}$."}]}},{"id":"r1-3-1-n-summary","type":"text","content":"## Forteljinga i eit nøtteskal\n\nSkjelpadda til Zenon lærte oss at «uendeleg mange steg» kan ha eit endeleg mål -- og grenseverdien er omgrepet som gjer det presist. $\\lim_{x \\to a} f(x) = L$ tyder at $f(x)$ kan gjerast vilkårleg nær $L$ ved å velje $x$ nær nok $a$, og verdien $f(a)$ sjølv er saka uvedkomande -- funksjonen treng ikkje eingong vere definert i punktet.\n\n**Reknereglane** lèt oss kombinere grenser av sum, differanse, produkt og kvotient (nemnargrense ulik null), og for snille uttrykk er grenseverdi rett og slett innsetjing. Når innsetjing gir den **ubestemte forma** $\\frac{0}{0}$, startar etterforskinga: **faktorisering** forkortar bort den skuldige faktoren $(x-a)$ i polynombrøkar, og **konjugering** viskar ut kvadratrøter via $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$.\n\n**Einsidige grenseverdiar** skil retningane: $x \\to a^-$ frå venstre, $x \\to a^+$ frå høgre. Grenseverdien eksisterer nøyaktig når begge sider er samde -- forteiknsfunksjonen $\\frac{|x|}{x}$, med $-1$ frå venstre og $1$ frå høgre, viste korleis usemje drep grensa.\n\n**I uendeleg** spør vi korleis funksjonar oppfører seg i det lange løp: del på høgaste potens i nemnaren, og hugs tommelfingerregelen -- lågare teljargrad gir $0$, like grader gir forholdet mellom leiande koeffisientar (horisontal asymptote $y = \\frac{a_n}{b_m}$), høgare teljargrad gir $\\pm\\infty$.\n\nGrenseverdien er grunnmuren til analysen. I neste kapittel definerer han kontinuitet; i kapitla etter ber han definisjonen til derivasjonen. Akilles tek att skjelpadda -- og no kan du prove det."}],"exercises":[],"_meta":{"sourceHash":"e89fe8be13a2495e","translatedAt":"2026-06-19T23:23:51.764Z","model":"claude-code-agent","strings":93,"tm":{"bbd04ab7b49daec9":"Grenseverdi","b195b06d1ed59702":"Narrativ versjon","93a51ad406c4222f":"Ei forteljing om å nærme seg utan å nå -- frå Zenons paradoks om Akilles og skjelpadda til teknikkane som temjer forma 0/0.","e153a5df505ae450":"forstå omgrepet grenseverdi intuitivt og formelt","1bf5faba0eca70fe":"berekne grenseverdiar ved innsetjing, faktorisering og konjugering","dc2e00707ec9b19d":"forstå og berekne einsidige grenseverdiar","0257c4863dd4c8fe":"berekne grenseverdiar når $x \\to \\pm\\infty$","d00fe5f96c5e0bb0":"bruke reknereglar for grenseverdiar","667d2d0d14f71b6a":"## Akilles, skjelpadda og kunsten å nærme seg\n\nFor 2400 år sidan formulerte den greske filosofen Zenon eit paradoks som skulle plage matematikarar i to årtusen. Helten Akilles spring om kapp med ei skjelpadde som får hundre meter forsprang. Når Akilles har sprunge dei hundre meterane, har skjelpadda krope ti meter vidare. Når han har teke att dei ti, har ho flytta seg éin meter til. Og slik held det fram: kvar gong Akilles når dit skjelpadda *var*, er ho litt lenger framme. Uendeleg mange etappar -- kan han då nokon gong ta henne att?\n\nSjølvsagt gjer han det, det veit kvar den som har sett eit kappløp. Men *kvifor* tek reknestykket feil? Svaret krev eit omgrep grekarane mangla: **grenseverdien**. Dei uendeleg mange etappane blir raskt uendeleg korte, og summen av dei *nærmar seg* ein bestemt, endeleg verdi. Å gjere «nærmar seg» til presis matematikk -- det er prosjektet til dette kapittelet, og det er fundamentet under heile matematisk analyse.\n\nDu såg behovet allereie i kapittel 2.5: den deriverte vart definert som noko differansekvotienten nærma seg når $h$ krympa mot null. Men der sneik det seg inn eit problem vi feidde under teppet: set du $h = 0$ rett inn, får du $\\frac{0}{0}$ -- eit meiningslaust uttrykk. Grenseverdiomgrepet er verktøyet som gjer slike berekningar stuereine.\n\nI dette kapittelet lærer du kva $\\lim_{x \\to a} f(x) = L$ tyder, reknereglane som gjer grenseverdiar handterbare, teknikkane faktorisering og konjugering som temjer forma $\\frac{0}{0}$, einsidige grenseverdiar -- og til slutt kva som skjer når $x$ veks mot uendeleg.","ed06b8b11c564c93":"## Kva grenseverdien er -- og reknereglane\n\nSjå på $f(x) = \\frac{x^2-1}{x-1}$. I $x = 1$ er funksjonen udefinert -- innsetjing gir $\\frac{0}{0}$. Men sjå kva som skjer *nær* $1$: $f(0{,}9) = 1{,}9$, $f(0{,}99) = 1{,}99$, $f(0{,}999) = 1{,}999$, og frå den andre sida $f(1{,}001) = 2{,}001$, $f(1{,}01) = 2{,}01$. Verdiane klemmer seg inn mot $2$ frå begge kantar. Vi skriv\n\n$$\\lim_{x \\to 1} \\frac{x^2-1}{x-1} = 2$$\n\nog seier at *grenseverdien når $x$ går mot $1$ er $2$*. Den presise meininga: $f(x)$ kan gjerast vilkårleg nær $2$ ved å velje $x$ tilstrekkeleg nær $1$ -- men $x \\neq 1$. Det siste er viktig: grenseverdien bryr seg utelukkande om verdiane *nær* punktet, aldri om verdien *i* punktet. Funksjonen treng ikkje eingong vere definert der, og det er nettopp difor omgrepet bergar $\\frac{0}{0}$ i derivasjonen.\n\nAlgebraen bak talleksempelet er enkel: $\\frac{x^2-1}{x-1} = \\frac{(x-1)(x+1)}{x-1} = x + 1$ for $x \\neq 1$, og $x + 1$ siktar openbert mot $2$.\n\nHeldigvis slepp vi tabellrekning i det daglege, for grenseverdiar følgjer fornuftige **reknereglar**. Dersom $\\lim_{x \\to a} f(x) = L$ og $\\lim_{x \\to a} g(x) = M$, så er grensa av sum, differanse og produkt høvesvis $L + M$, $L - M$ og $L \\cdot M$, og $\\lim \\frac{f(x)}{g(x)} = \\frac{L}{M}$ *føresett* $M \\neq 0$. Konstantar kan flyttast utanfor, og potensar følgjer med: $\\lim [f(x)]^n = L^n$.\n\nFor pene funksjonar tyder dette at grenseverdi = innsetjing: $\\lim_{x \\to 2}(3x^2 - 2x + 1) = 12 - 4 + 1 = 9$, og $\\lim_{x \\to 1} \\frac{x^2+1}{x+2} = \\frac{2}{3}$ sidan nemnaren ikkje er null. Dramaet oppstår først når innsetjing gir $\\frac{0}{0}$ -- og det tek vi no.","da4ffc6b467e0743":"Test deg sjølv på grenseverdiomgrepet og reknereglane:","4097889236a2af26":"placeholder","fff115c4f8504dc6":"Kva er $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$?","5b39535747c31856":"Eksisterer ikkje","dae953d659c71a59":"$\\frac{x^2-1}{x-1} = x+1$ for $x \\neq 1$, og $x + 1 \\to 2$ når $x \\to 1$. At funksjonen er udefinert i sjølve punktet, spelar inga rolle for grenseverdien.","45daeeec76da9da5":"Kva for ei påstand om $\\lim_{x \\to a} f(x)$ er rett?","52fd6b5c816ddd94":"Grenseverdien er alltid lik $f(a)$","df7bc6d3565632f3":"Grenseverdien avheng berre av verdiane til $f$ nær $a$, ikkje av $f(a)$","39db38fd7237ef1f":"Grenseverdien finst berre når $f$ er definert i $a$","a96e5ca46c26c582":"Grenseverdien er alltid $0$ eller $\\infty$","09b21f6c950693d9":"Grenseverdien skildrar kva $f(x)$ nærmar seg når $x$ nærmar seg $a$ -- verdien i sjølve punktet, om han finst, er irrelevant.","af1a8b7240eb2d59":"Kva er $\\lim_{x \\to 2} (3x^2 - 2x + 1)$?","8e2ba0d8a5decef2":"Polynom er snille: grenseverdien får vi ved innsetjing, $3 \\cdot 4 - 4 + 1 = 9$.","d0da2b8ac8cb4661":"Når gjeld regelen $\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\frac{L}{M}$?","e84ce8394772441b":"Når $M \\neq 0$","de6d22124febe51f":"Alltid","65c4aa7c3a8fc5a0":"Berre når $L \\neq 0$","b4198a2f60bdabd0":"Berre for polynom","a3cb9c93a1cb85d4":"Kvotientregelen krev at nemnargrensa $M$ ikkje er null -- elles må vi gripe til algebraiske teknikkar.","334c8a95f26bc921":"## Forma $\\frac{0}{0}$: faktorisering og konjugering\n\nNår innsetjing gir $\\frac{0}{0}$, har du møtt ei **ubestemt form**. Merk ordet: $\\frac{0}{0}$ er ikkje eit tal, og det er heller ikkje automatisk «udefinert, ferdig med det». Det er eit *varsel* om at teljar og nemnar kappast mot null, og at grenseverdien kan bli kva som helst -- alt avheng av kven som taper kappløpet. Ubestemte former krev etterforsking, og verktøyet i etterforskinga er algebra.\n\n**Teknikk 1: Faktorisering.** Når teljar og nemnar er polynom som begge blir null i $x = a$, veit du frå faktorteoremet at begge inneheld faktoren $(x - a)$ -- det er den som skaper problemet, og den kan forkortast bort. For $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$: innsetjing gir $\\frac{0}{0}$, men konjugatsetninga faktoriserer teljaren, og\n\n$$\\lim_{x \\to 3} \\frac{(x-3)(x+3)}{x-3} = \\lim_{x \\to 3} (x+3) = 6$$\n\nForkortinga er lovleg fordi grenseprosessen aldri lèt $x$ vere nøyaktig $3$ -- og for alle andre $x$ er uttrykka like.\n\n**Teknikk 2: Konjugering.** Når rotuttrykk er innblanda, gongar vi med konjugatet. For $\\lim_{x \\to 0} \\frac{\\sqrt{x+4} - 2}{x}$ utvidar vi med $\\sqrt{x+4} + 2$ oppe og nede. Teljaren blir $(\\sqrt{x+4})^2 - 2^2 = x + 4 - 4 = x$ -- rota er borte! Vi forkortar $x$:\n\n$$\\lim_{x \\to 0} \\frac{x}{x(\\sqrt{x+4}+2)} = \\lim_{x \\to 0} \\frac{1}{\\sqrt{x+4}+2} = \\frac{1}{4}$$\n\nTrikset byggjer på tredje kvadratsetning: $(\\sqrt{a} - b)(\\sqrt{a} + b) = a - b^2$, som viskar ut kvadratrøter.\n\nStrategien er altså alltid den same: omform uttrykket til ein variant der den problematiske faktoren er forkorta vekk, og set så inn. Du etterforskar forma $\\frac{0}{0}$ til ho tilstår sin eigentlege verdi.","87cb09fc6473daa4":"Test deg sjølv på ubestemte former:","706b543fe88fe8d3":"Kva er $\\frac{0}{0}$?","34af8bf5547ad67a":"Lik $1$","329f99e0f262dcb8":"Ei ubestemt form -- grenseverdien kan vere kva som helst og må undersøkjast","ed88aa67ab443f58":"Lik $0$","355922f0fc51902f":"Alltid uendeleg","73b4a596fb2a90be":"$\\frac{0}{0}$ er ikkje eit tal, men eit varsel om at teljar og nemnar kappast mot null. Grenseverdien blir avgjord ved algebraisk omforming.","3c3508e20a35dbb7":"Kva er $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$?","da76a14e3b575d59":"Faktoriser: $\\frac{(x-3)(x+3)}{x-3} = x+3$ for $x \\neq 3$, som går mot $6$.","464e14b532cc2867":"Kva er $\\lim_{x \\to 0} \\frac{\\sqrt{x+4}-2}{x}$?","b61def0872c567fe":"$\\frac{1}{2}$","f2bf6d932e14b55c":"$\\frac{1}{4}$","d90261fc30cc7693":"Gong med konjugatet $\\sqrt{x+4}+2$: teljaren blir $x$, som blir forkorta, og att står $\\frac{1}{\\sqrt{x+4}+2} \\to \\frac{1}{4}$.","1ff1772bfa05611d":"Kva er konjugatet til $\\sqrt{a} - b$?","4bed0d63b6415cdc":"$b - \\sqrt{a}$","a00bf8cdf2ca431b":"$\\sqrt{a - b}$","53d75b5c14ec4d17":"$\\sqrt{a} + b$","45ea89c0fc00061b":"$a + b^2$","e615c74d7e8085d0":"Konjugatet byter forteikn på det eine leddet: $\\sqrt{a}+b$. Produktet $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$ fjernar rota.","60252c3b88b26a5d":"## Einsidige grenseverdiar -- når sidene er usamde\n\nTil no har funksjonane våre sikta mot same verdi uansett kva for side $x$ kom frå. Men det er inga sjølvfølgje. Tenk på ein stykkevis definert funksjon frå kapittel 2.4 -- delane til venstre og høgre for eit skøytepunkt kan sikte kvar sin stad.\n\nDifor treng vi **einsidige grenseverdiar**. Den *venstresidige*, $\\lim_{x \\to a^-} f(x)$, skildrar kva $f(x)$ nærmar seg når $x$ kryp mot $a$ nedanfrå ($x < a$); den *høgresidige*, $\\lim_{x \\to a^+} f(x)$, tilsvarande ovanfrå ($x > a$). Det vesle minus- eller plussteiknet i eksponenten oppgir altså retninga på tilnærminga.\n\nKlassikaren er forteiknsfunksjonen $f(x) = \\frac{|x|}{x}$. For positive $x$ er $|x| = x$, så $f(x) = 1$; for negative $x$ er $|x| = -x$, så $f(x) = -1$. Dermed:\n\n$$\\lim_{x \\to 0^+} \\frac{|x|}{x} = 1 \\qquad \\text{og} \\qquad \\lim_{x \\to 0^-} \\frac{|x|}{x} = -1$$\n\nGrafen ligg som to åtskilde hyller, éi i høgd $-1$ og éi i høgd $1$, med eit gap i null.\n\nOg her kjem regelen som bind alt saman: den tosidige grenseverdien $\\lim_{x \\to a} f(x)$ **eksisterer dersom og berre dersom begge dei einsidige eksisterer og er like**. For forteiknsfunksjonen er $1 \\neq -1$, så $\\lim_{x \\to 0} \\frac{|x|}{x}$ eksisterer ikkje. Det finst ikkje noko enkelt tal funksjonen nærmar seg -- svaret avheng av reiseruta, og då er det ikkje ein grenseverdi.\n\nEinsidige grenser er ikkje ein kuriositet. Dei er sjølve verktøyet for å undersøkje skøytepunkta i stykkevis definerte funksjonar, og i neste kapittel blir dei berebjelken i kontinuitetsomgrepet: kontinuitet i eit punkt er nettopp at venstregrense, høgregrense og funksjonsverdi alle stemmer overeins.","ad5e9dc8e1bc12da":"Test deg sjølv på einsidige grenseverdiar:","1d92e56c54fd3ee8":"Kva er $\\lim_{x \\to 0^+} \\frac{|x|}{x}$?","5a1fe4db8067cd53":"For $x > 0$ er $|x| = x$, så $\\frac{|x|}{x} = 1$ heile vegen -- grensa frå høgre er $1$.","f4f8504038dcf5b0":"Kva er $\\lim_{x \\to 0^-} \\frac{|x|}{x}$?","2ffa6c7459a7a5e6":"For $x < 0$ er $|x| = -x$, så $\\frac{|x|}{x} = -1$ -- grensa frå venstre er $-1$.","44552cf91f7f38b3":"Eksisterer $\\lim_{x \\to 0} \\frac{|x|}{x}$?","fd7814a2c99e5c78":"Nei -- dei einsidige grenseverdiane er forskjellige","5c71c768f689386f":"Ja, han er $0$","2a682bf4be57306e":"Ja, han er $1$","bdd66102bf26ceee":"Ja, han er både $1$ og $-1$","5a08d3abc30c6dae":"Tosidig grenseverdi krev at venstre- og høgresidig grense er like. Her er dei $-1$ og $1$, så grenseverdien eksisterer ikkje.","0b1b5260355327ea":"Kva er samanhengen mellom tosidig og einsidige grenseverdiar?","aa262597d9447466":"Den tosidige er gjennomsnittet av dei einsidige","9024fd66a12d45ad":"Dei einsidige finst berre når den tosidige ikkje gjer det","2fc836421b281203":"$\\lim_{x \\to a} f(x) = L$ dersom og berre dersom begge einsidige grenser er lik $L$","b23a6c6b3efa1b5e":"Den tosidige er alltid den største av dei to","ef5db4557824fda4":"Grenseverdien eksisterer nøyaktig når begge dei einsidige eksisterer og er like -- då er fellesverdien grenseverdien.","ba7529f0ddd100bb":"## Mot uendeleg: horisontale asymptotar\n\nDet siste spørsmålet snur perspektivet: ikkje «kva skjer nær eit punkt», men «kva skjer der ute» -- når $x$ veks over alle grenser. Vi skriv $\\lim_{x \\to \\infty} f(x) = L$ dersom $f(x)$ kjem vilkårleg nær $L$ når $x$ blir stor nok, og tilsvarande for $x \\to -\\infty$. Dersom grenseverdien er eit endeleg tal $L$, flatar grafen ut langs linja $y = L$ -- ein **horisontal asymptote**.\n\nByggjesteinen for alt som følgjer er éi enkel observasjon: for $n > 0$ er\n\n$$\\lim_{x \\to \\pm\\infty} \\frac{1}{x^n} = 0$$\n\nÉin delt på noko enormt er nesten ingenting.\n\nFor rasjonale funksjonar gir dette ein kraftig metode: **del teljar og nemnar på den høgaste potensen i nemnaren**. Ta $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$. Vi deler alt på $x^2$:\n\n$$\\lim_{x \\to \\infty} \\frac{3 - \\frac{2}{x} + \\frac{1}{x^2}}{1 + \\frac{5}{x^2}} = \\frac{3 - 0 + 0}{1 + 0} = 3$$\n\nAlle småbrøkane døyr ut, og berre dei leiande koeffisientane overlever. For $\\frac{x+1}{x^2-1}$ gir same manøver $\\frac{0}{1} = 0$: teljaren er av lågare grad og taper kappløpet.\n\nMønsteret kondenserer til ein tommelfingerregel for $\\frac{a_n x^n + \\ldots}{b_m x^m + \\ldots}$: er teljargraden *lågare* enn nemnargraden ($n < m$), er grensa $0$. Er gradene *like* ($n = m$), er grensa forholdet $\\frac{a_n}{b_m}$ mellom dei leiande koeffisientane. Er teljargraden *størst* ($n > m$), stikk uttrykket av mot $\\pm\\infty$, og ingen horisontal asymptote finst.\n\nIntuisjonen bak alt saman: når $x$ er enorm, er det dei høgaste potensane som avgjer -- alt anna er støy. Slik tenkjer også fysikarar og informatikarar når dei spør korleis system og algoritmar oppfører seg «i det lange løp».","60fd31b9576e47de":"Test deg sjølv på grenseverdiar i uendeleg:","d2cb8d890dc82251":"Kva er $\\lim_{x \\to \\infty} \\frac{1}{x^n}$ for $n > 0$?","d249caca6d7f42a5":"$\\infty$","bb28a9b83048a0f3":"$n$","4fa0f9862362e7c0":"Når $x$ veks over alle grenser, blir $\\frac{1}{x^n}$ vilkårleg liten -- grensa er $0$.","fd16cfb246e36f94":"Kva er $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$?","e1879d7a93f60436":"$\\frac{3}{5}$","0e8037dd72fc1b2b":"Del på $x^2$: $\\frac{3 - 2/x + 1/x^2}{1 + 5/x^2} \\to \\frac{3}{1} = 3$. Like grader gir forholdet mellom leiande koeffisientar.","2793025d54750d62":"Kva er $\\lim_{x \\to \\infty} \\frac{x+1}{x^2-1}$?","fcc376c212547654":"Teljargraden ($1$) er lågare enn nemnargraden ($2$), så nemnaren vinn kappløpet og grensa er $0$.","0ecea94c527c3b34":"Når har ein rasjonal funksjon $\\frac{P(x)}{Q(x)}$ ein horisontal asymptote forskjellig frå $y = 0$?","2323183aa9dbe1ee":"Når $\\text{grad}(P) > \\text{grad}(Q)$","72816c36bd404a80":"Aldri","136eeea3daf5f5f1":"Når $P$ har eit konstantledd","c7fa512cc6da2eb2":"Når $\\text{grad}(P) = \\text{grad}(Q)$ -- asymptoten er $y = \\frac{a_n}{b_m}$","18f1b7834bdcf860":"Like grader gir grenseverdi lik forholdet mellom dei leiande koeffisientane, altså horisontal asymptote $y = \\frac{a_n}{b_m}$.","417d79d2ea688ad7":"## Forteljinga i eit nøtteskal\n\nSkjelpadda til Zenon lærte oss at «uendeleg mange steg» kan ha eit endeleg mål -- og grenseverdien er omgrepet som gjer det presist. $\\lim_{x \\to a} f(x) = L$ tyder at $f(x)$ kan gjerast vilkårleg nær $L$ ved å velje $x$ nær nok $a$, og verdien $f(a)$ sjølv er saka uvedkomande -- funksjonen treng ikkje eingong vere definert i punktet.\n\n**Reknereglane** lèt oss kombinere grenser av sum, differanse, produkt og kvotient (nemnargrense ulik null), og for snille uttrykk er grenseverdi rett og slett innsetjing. Når innsetjing gir den **ubestemte forma** $\\frac{0}{0}$, startar etterforskinga: **faktorisering** forkortar bort den skuldige faktoren $(x-a)$ i polynombrøkar, og **konjugering** viskar ut kvadratrøter via $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$.\n\n**Einsidige grenseverdiar** skil retningane: $x \\to a^-$ frå venstre, $x \\to a^+$ frå høgre. Grenseverdien eksisterer nøyaktig når begge sider er samde -- forteiknsfunksjonen $\\frac{|x|}{x}$, med $-1$ frå venstre og $1$ frå høgre, viste korleis usemje drep grensa.\n\n**I uendeleg** spør vi korleis funksjonar oppfører seg i det lange løp: del på høgaste potens i nemnaren, og hugs tommelfingerregelen -- lågare teljargrad gir $0$, like grader gir forholdet mellom leiande koeffisientar (horisontal asymptote $y = \\frac{a_n}{b_m}$), høgare teljargrad gir $\\pm\\infty$.\n\nGrenseverdien er grunnmuren til analysen. I neste kapittel definerer han kontinuitet; i kapitla etter ber han definisjonen til derivasjonen. Akilles tek att skjelpadda -- og no kan du prove det."}}}
+{
+  "id": "r1-3-1-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "3.1",
+  "title": "Grenseverdi",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å nærme seg utan å nå -- frå Zenons paradoks om Akilles og skjelpadda til teknikkane som temjer forma 0/0.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå omgrepet grenseverdi intuitivt og formelt",
+    "berekne grenseverdiar ved innsetjing, faktorisering og konjugering",
+    "forstå og berekne einsidige grenseverdiar",
+    "berekne grenseverdiar når $x \\to \\pm\\infty$",
+    "bruke reknereglar for grenseverdiar"
+  ],
+  "linkedChapterId": "r1-3-1",
+  "content": [
+    {
+      "id": "r1-3-1-n-intro",
+      "type": "text",
+      "content": "## Akilles, skjelpadda og kunsten å nærme seg\n\nFor 2400 år sidan formulerte den greske filosofen Zenon eit paradoks som skulle plage matematikarar i to årtusen. Helten Akilles spring om kapp med ei skjelpadde som får hundre meter forsprang. Når Akilles har sprunge dei hundre meterane, har skjelpadda krope ti meter vidare. Når han har teke att dei ti, har ho flytta seg éin meter til. Og slik held det fram: kvar gong Akilles når dit skjelpadda *var*, er ho litt lenger framme. Uendeleg mange etappar -- kan han då nokon gong ta henne att?\n\nSjølvsagt gjer han det, det veit kvar den som har sett eit kappløp. Men *kvifor* tek reknestykket feil? Svaret krev eit omgrep grekarane mangla: **grenseverdien**. Dei uendeleg mange etappane blir raskt uendeleg korte, og summen av dei *nærmar seg* ein bestemt, endeleg verdi. Å gjere «nærmar seg» til presis matematikk -- det er prosjektet til dette kapittelet, og det er fundamentet under heile matematisk analyse.\n\nDu såg behovet allereie i kapittel 2.5: den deriverte vart definert som noko differansekvotienten nærma seg når $h$ krympa mot null. Men der sneik det seg inn eit problem vi feidde under teppet: set du $h = 0$ rett inn, får du $\\frac{0}{0}$ -- eit meiningslaust uttrykk. Grenseverdiomgrepet er verktøyet som gjer slike berekningar stuereine.\n\nI dette kapittelet lærer du kva $\\lim_{x \\to a} f(x) = L$ tyder, reknereglane som gjer grenseverdiar handterbare, teknikkane faktorisering og konjugering som temjer forma $\\frac{0}{0}$, einsidige grenseverdiar -- og til slutt kva som skjer når $x$ veks mot uendeleg."
+    },
+    {
+      "id": "r1-3-1-n-section1",
+      "type": "text",
+      "content": "## Kva grenseverdien er -- og reknereglane\n\nSjå på $f(x) = \\frac{x^2-1}{x-1}$. I $x = 1$ er funksjonen udefinert -- innsetjing gir $\\frac{0}{0}$. Men sjå kva som skjer *nær* $1$: $f(0{,}9) = 1{,}9$, $f(0{,}99) = 1{,}99$, $f(0{,}999) = 1{,}999$, og frå den andre sida $f(1{,}001) = 2{,}001$, $f(1{,}01) = 2{,}01$. Verdiane klemmer seg inn mot $2$ frå begge kantar. Vi skriv\n\n$$\\lim_{x \\to 1} \\frac{x^2-1}{x-1} = 2$$\n\nog seier at *grenseverdien når $x$ går mot $1$ er $2$*. Den presise meininga: $f(x)$ kan gjerast vilkårleg nær $2$ ved å velje $x$ tilstrekkeleg nær $1$ -- men $x \\neq 1$. Det siste er viktig: grenseverdien bryr seg utelukkande om verdiane *nær* punktet, aldri om verdien *i* punktet. Funksjonen treng ikkje eingong vere definert der, og det er nettopp difor omgrepet bergar $\\frac{0}{0}$ i derivasjonen.\n\nAlgebraen bak talleksempelet er enkel: $\\frac{x^2-1}{x-1} = \\frac{(x-1)(x+1)}{x-1} = x + 1$ for $x \\neq 1$, og $x + 1$ siktar openbert mot $2$.\n\nHeldigvis slepp vi tabellrekning i det daglege, for grenseverdiar følgjer fornuftige **reknereglar**. Dersom $\\lim_{x \\to a} f(x) = L$ og $\\lim_{x \\to a} g(x) = M$, så er grensa av sum, differanse og produkt høvesvis $L + M$, $L - M$ og $L \\cdot M$, og $\\lim \\frac{f(x)}{g(x)} = \\frac{L}{M}$ *føresett* $M \\neq 0$. Konstantar kan flyttast utanfor, og potensar følgjer med: $\\lim [f(x)]^n = L^n$.\n\nFor pene funksjonar tyder dette at grenseverdi = innsetjing: $\\lim_{x \\to 2}(3x^2 - 2x + 1) = 12 - 4 + 1 = 9$, og $\\lim_{x \\to 1} \\frac{x^2+1}{x+2} = \\frac{2}{3}$ sidan nemnaren ikkje er null. Dramaet oppstår først når innsetjing gir $\\frac{0}{0}$ -- og det tek vi no."
+    },
+    {
+      "id": "r1-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grenseverdiomgrepet og reknereglane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-1-n-quiz1-q0",
+            "task": "Kva er $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksisterer ikkje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{x^2-1}{x-1} = x+1$ for $x \\neq 1$, og $x + 1 \\to 2$ når $x \\to 1$. At funksjonen er udefinert i sjølve punktet, spelar inga rolle for grenseverdien."
+          },
+          {
+            "id": "r1-3-1-n-quiz1-q1",
+            "task": "Kva for ei påstand om $\\lim_{x \\to a} f(x)$ er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Grenseverdien er alltid lik $f(a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Grenseverdien avheng berre av verdiane til $f$ nær $a$, ikkje av $f(a)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Grenseverdien finst berre når $f$ er definert i $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grenseverdien er alltid $0$ eller $\\infty$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grenseverdien skildrar kva $f(x)$ nærmar seg når $x$ nærmar seg $a$ -- verdien i sjølve punktet, om han finst, er irrelevant."
+          },
+          {
+            "id": "r1-3-1-n-quiz1-q2",
+            "task": "Kva er $\\lim_{x \\to 2} (3x^2 - 2x + 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$13$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$11$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Polynom er snille: grenseverdien får vi ved innsetjing, $3 \\cdot 4 - 4 + 1 = 9$."
+          },
+          {
+            "id": "r1-3-1-n-quiz1-q3",
+            "task": "Når gjeld regelen $\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\frac{L}{M}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre når $L \\neq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre for polynom",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når $M \\neq 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvotientregelen krev at nemnargrensa $M$ ikkje er null -- elles må vi gripe til algebraiske teknikkar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-1-n-section2",
+      "type": "text",
+      "content": "## Forma $\\frac{0}{0}$: faktorisering og konjugering\n\nNår innsetjing gir $\\frac{0}{0}$, har du møtt ei **ubestemt form**. Merk ordet: $\\frac{0}{0}$ er ikkje eit tal, og det er heller ikkje automatisk «udefinert, ferdig med det». Det er eit *varsel* om at teljar og nemnar kappast mot null, og at grenseverdien kan bli kva som helst -- alt avheng av kven som taper kappløpet. Ubestemte former krev etterforsking, og verktøyet i etterforskinga er algebra.\n\n**Teknikk 1: Faktorisering.** Når teljar og nemnar er polynom som begge blir null i $x = a$, veit du frå faktorteoremet at begge inneheld faktoren $(x - a)$ -- det er den som skaper problemet, og den kan forkortast bort. For $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$: innsetjing gir $\\frac{0}{0}$, men konjugatsetninga faktoriserer teljaren, og\n\n$$\\lim_{x \\to 3} \\frac{(x-3)(x+3)}{x-3} = \\lim_{x \\to 3} (x+3) = 6$$\n\nForkortinga er lovleg fordi grenseprosessen aldri lèt $x$ vere nøyaktig $3$ -- og for alle andre $x$ er uttrykka like.\n\n**Teknikk 2: Konjugering.** Når rotuttrykk er innblanda, gongar vi med konjugatet. For $\\lim_{x \\to 0} \\frac{\\sqrt{x+4} - 2}{x}$ utvidar vi med $\\sqrt{x+4} + 2$ oppe og nede. Teljaren blir $(\\sqrt{x+4})^2 - 2^2 = x + 4 - 4 = x$ -- rota er borte! Vi forkortar $x$:\n\n$$\\lim_{x \\to 0} \\frac{x}{x(\\sqrt{x+4}+2)} = \\lim_{x \\to 0} \\frac{1}{\\sqrt{x+4}+2} = \\frac{1}{4}$$\n\nTrikset byggjer på tredje kvadratsetning: $(\\sqrt{a} - b)(\\sqrt{a} + b) = a - b^2$, som viskar ut kvadratrøter.\n\nStrategien er altså alltid den same: omform uttrykket til ein variant der den problematiske faktoren er forkorta vekk, og set så inn. Du etterforskar forma $\\frac{0}{0}$ til ho tilstår sin eigentlege verdi."
+    },
+    {
+      "id": "r1-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på ubestemte former:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-1-n-quiz2-q0",
+            "task": "Kva er $\\frac{0}{0}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei ubestemt form -- grenseverdien kan vere kva som helst og må undersøkjast",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lik $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lik $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid uendeleg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{0}{0}$ er ikkje eit tal, men eit varsel om at teljar og nemnar kappast mot null. Grenseverdien blir avgjord ved algebraisk omforming."
+          },
+          {
+            "id": "r1-3-1-n-quiz2-q1",
+            "task": "Kva er $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eksisterer ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktoriser: $\\frac{(x-3)(x+3)}{x-3} = x+3$ for $x \\neq 3$, som går mot $6$."
+          },
+          {
+            "id": "r1-3-1-n-quiz2-q2",
+            "task": "Kva er $\\lim_{x \\to 0} \\frac{\\sqrt{x+4}-2}{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gong med konjugatet $\\sqrt{x+4}+2$: teljaren blir $x$, som blir forkorta, og att står $\\frac{1}{\\sqrt{x+4}+2} \\to \\frac{1}{4}$."
+          },
+          {
+            "id": "r1-3-1-n-quiz2-q3",
+            "task": "Kva er konjugatet til $\\sqrt{a} - b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b - \\sqrt{a}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{a - b}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a + b^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{a} + b$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Konjugatet byter forteikn på det eine leddet: $\\sqrt{a}+b$. Produktet $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$ fjernar rota."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-1-n-section3",
+      "type": "text",
+      "content": "## Einsidige grenseverdiar -- når sidene er usamde\n\nTil no har funksjonane våre sikta mot same verdi uansett kva for side $x$ kom frå. Men det er inga sjølvfølgje. Tenk på ein stykkevis definert funksjon frå kapittel 2.4 -- delane til venstre og høgre for eit skøytepunkt kan sikte kvar sin stad.\n\nDifor treng vi **einsidige grenseverdiar**. Den *venstresidige*, $\\lim_{x \\to a^-} f(x)$, skildrar kva $f(x)$ nærmar seg når $x$ kryp mot $a$ nedanfrå ($x < a$); den *høgresidige*, $\\lim_{x \\to a^+} f(x)$, tilsvarande ovanfrå ($x > a$). Det vesle minus- eller plussteiknet i eksponenten oppgir altså retninga på tilnærminga.\n\nKlassikaren er forteiknsfunksjonen $f(x) = \\frac{|x|}{x}$. For positive $x$ er $|x| = x$, så $f(x) = 1$; for negative $x$ er $|x| = -x$, så $f(x) = -1$. Dermed:\n\n$$\\lim_{x \\to 0^+} \\frac{|x|}{x} = 1 \\qquad \\text{og} \\qquad \\lim_{x \\to 0^-} \\frac{|x|}{x} = -1$$\n\nGrafen ligg som to åtskilde hyller, éi i høgd $-1$ og éi i høgd $1$, med eit gap i null.\n\nOg her kjem regelen som bind alt saman: den tosidige grenseverdien $\\lim_{x \\to a} f(x)$ **eksisterer dersom og berre dersom begge dei einsidige eksisterer og er like**. For forteiknsfunksjonen er $1 \\neq -1$, så $\\lim_{x \\to 0} \\frac{|x|}{x}$ eksisterer ikkje. Det finst ikkje noko enkelt tal funksjonen nærmar seg -- svaret avheng av reiseruta, og då er det ikkje ein grenseverdi.\n\nEinsidige grenser er ikkje ein kuriositet. Dei er sjølve verktøyet for å undersøkje skøytepunkta i stykkevis definerte funksjonar, og i neste kapittel blir dei berebjelken i kontinuitetsomgrepet: kontinuitet i eit punkt er nettopp at venstregrense, høgregrense og funksjonsverdi alle stemmer overeins."
+    },
+    {
+      "id": "r1-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på einsidige grenseverdiar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-1-n-quiz3-q0",
+            "task": "Kva er $\\lim_{x \\to 0^+} \\frac{|x|}{x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eksisterer ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x > 0$ er $|x| = x$, så $\\frac{|x|}{x} = 1$ heile vegen -- grensa frå høgre er $1$."
+          },
+          {
+            "id": "r1-3-1-n-quiz3-q1",
+            "task": "Kva er $\\lim_{x \\to 0^-} \\frac{|x|}{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eksisterer ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x < 0$ er $|x| = -x$, så $\\frac{|x|}{x} = -1$ -- grensa frå venstre er $-1$."
+          },
+          {
+            "id": "r1-3-1-n-quiz3-q2",
+            "task": "Eksisterer $\\lim_{x \\to 0} \\frac{|x|}{x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ja, han er $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ja, han er $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Nei -- dei einsidige grenseverdiane er forskjellige",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ja, han er både $1$ og $-1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tosidig grenseverdi krev at venstre- og høgresidig grense er like. Her er dei $-1$ og $1$, så grenseverdien eksisterer ikkje."
+          },
+          {
+            "id": "r1-3-1-n-quiz3-q3",
+            "task": "Kva er samanhengen mellom tosidig og einsidige grenseverdiar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den tosidige er gjennomsnittet av dei einsidige",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei einsidige finst berre når den tosidige ikkje gjer det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den tosidige er alltid den største av dei to",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\lim_{x \\to a} f(x) = L$ dersom og berre dersom begge einsidige grenser er lik $L$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Grenseverdien eksisterer nøyaktig når begge dei einsidige eksisterer og er like -- då er fellesverdien grenseverdien."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-1-n-section4",
+      "type": "text",
+      "content": "## Mot uendeleg: horisontale asymptotar\n\nDet siste spørsmålet snur perspektivet: ikkje «kva skjer nær eit punkt», men «kva skjer der ute» -- når $x$ veks over alle grenser. Vi skriv $\\lim_{x \\to \\infty} f(x) = L$ dersom $f(x)$ kjem vilkårleg nær $L$ når $x$ blir stor nok, og tilsvarande for $x \\to -\\infty$. Dersom grenseverdien er eit endeleg tal $L$, flatar grafen ut langs linja $y = L$ -- ein **horisontal asymptote**.\n\nByggjesteinen for alt som følgjer er éi enkel observasjon: for $n > 0$ er\n\n$$\\lim_{x \\to \\pm\\infty} \\frac{1}{x^n} = 0$$\n\nÉin delt på noko enormt er nesten ingenting.\n\nFor rasjonale funksjonar gir dette ein kraftig metode: **del teljar og nemnar på den høgaste potensen i nemnaren**. Ta $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$. Vi deler alt på $x^2$:\n\n$$\\lim_{x \\to \\infty} \\frac{3 - \\frac{2}{x} + \\frac{1}{x^2}}{1 + \\frac{5}{x^2}} = \\frac{3 - 0 + 0}{1 + 0} = 3$$\n\nAlle småbrøkane døyr ut, og berre dei leiande koeffisientane overlever. For $\\frac{x+1}{x^2-1}$ gir same manøver $\\frac{0}{1} = 0$: teljaren er av lågare grad og taper kappløpet.\n\nMønsteret kondenserer til ein tommelfingerregel for $\\frac{a_n x^n + \\ldots}{b_m x^m + \\ldots}$: er teljargraden *lågare* enn nemnargraden ($n < m$), er grensa $0$. Er gradene *like* ($n = m$), er grensa forholdet $\\frac{a_n}{b_m}$ mellom dei leiande koeffisientane. Er teljargraden *størst* ($n > m$), stikk uttrykket av mot $\\pm\\infty$, og ingen horisontal asymptote finst.\n\nIntuisjonen bak alt saman: når $x$ er enorm, er det dei høgaste potensane som avgjer -- alt anna er støy. Slik tenkjer også fysikarar og informatikarar når dei spør korleis system og algoritmar oppfører seg «i det lange løp»."
+    },
+    {
+      "id": "r1-3-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grenseverdiar i uendeleg:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-1-n-quiz4-q0",
+            "task": "Kva er $\\lim_{x \\to \\infty} \\frac{1}{x^n}$ for $n > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $x$ veks over alle grenser, blir $\\frac{1}{x^n}$ vilkårleg liten -- grensa er $0$."
+          },
+          {
+            "id": "r1-3-1-n-quiz4-q1",
+            "task": "Kva er $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{5}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Del på $x^2$: $\\frac{3 - 2/x + 1/x^2}{1 + 5/x^2} \\to \\frac{3}{1} = 3$. Like grader gir forholdet mellom leiande koeffisientar."
+          },
+          {
+            "id": "r1-3-1-n-quiz4-q2",
+            "task": "Kva er $\\lim_{x \\to \\infty} \\frac{x+1}{x^2-1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\infty$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Teljargraden ($1$) er lågare enn nemnargraden ($2$), så nemnaren vinn kappløpet og grensa er $0$."
+          },
+          {
+            "id": "r1-3-1-n-quiz4-q3",
+            "task": "Når har ein rasjonal funksjon $\\frac{P(x)}{Q(x)}$ ein horisontal asymptote forskjellig frå $y = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $\\text{grad}(P) > \\text{grad}(Q)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $P$ har eit konstantledd",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $\\text{grad}(P) = \\text{grad}(Q)$ -- asymptoten er $y = \\frac{a_n}{b_m}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Like grader gir grenseverdi lik forholdet mellom dei leiande koeffisientane, altså horisontal asymptote $y = \\frac{a_n}{b_m}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-1-n-summary",
+      "type": "text",
+      "content": "## Forteljinga i eit nøtteskal\n\nSkjelpadda til Zenon lærte oss at «uendeleg mange steg» kan ha eit endeleg mål -- og grenseverdien er omgrepet som gjer det presist. $\\lim_{x \\to a} f(x) = L$ tyder at $f(x)$ kan gjerast vilkårleg nær $L$ ved å velje $x$ nær nok $a$, og verdien $f(a)$ sjølv er saka uvedkomande -- funksjonen treng ikkje eingong vere definert i punktet.\n\n**Reknereglane** lèt oss kombinere grenser av sum, differanse, produkt og kvotient (nemnargrense ulik null), og for snille uttrykk er grenseverdi rett og slett innsetjing. Når innsetjing gir den **ubestemte forma** $\\frac{0}{0}$, startar etterforskinga: **faktorisering** forkortar bort den skuldige faktoren $(x-a)$ i polynombrøkar, og **konjugering** viskar ut kvadratrøter via $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$.\n\n**Einsidige grenseverdiar** skil retningane: $x \\to a^-$ frå venstre, $x \\to a^+$ frå høgre. Grenseverdien eksisterer nøyaktig når begge sider er samde -- forteiknsfunksjonen $\\frac{|x|}{x}$, med $-1$ frå venstre og $1$ frå høgre, viste korleis usemje drep grensa.\n\n**I uendeleg** spør vi korleis funksjonar oppfører seg i det lange løp: del på høgaste potens i nemnaren, og hugs tommelfingerregelen -- lågare teljargrad gir $0$, like grader gir forholdet mellom leiande koeffisientar (horisontal asymptote $y = \\frac{a_n}{b_m}$), høgare teljargrad gir $\\pm\\infty$.\n\nGrenseverdien er grunnmuren til analysen. I neste kapittel definerer han kontinuitet; i kapitla etter ber han definisjonen til derivasjonen. Akilles tek att skjelpadda -- og no kan du prove det."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "e89fe8be13a2495e",
+    "translatedAt": "2026-06-19T23:23:51.764Z",
+    "model": "claude-code-agent",
+    "strings": 93,
+    "tm": {
+      "bbd04ab7b49daec9": "Grenseverdi",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "93a51ad406c4222f": "Ei forteljing om å nærme seg utan å nå -- frå Zenons paradoks om Akilles og skjelpadda til teknikkane som temjer forma 0/0.",
+      "e153a5df505ae450": "forstå omgrepet grenseverdi intuitivt og formelt",
+      "1bf5faba0eca70fe": "berekne grenseverdiar ved innsetjing, faktorisering og konjugering",
+      "dc2e00707ec9b19d": "forstå og berekne einsidige grenseverdiar",
+      "0257c4863dd4c8fe": "berekne grenseverdiar når $x \\to \\pm\\infty$",
+      "d00fe5f96c5e0bb0": "bruke reknereglar for grenseverdiar",
+      "667d2d0d14f71b6a": "## Akilles, skjelpadda og kunsten å nærme seg\n\nFor 2400 år sidan formulerte den greske filosofen Zenon eit paradoks som skulle plage matematikarar i to årtusen. Helten Akilles spring om kapp med ei skjelpadde som får hundre meter forsprang. Når Akilles har sprunge dei hundre meterane, har skjelpadda krope ti meter vidare. Når han har teke att dei ti, har ho flytta seg éin meter til. Og slik held det fram: kvar gong Akilles når dit skjelpadda *var*, er ho litt lenger framme. Uendeleg mange etappar -- kan han då nokon gong ta henne att?\n\nSjølvsagt gjer han det, det veit kvar den som har sett eit kappløp. Men *kvifor* tek reknestykket feil? Svaret krev eit omgrep grekarane mangla: **grenseverdien**. Dei uendeleg mange etappane blir raskt uendeleg korte, og summen av dei *nærmar seg* ein bestemt, endeleg verdi. Å gjere «nærmar seg» til presis matematikk -- det er prosjektet til dette kapittelet, og det er fundamentet under heile matematisk analyse.\n\nDu såg behovet allereie i kapittel 2.5: den deriverte vart definert som noko differansekvotienten nærma seg når $h$ krympa mot null. Men der sneik det seg inn eit problem vi feidde under teppet: set du $h = 0$ rett inn, får du $\\frac{0}{0}$ -- eit meiningslaust uttrykk. Grenseverdiomgrepet er verktøyet som gjer slike berekningar stuereine.\n\nI dette kapittelet lærer du kva $\\lim_{x \\to a} f(x) = L$ tyder, reknereglane som gjer grenseverdiar handterbare, teknikkane faktorisering og konjugering som temjer forma $\\frac{0}{0}$, einsidige grenseverdiar -- og til slutt kva som skjer når $x$ veks mot uendeleg.",
+      "ed06b8b11c564c93": "## Kva grenseverdien er -- og reknereglane\n\nSjå på $f(x) = \\frac{x^2-1}{x-1}$. I $x = 1$ er funksjonen udefinert -- innsetjing gir $\\frac{0}{0}$. Men sjå kva som skjer *nær* $1$: $f(0{,}9) = 1{,}9$, $f(0{,}99) = 1{,}99$, $f(0{,}999) = 1{,}999$, og frå den andre sida $f(1{,}001) = 2{,}001$, $f(1{,}01) = 2{,}01$. Verdiane klemmer seg inn mot $2$ frå begge kantar. Vi skriv\n\n$$\\lim_{x \\to 1} \\frac{x^2-1}{x-1} = 2$$\n\nog seier at *grenseverdien når $x$ går mot $1$ er $2$*. Den presise meininga: $f(x)$ kan gjerast vilkårleg nær $2$ ved å velje $x$ tilstrekkeleg nær $1$ -- men $x \\neq 1$. Det siste er viktig: grenseverdien bryr seg utelukkande om verdiane *nær* punktet, aldri om verdien *i* punktet. Funksjonen treng ikkje eingong vere definert der, og det er nettopp difor omgrepet bergar $\\frac{0}{0}$ i derivasjonen.\n\nAlgebraen bak talleksempelet er enkel: $\\frac{x^2-1}{x-1} = \\frac{(x-1)(x+1)}{x-1} = x + 1$ for $x \\neq 1$, og $x + 1$ siktar openbert mot $2$.\n\nHeldigvis slepp vi tabellrekning i det daglege, for grenseverdiar følgjer fornuftige **reknereglar**. Dersom $\\lim_{x \\to a} f(x) = L$ og $\\lim_{x \\to a} g(x) = M$, så er grensa av sum, differanse og produkt høvesvis $L + M$, $L - M$ og $L \\cdot M$, og $\\lim \\frac{f(x)}{g(x)} = \\frac{L}{M}$ *føresett* $M \\neq 0$. Konstantar kan flyttast utanfor, og potensar følgjer med: $\\lim [f(x)]^n = L^n$.\n\nFor pene funksjonar tyder dette at grenseverdi = innsetjing: $\\lim_{x \\to 2}(3x^2 - 2x + 1) = 12 - 4 + 1 = 9$, og $\\lim_{x \\to 1} \\frac{x^2+1}{x+2} = \\frac{2}{3}$ sidan nemnaren ikkje er null. Dramaet oppstår først når innsetjing gir $\\frac{0}{0}$ -- og det tek vi no.",
+      "da4ffc6b467e0743": "Test deg sjølv på grenseverdiomgrepet og reknereglane:",
+      "4097889236a2af26": "placeholder",
+      "fff115c4f8504dc6": "Kva er $\\lim_{x \\to 1} \\frac{x^2-1}{x-1}$?",
+      "5b39535747c31856": "Eksisterer ikkje",
+      "dae953d659c71a59": "$\\frac{x^2-1}{x-1} = x+1$ for $x \\neq 1$, og $x + 1 \\to 2$ når $x \\to 1$. At funksjonen er udefinert i sjølve punktet, spelar inga rolle for grenseverdien.",
+      "45daeeec76da9da5": "Kva for ei påstand om $\\lim_{x \\to a} f(x)$ er rett?",
+      "52fd6b5c816ddd94": "Grenseverdien er alltid lik $f(a)$",
+      "df7bc6d3565632f3": "Grenseverdien avheng berre av verdiane til $f$ nær $a$, ikkje av $f(a)$",
+      "39db38fd7237ef1f": "Grenseverdien finst berre når $f$ er definert i $a$",
+      "a96e5ca46c26c582": "Grenseverdien er alltid $0$ eller $\\infty$",
+      "09b21f6c950693d9": "Grenseverdien skildrar kva $f(x)$ nærmar seg når $x$ nærmar seg $a$ -- verdien i sjølve punktet, om han finst, er irrelevant.",
+      "af1a8b7240eb2d59": "Kva er $\\lim_{x \\to 2} (3x^2 - 2x + 1)$?",
+      "8e2ba0d8a5decef2": "Polynom er snille: grenseverdien får vi ved innsetjing, $3 \\cdot 4 - 4 + 1 = 9$.",
+      "d0da2b8ac8cb4661": "Når gjeld regelen $\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\frac{L}{M}$?",
+      "e84ce8394772441b": "Når $M \\neq 0$",
+      "de6d22124febe51f": "Alltid",
+      "65c4aa7c3a8fc5a0": "Berre når $L \\neq 0$",
+      "b4198a2f60bdabd0": "Berre for polynom",
+      "a3cb9c93a1cb85d4": "Kvotientregelen krev at nemnargrensa $M$ ikkje er null -- elles må vi gripe til algebraiske teknikkar.",
+      "334c8a95f26bc921": "## Forma $\\frac{0}{0}$: faktorisering og konjugering\n\nNår innsetjing gir $\\frac{0}{0}$, har du møtt ei **ubestemt form**. Merk ordet: $\\frac{0}{0}$ er ikkje eit tal, og det er heller ikkje automatisk «udefinert, ferdig med det». Det er eit *varsel* om at teljar og nemnar kappast mot null, og at grenseverdien kan bli kva som helst -- alt avheng av kven som taper kappløpet. Ubestemte former krev etterforsking, og verktøyet i etterforskinga er algebra.\n\n**Teknikk 1: Faktorisering.** Når teljar og nemnar er polynom som begge blir null i $x = a$, veit du frå faktorteoremet at begge inneheld faktoren $(x - a)$ -- det er den som skaper problemet, og den kan forkortast bort. For $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$: innsetjing gir $\\frac{0}{0}$, men konjugatsetninga faktoriserer teljaren, og\n\n$$\\lim_{x \\to 3} \\frac{(x-3)(x+3)}{x-3} = \\lim_{x \\to 3} (x+3) = 6$$\n\nForkortinga er lovleg fordi grenseprosessen aldri lèt $x$ vere nøyaktig $3$ -- og for alle andre $x$ er uttrykka like.\n\n**Teknikk 2: Konjugering.** Når rotuttrykk er innblanda, gongar vi med konjugatet. For $\\lim_{x \\to 0} \\frac{\\sqrt{x+4} - 2}{x}$ utvidar vi med $\\sqrt{x+4} + 2$ oppe og nede. Teljaren blir $(\\sqrt{x+4})^2 - 2^2 = x + 4 - 4 = x$ -- rota er borte! Vi forkortar $x$:\n\n$$\\lim_{x \\to 0} \\frac{x}{x(\\sqrt{x+4}+2)} = \\lim_{x \\to 0} \\frac{1}{\\sqrt{x+4}+2} = \\frac{1}{4}$$\n\nTrikset byggjer på tredje kvadratsetning: $(\\sqrt{a} - b)(\\sqrt{a} + b) = a - b^2$, som viskar ut kvadratrøter.\n\nStrategien er altså alltid den same: omform uttrykket til ein variant der den problematiske faktoren er forkorta vekk, og set så inn. Du etterforskar forma $\\frac{0}{0}$ til ho tilstår sin eigentlege verdi.",
+      "87cb09fc6473daa4": "Test deg sjølv på ubestemte former:",
+      "706b543fe88fe8d3": "Kva er $\\frac{0}{0}$?",
+      "34af8bf5547ad67a": "Lik $1$",
+      "329f99e0f262dcb8": "Ei ubestemt form -- grenseverdien kan vere kva som helst og må undersøkjast",
+      "ed88aa67ab443f58": "Lik $0$",
+      "355922f0fc51902f": "Alltid uendeleg",
+      "73b4a596fb2a90be": "$\\frac{0}{0}$ er ikkje eit tal, men eit varsel om at teljar og nemnar kappast mot null. Grenseverdien blir avgjord ved algebraisk omforming.",
+      "3c3508e20a35dbb7": "Kva er $\\lim_{x \\to 3} \\frac{x^2-9}{x-3}$?",
+      "da76a14e3b575d59": "Faktoriser: $\\frac{(x-3)(x+3)}{x-3} = x+3$ for $x \\neq 3$, som går mot $6$.",
+      "464e14b532cc2867": "Kva er $\\lim_{x \\to 0} \\frac{\\sqrt{x+4}-2}{x}$?",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "f2bf6d932e14b55c": "$\\frac{1}{4}$",
+      "d90261fc30cc7693": "Gong med konjugatet $\\sqrt{x+4}+2$: teljaren blir $x$, som blir forkorta, og att står $\\frac{1}{\\sqrt{x+4}+2} \\to \\frac{1}{4}$.",
+      "1ff1772bfa05611d": "Kva er konjugatet til $\\sqrt{a} - b$?",
+      "4bed0d63b6415cdc": "$b - \\sqrt{a}$",
+      "a00bf8cdf2ca431b": "$\\sqrt{a - b}$",
+      "53d75b5c14ec4d17": "$\\sqrt{a} + b$",
+      "45ea89c0fc00061b": "$a + b^2$",
+      "e615c74d7e8085d0": "Konjugatet byter forteikn på det eine leddet: $\\sqrt{a}+b$. Produktet $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$ fjernar rota.",
+      "60252c3b88b26a5d": "## Einsidige grenseverdiar -- når sidene er usamde\n\nTil no har funksjonane våre sikta mot same verdi uansett kva for side $x$ kom frå. Men det er inga sjølvfølgje. Tenk på ein stykkevis definert funksjon frå kapittel 2.4 -- delane til venstre og høgre for eit skøytepunkt kan sikte kvar sin stad.\n\nDifor treng vi **einsidige grenseverdiar**. Den *venstresidige*, $\\lim_{x \\to a^-} f(x)$, skildrar kva $f(x)$ nærmar seg når $x$ kryp mot $a$ nedanfrå ($x < a$); den *høgresidige*, $\\lim_{x \\to a^+} f(x)$, tilsvarande ovanfrå ($x > a$). Det vesle minus- eller plussteiknet i eksponenten oppgir altså retninga på tilnærminga.\n\nKlassikaren er forteiknsfunksjonen $f(x) = \\frac{|x|}{x}$. For positive $x$ er $|x| = x$, så $f(x) = 1$; for negative $x$ er $|x| = -x$, så $f(x) = -1$. Dermed:\n\n$$\\lim_{x \\to 0^+} \\frac{|x|}{x} = 1 \\qquad \\text{og} \\qquad \\lim_{x \\to 0^-} \\frac{|x|}{x} = -1$$\n\nGrafen ligg som to åtskilde hyller, éi i høgd $-1$ og éi i høgd $1$, med eit gap i null.\n\nOg her kjem regelen som bind alt saman: den tosidige grenseverdien $\\lim_{x \\to a} f(x)$ **eksisterer dersom og berre dersom begge dei einsidige eksisterer og er like**. For forteiknsfunksjonen er $1 \\neq -1$, så $\\lim_{x \\to 0} \\frac{|x|}{x}$ eksisterer ikkje. Det finst ikkje noko enkelt tal funksjonen nærmar seg -- svaret avheng av reiseruta, og då er det ikkje ein grenseverdi.\n\nEinsidige grenser er ikkje ein kuriositet. Dei er sjølve verktøyet for å undersøkje skøytepunkta i stykkevis definerte funksjonar, og i neste kapittel blir dei berebjelken i kontinuitetsomgrepet: kontinuitet i eit punkt er nettopp at venstregrense, høgregrense og funksjonsverdi alle stemmer overeins.",
+      "ad5e9dc8e1bc12da": "Test deg sjølv på einsidige grenseverdiar:",
+      "1d92e56c54fd3ee8": "Kva er $\\lim_{x \\to 0^+} \\frac{|x|}{x}$?",
+      "5a1fe4db8067cd53": "For $x > 0$ er $|x| = x$, så $\\frac{|x|}{x} = 1$ heile vegen -- grensa frå høgre er $1$.",
+      "f4f8504038dcf5b0": "Kva er $\\lim_{x \\to 0^-} \\frac{|x|}{x}$?",
+      "2ffa6c7459a7a5e6": "For $x < 0$ er $|x| = -x$, så $\\frac{|x|}{x} = -1$ -- grensa frå venstre er $-1$.",
+      "44552cf91f7f38b3": "Eksisterer $\\lim_{x \\to 0} \\frac{|x|}{x}$?",
+      "fd7814a2c99e5c78": "Nei -- dei einsidige grenseverdiane er forskjellige",
+      "5c71c768f689386f": "Ja, han er $0$",
+      "2a682bf4be57306e": "Ja, han er $1$",
+      "bdd66102bf26ceee": "Ja, han er både $1$ og $-1$",
+      "5a08d3abc30c6dae": "Tosidig grenseverdi krev at venstre- og høgresidig grense er like. Her er dei $-1$ og $1$, så grenseverdien eksisterer ikkje.",
+      "0b1b5260355327ea": "Kva er samanhengen mellom tosidig og einsidige grenseverdiar?",
+      "aa262597d9447466": "Den tosidige er gjennomsnittet av dei einsidige",
+      "9024fd66a12d45ad": "Dei einsidige finst berre når den tosidige ikkje gjer det",
+      "2fc836421b281203": "$\\lim_{x \\to a} f(x) = L$ dersom og berre dersom begge einsidige grenser er lik $L$",
+      "b23a6c6b3efa1b5e": "Den tosidige er alltid den største av dei to",
+      "ef5db4557824fda4": "Grenseverdien eksisterer nøyaktig når begge dei einsidige eksisterer og er like -- då er fellesverdien grenseverdien.",
+      "ba7529f0ddd100bb": "## Mot uendeleg: horisontale asymptotar\n\nDet siste spørsmålet snur perspektivet: ikkje «kva skjer nær eit punkt», men «kva skjer der ute» -- når $x$ veks over alle grenser. Vi skriv $\\lim_{x \\to \\infty} f(x) = L$ dersom $f(x)$ kjem vilkårleg nær $L$ når $x$ blir stor nok, og tilsvarande for $x \\to -\\infty$. Dersom grenseverdien er eit endeleg tal $L$, flatar grafen ut langs linja $y = L$ -- ein **horisontal asymptote**.\n\nByggjesteinen for alt som følgjer er éi enkel observasjon: for $n > 0$ er\n\n$$\\lim_{x \\to \\pm\\infty} \\frac{1}{x^n} = 0$$\n\nÉin delt på noko enormt er nesten ingenting.\n\nFor rasjonale funksjonar gir dette ein kraftig metode: **del teljar og nemnar på den høgaste potensen i nemnaren**. Ta $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$. Vi deler alt på $x^2$:\n\n$$\\lim_{x \\to \\infty} \\frac{3 - \\frac{2}{x} + \\frac{1}{x^2}}{1 + \\frac{5}{x^2}} = \\frac{3 - 0 + 0}{1 + 0} = 3$$\n\nAlle småbrøkane døyr ut, og berre dei leiande koeffisientane overlever. For $\\frac{x+1}{x^2-1}$ gir same manøver $\\frac{0}{1} = 0$: teljaren er av lågare grad og taper kappløpet.\n\nMønsteret kondenserer til ein tommelfingerregel for $\\frac{a_n x^n + \\ldots}{b_m x^m + \\ldots}$: er teljargraden *lågare* enn nemnargraden ($n < m$), er grensa $0$. Er gradene *like* ($n = m$), er grensa forholdet $\\frac{a_n}{b_m}$ mellom dei leiande koeffisientane. Er teljargraden *størst* ($n > m$), stikk uttrykket av mot $\\pm\\infty$, og ingen horisontal asymptote finst.\n\nIntuisjonen bak alt saman: når $x$ er enorm, er det dei høgaste potensane som avgjer -- alt anna er støy. Slik tenkjer også fysikarar og informatikarar når dei spør korleis system og algoritmar oppfører seg «i det lange løp».",
+      "60fd31b9576e47de": "Test deg sjølv på grenseverdiar i uendeleg:",
+      "d2cb8d890dc82251": "Kva er $\\lim_{x \\to \\infty} \\frac{1}{x^n}$ for $n > 0$?",
+      "d249caca6d7f42a5": "$\\infty$",
+      "bb28a9b83048a0f3": "$n$",
+      "4fa0f9862362e7c0": "Når $x$ veks over alle grenser, blir $\\frac{1}{x^n}$ vilkårleg liten -- grensa er $0$.",
+      "fd16cfb246e36f94": "Kva er $\\lim_{x \\to \\infty} \\frac{3x^2 - 2x + 1}{x^2 + 5}$?",
+      "e1879d7a93f60436": "$\\frac{3}{5}$",
+      "0e8037dd72fc1b2b": "Del på $x^2$: $\\frac{3 - 2/x + 1/x^2}{1 + 5/x^2} \\to \\frac{3}{1} = 3$. Like grader gir forholdet mellom leiande koeffisientar.",
+      "2793025d54750d62": "Kva er $\\lim_{x \\to \\infty} \\frac{x+1}{x^2-1}$?",
+      "fcc376c212547654": "Teljargraden ($1$) er lågare enn nemnargraden ($2$), så nemnaren vinn kappløpet og grensa er $0$.",
+      "0ecea94c527c3b34": "Når har ein rasjonal funksjon $\\frac{P(x)}{Q(x)}$ ein horisontal asymptote forskjellig frå $y = 0$?",
+      "2323183aa9dbe1ee": "Når $\\text{grad}(P) > \\text{grad}(Q)$",
+      "72816c36bd404a80": "Aldri",
+      "136eeea3daf5f5f1": "Når $P$ har eit konstantledd",
+      "c7fa512cc6da2eb2": "Når $\\text{grad}(P) = \\text{grad}(Q)$ -- asymptoten er $y = \\frac{a_n}{b_m}$",
+      "18f1b7834bdcf860": "Like grader gir grenseverdi lik forholdet mellom dei leiande koeffisientane, altså horisontal asymptote $y = \\frac{a_n}{b_m}$.",
+      "417d79d2ea688ad7": "## Forteljinga i eit nøtteskal\n\nSkjelpadda til Zenon lærte oss at «uendeleg mange steg» kan ha eit endeleg mål -- og grenseverdien er omgrepet som gjer det presist. $\\lim_{x \\to a} f(x) = L$ tyder at $f(x)$ kan gjerast vilkårleg nær $L$ ved å velje $x$ nær nok $a$, og verdien $f(a)$ sjølv er saka uvedkomande -- funksjonen treng ikkje eingong vere definert i punktet.\n\n**Reknereglane** lèt oss kombinere grenser av sum, differanse, produkt og kvotient (nemnargrense ulik null), og for snille uttrykk er grenseverdi rett og slett innsetjing. Når innsetjing gir den **ubestemte forma** $\\frac{0}{0}$, startar etterforskinga: **faktorisering** forkortar bort den skuldige faktoren $(x-a)$ i polynombrøkar, og **konjugering** viskar ut kvadratrøter via $(\\sqrt{a}-b)(\\sqrt{a}+b) = a - b^2$.\n\n**Einsidige grenseverdiar** skil retningane: $x \\to a^-$ frå venstre, $x \\to a^+$ frå høgre. Grenseverdien eksisterer nøyaktig når begge sider er samde -- forteiknsfunksjonen $\\frac{|x|}{x}$, med $-1$ frå venstre og $1$ frå høgre, viste korleis usemje drep grensa.\n\n**I uendeleg** spør vi korleis funksjonar oppfører seg i det lange løp: del på høgaste potens i nemnaren, og hugs tommelfingerregelen -- lågare teljargrad gir $0$, like grader gir forholdet mellom leiande koeffisientar (horisontal asymptote $y = \\frac{a_n}{b_m}$), høgare teljargrad gir $\\pm\\infty$.\n\nGrenseverdien er grunnmuren til analysen. I neste kapittel definerer han kontinuitet; i kapitla etter ber han definisjonen til derivasjonen. Akilles tek att skjelpadda -- og no kan du prove det."
+    }
+  }
+}

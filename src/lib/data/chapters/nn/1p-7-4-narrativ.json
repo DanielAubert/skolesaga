@@ -1,1 +1,515 @@
-{"id":"1p-7-4-narrativ","courseId":"1p","chapterNumber":"7.4","title":"Eksponentialregresjon","subtitle":"Narrativ versjon","description":"Ei fortellingi om kurver som bøyer seg -- frå bakteriar i petriskålen til tekoppen som kjølner, og kunsten å velja riktig modell.","estimatedMinutes":33,"competenceGoals":["bruka digitale verktøy til å finna eksponentielle modellar som passar til datamateriale"],"linkedChapterId":"1p-7-4","content":[{"id":"1p-7-4-n-intro","type":"text","content":"## Kurven som bøyer seg oppover\n\nPå naturfagslaben står ein petriskål med bakteriar, og du tel dei kvar time: $200$, $310$, $490$, $760$, $1\\,180$, $1\\,850$. Du prøver å teikna ein rett linje gjennom punkta i spreiingsdiagrammet -- men det går ikkje. Kurven bøyer seg oppover, brattare og brattare. Veksten er ikkje jamn; ho *akselererer*.\n\nIkkje alle datasett følgjer ein rett linje. Når verdiane veks eller avtar stadig raskare, treng vi ein **eksponentiell modell**:\n\n$$y = a \\cdot b^x$$\n\nder $a$ er startverdien (verdien når $x = 0$) og $b$ er vekstfaktoren. Er $b > 1$, har vi eksponentiell **vekst**; er $0 < b < 1$, har vi eksponentiell **nedgang**. Typiske døme er befolkningsvekst, avkjøling av kaffe, batterilading og spreiing av virus i tidleg fase.\n\nI dette kapittelet lærer du å gjenkjenna eksponentielle mønster i data, finna modellen med **eksponentiell regresjon** -- og avgjera når du hellre bør halda deg til den rette linja."},{"id":"1p-7-4-n-section1","type":"text","content":"## Å avsløra eksponentiell vekst -- og finna modellen\n\nKorleis veit du om dataene er lineære eller eksponentielle? Testen er enkel når $x$-verdiane aukar med like steg: sjå på *differansane* og *forholdstala* mellom påfølgjande $y$-verdiar. Er differansen $y_{n+1} - y_n$ tilnærma konstant, er samanhengen **lineær** -- same *beløp* blir lagt til kvar gong. Er forholdstalet $\\frac{y_{n+1}}{y_n}$ tilnærma konstant, er ho **eksponentiell** -- verdien *gangast* med det same kvar gong.\n\nLåt oss testa bakteriane. Differansane er $110$, $180$, $270$, $420$, $670$ -- dei aukar kraftig, så lineært er det ikkje. Men forholdstala: $\\frac{310}{200} = 1{,}55$, $\\frac{490}{310} \\approx 1{,}58$, $\\frac{760}{490} \\approx 1{,}55$, $\\frac{1180}{760} \\approx 1{,}55$ og $\\frac{1850}{1180} \\approx 1{,}57$. Tilnærma konstant, omkring $1{,}56$! Samanhengen er eksponentiell: bakterietalet gangast med omtrent det same kvar time.\n\nDa er det klart for **eksponentiell regresjon**: å finna den eksponentialfunksjonen $y = a \\cdot b^x$ som passar best til datasettet. Som ved lineær regresjon gjer digitale verktøy jobben -- i GeoGebra legg du punkta i ein liste og skriv `RegEksp(liste)`. For bakteriedataene får vi:\n\n$$y = 198 \\cdot 1{,}56^x$$\n\nTolkinga ligg i tala: $a \\approx 198$ er omtrent startverdien (vi talte $200$), og $b \\approx 1{,}56$ betyr at antalet aukar med cirka $56\\,\\%$ per time. I spreiingsdiagrammet ser du samanhengen tydeleg: eksponentiell vekst bøyer oppover stadig brattare, medan eksponentiell nedgang flatar ut mot bunnen."},{"id":"1p-7-4-n-quiz1","type":"exercise","exercise":{"id":"1p-7-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på å gjenkjenna eksponentielle data:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-4-n-quiz1-q0","task":"Korleis gjenkjenner du ein eksponentiell sammenhang i ein tabell med jamne $x$-steg?","options":[{"id":"a","text":"Differansane mellom $y$-verdiane er konstante","isCorrect":false},{"id":"b","text":"Forholdstala mellom påfølgjande $y$-verdiar er tilnærma konstante","isCorrect":true},{"id":"c","text":"$y$-verdiane er alltid positive","isCorrect":false},{"id":"d","text":"$x$-verdiane blir dobbla","isCorrect":false}],"solution":"Eksponentiell vekst betyr at verdien gangast med same faktor kvar periode -- forholdstalet $\\frac{y_{n+1}}{y_n}$ er konstant. Konstante differansar betyr lineær sammenhang."},{"id":"1p-7-4-n-quiz1-q1","task":"I modellen $y=a\\cdot b^x$: kva fortel $a$?","options":[{"id":"a","text":"Startverdien -- $y$-verdien når $x=0$","isCorrect":true},{"id":"b","text":"Vekstfaktoren per periode","isCorrect":false},{"id":"c","text":"Korrelasjonskoeffisienten","isCorrect":false},{"id":"d","text":"Kor bratt kurven er på slutten","isCorrect":false}],"solution":"Set du $x=0$, får du $y=a\\cdot b^0=a$. Difor er $a$ startverdien."},{"id":"1p-7-4-n-quiz1-q2","task":"Bakteriemodellen er $y=198\\cdot 1{,}56^x$. Kva betyr $b=1{,}56$?","options":[{"id":"a","text":"Antalet aukar med $1{,}56$ bakteriar per time","isCorrect":false},{"id":"b","text":"Antalet blir halvera kvar $1{,}56$. time","isCorrect":false},{"id":"c","text":"Starttalet er $156$","isCorrect":false},{"id":"d","text":"Antalet aukar med ca. $56\\,\\%$ per time","isCorrect":true}],"solution":"Vekstfaktor $1{,}56$ betyr at antalet gangast med $1{,}56$ kvar time -- ein auke på $56\\,\\%$."},{"id":"1p-7-4-n-quiz1-q3","task":"Eit datasett har $y$-verdiar som blir ganga med $0{,}8$ for kvart steg. Kva slags utvikling er dette?","options":[{"id":"a","text":"Eksponentiell vekst","isCorrect":false},{"id":"b","text":"Lineær vekst","isCorrect":false},{"id":"c","text":"Eksponentiell nedgang","isCorrect":true},{"id":"d","text":"Ingen utvikling","isCorrect":false}],"solution":"Vekstfaktor $b=0{,}8$ ligg mellom $0$ og $1$: verdien synk med $20\\,\\%$ per steg -- eksponentiell nedgang."}]}},{"id":"1p-7-4-n-section2","type":"text","content":"## Tekoppen som kjølner -- eksponentiell nedgang i praksis\n\nEksponentialfunksjonar beskriv ikkje berre ting som veks. Set ein kopp te på $85\\,°C$ til avkjøling i eit rom på $22\\,°C$, og mål kor mange gradar *over romtemperatur* ho er: etter $0$, $5$, $10$, $15$, $20$, $25$ og $30$ minutt er tala $63$, $49$, $39$, $30$, $24$, $18$ og $14$.\n\nVerdiane synk -- men ikkje jamnt. Fallet er bratt i starten og slakare etter hand, akkurat som eksponentiell nedgang skal vera. Eksponentiell regresjon i GeoGebra gir modellen:\n\n$$y = 63{,}2 \\cdot 0{,}95^x$$\n\nder $x$ er minutt og $y$ er gradar over romtemperatur. Vekstfaktoren $b = 0{,}95 < 1$ bekreftar nedgangen: kvart minutt mistar teen $5\\,\\%$ av overskuddsvarmen.\n\nModellen kan no svara på det viktige spørsmålet: når er teen drikkbar? Etter $12$ minutt:\n\n$$y = 63{,}2 \\cdot 0{,}95^{12} = 63{,}2 \\cdot 0{,}540 \\approx 34{,}2$$\n\nTeen er då $34{,}2$ gradar over romtemperaturen, altso held ho $22 + 34{,}2 = 56{,}2\\,°C$. Legg merke til det lille trikset i modellen: vi målte temperaturen *over* romtemperatur, ikkje sjølve temperaturen -- for det er overskuddsvarmen som avtar eksponentielt mot null, medan sjølve temperaturen flatar ut mot $22\\,°C$.\n\nSame matematikk styr mange prosessar omkring deg: mobilbatteriet fyller dei siste prosentane saktare enn dei første, og medisin i blodet blir broten ned med fast halveringstid. Overalt der noko avtar med same *prosent* per tidseining, er eksponentiell nedgang på ferde."},{"id":"1p-7-4-n-quiz2","type":"exercise","exercise":{"id":"1p-7-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på eksponentiell nedgang:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-4-n-quiz2-q0","task":"Temodellen er $y=63{,}2\\cdot 0{,}95^x$. Kva betyr $b=0{,}95$?","options":[{"id":"a","text":"Teen mistar $5\\,\\%$ av overskuddsvarmen per minutt","isCorrect":true},{"id":"b","text":"Teen blir $95$ gradar varm","isCorrect":false},{"id":"c","text":"Temperaturen synk $0{,}95$ gradar per minutt","isCorrect":false},{"id":"d","text":"Teen er kald etter $95$ minutt","isCorrect":false}],"solution":"Vekstfaktor $0{,}95$ betyr at $y$ blir multiplisert med $0{,}95$ kvart minutt -- ein nedgang på $5\\,\\%$ av gjenstår overskuddsvarme."},{"id":"1p-7-4-n-quiz2-q1","task":"Etter $12$ minutt gir modellen $y\\approx 34{,}2$ grader over romtemperatur ($22\\,°C$). Kva er teens faktiske temperatur?","options":[{"id":"a","text":"$34{,}2\\,°C$","isCorrect":false},{"id":"b","text":"$56{,}2\\,°C$","isCorrect":true},{"id":"c","text":"$63{,}2\\,°C$","isCorrect":false},{"id":"d","text":"$22\\,°C$","isCorrect":false}],"solution":"Faktisk temperatur $=$ romtemperatur $+$ overskudd $=22+34{,}2=56{,}2\\,°C$."},{"id":"1p-7-4-n-quiz2-q2","task":"Kva situasjon er best beskriven av eksponentiell nedgang?","options":[{"id":"a","text":"Ein taxipris som aukar med $12$ kr per km","isCorrect":false},{"id":"b","text":"Eit tre som veks $30$ cm per år","isCorrect":false},{"id":"c","text":"Lønn som aukar med fast beløp","isCorrect":false},{"id":"d","text":"Medisinmengde i blodet som halveras med fast halveingstid","isCorrect":true}],"solution":"Fast halveingstid betyr at mengda blir multiplisert med $\\frac{1}{2}$ per tidsperiode -- klassisk eksponentiell nedgang. De andre er lineære endringar."},{"id":"1p-7-4-n-quiz2-q3","task":"Kvifor brukte vi temperaturen OVER romtemperatur i modellen, ikkje sjølve temperaturen?","options":[{"id":"a","text":"Det gir penare tal i tabellen","isCorrect":false},{"id":"b","text":"Termometeret måler berre differansar","isCorrect":false},{"id":"c","text":"Det er overskuddsvarmen som avtar eksponentielt mot null -- sjølve temperaturen flatar ut mot $22\\,°C$","isCorrect":true},{"id":"d","text":"Romtemperaturen er ukjend","isCorrect":false}],"solution":"Eksponentialmodellen $a\\cdot b^x$ går mot null. Temperaturen går mot $22\\,°C$, men overskuddet over romtemperatur går mot null -- derfor modellar vi det."}]}},{"id":"1p-7-4-n-section3","type":"text","content":"## Lineær eller eksponentiell -- kven vinn?\n\nOfta er det ikkje opplagt kva modell som passar. Då prøver vi rett og slett *begge* og let dataa døma: gjer lineær regresjon og notar $r$-verdien, gjer eksponentiell regresjon og notar hennar $r$-verdi, og vel modellen med $|r|$ nærmast $1$.\n\nEin nyopna nettbutikk er perfekt testcase. Bestillingar per månad dei første seks månadene: $40$, $58$, $88$, $130$, $196$, $290$. Lineær regresjon gir $y = 49x - 37$ med $r \\approx 0{,}96$ -- ikkje verst! Men eksponentiell regresjon gir $y = 26{,}5 \\cdot 1{,}49^x$ med $r \\approx 1{,}00$. Begge korrelasjonane er høge, men den eksponentielle ligg nærmast $1$. Og sjekkar vi for hand, bekreftas dommen: differansane ($18$, $30$, $42$, $66$, $94$) aukar, medan forholdstala ($1{,}45$; $1{,}52$; $1{,}48$; $1{,}51$; $1{,}48$) er stabile. Eksponentiell modell vinn -- butikken veks med rundt $49\\,\\%$ i månaden.\n\nMen $r$-verdien er ikkje heile historia; bruk også sunn fornuft. Gir modellen meining i konteksten? Kva skjer for store $x$-verdiar? Kan veksten *halde fram* slik? Her kjem den viktigaste avvisinga i kapittelet: **eksponentiell vekst kan ikkje vare evig**. Avgrensa ressursar -- kundar, plass, pengar -- breimsar alltid veksten til slutt. Vokste nettbutikken med $49\\,\\%$ i månaden i fem år, ville ho hatt fleire bestillingar enn det finst menneske på jordkloden.\n\nEin eksponentiell regresjonsmodell er derfor best til å skildre utviklinga over *avgrensa tidsperiodar*. Ver ekstra varsam med ekstrapolering: sjølv ein modell som passar dataa perfekt, kan gi fullstendig urealistiske tal langt fram i tid."},{"id":"1p-7-4-n-quiz3","type":"exercise","exercise":{"id":"1p-7-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på val av modell:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-4-n-quiz3-q0","task":"Korleis samanliknar du ein lineær og ein eksponentiell modell for same datasett?","options":[{"id":"a","text":"Vel alltid den lineære -- ho er enklast","isCorrect":false},{"id":"b","text":"Gjer begge regresjonane og vel modellen med $|r|$ nærmast $1$ -- og vurder konteksten","isCorrect":true},{"id":"c","text":"Vel den med største startverdi","isCorrect":false},{"id":"d","text":"Vel den eksponentielle viss dataa er positive","isCorrect":false}],"solution":"Både $r$-verdiane og sunn fornuft om situasjonen avgjør: passar forma på kurva, og er utviklinga rimelig over tid?"},{"id":"1p-7-4-n-quiz3-q1","task":"Nettbutikkens data ga lineær $r\\approx 0{,}96$ og eksponentiell $r\\approx 1{,}00$. Differansane aukar, forholdstala er stabile. Kva modell passar best?","options":[{"id":"a","text":"Den lineære","isCorrect":false},{"id":"b","text":"Begge like godt","isCorrect":false},{"id":"c","text":"Den eksponentielle","isCorrect":true},{"id":"d","text":"Ingen av dei","isCorrect":false}],"solution":"Både høgare $|r|$ og dei stabile forholdstala (ca. $1{,}49$) peikar på eksponentiell vekst -- ca. $49\\,\\%$ fleire bestillingar per månad."},{"id":"1p-7-4-n-quiz3-q2","task":"Kva kjenneteiknar lineær vekst i ein tabell, til skilnad frå eksponentiell?","options":[{"id":"a","text":"Samma beløp blir lagt til per periode (konstant differanse)","isCorrect":true},{"id":"b","text":"Samma prosent blir lagt til per periode","isCorrect":false},{"id":"c","text":"Verdiane blir multiplisert med vekstfaktoren","isCorrect":false},{"id":"d","text":"Verdiane blir alltid mindre","isCorrect":false}],"solution":"Lineær: fast beløp per periode (konstant differanse). Eksponentiell: fast prosent per periode (konstant forholdstall)."},{"id":"1p-7-4-n-quiz3-q3","task":"Kvifor er langtidsprognosar med eksponentielle vekstmodellar upålitelege?","options":[{"id":"a","text":"Eksponentialfunksjonar kan ikkje reknast ut for store $x$","isCorrect":false},{"id":"b","text":"Korrelasjonskoeffisienten synkjer over tid","isCorrect":false},{"id":"c","text":"Datamaskinene avrundar feil","isCorrect":false},{"id":"d","text":"Avgrensa ressursar bremsar alltid veksten i røyndommen","isCorrect":true}],"solution":"Eksponentiell vekst kan ikkje vare evig: kundar, plass og pengar tek slutt. Modellen gjeld berre for avgrensa tidsperiodar, og ekstrapolering langt fram gir urealistiske tal."}]}},{"id":"1p-7-4-n-summary","type":"text","content":"## Oppsummering\n\nBakterianes i petriskålen fylgde ingen rett linje -- og dermed opna det seg ein ny verden av modellar.\n\nDen **eksponentielle modellen** $y = a \\cdot b^x$ beskriv data som endrar seg med same *prosent* per periode: $a$ er startsverdien, $b$ vekstfaktoren -- vekst når $b > 1$, nedgang når $0 < b < 1$. Detektivtesten er **forholdstal**: konstante differansar betyr lineær samanheng, konstante forholdstal betyr eksponentiell. Slik avslørte vi bakterianes vekstfaktor på cirka $1{,}56$.\n\n**Eksponentiell regresjon** (`RegEksp` i GeoGebra) fann modellane frå dataa: $y = 198 \\cdot 1{,}56^x$ for bakteriane og $y = 63{,}2 \\cdot 0{,}95^x$ for tekoppa som mista $5\\,\\%$ av overskudsvarmia per minutt -- eksponentiell nedgang som òg styrer batterilading og medisinnedbrytning.\n\nVed modellval prøvar vi gjerne båe typar og vel den med $|r|$ nærmast $1$ -- nettbutikken sin $1{,}00$ mot $0{,}96$ avgjorde i eksponentaelen sin favør. Men husk den store advarselen: **eksponentiell vekst kan ikkje vare evig**. Ressursane set grenser, så modellen gjeld avgrensa tidsrom -- og ekstrapolering langt fram i tid er ein oppskrift på urealistiske svar."}],"exercises":[],"_meta":{"sourceHash":"00179ff7111e5d2a","translatedAt":"2026-06-16T09:55:47.004Z","model":"claude-haiku-4-5-20251001","strings":87,"tm":{"b558b58fbd131d3d":"Eksponentialregresjon","b195b06d1ed59702":"Narrativ versjon","dae0f40ff171511b":"Ei fortellingi om kurver som bøyer seg -- frå bakteriar i petriskålen til tekoppen som kjølner, og kunsten å velja riktig modell.","24ca4734ea6d9647":"bruka digitale verktøy til å finna eksponentielle modellar som passar til datamateriale","7090e9070f2a1578":"## Kurven som bøyer seg oppover\n\nPå naturfagslaben står ein petriskål med bakteriar, og du tel dei kvar time: $200$, $310$, $490$, $760$, $1\\,180$, $1\\,850$. Du prøver å teikna ein rett linje gjennom punkta i spreiingsdiagrammet -- men det går ikkje. Kurven bøyer seg oppover, brattare og brattare. Veksten er ikkje jamn; ho *akselererer*.\n\nIkkje alle datasett følgjer ein rett linje. Når verdiane veks eller avtar stadig raskare, treng vi ein **eksponentiell modell**:\n\n$$y = a \\cdot b^x$$\n\nder $a$ er startverdien (verdien når $x = 0$) og $b$ er vekstfaktoren. Er $b > 1$, har vi eksponentiell **vekst**; er $0 < b < 1$, har vi eksponentiell **nedgang**. Typiske døme er befolkningsvekst, avkjøling av kaffe, batterilading og spreiing av virus i tidleg fase.\n\nI dette kapittelet lærer du å gjenkjenna eksponentielle mønster i data, finna modellen med **eksponentiell regresjon** -- og avgjera når du hellre bør halda deg til den rette linja.","a4d6aa1cafaf5d32":"## Å avsløra eksponentiell vekst -- og finna modellen\n\nKorleis veit du om dataene er lineære eller eksponentielle? Testen er enkel når $x$-verdiane aukar med like steg: sjå på *differansane* og *forholdstala* mellom påfølgjande $y$-verdiar. Er differansen $y_{n+1} - y_n$ tilnærma konstant, er samanhengen **lineær** -- same *beløp* blir lagt til kvar gong. Er forholdstalet $\\frac{y_{n+1}}{y_n}$ tilnærma konstant, er ho **eksponentiell** -- verdien *gangast* med det same kvar gong.\n\nLåt oss testa bakteriane. Differansane er $110$, $180$, $270$, $420$, $670$ -- dei aukar kraftig, så lineært er det ikkje. Men forholdstala: $\\frac{310}{200} = 1{,}55$, $\\frac{490}{310} \\approx 1{,}58$, $\\frac{760}{490} \\approx 1{,}55$, $\\frac{1180}{760} \\approx 1{,}55$ og $\\frac{1850}{1180} \\approx 1{,}57$. Tilnærma konstant, omkring $1{,}56$! Samanhengen er eksponentiell: bakterietalet gangast med omtrent det same kvar time.\n\nDa er det klart for **eksponentiell regresjon**: å finna den eksponentialfunksjonen $y = a \\cdot b^x$ som passar best til datasettet. Som ved lineær regresjon gjer digitale verktøy jobben -- i GeoGebra legg du punkta i ein liste og skriv `RegEksp(liste)`. For bakteriedataene får vi:\n\n$$y = 198 \\cdot 1{,}56^x$$\n\nTolkinga ligg i tala: $a \\approx 198$ er omtrent startverdien (vi talte $200$), og $b \\approx 1{,}56$ betyr at antalet aukar med cirka $56\\,\\%$ per time. I spreiingsdiagrammet ser du samanhengen tydeleg: eksponentiell vekst bøyer oppover stadig brattare, medan eksponentiell nedgang flatar ut mot bunnen.","ba370947af33fa52":"Test deg sjølv på å gjenkjenna eksponentielle data:","4097889236a2af26":"placeholder","b29a2f6d7af2d0f9":"Korleis gjenkjenner du ein eksponentiell sammenhang i ein tabell med jamne $x$-steg?","7c4e56a178312849":"Differansane mellom $y$-verdiane er konstante","63c31cdb6c0df532":"Forholdstala mellom påfølgjande $y$-verdiar er tilnærma konstante","41b8be5fb9510027":"$y$-verdiane er alltid positive","f433387e5b52278f":"$x$-verdiane blir dobbla","28c3027399f08f7f":"Eksponentiell vekst betyr at verdien gangast med same faktor kvar periode -- forholdstalet $\\frac{y_{n+1}}{y_n}$ er konstant. Konstante differansar betyr lineær sammenhang.","b29cbb260621b1e5":"I modellen $y=a\\cdot b^x$: kva fortel $a$?","a4e672c5775942ff":"Startverdien -- $y$-verdien når $x=0$","2404a6b94ee93c20":"Vekstfaktoren per periode","bc163a8746e0c49d":"Korrelasjonskoeffisienten","85fe5ec9460e541c":"Kor bratt kurven er på slutten","17aa42e15df30ede":"Set du $x=0$, får du $y=a\\cdot b^0=a$. Difor er $a$ startverdien.","181fd0935d90105f":"Bakteriemodellen er $y=198\\cdot 1{,}56^x$. Kva betyr $b=1{,}56$?","8cea9492fcdd21d6":"Antalet aukar med $1{,}56$ bakteriar per time","563bd5ef96be2540":"Antalet blir halvera kvar $1{,}56$. time","5192bd44dcd766f8":"Starttalet er $156$","fda65edf8b7698d9":"Antalet aukar med ca. $56\\,\\%$ per time","e38db2b1920d49e2":"Vekstfaktor $1{,}56$ betyr at antalet gangast med $1{,}56$ kvar time -- ein auke på $56\\,\\%$.","30ab6234e2385f01":"Eit datasett har $y$-verdiar som blir ganga med $0{,}8$ for kvart steg. Kva slags utvikling er dette?","9e406c20a9940e41":"Eksponentiell vekst","40e9d42979c47c34":"Lineær vekst","f72bd788ad21a442":"Eksponentiell nedgang","0ce470c2a37b223d":"Ingen utvikling","e9e84e5b974c638a":"Vekstfaktor $b=0{,}8$ ligg mellom $0$ og $1$: verdien synk med $20\\,\\%$ per steg -- eksponentiell nedgang.","8ad9b32179752819":"## Tekoppen som kjølner -- eksponentiell nedgang i praksis\n\nEksponentialfunksjonar beskriv ikkje berre ting som veks. Set ein kopp te på $85\\,°C$ til avkjøling i eit rom på $22\\,°C$, og mål kor mange gradar *over romtemperatur* ho er: etter $0$, $5$, $10$, $15$, $20$, $25$ og $30$ minutt er tala $63$, $49$, $39$, $30$, $24$, $18$ og $14$.\n\nVerdiane synk -- men ikkje jamnt. Fallet er bratt i starten og slakare etter hand, akkurat som eksponentiell nedgang skal vera. Eksponentiell regresjon i GeoGebra gir modellen:\n\n$$y = 63{,}2 \\cdot 0{,}95^x$$\n\nder $x$ er minutt og $y$ er gradar over romtemperatur. Vekstfaktoren $b = 0{,}95 < 1$ bekreftar nedgangen: kvart minutt mistar teen $5\\,\\%$ av overskuddsvarmen.\n\nModellen kan no svara på det viktige spørsmålet: når er teen drikkbar? Etter $12$ minutt:\n\n$$y = 63{,}2 \\cdot 0{,}95^{12} = 63{,}2 \\cdot 0{,}540 \\approx 34{,}2$$\n\nTeen er då $34{,}2$ gradar over romtemperaturen, altso held ho $22 + 34{,}2 = 56{,}2\\,°C$. Legg merke til det lille trikset i modellen: vi målte temperaturen *over* romtemperatur, ikkje sjølve temperaturen -- for det er overskuddsvarmen som avtar eksponentielt mot null, medan sjølve temperaturen flatar ut mot $22\\,°C$.\n\nSame matematikk styr mange prosessar omkring deg: mobilbatteriet fyller dei siste prosentane saktare enn dei første, og medisin i blodet blir broten ned med fast halveringstid. Overalt der noko avtar med same *prosent* per tidseining, er eksponentiell nedgang på ferde.","90c147bb687f7afc":"Test deg sjølv på eksponentiell nedgang:","0412b04ba4d89fc4":"Temodellen er $y=63{,}2\\cdot 0{,}95^x$. Kva betyr $b=0{,}95$?","6a2612296029d8bf":"Teen mistar $5\\,\\%$ av overskuddsvarmen per minutt","71addf58f1279e2f":"Teen blir $95$ gradar varm","d73353c12d0d9ba9":"Temperaturen synk $0{,}95$ gradar per minutt","5845af42e36b632e":"Teen er kald etter $95$ minutt","26cfa143399b4839":"Vekstfaktor $0{,}95$ betyr at $y$ blir multiplisert med $0{,}95$ kvart minutt -- ein nedgang på $5\\,\\%$ av gjenstår overskuddsvarme.","8439aa48265fa2cd":"Etter $12$ minutt gir modellen $y\\approx 34{,}2$ grader over romtemperatur ($22\\,°C$). Kva er teens faktiske temperatur?","15b6f1f011225e24":"$34{,}2\\,°C$","58f0718606b7c300":"$56{,}2\\,°C$","295380dfbcd45e02":"$63{,}2\\,°C$","e807bea177a3f2f6":"$22\\,°C$","fd2d0bb6ebfd3d35":"Faktisk temperatur $=$ romtemperatur $+$ overskudd $=22+34{,}2=56{,}2\\,°C$.","f6cedf56e67ca93f":"Kva situasjon er best beskriven av eksponentiell nedgang?","ed56abd84dc87884":"Ein taxipris som aukar med $12$ kr per km","62e4c31ae7a9c084":"Eit tre som veks $30$ cm per år","fcc446eef9df028a":"Lønn som aukar med fast beløp","fedcfdcd3187a8e9":"Medisinmengde i blodet som halveras med fast halveingstid","0dfc8797889cf1a3":"Fast halveingstid betyr at mengda blir multiplisert med $\\frac{1}{2}$ per tidsperiode -- klassisk eksponentiell nedgang. De andre er lineære endringar.","a73ae18ab156e5dd":"Kvifor brukte vi temperaturen OVER romtemperatur i modellen, ikkje sjølve temperaturen?","31e4d19cd784bd0e":"Det gir penare tal i tabellen","f8ed1cbe17152ccd":"Termometeret måler berre differansar","d9048afd5c512cbb":"Det er overskuddsvarmen som avtar eksponentielt mot null -- sjølve temperaturen flatar ut mot $22\\,°C$","c0a32aa07349b4df":"Romtemperaturen er ukjend","97f9f320839fca39":"Eksponentialmodellen $a\\cdot b^x$ går mot null. Temperaturen går mot $22\\,°C$, men overskuddet over romtemperatur går mot null -- derfor modellar vi det.","f1bea343b970f48a":"## Lineær eller eksponentiell -- kven vinn?\n\nOfta er det ikkje opplagt kva modell som passar. Då prøver vi rett og slett *begge* og let dataa døma: gjer lineær regresjon og notar $r$-verdien, gjer eksponentiell regresjon og notar hennar $r$-verdi, og vel modellen med $|r|$ nærmast $1$.\n\nEin nyopna nettbutikk er perfekt testcase. Bestillingar per månad dei første seks månadene: $40$, $58$, $88$, $130$, $196$, $290$. Lineær regresjon gir $y = 49x - 37$ med $r \\approx 0{,}96$ -- ikkje verst! Men eksponentiell regresjon gir $y = 26{,}5 \\cdot 1{,}49^x$ med $r \\approx 1{,}00$. Begge korrelasjonane er høge, men den eksponentielle ligg nærmast $1$. Og sjekkar vi for hand, bekreftas dommen: differansane ($18$, $30$, $42$, $66$, $94$) aukar, medan forholdstala ($1{,}45$; $1{,}52$; $1{,}48$; $1{,}51$; $1{,}48$) er stabile. Eksponentiell modell vinn -- butikken veks med rundt $49\\,\\%$ i månaden.\n\nMen $r$-verdien er ikkje heile historia; bruk også sunn fornuft. Gir modellen meining i konteksten? Kva skjer for store $x$-verdiar? Kan veksten *halde fram* slik? Her kjem den viktigaste avvisinga i kapittelet: **eksponentiell vekst kan ikkje vare evig**. Avgrensa ressursar -- kundar, plass, pengar -- breimsar alltid veksten til slutt. Vokste nettbutikken med $49\\,\\%$ i månaden i fem år, ville ho hatt fleire bestillingar enn det finst menneske på jordkloden.\n\nEin eksponentiell regresjonsmodell er derfor best til å skildre utviklinga over *avgrensa tidsperiodar*. Ver ekstra varsam med ekstrapolering: sjølv ein modell som passar dataa perfekt, kan gi fullstendig urealistiske tal langt fram i tid.","3d276a3c548e9e40":"Test deg sjølv på val av modell:","db9a6fa4164d428c":"Korleis samanliknar du ein lineær og ein eksponentiell modell for same datasett?","6fef9cf503182781":"Vel alltid den lineære -- ho er enklast","3116cb2406bbe9a3":"Gjer begge regresjonane og vel modellen med $|r|$ nærmast $1$ -- og vurder konteksten","fbefac95263a0496":"Vel den med største startverdi","fac104522c469288":"Vel den eksponentielle viss dataa er positive","f45b35abd2abdb1e":"Både $r$-verdiane og sunn fornuft om situasjonen avgjør: passar forma på kurva, og er utviklinga rimelig over tid?","0349fe6d5926f4b6":"Nettbutikkens data ga lineær $r\\approx 0{,}96$ og eksponentiell $r\\approx 1{,}00$. Differansane aukar, forholdstala er stabile. Kva modell passar best?","109c2ea6c0637a70":"Den lineære","f44e457b9c845b8e":"Begge like godt","29c38c467ea70e8d":"Den eksponentielle","bb60f24e85070ad0":"Ingen av dei","e1d0c3dce309ee15":"Både høgare $|r|$ og dei stabile forholdstala (ca. $1{,}49$) peikar på eksponentiell vekst -- ca. $49\\,\\%$ fleire bestillingar per månad.","a977c7d2a0c9f6f6":"Kva kjenneteiknar lineær vekst i ein tabell, til skilnad frå eksponentiell?","5e352e702614c3ef":"Samma beløp blir lagt til per periode (konstant differanse)","f077709826d883c1":"Samma prosent blir lagt til per periode","f205e4096f6622bd":"Verdiane blir multiplisert med vekstfaktoren","2241a9314d452cbe":"Verdiane blir alltid mindre","a84286556ff9ac00":"Lineær: fast beløp per periode (konstant differanse). Eksponentiell: fast prosent per periode (konstant forholdstall).","33e1604acea4a72d":"Kvifor er langtidsprognosar med eksponentielle vekstmodellar upålitelege?","47fffd9d36326657":"Eksponentialfunksjonar kan ikkje reknast ut for store $x$","36ea4e04c715b41f":"Korrelasjonskoeffisienten synkjer over tid","1d0496e929a7c429":"Datamaskinene avrundar feil","c5665fc9212e3cdc":"Avgrensa ressursar bremsar alltid veksten i røyndommen","2dea192c2c482701":"Eksponentiell vekst kan ikkje vare evig: kundar, plass og pengar tek slutt. Modellen gjeld berre for avgrensa tidsperiodar, og ekstrapolering langt fram gir urealistiske tal.","a3cc3fa5cd9dc6f1":"## Oppsummering\n\nBakterianes i petriskålen fylgde ingen rett linje -- og dermed opna det seg ein ny verden av modellar.\n\nDen **eksponentielle modellen** $y = a \\cdot b^x$ beskriv data som endrar seg med same *prosent* per periode: $a$ er startsverdien, $b$ vekstfaktoren -- vekst når $b > 1$, nedgang når $0 < b < 1$. Detektivtesten er **forholdstal**: konstante differansar betyr lineær samanheng, konstante forholdstal betyr eksponentiell. Slik avslørte vi bakterianes vekstfaktor på cirka $1{,}56$.\n\n**Eksponentiell regresjon** (`RegEksp` i GeoGebra) fann modellane frå dataa: $y = 198 \\cdot 1{,}56^x$ for bakteriane og $y = 63{,}2 \\cdot 0{,}95^x$ for tekoppa som mista $5\\,\\%$ av overskudsvarmia per minutt -- eksponentiell nedgang som òg styrer batterilading og medisinnedbrytning.\n\nVed modellval prøvar vi gjerne båe typar og vel den med $|r|$ nærmast $1$ -- nettbutikken sin $1{,}00$ mot $0{,}96$ avgjorde i eksponentaelen sin favør. Men husk den store advarselen: **eksponentiell vekst kan ikkje vare evig**. Ressursane set grenser, så modellen gjeld avgrensa tidsrom -- og ekstrapolering langt fram i tid er ein oppskrift på urealistiske svar."}}}
+{
+  "id": "1p-7-4-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "7.4",
+  "title": "Eksponentialregresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei fortellingi om kurver som bøyer seg -- frå bakteriar i petriskålen til tekoppen som kjølner, og kunsten å velja riktig modell.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "bruka digitale verktøy til å finna eksponentielle modellar som passar til datamateriale"
+  ],
+  "linkedChapterId": "1p-7-4",
+  "content": [
+    {
+      "id": "1p-7-4-n-intro",
+      "type": "text",
+      "content": "## Kurven som bøyer seg oppover\n\nPå naturfagslaben står ein petriskål med bakteriar, og du tel dei kvar time: $200$, $310$, $490$, $760$, $1\\,180$, $1\\,850$. Du prøver å teikna ein rett linje gjennom punkta i spreiingsdiagrammet -- men det går ikkje. Kurven bøyer seg oppover, brattare og brattare. Veksten er ikkje jamn; ho *akselererer*.\n\nIkkje alle datasett følgjer ein rett linje. Når verdiane veks eller avtar stadig raskare, treng vi ein **eksponentiell modell**:\n\n$$y = a \\cdot b^x$$\n\nder $a$ er startverdien (verdien når $x = 0$) og $b$ er vekstfaktoren. Er $b > 1$, har vi eksponentiell **vekst**; er $0 < b < 1$, har vi eksponentiell **nedgang**. Typiske døme er befolkningsvekst, avkjøling av kaffe, batterilading og spreiing av virus i tidleg fase.\n\nI dette kapittelet lærer du å gjenkjenna eksponentielle mønster i data, finna modellen med **eksponentiell regresjon** -- og avgjera når du hellre bør halda deg til den rette linja."
+    },
+    {
+      "id": "1p-7-4-n-section1",
+      "type": "text",
+      "content": "## Å avsløra eksponentiell vekst -- og finna modellen\n\nKorleis veit du om dataene er lineære eller eksponentielle? Testen er enkel når $x$-verdiane aukar med like steg: sjå på *differansane* og *forholdstala* mellom påfølgjande $y$-verdiar. Er differansen $y_{n+1} - y_n$ tilnærma konstant, er samanhengen **lineær** -- same *beløp* blir lagt til kvar gong. Er forholdstalet $\\frac{y_{n+1}}{y_n}$ tilnærma konstant, er ho **eksponentiell** -- verdien *gangast* med det same kvar gong.\n\nLåt oss testa bakteriane. Differansane er $110$, $180$, $270$, $420$, $670$ -- dei aukar kraftig, så lineært er det ikkje. Men forholdstala: $\\frac{310}{200} = 1{,}55$, $\\frac{490}{310} \\approx 1{,}58$, $\\frac{760}{490} \\approx 1{,}55$, $\\frac{1180}{760} \\approx 1{,}55$ og $\\frac{1850}{1180} \\approx 1{,}57$. Tilnærma konstant, omkring $1{,}56$! Samanhengen er eksponentiell: bakterietalet gangast med omtrent det same kvar time.\n\nDa er det klart for **eksponentiell regresjon**: å finna den eksponentialfunksjonen $y = a \\cdot b^x$ som passar best til datasettet. Som ved lineær regresjon gjer digitale verktøy jobben -- i GeoGebra legg du punkta i ein liste og skriv `RegEksp(liste)`. For bakteriedataene får vi:\n\n$$y = 198 \\cdot 1{,}56^x$$\n\nTolkinga ligg i tala: $a \\approx 198$ er omtrent startverdien (vi talte $200$), og $b \\approx 1{,}56$ betyr at antalet aukar med cirka $56\\,\\%$ per time. I spreiingsdiagrammet ser du samanhengen tydeleg: eksponentiell vekst bøyer oppover stadig brattare, medan eksponentiell nedgang flatar ut mot bunnen."
+    },
+    {
+      "id": "1p-7-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å gjenkjenna eksponentielle data:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-4-n-quiz1-q0",
+            "task": "Korleis gjenkjenner du ein eksponentiell sammenhang i ein tabell med jamne $x$-steg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Differansane mellom $y$-verdiane er konstante",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Forholdstala mellom påfølgjande $y$-verdiar er tilnærma konstante",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$y$-verdiane er alltid positive",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x$-verdiane blir dobbla",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentiell vekst betyr at verdien gangast med same faktor kvar periode -- forholdstalet $\\frac{y_{n+1}}{y_n}$ er konstant. Konstante differansar betyr lineær sammenhang."
+          },
+          {
+            "id": "1p-7-4-n-quiz1-q1",
+            "task": "I modellen $y=a\\cdot b^x$: kva fortel $a$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Vekstfaktoren per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Korrelasjonskoeffisienten",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Startverdien -- $y$-verdien når $x=0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Kor bratt kurven er på slutten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Set du $x=0$, får du $y=a\\cdot b^0=a$. Difor er $a$ startverdien."
+          },
+          {
+            "id": "1p-7-4-n-quiz1-q2",
+            "task": "Bakteriemodellen er $y=198\\cdot 1{,}56^x$. Kva betyr $b=1{,}56$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Antalet aukar med $1{,}56$ bakteriar per time",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Antalet blir halvera kvar $1{,}56$. time",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Starttalet er $156$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antalet aukar med ca. $56\\,\\%$ per time",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vekstfaktor $1{,}56$ betyr at antalet gangast med $1{,}56$ kvar time -- ein auke på $56\\,\\%$."
+          },
+          {
+            "id": "1p-7-4-n-quiz1-q3",
+            "task": "Eit datasett har $y$-verdiar som blir ganga med $0{,}8$ for kvart steg. Kva slags utvikling er dette?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Eksponentiell nedgang",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eksponentiell vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lineær vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen utvikling",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor $b=0{,}8$ ligg mellom $0$ og $1$: verdien synk med $20\\,\\%$ per steg -- eksponentiell nedgang."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-4-n-section2",
+      "type": "text",
+      "content": "## Tekoppen som kjølner -- eksponentiell nedgang i praksis\n\nEksponentialfunksjonar beskriv ikkje berre ting som veks. Set ein kopp te på $85\\,°C$ til avkjøling i eit rom på $22\\,°C$, og mål kor mange gradar *over romtemperatur* ho er: etter $0$, $5$, $10$, $15$, $20$, $25$ og $30$ minutt er tala $63$, $49$, $39$, $30$, $24$, $18$ og $14$.\n\nVerdiane synk -- men ikkje jamnt. Fallet er bratt i starten og slakare etter hand, akkurat som eksponentiell nedgang skal vera. Eksponentiell regresjon i GeoGebra gir modellen:\n\n$$y = 63{,}2 \\cdot 0{,}95^x$$\n\nder $x$ er minutt og $y$ er gradar over romtemperatur. Vekstfaktoren $b = 0{,}95 < 1$ bekreftar nedgangen: kvart minutt mistar teen $5\\,\\%$ av overskuddsvarmen.\n\nModellen kan no svara på det viktige spørsmålet: når er teen drikkbar? Etter $12$ minutt:\n\n$$y = 63{,}2 \\cdot 0{,}95^{12} = 63{,}2 \\cdot 0{,}540 \\approx 34{,}2$$\n\nTeen er då $34{,}2$ gradar over romtemperaturen, altso held ho $22 + 34{,}2 = 56{,}2\\,°C$. Legg merke til det lille trikset i modellen: vi målte temperaturen *over* romtemperatur, ikkje sjølve temperaturen -- for det er overskuddsvarmen som avtar eksponentielt mot null, medan sjølve temperaturen flatar ut mot $22\\,°C$.\n\nSame matematikk styr mange prosessar omkring deg: mobilbatteriet fyller dei siste prosentane saktare enn dei første, og medisin i blodet blir broten ned med fast halveringstid. Overalt der noko avtar med same *prosent* per tidseining, er eksponentiell nedgang på ferde."
+    },
+    {
+      "id": "1p-7-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eksponentiell nedgang:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-4-n-quiz2-q0",
+            "task": "Temodellen er $y=63{,}2\\cdot 0{,}95^x$. Kva betyr $b=0{,}95$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Teen blir $95$ gradar varm",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Teen mistar $5\\,\\%$ av overskuddsvarmen per minutt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Temperaturen synk $0{,}95$ gradar per minutt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Teen er kald etter $95$ minutt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor $0{,}95$ betyr at $y$ blir multiplisert med $0{,}95$ kvart minutt -- ein nedgang på $5\\,\\%$ av gjenstår overskuddsvarme."
+          },
+          {
+            "id": "1p-7-4-n-quiz2-q1",
+            "task": "Etter $12$ minutt gir modellen $y\\approx 34{,}2$ grader over romtemperatur ($22\\,°C$). Kva er teens faktiske temperatur?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$34{,}2\\,°C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$63{,}2\\,°C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$56{,}2\\,°C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$22\\,°C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktisk temperatur $=$ romtemperatur $+$ overskudd $=22+34{,}2=56{,}2\\,°C$."
+          },
+          {
+            "id": "1p-7-4-n-quiz2-q2",
+            "task": "Kva situasjon er best beskriven av eksponentiell nedgang?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein taxipris som aukar med $12$ kr per km",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eit tre som veks $30$ cm per år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lønn som aukar med fast beløp",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Medisinmengde i blodet som halveras med fast halveingstid",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fast halveingstid betyr at mengda blir multiplisert med $\\frac{1}{2}$ per tidsperiode -- klassisk eksponentiell nedgang. De andre er lineære endringar."
+          },
+          {
+            "id": "1p-7-4-n-quiz2-q3",
+            "task": "Kvifor brukte vi temperaturen OVER romtemperatur i modellen, ikkje sjølve temperaturen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Det er overskuddsvarmen som avtar eksponentielt mot null -- sjølve temperaturen flatar ut mot $22\\,°C$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det gir penare tal i tabellen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Termometeret måler berre differansar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Romtemperaturen er ukjend",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentialmodellen $a\\cdot b^x$ går mot null. Temperaturen går mot $22\\,°C$, men overskuddet over romtemperatur går mot null -- derfor modellar vi det."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-4-n-section3",
+      "type": "text",
+      "content": "## Lineær eller eksponentiell -- kven vinn?\n\nOfta er det ikkje opplagt kva modell som passar. Då prøver vi rett og slett *begge* og let dataa døma: gjer lineær regresjon og notar $r$-verdien, gjer eksponentiell regresjon og notar hennar $r$-verdi, og vel modellen med $|r|$ nærmast $1$.\n\nEin nyopna nettbutikk er perfekt testcase. Bestillingar per månad dei første seks månadene: $40$, $58$, $88$, $130$, $196$, $290$. Lineær regresjon gir $y = 49x - 37$ med $r \\approx 0{,}96$ -- ikkje verst! Men eksponentiell regresjon gir $y = 26{,}5 \\cdot 1{,}49^x$ med $r \\approx 1{,}00$. Begge korrelasjonane er høge, men den eksponentielle ligg nærmast $1$. Og sjekkar vi for hand, bekreftas dommen: differansane ($18$, $30$, $42$, $66$, $94$) aukar, medan forholdstala ($1{,}45$; $1{,}52$; $1{,}48$; $1{,}51$; $1{,}48$) er stabile. Eksponentiell modell vinn -- butikken veks med rundt $49\\,\\%$ i månaden.\n\nMen $r$-verdien er ikkje heile historia; bruk også sunn fornuft. Gir modellen meining i konteksten? Kva skjer for store $x$-verdiar? Kan veksten *halde fram* slik? Her kjem den viktigaste avvisinga i kapittelet: **eksponentiell vekst kan ikkje vare evig**. Avgrensa ressursar -- kundar, plass, pengar -- breimsar alltid veksten til slutt. Vokste nettbutikken med $49\\,\\%$ i månaden i fem år, ville ho hatt fleire bestillingar enn det finst menneske på jordkloden.\n\nEin eksponentiell regresjonsmodell er derfor best til å skildre utviklinga over *avgrensa tidsperiodar*. Ver ekstra varsam med ekstrapolering: sjølv ein modell som passar dataa perfekt, kan gi fullstendig urealistiske tal langt fram i tid."
+    },
+    {
+      "id": "1p-7-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på val av modell:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-4-n-quiz3-q0",
+            "task": "Korleis samanliknar du ein lineær og ein eksponentiell modell for same datasett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vel alltid den lineære -- ho er enklast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjer begge regresjonane og vel modellen med $|r|$ nærmast $1$ -- og vurder konteksten",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Vel den med største startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vel den eksponentielle viss dataa er positive",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Både $r$-verdiane og sunn fornuft om situasjonen avgjør: passar forma på kurva, og er utviklinga rimelig over tid?"
+          },
+          {
+            "id": "1p-7-4-n-quiz3-q1",
+            "task": "Nettbutikkens data ga lineær $r\\approx 0{,}96$ og eksponentiell $r\\approx 1{,}00$. Differansane aukar, forholdstala er stabile. Kva modell passar best?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den lineære",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Begge like godt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den eksponentielle",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen av dei",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Både høgare $|r|$ og dei stabile forholdstala (ca. $1{,}49$) peikar på eksponentiell vekst -- ca. $49\\,\\%$ fleire bestillingar per månad."
+          },
+          {
+            "id": "1p-7-4-n-quiz3-q2",
+            "task": "Kva kjenneteiknar lineær vekst i ein tabell, til skilnad frå eksponentiell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Samma prosent blir lagt til per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Verdiane blir multiplisert med vekstfaktoren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verdiane blir alltid mindre",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Samma beløp blir lagt til per periode (konstant differanse)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Lineær: fast beløp per periode (konstant differanse). Eksponentiell: fast prosent per periode (konstant forholdstall)."
+          },
+          {
+            "id": "1p-7-4-n-quiz3-q3",
+            "task": "Kvifor er langtidsprognosar med eksponentielle vekstmodellar upålitelege?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Avgrensa ressursar bremsar alltid veksten i røyndommen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eksponentialfunksjonar kan ikkje reknast ut for store $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Korrelasjonskoeffisienten synkjer over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Datamaskinene avrundar feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentiell vekst kan ikkje vare evig: kundar, plass og pengar tek slutt. Modellen gjeld berre for avgrensa tidsperiodar, og ekstrapolering langt fram gir urealistiske tal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nBakterianes i petriskålen fylgde ingen rett linje -- og dermed opna det seg ein ny verden av modellar.\n\nDen **eksponentielle modellen** $y = a \\cdot b^x$ beskriv data som endrar seg med same *prosent* per periode: $a$ er startsverdien, $b$ vekstfaktoren -- vekst når $b > 1$, nedgang når $0 < b < 1$. Detektivtesten er **forholdstal**: konstante differansar betyr lineær samanheng, konstante forholdstal betyr eksponentiell. Slik avslørte vi bakterianes vekstfaktor på cirka $1{,}56$.\n\n**Eksponentiell regresjon** (`RegEksp` i GeoGebra) fann modellane frå dataa: $y = 198 \\cdot 1{,}56^x$ for bakteriane og $y = 63{,}2 \\cdot 0{,}95^x$ for tekoppa som mista $5\\,\\%$ av overskudsvarmia per minutt -- eksponentiell nedgang som òg styrer batterilading og medisinnedbrytning.\n\nVed modellval prøvar vi gjerne båe typar og vel den med $|r|$ nærmast $1$ -- nettbutikken sin $1{,}00$ mot $0{,}96$ avgjorde i eksponentaelen sin favør. Men husk den store advarselen: **eksponentiell vekst kan ikkje vare evig**. Ressursane set grenser, så modellen gjeld avgrensa tidsrom -- og ekstrapolering langt fram i tid er ein oppskrift på urealistiske svar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "00179ff7111e5d2a",
+    "translatedAt": "2026-06-16T09:55:47.004Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 87,
+    "tm": {
+      "b558b58fbd131d3d": "Eksponentialregresjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "dae0f40ff171511b": "Ei fortellingi om kurver som bøyer seg -- frå bakteriar i petriskålen til tekoppen som kjølner, og kunsten å velja riktig modell.",
+      "24ca4734ea6d9647": "bruka digitale verktøy til å finna eksponentielle modellar som passar til datamateriale",
+      "7090e9070f2a1578": "## Kurven som bøyer seg oppover\n\nPå naturfagslaben står ein petriskål med bakteriar, og du tel dei kvar time: $200$, $310$, $490$, $760$, $1\\,180$, $1\\,850$. Du prøver å teikna ein rett linje gjennom punkta i spreiingsdiagrammet -- men det går ikkje. Kurven bøyer seg oppover, brattare og brattare. Veksten er ikkje jamn; ho *akselererer*.\n\nIkkje alle datasett følgjer ein rett linje. Når verdiane veks eller avtar stadig raskare, treng vi ein **eksponentiell modell**:\n\n$$y = a \\cdot b^x$$\n\nder $a$ er startverdien (verdien når $x = 0$) og $b$ er vekstfaktoren. Er $b > 1$, har vi eksponentiell **vekst**; er $0 < b < 1$, har vi eksponentiell **nedgang**. Typiske døme er befolkningsvekst, avkjøling av kaffe, batterilading og spreiing av virus i tidleg fase.\n\nI dette kapittelet lærer du å gjenkjenna eksponentielle mønster i data, finna modellen med **eksponentiell regresjon** -- og avgjera når du hellre bør halda deg til den rette linja.",
+      "a4d6aa1cafaf5d32": "## Å avsløra eksponentiell vekst -- og finna modellen\n\nKorleis veit du om dataene er lineære eller eksponentielle? Testen er enkel når $x$-verdiane aukar med like steg: sjå på *differansane* og *forholdstala* mellom påfølgjande $y$-verdiar. Er differansen $y_{n+1} - y_n$ tilnærma konstant, er samanhengen **lineær** -- same *beløp* blir lagt til kvar gong. Er forholdstalet $\\frac{y_{n+1}}{y_n}$ tilnærma konstant, er ho **eksponentiell** -- verdien *gangast* med det same kvar gong.\n\nLåt oss testa bakteriane. Differansane er $110$, $180$, $270$, $420$, $670$ -- dei aukar kraftig, så lineært er det ikkje. Men forholdstala: $\\frac{310}{200} = 1{,}55$, $\\frac{490}{310} \\approx 1{,}58$, $\\frac{760}{490} \\approx 1{,}55$, $\\frac{1180}{760} \\approx 1{,}55$ og $\\frac{1850}{1180} \\approx 1{,}57$. Tilnærma konstant, omkring $1{,}56$! Samanhengen er eksponentiell: bakterietalet gangast med omtrent det same kvar time.\n\nDa er det klart for **eksponentiell regresjon**: å finna den eksponentialfunksjonen $y = a \\cdot b^x$ som passar best til datasettet. Som ved lineær regresjon gjer digitale verktøy jobben -- i GeoGebra legg du punkta i ein liste og skriv `RegEksp(liste)`. For bakteriedataene får vi:\n\n$$y = 198 \\cdot 1{,}56^x$$\n\nTolkinga ligg i tala: $a \\approx 198$ er omtrent startverdien (vi talte $200$), og $b \\approx 1{,}56$ betyr at antalet aukar med cirka $56\\,\\%$ per time. I spreiingsdiagrammet ser du samanhengen tydeleg: eksponentiell vekst bøyer oppover stadig brattare, medan eksponentiell nedgang flatar ut mot bunnen.",
+      "ba370947af33fa52": "Test deg sjølv på å gjenkjenna eksponentielle data:",
+      "4097889236a2af26": "placeholder",
+      "b29a2f6d7af2d0f9": "Korleis gjenkjenner du ein eksponentiell sammenhang i ein tabell med jamne $x$-steg?",
+      "7c4e56a178312849": "Differansane mellom $y$-verdiane er konstante",
+      "63c31cdb6c0df532": "Forholdstala mellom påfølgjande $y$-verdiar er tilnærma konstante",
+      "41b8be5fb9510027": "$y$-verdiane er alltid positive",
+      "f433387e5b52278f": "$x$-verdiane blir dobbla",
+      "28c3027399f08f7f": "Eksponentiell vekst betyr at verdien gangast med same faktor kvar periode -- forholdstalet $\\frac{y_{n+1}}{y_n}$ er konstant. Konstante differansar betyr lineær sammenhang.",
+      "b29cbb260621b1e5": "I modellen $y=a\\cdot b^x$: kva fortel $a$?",
+      "a4e672c5775942ff": "Startverdien -- $y$-verdien når $x=0$",
+      "2404a6b94ee93c20": "Vekstfaktoren per periode",
+      "bc163a8746e0c49d": "Korrelasjonskoeffisienten",
+      "85fe5ec9460e541c": "Kor bratt kurven er på slutten",
+      "17aa42e15df30ede": "Set du $x=0$, får du $y=a\\cdot b^0=a$. Difor er $a$ startverdien.",
+      "181fd0935d90105f": "Bakteriemodellen er $y=198\\cdot 1{,}56^x$. Kva betyr $b=1{,}56$?",
+      "8cea9492fcdd21d6": "Antalet aukar med $1{,}56$ bakteriar per time",
+      "563bd5ef96be2540": "Antalet blir halvera kvar $1{,}56$. time",
+      "5192bd44dcd766f8": "Starttalet er $156$",
+      "fda65edf8b7698d9": "Antalet aukar med ca. $56\\,\\%$ per time",
+      "e38db2b1920d49e2": "Vekstfaktor $1{,}56$ betyr at antalet gangast med $1{,}56$ kvar time -- ein auke på $56\\,\\%$.",
+      "30ab6234e2385f01": "Eit datasett har $y$-verdiar som blir ganga med $0{,}8$ for kvart steg. Kva slags utvikling er dette?",
+      "9e406c20a9940e41": "Eksponentiell vekst",
+      "40e9d42979c47c34": "Lineær vekst",
+      "f72bd788ad21a442": "Eksponentiell nedgang",
+      "0ce470c2a37b223d": "Ingen utvikling",
+      "e9e84e5b974c638a": "Vekstfaktor $b=0{,}8$ ligg mellom $0$ og $1$: verdien synk med $20\\,\\%$ per steg -- eksponentiell nedgang.",
+      "8ad9b32179752819": "## Tekoppen som kjølner -- eksponentiell nedgang i praksis\n\nEksponentialfunksjonar beskriv ikkje berre ting som veks. Set ein kopp te på $85\\,°C$ til avkjøling i eit rom på $22\\,°C$, og mål kor mange gradar *over romtemperatur* ho er: etter $0$, $5$, $10$, $15$, $20$, $25$ og $30$ minutt er tala $63$, $49$, $39$, $30$, $24$, $18$ og $14$.\n\nVerdiane synk -- men ikkje jamnt. Fallet er bratt i starten og slakare etter hand, akkurat som eksponentiell nedgang skal vera. Eksponentiell regresjon i GeoGebra gir modellen:\n\n$$y = 63{,}2 \\cdot 0{,}95^x$$\n\nder $x$ er minutt og $y$ er gradar over romtemperatur. Vekstfaktoren $b = 0{,}95 < 1$ bekreftar nedgangen: kvart minutt mistar teen $5\\,\\%$ av overskuddsvarmen.\n\nModellen kan no svara på det viktige spørsmålet: når er teen drikkbar? Etter $12$ minutt:\n\n$$y = 63{,}2 \\cdot 0{,}95^{12} = 63{,}2 \\cdot 0{,}540 \\approx 34{,}2$$\n\nTeen er då $34{,}2$ gradar over romtemperaturen, altso held ho $22 + 34{,}2 = 56{,}2\\,°C$. Legg merke til det lille trikset i modellen: vi målte temperaturen *over* romtemperatur, ikkje sjølve temperaturen -- for det er overskuddsvarmen som avtar eksponentielt mot null, medan sjølve temperaturen flatar ut mot $22\\,°C$.\n\nSame matematikk styr mange prosessar omkring deg: mobilbatteriet fyller dei siste prosentane saktare enn dei første, og medisin i blodet blir broten ned med fast halveringstid. Overalt der noko avtar med same *prosent* per tidseining, er eksponentiell nedgang på ferde.",
+      "90c147bb687f7afc": "Test deg sjølv på eksponentiell nedgang:",
+      "0412b04ba4d89fc4": "Temodellen er $y=63{,}2\\cdot 0{,}95^x$. Kva betyr $b=0{,}95$?",
+      "6a2612296029d8bf": "Teen mistar $5\\,\\%$ av overskuddsvarmen per minutt",
+      "71addf58f1279e2f": "Teen blir $95$ gradar varm",
+      "d73353c12d0d9ba9": "Temperaturen synk $0{,}95$ gradar per minutt",
+      "5845af42e36b632e": "Teen er kald etter $95$ minutt",
+      "26cfa143399b4839": "Vekstfaktor $0{,}95$ betyr at $y$ blir multiplisert med $0{,}95$ kvart minutt -- ein nedgang på $5\\,\\%$ av gjenstår overskuddsvarme.",
+      "8439aa48265fa2cd": "Etter $12$ minutt gir modellen $y\\approx 34{,}2$ grader over romtemperatur ($22\\,°C$). Kva er teens faktiske temperatur?",
+      "15b6f1f011225e24": "$34{,}2\\,°C$",
+      "58f0718606b7c300": "$56{,}2\\,°C$",
+      "295380dfbcd45e02": "$63{,}2\\,°C$",
+      "e807bea177a3f2f6": "$22\\,°C$",
+      "fd2d0bb6ebfd3d35": "Faktisk temperatur $=$ romtemperatur $+$ overskudd $=22+34{,}2=56{,}2\\,°C$.",
+      "f6cedf56e67ca93f": "Kva situasjon er best beskriven av eksponentiell nedgang?",
+      "ed56abd84dc87884": "Ein taxipris som aukar med $12$ kr per km",
+      "62e4c31ae7a9c084": "Eit tre som veks $30$ cm per år",
+      "fcc446eef9df028a": "Lønn som aukar med fast beløp",
+      "fedcfdcd3187a8e9": "Medisinmengde i blodet som halveras med fast halveingstid",
+      "0dfc8797889cf1a3": "Fast halveingstid betyr at mengda blir multiplisert med $\\frac{1}{2}$ per tidsperiode -- klassisk eksponentiell nedgang. De andre er lineære endringar.",
+      "a73ae18ab156e5dd": "Kvifor brukte vi temperaturen OVER romtemperatur i modellen, ikkje sjølve temperaturen?",
+      "31e4d19cd784bd0e": "Det gir penare tal i tabellen",
+      "f8ed1cbe17152ccd": "Termometeret måler berre differansar",
+      "d9048afd5c512cbb": "Det er overskuddsvarmen som avtar eksponentielt mot null -- sjølve temperaturen flatar ut mot $22\\,°C$",
+      "c0a32aa07349b4df": "Romtemperaturen er ukjend",
+      "97f9f320839fca39": "Eksponentialmodellen $a\\cdot b^x$ går mot null. Temperaturen går mot $22\\,°C$, men overskuddet over romtemperatur går mot null -- derfor modellar vi det.",
+      "f1bea343b970f48a": "## Lineær eller eksponentiell -- kven vinn?\n\nOfta er det ikkje opplagt kva modell som passar. Då prøver vi rett og slett *begge* og let dataa døma: gjer lineær regresjon og notar $r$-verdien, gjer eksponentiell regresjon og notar hennar $r$-verdi, og vel modellen med $|r|$ nærmast $1$.\n\nEin nyopna nettbutikk er perfekt testcase. Bestillingar per månad dei første seks månadene: $40$, $58$, $88$, $130$, $196$, $290$. Lineær regresjon gir $y = 49x - 37$ med $r \\approx 0{,}96$ -- ikkje verst! Men eksponentiell regresjon gir $y = 26{,}5 \\cdot 1{,}49^x$ med $r \\approx 1{,}00$. Begge korrelasjonane er høge, men den eksponentielle ligg nærmast $1$. Og sjekkar vi for hand, bekreftas dommen: differansane ($18$, $30$, $42$, $66$, $94$) aukar, medan forholdstala ($1{,}45$; $1{,}52$; $1{,}48$; $1{,}51$; $1{,}48$) er stabile. Eksponentiell modell vinn -- butikken veks med rundt $49\\,\\%$ i månaden.\n\nMen $r$-verdien er ikkje heile historia; bruk også sunn fornuft. Gir modellen meining i konteksten? Kva skjer for store $x$-verdiar? Kan veksten *halde fram* slik? Her kjem den viktigaste avvisinga i kapittelet: **eksponentiell vekst kan ikkje vare evig**. Avgrensa ressursar -- kundar, plass, pengar -- breimsar alltid veksten til slutt. Vokste nettbutikken med $49\\,\\%$ i månaden i fem år, ville ho hatt fleire bestillingar enn det finst menneske på jordkloden.\n\nEin eksponentiell regresjonsmodell er derfor best til å skildre utviklinga over *avgrensa tidsperiodar*. Ver ekstra varsam med ekstrapolering: sjølv ein modell som passar dataa perfekt, kan gi fullstendig urealistiske tal langt fram i tid.",
+      "3d276a3c548e9e40": "Test deg sjølv på val av modell:",
+      "db9a6fa4164d428c": "Korleis samanliknar du ein lineær og ein eksponentiell modell for same datasett?",
+      "6fef9cf503182781": "Vel alltid den lineære -- ho er enklast",
+      "3116cb2406bbe9a3": "Gjer begge regresjonane og vel modellen med $|r|$ nærmast $1$ -- og vurder konteksten",
+      "fbefac95263a0496": "Vel den med største startverdi",
+      "fac104522c469288": "Vel den eksponentielle viss dataa er positive",
+      "f45b35abd2abdb1e": "Både $r$-verdiane og sunn fornuft om situasjonen avgjør: passar forma på kurva, og er utviklinga rimelig over tid?",
+      "0349fe6d5926f4b6": "Nettbutikkens data ga lineær $r\\approx 0{,}96$ og eksponentiell $r\\approx 1{,}00$. Differansane aukar, forholdstala er stabile. Kva modell passar best?",
+      "109c2ea6c0637a70": "Den lineære",
+      "f44e457b9c845b8e": "Begge like godt",
+      "29c38c467ea70e8d": "Den eksponentielle",
+      "bb60f24e85070ad0": "Ingen av dei",
+      "e1d0c3dce309ee15": "Både høgare $|r|$ og dei stabile forholdstala (ca. $1{,}49$) peikar på eksponentiell vekst -- ca. $49\\,\\%$ fleire bestillingar per månad.",
+      "a977c7d2a0c9f6f6": "Kva kjenneteiknar lineær vekst i ein tabell, til skilnad frå eksponentiell?",
+      "5e352e702614c3ef": "Samma beløp blir lagt til per periode (konstant differanse)",
+      "f077709826d883c1": "Samma prosent blir lagt til per periode",
+      "f205e4096f6622bd": "Verdiane blir multiplisert med vekstfaktoren",
+      "2241a9314d452cbe": "Verdiane blir alltid mindre",
+      "a84286556ff9ac00": "Lineær: fast beløp per periode (konstant differanse). Eksponentiell: fast prosent per periode (konstant forholdstall).",
+      "33e1604acea4a72d": "Kvifor er langtidsprognosar med eksponentielle vekstmodellar upålitelege?",
+      "47fffd9d36326657": "Eksponentialfunksjonar kan ikkje reknast ut for store $x$",
+      "36ea4e04c715b41f": "Korrelasjonskoeffisienten synkjer over tid",
+      "1d0496e929a7c429": "Datamaskinene avrundar feil",
+      "c5665fc9212e3cdc": "Avgrensa ressursar bremsar alltid veksten i røyndommen",
+      "2dea192c2c482701": "Eksponentiell vekst kan ikkje vare evig: kundar, plass og pengar tek slutt. Modellen gjeld berre for avgrensa tidsperiodar, og ekstrapolering langt fram gir urealistiske tal.",
+      "a3cc3fa5cd9dc6f1": "## Oppsummering\n\nBakterianes i petriskålen fylgde ingen rett linje -- og dermed opna det seg ein ny verden av modellar.\n\nDen **eksponentielle modellen** $y = a \\cdot b^x$ beskriv data som endrar seg med same *prosent* per periode: $a$ er startsverdien, $b$ vekstfaktoren -- vekst når $b > 1$, nedgang når $0 < b < 1$. Detektivtesten er **forholdstal**: konstante differansar betyr lineær samanheng, konstante forholdstal betyr eksponentiell. Slik avslørte vi bakterianes vekstfaktor på cirka $1{,}56$.\n\n**Eksponentiell regresjon** (`RegEksp` i GeoGebra) fann modellane frå dataa: $y = 198 \\cdot 1{,}56^x$ for bakteriane og $y = 63{,}2 \\cdot 0{,}95^x$ for tekoppa som mista $5\\,\\%$ av overskudsvarmia per minutt -- eksponentiell nedgang som òg styrer batterilading og medisinnedbrytning.\n\nVed modellval prøvar vi gjerne båe typar og vel den med $|r|$ nærmast $1$ -- nettbutikken sin $1{,}00$ mot $0{,}96$ avgjorde i eksponentaelen sin favør. Men husk den store advarselen: **eksponentiell vekst kan ikkje vare evig**. Ressursane set grenser, så modellen gjeld avgrensa tidsrom -- og ekstrapolering langt fram i tid er ein oppskrift på urealistiske svar."
+    }
+  }
+}

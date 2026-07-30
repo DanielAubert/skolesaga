@@ -1,1 +1,517 @@
-{"id":"s2-8-3-narrativ","courseId":"s2","chapterNumber":"8.3","title":"Tilbod og etterspurnad","subtitle":"Narrativ versjon","description":"Ei forteljing om jordbærprisen på torget — om korleis tilbod møter etterspurnad i likevekt, kor følsame kjøparane er, og kven som eigenleg betaler når staten legg på ei avgift.","estimatedMinutes":35,"competenceGoals":["modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar og derivasjon","bruke matematiske modellar til å skildre marknadsmekanismar"],"linkedChapterId":"s2-8-3","content":[{"id":"s2-8-3-n-intro","type":"text","content":"## Kven bestemmer eigenleg prisen?\n\nPå torget i byen vert det selt jordbær kvar sommar. Inga styresmakt har vedteke jordbærprisen, og ingen einskild seljar kan diktere han — likevel endar kurvene på om lag same pris hjå alle. Korleis? Svaret er eitt av dei vakraste resultata i økonomifaget: prisen vert bestemt av samspelet mellom **tilbod** og **etterspurnad**, og dette samspelet kan vi skildre og analysere med matematikk.\n\n**Etterspurnadsfunksjonen** skildrar kor mykje forbrukarane ønskjer å kjøpe ved ulike prisar — jo høgare pris, desto færre kjøparar. **Tilbodsfunksjonen** skildrar kor mykje produsentane ønskjer å selje — jo høgare pris, desto meir er det verdt å produsere. Ein stad kryssar kurvene kvarandre, og der, i **marknadslikevekta**, finn marknaden prisen sin heilt av seg sjølv.\n\nI denne forteljinga finn vi likevekta matematisk, måler kor følsam etterspurnaden er for prisendringar med **priselastisitet**, og undersøkjer kva som skjer når staten blandar seg inn med ei avgift. Du vil sjå at den deriverte nok ein gong er nøkkelen — denne gongen til å forstå heile marknader."},{"id":"s2-8-3-n-section1","type":"text","content":"## Marknadslikevekt — der kurvene vert kryssa\n\nVi skriv **etterspurnadsfunksjonen** $p_E(x)$: prisen som gjer at mengda $x$ vert etterspurd. Han er vanlegvis avtakande, typisk $p_E(x) = a - bx$ med $a, b > 0$. **Tilbodsfunksjonen** $p_T(x)$ gjev prisen produsentane krev for å tilby mengda $x$; han er veksande, typisk $p_T(x) = c + dx$ med $c \\geq 0$, $d > 0$.\n\n**Marknadslikevekt** oppstår der tilboden mengd er lik etterspurd mengd:\n\n$$p_E(x) = p_T(x)$$\n\nLøysinga gjev likevektsmengda $x^*$ og likevektsprisen $p^* = p_E(x^*) = p_T(x^*)$. Det geniale med likevekta er at ho er sjølvkorrigerande. Er prisen *høgare* enn $p^*$, vil produsentane tilby meir enn forbrukarane kjøper — **overskotstilbod** — og prisen vert pressa ned. Er prisen *lågare* enn $p^*$, oppstår **overskotsetterspurnad**, og prisen vert pressa opp. Berre i likevekt er det ingen tendens til endring.\n\nLat oss rekne på jordbærmarknaden: $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$, der $p$ er pris i kroner og $x$ talet på tusen korger. Likevekt: $120 - 2x = 20 + x$ gjev $3x = 100$, altså $x^* = \\frac{100}{3} \\approx 33{,}3$ tusen korger og $p^* = 20 + \\frac{100}{3} \\approx 53{,}3$ kroner.\n\nKva om ein seljar prøver seg med 80 kroner? Etterspurd mengd: $80 = 120 - 2x$ gjev $x_E = 20$. Tilboden mengd: $80 = 20 + x$ gjev $x_T = 60$. Det vert altså tilbode 40 tusen korger meir enn folk vil kjøpe — usolde jordbær hopar seg opp, og prisen fell mot likevekta igjen."},{"id":"s2-8-3-n-quiz1","type":"exercise","exercise":{"id":"s2-8-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på marknadslikevekt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-3-n-quiz1-q0","task":"Kva kjenneteiknar marknadslikevekta?","options":[{"id":"a","text":"Prisen der produsentane tener mest","isCorrect":false},{"id":"b","text":"Prisen der tilboden mengd er lik etterspurd mengd","isCorrect":true},{"id":"c","text":"Prisen der etterspurnaden er størst","isCorrect":false},{"id":"d","text":"Prisen staten har fastsett","isCorrect":false}],"solution":"Likevekt: $p_E(x) = p_T(x)$. Då vert nøyaktig den mengda som både kjøparar og seljarar ønskjer omsett, og prisen er stabil."},{"id":"s2-8-3-n-quiz1-q1","task":"Med $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$: kva er likevektsmengda?","options":[{"id":"a","text":"$x^* = 100$","isCorrect":false},{"id":"b","text":"$x^* = 50$","isCorrect":false},{"id":"c","text":"$x^* = \\frac{100}{3} \\approx 33{,}3$","isCorrect":true},{"id":"d","text":"$x^* = 20$","isCorrect":false}],"solution":"$120 - 2x = 20 + x \\Rightarrow 100 = 3x \\Rightarrow x^* = \\frac{100}{3}$. Likevektsprisen vert $p^* \\approx 53{,}3$ kr."},{"id":"s2-8-3-n-quiz1-q2","task":"Prisen vert sett til 80 kr — over likevektsprisen på 53,3 kr. Kva skjer?","options":[{"id":"a","text":"Overskotsetterspurnad — prisen vert pressa vidare opp","isCorrect":false},{"id":"b","text":"Marknaden held fram i ro","isCorrect":false},{"id":"c","text":"Etterspurnaden aukar","isCorrect":false},{"id":"d","text":"Overskotstilbod — usolde varer pressar prisen ned","isCorrect":true}],"solution":"Ved 80 kr vert 60 tusen einingar tilbode, men berre 20 tusen etterspurd. Overskotstilbodet på 40 tusen pressar prisen ned mot likevekt."},{"id":"s2-8-3-n-quiz1-q3","task":"Kvifor er etterspurnadsfunksjonen vanlegvis avtakande?","options":[{"id":"a","text":"Jo høgare pris, desto mindre ønskjer forbrukarane å kjøpe","isCorrect":true},{"id":"b","text":"Fordi produsentane krev høgare pris for større mengder","isCorrect":false},{"id":"c","text":"Fordi kostnadene søkk med mengda","isCorrect":false},{"id":"d","text":"Det er ein rein matematisk konvensjon","isCorrect":false}],"solution":"Høgare pris får forbrukarar til å kjøpe mindre eller velje alternativ — difor søkk etterspurd mengd med prisen."}]}},{"id":"s2-8-3-n-section2","type":"text","content":"## Priselastisitet — kor følsame er kjøparane?\n\nJordbærseljaren vurderer å setje opp prisen og lurer: mistar eg mange kundar, eller toler marknaden det? Svaret vert målt med **priselastisiteten** — den prosentvise endringa i etterspurd mengd per prosent prisendring. Med derivasjon definerer vi han punktvis:\n\n$$E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$$\n\nSidan etterspurnaden avtek, er $\\frac{dx}{dp} < 0$ og elastisiteten negativ; vi tolkar difor ofte absoluttverdien. Tre soner skil seg ut. Ved $|E_p| > 1$ er etterspurnaden **elastisk**: mengda reagerer kraftigare enn prisen, og ein prisauke gjev *lågare* totalinntekt. Ved $|E_p| < 1$ er han **uelastisk**: kundane vert stort sett verande, og ein prisauke gjev *høgare* inntekt. Og ved $|E_p| = 1$ — **einingselastisk** — er totalinntekta på sitt maksimale.\n\nDen siste påstanden kan vi bevise for lineær etterspurnad $p(x) = a - bx$. Inntekta $I(x) = (a - bx)x$ vert maksimert der $I'(x) = a - 2bx = 0$, altså $x = \\frac{a}{2b}$ og $p = \\frac{a}{2}$. Elastisiteten der vert $E_p = \\frac{a/2}{a/(2b)} \\cdot \\frac{1}{-b} = -1$. Inntektstoppen ligg nøyaktig der $|E_p| = 1$.\n\nEit rekneeksempel: etterspurnaden er $x = 100 - 2p$. Ved $p = 20$ er $x = 60$ og $\\frac{dx}{dp} = -2$, så\n\n$$E_p = \\frac{20}{60} \\cdot (-2) = -\\frac{2}{3}$$\n\n$|E_p| = \\frac{2}{3} < 1$: uelastisk. Ein prisauke på 1 % gjev berre 0,67 % færre selde einingar — seljaren kan trygt auke prisen og tene meir. Maksimal inntekt vert nådd ved $|E_p| = 1$: $\\frac{2p}{100 - 2p} = 1$ gjev $p = 25$ kroner (sjekk gjerne med $I(p) = p(100 - 2p)$, som vert maksimert for $p = 25$, med $x = 50$ og $I = 1250$ kroner)."},{"id":"s2-8-3-n-quiz2","type":"exercise","exercise":{"id":"s2-8-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på priselastisitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-3-n-quiz2-q0","task":"Etterspurnaden er $x = 100 - 2p$. Kva er elastisiteten ved $p = 20$?","options":[{"id":"a","text":"$E_p = -2$","isCorrect":false},{"id":"b","text":"$E_p = -\\frac{2}{3}$","isCorrect":true},{"id":"c","text":"$E_p = \\frac{3}{2}$","isCorrect":false},{"id":"d","text":"$E_p = -1$","isCorrect":false}],"solution":"$x = 60$ og $\\frac{dx}{dp} = -2$: $E_p = \\frac{p}{x}\\cdot\\frac{dx}{dp} = \\frac{20}{60}(-2) = -\\frac{2}{3}$."},{"id":"s2-8-3-n-quiz2-q1","task":"$|E_p| = \\frac{2}{3} < 1$. Kva bør ein inntektsmaksimerande seljar gjere?","options":[{"id":"a","text":"Setje ned prisen","isCorrect":false},{"id":"b","text":"Slutte å selje","isCorrect":false},{"id":"c","text":"Auke prisen — etterspurnaden er uelastisk, så inntekta stig","isCorrect":true},{"id":"d","text":"Halde prisen uendra","isCorrect":false}],"solution":"Ved uelastisk etterspurnad taper ein relativt få kundar ved ein prisauke, så totalinntekta $p \\cdot x$ aukar."},{"id":"s2-8-3-n-quiz2-q2","task":"Kvar er totalinntekta maksimal?","options":[{"id":"a","text":"Der $|E_p| = 1$ (einingselastisk)","isCorrect":true},{"id":"b","text":"Der $|E_p|$ er størst","isCorrect":false},{"id":"c","text":"Der $|E_p| = 0$","isCorrect":false},{"id":"d","text":"Der prisen er høgast","isCorrect":false}],"solution":"For lineær etterspurnad fell inntektstoppen $I'(x) = 0$ nøyaktig saman med $|E_p| = 1$ — det skil den elastiske og uelastiske sona."},{"id":"s2-8-3-n-quiz2-q3","task":"Etterspurnaden etter ein livsnødvendig medisin er typisk …","options":[{"id":"a","text":"einingselastisk","isCorrect":false},{"id":"b","text":"perfekt elastisk","isCorrect":false},{"id":"c","text":"negativ","isCorrect":false},{"id":"d","text":"svært uelastisk — kjøparane reagerer lite på prisendringar","isCorrect":true}],"solution":"Når vara ikkje kan erstattast eller veljast bort, endrar etterspurd mengd seg lite sjølv ved store prisendringar: $|E_p|$ er låg."}]}},{"id":"s2-8-3-n-section3","type":"text","content":"## Når staten legg på ei avgift\n\nSå blandar politikken seg inn: styresmaktene innfører ei avgift på $t$ kroner per eining, betalt av produsentane. Kva skjer med marknaden? Produsentane må no ha $t$ kroner meir per eining for å tilby same mengd, så tilbodskurva skiftar *oppover* med $t$:\n\n$$p_T^{\\text{ny}}(x) = p_T(x) + t$$\n\nDen nye likevekta finn vi ved å løyse $p_E(x) = p_T(x) + t$.\n\nEit døme: $p_E(x) = 100 - x$ og $p_T(x) = 10 + 2x$ (pris i kroner, mengd i tusen einingar). Utan avgift: $100 - x = 10 + 2x$ gjev $x^* = 30$ og $p^* = 70$ kroner. Så vert det innført ei avgift på $t = 15$ kroner. Ny likevekt: $100 - x = 25 + 2x$ gjev $x^{**} = 25$.\n\nNo kjem det interessante. Forbrukarane betaler $p_F = 100 - 25 = 75$ kroner — 5 kroner meir enn før. Produsentane mottek $p_P = 75 - 15 = 60$ kroner — 10 kroner mindre enn før. **Avgifta vert delt** mellom partane: forbrukarane ber 5 kroner, produsentane 10 kroner, sjølv om avgifta formelt vart lagd på produsentane! Og omsett mengd fell frå 30 til 25 tusen einingar.\n\nKven ber mest? Det vert avgjort av elastisitetane: **den parten med mest uelastisk kurve ber størst del av avgifta.** Her er tilbodskurva brattast (minst følsam), så produsentane tek støyten. Det er difor avgifter på varer med uelastisk etterspurnad — bensin, tobakk, alkohol — i stor grad vert velta over på forbrukarane: dei har få alternativ, og kjøper nesten like mykje uansett."},{"id":"s2-8-3-n-quiz3","type":"exercise","exercise":{"id":"s2-8-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på avgifter og marknaden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-3-n-quiz3-q0","task":"Ei avgift $t$ vert lagd på produsentane. Korleis endrar tilbodskurva seg?","options":[{"id":"a","text":"Ho skiftar nedover med $t$","isCorrect":false},{"id":"b","text":"Ho skiftar oppover med $t$: $p_T^{\\text{ny}}(x) = p_T(x) + t$","isCorrect":true},{"id":"c","text":"Ho vert brattare","isCorrect":false},{"id":"d","text":"Ho endrar seg ikkje","isCorrect":false}],"solution":"Produsentane krev $t$ kroner meir per eining for å tilby same mengd — kurva vert løfta med $t$."},{"id":"s2-8-3-n-quiz3-q1","task":"Med $p_E = 100 - x$, $p_T = 10 + 2x$ og $t = 15$: kva betaler forbrukarane i ny likevekt?","options":[{"id":"a","text":"$70$ kr","isCorrect":false},{"id":"b","text":"$60$ kr","isCorrect":false},{"id":"c","text":"$75$ kr","isCorrect":true},{"id":"d","text":"$85$ kr","isCorrect":false}],"solution":"$100 - x = 25 + 2x \\Rightarrow x^{**} = 25$ og $p_F = 100 - 25 = 75$ kr — 5 kr meir enn likevektsprisen 70 kr."},{"id":"s2-8-3-n-quiz3-q2","task":"Avgifta var 15 kr. Korleis vart ho delt i dømet?","options":[{"id":"a","text":"Forbrukarane 5 kr, produsentane 10 kr","isCorrect":true},{"id":"b","text":"Forbrukarane 10 kr, produsentane 5 kr","isCorrect":false},{"id":"c","text":"Forbrukarane heile avgifta","isCorrect":false},{"id":"d","text":"Produsentane heile avgifta","isCorrect":false}],"solution":"Forbrukarprisen steig frå 70 til 75 kr (+5), medan produsentane gjekk frå å motta 70 til 60 kr (−10). Til saman 15 kr."},{"id":"s2-8-3-n-quiz3-q3","task":"Kven ber størst del av ei avgift?","options":[{"id":"a","text":"Alltid produsentane, sidan dei betaler avgifta formelt","isCorrect":false},{"id":"b","text":"Alltid forbrukarane","isCorrect":false},{"id":"c","text":"Den parten som har størst omsetnad","isCorrect":false},{"id":"d","text":"Den parten med mest uelastisk kurve","isCorrect":true}],"solution":"Den som reagerer minst på prisendringar (mest uelastisk), har minst høve til å «flykte» og endar med størst del av avgiftsbyrda."}]}},{"id":"s2-8-3-n-summary","type":"text","content":"## Oppsummering: det usynlege reknestykket til marknaden\n\nJordbærprisen på torget var aldri tilfeldig. **Marknadslikevekta** ligg der etterspurnadskurva $p_E(x)$ kryssar tilbodskurva $p_T(x)$: likninga $p_E(x) = p_T(x)$ gjev likevektsmengda $x^*$ og likevektsprisen $p^*$. Likevekta er sjølvkorrigerande — for høg pris gjev overskotstilbod som pressar prisen ned, for låg pris gjev overskotsetterspurnad som pressar han opp.\n\n**Priselastisiteten** $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$ måler prisfølsemda til kjøparane. Elastisk etterspurnad ($|E_p| > 1$) tyder at prisauke gjev lågare inntekt; uelastisk ($|E_p| < 1$) tyder at prisauke gjev høgare inntekt; og ved $|E_p| = 1$ er totalinntekta på toppen — for lineær etterspurnad fell dette nøyaktig saman med $I'(x) = 0$.\n\nEi **avgift** $t$ skiftar tilbodskurva opp, gjev ny likevekt via $p_E(x) = p_T(x) + t$, reduserer omsett mengd — og vert delt mellom partane uansett kven som formelt betaler. Tommelfingerregelen: den med mest uelastisk kurve ber mest. Dermed har du sett at derivasjon ikkje berre optimerer éi bedrift, men forklarer korleis heile marknader reagerer på prisar og politikk. I neste kapittel hentar vi fram integralet og måler kven som *tener* på handelen — konsument- og produsentoverskotet."}],"exercises":[],"_meta":{"sourceHash":"5f62a62ab55ae45a","translatedAt":"2026-06-20T09:34:06.590Z","model":"claude-code-agent","strings":88,"tm":{"e4430a25cfcf60ac":"Tilbod og etterspurnad","b195b06d1ed59702":"Narrativ versjon","c60c584caffd1574":"Ei forteljing om jordbærprisen på torget — om korleis tilbod møter etterspurnad i likevekt, kor følsame kjøparane er, og kven som eigenleg betaler når staten legg på ei avgift.","1f0fdeafd8cb3405":"modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar og derivasjon","1663c73ce8e41ae2":"bruke matematiske modellar til å skildre marknadsmekanismar","b094496b5ff48aec":"## Kven bestemmer eigenleg prisen?\n\nPå torget i byen vert det selt jordbær kvar sommar. Inga styresmakt har vedteke jordbærprisen, og ingen einskild seljar kan diktere han — likevel endar kurvene på om lag same pris hjå alle. Korleis? Svaret er eitt av dei vakraste resultata i økonomifaget: prisen vert bestemt av samspelet mellom **tilbod** og **etterspurnad**, og dette samspelet kan vi skildre og analysere med matematikk.\n\n**Etterspurnadsfunksjonen** skildrar kor mykje forbrukarane ønskjer å kjøpe ved ulike prisar — jo høgare pris, desto færre kjøparar. **Tilbodsfunksjonen** skildrar kor mykje produsentane ønskjer å selje — jo høgare pris, desto meir er det verdt å produsere. Ein stad kryssar kurvene kvarandre, og der, i **marknadslikevekta**, finn marknaden prisen sin heilt av seg sjølv.\n\nI denne forteljinga finn vi likevekta matematisk, måler kor følsam etterspurnaden er for prisendringar med **priselastisitet**, og undersøkjer kva som skjer når staten blandar seg inn med ei avgift. Du vil sjå at den deriverte nok ein gong er nøkkelen — denne gongen til å forstå heile marknader.","2f052fd55ce5ea2f":"## Marknadslikevekt — der kurvene vert kryssa\n\nVi skriv **etterspurnadsfunksjonen** $p_E(x)$: prisen som gjer at mengda $x$ vert etterspurd. Han er vanlegvis avtakande, typisk $p_E(x) = a - bx$ med $a, b > 0$. **Tilbodsfunksjonen** $p_T(x)$ gjev prisen produsentane krev for å tilby mengda $x$; han er veksande, typisk $p_T(x) = c + dx$ med $c \\geq 0$, $d > 0$.\n\n**Marknadslikevekt** oppstår der tilboden mengd er lik etterspurd mengd:\n\n$$p_E(x) = p_T(x)$$\n\nLøysinga gjev likevektsmengda $x^*$ og likevektsprisen $p^* = p_E(x^*) = p_T(x^*)$. Det geniale med likevekta er at ho er sjølvkorrigerande. Er prisen *høgare* enn $p^*$, vil produsentane tilby meir enn forbrukarane kjøper — **overskotstilbod** — og prisen vert pressa ned. Er prisen *lågare* enn $p^*$, oppstår **overskotsetterspurnad**, og prisen vert pressa opp. Berre i likevekt er det ingen tendens til endring.\n\nLat oss rekne på jordbærmarknaden: $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$, der $p$ er pris i kroner og $x$ talet på tusen korger. Likevekt: $120 - 2x = 20 + x$ gjev $3x = 100$, altså $x^* = \\frac{100}{3} \\approx 33{,}3$ tusen korger og $p^* = 20 + \\frac{100}{3} \\approx 53{,}3$ kroner.\n\nKva om ein seljar prøver seg med 80 kroner? Etterspurd mengd: $80 = 120 - 2x$ gjev $x_E = 20$. Tilboden mengd: $80 = 20 + x$ gjev $x_T = 60$. Det vert altså tilbode 40 tusen korger meir enn folk vil kjøpe — usolde jordbær hopar seg opp, og prisen fell mot likevekta igjen.","e8d775468fb0f682":"Test deg sjølv på marknadslikevekt:","4097889236a2af26":"placeholder","3bd0c413feff12ca":"Kva kjenneteiknar marknadslikevekta?","7962a82c5641768c":"Prisen der produsentane tener mest","fbf6c151becc8444":"Prisen der tilboden mengd er lik etterspurd mengd","74495ffe2a25ff9c":"Prisen der etterspurnaden er størst","b99b7ee23cbc9136":"Prisen staten har fastsett","82848f2ae6a3f026":"Likevekt: $p_E(x) = p_T(x)$. Då vert nøyaktig den mengda som både kjøparar og seljarar ønskjer omsett, og prisen er stabil.","d34533310eef4b9d":"Med $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$: kva er likevektsmengda?","70b24e4b663d7fd2":"$x^* = 100$","c223b49405b27d52":"$x^* = 50$","2d0894f119a8f4e3":"$x^* = \\frac{100}{3} \\approx 33{,}3$","7034d25af5341633":"$x^* = 20$","294f059f429ccc49":"$120 - 2x = 20 + x \\Rightarrow 100 = 3x \\Rightarrow x^* = \\frac{100}{3}$. Likevektsprisen vert $p^* \\approx 53{,}3$ kr.","e3da8742c079fb51":"Prisen vert sett til 80 kr — over likevektsprisen på 53,3 kr. Kva skjer?","19d179d9d783b2b7":"Overskotsetterspurnad — prisen vert pressa vidare opp","b91948674cccf73c":"Marknaden held fram i ro","2dd99f4c5b54985e":"Etterspurnaden aukar","55dc74789e440d40":"Overskotstilbod — usolde varer pressar prisen ned","95034f179fc06ce7":"Ved 80 kr vert 60 tusen einingar tilbode, men berre 20 tusen etterspurd. Overskotstilbodet på 40 tusen pressar prisen ned mot likevekt.","3b0f2d6d1ce720ee":"Kvifor er etterspurnadsfunksjonen vanlegvis avtakande?","b756e2e8b7b396aa":"Jo høgare pris, desto mindre ønskjer forbrukarane å kjøpe","8decb626081a36e5":"Fordi produsentane krev høgare pris for større mengder","193b336df27f2290":"Fordi kostnadene søkk med mengda","2b6d64f90414fb6c":"Det er ein rein matematisk konvensjon","210ca967c1bf41c8":"Høgare pris får forbrukarar til å kjøpe mindre eller velje alternativ — difor søkk etterspurd mengd med prisen.","5e790de3d3b21d25":"## Priselastisitet — kor følsame er kjøparane?\n\nJordbærseljaren vurderer å setje opp prisen og lurer: mistar eg mange kundar, eller toler marknaden det? Svaret vert målt med **priselastisiteten** — den prosentvise endringa i etterspurd mengd per prosent prisendring. Med derivasjon definerer vi han punktvis:\n\n$$E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$$\n\nSidan etterspurnaden avtek, er $\\frac{dx}{dp} < 0$ og elastisiteten negativ; vi tolkar difor ofte absoluttverdien. Tre soner skil seg ut. Ved $|E_p| > 1$ er etterspurnaden **elastisk**: mengda reagerer kraftigare enn prisen, og ein prisauke gjev *lågare* totalinntekt. Ved $|E_p| < 1$ er han **uelastisk**: kundane vert stort sett verande, og ein prisauke gjev *høgare* inntekt. Og ved $|E_p| = 1$ — **einingselastisk** — er totalinntekta på sitt maksimale.\n\nDen siste påstanden kan vi bevise for lineær etterspurnad $p(x) = a - bx$. Inntekta $I(x) = (a - bx)x$ vert maksimert der $I'(x) = a - 2bx = 0$, altså $x = \\frac{a}{2b}$ og $p = \\frac{a}{2}$. Elastisiteten der vert $E_p = \\frac{a/2}{a/(2b)} \\cdot \\frac{1}{-b} = -1$. Inntektstoppen ligg nøyaktig der $|E_p| = 1$.\n\nEit rekneeksempel: etterspurnaden er $x = 100 - 2p$. Ved $p = 20$ er $x = 60$ og $\\frac{dx}{dp} = -2$, så\n\n$$E_p = \\frac{20}{60} \\cdot (-2) = -\\frac{2}{3}$$\n\n$|E_p| = \\frac{2}{3} < 1$: uelastisk. Ein prisauke på 1 % gjev berre 0,67 % færre selde einingar — seljaren kan trygt auke prisen og tene meir. Maksimal inntekt vert nådd ved $|E_p| = 1$: $\\frac{2p}{100 - 2p} = 1$ gjev $p = 25$ kroner (sjekk gjerne med $I(p) = p(100 - 2p)$, som vert maksimert for $p = 25$, med $x = 50$ og $I = 1250$ kroner).","92b1ac69f4fe321b":"Test deg sjølv på priselastisitet:","8fe47688ca9adc6d":"Etterspurnaden er $x = 100 - 2p$. Kva er elastisiteten ved $p = 20$?","95337a9adf372e71":"$E_p = -2$","8f3f04b09fe33b0d":"$E_p = -\\frac{2}{3}$","c18daee8eba1abf6":"$E_p = \\frac{3}{2}$","b37d59c0820dcaff":"$E_p = -1$","53a718d92dbed4b9":"$x = 60$ og $\\frac{dx}{dp} = -2$: $E_p = \\frac{p}{x}\\cdot\\frac{dx}{dp} = \\frac{20}{60}(-2) = -\\frac{2}{3}$.","b6c620968a455589":"$|E_p| = \\frac{2}{3} < 1$. Kva bør ein inntektsmaksimerande seljar gjere?","885706cda433240c":"Setje ned prisen","0f250b3ae34abf75":"Slutte å selje","fb32aafd0b6c5ce6":"Auke prisen — etterspurnaden er uelastisk, så inntekta stig","d4ce07aaef64e07b":"Halde prisen uendra","f25634382a901b50":"Ved uelastisk etterspurnad taper ein relativt få kundar ved ein prisauke, så totalinntekta $p \\cdot x$ aukar.","f5fc5d511287208e":"Kvar er totalinntekta maksimal?","d0eba04165d29126":"Der $|E_p| = 1$ (einingselastisk)","0e38e4b724623ee8":"Der $|E_p|$ er størst","d771d0a487bcda41":"Der $|E_p| = 0$","5811120ba424c13c":"Der prisen er høgast","931f0a5d42829ed1":"For lineær etterspurnad fell inntektstoppen $I'(x) = 0$ nøyaktig saman med $|E_p| = 1$ — det skil den elastiske og uelastiske sona.","aec8557c94ecdf0e":"Etterspurnaden etter ein livsnødvendig medisin er typisk …","0336156785987602":"einingselastisk","4e69233a9ebbf056":"perfekt elastisk","f21f49f31d04ffcd":"negativ","4846177c125b2ab0":"svært uelastisk — kjøparane reagerer lite på prisendringar","bea8284766f15012":"Når vara ikkje kan erstattast eller veljast bort, endrar etterspurd mengd seg lite sjølv ved store prisendringar: $|E_p|$ er låg.","2af7dafd4030af1e":"## Når staten legg på ei avgift\n\nSå blandar politikken seg inn: styresmaktene innfører ei avgift på $t$ kroner per eining, betalt av produsentane. Kva skjer med marknaden? Produsentane må no ha $t$ kroner meir per eining for å tilby same mengd, så tilbodskurva skiftar *oppover* med $t$:\n\n$$p_T^{\\text{ny}}(x) = p_T(x) + t$$\n\nDen nye likevekta finn vi ved å løyse $p_E(x) = p_T(x) + t$.\n\nEit døme: $p_E(x) = 100 - x$ og $p_T(x) = 10 + 2x$ (pris i kroner, mengd i tusen einingar). Utan avgift: $100 - x = 10 + 2x$ gjev $x^* = 30$ og $p^* = 70$ kroner. Så vert det innført ei avgift på $t = 15$ kroner. Ny likevekt: $100 - x = 25 + 2x$ gjev $x^{**} = 25$.\n\nNo kjem det interessante. Forbrukarane betaler $p_F = 100 - 25 = 75$ kroner — 5 kroner meir enn før. Produsentane mottek $p_P = 75 - 15 = 60$ kroner — 10 kroner mindre enn før. **Avgifta vert delt** mellom partane: forbrukarane ber 5 kroner, produsentane 10 kroner, sjølv om avgifta formelt vart lagd på produsentane! Og omsett mengd fell frå 30 til 25 tusen einingar.\n\nKven ber mest? Det vert avgjort av elastisitetane: **den parten med mest uelastisk kurve ber størst del av avgifta.** Her er tilbodskurva brattast (minst følsam), så produsentane tek støyten. Det er difor avgifter på varer med uelastisk etterspurnad — bensin, tobakk, alkohol — i stor grad vert velta over på forbrukarane: dei har få alternativ, og kjøper nesten like mykje uansett.","57f74a59857b03e4":"Test deg sjølv på avgifter og marknaden:","bb036ee034ea9e01":"Ei avgift $t$ vert lagd på produsentane. Korleis endrar tilbodskurva seg?","c0b2cc6571456835":"Ho skiftar nedover med $t$","f804fc336fca5ad1":"Ho skiftar oppover med $t$: $p_T^{\\text{ny}}(x) = p_T(x) + t$","2d6e1252e3614d6e":"Ho vert brattare","823f7b308788202f":"Ho endrar seg ikkje","5d8f290c7d20fe2b":"Produsentane krev $t$ kroner meir per eining for å tilby same mengd — kurva vert løfta med $t$.","3e632f5309234be5":"Med $p_E = 100 - x$, $p_T = 10 + 2x$ og $t = 15$: kva betaler forbrukarane i ny likevekt?","180618e31577eabc":"$70$ kr","081b8d3f7d35bf4b":"$60$ kr","2d63a55d6c9cd209":"$75$ kr","2652ae2f658eddc8":"$85$ kr","92817eb4ab832afb":"$100 - x = 25 + 2x \\Rightarrow x^{**} = 25$ og $p_F = 100 - 25 = 75$ kr — 5 kr meir enn likevektsprisen 70 kr.","58d8220f7f9ea754":"Avgifta var 15 kr. Korleis vart ho delt i dømet?","70860f1ccb9f8346":"Forbrukarane 5 kr, produsentane 10 kr","55943d5f15cb051b":"Forbrukarane 10 kr, produsentane 5 kr","dab5ef741184a28a":"Forbrukarane heile avgifta","8abb188de09727d3":"Produsentane heile avgifta","b7b9e35ffd4442be":"Forbrukarprisen steig frå 70 til 75 kr (+5), medan produsentane gjekk frå å motta 70 til 60 kr (−10). Til saman 15 kr.","d2f0f1a0a386380f":"Kven ber størst del av ei avgift?","9a4697ad19792aab":"Alltid produsentane, sidan dei betaler avgifta formelt","4e71d7d2ef019a1c":"Alltid forbrukarane","984b84cd7078844c":"Den parten som har størst omsetnad","e717eb2a022e69bf":"Den parten med mest uelastisk kurve","9fafa035b9f4afc6":"Den som reagerer minst på prisendringar (mest uelastisk), har minst høve til å «flykte» og endar med størst del av avgiftsbyrda.","6adbbdf40298b0e6":"## Oppsummering: det usynlege reknestykket til marknaden\n\nJordbærprisen på torget var aldri tilfeldig. **Marknadslikevekta** ligg der etterspurnadskurva $p_E(x)$ kryssar tilbodskurva $p_T(x)$: likninga $p_E(x) = p_T(x)$ gjev likevektsmengda $x^*$ og likevektsprisen $p^*$. Likevekta er sjølvkorrigerande — for høg pris gjev overskotstilbod som pressar prisen ned, for låg pris gjev overskotsetterspurnad som pressar han opp.\n\n**Priselastisiteten** $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$ måler prisfølsemda til kjøparane. Elastisk etterspurnad ($|E_p| > 1$) tyder at prisauke gjev lågare inntekt; uelastisk ($|E_p| < 1$) tyder at prisauke gjev høgare inntekt; og ved $|E_p| = 1$ er totalinntekta på toppen — for lineær etterspurnad fell dette nøyaktig saman med $I'(x) = 0$.\n\nEi **avgift** $t$ skiftar tilbodskurva opp, gjev ny likevekt via $p_E(x) = p_T(x) + t$, reduserer omsett mengd — og vert delt mellom partane uansett kven som formelt betaler. Tommelfingerregelen: den med mest uelastisk kurve ber mest. Dermed har du sett at derivasjon ikkje berre optimerer éi bedrift, men forklarer korleis heile marknader reagerer på prisar og politikk. I neste kapittel hentar vi fram integralet og måler kven som *tener* på handelen — konsument- og produsentoverskotet."}}}
+{
+  "id": "s2-8-3-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "8.3",
+  "title": "Tilbod og etterspurnad",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om jordbærprisen på torget — om korleis tilbod møter etterspurnad i likevekt, kor følsame kjøparane er, og kven som eigenleg betaler når staten legg på ei avgift.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar og derivasjon",
+    "bruke matematiske modellar til å skildre marknadsmekanismar"
+  ],
+  "linkedChapterId": "s2-8-3",
+  "content": [
+    {
+      "id": "s2-8-3-n-intro",
+      "type": "text",
+      "content": "## Kven bestemmer eigenleg prisen?\n\nPå torget i byen vert det selt jordbær kvar sommar. Inga styresmakt har vedteke jordbærprisen, og ingen einskild seljar kan diktere han — likevel endar kurvene på om lag same pris hjå alle. Korleis? Svaret er eitt av dei vakraste resultata i økonomifaget: prisen vert bestemt av samspelet mellom **tilbod** og **etterspurnad**, og dette samspelet kan vi skildre og analysere med matematikk.\n\n**Etterspurnadsfunksjonen** skildrar kor mykje forbrukarane ønskjer å kjøpe ved ulike prisar — jo høgare pris, desto færre kjøparar. **Tilbodsfunksjonen** skildrar kor mykje produsentane ønskjer å selje — jo høgare pris, desto meir er det verdt å produsere. Ein stad kryssar kurvene kvarandre, og der, i **marknadslikevekta**, finn marknaden prisen sin heilt av seg sjølv.\n\nI denne forteljinga finn vi likevekta matematisk, måler kor følsam etterspurnaden er for prisendringar med **priselastisitet**, og undersøkjer kva som skjer når staten blandar seg inn med ei avgift. Du vil sjå at den deriverte nok ein gong er nøkkelen — denne gongen til å forstå heile marknader."
+    },
+    {
+      "id": "s2-8-3-n-section1",
+      "type": "text",
+      "content": "## Marknadslikevekt — der kurvene vert kryssa\n\nVi skriv **etterspurnadsfunksjonen** $p_E(x)$: prisen som gjer at mengda $x$ vert etterspurd. Han er vanlegvis avtakande, typisk $p_E(x) = a - bx$ med $a, b > 0$. **Tilbodsfunksjonen** $p_T(x)$ gjev prisen produsentane krev for å tilby mengda $x$; han er veksande, typisk $p_T(x) = c + dx$ med $c \\geq 0$, $d > 0$.\n\n**Marknadslikevekt** oppstår der tilboden mengd er lik etterspurd mengd:\n\n$$p_E(x) = p_T(x)$$\n\nLøysinga gjev likevektsmengda $x^*$ og likevektsprisen $p^* = p_E(x^*) = p_T(x^*)$. Det geniale med likevekta er at ho er sjølvkorrigerande. Er prisen *høgare* enn $p^*$, vil produsentane tilby meir enn forbrukarane kjøper — **overskotstilbod** — og prisen vert pressa ned. Er prisen *lågare* enn $p^*$, oppstår **overskotsetterspurnad**, og prisen vert pressa opp. Berre i likevekt er det ingen tendens til endring.\n\nLat oss rekne på jordbærmarknaden: $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$, der $p$ er pris i kroner og $x$ talet på tusen korger. Likevekt: $120 - 2x = 20 + x$ gjev $3x = 100$, altså $x^* = \\frac{100}{3} \\approx 33{,}3$ tusen korger og $p^* = 20 + \\frac{100}{3} \\approx 53{,}3$ kroner.\n\nKva om ein seljar prøver seg med 80 kroner? Etterspurd mengd: $80 = 120 - 2x$ gjev $x_E = 20$. Tilboden mengd: $80 = 20 + x$ gjev $x_T = 60$. Det vert altså tilbode 40 tusen korger meir enn folk vil kjøpe — usolde jordbær hopar seg opp, og prisen fell mot likevekta igjen."
+    },
+    {
+      "id": "s2-8-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på marknadslikevekt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-3-n-quiz1-q0",
+            "task": "Kva kjenneteiknar marknadslikevekta?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Prisen der produsentane tener mest",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Prisen der etterspurnaden er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Prisen der tilboden mengd er lik etterspurd mengd",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Prisen staten har fastsett",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likevekt: $p_E(x) = p_T(x)$. Då vert nøyaktig den mengda som både kjøparar og seljarar ønskjer omsett, og prisen er stabil."
+          },
+          {
+            "id": "s2-8-3-n-quiz1-q1",
+            "task": "Med $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$: kva er likevektsmengda?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^* = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^* = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^* = 20$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^* = \\frac{100}{3} \\approx 33{,}3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$120 - 2x = 20 + x \\Rightarrow 100 = 3x \\Rightarrow x^* = \\frac{100}{3}$. Likevektsprisen vert $p^* \\approx 53{,}3$ kr."
+          },
+          {
+            "id": "s2-8-3-n-quiz1-q2",
+            "task": "Prisen vert sett til 80 kr — over likevektsprisen på 53,3 kr. Kva skjer?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Overskotstilbod — usolde varer pressar prisen ned",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Overskotsetterspurnad — prisen vert pressa vidare opp",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Marknaden held fram i ro",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etterspurnaden aukar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved 80 kr vert 60 tusen einingar tilbode, men berre 20 tusen etterspurd. Overskotstilbodet på 40 tusen pressar prisen ned mot likevekt."
+          },
+          {
+            "id": "s2-8-3-n-quiz1-q3",
+            "task": "Kvifor er etterspurnadsfunksjonen vanlegvis avtakande?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi produsentane krev høgare pris for større mengder",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Jo høgare pris, desto mindre ønskjer forbrukarane å kjøpe",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi kostnadene søkk med mengda",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ein rein matematisk konvensjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Høgare pris får forbrukarar til å kjøpe mindre eller velje alternativ — difor søkk etterspurd mengd med prisen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-3-n-section2",
+      "type": "text",
+      "content": "## Priselastisitet — kor følsame er kjøparane?\n\nJordbærseljaren vurderer å setje opp prisen og lurer: mistar eg mange kundar, eller toler marknaden det? Svaret vert målt med **priselastisiteten** — den prosentvise endringa i etterspurd mengd per prosent prisendring. Med derivasjon definerer vi han punktvis:\n\n$$E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$$\n\nSidan etterspurnaden avtek, er $\\frac{dx}{dp} < 0$ og elastisiteten negativ; vi tolkar difor ofte absoluttverdien. Tre soner skil seg ut. Ved $|E_p| > 1$ er etterspurnaden **elastisk**: mengda reagerer kraftigare enn prisen, og ein prisauke gjev *lågare* totalinntekt. Ved $|E_p| < 1$ er han **uelastisk**: kundane vert stort sett verande, og ein prisauke gjev *høgare* inntekt. Og ved $|E_p| = 1$ — **einingselastisk** — er totalinntekta på sitt maksimale.\n\nDen siste påstanden kan vi bevise for lineær etterspurnad $p(x) = a - bx$. Inntekta $I(x) = (a - bx)x$ vert maksimert der $I'(x) = a - 2bx = 0$, altså $x = \\frac{a}{2b}$ og $p = \\frac{a}{2}$. Elastisiteten der vert $E_p = \\frac{a/2}{a/(2b)} \\cdot \\frac{1}{-b} = -1$. Inntektstoppen ligg nøyaktig der $|E_p| = 1$.\n\nEit rekneeksempel: etterspurnaden er $x = 100 - 2p$. Ved $p = 20$ er $x = 60$ og $\\frac{dx}{dp} = -2$, så\n\n$$E_p = \\frac{20}{60} \\cdot (-2) = -\\frac{2}{3}$$\n\n$|E_p| = \\frac{2}{3} < 1$: uelastisk. Ein prisauke på 1 % gjev berre 0,67 % færre selde einingar — seljaren kan trygt auke prisen og tene meir. Maksimal inntekt vert nådd ved $|E_p| = 1$: $\\frac{2p}{100 - 2p} = 1$ gjev $p = 25$ kroner (sjekk gjerne med $I(p) = p(100 - 2p)$, som vert maksimert for $p = 25$, med $x = 50$ og $I = 1250$ kroner)."
+    },
+    {
+      "id": "s2-8-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på priselastisitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-3-n-quiz2-q0",
+            "task": "Etterspurnaden er $x = 100 - 2p$. Kva er elastisiteten ved $p = 20$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$E_p = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E_p = \\frac{3}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$E_p = -\\frac{2}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$E_p = -1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = 60$ og $\\frac{dx}{dp} = -2$: $E_p = \\frac{p}{x}\\cdot\\frac{dx}{dp} = \\frac{20}{60}(-2) = -\\frac{2}{3}$."
+          },
+          {
+            "id": "s2-8-3-n-quiz2-q1",
+            "task": "$|E_p| = \\frac{2}{3} < 1$. Kva bør ein inntektsmaksimerande seljar gjere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Setje ned prisen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Slutte å selje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Halde prisen uendra",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Auke prisen — etterspurnaden er uelastisk, så inntekta stig",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ved uelastisk etterspurnad taper ein relativt få kundar ved ein prisauke, så totalinntekta $p \\cdot x$ aukar."
+          },
+          {
+            "id": "s2-8-3-n-quiz2-q2",
+            "task": "Kvar er totalinntekta maksimal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Der $|E_p| = 1$ (einingselastisk)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Der $|E_p|$ er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Der $|E_p| = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Der prisen er høgast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For lineær etterspurnad fell inntektstoppen $I'(x) = 0$ nøyaktig saman med $|E_p| = 1$ — det skil den elastiske og uelastiske sona."
+          },
+          {
+            "id": "s2-8-3-n-quiz2-q3",
+            "task": "Etterspurnaden etter ein livsnødvendig medisin er typisk …",
+            "options": [
+              {
+                "id": "a",
+                "text": "einingselastisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "svært uelastisk — kjøparane reagerer lite på prisendringar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "perfekt elastisk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "negativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når vara ikkje kan erstattast eller veljast bort, endrar etterspurd mengd seg lite sjølv ved store prisendringar: $|E_p|$ er låg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-3-n-section3",
+      "type": "text",
+      "content": "## Når staten legg på ei avgift\n\nSå blandar politikken seg inn: styresmaktene innfører ei avgift på $t$ kroner per eining, betalt av produsentane. Kva skjer med marknaden? Produsentane må no ha $t$ kroner meir per eining for å tilby same mengd, så tilbodskurva skiftar *oppover* med $t$:\n\n$$p_T^{\\text{ny}}(x) = p_T(x) + t$$\n\nDen nye likevekta finn vi ved å løyse $p_E(x) = p_T(x) + t$.\n\nEit døme: $p_E(x) = 100 - x$ og $p_T(x) = 10 + 2x$ (pris i kroner, mengd i tusen einingar). Utan avgift: $100 - x = 10 + 2x$ gjev $x^* = 30$ og $p^* = 70$ kroner. Så vert det innført ei avgift på $t = 15$ kroner. Ny likevekt: $100 - x = 25 + 2x$ gjev $x^{**} = 25$.\n\nNo kjem det interessante. Forbrukarane betaler $p_F = 100 - 25 = 75$ kroner — 5 kroner meir enn før. Produsentane mottek $p_P = 75 - 15 = 60$ kroner — 10 kroner mindre enn før. **Avgifta vert delt** mellom partane: forbrukarane ber 5 kroner, produsentane 10 kroner, sjølv om avgifta formelt vart lagd på produsentane! Og omsett mengd fell frå 30 til 25 tusen einingar.\n\nKven ber mest? Det vert avgjort av elastisitetane: **den parten med mest uelastisk kurve ber størst del av avgifta.** Her er tilbodskurva brattast (minst følsam), så produsentane tek støyten. Det er difor avgifter på varer med uelastisk etterspurnad — bensin, tobakk, alkohol — i stor grad vert velta over på forbrukarane: dei har få alternativ, og kjøper nesten like mykje uansett."
+    },
+    {
+      "id": "s2-8-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på avgifter og marknaden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-3-n-quiz3-q0",
+            "task": "Ei avgift $t$ vert lagd på produsentane. Korleis endrar tilbodskurva seg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ho skiftar nedover med $t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho vert brattare",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ho skiftar oppover med $t$: $p_T^{\\text{ny}}(x) = p_T(x) + t$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ho endrar seg ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produsentane krev $t$ kroner meir per eining for å tilby same mengd — kurva vert løfta med $t$."
+          },
+          {
+            "id": "s2-8-3-n-quiz3-q1",
+            "task": "Med $p_E = 100 - x$, $p_T = 10 + 2x$ og $t = 15$: kva betaler forbrukarane i ny likevekt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$70$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$60$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$85$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$75$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$100 - x = 25 + 2x \\Rightarrow x^{**} = 25$ og $p_F = 100 - 25 = 75$ kr — 5 kr meir enn likevektsprisen 70 kr."
+          },
+          {
+            "id": "s2-8-3-n-quiz3-q2",
+            "task": "Avgifta var 15 kr. Korleis vart ho delt i dømet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Forbrukarane 5 kr, produsentane 10 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Forbrukarane 10 kr, produsentane 5 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Forbrukarane heile avgifta",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Produsentane heile avgifta",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forbrukarprisen steig frå 70 til 75 kr (+5), medan produsentane gjekk frå å motta 70 til 60 kr (−10). Til saman 15 kr."
+          },
+          {
+            "id": "s2-8-3-n-quiz3-q3",
+            "task": "Kven ber størst del av ei avgift?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alltid produsentane, sidan dei betaler avgifta formelt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den parten med mest uelastisk kurve",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Alltid forbrukarane",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den parten som har størst omsetnad",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den som reagerer minst på prisendringar (mest uelastisk), har minst høve til å «flykte» og endar med størst del av avgiftsbyrda."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: det usynlege reknestykket til marknaden\n\nJordbærprisen på torget var aldri tilfeldig. **Marknadslikevekta** ligg der etterspurnadskurva $p_E(x)$ kryssar tilbodskurva $p_T(x)$: likninga $p_E(x) = p_T(x)$ gjev likevektsmengda $x^*$ og likevektsprisen $p^*$. Likevekta er sjølvkorrigerande — for høg pris gjev overskotstilbod som pressar prisen ned, for låg pris gjev overskotsetterspurnad som pressar han opp.\n\n**Priselastisiteten** $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$ måler prisfølsemda til kjøparane. Elastisk etterspurnad ($|E_p| > 1$) tyder at prisauke gjev lågare inntekt; uelastisk ($|E_p| < 1$) tyder at prisauke gjev høgare inntekt; og ved $|E_p| = 1$ er totalinntekta på toppen — for lineær etterspurnad fell dette nøyaktig saman med $I'(x) = 0$.\n\nEi **avgift** $t$ skiftar tilbodskurva opp, gjev ny likevekt via $p_E(x) = p_T(x) + t$, reduserer omsett mengd — og vert delt mellom partane uansett kven som formelt betaler. Tommelfingerregelen: den med mest uelastisk kurve ber mest. Dermed har du sett at derivasjon ikkje berre optimerer éi bedrift, men forklarer korleis heile marknader reagerer på prisar og politikk. I neste kapittel hentar vi fram integralet og måler kven som *tener* på handelen — konsument- og produsentoverskotet."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "5f62a62ab55ae45a",
+    "translatedAt": "2026-06-20T09:34:06.590Z",
+    "model": "claude-code-agent",
+    "strings": 88,
+    "tm": {
+      "e4430a25cfcf60ac": "Tilbod og etterspurnad",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "c60c584caffd1574": "Ei forteljing om jordbærprisen på torget — om korleis tilbod møter etterspurnad i likevekt, kor følsame kjøparane er, og kven som eigenleg betaler når staten legg på ei avgift.",
+      "1f0fdeafd8cb3405": "modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar og derivasjon",
+      "1663c73ce8e41ae2": "bruke matematiske modellar til å skildre marknadsmekanismar",
+      "b094496b5ff48aec": "## Kven bestemmer eigenleg prisen?\n\nPå torget i byen vert det selt jordbær kvar sommar. Inga styresmakt har vedteke jordbærprisen, og ingen einskild seljar kan diktere han — likevel endar kurvene på om lag same pris hjå alle. Korleis? Svaret er eitt av dei vakraste resultata i økonomifaget: prisen vert bestemt av samspelet mellom **tilbod** og **etterspurnad**, og dette samspelet kan vi skildre og analysere med matematikk.\n\n**Etterspurnadsfunksjonen** skildrar kor mykje forbrukarane ønskjer å kjøpe ved ulike prisar — jo høgare pris, desto færre kjøparar. **Tilbodsfunksjonen** skildrar kor mykje produsentane ønskjer å selje — jo høgare pris, desto meir er det verdt å produsere. Ein stad kryssar kurvene kvarandre, og der, i **marknadslikevekta**, finn marknaden prisen sin heilt av seg sjølv.\n\nI denne forteljinga finn vi likevekta matematisk, måler kor følsam etterspurnaden er for prisendringar med **priselastisitet**, og undersøkjer kva som skjer når staten blandar seg inn med ei avgift. Du vil sjå at den deriverte nok ein gong er nøkkelen — denne gongen til å forstå heile marknader.",
+      "2f052fd55ce5ea2f": "## Marknadslikevekt — der kurvene vert kryssa\n\nVi skriv **etterspurnadsfunksjonen** $p_E(x)$: prisen som gjer at mengda $x$ vert etterspurd. Han er vanlegvis avtakande, typisk $p_E(x) = a - bx$ med $a, b > 0$. **Tilbodsfunksjonen** $p_T(x)$ gjev prisen produsentane krev for å tilby mengda $x$; han er veksande, typisk $p_T(x) = c + dx$ med $c \\geq 0$, $d > 0$.\n\n**Marknadslikevekt** oppstår der tilboden mengd er lik etterspurd mengd:\n\n$$p_E(x) = p_T(x)$$\n\nLøysinga gjev likevektsmengda $x^*$ og likevektsprisen $p^* = p_E(x^*) = p_T(x^*)$. Det geniale med likevekta er at ho er sjølvkorrigerande. Er prisen *høgare* enn $p^*$, vil produsentane tilby meir enn forbrukarane kjøper — **overskotstilbod** — og prisen vert pressa ned. Er prisen *lågare* enn $p^*$, oppstår **overskotsetterspurnad**, og prisen vert pressa opp. Berre i likevekt er det ingen tendens til endring.\n\nLat oss rekne på jordbærmarknaden: $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$, der $p$ er pris i kroner og $x$ talet på tusen korger. Likevekt: $120 - 2x = 20 + x$ gjev $3x = 100$, altså $x^* = \\frac{100}{3} \\approx 33{,}3$ tusen korger og $p^* = 20 + \\frac{100}{3} \\approx 53{,}3$ kroner.\n\nKva om ein seljar prøver seg med 80 kroner? Etterspurd mengd: $80 = 120 - 2x$ gjev $x_E = 20$. Tilboden mengd: $80 = 20 + x$ gjev $x_T = 60$. Det vert altså tilbode 40 tusen korger meir enn folk vil kjøpe — usolde jordbær hopar seg opp, og prisen fell mot likevekta igjen.",
+      "e8d775468fb0f682": "Test deg sjølv på marknadslikevekt:",
+      "4097889236a2af26": "placeholder",
+      "3bd0c413feff12ca": "Kva kjenneteiknar marknadslikevekta?",
+      "7962a82c5641768c": "Prisen der produsentane tener mest",
+      "fbf6c151becc8444": "Prisen der tilboden mengd er lik etterspurd mengd",
+      "74495ffe2a25ff9c": "Prisen der etterspurnaden er størst",
+      "b99b7ee23cbc9136": "Prisen staten har fastsett",
+      "82848f2ae6a3f026": "Likevekt: $p_E(x) = p_T(x)$. Då vert nøyaktig den mengda som både kjøparar og seljarar ønskjer omsett, og prisen er stabil.",
+      "d34533310eef4b9d": "Med $p_E(x) = 120 - 2x$ og $p_T(x) = 20 + x$: kva er likevektsmengda?",
+      "70b24e4b663d7fd2": "$x^* = 100$",
+      "c223b49405b27d52": "$x^* = 50$",
+      "2d0894f119a8f4e3": "$x^* = \\frac{100}{3} \\approx 33{,}3$",
+      "7034d25af5341633": "$x^* = 20$",
+      "294f059f429ccc49": "$120 - 2x = 20 + x \\Rightarrow 100 = 3x \\Rightarrow x^* = \\frac{100}{3}$. Likevektsprisen vert $p^* \\approx 53{,}3$ kr.",
+      "e3da8742c079fb51": "Prisen vert sett til 80 kr — over likevektsprisen på 53,3 kr. Kva skjer?",
+      "19d179d9d783b2b7": "Overskotsetterspurnad — prisen vert pressa vidare opp",
+      "b91948674cccf73c": "Marknaden held fram i ro",
+      "2dd99f4c5b54985e": "Etterspurnaden aukar",
+      "55dc74789e440d40": "Overskotstilbod — usolde varer pressar prisen ned",
+      "95034f179fc06ce7": "Ved 80 kr vert 60 tusen einingar tilbode, men berre 20 tusen etterspurd. Overskotstilbodet på 40 tusen pressar prisen ned mot likevekt.",
+      "3b0f2d6d1ce720ee": "Kvifor er etterspurnadsfunksjonen vanlegvis avtakande?",
+      "b756e2e8b7b396aa": "Jo høgare pris, desto mindre ønskjer forbrukarane å kjøpe",
+      "8decb626081a36e5": "Fordi produsentane krev høgare pris for større mengder",
+      "193b336df27f2290": "Fordi kostnadene søkk med mengda",
+      "2b6d64f90414fb6c": "Det er ein rein matematisk konvensjon",
+      "210ca967c1bf41c8": "Høgare pris får forbrukarar til å kjøpe mindre eller velje alternativ — difor søkk etterspurd mengd med prisen.",
+      "5e790de3d3b21d25": "## Priselastisitet — kor følsame er kjøparane?\n\nJordbærseljaren vurderer å setje opp prisen og lurer: mistar eg mange kundar, eller toler marknaden det? Svaret vert målt med **priselastisiteten** — den prosentvise endringa i etterspurd mengd per prosent prisendring. Med derivasjon definerer vi han punktvis:\n\n$$E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$$\n\nSidan etterspurnaden avtek, er $\\frac{dx}{dp} < 0$ og elastisiteten negativ; vi tolkar difor ofte absoluttverdien. Tre soner skil seg ut. Ved $|E_p| > 1$ er etterspurnaden **elastisk**: mengda reagerer kraftigare enn prisen, og ein prisauke gjev *lågare* totalinntekt. Ved $|E_p| < 1$ er han **uelastisk**: kundane vert stort sett verande, og ein prisauke gjev *høgare* inntekt. Og ved $|E_p| = 1$ — **einingselastisk** — er totalinntekta på sitt maksimale.\n\nDen siste påstanden kan vi bevise for lineær etterspurnad $p(x) = a - bx$. Inntekta $I(x) = (a - bx)x$ vert maksimert der $I'(x) = a - 2bx = 0$, altså $x = \\frac{a}{2b}$ og $p = \\frac{a}{2}$. Elastisiteten der vert $E_p = \\frac{a/2}{a/(2b)} \\cdot \\frac{1}{-b} = -1$. Inntektstoppen ligg nøyaktig der $|E_p| = 1$.\n\nEit rekneeksempel: etterspurnaden er $x = 100 - 2p$. Ved $p = 20$ er $x = 60$ og $\\frac{dx}{dp} = -2$, så\n\n$$E_p = \\frac{20}{60} \\cdot (-2) = -\\frac{2}{3}$$\n\n$|E_p| = \\frac{2}{3} < 1$: uelastisk. Ein prisauke på 1 % gjev berre 0,67 % færre selde einingar — seljaren kan trygt auke prisen og tene meir. Maksimal inntekt vert nådd ved $|E_p| = 1$: $\\frac{2p}{100 - 2p} = 1$ gjev $p = 25$ kroner (sjekk gjerne med $I(p) = p(100 - 2p)$, som vert maksimert for $p = 25$, med $x = 50$ og $I = 1250$ kroner).",
+      "92b1ac69f4fe321b": "Test deg sjølv på priselastisitet:",
+      "8fe47688ca9adc6d": "Etterspurnaden er $x = 100 - 2p$. Kva er elastisiteten ved $p = 20$?",
+      "95337a9adf372e71": "$E_p = -2$",
+      "8f3f04b09fe33b0d": "$E_p = -\\frac{2}{3}$",
+      "c18daee8eba1abf6": "$E_p = \\frac{3}{2}$",
+      "b37d59c0820dcaff": "$E_p = -1$",
+      "53a718d92dbed4b9": "$x = 60$ og $\\frac{dx}{dp} = -2$: $E_p = \\frac{p}{x}\\cdot\\frac{dx}{dp} = \\frac{20}{60}(-2) = -\\frac{2}{3}$.",
+      "b6c620968a455589": "$|E_p| = \\frac{2}{3} < 1$. Kva bør ein inntektsmaksimerande seljar gjere?",
+      "885706cda433240c": "Setje ned prisen",
+      "0f250b3ae34abf75": "Slutte å selje",
+      "fb32aafd0b6c5ce6": "Auke prisen — etterspurnaden er uelastisk, så inntekta stig",
+      "d4ce07aaef64e07b": "Halde prisen uendra",
+      "f25634382a901b50": "Ved uelastisk etterspurnad taper ein relativt få kundar ved ein prisauke, så totalinntekta $p \\cdot x$ aukar.",
+      "f5fc5d511287208e": "Kvar er totalinntekta maksimal?",
+      "d0eba04165d29126": "Der $|E_p| = 1$ (einingselastisk)",
+      "0e38e4b724623ee8": "Der $|E_p|$ er størst",
+      "d771d0a487bcda41": "Der $|E_p| = 0$",
+      "5811120ba424c13c": "Der prisen er høgast",
+      "931f0a5d42829ed1": "For lineær etterspurnad fell inntektstoppen $I'(x) = 0$ nøyaktig saman med $|E_p| = 1$ — det skil den elastiske og uelastiske sona.",
+      "aec8557c94ecdf0e": "Etterspurnaden etter ein livsnødvendig medisin er typisk …",
+      "0336156785987602": "einingselastisk",
+      "4e69233a9ebbf056": "perfekt elastisk",
+      "f21f49f31d04ffcd": "negativ",
+      "4846177c125b2ab0": "svært uelastisk — kjøparane reagerer lite på prisendringar",
+      "bea8284766f15012": "Når vara ikkje kan erstattast eller veljast bort, endrar etterspurd mengd seg lite sjølv ved store prisendringar: $|E_p|$ er låg.",
+      "2af7dafd4030af1e": "## Når staten legg på ei avgift\n\nSå blandar politikken seg inn: styresmaktene innfører ei avgift på $t$ kroner per eining, betalt av produsentane. Kva skjer med marknaden? Produsentane må no ha $t$ kroner meir per eining for å tilby same mengd, så tilbodskurva skiftar *oppover* med $t$:\n\n$$p_T^{\\text{ny}}(x) = p_T(x) + t$$\n\nDen nye likevekta finn vi ved å løyse $p_E(x) = p_T(x) + t$.\n\nEit døme: $p_E(x) = 100 - x$ og $p_T(x) = 10 + 2x$ (pris i kroner, mengd i tusen einingar). Utan avgift: $100 - x = 10 + 2x$ gjev $x^* = 30$ og $p^* = 70$ kroner. Så vert det innført ei avgift på $t = 15$ kroner. Ny likevekt: $100 - x = 25 + 2x$ gjev $x^{**} = 25$.\n\nNo kjem det interessante. Forbrukarane betaler $p_F = 100 - 25 = 75$ kroner — 5 kroner meir enn før. Produsentane mottek $p_P = 75 - 15 = 60$ kroner — 10 kroner mindre enn før. **Avgifta vert delt** mellom partane: forbrukarane ber 5 kroner, produsentane 10 kroner, sjølv om avgifta formelt vart lagd på produsentane! Og omsett mengd fell frå 30 til 25 tusen einingar.\n\nKven ber mest? Det vert avgjort av elastisitetane: **den parten med mest uelastisk kurve ber størst del av avgifta.** Her er tilbodskurva brattast (minst følsam), så produsentane tek støyten. Det er difor avgifter på varer med uelastisk etterspurnad — bensin, tobakk, alkohol — i stor grad vert velta over på forbrukarane: dei har få alternativ, og kjøper nesten like mykje uansett.",
+      "57f74a59857b03e4": "Test deg sjølv på avgifter og marknaden:",
+      "bb036ee034ea9e01": "Ei avgift $t$ vert lagd på produsentane. Korleis endrar tilbodskurva seg?",
+      "c0b2cc6571456835": "Ho skiftar nedover med $t$",
+      "f804fc336fca5ad1": "Ho skiftar oppover med $t$: $p_T^{\\text{ny}}(x) = p_T(x) + t$",
+      "2d6e1252e3614d6e": "Ho vert brattare",
+      "823f7b308788202f": "Ho endrar seg ikkje",
+      "5d8f290c7d20fe2b": "Produsentane krev $t$ kroner meir per eining for å tilby same mengd — kurva vert løfta med $t$.",
+      "3e632f5309234be5": "Med $p_E = 100 - x$, $p_T = 10 + 2x$ og $t = 15$: kva betaler forbrukarane i ny likevekt?",
+      "180618e31577eabc": "$70$ kr",
+      "081b8d3f7d35bf4b": "$60$ kr",
+      "2d63a55d6c9cd209": "$75$ kr",
+      "2652ae2f658eddc8": "$85$ kr",
+      "92817eb4ab832afb": "$100 - x = 25 + 2x \\Rightarrow x^{**} = 25$ og $p_F = 100 - 25 = 75$ kr — 5 kr meir enn likevektsprisen 70 kr.",
+      "58d8220f7f9ea754": "Avgifta var 15 kr. Korleis vart ho delt i dømet?",
+      "70860f1ccb9f8346": "Forbrukarane 5 kr, produsentane 10 kr",
+      "55943d5f15cb051b": "Forbrukarane 10 kr, produsentane 5 kr",
+      "dab5ef741184a28a": "Forbrukarane heile avgifta",
+      "8abb188de09727d3": "Produsentane heile avgifta",
+      "b7b9e35ffd4442be": "Forbrukarprisen steig frå 70 til 75 kr (+5), medan produsentane gjekk frå å motta 70 til 60 kr (−10). Til saman 15 kr.",
+      "d2f0f1a0a386380f": "Kven ber størst del av ei avgift?",
+      "9a4697ad19792aab": "Alltid produsentane, sidan dei betaler avgifta formelt",
+      "4e71d7d2ef019a1c": "Alltid forbrukarane",
+      "984b84cd7078844c": "Den parten som har størst omsetnad",
+      "e717eb2a022e69bf": "Den parten med mest uelastisk kurve",
+      "9fafa035b9f4afc6": "Den som reagerer minst på prisendringar (mest uelastisk), har minst høve til å «flykte» og endar med størst del av avgiftsbyrda.",
+      "6adbbdf40298b0e6": "## Oppsummering: det usynlege reknestykket til marknaden\n\nJordbærprisen på torget var aldri tilfeldig. **Marknadslikevekta** ligg der etterspurnadskurva $p_E(x)$ kryssar tilbodskurva $p_T(x)$: likninga $p_E(x) = p_T(x)$ gjev likevektsmengda $x^*$ og likevektsprisen $p^*$. Likevekta er sjølvkorrigerande — for høg pris gjev overskotstilbod som pressar prisen ned, for låg pris gjev overskotsetterspurnad som pressar han opp.\n\n**Priselastisiteten** $E_p = \\frac{p}{x} \\cdot \\frac{dx}{dp}$ måler prisfølsemda til kjøparane. Elastisk etterspurnad ($|E_p| > 1$) tyder at prisauke gjev lågare inntekt; uelastisk ($|E_p| < 1$) tyder at prisauke gjev høgare inntekt; og ved $|E_p| = 1$ er totalinntekta på toppen — for lineær etterspurnad fell dette nøyaktig saman med $I'(x) = 0$.\n\nEi **avgift** $t$ skiftar tilbodskurva opp, gjev ny likevekt via $p_E(x) = p_T(x) + t$, reduserer omsett mengd — og vert delt mellom partane uansett kven som formelt betaler. Tommelfingerregelen: den med mest uelastisk kurve ber mest. Dermed har du sett at derivasjon ikkje berre optimerer éi bedrift, men forklarer korleis heile marknader reagerer på prisar og politikk. I neste kapittel hentar vi fram integralet og måler kven som *tener* på handelen — konsument- og produsentoverskotet."
+    }
+  }
+}

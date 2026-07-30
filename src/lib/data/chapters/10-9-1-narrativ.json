@@ -1,1 +1,344 @@
-{"id":"10-9-1-narrativ","courseId":"10","chapterNumber":"9.1","title":"Eksponentiell vekst og nedgang","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis ting veks raskare enn du trur -- frå bakteriar til bankkonto, og kvifor det aldri lønner seg å undervurdere ein eksponent.","estimatedMinutes":35,"competenceGoals":["utforske samanhengen mellom konstant prosentvis endring, vekstfaktor og eksponentialfunksjonar"],"linkedChapterId":"10-9-1","content":[{"id":"10-9-1-n-intro","type":"text","content":"## Når veksten sjølv veks\n\nTenk deg at du legg 1 000 kroner i banken med 5 prosent rente kvart år. Etter eitt år har du 1 050 kroner. Så langt er det lett. Men etter to år har du ikkje 1 100 kroner, slik du kanskje ville tru. Du har 1 102 kroner og 50 øre. Kvifor? Fordi renta det andre året ikkje berre gjeld dei opphavlege 1 000 kronene, men dei 1 050 kronene du no har. Du får rente av renta.\n\nDenne tilsynelatande vesle forskjellen -- to kroner og femti øre ekstra -- kan verke ubetydeleg. Men gje det tid, og effekten blir dramatisk. Over 50 år gjer rentes rente at dei 1 000 kronene dine veks til over 11 400 kroner, medan dei berre hadde blitt til 3 500 kroner med vanleg tillegg på 50 kroner kvart år.\n\nVelkommen til eksponentiell vekst. I dette kapittelet skal du lære kva som skjer når noko endrar seg med same prosentdel kvar periode -- anten det er snakk om pengar i banken, bakteriar i ein petriskål, eller radioaktivt stoff som sakte forsvinn."},{"id":"10-9-1-n-section1","type":"text","content":"## Vekstfaktoren -- det magiske talet\n\nKjernen i eksponentiell endring er noko vi kallar **vekstfaktoren**. Det er det talet du gongar med for å finne den nye verdien etter éi endring.\n\nViss noko aukar med $p$ prosent, finn du vekstfaktoren slik:\n\n$$b = 1 + \\frac{p}{100}$$\n\nViss noko minkar med $p$ prosent, blir formelen i staden:\n\n$$b = 1 - \\frac{p}{100}$$\n\nLa oss sjå på nokre døme. Ein sparekonto med 8 prosent rente gir vekstfaktor $b = 1 + 0{,}08 = 1{,}08$. Ein bil som tapar 15 prosent av verdien kvart år, har vekstfaktor $b = 1 - 0{,}15 = 0{,}85$. Ein by som veks med 2,5 prosent årleg, har vekstfaktor $b = 1{,}025$.\n\nLegg merke til mønsteret: Når vekstfaktoren er over 1, har vi vekst. Når han er mellom 0 og 1, har vi nedgang. Akkurat 1 ville bety ingen endring i det heile.\n\nTenk deg ein norsk by med 12 000 innbyggjarar der folketalet aukar med 3 prosent kvart år. Vekstfaktoren er $b = 1{,}03$. Etter eitt år har byen $12\\,000 \\cdot 1{,}03 = 12\\,360$ innbyggjarar. Etter to år: $12\\,360 \\cdot 1{,}03 = 12\\,731$. Etter tre år: $12\\,731 \\cdot 1{,}03 \\approx 13\\,113$. Men vi kan også skrive dette meir elegant: etter tre år har byen $12\\,000 \\cdot 1{,}03^3 \\approx 13\\,113$ innbyggjarar. Eksponenten fortel oss kor mange periodar som har gått."},{"id":"10-9-1-n-quiz1","type":"exercise","exercise":{"id":"10-9-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vekstfaktor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-9-1-n-quiz1-q0","task":"Kva er vekstfaktoren når noko aukar med 6 prosent?","options":[{"id":"a","text":"$0{,}94$","isCorrect":false},{"id":"b","text":"$1{,}6$","isCorrect":false},{"id":"c","text":"$1{,}06$","isCorrect":true},{"id":"d","text":"$0{,}06$","isCorrect":false}],"solution":"Vekstfaktor ved 6 % auke: $b = 1 + 0{,}06 = 1{,}06$."},{"id":"10-9-1-n-quiz1-q1","task":"Ein bil kostar 350 000 kr ny og fell 15 % i verdi kvart år. Kva er bilen verd etter 2 år?","options":[{"id":"a","text":"297 500 kr","isCorrect":false},{"id":"b","text":"252 875 kr","isCorrect":true},{"id":"c","text":"245 000 kr","isCorrect":false},{"id":"d","text":"280 000 kr","isCorrect":false}],"solution":"Vekstfaktor: $b = 0{,}85$. Etter 2 år: $350\\,000 \\cdot 0{,}85^2 = 252\\,875$ kr."},{"id":"10-9-1-n-quiz1-q2","task":"Ein vekstfaktor på $0{,}88$ svarar til ein nedgang på kor mange prosent?","options":[{"id":"a","text":"88 %","isCorrect":false},{"id":"b","text":"8,8 %","isCorrect":false},{"id":"c","text":"22 %","isCorrect":false},{"id":"d","text":"12 %","isCorrect":true}],"solution":"Nedgang: $1 - 0{,}88 = 0{,}12$, altså 12 % nedgang per periode."}],"solution":""}},{"id":"10-9-1-n-section2","type":"text","content":"## Eksponentialfunksjonen -- formelen bak det heile\n\nNo kan vi setje alt saman i éin formel. Når ein storleik startar på ein verdi $a$ og endrar seg med same prosentdel kvar periode, kan vi beskrive utviklinga med ein **eksponentialfunksjon**:\n\n$$f(x) = a \\cdot b^x$$\n\nHer er $a$ startverdien -- det vi har når $x = 0$. Og $b$ er vekstfaktoren vi nettopp lærte om. Variabelen $x$ er ofte tid, til dømes talet på år, timar eller dagar.\n\nDenne formelen er overraskande kraftig. La oss sjå på nokre heilt ulike situasjonar der ho dukkar opp.\n\n**Bakteriar som doblar seg:** Ein bakteriekultur startar med 500 bakteriar, og talet doblar seg kvar time. Dobling er 100 prosent auke, altså $b = 2$. Funksjonen blir $f(x) = 500 \\cdot 2^x$. Etter 6 timar er det $500 \\cdot 2^6 = 500 \\cdot 64 = 32\\,000$ bakteriar.\n\n**Pengar i banken:** Du set 10 000 kroner i banken med 4 prosent årleg rente. Funksjonen blir $f(x) = 10\\,000 \\cdot 1{,}04^x$. Etter 10 år: $f(10) = 10\\,000 \\cdot 1{,}04^{10} \\approx 14\\,802$ kroner. Du har tent 4 802 kroner i renter -- heile 802 kroner meir enn du ville fått med enkel rente (som berre gir $10\\,000 \\cdot 0{,}04 \\cdot 10 = 4\\,000$ kroner).\n\n**Radioaktivt forfall:** Jod-131, eit radioaktivt stoff som blir brukt i medisinsk behandling, har ei halveringstid på 8 dagar. Det tyder at halvparten av stoffet bryt ned kvar 8. dag. Startar du med 200 mg, har du $200 \\cdot 0{,}5 = 100$ mg etter 8 dagar, $50$ mg etter 16 dagar, og berre $12{,}5$ mg etter 32 dagar. Funksjonen er $f(x) = 200 \\cdot 0{,}5^x$, der $x$ er talet på halveringsperiodar."},{"id":"10-9-1-n-quiz2","type":"exercise","exercise":{"id":"10-9-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på eksponentialfunksjonen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-9-1-n-quiz2-q0","task":"Du set 10 000 kr i banken med 4 % årleg rente (rentes rente). Kva funksjon beskriv beløpet etter $x$ år?","options":[{"id":"a","text":"$f(x) = 10\\,000 + 400x$","isCorrect":false},{"id":"b","text":"$f(x) = 10\\,000 \\cdot 1{,}04^x$","isCorrect":true},{"id":"c","text":"$f(x) = 10\\,000 \\cdot 0{,}96^x$","isCorrect":false},{"id":"d","text":"$f(x) = 10\\,000 \\cdot 4^x$","isCorrect":false}],"solution":"Startverdi $a = 10\\,000$ og vekstfaktor $b = 1{,}04$ gir $f(x) = 10\\,000 \\cdot 1{,}04^x$."},{"id":"10-9-1-n-quiz2-q1","task":"I funksjonen $f(x) = a \\cdot b^x$, kva fortel $a$ oss?","options":[{"id":"a","text":"Den prosentvise endringa per periode","isCorrect":false},{"id":"b","text":"Talet på periodar","isCorrect":false},{"id":"c","text":"Vekstfaktoren","isCorrect":false},{"id":"d","text":"Startverdien -- verdien når $x = 0$","isCorrect":true}],"solution":"$a = f(0) = a \\cdot b^0 = a$. Startverdien er funksjonsverdien når $x = 0$."},{"id":"10-9-1-n-quiz2-q2","task":"Radioaktivt jod-131 startar på 200 mg og har halveringstid 8 dagar. Kor mykje er att etter 24 dagar (3 halveringsperiodar)?","options":[{"id":"a","text":"50 mg","isCorrect":false},{"id":"b","text":"100 mg","isCorrect":false},{"id":"c","text":"25 mg","isCorrect":true},{"id":"d","text":"12,5 mg","isCorrect":false}],"solution":"Etter 3 halveringsperiodar: $200 \\cdot 0{,}5^3 = 200 \\cdot 0{,}125 = 25$ mg."}],"solution":""}},{"id":"10-9-1-n-section3","type":"text","content":"## Detektivarbeid -- finne $a$ og $b$ frå opplysningar\n\nOfte kjenner du ikkje formelen på førehand, men du har nokre opplysningar om situasjonen. Då må du sjølv finne $a$ og $b$ -- litt som ein matematisk detektiv.\n\n**Finne $a$:** Viss du veit startverdien (verdien ved $x = 0$), har du $a$ direkte.\n\n**Finne $b$:** Viss du har to datapunkt, til dømes $f(x_1) = y_1$ og $f(x_2) = y_2$, kan du finne $b$ ved å dele:\n\n$$\\frac{y_2}{y_1} = b^{x_2 - x_1}$$\n\nLa oss seie at ein forskar måler 1 800 bakteriar etter 2 timar og 14 400 etter 5 timar. Då er $b^3 = 14\\,400 / 1\\,800 = 8$, altså $b = \\sqrt[3]{8} = 2$. Bakteriane doblar seg kvar time! For å finne $a$ brukar vi $f(2) = a \\cdot 2^2 = 4a = 1\\,800$, som gir $a = 450$. Funksjonen er $f(x) = 450 \\cdot 2^x$.\n\nEit anna døme: Ein investering var verd 50 000 kr ved start og 72 800 kr etter 4 år. Då er $b^4 = 72\\,800 / 50\\,000 = 1{,}456$, og $b = \\sqrt[4]{1{,}456} \\approx 1{,}098$. Det svarar til ein årleg auke på $(1{,}098 - 1) \\cdot 100 \\approx 9{,}8$ prosent. Etter 10 år ville investeringa vore verd $50\\,000 \\cdot 1{,}098^{10} \\approx 127\\,550$ kroner.\n\nDet fine med eksponentialfunksjonen er at det same mønsteret dukkar opp overalt -- same om du studerer folketal i Tromsø (77 000 innbyggjarar med 1,2 % vekst per år gir $f(x) = 77\\,000 \\cdot 1{,}012^x$), verdifallet på ein mobiltelefon, eller veksten av ein sparekonto. Verktøyet er det same."},{"id":"10-9-1-n-quiz3","type":"exercise","exercise":{"id":"10-9-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på å finne eksponentialfunksjonen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-9-1-n-quiz3-q0","task":"Ein forskar måler 1 800 bakteriar etter 2 timar og 14 400 etter 5 timar. Kva er vekstfaktoren $b$?","options":[{"id":"a","text":"$b = 8$","isCorrect":false},{"id":"b","text":"$b = 2$","isCorrect":true},{"id":"c","text":"$b = 3$","isCorrect":false},{"id":"d","text":"$b = 4$","isCorrect":false}],"solution":"$b^3 = 14\\,400 / 1\\,800 = 8$, altså $b = \\sqrt[3]{8} = 2$."},{"id":"10-9-1-n-quiz3-q1","task":"Kvifor vil eksponentiell vekst alltid slå lineær vekst over lang nok tid?","options":[{"id":"a","text":"Fordi eksponentiell vekst startar med eit høgare beløp","isCorrect":false},{"id":"b","text":"Fordi eksponentiell vekst aukar sjølve auken over tid, medan lineær vekst legg til same beløp kvar gong","isCorrect":true},{"id":"c","text":"Fordi lineær vekst stoppar etter ei tid","isCorrect":false},{"id":"d","text":"Fordi eksponentiell vekst berre finst i matematikken, ikkje i verkelegheita","isCorrect":false}],"solution":"Med lineær vekst aukar beløpet med eit fast kronebeløp kvart år. Med eksponentiell vekst aukar beløpet med ein fast prosent, som betyr at sjølve auken veks over tid."},{"id":"10-9-1-n-quiz3-q2","task":"Folketalet i Tromsø var ca. 77 000 i 2020 med 1,2 % vekst per år. Kva folketal gir modellen $f(x) = 77\\,000 \\cdot 1{,}012^x$ i 2030?","options":[{"id":"a","text":"Ca. 86 200","isCorrect":false},{"id":"b","text":"Ca. 86 763","isCorrect":true},{"id":"c","text":"Ca. 90 000","isCorrect":false},{"id":"d","text":"Ca. 84 500","isCorrect":false}],"solution":"$f(10) = 77\\,000 \\cdot 1{,}012^{10} \\approx 77\\,000 \\cdot 1{,}1268 \\approx 86\\,763$."}],"solution":""}},{"id":"10-9-1-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har du lært at eksponentiell endring oppstår når ein storleik endrar seg med same prosentdel kvar periode. Vekstfaktoren $b$ er nøkkelen: $b = 1 + p/100$ for vekst, $b = 1 - p/100$ for nedgang. Når $b > 1$ har vi eksponentiell vekst, og når $0 < b < 1$ har vi eksponentiell nedgang.\n\nEksponentialfunksjonen $f(x) = a \\cdot b^x$ beskriv denne utviklinga, der $a$ er startverdien og $x$ vanlegvis er tid. Vi kan finne $a$ og $b$ frå opplysningar -- anten direkte frå prosentvis endring, eller ved å bruke to datapunkt og ta røter.\n\nDet viktigaste å hugse er forskjellen mellom lineær og eksponentiell vekst: lineær vekst legg til same beløp kvar gong, medan eksponentiell vekst aukar sjølve auken. Over tid vinn eksponentiell vekst alltid."}],"exercises":[]}
+{
+  "id": "10-9-1-narrativ",
+  "courseId": "10",
+  "chapterNumber": "9.1",
+  "title": "Eksponentiell vekst og nedgang",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis ting veks raskare enn du trur -- frå bakteriar til bankkonto, og kvifor det aldri lønner seg å undervurdere ein eksponent.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske samanhengen mellom konstant prosentvis endring, vekstfaktor og eksponentialfunksjonar"
+  ],
+  "linkedChapterId": "10-9-1",
+  "content": [
+    {
+      "id": "10-9-1-n-intro",
+      "type": "text",
+      "content": "## Når veksten sjølv veks\n\nTenk deg at du legg 1 000 kroner i banken med 5 prosent rente kvart år. Etter eitt år har du 1 050 kroner. Så langt er det lett. Men etter to år har du ikkje 1 100 kroner, slik du kanskje ville tru. Du har 1 102 kroner og 50 øre. Kvifor? Fordi renta det andre året ikkje berre gjeld dei opphavlege 1 000 kronene, men dei 1 050 kronene du no har. Du får rente av renta.\n\nDenne tilsynelatande vesle forskjellen -- to kroner og femti øre ekstra -- kan verke ubetydeleg. Men gje det tid, og effekten blir dramatisk. Over 50 år gjer rentes rente at dei 1 000 kronene dine veks til over 11 400 kroner, medan dei berre hadde blitt til 3 500 kroner med vanleg tillegg på 50 kroner kvart år.\n\nVelkommen til eksponentiell vekst. I dette kapittelet skal du lære kva som skjer når noko endrar seg med same prosentdel kvar periode -- anten det er snakk om pengar i banken, bakteriar i ein petriskål, eller radioaktivt stoff som sakte forsvinn."
+    },
+    {
+      "id": "10-9-1-n-section1",
+      "type": "text",
+      "content": "## Vekstfaktoren -- det magiske talet\n\nKjernen i eksponentiell endring er noko vi kallar **vekstfaktoren**. Det er det talet du gongar med for å finne den nye verdien etter éi endring.\n\nViss noko aukar med $p$ prosent, finn du vekstfaktoren slik:\n\n$$b = 1 + \\frac{p}{100}$$\n\nViss noko minkar med $p$ prosent, blir formelen i staden:\n\n$$b = 1 - \\frac{p}{100}$$\n\nLa oss sjå på nokre døme. Ein sparekonto med 8 prosent rente gir vekstfaktor $b = 1 + 0{,}08 = 1{,}08$. Ein bil som tapar 15 prosent av verdien kvart år, har vekstfaktor $b = 1 - 0{,}15 = 0{,}85$. Ein by som veks med 2,5 prosent årleg, har vekstfaktor $b = 1{,}025$.\n\nLegg merke til mønsteret: Når vekstfaktoren er over 1, har vi vekst. Når han er mellom 0 og 1, har vi nedgang. Akkurat 1 ville bety ingen endring i det heile.\n\nTenk deg ein norsk by med 12 000 innbyggjarar der folketalet aukar med 3 prosent kvart år. Vekstfaktoren er $b = 1{,}03$. Etter eitt år har byen $12\\,000 \\cdot 1{,}03 = 12\\,360$ innbyggjarar. Etter to år: $12\\,360 \\cdot 1{,}03 = 12\\,731$. Etter tre år: $12\\,731 \\cdot 1{,}03 \\approx 13\\,113$. Men vi kan også skrive dette meir elegant: etter tre år har byen $12\\,000 \\cdot 1{,}03^3 \\approx 13\\,113$ innbyggjarar. Eksponenten fortel oss kor mange periodar som har gått."
+    },
+    {
+      "id": "10-9-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-9-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vekstfaktor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-9-1-n-quiz1-q0",
+            "task": "Kva er vekstfaktoren når noko aukar med 6 prosent?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}94$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}06$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1{,}6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}06$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor ved 6 % auke: $b = 1 + 0{,}06 = 1{,}06$."
+          },
+          {
+            "id": "10-9-1-n-quiz1-q1",
+            "task": "Ein bil kostar 350 000 kr ny og fell 15 % i verdi kvart år. Kva er bilen verd etter 2 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "297 500 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "245 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "252 875 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "280 000 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor: $b = 0{,}85$. Etter 2 år: $350\\,000 \\cdot 0{,}85^2 = 252\\,875$ kr."
+          },
+          {
+            "id": "10-9-1-n-quiz1-q2",
+            "task": "Ein vekstfaktor på $0{,}88$ svarar til ein nedgang på kor mange prosent?",
+            "options": [
+              {
+                "id": "a",
+                "text": "88 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "8,8 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "22 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "12 %",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Nedgang: $1 - 0{,}88 = 0{,}12$, altså 12 % nedgang per periode."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-9-1-n-section2",
+      "type": "text",
+      "content": "## Eksponentialfunksjonen -- formelen bak det heile\n\nNo kan vi setje alt saman i éin formel. Når ein storleik startar på ein verdi $a$ og endrar seg med same prosentdel kvar periode, kan vi beskrive utviklinga med ein **eksponentialfunksjon**:\n\n$$f(x) = a \\cdot b^x$$\n\nHer er $a$ startverdien -- det vi har når $x = 0$. Og $b$ er vekstfaktoren vi nettopp lærte om. Variabelen $x$ er ofte tid, til dømes talet på år, timar eller dagar.\n\nDenne formelen er overraskande kraftig. La oss sjå på nokre heilt ulike situasjonar der ho dukkar opp.\n\n**Bakteriar som doblar seg:** Ein bakteriekultur startar med 500 bakteriar, og talet doblar seg kvar time. Dobling er 100 prosent auke, altså $b = 2$. Funksjonen blir $f(x) = 500 \\cdot 2^x$. Etter 6 timar er det $500 \\cdot 2^6 = 500 \\cdot 64 = 32\\,000$ bakteriar.\n\n**Pengar i banken:** Du set 10 000 kroner i banken med 4 prosent årleg rente. Funksjonen blir $f(x) = 10\\,000 \\cdot 1{,}04^x$. Etter 10 år: $f(10) = 10\\,000 \\cdot 1{,}04^{10} \\approx 14\\,802$ kroner. Du har tent 4 802 kroner i renter -- heile 802 kroner meir enn du ville fått med enkel rente (som berre gir $10\\,000 \\cdot 0{,}04 \\cdot 10 = 4\\,000$ kroner).\n\n**Radioaktivt forfall:** Jod-131, eit radioaktivt stoff som blir brukt i medisinsk behandling, har ei halveringstid på 8 dagar. Det tyder at halvparten av stoffet bryt ned kvar 8. dag. Startar du med 200 mg, har du $200 \\cdot 0{,}5 = 100$ mg etter 8 dagar, $50$ mg etter 16 dagar, og berre $12{,}5$ mg etter 32 dagar. Funksjonen er $f(x) = 200 \\cdot 0{,}5^x$, der $x$ er talet på halveringsperiodar."
+    },
+    {
+      "id": "10-9-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-9-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eksponentialfunksjonen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-9-1-n-quiz2-q0",
+            "task": "Du set 10 000 kr i banken med 4 % årleg rente (rentes rente). Kva funksjon beskriv beløpet etter $x$ år?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f(x) = 10\\,000 \\cdot 1{,}04^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$f(x) = 10\\,000 + 400x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = 10\\,000 \\cdot 0{,}96^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) = 10\\,000 \\cdot 4^x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Startverdi $a = 10\\,000$ og vekstfaktor $b = 1{,}04$ gir $f(x) = 10\\,000 \\cdot 1{,}04^x$."
+          },
+          {
+            "id": "10-9-1-n-quiz2-q1",
+            "task": "I funksjonen $f(x) = a \\cdot b^x$, kva fortel $a$ oss?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den prosentvise endringa per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Startverdien -- verdien når $x = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Talet på periodar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vekstfaktoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a = f(0) = a \\cdot b^0 = a$. Startverdien er funksjonsverdien når $x = 0$."
+          },
+          {
+            "id": "10-9-1-n-quiz2-q2",
+            "task": "Radioaktivt jod-131 startar på 200 mg og har halveringstid 8 dagar. Kor mykje er att etter 24 dagar (3 halveringsperiodar)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "50 mg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "100 mg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "25 mg",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "12,5 mg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter 3 halveringsperiodar: $200 \\cdot 0{,}5^3 = 200 \\cdot 0{,}125 = 25$ mg."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-9-1-n-section3",
+      "type": "text",
+      "content": "## Detektivarbeid -- finne $a$ og $b$ frå opplysningar\n\nOfte kjenner du ikkje formelen på førehand, men du har nokre opplysningar om situasjonen. Då må du sjølv finne $a$ og $b$ -- litt som ein matematisk detektiv.\n\n**Finne $a$:** Viss du veit startverdien (verdien ved $x = 0$), har du $a$ direkte.\n\n**Finne $b$:** Viss du har to datapunkt, til dømes $f(x_1) = y_1$ og $f(x_2) = y_2$, kan du finne $b$ ved å dele:\n\n$$\\frac{y_2}{y_1} = b^{x_2 - x_1}$$\n\nLa oss seie at ein forskar måler 1 800 bakteriar etter 2 timar og 14 400 etter 5 timar. Då er $b^3 = 14\\,400 / 1\\,800 = 8$, altså $b = \\sqrt[3]{8} = 2$. Bakteriane doblar seg kvar time! For å finne $a$ brukar vi $f(2) = a \\cdot 2^2 = 4a = 1\\,800$, som gir $a = 450$. Funksjonen er $f(x) = 450 \\cdot 2^x$.\n\nEit anna døme: Ein investering var verd 50 000 kr ved start og 72 800 kr etter 4 år. Då er $b^4 = 72\\,800 / 50\\,000 = 1{,}456$, og $b = \\sqrt[4]{1{,}456} \\approx 1{,}098$. Det svarar til ein årleg auke på $(1{,}098 - 1) \\cdot 100 \\approx 9{,}8$ prosent. Etter 10 år ville investeringa vore verd $50\\,000 \\cdot 1{,}098^{10} \\approx 127\\,550$ kroner.\n\nDet fine med eksponentialfunksjonen er at det same mønsteret dukkar opp overalt -- same om du studerer folketal i Tromsø (77 000 innbyggjarar med 1,2 % vekst per år gir $f(x) = 77\\,000 \\cdot 1{,}012^x$), verdifallet på ein mobiltelefon, eller veksten av ein sparekonto. Verktøyet er det same."
+    },
+    {
+      "id": "10-9-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-9-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å finne eksponentialfunksjonen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-9-1-n-quiz3-q0",
+            "task": "Ein forskar måler 1 800 bakteriar etter 2 timar og 14 400 etter 5 timar. Kva er vekstfaktoren $b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b = 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$b = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$b = 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$b^3 = 14\\,400 / 1\\,800 = 8$, altså $b = \\sqrt[3]{8} = 2$."
+          },
+          {
+            "id": "10-9-1-n-quiz3-q1",
+            "task": "Kvifor vil eksponentiell vekst alltid slå lineær vekst over lang nok tid?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi eksponentiell vekst aukar sjølve auken over tid, medan lineær vekst legg til same beløp kvar gong",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi eksponentiell vekst startar med eit høgare beløp",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi lineær vekst stoppar etter ei tid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi eksponentiell vekst berre finst i matematikken, ikkje i verkelegheita",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med lineær vekst aukar beløpet med eit fast kronebeløp kvart år. Med eksponentiell vekst aukar beløpet med ein fast prosent, som betyr at sjølve auken veks over tid."
+          },
+          {
+            "id": "10-9-1-n-quiz3-q2",
+            "task": "Folketalet i Tromsø var ca. 77 000 i 2020 med 1,2 % vekst per år. Kva folketal gir modellen $f(x) = 77\\,000 \\cdot 1{,}012^x$ i 2030?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 86 200",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 86 763",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 90 000",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 84 500",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(10) = 77\\,000 \\cdot 1{,}012^{10} \\approx 77\\,000 \\cdot 1{,}1268 \\approx 86\\,763$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-9-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du lært at eksponentiell endring oppstår når ein storleik endrar seg med same prosentdel kvar periode. Vekstfaktoren $b$ er nøkkelen: $b = 1 + p/100$ for vekst, $b = 1 - p/100$ for nedgang. Når $b > 1$ har vi eksponentiell vekst, og når $0 < b < 1$ har vi eksponentiell nedgang.\n\nEksponentialfunksjonen $f(x) = a \\cdot b^x$ beskriv denne utviklinga, der $a$ er startverdien og $x$ vanlegvis er tid. Vi kan finne $a$ og $b$ frå opplysningar -- anten direkte frå prosentvis endring, eller ved å bruke to datapunkt og ta røter.\n\nDet viktigaste å hugse er forskjellen mellom lineær og eksponentiell vekst: lineær vekst legg til same beløp kvar gong, medan eksponentiell vekst aukar sjølve auken. Over tid vinn eksponentiell vekst alltid."
+    }
+  ],
+  "exercises": []
+}

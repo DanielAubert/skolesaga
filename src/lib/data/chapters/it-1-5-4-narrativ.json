@@ -1,1 +1,313 @@
-{"id":"it-1-5-4-narrativ","courseId":"it-1","chapterNumber":"5.4","title":"Hendelseshåndtering og brukerinteraksjon","subtitle":"Narrativ versjon","description":"En fortelling om hvordan nettsider reagerer på klikk og tastetrykk – addEventListener, event-objektet, skjemavalidering og event delegation.","estimatedMinutes":38,"competenceGoals":["bruke hendelseshåndtering for å skape interaktive brukeropplevelser","utvikle skjemavalidering og brukergrensesnitt med JavaScript"],"linkedChapterId":"it-1-5-4","content":[{"id":"it-1-5-4-n-intro","type":"text","content":"## Nettleseren som venter tålmodig\n\nVi kan endre nettsiden med JavaScript, men så langt har endringene bare skjedd ved sidelasting. For virkelig interaktivitet må vi reagere på **brukerens handlinger** – klikk, tastetrykk, musebevegelser og skjemainnsending. Dette kalles **hendelseshåndtering**.\n\nPrinsippet er enkelt: du forteller nettleseren «når denne hendelsen skjer på dette elementet, kjør denne koden». Så venter nettleseren tålmodig og kjører koden din bare når hendelsen faktisk inntreffer. Dette er en *asynkron* modell – koden kjører ikke fra topp til bunn, men som respons på hendelser. En **hendelse** er en handling i nettleseren, som museklikk (`click`), tastetrykk (`keydown`), skjemainnsending (`submit`) eller sidelasting (`load`).\n\nDen anbefalte måten å lytte på er `addEventListener()`:\n\n```javascript\nconst knapp = document.querySelector(\"#minKnapp\");\nknapp.addEventListener(\"click\", function () {\n  console.log(\"Knappen ble klikket!\");\n});\n```\n\nMetoden tar to argumenter: hendelsesnavnet som en streng (`\"click\"`), og en funksjon som kjøres når hendelsen inntreffer – kalt en **callback-funksjon**. Du kan bruke en vanlig funksjon, en pilfunksjon, eller referere til en navngitt funksjon. Vanlige hendelser er `click`, `dblclick`, `mouseover`, `keydown`, `input`, `submit`, `change` og `scroll`."},{"id":"it-1-5-4-n-quiz1","type":"exercise","exercise":{"id":"it-1-5-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på hendelser og addEventListener:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-4-n-quiz1-q0","task":"Hvilken metode brukes for å lytte etter hendelser?","options":[{"id":"a","text":"element.onEvent()","isCorrect":false},{"id":"b","text":"element.listenFor(\"hendelse\")","isCorrect":false},{"id":"c","text":"document.createEvent(\"hendelse\")","isCorrect":false},{"id":"d","text":"element.addEventListener(\"hendelse\", funksjon)","isCorrect":true}],"solution":"addEventListener kobler en callback-funksjon til en hendelse på et element."},{"id":"it-1-5-4-n-quiz1-q1","task":"Hva kalles funksjonen som kjøres når en hendelse inntreffer?","options":[{"id":"a","text":"En callback-funksjon","isCorrect":true},{"id":"b","text":"En pilfunksjon","isCorrect":false},{"id":"c","text":"En konstruktør","isCorrect":false},{"id":"d","text":"En løkke","isCorrect":false}],"solution":"Funksjonen som kjøres som respons på en hendelse, kalles en callback-funksjon."},{"id":"it-1-5-4-n-quiz1-q2","task":"Hva kjennetegner hendelsesmodellen i JavaScript?","options":[{"id":"a","text":"Koden kjører alltid fra topp til bunn i rekkefølge","isCorrect":false},{"id":"b","text":"Den er asynkron – kode kjører som respons på hendelser når de inntreffer","isCorrect":true},{"id":"c","text":"Hendelser kan ikke håndteres med funksjoner","isCorrect":false},{"id":"d","text":"Alle hendelser må skrives i HTML","isCorrect":false}],"solution":"Hendelsesmodellen er asynkron: nettleseren venter og kjører callback-koden først når hendelsen faktisk skjer."}]}},{"id":"it-1-5-4-n-section1","type":"text","content":"## Hva hendelsen forteller oss\n\nNår en hendelse inntreffer, sender nettleseren automatisk et **event-objekt** til callback-funksjonen. Det inneholder nyttig informasjon: `event.type` er hendelsestypen, `event.target` er elementet som utløste hendelsen, og for museklikk finnes `event.clientX` og `event.clientY`. For tastehendelser gir `event.key` hvilken tast som ble trykket (som «Enter» eller «Escape»), og `event.shiftKey` og `event.ctrlKey` forteller om disse tastene var holdt.\n\nSpesielt nyttig er `event.target`, som peker på elementet som faktisk utløste hendelsen. Det er gull verdt når du har mange like elementer. Tenk deg flere fargeknapper, der hver har en `data-farge`-attributt – du kan lese `event.target.dataset.farge` for å vite hvilken farge som ble valgt, og sette bakgrunnen deretter.\n\nDet kanskje viktigste bruksområdet er **skjemavalidering** – å sjekke at brukeren har fylt inn gyldige data før de sendes. Når et skjema sendes inn, laster nettleseren normalt siden på nytt. For å håndtere det selv må du stoppe denne standardoppførselen med `event.preventDefault()`:\n\n```javascript\nskjema.addEventListener(\"submit\", function (event) {\n  event.preventDefault();  // stopp sidelasting\n  const navn = document.querySelector(\"#navn\").value.trim();\n  // ... valider og vis feilmeldinger\n});\n```\n\nEn typisk validering henter verdiene, sjekker at navnet ikke er tomt, at e-posten inneholder `@` og `.`, og at alderen er innenfor et fornuftig intervall – og samler eventuelle feil i en liste som vises til brukeren. En liten detalj: `.value.trim()` fjerner mellomrom rundt det brukeren skrev."},{"id":"it-1-5-4-n-quiz2","type":"exercise","exercise":{"id":"it-1-5-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på event-objektet og skjemaer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-4-n-quiz2-q0","task":"Hva gjør event.preventDefault()?","options":[{"id":"a","text":"Fjerner hendelseslytteren","isCorrect":false},{"id":"b","text":"Logger hendelsen til konsollen","isCorrect":false},{"id":"c","text":"Stopper nettleserens standardoppførsel for hendelsen","isCorrect":true},{"id":"d","text":"Forhindrer at hendelsen skjer igjen","isCorrect":false}],"solution":"preventDefault() stopper nettleserens standardoppførsel, for eksempel sidelasting ved skjemainnsending."},{"id":"it-1-5-4-n-quiz2-q1","task":"Hva er event.target når brukeren klikker et <li> inne i en <ul> med lytteren på <ul>?","options":[{"id":"a","text":"<ul>-elementet lytteren er registrert på","isCorrect":false},{"id":"b","text":"Hele document-objektet","isCorrect":false},{"id":"c","text":"null","isCorrect":false},{"id":"d","text":"<li>-elementet brukeren faktisk klikket på","isCorrect":true}],"solution":"event.target er alltid elementet som faktisk utløste hendelsen – her <li>-elementet brukeren klikket på."},{"id":"it-1-5-4-n-quiz2-q2","task":"Hva er forskjellen mellom «input»- og «change»-hendelsen på et tekstfelt?","options":[{"id":"a","text":"«input» utløses ved hvert tastetrykk, «change» først når feltet mister fokus","isCorrect":true},{"id":"b","text":"De er identiske","isCorrect":false},{"id":"c","text":"«change» utløses ved hvert tastetrykk, «input» ved fokustap","isCorrect":false},{"id":"d","text":"«input» virker bare for tekstfelt","isCorrect":false}],"solution":"«input» utløses ved hver endring (hvert tastetrykk), mens «change» først utløses når feltet mister fokus."}]}},{"id":"it-1-5-4-n-section2","type":"text","content":"## Én lytter for hundre elementer\n\nHva om du har en liste med hundre elementer som alle skal reagere på klikk? Å legge en egen lytter på hvert element er ineffektivt. Løsningen heter **event delegation** – du legger én lytter på *forelderen* i stedet:\n\n```javascript\ndocument.querySelector(\"ul\").addEventListener(\"click\", function (event) {\n  if (event.target.tagName === \"LI\") {\n    console.log(event.target.textContent);\n  }\n});\n```\n\nDette virker fordi hendelser **bobler opp** (event bubbling) fra barneelementet til forelderen. Lytteren på `<ul>` fanger derfor klikk på alle `<li>`-elementer, og `event.target` forteller hvilket som ble klikket. Event delegation har to store fordeler: bedre ytelse, siden du trenger bare én lytter i stedet for mange, og at det også virker for elementer som legges til *senere* med JavaScript. Det siste er spesielt nyttig i dynamiske lister som vokser mens brukeren jobber.\n\nMed dette har du alt du trenger for å bygge ekte interaksjon – fra en interaktiv quiz som reagerer på svar, til skjemaer som validerer og gir tilbakemelding i sanntid."},{"id":"it-1-5-4-n-quiz3","type":"exercise","exercise":{"id":"it-1-5-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på event delegation:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-4-n-quiz3-q0","task":"Hva er fordelen med event delegation?","options":[{"id":"a","text":"Koden tolkes annerledes og kjører raskere","isCorrect":false},{"id":"b","text":"Du trenger færre lyttere, og det virker for dynamisk opprettede elementer","isCorrect":true},{"id":"c","text":"Hendelsene utløses raskere","isCorrect":false},{"id":"d","text":"Du kan droppe JavaScript helt","isCorrect":false}],"solution":"Event delegation gir én lytter i stedet for mange, og fanger også opp elementer som legges til senere."},{"id":"it-1-5-4-n-quiz3-q1","task":"Hvilket fenomen gjør event delegation mulig?","options":[{"id":"a","text":"At CSS overstyrer JavaScript","isCorrect":false},{"id":"b","text":"At alle elementer deler samme id","isCorrect":false},{"id":"c","text":"At hendelser bobler opp fra barn til forelder (event bubbling)","isCorrect":true},{"id":"d","text":"At nettleseren laster siden på nytt","isCorrect":false}],"solution":"Event bubbling gjør at en hendelse på et barneelement bobler opp til forelderen, slik at én lytter der fanger alt."}]}},{"id":"it-1-5-4-n-summary","type":"text","content":"## Oppsummering\n\nHendelseshåndtering gjør nettsider interaktive. En **hendelse** er en handling i nettleseren – klikk, tastetrykk, skjemainnsending – og du reagerer på den med `addEventListener`, som kobler en **callback-funksjon** til hendelsen. Modellen er asynkron: koden kjører først når hendelsen inntreffer.\n\nNettleseren sender et **event-objekt** med nyttig info, der `event.target` peker på elementet som utløste hendelsen. Med `event.preventDefault()` stopper du standardoppførsel som sidelasting, slik at du selv kan håndtere **skjemavalidering**. Og med **event delegation**, som utnytter at hendelser bobler opp, legger du én effektiv lytter på forelderen i stedet for mange på barna. Til sammen er dette grunnlaget for alle interaktive grensesnitt på webben."}],"exercises":[]}
+{
+  "id": "it-1-5-4-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "5.4",
+  "title": "Hendelseshåndtering og brukerinteraksjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan nettsider reagerer på klikk og tastetrykk – addEventListener, event-objektet, skjemavalidering og event delegation.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke hendelseshåndtering for å skape interaktive brukeropplevelser",
+    "utvikle skjemavalidering og brukergrensesnitt med JavaScript"
+  ],
+  "linkedChapterId": "it-1-5-4",
+  "content": [
+    {
+      "id": "it-1-5-4-n-intro",
+      "type": "text",
+      "content": "## Nettleseren som venter tålmodig\n\nVi kan endre nettsiden med JavaScript, men så langt har endringene bare skjedd ved sidelasting. For virkelig interaktivitet må vi reagere på **brukerens handlinger** – klikk, tastetrykk, musebevegelser og skjemainnsending. Dette kalles **hendelseshåndtering**.\n\nPrinsippet er enkelt: du forteller nettleseren «når denne hendelsen skjer på dette elementet, kjør denne koden». Så venter nettleseren tålmodig og kjører koden din bare når hendelsen faktisk inntreffer. Dette er en *asynkron* modell – koden kjører ikke fra topp til bunn, men som respons på hendelser. En **hendelse** er en handling i nettleseren, som museklikk (`click`), tastetrykk (`keydown`), skjemainnsending (`submit`) eller sidelasting (`load`).\n\nDen anbefalte måten å lytte på er `addEventListener()`:\n\n```javascript\nconst knapp = document.querySelector(\"#minKnapp\");\nknapp.addEventListener(\"click\", function () {\n  console.log(\"Knappen ble klikket!\");\n});\n```\n\nMetoden tar to argumenter: hendelsesnavnet som en streng (`\"click\"`), og en funksjon som kjøres når hendelsen inntreffer – kalt en **callback-funksjon**. Du kan bruke en vanlig funksjon, en pilfunksjon, eller referere til en navngitt funksjon. Vanlige hendelser er `click`, `dblclick`, `mouseover`, `keydown`, `input`, `submit`, `change` og `scroll`."
+    },
+    {
+      "id": "it-1-5-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på hendelser og addEventListener:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-4-n-quiz1-q0",
+            "task": "Hvilken metode brukes for å lytte etter hendelser?",
+            "options": [
+              {
+                "id": "a",
+                "text": "element.onEvent()",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "element.listenFor(\"hendelse\")",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "element.addEventListener(\"hendelse\", funksjon)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "document.createEvent(\"hendelse\")",
+                "isCorrect": false
+              }
+            ],
+            "solution": "addEventListener kobler en callback-funksjon til en hendelse på et element."
+          },
+          {
+            "id": "it-1-5-4-n-quiz1-q1",
+            "task": "Hva kalles funksjonen som kjøres når en hendelse inntreffer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En pilfunksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En konstruktør",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En callback-funksjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Funksjonen som kjøres som respons på en hendelse, kalles en callback-funksjon."
+          },
+          {
+            "id": "it-1-5-4-n-quiz1-q2",
+            "task": "Hva kjennetegner hendelsesmodellen i JavaScript?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den er asynkron – kode kjører som respons på hendelser når de inntreffer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Koden kjører alltid fra topp til bunn i rekkefølge",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hendelser kan ikke håndteres med funksjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle hendelser må skrives i HTML",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hendelsesmodellen er asynkron: nettleseren venter og kjører callback-koden først når hendelsen faktisk skjer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-4-n-section1",
+      "type": "text",
+      "content": "## Hva hendelsen forteller oss\n\nNår en hendelse inntreffer, sender nettleseren automatisk et **event-objekt** til callback-funksjonen. Det inneholder nyttig informasjon: `event.type` er hendelsestypen, `event.target` er elementet som utløste hendelsen, og for museklikk finnes `event.clientX` og `event.clientY`. For tastehendelser gir `event.key` hvilken tast som ble trykket (som «Enter» eller «Escape»), og `event.shiftKey` og `event.ctrlKey` forteller om disse tastene var holdt.\n\nSpesielt nyttig er `event.target`, som peker på elementet som faktisk utløste hendelsen. Det er gull verdt når du har mange like elementer. Tenk deg flere fargeknapper, der hver har en `data-farge`-attributt – du kan lese `event.target.dataset.farge` for å vite hvilken farge som ble valgt, og sette bakgrunnen deretter.\n\nDet kanskje viktigste bruksområdet er **skjemavalidering** – å sjekke at brukeren har fylt inn gyldige data før de sendes. Når et skjema sendes inn, laster nettleseren normalt siden på nytt. For å håndtere det selv må du stoppe denne standardoppførselen med `event.preventDefault()`:\n\n```javascript\nskjema.addEventListener(\"submit\", function (event) {\n  event.preventDefault();  // stopp sidelasting\n  const navn = document.querySelector(\"#navn\").value.trim();\n  // ... valider og vis feilmeldinger\n});\n```\n\nEn typisk validering henter verdiene, sjekker at navnet ikke er tomt, at e-posten inneholder `@` og `.`, og at alderen er innenfor et fornuftig intervall – og samler eventuelle feil i en liste som vises til brukeren. En liten detalj: `.value.trim()` fjerner mellomrom rundt det brukeren skrev."
+    },
+    {
+      "id": "it-1-5-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på event-objektet og skjemaer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-4-n-quiz2-q0",
+            "task": "Hva gjør event.preventDefault()?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fjerner hendelseslytteren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stopper nettleserens standardoppførsel for hendelsen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Logger hendelsen til konsollen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forhindrer at hendelsen skjer igjen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "preventDefault() stopper nettleserens standardoppførsel, for eksempel sidelasting ved skjemainnsending."
+          },
+          {
+            "id": "it-1-5-4-n-quiz2-q1",
+            "task": "Hva er event.target når brukeren klikker et <li> inne i en <ul> med lytteren på <ul>?",
+            "options": [
+              {
+                "id": "a",
+                "text": "<ul>-elementet lytteren er registrert på",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hele document-objektet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "<li>-elementet brukeren faktisk klikket på",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "event.target er alltid elementet som faktisk utløste hendelsen – her <li>-elementet brukeren klikket på."
+          },
+          {
+            "id": "it-1-5-4-n-quiz2-q2",
+            "task": "Hva er forskjellen mellom «input»- og «change»-hendelsen på et tekstfelt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "De er identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "«change» utløses ved hvert tastetrykk, «input» ved fokustap",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "«input» virker bare for tekstfelt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "«input» utløses ved hvert tastetrykk, «change» først når feltet mister fokus",
+                "isCorrect": true
+              }
+            ],
+            "solution": "«input» utløses ved hver endring (hvert tastetrykk), mens «change» først utløses når feltet mister fokus."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-4-n-section2",
+      "type": "text",
+      "content": "## Én lytter for hundre elementer\n\nHva om du har en liste med hundre elementer som alle skal reagere på klikk? Å legge en egen lytter på hvert element er ineffektivt. Løsningen heter **event delegation** – du legger én lytter på *forelderen* i stedet:\n\n```javascript\ndocument.querySelector(\"ul\").addEventListener(\"click\", function (event) {\n  if (event.target.tagName === \"LI\") {\n    console.log(event.target.textContent);\n  }\n});\n```\n\nDette virker fordi hendelser **bobler opp** (event bubbling) fra barneelementet til forelderen. Lytteren på `<ul>` fanger derfor klikk på alle `<li>`-elementer, og `event.target` forteller hvilket som ble klikket. Event delegation har to store fordeler: bedre ytelse, siden du trenger bare én lytter i stedet for mange, og at det også virker for elementer som legges til *senere* med JavaScript. Det siste er spesielt nyttig i dynamiske lister som vokser mens brukeren jobber.\n\nMed dette har du alt du trenger for å bygge ekte interaksjon – fra en interaktiv quiz som reagerer på svar, til skjemaer som validerer og gir tilbakemelding i sanntid."
+    },
+    {
+      "id": "it-1-5-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på event delegation:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-4-n-quiz3-q0",
+            "task": "Hva er fordelen med event delegation?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Du trenger færre lyttere, og det virker for dynamisk opprettede elementer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Koden tolkes annerledes og kjører raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hendelsene utløses raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Du kan droppe JavaScript helt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Event delegation gir én lytter i stedet for mange, og fanger også opp elementer som legges til senere."
+          },
+          {
+            "id": "it-1-5-4-n-quiz3-q1",
+            "task": "Hvilket fenomen gjør event delegation mulig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At CSS overstyrer JavaScript",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At hendelser bobler opp fra barn til forelder (event bubbling)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At alle elementer deler samme id",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At nettleseren laster siden på nytt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Event bubbling gjør at en hendelse på et barneelement bobler opp til forelderen, slik at én lytter der fanger alt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nHendelseshåndtering gjør nettsider interaktive. En **hendelse** er en handling i nettleseren – klikk, tastetrykk, skjemainnsending – og du reagerer på den med `addEventListener`, som kobler en **callback-funksjon** til hendelsen. Modellen er asynkron: koden kjører først når hendelsen inntreffer.\n\nNettleseren sender et **event-objekt** med nyttig info, der `event.target` peker på elementet som utløste hendelsen. Med `event.preventDefault()` stopper du standardoppførsel som sidelasting, slik at du selv kan håndtere **skjemavalidering**. Og med **event delegation**, som utnytter at hendelser bobler opp, legger du én effektiv lytter på forelderen i stedet for mange på barna. Til sammen er dette grunnlaget for alle interaktive grensesnitt på webben."
+    }
+  ],
+  "exercises": []
+}

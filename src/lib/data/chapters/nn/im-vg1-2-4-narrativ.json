@@ -1,1 +1,533 @@
-{"id":"im-vg1-2-4-narrativ","courseId":"im-vg1","chapterNumber":"2.4","title":"Løkker og iterasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om superkrafta til datamaskina -- å gjenta. Møt for-løkka og while-løkka, lær å styre dei med break og continue, og oppdag korleis løkker inni løkker byggjer mønster.","estimatedMinutes":36,"competenceGoals":["bruke for-løkker til å iterere over sekvenser og tallområder","bruke while-løkker for gjentakelse basert på betingelser","forstå og anvende break, continue og nøstede løkker"],"linkedChapterId":"im-vg1-2-4","content":[{"id":"im-vg1-2-4-n-intro","type":"text","content":"## Kvifor skrive det ti gonger?\n\nSei at du vil at programmet skal skrive «Hei» ti gonger. Du kan sjølvsagt skrive `print(\"Hei\")` ti gonger nedover. Men kva om du vil det tusen gonger? Eller ein million? Då blir det fort umogleg. Her ligg ei av dei aller største superkreftene til datamaskina gøymd: ho blir aldri lei av å gjenta. Ho kan gjere den same tingen ein million gonger utan å klage, og det er nettopp det vi utnyttar med **løkker**.\n\nEi løkke er ein kontrollstruktur som gjentek ei kodeblokk. I staden for å skrive den same instruksjonen om og om igjen, skriv du han éin gong og fortel maskina kor mange gonger -- eller kor lenge -- ho skal gjenta. Det å gjenta på denne måten blir kalla **iterasjon**, og det er ein av dei viktigaste teknikkane i heile programmeringa.\n\nI denne forteljinga skal vi temje krafta i gjentakinga. Vi skal møte dei to typane løkker -- for-løkka som tel seg gjennom noko, og while-løkka som køyrer så lenge ein betingelse held. Vi skal lære å hoppe ut av og over med break og continue, og vi skal sjå korleis løkker inni løkker kan byggje tabellar og mønster. Til slutt skal vi oppdage akkumulatoren, ein enkel teknikk for å samle opp resultat."},{"id":"im-vg1-2-4-n-section1","type":"text","content":"## Løkka som tel\n\nDen første typen er **for-løkka**, og ho er perfekt når du veit kor mange gonger noko skal skje, eller når du vil gå gjennom ei samling av ting eitt element av gongen. Skriv du `for i in range(5):` med ein `print(i)` under, skriv maskina ut tala 0, 1, 2, 3 og 4. Legg merke til at ho startar på 0 og stoppar *før* 5 -- `range(5)` gir altså fem tal, men ikkje sjølve 5. Dette er ei kjelde til mange byrjarfeil, så det er verdt å hugse godt.\n\nDu kan òg styre `range` meir presist. Med `range(2, 11, 2)` seier du «start på 2, stopp før 11, og hopp 2 om gongen», som gir 2, 4, 6, 8, 10. Dei tre tala tyder start, stopp og steg. Og det fine er at for-løkka ikkje berre kan telje tal -- ho kan gå gjennom kva som helst sekvens. Har du ei liste med frukter, kan du skrive `for frukt in frukter:` og behandle kvar frukt etter tur. Variabelen `frukt` peikar då på eitt element av gongen.\n\nFor-løkka er altså ein trufast arbeidar som går gjennom ei bestemt rekkje, eitt steg om gongen, heilt til ho er ferdig. Når du på førehand veit kor mange rundar du treng, er for-løkka nesten alltid det rette valet."},{"id":"im-vg1-2-4-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på for-løkker og range:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-4-n-quiz1-q0","task":"Kor mange gonger blir koden køyrd i «for i in range(7):»?","options":[{"id":"a","text":"6","isCorrect":false},{"id":"b","text":"8","isCorrect":false},{"id":"c","text":"7","isCorrect":true},{"id":"d","text":"1","isCorrect":false}],"solution":"range(7) gir tala 0, 1, 2, 3, 4, 5, 6 -- altså 7 verdiar, så løkka blir køyrd 7 gonger."},{"id":"im-vg1-2-4-n-quiz1-q1","task":"Kva gir range(2, 11, 2)?","options":[{"id":"a","text":"2, 3, 4, ..., 11","isCorrect":false},{"id":"b","text":"2, 11","isCorrect":false},{"id":"c","text":"0, 2, 4, ..., 10","isCorrect":false},{"id":"d","text":"2, 4, 6, 8, 10","isCorrect":true}],"solution":"Dei tre tala tyder start (2), stopp før (11) og steg (2), så vi får 2, 4, 6, 8, 10."},{"id":"im-vg1-2-4-n-quiz1-q2","task":"Kva kan ei for-løkke gå gjennom?","options":[{"id":"a","text":"Ein sekvens, som eit talområde eller ei liste","isCorrect":true},{"id":"b","text":"Berre talet 0","isCorrect":false},{"id":"c","text":"Berre while-løkker","isCorrect":false},{"id":"d","text":"Berre tekst","isCorrect":false}],"solution":"Ei for-løkke kan iterere over kva som helst sekvens, til dømes eit talområde frå range() eller ei liste med element."}]}},{"id":"im-vg1-2-4-n-section2","type":"text","content":"## Løkka som ventar på ein betingelse\n\nNokre gonger veit du ikkje på førehand kor mange gonger du må gjenta. Tenk på eit gjettespel: du anar ikkje kor mange forsøk spelaren treng. Til slike situasjonar har vi **while-løkka**, som gjentek koden *så lenge* ein betingelse er sann.\n\nDu kan lese `while` som «så lenge». Skriv du `while teller <= 5:`, vil løkka halde fram med å køyre heilt til betingelsen blir usann. Men her lurer ei farleg felle. Inni løkka må noko skje som etter kvart gjer betingelsen usann -- elles køyrer ho i det uendelege. I dømet med teljaren må vi auke han for kvar runde med `teller += 1`. Gløymer du den linja, sit programmet fast i ei evig løkke og frys. Så kvar gong du skriv ei while-løkke, bør du spørje deg: kva er det som til slutt får denne til å stoppe?\n\nWhile-løkka skin i gjettespel. Vi set eit hemmeleg tal, og lèt løkka køyre `while gjetting != hemmelig:`. For kvart forsøk les vi gjettinga til spelaren, gir hint om ho er for høg eller for låg, og løkka held fram heilt til gjettinga stemmer. I det augneblinken gjettinga er lik det hemmelege talet, blir betingelsen usann, løkka sluttar, og vi ropar «Riktig!». For-løkka tel; while-løkka ventar."},{"id":"im-vg1-2-4-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på while-løkker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-4-n-quiz2-q0","task":"Når køyrer ei while-løkke?","options":[{"id":"a","text":"Akkurat éin gong uansett","isCorrect":false},{"id":"b","text":"Så lenge betingelsen er sann","isCorrect":true},{"id":"c","text":"Berre når betingelsen er usann","isCorrect":false},{"id":"d","text":"Aldri","isCorrect":false}],"solution":"Ei while-løkke gjentek kodeblokka så lenge betingelsen er sann, og stoppar når han blir usann."},{"id":"im-vg1-2-4-n-quiz2-q1","task":"Kva skjer viss betingelsen i ei while-løkke aldri blir usann?","options":[{"id":"a","text":"Løkka køyrer nøyaktig éin gong","isCorrect":false},{"id":"b","text":"Python rettar det automatisk","isCorrect":false},{"id":"c","text":"Løkka køyrer i det uendelege","isCorrect":true},{"id":"d","text":"Programmet hoppar over løkka","isCorrect":false}],"solution":"Då får du ei evig løkke som aldri stoppar. Difor må noko inni løkka til slutt gjere betingelsen usann."},{"id":"im-vg1-2-4-n-quiz2-q2","task":"Kva løkketype passar best når du ikkje veit talet på gjentakingar på førehand?","options":[{"id":"a","text":"Ei for-løkke","isCorrect":false},{"id":"b","text":"Ingen av dei","isCorrect":false},{"id":"c","text":"Ei print-løkke","isCorrect":false},{"id":"d","text":"Ei while-løkke","isCorrect":true}],"solution":"While-løkka passar når talet på gjentakingar er ukjent, til dømes i eit gjettespel der ho køyrer til spelaren treff."}]}},{"id":"im-vg1-2-4-n-section3","type":"text","content":"## Å hoppe ut og hoppe over\n\nNokre gonger vil du gripe inn i ei løkke medan ho køyrer. Til det har Python to nyttige kommandoar: break og continue.\n\n**break** avbryt løkka umiddelbart og heilt. Når maskina treff ein break, slepp ho alt og hoppar rett ut av løkka. Tenk deg `for tall in range(1, 100):` med ein sjekk inni: `if tall == 5: break`. Då skriv løkka ut 1, 2, 3, 4 -- og i det augneblinken talet blir 5, hoppar ho ut og avsluttar, sjølv om range eigentleg skulle gått heilt til 99. break er som ei naudbrems.\n\n**continue** er mildare. Han hoppar berre over *resten* av den noverande runden og går vidare til neste. Resten av løkka køyrer som normalt. Med `for tall in range(1, 6):` og `if tall == 3: continue`, blir 1, 2, 4 og 5 skrive ut -- talet 3 blir hoppa over, men løkka held fram. continue er som å seie «denne runden hoppar vi over, men vi held fram».\n\nEin annan viktig teknikk inni løkker er **akkumulatormønsteret**. Det handlar om å samle opp ein verdi gjennom løkka. Du startar med ein variabel, ofte `total = 0`, og legg til litt for kvar runde. Vil du summere tala frå 1 til 10, skriv du `for tall in range(1, 11): total += tall`, og til slutt inneheld `total` summen 55. Same mønster kan brukast til å rekne ut fakultet, der du i staden startar med 1 og *gangar* inn kvart tal: `5!` blir `1·2·3·4·5 = 120`. Akkumulatoren er ein variabel som veks medan løkka jobbar."},{"id":"im-vg1-2-4-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-2-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på break, continue og akkumulator:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-4-n-quiz3-q0","task":"Kva gjer break?","options":[{"id":"a","text":"Avbryt løkka umiddelbart og heilt","isCorrect":true},{"id":"b","text":"Hoppar over éi runde og held fram","isCorrect":false},{"id":"c","text":"Startar løkka på nytt","isCorrect":false},{"id":"d","text":"Aukar ein teljar","isCorrect":false}],"solution":"break avbryt løkka umiddelbart og hoppar rett ut av henne."},{"id":"im-vg1-2-4-n-quiz3-q1","task":"Kva blir skrive ut av: for i in range(1,6): if i==3: continue; print(i)?","options":[{"id":"a","text":"1 2 3 4 5","isCorrect":false},{"id":"b","text":"1 2 4 5","isCorrect":true},{"id":"c","text":"1 2","isCorrect":false},{"id":"d","text":"3","isCorrect":false}],"solution":"continue hoppar over runden der i er 3, men løkka held fram, så 1, 2, 4 og 5 blir skrive ut."},{"id":"im-vg1-2-4-n-quiz3-q2","task":"Kva blir total etter: total=0; for tall in range(1,11): total += tall?","options":[{"id":"a","text":"10","isCorrect":false},{"id":"b","text":"100","isCorrect":false},{"id":"c","text":"55","isCorrect":true},{"id":"d","text":"11","isCorrect":false}],"solution":"Akkumulatoren legg saman tala frå 1 til 10, som blir 55."}]}},{"id":"im-vg1-2-4-n-section4","type":"text","content":"## Løkker inni løkker\n\nDen siste og mektigaste teknikken er **nøsta løkker** -- ei løkke plassert inni ei anna. Akkurat som vi nøsta if-setningar, kan vi nøste løkker, og det opnar for å lage tabellar, rutenett og mønster.\n\nTenk deg ei ytre løkke som styrer rader, og ei indre løkke som styrer kolonnar. For kvar runde i den ytre løkka køyrer heile den indre løkka frå start til slutt. Skal du til dømes lage ein liten gangetabell, lèt du den ytre løkka gå over tala 1 til 3, og inni henne ei løkke som òg går 1 til 3, og skriv ut produktet `i*j`. Resultatet blir eit heilt rutenett av reknestykke. Eit lite triks her er `end=\"  \"` i print, som gjer at utskriftene hamnar på same linje med mellomrom imellom, i staden for kvar på si linje. Ein tom `print()` til slutt på den ytre løkka gir eit linjeskift før neste rad.\n\nMed same prinsipp kan vi teikne mønster. Vil du ha ein trekant der første rad har «1», andre rad «1 2», tredje «1 2 3» og så vidare, lèt du den ytre løkka telje radnummeret, og den indre løkka skrive tala frå 1 opp til akkurat dette radnummeret. Den indre løkka blir altså litt lengre for kvar rad. Slik blir eit mønster bygd frå to enkle løkker som dansar saman -- og du har fått eit glimt av korleis ganske komplekse ting kan vekse fram frå nokre få, klare reglar."},{"id":"im-vg1-2-4-n-quiz4","type":"exercise","exercise":{"id":"im-vg1-2-4-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på nøsta løkker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-4-n-quiz4-q0","task":"Kva er ei nøsta løkke?","options":[{"id":"a","text":"Ei løkke utan innhald","isCorrect":false},{"id":"b","text":"Ei løkke som aldri stoppar","isCorrect":false},{"id":"c","text":"Ei if-setning","isCorrect":false},{"id":"d","text":"Ei løkke plassert inni ei anna løkke","isCorrect":true}],"solution":"Ei nøsta løkke er ei løkke inni ei anna, nyttig for tabellar, rutenett og mønster."},{"id":"im-vg1-2-4-n-quiz4-q1","task":"Viss ei ytre løkke køyrer 3 gonger og den indre 3 gonger per runde, kor mange gonger blir den innerste koden køyrd?","options":[{"id":"a","text":"9 gonger","isCorrect":true},{"id":"b","text":"3 gonger","isCorrect":false},{"id":"c","text":"6 gonger","isCorrect":false},{"id":"d","text":"1 gong","isCorrect":false}],"solution":"For kvar av dei 3 rundane i den ytre løkka blir den indre køyrd 3 gonger, altså 3 · 3 = 9 gonger totalt."},{"id":"im-vg1-2-4-n-quiz4-q2","task":"Kva gjer end=\"  \" i ei print-setning inne i ei løkke?","options":[{"id":"a","text":"Stoppar løkka","isCorrect":false},{"id":"b","text":"Lèt utskriftene stå på same linje med mellomrom imellom","isCorrect":true},{"id":"c","text":"Gir alltid linjeskift","isCorrect":false},{"id":"d","text":"Slettar teksten","isCorrect":false}],"solution":"end=\"  \" byter ut det vanlege linjeskiftet med mellomrom, så utskriftene hamnar ved sida av kvarandre på same linje."}]}},{"id":"im-vg1-2-4-n-summary","type":"text","content":"## Oppsummering\n\nVi har temja krafta i gjentakinga. **For-løkka** tel seg gjennom ein sekvens -- gjerne med `range()` -- og passar når du veit kor mange rundar du treng, medan **while-løkka** køyrer så lenge ein betingelse er sann og passar når talet er ukjent. Hugs at while-løkker må kunne stoppe, elles køyrer dei i det uendelege.\n\nVi lærte å gripe inn med **break**, som avbryt løkka heilt, og **continue**, som berre hoppar over éi runde. Med **akkumulatormønsteret** samla vi opp resultat i ein variabel som veks, slik vi gjorde då vi summerte tal og rekna fakultet. Til slutt såg vi at **nøsta løkker** -- løkker inni løkker -- lèt oss byggje tabellar og mønster, der den ytre styrer rader og den indre kolonnar. Med løkker kan programma dine no gjere tusen ting med nokre få linjer kode."}],"exercises":[],"_meta":{"sourceHash":"315bc30802932366","translatedAt":"2026-06-21T07:30:00.427Z","model":"claude-code-agent","strings":76,"tm":{"5169041aa384b078":"Løkker og iterasjon","b195b06d1ed59702":"Narrativ versjon","24940ae033e69247":"Ei forteljing om superkrafta til datamaskina -- å gjenta. Møt for-løkka og while-løkka, lær å styre dei med break og continue, og oppdag korleis løkker inni løkker byggjer mønster.","7dfcf5e5fef192e8":"bruke for-løkker til å iterere over sekvenser og tallområder","d89848e123b8a42a":"bruke while-løkker for gjentakelse basert på betingelser","1f796030e139d0a4":"forstå og anvende break, continue og nøstede løkker","36e7e77ceeca1d9d":"## Kvifor skrive det ti gonger?\n\nSei at du vil at programmet skal skrive «Hei» ti gonger. Du kan sjølvsagt skrive `print(\"Hei\")` ti gonger nedover. Men kva om du vil det tusen gonger? Eller ein million? Då blir det fort umogleg. Her ligg ei av dei aller største superkreftene til datamaskina gøymd: ho blir aldri lei av å gjenta. Ho kan gjere den same tingen ein million gonger utan å klage, og det er nettopp det vi utnyttar med **løkker**.\n\nEi løkke er ein kontrollstruktur som gjentek ei kodeblokk. I staden for å skrive den same instruksjonen om og om igjen, skriv du han éin gong og fortel maskina kor mange gonger -- eller kor lenge -- ho skal gjenta. Det å gjenta på denne måten blir kalla **iterasjon**, og det er ein av dei viktigaste teknikkane i heile programmeringa.\n\nI denne forteljinga skal vi temje krafta i gjentakinga. Vi skal møte dei to typane løkker -- for-løkka som tel seg gjennom noko, og while-løkka som køyrer så lenge ein betingelse held. Vi skal lære å hoppe ut av og over med break og continue, og vi skal sjå korleis løkker inni løkker kan byggje tabellar og mønster. Til slutt skal vi oppdage akkumulatoren, ein enkel teknikk for å samle opp resultat.","b49242028ed954dd":"## Løkka som tel\n\nDen første typen er **for-løkka**, og ho er perfekt når du veit kor mange gonger noko skal skje, eller når du vil gå gjennom ei samling av ting eitt element av gongen. Skriv du `for i in range(5):` med ein `print(i)` under, skriv maskina ut tala 0, 1, 2, 3 og 4. Legg merke til at ho startar på 0 og stoppar *før* 5 -- `range(5)` gir altså fem tal, men ikkje sjølve 5. Dette er ei kjelde til mange byrjarfeil, så det er verdt å hugse godt.\n\nDu kan òg styre `range` meir presist. Med `range(2, 11, 2)` seier du «start på 2, stopp før 11, og hopp 2 om gongen», som gir 2, 4, 6, 8, 10. Dei tre tala tyder start, stopp og steg. Og det fine er at for-løkka ikkje berre kan telje tal -- ho kan gå gjennom kva som helst sekvens. Har du ei liste med frukter, kan du skrive `for frukt in frukter:` og behandle kvar frukt etter tur. Variabelen `frukt` peikar då på eitt element av gongen.\n\nFor-løkka er altså ein trufast arbeidar som går gjennom ei bestemt rekkje, eitt steg om gongen, heilt til ho er ferdig. Når du på førehand veit kor mange rundar du treng, er for-løkka nesten alltid det rette valet.","52a52f07f2cea4fe":"Test deg sjølv på for-løkker og range:","4097889236a2af26":"placeholder","a6a818d9b8c2f6d6":"Kor mange gonger blir koden køyrd i «for i in range(7):»?","90781c030898dd47":"range(7) gir tala 0, 1, 2, 3, 4, 5, 6 -- altså 7 verdiar, så løkka blir køyrd 7 gonger.","3927fe0a3eb782d9":"Kva gir range(2, 11, 2)?","b59fee5103ecc42e":"Dei tre tala tyder start (2), stopp før (11) og steg (2), så vi får 2, 4, 6, 8, 10.","f27333175ffe47d1":"Kva kan ei for-løkke gå gjennom?","3848297861d7954f":"Ein sekvens, som eit talområde eller ei liste","83e881fe1929aa55":"Berre talet 0","97a6a643aa9e39c6":"Berre while-løkker","b61b3b668cb5c3da":"Berre tekst","5d821c0e689481e9":"Ei for-løkke kan iterere over kva som helst sekvens, til dømes eit talområde frå range() eller ei liste med element.","099fe0e5403070ef":"## Løkka som ventar på ein betingelse\n\nNokre gonger veit du ikkje på førehand kor mange gonger du må gjenta. Tenk på eit gjettespel: du anar ikkje kor mange forsøk spelaren treng. Til slike situasjonar har vi **while-løkka**, som gjentek koden *så lenge* ein betingelse er sann.\n\nDu kan lese `while` som «så lenge». Skriv du `while teller <= 5:`, vil løkka halde fram med å køyre heilt til betingelsen blir usann. Men her lurer ei farleg felle. Inni løkka må noko skje som etter kvart gjer betingelsen usann -- elles køyrer ho i det uendelege. I dømet med teljaren må vi auke han for kvar runde med `teller += 1`. Gløymer du den linja, sit programmet fast i ei evig løkke og frys. Så kvar gong du skriv ei while-løkke, bør du spørje deg: kva er det som til slutt får denne til å stoppe?\n\nWhile-løkka skin i gjettespel. Vi set eit hemmeleg tal, og lèt løkka køyre `while gjetting != hemmelig:`. For kvart forsøk les vi gjettinga til spelaren, gir hint om ho er for høg eller for låg, og løkka held fram heilt til gjettinga stemmer. I det augneblinken gjettinga er lik det hemmelege talet, blir betingelsen usann, løkka sluttar, og vi ropar «Riktig!». For-løkka tel; while-løkka ventar.","13727ca019d60335":"Test deg sjølv på while-løkker:","6dce7c51fb0d5af6":"Når køyrer ei while-løkke?","4acbbbb426d41547":"Akkurat éin gong uansett","29b5d44d8927c0c9":"Så lenge betingelsen er sann","4989cb6dc2b1d520":"Berre når betingelsen er usann","72816c36bd404a80":"Aldri","deeabab2420e06ee":"Ei while-løkke gjentek kodeblokka så lenge betingelsen er sann, og stoppar når han blir usann.","802337ab4a7e1b46":"Kva skjer viss betingelsen i ei while-løkke aldri blir usann?","843da6df2e4924e7":"Løkka køyrer nøyaktig éin gong","f23c0ee6dd08831d":"Python rettar det automatisk","7a81e12efbe40eba":"Løkka køyrer i det uendelege","222bd76dc702dfae":"Programmet hoppar over løkka","3ae0c43d22f4aa33":"Då får du ei evig løkke som aldri stoppar. Difor må noko inni løkka til slutt gjere betingelsen usann.","713a9f6748fb32db":"Kva løkketype passar best når du ikkje veit talet på gjentakingar på førehand?","771c1afff6dfb3e0":"Ei for-løkke","bb60f24e85070ad0":"Ingen av dei","bb7a094c4a87ec5a":"Ei print-løkke","42edfbeace70f2a4":"Ei while-løkke","9cef923078f4ae74":"While-løkka passar når talet på gjentakingar er ukjent, til dømes i eit gjettespel der ho køyrer til spelaren treff.","074071b9189076d8":"## Å hoppe ut og hoppe over\n\nNokre gonger vil du gripe inn i ei løkke medan ho køyrer. Til det har Python to nyttige kommandoar: break og continue.\n\n**break** avbryt løkka umiddelbart og heilt. Når maskina treff ein break, slepp ho alt og hoppar rett ut av løkka. Tenk deg `for tall in range(1, 100):` med ein sjekk inni: `if tall == 5: break`. Då skriv løkka ut 1, 2, 3, 4 -- og i det augneblinken talet blir 5, hoppar ho ut og avsluttar, sjølv om range eigentleg skulle gått heilt til 99. break er som ei naudbrems.\n\n**continue** er mildare. Han hoppar berre over *resten* av den noverande runden og går vidare til neste. Resten av løkka køyrer som normalt. Med `for tall in range(1, 6):` og `if tall == 3: continue`, blir 1, 2, 4 og 5 skrive ut -- talet 3 blir hoppa over, men løkka held fram. continue er som å seie «denne runden hoppar vi over, men vi held fram».\n\nEin annan viktig teknikk inni løkker er **akkumulatormønsteret**. Det handlar om å samle opp ein verdi gjennom løkka. Du startar med ein variabel, ofte `total = 0`, og legg til litt for kvar runde. Vil du summere tala frå 1 til 10, skriv du `for tall in range(1, 11): total += tall`, og til slutt inneheld `total` summen 55. Same mønster kan brukast til å rekne ut fakultet, der du i staden startar med 1 og *gangar* inn kvart tal: `5!` blir `1·2·3·4·5 = 120`. Akkumulatoren er ein variabel som veks medan løkka jobbar.","43bf0b3b8f1f9c5d":"Test deg sjølv på break, continue og akkumulator:","f58f72b636f72344":"Kva gjer break?","9adb16a5728ebd94":"Avbryt løkka umiddelbart og heilt","2b1758d7a72015bd":"Hoppar over éi runde og held fram","de6e4aef157238a1":"Startar løkka på nytt","31100410d163be18":"Aukar ein teljar","c451011ac8acd0da":"break avbryt løkka umiddelbart og hoppar rett ut av henne.","43584077104df18a":"Kva blir skrive ut av: for i in range(1,6): if i==3: continue; print(i)?","f4274f15e873386f":"continue hoppar over runden der i er 3, men løkka held fram, så 1, 2, 4 og 5 blir skrive ut.","be60e906959d3685":"Kva blir total etter: total=0; for tall in range(1,11): total += tall?","79467367598f5122":"Akkumulatoren legg saman tala frå 1 til 10, som blir 55.","f17bdb1101c13b74":"## Løkker inni løkker\n\nDen siste og mektigaste teknikken er **nøsta løkker** -- ei løkke plassert inni ei anna. Akkurat som vi nøsta if-setningar, kan vi nøste løkker, og det opnar for å lage tabellar, rutenett og mønster.\n\nTenk deg ei ytre løkke som styrer rader, og ei indre løkke som styrer kolonnar. For kvar runde i den ytre løkka køyrer heile den indre løkka frå start til slutt. Skal du til dømes lage ein liten gangetabell, lèt du den ytre løkka gå over tala 1 til 3, og inni henne ei løkke som òg går 1 til 3, og skriv ut produktet `i*j`. Resultatet blir eit heilt rutenett av reknestykke. Eit lite triks her er `end=\"  \"` i print, som gjer at utskriftene hamnar på same linje med mellomrom imellom, i staden for kvar på si linje. Ein tom `print()` til slutt på den ytre løkka gir eit linjeskift før neste rad.\n\nMed same prinsipp kan vi teikne mønster. Vil du ha ein trekant der første rad har «1», andre rad «1 2», tredje «1 2 3» og så vidare, lèt du den ytre løkka telje radnummeret, og den indre løkka skrive tala frå 1 opp til akkurat dette radnummeret. Den indre løkka blir altså litt lengre for kvar rad. Slik blir eit mønster bygd frå to enkle løkker som dansar saman -- og du har fått eit glimt av korleis ganske komplekse ting kan vekse fram frå nokre få, klare reglar.","249b97effac0acb3":"Test deg sjølv på nøsta løkker:","544cdc81405b99cb":"Kva er ei nøsta løkke?","b730574ba075c4be":"Ei løkke utan innhald","77f7a849ed07864e":"Ei løkke som aldri stoppar","08ca1320485ee99d":"Ei if-setning","b9c5efcee7fd5326":"Ei løkke plassert inni ei anna løkke","a44ab424bb176165":"Ei nøsta løkke er ei løkke inni ei anna, nyttig for tabellar, rutenett og mønster.","ae0c36dfdd36187c":"Viss ei ytre løkke køyrer 3 gonger og den indre 3 gonger per runde, kor mange gonger blir den innerste koden køyrd?","a1ed1fae2a7f0f87":"9 gonger","c6769b20760cbdaa":"3 gonger","6461e7674d750597":"6 gonger","e3fc1f2fb0e32133":"1 gong","0543b613a20a3e77":"For kvar av dei 3 rundane i den ytre løkka blir den indre køyrd 3 gonger, altså 3 · 3 = 9 gonger totalt.","5bbe33b4fc6c8bdc":"Kva gjer end=\"  \" i ei print-setning inne i ei løkke?","086d4b91d80a8b59":"Stoppar løkka","d730751bd6568ecc":"Lèt utskriftene stå på same linje med mellomrom imellom","f52d21119a1494c9":"Gir alltid linjeskift","a87e9e952631c90a":"Slettar teksten","0d32c054f5a12bc6":"end=\"  \" byter ut det vanlege linjeskiftet med mellomrom, så utskriftene hamnar ved sida av kvarandre på same linje.","d190074519404cf6":"## Oppsummering\n\nVi har temja krafta i gjentakinga. **For-løkka** tel seg gjennom ein sekvens -- gjerne med `range()` -- og passar når du veit kor mange rundar du treng, medan **while-løkka** køyrer så lenge ein betingelse er sann og passar når talet er ukjent. Hugs at while-løkker må kunne stoppe, elles køyrer dei i det uendelege.\n\nVi lærte å gripe inn med **break**, som avbryt løkka heilt, og **continue**, som berre hoppar over éi runde. Med **akkumulatormønsteret** samla vi opp resultat i ein variabel som veks, slik vi gjorde då vi summerte tal og rekna fakultet. Til slutt såg vi at **nøsta løkker** -- løkker inni løkker -- lèt oss byggje tabellar og mønster, der den ytre styrer rader og den indre kolonnar. Med løkker kan programma dine no gjere tusen ting med nokre få linjer kode."}}}
+{
+  "id": "im-vg1-2-4-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "2.4",
+  "title": "Løkker og iterasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om superkrafta til datamaskina -- å gjenta. Møt for-løkka og while-løkka, lær å styre dei med break og continue, og oppdag korleis løkker inni løkker byggjer mønster.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "bruke for-løkker til å iterere over sekvenser og tallområder",
+    "bruke while-løkker for gjentakelse basert på betingelser",
+    "forstå og anvende break, continue og nøstede løkker"
+  ],
+  "linkedChapterId": "im-vg1-2-4",
+  "content": [
+    {
+      "id": "im-vg1-2-4-n-intro",
+      "type": "text",
+      "content": "## Kvifor skrive det ti gonger?\n\nSei at du vil at programmet skal skrive «Hei» ti gonger. Du kan sjølvsagt skrive `print(\"Hei\")` ti gonger nedover. Men kva om du vil det tusen gonger? Eller ein million? Då blir det fort umogleg. Her ligg ei av dei aller største superkreftene til datamaskina gøymd: ho blir aldri lei av å gjenta. Ho kan gjere den same tingen ein million gonger utan å klage, og det er nettopp det vi utnyttar med **løkker**.\n\nEi løkke er ein kontrollstruktur som gjentek ei kodeblokk. I staden for å skrive den same instruksjonen om og om igjen, skriv du han éin gong og fortel maskina kor mange gonger -- eller kor lenge -- ho skal gjenta. Det å gjenta på denne måten blir kalla **iterasjon**, og det er ein av dei viktigaste teknikkane i heile programmeringa.\n\nI denne forteljinga skal vi temje krafta i gjentakinga. Vi skal møte dei to typane løkker -- for-løkka som tel seg gjennom noko, og while-løkka som køyrer så lenge ein betingelse held. Vi skal lære å hoppe ut av og over med break og continue, og vi skal sjå korleis løkker inni løkker kan byggje tabellar og mønster. Til slutt skal vi oppdage akkumulatoren, ein enkel teknikk for å samle opp resultat."
+    },
+    {
+      "id": "im-vg1-2-4-n-section1",
+      "type": "text",
+      "content": "## Løkka som tel\n\nDen første typen er **for-løkka**, og ho er perfekt når du veit kor mange gonger noko skal skje, eller når du vil gå gjennom ei samling av ting eitt element av gongen. Skriv du `for i in range(5):` med ein `print(i)` under, skriv maskina ut tala 0, 1, 2, 3 og 4. Legg merke til at ho startar på 0 og stoppar *før* 5 -- `range(5)` gir altså fem tal, men ikkje sjølve 5. Dette er ei kjelde til mange byrjarfeil, så det er verdt å hugse godt.\n\nDu kan òg styre `range` meir presist. Med `range(2, 11, 2)` seier du «start på 2, stopp før 11, og hopp 2 om gongen», som gir 2, 4, 6, 8, 10. Dei tre tala tyder start, stopp og steg. Og det fine er at for-løkka ikkje berre kan telje tal -- ho kan gå gjennom kva som helst sekvens. Har du ei liste med frukter, kan du skrive `for frukt in frukter:` og behandle kvar frukt etter tur. Variabelen `frukt` peikar då på eitt element av gongen.\n\nFor-løkka er altså ein trufast arbeidar som går gjennom ei bestemt rekkje, eitt steg om gongen, heilt til ho er ferdig. Når du på førehand veit kor mange rundar du treng, er for-løkka nesten alltid det rette valet."
+    },
+    {
+      "id": "im-vg1-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på for-løkker og range:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-4-n-quiz1-q0",
+            "task": "Kor mange gonger blir koden køyrd i «for i in range(7):»?",
+            "options": [
+              {
+                "id": "c",
+                "text": "7",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "6",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "8",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1",
+                "isCorrect": false
+              }
+            ],
+            "solution": "range(7) gir tala 0, 1, 2, 3, 4, 5, 6 -- altså 7 verdiar, så løkka blir køyrd 7 gonger."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz1-q1",
+            "task": "Kva gir range(2, 11, 2)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2, 3, 4, ..., 11",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "2, 4, 6, 8, 10",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "2, 11",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0, 2, 4, ..., 10",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei tre tala tyder start (2), stopp før (11) og steg (2), så vi får 2, 4, 6, 8, 10."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz1-q2",
+            "task": "Kva kan ei for-løkke gå gjennom?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Berre talet 0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre while-løkker",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein sekvens, som eit talområde eller ei liste",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Berre tekst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei for-løkke kan iterere over kva som helst sekvens, til dømes eit talområde frå range() eller ei liste med element."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-4-n-section2",
+      "type": "text",
+      "content": "## Løkka som ventar på ein betingelse\n\nNokre gonger veit du ikkje på førehand kor mange gonger du må gjenta. Tenk på eit gjettespel: du anar ikkje kor mange forsøk spelaren treng. Til slike situasjonar har vi **while-løkka**, som gjentek koden *så lenge* ein betingelse er sann.\n\nDu kan lese `while` som «så lenge». Skriv du `while teller <= 5:`, vil løkka halde fram med å køyre heilt til betingelsen blir usann. Men her lurer ei farleg felle. Inni løkka må noko skje som etter kvart gjer betingelsen usann -- elles køyrer ho i det uendelege. I dømet med teljaren må vi auke han for kvar runde med `teller += 1`. Gløymer du den linja, sit programmet fast i ei evig løkke og frys. Så kvar gong du skriv ei while-løkke, bør du spørje deg: kva er det som til slutt får denne til å stoppe?\n\nWhile-løkka skin i gjettespel. Vi set eit hemmeleg tal, og lèt løkka køyre `while gjetting != hemmelig:`. For kvart forsøk les vi gjettinga til spelaren, gir hint om ho er for høg eller for låg, og løkka held fram heilt til gjettinga stemmer. I det augneblinken gjettinga er lik det hemmelege talet, blir betingelsen usann, løkka sluttar, og vi ropar «Riktig!». For-løkka tel; while-løkka ventar."
+    },
+    {
+      "id": "im-vg1-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på while-løkker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-4-n-quiz2-q0",
+            "task": "Når køyrer ei while-løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Akkurat éin gong uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre når betingelsen er usann",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Så lenge betingelsen er sann",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ei while-løkke gjentek kodeblokka så lenge betingelsen er sann, og stoppar når han blir usann."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz2-q1",
+            "task": "Kva skjer viss betingelsen i ei while-løkke aldri blir usann?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Løkka køyrer i det uendelege",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Løkka køyrer nøyaktig éin gong",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Python rettar det automatisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Programmet hoppar over løkka",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Då får du ei evig løkke som aldri stoppar. Difor må noko inni løkka til slutt gjere betingelsen usann."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz2-q2",
+            "task": "Kva løkketype passar best når du ikkje veit talet på gjentakingar på førehand?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei for-løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ingen av dei",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei print-løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei while-løkke",
+                "isCorrect": true
+              }
+            ],
+            "solution": "While-løkka passar når talet på gjentakingar er ukjent, til dømes i eit gjettespel der ho køyrer til spelaren treff."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-4-n-section3",
+      "type": "text",
+      "content": "## Å hoppe ut og hoppe over\n\nNokre gonger vil du gripe inn i ei løkke medan ho køyrer. Til det har Python to nyttige kommandoar: break og continue.\n\n**break** avbryt løkka umiddelbart og heilt. Når maskina treff ein break, slepp ho alt og hoppar rett ut av løkka. Tenk deg `for tall in range(1, 100):` med ein sjekk inni: `if tall == 5: break`. Då skriv løkka ut 1, 2, 3, 4 -- og i det augneblinken talet blir 5, hoppar ho ut og avsluttar, sjølv om range eigentleg skulle gått heilt til 99. break er som ei naudbrems.\n\n**continue** er mildare. Han hoppar berre over *resten* av den noverande runden og går vidare til neste. Resten av løkka køyrer som normalt. Med `for tall in range(1, 6):` og `if tall == 3: continue`, blir 1, 2, 4 og 5 skrive ut -- talet 3 blir hoppa over, men løkka held fram. continue er som å seie «denne runden hoppar vi over, men vi held fram».\n\nEin annan viktig teknikk inni løkker er **akkumulatormønsteret**. Det handlar om å samle opp ein verdi gjennom løkka. Du startar med ein variabel, ofte `total = 0`, og legg til litt for kvar runde. Vil du summere tala frå 1 til 10, skriv du `for tall in range(1, 11): total += tall`, og til slutt inneheld `total` summen 55. Same mønster kan brukast til å rekne ut fakultet, der du i staden startar med 1 og *gangar* inn kvart tal: `5!` blir `1·2·3·4·5 = 120`. Akkumulatoren er ein variabel som veks medan løkka jobbar."
+    },
+    {
+      "id": "im-vg1-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på break, continue og akkumulator:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-4-n-quiz3-q0",
+            "task": "Kva gjer break?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Hoppar over éi runde og held fram",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Avbryt løkka umiddelbart og heilt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Startar løkka på nytt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aukar ein teljar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "break avbryt løkka umiddelbart og hoppar rett ut av henne."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz3-q1",
+            "task": "Kva blir skrive ut av: for i in range(1,6): if i==3: continue; print(i)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1 2 3 4 5",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "1 2",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "1 2 4 5",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "3",
+                "isCorrect": false
+              }
+            ],
+            "solution": "continue hoppar over runden der i er 3, men løkka held fram, så 1, 2, 4 og 5 blir skrive ut."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz3-q2",
+            "task": "Kva blir total etter: total=0; for tall in range(1,11): total += tall?",
+            "options": [
+              {
+                "id": "c",
+                "text": "55",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "10",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "100",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "11",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Akkumulatoren legg saman tala frå 1 til 10, som blir 55."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-4-n-section4",
+      "type": "text",
+      "content": "## Løkker inni løkker\n\nDen siste og mektigaste teknikken er **nøsta løkker** -- ei løkke plassert inni ei anna. Akkurat som vi nøsta if-setningar, kan vi nøste løkker, og det opnar for å lage tabellar, rutenett og mønster.\n\nTenk deg ei ytre løkke som styrer rader, og ei indre løkke som styrer kolonnar. For kvar runde i den ytre løkka køyrer heile den indre løkka frå start til slutt. Skal du til dømes lage ein liten gangetabell, lèt du den ytre løkka gå over tala 1 til 3, og inni henne ei løkke som òg går 1 til 3, og skriv ut produktet `i*j`. Resultatet blir eit heilt rutenett av reknestykke. Eit lite triks her er `end=\"  \"` i print, som gjer at utskriftene hamnar på same linje med mellomrom imellom, i staden for kvar på si linje. Ein tom `print()` til slutt på den ytre løkka gir eit linjeskift før neste rad.\n\nMed same prinsipp kan vi teikne mønster. Vil du ha ein trekant der første rad har «1», andre rad «1 2», tredje «1 2 3» og så vidare, lèt du den ytre løkka telje radnummeret, og den indre løkka skrive tala frå 1 opp til akkurat dette radnummeret. Den indre løkka blir altså litt lengre for kvar rad. Slik blir eit mønster bygd frå to enkle løkker som dansar saman -- og du har fått eit glimt av korleis ganske komplekse ting kan vekse fram frå nokre få, klare reglar."
+    },
+    {
+      "id": "im-vg1-2-4-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-4-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på nøsta løkker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-4-n-quiz4-q0",
+            "task": "Kva er ei nøsta løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei løkke utan innhald",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei løkke plassert inni ei anna løkke",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ei løkke som aldri stoppar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei if-setning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei nøsta løkke er ei løkke inni ei anna, nyttig for tabellar, rutenett og mønster."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz4-q1",
+            "task": "Viss ei ytre løkke køyrer 3 gonger og den indre 3 gonger per runde, kor mange gonger blir den innerste koden køyrd?",
+            "options": [
+              {
+                "id": "b",
+                "text": "3 gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "6 gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "9 gonger",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "1 gong",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For kvar av dei 3 rundane i den ytre løkka blir den indre køyrd 3 gonger, altså 3 · 3 = 9 gonger totalt."
+          },
+          {
+            "id": "im-vg1-2-4-n-quiz4-q2",
+            "task": "Kva gjer end=\"  \" i ei print-setning inne i ei løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Stoppar løkka",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gir alltid linjeskift",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Slettar teksten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lèt utskriftene stå på same linje med mellomrom imellom",
+                "isCorrect": true
+              }
+            ],
+            "solution": "end=\"  \" byter ut det vanlege linjeskiftet med mellomrom, så utskriftene hamnar ved sida av kvarandre på same linje."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har temja krafta i gjentakinga. **For-løkka** tel seg gjennom ein sekvens -- gjerne med `range()` -- og passar når du veit kor mange rundar du treng, medan **while-løkka** køyrer så lenge ein betingelse er sann og passar når talet er ukjent. Hugs at while-løkker må kunne stoppe, elles køyrer dei i det uendelege.\n\nVi lærte å gripe inn med **break**, som avbryt løkka heilt, og **continue**, som berre hoppar over éi runde. Med **akkumulatormønsteret** samla vi opp resultat i ein variabel som veks, slik vi gjorde då vi summerte tal og rekna fakultet. Til slutt såg vi at **nøsta løkker** -- løkker inni løkker -- lèt oss byggje tabellar og mønster, der den ytre styrer rader og den indre kolonnar. Med løkker kan programma dine no gjere tusen ting med nokre få linjer kode."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "315bc30802932366",
+    "translatedAt": "2026-06-21T07:30:00.427Z",
+    "model": "claude-code-agent",
+    "strings": 76,
+    "tm": {
+      "5169041aa384b078": "Løkker og iterasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "24940ae033e69247": "Ei forteljing om superkrafta til datamaskina -- å gjenta. Møt for-løkka og while-løkka, lær å styre dei med break og continue, og oppdag korleis løkker inni løkker byggjer mønster.",
+      "7dfcf5e5fef192e8": "bruke for-løkker til å iterere over sekvenser og tallområder",
+      "d89848e123b8a42a": "bruke while-løkker for gjentakelse basert på betingelser",
+      "1f796030e139d0a4": "forstå og anvende break, continue og nøstede løkker",
+      "36e7e77ceeca1d9d": "## Kvifor skrive det ti gonger?\n\nSei at du vil at programmet skal skrive «Hei» ti gonger. Du kan sjølvsagt skrive `print(\"Hei\")` ti gonger nedover. Men kva om du vil det tusen gonger? Eller ein million? Då blir det fort umogleg. Her ligg ei av dei aller største superkreftene til datamaskina gøymd: ho blir aldri lei av å gjenta. Ho kan gjere den same tingen ein million gonger utan å klage, og det er nettopp det vi utnyttar med **løkker**.\n\nEi løkke er ein kontrollstruktur som gjentek ei kodeblokk. I staden for å skrive den same instruksjonen om og om igjen, skriv du han éin gong og fortel maskina kor mange gonger -- eller kor lenge -- ho skal gjenta. Det å gjenta på denne måten blir kalla **iterasjon**, og det er ein av dei viktigaste teknikkane i heile programmeringa.\n\nI denne forteljinga skal vi temje krafta i gjentakinga. Vi skal møte dei to typane løkker -- for-løkka som tel seg gjennom noko, og while-løkka som køyrer så lenge ein betingelse held. Vi skal lære å hoppe ut av og over med break og continue, og vi skal sjå korleis løkker inni løkker kan byggje tabellar og mønster. Til slutt skal vi oppdage akkumulatoren, ein enkel teknikk for å samle opp resultat.",
+      "b49242028ed954dd": "## Løkka som tel\n\nDen første typen er **for-løkka**, og ho er perfekt når du veit kor mange gonger noko skal skje, eller når du vil gå gjennom ei samling av ting eitt element av gongen. Skriv du `for i in range(5):` med ein `print(i)` under, skriv maskina ut tala 0, 1, 2, 3 og 4. Legg merke til at ho startar på 0 og stoppar *før* 5 -- `range(5)` gir altså fem tal, men ikkje sjølve 5. Dette er ei kjelde til mange byrjarfeil, så det er verdt å hugse godt.\n\nDu kan òg styre `range` meir presist. Med `range(2, 11, 2)` seier du «start på 2, stopp før 11, og hopp 2 om gongen», som gir 2, 4, 6, 8, 10. Dei tre tala tyder start, stopp og steg. Og det fine er at for-løkka ikkje berre kan telje tal -- ho kan gå gjennom kva som helst sekvens. Har du ei liste med frukter, kan du skrive `for frukt in frukter:` og behandle kvar frukt etter tur. Variabelen `frukt` peikar då på eitt element av gongen.\n\nFor-løkka er altså ein trufast arbeidar som går gjennom ei bestemt rekkje, eitt steg om gongen, heilt til ho er ferdig. Når du på førehand veit kor mange rundar du treng, er for-løkka nesten alltid det rette valet.",
+      "52a52f07f2cea4fe": "Test deg sjølv på for-løkker og range:",
+      "4097889236a2af26": "placeholder",
+      "a6a818d9b8c2f6d6": "Kor mange gonger blir koden køyrd i «for i in range(7):»?",
+      "90781c030898dd47": "range(7) gir tala 0, 1, 2, 3, 4, 5, 6 -- altså 7 verdiar, så løkka blir køyrd 7 gonger.",
+      "3927fe0a3eb782d9": "Kva gir range(2, 11, 2)?",
+      "b59fee5103ecc42e": "Dei tre tala tyder start (2), stopp før (11) og steg (2), så vi får 2, 4, 6, 8, 10.",
+      "f27333175ffe47d1": "Kva kan ei for-løkke gå gjennom?",
+      "3848297861d7954f": "Ein sekvens, som eit talområde eller ei liste",
+      "83e881fe1929aa55": "Berre talet 0",
+      "97a6a643aa9e39c6": "Berre while-løkker",
+      "b61b3b668cb5c3da": "Berre tekst",
+      "5d821c0e689481e9": "Ei for-løkke kan iterere over kva som helst sekvens, til dømes eit talområde frå range() eller ei liste med element.",
+      "099fe0e5403070ef": "## Løkka som ventar på ein betingelse\n\nNokre gonger veit du ikkje på førehand kor mange gonger du må gjenta. Tenk på eit gjettespel: du anar ikkje kor mange forsøk spelaren treng. Til slike situasjonar har vi **while-løkka**, som gjentek koden *så lenge* ein betingelse er sann.\n\nDu kan lese `while` som «så lenge». Skriv du `while teller <= 5:`, vil løkka halde fram med å køyre heilt til betingelsen blir usann. Men her lurer ei farleg felle. Inni løkka må noko skje som etter kvart gjer betingelsen usann -- elles køyrer ho i det uendelege. I dømet med teljaren må vi auke han for kvar runde med `teller += 1`. Gløymer du den linja, sit programmet fast i ei evig løkke og frys. Så kvar gong du skriv ei while-løkke, bør du spørje deg: kva er det som til slutt får denne til å stoppe?\n\nWhile-løkka skin i gjettespel. Vi set eit hemmeleg tal, og lèt løkka køyre `while gjetting != hemmelig:`. For kvart forsøk les vi gjettinga til spelaren, gir hint om ho er for høg eller for låg, og løkka held fram heilt til gjettinga stemmer. I det augneblinken gjettinga er lik det hemmelege talet, blir betingelsen usann, løkka sluttar, og vi ropar «Riktig!». For-løkka tel; while-løkka ventar.",
+      "13727ca019d60335": "Test deg sjølv på while-løkker:",
+      "6dce7c51fb0d5af6": "Når køyrer ei while-løkke?",
+      "4acbbbb426d41547": "Akkurat éin gong uansett",
+      "29b5d44d8927c0c9": "Så lenge betingelsen er sann",
+      "4989cb6dc2b1d520": "Berre når betingelsen er usann",
+      "72816c36bd404a80": "Aldri",
+      "deeabab2420e06ee": "Ei while-løkke gjentek kodeblokka så lenge betingelsen er sann, og stoppar når han blir usann.",
+      "802337ab4a7e1b46": "Kva skjer viss betingelsen i ei while-løkke aldri blir usann?",
+      "843da6df2e4924e7": "Løkka køyrer nøyaktig éin gong",
+      "f23c0ee6dd08831d": "Python rettar det automatisk",
+      "7a81e12efbe40eba": "Løkka køyrer i det uendelege",
+      "222bd76dc702dfae": "Programmet hoppar over løkka",
+      "3ae0c43d22f4aa33": "Då får du ei evig løkke som aldri stoppar. Difor må noko inni løkka til slutt gjere betingelsen usann.",
+      "713a9f6748fb32db": "Kva løkketype passar best når du ikkje veit talet på gjentakingar på førehand?",
+      "771c1afff6dfb3e0": "Ei for-løkke",
+      "bb60f24e85070ad0": "Ingen av dei",
+      "bb7a094c4a87ec5a": "Ei print-løkke",
+      "42edfbeace70f2a4": "Ei while-løkke",
+      "9cef923078f4ae74": "While-løkka passar når talet på gjentakingar er ukjent, til dømes i eit gjettespel der ho køyrer til spelaren treff.",
+      "074071b9189076d8": "## Å hoppe ut og hoppe over\n\nNokre gonger vil du gripe inn i ei løkke medan ho køyrer. Til det har Python to nyttige kommandoar: break og continue.\n\n**break** avbryt løkka umiddelbart og heilt. Når maskina treff ein break, slepp ho alt og hoppar rett ut av løkka. Tenk deg `for tall in range(1, 100):` med ein sjekk inni: `if tall == 5: break`. Då skriv løkka ut 1, 2, 3, 4 -- og i det augneblinken talet blir 5, hoppar ho ut og avsluttar, sjølv om range eigentleg skulle gått heilt til 99. break er som ei naudbrems.\n\n**continue** er mildare. Han hoppar berre over *resten* av den noverande runden og går vidare til neste. Resten av løkka køyrer som normalt. Med `for tall in range(1, 6):` og `if tall == 3: continue`, blir 1, 2, 4 og 5 skrive ut -- talet 3 blir hoppa over, men løkka held fram. continue er som å seie «denne runden hoppar vi over, men vi held fram».\n\nEin annan viktig teknikk inni løkker er **akkumulatormønsteret**. Det handlar om å samle opp ein verdi gjennom løkka. Du startar med ein variabel, ofte `total = 0`, og legg til litt for kvar runde. Vil du summere tala frå 1 til 10, skriv du `for tall in range(1, 11): total += tall`, og til slutt inneheld `total` summen 55. Same mønster kan brukast til å rekne ut fakultet, der du i staden startar med 1 og *gangar* inn kvart tal: `5!` blir `1·2·3·4·5 = 120`. Akkumulatoren er ein variabel som veks medan løkka jobbar.",
+      "43bf0b3b8f1f9c5d": "Test deg sjølv på break, continue og akkumulator:",
+      "f58f72b636f72344": "Kva gjer break?",
+      "9adb16a5728ebd94": "Avbryt løkka umiddelbart og heilt",
+      "2b1758d7a72015bd": "Hoppar over éi runde og held fram",
+      "de6e4aef157238a1": "Startar løkka på nytt",
+      "31100410d163be18": "Aukar ein teljar",
+      "c451011ac8acd0da": "break avbryt løkka umiddelbart og hoppar rett ut av henne.",
+      "43584077104df18a": "Kva blir skrive ut av: for i in range(1,6): if i==3: continue; print(i)?",
+      "f4274f15e873386f": "continue hoppar over runden der i er 3, men løkka held fram, så 1, 2, 4 og 5 blir skrive ut.",
+      "be60e906959d3685": "Kva blir total etter: total=0; for tall in range(1,11): total += tall?",
+      "79467367598f5122": "Akkumulatoren legg saman tala frå 1 til 10, som blir 55.",
+      "f17bdb1101c13b74": "## Løkker inni løkker\n\nDen siste og mektigaste teknikken er **nøsta løkker** -- ei løkke plassert inni ei anna. Akkurat som vi nøsta if-setningar, kan vi nøste løkker, og det opnar for å lage tabellar, rutenett og mønster.\n\nTenk deg ei ytre løkke som styrer rader, og ei indre løkke som styrer kolonnar. For kvar runde i den ytre løkka køyrer heile den indre løkka frå start til slutt. Skal du til dømes lage ein liten gangetabell, lèt du den ytre løkka gå over tala 1 til 3, og inni henne ei løkke som òg går 1 til 3, og skriv ut produktet `i*j`. Resultatet blir eit heilt rutenett av reknestykke. Eit lite triks her er `end=\"  \"` i print, som gjer at utskriftene hamnar på same linje med mellomrom imellom, i staden for kvar på si linje. Ein tom `print()` til slutt på den ytre løkka gir eit linjeskift før neste rad.\n\nMed same prinsipp kan vi teikne mønster. Vil du ha ein trekant der første rad har «1», andre rad «1 2», tredje «1 2 3» og så vidare, lèt du den ytre løkka telje radnummeret, og den indre løkka skrive tala frå 1 opp til akkurat dette radnummeret. Den indre løkka blir altså litt lengre for kvar rad. Slik blir eit mønster bygd frå to enkle løkker som dansar saman -- og du har fått eit glimt av korleis ganske komplekse ting kan vekse fram frå nokre få, klare reglar.",
+      "249b97effac0acb3": "Test deg sjølv på nøsta løkker:",
+      "544cdc81405b99cb": "Kva er ei nøsta løkke?",
+      "b730574ba075c4be": "Ei løkke utan innhald",
+      "77f7a849ed07864e": "Ei løkke som aldri stoppar",
+      "08ca1320485ee99d": "Ei if-setning",
+      "b9c5efcee7fd5326": "Ei løkke plassert inni ei anna løkke",
+      "a44ab424bb176165": "Ei nøsta løkke er ei løkke inni ei anna, nyttig for tabellar, rutenett og mønster.",
+      "ae0c36dfdd36187c": "Viss ei ytre løkke køyrer 3 gonger og den indre 3 gonger per runde, kor mange gonger blir den innerste koden køyrd?",
+      "a1ed1fae2a7f0f87": "9 gonger",
+      "c6769b20760cbdaa": "3 gonger",
+      "6461e7674d750597": "6 gonger",
+      "e3fc1f2fb0e32133": "1 gong",
+      "0543b613a20a3e77": "For kvar av dei 3 rundane i den ytre løkka blir den indre køyrd 3 gonger, altså 3 · 3 = 9 gonger totalt.",
+      "5bbe33b4fc6c8bdc": "Kva gjer end=\"  \" i ei print-setning inne i ei løkke?",
+      "086d4b91d80a8b59": "Stoppar løkka",
+      "d730751bd6568ecc": "Lèt utskriftene stå på same linje med mellomrom imellom",
+      "f52d21119a1494c9": "Gir alltid linjeskift",
+      "a87e9e952631c90a": "Slettar teksten",
+      "0d32c054f5a12bc6": "end=\"  \" byter ut det vanlege linjeskiftet med mellomrom, så utskriftene hamnar ved sida av kvarandre på same linje.",
+      "d190074519404cf6": "## Oppsummering\n\nVi har temja krafta i gjentakinga. **For-løkka** tel seg gjennom ein sekvens -- gjerne med `range()` -- og passar når du veit kor mange rundar du treng, medan **while-løkka** køyrer så lenge ein betingelse er sann og passar når talet er ukjent. Hugs at while-løkker må kunne stoppe, elles køyrer dei i det uendelege.\n\nVi lærte å gripe inn med **break**, som avbryt løkka heilt, og **continue**, som berre hoppar over éi runde. Med **akkumulatormønsteret** samla vi opp resultat i ein variabel som veks, slik vi gjorde då vi summerte tal og rekna fakultet. Til slutt såg vi at **nøsta løkker** -- løkker inni løkker -- lèt oss byggje tabellar og mønster, der den ytre styrer rader og den indre kolonnar. Med løkker kan programma dine no gjere tusen ting med nokre få linjer kode."
+    }
+  }
+}

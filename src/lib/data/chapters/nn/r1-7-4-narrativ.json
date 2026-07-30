@@ -1,1 +1,516 @@
-{"id":"r1-7-4-narrativ","courseId":"r1","chapterNumber":"7.4","title":"Trigonometriske identitetar","subtitle":"Narrativ versjon","description":"Ei forteljing om likningane som alltid er sanne – addisjonsformlar som knekkjer umoglege vinklar, dobbeltvinkelformlar og kunsten å bevise.","estimatedMinutes":35,"competenceGoals":["kjenne og bruke addisjonsformlane for sinus og cosinus","utleie og bruke formlane for dobbel vinkel","bevise trigonometriske identitetar","forenkle trigonometriske uttrykk ved hjelp av identitetar"],"linkedChapterId":"r1-7-4","content":[{"id":"r1-7-4-n-intro","type":"text","content":"## Likningar som alltid er sanne\n\nDu har møtt mange likningar som berre stemmer for bestemte verdiar av $x$. Men nokre likningar er sanne for *alle* verdiar – som $\\sin^2 x + \\cos^2 x = 1$. Slike likningar blir kalla **identitetar**, og dei er verktøykassa til trigonometrien: dei lèt deg skrive om uttrykk til former som er enklare å rekne med, derivere eller integrere.\n\nTenk på det som valuta: $\\sin 75°$ ser umogleg ut å berekne eksakt – $75°$ er ingen standardvinkel. Men $75° = 45° + 30°$, og *begge* desse er standardvinklar! Om vi berre hadde ein formel for sinus av ein sum... Det har vi: **addisjonsformlane**. I dette kapittelet lærer du dei, utleier **dobbeltvinkelformlane** frå dei, og lærer kunsten å *bevise* identitetar – ein dugleik som trenar deg i sjølve kjernen av matematisk tenking."},{"id":"r1-7-4-n-section1","type":"text","content":"## Addisjonsformlane\n\nFørst, la oss samle det vi allereie har. Den pytagoreiske identiteten $\\sin^2 x + \\cos^2 x = 1$ og definisjonen $\\tan x = \\frac{\\sin x}{\\cos x}$ kjenner du. I tillegg har funksjonane symmetrieigenskapar som du kan lese rett ut av einingssirkelen: $\\sin(-x) = -\\sin x$ og $\\tan(-x) = -\\tan x$ (odde funksjonar), medan $\\cos(-x) = \\cos x$ (like funksjon – å spegle vinkelen endrar ikkje $x$-koordinaten).\n\nSå til hovudattraksjonen. For alle vinklar $u$ og $v$ gjeld addisjonsformlane:\n\n$$\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$$\n$$\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$$\n\nOg for tangens: $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}$. Legg merke til mønstera: sinus av ein sum følgjer «sin-cos-cos-sin» med *same* forteikn som i argumentet, medan cosinus følgjer «cos-cos-sin-sin» med *motsett* forteikn – pluss i argumentet gir minus i formelen.\n\nNo kan vi knekkje $\\sin 75°$. Vi skriv $75° = 45° + 30°$ og set inn: $\\sin 75° = \\sin 45° \\cos 30° + \\cos 45° \\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. Ein eksakt verdi for ein «umogleg» vinkel!\n\nFormlane fungerer òg når verdiane er ukjende. Sei at $\\sin u = \\frac{3}{5}$ (med $u$ i første kvadrant) og $\\cos v = -\\frac{5}{13}$ (med $v$ i andre kvadrant). Den pytagoreiske identiteten gir $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{12}{13}$ (begge positive ut frå kvadrantane). Då blir $\\sin(u+v) = \\frac{3}{5} \\cdot \\left(-\\frac{5}{13}\\right) + \\frac{4}{5} \\cdot \\frac{12}{13} = -\\frac{15}{65} + \\frac{48}{65} = \\frac{33}{65}$."},{"id":"r1-7-4-n-quiz1","type":"exercise","exercise":{"id":"r1-7-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på addisjonsformlane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-7-4-n-quiz1-q0","task":"Kva er $\\sin(u + v)$?","options":[{"id":"a","text":"$\\sin u \\cos v + \\cos u \\sin v$","isCorrect":true},{"id":"b","text":"$\\cos u \\cos v - \\sin u \\sin v$","isCorrect":false},{"id":"c","text":"$\\sin u \\sin v + \\cos u \\cos v$","isCorrect":false},{"id":"d","text":"$\\sin u \\cos v - \\cos u \\sin v$","isCorrect":false}],"solution":"Sinus av ein sum følgjer mønsteret «sin-cos-cos-sin» med same forteikn: $\\sin(u+v) = \\sin u \\cos v + \\cos u \\sin v$."},{"id":"r1-7-4-n-quiz1-q1","task":"Kva er $\\cos(u + v)$?","options":[{"id":"a","text":"$\\cos u \\cos v + \\sin u \\sin v$","isCorrect":false},{"id":"b","text":"$\\cos u \\cos v - \\sin u \\sin v$","isCorrect":true},{"id":"c","text":"$\\sin u \\cos v + \\cos u \\sin v$","isCorrect":false},{"id":"d","text":"$\\cos u \\sin v - \\sin u \\cos v$","isCorrect":false}],"solution":"Cosinus følgjer «cos-cos-sin-sin» med motsett forteikn av argumentet: $\\cos(u+v) = \\cos u \\cos v - \\sin u \\sin v$."},{"id":"r1-7-4-n-quiz1-q2","task":"Kva er den eksakte verdien av $\\sin 75°$?","options":[{"id":"a","text":"$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$","isCorrect":false},{"id":"b","text":"$\\frac{\\sqrt{3} + 1}{4}$","isCorrect":false},{"id":"c","text":"$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$","isCorrect":true},{"id":"d","text":"$\\frac{\\sqrt{2} + \\sqrt{3}}{2}$","isCorrect":false}],"solution":"$\\sin 75° = \\sin(45° + 30°) = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$."},{"id":"r1-7-4-n-quiz1-q3","task":"Kva symmetrieigenskap har cosinus?","options":[{"id":"a","text":"$\\cos(-x) = -\\cos x$","isCorrect":false},{"id":"b","text":"$\\cos(-x) = \\sin x$","isCorrect":false},{"id":"c","text":"$\\cos(-x) = 1 - \\cos x$","isCorrect":false},{"id":"d","text":"$\\cos(-x) = \\cos x$","isCorrect":true}],"solution":"Cosinus er ein like funksjon: å spegle vinkelen om $x$-aksen endrar ikkje $x$-koordinaten på einingssirkelen, så $\\cos(-x) = \\cos x$."}],"solution":""}},{"id":"r1-7-4-n-section2","type":"text","content":"## Dobbeltvinkelformlane – addisjon med seg sjølv\n\nKva skjer om vi set $u = v = x$ i addisjonsformlane? Sinusformelen gir $\\sin(x + x) = \\sin x \\cos x + \\cos x \\sin x$, altså:\n\n$$\\sin 2x = 2\\sin x \\cos x$$\n\nCosinusformelen gir $\\cos 2x = \\cos^2 x - \\sin^2 x$. Og her skjer noko fint: med den pytagoreiske identiteten kan vi byte ut anten $\\sin^2 x = 1 - \\cos^2 x$ eller $\\cos^2 x = 1 - \\sin^2 x$, og få to alternative former:\n\n$$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n\nTre former for same sanning – og kva for ei du vel, kjem an på kva du har for handa. For tangens: $\\tan 2x = \\frac{2\\tan x}{1 - \\tan^2 x}$.\n\nLa oss bruke dei. Gitt $\\cos x = \\frac{3}{5}$ med $x \\in (0, \\frac{\\pi}{2})$. Først finn vi $\\sin x = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$ (positiv i første kvadrant). Då blir $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$ og $\\cos 2x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. At $\\cos 2x$ er negativ er ikkje rart: når $\\cos x = \\frac{3}{5} < \\frac{\\sqrt{2}}{2}$, er $x > \\frac{\\pi}{4}$, så $2x$ har passert $\\frac{\\pi}{2}$ og hamna i andre kvadrant."},{"id":"r1-7-4-n-quiz2","type":"exercise","exercise":{"id":"r1-7-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på dobbeltvinkelformlane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-7-4-n-quiz2-q0","task":"Kva er $\\sin 2x$ uttrykt ved $\\sin x$ og $\\cos x$?","options":[{"id":"a","text":"$2\\sin x$","isCorrect":false},{"id":"b","text":"$\\sin^2 x + \\cos^2 x$","isCorrect":false},{"id":"c","text":"$2\\sin x \\cos x$","isCorrect":true},{"id":"d","text":"$\\sin x \\cos x$","isCorrect":false}],"solution":"Vi set $u = v = x$ i addisjonsformelen: $\\sin(x+x) = \\sin x \\cos x + \\cos x \\sin x = 2\\sin x \\cos x$."},{"id":"r1-7-4-n-quiz2-q1","task":"Kva for ein av desse er IKKJE ei gyldig form for $\\cos 2x$?","options":[{"id":"a","text":"$\\cos^2 x - \\sin^2 x$","isCorrect":false},{"id":"b","text":"$2\\sin x \\cos x$","isCorrect":true},{"id":"c","text":"$2\\cos^2 x - 1$","isCorrect":false},{"id":"d","text":"$1 - 2\\sin^2 x$","isCorrect":false}],"solution":"$2\\sin x \\cos x$ er formelen for $\\sin 2x$, ikkje $\\cos 2x$. Dei tre andre er ekvivalente former for $\\cos 2x$."},{"id":"r1-7-4-n-quiz2-q2","task":"Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\sin 2x$?","options":[{"id":"a","text":"$\\frac{24}{25}$","isCorrect":true},{"id":"b","text":"$\\frac{12}{25}$","isCorrect":false},{"id":"c","text":"$\\frac{7}{25}$","isCorrect":false},{"id":"d","text":"$\\frac{6}{5}$","isCorrect":false}],"solution":"Først: $\\sin x = \\sqrt{1 - 9/25} = \\frac{4}{5}$. Så: $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$."},{"id":"r1-7-4-n-quiz2-q3","task":"Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\cos 2x$?","options":[{"id":"a","text":"$\\frac{7}{25}$","isCorrect":false},{"id":"b","text":"$\\frac{18}{25}$","isCorrect":false},{"id":"c","text":"$\\frac{9}{25}$","isCorrect":false},{"id":"d","text":"$-\\frac{7}{25}$","isCorrect":true}],"solution":"$\\cos 2x = \\cos^2 x - \\sin^2 x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. Negativt fordi $2x$ ligg i andre kvadrant."}],"solution":""}},{"id":"r1-7-4-n-section3","type":"text","content":"## Kunsten å bevise ein identitet\n\nÅ bevise ein identitet tyder å vise at venstre og høgre side er like for alle tillatne verdiar av variabelen. Det er ikkje det same som å løyse ei likning – du skal ikkje finne $x$, du skal *omforme*. Dei fire klassiske strategiane er: start med den mest kompliserte sida og forenkle henne, skriv alt med sinus og cosinus, bruk dei kjende identitetane, og finn fellesnemnar når brøkar er med.\n\nLa oss bevise at $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$. Venstre side er mest komplisert, så vi startar der. I teljaren bruker vi $\\sin 2x = 2\\sin x \\cos x$. I nemnaren vel vi den forma for $\\cos 2x$ som ryddar bort 1-talet, nemleg $\\cos 2x = 2\\cos^2 x - 1$:\n\n$$\\frac{\\sin 2x}{1 + \\cos 2x} = \\frac{2\\sin x \\cos x}{1 + 2\\cos^2 x - 1} = \\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x \\quad \\square$$\n\nLegg merke til det strategiske valet: av dei tre formene for $\\cos 2x$ valde vi nettopp den som fekk $+1$ og $-1$ til å kansellere. Det er slik identitetsbevis fungerer – du ser nokre trekk framover, som i sjakk, og vel den omskrivinga som opnar stillinga.\n\nEit godt bevis kjenneteiknast av at kvart steg er grunngitt med ein kjend identitet eller algebraregel, og at du aldri «juksar» ved å gå ut frå det du skal vise. Arbeid med éi side om gongen til ho blir lik den andre."},{"id":"r1-7-4-n-quiz3","type":"exercise","exercise":{"id":"r1-7-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på bevis av identitetar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-7-4-n-quiz3-q0","task":"Kva er den tilrådde startstrategien når du skal bevise ein identitet?","options":[{"id":"a","text":"Gå ut frå at identiteten stemmer og rekn baklengs","isCorrect":false},{"id":"b","text":"Start med den mest kompliserte sida og forenkle","isCorrect":true},{"id":"c","text":"Set inn talverdiar for å sjekke","isCorrect":false},{"id":"d","text":"Deriver begge sider","isCorrect":false}],"solution":"Standardstrategien er å ta den mest kompliserte sida og forenkle henne steg for steg med kjende identitetar til ho blir lik den andre sida."},{"id":"r1-7-4-n-quiz3-q1","task":"I beviset for $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$, kva for ei form for $\\cos 2x$ er smartast i nemnaren?","options":[{"id":"a","text":"$\\cos^2 x - \\sin^2 x$","isCorrect":false},{"id":"b","text":"$1 - 2\\sin^2 x$","isCorrect":false},{"id":"c","text":"$2\\cos^2 x - 1$","isCorrect":true},{"id":"d","text":"$2\\sin x \\cos x$","isCorrect":false}],"solution":"Med $\\cos 2x = 2\\cos^2 x - 1$ blir nemnaren $1 + 2\\cos^2 x - 1 = 2\\cos^2 x$, og brøken kan forkortast."},{"id":"r1-7-4-n-quiz3-q2","task":"Kva blir $\\frac{2\\sin x \\cos x}{2\\cos^2 x}$ forenkla?","options":[{"id":"a","text":"$\\tan x$","isCorrect":true},{"id":"b","text":"$\\sin x$","isCorrect":false},{"id":"c","text":"$\\cot x$","isCorrect":false},{"id":"d","text":"$2\\tan x$","isCorrect":false}],"solution":"Vi forkortar $2$ og éin faktor $\\cos x$: $\\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x$."},{"id":"r1-7-4-n-quiz3-q3","task":"Kva skil ein identitet frå ei vanleg likning?","options":[{"id":"a","text":"Ein identitet inneheld berre trigonometriske funksjonar","isCorrect":false},{"id":"b","text":"Ein identitet har nøyaktig to løysingar","isCorrect":false},{"id":"c","text":"Ein identitet kan ikkje bevisast","isCorrect":false},{"id":"d","text":"Ein identitet er sann for alle tillatne verdiar av variabelen","isCorrect":true}],"solution":"Ei likning er sann berre for bestemte verdiar (løysingane), medan ein identitet gjeld for alle verdiar der uttrykka er definerte."}],"solution":""}},{"id":"r1-7-4-n-summary","type":"text","content":"## Oppsummering: verktøykassa veks\n\nVi starta med eit tilsynelatande umogleg spørsmål – den eksakte verdien av $\\sin 75°$ – og fann svaret med addisjonsformlane: $\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$ og $\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$. Hugs forteiknsmønsteret: sinus held på forteiknet frå argumentet, cosinus snur det.\n\nVed å setje $u = v = x$ fekk vi dobbeltvinkelformlane gratis: $\\sin 2x = 2\\sin x \\cos x$, og $\\cos 2x$ i tre likeverdige drakter – $\\cos^2 x - \\sin^2 x$, $2\\cos^2 x - 1$ og $1 - 2\\sin^2 x$. Valet mellom dei er strategisk: bruk den forma som forenklar uttrykket ditt mest.\n\nTil slutt lærte du å bevise identitetar: start med den mest kompliserte sida, skriv om med kjende identitetar, skriv gjerne alt med sinus og cosinus, og forenkle til sidene møtest. Saman med den pytagoreiske identiteten og symmetrieigenskapane $\\sin(-x) = -\\sin x$ og $\\cos(-x) = \\cos x$ har du no ei komplett verktøykasse – og i neste kapittel får ho bryne seg på derivasjon."}],"exercises":[],"_meta":{"sourceHash":"31f87f2c4c1a0544","translatedAt":"2026-06-20T00:13:34.630Z","model":"claude-code-agent","strings":90,"tm":{"2ff743309cb6c6b6":"Trigonometriske identitetar","b195b06d1ed59702":"Narrativ versjon","0c618a5361010aee":"Ei forteljing om likningane som alltid er sanne – addisjonsformlar som knekkjer umoglege vinklar, dobbeltvinkelformlar og kunsten å bevise.","3520a1ff90a1fe24":"kjenne og bruke addisjonsformlane for sinus og cosinus","024c50f68c0eaf32":"utleie og bruke formlane for dobbel vinkel","85ff2ceb0ecc60a3":"bevise trigonometriske identitetar","db8b33b013f0b7bf":"forenkle trigonometriske uttrykk ved hjelp av identitetar","bccf1a0954dfe287":"## Likningar som alltid er sanne\n\nDu har møtt mange likningar som berre stemmer for bestemte verdiar av $x$. Men nokre likningar er sanne for *alle* verdiar – som $\\sin^2 x + \\cos^2 x = 1$. Slike likningar blir kalla **identitetar**, og dei er verktøykassa til trigonometrien: dei lèt deg skrive om uttrykk til former som er enklare å rekne med, derivere eller integrere.\n\nTenk på det som valuta: $\\sin 75°$ ser umogleg ut å berekne eksakt – $75°$ er ingen standardvinkel. Men $75° = 45° + 30°$, og *begge* desse er standardvinklar! Om vi berre hadde ein formel for sinus av ein sum... Det har vi: **addisjonsformlane**. I dette kapittelet lærer du dei, utleier **dobbeltvinkelformlane** frå dei, og lærer kunsten å *bevise* identitetar – ein dugleik som trenar deg i sjølve kjernen av matematisk tenking.","882f1cd666d5d946":"## Addisjonsformlane\n\nFørst, la oss samle det vi allereie har. Den pytagoreiske identiteten $\\sin^2 x + \\cos^2 x = 1$ og definisjonen $\\tan x = \\frac{\\sin x}{\\cos x}$ kjenner du. I tillegg har funksjonane symmetrieigenskapar som du kan lese rett ut av einingssirkelen: $\\sin(-x) = -\\sin x$ og $\\tan(-x) = -\\tan x$ (odde funksjonar), medan $\\cos(-x) = \\cos x$ (like funksjon – å spegle vinkelen endrar ikkje $x$-koordinaten).\n\nSå til hovudattraksjonen. For alle vinklar $u$ og $v$ gjeld addisjonsformlane:\n\n$$\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$$\n$$\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$$\n\nOg for tangens: $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}$. Legg merke til mønstera: sinus av ein sum følgjer «sin-cos-cos-sin» med *same* forteikn som i argumentet, medan cosinus følgjer «cos-cos-sin-sin» med *motsett* forteikn – pluss i argumentet gir minus i formelen.\n\nNo kan vi knekkje $\\sin 75°$. Vi skriv $75° = 45° + 30°$ og set inn: $\\sin 75° = \\sin 45° \\cos 30° + \\cos 45° \\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. Ein eksakt verdi for ein «umogleg» vinkel!\n\nFormlane fungerer òg når verdiane er ukjende. Sei at $\\sin u = \\frac{3}{5}$ (med $u$ i første kvadrant) og $\\cos v = -\\frac{5}{13}$ (med $v$ i andre kvadrant). Den pytagoreiske identiteten gir $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{12}{13}$ (begge positive ut frå kvadrantane). Då blir $\\sin(u+v) = \\frac{3}{5} \\cdot \\left(-\\frac{5}{13}\\right) + \\frac{4}{5} \\cdot \\frac{12}{13} = -\\frac{15}{65} + \\frac{48}{65} = \\frac{33}{65}$.","644820bf7c925aa0":"Test deg sjølv på addisjonsformlane:","4097889236a2af26":"placeholder","03c264af9220c891":"Kva er $\\sin(u + v)$?","9519767fc8db7974":"$\\sin u \\cos v + \\cos u \\sin v$","d6875cdf7371cab3":"$\\cos u \\cos v - \\sin u \\sin v$","5365c82f7438a72b":"$\\sin u \\sin v + \\cos u \\cos v$","229582f8292a4b15":"$\\sin u \\cos v - \\cos u \\sin v$","14320919e71272a3":"Sinus av ein sum følgjer mønsteret «sin-cos-cos-sin» med same forteikn: $\\sin(u+v) = \\sin u \\cos v + \\cos u \\sin v$.","01975d22c8e51a62":"Kva er $\\cos(u + v)$?","8f7881a53e36e3ce":"$\\cos u \\cos v + \\sin u \\sin v$","fdcf18d2c7a1b184":"$\\cos u \\sin v - \\sin u \\cos v$","2adb863bbdb4f590":"Cosinus følgjer «cos-cos-sin-sin» med motsett forteikn av argumentet: $\\cos(u+v) = \\cos u \\cos v - \\sin u \\sin v$.","757cd3646275cb6d":"Kva er den eksakte verdien av $\\sin 75°$?","44933f17ba200652":"$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$","1102e39308d32568":"$\\frac{\\sqrt{3} + 1}{4}$","3a8d177e79e0425a":"$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$","830f02fa1d587a36":"$\\frac{\\sqrt{2} + \\sqrt{3}}{2}$","897697ddccb6843c":"$\\sin 75° = \\sin(45° + 30°) = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$.","c367a12349588379":"Kva symmetrieigenskap har cosinus?","6d59fe11e05aefe3":"$\\cos(-x) = -\\cos x$","f5cd12257fe636b6":"$\\cos(-x) = \\sin x$","350e4b8785b4cb3f":"$\\cos(-x) = 1 - \\cos x$","32e5619ab0f1ab44":"$\\cos(-x) = \\cos x$","4599acfdc2c3514a":"Cosinus er ein like funksjon: å spegle vinkelen om $x$-aksen endrar ikkje $x$-koordinaten på einingssirkelen, så $\\cos(-x) = \\cos x$.","3fb3f80711879816":"## Dobbeltvinkelformlane – addisjon med seg sjølv\n\nKva skjer om vi set $u = v = x$ i addisjonsformlane? Sinusformelen gir $\\sin(x + x) = \\sin x \\cos x + \\cos x \\sin x$, altså:\n\n$$\\sin 2x = 2\\sin x \\cos x$$\n\nCosinusformelen gir $\\cos 2x = \\cos^2 x - \\sin^2 x$. Og her skjer noko fint: med den pytagoreiske identiteten kan vi byte ut anten $\\sin^2 x = 1 - \\cos^2 x$ eller $\\cos^2 x = 1 - \\sin^2 x$, og få to alternative former:\n\n$$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n\nTre former for same sanning – og kva for ei du vel, kjem an på kva du har for handa. For tangens: $\\tan 2x = \\frac{2\\tan x}{1 - \\tan^2 x}$.\n\nLa oss bruke dei. Gitt $\\cos x = \\frac{3}{5}$ med $x \\in (0, \\frac{\\pi}{2})$. Først finn vi $\\sin x = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$ (positiv i første kvadrant). Då blir $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$ og $\\cos 2x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. At $\\cos 2x$ er negativ er ikkje rart: når $\\cos x = \\frac{3}{5} < \\frac{\\sqrt{2}}{2}$, er $x > \\frac{\\pi}{4}$, så $2x$ har passert $\\frac{\\pi}{2}$ og hamna i andre kvadrant.","5e8f0417119918d5":"Test deg sjølv på dobbeltvinkelformlane:","f324433d5544ab8d":"Kva er $\\sin 2x$ uttrykt ved $\\sin x$ og $\\cos x$?","fb06b029d354bb5d":"$2\\sin x$","30562d0fe068bae0":"$\\sin^2 x + \\cos^2 x$","b67a0efce9b1130f":"$2\\sin x \\cos x$","74f843a13c4f9735":"$\\sin x \\cos x$","d87ab44c8d27cfce":"Vi set $u = v = x$ i addisjonsformelen: $\\sin(x+x) = \\sin x \\cos x + \\cos x \\sin x = 2\\sin x \\cos x$.","ef0bda013c05300d":"Kva for ein av desse er IKKJE ei gyldig form for $\\cos 2x$?","63412f308e9b213c":"$\\cos^2 x - \\sin^2 x$","cda9323de2b6859b":"$2\\cos^2 x - 1$","2836f3830c0c08b1":"$1 - 2\\sin^2 x$","34603a90796b8e7c":"$2\\sin x \\cos x$ er formelen for $\\sin 2x$, ikkje $\\cos 2x$. Dei tre andre er ekvivalente former for $\\cos 2x$.","1e378605faecb123":"Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\sin 2x$?","3175b9bc2329ca5f":"$\\frac{24}{25}$","be95d7da1a0666ba":"$\\frac{12}{25}$","7cbdd75e5c057169":"$\\frac{7}{25}$","d1b8091dcb18939a":"$\\frac{6}{5}$","c8ea6650b7105224":"Først: $\\sin x = \\sqrt{1 - 9/25} = \\frac{4}{5}$. Så: $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$.","831e707b6721f8b4":"Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\cos 2x$?","e19167ac91e6fb01":"$\\frac{18}{25}$","56beeab1beacb162":"$\\frac{9}{25}$","6b7f77b84003fcd0":"$-\\frac{7}{25}$","e8e2b9374d2fdea6":"$\\cos 2x = \\cos^2 x - \\sin^2 x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. Negativt fordi $2x$ ligg i andre kvadrant.","1d5c2252c7073a3e":"## Kunsten å bevise ein identitet\n\nÅ bevise ein identitet tyder å vise at venstre og høgre side er like for alle tillatne verdiar av variabelen. Det er ikkje det same som å løyse ei likning – du skal ikkje finne $x$, du skal *omforme*. Dei fire klassiske strategiane er: start med den mest kompliserte sida og forenkle henne, skriv alt med sinus og cosinus, bruk dei kjende identitetane, og finn fellesnemnar når brøkar er med.\n\nLa oss bevise at $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$. Venstre side er mest komplisert, så vi startar der. I teljaren bruker vi $\\sin 2x = 2\\sin x \\cos x$. I nemnaren vel vi den forma for $\\cos 2x$ som ryddar bort 1-talet, nemleg $\\cos 2x = 2\\cos^2 x - 1$:\n\n$$\\frac{\\sin 2x}{1 + \\cos 2x} = \\frac{2\\sin x \\cos x}{1 + 2\\cos^2 x - 1} = \\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x \\quad \\square$$\n\nLegg merke til det strategiske valet: av dei tre formene for $\\cos 2x$ valde vi nettopp den som fekk $+1$ og $-1$ til å kansellere. Det er slik identitetsbevis fungerer – du ser nokre trekk framover, som i sjakk, og vel den omskrivinga som opnar stillinga.\n\nEit godt bevis kjenneteiknast av at kvart steg er grunngitt med ein kjend identitet eller algebraregel, og at du aldri «juksar» ved å gå ut frå det du skal vise. Arbeid med éi side om gongen til ho blir lik den andre.","4406928164362d84":"Test deg sjølv på bevis av identitetar:","be4de8076a224894":"Kva er den tilrådde startstrategien når du skal bevise ein identitet?","ef2d9a5e3657a392":"Gå ut frå at identiteten stemmer og rekn baklengs","ef7915ce2aff7c99":"Start med den mest kompliserte sida og forenkle","9e572895f7705bb9":"Set inn talverdiar for å sjekke","657a0649a101b287":"Deriver begge sider","a6c84ced854921a9":"Standardstrategien er å ta den mest kompliserte sida og forenkle henne steg for steg med kjende identitetar til ho blir lik den andre sida.","e4825421b7a9703f":"I beviset for $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$, kva for ei form for $\\cos 2x$ er smartast i nemnaren?","8a11ef0a38de7ed1":"Med $\\cos 2x = 2\\cos^2 x - 1$ blir nemnaren $1 + 2\\cos^2 x - 1 = 2\\cos^2 x$, og brøken kan forkortast.","0baa6feebb63ca8e":"Kva blir $\\frac{2\\sin x \\cos x}{2\\cos^2 x}$ forenkla?","9d98edf6a3166207":"$\\tan x$","7105366b47d6451c":"$\\sin x$","585d24043c8c3c7e":"$\\cot x$","11bf7401f1f2f423":"$2\\tan x$","45920e7939918039":"Vi forkortar $2$ og éin faktor $\\cos x$: $\\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x$.","ea5ca84ef05822e4":"Kva skil ein identitet frå ei vanleg likning?","2f16f4d56b0ac591":"Ein identitet inneheld berre trigonometriske funksjonar","49df6906dacee4cc":"Ein identitet har nøyaktig to løysingar","41a5771d60cb1b13":"Ein identitet kan ikkje bevisast","a360e94b7c069960":"Ein identitet er sann for alle tillatne verdiar av variabelen","b0d0efb574fe19f4":"Ei likning er sann berre for bestemte verdiar (løysingane), medan ein identitet gjeld for alle verdiar der uttrykka er definerte.","57ec2d8e257a3bcc":"## Oppsummering: verktøykassa veks\n\nVi starta med eit tilsynelatande umogleg spørsmål – den eksakte verdien av $\\sin 75°$ – og fann svaret med addisjonsformlane: $\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$ og $\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$. Hugs forteiknsmønsteret: sinus held på forteiknet frå argumentet, cosinus snur det.\n\nVed å setje $u = v = x$ fekk vi dobbeltvinkelformlane gratis: $\\sin 2x = 2\\sin x \\cos x$, og $\\cos 2x$ i tre likeverdige drakter – $\\cos^2 x - \\sin^2 x$, $2\\cos^2 x - 1$ og $1 - 2\\sin^2 x$. Valet mellom dei er strategisk: bruk den forma som forenklar uttrykket ditt mest.\n\nTil slutt lærte du å bevise identitetar: start med den mest kompliserte sida, skriv om med kjende identitetar, skriv gjerne alt med sinus og cosinus, og forenkle til sidene møtest. Saman med den pytagoreiske identiteten og symmetrieigenskapane $\\sin(-x) = -\\sin x$ og $\\cos(-x) = \\cos x$ har du no ei komplett verktøykasse – og i neste kapittel får ho bryne seg på derivasjon."}}}
+{
+  "id": "r1-7-4-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "7.4",
+  "title": "Trigonometriske identitetar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om likningane som alltid er sanne – addisjonsformlar som knekkjer umoglege vinklar, dobbeltvinkelformlar og kunsten å bevise.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "kjenne og bruke addisjonsformlane for sinus og cosinus",
+    "utleie og bruke formlane for dobbel vinkel",
+    "bevise trigonometriske identitetar",
+    "forenkle trigonometriske uttrykk ved hjelp av identitetar"
+  ],
+  "linkedChapterId": "r1-7-4",
+  "content": [
+    {
+      "id": "r1-7-4-n-intro",
+      "type": "text",
+      "content": "## Likningar som alltid er sanne\n\nDu har møtt mange likningar som berre stemmer for bestemte verdiar av $x$. Men nokre likningar er sanne for *alle* verdiar – som $\\sin^2 x + \\cos^2 x = 1$. Slike likningar blir kalla **identitetar**, og dei er verktøykassa til trigonometrien: dei lèt deg skrive om uttrykk til former som er enklare å rekne med, derivere eller integrere.\n\nTenk på det som valuta: $\\sin 75°$ ser umogleg ut å berekne eksakt – $75°$ er ingen standardvinkel. Men $75° = 45° + 30°$, og *begge* desse er standardvinklar! Om vi berre hadde ein formel for sinus av ein sum... Det har vi: **addisjonsformlane**. I dette kapittelet lærer du dei, utleier **dobbeltvinkelformlane** frå dei, og lærer kunsten å *bevise* identitetar – ein dugleik som trenar deg i sjølve kjernen av matematisk tenking."
+    },
+    {
+      "id": "r1-7-4-n-section1",
+      "type": "text",
+      "content": "## Addisjonsformlane\n\nFørst, la oss samle det vi allereie har. Den pytagoreiske identiteten $\\sin^2 x + \\cos^2 x = 1$ og definisjonen $\\tan x = \\frac{\\sin x}{\\cos x}$ kjenner du. I tillegg har funksjonane symmetrieigenskapar som du kan lese rett ut av einingssirkelen: $\\sin(-x) = -\\sin x$ og $\\tan(-x) = -\\tan x$ (odde funksjonar), medan $\\cos(-x) = \\cos x$ (like funksjon – å spegle vinkelen endrar ikkje $x$-koordinaten).\n\nSå til hovudattraksjonen. For alle vinklar $u$ og $v$ gjeld addisjonsformlane:\n\n$$\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$$\n$$\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$$\n\nOg for tangens: $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}$. Legg merke til mønstera: sinus av ein sum følgjer «sin-cos-cos-sin» med *same* forteikn som i argumentet, medan cosinus følgjer «cos-cos-sin-sin» med *motsett* forteikn – pluss i argumentet gir minus i formelen.\n\nNo kan vi knekkje $\\sin 75°$. Vi skriv $75° = 45° + 30°$ og set inn: $\\sin 75° = \\sin 45° \\cos 30° + \\cos 45° \\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. Ein eksakt verdi for ein «umogleg» vinkel!\n\nFormlane fungerer òg når verdiane er ukjende. Sei at $\\sin u = \\frac{3}{5}$ (med $u$ i første kvadrant) og $\\cos v = -\\frac{5}{13}$ (med $v$ i andre kvadrant). Den pytagoreiske identiteten gir $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{12}{13}$ (begge positive ut frå kvadrantane). Då blir $\\sin(u+v) = \\frac{3}{5} \\cdot \\left(-\\frac{5}{13}\\right) + \\frac{4}{5} \\cdot \\frac{12}{13} = -\\frac{15}{65} + \\frac{48}{65} = \\frac{33}{65}$."
+    },
+    {
+      "id": "r1-7-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-7-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på addisjonsformlane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-7-4-n-quiz1-q0",
+            "task": "Kva er $\\sin(u + v)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sin u \\cos v + \\cos u \\sin v$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\cos u \\cos v - \\sin u \\sin v$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sin u \\sin v + \\cos u \\cos v$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sin u \\cos v - \\cos u \\sin v$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sinus av ein sum følgjer mønsteret «sin-cos-cos-sin» med same forteikn: $\\sin(u+v) = \\sin u \\cos v + \\cos u \\sin v$."
+          },
+          {
+            "id": "r1-7-4-n-quiz1-q1",
+            "task": "Kva er $\\cos(u + v)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos u \\cos v + \\sin u \\sin v$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\cos u \\cos v - \\sin u \\sin v$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\sin u \\cos v + \\cos u \\sin v$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\cos u \\sin v - \\sin u \\cos v$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Cosinus følgjer «cos-cos-sin-sin» med motsett forteikn av argumentet: $\\cos(u+v) = \\cos u \\cos v - \\sin u \\sin v$."
+          },
+          {
+            "id": "r1-7-4-n-quiz1-q2",
+            "task": "Kva er den eksakte verdien av $\\sin 75°$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\sqrt{3} + 1}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\sqrt{2} + \\sqrt{3}}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin 75° = \\sin(45° + 30°) = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$."
+          },
+          {
+            "id": "r1-7-4-n-quiz1-q3",
+            "task": "Kva symmetrieigenskap har cosinus?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos(-x) = -\\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\cos(-x) = \\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\cos(-x) = 1 - \\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\cos(-x) = \\cos x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Cosinus er ein like funksjon: å spegle vinkelen om $x$-aksen endrar ikkje $x$-koordinaten på einingssirkelen, så $\\cos(-x) = \\cos x$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-7-4-n-section2",
+      "type": "text",
+      "content": "## Dobbeltvinkelformlane – addisjon med seg sjølv\n\nKva skjer om vi set $u = v = x$ i addisjonsformlane? Sinusformelen gir $\\sin(x + x) = \\sin x \\cos x + \\cos x \\sin x$, altså:\n\n$$\\sin 2x = 2\\sin x \\cos x$$\n\nCosinusformelen gir $\\cos 2x = \\cos^2 x - \\sin^2 x$. Og her skjer noko fint: med den pytagoreiske identiteten kan vi byte ut anten $\\sin^2 x = 1 - \\cos^2 x$ eller $\\cos^2 x = 1 - \\sin^2 x$, og få to alternative former:\n\n$$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n\nTre former for same sanning – og kva for ei du vel, kjem an på kva du har for handa. For tangens: $\\tan 2x = \\frac{2\\tan x}{1 - \\tan^2 x}$.\n\nLa oss bruke dei. Gitt $\\cos x = \\frac{3}{5}$ med $x \\in (0, \\frac{\\pi}{2})$. Først finn vi $\\sin x = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$ (positiv i første kvadrant). Då blir $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$ og $\\cos 2x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. At $\\cos 2x$ er negativ er ikkje rart: når $\\cos x = \\frac{3}{5} < \\frac{\\sqrt{2}}{2}$, er $x > \\frac{\\pi}{4}$, så $2x$ har passert $\\frac{\\pi}{2}$ og hamna i andre kvadrant."
+    },
+    {
+      "id": "r1-7-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-7-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på dobbeltvinkelformlane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-7-4-n-quiz2-q0",
+            "task": "Kva er $\\sin 2x$ uttrykt ved $\\sin x$ og $\\cos x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$2\\sin x \\cos x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2\\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sin^2 x + \\cos^2 x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sin x \\cos x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi set $u = v = x$ i addisjonsformelen: $\\sin(x+x) = \\sin x \\cos x + \\cos x \\sin x = 2\\sin x \\cos x$."
+          },
+          {
+            "id": "r1-7-4-n-quiz2-q1",
+            "task": "Kva for ein av desse er IKKJE ei gyldig form for $\\cos 2x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos^2 x - \\sin^2 x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\sin x \\cos x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2\\cos^2 x - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1 - 2\\sin^2 x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2\\sin x \\cos x$ er formelen for $\\sin 2x$, ikkje $\\cos 2x$. Dei tre andre er ekvivalente former for $\\cos 2x$."
+          },
+          {
+            "id": "r1-7-4-n-quiz2-q2",
+            "task": "Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\sin 2x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{12}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{7}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{24}{25}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{6}{5}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først: $\\sin x = \\sqrt{1 - 9/25} = \\frac{4}{5}$. Så: $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$."
+          },
+          {
+            "id": "r1-7-4-n-quiz2-q3",
+            "task": "Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\cos 2x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{7}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{18}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{9}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\frac{7}{25}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\cos 2x = \\cos^2 x - \\sin^2 x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. Negativt fordi $2x$ ligg i andre kvadrant."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-7-4-n-section3",
+      "type": "text",
+      "content": "## Kunsten å bevise ein identitet\n\nÅ bevise ein identitet tyder å vise at venstre og høgre side er like for alle tillatne verdiar av variabelen. Det er ikkje det same som å løyse ei likning – du skal ikkje finne $x$, du skal *omforme*. Dei fire klassiske strategiane er: start med den mest kompliserte sida og forenkle henne, skriv alt med sinus og cosinus, bruk dei kjende identitetane, og finn fellesnemnar når brøkar er med.\n\nLa oss bevise at $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$. Venstre side er mest komplisert, så vi startar der. I teljaren bruker vi $\\sin 2x = 2\\sin x \\cos x$. I nemnaren vel vi den forma for $\\cos 2x$ som ryddar bort 1-talet, nemleg $\\cos 2x = 2\\cos^2 x - 1$:\n\n$$\\frac{\\sin 2x}{1 + \\cos 2x} = \\frac{2\\sin x \\cos x}{1 + 2\\cos^2 x - 1} = \\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x \\quad \\square$$\n\nLegg merke til det strategiske valet: av dei tre formene for $\\cos 2x$ valde vi nettopp den som fekk $+1$ og $-1$ til å kansellere. Det er slik identitetsbevis fungerer – du ser nokre trekk framover, som i sjakk, og vel den omskrivinga som opnar stillinga.\n\nEit godt bevis kjenneteiknast av at kvart steg er grunngitt med ein kjend identitet eller algebraregel, og at du aldri «juksar» ved å gå ut frå det du skal vise. Arbeid med éi side om gongen til ho blir lik den andre."
+    },
+    {
+      "id": "r1-7-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-7-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på bevis av identitetar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-7-4-n-quiz3-q0",
+            "task": "Kva er den tilrådde startstrategien når du skal bevise ein identitet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Start med den mest kompliserte sida og forenkle",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Gå ut frå at identiteten stemmer og rekn baklengs",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Set inn talverdiar for å sjekke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Deriver begge sider",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Standardstrategien er å ta den mest kompliserte sida og forenkle henne steg for steg med kjende identitetar til ho blir lik den andre sida."
+          },
+          {
+            "id": "r1-7-4-n-quiz3-q1",
+            "task": "I beviset for $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$, kva for ei form for $\\cos 2x$ er smartast i nemnaren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos^2 x - \\sin^2 x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2\\cos^2 x - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1 - 2\\sin^2 x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\sin x \\cos x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $\\cos 2x = 2\\cos^2 x - 1$ blir nemnaren $1 + 2\\cos^2 x - 1 = 2\\cos^2 x$, og brøken kan forkortast."
+          },
+          {
+            "id": "r1-7-4-n-quiz3-q2",
+            "task": "Kva blir $\\frac{2\\sin x \\cos x}{2\\cos^2 x}$ forenkla?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\cot x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\tan x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2\\tan x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi forkortar $2$ og éin faktor $\\cos x$: $\\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x$."
+          },
+          {
+            "id": "r1-7-4-n-quiz3-q3",
+            "task": "Kva skil ein identitet frå ei vanleg likning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein identitet inneheld berre trigonometriske funksjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein identitet har nøyaktig to løysingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein identitet kan ikkje bevisast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein identitet er sann for alle tillatne verdiar av variabelen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ei likning er sann berre for bestemte verdiar (løysingane), medan ein identitet gjeld for alle verdiar der uttrykka er definerte."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-7-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: verktøykassa veks\n\nVi starta med eit tilsynelatande umogleg spørsmål – den eksakte verdien av $\\sin 75°$ – og fann svaret med addisjonsformlane: $\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$ og $\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$. Hugs forteiknsmønsteret: sinus held på forteiknet frå argumentet, cosinus snur det.\n\nVed å setje $u = v = x$ fekk vi dobbeltvinkelformlane gratis: $\\sin 2x = 2\\sin x \\cos x$, og $\\cos 2x$ i tre likeverdige drakter – $\\cos^2 x - \\sin^2 x$, $2\\cos^2 x - 1$ og $1 - 2\\sin^2 x$. Valet mellom dei er strategisk: bruk den forma som forenklar uttrykket ditt mest.\n\nTil slutt lærte du å bevise identitetar: start med den mest kompliserte sida, skriv om med kjende identitetar, skriv gjerne alt med sinus og cosinus, og forenkle til sidene møtest. Saman med den pytagoreiske identiteten og symmetrieigenskapane $\\sin(-x) = -\\sin x$ og $\\cos(-x) = \\cos x$ har du no ei komplett verktøykasse – og i neste kapittel får ho bryne seg på derivasjon."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "31f87f2c4c1a0544",
+    "translatedAt": "2026-06-20T00:13:34.630Z",
+    "model": "claude-code-agent",
+    "strings": 90,
+    "tm": {
+      "2ff743309cb6c6b6": "Trigonometriske identitetar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "0c618a5361010aee": "Ei forteljing om likningane som alltid er sanne – addisjonsformlar som knekkjer umoglege vinklar, dobbeltvinkelformlar og kunsten å bevise.",
+      "3520a1ff90a1fe24": "kjenne og bruke addisjonsformlane for sinus og cosinus",
+      "024c50f68c0eaf32": "utleie og bruke formlane for dobbel vinkel",
+      "85ff2ceb0ecc60a3": "bevise trigonometriske identitetar",
+      "db8b33b013f0b7bf": "forenkle trigonometriske uttrykk ved hjelp av identitetar",
+      "bccf1a0954dfe287": "## Likningar som alltid er sanne\n\nDu har møtt mange likningar som berre stemmer for bestemte verdiar av $x$. Men nokre likningar er sanne for *alle* verdiar – som $\\sin^2 x + \\cos^2 x = 1$. Slike likningar blir kalla **identitetar**, og dei er verktøykassa til trigonometrien: dei lèt deg skrive om uttrykk til former som er enklare å rekne med, derivere eller integrere.\n\nTenk på det som valuta: $\\sin 75°$ ser umogleg ut å berekne eksakt – $75°$ er ingen standardvinkel. Men $75° = 45° + 30°$, og *begge* desse er standardvinklar! Om vi berre hadde ein formel for sinus av ein sum... Det har vi: **addisjonsformlane**. I dette kapittelet lærer du dei, utleier **dobbeltvinkelformlane** frå dei, og lærer kunsten å *bevise* identitetar – ein dugleik som trenar deg i sjølve kjernen av matematisk tenking.",
+      "882f1cd666d5d946": "## Addisjonsformlane\n\nFørst, la oss samle det vi allereie har. Den pytagoreiske identiteten $\\sin^2 x + \\cos^2 x = 1$ og definisjonen $\\tan x = \\frac{\\sin x}{\\cos x}$ kjenner du. I tillegg har funksjonane symmetrieigenskapar som du kan lese rett ut av einingssirkelen: $\\sin(-x) = -\\sin x$ og $\\tan(-x) = -\\tan x$ (odde funksjonar), medan $\\cos(-x) = \\cos x$ (like funksjon – å spegle vinkelen endrar ikkje $x$-koordinaten).\n\nSå til hovudattraksjonen. For alle vinklar $u$ og $v$ gjeld addisjonsformlane:\n\n$$\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$$\n$$\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$$\n\nOg for tangens: $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}$. Legg merke til mønstera: sinus av ein sum følgjer «sin-cos-cos-sin» med *same* forteikn som i argumentet, medan cosinus følgjer «cos-cos-sin-sin» med *motsett* forteikn – pluss i argumentet gir minus i formelen.\n\nNo kan vi knekkje $\\sin 75°$. Vi skriv $75° = 45° + 30°$ og set inn: $\\sin 75° = \\sin 45° \\cos 30° + \\cos 45° \\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. Ein eksakt verdi for ein «umogleg» vinkel!\n\nFormlane fungerer òg når verdiane er ukjende. Sei at $\\sin u = \\frac{3}{5}$ (med $u$ i første kvadrant) og $\\cos v = -\\frac{5}{13}$ (med $v$ i andre kvadrant). Den pytagoreiske identiteten gir $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{12}{13}$ (begge positive ut frå kvadrantane). Då blir $\\sin(u+v) = \\frac{3}{5} \\cdot \\left(-\\frac{5}{13}\\right) + \\frac{4}{5} \\cdot \\frac{12}{13} = -\\frac{15}{65} + \\frac{48}{65} = \\frac{33}{65}$.",
+      "644820bf7c925aa0": "Test deg sjølv på addisjonsformlane:",
+      "4097889236a2af26": "placeholder",
+      "03c264af9220c891": "Kva er $\\sin(u + v)$?",
+      "9519767fc8db7974": "$\\sin u \\cos v + \\cos u \\sin v$",
+      "d6875cdf7371cab3": "$\\cos u \\cos v - \\sin u \\sin v$",
+      "5365c82f7438a72b": "$\\sin u \\sin v + \\cos u \\cos v$",
+      "229582f8292a4b15": "$\\sin u \\cos v - \\cos u \\sin v$",
+      "14320919e71272a3": "Sinus av ein sum følgjer mønsteret «sin-cos-cos-sin» med same forteikn: $\\sin(u+v) = \\sin u \\cos v + \\cos u \\sin v$.",
+      "01975d22c8e51a62": "Kva er $\\cos(u + v)$?",
+      "8f7881a53e36e3ce": "$\\cos u \\cos v + \\sin u \\sin v$",
+      "fdcf18d2c7a1b184": "$\\cos u \\sin v - \\sin u \\cos v$",
+      "2adb863bbdb4f590": "Cosinus følgjer «cos-cos-sin-sin» med motsett forteikn av argumentet: $\\cos(u+v) = \\cos u \\cos v - \\sin u \\sin v$.",
+      "757cd3646275cb6d": "Kva er den eksakte verdien av $\\sin 75°$?",
+      "44933f17ba200652": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+      "1102e39308d32568": "$\\frac{\\sqrt{3} + 1}{4}$",
+      "3a8d177e79e0425a": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
+      "830f02fa1d587a36": "$\\frac{\\sqrt{2} + \\sqrt{3}}{2}$",
+      "897697ddccb6843c": "$\\sin 75° = \\sin(45° + 30°) = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$.",
+      "c367a12349588379": "Kva symmetrieigenskap har cosinus?",
+      "6d59fe11e05aefe3": "$\\cos(-x) = -\\cos x$",
+      "f5cd12257fe636b6": "$\\cos(-x) = \\sin x$",
+      "350e4b8785b4cb3f": "$\\cos(-x) = 1 - \\cos x$",
+      "32e5619ab0f1ab44": "$\\cos(-x) = \\cos x$",
+      "4599acfdc2c3514a": "Cosinus er ein like funksjon: å spegle vinkelen om $x$-aksen endrar ikkje $x$-koordinaten på einingssirkelen, så $\\cos(-x) = \\cos x$.",
+      "3fb3f80711879816": "## Dobbeltvinkelformlane – addisjon med seg sjølv\n\nKva skjer om vi set $u = v = x$ i addisjonsformlane? Sinusformelen gir $\\sin(x + x) = \\sin x \\cos x + \\cos x \\sin x$, altså:\n\n$$\\sin 2x = 2\\sin x \\cos x$$\n\nCosinusformelen gir $\\cos 2x = \\cos^2 x - \\sin^2 x$. Og her skjer noko fint: med den pytagoreiske identiteten kan vi byte ut anten $\\sin^2 x = 1 - \\cos^2 x$ eller $\\cos^2 x = 1 - \\sin^2 x$, og få to alternative former:\n\n$$\\cos 2x = \\cos^2 x - \\sin^2 x = 2\\cos^2 x - 1 = 1 - 2\\sin^2 x$$\n\nTre former for same sanning – og kva for ei du vel, kjem an på kva du har for handa. For tangens: $\\tan 2x = \\frac{2\\tan x}{1 - \\tan^2 x}$.\n\nLa oss bruke dei. Gitt $\\cos x = \\frac{3}{5}$ med $x \\in (0, \\frac{\\pi}{2})$. Først finn vi $\\sin x = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$ (positiv i første kvadrant). Då blir $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$ og $\\cos 2x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. At $\\cos 2x$ er negativ er ikkje rart: når $\\cos x = \\frac{3}{5} < \\frac{\\sqrt{2}}{2}$, er $x > \\frac{\\pi}{4}$, så $2x$ har passert $\\frac{\\pi}{2}$ og hamna i andre kvadrant.",
+      "5e8f0417119918d5": "Test deg sjølv på dobbeltvinkelformlane:",
+      "f324433d5544ab8d": "Kva er $\\sin 2x$ uttrykt ved $\\sin x$ og $\\cos x$?",
+      "fb06b029d354bb5d": "$2\\sin x$",
+      "30562d0fe068bae0": "$\\sin^2 x + \\cos^2 x$",
+      "b67a0efce9b1130f": "$2\\sin x \\cos x$",
+      "74f843a13c4f9735": "$\\sin x \\cos x$",
+      "d87ab44c8d27cfce": "Vi set $u = v = x$ i addisjonsformelen: $\\sin(x+x) = \\sin x \\cos x + \\cos x \\sin x = 2\\sin x \\cos x$.",
+      "ef0bda013c05300d": "Kva for ein av desse er IKKJE ei gyldig form for $\\cos 2x$?",
+      "63412f308e9b213c": "$\\cos^2 x - \\sin^2 x$",
+      "cda9323de2b6859b": "$2\\cos^2 x - 1$",
+      "2836f3830c0c08b1": "$1 - 2\\sin^2 x$",
+      "34603a90796b8e7c": "$2\\sin x \\cos x$ er formelen for $\\sin 2x$, ikkje $\\cos 2x$. Dei tre andre er ekvivalente former for $\\cos 2x$.",
+      "1e378605faecb123": "Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\sin 2x$?",
+      "3175b9bc2329ca5f": "$\\frac{24}{25}$",
+      "be95d7da1a0666ba": "$\\frac{12}{25}$",
+      "7cbdd75e5c057169": "$\\frac{7}{25}$",
+      "d1b8091dcb18939a": "$\\frac{6}{5}$",
+      "c8ea6650b7105224": "Først: $\\sin x = \\sqrt{1 - 9/25} = \\frac{4}{5}$. Så: $\\sin 2x = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$.",
+      "831e707b6721f8b4": "Gitt $\\cos x = \\frac{3}{5}$ og $x$ i første kvadrant. Kva er $\\cos 2x$?",
+      "e19167ac91e6fb01": "$\\frac{18}{25}$",
+      "56beeab1beacb162": "$\\frac{9}{25}$",
+      "6b7f77b84003fcd0": "$-\\frac{7}{25}$",
+      "e8e2b9374d2fdea6": "$\\cos 2x = \\cos^2 x - \\sin^2 x = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$. Negativt fordi $2x$ ligg i andre kvadrant.",
+      "1d5c2252c7073a3e": "## Kunsten å bevise ein identitet\n\nÅ bevise ein identitet tyder å vise at venstre og høgre side er like for alle tillatne verdiar av variabelen. Det er ikkje det same som å løyse ei likning – du skal ikkje finne $x$, du skal *omforme*. Dei fire klassiske strategiane er: start med den mest kompliserte sida og forenkle henne, skriv alt med sinus og cosinus, bruk dei kjende identitetane, og finn fellesnemnar når brøkar er med.\n\nLa oss bevise at $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$. Venstre side er mest komplisert, så vi startar der. I teljaren bruker vi $\\sin 2x = 2\\sin x \\cos x$. I nemnaren vel vi den forma for $\\cos 2x$ som ryddar bort 1-talet, nemleg $\\cos 2x = 2\\cos^2 x - 1$:\n\n$$\\frac{\\sin 2x}{1 + \\cos 2x} = \\frac{2\\sin x \\cos x}{1 + 2\\cos^2 x - 1} = \\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x \\quad \\square$$\n\nLegg merke til det strategiske valet: av dei tre formene for $\\cos 2x$ valde vi nettopp den som fekk $+1$ og $-1$ til å kansellere. Det er slik identitetsbevis fungerer – du ser nokre trekk framover, som i sjakk, og vel den omskrivinga som opnar stillinga.\n\nEit godt bevis kjenneteiknast av at kvart steg er grunngitt med ein kjend identitet eller algebraregel, og at du aldri «juksar» ved å gå ut frå det du skal vise. Arbeid med éi side om gongen til ho blir lik den andre.",
+      "4406928164362d84": "Test deg sjølv på bevis av identitetar:",
+      "be4de8076a224894": "Kva er den tilrådde startstrategien når du skal bevise ein identitet?",
+      "ef2d9a5e3657a392": "Gå ut frå at identiteten stemmer og rekn baklengs",
+      "ef7915ce2aff7c99": "Start med den mest kompliserte sida og forenkle",
+      "9e572895f7705bb9": "Set inn talverdiar for å sjekke",
+      "657a0649a101b287": "Deriver begge sider",
+      "a6c84ced854921a9": "Standardstrategien er å ta den mest kompliserte sida og forenkle henne steg for steg med kjende identitetar til ho blir lik den andre sida.",
+      "e4825421b7a9703f": "I beviset for $\\frac{\\sin 2x}{1 + \\cos 2x} = \\tan x$, kva for ei form for $\\cos 2x$ er smartast i nemnaren?",
+      "8a11ef0a38de7ed1": "Med $\\cos 2x = 2\\cos^2 x - 1$ blir nemnaren $1 + 2\\cos^2 x - 1 = 2\\cos^2 x$, og brøken kan forkortast.",
+      "0baa6feebb63ca8e": "Kva blir $\\frac{2\\sin x \\cos x}{2\\cos^2 x}$ forenkla?",
+      "9d98edf6a3166207": "$\\tan x$",
+      "7105366b47d6451c": "$\\sin x$",
+      "585d24043c8c3c7e": "$\\cot x$",
+      "11bf7401f1f2f423": "$2\\tan x$",
+      "45920e7939918039": "Vi forkortar $2$ og éin faktor $\\cos x$: $\\frac{2\\sin x \\cos x}{2\\cos^2 x} = \\frac{\\sin x}{\\cos x} = \\tan x$.",
+      "ea5ca84ef05822e4": "Kva skil ein identitet frå ei vanleg likning?",
+      "2f16f4d56b0ac591": "Ein identitet inneheld berre trigonometriske funksjonar",
+      "49df6906dacee4cc": "Ein identitet har nøyaktig to løysingar",
+      "41a5771d60cb1b13": "Ein identitet kan ikkje bevisast",
+      "a360e94b7c069960": "Ein identitet er sann for alle tillatne verdiar av variabelen",
+      "b0d0efb574fe19f4": "Ei likning er sann berre for bestemte verdiar (løysingane), medan ein identitet gjeld for alle verdiar der uttrykka er definerte.",
+      "57ec2d8e257a3bcc": "## Oppsummering: verktøykassa veks\n\nVi starta med eit tilsynelatande umogleg spørsmål – den eksakte verdien av $\\sin 75°$ – og fann svaret med addisjonsformlane: $\\sin(u \\pm v) = \\sin u \\cos v \\pm \\cos u \\sin v$ og $\\cos(u \\pm v) = \\cos u \\cos v \\mp \\sin u \\sin v$. Hugs forteiknsmønsteret: sinus held på forteiknet frå argumentet, cosinus snur det.\n\nVed å setje $u = v = x$ fekk vi dobbeltvinkelformlane gratis: $\\sin 2x = 2\\sin x \\cos x$, og $\\cos 2x$ i tre likeverdige drakter – $\\cos^2 x - \\sin^2 x$, $2\\cos^2 x - 1$ og $1 - 2\\sin^2 x$. Valet mellom dei er strategisk: bruk den forma som forenklar uttrykket ditt mest.\n\nTil slutt lærte du å bevise identitetar: start med den mest kompliserte sida, skriv om med kjende identitetar, skriv gjerne alt med sinus og cosinus, og forenkle til sidene møtest. Saman med den pytagoreiske identiteten og symmetrieigenskapane $\\sin(-x) = -\\sin x$ og $\\cos(-x) = \\cos x$ har du no ei komplett verktøykasse – og i neste kapittel får ho bryne seg på derivasjon."
+    }
+  }
+}

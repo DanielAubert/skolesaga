@@ -1,1 +1,395 @@
-{"id":"s1-6-1-narrativ","courseId":"s1","chapterNumber":"6.1","title":"Diskrete sannsynlighetsfordelinger","subtitle":"Narrativ versjon","description":"En fortelling om spillutviklerens regnskap med tilfeldigheten -- sannsynlighetsfordelinger, forventningsverdi, varians og standardavvik som verktøy for å tallfeste det usikre.","estimatedMinutes":35,"competenceGoals":["beregne forventningsverdi, varians og standardavvik til sannsynlighetsfordelinger"],"linkedChapterId":"s1-6-1","content":[{"id":"s1-6-1-n-intro","type":"text","content":"## Spillutviklerens regnestykke\n\nEt lite norsk spillselskap utvikler et brettspill der spillerne flytter like langt som summen av to terninger. Testpanelet klager: «Sju kommer hele tiden!» Utvikleren trenger å vite om panelet har rett, og i så fall hvor skjevt det egentlig er. Hun trenger med andre ord en fullstendig oversikt over alle mulige utfall og hvor sannsynlige de er.\n\nVerktøyet hun griper til, er den **stokastiske variabelen** — en variabel som tar ulike tallverdier avhengig av et tilfeldig utfall, der hver verdi har en bestemt sannsynlighet. Vi bruker store bokstaver som $X$, $Y$ og $Z$ for selve variabelen, og små bokstaver for de konkrete verdiene: $P(X = x)$ er sannsynligheten for at $X$ tar verdien $x$. Eksemplene er overalt: $X$ = antall øyne på én terning (verdier 1 til 6), $Y$ = antall kron i tre myntkast (0 til 3), $Z$ = antall rette på en flervalgsprøve med 10 spørsmål.\n\nEn stokastisk variabel kalles **diskret** når den kan ta et endelig (eller tellbart) antall verdier — typisk noe vi *teller*: kast, kunder, rette svar. I dette kapittelet bygger vi hele grunnmuren for å analysere slike variabler: sannsynlighetsfordelingen som beskriver dem, forventningsverdien som angir tyngdepunktet, og variansen og standardavviket som måler spredningen. Med de verktøyene kan spillutvikleren — og enhver forsker eller analytiker — gjøre tilfeldighet om til presise tall."},{"id":"s1-6-1-n-section1","type":"text","content":"## Sannsynlighetsfordelingen — hele bildet i én tabell\n\nEn **sannsynlighetsfordeling** er en tabell (eller formel) som viser alle verdiene $x_1, x_2, \\ldots, x_n$ variabelen kan ta, sammen med sannsynligheten for hver. To krav må være oppfylt: hver sannsynlighet ligger mellom 0 og 1, og summen er nøyaktig 1: $\\sum_{i=1}^{n} P(X = x_i) = 1$.\n\nLa oss lage fordelingen spillutvikleren trenger. $X$ er summen av to terninger, med mulige verdier fra 2 til 12. Av de $6 \\times 6 = 36$ like sannsynlige utfallene gir nøyaktig ett utfall sum 2 (1+1), to gir sum 3 (1+2 og 2+1), og så videre opp til seks utfall for sum 7 — før antallet faller symmetrisk ned igjen til ett utfall for sum 12. Fordelingen blir:\n\n| $x$ | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| $P(X=x)$ | $\\frac{1}{36}$ | $\\frac{2}{36}$ | $\\frac{3}{36}$ | $\\frac{4}{36}$ | $\\frac{5}{36}$ | $\\frac{6}{36}$ | $\\frac{5}{36}$ | $\\frac{4}{36}$ | $\\frac{3}{36}$ | $\\frac{2}{36}$ | $\\frac{1}{36}$ |\n\nKontrollen stemmer: $\\frac{1+2+3+4+5+6+5+4+3+2+1}{36} = \\frac{36}{36} = 1$. Testpanelet hadde altså rett — sum 7 er den klart vanligste, seks ganger så sannsynlig som sum 2.\n\nKontrasten er den enklest tenkelige fordelingen: den **uniforme**, der alle $n$ verdier er like sannsynlige, $P(X = x_i) = \\frac{1}{n}$. Én rettferdig terning er uniform over $\\{1, \\ldots, 6\\}$, og forventningsverdien er da bare det vanlige gjennomsnittet av verdiene. Men i samme øyeblikk som vi *summerer* to terninger, oppstår den karakteristiske pyramideformen — et første hint om noe dypt: summer av tilfeldigheter hoper seg opp rundt midten."},{"id":"s1-6-1-n-quiz1","type":"exercise","exercise":{"id":"s1-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på sannsynlighetsfordelinger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-1-n-quiz1-q0","task":"Hva kjennetegner en diskret stokastisk variabel?","options":[{"id":"a","text":"Den kan ta et endelig eller tellbart antall verdier","isCorrect":true},{"id":"b","text":"Den kan ta alle verdier i et intervall","isCorrect":false},{"id":"c","text":"Den har alltid uniform fordeling","isCorrect":false},{"id":"d","text":"Den er alltid positiv","isCorrect":false}],"solution":"Diskrete variabler teller (kast, kunder, rette svar) og tar endelig eller tellbart mange verdier — i motsetning til kontinuerlige variabler som måler."},{"id":"s1-6-1-n-quiz1-q1","task":"En tabell oppgir $P(X=1)=0{,}2$, $P(X=2)=0{,}5$ og $P(X=3)=0{,}4$. Hva er galt?","options":[{"id":"a","text":"Verdiene er ikke heltall","isCorrect":false},{"id":"b","text":"Sannsynlighetene summerer til 1,1, ikke 1","isCorrect":true},{"id":"c","text":"En sannsynlighet er over 0,5","isCorrect":false},{"id":"d","text":"Ingenting er galt","isCorrect":false}],"solution":"Kravet er $\\sum p_i = 1$, men $0{,}2 + 0{,}5 + 0{,}4 = 1{,}1$. Dette er ingen gyldig fordeling."},{"id":"s1-6-1-n-quiz1-q2","task":"To terninger kastes. Hva er $P(X = 7)$ for summen $X$?","options":[{"id":"a","text":"$\\frac{1}{11}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{6}$","isCorrect":true},{"id":"c","text":"$\\frac{7}{36}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{36}$","isCorrect":false}],"solution":"Seks av 36 utfall gir sum 7: $P(X=7) = \\frac{6}{36} = \\frac{1}{6}$. Merk at de 11 mulige summene ikke er like sannsynlige."},{"id":"s1-6-1-n-quiz1-q3","task":"Hvilken situasjon beskrives av en uniform fordeling?","options":[{"id":"a","text":"Summen av to terninger","isCorrect":false},{"id":"b","text":"Ett kast med en rettferdig terning","isCorrect":true},{"id":"c","text":"Antall kron i tre myntkast","isCorrect":false},{"id":"d","text":"Antall defekte i en stikkprøve","isCorrect":false}],"solution":"Uniform fordeling betyr at alle verdier er like sannsynlige — som de seks sidene på én rettferdig terning. Summen av to terninger er derimot pyramideformet."}]}},{"id":"s1-6-1-n-section2","type":"text","content":"## Forventningsverdien — fordelingens tyngdepunkt\n\nTilbake til spillutvikleren: hvor langt flytter en spiller *i gjennomsnitt* per kast? Svaret er **forventningsverdien** — det veide gjennomsnittet av alle verdiene, der hver verdi teller med sin sannsynlighet:\n\n$$E(X) = \\mu = \\sum_{i=1}^{n} x_i \\cdot P(X = x_i) = x_1 p_1 + x_2 p_2 + \\cdots + x_n p_n$$\n\nSymbolet $\\mu$ (mu) er standardnotasjonen, og tolkningen er presis: over mange forsøk vil gjennomsnittet av utfallene nærme seg $E(X)$. Det er *ikke* nødvendigvis en verdi $X$ faktisk kan ta — den er et tyngdepunkt, ikke et typisk enkeltutfall.\n\nSe på et regneeksempel. En variabel $X$ har fordelingen\n\n| $x$ | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| $P(X=x)$ | 0,1 | 0,3 | 0,4 | 0,2 |\n\nDa er\n\n$$E(X) = 1 \\cdot 0{,}1 + 2 \\cdot 0{,}3 + 3 \\cdot 0{,}4 + 4 \\cdot 0{,}2 = 0{,}1 + 0{,}6 + 1{,}2 + 0{,}8 = 2{,}7$$\n\nGjennomsnittet over mange trekninger vil kretse rundt 2,7 — selv om ingen enkelttrekning noensinne gir 2,7.\n\nTenk på hvordan dette brukes rundt deg. Et forsikringsselskap beregner forventet utbetaling per kunde og legger premien like over. En kommune anslår forventet antall barnehagesøknader. Spillselskapet finner at to terninger gir $E(X) = 7$ — informasjon som avgjør hvor langt brettet bør være. Forventningsverdien er beslutningstallet i alt som involverer gjentatt tilfeldighet. Men ett tall kan ikke fortelle alt: to fordelinger kan dele tyngdepunkt og likevel oppføre seg helt forskjellig. Det leder oss til spredningen."},{"id":"s1-6-1-n-quiz2","type":"exercise","exercise":{"id":"s1-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på forventningsverdi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-1-n-quiz2-q0","task":"Hva er formelen for forventningsverdien til en diskret stokastisk variabel?","options":[{"id":"a","text":"$E(X) = \\sum x_i \\cdot P(X = x_i)$","isCorrect":true},{"id":"b","text":"$E(X) = \\frac{x_1 + x_2 + \\cdots + x_n}{n}$ alltid","isCorrect":false},{"id":"c","text":"$E(X) = \\max(x_i) - \\min(x_i)$","isCorrect":false},{"id":"d","text":"$E(X) = \\sum P(X = x_i)$","isCorrect":false}],"solution":"Hver verdi veies med sin sannsynlighet: $E(X) = \\sum x_i p_i$. Det uveide gjennomsnittet gjelder bare ved uniform fordeling."},{"id":"s1-6-1-n-quiz2-q1","task":"$X$ har fordelingen $P(X=0)=0{,}4$, $P(X=5)=0{,}4$, $P(X=10)=0{,}2$. Hva er $E(X)$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$7{,}5$","isCorrect":false}],"solution":"$E(X) = 0 \\cdot 0{,}4 + 5 \\cdot 0{,}4 + 10 \\cdot 0{,}2 = 0 + 2 + 2 = 4$."},{"id":"s1-6-1-n-quiz2-q2","task":"Forventningsverdien til antall øyne på en terning er $3{,}5$. Hvordan tolker vi det, når en terning aldri viser 3,5?","options":[{"id":"a","text":"Beregningen må være feil","isCorrect":false},{"id":"b","text":"Gjennomsnittet over mange kast nærmer seg 3,5","isCorrect":true},{"id":"c","text":"Terningen viser oftest 3 eller 4","isCorrect":false},{"id":"d","text":"Halvparten av kastene gir nøyaktig 3,5","isCorrect":false}],"solution":"$E(X)$ er et langsiktig gjennomsnitt — et tyngdepunkt — og trenger ikke være en mulig enkeltverdi."}]}},{"id":"s1-6-1-n-section3","type":"text","content":"## Varians og standardavvik — målet på spredning\n\nSpillselskapet vurderer en alternativ regel: i stedet for to terninger trekker spillerne et kort som *alltid* sier «flytt 7». Forventningsverdien er identisk — men spillopplevelsen er totalt forskjellig! Forskjellen er **spredningen**, og den måles av variansen.\n\n**Variansen** er den gjennomsnittlige *kvadrerte* avstanden fra forventningsverdien:\n\n$$\\text{Var}(X) = \\sigma^2 = E\\big[(X - \\mu)^2\\big] = \\sum_{i=1}^{n}(x_i - \\mu)^2 \\cdot P(X = x_i)$$\n\nI praksis er den alternative formelen ofte raskere:\n\n$$\\text{Var}(X) = E(X^2) - [E(X)]^2$$\n\nder $E(X^2) = \\sum x_i^2 \\cdot p_i$ — «forventningen av kvadratet minus kvadratet av forventningen». **Standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ bringer oss tilbake til samme enhet som $X$, og er derfor tallet vi faktisk tolker: lite $\\sigma$ betyr at verdiene klumper seg tett rundt $\\mu$; stort $\\sigma$ betyr store svingninger.\n\nLa oss fullføre eksempelet fra forrige seksjon, der $E(X) = 2{,}7$. Først $E(X^2)$:\n\n$$E(X^2) = 1^2 \\cdot 0{,}1 + 2^2 \\cdot 0{,}3 + 3^2 \\cdot 0{,}4 + 4^2 \\cdot 0{,}2 = 0{,}1 + 1{,}2 + 3{,}6 + 3{,}2 = 8{,}1$$\n\nSå variansen: $\\text{Var}(X) = 8{,}1 - 2{,}7^2 = 8{,}1 - 7{,}29 = 0{,}81$, og standardavviket $\\sigma = \\sqrt{0{,}81} = 0{,}9$. Et typisk utfall ligger altså i underkant av én enhet unna tyngdepunktet 2,7.\n\nDette tallparet — $\\mu$ og $\\sigma$ — er statistikkens universalspråk. Finansanalytikeren rapporterer forventet avkastning og volatilitet; meteorologen normaltemperatur og variasjon; kvalitetsingeniøren målsatt verdi og toleranse. Når du i de neste kapitlene møter binomisk fordeling og normalfordelingen, er det nettopp $\\mu$ og $\\sigma$ som beskriver dem."},{"id":"s1-6-1-n-quiz3","type":"exercise","exercise":{"id":"s1-6-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på varians og standardavvik:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-1-n-quiz3-q0","task":"Hva er den alternative beregningsformelen for varians?","options":[{"id":"a","text":"$\\text{Var}(X) = E(X^2) - [E(X)]^2$","isCorrect":true},{"id":"b","text":"$\\text{Var}(X) = [E(X)]^2 - E(X^2)$","isCorrect":false},{"id":"c","text":"$\\text{Var}(X) = E(X) - \\mu$","isCorrect":false},{"id":"d","text":"$\\text{Var}(X) = \\sqrt{E(X^2)}$","isCorrect":false}],"solution":"$\\text{Var}(X) = E(X^2) - [E(X)]^2$ — forventningen av kvadratet minus kvadratet av forventningen. Rekkefølgen er avgjørende."},{"id":"s1-6-1-n-quiz3-q1","task":"$E(X) = 3$ og $E(X^2) = 13$. Hva er standardavviket?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":true},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$\\sqrt{13}$","isCorrect":false}],"solution":"$\\text{Var}(X) = 13 - 3^2 = 4$, så $\\sigma = \\sqrt{4} = 2$."},{"id":"s1-6-1-n-quiz3-q2","task":"Hvorfor foretrekker vi ofte standardavviket fremfor variansen når vi tolker resultater?","options":[{"id":"a","text":"Standardavviket er alltid større","isCorrect":false},{"id":"b","text":"Standardavviket har samme enhet som variabelen selv","isCorrect":true},{"id":"c","text":"Variansen kan være negativ","isCorrect":false},{"id":"d","text":"Standardavviket er lettere å regne ut","isCorrect":false}],"solution":"Variansen har kvadrert enhet (f.eks. kr²); standardavviket $\\sigma = \\sqrt{\\text{Var}(X)}$ er i samme enhet som $X$ og kan tolkes direkte som typisk avvik fra $\\mu$."},{"id":"s1-6-1-n-quiz3-q3","task":"To spill har samme forventede gevinst, men spill A har $\\sigma = 2$ kr og spill B har $\\sigma = 150$ kr. Hva er riktig?","options":[{"id":"a","text":"Spill B gir høyere gevinst i det lange løp","isCorrect":false},{"id":"b","text":"Spill A gir jevne utfall nær gjennomsnittet, spill B svinger mye mer","isCorrect":true},{"id":"c","text":"Spill A er feilkonstruert","isCorrect":false},{"id":"d","text":"Spillene er like i enhver forstand","isCorrect":false}],"solution":"Lik $\\mu$, ulik $\\sigma$: standardavviket skiller det forutsigbare spillet fra gamblingpreget — samme tyngdepunkt, helt ulik spredning."}]}},{"id":"s1-6-1-n-summary","type":"text","content":"## Oppsummering: tilfeldighetens regnskap\n\nTestpanelet hos spillselskapet hadde rett, og nå kan vi tallfeste hvorfor: summen av to terninger har en pyramideformet fordeling der $P(X=7) = \\frac{6}{36}$ er størst, med tyngdepunkt $E(X) = 7$. Underveis bygde vi det komplette verktøysettet for diskrete tilfeldige størrelser.\n\nEn **stokastisk variabel** tilordner hvert utfall en tallverdi, og er **diskret** når verdiene kan telles. **Sannsynlighetsfordelingen** er den fullstendige beskrivelsen — en tabell over verdier og sannsynligheter der hvert tall ligger mellom 0 og 1 og summen er nøyaktig 1. Spesialtilfellet der alle verdier er like sannsynlige, kalles **uniform fordeling**, slik som én rettferdig terning.\n\n**Forventningsverdien** $E(X) = \\mu = \\sum x_i p_i$ er fordelingens tyngdepunkt: gjennomsnittet over mange forsøk, men ikke nødvendigvis en mulig enkeltverdi. **Variansen** $\\text{Var}(X) = \\sigma^2$ måler spredningen som forventet kvadratavvik fra $\\mu$, raskest beregnet med $E(X^2) - [E(X)]^2$, og **standardavviket** $\\sigma$ oversetter spredningen tilbake til variabelens egen enhet — lite $\\sigma$ betyr utfall tett rundt tyngdepunktet, stort $\\sigma$ betyr store svingninger.\n\nParet $(\\mu, \\sigma)$ er sammendraget enhver fordeling kan presenteres med, fra avkastning og risiko i finans til måleverdier og toleranser i industrien. Og det er nøyaklig dette paret som skal bære de neste kapitlene, der vi gir de viktigste fordelingene i samfunnsfaglig statistikk navn og formler: den binomiske fordelingen og normalfordelingen."}],"exercises":[]}
+{
+  "id": "s1-6-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "6.1",
+  "title": "Diskrete sannsynlighetsfordelinger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om spillutviklerens regnskap med tilfeldigheten -- sannsynlighetsfordelinger, forventningsverdi, varians og standardavvik som verktøy for å tallfeste det usikre.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "beregne forventningsverdi, varians og standardavvik til sannsynlighetsfordelinger"
+  ],
+  "linkedChapterId": "s1-6-1",
+  "content": [
+    {
+      "id": "s1-6-1-n-intro",
+      "type": "text",
+      "content": "## Spillutviklerens regnestykke\n\nEt lite norsk spillselskap utvikler et brettspill der spillerne flytter like langt som summen av to terninger. Testpanelet klager: «Sju kommer hele tiden!» Utvikleren trenger å vite om panelet har rett, og i så fall hvor skjevt det egentlig er. Hun trenger med andre ord en fullstendig oversikt over alle mulige utfall og hvor sannsynlige de er.\n\nVerktøyet hun griper til, er den **stokastiske variabelen** — en variabel som tar ulike tallverdier avhengig av et tilfeldig utfall, der hver verdi har en bestemt sannsynlighet. Vi bruker store bokstaver som $X$, $Y$ og $Z$ for selve variabelen, og små bokstaver for de konkrete verdiene: $P(X = x)$ er sannsynligheten for at $X$ tar verdien $x$. Eksemplene er overalt: $X$ = antall øyne på én terning (verdier 1 til 6), $Y$ = antall kron i tre myntkast (0 til 3), $Z$ = antall rette på en flervalgsprøve med 10 spørsmål.\n\nEn stokastisk variabel kalles **diskret** når den kan ta et endelig (eller tellbart) antall verdier — typisk noe vi *teller*: kast, kunder, rette svar. I dette kapittelet bygger vi hele grunnmuren for å analysere slike variabler: sannsynlighetsfordelingen som beskriver dem, forventningsverdien som angir tyngdepunktet, og variansen og standardavviket som måler spredningen. Med de verktøyene kan spillutvikleren — og enhver forsker eller analytiker — gjøre tilfeldighet om til presise tall."
+    },
+    {
+      "id": "s1-6-1-n-section1",
+      "type": "text",
+      "content": "## Sannsynlighetsfordelingen — hele bildet i én tabell\n\nEn **sannsynlighetsfordeling** er en tabell (eller formel) som viser alle verdiene $x_1, x_2, \\ldots, x_n$ variabelen kan ta, sammen med sannsynligheten for hver. To krav må være oppfylt: hver sannsynlighet ligger mellom 0 og 1, og summen er nøyaktig 1: $\\sum_{i=1}^{n} P(X = x_i) = 1$.\n\nLa oss lage fordelingen spillutvikleren trenger. $X$ er summen av to terninger, med mulige verdier fra 2 til 12. Av de $6 \\times 6 = 36$ like sannsynlige utfallene gir nøyaktig ett utfall sum 2 (1+1), to gir sum 3 (1+2 og 2+1), og så videre opp til seks utfall for sum 7 — før antallet faller symmetrisk ned igjen til ett utfall for sum 12. Fordelingen blir:\n\n| $x$ | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |\n|---|---|---|---|---|---|---|---|---|---|---|---|\n| $P(X=x)$ | $\\frac{1}{36}$ | $\\frac{2}{36}$ | $\\frac{3}{36}$ | $\\frac{4}{36}$ | $\\frac{5}{36}$ | $\\frac{6}{36}$ | $\\frac{5}{36}$ | $\\frac{4}{36}$ | $\\frac{3}{36}$ | $\\frac{2}{36}$ | $\\frac{1}{36}$ |\n\nKontrollen stemmer: $\\frac{1+2+3+4+5+6+5+4+3+2+1}{36} = \\frac{36}{36} = 1$. Testpanelet hadde altså rett — sum 7 er den klart vanligste, seks ganger så sannsynlig som sum 2.\n\nKontrasten er den enklest tenkelige fordelingen: den **uniforme**, der alle $n$ verdier er like sannsynlige, $P(X = x_i) = \\frac{1}{n}$. Én rettferdig terning er uniform over $\\{1, \\ldots, 6\\}$, og forventningsverdien er da bare det vanlige gjennomsnittet av verdiene. Men i samme øyeblikk som vi *summerer* to terninger, oppstår den karakteristiske pyramideformen — et første hint om noe dypt: summer av tilfeldigheter hoper seg opp rundt midten."
+    },
+    {
+      "id": "s1-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sannsynlighetsfordelinger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-1-n-quiz1-q0",
+            "task": "Hva kjennetegner en diskret stokastisk variabel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den kan ta alle verdier i et intervall",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den kan ta et endelig eller tellbart antall verdier",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den har alltid uniform fordeling",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den er alltid positiv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Diskrete variabler teller (kast, kunder, rette svar) og tar endelig eller tellbart mange verdier — i motsetning til kontinuerlige variabler som måler."
+          },
+          {
+            "id": "s1-6-1-n-quiz1-q1",
+            "task": "En tabell oppgir $P(X=1)=0{,}2$, $P(X=2)=0{,}5$ og $P(X=3)=0{,}4$. Hva er galt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Verdiene er ikke heltall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En sannsynlighet er over 0,5",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sannsynlighetene summerer til 1,1, ikke 1",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingenting er galt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kravet er $\\sum p_i = 1$, men $0{,}2 + 0{,}5 + 0{,}4 = 1{,}1$. Dette er ingen gyldig fordeling."
+          },
+          {
+            "id": "s1-6-1-n-quiz1-q2",
+            "task": "To terninger kastes. Hva er $P(X = 7)$ for summen $X$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{11}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{7}{36}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{36}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Seks av 36 utfall gir sum 7: $P(X=7) = \\frac{6}{36} = \\frac{1}{6}$. Merk at de 11 mulige summene ikke er like sannsynlige."
+          },
+          {
+            "id": "s1-6-1-n-quiz1-q3",
+            "task": "Hvilken situasjon beskrives av en uniform fordeling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ett kast med en rettferdig terning",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Summen av to terninger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall kron i tre myntkast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antall defekte i en stikkprøve",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uniform fordeling betyr at alle verdier er like sannsynlige — som de seks sidene på én rettferdig terning. Summen av to terninger er derimot pyramideformet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-1-n-section2",
+      "type": "text",
+      "content": "## Forventningsverdien — fordelingens tyngdepunkt\n\nTilbake til spillutvikleren: hvor langt flytter en spiller *i gjennomsnitt* per kast? Svaret er **forventningsverdien** — det veide gjennomsnittet av alle verdiene, der hver verdi teller med sin sannsynlighet:\n\n$$E(X) = \\mu = \\sum_{i=1}^{n} x_i \\cdot P(X = x_i) = x_1 p_1 + x_2 p_2 + \\cdots + x_n p_n$$\n\nSymbolet $\\mu$ (mu) er standardnotasjonen, og tolkningen er presis: over mange forsøk vil gjennomsnittet av utfallene nærme seg $E(X)$. Det er *ikke* nødvendigvis en verdi $X$ faktisk kan ta — den er et tyngdepunkt, ikke et typisk enkeltutfall.\n\nSe på et regneeksempel. En variabel $X$ har fordelingen\n\n| $x$ | 1 | 2 | 3 | 4 |\n|---|---|---|---|---|\n| $P(X=x)$ | 0,1 | 0,3 | 0,4 | 0,2 |\n\nDa er\n\n$$E(X) = 1 \\cdot 0{,}1 + 2 \\cdot 0{,}3 + 3 \\cdot 0{,}4 + 4 \\cdot 0{,}2 = 0{,}1 + 0{,}6 + 1{,}2 + 0{,}8 = 2{,}7$$\n\nGjennomsnittet over mange trekninger vil kretse rundt 2,7 — selv om ingen enkelttrekning noensinne gir 2,7.\n\nTenk på hvordan dette brukes rundt deg. Et forsikringsselskap beregner forventet utbetaling per kunde og legger premien like over. En kommune anslår forventet antall barnehagesøknader. Spillselskapet finner at to terninger gir $E(X) = 7$ — informasjon som avgjør hvor langt brettet bør være. Forventningsverdien er beslutningstallet i alt som involverer gjentatt tilfeldighet. Men ett tall kan ikke fortelle alt: to fordelinger kan dele tyngdepunkt og likevel oppføre seg helt forskjellig. Det leder oss til spredningen."
+    },
+    {
+      "id": "s1-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på forventningsverdi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-1-n-quiz2-q0",
+            "task": "Hva er formelen for forventningsverdien til en diskret stokastisk variabel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$E(X) = \\frac{x_1 + x_2 + \\cdots + x_n}{n}$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$E(X) = \\sum x_i \\cdot P(X = x_i)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$E(X) = \\max(x_i) - \\min(x_i)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$E(X) = \\sum P(X = x_i)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hver verdi veies med sin sannsynlighet: $E(X) = \\sum x_i p_i$. Det uveide gjennomsnittet gjelder bare ved uniform fordeling."
+          },
+          {
+            "id": "s1-6-1-n-quiz2-q1",
+            "task": "$X$ har fordelingen $P(X=0)=0{,}4$, $P(X=5)=0{,}4$, $P(X=10)=0{,}2$. Hva er $E(X)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$7{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = 0 \\cdot 0{,}4 + 5 \\cdot 0{,}4 + 10 \\cdot 0{,}2 = 0 + 2 + 2 = 4$."
+          },
+          {
+            "id": "s1-6-1-n-quiz2-q2",
+            "task": "Forventningsverdien til antall øyne på en terning er $3{,}5$. Hvordan tolker vi det, når en terning aldri viser 3,5?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Beregningen må være feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Terningen viser oftest 3 eller 4",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Halvparten av kastene gir nøyaktig 3,5",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnittet over mange kast nærmer seg 3,5",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$E(X)$ er et langsiktig gjennomsnitt — et tyngdepunkt — og trenger ikke være en mulig enkeltverdi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-1-n-section3",
+      "type": "text",
+      "content": "## Varians og standardavvik — målet på spredning\n\nSpillselskapet vurderer en alternativ regel: i stedet for to terninger trekker spillerne et kort som *alltid* sier «flytt 7». Forventningsverdien er identisk — men spillopplevelsen er totalt forskjellig! Forskjellen er **spredningen**, og den måles av variansen.\n\n**Variansen** er den gjennomsnittlige *kvadrerte* avstanden fra forventningsverdien:\n\n$$\\text{Var}(X) = \\sigma^2 = E\\big[(X - \\mu)^2\\big] = \\sum_{i=1}^{n}(x_i - \\mu)^2 \\cdot P(X = x_i)$$\n\nI praksis er den alternative formelen ofte raskere:\n\n$$\\text{Var}(X) = E(X^2) - [E(X)]^2$$\n\nder $E(X^2) = \\sum x_i^2 \\cdot p_i$ — «forventningen av kvadratet minus kvadratet av forventningen». **Standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ bringer oss tilbake til samme enhet som $X$, og er derfor tallet vi faktisk tolker: lite $\\sigma$ betyr at verdiene klumper seg tett rundt $\\mu$; stort $\\sigma$ betyr store svingninger.\n\nLa oss fullføre eksempelet fra forrige seksjon, der $E(X) = 2{,}7$. Først $E(X^2)$:\n\n$$E(X^2) = 1^2 \\cdot 0{,}1 + 2^2 \\cdot 0{,}3 + 3^2 \\cdot 0{,}4 + 4^2 \\cdot 0{,}2 = 0{,}1 + 1{,}2 + 3{,}6 + 3{,}2 = 8{,}1$$\n\nSå variansen: $\\text{Var}(X) = 8{,}1 - 2{,}7^2 = 8{,}1 - 7{,}29 = 0{,}81$, og standardavviket $\\sigma = \\sqrt{0{,}81} = 0{,}9$. Et typisk utfall ligger altså i underkant av én enhet unna tyngdepunktet 2,7.\n\nDette tallparet — $\\mu$ og $\\sigma$ — er statistikkens universalspråk. Finansanalytikeren rapporterer forventet avkastning og volatilitet; meteorologen normaltemperatur og variasjon; kvalitetsingeniøren målsatt verdi og toleranse. Når du i de neste kapitlene møter binomisk fordeling og normalfordelingen, er det nettopp $\\mu$ og $\\sigma$ som beskriver dem."
+    },
+    {
+      "id": "s1-6-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på varians og standardavvik:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-1-n-quiz3-q0",
+            "task": "Hva er den alternative beregningsformelen for varians?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\text{Var}(X) = E(X^2) - [E(X)]^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\text{Var}(X) = [E(X)]^2 - E(X^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\text{Var}(X) = E(X) - \\mu$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\text{Var}(X) = \\sqrt{E(X^2)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{Var}(X) = E(X^2) - [E(X)]^2$ — forventningen av kvadratet minus kvadratet av forventningen. Rekkefølgen er avgjørende."
+          },
+          {
+            "id": "s1-6-1-n-quiz3-q1",
+            "task": "$E(X) = 3$ og $E(X^2) = 13$. Hva er standardavviket?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{13}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{Var}(X) = 13 - 3^2 = 4$, så $\\sigma = \\sqrt{4} = 2$."
+          },
+          {
+            "id": "s1-6-1-n-quiz3-q2",
+            "task": "Hvorfor foretrekker vi ofte standardavviket fremfor variansen når vi tolker resultater?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Standardavviket er alltid større",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Variansen kan være negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Standardavviket har samme enhet som variabelen selv",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Standardavviket er lettere å regne ut",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variansen har kvadrert enhet (f.eks. kr²); standardavviket $\\sigma = \\sqrt{\\text{Var}(X)}$ er i samme enhet som $X$ og kan tolkes direkte som typisk avvik fra $\\mu$."
+          },
+          {
+            "id": "s1-6-1-n-quiz3-q3",
+            "task": "To spill har samme forventede gevinst, men spill A har $\\sigma = 2$ kr og spill B har $\\sigma = 150$ kr. Hva er riktig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Spill B gir høyere gevinst i det lange løp",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spill A er feilkonstruert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Spillene er like i enhver forstand",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Spill A gir jevne utfall nær gjennomsnittet, spill B svinger mye mer",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Lik $\\mu$, ulik $\\sigma$: standardavviket skiller det forutsigbare spillet fra gamblingpreget — samme tyngdepunkt, helt ulik spredning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: tilfeldighetens regnskap\n\nTestpanelet hos spillselskapet hadde rett, og nå kan vi tallfeste hvorfor: summen av to terninger har en pyramideformet fordeling der $P(X=7) = \\frac{6}{36}$ er størst, med tyngdepunkt $E(X) = 7$. Underveis bygde vi det komplette verktøysettet for diskrete tilfeldige størrelser.\n\nEn **stokastisk variabel** tilordner hvert utfall en tallverdi, og er **diskret** når verdiene kan telles. **Sannsynlighetsfordelingen** er den fullstendige beskrivelsen — en tabell over verdier og sannsynligheter der hvert tall ligger mellom 0 og 1 og summen er nøyaktig 1. Spesialtilfellet der alle verdier er like sannsynlige, kalles **uniform fordeling**, slik som én rettferdig terning.\n\n**Forventningsverdien** $E(X) = \\mu = \\sum x_i p_i$ er fordelingens tyngdepunkt: gjennomsnittet over mange forsøk, men ikke nødvendigvis en mulig enkeltverdi. **Variansen** $\\text{Var}(X) = \\sigma^2$ måler spredningen som forventet kvadratavvik fra $\\mu$, raskest beregnet med $E(X^2) - [E(X)]^2$, og **standardavviket** $\\sigma$ oversetter spredningen tilbake til variabelens egen enhet — lite $\\sigma$ betyr utfall tett rundt tyngdepunktet, stort $\\sigma$ betyr store svingninger.\n\nParet $(\\mu, \\sigma)$ er sammendraget enhver fordeling kan presenteres med, fra avkastning og risiko i finans til måleverdier og toleranser i industrien. Og det er nøyaklig dette paret som skal bære de neste kapitlene, der vi gir de viktigste fordelingene i samfunnsfaglig statistikk navn og formler: den binomiske fordelingen og normalfordelingen."
+    }
+  ],
+  "exercises": []
+}

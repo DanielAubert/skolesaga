@@ -1,1 +1,342 @@
-{"id":"9-11-2-narrativ","courseId":"9","chapterNumber":"11.2","title":"Simulering av tilfeldige forsøk","subtitle":"Narrativ versjon","description":"Ei forteljande reise inn i simuleringa si verd der vi lèt datamaskinen kaste terningar, snu myntar og utforske sannsyn -- med overraskande resultat som bursdagsparadokset og Monty Hall-problemet.","estimatedMinutes":35,"competenceGoals":["bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å utforske sannsyn"],"linkedChapterId":"9-11-2","content":[{"id":"9-11-2-n-intro","type":"text","content":"## La datamaskinen kaste terningen\n\nFørestill deg at du vil finne ut kor sannsynleg det er a sla to seksarar med to terningar. Du kan sjølvsagt setje deg ned og rekne det ut teoretisk -- men du kan og la datamaskinen gjere forsøket for deg. Ikkje berre ein gong, men **hundre tusen gonger**.\n\nDenne metoden vert kalla **simulering**, og ho er eit av dei kraftigaste verktøya i moderne matematikk og vitskap. Vermeldingar, medisinsk forsking, økonomiske prognosar -- alt bruker simulering. Og det beste er at det er overraskande enkelt a kome i gang med Python."},{"id":"9-11-2-n-section1","type":"text","content":"## random-modulen -- tilfeldigheita sitt verktøy\n\nFor a simulere tilfeldige forsøk treng vi tilfeldige tal. Python har ein innebygd modul for dette som heiter `random`:\n\n```python\nimport random\n\n# Simuler et terningkast\nterning = random.randint(1, 6)\nprint(f\"Du slo {terning}\")\n```\n\n`random.randint(1, 6)` gjev eit tilfeldig heiltal mellom 1 og 6 -- akkurat som ein ekte terning. Kvar gong du køyrer programmet, får du (sannsynlegvis) eit anna tal.\n\nNo kan vi simulere mange kast og **telje** kor ofte ei bestemt hending inntreffer:\n\n```python\nimport random\n\nantall_kast = 10000\nantall_seksere = 0\n\nfor i in range(antall_kast):\n    kast = random.randint(1, 6)\n    if kast == 6:\n        antall_seksere += 1\n\nsimulert = antall_seksere / antall_kast\nprint(f\"Simulert P(sekser) = {simulert:.4f}\")\nprint(f\"Teoretisk P(sekser) = {1/6:.4f}\")\n```\n\nDet **simulerte sannsynet** er talet på gunstige utfall delt pa totalt tal forsøk:\n\n$$P(A) \\approx \\frac{k}{n}$$\n\nMed 10 000 kast får vi typisk noko nært $\\frac{1}{6} \\approx 0{,}1667$, men ikkje eksakt likt. Og det er heilt normalt -- simulering gjev eit **estimat**, ikkje eit eksakt svar."},{"id":"9-11-2-n-quiz1","type":"exercise","exercise":{"id":"9-11-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv pa simulering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-11-2-n-quiz1-q0","task":"Kva gjer `random.randint(1, 6)` i Python?","options":[{"id":"a","text":"Gjev alltid talet 6","isCorrect":false},{"id":"b","text":"Gjev eit tilfeldig desimaltal mellom 1 og 6","isCorrect":false},{"id":"c","text":"Gjev eit tilfeldig heiltal frå 1 til 6 (inkludert begge)","isCorrect":true},{"id":"d","text":"Gjev eit tilfeldig heiltal frå 1 til 5","isCorrect":false}],"solution":"`random.randint(1, 6)` gjev eit tilfeldig heiltal der både 1 og 6 er moglege verdiar -- akkurat som ein vanleg terning."},{"id":"9-11-2-n-quiz1-q1","task":"Du simulerer 10 000 terningkast og får 1 653 seksarar. Kva er det simulerte sannsynet for seksar?","options":[{"id":"a","text":"$0{,}1653$","isCorrect":true},{"id":"b","text":"$1{,}653$","isCorrect":false},{"id":"c","text":"$0{,}01653$","isCorrect":false},{"id":"d","text":"$16{,}53$","isCorrect":false}],"solution":"Det simulerte sannsynet er $\\frac{k}{n} = \\frac{1653}{10\\,000} = 0{,}1653$. Dette er nært den teoretiske verdien $\\frac{1}{6} \\approx 0{,}1667$."}]}},{"id":"9-11-2-n-section2","type":"text","content":"## Lova om store tal -- jo fleire, jo betre\n\nHer er eit viktig poeng: med berre 10 kast kan du fa heilt ville resultat. Kanskje 0 seksarar, kanskje 4. Men med 100 000 kast vil det simulerte sannsynet nesten alltid liggje veldig nært det teoretiske.\n\nDette vert kalla **lova om store tal**: nar du gjentek eit tilfeldig forsøk mange nok gonger, vil den relative frekvensen nærme seg det teoretiske sannsynet.\n\n$$\\frac{k}{n} \\to P(A) \\quad \\text{når } n \\to \\infty$$\n\nVi kan demonstrere dette med myntkast:\n\n```python\nimport random\n\nfor antall_kast in [10, 100, 1000, 10000, 100000]:\n    mynt = 0\n    for i in range(antall_kast):\n        if random.randint(0, 1) == 1:\n            mynt += 1\n    print(f\"n = {antall_kast:>7}: P(mynt) = {mynt/antall_kast:.4f}\")\n```\n\nTypisk resultat:\n```\nn =      10: P(mynt) = 0.6000\nn =     100: P(mynt) = 0.4700\nn =    1000: P(mynt) = 0.5130\nn =   10000: P(mynt) = 0.4987\nn =  100000: P(mynt) = 0.5003\n```\n\nMed 10 kast svingar det mykje. Med 100 000 kast er vi nesten nøyaktig pa 0,5. Lova om store tal i aksjon!"},{"id":"9-11-2-n-quiz2","type":"exercise","exercise":{"id":"9-11-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv pa lova om store tal:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-11-2-n-quiz2-q0","task":"Kva seier lova om store tal?","options":[{"id":"a","text":"Store tal er alltid meir sannsynlege enn små tal","isCorrect":false},{"id":"b","text":"Med mange nok forsøk nærmar simulert sannsyn seg det teoretiske","isCorrect":true},{"id":"c","text":"Datamaskinar reknar alltid rett","isCorrect":false},{"id":"d","text":"Jo fleire forsøk du gjer, desto større vert tala","isCorrect":false}],"solution":"Lova om store tal seier at den relative frekvensen (simulert sannsyn) nærmar seg det teoretiske sannsynet nar talet på forsøk aukar."},{"id":"9-11-2-n-quiz2-q1","task":"Du kastar ein mynt 20 gonger og får 14 mynt. Er dette bevis for at mynten er urettferdig?","options":[{"id":"a","text":"Ja, 14 av 20 er langt frå 50 %","isCorrect":false},{"id":"b","text":"Nei, med så få kast er store avvik heilt normalt","isCorrect":true},{"id":"c","text":"Ja, sannsynet burde vore nøyaktig 10","isCorrect":false},{"id":"d","text":"Vi kan aldri vite om ein mynt er rettferdig","isCorrect":false}],"solution":"Med berre 20 kast er det heilt normalt a avvike mykje frå 50 %. Lova om store tal seier at vi treng mange forsøk for a fa pålitelege estimat. 14 av 20 er ikkje uvanleg for ein rettferdig mynt."}]}},{"id":"9-11-2-n-section3","type":"text","content":"## Samansette forsøk -- nar det vert spennande\n\nSimulering er spesielt nyttig for **samansette forsøk** der det er vanskeleg a rekne ut sannsynet teoretisk. La oss sjå pa eit klassisk døme: summen av to terningar.\n\n```python\nimport random\n\nantall_forsok = 100000\nantall_sju = 0\n\nfor i in range(antall_forsok):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_sju += 1\n\nprint(f\"P(sum = 7) = {antall_sju/antall_forsok:.4f}\")\n```\n\nResultatet vert omtrent $0{,}1667$, som stemmer med den teoretiske verdien $\\frac{6}{36} = \\frac{1}{6}$. Det finst nemleg 6 kombinasjonar som gjev summen 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$, av totalt $36$ moglege utfall.\n\nMen kva med verkeleg kompliserte problem? Ta **bursdagsparadokset**: I ein klasse med 23 elevar, kva er sannsynet for at minst to deler bursdag? Svaret er over 50 % -- noko dei fleste finn heilt utruleg. Med simulering kan vi verifisere dette:\n\n```python\nimport random\n\ntreff = 0\nfor i in range(100000):\n    bursdager = [random.randint(1, 365) for _ in range(23)]\n    if len(bursdager) != len(set(bursdager)):\n        treff += 1\n\nprint(f\"P(felles bursdag) = {treff/100000:.4f}\")\n```\n\nResultatet? Omtrent $0{,}507$ -- altså rett over 50 %. Simuleringa stadfestar det overraskande teoretiske svaret!"},{"id":"9-11-2-n-quiz3","type":"exercise","exercise":{"id":"9-11-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv pa samansette forsøk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-11-2-n-quiz3-q0","task":"Kor mange moglege utfall er det nar du kastar to terningar?","options":[{"id":"a","text":"$12$","isCorrect":false},{"id":"b","text":"$36$","isCorrect":true},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$11$","isCorrect":false}],"solution":"Første terning har 6 moglege utfall, andre terning har 6 moglege utfall. Totalt: $6 \\times 6 = 36$ kombinasjonar."},{"id":"9-11-2-n-quiz3-q1","task":"I bursdagsparadokset: Med 23 personar i eit rom, er sannsynet for at minst to deler bursdag...","options":[{"id":"a","text":"Under 10 %","isCorrect":false},{"id":"b","text":"Omtrent 23 %","isCorrect":false},{"id":"c","text":"Litt over 50 %","isCorrect":true},{"id":"d","text":"Nær 100 %","isCorrect":false}],"solution":"Overraskande nok er sannsynet litt over 50 % (ca. 50,7 %). Dei fleste trur det er mykje lågare, og det er nettopp det som gjer det til eit «paradoks»."},{"id":"9-11-2-n-quiz3-q2","task":"Kva gjer `set()` nar han vert brukt pa ei liste i Python?","options":[{"id":"a","text":"Sorterer lista","isCorrect":false},{"id":"b","text":"Fjernar duplikat (behaldar berre unike element)","isCorrect":true},{"id":"c","text":"Tel talet på element","isCorrect":false},{"id":"d","text":"Summerer alle elementa","isCorrect":false}],"solution":"`set()` fjernar duplikat. Viss `len(set(liste)) < len(liste)`, tyder det at lista hadde minst to like element. Det er slik vi sjekkar for felles bursdagar."}]}},{"id":"9-11-2-n-summary","type":"text","content":"## Oppsummering\n\nVi har utforska korleis Python kan brukast til a simulere tilfeldige forsøk:\n\n- **random-modulen** gjev oss tilfeldige tal (`random.randint(a, b)`)\n- Ei **simulering** gjentek eit forsøk mange gonger og estimerer sannsyn\n- **Simulert sannsyn** $\\approx \\frac{\\text{gunstige utfall}}{\\text{totalt tal forsøk}}$\n- **Lova om store tal** garanterer at estimatet vert betre jo fleire forsøk vi gjer\n- **Samansette forsøk** (to terningar, kuletrekking, bursdagsparadokset) er enkle a simulere men kan vere vanskelege a rekne ut teoretisk\n\nSimulering er eit uunnverleg verktøy i moderne vitskap. Vermeldingar, medisinsk forsking og finansanalyse -- alt bruker simulering for a handtere usikkerheit. Du har no verktøya til a gjere det same!"}],"exercises":[],"_meta":{"sourceHash":"3f0bd22182e933a9","translatedAt":"2026-06-17T02:00:06.174Z","model":"claude-code-agent","strings":49,"tm":{"2648fe4478636836":"Simulering av tilfeldige forsøk","b195b06d1ed59702":"Narrativ versjon","1046672ddfa9c4a4":"Ei forteljande reise inn i simuleringa si verd der vi lèt datamaskinen kaste terningar, snu myntar og utforske sannsyn -- med overraskande resultat som bursdagsparadokset og Monty Hall-problemet.","dc9dc9ea349a5339":"bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å utforske sannsyn","baaee3b87dd37fe6":"## La datamaskinen kaste terningen\n\nFørestill deg at du vil finne ut kor sannsynleg det er a sla to seksarar med to terningar. Du kan sjølvsagt setje deg ned og rekne det ut teoretisk -- men du kan og la datamaskinen gjere forsøket for deg. Ikkje berre ein gong, men **hundre tusen gonger**.\n\nDenne metoden vert kalla **simulering**, og ho er eit av dei kraftigaste verktøya i moderne matematikk og vitskap. Vermeldingar, medisinsk forsking, økonomiske prognosar -- alt bruker simulering. Og det beste er at det er overraskande enkelt a kome i gang med Python.","893eb3972747732b":"## random-modulen -- tilfeldigheita sitt verktøy\n\nFor a simulere tilfeldige forsøk treng vi tilfeldige tal. Python har ein innebygd modul for dette som heiter `random`:\n\n```python\nimport random\n\n# Simuler et terningkast\nterning = random.randint(1, 6)\nprint(f\"Du slo {terning}\")\n```\n\n`random.randint(1, 6)` gjev eit tilfeldig heiltal mellom 1 og 6 -- akkurat som ein ekte terning. Kvar gong du køyrer programmet, får du (sannsynlegvis) eit anna tal.\n\nNo kan vi simulere mange kast og **telje** kor ofte ei bestemt hending inntreffer:\n\n```python\nimport random\n\nantall_kast = 10000\nantall_seksere = 0\n\nfor i in range(antall_kast):\n    kast = random.randint(1, 6)\n    if kast == 6:\n        antall_seksere += 1\n\nsimulert = antall_seksere / antall_kast\nprint(f\"Simulert P(sekser) = {simulert:.4f}\")\nprint(f\"Teoretisk P(sekser) = {1/6:.4f}\")\n```\n\nDet **simulerte sannsynet** er talet på gunstige utfall delt pa totalt tal forsøk:\n\n$$P(A) \\approx \\frac{k}{n}$$\n\nMed 10 000 kast får vi typisk noko nært $\\frac{1}{6} \\approx 0{,}1667$, men ikkje eksakt likt. Og det er heilt normalt -- simulering gjev eit **estimat**, ikkje eit eksakt svar.","29efffa923cdb42a":"Test deg sjølv pa simulering:","4097889236a2af26":"placeholder","59c2131e31ba55db":"Kva gjer `random.randint(1, 6)` i Python?","d27b50ae9d3a7773":"Gjev alltid talet 6","77669d0360d15d4f":"Gjev eit tilfeldig desimaltal mellom 1 og 6","c40c52a6eaaf351a":"Gjev eit tilfeldig heiltal frå 1 til 6 (inkludert begge)","6c0e229ec644e548":"Gjev eit tilfeldig heiltal frå 1 til 5","4e5fb547a55e4133":"`random.randint(1, 6)` gjev eit tilfeldig heiltal der både 1 og 6 er moglege verdiar -- akkurat som ein vanleg terning.","31bd1862c12a5329":"Du simulerer 10 000 terningkast og får 1 653 seksarar. Kva er det simulerte sannsynet for seksar?","f45fbad2dabe2646":"Det simulerte sannsynet er $\\frac{k}{n} = \\frac{1653}{10\\,000} = 0{,}1653$. Dette er nært den teoretiske verdien $\\frac{1}{6} \\approx 0{,}1667$.","953a2a19fd7c0693":"## Lova om store tal -- jo fleire, jo betre\n\nHer er eit viktig poeng: med berre 10 kast kan du fa heilt ville resultat. Kanskje 0 seksarar, kanskje 4. Men med 100 000 kast vil det simulerte sannsynet nesten alltid liggje veldig nært det teoretiske.\n\nDette vert kalla **lova om store tal**: nar du gjentek eit tilfeldig forsøk mange nok gonger, vil den relative frekvensen nærme seg det teoretiske sannsynet.\n\n$$\\frac{k}{n} \\to P(A) \\quad \\text{når } n \\to \\infty$$\n\nVi kan demonstrere dette med myntkast:\n\n```python\nimport random\n\nfor antall_kast in [10, 100, 1000, 10000, 100000]:\n    mynt = 0\n    for i in range(antall_kast):\n        if random.randint(0, 1) == 1:\n            mynt += 1\n    print(f\"n = {antall_kast:>7}: P(mynt) = {mynt/antall_kast:.4f}\")\n```\n\nTypisk resultat:\n```\nn =      10: P(mynt) = 0.6000\nn =     100: P(mynt) = 0.4700\nn =    1000: P(mynt) = 0.5130\nn =   10000: P(mynt) = 0.4987\nn =  100000: P(mynt) = 0.5003\n```\n\nMed 10 kast svingar det mykje. Med 100 000 kast er vi nesten nøyaktig pa 0,5. Lova om store tal i aksjon!","acff71737a5bc9a5":"Test deg sjølv pa lova om store tal:","aa01a3d59c1f194c":"Kva seier lova om store tal?","32f835553e102004":"Store tal er alltid meir sannsynlege enn små tal","facbf4eca5277977":"Med mange nok forsøk nærmar simulert sannsyn seg det teoretiske","d858ac16cdc004f1":"Datamaskinar reknar alltid rett","07c95788c9162bb8":"Jo fleire forsøk du gjer, desto større vert tala","fa5e9485ee121fe8":"Lova om store tal seier at den relative frekvensen (simulert sannsyn) nærmar seg det teoretiske sannsynet nar talet på forsøk aukar.","f89f840cbfe94aa7":"Du kastar ein mynt 20 gonger og får 14 mynt. Er dette bevis for at mynten er urettferdig?","3a8dd70de9b10b30":"Ja, 14 av 20 er langt frå 50 %","1bf902f591fb4365":"Nei, med så få kast er store avvik heilt normalt","c2cf0f1955e1b571":"Ja, sannsynet burde vore nøyaktig 10","359c1b453a44c7b6":"Vi kan aldri vite om ein mynt er rettferdig","d72dacabcaed8837":"Med berre 20 kast er det heilt normalt a avvike mykje frå 50 %. Lova om store tal seier at vi treng mange forsøk for a fa pålitelege estimat. 14 av 20 er ikkje uvanleg for ein rettferdig mynt.","ff0d6548c9ef2890":"## Samansette forsøk -- nar det vert spennande\n\nSimulering er spesielt nyttig for **samansette forsøk** der det er vanskeleg a rekne ut sannsynet teoretisk. La oss sjå pa eit klassisk døme: summen av to terningar.\n\n```python\nimport random\n\nantall_forsok = 100000\nantall_sju = 0\n\nfor i in range(antall_forsok):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_sju += 1\n\nprint(f\"P(sum = 7) = {antall_sju/antall_forsok:.4f}\")\n```\n\nResultatet vert omtrent $0{,}1667$, som stemmer med den teoretiske verdien $\\frac{6}{36} = \\frac{1}{6}$. Det finst nemleg 6 kombinasjonar som gjev summen 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$, av totalt $36$ moglege utfall.\n\nMen kva med verkeleg kompliserte problem? Ta **bursdagsparadokset**: I ein klasse med 23 elevar, kva er sannsynet for at minst to deler bursdag? Svaret er over 50 % -- noko dei fleste finn heilt utruleg. Med simulering kan vi verifisere dette:\n\n```python\nimport random\n\ntreff = 0\nfor i in range(100000):\n    bursdager = [random.randint(1, 365) for _ in range(23)]\n    if len(bursdager) != len(set(bursdager)):\n        treff += 1\n\nprint(f\"P(felles bursdag) = {treff/100000:.4f}\")\n```\n\nResultatet? Omtrent $0{,}507$ -- altså rett over 50 %. Simuleringa stadfestar det overraskande teoretiske svaret!","e74691f1702f3225":"Test deg sjølv pa samansette forsøk:","d27186e4956edc13":"Kor mange moglege utfall er det nar du kastar to terningar?","e113d42cd6fb0a72":"Første terning har 6 moglege utfall, andre terning har 6 moglege utfall. Totalt: $6 \\times 6 = 36$ kombinasjonar.","4c8eeea5715a1582":"I bursdagsparadokset: Med 23 personar i eit rom, er sannsynet for at minst to deler bursdag...","9b811e4c44ebe58a":"Under 10 %","fbb7487926c01842":"Omtrent 23 %","94bd5114ef4ea169":"Litt over 50 %","f39b01c6554f12f9":"Nær 100 %","1b67c29d296d80f9":"Overraskande nok er sannsynet litt over 50 % (ca. 50,7 %). Dei fleste trur det er mykje lågare, og det er nettopp det som gjer det til eit «paradoks».","ab7bf52d424a0d95":"Kva gjer `set()` nar han vert brukt pa ei liste i Python?","9cab6dd5eb6409eb":"Sorterer lista","cc97d58a506ba03c":"Fjernar duplikat (behaldar berre unike element)","716406e3f54bbe62":"Tel talet på element","90309bf17713ed43":"Summerer alle elementa","3232f0b2f799762a":"`set()` fjernar duplikat. Viss `len(set(liste)) < len(liste)`, tyder det at lista hadde minst to like element. Det er slik vi sjekkar for felles bursdagar.","ac09a710127c0397":"## Oppsummering\n\nVi har utforska korleis Python kan brukast til a simulere tilfeldige forsøk:\n\n- **random-modulen** gjev oss tilfeldige tal (`random.randint(a, b)`)\n- Ei **simulering** gjentek eit forsøk mange gonger og estimerer sannsyn\n- **Simulert sannsyn** $\\approx \\frac{\\text{gunstige utfall}}{\\text{totalt tal forsøk}}$\n- **Lova om store tal** garanterer at estimatet vert betre jo fleire forsøk vi gjer\n- **Samansette forsøk** (to terningar, kuletrekking, bursdagsparadokset) er enkle a simulere men kan vere vanskelege a rekne ut teoretisk\n\nSimulering er eit uunnverleg verktøy i moderne vitskap. Vermeldingar, medisinsk forsking og finansanalyse -- alt bruker simulering for a handtere usikkerheit. Du har no verktøya til a gjere det same!"}}}
+{
+  "id": "9-11-2-narrativ",
+  "courseId": "9",
+  "chapterNumber": "11.2",
+  "title": "Simulering av tilfeldige forsøk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljande reise inn i simuleringa si verd der vi lèt datamaskinen kaste terningar, snu myntar og utforske sannsyn -- med overraskande resultat som bursdagsparadokset og Monty Hall-problemet.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å utforske sannsyn"
+  ],
+  "linkedChapterId": "9-11-2",
+  "content": [
+    {
+      "id": "9-11-2-n-intro",
+      "type": "text",
+      "content": "## La datamaskinen kaste terningen\n\nFørestill deg at du vil finne ut kor sannsynleg det er a sla to seksarar med to terningar. Du kan sjølvsagt setje deg ned og rekne det ut teoretisk -- men du kan og la datamaskinen gjere forsøket for deg. Ikkje berre ein gong, men **hundre tusen gonger**.\n\nDenne metoden vert kalla **simulering**, og ho er eit av dei kraftigaste verktøya i moderne matematikk og vitskap. Vermeldingar, medisinsk forsking, økonomiske prognosar -- alt bruker simulering. Og det beste er at det er overraskande enkelt a kome i gang med Python."
+    },
+    {
+      "id": "9-11-2-n-section1",
+      "type": "text",
+      "content": "## random-modulen -- tilfeldigheita sitt verktøy\n\nFor a simulere tilfeldige forsøk treng vi tilfeldige tal. Python har ein innebygd modul for dette som heiter `random`:\n\n```python\nimport random\n\n# Simuler et terningkast\nterning = random.randint(1, 6)\nprint(f\"Du slo {terning}\")\n```\n\n`random.randint(1, 6)` gjev eit tilfeldig heiltal mellom 1 og 6 -- akkurat som ein ekte terning. Kvar gong du køyrer programmet, får du (sannsynlegvis) eit anna tal.\n\nNo kan vi simulere mange kast og **telje** kor ofte ei bestemt hending inntreffer:\n\n```python\nimport random\n\nantall_kast = 10000\nantall_seksere = 0\n\nfor i in range(antall_kast):\n    kast = random.randint(1, 6)\n    if kast == 6:\n        antall_seksere += 1\n\nsimulert = antall_seksere / antall_kast\nprint(f\"Simulert P(sekser) = {simulert:.4f}\")\nprint(f\"Teoretisk P(sekser) = {1/6:.4f}\")\n```\n\nDet **simulerte sannsynet** er talet på gunstige utfall delt pa totalt tal forsøk:\n\n$$P(A) \\approx \\frac{k}{n}$$\n\nMed 10 000 kast får vi typisk noko nært $\\frac{1}{6} \\approx 0{,}1667$, men ikkje eksakt likt. Og det er heilt normalt -- simulering gjev eit **estimat**, ikkje eit eksakt svar."
+    },
+    {
+      "id": "9-11-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-11-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv pa simulering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-11-2-n-quiz1-q0",
+            "task": "Kva gjer `random.randint(1, 6)` i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjev alltid talet 6",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjev eit tilfeldig desimaltal mellom 1 og 6",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gjev eit tilfeldig heiltal frå 1 til 5",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjev eit tilfeldig heiltal frå 1 til 6 (inkludert begge)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "`random.randint(1, 6)` gjev eit tilfeldig heiltal der både 1 og 6 er moglege verdiar -- akkurat som ein vanleg terning."
+          },
+          {
+            "id": "9-11-2-n-quiz1-q1",
+            "task": "Du simulerer 10 000 terningkast og får 1 653 seksarar. Kva er det simulerte sannsynet for seksar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}1653$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1{,}653$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}01653$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$16{,}53$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det simulerte sannsynet er $\\frac{k}{n} = \\frac{1653}{10\\,000} = 0{,}1653$. Dette er nært den teoretiske verdien $\\frac{1}{6} \\approx 0{,}1667$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-11-2-n-section2",
+      "type": "text",
+      "content": "## Lova om store tal -- jo fleire, jo betre\n\nHer er eit viktig poeng: med berre 10 kast kan du fa heilt ville resultat. Kanskje 0 seksarar, kanskje 4. Men med 100 000 kast vil det simulerte sannsynet nesten alltid liggje veldig nært det teoretiske.\n\nDette vert kalla **lova om store tal**: nar du gjentek eit tilfeldig forsøk mange nok gonger, vil den relative frekvensen nærme seg det teoretiske sannsynet.\n\n$$\\frac{k}{n} \\to P(A) \\quad \\text{når } n \\to \\infty$$\n\nVi kan demonstrere dette med myntkast:\n\n```python\nimport random\n\nfor antall_kast in [10, 100, 1000, 10000, 100000]:\n    mynt = 0\n    for i in range(antall_kast):\n        if random.randint(0, 1) == 1:\n            mynt += 1\n    print(f\"n = {antall_kast:>7}: P(mynt) = {mynt/antall_kast:.4f}\")\n```\n\nTypisk resultat:\n```\nn =      10: P(mynt) = 0.6000\nn =     100: P(mynt) = 0.4700\nn =    1000: P(mynt) = 0.5130\nn =   10000: P(mynt) = 0.4987\nn =  100000: P(mynt) = 0.5003\n```\n\nMed 10 kast svingar det mykje. Med 100 000 kast er vi nesten nøyaktig pa 0,5. Lova om store tal i aksjon!"
+    },
+    {
+      "id": "9-11-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-11-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv pa lova om store tal:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-11-2-n-quiz2-q0",
+            "task": "Kva seier lova om store tal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Store tal er alltid meir sannsynlege enn små tal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Med mange nok forsøk nærmar simulert sannsyn seg det teoretiske",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Datamaskinar reknar alltid rett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Jo fleire forsøk du gjer, desto større vert tala",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lova om store tal seier at den relative frekvensen (simulert sannsyn) nærmar seg det teoretiske sannsynet nar talet på forsøk aukar."
+          },
+          {
+            "id": "9-11-2-n-quiz2-q1",
+            "task": "Du kastar ein mynt 20 gonger og får 14 mynt. Er dette bevis for at mynten er urettferdig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, 14 av 20 er langt frå 50 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ja, sannsynet burde vore nøyaktig 10",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nei, med så få kast er store avvik heilt normalt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Vi kan aldri vite om ein mynt er rettferdig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med berre 20 kast er det heilt normalt a avvike mykje frå 50 %. Lova om store tal seier at vi treng mange forsøk for a fa pålitelege estimat. 14 av 20 er ikkje uvanleg for ein rettferdig mynt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-11-2-n-section3",
+      "type": "text",
+      "content": "## Samansette forsøk -- nar det vert spennande\n\nSimulering er spesielt nyttig for **samansette forsøk** der det er vanskeleg a rekne ut sannsynet teoretisk. La oss sjå pa eit klassisk døme: summen av to terningar.\n\n```python\nimport random\n\nantall_forsok = 100000\nantall_sju = 0\n\nfor i in range(antall_forsok):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_sju += 1\n\nprint(f\"P(sum = 7) = {antall_sju/antall_forsok:.4f}\")\n```\n\nResultatet vert omtrent $0{,}1667$, som stemmer med den teoretiske verdien $\\frac{6}{36} = \\frac{1}{6}$. Det finst nemleg 6 kombinasjonar som gjev summen 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$, av totalt $36$ moglege utfall.\n\nMen kva med verkeleg kompliserte problem? Ta **bursdagsparadokset**: I ein klasse med 23 elevar, kva er sannsynet for at minst to deler bursdag? Svaret er over 50 % -- noko dei fleste finn heilt utruleg. Med simulering kan vi verifisere dette:\n\n```python\nimport random\n\ntreff = 0\nfor i in range(100000):\n    bursdager = [random.randint(1, 365) for _ in range(23)]\n    if len(bursdager) != len(set(bursdager)):\n        treff += 1\n\nprint(f\"P(felles bursdag) = {treff/100000:.4f}\")\n```\n\nResultatet? Omtrent $0{,}507$ -- altså rett over 50 %. Simuleringa stadfestar det overraskande teoretiske svaret!"
+    },
+    {
+      "id": "9-11-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-11-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv pa samansette forsøk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-11-2-n-quiz3-q0",
+            "task": "Kor mange moglege utfall er det nar du kastar to terningar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$11$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$36$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Første terning har 6 moglege utfall, andre terning har 6 moglege utfall. Totalt: $6 \\times 6 = 36$ kombinasjonar."
+          },
+          {
+            "id": "9-11-2-n-quiz3-q1",
+            "task": "I bursdagsparadokset: Med 23 personar i eit rom, er sannsynet for at minst to deler bursdag...",
+            "options": [
+              {
+                "id": "a",
+                "text": "Under 10 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Omtrent 23 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Litt over 50 %",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Nær 100 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overraskande nok er sannsynet litt over 50 % (ca. 50,7 %). Dei fleste trur det er mykje lågare, og det er nettopp det som gjer det til eit «paradoks»."
+          },
+          {
+            "id": "9-11-2-n-quiz3-q2",
+            "task": "Kva gjer `set()` nar han vert brukt pa ei liste i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fjernar duplikat (behaldar berre unike element)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sorterer lista",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tel talet på element",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Summerer alle elementa",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`set()` fjernar duplikat. Viss `len(set(liste)) < len(liste)`, tyder det at lista hadde minst to like element. Det er slik vi sjekkar for felles bursdagar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-11-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har utforska korleis Python kan brukast til a simulere tilfeldige forsøk:\n\n- **random-modulen** gjev oss tilfeldige tal (`random.randint(a, b)`)\n- Ei **simulering** gjentek eit forsøk mange gonger og estimerer sannsyn\n- **Simulert sannsyn** $\\approx \\frac{\\text{gunstige utfall}}{\\text{totalt tal forsøk}}$\n- **Lova om store tal** garanterer at estimatet vert betre jo fleire forsøk vi gjer\n- **Samansette forsøk** (to terningar, kuletrekking, bursdagsparadokset) er enkle a simulere men kan vere vanskelege a rekne ut teoretisk\n\nSimulering er eit uunnverleg verktøy i moderne vitskap. Vermeldingar, medisinsk forsking og finansanalyse -- alt bruker simulering for a handtere usikkerheit. Du har no verktøya til a gjere det same!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3f0bd22182e933a9",
+    "translatedAt": "2026-06-17T02:00:06.174Z",
+    "model": "claude-code-agent",
+    "strings": 49,
+    "tm": {
+      "2648fe4478636836": "Simulering av tilfeldige forsøk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1046672ddfa9c4a4": "Ei forteljande reise inn i simuleringa si verd der vi lèt datamaskinen kaste terningar, snu myntar og utforske sannsyn -- med overraskande resultat som bursdagsparadokset og Monty Hall-problemet.",
+      "dc9dc9ea349a5339": "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å utforske sannsyn",
+      "baaee3b87dd37fe6": "## La datamaskinen kaste terningen\n\nFørestill deg at du vil finne ut kor sannsynleg det er a sla to seksarar med to terningar. Du kan sjølvsagt setje deg ned og rekne det ut teoretisk -- men du kan og la datamaskinen gjere forsøket for deg. Ikkje berre ein gong, men **hundre tusen gonger**.\n\nDenne metoden vert kalla **simulering**, og ho er eit av dei kraftigaste verktøya i moderne matematikk og vitskap. Vermeldingar, medisinsk forsking, økonomiske prognosar -- alt bruker simulering. Og det beste er at det er overraskande enkelt a kome i gang med Python.",
+      "893eb3972747732b": "## random-modulen -- tilfeldigheita sitt verktøy\n\nFor a simulere tilfeldige forsøk treng vi tilfeldige tal. Python har ein innebygd modul for dette som heiter `random`:\n\n```python\nimport random\n\n# Simuler et terningkast\nterning = random.randint(1, 6)\nprint(f\"Du slo {terning}\")\n```\n\n`random.randint(1, 6)` gjev eit tilfeldig heiltal mellom 1 og 6 -- akkurat som ein ekte terning. Kvar gong du køyrer programmet, får du (sannsynlegvis) eit anna tal.\n\nNo kan vi simulere mange kast og **telje** kor ofte ei bestemt hending inntreffer:\n\n```python\nimport random\n\nantall_kast = 10000\nantall_seksere = 0\n\nfor i in range(antall_kast):\n    kast = random.randint(1, 6)\n    if kast == 6:\n        antall_seksere += 1\n\nsimulert = antall_seksere / antall_kast\nprint(f\"Simulert P(sekser) = {simulert:.4f}\")\nprint(f\"Teoretisk P(sekser) = {1/6:.4f}\")\n```\n\nDet **simulerte sannsynet** er talet på gunstige utfall delt pa totalt tal forsøk:\n\n$$P(A) \\approx \\frac{k}{n}$$\n\nMed 10 000 kast får vi typisk noko nært $\\frac{1}{6} \\approx 0{,}1667$, men ikkje eksakt likt. Og det er heilt normalt -- simulering gjev eit **estimat**, ikkje eit eksakt svar.",
+      "29efffa923cdb42a": "Test deg sjølv pa simulering:",
+      "4097889236a2af26": "placeholder",
+      "59c2131e31ba55db": "Kva gjer `random.randint(1, 6)` i Python?",
+      "d27b50ae9d3a7773": "Gjev alltid talet 6",
+      "77669d0360d15d4f": "Gjev eit tilfeldig desimaltal mellom 1 og 6",
+      "c40c52a6eaaf351a": "Gjev eit tilfeldig heiltal frå 1 til 6 (inkludert begge)",
+      "6c0e229ec644e548": "Gjev eit tilfeldig heiltal frå 1 til 5",
+      "4e5fb547a55e4133": "`random.randint(1, 6)` gjev eit tilfeldig heiltal der både 1 og 6 er moglege verdiar -- akkurat som ein vanleg terning.",
+      "31bd1862c12a5329": "Du simulerer 10 000 terningkast og får 1 653 seksarar. Kva er det simulerte sannsynet for seksar?",
+      "f45fbad2dabe2646": "Det simulerte sannsynet er $\\frac{k}{n} = \\frac{1653}{10\\,000} = 0{,}1653$. Dette er nært den teoretiske verdien $\\frac{1}{6} \\approx 0{,}1667$.",
+      "953a2a19fd7c0693": "## Lova om store tal -- jo fleire, jo betre\n\nHer er eit viktig poeng: med berre 10 kast kan du fa heilt ville resultat. Kanskje 0 seksarar, kanskje 4. Men med 100 000 kast vil det simulerte sannsynet nesten alltid liggje veldig nært det teoretiske.\n\nDette vert kalla **lova om store tal**: nar du gjentek eit tilfeldig forsøk mange nok gonger, vil den relative frekvensen nærme seg det teoretiske sannsynet.\n\n$$\\frac{k}{n} \\to P(A) \\quad \\text{når } n \\to \\infty$$\n\nVi kan demonstrere dette med myntkast:\n\n```python\nimport random\n\nfor antall_kast in [10, 100, 1000, 10000, 100000]:\n    mynt = 0\n    for i in range(antall_kast):\n        if random.randint(0, 1) == 1:\n            mynt += 1\n    print(f\"n = {antall_kast:>7}: P(mynt) = {mynt/antall_kast:.4f}\")\n```\n\nTypisk resultat:\n```\nn =      10: P(mynt) = 0.6000\nn =     100: P(mynt) = 0.4700\nn =    1000: P(mynt) = 0.5130\nn =   10000: P(mynt) = 0.4987\nn =  100000: P(mynt) = 0.5003\n```\n\nMed 10 kast svingar det mykje. Med 100 000 kast er vi nesten nøyaktig pa 0,5. Lova om store tal i aksjon!",
+      "acff71737a5bc9a5": "Test deg sjølv pa lova om store tal:",
+      "aa01a3d59c1f194c": "Kva seier lova om store tal?",
+      "32f835553e102004": "Store tal er alltid meir sannsynlege enn små tal",
+      "facbf4eca5277977": "Med mange nok forsøk nærmar simulert sannsyn seg det teoretiske",
+      "d858ac16cdc004f1": "Datamaskinar reknar alltid rett",
+      "07c95788c9162bb8": "Jo fleire forsøk du gjer, desto større vert tala",
+      "fa5e9485ee121fe8": "Lova om store tal seier at den relative frekvensen (simulert sannsyn) nærmar seg det teoretiske sannsynet nar talet på forsøk aukar.",
+      "f89f840cbfe94aa7": "Du kastar ein mynt 20 gonger og får 14 mynt. Er dette bevis for at mynten er urettferdig?",
+      "3a8dd70de9b10b30": "Ja, 14 av 20 er langt frå 50 %",
+      "1bf902f591fb4365": "Nei, med så få kast er store avvik heilt normalt",
+      "c2cf0f1955e1b571": "Ja, sannsynet burde vore nøyaktig 10",
+      "359c1b453a44c7b6": "Vi kan aldri vite om ein mynt er rettferdig",
+      "d72dacabcaed8837": "Med berre 20 kast er det heilt normalt a avvike mykje frå 50 %. Lova om store tal seier at vi treng mange forsøk for a fa pålitelege estimat. 14 av 20 er ikkje uvanleg for ein rettferdig mynt.",
+      "ff0d6548c9ef2890": "## Samansette forsøk -- nar det vert spennande\n\nSimulering er spesielt nyttig for **samansette forsøk** der det er vanskeleg a rekne ut sannsynet teoretisk. La oss sjå pa eit klassisk døme: summen av to terningar.\n\n```python\nimport random\n\nantall_forsok = 100000\nantall_sju = 0\n\nfor i in range(antall_forsok):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_sju += 1\n\nprint(f\"P(sum = 7) = {antall_sju/antall_forsok:.4f}\")\n```\n\nResultatet vert omtrent $0{,}1667$, som stemmer med den teoretiske verdien $\\frac{6}{36} = \\frac{1}{6}$. Det finst nemleg 6 kombinasjonar som gjev summen 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$, av totalt $36$ moglege utfall.\n\nMen kva med verkeleg kompliserte problem? Ta **bursdagsparadokset**: I ein klasse med 23 elevar, kva er sannsynet for at minst to deler bursdag? Svaret er over 50 % -- noko dei fleste finn heilt utruleg. Med simulering kan vi verifisere dette:\n\n```python\nimport random\n\ntreff = 0\nfor i in range(100000):\n    bursdager = [random.randint(1, 365) for _ in range(23)]\n    if len(bursdager) != len(set(bursdager)):\n        treff += 1\n\nprint(f\"P(felles bursdag) = {treff/100000:.4f}\")\n```\n\nResultatet? Omtrent $0{,}507$ -- altså rett over 50 %. Simuleringa stadfestar det overraskande teoretiske svaret!",
+      "e74691f1702f3225": "Test deg sjølv pa samansette forsøk:",
+      "d27186e4956edc13": "Kor mange moglege utfall er det nar du kastar to terningar?",
+      "e113d42cd6fb0a72": "Første terning har 6 moglege utfall, andre terning har 6 moglege utfall. Totalt: $6 \\times 6 = 36$ kombinasjonar.",
+      "4c8eeea5715a1582": "I bursdagsparadokset: Med 23 personar i eit rom, er sannsynet for at minst to deler bursdag...",
+      "9b811e4c44ebe58a": "Under 10 %",
+      "fbb7487926c01842": "Omtrent 23 %",
+      "94bd5114ef4ea169": "Litt over 50 %",
+      "f39b01c6554f12f9": "Nær 100 %",
+      "1b67c29d296d80f9": "Overraskande nok er sannsynet litt over 50 % (ca. 50,7 %). Dei fleste trur det er mykje lågare, og det er nettopp det som gjer det til eit «paradoks».",
+      "ab7bf52d424a0d95": "Kva gjer `set()` nar han vert brukt pa ei liste i Python?",
+      "9cab6dd5eb6409eb": "Sorterer lista",
+      "cc97d58a506ba03c": "Fjernar duplikat (behaldar berre unike element)",
+      "716406e3f54bbe62": "Tel talet på element",
+      "90309bf17713ed43": "Summerer alle elementa",
+      "3232f0b2f799762a": "`set()` fjernar duplikat. Viss `len(set(liste)) < len(liste)`, tyder det at lista hadde minst to like element. Det er slik vi sjekkar for felles bursdagar.",
+      "ac09a710127c0397": "## Oppsummering\n\nVi har utforska korleis Python kan brukast til a simulere tilfeldige forsøk:\n\n- **random-modulen** gjev oss tilfeldige tal (`random.randint(a, b)`)\n- Ei **simulering** gjentek eit forsøk mange gonger og estimerer sannsyn\n- **Simulert sannsyn** $\\approx \\frac{\\text{gunstige utfall}}{\\text{totalt tal forsøk}}$\n- **Lova om store tal** garanterer at estimatet vert betre jo fleire forsøk vi gjer\n- **Samansette forsøk** (to terningar, kuletrekking, bursdagsparadokset) er enkle a simulere men kan vere vanskelege a rekne ut teoretisk\n\nSimulering er eit uunnverleg verktøy i moderne vitskap. Vermeldingar, medisinsk forsking og finansanalyse -- alt bruker simulering for a handtere usikkerheit. Du har no verktøya til a gjere det same!"
+    }
+  }
+}

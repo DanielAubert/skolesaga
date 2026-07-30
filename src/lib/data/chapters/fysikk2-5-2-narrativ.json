@@ -1,1 +1,343 @@
-{"id":"fysikk2-5-2-narrativ","courseId":"fysikk2","chapterNumber":"5.2","title":"Generatorer og AC-strøm","subtitle":"Narrativ versjon","description":"En fortelling om generatoren som lyser opp verden — hvordan en roterende spole lager sinusformet vekselstrøm, hva effektivverdien betyr, og hvordan kraftverk og elbiler bruker induksjon.","estimatedMinutes":30,"competenceGoals":["forklare hvordan en AC-generator produserer sinusformet spenning","bruke effektivverdier (RMS) for spenning og strøm","gjøre rede for kraftverk og regenerativ bremsing"],"linkedChapterId":"fysikk2-5-2","content":[{"id":"fysikk2-5-2-n-intro","type":"text","content":"## Maskinen som lyser opp verden\n\nFaradays oppdagelse av induksjon førte direkte til **generatoren** — maskinen som omdanner mekanisk energi til elektrisk. Nesten all elektrisitet vi bruker kommer herfra: i vannkraftverk, vindturbiner, kjernekraftverk og til og med i bilen din. En generator er rett og slett en spole som roterer i et magnetfelt; når fluksen gjennom spolen endres, induseres en spenning. I dette kapittelet skal vi forstå hvordan vekselstrømsgeneratoren lager sinusformet spenning, hva effektivverdien (RMS) betyr og hvorfor vi trenger den, forskjellen på AC- og DC-generatorer, hvordan kraftverk fungerer, og hvordan elbiler gjenvinner energi ved regenerativ bremsing."},{"id":"fysikk2-5-2-n-section1","type":"text","content":"## Vekselstrømsgeneratoren\n\nEn **AC-generator** består av en roterende spole (rotor) i et konstant magnetfelt (stator), med sleperinger og børster som fører strømmen ut. Når spolen roterer med vinkelfrekvens $\\omega$, endres vinkelen mellom spolens normalvektor og feltet kontinuerlig, slik at fluksen blir $\\Phi(t) = NBA\\cos(\\omega t)$. Faradays lov gir da den induserte spenningen ved å derivere:\n\n$$\\varepsilon(t) = -\\frac{d}{dt}[NBA\\cos(\\omega t)] = NBA\\omega\\sin(\\omega t) = \\varepsilon_0\\sin(\\omega t)$$\n\nder toppverdien er $\\varepsilon_0 = NBA\\omega$. Spenningen varierer altså sinusformet. Det interessante er hvor i rotasjonen ekstremene ligger: når spolen står slik at fluksen er maksimal ($\\theta = 0°$), er endringsraten — og dermed spenningen — null; når fluksen er null ($\\theta = 90°$), endrer den seg raskest, og spenningen er maksimal.\n\nResultatet er **vekselstrøm** (AC), strøm som periodisk skifter retning. I Norge og Europa er nettfrekvensen $50$ Hz, i USA $60$ Hz, og vinkelfrekvensen er $\\omega = 2\\pi f$. Den store fordelen med AC er at den lett kan transformeres opp og ned i spenning — noe vi skal se er avgjørende for kraftoverføring."},{"id":"fysikk2-5-2-n-quiz1","type":"exercise","exercise":{"id":"fysikk2-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på AC-generatoren:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-5-2-n-quiz1-q0","task":"Hva er uttrykket for spenningen fra en AC-generator?","options":[{"id":"a","text":"$\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$","isCorrect":true},{"id":"b","text":"$\\varepsilon = NBA$","isCorrect":false},{"id":"c","text":"$\\varepsilon = NBA/\\omega$","isCorrect":false},{"id":"d","text":"$\\varepsilon = NBA\\cos(\\omega t)$","isCorrect":false}],"solution":"Fluksen $\\Phi = NBA\\cos(\\omega t)$ derivert gir $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, med toppverdi $\\varepsilon_0 = NBA\\omega$."},{"id":"fysikk2-5-2-n-quiz1-q1","task":"Når er spenningen fra generatoren maksimal?","options":[{"id":"a","text":"Når fluksen er maksimal","isCorrect":false},{"id":"b","text":"Når fluksen er null (raskest endring)","isCorrect":true},{"id":"c","text":"Når spolen står stille","isCorrect":false},{"id":"d","text":"Aldri","isCorrect":false}],"solution":"Spenningen er størst når endringsraten i fluks er størst — det skjer når fluksen selv er null ($\\theta = 90°$)."},{"id":"fysikk2-5-2-n-quiz1-q2","task":"Hva er nettfrekvensen i Norge?","options":[{"id":"a","text":"60 Hz","isCorrect":false},{"id":"b","text":"230 Hz","isCorrect":false},{"id":"c","text":"50 Hz","isCorrect":true},{"id":"d","text":"100 Hz","isCorrect":false}],"solution":"Norge og resten av Europa bruker 50 Hz nettfrekvens, med vinkelfrekvens $\\omega = 2\\pi\\cdot 50 = 314$ rad/s."}]}},{"id":"fysikk2-5-2-n-section2","type":"text","content":"## Effektivverdi (RMS) og DC-generatoren\n\nSiden AC-spenningen veksler mellom positive og negative verdier, er det vanlige gjennomsnittet over en periode null. Men strømmen kan jo varme opp en motstand! Løsningen er **effektivverdien**, eller RMS (Root Mean Square): kvadratroten av gjennomsnittet av de kvadrerte verdiene. Siden gjennomsnittet av $\\sin^2$ over en periode er $\\frac{1}{2}$, blir\n\n$$V_{\\text{rms}} = \\frac{V_0}{\\sqrt{2}}, \\qquad I_{\\text{rms}} = \\frac{I_0}{\\sqrt{2}}$$\n\nEffektivverdien er den likespenningen som ville gitt nøyaktig samme effekt i en motstand. Når vi sier at norsk nettspenning er $230$ V, mener vi $V_{\\text{rms}} = 230$ V — toppverdien er faktisk $V_0 = 230\\cdot\\sqrt{2} = 325$ V. Den gjennomsnittlige effekten er $P = V_{\\text{rms}}I_{\\text{rms}}$.\n\nVil vi ha strøm som alltid går samme vei, bruker vi en **DC-generator**. Den ligner AC-generatoren, men har en **kommutator** — en delt ring — i stedet for sleperinger. Hver gang spenningen skulle skiftet fortegn, bytter kommutatoren hvilken børste som er koblet til hvilken ende, slik at utgangen alltid holder seg positiv. En enkel DC-generator gir dermed **pulserende** likestrøm, som ser ut som bare de positive «bølgetoppene». Jevnere DC får man med flere spoler plassert i ulike vinkler, eller med glattefiltre."},{"id":"fysikk2-5-2-n-quiz2","type":"exercise","exercise":{"id":"fysikk2-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på RMS og DC-generator:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-5-2-n-quiz2-q0","task":"Hva er effektivverdien (RMS) av en sinusformet spenning med toppverdi $V_0$?","options":[{"id":"a","text":"$V_0$","isCorrect":false},{"id":"b","text":"$V_0\\sqrt{2}$","isCorrect":false},{"id":"c","text":"$V_0/2$","isCorrect":false},{"id":"d","text":"$V_0/\\sqrt{2}$","isCorrect":true}],"solution":"$V_{\\text{rms}} = V_0/\\sqrt{2} \\approx 0{,}707\\,V_0$, fordi gjennomsnittet av $\\sin^2$ over en periode er $\\frac{1}{2}$."},{"id":"fysikk2-5-2-n-quiz2-q1","task":"Hva er toppverdien til norsk nettspenning (230 V rms)?","options":[{"id":"a","text":"325 V","isCorrect":true},{"id":"b","text":"230 V","isCorrect":false},{"id":"c","text":"163 V","isCorrect":false},{"id":"d","text":"460 V","isCorrect":false}],"solution":"$V_0 = V_{\\text{rms}}\\cdot\\sqrt{2} = 230\\cdot 1{,}414 \\approx 325$ V. De 230 V er effektivverdien."},{"id":"fysikk2-5-2-n-quiz2-q2","task":"Hva er kommutatorens rolle i en DC-generator?","options":[{"id":"a","text":"Å øke frekvensen","isCorrect":false},{"id":"b","text":"Å bytte børstekontakt slik at utgangsspenningen alltid holder seg positiv","isCorrect":true},{"id":"c","text":"Å lage vekselstrøm","isCorrect":false},{"id":"d","text":"Å kjøle generatoren","isCorrect":false}],"solution":"Kommutatoren snur kontakten hver gang spenningen ville skiftet fortegn, slik at DC-generatoren gir pulserende, men alltid positiv, likestrøm."}]}},{"id":"fysikk2-5-2-n-section3","type":"text","content":"## Kraftverk og regenerativ bremsing\n\nNesten all elektrisitet produseres av generatorer i kraftverk, og oppskriften er alltid den samme: en energikilde driver en turbin, turbinen driver generatoren, og generatoren lager strøm via induksjon. I **varmekraftverk** koker man vann til damp — kull, gass eller kjernefisjon gir varmen — og dampen driver en turbin. I **fornybare** anlegg driver fallende vann en vannturbin, vinden en vindturbin, eller fokusert sollys koker vann i et solkraftverk. Store kraftverksgeneratorer leverer typisk $100$–$1500$ MW ved $10$–$25$ kV, som så transformeres opp for overføring. Et avgjørende krav er at alle generatorer i nettet roterer **synkront**, slik at nettfrekvensen holder seg stabil på $50$ Hz.\n\nMotor og generator er egentlig samme maskin brukt motsatt vei, og det utnyttes smart i **regenerativ bremsing** i elbiler. Når bilen skal bremse, lar man hjulene drive elmotoren baklengs, slik at den fungerer som generator: den kinetiske energien omdannes til elektrisk energi som lades tilbake i batteriet, og Lenz' lov sørger for bremsekraften. I tradisjonelle bremser går all denne energien tapt som varme. Med regenerativ bremsing kan typisk $60$–$70\\%$ gjenvinnes, noe som er spesielt verdifullt i bykjøring og kupert terreng. Begrensningen er at batteriet må kunne ta imot energien, og at man fortsatt trenger mekaniske bremser til nødbremsing."},{"id":"fysikk2-5-2-n-quiz3","type":"exercise","exercise":{"id":"fysikk2-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på kraftverk og regenerativ bremsing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-5-2-n-quiz3-q0","task":"Hva er den felles oppskriften for kraftverk?","options":[{"id":"a","text":"Solceller overalt","isCorrect":false},{"id":"b","text":"Direkte kjemisk reaksjon","isCorrect":false},{"id":"c","text":"Energikilde driver turbin, som driver generator, som lager strøm","isCorrect":true},{"id":"d","text":"Batterier","isCorrect":false}],"solution":"Alle kraftverk følger kjeden energikilde → turbin → generator → elektrisitet via induksjon."},{"id":"fysikk2-5-2-n-quiz3-q1","task":"Hvorfor må alle generatorer i strømnettet rotere synkront?","options":[{"id":"a","text":"For å spare drivstoff","isCorrect":false},{"id":"b","text":"For å lage likestrøm","isCorrect":false},{"id":"c","text":"Det må de ikke","isCorrect":false},{"id":"d","text":"For å holde nettfrekvensen stabil på 50 Hz","isCorrect":true}],"solution":"Synkron rotasjon holder nettfrekvensen stabil på 50 Hz, noe hele kraftsystemet er avhengig av."},{"id":"fysikk2-5-2-n-quiz3-q2","task":"Hva skjer ved regenerativ bremsing i en elbil?","options":[{"id":"a","text":"Motoren brukes som generator og lader batteriet","isCorrect":true},{"id":"b","text":"Bremseenergien går tapt som varme","isCorrect":false},{"id":"c","text":"Batteriet utlades","isCorrect":false},{"id":"d","text":"Bilen akselererer","isCorrect":false}],"solution":"Ved regenerativ bremsing kjøres motoren som generator, kinetisk energi blir til elektrisk energi i batteriet, og typisk 60–70 % gjenvinnes."}]}},{"id":"fysikk2-5-2-n-summary","type":"text","content":"## Oppsummering\n\nEn **AC-generator** er en spole som roterer i et magnetfelt og lager sinusformet spenning $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, med toppverdi $\\varepsilon_0 = NBA\\omega$. Spenningen er størst når fluksen endrer seg raskest. Fordi AC veksler fortegn, bruker vi **effektivverdien** $V_{\\text{rms}} = V_0/\\sqrt{2}$ (norsk nett: $230$ V rms, $325$ V topp). En **DC-generator** bruker en kommutator til å gi pulserende, alltid positiv strøm. Kraftverk følger kjeden energikilde → turbin → generator, med synkron rotasjon for stabil $50$ Hz. **Regenerativ bremsing** lar elbilens motor bli generator og gjenvinne $60$–$70\\%$ av bremseenergien til batteriet."}],"exercises":[]}
+{
+  "id": "fysikk2-5-2-narrativ",
+  "courseId": "fysikk2",
+  "chapterNumber": "5.2",
+  "title": "Generatorer og AC-strøm",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om generatoren som lyser opp verden — hvordan en roterende spole lager sinusformet vekselstrøm, hva effektivverdien betyr, og hvordan kraftverk og elbiler bruker induksjon.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "forklare hvordan en AC-generator produserer sinusformet spenning",
+    "bruke effektivverdier (RMS) for spenning og strøm",
+    "gjøre rede for kraftverk og regenerativ bremsing"
+  ],
+  "linkedChapterId": "fysikk2-5-2",
+  "content": [
+    {
+      "id": "fysikk2-5-2-n-intro",
+      "type": "text",
+      "content": "## Maskinen som lyser opp verden\n\nFaradays oppdagelse av induksjon førte direkte til **generatoren** — maskinen som omdanner mekanisk energi til elektrisk. Nesten all elektrisitet vi bruker kommer herfra: i vannkraftverk, vindturbiner, kjernekraftverk og til og med i bilen din. En generator er rett og slett en spole som roterer i et magnetfelt; når fluksen gjennom spolen endres, induseres en spenning. I dette kapittelet skal vi forstå hvordan vekselstrømsgeneratoren lager sinusformet spenning, hva effektivverdien (RMS) betyr og hvorfor vi trenger den, forskjellen på AC- og DC-generatorer, hvordan kraftverk fungerer, og hvordan elbiler gjenvinner energi ved regenerativ bremsing."
+    },
+    {
+      "id": "fysikk2-5-2-n-section1",
+      "type": "text",
+      "content": "## Vekselstrømsgeneratoren\n\nEn **AC-generator** består av en roterende spole (rotor) i et konstant magnetfelt (stator), med sleperinger og børster som fører strømmen ut. Når spolen roterer med vinkelfrekvens $\\omega$, endres vinkelen mellom spolens normalvektor og feltet kontinuerlig, slik at fluksen blir $\\Phi(t) = NBA\\cos(\\omega t)$. Faradays lov gir da den induserte spenningen ved å derivere:\n\n$$\\varepsilon(t) = -\\frac{d}{dt}[NBA\\cos(\\omega t)] = NBA\\omega\\sin(\\omega t) = \\varepsilon_0\\sin(\\omega t)$$\n\nder toppverdien er $\\varepsilon_0 = NBA\\omega$. Spenningen varierer altså sinusformet. Det interessante er hvor i rotasjonen ekstremene ligger: når spolen står slik at fluksen er maksimal ($\\theta = 0°$), er endringsraten — og dermed spenningen — null; når fluksen er null ($\\theta = 90°$), endrer den seg raskest, og spenningen er maksimal.\n\nResultatet er **vekselstrøm** (AC), strøm som periodisk skifter retning. I Norge og Europa er nettfrekvensen $50$ Hz, i USA $60$ Hz, og vinkelfrekvensen er $\\omega = 2\\pi f$. Den store fordelen med AC er at den lett kan transformeres opp og ned i spenning — noe vi skal se er avgjørende for kraftoverføring."
+    },
+    {
+      "id": "fysikk2-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på AC-generatoren:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-5-2-n-quiz1-q0",
+            "task": "Hva er uttrykket for spenningen fra en AC-generator?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\varepsilon = NBA$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\varepsilon = NBA/\\omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\varepsilon = NBA\\cos(\\omega t)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fluksen $\\Phi = NBA\\cos(\\omega t)$ derivert gir $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, med toppverdi $\\varepsilon_0 = NBA\\omega$."
+          },
+          {
+            "id": "fysikk2-5-2-n-quiz1-q1",
+            "task": "Når er spenningen fra generatoren maksimal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når fluksen er maksimal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når spolen står stille",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når fluksen er null (raskest endring)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Aldri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Spenningen er størst når endringsraten i fluks er størst — det skjer når fluksen selv er null ($\\theta = 90°$)."
+          },
+          {
+            "id": "fysikk2-5-2-n-quiz1-q2",
+            "task": "Hva er nettfrekvensen i Norge?",
+            "options": [
+              {
+                "id": "a",
+                "text": "60 Hz",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "230 Hz",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "100 Hz",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "50 Hz",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Norge og resten av Europa bruker 50 Hz nettfrekvens, med vinkelfrekvens $\\omega = 2\\pi\\cdot 50 = 314$ rad/s."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-5-2-n-section2",
+      "type": "text",
+      "content": "## Effektivverdi (RMS) og DC-generatoren\n\nSiden AC-spenningen veksler mellom positive og negative verdier, er det vanlige gjennomsnittet over en periode null. Men strømmen kan jo varme opp en motstand! Løsningen er **effektivverdien**, eller RMS (Root Mean Square): kvadratroten av gjennomsnittet av de kvadrerte verdiene. Siden gjennomsnittet av $\\sin^2$ over en periode er $\\frac{1}{2}$, blir\n\n$$V_{\\text{rms}} = \\frac{V_0}{\\sqrt{2}}, \\qquad I_{\\text{rms}} = \\frac{I_0}{\\sqrt{2}}$$\n\nEffektivverdien er den likespenningen som ville gitt nøyaktig samme effekt i en motstand. Når vi sier at norsk nettspenning er $230$ V, mener vi $V_{\\text{rms}} = 230$ V — toppverdien er faktisk $V_0 = 230\\cdot\\sqrt{2} = 325$ V. Den gjennomsnittlige effekten er $P = V_{\\text{rms}}I_{\\text{rms}}$.\n\nVil vi ha strøm som alltid går samme vei, bruker vi en **DC-generator**. Den ligner AC-generatoren, men har en **kommutator** — en delt ring — i stedet for sleperinger. Hver gang spenningen skulle skiftet fortegn, bytter kommutatoren hvilken børste som er koblet til hvilken ende, slik at utgangen alltid holder seg positiv. En enkel DC-generator gir dermed **pulserende** likestrøm, som ser ut som bare de positive «bølgetoppene». Jevnere DC får man med flere spoler plassert i ulike vinkler, eller med glattefiltre."
+    },
+    {
+      "id": "fysikk2-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på RMS og DC-generator:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-5-2-n-quiz2-q0",
+            "task": "Hva er effektivverdien (RMS) av en sinusformet spenning med toppverdi $V_0$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$V_0/\\sqrt{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$V_0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$V_0\\sqrt{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$V_0/2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$V_{\\text{rms}} = V_0/\\sqrt{2} \\approx 0{,}707\\,V_0$, fordi gjennomsnittet av $\\sin^2$ over en periode er $\\frac{1}{2}$."
+          },
+          {
+            "id": "fysikk2-5-2-n-quiz2-q1",
+            "task": "Hva er toppverdien til norsk nettspenning (230 V rms)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "230 V",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "325 V",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "163 V",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "460 V",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$V_0 = V_{\\text{rms}}\\cdot\\sqrt{2} = 230\\cdot 1{,}414 \\approx 325$ V. De 230 V er effektivverdien."
+          },
+          {
+            "id": "fysikk2-5-2-n-quiz2-q2",
+            "task": "Hva er kommutatorens rolle i en DC-generator?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å øke frekvensen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å lage vekselstrøm",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å bytte børstekontakt slik at utgangsspenningen alltid holder seg positiv",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å kjøle generatoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kommutatoren snur kontakten hver gang spenningen ville skiftet fortegn, slik at DC-generatoren gir pulserende, men alltid positiv, likestrøm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-5-2-n-section3",
+      "type": "text",
+      "content": "## Kraftverk og regenerativ bremsing\n\nNesten all elektrisitet produseres av generatorer i kraftverk, og oppskriften er alltid den samme: en energikilde driver en turbin, turbinen driver generatoren, og generatoren lager strøm via induksjon. I **varmekraftverk** koker man vann til damp — kull, gass eller kjernefisjon gir varmen — og dampen driver en turbin. I **fornybare** anlegg driver fallende vann en vannturbin, vinden en vindturbin, eller fokusert sollys koker vann i et solkraftverk. Store kraftverksgeneratorer leverer typisk $100$–$1500$ MW ved $10$–$25$ kV, som så transformeres opp for overføring. Et avgjørende krav er at alle generatorer i nettet roterer **synkront**, slik at nettfrekvensen holder seg stabil på $50$ Hz.\n\nMotor og generator er egentlig samme maskin brukt motsatt vei, og det utnyttes smart i **regenerativ bremsing** i elbiler. Når bilen skal bremse, lar man hjulene drive elmotoren baklengs, slik at den fungerer som generator: den kinetiske energien omdannes til elektrisk energi som lades tilbake i batteriet, og Lenz' lov sørger for bremsekraften. I tradisjonelle bremser går all denne energien tapt som varme. Med regenerativ bremsing kan typisk $60$–$70\\%$ gjenvinnes, noe som er spesielt verdifullt i bykjøring og kupert terreng. Begrensningen er at batteriet må kunne ta imot energien, og at man fortsatt trenger mekaniske bremser til nødbremsing."
+    },
+    {
+      "id": "fysikk2-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kraftverk og regenerativ bremsing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-5-2-n-quiz3-q0",
+            "task": "Hva er den felles oppskriften for kraftverk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Solceller overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Direkte kjemisk reaksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Batterier",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Energikilde driver turbin, som driver generator, som lager strøm",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Alle kraftverk følger kjeden energikilde → turbin → generator → elektrisitet via induksjon."
+          },
+          {
+            "id": "fysikk2-5-2-n-quiz3-q1",
+            "task": "Hvorfor må alle generatorer i strømnettet rotere synkront?",
+            "options": [
+              {
+                "id": "d",
+                "text": "For å holde nettfrekvensen stabil på 50 Hz",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For å spare drivstoff",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For å lage likestrøm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det må de ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Synkron rotasjon holder nettfrekvensen stabil på 50 Hz, noe hele kraftsystemet er avhengig av."
+          },
+          {
+            "id": "fysikk2-5-2-n-quiz3-q2",
+            "task": "Hva skjer ved regenerativ bremsing i en elbil?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bremseenergien går tapt som varme",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Motoren brukes som generator og lader batteriet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Batteriet utlades",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bilen akselererer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved regenerativ bremsing kjøres motoren som generator, kinetisk energi blir til elektrisk energi i batteriet, og typisk 60–70 % gjenvinnes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEn **AC-generator** er en spole som roterer i et magnetfelt og lager sinusformet spenning $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, med toppverdi $\\varepsilon_0 = NBA\\omega$. Spenningen er størst når fluksen endrer seg raskest. Fordi AC veksler fortegn, bruker vi **effektivverdien** $V_{\\text{rms}} = V_0/\\sqrt{2}$ (norsk nett: $230$ V rms, $325$ V topp). En **DC-generator** bruker en kommutator til å gi pulserende, alltid positiv strøm. Kraftverk følger kjeden energikilde → turbin → generator, med synkron rotasjon for stabil $50$ Hz. **Regenerativ bremsing** lar elbilens motor bli generator og gjenvinne $60$–$70\\%$ av bremseenergien til batteriet."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,394 @@
-{"id":"2py-11-1-narrativ","courseId":"2py","chapterNumber":"11.1","title":"Boksplott og kvartilar","subtitle":"Narrativ versjon","description":"Ei forteljing om tidsstudien til sjefen -- om kvartilar, fempunktsoppsummering og boksplotta som avslører kva lag som jobbar jamnast.","estimatedMinutes":33,"competenceGoals":["rekne ut kvartilar og lage boksplott","samanlikne datasett ved hjelp av boksplott"],"linkedChapterId":"2py-11-1","content":[{"id":"2py-11-1-n-intro","type":"text","content":"## Tidsstudien til sjefen\n\nElektrikarsjefen har eit problem: nokre serviceoppdrag tek dobbelt så lang tid som andre, og ho vil finne ut kva som er normalt. Ho har registrert tidsbruken for elleve like oppdrag, i minutt: $45, 52, 38, 60, 42, 55, 48, 65, 40, 50, 58$. Ei lang tallrekkje gir ikkje oversikt — ho treng eit bilete av dataa.\n\nVerktøyet ho grip til, heiter **boksplott** (box plot). Det er ei kompakt teikning som viser tre ting på éin gong: kvar dataa ligg (sentrum), kor spreidde dei er, og om det finst ekstreme verdiar som skil seg ut. Nett difor er boksplott mykje brukt i kvalitetskontroll, HMS-rapportering og lønnsstatistikk — alle stader der ein skal samanlikne grupper av tal raskt.\n\nFor å teikne eit boksplott treng vi fem tal frå datasettet: den minste verdien, den største, og tre verdiar som deler dei sorterte dataa i fire like store delar — dei såkalla **kvartilane** (av same ord som «kvart», ein fjerdedel). I dette kapittelet lærer du å finne desse fem tala, teikne og lese boksplott, avsløre **uteliggjarar** — og til slutt bruke det heile til å samanlikne to arbeidslag, slik ein sjef faktisk gjer."},{"id":"2py-11-1-n-section1","type":"text","content":"## Fem tal som skildrar alt — kvartilane\n\nVi hjelper sjefen, steg for steg. **Steg 1: sorter** dataa frå minst til størst: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$.\n\n**Steg 2: finn medianen.** Medianen ($Q2$) er verdien i midten av det sorterte datasettet — halvparten av målingane ligg under, halvparten over. Med elleve verdiar er det nummer seks i rekkja: $50$ minutt. Eit «normalt» oppdrag tek altså rundt $50$ minutt.\n\n**Steg 3: finn nedre kvartil, $Q1$** — medianen av den *nedre* halvdelen. Nedre halvdel er $38, 40, 42, 45, 48$, og midtverdien der er $42$. Det betyr at $25\\,\\%$ av oppdraga tek under $42$ minutt.\n\n**Steg 4: finn øvre kvartil, $Q3$** — medianen av den *øvre* halvdelen: $52, 55, 58, 60, 65$ har midtverdi $58$. Heile $75\\,\\%$ av oppdraga ligg under $58$ minutt.\n\n**Steg 5: noter minste og største verdi**, $38$ og $65$. Dermed har sjefen si **fempunktsoppsummering**: min $38$, $Q1 = 42$, median $50$, $Q3 = 58$, maks $65$.\n\nBoksplottet blir teikna rett frå desse fem tala: ein boks frå $Q1$ til $Q3$ (frå $42$ til $58$), ein strek inni boksen ved medianen $50$, og «halar» ut til minste og største verdi. Boksen rommar dei midtarste $50\\,\\%$ av oppdraga — eitt blikk, og du ser både normaltida og variasjonen."},{"id":"2py-11-1-n-quiz1","type":"exercise","exercise":{"id":"2py-11-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på median og kvartilar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-11-1-n-quiz1-q0","task":"Sjefen har $11$ sorterte målingar: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$. Kva er medianen?","options":[{"id":"a","text":"$48$","isCorrect":false},{"id":"b","text":"$51{,}5$","isCorrect":false},{"id":"c","text":"$50$","isCorrect":true},{"id":"d","text":"$52$","isCorrect":false}],"solution":"Med $11$ verdiar er medianen den sjette i sortert rekkjefølgje: $50$."},{"id":"2py-11-1-n-quiz1-q1","task":"Kva er nedre kvartil ($Q1$) i same datasettet?","options":[{"id":"a","text":"$40$","isCorrect":false},{"id":"b","text":"$42$","isCorrect":true},{"id":"c","text":"$45$","isCorrect":false},{"id":"d","text":"$38$","isCorrect":false}],"solution":"$Q1$ er medianen av nedre halvdel ($38, 40, 42, 45, 48$), altså $42$."},{"id":"2py-11-1-n-quiz1-q2","task":"Kva fem tal utgjer fempunktsoppsummeringa?","options":[{"id":"a","text":"Min, $Q1$, median, $Q3$, maks","isCorrect":true},{"id":"b","text":"Gjennomsnitt, median, typetal, min, maks","isCorrect":false},{"id":"c","text":"Dei fem største verdiane","isCorrect":false},{"id":"d","text":"Min, gjennomsnitt, median, standardavvik, maks","isCorrect":false}],"solution":"Fempunktsoppsummeringa består av minste verdi, nedre kvartil, median, øvre kvartil og største verdi — alt du treng for å teikne eit boksplott."}]}},{"id":"2py-11-1-n-section2","type":"text","content":"## Kvartilbreidd og uteliggjarar — kor spreidd, og kva stikk seg ut?\n\nNo som boksen er teikna, kan sjefen tallfeste spreiinga. **Kvartilbreidda** (IQR, *interquartile range*) er avstanden mellom kvartilane: $\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$ minutt. Det er breidda på sjølve boksen, og han fortel kor mykje dei midtarste $50\\,\\%$ av oppdraga varierer. Ein smal boks betyr jamn arbeidsflyt; ein brei boks betyr store skilnader frå oppdrag til oppdrag.\n\nKvartilbreidda har endå ein jobb: ho hjelper oss å avsløre **uteliggjarar** (outliers) — observasjonar som er mistenkjeleg store eller små samanlikna med resten. Kanskje ei måling er feilregistrert, eller kanskje eitt oppdrag gjekk fullstendig av skaftet. Tommelregelen er slik: ein verdi blir rekna som uteliggjar viss han er mindre enn $Q1 - 1{,}5 \\cdot \\text{IQR}$ eller større enn $Q3 + 1{,}5 \\cdot \\text{IQR}$.\n\nFor datasettet til sjefen blir grensene $42 - 1{,}5 \\cdot 16 = 42 - 24 = 18$ og $58 + 1{,}5 \\cdot 16 = 58 + 24 = 82$ minutt. Alle målingane ligg mellom $38$ og $65$, trygt innanfor — ingen uteliggjarar her, berre naturleg variasjon.\n\nHadde eit oppdrag teke $95$ minutt, ville det hamna utanfor grensa på $82$ og blitt teikna som eit eige punkt utanfor halen på boksplottet. Det er slik uteliggjarar blir markerte: dei blir skilde ut i staden for å strekkje halen, nett for at eitt ekstremt tilfelle ikkje skal gi eit misvisande bilete av heilskapen. For sjefen er ein uteliggjar uansett verdt ei oppfølging: var det kunden, utstyret — eller føringa av timelista?"},{"id":"2py-11-1-n-quiz2","type":"exercise","exercise":{"id":"2py-11-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kvartilbreidd og uteliggjarar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-11-1-n-quiz2-q0","task":"$Q1 = 42$ og $Q3 = 58$. Kva er kvartilbreidda (IQR)?","options":[{"id":"a","text":"$100$","isCorrect":false},{"id":"b","text":"$50$","isCorrect":false},{"id":"c","text":"$58$","isCorrect":false},{"id":"d","text":"$16$","isCorrect":true}],"solution":"$\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$."},{"id":"2py-11-1-n-quiz2-q1","task":"Med $Q3 = 58$ og $\\text{IQR} = 16$: kvar går øvre grense for uteliggjarar?","options":[{"id":"a","text":"$74$","isCorrect":false},{"id":"b","text":"$82$","isCorrect":true},{"id":"c","text":"$66$","isCorrect":false},{"id":"d","text":"$90$","isCorrect":false}],"solution":"Øvre grense er $Q3 + 1{,}5 \\cdot \\text{IQR} = 58 + 24 = 82$. Verdiar over $82$ blir rekna som uteliggjarar."},{"id":"2py-11-1-n-quiz2-q2","task":"Kva viser kvartilbreidda (IQR)?","options":[{"id":"a","text":"Avstanden mellom minste og største verdi","isCorrect":false},{"id":"b","text":"Gjennomsnittet av datasettet","isCorrect":false},{"id":"c","text":"Spreiinga til dei midtarste $50\\,\\%$ av dataa","isCorrect":true},{"id":"d","text":"Talet på observasjonar i boksen","isCorrect":false}],"solution":"IQR er breidda på boksen — avstanden frå $Q1$ til $Q3$, der dei midtarste $50\\,\\%$ av observasjonane ligg."}]}},{"id":"2py-11-1-n-section3","type":"text","content":"## To lag, to boksar — samanlikning i praksis\n\nDen verkelege styrken til boksplottet viser seg når fleire grupper skal samanliknast. På lageret registrerer to arbeidslag talet på pakkar dei pakkar per time. Lag A: $22, 25, 28, 30, 31, 33, 35, 38$. Lag B: $18, 24, 26, 29, 30, 32, 34, 42$. Kven er best?\n\nBegge setta har åtte verdiar, og med eit *partal* observasjonar er medianen gjennomsnittet av dei to midtarste. For Lag A: $\\frac{30 + 31}{2} = 30{,}5$. $Q1$ er medianen av nedre halvdel $(22, 25, 28, 30)$: $\\frac{25 + 28}{2} = 26{,}5$, og $Q3$ av øvre halvdel $(31, 33, 35, 38)$: $\\frac{33 + 35}{2} = 34$. Fempunkta blir $22$, $26{,}5$, $30{,}5$, $34$, $38$.\n\nSame jobben for Lag B gir: min $18$, $Q1 = \\frac{24 + 26}{2} = 25$, median $\\frac{29 + 30}{2} = 29{,}5$, $Q3 = \\frac{32 + 34}{2} = 33$, maks $42$.\n\nTeiknar vi dei to boksplotta over same tallinja, kjem historia fram. Lag A har høgast median ($30{,}5$ mot $29{,}5$) — dei presterer jamt over litt betre. Lag A er òg jamnast: IQR er $34 - 26{,}5 = 7{,}5$ mot Lag B sin $33 - 25 = 8$, og heile spennet er smalare. Lag B har rett nok toppnoteringa ($42$ pakkar), men òg botnnoteringa ($18$) — dei svingar meir.\n\nKva sjefen gjer med det, er ei leiingsavgjerd: kanskje skal Lag B lære jamnleiken av Lag A, kanskje skuldast svingingane ulike skift eller varetypar. Men avgjerda kviler på eit ærleg bilete av dataa — og det er nett det boksplottet leverer: plassering, spreiing og ytterpunkt, side om side."},{"id":"2py-11-1-n-quiz3","type":"exercise","exercise":{"id":"2py-11-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på samanlikning med boksplott:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-11-1-n-quiz3-q0","task":"Lag A pakkar (sortert): $22, 25, 28, 30, 31, 33, 35, 38$ pakkar per time. Kva er medianen?","options":[{"id":"a","text":"$30{,}5$","isCorrect":true},{"id":"b","text":"$30$","isCorrect":false},{"id":"c","text":"$31$","isCorrect":false},{"id":"d","text":"$29{,}5$","isCorrect":false}],"solution":"Med $8$ verdiar er medianen gjennomsnittet av dei to midtarste: $\\frac{30 + 31}{2} = 30{,}5$."},{"id":"2py-11-1-n-quiz3-q1","task":"Lag B (sortert): $18, 24, 26, 29, 30, 32, 34, 42$. Kva er $Q1$?","options":[{"id":"a","text":"$24$","isCorrect":false},{"id":"b","text":"$26$","isCorrect":false},{"id":"c","text":"$25$","isCorrect":true},{"id":"d","text":"$22$","isCorrect":false}],"solution":"$Q1$ er medianen av nedre halvdel $(18, 24, 26, 29)$: $\\frac{24 + 26}{2} = 25$."},{"id":"2py-11-1-n-quiz3-q2","task":"Kva er den beste skildringa av skilnaden mellom laga?","options":[{"id":"a","text":"Lag B er betre på alle målingar","isCorrect":false},{"id":"b","text":"Lag A har høgare median og er jamnast; Lag B svingar meir med både topp- og botnnotering","isCorrect":true},{"id":"c","text":"Laga er heilt like","isCorrect":false},{"id":"d","text":"Lag A har størst spreiing","isCorrect":false}],"solution":"Lag A har median $30{,}5$ mot $29{,}5$ og minst spreiing. Lag B har både høgaste ($42$) og lågaste ($18$) verdi — meir ujamn produksjon."}]}},{"id":"2py-11-1-n-summary","type":"text","content":"## Oppsummering: oversikt i éi teikning\n\nTallkaoset til sjefen blei til innsikt gjennom fem tal og éi teikning. **Medianen** ($Q2$) deler det sorterte datasettet i to like halvdelar. **Nedre kvartil** $Q1$ er medianen av nedre halvdel — $25\\,\\%$ av dataa ligg under han. **Øvre kvartil** $Q3$ er medianen av øvre halvdel, med $75\\,\\%$ av dataa under seg. Saman med minste og største verdi utgjer dei **fempunktsoppsummeringa**, som blir teikna som eit boksplott: boks frå $Q1$ til $Q3$, medianstrek inni, halar ut til ytterpunkta.\n\n**Kvartilbreidda** $\\text{IQR} = Q3 - Q1$ måler spreiinga til dei midtarste $50\\,\\%$ — for serviceoppdraga var ho $16$ minutt. Og tommelregelen for **uteliggjarar** seier at verdiar utanfor intervallet frå $Q1 - 1{,}5 \\cdot \\text{IQR}$ til $Q3 + 1{,}5 \\cdot \\text{IQR}$ skal markerast som eigne punkt og undersøkjast nærare.\n\nHugs òg detaljane frå utrekninga: sorter alltid først, og ved partal observasjonar er medianen gjennomsnittet av dei to midtarste verdiane.\n\nStørst nytte gjer boksplottet når grupper skal **samanliknast** — som då Lag A viste seg jamnast og best på median, medan Lag B svinga mellom rekord og botnnotering. Plassering, spreiing og ytterpunkt i eitt blikk: det er difor boksplottet er fast inventar i kvalitetskontroll, HMS-arbeid og lønnsstatistikk."}],"exercises":[],"_meta":{"sourceHash":"de6f412f4f175d86","translatedAt":"2026-06-17T00:37:08.287Z","model":"claude-code-agent","strings":46,"tm":{"1f8356ad6a18d42b":"Boksplott og kvartilar","b195b06d1ed59702":"Narrativ versjon","8f5c438ab75da03b":"Ei forteljing om tidsstudien til sjefen -- om kvartilar, fempunktsoppsummering og boksplotta som avslører kva lag som jobbar jamnast.","885155459907aa17":"rekne ut kvartilar og lage boksplott","48cab737a6e1a1be":"samanlikne datasett ved hjelp av boksplott","3bd1f896411f15e2":"## Tidsstudien til sjefen\n\nElektrikarsjefen har eit problem: nokre serviceoppdrag tek dobbelt så lang tid som andre, og ho vil finne ut kva som er normalt. Ho har registrert tidsbruken for elleve like oppdrag, i minutt: $45, 52, 38, 60, 42, 55, 48, 65, 40, 50, 58$. Ei lang tallrekkje gir ikkje oversikt — ho treng eit bilete av dataa.\n\nVerktøyet ho grip til, heiter **boksplott** (box plot). Det er ei kompakt teikning som viser tre ting på éin gong: kvar dataa ligg (sentrum), kor spreidde dei er, og om det finst ekstreme verdiar som skil seg ut. Nett difor er boksplott mykje brukt i kvalitetskontroll, HMS-rapportering og lønnsstatistikk — alle stader der ein skal samanlikne grupper av tal raskt.\n\nFor å teikne eit boksplott treng vi fem tal frå datasettet: den minste verdien, den største, og tre verdiar som deler dei sorterte dataa i fire like store delar — dei såkalla **kvartilane** (av same ord som «kvart», ein fjerdedel). I dette kapittelet lærer du å finne desse fem tala, teikne og lese boksplott, avsløre **uteliggjarar** — og til slutt bruke det heile til å samanlikne to arbeidslag, slik ein sjef faktisk gjer.","113dc968eb81294a":"## Fem tal som skildrar alt — kvartilane\n\nVi hjelper sjefen, steg for steg. **Steg 1: sorter** dataa frå minst til størst: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$.\n\n**Steg 2: finn medianen.** Medianen ($Q2$) er verdien i midten av det sorterte datasettet — halvparten av målingane ligg under, halvparten over. Med elleve verdiar er det nummer seks i rekkja: $50$ minutt. Eit «normalt» oppdrag tek altså rundt $50$ minutt.\n\n**Steg 3: finn nedre kvartil, $Q1$** — medianen av den *nedre* halvdelen. Nedre halvdel er $38, 40, 42, 45, 48$, og midtverdien der er $42$. Det betyr at $25\\,\\%$ av oppdraga tek under $42$ minutt.\n\n**Steg 4: finn øvre kvartil, $Q3$** — medianen av den *øvre* halvdelen: $52, 55, 58, 60, 65$ har midtverdi $58$. Heile $75\\,\\%$ av oppdraga ligg under $58$ minutt.\n\n**Steg 5: noter minste og største verdi**, $38$ og $65$. Dermed har sjefen si **fempunktsoppsummering**: min $38$, $Q1 = 42$, median $50$, $Q3 = 58$, maks $65$.\n\nBoksplottet blir teikna rett frå desse fem tala: ein boks frå $Q1$ til $Q3$ (frå $42$ til $58$), ein strek inni boksen ved medianen $50$, og «halar» ut til minste og største verdi. Boksen rommar dei midtarste $50\\,\\%$ av oppdraga — eitt blikk, og du ser både normaltida og variasjonen.","55da6a5e06c48b37":"Test deg sjølv på median og kvartilar:","4097889236a2af26":"placeholder","4022c2b08a32732f":"Sjefen har $11$ sorterte målingar: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$. Kva er medianen?","3829fe0a261025ad":"Med $11$ verdiar er medianen den sjette i sortert rekkjefølgje: $50$.","37ff337a322b5514":"Kva er nedre kvartil ($Q1$) i same datasettet?","e2b1b56fba83b0ff":"$Q1$ er medianen av nedre halvdel ($38, 40, 42, 45, 48$), altså $42$.","d0a3ab82707f6505":"Kva fem tal utgjer fempunktsoppsummeringa?","bf29a313b9570067":"Min, $Q1$, median, $Q3$, maks","476fb91cc28100d2":"Gjennomsnitt, median, typetal, min, maks","fc4b6a77e53ba505":"Dei fem største verdiane","75560d9d993a3cc6":"Min, gjennomsnitt, median, standardavvik, maks","497aec0d7a3f63f3":"Fempunktsoppsummeringa består av minste verdi, nedre kvartil, median, øvre kvartil og største verdi — alt du treng for å teikne eit boksplott.","d2223197aeaa8f20":"## Kvartilbreidd og uteliggjarar — kor spreidd, og kva stikk seg ut?\n\nNo som boksen er teikna, kan sjefen tallfeste spreiinga. **Kvartilbreidda** (IQR, *interquartile range*) er avstanden mellom kvartilane: $\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$ minutt. Det er breidda på sjølve boksen, og han fortel kor mykje dei midtarste $50\\,\\%$ av oppdraga varierer. Ein smal boks betyr jamn arbeidsflyt; ein brei boks betyr store skilnader frå oppdrag til oppdrag.\n\nKvartilbreidda har endå ein jobb: ho hjelper oss å avsløre **uteliggjarar** (outliers) — observasjonar som er mistenkjeleg store eller små samanlikna med resten. Kanskje ei måling er feilregistrert, eller kanskje eitt oppdrag gjekk fullstendig av skaftet. Tommelregelen er slik: ein verdi blir rekna som uteliggjar viss han er mindre enn $Q1 - 1{,}5 \\cdot \\text{IQR}$ eller større enn $Q3 + 1{,}5 \\cdot \\text{IQR}$.\n\nFor datasettet til sjefen blir grensene $42 - 1{,}5 \\cdot 16 = 42 - 24 = 18$ og $58 + 1{,}5 \\cdot 16 = 58 + 24 = 82$ minutt. Alle målingane ligg mellom $38$ og $65$, trygt innanfor — ingen uteliggjarar her, berre naturleg variasjon.\n\nHadde eit oppdrag teke $95$ minutt, ville det hamna utanfor grensa på $82$ og blitt teikna som eit eige punkt utanfor halen på boksplottet. Det er slik uteliggjarar blir markerte: dei blir skilde ut i staden for å strekkje halen, nett for at eitt ekstremt tilfelle ikkje skal gi eit misvisande bilete av heilskapen. For sjefen er ein uteliggjar uansett verdt ei oppfølging: var det kunden, utstyret — eller føringa av timelista?","19878242d2ffa2cf":"Test deg sjølv på kvartilbreidd og uteliggjarar:","34b73cf61cb41a2f":"$Q1 = 42$ og $Q3 = 58$. Kva er kvartilbreidda (IQR)?","285521112322fd79":"$\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$.","53a305134877cab4":"Med $Q3 = 58$ og $\\text{IQR} = 16$: kvar går øvre grense for uteliggjarar?","9cd1cc2343df60e4":"Øvre grense er $Q3 + 1{,}5 \\cdot \\text{IQR} = 58 + 24 = 82$. Verdiar over $82$ blir rekna som uteliggjarar.","84c165c2e83f2aba":"Kva viser kvartilbreidda (IQR)?","147f77ac618515f5":"Avstanden mellom minste og største verdi","83726b98cf1d705f":"Gjennomsnittet av datasettet","0222d55c35cbdff2":"Spreiinga til dei midtarste $50\\,\\%$ av dataa","39f2a7c42a1526f5":"Talet på observasjonar i boksen","6b2683ad7c32944f":"IQR er breidda på boksen — avstanden frå $Q1$ til $Q3$, der dei midtarste $50\\,\\%$ av observasjonane ligg.","c1dece08c7aeac29":"## To lag, to boksar — samanlikning i praksis\n\nDen verkelege styrken til boksplottet viser seg når fleire grupper skal samanliknast. På lageret registrerer to arbeidslag talet på pakkar dei pakkar per time. Lag A: $22, 25, 28, 30, 31, 33, 35, 38$. Lag B: $18, 24, 26, 29, 30, 32, 34, 42$. Kven er best?\n\nBegge setta har åtte verdiar, og med eit *partal* observasjonar er medianen gjennomsnittet av dei to midtarste. For Lag A: $\\frac{30 + 31}{2} = 30{,}5$. $Q1$ er medianen av nedre halvdel $(22, 25, 28, 30)$: $\\frac{25 + 28}{2} = 26{,}5$, og $Q3$ av øvre halvdel $(31, 33, 35, 38)$: $\\frac{33 + 35}{2} = 34$. Fempunkta blir $22$, $26{,}5$, $30{,}5$, $34$, $38$.\n\nSame jobben for Lag B gir: min $18$, $Q1 = \\frac{24 + 26}{2} = 25$, median $\\frac{29 + 30}{2} = 29{,}5$, $Q3 = \\frac{32 + 34}{2} = 33$, maks $42$.\n\nTeiknar vi dei to boksplotta over same tallinja, kjem historia fram. Lag A har høgast median ($30{,}5$ mot $29{,}5$) — dei presterer jamt over litt betre. Lag A er òg jamnast: IQR er $34 - 26{,}5 = 7{,}5$ mot Lag B sin $33 - 25 = 8$, og heile spennet er smalare. Lag B har rett nok toppnoteringa ($42$ pakkar), men òg botnnoteringa ($18$) — dei svingar meir.\n\nKva sjefen gjer med det, er ei leiingsavgjerd: kanskje skal Lag B lære jamnleiken av Lag A, kanskje skuldast svingingane ulike skift eller varetypar. Men avgjerda kviler på eit ærleg bilete av dataa — og det er nett det boksplottet leverer: plassering, spreiing og ytterpunkt, side om side.","e29e9f2f5ad4faca":"Test deg sjølv på samanlikning med boksplott:","24e3d0195478d25e":"Lag A pakkar (sortert): $22, 25, 28, 30, 31, 33, 35, 38$ pakkar per time. Kva er medianen?","c3febb5275d3098a":"Med $8$ verdiar er medianen gjennomsnittet av dei to midtarste: $\\frac{30 + 31}{2} = 30{,}5$.","eab332907593c915":"Lag B (sortert): $18, 24, 26, 29, 30, 32, 34, 42$. Kva er $Q1$?","ea5a233bc099956c":"$Q1$ er medianen av nedre halvdel $(18, 24, 26, 29)$: $\\frac{24 + 26}{2} = 25$.","ccc6fa3e385d2308":"Kva er den beste skildringa av skilnaden mellom laga?","b4b7a9270d171085":"Lag B er betre på alle målingar","5e3d8d6fb602de5d":"Lag A har høgare median og er jamnast; Lag B svingar meir med både topp- og botnnotering","c8d49c3159756613":"Laga er heilt like","136bea68e1999a38":"Lag A har størst spreiing","a38253834b7950a6":"Lag A har median $30{,}5$ mot $29{,}5$ og minst spreiing. Lag B har både høgaste ($42$) og lågaste ($18$) verdi — meir ujamn produksjon.","571cf2ae9dd85c50":"## Oppsummering: oversikt i éi teikning\n\nTallkaoset til sjefen blei til innsikt gjennom fem tal og éi teikning. **Medianen** ($Q2$) deler det sorterte datasettet i to like halvdelar. **Nedre kvartil** $Q1$ er medianen av nedre halvdel — $25\\,\\%$ av dataa ligg under han. **Øvre kvartil** $Q3$ er medianen av øvre halvdel, med $75\\,\\%$ av dataa under seg. Saman med minste og største verdi utgjer dei **fempunktsoppsummeringa**, som blir teikna som eit boksplott: boks frå $Q1$ til $Q3$, medianstrek inni, halar ut til ytterpunkta.\n\n**Kvartilbreidda** $\\text{IQR} = Q3 - Q1$ måler spreiinga til dei midtarste $50\\,\\%$ — for serviceoppdraga var ho $16$ minutt. Og tommelregelen for **uteliggjarar** seier at verdiar utanfor intervallet frå $Q1 - 1{,}5 \\cdot \\text{IQR}$ til $Q3 + 1{,}5 \\cdot \\text{IQR}$ skal markerast som eigne punkt og undersøkjast nærare.\n\nHugs òg detaljane frå utrekninga: sorter alltid først, og ved partal observasjonar er medianen gjennomsnittet av dei to midtarste verdiane.\n\nStørst nytte gjer boksplottet når grupper skal **samanliknast** — som då Lag A viste seg jamnast og best på median, medan Lag B svinga mellom rekord og botnnotering. Plassering, spreiing og ytterpunkt i eitt blikk: det er difor boksplottet er fast inventar i kvalitetskontroll, HMS-arbeid og lønnsstatistikk."}}}
+{
+  "id": "2py-11-1-narrativ",
+  "courseId": "2py",
+  "chapterNumber": "11.1",
+  "title": "Boksplott og kvartilar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om tidsstudien til sjefen -- om kvartilar, fempunktsoppsummering og boksplotta som avslører kva lag som jobbar jamnast.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "rekne ut kvartilar og lage boksplott",
+    "samanlikne datasett ved hjelp av boksplott"
+  ],
+  "linkedChapterId": "2py-11-1",
+  "content": [
+    {
+      "id": "2py-11-1-n-intro",
+      "type": "text",
+      "content": "## Tidsstudien til sjefen\n\nElektrikarsjefen har eit problem: nokre serviceoppdrag tek dobbelt så lang tid som andre, og ho vil finne ut kva som er normalt. Ho har registrert tidsbruken for elleve like oppdrag, i minutt: $45, 52, 38, 60, 42, 55, 48, 65, 40, 50, 58$. Ei lang tallrekkje gir ikkje oversikt — ho treng eit bilete av dataa.\n\nVerktøyet ho grip til, heiter **boksplott** (box plot). Det er ei kompakt teikning som viser tre ting på éin gong: kvar dataa ligg (sentrum), kor spreidde dei er, og om det finst ekstreme verdiar som skil seg ut. Nett difor er boksplott mykje brukt i kvalitetskontroll, HMS-rapportering og lønnsstatistikk — alle stader der ein skal samanlikne grupper av tal raskt.\n\nFor å teikne eit boksplott treng vi fem tal frå datasettet: den minste verdien, den største, og tre verdiar som deler dei sorterte dataa i fire like store delar — dei såkalla **kvartilane** (av same ord som «kvart», ein fjerdedel). I dette kapittelet lærer du å finne desse fem tala, teikne og lese boksplott, avsløre **uteliggjarar** — og til slutt bruke det heile til å samanlikne to arbeidslag, slik ein sjef faktisk gjer."
+    },
+    {
+      "id": "2py-11-1-n-section1",
+      "type": "text",
+      "content": "## Fem tal som skildrar alt — kvartilane\n\nVi hjelper sjefen, steg for steg. **Steg 1: sorter** dataa frå minst til størst: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$.\n\n**Steg 2: finn medianen.** Medianen ($Q2$) er verdien i midten av det sorterte datasettet — halvparten av målingane ligg under, halvparten over. Med elleve verdiar er det nummer seks i rekkja: $50$ minutt. Eit «normalt» oppdrag tek altså rundt $50$ minutt.\n\n**Steg 3: finn nedre kvartil, $Q1$** — medianen av den *nedre* halvdelen. Nedre halvdel er $38, 40, 42, 45, 48$, og midtverdien der er $42$. Det betyr at $25\\,\\%$ av oppdraga tek under $42$ minutt.\n\n**Steg 4: finn øvre kvartil, $Q3$** — medianen av den *øvre* halvdelen: $52, 55, 58, 60, 65$ har midtverdi $58$. Heile $75\\,\\%$ av oppdraga ligg under $58$ minutt.\n\n**Steg 5: noter minste og største verdi**, $38$ og $65$. Dermed har sjefen si **fempunktsoppsummering**: min $38$, $Q1 = 42$, median $50$, $Q3 = 58$, maks $65$.\n\nBoksplottet blir teikna rett frå desse fem tala: ein boks frå $Q1$ til $Q3$ (frå $42$ til $58$), ein strek inni boksen ved medianen $50$, og «halar» ut til minste og største verdi. Boksen rommar dei midtarste $50\\,\\%$ av oppdraga — eitt blikk, og du ser både normaltida og variasjonen."
+    },
+    {
+      "id": "2py-11-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-11-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på median og kvartilar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-11-1-n-quiz1-q0",
+            "task": "Sjefen har $11$ sorterte målingar: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$. Kva er medianen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$48$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$51{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$50$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$52$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $11$ verdiar er medianen den sjette i sortert rekkjefølgje: $50$."
+          },
+          {
+            "id": "2py-11-1-n-quiz1-q1",
+            "task": "Kva er nedre kvartil ($Q1$) i same datasettet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$40$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$45$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$38$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$42$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$Q1$ er medianen av nedre halvdel ($38, 40, 42, 45, 48$), altså $42$."
+          },
+          {
+            "id": "2py-11-1-n-quiz1-q2",
+            "task": "Kva fem tal utgjer fempunktsoppsummeringa?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Min, $Q1$, median, $Q3$, maks",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnitt, median, typetal, min, maks",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei fem største verdiane",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Min, gjennomsnitt, median, standardavvik, maks",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fempunktsoppsummeringa består av minste verdi, nedre kvartil, median, øvre kvartil og største verdi — alt du treng for å teikne eit boksplott."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-11-1-n-section2",
+      "type": "text",
+      "content": "## Kvartilbreidd og uteliggjarar — kor spreidd, og kva stikk seg ut?\n\nNo som boksen er teikna, kan sjefen tallfeste spreiinga. **Kvartilbreidda** (IQR, *interquartile range*) er avstanden mellom kvartilane: $\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$ minutt. Det er breidda på sjølve boksen, og han fortel kor mykje dei midtarste $50\\,\\%$ av oppdraga varierer. Ein smal boks betyr jamn arbeidsflyt; ein brei boks betyr store skilnader frå oppdrag til oppdrag.\n\nKvartilbreidda har endå ein jobb: ho hjelper oss å avsløre **uteliggjarar** (outliers) — observasjonar som er mistenkjeleg store eller små samanlikna med resten. Kanskje ei måling er feilregistrert, eller kanskje eitt oppdrag gjekk fullstendig av skaftet. Tommelregelen er slik: ein verdi blir rekna som uteliggjar viss han er mindre enn $Q1 - 1{,}5 \\cdot \\text{IQR}$ eller større enn $Q3 + 1{,}5 \\cdot \\text{IQR}$.\n\nFor datasettet til sjefen blir grensene $42 - 1{,}5 \\cdot 16 = 42 - 24 = 18$ og $58 + 1{,}5 \\cdot 16 = 58 + 24 = 82$ minutt. Alle målingane ligg mellom $38$ og $65$, trygt innanfor — ingen uteliggjarar her, berre naturleg variasjon.\n\nHadde eit oppdrag teke $95$ minutt, ville det hamna utanfor grensa på $82$ og blitt teikna som eit eige punkt utanfor halen på boksplottet. Det er slik uteliggjarar blir markerte: dei blir skilde ut i staden for å strekkje halen, nett for at eitt ekstremt tilfelle ikkje skal gi eit misvisande bilete av heilskapen. For sjefen er ein uteliggjar uansett verdt ei oppfølging: var det kunden, utstyret — eller føringa av timelista?"
+    },
+    {
+      "id": "2py-11-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-11-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kvartilbreidd og uteliggjarar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-11-1-n-quiz2-q0",
+            "task": "$Q1 = 42$ og $Q3 = 58$. Kva er kvartilbreidda (IQR)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$16$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$50$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$58$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$."
+          },
+          {
+            "id": "2py-11-1-n-quiz2-q1",
+            "task": "Med $Q3 = 58$ og $\\text{IQR} = 16$: kvar går øvre grense for uteliggjarar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$74$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$66$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$82$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$90$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Øvre grense er $Q3 + 1{,}5 \\cdot \\text{IQR} = 58 + 24 = 82$. Verdiar over $82$ blir rekna som uteliggjarar."
+          },
+          {
+            "id": "2py-11-1-n-quiz2-q2",
+            "task": "Kva viser kvartilbreidda (IQR)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avstanden mellom minste og største verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnittet av datasettet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Talet på observasjonar i boksen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spreiinga til dei midtarste $50\\,\\%$ av dataa",
+                "isCorrect": true
+              }
+            ],
+            "solution": "IQR er breidda på boksen — avstanden frå $Q1$ til $Q3$, der dei midtarste $50\\,\\%$ av observasjonane ligg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-11-1-n-section3",
+      "type": "text",
+      "content": "## To lag, to boksar — samanlikning i praksis\n\nDen verkelege styrken til boksplottet viser seg når fleire grupper skal samanliknast. På lageret registrerer to arbeidslag talet på pakkar dei pakkar per time. Lag A: $22, 25, 28, 30, 31, 33, 35, 38$. Lag B: $18, 24, 26, 29, 30, 32, 34, 42$. Kven er best?\n\nBegge setta har åtte verdiar, og med eit *partal* observasjonar er medianen gjennomsnittet av dei to midtarste. For Lag A: $\\frac{30 + 31}{2} = 30{,}5$. $Q1$ er medianen av nedre halvdel $(22, 25, 28, 30)$: $\\frac{25 + 28}{2} = 26{,}5$, og $Q3$ av øvre halvdel $(31, 33, 35, 38)$: $\\frac{33 + 35}{2} = 34$. Fempunkta blir $22$, $26{,}5$, $30{,}5$, $34$, $38$.\n\nSame jobben for Lag B gir: min $18$, $Q1 = \\frac{24 + 26}{2} = 25$, median $\\frac{29 + 30}{2} = 29{,}5$, $Q3 = \\frac{32 + 34}{2} = 33$, maks $42$.\n\nTeiknar vi dei to boksplotta over same tallinja, kjem historia fram. Lag A har høgast median ($30{,}5$ mot $29{,}5$) — dei presterer jamt over litt betre. Lag A er òg jamnast: IQR er $34 - 26{,}5 = 7{,}5$ mot Lag B sin $33 - 25 = 8$, og heile spennet er smalare. Lag B har rett nok toppnoteringa ($42$ pakkar), men òg botnnoteringa ($18$) — dei svingar meir.\n\nKva sjefen gjer med det, er ei leiingsavgjerd: kanskje skal Lag B lære jamnleiken av Lag A, kanskje skuldast svingingane ulike skift eller varetypar. Men avgjerda kviler på eit ærleg bilete av dataa — og det er nett det boksplottet leverer: plassering, spreiing og ytterpunkt, side om side."
+    },
+    {
+      "id": "2py-11-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-11-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på samanlikning med boksplott:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-11-1-n-quiz3-q0",
+            "task": "Lag A pakkar (sortert): $22, 25, 28, 30, 31, 33, 35, 38$ pakkar per time. Kva er medianen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$31$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$29{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $8$ verdiar er medianen gjennomsnittet av dei to midtarste: $\\frac{30 + 31}{2} = 30{,}5$."
+          },
+          {
+            "id": "2py-11-1-n-quiz3-q1",
+            "task": "Lag B (sortert): $18, 24, 26, 29, 30, 32, 34, 42$. Kva er $Q1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$24$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$25$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$26$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$22$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$Q1$ er medianen av nedre halvdel $(18, 24, 26, 29)$: $\\frac{24 + 26}{2} = 25$."
+          },
+          {
+            "id": "2py-11-1-n-quiz3-q2",
+            "task": "Kva er den beste skildringa av skilnaden mellom laga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lag B er betre på alle målingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Laga er heilt like",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lag A har høgare median og er jamnast; Lag B svingar meir med både topp- og botnnotering",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Lag A har størst spreiing",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lag A har median $30{,}5$ mot $29{,}5$ og minst spreiing. Lag B har både høgaste ($42$) og lågaste ($18$) verdi — meir ujamn produksjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-11-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: oversikt i éi teikning\n\nTallkaoset til sjefen blei til innsikt gjennom fem tal og éi teikning. **Medianen** ($Q2$) deler det sorterte datasettet i to like halvdelar. **Nedre kvartil** $Q1$ er medianen av nedre halvdel — $25\\,\\%$ av dataa ligg under han. **Øvre kvartil** $Q3$ er medianen av øvre halvdel, med $75\\,\\%$ av dataa under seg. Saman med minste og største verdi utgjer dei **fempunktsoppsummeringa**, som blir teikna som eit boksplott: boks frå $Q1$ til $Q3$, medianstrek inni, halar ut til ytterpunkta.\n\n**Kvartilbreidda** $\\text{IQR} = Q3 - Q1$ måler spreiinga til dei midtarste $50\\,\\%$ — for serviceoppdraga var ho $16$ minutt. Og tommelregelen for **uteliggjarar** seier at verdiar utanfor intervallet frå $Q1 - 1{,}5 \\cdot \\text{IQR}$ til $Q3 + 1{,}5 \\cdot \\text{IQR}$ skal markerast som eigne punkt og undersøkjast nærare.\n\nHugs òg detaljane frå utrekninga: sorter alltid først, og ved partal observasjonar er medianen gjennomsnittet av dei to midtarste verdiane.\n\nStørst nytte gjer boksplottet når grupper skal **samanliknast** — som då Lag A viste seg jamnast og best på median, medan Lag B svinga mellom rekord og botnnotering. Plassering, spreiing og ytterpunkt i eitt blikk: det er difor boksplottet er fast inventar i kvalitetskontroll, HMS-arbeid og lønnsstatistikk."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "de6f412f4f175d86",
+    "translatedAt": "2026-06-17T00:37:08.287Z",
+    "model": "claude-code-agent",
+    "strings": 46,
+    "tm": {
+      "1f8356ad6a18d42b": "Boksplott og kvartilar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "8f5c438ab75da03b": "Ei forteljing om tidsstudien til sjefen -- om kvartilar, fempunktsoppsummering og boksplotta som avslører kva lag som jobbar jamnast.",
+      "885155459907aa17": "rekne ut kvartilar og lage boksplott",
+      "48cab737a6e1a1be": "samanlikne datasett ved hjelp av boksplott",
+      "3bd1f896411f15e2": "## Tidsstudien til sjefen\n\nElektrikarsjefen har eit problem: nokre serviceoppdrag tek dobbelt så lang tid som andre, og ho vil finne ut kva som er normalt. Ho har registrert tidsbruken for elleve like oppdrag, i minutt: $45, 52, 38, 60, 42, 55, 48, 65, 40, 50, 58$. Ei lang tallrekkje gir ikkje oversikt — ho treng eit bilete av dataa.\n\nVerktøyet ho grip til, heiter **boksplott** (box plot). Det er ei kompakt teikning som viser tre ting på éin gong: kvar dataa ligg (sentrum), kor spreidde dei er, og om det finst ekstreme verdiar som skil seg ut. Nett difor er boksplott mykje brukt i kvalitetskontroll, HMS-rapportering og lønnsstatistikk — alle stader der ein skal samanlikne grupper av tal raskt.\n\nFor å teikne eit boksplott treng vi fem tal frå datasettet: den minste verdien, den største, og tre verdiar som deler dei sorterte dataa i fire like store delar — dei såkalla **kvartilane** (av same ord som «kvart», ein fjerdedel). I dette kapittelet lærer du å finne desse fem tala, teikne og lese boksplott, avsløre **uteliggjarar** — og til slutt bruke det heile til å samanlikne to arbeidslag, slik ein sjef faktisk gjer.",
+      "113dc968eb81294a": "## Fem tal som skildrar alt — kvartilane\n\nVi hjelper sjefen, steg for steg. **Steg 1: sorter** dataa frå minst til størst: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$.\n\n**Steg 2: finn medianen.** Medianen ($Q2$) er verdien i midten av det sorterte datasettet — halvparten av målingane ligg under, halvparten over. Med elleve verdiar er det nummer seks i rekkja: $50$ minutt. Eit «normalt» oppdrag tek altså rundt $50$ minutt.\n\n**Steg 3: finn nedre kvartil, $Q1$** — medianen av den *nedre* halvdelen. Nedre halvdel er $38, 40, 42, 45, 48$, og midtverdien der er $42$. Det betyr at $25\\,\\%$ av oppdraga tek under $42$ minutt.\n\n**Steg 4: finn øvre kvartil, $Q3$** — medianen av den *øvre* halvdelen: $52, 55, 58, 60, 65$ har midtverdi $58$. Heile $75\\,\\%$ av oppdraga ligg under $58$ minutt.\n\n**Steg 5: noter minste og største verdi**, $38$ og $65$. Dermed har sjefen si **fempunktsoppsummering**: min $38$, $Q1 = 42$, median $50$, $Q3 = 58$, maks $65$.\n\nBoksplottet blir teikna rett frå desse fem tala: ein boks frå $Q1$ til $Q3$ (frå $42$ til $58$), ein strek inni boksen ved medianen $50$, og «halar» ut til minste og største verdi. Boksen rommar dei midtarste $50\\,\\%$ av oppdraga — eitt blikk, og du ser både normaltida og variasjonen.",
+      "55da6a5e06c48b37": "Test deg sjølv på median og kvartilar:",
+      "4097889236a2af26": "placeholder",
+      "4022c2b08a32732f": "Sjefen har $11$ sorterte målingar: $38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65$. Kva er medianen?",
+      "3829fe0a261025ad": "Med $11$ verdiar er medianen den sjette i sortert rekkjefølgje: $50$.",
+      "37ff337a322b5514": "Kva er nedre kvartil ($Q1$) i same datasettet?",
+      "e2b1b56fba83b0ff": "$Q1$ er medianen av nedre halvdel ($38, 40, 42, 45, 48$), altså $42$.",
+      "d0a3ab82707f6505": "Kva fem tal utgjer fempunktsoppsummeringa?",
+      "bf29a313b9570067": "Min, $Q1$, median, $Q3$, maks",
+      "476fb91cc28100d2": "Gjennomsnitt, median, typetal, min, maks",
+      "fc4b6a77e53ba505": "Dei fem største verdiane",
+      "75560d9d993a3cc6": "Min, gjennomsnitt, median, standardavvik, maks",
+      "497aec0d7a3f63f3": "Fempunktsoppsummeringa består av minste verdi, nedre kvartil, median, øvre kvartil og største verdi — alt du treng for å teikne eit boksplott.",
+      "d2223197aeaa8f20": "## Kvartilbreidd og uteliggjarar — kor spreidd, og kva stikk seg ut?\n\nNo som boksen er teikna, kan sjefen tallfeste spreiinga. **Kvartilbreidda** (IQR, *interquartile range*) er avstanden mellom kvartilane: $\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$ minutt. Det er breidda på sjølve boksen, og han fortel kor mykje dei midtarste $50\\,\\%$ av oppdraga varierer. Ein smal boks betyr jamn arbeidsflyt; ein brei boks betyr store skilnader frå oppdrag til oppdrag.\n\nKvartilbreidda har endå ein jobb: ho hjelper oss å avsløre **uteliggjarar** (outliers) — observasjonar som er mistenkjeleg store eller små samanlikna med resten. Kanskje ei måling er feilregistrert, eller kanskje eitt oppdrag gjekk fullstendig av skaftet. Tommelregelen er slik: ein verdi blir rekna som uteliggjar viss han er mindre enn $Q1 - 1{,}5 \\cdot \\text{IQR}$ eller større enn $Q3 + 1{,}5 \\cdot \\text{IQR}$.\n\nFor datasettet til sjefen blir grensene $42 - 1{,}5 \\cdot 16 = 42 - 24 = 18$ og $58 + 1{,}5 \\cdot 16 = 58 + 24 = 82$ minutt. Alle målingane ligg mellom $38$ og $65$, trygt innanfor — ingen uteliggjarar her, berre naturleg variasjon.\n\nHadde eit oppdrag teke $95$ minutt, ville det hamna utanfor grensa på $82$ og blitt teikna som eit eige punkt utanfor halen på boksplottet. Det er slik uteliggjarar blir markerte: dei blir skilde ut i staden for å strekkje halen, nett for at eitt ekstremt tilfelle ikkje skal gi eit misvisande bilete av heilskapen. For sjefen er ein uteliggjar uansett verdt ei oppfølging: var det kunden, utstyret — eller føringa av timelista?",
+      "19878242d2ffa2cf": "Test deg sjølv på kvartilbreidd og uteliggjarar:",
+      "34b73cf61cb41a2f": "$Q1 = 42$ og $Q3 = 58$. Kva er kvartilbreidda (IQR)?",
+      "285521112322fd79": "$\\text{IQR} = Q3 - Q1 = 58 - 42 = 16$.",
+      "53a305134877cab4": "Med $Q3 = 58$ og $\\text{IQR} = 16$: kvar går øvre grense for uteliggjarar?",
+      "9cd1cc2343df60e4": "Øvre grense er $Q3 + 1{,}5 \\cdot \\text{IQR} = 58 + 24 = 82$. Verdiar over $82$ blir rekna som uteliggjarar.",
+      "84c165c2e83f2aba": "Kva viser kvartilbreidda (IQR)?",
+      "147f77ac618515f5": "Avstanden mellom minste og største verdi",
+      "83726b98cf1d705f": "Gjennomsnittet av datasettet",
+      "0222d55c35cbdff2": "Spreiinga til dei midtarste $50\\,\\%$ av dataa",
+      "39f2a7c42a1526f5": "Talet på observasjonar i boksen",
+      "6b2683ad7c32944f": "IQR er breidda på boksen — avstanden frå $Q1$ til $Q3$, der dei midtarste $50\\,\\%$ av observasjonane ligg.",
+      "c1dece08c7aeac29": "## To lag, to boksar — samanlikning i praksis\n\nDen verkelege styrken til boksplottet viser seg når fleire grupper skal samanliknast. På lageret registrerer to arbeidslag talet på pakkar dei pakkar per time. Lag A: $22, 25, 28, 30, 31, 33, 35, 38$. Lag B: $18, 24, 26, 29, 30, 32, 34, 42$. Kven er best?\n\nBegge setta har åtte verdiar, og med eit *partal* observasjonar er medianen gjennomsnittet av dei to midtarste. For Lag A: $\\frac{30 + 31}{2} = 30{,}5$. $Q1$ er medianen av nedre halvdel $(22, 25, 28, 30)$: $\\frac{25 + 28}{2} = 26{,}5$, og $Q3$ av øvre halvdel $(31, 33, 35, 38)$: $\\frac{33 + 35}{2} = 34$. Fempunkta blir $22$, $26{,}5$, $30{,}5$, $34$, $38$.\n\nSame jobben for Lag B gir: min $18$, $Q1 = \\frac{24 + 26}{2} = 25$, median $\\frac{29 + 30}{2} = 29{,}5$, $Q3 = \\frac{32 + 34}{2} = 33$, maks $42$.\n\nTeiknar vi dei to boksplotta over same tallinja, kjem historia fram. Lag A har høgast median ($30{,}5$ mot $29{,}5$) — dei presterer jamt over litt betre. Lag A er òg jamnast: IQR er $34 - 26{,}5 = 7{,}5$ mot Lag B sin $33 - 25 = 8$, og heile spennet er smalare. Lag B har rett nok toppnoteringa ($42$ pakkar), men òg botnnoteringa ($18$) — dei svingar meir.\n\nKva sjefen gjer med det, er ei leiingsavgjerd: kanskje skal Lag B lære jamnleiken av Lag A, kanskje skuldast svingingane ulike skift eller varetypar. Men avgjerda kviler på eit ærleg bilete av dataa — og det er nett det boksplottet leverer: plassering, spreiing og ytterpunkt, side om side.",
+      "e29e9f2f5ad4faca": "Test deg sjølv på samanlikning med boksplott:",
+      "24e3d0195478d25e": "Lag A pakkar (sortert): $22, 25, 28, 30, 31, 33, 35, 38$ pakkar per time. Kva er medianen?",
+      "c3febb5275d3098a": "Med $8$ verdiar er medianen gjennomsnittet av dei to midtarste: $\\frac{30 + 31}{2} = 30{,}5$.",
+      "eab332907593c915": "Lag B (sortert): $18, 24, 26, 29, 30, 32, 34, 42$. Kva er $Q1$?",
+      "ea5a233bc099956c": "$Q1$ er medianen av nedre halvdel $(18, 24, 26, 29)$: $\\frac{24 + 26}{2} = 25$.",
+      "ccc6fa3e385d2308": "Kva er den beste skildringa av skilnaden mellom laga?",
+      "b4b7a9270d171085": "Lag B er betre på alle målingar",
+      "5e3d8d6fb602de5d": "Lag A har høgare median og er jamnast; Lag B svingar meir med både topp- og botnnotering",
+      "c8d49c3159756613": "Laga er heilt like",
+      "136bea68e1999a38": "Lag A har størst spreiing",
+      "a38253834b7950a6": "Lag A har median $30{,}5$ mot $29{,}5$ og minst spreiing. Lag B har både høgaste ($42$) og lågaste ($18$) verdi — meir ujamn produksjon.",
+      "571cf2ae9dd85c50": "## Oppsummering: oversikt i éi teikning\n\nTallkaoset til sjefen blei til innsikt gjennom fem tal og éi teikning. **Medianen** ($Q2$) deler det sorterte datasettet i to like halvdelar. **Nedre kvartil** $Q1$ er medianen av nedre halvdel — $25\\,\\%$ av dataa ligg under han. **Øvre kvartil** $Q3$ er medianen av øvre halvdel, med $75\\,\\%$ av dataa under seg. Saman med minste og største verdi utgjer dei **fempunktsoppsummeringa**, som blir teikna som eit boksplott: boks frå $Q1$ til $Q3$, medianstrek inni, halar ut til ytterpunkta.\n\n**Kvartilbreidda** $\\text{IQR} = Q3 - Q1$ måler spreiinga til dei midtarste $50\\,\\%$ — for serviceoppdraga var ho $16$ minutt. Og tommelregelen for **uteliggjarar** seier at verdiar utanfor intervallet frå $Q1 - 1{,}5 \\cdot \\text{IQR}$ til $Q3 + 1{,}5 \\cdot \\text{IQR}$ skal markerast som eigne punkt og undersøkjast nærare.\n\nHugs òg detaljane frå utrekninga: sorter alltid først, og ved partal observasjonar er medianen gjennomsnittet av dei to midtarste verdiane.\n\nStørst nytte gjer boksplottet når grupper skal **samanliknast** — som då Lag A viste seg jamnast og best på median, medan Lag B svinga mellom rekord og botnnotering. Plassering, spreiing og ytterpunkt i eitt blikk: det er difor boksplottet er fast inventar i kvalitetskontroll, HMS-arbeid og lønnsstatistikk."
+    }
+  }
+}

@@ -1,1 +1,341 @@
-{"id":"it-2-6-1-narrativ","courseId":"it-2","chapterNumber":"1","title":"Moderne webutvikling","subtitle":"Narrativ versjon","description":"En fortelling om hvordan nettsider ble til apper – fra skillet mellom frontend og backend, via single page-applikasjoner, til rammeverk, npm og hvordan et fullstack-prosjekt henger sammen.","estimatedMinutes":34,"competenceGoals":["Skille frontend fra backend og forstå fullstack","Forstå forskjellen på tradisjonell web og SPA","Kjenne vanlige rammeverk, npm og prosjektstruktur"],"linkedChapterId":"it-2-6-1","content":[{"id":"it-2-6-1-n-intro","type":"text","content":"## Fra nettsider til apper\n\nWebutvikling har endret seg enormt. Det som en gang var statiske HTML-sider med litt CSS og JavaScript, er nå komplekse applikasjoner som kan konkurrere med tradisjonelle desktop-programmer. For å forstå hvordan, må vi først dele verden i to.\n\n**Frontend** er alt brukeren ser og samhandler med i nettleseren: HTML-strukturen, CSS-stylingen, JavaScript for interaktivitet, og alt av grafikk, animasjoner og skjemaer. **Backend** kjører på serveren og håndterer det usynlige: datalagring i databaser, forretningslogikk, autentisering og sikkerhet, samt API-ene som frontend kommuniserer med. En utvikler som behersker begge deler, kalles en **fullstack-utvikler**.\n\nEt grunnleggende skille går mellom to måter å bygge webapplikasjoner på. I en **tradisjonell webapplikasjon** lastes hele siden på nytt hver gang brukeren klikker på en lenke eller sender et skjema – serveren genererer ny HTML for hver forespørsel. I en **moderne webapplikasjon**, en SPA (Single Page Application), lastes siden bare én gang. Deretter henter JavaScript data fra serveren, vanligvis som JSON, og oppdaterer bare deler av siden dynamisk. SPA-er gir en raskere, mer app-lignende opplevelse, men krever mer JavaScript-kunnskap, kan være vanskeligere å optimalisere for søkemotorer (SEO), og har en mer kompleks arkitektur."},{"id":"it-2-6-1-n-quiz1","type":"exercise","exercise":{"id":"it-2-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på frontend, backend og SPA:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-6-1-n-quiz1-q0","task":"Hva er frontend?","options":[{"id":"a","text":"Alt brukeren ser og samhandler med i nettleseren","isCorrect":true},{"id":"b","text":"Databasen på serveren","isCorrect":false},{"id":"c","text":"Et programmeringsspråk","isCorrect":false},{"id":"d","text":"En type indeks","isCorrect":false}],"solution":"Frontend er det brukeren møter i nettleseren: HTML, CSS, JavaScript og grensesnittet. Backend kjører på serveren."},{"id":"it-2-6-1-n-quiz1-q1","task":"Hva kjennetegner en SPA (Single Page Application)?","options":[{"id":"a","text":"Hele siden lastes på nytt ved hvert klikk","isCorrect":false},{"id":"b","text":"Siden lastes én gang, og JavaScript oppdaterer deler dynamisk","isCorrect":true},{"id":"c","text":"Den har ingen JavaScript","isCorrect":false},{"id":"d","text":"Den kan ikke hente data fra en server","isCorrect":false}],"solution":"En SPA laster siden én gang og henter deretter data (ofte JSON) for å oppdatere deler av siden uten full omlasting."},{"id":"it-2-6-1-n-quiz1-q2","task":"Hva er en ulempe med SPA-er?","options":[{"id":"a","text":"De laster alltid hele siden på nytt","isCorrect":false},{"id":"b","text":"De kan ikke bruke CSS","isCorrect":false},{"id":"c","text":"De kan være vanskeligere å optimalisere for søkemotorer (SEO)","isCorrect":true},{"id":"d","text":"De fungerer ikke i nettlesere","isCorrect":false}],"solution":"SPA-er krever mer JavaScript og er ofte vanskeligere for søkemotorer å indeksere, i tillegg til mer kompleks arkitektur."}]}},{"id":"it-2-6-1-n-section1","type":"text","content":"## Rammeverk for front og back\n\nMan bygger sjelden alt fra bunnen i moderne webutvikling. I stedet bruker vi **rammeverk og biblioteker** som gir ferdige byggeklosser. På frontend er **React**, et bibliotek fra Meta, det mest populære – det er komponentbasert med et stort økosystem. **Vue.js** regnes som enklere å lære, med god dokumentasjon og fleksibilitet. **Angular** fra Google er et komplett rammeverk som brukes mye i store bedrifter, men har en bratt læringskurve.\n\nPå backend møter vi flere alternativer, gjerne knyttet til ulike språk. **Flask** (Python) er lettvekts og fint for læring og små prosjekter, mens **Django** (Python) er mer omfattende med innebygd admin-panel og ORM. **Express** (Node.js/JavaScript) er minimalistisk og fleksibelt, og **Spring Boot** (Java) er kraftig og en bedriftsstandard. Det fine er at frontend og backend kan velges uavhengig av hverandre – du kan kombinere React med Flask, eller Vue med Express.\n\nFelles for moderne JavaScript-prosjekter er **npm** (Node Package Manager), verktøyet for å installere biblioteker. Du installerer en pakke med `npm install react`, og filen `package.json` holder oversikt over alle avhengighetene prosjektet trenger, sammen med nyttige skript. Kjører du `npm install` uten argumenter, installeres alle avhengighetene listet i package.json. Dette er helt essensielt, fordi et moderne prosjekt kan ha hundrevis av avhengigheter."},{"id":"it-2-6-1-n-quiz2","type":"exercise","exercise":{"id":"it-2-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på rammeverk og npm:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-6-1-n-quiz2-q0","task":"Hvilket av disse er et populært frontend-bibliotek fra Meta?","options":[{"id":"a","text":"Flask","isCorrect":false},{"id":"b","text":"Django","isCorrect":false},{"id":"c","text":"Spring Boot","isCorrect":false},{"id":"d","text":"React","isCorrect":true}],"solution":"React er et komponentbasert frontend-bibliotek fra Meta. Flask, Django og Spring Boot er backend-rammeverk."},{"id":"it-2-6-1-n-quiz2-q1","task":"Hva brukes npm til?","options":[{"id":"a","text":"Å installere og håndtere JavaScript-biblioteker","isCorrect":true},{"id":"b","text":"Å designe databaser","isCorrect":false},{"id":"c","text":"Å skrive CSS","isCorrect":false},{"id":"d","text":"Å lage indekser","isCorrect":false}],"solution":"npm (Node Package Manager) installerer og holder styr på JavaScript-avhengigheter i et prosjekt."},{"id":"it-2-6-1-n-quiz2-q2","task":"Hva inneholder package.json?","options":[{"id":"a","text":"Selve databasen","isCorrect":false},{"id":"b","text":"Oversikt over prosjektets avhengigheter og skript","isCorrect":true},{"id":"c","text":"All HTML-koden","isCorrect":false},{"id":"d","text":"Brukernes passord","isCorrect":false}],"solution":"package.json lister avhengighetene og skriptene prosjektet trenger, slik at npm install kan sette opp alt."}]}},{"id":"it-2-6-1-n-section2","type":"text","content":"## Hvordan et fullstack-prosjekt henger sammen\n\nNår du setter sammen frontend og backend til et helt system, blir organiseringen viktig. Et typisk **fullstack-prosjekt** deles gjerne i tre hoveddeler. I en `backend`-mappe ligger serverkoden – for et Flask-prosjekt for eksempel `app.py` for selve applikasjonen, `models.py` for databasemodellene, `routes.py` for API-rutene, og `requirements.txt` for Python-avhengighetene. I en `frontend`-mappe ligger klientkoden, med en `src`-mappe som inneholder komponentene, `App.js` og `index.js`, samt `package.json` for npm-avhengighetene. Og en `database`-mappe kan inneholde et oppsettsskript som `init.sql`.\n\nDenne tydelige separasjonen gir flere praktiske fordeler. Den lar utviklere **jobbe parallelt** på frontend og backend uten å trå på hverandre. Den lar deg **deploye delene separat**, slik at du kan oppdatere frontend uten å røre backend. Og den lar deg **teste hver del isolert**, noe som gjør feilsøking enklere. Skillet mellom de tre lagene – grensesnitt, logikk og data – er ikke bare ryddig, det er selve fundamentet for hvordan moderne webapplikasjoner bygges og vedlikeholdes av team."},{"id":"it-2-6-1-n-quiz3","type":"exercise","exercise":{"id":"it-2-6-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på prosjektstruktur:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-6-1-n-quiz3-q0","task":"Hva er en fordel med å skille frontend og backend i et prosjekt?","options":[{"id":"a","text":"Man slipper å bruke databaser","isCorrect":false},{"id":"b","text":"Koden blir alltid kortere","isCorrect":false},{"id":"c","text":"Man kan jobbe parallelt, deploye separat og teste hver del isolert","isCorrect":true},{"id":"d","text":"Man trenger ikke JavaScript","isCorrect":false}],"solution":"Separasjonen lar team jobbe parallelt, deploye og teste delene uavhengig av hverandre."},{"id":"it-2-6-1-n-quiz3-q1","task":"Hvilken fil styrer Python-avhengighetene i backend-delen?","options":[{"id":"a","text":"package.json","isCorrect":false},{"id":"b","text":"index.html","isCorrect":false},{"id":"c","text":"init.sql","isCorrect":false},{"id":"d","text":"requirements.txt","isCorrect":true}],"solution":"requirements.txt lister Python-avhengighetene, mens package.json gjør det samme for JavaScript i frontend."},{"id":"it-2-6-1-n-quiz3-q2","task":"Hva er en fullstack-utvikler?","options":[{"id":"a","text":"En som jobber med både frontend og backend","isCorrect":true},{"id":"b","text":"En som bare designer logoer","isCorrect":false},{"id":"c","text":"En som kun skriver CSS","isCorrect":false},{"id":"d","text":"En som bare administrerer databaser","isCorrect":false}],"solution":"En fullstack-utvikler behersker både frontend (nettleser) og backend (server)."}]}},{"id":"it-2-6-1-n-summary","type":"text","content":"## Oppsummering\n\nWeben har gått fra statiske sider til app-lignende systemer. Vi delte verden i **frontend** (det brukeren ser i nettleseren) og **backend** (logikk og data på serveren), med **fullstack-utvikleren** som behersker begge. Vi skilte tradisjonell web, der hele siden lastes på nytt, fra **SPA-er**, der siden lastes én gang og oppdateres dynamisk med JSON.\n\nModerne utvikling lener seg på **rammeverk** som React, Vue og Angular i front, og Flask, Django, Express og Spring Boot i back, med **npm** og `package.json` for å håndtere avhengigheter. Et **fullstack-prosjekt** deles ryddig i backend, frontend og database, noe som lar team jobbe parallelt, deploye separat og teste isolert. I neste kapittel dykker vi ned i JavaScript og hvordan vi manipulerer selve nettsiden."}],"exercises":[]}
+{
+  "id": "it-2-6-1-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "1",
+  "title": "Moderne webutvikling",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan nettsider ble til apper – fra skillet mellom frontend og backend, via single page-applikasjoner, til rammeverk, npm og hvordan et fullstack-prosjekt henger sammen.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "Skille frontend fra backend og forstå fullstack",
+    "Forstå forskjellen på tradisjonell web og SPA",
+    "Kjenne vanlige rammeverk, npm og prosjektstruktur"
+  ],
+  "linkedChapterId": "it-2-6-1",
+  "content": [
+    {
+      "id": "it-2-6-1-n-intro",
+      "type": "text",
+      "content": "## Fra nettsider til apper\n\nWebutvikling har endret seg enormt. Det som en gang var statiske HTML-sider med litt CSS og JavaScript, er nå komplekse applikasjoner som kan konkurrere med tradisjonelle desktop-programmer. For å forstå hvordan, må vi først dele verden i to.\n\n**Frontend** er alt brukeren ser og samhandler med i nettleseren: HTML-strukturen, CSS-stylingen, JavaScript for interaktivitet, og alt av grafikk, animasjoner og skjemaer. **Backend** kjører på serveren og håndterer det usynlige: datalagring i databaser, forretningslogikk, autentisering og sikkerhet, samt API-ene som frontend kommuniserer med. En utvikler som behersker begge deler, kalles en **fullstack-utvikler**.\n\nEt grunnleggende skille går mellom to måter å bygge webapplikasjoner på. I en **tradisjonell webapplikasjon** lastes hele siden på nytt hver gang brukeren klikker på en lenke eller sender et skjema – serveren genererer ny HTML for hver forespørsel. I en **moderne webapplikasjon**, en SPA (Single Page Application), lastes siden bare én gang. Deretter henter JavaScript data fra serveren, vanligvis som JSON, og oppdaterer bare deler av siden dynamisk. SPA-er gir en raskere, mer app-lignende opplevelse, men krever mer JavaScript-kunnskap, kan være vanskeligere å optimalisere for søkemotorer (SEO), og har en mer kompleks arkitektur."
+    },
+    {
+      "id": "it-2-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på frontend, backend og SPA:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-6-1-n-quiz1-q0",
+            "task": "Hva er frontend?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Databasen på serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En type indeks",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Alt brukeren ser og samhandler med i nettleseren",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Frontend er det brukeren møter i nettleseren: HTML, CSS, JavaScript og grensesnittet. Backend kjører på serveren."
+          },
+          {
+            "id": "it-2-6-1-n-quiz1-q1",
+            "task": "Hva kjennetegner en SPA (Single Page Application)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Siden lastes én gang, og JavaScript oppdaterer deler dynamisk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Hele siden lastes på nytt ved hvert klikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den har ingen JavaScript",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den kan ikke hente data fra en server",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En SPA laster siden én gang og henter deretter data (ofte JSON) for å oppdatere deler av siden uten full omlasting."
+          },
+          {
+            "id": "it-2-6-1-n-quiz1-q2",
+            "task": "Hva er en ulempe med SPA-er?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De laster alltid hele siden på nytt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De kan være vanskeligere å optimalisere for søkemotorer (SEO)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "De kan ikke bruke CSS",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De fungerer ikke i nettlesere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SPA-er krever mer JavaScript og er ofte vanskeligere for søkemotorer å indeksere, i tillegg til mer kompleks arkitektur."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-6-1-n-section1",
+      "type": "text",
+      "content": "## Rammeverk for front og back\n\nMan bygger sjelden alt fra bunnen i moderne webutvikling. I stedet bruker vi **rammeverk og biblioteker** som gir ferdige byggeklosser. På frontend er **React**, et bibliotek fra Meta, det mest populære – det er komponentbasert med et stort økosystem. **Vue.js** regnes som enklere å lære, med god dokumentasjon og fleksibilitet. **Angular** fra Google er et komplett rammeverk som brukes mye i store bedrifter, men har en bratt læringskurve.\n\nPå backend møter vi flere alternativer, gjerne knyttet til ulike språk. **Flask** (Python) er lettvekts og fint for læring og små prosjekter, mens **Django** (Python) er mer omfattende med innebygd admin-panel og ORM. **Express** (Node.js/JavaScript) er minimalistisk og fleksibelt, og **Spring Boot** (Java) er kraftig og en bedriftsstandard. Det fine er at frontend og backend kan velges uavhengig av hverandre – du kan kombinere React med Flask, eller Vue med Express.\n\nFelles for moderne JavaScript-prosjekter er **npm** (Node Package Manager), verktøyet for å installere biblioteker. Du installerer en pakke med `npm install react`, og filen `package.json` holder oversikt over alle avhengighetene prosjektet trenger, sammen med nyttige skript. Kjører du `npm install` uten argumenter, installeres alle avhengighetene listet i package.json. Dette er helt essensielt, fordi et moderne prosjekt kan ha hundrevis av avhengigheter."
+    },
+    {
+      "id": "it-2-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rammeverk og npm:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-6-1-n-quiz2-q0",
+            "task": "Hvilket av disse er et populært frontend-bibliotek fra Meta?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Flask",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Django",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "React",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Spring Boot",
+                "isCorrect": false
+              }
+            ],
+            "solution": "React er et komponentbasert frontend-bibliotek fra Meta. Flask, Django og Spring Boot er backend-rammeverk."
+          },
+          {
+            "id": "it-2-6-1-n-quiz2-q1",
+            "task": "Hva brukes npm til?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å designe databaser",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å skrive CSS",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å lage indekser",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å installere og håndtere JavaScript-biblioteker",
+                "isCorrect": true
+              }
+            ],
+            "solution": "npm (Node Package Manager) installerer og holder styr på JavaScript-avhengigheter i et prosjekt."
+          },
+          {
+            "id": "it-2-6-1-n-quiz2-q2",
+            "task": "Hva inneholder package.json?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Oversikt over prosjektets avhengigheter og skript",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Selve databasen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "All HTML-koden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Brukernes passord",
+                "isCorrect": false
+              }
+            ],
+            "solution": "package.json lister avhengighetene og skriptene prosjektet trenger, slik at npm install kan sette opp alt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-6-1-n-section2",
+      "type": "text",
+      "content": "## Hvordan et fullstack-prosjekt henger sammen\n\nNår du setter sammen frontend og backend til et helt system, blir organiseringen viktig. Et typisk **fullstack-prosjekt** deles gjerne i tre hoveddeler. I en `backend`-mappe ligger serverkoden – for et Flask-prosjekt for eksempel `app.py` for selve applikasjonen, `models.py` for databasemodellene, `routes.py` for API-rutene, og `requirements.txt` for Python-avhengighetene. I en `frontend`-mappe ligger klientkoden, med en `src`-mappe som inneholder komponentene, `App.js` og `index.js`, samt `package.json` for npm-avhengighetene. Og en `database`-mappe kan inneholde et oppsettsskript som `init.sql`.\n\nDenne tydelige separasjonen gir flere praktiske fordeler. Den lar utviklere **jobbe parallelt** på frontend og backend uten å trå på hverandre. Den lar deg **deploye delene separat**, slik at du kan oppdatere frontend uten å røre backend. Og den lar deg **teste hver del isolert**, noe som gjør feilsøking enklere. Skillet mellom de tre lagene – grensesnitt, logikk og data – er ikke bare ryddig, det er selve fundamentet for hvordan moderne webapplikasjoner bygges og vedlikeholdes av team."
+    },
+    {
+      "id": "it-2-6-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-6-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på prosjektstruktur:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-6-1-n-quiz3-q0",
+            "task": "Hva er en fordel med å skille frontend og backend i et prosjekt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Man slipper å bruke databaser",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Man kan jobbe parallelt, deploye separat og teste hver del isolert",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Koden blir alltid kortere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Man trenger ikke JavaScript",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Separasjonen lar team jobbe parallelt, deploye og teste delene uavhengig av hverandre."
+          },
+          {
+            "id": "it-2-6-1-n-quiz3-q1",
+            "task": "Hvilken fil styrer Python-avhengighetene i backend-delen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "package.json",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "index.html",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "requirements.txt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "init.sql",
+                "isCorrect": false
+              }
+            ],
+            "solution": "requirements.txt lister Python-avhengighetene, mens package.json gjør det samme for JavaScript i frontend."
+          },
+          {
+            "id": "it-2-6-1-n-quiz3-q2",
+            "task": "Hva er en fullstack-utvikler?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En som bare designer logoer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En som kun skriver CSS",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En som bare administrerer databaser",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En som jobber med både frontend og backend",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En fullstack-utvikler behersker både frontend (nettleser) og backend (server)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nWeben har gått fra statiske sider til app-lignende systemer. Vi delte verden i **frontend** (det brukeren ser i nettleseren) og **backend** (logikk og data på serveren), med **fullstack-utvikleren** som behersker begge. Vi skilte tradisjonell web, der hele siden lastes på nytt, fra **SPA-er**, der siden lastes én gang og oppdateres dynamisk med JSON.\n\nModerne utvikling lener seg på **rammeverk** som React, Vue og Angular i front, og Flask, Django, Express og Spring Boot i back, med **npm** og `package.json` for å håndtere avhengigheter. Et **fullstack-prosjekt** deles ryddig i backend, frontend og database, noe som lar team jobbe parallelt, deploye separat og teste isolert. I neste kapittel dykker vi ned i JavaScript og hvordan vi manipulerer selve nettsiden."
+    }
+  ],
+  "exercises": []
+}

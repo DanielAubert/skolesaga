@@ -1,1 +1,481 @@
-{"id":"r2-2-7-narrativ","courseId":"r2","chapterNumber":"2.7","title":"Areal mellom kurver","subtitle":"Narrativ versjon","description":"Ei forteljing om arealet mellom to kurver — frå inntekts- og kostnadskurvene til bedrifta til metoden med skjeringspunkt, øvst-minus-nedst og oppdeling når kurvene byter plass.","estimatedMinutes":33,"competenceGoals":["rekne ut areal mellom to kurver","finne skjeringspunkt og setje opp integral"],"linkedChapterId":"r2-2-7","content":[{"id":"r2-2-7-n-intro","type":"text","content":"## Området mellom to grafar\n\nEi bedrift teiknar to kurver i same diagram: inntektene og kostnadene månad for månad. Sjefen peikar på området som ligg klemt *mellom* kurvene — der inntektslinja ligg over kostnadslinja — og spør: «Kor stort er overskotet vårt, totalt?» Svaret er bokstavleg tala arealet mellom dei to kurvene.\n\nTil no har vi målt areal mellom éin graf og $x$-aksen. Men aksen er eigentleg berre ei særleg keisam kurve ($g(x) = 0$), og idéen generaliserer vakkert: arealet mellom to grafar er integralet av *avstanden* mellom dei — øvste funksjon minus nedste.\n\nTre spørsmål må svarast på undervegs, og dei utgjer arbeidsgangen i kapittelet: Kvar byrjar og sluttar området? (Skjeringspunkta gir grensene.) Kven ligg øvst? (Testpunkt eller skisse.) Og kva gjer vi når kurvene kryssar kvarandre midtvegs og byter plass? (Del opp — som i førre kapittel.)"},{"id":"r2-2-7-n-section1","type":"text","content":"## Øvst minus nedst\n\nGrunnformelen er enkel og intuitiv. Når $f(x) \\geq g(x)$ på heile $[a,b]$, er arealet mellom grafane\n\n$$A = \\int_a^b \\left( f(x) - g(x) \\right) dx$$\n\nTenk på det som rektangelstriper igjen: kvar stripe har høgd $f(x) - g(x)$ — avstanden frå nedste til øvste graf — og breidd $dx$. Vi trekkjer alltid den nedre frå den øvre, slik at integranden er positiv. Eit fint poeng: formelen bryr seg ikkje om kurvene ligg over eller under $x$-aksen — berre om *avstanden* mellom dei. Aksen har mista særstillinga si.\n\nSom regel må vi finne grensene sjølve, og dei sit i **skjeringspunkta**: løys $f(x) = g(x)$. Lat oss ta linja $f(x) = x + 2$ og parabelen $g(x) = x^2$. Skjering:\n\n$$x + 2 = x^2 \\iff x^2 - x - 2 = 0 \\iff (x-2)(x+1) = 0$$\n\naltså $x = -1$ og $x = 2$. Kven ligg øvst mellom dei? Testpunkt $x = 0$: $f(0) = 2 > 0 = g(0)$, så linja er øvst. Då er\n\n$$A = \\int_{-1}^{2} (x + 2 - x^2)\\,dx = \\left[\\frac{x^2}{2} + 2x - \\frac{x^3}{3}\\right]_{-1}^{2} = \\frac{10}{3} - \\left(-\\frac{7}{6}\\right) = \\frac{9}{2}$$\n\nGrensene frå skjeringa, øvst-testen med eitt punkt, og integralet av differansen — det er heile metoden."},{"id":"r2-2-7-n-quiz1","type":"exercise","exercise":{"id":"r2-2-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på areal mellom kurver:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-7-n-quiz1-q0","task":"Når $f(x) \\geq g(x)$ på $[a,b]$, kva er arealet mellom grafane?","options":[{"id":"a","text":"$\\int_a^b (f(x) + g(x))\\,dx$","isCorrect":false},{"id":"b","text":"$\\int_a^b f(x)\\,dx \\cdot \\int_a^b g(x)\\,dx$","isCorrect":false},{"id":"c","text":"$\\int_a^b (f(x) - g(x))\\,dx$","isCorrect":true},{"id":"d","text":"$\\int_a^b (g(x) - f(x))\\,dx$","isCorrect":false}],"solution":"Kvar stripe har høgd lik avstanden $f(x) - g(x)$ (øvst minus nedst), så $A = \\int_a^b (f - g)\\,dx$."},{"id":"r2-2-7-n-quiz1-q1","task":"Korleis finn du integrasjonsgrensene for området mellom $f$ og $g$?","options":[{"id":"a","text":"Ved å løyse $f(x) = g(x)$ — skjeringspunkta gir grensene","isCorrect":true},{"id":"b","text":"Ved å finne nullpunkta til $f$","isCorrect":false},{"id":"c","text":"Ved å finne nullpunkta til $g$","isCorrect":false},{"id":"d","text":"Grensene er alltid oppgitt i oppgåva","isCorrect":false}],"solution":"Området blir avgrensa der kurvene møtest. Likninga $f(x) = g(x)$ gir $x$-koordinatane til skjeringspunkta."},{"id":"r2-2-7-n-quiz1-q2","task":"Kva er arealet mellom $f(x) = x + 2$ og $g(x) = x^2$?","options":[{"id":"a","text":"$\\frac{10}{3}$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$\\frac{27}{6}$ målt med forteikn, altså negativt","isCorrect":false},{"id":"d","text":"$\\frac{9}{2}$","isCorrect":true}],"solution":"Skjering i $x = -1$ og $x = 2$, linja øvst: $A = \\int_{-1}^{2}(x + 2 - x^2)\\,dx = \\frac{9}{2}$."},{"id":"r2-2-7-n-quiz1-q3","task":"Speler det noka rolle for formelen om begge kurvene ligg under $x$-aksen?","options":[{"id":"a","text":"Ja, då må vi ta absoluttverdi av begge funksjonane først","isCorrect":false},{"id":"b","text":"Nei — formelen avheng berre av avstanden $f(x) - g(x)$, ikkje av plasseringa i høve til aksen","isCorrect":true},{"id":"c","text":"Ja, då blir arealet negativt","isCorrect":false},{"id":"d","text":"Ja, då må vi spegle området over aksen","isCorrect":false}],"solution":"Differansen $f - g$ måler avstanden mellom kurvene uansett kvar dei ligg. $x$-aksen har inga særstilling i formelen."}]}},{"id":"r2-2-7-n-section2","type":"text","content":"## Når kurvene byter plass\n\nKva om kurvene kryssar kvarandre *inne* i intervallet? Då byter «øvst» og «nedst» plass, og eitt enkelt integral blandar positive og negative bidrag — same fella som i førre kapittel. Løysinga er òg den same: **del opp ved skjeringspunkta**, og syt for rett rekkjefølgje i kvar del. Kompakt skrive: $A = \\int_a^b |f(x) - g(x)|\\,dx$.\n\nKlassisk eksempel: $f(x) = x^3$ og $g(x) = x$ på $[-1, 1]$. Skjering: $x^3 = x$ gir $x(x-1)(x+1) = 0$, altså $x = -1, 0, 1$. Testpunkt: ved $x = -0{,}5$ er $x^3 = -0{,}125 > -0{,}5 = x$, så $x^3$ ligg øvst på $[-1, 0]$; ved $x = 0{,}5$ er det omvendt. Dermed\n\n$$A = \\int_{-1}^{0} (x^3 - x)\\,dx + \\int_{0}^{1} (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$$\n\nEit nyttig tidssparande triks til slutt: **symmetri**. For dei to parablane $f(x) = 4 - x^2$ og $g(x) = x^2 - 2$ gir skjeringa $x = \\pm\\sqrt{3}$, og differansen $f - g = 6 - 2x^2$ er ein partalsfunksjon — symmetrisk om $y$-aksen. Då kan vi rekne halve området og doble:\n\n$$A = 2\\int_0^{\\sqrt{3}} (6 - 2x^2)\\,dx = 2\\left[6x - \\frac{2x^3}{3}\\right]_0^{\\sqrt{3}} = 2\\left(6\\sqrt{3} - 2\\sqrt{3}\\right) = 8\\sqrt{3}$$\n\nHalvparten av innsetjingsarbeidet, og null risiko for forteiknsrot i den negative enden."},{"id":"r2-2-7-n-quiz2","type":"exercise","exercise":{"id":"r2-2-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kryssande kurver og symmetri:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-7-n-quiz2-q0","task":"Kurvene $f$ og $g$ kryssar kvarandre i $x = c$ inne i intervallet $[a,b]$. Kva må du gjere for å finne arealet mellom dei?","options":[{"id":"a","text":"Bruke $\\int_a^b (f-g)\\,dx$ direkte","isCorrect":false},{"id":"b","text":"Byte om grensene $a$ og $b$","isCorrect":false},{"id":"c","text":"Berre integrere over den delen der $f$ er øvst","isCorrect":false},{"id":"d","text":"Dele integralet ved $x = c$ og bruke rett rekkjefølgje (øvst minus nedst) i kvar del","isCorrect":true}],"solution":"Ved skjeringspunktet byter kurvene plass. Utan oppdeling kansellerer positive og negative bidrag — del opp, eller integrer $|f - g|$."},{"id":"r2-2-7-n-quiz2-q1","task":"Kva er arealet mellom $f(x) = x^3$ og $g(x) = x$ for $x \\in [-1, 1]$?","options":[{"id":"a","text":"$\\frac{1}{2}$","isCorrect":true},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$\\frac{1}{4}$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":false}],"solution":"Kurvene kryssar i $x = -1, 0, 1$. $A = \\int_{-1}^0 (x^3 - x)\\,dx + \\int_0^1 (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$."},{"id":"r2-2-7-n-quiz2-q2","task":"Differansen $f(x) - g(x) = 6 - 2x^2$ skal integrerast over $[-\\sqrt{3}, \\sqrt{3}]$. Kva forenkling gir symmetrien?","options":[{"id":"a","text":"Integralet er null fordi grensene er symmetriske","isCorrect":false},{"id":"b","text":"$\\int_{-\\sqrt{3}}^{\\sqrt{3}} (6-2x^2)\\,dx = 2\\int_0^{\\sqrt{3}} (6-2x^2)\\,dx$","isCorrect":true},{"id":"c","text":"Vi kan droppe leddet $-2x^2$","isCorrect":false},{"id":"d","text":"Vi kan byte ut $6 - 2x^2$ med $6$","isCorrect":false}],"solution":"$6 - 2x^2$ er ein partalsfunksjon, så integralet over $[-a, a]$ er det doble av integralet over $[0, a]$. Resultatet blir $8\\sqrt{3}$."},{"id":"r2-2-7-n-quiz2-q3","task":"Korleis avgjer du raskast kva av to kurver som ligg øvst på eit delintervall?","options":[{"id":"a","text":"Samanlikn dei deriverte","isCorrect":false},{"id":"b","text":"Den med størst leiande koeffisient ligg øvst","isCorrect":false},{"id":"c","text":"Vel ein testverdi i delintervallet og samanlikn $f$ og $g$ der","isCorrect":true},{"id":"d","text":"Det er alltid den med høgast grad","isCorrect":false}],"solution":"Eitt testpunkt mellom skjeringspunkta avgjer saka, sidan kurvene ikkje kan byte plass utan å krysse kvarandre. Ei skisse fungerer òg."}]}},{"id":"r2-2-7-n-section3","type":"text","content":"## Overskotet — areal i kroner\n\nTilbake til spørsmålet frå sjefen. Bedrifta har inntektsfunksjon $I(x) = 100x - x^2$ og kostnadsfunksjon $K(x) = 20x + 100$ (i tusen kroner), der $x$ er produksjonen. Total forteneste når produksjonen går frå $10$ til $60$ einingar er nøyaktig arealet mellom kurvene:\n\n$$\\text{Forteneste} = \\int_{10}^{60} \\bigl(I(x) - K(x)\\bigr)\\,dx = \\int_{10}^{60} (80x - x^2 - 100)\\,dx$$\n\nFørst bør vi forsikre oss om at inntekta faktisk ligg øvst på heile intervallet. Likninga $I(x) = K(x)$ gir $x^2 - 80x + 100 = 0$, med løysingar $x \\approx 1{,}3$ og $x \\approx 78{,}7$ — begge utanfor $[10, 60]$, så inga oppdeling trengst.\n\nSå reknar vi:\n\n$$\\left[40x^2 - \\frac{x^3}{3} - 100x\\right]_{10}^{60} = 66\\,000 - \\frac{8000}{3} = \\frac{190\\,000}{3} \\approx 63\\,333$$\n\nTotal forteneste: omtrent $63{,}3$ millionar kroner. Kvart trinn i metoden hadde ei økonomisk meining: skjeringspunkta er break-even-punkta der overskot blir underskot, «øvst-testen» sjekkar at drifta går med overskot, og integralet summerer fortenesta eining for eining. Arealet mellom kurver er med andre ord ikkje berre geometri — det er differansen mellom to storleikar, akkumulert over eit heilt forløp."},{"id":"r2-2-7-n-quiz3","type":"exercise","exercise":{"id":"r2-2-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på praktisk bruk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-7-n-quiz3-q0","task":"Ei bedrift har inntektsfunksjon $I(x)$ og kostnadsfunksjon $K(x)$. Kva representerer $\\int_a^b (I(x) - K(x))\\,dx$ når $I > K$ på intervallet?","options":[{"id":"a","text":"Total omsetnad","isCorrect":false},{"id":"b","text":"Total forteneste når produksjonen går frå $a$ til $b$","isCorrect":true},{"id":"c","text":"Gjennomsnittskostnaden","isCorrect":false},{"id":"d","text":"Marginalinntekta","isCorrect":false}],"solution":"Differansen $I - K$ er fortenesta per eining; integralet akkumulerer henne over heile produksjonsintervallet."},{"id":"r2-2-7-n-quiz3-q1","task":"Kva representerer løysingane av $I(x) = K(x)$ økonomisk?","options":[{"id":"a","text":"Punkta med maksimal forteneste","isCorrect":false},{"id":"b","text":"Punkta med høgast inntekt","isCorrect":false},{"id":"c","text":"Punkta med lågast kostnad","isCorrect":false},{"id":"d","text":"Break-even-punkta der fortenesta skiftar forteikn","isCorrect":true}],"solution":"Der inntekt er lik kostnad, er fortenesta null — kurvene kryssar, og overskot går over til underskot (eller omvendt)."},{"id":"r2-2-7-n-quiz3-q2","task":"Kvifor sjekka vi at skjeringspunkta $x \\approx 1{,}3$ og $x \\approx 78{,}7$ låg utanfor $[10, 60]$?","options":[{"id":"a","text":"For å vere sikre på at kurvene ikkje byter plass i intervallet, slik at integralet ikkje må delast opp","isCorrect":true},{"id":"b","text":"For å finne integrasjonsgrensene","isCorrect":false},{"id":"c","text":"For å rekne ut maksimal forteneste","isCorrect":false},{"id":"d","text":"For å kunne bruke symmetri","isCorrect":false}],"solution":"Inga skjering inne i intervallet tyder at $I$ ligg øvst heile vegen — då kan vi integrere $I - K$ direkte utan oppdeling."}]}},{"id":"r2-2-7-n-summary","type":"text","content":"## Oppsummering: avstanden som blir integrert\n\nArealet mellom to kurver er integralet av avstanden mellom dei: $A = \\int_a^b (f(x) - g(x))\\,dx$ når $f$ ligg øvst — eller heilt generelt $A = \\int_a^b |f(x) - g(x)|\\,dx$. Arbeidsgangen sit no i fingrane: finn skjeringspunkta ved å løyse $f(x) = g(x)$ (dei gir grensene), avgjer med eit testpunkt kven som ligg øvst, og del opp integralet viss kurvene byter plass undervegs — akkurat som nullpunkta tvinga oss til i førre kapittel. Symmetri kan halvere arbeidet: ein partalsfunksjon integrert over $[-a, a]$ er det doble av integralet over $[0, a]$, slik parablane gav oss $8\\sqrt{3}$ med halv innsats.\n\nOg som kurvene til bedrifta viste: dette er meir enn geometri. Arealet mellom inntekt og kostnad *er* fortenesta, mellom to fartar ligg forspranget, mellom tilbod og etterspurnad bur overskotsomgrepa til økonomane. Du har no heile grunnpakken i integralrekning — antideriverte, fundamentalsetninga og areal. I kapittel 3 rustar vi opp teknikkane: substitusjon, delvis integrasjon og delbrøkoppspalting ventar, saman med numerikk, volum og programmering."}],"exercises":[],"_meta":{"sourceHash":"1bb04d236aafd1c0","translatedAt":"2026-06-20T01:01:02.205Z","model":"claude-code-agent","strings":79,"tm":{"3ce001871bd3f198":"Areal mellom kurver","b195b06d1ed59702":"Narrativ versjon","55878f2b137cb97c":"Ei forteljing om arealet mellom to kurver — frå inntekts- og kostnadskurvene til bedrifta til metoden med skjeringspunkt, øvst-minus-nedst og oppdeling når kurvene byter plass.","c350b3669a3b2457":"rekne ut areal mellom to kurver","d9fd783d57c26731":"finne skjeringspunkt og setje opp integral","70a284ccc247584f":"## Området mellom to grafar\n\nEi bedrift teiknar to kurver i same diagram: inntektene og kostnadene månad for månad. Sjefen peikar på området som ligg klemt *mellom* kurvene — der inntektslinja ligg over kostnadslinja — og spør: «Kor stort er overskotet vårt, totalt?» Svaret er bokstavleg tala arealet mellom dei to kurvene.\n\nTil no har vi målt areal mellom éin graf og $x$-aksen. Men aksen er eigentleg berre ei særleg keisam kurve ($g(x) = 0$), og idéen generaliserer vakkert: arealet mellom to grafar er integralet av *avstanden* mellom dei — øvste funksjon minus nedste.\n\nTre spørsmål må svarast på undervegs, og dei utgjer arbeidsgangen i kapittelet: Kvar byrjar og sluttar området? (Skjeringspunkta gir grensene.) Kven ligg øvst? (Testpunkt eller skisse.) Og kva gjer vi når kurvene kryssar kvarandre midtvegs og byter plass? (Del opp — som i førre kapittel.)","940677608485b501":"## Øvst minus nedst\n\nGrunnformelen er enkel og intuitiv. Når $f(x) \\geq g(x)$ på heile $[a,b]$, er arealet mellom grafane\n\n$$A = \\int_a^b \\left( f(x) - g(x) \\right) dx$$\n\nTenk på det som rektangelstriper igjen: kvar stripe har høgd $f(x) - g(x)$ — avstanden frå nedste til øvste graf — og breidd $dx$. Vi trekkjer alltid den nedre frå den øvre, slik at integranden er positiv. Eit fint poeng: formelen bryr seg ikkje om kurvene ligg over eller under $x$-aksen — berre om *avstanden* mellom dei. Aksen har mista særstillinga si.\n\nSom regel må vi finne grensene sjølve, og dei sit i **skjeringspunkta**: løys $f(x) = g(x)$. Lat oss ta linja $f(x) = x + 2$ og parabelen $g(x) = x^2$. Skjering:\n\n$$x + 2 = x^2 \\iff x^2 - x - 2 = 0 \\iff (x-2)(x+1) = 0$$\n\naltså $x = -1$ og $x = 2$. Kven ligg øvst mellom dei? Testpunkt $x = 0$: $f(0) = 2 > 0 = g(0)$, så linja er øvst. Då er\n\n$$A = \\int_{-1}^{2} (x + 2 - x^2)\\,dx = \\left[\\frac{x^2}{2} + 2x - \\frac{x^3}{3}\\right]_{-1}^{2} = \\frac{10}{3} - \\left(-\\frac{7}{6}\\right) = \\frac{9}{2}$$\n\nGrensene frå skjeringa, øvst-testen med eitt punkt, og integralet av differansen — det er heile metoden.","6e46f167bdcf79b7":"Test deg sjølv på areal mellom kurver:","4097889236a2af26":"placeholder","57b0e440edf7a0b4":"Når $f(x) \\geq g(x)$ på $[a,b]$, kva er arealet mellom grafane?","3ca51d10bdeaaca2":"$\\int_a^b (f(x) + g(x))\\,dx$","96a9144a70c1e009":"$\\int_a^b f(x)\\,dx \\cdot \\int_a^b g(x)\\,dx$","88c58c1952ba87f8":"$\\int_a^b (f(x) - g(x))\\,dx$","f09ab3a7ac509aa8":"$\\int_a^b (g(x) - f(x))\\,dx$","4924917096dc6ce0":"Kvar stripe har høgd lik avstanden $f(x) - g(x)$ (øvst minus nedst), så $A = \\int_a^b (f - g)\\,dx$.","8b814457ede6e2c1":"Korleis finn du integrasjonsgrensene for området mellom $f$ og $g$?","bd594051d64bd63f":"Ved å løyse $f(x) = g(x)$ — skjeringspunkta gir grensene","fd63567df775a96e":"Ved å finne nullpunkta til $f$","ce377556f943ecaa":"Ved å finne nullpunkta til $g$","d633947d7883311d":"Grensene er alltid oppgitt i oppgåva","0c3c2f4228d5447e":"Området blir avgrensa der kurvene møtest. Likninga $f(x) = g(x)$ gir $x$-koordinatane til skjeringspunkta.","39a1219142c9570a":"Kva er arealet mellom $f(x) = x + 2$ og $g(x) = x^2$?","d7b83351b8dea1ad":"$\\frac{10}{3}$","dbcb61217e8f7be6":"$\\frac{27}{6}$ målt med forteikn, altså negativt","a79dc49eabfefa62":"$\\frac{9}{2}$","de4d54273702b050":"Skjering i $x = -1$ og $x = 2$, linja øvst: $A = \\int_{-1}^{2}(x + 2 - x^2)\\,dx = \\frac{9}{2}$.","a3053dda82f1399b":"Speler det noka rolle for formelen om begge kurvene ligg under $x$-aksen?","3f20078af44bb3a4":"Ja, då må vi ta absoluttverdi av begge funksjonane først","06db3bdc3cc87c76":"Nei — formelen avheng berre av avstanden $f(x) - g(x)$, ikkje av plasseringa i høve til aksen","e9654a50977bd033":"Ja, då blir arealet negativt","48d1dd88338c9b27":"Ja, då må vi spegle området over aksen","37b81cbdd01a2b87":"Differansen $f - g$ måler avstanden mellom kurvene uansett kvar dei ligg. $x$-aksen har inga særstilling i formelen.","5a5377f07231436d":"## Når kurvene byter plass\n\nKva om kurvene kryssar kvarandre *inne* i intervallet? Då byter «øvst» og «nedst» plass, og eitt enkelt integral blandar positive og negative bidrag — same fella som i førre kapittel. Løysinga er òg den same: **del opp ved skjeringspunkta**, og syt for rett rekkjefølgje i kvar del. Kompakt skrive: $A = \\int_a^b |f(x) - g(x)|\\,dx$.\n\nKlassisk eksempel: $f(x) = x^3$ og $g(x) = x$ på $[-1, 1]$. Skjering: $x^3 = x$ gir $x(x-1)(x+1) = 0$, altså $x = -1, 0, 1$. Testpunkt: ved $x = -0{,}5$ er $x^3 = -0{,}125 > -0{,}5 = x$, så $x^3$ ligg øvst på $[-1, 0]$; ved $x = 0{,}5$ er det omvendt. Dermed\n\n$$A = \\int_{-1}^{0} (x^3 - x)\\,dx + \\int_{0}^{1} (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$$\n\nEit nyttig tidssparande triks til slutt: **symmetri**. For dei to parablane $f(x) = 4 - x^2$ og $g(x) = x^2 - 2$ gir skjeringa $x = \\pm\\sqrt{3}$, og differansen $f - g = 6 - 2x^2$ er ein partalsfunksjon — symmetrisk om $y$-aksen. Då kan vi rekne halve området og doble:\n\n$$A = 2\\int_0^{\\sqrt{3}} (6 - 2x^2)\\,dx = 2\\left[6x - \\frac{2x^3}{3}\\right]_0^{\\sqrt{3}} = 2\\left(6\\sqrt{3} - 2\\sqrt{3}\\right) = 8\\sqrt{3}$$\n\nHalvparten av innsetjingsarbeidet, og null risiko for forteiknsrot i den negative enden.","093cd059d18f0e5c":"Test deg sjølv på kryssande kurver og symmetri:","6fa030beaf63296c":"Kurvene $f$ og $g$ kryssar kvarandre i $x = c$ inne i intervallet $[a,b]$. Kva må du gjere for å finne arealet mellom dei?","176de6b73633be24":"Bruke $\\int_a^b (f-g)\\,dx$ direkte","f0bb8828c3392f43":"Byte om grensene $a$ og $b$","39345fe583d7782f":"Berre integrere over den delen der $f$ er øvst","ebaf533aad433d3f":"Dele integralet ved $x = c$ og bruke rett rekkjefølgje (øvst minus nedst) i kvar del","b424c238c5529596":"Ved skjeringspunktet byter kurvene plass. Utan oppdeling kansellerer positive og negative bidrag — del opp, eller integrer $|f - g|$.","dc90ccd5418fdf1c":"Kva er arealet mellom $f(x) = x^3$ og $g(x) = x$ for $x \\in [-1, 1]$?","b61def0872c567fe":"$\\frac{1}{2}$","f2bf6d932e14b55c":"$\\frac{1}{4}$","e355043247751349":"Kurvene kryssar i $x = -1, 0, 1$. $A = \\int_{-1}^0 (x^3 - x)\\,dx + \\int_0^1 (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$.","cd8b08020f4a991d":"Differansen $f(x) - g(x) = 6 - 2x^2$ skal integrerast over $[-\\sqrt{3}, \\sqrt{3}]$. Kva forenkling gir symmetrien?","ee56214b9f86b943":"Integralet er null fordi grensene er symmetriske","d7c70fb172487dad":"$\\int_{-\\sqrt{3}}^{\\sqrt{3}} (6-2x^2)\\,dx = 2\\int_0^{\\sqrt{3}} (6-2x^2)\\,dx$","cad28d07c0f35dc6":"Vi kan droppe leddet $-2x^2$","0efe6356a24f9bcd":"Vi kan byte ut $6 - 2x^2$ med $6$","b5f50e7f4323a036":"$6 - 2x^2$ er ein partalsfunksjon, så integralet over $[-a, a]$ er det doble av integralet over $[0, a]$. Resultatet blir $8\\sqrt{3}$.","a015ec7306e87785":"Korleis avgjer du raskast kva av to kurver som ligg øvst på eit delintervall?","deb2bccdab2b4820":"Samanlikn dei deriverte","c5ef9b5d49ec183e":"Den med størst leiande koeffisient ligg øvst","57cb14844a5545ed":"Vel ein testverdi i delintervallet og samanlikn $f$ og $g$ der","cbc040a4e6112e45":"Det er alltid den med høgast grad","7465b9800e869dc6":"Eitt testpunkt mellom skjeringspunkta avgjer saka, sidan kurvene ikkje kan byte plass utan å krysse kvarandre. Ei skisse fungerer òg.","4b34223f1fffe146":"## Overskotet — areal i kroner\n\nTilbake til spørsmålet frå sjefen. Bedrifta har inntektsfunksjon $I(x) = 100x - x^2$ og kostnadsfunksjon $K(x) = 20x + 100$ (i tusen kroner), der $x$ er produksjonen. Total forteneste når produksjonen går frå $10$ til $60$ einingar er nøyaktig arealet mellom kurvene:\n\n$$\\text{Forteneste} = \\int_{10}^{60} \\bigl(I(x) - K(x)\\bigr)\\,dx = \\int_{10}^{60} (80x - x^2 - 100)\\,dx$$\n\nFørst bør vi forsikre oss om at inntekta faktisk ligg øvst på heile intervallet. Likninga $I(x) = K(x)$ gir $x^2 - 80x + 100 = 0$, med løysingar $x \\approx 1{,}3$ og $x \\approx 78{,}7$ — begge utanfor $[10, 60]$, så inga oppdeling trengst.\n\nSå reknar vi:\n\n$$\\left[40x^2 - \\frac{x^3}{3} - 100x\\right]_{10}^{60} = 66\\,000 - \\frac{8000}{3} = \\frac{190\\,000}{3} \\approx 63\\,333$$\n\nTotal forteneste: omtrent $63{,}3$ millionar kroner. Kvart trinn i metoden hadde ei økonomisk meining: skjeringspunkta er break-even-punkta der overskot blir underskot, «øvst-testen» sjekkar at drifta går med overskot, og integralet summerer fortenesta eining for eining. Arealet mellom kurver er med andre ord ikkje berre geometri — det er differansen mellom to storleikar, akkumulert over eit heilt forløp.","543e6a02f08cafb3":"Test deg sjølv på praktisk bruk:","39f23657d4fb5e61":"Ei bedrift har inntektsfunksjon $I(x)$ og kostnadsfunksjon $K(x)$. Kva representerer $\\int_a^b (I(x) - K(x))\\,dx$ når $I > K$ på intervallet?","3e95543b31362959":"Total omsetnad","3d8e45d850896706":"Total forteneste når produksjonen går frå $a$ til $b$","cdae4b1eada114b1":"Gjennomsnittskostnaden","cf1d2dedeb02f8a0":"Marginalinntekta","05ca533509488a70":"Differansen $I - K$ er fortenesta per eining; integralet akkumulerer henne over heile produksjonsintervallet.","c2851ce53c505669":"Kva representerer løysingane av $I(x) = K(x)$ økonomisk?","f3884a14c1921a8b":"Punkta med maksimal forteneste","781efe9cb3be01e4":"Punkta med høgast inntekt","f761a9f074ac06f6":"Punkta med lågast kostnad","f5230752a84de909":"Break-even-punkta der fortenesta skiftar forteikn","9391c358ff7a60b9":"Der inntekt er lik kostnad, er fortenesta null — kurvene kryssar, og overskot går over til underskot (eller omvendt).","2ecb499e6db44a09":"Kvifor sjekka vi at skjeringspunkta $x \\approx 1{,}3$ og $x \\approx 78{,}7$ låg utanfor $[10, 60]$?","2f36337acfc548a6":"For å vere sikre på at kurvene ikkje byter plass i intervallet, slik at integralet ikkje må delast opp","45430d052dc9a1c2":"For å finne integrasjonsgrensene","c2170033471261a8":"For å rekne ut maksimal forteneste","c3c3f5e306334dfc":"For å kunne bruke symmetri","95da67742698ff0e":"Inga skjering inne i intervallet tyder at $I$ ligg øvst heile vegen — då kan vi integrere $I - K$ direkte utan oppdeling.","b2bdad936a507b8f":"## Oppsummering: avstanden som blir integrert\n\nArealet mellom to kurver er integralet av avstanden mellom dei: $A = \\int_a^b (f(x) - g(x))\\,dx$ når $f$ ligg øvst — eller heilt generelt $A = \\int_a^b |f(x) - g(x)|\\,dx$. Arbeidsgangen sit no i fingrane: finn skjeringspunkta ved å løyse $f(x) = g(x)$ (dei gir grensene), avgjer med eit testpunkt kven som ligg øvst, og del opp integralet viss kurvene byter plass undervegs — akkurat som nullpunkta tvinga oss til i førre kapittel. Symmetri kan halvere arbeidet: ein partalsfunksjon integrert over $[-a, a]$ er det doble av integralet over $[0, a]$, slik parablane gav oss $8\\sqrt{3}$ med halv innsats.\n\nOg som kurvene til bedrifta viste: dette er meir enn geometri. Arealet mellom inntekt og kostnad *er* fortenesta, mellom to fartar ligg forspranget, mellom tilbod og etterspurnad bur overskotsomgrepa til økonomane. Du har no heile grunnpakken i integralrekning — antideriverte, fundamentalsetninga og areal. I kapittel 3 rustar vi opp teknikkane: substitusjon, delvis integrasjon og delbrøkoppspalting ventar, saman med numerikk, volum og programmering."}}}
+{
+  "id": "r2-2-7-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "2.7",
+  "title": "Areal mellom kurver",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om arealet mellom to kurver — frå inntekts- og kostnadskurvene til bedrifta til metoden med skjeringspunkt, øvst-minus-nedst og oppdeling når kurvene byter plass.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "rekne ut areal mellom to kurver",
+    "finne skjeringspunkt og setje opp integral"
+  ],
+  "linkedChapterId": "r2-2-7",
+  "content": [
+    {
+      "id": "r2-2-7-n-intro",
+      "type": "text",
+      "content": "## Området mellom to grafar\n\nEi bedrift teiknar to kurver i same diagram: inntektene og kostnadene månad for månad. Sjefen peikar på området som ligg klemt *mellom* kurvene — der inntektslinja ligg over kostnadslinja — og spør: «Kor stort er overskotet vårt, totalt?» Svaret er bokstavleg tala arealet mellom dei to kurvene.\n\nTil no har vi målt areal mellom éin graf og $x$-aksen. Men aksen er eigentleg berre ei særleg keisam kurve ($g(x) = 0$), og idéen generaliserer vakkert: arealet mellom to grafar er integralet av *avstanden* mellom dei — øvste funksjon minus nedste.\n\nTre spørsmål må svarast på undervegs, og dei utgjer arbeidsgangen i kapittelet: Kvar byrjar og sluttar området? (Skjeringspunkta gir grensene.) Kven ligg øvst? (Testpunkt eller skisse.) Og kva gjer vi når kurvene kryssar kvarandre midtvegs og byter plass? (Del opp — som i førre kapittel.)"
+    },
+    {
+      "id": "r2-2-7-n-section1",
+      "type": "text",
+      "content": "## Øvst minus nedst\n\nGrunnformelen er enkel og intuitiv. Når $f(x) \\geq g(x)$ på heile $[a,b]$, er arealet mellom grafane\n\n$$A = \\int_a^b \\left( f(x) - g(x) \\right) dx$$\n\nTenk på det som rektangelstriper igjen: kvar stripe har høgd $f(x) - g(x)$ — avstanden frå nedste til øvste graf — og breidd $dx$. Vi trekkjer alltid den nedre frå den øvre, slik at integranden er positiv. Eit fint poeng: formelen bryr seg ikkje om kurvene ligg over eller under $x$-aksen — berre om *avstanden* mellom dei. Aksen har mista særstillinga si.\n\nSom regel må vi finne grensene sjølve, og dei sit i **skjeringspunkta**: løys $f(x) = g(x)$. Lat oss ta linja $f(x) = x + 2$ og parabelen $g(x) = x^2$. Skjering:\n\n$$x + 2 = x^2 \\iff x^2 - x - 2 = 0 \\iff (x-2)(x+1) = 0$$\n\naltså $x = -1$ og $x = 2$. Kven ligg øvst mellom dei? Testpunkt $x = 0$: $f(0) = 2 > 0 = g(0)$, så linja er øvst. Då er\n\n$$A = \\int_{-1}^{2} (x + 2 - x^2)\\,dx = \\left[\\frac{x^2}{2} + 2x - \\frac{x^3}{3}\\right]_{-1}^{2} = \\frac{10}{3} - \\left(-\\frac{7}{6}\\right) = \\frac{9}{2}$$\n\nGrensene frå skjeringa, øvst-testen med eitt punkt, og integralet av differansen — det er heile metoden."
+    },
+    {
+      "id": "r2-2-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på areal mellom kurver:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-7-n-quiz1-q0",
+            "task": "Når $f(x) \\geq g(x)$ på $[a,b]$, kva er arealet mellom grafane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\int_a^b (f(x) + g(x))\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\int_a^b f(x)\\,dx \\cdot \\int_a^b g(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\int_a^b (f(x) - g(x))\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\int_a^b (g(x) - f(x))\\,dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvar stripe har høgd lik avstanden $f(x) - g(x)$ (øvst minus nedst), så $A = \\int_a^b (f - g)\\,dx$."
+          },
+          {
+            "id": "r2-2-7-n-quiz1-q1",
+            "task": "Korleis finn du integrasjonsgrensene for området mellom $f$ og $g$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ved å finne nullpunkta til $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ved å finne nullpunkta til $g$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grensene er alltid oppgitt i oppgåva",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ved å løyse $f(x) = g(x)$ — skjeringspunkta gir grensene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Området blir avgrensa der kurvene møtest. Likninga $f(x) = g(x)$ gir $x$-koordinatane til skjeringspunkta."
+          },
+          {
+            "id": "r2-2-7-n-quiz1-q2",
+            "task": "Kva er arealet mellom $f(x) = x + 2$ og $g(x) = x^2$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{9}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{10}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{27}{6}$ målt med forteikn, altså negativt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skjering i $x = -1$ og $x = 2$, linja øvst: $A = \\int_{-1}^{2}(x + 2 - x^2)\\,dx = \\frac{9}{2}$."
+          },
+          {
+            "id": "r2-2-7-n-quiz1-q3",
+            "task": "Speler det noka rolle for formelen om begge kurvene ligg under $x$-aksen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, då må vi ta absoluttverdi av begge funksjonane først",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nei — formelen avheng berre av avstanden $f(x) - g(x)$, ikkje av plasseringa i høve til aksen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ja, då blir arealet negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja, då må vi spegle området over aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Differansen $f - g$ måler avstanden mellom kurvene uansett kvar dei ligg. $x$-aksen har inga særstilling i formelen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-7-n-section2",
+      "type": "text",
+      "content": "## Når kurvene byter plass\n\nKva om kurvene kryssar kvarandre *inne* i intervallet? Då byter «øvst» og «nedst» plass, og eitt enkelt integral blandar positive og negative bidrag — same fella som i førre kapittel. Løysinga er òg den same: **del opp ved skjeringspunkta**, og syt for rett rekkjefølgje i kvar del. Kompakt skrive: $A = \\int_a^b |f(x) - g(x)|\\,dx$.\n\nKlassisk eksempel: $f(x) = x^3$ og $g(x) = x$ på $[-1, 1]$. Skjering: $x^3 = x$ gir $x(x-1)(x+1) = 0$, altså $x = -1, 0, 1$. Testpunkt: ved $x = -0{,}5$ er $x^3 = -0{,}125 > -0{,}5 = x$, så $x^3$ ligg øvst på $[-1, 0]$; ved $x = 0{,}5$ er det omvendt. Dermed\n\n$$A = \\int_{-1}^{0} (x^3 - x)\\,dx + \\int_{0}^{1} (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$$\n\nEit nyttig tidssparande triks til slutt: **symmetri**. For dei to parablane $f(x) = 4 - x^2$ og $g(x) = x^2 - 2$ gir skjeringa $x = \\pm\\sqrt{3}$, og differansen $f - g = 6 - 2x^2$ er ein partalsfunksjon — symmetrisk om $y$-aksen. Då kan vi rekne halve området og doble:\n\n$$A = 2\\int_0^{\\sqrt{3}} (6 - 2x^2)\\,dx = 2\\left[6x - \\frac{2x^3}{3}\\right]_0^{\\sqrt{3}} = 2\\left(6\\sqrt{3} - 2\\sqrt{3}\\right) = 8\\sqrt{3}$$\n\nHalvparten av innsetjingsarbeidet, og null risiko for forteiknsrot i den negative enden."
+    },
+    {
+      "id": "r2-2-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kryssande kurver og symmetri:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-7-n-quiz2-q0",
+            "task": "Kurvene $f$ og $g$ kryssar kvarandre i $x = c$ inne i intervallet $[a,b]$. Kva må du gjere for å finne arealet mellom dei?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bruke $\\int_a^b (f-g)\\,dx$ direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Byte om grensene $a$ og $b$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dele integralet ved $x = c$ og bruke rett rekkjefølgje (øvst minus nedst) i kvar del",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Berre integrere over den delen der $f$ er øvst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved skjeringspunktet byter kurvene plass. Utan oppdeling kansellerer positive og negative bidrag — del opp, eller integrer $|f - g|$."
+          },
+          {
+            "id": "r2-2-7-n-quiz2-q1",
+            "task": "Kva er arealet mellom $f(x) = x^3$ og $g(x) = x$ for $x \\in [-1, 1]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kurvene kryssar i $x = -1, 0, 1$. $A = \\int_{-1}^0 (x^3 - x)\\,dx + \\int_0^1 (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$."
+          },
+          {
+            "id": "r2-2-7-n-quiz2-q2",
+            "task": "Differansen $f(x) - g(x) = 6 - 2x^2$ skal integrerast over $[-\\sqrt{3}, \\sqrt{3}]$. Kva forenkling gir symmetrien?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\int_{-\\sqrt{3}}^{\\sqrt{3}} (6-2x^2)\\,dx = 2\\int_0^{\\sqrt{3}} (6-2x^2)\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Integralet er null fordi grensene er symmetriske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi kan droppe leddet $-2x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi kan byte ut $6 - 2x^2$ med $6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$6 - 2x^2$ er ein partalsfunksjon, så integralet over $[-a, a]$ er det doble av integralet over $[0, a]$. Resultatet blir $8\\sqrt{3}$."
+          },
+          {
+            "id": "r2-2-7-n-quiz2-q3",
+            "task": "Korleis avgjer du raskast kva av to kurver som ligg øvst på eit delintervall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Samanlikn dei deriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vel ein testverdi i delintervallet og samanlikn $f$ og $g$ der",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den med størst leiande koeffisient ligg øvst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er alltid den med høgast grad",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eitt testpunkt mellom skjeringspunkta avgjer saka, sidan kurvene ikkje kan byte plass utan å krysse kvarandre. Ei skisse fungerer òg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-7-n-section3",
+      "type": "text",
+      "content": "## Overskotet — areal i kroner\n\nTilbake til spørsmålet frå sjefen. Bedrifta har inntektsfunksjon $I(x) = 100x - x^2$ og kostnadsfunksjon $K(x) = 20x + 100$ (i tusen kroner), der $x$ er produksjonen. Total forteneste når produksjonen går frå $10$ til $60$ einingar er nøyaktig arealet mellom kurvene:\n\n$$\\text{Forteneste} = \\int_{10}^{60} \\bigl(I(x) - K(x)\\bigr)\\,dx = \\int_{10}^{60} (80x - x^2 - 100)\\,dx$$\n\nFørst bør vi forsikre oss om at inntekta faktisk ligg øvst på heile intervallet. Likninga $I(x) = K(x)$ gir $x^2 - 80x + 100 = 0$, med løysingar $x \\approx 1{,}3$ og $x \\approx 78{,}7$ — begge utanfor $[10, 60]$, så inga oppdeling trengst.\n\nSå reknar vi:\n\n$$\\left[40x^2 - \\frac{x^3}{3} - 100x\\right]_{10}^{60} = 66\\,000 - \\frac{8000}{3} = \\frac{190\\,000}{3} \\approx 63\\,333$$\n\nTotal forteneste: omtrent $63{,}3$ millionar kroner. Kvart trinn i metoden hadde ei økonomisk meining: skjeringspunkta er break-even-punkta der overskot blir underskot, «øvst-testen» sjekkar at drifta går med overskot, og integralet summerer fortenesta eining for eining. Arealet mellom kurver er med andre ord ikkje berre geometri — det er differansen mellom to storleikar, akkumulert over eit heilt forløp."
+    },
+    {
+      "id": "r2-2-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på praktisk bruk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-7-n-quiz3-q0",
+            "task": "Ei bedrift har inntektsfunksjon $I(x)$ og kostnadsfunksjon $K(x)$. Kva representerer $\\int_a^b (I(x) - K(x))\\,dx$ når $I > K$ på intervallet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Total omsetnad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjennomsnittskostnaden",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Total forteneste når produksjonen går frå $a$ til $b$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Marginalinntekta",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Differansen $I - K$ er fortenesta per eining; integralet akkumulerer henne over heile produksjonsintervallet."
+          },
+          {
+            "id": "r2-2-7-n-quiz3-q1",
+            "task": "Kva representerer løysingane av $I(x) = K(x)$ økonomisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Punkta med maksimal forteneste",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Punkta med høgast inntekt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Punkta med lågast kostnad",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Break-even-punkta der fortenesta skiftar forteikn",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Der inntekt er lik kostnad, er fortenesta null — kurvene kryssar, og overskot går over til underskot (eller omvendt)."
+          },
+          {
+            "id": "r2-2-7-n-quiz3-q2",
+            "task": "Kvifor sjekka vi at skjeringspunkta $x \\approx 1{,}3$ og $x \\approx 78{,}7$ låg utanfor $[10, 60]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å vere sikre på at kurvene ikkje byter plass i intervallet, slik at integralet ikkje må delast opp",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "For å finne integrasjonsgrensene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å rekne ut maksimal forteneste",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å kunne bruke symmetri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Inga skjering inne i intervallet tyder at $I$ ligg øvst heile vegen — då kan vi integrere $I - K$ direkte utan oppdeling."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: avstanden som blir integrert\n\nArealet mellom to kurver er integralet av avstanden mellom dei: $A = \\int_a^b (f(x) - g(x))\\,dx$ når $f$ ligg øvst — eller heilt generelt $A = \\int_a^b |f(x) - g(x)|\\,dx$. Arbeidsgangen sit no i fingrane: finn skjeringspunkta ved å løyse $f(x) = g(x)$ (dei gir grensene), avgjer med eit testpunkt kven som ligg øvst, og del opp integralet viss kurvene byter plass undervegs — akkurat som nullpunkta tvinga oss til i førre kapittel. Symmetri kan halvere arbeidet: ein partalsfunksjon integrert over $[-a, a]$ er det doble av integralet over $[0, a]$, slik parablane gav oss $8\\sqrt{3}$ med halv innsats.\n\nOg som kurvene til bedrifta viste: dette er meir enn geometri. Arealet mellom inntekt og kostnad *er* fortenesta, mellom to fartar ligg forspranget, mellom tilbod og etterspurnad bur overskotsomgrepa til økonomane. Du har no heile grunnpakken i integralrekning — antideriverte, fundamentalsetninga og areal. I kapittel 3 rustar vi opp teknikkane: substitusjon, delvis integrasjon og delbrøkoppspalting ventar, saman med numerikk, volum og programmering."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "1bb04d236aafd1c0",
+    "translatedAt": "2026-06-20T01:01:02.205Z",
+    "model": "claude-code-agent",
+    "strings": 79,
+    "tm": {
+      "3ce001871bd3f198": "Areal mellom kurver",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "55878f2b137cb97c": "Ei forteljing om arealet mellom to kurver — frå inntekts- og kostnadskurvene til bedrifta til metoden med skjeringspunkt, øvst-minus-nedst og oppdeling når kurvene byter plass.",
+      "c350b3669a3b2457": "rekne ut areal mellom to kurver",
+      "d9fd783d57c26731": "finne skjeringspunkt og setje opp integral",
+      "70a284ccc247584f": "## Området mellom to grafar\n\nEi bedrift teiknar to kurver i same diagram: inntektene og kostnadene månad for månad. Sjefen peikar på området som ligg klemt *mellom* kurvene — der inntektslinja ligg over kostnadslinja — og spør: «Kor stort er overskotet vårt, totalt?» Svaret er bokstavleg tala arealet mellom dei to kurvene.\n\nTil no har vi målt areal mellom éin graf og $x$-aksen. Men aksen er eigentleg berre ei særleg keisam kurve ($g(x) = 0$), og idéen generaliserer vakkert: arealet mellom to grafar er integralet av *avstanden* mellom dei — øvste funksjon minus nedste.\n\nTre spørsmål må svarast på undervegs, og dei utgjer arbeidsgangen i kapittelet: Kvar byrjar og sluttar området? (Skjeringspunkta gir grensene.) Kven ligg øvst? (Testpunkt eller skisse.) Og kva gjer vi når kurvene kryssar kvarandre midtvegs og byter plass? (Del opp — som i førre kapittel.)",
+      "940677608485b501": "## Øvst minus nedst\n\nGrunnformelen er enkel og intuitiv. Når $f(x) \\geq g(x)$ på heile $[a,b]$, er arealet mellom grafane\n\n$$A = \\int_a^b \\left( f(x) - g(x) \\right) dx$$\n\nTenk på det som rektangelstriper igjen: kvar stripe har høgd $f(x) - g(x)$ — avstanden frå nedste til øvste graf — og breidd $dx$. Vi trekkjer alltid den nedre frå den øvre, slik at integranden er positiv. Eit fint poeng: formelen bryr seg ikkje om kurvene ligg over eller under $x$-aksen — berre om *avstanden* mellom dei. Aksen har mista særstillinga si.\n\nSom regel må vi finne grensene sjølve, og dei sit i **skjeringspunkta**: løys $f(x) = g(x)$. Lat oss ta linja $f(x) = x + 2$ og parabelen $g(x) = x^2$. Skjering:\n\n$$x + 2 = x^2 \\iff x^2 - x - 2 = 0 \\iff (x-2)(x+1) = 0$$\n\naltså $x = -1$ og $x = 2$. Kven ligg øvst mellom dei? Testpunkt $x = 0$: $f(0) = 2 > 0 = g(0)$, så linja er øvst. Då er\n\n$$A = \\int_{-1}^{2} (x + 2 - x^2)\\,dx = \\left[\\frac{x^2}{2} + 2x - \\frac{x^3}{3}\\right]_{-1}^{2} = \\frac{10}{3} - \\left(-\\frac{7}{6}\\right) = \\frac{9}{2}$$\n\nGrensene frå skjeringa, øvst-testen med eitt punkt, og integralet av differansen — det er heile metoden.",
+      "6e46f167bdcf79b7": "Test deg sjølv på areal mellom kurver:",
+      "4097889236a2af26": "placeholder",
+      "57b0e440edf7a0b4": "Når $f(x) \\geq g(x)$ på $[a,b]$, kva er arealet mellom grafane?",
+      "3ca51d10bdeaaca2": "$\\int_a^b (f(x) + g(x))\\,dx$",
+      "96a9144a70c1e009": "$\\int_a^b f(x)\\,dx \\cdot \\int_a^b g(x)\\,dx$",
+      "88c58c1952ba87f8": "$\\int_a^b (f(x) - g(x))\\,dx$",
+      "f09ab3a7ac509aa8": "$\\int_a^b (g(x) - f(x))\\,dx$",
+      "4924917096dc6ce0": "Kvar stripe har høgd lik avstanden $f(x) - g(x)$ (øvst minus nedst), så $A = \\int_a^b (f - g)\\,dx$.",
+      "8b814457ede6e2c1": "Korleis finn du integrasjonsgrensene for området mellom $f$ og $g$?",
+      "bd594051d64bd63f": "Ved å løyse $f(x) = g(x)$ — skjeringspunkta gir grensene",
+      "fd63567df775a96e": "Ved å finne nullpunkta til $f$",
+      "ce377556f943ecaa": "Ved å finne nullpunkta til $g$",
+      "d633947d7883311d": "Grensene er alltid oppgitt i oppgåva",
+      "0c3c2f4228d5447e": "Området blir avgrensa der kurvene møtest. Likninga $f(x) = g(x)$ gir $x$-koordinatane til skjeringspunkta.",
+      "39a1219142c9570a": "Kva er arealet mellom $f(x) = x + 2$ og $g(x) = x^2$?",
+      "d7b83351b8dea1ad": "$\\frac{10}{3}$",
+      "dbcb61217e8f7be6": "$\\frac{27}{6}$ målt med forteikn, altså negativt",
+      "a79dc49eabfefa62": "$\\frac{9}{2}$",
+      "de4d54273702b050": "Skjering i $x = -1$ og $x = 2$, linja øvst: $A = \\int_{-1}^{2}(x + 2 - x^2)\\,dx = \\frac{9}{2}$.",
+      "a3053dda82f1399b": "Speler det noka rolle for formelen om begge kurvene ligg under $x$-aksen?",
+      "3f20078af44bb3a4": "Ja, då må vi ta absoluttverdi av begge funksjonane først",
+      "06db3bdc3cc87c76": "Nei — formelen avheng berre av avstanden $f(x) - g(x)$, ikkje av plasseringa i høve til aksen",
+      "e9654a50977bd033": "Ja, då blir arealet negativt",
+      "48d1dd88338c9b27": "Ja, då må vi spegle området over aksen",
+      "37b81cbdd01a2b87": "Differansen $f - g$ måler avstanden mellom kurvene uansett kvar dei ligg. $x$-aksen har inga særstilling i formelen.",
+      "5a5377f07231436d": "## Når kurvene byter plass\n\nKva om kurvene kryssar kvarandre *inne* i intervallet? Då byter «øvst» og «nedst» plass, og eitt enkelt integral blandar positive og negative bidrag — same fella som i førre kapittel. Løysinga er òg den same: **del opp ved skjeringspunkta**, og syt for rett rekkjefølgje i kvar del. Kompakt skrive: $A = \\int_a^b |f(x) - g(x)|\\,dx$.\n\nKlassisk eksempel: $f(x) = x^3$ og $g(x) = x$ på $[-1, 1]$. Skjering: $x^3 = x$ gir $x(x-1)(x+1) = 0$, altså $x = -1, 0, 1$. Testpunkt: ved $x = -0{,}5$ er $x^3 = -0{,}125 > -0{,}5 = x$, så $x^3$ ligg øvst på $[-1, 0]$; ved $x = 0{,}5$ er det omvendt. Dermed\n\n$$A = \\int_{-1}^{0} (x^3 - x)\\,dx + \\int_{0}^{1} (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$$\n\nEit nyttig tidssparande triks til slutt: **symmetri**. For dei to parablane $f(x) = 4 - x^2$ og $g(x) = x^2 - 2$ gir skjeringa $x = \\pm\\sqrt{3}$, og differansen $f - g = 6 - 2x^2$ er ein partalsfunksjon — symmetrisk om $y$-aksen. Då kan vi rekne halve området og doble:\n\n$$A = 2\\int_0^{\\sqrt{3}} (6 - 2x^2)\\,dx = 2\\left[6x - \\frac{2x^3}{3}\\right]_0^{\\sqrt{3}} = 2\\left(6\\sqrt{3} - 2\\sqrt{3}\\right) = 8\\sqrt{3}$$\n\nHalvparten av innsetjingsarbeidet, og null risiko for forteiknsrot i den negative enden.",
+      "093cd059d18f0e5c": "Test deg sjølv på kryssande kurver og symmetri:",
+      "6fa030beaf63296c": "Kurvene $f$ og $g$ kryssar kvarandre i $x = c$ inne i intervallet $[a,b]$. Kva må du gjere for å finne arealet mellom dei?",
+      "176de6b73633be24": "Bruke $\\int_a^b (f-g)\\,dx$ direkte",
+      "f0bb8828c3392f43": "Byte om grensene $a$ og $b$",
+      "39345fe583d7782f": "Berre integrere over den delen der $f$ er øvst",
+      "ebaf533aad433d3f": "Dele integralet ved $x = c$ og bruke rett rekkjefølgje (øvst minus nedst) i kvar del",
+      "b424c238c5529596": "Ved skjeringspunktet byter kurvene plass. Utan oppdeling kansellerer positive og negative bidrag — del opp, eller integrer $|f - g|$.",
+      "dc90ccd5418fdf1c": "Kva er arealet mellom $f(x) = x^3$ og $g(x) = x$ for $x \\in [-1, 1]$?",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "f2bf6d932e14b55c": "$\\frac{1}{4}$",
+      "e355043247751349": "Kurvene kryssar i $x = -1, 0, 1$. $A = \\int_{-1}^0 (x^3 - x)\\,dx + \\int_0^1 (x - x^3)\\,dx = \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$.",
+      "cd8b08020f4a991d": "Differansen $f(x) - g(x) = 6 - 2x^2$ skal integrerast over $[-\\sqrt{3}, \\sqrt{3}]$. Kva forenkling gir symmetrien?",
+      "ee56214b9f86b943": "Integralet er null fordi grensene er symmetriske",
+      "d7c70fb172487dad": "$\\int_{-\\sqrt{3}}^{\\sqrt{3}} (6-2x^2)\\,dx = 2\\int_0^{\\sqrt{3}} (6-2x^2)\\,dx$",
+      "cad28d07c0f35dc6": "Vi kan droppe leddet $-2x^2$",
+      "0efe6356a24f9bcd": "Vi kan byte ut $6 - 2x^2$ med $6$",
+      "b5f50e7f4323a036": "$6 - 2x^2$ er ein partalsfunksjon, så integralet over $[-a, a]$ er det doble av integralet over $[0, a]$. Resultatet blir $8\\sqrt{3}$.",
+      "a015ec7306e87785": "Korleis avgjer du raskast kva av to kurver som ligg øvst på eit delintervall?",
+      "deb2bccdab2b4820": "Samanlikn dei deriverte",
+      "c5ef9b5d49ec183e": "Den med størst leiande koeffisient ligg øvst",
+      "57cb14844a5545ed": "Vel ein testverdi i delintervallet og samanlikn $f$ og $g$ der",
+      "cbc040a4e6112e45": "Det er alltid den med høgast grad",
+      "7465b9800e869dc6": "Eitt testpunkt mellom skjeringspunkta avgjer saka, sidan kurvene ikkje kan byte plass utan å krysse kvarandre. Ei skisse fungerer òg.",
+      "4b34223f1fffe146": "## Overskotet — areal i kroner\n\nTilbake til spørsmålet frå sjefen. Bedrifta har inntektsfunksjon $I(x) = 100x - x^2$ og kostnadsfunksjon $K(x) = 20x + 100$ (i tusen kroner), der $x$ er produksjonen. Total forteneste når produksjonen går frå $10$ til $60$ einingar er nøyaktig arealet mellom kurvene:\n\n$$\\text{Forteneste} = \\int_{10}^{60} \\bigl(I(x) - K(x)\\bigr)\\,dx = \\int_{10}^{60} (80x - x^2 - 100)\\,dx$$\n\nFørst bør vi forsikre oss om at inntekta faktisk ligg øvst på heile intervallet. Likninga $I(x) = K(x)$ gir $x^2 - 80x + 100 = 0$, med løysingar $x \\approx 1{,}3$ og $x \\approx 78{,}7$ — begge utanfor $[10, 60]$, så inga oppdeling trengst.\n\nSå reknar vi:\n\n$$\\left[40x^2 - \\frac{x^3}{3} - 100x\\right]_{10}^{60} = 66\\,000 - \\frac{8000}{3} = \\frac{190\\,000}{3} \\approx 63\\,333$$\n\nTotal forteneste: omtrent $63{,}3$ millionar kroner. Kvart trinn i metoden hadde ei økonomisk meining: skjeringspunkta er break-even-punkta der overskot blir underskot, «øvst-testen» sjekkar at drifta går med overskot, og integralet summerer fortenesta eining for eining. Arealet mellom kurver er med andre ord ikkje berre geometri — det er differansen mellom to storleikar, akkumulert over eit heilt forløp.",
+      "543e6a02f08cafb3": "Test deg sjølv på praktisk bruk:",
+      "39f23657d4fb5e61": "Ei bedrift har inntektsfunksjon $I(x)$ og kostnadsfunksjon $K(x)$. Kva representerer $\\int_a^b (I(x) - K(x))\\,dx$ når $I > K$ på intervallet?",
+      "3e95543b31362959": "Total omsetnad",
+      "3d8e45d850896706": "Total forteneste når produksjonen går frå $a$ til $b$",
+      "cdae4b1eada114b1": "Gjennomsnittskostnaden",
+      "cf1d2dedeb02f8a0": "Marginalinntekta",
+      "05ca533509488a70": "Differansen $I - K$ er fortenesta per eining; integralet akkumulerer henne over heile produksjonsintervallet.",
+      "c2851ce53c505669": "Kva representerer løysingane av $I(x) = K(x)$ økonomisk?",
+      "f3884a14c1921a8b": "Punkta med maksimal forteneste",
+      "781efe9cb3be01e4": "Punkta med høgast inntekt",
+      "f761a9f074ac06f6": "Punkta med lågast kostnad",
+      "f5230752a84de909": "Break-even-punkta der fortenesta skiftar forteikn",
+      "9391c358ff7a60b9": "Der inntekt er lik kostnad, er fortenesta null — kurvene kryssar, og overskot går over til underskot (eller omvendt).",
+      "2ecb499e6db44a09": "Kvifor sjekka vi at skjeringspunkta $x \\approx 1{,}3$ og $x \\approx 78{,}7$ låg utanfor $[10, 60]$?",
+      "2f36337acfc548a6": "For å vere sikre på at kurvene ikkje byter plass i intervallet, slik at integralet ikkje må delast opp",
+      "45430d052dc9a1c2": "For å finne integrasjonsgrensene",
+      "c2170033471261a8": "For å rekne ut maksimal forteneste",
+      "c3c3f5e306334dfc": "For å kunne bruke symmetri",
+      "95da67742698ff0e": "Inga skjering inne i intervallet tyder at $I$ ligg øvst heile vegen — då kan vi integrere $I - K$ direkte utan oppdeling.",
+      "b2bdad936a507b8f": "## Oppsummering: avstanden som blir integrert\n\nArealet mellom to kurver er integralet av avstanden mellom dei: $A = \\int_a^b (f(x) - g(x))\\,dx$ når $f$ ligg øvst — eller heilt generelt $A = \\int_a^b |f(x) - g(x)|\\,dx$. Arbeidsgangen sit no i fingrane: finn skjeringspunkta ved å løyse $f(x) = g(x)$ (dei gir grensene), avgjer med eit testpunkt kven som ligg øvst, og del opp integralet viss kurvene byter plass undervegs — akkurat som nullpunkta tvinga oss til i førre kapittel. Symmetri kan halvere arbeidet: ein partalsfunksjon integrert over $[-a, a]$ er det doble av integralet over $[0, a]$, slik parablane gav oss $8\\sqrt{3}$ med halv innsats.\n\nOg som kurvene til bedrifta viste: dette er meir enn geometri. Arealet mellom inntekt og kostnad *er* fortenesta, mellom to fartar ligg forspranget, mellom tilbod og etterspurnad bur overskotsomgrepa til økonomane. Du har no heile grunnpakken i integralrekning — antideriverte, fundamentalsetninga og areal. I kapittel 3 rustar vi opp teknikkane: substitusjon, delvis integrasjon og delbrøkoppspalting ventar, saman med numerikk, volum og programmering."
+    }
+  }
+}

@@ -1,1 +1,295 @@
-{"id":"bi-okonomi-4-2-narrativ","courseId":"bi-okonomi","chapterNumber":"4.2","title":"Noverdi og framtidsverdi","subtitle":"Narrativ versjon","description":"Ei forteljing om tidsverdien av pengar -- kvifor tusen kroner i dag slår tusen kroner om eit år -- og om korleis diskontering avgjer om ei investering løner seg.","estimatedMinutes":35,"competenceGoals":["rekne ut noverdi og framtidsverdi","forstå tidsverdien av pengar"],"linkedChapterId":"bi-okonomi-4-2","content":[{"id":"bi-okonomi-4-2-n-intro","type":"text","content":"## Tusen kroner i dag eller om eitt år?\n\nSjå for deg at nokon tilbyr deg $1\\,000$ kr no eller $1\\,000$ kr om eitt år. Kva vel du? Svaret er openbert: ta pengane no. For har du dei i dag, kan du setje dei i banken og tene renter -- og då er dei verdt meir enn $1\\,000$ kr om eitt år. Dette enkle prinsippet blir kalla **tidsverdien av pengar**, og det er kanskje det viktigaste omgrepet i heile finansfaget.\n\nDet leier oss til to motsette reknestykke. **Framtidsverdien** (Future Value, FV) fortel kva eit beløp i dag blir til seinare: $FV = PV\\cdot(1 + r)^n$, der $PV$ er noverdien, $r$ er renta per periode og $n$ er talet på periodar. Dette kjenner du att som rentes rente.\n\nDen andre vegen er meir overraskande. **Noverdien** (Present Value, PV) fortel kva eit framtidig beløp er verdt i dag: $PV = \\frac{FV}{(1 + r)^n}$. Vi snur formelen og deler i staden for å gange. Dette blir kalla **diskontering** -- vi flyttar framtidige kroner tilbake til dagens verdi. Faktoren $\\frac{1}{(1+r)^n}$ er **diskonteringsfaktoren**."},{"id":"bi-okonomi-4-2-n-section1","type":"text","content":"## Å diskontere framtidige beløp\n\nLat oss bruke noverdiformelen. Du skal motta $100\\,000$ kr om $5$ år, og renta er $6\\%$. Kva er det verdt i dag? Vi reknar $PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr. Tolkinga er konkret: set du $74\\,726$ kr i banken til $6\\%$ i dag, vil dei ha vakse til nøyaktig $100\\,000$ kr om $5$ år. Dei to beløpa er altså økonomisk likeverdige -- berre på ulike tidspunkt.\n\nRenta vi bruker her kallar vi **diskonteringsrenta**, og ho uttrykkjer alternativkostnaden ved å binde kapital. Ho byggjer på den risikofrie renta (til dømes statsobligasjonar), ein risikopremie som kompenserer for uvisse, og forventa inflasjon. Ein tommelfingerregel: jo høgare diskonteringsrente, jo lågare noverdi.\n\nKor sterk denne effekten er, ser vi tydeleg dersom vi diskonterer $100\\,000$ kr om $10$ år med tre ulike renter. Med $4\\%$ blir noverdien $\\frac{100\\,000}{(1{,}04)^{10}} = 67\\,556$ kr. Med $8\\%$ fell han til $\\frac{100\\,000}{(1{,}08)^{10}} = 46\\,319$ kr. Og med $12\\%$ er han nede i $\\frac{100\\,000}{(1{,}12)^{10}} = 32\\,197$ kr. Same framtidige beløp, men noverdien meir enn halverer seg når renta går frå $4\\%$ til $12\\%$. Valet av diskonteringsrente er difor ingen bagatell."},{"id":"bi-okonomi-4-2-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-4-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på tidsverdi og diskontering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-2-n-quiz1-q0","task":"Kvifor er $1\\,000$ kr i dag verdt meir enn $1\\,000$ kr om eitt år?","options":[{"id":"a","text":"Fordi pengane fysisk blir slitne ut over tid","isCorrect":false},{"id":"b","text":"Fordi banken tek gebyr for å vente","isCorrect":false},{"id":"c","text":"Fordi du kan investere pengane i dag og tene renter","isCorrect":true},{"id":"d","text":"Det er like mykje verdt","isCorrect":false}],"solution":"Pengar i dag kan investerast og vekse med renter, så dei er verdt meir enn same beløp i framtida. Dette er tidsverdien av pengar."},{"id":"bi-okonomi-4-2-n-quiz1-q1","task":"Du skal motta $100\\,000$ kr om $5$ år. Diskonteringsrenta er $6\\%$. Kva er noverdien?","options":[{"id":"a","text":"$94\\,340$ kr","isCorrect":false},{"id":"b","text":"$133\\,820$ kr","isCorrect":false},{"id":"c","text":"$100\\,000$ kr","isCorrect":false},{"id":"d","text":"$74\\,726$ kr","isCorrect":true}],"solution":"$PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr."},{"id":"bi-okonomi-4-2-n-quiz1-q2","task":"Kva skjer med noverdien av eit framtidig beløp når diskonteringsrenta aukar?","options":[{"id":"a","text":"Noverdien søkk","isCorrect":true},{"id":"b","text":"Noverdien aukar","isCorrect":false},{"id":"c","text":"Noverdien er uendra","isCorrect":false},{"id":"d","text":"Noverdien blir negativ","isCorrect":false}],"solution":"Høgare rente gir større nemnar i $\\frac{FV}{(1+r)^n}$, så noverdien søkk. $100\\,000$ kr om $10$ år er verdt $67\\,556$ kr ved $4\\%$, men berre $32\\,197$ kr ved $12\\%$."}]}},{"id":"bi-okonomi-4-2-n-section2","type":"text","content":"## Fleire kontantstraumar og netto noverdi\n\nI røynda kjem pengane sjeldan som eitt enkelt beløp. Eit prosjekt gir gjerne ein straum av inn- og utbetalingar fordelt over fleire år. Då diskonterer vi kvar einskild kontantstraum til i dag og legg dei saman: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$. Tenk deg eit prosjekt som gir $30\\,000$ kr etter år $1$, $40\\,000$ kr etter år $2$ og $50\\,000$ kr etter år $3$, med $7\\%$ rente. Då blir $PV = \\frac{30\\,000}{1{,}07} + \\frac{40\\,000}{1{,}1449} + \\frac{50\\,000}{1{,}2250} = 28\\,037 + 34\\,938 + 40\\,816 \\approx 103\\,791$ kr. Kvar utbetaling tel mindre jo lenger ut i tid ho ligg.\n\nNår vi vurderer ei investering, må vi òg trekkje frå det ho kostar. Det gir oss **netto noverdi** (Net Present Value, NPV): $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa på tidspunkt $0$. Avgjerdsregelen er enkel: er $NPV > 0$ er investeringa lønsam, er $NPV = 0$ gir ho akkurat avkastningskravet, og er $NPV < 0$ er ho ulønsam.\n\nSei at ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei tre neste åra, med eit avkastningskrav på $10\\%$. Då blir $NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} = -100\\,000 + 31\\,818 + 33\\,058 + 33\\,808 \\approx -1\\,316$ kr. Noverdien blir altså litt negativ -- du bør la vere å investere, sjølv om dei udiskonterte innbetalingane ($120\\,000$ kr) ser ut til å overgå kostnaden. Det er nettopp tidsverdien som snur konklusjonen."},{"id":"bi-okonomi-4-2-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-4-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kontantstraumar og NPV:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-2-n-quiz2-q0","task":"Korleis finn vi noverdien av fleire kontantstraumar på ulike tidspunkt?","options":[{"id":"a","text":"Vi legg saman alle beløpa utan å diskontere","isCorrect":false},{"id":"b","text":"Vi diskonterer kvar kontantstraum til i dag og summerer","isCorrect":true},{"id":"c","text":"Vi bruker berre det største beløpet","isCorrect":false},{"id":"d","text":"Vi gangar alle beløpa saman","isCorrect":false}],"solution":"$PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$ -- kvar kontantstraum blir diskontert med sin eigen tidsfaktor, og så summerer vi."},{"id":"bi-okonomi-4-2-n-quiz2-q1","task":"Kva tyder avgjerdsregelen $NPV > 0$?","options":[{"id":"a","text":"Investeringa er ulønsam","isCorrect":false},{"id":"b","text":"Investeringa gir akkurat avkastningskravet","isCorrect":false},{"id":"c","text":"Investeringa er lønsam og bør gjennomførast","isCorrect":true},{"id":"d","text":"Investeringa er risikofri","isCorrect":false}],"solution":"$NPV > 0$ tyder at noverdien av kontantstraumane overgår investeringa -- prosjektet skaper verdi utover avkastningskravet og bør gjennomførast."},{"id":"bi-okonomi-4-2-n-quiz2-q2","task":"Ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei neste tre åra. Avkastningskravet er $10\\%$. Kva er NPV, og bør du investere?","options":[{"id":"a","text":"$NPV = +20\\,000$ kr, ja","isCorrect":false},{"id":"b","text":"$NPV = 0$ kr, likegyldig","isCorrect":false},{"id":"c","text":"$NPV \\approx +98\\,684$ kr, ja","isCorrect":false},{"id":"d","text":"$NPV \\approx -1\\,316$ kr, nei","isCorrect":true}],"solution":"$NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} \\approx -1\\,316$ kr. Negativ NPV -- ikkje invester."}]}},{"id":"bi-okonomi-4-2-n-summary","type":"text","content":"## Oppsummering\n\nPengar har **tidsverdi**: ei krone i dag er meir verdt enn ei krone i framtida, fordi dagens krone kan investerast og vekse. **Framtidsverdien** $FV = PV\\cdot(1 + r)^n$ flyttar eit beløp framover i tid, medan **noverdien** $PV = \\frac{FV}{(1 + r)^n}$ diskonterer eit framtidig beløp tilbake til i dag. Jo høgare diskonteringsrente, jo lågare noverdi.\n\nNår pengane kjem som ein straum over fleire år, diskonterer vi kvar kontantstraum for seg og summerer: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Trekkjer vi frå den initiale investeringa, får vi **netto noverdi** $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Avgjerdsregelen er klar: $NPV > 0$ tyder lønsam investering, $NPV < 0$ tyder at du bør la vere -- sjølv om dei udiskonterte beløpa kan sjå forlokkande ut."}],"exercises":[],"_meta":{"sourceHash":"3faa4a2ae5bcf6bd","translatedAt":"2026-06-21T00:51:11.852Z","model":"claude-code-agent","strings":49,"tm":{"c10406c8f853f5c9":"Noverdi og framtidsverdi","b195b06d1ed59702":"Narrativ versjon","eb69d821c863660a":"Ei forteljing om tidsverdien av pengar -- kvifor tusen kroner i dag slår tusen kroner om eit år -- og om korleis diskontering avgjer om ei investering løner seg.","21e3f9e22f58fa6d":"rekne ut noverdi og framtidsverdi","8930b98c9b7534e2":"forstå tidsverdien av pengar","e7e2f6393a3ff2f6":"## Tusen kroner i dag eller om eitt år?\n\nSjå for deg at nokon tilbyr deg $1\\,000$ kr no eller $1\\,000$ kr om eitt år. Kva vel du? Svaret er openbert: ta pengane no. For har du dei i dag, kan du setje dei i banken og tene renter -- og då er dei verdt meir enn $1\\,000$ kr om eitt år. Dette enkle prinsippet blir kalla **tidsverdien av pengar**, og det er kanskje det viktigaste omgrepet i heile finansfaget.\n\nDet leier oss til to motsette reknestykke. **Framtidsverdien** (Future Value, FV) fortel kva eit beløp i dag blir til seinare: $FV = PV\\cdot(1 + r)^n$, der $PV$ er noverdien, $r$ er renta per periode og $n$ er talet på periodar. Dette kjenner du att som rentes rente.\n\nDen andre vegen er meir overraskande. **Noverdien** (Present Value, PV) fortel kva eit framtidig beløp er verdt i dag: $PV = \\frac{FV}{(1 + r)^n}$. Vi snur formelen og deler i staden for å gange. Dette blir kalla **diskontering** -- vi flyttar framtidige kroner tilbake til dagens verdi. Faktoren $\\frac{1}{(1+r)^n}$ er **diskonteringsfaktoren**.","c29c846698a2db8e":"## Å diskontere framtidige beløp\n\nLat oss bruke noverdiformelen. Du skal motta $100\\,000$ kr om $5$ år, og renta er $6\\%$. Kva er det verdt i dag? Vi reknar $PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr. Tolkinga er konkret: set du $74\\,726$ kr i banken til $6\\%$ i dag, vil dei ha vakse til nøyaktig $100\\,000$ kr om $5$ år. Dei to beløpa er altså økonomisk likeverdige -- berre på ulike tidspunkt.\n\nRenta vi bruker her kallar vi **diskonteringsrenta**, og ho uttrykkjer alternativkostnaden ved å binde kapital. Ho byggjer på den risikofrie renta (til dømes statsobligasjonar), ein risikopremie som kompenserer for uvisse, og forventa inflasjon. Ein tommelfingerregel: jo høgare diskonteringsrente, jo lågare noverdi.\n\nKor sterk denne effekten er, ser vi tydeleg dersom vi diskonterer $100\\,000$ kr om $10$ år med tre ulike renter. Med $4\\%$ blir noverdien $\\frac{100\\,000}{(1{,}04)^{10}} = 67\\,556$ kr. Med $8\\%$ fell han til $\\frac{100\\,000}{(1{,}08)^{10}} = 46\\,319$ kr. Og med $12\\%$ er han nede i $\\frac{100\\,000}{(1{,}12)^{10}} = 32\\,197$ kr. Same framtidige beløp, men noverdien meir enn halverer seg når renta går frå $4\\%$ til $12\\%$. Valet av diskonteringsrente er difor ingen bagatell.","4946fd2b12ef463c":"Test deg sjølv på tidsverdi og diskontering:","4097889236a2af26":"placeholder","fbd7ece9da95453e":"Kvifor er $1\\,000$ kr i dag verdt meir enn $1\\,000$ kr om eitt år?","98cb9f70a9e95b6f":"Fordi pengane fysisk blir slitne ut over tid","b292d56a3da532f2":"Fordi banken tek gebyr for å vente","6295dd66d5ec27e4":"Fordi du kan investere pengane i dag og tene renter","59047be459708f89":"Det er like mykje verdt","fd3a1f90629f6297":"Pengar i dag kan investerast og vekse med renter, så dei er verdt meir enn same beløp i framtida. Dette er tidsverdien av pengar.","c6729ade79bb30de":"Du skal motta $100\\,000$ kr om $5$ år. Diskonteringsrenta er $6\\%$. Kva er noverdien?","23bd916ad8aef2ce":"$94\\,340$ kr","f539420f3c4e35ae":"$133\\,820$ kr","3bad7465dccfef14":"$100\\,000$ kr","709fc9b02a9340a6":"$74\\,726$ kr","e54cd11149a0eb82":"$PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr.","7533865340c84f02":"Kva skjer med noverdien av eit framtidig beløp når diskonteringsrenta aukar?","c14be6136886341e":"Noverdien søkk","310c956bc82a1a07":"Noverdien aukar","6e87b85643a1a49e":"Noverdien er uendra","f9631135b1f7aba0":"Noverdien blir negativ","7817a5d46e60c198":"Høgare rente gir større nemnar i $\\frac{FV}{(1+r)^n}$, så noverdien søkk. $100\\,000$ kr om $10$ år er verdt $67\\,556$ kr ved $4\\%$, men berre $32\\,197$ kr ved $12\\%$.","e34abac0814e0132":"## Fleire kontantstraumar og netto noverdi\n\nI røynda kjem pengane sjeldan som eitt enkelt beløp. Eit prosjekt gir gjerne ein straum av inn- og utbetalingar fordelt over fleire år. Då diskonterer vi kvar einskild kontantstraum til i dag og legg dei saman: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$. Tenk deg eit prosjekt som gir $30\\,000$ kr etter år $1$, $40\\,000$ kr etter år $2$ og $50\\,000$ kr etter år $3$, med $7\\%$ rente. Då blir $PV = \\frac{30\\,000}{1{,}07} + \\frac{40\\,000}{1{,}1449} + \\frac{50\\,000}{1{,}2250} = 28\\,037 + 34\\,938 + 40\\,816 \\approx 103\\,791$ kr. Kvar utbetaling tel mindre jo lenger ut i tid ho ligg.\n\nNår vi vurderer ei investering, må vi òg trekkje frå det ho kostar. Det gir oss **netto noverdi** (Net Present Value, NPV): $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa på tidspunkt $0$. Avgjerdsregelen er enkel: er $NPV > 0$ er investeringa lønsam, er $NPV = 0$ gir ho akkurat avkastningskravet, og er $NPV < 0$ er ho ulønsam.\n\nSei at ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei tre neste åra, med eit avkastningskrav på $10\\%$. Då blir $NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} = -100\\,000 + 31\\,818 + 33\\,058 + 33\\,808 \\approx -1\\,316$ kr. Noverdien blir altså litt negativ -- du bør la vere å investere, sjølv om dei udiskonterte innbetalingane ($120\\,000$ kr) ser ut til å overgå kostnaden. Det er nettopp tidsverdien som snur konklusjonen.","3a7999cfb7be3a5d":"Test deg sjølv på kontantstraumar og NPV:","66549056931b7ddb":"Korleis finn vi noverdien av fleire kontantstraumar på ulike tidspunkt?","fe7fba933a7aee36":"Vi legg saman alle beløpa utan å diskontere","d6d5db17040ddf81":"Vi diskonterer kvar kontantstraum til i dag og summerer","d8725b6324be9991":"Vi bruker berre det største beløpet","5708ce2e598bbfe8":"Vi gangar alle beløpa saman","8f88882e12a6f9fe":"$PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$ -- kvar kontantstraum blir diskontert med sin eigen tidsfaktor, og så summerer vi.","1d93e97e876b39da":"Kva tyder avgjerdsregelen $NPV > 0$?","3f96b2777230c353":"Investeringa er ulønsam","0abd2b44ed630041":"Investeringa gir akkurat avkastningskravet","116f4a79bdebac63":"Investeringa er lønsam og bør gjennomførast","1d663b3be9dbd40d":"Investeringa er risikofri","11d7ddeb3ca591a6":"$NPV > 0$ tyder at noverdien av kontantstraumane overgår investeringa -- prosjektet skaper verdi utover avkastningskravet og bør gjennomførast.","03cdd3a4ed759a38":"Ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei neste tre åra. Avkastningskravet er $10\\%$. Kva er NPV, og bør du investere?","2725f6113227086d":"$NPV = +20\\,000$ kr, ja","48099efb2ffe85b9":"$NPV = 0$ kr, likegyldig","70befc4e44d2ee1a":"$NPV \\approx +98\\,684$ kr, ja","f36a8bb619ca3fe7":"$NPV \\approx -1\\,316$ kr, nei","174c258dc9427693":"$NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} \\approx -1\\,316$ kr. Negativ NPV -- ikkje invester.","29166042a3224c17":"## Oppsummering\n\nPengar har **tidsverdi**: ei krone i dag er meir verdt enn ei krone i framtida, fordi dagens krone kan investerast og vekse. **Framtidsverdien** $FV = PV\\cdot(1 + r)^n$ flyttar eit beløp framover i tid, medan **noverdien** $PV = \\frac{FV}{(1 + r)^n}$ diskonterer eit framtidig beløp tilbake til i dag. Jo høgare diskonteringsrente, jo lågare noverdi.\n\nNår pengane kjem som ein straum over fleire år, diskonterer vi kvar kontantstraum for seg og summerer: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Trekkjer vi frå den initiale investeringa, får vi **netto noverdi** $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Avgjerdsregelen er klar: $NPV > 0$ tyder lønsam investering, $NPV < 0$ tyder at du bør la vere -- sjølv om dei udiskonterte beløpa kan sjå forlokkande ut."}}}
+{
+  "id": "bi-okonomi-4-2-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "4.2",
+  "title": "Noverdi og framtidsverdi",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om tidsverdien av pengar -- kvifor tusen kroner i dag slår tusen kroner om eit år -- og om korleis diskontering avgjer om ei investering løner seg.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "rekne ut noverdi og framtidsverdi",
+    "forstå tidsverdien av pengar"
+  ],
+  "linkedChapterId": "bi-okonomi-4-2",
+  "content": [
+    {
+      "id": "bi-okonomi-4-2-n-intro",
+      "type": "text",
+      "content": "## Tusen kroner i dag eller om eitt år?\n\nSjå for deg at nokon tilbyr deg $1\\,000$ kr no eller $1\\,000$ kr om eitt år. Kva vel du? Svaret er openbert: ta pengane no. For har du dei i dag, kan du setje dei i banken og tene renter -- og då er dei verdt meir enn $1\\,000$ kr om eitt år. Dette enkle prinsippet blir kalla **tidsverdien av pengar**, og det er kanskje det viktigaste omgrepet i heile finansfaget.\n\nDet leier oss til to motsette reknestykke. **Framtidsverdien** (Future Value, FV) fortel kva eit beløp i dag blir til seinare: $FV = PV\\cdot(1 + r)^n$, der $PV$ er noverdien, $r$ er renta per periode og $n$ er talet på periodar. Dette kjenner du att som rentes rente.\n\nDen andre vegen er meir overraskande. **Noverdien** (Present Value, PV) fortel kva eit framtidig beløp er verdt i dag: $PV = \\frac{FV}{(1 + r)^n}$. Vi snur formelen og deler i staden for å gange. Dette blir kalla **diskontering** -- vi flyttar framtidige kroner tilbake til dagens verdi. Faktoren $\\frac{1}{(1+r)^n}$ er **diskonteringsfaktoren**."
+    },
+    {
+      "id": "bi-okonomi-4-2-n-section1",
+      "type": "text",
+      "content": "## Å diskontere framtidige beløp\n\nLat oss bruke noverdiformelen. Du skal motta $100\\,000$ kr om $5$ år, og renta er $6\\%$. Kva er det verdt i dag? Vi reknar $PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr. Tolkinga er konkret: set du $74\\,726$ kr i banken til $6\\%$ i dag, vil dei ha vakse til nøyaktig $100\\,000$ kr om $5$ år. Dei to beløpa er altså økonomisk likeverdige -- berre på ulike tidspunkt.\n\nRenta vi bruker her kallar vi **diskonteringsrenta**, og ho uttrykkjer alternativkostnaden ved å binde kapital. Ho byggjer på den risikofrie renta (til dømes statsobligasjonar), ein risikopremie som kompenserer for uvisse, og forventa inflasjon. Ein tommelfingerregel: jo høgare diskonteringsrente, jo lågare noverdi.\n\nKor sterk denne effekten er, ser vi tydeleg dersom vi diskonterer $100\\,000$ kr om $10$ år med tre ulike renter. Med $4\\%$ blir noverdien $\\frac{100\\,000}{(1{,}04)^{10}} = 67\\,556$ kr. Med $8\\%$ fell han til $\\frac{100\\,000}{(1{,}08)^{10}} = 46\\,319$ kr. Og med $12\\%$ er han nede i $\\frac{100\\,000}{(1{,}12)^{10}} = 32\\,197$ kr. Same framtidige beløp, men noverdien meir enn halverer seg når renta går frå $4\\%$ til $12\\%$. Valet av diskonteringsrente er difor ingen bagatell."
+    },
+    {
+      "id": "bi-okonomi-4-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tidsverdi og diskontering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-2-n-quiz1-q0",
+            "task": "Kvifor er $1\\,000$ kr i dag verdt meir enn $1\\,000$ kr om eitt år?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fordi du kan investere pengane i dag og tene renter",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi pengane fysisk blir slitne ut over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi banken tek gebyr for å vente",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er like mykje verdt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Pengar i dag kan investerast og vekse med renter, så dei er verdt meir enn same beløp i framtida. Dette er tidsverdien av pengar."
+          },
+          {
+            "id": "bi-okonomi-4-2-n-quiz1-q1",
+            "task": "Du skal motta $100\\,000$ kr om $5$ år. Diskonteringsrenta er $6\\%$. Kva er noverdien?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$94\\,340$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$74\\,726$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$133\\,820$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$100\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr."
+          },
+          {
+            "id": "bi-okonomi-4-2-n-quiz1-q2",
+            "task": "Kva skjer med noverdien av eit framtidig beløp når diskonteringsrenta aukar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Noverdien aukar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Noverdien er uendra",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Noverdien søkk",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Noverdien blir negativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Høgare rente gir større nemnar i $\\frac{FV}{(1+r)^n}$, så noverdien søkk. $100\\,000$ kr om $10$ år er verdt $67\\,556$ kr ved $4\\%$, men berre $32\\,197$ kr ved $12\\%$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-2-n-section2",
+      "type": "text",
+      "content": "## Fleire kontantstraumar og netto noverdi\n\nI røynda kjem pengane sjeldan som eitt enkelt beløp. Eit prosjekt gir gjerne ein straum av inn- og utbetalingar fordelt over fleire år. Då diskonterer vi kvar einskild kontantstraum til i dag og legg dei saman: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$. Tenk deg eit prosjekt som gir $30\\,000$ kr etter år $1$, $40\\,000$ kr etter år $2$ og $50\\,000$ kr etter år $3$, med $7\\%$ rente. Då blir $PV = \\frac{30\\,000}{1{,}07} + \\frac{40\\,000}{1{,}1449} + \\frac{50\\,000}{1{,}2250} = 28\\,037 + 34\\,938 + 40\\,816 \\approx 103\\,791$ kr. Kvar utbetaling tel mindre jo lenger ut i tid ho ligg.\n\nNår vi vurderer ei investering, må vi òg trekkje frå det ho kostar. Det gir oss **netto noverdi** (Net Present Value, NPV): $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa på tidspunkt $0$. Avgjerdsregelen er enkel: er $NPV > 0$ er investeringa lønsam, er $NPV = 0$ gir ho akkurat avkastningskravet, og er $NPV < 0$ er ho ulønsam.\n\nSei at ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei tre neste åra, med eit avkastningskrav på $10\\%$. Då blir $NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} = -100\\,000 + 31\\,818 + 33\\,058 + 33\\,808 \\approx -1\\,316$ kr. Noverdien blir altså litt negativ -- du bør la vere å investere, sjølv om dei udiskonterte innbetalingane ($120\\,000$ kr) ser ut til å overgå kostnaden. Det er nettopp tidsverdien som snur konklusjonen."
+    },
+    {
+      "id": "bi-okonomi-4-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kontantstraumar og NPV:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-2-n-quiz2-q0",
+            "task": "Korleis finn vi noverdien av fleire kontantstraumar på ulike tidspunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vi legg saman alle beløpa utan å diskontere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi bruker berre det største beløpet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi gangar alle beløpa saman",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vi diskonterer kvar kontantstraum til i dag og summerer",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$ -- kvar kontantstraum blir diskontert med sin eigen tidsfaktor, og så summerer vi."
+          },
+          {
+            "id": "bi-okonomi-4-2-n-quiz2-q1",
+            "task": "Kva tyder avgjerdsregelen $NPV > 0$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Investeringa er lønsam og bør gjennomførast",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Investeringa er ulønsam",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Investeringa gir akkurat avkastningskravet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Investeringa er risikofri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$NPV > 0$ tyder at noverdien av kontantstraumane overgår investeringa -- prosjektet skaper verdi utover avkastningskravet og bør gjennomførast."
+          },
+          {
+            "id": "bi-okonomi-4-2-n-quiz2-q2",
+            "task": "Ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei neste tre åra. Avkastningskravet er $10\\%$. Kva er NPV, og bør du investere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$NPV = +20\\,000$ kr, ja",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$NPV \\approx -1\\,316$ kr, nei",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$NPV = 0$ kr, likegyldig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$NPV \\approx +98\\,684$ kr, ja",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} \\approx -1\\,316$ kr. Negativ NPV -- ikkje invester."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nPengar har **tidsverdi**: ei krone i dag er meir verdt enn ei krone i framtida, fordi dagens krone kan investerast og vekse. **Framtidsverdien** $FV = PV\\cdot(1 + r)^n$ flyttar eit beløp framover i tid, medan **noverdien** $PV = \\frac{FV}{(1 + r)^n}$ diskonterer eit framtidig beløp tilbake til i dag. Jo høgare diskonteringsrente, jo lågare noverdi.\n\nNår pengane kjem som ein straum over fleire år, diskonterer vi kvar kontantstraum for seg og summerer: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Trekkjer vi frå den initiale investeringa, får vi **netto noverdi** $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Avgjerdsregelen er klar: $NPV > 0$ tyder lønsam investering, $NPV < 0$ tyder at du bør la vere -- sjølv om dei udiskonterte beløpa kan sjå forlokkande ut."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3faa4a2ae5bcf6bd",
+    "translatedAt": "2026-06-21T00:51:11.852Z",
+    "model": "claude-code-agent",
+    "strings": 49,
+    "tm": {
+      "c10406c8f853f5c9": "Noverdi og framtidsverdi",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "eb69d821c863660a": "Ei forteljing om tidsverdien av pengar -- kvifor tusen kroner i dag slår tusen kroner om eit år -- og om korleis diskontering avgjer om ei investering løner seg.",
+      "21e3f9e22f58fa6d": "rekne ut noverdi og framtidsverdi",
+      "8930b98c9b7534e2": "forstå tidsverdien av pengar",
+      "e7e2f6393a3ff2f6": "## Tusen kroner i dag eller om eitt år?\n\nSjå for deg at nokon tilbyr deg $1\\,000$ kr no eller $1\\,000$ kr om eitt år. Kva vel du? Svaret er openbert: ta pengane no. For har du dei i dag, kan du setje dei i banken og tene renter -- og då er dei verdt meir enn $1\\,000$ kr om eitt år. Dette enkle prinsippet blir kalla **tidsverdien av pengar**, og det er kanskje det viktigaste omgrepet i heile finansfaget.\n\nDet leier oss til to motsette reknestykke. **Framtidsverdien** (Future Value, FV) fortel kva eit beløp i dag blir til seinare: $FV = PV\\cdot(1 + r)^n$, der $PV$ er noverdien, $r$ er renta per periode og $n$ er talet på periodar. Dette kjenner du att som rentes rente.\n\nDen andre vegen er meir overraskande. **Noverdien** (Present Value, PV) fortel kva eit framtidig beløp er verdt i dag: $PV = \\frac{FV}{(1 + r)^n}$. Vi snur formelen og deler i staden for å gange. Dette blir kalla **diskontering** -- vi flyttar framtidige kroner tilbake til dagens verdi. Faktoren $\\frac{1}{(1+r)^n}$ er **diskonteringsfaktoren**.",
+      "c29c846698a2db8e": "## Å diskontere framtidige beløp\n\nLat oss bruke noverdiformelen. Du skal motta $100\\,000$ kr om $5$ år, og renta er $6\\%$. Kva er det verdt i dag? Vi reknar $PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr. Tolkinga er konkret: set du $74\\,726$ kr i banken til $6\\%$ i dag, vil dei ha vakse til nøyaktig $100\\,000$ kr om $5$ år. Dei to beløpa er altså økonomisk likeverdige -- berre på ulike tidspunkt.\n\nRenta vi bruker her kallar vi **diskonteringsrenta**, og ho uttrykkjer alternativkostnaden ved å binde kapital. Ho byggjer på den risikofrie renta (til dømes statsobligasjonar), ein risikopremie som kompenserer for uvisse, og forventa inflasjon. Ein tommelfingerregel: jo høgare diskonteringsrente, jo lågare noverdi.\n\nKor sterk denne effekten er, ser vi tydeleg dersom vi diskonterer $100\\,000$ kr om $10$ år med tre ulike renter. Med $4\\%$ blir noverdien $\\frac{100\\,000}{(1{,}04)^{10}} = 67\\,556$ kr. Med $8\\%$ fell han til $\\frac{100\\,000}{(1{,}08)^{10}} = 46\\,319$ kr. Og med $12\\%$ er han nede i $\\frac{100\\,000}{(1{,}12)^{10}} = 32\\,197$ kr. Same framtidige beløp, men noverdien meir enn halverer seg når renta går frå $4\\%$ til $12\\%$. Valet av diskonteringsrente er difor ingen bagatell.",
+      "4946fd2b12ef463c": "Test deg sjølv på tidsverdi og diskontering:",
+      "4097889236a2af26": "placeholder",
+      "fbd7ece9da95453e": "Kvifor er $1\\,000$ kr i dag verdt meir enn $1\\,000$ kr om eitt år?",
+      "98cb9f70a9e95b6f": "Fordi pengane fysisk blir slitne ut over tid",
+      "b292d56a3da532f2": "Fordi banken tek gebyr for å vente",
+      "6295dd66d5ec27e4": "Fordi du kan investere pengane i dag og tene renter",
+      "59047be459708f89": "Det er like mykje verdt",
+      "fd3a1f90629f6297": "Pengar i dag kan investerast og vekse med renter, så dei er verdt meir enn same beløp i framtida. Dette er tidsverdien av pengar.",
+      "c6729ade79bb30de": "Du skal motta $100\\,000$ kr om $5$ år. Diskonteringsrenta er $6\\%$. Kva er noverdien?",
+      "23bd916ad8aef2ce": "$94\\,340$ kr",
+      "f539420f3c4e35ae": "$133\\,820$ kr",
+      "3bad7465dccfef14": "$100\\,000$ kr",
+      "709fc9b02a9340a6": "$74\\,726$ kr",
+      "e54cd11149a0eb82": "$PV = \\frac{100\\,000}{(1{,}06)^5} = \\frac{100\\,000}{1{,}3382} = 74\\,726$ kr.",
+      "7533865340c84f02": "Kva skjer med noverdien av eit framtidig beløp når diskonteringsrenta aukar?",
+      "c14be6136886341e": "Noverdien søkk",
+      "310c956bc82a1a07": "Noverdien aukar",
+      "6e87b85643a1a49e": "Noverdien er uendra",
+      "f9631135b1f7aba0": "Noverdien blir negativ",
+      "7817a5d46e60c198": "Høgare rente gir større nemnar i $\\frac{FV}{(1+r)^n}$, så noverdien søkk. $100\\,000$ kr om $10$ år er verdt $67\\,556$ kr ved $4\\%$, men berre $32\\,197$ kr ved $12\\%$.",
+      "e34abac0814e0132": "## Fleire kontantstraumar og netto noverdi\n\nI røynda kjem pengane sjeldan som eitt enkelt beløp. Eit prosjekt gir gjerne ein straum av inn- og utbetalingar fordelt over fleire år. Då diskonterer vi kvar einskild kontantstraum til i dag og legg dei saman: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$. Tenk deg eit prosjekt som gir $30\\,000$ kr etter år $1$, $40\\,000$ kr etter år $2$ og $50\\,000$ kr etter år $3$, med $7\\%$ rente. Då blir $PV = \\frac{30\\,000}{1{,}07} + \\frac{40\\,000}{1{,}1449} + \\frac{50\\,000}{1{,}2250} = 28\\,037 + 34\\,938 + 40\\,816 \\approx 103\\,791$ kr. Kvar utbetaling tel mindre jo lenger ut i tid ho ligg.\n\nNår vi vurderer ei investering, må vi òg trekkje frå det ho kostar. Det gir oss **netto noverdi** (Net Present Value, NPV): $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa på tidspunkt $0$. Avgjerdsregelen er enkel: er $NPV > 0$ er investeringa lønsam, er $NPV = 0$ gir ho akkurat avkastningskravet, og er $NPV < 0$ er ho ulønsam.\n\nSei at ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei tre neste åra, med eit avkastningskrav på $10\\%$. Då blir $NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} = -100\\,000 + 31\\,818 + 33\\,058 + 33\\,808 \\approx -1\\,316$ kr. Noverdien blir altså litt negativ -- du bør la vere å investere, sjølv om dei udiskonterte innbetalingane ($120\\,000$ kr) ser ut til å overgå kostnaden. Det er nettopp tidsverdien som snur konklusjonen.",
+      "3a7999cfb7be3a5d": "Test deg sjølv på kontantstraumar og NPV:",
+      "66549056931b7ddb": "Korleis finn vi noverdien av fleire kontantstraumar på ulike tidspunkt?",
+      "fe7fba933a7aee36": "Vi legg saman alle beløpa utan å diskontere",
+      "d6d5db17040ddf81": "Vi diskonterer kvar kontantstraum til i dag og summerer",
+      "d8725b6324be9991": "Vi bruker berre det største beløpet",
+      "5708ce2e598bbfe8": "Vi gangar alle beløpa saman",
+      "8f88882e12a6f9fe": "$PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$ -- kvar kontantstraum blir diskontert med sin eigen tidsfaktor, og så summerer vi.",
+      "1d93e97e876b39da": "Kva tyder avgjerdsregelen $NPV > 0$?",
+      "3f96b2777230c353": "Investeringa er ulønsam",
+      "0abd2b44ed630041": "Investeringa gir akkurat avkastningskravet",
+      "116f4a79bdebac63": "Investeringa er lønsam og bør gjennomførast",
+      "1d663b3be9dbd40d": "Investeringa er risikofri",
+      "11d7ddeb3ca591a6": "$NPV > 0$ tyder at noverdien av kontantstraumane overgår investeringa -- prosjektet skaper verdi utover avkastningskravet og bør gjennomførast.",
+      "03cdd3a4ed759a38": "Ei maskin kostar $100\\,000$ kr og gir $35\\,000$, $40\\,000$ og $45\\,000$ kr dei neste tre åra. Avkastningskravet er $10\\%$. Kva er NPV, og bør du investere?",
+      "2725f6113227086d": "$NPV = +20\\,000$ kr, ja",
+      "48099efb2ffe85b9": "$NPV = 0$ kr, likegyldig",
+      "70befc4e44d2ee1a": "$NPV \\approx +98\\,684$ kr, ja",
+      "f36a8bb619ca3fe7": "$NPV \\approx -1\\,316$ kr, nei",
+      "174c258dc9427693": "$NPV = -100\\,000 + \\frac{35\\,000}{1{,}10} + \\frac{40\\,000}{1{,}21} + \\frac{45\\,000}{1{,}331} \\approx -1\\,316$ kr. Negativ NPV -- ikkje invester.",
+      "29166042a3224c17": "## Oppsummering\n\nPengar har **tidsverdi**: ei krone i dag er meir verdt enn ei krone i framtida, fordi dagens krone kan investerast og vekse. **Framtidsverdien** $FV = PV\\cdot(1 + r)^n$ flyttar eit beløp framover i tid, medan **noverdien** $PV = \\frac{FV}{(1 + r)^n}$ diskonterer eit framtidig beløp tilbake til i dag. Jo høgare diskonteringsrente, jo lågare noverdi.\n\nNår pengane kjem som ein straum over fleire år, diskonterer vi kvar kontantstraum for seg og summerer: $PV = \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Trekkjer vi frå den initiale investeringa, får vi **netto noverdi** $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{C_t}{(1+r)^t}$. Avgjerdsregelen er klar: $NPV > 0$ tyder lønsam investering, $NPV < 0$ tyder at du bør la vere -- sjølv om dei udiskonterte beløpa kan sjå forlokkande ut."
+    }
+  }
+}

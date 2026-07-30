@@ -1,1 +1,609 @@
-{"id":"r1-4-6-narrativ","courseId":"r1","chapterNumber":"4.6","title":"Funksjonsdrøfting","subtitle":"Narrativ versjon","description":"En fortelling om funksjonsdrøfting -- hvordan $f'$ og $f''$ avslører et funksjonslandskap med topper, daler, vendepunkter og asymptoter, helt uten å se grafen først.","estimatedMinutes":48,"competenceGoals":["bestemme monotoniegenskaper ved hjelp av den deriverte","finne og klassifisere ekstremalpunkter","finne vendepunkter ved hjelp av andrederiverte","bestemme asymptoter (vertikale, horisontale og skrå)","utføre fullstendig funksjonsdrøfting"],"linkedChapterId":"r1-4-6","content":[{"id":"r1-4-6-n-intro","type":"text","content":"## Å lese et landskap uten å se det\n\nTenk deg at du skal beskrive en fjelltur for en venn – men du har bare kartet, ikke bildene. Hvor går stien oppover? Hvor er toppene og dalene? Hvor flater terrenget ut, og hvor stuper det mot stupkanten? En funksjon er et slikt landskap, og **funksjonsdrøfting** er kunsten å lese det – systematisk og uten å gjette.\n\nI dette kapittelet samler vi alt derivasjonen kan fortelle oss om en graf. Vi undersøker definisjonsmengden (hvor finnes landskapet i det hele tatt?), nullpunktene (hvor krysser stien havnivå?), monotoniegenskapene (hvor går det opp og ned?), ekstremalpunktene (toppene og dalene), vendepunktene (hvor svinger krumningen?) og asymptotene (hvordan oppfører landskapet seg ved verdens ende?). Med alt dette på plass kan du tegne en presis skisse av en graf du aldri har sett.\n\nHovedverktøyene er de to deriverte: $f'$ forteller om *retningen* – opp eller ned – mens $f''$ forteller om *krumningen* – smiler grafen eller er den sur? Vi skal bygge opp hele apparatet steg for steg, og avslutte med en fullstendig drøfting av en funksjon med både asymptoter og ekstremalpunkter. Ta på fjellskoene."},{"id":"r1-4-6-n-section1","type":"text","content":"## Opp eller ned? Spør den deriverte\n\nDet første spørsmålet om ethvert landskap er: hvor går det oppover? **Monotoniteoremet** gir svaret. La $f$ være deriverbar på et intervall $I$. Hvis $f'(x) > 0$ for alle $x$ i $I$, er $f$ **strengt voksende** der. Hvis $f'(x) < 0$, er $f$ **strengt avtagende**. Og hvis $f'(x) = 0$ overalt på intervallet, er $f$ konstant – flatmark.\n\nMetoden for å kartlegge dette er alltid den samme: finn $f'(x)$, løs $f'(x) = 0$ for å finne de **stasjonære punktene**, sett opp et **fortegnsskjema** for $f'$, og les av hvor den deriverte er positiv og negativ.\n\nLa oss gjøre det for $f(x) = x^3 - 3x$. Den deriverte er $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$, med nullpunkter $x = -1$ og $x = 1$. Faktoriseringen gjør fortegnsanalysen enkel: for $x < -1$ er begge faktorene negative, så produktet er positivt – grafen stiger. Mellom $-1$ og $1$ har faktorene ulikt fortegn, så $f'(x) < 0$ – grafen synker. For $x > 1$ er begge positive igjen – grafen stiger.\n\nKonklusjon: $f$ er strengt voksende på $(-\\infty, -1)$ og $(1, \\infty)$, og strengt avtagende på $(-1, 1)$. Uten å ha tegnet et eneste punkt vet vi allerede grovformen: opp, ned, opp – en klassisk tredjegradskurve med en topp og en dal. Hvor toppen og dalen ligger nøyaktig, er neste seksjons jobb."},{"id":"r1-4-6-n-quiz1","type":"exercise","exercise":{"id":"r1-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på monotoniegenskaper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-6-n-quiz1-q0","task":"Hva betyr det at $f'(x) > 0$ på et intervall?","options":[{"id":"a","text":"Grafen ligger over $x$-aksen der","isCorrect":false},{"id":"b","text":"$f$ er strengt voksende på intervallet","isCorrect":true},{"id":"c","text":"$f$ har et toppunkt der","isCorrect":false},{"id":"d","text":"Grafen er konveks der","isCorrect":false}],"solution":"Den deriverte er stigningstallet. Positiv derivert på hele intervallet betyr at funksjonen er strengt voksende der. Den sier ingenting om grafen ligger over eller under $x$-aksen."},{"id":"r1-4-6-n-quiz1-q1","task":"Hvor er $f(x) = x^3 - 3x$ strengt voksende?","options":[{"id":"a","text":"Bare på $(1, \\infty)$","isCorrect":false},{"id":"b","text":"På $(-1, 1)$","isCorrect":false},{"id":"c","text":"På $(-\\infty, -1)$ og $(1, \\infty)$","isCorrect":true},{"id":"d","text":"Overalt","isCorrect":false}],"solution":"$f'(x) = 3(x-1)(x+1)$ er positiv når begge faktorene har samme fortegn: for $x < -1$ og for $x > 1$."},{"id":"r1-4-6-n-quiz1-q2","task":"Hva er standardmetoden for å finne monotoniintervaller?","options":[{"id":"a","text":"Finn $f'$, løs $f'(x) = 0$ og sett opp fortegnsskjema for $f'$","isCorrect":true},{"id":"b","text":"Regn ut $f(x)$ for mange verdier og sammenlign","isCorrect":false},{"id":"c","text":"Løs $f(x) = 0$ og se på fortegnet til $f$","isCorrect":false},{"id":"d","text":"Finn $f''$ og sjekk hvor den er null","isCorrect":false}],"solution":"Monotonien styres av fortegnet til den deriverte. Vi finner de stasjonære punktene fra $f'(x) = 0$ og leser fortegnet til $f'$ i hvert intervall mellom dem."}]}},{"id":"r1-4-6-n-section2","type":"text","content":"## Topper og daler\n\nEt **ekstremalpunkt** er et punkt der funksjonen har en lokal maksimums- eller minimumsverdi – en fjelltopp eller en dalbunn. Kandidatene er de stasjonære punktene, der $f'(c) = 0$ og tangenten er horisontal. Men ikke alle kandidater er ekte topper: vi trenger en test.\n\n**Første derivasjonstest** leser fortegnsskjemaet. Skifter $f'$ fra positiv til negativ i $x = c$ – altså opp, så ned – står du på et **lokalt maksimum**. Skifter den fra negativ til positiv, er du i et **lokalt minimum**. Og skifter ikke $f'$ fortegn i det hele tatt, har du et **terrassepunkt**: grafen flater ut, men fortsetter samme vei, som en avsats i en trapp.\n\n**Andre derivasjonstest** spør krumningen til råds. Er $f''(c) < 0$ i et stasjonært punkt, krummer grafen nedover – lokalt maksimum. Er $f''(c) > 0$, krummer den oppover – lokalt minimum. Men er $f''(c) = 0$, gir testen ingen konklusjon, og du må tilbake til fortegnsskjemaet.\n\nTilbake til $f(x) = x^3 - 3x$ med stasjonære punkter $x = -1$ og $x = 1$. Fortegnsskjemaet sa: pluss, minus, pluss. Altså lokalt maksimum i $x = -1$ og lokalt minimum i $x = 1$. Med andre derivasjonstest: $f''(x) = 6x$, og $f''(-1) = -6 < 0$ bekrefter maksimum, mens $f''(1) = 6 > 0$ bekrefter minimum. Koordinatene finner vi ved innsetting: toppunktet er $(-1, f(-1)) = (-1, 2)$ og bunnpunktet $(1, f(1)) = (1, -2)$. To tester, samme svar – velg den som er raskest i situasjonen."},{"id":"r1-4-6-n-quiz2","type":"exercise","exercise":{"id":"r1-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på ekstremalpunkter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-6-n-quiz2-q0","task":"Hva skjer hvis $f'$ skifter fra positiv til negativ i et stasjonært punkt $c$?","options":[{"id":"a","text":"$f$ har et terrassepunkt i $c$","isCorrect":false},{"id":"b","text":"$f$ har et lokalt minimum i $c$","isCorrect":false},{"id":"c","text":"$f$ har et vendepunkt i $c$","isCorrect":false},{"id":"d","text":"$f$ har et lokalt maksimum i $c$","isCorrect":true}],"solution":"Opp og så ned betyr fjelltopp: når $f'$ går fra $+$ til $-$, har funksjonen et lokalt maksimum i punktet."},{"id":"r1-4-6-n-quiz2-q1","task":"Hva sier andre derivasjonstest når $f'(c) = 0$ og $f''(c) > 0$?","options":[{"id":"a","text":"Lokalt maksimum","isCorrect":false},{"id":"b","text":"Lokalt minimum","isCorrect":true},{"id":"c","text":"Terrassepunkt","isCorrect":false},{"id":"d","text":"Vendepunkt","isCorrect":false}],"solution":"Positiv andrederivert betyr at grafen krummer oppover (smiler) – det stasjonære punktet er et lokalt minimum."},{"id":"r1-4-6-n-quiz2-q2","task":"Hva er det lokale maksimumspunktet til $f(x) = x^3 - 3x$?","options":[{"id":"a","text":"$(-1, 2)$","isCorrect":true},{"id":"b","text":"$(1, -2)$","isCorrect":false},{"id":"c","text":"$(0, 0)$","isCorrect":false},{"id":"d","text":"$(-1, -2)$","isCorrect":false}],"solution":"$f'$ skifter fra $+$ til $-$ i $x = -1$, og $f(-1) = (-1)^3 - 3(-1) = -1 + 3 = 2$. Toppunktet er $(-1, 2)$."},{"id":"r1-4-6-n-quiz2-q3","task":"Hva gjør du hvis $f'(c) = 0$ og $f''(c) = 0$?","options":[{"id":"a","text":"Konkluderer med terrassepunkt","isCorrect":false},{"id":"b","text":"Konkluderer med maksimum","isCorrect":false},{"id":"c","text":"Bruker første derivasjonstest med fortegnsskjema","isCorrect":true},{"id":"d","text":"Konkluderer med at punktet ikke er stasjonært","isCorrect":false}],"solution":"Når $f''(c) = 0$, gir andre derivasjonstest ingen konklusjon. Da må du undersøke fortegnet til $f'$ rundt punktet med fortegnsskjema."}]}},{"id":"r1-4-6-n-section3","type":"text","content":"## Når grafen skifter humør\n\nDen deriverte fanger retningen – men en graf har også *krumning*. Tenk på forskjellen mellom innsiden av en skål og utsiden av en kuppel. Hvis $f''(x) > 0$, er grafen **konveks**: den buer oppover og «smiler». Hvis $f''(x) < 0$, er grafen **konkav**: den buer nedover og er «sur». Krumningen merkes godt selv om begge deler kan skje mens grafen stiger – tenk på forskjellen mellom en stadig brattere motbakke og en motbakke som slaker av.\n\nEt **vendepunkt** er stedet der grafen skifter humør – fra konkav til konveks eller omvendt. Kravet er todelt: $f''(c) = 0$ *og* $f''$ må faktisk skifte fortegn i $x = c$. Det første alene er ikke nok, akkurat som $f'(c) = 0$ alene ikke garanterte ekstremalpunkt.\n\nLa oss finne vendepunktene til vår gamle kjenning $f(x) = x^3 - 3x$. Vi deriverer to ganger: $f'(x) = 3x^2 - 3$ og $f''(x) = 6x$. Likningen $f''(x) = 0$ gir $x = 0$. Så sjekker vi fortegnsskiftet: for $x < 0$ er $f''(x) = 6x < 0$ – konkav; for $x > 0$ er $f''(x) > 0$ – konveks. Fortegnet skifter, så $x = 0$ er et ekte vendepunkt. Koordinatene: $f(0) = 0$, altså vendepunkt i $(0, 0)$.\n\nDet stemmer perfekt med bildet vi har bygget: grafen kommer opp til toppen i $(-1, 2)$, krummer surt nedover gjennom dalsøkket, snur krumningen i origo, og smiler seg ned til bunnen i $(1, -2)$ før den stiger mot uendelig. Vendepunktet er nøyaktig midt mellom topp og bunn – tredjegradsfunksjonens skjulte symmetri."},{"id":"r1-4-6-n-quiz3","type":"exercise","exercise":{"id":"r1-4-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på vendepunkter og krumning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-6-n-quiz3-q0","task":"Hva kreves for at $(c, f(c))$ skal være et vendepunkt?","options":[{"id":"a","text":"$f'(c) = 0$","isCorrect":false},{"id":"b","text":"$f''(c) = 0$ og $f''$ skifter fortegn i $c$","isCorrect":true},{"id":"c","text":"Bare at $f''(c) = 0$","isCorrect":false},{"id":"d","text":"$f'(c) = 0$ og $f''(c) = 0$","isCorrect":false}],"solution":"Et vendepunkt krever både $f''(c) = 0$ og at andrederiverte faktisk skifter fortegn – altså at krumningen snur."},{"id":"r1-4-6-n-quiz3-q1","task":"Hva betyr $f''(x) > 0$ for grafen?","options":[{"id":"a","text":"Grafen er konveks – den buer oppover og «smiler»","isCorrect":true},{"id":"b","text":"Grafen er konkav – den buer nedover","isCorrect":false},{"id":"c","text":"Grafen er voksende","isCorrect":false},{"id":"d","text":"Grafen ligger over $x$-aksen","isCorrect":false}],"solution":"Positiv andrederivert betyr konveks graf (buer oppover). Krumning og stigning er uavhengige: en konveks graf kan både stige og synke."},{"id":"r1-4-6-n-quiz3-q2","task":"Hvor har $f(x) = x^3 - 3x$ sitt vendepunkt?","options":[{"id":"a","text":"$(-1, 2)$","isCorrect":false},{"id":"b","text":"$(1, -2)$","isCorrect":false},{"id":"c","text":"Funksjonen har ingen vendepunkter","isCorrect":false},{"id":"d","text":"$(0, 0)$","isCorrect":true}],"solution":"$f''(x) = 6x$ er null i $x = 0$ og skifter fortegn der (negativ før, positiv etter). Siden $f(0) = 0$, er vendepunktet $(0, 0)$."}]}},{"id":"r1-4-6-n-section4","type":"text","content":"## Ved verdens ende: asymptoter\n\nHva skjer med landskapet helt ute ved horisonten – og ved de stedene der funksjonen rett og slett ikke finnes? En **asymptote** er en rett linje som grafen legger seg tettere og tettere inntil, uten nødvendigvis å berøre den. Det finnes tre typer.\n\nEn **vertikal asymptote** $x = a$ oppstår der funksjonsverdiene løper mot $\\pm\\infty$ når $x$ nærmer seg $a$ – typisk der en nevner blir null. For $f(x) = \\frac{x^2-1}{x-2}$ blir nevneren null i $x = 2$, og siden telleren da er $3 \\neq 0$, eksploderer brøken: $\\lim_{x \\to 2^+} f(x) = +\\infty$. Vertikal asymptote: $x = 2$.\n\nEn **horisontal asymptote** $y = b$ finnes hvis $\\lim_{x \\to \\pm\\infty} f(x) = b$. Se på $f(x) = \\frac{2x+1}{x-1}$: deler vi teller og nevner på $x$, får vi $\\frac{2 + 1/x}{1 - 1/x} \\to \\frac{2}{1} = 2$. Grafen flater ut mot linja $y = 2$ i begge retninger.\n\nEn **skrå asymptote** $y = ax + b$ (med $a \\neq 0$) oppstår når grafen legger seg inntil en skrånende linje: $\\lim_{x \\to \\pm\\infty} [f(x) - (ax+b)] = 0$. Du kan finne den med grenseverdier – $a = \\lim_{x \\to \\infty} \\frac{f(x)}{x}$ og deretter $b = \\lim_{x \\to \\infty} [f(x) - ax]$ – men for rasjonale funksjoner er polynomdivisjon raskest. For $f(x) = \\frac{x^2-1}{x-2}$ gir divisjonen $f(x) = x + 2 + \\frac{3}{x-2}$. Når $x \\to \\pm\\infty$, forsvinner resten $\\frac{3}{x-2}$, og grafen klistrer seg til linja $y = x + 2$.\n\nEn nyttig tommelfingerregel for rasjonale funksjoner: er telleren av grad én høyere enn nevneren, får du skrå asymptote; er gradene like, blir asymptoten horisontal."},{"id":"r1-4-6-n-quiz4","type":"exercise","exercise":{"id":"r1-4-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på asymptoter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-6-n-quiz4-q0","task":"Hvor har $f(x) = \\frac{x^2-1}{x-2}$ vertikal asymptote?","options":[{"id":"a","text":"$x = 1$ og $x = -1$","isCorrect":false},{"id":"b","text":"$x = 0$","isCorrect":false},{"id":"c","text":"$x = 2$","isCorrect":true},{"id":"d","text":"Funksjonen har ingen vertikal asymptote","isCorrect":false}],"solution":"Nevneren $x - 2$ er null i $x = 2$, mens telleren der er $3 \\neq 0$. Funksjonsverdiene går mot $\\pm\\infty$, så $x = 2$ er vertikal asymptote. ($x = \\pm 1$ er nullpunkter, ikke asymptoter.)"},{"id":"r1-4-6-n-quiz4-q1","task":"Hva er den horisontale asymptoten til $f(x) = \\frac{2x+1}{x-1}$?","options":[{"id":"a","text":"$y = 2$","isCorrect":true},{"id":"b","text":"$y = 1$","isCorrect":false},{"id":"c","text":"$y = -1$","isCorrect":false},{"id":"d","text":"$y = 0$","isCorrect":false}],"solution":"$\\lim_{x \\to \\infty} \\frac{2x+1}{x-1} = \\frac{2}{1} = 2$ (del teller og nevner på $x$). Horisontal asymptote: $y = 2$."},{"id":"r1-4-6-n-quiz4-q2","task":"Hva er den skrå asymptoten til $f(x) = \\frac{x^2-1}{x-2}$?","options":[{"id":"a","text":"$y = x - 2$","isCorrect":false},{"id":"b","text":"$y = x + 2$","isCorrect":true},{"id":"c","text":"$y = 2x + 3$","isCorrect":false},{"id":"d","text":"$y = x$","isCorrect":false}],"solution":"Polynomdivisjon gir $f(x) = x + 2 + \\frac{3}{x-2}$. Restleddet går mot null, så grafen nærmer seg linja $y = x + 2$."},{"id":"r1-4-6-n-quiz4-q3","task":"Hvordan finner du stigningstallet $a$ til en eventuell skrå asymptote $y = ax + b$?","options":[{"id":"a","text":"$a = f'(0)$","isCorrect":false},{"id":"b","text":"$a = \\lim_{x \\to \\infty} f(x)$","isCorrect":false},{"id":"c","text":"$a = \\lim_{x \\to \\infty} [f(x) - x]$","isCorrect":false},{"id":"d","text":"$a = \\lim_{x \\to \\infty} \\frac{f(x)}{x}$","isCorrect":true}],"solution":"Først $a = \\lim_{x \\to \\infty} \\frac{f(x)}{x}$, deretter $b = \\lim_{x \\to \\infty} [f(x) - ax]$. Blir $a = 0$, er asymptoten horisontal i stedet."}]}},{"id":"r1-4-6-n-section5","type":"text","content":"## Den store ekspedisjonen\n\nNå setter vi sammen hele verktøykassa og drøfter $f(x) = \\frac{x^2}{x-1}$ fra a til å. Sjekklisten er fast: definisjonsmengde, symmetri, nullpunkter, asymptoter, førstederivert med monotoni og ekstremalpunkter, andrederivert med vendepunkter – og til slutt skissen.\n\n**Definisjonsmengden** er alt unntatt der nevneren er null: $D_f = \\mathbb{R} \\setminus \\{1\\}$. **Symmetri**: $f(-x) = \\frac{x^2}{-x-1}$ er verken $f(x)$ eller $-f(x)$, så ingen symmetri. **Nullpunkter**: $x^2 = 0$ gir bare $x = 0$.\n\n**Asymptoter**: nevneren gir vertikal asymptote $x = 1$. Polynomdivisjon gir $f(x) = x + 1 + \\frac{1}{x-1}$, så skrå asymptote $y = x + 1$.\n\n**Førstederiverte** krever kvotientregelen: $f'(x) = \\frac{2x(x-1) - x^2}{(x-1)^2} = \\frac{x^2 - 2x}{(x-1)^2} = \\frac{x(x-2)}{(x-1)^2}$. Stasjonære punkter: $x = 0$ og $x = 2$. Nevneren er alltid positiv, så fortegnet styres av telleren $x(x-2)$: positiv for $x < 0$, negativ mellom 0 og 2 (unntatt i $x=1$ der funksjonen ikke finnes), positiv for $x > 2$. Dermed: lokalt **maksimum** i $(0, 0)$ og lokalt **minimum** i $(2, 4)$.\n\nLegg merke til det pussige: maksimumsverdien 0 er *lavere* enn minimumsverdien 4! Det er den vertikale asymptoten som gjør det mulig – grafen består av to atskilte grener.\n\n**Andrederiverte**: $f''(x) = \\frac{2}{(x-1)^3}$, som aldri er null – ingen vendepunkter. Grenen til venstre for $x=1$ er konkav, grenen til høyre konveks.\n\nDermed kan vi tegne: en gren som stiger til toppen i origo og dykker mot asymptoten, og en gren som kommer ned fra $+\\infty$, bunner ut i $(2,4)$ og legger seg langs $y = x + 1$."},{"id":"r1-4-6-n-quiz5","type":"exercise","exercise":{"id":"r1-4-6-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på fullstendig funksjonsdrøfting:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-6-n-quiz5-q0","task":"Hva er de stasjonære punktene til $f(x) = \\frac{x^2}{x-1}$?","options":[{"id":"a","text":"$x = 1$","isCorrect":false},{"id":"b","text":"$x = 0$ og $x = 2$","isCorrect":true},{"id":"c","text":"$x = 0$ og $x = 1$","isCorrect":false},{"id":"d","text":"$x = -1$ og $x = 1$","isCorrect":false}],"solution":"$f'(x) = \\frac{x(x-2)}{(x-1)^2}$ er null når telleren er null: $x = 0$ eller $x = 2$. ($x = 1$ er utenfor definisjonsmengden.)"},{"id":"r1-4-6-n-quiz5-q1","task":"Hvilket lokalt minimumspunkt har $f(x) = \\frac{x^2}{x-1}$?","options":[{"id":"a","text":"$(0, 0)$","isCorrect":false},{"id":"b","text":"$(1, 2)$","isCorrect":false},{"id":"c","text":"$(2, 4)$","isCorrect":true},{"id":"d","text":"$(2, 2)$","isCorrect":false}],"solution":"$f'$ skifter fra $-$ til $+$ i $x = 2$, og $f(2) = \\frac{4}{1} = 4$. Lokalt minimum i $(2, 4)$ – som faktisk ligger høyere enn det lokale maksimumet $(0,0)$, takket være asymptoten."},{"id":"r1-4-6-n-quiz5-q2","task":"Hvorfor har $f(x) = \\frac{x^2}{x-1}$ ingen vendepunkter?","options":[{"id":"a","text":"Fordi $f''(x) = \\frac{2}{(x-1)^3}$ aldri er null","isCorrect":true},{"id":"b","text":"Fordi funksjonen ikke er deriverbar","isCorrect":false},{"id":"c","text":"Fordi grafen er en rett linje","isCorrect":false},{"id":"d","text":"Fordi funksjonen mangler nullpunkter","isCorrect":false}],"solution":"Vendepunkter krever $f''(c) = 0$ med fortegnsskifte. Her er $f''(x) = \\frac{2}{(x-1)^3}$ aldri null, så ingen vendepunkter finnes – krumningen skifter bare over den vertikale asymptoten, der funksjonen ikke er definert."}]}},{"id":"r1-4-6-n-summary","type":"text","content":"## Kartet er tegnet\n\nFunksjonsdrøfting er detektivarbeid med fast metode, og nå har du hele verktøysettet. **Monotonien** leses av fortegnet til $f'$: positiv betyr voksende, negativ betyr avtagende, og fortegnsskjemaet er kartet. **Ekstremalpunktene** ligger blant de stasjonære punktene der $f'(c) = 0$, og klassifiseres enten med første derivasjonstest (fortegnsskifte i $f'$) eller andre derivasjonstest ($f''(c) < 0$ gir maksimum, $f''(c) > 0$ gir minimum, og $f''(c) = 0$ gir ingen konklusjon). Husk terrassepunktet – den falske toppen der $f'$ ikke skifter fortegn.\n\n**Krumningen** styres av $f''$: positiv betyr konveks (smiler), negativ betyr konkav (sur), og et **vendepunkt** krever både $f''(c) = 0$ og fortegnsskifte. **Asymptotene** beskriver grensene: vertikale der nevneren kollapser, horisontale når $f(x)$ flater ut mot et tall i det uendelige, og skrå når grafen legger seg langs en linje $y = ax + b$ – som polynomdivisjon avslører på et blunk.\n\nDen fullstendige drøftingen av $\\frac{x^2}{x-1}$ viste hvordan brikkene faller på plass til et helt bilde – inkludert overraskelsen der et lokalt maksimum lå lavere enn et lokalt minimum. Det er nettopp derfor vi sier *lokalt*: hver topp gjelder bare sitt eget nabolag. I kapitlene som kommer, skal denne analysen settes i arbeid på praktiske optimeringsproblemer, der toppene og bunnene er kroner, kvadratmeter og sekunder."}],"exercises":[]}
+{
+  "id": "r1-4-6-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "4.6",
+  "title": "Funksjonsdrøfting",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om funksjonsdrøfting -- hvordan $f'$ og $f''$ avslører et funksjonslandskap med topper, daler, vendepunkter og asymptoter, helt uten å se grafen først.",
+  "estimatedMinutes": 48,
+  "competenceGoals": [
+    "bestemme monotoniegenskaper ved hjelp av den deriverte",
+    "finne og klassifisere ekstremalpunkter",
+    "finne vendepunkter ved hjelp av andrederiverte",
+    "bestemme asymptoter (vertikale, horisontale og skrå)",
+    "utføre fullstendig funksjonsdrøfting"
+  ],
+  "linkedChapterId": "r1-4-6",
+  "content": [
+    {
+      "id": "r1-4-6-n-intro",
+      "type": "text",
+      "content": "## Å lese et landskap uten å se det\n\nTenk deg at du skal beskrive en fjelltur for en venn – men du har bare kartet, ikke bildene. Hvor går stien oppover? Hvor er toppene og dalene? Hvor flater terrenget ut, og hvor stuper det mot stupkanten? En funksjon er et slikt landskap, og **funksjonsdrøfting** er kunsten å lese det – systematisk og uten å gjette.\n\nI dette kapittelet samler vi alt derivasjonen kan fortelle oss om en graf. Vi undersøker definisjonsmengden (hvor finnes landskapet i det hele tatt?), nullpunktene (hvor krysser stien havnivå?), monotoniegenskapene (hvor går det opp og ned?), ekstremalpunktene (toppene og dalene), vendepunktene (hvor svinger krumningen?) og asymptotene (hvordan oppfører landskapet seg ved verdens ende?). Med alt dette på plass kan du tegne en presis skisse av en graf du aldri har sett.\n\nHovedverktøyene er de to deriverte: $f'$ forteller om *retningen* – opp eller ned – mens $f''$ forteller om *krumningen* – smiler grafen eller er den sur? Vi skal bygge opp hele apparatet steg for steg, og avslutte med en fullstendig drøfting av en funksjon med både asymptoter og ekstremalpunkter. Ta på fjellskoene."
+    },
+    {
+      "id": "r1-4-6-n-section1",
+      "type": "text",
+      "content": "## Opp eller ned? Spør den deriverte\n\nDet første spørsmålet om ethvert landskap er: hvor går det oppover? **Monotoniteoremet** gir svaret. La $f$ være deriverbar på et intervall $I$. Hvis $f'(x) > 0$ for alle $x$ i $I$, er $f$ **strengt voksende** der. Hvis $f'(x) < 0$, er $f$ **strengt avtagende**. Og hvis $f'(x) = 0$ overalt på intervallet, er $f$ konstant – flatmark.\n\nMetoden for å kartlegge dette er alltid den samme: finn $f'(x)$, løs $f'(x) = 0$ for å finne de **stasjonære punktene**, sett opp et **fortegnsskjema** for $f'$, og les av hvor den deriverte er positiv og negativ.\n\nLa oss gjøre det for $f(x) = x^3 - 3x$. Den deriverte er $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$, med nullpunkter $x = -1$ og $x = 1$. Faktoriseringen gjør fortegnsanalysen enkel: for $x < -1$ er begge faktorene negative, så produktet er positivt – grafen stiger. Mellom $-1$ og $1$ har faktorene ulikt fortegn, så $f'(x) < 0$ – grafen synker. For $x > 1$ er begge positive igjen – grafen stiger.\n\nKonklusjon: $f$ er strengt voksende på $(-\\infty, -1)$ og $(1, \\infty)$, og strengt avtagende på $(-1, 1)$. Uten å ha tegnet et eneste punkt vet vi allerede grovformen: opp, ned, opp – en klassisk tredjegradskurve med en topp og en dal. Hvor toppen og dalen ligger nøyaktig, er neste seksjons jobb."
+    },
+    {
+      "id": "r1-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på monotoniegenskaper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-6-n-quiz1-q0",
+            "task": "Hva betyr det at $f'(x) > 0$ på et intervall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Grafen ligger over $x$-aksen der",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f$ har et toppunkt der",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f$ er strengt voksende på intervallet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Grafen er konveks der",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte er stigningstallet. Positiv derivert på hele intervallet betyr at funksjonen er strengt voksende der. Den sier ingenting om grafen ligger over eller under $x$-aksen."
+          },
+          {
+            "id": "r1-4-6-n-quiz1-q1",
+            "task": "Hvor er $f(x) = x^3 - 3x$ strengt voksende?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare på $(1, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "På $(-1, 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "På $(-\\infty, -1)$ og $(1, \\infty)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(x) = 3(x-1)(x+1)$ er positiv når begge faktorene har samme fortegn: for $x < -1$ og for $x > 1$."
+          },
+          {
+            "id": "r1-4-6-n-quiz1-q2",
+            "task": "Hva er standardmetoden for å finne monotoniintervaller?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Finn $f'$, løs $f'(x) = 0$ og sett opp fortegnsskjema for $f'$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Regn ut $f(x)$ for mange verdier og sammenlign",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Løs $f(x) = 0$ og se på fortegnet til $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Finn $f''$ og sjekk hvor den er null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Monotonien styres av fortegnet til den deriverte. Vi finner de stasjonære punktene fra $f'(x) = 0$ og leser fortegnet til $f'$ i hvert intervall mellom dem."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-6-n-section2",
+      "type": "text",
+      "content": "## Topper og daler\n\nEt **ekstremalpunkt** er et punkt der funksjonen har en lokal maksimums- eller minimumsverdi – en fjelltopp eller en dalbunn. Kandidatene er de stasjonære punktene, der $f'(c) = 0$ og tangenten er horisontal. Men ikke alle kandidater er ekte topper: vi trenger en test.\n\n**Første derivasjonstest** leser fortegnsskjemaet. Skifter $f'$ fra positiv til negativ i $x = c$ – altså opp, så ned – står du på et **lokalt maksimum**. Skifter den fra negativ til positiv, er du i et **lokalt minimum**. Og skifter ikke $f'$ fortegn i det hele tatt, har du et **terrassepunkt**: grafen flater ut, men fortsetter samme vei, som en avsats i en trapp.\n\n**Andre derivasjonstest** spør krumningen til råds. Er $f''(c) < 0$ i et stasjonært punkt, krummer grafen nedover – lokalt maksimum. Er $f''(c) > 0$, krummer den oppover – lokalt minimum. Men er $f''(c) = 0$, gir testen ingen konklusjon, og du må tilbake til fortegnsskjemaet.\n\nTilbake til $f(x) = x^3 - 3x$ med stasjonære punkter $x = -1$ og $x = 1$. Fortegnsskjemaet sa: pluss, minus, pluss. Altså lokalt maksimum i $x = -1$ og lokalt minimum i $x = 1$. Med andre derivasjonstest: $f''(x) = 6x$, og $f''(-1) = -6 < 0$ bekrefter maksimum, mens $f''(1) = 6 > 0$ bekrefter minimum. Koordinatene finner vi ved innsetting: toppunktet er $(-1, f(-1)) = (-1, 2)$ og bunnpunktet $(1, f(1)) = (1, -2)$. To tester, samme svar – velg den som er raskest i situasjonen."
+    },
+    {
+      "id": "r1-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ekstremalpunkter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-6-n-quiz2-q0",
+            "task": "Hva skjer hvis $f'$ skifter fra positiv til negativ i et stasjonært punkt $c$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f$ har et terrassepunkt i $c$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f$ har et lokalt maksimum i $c$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$f$ har et lokalt minimum i $c$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f$ har et vendepunkt i $c$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Opp og så ned betyr fjelltopp: når $f'$ går fra $+$ til $-$, har funksjonen et lokalt maksimum i punktet."
+          },
+          {
+            "id": "r1-4-6-n-quiz2-q1",
+            "task": "Hva sier andre derivasjonstest når $f'(c) = 0$ og $f''(c) > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lokalt maksimum",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Terrassepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lokalt minimum",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Vendepunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Positiv andrederivert betyr at grafen krummer oppover (smiler) – det stasjonære punktet er et lokalt minimum."
+          },
+          {
+            "id": "r1-4-6-n-quiz2-q2",
+            "task": "Hva er det lokale maksimumspunktet til $f(x) = x^3 - 3x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(1, -2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(0, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(-1, -2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(-1, 2)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'$ skifter fra $+$ til $-$ i $x = -1$, og $f(-1) = (-1)^3 - 3(-1) = -1 + 3 = 2$. Toppunktet er $(-1, 2)$."
+          },
+          {
+            "id": "r1-4-6-n-quiz2-q3",
+            "task": "Hva gjør du hvis $f'(c) = 0$ og $f''(c) = 0$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Bruker første derivasjonstest med fortegnsskjema",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Konkluderer med terrassepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Konkluderer med maksimum",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Konkluderer med at punktet ikke er stasjonært",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $f''(c) = 0$, gir andre derivasjonstest ingen konklusjon. Da må du undersøke fortegnet til $f'$ rundt punktet med fortegnsskjema."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-6-n-section3",
+      "type": "text",
+      "content": "## Når grafen skifter humør\n\nDen deriverte fanger retningen – men en graf har også *krumning*. Tenk på forskjellen mellom innsiden av en skål og utsiden av en kuppel. Hvis $f''(x) > 0$, er grafen **konveks**: den buer oppover og «smiler». Hvis $f''(x) < 0$, er grafen **konkav**: den buer nedover og er «sur». Krumningen merkes godt selv om begge deler kan skje mens grafen stiger – tenk på forskjellen mellom en stadig brattere motbakke og en motbakke som slaker av.\n\nEt **vendepunkt** er stedet der grafen skifter humør – fra konkav til konveks eller omvendt. Kravet er todelt: $f''(c) = 0$ *og* $f''$ må faktisk skifte fortegn i $x = c$. Det første alene er ikke nok, akkurat som $f'(c) = 0$ alene ikke garanterte ekstremalpunkt.\n\nLa oss finne vendepunktene til vår gamle kjenning $f(x) = x^3 - 3x$. Vi deriverer to ganger: $f'(x) = 3x^2 - 3$ og $f''(x) = 6x$. Likningen $f''(x) = 0$ gir $x = 0$. Så sjekker vi fortegnsskiftet: for $x < 0$ er $f''(x) = 6x < 0$ – konkav; for $x > 0$ er $f''(x) > 0$ – konveks. Fortegnet skifter, så $x = 0$ er et ekte vendepunkt. Koordinatene: $f(0) = 0$, altså vendepunkt i $(0, 0)$.\n\nDet stemmer perfekt med bildet vi har bygget: grafen kommer opp til toppen i $(-1, 2)$, krummer surt nedover gjennom dalsøkket, snur krumningen i origo, og smiler seg ned til bunnen i $(1, -2)$ før den stiger mot uendelig. Vendepunktet er nøyaktig midt mellom topp og bunn – tredjegradsfunksjonens skjulte symmetri."
+    },
+    {
+      "id": "r1-4-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vendepunkter og krumning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-6-n-quiz3-q0",
+            "task": "Hva kreves for at $(c, f(c))$ skal være et vendepunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f'(c) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f''(c) = 0$ og $f''$ skifter fortegn i $c$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bare at $f''(c) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f'(c) = 0$ og $f''(c) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et vendepunkt krever både $f''(c) = 0$ og at andrederiverte faktisk skifter fortegn – altså at krumningen snur."
+          },
+          {
+            "id": "r1-4-6-n-quiz3-q1",
+            "task": "Hva betyr $f''(x) > 0$ for grafen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Grafen er konkav – den buer nedover",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Grafen er voksende",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Grafen er konveks – den buer oppover og «smiler»",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Grafen ligger over $x$-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Positiv andrederivert betyr konveks graf (buer oppover). Krumning og stigning er uavhengige: en konveks graf kan både stige og synke."
+          },
+          {
+            "id": "r1-4-6-n-quiz3-q2",
+            "task": "Hvor har $f(x) = x^3 - 3x$ sitt vendepunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(-1, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(1, -2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonen har ingen vendepunkter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(0, 0)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f''(x) = 6x$ er null i $x = 0$ og skifter fortegn der (negativ før, positiv etter). Siden $f(0) = 0$, er vendepunktet $(0, 0)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-6-n-section4",
+      "type": "text",
+      "content": "## Ved verdens ende: asymptoter\n\nHva skjer med landskapet helt ute ved horisonten – og ved de stedene der funksjonen rett og slett ikke finnes? En **asymptote** er en rett linje som grafen legger seg tettere og tettere inntil, uten nødvendigvis å berøre den. Det finnes tre typer.\n\nEn **vertikal asymptote** $x = a$ oppstår der funksjonsverdiene løper mot $\\pm\\infty$ når $x$ nærmer seg $a$ – typisk der en nevner blir null. For $f(x) = \\frac{x^2-1}{x-2}$ blir nevneren null i $x = 2$, og siden telleren da er $3 \\neq 0$, eksploderer brøken: $\\lim_{x \\to 2^+} f(x) = +\\infty$. Vertikal asymptote: $x = 2$.\n\nEn **horisontal asymptote** $y = b$ finnes hvis $\\lim_{x \\to \\pm\\infty} f(x) = b$. Se på $f(x) = \\frac{2x+1}{x-1}$: deler vi teller og nevner på $x$, får vi $\\frac{2 + 1/x}{1 - 1/x} \\to \\frac{2}{1} = 2$. Grafen flater ut mot linja $y = 2$ i begge retninger.\n\nEn **skrå asymptote** $y = ax + b$ (med $a \\neq 0$) oppstår når grafen legger seg inntil en skrånende linje: $\\lim_{x \\to \\pm\\infty} [f(x) - (ax+b)] = 0$. Du kan finne den med grenseverdier – $a = \\lim_{x \\to \\infty} \\frac{f(x)}{x}$ og deretter $b = \\lim_{x \\to \\infty} [f(x) - ax]$ – men for rasjonale funksjoner er polynomdivisjon raskest. For $f(x) = \\frac{x^2-1}{x-2}$ gir divisjonen $f(x) = x + 2 + \\frac{3}{x-2}$. Når $x \\to \\pm\\infty$, forsvinner resten $\\frac{3}{x-2}$, og grafen klistrer seg til linja $y = x + 2$.\n\nEn nyttig tommelfingerregel for rasjonale funksjoner: er telleren av grad én høyere enn nevneren, får du skrå asymptote; er gradene like, blir asymptoten horisontal."
+    },
+    {
+      "id": "r1-4-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på asymptoter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-6-n-quiz4-q0",
+            "task": "Hvor har $f(x) = \\frac{x^2-1}{x-2}$ vertikal asymptote?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = 1$ og $x = -1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonen har ingen vertikal asymptote",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nevneren $x - 2$ er null i $x = 2$, mens telleren der er $3 \\neq 0$. Funksjonsverdiene går mot $\\pm\\infty$, så $x = 2$ er vertikal asymptote. ($x = \\pm 1$ er nullpunkter, ikke asymptoter.)"
+          },
+          {
+            "id": "r1-4-6-n-quiz4-q1",
+            "task": "Hva er den horisontale asymptoten til $f(x) = \\frac{2x+1}{x-1}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$y = -1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\lim_{x \\to \\infty} \\frac{2x+1}{x-1} = \\frac{2}{1} = 2$ (del teller og nevner på $x$). Horisontal asymptote: $y = 2$."
+          },
+          {
+            "id": "r1-4-6-n-quiz4-q2",
+            "task": "Hva er den skrå asymptoten til $f(x) = \\frac{x^2-1}{x-2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = x - 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 2x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = x + 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Polynomdivisjon gir $f(x) = x + 2 + \\frac{3}{x-2}$. Restleddet går mot null, så grafen nærmer seg linja $y = x + 2$."
+          },
+          {
+            "id": "r1-4-6-n-quiz4-q3",
+            "task": "Hvordan finner du stigningstallet $a$ til en eventuell skrå asymptote $y = ax + b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a = f'(0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a = \\lim_{x \\to \\infty} f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a = \\lim_{x \\to \\infty} [f(x) - x]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a = \\lim_{x \\to \\infty} \\frac{f(x)}{x}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Først $a = \\lim_{x \\to \\infty} \\frac{f(x)}{x}$, deretter $b = \\lim_{x \\to \\infty} [f(x) - ax]$. Blir $a = 0$, er asymptoten horisontal i stedet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-6-n-section5",
+      "type": "text",
+      "content": "## Den store ekspedisjonen\n\nNå setter vi sammen hele verktøykassa og drøfter $f(x) = \\frac{x^2}{x-1}$ fra a til å. Sjekklisten er fast: definisjonsmengde, symmetri, nullpunkter, asymptoter, førstederivert med monotoni og ekstremalpunkter, andrederivert med vendepunkter – og til slutt skissen.\n\n**Definisjonsmengden** er alt unntatt der nevneren er null: $D_f = \\mathbb{R} \\setminus \\{1\\}$. **Symmetri**: $f(-x) = \\frac{x^2}{-x-1}$ er verken $f(x)$ eller $-f(x)$, så ingen symmetri. **Nullpunkter**: $x^2 = 0$ gir bare $x = 0$.\n\n**Asymptoter**: nevneren gir vertikal asymptote $x = 1$. Polynomdivisjon gir $f(x) = x + 1 + \\frac{1}{x-1}$, så skrå asymptote $y = x + 1$.\n\n**Førstederiverte** krever kvotientregelen: $f'(x) = \\frac{2x(x-1) - x^2}{(x-1)^2} = \\frac{x^2 - 2x}{(x-1)^2} = \\frac{x(x-2)}{(x-1)^2}$. Stasjonære punkter: $x = 0$ og $x = 2$. Nevneren er alltid positiv, så fortegnet styres av telleren $x(x-2)$: positiv for $x < 0$, negativ mellom 0 og 2 (unntatt i $x=1$ der funksjonen ikke finnes), positiv for $x > 2$. Dermed: lokalt **maksimum** i $(0, 0)$ og lokalt **minimum** i $(2, 4)$.\n\nLegg merke til det pussige: maksimumsverdien 0 er *lavere* enn minimumsverdien 4! Det er den vertikale asymptoten som gjør det mulig – grafen består av to atskilte grener.\n\n**Andrederiverte**: $f''(x) = \\frac{2}{(x-1)^3}$, som aldri er null – ingen vendepunkter. Grenen til venstre for $x=1$ er konkav, grenen til høyre konveks.\n\nDermed kan vi tegne: en gren som stiger til toppen i origo og dykker mot asymptoten, og en gren som kommer ned fra $+\\infty$, bunner ut i $(2,4)$ og legger seg langs $y = x + 1$."
+    },
+    {
+      "id": "r1-4-6-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-6-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på fullstendig funksjonsdrøfting:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-6-n-quiz5-q0",
+            "task": "Hva er de stasjonære punktene til $f(x) = \\frac{x^2}{x-1}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = 0$ og $x = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 0$ og $x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = -1$ og $x = 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = \\frac{x(x-2)}{(x-1)^2}$ er null når telleren er null: $x = 0$ eller $x = 2$. ($x = 1$ er utenfor definisjonsmengden.)"
+          },
+          {
+            "id": "r1-4-6-n-quiz5-q1",
+            "task": "Hvilket lokalt minimumspunkt har $f(x) = \\frac{x^2}{x-1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(0, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(2, 4)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(1, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(2, 2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'$ skifter fra $-$ til $+$ i $x = 2$, og $f(2) = \\frac{4}{1} = 4$. Lokalt minimum i $(2, 4)$ – som faktisk ligger høyere enn det lokale maksimumet $(0,0)$, takket være asymptoten."
+          },
+          {
+            "id": "r1-4-6-n-quiz5-q2",
+            "task": "Hvorfor har $f(x) = \\frac{x^2}{x-1}$ ingen vendepunkter?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi funksjonen ikke er deriverbar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi grafen er en rett linje",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $f''(x) = \\frac{2}{(x-1)^3}$ aldri er null",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi funksjonen mangler nullpunkter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vendepunkter krever $f''(c) = 0$ med fortegnsskifte. Her er $f''(x) = \\frac{2}{(x-1)^3}$ aldri null, så ingen vendepunkter finnes – krumningen skifter bare over den vertikale asymptoten, der funksjonen ikke er definert."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-6-n-summary",
+      "type": "text",
+      "content": "## Kartet er tegnet\n\nFunksjonsdrøfting er detektivarbeid med fast metode, og nå har du hele verktøysettet. **Monotonien** leses av fortegnet til $f'$: positiv betyr voksende, negativ betyr avtagende, og fortegnsskjemaet er kartet. **Ekstremalpunktene** ligger blant de stasjonære punktene der $f'(c) = 0$, og klassifiseres enten med første derivasjonstest (fortegnsskifte i $f'$) eller andre derivasjonstest ($f''(c) < 0$ gir maksimum, $f''(c) > 0$ gir minimum, og $f''(c) = 0$ gir ingen konklusjon). Husk terrassepunktet – den falske toppen der $f'$ ikke skifter fortegn.\n\n**Krumningen** styres av $f''$: positiv betyr konveks (smiler), negativ betyr konkav (sur), og et **vendepunkt** krever både $f''(c) = 0$ og fortegnsskifte. **Asymptotene** beskriver grensene: vertikale der nevneren kollapser, horisontale når $f(x)$ flater ut mot et tall i det uendelige, og skrå når grafen legger seg langs en linje $y = ax + b$ – som polynomdivisjon avslører på et blunk.\n\nDen fullstendige drøftingen av $\\frac{x^2}{x-1}$ viste hvordan brikkene faller på plass til et helt bilde – inkludert overraskelsen der et lokalt maksimum lå lavere enn et lokalt minimum. Det er nettopp derfor vi sier *lokalt*: hver topp gjelder bare sitt eget nabolag. I kapitlene som kommer, skal denne analysen settes i arbeid på praktiske optimeringsproblemer, der toppene og bunnene er kroner, kvadratmeter og sekunder."
+    }
+  ],
+  "exercises": []
+}

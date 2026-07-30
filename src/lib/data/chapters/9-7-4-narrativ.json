@@ -1,1 +1,314 @@
-{"id":"9-7-4-narrativ","courseId":"9","chapterNumber":"7.4","title":"Rekursive og eksplisitte formler","subtitle":"Narrativ versjon","description":"En fortellende sammenligning av to måter å beskrive tallfølger på -- steg-for-steg (rekursivt) og direkte (eksplisitt) -- med praktiske eksempler fra renter, befolkningsvekst og den berømte Fibonacci-følgen.","estimatedMinutes":35,"competenceGoals":["utforske og beskrive strukturar og forandringar i geometriske mønster og tallmønster med figurar, ord og formlar"],"linkedChapterId":"9-7-4","content":[{"id":"9-7-4-n-intro","type":"text","content":"## To veier til svaret\n\nTenk deg at du skal forklare noen hvor du bor. Du kan gjøre det på to måter:\n\n**Steg-for-steg:** «Gå 200 meter fra stasjonen, sving til høyre, gå 300 meter, sving til venstre...» Denne metoden er enkel å forklare, men du må følge alle stegene i rekkefølge.\n\n**Direkte:** «Adressen min er Storgata 15.» Denne metoden lar deg gå rett dit, uten å tenke på mellomstegene.\n\nTallfølger kan beskrives på nøyaktig samme to måter. En **rekursiv formel** forteller deg hvordan du lager neste ledd fra det forrige -- steg for steg. En **eksplisitt formel** gir deg en oppskrift for å beregne ethvert ledd direkte. Begge har sine styrker, og i dette kapittelet skal vi utforske begge."},{"id":"9-7-4-n-section1","type":"text","content":"## Rekursive formler -- steg for steg\n\nEn **rekursiv formel** beskriver hvert ledd ved hjelp av det forrige leddet. Du trenger alltid en startverdi -- uten den kan du ikke begynne.\n\nFor en aritmetisk følge med $a_1 = 3$ og $d = 5$, skriver vi rekursivt:\n\n$$a_1 = 3, \\quad a_{n+1} = a_n + 5$$\n\nFølgen blir: $3, 8, 13, 18, 23, \\ldots$ Hvert nytt ledd er det forrige pluss $5$.\n\nFor en geometrisk følge med $a_1 = 2$ og $k = 3$:\n\n$$a_1 = 2, \\quad a_{n+1} = 3 \\cdot a_n$$\n\nFølgen blir: $2, 6, 18, 54, 162, \\ldots$ Hvert nytt ledd er det forrige ganger $3$.\n\nRekursive formler er ofte lette å oppdage. Du ser på hva som skjer fra et ledd til det neste, og skriver det ned. Men de har en svakhet: for å finne $a_{100}$ må du kjenne alle leddene fra $a_1$ til $a_{99}$. Det kan bli mye arbeid!"},{"id":"9-7-4-n-quiz1","type":"exercise","exercise":{"id":"9-7-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på rekursive formler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-4-n-quiz1-q0","task":"Følgen er gitt rekursivt: $a_1 = 10$, $a_{n+1} = a_n - 3$. Hva er $a_4$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":true},{"id":"c","text":"$-2$","isCorrect":false},{"id":"d","text":"$7$","isCorrect":false}],"solution":"$a_1 = 10$, $a_2 = 7$, $a_3 = 4$, $a_4 = 1$. Vi trekker fra $3$ tre ganger."},{"id":"9-7-4-n-quiz1-q1","task":"Følgen $a_1 = 1$, $a_{n+1} = 2a_n + 1$. Hva er $a_3$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$7$","isCorrect":true},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$9$","isCorrect":false}],"solution":"$a_1 = 1$, $a_2 = 2 \\cdot 1 + 1 = 3$, $a_3 = 2 \\cdot 3 + 1 = 7$."},{"id":"9-7-4-n-quiz1-q2","task":"Hva er den største ulempen med rekursive formler?","options":[{"id":"a","text":"De gir feil svar","isCorrect":false},{"id":"b","text":"Du trenger alle foregående ledd for å finne et bestemt ledd","isCorrect":true},{"id":"c","text":"De fungerer bare for aritmetiske følger","isCorrect":false},{"id":"d","text":"De trenger ingen startverdi","isCorrect":false}],"solution":"For å finne $a_{100}$ rekursivt må du beregne alle leddene fra $a_1$ til $a_{99}$ først. Med en eksplisitt formel kan du hoppe rett til $a_{100}$."}]}},{"id":"9-7-4-n-section2","type":"text","content":"## Eksplisitte formler -- den direkte veien\n\nEn **eksplisitt formel** gir deg det $n$-te leddet direkte som en funksjon av $n$. Du trenger ikke vite noe om de foregående leddene.\n\nFor den aritmetiske følgen $3, 8, 13, 18, 23, \\ldots$ er den eksplisitte formelen:\n\n$$a_n = 3 + (n-1) \\cdot 5 = 5n - 2$$\n\nVil du ha $a_{100}$? Bare sett inn: $a_{100} = 5 \\cdot 100 - 2 = 498$. Ferdig!\n\nFor den geometriske følgen $2, 6, 18, 54, \\ldots$ er den eksplisitte formelen:\n\n$$a_n = 2 \\cdot 3^{n-1}$$\n\nVil du ha $a_{10}$? $a_{10} = 2 \\cdot 3^9 = 2 \\cdot 19\\,683 = 39\\,366$.\n\nDu kan også gå **mellom** de to formlene. Har du den eksplisitte formelen $a_n = 4n + 3$, kan du finne den rekursive: beregn $a_{n+1} - a_n = 4(n+1) + 3 - (4n + 3) = 4$. Altså: $a_1 = 7$, $a_{n+1} = a_n + 4$.\n\n| Egenskap | Rekursiv | Eksplisitt |\n|----------|----------|-----------|\n| Beskrivelse | Neste ledd fra forrige | Leddet direkte fra $n$ |\n| Trenger startverdi? | Ja | Nei |\n| Finne $a_{100}$ | Må kjenne $a_1$ til $a_{99}$ | Sett inn $n = 100$ |"},{"id":"9-7-4-n-quiz2","type":"exercise","exercise":{"id":"9-7-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på eksplisitte formler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-4-n-quiz2-q0","task":"Formelen $a_n = 3 \\cdot 2^{n-1}$ gir hvilken følge?","options":[{"id":"a","text":"$3, 6, 12, 24, 48, \\ldots$","isCorrect":true},{"id":"b","text":"$2, 6, 18, 54, \\ldots$","isCorrect":false},{"id":"c","text":"$3, 5, 7, 9, \\ldots$","isCorrect":false},{"id":"d","text":"$3, 9, 27, 81, \\ldots$","isCorrect":false}],"solution":"$a_1 = 3 \\cdot 2^0 = 3$, $a_2 = 3 \\cdot 2^1 = 6$, $a_3 = 3 \\cdot 2^2 = 12$, $a_4 = 3 \\cdot 2^3 = 24$, $a_5 = 3 \\cdot 2^4 = 48$."},{"id":"9-7-4-n-quiz2-q1","task":"Gjør om $a_n = 4n + 3$ til rekursiv form. Hva blir $a_1$ og regelen?","options":[{"id":"a","text":"$a_1 = 7$, $a_{n+1} = a_n + 4$","isCorrect":true},{"id":"b","text":"$a_1 = 3$, $a_{n+1} = a_n + 4$","isCorrect":false},{"id":"c","text":"$a_1 = 7$, $a_{n+1} = 4a_n$","isCorrect":false},{"id":"d","text":"$a_1 = 4$, $a_{n+1} = a_n + 3$","isCorrect":false}],"solution":"$a_1 = 4 \\cdot 1 + 3 = 7$. Differansen: $a_{n+1} - a_n = 4(n+1)+3 - (4n+3) = 4$. Rekursivt: $a_1 = 7$, $a_{n+1} = a_n + 4$."}]}},{"id":"9-7-4-n-section3","type":"text","content":"## Fibonacci og praktiske anvendelser\n\nNoen følger er naturlig rekursive. Den mest berømte er **Fibonacci-følgen**:\n\n$$a_1 = 1, \\quad a_2 = 1, \\quad a_{n+2} = a_n + a_{n+1}$$\n\nFølgen: $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \\ldots$\n\nHer trenger hvert ledd de *to* foregående -- derfor er den rekursive formelen den naturlige beskrivelsen. Den eksplisitte formelen (Binets formel) inneholder $\\sqrt{5}$ og er ganske avansert.\n\nEn fascinerende egenskap: forholdet mellom to påfølgende Fibonacci-tall nærmer seg det **gylne snitt** $\\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}618$ etter hvert som tallene blir store. $\\frac{21}{13} \\approx 1{,}615$, $\\frac{34}{21} \\approx 1{,}619$.\n\nRekursive formler er også nyttige i praktiske situasjoner. Tenk på et bankinnskudd på $1000$ kr med $5\\,\\%$ rente:\n\n$$a_1 = 1000, \\quad a_{n+1} = 1{,}05 \\cdot a_n$$\n\nDen eksplisitte formen er $a_n = 1000 \\cdot 1{,}05^{n-1}$. Etter 20 år: $a_{21} = 1000 \\cdot 1{,}05^{20} \\approx 2653$ kr. Pengene dine har mer enn doblet seg, bare ved å la renten jobbe!"},{"id":"9-7-4-n-quiz3","type":"exercise","exercise":{"id":"9-7-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på Fibonacci og praktiske følger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-7-4-n-quiz3-q0","task":"Hva er det 8. Fibonacci-tallet? (Følgen: $1, 1, 2, 3, 5, 8, 13, \\ldots$)","options":[{"id":"a","text":"$18$","isCorrect":false},{"id":"b","text":"$21$","isCorrect":true},{"id":"c","text":"$20$","isCorrect":false},{"id":"d","text":"$34$","isCorrect":false}],"solution":"$a_8 = a_6 + a_7 = 8 + 13 = 21$."},{"id":"9-7-4-n-quiz3-q1","task":"Et bankinnskudd på $1000$ kr vokser med $5\\,\\%$ per år. Hva er den eksplisitte formelen?","options":[{"id":"a","text":"$a_n = 1000 + 50n$","isCorrect":false},{"id":"b","text":"$a_n = 1000 \\cdot 1{,}05^{n-1}$","isCorrect":true},{"id":"c","text":"$a_n = 1000 \\cdot 0{,}05^n$","isCorrect":false},{"id":"d","text":"$a_n = 1050n$","isCorrect":false}],"solution":"Geometrisk følge med $a_1 = 1000$ og $k = 1{,}05$. $a_n = 1000 \\cdot 1{,}05^{n-1}$."},{"id":"9-7-4-n-quiz3-q2","task":"Hvilken påstand er USANN?","options":[{"id":"a","text":"Alle aritmetiske følger kan skrives med eksplisitt formel","isCorrect":false},{"id":"b","text":"Fibonacci-følgen kan enkelt skrives med en eksplisitt formel","isCorrect":true},{"id":"c","text":"Alle geometriske følger kan skrives rekursivt","isCorrect":false},{"id":"d","text":"En rekursiv formel trenger alltid en startverdi","isCorrect":false}],"solution":"Den eksakte eksplisitte formelen for Fibonacci-tallene (Binets formel) inneholder $\\sqrt{5}$ og er ganske komplisert. Fibonacci-følgen er naturlig rekursiv."}]}},{"id":"9-7-4-n-summary","type":"text","content":"## Oppsummering\n\n| Egenskap | Rekursiv formel | Eksplisitt formel |\n|----------|-----------------|-------------------|\n| Beskrivelse | Neste ledd fra forrige | Leddet direkte fra $n$ |\n| Trenger startverdi? | Ja, alltid | Nei |\n| Finne $a_{100}$ | Må kjenne $a_1$ til $a_{99}$ | Sett inn $n = 100$ |\n| Enkel å oppdage? | Ofte ja | Kan kreve mer arbeid |\n\n**Aritmetisk følge:** Rekursivt $a_{n+1} = a_n + d$. Eksplisitt $a_n = a_1 + (n-1)d$.\n\n**Geometrisk følge:** Rekursivt $a_{n+1} = k \\cdot a_n$. Eksplisitt $a_n = a_1 \\cdot k^{n-1}$.\n\n**Fibonacci-følgen:** Naturlig rekursiv ($a_{n+2} = a_n + a_{n+1}$), ingen enkel eksplisitt form.\n\n**Praktisk bruk:** Renter (geometrisk, $k = 1 + \\frac{r}{100}$), lineær vekst (aritmetisk), befolkningsvekst (geometrisk)."}],"exercises":[]}
+{
+  "id": "9-7-4-narrativ",
+  "courseId": "9",
+  "chapterNumber": "7.4",
+  "title": "Rekursive og eksplisitte formler",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende sammenligning av to måter å beskrive tallfølger på -- steg-for-steg (rekursivt) og direkte (eksplisitt) -- med praktiske eksempler fra renter, befolkningsvekst og den berømte Fibonacci-følgen.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og beskrive strukturar og forandringar i geometriske mønster og tallmønster med figurar, ord og formlar"
+  ],
+  "linkedChapterId": "9-7-4",
+  "content": [
+    {
+      "id": "9-7-4-n-intro",
+      "type": "text",
+      "content": "## To veier til svaret\n\nTenk deg at du skal forklare noen hvor du bor. Du kan gjøre det på to måter:\n\n**Steg-for-steg:** «Gå 200 meter fra stasjonen, sving til høyre, gå 300 meter, sving til venstre...» Denne metoden er enkel å forklare, men du må følge alle stegene i rekkefølge.\n\n**Direkte:** «Adressen min er Storgata 15.» Denne metoden lar deg gå rett dit, uten å tenke på mellomstegene.\n\nTallfølger kan beskrives på nøyaktig samme to måter. En **rekursiv formel** forteller deg hvordan du lager neste ledd fra det forrige -- steg for steg. En **eksplisitt formel** gir deg en oppskrift for å beregne ethvert ledd direkte. Begge har sine styrker, og i dette kapittelet skal vi utforske begge."
+    },
+    {
+      "id": "9-7-4-n-section1",
+      "type": "text",
+      "content": "## Rekursive formler -- steg for steg\n\nEn **rekursiv formel** beskriver hvert ledd ved hjelp av det forrige leddet. Du trenger alltid en startverdi -- uten den kan du ikke begynne.\n\nFor en aritmetisk følge med $a_1 = 3$ og $d = 5$, skriver vi rekursivt:\n\n$$a_1 = 3, \\quad a_{n+1} = a_n + 5$$\n\nFølgen blir: $3, 8, 13, 18, 23, \\ldots$ Hvert nytt ledd er det forrige pluss $5$.\n\nFor en geometrisk følge med $a_1 = 2$ og $k = 3$:\n\n$$a_1 = 2, \\quad a_{n+1} = 3 \\cdot a_n$$\n\nFølgen blir: $2, 6, 18, 54, 162, \\ldots$ Hvert nytt ledd er det forrige ganger $3$.\n\nRekursive formler er ofte lette å oppdage. Du ser på hva som skjer fra et ledd til det neste, og skriver det ned. Men de har en svakhet: for å finne $a_{100}$ må du kjenne alle leddene fra $a_1$ til $a_{99}$. Det kan bli mye arbeid!"
+    },
+    {
+      "id": "9-7-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rekursive formler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-4-n-quiz1-q0",
+            "task": "Følgen er gitt rekursivt: $a_1 = 10$, $a_{n+1} = a_n - 3$. Hva er $a_4$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_1 = 10$, $a_2 = 7$, $a_3 = 4$, $a_4 = 1$. Vi trekker fra $3$ tre ganger."
+          },
+          {
+            "id": "9-7-4-n-quiz1-q1",
+            "task": "Følgen $a_1 = 1$, $a_{n+1} = 2a_n + 1$. Hva er $a_3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_1 = 1$, $a_2 = 2 \\cdot 1 + 1 = 3$, $a_3 = 2 \\cdot 3 + 1 = 7$."
+          },
+          {
+            "id": "9-7-4-n-quiz1-q2",
+            "task": "Hva er den største ulempen med rekursive formler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De gir feil svar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De fungerer bare for aritmetiske følger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Du trenger alle foregående ledd for å finne et bestemt ledd",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "De trenger ingen startverdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For å finne $a_{100}$ rekursivt må du beregne alle leddene fra $a_1$ til $a_{99}$ først. Med en eksplisitt formel kan du hoppe rett til $a_{100}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-4-n-section2",
+      "type": "text",
+      "content": "## Eksplisitte formler -- den direkte veien\n\nEn **eksplisitt formel** gir deg det $n$-te leddet direkte som en funksjon av $n$. Du trenger ikke vite noe om de foregående leddene.\n\nFor den aritmetiske følgen $3, 8, 13, 18, 23, \\ldots$ er den eksplisitte formelen:\n\n$$a_n = 3 + (n-1) \\cdot 5 = 5n - 2$$\n\nVil du ha $a_{100}$? Bare sett inn: $a_{100} = 5 \\cdot 100 - 2 = 498$. Ferdig!\n\nFor den geometriske følgen $2, 6, 18, 54, \\ldots$ er den eksplisitte formelen:\n\n$$a_n = 2 \\cdot 3^{n-1}$$\n\nVil du ha $a_{10}$? $a_{10} = 2 \\cdot 3^9 = 2 \\cdot 19\\,683 = 39\\,366$.\n\nDu kan også gå **mellom** de to formlene. Har du den eksplisitte formelen $a_n = 4n + 3$, kan du finne den rekursive: beregn $a_{n+1} - a_n = 4(n+1) + 3 - (4n + 3) = 4$. Altså: $a_1 = 7$, $a_{n+1} = a_n + 4$.\n\n| Egenskap | Rekursiv | Eksplisitt |\n|----------|----------|-----------|\n| Beskrivelse | Neste ledd fra forrige | Leddet direkte fra $n$ |\n| Trenger startverdi? | Ja | Nei |\n| Finne $a_{100}$ | Må kjenne $a_1$ til $a_{99}$ | Sett inn $n = 100$ |"
+    },
+    {
+      "id": "9-7-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksplisitte formler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-4-n-quiz2-q0",
+            "task": "Formelen $a_n = 3 \\cdot 2^{n-1}$ gir hvilken følge?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2, 6, 18, 54, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3, 5, 7, 9, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3, 9, 27, 81, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3, 6, 12, 24, 48, \\ldots$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$a_1 = 3 \\cdot 2^0 = 3$, $a_2 = 3 \\cdot 2^1 = 6$, $a_3 = 3 \\cdot 2^2 = 12$, $a_4 = 3 \\cdot 2^3 = 24$, $a_5 = 3 \\cdot 2^4 = 48$."
+          },
+          {
+            "id": "9-7-4-n-quiz2-q1",
+            "task": "Gjør om $a_n = 4n + 3$ til rekursiv form. Hva blir $a_1$ og regelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_1 = 7$, $a_{n+1} = a_n + 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$a_1 = 3$, $a_{n+1} = a_n + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_1 = 7$, $a_{n+1} = 4a_n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_1 = 4$, $a_{n+1} = a_n + 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_1 = 4 \\cdot 1 + 3 = 7$. Differansen: $a_{n+1} - a_n = 4(n+1)+3 - (4n+3) = 4$. Rekursivt: $a_1 = 7$, $a_{n+1} = a_n + 4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-4-n-section3",
+      "type": "text",
+      "content": "## Fibonacci og praktiske anvendelser\n\nNoen følger er naturlig rekursive. Den mest berømte er **Fibonacci-følgen**:\n\n$$a_1 = 1, \\quad a_2 = 1, \\quad a_{n+2} = a_n + a_{n+1}$$\n\nFølgen: $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \\ldots$\n\nHer trenger hvert ledd de *to* foregående -- derfor er den rekursive formelen den naturlige beskrivelsen. Den eksplisitte formelen (Binets formel) inneholder $\\sqrt{5}$ og er ganske avansert.\n\nEn fascinerende egenskap: forholdet mellom to påfølgende Fibonacci-tall nærmer seg det **gylne snitt** $\\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}618$ etter hvert som tallene blir store. $\\frac{21}{13} \\approx 1{,}615$, $\\frac{34}{21} \\approx 1{,}619$.\n\nRekursive formler er også nyttige i praktiske situasjoner. Tenk på et bankinnskudd på $1000$ kr med $5\\,\\%$ rente:\n\n$$a_1 = 1000, \\quad a_{n+1} = 1{,}05 \\cdot a_n$$\n\nDen eksplisitte formen er $a_n = 1000 \\cdot 1{,}05^{n-1}$. Etter 20 år: $a_{21} = 1000 \\cdot 1{,}05^{20} \\approx 2653$ kr. Pengene dine har mer enn doblet seg, bare ved å la renten jobbe!"
+    },
+    {
+      "id": "9-7-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-7-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Fibonacci og praktiske følger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-7-4-n-quiz3-q0",
+            "task": "Hva er det 8. Fibonacci-tallet? (Følgen: $1, 1, 2, 3, 5, 8, 13, \\ldots$)",
+            "options": [
+              {
+                "id": "a",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$21$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$34$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_8 = a_6 + a_7 = 8 + 13 = 21$."
+          },
+          {
+            "id": "9-7-4-n-quiz3-q1",
+            "task": "Et bankinnskudd på $1000$ kr vokser med $5\\,\\%$ per år. Hva er den eksplisitte formelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = 1000 + 50n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = 1000 \\cdot 0{,}05^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = 1000 \\cdot 1{,}05^{n-1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 1050n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometrisk følge med $a_1 = 1000$ og $k = 1{,}05$. $a_n = 1000 \\cdot 1{,}05^{n-1}$."
+          },
+          {
+            "id": "9-7-4-n-quiz3-q2",
+            "task": "Hvilken påstand er USANN?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle aritmetiske følger kan skrives med eksplisitt formel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alle geometriske følger kan skrives rekursivt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En rekursiv formel trenger alltid en startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fibonacci-følgen kan enkelt skrives med en eksplisitt formel",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den eksakte eksplisitte formelen for Fibonacci-tallene (Binets formel) inneholder $\\sqrt{5}$ og er ganske komplisert. Fibonacci-følgen er naturlig rekursiv."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-7-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n| Egenskap | Rekursiv formel | Eksplisitt formel |\n|----------|-----------------|-------------------|\n| Beskrivelse | Neste ledd fra forrige | Leddet direkte fra $n$ |\n| Trenger startverdi? | Ja, alltid | Nei |\n| Finne $a_{100}$ | Må kjenne $a_1$ til $a_{99}$ | Sett inn $n = 100$ |\n| Enkel å oppdage? | Ofte ja | Kan kreve mer arbeid |\n\n**Aritmetisk følge:** Rekursivt $a_{n+1} = a_n + d$. Eksplisitt $a_n = a_1 + (n-1)d$.\n\n**Geometrisk følge:** Rekursivt $a_{n+1} = k \\cdot a_n$. Eksplisitt $a_n = a_1 \\cdot k^{n-1}$.\n\n**Fibonacci-følgen:** Naturlig rekursiv ($a_{n+2} = a_n + a_{n+1}$), ingen enkel eksplisitt form.\n\n**Praktisk bruk:** Renter (geometrisk, $k = 1 + \\frac{r}{100}$), lineær vekst (aritmetisk), befolkningsvekst (geometrisk)."
+    }
+  ],
+  "exercises": []
+}

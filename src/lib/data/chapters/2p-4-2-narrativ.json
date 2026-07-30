@@ -1,1 +1,421 @@
-{"id":"2p-4-2-narrativ","courseId":"2p","chapterNumber":"4.2","title":"Betinget sannsynlighet","subtitle":"Narrativ versjon","description":"Hva skjer med sannsynligheter når vi allerede vet noe? Fra medisinske tester til kvalitetskontroll -- en fortelling om hvordan informasjon endrer sjansene.","estimatedMinutes":40,"competenceGoals":["forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"],"linkedChapterId":"2p-4-2","content":[{"id":"2p-4-2-n-intro","type":"text","content":"## Når informasjon endrer sjansene\n\nTenk deg at du er hos legen og har tatt en blodprøve. Legen forteller at testen var *positiv* for en bestemt sykdom. Hjertet slår litt fortere -- men hvor bekymret bør du egentlig være? Er det sikkert at du er syk? Svaret er overraskende: Nei, langt ifra. Selv en god test kan gi mange falske positive resultater, spesielt hvis sykdommen er sjelden. For å forstå dette trenger vi et konsept som heter **betinget sannsynlighet**.\n\nBetinget sannsynlighet handler om dette: Hvordan endres sannsynligheten for noe når vi allerede vet at noe annet har skjedd? Det er forskjell på å spørre \"Hva er sjansen for at det regner?\" og \"Hva er sjansen for at det regner, *gitt at himmelen er overskyet*?\" Den ekstra informasjonen -- at himmelen er overskyet -- endrer svaret vårt.\n\nI dette kapittelet skal vi utforske betinget sannsynlighet, lære multiplikasjonssetningen, forstå forskjellen mellom avhengige og uavhengige hendelser, og se hvordan alt dette kan brukes på virkelige problemer som medisinsk testing og kvalitetskontroll i industrien."},{"id":"2p-4-2-n-section1","type":"text","content":"## Formelen som krymper utfallsrommet\n\nLa oss starte med definisjonen. **Betinget sannsynlighet** er sannsynligheten for en hendelse $B$, gitt at hendelse $A$ allerede har inntruffet. Vi skriver dette som $P(B|A)$ og leser det som \"sannsynligheten for B gitt A\". Formelen er:\n\n$$P(B|A) = \\frac{P(A \\cap B)}{P(A)}$$\n\nHva betyr dette intuitivt? Jo, når vi vet at $A$ har skjedd, *krymper vi utfallsrommet* til bare de utfallene der $A$ gjelder. Så ser vi på hvor stor andel av disse utfallene som også gir $B$. Vi deler altså sannsynligheten for at *begge* skjer, med sannsynligheten for at $A$ skjer.\n\nLa oss gjøre et eksempel. I en klasse med 30 elever spiller 18 fotball og 8 spiller håndball. 4 elever spiller begge deler. Nå velges en tilfeldig elev, og vi får vite at eleven spiller fotball. Hva er sannsynligheten for at eleven *også* spiller håndball?\n\nVi setter $A$ = \"spiller fotball\" og $B$ = \"spiller håndball\". Da er $P(A) = \\frac{18}{30}$ og $P(A \\cap B) = \\frac{4}{30}$ (de som spiller begge). Vi regner: $P(B|A) = \\frac{4/30}{18/30} = \\frac{4}{18} = \\frac{2}{9} \\approx 0{,}22$. Altså: Blant fotballspillerne er det 22 prosent sjanse for at eleven også spiller håndball.\n\nHer er et annet eksempel å tenke over. I en undersøkelse liker 60 prosent av elevene matte, og 20 prosent liker *både* matte og naturfag. Hva er sannsynligheten for at en elev liker naturfag, gitt at eleven liker matte? Svaret er $P(\\text{naturfag}|\\text{matte}) = \\frac{0{,}20}{0{,}60} = \\frac{1}{3}$. En tredjedel av de som liker matte, liker også naturfag."},{"id":"2p-4-2-n-quiz1","type":"exercise","exercise":{"id":"2p-4-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på betinget sannsynlighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-2-n-quiz1-q0","task":"Av 200 elever foretrekker 110 matte og 90 norsk. Blant jentene (110 totalt) foretrekker 60 matte. Hva er $P(\\text{matte}|\\text{jente})$?","options":[{"id":"a","text":"$\\frac{60}{200} = \\frac{3}{10}$","isCorrect":false},{"id":"b","text":"$\\frac{60}{110} = \\frac{6}{11}$","isCorrect":true},{"id":"c","text":"$\\frac{110}{200} = \\frac{11}{20}$","isCorrect":false},{"id":"d","text":"$\\frac{60}{90} = \\frac{2}{3}$","isCorrect":false}],"solution":"Vi krymper utfallsrommet til jentene (110 stk). Av disse foretrekker 60 matte. $P(\\text{matte}|\\text{jente}) = \\frac{60}{110} = \\frac{6}{11} \\approx 0{,}545$."},{"id":"2p-4-2-n-quiz1-q1","task":"60 % av elevene liker matte, og 20 % liker *både* matte og naturfag. Hva er $P(\\text{naturfag}|\\text{matte})$?","options":[{"id":"a","text":"$0{,}20$","isCorrect":false},{"id":"b","text":"$0{,}12$","isCorrect":false},{"id":"c","text":"$\\frac{1}{3} \\approx 0{,}33$","isCorrect":true},{"id":"d","text":"$0{,}80$","isCorrect":false}],"solution":"$P(\\text{naturfag}|\\text{matte}) = \\frac{P(\\text{matte} \\cap \\text{naturfag})}{P(\\text{matte})} = \\frac{0{,}20}{0{,}60} = \\frac{1}{3}$. En tredjedel av de som liker matte, liker også naturfag."}],"solution":""}},{"id":"2p-4-2-n-section2","type":"text","content":"## Multiplikasjonssetningen -- sannsynligheten for \"begge deler\"\n\nFra formelen for betinget sannsynlighet kan vi utlede noe veldig nyttig. Hvis vi ganger begge sider av $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$ med $P(A)$, får vi **multiplikasjonssetningen**:\n\n$$P(A \\cap B) = P(A) \\cdot P(B|A)$$\n\nDenne setningen forteller oss sannsynligheten for at *begge* hendelsene skjer: Vi tar sannsynligheten for at den første skjer, og ganger med sannsynligheten for den andre *gitt at den første har skjedd*. For flere hendelser utvides dette naturlig: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$.\n\nEt typisk eksempel er å trekke kuler uten tilbakelegging. Tenk deg en pose med 6 røde og 4 blå kuler. Du trekker to kuler uten å legge den første tilbake. Hva er sannsynligheten for at begge er røde?\n\nFørste trekk: $P(\\text{rød}_1) = \\frac{6}{10} = \\frac{3}{5}$. Nå er det 5 røde og 4 blå igjen -- 9 kuler totalt. Andre trekk, gitt at den første var rød: $P(\\text{rød}_2|\\text{rød}_1) = \\frac{5}{9}$. Med multiplikasjonssetningen: $P(\\text{begge røde}) = \\frac{3}{5} \\cdot \\frac{5}{9} = \\frac{15}{45} = \\frac{1}{3}$.\n\nHer er enda et eksempel. I en skål ligger 8 sjokolader: 5 med nøtter og 3 uten. Du tar to etter hverandre uten tilbakelegging. Sannsynligheten for at begge har nøtter er $P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 0{,}357$. Etter at du tok den første sjokoladen med nøtter, var det bare 4 med nøtter igjen av 7 totalt -- og det er nettopp den betingede sannsynligheten i aksjon."},{"id":"2p-4-2-n-quiz2","type":"exercise","exercise":{"id":"2p-4-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på multiplikasjonssetningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-2-n-quiz2-q0","task":"En pose har 7 epler og 3 pærer. Du trekker to frukter uten tilbakelegging. Hva er sannsynligheten for at begge er epler?","options":[{"id":"a","text":"$\\frac{49}{100}$","isCorrect":false},{"id":"b","text":"$\\frac{7}{10}$","isCorrect":false},{"id":"c","text":"$\\frac{7}{15}$","isCorrect":true},{"id":"d","text":"$\\frac{21}{50}$","isCorrect":false}],"solution":"$P(\\text{eple}_1) = \\frac{7}{10}$. Etter første eple: 6 epler og 3 pærer igjen (9 totalt). $P(\\text{eple}_2|\\text{eple}_1) = \\frac{6}{9} = \\frac{2}{3}$. $P(\\text{begge}) = \\frac{7}{10} \\cdot \\frac{2}{3} = \\frac{7}{15}$."},{"id":"2p-4-2-n-quiz2-q1","task":"I en skål er 5 sjokolader med nøtter og 3 uten. Du tar to etter hverandre uten tilbakelegging. Hva er sannsynligheten for at begge har nøtter?","options":[{"id":"a","text":"$\\frac{25}{64}$","isCorrect":false},{"id":"b","text":"$\\frac{5}{14}$","isCorrect":true},{"id":"c","text":"$\\frac{5}{8}$","isCorrect":false},{"id":"d","text":"$\\frac{10}{56}$","isCorrect":false}],"solution":"$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 0{,}357$. Etter at den første med nøtter er tatt, er det 4 med nøtter igjen av 7 totalt."}],"solution":""}},{"id":"2p-4-2-n-section3","type":"text","content":"## Uavhengige hendelser -- når informasjon ikke hjelper\n\nNoen ganger gjør det ingen forskjell hva som har skjedd først. Kaster du en terning og deretter en mynt, påvirker terningkastet ikke myntkastet. Disse hendelsene er **uavhengige**. Formelt: To hendelser $A$ og $B$ er uavhengige dersom $P(B|A) = P(B)$ -- altså at informasjonen om $A$ ikke endrer sannsynligheten for $B$.\n\nFor uavhengige hendelser forenkles multiplikasjonssetningen til: $P(A \\cap B) = P(A) \\cdot P(B)$. Vi trenger ikke bekymre oss om betingelser -- vi bare ganger.\n\nTypiske eksempler på uavhengige hendelser er to terningkast, myntkast og terningkast i kombinasjon, og trekking *med* tilbakelegging. Typiske eksempler på *avhengige* hendelser er trekking *uten* tilbakelegging og hendelser i samme populasjon som overlapper.\n\nHer er et praktisk eksempel. Sannsynligheten for at en buss er forsinket er $0{,}15$. To busser kjører uavhengig av hverandre. La $p = 0{,}15$ og $q = 1 - 0{,}15 = 0{,}85$. Sannsynligheten for at *begge* er forsinket er $p \\cdot p = 0{,}15^2 = 0{,}0225$. Sannsynligheten for at *ingen* er forsinket er $q \\cdot q = 0{,}85^2 = 0{,}7225$. Og sannsynligheten for at *nøyaktig én* er forsinket? Det kan skje på to måter: den første forsinket og den andre i rute, eller omvendt. Altså $P = p \\cdot q + q \\cdot p = 2 \\cdot 0{,}15 \\cdot 0{,}85 = 0{,}255$. Legg merke til at $0{,}0225 + 0{,}7225 + 0{,}255 = 1{,}00$ -- alle mulighetene summerer til 1, som de skal.\n\nEt annet eksempel: Sannsynligheten for å bestå en eksamen er $0{,}80$. To elever tar eksamen uavhengig av hverandre. Sannsynligheten for at begge består er $0{,}80 \\cdot 0{,}80 = 0{,}64$."},{"id":"2p-4-2-n-quiz3","type":"exercise","exercise":{"id":"2p-4-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på uavhengige hendelser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-2-n-quiz3-q0","task":"Ole har 75 % sjanse for å bestå teoriprøven, og Kari har 85 %. De tar prøven uavhengig. Hva er sannsynligheten for at minst én av dem består?","options":[{"id":"a","text":"$0{,}6375$","isCorrect":false},{"id":"b","text":"$1{,}60$","isCorrect":false},{"id":"c","text":"$0{,}0375$","isCorrect":false},{"id":"d","text":"$0{,}9625$","isCorrect":true}],"solution":"$P(\\text{minst én}) = 1 - P(\\text{ingen}) = 1 - 0{,}25 \\cdot 0{,}15 = 1 - 0{,}0375 = 0{,}9625$."},{"id":"2p-4-2-n-quiz3-q1","task":"Sannsynligheten for at en buss er forsinket er $0{,}15$. To busser kjører uavhengig. Hva er sannsynligheten for at begge er forsinket?","options":[{"id":"a","text":"$0{,}30$","isCorrect":false},{"id":"b","text":"$0{,}0225$","isCorrect":true},{"id":"c","text":"$0{,}85$","isCorrect":false},{"id":"d","text":"$0{,}15$","isCorrect":false}],"solution":"Uavhengige hendelser: $P(\\text{begge forsinket}) = 0{,}15 \\cdot 0{,}15 = 0{,}0225 = 2{,}25\\%$. Vi multipliserer sannsynlighetene direkte fordi hendelsene er uavhengige."}],"solution":""}},{"id":"2p-4-2-n-section4","type":"text","content":"## Treediagram og totalsetningen -- den store sammenhengen\n\nTreediagram er spesielt kraftig for å organisere betingede sannsynligheter. Langs hver gren skriver vi den betingede sannsynligheten for det aktuelle utfallet, og vi kan lese av sannsynlighetene for enhver kombinasjon ved å multiplisere langs stiene.\n\nMen treediagram gir oss også tilgang til **totalsetningen for sannsynlighet**: $P(B) = P(A) \\cdot P(B|A) + P(A') \\cdot P(B|A')$. Denne setningen lar oss beregne den totale sannsynligheten for $B$ ved å summere over alle mulige \"veier\" til $B$.\n\nLa oss se på et eksempel fra industrien. En fabrikk har to maskiner. Maskin A produserer 60 prosent av varene med 2 prosent feilrate. Maskin B produserer 40 prosent med 5 prosent feilrate. Hva er sannsynligheten for at en tilfeldig valgt vare er defekt?\n\nVi bruker totalsetningen: $P(\\text{defekt}) = P(A) \\cdot P(\\text{defekt}|A) + P(B) \\cdot P(\\text{defekt}|B) = 0{,}60 \\cdot 0{,}02 + 0{,}40 \\cdot 0{,}05 = 0{,}012 + 0{,}020 = 0{,}032$. Den totale feilraten er altså 3,2 prosent. Selv om maskin A produserer flest varer, bidrar maskin B faktisk mer til feilraten fordi den har høyere feilprosent.\n\nTotalsetningen er også nøkkelen til å forstå medisinske tester. Tenk deg en sykdom som rammer 1 prosent av befolkningen. En test oppdager sykdommen hos 95 prosent av de syke (sensitivitet), men gir falskt positivt hos 3 prosent av de friske. Sannsynligheten for positiv test er $P(\\text{pos}) = 0{,}01 \\cdot 0{,}95 + 0{,}99 \\cdot 0{,}03 = 0{,}0095 + 0{,}0297 = 0{,}0392$. Og sannsynligheten for at du faktisk er syk gitt positiv test? $P(\\text{syk}|\\text{pos}) = \\frac{0{,}0095}{0{,}0392} \\approx 0{,}242$. Bare ca. 24 prosent! Dette kalles **den falske positive paradoksen** -- selv med en nøyaktig test er flertallet av de positive resultatene falske når sykdommen er sjelden."},{"id":"2p-4-2-n-quiz4","type":"exercise","exercise":{"id":"2p-4-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på totalsetningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-2-n-quiz4-q0","task":"Et flyselskap har to ruter. Rute A: 70 % av avgangene, 10 % forsinkelse. Rute B: 30 % av avgangene, 20 % forsinkelse. Hva er total forsinkelsesrate?","options":[{"id":"a","text":"$0{,}30$","isCorrect":false},{"id":"b","text":"$0{,}13$","isCorrect":true},{"id":"c","text":"$0{,}15$","isCorrect":false},{"id":"d","text":"$0{,}07$","isCorrect":false}],"solution":"Totalsetningen: $P(\\text{forsinket}) = 0{,}70 \\cdot 0{,}10 + 0{,}30 \\cdot 0{,}20 = 0{,}07 + 0{,}06 = 0{,}13$."},{"id":"2p-4-2-n-quiz4-q1","task":"Maskin A produserer 60 % av varene med 2 % feil, maskin B 40 % med 5 % feil. Hva er den totale feilraten?","options":[{"id":"a","text":"$3{,}5\\%$","isCorrect":false},{"id":"b","text":"$7\\%$","isCorrect":false},{"id":"c","text":"$3{,}2\\%$","isCorrect":true},{"id":"d","text":"$2{,}5\\%$","isCorrect":false}],"solution":"$P(\\text{defekt}) = 0{,}60 \\cdot 0{,}02 + 0{,}40 \\cdot 0{,}05 = 0{,}012 + 0{,}020 = 0{,}032 = 3{,}2\\%$."}],"solution":""}},{"id":"2p-4-2-n-section5","type":"text","content":"## Betinget sannsynlighet i den virkelige verden\n\nBetinget sannsynlighet er ikke bare et abstrakt matematisk konsept -- det er et verktøy som brukes i avgjørelser som påvirker liv og død.\n\nI **medisinsk testing** er det avgjørende å forstå at en positiv test ikke betyr at du definitivt er syk. Som vi så i eksempelet med den sjeldne sykdommen, hadde bare 24 prosent av de med positiv test faktisk sykdommen. Derfor anbefaler leger ofte en oppfølgende test for å bekrefte resultatet. Den falske positive paradoksen er spesielt relevant ved screening av store befolkningsgrupper for sjeldne tilstander.\n\nI **kvalitetskontroll** bruker fabrikker betinget sannsynlighet daglig. Hvis en defekt vare oppdages, kan man bruke betinget sannsynlighet til å finne ut hvilken maskin eller leverandør som mest sannsynlig produserte den. Tenk på leverandøreksempelet: leverandør X leverer 70 prosent av komponentene med 3 prosent feilrate, og leverandør Y leverer 30 prosent med 7 prosent feilrate. Total feilrate: $0{,}70 \\cdot 0{,}03 + 0{,}30 \\cdot 0{,}07 = 0{,}042 = 4{,}2\\%$. Hvis en defekt komponent oppdages, er sannsynligheten for at den kom fra leverandør Y: $P(Y|\\text{defekt}) = \\frac{0{,}021}{0{,}042} = 0{,}50$. Halvparten av de defekte komponentene kommer altså fra leverandør Y, selv om Y bare leverer 30 prosent av totalen.\n\nI **rettsvesenet** er betinget sannsynlighet viktig for å tolke DNA-bevis. Det er avgjørende å skille mellom $P(\\text{DNA-match}|\\text{uskyldig})$ og $P(\\text{uskyldig}|\\text{DNA-match})$. Å forveksle disse to er en kjent feilslutning som har ført til justismord.\n\nPoenget er at rekkefølgen av betingelsene betyr enormt mye. $P(B|A)$ og $P(A|B)$ er *ikke* det samme, og å blande dem sammen kan ha alvorlige konsekvenser."},{"id":"2p-4-2-n-quiz5","type":"exercise","exercise":{"id":"2p-4-2-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på den falske positive paradoksen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-2-n-quiz5-q0","task":"En sykdom rammer 1 % av befolkningen. En test oppdager 95 % av de syke, men gir falskt positivt hos 3 % av de friske. Hva er $P(\\text{syk}|\\text{positiv})$?","options":[{"id":"a","text":"Ca. 95 %","isCorrect":false},{"id":"b","text":"Ca. 75 %","isCorrect":false},{"id":"c","text":"Ca. 50 %","isCorrect":false},{"id":"d","text":"Ca. 24 %","isCorrect":true}],"solution":"$P(\\text{syk} \\cap \\text{pos}) = 0{,}01 \\cdot 0{,}95 = 0{,}0095$. $P(\\text{pos}) = 0{,}0095 + 0{,}99 \\cdot 0{,}03 = 0{,}0392$. $P(\\text{syk}|\\text{pos}) = \\frac{0{,}0095}{0{,}0392} \\approx 0{,}24 = 24\\%$."},{"id":"2p-4-2-n-quiz5-q1","task":"Hvorfor er det viktig å skille mellom $P(B|A)$ og $P(A|B)$?","options":[{"id":"a","text":"De er alltid like","isCorrect":false},{"id":"b","text":"Det spiller ingen rolle i praksis","isCorrect":false},{"id":"c","text":"De kan være svært forskjellige, og forveksling kan føre til alvorlige feiltolkninger","isCorrect":true},{"id":"d","text":"Den ene er alltid dobbelt så stor som den andre","isCorrect":false}],"solution":"$P(B|A)$ og $P(A|B)$ er generelt helt forskjellige verdier. For eksempel er $P(\\text{DNA-match}|\\text{uskyldig})$ veldig liten, men $P(\\text{uskyldig}|\\text{DNA-match})$ kan være mye større. Å forveksle dem kan ha alvorlige konsekvenser."}],"solution":""}},{"id":"2p-4-2-n-summary","type":"text","content":"## Oppsummering\n\nBetinget sannsynlighet er et av de viktigste konseptene i sannsynlighetsregningen, og det har direkte anvendelser i hverdagen -- fra medisinske beslutninger til kvalitetskontroll.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Betinget sannsynlighet**: $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$ -- sannsynligheten for $B$ gitt at $A$ har skjedd\n- **Multiplikasjonssetningen**: $P(A \\cap B) = P(A) \\cdot P(B|A)$ -- sannsynligheten for at begge skjer\n- **Uavhengige hendelser**: $P(A \\cap B) = P(A) \\cdot P(B)$ -- den ene påvirker ikke den andre\n- **Totalsetningen**: $P(B) = P(A) \\cdot P(B|A) + P(A') \\cdot P(B|A')$ -- den totale sannsynligheten via alle veier\n- **Falsk positiv**: En positiv test hos en person som faktisk er frisk\n- **Sensitivitet**: Andelen syke som tester positivt\n\n**Det viktigste du tar med deg:**\nInformasjon endrer sannsynligheter. Når vi vet at noe har skjedd, krymper vi utfallsrommet og beregner sannsynligheten i det nye, mindre rommet. Vær spesielt oppmerksom på den falske positive paradoksen -- den minner oss om at $P(B|A)$ og $P(A|B)$ er helt forskjellige ting."}],"exercises":[]}
+{
+  "id": "2p-4-2-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "4.2",
+  "title": "Betinget sannsynlighet",
+  "subtitle": "Narrativ versjon",
+  "description": "Hva skjer med sannsynligheter når vi allerede vet noe? Fra medisinske tester til kvalitetskontroll -- en fortelling om hvordan informasjon endrer sjansene.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"
+  ],
+  "linkedChapterId": "2p-4-2",
+  "content": [
+    {
+      "id": "2p-4-2-n-intro",
+      "type": "text",
+      "content": "## Når informasjon endrer sjansene\n\nTenk deg at du er hos legen og har tatt en blodprøve. Legen forteller at testen var *positiv* for en bestemt sykdom. Hjertet slår litt fortere -- men hvor bekymret bør du egentlig være? Er det sikkert at du er syk? Svaret er overraskende: Nei, langt ifra. Selv en god test kan gi mange falske positive resultater, spesielt hvis sykdommen er sjelden. For å forstå dette trenger vi et konsept som heter **betinget sannsynlighet**.\n\nBetinget sannsynlighet handler om dette: Hvordan endres sannsynligheten for noe når vi allerede vet at noe annet har skjedd? Det er forskjell på å spørre \"Hva er sjansen for at det regner?\" og \"Hva er sjansen for at det regner, *gitt at himmelen er overskyet*?\" Den ekstra informasjonen -- at himmelen er overskyet -- endrer svaret vårt.\n\nI dette kapittelet skal vi utforske betinget sannsynlighet, lære multiplikasjonssetningen, forstå forskjellen mellom avhengige og uavhengige hendelser, og se hvordan alt dette kan brukes på virkelige problemer som medisinsk testing og kvalitetskontroll i industrien."
+    },
+    {
+      "id": "2p-4-2-n-section1",
+      "type": "text",
+      "content": "## Formelen som krymper utfallsrommet\n\nLa oss starte med definisjonen. **Betinget sannsynlighet** er sannsynligheten for en hendelse $B$, gitt at hendelse $A$ allerede har inntruffet. Vi skriver dette som $P(B|A)$ og leser det som \"sannsynligheten for B gitt A\". Formelen er:\n\n$$P(B|A) = \\frac{P(A \\cap B)}{P(A)}$$\n\nHva betyr dette intuitivt? Jo, når vi vet at $A$ har skjedd, *krymper vi utfallsrommet* til bare de utfallene der $A$ gjelder. Så ser vi på hvor stor andel av disse utfallene som også gir $B$. Vi deler altså sannsynligheten for at *begge* skjer, med sannsynligheten for at $A$ skjer.\n\nLa oss gjøre et eksempel. I en klasse med 30 elever spiller 18 fotball og 8 spiller håndball. 4 elever spiller begge deler. Nå velges en tilfeldig elev, og vi får vite at eleven spiller fotball. Hva er sannsynligheten for at eleven *også* spiller håndball?\n\nVi setter $A$ = \"spiller fotball\" og $B$ = \"spiller håndball\". Da er $P(A) = \\frac{18}{30}$ og $P(A \\cap B) = \\frac{4}{30}$ (de som spiller begge). Vi regner: $P(B|A) = \\frac{4/30}{18/30} = \\frac{4}{18} = \\frac{2}{9} \\approx 0{,}22$. Altså: Blant fotballspillerne er det 22 prosent sjanse for at eleven også spiller håndball.\n\nHer er et annet eksempel å tenke over. I en undersøkelse liker 60 prosent av elevene matte, og 20 prosent liker *både* matte og naturfag. Hva er sannsynligheten for at en elev liker naturfag, gitt at eleven liker matte? Svaret er $P(\\text{naturfag}|\\text{matte}) = \\frac{0{,}20}{0{,}60} = \\frac{1}{3}$. En tredjedel av de som liker matte, liker også naturfag."
+    },
+    {
+      "id": "2p-4-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på betinget sannsynlighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-2-n-quiz1-q0",
+            "task": "Av 200 elever foretrekker 110 matte og 90 norsk. Blant jentene (110 totalt) foretrekker 60 matte. Hva er $P(\\text{matte}|\\text{jente})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{60}{200} = \\frac{3}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{110}{200} = \\frac{11}{20}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{60}{110} = \\frac{6}{11}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{60}{90} = \\frac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi krymper utfallsrommet til jentene (110 stk). Av disse foretrekker 60 matte. $P(\\text{matte}|\\text{jente}) = \\frac{60}{110} = \\frac{6}{11} \\approx 0{,}545$."
+          },
+          {
+            "id": "2p-4-2-n-quiz1-q1",
+            "task": "60 % av elevene liker matte, og 20 % liker *både* matte og naturfag. Hva er $P(\\text{naturfag}|\\text{matte})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}20$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}80$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3} \\approx 0{,}33$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(\\text{naturfag}|\\text{matte}) = \\frac{P(\\text{matte} \\cap \\text{naturfag})}{P(\\text{matte})} = \\frac{0{,}20}{0{,}60} = \\frac{1}{3}$. En tredjedel av de som liker matte, liker også naturfag."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-2-n-section2",
+      "type": "text",
+      "content": "## Multiplikasjonssetningen -- sannsynligheten for \"begge deler\"\n\nFra formelen for betinget sannsynlighet kan vi utlede noe veldig nyttig. Hvis vi ganger begge sider av $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$ med $P(A)$, får vi **multiplikasjonssetningen**:\n\n$$P(A \\cap B) = P(A) \\cdot P(B|A)$$\n\nDenne setningen forteller oss sannsynligheten for at *begge* hendelsene skjer: Vi tar sannsynligheten for at den første skjer, og ganger med sannsynligheten for den andre *gitt at den første har skjedd*. For flere hendelser utvides dette naturlig: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$.\n\nEt typisk eksempel er å trekke kuler uten tilbakelegging. Tenk deg en pose med 6 røde og 4 blå kuler. Du trekker to kuler uten å legge den første tilbake. Hva er sannsynligheten for at begge er røde?\n\nFørste trekk: $P(\\text{rød}_1) = \\frac{6}{10} = \\frac{3}{5}$. Nå er det 5 røde og 4 blå igjen -- 9 kuler totalt. Andre trekk, gitt at den første var rød: $P(\\text{rød}_2|\\text{rød}_1) = \\frac{5}{9}$. Med multiplikasjonssetningen: $P(\\text{begge røde}) = \\frac{3}{5} \\cdot \\frac{5}{9} = \\frac{15}{45} = \\frac{1}{3}$.\n\nHer er enda et eksempel. I en skål ligger 8 sjokolader: 5 med nøtter og 3 uten. Du tar to etter hverandre uten tilbakelegging. Sannsynligheten for at begge har nøtter er $P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 0{,}357$. Etter at du tok den første sjokoladen med nøtter, var det bare 4 med nøtter igjen av 7 totalt -- og det er nettopp den betingede sannsynligheten i aksjon."
+    },
+    {
+      "id": "2p-4-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på multiplikasjonssetningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-2-n-quiz2-q0",
+            "task": "En pose har 7 epler og 3 pærer. Du trekker to frukter uten tilbakelegging. Hva er sannsynligheten for at begge er epler?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\frac{7}{15}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{49}{100}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{7}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{21}{50}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{eple}_1) = \\frac{7}{10}$. Etter første eple: 6 epler og 3 pærer igjen (9 totalt). $P(\\text{eple}_2|\\text{eple}_1) = \\frac{6}{9} = \\frac{2}{3}$. $P(\\text{begge}) = \\frac{7}{10} \\cdot \\frac{2}{3} = \\frac{7}{15}$."
+          },
+          {
+            "id": "2p-4-2-n-quiz2-q1",
+            "task": "I en skål er 5 sjokolader med nøtter og 3 uten. Du tar to etter hverandre uten tilbakelegging. Hva er sannsynligheten for at begge har nøtter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{25}{64}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{5}{14}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{5}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{10}{56}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 0{,}357$. Etter at den første med nøtter er tatt, er det 4 med nøtter igjen av 7 totalt."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-2-n-section3",
+      "type": "text",
+      "content": "## Uavhengige hendelser -- når informasjon ikke hjelper\n\nNoen ganger gjør det ingen forskjell hva som har skjedd først. Kaster du en terning og deretter en mynt, påvirker terningkastet ikke myntkastet. Disse hendelsene er **uavhengige**. Formelt: To hendelser $A$ og $B$ er uavhengige dersom $P(B|A) = P(B)$ -- altså at informasjonen om $A$ ikke endrer sannsynligheten for $B$.\n\nFor uavhengige hendelser forenkles multiplikasjonssetningen til: $P(A \\cap B) = P(A) \\cdot P(B)$. Vi trenger ikke bekymre oss om betingelser -- vi bare ganger.\n\nTypiske eksempler på uavhengige hendelser er to terningkast, myntkast og terningkast i kombinasjon, og trekking *med* tilbakelegging. Typiske eksempler på *avhengige* hendelser er trekking *uten* tilbakelegging og hendelser i samme populasjon som overlapper.\n\nHer er et praktisk eksempel. Sannsynligheten for at en buss er forsinket er $0{,}15$. To busser kjører uavhengig av hverandre. La $p = 0{,}15$ og $q = 1 - 0{,}15 = 0{,}85$. Sannsynligheten for at *begge* er forsinket er $p \\cdot p = 0{,}15^2 = 0{,}0225$. Sannsynligheten for at *ingen* er forsinket er $q \\cdot q = 0{,}85^2 = 0{,}7225$. Og sannsynligheten for at *nøyaktig én* er forsinket? Det kan skje på to måter: den første forsinket og den andre i rute, eller omvendt. Altså $P = p \\cdot q + q \\cdot p = 2 \\cdot 0{,}15 \\cdot 0{,}85 = 0{,}255$. Legg merke til at $0{,}0225 + 0{,}7225 + 0{,}255 = 1{,}00$ -- alle mulighetene summerer til 1, som de skal.\n\nEt annet eksempel: Sannsynligheten for å bestå en eksamen er $0{,}80$. To elever tar eksamen uavhengig av hverandre. Sannsynligheten for at begge består er $0{,}80 \\cdot 0{,}80 = 0{,}64$."
+    },
+    {
+      "id": "2p-4-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på uavhengige hendelser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-2-n-quiz3-q0",
+            "task": "Ole har 75 % sjanse for å bestå teoriprøven, og Kari har 85 %. De tar prøven uavhengig. Hva er sannsynligheten for at minst én av dem består?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}6375$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}60$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}9625$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$0{,}0375$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{minst én}) = 1 - P(\\text{ingen}) = 1 - 0{,}25 \\cdot 0{,}15 = 1 - 0{,}0375 = 0{,}9625$."
+          },
+          {
+            "id": "2p-4-2-n-quiz3-q1",
+            "task": "Sannsynligheten for at en buss er forsinket er $0{,}15$. To busser kjører uavhengig. Hva er sannsynligheten for at begge er forsinket?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}85$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}0225$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uavhengige hendelser: $P(\\text{begge forsinket}) = 0{,}15 \\cdot 0{,}15 = 0{,}0225 = 2{,}25\\%$. Vi multipliserer sannsynlighetene direkte fordi hendelsene er uavhengige."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-2-n-section4",
+      "type": "text",
+      "content": "## Treediagram og totalsetningen -- den store sammenhengen\n\nTreediagram er spesielt kraftig for å organisere betingede sannsynligheter. Langs hver gren skriver vi den betingede sannsynligheten for det aktuelle utfallet, og vi kan lese av sannsynlighetene for enhver kombinasjon ved å multiplisere langs stiene.\n\nMen treediagram gir oss også tilgang til **totalsetningen for sannsynlighet**: $P(B) = P(A) \\cdot P(B|A) + P(A') \\cdot P(B|A')$. Denne setningen lar oss beregne den totale sannsynligheten for $B$ ved å summere over alle mulige \"veier\" til $B$.\n\nLa oss se på et eksempel fra industrien. En fabrikk har to maskiner. Maskin A produserer 60 prosent av varene med 2 prosent feilrate. Maskin B produserer 40 prosent med 5 prosent feilrate. Hva er sannsynligheten for at en tilfeldig valgt vare er defekt?\n\nVi bruker totalsetningen: $P(\\text{defekt}) = P(A) \\cdot P(\\text{defekt}|A) + P(B) \\cdot P(\\text{defekt}|B) = 0{,}60 \\cdot 0{,}02 + 0{,}40 \\cdot 0{,}05 = 0{,}012 + 0{,}020 = 0{,}032$. Den totale feilraten er altså 3,2 prosent. Selv om maskin A produserer flest varer, bidrar maskin B faktisk mer til feilraten fordi den har høyere feilprosent.\n\nTotalsetningen er også nøkkelen til å forstå medisinske tester. Tenk deg en sykdom som rammer 1 prosent av befolkningen. En test oppdager sykdommen hos 95 prosent av de syke (sensitivitet), men gir falskt positivt hos 3 prosent av de friske. Sannsynligheten for positiv test er $P(\\text{pos}) = 0{,}01 \\cdot 0{,}95 + 0{,}99 \\cdot 0{,}03 = 0{,}0095 + 0{,}0297 = 0{,}0392$. Og sannsynligheten for at du faktisk er syk gitt positiv test? $P(\\text{syk}|\\text{pos}) = \\frac{0{,}0095}{0{,}0392} \\approx 0{,}242$. Bare ca. 24 prosent! Dette kalles **den falske positive paradoksen** -- selv med en nøyaktig test er flertallet av de positive resultatene falske når sykdommen er sjelden."
+    },
+    {
+      "id": "2p-4-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på totalsetningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-2-n-quiz4-q0",
+            "task": "Et flyselskap har to ruter. Rute A: 70 % av avgangene, 10 % forsinkelse. Rute B: 30 % av avgangene, 20 % forsinkelse. Hva er total forsinkelsesrate?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}13$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}07$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Totalsetningen: $P(\\text{forsinket}) = 0{,}70 \\cdot 0{,}10 + 0{,}30 \\cdot 0{,}20 = 0{,}07 + 0{,}06 = 0{,}13$."
+          },
+          {
+            "id": "2p-4-2-n-quiz4-q1",
+            "task": "Maskin A produserer 60 % av varene med 2 % feil, maskin B 40 % med 5 % feil. Hva er den totale feilraten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3{,}5\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3{,}2\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$7\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2{,}5\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{defekt}) = 0{,}60 \\cdot 0{,}02 + 0{,}40 \\cdot 0{,}05 = 0{,}012 + 0{,}020 = 0{,}032 = 3{,}2\\%$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-2-n-section5",
+      "type": "text",
+      "content": "## Betinget sannsynlighet i den virkelige verden\n\nBetinget sannsynlighet er ikke bare et abstrakt matematisk konsept -- det er et verktøy som brukes i avgjørelser som påvirker liv og død.\n\nI **medisinsk testing** er det avgjørende å forstå at en positiv test ikke betyr at du definitivt er syk. Som vi så i eksempelet med den sjeldne sykdommen, hadde bare 24 prosent av de med positiv test faktisk sykdommen. Derfor anbefaler leger ofte en oppfølgende test for å bekrefte resultatet. Den falske positive paradoksen er spesielt relevant ved screening av store befolkningsgrupper for sjeldne tilstander.\n\nI **kvalitetskontroll** bruker fabrikker betinget sannsynlighet daglig. Hvis en defekt vare oppdages, kan man bruke betinget sannsynlighet til å finne ut hvilken maskin eller leverandør som mest sannsynlig produserte den. Tenk på leverandøreksempelet: leverandør X leverer 70 prosent av komponentene med 3 prosent feilrate, og leverandør Y leverer 30 prosent med 7 prosent feilrate. Total feilrate: $0{,}70 \\cdot 0{,}03 + 0{,}30 \\cdot 0{,}07 = 0{,}042 = 4{,}2\\%$. Hvis en defekt komponent oppdages, er sannsynligheten for at den kom fra leverandør Y: $P(Y|\\text{defekt}) = \\frac{0{,}021}{0{,}042} = 0{,}50$. Halvparten av de defekte komponentene kommer altså fra leverandør Y, selv om Y bare leverer 30 prosent av totalen.\n\nI **rettsvesenet** er betinget sannsynlighet viktig for å tolke DNA-bevis. Det er avgjørende å skille mellom $P(\\text{DNA-match}|\\text{uskyldig})$ og $P(\\text{uskyldig}|\\text{DNA-match})$. Å forveksle disse to er en kjent feilslutning som har ført til justismord.\n\nPoenget er at rekkefølgen av betingelsene betyr enormt mye. $P(B|A)$ og $P(A|B)$ er *ikke* det samme, og å blande dem sammen kan ha alvorlige konsekvenser."
+    },
+    {
+      "id": "2p-4-2-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-2-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på den falske positive paradoksen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-2-n-quiz5-q0",
+            "task": "En sykdom rammer 1 % av befolkningen. En test oppdager 95 % av de syke, men gir falskt positivt hos 3 % av de friske. Hva er $P(\\text{syk}|\\text{positiv})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 95 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 75 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 50 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 24 %",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(\\text{syk} \\cap \\text{pos}) = 0{,}01 \\cdot 0{,}95 = 0{,}0095$. $P(\\text{pos}) = 0{,}0095 + 0{,}99 \\cdot 0{,}03 = 0{,}0392$. $P(\\text{syk}|\\text{pos}) = \\frac{0{,}0095}{0{,}0392} \\approx 0{,}24 = 24\\%$."
+          },
+          {
+            "id": "2p-4-2-n-quiz5-q1",
+            "task": "Hvorfor er det viktig å skille mellom $P(B|A)$ og $P(A|B)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er alltid like",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det spiller ingen rolle i praksis",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De kan være svært forskjellige, og forveksling kan føre til alvorlige feiltolkninger",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den ene er alltid dobbelt så stor som den andre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(B|A)$ og $P(A|B)$ er generelt helt forskjellige verdier. For eksempel er $P(\\text{DNA-match}|\\text{uskyldig})$ veldig liten, men $P(\\text{uskyldig}|\\text{DNA-match})$ kan være mye større. Å forveksle dem kan ha alvorlige konsekvenser."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nBetinget sannsynlighet er et av de viktigste konseptene i sannsynlighetsregningen, og det har direkte anvendelser i hverdagen -- fra medisinske beslutninger til kvalitetskontroll.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Betinget sannsynlighet**: $P(B|A) = \\frac{P(A \\cap B)}{P(A)}$ -- sannsynligheten for $B$ gitt at $A$ har skjedd\n- **Multiplikasjonssetningen**: $P(A \\cap B) = P(A) \\cdot P(B|A)$ -- sannsynligheten for at begge skjer\n- **Uavhengige hendelser**: $P(A \\cap B) = P(A) \\cdot P(B)$ -- den ene påvirker ikke den andre\n- **Totalsetningen**: $P(B) = P(A) \\cdot P(B|A) + P(A') \\cdot P(B|A')$ -- den totale sannsynligheten via alle veier\n- **Falsk positiv**: En positiv test hos en person som faktisk er frisk\n- **Sensitivitet**: Andelen syke som tester positivt\n\n**Det viktigste du tar med deg:**\nInformasjon endrer sannsynligheter. Når vi vet at noe har skjedd, krymper vi utfallsrommet og beregner sannsynligheten i det nye, mindre rommet. Vær spesielt oppmerksom på den falske positive paradoksen -- den minner oss om at $P(B|A)$ og $P(A|B)$ er helt forskjellige ting."
+    }
+  ],
+  "exercises": []
+}

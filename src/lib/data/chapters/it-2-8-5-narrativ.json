@@ -1,1 +1,341 @@
-{"id":"it-2-8-5-narrativ","courseId":"it-2","chapterNumber":"5","title":"Avsluttende prosjekt – planlegging og gjennomføring","subtitle":"Narrativ versjon","description":"En fortelling om å bringe alt sammen til ett prosjekt – fra idé og kravspesifikasjon med MoSCoW, via teknologivalg og prosjektplan, til gjennomføring, MVP og presentasjon.","estimatedMinutes":40,"competenceGoals":["Velge prosjekt og skrive kravspesifikasjon med MoSCoW","Lage prosjektplan med teknologivalg og tidsplan","Gjennomføre, teste og presentere et helhetlig prosjekt"],"linkedChapterId":"it-2-8-5","content":[{"id":"it-2-8-5-n-intro","type":"text","content":"## Alt på ett sted\n\nNå er det tid for å bringe alt du har lært sammen i ett avsluttende prosjekt – din mulighet til å vise kompetanse innen programmering, databaser, nettapplikasjoner, testing, versjonskontroll og systemutvikling. Men et godt prosjekt starter ikke med kode; det starter med en god idé og en plan.\n\nFørste fase er **idégenerering og valg**. En god prosjektidé løser et reelt problem, har passe omfang for et par–seks ukers arbeid, lar deg demonstrere flere kompetansemål, og er noe du er motivert for. Eksempler er en treningslogg, en budsjettapp, en quiz-plattform, en oppskriftsapp eller et bookingsystem.\n\nAndre fase er **kravspesifikasjon** – å dokumentere hva systemet skal gjøre. Her skiller vi mellom **funksjonelle krav**, som er konkrete funksjoner («brukere skal kunne registrere seg med e-post og passord»), og **ikke-funksjonelle krav**, som handler om kvalitetsegenskaper («søk skal returnere resultat på under ett sekund», «passord skal hashes med bcrypt»). For å prioritere bruker vi **MoSCoW**: *Must have* er kritisk funksjonalitet, *Should have* er viktig men ikke kritisk, *Could have* er fint å ha, og *Won't have* er utenfor scope denne gangen. Å sette krav i Won't have er like viktig som de andre – det er slik du holder prosjektet realistisk."},{"id":"it-2-8-5-n-quiz1","type":"exercise","exercise":{"id":"it-2-8-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på planlegging og krav:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-5-n-quiz1-q0","task":"Hva står MoSCoW for?","options":[{"id":"a","text":"Most, Should, Could, Would","isCorrect":false},{"id":"b","text":"Maybe, Shall, Can, Will","isCorrect":false},{"id":"c","text":"Must, Should, Could, Won't","isCorrect":true},{"id":"d","text":"Must, Shall, Could, Will","isCorrect":false}],"solution":"MoSCoW står for Must have, Should have, Could have og Won't have – en metode for å prioritere krav."},{"id":"it-2-8-5-n-quiz1-q1","task":"Hva er forskjellen på funksjonelle og ikke-funksjonelle krav?","options":[{"id":"a","text":"De er det samme","isCorrect":false},{"id":"b","text":"Ikke-funksjonelle krav er funksjoner","isCorrect":false},{"id":"c","text":"Funksjonelle krav handler kun om farger","isCorrect":false},{"id":"d","text":"Funksjonelle beskriver hva systemet gjør; ikke-funksjonelle beskriver kvaliteter som ytelse og sikkerhet","isCorrect":true}],"solution":"Funksjonelle krav er konkrete funksjoner, mens ikke-funksjonelle krav gjelder egenskaper som ytelse, sikkerhet og brukervennlighet."},{"id":"it-2-8-5-n-quiz1-q2","task":"Hvorfor er «Won't have» nyttig i MoSCoW?","options":[{"id":"a","text":"Det holder prosjektet realistisk ved å definere hva som er utenfor scope","isCorrect":true},{"id":"b","text":"Det er en feil i metoden","isCorrect":false},{"id":"c","text":"Det betyr at alt skal lages","isCorrect":false},{"id":"d","text":"Det brukes ikke","isCorrect":false}],"solution":"Won't have avgrenser prosjektet ved tydelig å si hva man ikke skal lage denne gangen, så omfanget holdes håndterbart."}]}},{"id":"it-2-8-5-n-section1","type":"text","content":"## Teknologivalg og prosjektplan\n\nMed kravene på plass kommer **teknologivalg**. Her tar du i bruk alt du har lært gjennom kurset. For en treningslogg-app kan valgene være Flask som backend, SQLite som database (med PostgreSQL i produksjon), HTML, CSS og JavaScript med et bibliotek som Chart.js til frontend, pytest til testing, og Git med GitHub til versjonskontroll. Du designer også et **databaseskjema** med tabellene du trenger – for treningsloggen kanskje `users`, `exercises`, `workouts` og `workout_sets`, koblet sammen med fremmednøkler slik du lærte i databaseseksjonen.\n\nDeretter lager du en **prosjektplan** med en realistisk tidsplan. En firukers plan kan se slik ut: uke 1 settes av til oppsett av Flask og database, samt autentisering med tester. Uke 2 går til CRUD for treningsøkter og sett. Uke 3 til frontend og visualisering. Og uke 4 til testing, feilretting, dokumentasjon og presentasjon. Ved å bryte arbeidet ned i **milepæler** – konkrete delmål – ser du tydelig om du ligger i rute.\n\nEt smart prinsipp er å bygge en **MVP** først, et Minimum Viable Product. Det er en versjon med bare de mest kritiske funksjonene (Must have), som faktisk fungerer ende til ende. Får du MVP-en på plass tidlig, har du alltid noe som virker å vise fram, og kan legge til Should have og Could have hvis tiden tillater. Dette beskytter deg mot den vanligste fellen: å bruke all tiden på avanserte detaljer og ende opp uten et fungerende produkt."},{"id":"it-2-8-5-n-quiz2","type":"exercise","exercise":{"id":"it-2-8-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på plan og MVP:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-5-n-quiz2-q0","task":"Hva er et MVP (Minimum Viable Product)?","options":[{"id":"a","text":"Den mest avanserte versjonen av produktet","isCorrect":false},{"id":"b","text":"En versjon med kun de mest kritiske funksjonene som faktisk fungerer","isCorrect":true},{"id":"c","text":"Et produkt uten testing","isCorrect":false},{"id":"d","text":"Et produkt kun for mobil","isCorrect":false}],"solution":"Et MVP er en fungerende versjon med bare kjernefunksjonene, som lar deg levere noe som virker tidlig."},{"id":"it-2-8-5-n-quiz2-q1","task":"Hva er en milepæl i en prosjektplan?","options":[{"id":"a","text":"En type feil","isCorrect":false},{"id":"b","text":"En git-kommando","isCorrect":false},{"id":"c","text":"Et konkret delmål som viser om man ligger i rute","isCorrect":true},{"id":"d","text":"En databasetabell","isCorrect":false}],"solution":"En milepæl er et viktig delmål i prosjektet som hjelper deg å måle fremdrift."},{"id":"it-2-8-5-n-quiz2-q2","task":"Hvilken fordel gir det å bygge MVP-en først?","options":[{"id":"a","text":"Du slipper å teste","isCorrect":false},{"id":"b","text":"Du trenger ingen plan","isCorrect":false},{"id":"c","text":"Det gjør koden tregere","isCorrect":false},{"id":"d","text":"Du har alltid noe fungerende, og unngår å ende opp uten et ferdig produkt","isCorrect":true}],"solution":"Ved å lage MVP-en først sikrer du et fungerende produkt tidlig og kan bygge videre om tiden tillater."}]}},{"id":"it-2-8-5-n-section2","type":"text","content":"## Gjennomføring og presentasjon\n\nNå begynner selve byggingen, og her bruker du metodene fra de tidligere kapitlene i praksis. Jobb iterativt, ett delmål av gangen, og bruk Git med brancher og commits underveis. **Skriv tester kontinuerlig** – ikke vent til slutten – slik at du fanger feil tidlig og trygt kan endre kode. Dokumenter mens du går, med docstrings og en README, mens detaljene er ferske i minnet.\n\nEn viktig advarsel er **scope creep** – at prosjektet sniker seg til å vokse med stadig nye «kjekke» funksjoner som ikke sto i planen. Det er en av de største truslene mot å bli ferdig. Forsvaret er å holde fast ved MoSCoW-prioriteringen din og motstå fristelsen til å legge til Could have-ting før Must have er ferdig og testet. Et annet klokt grep er å la noen andre teste appen din før innlevering. Du kjenner systemet for godt og klikker automatisk «riktig»; en utenforstående avslører forvirring og feil du selv er blind for.\n\nTil slutt kommer **presentasjonen**, der du viser fram både prosess og resultat. Du demonstrerer det fungerende produktet, forklarer teknologivalgene dine, viser hvordan du planla og prioriterte, og reflekterer over hva som gikk bra og hva du ville gjort annerledes. Da knytter du sammen alt faget har handlet om: ikke bare å skrive kode som virker, men å planlegge, samarbeide, kvalitetssikre og kommunisere – kjernen i å være en profesjonell utvikler."},{"id":"it-2-8-5-n-quiz3","type":"exercise","exercise":{"id":"it-2-8-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på gjennomføring:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-5-n-quiz3-q0","task":"Hva er scope creep?","options":[{"id":"a","text":"At prosjektet vokser med stadig nye funksjoner utenfor planen","isCorrect":true},{"id":"b","text":"At koden kjører for sakte","isCorrect":false},{"id":"c","text":"En git-konflikt","isCorrect":false},{"id":"d","text":"En type test","isCorrect":false}],"solution":"Scope creep er ukontrollert vekst i omfang, en stor trussel mot å bli ferdig i tide."},{"id":"it-2-8-5-n-quiz3-q1","task":"Hvorfor bør du la noen andre teste appen før innlevering?","options":[{"id":"a","text":"For å spare strøm","isCorrect":false},{"id":"b","text":"En utenforstående avslører forvirring og feil du selv er blind for","isCorrect":true},{"id":"c","text":"Fordi tester ikke virker selv","isCorrect":false},{"id":"d","text":"For å gjøre koden lengre","isCorrect":false}],"solution":"Du kjenner systemet for godt; en ny bruker finner problemer du ikke ser fordi du automatisk bruker appen «riktig»."},{"id":"it-2-8-5-n-quiz3-q2","task":"Hvorfor bør du skrive tester kontinuerlig gjennom prosjektet?","options":[{"id":"a","text":"For å unngå dokumentasjon","isCorrect":false},{"id":"b","text":"Fordi tester ikke kan skrives på slutten","isCorrect":false},{"id":"c","text":"For å fange feil tidlig og kunne endre kode trygt","isCorrect":true},{"id":"d","text":"For å gjøre prosjektet kortere","isCorrect":false}],"solution":"Kontinuerlig testing fanger feil mens de er små og gir trygghet til å endre kode underveis."}]}},{"id":"it-2-8-5-n-summary","type":"text","content":"## Oppsummering\n\nDet avsluttende prosjektet samler hele faget. Du starter med en god **idé** og en **kravspesifikasjon** der funksjonelle og ikke-funksjonelle krav prioriteres med **MoSCoW**. Deretter gjør du **teknologivalg**, designer databaseskjema, og lager en **prosjektplan** med milepæler og en realistisk tidsplan – gjerne med en **MVP** først, slik at du alltid har noe som virker.\n\nI gjennomføringen jobber du iterativt med Git, skriver tester og dokumentasjon kontinuerlig, og vokter deg mot **scope creep** ved å holde fast ved prioriteringene. Du lar andre teste appen, og avslutter med en **presentasjon** av både prosess og resultat. Da har du vist det viktigste IT 2 lærer deg: at god programvareutvikling er like mye planlegging, samarbeid og kvalitetssikring som det er å skrive kode. Gratulerer – du har fullført IT 2."}],"exercises":[]}
+{
+  "id": "it-2-8-5-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "5",
+  "title": "Avsluttende prosjekt – planlegging og gjennomføring",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å bringe alt sammen til ett prosjekt – fra idé og kravspesifikasjon med MoSCoW, via teknologivalg og prosjektplan, til gjennomføring, MVP og presentasjon.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "Velge prosjekt og skrive kravspesifikasjon med MoSCoW",
+    "Lage prosjektplan med teknologivalg og tidsplan",
+    "Gjennomføre, teste og presentere et helhetlig prosjekt"
+  ],
+  "linkedChapterId": "it-2-8-5",
+  "content": [
+    {
+      "id": "it-2-8-5-n-intro",
+      "type": "text",
+      "content": "## Alt på ett sted\n\nNå er det tid for å bringe alt du har lært sammen i ett avsluttende prosjekt – din mulighet til å vise kompetanse innen programmering, databaser, nettapplikasjoner, testing, versjonskontroll og systemutvikling. Men et godt prosjekt starter ikke med kode; det starter med en god idé og en plan.\n\nFørste fase er **idégenerering og valg**. En god prosjektidé løser et reelt problem, har passe omfang for et par–seks ukers arbeid, lar deg demonstrere flere kompetansemål, og er noe du er motivert for. Eksempler er en treningslogg, en budsjettapp, en quiz-plattform, en oppskriftsapp eller et bookingsystem.\n\nAndre fase er **kravspesifikasjon** – å dokumentere hva systemet skal gjøre. Her skiller vi mellom **funksjonelle krav**, som er konkrete funksjoner («brukere skal kunne registrere seg med e-post og passord»), og **ikke-funksjonelle krav**, som handler om kvalitetsegenskaper («søk skal returnere resultat på under ett sekund», «passord skal hashes med bcrypt»). For å prioritere bruker vi **MoSCoW**: *Must have* er kritisk funksjonalitet, *Should have* er viktig men ikke kritisk, *Could have* er fint å ha, og *Won't have* er utenfor scope denne gangen. Å sette krav i Won't have er like viktig som de andre – det er slik du holder prosjektet realistisk."
+    },
+    {
+      "id": "it-2-8-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på planlegging og krav:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-5-n-quiz1-q0",
+            "task": "Hva står MoSCoW for?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Most, Should, Could, Would",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Must, Should, Could, Won't",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Maybe, Shall, Can, Will",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Must, Shall, Could, Will",
+                "isCorrect": false
+              }
+            ],
+            "solution": "MoSCoW står for Must have, Should have, Could have og Won't have – en metode for å prioritere krav."
+          },
+          {
+            "id": "it-2-8-5-n-quiz1-q1",
+            "task": "Hva er forskjellen på funksjonelle og ikke-funksjonelle krav?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ikke-funksjonelle krav er funksjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonelle beskriver hva systemet gjør; ikke-funksjonelle beskriver kvaliteter som ytelse og sikkerhet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Funksjonelle krav handler kun om farger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonelle krav er konkrete funksjoner, mens ikke-funksjonelle krav gjelder egenskaper som ytelse, sikkerhet og brukervennlighet."
+          },
+          {
+            "id": "it-2-8-5-n-quiz1-q2",
+            "task": "Hvorfor er «Won't have» nyttig i MoSCoW?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det er en feil i metoden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det betyr at alt skal lages",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det brukes ikke",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Det holder prosjektet realistisk ved å definere hva som er utenfor scope",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Won't have avgrenser prosjektet ved tydelig å si hva man ikke skal lage denne gangen, så omfanget holdes håndterbart."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-5-n-section1",
+      "type": "text",
+      "content": "## Teknologivalg og prosjektplan\n\nMed kravene på plass kommer **teknologivalg**. Her tar du i bruk alt du har lært gjennom kurset. For en treningslogg-app kan valgene være Flask som backend, SQLite som database (med PostgreSQL i produksjon), HTML, CSS og JavaScript med et bibliotek som Chart.js til frontend, pytest til testing, og Git med GitHub til versjonskontroll. Du designer også et **databaseskjema** med tabellene du trenger – for treningsloggen kanskje `users`, `exercises`, `workouts` og `workout_sets`, koblet sammen med fremmednøkler slik du lærte i databaseseksjonen.\n\nDeretter lager du en **prosjektplan** med en realistisk tidsplan. En firukers plan kan se slik ut: uke 1 settes av til oppsett av Flask og database, samt autentisering med tester. Uke 2 går til CRUD for treningsøkter og sett. Uke 3 til frontend og visualisering. Og uke 4 til testing, feilretting, dokumentasjon og presentasjon. Ved å bryte arbeidet ned i **milepæler** – konkrete delmål – ser du tydelig om du ligger i rute.\n\nEt smart prinsipp er å bygge en **MVP** først, et Minimum Viable Product. Det er en versjon med bare de mest kritiske funksjonene (Must have), som faktisk fungerer ende til ende. Får du MVP-en på plass tidlig, har du alltid noe som virker å vise fram, og kan legge til Should have og Could have hvis tiden tillater. Dette beskytter deg mot den vanligste fellen: å bruke all tiden på avanserte detaljer og ende opp uten et fungerende produkt."
+    },
+    {
+      "id": "it-2-8-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på plan og MVP:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-5-n-quiz2-q0",
+            "task": "Hva er et MVP (Minimum Viable Product)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En versjon med kun de mest kritiske funksjonene som faktisk fungerer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den mest avanserte versjonen av produktet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et produkt uten testing",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et produkt kun for mobil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et MVP er en fungerende versjon med bare kjernefunksjonene, som lar deg levere noe som virker tidlig."
+          },
+          {
+            "id": "it-2-8-5-n-quiz2-q1",
+            "task": "Hva er en milepæl i en prosjektplan?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En type feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et konkret delmål som viser om man ligger i rute",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "En git-kommando",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En databasetabell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En milepæl er et viktig delmål i prosjektet som hjelper deg å måle fremdrift."
+          },
+          {
+            "id": "it-2-8-5-n-quiz2-q2",
+            "task": "Hvilken fordel gir det å bygge MVP-en først?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Du slipper å teste",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Du trenger ingen plan",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Du har alltid noe fungerende, og unngår å ende opp uten et ferdig produkt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det gjør koden tregere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved å lage MVP-en først sikrer du et fungerende produkt tidlig og kan bygge videre om tiden tillater."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-5-n-section2",
+      "type": "text",
+      "content": "## Gjennomføring og presentasjon\n\nNå begynner selve byggingen, og her bruker du metodene fra de tidligere kapitlene i praksis. Jobb iterativt, ett delmål av gangen, og bruk Git med brancher og commits underveis. **Skriv tester kontinuerlig** – ikke vent til slutten – slik at du fanger feil tidlig og trygt kan endre kode. Dokumenter mens du går, med docstrings og en README, mens detaljene er ferske i minnet.\n\nEn viktig advarsel er **scope creep** – at prosjektet sniker seg til å vokse med stadig nye «kjekke» funksjoner som ikke sto i planen. Det er en av de største truslene mot å bli ferdig. Forsvaret er å holde fast ved MoSCoW-prioriteringen din og motstå fristelsen til å legge til Could have-ting før Must have er ferdig og testet. Et annet klokt grep er å la noen andre teste appen din før innlevering. Du kjenner systemet for godt og klikker automatisk «riktig»; en utenforstående avslører forvirring og feil du selv er blind for.\n\nTil slutt kommer **presentasjonen**, der du viser fram både prosess og resultat. Du demonstrerer det fungerende produktet, forklarer teknologivalgene dine, viser hvordan du planla og prioriterte, og reflekterer over hva som gikk bra og hva du ville gjort annerledes. Da knytter du sammen alt faget har handlet om: ikke bare å skrive kode som virker, men å planlegge, samarbeide, kvalitetssikre og kommunisere – kjernen i å være en profesjonell utvikler."
+    },
+    {
+      "id": "it-2-8-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gjennomføring:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-5-n-quiz3-q0",
+            "task": "Hva er scope creep?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At koden kjører for sakte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En git-konflikt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En type test",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At prosjektet vokser med stadig nye funksjoner utenfor planen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Scope creep er ukontrollert vekst i omfang, en stor trussel mot å bli ferdig i tide."
+          },
+          {
+            "id": "it-2-8-5-n-quiz3-q1",
+            "task": "Hvorfor bør du la noen andre teste appen før innlevering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En utenforstående avslører forvirring og feil du selv er blind for",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For å spare strøm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi tester ikke virker selv",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å gjøre koden lengre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du kjenner systemet for godt; en ny bruker finner problemer du ikke ser fordi du automatisk bruker appen «riktig»."
+          },
+          {
+            "id": "it-2-8-5-n-quiz3-q2",
+            "task": "Hvorfor bør du skrive tester kontinuerlig gjennom prosjektet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å unngå dokumentasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å fange feil tidlig og kunne endre kode trygt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi tester ikke kan skrives på slutten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å gjøre prosjektet kortere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kontinuerlig testing fanger feil mens de er små og gir trygghet til å endre kode underveis."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDet avsluttende prosjektet samler hele faget. Du starter med en god **idé** og en **kravspesifikasjon** der funksjonelle og ikke-funksjonelle krav prioriteres med **MoSCoW**. Deretter gjør du **teknologivalg**, designer databaseskjema, og lager en **prosjektplan** med milepæler og en realistisk tidsplan – gjerne med en **MVP** først, slik at du alltid har noe som virker.\n\nI gjennomføringen jobber du iterativt med Git, skriver tester og dokumentasjon kontinuerlig, og vokter deg mot **scope creep** ved å holde fast ved prioriteringene. Du lar andre teste appen, og avslutter med en **presentasjon** av både prosess og resultat. Da har du vist det viktigste IT 2 lærer deg: at god programvareutvikling er like mye planlegging, samarbeid og kvalitetssikring som det er å skrive kode. Gratulerer – du har fullført IT 2."
+    }
+  ],
+  "exercises": []
+}

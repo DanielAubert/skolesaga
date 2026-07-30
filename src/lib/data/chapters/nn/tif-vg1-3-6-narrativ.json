@@ -1,1 +1,419 @@
-{"id":"tif-vg1-3-6-narrativ","courseId":"tif-vg1","chapterNumber":"3.6","title":"Dataassistert produksjon (DAP)","subtitle":"Narrativ versjon","description":"Ei forteljing om brua mellom design og maskin -- korleis CAM-programvare gjer ein 3D-modell om til verktøybanar og G-kode, og korleis simulering reddar deg frå ein kostbar krasj.","estimatedMinutes":35,"competenceGoals":["bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon"],"linkedChapterId":"tif-vg1-3-6","content":[{"id":"tif-vg1-3-6-n-intro","type":"text","content":"## Frå ei teikning på skjermen til spon på golvet\n\nDu har teikna ein del i CAD -- ein fin 3D-modell på skjermen. Men ei CNC-maskin forstår ikkje ein 3D-modell; ho forstår G-kode. Korleis kjem du frå det eine til det andre utan å skrive hundrevis av kodelinjer for hand? Svaret er **CAM**, *Computer Aided Manufacturing*. CAM er brua mellom design og produksjon.\n\nArbeidsflyten har ein fast logikk. Du startar med **CAD-designet**, importerer geometrien til CAM, og definerer **emnet** -- altså kor stort råmaterialet er. Så vel du kva for **operasjonar** delen treng: grovfresing, finfresing, boring. CAM **genererer verktøybanane**, altså reknar ut alle rørslene verktøyet skal gjere. Deretter **simulerer** du for å kontrollere prosessen visuelt, før du **postprosesserer** til maskinspesifikk G-kode og til slutt **overfører** programmet til maskina via nettverk, USB eller DNC.\n\nDet finst mange CAM-program. Mastercam er ein industristandard, Siemens NX og Fusion 360 har integrert CAD og CAM, og Fusion 360 er rimeleg og skybasert. For tre og plast finst enklare verktøy som VCarve.\n\nKvifor bruke CAM i staden for å skrive alt sjølv? Fordi programmet reknar ut verktøybanane automatisk, sjekkar for kollisjonar i simuleringa, optimaliserer farter, lèt deg endre raskt når designet endrar seg, og gir dokumentasjon og repeterbarheit på kjøpet."},{"id":"tif-vg1-3-6-n-section1","type":"text","content":"## Grovt først, fint etterpå\n\nNår du skal bearbeide ein del, gjer du det aldri i éi omgang. Du jobbar i to fasar, og CAM har eigne operasjonar for kvar. Først kjem **grovbearbeiding** (roughing), der målet er å fjerne mest mogleg materiale raskt. Ein **2D Pocket** fresar ut holrom og lommer i fleire nivå med step-down, ein **2D Contour** følgjer ein kontur langs ytre eller indre veggar, og ein **3D Rough** riv materiale av ei bøygd 3D-overflate. Grovoperasjonen etterlèt medvite ein liten margin -- typisk ein halv til éin millimeter -- til neste fase.\n\nSå kjem **finbearbeiding** (finishing), der du jaktar på rett dimensjon og fin overflate. Ein **2D Contour Finish** pussar veggane nøyaktig, ein **3D Contour** følgjer ei skulpturert flate, **Scallop** behandlar overgangsområde og små radiar, og ein **parallell** strategi legg jamne banar over store, opne flater.\n\nValet blir styrt av geometrien. Til ein flat botn passar 2D Pocket grovt og facing fint. Til ei 3D-overflate passar 3D Rough grovt og parallell eller scallop fint. Vertikale veggar tek du med 2D Contour, og djupe lommer med ein adaptiv strategi grovt og step-down fint.\n\nKjernen er enkel å hugse: grovt arbeid fjernar masse raskt og etterlèt margin, fint arbeid pussar delen til endeleg form og kvalitet. Brukar du finstrategi på alt, kastar du bort tid; hoppar du over finfasen, blir delen unøyaktig."},{"id":"tif-vg1-3-6-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-3-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på CAM-arbeidsflyt og operasjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-6-n-quiz1-q0","task":"Kva er CAM si rolle i produksjonskjeda?","options":[{"id":"a","text":"Å spenne fast emnet i maskina","isCorrect":false},{"id":"b","text":"Å måle ferdige delar","isCorrect":false},{"id":"c","text":"Brua mellom CAD-design og CNC-produksjon","isCorrect":true},{"id":"d","text":"Å slipe verktøya","isCorrect":false}],"solution":"CAM (Computer Aided Manufacturing) er brua mellom design (CAD) og produksjon (CNC): han gjer geometrien om til verktøybanar og G-kode."},{"id":"tif-vg1-3-6-n-quiz1-q1","task":"Kva er hovudmålet med grovbearbeiding?","options":[{"id":"a","text":"Å oppnå perfekt overflatefinish","isCorrect":false},{"id":"b","text":"Å måle delen","isCorrect":false},{"id":"c","text":"Å bore gjenger","isCorrect":false},{"id":"d","text":"Å fjerne mykje materiale raskt, med margin igjen til finish","isCorrect":true}],"solution":"Grovbearbeiding fjernar mest mogleg materiale raskt og etterlèt typisk 0,5--1 mm margin som finbearbeidinga tek av etterpå."},{"id":"tif-vg1-3-6-n-quiz1-q2","task":"Kva for ein operasjon passar best for å frese ut ei rektangulær lomme?","options":[{"id":"a","text":"2D Pocket","isCorrect":true},{"id":"b","text":"Scallop","isCorrect":false},{"id":"c","text":"3D Contour","isCorrect":false},{"id":"d","text":"Parallell finish","isCorrect":false}],"solution":"Ein 2D Pocket fresar ut holrom og lommer i fleire nivå med step-down, og er standardvalet for ei rektangulær lomme."}]}},{"id":"tif-vg1-3-6-n-section2","type":"text","content":"## Verktøy, parametrar og smarte banar\n\nFør CAM kan rekne ut noko, må programmet vite kva for eit verktøy du brukar. Du definerer kvart verktøy med type (pinnefresar, kulefres eller planfres), diameter, lengd, tal på skjer (tenner) og materiale, til dømes HSS eller hardmetall. Mange CAM-program har databasar med tilrådde skjereverdiar, men du kan justere sjølv: skjerehastigheit $v_c$, spindelturtal (rpm), mating per tann $f_z$, total mating $v_f$, skjeredjupne $a_p$ og sidevegs steg $a_e$.\n\nSjølve verktøybanen kan leggjast på fleire måtar. Ved **konvensjonell** (motløps) fresing er det tryggare på eldre maskiner. Ved **climb** (medløps) får du betre finish, og det blir føretrekt på CNC. **Trochoidal** eller **adaptiv** bane held verktøyinngrepet konstant, reduserer slitasje og går raskare på moderne maskiner. Og **HSM** (High Speed Machining) brukar høge farter med små skjeredjupner og avrunda hjørne for å redusere sjokklaster.\n\nEit viktig tryggleiksaspekt er høgdene verktøyet rører seg i mellom kutta. **Retract-nivået** er ei trygg høgd mellom operasjonar, **clearance-nivået** ligg godt over fikstur og emne, og **rapid-nivået** er der maskina kan køyre fort ned til like over emnet. Set du desse for lågt, risikerer du at verktøyet eller haldaren treffer fiksturen i fri køyring -- ei av dei vanlegaste årsakene til krasj. Rette verktøydata og parametrar er altså ikkje berre eit spørsmål om effektivitet, men òg om tryggleik og overflatekvalitet."},{"id":"tif-vg1-3-6-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-3-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på verktøybanar og parametrar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-6-n-quiz2-q0","task":"Kva tyder $f_z$ blant skjereparametrane?","options":[{"id":"a","text":"Skjeredjupne","isCorrect":false},{"id":"b","text":"Mating per tann","isCorrect":true},{"id":"c","text":"Spindelturtal","isCorrect":false},{"id":"d","text":"Verktøydiameter","isCorrect":false}],"solution":"$f_z$ er mating per tann -- kor mykje kvar skjeretann matar seg framover. Total mating $v_f$ avheng av $f_z$, tal på tenner og turtalet."},{"id":"tif-vg1-3-6-n-quiz2-q1","task":"Kva for ein banestrategi gir betre overflatefinish og blir føretrekt på CNC?","options":[{"id":"a","text":"Konvensjonell (motløps)","isCorrect":false},{"id":"b","text":"Manuell jogging","isCorrect":false},{"id":"c","text":"Climb (medløps)","isCorrect":true},{"id":"d","text":"Hurtiggang","isCorrect":false}],"solution":"Climb-fresing (medløps) gir betre overflatefinish og blir føretrekt på CNC. Konvensjonell (motløps) blir rekna som tryggare på eldre, mindre stive maskiner."},{"id":"tif-vg1-3-6-n-quiz2-q2","task":"Kva kjenneteiknar ein adaptiv (trochoidal) verktøybane?","options":[{"id":"a","text":"Han borar djupe hol","isCorrect":false},{"id":"b","text":"Han måler emnet undervegs","isCorrect":false},{"id":"c","text":"Han varierer turtalet tilfeldig","isCorrect":false},{"id":"d","text":"Han held verktøyinngrepet konstant og reduserer slitasje","isCorrect":true}],"solution":"Ein adaptiv/trochoidal bane held verktøyinngrepet konstant, noko som reduserer slitasje og lèt moderne maskiner køyre raskare og jamnare."}]}},{"id":"tif-vg1-3-6-n-section3","type":"text","content":"## Simuler før du køyrer -- alltid\n\nNo kjem kanskje det viktigaste steget av alle. Før G-koden i det heile teke blir generert, køyrer du programmet **visuelt på skjermen**. Kvifor er dette så avgjerande? Fordi ein feil oppdaga i simuleringa kostar nokre sekund, medan den same feilen oppdaga på maskina kan koste eit øydelagt verktøy, ein øydelagt del, ein skadd spindel -- eller verre.\n\nDu kan simulere på fleire nivå. **Verktøybanesimulering** viser rørslene og lèt deg sjekke logikken raskt. **Materialfjerningssimulering** viser emnet bli maskinert lag for lag, så du ser om noko materiale blir ståande igjen eller om overflata blir bra. Og **kollisjonsdeteksjon** -- den kritiske -- sjekkar om verktøyet, verktøyhaldaren eller spindelen kolliderer med fikstur eller emne. Dette er tryggingsnettet ditt.\n\nNår simuleringa er rein, kjem **postprosessering**. CAM lagar først nøytrale verktøybanar som ikkje er knytte til noka bestemt maskin. **Postprosessoren** omset desse til G-kode-dialekten den spesifikke maskina di forstår -- for ulike styringar som Fanuc, Siemens Sinumerik, Heidenhain og Haas snakkar litt forskjellige variantar av G-kode. Vel du feil postprosessor, kan koden bli ubrukeleg eller farleg.\n\nTil slutt overfører du programmet via USB, nettverk (DNC) eller direkte tilkopling. Ein typisk flyt: importer ei STEP-fil, definer emnet som $100 \\times 50 \\times 30$ mm aluminium, vel ein $\\varnothing 10$ mm pinnefresar, lag ein 2D Pocket på 15 mm djupne med 3 mm step-down, simuler, postprosesser for rett maskin -- og køyr."},{"id":"tif-vg1-3-6-n-quiz3","type":"exercise","exercise":{"id":"tif-vg1-3-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på simulering og postprosessering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-6-n-quiz3-q0","task":"Kvifor er simulering viktig før du køyrer eit CNC-program?","options":[{"id":"a","text":"For å oppdage kollisjonar og programfeil før køyring","isCorrect":true},{"id":"b","text":"For å gjere maskina raskare","isCorrect":false},{"id":"c","text":"For å importere CAD-filer","isCorrect":false},{"id":"d","text":"For å erstatte postprosessoren","isCorrect":false}],"solution":"Simulering avslører kollisjonar, luft-skjering, utilstrekkeleg materialfjerning og feil i banane. Å fange feil på skjermen er langt billegare enn ein krasj på maskina."},{"id":"tif-vg1-3-6-n-quiz3-q1","task":"Kva er funksjonen til ein postprosessor?","options":[{"id":"a","text":"Å importere CAD-filer","isCorrect":false},{"id":"b","text":"Å omsetje CAM-banane til maskinspesifikk G-kode","isCorrect":true},{"id":"c","text":"Å velje skjereparametrar","isCorrect":false},{"id":"d","text":"Å simulere bearbeidinga","isCorrect":false}],"solution":"Postprosessoren omset dei nøytrale verktøybanane til G-kode-dialekten den spesifikke styringa (Fanuc, Siemens, Heidenhain, Haas) forstår."},{"id":"tif-vg1-3-6-n-quiz3-q2","task":"Kva for ein simuleringstype er kritisk for å unngå at verktøyhaldaren treffer fiksturen?","options":[{"id":"a","text":"Overflateruheitsmåling","isCorrect":false},{"id":"b","text":"Materialdatabasen","isCorrect":false},{"id":"c","text":"Kollisjonsdeteksjon","isCorrect":true},{"id":"d","text":"Postprosessoren","isCorrect":false}],"solution":"Kollisjonsdeteksjon sjekkar om verktøy, haldar eller spindel kolliderer med fikstur eller emne, og er den kritiske kontrollen for å unngå krasj."}]}},{"id":"tif-vg1-3-6-n-summary","type":"text","content":"## Oppsummering\n\nVi har følgt vegen frå skjerm til spon. **CAM** er brua mellom CAD og CNC, og arbeidsflyten går fast: design, import, definere emne, velje operasjonar, generere verktøybanar, simulere, postprosessere og overføre.\n\nBearbeidinga skjer i to fasar: **grovbearbeiding** fjernar mykje materiale raskt og etterlèt margin, medan **finbearbeiding** pussar delen til endeleg form og kvalitet. Du definerer verktøy og parametrar som $v_c$, $f_z$ og $a_p$, og vel banestrategi -- climb gir betre finish, medan adaptive banar held inngrepet konstant.\n\nDet viktigaste steget er **simuleringa**: verktøybane-, materialfjernings- og spesielt kollisjonssimulering fangar feil før dei blir dyre. Til slutt omset **postprosessoren** banane til maskina sin eigen G-kode-dialekt. Lær gjerne både manuell G-kode og CAM: forstå koden i botn, men bruk CAM for å produsere komplekse delar effektivt og trygt."}],"exercises":[],"_meta":{"sourceHash":"024f872387e3a835","translatedAt":"2026-06-21T09:54:37.904Z","model":"claude-code-agent","strings":69,"tm":{"aa1d07f4ebf42dc0":"Dataassistert produksjon (DAP)","b195b06d1ed59702":"Narrativ versjon","1ad726e4ced9634f":"Ei forteljing om brua mellom design og maskin -- korleis CAM-programvare gjer ein 3D-modell om til verktøybanar og G-kode, og korleis simulering reddar deg frå ein kostbar krasj.","731c2606c0f6a43d":"bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon","777e1274ef2be3a7":"## Frå ei teikning på skjermen til spon på golvet\n\nDu har teikna ein del i CAD -- ein fin 3D-modell på skjermen. Men ei CNC-maskin forstår ikkje ein 3D-modell; ho forstår G-kode. Korleis kjem du frå det eine til det andre utan å skrive hundrevis av kodelinjer for hand? Svaret er **CAM**, *Computer Aided Manufacturing*. CAM er brua mellom design og produksjon.\n\nArbeidsflyten har ein fast logikk. Du startar med **CAD-designet**, importerer geometrien til CAM, og definerer **emnet** -- altså kor stort råmaterialet er. Så vel du kva for **operasjonar** delen treng: grovfresing, finfresing, boring. CAM **genererer verktøybanane**, altså reknar ut alle rørslene verktøyet skal gjere. Deretter **simulerer** du for å kontrollere prosessen visuelt, før du **postprosesserer** til maskinspesifikk G-kode og til slutt **overfører** programmet til maskina via nettverk, USB eller DNC.\n\nDet finst mange CAM-program. Mastercam er ein industristandard, Siemens NX og Fusion 360 har integrert CAD og CAM, og Fusion 360 er rimeleg og skybasert. For tre og plast finst enklare verktøy som VCarve.\n\nKvifor bruke CAM i staden for å skrive alt sjølv? Fordi programmet reknar ut verktøybanane automatisk, sjekkar for kollisjonar i simuleringa, optimaliserer farter, lèt deg endre raskt når designet endrar seg, og gir dokumentasjon og repeterbarheit på kjøpet.","7503f598b811a885":"## Grovt først, fint etterpå\n\nNår du skal bearbeide ein del, gjer du det aldri i éi omgang. Du jobbar i to fasar, og CAM har eigne operasjonar for kvar. Først kjem **grovbearbeiding** (roughing), der målet er å fjerne mest mogleg materiale raskt. Ein **2D Pocket** fresar ut holrom og lommer i fleire nivå med step-down, ein **2D Contour** følgjer ein kontur langs ytre eller indre veggar, og ein **3D Rough** riv materiale av ei bøygd 3D-overflate. Grovoperasjonen etterlèt medvite ein liten margin -- typisk ein halv til éin millimeter -- til neste fase.\n\nSå kjem **finbearbeiding** (finishing), der du jaktar på rett dimensjon og fin overflate. Ein **2D Contour Finish** pussar veggane nøyaktig, ein **3D Contour** følgjer ei skulpturert flate, **Scallop** behandlar overgangsområde og små radiar, og ein **parallell** strategi legg jamne banar over store, opne flater.\n\nValet blir styrt av geometrien. Til ein flat botn passar 2D Pocket grovt og facing fint. Til ei 3D-overflate passar 3D Rough grovt og parallell eller scallop fint. Vertikale veggar tek du med 2D Contour, og djupe lommer med ein adaptiv strategi grovt og step-down fint.\n\nKjernen er enkel å hugse: grovt arbeid fjernar masse raskt og etterlèt margin, fint arbeid pussar delen til endeleg form og kvalitet. Brukar du finstrategi på alt, kastar du bort tid; hoppar du over finfasen, blir delen unøyaktig.","b2343a64102be0d6":"Test deg sjølv på CAM-arbeidsflyt og operasjonar:","4097889236a2af26":"placeholder","006632e8cf496fbe":"Kva er CAM si rolle i produksjonskjeda?","f62e54a6172b99b0":"Å spenne fast emnet i maskina","87763b68756f835b":"Å måle ferdige delar","18d1cdd5d3f1bc05":"Brua mellom CAD-design og CNC-produksjon","6ccd7cd282b45b7a":"Å slipe verktøya","f111e41c9ee250c4":"CAM (Computer Aided Manufacturing) er brua mellom design (CAD) og produksjon (CNC): han gjer geometrien om til verktøybanar og G-kode.","955ac1b9395cbe62":"Kva er hovudmålet med grovbearbeiding?","28eb2864bc504395":"Å oppnå perfekt overflatefinish","b13626a1c5de016e":"Å måle delen","cc42411ae696c97e":"Å bore gjenger","349b48b0f3278796":"Å fjerne mykje materiale raskt, med margin igjen til finish","f386e36db53e3318":"Grovbearbeiding fjernar mest mogleg materiale raskt og etterlèt typisk 0,5--1 mm margin som finbearbeidinga tek av etterpå.","3ea30a55dc7f9915":"Kva for ein operasjon passar best for å frese ut ei rektangulær lomme?","cde8039c70dd3e33":"2D Pocket","3e07b6f9b5cb5469":"Scallop","66d24a02e0c4e45b":"3D Contour","203529baf07fea94":"Parallell finish","50d9901d00eb22f9":"Ein 2D Pocket fresar ut holrom og lommer i fleire nivå med step-down, og er standardvalet for ei rektangulær lomme.","fb2ae23eae91b3d8":"## Verktøy, parametrar og smarte banar\n\nFør CAM kan rekne ut noko, må programmet vite kva for eit verktøy du brukar. Du definerer kvart verktøy med type (pinnefresar, kulefres eller planfres), diameter, lengd, tal på skjer (tenner) og materiale, til dømes HSS eller hardmetall. Mange CAM-program har databasar med tilrådde skjereverdiar, men du kan justere sjølv: skjerehastigheit $v_c$, spindelturtal (rpm), mating per tann $f_z$, total mating $v_f$, skjeredjupne $a_p$ og sidevegs steg $a_e$.\n\nSjølve verktøybanen kan leggjast på fleire måtar. Ved **konvensjonell** (motløps) fresing er det tryggare på eldre maskiner. Ved **climb** (medløps) får du betre finish, og det blir føretrekt på CNC. **Trochoidal** eller **adaptiv** bane held verktøyinngrepet konstant, reduserer slitasje og går raskare på moderne maskiner. Og **HSM** (High Speed Machining) brukar høge farter med små skjeredjupner og avrunda hjørne for å redusere sjokklaster.\n\nEit viktig tryggleiksaspekt er høgdene verktøyet rører seg i mellom kutta. **Retract-nivået** er ei trygg høgd mellom operasjonar, **clearance-nivået** ligg godt over fikstur og emne, og **rapid-nivået** er der maskina kan køyre fort ned til like over emnet. Set du desse for lågt, risikerer du at verktøyet eller haldaren treffer fiksturen i fri køyring -- ei av dei vanlegaste årsakene til krasj. Rette verktøydata og parametrar er altså ikkje berre eit spørsmål om effektivitet, men òg om tryggleik og overflatekvalitet.","122245064987f745":"Test deg sjølv på verktøybanar og parametrar:","cdfdbba441d62bb6":"Kva tyder $f_z$ blant skjereparametrane?","02d59af8d76524fd":"Skjeredjupne","1424d9a8568668ec":"Mating per tann","d85bd551dbcb6180":"Spindelturtal","eda39142488ffa37":"Verktøydiameter","fdc70f7812c6ea60":"$f_z$ er mating per tann -- kor mykje kvar skjeretann matar seg framover. Total mating $v_f$ avheng av $f_z$, tal på tenner og turtalet.","cb68b154963db069":"Kva for ein banestrategi gir betre overflatefinish og blir føretrekt på CNC?","c5d4d16ba0e7fa30":"Konvensjonell (motløps)","89603787fa8b715c":"Manuell jogging","1e686f384cb1f90f":"Climb (medløps)","8a84830f1b7f1e8e":"Hurtiggang","2c9f24723ba682c5":"Climb-fresing (medløps) gir betre overflatefinish og blir føretrekt på CNC. Konvensjonell (motløps) blir rekna som tryggare på eldre, mindre stive maskiner.","b2d87b6259f7a4eb":"Kva kjenneteiknar ein adaptiv (trochoidal) verktøybane?","cde935e53ff2035e":"Han borar djupe hol","ade68ae3c55d8e69":"Han måler emnet undervegs","2edf65a3b5de94f3":"Han varierer turtalet tilfeldig","c2cccd905dc3b89c":"Han held verktøyinngrepet konstant og reduserer slitasje","f6529cf50208bd0c":"Ein adaptiv/trochoidal bane held verktøyinngrepet konstant, noko som reduserer slitasje og lèt moderne maskiner køyre raskare og jamnare.","5e9eb343c2080928":"## Simuler før du køyrer -- alltid\n\nNo kjem kanskje det viktigaste steget av alle. Før G-koden i det heile teke blir generert, køyrer du programmet **visuelt på skjermen**. Kvifor er dette så avgjerande? Fordi ein feil oppdaga i simuleringa kostar nokre sekund, medan den same feilen oppdaga på maskina kan koste eit øydelagt verktøy, ein øydelagt del, ein skadd spindel -- eller verre.\n\nDu kan simulere på fleire nivå. **Verktøybanesimulering** viser rørslene og lèt deg sjekke logikken raskt. **Materialfjerningssimulering** viser emnet bli maskinert lag for lag, så du ser om noko materiale blir ståande igjen eller om overflata blir bra. Og **kollisjonsdeteksjon** -- den kritiske -- sjekkar om verktøyet, verktøyhaldaren eller spindelen kolliderer med fikstur eller emne. Dette er tryggingsnettet ditt.\n\nNår simuleringa er rein, kjem **postprosessering**. CAM lagar først nøytrale verktøybanar som ikkje er knytte til noka bestemt maskin. **Postprosessoren** omset desse til G-kode-dialekten den spesifikke maskina di forstår -- for ulike styringar som Fanuc, Siemens Sinumerik, Heidenhain og Haas snakkar litt forskjellige variantar av G-kode. Vel du feil postprosessor, kan koden bli ubrukeleg eller farleg.\n\nTil slutt overfører du programmet via USB, nettverk (DNC) eller direkte tilkopling. Ein typisk flyt: importer ei STEP-fil, definer emnet som $100 \\times 50 \\times 30$ mm aluminium, vel ein $\\varnothing 10$ mm pinnefresar, lag ein 2D Pocket på 15 mm djupne med 3 mm step-down, simuler, postprosesser for rett maskin -- og køyr.","72d57fea05e63557":"Test deg sjølv på simulering og postprosessering:","37c4f132ec75bc8b":"Kvifor er simulering viktig før du køyrer eit CNC-program?","d6170d31a173d570":"For å oppdage kollisjonar og programfeil før køyring","64d7beb2765bfa98":"For å gjere maskina raskare","cfafd12255a0dac9":"For å importere CAD-filer","6237e7d33065525c":"For å erstatte postprosessoren","89e7398a45cb1afd":"Simulering avslører kollisjonar, luft-skjering, utilstrekkeleg materialfjerning og feil i banane. Å fange feil på skjermen er langt billegare enn ein krasj på maskina.","5124160b38f8cd04":"Kva er funksjonen til ein postprosessor?","7420dcae77c4d026":"Å importere CAD-filer","c05fa9cd8e0b369e":"Å omsetje CAM-banane til maskinspesifikk G-kode","1deaabba75c01a6c":"Å velje skjereparametrar","9f7ab3006e1f4146":"Å simulere bearbeidinga","6ba9f9e4fa57792e":"Postprosessoren omset dei nøytrale verktøybanane til G-kode-dialekten den spesifikke styringa (Fanuc, Siemens, Heidenhain, Haas) forstår.","f04e719acf9253ce":"Kva for ein simuleringstype er kritisk for å unngå at verktøyhaldaren treffer fiksturen?","a1dae8ecf47b455d":"Overflateruheitsmåling","f3b5dcb1f92b53f4":"Materialdatabasen","0d34aa39b1ac8c34":"Kollisjonsdeteksjon","303c8cdaa7e1a75e":"Postprosessoren","97019b82960778d4":"Kollisjonsdeteksjon sjekkar om verktøy, haldar eller spindel kolliderer med fikstur eller emne, og er den kritiske kontrollen for å unngå krasj.","27f49d2d4677ad3f":"## Oppsummering\n\nVi har følgt vegen frå skjerm til spon. **CAM** er brua mellom CAD og CNC, og arbeidsflyten går fast: design, import, definere emne, velje operasjonar, generere verktøybanar, simulere, postprosessere og overføre.\n\nBearbeidinga skjer i to fasar: **grovbearbeiding** fjernar mykje materiale raskt og etterlèt margin, medan **finbearbeiding** pussar delen til endeleg form og kvalitet. Du definerer verktøy og parametrar som $v_c$, $f_z$ og $a_p$, og vel banestrategi -- climb gir betre finish, medan adaptive banar held inngrepet konstant.\n\nDet viktigaste steget er **simuleringa**: verktøybane-, materialfjernings- og spesielt kollisjonssimulering fangar feil før dei blir dyre. Til slutt omset **postprosessoren** banane til maskina sin eigen G-kode-dialekt. Lær gjerne både manuell G-kode og CAM: forstå koden i botn, men bruk CAM for å produsere komplekse delar effektivt og trygt."}}}
+{
+  "id": "tif-vg1-3-6-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "3.6",
+  "title": "Dataassistert produksjon (DAP)",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om brua mellom design og maskin -- korleis CAM-programvare gjer ein 3D-modell om til verktøybanar og G-kode, og korleis simulering reddar deg frå ein kostbar krasj.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon"
+  ],
+  "linkedChapterId": "tif-vg1-3-6",
+  "content": [
+    {
+      "id": "tif-vg1-3-6-n-intro",
+      "type": "text",
+      "content": "## Frå ei teikning på skjermen til spon på golvet\n\nDu har teikna ein del i CAD -- ein fin 3D-modell på skjermen. Men ei CNC-maskin forstår ikkje ein 3D-modell; ho forstår G-kode. Korleis kjem du frå det eine til det andre utan å skrive hundrevis av kodelinjer for hand? Svaret er **CAM**, *Computer Aided Manufacturing*. CAM er brua mellom design og produksjon.\n\nArbeidsflyten har ein fast logikk. Du startar med **CAD-designet**, importerer geometrien til CAM, og definerer **emnet** -- altså kor stort råmaterialet er. Så vel du kva for **operasjonar** delen treng: grovfresing, finfresing, boring. CAM **genererer verktøybanane**, altså reknar ut alle rørslene verktøyet skal gjere. Deretter **simulerer** du for å kontrollere prosessen visuelt, før du **postprosesserer** til maskinspesifikk G-kode og til slutt **overfører** programmet til maskina via nettverk, USB eller DNC.\n\nDet finst mange CAM-program. Mastercam er ein industristandard, Siemens NX og Fusion 360 har integrert CAD og CAM, og Fusion 360 er rimeleg og skybasert. For tre og plast finst enklare verktøy som VCarve.\n\nKvifor bruke CAM i staden for å skrive alt sjølv? Fordi programmet reknar ut verktøybanane automatisk, sjekkar for kollisjonar i simuleringa, optimaliserer farter, lèt deg endre raskt når designet endrar seg, og gir dokumentasjon og repeterbarheit på kjøpet."
+    },
+    {
+      "id": "tif-vg1-3-6-n-section1",
+      "type": "text",
+      "content": "## Grovt først, fint etterpå\n\nNår du skal bearbeide ein del, gjer du det aldri i éi omgang. Du jobbar i to fasar, og CAM har eigne operasjonar for kvar. Først kjem **grovbearbeiding** (roughing), der målet er å fjerne mest mogleg materiale raskt. Ein **2D Pocket** fresar ut holrom og lommer i fleire nivå med step-down, ein **2D Contour** følgjer ein kontur langs ytre eller indre veggar, og ein **3D Rough** riv materiale av ei bøygd 3D-overflate. Grovoperasjonen etterlèt medvite ein liten margin -- typisk ein halv til éin millimeter -- til neste fase.\n\nSå kjem **finbearbeiding** (finishing), der du jaktar på rett dimensjon og fin overflate. Ein **2D Contour Finish** pussar veggane nøyaktig, ein **3D Contour** følgjer ei skulpturert flate, **Scallop** behandlar overgangsområde og små radiar, og ein **parallell** strategi legg jamne banar over store, opne flater.\n\nValet blir styrt av geometrien. Til ein flat botn passar 2D Pocket grovt og facing fint. Til ei 3D-overflate passar 3D Rough grovt og parallell eller scallop fint. Vertikale veggar tek du med 2D Contour, og djupe lommer med ein adaptiv strategi grovt og step-down fint.\n\nKjernen er enkel å hugse: grovt arbeid fjernar masse raskt og etterlèt margin, fint arbeid pussar delen til endeleg form og kvalitet. Brukar du finstrategi på alt, kastar du bort tid; hoppar du over finfasen, blir delen unøyaktig."
+    },
+    {
+      "id": "tif-vg1-3-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på CAM-arbeidsflyt og operasjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-6-n-quiz1-q0",
+            "task": "Kva er CAM si rolle i produksjonskjeda?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å spenne fast emnet i maskina",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Brua mellom CAD-design og CNC-produksjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å måle ferdige delar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å slipe verktøya",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CAM (Computer Aided Manufacturing) er brua mellom design (CAD) og produksjon (CNC): han gjer geometrien om til verktøybanar og G-kode."
+          },
+          {
+            "id": "tif-vg1-3-6-n-quiz1-q1",
+            "task": "Kva er hovudmålet med grovbearbeiding?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å oppnå perfekt overflatefinish",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å måle delen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å fjerne mykje materiale raskt, med margin igjen til finish",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å bore gjenger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grovbearbeiding fjernar mest mogleg materiale raskt og etterlèt typisk 0,5--1 mm margin som finbearbeidinga tek av etterpå."
+          },
+          {
+            "id": "tif-vg1-3-6-n-quiz1-q2",
+            "task": "Kva for ein operasjon passar best for å frese ut ei rektangulær lomme?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Scallop",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "3D Contour",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Parallell finish",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "2D Pocket",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein 2D Pocket fresar ut holrom og lommer i fleire nivå med step-down, og er standardvalet for ei rektangulær lomme."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-6-n-section2",
+      "type": "text",
+      "content": "## Verktøy, parametrar og smarte banar\n\nFør CAM kan rekne ut noko, må programmet vite kva for eit verktøy du brukar. Du definerer kvart verktøy med type (pinnefresar, kulefres eller planfres), diameter, lengd, tal på skjer (tenner) og materiale, til dømes HSS eller hardmetall. Mange CAM-program har databasar med tilrådde skjereverdiar, men du kan justere sjølv: skjerehastigheit $v_c$, spindelturtal (rpm), mating per tann $f_z$, total mating $v_f$, skjeredjupne $a_p$ og sidevegs steg $a_e$.\n\nSjølve verktøybanen kan leggjast på fleire måtar. Ved **konvensjonell** (motløps) fresing er det tryggare på eldre maskiner. Ved **climb** (medløps) får du betre finish, og det blir føretrekt på CNC. **Trochoidal** eller **adaptiv** bane held verktøyinngrepet konstant, reduserer slitasje og går raskare på moderne maskiner. Og **HSM** (High Speed Machining) brukar høge farter med små skjeredjupner og avrunda hjørne for å redusere sjokklaster.\n\nEit viktig tryggleiksaspekt er høgdene verktøyet rører seg i mellom kutta. **Retract-nivået** er ei trygg høgd mellom operasjonar, **clearance-nivået** ligg godt over fikstur og emne, og **rapid-nivået** er der maskina kan køyre fort ned til like over emnet. Set du desse for lågt, risikerer du at verktøyet eller haldaren treffer fiksturen i fri køyring -- ei av dei vanlegaste årsakene til krasj. Rette verktøydata og parametrar er altså ikkje berre eit spørsmål om effektivitet, men òg om tryggleik og overflatekvalitet."
+    },
+    {
+      "id": "tif-vg1-3-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på verktøybanar og parametrar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-6-n-quiz2-q0",
+            "task": "Kva tyder $f_z$ blant skjereparametrane?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Mating per tann",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Skjeredjupne",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spindelturtal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verktøydiameter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f_z$ er mating per tann -- kor mykje kvar skjeretann matar seg framover. Total mating $v_f$ avheng av $f_z$, tal på tenner og turtalet."
+          },
+          {
+            "id": "tif-vg1-3-6-n-quiz2-q1",
+            "task": "Kva for ein banestrategi gir betre overflatefinish og blir føretrekt på CNC?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Konvensjonell (motløps)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Climb (medløps)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Manuell jogging",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hurtiggang",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Climb-fresing (medløps) gir betre overflatefinish og blir føretrekt på CNC. Konvensjonell (motløps) blir rekna som tryggare på eldre, mindre stive maskiner."
+          },
+          {
+            "id": "tif-vg1-3-6-n-quiz2-q2",
+            "task": "Kva kjenneteiknar ein adaptiv (trochoidal) verktøybane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han borar djupe hol",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han måler emnet undervegs",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han held verktøyinngrepet konstant og reduserer slitasje",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han varierer turtalet tilfeldig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein adaptiv/trochoidal bane held verktøyinngrepet konstant, noko som reduserer slitasje og lèt moderne maskiner køyre raskare og jamnare."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-6-n-section3",
+      "type": "text",
+      "content": "## Simuler før du køyrer -- alltid\n\nNo kjem kanskje det viktigaste steget av alle. Før G-koden i det heile teke blir generert, køyrer du programmet **visuelt på skjermen**. Kvifor er dette så avgjerande? Fordi ein feil oppdaga i simuleringa kostar nokre sekund, medan den same feilen oppdaga på maskina kan koste eit øydelagt verktøy, ein øydelagt del, ein skadd spindel -- eller verre.\n\nDu kan simulere på fleire nivå. **Verktøybanesimulering** viser rørslene og lèt deg sjekke logikken raskt. **Materialfjerningssimulering** viser emnet bli maskinert lag for lag, så du ser om noko materiale blir ståande igjen eller om overflata blir bra. Og **kollisjonsdeteksjon** -- den kritiske -- sjekkar om verktøyet, verktøyhaldaren eller spindelen kolliderer med fikstur eller emne. Dette er tryggingsnettet ditt.\n\nNår simuleringa er rein, kjem **postprosessering**. CAM lagar først nøytrale verktøybanar som ikkje er knytte til noka bestemt maskin. **Postprosessoren** omset desse til G-kode-dialekten den spesifikke maskina di forstår -- for ulike styringar som Fanuc, Siemens Sinumerik, Heidenhain og Haas snakkar litt forskjellige variantar av G-kode. Vel du feil postprosessor, kan koden bli ubrukeleg eller farleg.\n\nTil slutt overfører du programmet via USB, nettverk (DNC) eller direkte tilkopling. Ein typisk flyt: importer ei STEP-fil, definer emnet som $100 \\times 50 \\times 30$ mm aluminium, vel ein $\\varnothing 10$ mm pinnefresar, lag ein 2D Pocket på 15 mm djupne med 3 mm step-down, simuler, postprosesser for rett maskin -- og køyr."
+    },
+    {
+      "id": "tif-vg1-3-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på simulering og postprosessering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-6-n-quiz3-q0",
+            "task": "Kvifor er simulering viktig før du køyrer eit CNC-program?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å gjere maskina raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å importere CAD-filer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å erstatte postprosessoren",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For å oppdage kollisjonar og programfeil før køyring",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Simulering avslører kollisjonar, luft-skjering, utilstrekkeleg materialfjerning og feil i banane. Å fange feil på skjermen er langt billegare enn ein krasj på maskina."
+          },
+          {
+            "id": "tif-vg1-3-6-n-quiz3-q1",
+            "task": "Kva er funksjonen til ein postprosessor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å omsetje CAM-banane til maskinspesifikk G-kode",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å importere CAD-filer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å velje skjereparametrar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å simulere bearbeidinga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Postprosessoren omset dei nøytrale verktøybanane til G-kode-dialekten den spesifikke styringa (Fanuc, Siemens, Heidenhain, Haas) forstår."
+          },
+          {
+            "id": "tif-vg1-3-6-n-quiz3-q2",
+            "task": "Kva for ein simuleringstype er kritisk for å unngå at verktøyhaldaren treffer fiksturen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Overflateruheitsmåling",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kollisjonsdeteksjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Materialdatabasen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Postprosessoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kollisjonsdeteksjon sjekkar om verktøy, haldar eller spindel kolliderer med fikstur eller emne, og er den kritiske kontrollen for å unngå krasj."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har følgt vegen frå skjerm til spon. **CAM** er brua mellom CAD og CNC, og arbeidsflyten går fast: design, import, definere emne, velje operasjonar, generere verktøybanar, simulere, postprosessere og overføre.\n\nBearbeidinga skjer i to fasar: **grovbearbeiding** fjernar mykje materiale raskt og etterlèt margin, medan **finbearbeiding** pussar delen til endeleg form og kvalitet. Du definerer verktøy og parametrar som $v_c$, $f_z$ og $a_p$, og vel banestrategi -- climb gir betre finish, medan adaptive banar held inngrepet konstant.\n\nDet viktigaste steget er **simuleringa**: verktøybane-, materialfjernings- og spesielt kollisjonssimulering fangar feil før dei blir dyre. Til slutt omset **postprosessoren** banane til maskina sin eigen G-kode-dialekt. Lær gjerne både manuell G-kode og CAM: forstå koden i botn, men bruk CAM for å produsere komplekse delar effektivt og trygt."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "024f872387e3a835",
+    "translatedAt": "2026-06-21T09:54:37.904Z",
+    "model": "claude-code-agent",
+    "strings": 69,
+    "tm": {
+      "aa1d07f4ebf42dc0": "Dataassistert produksjon (DAP)",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1ad726e4ced9634f": "Ei forteljing om brua mellom design og maskin -- korleis CAM-programvare gjer ein 3D-modell om til verktøybanar og G-kode, og korleis simulering reddar deg frå ein kostbar krasj.",
+      "731c2606c0f6a43d": "bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon",
+      "777e1274ef2be3a7": "## Frå ei teikning på skjermen til spon på golvet\n\nDu har teikna ein del i CAD -- ein fin 3D-modell på skjermen. Men ei CNC-maskin forstår ikkje ein 3D-modell; ho forstår G-kode. Korleis kjem du frå det eine til det andre utan å skrive hundrevis av kodelinjer for hand? Svaret er **CAM**, *Computer Aided Manufacturing*. CAM er brua mellom design og produksjon.\n\nArbeidsflyten har ein fast logikk. Du startar med **CAD-designet**, importerer geometrien til CAM, og definerer **emnet** -- altså kor stort råmaterialet er. Så vel du kva for **operasjonar** delen treng: grovfresing, finfresing, boring. CAM **genererer verktøybanane**, altså reknar ut alle rørslene verktøyet skal gjere. Deretter **simulerer** du for å kontrollere prosessen visuelt, før du **postprosesserer** til maskinspesifikk G-kode og til slutt **overfører** programmet til maskina via nettverk, USB eller DNC.\n\nDet finst mange CAM-program. Mastercam er ein industristandard, Siemens NX og Fusion 360 har integrert CAD og CAM, og Fusion 360 er rimeleg og skybasert. For tre og plast finst enklare verktøy som VCarve.\n\nKvifor bruke CAM i staden for å skrive alt sjølv? Fordi programmet reknar ut verktøybanane automatisk, sjekkar for kollisjonar i simuleringa, optimaliserer farter, lèt deg endre raskt når designet endrar seg, og gir dokumentasjon og repeterbarheit på kjøpet.",
+      "7503f598b811a885": "## Grovt først, fint etterpå\n\nNår du skal bearbeide ein del, gjer du det aldri i éi omgang. Du jobbar i to fasar, og CAM har eigne operasjonar for kvar. Først kjem **grovbearbeiding** (roughing), der målet er å fjerne mest mogleg materiale raskt. Ein **2D Pocket** fresar ut holrom og lommer i fleire nivå med step-down, ein **2D Contour** følgjer ein kontur langs ytre eller indre veggar, og ein **3D Rough** riv materiale av ei bøygd 3D-overflate. Grovoperasjonen etterlèt medvite ein liten margin -- typisk ein halv til éin millimeter -- til neste fase.\n\nSå kjem **finbearbeiding** (finishing), der du jaktar på rett dimensjon og fin overflate. Ein **2D Contour Finish** pussar veggane nøyaktig, ein **3D Contour** følgjer ei skulpturert flate, **Scallop** behandlar overgangsområde og små radiar, og ein **parallell** strategi legg jamne banar over store, opne flater.\n\nValet blir styrt av geometrien. Til ein flat botn passar 2D Pocket grovt og facing fint. Til ei 3D-overflate passar 3D Rough grovt og parallell eller scallop fint. Vertikale veggar tek du med 2D Contour, og djupe lommer med ein adaptiv strategi grovt og step-down fint.\n\nKjernen er enkel å hugse: grovt arbeid fjernar masse raskt og etterlèt margin, fint arbeid pussar delen til endeleg form og kvalitet. Brukar du finstrategi på alt, kastar du bort tid; hoppar du over finfasen, blir delen unøyaktig.",
+      "b2343a64102be0d6": "Test deg sjølv på CAM-arbeidsflyt og operasjonar:",
+      "4097889236a2af26": "placeholder",
+      "006632e8cf496fbe": "Kva er CAM si rolle i produksjonskjeda?",
+      "f62e54a6172b99b0": "Å spenne fast emnet i maskina",
+      "87763b68756f835b": "Å måle ferdige delar",
+      "18d1cdd5d3f1bc05": "Brua mellom CAD-design og CNC-produksjon",
+      "6ccd7cd282b45b7a": "Å slipe verktøya",
+      "f111e41c9ee250c4": "CAM (Computer Aided Manufacturing) er brua mellom design (CAD) og produksjon (CNC): han gjer geometrien om til verktøybanar og G-kode.",
+      "955ac1b9395cbe62": "Kva er hovudmålet med grovbearbeiding?",
+      "28eb2864bc504395": "Å oppnå perfekt overflatefinish",
+      "b13626a1c5de016e": "Å måle delen",
+      "cc42411ae696c97e": "Å bore gjenger",
+      "349b48b0f3278796": "Å fjerne mykje materiale raskt, med margin igjen til finish",
+      "f386e36db53e3318": "Grovbearbeiding fjernar mest mogleg materiale raskt og etterlèt typisk 0,5--1 mm margin som finbearbeidinga tek av etterpå.",
+      "3ea30a55dc7f9915": "Kva for ein operasjon passar best for å frese ut ei rektangulær lomme?",
+      "cde8039c70dd3e33": "2D Pocket",
+      "3e07b6f9b5cb5469": "Scallop",
+      "66d24a02e0c4e45b": "3D Contour",
+      "203529baf07fea94": "Parallell finish",
+      "50d9901d00eb22f9": "Ein 2D Pocket fresar ut holrom og lommer i fleire nivå med step-down, og er standardvalet for ei rektangulær lomme.",
+      "fb2ae23eae91b3d8": "## Verktøy, parametrar og smarte banar\n\nFør CAM kan rekne ut noko, må programmet vite kva for eit verktøy du brukar. Du definerer kvart verktøy med type (pinnefresar, kulefres eller planfres), diameter, lengd, tal på skjer (tenner) og materiale, til dømes HSS eller hardmetall. Mange CAM-program har databasar med tilrådde skjereverdiar, men du kan justere sjølv: skjerehastigheit $v_c$, spindelturtal (rpm), mating per tann $f_z$, total mating $v_f$, skjeredjupne $a_p$ og sidevegs steg $a_e$.\n\nSjølve verktøybanen kan leggjast på fleire måtar. Ved **konvensjonell** (motløps) fresing er det tryggare på eldre maskiner. Ved **climb** (medløps) får du betre finish, og det blir føretrekt på CNC. **Trochoidal** eller **adaptiv** bane held verktøyinngrepet konstant, reduserer slitasje og går raskare på moderne maskiner. Og **HSM** (High Speed Machining) brukar høge farter med små skjeredjupner og avrunda hjørne for å redusere sjokklaster.\n\nEit viktig tryggleiksaspekt er høgdene verktøyet rører seg i mellom kutta. **Retract-nivået** er ei trygg høgd mellom operasjonar, **clearance-nivået** ligg godt over fikstur og emne, og **rapid-nivået** er der maskina kan køyre fort ned til like over emnet. Set du desse for lågt, risikerer du at verktøyet eller haldaren treffer fiksturen i fri køyring -- ei av dei vanlegaste årsakene til krasj. Rette verktøydata og parametrar er altså ikkje berre eit spørsmål om effektivitet, men òg om tryggleik og overflatekvalitet.",
+      "122245064987f745": "Test deg sjølv på verktøybanar og parametrar:",
+      "cdfdbba441d62bb6": "Kva tyder $f_z$ blant skjereparametrane?",
+      "02d59af8d76524fd": "Skjeredjupne",
+      "1424d9a8568668ec": "Mating per tann",
+      "d85bd551dbcb6180": "Spindelturtal",
+      "eda39142488ffa37": "Verktøydiameter",
+      "fdc70f7812c6ea60": "$f_z$ er mating per tann -- kor mykje kvar skjeretann matar seg framover. Total mating $v_f$ avheng av $f_z$, tal på tenner og turtalet.",
+      "cb68b154963db069": "Kva for ein banestrategi gir betre overflatefinish og blir føretrekt på CNC?",
+      "c5d4d16ba0e7fa30": "Konvensjonell (motløps)",
+      "89603787fa8b715c": "Manuell jogging",
+      "1e686f384cb1f90f": "Climb (medløps)",
+      "8a84830f1b7f1e8e": "Hurtiggang",
+      "2c9f24723ba682c5": "Climb-fresing (medløps) gir betre overflatefinish og blir føretrekt på CNC. Konvensjonell (motløps) blir rekna som tryggare på eldre, mindre stive maskiner.",
+      "b2d87b6259f7a4eb": "Kva kjenneteiknar ein adaptiv (trochoidal) verktøybane?",
+      "cde935e53ff2035e": "Han borar djupe hol",
+      "ade68ae3c55d8e69": "Han måler emnet undervegs",
+      "2edf65a3b5de94f3": "Han varierer turtalet tilfeldig",
+      "c2cccd905dc3b89c": "Han held verktøyinngrepet konstant og reduserer slitasje",
+      "f6529cf50208bd0c": "Ein adaptiv/trochoidal bane held verktøyinngrepet konstant, noko som reduserer slitasje og lèt moderne maskiner køyre raskare og jamnare.",
+      "5e9eb343c2080928": "## Simuler før du køyrer -- alltid\n\nNo kjem kanskje det viktigaste steget av alle. Før G-koden i det heile teke blir generert, køyrer du programmet **visuelt på skjermen**. Kvifor er dette så avgjerande? Fordi ein feil oppdaga i simuleringa kostar nokre sekund, medan den same feilen oppdaga på maskina kan koste eit øydelagt verktøy, ein øydelagt del, ein skadd spindel -- eller verre.\n\nDu kan simulere på fleire nivå. **Verktøybanesimulering** viser rørslene og lèt deg sjekke logikken raskt. **Materialfjerningssimulering** viser emnet bli maskinert lag for lag, så du ser om noko materiale blir ståande igjen eller om overflata blir bra. Og **kollisjonsdeteksjon** -- den kritiske -- sjekkar om verktøyet, verktøyhaldaren eller spindelen kolliderer med fikstur eller emne. Dette er tryggingsnettet ditt.\n\nNår simuleringa er rein, kjem **postprosessering**. CAM lagar først nøytrale verktøybanar som ikkje er knytte til noka bestemt maskin. **Postprosessoren** omset desse til G-kode-dialekten den spesifikke maskina di forstår -- for ulike styringar som Fanuc, Siemens Sinumerik, Heidenhain og Haas snakkar litt forskjellige variantar av G-kode. Vel du feil postprosessor, kan koden bli ubrukeleg eller farleg.\n\nTil slutt overfører du programmet via USB, nettverk (DNC) eller direkte tilkopling. Ein typisk flyt: importer ei STEP-fil, definer emnet som $100 \\times 50 \\times 30$ mm aluminium, vel ein $\\varnothing 10$ mm pinnefresar, lag ein 2D Pocket på 15 mm djupne med 3 mm step-down, simuler, postprosesser for rett maskin -- og køyr.",
+      "72d57fea05e63557": "Test deg sjølv på simulering og postprosessering:",
+      "37c4f132ec75bc8b": "Kvifor er simulering viktig før du køyrer eit CNC-program?",
+      "d6170d31a173d570": "For å oppdage kollisjonar og programfeil før køyring",
+      "64d7beb2765bfa98": "For å gjere maskina raskare",
+      "cfafd12255a0dac9": "For å importere CAD-filer",
+      "6237e7d33065525c": "For å erstatte postprosessoren",
+      "89e7398a45cb1afd": "Simulering avslører kollisjonar, luft-skjering, utilstrekkeleg materialfjerning og feil i banane. Å fange feil på skjermen er langt billegare enn ein krasj på maskina.",
+      "5124160b38f8cd04": "Kva er funksjonen til ein postprosessor?",
+      "7420dcae77c4d026": "Å importere CAD-filer",
+      "c05fa9cd8e0b369e": "Å omsetje CAM-banane til maskinspesifikk G-kode",
+      "1deaabba75c01a6c": "Å velje skjereparametrar",
+      "9f7ab3006e1f4146": "Å simulere bearbeidinga",
+      "6ba9f9e4fa57792e": "Postprosessoren omset dei nøytrale verktøybanane til G-kode-dialekten den spesifikke styringa (Fanuc, Siemens, Heidenhain, Haas) forstår.",
+      "f04e719acf9253ce": "Kva for ein simuleringstype er kritisk for å unngå at verktøyhaldaren treffer fiksturen?",
+      "a1dae8ecf47b455d": "Overflateruheitsmåling",
+      "f3b5dcb1f92b53f4": "Materialdatabasen",
+      "0d34aa39b1ac8c34": "Kollisjonsdeteksjon",
+      "303c8cdaa7e1a75e": "Postprosessoren",
+      "97019b82960778d4": "Kollisjonsdeteksjon sjekkar om verktøy, haldar eller spindel kolliderer med fikstur eller emne, og er den kritiske kontrollen for å unngå krasj.",
+      "27f49d2d4677ad3f": "## Oppsummering\n\nVi har følgt vegen frå skjerm til spon. **CAM** er brua mellom CAD og CNC, og arbeidsflyten går fast: design, import, definere emne, velje operasjonar, generere verktøybanar, simulere, postprosessere og overføre.\n\nBearbeidinga skjer i to fasar: **grovbearbeiding** fjernar mykje materiale raskt og etterlèt margin, medan **finbearbeiding** pussar delen til endeleg form og kvalitet. Du definerer verktøy og parametrar som $v_c$, $f_z$ og $a_p$, og vel banestrategi -- climb gir betre finish, medan adaptive banar held inngrepet konstant.\n\nDet viktigaste steget er **simuleringa**: verktøybane-, materialfjernings- og spesielt kollisjonssimulering fangar feil før dei blir dyre. Til slutt omset **postprosessoren** banane til maskina sin eigen G-kode-dialekt. Lær gjerne både manuell G-kode og CAM: forstå koden i botn, men bruk CAM for å produsere komplekse delar effektivt og trygt."
+    }
+  }
+}

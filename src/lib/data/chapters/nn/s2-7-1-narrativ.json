@@ -1,1 +1,460 @@
-{"id":"s2-7-1-narrativ","courseId":"s2","chapterNumber":"7.1","title":"Aritmetiske følgjer og rekkjer","subtitle":"Narrativ versjon","description":"Ei forteljing om ei stolbestilling i kulturhuset — om aritmetiske følgjer, Gauss' geniale summetriks og kunsten å telje smart i staden for hardt.","estimatedMinutes":35,"competenceGoals":["gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar"],"linkedChapterId":"s2-7-1","content":[{"id":"s2-7-1-n-intro","type":"text","content":"## Stolradene i kulturhuset\n\nDu har fått sommarjobb i det nye kulturhuset i bygda, og første oppdrag er å bestille stolar til møtesalen. Arkitekten har teikna salen som ei vifte: første rad har 12 stolar, og kvar rad bakover har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. «Kor mange stolar skal eg bestille?» spør du. Du kunne sjølvsagt telje deg gjennom rad for rad — men det finst ein langt meir elegant veg.\n\nTala 12, 14, 16, 18, … dannar ei **følgje**: ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet. Akkurat denne følgja har ein spesiell eigenskap: differansen mellom kvart ledd og det føregåande er konstant. Slike følgjer blir kalla **aritmetiske**, og dei dukkar opp overalt — i lineær vekst, i avdraga på serielån, i nummerering og altså i stolrader.\n\nI denne forteljinga skal vi finne formlar som gir oss eit vilkårleg ledd direkte, og — med eit triks ein ni år gammal Gauss gjorde berømt — summen av alle ledda. Til slutt får du svaret på stolspørsmålet, utan å telje ei einaste rad."},{"id":"s2-7-1-n-section1","type":"text","content":"## Den aritmetiske følgja og formelen hennar\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nKonstanten $d$ blir kalla den **faste differansen**. Er $d > 0$, veks følgja; er $d < 0$, avtek ho. Følgja $2, 5, 8, 11, 14, \\ldots$ har $d = 3$, medan $20, 17, 14, 11, \\ldots$ har $d = -3$. Stolradene våre har $a_1 = 12$ og $d = 2$.\n\nDet fine med aritmetiske følgjer er at vi kan hoppe rett til eit vilkårleg ledd utan å rekne oss gjennom alle dei føregåande. Frå $a_1$ til $a_n$ legg vi til $d$ nøyaktig $n - 1$ gonger, så den **eksplisitte formelen** er\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nLat oss øve på ei følgje med $a_1 = 4$ og $d = 3$. Det $n$-te leddet blir $a_n = 4 + (n-1) \\cdot 3 = 3n + 1$, og det 20. leddet er $a_{20} = 3 \\cdot 20 + 1 = 61$. Ein rask kontroll: dei første ledda etter formelen er $4, 7, 10, 13, \\ldots$ — som stemmer.\n\nFor stolradene gir formelen straks bakarste rad: $a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$ stolar. Men kor mange stolar er det *totalt*? Då må vi summere — og det er neste del av historia."},{"id":"s2-7-1-n-quiz1","type":"exercise","exercise":{"id":"s2-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på aritmetiske følgjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-1-n-quiz1-q0","task":"Kva kjenneteiknar ei aritmetisk følgje?","options":[{"id":"a","text":"Forholdet mellom etterfølgjande ledd er konstant","isCorrect":false},{"id":"b","text":"Differansen mellom etterfølgjande ledd er konstant","isCorrect":true},{"id":"c","text":"Alle ledda er like","isCorrect":false},{"id":"d","text":"Ledda veks eksponentielt","isCorrect":false}],"solution":"I ei aritmetisk følgje er $a_{n+1} - a_n = d$ konstant. (Konstant forhold kjenneteiknar geometriske følgjer.)"},{"id":"s2-7-1-n-quiz1-q1","task":"Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Kva er $a_{20}$?","options":[{"id":"a","text":"$64$","isCorrect":false},{"id":"b","text":"$57$","isCorrect":false},{"id":"c","text":"$61$","isCorrect":true},{"id":"d","text":"$80$","isCorrect":false}],"solution":"$a_{20} = a_1 + 19d = 4 + 19 \\cdot 3 = 4 + 57 = 61$."},{"id":"s2-7-1-n-quiz1-q2","task":"Følgja $20, 17, 14, 11, \\ldots$ er aritmetisk. Kva er $d$?","options":[{"id":"a","text":"$d = -3$","isCorrect":true},{"id":"b","text":"$d = 3$","isCorrect":false},{"id":"c","text":"$d = -17$","isCorrect":false},{"id":"d","text":"$d = \\frac{17}{20}$","isCorrect":false}],"solution":"$d = a_2 - a_1 = 17 - 20 = -3$. Følgja er avtakande fordi $d < 0$."},{"id":"s2-7-1-n-quiz1-q3","task":"Radene i kulturhuset har $a_1 = 12$ og $d = 2$. Kor mange stolar har rad 15?","options":[{"id":"a","text":"$32$","isCorrect":false},{"id":"b","text":"$42$","isCorrect":false},{"id":"c","text":"$30$","isCorrect":false},{"id":"d","text":"$40$","isCorrect":true}],"solution":"$a_{15} = 12 + (15-1) \\cdot 2 = 12 + 28 = 40$ stolar."}]}},{"id":"s2-7-1-n-section2","type":"text","content":"## Gauss' triks og summen av rekkja\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda kallar vi $S_n = a_1 + a_2 + \\cdots + a_n$. Historia fortel at den unge Carl Friedrich Gauss fekk i oppgåve å summere tala frå 1 til 100 — og svarte nesten med ein gong. Trikset hans: skriv summen to gonger, éin gong forlengs og éin gong baklengs, og legg dei saman:\n\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\n\nKvart kolonnepar summerer seg til nøyaktig $a_1 + a_n$, og det er $n$ slike par. Dermed er $2S_n = n(a_1 + a_n)$, altså\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nDen andre forma får vi ved å setje inn $a_n = a_1 + (n-1)d$ — nyttig når vi ikkje har rekna ut siste ledd.\n\nPrøv med følgja $3, 7, 11, 15, \\ldots$: kva er summen av dei 50 første ledda? Vi har $a_1 = 3$ og $d = 4$, så $a_{50} = 3 + 49 \\cdot 4 = 199$, og dermed $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$.\n\nFor å skrive summar kompakt bruker matematikarar **summeteiknet**, den greske bokstaven sigma:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + \\cdots + a_n$$\n\nHer er $k$ summeindeksen, $1$ nedre grense og $n$ øvre grense. Til dømes er $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$.\n\nOg kulturhuset? Vi veit at $a_1 = 12$, $a_{20} = 50$ og $n = 20$, så $S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$. Du bestiller 620 stolar — og er ferdig før kollegaen din har talt tre rader."},{"id":"s2-7-1-n-quiz2","type":"exercise","exercise":{"id":"s2-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på summen av aritmetiske rekkjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-1-n-quiz2-q0","task":"Kva er ideen bak Gauss' summetriks?","options":[{"id":"a","text":"Å derivere summen og setje lik null","isCorrect":false},{"id":"b","text":"Å multiplisere summen med kvotienten $k$","isCorrect":false},{"id":"c","text":"Å skrive summen forlengs og baklengs slik at kvart par blir $a_1 + a_n$","isCorrect":true},{"id":"d","text":"Å runde av alle ledda til næraste tiar","isCorrect":false}],"solution":"Forlengs pluss baklengs gir $n$ par som kvart summerer til $a_1 + a_n$, altså $2S_n = n(a_1 + a_n)$."},{"id":"s2-7-1-n-quiz2-q1","task":"Finn summen av dei 50 første ledda i $3, 7, 11, 15, \\ldots$","options":[{"id":"a","text":"$5050$","isCorrect":true},{"id":"b","text":"$4950$","isCorrect":false},{"id":"c","text":"$10\\,100$","isCorrect":false},{"id":"d","text":"$2525$","isCorrect":false}],"solution":"$a_{50} = 3 + 49 \\cdot 4 = 199$, og $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$."},{"id":"s2-7-1-n-quiz2-q2","task":"Kva er $\\sum_{k=1}^{5} (2k+1)$?","options":[{"id":"a","text":"$25$","isCorrect":false},{"id":"b","text":"$35$","isCorrect":true},{"id":"c","text":"$11$","isCorrect":false},{"id":"d","text":"$30$","isCorrect":false}],"solution":"Ledda er $3, 5, 7, 9, 11$, og summen er $35$."},{"id":"s2-7-1-n-quiz2-q3","task":"Kulturhuset har 20 rader med $a_1 = 12$ og $a_{20} = 50$. Kor mange stolar totalt?","options":[{"id":"a","text":"$500$","isCorrect":false},{"id":"b","text":"$1240$","isCorrect":false},{"id":"c","text":"$310$","isCorrect":false},{"id":"d","text":"$620$","isCorrect":true}],"solution":"$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$ stolar."}]}},{"id":"s2-7-1-n-section3","type":"text","content":"## Aritmetiske rekkjer i kvardagen\n\nStolbestillinga er berre eitt døme. Aritmetiske rekkjer gøymer seg overalt der noko endrar seg med eit fast beløp om gongen.\n\nTenk på eit **serielån**: der er avdraga like store kvar termin, og sidan rentene blir rekna av ein stadig mindre restgjeld, avtek terminbeløpa med ein fast differanse — ei aritmetisk følgje. Eller tenk på **lineær vekst** i ei bedrift: dersom talet på nye kundar per månad aukar med eit fast tal, er den samla kundeauken ei aritmetisk rekkje. Også **trappemønster** — figurar bygde av blokker med jamt aukande rader — blir talde med dei same formlane.\n\nNøkkelen i alle praktiske oppgåver er å *kjenne att strukturen*: er differansen mellom etterfølgjande verdiar konstant? Då identifiserer du $a_1$, $d$ og $n$ frå oppgåveteksten, bruker den eksplisitte formelen $a_n = a_1 + (n-1)d$ for å finne enkeltledd, og sumformelen $S_n = \\frac{n}{2}(a_1 + a_n)$ for totalsummen. Eit godt sluttsjekk-triks er å rekne ut dei første ledda manuelt og sjå at dei stemmer med formelen.\n\nAritmetiske følgjer er den eine av dei to store følgjefamiliane i S2. I neste kapittel møter du den andre — dei geometriske følgjene, der vi multipliserer i staden for å addere, og der økonomien for alvor kjem inn i biletet."},{"id":"s2-7-1-n-quiz3","type":"exercise","exercise":{"id":"s2-7-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på praktisk bruk av aritmetiske rekkjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-1-n-quiz3-q0","task":"Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?","options":[{"id":"a","text":"Fordi avdraga er faste og rentedelen synk med eit fast beløp per termin","isCorrect":true},{"id":"b","text":"Fordi terminbeløpet er konstant gjennom heile løpetida","isCorrect":false},{"id":"c","text":"Fordi renta doblar seg kvart år","isCorrect":false},{"id":"d","text":"Fordi lånet veks eksponentielt","isCorrect":false}],"solution":"Med konstante avdrag synk restgjelda like mykje kvar termin, så rentedelen — og dermed terminbeløpet — avtek med ein fast differanse."},{"id":"s2-7-1-n-quiz3-q1","task":"Ei bedrift får 30 nye kundar i januar, og talet på nye per månad aukar med 5. Kor mange nye kundar totalt etter 12 månader?","options":[{"id":"a","text":"$360$","isCorrect":false},{"id":"b","text":"$690$","isCorrect":true},{"id":"c","text":"$85$","isCorrect":false},{"id":"d","text":"$720$","isCorrect":false}],"solution":"$a_1 = 30$, $d = 5$, $n = 12$: $S_{12} = \\frac{12}{2}(2 \\cdot 30 + 11 \\cdot 5) = 6(60 + 55) = 6 \\cdot 115 = 690$."},{"id":"s2-7-1-n-quiz3-q2","task":"Kva er ein lur kontroll etter at du har funne ein eksplisitt formel for ei følgje?","options":[{"id":"a","text":"Å sjekke at $d$ er positiv","isCorrect":false},{"id":"b","text":"Å derivere formelen","isCorrect":false},{"id":"c","text":"Å rekne ut dei første ledda med formelen og samanlikne med følgja","isCorrect":true},{"id":"d","text":"Å summere alle ledda","isCorrect":false}],"solution":"Set du inn $n = 1, 2, 3$ og får dei kjende ledda tilbake, har du sterk stadfesting på at formelen er rett."}]}},{"id":"s2-7-1-n-summary","type":"text","content":"## Oppsummering: tel smart, ikkje hardt\n\nDet som byrja som ei stolbestilling, enda med to av dei mest brukande formlane i S2. Ei **aritmetisk følgje** har konstant differanse $d = a_{n+1} - a_n$, og det $n$-te leddet finn vi direkte med den eksplisitte formelen $a_n = a_1 + (n-1)d$. Summen av dei $n$ første ledda — den **aritmetiske rekkja** — fann vi med Gauss' speiltriks:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nMed **summeteiknet** $\\sum_{k=1}^{n} a_k$ skriv vi slike summar kompakt, med summeindeks og nedre og øvre grense.\n\nKulturhuset fekk sine 620 stolar ($a_{20} = 50$, $S_{20} = \\frac{20}{2}(12+50)$), og du fekk arbeidsmetoden: kjenn att den konstante differansen, identifiser $a_1$, $d$ og $n$, vel rett formel — og kontroller med dei første ledda. Same mønster løyser serielån, lineær kundevekst og trappefigurar.\n\nMen ikkje alt i verda veks med faste tillegg. Renter, bakteriar og investeringar veks med faste *faktorar* — og då treng vi geometriske følgjer. Det er neste forteljing."}],"exercises":[],"_meta":{"sourceHash":"97d9e2642bf08932","translatedAt":"2026-06-20T09:32:20.448Z","model":"claude-code-agent","strings":58,"tm":{"189f37132cfabb55":"Aritmetiske følgjer og rekkjer","b195b06d1ed59702":"Narrativ versjon","9177369db5d4ebe4":"Ei forteljing om ei stolbestilling i kulturhuset — om aritmetiske følgjer, Gauss' geniale summetriks og kunsten å telje smart i staden for hardt.","1106d08617dcc28d":"gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","cdaf2b60f863d0ce":"rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar","c6f574d8f9c651e5":"## Stolradene i kulturhuset\n\nDu har fått sommarjobb i det nye kulturhuset i bygda, og første oppdrag er å bestille stolar til møtesalen. Arkitekten har teikna salen som ei vifte: første rad har 12 stolar, og kvar rad bakover har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. «Kor mange stolar skal eg bestille?» spør du. Du kunne sjølvsagt telje deg gjennom rad for rad — men det finst ein langt meir elegant veg.\n\nTala 12, 14, 16, 18, … dannar ei **følgje**: ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet. Akkurat denne følgja har ein spesiell eigenskap: differansen mellom kvart ledd og det føregåande er konstant. Slike følgjer blir kalla **aritmetiske**, og dei dukkar opp overalt — i lineær vekst, i avdraga på serielån, i nummerering og altså i stolrader.\n\nI denne forteljinga skal vi finne formlar som gir oss eit vilkårleg ledd direkte, og — med eit triks ein ni år gammal Gauss gjorde berømt — summen av alle ledda. Til slutt får du svaret på stolspørsmålet, utan å telje ei einaste rad.","689402844419755b":"## Den aritmetiske følgja og formelen hennar\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nKonstanten $d$ blir kalla den **faste differansen**. Er $d > 0$, veks følgja; er $d < 0$, avtek ho. Følgja $2, 5, 8, 11, 14, \\ldots$ har $d = 3$, medan $20, 17, 14, 11, \\ldots$ har $d = -3$. Stolradene våre har $a_1 = 12$ og $d = 2$.\n\nDet fine med aritmetiske følgjer er at vi kan hoppe rett til eit vilkårleg ledd utan å rekne oss gjennom alle dei føregåande. Frå $a_1$ til $a_n$ legg vi til $d$ nøyaktig $n - 1$ gonger, så den **eksplisitte formelen** er\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nLat oss øve på ei følgje med $a_1 = 4$ og $d = 3$. Det $n$-te leddet blir $a_n = 4 + (n-1) \\cdot 3 = 3n + 1$, og det 20. leddet er $a_{20} = 3 \\cdot 20 + 1 = 61$. Ein rask kontroll: dei første ledda etter formelen er $4, 7, 10, 13, \\ldots$ — som stemmer.\n\nFor stolradene gir formelen straks bakarste rad: $a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$ stolar. Men kor mange stolar er det *totalt*? Då må vi summere — og det er neste del av historia.","b08c2ba712cfe9bd":"Test deg sjølv på aritmetiske følgjer:","4097889236a2af26":"placeholder","989539b7746c04a6":"Kva kjenneteiknar ei aritmetisk følgje?","dda92781961fde8b":"Forholdet mellom etterfølgjande ledd er konstant","32575006a73d2a48":"Differansen mellom etterfølgjande ledd er konstant","5dd7c37d6cd7422c":"Alle ledda er like","31635d41c3531e67":"Ledda veks eksponentielt","abdd13c93fc39be0":"I ei aritmetisk følgje er $a_{n+1} - a_n = d$ konstant. (Konstant forhold kjenneteiknar geometriske følgjer.)","6cb0153b9256e115":"Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Kva er $a_{20}$?","10a129192742d5fc":"$a_{20} = a_1 + 19d = 4 + 19 \\cdot 3 = 4 + 57 = 61$.","e48647e83454de16":"Følgja $20, 17, 14, 11, \\ldots$ er aritmetisk. Kva er $d$?","80acebe99b3648bc":"$d = -3$","6d7cfcbcdd2f44f7":"$d = 3$","b7d946ce5ea16386":"$d = -17$","6b5e200763f24000":"$d = \\frac{17}{20}$","bd59adbe397433e3":"$d = a_2 - a_1 = 17 - 20 = -3$. Følgja er avtakande fordi $d < 0$.","c99682bfe1be8dfe":"Radene i kulturhuset har $a_1 = 12$ og $d = 2$. Kor mange stolar har rad 15?","b3c192b520381387":"$a_{15} = 12 + (15-1) \\cdot 2 = 12 + 28 = 40$ stolar.","a55d4c128c3cd634":"## Gauss' triks og summen av rekkja\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda kallar vi $S_n = a_1 + a_2 + \\cdots + a_n$. Historia fortel at den unge Carl Friedrich Gauss fekk i oppgåve å summere tala frå 1 til 100 — og svarte nesten med ein gong. Trikset hans: skriv summen to gonger, éin gong forlengs og éin gong baklengs, og legg dei saman:\n\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\n\nKvart kolonnepar summerer seg til nøyaktig $a_1 + a_n$, og det er $n$ slike par. Dermed er $2S_n = n(a_1 + a_n)$, altså\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nDen andre forma får vi ved å setje inn $a_n = a_1 + (n-1)d$ — nyttig når vi ikkje har rekna ut siste ledd.\n\nPrøv med følgja $3, 7, 11, 15, \\ldots$: kva er summen av dei 50 første ledda? Vi har $a_1 = 3$ og $d = 4$, så $a_{50} = 3 + 49 \\cdot 4 = 199$, og dermed $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$.\n\nFor å skrive summar kompakt bruker matematikarar **summeteiknet**, den greske bokstaven sigma:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + \\cdots + a_n$$\n\nHer er $k$ summeindeksen, $1$ nedre grense og $n$ øvre grense. Til dømes er $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$.\n\nOg kulturhuset? Vi veit at $a_1 = 12$, $a_{20} = 50$ og $n = 20$, så $S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$. Du bestiller 620 stolar — og er ferdig før kollegaen din har talt tre rader.","f3b30918f66c7145":"Test deg sjølv på summen av aritmetiske rekkjer:","d373536077ca7ab7":"Kva er ideen bak Gauss' summetriks?","df977fcfb6a8c771":"Å derivere summen og setje lik null","ecfdd560ba1901df":"Å multiplisere summen med kvotienten $k$","15f691fba04f13aa":"Å skrive summen forlengs og baklengs slik at kvart par blir $a_1 + a_n$","95c4711e2c2fa2c0":"Å runde av alle ledda til næraste tiar","9e5fc1258ce0b529":"Forlengs pluss baklengs gir $n$ par som kvart summerer til $a_1 + a_n$, altså $2S_n = n(a_1 + a_n)$.","f49b5c890c26fcb4":"Finn summen av dei 50 første ledda i $3, 7, 11, 15, \\ldots$","80a247c1b7d57645":"$a_{50} = 3 + 49 \\cdot 4 = 199$, og $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$.","154cc685983fcc6c":"Kva er $\\sum_{k=1}^{5} (2k+1)$?","3acc23a9f57ed0c9":"Ledda er $3, 5, 7, 9, 11$, og summen er $35$.","67f71c29571d3642":"Kulturhuset har 20 rader med $a_1 = 12$ og $a_{20} = 50$. Kor mange stolar totalt?","a2d92988258b239b":"$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$ stolar.","410b92dc28ad63de":"## Aritmetiske rekkjer i kvardagen\n\nStolbestillinga er berre eitt døme. Aritmetiske rekkjer gøymer seg overalt der noko endrar seg med eit fast beløp om gongen.\n\nTenk på eit **serielån**: der er avdraga like store kvar termin, og sidan rentene blir rekna av ein stadig mindre restgjeld, avtek terminbeløpa med ein fast differanse — ei aritmetisk følgje. Eller tenk på **lineær vekst** i ei bedrift: dersom talet på nye kundar per månad aukar med eit fast tal, er den samla kundeauken ei aritmetisk rekkje. Også **trappemønster** — figurar bygde av blokker med jamt aukande rader — blir talde med dei same formlane.\n\nNøkkelen i alle praktiske oppgåver er å *kjenne att strukturen*: er differansen mellom etterfølgjande verdiar konstant? Då identifiserer du $a_1$, $d$ og $n$ frå oppgåveteksten, bruker den eksplisitte formelen $a_n = a_1 + (n-1)d$ for å finne enkeltledd, og sumformelen $S_n = \\frac{n}{2}(a_1 + a_n)$ for totalsummen. Eit godt sluttsjekk-triks er å rekne ut dei første ledda manuelt og sjå at dei stemmer med formelen.\n\nAritmetiske følgjer er den eine av dei to store følgjefamiliane i S2. I neste kapittel møter du den andre — dei geometriske følgjene, der vi multipliserer i staden for å addere, og der økonomien for alvor kjem inn i biletet.","afed60b0b78c17f1":"Test deg sjølv på praktisk bruk av aritmetiske rekkjer:","93ef21841eb9b9ce":"Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?","390230da5b0bebf4":"Fordi avdraga er faste og rentedelen synk med eit fast beløp per termin","0a3100a837d1773f":"Fordi terminbeløpet er konstant gjennom heile løpetida","212ee32d3a1c2a57":"Fordi renta doblar seg kvart år","68fc88cb93100a3f":"Fordi lånet veks eksponentielt","4d35e1848fcfa3e5":"Med konstante avdrag synk restgjelda like mykje kvar termin, så rentedelen — og dermed terminbeløpet — avtek med ein fast differanse.","f03c9b193cf9d3f8":"Ei bedrift får 30 nye kundar i januar, og talet på nye per månad aukar med 5. Kor mange nye kundar totalt etter 12 månader?","542cea75f67d9179":"$a_1 = 30$, $d = 5$, $n = 12$: $S_{12} = \\frac{12}{2}(2 \\cdot 30 + 11 \\cdot 5) = 6(60 + 55) = 6 \\cdot 115 = 690$.","fae005db904b23cf":"Kva er ein lur kontroll etter at du har funne ein eksplisitt formel for ei følgje?","dbf1c71600b8d525":"Å sjekke at $d$ er positiv","5538a086d47bd213":"Å derivere formelen","4b23272a48df5f3c":"Å rekne ut dei første ledda med formelen og samanlikne med følgja","7235384eb2557043":"Å summere alle ledda","3bd154d9bd42612b":"Set du inn $n = 1, 2, 3$ og får dei kjende ledda tilbake, har du sterk stadfesting på at formelen er rett.","1d796b21b2e0117f":"## Oppsummering: tel smart, ikkje hardt\n\nDet som byrja som ei stolbestilling, enda med to av dei mest brukande formlane i S2. Ei **aritmetisk følgje** har konstant differanse $d = a_{n+1} - a_n$, og det $n$-te leddet finn vi direkte med den eksplisitte formelen $a_n = a_1 + (n-1)d$. Summen av dei $n$ første ledda — den **aritmetiske rekkja** — fann vi med Gauss' speiltriks:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nMed **summeteiknet** $\\sum_{k=1}^{n} a_k$ skriv vi slike summar kompakt, med summeindeks og nedre og øvre grense.\n\nKulturhuset fekk sine 620 stolar ($a_{20} = 50$, $S_{20} = \\frac{20}{2}(12+50)$), og du fekk arbeidsmetoden: kjenn att den konstante differansen, identifiser $a_1$, $d$ og $n$, vel rett formel — og kontroller med dei første ledda. Same mønster løyser serielån, lineær kundevekst og trappefigurar.\n\nMen ikkje alt i verda veks med faste tillegg. Renter, bakteriar og investeringar veks med faste *faktorar* — og då treng vi geometriske følgjer. Det er neste forteljing."}}}
+{
+  "id": "s2-7-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "7.1",
+  "title": "Aritmetiske følgjer og rekkjer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ei stolbestilling i kulturhuset — om aritmetiske følgjer, Gauss' geniale summetriks og kunsten å telje smart i staden for hardt.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+    "rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar"
+  ],
+  "linkedChapterId": "s2-7-1",
+  "content": [
+    {
+      "id": "s2-7-1-n-intro",
+      "type": "text",
+      "content": "## Stolradene i kulturhuset\n\nDu har fått sommarjobb i det nye kulturhuset i bygda, og første oppdrag er å bestille stolar til møtesalen. Arkitekten har teikna salen som ei vifte: første rad har 12 stolar, og kvar rad bakover har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. «Kor mange stolar skal eg bestille?» spør du. Du kunne sjølvsagt telje deg gjennom rad for rad — men det finst ein langt meir elegant veg.\n\nTala 12, 14, 16, 18, … dannar ei **følgje**: ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet. Akkurat denne følgja har ein spesiell eigenskap: differansen mellom kvart ledd og det føregåande er konstant. Slike følgjer blir kalla **aritmetiske**, og dei dukkar opp overalt — i lineær vekst, i avdraga på serielån, i nummerering og altså i stolrader.\n\nI denne forteljinga skal vi finne formlar som gir oss eit vilkårleg ledd direkte, og — med eit triks ein ni år gammal Gauss gjorde berømt — summen av alle ledda. Til slutt får du svaret på stolspørsmålet, utan å telje ei einaste rad."
+    },
+    {
+      "id": "s2-7-1-n-section1",
+      "type": "text",
+      "content": "## Den aritmetiske følgja og formelen hennar\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nKonstanten $d$ blir kalla den **faste differansen**. Er $d > 0$, veks følgja; er $d < 0$, avtek ho. Følgja $2, 5, 8, 11, 14, \\ldots$ har $d = 3$, medan $20, 17, 14, 11, \\ldots$ har $d = -3$. Stolradene våre har $a_1 = 12$ og $d = 2$.\n\nDet fine med aritmetiske følgjer er at vi kan hoppe rett til eit vilkårleg ledd utan å rekne oss gjennom alle dei føregåande. Frå $a_1$ til $a_n$ legg vi til $d$ nøyaktig $n - 1$ gonger, så den **eksplisitte formelen** er\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nLat oss øve på ei følgje med $a_1 = 4$ og $d = 3$. Det $n$-te leddet blir $a_n = 4 + (n-1) \\cdot 3 = 3n + 1$, og det 20. leddet er $a_{20} = 3 \\cdot 20 + 1 = 61$. Ein rask kontroll: dei første ledda etter formelen er $4, 7, 10, 13, \\ldots$ — som stemmer.\n\nFor stolradene gir formelen straks bakarste rad: $a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$ stolar. Men kor mange stolar er det *totalt*? Då må vi summere — og det er neste del av historia."
+    },
+    {
+      "id": "s2-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på aritmetiske følgjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-1-n-quiz1-q0",
+            "task": "Kva kjenneteiknar ei aritmetisk følgje?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Differansen mellom etterfølgjande ledd er konstant",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Forholdet mellom etterfølgjande ledd er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alle ledda er like",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ledda veks eksponentielt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I ei aritmetisk følgje er $a_{n+1} - a_n = d$ konstant. (Konstant forhold kjenneteiknar geometriske følgjer.)"
+          },
+          {
+            "id": "s2-7-1-n-quiz1-q1",
+            "task": "Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Kva er $a_{20}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$64$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$61$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$57$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$80$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{20} = a_1 + 19d = 4 + 19 \\cdot 3 = 4 + 57 = 61$."
+          },
+          {
+            "id": "s2-7-1-n-quiz1-q2",
+            "task": "Følgja $20, 17, 14, 11, \\ldots$ er aritmetisk. Kva er $d$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$d = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$d = -17$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$d = -3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$d = \\frac{17}{20}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$d = a_2 - a_1 = 17 - 20 = -3$. Følgja er avtakande fordi $d < 0$."
+          },
+          {
+            "id": "s2-7-1-n-quiz1-q3",
+            "task": "Radene i kulturhuset har $a_1 = 12$ og $d = 2$. Kor mange stolar har rad 15?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$32$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$42$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$40$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$a_{15} = 12 + (15-1) \\cdot 2 = 12 + 28 = 40$ stolar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-n-section2",
+      "type": "text",
+      "content": "## Gauss' triks og summen av rekkja\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda kallar vi $S_n = a_1 + a_2 + \\cdots + a_n$. Historia fortel at den unge Carl Friedrich Gauss fekk i oppgåve å summere tala frå 1 til 100 — og svarte nesten med ein gong. Trikset hans: skriv summen to gonger, éin gong forlengs og éin gong baklengs, og legg dei saman:\n\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\n\nKvart kolonnepar summerer seg til nøyaktig $a_1 + a_n$, og det er $n$ slike par. Dermed er $2S_n = n(a_1 + a_n)$, altså\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nDen andre forma får vi ved å setje inn $a_n = a_1 + (n-1)d$ — nyttig når vi ikkje har rekna ut siste ledd.\n\nPrøv med følgja $3, 7, 11, 15, \\ldots$: kva er summen av dei 50 første ledda? Vi har $a_1 = 3$ og $d = 4$, så $a_{50} = 3 + 49 \\cdot 4 = 199$, og dermed $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$.\n\nFor å skrive summar kompakt bruker matematikarar **summeteiknet**, den greske bokstaven sigma:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + \\cdots + a_n$$\n\nHer er $k$ summeindeksen, $1$ nedre grense og $n$ øvre grense. Til dømes er $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$.\n\nOg kulturhuset? Vi veit at $a_1 = 12$, $a_{20} = 50$ og $n = 20$, så $S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$. Du bestiller 620 stolar — og er ferdig før kollegaen din har talt tre rader."
+    },
+    {
+      "id": "s2-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på summen av aritmetiske rekkjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-1-n-quiz2-q0",
+            "task": "Kva er ideen bak Gauss' summetriks?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Å skrive summen forlengs og baklengs slik at kvart par blir $a_1 + a_n$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å derivere summen og setje lik null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å multiplisere summen med kvotienten $k$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å runde av alle ledda til næraste tiar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forlengs pluss baklengs gir $n$ par som kvart summerer til $a_1 + a_n$, altså $2S_n = n(a_1 + a_n)$."
+          },
+          {
+            "id": "s2-7-1-n-quiz2-q1",
+            "task": "Finn summen av dei 50 første ledda i $3, 7, 11, 15, \\ldots$",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4950$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$5050$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$10\\,100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2525$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{50} = 3 + 49 \\cdot 4 = 199$, og $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$."
+          },
+          {
+            "id": "s2-7-1-n-quiz2-q2",
+            "task": "Kva er $\\sum_{k=1}^{5} (2k+1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$11$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$35$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$30$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledda er $3, 5, 7, 9, 11$, og summen er $35$."
+          },
+          {
+            "id": "s2-7-1-n-quiz2-q3",
+            "task": "Kulturhuset har 20 rader med $a_1 = 12$ og $a_{20} = 50$. Kor mange stolar totalt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$500$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1240$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$310$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$620$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$ stolar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-n-section3",
+      "type": "text",
+      "content": "## Aritmetiske rekkjer i kvardagen\n\nStolbestillinga er berre eitt døme. Aritmetiske rekkjer gøymer seg overalt der noko endrar seg med eit fast beløp om gongen.\n\nTenk på eit **serielån**: der er avdraga like store kvar termin, og sidan rentene blir rekna av ein stadig mindre restgjeld, avtek terminbeløpa med ein fast differanse — ei aritmetisk følgje. Eller tenk på **lineær vekst** i ei bedrift: dersom talet på nye kundar per månad aukar med eit fast tal, er den samla kundeauken ei aritmetisk rekkje. Også **trappemønster** — figurar bygde av blokker med jamt aukande rader — blir talde med dei same formlane.\n\nNøkkelen i alle praktiske oppgåver er å *kjenne att strukturen*: er differansen mellom etterfølgjande verdiar konstant? Då identifiserer du $a_1$, $d$ og $n$ frå oppgåveteksten, bruker den eksplisitte formelen $a_n = a_1 + (n-1)d$ for å finne enkeltledd, og sumformelen $S_n = \\frac{n}{2}(a_1 + a_n)$ for totalsummen. Eit godt sluttsjekk-triks er å rekne ut dei første ledda manuelt og sjå at dei stemmer med formelen.\n\nAritmetiske følgjer er den eine av dei to store følgjefamiliane i S2. I neste kapittel møter du den andre — dei geometriske følgjene, der vi multipliserer i staden for å addere, og der økonomien for alvor kjem inn i biletet."
+    },
+    {
+      "id": "s2-7-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på praktisk bruk av aritmetiske rekkjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-1-n-quiz3-q0",
+            "task": "Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi avdraga er faste og rentedelen synk med eit fast beløp per termin",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi terminbeløpet er konstant gjennom heile løpetida",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi renta doblar seg kvart år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi lånet veks eksponentielt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med konstante avdrag synk restgjelda like mykje kvar termin, så rentedelen — og dermed terminbeløpet — avtek med ein fast differanse."
+          },
+          {
+            "id": "s2-7-1-n-quiz3-q1",
+            "task": "Ei bedrift får 30 nye kundar i januar, og talet på nye per månad aukar med 5. Kor mange nye kundar totalt etter 12 månader?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$360$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$690$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$85$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$720$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_1 = 30$, $d = 5$, $n = 12$: $S_{12} = \\frac{12}{2}(2 \\cdot 30 + 11 \\cdot 5) = 6(60 + 55) = 6 \\cdot 115 = 690$."
+          },
+          {
+            "id": "s2-7-1-n-quiz3-q2",
+            "task": "Kva er ein lur kontroll etter at du har funne ein eksplisitt formel for ei følgje?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å sjekke at $d$ er positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å derivere formelen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å rekne ut dei første ledda med formelen og samanlikne med følgja",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å summere alle ledda",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Set du inn $n = 1, 2, 3$ og får dei kjende ledda tilbake, har du sterk stadfesting på at formelen er rett."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: tel smart, ikkje hardt\n\nDet som byrja som ei stolbestilling, enda med to av dei mest brukande formlane i S2. Ei **aritmetisk følgje** har konstant differanse $d = a_{n+1} - a_n$, og det $n$-te leddet finn vi direkte med den eksplisitte formelen $a_n = a_1 + (n-1)d$. Summen av dei $n$ første ledda — den **aritmetiske rekkja** — fann vi med Gauss' speiltriks:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nMed **summeteiknet** $\\sum_{k=1}^{n} a_k$ skriv vi slike summar kompakt, med summeindeks og nedre og øvre grense.\n\nKulturhuset fekk sine 620 stolar ($a_{20} = 50$, $S_{20} = \\frac{20}{2}(12+50)$), og du fekk arbeidsmetoden: kjenn att den konstante differansen, identifiser $a_1$, $d$ og $n$, vel rett formel — og kontroller med dei første ledda. Same mønster løyser serielån, lineær kundevekst og trappefigurar.\n\nMen ikkje alt i verda veks med faste tillegg. Renter, bakteriar og investeringar veks med faste *faktorar* — og då treng vi geometriske følgjer. Det er neste forteljing."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "97d9e2642bf08932",
+    "translatedAt": "2026-06-20T09:32:20.448Z",
+    "model": "claude-code-agent",
+    "strings": 58,
+    "tm": {
+      "189f37132cfabb55": "Aritmetiske følgjer og rekkjer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "9177369db5d4ebe4": "Ei forteljing om ei stolbestilling i kulturhuset — om aritmetiske følgjer, Gauss' geniale summetriks og kunsten å telje smart i staden for hardt.",
+      "1106d08617dcc28d": "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+      "cdaf2b60f863d0ce": "rekne ut summen av endelege aritmetiske og geometriske rekkjer og bruke dette i praktiske situasjonar",
+      "c6f574d8f9c651e5": "## Stolradene i kulturhuset\n\nDu har fått sommarjobb i det nye kulturhuset i bygda, og første oppdrag er å bestille stolar til møtesalen. Arkitekten har teikna salen som ei vifte: første rad har 12 stolar, og kvar rad bakover har 2 stolar meir enn raden framanfor. Det er 20 rader totalt. «Kor mange stolar skal eg bestille?» spør du. Du kunne sjølvsagt telje deg gjennom rad for rad — men det finst ein langt meir elegant veg.\n\nTala 12, 14, 16, 18, … dannar ei **følgje**: ei ordna liste med tal som følgjer eit bestemt mønster. Vi skriv følgja som $a_1, a_2, a_3, \\ldots$ der $a_n$ står for det $n$-te leddet. Akkurat denne følgja har ein spesiell eigenskap: differansen mellom kvart ledd og det føregåande er konstant. Slike følgjer blir kalla **aritmetiske**, og dei dukkar opp overalt — i lineær vekst, i avdraga på serielån, i nummerering og altså i stolrader.\n\nI denne forteljinga skal vi finne formlar som gir oss eit vilkårleg ledd direkte, og — med eit triks ein ni år gammal Gauss gjorde berømt — summen av alle ledda. Til slutt får du svaret på stolspørsmålet, utan å telje ei einaste rad.",
+      "689402844419755b": "## Den aritmetiske følgja og formelen hennar\n\nEi **aritmetisk følgje** er ei talfølgje der differansen mellom kvart ledd og det føregåande er konstant:\n\n$$a_{n+1} - a_n = d \\quad \\text{for alle } n \\geq 1$$\n\nKonstanten $d$ blir kalla den **faste differansen**. Er $d > 0$, veks følgja; er $d < 0$, avtek ho. Følgja $2, 5, 8, 11, 14, \\ldots$ har $d = 3$, medan $20, 17, 14, 11, \\ldots$ har $d = -3$. Stolradene våre har $a_1 = 12$ og $d = 2$.\n\nDet fine med aritmetiske følgjer er at vi kan hoppe rett til eit vilkårleg ledd utan å rekne oss gjennom alle dei føregåande. Frå $a_1$ til $a_n$ legg vi til $d$ nøyaktig $n - 1$ gonger, så den **eksplisitte formelen** er\n\n$$a_n = a_1 + (n - 1) \\cdot d$$\n\nLat oss øve på ei følgje med $a_1 = 4$ og $d = 3$. Det $n$-te leddet blir $a_n = 4 + (n-1) \\cdot 3 = 3n + 1$, og det 20. leddet er $a_{20} = 3 \\cdot 20 + 1 = 61$. Ein rask kontroll: dei første ledda etter formelen er $4, 7, 10, 13, \\ldots$ — som stemmer.\n\nFor stolradene gir formelen straks bakarste rad: $a_{20} = 12 + (20-1) \\cdot 2 = 12 + 38 = 50$ stolar. Men kor mange stolar er det *totalt*? Då må vi summere — og det er neste del av historia.",
+      "b08c2ba712cfe9bd": "Test deg sjølv på aritmetiske følgjer:",
+      "4097889236a2af26": "placeholder",
+      "989539b7746c04a6": "Kva kjenneteiknar ei aritmetisk følgje?",
+      "dda92781961fde8b": "Forholdet mellom etterfølgjande ledd er konstant",
+      "32575006a73d2a48": "Differansen mellom etterfølgjande ledd er konstant",
+      "5dd7c37d6cd7422c": "Alle ledda er like",
+      "31635d41c3531e67": "Ledda veks eksponentielt",
+      "abdd13c93fc39be0": "I ei aritmetisk følgje er $a_{n+1} - a_n = d$ konstant. (Konstant forhold kjenneteiknar geometriske følgjer.)",
+      "6cb0153b9256e115": "Ei aritmetisk følgje har $a_1 = 4$ og $d = 3$. Kva er $a_{20}$?",
+      "10a129192742d5fc": "$a_{20} = a_1 + 19d = 4 + 19 \\cdot 3 = 4 + 57 = 61$.",
+      "e48647e83454de16": "Følgja $20, 17, 14, 11, \\ldots$ er aritmetisk. Kva er $d$?",
+      "80acebe99b3648bc": "$d = -3$",
+      "6d7cfcbcdd2f44f7": "$d = 3$",
+      "b7d946ce5ea16386": "$d = -17$",
+      "6b5e200763f24000": "$d = \\frac{17}{20}$",
+      "bd59adbe397433e3": "$d = a_2 - a_1 = 17 - 20 = -3$. Følgja er avtakande fordi $d < 0$.",
+      "c99682bfe1be8dfe": "Radene i kulturhuset har $a_1 = 12$ og $d = 2$. Kor mange stolar har rad 15?",
+      "b3c192b520381387": "$a_{15} = 12 + (15-1) \\cdot 2 = 12 + 28 = 40$ stolar.",
+      "a55d4c128c3cd634": "## Gauss' triks og summen av rekkja\n\nNår vi legg saman ledda i ei følgje, får vi ei **rekkje**. Summen av dei $n$ første ledda kallar vi $S_n = a_1 + a_2 + \\cdots + a_n$. Historia fortel at den unge Carl Friedrich Gauss fekk i oppgåve å summere tala frå 1 til 100 — og svarte nesten med ein gong. Trikset hans: skriv summen to gonger, éin gong forlengs og éin gong baklengs, og legg dei saman:\n\n$$S_n = a_1 + (a_1 + d) + \\cdots + a_n$$\n$$S_n = a_n + (a_n - d) + \\cdots + a_1$$\n\nKvart kolonnepar summerer seg til nøyaktig $a_1 + a_n$, og det er $n$ slike par. Dermed er $2S_n = n(a_1 + a_n)$, altså\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nDen andre forma får vi ved å setje inn $a_n = a_1 + (n-1)d$ — nyttig når vi ikkje har rekna ut siste ledd.\n\nPrøv med følgja $3, 7, 11, 15, \\ldots$: kva er summen av dei 50 første ledda? Vi har $a_1 = 3$ og $d = 4$, så $a_{50} = 3 + 49 \\cdot 4 = 199$, og dermed $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$.\n\nFor å skrive summar kompakt bruker matematikarar **summeteiknet**, den greske bokstaven sigma:\n\n$$\\sum_{k=1}^{n} a_k = a_1 + a_2 + \\cdots + a_n$$\n\nHer er $k$ summeindeksen, $1$ nedre grense og $n$ øvre grense. Til dømes er $\\sum_{k=1}^{5} (2k+1) = 3 + 5 + 7 + 9 + 11 = 35$.\n\nOg kulturhuset? Vi veit at $a_1 = 12$, $a_{20} = 50$ og $n = 20$, så $S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$. Du bestiller 620 stolar — og er ferdig før kollegaen din har talt tre rader.",
+      "f3b30918f66c7145": "Test deg sjølv på summen av aritmetiske rekkjer:",
+      "d373536077ca7ab7": "Kva er ideen bak Gauss' summetriks?",
+      "df977fcfb6a8c771": "Å derivere summen og setje lik null",
+      "ecfdd560ba1901df": "Å multiplisere summen med kvotienten $k$",
+      "15f691fba04f13aa": "Å skrive summen forlengs og baklengs slik at kvart par blir $a_1 + a_n$",
+      "95c4711e2c2fa2c0": "Å runde av alle ledda til næraste tiar",
+      "9e5fc1258ce0b529": "Forlengs pluss baklengs gir $n$ par som kvart summerer til $a_1 + a_n$, altså $2S_n = n(a_1 + a_n)$.",
+      "f49b5c890c26fcb4": "Finn summen av dei 50 første ledda i $3, 7, 11, 15, \\ldots$",
+      "80a247c1b7d57645": "$a_{50} = 3 + 49 \\cdot 4 = 199$, og $S_{50} = \\frac{50}{2}(3 + 199) = 25 \\cdot 202 = 5050$.",
+      "154cc685983fcc6c": "Kva er $\\sum_{k=1}^{5} (2k+1)$?",
+      "3acc23a9f57ed0c9": "Ledda er $3, 5, 7, 9, 11$, og summen er $35$.",
+      "67f71c29571d3642": "Kulturhuset har 20 rader med $a_1 = 12$ og $a_{20} = 50$. Kor mange stolar totalt?",
+      "a2d92988258b239b": "$S_{20} = \\frac{20}{2}(12 + 50) = 10 \\cdot 62 = 620$ stolar.",
+      "410b92dc28ad63de": "## Aritmetiske rekkjer i kvardagen\n\nStolbestillinga er berre eitt døme. Aritmetiske rekkjer gøymer seg overalt der noko endrar seg med eit fast beløp om gongen.\n\nTenk på eit **serielån**: der er avdraga like store kvar termin, og sidan rentene blir rekna av ein stadig mindre restgjeld, avtek terminbeløpa med ein fast differanse — ei aritmetisk følgje. Eller tenk på **lineær vekst** i ei bedrift: dersom talet på nye kundar per månad aukar med eit fast tal, er den samla kundeauken ei aritmetisk rekkje. Også **trappemønster** — figurar bygde av blokker med jamt aukande rader — blir talde med dei same formlane.\n\nNøkkelen i alle praktiske oppgåver er å *kjenne att strukturen*: er differansen mellom etterfølgjande verdiar konstant? Då identifiserer du $a_1$, $d$ og $n$ frå oppgåveteksten, bruker den eksplisitte formelen $a_n = a_1 + (n-1)d$ for å finne enkeltledd, og sumformelen $S_n = \\frac{n}{2}(a_1 + a_n)$ for totalsummen. Eit godt sluttsjekk-triks er å rekne ut dei første ledda manuelt og sjå at dei stemmer med formelen.\n\nAritmetiske følgjer er den eine av dei to store følgjefamiliane i S2. I neste kapittel møter du den andre — dei geometriske følgjene, der vi multipliserer i staden for å addere, og der økonomien for alvor kjem inn i biletet.",
+      "afed60b0b78c17f1": "Test deg sjølv på praktisk bruk av aritmetiske rekkjer:",
+      "93ef21841eb9b9ce": "Kvifor dannar terminbeløpa i eit serielån ei aritmetisk følgje?",
+      "390230da5b0bebf4": "Fordi avdraga er faste og rentedelen synk med eit fast beløp per termin",
+      "0a3100a837d1773f": "Fordi terminbeløpet er konstant gjennom heile løpetida",
+      "212ee32d3a1c2a57": "Fordi renta doblar seg kvart år",
+      "68fc88cb93100a3f": "Fordi lånet veks eksponentielt",
+      "4d35e1848fcfa3e5": "Med konstante avdrag synk restgjelda like mykje kvar termin, så rentedelen — og dermed terminbeløpet — avtek med ein fast differanse.",
+      "f03c9b193cf9d3f8": "Ei bedrift får 30 nye kundar i januar, og talet på nye per månad aukar med 5. Kor mange nye kundar totalt etter 12 månader?",
+      "542cea75f67d9179": "$a_1 = 30$, $d = 5$, $n = 12$: $S_{12} = \\frac{12}{2}(2 \\cdot 30 + 11 \\cdot 5) = 6(60 + 55) = 6 \\cdot 115 = 690$.",
+      "fae005db904b23cf": "Kva er ein lur kontroll etter at du har funne ein eksplisitt formel for ei følgje?",
+      "dbf1c71600b8d525": "Å sjekke at $d$ er positiv",
+      "5538a086d47bd213": "Å derivere formelen",
+      "4b23272a48df5f3c": "Å rekne ut dei første ledda med formelen og samanlikne med følgja",
+      "7235384eb2557043": "Å summere alle ledda",
+      "3bd154d9bd42612b": "Set du inn $n = 1, 2, 3$ og får dei kjende ledda tilbake, har du sterk stadfesting på at formelen er rett.",
+      "1d796b21b2e0117f": "## Oppsummering: tel smart, ikkje hardt\n\nDet som byrja som ei stolbestilling, enda med to av dei mest brukande formlane i S2. Ei **aritmetisk følgje** har konstant differanse $d = a_{n+1} - a_n$, og det $n$-te leddet finn vi direkte med den eksplisitte formelen $a_n = a_1 + (n-1)d$. Summen av dei $n$ første ledda — den **aritmetiske rekkja** — fann vi med Gauss' speiltriks:\n\n$$S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nMed **summeteiknet** $\\sum_{k=1}^{n} a_k$ skriv vi slike summar kompakt, med summeindeks og nedre og øvre grense.\n\nKulturhuset fekk sine 620 stolar ($a_{20} = 50$, $S_{20} = \\frac{20}{2}(12+50)$), og du fekk arbeidsmetoden: kjenn att den konstante differansen, identifiser $a_1$, $d$ og $n$, vel rett formel — og kontroller med dei første ledda. Same mønster løyser serielån, lineær kundevekst og trappefigurar.\n\nMen ikkje alt i verda veks med faste tillegg. Renter, bakteriar og investeringar veks med faste *faktorar* — og då treng vi geometriske følgjer. Det er neste forteljing."
+    }
+  }
+}

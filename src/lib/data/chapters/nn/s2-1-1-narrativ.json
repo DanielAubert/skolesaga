@@ -1,1 +1,392 @@
-{"id":"s2-1-1-narrativ","courseId":"s2","chapterNumber":"1.1","title":"Ubestemte integral","subtitle":"Narrativ versjon","description":"Ei forteljing om ein analytikar som kjenner marginalkostnaden, men treng heile kostnadsfunksjonen — og finn han med antideriverte, grunnreglar og substitusjon.","estimatedMinutes":35,"competenceGoals":["bruke integrasjon i praktiske bruksområde","rekne ut og tolke integral"],"linkedChapterId":"s2-1-1","content":[{"id":"s2-1-1-n-intro","type":"text","content":"## Når du kjenner farten, men vil vite vegen\n\nTenk deg at du jobbar som analytikar i ein norsk nettbutikk. Økonomiavdelinga har rekna ut at marginalkostnaden — altså kor mykje kostnadene aukar for kvar ekstra eining de produserer — følgjer modellen $K'(x) = 3x^2 - 2x + 5$ kroner per eining. Det er nyttig informasjon, men sjefen din spør om noko anna: «Kva er den *totale* kostnadsfunksjonen $K(x)$?»\n\nDu kjenner altså den deriverte, men treng funksjonen sjølv. Dette er det motsette av alt du gjorde i S1 og første del av S2, der du starta med ein funksjon og fann den deriverte. No skal vi gå baklengs, og den operasjonen blir kalla **integrasjon**. Integrasjon er rett og slett den omvende operasjonen av derivasjon: viss vi veit $f'(x)$, kan vi finne tilbake til $f(x)$.\n\nFunksjonen vi leitar etter, har eit eige namn. Ei **antiderivert** (eller primitiv funksjon) til $f(x)$ er ein funksjon $F(x)$ slik at $F'(x) = f(x)$. Viss $f(x) = 2x$, er $F(x) = x^2$ ei antiderivert, fordi $(x^2)' = 2x$. Men legg merke til noko viktig: $x^2 + 7$ er òg ei antiderivert, og det same er $x^2 - 100$. Den deriverte av ein konstant er jo null, så konstanten forsvinn i derivasjonen — og dermed kan vi aldri vite kva konstant som «var der» før vi deriverte.\n\nI dette kapittelet skal vi lære notasjonen og grunnreglane for integrasjon, og til slutt teknikken substitusjon. Då kan du svare sjefen din — på kroner og øre."},{"id":"s2-1-1-n-section1","type":"text","content":"## Det ubestemte integralet og grunnreglane\n\nMatematikarar har ein eigen skrivemåte for «alle antideriverte til $f$». Det **ubestemte integralet** av $f(x)$ blir skrive\n\n$$\\int f(x) \\, dx = F(x) + C$$\n\nder $F(x)$ er ei antiderivert til $f(x)$ og $C$ er ein vilkårleg konstant som blir kalla **integrasjonskonstanten**. Teiknet $\\int$ er integralteiknet, funksjonen $f(x)$ blir kalla **integranden**, og $dx$ fortel kva variabel vi integrerer med omsyn på. Konstanten $C$ må alltid vere med, nettopp fordi $F(x) + C$ har same deriverte som $F(x)$ uansett kva verdi $C$ har.\n\nKorleis integrerer vi i praksis? Den viktigaste regelen er **potensregelen**: $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$. Vi aukar eksponenten med éin og deler på den nye eksponenten. Til dømes er $\\int x^3 \\, dx = \\frac{x^4}{4} + C$, og skriv vi $\\frac{1}{x^2}$ som $x^{-2}$, får vi $\\int \\frac{1}{x^2}\\,dx = \\frac{x^{-1}}{-1} + C = -\\frac{1}{x} + C$.\n\nUnntaket $n = -1$ har sin eigen regel: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Eksponentialfunksjonen er drøymekunden til integrasjonen: $\\int e^x\\,dx = e^x + C$, og for ein generell vekstfaktor gjeld $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$.\n\nI tillegg er integrasjon lineær: konstantar kan setjast utanfor, $\\int k \\cdot f(x)\\,dx = k\\int f(x)\\,dx$, og summar kan integrerast ledd for ledd, $\\int [f(x) + g(x)]\\,dx = \\int f(x)\\,dx + \\int g(x)\\,dx$. Dermed kan du ta marginalkostnaden frå innleiinga ledd for ledd: $\\int (3x^2 - 2x + 5)\\,dx = x^3 - x^2 + 5x + C$. Og eit blanda uttrykk som $\\int \\big(e^x + \\frac{2}{x}\\big)\\,dx$ blir $e^x + 2\\ln|x| + C$."},{"id":"s2-1-1-n-quiz1","type":"exercise","exercise":{"id":"s2-1-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på ubestemte integral og grunnreglane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-1-n-quiz1-q0","task":"Kva er $\\int x^3 \\, dx$?","options":[{"id":"a","text":"$3x^2 + C$","isCorrect":false},{"id":"b","text":"$\\frac{x^4}{4} + C$","isCorrect":true},{"id":"c","text":"$x^4 + C$","isCorrect":false},{"id":"d","text":"$\\frac{x^3}{3} + C$","isCorrect":false}],"solution":"Potensregelen: auk eksponenten med éin og del på den nye eksponenten: $\\int x^3\\,dx = \\frac{x^4}{4} + C$. Alternativet $3x^2$ er den deriverte, ikkje ei antiderivert."},{"id":"s2-1-1-n-quiz1-q1","task":"Kvifor må vi alltid ha med konstanten $C$ i eit ubestemt integral?","options":[{"id":"a","text":"Fordi den deriverte av ein konstant er null, så $F(x) + C$ har same deriverte uansett verdi av $C$","isCorrect":true},{"id":"b","text":"Fordi integralet alltid skal vere større enn null","isCorrect":false},{"id":"c","text":"Fordi $C$ gir kor mange ledd integranden har","isCorrect":false},{"id":"d","text":"Det er berre ein tradisjon utan matematisk tyding","isCorrect":false}],"solution":"Når vi deriverer, forsvinn alle konstantledd. Difor er $F(x) + C$ ei antiderivert til $f(x)$ for kvar verdi av $C$, og det ubestemte integralet må skildre heile denne familien."},{"id":"s2-1-1-n-quiz1-q2","task":"Kva er $\\int \\frac{1}{x} \\, dx$?","options":[{"id":"a","text":"$-\\frac{1}{x^2} + C$","isCorrect":false},{"id":"b","text":"$\\frac{x^0}{0} + C$","isCorrect":false},{"id":"c","text":"$\\ln|x| + C$","isCorrect":true},{"id":"d","text":"$e^x + C$","isCorrect":false}],"solution":"Potensregelen gjeld ikkje for $n = -1$ (vi kan ikkje dele på null). Spesialregelen er $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Uttrykket $-\\frac{1}{x^2}$ er den deriverte av $\\frac{1}{x}$."},{"id":"s2-1-1-n-quiz1-q3","task":"Ei bedrift har marginalkostnad $K'(x) = 6x^2 - 4x$. Kva er $\\int (6x^2 - 4x)\\,dx$?","options":[{"id":"a","text":"$12x - 4 + C$","isCorrect":false},{"id":"b","text":"$6x^3 - 4x^2 + C$","isCorrect":false},{"id":"c","text":"$3x^3 - 2x^2 + C$","isCorrect":false},{"id":"d","text":"$2x^3 - 2x^2 + C$","isCorrect":true}],"solution":"Ledd for ledd: $\\int 6x^2\\,dx = 6 \\cdot \\frac{x^3}{3} = 2x^3$ og $\\int 4x\\,dx = 4 \\cdot \\frac{x^2}{2} = 2x^2$. Til saman $2x^3 - 2x^2 + C$."},{"id":"s2-1-1-n-quiz1-q4","task":"Kva funksjon er si eiga antiderivert, slik at $\\int f(x)\\,dx = f(x) + C$?","options":[{"id":"a","text":"$f(x) = \\ln x$","isCorrect":false},{"id":"b","text":"$f(x) = e^x$","isCorrect":true},{"id":"c","text":"$f(x) = x$","isCorrect":false},{"id":"d","text":"$f(x) = 2^x$","isCorrect":false}],"solution":"Sidan $(e^x)' = e^x$, er $\\int e^x\\,dx = e^x + C$. For $a^x$ generelt må vi dele på $\\ln a$: $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$."}]}},{"id":"s2-1-1-n-section2","type":"text","content":"## Substitusjon og den manglande konstanten\n\nGrunnreglane tek oss langt, men kva med samansette funksjonar? Sei at ein kollega gir deg integralet $\\int 2x \\cdot e^{x^2}\\,dx$ — kanskje frå ein modell der vekstfarten er avhengig av $x^2$. Ingen av grunnreglane passar direkte. Då bruker vi **substitusjon** (innsetjing), som byggjer på mønsteret\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du$$\n\nder vi set $u = g(x)$ og dermed $du = g'(x)\\,dx$. Trikset er å leite etter ein indre funksjon der den deriverte òg står i integranden. I dømet vårt set vi $u = x^2$, som gir $du = 2x\\,dx$ — og sjå, faktoren $2x\\,dx$ står der alt! Integralet kollapsar til $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Substitusjon er rett og slett kjerneregelen baklengs.\n\nTilbake til sjefen din og marginalkostnaden $K'(x) = 3x^2 - 2x + 5$. Du har funne $K(x) = x^3 - x^2 + 5x + C$, men kva er $C$? Her treng du éi opplysning til, ein **initialvilkår**. Rekneskapet syner at dei faste kostnadene — det bedrifta betaler sjølv utan produksjon — er $K(0) = 1000$ kroner. Set du inn $x = 0$, får du $0 - 0 + 0 + C = 1000$, altså $C = 1000$. Den fullstendige kostnadsfunksjonen er\n\n$$K(x) = x^3 - x^2 + 5x + 1000$$\n\nSlik fungerer det generelt: det ubestemte integralet gir ein heil familie av funksjonar, og ein initialvilkår som $f(0) = 3$ plukkar ut den eine som passar verkelegheita. Det er denne kombinasjonen — integrer først, bestem $C$ etterpå — du kjem til å bruke igjen og igjen, både i økonomimodellar og i differensiallikningane seinare i boka."},{"id":"s2-1-1-n-quiz2","type":"exercise","exercise":{"id":"s2-1-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på substitusjon og initialvilkår:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-1-n-quiz2-q0","task":"Vi skal rekne ut $\\int 2x \\cdot e^{x^2}\\,dx$ med substitusjonen $u = x^2$. Kva blir $du$?","options":[{"id":"a","text":"$du = x^2\\,dx$","isCorrect":false},{"id":"b","text":"$du = 2x\\,dx$","isCorrect":true},{"id":"c","text":"$du = e^{x^2}\\,dx$","isCorrect":false},{"id":"d","text":"$du = 2\\,dx$","isCorrect":false}],"solution":"Vi deriverer den indre funksjonen: $u = x^2$ gir $\\frac{du}{dx} = 2x$, altså $du = 2x\\,dx$."},{"id":"s2-1-1-n-quiz2-q1","task":"Kva er $\\int 2x \\cdot e^{x^2}\\,dx$?","options":[{"id":"a","text":"$x^2 e^{x^2} + C$","isCorrect":false},{"id":"b","text":"$2x \\cdot e^{x^2} + C$","isCorrect":false},{"id":"c","text":"$e^{2x} + C$","isCorrect":false},{"id":"d","text":"$e^{x^2} + C$","isCorrect":true}],"solution":"Med $u = x^2$ og $du = 2x\\,dx$ blir integralet $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Kontroll: $(e^{x^2})' = 2x \\cdot e^{x^2}$."},{"id":"s2-1-1-n-quiz2-q2","task":"Ein funksjon oppfyller $f'(x) = 2x$ og $f(1) = 4$. Kva er $C$ i $f(x) = x^2 + C$?","options":[{"id":"a","text":"$C = 3$","isCorrect":true},{"id":"b","text":"$C = 4$","isCorrect":false},{"id":"c","text":"$C = 1$","isCorrect":false},{"id":"d","text":"$C = 5$","isCorrect":false}],"solution":"Initialvilkåret gir $f(1) = 1^2 + C = 4$, altså $C = 3$ og $f(x) = x^2 + 3$."},{"id":"s2-1-1-n-quiz2-q3","task":"Når er substitusjon ein eigna integrasjonsteknikk?","options":[{"id":"a","text":"Når integranden er eit polynom","isCorrect":false},{"id":"b","text":"Når integralet har grenser","isCorrect":false},{"id":"c","text":"Når integranden inneheld ein indre funksjon og (eit multiplum av) den deriverte av han","isCorrect":true},{"id":"d","text":"Når integranden er ein sum av to ledd","isCorrect":false}],"solution":"Substitusjon er kjerneregelen baklengs: vi treng eit mønster $f(g(x)) \\cdot g'(x)$, altså ein indre funksjon $g(x)$ der $g'(x)$ òg finst som faktor i integranden."}]}},{"id":"s2-1-1-n-summary","type":"text","content":"## Frå rate til funksjon\n\nDu starta med eit spørsmål frå sjefen: marginalkostnaden var kjend, men totalkostnaden ukjend. No har du verktøyet som løyser slike problem. Integrasjon er derivasjon baklengs, og ei antiderivert til $f$ er ein funksjon $F$ med $F'(x) = f(x)$. Det ubestemte integralet $\\int f(x)\\,dx = F(x) + C$ skildrar heile familien av antideriverte, og integrasjonskonstanten $C$ er der fordi deriverte av konstantar er null.\n\nVerktøykassa di består av potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$, spesialtilfella $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$ og $\\int e^x\\,dx = e^x + C$, og lineariteten som lèt deg integrere ledd for ledd med konstantar utanfor. Når integranden er samansett, leitar du etter ein indre funksjon og den deriverte av han og bruker substitusjonen $u = g(x)$, $du = g'(x)\\,dx$.\n\nTil slutt såg du korleis ein initialvilkår — til dømes den faste kostnaden $K(0) = 1000$ — bestemmer konstanten $C$ og gir éin bestemt funksjon. Den arbeidsflyten, integrer og bestem konstanten, blir heilt sentral når vi i neste delkapittel gir integralet grenser og lèt det rekne ut konkrete tal: bestemte integral."}],"exercises":[],"_meta":{"sourceHash":"912b69cc394b8548","translatedAt":"2026-06-20T08:59:55.650Z","model":"claude-code-agent","strings":67,"tm":{"d64a39ab911a0624":"Ubestemte integral","b195b06d1ed59702":"Narrativ versjon","7f41a13c3766250d":"Ei forteljing om ein analytikar som kjenner marginalkostnaden, men treng heile kostnadsfunksjonen — og finn han med antideriverte, grunnreglar og substitusjon.","efa3d9a781a2ae70":"bruke integrasjon i praktiske bruksområde","607166a10a0c70ab":"rekne ut og tolke integral","60e93c5a0a672718":"## Når du kjenner farten, men vil vite vegen\n\nTenk deg at du jobbar som analytikar i ein norsk nettbutikk. Økonomiavdelinga har rekna ut at marginalkostnaden — altså kor mykje kostnadene aukar for kvar ekstra eining de produserer — følgjer modellen $K'(x) = 3x^2 - 2x + 5$ kroner per eining. Det er nyttig informasjon, men sjefen din spør om noko anna: «Kva er den *totale* kostnadsfunksjonen $K(x)$?»\n\nDu kjenner altså den deriverte, men treng funksjonen sjølv. Dette er det motsette av alt du gjorde i S1 og første del av S2, der du starta med ein funksjon og fann den deriverte. No skal vi gå baklengs, og den operasjonen blir kalla **integrasjon**. Integrasjon er rett og slett den omvende operasjonen av derivasjon: viss vi veit $f'(x)$, kan vi finne tilbake til $f(x)$.\n\nFunksjonen vi leitar etter, har eit eige namn. Ei **antiderivert** (eller primitiv funksjon) til $f(x)$ er ein funksjon $F(x)$ slik at $F'(x) = f(x)$. Viss $f(x) = 2x$, er $F(x) = x^2$ ei antiderivert, fordi $(x^2)' = 2x$. Men legg merke til noko viktig: $x^2 + 7$ er òg ei antiderivert, og det same er $x^2 - 100$. Den deriverte av ein konstant er jo null, så konstanten forsvinn i derivasjonen — og dermed kan vi aldri vite kva konstant som «var der» før vi deriverte.\n\nI dette kapittelet skal vi lære notasjonen og grunnreglane for integrasjon, og til slutt teknikken substitusjon. Då kan du svare sjefen din — på kroner og øre.","352f1b95562df3d0":"## Det ubestemte integralet og grunnreglane\n\nMatematikarar har ein eigen skrivemåte for «alle antideriverte til $f$». Det **ubestemte integralet** av $f(x)$ blir skrive\n\n$$\\int f(x) \\, dx = F(x) + C$$\n\nder $F(x)$ er ei antiderivert til $f(x)$ og $C$ er ein vilkårleg konstant som blir kalla **integrasjonskonstanten**. Teiknet $\\int$ er integralteiknet, funksjonen $f(x)$ blir kalla **integranden**, og $dx$ fortel kva variabel vi integrerer med omsyn på. Konstanten $C$ må alltid vere med, nettopp fordi $F(x) + C$ har same deriverte som $F(x)$ uansett kva verdi $C$ har.\n\nKorleis integrerer vi i praksis? Den viktigaste regelen er **potensregelen**: $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$. Vi aukar eksponenten med éin og deler på den nye eksponenten. Til dømes er $\\int x^3 \\, dx = \\frac{x^4}{4} + C$, og skriv vi $\\frac{1}{x^2}$ som $x^{-2}$, får vi $\\int \\frac{1}{x^2}\\,dx = \\frac{x^{-1}}{-1} + C = -\\frac{1}{x} + C$.\n\nUnntaket $n = -1$ har sin eigen regel: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Eksponentialfunksjonen er drøymekunden til integrasjonen: $\\int e^x\\,dx = e^x + C$, og for ein generell vekstfaktor gjeld $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$.\n\nI tillegg er integrasjon lineær: konstantar kan setjast utanfor, $\\int k \\cdot f(x)\\,dx = k\\int f(x)\\,dx$, og summar kan integrerast ledd for ledd, $\\int [f(x) + g(x)]\\,dx = \\int f(x)\\,dx + \\int g(x)\\,dx$. Dermed kan du ta marginalkostnaden frå innleiinga ledd for ledd: $\\int (3x^2 - 2x + 5)\\,dx = x^3 - x^2 + 5x + C$. Og eit blanda uttrykk som $\\int \\big(e^x + \\frac{2}{x}\\big)\\,dx$ blir $e^x + 2\\ln|x| + C$.","69c41a18f1c03023":"Test deg sjølv på ubestemte integral og grunnreglane:","4097889236a2af26":"placeholder","5b640a623c13b9ed":"Kva er $\\int x^3 \\, dx$?","80e697bdd1844ecd":"$3x^2 + C$","070c27116bd19c62":"$\\frac{x^4}{4} + C$","770ef59b9a672885":"$x^4 + C$","11de27aa681a9918":"$\\frac{x^3}{3} + C$","de655f8a5ebac9af":"Potensregelen: auk eksponenten med éin og del på den nye eksponenten: $\\int x^3\\,dx = \\frac{x^4}{4} + C$. Alternativet $3x^2$ er den deriverte, ikkje ei antiderivert.","0b67c8c73c400b12":"Kvifor må vi alltid ha med konstanten $C$ i eit ubestemt integral?","ba3991011238c74c":"Fordi den deriverte av ein konstant er null, så $F(x) + C$ har same deriverte uansett verdi av $C$","fa5d0d1cf7e37975":"Fordi integralet alltid skal vere større enn null","bd869b08ae53c087":"Fordi $C$ gir kor mange ledd integranden har","af32ef4422cc7757":"Det er berre ein tradisjon utan matematisk tyding","d79f60fdd4c202e1":"Når vi deriverer, forsvinn alle konstantledd. Difor er $F(x) + C$ ei antiderivert til $f(x)$ for kvar verdi av $C$, og det ubestemte integralet må skildre heile denne familien.","61826c20f3936fcb":"Kva er $\\int \\frac{1}{x} \\, dx$?","defc60e2feed49f7":"$-\\frac{1}{x^2} + C$","36ebafddde18e09a":"$\\frac{x^0}{0} + C$","b45f0278866c14e1":"$\\ln|x| + C$","711ef9ddd99c07a6":"$e^x + C$","27c1751455d90306":"Potensregelen gjeld ikkje for $n = -1$ (vi kan ikkje dele på null). Spesialregelen er $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Uttrykket $-\\frac{1}{x^2}$ er den deriverte av $\\frac{1}{x}$.","07cf013d201f326d":"Ei bedrift har marginalkostnad $K'(x) = 6x^2 - 4x$. Kva er $\\int (6x^2 - 4x)\\,dx$?","4a73d141eae91b4e":"$12x - 4 + C$","3a19e6534cd72677":"$6x^3 - 4x^2 + C$","9f8a8dcc4ec73d29":"$3x^3 - 2x^2 + C$","ced2635029f86e1a":"$2x^3 - 2x^2 + C$","ab970295c0157426":"Ledd for ledd: $\\int 6x^2\\,dx = 6 \\cdot \\frac{x^3}{3} = 2x^3$ og $\\int 4x\\,dx = 4 \\cdot \\frac{x^2}{2} = 2x^2$. Til saman $2x^3 - 2x^2 + C$.","30cc871c92b66961":"Kva funksjon er si eiga antiderivert, slik at $\\int f(x)\\,dx = f(x) + C$?","3000f2f43291e25c":"$f(x) = \\ln x$","8214eda183dda3ed":"$f(x) = e^x$","6a29986717092fee":"$f(x) = x$","472b796d2914784d":"$f(x) = 2^x$","8068d4be26b8dc8a":"Sidan $(e^x)' = e^x$, er $\\int e^x\\,dx = e^x + C$. For $a^x$ generelt må vi dele på $\\ln a$: $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$.","dd3954eb83e61865":"## Substitusjon og den manglande konstanten\n\nGrunnreglane tek oss langt, men kva med samansette funksjonar? Sei at ein kollega gir deg integralet $\\int 2x \\cdot e^{x^2}\\,dx$ — kanskje frå ein modell der vekstfarten er avhengig av $x^2$. Ingen av grunnreglane passar direkte. Då bruker vi **substitusjon** (innsetjing), som byggjer på mønsteret\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du$$\n\nder vi set $u = g(x)$ og dermed $du = g'(x)\\,dx$. Trikset er å leite etter ein indre funksjon der den deriverte òg står i integranden. I dømet vårt set vi $u = x^2$, som gir $du = 2x\\,dx$ — og sjå, faktoren $2x\\,dx$ står der alt! Integralet kollapsar til $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Substitusjon er rett og slett kjerneregelen baklengs.\n\nTilbake til sjefen din og marginalkostnaden $K'(x) = 3x^2 - 2x + 5$. Du har funne $K(x) = x^3 - x^2 + 5x + C$, men kva er $C$? Her treng du éi opplysning til, ein **initialvilkår**. Rekneskapet syner at dei faste kostnadene — det bedrifta betaler sjølv utan produksjon — er $K(0) = 1000$ kroner. Set du inn $x = 0$, får du $0 - 0 + 0 + C = 1000$, altså $C = 1000$. Den fullstendige kostnadsfunksjonen er\n\n$$K(x) = x^3 - x^2 + 5x + 1000$$\n\nSlik fungerer det generelt: det ubestemte integralet gir ein heil familie av funksjonar, og ein initialvilkår som $f(0) = 3$ plukkar ut den eine som passar verkelegheita. Det er denne kombinasjonen — integrer først, bestem $C$ etterpå — du kjem til å bruke igjen og igjen, både i økonomimodellar og i differensiallikningane seinare i boka.","def7ae5b2edc4345":"Test deg sjølv på substitusjon og initialvilkår:","1bd8154a5a18e316":"Vi skal rekne ut $\\int 2x \\cdot e^{x^2}\\,dx$ med substitusjonen $u = x^2$. Kva blir $du$?","75ae3d44e6b62f72":"$du = x^2\\,dx$","f9090c1e0c5c872d":"$du = 2x\\,dx$","fdd15dde3ef0001f":"$du = e^{x^2}\\,dx$","83c596fb22f6ee92":"$du = 2\\,dx$","fc1b489469de57ad":"Vi deriverer den indre funksjonen: $u = x^2$ gir $\\frac{du}{dx} = 2x$, altså $du = 2x\\,dx$.","c0471a3991f033e9":"Kva er $\\int 2x \\cdot e^{x^2}\\,dx$?","12dcbef57efd558e":"$x^2 e^{x^2} + C$","92a8d1128c00604b":"$2x \\cdot e^{x^2} + C$","3c9770663c0951b6":"$e^{2x} + C$","7c5a07ddc020f327":"$e^{x^2} + C$","762770b8e782e7e5":"Med $u = x^2$ og $du = 2x\\,dx$ blir integralet $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Kontroll: $(e^{x^2})' = 2x \\cdot e^{x^2}$.","5158d0ca395af3b2":"Ein funksjon oppfyller $f'(x) = 2x$ og $f(1) = 4$. Kva er $C$ i $f(x) = x^2 + C$?","cf1fa73a6c623ce5":"$C = 3$","354528c549040bee":"$C = 4$","f33593315f3851af":"$C = 1$","bf6b025afb5f22ab":"$C = 5$","2c4e8eee2056e815":"Initialvilkåret gir $f(1) = 1^2 + C = 4$, altså $C = 3$ og $f(x) = x^2 + 3$.","059f8e480163b6fa":"Når er substitusjon ein eigna integrasjonsteknikk?","b465ac6d1dd6a922":"Når integranden er eit polynom","1bef77b7c731f2b7":"Når integralet har grenser","57f8c80ea1c5cd5f":"Når integranden inneheld ein indre funksjon og (eit multiplum av) den deriverte av han","2997b1bead9c4f2b":"Når integranden er ein sum av to ledd","3ea4ef3e5dc9941c":"Substitusjon er kjerneregelen baklengs: vi treng eit mønster $f(g(x)) \\cdot g'(x)$, altså ein indre funksjon $g(x)$ der $g'(x)$ òg finst som faktor i integranden.","cdbfa991c57582fc":"## Frå rate til funksjon\n\nDu starta med eit spørsmål frå sjefen: marginalkostnaden var kjend, men totalkostnaden ukjend. No har du verktøyet som løyser slike problem. Integrasjon er derivasjon baklengs, og ei antiderivert til $f$ er ein funksjon $F$ med $F'(x) = f(x)$. Det ubestemte integralet $\\int f(x)\\,dx = F(x) + C$ skildrar heile familien av antideriverte, og integrasjonskonstanten $C$ er der fordi deriverte av konstantar er null.\n\nVerktøykassa di består av potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$, spesialtilfella $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$ og $\\int e^x\\,dx = e^x + C$, og lineariteten som lèt deg integrere ledd for ledd med konstantar utanfor. Når integranden er samansett, leitar du etter ein indre funksjon og den deriverte av han og bruker substitusjonen $u = g(x)$, $du = g'(x)\\,dx$.\n\nTil slutt såg du korleis ein initialvilkår — til dømes den faste kostnaden $K(0) = 1000$ — bestemmer konstanten $C$ og gir éin bestemt funksjon. Den arbeidsflyten, integrer og bestem konstanten, blir heilt sentral når vi i neste delkapittel gir integralet grenser og lèt det rekne ut konkrete tal: bestemte integral."}}}
+{
+  "id": "s2-1-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "1.1",
+  "title": "Ubestemte integral",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ein analytikar som kjenner marginalkostnaden, men treng heile kostnadsfunksjonen — og finn han med antideriverte, grunnreglar og substitusjon.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke integrasjon i praktiske bruksområde",
+    "rekne ut og tolke integral"
+  ],
+  "linkedChapterId": "s2-1-1",
+  "content": [
+    {
+      "id": "s2-1-1-n-intro",
+      "type": "text",
+      "content": "## Når du kjenner farten, men vil vite vegen\n\nTenk deg at du jobbar som analytikar i ein norsk nettbutikk. Økonomiavdelinga har rekna ut at marginalkostnaden — altså kor mykje kostnadene aukar for kvar ekstra eining de produserer — følgjer modellen $K'(x) = 3x^2 - 2x + 5$ kroner per eining. Det er nyttig informasjon, men sjefen din spør om noko anna: «Kva er den *totale* kostnadsfunksjonen $K(x)$?»\n\nDu kjenner altså den deriverte, men treng funksjonen sjølv. Dette er det motsette av alt du gjorde i S1 og første del av S2, der du starta med ein funksjon og fann den deriverte. No skal vi gå baklengs, og den operasjonen blir kalla **integrasjon**. Integrasjon er rett og slett den omvende operasjonen av derivasjon: viss vi veit $f'(x)$, kan vi finne tilbake til $f(x)$.\n\nFunksjonen vi leitar etter, har eit eige namn. Ei **antiderivert** (eller primitiv funksjon) til $f(x)$ er ein funksjon $F(x)$ slik at $F'(x) = f(x)$. Viss $f(x) = 2x$, er $F(x) = x^2$ ei antiderivert, fordi $(x^2)' = 2x$. Men legg merke til noko viktig: $x^2 + 7$ er òg ei antiderivert, og det same er $x^2 - 100$. Den deriverte av ein konstant er jo null, så konstanten forsvinn i derivasjonen — og dermed kan vi aldri vite kva konstant som «var der» før vi deriverte.\n\nI dette kapittelet skal vi lære notasjonen og grunnreglane for integrasjon, og til slutt teknikken substitusjon. Då kan du svare sjefen din — på kroner og øre."
+    },
+    {
+      "id": "s2-1-1-n-section1",
+      "type": "text",
+      "content": "## Det ubestemte integralet og grunnreglane\n\nMatematikarar har ein eigen skrivemåte for «alle antideriverte til $f$». Det **ubestemte integralet** av $f(x)$ blir skrive\n\n$$\\int f(x) \\, dx = F(x) + C$$\n\nder $F(x)$ er ei antiderivert til $f(x)$ og $C$ er ein vilkårleg konstant som blir kalla **integrasjonskonstanten**. Teiknet $\\int$ er integralteiknet, funksjonen $f(x)$ blir kalla **integranden**, og $dx$ fortel kva variabel vi integrerer med omsyn på. Konstanten $C$ må alltid vere med, nettopp fordi $F(x) + C$ har same deriverte som $F(x)$ uansett kva verdi $C$ har.\n\nKorleis integrerer vi i praksis? Den viktigaste regelen er **potensregelen**: $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$. Vi aukar eksponenten med éin og deler på den nye eksponenten. Til dømes er $\\int x^3 \\, dx = \\frac{x^4}{4} + C$, og skriv vi $\\frac{1}{x^2}$ som $x^{-2}$, får vi $\\int \\frac{1}{x^2}\\,dx = \\frac{x^{-1}}{-1} + C = -\\frac{1}{x} + C$.\n\nUnntaket $n = -1$ har sin eigen regel: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Eksponentialfunksjonen er drøymekunden til integrasjonen: $\\int e^x\\,dx = e^x + C$, og for ein generell vekstfaktor gjeld $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$.\n\nI tillegg er integrasjon lineær: konstantar kan setjast utanfor, $\\int k \\cdot f(x)\\,dx = k\\int f(x)\\,dx$, og summar kan integrerast ledd for ledd, $\\int [f(x) + g(x)]\\,dx = \\int f(x)\\,dx + \\int g(x)\\,dx$. Dermed kan du ta marginalkostnaden frå innleiinga ledd for ledd: $\\int (3x^2 - 2x + 5)\\,dx = x^3 - x^2 + 5x + C$. Og eit blanda uttrykk som $\\int \\big(e^x + \\frac{2}{x}\\big)\\,dx$ blir $e^x + 2\\ln|x| + C$."
+    },
+    {
+      "id": "s2-1-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på ubestemte integral og grunnreglane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-1-n-quiz1-q0",
+            "task": "Kva er $\\int x^3 \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x^2 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^4 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{x^4}{4} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x^3}{3} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potensregelen: auk eksponenten med éin og del på den nye eksponenten: $\\int x^3\\,dx = \\frac{x^4}{4} + C$. Alternativet $3x^2$ er den deriverte, ikkje ei antiderivert."
+          },
+          {
+            "id": "s2-1-1-n-quiz1-q1",
+            "task": "Kvifor må vi alltid ha med konstanten $C$ i eit ubestemt integral?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi integralet alltid skal vere større enn null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $C$ gir kor mange ledd integranden har",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er berre ein tradisjon utan matematisk tyding",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi den deriverte av ein konstant er null, så $F(x) + C$ har same deriverte uansett verdi av $C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når vi deriverer, forsvinn alle konstantledd. Difor er $F(x) + C$ ei antiderivert til $f(x)$ for kvar verdi av $C$, og det ubestemte integralet må skildre heile denne familien."
+          },
+          {
+            "id": "s2-1-1-n-quiz1-q2",
+            "task": "Kva er $\\int \\frac{1}{x} \\, dx$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\ln|x| + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{1}{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{x^0}{0} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^x + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potensregelen gjeld ikkje for $n = -1$ (vi kan ikkje dele på null). Spesialregelen er $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Uttrykket $-\\frac{1}{x^2}$ er den deriverte av $\\frac{1}{x}$."
+          },
+          {
+            "id": "s2-1-1-n-quiz1-q3",
+            "task": "Ei bedrift har marginalkostnad $K'(x) = 6x^2 - 4x$. Kva er $\\int (6x^2 - 4x)\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12x - 4 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x^3 - 2x^2 + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$6x^3 - 4x^2 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3x^3 - 2x^2 + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledd for ledd: $\\int 6x^2\\,dx = 6 \\cdot \\frac{x^3}{3} = 2x^3$ og $\\int 4x\\,dx = 4 \\cdot \\frac{x^2}{2} = 2x^2$. Til saman $2x^3 - 2x^2 + C$."
+          },
+          {
+            "id": "s2-1-1-n-quiz1-q4",
+            "task": "Kva funksjon er si eiga antiderivert, slik at $\\int f(x)\\,dx = f(x) + C$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) = \\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = e^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f(x) = 2^x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $(e^x)' = e^x$, er $\\int e^x\\,dx = e^x + C$. For $a^x$ generelt må vi dele på $\\ln a$: $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-1-n-section2",
+      "type": "text",
+      "content": "## Substitusjon og den manglande konstanten\n\nGrunnreglane tek oss langt, men kva med samansette funksjonar? Sei at ein kollega gir deg integralet $\\int 2x \\cdot e^{x^2}\\,dx$ — kanskje frå ein modell der vekstfarten er avhengig av $x^2$. Ingen av grunnreglane passar direkte. Då bruker vi **substitusjon** (innsetjing), som byggjer på mønsteret\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du$$\n\nder vi set $u = g(x)$ og dermed $du = g'(x)\\,dx$. Trikset er å leite etter ein indre funksjon der den deriverte òg står i integranden. I dømet vårt set vi $u = x^2$, som gir $du = 2x\\,dx$ — og sjå, faktoren $2x\\,dx$ står der alt! Integralet kollapsar til $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Substitusjon er rett og slett kjerneregelen baklengs.\n\nTilbake til sjefen din og marginalkostnaden $K'(x) = 3x^2 - 2x + 5$. Du har funne $K(x) = x^3 - x^2 + 5x + C$, men kva er $C$? Her treng du éi opplysning til, ein **initialvilkår**. Rekneskapet syner at dei faste kostnadene — det bedrifta betaler sjølv utan produksjon — er $K(0) = 1000$ kroner. Set du inn $x = 0$, får du $0 - 0 + 0 + C = 1000$, altså $C = 1000$. Den fullstendige kostnadsfunksjonen er\n\n$$K(x) = x^3 - x^2 + 5x + 1000$$\n\nSlik fungerer det generelt: det ubestemte integralet gir ein heil familie av funksjonar, og ein initialvilkår som $f(0) = 3$ plukkar ut den eine som passar verkelegheita. Det er denne kombinasjonen — integrer først, bestem $C$ etterpå — du kjem til å bruke igjen og igjen, både i økonomimodellar og i differensiallikningane seinare i boka."
+    },
+    {
+      "id": "s2-1-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på substitusjon og initialvilkår:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-1-n-quiz2-q0",
+            "task": "Vi skal rekne ut $\\int 2x \\cdot e^{x^2}\\,dx$ med substitusjonen $u = x^2$. Kva blir $du$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$du = x^2\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$du = 2x\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$du = e^{x^2}\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$du = 2\\,dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer den indre funksjonen: $u = x^2$ gir $\\frac{du}{dx} = 2x$, altså $du = 2x\\,dx$."
+          },
+          {
+            "id": "s2-1-1-n-quiz2-q1",
+            "task": "Kva er $\\int 2x \\cdot e^{x^2}\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^2 e^{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x \\cdot e^{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e^{2x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^{x^2} + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $u = x^2$ og $du = 2x\\,dx$ blir integralet $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Kontroll: $(e^{x^2})' = 2x \\cdot e^{x^2}$."
+          },
+          {
+            "id": "s2-1-1-n-quiz2-q2",
+            "task": "Ein funksjon oppfyller $f'(x) = 2x$ og $f(1) = 4$. Kva er $C$ i $f(x) = x^2 + C$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$C = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$C = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$C = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$C = 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Initialvilkåret gir $f(1) = 1^2 + C = 4$, altså $C = 3$ og $f(x) = x^2 + 3$."
+          },
+          {
+            "id": "s2-1-1-n-quiz2-q3",
+            "task": "Når er substitusjon ein eigna integrasjonsteknikk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når integranden er eit polynom",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når integralet har grenser",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når integranden inneheld ein indre funksjon og (eit multiplum av) den deriverte av han",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når integranden er ein sum av to ledd",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Substitusjon er kjerneregelen baklengs: vi treng eit mønster $f(g(x)) \\cdot g'(x)$, altså ein indre funksjon $g(x)$ der $g'(x)$ òg finst som faktor i integranden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-1-n-summary",
+      "type": "text",
+      "content": "## Frå rate til funksjon\n\nDu starta med eit spørsmål frå sjefen: marginalkostnaden var kjend, men totalkostnaden ukjend. No har du verktøyet som løyser slike problem. Integrasjon er derivasjon baklengs, og ei antiderivert til $f$ er ein funksjon $F$ med $F'(x) = f(x)$. Det ubestemte integralet $\\int f(x)\\,dx = F(x) + C$ skildrar heile familien av antideriverte, og integrasjonskonstanten $C$ er der fordi deriverte av konstantar er null.\n\nVerktøykassa di består av potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$, spesialtilfella $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$ og $\\int e^x\\,dx = e^x + C$, og lineariteten som lèt deg integrere ledd for ledd med konstantar utanfor. Når integranden er samansett, leitar du etter ein indre funksjon og den deriverte av han og bruker substitusjonen $u = g(x)$, $du = g'(x)\\,dx$.\n\nTil slutt såg du korleis ein initialvilkår — til dømes den faste kostnaden $K(0) = 1000$ — bestemmer konstanten $C$ og gir éin bestemt funksjon. Den arbeidsflyten, integrer og bestem konstanten, blir heilt sentral når vi i neste delkapittel gir integralet grenser og lèt det rekne ut konkrete tal: bestemte integral."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "912b69cc394b8548",
+    "translatedAt": "2026-06-20T08:59:55.650Z",
+    "model": "claude-code-agent",
+    "strings": 67,
+    "tm": {
+      "d64a39ab911a0624": "Ubestemte integral",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7f41a13c3766250d": "Ei forteljing om ein analytikar som kjenner marginalkostnaden, men treng heile kostnadsfunksjonen — og finn han med antideriverte, grunnreglar og substitusjon.",
+      "efa3d9a781a2ae70": "bruke integrasjon i praktiske bruksområde",
+      "607166a10a0c70ab": "rekne ut og tolke integral",
+      "60e93c5a0a672718": "## Når du kjenner farten, men vil vite vegen\n\nTenk deg at du jobbar som analytikar i ein norsk nettbutikk. Økonomiavdelinga har rekna ut at marginalkostnaden — altså kor mykje kostnadene aukar for kvar ekstra eining de produserer — følgjer modellen $K'(x) = 3x^2 - 2x + 5$ kroner per eining. Det er nyttig informasjon, men sjefen din spør om noko anna: «Kva er den *totale* kostnadsfunksjonen $K(x)$?»\n\nDu kjenner altså den deriverte, men treng funksjonen sjølv. Dette er det motsette av alt du gjorde i S1 og første del av S2, der du starta med ein funksjon og fann den deriverte. No skal vi gå baklengs, og den operasjonen blir kalla **integrasjon**. Integrasjon er rett og slett den omvende operasjonen av derivasjon: viss vi veit $f'(x)$, kan vi finne tilbake til $f(x)$.\n\nFunksjonen vi leitar etter, har eit eige namn. Ei **antiderivert** (eller primitiv funksjon) til $f(x)$ er ein funksjon $F(x)$ slik at $F'(x) = f(x)$. Viss $f(x) = 2x$, er $F(x) = x^2$ ei antiderivert, fordi $(x^2)' = 2x$. Men legg merke til noko viktig: $x^2 + 7$ er òg ei antiderivert, og det same er $x^2 - 100$. Den deriverte av ein konstant er jo null, så konstanten forsvinn i derivasjonen — og dermed kan vi aldri vite kva konstant som «var der» før vi deriverte.\n\nI dette kapittelet skal vi lære notasjonen og grunnreglane for integrasjon, og til slutt teknikken substitusjon. Då kan du svare sjefen din — på kroner og øre.",
+      "352f1b95562df3d0": "## Det ubestemte integralet og grunnreglane\n\nMatematikarar har ein eigen skrivemåte for «alle antideriverte til $f$». Det **ubestemte integralet** av $f(x)$ blir skrive\n\n$$\\int f(x) \\, dx = F(x) + C$$\n\nder $F(x)$ er ei antiderivert til $f(x)$ og $C$ er ein vilkårleg konstant som blir kalla **integrasjonskonstanten**. Teiknet $\\int$ er integralteiknet, funksjonen $f(x)$ blir kalla **integranden**, og $dx$ fortel kva variabel vi integrerer med omsyn på. Konstanten $C$ må alltid vere med, nettopp fordi $F(x) + C$ har same deriverte som $F(x)$ uansett kva verdi $C$ har.\n\nKorleis integrerer vi i praksis? Den viktigaste regelen er **potensregelen**: $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$. Vi aukar eksponenten med éin og deler på den nye eksponenten. Til dømes er $\\int x^3 \\, dx = \\frac{x^4}{4} + C$, og skriv vi $\\frac{1}{x^2}$ som $x^{-2}$, får vi $\\int \\frac{1}{x^2}\\,dx = \\frac{x^{-1}}{-1} + C = -\\frac{1}{x} + C$.\n\nUnntaket $n = -1$ har sin eigen regel: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Eksponentialfunksjonen er drøymekunden til integrasjonen: $\\int e^x\\,dx = e^x + C$, og for ein generell vekstfaktor gjeld $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$.\n\nI tillegg er integrasjon lineær: konstantar kan setjast utanfor, $\\int k \\cdot f(x)\\,dx = k\\int f(x)\\,dx$, og summar kan integrerast ledd for ledd, $\\int [f(x) + g(x)]\\,dx = \\int f(x)\\,dx + \\int g(x)\\,dx$. Dermed kan du ta marginalkostnaden frå innleiinga ledd for ledd: $\\int (3x^2 - 2x + 5)\\,dx = x^3 - x^2 + 5x + C$. Og eit blanda uttrykk som $\\int \\big(e^x + \\frac{2}{x}\\big)\\,dx$ blir $e^x + 2\\ln|x| + C$.",
+      "69c41a18f1c03023": "Test deg sjølv på ubestemte integral og grunnreglane:",
+      "4097889236a2af26": "placeholder",
+      "5b640a623c13b9ed": "Kva er $\\int x^3 \\, dx$?",
+      "80e697bdd1844ecd": "$3x^2 + C$",
+      "070c27116bd19c62": "$\\frac{x^4}{4} + C$",
+      "770ef59b9a672885": "$x^4 + C$",
+      "11de27aa681a9918": "$\\frac{x^3}{3} + C$",
+      "de655f8a5ebac9af": "Potensregelen: auk eksponenten med éin og del på den nye eksponenten: $\\int x^3\\,dx = \\frac{x^4}{4} + C$. Alternativet $3x^2$ er den deriverte, ikkje ei antiderivert.",
+      "0b67c8c73c400b12": "Kvifor må vi alltid ha med konstanten $C$ i eit ubestemt integral?",
+      "ba3991011238c74c": "Fordi den deriverte av ein konstant er null, så $F(x) + C$ har same deriverte uansett verdi av $C$",
+      "fa5d0d1cf7e37975": "Fordi integralet alltid skal vere større enn null",
+      "bd869b08ae53c087": "Fordi $C$ gir kor mange ledd integranden har",
+      "af32ef4422cc7757": "Det er berre ein tradisjon utan matematisk tyding",
+      "d79f60fdd4c202e1": "Når vi deriverer, forsvinn alle konstantledd. Difor er $F(x) + C$ ei antiderivert til $f(x)$ for kvar verdi av $C$, og det ubestemte integralet må skildre heile denne familien.",
+      "61826c20f3936fcb": "Kva er $\\int \\frac{1}{x} \\, dx$?",
+      "defc60e2feed49f7": "$-\\frac{1}{x^2} + C$",
+      "36ebafddde18e09a": "$\\frac{x^0}{0} + C$",
+      "b45f0278866c14e1": "$\\ln|x| + C$",
+      "711ef9ddd99c07a6": "$e^x + C$",
+      "27c1751455d90306": "Potensregelen gjeld ikkje for $n = -1$ (vi kan ikkje dele på null). Spesialregelen er $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$. Uttrykket $-\\frac{1}{x^2}$ er den deriverte av $\\frac{1}{x}$.",
+      "07cf013d201f326d": "Ei bedrift har marginalkostnad $K'(x) = 6x^2 - 4x$. Kva er $\\int (6x^2 - 4x)\\,dx$?",
+      "4a73d141eae91b4e": "$12x - 4 + C$",
+      "3a19e6534cd72677": "$6x^3 - 4x^2 + C$",
+      "9f8a8dcc4ec73d29": "$3x^3 - 2x^2 + C$",
+      "ced2635029f86e1a": "$2x^3 - 2x^2 + C$",
+      "ab970295c0157426": "Ledd for ledd: $\\int 6x^2\\,dx = 6 \\cdot \\frac{x^3}{3} = 2x^3$ og $\\int 4x\\,dx = 4 \\cdot \\frac{x^2}{2} = 2x^2$. Til saman $2x^3 - 2x^2 + C$.",
+      "30cc871c92b66961": "Kva funksjon er si eiga antiderivert, slik at $\\int f(x)\\,dx = f(x) + C$?",
+      "3000f2f43291e25c": "$f(x) = \\ln x$",
+      "8214eda183dda3ed": "$f(x) = e^x$",
+      "6a29986717092fee": "$f(x) = x$",
+      "472b796d2914784d": "$f(x) = 2^x$",
+      "8068d4be26b8dc8a": "Sidan $(e^x)' = e^x$, er $\\int e^x\\,dx = e^x + C$. For $a^x$ generelt må vi dele på $\\ln a$: $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$.",
+      "dd3954eb83e61865": "## Substitusjon og den manglande konstanten\n\nGrunnreglane tek oss langt, men kva med samansette funksjonar? Sei at ein kollega gir deg integralet $\\int 2x \\cdot e^{x^2}\\,dx$ — kanskje frå ein modell der vekstfarten er avhengig av $x^2$. Ingen av grunnreglane passar direkte. Då bruker vi **substitusjon** (innsetjing), som byggjer på mønsteret\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du$$\n\nder vi set $u = g(x)$ og dermed $du = g'(x)\\,dx$. Trikset er å leite etter ein indre funksjon der den deriverte òg står i integranden. I dømet vårt set vi $u = x^2$, som gir $du = 2x\\,dx$ — og sjå, faktoren $2x\\,dx$ står der alt! Integralet kollapsar til $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Substitusjon er rett og slett kjerneregelen baklengs.\n\nTilbake til sjefen din og marginalkostnaden $K'(x) = 3x^2 - 2x + 5$. Du har funne $K(x) = x^3 - x^2 + 5x + C$, men kva er $C$? Her treng du éi opplysning til, ein **initialvilkår**. Rekneskapet syner at dei faste kostnadene — det bedrifta betaler sjølv utan produksjon — er $K(0) = 1000$ kroner. Set du inn $x = 0$, får du $0 - 0 + 0 + C = 1000$, altså $C = 1000$. Den fullstendige kostnadsfunksjonen er\n\n$$K(x) = x^3 - x^2 + 5x + 1000$$\n\nSlik fungerer det generelt: det ubestemte integralet gir ein heil familie av funksjonar, og ein initialvilkår som $f(0) = 3$ plukkar ut den eine som passar verkelegheita. Det er denne kombinasjonen — integrer først, bestem $C$ etterpå — du kjem til å bruke igjen og igjen, både i økonomimodellar og i differensiallikningane seinare i boka.",
+      "def7ae5b2edc4345": "Test deg sjølv på substitusjon og initialvilkår:",
+      "1bd8154a5a18e316": "Vi skal rekne ut $\\int 2x \\cdot e^{x^2}\\,dx$ med substitusjonen $u = x^2$. Kva blir $du$?",
+      "75ae3d44e6b62f72": "$du = x^2\\,dx$",
+      "f9090c1e0c5c872d": "$du = 2x\\,dx$",
+      "fdd15dde3ef0001f": "$du = e^{x^2}\\,dx$",
+      "83c596fb22f6ee92": "$du = 2\\,dx$",
+      "fc1b489469de57ad": "Vi deriverer den indre funksjonen: $u = x^2$ gir $\\frac{du}{dx} = 2x$, altså $du = 2x\\,dx$.",
+      "c0471a3991f033e9": "Kva er $\\int 2x \\cdot e^{x^2}\\,dx$?",
+      "12dcbef57efd558e": "$x^2 e^{x^2} + C$",
+      "92a8d1128c00604b": "$2x \\cdot e^{x^2} + C$",
+      "3c9770663c0951b6": "$e^{2x} + C$",
+      "7c5a07ddc020f327": "$e^{x^2} + C$",
+      "762770b8e782e7e5": "Med $u = x^2$ og $du = 2x\\,dx$ blir integralet $\\int e^u\\,du = e^u + C = e^{x^2} + C$. Kontroll: $(e^{x^2})' = 2x \\cdot e^{x^2}$.",
+      "5158d0ca395af3b2": "Ein funksjon oppfyller $f'(x) = 2x$ og $f(1) = 4$. Kva er $C$ i $f(x) = x^2 + C$?",
+      "cf1fa73a6c623ce5": "$C = 3$",
+      "354528c549040bee": "$C = 4$",
+      "f33593315f3851af": "$C = 1$",
+      "bf6b025afb5f22ab": "$C = 5$",
+      "2c4e8eee2056e815": "Initialvilkåret gir $f(1) = 1^2 + C = 4$, altså $C = 3$ og $f(x) = x^2 + 3$.",
+      "059f8e480163b6fa": "Når er substitusjon ein eigna integrasjonsteknikk?",
+      "b465ac6d1dd6a922": "Når integranden er eit polynom",
+      "1bef77b7c731f2b7": "Når integralet har grenser",
+      "57f8c80ea1c5cd5f": "Når integranden inneheld ein indre funksjon og (eit multiplum av) den deriverte av han",
+      "2997b1bead9c4f2b": "Når integranden er ein sum av to ledd",
+      "3ea4ef3e5dc9941c": "Substitusjon er kjerneregelen baklengs: vi treng eit mønster $f(g(x)) \\cdot g'(x)$, altså ein indre funksjon $g(x)$ der $g'(x)$ òg finst som faktor i integranden.",
+      "cdbfa991c57582fc": "## Frå rate til funksjon\n\nDu starta med eit spørsmål frå sjefen: marginalkostnaden var kjend, men totalkostnaden ukjend. No har du verktøyet som løyser slike problem. Integrasjon er derivasjon baklengs, og ei antiderivert til $f$ er ein funksjon $F$ med $F'(x) = f(x)$. Det ubestemte integralet $\\int f(x)\\,dx = F(x) + C$ skildrar heile familien av antideriverte, og integrasjonskonstanten $C$ er der fordi deriverte av konstantar er null.\n\nVerktøykassa di består av potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$, spesialtilfella $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$ og $\\int e^x\\,dx = e^x + C$, og lineariteten som lèt deg integrere ledd for ledd med konstantar utanfor. Når integranden er samansett, leitar du etter ein indre funksjon og den deriverte av han og bruker substitusjonen $u = g(x)$, $du = g'(x)\\,dx$.\n\nTil slutt såg du korleis ein initialvilkår — til dømes den faste kostnaden $K(0) = 1000$ — bestemmer konstanten $C$ og gir éin bestemt funksjon. Den arbeidsflyten, integrer og bestem konstanten, blir heilt sentral når vi i neste delkapittel gir integralet grenser og lèt det rekne ut konkrete tal: bestemte integral."
+    }
+  }
+}

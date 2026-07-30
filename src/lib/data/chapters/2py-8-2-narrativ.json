@@ -1,1 +1,237 @@
-{"id":"2py-8-2-narrativ","courseId":"2py","chapterNumber":"8.2","title":"Digitale verktøy","subtitle":"Narrativ versjon","description":"En fortelling om materiallisten som regner seg selv -- regneark, formler og funksjoner i fagarbeiderens hverdag.","estimatedMinutes":26,"competenceGoals":["bruke digitale verktøy til beregninger","lage enkle regneark for gjentatte beregninger"],"linkedChapterId":"2py-8-2","content":[{"id":"2py-8-2-n-intro","type":"text","content":"## Materiallisten som alltid stemmer\n\nForrige uke regnet du ut anbudet på boden for hånd. Det gikk bra — men så ringer kunden og vil ha større bod. Nye mål, nye mengder, og hele regnestykket må gjøres om igjen fra start. Det finnes en bedre måte: legg beregningen inn i et **regneark** én gang, og la datamaskinen regne om alt på et blunk hver gang noe endres.\n\nDigitale verktøy er en del av fagarbeiderens hverdag. Regneark som Excel og Google Sheets brukes til materiallister, timelister, budsjetter og diagrammer. Kalkulatoren tar de raske utregningene, bransjeprogrammer håndterer alt fra kapp-lister til elektrotegninger, og nettbaserte kalkulatorer hjelper deg med lån, mva og lønn. Felles for dem alle: de regner raskere og mer nøyaktig enn hodet ditt — men bare hvis *du* har lagt inn riktige formler.\n\nI dette kapittelet bygger vi en materialliste i regneark, fra første celle til ferdig totalsum med mva. Underveis lærer du formler, funksjoner og det smarte trikset med absolutte referanser. Når du er ferdig, har du et verktøy du kan gjenbruke på hvert eneste oppdrag."},{"id":"2py-8-2-n-section1","type":"text","content":"## Celler, formler og funksjoner\n\nEt regneark er et rutenett av **celler**. Hver celle har et navn — en **cellereferanse** — satt sammen av kolonnebokstav og radnummer: A1 er øverst til venstre, B3 er kolonne B, rad 3. I cellene kan du skrive tekst, tall — eller formler.\n\nEn **formel** starter alltid med likhetstegn. Skriver du `=A1+B1` i en celle, viser cellen summen av det som står i A1 og B1. Og her kommer magien: endrer du tallet i A1, oppdateres summen umiddelbart. Det er derfor regnearket slår papir og blyant — beregningen lever videre og svarer på «hva hvis»-spørsmål uten ekstraarbeid.\n\nFor å slippe å skrive lange plussregnestykker finnes ferdige **funksjoner**. `=SUMMER(A1:A10)` legger sammen alle cellene fra A1 til A10 (i engelsk Excel heter den `SUM`). `=GJENNOMSNITT(A1:A10)` finner gjennomsnittet, `=MAKS(A1:A10)` den største verdien og `=MIN(A1:A10)` den minste. Kolon-tegnet betyr «til og med» — A1:A10 er hele området fra A1 til A10.\n\nDen siste superkraften er **kopiering**. Skriver du `=B2*C2` i celle D2 og kopierer formelen nedover til D3 og D4, endres referansene automatisk til `=B3*C3` og `=B4*C4`. Én formel, skrevet én gang, kan altså regne ut hundre rader. I neste seksjon setter vi alt sammen til en ekte materialliste."},{"id":"2py-8-2-n-quiz1","type":"exercise","exercise":{"id":"2py-8-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på regnearkets grunnlag:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-8-2-n-quiz1-q0","task":"Hva må en formel i et regneark alltid starte med?","options":[{"id":"a","text":"Tegnet \\#","isCorrect":false},{"id":"b","text":"Ordet FORMEL","isCorrect":false},{"id":"c","text":"Tegnet $=$","isCorrect":true},{"id":"d","text":"En parentes","isCorrect":false}],"solution":"Alle formler starter med likhetstegn, f.eks. `=A1+B1`. Uten $=$ tolkes innholdet som vanlig tekst."},{"id":"2py-8-2-n-quiz1-q1","task":"Hva gjør funksjonen =SUMMER(A1:A10)?","options":[{"id":"a","text":"Legger sammen verdiene i cellene A1 til og med A10","isCorrect":true},{"id":"b","text":"Teller antall celler i området","isCorrect":false},{"id":"c","text":"Finner den største verdien i området","isCorrect":false},{"id":"d","text":"Ganger sammen A1 og A10","isCorrect":false}],"solution":"SUMMER (SUM på engelsk) adderer alle verdiene i området A1:A10."},{"id":"2py-8-2-n-quiz1-q2","task":"Celle B2 inneholder $12$ og celle C2 inneholder $185$. Hva viser cellen med formelen =B2*C2?","options":[{"id":"a","text":"$197$","isCorrect":false},{"id":"b","text":"$12\\,185$","isCorrect":false},{"id":"c","text":"$1\\,850$","isCorrect":false},{"id":"d","text":"$2\\,220$","isCorrect":true}],"solution":"Formelen multipliserer: $12 \\cdot 185 = 2\\,220$."}]}},{"id":"2py-8-2-n-section2","type":"text","content":"## Materiallisten bygges — med mva og låste celler\n\nNå bygger vi listen for et gipseoppdrag. I kolonne A skriver du materialene: gipsplater, skruer og sparkel. I kolonne B mengdene: $12$ plater, $3$ pakker skruer, $5$ kg sparkel. I kolonne C prisene per enhet: $185$ kr, $89$ kr og $125$ kr.\n\nI kolonne D skal summene stå. I D2 skriver du `=B2*C2`, som gir $12 \\cdot 185 = 2\\,220$ kr for gipsplatene. Du kopierer formelen nedover: skruene gir $3 \\cdot 89 = 267$ kr og sparkelen $5 \\cdot 125 = 625$ kr. Totalen henter du med `=SUMMER(D2:D4)`, som gir $2\\,220 + 267 + 625 = 3\\,112$ kr.\n\nMen kunden skal ha pris med merverdiavgift. Mva er $25\\,\\%$, så du legger til en rad med `=D5*0,25`, som gir $778$ kr, og en sluttsum `=D5+D6` på $3\\,890$ kr. Ferdig — og når kunden ringer og vil ha $16$ gipsplater i stedet for $12$, endrer du ett eneste tall, og hele regnestykket oppdaterer seg selv.\n\nTil slutt et triks som skiller nybegynneren fra den drevne brukeren: **absolutt referanse**. Sett at påslagsprosenten ligger i celle E1, og du vil bruke den i formler nedover hele lista. Kopierer du `=D2*E1` nedover, blir den til `=D3*E2` — og E2 er tom! Løsningen er å låse cellen med dollartegn: `=D2*$E$1`. Da peker alle kopiene fortsatt på E1. Absolutte referanser er perfekte for faste satser som mva, påslag og timepris — verdier som skal være felles for hele regnearket."},{"id":"2py-8-2-n-quiz2","type":"exercise","exercise":{"id":"2py-8-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på materialliste med mva:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-8-2-n-quiz2-q0","task":"Materialene koster $3\\,112$ kr uten mva. Hvor mye utgjør mva på $25\\,\\%$?","options":[{"id":"a","text":"$1\\,245$ kr","isCorrect":false},{"id":"b","text":"$778$ kr","isCorrect":true},{"id":"c","text":"$622$ kr","isCorrect":false},{"id":"d","text":"$311$ kr","isCorrect":false}],"solution":"$3\\,112 \\cdot 0{,}25 = 778$ kr. Totalpris inkl. mva blir $3\\,112 + 778 = 3\\,890$ kr."},{"id":"2py-8-2-n-quiz2-q1","task":"Hvordan skriver du en absolutt referanse til celle E1?","options":[{"id":"a","text":"E1!","isCorrect":false},{"id":"b","text":"\\#E1","isCorrect":false},{"id":"c","text":"\\$E\\$1","isCorrect":true},{"id":"d","text":"=E1=","isCorrect":false}],"solution":"Dollartegn foran kolonne og rad låser referansen: \\$E\\$1 endres ikke når formelen kopieres."},{"id":"2py-8-2-n-quiz2-q2","task":"Hvorfor bruker vi absolutt referanse for en fast sats som mva?","options":[{"id":"a","text":"Slik at referansen ikke endres når formelen kopieres til andre celler","isCorrect":true},{"id":"b","text":"Fordi regnearket ellers sletter satsen","isCorrect":false},{"id":"c","text":"Fordi formelen da regner raskere","isCorrect":false},{"id":"d","text":"Fordi mva alltid skal stå i celle A1","isCorrect":false}],"solution":"Ved kopiering endres vanlige referanser automatisk. Dollartegnene låser cellen, slik at alle kopiene peker på den samme satsen."}]}},{"id":"2py-8-2-n-summary","type":"text","content":"## Oppsummering: regnearket som arbeidsverktøy\n\nMateriallisten din er ferdig, og den er gjenbrukbar: nye mengder inn, ny totalpris ut — på sekunder. Det er kjernen i digitale verktøy: maskinen tar regnearbeidet, du tar tenkingen.\n\nDu har lært at hver celle har en **cellereferanse** som A1 og B3, og at **formler** alltid starter med $=$, som i `=B2*C2`. Funksjonene `=SUMMER(B2:B6)` og `=GJENNOMSNITT(B2:B6)` håndterer hele områder i én jafs, og `=MAKS` og `=MIN` finner ytterpunktene. Når du kopierer en formel nedover, endres cellereferansene automatisk — det er slik én formel kan beregne hele lista.\n\nDu har også sett hele arbeidsflyten i praksis: mengde ganger pris per rad, `=SUMMER` for totalen, $25\\,\\%$ mva med `=D5*0,25`, og sluttsum til kunden. Og du kjenner trikset med **absolutt referanse**: `$E$1` låser cellen, slik at faste satser som mva og påslag kan ligge ett sted og brukes overalt.\n\nRegneark, kalkulator, bransjeprogrammer og nettkalkulatorer er alle der for å gjøre deg raskere og tryggere — men husk at de bare er så gode som formlene du legger inn. Kontrollér alltid med et overslag: virker totalen rimelig? Det er fortsatt du som er fagpersonen."}],"exercises":[]}
+{
+  "id": "2py-8-2-narrativ",
+  "courseId": "2py",
+  "chapterNumber": "8.2",
+  "title": "Digitale verktøy",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om materiallisten som regner seg selv -- regneark, formler og funksjoner i fagarbeiderens hverdag.",
+  "estimatedMinutes": 26,
+  "competenceGoals": [
+    "bruke digitale verktøy til beregninger",
+    "lage enkle regneark for gjentatte beregninger"
+  ],
+  "linkedChapterId": "2py-8-2",
+  "content": [
+    {
+      "id": "2py-8-2-n-intro",
+      "type": "text",
+      "content": "## Materiallisten som alltid stemmer\n\nForrige uke regnet du ut anbudet på boden for hånd. Det gikk bra — men så ringer kunden og vil ha større bod. Nye mål, nye mengder, og hele regnestykket må gjøres om igjen fra start. Det finnes en bedre måte: legg beregningen inn i et **regneark** én gang, og la datamaskinen regne om alt på et blunk hver gang noe endres.\n\nDigitale verktøy er en del av fagarbeiderens hverdag. Regneark som Excel og Google Sheets brukes til materiallister, timelister, budsjetter og diagrammer. Kalkulatoren tar de raske utregningene, bransjeprogrammer håndterer alt fra kapp-lister til elektrotegninger, og nettbaserte kalkulatorer hjelper deg med lån, mva og lønn. Felles for dem alle: de regner raskere og mer nøyaktig enn hodet ditt — men bare hvis *du* har lagt inn riktige formler.\n\nI dette kapittelet bygger vi en materialliste i regneark, fra første celle til ferdig totalsum med mva. Underveis lærer du formler, funksjoner og det smarte trikset med absolutte referanser. Når du er ferdig, har du et verktøy du kan gjenbruke på hvert eneste oppdrag."
+    },
+    {
+      "id": "2py-8-2-n-section1",
+      "type": "text",
+      "content": "## Celler, formler og funksjoner\n\nEt regneark er et rutenett av **celler**. Hver celle har et navn — en **cellereferanse** — satt sammen av kolonnebokstav og radnummer: A1 er øverst til venstre, B3 er kolonne B, rad 3. I cellene kan du skrive tekst, tall — eller formler.\n\nEn **formel** starter alltid med likhetstegn. Skriver du `=A1+B1` i en celle, viser cellen summen av det som står i A1 og B1. Og her kommer magien: endrer du tallet i A1, oppdateres summen umiddelbart. Det er derfor regnearket slår papir og blyant — beregningen lever videre og svarer på «hva hvis»-spørsmål uten ekstraarbeid.\n\nFor å slippe å skrive lange plussregnestykker finnes ferdige **funksjoner**. `=SUMMER(A1:A10)` legger sammen alle cellene fra A1 til A10 (i engelsk Excel heter den `SUM`). `=GJENNOMSNITT(A1:A10)` finner gjennomsnittet, `=MAKS(A1:A10)` den største verdien og `=MIN(A1:A10)` den minste. Kolon-tegnet betyr «til og med» — A1:A10 er hele området fra A1 til A10.\n\nDen siste superkraften er **kopiering**. Skriver du `=B2*C2` i celle D2 og kopierer formelen nedover til D3 og D4, endres referansene automatisk til `=B3*C3` og `=B4*C4`. Én formel, skrevet én gang, kan altså regne ut hundre rader. I neste seksjon setter vi alt sammen til en ekte materialliste."
+    },
+    {
+      "id": "2py-8-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-8-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regnearkets grunnlag:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-8-2-n-quiz1-q0",
+            "task": "Hva må en formel i et regneark alltid starte med?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tegnet \\#",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ordet FORMEL",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tegnet $=$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "En parentes",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle formler starter med likhetstegn, f.eks. `=A1+B1`. Uten $=$ tolkes innholdet som vanlig tekst."
+          },
+          {
+            "id": "2py-8-2-n-quiz1-q1",
+            "task": "Hva gjør funksjonen =SUMMER(A1:A10)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Teller antall celler i området",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Finner den største verdien i området",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ganger sammen A1 og A10",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Legger sammen verdiene i cellene A1 til og med A10",
+                "isCorrect": true
+              }
+            ],
+            "solution": "SUMMER (SUM på engelsk) adderer alle verdiene i området A1:A10."
+          },
+          {
+            "id": "2py-8-2-n-quiz1-q2",
+            "task": "Celle B2 inneholder $12$ og celle C2 inneholder $185$. Hva viser cellen med formelen =B2*C2?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$2\\,220$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$197$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12\\,185$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1\\,850$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formelen multipliserer: $12 \\cdot 185 = 2\\,220$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-8-2-n-section2",
+      "type": "text",
+      "content": "## Materiallisten bygges — med mva og låste celler\n\nNå bygger vi listen for et gipseoppdrag. I kolonne A skriver du materialene: gipsplater, skruer og sparkel. I kolonne B mengdene: $12$ plater, $3$ pakker skruer, $5$ kg sparkel. I kolonne C prisene per enhet: $185$ kr, $89$ kr og $125$ kr.\n\nI kolonne D skal summene stå. I D2 skriver du `=B2*C2`, som gir $12 \\cdot 185 = 2\\,220$ kr for gipsplatene. Du kopierer formelen nedover: skruene gir $3 \\cdot 89 = 267$ kr og sparkelen $5 \\cdot 125 = 625$ kr. Totalen henter du med `=SUMMER(D2:D4)`, som gir $2\\,220 + 267 + 625 = 3\\,112$ kr.\n\nMen kunden skal ha pris med merverdiavgift. Mva er $25\\,\\%$, så du legger til en rad med `=D5*0,25`, som gir $778$ kr, og en sluttsum `=D5+D6` på $3\\,890$ kr. Ferdig — og når kunden ringer og vil ha $16$ gipsplater i stedet for $12$, endrer du ett eneste tall, og hele regnestykket oppdaterer seg selv.\n\nTil slutt et triks som skiller nybegynneren fra den drevne brukeren: **absolutt referanse**. Sett at påslagsprosenten ligger i celle E1, og du vil bruke den i formler nedover hele lista. Kopierer du `=D2*E1` nedover, blir den til `=D3*E2` — og E2 er tom! Løsningen er å låse cellen med dollartegn: `=D2*$E$1`. Da peker alle kopiene fortsatt på E1. Absolutte referanser er perfekte for faste satser som mva, påslag og timepris — verdier som skal være felles for hele regnearket."
+    },
+    {
+      "id": "2py-8-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-8-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på materialliste med mva:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-8-2-n-quiz2-q0",
+            "task": "Materialene koster $3\\,112$ kr uten mva. Hvor mye utgjør mva på $25\\,\\%$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1\\,245$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$778$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$622$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$311$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3\\,112 \\cdot 0{,}25 = 778$ kr. Totalpris inkl. mva blir $3\\,112 + 778 = 3\\,890$ kr."
+          },
+          {
+            "id": "2py-8-2-n-quiz2-q1",
+            "task": "Hvordan skriver du en absolutt referanse til celle E1?",
+            "options": [
+              {
+                "id": "a",
+                "text": "E1!",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "\\#E1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "\\$E\\$1",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "=E1=",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dollartegn foran kolonne og rad låser referansen: \\$E\\$1 endres ikke når formelen kopieres."
+          },
+          {
+            "id": "2py-8-2-n-quiz2-q2",
+            "task": "Hvorfor bruker vi absolutt referanse for en fast sats som mva?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi regnearket ellers sletter satsen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi formelen da regner raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi mva alltid skal stå i celle A1",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Slik at referansen ikke endres når formelen kopieres til andre celler",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ved kopiering endres vanlige referanser automatisk. Dollartegnene låser cellen, slik at alle kopiene peker på den samme satsen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-8-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: regnearket som arbeidsverktøy\n\nMateriallisten din er ferdig, og den er gjenbrukbar: nye mengder inn, ny totalpris ut — på sekunder. Det er kjernen i digitale verktøy: maskinen tar regnearbeidet, du tar tenkingen.\n\nDu har lært at hver celle har en **cellereferanse** som A1 og B3, og at **formler** alltid starter med $=$, som i `=B2*C2`. Funksjonene `=SUMMER(B2:B6)` og `=GJENNOMSNITT(B2:B6)` håndterer hele områder i én jafs, og `=MAKS` og `=MIN` finner ytterpunktene. Når du kopierer en formel nedover, endres cellereferansene automatisk — det er slik én formel kan beregne hele lista.\n\nDu har også sett hele arbeidsflyten i praksis: mengde ganger pris per rad, `=SUMMER` for totalen, $25\\,\\%$ mva med `=D5*0,25`, og sluttsum til kunden. Og du kjenner trikset med **absolutt referanse**: `$E$1` låser cellen, slik at faste satser som mva og påslag kan ligge ett sted og brukes overalt.\n\nRegneark, kalkulator, bransjeprogrammer og nettkalkulatorer er alle der for å gjøre deg raskere og tryggere — men husk at de bare er så gode som formlene du legger inn. Kontrollér alltid med et overslag: virker totalen rimelig? Det er fortsatt du som er fagpersonen."
+    }
+  ],
+  "exercises": []
+}

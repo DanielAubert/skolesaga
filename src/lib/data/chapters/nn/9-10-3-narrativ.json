@@ -1,1 +1,411 @@
-{"id":"9-10-3-narrativ","courseId":"9","chapterNumber":"10.3","title":"Data, manipulering og synspunkt","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av korleis data kan brukast til å støtte ulike synspunkt, teknikkar for datamanipulering, og etikk i ei datadriven verd.","estimatedMinutes":35,"competenceGoals":["vurdere og drøfte om statistiske framstillingar i media og samfunn er relevante og pålitelege","bruke data til å stille spørsmål, beskrive forklaringar og presentere funn"],"linkedChapterId":"9-10-3","content":[{"id":"9-10-3-n-intro","type":"text","content":"## Same tal, forskjellig historie\n\nTenk deg at ein skule har fått desse resultata på nasjonale prøver i lesing dei siste fem åra: $48, 51, 50, 49, 52$ -- medan det nasjonale snittet er $50$ kvart år. No kan rektoren seie: «Fantastisk utvikling! Frå $48$ til $52$ -- vi ligg over snittet!» Men ein uroleg forelder kan seie: «Resultata svingar opp og ned -- skulen har inga stabil forbetring!»\n\nBegge bruker **nøyaktig dei same tala**. Begge seier teknisk sett sanninga. Men dei gir heilt forskjellig inntrykk fordi dei **rammar inn** tala på ulike måtar. Dette blir kalla **framing**, og det er eitt av dei viktigaste verktøya for å forstå korleis data blir brukte -- og misbrukte -- i kvardagen.\n\nI dette kapittelet utforskar vi tre tema:\n- Korleis framing lèt oss fortelje ulike historier med same data\n- Korleis data kan manipulerast gjennom spørsmålsformulering, prosenttriks og selektivt utval\n- Korleis vi bør tenke etisk om innsamling og bruk av data"},{"id":"9-10-3-n-section1","type":"text","content":"## Framing -- kunsten å ramme inn tal\n\n**Framing** handlar om korleis vi presenterer informasjon for å påverke korleis han blir oppfatta. Her er nokre døme der dei same tala gir ulikt inntrykk:\n\n- «$9$ av $10$ tilrår dette produktet» vs. «$10\\%$ er misnøgde»\n- «Arbeidsløysa auka frå $3{,}0\\%$ til $3{,}3\\%$» vs. «Talet på arbeidslause auka med $10\\%$»\n- «Vi har kutta utslepp med $15\\%$ sidan $2005$» vs. «Utsleppa er framleis $85\\%$ av $2005$-nivået»\n\nLegg merke til at den relative endringa (frå $3{,}0$ til $3{,}3$ er $10\\%$ auke) kan høyrast mykje meir dramatisk ut enn den absolutte endringa ($0{,}3$ prosentpoeng). Politikarar og journalistar kan velje den framinga som passar narrativet deira.\n\nEit anna klassisk døme: «$30\\%$ av elevane fekk under karakteren $4$ på matteeksamen.» Ei positiv framing: «Heile $70\\%$ fekk $4$ eller betre -- eit flott resultat!» Ei negativ framing: «Nesten ein tredjedel når ikkje eit tilfredsstillande nivå i matematikk.» Begge er sant. Men inntrykket er vilt forskjellig.\n\nFraming er ikkje nødvendigvis uærleg -- men det er viktig å kjenne det att når det blir brukt for å påverke oss."},{"id":"9-10-3-n-quiz1","type":"exercise","exercise":{"id":"9-10-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på framing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-10-3-n-quiz1-q0","task":"Ei skjorte kostar $800$ kr. Prisen blir auka med $25\\%$, deretter sett ned med $25\\%$. Kva er prisen no?","options":[{"id":"a","text":"$800$ kr -- tilbake til start","isCorrect":false},{"id":"b","text":"$750$ kr","isCorrect":true},{"id":"c","text":"$850$ kr","isCorrect":false},{"id":"d","text":"$700$ kr","isCorrect":false}],"solution":"Etter $25\\%$ auke: $800 \\cdot 1{,}25 = 1000$ kr. Etter $25\\%$ rabatt: $1000 \\cdot 0{,}75 = 750$ kr. Prosenten er den same, men reknegrunnlaget er forskjellig! Auken er $200$ kr, men rabatten er $250$ kr."},{"id":"9-10-3-n-quiz1-q1","task":"Ein nettbutikk aukar prisane med $40\\%$ og reklamerer deretter med «$40\\%$ rabatt!» Ei jakke kosta opphavleg $1000$ kr. Kva er den reelle rabatten frå originalprisen?","options":[{"id":"a","text":"$0\\%$ -- prisen er tilbake til start","isCorrect":false},{"id":"b","text":"$40\\%$","isCorrect":false},{"id":"c","text":"$16\\%$","isCorrect":true},{"id":"d","text":"$20\\%$","isCorrect":false}],"solution":"Ny pris: $1000 \\cdot 1{,}4 = 1400$. Etter rabatt: $1400 \\cdot 0{,}6 = 840$ kr. Reell rabatt: $\\frac{1000 - 840}{1000} = 16\\%$. Trikset er at prosenten blir rekna frå ulike utgangspunkt."},{"id":"9-10-3-n-quiz1-q2","task":"Arbeidsløysa aukar frå $3{,}0\\%$ til $3{,}3\\%$. Kva er den relative auken?","options":[{"id":"a","text":"$0{,}3\\%$","isCorrect":false},{"id":"b","text":"$3{,}3\\%$","isCorrect":false},{"id":"c","text":"$10\\%$","isCorrect":true},{"id":"d","text":"$30\\%$","isCorrect":false}],"solution":"Absolutt endring: $0{,}3$ prosentpoeng. Relativ endring: $\\frac{0{,}3}{3{,}0} = 0{,}1 = 10\\%$. Ledigheita har auka med $10\\%$ relativt sett, men berre $0{,}3$ prosentpoeng absolutt."}]}},{"id":"9-10-3-n-section2","type":"text","content":"## Datamanipulering -- medviten og umedviten\n\nUtover framing finst det meir aktive former for datamanipulering. Nokre er medvitne (juks), andre er umedvitne (dårleg metode):\n\n**Selektivt utval:** Spør du folk i ein sportsbutikk om dei trenar regelmessig, vil du nok få ein høg ja-prosent. Men det seier ingenting om befolkninga generelt. For at ei undersøking skal vere påliteleg, må utvalet vere **representativt**.\n\n**Leiande spørsmål:** «Synest du ikkje òg at skulematen bør bli betre?» gir andre svar enn «Kva synest du om kvaliteten på skulematen?» Det første antydar at svaret bør vere «ja». Det andre er nøytralt.\n\n**Endring av definisjon:** Viss eit land endrar definisjonen av «arbeidslaus» slik at færre blir talde, synk arbeidsløysa -- ikkje fordi fleire har fått jobb, men fordi rekneglane er endra.\n\n**Prosenttriks:** «Prisen auka $50\\%$ og vart deretter sett ned $50\\%$» -- då er han faktisk lågare enn originalen! $100 \\cdot 1{,}5 = 150$, og $150 \\cdot 0{,}5 = 75$. Prosent blir alltid rekna frå det **noverande** utgangspunktet, ikkje det opphavlege.\n\nÅ kjenne att desse mønstera gjer deg til ein smartare medieforbrukar."},{"id":"9-10-3-n-quiz2","type":"exercise","exercise":{"id":"9-10-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på datamanipulering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-10-3-n-quiz2-q0","task":"Kva er problemet med spørsmålet: «Støttar du miljøvennleg energi, eller føretrekkjer du å øydeleggje naturen?»","options":[{"id":"a","text":"Spørsmålet er for kort","isCorrect":false},{"id":"b","text":"Det er ein falsk dikotomi med ekstremt leiande formulering","isCorrect":true},{"id":"c","text":"Det handlar ikkje om statistikk","isCorrect":false},{"id":"d","text":"Det manglar svaralternativ","isCorrect":false}],"solution":"Spørsmålet er ekstremt leiande og polariserande. Ingen vil velje å «øydeleggje naturen». Det er ein falsk dikotomi som tvingar svaret i éi retning. Eit nøytralt spørsmål ville presentere begge sider sakleg."},{"id":"9-10-3-n-quiz2-q1","task":"Eit politisk parti seier: «Vi har skapt $50\\,000$ nye arbeidsplassar!» Kva er det viktigaste du bør spørje om?","options":[{"id":"a","text":"Kva for byar jobbane er i","isCorrect":false},{"id":"b","text":"Om det òg vart lagt ned arbeidsplassar i same periode (nettotal)","isCorrect":true},{"id":"c","text":"Om jobbane er i offentleg eller privat sektor","isCorrect":false},{"id":"d","text":"Kor mange som søkte på jobbane","isCorrect":false}],"solution":"Det viktigaste er nettoeffekten. Vart det oppretta $50\\,000$ men lagt ned $45\\,000$, er nettoeffekten berre $5000$. Brutto- og nettotal kan gi svært forskjellig bilete."},{"id":"9-10-3-n-quiz2-q2","task":"Kva er problemet med svaralternativa «1-2 timar / 2-3 timar / 3-4 timar / meir enn 4 timar»?","options":[{"id":"a","text":"Det er for mange alternativ","isCorrect":false},{"id":"b","text":"Kategoriane overlappar, og det manglar eit alternativ for under $1$ time","isCorrect":true},{"id":"c","text":"Tala er for låge","isCorrect":false},{"id":"d","text":"Alternativa burde vore i prosent","isCorrect":false}],"solution":"Viss du bruker nøyaktig $2$ timar, passar du i både «1-2» og «2-3». Overlappande kategoriar gjer dataa upålitelege. Dessutan manglar det alternativ for «under 1 time» og «0 timar»."}]}},{"id":"9-10-3-n-section3","type":"text","content":"## Etikk i ei datadriven verd\n\nMed store datamengder kjem stort ansvar. Teknologiselskap samlar inn enorme mengder data om oss: kva vi søkjer etter, kva vi klikkar på, kvar vi er, kven vi kommuniserer med. Desse dataa kan brukast til **nyttige** ting (personlege tilrådingar, trafikkoptimalisering) -- men òg til **problematiske** ting (manipulerande reklame, diskriminering, overvaking).\n\nHer er nokre viktige etiske prinsipp for databruk:\n\n**Samtykke og transparens:** Folk bør vite kva data som blir samla inn og kva dei blir brukte til. Dei bør kunne seie nei. I Noreg har vi personopplysningslova (basert på EUs GDPR) som vernar dataa til folk.\n\n**Føremålsavgrensing:** Data som blir samla inn for forsking bør ikkje seljast til reklame utan nytt samtykke.\n\n**Minimering:** Berre samle inn data som faktisk trengst -- ikkje «alt for sikkerheits skuld».\n\n**Rettferd:** Algoritmar kan forsterke urettferd. Viss ein algoritme blir trena på historiske data der visse grupper vart diskriminerte, kan han føre vidare diskrimineringa.\n\nNår du sjølv bruker data -- til dømes i eit skuleprosjekt -- bør du presentere dei **ærleg og ansvarleg**: ikkje cherry-picke, bruk nøytrale spørsmål, vis heile biletet, og skil tydeleg mellom korrelasjon og kausalitet."},{"id":"9-10-3-n-quiz3","type":"exercise","exercise":{"id":"9-10-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på etikk og kjeldekritikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-10-3-n-quiz3-q0","task":"«Ein studie viser at elevar som bruker nettbrett lærer $20\\%$ meir.» Kva bør du sjekke først?","options":[{"id":"a","text":"Om nettbrettet er dyrt","isCorrect":false},{"id":"b","text":"Kven som finansierte studien og om det var eit kontrollert eksperiment","isCorrect":true},{"id":"c","text":"Om studien er publisert på sosiale medium","isCorrect":false},{"id":"d","text":"Kva farge nettbretta hadde","isCorrect":false}],"solution":"Det viktigaste er kven som står bak (ein nettbrettprodusent har eigeninteresse) og om studien er eit kontrollert eksperiment (kausalitet) eller berre ein observasjonsstudie (korrelasjon). Kanskje dei mest motiverte elevane valde nettbrett."},{"id":"9-10-3-n-quiz3-q1","task":"Kva for eitt av desse er det beste dømet på etisk databruk?","options":[{"id":"a","text":"Ein app som samlar GPS-data utan å fortelje brukarane","isCorrect":false},{"id":"b","text":"Eit firma som sel helsedata til forsikringsselskap","isCorrect":false},{"id":"c","text":"SSB som publiserer anonym statistikk for forsking med tydeleg metode","isCorrect":true},{"id":"d","text":"Ein nettbutikk som viser ulike prisar basert på inntekta til brukaren","isCorrect":false}],"solution":"Tilnærminga til SSB følgjer gode etiske prinsipp: dataa er anonymiserte, metoden er transparent, og føremålet er klart definert. Dei andre døma bryt med samtykke, føremålsavgrensing eller rettferd."},{"id":"9-10-3-n-quiz3-q2","task":"Kvifor er det viktig å teste fleire hypotesar når ein analyserer data, i staden for berre den ein trur er rett?","options":[{"id":"a","text":"Fordi det gir fleire sider med tekst i rapporten","isCorrect":false},{"id":"b","text":"Fordi den første hypotesen alltid er feil","isCorrect":false},{"id":"c","text":"Fordi vi kan ha confirmation bias, og årsakene kan vere samansette","isCorrect":true},{"id":"d","text":"Fordi læraren krev det","isCorrect":false}],"solution":"Confirmation bias gjer at vi ser det vi forventar å finne. Å teste fleire hypotesar vernar mot dette. Dessutan kan årsakene vere samansette -- det kan vere fleire faktorar som verkar saman."}]}},{"id":"9-10-3-n-summary","type":"text","content":"## Oppsummering\n\nData er eit kraftig verktøy som kan brukast til å informere -- eller villeie:\n\n**Framing:** Same tal kan gi heilt forskjellig inntrykk avhengig av korleis dei blir presenterte. Ver merksam på ordval, prosentbruk og kva som blir framheva.\n\n**Datamanipulering:** Selektivt utval, leiande spørsmål, endring av definisjonar og prosenttriks er vanlege teknikkar. Kjenn dei att!\n\n**Prosenttriks:** Prosentauke og prosentreduksjon med same prosent gir **ikkje** tilbake det opphavlege beløpet, fordi reknegrunnlaget endrar seg.\n\n**Kjeldekritikk-sjekkliste:**\n1. **KVEN?** -- Kven står bak, og kva er interessa deira?\n2. **KORLEIS?** -- Metode, utvalsstorleik, representativitet\n3. **KVA?** -- Kva blir vist, og kva er utelate?\n4. **KVIFOR?** -- Kva er føremålet med å presentere desse tala?\n\n**Etikk:** Samtykke, transparens, føremålsavgrensing, minimering og rettferd er nøkkelprinsipp for ansvarleg databruk."}],"exercises":[],"_meta":{"sourceHash":"8861796469701a0b","translatedAt":"2026-06-17T02:07:31.628Z","model":"claude-code-agent","strings":63,"tm":{"732e74c6c4e3101b":"Data, manipulering og synspunkt","b195b06d1ed59702":"Narrativ versjon","84b15cc949b04bf1":"Ein forteljande gjennomgang av korleis data kan brukast til å støtte ulike synspunkt, teknikkar for datamanipulering, og etikk i ei datadriven verd.","e4e810254b5c04c2":"vurdere og drøfte om statistiske framstillingar i media og samfunn er relevante og pålitelege","9631b0523bc3c212":"bruke data til å stille spørsmål, beskrive forklaringar og presentere funn","61ffc07fd24879a4":"## Same tal, forskjellig historie\n\nTenk deg at ein skule har fått desse resultata på nasjonale prøver i lesing dei siste fem åra: $48, 51, 50, 49, 52$ -- medan det nasjonale snittet er $50$ kvart år. No kan rektoren seie: «Fantastisk utvikling! Frå $48$ til $52$ -- vi ligg over snittet!» Men ein uroleg forelder kan seie: «Resultata svingar opp og ned -- skulen har inga stabil forbetring!»\n\nBegge bruker **nøyaktig dei same tala**. Begge seier teknisk sett sanninga. Men dei gir heilt forskjellig inntrykk fordi dei **rammar inn** tala på ulike måtar. Dette blir kalla **framing**, og det er eitt av dei viktigaste verktøya for å forstå korleis data blir brukte -- og misbrukte -- i kvardagen.\n\nI dette kapittelet utforskar vi tre tema:\n- Korleis framing lèt oss fortelje ulike historier med same data\n- Korleis data kan manipulerast gjennom spørsmålsformulering, prosenttriks og selektivt utval\n- Korleis vi bør tenke etisk om innsamling og bruk av data","75493f556eff1353":"## Framing -- kunsten å ramme inn tal\n\n**Framing** handlar om korleis vi presenterer informasjon for å påverke korleis han blir oppfatta. Her er nokre døme der dei same tala gir ulikt inntrykk:\n\n- «$9$ av $10$ tilrår dette produktet» vs. «$10\\%$ er misnøgde»\n- «Arbeidsløysa auka frå $3{,}0\\%$ til $3{,}3\\%$» vs. «Talet på arbeidslause auka med $10\\%$»\n- «Vi har kutta utslepp med $15\\%$ sidan $2005$» vs. «Utsleppa er framleis $85\\%$ av $2005$-nivået»\n\nLegg merke til at den relative endringa (frå $3{,}0$ til $3{,}3$ er $10\\%$ auke) kan høyrast mykje meir dramatisk ut enn den absolutte endringa ($0{,}3$ prosentpoeng). Politikarar og journalistar kan velje den framinga som passar narrativet deira.\n\nEit anna klassisk døme: «$30\\%$ av elevane fekk under karakteren $4$ på matteeksamen.» Ei positiv framing: «Heile $70\\%$ fekk $4$ eller betre -- eit flott resultat!» Ei negativ framing: «Nesten ein tredjedel når ikkje eit tilfredsstillande nivå i matematikk.» Begge er sant. Men inntrykket er vilt forskjellig.\n\nFraming er ikkje nødvendigvis uærleg -- men det er viktig å kjenne det att når det blir brukt for å påverke oss.","a23a4124bc91908c":"Test deg sjølv på framing:","4097889236a2af26":"placeholder","921417a333e24920":"Ei skjorte kostar $800$ kr. Prisen blir auka med $25\\%$, deretter sett ned med $25\\%$. Kva er prisen no?","00186a476205cb58":"$800$ kr -- tilbake til start","4ba0dec59a3d4726":"$750$ kr","d1354c8adbd9bfff":"$850$ kr","b7aa19e8d4a9a7ff":"$700$ kr","7c677b03b1ba9721":"Etter $25\\%$ auke: $800 \\cdot 1{,}25 = 1000$ kr. Etter $25\\%$ rabatt: $1000 \\cdot 0{,}75 = 750$ kr. Prosenten er den same, men reknegrunnlaget er forskjellig! Auken er $200$ kr, men rabatten er $250$ kr.","6f4560103649d2df":"Ein nettbutikk aukar prisane med $40\\%$ og reklamerer deretter med «$40\\%$ rabatt!» Ei jakke kosta opphavleg $1000$ kr. Kva er den reelle rabatten frå originalprisen?","a5b4f4d293e5d9a3":"$0\\%$ -- prisen er tilbake til start","137db0553fed6de1":"Ny pris: $1000 \\cdot 1{,}4 = 1400$. Etter rabatt: $1400 \\cdot 0{,}6 = 840$ kr. Reell rabatt: $\\frac{1000 - 840}{1000} = 16\\%$. Trikset er at prosenten blir rekna frå ulike utgangspunkt.","2205ec04546483bb":"Arbeidsløysa aukar frå $3{,}0\\%$ til $3{,}3\\%$. Kva er den relative auken?","fbc2b802b1e12ead":"Absolutt endring: $0{,}3$ prosentpoeng. Relativ endring: $\\frac{0{,}3}{3{,}0} = 0{,}1 = 10\\%$. Ledigheita har auka med $10\\%$ relativt sett, men berre $0{,}3$ prosentpoeng absolutt.","23ae60193afa9731":"## Datamanipulering -- medviten og umedviten\n\nUtover framing finst det meir aktive former for datamanipulering. Nokre er medvitne (juks), andre er umedvitne (dårleg metode):\n\n**Selektivt utval:** Spør du folk i ein sportsbutikk om dei trenar regelmessig, vil du nok få ein høg ja-prosent. Men det seier ingenting om befolkninga generelt. For at ei undersøking skal vere påliteleg, må utvalet vere **representativt**.\n\n**Leiande spørsmål:** «Synest du ikkje òg at skulematen bør bli betre?» gir andre svar enn «Kva synest du om kvaliteten på skulematen?» Det første antydar at svaret bør vere «ja». Det andre er nøytralt.\n\n**Endring av definisjon:** Viss eit land endrar definisjonen av «arbeidslaus» slik at færre blir talde, synk arbeidsløysa -- ikkje fordi fleire har fått jobb, men fordi rekneglane er endra.\n\n**Prosenttriks:** «Prisen auka $50\\%$ og vart deretter sett ned $50\\%$» -- då er han faktisk lågare enn originalen! $100 \\cdot 1{,}5 = 150$, og $150 \\cdot 0{,}5 = 75$. Prosent blir alltid rekna frå det **noverande** utgangspunktet, ikkje det opphavlege.\n\nÅ kjenne att desse mønstera gjer deg til ein smartare medieforbrukar.","f407b2c2f7f468d2":"Test deg sjølv på datamanipulering:","dce622bc171d5ef1":"Kva er problemet med spørsmålet: «Støttar du miljøvennleg energi, eller føretrekkjer du å øydeleggje naturen?»","c1198d30ea7fccf7":"Spørsmålet er for kort","49e2fae8c9d0f9b6":"Det er ein falsk dikotomi med ekstremt leiande formulering","023232e1b686e69c":"Det handlar ikkje om statistikk","d28754908c792918":"Det manglar svaralternativ","dede25794ee48b93":"Spørsmålet er ekstremt leiande og polariserande. Ingen vil velje å «øydeleggje naturen». Det er ein falsk dikotomi som tvingar svaret i éi retning. Eit nøytralt spørsmål ville presentere begge sider sakleg.","627d35dd4a2c9f1b":"Eit politisk parti seier: «Vi har skapt $50\\,000$ nye arbeidsplassar!» Kva er det viktigaste du bør spørje om?","8d539fab9222a5fb":"Kva for byar jobbane er i","124e1444814640c3":"Om det òg vart lagt ned arbeidsplassar i same periode (nettotal)","06019450f4a6df8a":"Om jobbane er i offentleg eller privat sektor","2770cf1345504148":"Kor mange som søkte på jobbane","25424fdfca2b4d4c":"Det viktigaste er nettoeffekten. Vart det oppretta $50\\,000$ men lagt ned $45\\,000$, er nettoeffekten berre $5000$. Brutto- og nettotal kan gi svært forskjellig bilete.","04d3b850359700e6":"Kva er problemet med svaralternativa «1-2 timar / 2-3 timar / 3-4 timar / meir enn 4 timar»?","73d3acf8f3457d4a":"Det er for mange alternativ","b90a688e4272706e":"Kategoriane overlappar, og det manglar eit alternativ for under $1$ time","1b0bf524ce78431b":"Tala er for låge","02b4ecf84d354541":"Alternativa burde vore i prosent","1bfbafca4b692192":"Viss du bruker nøyaktig $2$ timar, passar du i både «1-2» og «2-3». Overlappande kategoriar gjer dataa upålitelege. Dessutan manglar det alternativ for «under 1 time» og «0 timar».","60ec5497a6e3e3b3":"## Etikk i ei datadriven verd\n\nMed store datamengder kjem stort ansvar. Teknologiselskap samlar inn enorme mengder data om oss: kva vi søkjer etter, kva vi klikkar på, kvar vi er, kven vi kommuniserer med. Desse dataa kan brukast til **nyttige** ting (personlege tilrådingar, trafikkoptimalisering) -- men òg til **problematiske** ting (manipulerande reklame, diskriminering, overvaking).\n\nHer er nokre viktige etiske prinsipp for databruk:\n\n**Samtykke og transparens:** Folk bør vite kva data som blir samla inn og kva dei blir brukte til. Dei bør kunne seie nei. I Noreg har vi personopplysningslova (basert på EUs GDPR) som vernar dataa til folk.\n\n**Føremålsavgrensing:** Data som blir samla inn for forsking bør ikkje seljast til reklame utan nytt samtykke.\n\n**Minimering:** Berre samle inn data som faktisk trengst -- ikkje «alt for sikkerheits skuld».\n\n**Rettferd:** Algoritmar kan forsterke urettferd. Viss ein algoritme blir trena på historiske data der visse grupper vart diskriminerte, kan han føre vidare diskrimineringa.\n\nNår du sjølv bruker data -- til dømes i eit skuleprosjekt -- bør du presentere dei **ærleg og ansvarleg**: ikkje cherry-picke, bruk nøytrale spørsmål, vis heile biletet, og skil tydeleg mellom korrelasjon og kausalitet.","21ac171e46c8d85d":"Test deg sjølv på etikk og kjeldekritikk:","1c365006ac6af61a":"«Ein studie viser at elevar som bruker nettbrett lærer $20\\%$ meir.» Kva bør du sjekke først?","6baef2826d39aa73":"Om nettbrettet er dyrt","3153b5e6b62649a6":"Kven som finansierte studien og om det var eit kontrollert eksperiment","a3e60581cd74ba1d":"Om studien er publisert på sosiale medium","a8535cafa37e114c":"Kva farge nettbretta hadde","0861a5cb6008d032":"Det viktigaste er kven som står bak (ein nettbrettprodusent har eigeninteresse) og om studien er eit kontrollert eksperiment (kausalitet) eller berre ein observasjonsstudie (korrelasjon). Kanskje dei mest motiverte elevane valde nettbrett.","4a581264565274ac":"Kva for eitt av desse er det beste dømet på etisk databruk?","2f4d4bf54c4fb652":"Ein app som samlar GPS-data utan å fortelje brukarane","c1fcb4117fe7eb2e":"Eit firma som sel helsedata til forsikringsselskap","b483cfbe2cf6d360":"SSB som publiserer anonym statistikk for forsking med tydeleg metode","274cd74a0846c19b":"Ein nettbutikk som viser ulike prisar basert på inntekta til brukaren","dae433e6136d7006":"Tilnærminga til SSB følgjer gode etiske prinsipp: dataa er anonymiserte, metoden er transparent, og føremålet er klart definert. Dei andre døma bryt med samtykke, føremålsavgrensing eller rettferd.","736120b301631418":"Kvifor er det viktig å teste fleire hypotesar når ein analyserer data, i staden for berre den ein trur er rett?","9f6197c7222c2771":"Fordi det gir fleire sider med tekst i rapporten","ac07bc81221a94f1":"Fordi den første hypotesen alltid er feil","704ef9ddb4729b83":"Fordi vi kan ha confirmation bias, og årsakene kan vere samansette","be893c857e6a5a45":"Fordi læraren krev det","fb0d00e40640485a":"Confirmation bias gjer at vi ser det vi forventar å finne. Å teste fleire hypotesar vernar mot dette. Dessutan kan årsakene vere samansette -- det kan vere fleire faktorar som verkar saman.","60fd22546d883803":"## Oppsummering\n\nData er eit kraftig verktøy som kan brukast til å informere -- eller villeie:\n\n**Framing:** Same tal kan gi heilt forskjellig inntrykk avhengig av korleis dei blir presenterte. Ver merksam på ordval, prosentbruk og kva som blir framheva.\n\n**Datamanipulering:** Selektivt utval, leiande spørsmål, endring av definisjonar og prosenttriks er vanlege teknikkar. Kjenn dei att!\n\n**Prosenttriks:** Prosentauke og prosentreduksjon med same prosent gir **ikkje** tilbake det opphavlege beløpet, fordi reknegrunnlaget endrar seg.\n\n**Kjeldekritikk-sjekkliste:**\n1. **KVEN?** -- Kven står bak, og kva er interessa deira?\n2. **KORLEIS?** -- Metode, utvalsstorleik, representativitet\n3. **KVA?** -- Kva blir vist, og kva er utelate?\n4. **KVIFOR?** -- Kva er føremålet med å presentere desse tala?\n\n**Etikk:** Samtykke, transparens, føremålsavgrensing, minimering og rettferd er nøkkelprinsipp for ansvarleg databruk."}}}
+{
+  "id": "9-10-3-narrativ",
+  "courseId": "9",
+  "chapterNumber": "10.3",
+  "title": "Data, manipulering og synspunkt",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av korleis data kan brukast til å støtte ulike synspunkt, teknikkar for datamanipulering, og etikk i ei datadriven verd.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "vurdere og drøfte om statistiske framstillingar i media og samfunn er relevante og pålitelege",
+    "bruke data til å stille spørsmål, beskrive forklaringar og presentere funn"
+  ],
+  "linkedChapterId": "9-10-3",
+  "content": [
+    {
+      "id": "9-10-3-n-intro",
+      "type": "text",
+      "content": "## Same tal, forskjellig historie\n\nTenk deg at ein skule har fått desse resultata på nasjonale prøver i lesing dei siste fem åra: $48, 51, 50, 49, 52$ -- medan det nasjonale snittet er $50$ kvart år. No kan rektoren seie: «Fantastisk utvikling! Frå $48$ til $52$ -- vi ligg over snittet!» Men ein uroleg forelder kan seie: «Resultata svingar opp og ned -- skulen har inga stabil forbetring!»\n\nBegge bruker **nøyaktig dei same tala**. Begge seier teknisk sett sanninga. Men dei gir heilt forskjellig inntrykk fordi dei **rammar inn** tala på ulike måtar. Dette blir kalla **framing**, og det er eitt av dei viktigaste verktøya for å forstå korleis data blir brukte -- og misbrukte -- i kvardagen.\n\nI dette kapittelet utforskar vi tre tema:\n- Korleis framing lèt oss fortelje ulike historier med same data\n- Korleis data kan manipulerast gjennom spørsmålsformulering, prosenttriks og selektivt utval\n- Korleis vi bør tenke etisk om innsamling og bruk av data"
+    },
+    {
+      "id": "9-10-3-n-section1",
+      "type": "text",
+      "content": "## Framing -- kunsten å ramme inn tal\n\n**Framing** handlar om korleis vi presenterer informasjon for å påverke korleis han blir oppfatta. Her er nokre døme der dei same tala gir ulikt inntrykk:\n\n- «$9$ av $10$ tilrår dette produktet» vs. «$10\\%$ er misnøgde»\n- «Arbeidsløysa auka frå $3{,}0\\%$ til $3{,}3\\%$» vs. «Talet på arbeidslause auka med $10\\%$»\n- «Vi har kutta utslepp med $15\\%$ sidan $2005$» vs. «Utsleppa er framleis $85\\%$ av $2005$-nivået»\n\nLegg merke til at den relative endringa (frå $3{,}0$ til $3{,}3$ er $10\\%$ auke) kan høyrast mykje meir dramatisk ut enn den absolutte endringa ($0{,}3$ prosentpoeng). Politikarar og journalistar kan velje den framinga som passar narrativet deira.\n\nEit anna klassisk døme: «$30\\%$ av elevane fekk under karakteren $4$ på matteeksamen.» Ei positiv framing: «Heile $70\\%$ fekk $4$ eller betre -- eit flott resultat!» Ei negativ framing: «Nesten ein tredjedel når ikkje eit tilfredsstillande nivå i matematikk.» Begge er sant. Men inntrykket er vilt forskjellig.\n\nFraming er ikkje nødvendigvis uærleg -- men det er viktig å kjenne det att når det blir brukt for å påverke oss."
+    },
+    {
+      "id": "9-10-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-10-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på framing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-10-3-n-quiz1-q0",
+            "task": "Ei skjorte kostar $800$ kr. Prisen blir auka med $25\\%$, deretter sett ned med $25\\%$. Kva er prisen no?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$800$ kr -- tilbake til start",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$750$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$850$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$700$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter $25\\%$ auke: $800 \\cdot 1{,}25 = 1000$ kr. Etter $25\\%$ rabatt: $1000 \\cdot 0{,}75 = 750$ kr. Prosenten er den same, men reknegrunnlaget er forskjellig! Auken er $200$ kr, men rabatten er $250$ kr."
+          },
+          {
+            "id": "9-10-3-n-quiz1-q1",
+            "task": "Ein nettbutikk aukar prisane med $40\\%$ og reklamerer deretter med «$40\\%$ rabatt!» Ei jakke kosta opphavleg $1000$ kr. Kva er den reelle rabatten frå originalprisen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0\\%$ -- prisen er tilbake til start",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$40\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$20\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ny pris: $1000 \\cdot 1{,}4 = 1400$. Etter rabatt: $1400 \\cdot 0{,}6 = 840$ kr. Reell rabatt: $\\frac{1000 - 840}{1000} = 16\\%$. Trikset er at prosenten blir rekna frå ulike utgangspunkt."
+          },
+          {
+            "id": "9-10-3-n-quiz1-q2",
+            "task": "Arbeidsløysa aukar frå $3{,}0\\%$ til $3{,}3\\%$. Kva er den relative auken?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$10\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}3\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3{,}3\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$30\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Absolutt endring: $0{,}3$ prosentpoeng. Relativ endring: $\\frac{0{,}3}{3{,}0} = 0{,}1 = 10\\%$. Ledigheita har auka med $10\\%$ relativt sett, men berre $0{,}3$ prosentpoeng absolutt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-10-3-n-section2",
+      "type": "text",
+      "content": "## Datamanipulering -- medviten og umedviten\n\nUtover framing finst det meir aktive former for datamanipulering. Nokre er medvitne (juks), andre er umedvitne (dårleg metode):\n\n**Selektivt utval:** Spør du folk i ein sportsbutikk om dei trenar regelmessig, vil du nok få ein høg ja-prosent. Men det seier ingenting om befolkninga generelt. For at ei undersøking skal vere påliteleg, må utvalet vere **representativt**.\n\n**Leiande spørsmål:** «Synest du ikkje òg at skulematen bør bli betre?» gir andre svar enn «Kva synest du om kvaliteten på skulematen?» Det første antydar at svaret bør vere «ja». Det andre er nøytralt.\n\n**Endring av definisjon:** Viss eit land endrar definisjonen av «arbeidslaus» slik at færre blir talde, synk arbeidsløysa -- ikkje fordi fleire har fått jobb, men fordi rekneglane er endra.\n\n**Prosenttriks:** «Prisen auka $50\\%$ og vart deretter sett ned $50\\%$» -- då er han faktisk lågare enn originalen! $100 \\cdot 1{,}5 = 150$, og $150 \\cdot 0{,}5 = 75$. Prosent blir alltid rekna frå det **noverande** utgangspunktet, ikkje det opphavlege.\n\nÅ kjenne att desse mønstera gjer deg til ein smartare medieforbrukar."
+    },
+    {
+      "id": "9-10-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-10-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på datamanipulering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-10-3-n-quiz2-q0",
+            "task": "Kva er problemet med spørsmålet: «Støttar du miljøvennleg energi, eller føretrekkjer du å øydeleggje naturen?»",
+            "options": [
+              {
+                "id": "a",
+                "text": "Spørsmålet er for kort",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det er ein falsk dikotomi med ekstremt leiande formulering",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det handlar ikkje om statistikk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det manglar svaralternativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Spørsmålet er ekstremt leiande og polariserande. Ingen vil velje å «øydeleggje naturen». Det er ein falsk dikotomi som tvingar svaret i éi retning. Eit nøytralt spørsmål ville presentere begge sider sakleg."
+          },
+          {
+            "id": "9-10-3-n-quiz2-q1",
+            "task": "Eit politisk parti seier: «Vi har skapt $50\\,000$ nye arbeidsplassar!» Kva er det viktigaste du bør spørje om?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kva for byar jobbane er i",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Om jobbane er i offentleg eller privat sektor",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Om det òg vart lagt ned arbeidsplassar i same periode (nettotal)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Kor mange som søkte på jobbane",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det viktigaste er nettoeffekten. Vart det oppretta $50\\,000$ men lagt ned $45\\,000$, er nettoeffekten berre $5000$. Brutto- og nettotal kan gi svært forskjellig bilete."
+          },
+          {
+            "id": "9-10-3-n-quiz2-q2",
+            "task": "Kva er problemet med svaralternativa «1-2 timar / 2-3 timar / 3-4 timar / meir enn 4 timar»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er for mange alternativ",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tala er for låge",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alternativa burde vore i prosent",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kategoriane overlappar, og det manglar eit alternativ for under $1$ time",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Viss du bruker nøyaktig $2$ timar, passar du i både «1-2» og «2-3». Overlappande kategoriar gjer dataa upålitelege. Dessutan manglar det alternativ for «under 1 time» og «0 timar»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-10-3-n-section3",
+      "type": "text",
+      "content": "## Etikk i ei datadriven verd\n\nMed store datamengder kjem stort ansvar. Teknologiselskap samlar inn enorme mengder data om oss: kva vi søkjer etter, kva vi klikkar på, kvar vi er, kven vi kommuniserer med. Desse dataa kan brukast til **nyttige** ting (personlege tilrådingar, trafikkoptimalisering) -- men òg til **problematiske** ting (manipulerande reklame, diskriminering, overvaking).\n\nHer er nokre viktige etiske prinsipp for databruk:\n\n**Samtykke og transparens:** Folk bør vite kva data som blir samla inn og kva dei blir brukte til. Dei bør kunne seie nei. I Noreg har vi personopplysningslova (basert på EUs GDPR) som vernar dataa til folk.\n\n**Føremålsavgrensing:** Data som blir samla inn for forsking bør ikkje seljast til reklame utan nytt samtykke.\n\n**Minimering:** Berre samle inn data som faktisk trengst -- ikkje «alt for sikkerheits skuld».\n\n**Rettferd:** Algoritmar kan forsterke urettferd. Viss ein algoritme blir trena på historiske data der visse grupper vart diskriminerte, kan han føre vidare diskrimineringa.\n\nNår du sjølv bruker data -- til dømes i eit skuleprosjekt -- bør du presentere dei **ærleg og ansvarleg**: ikkje cherry-picke, bruk nøytrale spørsmål, vis heile biletet, og skil tydeleg mellom korrelasjon og kausalitet."
+    },
+    {
+      "id": "9-10-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-10-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på etikk og kjeldekritikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-10-3-n-quiz3-q0",
+            "task": "«Ein studie viser at elevar som bruker nettbrett lærer $20\\%$ meir.» Kva bør du sjekke først?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kven som finansierte studien og om det var eit kontrollert eksperiment",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Om nettbrettet er dyrt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Om studien er publisert på sosiale medium",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kva farge nettbretta hadde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det viktigaste er kven som står bak (ein nettbrettprodusent har eigeninteresse) og om studien er eit kontrollert eksperiment (kausalitet) eller berre ein observasjonsstudie (korrelasjon). Kanskje dei mest motiverte elevane valde nettbrett."
+          },
+          {
+            "id": "9-10-3-n-quiz3-q1",
+            "task": "Kva for eitt av desse er det beste dømet på etisk databruk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein app som samlar GPS-data utan å fortelje brukarane",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "SSB som publiserer anonym statistikk for forsking med tydeleg metode",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Eit firma som sel helsedata til forsikringsselskap",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein nettbutikk som viser ulike prisar basert på inntekta til brukaren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tilnærminga til SSB følgjer gode etiske prinsipp: dataa er anonymiserte, metoden er transparent, og føremålet er klart definert. Dei andre døma bryt med samtykke, føremålsavgrensing eller rettferd."
+          },
+          {
+            "id": "9-10-3-n-quiz3-q2",
+            "task": "Kvifor er det viktig å teste fleire hypotesar når ein analyserer data, i staden for berre den ein trur er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det gir fleire sider med tekst i rapporten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi den første hypotesen alltid er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi vi kan ha confirmation bias, og årsakene kan vere samansette",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi læraren krev det",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Confirmation bias gjer at vi ser det vi forventar å finne. Å teste fleire hypotesar vernar mot dette. Dessutan kan årsakene vere samansette -- det kan vere fleire faktorar som verkar saman."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-10-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nData er eit kraftig verktøy som kan brukast til å informere -- eller villeie:\n\n**Framing:** Same tal kan gi heilt forskjellig inntrykk avhengig av korleis dei blir presenterte. Ver merksam på ordval, prosentbruk og kva som blir framheva.\n\n**Datamanipulering:** Selektivt utval, leiande spørsmål, endring av definisjonar og prosenttriks er vanlege teknikkar. Kjenn dei att!\n\n**Prosenttriks:** Prosentauke og prosentreduksjon med same prosent gir **ikkje** tilbake det opphavlege beløpet, fordi reknegrunnlaget endrar seg.\n\n**Kjeldekritikk-sjekkliste:**\n1. **KVEN?** -- Kven står bak, og kva er interessa deira?\n2. **KORLEIS?** -- Metode, utvalsstorleik, representativitet\n3. **KVA?** -- Kva blir vist, og kva er utelate?\n4. **KVIFOR?** -- Kva er føremålet med å presentere desse tala?\n\n**Etikk:** Samtykke, transparens, føremålsavgrensing, minimering og rettferd er nøkkelprinsipp for ansvarleg databruk."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "8861796469701a0b",
+    "translatedAt": "2026-06-17T02:07:31.628Z",
+    "model": "claude-code-agent",
+    "strings": 63,
+    "tm": {
+      "732e74c6c4e3101b": "Data, manipulering og synspunkt",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "84b15cc949b04bf1": "Ein forteljande gjennomgang av korleis data kan brukast til å støtte ulike synspunkt, teknikkar for datamanipulering, og etikk i ei datadriven verd.",
+      "e4e810254b5c04c2": "vurdere og drøfte om statistiske framstillingar i media og samfunn er relevante og pålitelege",
+      "9631b0523bc3c212": "bruke data til å stille spørsmål, beskrive forklaringar og presentere funn",
+      "61ffc07fd24879a4": "## Same tal, forskjellig historie\n\nTenk deg at ein skule har fått desse resultata på nasjonale prøver i lesing dei siste fem åra: $48, 51, 50, 49, 52$ -- medan det nasjonale snittet er $50$ kvart år. No kan rektoren seie: «Fantastisk utvikling! Frå $48$ til $52$ -- vi ligg over snittet!» Men ein uroleg forelder kan seie: «Resultata svingar opp og ned -- skulen har inga stabil forbetring!»\n\nBegge bruker **nøyaktig dei same tala**. Begge seier teknisk sett sanninga. Men dei gir heilt forskjellig inntrykk fordi dei **rammar inn** tala på ulike måtar. Dette blir kalla **framing**, og det er eitt av dei viktigaste verktøya for å forstå korleis data blir brukte -- og misbrukte -- i kvardagen.\n\nI dette kapittelet utforskar vi tre tema:\n- Korleis framing lèt oss fortelje ulike historier med same data\n- Korleis data kan manipulerast gjennom spørsmålsformulering, prosenttriks og selektivt utval\n- Korleis vi bør tenke etisk om innsamling og bruk av data",
+      "75493f556eff1353": "## Framing -- kunsten å ramme inn tal\n\n**Framing** handlar om korleis vi presenterer informasjon for å påverke korleis han blir oppfatta. Her er nokre døme der dei same tala gir ulikt inntrykk:\n\n- «$9$ av $10$ tilrår dette produktet» vs. «$10\\%$ er misnøgde»\n- «Arbeidsløysa auka frå $3{,}0\\%$ til $3{,}3\\%$» vs. «Talet på arbeidslause auka med $10\\%$»\n- «Vi har kutta utslepp med $15\\%$ sidan $2005$» vs. «Utsleppa er framleis $85\\%$ av $2005$-nivået»\n\nLegg merke til at den relative endringa (frå $3{,}0$ til $3{,}3$ er $10\\%$ auke) kan høyrast mykje meir dramatisk ut enn den absolutte endringa ($0{,}3$ prosentpoeng). Politikarar og journalistar kan velje den framinga som passar narrativet deira.\n\nEit anna klassisk døme: «$30\\%$ av elevane fekk under karakteren $4$ på matteeksamen.» Ei positiv framing: «Heile $70\\%$ fekk $4$ eller betre -- eit flott resultat!» Ei negativ framing: «Nesten ein tredjedel når ikkje eit tilfredsstillande nivå i matematikk.» Begge er sant. Men inntrykket er vilt forskjellig.\n\nFraming er ikkje nødvendigvis uærleg -- men det er viktig å kjenne det att når det blir brukt for å påverke oss.",
+      "a23a4124bc91908c": "Test deg sjølv på framing:",
+      "4097889236a2af26": "placeholder",
+      "921417a333e24920": "Ei skjorte kostar $800$ kr. Prisen blir auka med $25\\%$, deretter sett ned med $25\\%$. Kva er prisen no?",
+      "00186a476205cb58": "$800$ kr -- tilbake til start",
+      "4ba0dec59a3d4726": "$750$ kr",
+      "d1354c8adbd9bfff": "$850$ kr",
+      "b7aa19e8d4a9a7ff": "$700$ kr",
+      "7c677b03b1ba9721": "Etter $25\\%$ auke: $800 \\cdot 1{,}25 = 1000$ kr. Etter $25\\%$ rabatt: $1000 \\cdot 0{,}75 = 750$ kr. Prosenten er den same, men reknegrunnlaget er forskjellig! Auken er $200$ kr, men rabatten er $250$ kr.",
+      "6f4560103649d2df": "Ein nettbutikk aukar prisane med $40\\%$ og reklamerer deretter med «$40\\%$ rabatt!» Ei jakke kosta opphavleg $1000$ kr. Kva er den reelle rabatten frå originalprisen?",
+      "a5b4f4d293e5d9a3": "$0\\%$ -- prisen er tilbake til start",
+      "137db0553fed6de1": "Ny pris: $1000 \\cdot 1{,}4 = 1400$. Etter rabatt: $1400 \\cdot 0{,}6 = 840$ kr. Reell rabatt: $\\frac{1000 - 840}{1000} = 16\\%$. Trikset er at prosenten blir rekna frå ulike utgangspunkt.",
+      "2205ec04546483bb": "Arbeidsløysa aukar frå $3{,}0\\%$ til $3{,}3\\%$. Kva er den relative auken?",
+      "fbc2b802b1e12ead": "Absolutt endring: $0{,}3$ prosentpoeng. Relativ endring: $\\frac{0{,}3}{3{,}0} = 0{,}1 = 10\\%$. Ledigheita har auka med $10\\%$ relativt sett, men berre $0{,}3$ prosentpoeng absolutt.",
+      "23ae60193afa9731": "## Datamanipulering -- medviten og umedviten\n\nUtover framing finst det meir aktive former for datamanipulering. Nokre er medvitne (juks), andre er umedvitne (dårleg metode):\n\n**Selektivt utval:** Spør du folk i ein sportsbutikk om dei trenar regelmessig, vil du nok få ein høg ja-prosent. Men det seier ingenting om befolkninga generelt. For at ei undersøking skal vere påliteleg, må utvalet vere **representativt**.\n\n**Leiande spørsmål:** «Synest du ikkje òg at skulematen bør bli betre?» gir andre svar enn «Kva synest du om kvaliteten på skulematen?» Det første antydar at svaret bør vere «ja». Det andre er nøytralt.\n\n**Endring av definisjon:** Viss eit land endrar definisjonen av «arbeidslaus» slik at færre blir talde, synk arbeidsløysa -- ikkje fordi fleire har fått jobb, men fordi rekneglane er endra.\n\n**Prosenttriks:** «Prisen auka $50\\%$ og vart deretter sett ned $50\\%$» -- då er han faktisk lågare enn originalen! $100 \\cdot 1{,}5 = 150$, og $150 \\cdot 0{,}5 = 75$. Prosent blir alltid rekna frå det **noverande** utgangspunktet, ikkje det opphavlege.\n\nÅ kjenne att desse mønstera gjer deg til ein smartare medieforbrukar.",
+      "f407b2c2f7f468d2": "Test deg sjølv på datamanipulering:",
+      "dce622bc171d5ef1": "Kva er problemet med spørsmålet: «Støttar du miljøvennleg energi, eller føretrekkjer du å øydeleggje naturen?»",
+      "c1198d30ea7fccf7": "Spørsmålet er for kort",
+      "49e2fae8c9d0f9b6": "Det er ein falsk dikotomi med ekstremt leiande formulering",
+      "023232e1b686e69c": "Det handlar ikkje om statistikk",
+      "d28754908c792918": "Det manglar svaralternativ",
+      "dede25794ee48b93": "Spørsmålet er ekstremt leiande og polariserande. Ingen vil velje å «øydeleggje naturen». Det er ein falsk dikotomi som tvingar svaret i éi retning. Eit nøytralt spørsmål ville presentere begge sider sakleg.",
+      "627d35dd4a2c9f1b": "Eit politisk parti seier: «Vi har skapt $50\\,000$ nye arbeidsplassar!» Kva er det viktigaste du bør spørje om?",
+      "8d539fab9222a5fb": "Kva for byar jobbane er i",
+      "124e1444814640c3": "Om det òg vart lagt ned arbeidsplassar i same periode (nettotal)",
+      "06019450f4a6df8a": "Om jobbane er i offentleg eller privat sektor",
+      "2770cf1345504148": "Kor mange som søkte på jobbane",
+      "25424fdfca2b4d4c": "Det viktigaste er nettoeffekten. Vart det oppretta $50\\,000$ men lagt ned $45\\,000$, er nettoeffekten berre $5000$. Brutto- og nettotal kan gi svært forskjellig bilete.",
+      "04d3b850359700e6": "Kva er problemet med svaralternativa «1-2 timar / 2-3 timar / 3-4 timar / meir enn 4 timar»?",
+      "73d3acf8f3457d4a": "Det er for mange alternativ",
+      "b90a688e4272706e": "Kategoriane overlappar, og det manglar eit alternativ for under $1$ time",
+      "1b0bf524ce78431b": "Tala er for låge",
+      "02b4ecf84d354541": "Alternativa burde vore i prosent",
+      "1bfbafca4b692192": "Viss du bruker nøyaktig $2$ timar, passar du i både «1-2» og «2-3». Overlappande kategoriar gjer dataa upålitelege. Dessutan manglar det alternativ for «under 1 time» og «0 timar».",
+      "60ec5497a6e3e3b3": "## Etikk i ei datadriven verd\n\nMed store datamengder kjem stort ansvar. Teknologiselskap samlar inn enorme mengder data om oss: kva vi søkjer etter, kva vi klikkar på, kvar vi er, kven vi kommuniserer med. Desse dataa kan brukast til **nyttige** ting (personlege tilrådingar, trafikkoptimalisering) -- men òg til **problematiske** ting (manipulerande reklame, diskriminering, overvaking).\n\nHer er nokre viktige etiske prinsipp for databruk:\n\n**Samtykke og transparens:** Folk bør vite kva data som blir samla inn og kva dei blir brukte til. Dei bør kunne seie nei. I Noreg har vi personopplysningslova (basert på EUs GDPR) som vernar dataa til folk.\n\n**Føremålsavgrensing:** Data som blir samla inn for forsking bør ikkje seljast til reklame utan nytt samtykke.\n\n**Minimering:** Berre samle inn data som faktisk trengst -- ikkje «alt for sikkerheits skuld».\n\n**Rettferd:** Algoritmar kan forsterke urettferd. Viss ein algoritme blir trena på historiske data der visse grupper vart diskriminerte, kan han føre vidare diskrimineringa.\n\nNår du sjølv bruker data -- til dømes i eit skuleprosjekt -- bør du presentere dei **ærleg og ansvarleg**: ikkje cherry-picke, bruk nøytrale spørsmål, vis heile biletet, og skil tydeleg mellom korrelasjon og kausalitet.",
+      "21ac171e46c8d85d": "Test deg sjølv på etikk og kjeldekritikk:",
+      "1c365006ac6af61a": "«Ein studie viser at elevar som bruker nettbrett lærer $20\\%$ meir.» Kva bør du sjekke først?",
+      "6baef2826d39aa73": "Om nettbrettet er dyrt",
+      "3153b5e6b62649a6": "Kven som finansierte studien og om det var eit kontrollert eksperiment",
+      "a3e60581cd74ba1d": "Om studien er publisert på sosiale medium",
+      "a8535cafa37e114c": "Kva farge nettbretta hadde",
+      "0861a5cb6008d032": "Det viktigaste er kven som står bak (ein nettbrettprodusent har eigeninteresse) og om studien er eit kontrollert eksperiment (kausalitet) eller berre ein observasjonsstudie (korrelasjon). Kanskje dei mest motiverte elevane valde nettbrett.",
+      "4a581264565274ac": "Kva for eitt av desse er det beste dømet på etisk databruk?",
+      "2f4d4bf54c4fb652": "Ein app som samlar GPS-data utan å fortelje brukarane",
+      "c1fcb4117fe7eb2e": "Eit firma som sel helsedata til forsikringsselskap",
+      "b483cfbe2cf6d360": "SSB som publiserer anonym statistikk for forsking med tydeleg metode",
+      "274cd74a0846c19b": "Ein nettbutikk som viser ulike prisar basert på inntekta til brukaren",
+      "dae433e6136d7006": "Tilnærminga til SSB følgjer gode etiske prinsipp: dataa er anonymiserte, metoden er transparent, og føremålet er klart definert. Dei andre døma bryt med samtykke, føremålsavgrensing eller rettferd.",
+      "736120b301631418": "Kvifor er det viktig å teste fleire hypotesar når ein analyserer data, i staden for berre den ein trur er rett?",
+      "9f6197c7222c2771": "Fordi det gir fleire sider med tekst i rapporten",
+      "ac07bc81221a94f1": "Fordi den første hypotesen alltid er feil",
+      "704ef9ddb4729b83": "Fordi vi kan ha confirmation bias, og årsakene kan vere samansette",
+      "be893c857e6a5a45": "Fordi læraren krev det",
+      "fb0d00e40640485a": "Confirmation bias gjer at vi ser det vi forventar å finne. Å teste fleire hypotesar vernar mot dette. Dessutan kan årsakene vere samansette -- det kan vere fleire faktorar som verkar saman.",
+      "60fd22546d883803": "## Oppsummering\n\nData er eit kraftig verktøy som kan brukast til å informere -- eller villeie:\n\n**Framing:** Same tal kan gi heilt forskjellig inntrykk avhengig av korleis dei blir presenterte. Ver merksam på ordval, prosentbruk og kva som blir framheva.\n\n**Datamanipulering:** Selektivt utval, leiande spørsmål, endring av definisjonar og prosenttriks er vanlege teknikkar. Kjenn dei att!\n\n**Prosenttriks:** Prosentauke og prosentreduksjon med same prosent gir **ikkje** tilbake det opphavlege beløpet, fordi reknegrunnlaget endrar seg.\n\n**Kjeldekritikk-sjekkliste:**\n1. **KVEN?** -- Kven står bak, og kva er interessa deira?\n2. **KORLEIS?** -- Metode, utvalsstorleik, representativitet\n3. **KVA?** -- Kva blir vist, og kva er utelate?\n4. **KVIFOR?** -- Kva er føremålet med å presentere desse tala?\n\n**Etikk:** Samtykke, transparens, føremålsavgrensing, minimering og rettferd er nøkkelprinsipp for ansvarleg databruk."
+    }
+  }
+}

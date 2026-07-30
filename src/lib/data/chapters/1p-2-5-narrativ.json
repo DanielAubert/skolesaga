@@ -1,1 +1,444 @@
-{"id":"1p-2-5-narrativ","courseId":"1p","chapterNumber":"2.5","title":"Røtter og standardform","subtitle":"Narrativ versjon","description":"En fortelling om kvadratiske hager, avstanden til sola og tykkelsen på et hårstrå -- om røtter som speilvender potenser, og standardformen som temmer de enorme og bittesmå tallene.","estimatedMinutes":32,"competenceGoals":["bruke standardform til å uttrykkje store og små tal"],"linkedChapterId":"1p-2-5","content":[{"id":"1p-2-5-n-intro","type":"text","content":"## Den kvadratiske hagen\n\nFamilien din skal anlegge en kvadratisk grønnsakshage på 25 kvadratmeter. Hvor lange blir sidene? Du leter etter tallet som ganget med seg selv gir 25 -- og det er 5, siden $5^2 = 25$. Du har nettopp tatt en **kvadratrot**:\n\n$$\\sqrt{25} = 5$$\n\nÅ ta roten av et tall er det *motsatte* av å opphøye i en potens, akkurat som subtraksjon er det motsatte av addisjon. Formelt er kvadratroten av et tall $a \\geq 0$ det ikke-negative tallet $b$ som oppfyller $b^2 = a$. For eksempel er $\\sqrt{9} = 3$ fordi $3^2 = 9$, $\\sqrt{49} = 7$ fordi $7^2 = 49$, og $\\sqrt{0} = 0$. Røtter brukes i geometri -- Pytagoras' setning ender alltid i en kvadratrot -- i statistikk når vi beregner standardavvik, og i utallige formler fra naturfag.\n\nFlere du kan ta i hodet: $\\sqrt{16} = 4$, $\\sqrt{144} = 12$, og til og med desimaltall: $\\sqrt{0{,}04} = 0{,}2$, fordi $0{,}2^2 = 0{,}04$.\n\nHva med en terning -- et akvarium med volum 27 liter, for eksempel? Da trenger vi tallet som ganget med seg selv *tre* ganger gir 27. Det er **tredjeroten** (kubikkroten): $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$. Tilsvarende er $\\sqrt[3]{64} = 4$ og $\\sqrt[3]{125} = 5$. Og her er en forskjell fra kvadratrøtter: tredjeroten av negative tall finnes! $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$, og $\\sqrt[3]{-1} = -1$. Kvadratroten krever et ikke-negativt tall, tredjeroten tar imot alle."},{"id":"1p-2-5-n-quiz1","type":"exercise","exercise":{"id":"1p-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kvadratrøtter og tredjerøtter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-2-5-n-quiz1-q0","task":"Hva er $\\sqrt{144}$?","options":[{"id":"a","text":"$14$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$72$","isCorrect":false},{"id":"d","text":"$11$","isCorrect":false}],"solution":"$12^2 = 144$, så $\\sqrt{144} = 12$."},{"id":"1p-2-5-n-quiz1-q1","task":"Hva er $\\sqrt{0{,}04}$?","options":[{"id":"a","text":"$0{,}02$","isCorrect":false},{"id":"b","text":"$0{,}4$","isCorrect":false},{"id":"c","text":"$0{,}2$","isCorrect":true},{"id":"d","text":"$0{,}016$","isCorrect":false}],"solution":"$0{,}2 \\cdot 0{,}2 = 0{,}04$, så $\\sqrt{0{,}04} = 0{,}2$."},{"id":"1p-2-5-n-quiz1-q2","task":"Hva er $\\sqrt[3]{64}$?","options":[{"id":"a","text":"$4$","isCorrect":true},{"id":"b","text":"$8$","isCorrect":false},{"id":"c","text":"$16$","isCorrect":false},{"id":"d","text":"$21$","isCorrect":false}],"solution":"$4^3 = 4 \\cdot 4 \\cdot 4 = 64$, så tredjeroten av 64 er 4."},{"id":"1p-2-5-n-quiz1-q3","task":"Hvilket utsagn er riktig?","options":[{"id":"a","text":"$\\sqrt{-9} = -3$","isCorrect":false},{"id":"b","text":"Verken kvadratrot eller tredjerot kan tas av negative tall","isCorrect":false},{"id":"c","text":"$\\sqrt[3]{-8}$ finnes ikke","isCorrect":false},{"id":"d","text":"$\\sqrt[3]{-8} = -2$, men $\\sqrt{-9}$ er ikke definert","isCorrect":true}],"solution":"Tredjeroten av negative tall finnes: $(-2)^3 = -8$. Kvadratroten av et negativt tall er derimot ikke definert blant de reelle tallene."}]}},{"id":"1p-2-5-n-section1","type":"text","content":"## Røtter er potenser i forkledning\n\nHer kommer en elegant hemmelighet: røtter *er* potenser -- bare med brøk som eksponent. Kvadratroten er det samme som å opphøye i en halv, og tredjeroten i en tredel:\n\n$$\\sqrt{a} = a^{1/2} \\qquad \\text{og} \\qquad \\sqrt[3]{a} = a^{1/3}$$\n\nGenerelt er $\\sqrt[n]{a} = a^{1/n}$. Hvorfor er det smart å vite? Fordi det betyr at *alle potensreglene fra forrige kapittel også gjelder for røtter*. For eksempel gir regel 4 oss at\n\n$$\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (a \\cdot b)^{1/2} = \\sqrt{a \\cdot b}$$\n\nRoten av et produkt er produktet av røttene -- og tilsvarende for divisjon. Dette gir oss kraftige forenklingstriks.\n\nSe på $\\sqrt{4 \\cdot 9}$: vi kan dele opp i $\\sqrt{4} \\cdot \\sqrt{9} = 2 \\cdot 3 = 6$, eller regne $\\sqrt{36} = 6$ direkte -- samme svar, som seg hør og bør. Mer imponerende blir det med $\\sqrt{50}$, som ikke er noe pent helt tall. Men $50 = 25 \\cdot 2$, og 25 er et kvadrattall: $\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$. Vi har trukket det «pene» ut av roten.\n\nOg motsatt vei, med divisjon: $\\frac{\\sqrt{72}}{\\sqrt{2}}$ ser stygg ut, men samles til én rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$. Strategien er alltid den samme -- let etter kvadrattall (4, 9, 16, 25, 36, 49, ...) som gjemmer seg som faktorer, og bruk reglene til å hente dem ut."},{"id":"1p-2-5-n-quiz2","type":"exercise","exercise":{"id":"1p-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på regning med røtter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-2-5-n-quiz2-q0","task":"Hvordan kan $\\sqrt{a}$ skrives som potens?","options":[{"id":"a","text":"$a^2$","isCorrect":false},{"id":"b","text":"$a^{1/2}$","isCorrect":true},{"id":"c","text":"$a^{-2}$","isCorrect":false},{"id":"d","text":"$2^a$","isCorrect":false}],"solution":"Kvadratroten er en potens med eksponent $\\frac{1}{2}$: $\\sqrt{a} = a^{1/2}$. Derfor gjelder potensreglene også for røtter."},{"id":"1p-2-5-n-quiz2-q1","task":"Forenkle $\\sqrt{50}$.","options":[{"id":"a","text":"$25\\sqrt{2}$","isCorrect":false},{"id":"b","text":"$2\\sqrt{5}$","isCorrect":false},{"id":"c","text":"$5\\sqrt{2}$","isCorrect":true},{"id":"d","text":"$10\\sqrt{5}$","isCorrect":false}],"solution":"$50 = 25 \\cdot 2$, så $\\sqrt{50} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$."},{"id":"1p-2-5-n-quiz2-q2","task":"Hva er $\\frac{\\sqrt{72}}{\\sqrt{2}}$?","options":[{"id":"a","text":"$6$","isCorrect":true},{"id":"b","text":"$36$","isCorrect":false},{"id":"c","text":"$\\sqrt{70}$","isCorrect":false},{"id":"d","text":"$8$","isCorrect":false}],"solution":"Samle under én rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$."},{"id":"1p-2-5-n-quiz2-q3","task":"Hvilken regel er riktig?","options":[{"id":"a","text":"$\\sqrt{a + b} = \\sqrt{a} + \\sqrt{b}$","isCorrect":false},{"id":"b","text":"$\\sqrt{a \\cdot b} = \\sqrt{a} + \\sqrt{b}$","isCorrect":false},{"id":"c","text":"$\\sqrt{a} \\cdot \\sqrt{a} = 2a$","isCorrect":false},{"id":"d","text":"$\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{a \\cdot b}$","isCorrect":true}],"solution":"Roten av et produkt er produktet av røttene. Merk at regelen IKKE gjelder for addisjon: $\\sqrt{9+16} = 5$, men $\\sqrt{9} + \\sqrt{16} = 7$."}]}},{"id":"1p-2-5-n-section2","type":"text","content":"## Tall som sprenger skalaen -- standardform\n\nAvstanden fra jorda til sola er 149 600 000 km. Tykkelsen på et hårstrå er 0,00007 meter. Prøv å lese de tallene høyt uten å miste tellingen på nullene! Når tallene blir veldig store eller veldig små, trenger vi en smartere skrivemåte: **standardform**, også kalt vitenskapelig notasjon. Et tall er på standardform når det er skrevet som\n\n$$a \\cdot 10^n \\quad \\text{der } 1 \\leq a < 10 \\text{ og } n \\text{ er et heltall}$$\n\nAvstanden til sola blir $1{,}496 \\cdot 10^8$ km, og hårstrået $7 \\cdot 10^{-5}$ m. Tallet $a$ skal alltid ligge mellom 1 og 10, og tierpotensen tar seg av størrelsesordenen: positiv eksponent for store tall, negativ for små.\n\nOmregningen handler om å flytte desimalkommaet. $47\\,000$ blir $4{,}7 \\cdot 10^4$ -- vi flyttet kommaet 4 plasser til venstre, og eksponenten teller flyttene. $8\\,350\\,000 = 8{,}35 \\cdot 10^6$. For små tall flytter vi mot høyre og får negativ eksponent: $0{,}00032 = 3{,}2 \\cdot 10^{-4}$ og $0{,}0091 = 9{,}1 \\cdot 10^{-3}$.\n\nDet virkelig fine er at regning blir enkel. Potensreglene tar seg av tierpotensene: ved multiplikasjon ganger vi tallene og *legger sammen* eksponentene, $(a \\cdot 10^n)(b \\cdot 10^m) = ab \\cdot 10^{n+m}$; ved divisjon deler vi og *trekker fra*. For eksempel $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3) = 6 \\cdot 10^7$ og $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3} = 2 \\cdot 10^6$.\n\nEt stjerneeksempel til slutt: lyset farer av sted med $3 \\cdot 10^8$ m/s. Hvor langt kommer det på ett minutt? Strekning er fart ganger tid: $(3 \\cdot 10^8) \\cdot 60 = (3 \\cdot 10^8)(6 \\cdot 10^1) = 18 \\cdot 10^9$. Men vent -- 18 er ikke mellom 1 og 10, så vi justerer: $1{,}8 \\cdot 10^{10}$ m, altså 18 milliarder meter. Og når kalkulatoren din viser `3.5E8`, er det dens måte å si $3{,}5 \\cdot 10^8$ på -- E-en står for eksponenten til 10."},{"id":"1p-2-5-n-quiz3","type":"exercise","exercise":{"id":"1p-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på standardform:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-2-5-n-quiz3-q0","task":"Hvilket tall er skrevet på korrekt standardform?","options":[{"id":"a","text":"$47 \\cdot 10^3$","isCorrect":false},{"id":"b","text":"$4{,}7 \\cdot 10^4$","isCorrect":true},{"id":"c","text":"$0{,}47 \\cdot 10^5$","isCorrect":false},{"id":"d","text":"$47\\,000$","isCorrect":false}],"solution":"På standardform skal $a$ oppfylle $1 \\leq a < 10$. Bare $4{,}7 \\cdot 10^4$ gjør det."},{"id":"1p-2-5-n-quiz3-q1","task":"Skriv $0{,}00032$ på standardform.","options":[{"id":"a","text":"$3{,}2 \\cdot 10^{-4}$","isCorrect":true},{"id":"b","text":"$32 \\cdot 10^{-5}$","isCorrect":false},{"id":"c","text":"$3{,}2 \\cdot 10^4$","isCorrect":false},{"id":"d","text":"$3{,}2 \\cdot 10^{-3}$","isCorrect":false}],"solution":"Flytt kommaet 4 plasser til høyre: $3{,}2 \\cdot 10^{-4}$. Små tall får negativ eksponent."},{"id":"1p-2-5-n-quiz3-q2","task":"Hva er $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3)$?","options":[{"id":"a","text":"$5 \\cdot 10^7$","isCorrect":false},{"id":"b","text":"$6 \\cdot 10^{12}$","isCorrect":false},{"id":"c","text":"$6 \\cdot 10^7$","isCorrect":true},{"id":"d","text":"$5 \\cdot 10^{12}$","isCorrect":false}],"solution":"Gang tallene og legg sammen eksponentene: $3 \\cdot 2 = 6$ og $10^{4+3} = 10^7$."},{"id":"1p-2-5-n-quiz3-q3","task":"Hva er $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3}$?","options":[{"id":"a","text":"$2 \\cdot 10^3$","isCorrect":false},{"id":"b","text":"$2 \\cdot 10^6$","isCorrect":true},{"id":"c","text":"$4 \\cdot 10^6$","isCorrect":false},{"id":"d","text":"$2 \\cdot 10^{12}$","isCorrect":false}],"solution":"Del tallene og trekk fra eksponentene: $\\frac{8}{4} = 2$ og $10^{9-3} = 10^6$."},{"id":"1p-2-5-n-quiz3-q4","task":"Kalkulatoren viser `1.8E10`. Hva betyr det?","options":[{"id":"a","text":"$1{,}8^{10}$","isCorrect":false},{"id":"b","text":"$18^{10}$","isCorrect":false},{"id":"c","text":"$1{,}8 \\cdot e^{10}$","isCorrect":false},{"id":"d","text":"$1{,}8 \\cdot 10^{10}$","isCorrect":true}],"solution":"E-notasjonen er kalkulatorens standardform: `1.8E10` betyr $1{,}8 \\cdot 10^{10}$."}]}},{"id":"1p-2-5-n-summary","type":"text","content":"## Fortellingen om røttene og de enorme tallene -- kort fortalt\n\nDen kvadratiske hagen ga oss **kvadratroten**: $\\sqrt{a}$ er det ikke-negative tallet som ganget med seg selv gir $a$, slik $\\sqrt{25} = 5$. Akvariet ga oss **tredjeroten**: $\\sqrt[3]{27} = 3$ -- og den tåler til og med negative tall, som $\\sqrt[3]{-8} = -2$.\n\nSå avslørte vi at røtter bare er potenser i forkledning: $\\sqrt{a} = a^{1/2}$ og $\\sqrt[3]{a} = a^{1/3}$. Dermed gjelder potensreglene, og vi kunne forenkle som proffer: $\\sqrt{50} = 5\\sqrt{2}$ ved å hente kvadrattallet 25 ut av roten, og $\\frac{\\sqrt{72}}{\\sqrt{2}} = \\sqrt{36} = 6$ ved å samle under én rot.\n\nTil slutt temmet vi de ekstreme tallene med **standardform** $a \\cdot 10^n$, der $1 \\leq a < 10$: avstanden til sola ble $1{,}496 \\cdot 10^8$ km og hårstrået $7 \\cdot 10^{-5}$ m. Regningen fulgte potensreglene -- legg sammen eksponenter ved ganging, trekk fra ved deling -- og lysets ferd på ett minutt endte på $1{,}8 \\cdot 10^{10}$ m. Fra hagen i bakgården til avstander i verdensrommet: røtter og standardform gir oss språket for alle størrelser."}],"exercises":[]}
+{
+  "id": "1p-2-5-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "2.5",
+  "title": "Røtter og standardform",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kvadratiske hager, avstanden til sola og tykkelsen på et hårstrå -- om røtter som speilvender potenser, og standardformen som temmer de enorme og bittesmå tallene.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "bruke standardform til å uttrykkje store og små tal"
+  ],
+  "linkedChapterId": "1p-2-5",
+  "content": [
+    {
+      "id": "1p-2-5-n-intro",
+      "type": "text",
+      "content": "## Den kvadratiske hagen\n\nFamilien din skal anlegge en kvadratisk grønnsakshage på 25 kvadratmeter. Hvor lange blir sidene? Du leter etter tallet som ganget med seg selv gir 25 -- og det er 5, siden $5^2 = 25$. Du har nettopp tatt en **kvadratrot**:\n\n$$\\sqrt{25} = 5$$\n\nÅ ta roten av et tall er det *motsatte* av å opphøye i en potens, akkurat som subtraksjon er det motsatte av addisjon. Formelt er kvadratroten av et tall $a \\geq 0$ det ikke-negative tallet $b$ som oppfyller $b^2 = a$. For eksempel er $\\sqrt{9} = 3$ fordi $3^2 = 9$, $\\sqrt{49} = 7$ fordi $7^2 = 49$, og $\\sqrt{0} = 0$. Røtter brukes i geometri -- Pytagoras' setning ender alltid i en kvadratrot -- i statistikk når vi beregner standardavvik, og i utallige formler fra naturfag.\n\nFlere du kan ta i hodet: $\\sqrt{16} = 4$, $\\sqrt{144} = 12$, og til og med desimaltall: $\\sqrt{0{,}04} = 0{,}2$, fordi $0{,}2^2 = 0{,}04$.\n\nHva med en terning -- et akvarium med volum 27 liter, for eksempel? Da trenger vi tallet som ganget med seg selv *tre* ganger gir 27. Det er **tredjeroten** (kubikkroten): $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$. Tilsvarende er $\\sqrt[3]{64} = 4$ og $\\sqrt[3]{125} = 5$. Og her er en forskjell fra kvadratrøtter: tredjeroten av negative tall finnes! $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$, og $\\sqrt[3]{-1} = -1$. Kvadratroten krever et ikke-negativt tall, tredjeroten tar imot alle."
+    },
+    {
+      "id": "1p-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kvadratrøtter og tredjerøtter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-2-5-n-quiz1-q0",
+            "task": "Hva er $\\sqrt{144}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$14$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$72$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$11$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$12^2 = 144$, så $\\sqrt{144} = 12$."
+          },
+          {
+            "id": "1p-2-5-n-quiz1-q1",
+            "task": "Hva er $\\sqrt{0{,}04}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}02$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}016$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$0{,}2 \\cdot 0{,}2 = 0{,}04$, så $\\sqrt{0{,}04} = 0{,}2$."
+          },
+          {
+            "id": "1p-2-5-n-quiz1-q2",
+            "task": "Hva er $\\sqrt[3]{64}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$21$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4^3 = 4 \\cdot 4 \\cdot 4 = 64$, så tredjeroten av 64 er 4."
+          },
+          {
+            "id": "1p-2-5-n-quiz1-q3",
+            "task": "Hvilket utsagn er riktig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{-9} = -3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt[3]{-8} = -2$, men $\\sqrt{-9}$ er ikke definert",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Verken kvadratrot eller tredjerot kan tas av negative tall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt[3]{-8}$ finnes ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tredjeroten av negative tall finnes: $(-2)^3 = -8$. Kvadratroten av et negativt tall er derimot ikke definert blant de reelle tallene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-2-5-n-section1",
+      "type": "text",
+      "content": "## Røtter er potenser i forkledning\n\nHer kommer en elegant hemmelighet: røtter *er* potenser -- bare med brøk som eksponent. Kvadratroten er det samme som å opphøye i en halv, og tredjeroten i en tredel:\n\n$$\\sqrt{a} = a^{1/2} \\qquad \\text{og} \\qquad \\sqrt[3]{a} = a^{1/3}$$\n\nGenerelt er $\\sqrt[n]{a} = a^{1/n}$. Hvorfor er det smart å vite? Fordi det betyr at *alle potensreglene fra forrige kapittel også gjelder for røtter*. For eksempel gir regel 4 oss at\n\n$$\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (a \\cdot b)^{1/2} = \\sqrt{a \\cdot b}$$\n\nRoten av et produkt er produktet av røttene -- og tilsvarende for divisjon. Dette gir oss kraftige forenklingstriks.\n\nSe på $\\sqrt{4 \\cdot 9}$: vi kan dele opp i $\\sqrt{4} \\cdot \\sqrt{9} = 2 \\cdot 3 = 6$, eller regne $\\sqrt{36} = 6$ direkte -- samme svar, som seg hør og bør. Mer imponerende blir det med $\\sqrt{50}$, som ikke er noe pent helt tall. Men $50 = 25 \\cdot 2$, og 25 er et kvadrattall: $\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$. Vi har trukket det «pene» ut av roten.\n\nOg motsatt vei, med divisjon: $\\frac{\\sqrt{72}}{\\sqrt{2}}$ ser stygg ut, men samles til én rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$. Strategien er alltid den samme -- let etter kvadrattall (4, 9, 16, 25, 36, 49, ...) som gjemmer seg som faktorer, og bruk reglene til å hente dem ut."
+    },
+    {
+      "id": "1p-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regning med røtter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-2-5-n-quiz2-q0",
+            "task": "Hvordan kan $\\sqrt{a}$ skrives som potens?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a^{-2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a^{1/2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2^a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvadratroten er en potens med eksponent $\\frac{1}{2}$: $\\sqrt{a} = a^{1/2}$. Derfor gjelder potensreglene også for røtter."
+          },
+          {
+            "id": "1p-2-5-n-quiz2-q1",
+            "task": "Forenkle $\\sqrt{50}$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$25\\sqrt{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\sqrt{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10\\sqrt{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5\\sqrt{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$50 = 25 \\cdot 2$, så $\\sqrt{50} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$."
+          },
+          {
+            "id": "1p-2-5-n-quiz2-q2",
+            "task": "Hva er $\\frac{\\sqrt{72}}{\\sqrt{2}}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$36$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{70}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Samle under én rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$."
+          },
+          {
+            "id": "1p-2-5-n-quiz2-q3",
+            "task": "Hvilken regel er riktig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{a + b} = \\sqrt{a} + \\sqrt{b}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{a \\cdot b}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{a \\cdot b} = \\sqrt{a} + \\sqrt{b}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{a} \\cdot \\sqrt{a} = 2a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Roten av et produkt er produktet av røttene. Merk at regelen IKKE gjelder for addisjon: $\\sqrt{9+16} = 5$, men $\\sqrt{9} + \\sqrt{16} = 7$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-2-5-n-section2",
+      "type": "text",
+      "content": "## Tall som sprenger skalaen -- standardform\n\nAvstanden fra jorda til sola er 149 600 000 km. Tykkelsen på et hårstrå er 0,00007 meter. Prøv å lese de tallene høyt uten å miste tellingen på nullene! Når tallene blir veldig store eller veldig små, trenger vi en smartere skrivemåte: **standardform**, også kalt vitenskapelig notasjon. Et tall er på standardform når det er skrevet som\n\n$$a \\cdot 10^n \\quad \\text{der } 1 \\leq a < 10 \\text{ og } n \\text{ er et heltall}$$\n\nAvstanden til sola blir $1{,}496 \\cdot 10^8$ km, og hårstrået $7 \\cdot 10^{-5}$ m. Tallet $a$ skal alltid ligge mellom 1 og 10, og tierpotensen tar seg av størrelsesordenen: positiv eksponent for store tall, negativ for små.\n\nOmregningen handler om å flytte desimalkommaet. $47\\,000$ blir $4{,}7 \\cdot 10^4$ -- vi flyttet kommaet 4 plasser til venstre, og eksponenten teller flyttene. $8\\,350\\,000 = 8{,}35 \\cdot 10^6$. For små tall flytter vi mot høyre og får negativ eksponent: $0{,}00032 = 3{,}2 \\cdot 10^{-4}$ og $0{,}0091 = 9{,}1 \\cdot 10^{-3}$.\n\nDet virkelig fine er at regning blir enkel. Potensreglene tar seg av tierpotensene: ved multiplikasjon ganger vi tallene og *legger sammen* eksponentene, $(a \\cdot 10^n)(b \\cdot 10^m) = ab \\cdot 10^{n+m}$; ved divisjon deler vi og *trekker fra*. For eksempel $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3) = 6 \\cdot 10^7$ og $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3} = 2 \\cdot 10^6$.\n\nEt stjerneeksempel til slutt: lyset farer av sted med $3 \\cdot 10^8$ m/s. Hvor langt kommer det på ett minutt? Strekning er fart ganger tid: $(3 \\cdot 10^8) \\cdot 60 = (3 \\cdot 10^8)(6 \\cdot 10^1) = 18 \\cdot 10^9$. Men vent -- 18 er ikke mellom 1 og 10, så vi justerer: $1{,}8 \\cdot 10^{10}$ m, altså 18 milliarder meter. Og når kalkulatoren din viser `3.5E8`, er det dens måte å si $3{,}5 \\cdot 10^8$ på -- E-en står for eksponenten til 10."
+    },
+    {
+      "id": "1p-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på standardform:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-2-5-n-quiz3-q0",
+            "task": "Hvilket tall er skrevet på korrekt standardform?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$47 \\cdot 10^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}47 \\cdot 10^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4{,}7 \\cdot 10^4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$47\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "På standardform skal $a$ oppfylle $1 \\leq a < 10$. Bare $4{,}7 \\cdot 10^4$ gjør det."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q1",
+            "task": "Skriv $0{,}00032$ på standardform.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$32 \\cdot 10^{-5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3{,}2 \\cdot 10^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}2 \\cdot 10^{-3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3{,}2 \\cdot 10^{-4}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Flytt kommaet 4 plasser til høyre: $3{,}2 \\cdot 10^{-4}$. Små tall får negativ eksponent."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q2",
+            "task": "Hva er $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$6 \\cdot 10^7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5 \\cdot 10^7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6 \\cdot 10^{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5 \\cdot 10^{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gang tallene og legg sammen eksponentene: $3 \\cdot 2 = 6$ og $10^{4+3} = 10^7$."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q3",
+            "task": "Hva er $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2 \\cdot 10^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2 \\cdot 10^6$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$4 \\cdot 10^6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2 \\cdot 10^{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Del tallene og trekk fra eksponentene: $\\frac{8}{4} = 2$ og $10^{9-3} = 10^6$."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q4",
+            "task": "Kalkulatoren viser `1.8E10`. Hva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}8^{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$18^{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1{,}8 \\cdot 10^{10}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1{,}8 \\cdot e^{10}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "E-notasjonen er kalkulatorens standardform: `1.8E10` betyr $1{,}8 \\cdot 10^{10}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-2-5-n-summary",
+      "type": "text",
+      "content": "## Fortellingen om røttene og de enorme tallene -- kort fortalt\n\nDen kvadratiske hagen ga oss **kvadratroten**: $\\sqrt{a}$ er det ikke-negative tallet som ganget med seg selv gir $a$, slik $\\sqrt{25} = 5$. Akvariet ga oss **tredjeroten**: $\\sqrt[3]{27} = 3$ -- og den tåler til og med negative tall, som $\\sqrt[3]{-8} = -2$.\n\nSå avslørte vi at røtter bare er potenser i forkledning: $\\sqrt{a} = a^{1/2}$ og $\\sqrt[3]{a} = a^{1/3}$. Dermed gjelder potensreglene, og vi kunne forenkle som proffer: $\\sqrt{50} = 5\\sqrt{2}$ ved å hente kvadrattallet 25 ut av roten, og $\\frac{\\sqrt{72}}{\\sqrt{2}} = \\sqrt{36} = 6$ ved å samle under én rot.\n\nTil slutt temmet vi de ekstreme tallene med **standardform** $a \\cdot 10^n$, der $1 \\leq a < 10$: avstanden til sola ble $1{,}496 \\cdot 10^8$ km og hårstrået $7 \\cdot 10^{-5}$ m. Regningen fulgte potensreglene -- legg sammen eksponenter ved ganging, trekk fra ved deling -- og lysets ferd på ett minutt endte på $1{,}8 \\cdot 10^{10}$ m. Fra hagen i bakgården til avstander i verdensrommet: røtter og standardform gir oss språket for alle størrelser."
+    }
+  ],
+  "exercises": []
+}

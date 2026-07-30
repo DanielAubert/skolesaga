@@ -1,1 +1,447 @@
-{"id":"r2-4-4-narrativ","courseId":"r2","chapterNumber":"4.4","title":"Cosinuslikninger","subtitle":"Narrativ versjon","description":"En fortelling om cosinuslikninger — hvordan symmetrien cos(−x) = cos(x) gir løsningene x = ±arccos(a) + 2πn, og hvordan temperaturer, toner og trekanter løses med samme grep.","estimatedMinutes":33,"competenceGoals":["bruke trigonometriske funksjonar til a loyse praktiske problem","analysere og lose trigonometriske likningar"],"linkedChapterId":"r2-4-4","content":[{"id":"r2-4-4-n-intro","type":"text","content":"## Samme melodi, ny rytme\n\nI forrige kapittel lærte du å løse sinuslikninger, og kanskje tenker du at cosinus bare er mer av det samme. Nesten — men ikke helt. Tenk på temperaturen gjennom et år: den er på sitt kaldeste i januar, varmest i juli, og følger en cosinuskurve som starter i et ytterpunkt. Når meteorologen spør «når passerer temperaturen 17 grader?», står vi overfor en **cosinuslikning**: en likning der den ukjente står inne i en cosinusfunksjon, som $\\cos x = \\frac{1}{2}$, $\\cos(2x) = -1$ eller $\\cos\\left(x - \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$.\n\nCosinus deler mye med sinus: verdimengden er $[-1, 1]$, perioden er $2\\pi$, og likningen $\\cos x = a$ er løsbar bare når $-1 \\leq a \\leq 1$. Men cosinus har en annen **symmetri**. Der sinuskurven er symmetrisk om toppene sine på en måte som gir løsningsparet $v$ og $\\pi - v$, er cosinus symmetrisk om $y$-aksen: $\\cos(-x) = \\cos(x)$. Hvis $\\cos\\alpha = a$, så er også $\\cos(-\\alpha) = a$. Denne ene egenskapen forandrer formen på alle løsningene våre — i stedet for to separate uttrykk får vi ett kompakt uttrykk med $\\pm$.\n\nI denne fortellingen lærer du den generelle løsningen av $\\cos x = a$, hvordan du takler sammensatte argumenter som $\\cos(kx + c)$, hva som skiller cosinus- fra sinuslikninger, og hvordan alt brukes på temperaturer, lydbølger og geometri."},{"id":"r2-4-4-n-section1","type":"text","content":"## Symmetrien som gir oss pluss-minus\n\nLa oss se hva symmetrien $\\cos(-x) = \\cos(x)$ gjør med løsningene. På enhetssirkelen er cosinus $x$-koordinaten, og en **loddrett** linje $x = a$ skjærer sirkelen i to punkter som ligger speilvendt om $x$-aksen: ett ved vinkelen $\\alpha$ og ett ved $-\\alpha$. Begge har samme cosinusverdi. Sammen med periodisiteten gir det den generelle løsningen\n\n$$x = \\pm\\arccos(a) + 2\\pi n, \\quad n \\in \\mathbb{Z}$$\n\nder $\\arccos(a)$ er hovedløsningen, som alltid ligger i $[0, \\pi]$. Sammenlign med sinus: der trengte vi to separate uttrykk, $\\arcsin(a) + 2\\pi n$ og $\\pi - \\arcsin(a) + 2\\pi n$. For cosinus pakker $\\pm$-tegnet begge familiene inn i én formel.\n\nEt eksempel: $\\cos x = \\frac{1}{2}$. Hovedløsningen er $\\arccos\\left(\\frac{1}{2}\\right) = \\frac{\\pi}{3}$, så $x = \\pm\\frac{\\pi}{3} + 2\\pi n$. I intervallet $[0, 2\\pi)$ gir det $x = \\frac{\\pi}{3}$ og $x = -\\frac{\\pi}{3} + 2\\pi = \\frac{5\\pi}{3}$. Med negativ høyreside, $\\cos x = -\\frac{1}{2}$, blir hovedløsningen $\\frac{2\\pi}{3}$, og løsningene i $[0, 2\\pi)$ er $\\frac{2\\pi}{3}$ og $\\frac{4\\pi}{3}$.\n\nYtterpunktene fortjener et eget blikk. $\\cos x = 1$ har hovedløsning $0$, og $\\pm 0$ er samme tall, så vi får bare $x = 2\\pi n$ — én løsning per periode. $\\cos x = -1$ gir $x = \\pi + 2\\pi n$. Og $\\cos x = 0$ gir $x = \\pm\\frac{\\pi}{2} + 2\\pi n$, som kan skrives kompakt som $x = \\frac{\\pi}{2} + \\pi n$ — nullpunktene ligger jevnt fordelt med avstand $\\pi$."},{"id":"r2-4-4-n-quiz1","type":"exercise","exercise":{"id":"r2-4-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på grunnleggende cosinuslikninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-4-n-quiz1-q0","task":"Hva er den generelle løsningen av $\\cos x = a$ når $-1 \\leq a \\leq 1$?","options":[{"id":"a","text":"$x = \\arccos(a) + 2\\pi n$","isCorrect":false},{"id":"b","text":"$x = \\arccos(a) + \\pi n$","isCorrect":false},{"id":"c","text":"$x = \\pm\\arccos(a) + 2\\pi n$","isCorrect":true},{"id":"d","text":"$x = \\pi - \\arccos(a) + 2\\pi n$","isCorrect":false}],"solution":"Symmetrien $\\cos(-x) = \\cos x$ gir to løsningsfamilier som samles i $x = \\pm\\arccos(a) + 2\\pi n$."},{"id":"r2-4-4-n-quiz1-q1","task":"Hvilke løsninger har $\\cos x = \\frac{1}{2}$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{3}$ og $x = \\frac{5\\pi}{3}$","isCorrect":true},{"id":"b","text":"$x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$","isCorrect":false},{"id":"c","text":"$x = \\frac{\\pi}{3}$ og $x = \\frac{2\\pi}{3}$","isCorrect":false},{"id":"d","text":"$x = \\frac{2\\pi}{3}$ og $x = \\frac{4\\pi}{3}$","isCorrect":false}],"solution":"$\\arccos\\left(\\frac{1}{2}\\right) = \\frac{\\pi}{3}$, så $x = \\frac{\\pi}{3}$ og $x = -\\frac{\\pi}{3} + 2\\pi = \\frac{5\\pi}{3}$."},{"id":"r2-4-4-n-quiz1-q2","task":"Hva er den generelle løsningen av $\\cos x = -1$?","options":[{"id":"a","text":"$x = 2\\pi n$","isCorrect":false},{"id":"b","text":"$x = \\pi + 2\\pi n$","isCorrect":true},{"id":"c","text":"$x = \\pm\\pi + \\pi n$","isCorrect":false},{"id":"d","text":"$x = \\frac{\\pi}{2} + \\pi n$","isCorrect":false}],"solution":"$\\arccos(-1) = \\pi$, og siden $\\pm\\pi + 2\\pi n$ gir samme tallmengde, er løsningen $x = \\pi + 2\\pi n$ — én per periode."},{"id":"r2-4-4-n-quiz1-q3","task":"Hvilken symmetriegenskap gir cosinuslikningene formen $\\pm$?","options":[{"id":"a","text":"$\\cos(\\pi - x) = \\cos x$","isCorrect":false},{"id":"b","text":"$\\cos(x + \\pi) = \\cos x$","isCorrect":false},{"id":"c","text":"$\\cos(-x) = -\\cos x$","isCorrect":false},{"id":"d","text":"$\\cos(-x) = \\cos x$","isCorrect":true}],"solution":"Cosinus er en like funksjon: $\\cos(-x) = \\cos x$. Derfor er både $\\alpha$ og $-\\alpha$ løsninger når $\\cos\\alpha = a$."}]}},{"id":"r2-4-4-n-section2","type":"text","content":"## Sammensatte argumenter: $\\cos(kx + c) = a$\n\nAkkurat som for sinus møter vi sjelden et nakent $x$ i praksis. Strategien er den samme substitusjonen: sett $u = kx + c$, løs $\\cos u = a$ til $u = \\pm\\arccos(a) + 2\\pi n$, og pakk ut $x$ til slutt. Den generelle formelen blir $x = \\frac{-c \\pm \\arccos(a) + 2\\pi n}{k}$, men det er tryggere å gjøre stegene enn å pugge formelen.\n\nSe på $\\cos(2x) = \\frac{1}{2}$. Substitusjonen gir $2x = \\pm\\frac{\\pi}{3} + 2\\pi n$, og delt på $2$: $x = \\pm\\frac{\\pi}{6} + \\pi n$. Merk at perioden ble halvert til $\\pi$. I $[0, 2\\pi)$ gir plusstegnet $x = \\frac{\\pi}{6}$ og $\\frac{7\\pi}{6}$, minustegnet gir $\\frac{5\\pi}{6}$ og $\\frac{11\\pi}{6}$ — fire løsninger, dobbelt så mange som uten faktoren $2$. Tilsvarende gir $\\cos(3x) = 0$ likningen $3x = \\frac{\\pi}{2} + \\pi n$, altså $x = \\frac{\\pi}{6} + \\frac{\\pi n}{3}$, med hele seks løsninger i $[0, 2\\pi)$.\n\nMed faseforskyvning følger vi samme spor. Likningen $\\cos\\left(x - \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$ gir $x - \\frac{\\pi}{4} = \\pm\\frac{\\pi}{4} + 2\\pi n$, og dermed to løsningsrekker: $x = \\frac{\\pi}{2} + 2\\pi n$ og $x = 2\\pi n$. Kombinerer vi alt, som i $\\cos\\left(2x + \\frac{\\pi}{6}\\right) = \\frac{\\sqrt{3}}{2}$, blir regningen $2x + \\frac{\\pi}{6} = \\pm\\frac{\\pi}{6} + 2\\pi n$, som gir $x = \\pi n$ fra plusstegnet og $x = -\\frac{\\pi}{6} + \\pi n$ fra minustegnet. Husk rekkefølgen: trekk fra $c$ først, del på $k$ til slutt — også $2\\pi n$-leddet skal deles."},{"id":"r2-4-4-n-quiz2","type":"exercise","exercise":{"id":"r2-4-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på likninger med sammensatt argument:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-4-n-quiz2-q0","task":"Hvor mange løsninger har $\\cos(2x) = \\frac{1}{2}$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"2","isCorrect":false},{"id":"b","text":"4","isCorrect":true},{"id":"c","text":"6","isCorrect":false},{"id":"d","text":"8","isCorrect":false}],"solution":"$x = \\pm\\frac{\\pi}{6} + \\pi n$ gir $\\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{7\\pi}{6}, \\frac{11\\pi}{6}$ — fire løsninger."},{"id":"r2-4-4-n-quiz2-q1","task":"Hva er den generelle løsningen av $\\cos(3x) = 0$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{2} + \\pi n$","isCorrect":false},{"id":"b","text":"$x = \\frac{\\pi}{6} + \\pi n$","isCorrect":false},{"id":"c","text":"$x = \\frac{\\pi}{6} + \\frac{2\\pi n}{3}$","isCorrect":false},{"id":"d","text":"$x = \\frac{\\pi}{6} + \\frac{\\pi n}{3}$","isCorrect":true}],"solution":"$\\cos u = 0$ gir $u = 3x = \\frac{\\pi}{2} + \\pi n$, så $x = \\frac{\\pi}{6} + \\frac{\\pi n}{3}$."},{"id":"r2-4-4-n-quiz2-q2","task":"Hva er løsningene av $\\cos\\left(x - \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{4}$ og $x = \\frac{7\\pi}{4}$","isCorrect":false},{"id":"b","text":"$x = \\frac{\\pi}{2}$ og $x = \\frac{3\\pi}{2}$","isCorrect":false},{"id":"c","text":"$x = 0$ og $x = \\frac{\\pi}{2}$","isCorrect":true},{"id":"d","text":"$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$","isCorrect":false}],"solution":"$x - \\frac{\\pi}{4} = \\pm\\frac{\\pi}{4} + 2\\pi n$ gir $x = \\frac{\\pi}{2} + 2\\pi n$ eller $x = 2\\pi n$. I intervallet: $x = 0$ og $x = \\frac{\\pi}{2}$."}]}},{"id":"r2-4-4-n-section3","type":"text","content":"## Sinus mot cosinus — og noen kraftigere likninger\n\nDet lønner seg å ha de to løsningsformlene side om side. For $\\sin x = a$ er løsningene $x = \\arcsin(a) + 2\\pi n$ eller $x = \\pi - \\arcsin(a) + 2\\pi n$ — to separate uttrykk. For $\\cos x = a$ er det ett uttrykk med pluss-minus: $x = \\pm\\arccos(a) + 2\\pi n$. Begge gir normalt to løsninger per periode, men på forskjellige steder. Løser du både $\\sin x = \\frac{1}{2}$ og $\\cos x = \\frac{1}{2}$ i $[0, 2\\pi)$, får du henholdsvis $\\left\\{\\frac{\\pi}{6}, \\frac{5\\pi}{6}\\right\\}$ og $\\left\\{\\frac{\\pi}{3}, \\frac{5\\pi}{3}\\right\\}$ — to løsninger hver, men aldri de samme.\n\nAntallet løsninger per periode følger et fast mønster for begge: to løsninger når $-1 < a < 1$, én løsning når $a = \\pm 1$, og ingen når $|a| > 1$. En likning som $\\cos x = 2$ kan du avvise umiddelbart uten regning.\n\nNoen likninger krever et ekstra grep før formelen slår inn. Ta $2\\cos^2 x - 1 = 0$. Vi løser for kvadratet: $\\cos^2 x = \\frac{1}{2}$, som gir $\\cos x = \\pm\\frac{\\sqrt{2}}{2}$ — **to** vanlige cosinuslikninger. Den positive gir $x = \\pm\\frac{\\pi}{4} + 2\\pi n$, den negative $x = \\pm\\frac{3\\pi}{4} + 2\\pi n$, og samlet i $[0, 2\\pi)$: $x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}$. Et elegant alternativ er å gjenkjenne dobbeltvinkelidentiteten $\\cos(2x) = 2\\cos^2 x - 1$, slik at likningen blir $\\cos(2x) = 0$ med samme svar.\n\nOg trenger du svaret i grader, fungerer alt likt — bare bytt $2\\pi n$ med $360° \\cdot n$. For $\\cos x = 0{,}6$ gir kalkulatoren $x \\approx 53{,}13°$, og løsningene i $[0°, 360°)$ er $53{,}13°$ og $306{,}87°$."},{"id":"r2-4-4-n-quiz3","type":"exercise","exercise":{"id":"r2-4-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sammenligning og spesielle likninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-4-n-quiz3-q0","task":"Hvor mange løsninger har $\\cos x = 2$?","options":[{"id":"a","text":"Ingen","isCorrect":true},{"id":"b","text":"Én","isCorrect":false},{"id":"c","text":"To per periode","isCorrect":false},{"id":"d","text":"Uendelig mange","isCorrect":false}],"solution":"Verdimengden til cosinus er $[-1, 1]$, og $2 > 1$, så likningen har ingen løsning."},{"id":"r2-4-4-n-quiz3-q1","task":"Hva er hovedforskjellen på løsningsformlene for $\\sin x = a$ og $\\cos x = a$?","options":[{"id":"a","text":"Sinuslikninger har flere løsninger per periode","isCorrect":false},{"id":"b","text":"Cosinus gir ett uttrykk med $\\pm$, sinus gir to separate uttrykk","isCorrect":true},{"id":"c","text":"Cosinuslikninger har alltid løsning","isCorrect":false},{"id":"d","text":"Sinus bruker $\\pm$, cosinus bruker $\\pi - v$","isCorrect":false}],"solution":"Cosinus: $x = \\pm\\arccos(a) + 2\\pi n$. Sinus: $x = \\arcsin(a) + 2\\pi n$ eller $x = \\pi - \\arcsin(a) + 2\\pi n$."},{"id":"r2-4-4-n-quiz3-q2","task":"Hvor mange løsninger har $2\\cos^2 x - 1 = 0$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"2","isCorrect":false},{"id":"b","text":"3","isCorrect":false},{"id":"c","text":"4","isCorrect":true},{"id":"d","text":"8","isCorrect":false}],"solution":"$\\cos x = \\pm\\frac{\\sqrt{2}}{2}$ gir $x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}$ — fire løsninger."}]}},{"id":"r2-4-4-n-section4","type":"text","content":"## Temperaturer, toner og trekanter\n\nLa oss vende tilbake til meteorologen. Temperaturen i en by modelleres med $T(t) = 12 + 10\\cos\\left(\\frac{\\pi t}{6}\\right)$, der $t$ er måneder etter 1. januar. Når er temperaturen $17$ grader? Vi isolerer cosinusleddet: $10\\cos\\left(\\frac{\\pi t}{6}\\right) = 5$, altså $\\cos\\left(\\frac{\\pi t}{6}\\right) = \\frac{1}{2}$. Substitusjonen gir $\\frac{\\pi t}{6} = \\pm\\frac{\\pi}{3} + 2\\pi n$, og løst for $t$: $t = \\pm 2 + 12n$. Innenfor ett år betyr det $t = 2$ (mars) og $t = 10$ (november) — én gang på vei opp mot sommeren, én gang på vei ned. Den maksimale temperaturen er for øvrig $12 + 10 = 22$ grader, når cosinusleddet er $1$.\n\nSamme matematikk styrer musikken. Tonen A beskrives av trykket $P(t) = P_0\\cos(2\\pi \\cdot 440\\, t)$ med frekvens $440$ Hz. Trykket er maksimalt når $\\cos(880\\pi t) = 1$, altså når $880\\pi t = 2\\pi n$, som gir $t = \\frac{n}{440}$ sekunder — hvert $2{,}27$ millisekund treffer bølgetoppen øret ditt.\n\nCosinuslikninger dukker også opp i geometri. Vet du at $\\cos x = \\frac{3}{5}$ for en vinkel i en trekant, gir kalkulatoren $x = \\arccos(0{,}6) \\approx 53{,}13°$, og den pytagoreiske identiteten gir $\\sin x = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$ — du har gjenfunnet den klassiske 3-4-5-trekanten.\n\nHuskelisten for alle cosinuslikninger: sjekk at $|a| \\leq 1$, finn $\\arccos(a)$, bruk $\\pm$ for begge løsningsrekkene, del på $k$ og juster for $c$ ved sammensatt argument, og list til slutt opp løsningene i det aktuelle intervallet."},{"id":"r2-4-4-n-quiz4","type":"exercise","exercise":{"id":"r2-4-4-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på praktiske cosinuslikninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-4-n-quiz4-q0","task":"Temperaturen følger $T(t) = 12 + 10\\cos\\left(\\frac{\\pi t}{6}\\right)$. Når i løpet av året ($0 \\leq t < 12$) er $T = 17$?","options":[{"id":"a","text":"$t = 3$ og $t = 9$","isCorrect":false},{"id":"b","text":"$t = 1$ og $t = 11$","isCorrect":false},{"id":"c","text":"$t = 4$ og $t = 8$","isCorrect":false},{"id":"d","text":"$t = 2$ og $t = 10$","isCorrect":true}],"solution":"$\\cos\\left(\\frac{\\pi t}{6}\\right) = \\frac{1}{2}$ gir $\\frac{\\pi t}{6} = \\pm\\frac{\\pi}{3} + 2\\pi n$, altså $t = \\pm 2 + 12n$: $t = 2$ og $t = 10$."},{"id":"r2-4-4-n-quiz4-q1","task":"Hva er den høyeste temperaturen i modellen $T(t) = 12 + 10\\cos\\left(\\frac{\\pi t}{6}\\right)$?","options":[{"id":"a","text":"$22$ grader","isCorrect":true},{"id":"b","text":"$12$ grader","isCorrect":false},{"id":"c","text":"$10$ grader","isCorrect":false},{"id":"d","text":"$17$ grader","isCorrect":false}],"solution":"Cosinusleddet er maksimalt $1$, så $T_{\\max} = 12 + 10 \\cdot 1 = 22$ grader."}]}},{"id":"r2-4-4-n-summary","type":"text","content":"## Oppsummering\n\nVi startet med meteorologens spørsmål og oppdaget at cosinuslikninger synger samme melodi som sinuslikninger — men i en annen rytme, diktert av symmetrien $\\cos(-x) = \\cos x$. Fordi cosinus er en like funksjon, samles begge løsningsfamiliene i ett uttrykk: $\\cos x = a$ har den generelle løsningen $x = \\pm\\arccos(a) + 2\\pi n$, der hovedløsningen $\\arccos(a)$ ligger i $[0, \\pi]$. Som før gjelder løsbarhetskravet $-1 \\leq a \\leq 1$: to løsninger per periode når $-1 < a < 1$, én når $a = \\pm 1$, ingen når $|a| > 1$.\n\nFor sammensatte argumenter $\\cos(kx + c) = a$ brukte vi substitusjon: løs for hele argumentet, trekk fra $c$, og del **alt** — også $2\\pi n$-leddet — på $k$. Faktoren $k$ krymper perioden og mangedobler antall løsninger i et fast intervall, slik $\\cos(2x) = \\frac{1}{2}$ ga fire løsninger i $[0, 2\\pi)$ og $\\cos(3x) = 0$ ga seks.\n\nVi sammenlignet med sinus — to separate uttrykk der, ett $\\pm$-uttrykk her — og så at kvadratiske varianter som $2\\cos^2 x - 1 = 0$ løses ved å først finne $\\cos x = \\pm\\frac{\\sqrt{2}}{2}$, eller ved å dra kjensel på dobbeltvinkelen $\\cos 2x$.\n\nTil slutt lot vi verktøyene arbeide: temperaturmodellen ga oss mars og november som svar, lydbølgen til kammertonen toppet seg hvert $\\frac{1}{440}$ sekund, og en cosinusverdi på $\\frac{3}{5}$ avslørte en 3-4-5-trekant. Cosinuslikningen er, som sin søster sinus, en nøkkel til tidspunktene og vinklene i en periodisk verden."}],"exercises":[]}
+{
+  "id": "r2-4-4-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "4.4",
+  "title": "Cosinuslikninger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om cosinuslikninger — hvordan symmetrien cos(−x) = cos(x) gir løsningene x = ±arccos(a) + 2πn, og hvordan temperaturer, toner og trekanter løses med samme grep.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "bruke trigonometriske funksjonar til a loyse praktiske problem",
+    "analysere og lose trigonometriske likningar"
+  ],
+  "linkedChapterId": "r2-4-4",
+  "content": [
+    {
+      "id": "r2-4-4-n-intro",
+      "type": "text",
+      "content": "## Samme melodi, ny rytme\n\nI forrige kapittel lærte du å løse sinuslikninger, og kanskje tenker du at cosinus bare er mer av det samme. Nesten — men ikke helt. Tenk på temperaturen gjennom et år: den er på sitt kaldeste i januar, varmest i juli, og følger en cosinuskurve som starter i et ytterpunkt. Når meteorologen spør «når passerer temperaturen 17 grader?», står vi overfor en **cosinuslikning**: en likning der den ukjente står inne i en cosinusfunksjon, som $\\cos x = \\frac{1}{2}$, $\\cos(2x) = -1$ eller $\\cos\\left(x - \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$.\n\nCosinus deler mye med sinus: verdimengden er $[-1, 1]$, perioden er $2\\pi$, og likningen $\\cos x = a$ er løsbar bare når $-1 \\leq a \\leq 1$. Men cosinus har en annen **symmetri**. Der sinuskurven er symmetrisk om toppene sine på en måte som gir løsningsparet $v$ og $\\pi - v$, er cosinus symmetrisk om $y$-aksen: $\\cos(-x) = \\cos(x)$. Hvis $\\cos\\alpha = a$, så er også $\\cos(-\\alpha) = a$. Denne ene egenskapen forandrer formen på alle løsningene våre — i stedet for to separate uttrykk får vi ett kompakt uttrykk med $\\pm$.\n\nI denne fortellingen lærer du den generelle løsningen av $\\cos x = a$, hvordan du takler sammensatte argumenter som $\\cos(kx + c)$, hva som skiller cosinus- fra sinuslikninger, og hvordan alt brukes på temperaturer, lydbølger og geometri."
+    },
+    {
+      "id": "r2-4-4-n-section1",
+      "type": "text",
+      "content": "## Symmetrien som gir oss pluss-minus\n\nLa oss se hva symmetrien $\\cos(-x) = \\cos(x)$ gjør med løsningene. På enhetssirkelen er cosinus $x$-koordinaten, og en **loddrett** linje $x = a$ skjærer sirkelen i to punkter som ligger speilvendt om $x$-aksen: ett ved vinkelen $\\alpha$ og ett ved $-\\alpha$. Begge har samme cosinusverdi. Sammen med periodisiteten gir det den generelle løsningen\n\n$$x = \\pm\\arccos(a) + 2\\pi n, \\quad n \\in \\mathbb{Z}$$\n\nder $\\arccos(a)$ er hovedløsningen, som alltid ligger i $[0, \\pi]$. Sammenlign med sinus: der trengte vi to separate uttrykk, $\\arcsin(a) + 2\\pi n$ og $\\pi - \\arcsin(a) + 2\\pi n$. For cosinus pakker $\\pm$-tegnet begge familiene inn i én formel.\n\nEt eksempel: $\\cos x = \\frac{1}{2}$. Hovedløsningen er $\\arccos\\left(\\frac{1}{2}\\right) = \\frac{\\pi}{3}$, så $x = \\pm\\frac{\\pi}{3} + 2\\pi n$. I intervallet $[0, 2\\pi)$ gir det $x = \\frac{\\pi}{3}$ og $x = -\\frac{\\pi}{3} + 2\\pi = \\frac{5\\pi}{3}$. Med negativ høyreside, $\\cos x = -\\frac{1}{2}$, blir hovedløsningen $\\frac{2\\pi}{3}$, og løsningene i $[0, 2\\pi)$ er $\\frac{2\\pi}{3}$ og $\\frac{4\\pi}{3}$.\n\nYtterpunktene fortjener et eget blikk. $\\cos x = 1$ har hovedløsning $0$, og $\\pm 0$ er samme tall, så vi får bare $x = 2\\pi n$ — én løsning per periode. $\\cos x = -1$ gir $x = \\pi + 2\\pi n$. Og $\\cos x = 0$ gir $x = \\pm\\frac{\\pi}{2} + 2\\pi n$, som kan skrives kompakt som $x = \\frac{\\pi}{2} + \\pi n$ — nullpunktene ligger jevnt fordelt med avstand $\\pi$."
+    },
+    {
+      "id": "r2-4-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grunnleggende cosinuslikninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-4-n-quiz1-q0",
+            "task": "Hva er den generelle løsningen av $\\cos x = a$ når $-1 \\leq a \\leq 1$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x = \\pm\\arccos(a) + 2\\pi n$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = \\arccos(a) + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\arccos(a) + \\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\pi - \\arccos(a) + 2\\pi n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Symmetrien $\\cos(-x) = \\cos x$ gir to løsningsfamilier som samles i $x = \\pm\\arccos(a) + 2\\pi n$."
+          },
+          {
+            "id": "r2-4-4-n-quiz1-q1",
+            "task": "Hvilke løsninger har $\\cos x = \\frac{1}{2}$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{6}$ og $x = \\frac{5\\pi}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{3}$ og $x = \\frac{5\\pi}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{\\pi}{3}$ og $x = \\frac{2\\pi}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{2\\pi}{3}$ og $x = \\frac{4\\pi}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\arccos\\left(\\frac{1}{2}\\right) = \\frac{\\pi}{3}$, så $x = \\frac{\\pi}{3}$ og $x = -\\frac{\\pi}{3} + 2\\pi = \\frac{5\\pi}{3}$."
+          },
+          {
+            "id": "r2-4-4-n-quiz1-q2",
+            "task": "Hva er den generelle løsningen av $\\cos x = -1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\pm\\pi + \\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\pi + 2\\pi n$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{\\pi}{2} + \\pi n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\arccos(-1) = \\pi$, og siden $\\pm\\pi + 2\\pi n$ gir samme tallmengde, er løsningen $x = \\pi + 2\\pi n$ — én per periode."
+          },
+          {
+            "id": "r2-4-4-n-quiz1-q3",
+            "task": "Hvilken symmetriegenskap gir cosinuslikningene formen $\\pm$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos(\\pi - x) = \\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\cos(x + \\pi) = \\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\cos(-x) = -\\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\cos(-x) = \\cos x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Cosinus er en like funksjon: $\\cos(-x) = \\cos x$. Derfor er både $\\alpha$ og $-\\alpha$ løsninger når $\\cos\\alpha = a$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-4-n-section2",
+      "type": "text",
+      "content": "## Sammensatte argumenter: $\\cos(kx + c) = a$\n\nAkkurat som for sinus møter vi sjelden et nakent $x$ i praksis. Strategien er den samme substitusjonen: sett $u = kx + c$, løs $\\cos u = a$ til $u = \\pm\\arccos(a) + 2\\pi n$, og pakk ut $x$ til slutt. Den generelle formelen blir $x = \\frac{-c \\pm \\arccos(a) + 2\\pi n}{k}$, men det er tryggere å gjøre stegene enn å pugge formelen.\n\nSe på $\\cos(2x) = \\frac{1}{2}$. Substitusjonen gir $2x = \\pm\\frac{\\pi}{3} + 2\\pi n$, og delt på $2$: $x = \\pm\\frac{\\pi}{6} + \\pi n$. Merk at perioden ble halvert til $\\pi$. I $[0, 2\\pi)$ gir plusstegnet $x = \\frac{\\pi}{6}$ og $\\frac{7\\pi}{6}$, minustegnet gir $\\frac{5\\pi}{6}$ og $\\frac{11\\pi}{6}$ — fire løsninger, dobbelt så mange som uten faktoren $2$. Tilsvarende gir $\\cos(3x) = 0$ likningen $3x = \\frac{\\pi}{2} + \\pi n$, altså $x = \\frac{\\pi}{6} + \\frac{\\pi n}{3}$, med hele seks løsninger i $[0, 2\\pi)$.\n\nMed faseforskyvning følger vi samme spor. Likningen $\\cos\\left(x - \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$ gir $x - \\frac{\\pi}{4} = \\pm\\frac{\\pi}{4} + 2\\pi n$, og dermed to løsningsrekker: $x = \\frac{\\pi}{2} + 2\\pi n$ og $x = 2\\pi n$. Kombinerer vi alt, som i $\\cos\\left(2x + \\frac{\\pi}{6}\\right) = \\frac{\\sqrt{3}}{2}$, blir regningen $2x + \\frac{\\pi}{6} = \\pm\\frac{\\pi}{6} + 2\\pi n$, som gir $x = \\pi n$ fra plusstegnet og $x = -\\frac{\\pi}{6} + \\pi n$ fra minustegnet. Husk rekkefølgen: trekk fra $c$ først, del på $k$ til slutt — også $2\\pi n$-leddet skal deles."
+    },
+    {
+      "id": "r2-4-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på likninger med sammensatt argument:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-4-n-quiz2-q0",
+            "task": "Hvor mange løsninger har $\\cos(2x) = \\frac{1}{2}$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "4",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "6",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "8",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = \\pm\\frac{\\pi}{6} + \\pi n$ gir $\\frac{\\pi}{6}, \\frac{5\\pi}{6}, \\frac{7\\pi}{6}, \\frac{11\\pi}{6}$ — fire løsninger."
+          },
+          {
+            "id": "r2-4-4-n-quiz2-q1",
+            "task": "Hva er den generelle løsningen av $\\cos(3x) = 0$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$x = \\frac{\\pi}{6} + \\frac{\\pi n}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{2} + \\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{6} + \\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{\\pi}{6} + \\frac{2\\pi n}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos u = 0$ gir $u = 3x = \\frac{\\pi}{2} + \\pi n$, så $x = \\frac{\\pi}{6} + \\frac{\\pi n}{3}$."
+          },
+          {
+            "id": "r2-4-4-n-quiz2-q2",
+            "task": "Hva er løsningene av $\\cos\\left(x - \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{4}$ og $x = \\frac{7\\pi}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{2}$ og $x = \\frac{3\\pi}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 0$ og $x = \\frac{\\pi}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x - \\frac{\\pi}{4} = \\pm\\frac{\\pi}{4} + 2\\pi n$ gir $x = \\frac{\\pi}{2} + 2\\pi n$ eller $x = 2\\pi n$. I intervallet: $x = 0$ og $x = \\frac{\\pi}{2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-4-n-section3",
+      "type": "text",
+      "content": "## Sinus mot cosinus — og noen kraftigere likninger\n\nDet lønner seg å ha de to løsningsformlene side om side. For $\\sin x = a$ er løsningene $x = \\arcsin(a) + 2\\pi n$ eller $x = \\pi - \\arcsin(a) + 2\\pi n$ — to separate uttrykk. For $\\cos x = a$ er det ett uttrykk med pluss-minus: $x = \\pm\\arccos(a) + 2\\pi n$. Begge gir normalt to løsninger per periode, men på forskjellige steder. Løser du både $\\sin x = \\frac{1}{2}$ og $\\cos x = \\frac{1}{2}$ i $[0, 2\\pi)$, får du henholdsvis $\\left\\{\\frac{\\pi}{6}, \\frac{5\\pi}{6}\\right\\}$ og $\\left\\{\\frac{\\pi}{3}, \\frac{5\\pi}{3}\\right\\}$ — to løsninger hver, men aldri de samme.\n\nAntallet løsninger per periode følger et fast mønster for begge: to løsninger når $-1 < a < 1$, én løsning når $a = \\pm 1$, og ingen når $|a| > 1$. En likning som $\\cos x = 2$ kan du avvise umiddelbart uten regning.\n\nNoen likninger krever et ekstra grep før formelen slår inn. Ta $2\\cos^2 x - 1 = 0$. Vi løser for kvadratet: $\\cos^2 x = \\frac{1}{2}$, som gir $\\cos x = \\pm\\frac{\\sqrt{2}}{2}$ — **to** vanlige cosinuslikninger. Den positive gir $x = \\pm\\frac{\\pi}{4} + 2\\pi n$, den negative $x = \\pm\\frac{3\\pi}{4} + 2\\pi n$, og samlet i $[0, 2\\pi)$: $x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}$. Et elegant alternativ er å gjenkjenne dobbeltvinkelidentiteten $\\cos(2x) = 2\\cos^2 x - 1$, slik at likningen blir $\\cos(2x) = 0$ med samme svar.\n\nOg trenger du svaret i grader, fungerer alt likt — bare bytt $2\\pi n$ med $360° \\cdot n$. For $\\cos x = 0{,}6$ gir kalkulatoren $x \\approx 53{,}13°$, og løsningene i $[0°, 360°)$ er $53{,}13°$ og $306{,}87°$."
+    },
+    {
+      "id": "r2-4-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sammenligning og spesielle likninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-4-n-quiz3-q0",
+            "task": "Hvor mange løsninger har $\\cos x = 2$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Én",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "To per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Uendelig mange",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ingen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Verdimengden til cosinus er $[-1, 1]$, og $2 > 1$, så likningen har ingen løsning."
+          },
+          {
+            "id": "r2-4-4-n-quiz3-q1",
+            "task": "Hva er hovedforskjellen på løsningsformlene for $\\sin x = a$ og $\\cos x = a$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Cosinus gir ett uttrykk med $\\pm$, sinus gir to separate uttrykk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sinuslikninger har flere løsninger per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Cosinuslikninger har alltid løsning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sinus bruker $\\pm$, cosinus bruker $\\pi - v$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Cosinus: $x = \\pm\\arccos(a) + 2\\pi n$. Sinus: $x = \\arcsin(a) + 2\\pi n$ eller $x = \\pi - \\arcsin(a) + 2\\pi n$."
+          },
+          {
+            "id": "r2-4-4-n-quiz3-q2",
+            "task": "Hvor mange løsninger har $2\\cos^2 x - 1 = 0$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "4",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "8",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos x = \\pm\\frac{\\sqrt{2}}{2}$ gir $x = \\frac{\\pi}{4}, \\frac{3\\pi}{4}, \\frac{5\\pi}{4}, \\frac{7\\pi}{4}$ — fire løsninger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-4-n-section4",
+      "type": "text",
+      "content": "## Temperaturer, toner og trekanter\n\nLa oss vende tilbake til meteorologen. Temperaturen i en by modelleres med $T(t) = 12 + 10\\cos\\left(\\frac{\\pi t}{6}\\right)$, der $t$ er måneder etter 1. januar. Når er temperaturen $17$ grader? Vi isolerer cosinusleddet: $10\\cos\\left(\\frac{\\pi t}{6}\\right) = 5$, altså $\\cos\\left(\\frac{\\pi t}{6}\\right) = \\frac{1}{2}$. Substitusjonen gir $\\frac{\\pi t}{6} = \\pm\\frac{\\pi}{3} + 2\\pi n$, og løst for $t$: $t = \\pm 2 + 12n$. Innenfor ett år betyr det $t = 2$ (mars) og $t = 10$ (november) — én gang på vei opp mot sommeren, én gang på vei ned. Den maksimale temperaturen er for øvrig $12 + 10 = 22$ grader, når cosinusleddet er $1$.\n\nSamme matematikk styrer musikken. Tonen A beskrives av trykket $P(t) = P_0\\cos(2\\pi \\cdot 440\\, t)$ med frekvens $440$ Hz. Trykket er maksimalt når $\\cos(880\\pi t) = 1$, altså når $880\\pi t = 2\\pi n$, som gir $t = \\frac{n}{440}$ sekunder — hvert $2{,}27$ millisekund treffer bølgetoppen øret ditt.\n\nCosinuslikninger dukker også opp i geometri. Vet du at $\\cos x = \\frac{3}{5}$ for en vinkel i en trekant, gir kalkulatoren $x = \\arccos(0{,}6) \\approx 53{,}13°$, og den pytagoreiske identiteten gir $\\sin x = \\sqrt{1 - \\frac{9}{25}} = \\frac{4}{5}$ — du har gjenfunnet den klassiske 3-4-5-trekanten.\n\nHuskelisten for alle cosinuslikninger: sjekk at $|a| \\leq 1$, finn $\\arccos(a)$, bruk $\\pm$ for begge løsningsrekkene, del på $k$ og juster for $c$ ved sammensatt argument, og list til slutt opp løsningene i det aktuelle intervallet."
+    },
+    {
+      "id": "r2-4-4-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-4-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på praktiske cosinuslikninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-4-n-quiz4-q0",
+            "task": "Temperaturen følger $T(t) = 12 + 10\\cos\\left(\\frac{\\pi t}{6}\\right)$. Når i løpet av året ($0 \\leq t < 12$) er $T = 17$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$t = 3$ og $t = 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$t = 2$ og $t = 10$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$t = 1$ og $t = 11$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$t = 4$ og $t = 8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos\\left(\\frac{\\pi t}{6}\\right) = \\frac{1}{2}$ gir $\\frac{\\pi t}{6} = \\pm\\frac{\\pi}{3} + 2\\pi n$, altså $t = \\pm 2 + 12n$: $t = 2$ og $t = 10$."
+          },
+          {
+            "id": "r2-4-4-n-quiz4-q1",
+            "task": "Hva er den høyeste temperaturen i modellen $T(t) = 12 + 10\\cos\\left(\\frac{\\pi t}{6}\\right)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$12$ grader",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$ grader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$17$ grader",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$22$ grader",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Cosinusleddet er maksimalt $1$, så $T_{\\max} = 12 + 10 \\cdot 1 = 22$ grader."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi startet med meteorologens spørsmål og oppdaget at cosinuslikninger synger samme melodi som sinuslikninger — men i en annen rytme, diktert av symmetrien $\\cos(-x) = \\cos x$. Fordi cosinus er en like funksjon, samles begge løsningsfamiliene i ett uttrykk: $\\cos x = a$ har den generelle løsningen $x = \\pm\\arccos(a) + 2\\pi n$, der hovedløsningen $\\arccos(a)$ ligger i $[0, \\pi]$. Som før gjelder løsbarhetskravet $-1 \\leq a \\leq 1$: to løsninger per periode når $-1 < a < 1$, én når $a = \\pm 1$, ingen når $|a| > 1$.\n\nFor sammensatte argumenter $\\cos(kx + c) = a$ brukte vi substitusjon: løs for hele argumentet, trekk fra $c$, og del **alt** — også $2\\pi n$-leddet — på $k$. Faktoren $k$ krymper perioden og mangedobler antall løsninger i et fast intervall, slik $\\cos(2x) = \\frac{1}{2}$ ga fire løsninger i $[0, 2\\pi)$ og $\\cos(3x) = 0$ ga seks.\n\nVi sammenlignet med sinus — to separate uttrykk der, ett $\\pm$-uttrykk her — og så at kvadratiske varianter som $2\\cos^2 x - 1 = 0$ løses ved å først finne $\\cos x = \\pm\\frac{\\sqrt{2}}{2}$, eller ved å dra kjensel på dobbeltvinkelen $\\cos 2x$.\n\nTil slutt lot vi verktøyene arbeide: temperaturmodellen ga oss mars og november som svar, lydbølgen til kammertonen toppet seg hvert $\\frac{1}{440}$ sekund, og en cosinusverdi på $\\frac{3}{5}$ avslørte en 3-4-5-trekant. Cosinuslikningen er, som sin søster sinus, en nøkkel til tidspunktene og vinklene i en periodisk verden."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,341 @@
-{"id":"elektro-data-vg1-6-2-narrativ","courseId":"elektro-data-vg1","chapterNumber":"6.2","title":"Aktuatorer og pådragsorganer","subtitle":"Narrativ versjon","description":"En fortelling om musklene i automatiske systemer – servoer, steppermotorer, magnetventiler og H-broen som styrer en motor frem og tilbake.","estimatedMinutes":33,"competenceGoals":["forklare virkemåten til ulike aktuatorer"],"linkedChapterId":"elektro-data-vg1-6-2","content":[{"id":"elektro-data-vg1-6-2-n-intro","type":"text","content":"## Når systemet skal handle, ikke bare føle\n\nTenk deg en 3D-printer som bygger en figur lag for lag, en robotarm som plukker opp en del, eller et vanningsanlegg som åpner en ventil akkurat når jorda blir tørr. Alle disse systemene har noe felles: de må kunne *gjøre* noe i den fysiske verden. Sensorene gir dem sanser – de kan måle temperatur, posisjon og lys – men uten noe til å handle, ville et styresystem bare være en tilskuer.\n\nDet er her **aktuatorene** kommer inn. De er musklene i et automatisert system, komponentene som gjør om et elektrisk styresignal til virkelig bevegelse, kraft eller posisjon. I dette kapittelet skal vi møte de viktigste av dem: servomotoren som finner nøyaktig vinkel, steppermotoren som teller seg fram steg for steg, magnetventilen og den pneumatiske sylinderen som åpner og lukker og skyver, og til slutt H-broen, den smarte kretsen som lar deg kjøre en motor både forover og bakover."},{"id":"elektro-data-vg1-6-2-n-section1","type":"text","content":"## Servoen og steppermotoren – to måter å treffe nøyaktig\n\nLa oss begynne med to motorer som begge handler om presisjon, men som løser det helt ulikt. Først **servomotoren**. Den er spesiell fordi den har innebygd tilbakekobling: et lite potensiometer inni måler hele tiden hvor motoren faktisk står, og en reguleringskrets sammenligner dette med ønsket posisjon og justerer til de stemmer. Du styrer servoen med et **PWM-signal**, der det er *pulsbredden* som bestemmer vinkelen. En puls på 1 ms gir 0 grader, 1,5 ms gir 90 grader midtstilling, og 2 ms gir 180 grader – mens selve signalperioden typisk er 20 ms. Servoer sitter i robotarmer, dronefinner og kameragimbaler.\n\nSå **steppermotoren**, som tar en helt annen tilnærming. I stedet for å måle seg fram, deler den rotasjonen inn i nøyaktige, diskrete steg – typisk 1,8 grader per steg, altså 200 steg på en hel runde. Inni har den flere spolpar som aktiveres i rekkefølge, og hver puls fra styringen flytter rotoren nøyaktig ett steg videre. Det fine er at den ikke trenger tilbakekobling i det hele tatt: rotasjonsvinkelen er rett og slett antall pulser ganger stegvinkelen. Bipolare steppermotorer gir mest kraft, og kan kjøres i fullsteg, halvsteg eller fint oppdelte mikrosteg. Du finner dem i 3D-printere, CNC-maskiner og presise posisjoneringsbord.\n\nLa oss regne litt. En steppermotor med stegvinkel 1,8 grader får 500 pulser. Total vinkel blir $500 \\cdot 1{,}8° = 900°$. Hvor mange hele runder er det? $900° / 360° = 2{,}5$ omdreininger – altså 2 hele runder, som utgjør 720 grader, pluss en rest på $900° - 720° = 180°$. Motoren stopper med andre ord etter to og en halv runde."},{"id":"elektro-data-vg1-6-2-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på servo- og steppermotorer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-2-n-quiz1-q0","task":"Hva bestemmer vinkelposisjonen til en servomotor?","options":[{"id":"a","text":"Spenningsnivået på styresignalet","isCorrect":false},{"id":"b","text":"Strømstyrken gjennom motoren","isCorrect":false},{"id":"c","text":"Antall spolpar","isCorrect":false},{"id":"d","text":"Pulsbredden på PWM-signalet","isCorrect":true}],"solution":"Vinkelen styres av pulsbredden på PWM-signalet: 1 ms gir 0°, 1,5 ms gir 90°, og 2 ms gir 180°. Frekvensen er fast på rundt 50 Hz."},{"id":"elektro-data-vg1-6-2-n-quiz1-q1","task":"En steppermotor med stegvinkel 1,8° får 500 pulser. Hvor mange hele omdreininger gjør den?","options":[{"id":"a","text":"2 hele omdreininger (og 180° til)","isCorrect":true},{"id":"b","text":"5 hele omdreininger","isCorrect":false},{"id":"c","text":"500 omdreininger","isCorrect":false},{"id":"d","text":"1 omdreining","isCorrect":false}],"solution":"Total vinkel = $500 \\cdot 1{,}8° = 900°$. Det gir $900°/360° = 2{,}5$ omdreininger, altså 2 hele runder pluss en rest på 180°."},{"id":"elektro-data-vg1-6-2-n-quiz1-q2","task":"Hva er en fordel med steppermotoren for posisjonering?","options":[{"id":"a","text":"Den krever alltid tilbakekobling","isCorrect":false},{"id":"b","text":"Rotasjonsvinkelen er antall pulser × stegvinkel, så den kan posisjonere uten tilbakekobling","isCorrect":true},{"id":"c","text":"Den roterer kontinuerlig uten kontroll","isCorrect":false},{"id":"d","text":"Den bruker ingen spoler","isCorrect":false}],"solution":"Steppermotoren flytter seg ett nøyaktig steg per puls, så posisjonen er kjent fra antall pulser ganger stegvinkelen – uten behov for tilbakekobling (åpen sløyfe)."}]}},{"id":"elektro-data-vg1-6-2-n-section2","type":"text","content":"## Magnetventiler og trykkluftens kraft\n\nIkke alle aktuatorer skal rotere. Ofte trenger vi rett og slett å åpne eller stenge for noe – vann, gass, trykkluft – og da er **magnetventilen**, også kalt solenoidventil, det riktige verktøyet. Den er en ventil som åpnes eller lukkes av en elektromagnet, styrt med et enkelt digitalt på/av-signal fra en mikrokontroller eller PLS. To varianter er viktige å kjenne: en **normalt lukket** ventil (NC) er stengt uten strøm og åpner når den får signal, mens en **normalt åpen** (NO) er motsatt. Tenk på et automatisk vanningsanlegg – der er magnetventilen perfekt, fordi den bare trenger å styres på eller av, og er bygd for å håndtere væskestrøm.\n\nNår vi i stedet trenger kraftig bevegelse, henter vi fram **pneumatiske aktuatorer**, som bruker trykkluft på 4 til 8 bar. En **enkeltvirkende sylinder** har trykkluft på bare én side: lufta skyver stempelet ut, og en fjær trekker det tilbake. En **dobbeltvirkende sylinder** har derimot trykkluft på begge sider, og kan dermed skyve *og* trekke med kraft i begge retninger. Det finnes også roterende aktuatorer som lager 90 eller 180 graders dreining. Pneumatikk har flere styrker: rask responstid, enkel og robust konstruksjon, stor kraft i et kompakt design – og ikke minst at den ikke lager gnister, noe som gjør den trygg i eksplosjonsfarlige miljøer."},{"id":"elektro-data-vg1-6-2-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på ventiler og pneumatikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-2-n-quiz2-q0","task":"Hvilken aktuator passer best til å åpne og lukke en vannventil i et vanningsanlegg?","options":[{"id":"a","text":"Steppermotor","isCorrect":false},{"id":"b","text":"DC-motor med H-bro","isCorrect":false},{"id":"c","text":"Magnetventil (solenoidventil)","isCorrect":true},{"id":"d","text":"Pneumatisk sylinder","isCorrect":false}],"solution":"En magnetventil er laget for enkel åpen/lukket-styring av væskestrøm med et digitalt signal, og er enkel å styre fra en mikrokontroller."},{"id":"elektro-data-vg1-6-2-n-quiz2-q1","task":"Hva skiller en dobbeltvirkende fra en enkeltvirkende pneumatisk sylinder?","options":[{"id":"a","text":"Dobbeltvirkende bruker olje i stedet for luft","isCorrect":false},{"id":"b","text":"Enkeltvirkende er alltid raskere","isCorrect":false},{"id":"c","text":"Dobbeltvirkende kan bare brukes horisontalt","isCorrect":false},{"id":"d","text":"Dobbeltvirkende har trykkluft på begge sider og kan skyve og trekke med kraft","isCorrect":true}],"solution":"En enkeltvirkende sylinder har trykkluft på én side og fjærretur. En dobbeltvirkende har trykkluft på begge sider og kan derfor utøve kraft i begge retninger."},{"id":"elektro-data-vg1-6-2-n-quiz2-q2","task":"Hvorfor egner pneumatikk seg godt i eksplosjonsfarlige miljøer?","options":[{"id":"a","text":"Fordi trykkluft ikke lager gnister","isCorrect":true},{"id":"b","text":"Fordi den bruker høy spenning","isCorrect":false},{"id":"c","text":"Fordi den er langsom","isCorrect":false},{"id":"d","text":"Fordi den ikke trenger styresignal","isCorrect":false}],"solution":"Pneumatiske aktuatorer drives av trykkluft og lager ingen elektriske gnister, og er derfor trygge i eksplosjonsfarlige omgivelser."}]}},{"id":"elektro-data-vg1-6-2-n-section3","type":"text","content":"## H-broen – motoren som kan kjøre begge veier\n\nTil slutt den mest elegante kretsen i kapittelet: **H-broen**. Tenk deg en DC-motor som du vil kunne kjøre både forover og bakover, og i tillegg styre farten på. Hvordan? En H-bro løser begge deler med fire brytere – transistorer – satt opp i en form som ligner bokstaven H, med motoren i tverrstreken.\n\nMagien ligger i hvilke brytere du lukker. Lukker du S1 og S4, flyter strømmen én vei gjennom motoren, og den går forover. Lukker du i stedet S2 og S3, snur strømretningen seg, og motoren går bakover. Lar du alle stå åpne, er motoren frikoblet. Men her er en livsviktig advarsel: du må *aldri* lukke S1 og S3 samtidig – eller S2 og S4 – for da lager du en direkte kortslutning fra pluss til minus gjennom transistorene. Resultatet er en enorm strøm som kan ødelegge transistorene, overopphete kretsen og i verste fall starte brann. For å hindre dette bruker man en kort \"dead time\" mellom å slå av den ene og på den andre, og mange ferdige H-broer har innebygd beskyttelse mot dette.\n\nFarten styrer du med PWM, akkurat som vi har sett før. Ved å slå transistorene raskt av og på, justerer du gjennomsnittsspenningen over motoren. Si at du har en 12 V motor med en L298N-modul og kjører 75 % duty cycle: gjennomsnittsspenningen blir $V_{snitt} = 12 \\cdot 0{,}75 = 9$ V, som gir omtrent 75 % fart. Er S1 og S4 aktive samtidig, går motoren forover på de 9 voltene. Vanlige H-broer du møter er L298N og L293D for hobbybruk, og kraftigere BTS7960 for større motorer."},{"id":"elektro-data-vg1-6-2-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-6-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på H-broen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-2-n-quiz3-q0","task":"Hva lar en H-bro deg styre på en DC-motor?","options":[{"id":"a","text":"Bare hastigheten","isCorrect":false},{"id":"b","text":"Både retning og hastighet","isCorrect":true},{"id":"c","text":"Bare retningen","isCorrect":false},{"id":"d","text":"Verken retning eller hastighet","isCorrect":false}],"solution":"En H-bro med fire transistorer lar deg velge rotasjonsretning (hvilke brytere som er lukket) og hastighet (via PWM)."},{"id":"elektro-data-vg1-6-2-n-quiz3-q1","task":"Hvorfor må du aldri lukke S1 og S3 samtidig i en H-bro?","options":[{"id":"a","text":"Da går motoren for fort","isCorrect":false},{"id":"b","text":"Da reverserer motoren utilsiktet","isCorrect":false},{"id":"c","text":"Det gir en direkte kortslutning som kan ødelegge transistorene","isCorrect":true},{"id":"d","text":"Da frikobles motoren","isCorrect":false}],"solution":"S1 og S3 samtidig kortslutter forsyningen direkte gjennom transistorene, med svært høy strøm som kan ødelegge kretsen eller starte brann. Derfor brukes \"dead time\"."},{"id":"elektro-data-vg1-6-2-n-quiz3-q2","task":"En 12 V motor styres med en H-bro og 75 % duty cycle. Hva er gjennomsnittsspenningen?","options":[{"id":"a","text":"3 V","isCorrect":false},{"id":"b","text":"6 V","isCorrect":false},{"id":"c","text":"12 V","isCorrect":false},{"id":"d","text":"9 V","isCorrect":true}],"solution":"$V_{snitt} = V_{forsyning} \\cdot \\text{duty cycle} = 12 \\cdot 0{,}75 = 9$ V, som gir omtrent 75 % av full hastighet."}]}},{"id":"elektro-data-vg1-6-2-n-summary","type":"text","content":"## Oppsummering\n\nVi har møtt musklene i automatiserte systemer. **Servomotoren** styres med PWM-pulsbredde (1 til 2 ms) og bruker innebygd tilbakekobling til å treffe en nøyaktig vinkel. **Steppermotoren** deler rotasjonen i diskrete steg, typisk 1,8 grader, og posisjonerer presist uten tilbakekobling, der vinkelen rett og slett er antall pulser ganger stegvinkelen.\n\nFor å åpne og stenge bruker vi **magnetventiler** styrt med et digitalt på/av-signal, mens **pneumatiske aktuatorer** gir kraftig bevegelse med trykkluft – enkeltvirkende med fjærretur eller dobbeltvirkende med kraft begge veier. Og **H-broen** lar oss styre både retning og fart på en DC-motor med fire transistorer og PWM – så lenge vi husker den gylne regelen om aldri å kortslutte den ene siden."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-6-2-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "6.2",
+  "title": "Aktuatorer og pådragsorganer",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om musklene i automatiske systemer – servoer, steppermotorer, magnetventiler og H-broen som styrer en motor frem og tilbake.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "forklare virkemåten til ulike aktuatorer"
+  ],
+  "linkedChapterId": "elektro-data-vg1-6-2",
+  "content": [
+    {
+      "id": "elektro-data-vg1-6-2-n-intro",
+      "type": "text",
+      "content": "## Når systemet skal handle, ikke bare føle\n\nTenk deg en 3D-printer som bygger en figur lag for lag, en robotarm som plukker opp en del, eller et vanningsanlegg som åpner en ventil akkurat når jorda blir tørr. Alle disse systemene har noe felles: de må kunne *gjøre* noe i den fysiske verden. Sensorene gir dem sanser – de kan måle temperatur, posisjon og lys – men uten noe til å handle, ville et styresystem bare være en tilskuer.\n\nDet er her **aktuatorene** kommer inn. De er musklene i et automatisert system, komponentene som gjør om et elektrisk styresignal til virkelig bevegelse, kraft eller posisjon. I dette kapittelet skal vi møte de viktigste av dem: servomotoren som finner nøyaktig vinkel, steppermotoren som teller seg fram steg for steg, magnetventilen og den pneumatiske sylinderen som åpner og lukker og skyver, og til slutt H-broen, den smarte kretsen som lar deg kjøre en motor både forover og bakover."
+    },
+    {
+      "id": "elektro-data-vg1-6-2-n-section1",
+      "type": "text",
+      "content": "## Servoen og steppermotoren – to måter å treffe nøyaktig\n\nLa oss begynne med to motorer som begge handler om presisjon, men som løser det helt ulikt. Først **servomotoren**. Den er spesiell fordi den har innebygd tilbakekobling: et lite potensiometer inni måler hele tiden hvor motoren faktisk står, og en reguleringskrets sammenligner dette med ønsket posisjon og justerer til de stemmer. Du styrer servoen med et **PWM-signal**, der det er *pulsbredden* som bestemmer vinkelen. En puls på 1 ms gir 0 grader, 1,5 ms gir 90 grader midtstilling, og 2 ms gir 180 grader – mens selve signalperioden typisk er 20 ms. Servoer sitter i robotarmer, dronefinner og kameragimbaler.\n\nSå **steppermotoren**, som tar en helt annen tilnærming. I stedet for å måle seg fram, deler den rotasjonen inn i nøyaktige, diskrete steg – typisk 1,8 grader per steg, altså 200 steg på en hel runde. Inni har den flere spolpar som aktiveres i rekkefølge, og hver puls fra styringen flytter rotoren nøyaktig ett steg videre. Det fine er at den ikke trenger tilbakekobling i det hele tatt: rotasjonsvinkelen er rett og slett antall pulser ganger stegvinkelen. Bipolare steppermotorer gir mest kraft, og kan kjøres i fullsteg, halvsteg eller fint oppdelte mikrosteg. Du finner dem i 3D-printere, CNC-maskiner og presise posisjoneringsbord.\n\nLa oss regne litt. En steppermotor med stegvinkel 1,8 grader får 500 pulser. Total vinkel blir $500 \\cdot 1{,}8° = 900°$. Hvor mange hele runder er det? $900° / 360° = 2{,}5$ omdreininger – altså 2 hele runder, som utgjør 720 grader, pluss en rest på $900° - 720° = 180°$. Motoren stopper med andre ord etter to og en halv runde."
+    },
+    {
+      "id": "elektro-data-vg1-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på servo- og steppermotorer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz1-q0",
+            "task": "Hva bestemmer vinkelposisjonen til en servomotor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Spenningsnivået på styresignalet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Strømstyrken gjennom motoren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Pulsbredden på PWM-signalet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Antall spolpar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vinkelen styres av pulsbredden på PWM-signalet: 1 ms gir 0°, 1,5 ms gir 90°, og 2 ms gir 180°. Frekvensen er fast på rundt 50 Hz."
+          },
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz1-q1",
+            "task": "En steppermotor med stegvinkel 1,8° får 500 pulser. Hvor mange hele omdreininger gjør den?",
+            "options": [
+              {
+                "id": "b",
+                "text": "5 hele omdreininger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "500 omdreininger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1 omdreining",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "2 hele omdreininger (og 180° til)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Total vinkel = $500 \\cdot 1{,}8° = 900°$. Det gir $900°/360° = 2{,}5$ omdreininger, altså 2 hele runder pluss en rest på 180°."
+          },
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz1-q2",
+            "task": "Hva er en fordel med steppermotoren for posisjonering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Rotasjonsvinkelen er antall pulser × stegvinkel, så den kan posisjonere uten tilbakekobling",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den krever alltid tilbakekobling",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den roterer kontinuerlig uten kontroll",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den bruker ingen spoler",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Steppermotoren flytter seg ett nøyaktig steg per puls, så posisjonen er kjent fra antall pulser ganger stegvinkelen – uten behov for tilbakekobling (åpen sløyfe)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-2-n-section2",
+      "type": "text",
+      "content": "## Magnetventiler og trykkluftens kraft\n\nIkke alle aktuatorer skal rotere. Ofte trenger vi rett og slett å åpne eller stenge for noe – vann, gass, trykkluft – og da er **magnetventilen**, også kalt solenoidventil, det riktige verktøyet. Den er en ventil som åpnes eller lukkes av en elektromagnet, styrt med et enkelt digitalt på/av-signal fra en mikrokontroller eller PLS. To varianter er viktige å kjenne: en **normalt lukket** ventil (NC) er stengt uten strøm og åpner når den får signal, mens en **normalt åpen** (NO) er motsatt. Tenk på et automatisk vanningsanlegg – der er magnetventilen perfekt, fordi den bare trenger å styres på eller av, og er bygd for å håndtere væskestrøm.\n\nNår vi i stedet trenger kraftig bevegelse, henter vi fram **pneumatiske aktuatorer**, som bruker trykkluft på 4 til 8 bar. En **enkeltvirkende sylinder** har trykkluft på bare én side: lufta skyver stempelet ut, og en fjær trekker det tilbake. En **dobbeltvirkende sylinder** har derimot trykkluft på begge sider, og kan dermed skyve *og* trekke med kraft i begge retninger. Det finnes også roterende aktuatorer som lager 90 eller 180 graders dreining. Pneumatikk har flere styrker: rask responstid, enkel og robust konstruksjon, stor kraft i et kompakt design – og ikke minst at den ikke lager gnister, noe som gjør den trygg i eksplosjonsfarlige miljøer."
+    },
+    {
+      "id": "elektro-data-vg1-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ventiler og pneumatikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz2-q0",
+            "task": "Hvilken aktuator passer best til å åpne og lukke en vannventil i et vanningsanlegg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Steppermotor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Magnetventil (solenoidventil)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "DC-motor med H-bro",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Pneumatisk sylinder",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En magnetventil er laget for enkel åpen/lukket-styring av væskestrøm med et digitalt signal, og er enkel å styre fra en mikrokontroller."
+          },
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz2-q1",
+            "task": "Hva skiller en dobbeltvirkende fra en enkeltvirkende pneumatisk sylinder?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dobbeltvirkende bruker olje i stedet for luft",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Enkeltvirkende er alltid raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dobbeltvirkende har trykkluft på begge sider og kan skyve og trekke med kraft",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Dobbeltvirkende kan bare brukes horisontalt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En enkeltvirkende sylinder har trykkluft på én side og fjærretur. En dobbeltvirkende har trykkluft på begge sider og kan derfor utøve kraft i begge retninger."
+          },
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz2-q2",
+            "task": "Hvorfor egner pneumatikk seg godt i eksplosjonsfarlige miljøer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi den bruker høy spenning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi den er langsom",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi den ikke trenger styresignal",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi trykkluft ikke lager gnister",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Pneumatiske aktuatorer drives av trykkluft og lager ingen elektriske gnister, og er derfor trygge i eksplosjonsfarlige omgivelser."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-2-n-section3",
+      "type": "text",
+      "content": "## H-broen – motoren som kan kjøre begge veier\n\nTil slutt den mest elegante kretsen i kapittelet: **H-broen**. Tenk deg en DC-motor som du vil kunne kjøre både forover og bakover, og i tillegg styre farten på. Hvordan? En H-bro løser begge deler med fire brytere – transistorer – satt opp i en form som ligner bokstaven H, med motoren i tverrstreken.\n\nMagien ligger i hvilke brytere du lukker. Lukker du S1 og S4, flyter strømmen én vei gjennom motoren, og den går forover. Lukker du i stedet S2 og S3, snur strømretningen seg, og motoren går bakover. Lar du alle stå åpne, er motoren frikoblet. Men her er en livsviktig advarsel: du må *aldri* lukke S1 og S3 samtidig – eller S2 og S4 – for da lager du en direkte kortslutning fra pluss til minus gjennom transistorene. Resultatet er en enorm strøm som kan ødelegge transistorene, overopphete kretsen og i verste fall starte brann. For å hindre dette bruker man en kort \"dead time\" mellom å slå av den ene og på den andre, og mange ferdige H-broer har innebygd beskyttelse mot dette.\n\nFarten styrer du med PWM, akkurat som vi har sett før. Ved å slå transistorene raskt av og på, justerer du gjennomsnittsspenningen over motoren. Si at du har en 12 V motor med en L298N-modul og kjører 75 % duty cycle: gjennomsnittsspenningen blir $V_{snitt} = 12 \\cdot 0{,}75 = 9$ V, som gir omtrent 75 % fart. Er S1 og S4 aktive samtidig, går motoren forover på de 9 voltene. Vanlige H-broer du møter er L298N og L293D for hobbybruk, og kraftigere BTS7960 for større motorer."
+    },
+    {
+      "id": "elektro-data-vg1-6-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på H-broen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz3-q0",
+            "task": "Hva lar en H-bro deg styre på en DC-motor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Både retning og hastighet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bare hastigheten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bare retningen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verken retning eller hastighet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En H-bro med fire transistorer lar deg velge rotasjonsretning (hvilke brytere som er lukket) og hastighet (via PWM)."
+          },
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz3-q1",
+            "task": "Hvorfor må du aldri lukke S1 og S3 samtidig i en H-bro?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Da går motoren for fort",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det gir en direkte kortslutning som kan ødelegge transistorene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Da reverserer motoren utilsiktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Da frikobles motoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "S1 og S3 samtidig kortslutter forsyningen direkte gjennom transistorene, med svært høy strøm som kan ødelegge kretsen eller starte brann. Derfor brukes \"dead time\"."
+          },
+          {
+            "id": "elektro-data-vg1-6-2-n-quiz3-q2",
+            "task": "En 12 V motor styres med en H-bro og 75 % duty cycle. Hva er gjennomsnittsspenningen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3 V",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "6 V",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "9 V",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "12 V",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$V_{snitt} = V_{forsyning} \\cdot \\text{duty cycle} = 12 \\cdot 0{,}75 = 9$ V, som gir omtrent 75 % av full hastighet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har møtt musklene i automatiserte systemer. **Servomotoren** styres med PWM-pulsbredde (1 til 2 ms) og bruker innebygd tilbakekobling til å treffe en nøyaktig vinkel. **Steppermotoren** deler rotasjonen i diskrete steg, typisk 1,8 grader, og posisjonerer presist uten tilbakekobling, der vinkelen rett og slett er antall pulser ganger stegvinkelen.\n\nFor å åpne og stenge bruker vi **magnetventiler** styrt med et digitalt på/av-signal, mens **pneumatiske aktuatorer** gir kraftig bevegelse med trykkluft – enkeltvirkende med fjærretur eller dobbeltvirkende med kraft begge veier. Og **H-broen** lar oss styre både retning og fart på en DC-motor med fire transistorer og PWM – så lenge vi husker den gylne regelen om aldri å kortslutte den ene siden."
+    }
+  ],
+  "exercises": []
+}

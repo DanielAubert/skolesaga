@@ -1,1 +1,681 @@
-{"id":"1t-7-6-narrativ","courseId":"1t","chapterNumber":"7.6","title":"Derivasjon av polynomfunksjoner","subtitle":"Narrativ versjon","description":"En fortelling om effektiv derivasjon av polynomer – potensregelen, konstantregelen, sumregelen, negative eksponenter og andrederiverte.","estimatedMinutes":45,"competenceGoals":["bruke potensregelen til å derivere","derivere summer og differanser av funksjoner","derivere polynomer med vilkårlige koeffisienter"],"linkedChapterId":"1t-7-6","content":[{"id":"1t-7-6-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-6-narrativ-del1.mp3","description":"Lydfil som leser opp teksten frem til første quiz."},{"id":"1t-7-6-n-intro","type":"text","content":"## Verktøykassen for derivasjon\n\nI de foregående kapitlene har vi møtt derivasjonsreglene litt etter litt. Nå er det tid for å samle dem og bruke dem systematisk på **polynomfunksjoner** – den store familien av funksjoner som er bygget opp av potenser av $x$ med koeffisienter.\n\nEt polynom ser generelt slik ut: $f(x) = a_nx^n + a_{n-1}x^{n-1} + \\cdots + a_1x + a_0$. For eksempel er $3x^4 - 2x^3 + x - 7$ et polynom av grad 4. I dette kapittelet skal vi bli eksperter på å derivere slike funksjoner – raskt og sikkert. Vi skal også se på negative og brøk-eksponenter, og lære om **andrederiverte**."},{"id":"1t-7-6-n-section1","type":"text","content":"## Reglene samlet – potens, konstant, sum\n\nLa oss starte med å ha alle reglene klart for oss. **Potensregelen** sier at $f(x) = x^n$ gir $f'(x) = n \\cdot x^{n-1}$. **Konstantregelen** sier at en konstant har derivert lik null. **Konstantmultiplikasjon** betyr at $(c \\cdot f)'(x) = c \\cdot f'(x)$ – koeffisienter kan flyttes utenfor derivasjonen. Og **sumregelen** lar oss derivere ledd for ledd: $(f + g)' = f' + g'$.\n\nNår vi kombinerer disse reglene, kan vi derivere ethvert polynom. Teknikken er alltid den samme: gå gjennom hvert ledd, bruk potensregelen (med koeffisienten), og sett sammen.\n\nLa oss ta $f(x) = 5x^4$. Koeffisienten $5$ multipliseres med eksponenten $4$: $f'(x) = 5 \\cdot 4 \\cdot x^3 = 20x^3$.\n\nEt mer sammensatt eksempel: $f(x) = x^3 + x^2 - 7x + 3$. Vi deriverer ledd for ledd: $x^3$ gir $3x^2$, $x^2$ gir $2x$, $-7x$ gir $-7$, og konstanten $3$ gir $0$. Resultatet er $f'(x) = 3x^2 + 2x - 7$.\n\nOg ett til: $f(x) = 2x^5 - \\frac{1}{2}x^4 + 3x$. Her får vi $f'(x) = 10x^4 - 2x^3 + 3$. Merk at $\\frac{1}{2} \\cdot 4 = 2$."},{"id":"1t-7-6-n-quiz1","type":"exercise","exercise":{"id":"1t-7-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på polynomderivasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-6-n-quiz1-q0","task":"Hva er $f'(x)$ når $f(x) = 3x^4 - 2x^3 + x$?","options":[{"id":"a","text":"$12x^3 - 6x^2 + 1$","isCorrect":true},{"id":"b","text":"$12x^3 - 6x^2$","isCorrect":false},{"id":"c","text":"$12x^4 - 6x^3 + x$","isCorrect":false},{"id":"d","text":"$3x^3 - 2x^2 + 1$","isCorrect":false}],"solution":"Vi deriverer ledd for ledd: $3 \\cdot 4x^3 = 12x^3$, $-2 \\cdot 3x^2 = -6x^2$, og $x$ gir $1$. Til sammen: $f'(x) = 12x^3 - 6x^2 + 1$."},{"id":"1t-7-6-n-quiz1-q1","task":"Hva er $f'(x)$ når $f(x) = 5x^4$?","options":[{"id":"a","text":"$5x^3$","isCorrect":false},{"id":"b","text":"$20x^4$","isCorrect":false},{"id":"c","text":"$20x^3$","isCorrect":true},{"id":"d","text":"$4x^3$","isCorrect":false}],"solution":"$f'(x) = 5 \\cdot 4 \\cdot x^{4-1} = 20x^3$. Koeffisienten $5$ multipliseres med eksponenten $4$, og eksponenten reduseres med $1$."},{"id":"1t-7-6-n-quiz1-q2","task":"Hva er $f'(x)$ når $f(x) = 2x^5 - \\frac{1}{2}x^4 + 3x$?","options":[{"id":"a","text":"$10x^4 - 2x^3 + 3$","isCorrect":true},{"id":"b","text":"$10x^5 - 2x^4 + 3x$","isCorrect":false},{"id":"c","text":"$10x^4 - \\frac{1}{2}x^3 + 3$","isCorrect":false},{"id":"d","text":"$2x^4 - \\frac{1}{2}x^3 + 3$","isCorrect":false}],"solution":"Ledd for ledd: $2 \\cdot 5x^4 = 10x^4$, $\\frac{1}{2} \\cdot 4x^3 = 2x^3$ (med minus), og $3x$ gir $3$. Resultatet er $f'(x) = 10x^4 - 2x^3 + 3$."}]}},{"id":"1t-7-6-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-6-narrativ-del2.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-6-n-section2","type":"text","content":"## Negative og brøk-eksponenter\n\nPotensregelen fungerer ikke bare for positive heltall – den gjelder for *alle* eksponenter, inkludert negative tall og brøker. Det betyr at vi kan derivere funksjoner som inneholder brøker med $x$ i nevneren.\n\nNøkkelen er å skrive om brøkene til potensform. For eksempel er $\\frac{1}{x^2} = x^{-2}$, og $\\frac{3}{x^3} = 3x^{-3}$. Når vi har potensform, bruker vi potensregelen som vanlig.\n\nLa oss derivere $f(x) = \\frac{3}{x^2} = 3x^{-2}$. Med potensregelen: $f'(x) = 3 \\cdot (-2) \\cdot x^{-3} = -6x^{-3} = -\\frac{6}{x^3}$. Legg merke til at eksponenten $-2$ flyttes ned som koeffisient (og multipliseres med 3), og den nye eksponenten er $-2 - 1 = -3$.\n\nEt annet eksempel: $f(x) = \\frac{1}{x} + 2x = x^{-1} + 2x$. Vi deriverer: $f'(x) = -1 \\cdot x^{-2} + 2 = -\\frac{1}{x^2} + 2$. Du kan også skrive det som $f'(x) = 2 - \\frac{1}{x^2}$.\n\nTilsvarende gir $\\sqrt{x} = x^{1/2}$ den deriverte $\\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Brøk-eksponenter følger nøyaktig samme regel."},{"id":"1t-7-6-n-quiz2","type":"exercise","exercise":{"id":"1t-7-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på negative og brøk-eksponenter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-6-n-quiz2-q0","task":"Hva er $f'(x)$ når $f(x) = \\frac{5}{x^3}$?","options":[{"id":"a","text":"$\\frac{5}{3x^2}$","isCorrect":false},{"id":"b","text":"$\\frac{15}{x^4}$","isCorrect":false},{"id":"c","text":"$-\\frac{5}{x^4}$","isCorrect":false},{"id":"d","text":"$-\\frac{15}{x^4}$","isCorrect":true}],"solution":"Vi skriver om: $f(x) = 5x^{-3}$. Med potensregelen: $f'(x) = 5 \\cdot (-3) \\cdot x^{-4} = -15x^{-4} = -\\frac{15}{x^4}$."},{"id":"1t-7-6-n-quiz2-q1","task":"Hvordan skriver vi $\\frac{1}{x^2}$ med negativ eksponent?","options":[{"id":"a","text":"$x^2$","isCorrect":false},{"id":"b","text":"$x^{-2}$","isCorrect":true},{"id":"c","text":"$-x^2$","isCorrect":false},{"id":"d","text":"$x^{1/2}$","isCorrect":false}],"solution":"$\\frac{1}{x^2} = x^{-2}$. Generelt er $\\frac{1}{x^n} = x^{-n}$. Å skrive om til potensform er nøkkelen til å derivere brøker med $x$ i nevneren."},{"id":"1t-7-6-n-quiz2-q2","task":"Hva er $f'(x)$ når $f(x) = \\frac{1}{x} + 2x$?","options":[{"id":"a","text":"$-\\frac{1}{x^2} + 2$","isCorrect":true},{"id":"b","text":"$\\frac{1}{x^2} + 2$","isCorrect":false},{"id":"c","text":"$-\\frac{1}{x} + 2$","isCorrect":false},{"id":"d","text":"$\\frac{2}{x^2}$","isCorrect":false}],"solution":"$f(x) = x^{-1} + 2x$. Vi deriverer: $f'(x) = -1 \\cdot x^{-2} + 2 = -\\frac{1}{x^2} + 2$."},{"id":"1t-7-6-n-quiz2-q3","task":"Hva er den deriverte av $\\sqrt{x} = x^{1/2}$?","options":[{"id":"a","text":"$\\frac{1}{2}x$","isCorrect":false},{"id":"b","text":"$2\\sqrt{x}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{2\\sqrt{x}}$","isCorrect":true},{"id":"d","text":"$\\frac{1}{\\sqrt{x}}$","isCorrect":false}],"solution":"$f(x) = x^{1/2}$ gir $f'(x) = \\frac{1}{2} x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Eksponenten $\\frac{1}{2}$ flyttes ned og reduseres til $-\\frac{1}{2}$."}]}},{"id":"1t-7-6-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-6-narrativ-del3.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-6-n-section3","type":"text","content":"## Andrederiverte – å derivere den deriverte\n\nHva skjer hvis vi deriverer den deriverte? Da får vi en ny funksjon som kalles **andrederiverte**, og den skrives $f''(x)$ (leses «f tostreket av x»). Prosessen er enkel: vi deriverer $f(x)$ for å få $f'(x)$, og deriverer deretter $f'(x)$ for å få $f''(x)$.\n\nLa oss ta $f(x) = x^4 - 3x^2 + 2x$. Først finner vi $f'(x) = 4x^3 - 6x + 2$. Deretter deriverer vi $f'(x)$: $f''(x) = 12x^2 - 6$.\n\nAndrederiverte har en viktig fysisk tolkning. Hvis $f(x)$ er posisjon, er $f'(x)$ fart og $f''(x)$ akselerasjon. Andrederiverte er også avgjørende for å bestemme om et punkt der $f'(x) = 0$ er et toppunkt eller bunnpunkt – noe vi utforsker grundig i neste kapittel.\n\nLa oss ta et fullstendig eksempel. For $f(x) = x^3 - 2x^2 + x$ finner vi $f'(x) = 3x^2 - 4x + 1$ og $f''(x) = 6x - 4$. Vi kan nå beregne verdier: $f'(2) = 12 - 8 + 1 = 5$ og $f''(2) = 12 - 4 = 8$. Den momentane vekstfarten i $x = 2$ er $5$, og akselerasjonen (endringen i vekstfart) er $8$."},{"id":"1t-7-6-n-quiz3","type":"exercise","exercise":{"id":"1t-7-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på andrederiverte:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-6-n-quiz3-q0","task":"La $f(x) = x^3 - 2x$. Hva er $f''(x)$?","options":[{"id":"a","text":"$6x$","isCorrect":true},{"id":"b","text":"$3x^2 - 2$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$3x - 2$","isCorrect":false}],"solution":"Først: $f'(x) = 3x^2 - 2$. Deretter deriverer vi igjen: $f''(x) = 6x$. Merk at $-2$ er en konstant og forsvinner ved andre derivasjon."},{"id":"1t-7-6-n-quiz3-q1","task":"Hva er andrederiverte av $f(x) = x^4 - 3x^2 + 2x$?","options":[{"id":"a","text":"$4x^3 - 6x + 2$","isCorrect":false},{"id":"b","text":"$12x^2 - 6$","isCorrect":true},{"id":"c","text":"$24x$","isCorrect":false},{"id":"d","text":"$12x^2 - 6x + 2$","isCorrect":false}],"solution":"$f'(x) = 4x^3 - 6x + 2$. Deretter: $f''(x) = 12x^2 - 6$. Vi deriverer $f'(x)$ ledd for ledd: $4 \\cdot 3x^2 = 12x^2$, $-6x$ gir $-6$, og $2$ gir $0$."},{"id":"1t-7-6-n-quiz3-q2","task":"Hvis $f(x)$ er posisjon, hva representerer $f''(x)$ fysisk?","options":[{"id":"a","text":"Fart","isCorrect":false},{"id":"b","text":"Avstand","isCorrect":false},{"id":"c","text":"Akselerasjon","isCorrect":true},{"id":"d","text":"Tid","isCorrect":false}],"solution":"Hvis $f(x)$ er posisjon, er $f'(x)$ fart og $f''(x)$ akselerasjon. Andrederiverte forteller oss om endringshastigheten selv endrer seg."}]}},{"id":"1t-7-6-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-6-narrativ-del4.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-6-n-section4","type":"text","content":"## Beregne derivert i et punkt\n\nEn vanlig oppgave er å finne verdien av den deriverte (eller andrederiverte) i et bestemt punkt. Fremgangsmåten er alltid den samme: først finner du det generelle uttrykket for $f'(x)$, og så setter du inn verdien for $x$.\n\nLa oss prøve med $f(x) = x^4 - 2x^3$. Deriverer vi, får vi $f'(x) = 4x^3 - 6x^2$. For å finne $f'(1)$ setter vi inn: $f'(1) = 4 \\cdot 1 - 6 \\cdot 1 = 4 - 6 = -2$. Altså er den momentane vekstfarten $-2$ når $x = 1$.\n\nAndrederiverte er $f''(x) = 12x^2 - 12x$. Vi setter inn $x = 1$: $f''(1) = 12 - 12 = 0$. Andrederiverte er null i dette punktet, noe som kan tyde på et vendepunkt.\n\nLa oss også prøve $f(x) = \\frac{1}{3}x^3 - x^2 + x$. Den deriverte er $f'(x) = x^2 - 2x + 1$. Vi setter inn $x = 3$: $f'(3) = 9 - 6 + 1 = 4$. Andrederiverte er $f''(x) = 2x - 2$, og $f''(3) = 6 - 2 = 4$. Begge gir verdien $4$ her, men det er bare tilfeldigheter – de to verdiene betyr forskjellige ting."},{"id":"1t-7-6-n-quiz4","type":"exercise","exercise":{"id":"1t-7-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på å beregne deriverte i et punkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-6-n-quiz4-q0","task":"La $f(x) = 2x^4 + x^2 - 5$. Hva er $f''(x)$?","options":[{"id":"a","text":"$8x^3 + 2x$","isCorrect":false},{"id":"b","text":"$8x^2 + 2$","isCorrect":false},{"id":"c","text":"$24x^2 + 2$","isCorrect":true},{"id":"d","text":"$24x + 2$","isCorrect":false}],"solution":"Først: $f'(x) = 8x^3 + 2x$. Deretter: $f''(x) = 24x^2 + 2$. Vi deriverer hvert ledd i $f'(x)$: $8 \\cdot 3x^2 = 24x^2$ og $2x$ gir $2$."},{"id":"1t-7-6-n-quiz4-q1","task":"La $f(x) = x^4 - 2x^3$. Hva er $f'(1)$?","options":[{"id":"a","text":"$-2$","isCorrect":true},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$-1$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":false}],"solution":"$f'(x) = 4x^3 - 6x^2$. Vi setter inn $x = 1$: $f'(1) = 4 \\cdot 1 - 6 \\cdot 1 = 4 - 6 = -2$."},{"id":"1t-7-6-n-quiz4-q2","task":"La $f(x) = x^4 - 2x^3$. Hva er $f''(1)$?","options":[{"id":"a","text":"$-2$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":true},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"$f''(x) = 12x^2 - 12x$. Vi setter inn $x = 1$: $f''(1) = 12 - 12 = 0$. Andrederiverte er null, noe som kan tyde på et vendepunkt."},{"id":"1t-7-6-n-quiz4-q3","task":"La $f(x) = \\frac{1}{3}x^3 - x^2 + x$. Hva er $f'(3)$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$4$","isCorrect":true},{"id":"d","text":"$5$","isCorrect":false}],"solution":"$f'(x) = x^2 - 2x + 1$. Vi setter inn $x = 3$: $f'(3) = 9 - 6 + 1 = 4$."}]}},{"id":"1t-7-6-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-6-narrativ-del5.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-6-n-section5","type":"text","content":"## Systematisk polynomderivasjon – steg for steg\n\nLa oss avslutte med å oppsummere den systematiske fremgangsmåten for å derivere et polynom. Det er en mekanisk prosess som alltid fungerer.\n\nFor hvert ledd i polynomet gjør du følgende: multipliser koeffisienten med eksponenten, og reduser eksponenten med 1. Konstantledd forsvinner. For eksempel: $-x^3 + 4x^2 - 6$ gir $f'(x) = -3x^2 + 8x$. Her er $-1 \\cdot 3 = -3$ for første ledd, $4 \\cdot 2 = 8$ for andre ledd, og $-6$ forsvinner.\n\nHvis du støter på brøker i nevneren, skriv dem om til negative eksponenter først. For eksempel: $x^2 + \\frac{4}{x} = x^2 + 4x^{-1}$ gir $f'(x) = 2x + 4 \\cdot (-1) \\cdot x^{-2} = 2x - \\frac{4}{x^2}$.\n\nFor andrederiverte gjentar du prosessen på den deriverte. Sjekk alltid svaret ditt ved å verifisere med GeoGebra, eller ved å kontrollere at dimensjonene (gradene) gir mening. Den deriverte av et polynom av grad $n$ er alltid et polynom av grad $n - 1$."},{"id":"1t-7-6-n-quiz5","type":"exercise","exercise":{"id":"1t-7-6-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på systematisk polynomderivasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-6-n-quiz5-q0","task":"Hva er $f'(x)$ når $f(x) = -x^3 + 4x^2 - 6$?","options":[{"id":"a","text":"$-3x^2 + 8x - 6$","isCorrect":false},{"id":"b","text":"$-3x^2 + 4x$","isCorrect":false},{"id":"c","text":"$-x^2 + 8x$","isCorrect":false},{"id":"d","text":"$-3x^2 + 8x$","isCorrect":true}],"solution":"Vi deriverer ledd for ledd: $-1 \\cdot 3x^2 = -3x^2$, $4 \\cdot 2x = 8x$, og konstanten $-6$ gir $0$. Svaret er $f'(x) = -3x^2 + 8x$."},{"id":"1t-7-6-n-quiz5-q1","task":"Hva er $f'(x)$ når $f(x) = x^2 + \\frac{4}{x}$?","options":[{"id":"a","text":"$2x + 4$","isCorrect":false},{"id":"b","text":"$2x - \\frac{4}{x^2}$","isCorrect":true},{"id":"c","text":"$2x + \\frac{4}{x^2}$","isCorrect":false},{"id":"d","text":"$x - \\frac{4}{x}$","isCorrect":false}],"solution":"$f(x) = x^2 + 4x^{-1}$. Vi deriverer: $f'(x) = 2x + 4 \\cdot (-1) \\cdot x^{-2} = 2x - \\frac{4}{x^2}$."},{"id":"1t-7-6-n-quiz5-q2","task":"Den deriverte av et polynom av grad $5$ er et polynom av grad...?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":false},{"id":"c","text":"$4$","isCorrect":true},{"id":"d","text":"$3$","isCorrect":false}],"solution":"Den deriverte av et polynom av grad $n$ er alltid et polynom av grad $n - 1$. Så et grad-5-polynom gir en derivert av grad $4$."},{"id":"1t-7-6-n-quiz5-q3","task":"Hva er den systematiske fremgangsmåten for å derivere hvert ledd i et polynom?","options":[{"id":"a","text":"Legg til eksponenten","isCorrect":false},{"id":"b","text":"Multipliser koeffisienten med eksponenten, reduser eksponenten med 1","isCorrect":true},{"id":"c","text":"Del koeffisienten på eksponenten","isCorrect":false},{"id":"d","text":"Sett eksponenten lik null","isCorrect":false}],"solution":"For hvert ledd: multipliser koeffisienten med eksponenten og reduser eksponenten med 1. Konstantledd forsvinner. For eksempel: $3x^4 \\to 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$."}]}},{"id":"1t-7-6-n-audio-6","type":"audio","title":"Lytt til oppsummeringen","src":"/audio/1t/1t-7-6-narrativ-del6.mp3","description":"Lydfil som leser opp oppsummeringen."},{"id":"1t-7-6-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi samlet og utvidet verktøykassen for derivasjon av polynomer. De fire grunnreglene er **potensregelen** $(x^n)' = nx^{n-1}$, **konstantregelen** $(c)' = 0$, **konstantmultiplikasjon** $(c \\cdot f)' = c \\cdot f'$, og **sumregelen** $(f + g)' = f' + g'$.\n\nVi har sett at potensregelen fungerer også for **negative eksponenter**. For å derivere brøker som $\\frac{a}{x^n}$, skriver vi dem om til $a \\cdot x^{-n}$ og bruker potensregelen direkte. Det samme gjelder for brøk-eksponenter som $\\sqrt{x} = x^{1/2}$.\n\n**Andrederiverte** $f''(x)$ finner vi ved å derivere $f'(x)$ en gang til. Andrederiverte forteller oss om endringshastigheten selv endrer seg – i fysikken svarer dette til akselerasjon. For å beregne den deriverte i et bestemt punkt finner vi først det generelle uttrykket og setter deretter inn verdien for $x$."}],"exercises":[]}
+{
+  "id": "1t-7-6-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "7.6",
+  "title": "Derivasjon av polynomfunksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om effektiv derivasjon av polynomer – potensregelen, konstantregelen, sumregelen, negative eksponenter og andrederiverte.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke potensregelen til å derivere",
+    "derivere summer og differanser av funksjoner",
+    "derivere polynomer med vilkårlige koeffisienter"
+  ],
+  "linkedChapterId": "1t-7-6",
+  "content": [
+    {
+      "id": "1t-7-6-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-6-narrativ-del1.mp3",
+      "description": "Lydfil som leser opp teksten frem til første quiz."
+    },
+    {
+      "id": "1t-7-6-n-intro",
+      "type": "text",
+      "content": "## Verktøykassen for derivasjon\n\nI de foregående kapitlene har vi møtt derivasjonsreglene litt etter litt. Nå er det tid for å samle dem og bruke dem systematisk på **polynomfunksjoner** – den store familien av funksjoner som er bygget opp av potenser av $x$ med koeffisienter.\n\nEt polynom ser generelt slik ut: $f(x) = a_nx^n + a_{n-1}x^{n-1} + \\cdots + a_1x + a_0$. For eksempel er $3x^4 - 2x^3 + x - 7$ et polynom av grad 4. I dette kapittelet skal vi bli eksperter på å derivere slike funksjoner – raskt og sikkert. Vi skal også se på negative og brøk-eksponenter, og lære om **andrederiverte**."
+    },
+    {
+      "id": "1t-7-6-n-section1",
+      "type": "text",
+      "content": "## Reglene samlet – potens, konstant, sum\n\nLa oss starte med å ha alle reglene klart for oss. **Potensregelen** sier at $f(x) = x^n$ gir $f'(x) = n \\cdot x^{n-1}$. **Konstantregelen** sier at en konstant har derivert lik null. **Konstantmultiplikasjon** betyr at $(c \\cdot f)'(x) = c \\cdot f'(x)$ – koeffisienter kan flyttes utenfor derivasjonen. Og **sumregelen** lar oss derivere ledd for ledd: $(f + g)' = f' + g'$.\n\nNår vi kombinerer disse reglene, kan vi derivere ethvert polynom. Teknikken er alltid den samme: gå gjennom hvert ledd, bruk potensregelen (med koeffisienten), og sett sammen.\n\nLa oss ta $f(x) = 5x^4$. Koeffisienten $5$ multipliseres med eksponenten $4$: $f'(x) = 5 \\cdot 4 \\cdot x^3 = 20x^3$.\n\nEt mer sammensatt eksempel: $f(x) = x^3 + x^2 - 7x + 3$. Vi deriverer ledd for ledd: $x^3$ gir $3x^2$, $x^2$ gir $2x$, $-7x$ gir $-7$, og konstanten $3$ gir $0$. Resultatet er $f'(x) = 3x^2 + 2x - 7$.\n\nOg ett til: $f(x) = 2x^5 - \\frac{1}{2}x^4 + 3x$. Her får vi $f'(x) = 10x^4 - 2x^3 + 3$. Merk at $\\frac{1}{2} \\cdot 4 = 2$."
+    },
+    {
+      "id": "1t-7-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på polynomderivasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-6-n-quiz1-q0",
+            "task": "Hva er $f'(x)$ når $f(x) = 3x^4 - 2x^3 + x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12x^3 - 6x^2 + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$12x^3 - 6x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12x^4 - 6x^3 + x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x^3 - 2x^2 + 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer ledd for ledd: $3 \\cdot 4x^3 = 12x^3$, $-2 \\cdot 3x^2 = -6x^2$, og $x$ gir $1$. Til sammen: $f'(x) = 12x^3 - 6x^2 + 1$."
+          },
+          {
+            "id": "1t-7-6-n-quiz1-q1",
+            "task": "Hva er $f'(x)$ når $f(x) = 5x^4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$20x^3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$20x^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4x^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = 5 \\cdot 4 \\cdot x^{4-1} = 20x^3$. Koeffisienten $5$ multipliseres med eksponenten $4$, og eksponenten reduseres med $1$."
+          },
+          {
+            "id": "1t-7-6-n-quiz1-q2",
+            "task": "Hva er $f'(x)$ når $f(x) = 2x^5 - \\frac{1}{2}x^4 + 3x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$10x^5 - 2x^4 + 3x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10x^4 - \\frac{1}{2}x^3 + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$10x^4 - 2x^3 + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2x^4 - \\frac{1}{2}x^3 + 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledd for ledd: $2 \\cdot 5x^4 = 10x^4$, $\\frac{1}{2} \\cdot 4x^3 = 2x^3$ (med minus), og $3x$ gir $3$. Resultatet er $f'(x) = 10x^4 - 2x^3 + 3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-6-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-6-narrativ-del2.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-6-n-section2",
+      "type": "text",
+      "content": "## Negative og brøk-eksponenter\n\nPotensregelen fungerer ikke bare for positive heltall – den gjelder for *alle* eksponenter, inkludert negative tall og brøker. Det betyr at vi kan derivere funksjoner som inneholder brøker med $x$ i nevneren.\n\nNøkkelen er å skrive om brøkene til potensform. For eksempel er $\\frac{1}{x^2} = x^{-2}$, og $\\frac{3}{x^3} = 3x^{-3}$. Når vi har potensform, bruker vi potensregelen som vanlig.\n\nLa oss derivere $f(x) = \\frac{3}{x^2} = 3x^{-2}$. Med potensregelen: $f'(x) = 3 \\cdot (-2) \\cdot x^{-3} = -6x^{-3} = -\\frac{6}{x^3}$. Legg merke til at eksponenten $-2$ flyttes ned som koeffisient (og multipliseres med 3), og den nye eksponenten er $-2 - 1 = -3$.\n\nEt annet eksempel: $f(x) = \\frac{1}{x} + 2x = x^{-1} + 2x$. Vi deriverer: $f'(x) = -1 \\cdot x^{-2} + 2 = -\\frac{1}{x^2} + 2$. Du kan også skrive det som $f'(x) = 2 - \\frac{1}{x^2}$.\n\nTilsvarende gir $\\sqrt{x} = x^{1/2}$ den deriverte $\\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Brøk-eksponenter følger nøyaktig samme regel."
+    },
+    {
+      "id": "1t-7-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på negative og brøk-eksponenter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-6-n-quiz2-q0",
+            "task": "Hva er $f'(x)$ når $f(x) = \\frac{5}{x^3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{5}{3x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{15}{x^4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{5}{x^4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\frac{15}{x^4}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi skriver om: $f(x) = 5x^{-3}$. Med potensregelen: $f'(x) = 5 \\cdot (-3) \\cdot x^{-4} = -15x^{-4} = -\\frac{15}{x^4}$."
+          },
+          {
+            "id": "1t-7-6-n-quiz2-q1",
+            "task": "Hvordan skriver vi $\\frac{1}{x^2}$ med negativ eksponent?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^{-2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^{1/2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{1}{x^2} = x^{-2}$. Generelt er $\\frac{1}{x^n} = x^{-n}$. Å skrive om til potensform er nøkkelen til å derivere brøker med $x$ i nevneren."
+          },
+          {
+            "id": "1t-7-6-n-quiz2-q2",
+            "task": "Hva er $f'(x)$ når $f(x) = \\frac{1}{x} + 2x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{x^2} + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{1}{x^2} + 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{1}{x} + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{x^2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(x) = x^{-1} + 2x$. Vi deriverer: $f'(x) = -1 \\cdot x^{-2} + 2 = -\\frac{1}{x^2} + 2$."
+          },
+          {
+            "id": "1t-7-6-n-quiz2-q3",
+            "task": "Hva er den deriverte av $\\sqrt{x} = x^{1/2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2}x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\sqrt{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2\\sqrt{x}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{\\sqrt{x}}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(x) = x^{1/2}$ gir $f'(x) = \\frac{1}{2} x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Eksponenten $\\frac{1}{2}$ flyttes ned og reduseres til $-\\frac{1}{2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-6-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-6-narrativ-del3.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-6-n-section3",
+      "type": "text",
+      "content": "## Andrederiverte – å derivere den deriverte\n\nHva skjer hvis vi deriverer den deriverte? Da får vi en ny funksjon som kalles **andrederiverte**, og den skrives $f''(x)$ (leses «f tostreket av x»). Prosessen er enkel: vi deriverer $f(x)$ for å få $f'(x)$, og deriverer deretter $f'(x)$ for å få $f''(x)$.\n\nLa oss ta $f(x) = x^4 - 3x^2 + 2x$. Først finner vi $f'(x) = 4x^3 - 6x + 2$. Deretter deriverer vi $f'(x)$: $f''(x) = 12x^2 - 6$.\n\nAndrederiverte har en viktig fysisk tolkning. Hvis $f(x)$ er posisjon, er $f'(x)$ fart og $f''(x)$ akselerasjon. Andrederiverte er også avgjørende for å bestemme om et punkt der $f'(x) = 0$ er et toppunkt eller bunnpunkt – noe vi utforsker grundig i neste kapittel.\n\nLa oss ta et fullstendig eksempel. For $f(x) = x^3 - 2x^2 + x$ finner vi $f'(x) = 3x^2 - 4x + 1$ og $f''(x) = 6x - 4$. Vi kan nå beregne verdier: $f'(2) = 12 - 8 + 1 = 5$ og $f''(2) = 12 - 4 = 8$. Den momentane vekstfarten i $x = 2$ er $5$, og akselerasjonen (endringen i vekstfart) er $8$."
+    },
+    {
+      "id": "1t-7-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på andrederiverte:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-6-n-quiz3-q0",
+            "task": "La $f(x) = x^3 - 2x$. Hva er $f''(x)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3x^2 - 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x - 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$6x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Først: $f'(x) = 3x^2 - 2$. Deretter deriverer vi igjen: $f''(x) = 6x$. Merk at $-2$ er en konstant og forsvinner ved andre derivasjon."
+          },
+          {
+            "id": "1t-7-6-n-quiz3-q1",
+            "task": "Hva er andrederiverte av $f(x) = x^4 - 3x^2 + 2x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$12x^2 - 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4x^3 - 6x + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$24x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12x^2 - 6x + 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = 4x^3 - 6x + 2$. Deretter: $f''(x) = 12x^2 - 6$. Vi deriverer $f'(x)$ ledd for ledd: $4 \\cdot 3x^2 = 12x^2$, $-6x$ gir $-6$, og $2$ gir $0$."
+          },
+          {
+            "id": "1t-7-6-n-quiz3-q2",
+            "task": "Hvis $f(x)$ er posisjon, hva representerer $f''(x)$ fysisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fart",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Akselerasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Avstand",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hvis $f(x)$ er posisjon, er $f'(x)$ fart og $f''(x)$ akselerasjon. Andrederiverte forteller oss om endringshastigheten selv endrer seg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-6-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-6-narrativ-del4.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-6-n-section4",
+      "type": "text",
+      "content": "## Beregne derivert i et punkt\n\nEn vanlig oppgave er å finne verdien av den deriverte (eller andrederiverte) i et bestemt punkt. Fremgangsmåten er alltid den samme: først finner du det generelle uttrykket for $f'(x)$, og så setter du inn verdien for $x$.\n\nLa oss prøve med $f(x) = x^4 - 2x^3$. Deriverer vi, får vi $f'(x) = 4x^3 - 6x^2$. For å finne $f'(1)$ setter vi inn: $f'(1) = 4 \\cdot 1 - 6 \\cdot 1 = 4 - 6 = -2$. Altså er den momentane vekstfarten $-2$ når $x = 1$.\n\nAndrederiverte er $f''(x) = 12x^2 - 12x$. Vi setter inn $x = 1$: $f''(1) = 12 - 12 = 0$. Andrederiverte er null i dette punktet, noe som kan tyde på et vendepunkt.\n\nLa oss også prøve $f(x) = \\frac{1}{3}x^3 - x^2 + x$. Den deriverte er $f'(x) = x^2 - 2x + 1$. Vi setter inn $x = 3$: $f'(3) = 9 - 6 + 1 = 4$. Andrederiverte er $f''(x) = 2x - 2$, og $f''(3) = 6 - 2 = 4$. Begge gir verdien $4$ her, men det er bare tilfeldigheter – de to verdiene betyr forskjellige ting."
+    },
+    {
+      "id": "1t-7-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å beregne deriverte i et punkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-6-n-quiz4-q0",
+            "task": "La $f(x) = 2x^4 + x^2 - 5$. Hva er $f''(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8x^3 + 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8x^2 + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$24x^2 + 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$24x + 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først: $f'(x) = 8x^3 + 2x$. Deretter: $f''(x) = 24x^2 + 2$. Vi deriverer hvert ledd i $f'(x)$: $8 \\cdot 3x^2 = 24x^2$ og $2x$ gir $2$."
+          },
+          {
+            "id": "1t-7-6-n-quiz4-q1",
+            "task": "La $f(x) = x^4 - 2x^3$. Hva er $f'(1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$-2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(x) = 4x^3 - 6x^2$. Vi setter inn $x = 1$: $f'(1) = 4 \\cdot 1 - 6 \\cdot 1 = 4 - 6 = -2$."
+          },
+          {
+            "id": "1t-7-6-n-quiz4-q2",
+            "task": "La $f(x) = x^4 - 2x^3$. Hva er $f''(1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(x) = 12x^2 - 12x$. Vi setter inn $x = 1$: $f''(1) = 12 - 12 = 0$. Andrederiverte er null, noe som kan tyde på et vendepunkt."
+          },
+          {
+            "id": "1t-7-6-n-quiz4-q3",
+            "task": "La $f(x) = \\frac{1}{3}x^3 - x^2 + x$. Hva er $f'(3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = x^2 - 2x + 1$. Vi setter inn $x = 3$: $f'(3) = 9 - 6 + 1 = 4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-6-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-6-narrativ-del5.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-6-n-section5",
+      "type": "text",
+      "content": "## Systematisk polynomderivasjon – steg for steg\n\nLa oss avslutte med å oppsummere den systematiske fremgangsmåten for å derivere et polynom. Det er en mekanisk prosess som alltid fungerer.\n\nFor hvert ledd i polynomet gjør du følgende: multipliser koeffisienten med eksponenten, og reduser eksponenten med 1. Konstantledd forsvinner. For eksempel: $-x^3 + 4x^2 - 6$ gir $f'(x) = -3x^2 + 8x$. Her er $-1 \\cdot 3 = -3$ for første ledd, $4 \\cdot 2 = 8$ for andre ledd, og $-6$ forsvinner.\n\nHvis du støter på brøker i nevneren, skriv dem om til negative eksponenter først. For eksempel: $x^2 + \\frac{4}{x} = x^2 + 4x^{-1}$ gir $f'(x) = 2x + 4 \\cdot (-1) \\cdot x^{-2} = 2x - \\frac{4}{x^2}$.\n\nFor andrederiverte gjentar du prosessen på den deriverte. Sjekk alltid svaret ditt ved å verifisere med GeoGebra, eller ved å kontrollere at dimensjonene (gradene) gir mening. Den deriverte av et polynom av grad $n$ er alltid et polynom av grad $n - 1$."
+    },
+    {
+      "id": "1t-7-6-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-6-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på systematisk polynomderivasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-6-n-quiz5-q0",
+            "task": "Hva er $f'(x)$ når $f(x) = -x^3 + 4x^2 - 6$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$-3x^2 + 8x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-3x^2 + 8x - 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-3x^2 + 4x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-x^2 + 8x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer ledd for ledd: $-1 \\cdot 3x^2 = -3x^2$, $4 \\cdot 2x = 8x$, og konstanten $-6$ gir $0$. Svaret er $f'(x) = -3x^2 + 8x$."
+          },
+          {
+            "id": "1t-7-6-n-quiz5-q1",
+            "task": "Hva er $f'(x)$ når $f(x) = x^2 + \\frac{4}{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x + \\frac{4}{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x - \\frac{4}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x - \\frac{4}{x^2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f(x) = x^2 + 4x^{-1}$. Vi deriverer: $f'(x) = 2x + 4 \\cdot (-1) \\cdot x^{-2} = 2x - \\frac{4}{x^2}$."
+          },
+          {
+            "id": "1t-7-6-n-quiz5-q2",
+            "task": "Den deriverte av et polynom av grad $5$ er et polynom av grad...?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte av et polynom av grad $n$ er alltid et polynom av grad $n - 1$. Så et grad-5-polynom gir en derivert av grad $4$."
+          },
+          {
+            "id": "1t-7-6-n-quiz5-q3",
+            "task": "Hva er den systematiske fremgangsmåten for å derivere hvert ledd i et polynom?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Multipliser koeffisienten med eksponenten, reduser eksponenten med 1",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Legg til eksponenten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Del koeffisienten på eksponenten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sett eksponenten lik null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For hvert ledd: multipliser koeffisienten med eksponenten og reduser eksponenten med 1. Konstantledd forsvinner. For eksempel: $3x^4 \\to 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-6-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringen",
+      "src": "/audio/1t/1t-7-6-narrativ-del6.mp3",
+      "description": "Lydfil som leser opp oppsummeringen."
+    },
+    {
+      "id": "1t-7-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi samlet og utvidet verktøykassen for derivasjon av polynomer. De fire grunnreglene er **potensregelen** $(x^n)' = nx^{n-1}$, **konstantregelen** $(c)' = 0$, **konstantmultiplikasjon** $(c \\cdot f)' = c \\cdot f'$, og **sumregelen** $(f + g)' = f' + g'$.\n\nVi har sett at potensregelen fungerer også for **negative eksponenter**. For å derivere brøker som $\\frac{a}{x^n}$, skriver vi dem om til $a \\cdot x^{-n}$ og bruker potensregelen direkte. Det samme gjelder for brøk-eksponenter som $\\sqrt{x} = x^{1/2}$.\n\n**Andrederiverte** $f''(x)$ finner vi ved å derivere $f'(x)$ en gang til. Andrederiverte forteller oss om endringshastigheten selv endrer seg – i fysikken svarer dette til akselerasjon. For å beregne den deriverte i et bestemt punkt finner vi først det generelle uttrykket og setter deretter inn verdien for $x$."
+    }
+  ],
+  "exercises": []
+}

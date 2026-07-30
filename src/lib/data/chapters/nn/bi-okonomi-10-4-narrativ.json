@@ -1,1 +1,348 @@
-{"id":"bi-okonomi-10-4-narrativ","courseId":"bi-okonomi","chapterNumber":"10.4","title":"Uendelege rekkjer og perpetuitetar","subtitle":"Narrativ versjon","description":"Ei forteljing om uendelege geometriske rekkjer som likevel har ein endeleg sum -- og om korleis denne eine ideen gir oss perpetuitetar, Gordons formel for aksjeprising og multiplikatoreffekten i makroøkonomien.","estimatedMinutes":33,"competenceGoals":[],"linkedChapterId":"bi-okonomi-10-4","content":[{"id":"bi-okonomi-10-4-n-intro","type":"text","content":"## Kan ein uendeleg sum vere endeleg?\n\nDet høyrest umogleg ut: korleis kan du leggje saman uendeleg mange tal og likevel ende på eit endeleg svar? Men svaret er ja -- under éi bestemt føresetnad. Tenk på eit kvadrat med areal $1$. Først tek du halvparten, $\\frac{1}{2}$, så halvparten av det som er att, $\\frac{1}{4}$, så $\\frac{1}{8}$, og slik vidare i det uendelege. Til saman fyller du nøyaktig heile kvadratet: $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\ldots = 1$.\n\nDette er ei **uendeleg geometrisk rekkje**. Vi definerer summen gjennom partialsummane $S_n = a_1 + a_2 + \\ldots + a_n$: dersom $\\lim_{n\\to\\infty} S_n = S$ for eit endeleg tal $S$, seier vi at rekkja **konvergerer** og har sum $S$. For rekkja over er $a_1 = \\frac{1}{2}$ og $k = \\frac{1}{2}$, og partialsummen er $S_n = \\frac{1}{2}\\cdot \\frac{1 - (1/2)^n}{1 - 1/2} = 1 - (\\tfrac{1}{2})^n$. Når $n\\to\\infty$ går $(\\tfrac{1}{2})^n \\to 0$, så $S_n \\to 1$.\n\nNøkkelen ligg i kvotienten. For ei geometrisk rekkje er $S_n = a_1\\cdot \\frac{1 - k^n}{1 - k}$, og alt blir avgjort av kva $k^n$ gjer. Dersom $\\lvert k\\rvert < 1$, krympar $k^n$ mot null, og summen stabiliserer seg på $S = \\frac{a_1}{1 - k}$ -- rekkja konvergerer. Men dersom $\\lvert k\\rvert > 1$ veks ledda utan grense og rekkja divergerer, og ved $k = -1$ oscillerer ho evig. Føresetnaden $\\lvert k\\rvert < 1$ er difor heilt avgjerande."},{"id":"bi-okonomi-10-4-n-section1","type":"text","content":"## Formelen som låsar opp æva\n\nLat oss bruke summen $S = \\frac{a_1}{1 - k}$ -- men hugs åtvaringa: han gjeld **berre** når $\\lvert k\\rvert < 1$. Ta rekkja $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$ med $a_1 = 1$ og $k = \\frac{1}{3}$. Sidan $\\frac{1}{3} < 1$ konvergerer ho, og $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$. Sjølv med vekslande forteikn går det bra så lenge talverdien til $k$ er under $1$: for $4 - 2 + 1 - \\frac{1}{2} + \\ldots$ er $a_1 = 4$ og $k = -\\frac{1}{2}$, så $S = \\frac{4}{1 - (-1/2)} = \\frac{4}{3/2} = \\frac{8}{3} \\approx 2{,}67$.\n\nMen prøv aldri formelen der han ikkje gjeld. Rekkja $1 + 2 + 4 + 8 + \\ldots$ har $k = 2$, og ho divergerer -- partialsummane $1, 3, 7, 15, \\ldots$ stikk av mot uendeleg. Skulle du naivt setje inn i formelen, ville du fått $\\frac{1}{1 - 2} = -1$, eit meiningslaust svar for ein sum av lutter positive tal. Like ille er $1 - 1 + 1 - 1 + \\ldots$ med $k = -1$, der partialsummane hoppar mellom $1$ og $0$ utan å lande.\n\nNo kjem den økonomiske gullgruva. Ein **perpetuitet** er ein kontantstraum som betaler ut eit fast beløp $C$ ved slutten av kvar periode i all æve -- tenk evige stipend, statsobligasjonar utan forfall, eller aksjeutbyte. Nåverdien er summen av dei neddiskonterte utbetalingane: $NV = \\frac{C}{1+r} + \\frac{C}{(1+r)^2} + \\ldots$ Dette er ei uendeleg geometrisk rekkje med $a_1 = \\frac{C}{1+r}$ og $k = \\frac{1}{1+r}$. Sidan $r > 0$ er $0 < k < 1$, og formelen gir $NV = \\frac{a_1}{1 - k} = \\frac{C}{r}$. Vil eit legat dele ut $100\\,000$ kr i året for alltid til $4\\,\\%$ avkastning, trengst $NV = \\frac{100\\,000}{0{,}04} = 2\\,500\\,000$ kr -- fondet tener nøyaktig $0{,}04\\cdot 2\\,500\\,000 = 100\\,000$ kr i renter kvart år, og kapitalen blir verande intakt."},{"id":"bi-okonomi-10-4-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-10-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på uendelege rekkjer og perpetuitetar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-4-n-quiz1-q0","task":"Når konvergerer ei uendeleg geometrisk rekkje?","options":[{"id":"a","text":"Når $\\lvert k\\rvert > 1$","isCorrect":false},{"id":"b","text":"Når $a_1 > 0$","isCorrect":false},{"id":"c","text":"Alltid","isCorrect":false},{"id":"d","text":"Når $\\lvert k\\rvert < 1$","isCorrect":true}],"solution":"Berre når $\\lvert k\\rvert < 1$ krympar $k^n$ mot null, slik at partialsummane stabiliserer seg på $S = \\frac{a_1}{1-k}$."},{"id":"bi-okonomi-10-4-n-quiz1-q1","task":"Kva er summen av $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$?","options":[{"id":"a","text":"$\\frac{3}{2}$","isCorrect":true},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"Ho divergerer","isCorrect":false},{"id":"d","text":"$3$","isCorrect":false}],"solution":"Her er $a_1 = 1$ og $k = \\frac{1}{3}$, og sidan $\\frac{1}{3} < 1$: $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$."},{"id":"bi-okonomi-10-4-n-quiz1-q2","task":"Ein aksje betaler $8$ kr i årleg utbyte i overskodeleg framtid, og investorar krev $10\\,\\%$ avkastning. Kva er ein rimeleg pris?","options":[{"id":"a","text":"$8$ kr","isCorrect":false},{"id":"b","text":"$80$ kr","isCorrect":true},{"id":"c","text":"$800$ kr","isCorrect":false},{"id":"d","text":"$0{,}80$ kr","isCorrect":false}],"solution":"Vi handsamar utbytet som ein perpetuitet: $NV = \\frac{C}{r} = \\frac{8}{0{,}10} = 80$ kr."},{"id":"bi-okonomi-10-4-n-quiz1-q3","task":"Kvifor kan vi ikkje bruke $S = \\frac{a_1}{1-k}$ på rekkja $1 + 2 + 4 + 8 + \\ldots$?","options":[{"id":"a","text":"Fordi $a_1$ ikkje er kjend","isCorrect":false},{"id":"b","text":"Fordi ledda har vekslande forteikn","isCorrect":false},{"id":"c","text":"Fordi $k = 2 > 1$, så rekkja divergerer og formelen gjeld ikkje","isCorrect":true},{"id":"d","text":"Fordi $r$ er negativ","isCorrect":false}],"solution":"Formelen krev $\\lvert k\\rvert < 1$. Her er $k = 2$, så rekkja divergerer; partialsummane $1, 3, 7, 15, \\ldots$ veks utan grense, og eit svar som $\\frac{1}{1-2} = -1$ ville vore meiningslaust."}]}},{"id":"bi-okonomi-10-4-n-section2","type":"text","content":"## Når kontantstraumen veks: Gordon og multiplikatoren\n\nI røynda er utbyte og inntekter sjeldan heilt faste -- dei veks ofte. Lat oss seie at ei betaling startar på $C_1$ og veks med rate $g$ per periode: $C_1, C_1(1+g), C_1(1+g)^2, \\ldots$ Neddiskontert blir dette ei geometrisk rekkje med $a_1 = \\frac{C_1}{1+r}$ og $k = \\frac{1+g}{1+r}$. Så lenge $r > g$ er $k < 1$, og rekkja konvergerer til **Gordons formel**: $NV = \\frac{C_1}{r - g}$. Dette er sjølve hjørnesteinen i aksjeprising. Betaler ein aksje $5$ kr neste år, veks utbytet $3\\,\\%$ årleg og avkastningskravet er $9\\,\\%$, blir verdien $NV = \\frac{5}{0{,}09 - 0{,}03} = \\frac{5}{0{,}06} \\approx 83{,}33$ kr -- klart meir enn dei $\\frac{5}{0{,}09} \\approx 55{,}56$ kr vi ville fått utan vekst.\n\nMen Gordons formel har ei farleg grense. Når $g$ nærmar seg $r$, eksploderer nåverdien: med $g = 0{,}059$ og $r = 0{,}06$ blir $NV = \\frac{C_1}{0{,}001}$, altså tusen gonger $C_1$. Og dersom $g \\geq r$, divergerer rekkja og modellen kollapsar fullstendig. Det gir meining: inga verksemd kan vekse raskare enn avkastningskravet i økonomien i all æve. Difor krev formelen strengt $r > g$, og i praksis bør $g$ liggje nær langsiktig BNP-vekst på $2$ til $3\\,\\%$.\n\nDen same uendelege rekkja dukkar opp i makroøkonomien som **multiplikatoreffekten**. Får ein husstand $1\\,000$ kr ekstra, brukar dei ein del $c$ -- konsumtilbøyelegheita -- på forbruk. Det blir andre sin inntekt, som igjen forbruker $c$ av sin del, og slik rullar det vidare. Total effekt blir $1\\,000 + 1\\,000c + 1\\,000c^2 + \\ldots = \\frac{1\\,000}{1 - c}$, der faktoren $\\frac{1}{1-c}$ er **multiplikatoren**. Løyver staten $10$ milliardar med $c = 0{,}75$, blir multiplikatoren $\\frac{1}{1 - 0{,}75} = \\frac{1}{0{,}25} = 4$, og samla BNP-effekt $10\\cdot 4 = 40$ milliardar. Legg merke til at alle desse formlane -- perpetuitet, Gordon og multiplikator -- spring ut av den eine summen $S = \\frac{a_1}{1-k}$."},{"id":"bi-okonomi-10-4-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-10-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på Gordons formel og multiplikatoreffekten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-4-n-quiz2-q0","task":"Ein aksje betaler $4$ kr i utbyte neste år, veks $2\\,\\%$ årleg, og avkastningskravet er $7\\,\\%$. Kva er aksjeprisen?","options":[{"id":"a","text":"$57{,}14$ kr","isCorrect":false},{"id":"b","text":"$8$ kr","isCorrect":false},{"id":"c","text":"$200$ kr","isCorrect":false},{"id":"d","text":"$80$ kr","isCorrect":true}],"solution":"Gordons formel: $NV = \\frac{C_1}{r - g} = \\frac{4}{0{,}07 - 0{,}02} = \\frac{4}{0{,}05} = 80$ kr."},{"id":"bi-okonomi-10-4-n-quiz2-q1","task":"Kvifor krev Gordons formel strengt at $r > g$?","options":[{"id":"a","text":"Fordi kvotienten $k = \\frac{1+g}{1+r}$ elles blir $\\geq 1$, og rekkja divergerer","isCorrect":true},{"id":"b","text":"Fordi $g$ må vere negativ","isCorrect":false},{"id":"c","text":"Fordi $C_1$ elles blir negativ","isCorrect":false},{"id":"d","text":"Fordi avkastningskravet alltid er $10\\,\\%$","isCorrect":false}],"solution":"Dersom $g \\geq r$ blir $k = \\frac{1+g}{1+r} \\geq 1$, og den uendelege rekkja konvergerer ikkje. Då kollapsar modellen og nåverdien blir uendeleg -- urealistisk."},{"id":"bi-okonomi-10-4-n-quiz2-q2","task":"Kva er multiplikatoren dersom konsumtilbøyelegheita er $c = 0{,}8$?","options":[{"id":"a","text":"$1{,}25$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$8$","isCorrect":false}],"solution":"Multiplikatoren er $\\frac{1}{1 - c} = \\frac{1}{1 - 0{,}8} = \\frac{1}{0{,}2} = 5$."},{"id":"bi-okonomi-10-4-n-quiz2-q3","task":"Staten investerer $5$ mrd kr og konsumtilbøyelegheita er $c = 0{,}9$. Kva blir samla BNP-effekt?","options":[{"id":"a","text":"$5$ mrd kr","isCorrect":false},{"id":"b","text":"$45$ mrd kr","isCorrect":false},{"id":"c","text":"$50$ mrd kr","isCorrect":true},{"id":"d","text":"$25$ mrd kr","isCorrect":false}],"solution":"Multiplikatoren er $\\frac{1}{1 - 0{,}9} = 10$, så samla effekt blir $5\\cdot 10 = 50$ mrd kr."}]}},{"id":"bi-okonomi-10-4-n-summary","type":"text","content":"## Oppsummering\n\nEi **uendeleg geometrisk rekkje** kan ha ein endeleg sum, men berre når $\\lvert k\\rvert < 1$. Då krympar $k^n$ mot null, og summen blir $S = \\frac{a_1}{1 - k}$. Er $\\lvert k\\rvert \\geq 1$, divergerer rekkja, og formelen må aldri brukast der.\n\nDenne eine ideen opnar eit heilt landskap av økonomiske reiskapar. Ein **perpetuitet** -- ein evig fast kontantstraum -- har nåverdi $NV = \\frac{C}{r}$. Når kontantstraumen veks med rate $g$, gir **Gordons formel** $NV = \\frac{C_1}{r - g}$, gyldig så lenge $r > g$; elles eksploderer eller kollapsar modellen. Og i makroøkonomien forklarar den same uendelege rekkja **multiplikatoreffekten**, der ein impuls blir forsterka med faktoren $\\frac{1}{1 - c}$. Det finaste poenget er at perpetuitet, Gordon og multiplikator alle er same formel i forkledning: $S = \\frac{a_1}{1 - k}$. Frå talfølgjer via aritmetiske og geometriske rekkjer har vi no nådd heilt fram til verdsetjing av aksjar og verknaden av finanspolitikk -- alt bygt på dei same grunnleggjande ideane om korleis tal hopar seg opp over tid."}],"exercises":[],"_meta":{"sourceHash":"51ad5a78888cabcf","translatedAt":"2026-06-21T00:50:52.207Z","model":"claude-code-agent","strings":53,"tm":{"c01ab410391b43d6":"Uendelege rekkjer og perpetuitetar","b195b06d1ed59702":"Narrativ versjon","77f63bff9753697a":"Ei forteljing om uendelege geometriske rekkjer som likevel har ein endeleg sum -- og om korleis denne eine ideen gir oss perpetuitetar, Gordons formel for aksjeprising og multiplikatoreffekten i makroøkonomien.","f629a6298dd17521":"## Kan ein uendeleg sum vere endeleg?\n\nDet høyrest umogleg ut: korleis kan du leggje saman uendeleg mange tal og likevel ende på eit endeleg svar? Men svaret er ja -- under éi bestemt føresetnad. Tenk på eit kvadrat med areal $1$. Først tek du halvparten, $\\frac{1}{2}$, så halvparten av det som er att, $\\frac{1}{4}$, så $\\frac{1}{8}$, og slik vidare i det uendelege. Til saman fyller du nøyaktig heile kvadratet: $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\ldots = 1$.\n\nDette er ei **uendeleg geometrisk rekkje**. Vi definerer summen gjennom partialsummane $S_n = a_1 + a_2 + \\ldots + a_n$: dersom $\\lim_{n\\to\\infty} S_n = S$ for eit endeleg tal $S$, seier vi at rekkja **konvergerer** og har sum $S$. For rekkja over er $a_1 = \\frac{1}{2}$ og $k = \\frac{1}{2}$, og partialsummen er $S_n = \\frac{1}{2}\\cdot \\frac{1 - (1/2)^n}{1 - 1/2} = 1 - (\\tfrac{1}{2})^n$. Når $n\\to\\infty$ går $(\\tfrac{1}{2})^n \\to 0$, så $S_n \\to 1$.\n\nNøkkelen ligg i kvotienten. For ei geometrisk rekkje er $S_n = a_1\\cdot \\frac{1 - k^n}{1 - k}$, og alt blir avgjort av kva $k^n$ gjer. Dersom $\\lvert k\\rvert < 1$, krympar $k^n$ mot null, og summen stabiliserer seg på $S = \\frac{a_1}{1 - k}$ -- rekkja konvergerer. Men dersom $\\lvert k\\rvert > 1$ veks ledda utan grense og rekkja divergerer, og ved $k = -1$ oscillerer ho evig. Føresetnaden $\\lvert k\\rvert < 1$ er difor heilt avgjerande.","1751029e733eceaa":"## Formelen som låsar opp æva\n\nLat oss bruke summen $S = \\frac{a_1}{1 - k}$ -- men hugs åtvaringa: han gjeld **berre** når $\\lvert k\\rvert < 1$. Ta rekkja $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$ med $a_1 = 1$ og $k = \\frac{1}{3}$. Sidan $\\frac{1}{3} < 1$ konvergerer ho, og $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$. Sjølv med vekslande forteikn går det bra så lenge talverdien til $k$ er under $1$: for $4 - 2 + 1 - \\frac{1}{2} + \\ldots$ er $a_1 = 4$ og $k = -\\frac{1}{2}$, så $S = \\frac{4}{1 - (-1/2)} = \\frac{4}{3/2} = \\frac{8}{3} \\approx 2{,}67$.\n\nMen prøv aldri formelen der han ikkje gjeld. Rekkja $1 + 2 + 4 + 8 + \\ldots$ har $k = 2$, og ho divergerer -- partialsummane $1, 3, 7, 15, \\ldots$ stikk av mot uendeleg. Skulle du naivt setje inn i formelen, ville du fått $\\frac{1}{1 - 2} = -1$, eit meiningslaust svar for ein sum av lutter positive tal. Like ille er $1 - 1 + 1 - 1 + \\ldots$ med $k = -1$, der partialsummane hoppar mellom $1$ og $0$ utan å lande.\n\nNo kjem den økonomiske gullgruva. Ein **perpetuitet** er ein kontantstraum som betaler ut eit fast beløp $C$ ved slutten av kvar periode i all æve -- tenk evige stipend, statsobligasjonar utan forfall, eller aksjeutbyte. Nåverdien er summen av dei neddiskonterte utbetalingane: $NV = \\frac{C}{1+r} + \\frac{C}{(1+r)^2} + \\ldots$ Dette er ei uendeleg geometrisk rekkje med $a_1 = \\frac{C}{1+r}$ og $k = \\frac{1}{1+r}$. Sidan $r > 0$ er $0 < k < 1$, og formelen gir $NV = \\frac{a_1}{1 - k} = \\frac{C}{r}$. Vil eit legat dele ut $100\\,000$ kr i året for alltid til $4\\,\\%$ avkastning, trengst $NV = \\frac{100\\,000}{0{,}04} = 2\\,500\\,000$ kr -- fondet tener nøyaktig $0{,}04\\cdot 2\\,500\\,000 = 100\\,000$ kr i renter kvart år, og kapitalen blir verande intakt.","e3895d70fa71cef4":"Test deg sjølv på uendelege rekkjer og perpetuitetar:","4097889236a2af26":"placeholder","a0cb1e01814f599d":"Når konvergerer ei uendeleg geometrisk rekkje?","a300b41a678c50e9":"Når $\\lvert k\\rvert > 1$","e76bb5b1fda292ef":"Når $a_1 > 0$","de6d22124febe51f":"Alltid","c2f0754f93c9e14c":"Når $\\lvert k\\rvert < 1$","483fc7f8945fcc1c":"Berre når $\\lvert k\\rvert < 1$ krympar $k^n$ mot null, slik at partialsummane stabiliserer seg på $S = \\frac{a_1}{1-k}$.","2b725fda59616c55":"Kva er summen av $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$?","9663be320a691f04":"$\\frac{3}{2}$","85f56d8f47729396":"Ho divergerer","ecc9f0f8db9f5cf9":"Her er $a_1 = 1$ og $k = \\frac{1}{3}$, og sidan $\\frac{1}{3} < 1$: $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$.","3f7245474ed71e73":"Ein aksje betaler $8$ kr i årleg utbyte i overskodeleg framtid, og investorar krev $10\\,\\%$ avkastning. Kva er ein rimeleg pris?","ffc7683a61009db5":"$8$ kr","83cf0c072a7317c1":"$80$ kr","182c6174da23f4fb":"$800$ kr","91404468af7ef8b5":"$0{,}80$ kr","8fa3cbd852d47721":"Vi handsamar utbytet som ein perpetuitet: $NV = \\frac{C}{r} = \\frac{8}{0{,}10} = 80$ kr.","66512ed1a6a9accf":"Kvifor kan vi ikkje bruke $S = \\frac{a_1}{1-k}$ på rekkja $1 + 2 + 4 + 8 + \\ldots$?","9563a32dbb780468":"Fordi $a_1$ ikkje er kjend","5d2a01ea938a5dce":"Fordi ledda har vekslande forteikn","d8c522f1e08a1f57":"Fordi $k = 2 > 1$, så rekkja divergerer og formelen gjeld ikkje","55ae6018571c1d5e":"Fordi $r$ er negativ","83c2a876d1b5623a":"Formelen krev $\\lvert k\\rvert < 1$. Her er $k = 2$, så rekkja divergerer; partialsummane $1, 3, 7, 15, \\ldots$ veks utan grense, og eit svar som $\\frac{1}{1-2} = -1$ ville vore meiningslaust.","41b6a709c30645aa":"## Når kontantstraumen veks: Gordon og multiplikatoren\n\nI røynda er utbyte og inntekter sjeldan heilt faste -- dei veks ofte. Lat oss seie at ei betaling startar på $C_1$ og veks med rate $g$ per periode: $C_1, C_1(1+g), C_1(1+g)^2, \\ldots$ Neddiskontert blir dette ei geometrisk rekkje med $a_1 = \\frac{C_1}{1+r}$ og $k = \\frac{1+g}{1+r}$. Så lenge $r > g$ er $k < 1$, og rekkja konvergerer til **Gordons formel**: $NV = \\frac{C_1}{r - g}$. Dette er sjølve hjørnesteinen i aksjeprising. Betaler ein aksje $5$ kr neste år, veks utbytet $3\\,\\%$ årleg og avkastningskravet er $9\\,\\%$, blir verdien $NV = \\frac{5}{0{,}09 - 0{,}03} = \\frac{5}{0{,}06} \\approx 83{,}33$ kr -- klart meir enn dei $\\frac{5}{0{,}09} \\approx 55{,}56$ kr vi ville fått utan vekst.\n\nMen Gordons formel har ei farleg grense. Når $g$ nærmar seg $r$, eksploderer nåverdien: med $g = 0{,}059$ og $r = 0{,}06$ blir $NV = \\frac{C_1}{0{,}001}$, altså tusen gonger $C_1$. Og dersom $g \\geq r$, divergerer rekkja og modellen kollapsar fullstendig. Det gir meining: inga verksemd kan vekse raskare enn avkastningskravet i økonomien i all æve. Difor krev formelen strengt $r > g$, og i praksis bør $g$ liggje nær langsiktig BNP-vekst på $2$ til $3\\,\\%$.\n\nDen same uendelege rekkja dukkar opp i makroøkonomien som **multiplikatoreffekten**. Får ein husstand $1\\,000$ kr ekstra, brukar dei ein del $c$ -- konsumtilbøyelegheita -- på forbruk. Det blir andre sin inntekt, som igjen forbruker $c$ av sin del, og slik rullar det vidare. Total effekt blir $1\\,000 + 1\\,000c + 1\\,000c^2 + \\ldots = \\frac{1\\,000}{1 - c}$, der faktoren $\\frac{1}{1-c}$ er **multiplikatoren**. Løyver staten $10$ milliardar med $c = 0{,}75$, blir multiplikatoren $\\frac{1}{1 - 0{,}75} = \\frac{1}{0{,}25} = 4$, og samla BNP-effekt $10\\cdot 4 = 40$ milliardar. Legg merke til at alle desse formlane -- perpetuitet, Gordon og multiplikator -- spring ut av den eine summen $S = \\frac{a_1}{1-k}$.","bace1fb5e7e64259":"Test deg sjølv på Gordons formel og multiplikatoreffekten:","2e63fbf450d0e0aa":"Ein aksje betaler $4$ kr i utbyte neste år, veks $2\\,\\%$ årleg, og avkastningskravet er $7\\,\\%$. Kva er aksjeprisen?","ab56e980034d345d":"$57{,}14$ kr","00389b4df401eded":"$200$ kr","5561ce7665eef100":"Gordons formel: $NV = \\frac{C_1}{r - g} = \\frac{4}{0{,}07 - 0{,}02} = \\frac{4}{0{,}05} = 80$ kr.","584b9134dbc77400":"Kvifor krev Gordons formel strengt at $r > g$?","bc36eee5a33fd02a":"Fordi kvotienten $k = \\frac{1+g}{1+r}$ elles blir $\\geq 1$, og rekkja divergerer","2576b50a26fe7124":"Fordi $g$ må vere negativ","73829cad615d2ae5":"Fordi $C_1$ elles blir negativ","b8d7f250c8d45d96":"Fordi avkastningskravet alltid er $10\\,\\%$","2d06ae37abfb2e09":"Dersom $g \\geq r$ blir $k = \\frac{1+g}{1+r} \\geq 1$, og den uendelege rekkja konvergerer ikkje. Då kollapsar modellen og nåverdien blir uendeleg -- urealistisk.","903a2ffeceba62c5":"Kva er multiplikatoren dersom konsumtilbøyelegheita er $c = 0{,}8$?","2bed456ca77ddb2a":"Multiplikatoren er $\\frac{1}{1 - c} = \\frac{1}{1 - 0{,}8} = \\frac{1}{0{,}2} = 5$.","c583d481c3ffbe59":"Staten investerer $5$ mrd kr og konsumtilbøyelegheita er $c = 0{,}9$. Kva blir samla BNP-effekt?","a353ecaadf05b5f8":"$5$ mrd kr","fb0d030258e27b65":"$45$ mrd kr","78049bd5d17a3890":"$50$ mrd kr","fdaff597f0cd90d0":"$25$ mrd kr","c8421e2826a2e0a3":"Multiplikatoren er $\\frac{1}{1 - 0{,}9} = 10$, så samla effekt blir $5\\cdot 10 = 50$ mrd kr.","630e9872caec340e":"## Oppsummering\n\nEi **uendeleg geometrisk rekkje** kan ha ein endeleg sum, men berre når $\\lvert k\\rvert < 1$. Då krympar $k^n$ mot null, og summen blir $S = \\frac{a_1}{1 - k}$. Er $\\lvert k\\rvert \\geq 1$, divergerer rekkja, og formelen må aldri brukast der.\n\nDenne eine ideen opnar eit heilt landskap av økonomiske reiskapar. Ein **perpetuitet** -- ein evig fast kontantstraum -- har nåverdi $NV = \\frac{C}{r}$. Når kontantstraumen veks med rate $g$, gir **Gordons formel** $NV = \\frac{C_1}{r - g}$, gyldig så lenge $r > g$; elles eksploderer eller kollapsar modellen. Og i makroøkonomien forklarar den same uendelege rekkja **multiplikatoreffekten**, der ein impuls blir forsterka med faktoren $\\frac{1}{1 - c}$. Det finaste poenget er at perpetuitet, Gordon og multiplikator alle er same formel i forkledning: $S = \\frac{a_1}{1 - k}$. Frå talfølgjer via aritmetiske og geometriske rekkjer har vi no nådd heilt fram til verdsetjing av aksjar og verknaden av finanspolitikk -- alt bygt på dei same grunnleggjande ideane om korleis tal hopar seg opp over tid."}}}
+{
+  "id": "bi-okonomi-10-4-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "10.4",
+  "title": "Uendelege rekkjer og perpetuitetar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om uendelege geometriske rekkjer som likevel har ein endeleg sum -- og om korleis denne eine ideen gir oss perpetuitetar, Gordons formel for aksjeprising og multiplikatoreffekten i makroøkonomien.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-10-4",
+  "content": [
+    {
+      "id": "bi-okonomi-10-4-n-intro",
+      "type": "text",
+      "content": "## Kan ein uendeleg sum vere endeleg?\n\nDet høyrest umogleg ut: korleis kan du leggje saman uendeleg mange tal og likevel ende på eit endeleg svar? Men svaret er ja -- under éi bestemt føresetnad. Tenk på eit kvadrat med areal $1$. Først tek du halvparten, $\\frac{1}{2}$, så halvparten av det som er att, $\\frac{1}{4}$, så $\\frac{1}{8}$, og slik vidare i det uendelege. Til saman fyller du nøyaktig heile kvadratet: $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\ldots = 1$.\n\nDette er ei **uendeleg geometrisk rekkje**. Vi definerer summen gjennom partialsummane $S_n = a_1 + a_2 + \\ldots + a_n$: dersom $\\lim_{n\\to\\infty} S_n = S$ for eit endeleg tal $S$, seier vi at rekkja **konvergerer** og har sum $S$. For rekkja over er $a_1 = \\frac{1}{2}$ og $k = \\frac{1}{2}$, og partialsummen er $S_n = \\frac{1}{2}\\cdot \\frac{1 - (1/2)^n}{1 - 1/2} = 1 - (\\tfrac{1}{2})^n$. Når $n\\to\\infty$ går $(\\tfrac{1}{2})^n \\to 0$, så $S_n \\to 1$.\n\nNøkkelen ligg i kvotienten. For ei geometrisk rekkje er $S_n = a_1\\cdot \\frac{1 - k^n}{1 - k}$, og alt blir avgjort av kva $k^n$ gjer. Dersom $\\lvert k\\rvert < 1$, krympar $k^n$ mot null, og summen stabiliserer seg på $S = \\frac{a_1}{1 - k}$ -- rekkja konvergerer. Men dersom $\\lvert k\\rvert > 1$ veks ledda utan grense og rekkja divergerer, og ved $k = -1$ oscillerer ho evig. Føresetnaden $\\lvert k\\rvert < 1$ er difor heilt avgjerande."
+    },
+    {
+      "id": "bi-okonomi-10-4-n-section1",
+      "type": "text",
+      "content": "## Formelen som låsar opp æva\n\nLat oss bruke summen $S = \\frac{a_1}{1 - k}$ -- men hugs åtvaringa: han gjeld **berre** når $\\lvert k\\rvert < 1$. Ta rekkja $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$ med $a_1 = 1$ og $k = \\frac{1}{3}$. Sidan $\\frac{1}{3} < 1$ konvergerer ho, og $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$. Sjølv med vekslande forteikn går det bra så lenge talverdien til $k$ er under $1$: for $4 - 2 + 1 - \\frac{1}{2} + \\ldots$ er $a_1 = 4$ og $k = -\\frac{1}{2}$, så $S = \\frac{4}{1 - (-1/2)} = \\frac{4}{3/2} = \\frac{8}{3} \\approx 2{,}67$.\n\nMen prøv aldri formelen der han ikkje gjeld. Rekkja $1 + 2 + 4 + 8 + \\ldots$ har $k = 2$, og ho divergerer -- partialsummane $1, 3, 7, 15, \\ldots$ stikk av mot uendeleg. Skulle du naivt setje inn i formelen, ville du fått $\\frac{1}{1 - 2} = -1$, eit meiningslaust svar for ein sum av lutter positive tal. Like ille er $1 - 1 + 1 - 1 + \\ldots$ med $k = -1$, der partialsummane hoppar mellom $1$ og $0$ utan å lande.\n\nNo kjem den økonomiske gullgruva. Ein **perpetuitet** er ein kontantstraum som betaler ut eit fast beløp $C$ ved slutten av kvar periode i all æve -- tenk evige stipend, statsobligasjonar utan forfall, eller aksjeutbyte. Nåverdien er summen av dei neddiskonterte utbetalingane: $NV = \\frac{C}{1+r} + \\frac{C}{(1+r)^2} + \\ldots$ Dette er ei uendeleg geometrisk rekkje med $a_1 = \\frac{C}{1+r}$ og $k = \\frac{1}{1+r}$. Sidan $r > 0$ er $0 < k < 1$, og formelen gir $NV = \\frac{a_1}{1 - k} = \\frac{C}{r}$. Vil eit legat dele ut $100\\,000$ kr i året for alltid til $4\\,\\%$ avkastning, trengst $NV = \\frac{100\\,000}{0{,}04} = 2\\,500\\,000$ kr -- fondet tener nøyaktig $0{,}04\\cdot 2\\,500\\,000 = 100\\,000$ kr i renter kvart år, og kapitalen blir verande intakt."
+    },
+    {
+      "id": "bi-okonomi-10-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på uendelege rekkjer og perpetuitetar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-4-n-quiz1-q0",
+            "task": "Når konvergerer ei uendeleg geometrisk rekkje?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $\\lvert k\\rvert > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $\\lvert k\\rvert < 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når $a_1 > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alltid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Berre når $\\lvert k\\rvert < 1$ krympar $k^n$ mot null, slik at partialsummane stabiliserer seg på $S = \\frac{a_1}{1-k}$."
+          },
+          {
+            "id": "bi-okonomi-10-4-n-quiz1-q1",
+            "task": "Kva er summen av $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho divergerer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Her er $a_1 = 1$ og $k = \\frac{1}{3}$, og sidan $\\frac{1}{3} < 1$: $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$."
+          },
+          {
+            "id": "bi-okonomi-10-4-n-quiz1-q2",
+            "task": "Ein aksje betaler $8$ kr i årleg utbyte i overskodeleg framtid, og investorar krev $10\\,\\%$ avkastning. Kva er ein rimeleg pris?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$800$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}80$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$80$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi handsamar utbytet som ein perpetuitet: $NV = \\frac{C}{r} = \\frac{8}{0{,}10} = 80$ kr."
+          },
+          {
+            "id": "bi-okonomi-10-4-n-quiz1-q3",
+            "task": "Kvifor kan vi ikkje bruke $S = \\frac{a_1}{1-k}$ på rekkja $1 + 2 + 4 + 8 + \\ldots$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fordi $k = 2 > 1$, så rekkja divergerer og formelen gjeld ikkje",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi $a_1$ ikkje er kjend",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi ledda har vekslande forteikn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $r$ er negativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formelen krev $\\lvert k\\rvert < 1$. Her er $k = 2$, så rekkja divergerer; partialsummane $1, 3, 7, 15, \\ldots$ veks utan grense, og eit svar som $\\frac{1}{1-2} = -1$ ville vore meiningslaust."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-4-n-section2",
+      "type": "text",
+      "content": "## Når kontantstraumen veks: Gordon og multiplikatoren\n\nI røynda er utbyte og inntekter sjeldan heilt faste -- dei veks ofte. Lat oss seie at ei betaling startar på $C_1$ og veks med rate $g$ per periode: $C_1, C_1(1+g), C_1(1+g)^2, \\ldots$ Neddiskontert blir dette ei geometrisk rekkje med $a_1 = \\frac{C_1}{1+r}$ og $k = \\frac{1+g}{1+r}$. Så lenge $r > g$ er $k < 1$, og rekkja konvergerer til **Gordons formel**: $NV = \\frac{C_1}{r - g}$. Dette er sjølve hjørnesteinen i aksjeprising. Betaler ein aksje $5$ kr neste år, veks utbytet $3\\,\\%$ årleg og avkastningskravet er $9\\,\\%$, blir verdien $NV = \\frac{5}{0{,}09 - 0{,}03} = \\frac{5}{0{,}06} \\approx 83{,}33$ kr -- klart meir enn dei $\\frac{5}{0{,}09} \\approx 55{,}56$ kr vi ville fått utan vekst.\n\nMen Gordons formel har ei farleg grense. Når $g$ nærmar seg $r$, eksploderer nåverdien: med $g = 0{,}059$ og $r = 0{,}06$ blir $NV = \\frac{C_1}{0{,}001}$, altså tusen gonger $C_1$. Og dersom $g \\geq r$, divergerer rekkja og modellen kollapsar fullstendig. Det gir meining: inga verksemd kan vekse raskare enn avkastningskravet i økonomien i all æve. Difor krev formelen strengt $r > g$, og i praksis bør $g$ liggje nær langsiktig BNP-vekst på $2$ til $3\\,\\%$.\n\nDen same uendelege rekkja dukkar opp i makroøkonomien som **multiplikatoreffekten**. Får ein husstand $1\\,000$ kr ekstra, brukar dei ein del $c$ -- konsumtilbøyelegheita -- på forbruk. Det blir andre sin inntekt, som igjen forbruker $c$ av sin del, og slik rullar det vidare. Total effekt blir $1\\,000 + 1\\,000c + 1\\,000c^2 + \\ldots = \\frac{1\\,000}{1 - c}$, der faktoren $\\frac{1}{1-c}$ er **multiplikatoren**. Løyver staten $10$ milliardar med $c = 0{,}75$, blir multiplikatoren $\\frac{1}{1 - 0{,}75} = \\frac{1}{0{,}25} = 4$, og samla BNP-effekt $10\\cdot 4 = 40$ milliardar. Legg merke til at alle desse formlane -- perpetuitet, Gordon og multiplikator -- spring ut av den eine summen $S = \\frac{a_1}{1-k}$."
+    },
+    {
+      "id": "bi-okonomi-10-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Gordons formel og multiplikatoreffekten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-4-n-quiz2-q0",
+            "task": "Ein aksje betaler $4$ kr i utbyte neste år, veks $2\\,\\%$ årleg, og avkastningskravet er $7\\,\\%$. Kva er aksjeprisen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$57{,}14$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$80$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$8$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$200$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gordons formel: $NV = \\frac{C_1}{r - g} = \\frac{4}{0{,}07 - 0{,}02} = \\frac{4}{0{,}05} = 80$ kr."
+          },
+          {
+            "id": "bi-okonomi-10-4-n-quiz2-q1",
+            "task": "Kvifor krev Gordons formel strengt at $r > g$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $g$ må vere negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $C_1$ elles blir negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi kvotienten $k = \\frac{1+g}{1+r}$ elles blir $\\geq 1$, og rekkja divergerer",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi avkastningskravet alltid er $10\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dersom $g \\geq r$ blir $k = \\frac{1+g}{1+r} \\geq 1$, og den uendelege rekkja konvergerer ikkje. Då kollapsar modellen og nåverdien blir uendeleg -- urealistisk."
+          },
+          {
+            "id": "bi-okonomi-10-4-n-quiz2-q2",
+            "task": "Kva er multiplikatoren dersom konsumtilbøyelegheita er $c = 0{,}8$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}25$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Multiplikatoren er $\\frac{1}{1 - c} = \\frac{1}{1 - 0{,}8} = \\frac{1}{0{,}2} = 5$."
+          },
+          {
+            "id": "bi-okonomi-10-4-n-quiz2-q3",
+            "task": "Staten investerer $5$ mrd kr og konsumtilbøyelegheita er $c = 0{,}9$. Kva blir samla BNP-effekt?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$50$ mrd kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5$ mrd kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$45$ mrd kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25$ mrd kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikatoren er $\\frac{1}{1 - 0{,}9} = 10$, så samla effekt blir $5\\cdot 10 = 50$ mrd kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEi **uendeleg geometrisk rekkje** kan ha ein endeleg sum, men berre når $\\lvert k\\rvert < 1$. Då krympar $k^n$ mot null, og summen blir $S = \\frac{a_1}{1 - k}$. Er $\\lvert k\\rvert \\geq 1$, divergerer rekkja, og formelen må aldri brukast der.\n\nDenne eine ideen opnar eit heilt landskap av økonomiske reiskapar. Ein **perpetuitet** -- ein evig fast kontantstraum -- har nåverdi $NV = \\frac{C}{r}$. Når kontantstraumen veks med rate $g$, gir **Gordons formel** $NV = \\frac{C_1}{r - g}$, gyldig så lenge $r > g$; elles eksploderer eller kollapsar modellen. Og i makroøkonomien forklarar den same uendelege rekkja **multiplikatoreffekten**, der ein impuls blir forsterka med faktoren $\\frac{1}{1 - c}$. Det finaste poenget er at perpetuitet, Gordon og multiplikator alle er same formel i forkledning: $S = \\frac{a_1}{1 - k}$. Frå talfølgjer via aritmetiske og geometriske rekkjer har vi no nådd heilt fram til verdsetjing av aksjar og verknaden av finanspolitikk -- alt bygt på dei same grunnleggjande ideane om korleis tal hopar seg opp over tid."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "51ad5a78888cabcf",
+    "translatedAt": "2026-06-21T00:50:52.207Z",
+    "model": "claude-code-agent",
+    "strings": 53,
+    "tm": {
+      "c01ab410391b43d6": "Uendelege rekkjer og perpetuitetar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "77f63bff9753697a": "Ei forteljing om uendelege geometriske rekkjer som likevel har ein endeleg sum -- og om korleis denne eine ideen gir oss perpetuitetar, Gordons formel for aksjeprising og multiplikatoreffekten i makroøkonomien.",
+      "f629a6298dd17521": "## Kan ein uendeleg sum vere endeleg?\n\nDet høyrest umogleg ut: korleis kan du leggje saman uendeleg mange tal og likevel ende på eit endeleg svar? Men svaret er ja -- under éi bestemt føresetnad. Tenk på eit kvadrat med areal $1$. Først tek du halvparten, $\\frac{1}{2}$, så halvparten av det som er att, $\\frac{1}{4}$, så $\\frac{1}{8}$, og slik vidare i det uendelege. Til saman fyller du nøyaktig heile kvadratet: $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\ldots = 1$.\n\nDette er ei **uendeleg geometrisk rekkje**. Vi definerer summen gjennom partialsummane $S_n = a_1 + a_2 + \\ldots + a_n$: dersom $\\lim_{n\\to\\infty} S_n = S$ for eit endeleg tal $S$, seier vi at rekkja **konvergerer** og har sum $S$. For rekkja over er $a_1 = \\frac{1}{2}$ og $k = \\frac{1}{2}$, og partialsummen er $S_n = \\frac{1}{2}\\cdot \\frac{1 - (1/2)^n}{1 - 1/2} = 1 - (\\tfrac{1}{2})^n$. Når $n\\to\\infty$ går $(\\tfrac{1}{2})^n \\to 0$, så $S_n \\to 1$.\n\nNøkkelen ligg i kvotienten. For ei geometrisk rekkje er $S_n = a_1\\cdot \\frac{1 - k^n}{1 - k}$, og alt blir avgjort av kva $k^n$ gjer. Dersom $\\lvert k\\rvert < 1$, krympar $k^n$ mot null, og summen stabiliserer seg på $S = \\frac{a_1}{1 - k}$ -- rekkja konvergerer. Men dersom $\\lvert k\\rvert > 1$ veks ledda utan grense og rekkja divergerer, og ved $k = -1$ oscillerer ho evig. Føresetnaden $\\lvert k\\rvert < 1$ er difor heilt avgjerande.",
+      "1751029e733eceaa": "## Formelen som låsar opp æva\n\nLat oss bruke summen $S = \\frac{a_1}{1 - k}$ -- men hugs åtvaringa: han gjeld **berre** når $\\lvert k\\rvert < 1$. Ta rekkja $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$ med $a_1 = 1$ og $k = \\frac{1}{3}$. Sidan $\\frac{1}{3} < 1$ konvergerer ho, og $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$. Sjølv med vekslande forteikn går det bra så lenge talverdien til $k$ er under $1$: for $4 - 2 + 1 - \\frac{1}{2} + \\ldots$ er $a_1 = 4$ og $k = -\\frac{1}{2}$, så $S = \\frac{4}{1 - (-1/2)} = \\frac{4}{3/2} = \\frac{8}{3} \\approx 2{,}67$.\n\nMen prøv aldri formelen der han ikkje gjeld. Rekkja $1 + 2 + 4 + 8 + \\ldots$ har $k = 2$, og ho divergerer -- partialsummane $1, 3, 7, 15, \\ldots$ stikk av mot uendeleg. Skulle du naivt setje inn i formelen, ville du fått $\\frac{1}{1 - 2} = -1$, eit meiningslaust svar for ein sum av lutter positive tal. Like ille er $1 - 1 + 1 - 1 + \\ldots$ med $k = -1$, der partialsummane hoppar mellom $1$ og $0$ utan å lande.\n\nNo kjem den økonomiske gullgruva. Ein **perpetuitet** er ein kontantstraum som betaler ut eit fast beløp $C$ ved slutten av kvar periode i all æve -- tenk evige stipend, statsobligasjonar utan forfall, eller aksjeutbyte. Nåverdien er summen av dei neddiskonterte utbetalingane: $NV = \\frac{C}{1+r} + \\frac{C}{(1+r)^2} + \\ldots$ Dette er ei uendeleg geometrisk rekkje med $a_1 = \\frac{C}{1+r}$ og $k = \\frac{1}{1+r}$. Sidan $r > 0$ er $0 < k < 1$, og formelen gir $NV = \\frac{a_1}{1 - k} = \\frac{C}{r}$. Vil eit legat dele ut $100\\,000$ kr i året for alltid til $4\\,\\%$ avkastning, trengst $NV = \\frac{100\\,000}{0{,}04} = 2\\,500\\,000$ kr -- fondet tener nøyaktig $0{,}04\\cdot 2\\,500\\,000 = 100\\,000$ kr i renter kvart år, og kapitalen blir verande intakt.",
+      "e3895d70fa71cef4": "Test deg sjølv på uendelege rekkjer og perpetuitetar:",
+      "4097889236a2af26": "placeholder",
+      "a0cb1e01814f599d": "Når konvergerer ei uendeleg geometrisk rekkje?",
+      "a300b41a678c50e9": "Når $\\lvert k\\rvert > 1$",
+      "e76bb5b1fda292ef": "Når $a_1 > 0$",
+      "de6d22124febe51f": "Alltid",
+      "c2f0754f93c9e14c": "Når $\\lvert k\\rvert < 1$",
+      "483fc7f8945fcc1c": "Berre når $\\lvert k\\rvert < 1$ krympar $k^n$ mot null, slik at partialsummane stabiliserer seg på $S = \\frac{a_1}{1-k}$.",
+      "2b725fda59616c55": "Kva er summen av $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\ldots$?",
+      "9663be320a691f04": "$\\frac{3}{2}$",
+      "85f56d8f47729396": "Ho divergerer",
+      "ecc9f0f8db9f5cf9": "Her er $a_1 = 1$ og $k = \\frac{1}{3}$, og sidan $\\frac{1}{3} < 1$: $S = \\frac{1}{1 - 1/3} = \\frac{1}{2/3} = \\frac{3}{2}$.",
+      "3f7245474ed71e73": "Ein aksje betaler $8$ kr i årleg utbyte i overskodeleg framtid, og investorar krev $10\\,\\%$ avkastning. Kva er ein rimeleg pris?",
+      "ffc7683a61009db5": "$8$ kr",
+      "83cf0c072a7317c1": "$80$ kr",
+      "182c6174da23f4fb": "$800$ kr",
+      "91404468af7ef8b5": "$0{,}80$ kr",
+      "8fa3cbd852d47721": "Vi handsamar utbytet som ein perpetuitet: $NV = \\frac{C}{r} = \\frac{8}{0{,}10} = 80$ kr.",
+      "66512ed1a6a9accf": "Kvifor kan vi ikkje bruke $S = \\frac{a_1}{1-k}$ på rekkja $1 + 2 + 4 + 8 + \\ldots$?",
+      "9563a32dbb780468": "Fordi $a_1$ ikkje er kjend",
+      "5d2a01ea938a5dce": "Fordi ledda har vekslande forteikn",
+      "d8c522f1e08a1f57": "Fordi $k = 2 > 1$, så rekkja divergerer og formelen gjeld ikkje",
+      "55ae6018571c1d5e": "Fordi $r$ er negativ",
+      "83c2a876d1b5623a": "Formelen krev $\\lvert k\\rvert < 1$. Her er $k = 2$, så rekkja divergerer; partialsummane $1, 3, 7, 15, \\ldots$ veks utan grense, og eit svar som $\\frac{1}{1-2} = -1$ ville vore meiningslaust.",
+      "41b6a709c30645aa": "## Når kontantstraumen veks: Gordon og multiplikatoren\n\nI røynda er utbyte og inntekter sjeldan heilt faste -- dei veks ofte. Lat oss seie at ei betaling startar på $C_1$ og veks med rate $g$ per periode: $C_1, C_1(1+g), C_1(1+g)^2, \\ldots$ Neddiskontert blir dette ei geometrisk rekkje med $a_1 = \\frac{C_1}{1+r}$ og $k = \\frac{1+g}{1+r}$. Så lenge $r > g$ er $k < 1$, og rekkja konvergerer til **Gordons formel**: $NV = \\frac{C_1}{r - g}$. Dette er sjølve hjørnesteinen i aksjeprising. Betaler ein aksje $5$ kr neste år, veks utbytet $3\\,\\%$ årleg og avkastningskravet er $9\\,\\%$, blir verdien $NV = \\frac{5}{0{,}09 - 0{,}03} = \\frac{5}{0{,}06} \\approx 83{,}33$ kr -- klart meir enn dei $\\frac{5}{0{,}09} \\approx 55{,}56$ kr vi ville fått utan vekst.\n\nMen Gordons formel har ei farleg grense. Når $g$ nærmar seg $r$, eksploderer nåverdien: med $g = 0{,}059$ og $r = 0{,}06$ blir $NV = \\frac{C_1}{0{,}001}$, altså tusen gonger $C_1$. Og dersom $g \\geq r$, divergerer rekkja og modellen kollapsar fullstendig. Det gir meining: inga verksemd kan vekse raskare enn avkastningskravet i økonomien i all æve. Difor krev formelen strengt $r > g$, og i praksis bør $g$ liggje nær langsiktig BNP-vekst på $2$ til $3\\,\\%$.\n\nDen same uendelege rekkja dukkar opp i makroøkonomien som **multiplikatoreffekten**. Får ein husstand $1\\,000$ kr ekstra, brukar dei ein del $c$ -- konsumtilbøyelegheita -- på forbruk. Det blir andre sin inntekt, som igjen forbruker $c$ av sin del, og slik rullar det vidare. Total effekt blir $1\\,000 + 1\\,000c + 1\\,000c^2 + \\ldots = \\frac{1\\,000}{1 - c}$, der faktoren $\\frac{1}{1-c}$ er **multiplikatoren**. Løyver staten $10$ milliardar med $c = 0{,}75$, blir multiplikatoren $\\frac{1}{1 - 0{,}75} = \\frac{1}{0{,}25} = 4$, og samla BNP-effekt $10\\cdot 4 = 40$ milliardar. Legg merke til at alle desse formlane -- perpetuitet, Gordon og multiplikator -- spring ut av den eine summen $S = \\frac{a_1}{1-k}$.",
+      "bace1fb5e7e64259": "Test deg sjølv på Gordons formel og multiplikatoreffekten:",
+      "2e63fbf450d0e0aa": "Ein aksje betaler $4$ kr i utbyte neste år, veks $2\\,\\%$ årleg, og avkastningskravet er $7\\,\\%$. Kva er aksjeprisen?",
+      "ab56e980034d345d": "$57{,}14$ kr",
+      "00389b4df401eded": "$200$ kr",
+      "5561ce7665eef100": "Gordons formel: $NV = \\frac{C_1}{r - g} = \\frac{4}{0{,}07 - 0{,}02} = \\frac{4}{0{,}05} = 80$ kr.",
+      "584b9134dbc77400": "Kvifor krev Gordons formel strengt at $r > g$?",
+      "bc36eee5a33fd02a": "Fordi kvotienten $k = \\frac{1+g}{1+r}$ elles blir $\\geq 1$, og rekkja divergerer",
+      "2576b50a26fe7124": "Fordi $g$ må vere negativ",
+      "73829cad615d2ae5": "Fordi $C_1$ elles blir negativ",
+      "b8d7f250c8d45d96": "Fordi avkastningskravet alltid er $10\\,\\%$",
+      "2d06ae37abfb2e09": "Dersom $g \\geq r$ blir $k = \\frac{1+g}{1+r} \\geq 1$, og den uendelege rekkja konvergerer ikkje. Då kollapsar modellen og nåverdien blir uendeleg -- urealistisk.",
+      "903a2ffeceba62c5": "Kva er multiplikatoren dersom konsumtilbøyelegheita er $c = 0{,}8$?",
+      "2bed456ca77ddb2a": "Multiplikatoren er $\\frac{1}{1 - c} = \\frac{1}{1 - 0{,}8} = \\frac{1}{0{,}2} = 5$.",
+      "c583d481c3ffbe59": "Staten investerer $5$ mrd kr og konsumtilbøyelegheita er $c = 0{,}9$. Kva blir samla BNP-effekt?",
+      "a353ecaadf05b5f8": "$5$ mrd kr",
+      "fb0d030258e27b65": "$45$ mrd kr",
+      "78049bd5d17a3890": "$50$ mrd kr",
+      "fdaff597f0cd90d0": "$25$ mrd kr",
+      "c8421e2826a2e0a3": "Multiplikatoren er $\\frac{1}{1 - 0{,}9} = 10$, så samla effekt blir $5\\cdot 10 = 50$ mrd kr.",
+      "630e9872caec340e": "## Oppsummering\n\nEi **uendeleg geometrisk rekkje** kan ha ein endeleg sum, men berre når $\\lvert k\\rvert < 1$. Då krympar $k^n$ mot null, og summen blir $S = \\frac{a_1}{1 - k}$. Er $\\lvert k\\rvert \\geq 1$, divergerer rekkja, og formelen må aldri brukast der.\n\nDenne eine ideen opnar eit heilt landskap av økonomiske reiskapar. Ein **perpetuitet** -- ein evig fast kontantstraum -- har nåverdi $NV = \\frac{C}{r}$. Når kontantstraumen veks med rate $g$, gir **Gordons formel** $NV = \\frac{C_1}{r - g}$, gyldig så lenge $r > g$; elles eksploderer eller kollapsar modellen. Og i makroøkonomien forklarar den same uendelege rekkja **multiplikatoreffekten**, der ein impuls blir forsterka med faktoren $\\frac{1}{1 - c}$. Det finaste poenget er at perpetuitet, Gordon og multiplikator alle er same formel i forkledning: $S = \\frac{a_1}{1 - k}$. Frå talfølgjer via aritmetiske og geometriske rekkjer har vi no nådd heilt fram til verdsetjing av aksjar og verknaden av finanspolitikk -- alt bygt på dei same grunnleggjande ideane om korleis tal hopar seg opp over tid."
+    }
+  }
+}

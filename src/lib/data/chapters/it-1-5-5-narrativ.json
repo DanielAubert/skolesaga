@@ -1,1 +1,313 @@
-{"id":"it-1-5-5-narrativ","courseId":"it-1","chapterNumber":"5.5","title":"Asynkron programmering og API-er","subtitle":"Narrativ versjon","description":"En fortelling om hvordan nettsider henter data uten å fryse – synkron mot asynkron kode, Promises, fetch(), async/await og kommunikasjon med API-er.","estimatedMinutes":42,"competenceGoals":["bruke asynkron programmering for å kommunisere med eksterne tjenester","hente og behandle data fra API-er ved hjelp av JavaScript"],"linkedChapterId":"it-1-5-5","content":[{"id":"it-1-5-5-n-intro","type":"text","content":"## Sider som ikke fryser\n\nSå langt har JavaScript-koden vår kjørt **synkront** – instruksjon for instruksjon, fra topp til bunn. Men mange oppgaver tar tid: å hente data fra en server, laste bilder, vente på input. Måtte JavaScript vente på at hver slik operasjon ble ferdig, ville siden fryse og bli ubrukelig.\n\nLøsningen er **asynkron programmering** – tidkrevende operasjoner startes og kjører i bakgrunnen mens resten av programmet fortsetter. Når operasjonen er ferdig, varsles programmet og kan behandle resultatet. Forskjellen ser du tydelig i et eksempel:\n\n```javascript\nconsole.log(\"A\");\nsetTimeout(() => console.log(\"B\"), 0);\nconsole.log(\"C\");\n```\n\nDette skriver ut A, C, B – ikke A, B, C. Selv med en forsinkelse på 0 er `setTimeout` asynkron: den starter en timer i bakgrunnen og lar resten av koden kjøre videre, så «B» kommer sist. `setTimeout` er det enkleste eksemplet, men i praksis er det **nettverksforespørsler** som er den viktigste bruken.\n\nDet leder oss til **API-er** (Application Programming Interfaces) – grensesnitt som lar programmer kommunisere etter bestemte regler. Web-API-er leverer data over internett via HTTP, vanligvis i JSON-format. Når JavaScript henter værdata, kart eller nyheter fra en ekstern tjeneste, snakker det med et API."},{"id":"it-1-5-5-n-quiz1","type":"exercise","exercise":{"id":"it-1-5-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på asynkron kode og API-er:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-5-n-quiz1-q0","task":"Hva betyr det at JavaScript er asynkront?","options":[{"id":"a","text":"Koden kjører raskere enn i andre språk","isCorrect":false},{"id":"b","text":"Koden kjører i tilfeldig rekkefølge","isCorrect":false},{"id":"c","text":"JavaScript kan kjøre flere programmer samtidig","isCorrect":false},{"id":"d","text":"Tidkrevende operasjoner kan kjøre i bakgrunnen uten å blokkere resten av programmet","isCorrect":true}],"solution":"Asynkron betyr at tidkrevende operasjoner kjører i bakgrunnen mens resten av koden fortsetter, slik at siden ikke fryser."},{"id":"it-1-5-5-n-quiz1-q1","task":"Hva skrives ut? console.log(\"A\"); setTimeout(() => console.log(\"B\"), 0); console.log(\"C\")","options":[{"id":"a","text":"A, C, B","isCorrect":true},{"id":"b","text":"A, B, C","isCorrect":false},{"id":"c","text":"B, A, C","isCorrect":false},{"id":"d","text":"C, A, B","isCorrect":false}],"solution":"setTimeout er asynkron selv med 0 ms, så B legges bakerst i køen: A, C, B."},{"id":"it-1-5-5-n-quiz1-q2","task":"Hva er et API i websammenheng?","options":[{"id":"a","text":"Et programmeringsspråk","isCorrect":false},{"id":"b","text":"Et grensesnitt som lar programmer hente og sende data til eksterne tjenester","isCorrect":true},{"id":"c","text":"En type database for nettsider","isCorrect":false},{"id":"d","text":"En nettleser-utvidelse","isCorrect":false}],"solution":"Et API er et grensesnitt som lar programmer kommunisere – web-API-er leverer data over HTTP, ofte som JSON."}]}},{"id":"it-1-5-5-n-section1","type":"text","content":"## fetch, Promises og async/await\n\nDen innebygde funksjonen for å sende HTTP-forespørsler heter `fetch()`. Den er asynkron og returnerer et **Promise** – et objekt som representerer det *fremtidige* resultatet av en asynkron operasjon, et «løfte» om data senere. Et Promise har tre tilstander: *pending* (i gang), *fulfilled* (lyktes) eller *rejected* (feilet). Du håndterer utfallet med `.then()` for suksess og `.catch()` for feil:\n\n```javascript\nfetch(\"https://api.eksempel.no/data\")\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(\"Feil:\", error));\n```\n\nHer sender `fetch` en GET-forespørsel, `.then(response => response.json())` konverterer serverens JSON-tekst til et JavaScript-objekt, neste `.then` bruker dataene, og `.catch` fanger feil. Metoden `response.json()` gjør altså om svaret fra JSON-tekst til et objekt du kan jobbe med.\n\nLange `.then()`-kjeder kan bli vanskelige å lese. Derfor finnes **async/await**, som lar asynkron kode se ut som vanlig synkron kode:\n\n```javascript\nasync function hentData() {\n  try {\n    const response = await fetch(\"https://api.eksempel.no/data\");\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(\"Feil:\", error);\n  }\n}\n```\n\nNøkkelordet `async` foran funksjonen markerer den som asynkron, `await` pauser funksjonen til Promiset er fullført (og kan bare brukes inni en `async`-funksjon), og `try/catch` håndterer feil ryddig. De to skrivemåtene gjør nøyaktig det samme, men async/await er lettere å lese og anbefales."},{"id":"it-1-5-5-n-quiz2","type":"exercise","exercise":{"id":"it-1-5-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på fetch, Promise og async/await:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-5-n-quiz2-q0","task":"Hva gjør response.json() i en fetch()-forespørsel?","options":[{"id":"a","text":"Sender data til serveren i JSON-format","isCorrect":false},{"id":"b","text":"Validerer at svaret er gyldig JSON","isCorrect":false},{"id":"c","text":"Konverterer serverens svar fra JSON-tekst til et JavaScript-objekt","isCorrect":true},{"id":"d","text":"Komprimerer dataene","isCorrect":false}],"solution":"response.json() gjør om serverens JSON-tekst til et JavaScript-objekt du kan bruke videre."},{"id":"it-1-5-5-n-quiz2-q1","task":"Hva er et Promise?","options":[{"id":"a","text":"En type løkke","isCorrect":false},{"id":"b","text":"En innebygd feilmelding","isCorrect":false},{"id":"c","text":"En CSS-egenskap","isCorrect":false},{"id":"d","text":"Et objekt som representerer det fremtidige resultatet av en asynkron operasjon","isCorrect":true}],"solution":"Et Promise representerer et fremtidig resultat og kan være pending, fulfilled eller rejected."},{"id":"it-1-5-5-n-quiz2-q2","task":"Hva gjør nøkkelordet await?","options":[{"id":"a","text":"Pauser en async-funksjon til Promiset er fullført","isCorrect":true},{"id":"b","text":"Avslutter programmet","isCorrect":false},{"id":"c","text":"Lager et nytt Promise","isCorrect":false},{"id":"d","text":"Sletter en variabel","isCorrect":false}],"solution":"await pauser en async-funksjon til Promiset er ferdig, og kan bare brukes inne i en async-funksjon."}]}},{"id":"it-1-5-5-n-section2","type":"text","content":"## Når ting går galt – og å sende data\n\nNettverksforespørsler kan feile av mange grunner: ingen forbindelse, serveren er nede, feil URL. God feilhåndtering er derfor avgjørende, og her er en felle mange går i. `fetch()` kaster bare en feil ved *nettverksproblemer* – den anser HTTP-feil som 404 (Ikke funnet) og 500 som vellykkede forespørsler. Du må derfor sjekke statuskoden selv:\n\n```javascript\nconst response = await fetch(url);\nif (!response.ok) {\n  throw new Error(\"HTTP-feil: \" + response.status);\n}\n```\n\n`response.ok` er `true` for statuskoder mellom 200 og 299, og `false` ellers. Ved å kaste en feil med `throw new Error()` sikrer du at den fanges av `catch`-blokken. I praksis bør du også vise tydelige feilmeldinger til brukeren – for eksempel «Laster data...» mens forespørselen pågår, og en rød feilmelding hvis noe går galt.\n\nSå langt har vi bare *hentet* data med GET. For å *sende* data bruker du en POST-forespørsel, der `fetch()` tar et options-objekt som andre argument:\n\n```javascript\nawait fetch(\"https://api.eksempel.no/kommentarer\", {\n  method: \"POST\",\n  headers: { \"Content-Type\": \"application/json\" },\n  body: JSON.stringify({ innhold: tekst })\n});\n```\n\nHer er `method` HTTP-metoden (POST), `headers` forteller at vi sender JSON, og `body` er selve dataene – konvertert til en JSON-streng med `JSON.stringify()`. Med GET for å hente og POST for å sende kan JavaScript-en din kommunisere fritt med servere og bygge fullverdige nettapplikasjoner."},{"id":"it-1-5-5-n-quiz3","type":"exercise","exercise":{"id":"it-1-5-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på feilhåndtering og POST:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-5-n-quiz3-q0","task":"Hvorfor kaster ikke fetch() en feil for HTTP-statuskode 404?","options":[{"id":"a","text":"Fordi 404 ikke er en ekte feil","isCorrect":false},{"id":"b","text":"Fordi fetch() bare kaster feil ved nettverksproblemer, ikke ved HTTP-feilkoder","isCorrect":true},{"id":"c","text":"Fordi det er en bug i fetch()","isCorrect":false},{"id":"d","text":"Fordi 404-svar ikke inneholder data","isCorrect":false}],"solution":"fetch() regner et HTTP-svar som vellykket selv om koden er 404 eller 500 – du må sjekke response.ok selv."},{"id":"it-1-5-5-n-quiz3-q1","task":"Hva brukes JSON.stringify() til i en POST-forespørsel?","options":[{"id":"a","text":"Å hente data fra serveren","isCorrect":false},{"id":"b","text":"Å validere e-postadresser","isCorrect":false},{"id":"c","text":"Å konvertere et JavaScript-objekt til en JSON-streng som sendes i body","isCorrect":true},{"id":"d","text":"Å sette farge på teksten","isCorrect":false}],"solution":"JSON.stringify() gjør et JavaScript-objekt om til en JSON-streng, som legges i body når du sender data med POST."}]}},{"id":"it-1-5-5-n-summary","type":"text","content":"## Oppsummering\n\nAsynkron programmering hindrer nettsider i å fryse. Mens synkron kode kjører i rekkefølge, lar **asynkron** kode tidkrevende operasjoner kjøre i bakgrunnen – som vi så da setTimeout med 0 ms likevel kom sist.\n\nDu henter data fra **API-er** med `fetch()`, som returnerer et **Promise** (pending, fulfilled eller rejected). `response.json()` gjør svaret om til et objekt. Den moderne, lesbare måten er **async/await** med `try/catch`. Husk at fetch() ikke kaster feil for HTTP-koder som 404 – sjekk `response.ok` selv. Og med POST-forespørsler og `JSON.stringify()` kan du sende data til serveren. Med dette behersker du datakommunikasjonen som driver moderne nettapplikasjoner."}],"exercises":[]}
+{
+  "id": "it-1-5-5-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "5.5",
+  "title": "Asynkron programmering og API-er",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan nettsider henter data uten å fryse – synkron mot asynkron kode, Promises, fetch(), async/await og kommunikasjon med API-er.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "bruke asynkron programmering for å kommunisere med eksterne tjenester",
+    "hente og behandle data fra API-er ved hjelp av JavaScript"
+  ],
+  "linkedChapterId": "it-1-5-5",
+  "content": [
+    {
+      "id": "it-1-5-5-n-intro",
+      "type": "text",
+      "content": "## Sider som ikke fryser\n\nSå langt har JavaScript-koden vår kjørt **synkront** – instruksjon for instruksjon, fra topp til bunn. Men mange oppgaver tar tid: å hente data fra en server, laste bilder, vente på input. Måtte JavaScript vente på at hver slik operasjon ble ferdig, ville siden fryse og bli ubrukelig.\n\nLøsningen er **asynkron programmering** – tidkrevende operasjoner startes og kjører i bakgrunnen mens resten av programmet fortsetter. Når operasjonen er ferdig, varsles programmet og kan behandle resultatet. Forskjellen ser du tydelig i et eksempel:\n\n```javascript\nconsole.log(\"A\");\nsetTimeout(() => console.log(\"B\"), 0);\nconsole.log(\"C\");\n```\n\nDette skriver ut A, C, B – ikke A, B, C. Selv med en forsinkelse på 0 er `setTimeout` asynkron: den starter en timer i bakgrunnen og lar resten av koden kjøre videre, så «B» kommer sist. `setTimeout` er det enkleste eksemplet, men i praksis er det **nettverksforespørsler** som er den viktigste bruken.\n\nDet leder oss til **API-er** (Application Programming Interfaces) – grensesnitt som lar programmer kommunisere etter bestemte regler. Web-API-er leverer data over internett via HTTP, vanligvis i JSON-format. Når JavaScript henter værdata, kart eller nyheter fra en ekstern tjeneste, snakker det med et API."
+    },
+    {
+      "id": "it-1-5-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på asynkron kode og API-er:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-5-n-quiz1-q0",
+            "task": "Hva betyr det at JavaScript er asynkront?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Koden kjører raskere enn i andre språk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Koden kjører i tilfeldig rekkefølge",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tidkrevende operasjoner kan kjøre i bakgrunnen uten å blokkere resten av programmet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "JavaScript kan kjøre flere programmer samtidig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Asynkron betyr at tidkrevende operasjoner kjører i bakgrunnen mens resten av koden fortsetter, slik at siden ikke fryser."
+          },
+          {
+            "id": "it-1-5-5-n-quiz1-q1",
+            "task": "Hva skrives ut? console.log(\"A\"); setTimeout(() => console.log(\"B\"), 0); console.log(\"C\")",
+            "options": [
+              {
+                "id": "b",
+                "text": "A, B, C",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "B, A, C",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "C, A, B",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "A, C, B",
+                "isCorrect": true
+              }
+            ],
+            "solution": "setTimeout er asynkron selv med 0 ms, så B legges bakerst i køen: A, C, B."
+          },
+          {
+            "id": "it-1-5-5-n-quiz1-q2",
+            "task": "Hva er et API i websammenheng?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Et grensesnitt som lar programmer hente og sende data til eksterne tjenester",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Et programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En type database for nettsider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En nettleser-utvidelse",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et API er et grensesnitt som lar programmer kommunisere – web-API-er leverer data over HTTP, ofte som JSON."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-5-n-section1",
+      "type": "text",
+      "content": "## fetch, Promises og async/await\n\nDen innebygde funksjonen for å sende HTTP-forespørsler heter `fetch()`. Den er asynkron og returnerer et **Promise** – et objekt som representerer det *fremtidige* resultatet av en asynkron operasjon, et «løfte» om data senere. Et Promise har tre tilstander: *pending* (i gang), *fulfilled* (lyktes) eller *rejected* (feilet). Du håndterer utfallet med `.then()` for suksess og `.catch()` for feil:\n\n```javascript\nfetch(\"https://api.eksempel.no/data\")\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(\"Feil:\", error));\n```\n\nHer sender `fetch` en GET-forespørsel, `.then(response => response.json())` konverterer serverens JSON-tekst til et JavaScript-objekt, neste `.then` bruker dataene, og `.catch` fanger feil. Metoden `response.json()` gjør altså om svaret fra JSON-tekst til et objekt du kan jobbe med.\n\nLange `.then()`-kjeder kan bli vanskelige å lese. Derfor finnes **async/await**, som lar asynkron kode se ut som vanlig synkron kode:\n\n```javascript\nasync function hentData() {\n  try {\n    const response = await fetch(\"https://api.eksempel.no/data\");\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(\"Feil:\", error);\n  }\n}\n```\n\nNøkkelordet `async` foran funksjonen markerer den som asynkron, `await` pauser funksjonen til Promiset er fullført (og kan bare brukes inni en `async`-funksjon), og `try/catch` håndterer feil ryddig. De to skrivemåtene gjør nøyaktig det samme, men async/await er lettere å lese og anbefales."
+    },
+    {
+      "id": "it-1-5-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på fetch, Promise og async/await:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-5-n-quiz2-q0",
+            "task": "Hva gjør response.json() i en fetch()-forespørsel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sender data til serveren i JSON-format",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Konverterer serverens svar fra JSON-tekst til et JavaScript-objekt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Validerer at svaret er gyldig JSON",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Komprimerer dataene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "response.json() gjør om serverens JSON-tekst til et JavaScript-objekt du kan bruke videre."
+          },
+          {
+            "id": "it-1-5-5-n-quiz2-q1",
+            "task": "Hva er et Promise?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En type løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En innebygd feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et objekt som representerer det fremtidige resultatet av en asynkron operasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "En CSS-egenskap",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et Promise representerer et fremtidig resultat og kan være pending, fulfilled eller rejected."
+          },
+          {
+            "id": "it-1-5-5-n-quiz2-q2",
+            "task": "Hva gjør nøkkelordet await?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Avslutter programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lager et nytt Promise",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sletter en variabel",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Pauser en async-funksjon til Promiset er fullført",
+                "isCorrect": true
+              }
+            ],
+            "solution": "await pauser en async-funksjon til Promiset er ferdig, og kan bare brukes inne i en async-funksjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-5-n-section2",
+      "type": "text",
+      "content": "## Når ting går galt – og å sende data\n\nNettverksforespørsler kan feile av mange grunner: ingen forbindelse, serveren er nede, feil URL. God feilhåndtering er derfor avgjørende, og her er en felle mange går i. `fetch()` kaster bare en feil ved *nettverksproblemer* – den anser HTTP-feil som 404 (Ikke funnet) og 500 som vellykkede forespørsler. Du må derfor sjekke statuskoden selv:\n\n```javascript\nconst response = await fetch(url);\nif (!response.ok) {\n  throw new Error(\"HTTP-feil: \" + response.status);\n}\n```\n\n`response.ok` er `true` for statuskoder mellom 200 og 299, og `false` ellers. Ved å kaste en feil med `throw new Error()` sikrer du at den fanges av `catch`-blokken. I praksis bør du også vise tydelige feilmeldinger til brukeren – for eksempel «Laster data...» mens forespørselen pågår, og en rød feilmelding hvis noe går galt.\n\nSå langt har vi bare *hentet* data med GET. For å *sende* data bruker du en POST-forespørsel, der `fetch()` tar et options-objekt som andre argument:\n\n```javascript\nawait fetch(\"https://api.eksempel.no/kommentarer\", {\n  method: \"POST\",\n  headers: { \"Content-Type\": \"application/json\" },\n  body: JSON.stringify({ innhold: tekst })\n});\n```\n\nHer er `method` HTTP-metoden (POST), `headers` forteller at vi sender JSON, og `body` er selve dataene – konvertert til en JSON-streng med `JSON.stringify()`. Med GET for å hente og POST for å sende kan JavaScript-en din kommunisere fritt med servere og bygge fullverdige nettapplikasjoner."
+    },
+    {
+      "id": "it-1-5-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på feilhåndtering og POST:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-5-n-quiz3-q0",
+            "task": "Hvorfor kaster ikke fetch() en feil for HTTP-statuskode 404?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi fetch() bare kaster feil ved nettverksproblemer, ikke ved HTTP-feilkoder",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi 404 ikke er en ekte feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det er en bug i fetch()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi 404-svar ikke inneholder data",
+                "isCorrect": false
+              }
+            ],
+            "solution": "fetch() regner et HTTP-svar som vellykket selv om koden er 404 eller 500 – du må sjekke response.ok selv."
+          },
+          {
+            "id": "it-1-5-5-n-quiz3-q1",
+            "task": "Hva brukes JSON.stringify() til i en POST-forespørsel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å hente data fra serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å konvertere et JavaScript-objekt til en JSON-streng som sendes i body",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å validere e-postadresser",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sette farge på teksten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "JSON.stringify() gjør et JavaScript-objekt om til en JSON-streng, som legges i body når du sender data med POST."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nAsynkron programmering hindrer nettsider i å fryse. Mens synkron kode kjører i rekkefølge, lar **asynkron** kode tidkrevende operasjoner kjøre i bakgrunnen – som vi så da setTimeout med 0 ms likevel kom sist.\n\nDu henter data fra **API-er** med `fetch()`, som returnerer et **Promise** (pending, fulfilled eller rejected). `response.json()` gjør svaret om til et objekt. Den moderne, lesbare måten er **async/await** med `try/catch`. Husk at fetch() ikke kaster feil for HTTP-koder som 404 – sjekk `response.ok` selv. Og med POST-forespørsler og `JSON.stringify()` kan du sende data til serveren. Med dette behersker du datakommunikasjonen som driver moderne nettapplikasjoner."
+    }
+  ],
+  "exercises": []
+}

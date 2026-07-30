@@ -1,1 +1,508 @@
-{"id":"r1-2-4-narrativ","courseId":"r1","chapterNumber":"2.4","title":"Delte funksjonsuttrykk","subtitle":"Narrativ versjon","description":"Ei forteljing om funksjonar med fleire andlet -- frå taksameter og trinnskatt til V-forma til absoluttverdien, og om kva som skjer i skøytepunkta.","estimatedMinutes":35,"competenceGoals":["definere og tolke stykkevis definerte funksjonar","avgjere kontinuitet for stykkevis definerte funksjonar","skissere grafen til stykkevis definerte funksjonar","uttrykkje absoluttverdifunksjonen som delt funksjonsuttrykk","løyse likningar og ulikskapar med stykkevis definerte funksjonar"],"linkedChapterId":"r1-2-4","content":[{"id":"r1-2-4-n-intro","type":"text","content":"## Funksjonar med fleire andlet\n\nSjå på straumrekninga, skattesetelen eller taksameteret i ein drosje. Ingen av dei følgjer éin enkel formel. Drosjeturen har ein startpris, så ein kilometerpris som *endrar seg* etter ein viss distanse. Trinnskatten har éin sats opp til eitt beløp, ein annan sats vidare. Fysikken er ikkje betre: vatn blir varma jamt opp til $100\\,°$C -- og så skjer noko heilt anna, for ved faseovergangen byter systemet regelbok.\n\nVerkelegheita er full av prosessar som følgjer *forskjellige reglar på forskjellige område*. Svaret matematikken har er den **stykkevis definerte funksjonen**: eitt funksjonsuttrykk her, eit anna der, sydd saman til éin funksjon. Til dømes\n\n$$f(x) = \\begin{cases} x^2 & \\text{når } x < 1 \\\\ 2x - 1 & \\text{når } x \\geq 1 \\end{cases}$$\n\n-- ein parabel som i $x = 1$ overlèt stafettpinnen til ei rett linje.\n\nDet interessante skjer i saumane. Møtest dei to delane pent, eller blir det eit hopp? Det er spørsmålet om **kontinuitet**, og her i kapittelet lærer du å avgjere det presist, ved å samanlikne grenseverdiar frå venstre og høgre med funksjonsverdien i skøytepunktet.\n\nUndervegs avslører vi at ein gammal kjenning -- absoluttverdien frå kapittel 1.5 -- eigentleg er ein stykkevis definert funksjon i forkledning. Og vi møter trappefunksjonane, dei stykkevis *konstante* funksjonane som styrer porto, parkeringshus og taksameter. Funksjonar med fleire andlet, men eitt samla ansvar: å skildre ei verd som byter reglar undervegs."},{"id":"r1-2-4-n-section1","type":"text","content":"## Å lese, rekne med og skøyte saman delane\n\nEin **stykkevis definert funksjon** oppgir fleire uttrykk, kvart med sitt intervall:\n\n$$f(x) = \\begin{cases} f_1(x) & \\text{når } x \\in I_1 \\\\ f_2(x) & \\text{når } x \\in I_2 \\end{cases}$$\n\nÅ rekne ein funksjonsverdi er ei tostegsøving: *finn først rett intervall, bruk så det tilhøyrande uttrykket*. Med $f(x) = x^2$ for $x < 1$ og $f(x) = 2x - 1$ for $x \\geq 1$: $f(0) = 0^2 = 0$ (null er mindre enn éin), $f(3) = 2 \\cdot 3 - 1 = 5$, og $f(1) = 2 \\cdot 1 - 1 = 1$ -- legg merke til at $x = 1$ høyrer til den *andre* greina, sidan vilkåret der er $x \\geq 1$. Ulikskapsteikna avgjer kven som eig skøytepunktet.\n\nGrafen teiknar du del for del: parabelen $y = x^2$ til venstre for $1$, linja $y = 2x - 1$ frå $1$ og utover. Og her møtest delane faktisk pent: parabelen siktar seg inn mot $(1, 1)$, og linja startar nøyaktig der.\n\nDet presise språket for «møtest pent» er **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ dersom tre verdiar stemmer overeins:\n\n$$\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$$\n\n-- venstregrensa (kva delen til venstre siktar mot), høgregrensa (kva delen til høgre siktar mot) og funksjonsverdien sjølv. I dømet: venstregrense $1^2 = 1$, høgregrense $2 \\cdot 1 - 1 = 1$, og $f(1) = 1$. Tre like tal: kontinuerleg.\n\nSjekk gjerne eitt til: $g(x) = x + 1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Venstregrense $2 + 1 = 3$, høgregrense $4 - 1 = 3$, $g(2) = 3$. Kontinuerleg også her -- men hadde éin av dei tre verdiane vore annleis, hadde grafen revna i eit hopp."},{"id":"r1-2-4-n-quiz1","type":"exercise","exercise":{"id":"r1-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på stykkevis definerte funksjonar og kontinuitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-4-n-quiz1-q0","task":"Lat $f(x) = x^2$ for $x < 1$ og $f(x) = 2x-1$ for $x \\geq 1$. Kva er $f(0)$?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$-1$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"$0 < 1$, så vi bruker uttrykket $x^2$: $f(0) = 0^2 = 0$."},{"id":"r1-2-4-n-quiz1-q1","task":"Med same funksjon: kva er $f(1)$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"Udefinert","isCorrect":false},{"id":"c","text":"$1$","isCorrect":true},{"id":"d","text":"$2$","isCorrect":false}],"solution":"$x = 1$ oppfyller $x \\geq 1$, så vi bruker $2x - 1$: $f(1) = 2 \\cdot 1 - 1 = 1$."},{"id":"r1-2-4-n-quiz1-q2","task":"Er funksjonen $f$ kontinuerleg i skøytepunktet $x = 1$?","options":[{"id":"a","text":"Nei, grafen hoppar der","isCorrect":false},{"id":"b","text":"Ja: venstregrense, høgregrense og $f(1)$ er alle lik $1$","isCorrect":true},{"id":"c","text":"Nei, fordi uttrykka er forskjellige","isCorrect":false},{"id":"d","text":"Det kan ikkje avgjerast","isCorrect":false}],"solution":"$\\lim_{x \\to 1^-} x^2 = 1$, $\\lim_{x \\to 1^+} (2x-1) = 1$ og $f(1) = 1$. Alle tre er like, så $f$ er kontinuerleg i $x = 1$."},{"id":"r1-2-4-n-quiz1-q3","task":"Lat $g(x) = x+1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Kva er konklusjonen i $x = 2$?","options":[{"id":"a","text":"Diskontinuerleg: grensene er ulike","isCorrect":false},{"id":"b","text":"Kontinuerleg, men berre frå venstre","isCorrect":false},{"id":"c","text":"Udefinert i $x = 2$","isCorrect":false},{"id":"d","text":"Kontinuerleg: begge grensene og $g(2)$ er lik $3$","isCorrect":true}],"solution":"Venstregrense $2+1 = 3$, høgregrense $2^2 - 1 = 3$, og $g(2) = 3$. Tre like verdiar gir kontinuitet."}]}},{"id":"r1-2-4-n-section2","type":"text","content":"## Absoluttverdien -- ein delt funksjon i forkledning\n\nHugsar du definisjonen av absoluttverdi frå kapittel 1.5? Sjå på han igjen, med nye auge:\n\n$$|x| = \\begin{cases} x & \\text{når } x \\geq 0 \\\\ -x & \\text{når } x < 0 \\end{cases}$$\n\nDette *er* ein stykkevis definert funksjon -- den enklaste og viktigaste av dei alle. To rette linjer, $y = x$ og $y = -x$, skøytte saman i origo til den karakteristiske V-forma. Og i skøytepunktet er han kontinuerleg: begge greinene siktar mot $0$.\n\nDet generelle mønsteret gjeld kvart uttrykk inni absoluttverditeikn: $|f(x)|$ er lik $f(x)$ der $f(x) \\geq 0$, og lik $-f(x)$ der $f(x) < 0$. Oppskrifta for å skrive om $|f(x)|$ til delt uttrykk er difor: *finn nullpunkta til uttrykket inni* -- det er der forteiknet kan snu -- *og del opp tallinja der*.\n\nTa $f(x) = |2x - 4|$. Uttrykket inni er null når $x = 2$. For $x \\geq 2$ er $2x - 4 \\geq 0$, så absoluttverdien gjer ingenting: $|2x-4| = 2x - 4$. For $x < 2$ er $2x - 4$ negativt, og absoluttverdien speglar forteiknet: $|2x-4| = -(2x-4) = 4 - 2x$. Altså:\n\n$$f(x) = \\begin{cases} 4 - 2x & \\text{når } x < 2 \\\\ 2x - 4 & \\text{når } x \\geq 2 \\end{cases}$$\n\nGrafen er ein V med botnpunkt i $(2, 0)$: linja $y = 4 - 2x$ fell inn mot punktet frå venstre, og $y = 2x - 4$ stig ut frå det mot høgre.\n\nDenne omskrivinga er meir enn kosmetikk. Likningar og ulikskapar med absoluttverdi blir løyste nettopp ved å *dele opp i tilfelle* etter forteiknet til uttrykket inni -- du handsamar kvar grein som ei vanleg likning på sitt intervall, og samlar løysingane til slutt. Det delte uttrykket gjer også grafen, og seinare derivasjonen, gjennomsiktig: det spisse botnpunktet til V-en er til dømes grunnen til at $|x|$ ikkje er deriverbar i null, som du får sjå i kapittel 3."},{"id":"r1-2-4-n-quiz2","type":"exercise","exercise":{"id":"r1-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på absoluttverdi som delt uttrykk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-4-n-quiz2-q0","task":"Kvar må tallinja delast opp når $|2x-4|$ skal skrivast som delt uttrykk?","options":[{"id":"a","text":"I $x = 4$","isCorrect":false},{"id":"b","text":"I $x = 2$","isCorrect":true},{"id":"c","text":"I $x = -2$","isCorrect":false},{"id":"d","text":"I $x = 0$","isCorrect":false}],"solution":"Forteiknet til $2x - 4$ snur i nullpunktet: $2x - 4 = 0$ gir $x = 2$."},{"id":"r1-2-4-n-quiz2-q1","task":"Kva er $|2x - 4|$ for $x < 2$?","options":[{"id":"a","text":"$2x - 4$","isCorrect":false},{"id":"b","text":"$2x + 4$","isCorrect":false},{"id":"c","text":"$-2x - 4$","isCorrect":false},{"id":"d","text":"$4 - 2x$","isCorrect":true}],"solution":"For $x < 2$ er $2x - 4 < 0$, så $|2x-4| = -(2x-4) = 4 - 2x$."},{"id":"r1-2-4-n-quiz2-q2","task":"Korleis ser grafen til $f(x) = |2x-4|$ ut?","options":[{"id":"a","text":"Ein V-form med botnpunkt i $(2, 0)$","isCorrect":true},{"id":"b","text":"Ei rett linje gjennom origo","isCorrect":false},{"id":"c","text":"Ein parabel med botnpunkt i $(2, 0)$","isCorrect":false},{"id":"d","text":"Ein V-form med botnpunkt i $(0, 4)$","isCorrect":false}],"solution":"To rette linjer med stigingstal $-2$ og $2$ møtest i punktet $(2, 0)$ -- ein V med botnpunkt der uttrykket inni er null."},{"id":"r1-2-4-n-quiz2-q3","task":"Kva er det generelle delte uttrykket for $|f(x)|$?","options":[{"id":"a","text":"$f(x)$ for alle $x$","isCorrect":false},{"id":"b","text":"$-f(x)$ for alle $x$","isCorrect":false},{"id":"c","text":"$f(x)$ der $f(x) \\geq 0$, og $-f(x)$ der $f(x) < 0$","isCorrect":true},{"id":"d","text":"$f(x)$ for $x \\geq 0$, og $-f(x)$ for $x < 0$","isCorrect":false}],"solution":"Det er forteiknet til *uttrykket inni*, ikkje til $x$ sjølv, som avgjer: $|f(x)| = f(x)$ når $f(x) \\geq 0$, og $-f(x)$ når $f(x) < 0$."}]}},{"id":"r1-2-4-n-section3","type":"text","content":"## Trappefunksjonar -- når grafen tek trappetrinn\n\nNokre stykkevis definerte funksjonar er konstante på kvart sitt intervall. Grafen ser ut som ei trapp, og namnet er deretter: **trappefunksjonar**. Du betaler dei kvar veke. Porto blir avgjord av vektklassar, parkeringshus tek betalt per påbyrja time, og taksameteret hoppar i sprang.\n\nSkuledømet er ein portotabell:\n\n$$P(w) = \\begin{cases} 15 & \\text{når } 0 < w \\leq 20 \\\\ 25 & \\text{når } 20 < w \\leq 50 \\\\ 35 & \\text{når } 50 < w \\leq 100 \\\\ 50 & \\text{når } 100 < w \\leq 250 \\end{cases}$$\n\nEit brev på $45$ gram? Vekta ligg i intervallet $(20, 50]$, så portoen er $25$ kroner. Grafen består av fire vassrette linjestykke, og detaljane i endepunkta er viktige: kvart trinn har *open* sirkel til venstre (vekta må vere *over* grensa) og *fylt* sirkel til høgre (grensevekta høyrer til trinnet under... nei, til trinnet sjølv: $w = 50$ kostar framleis $25$). Ulikskapsteikna $<$ og $\\leq$ blir omsette direkte til opne og fylte endepunkt.\n\nVed kvar trinngrense gjer grafen eit *hopp* -- venstre- og høgregrensa er forskjellige, så trappefunksjonen er diskontinuerleg der. Dette er ikkje ein feil ved modellen; det er sjølve poenget. Eitt gram over grensa, og prisen hoppar.\n\nDen mest berømte trappefunksjonen er **golvfunksjonen** $\\lfloor x \\rfloor$: det største heile talet som er mindre enn eller lik $x$. $\\lfloor 2{,}7 \\rfloor = 2$ og $\\lfloor 5 \\rfloor = 5$ er greie, men ver vaken for negative tal: $\\lfloor -1{,}3 \\rfloor = -2$, fordi $-2$ er det største heiltalet som ikkje overstig $-1{,}3$ -- vi rundar *nedover* på tallinja, ikkje mot null. Golvfunksjonen er arbeidshesten til informatikken: heiltalsdivisjon, indeksberekningar og hashing bruker han uavlateleg.\n\nEit siste praktisk råd for skissering av alle delte funksjonar: teikn kvar del på sitt intervall, marker endepunkta med fylt eller open sirkel etter ulikskapsteikna, og sjekk i kvart skøytepunkt om delane møtest (kontinuitet) eller hoppar."},{"id":"r1-2-4-n-quiz3","type":"exercise","exercise":{"id":"r1-2-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på trappefunksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-4-n-quiz3-q0","task":"Kva er $\\lfloor 2{,}7 \\rfloor$?","options":[{"id":"a","text":"$3$","isCorrect":false},{"id":"b","text":"$2{,}5$","isCorrect":false},{"id":"c","text":"$2$","isCorrect":true},{"id":"d","text":"$0{,}7$","isCorrect":false}],"solution":"Golvfunksjonen gir det største heile talet som er mindre enn eller lik $2{,}7$, altså $2$."},{"id":"r1-2-4-n-quiz3-q1","task":"Kva er $\\lfloor -1{,}3 \\rfloor$?","options":[{"id":"a","text":"$-2$","isCorrect":true},{"id":"b","text":"$-1$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$-1{,}5$","isCorrect":false}],"solution":"Vi rundar nedover på tallinja: det største heiltalet som ikkje overstig $-1{,}3$, er $-2$."},{"id":"r1-2-4-n-quiz3-q2","task":"Med portotabellen i teksten: kva kostar eit brev på $45$ gram?","options":[{"id":"a","text":"$15$ kr","isCorrect":false},{"id":"b","text":"$25$ kr","isCorrect":true},{"id":"c","text":"$35$ kr","isCorrect":false},{"id":"d","text":"$50$ kr","isCorrect":false}],"solution":"$45$ ligg i intervallet $(20, 50]$, så portoen er $25$ kr."},{"id":"r1-2-4-n-quiz3-q3","task":"Kva kjenneteiknar ein trappefunksjon?","options":[{"id":"a","text":"Han er kontinuerleg overalt","isCorrect":false},{"id":"b","text":"Han er strengt veksande","isCorrect":false},{"id":"c","text":"Grafen er ei rett linje med konstant stiging","isCorrect":false},{"id":"d","text":"Han er stykkevis konstant, med hopp i trinngrensene","isCorrect":true}],"solution":"Ein trappefunksjon har éin fast verdi på kvart intervall. I trinngrensene er venstre- og høgregrensa ulike, så funksjonen er diskontinuerleg der."}]}},{"id":"r1-2-4-n-summary","type":"text","content":"## Forteljinga i eit nøtteskal\n\nTaksameter, trinnskatt og faseovergangar viste oss at verkelegheita gjerne byter regelbok undervegs -- og at matematikken svarar med **stykkevis definerte funksjonar**: fleire uttrykk, kvart med sitt intervall, sydd saman til éin funksjon. Å rekne med dei er alltid same tostegsdans: finn intervallet, bruk uttrykket. Og ver pinleg nøyaktig med kven som eig skøytepunktet -- det blir avgjort av $<$ mot $\\leq$.\n\nI saumane bur hovudomgrepet til kapittelet: **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ når venstregrensa, høgregrensa og funksjonsverdien er eitt og same tal: $\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$. Stemmer ikkje rekneskapen, revnar grafen i eit hopp.\n\n**Absoluttverdien** avslørte seg som ein delt funksjon i forkledning: $|f(x)|$ er $f(x)$ der uttrykket inni er ikkje-negativt, og $-f(x)$ elles -- og oppdelinga skjer i nullpunkta til uttrykket inni. Slik vart $|2x-4|$ til ein V med botnpunkt i $(2,0)$, og slik blir likningar og ulikskapar med absoluttverdi løyste: tilfelle for tilfelle.\n\n**Trappefunksjonane** er dei stykkevis konstante: porto, parkering, golvfunksjonen $\\lfloor x \\rfloor$ med si nedoverrunding ($\\lfloor -1{,}3\\rfloor = -2$!). Hoppa deira er ikkje skavankar, men nøyaktig det verkelegheita krev.\n\nDette kapittelet er brua til kapittel 3: grenseverdiar frå venstre og høgre, dei tre krava til kontinuiteten og spisse hjørne som øydelegg deriverbarheit -- alt saman får si fulle handsaming der. Du har allereie møtt dei alle, i saumane på funksjonar med fleire andlet."}],"exercises":[],"_meta":{"sourceHash":"b6cbfb80d1468f4c","translatedAt":"2026-06-19T23:23:51.759Z","model":"claude-code-agent","strings":76,"tm":{"8e2a5ec7a6dc7c63":"Delte funksjonsuttrykk","b195b06d1ed59702":"Narrativ versjon","0487405084f7ca18":"Ei forteljing om funksjonar med fleire andlet -- frå taksameter og trinnskatt til V-forma til absoluttverdien, og om kva som skjer i skøytepunkta.","011ab8a69577b1b0":"definere og tolke stykkevis definerte funksjonar","207eaaad4da131b9":"avgjere kontinuitet for stykkevis definerte funksjonar","7ca0bb6ff1777c60":"skissere grafen til stykkevis definerte funksjonar","1aae8f1fcbafa02c":"uttrykkje absoluttverdifunksjonen som delt funksjonsuttrykk","4940c0f1ec4b1b29":"løyse likningar og ulikskapar med stykkevis definerte funksjonar","87396f37edc309a0":"## Funksjonar med fleire andlet\n\nSjå på straumrekninga, skattesetelen eller taksameteret i ein drosje. Ingen av dei følgjer éin enkel formel. Drosjeturen har ein startpris, så ein kilometerpris som *endrar seg* etter ein viss distanse. Trinnskatten har éin sats opp til eitt beløp, ein annan sats vidare. Fysikken er ikkje betre: vatn blir varma jamt opp til $100\\,°$C -- og så skjer noko heilt anna, for ved faseovergangen byter systemet regelbok.\n\nVerkelegheita er full av prosessar som følgjer *forskjellige reglar på forskjellige område*. Svaret matematikken har er den **stykkevis definerte funksjonen**: eitt funksjonsuttrykk her, eit anna der, sydd saman til éin funksjon. Til dømes\n\n$$f(x) = \\begin{cases} x^2 & \\text{når } x < 1 \\\\ 2x - 1 & \\text{når } x \\geq 1 \\end{cases}$$\n\n-- ein parabel som i $x = 1$ overlèt stafettpinnen til ei rett linje.\n\nDet interessante skjer i saumane. Møtest dei to delane pent, eller blir det eit hopp? Det er spørsmålet om **kontinuitet**, og her i kapittelet lærer du å avgjere det presist, ved å samanlikne grenseverdiar frå venstre og høgre med funksjonsverdien i skøytepunktet.\n\nUndervegs avslører vi at ein gammal kjenning -- absoluttverdien frå kapittel 1.5 -- eigentleg er ein stykkevis definert funksjon i forkledning. Og vi møter trappefunksjonane, dei stykkevis *konstante* funksjonane som styrer porto, parkeringshus og taksameter. Funksjonar med fleire andlet, men eitt samla ansvar: å skildre ei verd som byter reglar undervegs.","f2acaf28c003d3bb":"## Å lese, rekne med og skøyte saman delane\n\nEin **stykkevis definert funksjon** oppgir fleire uttrykk, kvart med sitt intervall:\n\n$$f(x) = \\begin{cases} f_1(x) & \\text{når } x \\in I_1 \\\\ f_2(x) & \\text{når } x \\in I_2 \\end{cases}$$\n\nÅ rekne ein funksjonsverdi er ei tostegsøving: *finn først rett intervall, bruk så det tilhøyrande uttrykket*. Med $f(x) = x^2$ for $x < 1$ og $f(x) = 2x - 1$ for $x \\geq 1$: $f(0) = 0^2 = 0$ (null er mindre enn éin), $f(3) = 2 \\cdot 3 - 1 = 5$, og $f(1) = 2 \\cdot 1 - 1 = 1$ -- legg merke til at $x = 1$ høyrer til den *andre* greina, sidan vilkåret der er $x \\geq 1$. Ulikskapsteikna avgjer kven som eig skøytepunktet.\n\nGrafen teiknar du del for del: parabelen $y = x^2$ til venstre for $1$, linja $y = 2x - 1$ frå $1$ og utover. Og her møtest delane faktisk pent: parabelen siktar seg inn mot $(1, 1)$, og linja startar nøyaktig der.\n\nDet presise språket for «møtest pent» er **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ dersom tre verdiar stemmer overeins:\n\n$$\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$$\n\n-- venstregrensa (kva delen til venstre siktar mot), høgregrensa (kva delen til høgre siktar mot) og funksjonsverdien sjølv. I dømet: venstregrense $1^2 = 1$, høgregrense $2 \\cdot 1 - 1 = 1$, og $f(1) = 1$. Tre like tal: kontinuerleg.\n\nSjekk gjerne eitt til: $g(x) = x + 1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Venstregrense $2 + 1 = 3$, høgregrense $4 - 1 = 3$, $g(2) = 3$. Kontinuerleg også her -- men hadde éin av dei tre verdiane vore annleis, hadde grafen revna i eit hopp.","0b941458b722b588":"Test deg sjølv på stykkevis definerte funksjonar og kontinuitet:","4097889236a2af26":"placeholder","44eb81117c19098a":"Lat $f(x) = x^2$ for $x < 1$ og $f(x) = 2x-1$ for $x \\geq 1$. Kva er $f(0)$?","abd6a09453783226":"$0 < 1$, så vi bruker uttrykket $x^2$: $f(0) = 0^2 = 0$.","aad8414a04d3bb75":"Med same funksjon: kva er $f(1)$?","0acc0f9632d29def":"Udefinert","70316b5accedd547":"$x = 1$ oppfyller $x \\geq 1$, så vi bruker $2x - 1$: $f(1) = 2 \\cdot 1 - 1 = 1$.","679ea0105b3a7dfc":"Er funksjonen $f$ kontinuerleg i skøytepunktet $x = 1$?","dcfd1e09b14a036e":"Nei, grafen hoppar der","82063ab04f839a0b":"Ja: venstregrense, høgregrense og $f(1)$ er alle lik $1$","10545ab5ff01ebb4":"Nei, fordi uttrykka er forskjellige","963d9a054b8deade":"Det kan ikkje avgjerast","65e761c6bf8a7f73":"$\\lim_{x \\to 1^-} x^2 = 1$, $\\lim_{x \\to 1^+} (2x-1) = 1$ og $f(1) = 1$. Alle tre er like, så $f$ er kontinuerleg i $x = 1$.","d35be3ed7a3a4e6f":"Lat $g(x) = x+1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Kva er konklusjonen i $x = 2$?","c1e9682c73c37729":"Diskontinuerleg: grensene er ulike","fb156d1c70246eec":"Kontinuerleg, men berre frå venstre","431ba1c6b6e9b277":"Udefinert i $x = 2$","121275c5cb26292c":"Kontinuerleg: begge grensene og $g(2)$ er lik $3$","3571e486f2c026b6":"Venstregrense $2+1 = 3$, høgregrense $2^2 - 1 = 3$, og $g(2) = 3$. Tre like verdiar gir kontinuitet.","df9c5ac6773079d4":"## Absoluttverdien -- ein delt funksjon i forkledning\n\nHugsar du definisjonen av absoluttverdi frå kapittel 1.5? Sjå på han igjen, med nye auge:\n\n$$|x| = \\begin{cases} x & \\text{når } x \\geq 0 \\\\ -x & \\text{når } x < 0 \\end{cases}$$\n\nDette *er* ein stykkevis definert funksjon -- den enklaste og viktigaste av dei alle. To rette linjer, $y = x$ og $y = -x$, skøytte saman i origo til den karakteristiske V-forma. Og i skøytepunktet er han kontinuerleg: begge greinene siktar mot $0$.\n\nDet generelle mønsteret gjeld kvart uttrykk inni absoluttverditeikn: $|f(x)|$ er lik $f(x)$ der $f(x) \\geq 0$, og lik $-f(x)$ der $f(x) < 0$. Oppskrifta for å skrive om $|f(x)|$ til delt uttrykk er difor: *finn nullpunkta til uttrykket inni* -- det er der forteiknet kan snu -- *og del opp tallinja der*.\n\nTa $f(x) = |2x - 4|$. Uttrykket inni er null når $x = 2$. For $x \\geq 2$ er $2x - 4 \\geq 0$, så absoluttverdien gjer ingenting: $|2x-4| = 2x - 4$. For $x < 2$ er $2x - 4$ negativt, og absoluttverdien speglar forteiknet: $|2x-4| = -(2x-4) = 4 - 2x$. Altså:\n\n$$f(x) = \\begin{cases} 4 - 2x & \\text{når } x < 2 \\\\ 2x - 4 & \\text{når } x \\geq 2 \\end{cases}$$\n\nGrafen er ein V med botnpunkt i $(2, 0)$: linja $y = 4 - 2x$ fell inn mot punktet frå venstre, og $y = 2x - 4$ stig ut frå det mot høgre.\n\nDenne omskrivinga er meir enn kosmetikk. Likningar og ulikskapar med absoluttverdi blir løyste nettopp ved å *dele opp i tilfelle* etter forteiknet til uttrykket inni -- du handsamar kvar grein som ei vanleg likning på sitt intervall, og samlar løysingane til slutt. Det delte uttrykket gjer også grafen, og seinare derivasjonen, gjennomsiktig: det spisse botnpunktet til V-en er til dømes grunnen til at $|x|$ ikkje er deriverbar i null, som du får sjå i kapittel 3.","121923be93f637c2":"Test deg sjølv på absoluttverdi som delt uttrykk:","f8961bccfdbf247e":"Kvar må tallinja delast opp når $|2x-4|$ skal skrivast som delt uttrykk?","396c16dd95054a75":"I $x = 4$","bb0d04c38d348815":"I $x = 2$","faba0e9140a477a8":"I $x = -2$","914db6e14de871f0":"I $x = 0$","09b1b76591383c75":"Forteiknet til $2x - 4$ snur i nullpunktet: $2x - 4 = 0$ gir $x = 2$.","d5ae1504529a749a":"Kva er $|2x - 4|$ for $x < 2$?","3f0d971b29bd953a":"$2x - 4$","c11f11acb6ff53b7":"$2x + 4$","eac7535363ffbc25":"$-2x - 4$","1884d25b308afde2":"$4 - 2x$","244ad4eddecae510":"For $x < 2$ er $2x - 4 < 0$, så $|2x-4| = -(2x-4) = 4 - 2x$.","b0740b48139aed2a":"Korleis ser grafen til $f(x) = |2x-4|$ ut?","650bb93b23b30cae":"Ein V-form med botnpunkt i $(2, 0)$","83a78aa8f9209148":"Ei rett linje gjennom origo","1a18f4c8db645665":"Ein parabel med botnpunkt i $(2, 0)$","2c8cdf4576b2c5ae":"Ein V-form med botnpunkt i $(0, 4)$","5cb58e481b9b0dd6":"To rette linjer med stigingstal $-2$ og $2$ møtest i punktet $(2, 0)$ -- ein V med botnpunkt der uttrykket inni er null.","7da8973546c9b038":"Kva er det generelle delte uttrykket for $|f(x)|$?","aa94c3b187869b59":"$f(x)$ for alle $x$","bf3c655768fa84fd":"$-f(x)$ for alle $x$","86a0014ddcb676d8":"$f(x)$ der $f(x) \\geq 0$, og $-f(x)$ der $f(x) < 0$","13d80fe875bfac58":"$f(x)$ for $x \\geq 0$, og $-f(x)$ for $x < 0$","51a49965e9a0407c":"Det er forteiknet til *uttrykket inni*, ikkje til $x$ sjølv, som avgjer: $|f(x)| = f(x)$ når $f(x) \\geq 0$, og $-f(x)$ når $f(x) < 0$.","043a0c4ae570e22e":"## Trappefunksjonar -- når grafen tek trappetrinn\n\nNokre stykkevis definerte funksjonar er konstante på kvart sitt intervall. Grafen ser ut som ei trapp, og namnet er deretter: **trappefunksjonar**. Du betaler dei kvar veke. Porto blir avgjord av vektklassar, parkeringshus tek betalt per påbyrja time, og taksameteret hoppar i sprang.\n\nSkuledømet er ein portotabell:\n\n$$P(w) = \\begin{cases} 15 & \\text{når } 0 < w \\leq 20 \\\\ 25 & \\text{når } 20 < w \\leq 50 \\\\ 35 & \\text{når } 50 < w \\leq 100 \\\\ 50 & \\text{når } 100 < w \\leq 250 \\end{cases}$$\n\nEit brev på $45$ gram? Vekta ligg i intervallet $(20, 50]$, så portoen er $25$ kroner. Grafen består av fire vassrette linjestykke, og detaljane i endepunkta er viktige: kvart trinn har *open* sirkel til venstre (vekta må vere *over* grensa) og *fylt* sirkel til høgre (grensevekta høyrer til trinnet under... nei, til trinnet sjølv: $w = 50$ kostar framleis $25$). Ulikskapsteikna $<$ og $\\leq$ blir omsette direkte til opne og fylte endepunkt.\n\nVed kvar trinngrense gjer grafen eit *hopp* -- venstre- og høgregrensa er forskjellige, så trappefunksjonen er diskontinuerleg der. Dette er ikkje ein feil ved modellen; det er sjølve poenget. Eitt gram over grensa, og prisen hoppar.\n\nDen mest berømte trappefunksjonen er **golvfunksjonen** $\\lfloor x \\rfloor$: det største heile talet som er mindre enn eller lik $x$. $\\lfloor 2{,}7 \\rfloor = 2$ og $\\lfloor 5 \\rfloor = 5$ er greie, men ver vaken for negative tal: $\\lfloor -1{,}3 \\rfloor = -2$, fordi $-2$ er det største heiltalet som ikkje overstig $-1{,}3$ -- vi rundar *nedover* på tallinja, ikkje mot null. Golvfunksjonen er arbeidshesten til informatikken: heiltalsdivisjon, indeksberekningar og hashing bruker han uavlateleg.\n\nEit siste praktisk råd for skissering av alle delte funksjonar: teikn kvar del på sitt intervall, marker endepunkta med fylt eller open sirkel etter ulikskapsteikna, og sjekk i kvart skøytepunkt om delane møtest (kontinuitet) eller hoppar.","a84aca6d99a73a0c":"Test deg sjølv på trappefunksjonar:","7f3e755cc4954f11":"Kva er $\\lfloor 2{,}7 \\rfloor$?","26e54e029ce0fd0b":"Golvfunksjonen gir det største heile talet som er mindre enn eller lik $2{,}7$, altså $2$.","d1a9c200bf5af3f3":"Kva er $\\lfloor -1{,}3 \\rfloor$?","b80bd291d899276b":"Vi rundar nedover på tallinja: det største heiltalet som ikkje overstig $-1{,}3$, er $-2$.","793b6210b40f744d":"Med portotabellen i teksten: kva kostar eit brev på $45$ gram?","4fbe53e6f719f761":"$15$ kr","89c55d7672393c88":"$25$ kr","3266b3d5a0a7ce3d":"$35$ kr","4e0761b6525fded8":"$50$ kr","9fbfcbcd6b8a4632":"$45$ ligg i intervallet $(20, 50]$, så portoen er $25$ kr.","48b4281981dfb06a":"Kva kjenneteiknar ein trappefunksjon?","28d8997b3a450d74":"Han er kontinuerleg overalt","59f6e73bc007ac53":"Han er strengt veksande","f5b2cc0df210cbc3":"Grafen er ei rett linje med konstant stiging","b55559c36cb9ae50":"Han er stykkevis konstant, med hopp i trinngrensene","58d3911bcd68187a":"Ein trappefunksjon har éin fast verdi på kvart intervall. I trinngrensene er venstre- og høgregrensa ulike, så funksjonen er diskontinuerleg der.","f2250e69ae5a0a8d":"## Forteljinga i eit nøtteskal\n\nTaksameter, trinnskatt og faseovergangar viste oss at verkelegheita gjerne byter regelbok undervegs -- og at matematikken svarar med **stykkevis definerte funksjonar**: fleire uttrykk, kvart med sitt intervall, sydd saman til éin funksjon. Å rekne med dei er alltid same tostegsdans: finn intervallet, bruk uttrykket. Og ver pinleg nøyaktig med kven som eig skøytepunktet -- det blir avgjort av $<$ mot $\\leq$.\n\nI saumane bur hovudomgrepet til kapittelet: **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ når venstregrensa, høgregrensa og funksjonsverdien er eitt og same tal: $\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$. Stemmer ikkje rekneskapen, revnar grafen i eit hopp.\n\n**Absoluttverdien** avslørte seg som ein delt funksjon i forkledning: $|f(x)|$ er $f(x)$ der uttrykket inni er ikkje-negativt, og $-f(x)$ elles -- og oppdelinga skjer i nullpunkta til uttrykket inni. Slik vart $|2x-4|$ til ein V med botnpunkt i $(2,0)$, og slik blir likningar og ulikskapar med absoluttverdi løyste: tilfelle for tilfelle.\n\n**Trappefunksjonane** er dei stykkevis konstante: porto, parkering, golvfunksjonen $\\lfloor x \\rfloor$ med si nedoverrunding ($\\lfloor -1{,}3\\rfloor = -2$!). Hoppa deira er ikkje skavankar, men nøyaktig det verkelegheita krev.\n\nDette kapittelet er brua til kapittel 3: grenseverdiar frå venstre og høgre, dei tre krava til kontinuiteten og spisse hjørne som øydelegg deriverbarheit -- alt saman får si fulle handsaming der. Du har allereie møtt dei alle, i saumane på funksjonar med fleire andlet."}}}
+{
+  "id": "r1-2-4-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "2.4",
+  "title": "Delte funksjonsuttrykk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om funksjonar med fleire andlet -- frå taksameter og trinnskatt til V-forma til absoluttverdien, og om kva som skjer i skøytepunkta.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "definere og tolke stykkevis definerte funksjonar",
+    "avgjere kontinuitet for stykkevis definerte funksjonar",
+    "skissere grafen til stykkevis definerte funksjonar",
+    "uttrykkje absoluttverdifunksjonen som delt funksjonsuttrykk",
+    "løyse likningar og ulikskapar med stykkevis definerte funksjonar"
+  ],
+  "linkedChapterId": "r1-2-4",
+  "content": [
+    {
+      "id": "r1-2-4-n-intro",
+      "type": "text",
+      "content": "## Funksjonar med fleire andlet\n\nSjå på straumrekninga, skattesetelen eller taksameteret i ein drosje. Ingen av dei følgjer éin enkel formel. Drosjeturen har ein startpris, så ein kilometerpris som *endrar seg* etter ein viss distanse. Trinnskatten har éin sats opp til eitt beløp, ein annan sats vidare. Fysikken er ikkje betre: vatn blir varma jamt opp til $100\\,°$C -- og så skjer noko heilt anna, for ved faseovergangen byter systemet regelbok.\n\nVerkelegheita er full av prosessar som følgjer *forskjellige reglar på forskjellige område*. Svaret matematikken har er den **stykkevis definerte funksjonen**: eitt funksjonsuttrykk her, eit anna der, sydd saman til éin funksjon. Til dømes\n\n$$f(x) = \\begin{cases} x^2 & \\text{når } x < 1 \\\\ 2x - 1 & \\text{når } x \\geq 1 \\end{cases}$$\n\n-- ein parabel som i $x = 1$ overlèt stafettpinnen til ei rett linje.\n\nDet interessante skjer i saumane. Møtest dei to delane pent, eller blir det eit hopp? Det er spørsmålet om **kontinuitet**, og her i kapittelet lærer du å avgjere det presist, ved å samanlikne grenseverdiar frå venstre og høgre med funksjonsverdien i skøytepunktet.\n\nUndervegs avslører vi at ein gammal kjenning -- absoluttverdien frå kapittel 1.5 -- eigentleg er ein stykkevis definert funksjon i forkledning. Og vi møter trappefunksjonane, dei stykkevis *konstante* funksjonane som styrer porto, parkeringshus og taksameter. Funksjonar med fleire andlet, men eitt samla ansvar: å skildre ei verd som byter reglar undervegs."
+    },
+    {
+      "id": "r1-2-4-n-section1",
+      "type": "text",
+      "content": "## Å lese, rekne med og skøyte saman delane\n\nEin **stykkevis definert funksjon** oppgir fleire uttrykk, kvart med sitt intervall:\n\n$$f(x) = \\begin{cases} f_1(x) & \\text{når } x \\in I_1 \\\\ f_2(x) & \\text{når } x \\in I_2 \\end{cases}$$\n\nÅ rekne ein funksjonsverdi er ei tostegsøving: *finn først rett intervall, bruk så det tilhøyrande uttrykket*. Med $f(x) = x^2$ for $x < 1$ og $f(x) = 2x - 1$ for $x \\geq 1$: $f(0) = 0^2 = 0$ (null er mindre enn éin), $f(3) = 2 \\cdot 3 - 1 = 5$, og $f(1) = 2 \\cdot 1 - 1 = 1$ -- legg merke til at $x = 1$ høyrer til den *andre* greina, sidan vilkåret der er $x \\geq 1$. Ulikskapsteikna avgjer kven som eig skøytepunktet.\n\nGrafen teiknar du del for del: parabelen $y = x^2$ til venstre for $1$, linja $y = 2x - 1$ frå $1$ og utover. Og her møtest delane faktisk pent: parabelen siktar seg inn mot $(1, 1)$, og linja startar nøyaktig der.\n\nDet presise språket for «møtest pent» er **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ dersom tre verdiar stemmer overeins:\n\n$$\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$$\n\n-- venstregrensa (kva delen til venstre siktar mot), høgregrensa (kva delen til høgre siktar mot) og funksjonsverdien sjølv. I dømet: venstregrense $1^2 = 1$, høgregrense $2 \\cdot 1 - 1 = 1$, og $f(1) = 1$. Tre like tal: kontinuerleg.\n\nSjekk gjerne eitt til: $g(x) = x + 1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Venstregrense $2 + 1 = 3$, høgregrense $4 - 1 = 3$, $g(2) = 3$. Kontinuerleg også her -- men hadde éin av dei tre verdiane vore annleis, hadde grafen revna i eit hopp."
+    },
+    {
+      "id": "r1-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på stykkevis definerte funksjonar og kontinuitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-4-n-quiz1-q0",
+            "task": "Lat $f(x) = x^2$ for $x < 1$ og $f(x) = 2x-1$ for $x \\geq 1$. Kva er $f(0)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$0 < 1$, så vi bruker uttrykket $x^2$: $f(0) = 0^2 = 0$."
+          },
+          {
+            "id": "r1-2-4-n-quiz1-q1",
+            "task": "Med same funksjon: kva er $f(1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Udefinert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = 1$ oppfyller $x \\geq 1$, så vi bruker $2x - 1$: $f(1) = 2 \\cdot 1 - 1 = 1$."
+          },
+          {
+            "id": "r1-2-4-n-quiz1-q2",
+            "task": "Er funksjonen $f$ kontinuerleg i skøytepunktet $x = 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nei, grafen hoppar der",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, fordi uttrykka er forskjellige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kan ikkje avgjerast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ja: venstregrense, høgregrense og $f(1)$ er alle lik $1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\lim_{x \\to 1^-} x^2 = 1$, $\\lim_{x \\to 1^+} (2x-1) = 1$ og $f(1) = 1$. Alle tre er like, så $f$ er kontinuerleg i $x = 1$."
+          },
+          {
+            "id": "r1-2-4-n-quiz1-q3",
+            "task": "Lat $g(x) = x+1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Kva er konklusjonen i $x = 2$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Kontinuerleg: begge grensene og $g(2)$ er lik $3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Diskontinuerleg: grensene er ulike",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kontinuerleg, men berre frå venstre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Udefinert i $x = 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Venstregrense $2+1 = 3$, høgregrense $2^2 - 1 = 3$, og $g(2) = 3$. Tre like verdiar gir kontinuitet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-4-n-section2",
+      "type": "text",
+      "content": "## Absoluttverdien -- ein delt funksjon i forkledning\n\nHugsar du definisjonen av absoluttverdi frå kapittel 1.5? Sjå på han igjen, med nye auge:\n\n$$|x| = \\begin{cases} x & \\text{når } x \\geq 0 \\\\ -x & \\text{når } x < 0 \\end{cases}$$\n\nDette *er* ein stykkevis definert funksjon -- den enklaste og viktigaste av dei alle. To rette linjer, $y = x$ og $y = -x$, skøytte saman i origo til den karakteristiske V-forma. Og i skøytepunktet er han kontinuerleg: begge greinene siktar mot $0$.\n\nDet generelle mønsteret gjeld kvart uttrykk inni absoluttverditeikn: $|f(x)|$ er lik $f(x)$ der $f(x) \\geq 0$, og lik $-f(x)$ der $f(x) < 0$. Oppskrifta for å skrive om $|f(x)|$ til delt uttrykk er difor: *finn nullpunkta til uttrykket inni* -- det er der forteiknet kan snu -- *og del opp tallinja der*.\n\nTa $f(x) = |2x - 4|$. Uttrykket inni er null når $x = 2$. For $x \\geq 2$ er $2x - 4 \\geq 0$, så absoluttverdien gjer ingenting: $|2x-4| = 2x - 4$. For $x < 2$ er $2x - 4$ negativt, og absoluttverdien speglar forteiknet: $|2x-4| = -(2x-4) = 4 - 2x$. Altså:\n\n$$f(x) = \\begin{cases} 4 - 2x & \\text{når } x < 2 \\\\ 2x - 4 & \\text{når } x \\geq 2 \\end{cases}$$\n\nGrafen er ein V med botnpunkt i $(2, 0)$: linja $y = 4 - 2x$ fell inn mot punktet frå venstre, og $y = 2x - 4$ stig ut frå det mot høgre.\n\nDenne omskrivinga er meir enn kosmetikk. Likningar og ulikskapar med absoluttverdi blir løyste nettopp ved å *dele opp i tilfelle* etter forteiknet til uttrykket inni -- du handsamar kvar grein som ei vanleg likning på sitt intervall, og samlar løysingane til slutt. Det delte uttrykket gjer også grafen, og seinare derivasjonen, gjennomsiktig: det spisse botnpunktet til V-en er til dømes grunnen til at $|x|$ ikkje er deriverbar i null, som du får sjå i kapittel 3."
+    },
+    {
+      "id": "r1-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på absoluttverdi som delt uttrykk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-4-n-quiz2-q0",
+            "task": "Kvar må tallinja delast opp når $|2x-4|$ skal skrivast som delt uttrykk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "I $x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "I $x = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "I $x = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "I $x = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forteiknet til $2x - 4$ snur i nullpunktet: $2x - 4 = 0$ gir $x = 2$."
+          },
+          {
+            "id": "r1-2-4-n-quiz2-q1",
+            "task": "Kva er $|2x - 4|$ for $x < 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x - 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4 - 2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-2x - 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x < 2$ er $2x - 4 < 0$, så $|2x-4| = -(2x-4) = 4 - 2x$."
+          },
+          {
+            "id": "r1-2-4-n-quiz2-q2",
+            "task": "Korleis ser grafen til $f(x) = |2x-4|$ ut?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei rett linje gjennom origo",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein parabel med botnpunkt i $(2, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein V-form med botnpunkt i $(0, 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein V-form med botnpunkt i $(2, 0)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "To rette linjer med stigingstal $-2$ og $2$ møtest i punktet $(2, 0)$ -- ein V med botnpunkt der uttrykket inni er null."
+          },
+          {
+            "id": "r1-2-4-n-quiz2-q3",
+            "task": "Kva er det generelle delte uttrykket for $|f(x)|$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$f(x)$ der $f(x) \\geq 0$, og $-f(x)$ der $f(x) < 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$f(x)$ for alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-f(x)$ for alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x)$ for $x \\geq 0$, og $-f(x)$ for $x < 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er forteiknet til *uttrykket inni*, ikkje til $x$ sjølv, som avgjer: $|f(x)| = f(x)$ når $f(x) \\geq 0$, og $-f(x)$ når $f(x) < 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-4-n-section3",
+      "type": "text",
+      "content": "## Trappefunksjonar -- når grafen tek trappetrinn\n\nNokre stykkevis definerte funksjonar er konstante på kvart sitt intervall. Grafen ser ut som ei trapp, og namnet er deretter: **trappefunksjonar**. Du betaler dei kvar veke. Porto blir avgjord av vektklassar, parkeringshus tek betalt per påbyrja time, og taksameteret hoppar i sprang.\n\nSkuledømet er ein portotabell:\n\n$$P(w) = \\begin{cases} 15 & \\text{når } 0 < w \\leq 20 \\\\ 25 & \\text{når } 20 < w \\leq 50 \\\\ 35 & \\text{når } 50 < w \\leq 100 \\\\ 50 & \\text{når } 100 < w \\leq 250 \\end{cases}$$\n\nEit brev på $45$ gram? Vekta ligg i intervallet $(20, 50]$, så portoen er $25$ kroner. Grafen består av fire vassrette linjestykke, og detaljane i endepunkta er viktige: kvart trinn har *open* sirkel til venstre (vekta må vere *over* grensa) og *fylt* sirkel til høgre (grensevekta høyrer til trinnet under... nei, til trinnet sjølv: $w = 50$ kostar framleis $25$). Ulikskapsteikna $<$ og $\\leq$ blir omsette direkte til opne og fylte endepunkt.\n\nVed kvar trinngrense gjer grafen eit *hopp* -- venstre- og høgregrensa er forskjellige, så trappefunksjonen er diskontinuerleg der. Dette er ikkje ein feil ved modellen; det er sjølve poenget. Eitt gram over grensa, og prisen hoppar.\n\nDen mest berømte trappefunksjonen er **golvfunksjonen** $\\lfloor x \\rfloor$: det største heile talet som er mindre enn eller lik $x$. $\\lfloor 2{,}7 \\rfloor = 2$ og $\\lfloor 5 \\rfloor = 5$ er greie, men ver vaken for negative tal: $\\lfloor -1{,}3 \\rfloor = -2$, fordi $-2$ er det største heiltalet som ikkje overstig $-1{,}3$ -- vi rundar *nedover* på tallinja, ikkje mot null. Golvfunksjonen er arbeidshesten til informatikken: heiltalsdivisjon, indeksberekningar og hashing bruker han uavlateleg.\n\nEit siste praktisk råd for skissering av alle delte funksjonar: teikn kvar del på sitt intervall, marker endepunkta med fylt eller open sirkel etter ulikskapsteikna, og sjekk i kvart skøytepunkt om delane møtest (kontinuitet) eller hoppar."
+    },
+    {
+      "id": "r1-2-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på trappefunksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-4-n-quiz3-q0",
+            "task": "Kva er $\\lfloor 2{,}7 \\rfloor$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Golvfunksjonen gir det største heile talet som er mindre enn eller lik $2{,}7$, altså $2$."
+          },
+          {
+            "id": "r1-2-4-n-quiz3-q1",
+            "task": "Kva er $\\lfloor -1{,}3 \\rfloor$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$-2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$-1{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi rundar nedover på tallinja: det største heiltalet som ikkje overstig $-1{,}3$, er $-2$."
+          },
+          {
+            "id": "r1-2-4-n-quiz3-q2",
+            "task": "Med portotabellen i teksten: kva kostar eit brev på $45$ gram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$25$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$35$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$50$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$45$ ligg i intervallet $(20, 50]$, så portoen er $25$ kr."
+          },
+          {
+            "id": "r1-2-4-n-quiz3-q3",
+            "task": "Kva kjenneteiknar ein trappefunksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han er kontinuerleg overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han er strengt veksande",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Grafen er ei rett linje med konstant stiging",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han er stykkevis konstant, med hopp i trinngrensene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein trappefunksjon har éin fast verdi på kvart intervall. I trinngrensene er venstre- og høgregrensa ulike, så funksjonen er diskontinuerleg der."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-4-n-summary",
+      "type": "text",
+      "content": "## Forteljinga i eit nøtteskal\n\nTaksameter, trinnskatt og faseovergangar viste oss at verkelegheita gjerne byter regelbok undervegs -- og at matematikken svarar med **stykkevis definerte funksjonar**: fleire uttrykk, kvart med sitt intervall, sydd saman til éin funksjon. Å rekne med dei er alltid same tostegsdans: finn intervallet, bruk uttrykket. Og ver pinleg nøyaktig med kven som eig skøytepunktet -- det blir avgjort av $<$ mot $\\leq$.\n\nI saumane bur hovudomgrepet til kapittelet: **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ når venstregrensa, høgregrensa og funksjonsverdien er eitt og same tal: $\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$. Stemmer ikkje rekneskapen, revnar grafen i eit hopp.\n\n**Absoluttverdien** avslørte seg som ein delt funksjon i forkledning: $|f(x)|$ er $f(x)$ der uttrykket inni er ikkje-negativt, og $-f(x)$ elles -- og oppdelinga skjer i nullpunkta til uttrykket inni. Slik vart $|2x-4|$ til ein V med botnpunkt i $(2,0)$, og slik blir likningar og ulikskapar med absoluttverdi løyste: tilfelle for tilfelle.\n\n**Trappefunksjonane** er dei stykkevis konstante: porto, parkering, golvfunksjonen $\\lfloor x \\rfloor$ med si nedoverrunding ($\\lfloor -1{,}3\\rfloor = -2$!). Hoppa deira er ikkje skavankar, men nøyaktig det verkelegheita krev.\n\nDette kapittelet er brua til kapittel 3: grenseverdiar frå venstre og høgre, dei tre krava til kontinuiteten og spisse hjørne som øydelegg deriverbarheit -- alt saman får si fulle handsaming der. Du har allereie møtt dei alle, i saumane på funksjonar med fleire andlet."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "b6cbfb80d1468f4c",
+    "translatedAt": "2026-06-19T23:23:51.759Z",
+    "model": "claude-code-agent",
+    "strings": 76,
+    "tm": {
+      "8e2a5ec7a6dc7c63": "Delte funksjonsuttrykk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "0487405084f7ca18": "Ei forteljing om funksjonar med fleire andlet -- frå taksameter og trinnskatt til V-forma til absoluttverdien, og om kva som skjer i skøytepunkta.",
+      "011ab8a69577b1b0": "definere og tolke stykkevis definerte funksjonar",
+      "207eaaad4da131b9": "avgjere kontinuitet for stykkevis definerte funksjonar",
+      "7ca0bb6ff1777c60": "skissere grafen til stykkevis definerte funksjonar",
+      "1aae8f1fcbafa02c": "uttrykkje absoluttverdifunksjonen som delt funksjonsuttrykk",
+      "4940c0f1ec4b1b29": "løyse likningar og ulikskapar med stykkevis definerte funksjonar",
+      "87396f37edc309a0": "## Funksjonar med fleire andlet\n\nSjå på straumrekninga, skattesetelen eller taksameteret i ein drosje. Ingen av dei følgjer éin enkel formel. Drosjeturen har ein startpris, så ein kilometerpris som *endrar seg* etter ein viss distanse. Trinnskatten har éin sats opp til eitt beløp, ein annan sats vidare. Fysikken er ikkje betre: vatn blir varma jamt opp til $100\\,°$C -- og så skjer noko heilt anna, for ved faseovergangen byter systemet regelbok.\n\nVerkelegheita er full av prosessar som følgjer *forskjellige reglar på forskjellige område*. Svaret matematikken har er den **stykkevis definerte funksjonen**: eitt funksjonsuttrykk her, eit anna der, sydd saman til éin funksjon. Til dømes\n\n$$f(x) = \\begin{cases} x^2 & \\text{når } x < 1 \\\\ 2x - 1 & \\text{når } x \\geq 1 \\end{cases}$$\n\n-- ein parabel som i $x = 1$ overlèt stafettpinnen til ei rett linje.\n\nDet interessante skjer i saumane. Møtest dei to delane pent, eller blir det eit hopp? Det er spørsmålet om **kontinuitet**, og her i kapittelet lærer du å avgjere det presist, ved å samanlikne grenseverdiar frå venstre og høgre med funksjonsverdien i skøytepunktet.\n\nUndervegs avslører vi at ein gammal kjenning -- absoluttverdien frå kapittel 1.5 -- eigentleg er ein stykkevis definert funksjon i forkledning. Og vi møter trappefunksjonane, dei stykkevis *konstante* funksjonane som styrer porto, parkeringshus og taksameter. Funksjonar med fleire andlet, men eitt samla ansvar: å skildre ei verd som byter reglar undervegs.",
+      "f2acaf28c003d3bb": "## Å lese, rekne med og skøyte saman delane\n\nEin **stykkevis definert funksjon** oppgir fleire uttrykk, kvart med sitt intervall:\n\n$$f(x) = \\begin{cases} f_1(x) & \\text{når } x \\in I_1 \\\\ f_2(x) & \\text{når } x \\in I_2 \\end{cases}$$\n\nÅ rekne ein funksjonsverdi er ei tostegsøving: *finn først rett intervall, bruk så det tilhøyrande uttrykket*. Med $f(x) = x^2$ for $x < 1$ og $f(x) = 2x - 1$ for $x \\geq 1$: $f(0) = 0^2 = 0$ (null er mindre enn éin), $f(3) = 2 \\cdot 3 - 1 = 5$, og $f(1) = 2 \\cdot 1 - 1 = 1$ -- legg merke til at $x = 1$ høyrer til den *andre* greina, sidan vilkåret der er $x \\geq 1$. Ulikskapsteikna avgjer kven som eig skøytepunktet.\n\nGrafen teiknar du del for del: parabelen $y = x^2$ til venstre for $1$, linja $y = 2x - 1$ frå $1$ og utover. Og her møtest delane faktisk pent: parabelen siktar seg inn mot $(1, 1)$, og linja startar nøyaktig der.\n\nDet presise språket for «møtest pent» er **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ dersom tre verdiar stemmer overeins:\n\n$$\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$$\n\n-- venstregrensa (kva delen til venstre siktar mot), høgregrensa (kva delen til høgre siktar mot) og funksjonsverdien sjølv. I dømet: venstregrense $1^2 = 1$, høgregrense $2 \\cdot 1 - 1 = 1$, og $f(1) = 1$. Tre like tal: kontinuerleg.\n\nSjekk gjerne eitt til: $g(x) = x + 1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Venstregrense $2 + 1 = 3$, høgregrense $4 - 1 = 3$, $g(2) = 3$. Kontinuerleg også her -- men hadde éin av dei tre verdiane vore annleis, hadde grafen revna i eit hopp.",
+      "0b941458b722b588": "Test deg sjølv på stykkevis definerte funksjonar og kontinuitet:",
+      "4097889236a2af26": "placeholder",
+      "44eb81117c19098a": "Lat $f(x) = x^2$ for $x < 1$ og $f(x) = 2x-1$ for $x \\geq 1$. Kva er $f(0)$?",
+      "abd6a09453783226": "$0 < 1$, så vi bruker uttrykket $x^2$: $f(0) = 0^2 = 0$.",
+      "aad8414a04d3bb75": "Med same funksjon: kva er $f(1)$?",
+      "0acc0f9632d29def": "Udefinert",
+      "70316b5accedd547": "$x = 1$ oppfyller $x \\geq 1$, så vi bruker $2x - 1$: $f(1) = 2 \\cdot 1 - 1 = 1$.",
+      "679ea0105b3a7dfc": "Er funksjonen $f$ kontinuerleg i skøytepunktet $x = 1$?",
+      "dcfd1e09b14a036e": "Nei, grafen hoppar der",
+      "82063ab04f839a0b": "Ja: venstregrense, høgregrense og $f(1)$ er alle lik $1$",
+      "10545ab5ff01ebb4": "Nei, fordi uttrykka er forskjellige",
+      "963d9a054b8deade": "Det kan ikkje avgjerast",
+      "65e761c6bf8a7f73": "$\\lim_{x \\to 1^-} x^2 = 1$, $\\lim_{x \\to 1^+} (2x-1) = 1$ og $f(1) = 1$. Alle tre er like, så $f$ er kontinuerleg i $x = 1$.",
+      "d35be3ed7a3a4e6f": "Lat $g(x) = x+1$ for $x < 2$ og $g(x) = x^2 - 1$ for $x \\geq 2$. Kva er konklusjonen i $x = 2$?",
+      "c1e9682c73c37729": "Diskontinuerleg: grensene er ulike",
+      "fb156d1c70246eec": "Kontinuerleg, men berre frå venstre",
+      "431ba1c6b6e9b277": "Udefinert i $x = 2$",
+      "121275c5cb26292c": "Kontinuerleg: begge grensene og $g(2)$ er lik $3$",
+      "3571e486f2c026b6": "Venstregrense $2+1 = 3$, høgregrense $2^2 - 1 = 3$, og $g(2) = 3$. Tre like verdiar gir kontinuitet.",
+      "df9c5ac6773079d4": "## Absoluttverdien -- ein delt funksjon i forkledning\n\nHugsar du definisjonen av absoluttverdi frå kapittel 1.5? Sjå på han igjen, med nye auge:\n\n$$|x| = \\begin{cases} x & \\text{når } x \\geq 0 \\\\ -x & \\text{når } x < 0 \\end{cases}$$\n\nDette *er* ein stykkevis definert funksjon -- den enklaste og viktigaste av dei alle. To rette linjer, $y = x$ og $y = -x$, skøytte saman i origo til den karakteristiske V-forma. Og i skøytepunktet er han kontinuerleg: begge greinene siktar mot $0$.\n\nDet generelle mønsteret gjeld kvart uttrykk inni absoluttverditeikn: $|f(x)|$ er lik $f(x)$ der $f(x) \\geq 0$, og lik $-f(x)$ der $f(x) < 0$. Oppskrifta for å skrive om $|f(x)|$ til delt uttrykk er difor: *finn nullpunkta til uttrykket inni* -- det er der forteiknet kan snu -- *og del opp tallinja der*.\n\nTa $f(x) = |2x - 4|$. Uttrykket inni er null når $x = 2$. For $x \\geq 2$ er $2x - 4 \\geq 0$, så absoluttverdien gjer ingenting: $|2x-4| = 2x - 4$. For $x < 2$ er $2x - 4$ negativt, og absoluttverdien speglar forteiknet: $|2x-4| = -(2x-4) = 4 - 2x$. Altså:\n\n$$f(x) = \\begin{cases} 4 - 2x & \\text{når } x < 2 \\\\ 2x - 4 & \\text{når } x \\geq 2 \\end{cases}$$\n\nGrafen er ein V med botnpunkt i $(2, 0)$: linja $y = 4 - 2x$ fell inn mot punktet frå venstre, og $y = 2x - 4$ stig ut frå det mot høgre.\n\nDenne omskrivinga er meir enn kosmetikk. Likningar og ulikskapar med absoluttverdi blir løyste nettopp ved å *dele opp i tilfelle* etter forteiknet til uttrykket inni -- du handsamar kvar grein som ei vanleg likning på sitt intervall, og samlar løysingane til slutt. Det delte uttrykket gjer også grafen, og seinare derivasjonen, gjennomsiktig: det spisse botnpunktet til V-en er til dømes grunnen til at $|x|$ ikkje er deriverbar i null, som du får sjå i kapittel 3.",
+      "121923be93f637c2": "Test deg sjølv på absoluttverdi som delt uttrykk:",
+      "f8961bccfdbf247e": "Kvar må tallinja delast opp når $|2x-4|$ skal skrivast som delt uttrykk?",
+      "396c16dd95054a75": "I $x = 4$",
+      "bb0d04c38d348815": "I $x = 2$",
+      "faba0e9140a477a8": "I $x = -2$",
+      "914db6e14de871f0": "I $x = 0$",
+      "09b1b76591383c75": "Forteiknet til $2x - 4$ snur i nullpunktet: $2x - 4 = 0$ gir $x = 2$.",
+      "d5ae1504529a749a": "Kva er $|2x - 4|$ for $x < 2$?",
+      "3f0d971b29bd953a": "$2x - 4$",
+      "c11f11acb6ff53b7": "$2x + 4$",
+      "eac7535363ffbc25": "$-2x - 4$",
+      "1884d25b308afde2": "$4 - 2x$",
+      "244ad4eddecae510": "For $x < 2$ er $2x - 4 < 0$, så $|2x-4| = -(2x-4) = 4 - 2x$.",
+      "b0740b48139aed2a": "Korleis ser grafen til $f(x) = |2x-4|$ ut?",
+      "650bb93b23b30cae": "Ein V-form med botnpunkt i $(2, 0)$",
+      "83a78aa8f9209148": "Ei rett linje gjennom origo",
+      "1a18f4c8db645665": "Ein parabel med botnpunkt i $(2, 0)$",
+      "2c8cdf4576b2c5ae": "Ein V-form med botnpunkt i $(0, 4)$",
+      "5cb58e481b9b0dd6": "To rette linjer med stigingstal $-2$ og $2$ møtest i punktet $(2, 0)$ -- ein V med botnpunkt der uttrykket inni er null.",
+      "7da8973546c9b038": "Kva er det generelle delte uttrykket for $|f(x)|$?",
+      "aa94c3b187869b59": "$f(x)$ for alle $x$",
+      "bf3c655768fa84fd": "$-f(x)$ for alle $x$",
+      "86a0014ddcb676d8": "$f(x)$ der $f(x) \\geq 0$, og $-f(x)$ der $f(x) < 0$",
+      "13d80fe875bfac58": "$f(x)$ for $x \\geq 0$, og $-f(x)$ for $x < 0$",
+      "51a49965e9a0407c": "Det er forteiknet til *uttrykket inni*, ikkje til $x$ sjølv, som avgjer: $|f(x)| = f(x)$ når $f(x) \\geq 0$, og $-f(x)$ når $f(x) < 0$.",
+      "043a0c4ae570e22e": "## Trappefunksjonar -- når grafen tek trappetrinn\n\nNokre stykkevis definerte funksjonar er konstante på kvart sitt intervall. Grafen ser ut som ei trapp, og namnet er deretter: **trappefunksjonar**. Du betaler dei kvar veke. Porto blir avgjord av vektklassar, parkeringshus tek betalt per påbyrja time, og taksameteret hoppar i sprang.\n\nSkuledømet er ein portotabell:\n\n$$P(w) = \\begin{cases} 15 & \\text{når } 0 < w \\leq 20 \\\\ 25 & \\text{når } 20 < w \\leq 50 \\\\ 35 & \\text{når } 50 < w \\leq 100 \\\\ 50 & \\text{når } 100 < w \\leq 250 \\end{cases}$$\n\nEit brev på $45$ gram? Vekta ligg i intervallet $(20, 50]$, så portoen er $25$ kroner. Grafen består av fire vassrette linjestykke, og detaljane i endepunkta er viktige: kvart trinn har *open* sirkel til venstre (vekta må vere *over* grensa) og *fylt* sirkel til høgre (grensevekta høyrer til trinnet under... nei, til trinnet sjølv: $w = 50$ kostar framleis $25$). Ulikskapsteikna $<$ og $\\leq$ blir omsette direkte til opne og fylte endepunkt.\n\nVed kvar trinngrense gjer grafen eit *hopp* -- venstre- og høgregrensa er forskjellige, så trappefunksjonen er diskontinuerleg der. Dette er ikkje ein feil ved modellen; det er sjølve poenget. Eitt gram over grensa, og prisen hoppar.\n\nDen mest berømte trappefunksjonen er **golvfunksjonen** $\\lfloor x \\rfloor$: det største heile talet som er mindre enn eller lik $x$. $\\lfloor 2{,}7 \\rfloor = 2$ og $\\lfloor 5 \\rfloor = 5$ er greie, men ver vaken for negative tal: $\\lfloor -1{,}3 \\rfloor = -2$, fordi $-2$ er det største heiltalet som ikkje overstig $-1{,}3$ -- vi rundar *nedover* på tallinja, ikkje mot null. Golvfunksjonen er arbeidshesten til informatikken: heiltalsdivisjon, indeksberekningar og hashing bruker han uavlateleg.\n\nEit siste praktisk råd for skissering av alle delte funksjonar: teikn kvar del på sitt intervall, marker endepunkta med fylt eller open sirkel etter ulikskapsteikna, og sjekk i kvart skøytepunkt om delane møtest (kontinuitet) eller hoppar.",
+      "a84aca6d99a73a0c": "Test deg sjølv på trappefunksjonar:",
+      "7f3e755cc4954f11": "Kva er $\\lfloor 2{,}7 \\rfloor$?",
+      "26e54e029ce0fd0b": "Golvfunksjonen gir det største heile talet som er mindre enn eller lik $2{,}7$, altså $2$.",
+      "d1a9c200bf5af3f3": "Kva er $\\lfloor -1{,}3 \\rfloor$?",
+      "b80bd291d899276b": "Vi rundar nedover på tallinja: det største heiltalet som ikkje overstig $-1{,}3$, er $-2$.",
+      "793b6210b40f744d": "Med portotabellen i teksten: kva kostar eit brev på $45$ gram?",
+      "4fbe53e6f719f761": "$15$ kr",
+      "89c55d7672393c88": "$25$ kr",
+      "3266b3d5a0a7ce3d": "$35$ kr",
+      "4e0761b6525fded8": "$50$ kr",
+      "9fbfcbcd6b8a4632": "$45$ ligg i intervallet $(20, 50]$, så portoen er $25$ kr.",
+      "48b4281981dfb06a": "Kva kjenneteiknar ein trappefunksjon?",
+      "28d8997b3a450d74": "Han er kontinuerleg overalt",
+      "59f6e73bc007ac53": "Han er strengt veksande",
+      "f5b2cc0df210cbc3": "Grafen er ei rett linje med konstant stiging",
+      "b55559c36cb9ae50": "Han er stykkevis konstant, med hopp i trinngrensene",
+      "58d3911bcd68187a": "Ein trappefunksjon har éin fast verdi på kvart intervall. I trinngrensene er venstre- og høgregrensa ulike, så funksjonen er diskontinuerleg der.",
+      "f2250e69ae5a0a8d": "## Forteljinga i eit nøtteskal\n\nTaksameter, trinnskatt og faseovergangar viste oss at verkelegheita gjerne byter regelbok undervegs -- og at matematikken svarar med **stykkevis definerte funksjonar**: fleire uttrykk, kvart med sitt intervall, sydd saman til éin funksjon. Å rekne med dei er alltid same tostegsdans: finn intervallet, bruk uttrykket. Og ver pinleg nøyaktig med kven som eig skøytepunktet -- det blir avgjort av $<$ mot $\\leq$.\n\nI saumane bur hovudomgrepet til kapittelet: **kontinuitet**. Funksjonen er kontinuerleg i skøytepunktet $x = a$ når venstregrensa, høgregrensa og funksjonsverdien er eitt og same tal: $\\lim_{x \\to a^-} f(x) = \\lim_{x \\to a^+} f(x) = f(a)$. Stemmer ikkje rekneskapen, revnar grafen i eit hopp.\n\n**Absoluttverdien** avslørte seg som ein delt funksjon i forkledning: $|f(x)|$ er $f(x)$ der uttrykket inni er ikkje-negativt, og $-f(x)$ elles -- og oppdelinga skjer i nullpunkta til uttrykket inni. Slik vart $|2x-4|$ til ein V med botnpunkt i $(2,0)$, og slik blir likningar og ulikskapar med absoluttverdi løyste: tilfelle for tilfelle.\n\n**Trappefunksjonane** er dei stykkevis konstante: porto, parkering, golvfunksjonen $\\lfloor x \\rfloor$ med si nedoverrunding ($\\lfloor -1{,}3\\rfloor = -2$!). Hoppa deira er ikkje skavankar, men nøyaktig det verkelegheita krev.\n\nDette kapittelet er brua til kapittel 3: grenseverdiar frå venstre og høgre, dei tre krava til kontinuiteten og spisse hjørne som øydelegg deriverbarheit -- alt saman får si fulle handsaming der. Du har allereie møtt dei alle, i saumane på funksjonar med fleire andlet."
+    }
+  }
+}

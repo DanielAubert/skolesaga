@@ -1,1 +1,423 @@
-{"id":"s2-4-2-narrativ","courseId":"s2","chapterNumber":"4.2","title":"Hypergeometrisk og binomisk fordeling","subtitle":"Narrativ versjon","description":"En fortelling om komitétrekninger, gjettelek på prøver og kvalitetskontroll — og de to fordelingene som beskriver dem.","estimatedMinutes":36,"competenceGoals":["bruke binomisk og hypergeometrisk fordeling i modellering og beregninger","vurdere når de ulike fordelingene er hensiktsmessige"],"linkedChapterId":"s2-4-2","content":[{"id":"s2-4-2-n-intro","type":"text","content":"## To måter å trekke på\n\nKlassen din skal velge en komité, og fem navn trekkes fra en bolle med tretti lapper. Samtidig sitter en medelev og gjetter seg gjennom en flervalgsprøve med ti spørsmål. Begge situasjonene handler om å telle «suksesser» i en serie trekninger — men det er en avgjørende forskjell mellom dem.\n\nNår navnene trekkes fra bollen, legges de ikke tilbake. For hver lapp som trekkes, endrer sannsynlighetene seg for de neste — trekningene er **avhengige**. Dette beskrives av den **hypergeometriske fordelingen**. Når medeleven gjetter på spørsmål etter spørsmål, er derimot hvert forsøk helt likt det forrige: samme sannsynlighet hver gang, uavhengig av hva som skjedde før. Det er den **binomiske fordelingen**.\n\nDisse to fordelingene er blant de viktigste diskrete sannsynlighetsfordelingene, og de er sentrale på S2-eksamen. Den hypergeometriske gjelder trekking **uten tilbakelegging** fra en endelig populasjon; den binomiske gjelder gjentatte **uavhengige** forsøk med to mulige utfall. Mye av kunsten ligger nettopp i å avgjøre hvilken modell som passer: Trekker vi uten tilbakelegging fra en liten populasjon? Eller gjør vi uavhengige forsøk — eventuelt trekker fra en populasjon så stor at det nesten ikke spiller noen rolle?\n\nVi tar dem én av gangen, og avslutter med kvalitetskontrolløren som får bruk for begge."},{"id":"s2-4-2-n-section1","type":"text","content":"## Bollen med tretti lapper\n\nI klassen er det 30 elever, hvorav 12 jenter, og det trekkes tilfeldig 5 elever til komiteen. Hva er sannsynligheten for at nøyaktig 2 av de 5 er jenter?\n\nDette er den hypergeometriske grunnsituasjonen: vi trekker $n$ objekter **uten tilbakelegging** fra en populasjon med $N$ objekter, der $M$ er «suksesser» og $N - M$ «fiaskoer». Lar vi $X$ være antall suksesser blant de $n$ trukne, er $$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$ der $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ er binomialkoeffisienten. Logikken bak formelen er ren telling: antall måter å velge $k$ suksesser av $M$, ganger antall måter å velge resten av fiaskoene, delt på antall måter å velge $n$ av $N$ totalt.\n\nFor komiteen er $N = 30$, $M = 12$, $n = 5$ og $k = 2$: $\\binom{12}{2} = 66$, $\\binom{18}{3} = 816$ og $\\binom{30}{5} = 142506$, så $$P(X = 2) = \\frac{66 \\cdot 816}{142506} = \\frac{53856}{142506} \\approx 0{,}378$$ — omtrent 37,8 %.\n\nForventningsverdien er intuitiv: $E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{12}{30} = 2$ jenter — utvalget speiler andelen i populasjonen. Variansen har en ekstra faktor sammenlignet med det binomiske tilfellet: $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$. Den siste brøken, $\\frac{N-n}{N-1}$, kalles gjerne endelighetskorreksjonen — den krymper variansen fordi trekninger uten tilbakelegging gir litt mindre tilfeldighet enn uavhengige forsøk."},{"id":"s2-4-2-n-quiz1","type":"exercise","exercise":{"id":"s2-4-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på hypergeometrisk fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-2-n-quiz1-q0","task":"Hva kjennetegner en hypergeometrisk situasjon?","options":[{"id":"a","text":"Trekking uten tilbakelegging fra en endelig populasjon","isCorrect":true},{"id":"b","text":"Uavhengige forsøk med konstant sannsynlighet","isCorrect":false},{"id":"c","text":"Kontinuerlige måleverdier","isCorrect":false},{"id":"d","text":"Uendelig mange forsøk","isCorrect":false}],"solution":"Hypergeometrisk fordeling beskriver trekking uten tilbakelegging — sannsynligheten endrer seg fra trekning til trekning fordi populasjonen krymper."},{"id":"s2-4-2-n-quiz1-q1","task":"I komitéeksempelet ($N = 30$, $M = 12$, $n = 5$): hva er $P(X = 2)$?","options":[{"id":"a","text":"$\\frac{\\binom{12}{2}\\binom{18}{3}}{\\binom{30}{5}} \\approx 0{,}378$","isCorrect":true},{"id":"b","text":"$\\binom{5}{2}(0{,}4)^2(0{,}6)^3 \\approx 0{,}346$","isCorrect":false},{"id":"c","text":"$\\frac{12}{30} = 0{,}4$","isCorrect":false},{"id":"d","text":"$\\frac{2}{5} = 0{,}4$","isCorrect":false}],"solution":"Uten tilbakelegging brukes den hypergeometriske formelen: $\\frac{66 \\cdot 816}{142506} \\approx 0{,}378$. Det binomiske uttrykket ville vært en tilnærming."},{"id":"s2-4-2-n-quiz1-q2","task":"Hva er forventet antall jenter i komiteen?","options":[{"id":"a","text":"$2{,}5$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$2$","isCorrect":true},{"id":"d","text":"$1{,}2$","isCorrect":false}],"solution":"$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{12}{30} = 2$. Utvalget gjenspeiler i snitt andelen jenter i klassen."},{"id":"s2-4-2-n-quiz1-q3","task":"Hva uttrykker binomialkoeffisienten $\\binom{12}{2}$?","options":[{"id":"a","text":"Sannsynligheten for å trekke 2 av 12","isCorrect":false},{"id":"b","text":"$12 \\cdot 2$","isCorrect":false},{"id":"c","text":"Antall måter å ordne 12 elementer i rekkefølge","isCorrect":false},{"id":"d","text":"Antall måter å velge 2 av 12 uten å bry seg om rekkefølgen","isCorrect":true}],"solution":"$\\binom{12}{2} = \\frac{12!}{2! \\cdot 10!} = \\frac{12 \\cdot 11}{2} = 66$ er antall ulike utvalg av 2 fra 12 — rekkefølgen teller ikke."}]}},{"id":"s2-4-2-n-section2","type":"text","content":"## Gjettelek med ti spørsmål\n\nMedeleven din har ikke lest til prøven og gjetter vilt på alle ti flervalgsspørsmålene, hvert med fire alternativer. Dette er et **binomisk forsøk**, kjennetegnet ved tre ting: et fast antall $n$ uavhengige forsøk, to mulige utfall i hvert forsøk («suksess» med sannsynlighet $p$, «fiasko» med $1-p$), og samme $p$ i hvert forsøk. Antall suksesser $X$ er da binomisk fordelt, $X \\sim B(n, p)$, med punktsannsynlighet $$P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$$ Formelen leses naturlig: $p^k$ for $k$ suksesser, $(1-p)^{n-k}$ for resten, og $\\binom{n}{k}$ for alle måtene suksessene kan fordele seg på. Forventning og varians er enkle: $E(X) = np$ og $\\text{Var}(X) = np(1-p)$, med $\\text{SD}(X) = \\sqrt{np(1-p)}$.\n\nFor gjetteren er $X \\sim B(10,\\ 0{,}25)$. Sannsynligheten for nøyaktig 3 riktige: $P(X = 3) = \\binom{10}{3}(0{,}25)^3(0{,}75)^7 = 120 \\cdot 0{,}015625 \\cdot 0{,}13348 \\approx 0{,}250$. Men for å bestå kreves minst 5 riktige, og da må vi summere: $P(X \\geq 5) = P(X=5) + P(X=6) + \\cdots \\approx 0{,}0584 + 0{,}0162 + 0{,}0031 + 0{,}0004 \\approx 0{,}078$. Bare 7,8 % sjanse for å bestå ved ren gjetting — og forventet antall riktige er $E(X) = 10 \\cdot 0{,}25 = 2{,}5$, langt under grensen.\n\nPå eksamen møter du ofte spørsmålet «forklar hvorfor dette kan modelleres med binomisk fordeling». Da skal du vise fire ting: det er et fast antall forsøk $n$; hvert forsøk har to utfall; sannsynligheten $p$ er konstant; og forsøkene er uavhengige. Mangler ett av kriteriene — for eksempel fordi det trekkes uten tilbakelegging — er modellen strengt tatt feil."},{"id":"s2-4-2-n-quiz2","type":"exercise","exercise":{"id":"s2-4-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på binomisk fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-2-n-quiz2-q0","task":"Hvilke krav må være oppfylt for at $X$ skal være binomisk fordelt?","options":[{"id":"a","text":"Trekking uten tilbakelegging fra endelig populasjon","isCorrect":false},{"id":"b","text":"Fast antall uavhengige forsøk, to utfall, konstant $p$","isCorrect":true},{"id":"c","text":"Minst 30 forsøk","isCorrect":false},{"id":"d","text":"At $p = 0{,}5$","isCorrect":false}],"solution":"Binomisk modell krever: fast $n$, to mulige utfall per forsøk, samme suksess-sannsynlighet $p$ hver gang, og uavhengighet mellom forsøkene."},{"id":"s2-4-2-n-quiz2-q1","task":"En elev gjetter på 10 spørsmål med 4 alternativer. Hva er forventet antall riktige?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$2{,}5$","isCorrect":true},{"id":"d","text":"$1{,}875$","isCorrect":false}],"solution":"$E(X) = np = 10 \\cdot 0{,}25 = 2{,}5$ riktige — langt fra beståttgrensen på 5. ($1{,}875$ er variansen $np(1-p)$.)"},{"id":"s2-4-2-n-quiz2-q2","task":"Hva uttrykker $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$?","options":[{"id":"a","text":"Sannsynligheten for nøyaktig $k$ suksesser i $n$ uavhengige forsøk","isCorrect":true},{"id":"b","text":"Sannsynligheten for minst $k$ suksesser","isCorrect":false},{"id":"c","text":"Forventet antall suksesser","isCorrect":false},{"id":"d","text":"Sannsynligheten for suksess i det $k$-te forsøket","isCorrect":false}],"solution":"Punktsannsynligheten gir nøyaktig $k$ suksesser: $p^k$ for suksessene, $(1-p)^{n-k}$ for fiaskoene, og $\\binom{n}{k}$ for plasseringene. «Minst $k$» krever summering."},{"id":"s2-4-2-n-quiz2-q3","task":"Hvordan beregnes $P(X \\geq 5)$ for $X \\sim B(10,\\ 0{,}25)$?","options":[{"id":"a","text":"$1 - P(X = 5)$","isCorrect":false},{"id":"b","text":"$P(X = 5)$ alene","isCorrect":false},{"id":"c","text":"$\\binom{10}{5}(0{,}25)^5$","isCorrect":false},{"id":"d","text":"$\\sum_{k=5}^{10}\\binom{10}{k}(0{,}25)^k(0{,}75)^{10-k}$","isCorrect":true}],"solution":"«Minst 5» betyr å summere punktsannsynlighetene fra $k = 5$ til $k = 10$, som gir omtrent $0{,}078$."}]}},{"id":"s2-4-2-n-section3","type":"text","content":"## Kvalitetskontrolløren og tommelfingerregelen\n\nPå en lampefabrikk står en kvalitetskontrollør med en eske på 100 lyspærer, hvorav 10 er defekte. Hun trekker 5 pærer for inspeksjon. Hva er sannsynligheten for nøyaktig én defekt?\n\nStrengt tatt er dette hypergeometrisk — pærene legges ikke tilbake. Med $N = 100$, $M = 10$, $n = 5$ og $k = 1$: $$P(X = 1) = \\frac{\\binom{10}{1}\\binom{90}{4}}{\\binom{100}{5}} = \\frac{10 \\cdot 2555190}{75287520} \\approx 0{,}3394$$\n\nMen legg merke til noe: når populasjonen er stor i forhold til utvalget, endrer sannsynligheten seg nesten ikke fra trekning til trekning. Den første pæren er defekt med sannsynlighet $0{,}10$; selv etter fire trekninger er sannsynligheten omtrent den samme. Da kan vi **approksimere med binomisk fordeling**: $p = \\frac{10}{100} = 0{,}1$ gir $P(X = 1) = \\binom{5}{1}(0{,}1)(0{,}9)^4 = 5 \\cdot 0{,}1 \\cdot 0{,}6561 = 0{,}3281$. Avviket fra den eksakte verdien $0{,}3394$ er lite.\n\n**Tommelfingerregelen** sier: binomisk approksimasjon er god når utvalget er mindre enn 5 % av populasjonen, altså $n < 0{,}05N$. I eksempelet er $n = 5$ nøyaktig 5 % av $N = 100$ — vi er akkurat på grensen, og det synes i den lille forskjellen mellom svarene. Hadde esken inneholdt 10 000 pærer, ville approksimasjonen vært nesten perfekt.\n\nDermed har kontrolløren et komplett beslutningskart. Trekkes det uten tilbakelegging fra en liten populasjon: hypergeometrisk, med parametre $N$, $M$, $n$. Er forsøkene uavhengige — eller populasjonen svært stor: binomisk, med parametre $n$ og $p$. Forventningene er beslektet, $E(X) = n\\frac{M}{N}$ mot $E(X) = np$, og variansene skiller seg bare med endelighetskorreksjonen $\\frac{N-n}{N-1}$."},{"id":"s2-4-2-n-quiz3","type":"exercise","exercise":{"id":"s2-4-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på valg av fordeling og approksimasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-2-n-quiz3-q0","task":"Når kan binomisk fordeling brukes som approksimasjon til hypergeometrisk?","options":[{"id":"a","text":"Når $n > N$","isCorrect":false},{"id":"b","text":"Når utvalget er mindre enn ca. 5 % av populasjonen ($n < 0{,}05N$)","isCorrect":true},{"id":"c","text":"Når $p = 0{,}5$","isCorrect":false},{"id":"d","text":"Aldri — de gir alltid ulike svar","isCorrect":false}],"solution":"Når populasjonen er stor i forhold til utvalget, endres sannsynligheten ubetydelig mellom trekningene, og binomisk modell blir en god tilnærming."},{"id":"s2-4-2-n-quiz3-q1","task":"100 lyspærer, 10 defekte, 5 trekkes. Den eksakte $P(X=1) \\approx 0{,}339$, binomisk gir $\\approx 0{,}328$. Hvorfor er de ikke like?","options":[{"id":"a","text":"Den binomiske formelen er feil","isCorrect":false},{"id":"b","text":"Den hypergeometriske beregningen har avrundingsfeil","isCorrect":false},{"id":"c","text":"Trekningen skjer uten tilbakelegging, og $n = 5\\%$ av $N$ er akkurat på grensen av tommelfingerregelen","isCorrect":true},{"id":"d","text":"Fordi $E(X)$ er ulik i de to modellene","isCorrect":false}],"solution":"Binomisk er bare en tilnærming her: sannsynligheten endrer seg litt for hver pære som trekkes ut. Med $n/N = 5\\%$ er avviket lite, men synlig."},{"id":"s2-4-2-n-quiz3-q2","task":"Hvilken situasjon bør modelleres hypergeometrisk?","options":[{"id":"a","text":"Antall kron i 20 myntkast","isCorrect":false},{"id":"b","text":"Antall seksere i 10 terningkast","isCorrect":false},{"id":"c","text":"Antall riktige ved gjetting på en flervalgsprøve","isCorrect":false},{"id":"d","text":"Antall vinnerlodd blant 5 lodd trukket fra en bolle med 50 lodd","isCorrect":true}],"solution":"Loddtrekningen skjer uten tilbakelegging fra en liten, endelig populasjon — hypergeometrisk. Myntkast, terningkast og gjetting er uavhengige forsøk med konstant $p$ — binomisk."},{"id":"s2-4-2-n-quiz3-q3","task":"Hva er variansen til en binomisk fordelt variabel $X \\sim B(n, p)$?","options":[{"id":"a","text":"$np$","isCorrect":false},{"id":"b","text":"$np(1-p)$","isCorrect":true},{"id":"c","text":"$\\sqrt{np(1-p)}$","isCorrect":false},{"id":"d","text":"$n\\frac{M}{N}\\frac{N-M}{N}\\frac{N-n}{N-1}$","isCorrect":false}],"solution":"$\\text{Var}(X) = np(1-p)$; kvadratroten av dette er standardavviket. Det siste alternativet er den hypergeometriske variansen."}]}},{"id":"s2-4-2-n-summary","type":"text","content":"## Oppsummering: med eller uten tilbakelegging\n\nKomitétrekningen, gjetteleken og kvalitetskontrollen viste oss de to store diskrete fordelingene og — viktigst av alt — når hver av dem gjelder.\n\nDen **hypergeometriske fordelingen** beskriver trekking uten tilbakelegging fra en endelig populasjon: $N$ objekter, $M$ suksesser, $n$ trekninger, og $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$. Forventningen er $E(X) = n\\frac{M}{N}$, og variansen $n\\frac{M}{N}\\frac{N-M}{N}\\frac{N-n}{N-1}$ bærer med seg endelighetskorreksjonen som skyldes de avhengige trekningene.\n\nDen **binomiske fordelingen** $X \\sim B(n, p)$ beskriver $n$ uavhengige forsøk med to utfall og konstant suksess-sannsynlighet $p$: $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, med $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. På eksamen skal du kunne begrunne modellvalget med de fire kriteriene: fast $n$, to utfall, konstant $p$, uavhengighet.\n\nBroen mellom dem er **tommelfingerregelen**: når utvalget er under 5 % av populasjonen ($n < 0{,}05N$), er den binomiske fordelingen en god tilnærming til den hypergeometriske — slik lyspæreeksempelet viste med $0{,}328$ mot eksakt $0{,}339$ akkurat på grensen. Spørsmålet du alltid skal stille først, er like enkelt som det er avgjørende: legges lappene tilbake i bollen, eller ikke?"}],"exercises":[]}
+{
+  "id": "s2-4-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "4.2",
+  "title": "Hypergeometrisk og binomisk fordeling",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om komitétrekninger, gjettelek på prøver og kvalitetskontroll — og de to fordelingene som beskriver dem.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "bruke binomisk og hypergeometrisk fordeling i modellering og beregninger",
+    "vurdere når de ulike fordelingene er hensiktsmessige"
+  ],
+  "linkedChapterId": "s2-4-2",
+  "content": [
+    {
+      "id": "s2-4-2-n-intro",
+      "type": "text",
+      "content": "## To måter å trekke på\n\nKlassen din skal velge en komité, og fem navn trekkes fra en bolle med tretti lapper. Samtidig sitter en medelev og gjetter seg gjennom en flervalgsprøve med ti spørsmål. Begge situasjonene handler om å telle «suksesser» i en serie trekninger — men det er en avgjørende forskjell mellom dem.\n\nNår navnene trekkes fra bollen, legges de ikke tilbake. For hver lapp som trekkes, endrer sannsynlighetene seg for de neste — trekningene er **avhengige**. Dette beskrives av den **hypergeometriske fordelingen**. Når medeleven gjetter på spørsmål etter spørsmål, er derimot hvert forsøk helt likt det forrige: samme sannsynlighet hver gang, uavhengig av hva som skjedde før. Det er den **binomiske fordelingen**.\n\nDisse to fordelingene er blant de viktigste diskrete sannsynlighetsfordelingene, og de er sentrale på S2-eksamen. Den hypergeometriske gjelder trekking **uten tilbakelegging** fra en endelig populasjon; den binomiske gjelder gjentatte **uavhengige** forsøk med to mulige utfall. Mye av kunsten ligger nettopp i å avgjøre hvilken modell som passer: Trekker vi uten tilbakelegging fra en liten populasjon? Eller gjør vi uavhengige forsøk — eventuelt trekker fra en populasjon så stor at det nesten ikke spiller noen rolle?\n\nVi tar dem én av gangen, og avslutter med kvalitetskontrolløren som får bruk for begge."
+    },
+    {
+      "id": "s2-4-2-n-section1",
+      "type": "text",
+      "content": "## Bollen med tretti lapper\n\nI klassen er det 30 elever, hvorav 12 jenter, og det trekkes tilfeldig 5 elever til komiteen. Hva er sannsynligheten for at nøyaktig 2 av de 5 er jenter?\n\nDette er den hypergeometriske grunnsituasjonen: vi trekker $n$ objekter **uten tilbakelegging** fra en populasjon med $N$ objekter, der $M$ er «suksesser» og $N - M$ «fiaskoer». Lar vi $X$ være antall suksesser blant de $n$ trukne, er $$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$ der $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ er binomialkoeffisienten. Logikken bak formelen er ren telling: antall måter å velge $k$ suksesser av $M$, ganger antall måter å velge resten av fiaskoene, delt på antall måter å velge $n$ av $N$ totalt.\n\nFor komiteen er $N = 30$, $M = 12$, $n = 5$ og $k = 2$: $\\binom{12}{2} = 66$, $\\binom{18}{3} = 816$ og $\\binom{30}{5} = 142506$, så $$P(X = 2) = \\frac{66 \\cdot 816}{142506} = \\frac{53856}{142506} \\approx 0{,}378$$ — omtrent 37,8 %.\n\nForventningsverdien er intuitiv: $E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{12}{30} = 2$ jenter — utvalget speiler andelen i populasjonen. Variansen har en ekstra faktor sammenlignet med det binomiske tilfellet: $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$. Den siste brøken, $\\frac{N-n}{N-1}$, kalles gjerne endelighetskorreksjonen — den krymper variansen fordi trekninger uten tilbakelegging gir litt mindre tilfeldighet enn uavhengige forsøk."
+    },
+    {
+      "id": "s2-4-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på hypergeometrisk fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-2-n-quiz1-q0",
+            "task": "Hva kjennetegner en hypergeometrisk situasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Trekking uten tilbakelegging fra en endelig populasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Uavhengige forsøk med konstant sannsynlighet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kontinuerlige måleverdier",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Uendelig mange forsøk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hypergeometrisk fordeling beskriver trekking uten tilbakelegging — sannsynligheten endrer seg fra trekning til trekning fordi populasjonen krymper."
+          },
+          {
+            "id": "s2-4-2-n-quiz1-q1",
+            "task": "I komitéeksempelet ($N = 30$, $M = 12$, $n = 5$): hva er $P(X = 2)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\binom{5}{2}(0{,}4)^2(0{,}6)^3 \\approx 0{,}346$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{\\binom{12}{2}\\binom{18}{3}}{\\binom{30}{5}} \\approx 0{,}378$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{12}{30} = 0{,}4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{5} = 0{,}4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten tilbakelegging brukes den hypergeometriske formelen: $\\frac{66 \\cdot 816}{142506} \\approx 0{,}378$. Det binomiske uttrykket ville vært en tilnærming."
+          },
+          {
+            "id": "s2-4-2-n-quiz1-q2",
+            "task": "Hva er forventet antall jenter i komiteen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1{,}2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{12}{30} = 2$. Utvalget gjenspeiler i snitt andelen jenter i klassen."
+          },
+          {
+            "id": "s2-4-2-n-quiz1-q3",
+            "task": "Hva uttrykker binomialkoeffisienten $\\binom{12}{2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sannsynligheten for å trekke 2 av 12",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12 \\cdot 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall måter å ordne 12 elementer i rekkefølge",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antall måter å velge 2 av 12 uten å bry seg om rekkefølgen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\binom{12}{2} = \\frac{12!}{2! \\cdot 10!} = \\frac{12 \\cdot 11}{2} = 66$ er antall ulike utvalg av 2 fra 12 — rekkefølgen teller ikke."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-2-n-section2",
+      "type": "text",
+      "content": "## Gjettelek med ti spørsmål\n\nMedeleven din har ikke lest til prøven og gjetter vilt på alle ti flervalgsspørsmålene, hvert med fire alternativer. Dette er et **binomisk forsøk**, kjennetegnet ved tre ting: et fast antall $n$ uavhengige forsøk, to mulige utfall i hvert forsøk («suksess» med sannsynlighet $p$, «fiasko» med $1-p$), og samme $p$ i hvert forsøk. Antall suksesser $X$ er da binomisk fordelt, $X \\sim B(n, p)$, med punktsannsynlighet $$P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$$ Formelen leses naturlig: $p^k$ for $k$ suksesser, $(1-p)^{n-k}$ for resten, og $\\binom{n}{k}$ for alle måtene suksessene kan fordele seg på. Forventning og varians er enkle: $E(X) = np$ og $\\text{Var}(X) = np(1-p)$, med $\\text{SD}(X) = \\sqrt{np(1-p)}$.\n\nFor gjetteren er $X \\sim B(10,\\ 0{,}25)$. Sannsynligheten for nøyaktig 3 riktige: $P(X = 3) = \\binom{10}{3}(0{,}25)^3(0{,}75)^7 = 120 \\cdot 0{,}015625 \\cdot 0{,}13348 \\approx 0{,}250$. Men for å bestå kreves minst 5 riktige, og da må vi summere: $P(X \\geq 5) = P(X=5) + P(X=6) + \\cdots \\approx 0{,}0584 + 0{,}0162 + 0{,}0031 + 0{,}0004 \\approx 0{,}078$. Bare 7,8 % sjanse for å bestå ved ren gjetting — og forventet antall riktige er $E(X) = 10 \\cdot 0{,}25 = 2{,}5$, langt under grensen.\n\nPå eksamen møter du ofte spørsmålet «forklar hvorfor dette kan modelleres med binomisk fordeling». Da skal du vise fire ting: det er et fast antall forsøk $n$; hvert forsøk har to utfall; sannsynligheten $p$ er konstant; og forsøkene er uavhengige. Mangler ett av kriteriene — for eksempel fordi det trekkes uten tilbakelegging — er modellen strengt tatt feil."
+    },
+    {
+      "id": "s2-4-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på binomisk fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-2-n-quiz2-q0",
+            "task": "Hvilke krav må være oppfylt for at $X$ skal være binomisk fordelt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fast antall uavhengige forsøk, to utfall, konstant $p$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Trekking uten tilbakelegging fra endelig populasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Minst 30 forsøk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At $p = 0{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Binomisk modell krever: fast $n$, to mulige utfall per forsøk, samme suksess-sannsynlighet $p$ hver gang, og uavhengighet mellom forsøkene."
+          },
+          {
+            "id": "s2-4-2-n-quiz2-q1",
+            "task": "En elev gjetter på 10 spørsmål med 4 alternativer. Hva er forventet antall riktige?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1{,}875$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = np = 10 \\cdot 0{,}25 = 2{,}5$ riktige — langt fra beståttgrensen på 5. ($1{,}875$ er variansen $np(1-p)$.)"
+          },
+          {
+            "id": "s2-4-2-n-quiz2-q2",
+            "task": "Hva uttrykker $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sannsynligheten for minst $k$ suksesser",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Forventet antall suksesser",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Sannsynligheten for nøyaktig $k$ suksesser i $n$ uavhengige forsøk",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Sannsynligheten for suksess i det $k$-te forsøket",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Punktsannsynligheten gir nøyaktig $k$ suksesser: $p^k$ for suksessene, $(1-p)^{n-k}$ for fiaskoene, og $\\binom{n}{k}$ for plasseringene. «Minst $k$» krever summering."
+          },
+          {
+            "id": "s2-4-2-n-quiz2-q3",
+            "task": "Hvordan beregnes $P(X \\geq 5)$ for $X \\sim B(10,\\ 0{,}25)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1 - P(X = 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(X = 5)$ alene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\binom{10}{5}(0{,}25)^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sum_{k=5}^{10}\\binom{10}{k}(0{,}25)^k(0{,}75)^{10-k}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "«Minst 5» betyr å summere punktsannsynlighetene fra $k = 5$ til $k = 10$, som gir omtrent $0{,}078$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-2-n-section3",
+      "type": "text",
+      "content": "## Kvalitetskontrolløren og tommelfingerregelen\n\nPå en lampefabrikk står en kvalitetskontrollør med en eske på 100 lyspærer, hvorav 10 er defekte. Hun trekker 5 pærer for inspeksjon. Hva er sannsynligheten for nøyaktig én defekt?\n\nStrengt tatt er dette hypergeometrisk — pærene legges ikke tilbake. Med $N = 100$, $M = 10$, $n = 5$ og $k = 1$: $$P(X = 1) = \\frac{\\binom{10}{1}\\binom{90}{4}}{\\binom{100}{5}} = \\frac{10 \\cdot 2555190}{75287520} \\approx 0{,}3394$$\n\nMen legg merke til noe: når populasjonen er stor i forhold til utvalget, endrer sannsynligheten seg nesten ikke fra trekning til trekning. Den første pæren er defekt med sannsynlighet $0{,}10$; selv etter fire trekninger er sannsynligheten omtrent den samme. Da kan vi **approksimere med binomisk fordeling**: $p = \\frac{10}{100} = 0{,}1$ gir $P(X = 1) = \\binom{5}{1}(0{,}1)(0{,}9)^4 = 5 \\cdot 0{,}1 \\cdot 0{,}6561 = 0{,}3281$. Avviket fra den eksakte verdien $0{,}3394$ er lite.\n\n**Tommelfingerregelen** sier: binomisk approksimasjon er god når utvalget er mindre enn 5 % av populasjonen, altså $n < 0{,}05N$. I eksempelet er $n = 5$ nøyaktig 5 % av $N = 100$ — vi er akkurat på grensen, og det synes i den lille forskjellen mellom svarene. Hadde esken inneholdt 10 000 pærer, ville approksimasjonen vært nesten perfekt.\n\nDermed har kontrolløren et komplett beslutningskart. Trekkes det uten tilbakelegging fra en liten populasjon: hypergeometrisk, med parametre $N$, $M$, $n$. Er forsøkene uavhengige — eller populasjonen svært stor: binomisk, med parametre $n$ og $p$. Forventningene er beslektet, $E(X) = n\\frac{M}{N}$ mot $E(X) = np$, og variansene skiller seg bare med endelighetskorreksjonen $\\frac{N-n}{N-1}$."
+    },
+    {
+      "id": "s2-4-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på valg av fordeling og approksimasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-2-n-quiz3-q0",
+            "task": "Når kan binomisk fordeling brukes som approksimasjon til hypergeometrisk?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når utvalget er mindre enn ca. 5 % av populasjonen ($n < 0{,}05N$)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Når $n > N$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $p = 0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aldri — de gir alltid ulike svar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når populasjonen er stor i forhold til utvalget, endres sannsynligheten ubetydelig mellom trekningene, og binomisk modell blir en god tilnærming."
+          },
+          {
+            "id": "s2-4-2-n-quiz3-q1",
+            "task": "100 lyspærer, 10 defekte, 5 trekkes. Den eksakte $P(X=1) \\approx 0{,}339$, binomisk gir $\\approx 0{,}328$. Hvorfor er de ikke like?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den binomiske formelen er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Trekningen skjer uten tilbakelegging, og $n = 5\\%$ av $N$ er akkurat på grensen av tommelfingerregelen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den hypergeometriske beregningen har avrundingsfeil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $E(X)$ er ulik i de to modellene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Binomisk er bare en tilnærming her: sannsynligheten endrer seg litt for hver pære som trekkes ut. Med $n/N = 5\\%$ er avviket lite, men synlig."
+          },
+          {
+            "id": "s2-4-2-n-quiz3-q2",
+            "task": "Hvilken situasjon bør modelleres hypergeometrisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Antall kron i 20 myntkast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Antall seksere i 10 terningkast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antall vinnerlodd blant 5 lodd trukket fra en bolle med 50 lodd",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Antall riktige ved gjetting på en flervalgsprøve",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Loddtrekningen skjer uten tilbakelegging fra en liten, endelig populasjon — hypergeometrisk. Myntkast, terningkast og gjetting er uavhengige forsøk med konstant $p$ — binomisk."
+          },
+          {
+            "id": "s2-4-2-n-quiz3-q3",
+            "task": "Hva er variansen til en binomisk fordelt variabel $X \\sim B(n, p)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$np$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{np(1-p)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n\\frac{M}{N}\\frac{N-M}{N}\\frac{N-n}{N-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$np(1-p)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\text{Var}(X) = np(1-p)$; kvadratroten av dette er standardavviket. Det siste alternativet er den hypergeometriske variansen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: med eller uten tilbakelegging\n\nKomitétrekningen, gjetteleken og kvalitetskontrollen viste oss de to store diskrete fordelingene og — viktigst av alt — når hver av dem gjelder.\n\nDen **hypergeometriske fordelingen** beskriver trekking uten tilbakelegging fra en endelig populasjon: $N$ objekter, $M$ suksesser, $n$ trekninger, og $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$. Forventningen er $E(X) = n\\frac{M}{N}$, og variansen $n\\frac{M}{N}\\frac{N-M}{N}\\frac{N-n}{N-1}$ bærer med seg endelighetskorreksjonen som skyldes de avhengige trekningene.\n\nDen **binomiske fordelingen** $X \\sim B(n, p)$ beskriver $n$ uavhengige forsøk med to utfall og konstant suksess-sannsynlighet $p$: $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, med $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. På eksamen skal du kunne begrunne modellvalget med de fire kriteriene: fast $n$, to utfall, konstant $p$, uavhengighet.\n\nBroen mellom dem er **tommelfingerregelen**: når utvalget er under 5 % av populasjonen ($n < 0{,}05N$), er den binomiske fordelingen en god tilnærming til den hypergeometriske — slik lyspæreeksempelet viste med $0{,}328$ mot eksakt $0{,}339$ akkurat på grensen. Spørsmålet du alltid skal stille først, er like enkelt som det er avgjørende: legges lappene tilbake i bollen, eller ikke?"
+    }
+  ],
+  "exercises": []
+}

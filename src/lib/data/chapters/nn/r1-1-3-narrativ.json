@@ -1,1 +1,515 @@
-{"id":"r1-1-3-narrativ","courseId":"r1","chapterNumber":"1.3","title":"Eksponential- og logaritmelikningar","subtitle":"Narrativ versjon","description":"Ei forteljing om å fange den ukjende når ho gøymer seg i ein eksponent eller ein logaritme -- frå karbon-14-datering av arkeologiske funn til bakteriekulturar som doblar seg.","estimatedMinutes":40,"competenceGoals":["løyse eksponentiallikningar ved å ta logaritmen på begge sider","løyse logaritmelikningar ved å bruke definisjonen","bruke eksponential- og logaritmefunksjonar på praktiske problem"],"linkedChapterId":"r1-1-3","content":[{"id":"r1-1-3-n-intro","type":"text","content":"## Beinrestane som røper sin eigen alder\n\nEin arkeolog børstar forsiktig jorda av eit beinfragment. Kor gammalt er det? Tusen år? Ti tusen? Svaret ligg gøymt i atoma. Alt levande tek opp det radioaktive isotopet karbon-14 gjennom heile livet, men i dødsaugneblinken stoppar påfyllet, og karbon-14 byrjar å forsvinne -- halvparten kvart 5730. år. Måler arkeologen at berre $35\\,\\%$ av den opphavlege mengda er igjen, kan alderen reknast ut nøyaktig.\n\nMen sjå på reknestykket som då må løysast:\n\n$$0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$$\n\nDen ukjende $t$ sit fanga oppe i eksponenten. Ingen av metodane du kan frå før -- flytte ledd, faktorisere, abc-formel -- får henne ned derifrå. Det er her logaritmane frå førre kapittel går frå å vere vakker teori til å bli eit presisjonsverktøy: logaritmen er nøkkelen som låser opp eksponenten.\n\nI dette kapittelet lærer du å løyse to skylde likningstypar. I **eksponentiallikningar** står den ukjende i eksponenten, og vi friar henne ved å ta logaritmen på begge sider. I **logaritmelikningar** står den ukjende inne i ein logaritme, og vi friar henne ved å gå motsett veg -- opphøye grunntalet i begge sider. Til slutt bruker vi verktøya på røyndomen: radioaktiv nedbryting, bakterievekst, halveringstid og doblingstid. Alderen til beinfragmentet skal vi faktisk rekne ut."},{"id":"r1-1-3-n-section1","type":"text","content":"## Eksponentiallikningar -- å hente den ukjende ned\n\nEi **eksponentiallikning** har forma $a^{f(x)} = b$ med $a > 0$, $a \\neq 1$ og $b > 0$. Strategien er alltid den same: ta logaritmen på begge sider, slik at potensregelen $\\ln(a^r) = r \\ln a$ hentar eksponenten ned som ein vanleg faktor. Då blir $f(x) = \\log_a b = \\frac{\\ln b}{\\ln a}$, og resten er kjend algebra.\n\nNokre gonger slepp vi logaritmen heilt. I $2^x = 16$ ser vi at $16 = 2^4$, så $x = 4$ direkte -- same grunntal på begge sider tyder at eksponentane må vere like. Tilsvarande med $5^{2x} = 125$: sidan $125 = 5^3$ er $2x = 3$, altså $x = \\frac{3}{2}$.\n\nMen i $3^x = 50$ er $50$ ingen pen potens av $3$. Då tek vi logaritmen:\n\n$$x = \\log_3 50 = \\frac{\\ln 50}{\\ln 3} \\approx \\frac{3{,}912}{1{,}099} \\approx 3{,}56$$\n\nDet vanskelegaste tilfellet er når den ukjende står i eksponenten på *begge* sider, som i $2^{x+1} = 5^{x-2}$. Vi tek $\\ln$ på begge sider og hentar ned begge eksponentane: $(x+1)\\ln 2 = (x-2)\\ln 5$. No er dette berre ei lineær likning der $\\ln 2$ og $\\ln 5$ er konstantar! Vi gangar ut, samlar $x$-ledda på éi side og faktoriserer:\n\n$$x(\\ln 2 - \\ln 5) = -2\\ln 5 - \\ln 2 \\quad \\Rightarrow \\quad x = \\frac{2\\ln 5 + \\ln 2}{\\ln 5 - \\ln 2} \\approx 4{,}3$$\n\nHandsam logaritmeverdiane som tala dei er, så oppfører likninga seg pent."},{"id":"r1-1-3-n-quiz1","type":"exercise","exercise":{"id":"r1-1-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på eksponentiallikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-3-n-quiz1-q0","task":"Løys likninga $2^x = 16$.","options":[{"id":"a","text":"$x = 8$","isCorrect":false},{"id":"b","text":"$x = 4$","isCorrect":true},{"id":"c","text":"$x = 2$","isCorrect":false},{"id":"d","text":"$x = 16$","isCorrect":false}],"solution":"$16 = 2^4$, så $2^x = 2^4$ gir $x = 4$."},{"id":"r1-1-3-n-quiz1-q1","task":"Kva er løysinga av $3^x = 50$?","options":[{"id":"a","text":"$x = \\frac{\\ln 50}{\\ln 3}$","isCorrect":true},{"id":"b","text":"$x = \\frac{\\ln 3}{\\ln 50}$","isCorrect":false},{"id":"c","text":"$x = \\ln\\frac{50}{3}$","isCorrect":false},{"id":"d","text":"$x = \\frac{50}{3}$","isCorrect":false}],"solution":"Ta logaritmen på begge sider: $x \\ln 3 = \\ln 50$, altså $x = \\frac{\\ln 50}{\\ln 3} \\approx 3{,}56$."},{"id":"r1-1-3-n-quiz1-q2","task":"Løys likninga $5^{2x} = 125$.","options":[{"id":"a","text":"$x = 3$","isCorrect":false},{"id":"b","text":"$x = \\frac{2}{3}$","isCorrect":false},{"id":"c","text":"$x = 25$","isCorrect":false},{"id":"d","text":"$x = \\frac{3}{2}$","isCorrect":true}],"solution":"$125 = 5^3$, så $2x = 3$ og $x = \\frac{3}{2}$."},{"id":"r1-1-3-n-quiz1-q3","task":"Kva er rett første steg for å løyse $2^{x+1} = 5^{x-2}$?","options":[{"id":"a","text":"Dele begge sider på $2$","isCorrect":false},{"id":"b","text":"Setje $x + 1 = x - 2$","isCorrect":false},{"id":"c","text":"Ta logaritmen på begge sider og bruke $\\ln(a^r) = r\\ln a$","isCorrect":true},{"id":"d","text":"Opphøye begge sider i $x$","isCorrect":false}],"solution":"Med ukjend i eksponenten på begge sider tek vi $\\ln$ på begge sider: $(x+1)\\ln 2 = (x-2)\\ln 5$, som er ei lineær likning i $x$."}]}},{"id":"r1-1-3-n-section2","type":"text","content":"## Logaritmelikningar -- og fella du må unngå\n\nI ei **logaritmelikning** står den ukjende inne i ein logaritme, som i $\\ln x = 3$. No går vi motsett veg av i stad: vi bruker definisjonen $\\log_a b = c \\Leftrightarrow a^c = b$ og opphøyer grunntalet i begge sider. Frå $\\ln x = 3$ får vi $x = e^3 \\approx 20{,}09$. Frå $\\lg(2x+1) = 2$ får vi $2x + 1 = 10^2 = 100$, altså $x = 49{,}5$.\n\nMen logaritmelikningar har ei felle som eksponentiallikningar ikkje har: *logaritmen er berre definert for positive argument*. Algebraen kan servere løysingar som ser plettfrie ut, men som gir negativt tal inn i logaritmen. Difor må du **alltid sjekke løysingane** mot den opphavlege likninga.\n\nSjå på $\\ln(x-1) + \\ln(x+1) = \\ln 8$. Produktregelen slår saman venstresida: $\\ln[(x-1)(x+1)] = \\ln 8$, så $(x-1)(x+1) = 8$, det vil seie $x^2 - 1 = 8$ og $x = \\pm 3$. To kandidatar! For $x = 3$: argumenta blir $2$ og $4$, begge positive -- godkjend. For $x = -3$: argumentet $x - 1 = -4$ er negativt, og $\\ln(-4)$ finst ikkje. Løysinga $x = -3$ er ei *falsk løysing* som oppstod då vi slo saman logaritmane. Svaret er $x = 3$ åleine.\n\nNår det står logaritmar på begge sider, samlar vi alt til éin logaritme på kvar side og samanliknar argumenta. I $\\log_2(x+3) = \\log_2(2x-1) + 1$ skriv vi $1 = \\log_2 2$, slår saman høgresida til $\\log_2[2(2x-1)] = \\log_2(4x-2)$, og les av $x + 3 = 4x - 2$, som gir $x = \\frac{5}{3}$. Sjekken viser at begge argumenta er positive, så løysinga står seg."},{"id":"r1-1-3-n-quiz2","type":"exercise","exercise":{"id":"r1-1-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på logaritmelikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-3-n-quiz2-q0","task":"Løys likninga $\\ln x = 3$.","options":[{"id":"a","text":"$x = 3e$","isCorrect":false},{"id":"b","text":"$x = \\ln 3$","isCorrect":false},{"id":"c","text":"$x = e^3$","isCorrect":true},{"id":"d","text":"$x = 3$","isCorrect":false}],"solution":"Definisjonen av logaritme: $\\ln x = 3 \\Leftrightarrow x = e^3 \\approx 20{,}09$."},{"id":"r1-1-3-n-quiz2-q1","task":"Løys likninga $\\lg(2x + 1) = 2$.","options":[{"id":"a","text":"$x = 5$","isCorrect":false},{"id":"b","text":"$x = 49{,}5$","isCorrect":true},{"id":"c","text":"$x = 99$","isCorrect":false},{"id":"d","text":"$x = 50$","isCorrect":false}],"solution":"$2x + 1 = 10^2 = 100$ gir $2x = 99$, altså $x = 49{,}5$. Argumentet $100 > 0$, så løysinga er gyldig."},{"id":"r1-1-3-n-quiz2-q2","task":"Likninga $\\ln(x-1) + \\ln(x+1) = \\ln 8$ gir kandidatane $x = 3$ og $x = -3$. Kvifor vert $x = -3$ forkasta?","options":[{"id":"a","text":"Fordi $x = -3$ gir negativt argument i logaritmen ($\\ln(-4)$ er udefinert)","isCorrect":true},{"id":"b","text":"Fordi negative tal aldri kan vere løysingar","isCorrect":false},{"id":"c","text":"Fordi $(-3)^2 - 1 \\neq 8$","isCorrect":false},{"id":"d","text":"Fordi $\\ln 8$ er positiv","isCorrect":false}],"solution":"For $x = -3$ blir $x - 1 = -4 < 0$, og logaritmen av eit negativt tal er udefinert. Difor er berre $x = 3$ gyldig."},{"id":"r1-1-3-n-quiz2-q3","task":"Kva er løysinga av $\\log_2(x+3) = \\log_2(2x-1) + 1$?","options":[{"id":"a","text":"$x = 4$","isCorrect":false},{"id":"b","text":"$x = 2$","isCorrect":false},{"id":"c","text":"$x = \\frac{2}{3}$","isCorrect":false},{"id":"d","text":"$x = \\frac{5}{3}$","isCorrect":true}],"solution":"Skriv $1 = \\log_2 2$ og slå saman: $\\log_2(x+3) = \\log_2(4x-2)$, så $x + 3 = 4x - 2$ gir $x = \\frac{5}{3}$. Begge argumenta blir positive."}]}},{"id":"r1-1-3-n-section3","type":"text","content":"## Halveringstid, doblingstid -- og alderen til beinfragmentet\n\nNo løyser vi gåta frå innleiinga. Eksponentiell endring vert skildra med modellen $N(t) = N_0 \\cdot a^t$, der $N_0$ er startmengda og $a$ er vekstfaktoren. To storleikar fangar dynamikken i eitt tal. **Doblingstida** $T_2$ er tida det tek før mengda er dobla: $N_0 \\cdot a^{T_2} = 2N_0$ gir $T_2 = \\frac{\\ln 2}{\\ln a}$. **Halveringstida** $T_{1/2}$ er tida til halvparten står att: $T_{1/2} = \\frac{\\ln(1/2)}{\\ln a} = -\\frac{\\ln 2}{\\ln a}$. Legg merke til at begge er uavhengige av $N_0$ -- ein bakteriekoloni doblar seg like fort anten han er stor eller liten.\n\nTilbake til arkeologen. Karbon-14 har halveringstid $5730$ år, så mengda følgjer $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Med $35\\,\\%$ igjen løyser vi $0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$. Logaritmen hentar ned eksponenten:\n\n$$\\ln 0{,}35 = \\frac{t}{5730}\\ln\\frac{1}{2} \\quad \\Rightarrow \\quad t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700 \\text{ år}$$\n\nBeinet er altså rundt $8700$ år gammalt -- frå steinalderen.\n\nSame verktøyet verkar på vekst. Ein bakteriekultur som doblar seg kvar tredje time og startar med $1000$ bakteriar, følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Når passerer han $50\\,000$? Vi løyser $2^{t/3} = 50$, tek logaritmen og får $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, altså $t \\approx 17$ timar.\n\nMønsteret er det same kvar gong: sett opp modellen, isoler potensen, ta logaritmen, løys for tida. Fire steg frå måling til svar."},{"id":"r1-1-3-n-quiz3","type":"exercise","exercise":{"id":"r1-1-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på halveringstid, doblingstid og vekstmodellar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-3-n-quiz3-q0","task":"Ei mengd veks etter modellen $N(t) = N_0 \\cdot a^t$. Kva er doblingstida?","options":[{"id":"a","text":"$T_2 = \\frac{\\ln a}{\\ln 2}$","isCorrect":false},{"id":"b","text":"$T_2 = \\frac{\\ln 2}{\\ln a}$","isCorrect":true},{"id":"c","text":"$T_2 = 2\\ln a$","isCorrect":false},{"id":"d","text":"$T_2 = \\frac{2}{a}$","isCorrect":false}],"solution":"Vi løyser $a^{T_2} = 2$: ta logaritmen, $T_2 \\ln a = \\ln 2$, altså $T_2 = \\frac{\\ln 2}{\\ln a}$."},{"id":"r1-1-3-n-quiz3-q1","task":"Eit funn inneheld $35\\,\\%$ av opphavleg karbon-14 (halveringstid $5730$ år). Omtrent kor gammalt er funnet?","options":[{"id":"a","text":"Ca. $2000$ år","isCorrect":false},{"id":"b","text":"Ca. $5730$ år","isCorrect":false},{"id":"c","text":"Ca. $8700$ år","isCorrect":true},{"id":"d","text":"Ca. $16\\,400$ år","isCorrect":false}],"solution":"$t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700$ år. Rimeleg: $35\\,\\%$ er litt mindre enn $50\\,\\%$ (éi halvering) men meir enn $25\\,\\%$ (to halveringar), så svaret ligg mellom $5730$ og $11\\,460$ år."},{"id":"r1-1-3-n-quiz3-q2","task":"Ein bakteriekultur følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Omtrent kor lang tid tek det før det er $50\\,000$ bakteriar?","options":[{"id":"a","text":"Ca. $17$ timar","isCorrect":true},{"id":"b","text":"Ca. $50$ timar","isCorrect":false},{"id":"c","text":"Ca. $6$ timar","isCorrect":false},{"id":"d","text":"Ca. $150$ timar","isCorrect":false}],"solution":"$2^{t/3} = 50$ gir $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, så $t \\approx 16{,}9 \\approx 17$ timar."},{"id":"r1-1-3-n-quiz3-q3","task":"Kva er halveringstida for modellen $N(t) = N_0 \\cdot a^t$ (med $0 < a < 1$)?","options":[{"id":"a","text":"$T_{1/2} = \\frac{\\ln a}{2}$","isCorrect":false},{"id":"b","text":"$T_{1/2} = \\frac{1}{2a}$","isCorrect":false},{"id":"c","text":"$T_{1/2} = \\frac{\\ln 2}{\\ln a}$","isCorrect":false},{"id":"d","text":"$T_{1/2} = -\\frac{\\ln 2}{\\ln a}$","isCorrect":true}],"solution":"Vi løyser $a^{T} = \\frac{1}{2}$: $T \\ln a = \\ln\\frac{1}{2} = -\\ln 2$, altså $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, som er positiv når $0 < a < 1$."}]}},{"id":"r1-1-3-n-summary","type":"text","content":"## Forteljinga i eit nøtteskal\n\nEit beinfragment frå steinalderen opna kapittelet, og no kan du faktisk datere det sjølv. Undervegs har du lært å fange den ukjende uansett kvar ho gøymer seg.\n\nI **eksponentiallikningar** står den ukjende i eksponenten. Våpenet er å ta logaritmen på begge sider, slik at regelen $\\ln(a^r) = r\\ln a$ hentar henne ned: $a^{f(x)} = b$ gir $f(x) = \\frac{\\ln b}{\\ln a}$. Kan begge sider skrivast med same grunntal, samanliknar vi eksponentane direkte. Står den ukjende i eksponenten på begge sider, gir logaritmen oss ei lineær likning der $\\ln 2$ og $\\ln 5$ berre er tal.\n\nI **logaritmelikningar** står den ukjende inne i logaritmen, og vi går motsett veg: $\\log_a f(x) = c$ gir $f(x) = a^c$. Men her lurer fella -- logaritmen krev positive argument, så kvar kandidat må sjekkast mot den opphavlege likninga. Falske løysingar, som $x = -3$ i $\\ln(x-1) + \\ln(x+1) = \\ln 8$, skal avslørast og forkastast.\n\nTil slutt såg vi verktøya i arbeid. Eksponentielle modellar $N(t) = N_0 \\cdot a^t$ har **doblingstid** $T_2 = \\frac{\\ln 2}{\\ln a}$ og **halveringstid** $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, begge uavhengige av startmengda. Karbon-14-datering, bakterievekst, radioaktivt avfall, renters rente -- overalt er oppskrifta den same: modell, isoler potensen, logaritme, løys.\n\nDen ukjende kan gøyme seg i ein eksponent, men ho kan ikkje gøyme seg for logaritmen."}],"exercises":[],"_meta":{"sourceHash":"27d57260bfad4407","translatedAt":"2026-06-19T22:12:18.991Z","model":"claude-code-agent","strings":89,"tm":{"913d0492ba5ec75e":"Eksponential- og logaritmelikningar","b195b06d1ed59702":"Narrativ versjon","fd41f04c780d19b8":"Ei forteljing om å fange den ukjende når ho gøymer seg i ein eksponent eller ein logaritme -- frå karbon-14-datering av arkeologiske funn til bakteriekulturar som doblar seg.","5e79442c24a0ebbd":"løyse eksponentiallikningar ved å ta logaritmen på begge sider","116cad171579fe42":"løyse logaritmelikningar ved å bruke definisjonen","579bdb5f0de8bee2":"bruke eksponential- og logaritmefunksjonar på praktiske problem","d31897b417317cce":"## Beinrestane som røper sin eigen alder\n\nEin arkeolog børstar forsiktig jorda av eit beinfragment. Kor gammalt er det? Tusen år? Ti tusen? Svaret ligg gøymt i atoma. Alt levande tek opp det radioaktive isotopet karbon-14 gjennom heile livet, men i dødsaugneblinken stoppar påfyllet, og karbon-14 byrjar å forsvinne -- halvparten kvart 5730. år. Måler arkeologen at berre $35\\,\\%$ av den opphavlege mengda er igjen, kan alderen reknast ut nøyaktig.\n\nMen sjå på reknestykket som då må løysast:\n\n$$0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$$\n\nDen ukjende $t$ sit fanga oppe i eksponenten. Ingen av metodane du kan frå før -- flytte ledd, faktorisere, abc-formel -- får henne ned derifrå. Det er her logaritmane frå førre kapittel går frå å vere vakker teori til å bli eit presisjonsverktøy: logaritmen er nøkkelen som låser opp eksponenten.\n\nI dette kapittelet lærer du å løyse to skylde likningstypar. I **eksponentiallikningar** står den ukjende i eksponenten, og vi friar henne ved å ta logaritmen på begge sider. I **logaritmelikningar** står den ukjende inne i ein logaritme, og vi friar henne ved å gå motsett veg -- opphøye grunntalet i begge sider. Til slutt bruker vi verktøya på røyndomen: radioaktiv nedbryting, bakterievekst, halveringstid og doblingstid. Alderen til beinfragmentet skal vi faktisk rekne ut.","4f12ba663c575c4a":"## Eksponentiallikningar -- å hente den ukjende ned\n\nEi **eksponentiallikning** har forma $a^{f(x)} = b$ med $a > 0$, $a \\neq 1$ og $b > 0$. Strategien er alltid den same: ta logaritmen på begge sider, slik at potensregelen $\\ln(a^r) = r \\ln a$ hentar eksponenten ned som ein vanleg faktor. Då blir $f(x) = \\log_a b = \\frac{\\ln b}{\\ln a}$, og resten er kjend algebra.\n\nNokre gonger slepp vi logaritmen heilt. I $2^x = 16$ ser vi at $16 = 2^4$, så $x = 4$ direkte -- same grunntal på begge sider tyder at eksponentane må vere like. Tilsvarande med $5^{2x} = 125$: sidan $125 = 5^3$ er $2x = 3$, altså $x = \\frac{3}{2}$.\n\nMen i $3^x = 50$ er $50$ ingen pen potens av $3$. Då tek vi logaritmen:\n\n$$x = \\log_3 50 = \\frac{\\ln 50}{\\ln 3} \\approx \\frac{3{,}912}{1{,}099} \\approx 3{,}56$$\n\nDet vanskelegaste tilfellet er når den ukjende står i eksponenten på *begge* sider, som i $2^{x+1} = 5^{x-2}$. Vi tek $\\ln$ på begge sider og hentar ned begge eksponentane: $(x+1)\\ln 2 = (x-2)\\ln 5$. No er dette berre ei lineær likning der $\\ln 2$ og $\\ln 5$ er konstantar! Vi gangar ut, samlar $x$-ledda på éi side og faktoriserer:\n\n$$x(\\ln 2 - \\ln 5) = -2\\ln 5 - \\ln 2 \\quad \\Rightarrow \\quad x = \\frac{2\\ln 5 + \\ln 2}{\\ln 5 - \\ln 2} \\approx 4{,}3$$\n\nHandsam logaritmeverdiane som tala dei er, så oppfører likninga seg pent.","087e060456ca7dda":"Test deg sjølv på eksponentiallikningar:","4097889236a2af26":"placeholder","d0ff3e7686cc3b5c":"Løys likninga $2^x = 16$.","eae1daf6b9845d7b":"$x = 8$","d14d177d812c2ded":"$x = 4$","0c82bd6cd3ab8ff8":"$x = 2$","f463c9979446189f":"$x = 16$","b2f480d92eed7e2c":"$16 = 2^4$, så $2^x = 2^4$ gir $x = 4$.","8543bda464f279d7":"Kva er løysinga av $3^x = 50$?","d73e330f30767fa0":"$x = \\frac{\\ln 50}{\\ln 3}$","bf267ad27657e2d1":"$x = \\frac{\\ln 3}{\\ln 50}$","37502fa0abefa1a6":"$x = \\ln\\frac{50}{3}$","116cb7c5a4130ca5":"$x = \\frac{50}{3}$","6004143a188a273a":"Ta logaritmen på begge sider: $x \\ln 3 = \\ln 50$, altså $x = \\frac{\\ln 50}{\\ln 3} \\approx 3{,}56$.","8f1c10080c4c844b":"Løys likninga $5^{2x} = 125$.","e48f8a419112d39e":"$x = 3$","d6986ce79d48eded":"$x = \\frac{2}{3}$","3de83ed367cab31b":"$x = 25$","0848347b72c0818f":"$x = \\frac{3}{2}$","885c35a71806dd6a":"$125 = 5^3$, så $2x = 3$ og $x = \\frac{3}{2}$.","fa6931a70c6ab4cf":"Kva er rett første steg for å løyse $2^{x+1} = 5^{x-2}$?","0c012f8c31a215b9":"Dele begge sider på $2$","3b65cac0b695d702":"Setje $x + 1 = x - 2$","83ada95f967095cf":"Ta logaritmen på begge sider og bruke $\\ln(a^r) = r\\ln a$","798422a81013d67b":"Opphøye begge sider i $x$","db2a60e21935b422":"Med ukjend i eksponenten på begge sider tek vi $\\ln$ på begge sider: $(x+1)\\ln 2 = (x-2)\\ln 5$, som er ei lineær likning i $x$.","c5e03d8c8b555273":"## Logaritmelikningar -- og fella du må unngå\n\nI ei **logaritmelikning** står den ukjende inne i ein logaritme, som i $\\ln x = 3$. No går vi motsett veg av i stad: vi bruker definisjonen $\\log_a b = c \\Leftrightarrow a^c = b$ og opphøyer grunntalet i begge sider. Frå $\\ln x = 3$ får vi $x = e^3 \\approx 20{,}09$. Frå $\\lg(2x+1) = 2$ får vi $2x + 1 = 10^2 = 100$, altså $x = 49{,}5$.\n\nMen logaritmelikningar har ei felle som eksponentiallikningar ikkje har: *logaritmen er berre definert for positive argument*. Algebraen kan servere løysingar som ser plettfrie ut, men som gir negativt tal inn i logaritmen. Difor må du **alltid sjekke løysingane** mot den opphavlege likninga.\n\nSjå på $\\ln(x-1) + \\ln(x+1) = \\ln 8$. Produktregelen slår saman venstresida: $\\ln[(x-1)(x+1)] = \\ln 8$, så $(x-1)(x+1) = 8$, det vil seie $x^2 - 1 = 8$ og $x = \\pm 3$. To kandidatar! For $x = 3$: argumenta blir $2$ og $4$, begge positive -- godkjend. For $x = -3$: argumentet $x - 1 = -4$ er negativt, og $\\ln(-4)$ finst ikkje. Løysinga $x = -3$ er ei *falsk løysing* som oppstod då vi slo saman logaritmane. Svaret er $x = 3$ åleine.\n\nNår det står logaritmar på begge sider, samlar vi alt til éin logaritme på kvar side og samanliknar argumenta. I $\\log_2(x+3) = \\log_2(2x-1) + 1$ skriv vi $1 = \\log_2 2$, slår saman høgresida til $\\log_2[2(2x-1)] = \\log_2(4x-2)$, og les av $x + 3 = 4x - 2$, som gir $x = \\frac{5}{3}$. Sjekken viser at begge argumenta er positive, så løysinga står seg.","45777e85d253bb4b":"Test deg sjølv på logaritmelikningar:","f4b6246b97718a3f":"Løys likninga $\\ln x = 3$.","5058678ebe1a00e2":"$x = 3e$","e9c11b49766ab862":"$x = \\ln 3$","66e3ad8cfd2f8371":"$x = e^3$","83f6f3c44358ac40":"Definisjonen av logaritme: $\\ln x = 3 \\Leftrightarrow x = e^3 \\approx 20{,}09$.","f3b6255c98bbe5cb":"Løys likninga $\\lg(2x + 1) = 2$.","b8d921f3516666fe":"$x = 5$","4936ff1b5c7e4b8a":"$x = 49{,}5$","20e632fd37a3b9d6":"$x = 99$","542d99d89cf867cb":"$x = 50$","647526830af51c3c":"$2x + 1 = 10^2 = 100$ gir $2x = 99$, altså $x = 49{,}5$. Argumentet $100 > 0$, så løysinga er gyldig.","f1fb0f487263f1a0":"Likninga $\\ln(x-1) + \\ln(x+1) = \\ln 8$ gir kandidatane $x = 3$ og $x = -3$. Kvifor vert $x = -3$ forkasta?","e9dbe28b1ffc8fd7":"Fordi $x = -3$ gir negativt argument i logaritmen ($\\ln(-4)$ er udefinert)","7cc5005f70f93675":"Fordi negative tal aldri kan vere løysingar","3b71b1b1195949be":"Fordi $(-3)^2 - 1 \\neq 8$","93802629cb74f597":"Fordi $\\ln 8$ er positiv","06f0e895ead80f25":"For $x = -3$ blir $x - 1 = -4 < 0$, og logaritmen av eit negativt tal er udefinert. Difor er berre $x = 3$ gyldig.","ab121638278e190d":"Kva er løysinga av $\\log_2(x+3) = \\log_2(2x-1) + 1$?","c4e810d3e994f0a7":"$x = \\frac{5}{3}$","b1bb66a9fb011d4f":"Skriv $1 = \\log_2 2$ og slå saman: $\\log_2(x+3) = \\log_2(4x-2)$, så $x + 3 = 4x - 2$ gir $x = \\frac{5}{3}$. Begge argumenta blir positive.","d464c4b110c1b3c5":"## Halveringstid, doblingstid -- og alderen til beinfragmentet\n\nNo løyser vi gåta frå innleiinga. Eksponentiell endring vert skildra med modellen $N(t) = N_0 \\cdot a^t$, der $N_0$ er startmengda og $a$ er vekstfaktoren. To storleikar fangar dynamikken i eitt tal. **Doblingstida** $T_2$ er tida det tek før mengda er dobla: $N_0 \\cdot a^{T_2} = 2N_0$ gir $T_2 = \\frac{\\ln 2}{\\ln a}$. **Halveringstida** $T_{1/2}$ er tida til halvparten står att: $T_{1/2} = \\frac{\\ln(1/2)}{\\ln a} = -\\frac{\\ln 2}{\\ln a}$. Legg merke til at begge er uavhengige av $N_0$ -- ein bakteriekoloni doblar seg like fort anten han er stor eller liten.\n\nTilbake til arkeologen. Karbon-14 har halveringstid $5730$ år, så mengda følgjer $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Med $35\\,\\%$ igjen løyser vi $0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$. Logaritmen hentar ned eksponenten:\n\n$$\\ln 0{,}35 = \\frac{t}{5730}\\ln\\frac{1}{2} \\quad \\Rightarrow \\quad t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700 \\text{ år}$$\n\nBeinet er altså rundt $8700$ år gammalt -- frå steinalderen.\n\nSame verktøyet verkar på vekst. Ein bakteriekultur som doblar seg kvar tredje time og startar med $1000$ bakteriar, følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Når passerer han $50\\,000$? Vi løyser $2^{t/3} = 50$, tek logaritmen og får $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, altså $t \\approx 17$ timar.\n\nMønsteret er det same kvar gong: sett opp modellen, isoler potensen, ta logaritmen, løys for tida. Fire steg frå måling til svar.","e3a8b87333189c72":"Test deg sjølv på halveringstid, doblingstid og vekstmodellar:","47bf4c4e156651eb":"Ei mengd veks etter modellen $N(t) = N_0 \\cdot a^t$. Kva er doblingstida?","4aa77130c140cba6":"$T_2 = \\frac{\\ln a}{\\ln 2}$","b7c53d0ce3b75870":"$T_2 = \\frac{\\ln 2}{\\ln a}$","8489e766e58cfde4":"$T_2 = 2\\ln a$","b8021e9e6a64a519":"$T_2 = \\frac{2}{a}$","6a9446a4d9e32a37":"Vi løyser $a^{T_2} = 2$: ta logaritmen, $T_2 \\ln a = \\ln 2$, altså $T_2 = \\frac{\\ln 2}{\\ln a}$.","46586cd094177ef9":"Eit funn inneheld $35\\,\\%$ av opphavleg karbon-14 (halveringstid $5730$ år). Omtrent kor gammalt er funnet?","2d36ecc4ef58d512":"Ca. $2000$ år","37670c3dbfa1d640":"Ca. $5730$ år","baab6cea03d57892":"Ca. $8700$ år","7bc542217c69d510":"Ca. $16\\,400$ år","b37ee93f8222ca1d":"$t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700$ år. Rimeleg: $35\\,\\%$ er litt mindre enn $50\\,\\%$ (éi halvering) men meir enn $25\\,\\%$ (to halveringar), så svaret ligg mellom $5730$ og $11\\,460$ år.","60c85747b13c5eeb":"Ein bakteriekultur følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Omtrent kor lang tid tek det før det er $50\\,000$ bakteriar?","e9bb30c2edf8d45a":"Ca. $17$ timar","a6e8c7311a69bb35":"Ca. $50$ timar","400a138608c8b973":"Ca. $6$ timar","1d6da31016e98dbc":"Ca. $150$ timar","aea4673feede12b2":"$2^{t/3} = 50$ gir $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, så $t \\approx 16{,}9 \\approx 17$ timar.","17c214c37f7257ba":"Kva er halveringstida for modellen $N(t) = N_0 \\cdot a^t$ (med $0 < a < 1$)?","413bffc3e65e0918":"$T_{1/2} = \\frac{\\ln a}{2}$","47235babac3222e5":"$T_{1/2} = \\frac{1}{2a}$","a8afde84914d4b41":"$T_{1/2} = \\frac{\\ln 2}{\\ln a}$","801c91994ea45d21":"$T_{1/2} = -\\frac{\\ln 2}{\\ln a}$","1263933ee30540fb":"Vi løyser $a^{T} = \\frac{1}{2}$: $T \\ln a = \\ln\\frac{1}{2} = -\\ln 2$, altså $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, som er positiv når $0 < a < 1$.","11cc2737f5060add":"## Forteljinga i eit nøtteskal\n\nEit beinfragment frå steinalderen opna kapittelet, og no kan du faktisk datere det sjølv. Undervegs har du lært å fange den ukjende uansett kvar ho gøymer seg.\n\nI **eksponentiallikningar** står den ukjende i eksponenten. Våpenet er å ta logaritmen på begge sider, slik at regelen $\\ln(a^r) = r\\ln a$ hentar henne ned: $a^{f(x)} = b$ gir $f(x) = \\frac{\\ln b}{\\ln a}$. Kan begge sider skrivast med same grunntal, samanliknar vi eksponentane direkte. Står den ukjende i eksponenten på begge sider, gir logaritmen oss ei lineær likning der $\\ln 2$ og $\\ln 5$ berre er tal.\n\nI **logaritmelikningar** står den ukjende inne i logaritmen, og vi går motsett veg: $\\log_a f(x) = c$ gir $f(x) = a^c$. Men her lurer fella -- logaritmen krev positive argument, så kvar kandidat må sjekkast mot den opphavlege likninga. Falske løysingar, som $x = -3$ i $\\ln(x-1) + \\ln(x+1) = \\ln 8$, skal avslørast og forkastast.\n\nTil slutt såg vi verktøya i arbeid. Eksponentielle modellar $N(t) = N_0 \\cdot a^t$ har **doblingstid** $T_2 = \\frac{\\ln 2}{\\ln a}$ og **halveringstid** $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, begge uavhengige av startmengda. Karbon-14-datering, bakterievekst, radioaktivt avfall, renters rente -- overalt er oppskrifta den same: modell, isoler potensen, logaritme, løys.\n\nDen ukjende kan gøyme seg i ein eksponent, men ho kan ikkje gøyme seg for logaritmen."}}}
+{
+  "id": "r1-1-3-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "1.3",
+  "title": "Eksponential- og logaritmelikningar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å fange den ukjende når ho gøymer seg i ein eksponent eller ein logaritme -- frå karbon-14-datering av arkeologiske funn til bakteriekulturar som doblar seg.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "løyse eksponentiallikningar ved å ta logaritmen på begge sider",
+    "løyse logaritmelikningar ved å bruke definisjonen",
+    "bruke eksponential- og logaritmefunksjonar på praktiske problem"
+  ],
+  "linkedChapterId": "r1-1-3",
+  "content": [
+    {
+      "id": "r1-1-3-n-intro",
+      "type": "text",
+      "content": "## Beinrestane som røper sin eigen alder\n\nEin arkeolog børstar forsiktig jorda av eit beinfragment. Kor gammalt er det? Tusen år? Ti tusen? Svaret ligg gøymt i atoma. Alt levande tek opp det radioaktive isotopet karbon-14 gjennom heile livet, men i dødsaugneblinken stoppar påfyllet, og karbon-14 byrjar å forsvinne -- halvparten kvart 5730. år. Måler arkeologen at berre $35\\,\\%$ av den opphavlege mengda er igjen, kan alderen reknast ut nøyaktig.\n\nMen sjå på reknestykket som då må løysast:\n\n$$0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$$\n\nDen ukjende $t$ sit fanga oppe i eksponenten. Ingen av metodane du kan frå før -- flytte ledd, faktorisere, abc-formel -- får henne ned derifrå. Det er her logaritmane frå førre kapittel går frå å vere vakker teori til å bli eit presisjonsverktøy: logaritmen er nøkkelen som låser opp eksponenten.\n\nI dette kapittelet lærer du å løyse to skylde likningstypar. I **eksponentiallikningar** står den ukjende i eksponenten, og vi friar henne ved å ta logaritmen på begge sider. I **logaritmelikningar** står den ukjende inne i ein logaritme, og vi friar henne ved å gå motsett veg -- opphøye grunntalet i begge sider. Til slutt bruker vi verktøya på røyndomen: radioaktiv nedbryting, bakterievekst, halveringstid og doblingstid. Alderen til beinfragmentet skal vi faktisk rekne ut."
+    },
+    {
+      "id": "r1-1-3-n-section1",
+      "type": "text",
+      "content": "## Eksponentiallikningar -- å hente den ukjende ned\n\nEi **eksponentiallikning** har forma $a^{f(x)} = b$ med $a > 0$, $a \\neq 1$ og $b > 0$. Strategien er alltid den same: ta logaritmen på begge sider, slik at potensregelen $\\ln(a^r) = r \\ln a$ hentar eksponenten ned som ein vanleg faktor. Då blir $f(x) = \\log_a b = \\frac{\\ln b}{\\ln a}$, og resten er kjend algebra.\n\nNokre gonger slepp vi logaritmen heilt. I $2^x = 16$ ser vi at $16 = 2^4$, så $x = 4$ direkte -- same grunntal på begge sider tyder at eksponentane må vere like. Tilsvarande med $5^{2x} = 125$: sidan $125 = 5^3$ er $2x = 3$, altså $x = \\frac{3}{2}$.\n\nMen i $3^x = 50$ er $50$ ingen pen potens av $3$. Då tek vi logaritmen:\n\n$$x = \\log_3 50 = \\frac{\\ln 50}{\\ln 3} \\approx \\frac{3{,}912}{1{,}099} \\approx 3{,}56$$\n\nDet vanskelegaste tilfellet er når den ukjende står i eksponenten på *begge* sider, som i $2^{x+1} = 5^{x-2}$. Vi tek $\\ln$ på begge sider og hentar ned begge eksponentane: $(x+1)\\ln 2 = (x-2)\\ln 5$. No er dette berre ei lineær likning der $\\ln 2$ og $\\ln 5$ er konstantar! Vi gangar ut, samlar $x$-ledda på éi side og faktoriserer:\n\n$$x(\\ln 2 - \\ln 5) = -2\\ln 5 - \\ln 2 \\quad \\Rightarrow \\quad x = \\frac{2\\ln 5 + \\ln 2}{\\ln 5 - \\ln 2} \\approx 4{,}3$$\n\nHandsam logaritmeverdiane som tala dei er, så oppfører likninga seg pent."
+    },
+    {
+      "id": "r1-1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eksponentiallikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-3-n-quiz1-q0",
+            "task": "Løys likninga $2^x = 16$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = 16$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$16 = 2^4$, så $2^x = 2^4$ gir $x = 4$."
+          },
+          {
+            "id": "r1-1-3-n-quiz1-q1",
+            "task": "Kva er løysinga av $3^x = 50$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\ln 3}{\\ln 50}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\ln\\frac{50}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{50}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\ln 50}{\\ln 3}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ta logaritmen på begge sider: $x \\ln 3 = \\ln 50$, altså $x = \\frac{\\ln 50}{\\ln 3} \\approx 3{,}56$."
+          },
+          {
+            "id": "r1-1-3-n-quiz1-q2",
+            "task": "Løys likninga $5^{2x} = 125$.",
+            "options": [
+              {
+                "id": "d",
+                "text": "$x = \\frac{3}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\frac{2}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 25$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$125 = 5^3$, så $2x = 3$ og $x = \\frac{3}{2}$."
+          },
+          {
+            "id": "r1-1-3-n-quiz1-q3",
+            "task": "Kva er rett første steg for å løyse $2^{x+1} = 5^{x-2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dele begge sider på $2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ta logaritmen på begge sider og bruke $\\ln(a^r) = r\\ln a$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Setje $x + 1 = x - 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Opphøye begge sider i $x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med ukjend i eksponenten på begge sider tek vi $\\ln$ på begge sider: $(x+1)\\ln 2 = (x-2)\\ln 5$, som er ei lineær likning i $x$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-3-n-section2",
+      "type": "text",
+      "content": "## Logaritmelikningar -- og fella du må unngå\n\nI ei **logaritmelikning** står den ukjende inne i ein logaritme, som i $\\ln x = 3$. No går vi motsett veg av i stad: vi bruker definisjonen $\\log_a b = c \\Leftrightarrow a^c = b$ og opphøyer grunntalet i begge sider. Frå $\\ln x = 3$ får vi $x = e^3 \\approx 20{,}09$. Frå $\\lg(2x+1) = 2$ får vi $2x + 1 = 10^2 = 100$, altså $x = 49{,}5$.\n\nMen logaritmelikningar har ei felle som eksponentiallikningar ikkje har: *logaritmen er berre definert for positive argument*. Algebraen kan servere løysingar som ser plettfrie ut, men som gir negativt tal inn i logaritmen. Difor må du **alltid sjekke løysingane** mot den opphavlege likninga.\n\nSjå på $\\ln(x-1) + \\ln(x+1) = \\ln 8$. Produktregelen slår saman venstresida: $\\ln[(x-1)(x+1)] = \\ln 8$, så $(x-1)(x+1) = 8$, det vil seie $x^2 - 1 = 8$ og $x = \\pm 3$. To kandidatar! For $x = 3$: argumenta blir $2$ og $4$, begge positive -- godkjend. For $x = -3$: argumentet $x - 1 = -4$ er negativt, og $\\ln(-4)$ finst ikkje. Løysinga $x = -3$ er ei *falsk løysing* som oppstod då vi slo saman logaritmane. Svaret er $x = 3$ åleine.\n\nNår det står logaritmar på begge sider, samlar vi alt til éin logaritme på kvar side og samanliknar argumenta. I $\\log_2(x+3) = \\log_2(2x-1) + 1$ skriv vi $1 = \\log_2 2$, slår saman høgresida til $\\log_2[2(2x-1)] = \\log_2(4x-2)$, og les av $x + 3 = 4x - 2$, som gir $x = \\frac{5}{3}$. Sjekken viser at begge argumenta er positive, så løysinga står seg."
+    },
+    {
+      "id": "r1-1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logaritmelikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-3-n-quiz2-q0",
+            "task": "Løys likninga $\\ln x = 3$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 3e$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\ln 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = e^3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Definisjonen av logaritme: $\\ln x = 3 \\Leftrightarrow x = e^3 \\approx 20{,}09$."
+          },
+          {
+            "id": "r1-1-3-n-quiz2-q1",
+            "task": "Løys likninga $\\lg(2x + 1) = 2$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 99$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 49{,}5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$2x + 1 = 10^2 = 100$ gir $2x = 99$, altså $x = 49{,}5$. Argumentet $100 > 0$, så løysinga er gyldig."
+          },
+          {
+            "id": "r1-1-3-n-quiz2-q2",
+            "task": "Likninga $\\ln(x-1) + \\ln(x+1) = \\ln 8$ gir kandidatane $x = 3$ og $x = -3$. Kvifor vert $x = -3$ forkasta?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $x = -3$ gir negativt argument i logaritmen ($\\ln(-4)$ er udefinert)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi negative tal aldri kan vere løysingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $(-3)^2 - 1 \\neq 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $\\ln 8$ er positiv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x = -3$ blir $x - 1 = -4 < 0$, og logaritmen av eit negativt tal er udefinert. Difor er berre $x = 3$ gyldig."
+          },
+          {
+            "id": "r1-1-3-n-quiz2-q3",
+            "task": "Kva er løysinga av $\\log_2(x+3) = \\log_2(2x-1) + 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{5}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skriv $1 = \\log_2 2$ og slå saman: $\\log_2(x+3) = \\log_2(4x-2)$, så $x + 3 = 4x - 2$ gir $x = \\frac{5}{3}$. Begge argumenta blir positive."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-3-n-section3",
+      "type": "text",
+      "content": "## Halveringstid, doblingstid -- og alderen til beinfragmentet\n\nNo løyser vi gåta frå innleiinga. Eksponentiell endring vert skildra med modellen $N(t) = N_0 \\cdot a^t$, der $N_0$ er startmengda og $a$ er vekstfaktoren. To storleikar fangar dynamikken i eitt tal. **Doblingstida** $T_2$ er tida det tek før mengda er dobla: $N_0 \\cdot a^{T_2} = 2N_0$ gir $T_2 = \\frac{\\ln 2}{\\ln a}$. **Halveringstida** $T_{1/2}$ er tida til halvparten står att: $T_{1/2} = \\frac{\\ln(1/2)}{\\ln a} = -\\frac{\\ln 2}{\\ln a}$. Legg merke til at begge er uavhengige av $N_0$ -- ein bakteriekoloni doblar seg like fort anten han er stor eller liten.\n\nTilbake til arkeologen. Karbon-14 har halveringstid $5730$ år, så mengda følgjer $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Med $35\\,\\%$ igjen løyser vi $0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$. Logaritmen hentar ned eksponenten:\n\n$$\\ln 0{,}35 = \\frac{t}{5730}\\ln\\frac{1}{2} \\quad \\Rightarrow \\quad t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700 \\text{ år}$$\n\nBeinet er altså rundt $8700$ år gammalt -- frå steinalderen.\n\nSame verktøyet verkar på vekst. Ein bakteriekultur som doblar seg kvar tredje time og startar med $1000$ bakteriar, følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Når passerer han $50\\,000$? Vi løyser $2^{t/3} = 50$, tek logaritmen og får $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, altså $t \\approx 17$ timar.\n\nMønsteret er det same kvar gong: sett opp modellen, isoler potensen, ta logaritmen, løys for tida. Fire steg frå måling til svar."
+    },
+    {
+      "id": "r1-1-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på halveringstid, doblingstid og vekstmodellar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-3-n-quiz3-q0",
+            "task": "Ei mengd veks etter modellen $N(t) = N_0 \\cdot a^t$. Kva er doblingstida?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$T_2 = \\frac{\\ln a}{\\ln 2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$T_2 = 2\\ln a$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$T_2 = \\frac{\\ln 2}{\\ln a}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$T_2 = \\frac{2}{a}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi løyser $a^{T_2} = 2$: ta logaritmen, $T_2 \\ln a = \\ln 2$, altså $T_2 = \\frac{\\ln 2}{\\ln a}$."
+          },
+          {
+            "id": "r1-1-3-n-quiz3-q1",
+            "task": "Eit funn inneheld $35\\,\\%$ av opphavleg karbon-14 (halveringstid $5730$ år). Omtrent kor gammalt er funnet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. $2000$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. $5730$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $16\\,400$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $8700$ år",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700$ år. Rimeleg: $35\\,\\%$ er litt mindre enn $50\\,\\%$ (éi halvering) men meir enn $25\\,\\%$ (to halveringar), så svaret ligg mellom $5730$ og $11\\,460$ år."
+          },
+          {
+            "id": "r1-1-3-n-quiz3-q2",
+            "task": "Ein bakteriekultur følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Omtrent kor lang tid tek det før det er $50\\,000$ bakteriar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. $17$ timar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ca. $50$ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $6$ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $150$ timar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2^{t/3} = 50$ gir $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, så $t \\approx 16{,}9 \\approx 17$ timar."
+          },
+          {
+            "id": "r1-1-3-n-quiz3-q3",
+            "task": "Kva er halveringstida for modellen $N(t) = N_0 \\cdot a^t$ (med $0 < a < 1$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$T_{1/2} = \\frac{\\ln a}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$T_{1/2} = -\\frac{\\ln 2}{\\ln a}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$T_{1/2} = \\frac{1}{2a}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$T_{1/2} = \\frac{\\ln 2}{\\ln a}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi løyser $a^{T} = \\frac{1}{2}$: $T \\ln a = \\ln\\frac{1}{2} = -\\ln 2$, altså $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, som er positiv når $0 < a < 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-3-n-summary",
+      "type": "text",
+      "content": "## Forteljinga i eit nøtteskal\n\nEit beinfragment frå steinalderen opna kapittelet, og no kan du faktisk datere det sjølv. Undervegs har du lært å fange den ukjende uansett kvar ho gøymer seg.\n\nI **eksponentiallikningar** står den ukjende i eksponenten. Våpenet er å ta logaritmen på begge sider, slik at regelen $\\ln(a^r) = r\\ln a$ hentar henne ned: $a^{f(x)} = b$ gir $f(x) = \\frac{\\ln b}{\\ln a}$. Kan begge sider skrivast med same grunntal, samanliknar vi eksponentane direkte. Står den ukjende i eksponenten på begge sider, gir logaritmen oss ei lineær likning der $\\ln 2$ og $\\ln 5$ berre er tal.\n\nI **logaritmelikningar** står den ukjende inne i logaritmen, og vi går motsett veg: $\\log_a f(x) = c$ gir $f(x) = a^c$. Men her lurer fella -- logaritmen krev positive argument, så kvar kandidat må sjekkast mot den opphavlege likninga. Falske løysingar, som $x = -3$ i $\\ln(x-1) + \\ln(x+1) = \\ln 8$, skal avslørast og forkastast.\n\nTil slutt såg vi verktøya i arbeid. Eksponentielle modellar $N(t) = N_0 \\cdot a^t$ har **doblingstid** $T_2 = \\frac{\\ln 2}{\\ln a}$ og **halveringstid** $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, begge uavhengige av startmengda. Karbon-14-datering, bakterievekst, radioaktivt avfall, renters rente -- overalt er oppskrifta den same: modell, isoler potensen, logaritme, løys.\n\nDen ukjende kan gøyme seg i ein eksponent, men ho kan ikkje gøyme seg for logaritmen."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "27d57260bfad4407",
+    "translatedAt": "2026-06-19T22:12:18.991Z",
+    "model": "claude-code-agent",
+    "strings": 89,
+    "tm": {
+      "913d0492ba5ec75e": "Eksponential- og logaritmelikningar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "fd41f04c780d19b8": "Ei forteljing om å fange den ukjende når ho gøymer seg i ein eksponent eller ein logaritme -- frå karbon-14-datering av arkeologiske funn til bakteriekulturar som doblar seg.",
+      "5e79442c24a0ebbd": "løyse eksponentiallikningar ved å ta logaritmen på begge sider",
+      "116cad171579fe42": "løyse logaritmelikningar ved å bruke definisjonen",
+      "579bdb5f0de8bee2": "bruke eksponential- og logaritmefunksjonar på praktiske problem",
+      "d31897b417317cce": "## Beinrestane som røper sin eigen alder\n\nEin arkeolog børstar forsiktig jorda av eit beinfragment. Kor gammalt er det? Tusen år? Ti tusen? Svaret ligg gøymt i atoma. Alt levande tek opp det radioaktive isotopet karbon-14 gjennom heile livet, men i dødsaugneblinken stoppar påfyllet, og karbon-14 byrjar å forsvinne -- halvparten kvart 5730. år. Måler arkeologen at berre $35\\,\\%$ av den opphavlege mengda er igjen, kan alderen reknast ut nøyaktig.\n\nMen sjå på reknestykket som då må løysast:\n\n$$0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$$\n\nDen ukjende $t$ sit fanga oppe i eksponenten. Ingen av metodane du kan frå før -- flytte ledd, faktorisere, abc-formel -- får henne ned derifrå. Det er her logaritmane frå førre kapittel går frå å vere vakker teori til å bli eit presisjonsverktøy: logaritmen er nøkkelen som låser opp eksponenten.\n\nI dette kapittelet lærer du å løyse to skylde likningstypar. I **eksponentiallikningar** står den ukjende i eksponenten, og vi friar henne ved å ta logaritmen på begge sider. I **logaritmelikningar** står den ukjende inne i ein logaritme, og vi friar henne ved å gå motsett veg -- opphøye grunntalet i begge sider. Til slutt bruker vi verktøya på røyndomen: radioaktiv nedbryting, bakterievekst, halveringstid og doblingstid. Alderen til beinfragmentet skal vi faktisk rekne ut.",
+      "4f12ba663c575c4a": "## Eksponentiallikningar -- å hente den ukjende ned\n\nEi **eksponentiallikning** har forma $a^{f(x)} = b$ med $a > 0$, $a \\neq 1$ og $b > 0$. Strategien er alltid den same: ta logaritmen på begge sider, slik at potensregelen $\\ln(a^r) = r \\ln a$ hentar eksponenten ned som ein vanleg faktor. Då blir $f(x) = \\log_a b = \\frac{\\ln b}{\\ln a}$, og resten er kjend algebra.\n\nNokre gonger slepp vi logaritmen heilt. I $2^x = 16$ ser vi at $16 = 2^4$, så $x = 4$ direkte -- same grunntal på begge sider tyder at eksponentane må vere like. Tilsvarande med $5^{2x} = 125$: sidan $125 = 5^3$ er $2x = 3$, altså $x = \\frac{3}{2}$.\n\nMen i $3^x = 50$ er $50$ ingen pen potens av $3$. Då tek vi logaritmen:\n\n$$x = \\log_3 50 = \\frac{\\ln 50}{\\ln 3} \\approx \\frac{3{,}912}{1{,}099} \\approx 3{,}56$$\n\nDet vanskelegaste tilfellet er når den ukjende står i eksponenten på *begge* sider, som i $2^{x+1} = 5^{x-2}$. Vi tek $\\ln$ på begge sider og hentar ned begge eksponentane: $(x+1)\\ln 2 = (x-2)\\ln 5$. No er dette berre ei lineær likning der $\\ln 2$ og $\\ln 5$ er konstantar! Vi gangar ut, samlar $x$-ledda på éi side og faktoriserer:\n\n$$x(\\ln 2 - \\ln 5) = -2\\ln 5 - \\ln 2 \\quad \\Rightarrow \\quad x = \\frac{2\\ln 5 + \\ln 2}{\\ln 5 - \\ln 2} \\approx 4{,}3$$\n\nHandsam logaritmeverdiane som tala dei er, så oppfører likninga seg pent.",
+      "087e060456ca7dda": "Test deg sjølv på eksponentiallikningar:",
+      "4097889236a2af26": "placeholder",
+      "d0ff3e7686cc3b5c": "Løys likninga $2^x = 16$.",
+      "eae1daf6b9845d7b": "$x = 8$",
+      "d14d177d812c2ded": "$x = 4$",
+      "0c82bd6cd3ab8ff8": "$x = 2$",
+      "f463c9979446189f": "$x = 16$",
+      "b2f480d92eed7e2c": "$16 = 2^4$, så $2^x = 2^4$ gir $x = 4$.",
+      "8543bda464f279d7": "Kva er løysinga av $3^x = 50$?",
+      "d73e330f30767fa0": "$x = \\frac{\\ln 50}{\\ln 3}$",
+      "bf267ad27657e2d1": "$x = \\frac{\\ln 3}{\\ln 50}$",
+      "37502fa0abefa1a6": "$x = \\ln\\frac{50}{3}$",
+      "116cb7c5a4130ca5": "$x = \\frac{50}{3}$",
+      "6004143a188a273a": "Ta logaritmen på begge sider: $x \\ln 3 = \\ln 50$, altså $x = \\frac{\\ln 50}{\\ln 3} \\approx 3{,}56$.",
+      "8f1c10080c4c844b": "Løys likninga $5^{2x} = 125$.",
+      "e48f8a419112d39e": "$x = 3$",
+      "d6986ce79d48eded": "$x = \\frac{2}{3}$",
+      "3de83ed367cab31b": "$x = 25$",
+      "0848347b72c0818f": "$x = \\frac{3}{2}$",
+      "885c35a71806dd6a": "$125 = 5^3$, så $2x = 3$ og $x = \\frac{3}{2}$.",
+      "fa6931a70c6ab4cf": "Kva er rett første steg for å løyse $2^{x+1} = 5^{x-2}$?",
+      "0c012f8c31a215b9": "Dele begge sider på $2$",
+      "3b65cac0b695d702": "Setje $x + 1 = x - 2$",
+      "83ada95f967095cf": "Ta logaritmen på begge sider og bruke $\\ln(a^r) = r\\ln a$",
+      "798422a81013d67b": "Opphøye begge sider i $x$",
+      "db2a60e21935b422": "Med ukjend i eksponenten på begge sider tek vi $\\ln$ på begge sider: $(x+1)\\ln 2 = (x-2)\\ln 5$, som er ei lineær likning i $x$.",
+      "c5e03d8c8b555273": "## Logaritmelikningar -- og fella du må unngå\n\nI ei **logaritmelikning** står den ukjende inne i ein logaritme, som i $\\ln x = 3$. No går vi motsett veg av i stad: vi bruker definisjonen $\\log_a b = c \\Leftrightarrow a^c = b$ og opphøyer grunntalet i begge sider. Frå $\\ln x = 3$ får vi $x = e^3 \\approx 20{,}09$. Frå $\\lg(2x+1) = 2$ får vi $2x + 1 = 10^2 = 100$, altså $x = 49{,}5$.\n\nMen logaritmelikningar har ei felle som eksponentiallikningar ikkje har: *logaritmen er berre definert for positive argument*. Algebraen kan servere løysingar som ser plettfrie ut, men som gir negativt tal inn i logaritmen. Difor må du **alltid sjekke løysingane** mot den opphavlege likninga.\n\nSjå på $\\ln(x-1) + \\ln(x+1) = \\ln 8$. Produktregelen slår saman venstresida: $\\ln[(x-1)(x+1)] = \\ln 8$, så $(x-1)(x+1) = 8$, det vil seie $x^2 - 1 = 8$ og $x = \\pm 3$. To kandidatar! For $x = 3$: argumenta blir $2$ og $4$, begge positive -- godkjend. For $x = -3$: argumentet $x - 1 = -4$ er negativt, og $\\ln(-4)$ finst ikkje. Løysinga $x = -3$ er ei *falsk løysing* som oppstod då vi slo saman logaritmane. Svaret er $x = 3$ åleine.\n\nNår det står logaritmar på begge sider, samlar vi alt til éin logaritme på kvar side og samanliknar argumenta. I $\\log_2(x+3) = \\log_2(2x-1) + 1$ skriv vi $1 = \\log_2 2$, slår saman høgresida til $\\log_2[2(2x-1)] = \\log_2(4x-2)$, og les av $x + 3 = 4x - 2$, som gir $x = \\frac{5}{3}$. Sjekken viser at begge argumenta er positive, så løysinga står seg.",
+      "45777e85d253bb4b": "Test deg sjølv på logaritmelikningar:",
+      "f4b6246b97718a3f": "Løys likninga $\\ln x = 3$.",
+      "5058678ebe1a00e2": "$x = 3e$",
+      "e9c11b49766ab862": "$x = \\ln 3$",
+      "66e3ad8cfd2f8371": "$x = e^3$",
+      "83f6f3c44358ac40": "Definisjonen av logaritme: $\\ln x = 3 \\Leftrightarrow x = e^3 \\approx 20{,}09$.",
+      "f3b6255c98bbe5cb": "Løys likninga $\\lg(2x + 1) = 2$.",
+      "b8d921f3516666fe": "$x = 5$",
+      "4936ff1b5c7e4b8a": "$x = 49{,}5$",
+      "20e632fd37a3b9d6": "$x = 99$",
+      "542d99d89cf867cb": "$x = 50$",
+      "647526830af51c3c": "$2x + 1 = 10^2 = 100$ gir $2x = 99$, altså $x = 49{,}5$. Argumentet $100 > 0$, så løysinga er gyldig.",
+      "f1fb0f487263f1a0": "Likninga $\\ln(x-1) + \\ln(x+1) = \\ln 8$ gir kandidatane $x = 3$ og $x = -3$. Kvifor vert $x = -3$ forkasta?",
+      "e9dbe28b1ffc8fd7": "Fordi $x = -3$ gir negativt argument i logaritmen ($\\ln(-4)$ er udefinert)",
+      "7cc5005f70f93675": "Fordi negative tal aldri kan vere løysingar",
+      "3b71b1b1195949be": "Fordi $(-3)^2 - 1 \\neq 8$",
+      "93802629cb74f597": "Fordi $\\ln 8$ er positiv",
+      "06f0e895ead80f25": "For $x = -3$ blir $x - 1 = -4 < 0$, og logaritmen av eit negativt tal er udefinert. Difor er berre $x = 3$ gyldig.",
+      "ab121638278e190d": "Kva er løysinga av $\\log_2(x+3) = \\log_2(2x-1) + 1$?",
+      "c4e810d3e994f0a7": "$x = \\frac{5}{3}$",
+      "b1bb66a9fb011d4f": "Skriv $1 = \\log_2 2$ og slå saman: $\\log_2(x+3) = \\log_2(4x-2)$, så $x + 3 = 4x - 2$ gir $x = \\frac{5}{3}$. Begge argumenta blir positive.",
+      "d464c4b110c1b3c5": "## Halveringstid, doblingstid -- og alderen til beinfragmentet\n\nNo løyser vi gåta frå innleiinga. Eksponentiell endring vert skildra med modellen $N(t) = N_0 \\cdot a^t$, der $N_0$ er startmengda og $a$ er vekstfaktoren. To storleikar fangar dynamikken i eitt tal. **Doblingstida** $T_2$ er tida det tek før mengda er dobla: $N_0 \\cdot a^{T_2} = 2N_0$ gir $T_2 = \\frac{\\ln 2}{\\ln a}$. **Halveringstida** $T_{1/2}$ er tida til halvparten står att: $T_{1/2} = \\frac{\\ln(1/2)}{\\ln a} = -\\frac{\\ln 2}{\\ln a}$. Legg merke til at begge er uavhengige av $N_0$ -- ein bakteriekoloni doblar seg like fort anten han er stor eller liten.\n\nTilbake til arkeologen. Karbon-14 har halveringstid $5730$ år, så mengda følgjer $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Med $35\\,\\%$ igjen løyser vi $0{,}35 = \\left(\\frac{1}{2}\\right)^{t/5730}$. Logaritmen hentar ned eksponenten:\n\n$$\\ln 0{,}35 = \\frac{t}{5730}\\ln\\frac{1}{2} \\quad \\Rightarrow \\quad t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700 \\text{ år}$$\n\nBeinet er altså rundt $8700$ år gammalt -- frå steinalderen.\n\nSame verktøyet verkar på vekst. Ein bakteriekultur som doblar seg kvar tredje time og startar med $1000$ bakteriar, følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Når passerer han $50\\,000$? Vi løyser $2^{t/3} = 50$, tek logaritmen og får $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, altså $t \\approx 17$ timar.\n\nMønsteret er det same kvar gong: sett opp modellen, isoler potensen, ta logaritmen, løys for tida. Fire steg frå måling til svar.",
+      "e3a8b87333189c72": "Test deg sjølv på halveringstid, doblingstid og vekstmodellar:",
+      "47bf4c4e156651eb": "Ei mengd veks etter modellen $N(t) = N_0 \\cdot a^t$. Kva er doblingstida?",
+      "4aa77130c140cba6": "$T_2 = \\frac{\\ln a}{\\ln 2}$",
+      "b7c53d0ce3b75870": "$T_2 = \\frac{\\ln 2}{\\ln a}$",
+      "8489e766e58cfde4": "$T_2 = 2\\ln a$",
+      "b8021e9e6a64a519": "$T_2 = \\frac{2}{a}$",
+      "6a9446a4d9e32a37": "Vi løyser $a^{T_2} = 2$: ta logaritmen, $T_2 \\ln a = \\ln 2$, altså $T_2 = \\frac{\\ln 2}{\\ln a}$.",
+      "46586cd094177ef9": "Eit funn inneheld $35\\,\\%$ av opphavleg karbon-14 (halveringstid $5730$ år). Omtrent kor gammalt er funnet?",
+      "2d36ecc4ef58d512": "Ca. $2000$ år",
+      "37670c3dbfa1d640": "Ca. $5730$ år",
+      "baab6cea03d57892": "Ca. $8700$ år",
+      "7bc542217c69d510": "Ca. $16\\,400$ år",
+      "b37ee93f8222ca1d": "$t = \\frac{5730 \\cdot \\ln 0{,}35}{\\ln 0{,}5} \\approx 8700$ år. Rimeleg: $35\\,\\%$ er litt mindre enn $50\\,\\%$ (éi halvering) men meir enn $25\\,\\%$ (to halveringar), så svaret ligg mellom $5730$ og $11\\,460$ år.",
+      "60c85747b13c5eeb": "Ein bakteriekultur følgjer $N(t) = 1000 \\cdot 2^{t/3}$. Omtrent kor lang tid tek det før det er $50\\,000$ bakteriar?",
+      "e9bb30c2edf8d45a": "Ca. $17$ timar",
+      "a6e8c7311a69bb35": "Ca. $50$ timar",
+      "400a138608c8b973": "Ca. $6$ timar",
+      "1d6da31016e98dbc": "Ca. $150$ timar",
+      "aea4673feede12b2": "$2^{t/3} = 50$ gir $\\frac{t}{3} = \\frac{\\ln 50}{\\ln 2} \\approx 5{,}64$, så $t \\approx 16{,}9 \\approx 17$ timar.",
+      "17c214c37f7257ba": "Kva er halveringstida for modellen $N(t) = N_0 \\cdot a^t$ (med $0 < a < 1$)?",
+      "413bffc3e65e0918": "$T_{1/2} = \\frac{\\ln a}{2}$",
+      "47235babac3222e5": "$T_{1/2} = \\frac{1}{2a}$",
+      "a8afde84914d4b41": "$T_{1/2} = \\frac{\\ln 2}{\\ln a}$",
+      "801c91994ea45d21": "$T_{1/2} = -\\frac{\\ln 2}{\\ln a}$",
+      "1263933ee30540fb": "Vi løyser $a^{T} = \\frac{1}{2}$: $T \\ln a = \\ln\\frac{1}{2} = -\\ln 2$, altså $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, som er positiv når $0 < a < 1$.",
+      "11cc2737f5060add": "## Forteljinga i eit nøtteskal\n\nEit beinfragment frå steinalderen opna kapittelet, og no kan du faktisk datere det sjølv. Undervegs har du lært å fange den ukjende uansett kvar ho gøymer seg.\n\nI **eksponentiallikningar** står den ukjende i eksponenten. Våpenet er å ta logaritmen på begge sider, slik at regelen $\\ln(a^r) = r\\ln a$ hentar henne ned: $a^{f(x)} = b$ gir $f(x) = \\frac{\\ln b}{\\ln a}$. Kan begge sider skrivast med same grunntal, samanliknar vi eksponentane direkte. Står den ukjende i eksponenten på begge sider, gir logaritmen oss ei lineær likning der $\\ln 2$ og $\\ln 5$ berre er tal.\n\nI **logaritmelikningar** står den ukjende inne i logaritmen, og vi går motsett veg: $\\log_a f(x) = c$ gir $f(x) = a^c$. Men her lurer fella -- logaritmen krev positive argument, så kvar kandidat må sjekkast mot den opphavlege likninga. Falske løysingar, som $x = -3$ i $\\ln(x-1) + \\ln(x+1) = \\ln 8$, skal avslørast og forkastast.\n\nTil slutt såg vi verktøya i arbeid. Eksponentielle modellar $N(t) = N_0 \\cdot a^t$ har **doblingstid** $T_2 = \\frac{\\ln 2}{\\ln a}$ og **halveringstid** $T_{1/2} = -\\frac{\\ln 2}{\\ln a}$, begge uavhengige av startmengda. Karbon-14-datering, bakterievekst, radioaktivt avfall, renters rente -- overalt er oppskrifta den same: modell, isoler potensen, logaritme, løys.\n\nDen ukjende kan gøyme seg i ein eksponent, men ho kan ikkje gøyme seg for logaritmen."
+    }
+  }
+}

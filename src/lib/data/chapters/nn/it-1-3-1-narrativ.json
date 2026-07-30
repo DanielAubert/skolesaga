@@ -1,1 +1,413 @@
-{"id":"it-1-3-1-narrativ","courseId":"it-1","chapterNumber":"3.1","title":"Kva er ein algoritme?","subtitle":"Narrativ versjon","description":"Ei forteljing om oppskrifta bak alt – frå al-Khwarizmi og pannekaker til dei tre kontrollstrukturane sekvens, val og løkke som all kode er bygd av.","estimatedMinutes":34,"competenceGoals":["forklare hva en algoritme er og gi eksempler fra dagliglivet og programmering","beskrive egenskapene til en god algoritme","oversette enkle algoritmer fra naturlig språk til Python-kode"],"linkedChapterId":"it-1-3-1","content":[{"id":"it-1-3-1-n-intro","type":"text","content":"## Du har alltid brukt algoritmar\n\nHar du følgt ei matoppskrift, bygd eit LEGO-sett etter instruksjonane eller forklart vegen til nokon? Då har du brukt **algoritmar** utan å tenkje på det. Ein algoritme er rett og slett ei presis, trinnvis skildring av korleis ei oppgåve skal utførast. Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi frå 800-talet, som i latinsk omsetjing vart til «Algoritmi».\n\nMeir presist er ein algoritme ei endeleg, ordna rekkje av eintydige instruksjonar som løyser eit problem. Han tek imot inndata, prosesserer dei steg for steg, og gir utdata. Ei pannekakeoppskrift passar perfekt: inndata er ingrediensane, instruksjonane er blandinga og steikinga, og utdata er pannekakene. Ei vegskildring er ein algoritme – «gå ut, ta til venstre, rett fram 200 meter» – og det er morgonrutinen din òg. Rekkjefølgja tyder noko; du kan ikkje steike deigen før han er blanda.\n\nDet som gjer algoritmar i informatikk spesielle, er at dei må vere så presise at ein datamaskin kan følgje dei. Maskinen gjer nøyaktig det du ber om – han kan ikkje tolke, gjette eller improvisere. Difor må algoritmane vi skriv for datamaskinar vere heilt eintydige. Vil du til dømes finne det største av tre tal, antek du først at det første er størst, og oppdaterer deretter viss eit av dei andre er større:\n\n```python\nstorst = a\nif b > storst:\n    storst = b\nif c > storst:\n    storst = c\n```\n\nDet fine er at denne algoritmen gir rett svar uansett kva for tre tal du gir han."},{"id":"it-1-3-1-n-quiz1","type":"exercise","exercise":{"id":"it-1-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på kva ein algoritme er:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-1-n-quiz1-q0","task":"Kva er den beste definisjonen av ein algoritme?","options":[{"id":"a","text":"Ei presis, trinnvis oppskrift for å løyse eit problem","isCorrect":true},{"id":"b","text":"Eit dataprogram skrive i Python","isCorrect":false},{"id":"c","text":"Ein matematisk formel","isCorrect":false},{"id":"d","text":"Ei liste med tilfeldige instruksjonar","isCorrect":false}],"solution":"Ein algoritme er ei presis, trinnvis oppskrift for å løyse eit problem – som ei matoppskrift eller ei vegskildring."},{"id":"it-1-3-1-n-quiz1-q1","task":"Kvifor må algoritmar for datamaskinar vere heilt eintydige?","options":[{"id":"a","text":"Fordi datamaskinar er trege","isCorrect":false},{"id":"b","text":"Fordi datamaskinen gjer nøyaktig det du ber om og ikkje kan gjette eller improvisere","isCorrect":true},{"id":"c","text":"Fordi Python krev det","isCorrect":false},{"id":"d","text":"Det er ikkje naudsynt at dei er eintydige","isCorrect":false}],"solution":"Ein datamaskin følgjer instruksjonane slavisk utan å tolke, så algoritmen må vere heilt eintydig."},{"id":"it-1-3-1-n-quiz1-q2","task":"Kvar kjem ordet «algoritme» frå?","options":[{"id":"a","text":"Frå det greske ordet for tal","isCorrect":false},{"id":"b","text":"Frå eit programmeringsspråk","isCorrect":false},{"id":"c","text":"Frå namnet til matematikaren al-Khwarizmi","isCorrect":true},{"id":"d","text":"Frå ein moderne dataforskar","isCorrect":false}],"solution":"Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi, som i latinsk form vart «Algoritmi»."}]}},{"id":"it-1-3-1-n-section1","type":"text","content":"## Kva skil ein god algoritme frå ein dårleg?\n\nIkkje alle instruksjonar er algoritmar. For å kvalifisere må fleire krav vere oppfylte. **Eintydigheit** tyder at kvart steg har éi einaste tolking – «tilset litt salt» duger ikkje, men «tilset 5 gram salt» gjer det. **Terminering** tyder at algoritmen alltid stoppar etter eit endeleg tal på steg; han kan ikkje gå i ei evig løkke. **Korrektheit** tyder at han gir rett svar for *alle* gyldige inndata, ikkje berre nokre. **Effektivitet** tyder at han bruker tid og minne fornuftig – kan du løyse noko på 10 steg framfor 1000, er det betre. Og **generalitet** tyder at han handterer ein heil klasse problem, anten du gir han 3 tal eller ein million.\n\nDet vakre er at all denne kompleksiteten kan byggjast av berre tre **kontrollstrukturar**. **Sekvens** er instruksjonar som blir utførte i rekkjefølgje, frå topp til botn – som når du reknar ut eit areal: definer lengd, definer breidd, gang dei saman, skriv ut. **Vilkår (val)** lèt programmet ta avgjerder med `if`, `elif` og `else`, som å sjekke om eit tal er positivt, negativt eller null. **Iterasjon (løkke)** gjentek instruksjonar, anten med ei for-løkke når du veit talet, eller ei while-løkke som køyrer til eit vilkår endrar seg. I 1966 beviste Böhm og Jacopini at kvar algoritme kan uttrykkjast med berre desse tre – det blir kalla strukturteoremet."},{"id":"it-1-3-1-n-quiz2","type":"exercise","exercise":{"id":"it-1-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på eigenskapar og kontrollstrukturar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-1-n-quiz2-q0","task":"Kva for eigenskap tyder at ein algoritme alltid stoppar etter eit endeleg tal på steg?","options":[{"id":"a","text":"Eintydigheit","isCorrect":false},{"id":"b","text":"Effektivitet","isCorrect":false},{"id":"c","text":"Korrektheit","isCorrect":false},{"id":"d","text":"Terminering","isCorrect":true}],"solution":"Terminering tyder at algoritmen alltid stoppar etter eit endeleg tal på steg og ikkje går i evig løkke."},{"id":"it-1-3-1-n-quiz2-q1","task":"Kva for kontrollstruktur skildrar at instruksjonar blir utførte i rekkjefølgje, den eine etter den andre?","options":[{"id":"a","text":"Sekvens","isCorrect":true},{"id":"b","text":"Vilkår","isCorrect":false},{"id":"c","text":"Iterasjon","isCorrect":false},{"id":"d","text":"Rekursjon","isCorrect":false}],"solution":"Sekvens tyder at instruksjonane blir utførte i rekkjefølgje, frå topp til botn."},{"id":"it-1-3-1-n-quiz2-q2","task":"Kva seier strukturteoremet til Böhm og Jacopini?","options":[{"id":"a","text":"At Python er det beste språket","isCorrect":false},{"id":"b","text":"At alle algoritmar kan byggjast av sekvens, vilkår og iterasjon","isCorrect":true},{"id":"c","text":"At algoritmar aldri terminerer","isCorrect":false},{"id":"d","text":"At rekursjon er naudsynt i all kode","isCorrect":false}],"solution":"Strukturteoremet seier at kvar algoritme kan uttrykkjast med berre dei tre kontrollstrukturane sekvens, vilkår og iterasjon."}]}},{"id":"it-1-3-1-n-section2","type":"text","content":"## Alle tre i eitt: primtalssjekken\n\nLat oss byggje ein algoritme som bruker alle tre kontrollstrukturane samtidig – ein sjekk på om eit tal er eit **primtal** (eit tal større enn 1 som berre er deleleg med 1 og seg sjølv). Algoritmen i ord: les inn eit tal n; er n mindre enn 2, er det ikkje primtal; elles, sjekk kvart tal frå 2 til n-1, og er n deleleg med nokon av dei, er det ikkje primtal; finn du ingen divisor, er n eit primtal.\n\nOmsett til Python:\n\n```python\nn = int(input(\"Skriv inn et tall: \"))\nif n < 2:\n    print(f\"{n} er IKKE et primtall\")\nelse:\n    er_primtall = True\n    for i in range(2, n):\n        if n % i == 0:\n            er_primtall = False\n            break\n    if er_primtall:\n        print(f\"{n} ER et primtall\")\n    else:\n        print(f\"{n} er IKKE et primtall\")\n```\n\nSer du dei tre strukturane? **Sekvensen** er linjene som blir køyrde i rekkjefølgje. **Vilkåret** er if-setningane som sjekkar delelegheit. **Iterasjonen** er for-løkka som prøver alle moglege divisorar. Eit lite, men viktig grep er `break`: så snart vi finn éin divisor, veit vi at talet ikkje er primtal, og vi avbryt løkka i staden for å sjekke resten. Det gjer algoritmen meir effektiv – nettopp ein av eigenskapane til ein god algoritme."},{"id":"it-1-3-1-n-quiz3","type":"exercise","exercise":{"id":"it-1-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på å lese kode:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-1-n-quiz3-q0","task":"Kva skriv dette ut? tall = 10; if tall > 5: print(\"Stort\"); if tall > 15: print(\"Veldig stort\") else: print(\"Middels stort\")","options":[{"id":"a","text":"Stort og Veldig stort","isCorrect":false},{"id":"b","text":"Lite","isCorrect":false},{"id":"c","text":"Stort og Middels stort","isCorrect":true},{"id":"d","text":"Berre Stort","isCorrect":false}],"solution":"tall er 10. 10 > 5 gir «Stort». Den indre sjekken 10 > 15 er usann, så else gir «Middels stort»."},{"id":"it-1-3-1-n-quiz3-q1","task":"Kva blir resultat? resultat = 0; for i in range(1,5): if i%2==0: resultat += i*2 else: resultat += i","options":[{"id":"a","text":"10","isCorrect":false},{"id":"b","text":"14","isCorrect":false},{"id":"c","text":"20","isCorrect":false},{"id":"d","text":"16","isCorrect":true}],"solution":"i=1 (odde) +1=1; i=2 (par) +4=5; i=3 (odde) +3=8; i=4 (par) +8=16. Resultatet er 16."},{"id":"it-1-3-1-n-quiz3-q2","task":"Kva gjer break i primtalssjekken?","options":[{"id":"a","text":"Stoppar løkka så snart ein divisor er funnen, for effektivitet","isCorrect":true},{"id":"b","text":"Startar løkka på nytt","isCorrect":false},{"id":"c","text":"Gjer talet til eit primtal","isCorrect":false},{"id":"d","text":"Avsluttar programmet heilt","isCorrect":false}],"solution":"break avbryt løkka straks vi finn ein divisor – då veit vi at talet ikkje er primtal, og vi slepp å sjekke resten."}]}},{"id":"it-1-3-1-n-summary","type":"text","content":"## Oppsummering\n\nEin **algoritme** er ei endeleg, ordna rekkje eintydige instruksjonar for å løyse eit problem – frå al-Khwarizmis likningar til dagens pannekakeoppskrifter og vegskildringar. For datamaskinar må dei vere heilt presise, fordi maskinen ikkje kan gjette.\n\nEin god algoritme er eintydig, terminerer, er korrekt, effektiv og generell. Og uansett kor komplekst problemet er, kan løysinga byggjast av berre tre **kontrollstrukturar**: sekvens, vilkår og iterasjon – akkurat som strukturteoremet seier. Primtalssjekken synte alle tre i aksjon, og `break`-grepet minte oss om at effektivitet tel. Med dette har du grunnlaget for å omsetje kvar oppskrift til køyrbar kode."}],"exercises":[],"_meta":{"sourceHash":"6d11c861c61622e6","translatedAt":"2026-06-20T23:44:55.463Z","model":"claude-code-agent","strings":66,"tm":{"83d20e7f3a645fcf":"Kva er ein algoritme?","b195b06d1ed59702":"Narrativ versjon","babe33623dfffddf":"Ei forteljing om oppskrifta bak alt – frå al-Khwarizmi og pannekaker til dei tre kontrollstrukturane sekvens, val og løkke som all kode er bygd av.","8e058eac1f53a33c":"forklare hva en algoritme er og gi eksempler fra dagliglivet og programmering","4ac25f3a1a7df80d":"beskrive egenskapene til en god algoritme","881a9385427e13b2":"oversette enkle algoritmer fra naturlig språk til Python-kode","0aa2b5964e2e3750":"## Du har alltid brukt algoritmar\n\nHar du følgt ei matoppskrift, bygd eit LEGO-sett etter instruksjonane eller forklart vegen til nokon? Då har du brukt **algoritmar** utan å tenkje på det. Ein algoritme er rett og slett ei presis, trinnvis skildring av korleis ei oppgåve skal utførast. Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi frå 800-talet, som i latinsk omsetjing vart til «Algoritmi».\n\nMeir presist er ein algoritme ei endeleg, ordna rekkje av eintydige instruksjonar som løyser eit problem. Han tek imot inndata, prosesserer dei steg for steg, og gir utdata. Ei pannekakeoppskrift passar perfekt: inndata er ingrediensane, instruksjonane er blandinga og steikinga, og utdata er pannekakene. Ei vegskildring er ein algoritme – «gå ut, ta til venstre, rett fram 200 meter» – og det er morgonrutinen din òg. Rekkjefølgja tyder noko; du kan ikkje steike deigen før han er blanda.\n\nDet som gjer algoritmar i informatikk spesielle, er at dei må vere så presise at ein datamaskin kan følgje dei. Maskinen gjer nøyaktig det du ber om – han kan ikkje tolke, gjette eller improvisere. Difor må algoritmane vi skriv for datamaskinar vere heilt eintydige. Vil du til dømes finne det største av tre tal, antek du først at det første er størst, og oppdaterer deretter viss eit av dei andre er større:\n\n```python\nstorst = a\nif b > storst:\n    storst = b\nif c > storst:\n    storst = c\n```\n\nDet fine er at denne algoritmen gir rett svar uansett kva for tre tal du gir han.","90f0ed84ac7fb063":"Test deg sjølv på kva ein algoritme er:","4097889236a2af26":"placeholder","9dd78fa54c59be04":"Kva er den beste definisjonen av ein algoritme?","22de5df7e075c447":"Ei presis, trinnvis oppskrift for å løyse eit problem","813be88b6241d7a7":"Eit dataprogram skrive i Python","cd670b18a60aa0af":"Ein matematisk formel","1fc3156a1eb625b3":"Ei liste med tilfeldige instruksjonar","de827d3bcb1ae2c4":"Ein algoritme er ei presis, trinnvis oppskrift for å løyse eit problem – som ei matoppskrift eller ei vegskildring.","4bdcfb5e88d3aa5d":"Kvifor må algoritmar for datamaskinar vere heilt eintydige?","904fd40e05aca35a":"Fordi datamaskinar er trege","85b9d72ed5aff2ef":"Fordi datamaskinen gjer nøyaktig det du ber om og ikkje kan gjette eller improvisere","43a823d9e437d44b":"Fordi Python krev det","c9c99a08de4a656d":"Det er ikkje naudsynt at dei er eintydige","2d85c817c45bd1cb":"Ein datamaskin følgjer instruksjonane slavisk utan å tolke, så algoritmen må vere heilt eintydig.","eee9194b10d0d0fd":"Kvar kjem ordet «algoritme» frå?","2b13ea1e6e2b6ca2":"Frå det greske ordet for tal","07bba87eef609196":"Frå eit programmeringsspråk","463d42e2834e9a43":"Frå namnet til matematikaren al-Khwarizmi","eca1c758c6c09071":"Frå ein moderne dataforskar","da09b92cf2b5b1ab":"Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi, som i latinsk form vart «Algoritmi».","a850f9faec3a0a67":"## Kva skil ein god algoritme frå ein dårleg?\n\nIkkje alle instruksjonar er algoritmar. For å kvalifisere må fleire krav vere oppfylte. **Eintydigheit** tyder at kvart steg har éi einaste tolking – «tilset litt salt» duger ikkje, men «tilset 5 gram salt» gjer det. **Terminering** tyder at algoritmen alltid stoppar etter eit endeleg tal på steg; han kan ikkje gå i ei evig løkke. **Korrektheit** tyder at han gir rett svar for *alle* gyldige inndata, ikkje berre nokre. **Effektivitet** tyder at han bruker tid og minne fornuftig – kan du løyse noko på 10 steg framfor 1000, er det betre. Og **generalitet** tyder at han handterer ein heil klasse problem, anten du gir han 3 tal eller ein million.\n\nDet vakre er at all denne kompleksiteten kan byggjast av berre tre **kontrollstrukturar**. **Sekvens** er instruksjonar som blir utførte i rekkjefølgje, frå topp til botn – som når du reknar ut eit areal: definer lengd, definer breidd, gang dei saman, skriv ut. **Vilkår (val)** lèt programmet ta avgjerder med `if`, `elif` og `else`, som å sjekke om eit tal er positivt, negativt eller null. **Iterasjon (løkke)** gjentek instruksjonar, anten med ei for-løkke når du veit talet, eller ei while-løkke som køyrer til eit vilkår endrar seg. I 1966 beviste Böhm og Jacopini at kvar algoritme kan uttrykkjast med berre desse tre – det blir kalla strukturteoremet.","9c0cbab4c9c88f40":"Test deg sjølv på eigenskapar og kontrollstrukturar:","76df2b366c764936":"Kva for eigenskap tyder at ein algoritme alltid stoppar etter eit endeleg tal på steg?","385a76bdc2fe7917":"Eintydigheit","7c2ad88834d0d470":"Effektivitet","0b4af04ec35ea5d3":"Korrektheit","33124724cbfd942d":"Terminering","0547118dda00a44e":"Terminering tyder at algoritmen alltid stoppar etter eit endeleg tal på steg og ikkje går i evig løkke.","2fc4bd1dbd5574ed":"Kva for kontrollstruktur skildrar at instruksjonar blir utførte i rekkjefølgje, den eine etter den andre?","92a0fb1dcce0b78d":"Sekvens","4f2b7e186a55cd6a":"Vilkår","0b9a9e8f13f56c29":"Iterasjon","a9b204dcd175c810":"Rekursjon","6958d7d33e55685b":"Sekvens tyder at instruksjonane blir utførte i rekkjefølgje, frå topp til botn.","2d55c23dba173ac8":"Kva seier strukturteoremet til Böhm og Jacopini?","39595411498ad273":"At Python er det beste språket","e3cf3f8da52e025e":"At alle algoritmar kan byggjast av sekvens, vilkår og iterasjon","4c70acb92d20ca43":"At algoritmar aldri terminerer","c2dd79b519d0aaa1":"At rekursjon er naudsynt i all kode","b8b7e2ac7da7fd77":"Strukturteoremet seier at kvar algoritme kan uttrykkjast med berre dei tre kontrollstrukturane sekvens, vilkår og iterasjon.","0bc4ab47e2e22d96":"## Alle tre i eitt: primtalssjekken\n\nLat oss byggje ein algoritme som bruker alle tre kontrollstrukturane samtidig – ein sjekk på om eit tal er eit **primtal** (eit tal større enn 1 som berre er deleleg med 1 og seg sjølv). Algoritmen i ord: les inn eit tal n; er n mindre enn 2, er det ikkje primtal; elles, sjekk kvart tal frå 2 til n-1, og er n deleleg med nokon av dei, er det ikkje primtal; finn du ingen divisor, er n eit primtal.\n\nOmsett til Python:\n\n```python\nn = int(input(\"Skriv inn et tall: \"))\nif n < 2:\n    print(f\"{n} er IKKE et primtall\")\nelse:\n    er_primtall = True\n    for i in range(2, n):\n        if n % i == 0:\n            er_primtall = False\n            break\n    if er_primtall:\n        print(f\"{n} ER et primtall\")\n    else:\n        print(f\"{n} er IKKE et primtall\")\n```\n\nSer du dei tre strukturane? **Sekvensen** er linjene som blir køyrde i rekkjefølgje. **Vilkåret** er if-setningane som sjekkar delelegheit. **Iterasjonen** er for-løkka som prøver alle moglege divisorar. Eit lite, men viktig grep er `break`: så snart vi finn éin divisor, veit vi at talet ikkje er primtal, og vi avbryt løkka i staden for å sjekke resten. Det gjer algoritmen meir effektiv – nettopp ein av eigenskapane til ein god algoritme.","630ddedda5df92cd":"Test deg sjølv på å lese kode:","3c3d8590ca6167e3":"Kva skriv dette ut? tall = 10; if tall > 5: print(\"Stort\"); if tall > 15: print(\"Veldig stort\") else: print(\"Middels stort\")","7511239e7ee8c962":"Stort og Veldig stort","b751e380059015d8":"Lite","13b794e01f023fa9":"Stort og Middels stort","38725c8cdc9c6e31":"Berre Stort","26b813b528f72d65":"tall er 10. 10 > 5 gir «Stort». Den indre sjekken 10 > 15 er usann, så else gir «Middels stort».","8358c97936d95fa6":"Kva blir resultat? resultat = 0; for i in range(1,5): if i%2==0: resultat += i*2 else: resultat += i","dcbcee1f470ba46c":"i=1 (odde) +1=1; i=2 (par) +4=5; i=3 (odde) +3=8; i=4 (par) +8=16. Resultatet er 16.","9a35300d0bf9b81a":"Kva gjer break i primtalssjekken?","e961f1de59d6c8fd":"Stoppar løkka så snart ein divisor er funnen, for effektivitet","de6e4aef157238a1":"Startar løkka på nytt","2fa33aad4cd8841c":"Gjer talet til eit primtal","5c1e9017a3601749":"Avsluttar programmet heilt","e112a3807734ceda":"break avbryt løkka straks vi finn ein divisor – då veit vi at talet ikkje er primtal, og vi slepp å sjekke resten.","c10c95dce309887a":"## Oppsummering\n\nEin **algoritme** er ei endeleg, ordna rekkje eintydige instruksjonar for å løyse eit problem – frå al-Khwarizmis likningar til dagens pannekakeoppskrifter og vegskildringar. For datamaskinar må dei vere heilt presise, fordi maskinen ikkje kan gjette.\n\nEin god algoritme er eintydig, terminerer, er korrekt, effektiv og generell. Og uansett kor komplekst problemet er, kan løysinga byggjast av berre tre **kontrollstrukturar**: sekvens, vilkår og iterasjon – akkurat som strukturteoremet seier. Primtalssjekken synte alle tre i aksjon, og `break`-grepet minte oss om at effektivitet tel. Med dette har du grunnlaget for å omsetje kvar oppskrift til køyrbar kode."}}}
+{
+  "id": "it-1-3-1-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "3.1",
+  "title": "Kva er ein algoritme?",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om oppskrifta bak alt – frå al-Khwarizmi og pannekaker til dei tre kontrollstrukturane sekvens, val og løkke som all kode er bygd av.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "forklare hva en algoritme er og gi eksempler fra dagliglivet og programmering",
+    "beskrive egenskapene til en god algoritme",
+    "oversette enkle algoritmer fra naturlig språk til Python-kode"
+  ],
+  "linkedChapterId": "it-1-3-1",
+  "content": [
+    {
+      "id": "it-1-3-1-n-intro",
+      "type": "text",
+      "content": "## Du har alltid brukt algoritmar\n\nHar du følgt ei matoppskrift, bygd eit LEGO-sett etter instruksjonane eller forklart vegen til nokon? Då har du brukt **algoritmar** utan å tenkje på det. Ein algoritme er rett og slett ei presis, trinnvis skildring av korleis ei oppgåve skal utførast. Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi frå 800-talet, som i latinsk omsetjing vart til «Algoritmi».\n\nMeir presist er ein algoritme ei endeleg, ordna rekkje av eintydige instruksjonar som løyser eit problem. Han tek imot inndata, prosesserer dei steg for steg, og gir utdata. Ei pannekakeoppskrift passar perfekt: inndata er ingrediensane, instruksjonane er blandinga og steikinga, og utdata er pannekakene. Ei vegskildring er ein algoritme – «gå ut, ta til venstre, rett fram 200 meter» – og det er morgonrutinen din òg. Rekkjefølgja tyder noko; du kan ikkje steike deigen før han er blanda.\n\nDet som gjer algoritmar i informatikk spesielle, er at dei må vere så presise at ein datamaskin kan følgje dei. Maskinen gjer nøyaktig det du ber om – han kan ikkje tolke, gjette eller improvisere. Difor må algoritmane vi skriv for datamaskinar vere heilt eintydige. Vil du til dømes finne det største av tre tal, antek du først at det første er størst, og oppdaterer deretter viss eit av dei andre er større:\n\n```python\nstorst = a\nif b > storst:\n    storst = b\nif c > storst:\n    storst = c\n```\n\nDet fine er at denne algoritmen gir rett svar uansett kva for tre tal du gir han."
+    },
+    {
+      "id": "it-1-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kva ein algoritme er:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-1-n-quiz1-q0",
+            "task": "Kva er den beste definisjonen av ein algoritme?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Eit dataprogram skrive i Python",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein matematisk formel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei liste med tilfeldige instruksjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ei presis, trinnvis oppskrift for å løyse eit problem",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein algoritme er ei presis, trinnvis oppskrift for å løyse eit problem – som ei matoppskrift eller ei vegskildring."
+          },
+          {
+            "id": "it-1-3-1-n-quiz1-q1",
+            "task": "Kvifor må algoritmar for datamaskinar vere heilt eintydige?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi datamaskinen gjer nøyaktig det du ber om og ikkje kan gjette eller improvisere",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi datamaskinar er trege",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi Python krev det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ikkje naudsynt at dei er eintydige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein datamaskin følgjer instruksjonane slavisk utan å tolke, så algoritmen må vere heilt eintydig."
+          },
+          {
+            "id": "it-1-3-1-n-quiz1-q2",
+            "task": "Kvar kjem ordet «algoritme» frå?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Frå det greske ordet for tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Frå namnet til matematikaren al-Khwarizmi",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Frå eit programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Frå ein moderne dataforskar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi, som i latinsk form vart «Algoritmi»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-1-n-section1",
+      "type": "text",
+      "content": "## Kva skil ein god algoritme frå ein dårleg?\n\nIkkje alle instruksjonar er algoritmar. For å kvalifisere må fleire krav vere oppfylte. **Eintydigheit** tyder at kvart steg har éi einaste tolking – «tilset litt salt» duger ikkje, men «tilset 5 gram salt» gjer det. **Terminering** tyder at algoritmen alltid stoppar etter eit endeleg tal på steg; han kan ikkje gå i ei evig løkke. **Korrektheit** tyder at han gir rett svar for *alle* gyldige inndata, ikkje berre nokre. **Effektivitet** tyder at han bruker tid og minne fornuftig – kan du løyse noko på 10 steg framfor 1000, er det betre. Og **generalitet** tyder at han handterer ein heil klasse problem, anten du gir han 3 tal eller ein million.\n\nDet vakre er at all denne kompleksiteten kan byggjast av berre tre **kontrollstrukturar**. **Sekvens** er instruksjonar som blir utførte i rekkjefølgje, frå topp til botn – som når du reknar ut eit areal: definer lengd, definer breidd, gang dei saman, skriv ut. **Vilkår (val)** lèt programmet ta avgjerder med `if`, `elif` og `else`, som å sjekke om eit tal er positivt, negativt eller null. **Iterasjon (løkke)** gjentek instruksjonar, anten med ei for-løkke når du veit talet, eller ei while-løkke som køyrer til eit vilkår endrar seg. I 1966 beviste Böhm og Jacopini at kvar algoritme kan uttrykkjast med berre desse tre – det blir kalla strukturteoremet."
+    },
+    {
+      "id": "it-1-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eigenskapar og kontrollstrukturar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-1-n-quiz2-q0",
+            "task": "Kva for eigenskap tyder at ein algoritme alltid stoppar etter eit endeleg tal på steg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eintydigheit",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Effektivitet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Terminering",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Korrektheit",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Terminering tyder at algoritmen alltid stoppar etter eit endeleg tal på steg og ikkje går i evig løkke."
+          },
+          {
+            "id": "it-1-3-1-n-quiz2-q1",
+            "task": "Kva for kontrollstruktur skildrar at instruksjonar blir utførte i rekkjefølgje, den eine etter den andre?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Vilkår",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Iterasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rekursjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Sekvens",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sekvens tyder at instruksjonane blir utførte i rekkjefølgje, frå topp til botn."
+          },
+          {
+            "id": "it-1-3-1-n-quiz2-q2",
+            "task": "Kva seier strukturteoremet til Böhm og Jacopini?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At alle algoritmar kan byggjast av sekvens, vilkår og iterasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At Python er det beste språket",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At algoritmar aldri terminerer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At rekursjon er naudsynt i all kode",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strukturteoremet seier at kvar algoritme kan uttrykkjast med berre dei tre kontrollstrukturane sekvens, vilkår og iterasjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-1-n-section2",
+      "type": "text",
+      "content": "## Alle tre i eitt: primtalssjekken\n\nLat oss byggje ein algoritme som bruker alle tre kontrollstrukturane samtidig – ein sjekk på om eit tal er eit **primtal** (eit tal større enn 1 som berre er deleleg med 1 og seg sjølv). Algoritmen i ord: les inn eit tal n; er n mindre enn 2, er det ikkje primtal; elles, sjekk kvart tal frå 2 til n-1, og er n deleleg med nokon av dei, er det ikkje primtal; finn du ingen divisor, er n eit primtal.\n\nOmsett til Python:\n\n```python\nn = int(input(\"Skriv inn et tall: \"))\nif n < 2:\n    print(f\"{n} er IKKE et primtall\")\nelse:\n    er_primtall = True\n    for i in range(2, n):\n        if n % i == 0:\n            er_primtall = False\n            break\n    if er_primtall:\n        print(f\"{n} ER et primtall\")\n    else:\n        print(f\"{n} er IKKE et primtall\")\n```\n\nSer du dei tre strukturane? **Sekvensen** er linjene som blir køyrde i rekkjefølgje. **Vilkåret** er if-setningane som sjekkar delelegheit. **Iterasjonen** er for-løkka som prøver alle moglege divisorar. Eit lite, men viktig grep er `break`: så snart vi finn éin divisor, veit vi at talet ikkje er primtal, og vi avbryt løkka i staden for å sjekke resten. Det gjer algoritmen meir effektiv – nettopp ein av eigenskapane til ein god algoritme."
+    },
+    {
+      "id": "it-1-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å lese kode:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-1-n-quiz3-q0",
+            "task": "Kva skriv dette ut? tall = 10; if tall > 5: print(\"Stort\"); if tall > 15: print(\"Veldig stort\") else: print(\"Middels stort\")",
+            "options": [
+              {
+                "id": "a",
+                "text": "Stort og Veldig stort",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stort og Middels stort",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Lite",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre Stort",
+                "isCorrect": false
+              }
+            ],
+            "solution": "tall er 10. 10 > 5 gir «Stort». Den indre sjekken 10 > 15 er usann, så else gir «Middels stort»."
+          },
+          {
+            "id": "it-1-3-1-n-quiz3-q1",
+            "task": "Kva blir resultat? resultat = 0; for i in range(1,5): if i%2==0: resultat += i*2 else: resultat += i",
+            "options": [
+              {
+                "id": "a",
+                "text": "10",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "14",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "16",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "20",
+                "isCorrect": false
+              }
+            ],
+            "solution": "i=1 (odde) +1=1; i=2 (par) +4=5; i=3 (odde) +3=8; i=4 (par) +8=16. Resultatet er 16."
+          },
+          {
+            "id": "it-1-3-1-n-quiz3-q2",
+            "task": "Kva gjer break i primtalssjekken?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Startar løkka på nytt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjer talet til eit primtal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avsluttar programmet heilt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Stoppar løkka så snart ein divisor er funnen, for effektivitet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "break avbryt løkka straks vi finn ein divisor – då veit vi at talet ikkje er primtal, og vi slepp å sjekke resten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEin **algoritme** er ei endeleg, ordna rekkje eintydige instruksjonar for å løyse eit problem – frå al-Khwarizmis likningar til dagens pannekakeoppskrifter og vegskildringar. For datamaskinar må dei vere heilt presise, fordi maskinen ikkje kan gjette.\n\nEin god algoritme er eintydig, terminerer, er korrekt, effektiv og generell. Og uansett kor komplekst problemet er, kan løysinga byggjast av berre tre **kontrollstrukturar**: sekvens, vilkår og iterasjon – akkurat som strukturteoremet seier. Primtalssjekken synte alle tre i aksjon, og `break`-grepet minte oss om at effektivitet tel. Med dette har du grunnlaget for å omsetje kvar oppskrift til køyrbar kode."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6d11c861c61622e6",
+    "translatedAt": "2026-06-20T23:44:55.463Z",
+    "model": "claude-code-agent",
+    "strings": 66,
+    "tm": {
+      "83d20e7f3a645fcf": "Kva er ein algoritme?",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "babe33623dfffddf": "Ei forteljing om oppskrifta bak alt – frå al-Khwarizmi og pannekaker til dei tre kontrollstrukturane sekvens, val og løkke som all kode er bygd av.",
+      "8e058eac1f53a33c": "forklare hva en algoritme er og gi eksempler fra dagliglivet og programmering",
+      "4ac25f3a1a7df80d": "beskrive egenskapene til en god algoritme",
+      "881a9385427e13b2": "oversette enkle algoritmer fra naturlig språk til Python-kode",
+      "0aa2b5964e2e3750": "## Du har alltid brukt algoritmar\n\nHar du følgt ei matoppskrift, bygd eit LEGO-sett etter instruksjonane eller forklart vegen til nokon? Då har du brukt **algoritmar** utan å tenkje på det. Ein algoritme er rett og slett ei presis, trinnvis skildring av korleis ei oppgåve skal utførast. Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi frå 800-talet, som i latinsk omsetjing vart til «Algoritmi».\n\nMeir presist er ein algoritme ei endeleg, ordna rekkje av eintydige instruksjonar som løyser eit problem. Han tek imot inndata, prosesserer dei steg for steg, og gir utdata. Ei pannekakeoppskrift passar perfekt: inndata er ingrediensane, instruksjonane er blandinga og steikinga, og utdata er pannekakene. Ei vegskildring er ein algoritme – «gå ut, ta til venstre, rett fram 200 meter» – og det er morgonrutinen din òg. Rekkjefølgja tyder noko; du kan ikkje steike deigen før han er blanda.\n\nDet som gjer algoritmar i informatikk spesielle, er at dei må vere så presise at ein datamaskin kan følgje dei. Maskinen gjer nøyaktig det du ber om – han kan ikkje tolke, gjette eller improvisere. Difor må algoritmane vi skriv for datamaskinar vere heilt eintydige. Vil du til dømes finne det største av tre tal, antek du først at det første er størst, og oppdaterer deretter viss eit av dei andre er større:\n\n```python\nstorst = a\nif b > storst:\n    storst = b\nif c > storst:\n    storst = c\n```\n\nDet fine er at denne algoritmen gir rett svar uansett kva for tre tal du gir han.",
+      "90f0ed84ac7fb063": "Test deg sjølv på kva ein algoritme er:",
+      "4097889236a2af26": "placeholder",
+      "9dd78fa54c59be04": "Kva er den beste definisjonen av ein algoritme?",
+      "22de5df7e075c447": "Ei presis, trinnvis oppskrift for å løyse eit problem",
+      "813be88b6241d7a7": "Eit dataprogram skrive i Python",
+      "cd670b18a60aa0af": "Ein matematisk formel",
+      "1fc3156a1eb625b3": "Ei liste med tilfeldige instruksjonar",
+      "de827d3bcb1ae2c4": "Ein algoritme er ei presis, trinnvis oppskrift for å løyse eit problem – som ei matoppskrift eller ei vegskildring.",
+      "4bdcfb5e88d3aa5d": "Kvifor må algoritmar for datamaskinar vere heilt eintydige?",
+      "904fd40e05aca35a": "Fordi datamaskinar er trege",
+      "85b9d72ed5aff2ef": "Fordi datamaskinen gjer nøyaktig det du ber om og ikkje kan gjette eller improvisere",
+      "43a823d9e437d44b": "Fordi Python krev det",
+      "c9c99a08de4a656d": "Det er ikkje naudsynt at dei er eintydige",
+      "2d85c817c45bd1cb": "Ein datamaskin følgjer instruksjonane slavisk utan å tolke, så algoritmen må vere heilt eintydig.",
+      "eee9194b10d0d0fd": "Kvar kjem ordet «algoritme» frå?",
+      "2b13ea1e6e2b6ca2": "Frå det greske ordet for tal",
+      "07bba87eef609196": "Frå eit programmeringsspråk",
+      "463d42e2834e9a43": "Frå namnet til matematikaren al-Khwarizmi",
+      "eca1c758c6c09071": "Frå ein moderne dataforskar",
+      "da09b92cf2b5b1ab": "Ordet kjem frå namnet til den persiske matematikaren al-Khwarizmi, som i latinsk form vart «Algoritmi».",
+      "a850f9faec3a0a67": "## Kva skil ein god algoritme frå ein dårleg?\n\nIkkje alle instruksjonar er algoritmar. For å kvalifisere må fleire krav vere oppfylte. **Eintydigheit** tyder at kvart steg har éi einaste tolking – «tilset litt salt» duger ikkje, men «tilset 5 gram salt» gjer det. **Terminering** tyder at algoritmen alltid stoppar etter eit endeleg tal på steg; han kan ikkje gå i ei evig løkke. **Korrektheit** tyder at han gir rett svar for *alle* gyldige inndata, ikkje berre nokre. **Effektivitet** tyder at han bruker tid og minne fornuftig – kan du løyse noko på 10 steg framfor 1000, er det betre. Og **generalitet** tyder at han handterer ein heil klasse problem, anten du gir han 3 tal eller ein million.\n\nDet vakre er at all denne kompleksiteten kan byggjast av berre tre **kontrollstrukturar**. **Sekvens** er instruksjonar som blir utførte i rekkjefølgje, frå topp til botn – som når du reknar ut eit areal: definer lengd, definer breidd, gang dei saman, skriv ut. **Vilkår (val)** lèt programmet ta avgjerder med `if`, `elif` og `else`, som å sjekke om eit tal er positivt, negativt eller null. **Iterasjon (løkke)** gjentek instruksjonar, anten med ei for-løkke når du veit talet, eller ei while-løkke som køyrer til eit vilkår endrar seg. I 1966 beviste Böhm og Jacopini at kvar algoritme kan uttrykkjast med berre desse tre – det blir kalla strukturteoremet.",
+      "9c0cbab4c9c88f40": "Test deg sjølv på eigenskapar og kontrollstrukturar:",
+      "76df2b366c764936": "Kva for eigenskap tyder at ein algoritme alltid stoppar etter eit endeleg tal på steg?",
+      "385a76bdc2fe7917": "Eintydigheit",
+      "7c2ad88834d0d470": "Effektivitet",
+      "0b4af04ec35ea5d3": "Korrektheit",
+      "33124724cbfd942d": "Terminering",
+      "0547118dda00a44e": "Terminering tyder at algoritmen alltid stoppar etter eit endeleg tal på steg og ikkje går i evig løkke.",
+      "2fc4bd1dbd5574ed": "Kva for kontrollstruktur skildrar at instruksjonar blir utførte i rekkjefølgje, den eine etter den andre?",
+      "92a0fb1dcce0b78d": "Sekvens",
+      "4f2b7e186a55cd6a": "Vilkår",
+      "0b9a9e8f13f56c29": "Iterasjon",
+      "a9b204dcd175c810": "Rekursjon",
+      "6958d7d33e55685b": "Sekvens tyder at instruksjonane blir utførte i rekkjefølgje, frå topp til botn.",
+      "2d55c23dba173ac8": "Kva seier strukturteoremet til Böhm og Jacopini?",
+      "39595411498ad273": "At Python er det beste språket",
+      "e3cf3f8da52e025e": "At alle algoritmar kan byggjast av sekvens, vilkår og iterasjon",
+      "4c70acb92d20ca43": "At algoritmar aldri terminerer",
+      "c2dd79b519d0aaa1": "At rekursjon er naudsynt i all kode",
+      "b8b7e2ac7da7fd77": "Strukturteoremet seier at kvar algoritme kan uttrykkjast med berre dei tre kontrollstrukturane sekvens, vilkår og iterasjon.",
+      "0bc4ab47e2e22d96": "## Alle tre i eitt: primtalssjekken\n\nLat oss byggje ein algoritme som bruker alle tre kontrollstrukturane samtidig – ein sjekk på om eit tal er eit **primtal** (eit tal større enn 1 som berre er deleleg med 1 og seg sjølv). Algoritmen i ord: les inn eit tal n; er n mindre enn 2, er det ikkje primtal; elles, sjekk kvart tal frå 2 til n-1, og er n deleleg med nokon av dei, er det ikkje primtal; finn du ingen divisor, er n eit primtal.\n\nOmsett til Python:\n\n```python\nn = int(input(\"Skriv inn et tall: \"))\nif n < 2:\n    print(f\"{n} er IKKE et primtall\")\nelse:\n    er_primtall = True\n    for i in range(2, n):\n        if n % i == 0:\n            er_primtall = False\n            break\n    if er_primtall:\n        print(f\"{n} ER et primtall\")\n    else:\n        print(f\"{n} er IKKE et primtall\")\n```\n\nSer du dei tre strukturane? **Sekvensen** er linjene som blir køyrde i rekkjefølgje. **Vilkåret** er if-setningane som sjekkar delelegheit. **Iterasjonen** er for-løkka som prøver alle moglege divisorar. Eit lite, men viktig grep er `break`: så snart vi finn éin divisor, veit vi at talet ikkje er primtal, og vi avbryt løkka i staden for å sjekke resten. Det gjer algoritmen meir effektiv – nettopp ein av eigenskapane til ein god algoritme.",
+      "630ddedda5df92cd": "Test deg sjølv på å lese kode:",
+      "3c3d8590ca6167e3": "Kva skriv dette ut? tall = 10; if tall > 5: print(\"Stort\"); if tall > 15: print(\"Veldig stort\") else: print(\"Middels stort\")",
+      "7511239e7ee8c962": "Stort og Veldig stort",
+      "b751e380059015d8": "Lite",
+      "13b794e01f023fa9": "Stort og Middels stort",
+      "38725c8cdc9c6e31": "Berre Stort",
+      "26b813b528f72d65": "tall er 10. 10 > 5 gir «Stort». Den indre sjekken 10 > 15 er usann, så else gir «Middels stort».",
+      "8358c97936d95fa6": "Kva blir resultat? resultat = 0; for i in range(1,5): if i%2==0: resultat += i*2 else: resultat += i",
+      "dcbcee1f470ba46c": "i=1 (odde) +1=1; i=2 (par) +4=5; i=3 (odde) +3=8; i=4 (par) +8=16. Resultatet er 16.",
+      "9a35300d0bf9b81a": "Kva gjer break i primtalssjekken?",
+      "e961f1de59d6c8fd": "Stoppar løkka så snart ein divisor er funnen, for effektivitet",
+      "de6e4aef157238a1": "Startar løkka på nytt",
+      "2fa33aad4cd8841c": "Gjer talet til eit primtal",
+      "5c1e9017a3601749": "Avsluttar programmet heilt",
+      "e112a3807734ceda": "break avbryt løkka straks vi finn ein divisor – då veit vi at talet ikkje er primtal, og vi slepp å sjekke resten.",
+      "c10c95dce309887a": "## Oppsummering\n\nEin **algoritme** er ei endeleg, ordna rekkje eintydige instruksjonar for å løyse eit problem – frå al-Khwarizmis likningar til dagens pannekakeoppskrifter og vegskildringar. For datamaskinar må dei vere heilt presise, fordi maskinen ikkje kan gjette.\n\nEin god algoritme er eintydig, terminerer, er korrekt, effektiv og generell. Og uansett kor komplekst problemet er, kan løysinga byggjast av berre tre **kontrollstrukturar**: sekvens, vilkår og iterasjon – akkurat som strukturteoremet seier. Primtalssjekken synte alle tre i aksjon, og `break`-grepet minte oss om at effektivitet tel. Med dette har du grunnlaget for å omsetje kvar oppskrift til køyrbar kode."
+    }
+  }
+}

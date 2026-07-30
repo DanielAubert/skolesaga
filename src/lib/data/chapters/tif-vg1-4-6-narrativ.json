@@ -1,1 +1,372 @@
-{"id":"tif-vg1-4-6-narrativ","courseId":"tif-vg1","chapterNumber":"4.6","title":"Toleranser og overflatesymboler","subtitle":"Narrativ versjon","description":"En fortelling om de små tallene og symbolene som avgjør om en del passer, holder og koster -- fra dimensjonstoleranser og GD&T til overflateruhet målt i tusendels millimeter.","estimatedMinutes":30,"competenceGoals":["beskrive arbeidsoppgaver innenfor produksjon og tjenester basert på tegningsunderlag og prosedyrer","tolke informasjon ved hjelp av digitale hjelpemidler og relevante tabeller for å utføre arbeidsoppgaver innenfor produksjon og tjenesteyting"],"linkedChapterId":"tif-vg1-4-6","content":[{"id":"tif-vg1-4-6-n-intro","type":"text","content":"## Hvor nøyaktig er nøyaktig nok?\n\nIngen maskindel kan lages helt perfekt. Måler du nøye nok, vil hver eneste del avvike en hårsbredd fra tegningens tall. Spørsmålet er ikke om det er avvik, men hvor stort avvik vi tillater. Det er dette en **toleranse** svarer på: det tillatte avviket fra det nominelle målet.\n\nHvorfor trenger vi dem? Toleranser sikrer at deler passer sammen, definerer kvalitetskravene, og balanserer funksjon mot kostnad -- for jo trangere toleranse, jo dyrere blir produksjonen.\n\nToleransen kan angis på flere måter. **Direkte** skriver du den på målet, som $25 \\pm 0{,}1$ eller $25\\ {+0{,}2}/{-0{,}1}$, der øvre avvik gir maks $25{,}2$ mm og nedre avvik gir min $24{,}9$ mm. Eller du bruker **ISO-toleranser** som $\\varnothing 25\\text{H7}$, der bokstaven angir hvor toleransefeltet ligger og tallet (IT-graden) angir størrelsen.\n\nMen hva med alle de små målene ingen gidder å sette egen toleranse på? Da gjelder **allmenne toleranser** etter ISO 2768, som finnes i tre klasser: f (fin), m (medium) og c (grov). Står det 'ISO 2768-m' i tittelfeltet, betyr det at alle umerkede mål automatisk har medium toleranse. Og husk fra målsettingen: ved kjedemålsetting akkumuleres toleransene, så for kritiske avstander bruker du parallellmålsetting."},{"id":"tif-vg1-4-6-n-section1","type":"text","content":"## Når størrelsen stemmer, men formen er feil\n\nHer er et lurespørsmål: en aksel kan ha helt riktig diameter overalt og likevel være ubrukelig. Hvordan? Fordi den kan være bananbøyd, oval eller skjev. Dimensjonstoleranser forteller bare *hvor stor* noe er -- de sier ingenting om *formen* eller *plasseringen*. Det er her **geometriske toleranser** (GD&T) kommer inn og kontrollerer form, orientering og posisjon.\n\n**Formtoleranser** kontrollerer den enkelte flaten i seg selv: retthet (hvor rett en linje er), flathet (hvor plan en flate er), rundhet (tverrsnittet av en sirkel) og sylinderform (rundhet og retthet kombinert). **Orienteringstoleranser** styrer forholdet til en referanse: vinkelretthet ($90^\\circ$ til referansen), parallellitet og vinkelhet. **Posisjonstoleranser** styrer plasseringen: posisjon (nøyaktig hvor en feature ligger), konsentrisitet (at hull deler akse) og symmetri. Og **løpning** (runout) beskriver hvordan en roterende del oppfører seg -- sirkulær løpning i ett tverrsnitt, total løpning over hele lengden.\n\nAlt dette skrives i en **toleranseramme** med tre felt: symbolet, toleranseverdien, og referansene. Står det for eksempel posisjonssymbolet, $\\varnothing 0{,}1$, og referansene A og B, betyr det at featuren skal ligge innenfor en sylinder på $\\varnothing 0{,}1$ mm i forhold til referanseflatene A og B.\n\nDisse **referansene** (datum) er nøkkelen. De markeres med bokstaver i en firkant -- A, B, C -- og settes opp som primær, sekundær og tertiær for å låse delens frihetsgrader i en bestemt rekkefølge. Slik blir det entydig hvordan delen skal måles."},{"id":"tif-vg1-4-6-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på dimensjons- og geometriske toleranser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-6-n-quiz1-q0","task":"Et mål er angitt som $50\\ {+0{,}1}/{-0{,}05}$ mm. Hva er maksimum og minimum?","options":[{"id":"a","text":"Maks $50{,}10$ mm og min $49{,}95$ mm","isCorrect":true},{"id":"b","text":"Maks $50{,}05$ mm og min $49{,}90$ mm","isCorrect":false},{"id":"c","text":"Maks $50{,}15$ mm og min $50{,}00$ mm","isCorrect":false},{"id":"d","text":"Maks $50{,}00$ mm og min $49{,}85$ mm","isCorrect":false}],"solution":"Maksimum $= 50 + 0{,}1 = 50{,}10$ mm og minimum $= 50 - 0{,}05 = 49{,}95$ mm. Toleranseområdet er $0{,}15$ mm."},{"id":"tif-vg1-4-6-n-quiz1-q1","task":"Hva betyr 'ISO 2768-m' i tittelfeltet?","options":[{"id":"a","text":"At delen veier medium tungt","isCorrect":false},{"id":"b","text":"At alle umerkede mål har medium allmenn toleranse","isCorrect":true},{"id":"c","text":"At målestokken er medium","isCorrect":false},{"id":"d","text":"At materialet er metall","isCorrect":false}],"solution":"ISO 2768-m angir at alle mål uten egen toleranse automatisk får medium allmenn toleranse. f er fin og c er grov."},{"id":"tif-vg1-4-6-n-quiz1-q2","task":"Hva kontrollerer geometriske toleranser som dimensjonstoleranser ikke dekker?","options":[{"id":"a","text":"Materialets pris","isCorrect":false},{"id":"b","text":"Bare diameteren","isCorrect":false},{"id":"c","text":"Form, orientering, posisjon og løpning","isCorrect":true},{"id":"d","text":"Fargen på delen","isCorrect":false}],"solution":"Geometriske toleranser styrer form (retthet, flathet, rundhet), orientering (vinkelretthet, parallellitet), posisjon og løpning -- altså hvordan delen ser ut og er plassert, ikke bare hvor stor den er."},{"id":"tif-vg1-4-6-n-quiz1-q3","task":"Hva markerer en datum (referanse) i en geometrisk toleranse?","options":[{"id":"a","text":"Materialet delen er laget av","isCorrect":false},{"id":"b","text":"Datoen tegningen ble laget","isCorrect":false},{"id":"c","text":"Overflateruheten","isCorrect":false},{"id":"d","text":"En flate som brukes som referanse for målingen, markert med bokstav","isCorrect":true}],"solution":"En datum er en referanseflate, markert med bokstav (A, B, C) i en firkant, som låser delens frihetsgrader og forteller hvordan toleransen skal måles."}]}},{"id":"tif-vg1-4-6-n-section2","type":"text","content":"## Overflaten du nesten ikke kan se\n\nKjør fingeren over en nydreid aksel. Den kjennes glatt, men under mikroskopet er den et landskap av bittesmå topper og daler -- spor etter verktøyet. Dette landskapet kaller vi **overflateruhet**, og det betyr mer enn du skulle tro. Ruheten påvirker friksjon og slitasje, om en pakning tetter, hvor godt delen tåler utmatting, utseendet, og hvor godt maling fester seg.\n\nVi måler ruheten med noen standardparametere. Den viktigste er **Ra**, den aritmetiske middelverdien av avvikene fra midtlinjen -- altså gjennomsnittsavviket. **Rz** er midlere ruhetsdybde, gjennomsnittet fra dal til topp over fem prøvelengder, og er mer følsom for høye topper. **Rt** er den totale ruhetsdybden, avstanden fra den høyeste toppen til den dypeste dalen.\n\nHvilken Ra du får, henger sammen med produksjonsmetoden. Sandstøping gir grovt, rundt $12$--$25\\ \\mu\\text{m}$. Grovfresing gir $3$--$12\\ \\mu\\text{m}$, dreiing $1{,}6$--$6{,}3\\ \\mu\\text{m}$, sliping $0{,}2$--$1{,}6\\ \\mu\\text{m}$, og polering helt ned mot $0{,}05$--$0{,}4\\ \\mu\\text{m}$. Jo glattere krav, jo finere -- og dyrere -- prosess.\n\nPå tegningen vises kravet med et **overflatesymbol**. Grunnsymbolet er en hake; en sirkel i haken betyr at materialavtaking er forbudt (overflaten skal være som den er), mens en strek betyr at materialet *må* bearbeides. Tallet er Ra-kravet. Symbolet $\\sqrt{}\\,1{,}6$ betyr altså at overflateruheten Ra skal være maksimalt $1{,}6\\ \\mu\\text{m}$. Symbolet plasseres rett på flaten eller på en henvisningslinje."},{"id":"tif-vg1-4-6-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på overflateruhet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-6-n-quiz2-q0","task":"Hva beskriver Ra-verdien?","options":[{"id":"a","text":"Den aritmetiske middelverdien av overflateruheten","isCorrect":true},{"id":"b","text":"Dimensjonstoleransen","isCorrect":false},{"id":"c","text":"Maksimal diameter","isCorrect":false},{"id":"d","text":"Materialets hardhet","isCorrect":false}],"solution":"Ra er den aritmetiske middelverdien av overflatepunktenes avvik fra midtlinjen, målt over en prøvelengde. Det er den mest brukte ruhetsparameteren."},{"id":"tif-vg1-4-6-n-quiz2-q1","task":"Hvilken prosess gir typisk lavest (best) Ra-verdi?","options":[{"id":"a","text":"Sandstøping","isCorrect":false},{"id":"b","text":"Polering","isCorrect":true},{"id":"c","text":"Grovfresing","isCorrect":false},{"id":"d","text":"Dreiing","isCorrect":false}],"solution":"Polering gir lavest Ra, ned mot $0{,}05$--$0{,}4\\ \\mu\\text{m}$. Sandstøping er grovest med $12$--$25\\ \\mu\\text{m}$."},{"id":"tif-vg1-4-6-n-quiz2-q2","task":"Hva betyr symbolet $\\sqrt{}\\,1{,}6$ på en tegning?","options":[{"id":"a","text":"Diameteren skal være $1{,}6$ mm","isCorrect":false},{"id":"b","text":"Toleransen er $\\pm 1{,}6$ mm","isCorrect":false},{"id":"c","text":"Overflateruheten Ra skal være maksimalt $1{,}6\\ \\mu\\text{m}$","isCorrect":true},{"id":"d","text":"Radien skal være $1{,}6$ mm","isCorrect":false}],"solution":"$\\sqrt{}\\,1{,}6$ angir at overflateruheten Ra skal være maksimalt $1{,}6\\ \\mu\\text{m}$ på den aktuelle flaten."}]}},{"id":"tif-vg1-4-6-n-section3","type":"text","content":"## Fra tegning til ferdig del -- og hva det koster\n\nNå skal vi bruke alt sammen i praksis. Når du går fra tegning til produksjon, følger du en fast rekkefølge. Du leser det nominelle målet, finner toleransen (direkte på målet, som ISO-kode du slår opp, eller som allmenn toleranse i tittelfeltet), og beregner grensene: maksimum er nominell pluss øvre avvik, minimum er nominell pluss nedre avvik. Så velger du en produksjonsmetode som faktisk kan holde toleransen, og til slutt måler du med et verktøy som har nok presisjon.\n\nÅ slå opp i ISO-tabeller er en kjerneferdighet. For $\\varnothing 25\\text{H7}$ finner du H7 i hulltabellen, leser av raden for $\\varnothing 25$, og får avviket $+0{,}021/0$. La oss kontrollere et helt eksempel: $\\varnothing 30\\text{H7}/\\text{g6}$. Hullet H7 ligger på $30{,}000$--$30{,}021$ mm, akselen g6 på $29{,}980$--$29{,}993$ mm. Minste spill blir $30{,}000 - 29{,}993 = 0{,}007$ mm, største spill $30{,}021 - 29{,}980 = 0{,}041$ mm -- altså en spillepasning.\n\nDet siste og viktigste poenget er **kostnad**. Trangere toleranse koster mer fordi den krever finere prosesser. IT14--IT12 oppnår du med grov maskinering, IT11--IT9 med normal maskinering, IT8--IT6 med presisjonsmaskinering, og IT5--IT3 krever sliping og honing. Derfor finnes det en gylden tommelregel: spesifiser bare så trang toleranse som funksjonen faktisk krever. Setter du en unødvendig trang toleranse på et uviktig mål, sprenger du budsjettet uten å gjøre produktet ett gram bedre. God konstruksjon handler like mye om å vite når noe *ikke* trenger å være presist."},{"id":"tif-vg1-4-6-n-quiz3","type":"exercise","exercise":{"id":"tif-vg1-4-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på å lese toleranser og kostnad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-6-n-quiz3-q0","task":"For $\\varnothing 40\\text{H7}/\\text{h6}$ (H7: $+0{,}025/0$, h6: $0/-0{,}016$), hva er maksimum spill?","options":[{"id":"a","text":"$0{,}016$ mm","isCorrect":false},{"id":"b","text":"$0{,}025$ mm","isCorrect":false},{"id":"c","text":"$0{,}009$ mm","isCorrect":false},{"id":"d","text":"$0{,}041$ mm","isCorrect":true}],"solution":"Største hull $= 40{,}025$, minste aksel $= 39{,}984$. Maks spill $= 40{,}025 - 39{,}984 = 0{,}041$ mm. Minste spill er $0$, så det er en spillepasning."},{"id":"tif-vg1-4-6-n-quiz3-q1","task":"Hvilken IT-grad brukes typisk for presisjonsmaskinering?","options":[{"id":"a","text":"IT6--IT8","isCorrect":true},{"id":"b","text":"IT14--IT12","isCorrect":false},{"id":"c","text":"IT1--IT3","isCorrect":false},{"id":"d","text":"IT16--IT18","isCorrect":false}],"solution":"IT6--IT8 er typisk for presisjonsmaskinering. IT14--IT12 er grov maskinering, og IT5 og lavere krever sliping eller honing."},{"id":"tif-vg1-4-6-n-quiz3-q2","task":"Hva er den gyldne tommelregelen for valg av toleranse?","options":[{"id":"a","text":"Sett alltid trangest mulig toleranse","isCorrect":false},{"id":"b","text":"Spesifiser bare så trang toleranse som funksjonen krever","isCorrect":true},{"id":"c","text":"Bruk samme toleranse på alle mål","isCorrect":false},{"id":"d","text":"Toleranse er ikke nødvendig å tenke på","isCorrect":false}],"solution":"Du spesifiserer bare så trang toleranse som funksjonen faktisk krever. Unødvendig trange toleranser øker kostnaden betydelig uten å forbedre produktet."}]}},{"id":"tif-vg1-4-6-n-summary","type":"text","content":"## Oppsummering\n\nVi har sett at de små tallene og symbolene på en tegning bærer enormt mye informasjon. **Dimensjonstoleranser** angir tillatt avvik fra det nominelle målet, direkte eller som ISO-koder, med allmenne toleranser (ISO 2768) for alt umerket.\n\n**Geometriske toleranser** (GD&T) går videre og styrer form, orientering, posisjon og løpning -- det dimensjonen alene ikke fanger -- skrevet i en toleranseramme med symbol, verdi og datum-referanser. **Overflateruhet**, målt i Ra, Rz og Rt, beskriver de mikroskopiske toppene og dalene som avgjør friksjon, tetning og utmatting, og angis med et hake-symbol og en $\\mu\\text{m}$-verdi.\n\nNår du leser en tegning, finner du toleransen, regner ut grensene, slår opp ISO-verdier og avgjør pasningen. Og over alt henger den viktigste lærdommen: trangere toleranse koster mer, så du spesifiserer bare så presist som funksjonen krever. Slik blir delen både riktig og lønnsom."}],"exercises":[]}
+{
+  "id": "tif-vg1-4-6-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "4.6",
+  "title": "Toleranser og overflatesymboler",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om de små tallene og symbolene som avgjør om en del passer, holder og koster -- fra dimensjonstoleranser og GD&T til overflateruhet målt i tusendels millimeter.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "beskrive arbeidsoppgaver innenfor produksjon og tjenester basert på tegningsunderlag og prosedyrer",
+    "tolke informasjon ved hjelp av digitale hjelpemidler og relevante tabeller for å utføre arbeidsoppgaver innenfor produksjon og tjenesteyting"
+  ],
+  "linkedChapterId": "tif-vg1-4-6",
+  "content": [
+    {
+      "id": "tif-vg1-4-6-n-intro",
+      "type": "text",
+      "content": "## Hvor nøyaktig er nøyaktig nok?\n\nIngen maskindel kan lages helt perfekt. Måler du nøye nok, vil hver eneste del avvike en hårsbredd fra tegningens tall. Spørsmålet er ikke om det er avvik, men hvor stort avvik vi tillater. Det er dette en **toleranse** svarer på: det tillatte avviket fra det nominelle målet.\n\nHvorfor trenger vi dem? Toleranser sikrer at deler passer sammen, definerer kvalitetskravene, og balanserer funksjon mot kostnad -- for jo trangere toleranse, jo dyrere blir produksjonen.\n\nToleransen kan angis på flere måter. **Direkte** skriver du den på målet, som $25 \\pm 0{,}1$ eller $25\\ {+0{,}2}/{-0{,}1}$, der øvre avvik gir maks $25{,}2$ mm og nedre avvik gir min $24{,}9$ mm. Eller du bruker **ISO-toleranser** som $\\varnothing 25\\text{H7}$, der bokstaven angir hvor toleransefeltet ligger og tallet (IT-graden) angir størrelsen.\n\nMen hva med alle de små målene ingen gidder å sette egen toleranse på? Da gjelder **allmenne toleranser** etter ISO 2768, som finnes i tre klasser: f (fin), m (medium) og c (grov). Står det 'ISO 2768-m' i tittelfeltet, betyr det at alle umerkede mål automatisk har medium toleranse. Og husk fra målsettingen: ved kjedemålsetting akkumuleres toleransene, så for kritiske avstander bruker du parallellmålsetting."
+    },
+    {
+      "id": "tif-vg1-4-6-n-section1",
+      "type": "text",
+      "content": "## Når størrelsen stemmer, men formen er feil\n\nHer er et lurespørsmål: en aksel kan ha helt riktig diameter overalt og likevel være ubrukelig. Hvordan? Fordi den kan være bananbøyd, oval eller skjev. Dimensjonstoleranser forteller bare *hvor stor* noe er -- de sier ingenting om *formen* eller *plasseringen*. Det er her **geometriske toleranser** (GD&T) kommer inn og kontrollerer form, orientering og posisjon.\n\n**Formtoleranser** kontrollerer den enkelte flaten i seg selv: retthet (hvor rett en linje er), flathet (hvor plan en flate er), rundhet (tverrsnittet av en sirkel) og sylinderform (rundhet og retthet kombinert). **Orienteringstoleranser** styrer forholdet til en referanse: vinkelretthet ($90^\\circ$ til referansen), parallellitet og vinkelhet. **Posisjonstoleranser** styrer plasseringen: posisjon (nøyaktig hvor en feature ligger), konsentrisitet (at hull deler akse) og symmetri. Og **løpning** (runout) beskriver hvordan en roterende del oppfører seg -- sirkulær løpning i ett tverrsnitt, total løpning over hele lengden.\n\nAlt dette skrives i en **toleranseramme** med tre felt: symbolet, toleranseverdien, og referansene. Står det for eksempel posisjonssymbolet, $\\varnothing 0{,}1$, og referansene A og B, betyr det at featuren skal ligge innenfor en sylinder på $\\varnothing 0{,}1$ mm i forhold til referanseflatene A og B.\n\nDisse **referansene** (datum) er nøkkelen. De markeres med bokstaver i en firkant -- A, B, C -- og settes opp som primær, sekundær og tertiær for å låse delens frihetsgrader i en bestemt rekkefølge. Slik blir det entydig hvordan delen skal måles."
+    },
+    {
+      "id": "tif-vg1-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på dimensjons- og geometriske toleranser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-6-n-quiz1-q0",
+            "task": "Et mål er angitt som $50\\ {+0{,}1}/{-0{,}05}$ mm. Hva er maksimum og minimum?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Maks $50{,}05$ mm og min $49{,}90$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Maks $50{,}15$ mm og min $50{,}00$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Maks $50{,}00$ mm og min $49{,}85$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Maks $50{,}10$ mm og min $49{,}95$ mm",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Maksimum $= 50 + 0{,}1 = 50{,}10$ mm og minimum $= 50 - 0{,}05 = 49{,}95$ mm. Toleranseområdet er $0{,}15$ mm."
+          },
+          {
+            "id": "tif-vg1-4-6-n-quiz1-q1",
+            "task": "Hva betyr 'ISO 2768-m' i tittelfeltet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At alle umerkede mål har medium allmenn toleranse",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At delen veier medium tungt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At målestokken er medium",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At materialet er metall",
+                "isCorrect": false
+              }
+            ],
+            "solution": "ISO 2768-m angir at alle mål uten egen toleranse automatisk får medium allmenn toleranse. f er fin og c er grov."
+          },
+          {
+            "id": "tif-vg1-4-6-n-quiz1-q2",
+            "task": "Hva kontrollerer geometriske toleranser som dimensjonstoleranser ikke dekker?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Materialets pris",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Form, orientering, posisjon og løpning",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Bare diameteren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fargen på delen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometriske toleranser styrer form (retthet, flathet, rundhet), orientering (vinkelretthet, parallellitet), posisjon og løpning -- altså hvordan delen ser ut og er plassert, ikke bare hvor stor den er."
+          },
+          {
+            "id": "tif-vg1-4-6-n-quiz1-q3",
+            "task": "Hva markerer en datum (referanse) i en geometrisk toleranse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Materialet delen er laget av",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Datoen tegningen ble laget",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En flate som brukes som referanse for målingen, markert med bokstav",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Overflateruheten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En datum er en referanseflate, markert med bokstav (A, B, C) i en firkant, som låser delens frihetsgrader og forteller hvordan toleransen skal måles."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-6-n-section2",
+      "type": "text",
+      "content": "## Overflaten du nesten ikke kan se\n\nKjør fingeren over en nydreid aksel. Den kjennes glatt, men under mikroskopet er den et landskap av bittesmå topper og daler -- spor etter verktøyet. Dette landskapet kaller vi **overflateruhet**, og det betyr mer enn du skulle tro. Ruheten påvirker friksjon og slitasje, om en pakning tetter, hvor godt delen tåler utmatting, utseendet, og hvor godt maling fester seg.\n\nVi måler ruheten med noen standardparametere. Den viktigste er **Ra**, den aritmetiske middelverdien av avvikene fra midtlinjen -- altså gjennomsnittsavviket. **Rz** er midlere ruhetsdybde, gjennomsnittet fra dal til topp over fem prøvelengder, og er mer følsom for høye topper. **Rt** er den totale ruhetsdybden, avstanden fra den høyeste toppen til den dypeste dalen.\n\nHvilken Ra du får, henger sammen med produksjonsmetoden. Sandstøping gir grovt, rundt $12$--$25\\ \\mu\\text{m}$. Grovfresing gir $3$--$12\\ \\mu\\text{m}$, dreiing $1{,}6$--$6{,}3\\ \\mu\\text{m}$, sliping $0{,}2$--$1{,}6\\ \\mu\\text{m}$, og polering helt ned mot $0{,}05$--$0{,}4\\ \\mu\\text{m}$. Jo glattere krav, jo finere -- og dyrere -- prosess.\n\nPå tegningen vises kravet med et **overflatesymbol**. Grunnsymbolet er en hake; en sirkel i haken betyr at materialavtaking er forbudt (overflaten skal være som den er), mens en strek betyr at materialet *må* bearbeides. Tallet er Ra-kravet. Symbolet $\\sqrt{}\\,1{,}6$ betyr altså at overflateruheten Ra skal være maksimalt $1{,}6\\ \\mu\\text{m}$. Symbolet plasseres rett på flaten eller på en henvisningslinje."
+    },
+    {
+      "id": "tif-vg1-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på overflateruhet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-6-n-quiz2-q0",
+            "task": "Hva beskriver Ra-verdien?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Dimensjonstoleransen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Maksimal diameter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Materialets hardhet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den aritmetiske middelverdien av overflateruheten",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ra er den aritmetiske middelverdien av overflatepunktenes avvik fra midtlinjen, målt over en prøvelengde. Det er den mest brukte ruhetsparameteren."
+          },
+          {
+            "id": "tif-vg1-4-6-n-quiz2-q1",
+            "task": "Hvilken prosess gir typisk lavest (best) Ra-verdi?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Polering",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sandstøping",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Grovfresing",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dreiing",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Polering gir lavest Ra, ned mot $0{,}05$--$0{,}4\\ \\mu\\text{m}$. Sandstøping er grovest med $12$--$25\\ \\mu\\text{m}$."
+          },
+          {
+            "id": "tif-vg1-4-6-n-quiz2-q2",
+            "task": "Hva betyr symbolet $\\sqrt{}\\,1{,}6$ på en tegning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Diameteren skal være $1{,}6$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Overflateruheten Ra skal være maksimalt $1{,}6\\ \\mu\\text{m}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Toleransen er $\\pm 1{,}6$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Radien skal være $1{,}6$ mm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{}\\,1{,}6$ angir at overflateruheten Ra skal være maksimalt $1{,}6\\ \\mu\\text{m}$ på den aktuelle flaten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-6-n-section3",
+      "type": "text",
+      "content": "## Fra tegning til ferdig del -- og hva det koster\n\nNå skal vi bruke alt sammen i praksis. Når du går fra tegning til produksjon, følger du en fast rekkefølge. Du leser det nominelle målet, finner toleransen (direkte på målet, som ISO-kode du slår opp, eller som allmenn toleranse i tittelfeltet), og beregner grensene: maksimum er nominell pluss øvre avvik, minimum er nominell pluss nedre avvik. Så velger du en produksjonsmetode som faktisk kan holde toleransen, og til slutt måler du med et verktøy som har nok presisjon.\n\nÅ slå opp i ISO-tabeller er en kjerneferdighet. For $\\varnothing 25\\text{H7}$ finner du H7 i hulltabellen, leser av raden for $\\varnothing 25$, og får avviket $+0{,}021/0$. La oss kontrollere et helt eksempel: $\\varnothing 30\\text{H7}/\\text{g6}$. Hullet H7 ligger på $30{,}000$--$30{,}021$ mm, akselen g6 på $29{,}980$--$29{,}993$ mm. Minste spill blir $30{,}000 - 29{,}993 = 0{,}007$ mm, største spill $30{,}021 - 29{,}980 = 0{,}041$ mm -- altså en spillepasning.\n\nDet siste og viktigste poenget er **kostnad**. Trangere toleranse koster mer fordi den krever finere prosesser. IT14--IT12 oppnår du med grov maskinering, IT11--IT9 med normal maskinering, IT8--IT6 med presisjonsmaskinering, og IT5--IT3 krever sliping og honing. Derfor finnes det en gylden tommelregel: spesifiser bare så trang toleranse som funksjonen faktisk krever. Setter du en unødvendig trang toleranse på et uviktig mål, sprenger du budsjettet uten å gjøre produktet ett gram bedre. God konstruksjon handler like mye om å vite når noe *ikke* trenger å være presist."
+    },
+    {
+      "id": "tif-vg1-4-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å lese toleranser og kostnad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-6-n-quiz3-q0",
+            "task": "For $\\varnothing 40\\text{H7}/\\text{h6}$ (H7: $+0{,}025/0$, h6: $0/-0{,}016$), hva er maksimum spill?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}016$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}025$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}041$ mm",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$0{,}009$ mm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Største hull $= 40{,}025$, minste aksel $= 39{,}984$. Maks spill $= 40{,}025 - 39{,}984 = 0{,}041$ mm. Minste spill er $0$, så det er en spillepasning."
+          },
+          {
+            "id": "tif-vg1-4-6-n-quiz3-q1",
+            "task": "Hvilken IT-grad brukes typisk for presisjonsmaskinering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "IT14--IT12",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "IT1--IT3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "IT16--IT18",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "IT6--IT8",
+                "isCorrect": true
+              }
+            ],
+            "solution": "IT6--IT8 er typisk for presisjonsmaskinering. IT14--IT12 er grov maskinering, og IT5 og lavere krever sliping eller honing."
+          },
+          {
+            "id": "tif-vg1-4-6-n-quiz3-q2",
+            "task": "Hva er den gyldne tommelregelen for valg av toleranse?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Spesifiser bare så trang toleranse som funksjonen krever",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sett alltid trangest mulig toleranse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bruk samme toleranse på alle mål",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Toleranse er ikke nødvendig å tenke på",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du spesifiserer bare så trang toleranse som funksjonen faktisk krever. Unødvendig trange toleranser øker kostnaden betydelig uten å forbedre produktet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har sett at de små tallene og symbolene på en tegning bærer enormt mye informasjon. **Dimensjonstoleranser** angir tillatt avvik fra det nominelle målet, direkte eller som ISO-koder, med allmenne toleranser (ISO 2768) for alt umerket.\n\n**Geometriske toleranser** (GD&T) går videre og styrer form, orientering, posisjon og løpning -- det dimensjonen alene ikke fanger -- skrevet i en toleranseramme med symbol, verdi og datum-referanser. **Overflateruhet**, målt i Ra, Rz og Rt, beskriver de mikroskopiske toppene og dalene som avgjør friksjon, tetning og utmatting, og angis med et hake-symbol og en $\\mu\\text{m}$-verdi.\n\nNår du leser en tegning, finner du toleransen, regner ut grensene, slår opp ISO-verdier og avgjør pasningen. Og over alt henger den viktigste lærdommen: trangere toleranse koster mer, så du spesifiserer bare så presist som funksjonen krever. Slik blir delen både riktig og lønnsom."
+    }
+  ],
+  "exercises": []
+}

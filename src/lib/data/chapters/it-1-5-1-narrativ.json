@@ -1,1 +1,340 @@
-{"id":"it-1-5-1-narrativ","courseId":"it-1","chapterNumber":"5.1","title":"Introduksjon til JavaScript","subtitle":"Narrativ versjon","description":"En fortelling om språket som gjør nettsider levende – fra konsollen og let/const til betingelser, løkker, funksjoner og pilfunksjoner i JavaScript.","estimatedMinutes":36,"competenceGoals":["bruke et programmeringsspråk for å utvikle interaktive nettsider","lage og feilsøke programmer som bruker variabler, kontrollstrukturer og funksjoner"],"linkedChapterId":"it-1-5-1","content":[{"id":"it-1-5-1-n-intro","type":"text","content":"## Når sidene begynner å reagere\n\nSå langt har vi strukturert med HTML og stylet med CSS, men sidene har vært **statiske** – innholdet endrer seg ikke etter at de er lastet. For å gjøre dem **interaktive**, slik at de reagerer på brukerens handlinger og endrer innhold dynamisk, trenger vi et programmeringsspråk: **JavaScript**.\n\nJavaScript er det eneste språket som kjører direkte i nettleseren. Alle moderne nettlesere har en innebygd JavaScript-motor – Chrome bruker V8, Firefox SpiderMonkey, Safari JavaScriptCore. Språket ble skapt av Brendan Eich i 1995 og er i dag verdens mest brukte. (Et morsomt poeng: til tross for navnet har JavaScript ingenting med Java å gjøre.)\n\nDu kobler JavaScript til en side på to måter. Den anbefalte er en **ekstern fil** med endelsen `.js`, koblet til med `<script src=\"skript.js\"></script>` plassert like før `</body>`. Plasseringen er viktig: da er hele HTML-dokumentet ferdig lastet før koden kjører, slik at den finner alle elementene. Den andre måten er **inline JavaScript** direkte mellom `<script>`-tagger – greit for raske tester, men eksterne filer er best for større prosjekter.\n\nDitt viktigste verktøy er nettleserens **konsoll**, som du åpner med F12. Der kan du skrive kode og se resultatet umiddelbart, og lese feilmeldinger. Den mest grunnleggende kommandoen er `console.log()`, som skriver ut verdier:\n\n```javascript\nconsole.log(\"Hei, verden!\");\nconsole.log(\"Svaret er:\", 6 * 7);  // Svaret er: 42\n```"},{"id":"it-1-5-1-n-quiz1","type":"exercise","exercise":{"id":"it-1-5-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på JavaScript-grunnlag:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-1-n-quiz1-q0","task":"Hva er JavaScript primært brukt til i webutvikling?","options":[{"id":"a","text":"Å definere strukturen til nettsider","isCorrect":false},{"id":"b","text":"Å gjøre nettsider interaktive og dynamiske","isCorrect":true},{"id":"c","text":"Å style utseendet til nettsider","isCorrect":false},{"id":"d","text":"Å lagre data i databaser","isCorrect":false}],"solution":"JavaScript gjør nettsider interaktive og dynamiske. Struktur er HTML, utseende er CSS."},{"id":"it-1-5-1-n-quiz1-q1","task":"Hvorfor plasseres ofte <script>-taggen like før </body>?","options":[{"id":"a","text":"Det gjør koden raskere å skrive","isCorrect":false},{"id":"b","text":"Fordi JavaScript ellers ikke virker","isCorrect":false},{"id":"c","text":"For at hele HTML-dokumentet er lastet før koden kjører, slik at den finner elementene","isCorrect":true},{"id":"d","text":"For å skjule koden","isCorrect":false}],"solution":"Med script-taggen nederst er hele siden lastet før koden kjører, slik at JavaScript kan finne og manipulere alle elementene."},{"id":"it-1-5-1-n-quiz1-q2","task":"Hva gjør console.log()?","options":[{"id":"a","text":"Logger deg inn på en nettside","isCorrect":false},{"id":"b","text":"Lagrer en fil","isCorrect":false},{"id":"c","text":"Lukker nettleseren","isCorrect":false},{"id":"d","text":"Skriver ut verdier i nettleserens konsoll","isCorrect":true}],"solution":"console.log() skriver ut verdier i konsollen og er et sentralt verktøy for å se hva som skjer i koden."}]}},{"id":"it-1-5-1-n-section1","type":"text","content":"## Variabler, valg og logikk\n\n**Variabler** er navngitte lagringssteder for verdier. I moderne JavaScript bruker du to nøkkelord. `let` er for verdier som kan endres, mens `const` er for verdier som ikke skal endres – prøver du å endre en `const`, får du en feil. Tommelfingerregelen er: bruk `const` som standard, og `let` bare når du vet verdien skal endres. Unngå det gamle `var`, som har uforutsigbar oppførsel. Navn skrives i **camelCase**, som `minAlder` og `antallElever`, og er case-sensitive.\n\nFor å ta valg bruker JavaScript `if`, `else if` og `else`, med betingelsen i parentes og koden i krøllparenteser:\n\n```javascript\nif (alder >= 18) {\n  console.log(\"Du er myndig.\");\n} else if (alder >= 16) {\n  console.log(\"Du kan ta mopedlappen.\");\n}\n```\n\nLegg merke til sammenligningsoperatoren `===` (er lik, streng sammenligning) og `!==` (er ikke lik) – i JavaScript bruker vi alltid tre tegn for å unngå snublefeller. Logiske operatorer ser litt annerledes ut enn i Python: `&&` er «og», `||` er «eller», og `!` er «ikke». For eksempel: er `alder >= 18 || harForeldretillatelse`, så slipper du inn hvis minst én av betingelsene er sann."},{"id":"it-1-5-1-n-quiz2","type":"exercise","exercise":{"id":"it-1-5-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på variabler og betingelser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-1-n-quiz2-q0","task":"Hva er forskjellen mellom let og const?","options":[{"id":"a","text":"let lar deg endre verdien senere, const gjør det ikke","isCorrect":true},{"id":"b","text":"let brukes for tall, const for tekst","isCorrect":false},{"id":"c","text":"const er raskere enn let","isCorrect":false},{"id":"d","text":"Det er ingen forskjell","isCorrect":false}],"solution":"let lar deg endre verdien senere, mens const beholder samme verdi gjennom hele programmet."},{"id":"it-1-5-1-n-quiz2-q1","task":"Hva skrives ut? let x = 10; if (x > 5 && x < 15) console.log(\"A\") else console.log(\"B\")","options":[{"id":"a","text":"\"B\"","isCorrect":false},{"id":"b","text":"\"A\"","isCorrect":true},{"id":"c","text":"\"A\" og \"B\"","isCorrect":false},{"id":"d","text":"Ingenting – feil","isCorrect":false}],"solution":"x er 10, som er både større enn 5 og mindre enn 15, så betingelsen er sann og «A» skrives ut."},{"id":"it-1-5-1-n-quiz2-q2","task":"Hvilken logisk operator betyr «og» i JavaScript?","options":[{"id":"a","text":"and","isCorrect":false},{"id":"b","text":"||","isCorrect":false},{"id":"c","text":"&&","isCorrect":true},{"id":"d","text":"!","isCorrect":false}],"solution":"&& betyr «og» i JavaScript. || betyr «eller», og ! betyr «ikke»."}]}},{"id":"it-1-5-1-n-section2","type":"text","content":"## Løkker og funksjoner\n\n**Løkker** gjentar kode. Den klassiske `for`-løkken har tre deler i parentesen: initialisering, betingelse og oppdatering, som `for (let i = 0; i < 3; i++)`, som skriver ut 0, 1, 2. En `while`-løkke gjentar så lenge betingelsen er sann. Og `for...of` går elegant gjennom elementene i en liste (array): `for (const frukt of frukter)`. Pass på å ikke lage uendelige løkker – de fryser nettleseren.\n\nEn **funksjon** er en navngitt kodeblokk som utfører en oppgave. Du definerer den med `function`, gir den parametere, og returnerer en verdi med `return`:\n\n```javascript\nfunction hilsen(navn) {\n  return \"Hei, \" + navn + \"!\";\n}\nconsole.log(hilsen(\"Sara\"));  // Hei, Sara!\n```\n\nModerne JavaScript har også en kortere syntaks kalt **pilfunksjoner** (arrow functions). `const doble = (tall) => tall * 2;` gjør akkurat det samme som en vanlig funksjon, men mer kompakt – for enkle funksjoner kan du droppe både `return` og krøllparentesene. En funksjon som summerer tallene fra 1 til n, returnerer 15 når du kaller den med 5 (1+2+3+4+5). Funksjoner er grunnsteinene du senere skal bygge hendelseshåndtering og DOM-manipulering på."},{"id":"it-1-5-1-n-quiz3","type":"exercise","exercise":{"id":"it-1-5-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på løkker og funksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-1-n-quiz3-q0","task":"Hva skrives ut? for (let i = 0; i < 3; i++) console.log(i)","options":[{"id":"a","text":"1, 2, 3","isCorrect":false},{"id":"b","text":"0, 1, 2, 3","isCorrect":false},{"id":"c","text":"1, 2","isCorrect":false},{"id":"d","text":"0, 1, 2","isCorrect":true}],"solution":"Løkken starter på 0 og kjører så lenge i < 3, altså 0, 1, 2."},{"id":"it-1-5-1-n-quiz3-q1","task":"Hva returnerer mystery(5) hvis funksjonen summerer tallene fra 1 til n?","options":[{"id":"a","text":"15","isCorrect":true},{"id":"b","text":"5","isCorrect":false},{"id":"c","text":"10","isCorrect":false},{"id":"d","text":"25","isCorrect":false}],"solution":"1 + 2 + 3 + 4 + 5 = 15."},{"id":"it-1-5-1-n-quiz3-q2","task":"Hva er en pilfunksjon (arrow function)?","options":[{"id":"a","text":"En funksjon som tegner piler","isCorrect":false},{"id":"b","text":"En kortere syntaks for å skrive funksjoner, med =>","isCorrect":true},{"id":"c","text":"En funksjon uten navn som aldri kan kalles","isCorrect":false},{"id":"d","text":"Det samme som en løkke","isCorrect":false}],"solution":"En pilfunksjon er en kompakt funksjonssyntaks med =>, for eksempel const doble = (tall) => tall * 2."}]}},{"id":"it-1-5-1-n-summary","type":"text","content":"## Oppsummering\n\nJavaScript er språket som gjør statiske nettsider levende. Det kjører i nettleseren, kobles best til med en **ekstern .js-fil** plassert nederst i body, og feilsøkes med **konsollen** og `console.log()`.\n\nDu lagrer data i variabler med **let** (kan endres) og **const** (kan ikke endres), tar valg med **if/else if/else** og operatorer som `===`, `&&` og `||`, og gjentar kode med **for**, **while** og **for...of**. **Funksjoner** – både vanlige med `function` og kompakte **pilfunksjoner** med `=>` – organiserer koden i gjenbrukbare biter. Med dette grunnlaget er du klar til å manipulere selve nettsiden i de neste kapitlene."}],"exercises":[]}
+{
+  "id": "it-1-5-1-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "5.1",
+  "title": "Introduksjon til JavaScript",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om språket som gjør nettsider levende – fra konsollen og let/const til betingelser, løkker, funksjoner og pilfunksjoner i JavaScript.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "bruke et programmeringsspråk for å utvikle interaktive nettsider",
+    "lage og feilsøke programmer som bruker variabler, kontrollstrukturer og funksjoner"
+  ],
+  "linkedChapterId": "it-1-5-1",
+  "content": [
+    {
+      "id": "it-1-5-1-n-intro",
+      "type": "text",
+      "content": "## Når sidene begynner å reagere\n\nSå langt har vi strukturert med HTML og stylet med CSS, men sidene har vært **statiske** – innholdet endrer seg ikke etter at de er lastet. For å gjøre dem **interaktive**, slik at de reagerer på brukerens handlinger og endrer innhold dynamisk, trenger vi et programmeringsspråk: **JavaScript**.\n\nJavaScript er det eneste språket som kjører direkte i nettleseren. Alle moderne nettlesere har en innebygd JavaScript-motor – Chrome bruker V8, Firefox SpiderMonkey, Safari JavaScriptCore. Språket ble skapt av Brendan Eich i 1995 og er i dag verdens mest brukte. (Et morsomt poeng: til tross for navnet har JavaScript ingenting med Java å gjøre.)\n\nDu kobler JavaScript til en side på to måter. Den anbefalte er en **ekstern fil** med endelsen `.js`, koblet til med `<script src=\"skript.js\"></script>` plassert like før `</body>`. Plasseringen er viktig: da er hele HTML-dokumentet ferdig lastet før koden kjører, slik at den finner alle elementene. Den andre måten er **inline JavaScript** direkte mellom `<script>`-tagger – greit for raske tester, men eksterne filer er best for større prosjekter.\n\nDitt viktigste verktøy er nettleserens **konsoll**, som du åpner med F12. Der kan du skrive kode og se resultatet umiddelbart, og lese feilmeldinger. Den mest grunnleggende kommandoen er `console.log()`, som skriver ut verdier:\n\n```javascript\nconsole.log(\"Hei, verden!\");\nconsole.log(\"Svaret er:\", 6 * 7);  // Svaret er: 42\n```"
+    },
+    {
+      "id": "it-1-5-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på JavaScript-grunnlag:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-1-n-quiz1-q0",
+            "task": "Hva er JavaScript primært brukt til i webutvikling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å gjøre nettsider interaktive og dynamiske",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å definere strukturen til nettsider",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å style utseendet til nettsider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å lagre data i databaser",
+                "isCorrect": false
+              }
+            ],
+            "solution": "JavaScript gjør nettsider interaktive og dynamiske. Struktur er HTML, utseende er CSS."
+          },
+          {
+            "id": "it-1-5-1-n-quiz1-q1",
+            "task": "Hvorfor plasseres ofte <script>-taggen like før </body>?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det gjør koden raskere å skrive",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For at hele HTML-dokumentet er lastet før koden kjører, slik at den finner elementene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi JavaScript ellers ikke virker",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å skjule koden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med script-taggen nederst er hele siden lastet før koden kjører, slik at JavaScript kan finne og manipulere alle elementene."
+          },
+          {
+            "id": "it-1-5-1-n-quiz1-q2",
+            "task": "Hva gjør console.log()?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Logger deg inn på en nettside",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lagrer en fil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Skriver ut verdier i nettleserens konsoll",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Lukker nettleseren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "console.log() skriver ut verdier i konsollen og er et sentralt verktøy for å se hva som skjer i koden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-1-n-section1",
+      "type": "text",
+      "content": "## Variabler, valg og logikk\n\n**Variabler** er navngitte lagringssteder for verdier. I moderne JavaScript bruker du to nøkkelord. `let` er for verdier som kan endres, mens `const` er for verdier som ikke skal endres – prøver du å endre en `const`, får du en feil. Tommelfingerregelen er: bruk `const` som standard, og `let` bare når du vet verdien skal endres. Unngå det gamle `var`, som har uforutsigbar oppførsel. Navn skrives i **camelCase**, som `minAlder` og `antallElever`, og er case-sensitive.\n\nFor å ta valg bruker JavaScript `if`, `else if` og `else`, med betingelsen i parentes og koden i krøllparenteser:\n\n```javascript\nif (alder >= 18) {\n  console.log(\"Du er myndig.\");\n} else if (alder >= 16) {\n  console.log(\"Du kan ta mopedlappen.\");\n}\n```\n\nLegg merke til sammenligningsoperatoren `===` (er lik, streng sammenligning) og `!==` (er ikke lik) – i JavaScript bruker vi alltid tre tegn for å unngå snublefeller. Logiske operatorer ser litt annerledes ut enn i Python: `&&` er «og», `||` er «eller», og `!` er «ikke». For eksempel: er `alder >= 18 || harForeldretillatelse`, så slipper du inn hvis minst én av betingelsene er sann."
+    },
+    {
+      "id": "it-1-5-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på variabler og betingelser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-1-n-quiz2-q0",
+            "task": "Hva er forskjellen mellom let og const?",
+            "options": [
+              {
+                "id": "b",
+                "text": "let brukes for tall, const for tekst",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "const er raskere enn let",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen forskjell",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "let lar deg endre verdien senere, const gjør det ikke",
+                "isCorrect": true
+              }
+            ],
+            "solution": "let lar deg endre verdien senere, mens const beholder samme verdi gjennom hele programmet."
+          },
+          {
+            "id": "it-1-5-1-n-quiz2-q1",
+            "task": "Hva skrives ut? let x = 10; if (x > 5 && x < 15) console.log(\"A\") else console.log(\"B\")",
+            "options": [
+              {
+                "id": "b",
+                "text": "\"A\"",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "\"B\"",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "\"A\" og \"B\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting – feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "x er 10, som er både større enn 5 og mindre enn 15, så betingelsen er sann og «A» skrives ut."
+          },
+          {
+            "id": "it-1-5-1-n-quiz2-q2",
+            "task": "Hvilken logisk operator betyr «og» i JavaScript?",
+            "options": [
+              {
+                "id": "a",
+                "text": "and",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "&&",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "||",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "!",
+                "isCorrect": false
+              }
+            ],
+            "solution": "&& betyr «og» i JavaScript. || betyr «eller», og ! betyr «ikke»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-1-n-section2",
+      "type": "text",
+      "content": "## Løkker og funksjoner\n\n**Løkker** gjentar kode. Den klassiske `for`-løkken har tre deler i parentesen: initialisering, betingelse og oppdatering, som `for (let i = 0; i < 3; i++)`, som skriver ut 0, 1, 2. En `while`-løkke gjentar så lenge betingelsen er sann. Og `for...of` går elegant gjennom elementene i en liste (array): `for (const frukt of frukter)`. Pass på å ikke lage uendelige løkker – de fryser nettleseren.\n\nEn **funksjon** er en navngitt kodeblokk som utfører en oppgave. Du definerer den med `function`, gir den parametere, og returnerer en verdi med `return`:\n\n```javascript\nfunction hilsen(navn) {\n  return \"Hei, \" + navn + \"!\";\n}\nconsole.log(hilsen(\"Sara\"));  // Hei, Sara!\n```\n\nModerne JavaScript har også en kortere syntaks kalt **pilfunksjoner** (arrow functions). `const doble = (tall) => tall * 2;` gjør akkurat det samme som en vanlig funksjon, men mer kompakt – for enkle funksjoner kan du droppe både `return` og krøllparentesene. En funksjon som summerer tallene fra 1 til n, returnerer 15 når du kaller den med 5 (1+2+3+4+5). Funksjoner er grunnsteinene du senere skal bygge hendelseshåndtering og DOM-manipulering på."
+    },
+    {
+      "id": "it-1-5-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på løkker og funksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-1-n-quiz3-q0",
+            "task": "Hva skrives ut? for (let i = 0; i < 3; i++) console.log(i)",
+            "options": [
+              {
+                "id": "a",
+                "text": "1, 2, 3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0, 1, 2, 3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0, 1, 2",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "1, 2",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Løkken starter på 0 og kjører så lenge i < 3, altså 0, 1, 2."
+          },
+          {
+            "id": "it-1-5-1-n-quiz3-q1",
+            "task": "Hva returnerer mystery(5) hvis funksjonen summerer tallene fra 1 til n?",
+            "options": [
+              {
+                "id": "b",
+                "text": "5",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "10",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "25",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "15",
+                "isCorrect": true
+              }
+            ],
+            "solution": "1 + 2 + 3 + 4 + 5 = 15."
+          },
+          {
+            "id": "it-1-5-1-n-quiz3-q2",
+            "task": "Hva er en pilfunksjon (arrow function)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En kortere syntaks for å skrive funksjoner, med =>",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En funksjon som tegner piler",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En funksjon uten navn som aldri kan kalles",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det samme som en løkke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En pilfunksjon er en kompakt funksjonssyntaks med =>, for eksempel const doble = (tall) => tall * 2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nJavaScript er språket som gjør statiske nettsider levende. Det kjører i nettleseren, kobles best til med en **ekstern .js-fil** plassert nederst i body, og feilsøkes med **konsollen** og `console.log()`.\n\nDu lagrer data i variabler med **let** (kan endres) og **const** (kan ikke endres), tar valg med **if/else if/else** og operatorer som `===`, `&&` og `||`, og gjentar kode med **for**, **while** og **for...of**. **Funksjoner** – både vanlige med `function` og kompakte **pilfunksjoner** med `=>` – organiserer koden i gjenbrukbare biter. Med dette grunnlaget er du klar til å manipulere selve nettsiden i de neste kapitlene."
+    }
+  ],
+  "exercises": []
+}

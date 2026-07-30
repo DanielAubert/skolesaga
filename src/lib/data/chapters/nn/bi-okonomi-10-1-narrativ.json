@@ -1,1 +1,341 @@
-{"id":"bi-okonomi-10-1-narrativ","courseId":"bi-okonomi","chapterNumber":"10.1","title":"Talfølgjer","subtitle":"Narrativ versjon","description":"Ei forteljing om talfølgjer -- dei trinnvise talrekkjene som skildrar saldoar, lønningar og sal frå periode til periode -- og om kva som skjer når vi følgjer dei heilt ut mot uendeleg.","estimatedMinutes":26,"competenceGoals":[],"linkedChapterId":"bi-okonomi-10-1","content":[{"id":"bi-okonomi-10-1-n-intro","type":"text","content":"## Tal som kjem eitt om gongen\n\nTenk på saldoen på sparekontoen din. Han endrar seg ikkje kontinuerleg som ein bil som trillar nedover ein bakke -- han hoppar trinnvis, eitt år av gongen: i fjor, i år, neste år. Det same gjeld månadslønna di, dei årlege avdraga på eit lån, eller saltala kvartal for kvartal. Slike ordna, trinnvise talrekkjer kallar vi **talfølgjer**, og dei er sjølve fundamentet for all finansmatematikk.\n\nEi talfølgje er rett og slett ei ordna liste av tal, som vi skriv $\\{a_n\\} = a_1, a_2, a_3, a_4, \\ldots$ Talet $a_n$ er det $n$-te leddet, og $n$ er indeksen som fortel kvar i rekkja vi er. Tek vi kvadrattala $1, 4, 9, 16, 25, \\ldots$, er $a_1 = 1$, $a_2 = 4$ og $a_3 = 9$, og det generelle mønsteret er $a_n = n^2$.\n\nGrunnen til at vi bryr oss om dette i eit økonomifag, er at nesten alt som utviklar seg over tid kan skildrast som ei talfølgje: kontoutviklinga år for år, restgjelda på eit lån frå termin til termin, eller venta sal per kvartal. Når vi først har ein god måte å skildre desse rekkjene på, kan vi føresjå kvar dei endar opp -- og det er nettopp det vi skal lære i dette kapittelet."},{"id":"bi-okonomi-10-1-n-section1","type":"text","content":"## To måtar å snakke om ei følgje på\n\nLat oss seie at ein kollega fortel deg om ei talfølgje. Ho kan gjere det på to heilt ulike måtar, og begge er nyttige.\n\nDen eine måten er ein **eksplisitt formel**, $a_n = f(n)$, som reknar ut eit kva som helst ledd direkte frå indeksen. Seier ho at $a_n = 2n + 3$, kan du straks rekne ut alle ledda: $a_1 = 2\\cdot 1 + 3 = 5$, $a_2 = 7$, $a_3 = 9$, $a_4 = 11$ og $a_5 = 13$. Og vil du vite det tjuande leddet utan å rekne deg gjennom dei nitten første, set du berre inn: $a_{20} = 2\\cdot 20 + 3 = 43$. Det er styrken ved den eksplisitte formelen -- du kan hoppe rett til ledd nummer tusen om du vil.\n\nDen andre måten er ein **rekursiv formel**, $a_{n+1} = g(a_n)$, som fortel korleis du finn neste ledd ut frå det førre, saman med ein startverdi. Får du $b_1 = 4$ og $b_{n+1} = 3b_n - 2$, må du rekne deg fram trinn for trinn: $b_2 = 3\\cdot 4 - 2 = 10$, $b_3 = 3\\cdot 10 - 2 = 28$, $b_4 = 3\\cdot 28 - 2 = 82$ og $b_5 = 3\\cdot 82 - 2 = 244$. Den rekursive formelen er litt meir tungvinn, men han skildrar økonomiske prosessar heilt naturleg: saldoen i år avheng jo nettopp av saldoen i fjor. Set du $10\\,000$ kr på ein konto med $4\\,\\%$ rente, blir $K_0 = 10\\,000$ og $K_{n+1} = 1{,}04\\cdot K_n$, og mønsteret $K_n = 10\\,000\\cdot 1{,}04^n$ gir deg $K_5 = 10\\,000\\cdot 1{,}04^5 \\approx 12\\,167$ kr."},{"id":"bi-okonomi-10-1-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-10-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på talfølgjer og formlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-1-n-quiz1-q0","task":"Følgja er gitt eksplisitt ved $a_n = 3n - 1$. Kva er $a_4$?","options":[{"id":"a","text":"$8$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":false},{"id":"c","text":"$12$","isCorrect":false},{"id":"d","text":"$11$","isCorrect":true}],"solution":"Vi set inn $n = 4$: $a_4 = 3\\cdot 4 - 1 = 12 - 1 = 11$."},{"id":"bi-okonomi-10-1-n-quiz1-q1","task":"Ei følgje er gitt rekursivt ved $a_1 = 2$ og $a_{n+1} = a_n + 5$. Kva er $a_3$?","options":[{"id":"a","text":"$12$","isCorrect":true},{"id":"b","text":"$7$","isCorrect":false},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$17$","isCorrect":false}],"solution":"Vi reknar trinnvis: $a_2 = 2 + 5 = 7$, og $a_3 = 7 + 5 = 12$."},{"id":"bi-okonomi-10-1-n-quiz1-q2","task":"Kva er fordelen med ein eksplisitt formel framfor ein rekursiv?","options":[{"id":"a","text":"Han krev alltid ein startverdi","isCorrect":false},{"id":"b","text":"Han lèt oss finne eit kva som helst ledd direkte utan å rekne ut dei førre","isCorrect":true},{"id":"c","text":"Han kan berre brukast på veksande følgjer","isCorrect":false},{"id":"d","text":"Han gir alltid heiltal","isCorrect":false}],"solution":"Med ein eksplisitt formel $a_n = f(n)$ kan vi setje inn kva som helst $n$ og finne leddet direkte -- til dømes $a_{1000}$ utan å rekne ut alle dei førre."},{"id":"bi-okonomi-10-1-n-quiz1-q3","task":"Du set $50\\,000$ kr på ein konto med $3\\,\\%$ årleg rente. Kva eksplisitt formel gir saldoen $K_n$ etter $n$ år?","options":[{"id":"a","text":"$K_n = 50\\,000 + 0{,}03n$","isCorrect":false},{"id":"b","text":"$K_n = 50\\,000\\cdot 0{,}03^n$","isCorrect":false},{"id":"c","text":"$K_n = 50\\,000\\cdot 1{,}03^n$","isCorrect":true},{"id":"d","text":"$K_n = 50\\,000\\cdot 3^n$","isCorrect":false}],"solution":"Kvart år blir saldoen ganga med rentefaktoren $1{,}03$, så $K_n = 50\\,000\\cdot 1{,}03^n$. Etter 10 år gir det $50\\,000\\cdot 1{,}03^{10} \\approx 67\\,196$ kr."}]}},{"id":"bi-okonomi-10-1-n-section2","type":"text","content":"## Kva skjer heilt der ute?\n\nDet mest spennande spørsmålet om ei talfølgje er kva som skjer når $n$ blir riktig stor. Nærmar ledda seg ein bestemt verdi, eller stikk dei av? Dersom ledda kjem vilkårleg nær eit tal $L$ når $n$ veks, seier vi at følgja **konvergerer**, og vi skriv $\\lim_{n\\to\\infty} a_n = L$. Talet $L$ blir kalla grenseverdien. Følgja $a_n = \\frac{1}{n}$ er eit fint døme: $a_1 = 1$, $a_{10} = 0{,}1$, $a_{100} = 0{,}01$, $a_{1000} = 0{,}001$ -- ledda blir klemde mot null, så $\\lim_{n\\to\\infty}\\frac{1}{n} = 0$.\n\nNokre følgjer konvergerer mot noko anna enn null. Ta $a_n = \\frac{n}{n+1}$. Deler vi teljar og nemnar med $n$, får vi $a_n = \\frac{1}{1 + 1/n}$, og sidan $\\frac{1}{n}\\to 0$ blir nemnaren $1$, så grenseverdien er $1$. Det same trikset -- dele med høgaste potens av $n$ -- gir at $\\frac{3n^2+2}{n^2+5}\\to 3$ og $\\frac{4n+7}{2n-1}\\to 2$.\n\nKlarer ikkje følgja å setje seg på ein verdi, **divergerer** ho. Ei vanleg misforståing er at ei divergerande følgje alltid stikk av mot uendeleg, slik $a_n = 2^n$ gjer ($2, 4, 8, 1024, \\ldots$). Men ei følgje kan òg divergere ved å **oscillere**: $a_n = (-1)^n$ vekslar evig mellom $-1$ og $1$ utan å lande nokon stad. Til slutt kan vi skildre forma på ei følgje: ho er **monotont veksande** dersom $a_{n+1}\\geq a_n$ alltid, **monotont avtakande** dersom $a_{n+1}\\leq a_n$, og **avgrensa** dersom ho held seg mellom to faste tal. Eit nyttig resultat er at ei følgje som er både monoton og avgrensa, alltid konvergerer."},{"id":"bi-okonomi-10-1-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-10-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på konvergens, divergens og monotoni:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-1-n-quiz2-q0","task":"Kva er grenseverdien til følgja $a_n = \\frac{5}{n}$ når $n\\to\\infty$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"Ho divergerer","isCorrect":false},{"id":"d","text":"$0$","isCorrect":true}],"solution":"Når $n$ blir stor, går $\\frac{5}{n}$ mot $0$. Følgja konvergerer mot $0$."},{"id":"bi-okonomi-10-1-n-quiz2-q1","task":"Kvifor seier vi at følgja $a_n = (-1)^n$ divergerer?","options":[{"id":"a","text":"Fordi ledda vekslar mellom $-1$ og $1$ utan å setje seg på ein verdi","isCorrect":true},{"id":"b","text":"Fordi ledda veks mot uendeleg","isCorrect":false},{"id":"c","text":"Fordi ledda blir mindre og mindre","isCorrect":false},{"id":"d","text":"Fordi følgja ikkje har nokon startverdi","isCorrect":false}],"solution":"Ledda er $-1, 1, -1, 1, \\ldots$ og oscillerer evig. Dei nærmar seg ingen grenseverdi, så følgja divergerer ved oscillasjon -- divergens tyder altså ikkje alltid at noko veks mot uendeleg."},{"id":"bi-okonomi-10-1-n-quiz2-q2","task":"Kva er $\\lim_{n\\to\\infty}\\frac{2n+1}{n}$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":false}],"solution":"Vi skriv om: $\\frac{2n+1}{n} = 2 + \\frac{1}{n}$. Når $n\\to\\infty$ går $\\frac{1}{n}\\to 0$, så grenseverdien er $2$."},{"id":"bi-okonomi-10-1-n-quiz2-q3","task":"Ei følgje er monoton og avgrensa. Kva kan vi då slutte?","options":[{"id":"a","text":"At ho må vekse mot uendeleg","isCorrect":false},{"id":"b","text":"At ho oscillerer","isCorrect":false},{"id":"c","text":"At ho konvergerer","isCorrect":true},{"id":"d","text":"At ho ikkje har nokon grenseverdi","isCorrect":false}],"solution":"Hovudresultatet seier at ei følgje som er både monoton (alltid veksande eller alltid avtakande) og avgrensa (halden mellom to faste tal), alltid konvergerer."}]}},{"id":"bi-okonomi-10-1-n-summary","type":"text","content":"## Oppsummering\n\nEi **talfølgje** $\\{a_n\\} = a_1, a_2, a_3, \\ldots$ er ei ordna liste der $a_n$ er det $n$-te leddet. Vi kan skildre henne på to måtar: ein **eksplisitt formel** $a_n = f(n)$ lèt oss rekne eit kva som helst ledd direkte, medan ein **rekursiv formel** $a_{n+1} = g(a_n)$ med ein startverdi finn neste ledd ut frå det førre -- og passar ekstra godt for økonomiske prosessar der fjorårets saldo avgjer årets.\n\nEi følgje **konvergerer** dersom ledda nærmar seg ein grenseverdi $L$, skrive $\\lim_{n\\to\\infty} a_n = L$; elles **divergerer** ho, anten ved å vekse utan grense eller ved å oscillere. Når vi skal finne grenseverdien til ein brøk, deler vi teljar og nemnar med den høgaste potensen av $n$. Følgjer kan dessutan vere **monotone** (alltid veksande eller avtakande) og **avgrensa** (haldne mellom to faste tal) -- og er dei begge delar, konvergerer dei garantert. Med dette i botnen er vi klare til å sjå på to spesielle og svært nyttige typar følgjer: dei aritmetiske og dei geometriske."}],"exercises":[],"_meta":{"sourceHash":"3bbcc2aa1a71c244","translatedAt":"2026-06-21T00:50:52.206Z","model":"claude-code-agent","strings":44,"tm":{"04a5f470a8c59067":"Talfølgjer","b195b06d1ed59702":"Narrativ versjon","43aa3249f3766494":"Ei forteljing om talfølgjer -- dei trinnvise talrekkjene som skildrar saldoar, lønningar og sal frå periode til periode -- og om kva som skjer når vi følgjer dei heilt ut mot uendeleg.","c9e675c347361ca6":"## Tal som kjem eitt om gongen\n\nTenk på saldoen på sparekontoen din. Han endrar seg ikkje kontinuerleg som ein bil som trillar nedover ein bakke -- han hoppar trinnvis, eitt år av gongen: i fjor, i år, neste år. Det same gjeld månadslønna di, dei årlege avdraga på eit lån, eller saltala kvartal for kvartal. Slike ordna, trinnvise talrekkjer kallar vi **talfølgjer**, og dei er sjølve fundamentet for all finansmatematikk.\n\nEi talfølgje er rett og slett ei ordna liste av tal, som vi skriv $\\{a_n\\} = a_1, a_2, a_3, a_4, \\ldots$ Talet $a_n$ er det $n$-te leddet, og $n$ er indeksen som fortel kvar i rekkja vi er. Tek vi kvadrattala $1, 4, 9, 16, 25, \\ldots$, er $a_1 = 1$, $a_2 = 4$ og $a_3 = 9$, og det generelle mønsteret er $a_n = n^2$.\n\nGrunnen til at vi bryr oss om dette i eit økonomifag, er at nesten alt som utviklar seg over tid kan skildrast som ei talfølgje: kontoutviklinga år for år, restgjelda på eit lån frå termin til termin, eller venta sal per kvartal. Når vi først har ein god måte å skildre desse rekkjene på, kan vi føresjå kvar dei endar opp -- og det er nettopp det vi skal lære i dette kapittelet.","299024b2a96acfbb":"## To måtar å snakke om ei følgje på\n\nLat oss seie at ein kollega fortel deg om ei talfølgje. Ho kan gjere det på to heilt ulike måtar, og begge er nyttige.\n\nDen eine måten er ein **eksplisitt formel**, $a_n = f(n)$, som reknar ut eit kva som helst ledd direkte frå indeksen. Seier ho at $a_n = 2n + 3$, kan du straks rekne ut alle ledda: $a_1 = 2\\cdot 1 + 3 = 5$, $a_2 = 7$, $a_3 = 9$, $a_4 = 11$ og $a_5 = 13$. Og vil du vite det tjuande leddet utan å rekne deg gjennom dei nitten første, set du berre inn: $a_{20} = 2\\cdot 20 + 3 = 43$. Det er styrken ved den eksplisitte formelen -- du kan hoppe rett til ledd nummer tusen om du vil.\n\nDen andre måten er ein **rekursiv formel**, $a_{n+1} = g(a_n)$, som fortel korleis du finn neste ledd ut frå det førre, saman med ein startverdi. Får du $b_1 = 4$ og $b_{n+1} = 3b_n - 2$, må du rekne deg fram trinn for trinn: $b_2 = 3\\cdot 4 - 2 = 10$, $b_3 = 3\\cdot 10 - 2 = 28$, $b_4 = 3\\cdot 28 - 2 = 82$ og $b_5 = 3\\cdot 82 - 2 = 244$. Den rekursive formelen er litt meir tungvinn, men han skildrar økonomiske prosessar heilt naturleg: saldoen i år avheng jo nettopp av saldoen i fjor. Set du $10\\,000$ kr på ein konto med $4\\,\\%$ rente, blir $K_0 = 10\\,000$ og $K_{n+1} = 1{,}04\\cdot K_n$, og mønsteret $K_n = 10\\,000\\cdot 1{,}04^n$ gir deg $K_5 = 10\\,000\\cdot 1{,}04^5 \\approx 12\\,167$ kr.","713eb3c33fc01878":"Test deg sjølv på talfølgjer og formlar:","4097889236a2af26":"placeholder","f038e369d27846f2":"Følgja er gitt eksplisitt ved $a_n = 3n - 1$. Kva er $a_4$?","7b7f18af43f6ac66":"Vi set inn $n = 4$: $a_4 = 3\\cdot 4 - 1 = 12 - 1 = 11$.","4831638cacf90ad3":"Ei følgje er gitt rekursivt ved $a_1 = 2$ og $a_{n+1} = a_n + 5$. Kva er $a_3$?","1ec6bd296a9347c9":"Vi reknar trinnvis: $a_2 = 2 + 5 = 7$, og $a_3 = 7 + 5 = 12$.","4c1930cce1feff44":"Kva er fordelen med ein eksplisitt formel framfor ein rekursiv?","174506e7d760b024":"Han krev alltid ein startverdi","47555df7bd852c95":"Han lèt oss finne eit kva som helst ledd direkte utan å rekne ut dei førre","9e171f6de53b60dc":"Han kan berre brukast på veksande følgjer","f2e23e5a455fad06":"Han gir alltid heiltal","fa4743a50f7ce398":"Med ein eksplisitt formel $a_n = f(n)$ kan vi setje inn kva som helst $n$ og finne leddet direkte -- til dømes $a_{1000}$ utan å rekne ut alle dei førre.","db95017b7aa9eb8b":"Du set $50\\,000$ kr på ein konto med $3\\,\\%$ årleg rente. Kva eksplisitt formel gir saldoen $K_n$ etter $n$ år?","37ad91806ea9e0fa":"$K_n = 50\\,000 + 0{,}03n$","7667d552617d09ec":"$K_n = 50\\,000\\cdot 0{,}03^n$","2b359e100c38b353":"$K_n = 50\\,000\\cdot 1{,}03^n$","56665883593ecbaf":"$K_n = 50\\,000\\cdot 3^n$","636706eaa509783f":"Kvart år blir saldoen ganga med rentefaktoren $1{,}03$, så $K_n = 50\\,000\\cdot 1{,}03^n$. Etter 10 år gir det $50\\,000\\cdot 1{,}03^{10} \\approx 67\\,196$ kr.","d94b04a5b10f217e":"## Kva skjer heilt der ute?\n\nDet mest spennande spørsmålet om ei talfølgje er kva som skjer når $n$ blir riktig stor. Nærmar ledda seg ein bestemt verdi, eller stikk dei av? Dersom ledda kjem vilkårleg nær eit tal $L$ når $n$ veks, seier vi at følgja **konvergerer**, og vi skriv $\\lim_{n\\to\\infty} a_n = L$. Talet $L$ blir kalla grenseverdien. Følgja $a_n = \\frac{1}{n}$ er eit fint døme: $a_1 = 1$, $a_{10} = 0{,}1$, $a_{100} = 0{,}01$, $a_{1000} = 0{,}001$ -- ledda blir klemde mot null, så $\\lim_{n\\to\\infty}\\frac{1}{n} = 0$.\n\nNokre følgjer konvergerer mot noko anna enn null. Ta $a_n = \\frac{n}{n+1}$. Deler vi teljar og nemnar med $n$, får vi $a_n = \\frac{1}{1 + 1/n}$, og sidan $\\frac{1}{n}\\to 0$ blir nemnaren $1$, så grenseverdien er $1$. Det same trikset -- dele med høgaste potens av $n$ -- gir at $\\frac{3n^2+2}{n^2+5}\\to 3$ og $\\frac{4n+7}{2n-1}\\to 2$.\n\nKlarer ikkje følgja å setje seg på ein verdi, **divergerer** ho. Ei vanleg misforståing er at ei divergerande følgje alltid stikk av mot uendeleg, slik $a_n = 2^n$ gjer ($2, 4, 8, 1024, \\ldots$). Men ei følgje kan òg divergere ved å **oscillere**: $a_n = (-1)^n$ vekslar evig mellom $-1$ og $1$ utan å lande nokon stad. Til slutt kan vi skildre forma på ei følgje: ho er **monotont veksande** dersom $a_{n+1}\\geq a_n$ alltid, **monotont avtakande** dersom $a_{n+1}\\leq a_n$, og **avgrensa** dersom ho held seg mellom to faste tal. Eit nyttig resultat er at ei følgje som er både monoton og avgrensa, alltid konvergerer.","026c968266ea0a9c":"Test deg sjølv på konvergens, divergens og monotoni:","f8854b8792a9f1b6":"Kva er grenseverdien til følgja $a_n = \\frac{5}{n}$ når $n\\to\\infty$?","85f56d8f47729396":"Ho divergerer","301f37f5efad1811":"Når $n$ blir stor, går $\\frac{5}{n}$ mot $0$. Følgja konvergerer mot $0$.","710ae5f4f4f804d0":"Kvifor seier vi at følgja $a_n = (-1)^n$ divergerer?","246180b45bd72bd9":"Fordi ledda vekslar mellom $-1$ og $1$ utan å setje seg på ein verdi","1aa30c4a3a33f6b2":"Fordi ledda veks mot uendeleg","021cf2df4d207ade":"Fordi ledda blir mindre og mindre","e87ed254e01d4bd4":"Fordi følgja ikkje har nokon startverdi","c8ee349abfb33bd2":"Ledda er $-1, 1, -1, 1, \\ldots$ og oscillerer evig. Dei nærmar seg ingen grenseverdi, så følgja divergerer ved oscillasjon -- divergens tyder altså ikkje alltid at noko veks mot uendeleg.","ed9f5782abd2a3bf":"Kva er $\\lim_{n\\to\\infty}\\frac{2n+1}{n}$?","ed54be2e9a141eb9":"Vi skriv om: $\\frac{2n+1}{n} = 2 + \\frac{1}{n}$. Når $n\\to\\infty$ går $\\frac{1}{n}\\to 0$, så grenseverdien er $2$.","91af19d5fe2f84d9":"Ei følgje er monoton og avgrensa. Kva kan vi då slutte?","f8a861c77d2d700e":"At ho må vekse mot uendeleg","0a16099a699eca53":"At ho oscillerer","d982d0baff42bc5b":"At ho konvergerer","eba76ee8f18239c1":"At ho ikkje har nokon grenseverdi","de70184a637d6edc":"Hovudresultatet seier at ei følgje som er både monoton (alltid veksande eller alltid avtakande) og avgrensa (halden mellom to faste tal), alltid konvergerer.","589dbaee722e13ac":"## Oppsummering\n\nEi **talfølgje** $\\{a_n\\} = a_1, a_2, a_3, \\ldots$ er ei ordna liste der $a_n$ er det $n$-te leddet. Vi kan skildre henne på to måtar: ein **eksplisitt formel** $a_n = f(n)$ lèt oss rekne eit kva som helst ledd direkte, medan ein **rekursiv formel** $a_{n+1} = g(a_n)$ med ein startverdi finn neste ledd ut frå det førre -- og passar ekstra godt for økonomiske prosessar der fjorårets saldo avgjer årets.\n\nEi følgje **konvergerer** dersom ledda nærmar seg ein grenseverdi $L$, skrive $\\lim_{n\\to\\infty} a_n = L$; elles **divergerer** ho, anten ved å vekse utan grense eller ved å oscillere. Når vi skal finne grenseverdien til ein brøk, deler vi teljar og nemnar med den høgaste potensen av $n$. Følgjer kan dessutan vere **monotone** (alltid veksande eller avtakande) og **avgrensa** (haldne mellom to faste tal) -- og er dei begge delar, konvergerer dei garantert. Med dette i botnen er vi klare til å sjå på to spesielle og svært nyttige typar følgjer: dei aritmetiske og dei geometriske."}}}
+{
+  "id": "bi-okonomi-10-1-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "10.1",
+  "title": "Talfølgjer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om talfølgjer -- dei trinnvise talrekkjene som skildrar saldoar, lønningar og sal frå periode til periode -- og om kva som skjer når vi følgjer dei heilt ut mot uendeleg.",
+  "estimatedMinutes": 26,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-10-1",
+  "content": [
+    {
+      "id": "bi-okonomi-10-1-n-intro",
+      "type": "text",
+      "content": "## Tal som kjem eitt om gongen\n\nTenk på saldoen på sparekontoen din. Han endrar seg ikkje kontinuerleg som ein bil som trillar nedover ein bakke -- han hoppar trinnvis, eitt år av gongen: i fjor, i år, neste år. Det same gjeld månadslønna di, dei årlege avdraga på eit lån, eller saltala kvartal for kvartal. Slike ordna, trinnvise talrekkjer kallar vi **talfølgjer**, og dei er sjølve fundamentet for all finansmatematikk.\n\nEi talfølgje er rett og slett ei ordna liste av tal, som vi skriv $\\{a_n\\} = a_1, a_2, a_3, a_4, \\ldots$ Talet $a_n$ er det $n$-te leddet, og $n$ er indeksen som fortel kvar i rekkja vi er. Tek vi kvadrattala $1, 4, 9, 16, 25, \\ldots$, er $a_1 = 1$, $a_2 = 4$ og $a_3 = 9$, og det generelle mønsteret er $a_n = n^2$.\n\nGrunnen til at vi bryr oss om dette i eit økonomifag, er at nesten alt som utviklar seg over tid kan skildrast som ei talfølgje: kontoutviklinga år for år, restgjelda på eit lån frå termin til termin, eller venta sal per kvartal. Når vi først har ein god måte å skildre desse rekkjene på, kan vi føresjå kvar dei endar opp -- og det er nettopp det vi skal lære i dette kapittelet."
+    },
+    {
+      "id": "bi-okonomi-10-1-n-section1",
+      "type": "text",
+      "content": "## To måtar å snakke om ei følgje på\n\nLat oss seie at ein kollega fortel deg om ei talfølgje. Ho kan gjere det på to heilt ulike måtar, og begge er nyttige.\n\nDen eine måten er ein **eksplisitt formel**, $a_n = f(n)$, som reknar ut eit kva som helst ledd direkte frå indeksen. Seier ho at $a_n = 2n + 3$, kan du straks rekne ut alle ledda: $a_1 = 2\\cdot 1 + 3 = 5$, $a_2 = 7$, $a_3 = 9$, $a_4 = 11$ og $a_5 = 13$. Og vil du vite det tjuande leddet utan å rekne deg gjennom dei nitten første, set du berre inn: $a_{20} = 2\\cdot 20 + 3 = 43$. Det er styrken ved den eksplisitte formelen -- du kan hoppe rett til ledd nummer tusen om du vil.\n\nDen andre måten er ein **rekursiv formel**, $a_{n+1} = g(a_n)$, som fortel korleis du finn neste ledd ut frå det førre, saman med ein startverdi. Får du $b_1 = 4$ og $b_{n+1} = 3b_n - 2$, må du rekne deg fram trinn for trinn: $b_2 = 3\\cdot 4 - 2 = 10$, $b_3 = 3\\cdot 10 - 2 = 28$, $b_4 = 3\\cdot 28 - 2 = 82$ og $b_5 = 3\\cdot 82 - 2 = 244$. Den rekursive formelen er litt meir tungvinn, men han skildrar økonomiske prosessar heilt naturleg: saldoen i år avheng jo nettopp av saldoen i fjor. Set du $10\\,000$ kr på ein konto med $4\\,\\%$ rente, blir $K_0 = 10\\,000$ og $K_{n+1} = 1{,}04\\cdot K_n$, og mønsteret $K_n = 10\\,000\\cdot 1{,}04^n$ gir deg $K_5 = 10\\,000\\cdot 1{,}04^5 \\approx 12\\,167$ kr."
+    },
+    {
+      "id": "bi-okonomi-10-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på talfølgjer og formlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-1-n-quiz1-q0",
+            "task": "Følgja er gitt eksplisitt ved $a_n = 3n - 1$. Kva er $a_4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$11$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi set inn $n = 4$: $a_4 = 3\\cdot 4 - 1 = 12 - 1 = 11$."
+          },
+          {
+            "id": "bi-okonomi-10-1-n-quiz1-q1",
+            "task": "Ei følgje er gitt rekursivt ved $a_1 = 2$ og $a_{n+1} = a_n + 5$. Kva er $a_3$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$17$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi reknar trinnvis: $a_2 = 2 + 5 = 7$, og $a_3 = 7 + 5 = 12$."
+          },
+          {
+            "id": "bi-okonomi-10-1-n-quiz1-q2",
+            "task": "Kva er fordelen med ein eksplisitt formel framfor ein rekursiv?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han krev alltid ein startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han kan berre brukast på veksande følgjer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han gir alltid heiltal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han lèt oss finne eit kva som helst ledd direkte utan å rekne ut dei førre",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med ein eksplisitt formel $a_n = f(n)$ kan vi setje inn kva som helst $n$ og finne leddet direkte -- til dømes $a_{1000}$ utan å rekne ut alle dei førre."
+          },
+          {
+            "id": "bi-okonomi-10-1-n-quiz1-q3",
+            "task": "Du set $50\\,000$ kr på ein konto med $3\\,\\%$ årleg rente. Kva eksplisitt formel gir saldoen $K_n$ etter $n$ år?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$K_n = 50\\,000\\cdot 1{,}03^n$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$K_n = 50\\,000 + 0{,}03n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$K_n = 50\\,000\\cdot 0{,}03^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$K_n = 50\\,000\\cdot 3^n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvart år blir saldoen ganga med rentefaktoren $1{,}03$, så $K_n = 50\\,000\\cdot 1{,}03^n$. Etter 10 år gir det $50\\,000\\cdot 1{,}03^{10} \\approx 67\\,196$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-1-n-section2",
+      "type": "text",
+      "content": "## Kva skjer heilt der ute?\n\nDet mest spennande spørsmålet om ei talfølgje er kva som skjer når $n$ blir riktig stor. Nærmar ledda seg ein bestemt verdi, eller stikk dei av? Dersom ledda kjem vilkårleg nær eit tal $L$ når $n$ veks, seier vi at følgja **konvergerer**, og vi skriv $\\lim_{n\\to\\infty} a_n = L$. Talet $L$ blir kalla grenseverdien. Følgja $a_n = \\frac{1}{n}$ er eit fint døme: $a_1 = 1$, $a_{10} = 0{,}1$, $a_{100} = 0{,}01$, $a_{1000} = 0{,}001$ -- ledda blir klemde mot null, så $\\lim_{n\\to\\infty}\\frac{1}{n} = 0$.\n\nNokre følgjer konvergerer mot noko anna enn null. Ta $a_n = \\frac{n}{n+1}$. Deler vi teljar og nemnar med $n$, får vi $a_n = \\frac{1}{1 + 1/n}$, og sidan $\\frac{1}{n}\\to 0$ blir nemnaren $1$, så grenseverdien er $1$. Det same trikset -- dele med høgaste potens av $n$ -- gir at $\\frac{3n^2+2}{n^2+5}\\to 3$ og $\\frac{4n+7}{2n-1}\\to 2$.\n\nKlarer ikkje følgja å setje seg på ein verdi, **divergerer** ho. Ei vanleg misforståing er at ei divergerande følgje alltid stikk av mot uendeleg, slik $a_n = 2^n$ gjer ($2, 4, 8, 1024, \\ldots$). Men ei følgje kan òg divergere ved å **oscillere**: $a_n = (-1)^n$ vekslar evig mellom $-1$ og $1$ utan å lande nokon stad. Til slutt kan vi skildre forma på ei følgje: ho er **monotont veksande** dersom $a_{n+1}\\geq a_n$ alltid, **monotont avtakande** dersom $a_{n+1}\\leq a_n$, og **avgrensa** dersom ho held seg mellom to faste tal. Eit nyttig resultat er at ei følgje som er både monoton og avgrensa, alltid konvergerer."
+    },
+    {
+      "id": "bi-okonomi-10-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på konvergens, divergens og monotoni:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-1-n-quiz2-q0",
+            "task": "Kva er grenseverdien til følgja $a_n = \\frac{5}{n}$ når $n\\to\\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho divergerer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $n$ blir stor, går $\\frac{5}{n}$ mot $0$. Følgja konvergerer mot $0$."
+          },
+          {
+            "id": "bi-okonomi-10-1-n-quiz2-q1",
+            "task": "Kvifor seier vi at følgja $a_n = (-1)^n$ divergerer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi ledda veks mot uendeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi ledda blir mindre og mindre",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi ledda vekslar mellom $-1$ og $1$ utan å setje seg på ein verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi følgja ikkje har nokon startverdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledda er $-1, 1, -1, 1, \\ldots$ og oscillerer evig. Dei nærmar seg ingen grenseverdi, så følgja divergerer ved oscillasjon -- divergens tyder altså ikkje alltid at noko veks mot uendeleg."
+          },
+          {
+            "id": "bi-okonomi-10-1-n-quiz2-q2",
+            "task": "Kva er $\\lim_{n\\to\\infty}\\frac{2n+1}{n}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi skriv om: $\\frac{2n+1}{n} = 2 + \\frac{1}{n}$. Når $n\\to\\infty$ går $\\frac{1}{n}\\to 0$, så grenseverdien er $2$."
+          },
+          {
+            "id": "bi-okonomi-10-1-n-quiz2-q3",
+            "task": "Ei følgje er monoton og avgrensa. Kva kan vi då slutte?",
+            "options": [
+              {
+                "id": "c",
+                "text": "At ho konvergerer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At ho må vekse mot uendeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At ho oscillerer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At ho ikkje har nokon grenseverdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hovudresultatet seier at ei følgje som er både monoton (alltid veksande eller alltid avtakande) og avgrensa (halden mellom to faste tal), alltid konvergerer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEi **talfølgje** $\\{a_n\\} = a_1, a_2, a_3, \\ldots$ er ei ordna liste der $a_n$ er det $n$-te leddet. Vi kan skildre henne på to måtar: ein **eksplisitt formel** $a_n = f(n)$ lèt oss rekne eit kva som helst ledd direkte, medan ein **rekursiv formel** $a_{n+1} = g(a_n)$ med ein startverdi finn neste ledd ut frå det førre -- og passar ekstra godt for økonomiske prosessar der fjorårets saldo avgjer årets.\n\nEi følgje **konvergerer** dersom ledda nærmar seg ein grenseverdi $L$, skrive $\\lim_{n\\to\\infty} a_n = L$; elles **divergerer** ho, anten ved å vekse utan grense eller ved å oscillere. Når vi skal finne grenseverdien til ein brøk, deler vi teljar og nemnar med den høgaste potensen av $n$. Følgjer kan dessutan vere **monotone** (alltid veksande eller avtakande) og **avgrensa** (haldne mellom to faste tal) -- og er dei begge delar, konvergerer dei garantert. Med dette i botnen er vi klare til å sjå på to spesielle og svært nyttige typar følgjer: dei aritmetiske og dei geometriske."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3bbcc2aa1a71c244",
+    "translatedAt": "2026-06-21T00:50:52.206Z",
+    "model": "claude-code-agent",
+    "strings": 44,
+    "tm": {
+      "04a5f470a8c59067": "Talfølgjer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "43aa3249f3766494": "Ei forteljing om talfølgjer -- dei trinnvise talrekkjene som skildrar saldoar, lønningar og sal frå periode til periode -- og om kva som skjer når vi følgjer dei heilt ut mot uendeleg.",
+      "c9e675c347361ca6": "## Tal som kjem eitt om gongen\n\nTenk på saldoen på sparekontoen din. Han endrar seg ikkje kontinuerleg som ein bil som trillar nedover ein bakke -- han hoppar trinnvis, eitt år av gongen: i fjor, i år, neste år. Det same gjeld månadslønna di, dei årlege avdraga på eit lån, eller saltala kvartal for kvartal. Slike ordna, trinnvise talrekkjer kallar vi **talfølgjer**, og dei er sjølve fundamentet for all finansmatematikk.\n\nEi talfølgje er rett og slett ei ordna liste av tal, som vi skriv $\\{a_n\\} = a_1, a_2, a_3, a_4, \\ldots$ Talet $a_n$ er det $n$-te leddet, og $n$ er indeksen som fortel kvar i rekkja vi er. Tek vi kvadrattala $1, 4, 9, 16, 25, \\ldots$, er $a_1 = 1$, $a_2 = 4$ og $a_3 = 9$, og det generelle mønsteret er $a_n = n^2$.\n\nGrunnen til at vi bryr oss om dette i eit økonomifag, er at nesten alt som utviklar seg over tid kan skildrast som ei talfølgje: kontoutviklinga år for år, restgjelda på eit lån frå termin til termin, eller venta sal per kvartal. Når vi først har ein god måte å skildre desse rekkjene på, kan vi føresjå kvar dei endar opp -- og det er nettopp det vi skal lære i dette kapittelet.",
+      "299024b2a96acfbb": "## To måtar å snakke om ei følgje på\n\nLat oss seie at ein kollega fortel deg om ei talfølgje. Ho kan gjere det på to heilt ulike måtar, og begge er nyttige.\n\nDen eine måten er ein **eksplisitt formel**, $a_n = f(n)$, som reknar ut eit kva som helst ledd direkte frå indeksen. Seier ho at $a_n = 2n + 3$, kan du straks rekne ut alle ledda: $a_1 = 2\\cdot 1 + 3 = 5$, $a_2 = 7$, $a_3 = 9$, $a_4 = 11$ og $a_5 = 13$. Og vil du vite det tjuande leddet utan å rekne deg gjennom dei nitten første, set du berre inn: $a_{20} = 2\\cdot 20 + 3 = 43$. Det er styrken ved den eksplisitte formelen -- du kan hoppe rett til ledd nummer tusen om du vil.\n\nDen andre måten er ein **rekursiv formel**, $a_{n+1} = g(a_n)$, som fortel korleis du finn neste ledd ut frå det førre, saman med ein startverdi. Får du $b_1 = 4$ og $b_{n+1} = 3b_n - 2$, må du rekne deg fram trinn for trinn: $b_2 = 3\\cdot 4 - 2 = 10$, $b_3 = 3\\cdot 10 - 2 = 28$, $b_4 = 3\\cdot 28 - 2 = 82$ og $b_5 = 3\\cdot 82 - 2 = 244$. Den rekursive formelen er litt meir tungvinn, men han skildrar økonomiske prosessar heilt naturleg: saldoen i år avheng jo nettopp av saldoen i fjor. Set du $10\\,000$ kr på ein konto med $4\\,\\%$ rente, blir $K_0 = 10\\,000$ og $K_{n+1} = 1{,}04\\cdot K_n$, og mønsteret $K_n = 10\\,000\\cdot 1{,}04^n$ gir deg $K_5 = 10\\,000\\cdot 1{,}04^5 \\approx 12\\,167$ kr.",
+      "713eb3c33fc01878": "Test deg sjølv på talfølgjer og formlar:",
+      "4097889236a2af26": "placeholder",
+      "f038e369d27846f2": "Følgja er gitt eksplisitt ved $a_n = 3n - 1$. Kva er $a_4$?",
+      "7b7f18af43f6ac66": "Vi set inn $n = 4$: $a_4 = 3\\cdot 4 - 1 = 12 - 1 = 11$.",
+      "4831638cacf90ad3": "Ei følgje er gitt rekursivt ved $a_1 = 2$ og $a_{n+1} = a_n + 5$. Kva er $a_3$?",
+      "1ec6bd296a9347c9": "Vi reknar trinnvis: $a_2 = 2 + 5 = 7$, og $a_3 = 7 + 5 = 12$.",
+      "4c1930cce1feff44": "Kva er fordelen med ein eksplisitt formel framfor ein rekursiv?",
+      "174506e7d760b024": "Han krev alltid ein startverdi",
+      "47555df7bd852c95": "Han lèt oss finne eit kva som helst ledd direkte utan å rekne ut dei førre",
+      "9e171f6de53b60dc": "Han kan berre brukast på veksande følgjer",
+      "f2e23e5a455fad06": "Han gir alltid heiltal",
+      "fa4743a50f7ce398": "Med ein eksplisitt formel $a_n = f(n)$ kan vi setje inn kva som helst $n$ og finne leddet direkte -- til dømes $a_{1000}$ utan å rekne ut alle dei førre.",
+      "db95017b7aa9eb8b": "Du set $50\\,000$ kr på ein konto med $3\\,\\%$ årleg rente. Kva eksplisitt formel gir saldoen $K_n$ etter $n$ år?",
+      "37ad91806ea9e0fa": "$K_n = 50\\,000 + 0{,}03n$",
+      "7667d552617d09ec": "$K_n = 50\\,000\\cdot 0{,}03^n$",
+      "2b359e100c38b353": "$K_n = 50\\,000\\cdot 1{,}03^n$",
+      "56665883593ecbaf": "$K_n = 50\\,000\\cdot 3^n$",
+      "636706eaa509783f": "Kvart år blir saldoen ganga med rentefaktoren $1{,}03$, så $K_n = 50\\,000\\cdot 1{,}03^n$. Etter 10 år gir det $50\\,000\\cdot 1{,}03^{10} \\approx 67\\,196$ kr.",
+      "d94b04a5b10f217e": "## Kva skjer heilt der ute?\n\nDet mest spennande spørsmålet om ei talfølgje er kva som skjer når $n$ blir riktig stor. Nærmar ledda seg ein bestemt verdi, eller stikk dei av? Dersom ledda kjem vilkårleg nær eit tal $L$ når $n$ veks, seier vi at følgja **konvergerer**, og vi skriv $\\lim_{n\\to\\infty} a_n = L$. Talet $L$ blir kalla grenseverdien. Følgja $a_n = \\frac{1}{n}$ er eit fint døme: $a_1 = 1$, $a_{10} = 0{,}1$, $a_{100} = 0{,}01$, $a_{1000} = 0{,}001$ -- ledda blir klemde mot null, så $\\lim_{n\\to\\infty}\\frac{1}{n} = 0$.\n\nNokre følgjer konvergerer mot noko anna enn null. Ta $a_n = \\frac{n}{n+1}$. Deler vi teljar og nemnar med $n$, får vi $a_n = \\frac{1}{1 + 1/n}$, og sidan $\\frac{1}{n}\\to 0$ blir nemnaren $1$, så grenseverdien er $1$. Det same trikset -- dele med høgaste potens av $n$ -- gir at $\\frac{3n^2+2}{n^2+5}\\to 3$ og $\\frac{4n+7}{2n-1}\\to 2$.\n\nKlarer ikkje følgja å setje seg på ein verdi, **divergerer** ho. Ei vanleg misforståing er at ei divergerande følgje alltid stikk av mot uendeleg, slik $a_n = 2^n$ gjer ($2, 4, 8, 1024, \\ldots$). Men ei følgje kan òg divergere ved å **oscillere**: $a_n = (-1)^n$ vekslar evig mellom $-1$ og $1$ utan å lande nokon stad. Til slutt kan vi skildre forma på ei følgje: ho er **monotont veksande** dersom $a_{n+1}\\geq a_n$ alltid, **monotont avtakande** dersom $a_{n+1}\\leq a_n$, og **avgrensa** dersom ho held seg mellom to faste tal. Eit nyttig resultat er at ei følgje som er både monoton og avgrensa, alltid konvergerer.",
+      "026c968266ea0a9c": "Test deg sjølv på konvergens, divergens og monotoni:",
+      "f8854b8792a9f1b6": "Kva er grenseverdien til følgja $a_n = \\frac{5}{n}$ når $n\\to\\infty$?",
+      "85f56d8f47729396": "Ho divergerer",
+      "301f37f5efad1811": "Når $n$ blir stor, går $\\frac{5}{n}$ mot $0$. Følgja konvergerer mot $0$.",
+      "710ae5f4f4f804d0": "Kvifor seier vi at følgja $a_n = (-1)^n$ divergerer?",
+      "246180b45bd72bd9": "Fordi ledda vekslar mellom $-1$ og $1$ utan å setje seg på ein verdi",
+      "1aa30c4a3a33f6b2": "Fordi ledda veks mot uendeleg",
+      "021cf2df4d207ade": "Fordi ledda blir mindre og mindre",
+      "e87ed254e01d4bd4": "Fordi følgja ikkje har nokon startverdi",
+      "c8ee349abfb33bd2": "Ledda er $-1, 1, -1, 1, \\ldots$ og oscillerer evig. Dei nærmar seg ingen grenseverdi, så følgja divergerer ved oscillasjon -- divergens tyder altså ikkje alltid at noko veks mot uendeleg.",
+      "ed9f5782abd2a3bf": "Kva er $\\lim_{n\\to\\infty}\\frac{2n+1}{n}$?",
+      "ed54be2e9a141eb9": "Vi skriv om: $\\frac{2n+1}{n} = 2 + \\frac{1}{n}$. Når $n\\to\\infty$ går $\\frac{1}{n}\\to 0$, så grenseverdien er $2$.",
+      "91af19d5fe2f84d9": "Ei følgje er monoton og avgrensa. Kva kan vi då slutte?",
+      "f8a861c77d2d700e": "At ho må vekse mot uendeleg",
+      "0a16099a699eca53": "At ho oscillerer",
+      "d982d0baff42bc5b": "At ho konvergerer",
+      "eba76ee8f18239c1": "At ho ikkje har nokon grenseverdi",
+      "de70184a637d6edc": "Hovudresultatet seier at ei følgje som er både monoton (alltid veksande eller alltid avtakande) og avgrensa (halden mellom to faste tal), alltid konvergerer.",
+      "589dbaee722e13ac": "## Oppsummering\n\nEi **talfølgje** $\\{a_n\\} = a_1, a_2, a_3, \\ldots$ er ei ordna liste der $a_n$ er det $n$-te leddet. Vi kan skildre henne på to måtar: ein **eksplisitt formel** $a_n = f(n)$ lèt oss rekne eit kva som helst ledd direkte, medan ein **rekursiv formel** $a_{n+1} = g(a_n)$ med ein startverdi finn neste ledd ut frå det førre -- og passar ekstra godt for økonomiske prosessar der fjorårets saldo avgjer årets.\n\nEi følgje **konvergerer** dersom ledda nærmar seg ein grenseverdi $L$, skrive $\\lim_{n\\to\\infty} a_n = L$; elles **divergerer** ho, anten ved å vekse utan grense eller ved å oscillere. Når vi skal finne grenseverdien til ein brøk, deler vi teljar og nemnar med den høgaste potensen av $n$. Følgjer kan dessutan vere **monotone** (alltid veksande eller avtakande) og **avgrensa** (haldne mellom to faste tal) -- og er dei begge delar, konvergerer dei garantert. Med dette i botnen er vi klare til å sjå på to spesielle og svært nyttige typar følgjer: dei aritmetiske og dei geometriske."
+    }
+  }
+}

@@ -1,1 +1,341 @@
-{"id":"it-2-5-1-narrativ","courseId":"it-2","chapterNumber":"1","title":"Relasjonsdatabaser – repetisjon og fordypning","subtitle":"Narrativ versjon","description":"En fortelling om hvordan vi tegner virkeligheten som data – fra ER-modellens entiteter og relasjoner til normalformene som rydder bort duplikater og holder databasen konsistent.","estimatedMinutes":38,"competenceGoals":["Lage ER-diagrammer med entiteter, attributter og relasjoner","Forstå normalformene 1NF, 2NF og 3NF","Designe tabeller med primær- og fremmednøkler"],"linkedChapterId":"it-2-5-1","content":[{"id":"it-2-5-1-n-intro","type":"text","content":"## Å tegne virkeligheten som data\n\nI IT 1 lærte du grunnleggende om databaser og SQL. Nå skal vi fordype oss i hvordan vi designer gode databaseløsninger fra bunnen av. En veldesignet database gjør det enklere å hente ut data, unngår duplikater og sikrer at informasjonen er konsistent. Det starter ikke med kode, men med en tegning.\n\n**ER-modellering** (Entity-Relationship) er en metode for å visualisere datastrukturen før vi lager databasen. Vi identifiserer tre ting. **Entiteter** er objektene eller «tingene» i systemet – i et biblioteksystem er det Bok, Forfatter, Medlem og Utlån – og hver entitet blir en tabell. **Attributter** er egenskapene til entitetene; en Bok kan ha ISBN, tittel og utgivelsesår. **Relasjoner** er forbindelsene mellom entitetene, og de finnes i tre typer. En **en-til-mange** (1:N) er for eksempel at én forfatter skriver mange bøker. En **mange-til-mange** (M:N) er at én bok kan ha flere forfattere, og én forfatter flere bøker. En **en-til-en** (1:1) er sjelden, men finnes – som at én person har ett pass.\n\nI selve ER-diagrammet tegner vi rektangler for entiteter, ovaler for attributter, romber for relasjoner, og linjer som binder alt sammen. Slik ser vi helheten før vi skriver en eneste linje SQL."},{"id":"it-2-5-1-n-quiz1","type":"exercise","exercise":{"id":"it-2-5-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på ER-modellering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-1-n-quiz1-q0","task":"Hva blir en entitet til i selve databasen?","options":[{"id":"a","text":"En kolonne","isCorrect":false},{"id":"b","text":"En enkelt verdi","isCorrect":false},{"id":"c","text":"En spørring","isCorrect":false},{"id":"d","text":"En tabell","isCorrect":true}],"solution":"Hver entitet i ER-modellen blir til en tabell i databasen, med attributtene som kolonner."},{"id":"it-2-5-1-n-quiz1-q1","task":"Hvilken relasjonstype passer «én bok kan ha flere forfattere, og én forfatter flere bøker»?","options":[{"id":"a","text":"Mange-til-mange (M:N)","isCorrect":true},{"id":"b","text":"En-til-en (1:1)","isCorrect":false},{"id":"c","text":"En-til-mange (1:N)","isCorrect":false},{"id":"d","text":"Ingen relasjon","isCorrect":false}],"solution":"Når begge sider kan knyttes til flere på den andre siden, er det en mange-til-mange-relasjon."},{"id":"it-2-5-1-n-quiz1-q2","task":"Hva representerer en oval i et ER-diagram?","options":[{"id":"a","text":"En entitet","isCorrect":false},{"id":"b","text":"Et attributt","isCorrect":true},{"id":"c","text":"En relasjon","isCorrect":false},{"id":"d","text":"En primærnøkkel utelukkende","isCorrect":false}],"solution":"Ovaler står for attributter, rektangler for entiteter, og romber for relasjoner."}]}},{"id":"it-2-5-1-n-section1","type":"text","content":"## Normalformene rydder opp\n\nEn naiv databasestruktur fører fort til rot. **Normalisering** er prosessen med å organisere data for å minimere redundans, sikre dataintegritet og gjøre databasen lettere å oppdatere. Vi går gjennom tre nivåer.\n\n**Første normalform (1NF)** krever at alle attributter har atomiske, udelelige verdier – ingen lister i ett felt. Hvis du lagrer to telefonnumre som «98765432, 91234567» i én celle, bryter du 1NF. Løsningen er en egen Telefon-tabell med ett nummer per rad. **Andre normalform (2NF)** krever 1NF pluss at alle ikke-nøkkelattributter er fullstendig avhengige av hele primærnøkkelen. I en Ordre-tabell med nøkkelen (ordreID, produktID), der produktnavn bare avhenger av produktID, brytes 2NF – produktnavnet bør flyttes til en egen Produkt-tabell. **Tredje normalform (3NF)** krever 2NF pluss at det ikke finnes transitive avhengigheter, altså at ikke-nøkkelattributter ikke avhenger av andre ikke-nøkkelattributter. En Ansatt-tabell med både avdelingID og avdelingsnavn bryter 3NF, fordi avdelingsnavnet egentlig hører til avdelingen, ikke til den ansatte. Løsningen er en egen Avdeling-tabell.\n\nFelles for alle tre er målet: hver opplysning skal lagres ett sted. Da slipper vi **anomalier** – problemer ved innsetting, oppdatering og sletting som oppstår når samme data er duplisert mange steder."},{"id":"it-2-5-1-n-quiz2","type":"exercise","exercise":{"id":"it-2-5-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på normalformer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-1-n-quiz2-q0","task":"Hva er hovedformålet med normalisering?","options":[{"id":"a","text":"Å gjøre databasen større","isCorrect":false},{"id":"b","text":"Å gjøre spørringer tregere","isCorrect":false},{"id":"c","text":"Å minimere redundans og sikre dataintegritet","isCorrect":true},{"id":"d","text":"Å fjerne alle nøkler","isCorrect":false}],"solution":"Normalisering organiserer data for å fjerne unødvendige duplikater og holde dataene konsistente."},{"id":"it-2-5-1-n-quiz2-q1","task":"Hvilken normalform krever atomiske verdier (ingen lister i ett felt)?","options":[{"id":"a","text":"2NF","isCorrect":false},{"id":"b","text":"3NF","isCorrect":false},{"id":"c","text":"BCNF","isCorrect":false},{"id":"d","text":"1NF","isCorrect":true}],"solution":"Første normalform (1NF) krever at hver celle inneholder én udelelig verdi, ikke en liste."},{"id":"it-2-5-1-n-quiz2-q2","task":"En Ansatt-tabell har avdelingID og avdelingsnavn. Hvilken normalform brytes?","options":[{"id":"a","text":"3NF (transitiv avhengighet)","isCorrect":true},{"id":"b","text":"1NF","isCorrect":false},{"id":"c","text":"Ingen – designet er optimalt","isCorrect":false},{"id":"d","text":"Bare BCNF","isCorrect":false}],"solution":"Avdelingsnavn avhenger av avdelingID, ikke av ansattID – en transitiv avhengighet som bryter 3NF."}]}},{"id":"it-2-5-1-n-section2","type":"text","content":"## Nøklene som binder det sammen\n\nFor å knytte tabellene sammen og holde dataene pålitelige, trenger vi nøkler. En **primærnøkkel** er en unik identifikator for hver rad. Den kan aldri være NULL og må være unik – som forfatterID i en Forfatter-tabell. En **fremmednøkkel** er et attributt som refererer til primærnøkkelen i en annen tabell, og det er nettopp dette som skaper relasjoner. En Bok-tabell kan ha en forfatterID som er fremmednøkkel mot Forfatter:\n\n```sql\nCREATE TABLE Bok (\n    ISBN TEXT PRIMARY KEY,\n    tittel TEXT NOT NULL,\n    forfatterID INTEGER,\n    FOREIGN KEY (forfatterID) REFERENCES Forfatter(forfatterID)\n);\n```\n\nFremmednøkler gir flere gevinster. De sikrer **referanseintegritet**: du kan ikke referere til en rad som ikke finnes, så et forsøk på å sette inn en bok med en forfatterID som ikke eksisterer, vil feile. De forhindrer også at du sletter data andre tabeller er avhengige av – du kan for eksempel ikke slette en forfatter hvis det fortsatt finnes bøker som peker til den. Og de dokumenterer relasjonene mellom tabellene.\n\nEn liten, men viktig detalj for mange-til-mange-relasjoner: de kan ikke uttrykkes direkte. I stedet lager vi en **koblingstabell** med fremmednøkler til begge sider. En LærerFag-tabell med (lærerID, fagID) som sammensatt primærnøkkel lar én lærer undervise i flere fag og ett fag undervises av flere lærere. Slik blir M:N til to håndterbare 1:N-relasjoner."},{"id":"it-2-5-1-n-quiz3","type":"exercise","exercise":{"id":"it-2-5-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på nøkler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-1-n-quiz3-q0","task":"Hva kalles et attributt som refererer til primærnøkkelen i en annen tabell?","options":[{"id":"a","text":"Supernøkkel","isCorrect":false},{"id":"b","text":"Fremmednøkkel","isCorrect":true},{"id":"c","text":"Kandidatnøkkel","isCorrect":false},{"id":"d","text":"Sekundærnøkkel","isCorrect":false}],"solution":"En fremmednøkkel peker til primærnøkkelen i en annen tabell og skaper relasjonen mellom dem."},{"id":"it-2-5-1-n-quiz3-q1","task":"Hva kjennetegner en primærnøkkel?","options":[{"id":"a","text":"Den kan gjentas i flere rader","isCorrect":false},{"id":"b","text":"Den må alltid være et navn","isCorrect":false},{"id":"c","text":"Den er unik og kan ikke være NULL","isCorrect":true},{"id":"d","text":"Den peker til en annen tabell","isCorrect":false}],"solution":"En primærnøkkel identifiserer hver rad unikt og kan aldri være NULL."},{"id":"it-2-5-1-n-quiz3-q2","task":"Hvordan modellerer du en mange-til-mange-relasjon mellom Lærer og Fag?","options":[{"id":"a","text":"Med én tabell som lagrer alt","isCorrect":false},{"id":"b","text":"Det er umulig","isCorrect":false},{"id":"c","text":"Med en oval i diagrammet","isCorrect":false},{"id":"d","text":"Med en koblingstabell (f.eks. LærerFag) med fremmednøkler til begge","isCorrect":true}],"solution":"M:N løses med en koblingstabell som har fremmednøkler til begge tabellene, ofte som sammensatt primærnøkkel."}]}},{"id":"it-2-5-1-n-summary","type":"text","content":"## Oppsummering\n\nGod databasedesign begynner med en tegning. **ER-modellering** identifiserer entiteter (som blir tabeller), attributter og relasjoner – en-til-mange, mange-til-mange og en-til-en. **Normalisering** rydder opp i tre trinn: 1NF krever atomiske verdier, 2NF at alt avhenger av hele primærnøkkelen, og 3NF at ingen ikke-nøkkelattributter avhenger av hverandre. Målet er å lagre hver opplysning ett sted og unngå anomalier.\n\nTabellene bindes sammen av nøkler: **primærnøkkelen** identifiserer hver rad unikt, og **fremmednøkkelen** skaper relasjoner og sikrer referanseintegritet. Mange-til-mange-relasjoner løses med en koblingstabell. Med disse verktøyene bygger du databaser som er konsistente og enkle å vedlikeholde. I neste kapittel går vi videre til avansert SQL."}],"exercises":[]}
+{
+  "id": "it-2-5-1-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "1",
+  "title": "Relasjonsdatabaser – repetisjon og fordypning",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan vi tegner virkeligheten som data – fra ER-modellens entiteter og relasjoner til normalformene som rydder bort duplikater og holder databasen konsistent.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "Lage ER-diagrammer med entiteter, attributter og relasjoner",
+    "Forstå normalformene 1NF, 2NF og 3NF",
+    "Designe tabeller med primær- og fremmednøkler"
+  ],
+  "linkedChapterId": "it-2-5-1",
+  "content": [
+    {
+      "id": "it-2-5-1-n-intro",
+      "type": "text",
+      "content": "## Å tegne virkeligheten som data\n\nI IT 1 lærte du grunnleggende om databaser og SQL. Nå skal vi fordype oss i hvordan vi designer gode databaseløsninger fra bunnen av. En veldesignet database gjør det enklere å hente ut data, unngår duplikater og sikrer at informasjonen er konsistent. Det starter ikke med kode, men med en tegning.\n\n**ER-modellering** (Entity-Relationship) er en metode for å visualisere datastrukturen før vi lager databasen. Vi identifiserer tre ting. **Entiteter** er objektene eller «tingene» i systemet – i et biblioteksystem er det Bok, Forfatter, Medlem og Utlån – og hver entitet blir en tabell. **Attributter** er egenskapene til entitetene; en Bok kan ha ISBN, tittel og utgivelsesår. **Relasjoner** er forbindelsene mellom entitetene, og de finnes i tre typer. En **en-til-mange** (1:N) er for eksempel at én forfatter skriver mange bøker. En **mange-til-mange** (M:N) er at én bok kan ha flere forfattere, og én forfatter flere bøker. En **en-til-en** (1:1) er sjelden, men finnes – som at én person har ett pass.\n\nI selve ER-diagrammet tegner vi rektangler for entiteter, ovaler for attributter, romber for relasjoner, og linjer som binder alt sammen. Slik ser vi helheten før vi skriver en eneste linje SQL."
+    },
+    {
+      "id": "it-2-5-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ER-modellering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-1-n-quiz1-q0",
+            "task": "Hva blir en entitet til i selve databasen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En kolonne",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En enkelt verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En tabell",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "En spørring",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hver entitet i ER-modellen blir til en tabell i databasen, med attributtene som kolonner."
+          },
+          {
+            "id": "it-2-5-1-n-quiz1-q1",
+            "task": "Hvilken relasjonstype passer «én bok kan ha flere forfattere, og én forfatter flere bøker»?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En-til-en (1:1)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En-til-mange (1:N)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen relasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Mange-til-mange (M:N)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når begge sider kan knyttes til flere på den andre siden, er det en mange-til-mange-relasjon."
+          },
+          {
+            "id": "it-2-5-1-n-quiz1-q2",
+            "task": "Hva representerer en oval i et ER-diagram?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Et attributt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En entitet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En relasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En primærnøkkel utelukkende",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ovaler står for attributter, rektangler for entiteter, og romber for relasjoner."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-1-n-section1",
+      "type": "text",
+      "content": "## Normalformene rydder opp\n\nEn naiv databasestruktur fører fort til rot. **Normalisering** er prosessen med å organisere data for å minimere redundans, sikre dataintegritet og gjøre databasen lettere å oppdatere. Vi går gjennom tre nivåer.\n\n**Første normalform (1NF)** krever at alle attributter har atomiske, udelelige verdier – ingen lister i ett felt. Hvis du lagrer to telefonnumre som «98765432, 91234567» i én celle, bryter du 1NF. Løsningen er en egen Telefon-tabell med ett nummer per rad. **Andre normalform (2NF)** krever 1NF pluss at alle ikke-nøkkelattributter er fullstendig avhengige av hele primærnøkkelen. I en Ordre-tabell med nøkkelen (ordreID, produktID), der produktnavn bare avhenger av produktID, brytes 2NF – produktnavnet bør flyttes til en egen Produkt-tabell. **Tredje normalform (3NF)** krever 2NF pluss at det ikke finnes transitive avhengigheter, altså at ikke-nøkkelattributter ikke avhenger av andre ikke-nøkkelattributter. En Ansatt-tabell med både avdelingID og avdelingsnavn bryter 3NF, fordi avdelingsnavnet egentlig hører til avdelingen, ikke til den ansatte. Løsningen er en egen Avdeling-tabell.\n\nFelles for alle tre er målet: hver opplysning skal lagres ett sted. Da slipper vi **anomalier** – problemer ved innsetting, oppdatering og sletting som oppstår når samme data er duplisert mange steder."
+    },
+    {
+      "id": "it-2-5-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på normalformer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-1-n-quiz2-q0",
+            "task": "Hva er hovedformålet med normalisering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gjøre databasen større",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å minimere redundans og sikre dataintegritet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å gjøre spørringer tregere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å fjerne alle nøkler",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Normalisering organiserer data for å fjerne unødvendige duplikater og holde dataene konsistente."
+          },
+          {
+            "id": "it-2-5-1-n-quiz2-q1",
+            "task": "Hvilken normalform krever atomiske verdier (ingen lister i ett felt)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2NF",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3NF",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1NF",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "BCNF",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Første normalform (1NF) krever at hver celle inneholder én udelelig verdi, ikke en liste."
+          },
+          {
+            "id": "it-2-5-1-n-quiz2-q2",
+            "task": "En Ansatt-tabell har avdelingID og avdelingsnavn. Hvilken normalform brytes?",
+            "options": [
+              {
+                "id": "b",
+                "text": "1NF",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen – designet er optimalt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare BCNF",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "3NF (transitiv avhengighet)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Avdelingsnavn avhenger av avdelingID, ikke av ansattID – en transitiv avhengighet som bryter 3NF."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-1-n-section2",
+      "type": "text",
+      "content": "## Nøklene som binder det sammen\n\nFor å knytte tabellene sammen og holde dataene pålitelige, trenger vi nøkler. En **primærnøkkel** er en unik identifikator for hver rad. Den kan aldri være NULL og må være unik – som forfatterID i en Forfatter-tabell. En **fremmednøkkel** er et attributt som refererer til primærnøkkelen i en annen tabell, og det er nettopp dette som skaper relasjoner. En Bok-tabell kan ha en forfatterID som er fremmednøkkel mot Forfatter:\n\n```sql\nCREATE TABLE Bok (\n    ISBN TEXT PRIMARY KEY,\n    tittel TEXT NOT NULL,\n    forfatterID INTEGER,\n    FOREIGN KEY (forfatterID) REFERENCES Forfatter(forfatterID)\n);\n```\n\nFremmednøkler gir flere gevinster. De sikrer **referanseintegritet**: du kan ikke referere til en rad som ikke finnes, så et forsøk på å sette inn en bok med en forfatterID som ikke eksisterer, vil feile. De forhindrer også at du sletter data andre tabeller er avhengige av – du kan for eksempel ikke slette en forfatter hvis det fortsatt finnes bøker som peker til den. Og de dokumenterer relasjonene mellom tabellene.\n\nEn liten, men viktig detalj for mange-til-mange-relasjoner: de kan ikke uttrykkes direkte. I stedet lager vi en **koblingstabell** med fremmednøkler til begge sider. En LærerFag-tabell med (lærerID, fagID) som sammensatt primærnøkkel lar én lærer undervise i flere fag og ett fag undervises av flere lærere. Slik blir M:N til to håndterbare 1:N-relasjoner."
+    },
+    {
+      "id": "it-2-5-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på nøkler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-1-n-quiz3-q0",
+            "task": "Hva kalles et attributt som refererer til primærnøkkelen i en annen tabell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fremmednøkkel",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Supernøkkel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kandidatnøkkel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sekundærnøkkel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En fremmednøkkel peker til primærnøkkelen i en annen tabell og skaper relasjonen mellom dem."
+          },
+          {
+            "id": "it-2-5-1-n-quiz3-q1",
+            "task": "Hva kjennetegner en primærnøkkel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den kan gjentas i flere rader",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den er unik og kan ikke være NULL",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den må alltid være et navn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den peker til en annen tabell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En primærnøkkel identifiserer hver rad unikt og kan aldri være NULL."
+          },
+          {
+            "id": "it-2-5-1-n-quiz3-q2",
+            "task": "Hvordan modellerer du en mange-til-mange-relasjon mellom Lærer og Fag?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Med én tabell som lagrer alt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det er umulig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Med en koblingstabell (f.eks. LærerFag) med fremmednøkler til begge",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Med en oval i diagrammet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "M:N løses med en koblingstabell som har fremmednøkler til begge tabellene, ofte som sammensatt primærnøkkel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nGod databasedesign begynner med en tegning. **ER-modellering** identifiserer entiteter (som blir tabeller), attributter og relasjoner – en-til-mange, mange-til-mange og en-til-en. **Normalisering** rydder opp i tre trinn: 1NF krever atomiske verdier, 2NF at alt avhenger av hele primærnøkkelen, og 3NF at ingen ikke-nøkkelattributter avhenger av hverandre. Målet er å lagre hver opplysning ett sted og unngå anomalier.\n\nTabellene bindes sammen av nøkler: **primærnøkkelen** identifiserer hver rad unikt, og **fremmednøkkelen** skaper relasjoner og sikrer referanseintegritet. Mange-til-mange-relasjoner løses med en koblingstabell. Med disse verktøyene bygger du databaser som er konsistente og enkle å vedlikeholde. I neste kapittel går vi videre til avansert SQL."
+    }
+  ],
+  "exercises": []
+}

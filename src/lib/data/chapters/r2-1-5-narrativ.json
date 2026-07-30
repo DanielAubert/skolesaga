@@ -1,1 +1,368 @@
-{"id":"r2-1-5-narrativ","courseId":"r2","chapterNumber":"1.5","title":"Uendelige rekker og konvergens","subtitle":"Narrativ versjon","description":"En fortelling om uendelige rekker — fra Zenons paradoks om bevegelsen som aldri blir ferdig, til konvergensbegrepet som forklarer hvordan uendelig mange ledd kan gi en endelig sum.","estimatedMinutes":35,"competenceGoals":["utforske eigenskapar ved ulike foljer"],"linkedChapterId":"r2-1-5","content":[{"id":"r2-1-5-n-intro","type":"text","content":"## Zenons paradoks: pilen som aldri når frem\n\nFor nesten 2500 år siden satte den greske filosofen Zenon hele antikkens tankeverden i sjakk med et tilsynelatende uskyldig argument. Skal du gå bort til døra, må du først gå halvveis. Deretter halvparten av det som gjenstår. Så halvparten igjen, og igjen, og igjen. Du må altså gjennomføre *uendelig mange* etapper — og hvordan kan noen bli ferdig med noe uendelig? Konklusjonen hans var svimlende: bevegelse er umulig.\n\nMen du når jo faktisk døra. Etappene dine er $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\frac{1}{16} + \\cdots$, og selv om de er uendelig mange, blir de raskt så små at totalen aldri overstiger $1$. Zenons paradoks løses av en av matematikkens vakreste innsikter: **uendelig mange ledd kan ha en endelig sum**. I dette kapittelet skal vi gjøre denne innsikten presis — vi skal lære når uendelige rekker *konvergerer* mot et tall, og når de *divergerer* mot uendelig. Og vi skal møte en rekke som lurer nesten alle ved første blikk."},{"id":"r2-1-5-n-section1","type":"text","content":"## Delsummer, konvergens og divergens\n\nHvordan kan vi i det hele tatt gi mening til en sum med uendelig mange ledd? Trikset er å snike oss innpå svaret. En **uendelig rekke** skrives\n\n$$\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + \\cdots$$\n\nog vi studerer **delsummene** $S_n = a_1 + a_2 + \\cdots + a_n$ — det vi har samlet opp etter $n$ ledd. Hvis følgen av delsummer nærmer seg en endelig grenseverdi $S = \\lim_{n \\to \\infty} S_n$, sier vi at rekken **konvergerer** og har summen $S$. Hvis grenseverdien ikke finnes eller er uendelig, **divergerer** rekken.\n\nSe på Zenon-rekkens slektning $1 + \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots$ Delsummene er $S_1 = 1$, $S_2 = 1{,}5$, $S_3 = 1{,}75$, $S_4 = 1{,}875$ — de kryper stadig nærmere $2$ uten noen gang å passere. Dette er en geometrisk rekke med $a_1 = 1$ og $k = \\frac{1}{2}$, og siden $\\left(\\frac{1}{2}\\right)^n \\to 0$ når $n \\to \\infty$, blir summen nøyaktig $2$.\n\nGenerelt gjelder for en **uendelig geometrisk rekke**: hvis $|k| < 1$, konvergerer den, og\n\n$$\\sum_{n=1}^{\\infty} a_1 \\cdot k^{n-1} = \\frac{a_1}{1 - k}$$\n\nHvis $|k| \\geq 1$, divergerer rekken — leddene krymper ikke fort nok, eller krymper ikke i det hele tatt. For Zenons etapper: $\\frac{1/2}{1 - 1/2} = 1$. Du når døra, akkurat som erfaringen sier."},{"id":"r2-1-5-n-quiz1","type":"exercise","exercise":{"id":"r2-1-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på uendelige geometriske rekker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-5-n-quiz1-q0","task":"Hva er summen av den uendelige rekken $1 + \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots$?","options":[{"id":"a","text":"Uendelig","isCorrect":false},{"id":"b","text":"$2$","isCorrect":true},{"id":"c","text":"$1{,}875$","isCorrect":false},{"id":"d","text":"$\\frac{3}{2}$","isCorrect":false}],"solution":"Geometrisk rekke med $a_1 = 1$ og $k = \\frac{1}{2}$: $S = \\frac{a_1}{1-k} = \\frac{1}{1 - \\frac{1}{2}} = 2$."},{"id":"r2-1-5-n-quiz1-q1","task":"Når konvergerer en uendelig geometrisk rekke med kvotient $k$?","options":[{"id":"a","text":"Når $k > 0$","isCorrect":false},{"id":"b","text":"Når $k < 1$","isCorrect":false},{"id":"c","text":"Når $|k| < 1$","isCorrect":true},{"id":"d","text":"Alltid, hvis leddene går mot null","isCorrect":false}],"solution":"Betingelsen er $|k| < 1$, altså $-1 < k < 1$. Merk at $k < 1$ ikke er nok: for eksempel divergerer rekken hvis $k = -2$."},{"id":"r2-1-5-n-quiz1-q2","task":"Hva er summen av den uendelige rekken $6 + 2 + \\frac{2}{3} + \\frac{2}{9} + \\cdots$?","options":[{"id":"a","text":"$12$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":false},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$9$","isCorrect":true}],"solution":"Her er $a_1 = 6$ og $k = \\frac{1}{3}$, så $S = \\frac{6}{1 - \\frac{1}{3}} = \\frac{6}{\\frac{2}{3}} = 9$."},{"id":"r2-1-5-n-quiz1-q3","task":"Hva er en delsum $S_n$ av en uendelig rekke?","options":[{"id":"a","text":"Summen av de $n$ første leddene","isCorrect":true},{"id":"b","text":"Det $n$-te leddet i rekken","isCorrect":false},{"id":"c","text":"Grenseverdien av rekken","isCorrect":false},{"id":"d","text":"Differansen mellom to nabosummer","isCorrect":false}],"solution":"$S_n = a_1 + a_2 + \\cdots + a_n$. Rekken konvergerer hvis følgen av delsummer har en endelig grenseverdi."}]}},{"id":"r2-1-5-n-section2","type":"text","content":"## Sprettballen — uendelig i praksis\n\nDen uendelige geometriske rekken er ikke bare filosofi; den løser høyst konkrete problemer. Slipp en ball fra $10$ meter, og la den sprette tilbake til $60\\,\\%$ av forrige høyde hver gang. Hvor langt beveger ballen seg totalt før den blir liggende?\n\nFørst faller den $10$ meter. Så spretter den $6$ meter opp og faller $6$ meter ned, deretter $3{,}6$ opp og $3{,}6$ ned, og så videre. Total strekning blir\n\n$$S = 10 + 2(6 + 3{,}6 + 2{,}16 + \\cdots)$$\n\nParentesen er en uendelig geometrisk rekke med $a_1 = 6$ og $k = 0{,}6$, altså $\\frac{6}{1 - 0{,}6} = 15$ meter. Totalen blir $10 + 2 \\cdot 15 = 40$ meter.\n\nStopp opp og kjenn på det: ballen spretter i prinsippet uendelig mange ganger, men den samlede strekningen er nøyaktig $40$ meter — et endelig tall. Det er Zenons paradoks i fysisk form, og rekken gir oss svaret uten å summere ett eneste sprett for hånd. I et koordinatsystem ser du det samme: delsummene $S_n$ klatrer mot grensen $S$ og flater ut, mens en divergerende rekke bare fortsetter oppover."},{"id":"r2-1-5-n-quiz2","type":"exercise","exercise":{"id":"r2-1-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på anvendelser av uendelige rekker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-5-n-quiz2-q0","task":"En ball slippes fra $10$ m og spretter til $60\\,\\%$ av forrige høyde hver gang. Hvor lang er den totale strekningen ballen beveger seg?","options":[{"id":"a","text":"$25$ m","isCorrect":false},{"id":"b","text":"$30$ m","isCorrect":false},{"id":"c","text":"$50$ m","isCorrect":false},{"id":"d","text":"$40$ m","isCorrect":true}],"solution":"Strekningen er $10 + 2 \\cdot \\frac{6}{1-0{,}6} = 10 + 2 \\cdot 15 = 40$ m. Hvert sprett gir både en vei opp og en vei ned, derav faktoren $2$."},{"id":"r2-1-5-n-quiz2-q1","task":"En uendelig geometrisk rekke har $a_1 = 8$ og sum $S = 12$. Hva er kvotienten $k$?","options":[{"id":"a","text":"$k = \\frac{1}{3}$","isCorrect":true},{"id":"b","text":"$k = \\frac{2}{3}$","isCorrect":false},{"id":"c","text":"$k = \\frac{3}{4}$","isCorrect":false},{"id":"d","text":"$k = \\frac{1}{2}$","isCorrect":false}],"solution":"$\\frac{8}{1-k} = 12$ gir $1 - k = \\frac{8}{12} = \\frac{2}{3}$, altså $k = \\frac{1}{3}$."},{"id":"r2-1-5-n-quiz2-q2","task":"Tallet $0{,}999\\ldots = 0{,}9 + 0{,}09 + 0{,}009 + \\cdots$ kan tolkes som en uendelig geometrisk rekke. Hva er summen?","options":[{"id":"a","text":"Litt mindre enn $1$","isCorrect":false},{"id":"b","text":"Nøyaktig $1$","isCorrect":true},{"id":"c","text":"$0{,}99$","isCorrect":false},{"id":"d","text":"Rekken divergerer","isCorrect":false}],"solution":"$a_1 = 0{,}9$ og $k = 0{,}1$ gir $S = \\frac{0{,}9}{1 - 0{,}1} = 1$. Altså er $0{,}999\\ldots$ nøyaktig lik $1$."}]}},{"id":"r2-1-5-n-section3","type":"text","content":"## Rekken som lurer alle: harmonisk divergens\n\nNå til kapittelets store overraskelse. Det er fristende å tro at en rekke konvergerer så lenge leddene går mot null — de blir jo uendelig små til slutt. Men se på den **harmoniske rekken**:\n\n$$1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\frac{1}{5} + \\cdots$$\n\nLeddene går mot null, men rekken **divergerer**! Beviset er et av matematikkhistoriens fineste: grupper leddene som $1 + \\frac{1}{2} + \\left(\\frac{1}{3} + \\frac{1}{4}\\right) + \\left(\\frac{1}{5} + \\cdots + \\frac{1}{8}\\right) + \\cdots$ Hver gruppe er større enn $\\frac{1}{2}$ (for eksempel er $\\frac{1}{3} + \\frac{1}{4} > \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$), og uendelig mange halve vokser over alle grenser.\n\nDette gir oss en viktig presisering. At $\\lim_{n \\to \\infty} a_n = 0$ er en **nødvendig** betingelse for konvergens — divergerer ikke leddene mot null, divergerer rekken garantert. Men den er **ikke tilstrekkelig**: harmonisk rekke er motbeviset.\n\nHvor går så grensen mellom konvergens og divergens? For **p-rekkene** $\\sum_{n=1}^{\\infty} \\frac{1}{n^p}$ er svaret skarpt: rekken konvergerer hvis $p > 1$ og divergerer hvis $p \\leq 1$. Dermed konvergerer $\\sum \\frac{1}{n^2}$ (med $p = 2$), mens $\\sum \\frac{1}{\\sqrt{n}}$ (med $p = \\frac{1}{2}$) divergerer. Den harmoniske rekken, med $p = 1$, ligger nøyaktig på den gale siden av streken."},{"id":"r2-1-5-n-quiz3","type":"exercise","exercise":{"id":"r2-1-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på konvergens og divergens:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-5-n-quiz3-q0","task":"Leddene i den harmoniske rekken $\\sum_{n=1}^{\\infty} \\frac{1}{n}$ går mot null. Hva gjelder for rekken?","options":[{"id":"a","text":"Den konvergerer mot $2$","isCorrect":false},{"id":"b","text":"Den konvergerer, men summen er ukjent","isCorrect":false},{"id":"c","text":"Den divergerer","isCorrect":true},{"id":"d","text":"Den konvergerer mot $e$","isCorrect":false}],"solution":"Den harmoniske rekken divergerer, selv om leddene går mot null. Gruppering viser at summen vokser med minst $\\frac{1}{2}$ for hver gruppe."},{"id":"r2-1-5-n-quiz3-q1","task":"Hva er riktig om betingelsen $\\lim_{n \\to \\infty} a_n = 0$ for rekken $\\sum a_n$?","options":[{"id":"a","text":"Den er nødvendig, men ikke tilstrekkelig, for konvergens","isCorrect":true},{"id":"b","text":"Den er tilstrekkelig, men ikke nødvendig, for konvergens","isCorrect":false},{"id":"c","text":"Den er både nødvendig og tilstrekkelig","isCorrect":false},{"id":"d","text":"Den har ingenting med konvergens å gjøre","isCorrect":false}],"solution":"Konvergens krever at leddene går mot null (nødvendig), men det holder ikke alene — den harmoniske rekken er moteksempelet (ikke tilstrekkelig)."},{"id":"r2-1-5-n-quiz3-q2","task":"Hvilken av disse p-rekkene konvergerer?","options":[{"id":"a","text":"$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt{n}}$","isCorrect":false},{"id":"b","text":"$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{n}$","isCorrect":false},{"id":"c","text":"$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{n^{0{,}9}}$","isCorrect":false},{"id":"d","text":"$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$","isCorrect":true}],"solution":"p-rekken konvergerer når $p > 1$. Bare $\\sum \\frac{1}{n^2}$ har $p = 2 > 1$; de andre har $p \\leq 1$ og divergerer."}]}},{"id":"r2-1-5-n-summary","type":"text","content":"## Oppsummering: når uendelig blir endelig\n\nZenon mente uendelig mange etapper gjorde bevegelse umulig — vi har sett at han manglet ett begrep: **konvergens**. En uendelig rekke $\\sum_{n=1}^{\\infty} a_n$ får mening gjennom delsummene $S_n$; nærmer de seg en endelig grense $S$, konvergerer rekken med sum $S$, ellers divergerer den.\n\nFor geometriske rekker er regelen krystallklar: $|k| < 1$ gir konvergens med sum $\\frac{a_1}{1-k}$, mens $|k| \\geq 1$ gir divergens. Det var denne formelen som lot oss summere Zenons etapper til nøyaktig $1$, sprettballens evige hopping til $40$ meter og desimaltallet $0{,}999\\ldots$ til nøyaktig $1$. Samtidig lærte den harmoniske rekken oss ydmykhet: at leddene går mot null er nødvendig for konvergens, men ikke tilstrekkelig — $1 + \\frac{1}{2} + \\frac{1}{3} + \\cdots$ vokser over alle grenser, bare uendelig sakte. p-rekkene $\\sum \\frac{1}{n^p}$ trakk opp den skarpe grensen: konvergens for $p > 1$, divergens for $p \\leq 1$. Uendeligheten er altså ikke ett land, men to — og nå har du kartet."}],"exercises":[]}
+{
+  "id": "r2-1-5-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "1.5",
+  "title": "Uendelige rekker og konvergens",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om uendelige rekker — fra Zenons paradoks om bevegelsen som aldri blir ferdig, til konvergensbegrepet som forklarer hvordan uendelig mange ledd kan gi en endelig sum.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske eigenskapar ved ulike foljer"
+  ],
+  "linkedChapterId": "r2-1-5",
+  "content": [
+    {
+      "id": "r2-1-5-n-intro",
+      "type": "text",
+      "content": "## Zenons paradoks: pilen som aldri når frem\n\nFor nesten 2500 år siden satte den greske filosofen Zenon hele antikkens tankeverden i sjakk med et tilsynelatende uskyldig argument. Skal du gå bort til døra, må du først gå halvveis. Deretter halvparten av det som gjenstår. Så halvparten igjen, og igjen, og igjen. Du må altså gjennomføre *uendelig mange* etapper — og hvordan kan noen bli ferdig med noe uendelig? Konklusjonen hans var svimlende: bevegelse er umulig.\n\nMen du når jo faktisk døra. Etappene dine er $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\frac{1}{16} + \\cdots$, og selv om de er uendelig mange, blir de raskt så små at totalen aldri overstiger $1$. Zenons paradoks løses av en av matematikkens vakreste innsikter: **uendelig mange ledd kan ha en endelig sum**. I dette kapittelet skal vi gjøre denne innsikten presis — vi skal lære når uendelige rekker *konvergerer* mot et tall, og når de *divergerer* mot uendelig. Og vi skal møte en rekke som lurer nesten alle ved første blikk."
+    },
+    {
+      "id": "r2-1-5-n-section1",
+      "type": "text",
+      "content": "## Delsummer, konvergens og divergens\n\nHvordan kan vi i det hele tatt gi mening til en sum med uendelig mange ledd? Trikset er å snike oss innpå svaret. En **uendelig rekke** skrives\n\n$$\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + \\cdots$$\n\nog vi studerer **delsummene** $S_n = a_1 + a_2 + \\cdots + a_n$ — det vi har samlet opp etter $n$ ledd. Hvis følgen av delsummer nærmer seg en endelig grenseverdi $S = \\lim_{n \\to \\infty} S_n$, sier vi at rekken **konvergerer** og har summen $S$. Hvis grenseverdien ikke finnes eller er uendelig, **divergerer** rekken.\n\nSe på Zenon-rekkens slektning $1 + \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots$ Delsummene er $S_1 = 1$, $S_2 = 1{,}5$, $S_3 = 1{,}75$, $S_4 = 1{,}875$ — de kryper stadig nærmere $2$ uten noen gang å passere. Dette er en geometrisk rekke med $a_1 = 1$ og $k = \\frac{1}{2}$, og siden $\\left(\\frac{1}{2}\\right)^n \\to 0$ når $n \\to \\infty$, blir summen nøyaktig $2$.\n\nGenerelt gjelder for en **uendelig geometrisk rekke**: hvis $|k| < 1$, konvergerer den, og\n\n$$\\sum_{n=1}^{\\infty} a_1 \\cdot k^{n-1} = \\frac{a_1}{1 - k}$$\n\nHvis $|k| \\geq 1$, divergerer rekken — leddene krymper ikke fort nok, eller krymper ikke i det hele tatt. For Zenons etapper: $\\frac{1/2}{1 - 1/2} = 1$. Du når døra, akkurat som erfaringen sier."
+    },
+    {
+      "id": "r2-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på uendelige geometriske rekker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-5-n-quiz1-q0",
+            "task": "Hva er summen av den uendelige rekken $1 + \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}875$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometrisk rekke med $a_1 = 1$ og $k = \\frac{1}{2}$: $S = \\frac{a_1}{1-k} = \\frac{1}{1 - \\frac{1}{2}} = 2$."
+          },
+          {
+            "id": "r2-1-5-n-quiz1-q1",
+            "task": "Når konvergerer en uendelig geometrisk rekke med kvotient $k$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $k > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $k < 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid, hvis leddene går mot null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $|k| < 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Betingelsen er $|k| < 1$, altså $-1 < k < 1$. Merk at $k < 1$ ikke er nok: for eksempel divergerer rekken hvis $k = -2$."
+          },
+          {
+            "id": "r2-1-5-n-quiz1-q2",
+            "task": "Hva er summen av den uendelige rekken $6 + 2 + \\frac{2}{3} + \\frac{2}{9} + \\cdots$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Her er $a_1 = 6$ og $k = \\frac{1}{3}$, så $S = \\frac{6}{1 - \\frac{1}{3}} = \\frac{6}{\\frac{2}{3}} = 9$."
+          },
+          {
+            "id": "r2-1-5-n-quiz1-q3",
+            "task": "Hva er en delsum $S_n$ av en uendelig rekke?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det $n$-te leddet i rekken",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Summen av de $n$ første leddene",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Grenseverdien av rekken",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Differansen mellom to nabosummer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S_n = a_1 + a_2 + \\cdots + a_n$. Rekken konvergerer hvis følgen av delsummer har en endelig grenseverdi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-5-n-section2",
+      "type": "text",
+      "content": "## Sprettballen — uendelig i praksis\n\nDen uendelige geometriske rekken er ikke bare filosofi; den løser høyst konkrete problemer. Slipp en ball fra $10$ meter, og la den sprette tilbake til $60\\,\\%$ av forrige høyde hver gang. Hvor langt beveger ballen seg totalt før den blir liggende?\n\nFørst faller den $10$ meter. Så spretter den $6$ meter opp og faller $6$ meter ned, deretter $3{,}6$ opp og $3{,}6$ ned, og så videre. Total strekning blir\n\n$$S = 10 + 2(6 + 3{,}6 + 2{,}16 + \\cdots)$$\n\nParentesen er en uendelig geometrisk rekke med $a_1 = 6$ og $k = 0{,}6$, altså $\\frac{6}{1 - 0{,}6} = 15$ meter. Totalen blir $10 + 2 \\cdot 15 = 40$ meter.\n\nStopp opp og kjenn på det: ballen spretter i prinsippet uendelig mange ganger, men den samlede strekningen er nøyaktig $40$ meter — et endelig tall. Det er Zenons paradoks i fysisk form, og rekken gir oss svaret uten å summere ett eneste sprett for hånd. I et koordinatsystem ser du det samme: delsummene $S_n$ klatrer mot grensen $S$ og flater ut, mens en divergerende rekke bare fortsetter oppover."
+    },
+    {
+      "id": "r2-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på anvendelser av uendelige rekker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-5-n-quiz2-q0",
+            "task": "En ball slippes fra $10$ m og spretter til $60\\,\\%$ av forrige høyde hver gang. Hvor lang er den totale strekningen ballen beveger seg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$25$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$30$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$40$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$50$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strekningen er $10 + 2 \\cdot \\frac{6}{1-0{,}6} = 10 + 2 \\cdot 15 = 40$ m. Hvert sprett gir både en vei opp og en vei ned, derav faktoren $2$."
+          },
+          {
+            "id": "r2-1-5-n-quiz2-q1",
+            "task": "En uendelig geometrisk rekke har $a_1 = 8$ og sum $S = 12$. Hva er kvotienten $k$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$k = \\frac{2}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$k = \\frac{3}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$k = \\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$k = \\frac{1}{3}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{8}{1-k} = 12$ gir $1 - k = \\frac{8}{12} = \\frac{2}{3}$, altså $k = \\frac{1}{3}$."
+          },
+          {
+            "id": "r2-1-5-n-quiz2-q2",
+            "task": "Tallet $0{,}999\\ldots = 0{,}9 + 0{,}09 + 0{,}009 + \\cdots$ kan tolkes som en uendelig geometrisk rekke. Hva er summen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nøyaktig $1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Litt mindre enn $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}99$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rekken divergerer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_1 = 0{,}9$ og $k = 0{,}1$ gir $S = \\frac{0{,}9}{1 - 0{,}1} = 1$. Altså er $0{,}999\\ldots$ nøyaktig lik $1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-5-n-section3",
+      "type": "text",
+      "content": "## Rekken som lurer alle: harmonisk divergens\n\nNå til kapittelets store overraskelse. Det er fristende å tro at en rekke konvergerer så lenge leddene går mot null — de blir jo uendelig små til slutt. Men se på den **harmoniske rekken**:\n\n$$1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\frac{1}{5} + \\cdots$$\n\nLeddene går mot null, men rekken **divergerer**! Beviset er et av matematikkhistoriens fineste: grupper leddene som $1 + \\frac{1}{2} + \\left(\\frac{1}{3} + \\frac{1}{4}\\right) + \\left(\\frac{1}{5} + \\cdots + \\frac{1}{8}\\right) + \\cdots$ Hver gruppe er større enn $\\frac{1}{2}$ (for eksempel er $\\frac{1}{3} + \\frac{1}{4} > \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}$), og uendelig mange halve vokser over alle grenser.\n\nDette gir oss en viktig presisering. At $\\lim_{n \\to \\infty} a_n = 0$ er en **nødvendig** betingelse for konvergens — divergerer ikke leddene mot null, divergerer rekken garantert. Men den er **ikke tilstrekkelig**: harmonisk rekke er motbeviset.\n\nHvor går så grensen mellom konvergens og divergens? For **p-rekkene** $\\sum_{n=1}^{\\infty} \\frac{1}{n^p}$ er svaret skarpt: rekken konvergerer hvis $p > 1$ og divergerer hvis $p \\leq 1$. Dermed konvergerer $\\sum \\frac{1}{n^2}$ (med $p = 2$), mens $\\sum \\frac{1}{\\sqrt{n}}$ (med $p = \\frac{1}{2}$) divergerer. Den harmoniske rekken, med $p = 1$, ligger nøyaktig på den gale siden av streken."
+    },
+    {
+      "id": "r2-1-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på konvergens og divergens:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-5-n-quiz3-q0",
+            "task": "Leddene i den harmoniske rekken $\\sum_{n=1}^{\\infty} \\frac{1}{n}$ går mot null. Hva gjelder for rekken?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den konvergerer mot $2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den divergerer",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den konvergerer, men summen er ukjent",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den konvergerer mot $e$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den harmoniske rekken divergerer, selv om leddene går mot null. Gruppering viser at summen vokser med minst $\\frac{1}{2}$ for hver gruppe."
+          },
+          {
+            "id": "r2-1-5-n-quiz3-q1",
+            "task": "Hva er riktig om betingelsen $\\lim_{n \\to \\infty} a_n = 0$ for rekken $\\sum a_n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den er tilstrekkelig, men ikke nødvendig, for konvergens",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den er både nødvendig og tilstrekkelig",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den er nødvendig, men ikke tilstrekkelig, for konvergens",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den har ingenting med konvergens å gjøre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konvergens krever at leddene går mot null (nødvendig), men det holder ikke alene — den harmoniske rekken er moteksempelet (ikke tilstrekkelig)."
+          },
+          {
+            "id": "r2-1-5-n-quiz3-q2",
+            "task": "Hvilken av disse p-rekkene konvergerer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{\\sqrt{n}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{n}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{n^{0{,}9}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\displaystyle\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "p-rekken konvergerer når $p > 1$. Bare $\\sum \\frac{1}{n^2}$ har $p = 2 > 1$; de andre har $p \\leq 1$ og divergerer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: når uendelig blir endelig\n\nZenon mente uendelig mange etapper gjorde bevegelse umulig — vi har sett at han manglet ett begrep: **konvergens**. En uendelig rekke $\\sum_{n=1}^{\\infty} a_n$ får mening gjennom delsummene $S_n$; nærmer de seg en endelig grense $S$, konvergerer rekken med sum $S$, ellers divergerer den.\n\nFor geometriske rekker er regelen krystallklar: $|k| < 1$ gir konvergens med sum $\\frac{a_1}{1-k}$, mens $|k| \\geq 1$ gir divergens. Det var denne formelen som lot oss summere Zenons etapper til nøyaktig $1$, sprettballens evige hopping til $40$ meter og desimaltallet $0{,}999\\ldots$ til nøyaktig $1$. Samtidig lærte den harmoniske rekken oss ydmykhet: at leddene går mot null er nødvendig for konvergens, men ikke tilstrekkelig — $1 + \\frac{1}{2} + \\frac{1}{3} + \\cdots$ vokser over alle grenser, bare uendelig sakte. p-rekkene $\\sum \\frac{1}{n^p}$ trakk opp den skarpe grensen: konvergens for $p > 1$, divergens for $p \\leq 1$. Uendeligheten er altså ikke ett land, men to — og nå har du kartet."
+    }
+  ],
+  "exercises": []
+}

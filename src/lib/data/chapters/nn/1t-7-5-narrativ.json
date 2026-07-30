@@ -1,1 +1,770 @@
-{"id":"1t-7-5-narrativ","courseId":"1t","chapterNumber":"7.5","title":"Definisjonen av derivasjon og numerisk derivasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om grenseverdiar og den formelle definisjonen av den deriverte – og korleis numerisk derivasjon gjev tilnærma svar.","estimatedMinutes":50,"competenceGoals":["forstå definisjonen av den deriverte som ein grenseverdi","bruke definisjonen til å derivere enkle funksjonar","forstå numerisk derivasjon og Newton-kvotienten"],"linkedChapterId":"1t-7-5","content":[{"id":"1t-7-5-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-5-narrativ-del1.mp3","description":"Lydfil som les opp teksten fram til første quiz."},{"id":"1t-7-5-n-intro","type":"text","content":"## Bak kulissane i derivasjon\n\nVi har no lært å derivere med potensregelen, sumregelen og konstantregelen. Men har du lurt på *kvifor* desse reglane fungerer? Kva er det eigentleg som skjer matematisk når vi deriverer?\n\nI dette kapittelet går vi bak kulissane og ser på **den formelle definisjonen** av den deriverte. Vi skal forstå kva ein **grenseverdi** er, verte kjende med **Newton-kvotienten** (òg kalla **differanskvotienten**), og lære om **numerisk derivasjon** – ein metode for å finne tilnærma verdiar av den deriverte. Sjølv om dei konkrete reglane vi har lært er raske og praktiske, er det verdifullt å forstå fundamentet dei kviler på."},{"id":"1t-7-5-n-section1","type":"text","content":"## Newton-kvotienten – gjennomsnittleg vekstfart i ny drakt\n\nVi byrjar med noko kjent. Hugs at gjennomsnittleg vekstfart mellom to punkt er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$. No skriv vi det på ein litt annan måte. Lat oss seie at vi startar i punktet $x$ og rører oss ein liten avstand $h$ til høgre, slik at det andre punktet er $x + h$. Då vert gjennomsnittleg vekstfart:\n\n$$\\frac{f(x + h) - f(x)}{h}$$\n\nDenne brøken vert kalla **Newton-kvotienten** eller **differanskvotienten**. Han gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x + h, f(x + h))$.\n\nLat oss ta eit døme. Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$ får vi: $\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Vi veit at den eksakte deriverte er $f'(2) = 2 \\cdot 2 = 4$, så $4{,}1$ er ei god tilnærming – ganske nær, men ikkje heilt nøyaktig.\n\nKva skjer viss vi gjer $h$ enda mindre? Med $h = 0{,}01$: $\\frac{f(2{,}01) - f(2)}{0{,}01} = \\frac{4{,}0401 - 4}{0{,}01} = 4{,}01$. Enda nærare! Di mindre $h$, desto betre tilnærming."},{"id":"1t-7-5-n-quiz1","type":"exercise","exercise":{"id":"1t-7-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på Newton-kvotienten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-5-n-quiz1-q0","task":"Kva vert brøken $\\frac{f(x + h) - f(x)}{h}$ kalla?","options":[{"id":"a","text":"Potensregelen","isCorrect":false},{"id":"b","text":"Tangentlikninga","isCorrect":false},{"id":"c","text":"Stigningstalet","isCorrect":false},{"id":"d","text":"Newton-kvotienten","isCorrect":true}],"solution":"Brøken $\\frac{f(x + h) - f(x)}{h}$ vert kalla **Newton-kvotienten** (eller differanskvotienten). Han gjev den gjennomsnittlege vekstfarten mellom $x$ og $x + h$."},{"id":"1t-7-5-n-quiz1-q1","task":"Kva representerer Newton-kvotienten grafisk?","options":[{"id":"a","text":"Stigningstalet til tangenten","isCorrect":false},{"id":"b","text":"Stigningstalet til sekanten mellom $(x, f(x))$ og $(x+h, f(x+h))$","isCorrect":true},{"id":"c","text":"Arealet under grafen","isCorrect":false},{"id":"d","text":"Nullpunktet til funksjonen","isCorrect":false}],"solution":"Newton-kvotienten gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x+h, f(x+h))$ på grafen. Det er den gjennomsnittlege vekstfarten i intervallet."},{"id":"1t-7-5-n-quiz1-q2","task":"Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$: kva gjev Newton-kvotienten?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$4{,}1$","isCorrect":true},{"id":"c","text":"$4{,}01$","isCorrect":false},{"id":"d","text":"$3{,}9$","isCorrect":false}],"solution":"$\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Den eksakte deriverte er $f'(2) = 4$, så $4{,}1$ er ei tilnærming."},{"id":"1t-7-5-n-quiz1-q3","task":"Kva skjer med Newton-kvotienten når $h$ vert mindre?","options":[{"id":"a","text":"Han vert meir unøyaktig","isCorrect":false},{"id":"b","text":"Han nærmar seg den eksakte deriverte","isCorrect":true},{"id":"c","text":"Han held seg uendra","isCorrect":false},{"id":"d","text":"Han går mot null","isCorrect":false}],"solution":"Di mindre $h$, desto betre tilnærmar Newton-kvotienten den eksakte deriverte. I grensa når $h \\to 0$ er Newton-kvotienten nøyaktig lik den deriverte."}]}},{"id":"1t-7-5-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-5-narrativ-del2.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-5-n-section2","type":"text","content":"## Definisjonen av den deriverte – grenseverdien\n\nVi har sett at Newton-kvotienten gjev betre og betre tilnærmingar til den deriverte di mindre $h$ vi vel. Den formelle definisjonen seier at den deriverte er det Newton-kvotienten *stabiliserer seg på* når $h$ går mot null. Vi skriv det med grenseverdi-symbolet:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$$\n\nLes dette som: «grenseverdien av Newton-kvotienten når $h$ går mot null». Merk at vi ikkje kan setje $h = 0$ direkte, for då ville vi delt på null. I staden lèt vi $h$ verte *vilkårleg nær* null og ser kva brøken nærmar seg.\n\nLat oss bevise at den deriverte av $x^2$ er $2x$ ved å bruke definisjonen. Vi startar med Newton-kvotienten: $\\frac{(x + h)^2 - x^2}{h}$. Vi utvidar $(x + h)^2 = x^2 + 2xh + h^2$. Då får vi $\\frac{x^2 + 2xh + h^2 - x^2}{h} = \\frac{2xh + h^2}{h} = \\frac{h(2x + h)}{h} = 2x + h$. Når $h \\to 0$, forsvinn $h$-leddet, og vi sit att med $f'(x) = 2x$.\n\nDette er altså *grunnen* til at potensregelen fungerer for $x^2$. Liknande utrekningar kan gjerast for høgare potensar, og dei gjev alltid potensregelen."},{"id":"1t-7-5-n-quiz2","type":"exercise","exercise":{"id":"1t-7-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på definisjonen av den deriverte:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-5-n-quiz2-q0","task":"Kva er den formelle definisjonen av den deriverte?","options":[{"id":"a","text":"$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$","isCorrect":true},{"id":"b","text":"$f'(x) = n \\cdot x^{n-1}$","isCorrect":false},{"id":"c","text":"$f'(x) = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}$","isCorrect":false},{"id":"d","text":"$f'(x) = f(x + 1) - f(x)$","isCorrect":false}],"solution":"Den formelle definisjonen er $f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$. Det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null."},{"id":"1t-7-5-n-quiz2-q1","task":"Kvifor kan vi ikkje setje $h = 0$ direkte i Newton-kvotienten?","options":[{"id":"a","text":"Fordi vi aldri brukar null i matematikk","isCorrect":false},{"id":"b","text":"Fordi vi ville dele på null","isCorrect":true},{"id":"c","text":"Fordi funksjonen ikkje er definert der","isCorrect":false},{"id":"d","text":"Fordi svaret alltid vert null","isCorrect":false}],"solution":"Viss $h = 0$, vert nemnaren i brøken $\\frac{f(x+h) - f(x)}{h}$ lik null, og vi kan ikkje dele på null. Difor brukar vi grenseverdi og lèt $h$ nærme seg null utan å verte null."},{"id":"1t-7-5-n-quiz2-q2","task":"Bruk definisjonen: Newton-kvotienten for $f(x) = x^2$ forenklast til $2x + h$. Kva er $\\lim_{h \\to 0}(2x + h)$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$2x$","isCorrect":true},{"id":"c","text":"$2x + 1$","isCorrect":false},{"id":"d","text":"$x^2$","isCorrect":false}],"solution":"Når $h \\to 0$ forsvinn $h$-leddet: $\\lim_{h \\to 0}(2x + h) = 2x + 0 = 2x$. Dermed er $f'(x) = 2x$, som stemmer med potensregelen."}]}},{"id":"1t-7-5-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-5-narrativ-del3.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-5-n-section3","type":"text","content":"## Derivasjon frå definisjonen – fleire døme\n\nLat oss bruke definisjonen på nokre fleire funksjonar for å få trening. Ta $f(x) = 3x$. Newton-kvotienten vert $\\frac{3(x + h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Når $h \\to 0$, er svaret framleis $3$. Altså er $f'(x) = 3$. Det stemmer – den deriverte av ein lineær funksjon er stigningstalet.\n\nNo eit litt vanskelegare døme: $f(x) = x^2 + 1$. Newton-kvotienten er $\\frac{(x + h)^2 + 1 - x^2 - 1}{h} = \\frac{x^2 + 2xh + h^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$, får vi $f'(x) = 2x$. Legg merke til at konstanten $+1$ ikkje påverkar den deriverte – han «forsvann» i utrekninga.\n\nEit tredje døme: $f(x) = 2x^2 - x$. Newton-kvotienten gjev $\\frac{2(x+h)^2 - (x+h) - 2x^2 + x}{h}$. Vi utvidar og forenklar: $\\frac{2x^2 + 4xh + 2h^2 - x - h - 2x^2 + x}{h} = \\frac{4xh + 2h^2 - h}{h} = 4x + 2h - 1$. Grenseverdien når $h \\to 0$ gjev $f'(x) = 4x - 1$."},{"id":"1t-7-5-n-quiz3","type":"exercise","exercise":{"id":"1t-7-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på derivasjon frå definisjonen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-5-n-quiz3-q0","task":"Bruk definisjonen av den deriverte på $f(x) = x^2 + 1$. Kva er $f'(x)$?","options":[{"id":"a","text":"$x^2$","isCorrect":false},{"id":"b","text":"$2x + 1$","isCorrect":false},{"id":"c","text":"$2x$","isCorrect":true},{"id":"d","text":"$x$","isCorrect":false}],"solution":"Newton-kvotienten gjev $\\frac{(x+h)^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$ sit vi att med $f'(x) = 2x$. Konstanten $+1$ påverkar ikkje den deriverte."},{"id":"1t-7-5-n-quiz3-q1","task":"For $f(x) = 3x$ gjev Newton-kvotienten $\\frac{3(x+h) - 3x}{h}$. Kva forenklast dette til?","options":[{"id":"a","text":"$3x$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":true},{"id":"c","text":"$3h$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":false}],"solution":"$\\frac{3(x+h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Svaret er $3$ for alle $h$, og grenseverdien er òg $3$. Det stemmer: den deriverte av $3x$ er $3$."},{"id":"1t-7-5-n-quiz3-q2","task":"For $f(x) = 2x^2 - x$ gjev Newton-kvotienten $4x + 2h - 1$. Kva er $f'(x)$?","options":[{"id":"a","text":"$4x + 2h - 1$","isCorrect":false},{"id":"b","text":"$4x - 1$","isCorrect":true},{"id":"c","text":"$4x + 1$","isCorrect":false},{"id":"d","text":"$2x - 1$","isCorrect":false}],"solution":"Vi tek grenseverdien: $\\lim_{h \\to 0}(4x + 2h - 1) = 4x + 0 - 1 = 4x - 1$. Alle ledd med $h$ forsvinn."}]}},{"id":"1t-7-5-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-5-narrativ-del4.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-5-n-section4","type":"text","content":"## Numerisk derivasjon – tilnærmingar i praksis\n\nNokre gonger er det vanskeleg eller umogleg å finne den eksakte deriverte. Kanskje funksjonen er for komplisert, eller kanskje du berre har ein tabell med talverdiar og ingen formel. Då brukar vi **numerisk derivasjon**, som gjev ein tilnærma verdi.\n\nDen enklaste metoden er å bruke Newton-kvotienten direkte med ein liten verdi av $h$: $f'(x) \\approx \\frac{f(x + h) - f(x)}{h}$. Dette vert kalla **framoverdifferansen** fordi vi ser «framover» frå $x$ til $x + h$.\n\nMen det finst ein betre metode: **sentraldifferansen**. I staden for å sjå berre framover, ser vi litt til begge sider:\n\n$$f'(x) \\approx \\frac{f(x + h) - f(x - h)}{2h}$$\n\nSentraldifferansen er meir nøyaktig fordi han balanserer feilen på begge sider av punktet. Lat oss prøve: $f(x) = x^2$, $x = 3$, $h = 0{,}1$. Sentraldifferansen gjev $\\frac{f(3{,}1) - f(2{,}9)}{0{,}2} = \\frac{9{,}61 - 8{,}41}{0{,}2} = \\frac{1{,}2}{0{,}2} = 6$. Den eksakte verdien er $f'(3) = 6$, så sentraldifferansen trefte eksakt her!"},{"id":"1t-7-5-n-quiz4","type":"exercise","exercise":{"id":"1t-7-5-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på numerisk derivasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-5-n-quiz4-q0","task":"Kva metode for numerisk derivasjon er generelt mest nøyaktig?","options":[{"id":"a","text":"Framoverdifferansen","isCorrect":false},{"id":"b","text":"Bakoverdifferansen","isCorrect":false},{"id":"c","text":"Sentraldifferansen","isCorrect":true},{"id":"d","text":"Dei er alle like nøyaktige","isCorrect":false}],"solution":"**Sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er generelt meir nøyaktig enn framoverdifferansen fordi han balanserer feilen symmetrisk rundt punktet $x$."},{"id":"1t-7-5-n-quiz4-q1","task":"Kva er formelen for sentraldifferansen?","options":[{"id":"a","text":"$\\frac{f(x + h) - f(x)}{h}$","isCorrect":false},{"id":"b","text":"$\\frac{f(x) - f(x - h)}{h}$","isCorrect":false},{"id":"c","text":"$\\frac{f(x + h) - f(x - h)}{2h}$","isCorrect":true},{"id":"d","text":"$\\frac{f(x + h) + f(x - h)}{2h}$","isCorrect":false}],"solution":"Sentraldifferansen er $\\frac{f(x+h) - f(x-h)}{2h}$. Han ser litt til begge sider av punktet $x$, noko som gjev betre nøyaktigheit enn å berre sjå framover."},{"id":"1t-7-5-n-quiz4-q2","task":"Når er numerisk derivasjon spesielt nyttig?","options":[{"id":"a","text":"Når funksjonen er eit polynom","isCorrect":false},{"id":"b","text":"Når vi berre har datapunkt og ingen formel","isCorrect":true},{"id":"c","text":"Når vi kjenner den deriverte alt","isCorrect":false},{"id":"d","text":"Når $h$ er veldig stor","isCorrect":false}],"solution":"Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen, til dømes når vi berre har ein tabell med målte verdiar. Då kan vi tilnærme den deriverte med Newton-kvotienten eller sentraldifferansen."}]}},{"id":"1t-7-5-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-5-narrativ-del5.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-5-n-section5","type":"text","content":"## Samanhengen mellom alt vi har lært\n\nLat oss stoppe opp og sjå det store biletet. Vi har no tre måtar å tenkje på den deriverte:\n\nDen **grafiske** tilnærminga: den deriverte er stigningstalet til tangenten. Vi kan teikne tangenten og lese av stigningstalet. Denne metoden gjev god intuisjon, men er ikkje alltid nøyaktig.\n\nDen **algebraiske** tilnærminga: vi brukar derivasjonsreglane (potensregelen, sumregelen osv.) til å finne eit eksakt uttrykk for $f'(x)$. Denne metoden er rask og gjev nøyaktige svar for funksjonar vi kjenner reglane for.\n\nDen **numeriske** tilnærminga: vi brukar Newton-kvotienten eller sentraldifferansen med ein liten $h$ for å tilnærme $f'(x)$. Denne metoden fungerer sjølv når vi ikkje har ein formel for funksjonen, berre datapunkt.\n\nAlle tre tilnærmingane er nyttige i ulike situasjonar. Derivasjonsreglane er det du brukar mest til dagleg, men den formelle definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er uvurderleg når du jobbar med data frå verkelegheita."},{"id":"1t-7-5-n-quiz5","type":"exercise","exercise":{"id":"1t-7-5-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på dei tre tilnærmingane til den deriverte:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-5-n-quiz5-q0","task":"Lat $f(x) = x^2$. Bruk framoverdifferansen med $x = 3$ og $h = 0{,}1$. Kva får du?","options":[{"id":"a","text":"$6{,}1$","isCorrect":true},{"id":"b","text":"$6$","isCorrect":false},{"id":"c","text":"$5{,}9$","isCorrect":false},{"id":"d","text":"$6{,}01$","isCorrect":false}],"solution":"Framoverdifferansen: $\\frac{f(3{,}1) - f(3)}{0{,}1} = \\frac{9{,}61 - 9}{0{,}1} = \\frac{0{,}61}{0{,}1} = 6{,}1$. Den eksakte verdien er $f'(3) = 6$, så $6{,}1$ er ei god tilnærming."},{"id":"1t-7-5-n-quiz5-q1","task":"Kva er dei tre tilnærmingane for å tenkje på den deriverte?","options":[{"id":"a","text":"Addisjon, subtraksjon og multiplikasjon","isCorrect":false},{"id":"b","text":"Grafisk, algebraisk og numerisk","isCorrect":true},{"id":"c","text":"Potensregel, sumregel og konstantregel","isCorrect":false},{"id":"d","text":"Sekant, tangent og normal","isCorrect":false}],"solution":"Dei tre tilnærmingane er: **grafisk** (stigningstalet til tangenten), **algebraisk** (derivasjonsreglane), og **numerisk** (Newton-kvotienten eller sentraldifferansen med liten $h$)."},{"id":"1t-7-5-n-quiz5-q2","task":"Kva tilnærming brukar du mest til dagleg for å finne den deriverte?","options":[{"id":"a","text":"Den grafiske – vi teiknar tangentar for hand","isCorrect":false},{"id":"b","text":"Den numeriske – vi reknar med liten $h$","isCorrect":false},{"id":"c","text":"Den algebraiske – vi brukar derivasjonsreglane","isCorrect":true},{"id":"d","text":"Ingen av dei – vi gjettar","isCorrect":false}],"solution":"Den **algebraiske** tilnærminga med derivasjonsreglar (potensregelen osv.) er raskast og gjev eksakte svar. Men definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er nyttig for data utan formel."},{"id":"1t-7-5-n-quiz5-q3","task":"Sentraldifferansen for $f(x) = x^2$ med $x = 3$ og $h = 0{,}1$ gjev $6$. Kva er den eksakte deriverte $f'(3)$?","options":[{"id":"a","text":"$6{,}1$","isCorrect":false},{"id":"b","text":"$5{,}9$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":true},{"id":"d","text":"$3$","isCorrect":false}],"solution":"$f'(x) = 2x$, så $f'(3) = 6$. Sentraldifferansen trefte eksakt! Det er ikkje alltid slik, men for andregradspolynom gjev sentraldifferansen alltid eksakt svar."}]}},{"id":"1t-7-5-n-audio-6","type":"audio","title":"Lytt til oppsummeringa","src":"/audio/1t/1t-7-5-narrativ-del6.mp3","description":"Lydfil som les opp oppsummeringa."},{"id":"1t-7-5-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi sett kva som ligg under derivasjonsreglane vi alt har lært. **Newton-kvotienten** $\\frac{f(x+h) - f(x)}{h}$ gjev gjennomsnittleg vekstfart mellom $x$ og $x + h$, og han er stigningstalet til sekanten mellom desse to punkta.\n\n**Definisjonen av den deriverte** seier at $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$ – det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null. Denne definisjonen forklarar kvifor potensregelen og dei andre reglane fungerer, og han kan brukast til å derivere funksjonar frå botnen av.\n\n**Numerisk derivasjon** gjev tilnærma verdiar av den deriverte. **Framoverdifferansen** brukar Newton-kvotienten med ein liten $h$, medan **sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er meir nøyaktig fordi han ser symmetrisk til begge sider. Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen."}],"exercises":[],"_meta":{"sourceHash":"10fd026eff0dd879","translatedAt":"2026-06-16T23:52:14.821Z","model":"claude-code-agent","strings":122,"tm":{"6c26184f5e2b3952":"Definisjonen av derivasjon og numerisk derivasjon","b195b06d1ed59702":"Narrativ versjon","3d76be7264fef17e":"Ei forteljing om grenseverdiar og den formelle definisjonen av den deriverte – og korleis numerisk derivasjon gjev tilnærma svar.","d89d29626adc0140":"forstå definisjonen av den deriverte som ein grenseverdi","90170e1e126dee91":"bruke definisjonen til å derivere enkle funksjonar","a271483beb19e377":"forstå numerisk derivasjon og Newton-kvotienten","d2c9d9ef5d3f774f":"Lytt til denne delen","21954805f17795e8":"Lydfil som les opp teksten fram til første quiz.","c20a7faff0769079":"## Bak kulissane i derivasjon\n\nVi har no lært å derivere med potensregelen, sumregelen og konstantregelen. Men har du lurt på *kvifor* desse reglane fungerer? Kva er det eigentleg som skjer matematisk når vi deriverer?\n\nI dette kapittelet går vi bak kulissane og ser på **den formelle definisjonen** av den deriverte. Vi skal forstå kva ein **grenseverdi** er, verte kjende med **Newton-kvotienten** (òg kalla **differanskvotienten**), og lære om **numerisk derivasjon** – ein metode for å finne tilnærma verdiar av den deriverte. Sjølv om dei konkrete reglane vi har lært er raske og praktiske, er det verdifullt å forstå fundamentet dei kviler på.","0941a8e558134da7":"## Newton-kvotienten – gjennomsnittleg vekstfart i ny drakt\n\nVi byrjar med noko kjent. Hugs at gjennomsnittleg vekstfart mellom to punkt er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$. No skriv vi det på ein litt annan måte. Lat oss seie at vi startar i punktet $x$ og rører oss ein liten avstand $h$ til høgre, slik at det andre punktet er $x + h$. Då vert gjennomsnittleg vekstfart:\n\n$$\\frac{f(x + h) - f(x)}{h}$$\n\nDenne brøken vert kalla **Newton-kvotienten** eller **differanskvotienten**. Han gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x + h, f(x + h))$.\n\nLat oss ta eit døme. Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$ får vi: $\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Vi veit at den eksakte deriverte er $f'(2) = 2 \\cdot 2 = 4$, så $4{,}1$ er ei god tilnærming – ganske nær, men ikkje heilt nøyaktig.\n\nKva skjer viss vi gjer $h$ enda mindre? Med $h = 0{,}01$: $\\frac{f(2{,}01) - f(2)}{0{,}01} = \\frac{4{,}0401 - 4}{0{,}01} = 4{,}01$. Enda nærare! Di mindre $h$, desto betre tilnærming.","8a2423a8ac1fce51":"Test deg sjølv på Newton-kvotienten:","4097889236a2af26":"placeholder","c34349d2163c5714":"Kva vert brøken $\\frac{f(x + h) - f(x)}{h}$ kalla?","0f3bdefcb68f4f67":"Potensregelen","478df95089d78a45":"Tangentlikninga","90acc6c185b01f52":"Stigningstalet","5b9e8bbfaaf16e00":"Newton-kvotienten","5e2becf392b5461b":"Brøken $\\frac{f(x + h) - f(x)}{h}$ vert kalla **Newton-kvotienten** (eller differanskvotienten). Han gjev den gjennomsnittlege vekstfarten mellom $x$ og $x + h$.","06c253fa350cb734":"Kva representerer Newton-kvotienten grafisk?","0aaa86ff4b76dfd8":"Stigningstalet til tangenten","459ebdd57fa9ca8f":"Stigningstalet til sekanten mellom $(x, f(x))$ og $(x+h, f(x+h))$","e2334ea52262caf2":"Arealet under grafen","e29ba228d66f7fa5":"Nullpunktet til funksjonen","c8db19c7739cc109":"Newton-kvotienten gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x+h, f(x+h))$ på grafen. Det er den gjennomsnittlege vekstfarten i intervallet.","2139d014d8164784":"Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$: kva gjev Newton-kvotienten?","c5783a76a4778d63":"$\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Den eksakte deriverte er $f'(2) = 4$, så $4{,}1$ er ei tilnærming.","f119bcc49c4d3183":"Kva skjer med Newton-kvotienten når $h$ vert mindre?","c83dc2e8349f01fc":"Han vert meir unøyaktig","f761afefc5e58ff0":"Han nærmar seg den eksakte deriverte","23b1e77376f84819":"Han held seg uendra","bde56adf0d0581ba":"Han går mot null","98f526288f132066":"Di mindre $h$, desto betre tilnærmar Newton-kvotienten den eksakte deriverte. I grensa når $h \\to 0$ er Newton-kvotienten nøyaktig lik den deriverte.","058005533831b7f6":"Lydfil som les opp teksten fram til neste quiz.","8058bb97b9c62189":"## Definisjonen av den deriverte – grenseverdien\n\nVi har sett at Newton-kvotienten gjev betre og betre tilnærmingar til den deriverte di mindre $h$ vi vel. Den formelle definisjonen seier at den deriverte er det Newton-kvotienten *stabiliserer seg på* når $h$ går mot null. Vi skriv det med grenseverdi-symbolet:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$$\n\nLes dette som: «grenseverdien av Newton-kvotienten når $h$ går mot null». Merk at vi ikkje kan setje $h = 0$ direkte, for då ville vi delt på null. I staden lèt vi $h$ verte *vilkårleg nær* null og ser kva brøken nærmar seg.\n\nLat oss bevise at den deriverte av $x^2$ er $2x$ ved å bruke definisjonen. Vi startar med Newton-kvotienten: $\\frac{(x + h)^2 - x^2}{h}$. Vi utvidar $(x + h)^2 = x^2 + 2xh + h^2$. Då får vi $\\frac{x^2 + 2xh + h^2 - x^2}{h} = \\frac{2xh + h^2}{h} = \\frac{h(2x + h)}{h} = 2x + h$. Når $h \\to 0$, forsvinn $h$-leddet, og vi sit att med $f'(x) = 2x$.\n\nDette er altså *grunnen* til at potensregelen fungerer for $x^2$. Liknande utrekningar kan gjerast for høgare potensar, og dei gjev alltid potensregelen.","bfe376978924b285":"Test deg sjølv på definisjonen av den deriverte:","12f659589add084b":"Kva er den formelle definisjonen av den deriverte?","612c93e2be3cd436":"$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$","4ab505e765b42c1c":"$f'(x) = n \\cdot x^{n-1}$","53c42c5cc9f9f604":"$f'(x) = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}$","84f06638b1e140aa":"$f'(x) = f(x + 1) - f(x)$","5a26f0fbb00c7c3b":"Den formelle definisjonen er $f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$. Det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null.","ffb8e1ada73edff6":"Kvifor kan vi ikkje setje $h = 0$ direkte i Newton-kvotienten?","38a73a3f0ede078d":"Fordi vi aldri brukar null i matematikk","12e89de1f879d78f":"Fordi vi ville dele på null","6fcba20472f850d9":"Fordi funksjonen ikkje er definert der","4c53361414d0d855":"Fordi svaret alltid vert null","22c33f40498ba74c":"Viss $h = 0$, vert nemnaren i brøken $\\frac{f(x+h) - f(x)}{h}$ lik null, og vi kan ikkje dele på null. Difor brukar vi grenseverdi og lèt $h$ nærme seg null utan å verte null.","d3842c22a82a8046":"Bruk definisjonen: Newton-kvotienten for $f(x) = x^2$ forenklast til $2x + h$. Kva er $\\lim_{h \\to 0}(2x + h)$?","78a5bb6d2b2ceac0":"$2x$","e1e548210e7820de":"$2x + 1$","7f408224ea7b716f":"$x^2$","e091c7a0b4c9de09":"Når $h \\to 0$ forsvinn $h$-leddet: $\\lim_{h \\to 0}(2x + h) = 2x + 0 = 2x$. Dermed er $f'(x) = 2x$, som stemmer med potensregelen.","3c49f0344c8a6e33":"## Derivasjon frå definisjonen – fleire døme\n\nLat oss bruke definisjonen på nokre fleire funksjonar for å få trening. Ta $f(x) = 3x$. Newton-kvotienten vert $\\frac{3(x + h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Når $h \\to 0$, er svaret framleis $3$. Altså er $f'(x) = 3$. Det stemmer – den deriverte av ein lineær funksjon er stigningstalet.\n\nNo eit litt vanskelegare døme: $f(x) = x^2 + 1$. Newton-kvotienten er $\\frac{(x + h)^2 + 1 - x^2 - 1}{h} = \\frac{x^2 + 2xh + h^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$, får vi $f'(x) = 2x$. Legg merke til at konstanten $+1$ ikkje påverkar den deriverte – han «forsvann» i utrekninga.\n\nEit tredje døme: $f(x) = 2x^2 - x$. Newton-kvotienten gjev $\\frac{2(x+h)^2 - (x+h) - 2x^2 + x}{h}$. Vi utvidar og forenklar: $\\frac{2x^2 + 4xh + 2h^2 - x - h - 2x^2 + x}{h} = \\frac{4xh + 2h^2 - h}{h} = 4x + 2h - 1$. Grenseverdien når $h \\to 0$ gjev $f'(x) = 4x - 1$.","f937024a611c6900":"Test deg sjølv på derivasjon frå definisjonen:","97d7153f264be167":"Bruk definisjonen av den deriverte på $f(x) = x^2 + 1$. Kva er $f'(x)$?","22bf003d6cac79e1":"$x$","91c6b16a47d7db0c":"Newton-kvotienten gjev $\\frac{(x+h)^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$ sit vi att med $f'(x) = 2x$. Konstanten $+1$ påverkar ikkje den deriverte.","2e58027e9d52680d":"For $f(x) = 3x$ gjev Newton-kvotienten $\\frac{3(x+h) - 3x}{h}$. Kva forenklast dette til?","e2fe3bdcb9849f47":"$3x$","8235940c9c563624":"$3h$","e28272a2cf82f335":"$\\frac{3(x+h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Svaret er $3$ for alle $h$, og grenseverdien er òg $3$. Det stemmer: den deriverte av $3x$ er $3$.","41177666b84b6f42":"For $f(x) = 2x^2 - x$ gjev Newton-kvotienten $4x + 2h - 1$. Kva er $f'(x)$?","0b5c23bff9030ea7":"$4x + 2h - 1$","c96942867ccd949f":"$4x - 1$","94f1d121cce0f423":"$4x + 1$","5f8ac0a4dad1a8bf":"$2x - 1$","50de3956e6d05eae":"Vi tek grenseverdien: $\\lim_{h \\to 0}(4x + 2h - 1) = 4x + 0 - 1 = 4x - 1$. Alle ledd med $h$ forsvinn.","3b82a928c0db810e":"## Numerisk derivasjon – tilnærmingar i praksis\n\nNokre gonger er det vanskeleg eller umogleg å finne den eksakte deriverte. Kanskje funksjonen er for komplisert, eller kanskje du berre har ein tabell med talverdiar og ingen formel. Då brukar vi **numerisk derivasjon**, som gjev ein tilnærma verdi.\n\nDen enklaste metoden er å bruke Newton-kvotienten direkte med ein liten verdi av $h$: $f'(x) \\approx \\frac{f(x + h) - f(x)}{h}$. Dette vert kalla **framoverdifferansen** fordi vi ser «framover» frå $x$ til $x + h$.\n\nMen det finst ein betre metode: **sentraldifferansen**. I staden for å sjå berre framover, ser vi litt til begge sider:\n\n$$f'(x) \\approx \\frac{f(x + h) - f(x - h)}{2h}$$\n\nSentraldifferansen er meir nøyaktig fordi han balanserer feilen på begge sider av punktet. Lat oss prøve: $f(x) = x^2$, $x = 3$, $h = 0{,}1$. Sentraldifferansen gjev $\\frac{f(3{,}1) - f(2{,}9)}{0{,}2} = \\frac{9{,}61 - 8{,}41}{0{,}2} = \\frac{1{,}2}{0{,}2} = 6$. Den eksakte verdien er $f'(3) = 6$, så sentraldifferansen trefte eksakt her!","110f13feee2e11e6":"Test deg sjølv på numerisk derivasjon:","9d0b6daa9de74c48":"Kva metode for numerisk derivasjon er generelt mest nøyaktig?","9fc434cb94bbfbcd":"Framoverdifferansen","be4b27d4a69fec78":"Bakoverdifferansen","1d2b930feb5ba087":"Sentraldifferansen","187ac3668a1ef743":"Dei er alle like nøyaktige","c7d2a6eb45525724":"**Sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er generelt meir nøyaktig enn framoverdifferansen fordi han balanserer feilen symmetrisk rundt punktet $x$.","f73688783428bcb5":"Kva er formelen for sentraldifferansen?","4b1fe079f71d3c8a":"$\\frac{f(x + h) - f(x)}{h}$","55f101d005030c18":"$\\frac{f(x) - f(x - h)}{h}$","c15a16f3b5b2bbfb":"$\\frac{f(x + h) - f(x - h)}{2h}$","fae3e0684c2d6834":"$\\frac{f(x + h) + f(x - h)}{2h}$","4fdcb537a393b6bd":"Sentraldifferansen er $\\frac{f(x+h) - f(x-h)}{2h}$. Han ser litt til begge sider av punktet $x$, noko som gjev betre nøyaktigheit enn å berre sjå framover.","c5c23d608ce23566":"Når er numerisk derivasjon spesielt nyttig?","edb273a396a52b67":"Når funksjonen er eit polynom","441957f6187138e0":"Når vi berre har datapunkt og ingen formel","ed84dd005c4bee23":"Når vi kjenner den deriverte alt","97b1c1e4f663f8af":"Når $h$ er veldig stor","cbc2181e60fb3f89":"Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen, til dømes når vi berre har ein tabell med målte verdiar. Då kan vi tilnærme den deriverte med Newton-kvotienten eller sentraldifferansen.","328ed4c42b17857b":"## Samanhengen mellom alt vi har lært\n\nLat oss stoppe opp og sjå det store biletet. Vi har no tre måtar å tenkje på den deriverte:\n\nDen **grafiske** tilnærminga: den deriverte er stigningstalet til tangenten. Vi kan teikne tangenten og lese av stigningstalet. Denne metoden gjev god intuisjon, men er ikkje alltid nøyaktig.\n\nDen **algebraiske** tilnærminga: vi brukar derivasjonsreglane (potensregelen, sumregelen osv.) til å finne eit eksakt uttrykk for $f'(x)$. Denne metoden er rask og gjev nøyaktige svar for funksjonar vi kjenner reglane for.\n\nDen **numeriske** tilnærminga: vi brukar Newton-kvotienten eller sentraldifferansen med ein liten $h$ for å tilnærme $f'(x)$. Denne metoden fungerer sjølv når vi ikkje har ein formel for funksjonen, berre datapunkt.\n\nAlle tre tilnærmingane er nyttige i ulike situasjonar. Derivasjonsreglane er det du brukar mest til dagleg, men den formelle definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er uvurderleg når du jobbar med data frå verkelegheita.","5ec0067000733de8":"Test deg sjølv på dei tre tilnærmingane til den deriverte:","45e2b206bb955d8a":"Lat $f(x) = x^2$. Bruk framoverdifferansen med $x = 3$ og $h = 0{,}1$. Kva får du?","8f85c6115163217a":"Framoverdifferansen: $\\frac{f(3{,}1) - f(3)}{0{,}1} = \\frac{9{,}61 - 9}{0{,}1} = \\frac{0{,}61}{0{,}1} = 6{,}1$. Den eksakte verdien er $f'(3) = 6$, så $6{,}1$ er ei god tilnærming.","8894646840ced691":"Kva er dei tre tilnærmingane for å tenkje på den deriverte?","3a698c07a860d4c2":"Addisjon, subtraksjon og multiplikasjon","ec7a603ef365af7d":"Grafisk, algebraisk og numerisk","b2018b91a858117a":"Potensregel, sumregel og konstantregel","a6e8581f6e0470cc":"Sekant, tangent og normal","411d26d0db9952a5":"Dei tre tilnærmingane er: **grafisk** (stigningstalet til tangenten), **algebraisk** (derivasjonsreglane), og **numerisk** (Newton-kvotienten eller sentraldifferansen med liten $h$).","486c4436b507ae37":"Kva tilnærming brukar du mest til dagleg for å finne den deriverte?","da5b938f0c9691bb":"Den grafiske – vi teiknar tangentar for hand","f63cc326d233e11d":"Den numeriske – vi reknar med liten $h$","7669dfa4823966ba":"Den algebraiske – vi brukar derivasjonsreglane","1125893a5d33ea29":"Ingen av dei – vi gjettar","8949dba5f77bebbd":"Den **algebraiske** tilnærminga med derivasjonsreglar (potensregelen osv.) er raskast og gjev eksakte svar. Men definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er nyttig for data utan formel.","2d71bb5a8d54f8e4":"Sentraldifferansen for $f(x) = x^2$ med $x = 3$ og $h = 0{,}1$ gjev $6$. Kva er den eksakte deriverte $f'(3)$?","3ae4763cc8a5c374":"$f'(x) = 2x$, så $f'(3) = 6$. Sentraldifferansen trefte eksakt! Det er ikkje alltid slik, men for andregradspolynom gjev sentraldifferansen alltid eksakt svar.","79eeeec37aef74be":"Lytt til oppsummeringa","b409d1128419f9c6":"Lydfil som les opp oppsummeringa.","f7797f17cd2e506a":"## Oppsummering\n\nI dette kapittelet har vi sett kva som ligg under derivasjonsreglane vi alt har lært. **Newton-kvotienten** $\\frac{f(x+h) - f(x)}{h}$ gjev gjennomsnittleg vekstfart mellom $x$ og $x + h$, og han er stigningstalet til sekanten mellom desse to punkta.\n\n**Definisjonen av den deriverte** seier at $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$ – det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null. Denne definisjonen forklarar kvifor potensregelen og dei andre reglane fungerer, og han kan brukast til å derivere funksjonar frå botnen av.\n\n**Numerisk derivasjon** gjev tilnærma verdiar av den deriverte. **Framoverdifferansen** brukar Newton-kvotienten med ein liten $h$, medan **sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er meir nøyaktig fordi han ser symmetrisk til begge sider. Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen."}}}
+{
+  "id": "1t-7-5-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "7.5",
+  "title": "Definisjonen av derivasjon og numerisk derivasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om grenseverdiar og den formelle definisjonen av den deriverte – og korleis numerisk derivasjon gjev tilnærma svar.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "forstå definisjonen av den deriverte som ein grenseverdi",
+    "bruke definisjonen til å derivere enkle funksjonar",
+    "forstå numerisk derivasjon og Newton-kvotienten"
+  ],
+  "linkedChapterId": "1t-7-5",
+  "content": [
+    {
+      "id": "1t-7-5-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-5-narrativ-del1.mp3",
+      "description": "Lydfil som les opp teksten fram til første quiz."
+    },
+    {
+      "id": "1t-7-5-n-intro",
+      "type": "text",
+      "content": "## Bak kulissane i derivasjon\n\nVi har no lært å derivere med potensregelen, sumregelen og konstantregelen. Men har du lurt på *kvifor* desse reglane fungerer? Kva er det eigentleg som skjer matematisk når vi deriverer?\n\nI dette kapittelet går vi bak kulissane og ser på **den formelle definisjonen** av den deriverte. Vi skal forstå kva ein **grenseverdi** er, verte kjende med **Newton-kvotienten** (òg kalla **differanskvotienten**), og lære om **numerisk derivasjon** – ein metode for å finne tilnærma verdiar av den deriverte. Sjølv om dei konkrete reglane vi har lært er raske og praktiske, er det verdifullt å forstå fundamentet dei kviler på."
+    },
+    {
+      "id": "1t-7-5-n-section1",
+      "type": "text",
+      "content": "## Newton-kvotienten – gjennomsnittleg vekstfart i ny drakt\n\nVi byrjar med noko kjent. Hugs at gjennomsnittleg vekstfart mellom to punkt er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$. No skriv vi det på ein litt annan måte. Lat oss seie at vi startar i punktet $x$ og rører oss ein liten avstand $h$ til høgre, slik at det andre punktet er $x + h$. Då vert gjennomsnittleg vekstfart:\n\n$$\\frac{f(x + h) - f(x)}{h}$$\n\nDenne brøken vert kalla **Newton-kvotienten** eller **differanskvotienten**. Han gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x + h, f(x + h))$.\n\nLat oss ta eit døme. Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$ får vi: $\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Vi veit at den eksakte deriverte er $f'(2) = 2 \\cdot 2 = 4$, så $4{,}1$ er ei god tilnærming – ganske nær, men ikkje heilt nøyaktig.\n\nKva skjer viss vi gjer $h$ enda mindre? Med $h = 0{,}01$: $\\frac{f(2{,}01) - f(2)}{0{,}01} = \\frac{4{,}0401 - 4}{0{,}01} = 4{,}01$. Enda nærare! Di mindre $h$, desto betre tilnærming."
+    },
+    {
+      "id": "1t-7-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Newton-kvotienten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-5-n-quiz1-q0",
+            "task": "Kva vert brøken $\\frac{f(x + h) - f(x)}{h}$ kalla?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Potensregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tangentlikninga",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stigningstalet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Newton-kvotienten",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Brøken $\\frac{f(x + h) - f(x)}{h}$ vert kalla **Newton-kvotienten** (eller differanskvotienten). Han gjev den gjennomsnittlege vekstfarten mellom $x$ og $x + h$."
+          },
+          {
+            "id": "1t-7-5-n-quiz1-q1",
+            "task": "Kva representerer Newton-kvotienten grafisk?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Stigningstalet til sekanten mellom $(x, f(x))$ og $(x+h, f(x+h))$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Stigningstalet til tangenten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Arealet under grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nullpunktet til funksjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Newton-kvotienten gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x+h, f(x+h))$ på grafen. Det er den gjennomsnittlege vekstfarten i intervallet."
+          },
+          {
+            "id": "1t-7-5-n-quiz1-q2",
+            "task": "Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$: kva gjev Newton-kvotienten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4{,}1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$4{,}01$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Den eksakte deriverte er $f'(2) = 4$, så $4{,}1$ er ei tilnærming."
+          },
+          {
+            "id": "1t-7-5-n-quiz1-q3",
+            "task": "Kva skjer med Newton-kvotienten når $h$ vert mindre?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han vert meir unøyaktig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han held seg uendra",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han nærmar seg den eksakte deriverte",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Han går mot null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Di mindre $h$, desto betre tilnærmar Newton-kvotienten den eksakte deriverte. I grensa når $h \\to 0$ er Newton-kvotienten nøyaktig lik den deriverte."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-5-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-5-narrativ-del2.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-5-n-section2",
+      "type": "text",
+      "content": "## Definisjonen av den deriverte – grenseverdien\n\nVi har sett at Newton-kvotienten gjev betre og betre tilnærmingar til den deriverte di mindre $h$ vi vel. Den formelle definisjonen seier at den deriverte er det Newton-kvotienten *stabiliserer seg på* når $h$ går mot null. Vi skriv det med grenseverdi-symbolet:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$$\n\nLes dette som: «grenseverdien av Newton-kvotienten når $h$ går mot null». Merk at vi ikkje kan setje $h = 0$ direkte, for då ville vi delt på null. I staden lèt vi $h$ verte *vilkårleg nær* null og ser kva brøken nærmar seg.\n\nLat oss bevise at den deriverte av $x^2$ er $2x$ ved å bruke definisjonen. Vi startar med Newton-kvotienten: $\\frac{(x + h)^2 - x^2}{h}$. Vi utvidar $(x + h)^2 = x^2 + 2xh + h^2$. Då får vi $\\frac{x^2 + 2xh + h^2 - x^2}{h} = \\frac{2xh + h^2}{h} = \\frac{h(2x + h)}{h} = 2x + h$. Når $h \\to 0$, forsvinn $h$-leddet, og vi sit att med $f'(x) = 2x$.\n\nDette er altså *grunnen* til at potensregelen fungerer for $x^2$. Liknande utrekningar kan gjerast for høgare potensar, og dei gjev alltid potensregelen."
+    },
+    {
+      "id": "1t-7-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på definisjonen av den deriverte:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-5-n-quiz2-q0",
+            "task": "Kva er den formelle definisjonen av den deriverte?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f'(x) = n \\cdot x^{n-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f'(x) = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f'(x) = f(x + 1) - f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den formelle definisjonen er $f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$. Det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null."
+          },
+          {
+            "id": "1t-7-5-n-quiz2-q1",
+            "task": "Kvifor kan vi ikkje setje $h = 0$ direkte i Newton-kvotienten?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi vi ville dele på null",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi vi aldri brukar null i matematikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi funksjonen ikkje er definert der",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi svaret alltid vert null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Viss $h = 0$, vert nemnaren i brøken $\\frac{f(x+h) - f(x)}{h}$ lik null, og vi kan ikkje dele på null. Difor brukar vi grenseverdi og lèt $h$ nærme seg null utan å verte null."
+          },
+          {
+            "id": "1t-7-5-n-quiz2-q2",
+            "task": "Bruk definisjonen: Newton-kvotienten for $f(x) = x^2$ forenklast til $2x + h$. Kva er $\\lim_{h \\to 0}(2x + h)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $h \\to 0$ forsvinn $h$-leddet: $\\lim_{h \\to 0}(2x + h) = 2x + 0 = 2x$. Dermed er $f'(x) = 2x$, som stemmer med potensregelen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-5-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-5-narrativ-del3.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-5-n-section3",
+      "type": "text",
+      "content": "## Derivasjon frå definisjonen – fleire døme\n\nLat oss bruke definisjonen på nokre fleire funksjonar for å få trening. Ta $f(x) = 3x$. Newton-kvotienten vert $\\frac{3(x + h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Når $h \\to 0$, er svaret framleis $3$. Altså er $f'(x) = 3$. Det stemmer – den deriverte av ein lineær funksjon er stigningstalet.\n\nNo eit litt vanskelegare døme: $f(x) = x^2 + 1$. Newton-kvotienten er $\\frac{(x + h)^2 + 1 - x^2 - 1}{h} = \\frac{x^2 + 2xh + h^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$, får vi $f'(x) = 2x$. Legg merke til at konstanten $+1$ ikkje påverkar den deriverte – han «forsvann» i utrekninga.\n\nEit tredje døme: $f(x) = 2x^2 - x$. Newton-kvotienten gjev $\\frac{2(x+h)^2 - (x+h) - 2x^2 + x}{h}$. Vi utvidar og forenklar: $\\frac{2x^2 + 4xh + 2h^2 - x - h - 2x^2 + x}{h} = \\frac{4xh + 2h^2 - h}{h} = 4x + 2h - 1$. Grenseverdien når $h \\to 0$ gjev $f'(x) = 4x - 1$."
+    },
+    {
+      "id": "1t-7-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på derivasjon frå definisjonen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-5-n-quiz3-q0",
+            "task": "Bruk definisjonen av den deriverte på $f(x) = x^2 + 1$. Kva er $f'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Newton-kvotienten gjev $\\frac{(x+h)^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$ sit vi att med $f'(x) = 2x$. Konstanten $+1$ påverkar ikkje den deriverte."
+          },
+          {
+            "id": "1t-7-5-n-quiz3-q1",
+            "task": "For $f(x) = 3x$ gjev Newton-kvotienten $\\frac{3(x+h) - 3x}{h}$. Kva forenklast dette til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3h$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{3(x+h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Svaret er $3$ for alle $h$, og grenseverdien er òg $3$. Det stemmer: den deriverte av $3x$ er $3$."
+          },
+          {
+            "id": "1t-7-5-n-quiz3-q2",
+            "task": "For $f(x) = 2x^2 - x$ gjev Newton-kvotienten $4x + 2h - 1$. Kva er $f'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4x + 2h - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4x - 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi tek grenseverdien: $\\lim_{h \\to 0}(4x + 2h - 1) = 4x + 0 - 1 = 4x - 1$. Alle ledd med $h$ forsvinn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-5-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-5-narrativ-del4.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-5-n-section4",
+      "type": "text",
+      "content": "## Numerisk derivasjon – tilnærmingar i praksis\n\nNokre gonger er det vanskeleg eller umogleg å finne den eksakte deriverte. Kanskje funksjonen er for komplisert, eller kanskje du berre har ein tabell med talverdiar og ingen formel. Då brukar vi **numerisk derivasjon**, som gjev ein tilnærma verdi.\n\nDen enklaste metoden er å bruke Newton-kvotienten direkte med ein liten verdi av $h$: $f'(x) \\approx \\frac{f(x + h) - f(x)}{h}$. Dette vert kalla **framoverdifferansen** fordi vi ser «framover» frå $x$ til $x + h$.\n\nMen det finst ein betre metode: **sentraldifferansen**. I staden for å sjå berre framover, ser vi litt til begge sider:\n\n$$f'(x) \\approx \\frac{f(x + h) - f(x - h)}{2h}$$\n\nSentraldifferansen er meir nøyaktig fordi han balanserer feilen på begge sider av punktet. Lat oss prøve: $f(x) = x^2$, $x = 3$, $h = 0{,}1$. Sentraldifferansen gjev $\\frac{f(3{,}1) - f(2{,}9)}{0{,}2} = \\frac{9{,}61 - 8{,}41}{0{,}2} = \\frac{1{,}2}{0{,}2} = 6$. Den eksakte verdien er $f'(3) = 6$, så sentraldifferansen trefte eksakt her!"
+    },
+    {
+      "id": "1t-7-5-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-5-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på numerisk derivasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-5-n-quiz4-q0",
+            "task": "Kva metode for numerisk derivasjon er generelt mest nøyaktig?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Sentraldifferansen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Framoverdifferansen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bakoverdifferansen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei er alle like nøyaktige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "**Sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er generelt meir nøyaktig enn framoverdifferansen fordi han balanserer feilen symmetrisk rundt punktet $x$."
+          },
+          {
+            "id": "1t-7-5-n-quiz4-q1",
+            "task": "Kva er formelen for sentraldifferansen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{f(x + h) - f(x)}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{f(x) - f(x - h)}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{f(x + h) - f(x - h)}{2h}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{f(x + h) + f(x - h)}{2h}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sentraldifferansen er $\\frac{f(x+h) - f(x-h)}{2h}$. Han ser litt til begge sider av punktet $x$, noko som gjev betre nøyaktigheit enn å berre sjå framover."
+          },
+          {
+            "id": "1t-7-5-n-quiz4-q2",
+            "task": "Når er numerisk derivasjon spesielt nyttig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når funksjonen er eit polynom",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når vi kjenner den deriverte alt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $h$ er veldig stor",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når vi berre har datapunkt og ingen formel",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen, til dømes når vi berre har ein tabell med målte verdiar. Då kan vi tilnærme den deriverte med Newton-kvotienten eller sentraldifferansen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-5-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-5-narrativ-del5.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-5-n-section5",
+      "type": "text",
+      "content": "## Samanhengen mellom alt vi har lært\n\nLat oss stoppe opp og sjå det store biletet. Vi har no tre måtar å tenkje på den deriverte:\n\nDen **grafiske** tilnærminga: den deriverte er stigningstalet til tangenten. Vi kan teikne tangenten og lese av stigningstalet. Denne metoden gjev god intuisjon, men er ikkje alltid nøyaktig.\n\nDen **algebraiske** tilnærminga: vi brukar derivasjonsreglane (potensregelen, sumregelen osv.) til å finne eit eksakt uttrykk for $f'(x)$. Denne metoden er rask og gjev nøyaktige svar for funksjonar vi kjenner reglane for.\n\nDen **numeriske** tilnærminga: vi brukar Newton-kvotienten eller sentraldifferansen med ein liten $h$ for å tilnærme $f'(x)$. Denne metoden fungerer sjølv når vi ikkje har ein formel for funksjonen, berre datapunkt.\n\nAlle tre tilnærmingane er nyttige i ulike situasjonar. Derivasjonsreglane er det du brukar mest til dagleg, men den formelle definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er uvurderleg når du jobbar med data frå verkelegheita."
+    },
+    {
+      "id": "1t-7-5-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-5-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på dei tre tilnærmingane til den deriverte:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-5-n-quiz5-q0",
+            "task": "Lat $f(x) = x^2$. Bruk framoverdifferansen med $x = 3$ og $h = 0{,}1$. Kva får du?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6{,}1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5{,}9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6{,}01$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Framoverdifferansen: $\\frac{f(3{,}1) - f(3)}{0{,}1} = \\frac{9{,}61 - 9}{0{,}1} = \\frac{0{,}61}{0{,}1} = 6{,}1$. Den eksakte verdien er $f'(3) = 6$, så $6{,}1$ er ei god tilnærming."
+          },
+          {
+            "id": "1t-7-5-n-quiz5-q1",
+            "task": "Kva er dei tre tilnærmingane for å tenkje på den deriverte?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Addisjon, subtraksjon og multiplikasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Grafisk, algebraisk og numerisk",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Potensregel, sumregel og konstantregel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sekant, tangent og normal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei tre tilnærmingane er: **grafisk** (stigningstalet til tangenten), **algebraisk** (derivasjonsreglane), og **numerisk** (Newton-kvotienten eller sentraldifferansen med liten $h$)."
+          },
+          {
+            "id": "1t-7-5-n-quiz5-q2",
+            "task": "Kva tilnærming brukar du mest til dagleg for å finne den deriverte?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den grafiske – vi teiknar tangentar for hand",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den numeriske – vi reknar med liten $h$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den algebraiske – vi brukar derivasjonsreglane",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen av dei – vi gjettar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den **algebraiske** tilnærminga med derivasjonsreglar (potensregelen osv.) er raskast og gjev eksakte svar. Men definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er nyttig for data utan formel."
+          },
+          {
+            "id": "1t-7-5-n-quiz5-q3",
+            "task": "Sentraldifferansen for $f(x) = x^2$ med $x = 3$ og $h = 0{,}1$ gjev $6$. Kva er den eksakte deriverte $f'(3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6{,}1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5{,}9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(x) = 2x$, så $f'(3) = 6$. Sentraldifferansen trefte eksakt! Det er ikkje alltid slik, men for andregradspolynom gjev sentraldifferansen alltid eksakt svar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-5-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringa",
+      "src": "/audio/1t/1t-7-5-narrativ-del6.mp3",
+      "description": "Lydfil som les opp oppsummeringa."
+    },
+    {
+      "id": "1t-7-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi sett kva som ligg under derivasjonsreglane vi alt har lært. **Newton-kvotienten** $\\frac{f(x+h) - f(x)}{h}$ gjev gjennomsnittleg vekstfart mellom $x$ og $x + h$, og han er stigningstalet til sekanten mellom desse to punkta.\n\n**Definisjonen av den deriverte** seier at $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$ – det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null. Denne definisjonen forklarar kvifor potensregelen og dei andre reglane fungerer, og han kan brukast til å derivere funksjonar frå botnen av.\n\n**Numerisk derivasjon** gjev tilnærma verdiar av den deriverte. **Framoverdifferansen** brukar Newton-kvotienten med ein liten $h$, medan **sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er meir nøyaktig fordi han ser symmetrisk til begge sider. Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "10fd026eff0dd879",
+    "translatedAt": "2026-06-16T23:52:14.821Z",
+    "model": "claude-code-agent",
+    "strings": 122,
+    "tm": {
+      "6c26184f5e2b3952": "Definisjonen av derivasjon og numerisk derivasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "3d76be7264fef17e": "Ei forteljing om grenseverdiar og den formelle definisjonen av den deriverte – og korleis numerisk derivasjon gjev tilnærma svar.",
+      "d89d29626adc0140": "forstå definisjonen av den deriverte som ein grenseverdi",
+      "90170e1e126dee91": "bruke definisjonen til å derivere enkle funksjonar",
+      "a271483beb19e377": "forstå numerisk derivasjon og Newton-kvotienten",
+      "d2c9d9ef5d3f774f": "Lytt til denne delen",
+      "21954805f17795e8": "Lydfil som les opp teksten fram til første quiz.",
+      "c20a7faff0769079": "## Bak kulissane i derivasjon\n\nVi har no lært å derivere med potensregelen, sumregelen og konstantregelen. Men har du lurt på *kvifor* desse reglane fungerer? Kva er det eigentleg som skjer matematisk når vi deriverer?\n\nI dette kapittelet går vi bak kulissane og ser på **den formelle definisjonen** av den deriverte. Vi skal forstå kva ein **grenseverdi** er, verte kjende med **Newton-kvotienten** (òg kalla **differanskvotienten**), og lære om **numerisk derivasjon** – ein metode for å finne tilnærma verdiar av den deriverte. Sjølv om dei konkrete reglane vi har lært er raske og praktiske, er det verdifullt å forstå fundamentet dei kviler på.",
+      "0941a8e558134da7": "## Newton-kvotienten – gjennomsnittleg vekstfart i ny drakt\n\nVi byrjar med noko kjent. Hugs at gjennomsnittleg vekstfart mellom to punkt er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$. No skriv vi det på ein litt annan måte. Lat oss seie at vi startar i punktet $x$ og rører oss ein liten avstand $h$ til høgre, slik at det andre punktet er $x + h$. Då vert gjennomsnittleg vekstfart:\n\n$$\\frac{f(x + h) - f(x)}{h}$$\n\nDenne brøken vert kalla **Newton-kvotienten** eller **differanskvotienten**. Han gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x + h, f(x + h))$.\n\nLat oss ta eit døme. Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$ får vi: $\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Vi veit at den eksakte deriverte er $f'(2) = 2 \\cdot 2 = 4$, så $4{,}1$ er ei god tilnærming – ganske nær, men ikkje heilt nøyaktig.\n\nKva skjer viss vi gjer $h$ enda mindre? Med $h = 0{,}01$: $\\frac{f(2{,}01) - f(2)}{0{,}01} = \\frac{4{,}0401 - 4}{0{,}01} = 4{,}01$. Enda nærare! Di mindre $h$, desto betre tilnærming.",
+      "8a2423a8ac1fce51": "Test deg sjølv på Newton-kvotienten:",
+      "4097889236a2af26": "placeholder",
+      "c34349d2163c5714": "Kva vert brøken $\\frac{f(x + h) - f(x)}{h}$ kalla?",
+      "0f3bdefcb68f4f67": "Potensregelen",
+      "478df95089d78a45": "Tangentlikninga",
+      "90acc6c185b01f52": "Stigningstalet",
+      "5b9e8bbfaaf16e00": "Newton-kvotienten",
+      "5e2becf392b5461b": "Brøken $\\frac{f(x + h) - f(x)}{h}$ vert kalla **Newton-kvotienten** (eller differanskvotienten). Han gjev den gjennomsnittlege vekstfarten mellom $x$ og $x + h$.",
+      "06c253fa350cb734": "Kva representerer Newton-kvotienten grafisk?",
+      "0aaa86ff4b76dfd8": "Stigningstalet til tangenten",
+      "459ebdd57fa9ca8f": "Stigningstalet til sekanten mellom $(x, f(x))$ og $(x+h, f(x+h))$",
+      "e2334ea52262caf2": "Arealet under grafen",
+      "e29ba228d66f7fa5": "Nullpunktet til funksjonen",
+      "c8db19c7739cc109": "Newton-kvotienten gjev stigningstalet til sekanten mellom punkta $(x, f(x))$ og $(x+h, f(x+h))$ på grafen. Det er den gjennomsnittlege vekstfarten i intervallet.",
+      "2139d014d8164784": "Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$: kva gjev Newton-kvotienten?",
+      "c5783a76a4778d63": "$\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Den eksakte deriverte er $f'(2) = 4$, så $4{,}1$ er ei tilnærming.",
+      "f119bcc49c4d3183": "Kva skjer med Newton-kvotienten når $h$ vert mindre?",
+      "c83dc2e8349f01fc": "Han vert meir unøyaktig",
+      "f761afefc5e58ff0": "Han nærmar seg den eksakte deriverte",
+      "23b1e77376f84819": "Han held seg uendra",
+      "bde56adf0d0581ba": "Han går mot null",
+      "98f526288f132066": "Di mindre $h$, desto betre tilnærmar Newton-kvotienten den eksakte deriverte. I grensa når $h \\to 0$ er Newton-kvotienten nøyaktig lik den deriverte.",
+      "058005533831b7f6": "Lydfil som les opp teksten fram til neste quiz.",
+      "8058bb97b9c62189": "## Definisjonen av den deriverte – grenseverdien\n\nVi har sett at Newton-kvotienten gjev betre og betre tilnærmingar til den deriverte di mindre $h$ vi vel. Den formelle definisjonen seier at den deriverte er det Newton-kvotienten *stabiliserer seg på* når $h$ går mot null. Vi skriv det med grenseverdi-symbolet:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$$\n\nLes dette som: «grenseverdien av Newton-kvotienten når $h$ går mot null». Merk at vi ikkje kan setje $h = 0$ direkte, for då ville vi delt på null. I staden lèt vi $h$ verte *vilkårleg nær* null og ser kva brøken nærmar seg.\n\nLat oss bevise at den deriverte av $x^2$ er $2x$ ved å bruke definisjonen. Vi startar med Newton-kvotienten: $\\frac{(x + h)^2 - x^2}{h}$. Vi utvidar $(x + h)^2 = x^2 + 2xh + h^2$. Då får vi $\\frac{x^2 + 2xh + h^2 - x^2}{h} = \\frac{2xh + h^2}{h} = \\frac{h(2x + h)}{h} = 2x + h$. Når $h \\to 0$, forsvinn $h$-leddet, og vi sit att med $f'(x) = 2x$.\n\nDette er altså *grunnen* til at potensregelen fungerer for $x^2$. Liknande utrekningar kan gjerast for høgare potensar, og dei gjev alltid potensregelen.",
+      "bfe376978924b285": "Test deg sjølv på definisjonen av den deriverte:",
+      "12f659589add084b": "Kva er den formelle definisjonen av den deriverte?",
+      "612c93e2be3cd436": "$f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$",
+      "4ab505e765b42c1c": "$f'(x) = n \\cdot x^{n-1}$",
+      "53c42c5cc9f9f604": "$f'(x) = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}$",
+      "84f06638b1e140aa": "$f'(x) = f(x + 1) - f(x)$",
+      "5a26f0fbb00c7c3b": "Den formelle definisjonen er $f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$. Det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null.",
+      "ffb8e1ada73edff6": "Kvifor kan vi ikkje setje $h = 0$ direkte i Newton-kvotienten?",
+      "38a73a3f0ede078d": "Fordi vi aldri brukar null i matematikk",
+      "12e89de1f879d78f": "Fordi vi ville dele på null",
+      "6fcba20472f850d9": "Fordi funksjonen ikkje er definert der",
+      "4c53361414d0d855": "Fordi svaret alltid vert null",
+      "22c33f40498ba74c": "Viss $h = 0$, vert nemnaren i brøken $\\frac{f(x+h) - f(x)}{h}$ lik null, og vi kan ikkje dele på null. Difor brukar vi grenseverdi og lèt $h$ nærme seg null utan å verte null.",
+      "d3842c22a82a8046": "Bruk definisjonen: Newton-kvotienten for $f(x) = x^2$ forenklast til $2x + h$. Kva er $\\lim_{h \\to 0}(2x + h)$?",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "e1e548210e7820de": "$2x + 1$",
+      "7f408224ea7b716f": "$x^2$",
+      "e091c7a0b4c9de09": "Når $h \\to 0$ forsvinn $h$-leddet: $\\lim_{h \\to 0}(2x + h) = 2x + 0 = 2x$. Dermed er $f'(x) = 2x$, som stemmer med potensregelen.",
+      "3c49f0344c8a6e33": "## Derivasjon frå definisjonen – fleire døme\n\nLat oss bruke definisjonen på nokre fleire funksjonar for å få trening. Ta $f(x) = 3x$. Newton-kvotienten vert $\\frac{3(x + h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Når $h \\to 0$, er svaret framleis $3$. Altså er $f'(x) = 3$. Det stemmer – den deriverte av ein lineær funksjon er stigningstalet.\n\nNo eit litt vanskelegare døme: $f(x) = x^2 + 1$. Newton-kvotienten er $\\frac{(x + h)^2 + 1 - x^2 - 1}{h} = \\frac{x^2 + 2xh + h^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$, får vi $f'(x) = 2x$. Legg merke til at konstanten $+1$ ikkje påverkar den deriverte – han «forsvann» i utrekninga.\n\nEit tredje døme: $f(x) = 2x^2 - x$. Newton-kvotienten gjev $\\frac{2(x+h)^2 - (x+h) - 2x^2 + x}{h}$. Vi utvidar og forenklar: $\\frac{2x^2 + 4xh + 2h^2 - x - h - 2x^2 + x}{h} = \\frac{4xh + 2h^2 - h}{h} = 4x + 2h - 1$. Grenseverdien når $h \\to 0$ gjev $f'(x) = 4x - 1$.",
+      "f937024a611c6900": "Test deg sjølv på derivasjon frå definisjonen:",
+      "97d7153f264be167": "Bruk definisjonen av den deriverte på $f(x) = x^2 + 1$. Kva er $f'(x)$?",
+      "22bf003d6cac79e1": "$x$",
+      "91c6b16a47d7db0c": "Newton-kvotienten gjev $\\frac{(x+h)^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$ sit vi att med $f'(x) = 2x$. Konstanten $+1$ påverkar ikkje den deriverte.",
+      "2e58027e9d52680d": "For $f(x) = 3x$ gjev Newton-kvotienten $\\frac{3(x+h) - 3x}{h}$. Kva forenklast dette til?",
+      "e2fe3bdcb9849f47": "$3x$",
+      "8235940c9c563624": "$3h$",
+      "e28272a2cf82f335": "$\\frac{3(x+h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Svaret er $3$ for alle $h$, og grenseverdien er òg $3$. Det stemmer: den deriverte av $3x$ er $3$.",
+      "41177666b84b6f42": "For $f(x) = 2x^2 - x$ gjev Newton-kvotienten $4x + 2h - 1$. Kva er $f'(x)$?",
+      "0b5c23bff9030ea7": "$4x + 2h - 1$",
+      "c96942867ccd949f": "$4x - 1$",
+      "94f1d121cce0f423": "$4x + 1$",
+      "5f8ac0a4dad1a8bf": "$2x - 1$",
+      "50de3956e6d05eae": "Vi tek grenseverdien: $\\lim_{h \\to 0}(4x + 2h - 1) = 4x + 0 - 1 = 4x - 1$. Alle ledd med $h$ forsvinn.",
+      "3b82a928c0db810e": "## Numerisk derivasjon – tilnærmingar i praksis\n\nNokre gonger er det vanskeleg eller umogleg å finne den eksakte deriverte. Kanskje funksjonen er for komplisert, eller kanskje du berre har ein tabell med talverdiar og ingen formel. Då brukar vi **numerisk derivasjon**, som gjev ein tilnærma verdi.\n\nDen enklaste metoden er å bruke Newton-kvotienten direkte med ein liten verdi av $h$: $f'(x) \\approx \\frac{f(x + h) - f(x)}{h}$. Dette vert kalla **framoverdifferansen** fordi vi ser «framover» frå $x$ til $x + h$.\n\nMen det finst ein betre metode: **sentraldifferansen**. I staden for å sjå berre framover, ser vi litt til begge sider:\n\n$$f'(x) \\approx \\frac{f(x + h) - f(x - h)}{2h}$$\n\nSentraldifferansen er meir nøyaktig fordi han balanserer feilen på begge sider av punktet. Lat oss prøve: $f(x) = x^2$, $x = 3$, $h = 0{,}1$. Sentraldifferansen gjev $\\frac{f(3{,}1) - f(2{,}9)}{0{,}2} = \\frac{9{,}61 - 8{,}41}{0{,}2} = \\frac{1{,}2}{0{,}2} = 6$. Den eksakte verdien er $f'(3) = 6$, så sentraldifferansen trefte eksakt her!",
+      "110f13feee2e11e6": "Test deg sjølv på numerisk derivasjon:",
+      "9d0b6daa9de74c48": "Kva metode for numerisk derivasjon er generelt mest nøyaktig?",
+      "9fc434cb94bbfbcd": "Framoverdifferansen",
+      "be4b27d4a69fec78": "Bakoverdifferansen",
+      "1d2b930feb5ba087": "Sentraldifferansen",
+      "187ac3668a1ef743": "Dei er alle like nøyaktige",
+      "c7d2a6eb45525724": "**Sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er generelt meir nøyaktig enn framoverdifferansen fordi han balanserer feilen symmetrisk rundt punktet $x$.",
+      "f73688783428bcb5": "Kva er formelen for sentraldifferansen?",
+      "4b1fe079f71d3c8a": "$\\frac{f(x + h) - f(x)}{h}$",
+      "55f101d005030c18": "$\\frac{f(x) - f(x - h)}{h}$",
+      "c15a16f3b5b2bbfb": "$\\frac{f(x + h) - f(x - h)}{2h}$",
+      "fae3e0684c2d6834": "$\\frac{f(x + h) + f(x - h)}{2h}$",
+      "4fdcb537a393b6bd": "Sentraldifferansen er $\\frac{f(x+h) - f(x-h)}{2h}$. Han ser litt til begge sider av punktet $x$, noko som gjev betre nøyaktigheit enn å berre sjå framover.",
+      "c5c23d608ce23566": "Når er numerisk derivasjon spesielt nyttig?",
+      "edb273a396a52b67": "Når funksjonen er eit polynom",
+      "441957f6187138e0": "Når vi berre har datapunkt og ingen formel",
+      "ed84dd005c4bee23": "Når vi kjenner den deriverte alt",
+      "97b1c1e4f663f8af": "Når $h$ er veldig stor",
+      "cbc2181e60fb3f89": "Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen, til dømes når vi berre har ein tabell med målte verdiar. Då kan vi tilnærme den deriverte med Newton-kvotienten eller sentraldifferansen.",
+      "328ed4c42b17857b": "## Samanhengen mellom alt vi har lært\n\nLat oss stoppe opp og sjå det store biletet. Vi har no tre måtar å tenkje på den deriverte:\n\nDen **grafiske** tilnærminga: den deriverte er stigningstalet til tangenten. Vi kan teikne tangenten og lese av stigningstalet. Denne metoden gjev god intuisjon, men er ikkje alltid nøyaktig.\n\nDen **algebraiske** tilnærminga: vi brukar derivasjonsreglane (potensregelen, sumregelen osv.) til å finne eit eksakt uttrykk for $f'(x)$. Denne metoden er rask og gjev nøyaktige svar for funksjonar vi kjenner reglane for.\n\nDen **numeriske** tilnærminga: vi brukar Newton-kvotienten eller sentraldifferansen med ein liten $h$ for å tilnærme $f'(x)$. Denne metoden fungerer sjølv når vi ikkje har ein formel for funksjonen, berre datapunkt.\n\nAlle tre tilnærmingane er nyttige i ulike situasjonar. Derivasjonsreglane er det du brukar mest til dagleg, men den formelle definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er uvurderleg når du jobbar med data frå verkelegheita.",
+      "5ec0067000733de8": "Test deg sjølv på dei tre tilnærmingane til den deriverte:",
+      "45e2b206bb955d8a": "Lat $f(x) = x^2$. Bruk framoverdifferansen med $x = 3$ og $h = 0{,}1$. Kva får du?",
+      "8f85c6115163217a": "Framoverdifferansen: $\\frac{f(3{,}1) - f(3)}{0{,}1} = \\frac{9{,}61 - 9}{0{,}1} = \\frac{0{,}61}{0{,}1} = 6{,}1$. Den eksakte verdien er $f'(3) = 6$, så $6{,}1$ er ei god tilnærming.",
+      "8894646840ced691": "Kva er dei tre tilnærmingane for å tenkje på den deriverte?",
+      "3a698c07a860d4c2": "Addisjon, subtraksjon og multiplikasjon",
+      "ec7a603ef365af7d": "Grafisk, algebraisk og numerisk",
+      "b2018b91a858117a": "Potensregel, sumregel og konstantregel",
+      "a6e8581f6e0470cc": "Sekant, tangent og normal",
+      "411d26d0db9952a5": "Dei tre tilnærmingane er: **grafisk** (stigningstalet til tangenten), **algebraisk** (derivasjonsreglane), og **numerisk** (Newton-kvotienten eller sentraldifferansen med liten $h$).",
+      "486c4436b507ae37": "Kva tilnærming brukar du mest til dagleg for å finne den deriverte?",
+      "da5b938f0c9691bb": "Den grafiske – vi teiknar tangentar for hand",
+      "f63cc326d233e11d": "Den numeriske – vi reknar med liten $h$",
+      "7669dfa4823966ba": "Den algebraiske – vi brukar derivasjonsreglane",
+      "1125893a5d33ea29": "Ingen av dei – vi gjettar",
+      "8949dba5f77bebbd": "Den **algebraiske** tilnærminga med derivasjonsreglar (potensregelen osv.) er raskast og gjev eksakte svar. Men definisjonen forklarar *kvifor* reglane verkar, og numerisk derivasjon er nyttig for data utan formel.",
+      "2d71bb5a8d54f8e4": "Sentraldifferansen for $f(x) = x^2$ med $x = 3$ og $h = 0{,}1$ gjev $6$. Kva er den eksakte deriverte $f'(3)$?",
+      "3ae4763cc8a5c374": "$f'(x) = 2x$, så $f'(3) = 6$. Sentraldifferansen trefte eksakt! Det er ikkje alltid slik, men for andregradspolynom gjev sentraldifferansen alltid eksakt svar.",
+      "79eeeec37aef74be": "Lytt til oppsummeringa",
+      "b409d1128419f9c6": "Lydfil som les opp oppsummeringa.",
+      "f7797f17cd2e506a": "## Oppsummering\n\nI dette kapittelet har vi sett kva som ligg under derivasjonsreglane vi alt har lært. **Newton-kvotienten** $\\frac{f(x+h) - f(x)}{h}$ gjev gjennomsnittleg vekstfart mellom $x$ og $x + h$, og han er stigningstalet til sekanten mellom desse to punkta.\n\n**Definisjonen av den deriverte** seier at $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$ – det er grenseverdien av Newton-kvotienten når steglengda $h$ går mot null. Denne definisjonen forklarar kvifor potensregelen og dei andre reglane fungerer, og han kan brukast til å derivere funksjonar frå botnen av.\n\n**Numerisk derivasjon** gjev tilnærma verdiar av den deriverte. **Framoverdifferansen** brukar Newton-kvotienten med ein liten $h$, medan **sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er meir nøyaktig fordi han ser symmetrisk til begge sider. Numerisk derivasjon er spesielt nyttig når vi ikkje har ein formel for funksjonen."
+    }
+  }
+}

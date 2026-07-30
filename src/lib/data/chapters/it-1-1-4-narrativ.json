@@ -1,1 +1,235 @@
-{"id":"it-1-1-4-narrativ","courseId":"it-1","chapterNumber":"1.4","title":"Digitalt utenforskap og universell utforming","subtitle":"Narrativ versjon","description":"En fortelling om de 600 000 som står utenfor det digitale samfunnet – og om hvordan universell utforming og WCAG gjør at nettsider kan brukes av alle.","estimatedMinutes":30,"competenceGoals":["gjøre rede for utfordringer knyttet til digitalt utenforskap","forklare prinsipper for universell utforming av digitale løsninger","vurdere tiltak for å sikre digital inkludering"],"linkedChapterId":"it-1-1-4","content":[{"id":"it-1-1-4-n-intro","type":"text","content":"## Når banken legger ned filialen\n\nForestill deg at du er 82 år, bor alene på bygda og ser dårlig. Banken din har lagt ned filialen og krever nettbank. Legekontoret bruker digital timebestilling, og skattemeldingen er digital. Uten hjelp fra familien risikerer du å havne utenfor tjenester du har krav på.\n\nNorge er et av verdens mest digitaliserte land, men rundt 600 000 mennesker mangler grunnleggende digitale ferdigheter. Når stadig flere tjenester blir digitale, faller disse menneskene utenfor. Vi kaller det **digitalt utenforskap**: at en person ikke kan delta fullt ut i det digitale samfunnet.\n\nKompetanse Norge peker på flere grupper som er særlig utsatt. **Eldre** over 75 år har ofte begrenset digital erfaring. **Innvandrere** møter språkbarrierer. **Funksjonshemmede** kan ha syns-, hørsels- eller motoriske utfordringer. **Lavtutdannede** har i snitt svakere digitale ferdigheter, og **økonomisk vanskeligstilte** har ikke alltid råd til datamaskin og internett. Dette er ikke bare et praktisk problem, men et demokratisk: når offentlige tjenester blir digitale, risikerer sårbare grupper å miste tilgang til rettigheter.\n\nTa Ahmed på 68, som har bodd i Norge i 15 år og snakker greit norsk, men sliter med skriftspråket. Han skal fornye passet digitalt og møter flere barrierer på én gang: byråkratisk språk i skjemaene, krav om innlogging med BankID og opplasting av foto, og ingen familie til å hjelpe. Løsninger finnes – flerspråklige sider, veiledningsvideoer, gratis kurs på biblioteket, klarspråk og mulighet for personlig oppmøte – men de må bygges inn bevisst."},{"id":"it-1-1-4-n-quiz1","type":"exercise","exercise":{"id":"it-1-1-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på digitalt utenforskap:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-1-4-n-quiz1-q0","task":"Hva menes med digitalt utenforskap?","options":[{"id":"a","text":"At man velger å ikke bruke digitale tjenester","isCorrect":false},{"id":"b","text":"At man bor i et land uten internett","isCorrect":false},{"id":"c","text":"At man ikke kan delta fullt ut i det digitale samfunnet på grunn av manglende tilgang eller kompetanse","isCorrect":true},{"id":"d","text":"At man ikke har konto på sosiale medier","isCorrect":false}],"solution":"Digitalt utenforskap handler om å ikke kunne delta fullt ut i det digitale samfunnet, ofte på grunn av manglende tilgang, kompetanse eller tilrettelegging."},{"id":"it-1-1-4-n-quiz1-q1","task":"Hvilken gruppe regnes IKKE som spesielt utsatt for digitalt utenforskap?","options":[{"id":"a","text":"Eldre over 75 år","isCorrect":false},{"id":"b","text":"Innvandrere med språkbarrierer","isCorrect":false},{"id":"c","text":"Økonomisk vanskeligstilte","isCorrect":false},{"id":"d","text":"Unge IT-utviklere med høy utdanning","isCorrect":true}],"solution":"Unge med høy IT-utdanning er blant de minst utsatte. Eldre, innvandrere, funksjonshemmede og økonomisk vanskeligstilte er mer sårbare."},{"id":"it-1-1-4-n-quiz1-q2","task":"Hvorfor er digitalt utenforskap et demokratisk problem?","options":[{"id":"a","text":"Fordi sårbare grupper kan miste tilgang til offentlige tjenester og rettigheter","isCorrect":true},{"id":"b","text":"Fordi det gjør internett tregere","isCorrect":false},{"id":"c","text":"Fordi det koster bedrifter penger","isCorrect":false},{"id":"d","text":"Fordi det fører til mer reklame","isCorrect":false}],"solution":"Når offentlige tjenester blir digitale, kan de som står utenfor miste tilgang til rettigheter og tjenester de har krav på."}]}},{"id":"it-1-1-4-n-section1","type":"text","content":"## Design som virker for alle\n\nSvaret på utenforskapet er ikke at hver enkelt skal tilpasse seg teknologien – det er at teknologien skal tilpasse seg menneskene. Det kaller vi **universell utforming**: å designe slik at alle kan bruke noe uten spesialtilpasning. I Norge er universell utforming av IKT lovpålagt.\n\nDet internasjonale regelverket heter **WCAG** og bygger på fire prinsipper du kan huske som POUR. *Mulig å oppfatte* betyr at bilder trenger alternativ tekst og videoer trenger undertekster. *Mulig å betjene* betyr at siden må kunne brukes med tastatur alene. *Forståelig* betyr lesbar tekst og tydelige feilmeldinger. *Robust* betyr at innholdet fungerer med ulike nettlesere og hjelpemiddelteknologi som skjermlesere. WCAG har tre nivåer: A er minimum, Å er lovkravet i Norge for offentlige nettsider, og AAA er det optimale.\n\nFor en utvikler blir dette konkret. Bilder skal ha beskrivende alt-tekst, mens rent dekorative bilder får tom alt-tekst (`alt=\"\"`). Fargekontrasten må være minst 4.5:1 for normal tekst, og du skal aldri bruke farge alene til å formidle informasjon. Bruk semantisk HTML som `<button>`, `<a>` og `<nav>` framfor generiske `<div>`-elementer, slik at tastaturnavigasjon fungerer. Sammenlign disse to:\n\n```html\n<!-- Dårlig -->\n<div onclick=\"submit()\">Send skjema</div>\n<img src=\"info.jpg\">\n<span style=\"color: #aaa\">Viktig melding</span>\n```\n\n```html\n<!-- God -->\n<button type=\"submit\">Send skjema</button>\n<img src=\"info.jpg\" alt=\"Informasjon om søknadsfristen\">\n<p style=\"color: #333\">Viktig melding</p>\n```\n\nDen dårlige versjonen er ikke tastatur-tilgjengelig, mangler alt-tekst og har for lav kontrast. Den gode løser alle tre. For å teste kan du bruke Lighthouse i Chrome DevTools eller axe DevTools, eller rett og slett navigere med kun tastatur og zoome til 200 %."},{"id":"it-1-1-4-n-quiz2","type":"exercise","exercise":{"id":"it-1-1-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på universell utforming og WCAG:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-1-4-n-quiz2-q0","task":"Hvilke fire prinsipper er WCAG bygget på?","options":[{"id":"a","text":"Pent, raskt, sikkert, tilgjengelig","isCorrect":false},{"id":"b","text":"Mulig å oppfatte, mulig å betjene, forståelig, robust","isCorrect":true},{"id":"c","text":"Lesbart, klikkbart, søkbart, delbart","isCorrect":false},{"id":"d","text":"Responsivt, semantisk, validert, optimalisert","isCorrect":false}],"solution":"WCAG bygger på POUR: Perceivable (oppfatte), Operable (betjene), Understandable (forståelig) og Robust."},{"id":"it-1-1-4-n-quiz2-q1","task":"Hvilket WCAG-nivå er lovpålagt for offentlige nettsider i Norge?","options":[{"id":"a","text":"Nivå A","isCorrect":false},{"id":"b","text":"Nivå AAA","isCorrect":false},{"id":"c","text":"Nivå Å","isCorrect":true},{"id":"d","text":"Det er ingen krav","isCorrect":false}],"solution":"Nivå Å er lovkravet i Norge. A er minimum og AAA er det optimale."},{"id":"it-1-1-4-n-quiz2-q2","task":"Hvorfor bør du bruke <button> i stedet for en <div> med onclick?","options":[{"id":"a","text":"Fordi <div> ikke finnes i HTML","isCorrect":false},{"id":"b","text":"Fordi <div> alltid er rød","isCorrect":false},{"id":"c","text":"Fordi <button> laster siden raskere","isCorrect":false},{"id":"d","text":"Fordi <button> er tastatur-tilgjengelig og forstås av hjelpemiddelteknologi","isCorrect":true}],"solution":"Semantiske elementer som <button> er tastatur-tilgjengelige og forstås av skjermlesere, mens en <div> med onclick ikke er det."}]}},{"id":"it-1-1-4-n-summary","type":"text","content":"## Oppsummering\n\nVi møtte den 82 år gamle damen uten filial og Ahmed som ikke fikk fornyet passet. **Digitalt utenforskap** rammer eldre, innvandrere, funksjonshemmede, lavtutdannede og økonomisk vanskeligstilte, og er et demokratisk problem når tjenester blir digitale.\n\nLøsningen er **universell utforming** – lovpålagt i Norge – der vi designer for alle. **WCAG** bygger på de fire POUR-prinsippene (oppfatte, betjene, forståelig, robust) og har nivåene A, Å og AAA, der Å er lovkravet. I praksis betyr det alt-tekst på bilder, god fargekontrast, semantisk HTML og tastaturnavigasjon – grep som gjør at teknologien tilpasser seg menneskene, og ikke omvendt."}],"exercises":[]}
+{
+  "id": "it-1-1-4-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "1.4",
+  "title": "Digitalt utenforskap og universell utforming",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om de 600 000 som står utenfor det digitale samfunnet – og om hvordan universell utforming og WCAG gjør at nettsider kan brukes av alle.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "gjøre rede for utfordringer knyttet til digitalt utenforskap",
+    "forklare prinsipper for universell utforming av digitale løsninger",
+    "vurdere tiltak for å sikre digital inkludering"
+  ],
+  "linkedChapterId": "it-1-1-4",
+  "content": [
+    {
+      "id": "it-1-1-4-n-intro",
+      "type": "text",
+      "content": "## Når banken legger ned filialen\n\nForestill deg at du er 82 år, bor alene på bygda og ser dårlig. Banken din har lagt ned filialen og krever nettbank. Legekontoret bruker digital timebestilling, og skattemeldingen er digital. Uten hjelp fra familien risikerer du å havne utenfor tjenester du har krav på.\n\nNorge er et av verdens mest digitaliserte land, men rundt 600 000 mennesker mangler grunnleggende digitale ferdigheter. Når stadig flere tjenester blir digitale, faller disse menneskene utenfor. Vi kaller det **digitalt utenforskap**: at en person ikke kan delta fullt ut i det digitale samfunnet.\n\nKompetanse Norge peker på flere grupper som er særlig utsatt. **Eldre** over 75 år har ofte begrenset digital erfaring. **Innvandrere** møter språkbarrierer. **Funksjonshemmede** kan ha syns-, hørsels- eller motoriske utfordringer. **Lavtutdannede** har i snitt svakere digitale ferdigheter, og **økonomisk vanskeligstilte** har ikke alltid råd til datamaskin og internett. Dette er ikke bare et praktisk problem, men et demokratisk: når offentlige tjenester blir digitale, risikerer sårbare grupper å miste tilgang til rettigheter.\n\nTa Ahmed på 68, som har bodd i Norge i 15 år og snakker greit norsk, men sliter med skriftspråket. Han skal fornye passet digitalt og møter flere barrierer på én gang: byråkratisk språk i skjemaene, krav om innlogging med BankID og opplasting av foto, og ingen familie til å hjelpe. Løsninger finnes – flerspråklige sider, veiledningsvideoer, gratis kurs på biblioteket, klarspråk og mulighet for personlig oppmøte – men de må bygges inn bevisst."
+    },
+    {
+      "id": "it-1-1-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-1-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på digitalt utenforskap:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-1-4-n-quiz1-q0",
+            "task": "Hva menes med digitalt utenforskap?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At man velger å ikke bruke digitale tjenester",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At man ikke kan delta fullt ut i det digitale samfunnet på grunn av manglende tilgang eller kompetanse",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At man bor i et land uten internett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At man ikke har konto på sosiale medier",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Digitalt utenforskap handler om å ikke kunne delta fullt ut i det digitale samfunnet, ofte på grunn av manglende tilgang, kompetanse eller tilrettelegging."
+          },
+          {
+            "id": "it-1-1-4-n-quiz1-q1",
+            "task": "Hvilken gruppe regnes IKKE som spesielt utsatt for digitalt utenforskap?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eldre over 75 år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Innvandrere med språkbarrierer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Unge IT-utviklere med høy utdanning",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Økonomisk vanskeligstilte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Unge med høy IT-utdanning er blant de minst utsatte. Eldre, innvandrere, funksjonshemmede og økonomisk vanskeligstilte er mer sårbare."
+          },
+          {
+            "id": "it-1-1-4-n-quiz1-q2",
+            "task": "Hvorfor er digitalt utenforskap et demokratisk problem?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi det gjør internett tregere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det koster bedrifter penger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det fører til mer reklame",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi sårbare grupper kan miste tilgang til offentlige tjenester og rettigheter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når offentlige tjenester blir digitale, kan de som står utenfor miste tilgang til rettigheter og tjenester de har krav på."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-1-4-n-section1",
+      "type": "text",
+      "content": "## Design som virker for alle\n\nSvaret på utenforskapet er ikke at hver enkelt skal tilpasse seg teknologien – det er at teknologien skal tilpasse seg menneskene. Det kaller vi **universell utforming**: å designe slik at alle kan bruke noe uten spesialtilpasning. I Norge er universell utforming av IKT lovpålagt.\n\nDet internasjonale regelverket heter **WCAG** og bygger på fire prinsipper du kan huske som POUR. *Mulig å oppfatte* betyr at bilder trenger alternativ tekst og videoer trenger undertekster. *Mulig å betjene* betyr at siden må kunne brukes med tastatur alene. *Forståelig* betyr lesbar tekst og tydelige feilmeldinger. *Robust* betyr at innholdet fungerer med ulike nettlesere og hjelpemiddelteknologi som skjermlesere. WCAG har tre nivåer: A er minimum, Å er lovkravet i Norge for offentlige nettsider, og AAA er det optimale.\n\nFor en utvikler blir dette konkret. Bilder skal ha beskrivende alt-tekst, mens rent dekorative bilder får tom alt-tekst (`alt=\"\"`). Fargekontrasten må være minst 4.5:1 for normal tekst, og du skal aldri bruke farge alene til å formidle informasjon. Bruk semantisk HTML som `<button>`, `<a>` og `<nav>` framfor generiske `<div>`-elementer, slik at tastaturnavigasjon fungerer. Sammenlign disse to:\n\n```html\n<!-- Dårlig -->\n<div onclick=\"submit()\">Send skjema</div>\n<img src=\"info.jpg\">\n<span style=\"color: #aaa\">Viktig melding</span>\n```\n\n```html\n<!-- God -->\n<button type=\"submit\">Send skjema</button>\n<img src=\"info.jpg\" alt=\"Informasjon om søknadsfristen\">\n<p style=\"color: #333\">Viktig melding</p>\n```\n\nDen dårlige versjonen er ikke tastatur-tilgjengelig, mangler alt-tekst og har for lav kontrast. Den gode løser alle tre. For å teste kan du bruke Lighthouse i Chrome DevTools eller axe DevTools, eller rett og slett navigere med kun tastatur og zoome til 200 %."
+    },
+    {
+      "id": "it-1-1-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-1-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på universell utforming og WCAG:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-1-4-n-quiz2-q0",
+            "task": "Hvilke fire prinsipper er WCAG bygget på?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Mulig å oppfatte, mulig å betjene, forståelig, robust",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Pent, raskt, sikkert, tilgjengelig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lesbart, klikkbart, søkbart, delbart",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Responsivt, semantisk, validert, optimalisert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "WCAG bygger på POUR: Perceivable (oppfatte), Operable (betjene), Understandable (forståelig) og Robust."
+          },
+          {
+            "id": "it-1-1-4-n-quiz2-q1",
+            "task": "Hvilket WCAG-nivå er lovpålagt for offentlige nettsider i Norge?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nivå A",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nivå Å",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Nivå AAA",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen krav",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nivå Å er lovkravet i Norge. A er minimum og AAA er det optimale."
+          },
+          {
+            "id": "it-1-1-4-n-quiz2-q2",
+            "task": "Hvorfor bør du bruke <button> i stedet for en <div> med onclick?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi <div> ikke finnes i HTML",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi <div> alltid er rød",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi <button> er tastatur-tilgjengelig og forstås av hjelpemiddelteknologi",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi <button> laster siden raskere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Semantiske elementer som <button> er tastatur-tilgjengelige og forstås av skjermlesere, mens en <div> med onclick ikke er det."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-1-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi møtte den 82 år gamle damen uten filial og Ahmed som ikke fikk fornyet passet. **Digitalt utenforskap** rammer eldre, innvandrere, funksjonshemmede, lavtutdannede og økonomisk vanskeligstilte, og er et demokratisk problem når tjenester blir digitale.\n\nLøsningen er **universell utforming** – lovpålagt i Norge – der vi designer for alle. **WCAG** bygger på de fire POUR-prinsippene (oppfatte, betjene, forståelig, robust) og har nivåene A, Å og AAA, der Å er lovkravet. I praksis betyr det alt-tekst på bilder, god fargekontrast, semantisk HTML og tastaturnavigasjon – grep som gjør at teknologien tilpasser seg menneskene, og ikke omvendt."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,423 @@
-{"id":"it-2-1-2-narrativ","courseId":"it-2","chapterNumber":"2","title":"Klassar og objekt","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis du går frå teori til praksis og skriv dine eigne klassar – frå konstruktøren og det mystiske self til objekt som hugsar sin eigen tilstand.","estimatedMinutes":35,"competenceGoals":["Definere klasser med konstruktør, attributter og metoder","Forstå hva self betyr og hvordan objekter instansieres","Lage metoder som leser, endrer og returnerer verdier"],"linkedChapterId":"it-2-1-2","content":[{"id":"it-2-1-2-n-intro","type":"text","content":"## Frå oppskrift til ferdig kake\n\nI førre kapittel fekk du vite kva objektorientert programmering er. No skal du faktisk skrive dine eigne klassar. Tenk på ein klasse som ei oppskrift eller ein mal. Er klassen oppskrifta på ei kake, er objektet den ferdige kaka. Du kan bake mange kaker frå same oppskrift – kvar kake er eit unikt objekt, men alle følgjer same mal.\n\nLat oss feste tre ord. Ein **klasse** er ein mal som definerer kva attributt og metodar objekt av denne typen skal ha. Eit **objekt** er ein konkret instans av klassen, med sine eigne verdiar. **Instans** er berre eit anna ord for objekt – vi seier at vi *instansierer* ein klasse når vi lagar eit objekt av han.\n\nHer er den første ekte klassen din, ein som representerer ein person:\n\n```python\nclass Person:\n    def __init__(self, navn, alder):\n        self.navn = navn\n        self.alder = alder\n\n    def hilse(self):\n        print(f\"Hei, jeg heter {self.navn} og er {self.alder} år gammel.\")\n\nperson1 = Person(\"Kari\", 25)\nperson2 = Person(\"Ola\", 30)\nperson1.hilse()  # Hei, jeg heter Kari og er 25 år gammel.\n```\n\nVi definerer klassen med `class Person:`, lagar ein **konstruktør** `__init__` som køyrer automatisk når objektet blir oppretta, lagrar attributta med `self.navn` og `self.alder`, definerer ein metode `hilse`, og instansierer klassen to gonger."},{"id":"it-2-1-2-n-section1","type":"text","content":"## Konstruktøren og det mystiske self\n\nLat oss sjå nærmare på dei to delane som forvirrar flest. **Konstruktøren** er ein spesiell metode som køyrer automatisk når du lagar eit nytt objekt. I Python heiter han alltid `__init__`, med to understrekar på kvar side. Han blir brukt til å setje startverdiar for attributt og køyre nødvendig oppsettskode. Du kan òg gi attributt standardverdiar, slik at det blir valfritt å sende dei inn:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, saldo=0):\n        self.kontonummer = kontonummer\n        self.eier = eier\n        self.saldo = saldo\n```\n\nHer tyder `saldo=0` at dersom brukaren ikkje oppgir nokon saldo, blir han automatisk sett til null.\n\nSå til det mystiske `self`. Det dukkar opp overalt, men er eigentleg enkelt: **`self` refererer til objektet sjølv** – det objektet metoden blir kalla på. Når du skriv `person1.hilse()`, er `self` inni `hilse`-metoden lik `person1`. Tenk på det slik: når du seier «Eg går til butikken», refererer «eg» til deg sjølv. På same måte refererer `self` til objektet som «snakkar». Python krev at du eksplisitt sender med objektreferansen som første parameter i kvar metode. Andre språk, som Java, bruker `this`, som verkar meir automatisk."},{"id":"it-2-1-2-n-quiz1","type":"exercise","exercise":{"id":"it-2-1-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på konstruktør og self:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-2-n-quiz1-q0","task":"Kva representerer `self` i `min_bil.start()` der min_bil er eit Bil-objekt?","options":[{"id":"a","text":"Klassen Bil","isCorrect":false},{"id":"b","text":"Objektet min_bil","isCorrect":true},{"id":"c","text":"Metoden start","isCorrect":false},{"id":"d","text":"Ein tilfeldig streng","isCorrect":false}],"solution":"self refererer til det spesifikke objektet metoden blir kalla på. Her er det min_bil."},{"id":"it-2-1-2-n-quiz1-q1","task":"Kva heiter konstruktøren i ein Python-klasse?","options":[{"id":"a","text":"__start__","isCorrect":false},{"id":"b","text":"constructor","isCorrect":false},{"id":"c","text":"__init__","isCorrect":true},{"id":"d","text":"new","isCorrect":false}],"solution":"Konstruktøren heiter alltid __init__ i Python, med to understrekar før og etter."},{"id":"it-2-1-2-n-quiz1-q2","task":"Kva tyder parameteren `saldo=0` i konstruktøren?","options":[{"id":"a","text":"At saldoen aldri kan endrast","isCorrect":false},{"id":"b","text":"At saldoen alltid blir 0","isCorrect":false},{"id":"c","text":"At saldoen må oppgivast","isCorrect":false},{"id":"d","text":"At saldoen blir 0 dersom ingen verdi blir oppgitt","isCorrect":true}],"solution":"Ein standardverdi gjer parameteren valfri: blir ingen saldo oppgitt, blir 0 brukt."}]}},{"id":"it-2-1-2-n-section2","type":"text","content":"## Metodar som les, endrar og returnerer\n\nMetodar kan gjere tre ting med objektet. Dei kan **lese** attributt, dei kan **endre** dei, og dei kan **returnere** verdiar. At objektet held styr på sin eigen tilstand, er ein av dei store fordelane med OOP. Sjå korleis bankkonto-metodane endrar `self.saldo` og samtidig validerer input:\n\n```python\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop > self.saldo:\n            print(\"Ikke nok penger på konto\")\n        elif belop <= 0:\n            print(\"Beløpet må være positivt\")\n        else:\n            self.saldo -= belop\n```\n\nDenne valideringa er fornuftig logikk som høyrer heime i Bankkonto-klassen. Andre metodar reknar ut noko og returnerer resultatet, akkurat som vanlege funksjonar. Ein `Rektangel`-klasse kan ha `areal()` som returnerer `self.lengde * self.bredde`, `omkrets()` som returnerer `2 * (self.lengde + self.bredde)`, og `er_kvadrat()` som returnerer `self.lengde == self.bredde`.\n\nEi nøkkelinnsikt er at kvart objekt er **uavhengig**. Lagar du tre hundar med kvar sin `navn`, `rase` og `alder`, påverkar det ikkje dei andre om du endrar alderen på éin. Det same gjeld ein enkel teljar: lagar du to `Teller`-objekt, aukar kvar sin eigen `verdi` separat. Kallar du `øk()` to gonger på den første og éin gong på den andre, blir verdiane 2 og 1 – ikkje felles."},{"id":"it-2-1-2-n-quiz2","type":"exercise","exercise":{"id":"it-2-1-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på metodar og uavhengige objekt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-2-n-quiz2-q0","task":"To Teller-objekt startar på 0. teller1.øk() blir køyrt to gonger, teller2.øk() éin gong. Kva er verdiane?","options":[{"id":"a","text":"2 og 1","isCorrect":true},{"id":"b","text":"0 og 0","isCorrect":false},{"id":"c","text":"3 og 3","isCorrect":false},{"id":"d","text":"1 og 2","isCorrect":false}],"solution":"Kvart objekt har sin eigen verdi. teller1 blir auka to gonger (2), teller2 éin gong (1)."},{"id":"it-2-1-2-n-quiz2-q1","task":"Kva er skilnaden på ein metode som endrar og ein som returnerer?","options":[{"id":"a","text":"Det er ingen skilnad","isCorrect":false},{"id":"b","text":"Ein endrande metode oppdaterer attributta til objektet; ein returnerande gjev tilbake ein verdi","isCorrect":true},{"id":"c","text":"Returnerande metodar kan ikkje bruke self","isCorrect":false},{"id":"d","text":"Endrande metodar kan berre køyrast éin gong","isCorrect":false}],"solution":"Ein metode kan endre tilstanden til objektet (t.d. self.saldo += belop) eller returnere ein berekna verdi (t.d. areal)."},{"id":"it-2-1-2-n-quiz2-q2","task":"Kvifor er det smart å validere input inni ein metode som ta_ut?","options":[{"id":"a","text":"For å gjere koden lengre","isCorrect":false},{"id":"b","text":"Fordi Python krev det","isCorrect":false},{"id":"c","text":"Fordi logikken som vernar tilstanden til objektet høyrer heime i klassen","isCorrect":true},{"id":"d","text":"For å unngå å bruke self","isCorrect":false}],"solution":"Validering, som å hindre uttak større enn saldo, er fornuftig logikk som naturleg høyrer heime i klassen som eig dataa."}]}},{"id":"it-2-1-2-n-section3","type":"text","content":"## Samansette data og vanlege feller\n\nAttributt kan vere kva som helst datatype – inkludert lister, ordbøker og til og med andre objekt. Ein `Handlekurv` kan til dømes ha ei tom liste `self.varer = []`, ein metode `legg_til` som legg til ordbøker med vare og pris, og ein `total_pris`-metode som summerer prisane:\n\n```python\nclass Handlekurv:\n    def __init__(self):\n        self.varer = []\n\n    def legg_til(self, vare, pris):\n        self.varer.append({\"vare\": vare, \"pris\": pris})\n\n    def total_pris(self):\n        return sum(vare[\"pris\"] for vare in self.varer)\n```\n\nDette viser korleis OOP ryddar opp i kompleks data: éi liste med ordbøker, samla i eitt objekt med metodar som høyrer til.\n\nTil slutt: nokre feil går att for nybyrjarar, og du bør kjenne dei att. Skriv du `def init` i staden for `def __init__`, blir konstruktøren aldri køyrd. Gløymer du `self` som første parameter i ein metode, klagar Python. Skriv du `merke = merke` i konstruktøren i staden for `self.merke = merke`, blir verdien berre lagra i ein lokal variabel som forsvinn. Og inne i ein metode må du bruke `self.merke`, ikkje berre `merke`, for å lese attributtet. Hugsar du desse fire, slepp du dei vanlegaste klassefeila."},{"id":"it-2-1-2-n-quiz3","type":"exercise","exercise":{"id":"it-2-1-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på samansette data og feilsøking:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-2-n-quiz3-q0","task":"Kva er feilen i `def init(merke):` som konstruktør?","options":[{"id":"a","text":"init er eit reservert ord","isCorrect":false},{"id":"b","text":"Konstruktørar kan ikkje ta parameter","isCorrect":false},{"id":"c","text":"Det er ingen feil","isCorrect":false},{"id":"d","text":"Han manglar doble understrekar (__init__) og parameteren self","isCorrect":true}],"solution":"Konstruktøren må heite __init__ og ha self som første parameter: def __init__(self, merke)."},{"id":"it-2-1-2-n-quiz3-q1","task":"Kva skjer dersom du skriv `merke = merke` i staden for `self.merke = merke` i konstruktøren?","options":[{"id":"a","text":"Verdien hamnar berre i ein lokal variabel og forsvinn","isCorrect":true},{"id":"b","text":"Verdien blir lagra på objektet","isCorrect":false},{"id":"c","text":"Programmet køyrer raskare","isCorrect":false},{"id":"d","text":"Klassen blir til ein funksjon","isCorrect":false}],"solution":"Utan self. blir ikkje verdien lagra på objektet, berre i ein lokal variabel som forsvinn når konstruktøren er ferdig."},{"id":"it-2-1-2-n-quiz3-q2","task":"Kan eit attributt vere ei liste eller ordbok?","options":[{"id":"a","text":"Nei, berre tal og strengar","isCorrect":false},{"id":"b","text":"Ja, eit attributt kan vere kva som helst datatype, òg lister, ordbøker og objekt","isCorrect":true},{"id":"c","text":"Berre dersom klassen arvar frå list","isCorrect":false},{"id":"d","text":"Berre i konstruktøren","isCorrect":false}],"solution":"Attributt kan ha alle datatypar, inkludert lister og ordbøker, slik Handlekurv bruker ei liste av ordbøker."}]}},{"id":"it-2-1-2-n-summary","type":"text","content":"## Oppsummering\n\nVi gjekk frå oppskrift til ferdig kake og skreiv dine eigne klassar. Du definerer ein klasse med `class KlasseNavn:`, set opp objekta i konstruktøren `__init__(self, ...)`, lagrar attributt med `self.attributt = verdi` og skriv metodar som tek `self` som første parameter. `self` refererer alltid til objektet metoden blir kalla på, og standardverdiar som `saldo=0` gjer parameter valfrie.\n\nMetodar kan lese, endre og returnere – og objektet held styr på sin eigen tilstand, gjerne med validering innebygd. Kvart objekt du instansierer er uavhengig av dei andre, med sine eigne attributtverdiar. Attributt kan vere samansette data som lister og ordbøker. Pass deg for dei vanlege fellene: feil namn på konstruktøren, manglande `self`-parameter, og attributt lagra utan `self.`. I neste kapittel ser vi på innkapsling – korleis vi vernar data i klassar og kontrollerer tilgangen til dei."}],"exercises":[],"_meta":{"sourceHash":"cf00e15674b9d87f","translatedAt":"2026-06-21T00:00:54.566Z","model":"claude-code-agent","strings":71,"tm":{"5ab264f261e52092":"Klassar og objekt","b195b06d1ed59702":"Narrativ versjon","6a2fc039dac73bad":"Ei forteljing om korleis du går frå teori til praksis og skriv dine eigne klassar – frå konstruktøren og det mystiske self til objekt som hugsar sin eigen tilstand.","ae56e6f6ed251138":"Definere klasser med konstruktør, attributter og metoder","91326358cb8b0ec7":"Forstå hva self betyr og hvordan objekter instansieres","678c1e8b8d463e44":"Lage metoder som leser, endrer og returnerer verdier","39ca08c460c142f5":"## Frå oppskrift til ferdig kake\n\nI førre kapittel fekk du vite kva objektorientert programmering er. No skal du faktisk skrive dine eigne klassar. Tenk på ein klasse som ei oppskrift eller ein mal. Er klassen oppskrifta på ei kake, er objektet den ferdige kaka. Du kan bake mange kaker frå same oppskrift – kvar kake er eit unikt objekt, men alle følgjer same mal.\n\nLat oss feste tre ord. Ein **klasse** er ein mal som definerer kva attributt og metodar objekt av denne typen skal ha. Eit **objekt** er ein konkret instans av klassen, med sine eigne verdiar. **Instans** er berre eit anna ord for objekt – vi seier at vi *instansierer* ein klasse når vi lagar eit objekt av han.\n\nHer er den første ekte klassen din, ein som representerer ein person:\n\n```python\nclass Person:\n    def __init__(self, navn, alder):\n        self.navn = navn\n        self.alder = alder\n\n    def hilse(self):\n        print(f\"Hei, jeg heter {self.navn} og er {self.alder} år gammel.\")\n\nperson1 = Person(\"Kari\", 25)\nperson2 = Person(\"Ola\", 30)\nperson1.hilse()  # Hei, jeg heter Kari og er 25 år gammel.\n```\n\nVi definerer klassen med `class Person:`, lagar ein **konstruktør** `__init__` som køyrer automatisk når objektet blir oppretta, lagrar attributta med `self.navn` og `self.alder`, definerer ein metode `hilse`, og instansierer klassen to gonger.","21c3227a65383113":"## Konstruktøren og det mystiske self\n\nLat oss sjå nærmare på dei to delane som forvirrar flest. **Konstruktøren** er ein spesiell metode som køyrer automatisk når du lagar eit nytt objekt. I Python heiter han alltid `__init__`, med to understrekar på kvar side. Han blir brukt til å setje startverdiar for attributt og køyre nødvendig oppsettskode. Du kan òg gi attributt standardverdiar, slik at det blir valfritt å sende dei inn:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, saldo=0):\n        self.kontonummer = kontonummer\n        self.eier = eier\n        self.saldo = saldo\n```\n\nHer tyder `saldo=0` at dersom brukaren ikkje oppgir nokon saldo, blir han automatisk sett til null.\n\nSå til det mystiske `self`. Det dukkar opp overalt, men er eigentleg enkelt: **`self` refererer til objektet sjølv** – det objektet metoden blir kalla på. Når du skriv `person1.hilse()`, er `self` inni `hilse`-metoden lik `person1`. Tenk på det slik: når du seier «Eg går til butikken», refererer «eg» til deg sjølv. På same måte refererer `self` til objektet som «snakkar». Python krev at du eksplisitt sender med objektreferansen som første parameter i kvar metode. Andre språk, som Java, bruker `this`, som verkar meir automatisk.","0030362767533d52":"Test deg sjølv på konstruktør og self:","4097889236a2af26":"placeholder","ab2244998a4d340b":"Kva representerer `self` i `min_bil.start()` der min_bil er eit Bil-objekt?","dd9f35086dc1580c":"Klassen Bil","f3f603b28aaa8261":"Objektet min_bil","78ee17ccfd7f84ec":"Metoden start","10057609bfff007e":"Ein tilfeldig streng","21d83310ebeedfc9":"self refererer til det spesifikke objektet metoden blir kalla på. Her er det min_bil.","01de0df441be4dcc":"Kva heiter konstruktøren i ein Python-klasse?","e6739a45c55d1708":"__start__","e3c1703abf8a6b3d":"constructor","759f8df01ba7fc5b":"__init__","11507a0e2f5e69d5":"new","3828d97183d1c10d":"Konstruktøren heiter alltid __init__ i Python, med to understrekar før og etter.","d923a02b3fe881e5":"Kva tyder parameteren `saldo=0` i konstruktøren?","5dc766ddaa925baf":"At saldoen aldri kan endrast","525deb25f1e071b6":"At saldoen alltid blir 0","6976b75fa601441b":"At saldoen må oppgivast","4ced66be86824af7":"At saldoen blir 0 dersom ingen verdi blir oppgitt","a35f13f3666456a7":"Ein standardverdi gjer parameteren valfri: blir ingen saldo oppgitt, blir 0 brukt.","9cce318cb1873669":"## Metodar som les, endrar og returnerer\n\nMetodar kan gjere tre ting med objektet. Dei kan **lese** attributt, dei kan **endre** dei, og dei kan **returnere** verdiar. At objektet held styr på sin eigen tilstand, er ein av dei store fordelane med OOP. Sjå korleis bankkonto-metodane endrar `self.saldo` og samtidig validerer input:\n\n```python\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop > self.saldo:\n            print(\"Ikke nok penger på konto\")\n        elif belop <= 0:\n            print(\"Beløpet må være positivt\")\n        else:\n            self.saldo -= belop\n```\n\nDenne valideringa er fornuftig logikk som høyrer heime i Bankkonto-klassen. Andre metodar reknar ut noko og returnerer resultatet, akkurat som vanlege funksjonar. Ein `Rektangel`-klasse kan ha `areal()` som returnerer `self.lengde * self.bredde`, `omkrets()` som returnerer `2 * (self.lengde + self.bredde)`, og `er_kvadrat()` som returnerer `self.lengde == self.bredde`.\n\nEi nøkkelinnsikt er at kvart objekt er **uavhengig**. Lagar du tre hundar med kvar sin `navn`, `rase` og `alder`, påverkar det ikkje dei andre om du endrar alderen på éin. Det same gjeld ein enkel teljar: lagar du to `Teller`-objekt, aukar kvar sin eigen `verdi` separat. Kallar du `øk()` to gonger på den første og éin gong på den andre, blir verdiane 2 og 1 – ikkje felles.","78ab2b0253f7566b":"Test deg sjølv på metodar og uavhengige objekt:","b2e0a325aca71ef3":"To Teller-objekt startar på 0. teller1.øk() blir køyrt to gonger, teller2.øk() éin gong. Kva er verdiane?","182dd66e4ff3bdcb":"2 og 1","ea2f40107427b377":"0 og 0","0c1cfb6f365466db":"3 og 3","0257b09e9a318dd7":"1 og 2","d68a97a7f180fd6a":"Kvart objekt har sin eigen verdi. teller1 blir auka to gonger (2), teller2 éin gong (1).","d34e4e441a6f4bcc":"Kva er skilnaden på ein metode som endrar og ein som returnerer?","290d93c2e3522153":"Det er ingen skilnad","0c098be9ce4d2579":"Ein endrande metode oppdaterer attributta til objektet; ein returnerande gjev tilbake ein verdi","79f44d78ad0d3de8":"Returnerande metodar kan ikkje bruke self","80aa31b62c5ab0a4":"Endrande metodar kan berre køyrast éin gong","5d0b2ba2264b38f9":"Ein metode kan endre tilstanden til objektet (t.d. self.saldo += belop) eller returnere ein berekna verdi (t.d. areal).","022e9ae3d7292d45":"Kvifor er det smart å validere input inni ein metode som ta_ut?","450ce547be8004d3":"For å gjere koden lengre","43a823d9e437d44b":"Fordi Python krev det","4e51693252b098bf":"Fordi logikken som vernar tilstanden til objektet høyrer heime i klassen","50ed8d5c804181de":"For å unngå å bruke self","1215e8746e58b767":"Validering, som å hindre uttak større enn saldo, er fornuftig logikk som naturleg høyrer heime i klassen som eig dataa.","a64e3569ebb2cd8c":"## Samansette data og vanlege feller\n\nAttributt kan vere kva som helst datatype – inkludert lister, ordbøker og til og med andre objekt. Ein `Handlekurv` kan til dømes ha ei tom liste `self.varer = []`, ein metode `legg_til` som legg til ordbøker med vare og pris, og ein `total_pris`-metode som summerer prisane:\n\n```python\nclass Handlekurv:\n    def __init__(self):\n        self.varer = []\n\n    def legg_til(self, vare, pris):\n        self.varer.append({\"vare\": vare, \"pris\": pris})\n\n    def total_pris(self):\n        return sum(vare[\"pris\"] for vare in self.varer)\n```\n\nDette viser korleis OOP ryddar opp i kompleks data: éi liste med ordbøker, samla i eitt objekt med metodar som høyrer til.\n\nTil slutt: nokre feil går att for nybyrjarar, og du bør kjenne dei att. Skriv du `def init` i staden for `def __init__`, blir konstruktøren aldri køyrd. Gløymer du `self` som første parameter i ein metode, klagar Python. Skriv du `merke = merke` i konstruktøren i staden for `self.merke = merke`, blir verdien berre lagra i ein lokal variabel som forsvinn. Og inne i ein metode må du bruke `self.merke`, ikkje berre `merke`, for å lese attributtet. Hugsar du desse fire, slepp du dei vanlegaste klassefeila.","7a9eea715b3e2180":"Test deg sjølv på samansette data og feilsøking:","40c86d7313110f4a":"Kva er feilen i `def init(merke):` som konstruktør?","85a8baa8a9bd9299":"init er eit reservert ord","44d1c8f270bf97bf":"Konstruktørar kan ikkje ta parameter","b61caa9290f62a7a":"Det er ingen feil","bb0b1c67c5f33cf6":"Han manglar doble understrekar (__init__) og parameteren self","54a4a5dc4c5c2873":"Konstruktøren må heite __init__ og ha self som første parameter: def __init__(self, merke).","3d62221566a948b4":"Kva skjer dersom du skriv `merke = merke` i staden for `self.merke = merke` i konstruktøren?","e0f13d14b0dfe748":"Verdien hamnar berre i ein lokal variabel og forsvinn","e09062888d03c555":"Verdien blir lagra på objektet","5c391a6dfb4ecbde":"Programmet køyrer raskare","fc9ebc74b3489aac":"Klassen blir til ein funksjon","37b39b4acd6c1e36":"Utan self. blir ikkje verdien lagra på objektet, berre i ein lokal variabel som forsvinn når konstruktøren er ferdig.","a1e68c380e1d26ac":"Kan eit attributt vere ei liste eller ordbok?","36bd93eff1c1211c":"Nei, berre tal og strengar","6282fc120e43675d":"Ja, eit attributt kan vere kva som helst datatype, òg lister, ordbøker og objekt","6a920bd95ba7fe33":"Berre dersom klassen arvar frå list","fedee9e7a1cc5061":"Berre i konstruktøren","07c919c3713d9b47":"Attributt kan ha alle datatypar, inkludert lister og ordbøker, slik Handlekurv bruker ei liste av ordbøker.","825ea03c34e3e810":"## Oppsummering\n\nVi gjekk frå oppskrift til ferdig kake og skreiv dine eigne klassar. Du definerer ein klasse med `class KlasseNavn:`, set opp objekta i konstruktøren `__init__(self, ...)`, lagrar attributt med `self.attributt = verdi` og skriv metodar som tek `self` som første parameter. `self` refererer alltid til objektet metoden blir kalla på, og standardverdiar som `saldo=0` gjer parameter valfrie.\n\nMetodar kan lese, endre og returnere – og objektet held styr på sin eigen tilstand, gjerne med validering innebygd. Kvart objekt du instansierer er uavhengig av dei andre, med sine eigne attributtverdiar. Attributt kan vere samansette data som lister og ordbøker. Pass deg for dei vanlege fellene: feil namn på konstruktøren, manglande `self`-parameter, og attributt lagra utan `self.`. I neste kapittel ser vi på innkapsling – korleis vi vernar data i klassar og kontrollerer tilgangen til dei."}}}
+{
+  "id": "it-2-1-2-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "2",
+  "title": "Klassar og objekt",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis du går frå teori til praksis og skriv dine eigne klassar – frå konstruktøren og det mystiske self til objekt som hugsar sin eigen tilstand.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "Definere klasser med konstruktør, attributter og metoder",
+    "Forstå hva self betyr og hvordan objekter instansieres",
+    "Lage metoder som leser, endrer og returnerer verdier"
+  ],
+  "linkedChapterId": "it-2-1-2",
+  "content": [
+    {
+      "id": "it-2-1-2-n-intro",
+      "type": "text",
+      "content": "## Frå oppskrift til ferdig kake\n\nI førre kapittel fekk du vite kva objektorientert programmering er. No skal du faktisk skrive dine eigne klassar. Tenk på ein klasse som ei oppskrift eller ein mal. Er klassen oppskrifta på ei kake, er objektet den ferdige kaka. Du kan bake mange kaker frå same oppskrift – kvar kake er eit unikt objekt, men alle følgjer same mal.\n\nLat oss feste tre ord. Ein **klasse** er ein mal som definerer kva attributt og metodar objekt av denne typen skal ha. Eit **objekt** er ein konkret instans av klassen, med sine eigne verdiar. **Instans** er berre eit anna ord for objekt – vi seier at vi *instansierer* ein klasse når vi lagar eit objekt av han.\n\nHer er den første ekte klassen din, ein som representerer ein person:\n\n```python\nclass Person:\n    def __init__(self, navn, alder):\n        self.navn = navn\n        self.alder = alder\n\n    def hilse(self):\n        print(f\"Hei, jeg heter {self.navn} og er {self.alder} år gammel.\")\n\nperson1 = Person(\"Kari\", 25)\nperson2 = Person(\"Ola\", 30)\nperson1.hilse()  # Hei, jeg heter Kari og er 25 år gammel.\n```\n\nVi definerer klassen med `class Person:`, lagar ein **konstruktør** `__init__` som køyrer automatisk når objektet blir oppretta, lagrar attributta med `self.navn` og `self.alder`, definerer ein metode `hilse`, og instansierer klassen to gonger."
+    },
+    {
+      "id": "it-2-1-2-n-section1",
+      "type": "text",
+      "content": "## Konstruktøren og det mystiske self\n\nLat oss sjå nærmare på dei to delane som forvirrar flest. **Konstruktøren** er ein spesiell metode som køyrer automatisk når du lagar eit nytt objekt. I Python heiter han alltid `__init__`, med to understrekar på kvar side. Han blir brukt til å setje startverdiar for attributt og køyre nødvendig oppsettskode. Du kan òg gi attributt standardverdiar, slik at det blir valfritt å sende dei inn:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, saldo=0):\n        self.kontonummer = kontonummer\n        self.eier = eier\n        self.saldo = saldo\n```\n\nHer tyder `saldo=0` at dersom brukaren ikkje oppgir nokon saldo, blir han automatisk sett til null.\n\nSå til det mystiske `self`. Det dukkar opp overalt, men er eigentleg enkelt: **`self` refererer til objektet sjølv** – det objektet metoden blir kalla på. Når du skriv `person1.hilse()`, er `self` inni `hilse`-metoden lik `person1`. Tenk på det slik: når du seier «Eg går til butikken», refererer «eg» til deg sjølv. På same måte refererer `self` til objektet som «snakkar». Python krev at du eksplisitt sender med objektreferansen som første parameter i kvar metode. Andre språk, som Java, bruker `this`, som verkar meir automatisk."
+    },
+    {
+      "id": "it-2-1-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på konstruktør og self:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-2-n-quiz1-q0",
+            "task": "Kva representerer `self` i `min_bil.start()` der min_bil er eit Bil-objekt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Objektet min_bil",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Klassen Bil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Metoden start",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein tilfeldig streng",
+                "isCorrect": false
+              }
+            ],
+            "solution": "self refererer til det spesifikke objektet metoden blir kalla på. Her er det min_bil."
+          },
+          {
+            "id": "it-2-1-2-n-quiz1-q1",
+            "task": "Kva heiter konstruktøren i ein Python-klasse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "__start__",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "__init__",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "constructor",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "new",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstruktøren heiter alltid __init__ i Python, med to understrekar før og etter."
+          },
+          {
+            "id": "it-2-1-2-n-quiz1-q2",
+            "task": "Kva tyder parameteren `saldo=0` i konstruktøren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At saldoen aldri kan endrast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At saldoen alltid blir 0",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At saldoen blir 0 dersom ingen verdi blir oppgitt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "At saldoen må oppgivast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein standardverdi gjer parameteren valfri: blir ingen saldo oppgitt, blir 0 brukt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-2-n-section2",
+      "type": "text",
+      "content": "## Metodar som les, endrar og returnerer\n\nMetodar kan gjere tre ting med objektet. Dei kan **lese** attributt, dei kan **endre** dei, og dei kan **returnere** verdiar. At objektet held styr på sin eigen tilstand, er ein av dei store fordelane med OOP. Sjå korleis bankkonto-metodane endrar `self.saldo` og samtidig validerer input:\n\n```python\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop > self.saldo:\n            print(\"Ikke nok penger på konto\")\n        elif belop <= 0:\n            print(\"Beløpet må være positivt\")\n        else:\n            self.saldo -= belop\n```\n\nDenne valideringa er fornuftig logikk som høyrer heime i Bankkonto-klassen. Andre metodar reknar ut noko og returnerer resultatet, akkurat som vanlege funksjonar. Ein `Rektangel`-klasse kan ha `areal()` som returnerer `self.lengde * self.bredde`, `omkrets()` som returnerer `2 * (self.lengde + self.bredde)`, og `er_kvadrat()` som returnerer `self.lengde == self.bredde`.\n\nEi nøkkelinnsikt er at kvart objekt er **uavhengig**. Lagar du tre hundar med kvar sin `navn`, `rase` og `alder`, påverkar det ikkje dei andre om du endrar alderen på éin. Det same gjeld ein enkel teljar: lagar du to `Teller`-objekt, aukar kvar sin eigen `verdi` separat. Kallar du `øk()` to gonger på den første og éin gong på den andre, blir verdiane 2 og 1 – ikkje felles."
+    },
+    {
+      "id": "it-2-1-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på metodar og uavhengige objekt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-2-n-quiz2-q0",
+            "task": "To Teller-objekt startar på 0. teller1.øk() blir køyrt to gonger, teller2.øk() éin gong. Kva er verdiane?",
+            "options": [
+              {
+                "id": "b",
+                "text": "0 og 0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "3 og 3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1 og 2",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "2 og 1",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvart objekt har sin eigen verdi. teller1 blir auka to gonger (2), teller2 éin gong (1)."
+          },
+          {
+            "id": "it-2-1-2-n-quiz2-q1",
+            "task": "Kva er skilnaden på ein metode som endrar og ein som returnerer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein endrande metode oppdaterer attributta til objektet; ein returnerande gjev tilbake ein verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Returnerande metodar kan ikkje bruke self",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Endrande metodar kan berre køyrast éin gong",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein metode kan endre tilstanden til objektet (t.d. self.saldo += belop) eller returnere ein berekna verdi (t.d. areal)."
+          },
+          {
+            "id": "it-2-1-2-n-quiz2-q2",
+            "task": "Kvifor er det smart å validere input inni ein metode som ta_ut?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å gjere koden lengre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi logikken som vernar tilstanden til objektet høyrer heime i klassen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi Python krev det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å unngå å bruke self",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Validering, som å hindre uttak større enn saldo, er fornuftig logikk som naturleg høyrer heime i klassen som eig dataa."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-2-n-section3",
+      "type": "text",
+      "content": "## Samansette data og vanlege feller\n\nAttributt kan vere kva som helst datatype – inkludert lister, ordbøker og til og med andre objekt. Ein `Handlekurv` kan til dømes ha ei tom liste `self.varer = []`, ein metode `legg_til` som legg til ordbøker med vare og pris, og ein `total_pris`-metode som summerer prisane:\n\n```python\nclass Handlekurv:\n    def __init__(self):\n        self.varer = []\n\n    def legg_til(self, vare, pris):\n        self.varer.append({\"vare\": vare, \"pris\": pris})\n\n    def total_pris(self):\n        return sum(vare[\"pris\"] for vare in self.varer)\n```\n\nDette viser korleis OOP ryddar opp i kompleks data: éi liste med ordbøker, samla i eitt objekt med metodar som høyrer til.\n\nTil slutt: nokre feil går att for nybyrjarar, og du bør kjenne dei att. Skriv du `def init` i staden for `def __init__`, blir konstruktøren aldri køyrd. Gløymer du `self` som første parameter i ein metode, klagar Python. Skriv du `merke = merke` i konstruktøren i staden for `self.merke = merke`, blir verdien berre lagra i ein lokal variabel som forsvinn. Og inne i ein metode må du bruke `self.merke`, ikkje berre `merke`, for å lese attributtet. Hugsar du desse fire, slepp du dei vanlegaste klassefeila."
+    },
+    {
+      "id": "it-2-1-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på samansette data og feilsøking:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-2-n-quiz3-q0",
+            "task": "Kva er feilen i `def init(merke):` som konstruktør?",
+            "options": [
+              {
+                "id": "a",
+                "text": "init er eit reservert ord",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Konstruktørar kan ikkje ta parameter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han manglar doble understrekar (__init__) og parameteren self",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det er ingen feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstruktøren må heite __init__ og ha self som første parameter: def __init__(self, merke)."
+          },
+          {
+            "id": "it-2-1-2-n-quiz3-q1",
+            "task": "Kva skjer dersom du skriv `merke = merke` i staden for `self.merke = merke` i konstruktøren?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Verdien blir lagra på objektet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Programmet køyrer raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Klassen blir til ein funksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Verdien hamnar berre i ein lokal variabel og forsvinn",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan self. blir ikkje verdien lagra på objektet, berre i ein lokal variabel som forsvinn når konstruktøren er ferdig."
+          },
+          {
+            "id": "it-2-1-2-n-quiz3-q2",
+            "task": "Kan eit attributt vere ei liste eller ordbok?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ja, eit attributt kan vere kva som helst datatype, òg lister, ordbøker og objekt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nei, berre tal og strengar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre dersom klassen arvar frå list",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre i konstruktøren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Attributt kan ha alle datatypar, inkludert lister og ordbøker, slik Handlekurv bruker ei liste av ordbøker."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi gjekk frå oppskrift til ferdig kake og skreiv dine eigne klassar. Du definerer ein klasse med `class KlasseNavn:`, set opp objekta i konstruktøren `__init__(self, ...)`, lagrar attributt med `self.attributt = verdi` og skriv metodar som tek `self` som første parameter. `self` refererer alltid til objektet metoden blir kalla på, og standardverdiar som `saldo=0` gjer parameter valfrie.\n\nMetodar kan lese, endre og returnere – og objektet held styr på sin eigen tilstand, gjerne med validering innebygd. Kvart objekt du instansierer er uavhengig av dei andre, med sine eigne attributtverdiar. Attributt kan vere samansette data som lister og ordbøker. Pass deg for dei vanlege fellene: feil namn på konstruktøren, manglande `self`-parameter, og attributt lagra utan `self.`. I neste kapittel ser vi på innkapsling – korleis vi vernar data i klassar og kontrollerer tilgangen til dei."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "cf00e15674b9d87f",
+    "translatedAt": "2026-06-21T00:00:54.566Z",
+    "model": "claude-code-agent",
+    "strings": 71,
+    "tm": {
+      "5ab264f261e52092": "Klassar og objekt",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6a2fc039dac73bad": "Ei forteljing om korleis du går frå teori til praksis og skriv dine eigne klassar – frå konstruktøren og det mystiske self til objekt som hugsar sin eigen tilstand.",
+      "ae56e6f6ed251138": "Definere klasser med konstruktør, attributter og metoder",
+      "91326358cb8b0ec7": "Forstå hva self betyr og hvordan objekter instansieres",
+      "678c1e8b8d463e44": "Lage metoder som leser, endrer og returnerer verdier",
+      "39ca08c460c142f5": "## Frå oppskrift til ferdig kake\n\nI førre kapittel fekk du vite kva objektorientert programmering er. No skal du faktisk skrive dine eigne klassar. Tenk på ein klasse som ei oppskrift eller ein mal. Er klassen oppskrifta på ei kake, er objektet den ferdige kaka. Du kan bake mange kaker frå same oppskrift – kvar kake er eit unikt objekt, men alle følgjer same mal.\n\nLat oss feste tre ord. Ein **klasse** er ein mal som definerer kva attributt og metodar objekt av denne typen skal ha. Eit **objekt** er ein konkret instans av klassen, med sine eigne verdiar. **Instans** er berre eit anna ord for objekt – vi seier at vi *instansierer* ein klasse når vi lagar eit objekt av han.\n\nHer er den første ekte klassen din, ein som representerer ein person:\n\n```python\nclass Person:\n    def __init__(self, navn, alder):\n        self.navn = navn\n        self.alder = alder\n\n    def hilse(self):\n        print(f\"Hei, jeg heter {self.navn} og er {self.alder} år gammel.\")\n\nperson1 = Person(\"Kari\", 25)\nperson2 = Person(\"Ola\", 30)\nperson1.hilse()  # Hei, jeg heter Kari og er 25 år gammel.\n```\n\nVi definerer klassen med `class Person:`, lagar ein **konstruktør** `__init__` som køyrer automatisk når objektet blir oppretta, lagrar attributta med `self.navn` og `self.alder`, definerer ein metode `hilse`, og instansierer klassen to gonger.",
+      "21c3227a65383113": "## Konstruktøren og det mystiske self\n\nLat oss sjå nærmare på dei to delane som forvirrar flest. **Konstruktøren** er ein spesiell metode som køyrer automatisk når du lagar eit nytt objekt. I Python heiter han alltid `__init__`, med to understrekar på kvar side. Han blir brukt til å setje startverdiar for attributt og køyre nødvendig oppsettskode. Du kan òg gi attributt standardverdiar, slik at det blir valfritt å sende dei inn:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, saldo=0):\n        self.kontonummer = kontonummer\n        self.eier = eier\n        self.saldo = saldo\n```\n\nHer tyder `saldo=0` at dersom brukaren ikkje oppgir nokon saldo, blir han automatisk sett til null.\n\nSå til det mystiske `self`. Det dukkar opp overalt, men er eigentleg enkelt: **`self` refererer til objektet sjølv** – det objektet metoden blir kalla på. Når du skriv `person1.hilse()`, er `self` inni `hilse`-metoden lik `person1`. Tenk på det slik: når du seier «Eg går til butikken», refererer «eg» til deg sjølv. På same måte refererer `self` til objektet som «snakkar». Python krev at du eksplisitt sender med objektreferansen som første parameter i kvar metode. Andre språk, som Java, bruker `this`, som verkar meir automatisk.",
+      "0030362767533d52": "Test deg sjølv på konstruktør og self:",
+      "4097889236a2af26": "placeholder",
+      "ab2244998a4d340b": "Kva representerer `self` i `min_bil.start()` der min_bil er eit Bil-objekt?",
+      "dd9f35086dc1580c": "Klassen Bil",
+      "f3f603b28aaa8261": "Objektet min_bil",
+      "78ee17ccfd7f84ec": "Metoden start",
+      "10057609bfff007e": "Ein tilfeldig streng",
+      "21d83310ebeedfc9": "self refererer til det spesifikke objektet metoden blir kalla på. Her er det min_bil.",
+      "01de0df441be4dcc": "Kva heiter konstruktøren i ein Python-klasse?",
+      "e6739a45c55d1708": "__start__",
+      "e3c1703abf8a6b3d": "constructor",
+      "759f8df01ba7fc5b": "__init__",
+      "11507a0e2f5e69d5": "new",
+      "3828d97183d1c10d": "Konstruktøren heiter alltid __init__ i Python, med to understrekar før og etter.",
+      "d923a02b3fe881e5": "Kva tyder parameteren `saldo=0` i konstruktøren?",
+      "5dc766ddaa925baf": "At saldoen aldri kan endrast",
+      "525deb25f1e071b6": "At saldoen alltid blir 0",
+      "6976b75fa601441b": "At saldoen må oppgivast",
+      "4ced66be86824af7": "At saldoen blir 0 dersom ingen verdi blir oppgitt",
+      "a35f13f3666456a7": "Ein standardverdi gjer parameteren valfri: blir ingen saldo oppgitt, blir 0 brukt.",
+      "9cce318cb1873669": "## Metodar som les, endrar og returnerer\n\nMetodar kan gjere tre ting med objektet. Dei kan **lese** attributt, dei kan **endre** dei, og dei kan **returnere** verdiar. At objektet held styr på sin eigen tilstand, er ein av dei store fordelane med OOP. Sjå korleis bankkonto-metodane endrar `self.saldo` og samtidig validerer input:\n\n```python\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop > self.saldo:\n            print(\"Ikke nok penger på konto\")\n        elif belop <= 0:\n            print(\"Beløpet må være positivt\")\n        else:\n            self.saldo -= belop\n```\n\nDenne valideringa er fornuftig logikk som høyrer heime i Bankkonto-klassen. Andre metodar reknar ut noko og returnerer resultatet, akkurat som vanlege funksjonar. Ein `Rektangel`-klasse kan ha `areal()` som returnerer `self.lengde * self.bredde`, `omkrets()` som returnerer `2 * (self.lengde + self.bredde)`, og `er_kvadrat()` som returnerer `self.lengde == self.bredde`.\n\nEi nøkkelinnsikt er at kvart objekt er **uavhengig**. Lagar du tre hundar med kvar sin `navn`, `rase` og `alder`, påverkar det ikkje dei andre om du endrar alderen på éin. Det same gjeld ein enkel teljar: lagar du to `Teller`-objekt, aukar kvar sin eigen `verdi` separat. Kallar du `øk()` to gonger på den første og éin gong på den andre, blir verdiane 2 og 1 – ikkje felles.",
+      "78ab2b0253f7566b": "Test deg sjølv på metodar og uavhengige objekt:",
+      "b2e0a325aca71ef3": "To Teller-objekt startar på 0. teller1.øk() blir køyrt to gonger, teller2.øk() éin gong. Kva er verdiane?",
+      "182dd66e4ff3bdcb": "2 og 1",
+      "ea2f40107427b377": "0 og 0",
+      "0c1cfb6f365466db": "3 og 3",
+      "0257b09e9a318dd7": "1 og 2",
+      "d68a97a7f180fd6a": "Kvart objekt har sin eigen verdi. teller1 blir auka to gonger (2), teller2 éin gong (1).",
+      "d34e4e441a6f4bcc": "Kva er skilnaden på ein metode som endrar og ein som returnerer?",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "0c098be9ce4d2579": "Ein endrande metode oppdaterer attributta til objektet; ein returnerande gjev tilbake ein verdi",
+      "79f44d78ad0d3de8": "Returnerande metodar kan ikkje bruke self",
+      "80aa31b62c5ab0a4": "Endrande metodar kan berre køyrast éin gong",
+      "5d0b2ba2264b38f9": "Ein metode kan endre tilstanden til objektet (t.d. self.saldo += belop) eller returnere ein berekna verdi (t.d. areal).",
+      "022e9ae3d7292d45": "Kvifor er det smart å validere input inni ein metode som ta_ut?",
+      "450ce547be8004d3": "For å gjere koden lengre",
+      "43a823d9e437d44b": "Fordi Python krev det",
+      "4e51693252b098bf": "Fordi logikken som vernar tilstanden til objektet høyrer heime i klassen",
+      "50ed8d5c804181de": "For å unngå å bruke self",
+      "1215e8746e58b767": "Validering, som å hindre uttak større enn saldo, er fornuftig logikk som naturleg høyrer heime i klassen som eig dataa.",
+      "a64e3569ebb2cd8c": "## Samansette data og vanlege feller\n\nAttributt kan vere kva som helst datatype – inkludert lister, ordbøker og til og med andre objekt. Ein `Handlekurv` kan til dømes ha ei tom liste `self.varer = []`, ein metode `legg_til` som legg til ordbøker med vare og pris, og ein `total_pris`-metode som summerer prisane:\n\n```python\nclass Handlekurv:\n    def __init__(self):\n        self.varer = []\n\n    def legg_til(self, vare, pris):\n        self.varer.append({\"vare\": vare, \"pris\": pris})\n\n    def total_pris(self):\n        return sum(vare[\"pris\"] for vare in self.varer)\n```\n\nDette viser korleis OOP ryddar opp i kompleks data: éi liste med ordbøker, samla i eitt objekt med metodar som høyrer til.\n\nTil slutt: nokre feil går att for nybyrjarar, og du bør kjenne dei att. Skriv du `def init` i staden for `def __init__`, blir konstruktøren aldri køyrd. Gløymer du `self` som første parameter i ein metode, klagar Python. Skriv du `merke = merke` i konstruktøren i staden for `self.merke = merke`, blir verdien berre lagra i ein lokal variabel som forsvinn. Og inne i ein metode må du bruke `self.merke`, ikkje berre `merke`, for å lese attributtet. Hugsar du desse fire, slepp du dei vanlegaste klassefeila.",
+      "7a9eea715b3e2180": "Test deg sjølv på samansette data og feilsøking:",
+      "40c86d7313110f4a": "Kva er feilen i `def init(merke):` som konstruktør?",
+      "85a8baa8a9bd9299": "init er eit reservert ord",
+      "44d1c8f270bf97bf": "Konstruktørar kan ikkje ta parameter",
+      "b61caa9290f62a7a": "Det er ingen feil",
+      "bb0b1c67c5f33cf6": "Han manglar doble understrekar (__init__) og parameteren self",
+      "54a4a5dc4c5c2873": "Konstruktøren må heite __init__ og ha self som første parameter: def __init__(self, merke).",
+      "3d62221566a948b4": "Kva skjer dersom du skriv `merke = merke` i staden for `self.merke = merke` i konstruktøren?",
+      "e0f13d14b0dfe748": "Verdien hamnar berre i ein lokal variabel og forsvinn",
+      "e09062888d03c555": "Verdien blir lagra på objektet",
+      "5c391a6dfb4ecbde": "Programmet køyrer raskare",
+      "fc9ebc74b3489aac": "Klassen blir til ein funksjon",
+      "37b39b4acd6c1e36": "Utan self. blir ikkje verdien lagra på objektet, berre i ein lokal variabel som forsvinn når konstruktøren er ferdig.",
+      "a1e68c380e1d26ac": "Kan eit attributt vere ei liste eller ordbok?",
+      "36bd93eff1c1211c": "Nei, berre tal og strengar",
+      "6282fc120e43675d": "Ja, eit attributt kan vere kva som helst datatype, òg lister, ordbøker og objekt",
+      "6a920bd95ba7fe33": "Berre dersom klassen arvar frå list",
+      "fedee9e7a1cc5061": "Berre i konstruktøren",
+      "07c919c3713d9b47": "Attributt kan ha alle datatypar, inkludert lister og ordbøker, slik Handlekurv bruker ei liste av ordbøker.",
+      "825ea03c34e3e810": "## Oppsummering\n\nVi gjekk frå oppskrift til ferdig kake og skreiv dine eigne klassar. Du definerer ein klasse med `class KlasseNavn:`, set opp objekta i konstruktøren `__init__(self, ...)`, lagrar attributt med `self.attributt = verdi` og skriv metodar som tek `self` som første parameter. `self` refererer alltid til objektet metoden blir kalla på, og standardverdiar som `saldo=0` gjer parameter valfrie.\n\nMetodar kan lese, endre og returnere – og objektet held styr på sin eigen tilstand, gjerne med validering innebygd. Kvart objekt du instansierer er uavhengig av dei andre, med sine eigne attributtverdiar. Attributt kan vere samansette data som lister og ordbøker. Pass deg for dei vanlege fellene: feil namn på konstruktøren, manglande `self`-parameter, og attributt lagra utan `self.`. I neste kapittel ser vi på innkapsling – korleis vi vernar data i klassar og kontrollerer tilgangen til dei."
+    }
+  }
+}

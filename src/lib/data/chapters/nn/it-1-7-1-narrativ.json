@@ -1,1 +1,415 @@
-{"id":"it-1-7-1-narrativ","courseId":"it-1","chapterNumber":"7.1","title":"Oppbygginga av datanettverka","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis einingar snakkar saman – LAN og WAN, nettverkstopologiar, komponentane svitsj, ruter og brannmur, og MAC- og IP-adresser.","estimatedMinutes":36,"competenceGoals":["gjøre rede for hvordan datanettverk er bygd opp og fungerer","forklare forskjellen mellom LAN og WAN og beskrive ulike nettverkstopologier"],"linkedChapterId":"it-1-7-1","content":[{"id":"it-1-7-1-n-intro","type":"text","content":"## Ein heilt vanleg skuledag\n\nDu koplar mobilen til Wi-Fi-en på skulen, sender ei melding, lastar opp ei fil til læringsplattforma og strøymer musikk i friminuttet. Alt dette er mogleg takka vere **datanettverk** – system av samankopla einingar som utvekslar informasjon. Eit datanettverk er to eller fleire einingar kopla saman så dei kan kommunisere og dele ressursar, anten via kabel (Ethernet, fiber) eller trådlaust (Wi-Fi, Bluetooth, mobilnett). For å snakke saman treng einingane felles reglar (protokollar) og unike adresser.\n\nNettverk vert klassifiserte etter storleik. Eit **LAN** (Local Area Network) dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor. LAN er kjenneteikna av høg fart (typisk 100 Mbps til 10 Gbps), låg forseinking, og at dei vert eigde og drifta av brukaren sjølv. Den vanlegaste kabla teknologien er Ethernet, medan Wi-Fi vert brukt trådlaust. Eit **WAN** (Wide Area Network) dekkjer derimot eit stort geografisk område og koplar saman fleire LAN over lange avstandar – **internett er det største WAN-et i verda**. WAN bruker fiber, leigde linjer og satellitt, og har lågare fart og høgare forseinking enn LAN.\n\nDet finst òg mellomvariantar: eit **MAN** (Metropolitan Area Network) dekkjer ein by, eit **PAN** (Personal Area Network) er eit bittelite nettverk rundt éin person – som Bluetooth mellom mobil og øyreproppar – og eit **WLAN** er rett og slett eit trådlaust LAN."},{"id":"it-1-7-1-n-quiz1","type":"exercise","exercise":{"id":"it-1-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på nettverkstypar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-1-n-quiz1-q0","task":"Kva er eit LAN?","options":[{"id":"a","text":"Eit nettverk som dekkjer eit heilt land","isCorrect":false},{"id":"b","text":"Eit lokalt nettverk som dekkjer eit avgrensa område, som ein heim eller ein skule","isCorrect":true},{"id":"c","text":"Eit personleg nettverk mellom mobil og øyreproppar","isCorrect":false},{"id":"d","text":"Eit nettverk som berre bruker trådlause forbindingar","isCorrect":false}],"solution":"Eit LAN (Local Area Network) er eit lokalt nettverk som dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor."},{"id":"it-1-7-1-n-quiz1-q1","task":"Kva er det største WAN-et i verda?","options":[{"id":"a","text":"Wi-Fi-en på skulen","isCorrect":false},{"id":"b","text":"Eit Bluetooth-nettverk","isCorrect":false},{"id":"c","text":"Internett","isCorrect":true},{"id":"d","text":"Eit heimenettverk","isCorrect":false}],"solution":"Internett er det største WAN-et i verda – det koplar saman utallige LAN over heile kloden."},{"id":"it-1-7-1-n-quiz1-q2","task":"Kva er eit PAN?","options":[{"id":"a","text":"Eit nettverk som dekkjer ein heil by","isCorrect":false},{"id":"b","text":"Det største nettverket i verda","isCorrect":false},{"id":"c","text":"Eit kabla bedriftsnettverk","isCorrect":false},{"id":"d","text":"Eit svært lite nettverk rundt éin person, til dømes Bluetooth mellom mobil og øyreproppar","isCorrect":true}],"solution":"Eit PAN (Personal Area Network) er eit bittelite nettverk rundt éin person, som Bluetooth-forbindinga mellom mobil og øyreproppar."}]}},{"id":"it-1-7-1-n-section1","type":"text","content":"## Korleis einingane er kopla saman\n\n**Nettverkstopologi** skildrar korleis einingane er kopla. Vi skil mellom fysisk topologi (sjølve kablinga) og logisk topologi (korleis data flyt). Den **vanlegaste i moderne nettverk er stjernetopologi**, der alle einingar er kopla til ei sentral eining, vanlegvis ein svitsj eller ruter. Fordelen er at han er enkel å setje opp og utvide, og at éi eining kan svikte utan å påverke resten. Ulempa er at den sentrale eininga er eit enkelt feilpunkt – sviktar han, mistar alle forbindinga.\n\nDet finst fleire andre topologiar, mest av historisk interesse. I **bustopologi** er alle einingar kopla til éin felles kabel; det er billeg, men ryk hovudkabelen, fell heile nettverket. I **ringtopologi** vert data sende i éi retning rundt ein lukka krins – føreseieleg, men sårbart om éi eining sviktar. Begge er stort sett erstatta av stjernetopologi i dag. **Meshetopologi** koplar einingar til fleire andre, slik at det finst alternative vegar om ei forbinding sviktar; det er svært påliteleg, men dyrt, og vert brukt i ryggradsnettverk og trådlause mesh-nett.\n\nNettverket består av fleire komponentar. Ein **svitsj** er hjartet i eit LAN: han koplar saman einingar og vidaresender datapakkar til rett mottakar basert på **MAC-adresser**. Ein **ruter** vidaresender derimot pakkar *mellom* ulike nettverk – han koplar LAN-et ditt til nettverket til internettleverandøren, og bruker **IP-adresser** og rutingtabellar. Eit **aksesspunkt** lèt einingar kople seg til via Wi-Fi, eit **modem** koplar nettverket til internett over breibandslinja, og ein **brannmur** overvakar og filtrerer trafikk for å verne nettverket."},{"id":"it-1-7-1-n-quiz2","type":"exercise","exercise":{"id":"it-1-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på topologiar og komponentar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-1-n-quiz2-q0","task":"Kva nettverkstopologi er vanlegast i moderne nettverk?","options":[{"id":"a","text":"Stjernetopologi","isCorrect":true},{"id":"b","text":"Bustopologi","isCorrect":false},{"id":"c","text":"Ringtopologi","isCorrect":false},{"id":"d","text":"Alle er like vanlege","isCorrect":false}],"solution":"Stjernetopologi, der alle einingar vert kopla til ein sentral svitsj eller ruter, er klart vanlegast i dag."},{"id":"it-1-7-1-n-quiz2-q1","task":"Kva er hovudoppgåva til ein svitsj?","options":[{"id":"a","text":"Å kople det lokale nettverket til internett","isCorrect":false},{"id":"b","text":"Å vidaresende datapakkar til rett eining innanfor eit LAN basert på MAC-adresser","isCorrect":true},{"id":"c","text":"Å konvertere digitale signal til analoge","isCorrect":false},{"id":"d","text":"Å sende trådlause signal","isCorrect":false}],"solution":"Ein svitsj vidaresender datapakkar til rett eining innanfor eit LAN ved hjelp av MAC-adresser."},{"id":"it-1-7-1-n-quiz2-q2","task":"Kva er skilnaden mellom ein svitsj og ein ruter?","options":[{"id":"a","text":"Det er ingen skilnad","isCorrect":false},{"id":"b","text":"Ein svitsj er trådlaus, ein ruter er kabla","isCorrect":false},{"id":"c","text":"Ein svitsj koplar einingar innanfor eitt LAN med MAC-adresser, medan ein ruter koplar ulike nettverk saman med IP-adresser","isCorrect":true},{"id":"d","text":"Ein ruter vert berre brukt i heimar","isCorrect":false}],"solution":"Svitsjen jobbar innanfor eitt LAN med MAC-adresser, medan ruteren koplar ulike nettverk saman og bruker IP-adresser."}]}},{"id":"it-1-7-1-n-section2","type":"text","content":"## To slags adresser\n\nFor at einingar skal kommunisere, treng dei unike adresser, og det finst to typar. Ei **MAC-adresse** er ei fysisk adresse som er brend inn i nettverkskortet ved produksjon. Ho er 48 bit lang og vert skriven som seks grupper med heksadesimale tal, til dømes `AA:BB:CC:11:22:33`. MAC-adresser vert brukte innanfor det lokale nettverket for å identifisere einingar.\n\nEi **IP-adresse** er derimot ei logisk adresse for kommunikasjon over nettverk. Det finst to versjonar. **IPv4** bruker 32-bits adresser, skrivne som fire talgrupper frå 0 til 255, som `192.168.1.100`. IPv4 gir rundt 4,3 milliardar adresser – ikkje lenger nok for alle einingane i verda. **IPv6** bruker 128-bits adresser med åtte heksadesimale grupper, og gir eit nesten uendeleg tal på adresser.\n\nIP-adresser vert delte i offentlege og private. **Offentlege** adresser er unike på internett og vert tildelte av internettleverandøren. **Private** adresser vert brukte innanfor LAN og er ikkje direkte tilgjengelege frå internett – vanlege område er 192.168.x.x og 10.x.x.x. Her kjem **NAT** (Network Address Translation) inn: ruteren omset mellom private og offentlege adresser, slik at mange einingar i heimen kan dele éi offentleg IP-adresse. Det var nettopp NAT som hjelpte oss å klare oss med dei avgrensa IPv4-adressene så lenge."},{"id":"it-1-7-1-n-quiz3","type":"exercise","exercise":{"id":"it-1-7-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på adresser og NAT:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-1-n-quiz3-q0","task":"Kva er NAT, og kvifor er det nyttig?","options":[{"id":"a","text":"Ein type brannmur","isCorrect":false},{"id":"b","text":"Ein trådlaus standard som erstattar Wi-Fi","isCorrect":false},{"id":"c","text":"Ein krypteringsprotokoll","isCorrect":false},{"id":"d","text":"NAT omset mellom private og offentlege IP-adresser, slik at fleire einingar kan dele éi offentleg IP","isCorrect":true}],"solution":"NAT omset mellom private og offentlege IP-adresser, slik at mange einingar kan dele éi offentleg adresse."},{"id":"it-1-7-1-n-quiz3-q1","task":"Kva kjenneteiknar ei MAC-adresse?","options":[{"id":"a","text":"Ho er brend inn i nettverkskortet og identifiserer eininga i det lokale nettverket","isCorrect":true},{"id":"b","text":"Ho vert tildelt av internettleverandøren kvar dag","isCorrect":false},{"id":"c","text":"Ho er den same for alle einingar","isCorrect":false},{"id":"d","text":"Ho finst berre på trådlause einingar","isCorrect":false}],"solution":"MAC-adressa er ei fysisk adresse brend inn i nettverkskortet, som identifiserer eininga innanfor det lokale nettverket."},{"id":"it-1-7-1-n-quiz3-q2","task":"Kvifor vart IPv6 utvikla?","options":[{"id":"a","text":"Fordi IPv4 var for rask","isCorrect":false},{"id":"b","text":"Fordi dei rundt 4,3 milliardar IPv4-adressene ikkje er nok for alle einingane i verda","isCorrect":true},{"id":"c","text":"Fordi IPv4 ikkje verkar trådlaust","isCorrect":false},{"id":"d","text":"Fordi IPv6 er billegare","isCorrect":false}],"solution":"IPv4 gir berre rundt 4,3 milliardar adresser, og IPv6 med 128-bits adresser vart utvikla for å gi nok adresser til alle."}]}},{"id":"it-1-7-1-n-summary","type":"text","content":"## Oppsummering\n\nAlt frå meldinga til venen til musikkstrøyminga kviler på **datanettverk** – einingar kopla saman for å dele ressursar. Vi skil mellom **LAN** (lokalt, raskt) og **WAN** (stort geografisk, som internett), med MAN, PAN og WLAN som variantar.\n\nEiningane vert kopla saman i ein **topologi**, der stjernetopologien er klart vanlegast i dag. Nettverket vert bygt av komponentar som **svitsj** (koplar einingar i LAN via MAC-adresser), **ruter** (koplar nettverk via IP-adresser), aksesspunkt, modem og brannmur. Og kvar eining har to slags adresser: ei fast **MAC-adresse** og ei logisk **IP-adresse** (IPv4 eller IPv6), der NAT lèt mange einingar dele éi offentleg adresse."}],"exercises":[],"_meta":{"sourceHash":"f5868e4d6789d188","translatedAt":"2026-06-20T23:58:28.803Z","model":"claude-code-agent","strings":69,"tm":{"75e4cb1ccbe6e7c9":"Oppbygginga av datanettverka","b195b06d1ed59702":"Narrativ versjon","80eac2afaf6f6e24":"Ei forteljing om korleis einingar snakkar saman – LAN og WAN, nettverkstopologiar, komponentane svitsj, ruter og brannmur, og MAC- og IP-adresser.","ee093c4f659885b9":"gjøre rede for hvordan datanettverk er bygd opp og fungerer","212dcfb4724bdd2b":"forklare forskjellen mellom LAN og WAN og beskrive ulike nettverkstopologier","4d965d345f510a3b":"## Ein heilt vanleg skuledag\n\nDu koplar mobilen til Wi-Fi-en på skulen, sender ei melding, lastar opp ei fil til læringsplattforma og strøymer musikk i friminuttet. Alt dette er mogleg takka vere **datanettverk** – system av samankopla einingar som utvekslar informasjon. Eit datanettverk er to eller fleire einingar kopla saman så dei kan kommunisere og dele ressursar, anten via kabel (Ethernet, fiber) eller trådlaust (Wi-Fi, Bluetooth, mobilnett). For å snakke saman treng einingane felles reglar (protokollar) og unike adresser.\n\nNettverk vert klassifiserte etter storleik. Eit **LAN** (Local Area Network) dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor. LAN er kjenneteikna av høg fart (typisk 100 Mbps til 10 Gbps), låg forseinking, og at dei vert eigde og drifta av brukaren sjølv. Den vanlegaste kabla teknologien er Ethernet, medan Wi-Fi vert brukt trådlaust. Eit **WAN** (Wide Area Network) dekkjer derimot eit stort geografisk område og koplar saman fleire LAN over lange avstandar – **internett er det største WAN-et i verda**. WAN bruker fiber, leigde linjer og satellitt, og har lågare fart og høgare forseinking enn LAN.\n\nDet finst òg mellomvariantar: eit **MAN** (Metropolitan Area Network) dekkjer ein by, eit **PAN** (Personal Area Network) er eit bittelite nettverk rundt éin person – som Bluetooth mellom mobil og øyreproppar – og eit **WLAN** er rett og slett eit trådlaust LAN.","377c58335795979d":"Test deg sjølv på nettverkstypar:","4097889236a2af26":"placeholder","c8d923c5b5876039":"Kva er eit LAN?","c849cee0b1af68c6":"Eit nettverk som dekkjer eit heilt land","395d75ca255b83ae":"Eit lokalt nettverk som dekkjer eit avgrensa område, som ein heim eller ein skule","1adf5fb91353418b":"Eit personleg nettverk mellom mobil og øyreproppar","af0b695ce75d714d":"Eit nettverk som berre bruker trådlause forbindingar","4ba663bafd4ad2cd":"Eit LAN (Local Area Network) er eit lokalt nettverk som dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor.","9a3d10d50489d8a7":"Kva er det største WAN-et i verda?","d17aafadd3b83e47":"Wi-Fi-en på skulen","204134066586de6a":"Eit Bluetooth-nettverk","a9cf358007c4c849":"Internett","6e390ad63281f82f":"Eit heimenettverk","7cbe3a0c48ad7c13":"Internett er det største WAN-et i verda – det koplar saman utallige LAN over heile kloden.","9f11842e50f1f6af":"Kva er eit PAN?","7e0f2af59578b07f":"Eit nettverk som dekkjer ein heil by","d490b0d72d6e32bc":"Det største nettverket i verda","2d9eac729838e6c1":"Eit kabla bedriftsnettverk","19de18065c26e894":"Eit svært lite nettverk rundt éin person, til dømes Bluetooth mellom mobil og øyreproppar","f7db3b74cbebedd8":"Eit PAN (Personal Area Network) er eit bittelite nettverk rundt éin person, som Bluetooth-forbindinga mellom mobil og øyreproppar.","5f52ccfa20ce0b6a":"## Korleis einingane er kopla saman\n\n**Nettverkstopologi** skildrar korleis einingane er kopla. Vi skil mellom fysisk topologi (sjølve kablinga) og logisk topologi (korleis data flyt). Den **vanlegaste i moderne nettverk er stjernetopologi**, der alle einingar er kopla til ei sentral eining, vanlegvis ein svitsj eller ruter. Fordelen er at han er enkel å setje opp og utvide, og at éi eining kan svikte utan å påverke resten. Ulempa er at den sentrale eininga er eit enkelt feilpunkt – sviktar han, mistar alle forbindinga.\n\nDet finst fleire andre topologiar, mest av historisk interesse. I **bustopologi** er alle einingar kopla til éin felles kabel; det er billeg, men ryk hovudkabelen, fell heile nettverket. I **ringtopologi** vert data sende i éi retning rundt ein lukka krins – føreseieleg, men sårbart om éi eining sviktar. Begge er stort sett erstatta av stjernetopologi i dag. **Meshetopologi** koplar einingar til fleire andre, slik at det finst alternative vegar om ei forbinding sviktar; det er svært påliteleg, men dyrt, og vert brukt i ryggradsnettverk og trådlause mesh-nett.\n\nNettverket består av fleire komponentar. Ein **svitsj** er hjartet i eit LAN: han koplar saman einingar og vidaresender datapakkar til rett mottakar basert på **MAC-adresser**. Ein **ruter** vidaresender derimot pakkar *mellom* ulike nettverk – han koplar LAN-et ditt til nettverket til internettleverandøren, og bruker **IP-adresser** og rutingtabellar. Eit **aksesspunkt** lèt einingar kople seg til via Wi-Fi, eit **modem** koplar nettverket til internett over breibandslinja, og ein **brannmur** overvakar og filtrerer trafikk for å verne nettverket.","caf814bd805dd3b4":"Test deg sjølv på topologiar og komponentar:","25b142ff28e70f15":"Kva nettverkstopologi er vanlegast i moderne nettverk?","e4623954ba91b769":"Stjernetopologi","7328fa39ffc6a660":"Bustopologi","74ac5ff15152e99f":"Ringtopologi","8439f33274dad0bf":"Alle er like vanlege","3d08aff6fe21e8d8":"Stjernetopologi, der alle einingar vert kopla til ein sentral svitsj eller ruter, er klart vanlegast i dag.","565b99485b5eea3e":"Kva er hovudoppgåva til ein svitsj?","351ef0e30ee67ee5":"Å kople det lokale nettverket til internett","a22057d9b187fc98":"Å vidaresende datapakkar til rett eining innanfor eit LAN basert på MAC-adresser","53e303830e066705":"Å konvertere digitale signal til analoge","533770f68748884b":"Å sende trådlause signal","532a016e16755309":"Ein svitsj vidaresender datapakkar til rett eining innanfor eit LAN ved hjelp av MAC-adresser.","005db0721ca6b26c":"Kva er skilnaden mellom ein svitsj og ein ruter?","290d93c2e3522153":"Det er ingen skilnad","446e09cb3ce7d684":"Ein svitsj er trådlaus, ein ruter er kabla","16473688eee6a052":"Ein svitsj koplar einingar innanfor eitt LAN med MAC-adresser, medan ein ruter koplar ulike nettverk saman med IP-adresser","ce7c3a6440b1af6a":"Ein ruter vert berre brukt i heimar","d3098dd6bc8473d7":"Svitsjen jobbar innanfor eitt LAN med MAC-adresser, medan ruteren koplar ulike nettverk saman og bruker IP-adresser.","b8100d0d5e8862c9":"## To slags adresser\n\nFor at einingar skal kommunisere, treng dei unike adresser, og det finst to typar. Ei **MAC-adresse** er ei fysisk adresse som er brend inn i nettverkskortet ved produksjon. Ho er 48 bit lang og vert skriven som seks grupper med heksadesimale tal, til dømes `AA:BB:CC:11:22:33`. MAC-adresser vert brukte innanfor det lokale nettverket for å identifisere einingar.\n\nEi **IP-adresse** er derimot ei logisk adresse for kommunikasjon over nettverk. Det finst to versjonar. **IPv4** bruker 32-bits adresser, skrivne som fire talgrupper frå 0 til 255, som `192.168.1.100`. IPv4 gir rundt 4,3 milliardar adresser – ikkje lenger nok for alle einingane i verda. **IPv6** bruker 128-bits adresser med åtte heksadesimale grupper, og gir eit nesten uendeleg tal på adresser.\n\nIP-adresser vert delte i offentlege og private. **Offentlege** adresser er unike på internett og vert tildelte av internettleverandøren. **Private** adresser vert brukte innanfor LAN og er ikkje direkte tilgjengelege frå internett – vanlege område er 192.168.x.x og 10.x.x.x. Her kjem **NAT** (Network Address Translation) inn: ruteren omset mellom private og offentlege adresser, slik at mange einingar i heimen kan dele éi offentleg IP-adresse. Det var nettopp NAT som hjelpte oss å klare oss med dei avgrensa IPv4-adressene så lenge.","c1fa505d1327ebb3":"Test deg sjølv på adresser og NAT:","146888f9ce89f6c2":"Kva er NAT, og kvifor er det nyttig?","d366e69739620cd0":"Ein type brannmur","9fc50e3431559de0":"Ein trådlaus standard som erstattar Wi-Fi","2c887ece5fb020be":"Ein krypteringsprotokoll","b8f7cca78f468ac9":"NAT omset mellom private og offentlege IP-adresser, slik at fleire einingar kan dele éi offentleg IP","2473a4e90e6215c9":"NAT omset mellom private og offentlege IP-adresser, slik at mange einingar kan dele éi offentleg adresse.","26c87341bbe8937b":"Kva kjenneteiknar ei MAC-adresse?","9cff7cfc8ddfeb24":"Ho er brend inn i nettverkskortet og identifiserer eininga i det lokale nettverket","0de186a005f01ef4":"Ho vert tildelt av internettleverandøren kvar dag","1a45803dbcc441f1":"Ho er den same for alle einingar","cc3e70690665da2e":"Ho finst berre på trådlause einingar","2ce53f7207f2744d":"MAC-adressa er ei fysisk adresse brend inn i nettverkskortet, som identifiserer eininga innanfor det lokale nettverket.","492c3012fcad348f":"Kvifor vart IPv6 utvikla?","ff08da07a227dad6":"Fordi IPv4 var for rask","20efdb3848933dbe":"Fordi dei rundt 4,3 milliardar IPv4-adressene ikkje er nok for alle einingane i verda","612f86fa1ab8ddaf":"Fordi IPv4 ikkje verkar trådlaust","8c814d0ccdc2ad23":"Fordi IPv6 er billegare","0b39182c4ab57a19":"IPv4 gir berre rundt 4,3 milliardar adresser, og IPv6 med 128-bits adresser vart utvikla for å gi nok adresser til alle.","c75b88ffa0a1742a":"## Oppsummering\n\nAlt frå meldinga til venen til musikkstrøyminga kviler på **datanettverk** – einingar kopla saman for å dele ressursar. Vi skil mellom **LAN** (lokalt, raskt) og **WAN** (stort geografisk, som internett), med MAN, PAN og WLAN som variantar.\n\nEiningane vert kopla saman i ein **topologi**, der stjernetopologien er klart vanlegast i dag. Nettverket vert bygt av komponentar som **svitsj** (koplar einingar i LAN via MAC-adresser), **ruter** (koplar nettverk via IP-adresser), aksesspunkt, modem og brannmur. Og kvar eining har to slags adresser: ei fast **MAC-adresse** og ei logisk **IP-adresse** (IPv4 eller IPv6), der NAT lèt mange einingar dele éi offentleg adresse."}}}
+{
+  "id": "it-1-7-1-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "7.1",
+  "title": "Oppbygginga av datanettverka",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis einingar snakkar saman – LAN og WAN, nettverkstopologiar, komponentane svitsj, ruter og brannmur, og MAC- og IP-adresser.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "gjøre rede for hvordan datanettverk er bygd opp og fungerer",
+    "forklare forskjellen mellom LAN og WAN og beskrive ulike nettverkstopologier"
+  ],
+  "linkedChapterId": "it-1-7-1",
+  "content": [
+    {
+      "id": "it-1-7-1-n-intro",
+      "type": "text",
+      "content": "## Ein heilt vanleg skuledag\n\nDu koplar mobilen til Wi-Fi-en på skulen, sender ei melding, lastar opp ei fil til læringsplattforma og strøymer musikk i friminuttet. Alt dette er mogleg takka vere **datanettverk** – system av samankopla einingar som utvekslar informasjon. Eit datanettverk er to eller fleire einingar kopla saman så dei kan kommunisere og dele ressursar, anten via kabel (Ethernet, fiber) eller trådlaust (Wi-Fi, Bluetooth, mobilnett). For å snakke saman treng einingane felles reglar (protokollar) og unike adresser.\n\nNettverk vert klassifiserte etter storleik. Eit **LAN** (Local Area Network) dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor. LAN er kjenneteikna av høg fart (typisk 100 Mbps til 10 Gbps), låg forseinking, og at dei vert eigde og drifta av brukaren sjølv. Den vanlegaste kabla teknologien er Ethernet, medan Wi-Fi vert brukt trådlaust. Eit **WAN** (Wide Area Network) dekkjer derimot eit stort geografisk område og koplar saman fleire LAN over lange avstandar – **internett er det største WAN-et i verda**. WAN bruker fiber, leigde linjer og satellitt, og har lågare fart og høgare forseinking enn LAN.\n\nDet finst òg mellomvariantar: eit **MAN** (Metropolitan Area Network) dekkjer ein by, eit **PAN** (Personal Area Network) er eit bittelite nettverk rundt éin person – som Bluetooth mellom mobil og øyreproppar – og eit **WLAN** er rett og slett eit trådlaust LAN."
+    },
+    {
+      "id": "it-1-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på nettverkstypar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-1-n-quiz1-q0",
+            "task": "Kva er eit LAN?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Eit lokalt nettverk som dekkjer eit avgrensa område, som ein heim eller ein skule",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eit nettverk som dekkjer eit heilt land",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit personleg nettverk mellom mobil og øyreproppar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit nettverk som berre bruker trådlause forbindingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit LAN (Local Area Network) er eit lokalt nettverk som dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor."
+          },
+          {
+            "id": "it-1-7-1-n-quiz1-q1",
+            "task": "Kva er det største WAN-et i verda?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Wi-Fi-en på skulen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Internett",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Eit Bluetooth-nettverk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit heimenettverk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Internett er det største WAN-et i verda – det koplar saman utallige LAN over heile kloden."
+          },
+          {
+            "id": "it-1-7-1-n-quiz1-q2",
+            "task": "Kva er eit PAN?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eit nettverk som dekkjer ein heil by",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det største nettverket i verda",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit svært lite nettverk rundt éin person, til dømes Bluetooth mellom mobil og øyreproppar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Eit kabla bedriftsnettverk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit PAN (Personal Area Network) er eit bittelite nettverk rundt éin person, som Bluetooth-forbindinga mellom mobil og øyreproppar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-1-n-section1",
+      "type": "text",
+      "content": "## Korleis einingane er kopla saman\n\n**Nettverkstopologi** skildrar korleis einingane er kopla. Vi skil mellom fysisk topologi (sjølve kablinga) og logisk topologi (korleis data flyt). Den **vanlegaste i moderne nettverk er stjernetopologi**, der alle einingar er kopla til ei sentral eining, vanlegvis ein svitsj eller ruter. Fordelen er at han er enkel å setje opp og utvide, og at éi eining kan svikte utan å påverke resten. Ulempa er at den sentrale eininga er eit enkelt feilpunkt – sviktar han, mistar alle forbindinga.\n\nDet finst fleire andre topologiar, mest av historisk interesse. I **bustopologi** er alle einingar kopla til éin felles kabel; det er billeg, men ryk hovudkabelen, fell heile nettverket. I **ringtopologi** vert data sende i éi retning rundt ein lukka krins – føreseieleg, men sårbart om éi eining sviktar. Begge er stort sett erstatta av stjernetopologi i dag. **Meshetopologi** koplar einingar til fleire andre, slik at det finst alternative vegar om ei forbinding sviktar; det er svært påliteleg, men dyrt, og vert brukt i ryggradsnettverk og trådlause mesh-nett.\n\nNettverket består av fleire komponentar. Ein **svitsj** er hjartet i eit LAN: han koplar saman einingar og vidaresender datapakkar til rett mottakar basert på **MAC-adresser**. Ein **ruter** vidaresender derimot pakkar *mellom* ulike nettverk – han koplar LAN-et ditt til nettverket til internettleverandøren, og bruker **IP-adresser** og rutingtabellar. Eit **aksesspunkt** lèt einingar kople seg til via Wi-Fi, eit **modem** koplar nettverket til internett over breibandslinja, og ein **brannmur** overvakar og filtrerer trafikk for å verne nettverket."
+    },
+    {
+      "id": "it-1-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på topologiar og komponentar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-1-n-quiz2-q0",
+            "task": "Kva nettverkstopologi er vanlegast i moderne nettverk?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bustopologi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ringtopologi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle er like vanlege",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Stjernetopologi",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Stjernetopologi, der alle einingar vert kopla til ein sentral svitsj eller ruter, er klart vanlegast i dag."
+          },
+          {
+            "id": "it-1-7-1-n-quiz2-q1",
+            "task": "Kva er hovudoppgåva til ein svitsj?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å vidaresende datapakkar til rett eining innanfor eit LAN basert på MAC-adresser",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å kople det lokale nettverket til internett",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å konvertere digitale signal til analoge",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sende trådlause signal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein svitsj vidaresender datapakkar til rett eining innanfor eit LAN ved hjelp av MAC-adresser."
+          },
+          {
+            "id": "it-1-7-1-n-quiz2-q2",
+            "task": "Kva er skilnaden mellom ein svitsj og ein ruter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein svitsj koplar einingar innanfor eitt LAN med MAC-adresser, medan ein ruter koplar ulike nettverk saman med IP-adresser",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein svitsj er trådlaus, ein ruter er kabla",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein ruter vert berre brukt i heimar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Svitsjen jobbar innanfor eitt LAN med MAC-adresser, medan ruteren koplar ulike nettverk saman og bruker IP-adresser."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-1-n-section2",
+      "type": "text",
+      "content": "## To slags adresser\n\nFor at einingar skal kommunisere, treng dei unike adresser, og det finst to typar. Ei **MAC-adresse** er ei fysisk adresse som er brend inn i nettverkskortet ved produksjon. Ho er 48 bit lang og vert skriven som seks grupper med heksadesimale tal, til dømes `AA:BB:CC:11:22:33`. MAC-adresser vert brukte innanfor det lokale nettverket for å identifisere einingar.\n\nEi **IP-adresse** er derimot ei logisk adresse for kommunikasjon over nettverk. Det finst to versjonar. **IPv4** bruker 32-bits adresser, skrivne som fire talgrupper frå 0 til 255, som `192.168.1.100`. IPv4 gir rundt 4,3 milliardar adresser – ikkje lenger nok for alle einingane i verda. **IPv6** bruker 128-bits adresser med åtte heksadesimale grupper, og gir eit nesten uendeleg tal på adresser.\n\nIP-adresser vert delte i offentlege og private. **Offentlege** adresser er unike på internett og vert tildelte av internettleverandøren. **Private** adresser vert brukte innanfor LAN og er ikkje direkte tilgjengelege frå internett – vanlege område er 192.168.x.x og 10.x.x.x. Her kjem **NAT** (Network Address Translation) inn: ruteren omset mellom private og offentlege adresser, slik at mange einingar i heimen kan dele éi offentleg IP-adresse. Det var nettopp NAT som hjelpte oss å klare oss med dei avgrensa IPv4-adressene så lenge."
+    },
+    {
+      "id": "it-1-7-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på adresser og NAT:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-1-n-quiz3-q0",
+            "task": "Kva er NAT, og kvifor er det nyttig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein type brannmur",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein trådlaus standard som erstattar Wi-Fi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "NAT omset mellom private og offentlege IP-adresser, slik at fleire einingar kan dele éi offentleg IP",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ein krypteringsprotokoll",
+                "isCorrect": false
+              }
+            ],
+            "solution": "NAT omset mellom private og offentlege IP-adresser, slik at mange einingar kan dele éi offentleg adresse."
+          },
+          {
+            "id": "it-1-7-1-n-quiz3-q1",
+            "task": "Kva kjenneteiknar ei MAC-adresse?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ho vert tildelt av internettleverandøren kvar dag",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho er den same for alle einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ho finst berre på trådlause einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ho er brend inn i nettverkskortet og identifiserer eininga i det lokale nettverket",
+                "isCorrect": true
+              }
+            ],
+            "solution": "MAC-adressa er ei fysisk adresse brend inn i nettverkskortet, som identifiserer eininga innanfor det lokale nettverket."
+          },
+          {
+            "id": "it-1-7-1-n-quiz3-q2",
+            "task": "Kvifor vart IPv6 utvikla?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi dei rundt 4,3 milliardar IPv4-adressene ikkje er nok for alle einingane i verda",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi IPv4 var for rask",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi IPv4 ikkje verkar trådlaust",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi IPv6 er billegare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "IPv4 gir berre rundt 4,3 milliardar adresser, og IPv6 med 128-bits adresser vart utvikla for å gi nok adresser til alle."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nAlt frå meldinga til venen til musikkstrøyminga kviler på **datanettverk** – einingar kopla saman for å dele ressursar. Vi skil mellom **LAN** (lokalt, raskt) og **WAN** (stort geografisk, som internett), med MAN, PAN og WLAN som variantar.\n\nEiningane vert kopla saman i ein **topologi**, der stjernetopologien er klart vanlegast i dag. Nettverket vert bygt av komponentar som **svitsj** (koplar einingar i LAN via MAC-adresser), **ruter** (koplar nettverk via IP-adresser), aksesspunkt, modem og brannmur. Og kvar eining har to slags adresser: ei fast **MAC-adresse** og ei logisk **IP-adresse** (IPv4 eller IPv6), der NAT lèt mange einingar dele éi offentleg adresse."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f5868e4d6789d188",
+    "translatedAt": "2026-06-20T23:58:28.803Z",
+    "model": "claude-code-agent",
+    "strings": 69,
+    "tm": {
+      "75e4cb1ccbe6e7c9": "Oppbygginga av datanettverka",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "80eac2afaf6f6e24": "Ei forteljing om korleis einingar snakkar saman – LAN og WAN, nettverkstopologiar, komponentane svitsj, ruter og brannmur, og MAC- og IP-adresser.",
+      "ee093c4f659885b9": "gjøre rede for hvordan datanettverk er bygd opp og fungerer",
+      "212dcfb4724bdd2b": "forklare forskjellen mellom LAN og WAN og beskrive ulike nettverkstopologier",
+      "4d965d345f510a3b": "## Ein heilt vanleg skuledag\n\nDu koplar mobilen til Wi-Fi-en på skulen, sender ei melding, lastar opp ei fil til læringsplattforma og strøymer musikk i friminuttet. Alt dette er mogleg takka vere **datanettverk** – system av samankopla einingar som utvekslar informasjon. Eit datanettverk er to eller fleire einingar kopla saman så dei kan kommunisere og dele ressursar, anten via kabel (Ethernet, fiber) eller trådlaust (Wi-Fi, Bluetooth, mobilnett). For å snakke saman treng einingane felles reglar (protokollar) og unike adresser.\n\nNettverk vert klassifiserte etter storleik. Eit **LAN** (Local Area Network) dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor. LAN er kjenneteikna av høg fart (typisk 100 Mbps til 10 Gbps), låg forseinking, og at dei vert eigde og drifta av brukaren sjølv. Den vanlegaste kabla teknologien er Ethernet, medan Wi-Fi vert brukt trådlaust. Eit **WAN** (Wide Area Network) dekkjer derimot eit stort geografisk område og koplar saman fleire LAN over lange avstandar – **internett er det største WAN-et i verda**. WAN bruker fiber, leigde linjer og satellitt, og har lågare fart og høgare forseinking enn LAN.\n\nDet finst òg mellomvariantar: eit **MAN** (Metropolitan Area Network) dekkjer ein by, eit **PAN** (Personal Area Network) er eit bittelite nettverk rundt éin person – som Bluetooth mellom mobil og øyreproppar – og eit **WLAN** er rett og slett eit trådlaust LAN.",
+      "377c58335795979d": "Test deg sjølv på nettverkstypar:",
+      "4097889236a2af26": "placeholder",
+      "c8d923c5b5876039": "Kva er eit LAN?",
+      "c849cee0b1af68c6": "Eit nettverk som dekkjer eit heilt land",
+      "395d75ca255b83ae": "Eit lokalt nettverk som dekkjer eit avgrensa område, som ein heim eller ein skule",
+      "1adf5fb91353418b": "Eit personleg nettverk mellom mobil og øyreproppar",
+      "af0b695ce75d714d": "Eit nettverk som berre bruker trådlause forbindingar",
+      "4ba663bafd4ad2cd": "Eit LAN (Local Area Network) er eit lokalt nettverk som dekkjer eit avgrensa område som ein heim, eit klasserom eller eit kontor.",
+      "9a3d10d50489d8a7": "Kva er det største WAN-et i verda?",
+      "d17aafadd3b83e47": "Wi-Fi-en på skulen",
+      "204134066586de6a": "Eit Bluetooth-nettverk",
+      "a9cf358007c4c849": "Internett",
+      "6e390ad63281f82f": "Eit heimenettverk",
+      "7cbe3a0c48ad7c13": "Internett er det største WAN-et i verda – det koplar saman utallige LAN over heile kloden.",
+      "9f11842e50f1f6af": "Kva er eit PAN?",
+      "7e0f2af59578b07f": "Eit nettverk som dekkjer ein heil by",
+      "d490b0d72d6e32bc": "Det største nettverket i verda",
+      "2d9eac729838e6c1": "Eit kabla bedriftsnettverk",
+      "19de18065c26e894": "Eit svært lite nettverk rundt éin person, til dømes Bluetooth mellom mobil og øyreproppar",
+      "f7db3b74cbebedd8": "Eit PAN (Personal Area Network) er eit bittelite nettverk rundt éin person, som Bluetooth-forbindinga mellom mobil og øyreproppar.",
+      "5f52ccfa20ce0b6a": "## Korleis einingane er kopla saman\n\n**Nettverkstopologi** skildrar korleis einingane er kopla. Vi skil mellom fysisk topologi (sjølve kablinga) og logisk topologi (korleis data flyt). Den **vanlegaste i moderne nettverk er stjernetopologi**, der alle einingar er kopla til ei sentral eining, vanlegvis ein svitsj eller ruter. Fordelen er at han er enkel å setje opp og utvide, og at éi eining kan svikte utan å påverke resten. Ulempa er at den sentrale eininga er eit enkelt feilpunkt – sviktar han, mistar alle forbindinga.\n\nDet finst fleire andre topologiar, mest av historisk interesse. I **bustopologi** er alle einingar kopla til éin felles kabel; det er billeg, men ryk hovudkabelen, fell heile nettverket. I **ringtopologi** vert data sende i éi retning rundt ein lukka krins – føreseieleg, men sårbart om éi eining sviktar. Begge er stort sett erstatta av stjernetopologi i dag. **Meshetopologi** koplar einingar til fleire andre, slik at det finst alternative vegar om ei forbinding sviktar; det er svært påliteleg, men dyrt, og vert brukt i ryggradsnettverk og trådlause mesh-nett.\n\nNettverket består av fleire komponentar. Ein **svitsj** er hjartet i eit LAN: han koplar saman einingar og vidaresender datapakkar til rett mottakar basert på **MAC-adresser**. Ein **ruter** vidaresender derimot pakkar *mellom* ulike nettverk – han koplar LAN-et ditt til nettverket til internettleverandøren, og bruker **IP-adresser** og rutingtabellar. Eit **aksesspunkt** lèt einingar kople seg til via Wi-Fi, eit **modem** koplar nettverket til internett over breibandslinja, og ein **brannmur** overvakar og filtrerer trafikk for å verne nettverket.",
+      "caf814bd805dd3b4": "Test deg sjølv på topologiar og komponentar:",
+      "25b142ff28e70f15": "Kva nettverkstopologi er vanlegast i moderne nettverk?",
+      "e4623954ba91b769": "Stjernetopologi",
+      "7328fa39ffc6a660": "Bustopologi",
+      "74ac5ff15152e99f": "Ringtopologi",
+      "8439f33274dad0bf": "Alle er like vanlege",
+      "3d08aff6fe21e8d8": "Stjernetopologi, der alle einingar vert kopla til ein sentral svitsj eller ruter, er klart vanlegast i dag.",
+      "565b99485b5eea3e": "Kva er hovudoppgåva til ein svitsj?",
+      "351ef0e30ee67ee5": "Å kople det lokale nettverket til internett",
+      "a22057d9b187fc98": "Å vidaresende datapakkar til rett eining innanfor eit LAN basert på MAC-adresser",
+      "53e303830e066705": "Å konvertere digitale signal til analoge",
+      "533770f68748884b": "Å sende trådlause signal",
+      "532a016e16755309": "Ein svitsj vidaresender datapakkar til rett eining innanfor eit LAN ved hjelp av MAC-adresser.",
+      "005db0721ca6b26c": "Kva er skilnaden mellom ein svitsj og ein ruter?",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "446e09cb3ce7d684": "Ein svitsj er trådlaus, ein ruter er kabla",
+      "16473688eee6a052": "Ein svitsj koplar einingar innanfor eitt LAN med MAC-adresser, medan ein ruter koplar ulike nettverk saman med IP-adresser",
+      "ce7c3a6440b1af6a": "Ein ruter vert berre brukt i heimar",
+      "d3098dd6bc8473d7": "Svitsjen jobbar innanfor eitt LAN med MAC-adresser, medan ruteren koplar ulike nettverk saman og bruker IP-adresser.",
+      "b8100d0d5e8862c9": "## To slags adresser\n\nFor at einingar skal kommunisere, treng dei unike adresser, og det finst to typar. Ei **MAC-adresse** er ei fysisk adresse som er brend inn i nettverkskortet ved produksjon. Ho er 48 bit lang og vert skriven som seks grupper med heksadesimale tal, til dømes `AA:BB:CC:11:22:33`. MAC-adresser vert brukte innanfor det lokale nettverket for å identifisere einingar.\n\nEi **IP-adresse** er derimot ei logisk adresse for kommunikasjon over nettverk. Det finst to versjonar. **IPv4** bruker 32-bits adresser, skrivne som fire talgrupper frå 0 til 255, som `192.168.1.100`. IPv4 gir rundt 4,3 milliardar adresser – ikkje lenger nok for alle einingane i verda. **IPv6** bruker 128-bits adresser med åtte heksadesimale grupper, og gir eit nesten uendeleg tal på adresser.\n\nIP-adresser vert delte i offentlege og private. **Offentlege** adresser er unike på internett og vert tildelte av internettleverandøren. **Private** adresser vert brukte innanfor LAN og er ikkje direkte tilgjengelege frå internett – vanlege område er 192.168.x.x og 10.x.x.x. Her kjem **NAT** (Network Address Translation) inn: ruteren omset mellom private og offentlege adresser, slik at mange einingar i heimen kan dele éi offentleg IP-adresse. Det var nettopp NAT som hjelpte oss å klare oss med dei avgrensa IPv4-adressene så lenge.",
+      "c1fa505d1327ebb3": "Test deg sjølv på adresser og NAT:",
+      "146888f9ce89f6c2": "Kva er NAT, og kvifor er det nyttig?",
+      "d366e69739620cd0": "Ein type brannmur",
+      "9fc50e3431559de0": "Ein trådlaus standard som erstattar Wi-Fi",
+      "2c887ece5fb020be": "Ein krypteringsprotokoll",
+      "b8f7cca78f468ac9": "NAT omset mellom private og offentlege IP-adresser, slik at fleire einingar kan dele éi offentleg IP",
+      "2473a4e90e6215c9": "NAT omset mellom private og offentlege IP-adresser, slik at mange einingar kan dele éi offentleg adresse.",
+      "26c87341bbe8937b": "Kva kjenneteiknar ei MAC-adresse?",
+      "9cff7cfc8ddfeb24": "Ho er brend inn i nettverkskortet og identifiserer eininga i det lokale nettverket",
+      "0de186a005f01ef4": "Ho vert tildelt av internettleverandøren kvar dag",
+      "1a45803dbcc441f1": "Ho er den same for alle einingar",
+      "cc3e70690665da2e": "Ho finst berre på trådlause einingar",
+      "2ce53f7207f2744d": "MAC-adressa er ei fysisk adresse brend inn i nettverkskortet, som identifiserer eininga innanfor det lokale nettverket.",
+      "492c3012fcad348f": "Kvifor vart IPv6 utvikla?",
+      "ff08da07a227dad6": "Fordi IPv4 var for rask",
+      "20efdb3848933dbe": "Fordi dei rundt 4,3 milliardar IPv4-adressene ikkje er nok for alle einingane i verda",
+      "612f86fa1ab8ddaf": "Fordi IPv4 ikkje verkar trådlaust",
+      "8c814d0ccdc2ad23": "Fordi IPv6 er billegare",
+      "0b39182c4ab57a19": "IPv4 gir berre rundt 4,3 milliardar adresser, og IPv6 med 128-bits adresser vart utvikla for å gi nok adresser til alle.",
+      "c75b88ffa0a1742a": "## Oppsummering\n\nAlt frå meldinga til venen til musikkstrøyminga kviler på **datanettverk** – einingar kopla saman for å dele ressursar. Vi skil mellom **LAN** (lokalt, raskt) og **WAN** (stort geografisk, som internett), med MAN, PAN og WLAN som variantar.\n\nEiningane vert kopla saman i ein **topologi**, der stjernetopologien er klart vanlegast i dag. Nettverket vert bygt av komponentar som **svitsj** (koplar einingar i LAN via MAC-adresser), **ruter** (koplar nettverk via IP-adresser), aksesspunkt, modem og brannmur. Og kvar eining har to slags adresser: ei fast **MAC-adresse** og ei logisk **IP-adresse** (IPv4 eller IPv6), der NAT lèt mange einingar dele éi offentleg adresse."
+    }
+  }
+}

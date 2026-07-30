@@ -1,1 +1,359 @@
-{"id":"1t-2-11-narrativ","courseId":"1t","chapterNumber":"2.11","title":"Polynomdivisjon i GeoGebra","subtitle":"Narrativ versjon","description":"Ei fortelling om å la maskinen gjera grovarbeidet – polynomdivisjon, rest og faktorisering med GeoGebra CAS som reknepartnar.","estimatedMinutes":20,"competenceGoals":["bruka GeoGebra CAS til å utføra polynomdivisjon","kontrollera polynomdivisjon med digitale verktøy"],"linkedChapterId":"1t-2-11","content":[{"id":"1t-2-11-n-intro","type":"text","content":"## Ein reknepartnar som aldri slarvar\n\nDu har nettopp brukt ti minutt på ein polynomdivisjon for hand, og svaret ditt er $x^2 - x + 4$ med rest $-2$. Men stemmer det? Éin forteiknsfeil eit stadd i oppstillinga, og alt etterpå er galt. Hadde det ikkje vore fint med ein partnar som kan sjekka svaret på to sekund – og som aldri gjer forteiknsfeil?\n\nDen partnaren heiter GeoGebra CAS. CAS står for *Computer Algebra System*, og det betyr at GeoGebra ikkje berre reknar med tal, men med heile algebraiske uttrykk. Polynomdivisjon er ein av tinga CAS gjer lynraskt, og det er nyttig av tre grunnar: du kan kontrollera svar du har rekna ut for hand, du kan utføra vanskelege divisjonar raskt – og du kan bruka divisjon som verktøy for å faktorisera polynom.\n\nMen hugsa heile vegen: verktøyet erstatter ikkje forståinga. Du må framleis vita kva ein kvotient og ein rest *er*, og kva det betyr at ein divisjon «går opp». I denne fortelinga lærer du først kommandoane for sjølve divisjonen, og deretter korleis du set dei saman til ein arbeidsflyt for faktorisering."},{"id":"1t-2-11-n-section1","type":"text","content":"## Div og Rest – divisjonens to svar\n\nNår du delar eit polynom på eit anna, får du to ting: ein **kvotient** (sjølve svaret) og ein **rest**. GeoGebra CAS har éin kommando for kvar. Kommandoen `Div(polynom, divisor)` gir kvotienten, og `Rest(polynom, divisor)` gir resten.\n\nSkriv du `Div(x^3 - 2x^2 + 5x - 6, x - 1)`, svarar GeoGebra `x² - x + 4`. Skriv du `Rest(x^3 - 2x^2 + 5x - 6, x - 1)`, får du `-2`. Saman fortel dei heile historia: $x^3 - 2x^2 + 5x - 6 = (x - 1)(x^2 - x + 4) - 2$. Det finst også ein tredje veg: skriv divisjonen rett og slett som brøk, `(x^3 - 2x^2 + 5x - 6) / (x - 1)`, så forenklar GeoGebra uttrykket for deg.\n\nLa oss ta eit heilt døme: divisjonen $(x^3 + 2x^2 - 5x - 6) : (x + 3)$. I CAS skriv vi `Div(x^3 + 2x^2 - 5x - 6, x + 3)` og får `x² - x - 2`. Så sjekkar vi resten: `Rest(x^3 + 2x^2 - 5x - 6, x + 3)` gir `0`.\n\nRest null er det viktigaste signalet i heile kapittelet. Det betyr at divisjonen **går opp** – divisoren er ein faktor i polynomet. Vi kan dermed skriva $x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$. Generelt: når resten er null, er $P(x) = Q(x) \\cdot D(x)$, der $D$ er divisoren og $Q$ kvotienten. Det er denne samanhengen som gjer divisjon til eit faktoriseringsverktøy – og det er dit vi skal no."},{"id":"1t-2-11-n-quiz1","type":"exercise","exercise":{"id":"1t-2-11-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på Div og Rest i GeoGebra CAS:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-11-n-quiz1-q0","task":"Kva gir kommandoen Div(polynom, divisor) i GeoGebra CAS?","options":[{"id":"a","text":"Kvotienten – svaret på divisjonen utan rest","isCorrect":true},{"id":"b","text":"Resten ved divisjonen","isCorrect":false},{"id":"c","text":"Nullpunkta til polynomet","isCorrect":false},{"id":"d","text":"Den deriverte av polynomet","isCorrect":false}],"solution":"Div gir kvotienten. Resten finn du med den eiga kommandoen Rest(polynom, divisor)."},{"id":"1t-2-11-n-quiz1-q1","task":"Rest(x^3 + 2x^2 - 5x - 6, x + 3) gir 0. Kva betyr det?","options":[{"id":"a","text":"Polynomet har ingen nullpunkt","isCorrect":false},{"id":"b","text":"Divisjonen går opp – $(x+3)$ er ein faktor i polynomet","isCorrect":true},{"id":"c","text":"Kvotienten er null","isCorrect":false},{"id":"d","text":"GeoGebra har gjort ein feil","isCorrect":false}],"solution":"Rest 0 betyr at divisoren er ein faktor: $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$."},{"id":"1t-2-11-n-quiz1-q2","task":"Div gir kvotient $Q(x)$ og Rest gir 0 for divisjonen $P(x) : D(x)$. Kva samanhang gjeld?","options":[{"id":"a","text":"$P(x) = Q(x) + D(x)$","isCorrect":false},{"id":"b","text":"$P(x) = Q(x) - D(x)$","isCorrect":false},{"id":"c","text":"$P(x) = Q(x) \\cdot D(x)$","isCorrect":true},{"id":"d","text":"$Q(x) = P(x) \\cdot D(x)$","isCorrect":false}],"solution":"Når resten er 0, er polynomet produktet av divisor og kvotient: $P(x) = Q(x) \\cdot D(x)$."},{"id":"1t-2-11-n-quiz1-q3","task":"Kva er ein alternativ måte å utføra polynomdivisjon på i CAS, utan Div-kommandoen?","options":[{"id":"a","text":"Skriva divisjonen som brøk, f.eks. (x^3 - 2x^2 + 5x - 6) / (x - 1)","isCorrect":false},{"id":"b","text":"Bruka kommandoen Tangent()","isCorrect":false},{"id":"c","text":"Teikna grafen og lesa av","isCorrect":false},{"id":"d","text":"Både brøkskriving og Div fungerer – brøken forenklas automatisk","isCorrect":true}],"solution":"Du kan skriva divisjonen som ein brøk i CAS, så forenklar GeoGebra uttrykket. Div/Rest gir deg kvotient og rest kvar for seg."}]}},{"id":"1t-2-11-n-section2","type":"text","content":"## Frå nullpunkt til faktorisering\n\nHer kjem den store ideen som bind kapittel 2 saman: **Viss $x = a$ er eit nullpunkt for eit polynom, er $(x - a)$ ein faktor i polynomet.** Kjenner du eitt nullpunkt, kan du dela på den tilhøyrande faktoren og få eit enklare polynom å jobba vidare med. GeoGebra gjer begge stega for deg.\n\nLa oss faktorisera $f(x) = x^3 - 6x^2 + 11x - 6$. Steg éin er å finna nullpunkta: kommandoen `Nullpunkt(x^3 - 6x^2 + 11x - 6)` (eller `Løys(f(x) = 0)` i CAS) gir punkta $(1, 0)$, $(2, 0)$ og $(3, 0)$. Nullpunkta er altso $x = 1$, $x = 2$ og $x = 3$.\n\nSteg to fylgjer av den store ideen: siden 1, 2 og 3 er nullpunkt, er $(x - 1)$, $(x - 2)$ og $(x - 3)$ alle faktorar. Eit tredjegrad polynom har ikkje plass til meir, so faktoriseringa må vera $f(x) = (x - 1)(x - 2)(x - 3)$.\n\nVil du sjekka – eller hoppa over heilt arbeidet – finst snarveien `Faktoriser(x^3 - 6x^2 + 11x - 6)`, som svarar `(x - 1)(x - 2)(x - 3)` direkte.\n\nArbeidsflyten din i møte med eit polynom er dermed: finn eit nullpunkt med `Nullpunkt()` eller `Løys()`, dela på den tilhøyrande faktoren med `Div()` (og bekreft rest 0 med `Rest()`), og faktorisera kvotienten vidare – eller bruka `Faktoriser()` direkte når oppgåva tillèt det. På prøver og eksamen bør du alltid skriva ned kva kommandoane du brukte; det er dokumentasjonen av løysinga di."},{"id":"1t-2-11-n-quiz2","type":"exercise","exercise":{"id":"1t-2-11-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på faktorisering med GeoGebra:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-11-n-quiz2-q0","task":"Du veit at $x = a$ er eit nullpunkt for polynomet $P(x)$. Kva kan du konkludera?","options":[{"id":"a","text":"$(x + a)$ er ein faktor i $P(x)$","isCorrect":false},{"id":"b","text":"$(x - a)$ er ein faktor i $P(x)$","isCorrect":true},{"id":"c","text":"$P(x)$ har ingen andre nullpunkt","isCorrect":false},{"id":"d","text":"$P(a)$ er ulik null","isCorrect":false}],"solution":"Nullpunkt $x = a$ betyr $P(a) = 0$, og då er $(x - a)$ ein faktor i polynomet."},{"id":"1t-2-11-n-quiz2-q1","task":"Nullpunkt($x^3 - 6x^2 + 11x - 6$) gir $x = 1$, $x = 2$ og $x = 3$. Kva er faktoriseringa?","options":[{"id":"a","text":"$(x+1)(x+2)(x+3)$","isCorrect":false},{"id":"b","text":"$(x-1)(x-2)(x-3)$","isCorrect":true},{"id":"c","text":"$x(x-2)(x-3)$","isCorrect":false},{"id":"d","text":"$(x-1)(x-2)$","isCorrect":false}],"solution":"Kvart nullpunkt $a$ gir faktoren $(x - a)$: $f(x) = (x-1)(x-2)(x-3)$. Kontroller gjerne med Faktoriser()."},{"id":"1t-2-11-n-quiz2-q2","task":"Kva kommando faktoriserer eit polynom fullstendig i eitt steg?","options":[{"id":"a","text":"Div()","isCorrect":false},{"id":"b","text":"Rest()","isCorrect":false},{"id":"c","text":"Faktoriser()","isCorrect":true},{"id":"d","text":"Skjæring()","isCorrect":false}],"solution":"Faktoriser(polynom) gir den fullstendige faktoriseringa direkte. Div og Rest gir kvotient og rest ved divisjon."},{"id":"1t-2-11-n-quiz2-q3","task":"Kva er ein fornuftig arbeidsflyt for å faktorisere eit tredjegradspolynom med GeoGebra?","options":[{"id":"a","text":"Finn eit nullpunkt, divider på tilhøyrande faktor, faktoriser kvotienten","isCorrect":true},{"id":"b","text":"Derivér polynomet og les av faktorane","isCorrect":false},{"id":"c","text":"Gjett faktorer til resten blir null","isCorrect":false},{"id":"d","text":"Tegn grafen og les faktoriseringa direkte frå kurva","isCorrect":false}],"solution":"Standardflyten er: Nullpunkt()/Løys() for å finne eit nullpunkt, Div() på faktoren $(x-a)$, og faktoriser kvotienten – eller bruk Faktoriser() direkte."}]}},{"id":"1t-2-11-n-summary","type":"text","content":"## Maskinkraft med forståing\n\nFrå ti minutters håndrekning til to sekunders kontroll – det er gevinsten av å kjenne CAS-kommandoane. `Div(p, d)` gir kvotienten ved polynomdivisjon, `Rest(p, d)` gir resten, `Nullpunkt(p)` finn nullpunkta, og `Faktoriser(p)` levererar den fullstendige faktoriseringa. Du kan òg skrive divisjonen som ein brøk og la GeoGebra forenkle.\n\nDet faglige limet mellom kommandoane er to samanhengar. Den første: rest null betyr at divisoren er ein faktor, slik at $P(x) = Q(x) \\cdot D(x)$. Den andre: eit nullpunkt $x = a$ gir alltid faktoren $(x - a)$. Saman gir dei arbeidsflyten du no beherskar – finn eit nullpunkt, divider på faktoren, og faktoriser vidare til polynomet er heilt oppløyst i lineære faktorer, slik $x^3 - 6x^2 + 11x - 6$ vart til $(x-1)(x-2)(x-3)$.\n\nGeoGebra er reknesamarbeidaren som aldri gjer forteiknsfeil, men *du* er den som forstår kva svara betyr. Bruk CAS til å kontrollere håndrekinga di, til å handtere dei styggje divisjonane – og husk å dokumentere kommandoane du bruker når du levererar ei løysing. Slik får du både farten til maskinen og tryggleiken til ein som kan faget."}],"exercises":[],"_meta":{"sourceHash":"cfaf282f27f027e2","translatedAt":"2026-06-16T10:01:47.985Z","model":"claude-haiku-4-5-20251001","strings":61,"tm":{"3d2fdaba73259dd3":"Polynomdivisjon i GeoGebra","b195b06d1ed59702":"Narrativ versjon","a0e386d586dd577d":"Ei fortelling om å la maskinen gjera grovarbeidet – polynomdivisjon, rest og faktorisering med GeoGebra CAS som reknepartnar.","7e45a3c227ea752c":"bruka GeoGebra CAS til å utføra polynomdivisjon","4153e395adf6e705":"kontrollera polynomdivisjon med digitale verktøy","61ecf4f2cbe99c02":"## Ein reknepartnar som aldri slarvar\n\nDu har nettopp brukt ti minutt på ein polynomdivisjon for hand, og svaret ditt er $x^2 - x + 4$ med rest $-2$. Men stemmer det? Éin forteiknsfeil eit stadd i oppstillinga, og alt etterpå er galt. Hadde det ikkje vore fint med ein partnar som kan sjekka svaret på to sekund – og som aldri gjer forteiknsfeil?\n\nDen partnaren heiter GeoGebra CAS. CAS står for *Computer Algebra System*, og det betyr at GeoGebra ikkje berre reknar med tal, men med heile algebraiske uttrykk. Polynomdivisjon er ein av tinga CAS gjer lynraskt, og det er nyttig av tre grunnar: du kan kontrollera svar du har rekna ut for hand, du kan utføra vanskelege divisjonar raskt – og du kan bruka divisjon som verktøy for å faktorisera polynom.\n\nMen hugsa heile vegen: verktøyet erstatter ikkje forståinga. Du må framleis vita kva ein kvotient og ein rest *er*, og kva det betyr at ein divisjon «går opp». I denne fortelinga lærer du først kommandoane for sjølve divisjonen, og deretter korleis du set dei saman til ein arbeidsflyt for faktorisering.","99800ef0c9d87d99":"## Div og Rest – divisjonens to svar\n\nNår du delar eit polynom på eit anna, får du to ting: ein **kvotient** (sjølve svaret) og ein **rest**. GeoGebra CAS har éin kommando for kvar. Kommandoen `Div(polynom, divisor)` gir kvotienten, og `Rest(polynom, divisor)` gir resten.\n\nSkriv du `Div(x^3 - 2x^2 + 5x - 6, x - 1)`, svarar GeoGebra `x² - x + 4`. Skriv du `Rest(x^3 - 2x^2 + 5x - 6, x - 1)`, får du `-2`. Saman fortel dei heile historia: $x^3 - 2x^2 + 5x - 6 = (x - 1)(x^2 - x + 4) - 2$. Det finst også ein tredje veg: skriv divisjonen rett og slett som brøk, `(x^3 - 2x^2 + 5x - 6) / (x - 1)`, så forenklar GeoGebra uttrykket for deg.\n\nLa oss ta eit heilt døme: divisjonen $(x^3 + 2x^2 - 5x - 6) : (x + 3)$. I CAS skriv vi `Div(x^3 + 2x^2 - 5x - 6, x + 3)` og får `x² - x - 2`. Så sjekkar vi resten: `Rest(x^3 + 2x^2 - 5x - 6, x + 3)` gir `0`.\n\nRest null er det viktigaste signalet i heile kapittelet. Det betyr at divisjonen **går opp** – divisoren er ein faktor i polynomet. Vi kan dermed skriva $x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$. Generelt: når resten er null, er $P(x) = Q(x) \\cdot D(x)$, der $D$ er divisoren og $Q$ kvotienten. Det er denne samanhengen som gjer divisjon til eit faktoriseringsverktøy – og det er dit vi skal no.","e0cb05ef3d9fbcfe":"Test deg sjølv på Div og Rest i GeoGebra CAS:","4097889236a2af26":"placeholder","865a863e822a1448":"Kva gir kommandoen Div(polynom, divisor) i GeoGebra CAS?","d4d999d94ee6ea3a":"Kvotienten – svaret på divisjonen utan rest","3a8e2993c59ca4ed":"Resten ved divisjonen","de13724db7710ece":"Nullpunkta til polynomet","3c3f128e7f35fbd0":"Den deriverte av polynomet","17d8123c682b1f95":"Div gir kvotienten. Resten finn du med den eiga kommandoen Rest(polynom, divisor).","673fd8c06b48a9ae":"Rest(x^3 + 2x^2 - 5x - 6, x + 3) gir 0. Kva betyr det?","091b9045c0cbd700":"Polynomet har ingen nullpunkt","469b9790fbc6ed0d":"Divisjonen går opp – $(x+3)$ er ein faktor i polynomet","6c39a969b8318599":"Kvotienten er null","2e37f4cdb2b1667a":"GeoGebra har gjort ein feil","346d0cffa79b916e":"Rest 0 betyr at divisoren er ein faktor: $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$.","3a3b8ee26b0dae05":"Div gir kvotient $Q(x)$ og Rest gir 0 for divisjonen $P(x) : D(x)$. Kva samanhang gjeld?","59c280c3db15c29b":"$P(x) = Q(x) + D(x)$","ded6b3bd31ebd5ad":"$P(x) = Q(x) - D(x)$","dc08a95f3eb8a68f":"$P(x) = Q(x) \\cdot D(x)$","bf4f4d2c0b24a66d":"$Q(x) = P(x) \\cdot D(x)$","e2e61821b605d3e3":"Når resten er 0, er polynomet produktet av divisor og kvotient: $P(x) = Q(x) \\cdot D(x)$.","8eca88e73defd881":"Kva er ein alternativ måte å utføra polynomdivisjon på i CAS, utan Div-kommandoen?","7d6ed3504af80deb":"Skriva divisjonen som brøk, f.eks. (x^3 - 2x^2 + 5x - 6) / (x - 1)","59d844f32b3bb406":"Bruka kommandoen Tangent()","9ce962b7b1f3761b":"Teikna grafen og lesa av","6fbd07e5d12eb1d5":"Både brøkskriving og Div fungerer – brøken forenklas automatisk","1ee4353a0f9faf0e":"Du kan skriva divisjonen som ein brøk i CAS, så forenklar GeoGebra uttrykket. Div/Rest gir deg kvotient og rest kvar for seg.","ac28259c4ed1e893":"## Frå nullpunkt til faktorisering\n\nHer kjem den store ideen som bind kapittel 2 saman: **Viss $x = a$ er eit nullpunkt for eit polynom, er $(x - a)$ ein faktor i polynomet.** Kjenner du eitt nullpunkt, kan du dela på den tilhøyrande faktoren og få eit enklare polynom å jobba vidare med. GeoGebra gjer begge stega for deg.\n\nLa oss faktorisera $f(x) = x^3 - 6x^2 + 11x - 6$. Steg éin er å finna nullpunkta: kommandoen `Nullpunkt(x^3 - 6x^2 + 11x - 6)` (eller `Løys(f(x) = 0)` i CAS) gir punkta $(1, 0)$, $(2, 0)$ og $(3, 0)$. Nullpunkta er altso $x = 1$, $x = 2$ og $x = 3$.\n\nSteg to fylgjer av den store ideen: siden 1, 2 og 3 er nullpunkt, er $(x - 1)$, $(x - 2)$ og $(x - 3)$ alle faktorar. Eit tredjegrad polynom har ikkje plass til meir, so faktoriseringa må vera $f(x) = (x - 1)(x - 2)(x - 3)$.\n\nVil du sjekka – eller hoppa over heilt arbeidet – finst snarveien `Faktoriser(x^3 - 6x^2 + 11x - 6)`, som svarar `(x - 1)(x - 2)(x - 3)` direkte.\n\nArbeidsflyten din i møte med eit polynom er dermed: finn eit nullpunkt med `Nullpunkt()` eller `Løys()`, dela på den tilhøyrande faktoren med `Div()` (og bekreft rest 0 med `Rest()`), og faktorisera kvotienten vidare – eller bruka `Faktoriser()` direkte når oppgåva tillèt det. På prøver og eksamen bør du alltid skriva ned kva kommandoane du brukte; det er dokumentasjonen av løysinga di.","b3b9f1f27eff6255":"Test deg sjølv på faktorisering med GeoGebra:","92744ac8d3742932":"Du veit at $x = a$ er eit nullpunkt for polynomet $P(x)$. Kva kan du konkludera?","8ad6c17bac1d7e71":"$(x + a)$ er ein faktor i $P(x)$","a2a84705c5c471cd":"$(x - a)$ er ein faktor i $P(x)$","13ff8f5203435e38":"$P(x)$ har ingen andre nullpunkt","1f2adc735a3c9adb":"$P(a)$ er ulik null","46421d70459bf097":"Nullpunkt $x = a$ betyr $P(a) = 0$, og då er $(x - a)$ ein faktor i polynomet.","f9186a798c68a1fb":"Nullpunkt($x^3 - 6x^2 + 11x - 6$) gir $x = 1$, $x = 2$ og $x = 3$. Kva er faktoriseringa?","a2d13ec9bf2475f4":"$(x+1)(x+2)(x+3)$","c4f445d33e258d77":"$(x-1)(x-2)(x-3)$","d24bf9b10c3f2423":"$x(x-2)(x-3)$","d6b7b75021478c71":"$(x-1)(x-2)$","ad5a86a37c726766":"Kvart nullpunkt $a$ gir faktoren $(x - a)$: $f(x) = (x-1)(x-2)(x-3)$. Kontroller gjerne med Faktoriser().","b4c6619ac4824f7a":"Kva kommando faktoriserer eit polynom fullstendig i eitt steg?","dd73840be712b42e":"Div()","b1732efc17ed6306":"Rest()","bda1208f72ddb0d2":"Faktoriser()","7b0b47ccae4b49ca":"Skjæring()","e02cdd237cdf3a91":"Faktoriser(polynom) gir den fullstendige faktoriseringa direkte. Div og Rest gir kvotient og rest ved divisjon.","f8a199346c04a982":"Kva er ein fornuftig arbeidsflyt for å faktorisere eit tredjegradspolynom med GeoGebra?","757b6c0c88c612fd":"Finn eit nullpunkt, divider på tilhøyrande faktor, faktoriser kvotienten","6b83d9cab83f6428":"Derivér polynomet og les av faktorane","015ee1453b515a99":"Gjett faktorer til resten blir null","102ff7669cbbe86e":"Tegn grafen og les faktoriseringa direkte frå kurva","6c4ffcf7b91e178d":"Standardflyten er: Nullpunkt()/Løys() for å finne eit nullpunkt, Div() på faktoren $(x-a)$, og faktoriser kvotienten – eller bruk Faktoriser() direkte.","6d22429b46502d4b":"## Maskinkraft med forståing\n\nFrå ti minutters håndrekning til to sekunders kontroll – det er gevinsten av å kjenne CAS-kommandoane. `Div(p, d)` gir kvotienten ved polynomdivisjon, `Rest(p, d)` gir resten, `Nullpunkt(p)` finn nullpunkta, og `Faktoriser(p)` levererar den fullstendige faktoriseringa. Du kan òg skrive divisjonen som ein brøk og la GeoGebra forenkle.\n\nDet faglige limet mellom kommandoane er to samanhengar. Den første: rest null betyr at divisoren er ein faktor, slik at $P(x) = Q(x) \\cdot D(x)$. Den andre: eit nullpunkt $x = a$ gir alltid faktoren $(x - a)$. Saman gir dei arbeidsflyten du no beherskar – finn eit nullpunkt, divider på faktoren, og faktoriser vidare til polynomet er heilt oppløyst i lineære faktorer, slik $x^3 - 6x^2 + 11x - 6$ vart til $(x-1)(x-2)(x-3)$.\n\nGeoGebra er reknesamarbeidaren som aldri gjer forteiknsfeil, men *du* er den som forstår kva svara betyr. Bruk CAS til å kontrollere håndrekinga di, til å handtere dei styggje divisjonane – og husk å dokumentere kommandoane du bruker når du levererar ei løysing. Slik får du både farten til maskinen og tryggleiken til ein som kan faget."}}}
+{
+  "id": "1t-2-11-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "2.11",
+  "title": "Polynomdivisjon i GeoGebra",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei fortelling om å la maskinen gjera grovarbeidet – polynomdivisjon, rest og faktorisering med GeoGebra CAS som reknepartnar.",
+  "estimatedMinutes": 20,
+  "competenceGoals": [
+    "bruka GeoGebra CAS til å utføra polynomdivisjon",
+    "kontrollera polynomdivisjon med digitale verktøy"
+  ],
+  "linkedChapterId": "1t-2-11",
+  "content": [
+    {
+      "id": "1t-2-11-n-intro",
+      "type": "text",
+      "content": "## Ein reknepartnar som aldri slarvar\n\nDu har nettopp brukt ti minutt på ein polynomdivisjon for hand, og svaret ditt er $x^2 - x + 4$ med rest $-2$. Men stemmer det? Éin forteiknsfeil eit stadd i oppstillinga, og alt etterpå er galt. Hadde det ikkje vore fint med ein partnar som kan sjekka svaret på to sekund – og som aldri gjer forteiknsfeil?\n\nDen partnaren heiter GeoGebra CAS. CAS står for *Computer Algebra System*, og det betyr at GeoGebra ikkje berre reknar med tal, men med heile algebraiske uttrykk. Polynomdivisjon er ein av tinga CAS gjer lynraskt, og det er nyttig av tre grunnar: du kan kontrollera svar du har rekna ut for hand, du kan utføra vanskelege divisjonar raskt – og du kan bruka divisjon som verktøy for å faktorisera polynom.\n\nMen hugsa heile vegen: verktøyet erstatter ikkje forståinga. Du må framleis vita kva ein kvotient og ein rest *er*, og kva det betyr at ein divisjon «går opp». I denne fortelinga lærer du først kommandoane for sjølve divisjonen, og deretter korleis du set dei saman til ein arbeidsflyt for faktorisering."
+    },
+    {
+      "id": "1t-2-11-n-section1",
+      "type": "text",
+      "content": "## Div og Rest – divisjonens to svar\n\nNår du delar eit polynom på eit anna, får du to ting: ein **kvotient** (sjølve svaret) og ein **rest**. GeoGebra CAS har éin kommando for kvar. Kommandoen `Div(polynom, divisor)` gir kvotienten, og `Rest(polynom, divisor)` gir resten.\n\nSkriv du `Div(x^3 - 2x^2 + 5x - 6, x - 1)`, svarar GeoGebra `x² - x + 4`. Skriv du `Rest(x^3 - 2x^2 + 5x - 6, x - 1)`, får du `-2`. Saman fortel dei heile historia: $x^3 - 2x^2 + 5x - 6 = (x - 1)(x^2 - x + 4) - 2$. Det finst også ein tredje veg: skriv divisjonen rett og slett som brøk, `(x^3 - 2x^2 + 5x - 6) / (x - 1)`, så forenklar GeoGebra uttrykket for deg.\n\nLa oss ta eit heilt døme: divisjonen $(x^3 + 2x^2 - 5x - 6) : (x + 3)$. I CAS skriv vi `Div(x^3 + 2x^2 - 5x - 6, x + 3)` og får `x² - x - 2`. Så sjekkar vi resten: `Rest(x^3 + 2x^2 - 5x - 6, x + 3)` gir `0`.\n\nRest null er det viktigaste signalet i heile kapittelet. Det betyr at divisjonen **går opp** – divisoren er ein faktor i polynomet. Vi kan dermed skriva $x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$. Generelt: når resten er null, er $P(x) = Q(x) \\cdot D(x)$, der $D$ er divisoren og $Q$ kvotienten. Det er denne samanhengen som gjer divisjon til eit faktoriseringsverktøy – og det er dit vi skal no."
+    },
+    {
+      "id": "1t-2-11-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-11-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Div og Rest i GeoGebra CAS:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-11-n-quiz1-q0",
+            "task": "Kva gir kommandoen Div(polynom, divisor) i GeoGebra CAS?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Resten ved divisjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nullpunkta til polynomet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Kvotienten – svaret på divisjonen utan rest",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den deriverte av polynomet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Div gir kvotienten. Resten finn du med den eiga kommandoen Rest(polynom, divisor)."
+          },
+          {
+            "id": "1t-2-11-n-quiz1-q1",
+            "task": "Rest(x^3 + 2x^2 - 5x - 6, x + 3) gir 0. Kva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Polynomet har ingen nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvotienten er null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "GeoGebra har gjort ein feil",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Divisjonen går opp – $(x+3)$ er ein faktor i polynomet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Rest 0 betyr at divisoren er ein faktor: $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$."
+          },
+          {
+            "id": "1t-2-11-n-quiz1-q2",
+            "task": "Div gir kvotient $Q(x)$ og Rest gir 0 for divisjonen $P(x) : D(x)$. Kva samanhang gjeld?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$P(x) = Q(x) \\cdot D(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$P(x) = Q(x) + D(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(x) = Q(x) - D(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$Q(x) = P(x) \\cdot D(x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når resten er 0, er polynomet produktet av divisor og kvotient: $P(x) = Q(x) \\cdot D(x)$."
+          },
+          {
+            "id": "1t-2-11-n-quiz1-q3",
+            "task": "Kva er ein alternativ måte å utføra polynomdivisjon på i CAS, utan Div-kommandoen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skriva divisjonen som brøk, f.eks. (x^3 - 2x^2 + 5x - 6) / (x - 1)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Både brøkskriving og Div fungerer – brøken forenklas automatisk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Bruka kommandoen Tangent()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Teikna grafen og lesa av",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du kan skriva divisjonen som ein brøk i CAS, så forenklar GeoGebra uttrykket. Div/Rest gir deg kvotient og rest kvar for seg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-2-11-n-section2",
+      "type": "text",
+      "content": "## Frå nullpunkt til faktorisering\n\nHer kjem den store ideen som bind kapittel 2 saman: **Viss $x = a$ er eit nullpunkt for eit polynom, er $(x - a)$ ein faktor i polynomet.** Kjenner du eitt nullpunkt, kan du dela på den tilhøyrande faktoren og få eit enklare polynom å jobba vidare med. GeoGebra gjer begge stega for deg.\n\nLa oss faktorisera $f(x) = x^3 - 6x^2 + 11x - 6$. Steg éin er å finna nullpunkta: kommandoen `Nullpunkt(x^3 - 6x^2 + 11x - 6)` (eller `Løys(f(x) = 0)` i CAS) gir punkta $(1, 0)$, $(2, 0)$ og $(3, 0)$. Nullpunkta er altso $x = 1$, $x = 2$ og $x = 3$.\n\nSteg to fylgjer av den store ideen: siden 1, 2 og 3 er nullpunkt, er $(x - 1)$, $(x - 2)$ og $(x - 3)$ alle faktorar. Eit tredjegrad polynom har ikkje plass til meir, so faktoriseringa må vera $f(x) = (x - 1)(x - 2)(x - 3)$.\n\nVil du sjekka – eller hoppa over heilt arbeidet – finst snarveien `Faktoriser(x^3 - 6x^2 + 11x - 6)`, som svarar `(x - 1)(x - 2)(x - 3)` direkte.\n\nArbeidsflyten din i møte med eit polynom er dermed: finn eit nullpunkt med `Nullpunkt()` eller `Løys()`, dela på den tilhøyrande faktoren med `Div()` (og bekreft rest 0 med `Rest()`), og faktorisera kvotienten vidare – eller bruka `Faktoriser()` direkte når oppgåva tillèt det. På prøver og eksamen bør du alltid skriva ned kva kommandoane du brukte; det er dokumentasjonen av løysinga di."
+    },
+    {
+      "id": "1t-2-11-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-11-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisering med GeoGebra:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-11-n-quiz2-q0",
+            "task": "Du veit at $x = a$ er eit nullpunkt for polynomet $P(x)$. Kva kan du konkludera?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x + a)$ er ein faktor i $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(x)$ har ingen andre nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x - a)$ er ein faktor i $P(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$P(a)$ er ulik null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nullpunkt $x = a$ betyr $P(a) = 0$, og då er $(x - a)$ ein faktor i polynomet."
+          },
+          {
+            "id": "1t-2-11-n-quiz2-q1",
+            "task": "Nullpunkt($x^3 - 6x^2 + 11x - 6$) gir $x = 1$, $x = 2$ og $x = 3$. Kva er faktoriseringa?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x+1)(x+2)(x+3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x(x-2)(x-3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x-1)(x-2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x-1)(x-2)(x-3)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvart nullpunkt $a$ gir faktoren $(x - a)$: $f(x) = (x-1)(x-2)(x-3)$. Kontroller gjerne med Faktoriser()."
+          },
+          {
+            "id": "1t-2-11-n-quiz2-q2",
+            "task": "Kva kommando faktoriserer eit polynom fullstendig i eitt steg?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Faktoriser()",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Div()",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Rest()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Skjæring()",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktoriser(polynom) gir den fullstendige faktoriseringa direkte. Div og Rest gir kvotient og rest ved divisjon."
+          },
+          {
+            "id": "1t-2-11-n-quiz2-q3",
+            "task": "Kva er ein fornuftig arbeidsflyt for å faktorisere eit tredjegradspolynom med GeoGebra?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Derivér polynomet og les av faktorane",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Finn eit nullpunkt, divider på tilhøyrande faktor, faktoriser kvotienten",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Gjett faktorer til resten blir null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tegn grafen og les faktoriseringa direkte frå kurva",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Standardflyten er: Nullpunkt()/Løys() for å finne eit nullpunkt, Div() på faktoren $(x-a)$, og faktoriser kvotienten – eller bruk Faktoriser() direkte."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-2-11-n-summary",
+      "type": "text",
+      "content": "## Maskinkraft med forståing\n\nFrå ti minutters håndrekning til to sekunders kontroll – det er gevinsten av å kjenne CAS-kommandoane. `Div(p, d)` gir kvotienten ved polynomdivisjon, `Rest(p, d)` gir resten, `Nullpunkt(p)` finn nullpunkta, og `Faktoriser(p)` levererar den fullstendige faktoriseringa. Du kan òg skrive divisjonen som ein brøk og la GeoGebra forenkle.\n\nDet faglige limet mellom kommandoane er to samanhengar. Den første: rest null betyr at divisoren er ein faktor, slik at $P(x) = Q(x) \\cdot D(x)$. Den andre: eit nullpunkt $x = a$ gir alltid faktoren $(x - a)$. Saman gir dei arbeidsflyten du no beherskar – finn eit nullpunkt, divider på faktoren, og faktoriser vidare til polynomet er heilt oppløyst i lineære faktorer, slik $x^3 - 6x^2 + 11x - 6$ vart til $(x-1)(x-2)(x-3)$.\n\nGeoGebra er reknesamarbeidaren som aldri gjer forteiknsfeil, men *du* er den som forstår kva svara betyr. Bruk CAS til å kontrollere håndrekinga di, til å handtere dei styggje divisjonane – og husk å dokumentere kommandoane du bruker når du levererar ei løysing. Slik får du både farten til maskinen og tryggleiken til ein som kan faget."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "cfaf282f27f027e2",
+    "translatedAt": "2026-06-16T10:01:47.985Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 61,
+    "tm": {
+      "3d2fdaba73259dd3": "Polynomdivisjon i GeoGebra",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "a0e386d586dd577d": "Ei fortelling om å la maskinen gjera grovarbeidet – polynomdivisjon, rest og faktorisering med GeoGebra CAS som reknepartnar.",
+      "7e45a3c227ea752c": "bruka GeoGebra CAS til å utføra polynomdivisjon",
+      "4153e395adf6e705": "kontrollera polynomdivisjon med digitale verktøy",
+      "61ecf4f2cbe99c02": "## Ein reknepartnar som aldri slarvar\n\nDu har nettopp brukt ti minutt på ein polynomdivisjon for hand, og svaret ditt er $x^2 - x + 4$ med rest $-2$. Men stemmer det? Éin forteiknsfeil eit stadd i oppstillinga, og alt etterpå er galt. Hadde det ikkje vore fint med ein partnar som kan sjekka svaret på to sekund – og som aldri gjer forteiknsfeil?\n\nDen partnaren heiter GeoGebra CAS. CAS står for *Computer Algebra System*, og det betyr at GeoGebra ikkje berre reknar med tal, men med heile algebraiske uttrykk. Polynomdivisjon er ein av tinga CAS gjer lynraskt, og det er nyttig av tre grunnar: du kan kontrollera svar du har rekna ut for hand, du kan utføra vanskelege divisjonar raskt – og du kan bruka divisjon som verktøy for å faktorisera polynom.\n\nMen hugsa heile vegen: verktøyet erstatter ikkje forståinga. Du må framleis vita kva ein kvotient og ein rest *er*, og kva det betyr at ein divisjon «går opp». I denne fortelinga lærer du først kommandoane for sjølve divisjonen, og deretter korleis du set dei saman til ein arbeidsflyt for faktorisering.",
+      "99800ef0c9d87d99": "## Div og Rest – divisjonens to svar\n\nNår du delar eit polynom på eit anna, får du to ting: ein **kvotient** (sjølve svaret) og ein **rest**. GeoGebra CAS har éin kommando for kvar. Kommandoen `Div(polynom, divisor)` gir kvotienten, og `Rest(polynom, divisor)` gir resten.\n\nSkriv du `Div(x^3 - 2x^2 + 5x - 6, x - 1)`, svarar GeoGebra `x² - x + 4`. Skriv du `Rest(x^3 - 2x^2 + 5x - 6, x - 1)`, får du `-2`. Saman fortel dei heile historia: $x^3 - 2x^2 + 5x - 6 = (x - 1)(x^2 - x + 4) - 2$. Det finst også ein tredje veg: skriv divisjonen rett og slett som brøk, `(x^3 - 2x^2 + 5x - 6) / (x - 1)`, så forenklar GeoGebra uttrykket for deg.\n\nLa oss ta eit heilt døme: divisjonen $(x^3 + 2x^2 - 5x - 6) : (x + 3)$. I CAS skriv vi `Div(x^3 + 2x^2 - 5x - 6, x + 3)` og får `x² - x - 2`. Så sjekkar vi resten: `Rest(x^3 + 2x^2 - 5x - 6, x + 3)` gir `0`.\n\nRest null er det viktigaste signalet i heile kapittelet. Det betyr at divisjonen **går opp** – divisoren er ein faktor i polynomet. Vi kan dermed skriva $x^3 + 2x^2 - 5x - 6 = (x + 3)(x^2 - x - 2)$. Generelt: når resten er null, er $P(x) = Q(x) \\cdot D(x)$, der $D$ er divisoren og $Q$ kvotienten. Det er denne samanhengen som gjer divisjon til eit faktoriseringsverktøy – og det er dit vi skal no.",
+      "e0cb05ef3d9fbcfe": "Test deg sjølv på Div og Rest i GeoGebra CAS:",
+      "4097889236a2af26": "placeholder",
+      "865a863e822a1448": "Kva gir kommandoen Div(polynom, divisor) i GeoGebra CAS?",
+      "d4d999d94ee6ea3a": "Kvotienten – svaret på divisjonen utan rest",
+      "3a8e2993c59ca4ed": "Resten ved divisjonen",
+      "de13724db7710ece": "Nullpunkta til polynomet",
+      "3c3f128e7f35fbd0": "Den deriverte av polynomet",
+      "17d8123c682b1f95": "Div gir kvotienten. Resten finn du med den eiga kommandoen Rest(polynom, divisor).",
+      "673fd8c06b48a9ae": "Rest(x^3 + 2x^2 - 5x - 6, x + 3) gir 0. Kva betyr det?",
+      "091b9045c0cbd700": "Polynomet har ingen nullpunkt",
+      "469b9790fbc6ed0d": "Divisjonen går opp – $(x+3)$ er ein faktor i polynomet",
+      "6c39a969b8318599": "Kvotienten er null",
+      "2e37f4cdb2b1667a": "GeoGebra har gjort ein feil",
+      "346d0cffa79b916e": "Rest 0 betyr at divisoren er ein faktor: $x^3 + 2x^2 - 5x - 6 = (x+3)(x^2 - x - 2)$.",
+      "3a3b8ee26b0dae05": "Div gir kvotient $Q(x)$ og Rest gir 0 for divisjonen $P(x) : D(x)$. Kva samanhang gjeld?",
+      "59c280c3db15c29b": "$P(x) = Q(x) + D(x)$",
+      "ded6b3bd31ebd5ad": "$P(x) = Q(x) - D(x)$",
+      "dc08a95f3eb8a68f": "$P(x) = Q(x) \\cdot D(x)$",
+      "bf4f4d2c0b24a66d": "$Q(x) = P(x) \\cdot D(x)$",
+      "e2e61821b605d3e3": "Når resten er 0, er polynomet produktet av divisor og kvotient: $P(x) = Q(x) \\cdot D(x)$.",
+      "8eca88e73defd881": "Kva er ein alternativ måte å utføra polynomdivisjon på i CAS, utan Div-kommandoen?",
+      "7d6ed3504af80deb": "Skriva divisjonen som brøk, f.eks. (x^3 - 2x^2 + 5x - 6) / (x - 1)",
+      "59d844f32b3bb406": "Bruka kommandoen Tangent()",
+      "9ce962b7b1f3761b": "Teikna grafen og lesa av",
+      "6fbd07e5d12eb1d5": "Både brøkskriving og Div fungerer – brøken forenklas automatisk",
+      "1ee4353a0f9faf0e": "Du kan skriva divisjonen som ein brøk i CAS, så forenklar GeoGebra uttrykket. Div/Rest gir deg kvotient og rest kvar for seg.",
+      "ac28259c4ed1e893": "## Frå nullpunkt til faktorisering\n\nHer kjem den store ideen som bind kapittel 2 saman: **Viss $x = a$ er eit nullpunkt for eit polynom, er $(x - a)$ ein faktor i polynomet.** Kjenner du eitt nullpunkt, kan du dela på den tilhøyrande faktoren og få eit enklare polynom å jobba vidare med. GeoGebra gjer begge stega for deg.\n\nLa oss faktorisera $f(x) = x^3 - 6x^2 + 11x - 6$. Steg éin er å finna nullpunkta: kommandoen `Nullpunkt(x^3 - 6x^2 + 11x - 6)` (eller `Løys(f(x) = 0)` i CAS) gir punkta $(1, 0)$, $(2, 0)$ og $(3, 0)$. Nullpunkta er altso $x = 1$, $x = 2$ og $x = 3$.\n\nSteg to fylgjer av den store ideen: siden 1, 2 og 3 er nullpunkt, er $(x - 1)$, $(x - 2)$ og $(x - 3)$ alle faktorar. Eit tredjegrad polynom har ikkje plass til meir, so faktoriseringa må vera $f(x) = (x - 1)(x - 2)(x - 3)$.\n\nVil du sjekka – eller hoppa over heilt arbeidet – finst snarveien `Faktoriser(x^3 - 6x^2 + 11x - 6)`, som svarar `(x - 1)(x - 2)(x - 3)` direkte.\n\nArbeidsflyten din i møte med eit polynom er dermed: finn eit nullpunkt med `Nullpunkt()` eller `Løys()`, dela på den tilhøyrande faktoren med `Div()` (og bekreft rest 0 med `Rest()`), og faktorisera kvotienten vidare – eller bruka `Faktoriser()` direkte når oppgåva tillèt det. På prøver og eksamen bør du alltid skriva ned kva kommandoane du brukte; det er dokumentasjonen av løysinga di.",
+      "b3b9f1f27eff6255": "Test deg sjølv på faktorisering med GeoGebra:",
+      "92744ac8d3742932": "Du veit at $x = a$ er eit nullpunkt for polynomet $P(x)$. Kva kan du konkludera?",
+      "8ad6c17bac1d7e71": "$(x + a)$ er ein faktor i $P(x)$",
+      "a2a84705c5c471cd": "$(x - a)$ er ein faktor i $P(x)$",
+      "13ff8f5203435e38": "$P(x)$ har ingen andre nullpunkt",
+      "1f2adc735a3c9adb": "$P(a)$ er ulik null",
+      "46421d70459bf097": "Nullpunkt $x = a$ betyr $P(a) = 0$, og då er $(x - a)$ ein faktor i polynomet.",
+      "f9186a798c68a1fb": "Nullpunkt($x^3 - 6x^2 + 11x - 6$) gir $x = 1$, $x = 2$ og $x = 3$. Kva er faktoriseringa?",
+      "a2d13ec9bf2475f4": "$(x+1)(x+2)(x+3)$",
+      "c4f445d33e258d77": "$(x-1)(x-2)(x-3)$",
+      "d24bf9b10c3f2423": "$x(x-2)(x-3)$",
+      "d6b7b75021478c71": "$(x-1)(x-2)$",
+      "ad5a86a37c726766": "Kvart nullpunkt $a$ gir faktoren $(x - a)$: $f(x) = (x-1)(x-2)(x-3)$. Kontroller gjerne med Faktoriser().",
+      "b4c6619ac4824f7a": "Kva kommando faktoriserer eit polynom fullstendig i eitt steg?",
+      "dd73840be712b42e": "Div()",
+      "b1732efc17ed6306": "Rest()",
+      "bda1208f72ddb0d2": "Faktoriser()",
+      "7b0b47ccae4b49ca": "Skjæring()",
+      "e02cdd237cdf3a91": "Faktoriser(polynom) gir den fullstendige faktoriseringa direkte. Div og Rest gir kvotient og rest ved divisjon.",
+      "f8a199346c04a982": "Kva er ein fornuftig arbeidsflyt for å faktorisere eit tredjegradspolynom med GeoGebra?",
+      "757b6c0c88c612fd": "Finn eit nullpunkt, divider på tilhøyrande faktor, faktoriser kvotienten",
+      "6b83d9cab83f6428": "Derivér polynomet og les av faktorane",
+      "015ee1453b515a99": "Gjett faktorer til resten blir null",
+      "102ff7669cbbe86e": "Tegn grafen og les faktoriseringa direkte frå kurva",
+      "6c4ffcf7b91e178d": "Standardflyten er: Nullpunkt()/Løys() for å finne eit nullpunkt, Div() på faktoren $(x-a)$, og faktoriser kvotienten – eller bruk Faktoriser() direkte.",
+      "6d22429b46502d4b": "## Maskinkraft med forståing\n\nFrå ti minutters håndrekning til to sekunders kontroll – det er gevinsten av å kjenne CAS-kommandoane. `Div(p, d)` gir kvotienten ved polynomdivisjon, `Rest(p, d)` gir resten, `Nullpunkt(p)` finn nullpunkta, og `Faktoriser(p)` levererar den fullstendige faktoriseringa. Du kan òg skrive divisjonen som ein brøk og la GeoGebra forenkle.\n\nDet faglige limet mellom kommandoane er to samanhengar. Den første: rest null betyr at divisoren er ein faktor, slik at $P(x) = Q(x) \\cdot D(x)$. Den andre: eit nullpunkt $x = a$ gir alltid faktoren $(x - a)$. Saman gir dei arbeidsflyten du no beherskar – finn eit nullpunkt, divider på faktoren, og faktoriser vidare til polynomet er heilt oppløyst i lineære faktorer, slik $x^3 - 6x^2 + 11x - 6$ vart til $(x-1)(x-2)(x-3)$.\n\nGeoGebra er reknesamarbeidaren som aldri gjer forteiknsfeil, men *du* er den som forstår kva svara betyr. Bruk CAS til å kontrollere håndrekinga di, til å handtere dei styggje divisjonane – og husk å dokumentere kommandoane du bruker når du levererar ei løysing. Slik får du både farten til maskinen og tryggleiken til ein som kan faget."
+    }
+  }
+}

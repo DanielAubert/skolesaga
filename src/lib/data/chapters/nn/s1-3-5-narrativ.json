@@ -1,1 +1,421 @@
-{"id":"s1-3-5-narrativ","courseId":"s1","chapterNumber":"3.5","title":"Maksimums- og minimumsproblem","subtitle":"Narrativ versjon","description":"Ei forteljing om jakta på det beste — korleis derivasjon finn størst areal, minst materialbruk og det optimale valet.","estimatedMinutes":35,"competenceGoals":["bruke den deriverte til å analysere funksjonar","løyse praktiske problem med optimalisering"],"linkedChapterId":"s1-3-5","content":[{"id":"s1-3-5-n-intro","type":"text","content":"## Jakta på det beste\n\n«Kva er det meste vi kan få ut av dette?» Det spørsmålet blir stilt kvar dag i alle slags verksemder. Bonden vil ha størst mogleg innhegning ut av gjerdet ho har råd til. Emballasjeprodusenten vil bruke minst mogleg papp per boks. Bedriftsleiaren vil maksimere fortenesta og minimere kostnadene. Felles for alle er at dei leitar etter eit ytterpunkt -- eit maksimum eller eit minimum.\n\nSlike **optimaliseringsproblem** er kanskje den mest direkte nyttige bruken av derivasjon. Logikken er vakker i sin enkelheit: det beste punktet ligg nesten alltid der grafen flatar ut, altså der den deriverte er null. Stig funksjonen framleis, kan vi gjere det betre ved å gå vidare; synker han, har vi gått for langt. Akkurat på toppen er stigninga null.\n\nI dette kapittelet lærer du ein fast framgangsmåte for å omsetje praktiske spørsmål til funksjonar -- og derivasjon til svar."},{"id":"s1-3-5-n-section1","type":"text","content":"## Oppskrifta -- frå tekst til funksjon\n\nDet vanskelegaste med optimaliseringsproblem er sjeldan derivasjonen -- det er å omsetje teksten til matematikk. Difor følgjer vi ei fast oppskrift.\n\nFørst **les vi problemet** nøye og identifiserer kva som skal optimaliserast: det er **målfunksjonen** -- arealet, kostnaden, fortenesta. Deretter **definerer vi variablar** og set opp eit uttrykk for målet. Ofte inneheld uttrykket to variablar, og då treng vi steget mange gløymer: **finn vilkåret** som bind variablane saman -- ei gitt gjerdelengd, eit fast volum, eit budsjett. Dette **bivilkåret** brukar vi til å **uttrykkje målfunksjonen med éin variabel**.\n\nSå kjem sjølve maskineriet: **deriver** målfunksjonen og finn dei stasjonære punkta der $f'(x) = 0$. Deretter må vi **avgjere** om punktet faktisk er eit maksimum eller minimum -- med andrederivattesten eller ei forteiknslinje -- og hugse å sjekke endepunkta dersom funksjonen berre er definert på eit lukka intervall. Til slutt: **svar på spørsmålet** slik det vart stilt, med rette einingar og ei vurdering av om svaret gir meining.\n\nNokre praktiske råd før vi set i gang: teikn alltid ei skisse av situasjonen, vel variablar fornuftig og definer dei tydeleg, og sjekk at svaret er rimeleg i konteksten. Ei innhegning med negativ breidd eller ein boks med null høgde er matematisk moglege løysingar av ei likning -- men ikkje av problemet."},{"id":"s1-3-5-n-quiz1","type":"exercise","exercise":{"id":"s1-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på framgangsmåten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-5-n-quiz1-q0","task":"Kva er målfunksjonen i eit optimaliseringsproblem?","options":[{"id":"a","text":"Vilkåret som bind variablane","isCorrect":false},{"id":"b","text":"Den deriverte","isCorrect":false},{"id":"c","text":"Funksjonen for storleiken som skal maksimerast eller minimerast","isCorrect":true},{"id":"d","text":"Definisjonsmengda","isCorrect":false}],"solution":"Målfunksjonen uttrykkjer det vi vil optimere — til dømes areal, kostnad eller forteneste."},{"id":"s1-3-5-n-quiz1-q1","task":"Kva brukar vi bivilkåret til?","options":[{"id":"a","text":"Å uttrykkje målfunksjonen med berre éin variabel","isCorrect":true},{"id":"b","text":"Å finne den deriverte","isCorrect":false},{"id":"c","text":"Å bestemme forteiknet til $f''$","isCorrect":false},{"id":"d","text":"Å velje einingar","isCorrect":false}],"solution":"Bivilkåret (t.d. fast gjerdelengd eller volum) lèt oss eliminere ein variabel, slik at målfunksjonen kan deriverast med omsyn på éin variabel."},{"id":"s1-3-5-n-quiz1-q2","task":"Du har funne $x$ slik at $f'(x) = 0$. Kva står att?","options":[{"id":"a","text":"Ingenting — oppgåva er løyst","isCorrect":false},{"id":"b","text":"Å derivere ein gong til og setje $f''(x) = 0$","isCorrect":false},{"id":"c","text":"Å løyse $f(x) = 0$","isCorrect":false},{"id":"d","text":"Å sjekke at punktet er maks/min og svare på spørsmålet i rett kontekst","isCorrect":true}],"solution":"Eit stasjonært punkt kan vere maks, min eller terrasse. Vi må verifisere typen (t.d. med $f''$), sjekke eventuelle endepunkt, og svare med einingar."}],"solution":""}},{"id":"s1-3-5-n-section2","type":"text","content":"## Bonden og gjerdet -- maksimalt areal\n\nLa oss ta eit klassisk problem frå start til mål. Ein bonde har 40 meter gjerde og skal lage ei rektangulær innhegning inntil ein låvevegg -- veggen utgjer den eine sida, så gjerdet trengst berre på dei tre andre.\n\nKva dimensjonar gir størst areal?\n\n**Variablar:** La $x$ vere breidda (parallell med veggen) og $y$ vere djupna ut frå veggen. **Vilkåret:** Gjerdet dekkjer éi breidd og to djupner, så $x + 2y = 40$, som gir $x = 40 - 2y$. **Målfunksjonen** er arealet, og med vilkåret sett inn får han éin variabel:\n\n$$A = x \\cdot y = (40 - 2y)y = 40y - 2y^2$$\n\nNo deriverer vi og finn det stasjonære punktet:\n\n$$A'(y) = 40 - 4y = 0 \\quad \\Rightarrow \\quad y = 10$$\n\nEr det eit maksimum? $A''(y) = -4 < 0$, så ja -- grafen krummar nedover, og $y = 10$ er ein topp. Då er $x = 40 - 2 \\cdot 10 = 20$, og innhegninga blir **20 m × 10 m** med areal **200 m²**.\n\nLegg merke til det overraskande: den beste fasongen er *ikkje* eit kvadrat. Fordi veggen gir oss ei gratis side, lønner det seg å strekkje innhegninga langs veggen -- dobbelt så brei som djup. Hadde bonden i staden gjetta på 13,3 m × 13,3 m (kvadratisk med tre sider), ville arealet berre blitt cirka 178 m². Derivasjonen fann 22 ekstra kvadratmeter, heilt gratis."},{"id":"s1-3-5-n-quiz2","type":"exercise","exercise":{"id":"s1-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på maksimering av areal:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-5-n-quiz2-q0","task":"Innhegninga har breidd $x$ langs veggen og djupn $y$. Kva er vilkåret med 40 m gjerde (vegg som fjerde side)?","options":[{"id":"a","text":"$2x + 2y = 40$","isCorrect":false},{"id":"b","text":"$x + 2y = 40$","isCorrect":true},{"id":"c","text":"$x \\cdot y = 40$","isCorrect":false},{"id":"d","text":"$x + y = 40$","isCorrect":false}],"solution":"Gjerdet blir brukt på éi breidd og to djupner: $x + 2y = 40$. Veggen erstattar den andre breidda."},{"id":"s1-3-5-n-quiz2-q1","task":"Arealfunksjonen er $A(y) = 40y - 2y^2$. Kva $y$ gir størst areal?","options":[{"id":"a","text":"$y = 10$","isCorrect":true},{"id":"b","text":"$y = 20$","isCorrect":false},{"id":"c","text":"$y = 5$","isCorrect":false},{"id":"d","text":"$y = 40$","isCorrect":false}],"solution":"$A'(y) = 40 - 4y = 0$ gir $y = 10$, og $A''(y) = -4 < 0$ stadfestar maksimum."},{"id":"s1-3-5-n-quiz2-q2","task":"Kva er det maksimale arealet?","options":[{"id":"a","text":"$400$ m²","isCorrect":false},{"id":"b","text":"$100$ m²","isCorrect":false},{"id":"c","text":"$200$ m²","isCorrect":true},{"id":"d","text":"$178$ m²","isCorrect":false}],"solution":"$x = 40 - 2 \\cdot 10 = 20$, så $A = 20 \\cdot 10 = 200$ m²."}],"solution":""}},{"id":"s1-3-5-n-section3","type":"text","content":"## Emballasjedesignaren -- minst mogleg materiale\n\nNo snur vi problemet: i staden for å maksimere med ein gitt ressurs, skal vi minimere ressursbruken med eit gitt krav. Ein produsent skal lage ein boks utan lokk med volum 32 dm³, og botnen skal vere kvadratisk. Materialkostnaden følgjer overflata -- så kva dimensjonar gir minst materialbruk?\n\n**Variablar:** La $x$ vere sidelengda i botnen og $h$ høgda. **Vilkåret** er volumkravet: $V = x^2 \\cdot h = 32$, som gir $h = \\frac{32}{x^2}$. **Målfunksjonen** er overflata -- botn pluss fire sideveggar:\n\n$$S = x^2 + 4xh = x^2 + 4x \\cdot \\frac{32}{x^2} = x^2 + \\frac{128}{x}$$\n\nHer ser du avveginga i sjølve formelen: ein brei boks (stor $x$) gir stor botn, ein smal boks (liten $x$) må vere høg og får store veggar. Ein stad imellom ligg det beste kompromisset. Vi deriverer:\n\n$$S'(x) = 2x - \\frac{128}{x^2} = 0 \\quad \\Rightarrow \\quad 2x^3 = 128 \\quad \\Rightarrow \\quad x^3 = 64 \\quad \\Rightarrow \\quad x = 4$$\n\nHøgda blir $h = \\frac{32}{4^2} = 2$. Og er det eit minimum? $S''(x) = 2 + \\frac{256}{x^3} > 0$ for alle $x > 0$ -- ja, grafen krummar oppover overalt i det praktiske området.\n\n**Svaret:** Boksen bør vere **4 dm × 4 dm × 2 dm**. Overflata blir $S(4) = 16 + 32 = 48$ dm². Kvar einaste boks som blir produsert med andre mål, brukar meir papp -- og i ein produksjon på hundretusenvis av einingar blir slike marginar fort til store summar. Det er nettopp denne typen reknestykke som gjer derivasjon til eit kvardagsverktøy i næringslivet."},{"id":"s1-3-5-n-quiz3","type":"exercise","exercise":{"id":"s1-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på minimering av materialbruk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-5-n-quiz3-q0","task":"Boksen har kvadratisk botn med side $x$ og volum 32 dm³. Kva er høgda uttrykt ved $x$?","options":[{"id":"a","text":"$h = 32 - x^2$","isCorrect":false},{"id":"b","text":"$h = \\frac{32}{x}$","isCorrect":false},{"id":"c","text":"$h = \\frac{x^2}{32}$","isCorrect":false},{"id":"d","text":"$h = \\frac{32}{x^2}$","isCorrect":true}],"solution":"Volumet er $x^2 h = 32$, så $h = \\frac{32}{x^2}$."},{"id":"s1-3-5-n-quiz3-q1","task":"Overflata er $S(x) = x^2 + \\frac{128}{x}$. Kva $x$ minimerer materialbruken?","options":[{"id":"a","text":"$x = 8$","isCorrect":false},{"id":"b","text":"$x = 4$","isCorrect":true},{"id":"c","text":"$x = 2$","isCorrect":false},{"id":"d","text":"$x = 16$","isCorrect":false}],"solution":"$S'(x) = 2x - \\frac{128}{x^2} = 0$ gir $2x^3 = 128$, altså $x^3 = 64$ og $x = 4$."},{"id":"s1-3-5-n-quiz3-q2","task":"Kva dimensjonar får den optimale boksen?","options":[{"id":"a","text":"$4 \\times 4 \\times 2$ dm","isCorrect":true},{"id":"b","text":"$4 \\times 4 \\times 4$ dm","isCorrect":false},{"id":"c","text":"$2 \\times 2 \\times 8$ dm","isCorrect":false},{"id":"d","text":"$8 \\times 8 \\times 0{,}5$ dm","isCorrect":false}],"solution":"$x = 4$ gir $h = \\frac{32}{16} = 2$, altså 4 dm × 4 dm × 2 dm. $S''(x) > 0$ stadfestar at dette er eit minimum."}],"solution":""}},{"id":"s1-3-5-n-summary","type":"text","content":"## Oppsummering\n\nOptimaliseringsproblem handlar om å finne den beste løysinga -- størst areal, minst materialbruk, høgast forteneste -- og derivasjon er verktøyet som finn henne eksakt.\n\nFramgangsmåten er fast: les problemet og identifiser **målfunksjonen**, definer variablar, finn **bivilkåret** som bind dei saman, og bruk det til å uttrykkje målfunksjonen med éin variabel. Deretter deriverer du, løyser $f'(x) = 0$, og kontrollerer med andrederivattesten eller forteiknslinje at punktet faktisk er det maksimum eller minimum du leitar etter. Hugs å sjekke endepunkta når funksjonen er definert på eit lukka intervall, og å svare på spørsmålet med einingar og sunn fornuft.\n\nBonden fekk størst innhegning med 20 m × 10 m -- dobbelt så brei som djup, fordi veggen gav ei gratis side. Emballasjeprodusenten fekk billegast boks med 4 dm × 4 dm × 2 dm. I begge tilfella låg svaret der den deriverte var null: på toppen flatar alt ut.\n\nDenne tankegangen -- set opp funksjonen, deriver, finn nullpunktet til den deriverte -- er sjølve ryggrada i økonomikapitla som kjem, der målfunksjonen heiter overskot."}],"exercises":[],"_meta":{"sourceHash":"f4c3f9c4ca5ee31b","translatedAt":"2026-06-20T03:15:29.347Z","model":"claude-code-agent","strings":70,"tm":{"2a7446f3f0022c10":"Maksimums- og minimumsproblem","b195b06d1ed59702":"Narrativ versjon","6d491efd3c5c89da":"Ei forteljing om jakta på det beste — korleis derivasjon finn størst areal, minst materialbruk og det optimale valet.","51e51e659f80ad2d":"bruke den deriverte til å analysere funksjonar","55c2aa0adfa2e8ab":"løyse praktiske problem med optimalisering","1374089d3bfed0ff":"## Jakta på det beste\n\n«Kva er det meste vi kan få ut av dette?» Det spørsmålet blir stilt kvar dag i alle slags verksemder. Bonden vil ha størst mogleg innhegning ut av gjerdet ho har råd til. Emballasjeprodusenten vil bruke minst mogleg papp per boks. Bedriftsleiaren vil maksimere fortenesta og minimere kostnadene. Felles for alle er at dei leitar etter eit ytterpunkt -- eit maksimum eller eit minimum.\n\nSlike **optimaliseringsproblem** er kanskje den mest direkte nyttige bruken av derivasjon. Logikken er vakker i sin enkelheit: det beste punktet ligg nesten alltid der grafen flatar ut, altså der den deriverte er null. Stig funksjonen framleis, kan vi gjere det betre ved å gå vidare; synker han, har vi gått for langt. Akkurat på toppen er stigninga null.\n\nI dette kapittelet lærer du ein fast framgangsmåte for å omsetje praktiske spørsmål til funksjonar -- og derivasjon til svar.","e3080a62fa464715":"## Oppskrifta -- frå tekst til funksjon\n\nDet vanskelegaste med optimaliseringsproblem er sjeldan derivasjonen -- det er å omsetje teksten til matematikk. Difor følgjer vi ei fast oppskrift.\n\nFørst **les vi problemet** nøye og identifiserer kva som skal optimaliserast: det er **målfunksjonen** -- arealet, kostnaden, fortenesta. Deretter **definerer vi variablar** og set opp eit uttrykk for målet. Ofte inneheld uttrykket to variablar, og då treng vi steget mange gløymer: **finn vilkåret** som bind variablane saman -- ei gitt gjerdelengd, eit fast volum, eit budsjett. Dette **bivilkåret** brukar vi til å **uttrykkje målfunksjonen med éin variabel**.\n\nSå kjem sjølve maskineriet: **deriver** målfunksjonen og finn dei stasjonære punkta der $f'(x) = 0$. Deretter må vi **avgjere** om punktet faktisk er eit maksimum eller minimum -- med andrederivattesten eller ei forteiknslinje -- og hugse å sjekke endepunkta dersom funksjonen berre er definert på eit lukka intervall. Til slutt: **svar på spørsmålet** slik det vart stilt, med rette einingar og ei vurdering av om svaret gir meining.\n\nNokre praktiske råd før vi set i gang: teikn alltid ei skisse av situasjonen, vel variablar fornuftig og definer dei tydeleg, og sjekk at svaret er rimeleg i konteksten. Ei innhegning med negativ breidd eller ein boks med null høgde er matematisk moglege løysingar av ei likning -- men ikkje av problemet.","d61f87f3167773cd":"Test deg sjølv på framgangsmåten:","4097889236a2af26":"placeholder","c97dbcdd2a98813d":"Kva er målfunksjonen i eit optimaliseringsproblem?","c6153d9b5dc0c70c":"Vilkåret som bind variablane","c214482f6ce3f80a":"Den deriverte","6265b0a9ea08da59":"Funksjonen for storleiken som skal maksimerast eller minimerast","18b51595dec28e4b":"Definisjonsmengda","31b899d9478d3b52":"Målfunksjonen uttrykkjer det vi vil optimere — til dømes areal, kostnad eller forteneste.","ea37c00c42c5645e":"Kva brukar vi bivilkåret til?","eed80175668fdc0b":"Å uttrykkje målfunksjonen med berre éin variabel","d89c561a6010a059":"Å finne den deriverte","9c46819b0ba026cf":"Å bestemme forteiknet til $f''$","8a053ca12c42ee6d":"Å velje einingar","ca48566aac66f64a":"Bivilkåret (t.d. fast gjerdelengd eller volum) lèt oss eliminere ein variabel, slik at målfunksjonen kan deriverast med omsyn på éin variabel.","4d162a3314f7b084":"Du har funne $x$ slik at $f'(x) = 0$. Kva står att?","d58714ef26851ad5":"Ingenting — oppgåva er løyst","f7320d22ff59ca6a":"Å derivere ein gong til og setje $f''(x) = 0$","e760941680c06ec0":"Å løyse $f(x) = 0$","00e68a66b4435df3":"Å sjekke at punktet er maks/min og svare på spørsmålet i rett kontekst","000cca95a14dbff8":"Eit stasjonært punkt kan vere maks, min eller terrasse. Vi må verifisere typen (t.d. med $f''$), sjekke eventuelle endepunkt, og svare med einingar.","b69238f13a7daa98":"## Bonden og gjerdet -- maksimalt areal\n\nLa oss ta eit klassisk problem frå start til mål. Ein bonde har 40 meter gjerde og skal lage ei rektangulær innhegning inntil ein låvevegg -- veggen utgjer den eine sida, så gjerdet trengst berre på dei tre andre.\n\nKva dimensjonar gir størst areal?\n\n**Variablar:** La $x$ vere breidda (parallell med veggen) og $y$ vere djupna ut frå veggen. **Vilkåret:** Gjerdet dekkjer éi breidd og to djupner, så $x + 2y = 40$, som gir $x = 40 - 2y$. **Målfunksjonen** er arealet, og med vilkåret sett inn får han éin variabel:\n\n$$A = x \\cdot y = (40 - 2y)y = 40y - 2y^2$$\n\nNo deriverer vi og finn det stasjonære punktet:\n\n$$A'(y) = 40 - 4y = 0 \\quad \\Rightarrow \\quad y = 10$$\n\nEr det eit maksimum? $A''(y) = -4 < 0$, så ja -- grafen krummar nedover, og $y = 10$ er ein topp. Då er $x = 40 - 2 \\cdot 10 = 20$, og innhegninga blir **20 m × 10 m** med areal **200 m²**.\n\nLegg merke til det overraskande: den beste fasongen er *ikkje* eit kvadrat. Fordi veggen gir oss ei gratis side, lønner det seg å strekkje innhegninga langs veggen -- dobbelt så brei som djup. Hadde bonden i staden gjetta på 13,3 m × 13,3 m (kvadratisk med tre sider), ville arealet berre blitt cirka 178 m². Derivasjonen fann 22 ekstra kvadratmeter, heilt gratis.","5e9cc7fd6b67884a":"Test deg sjølv på maksimering av areal:","4b9d162926d3497e":"Innhegninga har breidd $x$ langs veggen og djupn $y$. Kva er vilkåret med 40 m gjerde (vegg som fjerde side)?","a7351cae8cfbed9c":"$2x + 2y = 40$","ce2793a4193183b3":"$x + 2y = 40$","0ac6cf5975acc031":"$x \\cdot y = 40$","7a8089b433f9dbbe":"$x + y = 40$","f9fa09e4237f5a6c":"Gjerdet blir brukt på éi breidd og to djupner: $x + 2y = 40$. Veggen erstattar den andre breidda.","37b4b290da46d20a":"Arealfunksjonen er $A(y) = 40y - 2y^2$. Kva $y$ gir størst areal?","dd8f644f1d25feae":"$y = 10$","84073caa06619998":"$y = 20$","0314658151e99502":"$y = 5$","f844fe48690090ae":"$y = 40$","cd7e1087c6cdc5ea":"$A'(y) = 40 - 4y = 0$ gir $y = 10$, og $A''(y) = -4 < 0$ stadfestar maksimum.","2089e9ad83ecce16":"Kva er det maksimale arealet?","02f64f0e4dfbe1ed":"$400$ m²","acc908577756f878":"$100$ m²","4fc7673d1ab3d343":"$200$ m²","1b4a4f06341691e9":"$178$ m²","212d624417fb3565":"$x = 40 - 2 \\cdot 10 = 20$, så $A = 20 \\cdot 10 = 200$ m².","53783cb2e99e74d8":"## Emballasjedesignaren -- minst mogleg materiale\n\nNo snur vi problemet: i staden for å maksimere med ein gitt ressurs, skal vi minimere ressursbruken med eit gitt krav. Ein produsent skal lage ein boks utan lokk med volum 32 dm³, og botnen skal vere kvadratisk. Materialkostnaden følgjer overflata -- så kva dimensjonar gir minst materialbruk?\n\n**Variablar:** La $x$ vere sidelengda i botnen og $h$ høgda. **Vilkåret** er volumkravet: $V = x^2 \\cdot h = 32$, som gir $h = \\frac{32}{x^2}$. **Målfunksjonen** er overflata -- botn pluss fire sideveggar:\n\n$$S = x^2 + 4xh = x^2 + 4x \\cdot \\frac{32}{x^2} = x^2 + \\frac{128}{x}$$\n\nHer ser du avveginga i sjølve formelen: ein brei boks (stor $x$) gir stor botn, ein smal boks (liten $x$) må vere høg og får store veggar. Ein stad imellom ligg det beste kompromisset. Vi deriverer:\n\n$$S'(x) = 2x - \\frac{128}{x^2} = 0 \\quad \\Rightarrow \\quad 2x^3 = 128 \\quad \\Rightarrow \\quad x^3 = 64 \\quad \\Rightarrow \\quad x = 4$$\n\nHøgda blir $h = \\frac{32}{4^2} = 2$. Og er det eit minimum? $S''(x) = 2 + \\frac{256}{x^3} > 0$ for alle $x > 0$ -- ja, grafen krummar oppover overalt i det praktiske området.\n\n**Svaret:** Boksen bør vere **4 dm × 4 dm × 2 dm**. Overflata blir $S(4) = 16 + 32 = 48$ dm². Kvar einaste boks som blir produsert med andre mål, brukar meir papp -- og i ein produksjon på hundretusenvis av einingar blir slike marginar fort til store summar. Det er nettopp denne typen reknestykke som gjer derivasjon til eit kvardagsverktøy i næringslivet.","66d6aa3f2f39213e":"Test deg sjølv på minimering av materialbruk:","ad7a5db22d0ebee2":"Boksen har kvadratisk botn med side $x$ og volum 32 dm³. Kva er høgda uttrykt ved $x$?","935a1f1df5c04a83":"$h = 32 - x^2$","fec9b81d647b74e4":"$h = \\frac{32}{x}$","080d5d6deac1ca78":"$h = \\frac{x^2}{32}$","d0068ffe997ad5b0":"$h = \\frac{32}{x^2}$","3bf0191b3e423077":"Volumet er $x^2 h = 32$, så $h = \\frac{32}{x^2}$.","85d96e558c2003d3":"Overflata er $S(x) = x^2 + \\frac{128}{x}$. Kva $x$ minimerer materialbruken?","eae1daf6b9845d7b":"$x = 8$","d14d177d812c2ded":"$x = 4$","0c82bd6cd3ab8ff8":"$x = 2$","f463c9979446189f":"$x = 16$","b6d8d10d8776642b":"$S'(x) = 2x - \\frac{128}{x^2} = 0$ gir $2x^3 = 128$, altså $x^3 = 64$ og $x = 4$.","e7da144e3cc846f6":"Kva dimensjonar får den optimale boksen?","62a1305cdf180a7a":"$4 \\times 4 \\times 2$ dm","cfd1e5c8eeb03db3":"$4 \\times 4 \\times 4$ dm","e5da41529bbd69d0":"$2 \\times 2 \\times 8$ dm","f3bf2912bb45f809":"$8 \\times 8 \\times 0{,}5$ dm","7c54fa279ad185ad":"$x = 4$ gir $h = \\frac{32}{16} = 2$, altså 4 dm × 4 dm × 2 dm. $S''(x) > 0$ stadfestar at dette er eit minimum.","212e8ea85957f412":"## Oppsummering\n\nOptimaliseringsproblem handlar om å finne den beste løysinga -- størst areal, minst materialbruk, høgast forteneste -- og derivasjon er verktøyet som finn henne eksakt.\n\nFramgangsmåten er fast: les problemet og identifiser **målfunksjonen**, definer variablar, finn **bivilkåret** som bind dei saman, og bruk det til å uttrykkje målfunksjonen med éin variabel. Deretter deriverer du, løyser $f'(x) = 0$, og kontrollerer med andrederivattesten eller forteiknslinje at punktet faktisk er det maksimum eller minimum du leitar etter. Hugs å sjekke endepunkta når funksjonen er definert på eit lukka intervall, og å svare på spørsmålet med einingar og sunn fornuft.\n\nBonden fekk størst innhegning med 20 m × 10 m -- dobbelt så brei som djup, fordi veggen gav ei gratis side. Emballasjeprodusenten fekk billegast boks med 4 dm × 4 dm × 2 dm. I begge tilfella låg svaret der den deriverte var null: på toppen flatar alt ut.\n\nDenne tankegangen -- set opp funksjonen, deriver, finn nullpunktet til den deriverte -- er sjølve ryggrada i økonomikapitla som kjem, der målfunksjonen heiter overskot."}}}
+{
+  "id": "s1-3-5-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "3.5",
+  "title": "Maksimums- og minimumsproblem",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om jakta på det beste — korleis derivasjon finn størst areal, minst materialbruk og det optimale valet.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke den deriverte til å analysere funksjonar",
+    "løyse praktiske problem med optimalisering"
+  ],
+  "linkedChapterId": "s1-3-5",
+  "content": [
+    {
+      "id": "s1-3-5-n-intro",
+      "type": "text",
+      "content": "## Jakta på det beste\n\n«Kva er det meste vi kan få ut av dette?» Det spørsmålet blir stilt kvar dag i alle slags verksemder. Bonden vil ha størst mogleg innhegning ut av gjerdet ho har råd til. Emballasjeprodusenten vil bruke minst mogleg papp per boks. Bedriftsleiaren vil maksimere fortenesta og minimere kostnadene. Felles for alle er at dei leitar etter eit ytterpunkt -- eit maksimum eller eit minimum.\n\nSlike **optimaliseringsproblem** er kanskje den mest direkte nyttige bruken av derivasjon. Logikken er vakker i sin enkelheit: det beste punktet ligg nesten alltid der grafen flatar ut, altså der den deriverte er null. Stig funksjonen framleis, kan vi gjere det betre ved å gå vidare; synker han, har vi gått for langt. Akkurat på toppen er stigninga null.\n\nI dette kapittelet lærer du ein fast framgangsmåte for å omsetje praktiske spørsmål til funksjonar -- og derivasjon til svar."
+    },
+    {
+      "id": "s1-3-5-n-section1",
+      "type": "text",
+      "content": "## Oppskrifta -- frå tekst til funksjon\n\nDet vanskelegaste med optimaliseringsproblem er sjeldan derivasjonen -- det er å omsetje teksten til matematikk. Difor følgjer vi ei fast oppskrift.\n\nFørst **les vi problemet** nøye og identifiserer kva som skal optimaliserast: det er **målfunksjonen** -- arealet, kostnaden, fortenesta. Deretter **definerer vi variablar** og set opp eit uttrykk for målet. Ofte inneheld uttrykket to variablar, og då treng vi steget mange gløymer: **finn vilkåret** som bind variablane saman -- ei gitt gjerdelengd, eit fast volum, eit budsjett. Dette **bivilkåret** brukar vi til å **uttrykkje målfunksjonen med éin variabel**.\n\nSå kjem sjølve maskineriet: **deriver** målfunksjonen og finn dei stasjonære punkta der $f'(x) = 0$. Deretter må vi **avgjere** om punktet faktisk er eit maksimum eller minimum -- med andrederivattesten eller ei forteiknslinje -- og hugse å sjekke endepunkta dersom funksjonen berre er definert på eit lukka intervall. Til slutt: **svar på spørsmålet** slik det vart stilt, med rette einingar og ei vurdering av om svaret gir meining.\n\nNokre praktiske råd før vi set i gang: teikn alltid ei skisse av situasjonen, vel variablar fornuftig og definer dei tydeleg, og sjekk at svaret er rimeleg i konteksten. Ei innhegning med negativ breidd eller ein boks med null høgde er matematisk moglege løysingar av ei likning -- men ikkje av problemet."
+    },
+    {
+      "id": "s1-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på framgangsmåten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-5-n-quiz1-q0",
+            "task": "Kva er målfunksjonen i eit optimaliseringsproblem?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vilkåret som bind variablane",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonen for storleiken som skal maksimerast eller minimerast",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den deriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Definisjonsmengda",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Målfunksjonen uttrykkjer det vi vil optimere — til dømes areal, kostnad eller forteneste."
+          },
+          {
+            "id": "s1-3-5-n-quiz1-q1",
+            "task": "Kva brukar vi bivilkåret til?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å finne den deriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bestemme forteiknet til $f''$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å uttrykkje målfunksjonen med berre éin variabel",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å velje einingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bivilkåret (t.d. fast gjerdelengd eller volum) lèt oss eliminere ein variabel, slik at målfunksjonen kan deriverast med omsyn på éin variabel."
+          },
+          {
+            "id": "s1-3-5-n-quiz1-q2",
+            "task": "Du har funne $x$ slik at $f'(x) = 0$. Kva står att?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ingenting — oppgåva er løyst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å derivere ein gong til og setje $f''(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å løyse $f(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sjekke at punktet er maks/min og svare på spørsmålet i rett kontekst",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eit stasjonært punkt kan vere maks, min eller terrasse. Vi må verifisere typen (t.d. med $f''$), sjekke eventuelle endepunkt, og svare med einingar."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-5-n-section2",
+      "type": "text",
+      "content": "## Bonden og gjerdet -- maksimalt areal\n\nLa oss ta eit klassisk problem frå start til mål. Ein bonde har 40 meter gjerde og skal lage ei rektangulær innhegning inntil ein låvevegg -- veggen utgjer den eine sida, så gjerdet trengst berre på dei tre andre.\n\nKva dimensjonar gir størst areal?\n\n**Variablar:** La $x$ vere breidda (parallell med veggen) og $y$ vere djupna ut frå veggen. **Vilkåret:** Gjerdet dekkjer éi breidd og to djupner, så $x + 2y = 40$, som gir $x = 40 - 2y$. **Målfunksjonen** er arealet, og med vilkåret sett inn får han éin variabel:\n\n$$A = x \\cdot y = (40 - 2y)y = 40y - 2y^2$$\n\nNo deriverer vi og finn det stasjonære punktet:\n\n$$A'(y) = 40 - 4y = 0 \\quad \\Rightarrow \\quad y = 10$$\n\nEr det eit maksimum? $A''(y) = -4 < 0$, så ja -- grafen krummar nedover, og $y = 10$ er ein topp. Då er $x = 40 - 2 \\cdot 10 = 20$, og innhegninga blir **20 m × 10 m** med areal **200 m²**.\n\nLegg merke til det overraskande: den beste fasongen er *ikkje* eit kvadrat. Fordi veggen gir oss ei gratis side, lønner det seg å strekkje innhegninga langs veggen -- dobbelt så brei som djup. Hadde bonden i staden gjetta på 13,3 m × 13,3 m (kvadratisk med tre sider), ville arealet berre blitt cirka 178 m². Derivasjonen fann 22 ekstra kvadratmeter, heilt gratis."
+    },
+    {
+      "id": "s1-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på maksimering av areal:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-5-n-quiz2-q0",
+            "task": "Innhegninga har breidd $x$ langs veggen og djupn $y$. Kva er vilkåret med 40 m gjerde (vegg som fjerde side)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x + 2y = 40$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x + 2y = 40$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x \\cdot y = 40$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x + y = 40$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjerdet blir brukt på éi breidd og to djupner: $x + 2y = 40$. Veggen erstattar den andre breidda."
+          },
+          {
+            "id": "s1-3-5-n-quiz2-q1",
+            "task": "Arealfunksjonen er $A(y) = 40y - 2y^2$. Kva $y$ gir størst areal?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 20$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = 10$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = 40$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$A'(y) = 40 - 4y = 0$ gir $y = 10$, og $A''(y) = -4 < 0$ stadfestar maksimum."
+          },
+          {
+            "id": "s1-3-5-n-quiz2-q2",
+            "task": "Kva er det maksimale arealet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$400$ m²",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$100$ m²",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$178$ m²",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$200$ m²",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x = 40 - 2 \\cdot 10 = 20$, så $A = 20 \\cdot 10 = 200$ m²."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-5-n-section3",
+      "type": "text",
+      "content": "## Emballasjedesignaren -- minst mogleg materiale\n\nNo snur vi problemet: i staden for å maksimere med ein gitt ressurs, skal vi minimere ressursbruken med eit gitt krav. Ein produsent skal lage ein boks utan lokk med volum 32 dm³, og botnen skal vere kvadratisk. Materialkostnaden følgjer overflata -- så kva dimensjonar gir minst materialbruk?\n\n**Variablar:** La $x$ vere sidelengda i botnen og $h$ høgda. **Vilkåret** er volumkravet: $V = x^2 \\cdot h = 32$, som gir $h = \\frac{32}{x^2}$. **Målfunksjonen** er overflata -- botn pluss fire sideveggar:\n\n$$S = x^2 + 4xh = x^2 + 4x \\cdot \\frac{32}{x^2} = x^2 + \\frac{128}{x}$$\n\nHer ser du avveginga i sjølve formelen: ein brei boks (stor $x$) gir stor botn, ein smal boks (liten $x$) må vere høg og får store veggar. Ein stad imellom ligg det beste kompromisset. Vi deriverer:\n\n$$S'(x) = 2x - \\frac{128}{x^2} = 0 \\quad \\Rightarrow \\quad 2x^3 = 128 \\quad \\Rightarrow \\quad x^3 = 64 \\quad \\Rightarrow \\quad x = 4$$\n\nHøgda blir $h = \\frac{32}{4^2} = 2$. Og er det eit minimum? $S''(x) = 2 + \\frac{256}{x^3} > 0$ for alle $x > 0$ -- ja, grafen krummar oppover overalt i det praktiske området.\n\n**Svaret:** Boksen bør vere **4 dm × 4 dm × 2 dm**. Overflata blir $S(4) = 16 + 32 = 48$ dm². Kvar einaste boks som blir produsert med andre mål, brukar meir papp -- og i ein produksjon på hundretusenvis av einingar blir slike marginar fort til store summar. Det er nettopp denne typen reknestykke som gjer derivasjon til eit kvardagsverktøy i næringslivet."
+    },
+    {
+      "id": "s1-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på minimering av materialbruk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-5-n-quiz3-q0",
+            "task": "Boksen har kvadratisk botn med side $x$ og volum 32 dm³. Kva er høgda uttrykt ved $x$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$h = \\frac{32}{x^2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$h = 32 - x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$h = \\frac{32}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$h = \\frac{x^2}{32}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Volumet er $x^2 h = 32$, så $h = \\frac{32}{x^2}$."
+          },
+          {
+            "id": "s1-3-5-n-quiz3-q1",
+            "task": "Overflata er $S(x) = x^2 + \\frac{128}{x}$. Kva $x$ minimerer materialbruken?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 16$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S'(x) = 2x - \\frac{128}{x^2} = 0$ gir $2x^3 = 128$, altså $x^3 = 64$ og $x = 4$."
+          },
+          {
+            "id": "s1-3-5-n-quiz3-q2",
+            "task": "Kva dimensjonar får den optimale boksen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4 \\times 4 \\times 4$ dm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2 \\times 2 \\times 8$ dm",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$4 \\times 4 \\times 2$ dm",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$8 \\times 8 \\times 0{,}5$ dm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = 4$ gir $h = \\frac{32}{16} = 2$, altså 4 dm × 4 dm × 2 dm. $S''(x) > 0$ stadfestar at dette er eit minimum."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nOptimaliseringsproblem handlar om å finne den beste løysinga -- størst areal, minst materialbruk, høgast forteneste -- og derivasjon er verktøyet som finn henne eksakt.\n\nFramgangsmåten er fast: les problemet og identifiser **målfunksjonen**, definer variablar, finn **bivilkåret** som bind dei saman, og bruk det til å uttrykkje målfunksjonen med éin variabel. Deretter deriverer du, løyser $f'(x) = 0$, og kontrollerer med andrederivattesten eller forteiknslinje at punktet faktisk er det maksimum eller minimum du leitar etter. Hugs å sjekke endepunkta når funksjonen er definert på eit lukka intervall, og å svare på spørsmålet med einingar og sunn fornuft.\n\nBonden fekk størst innhegning med 20 m × 10 m -- dobbelt så brei som djup, fordi veggen gav ei gratis side. Emballasjeprodusenten fekk billegast boks med 4 dm × 4 dm × 2 dm. I begge tilfella låg svaret der den deriverte var null: på toppen flatar alt ut.\n\nDenne tankegangen -- set opp funksjonen, deriver, finn nullpunktet til den deriverte -- er sjølve ryggrada i økonomikapitla som kjem, der målfunksjonen heiter overskot."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f4c3f9c4ca5ee31b",
+    "translatedAt": "2026-06-20T03:15:29.347Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "2a7446f3f0022c10": "Maksimums- og minimumsproblem",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6d491efd3c5c89da": "Ei forteljing om jakta på det beste — korleis derivasjon finn størst areal, minst materialbruk og det optimale valet.",
+      "51e51e659f80ad2d": "bruke den deriverte til å analysere funksjonar",
+      "55c2aa0adfa2e8ab": "løyse praktiske problem med optimalisering",
+      "1374089d3bfed0ff": "## Jakta på det beste\n\n«Kva er det meste vi kan få ut av dette?» Det spørsmålet blir stilt kvar dag i alle slags verksemder. Bonden vil ha størst mogleg innhegning ut av gjerdet ho har råd til. Emballasjeprodusenten vil bruke minst mogleg papp per boks. Bedriftsleiaren vil maksimere fortenesta og minimere kostnadene. Felles for alle er at dei leitar etter eit ytterpunkt -- eit maksimum eller eit minimum.\n\nSlike **optimaliseringsproblem** er kanskje den mest direkte nyttige bruken av derivasjon. Logikken er vakker i sin enkelheit: det beste punktet ligg nesten alltid der grafen flatar ut, altså der den deriverte er null. Stig funksjonen framleis, kan vi gjere det betre ved å gå vidare; synker han, har vi gått for langt. Akkurat på toppen er stigninga null.\n\nI dette kapittelet lærer du ein fast framgangsmåte for å omsetje praktiske spørsmål til funksjonar -- og derivasjon til svar.",
+      "e3080a62fa464715": "## Oppskrifta -- frå tekst til funksjon\n\nDet vanskelegaste med optimaliseringsproblem er sjeldan derivasjonen -- det er å omsetje teksten til matematikk. Difor følgjer vi ei fast oppskrift.\n\nFørst **les vi problemet** nøye og identifiserer kva som skal optimaliserast: det er **målfunksjonen** -- arealet, kostnaden, fortenesta. Deretter **definerer vi variablar** og set opp eit uttrykk for målet. Ofte inneheld uttrykket to variablar, og då treng vi steget mange gløymer: **finn vilkåret** som bind variablane saman -- ei gitt gjerdelengd, eit fast volum, eit budsjett. Dette **bivilkåret** brukar vi til å **uttrykkje målfunksjonen med éin variabel**.\n\nSå kjem sjølve maskineriet: **deriver** målfunksjonen og finn dei stasjonære punkta der $f'(x) = 0$. Deretter må vi **avgjere** om punktet faktisk er eit maksimum eller minimum -- med andrederivattesten eller ei forteiknslinje -- og hugse å sjekke endepunkta dersom funksjonen berre er definert på eit lukka intervall. Til slutt: **svar på spørsmålet** slik det vart stilt, med rette einingar og ei vurdering av om svaret gir meining.\n\nNokre praktiske råd før vi set i gang: teikn alltid ei skisse av situasjonen, vel variablar fornuftig og definer dei tydeleg, og sjekk at svaret er rimeleg i konteksten. Ei innhegning med negativ breidd eller ein boks med null høgde er matematisk moglege løysingar av ei likning -- men ikkje av problemet.",
+      "d61f87f3167773cd": "Test deg sjølv på framgangsmåten:",
+      "4097889236a2af26": "placeholder",
+      "c97dbcdd2a98813d": "Kva er målfunksjonen i eit optimaliseringsproblem?",
+      "c6153d9b5dc0c70c": "Vilkåret som bind variablane",
+      "c214482f6ce3f80a": "Den deriverte",
+      "6265b0a9ea08da59": "Funksjonen for storleiken som skal maksimerast eller minimerast",
+      "18b51595dec28e4b": "Definisjonsmengda",
+      "31b899d9478d3b52": "Målfunksjonen uttrykkjer det vi vil optimere — til dømes areal, kostnad eller forteneste.",
+      "ea37c00c42c5645e": "Kva brukar vi bivilkåret til?",
+      "eed80175668fdc0b": "Å uttrykkje målfunksjonen med berre éin variabel",
+      "d89c561a6010a059": "Å finne den deriverte",
+      "9c46819b0ba026cf": "Å bestemme forteiknet til $f''$",
+      "8a053ca12c42ee6d": "Å velje einingar",
+      "ca48566aac66f64a": "Bivilkåret (t.d. fast gjerdelengd eller volum) lèt oss eliminere ein variabel, slik at målfunksjonen kan deriverast med omsyn på éin variabel.",
+      "4d162a3314f7b084": "Du har funne $x$ slik at $f'(x) = 0$. Kva står att?",
+      "d58714ef26851ad5": "Ingenting — oppgåva er løyst",
+      "f7320d22ff59ca6a": "Å derivere ein gong til og setje $f''(x) = 0$",
+      "e760941680c06ec0": "Å løyse $f(x) = 0$",
+      "00e68a66b4435df3": "Å sjekke at punktet er maks/min og svare på spørsmålet i rett kontekst",
+      "000cca95a14dbff8": "Eit stasjonært punkt kan vere maks, min eller terrasse. Vi må verifisere typen (t.d. med $f''$), sjekke eventuelle endepunkt, og svare med einingar.",
+      "b69238f13a7daa98": "## Bonden og gjerdet -- maksimalt areal\n\nLa oss ta eit klassisk problem frå start til mål. Ein bonde har 40 meter gjerde og skal lage ei rektangulær innhegning inntil ein låvevegg -- veggen utgjer den eine sida, så gjerdet trengst berre på dei tre andre.\n\nKva dimensjonar gir størst areal?\n\n**Variablar:** La $x$ vere breidda (parallell med veggen) og $y$ vere djupna ut frå veggen. **Vilkåret:** Gjerdet dekkjer éi breidd og to djupner, så $x + 2y = 40$, som gir $x = 40 - 2y$. **Målfunksjonen** er arealet, og med vilkåret sett inn får han éin variabel:\n\n$$A = x \\cdot y = (40 - 2y)y = 40y - 2y^2$$\n\nNo deriverer vi og finn det stasjonære punktet:\n\n$$A'(y) = 40 - 4y = 0 \\quad \\Rightarrow \\quad y = 10$$\n\nEr det eit maksimum? $A''(y) = -4 < 0$, så ja -- grafen krummar nedover, og $y = 10$ er ein topp. Då er $x = 40 - 2 \\cdot 10 = 20$, og innhegninga blir **20 m × 10 m** med areal **200 m²**.\n\nLegg merke til det overraskande: den beste fasongen er *ikkje* eit kvadrat. Fordi veggen gir oss ei gratis side, lønner det seg å strekkje innhegninga langs veggen -- dobbelt så brei som djup. Hadde bonden i staden gjetta på 13,3 m × 13,3 m (kvadratisk med tre sider), ville arealet berre blitt cirka 178 m². Derivasjonen fann 22 ekstra kvadratmeter, heilt gratis.",
+      "5e9cc7fd6b67884a": "Test deg sjølv på maksimering av areal:",
+      "4b9d162926d3497e": "Innhegninga har breidd $x$ langs veggen og djupn $y$. Kva er vilkåret med 40 m gjerde (vegg som fjerde side)?",
+      "a7351cae8cfbed9c": "$2x + 2y = 40$",
+      "ce2793a4193183b3": "$x + 2y = 40$",
+      "0ac6cf5975acc031": "$x \\cdot y = 40$",
+      "7a8089b433f9dbbe": "$x + y = 40$",
+      "f9fa09e4237f5a6c": "Gjerdet blir brukt på éi breidd og to djupner: $x + 2y = 40$. Veggen erstattar den andre breidda.",
+      "37b4b290da46d20a": "Arealfunksjonen er $A(y) = 40y - 2y^2$. Kva $y$ gir størst areal?",
+      "dd8f644f1d25feae": "$y = 10$",
+      "84073caa06619998": "$y = 20$",
+      "0314658151e99502": "$y = 5$",
+      "f844fe48690090ae": "$y = 40$",
+      "cd7e1087c6cdc5ea": "$A'(y) = 40 - 4y = 0$ gir $y = 10$, og $A''(y) = -4 < 0$ stadfestar maksimum.",
+      "2089e9ad83ecce16": "Kva er det maksimale arealet?",
+      "02f64f0e4dfbe1ed": "$400$ m²",
+      "acc908577756f878": "$100$ m²",
+      "4fc7673d1ab3d343": "$200$ m²",
+      "1b4a4f06341691e9": "$178$ m²",
+      "212d624417fb3565": "$x = 40 - 2 \\cdot 10 = 20$, så $A = 20 \\cdot 10 = 200$ m².",
+      "53783cb2e99e74d8": "## Emballasjedesignaren -- minst mogleg materiale\n\nNo snur vi problemet: i staden for å maksimere med ein gitt ressurs, skal vi minimere ressursbruken med eit gitt krav. Ein produsent skal lage ein boks utan lokk med volum 32 dm³, og botnen skal vere kvadratisk. Materialkostnaden følgjer overflata -- så kva dimensjonar gir minst materialbruk?\n\n**Variablar:** La $x$ vere sidelengda i botnen og $h$ høgda. **Vilkåret** er volumkravet: $V = x^2 \\cdot h = 32$, som gir $h = \\frac{32}{x^2}$. **Målfunksjonen** er overflata -- botn pluss fire sideveggar:\n\n$$S = x^2 + 4xh = x^2 + 4x \\cdot \\frac{32}{x^2} = x^2 + \\frac{128}{x}$$\n\nHer ser du avveginga i sjølve formelen: ein brei boks (stor $x$) gir stor botn, ein smal boks (liten $x$) må vere høg og får store veggar. Ein stad imellom ligg det beste kompromisset. Vi deriverer:\n\n$$S'(x) = 2x - \\frac{128}{x^2} = 0 \\quad \\Rightarrow \\quad 2x^3 = 128 \\quad \\Rightarrow \\quad x^3 = 64 \\quad \\Rightarrow \\quad x = 4$$\n\nHøgda blir $h = \\frac{32}{4^2} = 2$. Og er det eit minimum? $S''(x) = 2 + \\frac{256}{x^3} > 0$ for alle $x > 0$ -- ja, grafen krummar oppover overalt i det praktiske området.\n\n**Svaret:** Boksen bør vere **4 dm × 4 dm × 2 dm**. Overflata blir $S(4) = 16 + 32 = 48$ dm². Kvar einaste boks som blir produsert med andre mål, brukar meir papp -- og i ein produksjon på hundretusenvis av einingar blir slike marginar fort til store summar. Det er nettopp denne typen reknestykke som gjer derivasjon til eit kvardagsverktøy i næringslivet.",
+      "66d6aa3f2f39213e": "Test deg sjølv på minimering av materialbruk:",
+      "ad7a5db22d0ebee2": "Boksen har kvadratisk botn med side $x$ og volum 32 dm³. Kva er høgda uttrykt ved $x$?",
+      "935a1f1df5c04a83": "$h = 32 - x^2$",
+      "fec9b81d647b74e4": "$h = \\frac{32}{x}$",
+      "080d5d6deac1ca78": "$h = \\frac{x^2}{32}$",
+      "d0068ffe997ad5b0": "$h = \\frac{32}{x^2}$",
+      "3bf0191b3e423077": "Volumet er $x^2 h = 32$, så $h = \\frac{32}{x^2}$.",
+      "85d96e558c2003d3": "Overflata er $S(x) = x^2 + \\frac{128}{x}$. Kva $x$ minimerer materialbruken?",
+      "eae1daf6b9845d7b": "$x = 8$",
+      "d14d177d812c2ded": "$x = 4$",
+      "0c82bd6cd3ab8ff8": "$x = 2$",
+      "f463c9979446189f": "$x = 16$",
+      "b6d8d10d8776642b": "$S'(x) = 2x - \\frac{128}{x^2} = 0$ gir $2x^3 = 128$, altså $x^3 = 64$ og $x = 4$.",
+      "e7da144e3cc846f6": "Kva dimensjonar får den optimale boksen?",
+      "62a1305cdf180a7a": "$4 \\times 4 \\times 2$ dm",
+      "cfd1e5c8eeb03db3": "$4 \\times 4 \\times 4$ dm",
+      "e5da41529bbd69d0": "$2 \\times 2 \\times 8$ dm",
+      "f3bf2912bb45f809": "$8 \\times 8 \\times 0{,}5$ dm",
+      "7c54fa279ad185ad": "$x = 4$ gir $h = \\frac{32}{16} = 2$, altså 4 dm × 4 dm × 2 dm. $S''(x) > 0$ stadfestar at dette er eit minimum.",
+      "212e8ea85957f412": "## Oppsummering\n\nOptimaliseringsproblem handlar om å finne den beste løysinga -- størst areal, minst materialbruk, høgast forteneste -- og derivasjon er verktøyet som finn henne eksakt.\n\nFramgangsmåten er fast: les problemet og identifiser **målfunksjonen**, definer variablar, finn **bivilkåret** som bind dei saman, og bruk det til å uttrykkje målfunksjonen med éin variabel. Deretter deriverer du, løyser $f'(x) = 0$, og kontrollerer med andrederivattesten eller forteiknslinje at punktet faktisk er det maksimum eller minimum du leitar etter. Hugs å sjekke endepunkta når funksjonen er definert på eit lukka intervall, og å svare på spørsmålet med einingar og sunn fornuft.\n\nBonden fekk størst innhegning med 20 m × 10 m -- dobbelt så brei som djup, fordi veggen gav ei gratis side. Emballasjeprodusenten fekk billegast boks med 4 dm × 4 dm × 2 dm. I begge tilfella låg svaret der den deriverte var null: på toppen flatar alt ut.\n\nDenne tankegangen -- set opp funksjonen, deriver, finn nullpunktet til den deriverte -- er sjølve ryggrada i økonomikapitla som kjem, der målfunksjonen heiter overskot."
+    }
+  }
+}

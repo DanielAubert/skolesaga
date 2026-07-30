@@ -1,1 +1,506 @@
-{"id":"r1-3-5-narrativ","courseId":"r1","chapterNumber":"3.5","title":"Newtons metode","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis kalkulatoren eigentleg finn røter -- tangenten som vegvisar, iterasjonane som doblar presisjonen, og fellene som får metoden til å spore av.","estimatedMinutes":35,"competenceGoals":["bestemme den deriverte i eit punkt geometrisk, algebraisk og ved numeriske metodar"],"linkedChapterId":"r1-3-5","content":[{"id":"r1-3-5-n-intro","type":"text","content":"## Kva gjer kalkulatoren når du trykkjer på rotteiknet?\n\nTast $\\sqrt{2}$ på kalkulatoren, og svaret $1{,}41421356\\ldots$ kjem momentant. Men stopp og tenk: *korleis*? Det finst ingen krins i maskina som «veit» kvadratrøter. Det finst heller inga formel å slå opp i -- $\\sqrt{2}$ er irrasjonal, sifra tek aldri slutt. Likevel leverer kalkulatoren eit titals korrekte desimalar på eit millisekund.\n\nDet same mysteriet lurer i likningane algebraen ikkje rår på. $x^5 - 3x + 1 = 0$ har inga løysingsformel -- det er prova at femtegradslikningar generelt ikkje kan løysast med rotteikn. $\\cos x = x$ blandar trigonometri og polynom på ein måte ingen omskriving løyser opp. $e^x = 3x$ likeins. Men løysingane *finst*: grafane kryssar kvarandre, det ser du med det blotte auge. Spørsmålet er korleis vi fangar dei.\n\nSvaret, som driv både kalkulatoren din og talknusinga i moderne ingeniørkunst, er ein idé frå Isaac Newton: **gjett, og la tangenten forbetre gjettinga**. Står du på grafen til $f$ og vil ned til nullpunktet, så følg tangenten -- han peikar om lag dit grafen skal, og der han kryssar $x$-aksen, står du nesten alltid nærmare svaret enn der du starta. Gjenta, og presisjonen eksploderer: talet på rette desimalar blir *dobla* i kvart steg.\n\nI dette kapittelet utleier du iterasjonsformelen frå tangentlikninga, ser metoden knuse både $\\sqrt{2}$ og $\\cos x = x$ -- og lærer når han feilar, kvifor, og kva du gjer då."},{"id":"r1-3-5-n-section1","type":"text","content":"## Tangenten som vegvisar\n\nOppgåva er alltid den same: finn eit nullpunkt for $f$, altså ei løysing av $f(x) = 0$. (Har du ei likning på anna form, som $\\cos x = x$, flyttar du først alt over på éi side: $f(x) = \\cos x - x$.)\n\nMetoden startar med ei **gjetting** $x_0$ ein stad i nærleiken av løysinga -- ei grafskisse eller litt prøving gir deg ho. Så kjem kjernen: stå i punktet $(x_0, f(x_0))$ på grafen og legg tangenten der. Grafen sjølv buktar seg, men tangenten er ei rett linje -- og ei rett linje veit vi nøyaktig kvar kryssar $x$-aksen. Det kryssingspunktet er den nye og betre gjettinga $x_1$. Gjenta frå $x_1$, og du får $x_2$, endå nærmare. Kvart steg byter den vanskelege kurva ut med den enklaste stedfortredaren hans.\n\nFormelen følgjer av rekneskapen du alt kan. Tangenten i $(x_n, f(x_n))$ har likning\n\n$$y - f(x_n) = f'(x_n)(x - x_n)$$\n\nVi vil vite kvar han treffer $x$-aksen, så vi set $y = 0$ og løyser for $x$: $-f(x_n) = f'(x_n)(x - x_n)$, som gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$. Dermed:\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nLes han som ein korreksjon: frå $x_n$ trekkjer vi feilen $f(x_n)$ *målt i målestokken til tangenten* $f'(x_n)$. Er funksjonsverdien stor og stiginga slak, må vi flytte oss langt; er verdien liten og stiginga bratt, er vi nesten framme og justerer berre ørlite. Det er heile Newtons metode -- ei gjetting og ein derivert, om og om att."},{"id":"r1-3-5-n-quiz1","type":"exercise","exercise":{"id":"r1-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på ideen og formelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-5-n-quiz1-q0","task":"Kva er iterasjonsformelen i Newtons metode?","options":[{"id":"a","text":"$x_{n+1} = x_n - \\frac{f'(x_n)}{f(x_n)}$","isCorrect":false},{"id":"b","text":"$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$","isCorrect":true},{"id":"c","text":"$x_{n+1} = x_n + f(x_n) \\cdot f'(x_n)$","isCorrect":false},{"id":"d","text":"$x_{n+1} = \\frac{f(x_n)}{f'(x_n)}$","isCorrect":false}],"solution":"Frå tangentlikninga med $y = 0$: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$. Funksjonsverdien blir delt på den deriverte."},{"id":"r1-3-5-n-quiz1-q1","task":"Kva er den geometriske tolkinga av eitt steg i metoden?","options":[{"id":"a","text":"Vi finn der tangenten i $(x_n, f(x_n))$ kryssar $x$-aksen","isCorrect":true},{"id":"b","text":"Vi halverer intervallet rundt nullpunktet","isCorrect":false},{"id":"c","text":"Vi speglar punktet om $y$-aksen","isCorrect":false},{"id":"d","text":"Vi finn toppunktet til $f$","isCorrect":false}],"solution":"Tangenten erstattar kurva lokalt, og skjeringa hans med $x$-aksen blir neste tilnærming $x_{n+1}$."},{"id":"r1-3-5-n-quiz1-q2","task":"Du skal løyse $\\cos x = x$ med Newtons metode. Kva gjer du først?","options":[{"id":"a","text":"Deriverer begge sider","isCorrect":false},{"id":"b","text":"Set $x = 0$","isCorrect":false},{"id":"c","text":"Omformer til nullpunktsproblemet $f(x) = \\cos x - x = 0$","isCorrect":true},{"id":"d","text":"Teiknar einingssirkelen","isCorrect":false}],"solution":"Metoden finn nullpunkt, så likninga må først skrivast på forma $f(x) = 0$."},{"id":"r1-3-5-n-quiz1-q3","task":"Korleis blir formelen utleidd?","options":[{"id":"a","text":"Ved å integrere $f$","isCorrect":false},{"id":"b","text":"Ved L'Hôpitals regel","isCorrect":false},{"id":"c","text":"Ved å faktorisere $f$","isCorrect":false},{"id":"d","text":"Ved å setje $y = 0$ i tangentlikninga $y - f(x_n) = f'(x_n)(x - x_n)$","isCorrect":true}],"solution":"Skjeringa til tangenten med $x$-aksen ($y = 0$) gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$."}]}},{"id":"r1-3-5-n-section2","type":"text","content":"## Metoden i aksjon -- og den kvadratiske magien\n\nAttende til løyndomen til kalkulatoren. $\\sqrt{2}$ er nullpunktet til $f(x) = x^2 - 2$, med $f'(x) = 2x$. Formelen blir\n\n$$x_{n+1} = x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{x_n}{2} + \\frac{1}{x_n}$$\n\n-- som er det same som gjennomsnittet av $x_n$ og $\\frac{2}{x_n}$: ei gjetting og det talet ho bommar mot, midla saman. Start med $x_0 = 1$: då gir formelen $x_1 = \\frac{1}{2} + 1 = 1{,}5$, deretter $x_2 = \\frac{1{,}5}{2} + \\frac{1}{1{,}5} \\approx 1{,}4167$, så $x_3 \\approx 1{,}4142$. Tre steg, fire korrekte desimalar. (Babylonarane brukte faktisk akkurat denne oppskrifta for 4000 år sidan -- Newton gav dei berre den deriverte som forklaring.)\n\nSå den transcendente likninga $\\cos x = x$. Med $f(x) = \\cos x - x$ og $f'(x) = -\\sin x - 1$ blir formelen $x_{n+1} = x_n - \\frac{\\cos x_n - x_n}{-\\sin x_n - 1}$. Grafisk inspeksjon antydar ei løysing nær $0{,}5$, så vi startar der: $x_1 \\approx 0{,}7552$, $x_2 \\approx 0{,}7391$ -- og der er $f(x_2) \\approx 0{,}00005$. To steg frå ei grov gjetting til fem desimalar.\n\nLegg merke til mønsteret i feila: om lag $0{,}24$, så $0{,}016$, så $0{,}00005$. Talet på korrekte siffer blir *dobla* i kvart steg. Dette blir kalla **kvadratisk konvergens**, og det er superkrafta til metoden: 5--10 iterasjonar gir meir enn 10 desimalar. Til samanlikning gir naive metodar eitt siffer per steg.\n\nI praksis treng vi eit **stoppkriterium** -- maskina kan jo ikkje iterere evig. To vanlege val: stopp når endringa $|x_{n+1} - x_n|$ er mindre enn ein toleranse (t.d. $10^{-6}$), eller når $|f(x_n)|$ er tilstrekkeleg nær null."},{"id":"r1-3-5-n-quiz2","type":"exercise","exercise":{"id":"r1-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på metoden i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-5-n-quiz2-q0","task":"For $f(x) = x^2 - 2$ med $x_0 = 1$: kva blir $x_1$?","options":[{"id":"a","text":"$1{,}4142$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$1{,}5$","isCorrect":true},{"id":"d","text":"$1{,}25$","isCorrect":false}],"solution":"$x_1 = \\frac{x_0}{2} + \\frac{1}{x_0} = \\frac{1}{2} + 1 = 1{,}5$."},{"id":"r1-3-5-n-quiz2-q1","task":"Kva tyder kvadratisk konvergens i praksis?","options":[{"id":"a","text":"Feilen blir halvert i kvart steg","isCorrect":false},{"id":"b","text":"Talet på korrekte siffer blir om lag dobla i kvart steg","isCorrect":true},{"id":"c","text":"Metoden verkar berre for andregradsfunksjonar","isCorrect":false},{"id":"d","text":"Det trengst $n^2$ iterasjonar","isCorrect":false}],"solution":"Når metoden konvergerer, blir talet på rette desimalar dobla per iterasjon -- difor held 5--10 steg for over 10 desimalar."},{"id":"r1-3-5-n-quiz2-q2","task":"Kva er løysinga av $\\cos x = x$ (med fire desimalar)?","options":[{"id":"a","text":"$0{,}7391$","isCorrect":true},{"id":"b","text":"$0{,}5000$","isCorrect":false},{"id":"c","text":"$1{,}0000$","isCorrect":false},{"id":"d","text":"$0{,}8660$","isCorrect":false}],"solution":"Newtons metode frå $x_0 = 0{,}5$ gir $0{,}7552$, så $0{,}7391$ -- der er $\\cos x - x \\approx 0$."},{"id":"r1-3-5-n-quiz2-q3","task":"Kva av desse er eit vanleg stoppkriterium?","options":[{"id":"a","text":"$x_n > 100$","isCorrect":false},{"id":"b","text":"$f'(x_n) = 0$","isCorrect":false},{"id":"c","text":"$n$ er eit partal","isCorrect":false},{"id":"d","text":"$|x_{n+1} - x_n| < 10^{-6}$","isCorrect":true}],"solution":"Vi stoppar når endringa mellom iterasjonane -- eller $|f(x_n)|$ -- er mindre enn ein vald toleranse."}]}},{"id":"r1-3-5-n-section3","type":"text","content":"## Når tangenten lurer oss\n\nNewtons metode er rask, men ikkje ufeilbarleg -- og fellene er lærerike. Metoden fungerer godt når startverdien er nær løysinga, når $f'(x) \\neq 0$ i området, og når $f$ oppfører seg pent. Bryt eitt av føresetnadene, kan det gå gale på tre måtar: $f'(x_n) = 0$ gir divisjon med null (tangenten er vassrett og kryssar aldri $x$-aksen), ein dårleg startverdi kan sende iterasjonane på villspor, og har likninga fleire løysingar, kan du lande på «feil» ei.\n\nDet mest lærerike havariet: prøv $f(x) = x^{1/3}$, kubikkrota, med nullpunkt i $x = 0$. Med $f'(x) = \\frac{1}{3}x^{-2/3}$ blir iterasjonsformelen\n\n$$x_{n+1} = x_n - \\frac{x_n^{1/3}}{\\frac{1}{3}x_n^{-2/3}} = x_n - 3x_n = -2x_n$$\n\nKvart steg *doblar* avstanden og byter forteikn: frå $x_0 = 1$ får vi $-2, 4, -8, 16, \\ldots$ Iterasjonane **divergerer** -- sprett vekk frå nullpunktet dei skulle finne. Syndaren er den deriverte: nær $x = 0$ veks $f'$ mot uendeleg, grafen står loddrett, og tangentane peikar lenger og lenger bort.\n\nKva gjer vi når Newton sviktar? Den trufaste reserven er **halveringsmetoden**: finn $a$ og $b$ med forteiknskifte, $f(a) \\cdot f(b) < 0$, og halver intervallet om og om att. Han er treg -- lineær konvergens, om lag eitt binærsiffer per steg -- men han feilar *aldri* så lenge forteiknskiftet finst. Newtons metode er sprintaren som kan snuble; halveringsmetoden er turgåaren som alltid kjem fram.\n\nProfesjonell praksis kombinerer dei: bruk halvering til eit grovt estimat trygt innanfor, og slepp så Newton laus for å finpusse med kvadratisk fart. Slik får du både påliteleg­heita og farten."},{"id":"r1-3-5-n-quiz3","type":"exercise","exercise":{"id":"r1-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på feilkjelder og alternativ:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-5-n-quiz3-q0","task":"Kva skjer når Newtons metode blir brukt på $f(x) = x^{1/3}$ med $x_0 = 1$?","options":[{"id":"a","text":"Konvergerer mot $0$ etter tre steg","isCorrect":false},{"id":"b","text":"Iterasjonane blir $-2, 4, -8, \\ldots$ -- metoden divergerer","isCorrect":true},{"id":"c","text":"Konvergerer mot $1$","isCorrect":false},{"id":"d","text":"Gir divisjon med null med ein gong","isCorrect":false}],"solution":"Formelen forenklast til $x_{n+1} = -2x_n$: avstanden blir dobla i kvart steg fordi $f'$ er ubegrensa nær nullpunktet."},{"id":"r1-3-5-n-quiz3-q1","task":"Kva situasjon gjer at metoden bryt saman i eit steg?","options":[{"id":"a","text":"$f(x_n) > 0$","isCorrect":false},{"id":"b","text":"$x_n$ er negativ","isCorrect":false},{"id":"c","text":"$f'(x_n) = 0$","isCorrect":true},{"id":"d","text":"$f$ har fleire nullpunkt","isCorrect":false}],"solution":"Med $f'(x_n) = 0$ er tangenten vassrett -- han kryssar aldri $x$-aksen, og formelen deler på null."},{"id":"r1-3-5-n-quiz3-q2","task":"Kva krevst for at halveringsmetoden skal fungere?","options":[{"id":"a","text":"Eit intervall med forteiknskifte: $f(a) \\cdot f(b) < 0$","isCorrect":true},{"id":"b","text":"At $f'(x) \\neq 0$ overalt","isCorrect":false},{"id":"c","text":"Ein svært god startverdi","isCorrect":false},{"id":"d","text":"At $f$ er eit polynom","isCorrect":false}],"solution":"Halveringsmetoden treng berre eit intervall der $f$ skiftar forteikn -- då finst eit nullpunkt der, og halveringa ringar det inn."},{"id":"r1-3-5-n-quiz3-q3","task":"Kva er ein god strategi i praksis?","options":[{"id":"a","text":"Bruk alltid berre Newtons metode","isCorrect":false},{"id":"b","text":"Bruk alltid berre halveringsmetoden","isCorrect":false},{"id":"c","text":"Vel metode ved myntkast","isCorrect":false},{"id":"d","text":"Halveringsmetoden først for eit grovt estimat, så Newtons metode for rask finpuss","isCorrect":true}],"solution":"Halvering gir påliteleg grovposisjon; Newton gir kvadratisk fart derifrå -- kombinasjonen gir både tryggleik og fart."}]}},{"id":"r1-3-5-n-summary","type":"text","content":"## Forteljinga i eit nøtteskal\n\nRotmysteriet til kalkulatoren er løyst: bak tasten bur ein iterasjon. Newtons metode finn nullpunkt for $f(x) = 0$ ved å la tangenten vise veg -- stå i $(x_n, f(x_n))$, følg tangenten til han kryssar $x$-aksen, og kall kryssinga $x_{n+1}$. Av tangentlikninga med $y = 0$ vart formelen\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nOppskrifta: omform likninga til $f(x) = 0$, finn $f'$, vel ein god startverdi $x_0$ (gjerne frå ei grafskisse), og iterer til stoppkriteriet slår inn -- $|x_{n+1} - x_n|$ eller $|f(x_n)|$ under toleransen.\n\nStyrken er den **kvadratiske konvergensen**: talet på korrekte siffer blir dobla per steg, slik vi såg då $\\sqrt{2}$ fall på tre iterasjonar frå $x_0 = 1$ ($1{,}5 \\to 1{,}4167 \\to 1{,}4142$) og $\\cos x = x$ gav $0{,}7391$ på to steg frå $0{,}5$.\n\nSvakheitene er like konkrete: $f'(x_n) = 0$ gir havari, dårleg startverdi kan gi divergens eller feil løysing, og kubikkrota $x^{1/3}$ viste totalhavariet $x_{n+1} = -2x_n$ -- tangentar som peikar lenger og lenger bort. Reserven er **halveringsmetoden**: treg, men ufeilbarleg gitt eit forteiknskifte. I praksis blir dei kombinerte -- halvering for tryggleik, Newton for fart.\n\nMetoden er òg eit attsyn med den raude tråden i kapittelet: den deriverte som lokal, lineær stedfortredar for kurva. I neste kapittel snur vi på det -- og lèt tala tilnærme den deriverte sjølv."}],"exercises":[],"_meta":{"sourceHash":"23c2784c0da8be0f","translatedAt":"2026-06-19T23:59:27.560Z","model":"claude-code-agent","strings":79,"tm":{"27c70ed38b9ab380":"Newtons metode","b195b06d1ed59702":"Narrativ versjon","2cab46f38df74f7b":"Ei forteljing om korleis kalkulatoren eigentleg finn røter -- tangenten som vegvisar, iterasjonane som doblar presisjonen, og fellene som får metoden til å spore av.","68a2bef4f32c0afd":"bestemme den deriverte i eit punkt geometrisk, algebraisk og ved numeriske metodar","b4edcfd986d81bcb":"## Kva gjer kalkulatoren når du trykkjer på rotteiknet?\n\nTast $\\sqrt{2}$ på kalkulatoren, og svaret $1{,}41421356\\ldots$ kjem momentant. Men stopp og tenk: *korleis*? Det finst ingen krins i maskina som «veit» kvadratrøter. Det finst heller inga formel å slå opp i -- $\\sqrt{2}$ er irrasjonal, sifra tek aldri slutt. Likevel leverer kalkulatoren eit titals korrekte desimalar på eit millisekund.\n\nDet same mysteriet lurer i likningane algebraen ikkje rår på. $x^5 - 3x + 1 = 0$ har inga løysingsformel -- det er prova at femtegradslikningar generelt ikkje kan løysast med rotteikn. $\\cos x = x$ blandar trigonometri og polynom på ein måte ingen omskriving løyser opp. $e^x = 3x$ likeins. Men løysingane *finst*: grafane kryssar kvarandre, det ser du med det blotte auge. Spørsmålet er korleis vi fangar dei.\n\nSvaret, som driv både kalkulatoren din og talknusinga i moderne ingeniørkunst, er ein idé frå Isaac Newton: **gjett, og la tangenten forbetre gjettinga**. Står du på grafen til $f$ og vil ned til nullpunktet, så følg tangenten -- han peikar om lag dit grafen skal, og der han kryssar $x$-aksen, står du nesten alltid nærmare svaret enn der du starta. Gjenta, og presisjonen eksploderer: talet på rette desimalar blir *dobla* i kvart steg.\n\nI dette kapittelet utleier du iterasjonsformelen frå tangentlikninga, ser metoden knuse både $\\sqrt{2}$ og $\\cos x = x$ -- og lærer når han feilar, kvifor, og kva du gjer då.","5c6d87981b520b73":"## Tangenten som vegvisar\n\nOppgåva er alltid den same: finn eit nullpunkt for $f$, altså ei løysing av $f(x) = 0$. (Har du ei likning på anna form, som $\\cos x = x$, flyttar du først alt over på éi side: $f(x) = \\cos x - x$.)\n\nMetoden startar med ei **gjetting** $x_0$ ein stad i nærleiken av løysinga -- ei grafskisse eller litt prøving gir deg ho. Så kjem kjernen: stå i punktet $(x_0, f(x_0))$ på grafen og legg tangenten der. Grafen sjølv buktar seg, men tangenten er ei rett linje -- og ei rett linje veit vi nøyaktig kvar kryssar $x$-aksen. Det kryssingspunktet er den nye og betre gjettinga $x_1$. Gjenta frå $x_1$, og du får $x_2$, endå nærmare. Kvart steg byter den vanskelege kurva ut med den enklaste stedfortredaren hans.\n\nFormelen følgjer av rekneskapen du alt kan. Tangenten i $(x_n, f(x_n))$ har likning\n\n$$y - f(x_n) = f'(x_n)(x - x_n)$$\n\nVi vil vite kvar han treffer $x$-aksen, så vi set $y = 0$ og løyser for $x$: $-f(x_n) = f'(x_n)(x - x_n)$, som gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$. Dermed:\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nLes han som ein korreksjon: frå $x_n$ trekkjer vi feilen $f(x_n)$ *målt i målestokken til tangenten* $f'(x_n)$. Er funksjonsverdien stor og stiginga slak, må vi flytte oss langt; er verdien liten og stiginga bratt, er vi nesten framme og justerer berre ørlite. Det er heile Newtons metode -- ei gjetting og ein derivert, om og om att.","643bc8ada4c59f20":"Test deg sjølv på ideen og formelen:","4097889236a2af26":"placeholder","a21c9f2d3ad8a482":"Kva er iterasjonsformelen i Newtons metode?","6fe01bf2c9af0018":"$x_{n+1} = x_n - \\frac{f'(x_n)}{f(x_n)}$","f0f417c1e05c61da":"$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$","f4ad8bc4f3c49516":"$x_{n+1} = x_n + f(x_n) \\cdot f'(x_n)$","51a98c46b2e26cf0":"$x_{n+1} = \\frac{f(x_n)}{f'(x_n)}$","6575decb8712118d":"Frå tangentlikninga med $y = 0$: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$. Funksjonsverdien blir delt på den deriverte.","d523d6645a67feb2":"Kva er den geometriske tolkinga av eitt steg i metoden?","fa8dd7a73b485c56":"Vi finn der tangenten i $(x_n, f(x_n))$ kryssar $x$-aksen","071e8392db523f88":"Vi halverer intervallet rundt nullpunktet","ca172589f9b5a105":"Vi speglar punktet om $y$-aksen","901cb6d2d7cbac15":"Vi finn toppunktet til $f$","d5c46601fc4a0069":"Tangenten erstattar kurva lokalt, og skjeringa hans med $x$-aksen blir neste tilnærming $x_{n+1}$.","3eebe3b305214f6a":"Du skal løyse $\\cos x = x$ med Newtons metode. Kva gjer du først?","e5e17ea1987349d5":"Deriverer begge sider","b1e7ff3637be530c":"Set $x = 0$","bcd62f8a33cce58e":"Omformer til nullpunktsproblemet $f(x) = \\cos x - x = 0$","40a7cba57e0938b5":"Teiknar einingssirkelen","4f96c2a9cecab4b9":"Metoden finn nullpunkt, så likninga må først skrivast på forma $f(x) = 0$.","588d0f291c8fcd9d":"Korleis blir formelen utleidd?","de8f920789cb7d10":"Ved å integrere $f$","2ac0397b3e5c8f80":"Ved L'Hôpitals regel","36d0d8e4107a8a39":"Ved å faktorisere $f$","f0294875303885b5":"Ved å setje $y = 0$ i tangentlikninga $y - f(x_n) = f'(x_n)(x - x_n)$","176c672978968608":"Skjeringa til tangenten med $x$-aksen ($y = 0$) gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$.","1a4de813029b1df9":"## Metoden i aksjon -- og den kvadratiske magien\n\nAttende til løyndomen til kalkulatoren. $\\sqrt{2}$ er nullpunktet til $f(x) = x^2 - 2$, med $f'(x) = 2x$. Formelen blir\n\n$$x_{n+1} = x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{x_n}{2} + \\frac{1}{x_n}$$\n\n-- som er det same som gjennomsnittet av $x_n$ og $\\frac{2}{x_n}$: ei gjetting og det talet ho bommar mot, midla saman. Start med $x_0 = 1$: då gir formelen $x_1 = \\frac{1}{2} + 1 = 1{,}5$, deretter $x_2 = \\frac{1{,}5}{2} + \\frac{1}{1{,}5} \\approx 1{,}4167$, så $x_3 \\approx 1{,}4142$. Tre steg, fire korrekte desimalar. (Babylonarane brukte faktisk akkurat denne oppskrifta for 4000 år sidan -- Newton gav dei berre den deriverte som forklaring.)\n\nSå den transcendente likninga $\\cos x = x$. Med $f(x) = \\cos x - x$ og $f'(x) = -\\sin x - 1$ blir formelen $x_{n+1} = x_n - \\frac{\\cos x_n - x_n}{-\\sin x_n - 1}$. Grafisk inspeksjon antydar ei løysing nær $0{,}5$, så vi startar der: $x_1 \\approx 0{,}7552$, $x_2 \\approx 0{,}7391$ -- og der er $f(x_2) \\approx 0{,}00005$. To steg frå ei grov gjetting til fem desimalar.\n\nLegg merke til mønsteret i feila: om lag $0{,}24$, så $0{,}016$, så $0{,}00005$. Talet på korrekte siffer blir *dobla* i kvart steg. Dette blir kalla **kvadratisk konvergens**, og det er superkrafta til metoden: 5--10 iterasjonar gir meir enn 10 desimalar. Til samanlikning gir naive metodar eitt siffer per steg.\n\nI praksis treng vi eit **stoppkriterium** -- maskina kan jo ikkje iterere evig. To vanlege val: stopp når endringa $|x_{n+1} - x_n|$ er mindre enn ein toleranse (t.d. $10^{-6}$), eller når $|f(x_n)|$ er tilstrekkeleg nær null.","aa3a88749ffb8b10":"Test deg sjølv på metoden i praksis:","6ac3d80e1dabebbd":"For $f(x) = x^2 - 2$ med $x_0 = 1$: kva blir $x_1$?","97c3763b8cfa6a98":"$x_1 = \\frac{x_0}{2} + \\frac{1}{x_0} = \\frac{1}{2} + 1 = 1{,}5$.","734620f677d592f4":"Kva tyder kvadratisk konvergens i praksis?","0ca8818383b5f132":"Feilen blir halvert i kvart steg","a77ba3db8a85a4b0":"Talet på korrekte siffer blir om lag dobla i kvart steg","1b02ce5db02e1511":"Metoden verkar berre for andregradsfunksjonar","8e61af646b7cffac":"Det trengst $n^2$ iterasjonar","f1fa808d6e94e29a":"Når metoden konvergerer, blir talet på rette desimalar dobla per iterasjon -- difor held 5--10 steg for over 10 desimalar.","5011b2f2a4c541ff":"Kva er løysinga av $\\cos x = x$ (med fire desimalar)?","78c74e4a28e32d63":"Newtons metode frå $x_0 = 0{,}5$ gir $0{,}7552$, så $0{,}7391$ -- der er $\\cos x - x \\approx 0$.","a7f7689a73c800dd":"Kva av desse er eit vanleg stoppkriterium?","99a7f4743e1719f9":"$x_n > 100$","029036d1788461f1":"$f'(x_n) = 0$","c21114f6e2cdf60e":"$n$ er eit partal","55801a7418c56148":"$|x_{n+1} - x_n| < 10^{-6}$","005cbe82e6284144":"Vi stoppar når endringa mellom iterasjonane -- eller $|f(x_n)|$ -- er mindre enn ein vald toleranse.","510383a1d717efe6":"## Når tangenten lurer oss\n\nNewtons metode er rask, men ikkje ufeilbarleg -- og fellene er lærerike. Metoden fungerer godt når startverdien er nær løysinga, når $f'(x) \\neq 0$ i området, og når $f$ oppfører seg pent. Bryt eitt av føresetnadene, kan det gå gale på tre måtar: $f'(x_n) = 0$ gir divisjon med null (tangenten er vassrett og kryssar aldri $x$-aksen), ein dårleg startverdi kan sende iterasjonane på villspor, og har likninga fleire løysingar, kan du lande på «feil» ei.\n\nDet mest lærerike havariet: prøv $f(x) = x^{1/3}$, kubikkrota, med nullpunkt i $x = 0$. Med $f'(x) = \\frac{1}{3}x^{-2/3}$ blir iterasjonsformelen\n\n$$x_{n+1} = x_n - \\frac{x_n^{1/3}}{\\frac{1}{3}x_n^{-2/3}} = x_n - 3x_n = -2x_n$$\n\nKvart steg *doblar* avstanden og byter forteikn: frå $x_0 = 1$ får vi $-2, 4, -8, 16, \\ldots$ Iterasjonane **divergerer** -- sprett vekk frå nullpunktet dei skulle finne. Syndaren er den deriverte: nær $x = 0$ veks $f'$ mot uendeleg, grafen står loddrett, og tangentane peikar lenger og lenger bort.\n\nKva gjer vi når Newton sviktar? Den trufaste reserven er **halveringsmetoden**: finn $a$ og $b$ med forteiknskifte, $f(a) \\cdot f(b) < 0$, og halver intervallet om og om att. Han er treg -- lineær konvergens, om lag eitt binærsiffer per steg -- men han feilar *aldri* så lenge forteiknskiftet finst. Newtons metode er sprintaren som kan snuble; halveringsmetoden er turgåaren som alltid kjem fram.\n\nProfesjonell praksis kombinerer dei: bruk halvering til eit grovt estimat trygt innanfor, og slepp så Newton laus for å finpusse med kvadratisk fart. Slik får du både påliteleg­heita og farten.","e99b800eacc85079":"Test deg sjølv på feilkjelder og alternativ:","ae02ac27d28bae95":"Kva skjer når Newtons metode blir brukt på $f(x) = x^{1/3}$ med $x_0 = 1$?","c416b01ef7af150e":"Konvergerer mot $0$ etter tre steg","6fa1c28079af8084":"Iterasjonane blir $-2, 4, -8, \\ldots$ -- metoden divergerer","ae9317e3f2ff55de":"Konvergerer mot $1$","fa96175e732d7f01":"Gir divisjon med null med ein gong","59a1970fd1f4833b":"Formelen forenklast til $x_{n+1} = -2x_n$: avstanden blir dobla i kvart steg fordi $f'$ er ubegrensa nær nullpunktet.","fe1f434ac95f5a7c":"Kva situasjon gjer at metoden bryt saman i eit steg?","3a17bcee0568e7ee":"$f(x_n) > 0$","3dc4877142c2bdb1":"$x_n$ er negativ","887f139e955c06fe":"$f$ har fleire nullpunkt","45ff497428777835":"Med $f'(x_n) = 0$ er tangenten vassrett -- han kryssar aldri $x$-aksen, og formelen deler på null.","f568dabb3d3e0b24":"Kva krevst for at halveringsmetoden skal fungere?","bbf1a33d708f7cc2":"Eit intervall med forteiknskifte: $f(a) \\cdot f(b) < 0$","9a45dd62c17b08c9":"At $f'(x) \\neq 0$ overalt","842bc088bb9dd5d8":"Ein svært god startverdi","53b14fdd2e9f7d00":"At $f$ er eit polynom","c31d48f9495e406a":"Halveringsmetoden treng berre eit intervall der $f$ skiftar forteikn -- då finst eit nullpunkt der, og halveringa ringar det inn.","db7413bb5a4afa85":"Kva er ein god strategi i praksis?","10b355ede0396898":"Bruk alltid berre Newtons metode","8289c4e1c15aebef":"Bruk alltid berre halveringsmetoden","82806502d2b725c2":"Vel metode ved myntkast","8b2e3e168f794a9e":"Halveringsmetoden først for eit grovt estimat, så Newtons metode for rask finpuss","18358dd3ab8bdfa0":"Halvering gir påliteleg grovposisjon; Newton gir kvadratisk fart derifrå -- kombinasjonen gir både tryggleik og fart.","79c039300a4e6893":"## Forteljinga i eit nøtteskal\n\nRotmysteriet til kalkulatoren er løyst: bak tasten bur ein iterasjon. Newtons metode finn nullpunkt for $f(x) = 0$ ved å la tangenten vise veg -- stå i $(x_n, f(x_n))$, følg tangenten til han kryssar $x$-aksen, og kall kryssinga $x_{n+1}$. Av tangentlikninga med $y = 0$ vart formelen\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nOppskrifta: omform likninga til $f(x) = 0$, finn $f'$, vel ein god startverdi $x_0$ (gjerne frå ei grafskisse), og iterer til stoppkriteriet slår inn -- $|x_{n+1} - x_n|$ eller $|f(x_n)|$ under toleransen.\n\nStyrken er den **kvadratiske konvergensen**: talet på korrekte siffer blir dobla per steg, slik vi såg då $\\sqrt{2}$ fall på tre iterasjonar frå $x_0 = 1$ ($1{,}5 \\to 1{,}4167 \\to 1{,}4142$) og $\\cos x = x$ gav $0{,}7391$ på to steg frå $0{,}5$.\n\nSvakheitene er like konkrete: $f'(x_n) = 0$ gir havari, dårleg startverdi kan gi divergens eller feil løysing, og kubikkrota $x^{1/3}$ viste totalhavariet $x_{n+1} = -2x_n$ -- tangentar som peikar lenger og lenger bort. Reserven er **halveringsmetoden**: treg, men ufeilbarleg gitt eit forteiknskifte. I praksis blir dei kombinerte -- halvering for tryggleik, Newton for fart.\n\nMetoden er òg eit attsyn med den raude tråden i kapittelet: den deriverte som lokal, lineær stedfortredar for kurva. I neste kapittel snur vi på det -- og lèt tala tilnærme den deriverte sjølv."}}}
+{
+  "id": "r1-3-5-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "3.5",
+  "title": "Newtons metode",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis kalkulatoren eigentleg finn røter -- tangenten som vegvisar, iterasjonane som doblar presisjonen, og fellene som får metoden til å spore av.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bestemme den deriverte i eit punkt geometrisk, algebraisk og ved numeriske metodar"
+  ],
+  "linkedChapterId": "r1-3-5",
+  "content": [
+    {
+      "id": "r1-3-5-n-intro",
+      "type": "text",
+      "content": "## Kva gjer kalkulatoren når du trykkjer på rotteiknet?\n\nTast $\\sqrt{2}$ på kalkulatoren, og svaret $1{,}41421356\\ldots$ kjem momentant. Men stopp og tenk: *korleis*? Det finst ingen krins i maskina som «veit» kvadratrøter. Det finst heller inga formel å slå opp i -- $\\sqrt{2}$ er irrasjonal, sifra tek aldri slutt. Likevel leverer kalkulatoren eit titals korrekte desimalar på eit millisekund.\n\nDet same mysteriet lurer i likningane algebraen ikkje rår på. $x^5 - 3x + 1 = 0$ har inga løysingsformel -- det er prova at femtegradslikningar generelt ikkje kan løysast med rotteikn. $\\cos x = x$ blandar trigonometri og polynom på ein måte ingen omskriving løyser opp. $e^x = 3x$ likeins. Men løysingane *finst*: grafane kryssar kvarandre, det ser du med det blotte auge. Spørsmålet er korleis vi fangar dei.\n\nSvaret, som driv både kalkulatoren din og talknusinga i moderne ingeniørkunst, er ein idé frå Isaac Newton: **gjett, og la tangenten forbetre gjettinga**. Står du på grafen til $f$ og vil ned til nullpunktet, så følg tangenten -- han peikar om lag dit grafen skal, og der han kryssar $x$-aksen, står du nesten alltid nærmare svaret enn der du starta. Gjenta, og presisjonen eksploderer: talet på rette desimalar blir *dobla* i kvart steg.\n\nI dette kapittelet utleier du iterasjonsformelen frå tangentlikninga, ser metoden knuse både $\\sqrt{2}$ og $\\cos x = x$ -- og lærer når han feilar, kvifor, og kva du gjer då."
+    },
+    {
+      "id": "r1-3-5-n-section1",
+      "type": "text",
+      "content": "## Tangenten som vegvisar\n\nOppgåva er alltid den same: finn eit nullpunkt for $f$, altså ei løysing av $f(x) = 0$. (Har du ei likning på anna form, som $\\cos x = x$, flyttar du først alt over på éi side: $f(x) = \\cos x - x$.)\n\nMetoden startar med ei **gjetting** $x_0$ ein stad i nærleiken av løysinga -- ei grafskisse eller litt prøving gir deg ho. Så kjem kjernen: stå i punktet $(x_0, f(x_0))$ på grafen og legg tangenten der. Grafen sjølv buktar seg, men tangenten er ei rett linje -- og ei rett linje veit vi nøyaktig kvar kryssar $x$-aksen. Det kryssingspunktet er den nye og betre gjettinga $x_1$. Gjenta frå $x_1$, og du får $x_2$, endå nærmare. Kvart steg byter den vanskelege kurva ut med den enklaste stedfortredaren hans.\n\nFormelen følgjer av rekneskapen du alt kan. Tangenten i $(x_n, f(x_n))$ har likning\n\n$$y - f(x_n) = f'(x_n)(x - x_n)$$\n\nVi vil vite kvar han treffer $x$-aksen, så vi set $y = 0$ og løyser for $x$: $-f(x_n) = f'(x_n)(x - x_n)$, som gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$. Dermed:\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nLes han som ein korreksjon: frå $x_n$ trekkjer vi feilen $f(x_n)$ *målt i målestokken til tangenten* $f'(x_n)$. Er funksjonsverdien stor og stiginga slak, må vi flytte oss langt; er verdien liten og stiginga bratt, er vi nesten framme og justerer berre ørlite. Det er heile Newtons metode -- ei gjetting og ein derivert, om og om att."
+    },
+    {
+      "id": "r1-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på ideen og formelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-5-n-quiz1-q0",
+            "task": "Kva er iterasjonsformelen i Newtons metode?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x_{n+1} = x_n - \\frac{f'(x_n)}{f(x_n)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x_{n+1} = x_n + f(x_n) \\cdot f'(x_n)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x_{n+1} = \\frac{f(x_n)}{f'(x_n)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå tangentlikninga med $y = 0$: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$. Funksjonsverdien blir delt på den deriverte."
+          },
+          {
+            "id": "r1-3-5-n-quiz1-q1",
+            "task": "Kva er den geometriske tolkinga av eitt steg i metoden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vi finn der tangenten i $(x_n, f(x_n))$ kryssar $x$-aksen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Vi halverer intervallet rundt nullpunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi speglar punktet om $y$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi finn toppunktet til $f$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tangenten erstattar kurva lokalt, og skjeringa hans med $x$-aksen blir neste tilnærming $x_{n+1}$."
+          },
+          {
+            "id": "r1-3-5-n-quiz1-q2",
+            "task": "Du skal løyse $\\cos x = x$ med Newtons metode. Kva gjer du først?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Deriverer begge sider",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Set $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Omformer til nullpunktsproblemet $f(x) = \\cos x - x = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Teiknar einingssirkelen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Metoden finn nullpunkt, så likninga må først skrivast på forma $f(x) = 0$."
+          },
+          {
+            "id": "r1-3-5-n-quiz1-q3",
+            "task": "Korleis blir formelen utleidd?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ved å integrere $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ved L'Hôpitals regel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ved å faktorisere $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ved å setje $y = 0$ i tangentlikninga $y - f(x_n) = f'(x_n)(x - x_n)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Skjeringa til tangenten med $x$-aksen ($y = 0$) gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-5-n-section2",
+      "type": "text",
+      "content": "## Metoden i aksjon -- og den kvadratiske magien\n\nAttende til løyndomen til kalkulatoren. $\\sqrt{2}$ er nullpunktet til $f(x) = x^2 - 2$, med $f'(x) = 2x$. Formelen blir\n\n$$x_{n+1} = x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{x_n}{2} + \\frac{1}{x_n}$$\n\n-- som er det same som gjennomsnittet av $x_n$ og $\\frac{2}{x_n}$: ei gjetting og det talet ho bommar mot, midla saman. Start med $x_0 = 1$: då gir formelen $x_1 = \\frac{1}{2} + 1 = 1{,}5$, deretter $x_2 = \\frac{1{,}5}{2} + \\frac{1}{1{,}5} \\approx 1{,}4167$, så $x_3 \\approx 1{,}4142$. Tre steg, fire korrekte desimalar. (Babylonarane brukte faktisk akkurat denne oppskrifta for 4000 år sidan -- Newton gav dei berre den deriverte som forklaring.)\n\nSå den transcendente likninga $\\cos x = x$. Med $f(x) = \\cos x - x$ og $f'(x) = -\\sin x - 1$ blir formelen $x_{n+1} = x_n - \\frac{\\cos x_n - x_n}{-\\sin x_n - 1}$. Grafisk inspeksjon antydar ei løysing nær $0{,}5$, så vi startar der: $x_1 \\approx 0{,}7552$, $x_2 \\approx 0{,}7391$ -- og der er $f(x_2) \\approx 0{,}00005$. To steg frå ei grov gjetting til fem desimalar.\n\nLegg merke til mønsteret i feila: om lag $0{,}24$, så $0{,}016$, så $0{,}00005$. Talet på korrekte siffer blir *dobla* i kvart steg. Dette blir kalla **kvadratisk konvergens**, og det er superkrafta til metoden: 5--10 iterasjonar gir meir enn 10 desimalar. Til samanlikning gir naive metodar eitt siffer per steg.\n\nI praksis treng vi eit **stoppkriterium** -- maskina kan jo ikkje iterere evig. To vanlege val: stopp når endringa $|x_{n+1} - x_n|$ er mindre enn ein toleranse (t.d. $10^{-6}$), eller når $|f(x_n)|$ er tilstrekkeleg nær null."
+    },
+    {
+      "id": "r1-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på metoden i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-5-n-quiz2-q0",
+            "task": "For $f(x) = x^2 - 2$ med $x_0 = 1$: kva blir $x_1$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$1{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1{,}4142$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1{,}25$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x_1 = \\frac{x_0}{2} + \\frac{1}{x_0} = \\frac{1}{2} + 1 = 1{,}5$."
+          },
+          {
+            "id": "r1-3-5-n-quiz2-q1",
+            "task": "Kva tyder kvadratisk konvergens i praksis?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Feilen blir halvert i kvart steg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Talet på korrekte siffer blir om lag dobla i kvart steg",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Metoden verkar berre for andregradsfunksjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det trengst $n^2$ iterasjonar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når metoden konvergerer, blir talet på rette desimalar dobla per iterasjon -- difor held 5--10 steg for over 10 desimalar."
+          },
+          {
+            "id": "r1-3-5-n-quiz2-q2",
+            "task": "Kva er løysinga av $\\cos x = x$ (med fire desimalar)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}5000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}0000$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0{,}7391$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}8660$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Newtons metode frå $x_0 = 0{,}5$ gir $0{,}7552$, så $0{,}7391$ -- der er $\\cos x - x \\approx 0$."
+          },
+          {
+            "id": "r1-3-5-n-quiz2-q3",
+            "task": "Kva av desse er eit vanleg stoppkriterium?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x_n > 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f'(x_n) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$n$ er eit partal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$|x_{n+1} - x_n| < 10^{-6}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi stoppar når endringa mellom iterasjonane -- eller $|f(x_n)|$ -- er mindre enn ein vald toleranse."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-5-n-section3",
+      "type": "text",
+      "content": "## Når tangenten lurer oss\n\nNewtons metode er rask, men ikkje ufeilbarleg -- og fellene er lærerike. Metoden fungerer godt når startverdien er nær løysinga, når $f'(x) \\neq 0$ i området, og når $f$ oppfører seg pent. Bryt eitt av føresetnadene, kan det gå gale på tre måtar: $f'(x_n) = 0$ gir divisjon med null (tangenten er vassrett og kryssar aldri $x$-aksen), ein dårleg startverdi kan sende iterasjonane på villspor, og har likninga fleire løysingar, kan du lande på «feil» ei.\n\nDet mest lærerike havariet: prøv $f(x) = x^{1/3}$, kubikkrota, med nullpunkt i $x = 0$. Med $f'(x) = \\frac{1}{3}x^{-2/3}$ blir iterasjonsformelen\n\n$$x_{n+1} = x_n - \\frac{x_n^{1/3}}{\\frac{1}{3}x_n^{-2/3}} = x_n - 3x_n = -2x_n$$\n\nKvart steg *doblar* avstanden og byter forteikn: frå $x_0 = 1$ får vi $-2, 4, -8, 16, \\ldots$ Iterasjonane **divergerer** -- sprett vekk frå nullpunktet dei skulle finne. Syndaren er den deriverte: nær $x = 0$ veks $f'$ mot uendeleg, grafen står loddrett, og tangentane peikar lenger og lenger bort.\n\nKva gjer vi når Newton sviktar? Den trufaste reserven er **halveringsmetoden**: finn $a$ og $b$ med forteiknskifte, $f(a) \\cdot f(b) < 0$, og halver intervallet om og om att. Han er treg -- lineær konvergens, om lag eitt binærsiffer per steg -- men han feilar *aldri* så lenge forteiknskiftet finst. Newtons metode er sprintaren som kan snuble; halveringsmetoden er turgåaren som alltid kjem fram.\n\nProfesjonell praksis kombinerer dei: bruk halvering til eit grovt estimat trygt innanfor, og slepp så Newton laus for å finpusse med kvadratisk fart. Slik får du både påliteleg­heita og farten."
+    },
+    {
+      "id": "r1-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på feilkjelder og alternativ:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-5-n-quiz3-q0",
+            "task": "Kva skjer når Newtons metode blir brukt på $f(x) = x^{1/3}$ med $x_0 = 1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Iterasjonane blir $-2, 4, -8, \\ldots$ -- metoden divergerer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Konvergerer mot $0$ etter tre steg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Konvergerer mot $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gir divisjon med null med ein gong",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formelen forenklast til $x_{n+1} = -2x_n$: avstanden blir dobla i kvart steg fordi $f'$ er ubegrensa nær nullpunktet."
+          },
+          {
+            "id": "r1-3-5-n-quiz3-q1",
+            "task": "Kva situasjon gjer at metoden bryt saman i eit steg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x_n) > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f'(x_n) = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x_n$ er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f$ har fleire nullpunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $f'(x_n) = 0$ er tangenten vassrett -- han kryssar aldri $x$-aksen, og formelen deler på null."
+          },
+          {
+            "id": "r1-3-5-n-quiz3-q2",
+            "task": "Kva krevst for at halveringsmetoden skal fungere?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At $f'(x) \\neq 0$ overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein svært god startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Eit intervall med forteiknskifte: $f(a) \\cdot f(b) < 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At $f$ er eit polynom",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Halveringsmetoden treng berre eit intervall der $f$ skiftar forteikn -- då finst eit nullpunkt der, og halveringa ringar det inn."
+          },
+          {
+            "id": "r1-3-5-n-quiz3-q3",
+            "task": "Kva er ein god strategi i praksis?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bruk alltid berre Newtons metode",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bruk alltid berre halveringsmetoden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vel metode ved myntkast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Halveringsmetoden først for eit grovt estimat, så Newtons metode for rask finpuss",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Halvering gir påliteleg grovposisjon; Newton gir kvadratisk fart derifrå -- kombinasjonen gir både tryggleik og fart."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-5-n-summary",
+      "type": "text",
+      "content": "## Forteljinga i eit nøtteskal\n\nRotmysteriet til kalkulatoren er løyst: bak tasten bur ein iterasjon. Newtons metode finn nullpunkt for $f(x) = 0$ ved å la tangenten vise veg -- stå i $(x_n, f(x_n))$, følg tangenten til han kryssar $x$-aksen, og kall kryssinga $x_{n+1}$. Av tangentlikninga med $y = 0$ vart formelen\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nOppskrifta: omform likninga til $f(x) = 0$, finn $f'$, vel ein god startverdi $x_0$ (gjerne frå ei grafskisse), og iterer til stoppkriteriet slår inn -- $|x_{n+1} - x_n|$ eller $|f(x_n)|$ under toleransen.\n\nStyrken er den **kvadratiske konvergensen**: talet på korrekte siffer blir dobla per steg, slik vi såg då $\\sqrt{2}$ fall på tre iterasjonar frå $x_0 = 1$ ($1{,}5 \\to 1{,}4167 \\to 1{,}4142$) og $\\cos x = x$ gav $0{,}7391$ på to steg frå $0{,}5$.\n\nSvakheitene er like konkrete: $f'(x_n) = 0$ gir havari, dårleg startverdi kan gi divergens eller feil løysing, og kubikkrota $x^{1/3}$ viste totalhavariet $x_{n+1} = -2x_n$ -- tangentar som peikar lenger og lenger bort. Reserven er **halveringsmetoden**: treg, men ufeilbarleg gitt eit forteiknskifte. I praksis blir dei kombinerte -- halvering for tryggleik, Newton for fart.\n\nMetoden er òg eit attsyn med den raude tråden i kapittelet: den deriverte som lokal, lineær stedfortredar for kurva. I neste kapittel snur vi på det -- og lèt tala tilnærme den deriverte sjølv."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "23c2784c0da8be0f",
+    "translatedAt": "2026-06-19T23:59:27.560Z",
+    "model": "claude-code-agent",
+    "strings": 79,
+    "tm": {
+      "27c70ed38b9ab380": "Newtons metode",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "2cab46f38df74f7b": "Ei forteljing om korleis kalkulatoren eigentleg finn røter -- tangenten som vegvisar, iterasjonane som doblar presisjonen, og fellene som får metoden til å spore av.",
+      "68a2bef4f32c0afd": "bestemme den deriverte i eit punkt geometrisk, algebraisk og ved numeriske metodar",
+      "b4edcfd986d81bcb": "## Kva gjer kalkulatoren når du trykkjer på rotteiknet?\n\nTast $\\sqrt{2}$ på kalkulatoren, og svaret $1{,}41421356\\ldots$ kjem momentant. Men stopp og tenk: *korleis*? Det finst ingen krins i maskina som «veit» kvadratrøter. Det finst heller inga formel å slå opp i -- $\\sqrt{2}$ er irrasjonal, sifra tek aldri slutt. Likevel leverer kalkulatoren eit titals korrekte desimalar på eit millisekund.\n\nDet same mysteriet lurer i likningane algebraen ikkje rår på. $x^5 - 3x + 1 = 0$ har inga løysingsformel -- det er prova at femtegradslikningar generelt ikkje kan løysast med rotteikn. $\\cos x = x$ blandar trigonometri og polynom på ein måte ingen omskriving løyser opp. $e^x = 3x$ likeins. Men løysingane *finst*: grafane kryssar kvarandre, det ser du med det blotte auge. Spørsmålet er korleis vi fangar dei.\n\nSvaret, som driv både kalkulatoren din og talknusinga i moderne ingeniørkunst, er ein idé frå Isaac Newton: **gjett, og la tangenten forbetre gjettinga**. Står du på grafen til $f$ og vil ned til nullpunktet, så følg tangenten -- han peikar om lag dit grafen skal, og der han kryssar $x$-aksen, står du nesten alltid nærmare svaret enn der du starta. Gjenta, og presisjonen eksploderer: talet på rette desimalar blir *dobla* i kvart steg.\n\nI dette kapittelet utleier du iterasjonsformelen frå tangentlikninga, ser metoden knuse både $\\sqrt{2}$ og $\\cos x = x$ -- og lærer når han feilar, kvifor, og kva du gjer då.",
+      "5c6d87981b520b73": "## Tangenten som vegvisar\n\nOppgåva er alltid den same: finn eit nullpunkt for $f$, altså ei løysing av $f(x) = 0$. (Har du ei likning på anna form, som $\\cos x = x$, flyttar du først alt over på éi side: $f(x) = \\cos x - x$.)\n\nMetoden startar med ei **gjetting** $x_0$ ein stad i nærleiken av løysinga -- ei grafskisse eller litt prøving gir deg ho. Så kjem kjernen: stå i punktet $(x_0, f(x_0))$ på grafen og legg tangenten der. Grafen sjølv buktar seg, men tangenten er ei rett linje -- og ei rett linje veit vi nøyaktig kvar kryssar $x$-aksen. Det kryssingspunktet er den nye og betre gjettinga $x_1$. Gjenta frå $x_1$, og du får $x_2$, endå nærmare. Kvart steg byter den vanskelege kurva ut med den enklaste stedfortredaren hans.\n\nFormelen følgjer av rekneskapen du alt kan. Tangenten i $(x_n, f(x_n))$ har likning\n\n$$y - f(x_n) = f'(x_n)(x - x_n)$$\n\nVi vil vite kvar han treffer $x$-aksen, så vi set $y = 0$ og løyser for $x$: $-f(x_n) = f'(x_n)(x - x_n)$, som gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$. Dermed:\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nLes han som ein korreksjon: frå $x_n$ trekkjer vi feilen $f(x_n)$ *målt i målestokken til tangenten* $f'(x_n)$. Er funksjonsverdien stor og stiginga slak, må vi flytte oss langt; er verdien liten og stiginga bratt, er vi nesten framme og justerer berre ørlite. Det er heile Newtons metode -- ei gjetting og ein derivert, om og om att.",
+      "643bc8ada4c59f20": "Test deg sjølv på ideen og formelen:",
+      "4097889236a2af26": "placeholder",
+      "a21c9f2d3ad8a482": "Kva er iterasjonsformelen i Newtons metode?",
+      "6fe01bf2c9af0018": "$x_{n+1} = x_n - \\frac{f'(x_n)}{f(x_n)}$",
+      "f0f417c1e05c61da": "$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$",
+      "f4ad8bc4f3c49516": "$x_{n+1} = x_n + f(x_n) \\cdot f'(x_n)$",
+      "51a98c46b2e26cf0": "$x_{n+1} = \\frac{f(x_n)}{f'(x_n)}$",
+      "6575decb8712118d": "Frå tangentlikninga med $y = 0$: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$. Funksjonsverdien blir delt på den deriverte.",
+      "d523d6645a67feb2": "Kva er den geometriske tolkinga av eitt steg i metoden?",
+      "fa8dd7a73b485c56": "Vi finn der tangenten i $(x_n, f(x_n))$ kryssar $x$-aksen",
+      "071e8392db523f88": "Vi halverer intervallet rundt nullpunktet",
+      "ca172589f9b5a105": "Vi speglar punktet om $y$-aksen",
+      "901cb6d2d7cbac15": "Vi finn toppunktet til $f$",
+      "d5c46601fc4a0069": "Tangenten erstattar kurva lokalt, og skjeringa hans med $x$-aksen blir neste tilnærming $x_{n+1}$.",
+      "3eebe3b305214f6a": "Du skal løyse $\\cos x = x$ med Newtons metode. Kva gjer du først?",
+      "e5e17ea1987349d5": "Deriverer begge sider",
+      "b1e7ff3637be530c": "Set $x = 0$",
+      "bcd62f8a33cce58e": "Omformer til nullpunktsproblemet $f(x) = \\cos x - x = 0$",
+      "40a7cba57e0938b5": "Teiknar einingssirkelen",
+      "4f96c2a9cecab4b9": "Metoden finn nullpunkt, så likninga må først skrivast på forma $f(x) = 0$.",
+      "588d0f291c8fcd9d": "Korleis blir formelen utleidd?",
+      "de8f920789cb7d10": "Ved å integrere $f$",
+      "2ac0397b3e5c8f80": "Ved L'Hôpitals regel",
+      "36d0d8e4107a8a39": "Ved å faktorisere $f$",
+      "f0294875303885b5": "Ved å setje $y = 0$ i tangentlikninga $y - f(x_n) = f'(x_n)(x - x_n)$",
+      "176c672978968608": "Skjeringa til tangenten med $x$-aksen ($y = 0$) gir $x = x_n - \\frac{f(x_n)}{f'(x_n)}$.",
+      "1a4de813029b1df9": "## Metoden i aksjon -- og den kvadratiske magien\n\nAttende til løyndomen til kalkulatoren. $\\sqrt{2}$ er nullpunktet til $f(x) = x^2 - 2$, med $f'(x) = 2x$. Formelen blir\n\n$$x_{n+1} = x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{x_n}{2} + \\frac{1}{x_n}$$\n\n-- som er det same som gjennomsnittet av $x_n$ og $\\frac{2}{x_n}$: ei gjetting og det talet ho bommar mot, midla saman. Start med $x_0 = 1$: då gir formelen $x_1 = \\frac{1}{2} + 1 = 1{,}5$, deretter $x_2 = \\frac{1{,}5}{2} + \\frac{1}{1{,}5} \\approx 1{,}4167$, så $x_3 \\approx 1{,}4142$. Tre steg, fire korrekte desimalar. (Babylonarane brukte faktisk akkurat denne oppskrifta for 4000 år sidan -- Newton gav dei berre den deriverte som forklaring.)\n\nSå den transcendente likninga $\\cos x = x$. Med $f(x) = \\cos x - x$ og $f'(x) = -\\sin x - 1$ blir formelen $x_{n+1} = x_n - \\frac{\\cos x_n - x_n}{-\\sin x_n - 1}$. Grafisk inspeksjon antydar ei løysing nær $0{,}5$, så vi startar der: $x_1 \\approx 0{,}7552$, $x_2 \\approx 0{,}7391$ -- og der er $f(x_2) \\approx 0{,}00005$. To steg frå ei grov gjetting til fem desimalar.\n\nLegg merke til mønsteret i feila: om lag $0{,}24$, så $0{,}016$, så $0{,}00005$. Talet på korrekte siffer blir *dobla* i kvart steg. Dette blir kalla **kvadratisk konvergens**, og det er superkrafta til metoden: 5--10 iterasjonar gir meir enn 10 desimalar. Til samanlikning gir naive metodar eitt siffer per steg.\n\nI praksis treng vi eit **stoppkriterium** -- maskina kan jo ikkje iterere evig. To vanlege val: stopp når endringa $|x_{n+1} - x_n|$ er mindre enn ein toleranse (t.d. $10^{-6}$), eller når $|f(x_n)|$ er tilstrekkeleg nær null.",
+      "aa3a88749ffb8b10": "Test deg sjølv på metoden i praksis:",
+      "6ac3d80e1dabebbd": "For $f(x) = x^2 - 2$ med $x_0 = 1$: kva blir $x_1$?",
+      "97c3763b8cfa6a98": "$x_1 = \\frac{x_0}{2} + \\frac{1}{x_0} = \\frac{1}{2} + 1 = 1{,}5$.",
+      "734620f677d592f4": "Kva tyder kvadratisk konvergens i praksis?",
+      "0ca8818383b5f132": "Feilen blir halvert i kvart steg",
+      "a77ba3db8a85a4b0": "Talet på korrekte siffer blir om lag dobla i kvart steg",
+      "1b02ce5db02e1511": "Metoden verkar berre for andregradsfunksjonar",
+      "8e61af646b7cffac": "Det trengst $n^2$ iterasjonar",
+      "f1fa808d6e94e29a": "Når metoden konvergerer, blir talet på rette desimalar dobla per iterasjon -- difor held 5--10 steg for over 10 desimalar.",
+      "5011b2f2a4c541ff": "Kva er løysinga av $\\cos x = x$ (med fire desimalar)?",
+      "78c74e4a28e32d63": "Newtons metode frå $x_0 = 0{,}5$ gir $0{,}7552$, så $0{,}7391$ -- der er $\\cos x - x \\approx 0$.",
+      "a7f7689a73c800dd": "Kva av desse er eit vanleg stoppkriterium?",
+      "99a7f4743e1719f9": "$x_n > 100$",
+      "029036d1788461f1": "$f'(x_n) = 0$",
+      "c21114f6e2cdf60e": "$n$ er eit partal",
+      "55801a7418c56148": "$|x_{n+1} - x_n| < 10^{-6}$",
+      "005cbe82e6284144": "Vi stoppar når endringa mellom iterasjonane -- eller $|f(x_n)|$ -- er mindre enn ein vald toleranse.",
+      "510383a1d717efe6": "## Når tangenten lurer oss\n\nNewtons metode er rask, men ikkje ufeilbarleg -- og fellene er lærerike. Metoden fungerer godt når startverdien er nær løysinga, når $f'(x) \\neq 0$ i området, og når $f$ oppfører seg pent. Bryt eitt av føresetnadene, kan det gå gale på tre måtar: $f'(x_n) = 0$ gir divisjon med null (tangenten er vassrett og kryssar aldri $x$-aksen), ein dårleg startverdi kan sende iterasjonane på villspor, og har likninga fleire løysingar, kan du lande på «feil» ei.\n\nDet mest lærerike havariet: prøv $f(x) = x^{1/3}$, kubikkrota, med nullpunkt i $x = 0$. Med $f'(x) = \\frac{1}{3}x^{-2/3}$ blir iterasjonsformelen\n\n$$x_{n+1} = x_n - \\frac{x_n^{1/3}}{\\frac{1}{3}x_n^{-2/3}} = x_n - 3x_n = -2x_n$$\n\nKvart steg *doblar* avstanden og byter forteikn: frå $x_0 = 1$ får vi $-2, 4, -8, 16, \\ldots$ Iterasjonane **divergerer** -- sprett vekk frå nullpunktet dei skulle finne. Syndaren er den deriverte: nær $x = 0$ veks $f'$ mot uendeleg, grafen står loddrett, og tangentane peikar lenger og lenger bort.\n\nKva gjer vi når Newton sviktar? Den trufaste reserven er **halveringsmetoden**: finn $a$ og $b$ med forteiknskifte, $f(a) \\cdot f(b) < 0$, og halver intervallet om og om att. Han er treg -- lineær konvergens, om lag eitt binærsiffer per steg -- men han feilar *aldri* så lenge forteiknskiftet finst. Newtons metode er sprintaren som kan snuble; halveringsmetoden er turgåaren som alltid kjem fram.\n\nProfesjonell praksis kombinerer dei: bruk halvering til eit grovt estimat trygt innanfor, og slepp så Newton laus for å finpusse med kvadratisk fart. Slik får du både påliteleg­heita og farten.",
+      "e99b800eacc85079": "Test deg sjølv på feilkjelder og alternativ:",
+      "ae02ac27d28bae95": "Kva skjer når Newtons metode blir brukt på $f(x) = x^{1/3}$ med $x_0 = 1$?",
+      "c416b01ef7af150e": "Konvergerer mot $0$ etter tre steg",
+      "6fa1c28079af8084": "Iterasjonane blir $-2, 4, -8, \\ldots$ -- metoden divergerer",
+      "ae9317e3f2ff55de": "Konvergerer mot $1$",
+      "fa96175e732d7f01": "Gir divisjon med null med ein gong",
+      "59a1970fd1f4833b": "Formelen forenklast til $x_{n+1} = -2x_n$: avstanden blir dobla i kvart steg fordi $f'$ er ubegrensa nær nullpunktet.",
+      "fe1f434ac95f5a7c": "Kva situasjon gjer at metoden bryt saman i eit steg?",
+      "3a17bcee0568e7ee": "$f(x_n) > 0$",
+      "3dc4877142c2bdb1": "$x_n$ er negativ",
+      "887f139e955c06fe": "$f$ har fleire nullpunkt",
+      "45ff497428777835": "Med $f'(x_n) = 0$ er tangenten vassrett -- han kryssar aldri $x$-aksen, og formelen deler på null.",
+      "f568dabb3d3e0b24": "Kva krevst for at halveringsmetoden skal fungere?",
+      "bbf1a33d708f7cc2": "Eit intervall med forteiknskifte: $f(a) \\cdot f(b) < 0$",
+      "9a45dd62c17b08c9": "At $f'(x) \\neq 0$ overalt",
+      "842bc088bb9dd5d8": "Ein svært god startverdi",
+      "53b14fdd2e9f7d00": "At $f$ er eit polynom",
+      "c31d48f9495e406a": "Halveringsmetoden treng berre eit intervall der $f$ skiftar forteikn -- då finst eit nullpunkt der, og halveringa ringar det inn.",
+      "db7413bb5a4afa85": "Kva er ein god strategi i praksis?",
+      "10b355ede0396898": "Bruk alltid berre Newtons metode",
+      "8289c4e1c15aebef": "Bruk alltid berre halveringsmetoden",
+      "82806502d2b725c2": "Vel metode ved myntkast",
+      "8b2e3e168f794a9e": "Halveringsmetoden først for eit grovt estimat, så Newtons metode for rask finpuss",
+      "18358dd3ab8bdfa0": "Halvering gir påliteleg grovposisjon; Newton gir kvadratisk fart derifrå -- kombinasjonen gir både tryggleik og fart.",
+      "79c039300a4e6893": "## Forteljinga i eit nøtteskal\n\nRotmysteriet til kalkulatoren er løyst: bak tasten bur ein iterasjon. Newtons metode finn nullpunkt for $f(x) = 0$ ved å la tangenten vise veg -- stå i $(x_n, f(x_n))$, følg tangenten til han kryssar $x$-aksen, og kall kryssinga $x_{n+1}$. Av tangentlikninga med $y = 0$ vart formelen\n\n$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$\n\nOppskrifta: omform likninga til $f(x) = 0$, finn $f'$, vel ein god startverdi $x_0$ (gjerne frå ei grafskisse), og iterer til stoppkriteriet slår inn -- $|x_{n+1} - x_n|$ eller $|f(x_n)|$ under toleransen.\n\nStyrken er den **kvadratiske konvergensen**: talet på korrekte siffer blir dobla per steg, slik vi såg då $\\sqrt{2}$ fall på tre iterasjonar frå $x_0 = 1$ ($1{,}5 \\to 1{,}4167 \\to 1{,}4142$) og $\\cos x = x$ gav $0{,}7391$ på to steg frå $0{,}5$.\n\nSvakheitene er like konkrete: $f'(x_n) = 0$ gir havari, dårleg startverdi kan gi divergens eller feil løysing, og kubikkrota $x^{1/3}$ viste totalhavariet $x_{n+1} = -2x_n$ -- tangentar som peikar lenger og lenger bort. Reserven er **halveringsmetoden**: treg, men ufeilbarleg gitt eit forteiknskifte. I praksis blir dei kombinerte -- halvering for tryggleik, Newton for fart.\n\nMetoden er òg eit attsyn med den raude tråden i kapittelet: den deriverte som lokal, lineær stedfortredar for kurva. I neste kapittel snur vi på det -- og lèt tala tilnærme den deriverte sjølv."
+    }
+  }
+}

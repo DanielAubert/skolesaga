@@ -1,1 +1,423 @@
-{"id":"s2-1-5-narrativ","courseId":"s2","chapterNumber":"1.5","title":"Numerisk integrasjon","subtitle":"Narrativ versjon","description":"En fortelling fra et forsikringskontor der normalfordelingens integral ikke kan løses med formler — men temmes med trapeser, parabler og smart feilkontroll.","estimatedMinutes":38,"competenceGoals":["bruke numeriske metoder til å beregne tilnærmede verdier av bestemte integraler","vurdere nøyaktigheten av numeriske tilnærminger"],"linkedChapterId":"s2-1-5","content":[{"id":"s2-1-5-n-intro","type":"text","content":"## Når formlene ikke strekker til\n\nDu jobber med statistikk i et forsikringsselskap, og en kollega ber deg beregne et areal under normalfordelingskurven — selve hjørnesteinen i all risikoanalyse. Du setter deg ned med integrasjonsreglene fra de forrige kapitlene, klar til å finne en antiderivert til $e^{-x^2}$. Og der stopper det. Ikke fordi du ikke kan reglene, men fordi det er *bevist* at $\\int e^{-x^2}\\,dx$ ikke har noen elementær antiderivert. Ingen kombinasjon av potenser, logaritmer, eksponentialfunksjoner og trigonometriske funksjoner gir en funksjon med $e^{-x^2}$ som derivert.\n\nLikevel beregner statistikere slike integraler hver eneste dag, med mange desimalers nøyaktighet. Hemmeligheten er **numerisk integrasjon**: metoder som beregner tilnærmede verdier av bestemte integraler $\\int_a^b f(x)\\,dx$ uten å gå veien om antideriverte.\n\nGrunnideen er enkel og geometrisk. Vi deler intervallet $[a, b]$ inn i $n$ delintervaller, hver med bredde $h = \\frac{b-a}{n}$, med delingspunkter $x_0 = a$, $x_1 = a + h$, $x_2 = a + 2h$ og så videre frem til $x_n = b$. Så tilnærmer vi arealet under grafen med enklere geometriske figurer — trapeser eller parabelbiter — som vi *kan* regne ut eksakt.\n\nNumerisk integrasjon er også redningen i en annen hverdagssituasjon: når du ikke kjenner funksjonsuttrykket i det hele tatt, bare målepunkter. Fartsloggen fra en bil, strømforbruket time for time, trafikktellinger — alt dette er tabeller, ikke formler, og da er numeriske metoder eneste vei til integralet."},{"id":"s2-1-5-n-section1","type":"text","content":"## Trapesformelen\n\nDen enkleste ideen er å erstatte kurvebuen mellom to nabopunkter med en rett linje. Hvert delområde blir da et trapes, og summen av trapesarealene tilnærmer integralet. Med $n$ delintervaller og $h = \\frac{b-a}{n}$ gir det **trapesformelen**:\n\n$$T_n = \\frac{h}{2}\\Big[f(x_0) + 2f(x_1) + 2f(x_2) + \\cdots + 2f(x_{n-1}) + f(x_n)\\Big]$$\n\nLegg merke til koeffisientmønsteret $1, 2, 2, \\ldots, 2, 1$: endepunktene teller én gang, mens hvert indre punkt deles av to nabotrapeser og derfor teller dobbelt.\n\nLa oss angripe forsikringsproblemet: tilnærm $\\int_0^2 e^{-x^2}\\,dx$ med $n = 4$. Da er $h = \\frac{2-0}{4} = 0{,}5$, og vi trenger funksjonsverdiene i de fem delingspunktene: $f(0) = 1$, $f(0{,}5) = e^{-0{,}25} \\approx 0{,}7788$, $f(1) = e^{-1} \\approx 0{,}3679$, $f(1{,}5) = e^{-2{,}25} \\approx 0{,}1054$ og $f(2) = e^{-4} \\approx 0{,}0183$.\n\nInn i formelen:\n\n$$T_4 = \\frac{0{,}5}{2}\\Big[1 + 2(0{,}7788) + 2(0{,}3679) + 2(0{,}1054) + 0{,}0183\\Big] = 0{,}25 \\cdot 3{,}5225 \\approx 0{,}8806$$\n\nDen eksakte verdien er $\\approx 0{,}8821$, så med bare fire trapeser bommer vi med omtrent $0{,}0015$. Ikke verst for noen minutters regning på et integral som er «umulig» å løse analytisk! Og vil du ha bedre nøyaktighet, er det bare å øke $n$ — flere og smalere trapeser følger kurven tettere."},{"id":"s2-1-5-n-quiz1","type":"exercise","exercise":{"id":"s2-1-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på trapesformelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-5-n-quiz1-q0","task":"Vi skal tilnærme $\\int_0^2 f(x)\\,dx$ med $n = 4$ delintervaller. Hva blir bredden $h$?","options":[{"id":"a","text":"$h = 2$","isCorrect":false},{"id":"b","text":"$h = 0{,}5$","isCorrect":true},{"id":"c","text":"$h = 0{,}25$","isCorrect":false},{"id":"d","text":"$h = 4$","isCorrect":false}],"solution":"$h = \\frac{b-a}{n} = \\frac{2-0}{4} = 0{,}5$."},{"id":"s2-1-5-n-quiz1-q1","task":"Hva er koeffisientmønsteret i trapesformelen?","options":[{"id":"a","text":"$1, 2, 2, \\ldots, 2, 1$","isCorrect":true},{"id":"b","text":"$1, 4, 2, 4, \\ldots, 4, 1$","isCorrect":false},{"id":"c","text":"$1, 1, 1, \\ldots, 1, 1$","isCorrect":false},{"id":"d","text":"$2, 1, 1, \\ldots, 1, 2$","isCorrect":false}],"solution":"Endepunktene teller én gang, de indre punktene to ganger (de deles av to nabotrapeser): $T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$."},{"id":"s2-1-5-n-quiz1-q2","task":"Hva er den geometriske ideen bak trapesformelen?","options":[{"id":"a","text":"Kurvebuen mellom nabopunkter erstattes med en parabel","isCorrect":false},{"id":"b","text":"Arealet tilnærmes med rektangler med høyde lik venstre endepunkt","isCorrect":false},{"id":"c","text":"Kurvebuen mellom nabopunkter erstattes med en rett linje, så hvert delområde blir et trapes","isCorrect":true},{"id":"d","text":"Grafen speiles om $x$-aksen","isCorrect":false}],"solution":"Trapesformelen trekker rette linjer mellom punktene på grafen. Parabel-tilnærmingen er Simpsons regel, som kommer i neste seksjon."},{"id":"s2-1-5-n-quiz1-q3","task":"Hva ga trapesformelen med $n = 4$ for $\\int_0^2 e^{-x^2}\\,dx$ (eksakt verdi $\\approx 0{,}8821$)?","options":[{"id":"a","text":"$\\approx 0{,}8806$","isCorrect":true},{"id":"b","text":"$\\approx 0{,}9921$","isCorrect":false},{"id":"c","text":"$\\approx 0{,}7788$","isCorrect":false},{"id":"d","text":"$\\approx 1{,}0000$","isCorrect":false}],"solution":"$T_4 = 0{,}25[1 + 2(0{,}7788) + 2(0{,}3679) + 2(0{,}1054) + 0{,}0183] \\approx 0{,}8806$ — en feil på bare ca. $0{,}0015$."}]}},{"id":"s2-1-5-n-section2","type":"text","content":"## Simpsons regel og feilkontroll\n\nKan vi gjøre det bedre enn rette linjer? Ja — vi kan legge en **parabel** gjennom tre og tre nabopunkter. Det er ideen bak **Simpsons regel**, som krever et *partall* antall delintervaller $n$:\n\n$$S_n = \\frac{h}{3}\\Big[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)\\Big]$$\n\nKoeffisientene følger mønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$. Bruker vi Simpsons regel på det samme integralet $\\int_0^2 e^{-x^2}\\,dx$ med $n = 4$ og de samme fem funksjonsverdiene, får vi\n\n$$S_4 = \\frac{0{,}5}{3}\\Big[1 + 4(0{,}7788) + 2(0{,}3679) + 4(0{,}1054) + 0{,}0183\\Big] = \\frac{0{,}5}{3} \\cdot 5{,}2909 \\approx 0{,}8818$$\n\nFeilen er nå bare $\\approx 0{,}0003$ — fem ganger bedre enn trapesformelen, med nøyaktig samme regnearbeid.\n\nForskjellen kan tallfestes. For trapesformelen gjelder feilgrensen $|E_T| \\leq \\frac{(b-a)^3}{12n^2} \\cdot M_2$, der $M_2$ er den største verdien av $|f''(x)|$ på intervallet. For Simpsons regel er $|E_S| \\leq \\frac{(b-a)^5}{180n^4} \\cdot M_4$, med $M_4$ som maksimum av $|f^{(4)}(x)|$. Det avgjørende er eksponentene: trapesfeilen avtar som $\\frac{1}{n^2}$, Simpson-feilen som $\\frac{1}{n^4}$. Dobler du $n$, blir trapesformelen cirka 4 ganger mer nøyaktig — Simpsons regel 16 ganger.\n\nFeilgrensene lar oss også planlegge. Hvor mange delintervaller trenger trapesformelen for å beregne $\\int_0^1 \\frac{1}{1+x^2}\\,dx$ med feil under $0{,}001$? Den andrederiverte er $f''(x) = \\frac{6x^2-2}{(1+x^2)^3}$, som på $[0, 1]$ er størst i $x = 0$ med $|f''(0)| = 2$, så $M_2 = 2$. Kravet $\\frac{1}{12n^2} \\cdot 2 = \\frac{1}{6n^2} < 0{,}001$ gir $n^2 > 166{,}7$, altså $n > 12{,}9$. Minst $n = 13$ delintervaller — og det vet vi *før* vi begynner å regne."},{"id":"s2-1-5-n-quiz2","type":"exercise","exercise":{"id":"s2-1-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på Simpsons regel og feilestimering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-5-n-quiz2-q0","task":"Hva er koeffisientmønsteret i Simpsons regel?","options":[{"id":"a","text":"$1, 2, 2, \\ldots, 2, 1$","isCorrect":false},{"id":"b","text":"$1, 3, 3, \\ldots, 3, 1$","isCorrect":false},{"id":"c","text":"$1, 4, 2, 4, 2, \\ldots, 4, 1$","isCorrect":true},{"id":"d","text":"$4, 1, 4, 1, \\ldots, 4$","isCorrect":false}],"solution":"Simpsons regel: $S_n = \\frac{h}{3}[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)]$ med mønsteret $1, 4, 2, 4, \\ldots, 4, 1$."},{"id":"s2-1-5-n-quiz2-q1","task":"Hvilket krav stiller Simpsons regel til antall delintervaller $n$?","options":[{"id":"a","text":"$n$ må være et primtall","isCorrect":false},{"id":"b","text":"$n$ må være et partall","isCorrect":true},{"id":"c","text":"$n$ må være et oddetall","isCorrect":false},{"id":"d","text":"$n$ må være delelig med 3","isCorrect":false}],"solution":"Simpsons regel legger en parabel gjennom tre og tre punkter og bruker derfor delintervallene parvis — $n$ må være et partall."},{"id":"s2-1-5-n-quiz2-q2","task":"Vi dobler antall delintervaller $n$ i trapesformelen. Omtrent hvor mye bedre blir nøyaktigheten?","options":[{"id":"a","text":"Ca. 2 ganger bedre","isCorrect":false},{"id":"b","text":"Ca. 16 ganger bedre","isCorrect":false},{"id":"c","text":"Uendret","isCorrect":false},{"id":"d","text":"Ca. 4 ganger bedre","isCorrect":true}],"solution":"Trapesfeilen avtar som $\\frac{1}{n^2}$, så dobling av $n$ gir faktor $2^2 = 4$. For Simpsons regel ($\\frac{1}{n^4}$) gir dobling faktor $2^4 = 16$."},{"id":"s2-1-5-n-quiz2-q3","task":"Trapes og Simpson brukes med samme $n$ på samme integral. Hvilken gir normalt minst feil?","options":[{"id":"a","text":"Trapesformelen, fordi rette linjer er enklere","isCorrect":false},{"id":"b","text":"Simpsons regel, fordi parabler følger kurven bedre enn rette linjer","isCorrect":true},{"id":"c","text":"Alltid helt likt","isCorrect":false},{"id":"d","text":"Det er tilfeldig hvilken som vinner","isCorrect":false}],"solution":"Simpsons regel har feilorden $O(\\frac{1}{n^4})$ mot trapesformelens $O(\\frac{1}{n^2})$, og er til og med eksakt for polynomer av grad opptil 3. I eksempelet var Simpson-feilen $0{,}0003$ mot trapesens $0{,}0015$."},{"id":"s2-1-5-n-quiz2-q4","task":"For $\\int_0^1 \\frac{1}{1+x^2}\\,dx$ med $M_2 = 2$: hvor mange delintervaller trenger trapesformelen for feil under $0{,}001$?","options":[{"id":"a","text":"Minst $n = 4$","isCorrect":false},{"id":"b","text":"Minst $n = 13$","isCorrect":true},{"id":"c","text":"Minst $n = 167$","isCorrect":false},{"id":"d","text":"Minst $n = 100$","isCorrect":false}],"solution":"Feilgrensen $\\frac{1}{6n^2} < 0{,}001$ gir $n^2 > \\frac{1}{0{,}006} \\approx 166{,}7$, altså $n > 12{,}9$. Første heltall som duger er $n = 13$."}]}},{"id":"s2-1-5-n-section3","type":"text","content":"## Numerisk integrasjon i praksis\n\nNår griper vi i praksis til numeriske metoder? For det første når funksjonen ikke har noen elementær antiderivert — klassikerne er $\\int e^{-x^2}\\,dx$, $\\int \\frac{\\sin x}{x}\\,dx$ og $\\int \\sqrt{1+x^3}\\,dx$. For det andre når funksjonen bare finnes som *datapunkter*: målinger fra eksperimenter, fartslogger, temperaturdataloggere. Og for det tredje som kontrollregning — et numerisk overslag avslører fort en slurvefeil i den analytiske utregningen.\n\nDatasituasjonen fortjener et eksempel. Farten til en bil er målt hvert andre sekund: ved $t = 0, 2, 4, 6, 8, 10$ sekunder var farten henholdsvis $0, 5, 12, 18, 22$ og $25$ m/s. Tilbakelagt strekning er $s = \\int_0^{10} v(t)\\,dt$ — men vi har ingen formel for $v(t)$, bare seks tall. Trapesformelen med $n = 5$ og $h = 2$:\n\n$$T_5 = \\frac{2}{2}\\Big[0 + 2(5) + 2(12) + 2(18) + 2(22) + 25\\Big] = 10 + 24 + 36 + 44 + 25 = 139 \\text{ m}$$\n\nBilen kjørte omtrent 139 meter på 10 sekunder — beregnet rett fra tabellen.\n\nTil slutt noen praktiske huskeregler. Simpsons regel krever partall $n$, så med datapunkter må du telle: seks målepunkter gir $n = 5$ delintervaller, og da er det trapesformelen som gjelder. Feilen avhenger av de høyere deriverte — jo mer «krokete» grafen er, desto flere delintervaller trengs. Og det enkleste feilestimatet i praksis: regn ut med $n$, doble til $2n$, og sammenlign. Endrer svaret seg lite, kan du stole på sifrene som står fast. Trapesformelen er enklest å huske; Simpsons regel gir mer nøyaktighet for samme arbeid. Velg etter behov — og kontroller alltid."},{"id":"s2-1-5-n-quiz3","type":"exercise","exercise":{"id":"s2-1-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på praktisk bruk av numerisk integrasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-5-n-quiz3-q0","task":"Hvorfor må $\\int_0^2 e^{-x^2}\\,dx$ beregnes numerisk?","options":[{"id":"a","text":"Fordi integralet er uendelig stort","isCorrect":false},{"id":"b","text":"Fordi $e^{-x^2}$ ikke har noen elementær antiderivert","isCorrect":true},{"id":"c","text":"Fordi funksjonen ikke er kontinuerlig","isCorrect":false},{"id":"d","text":"Fordi grensene ikke er hele tall","isCorrect":false}],"solution":"Det er bevist at $e^{-x^2}$ ikke har noen antiderivert som kan skrives med elementære funksjoner. Fundamentalteoremet kan derfor ikke brukes direkte, og numeriske metoder overtar."},{"id":"s2-1-5-n-quiz3-q1","task":"Fartsmålinger hvert 2. sekund: $0, 5, 12, 18, 22, 25$ m/s. Hva gir trapesformelen for strekningen $\\int_0^{10} v(t)\\,dt$?","options":[{"id":"a","text":"$82$ m","isCorrect":false},{"id":"b","text":"$164$ m","isCorrect":false},{"id":"c","text":"$139$ m","isCorrect":true},{"id":"d","text":"$250$ m","isCorrect":false}],"solution":"$T_5 = \\frac{2}{2}[0 + 2(5) + 2(12) + 2(18) + 2(22) + 25] = 10 + 24 + 36 + 44 + 25 = 139$ meter."},{"id":"s2-1-5-n-quiz3-q2","task":"Hva er den enkleste praktiske måten å kontrollere nøyaktigheten på?","options":[{"id":"a","text":"Doble $n$ og sammenligne — endrer svaret seg lite, er nøyaktigheten god","isCorrect":true},{"id":"b","text":"Bytte integrasjonsvariabel fra $x$ til $u$","isCorrect":false},{"id":"c","text":"Runde av alle funksjonsverdier til heltall","isCorrect":false},{"id":"d","text":"Alltid bruke $n = 100$","isCorrect":false}],"solution":"Å regne med både $n$ og $2n$ delintervaller og sammenligne svarene er en enkel og effektiv feilkontroll: sifrene som står fast, kan du stole på."}]}},{"id":"s2-1-5-n-summary","type":"text","content":"## Regnekraft der formlene slutter\n\nNormalfordelingsintegralet som stoppet deg i starten, er ikke lenger noe hinder. Du har to metoder som begge bygger på samme grunnidé — del $[a, b]$ i $n$ biter med bredde $h = \\frac{b-a}{n}$ og tilnærm kurven med enklere figurer. Trapesformelen $T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$ bruker rette linjer og koeffisientene $1, 2, \\ldots, 2, 1$, og feilen avtar som $\\frac{1}{n^2}$. Simpsons regel $S_n = \\frac{h}{3}[f(x_0) + 4f(x_1) + 2f(x_2) + \\cdots + 4f(x_{n-1}) + f(x_n)]$ bruker parabler og mønsteret $1, 4, 2, 4, \\ldots, 4, 1$, krever partall $n$, og feilen stuper som $\\frac{1}{n^4}$ — den er til og med eksakt for polynomer opptil tredje grad.\n\nFeilgrensene med $M_2$ og $M_4$ lar deg planlegge hvor stor $n$ må være på forhånd, slik vi fant at $n = 13$ holdt for feil under $0{,}001$. Og i hverdagen holder ofte den pragmatiske kontrollen: doble $n$ og se hva som står fast.\n\nViktigst av alt: numerisk integrasjon utvider rekkevidden til alt du har lært. Integraler uten elementære antideriverte, måleserier uten formler, kontroll av analytiske svar — alt er innen rekkevidde med en tabell over funksjonsverdier og riktig koeffisientmønster. I neste delkapittel går vi tilbake til den analytiske verktøykassen og lærer å integrere produkter: delvis integrasjon."}],"exercises":[]}
+{
+  "id": "s2-1-5-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "1.5",
+  "title": "Numerisk integrasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling fra et forsikringskontor der normalfordelingens integral ikke kan løses med formler — men temmes med trapeser, parabler og smart feilkontroll.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke numeriske metoder til å beregne tilnærmede verdier av bestemte integraler",
+    "vurdere nøyaktigheten av numeriske tilnærminger"
+  ],
+  "linkedChapterId": "s2-1-5",
+  "content": [
+    {
+      "id": "s2-1-5-n-intro",
+      "type": "text",
+      "content": "## Når formlene ikke strekker til\n\nDu jobber med statistikk i et forsikringsselskap, og en kollega ber deg beregne et areal under normalfordelingskurven — selve hjørnesteinen i all risikoanalyse. Du setter deg ned med integrasjonsreglene fra de forrige kapitlene, klar til å finne en antiderivert til $e^{-x^2}$. Og der stopper det. Ikke fordi du ikke kan reglene, men fordi det er *bevist* at $\\int e^{-x^2}\\,dx$ ikke har noen elementær antiderivert. Ingen kombinasjon av potenser, logaritmer, eksponentialfunksjoner og trigonometriske funksjoner gir en funksjon med $e^{-x^2}$ som derivert.\n\nLikevel beregner statistikere slike integraler hver eneste dag, med mange desimalers nøyaktighet. Hemmeligheten er **numerisk integrasjon**: metoder som beregner tilnærmede verdier av bestemte integraler $\\int_a^b f(x)\\,dx$ uten å gå veien om antideriverte.\n\nGrunnideen er enkel og geometrisk. Vi deler intervallet $[a, b]$ inn i $n$ delintervaller, hver med bredde $h = \\frac{b-a}{n}$, med delingspunkter $x_0 = a$, $x_1 = a + h$, $x_2 = a + 2h$ og så videre frem til $x_n = b$. Så tilnærmer vi arealet under grafen med enklere geometriske figurer — trapeser eller parabelbiter — som vi *kan* regne ut eksakt.\n\nNumerisk integrasjon er også redningen i en annen hverdagssituasjon: når du ikke kjenner funksjonsuttrykket i det hele tatt, bare målepunkter. Fartsloggen fra en bil, strømforbruket time for time, trafikktellinger — alt dette er tabeller, ikke formler, og da er numeriske metoder eneste vei til integralet."
+    },
+    {
+      "id": "s2-1-5-n-section1",
+      "type": "text",
+      "content": "## Trapesformelen\n\nDen enkleste ideen er å erstatte kurvebuen mellom to nabopunkter med en rett linje. Hvert delområde blir da et trapes, og summen av trapesarealene tilnærmer integralet. Med $n$ delintervaller og $h = \\frac{b-a}{n}$ gir det **trapesformelen**:\n\n$$T_n = \\frac{h}{2}\\Big[f(x_0) + 2f(x_1) + 2f(x_2) + \\cdots + 2f(x_{n-1}) + f(x_n)\\Big]$$\n\nLegg merke til koeffisientmønsteret $1, 2, 2, \\ldots, 2, 1$: endepunktene teller én gang, mens hvert indre punkt deles av to nabotrapeser og derfor teller dobbelt.\n\nLa oss angripe forsikringsproblemet: tilnærm $\\int_0^2 e^{-x^2}\\,dx$ med $n = 4$. Da er $h = \\frac{2-0}{4} = 0{,}5$, og vi trenger funksjonsverdiene i de fem delingspunktene: $f(0) = 1$, $f(0{,}5) = e^{-0{,}25} \\approx 0{,}7788$, $f(1) = e^{-1} \\approx 0{,}3679$, $f(1{,}5) = e^{-2{,}25} \\approx 0{,}1054$ og $f(2) = e^{-4} \\approx 0{,}0183$.\n\nInn i formelen:\n\n$$T_4 = \\frac{0{,}5}{2}\\Big[1 + 2(0{,}7788) + 2(0{,}3679) + 2(0{,}1054) + 0{,}0183\\Big] = 0{,}25 \\cdot 3{,}5225 \\approx 0{,}8806$$\n\nDen eksakte verdien er $\\approx 0{,}8821$, så med bare fire trapeser bommer vi med omtrent $0{,}0015$. Ikke verst for noen minutters regning på et integral som er «umulig» å løse analytisk! Og vil du ha bedre nøyaktighet, er det bare å øke $n$ — flere og smalere trapeser følger kurven tettere."
+    },
+    {
+      "id": "s2-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på trapesformelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-5-n-quiz1-q0",
+            "task": "Vi skal tilnærme $\\int_0^2 f(x)\\,dx$ med $n = 4$ delintervaller. Hva blir bredden $h$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$h = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$h = 0{,}25$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$h = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$h = 0{,}5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$h = \\frac{b-a}{n} = \\frac{2-0}{4} = 0{,}5$."
+          },
+          {
+            "id": "s2-1-5-n-quiz1-q1",
+            "task": "Hva er koeffisientmønsteret i trapesformelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1, 2, 2, \\ldots, 2, 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1, 4, 2, 4, \\ldots, 4, 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1, 1, 1, \\ldots, 1, 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2, 1, 1, \\ldots, 1, 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Endepunktene teller én gang, de indre punktene to ganger (de deles av to nabotrapeser): $T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$."
+          },
+          {
+            "id": "s2-1-5-n-quiz1-q2",
+            "task": "Hva er den geometriske ideen bak trapesformelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kurvebuen mellom nabopunkter erstattes med en parabel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kurvebuen mellom nabopunkter erstattes med en rett linje, så hvert delområde blir et trapes",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Arealet tilnærmes med rektangler med høyde lik venstre endepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafen speiles om $x$-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trapesformelen trekker rette linjer mellom punktene på grafen. Parabel-tilnærmingen er Simpsons regel, som kommer i neste seksjon."
+          },
+          {
+            "id": "s2-1-5-n-quiz1-q3",
+            "task": "Hva ga trapesformelen med $n = 4$ for $\\int_0^2 e^{-x^2}\\,dx$ (eksakt verdi $\\approx 0{,}8821$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\approx 0{,}9921$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\approx 0{,}7788$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\approx 0{,}8806$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\approx 1{,}0000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_4 = 0{,}25[1 + 2(0{,}7788) + 2(0{,}3679) + 2(0{,}1054) + 0{,}0183] \\approx 0{,}8806$ — en feil på bare ca. $0{,}0015$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-5-n-section2",
+      "type": "text",
+      "content": "## Simpsons regel og feilkontroll\n\nKan vi gjøre det bedre enn rette linjer? Ja — vi kan legge en **parabel** gjennom tre og tre nabopunkter. Det er ideen bak **Simpsons regel**, som krever et *partall* antall delintervaller $n$:\n\n$$S_n = \\frac{h}{3}\\Big[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)\\Big]$$\n\nKoeffisientene følger mønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$. Bruker vi Simpsons regel på det samme integralet $\\int_0^2 e^{-x^2}\\,dx$ med $n = 4$ og de samme fem funksjonsverdiene, får vi\n\n$$S_4 = \\frac{0{,}5}{3}\\Big[1 + 4(0{,}7788) + 2(0{,}3679) + 4(0{,}1054) + 0{,}0183\\Big] = \\frac{0{,}5}{3} \\cdot 5{,}2909 \\approx 0{,}8818$$\n\nFeilen er nå bare $\\approx 0{,}0003$ — fem ganger bedre enn trapesformelen, med nøyaktig samme regnearbeid.\n\nForskjellen kan tallfestes. For trapesformelen gjelder feilgrensen $|E_T| \\leq \\frac{(b-a)^3}{12n^2} \\cdot M_2$, der $M_2$ er den største verdien av $|f''(x)|$ på intervallet. For Simpsons regel er $|E_S| \\leq \\frac{(b-a)^5}{180n^4} \\cdot M_4$, med $M_4$ som maksimum av $|f^{(4)}(x)|$. Det avgjørende er eksponentene: trapesfeilen avtar som $\\frac{1}{n^2}$, Simpson-feilen som $\\frac{1}{n^4}$. Dobler du $n$, blir trapesformelen cirka 4 ganger mer nøyaktig — Simpsons regel 16 ganger.\n\nFeilgrensene lar oss også planlegge. Hvor mange delintervaller trenger trapesformelen for å beregne $\\int_0^1 \\frac{1}{1+x^2}\\,dx$ med feil under $0{,}001$? Den andrederiverte er $f''(x) = \\frac{6x^2-2}{(1+x^2)^3}$, som på $[0, 1]$ er størst i $x = 0$ med $|f''(0)| = 2$, så $M_2 = 2$. Kravet $\\frac{1}{12n^2} \\cdot 2 = \\frac{1}{6n^2} < 0{,}001$ gir $n^2 > 166{,}7$, altså $n > 12{,}9$. Minst $n = 13$ delintervaller — og det vet vi *før* vi begynner å regne."
+    },
+    {
+      "id": "s2-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Simpsons regel og feilestimering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-5-n-quiz2-q0",
+            "task": "Hva er koeffisientmønsteret i Simpsons regel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1, 2, 2, \\ldots, 2, 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1, 3, 3, \\ldots, 3, 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4, 1, 4, 1, \\ldots, 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1, 4, 2, 4, 2, \\ldots, 4, 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Simpsons regel: $S_n = \\frac{h}{3}[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)]$ med mønsteret $1, 4, 2, 4, \\ldots, 4, 1$."
+          },
+          {
+            "id": "s2-1-5-n-quiz2-q1",
+            "task": "Hvilket krav stiller Simpsons regel til antall delintervaller $n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$n$ må være et partall",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$n$ må være et primtall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$n$ må være et oddetall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n$ må være delelig med 3",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Simpsons regel legger en parabel gjennom tre og tre punkter og bruker derfor delintervallene parvis — $n$ må være et partall."
+          },
+          {
+            "id": "s2-1-5-n-quiz2-q2",
+            "task": "Vi dobler antall delintervaller $n$ i trapesformelen. Omtrent hvor mye bedre blir nøyaktigheten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 2 ganger bedre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 4 ganger bedre",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ca. 16 ganger bedre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendret",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trapesfeilen avtar som $\\frac{1}{n^2}$, så dobling av $n$ gir faktor $2^2 = 4$. For Simpsons regel ($\\frac{1}{n^4}$) gir dobling faktor $2^4 = 16$."
+          },
+          {
+            "id": "s2-1-5-n-quiz2-q3",
+            "task": "Trapes og Simpson brukes med samme $n$ på samme integral. Hvilken gir normalt minst feil?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Trapesformelen, fordi rette linjer er enklere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alltid helt likt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Simpsons regel, fordi parabler følger kurven bedre enn rette linjer",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er tilfeldig hvilken som vinner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Simpsons regel har feilorden $O(\\frac{1}{n^4})$ mot trapesformelens $O(\\frac{1}{n^2})$, og er til og med eksakt for polynomer av grad opptil 3. I eksempelet var Simpson-feilen $0{,}0003$ mot trapesens $0{,}0015$."
+          },
+          {
+            "id": "s2-1-5-n-quiz2-q4",
+            "task": "For $\\int_0^1 \\frac{1}{1+x^2}\\,dx$ med $M_2 = 2$: hvor mange delintervaller trenger trapesformelen for feil under $0{,}001$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Minst $n = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Minst $n = 167$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Minst $n = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Minst $n = 13$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Feilgrensen $\\frac{1}{6n^2} < 0{,}001$ gir $n^2 > \\frac{1}{0{,}006} \\approx 166{,}7$, altså $n > 12{,}9$. Første heltall som duger er $n = 13$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-5-n-section3",
+      "type": "text",
+      "content": "## Numerisk integrasjon i praksis\n\nNår griper vi i praksis til numeriske metoder? For det første når funksjonen ikke har noen elementær antiderivert — klassikerne er $\\int e^{-x^2}\\,dx$, $\\int \\frac{\\sin x}{x}\\,dx$ og $\\int \\sqrt{1+x^3}\\,dx$. For det andre når funksjonen bare finnes som *datapunkter*: målinger fra eksperimenter, fartslogger, temperaturdataloggere. Og for det tredje som kontrollregning — et numerisk overslag avslører fort en slurvefeil i den analytiske utregningen.\n\nDatasituasjonen fortjener et eksempel. Farten til en bil er målt hvert andre sekund: ved $t = 0, 2, 4, 6, 8, 10$ sekunder var farten henholdsvis $0, 5, 12, 18, 22$ og $25$ m/s. Tilbakelagt strekning er $s = \\int_0^{10} v(t)\\,dt$ — men vi har ingen formel for $v(t)$, bare seks tall. Trapesformelen med $n = 5$ og $h = 2$:\n\n$$T_5 = \\frac{2}{2}\\Big[0 + 2(5) + 2(12) + 2(18) + 2(22) + 25\\Big] = 10 + 24 + 36 + 44 + 25 = 139 \\text{ m}$$\n\nBilen kjørte omtrent 139 meter på 10 sekunder — beregnet rett fra tabellen.\n\nTil slutt noen praktiske huskeregler. Simpsons regel krever partall $n$, så med datapunkter må du telle: seks målepunkter gir $n = 5$ delintervaller, og da er det trapesformelen som gjelder. Feilen avhenger av de høyere deriverte — jo mer «krokete» grafen er, desto flere delintervaller trengs. Og det enkleste feilestimatet i praksis: regn ut med $n$, doble til $2n$, og sammenlign. Endrer svaret seg lite, kan du stole på sifrene som står fast. Trapesformelen er enklest å huske; Simpsons regel gir mer nøyaktighet for samme arbeid. Velg etter behov — og kontroller alltid."
+    },
+    {
+      "id": "s2-1-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på praktisk bruk av numerisk integrasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-5-n-quiz3-q0",
+            "task": "Hvorfor må $\\int_0^2 e^{-x^2}\\,dx$ beregnes numerisk?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $e^{-x^2}$ ikke har noen elementær antiderivert",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi integralet er uendelig stort",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi funksjonen ikke er kontinuerlig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi grensene ikke er hele tall",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er bevist at $e^{-x^2}$ ikke har noen antiderivert som kan skrives med elementære funksjoner. Fundamentalteoremet kan derfor ikke brukes direkte, og numeriske metoder overtar."
+          },
+          {
+            "id": "s2-1-5-n-quiz3-q1",
+            "task": "Fartsmålinger hvert 2. sekund: $0, 5, 12, 18, 22, 25$ m/s. Hva gir trapesformelen for strekningen $\\int_0^{10} v(t)\\,dt$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$82$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$139$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$164$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$250$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_5 = \\frac{2}{2}[0 + 2(5) + 2(12) + 2(18) + 2(22) + 25] = 10 + 24 + 36 + 44 + 25 = 139$ meter."
+          },
+          {
+            "id": "s2-1-5-n-quiz3-q2",
+            "task": "Hva er den enkleste praktiske måten å kontrollere nøyaktigheten på?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bytte integrasjonsvariabel fra $x$ til $u$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Runde av alle funksjonsverdier til heltall",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Doble $n$ og sammenligne — endrer svaret seg lite, er nøyaktigheten god",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Alltid bruke $n = 100$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å regne med både $n$ og $2n$ delintervaller og sammenligne svarene er en enkel og effektiv feilkontroll: sifrene som står fast, kan du stole på."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-5-n-summary",
+      "type": "text",
+      "content": "## Regnekraft der formlene slutter\n\nNormalfordelingsintegralet som stoppet deg i starten, er ikke lenger noe hinder. Du har to metoder som begge bygger på samme grunnidé — del $[a, b]$ i $n$ biter med bredde $h = \\frac{b-a}{n}$ og tilnærm kurven med enklere figurer. Trapesformelen $T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$ bruker rette linjer og koeffisientene $1, 2, \\ldots, 2, 1$, og feilen avtar som $\\frac{1}{n^2}$. Simpsons regel $S_n = \\frac{h}{3}[f(x_0) + 4f(x_1) + 2f(x_2) + \\cdots + 4f(x_{n-1}) + f(x_n)]$ bruker parabler og mønsteret $1, 4, 2, 4, \\ldots, 4, 1$, krever partall $n$, og feilen stuper som $\\frac{1}{n^4}$ — den er til og med eksakt for polynomer opptil tredje grad.\n\nFeilgrensene med $M_2$ og $M_4$ lar deg planlegge hvor stor $n$ må være på forhånd, slik vi fant at $n = 13$ holdt for feil under $0{,}001$. Og i hverdagen holder ofte den pragmatiske kontrollen: doble $n$ og se hva som står fast.\n\nViktigst av alt: numerisk integrasjon utvider rekkevidden til alt du har lært. Integraler uten elementære antideriverte, måleserier uten formler, kontroll av analytiske svar — alt er innen rekkevidde med en tabell over funksjonsverdier og riktig koeffisientmønster. I neste delkapittel går vi tilbake til den analytiske verktøykassen og lærer å integrere produkter: delvis integrasjon."
+    }
+  ],
+  "exercises": []
+}

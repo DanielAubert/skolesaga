@@ -1,1 +1,451 @@
-{"id":"naturfag-9-5-6-narrativ","courseId":"naturfag-9","chapterNumber":"5.6","title":"Programmering og dataanalyse","subtitle":"Narrativ versjon","description":"Oppdag hvordan forskere bruker programmering til å utforske naturen, fra å analysere temperaturdata til å forutsi klimaendringer -- og lær å gjøre det selv.","estimatedMinutes":35,"competenceGoals":["bruke programmering til å utforske naturfaglige problemstillinger","samle inn, analysere og presentere data med digitale verktøy"],"linkedChapterId":"naturfag-9-5-6","content":[{"id":"naturfag-9-5-6-n-intro","type":"text","content":"## Koden bak oppdagelsene\n\nDa forskere i 2020 utviklet vaksiner mot covid-19 på rekordtid, var det ikke bare biologer i laboratorier som jobbet. Bak kulissene satt programmerere og analyserte enorme mengder data. De brukte kode til å forstå virusets genetiske oppbygning, simulere hvordan ulike vaksinekandidater ville fungere, og analysere resultater fra kliniske forsøk med hundretusenvis av deltakere.\n\nProgrammering er ikke lenger bare for teknologibedrifter og spillutviklere. Det har blitt et uunnværlig verktøy i naturfag. Klimaforskere skriver programmer for å forutsi temperaturendringer. Biologer bruker kode til å kartlegge DNA-sekvenser. Astronomer analyserer signaler fra fjerne galakser med programvare de selv har skrevet.\n\nOg det beste? Du trenger ikke være et geni for å komme i gang. Grunnleggende programmering handler om å gi en datamaskin tydelige instruksjoner, steg for steg. Det er som en oppskrift: presist, logisk og med et bestemt mål.\n\nI dette kapittelet skal vi lære grunnleggende programmering i Python, et av verdens mest brukte programmeringsspråk innen vitenskap. Vi skal også utforske hvordan data samles inn, analyseres og presenteres -- ferdigheter som er nyttige langt utover naturfaget."},{"id":"naturfag-9-5-6-n-section1","type":"text","content":"## Grunnleggende programmering\n\n**Programmering** er å skrive instruksjoner som en datamaskin kan utføre. Et program er en rekke presise kommandoer som datamaskinen følger steg for steg, akkurat som den følger en oppskrift.\n\nLa oss starte med de viktigste byggesteinene.\n\nEn **variabel** er en navngitt boks som lagrer en verdi. Tenk på den som en merkelapp på en boks: du gir den et navn, og inne i boksen legger du en verdi.\n\n```python\ntemperatur = 21.5\nnavn = \"Sara\"\nantall_malinger = 10\n```\n\nHer har vi tre variabler: en med et desimaltall, en med tekst, og en med et heltall.\n\nEn **betingelse** (if/else) lar programmet ta valg. Datamaskinen sjekker om noe er sant, og gjør forskjellige ting avhengig av svaret.\n\n```python\nif temperatur > 37.5:\n    print(\"Du har feber!\")\nelse:\n    print(\"Normal temperatur.\")\n```\n\nEn **løkke** gjentar instruksjoner. Når du vil gjøre det samme mange ganger, bruker du en for-løkke i stedet for å skrive den samme koden om og om igjen.\n\n```python\nfor i in range(5):\n    print(\"Måling nummer\", i + 1)\n```\n\nDisse tre konseptene -- variabler, betingelser og løkker -- er alt du trenger for å skrive kraftige programmer. De er som legoklosser: enkle hver for seg, men de kan bygges sammen til noe komplekst og nyttig."},{"id":"naturfag-9-5-6-n-quiz1","type":"exercise","exercise":{"id":"naturfag-9-5-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"naturfag-9-5-6-n-quiz1-q0","task":"Hva er en variabel i programmering?","options":[{"id":"a","text":"En kommando som avslutter programmet","isCorrect":false},{"id":"b","text":"En navngitt boks som lagrer en verdi","isCorrect":true},{"id":"c","text":"En feilmelding","isCorrect":false},{"id":"d","text":"Et programmeringsspråk","isCorrect":false}],"solution":"En variabel er en navngitt lagringsplass for en verdi. For eksempel lagrer temperatur = 21.5 verdien 21.5 i variabelen temperatur. Programmet kan senere lese og endre denne verdien."},{"id":"naturfag-9-5-6-n-quiz1-q1","task":"Hva vil denne koden skrive ut? temperatur = 35; if temperatur > 37.5: print('Feber') else: print('Normal')","options":[{"id":"a","text":"Feber","isCorrect":false},{"id":"b","text":"Normal","isCorrect":true},{"id":"c","text":"35","isCorrect":false},{"id":"d","text":"Ingenting","isCorrect":false}],"solution":"Variabelen temperatur har verdien 35. Programmet sjekker om 35 er større enn 37.5. Det er det ikke, så programmet hopper til else-blokken og skriver ut Normal."},{"id":"naturfag-9-5-6-n-quiz1-q2","task":"Hva gjør en for-løkke?","options":[{"id":"a","text":"Den stopper programmet","isCorrect":false},{"id":"b","text":"Den gjentar instruksjoner et bestemt antall ganger","isCorrect":true},{"id":"c","text":"Den sletter variabler","isCorrect":false},{"id":"d","text":"Den lager nye filer","isCorrect":false}],"solution":"En for-løkke gjentar en blokk med instruksjoner et bestemt antall ganger. For eksempel vil for i in range(5) gjenta koden inne i løkken fem ganger, med i som 0, 1, 2, 3 og 4."}]}},{"id":"naturfag-9-5-6-n-section2","type":"text","content":"## Programmering i naturfag\n\nLa oss se hvordan vi bruker programmering til å løse ekte naturfaglige problemer.\n\nEn vanlig oppgave er å beregne **gjennomsnitt**. Tenk deg at du har målt temperaturen i klasserommet fem ganger: 20.5, 21.3, 22.1, 21.8 og 20.9 grader. I stedet for å regne for hånd, kan du la Python gjøre jobben:\n\n```python\ntemperaturer = [20.5, 21.3, 22.1, 21.8, 20.9]\ngjennomsnitt = sum(temperaturer) / len(temperaturer)\nprint(\"Gjennomsnitt:\", round(gjennomsnitt, 1), \"grader\")\n```\n\nHer bruker vi en **liste** til å lagre alle målingene, `sum()` for å legge dem sammen, og `len()` for å telle antallet. Resultatet er 21.3 grader.\n\nMen programmering kan gjøre mer enn bare å beregne gjennomsnitt. Vi kan bruke betingelser til å klassifisere data automatisk:\n\n```python\nph_verdier = [6.2, 7.0, 5.8, 7.5, 6.0, 8.1]\nfor ph in ph_verdier:\n    if ph < 7:\n        print(ph, \"er sur\")\n    elif ph == 7:\n        print(ph, \"er nøytral\")\n    else:\n        print(ph, \"er basisk\")\n```\n\nDette programmet går gjennom en liste med pH-verdier og forteller deg om hver løsning er sur, nøytral eller basisk. Tenk deg å gjøre dette for hånd med hundrevis av målinger -- programmering sparer enorm tid og reduserer feil.\n\nForskere bruker denne typen kode daglig. De måler, lagrer data i lister, beregner statistikk, og bruker betingelser for å trekke konklusjoner. Det er det samme prinsippet, bare i større skala."},{"id":"naturfag-9-5-6-n-quiz2","type":"exercise","exercise":{"id":"naturfag-9-5-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"naturfag-9-5-6-n-quiz2-q0","task":"Hva gjør funksjonen len() i Python?","options":[{"id":"a","text":"Den beregner gjennomsnittet","isCorrect":false},{"id":"b","text":"Den teller antall elementer i en liste","isCorrect":true},{"id":"c","text":"Den sorterer listen","isCorrect":false},{"id":"d","text":"Den sletter listen","isCorrect":false}],"solution":"Funksjonen len() returnerer antall elementer i en liste. For eksempel gir len([20.5, 21.3, 22.1]) verdien 3 fordi listen inneholder tre elementer."},{"id":"naturfag-9-5-6-n-quiz2-q1","task":"Hva beregner sum(temperaturer) / len(temperaturer)?","options":[{"id":"a","text":"Den høyeste temperaturen","isCorrect":false},{"id":"b","text":"Gjennomsnittet av alle temperaturene i listen","isCorrect":true},{"id":"c","text":"Forskjellen mellom høyeste og laveste temperatur","isCorrect":false},{"id":"d","text":"Antall temperaturer over 20 grader","isCorrect":false}],"solution":"Sum av alle verdier delt på antall verdier gir gjennomsnittet. sum(temperaturer) legger sammen alle verdiene, len(temperaturer) gir antallet, og divisjonen gir gjennomsnittsverdien."},{"id":"naturfag-9-5-6-n-quiz2-q2","task":"Hva betyr elif i Python?","options":[{"id":"a","text":"Et annet ord for else","isCorrect":false},{"id":"b","text":"En tilleggsbetingelse som sjekkes hvis den forrige if-betingelsen var usann","isCorrect":true},{"id":"c","text":"En feilmelding","isCorrect":false},{"id":"d","text":"En type løkke","isCorrect":false}],"solution":"elif er en forkortelse for else if. Den brukes til å sjekke en ny betingelse hvis den forrige if-betingelsen var usann. Programmet sjekker betingelsene ovenfra og ned og utfører den første blokken der betingelsen er sann."}]}},{"id":"naturfag-9-5-6-n-section3","type":"text","content":"## Datainnsamling og statistikk\n\nProgrammering er bare nyttig hvis vi har data å jobbe med. I naturfag samler vi inn data gjennom observasjoner, målinger og eksperimenter.\n\nData kan deles i to typer. **Kvantitative data** er tallverdier som kan måles og regnes med, som temperatur (21.3 grader), lengde (15 cm) eller tid (3.5 sekunder). **Kvalitative data** er beskrivelser som ikke er tall, som farge (rød), form (rund) eller lukt (sur).\n\nNår vi har samlet inn kvantitative data, bruker vi statistiske mål for å forstå dem.\n\n**Gjennomsnitt** er summen av alle verdier delt på antallet. Det gir oss en typisk verdi. Men gjennomsnittet kan lures av ekstreme verdier. Hvis ni elever tjener 100 kroner i uken og en elev tjener 10 000, er gjennomsnittet 1090 kroner -- ikke akkurat representativt.\n\n**Median** er den midterste verdien når dataene sorteres. I eksempelet over ville medianen være 100 kroner, som gir et mye mer realistisk bilde.\n\n**Variasjonsbredde** er forskjellen mellom den største og minste verdien. Den forteller oss hvor spredt dataene er. En stor variasjonsbredde betyr at målingene varierer mye.\n\nLa oss bruke et eksempel. En elev måler pH i seks vannprøver: 6.5, 7.0, 6.8, 7.2, 6.5, 7.0. Sortert: 6.5, 6.5, 6.8, 7.0, 7.0, 7.2. Gjennomsnittet er 6.83. Medianen er (6.8 + 7.0) / 2 = 6.9. Variasjonsbredden er 7.2 minus 6.5 = 0.7."},{"id":"naturfag-9-5-6-n-quiz3","type":"exercise","exercise":{"id":"naturfag-9-5-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"naturfag-9-5-6-n-quiz3-q0","task":"Hva er forskjellen mellom kvantitative og kvalitative data?","options":[{"id":"a","text":"Det er ingen forskjell","isCorrect":false},{"id":"b","text":"Kvantitative data er tallverdier man kan regne med, kvalitative data er beskrivelser","isCorrect":true},{"id":"c","text":"Kvalitative data er mer presise enn kvantitative","isCorrect":false},{"id":"d","text":"Kvantitative data handler om kvalitet","isCorrect":false}],"solution":"Kvantitative data er tallverdier som kan måles og regnes med (temperatur, lengde, masse). Kvalitative data er beskrivelser som ikke uttrykkes som tall (farge, lukt, form). Begge datatypene er viktige i naturfag."},{"id":"naturfag-9-5-6-n-quiz3-q1","task":"Datasett: 3, 5, 7, 8, 12. Hva er medianen?","options":[{"id":"a","text":"3","isCorrect":false},{"id":"b","text":"7","isCorrect":true},{"id":"c","text":"8","isCorrect":false},{"id":"d","text":"12","isCorrect":false}],"solution":"Medianen er den midterste verdien når dataene er sortert. Datasettet sortert er 3, 5, 7, 8, 12. Det er fem verdier, og den midterste (tredje) verdien er 7."},{"id":"naturfag-9-5-6-n-quiz3-q2","task":"Hva er variasjonsbredden til datasettet 6.5, 7.0, 6.8, 7.2, 6.5, 7.0?","options":[{"id":"a","text":"0.5","isCorrect":false},{"id":"b","text":"0.7","isCorrect":true},{"id":"c","text":"6.5","isCorrect":false},{"id":"d","text":"7.2","isCorrect":false}],"solution":"Variasjonsbredden er forskjellen mellom den største og den minste verdien. Største verdi er 7.2 og minste er 6.5, så variasjonsbredden er 7.2 minus 6.5 = 0.7."}]}},{"id":"naturfag-9-5-6-n-section4","type":"text","content":"## Diagrammer og datapresentasjon\n\nData i en tabell kan være vanskelig å tolke. Diagrammer gjør mønstre synlige på et øyeblikk.\n\n**Linjediagram** er perfekt for å vise endringer over tid. Hvis du måler temperaturen utendørs gjennom en uke, viser et linjediagram tydelig om temperaturen stiger eller synker. X-aksen viser tid, Y-aksen viser temperatur, og punktene forbindes med linjer.\n\n**Søylediagram** (stolpediagram) egner seg for å sammenligne kategorier. Hvor mange elever liker fotball, håndball eller svømming? Hver kategori får sin egen søyle, og høyden viser antallet.\n\n**Sektordiagram** (kakediagram) viser andeler av en helhet. Hvis du vil vise hvordan Norges energi fordeler seg mellom vannkraft, vindkraft og olje, er et sektordiagram ideelt. Hele sirkelen representerer 100 prosent.\n\n**Spredningsdiagram** (punktdiagram) brukes for å se om det er en sammenheng mellom to variabler. Hvert punkt representerer en måling. Hvis punktene danner et mønster -- for eksempel en stigende linje -- antyder det en sammenheng.\n\nUansett hvilken diagramtype du velger, er det tre ting som alltid må med: en **tittel** som beskriver hva diagrammet viser, **aksetitler** med riktige enheter, og en fornuftig **skala**.\n\nProgrammering gjør det enkelt å lage diagrammer. I Python kan biblioteket `matplotlib` tegne profesjonelle diagrammer med bare noen få linjer kode. Forskere verden over bruker det daglig til å visualisere alt fra temperaturdata til genetiske sekvenser. Å presentere data tydelig er like viktig som å samle dem inn -- for hva hjelper en oppdagelse hvis ingen forstår den?"},{"id":"naturfag-9-5-6-n-quiz4","type":"exercise","exercise":{"id":"naturfag-9-5-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"naturfag-9-5-6-n-quiz4-q0","task":"Hvilken diagramtype er best for å vise temperaturendringer gjennom en uke?","options":[{"id":"a","text":"Sektordiagram","isCorrect":false},{"id":"b","text":"Linjediagram","isCorrect":true},{"id":"c","text":"Søylediagram","isCorrect":false},{"id":"d","text":"Det spiller ingen rolle","isCorrect":false}],"solution":"Et linjediagram er best egnet for å vise endringer over tid. Punktene representerer målinger på ulike tidspunkter, og linjene mellom dem viser tydelig om verdien stiger, synker eller holder seg stabil."},{"id":"naturfag-9-5-6-n-quiz4-q1","task":"Hva er de tre viktigste elementene som alltid bør være med i et diagram?","options":[{"id":"a","text":"Farger, emojier og logo","isCorrect":false},{"id":"b","text":"Tittel, aksetitler med enheter, og riktig skala","isCorrect":true},{"id":"c","text":"Navn, dato og sidetall","isCorrect":false},{"id":"d","text":"Bare tallene er nødvendige","isCorrect":false}],"solution":"Et godt diagram må ha en tittel som beskriver innholdet, aksetitler med riktige enheter (for eksempel Temperatur i grader Celsius), og en fornuftig skala som gjør det enkelt å lese av verdiene."},{"id":"naturfag-9-5-6-n-quiz4-q2","task":"Når bruker du et spredningsdiagram?","options":[{"id":"a","text":"For å vise andeler av en helhet","isCorrect":false},{"id":"b","text":"For å se om det er en sammenheng mellom to variabler","isCorrect":true},{"id":"c","text":"For å sammenligne kategorier","isCorrect":false},{"id":"d","text":"For å vise endring over tid","isCorrect":false}],"solution":"Et spredningsdiagram brukes for å undersøke om det er en sammenheng mellom to variabler. Hvert punkt representerer en måling med verdier på begge aksene. Hvis punktene danner et mønster, kan det tyde på en sammenheng."}]}},{"id":"naturfag-9-5-6-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi sett hvordan programmering og dataanalyse er kraftige verktøy i naturfag.\n\n**Programmering** handler om å gi datamaskinen presise instruksjoner. De tre viktigste byggesteinene er **variabler** (lagrer verdier), **betingelser** (if/else for å ta valg) og **løkker** (gjenta instruksjoner). Python er et mye brukt programmeringsspråk i vitenskap.\n\nI naturfag bruker vi programmering til å beregne gjennomsnitt, klassifisere data automatisk, og analysere store datasett. Lister lar oss lagre mange verdier, og funksjoner som `sum()` og `len()` gjør beregninger enkle.\n\nData deles i **kvantitative** (tallverdier) og **kvalitative** (beskrivelser). Viktige statistiske mål er **gjennomsnitt** (summen delt på antall), **median** (midtverdien) og **variasjonsbredde** (forskjell mellom største og minste verdi).\n\nData presenteres visuelt gjennom diagrammer: **linjediagram** for endring over tid, **søylediagram** for sammenligning av kategorier, **sektordiagram** for andeler, og **spredningsdiagram** for å undersøke sammenhenger. Alle diagrammer trenger tittel, aksetitler med enheter og riktig skala.\n\nProgrammering og dataanalyse er ferdigheter som brukes i nesten alle naturfaglige disipliner, fra klimaforskning til medisin."}],"exercises":[]}
+{
+  "id": "naturfag-9-5-6-narrativ",
+  "courseId": "naturfag-9",
+  "chapterNumber": "5.6",
+  "title": "Programmering og dataanalyse",
+  "subtitle": "Narrativ versjon",
+  "description": "Oppdag hvordan forskere bruker programmering til å utforske naturen, fra å analysere temperaturdata til å forutsi klimaendringer -- og lær å gjøre det selv.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke programmering til å utforske naturfaglige problemstillinger",
+    "samle inn, analysere og presentere data med digitale verktøy"
+  ],
+  "linkedChapterId": "naturfag-9-5-6",
+  "content": [
+    {
+      "id": "naturfag-9-5-6-n-intro",
+      "type": "text",
+      "content": "## Koden bak oppdagelsene\n\nDa forskere i 2020 utviklet vaksiner mot covid-19 på rekordtid, var det ikke bare biologer i laboratorier som jobbet. Bak kulissene satt programmerere og analyserte enorme mengder data. De brukte kode til å forstå virusets genetiske oppbygning, simulere hvordan ulike vaksinekandidater ville fungere, og analysere resultater fra kliniske forsøk med hundretusenvis av deltakere.\n\nProgrammering er ikke lenger bare for teknologibedrifter og spillutviklere. Det har blitt et uunnværlig verktøy i naturfag. Klimaforskere skriver programmer for å forutsi temperaturendringer. Biologer bruker kode til å kartlegge DNA-sekvenser. Astronomer analyserer signaler fra fjerne galakser med programvare de selv har skrevet.\n\nOg det beste? Du trenger ikke være et geni for å komme i gang. Grunnleggende programmering handler om å gi en datamaskin tydelige instruksjoner, steg for steg. Det er som en oppskrift: presist, logisk og med et bestemt mål.\n\nI dette kapittelet skal vi lære grunnleggende programmering i Python, et av verdens mest brukte programmeringsspråk innen vitenskap. Vi skal også utforske hvordan data samles inn, analyseres og presenteres -- ferdigheter som er nyttige langt utover naturfaget."
+    },
+    {
+      "id": "naturfag-9-5-6-n-section1",
+      "type": "text",
+      "content": "## Grunnleggende programmering\n\n**Programmering** er å skrive instruksjoner som en datamaskin kan utføre. Et program er en rekke presise kommandoer som datamaskinen følger steg for steg, akkurat som den følger en oppskrift.\n\nLa oss starte med de viktigste byggesteinene.\n\nEn **variabel** er en navngitt boks som lagrer en verdi. Tenk på den som en merkelapp på en boks: du gir den et navn, og inne i boksen legger du en verdi.\n\n```python\ntemperatur = 21.5\nnavn = \"Sara\"\nantall_malinger = 10\n```\n\nHer har vi tre variabler: en med et desimaltall, en med tekst, og en med et heltall.\n\nEn **betingelse** (if/else) lar programmet ta valg. Datamaskinen sjekker om noe er sant, og gjør forskjellige ting avhengig av svaret.\n\n```python\nif temperatur > 37.5:\n    print(\"Du har feber!\")\nelse:\n    print(\"Normal temperatur.\")\n```\n\nEn **løkke** gjentar instruksjoner. Når du vil gjøre det samme mange ganger, bruker du en for-løkke i stedet for å skrive den samme koden om og om igjen.\n\n```python\nfor i in range(5):\n    print(\"Måling nummer\", i + 1)\n```\n\nDisse tre konseptene -- variabler, betingelser og løkker -- er alt du trenger for å skrive kraftige programmer. De er som legoklosser: enkle hver for seg, men de kan bygges sammen til noe komplekst og nyttig."
+    },
+    {
+      "id": "naturfag-9-5-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "naturfag-9-5-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "naturfag-9-5-6-n-quiz1-q0",
+            "task": "Hva er en variabel i programmering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En kommando som avslutter programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En navngitt boks som lagrer en verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Et programmeringsspråk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En variabel er en navngitt lagringsplass for en verdi. For eksempel lagrer temperatur = 21.5 verdien 21.5 i variabelen temperatur. Programmet kan senere lese og endre denne verdien."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz1-q1",
+            "task": "Hva vil denne koden skrive ut? temperatur = 35; if temperatur > 37.5: print('Feber') else: print('Normal')",
+            "options": [
+              {
+                "id": "a",
+                "text": "Feber",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "35",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Normal",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Variabelen temperatur har verdien 35. Programmet sjekker om 35 er større enn 37.5. Det er det ikke, så programmet hopper til else-blokken og skriver ut Normal."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz1-q2",
+            "task": "Hva gjør en for-løkke?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den gjentar instruksjoner et bestemt antall ganger",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den stopper programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den sletter variabler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den lager nye filer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En for-løkke gjentar en blokk med instruksjoner et bestemt antall ganger. For eksempel vil for i in range(5) gjenta koden inne i løkken fem ganger, med i som 0, 1, 2, 3 og 4."
+          }
+        ]
+      }
+    },
+    {
+      "id": "naturfag-9-5-6-n-section2",
+      "type": "text",
+      "content": "## Programmering i naturfag\n\nLa oss se hvordan vi bruker programmering til å løse ekte naturfaglige problemer.\n\nEn vanlig oppgave er å beregne **gjennomsnitt**. Tenk deg at du har målt temperaturen i klasserommet fem ganger: 20.5, 21.3, 22.1, 21.8 og 20.9 grader. I stedet for å regne for hånd, kan du la Python gjøre jobben:\n\n```python\ntemperaturer = [20.5, 21.3, 22.1, 21.8, 20.9]\ngjennomsnitt = sum(temperaturer) / len(temperaturer)\nprint(\"Gjennomsnitt:\", round(gjennomsnitt, 1), \"grader\")\n```\n\nHer bruker vi en **liste** til å lagre alle målingene, `sum()` for å legge dem sammen, og `len()` for å telle antallet. Resultatet er 21.3 grader.\n\nMen programmering kan gjøre mer enn bare å beregne gjennomsnitt. Vi kan bruke betingelser til å klassifisere data automatisk:\n\n```python\nph_verdier = [6.2, 7.0, 5.8, 7.5, 6.0, 8.1]\nfor ph in ph_verdier:\n    if ph < 7:\n        print(ph, \"er sur\")\n    elif ph == 7:\n        print(ph, \"er nøytral\")\n    else:\n        print(ph, \"er basisk\")\n```\n\nDette programmet går gjennom en liste med pH-verdier og forteller deg om hver løsning er sur, nøytral eller basisk. Tenk deg å gjøre dette for hånd med hundrevis av målinger -- programmering sparer enorm tid og reduserer feil.\n\nForskere bruker denne typen kode daglig. De måler, lagrer data i lister, beregner statistikk, og bruker betingelser for å trekke konklusjoner. Det er det samme prinsippet, bare i større skala."
+    },
+    {
+      "id": "naturfag-9-5-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "naturfag-9-5-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "naturfag-9-5-6-n-quiz2-q0",
+            "task": "Hva gjør funksjonen len() i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den beregner gjennomsnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den teller antall elementer i en liste",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den sorterer listen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den sletter listen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonen len() returnerer antall elementer i en liste. For eksempel gir len([20.5, 21.3, 22.1]) verdien 3 fordi listen inneholder tre elementer."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz2-q1",
+            "task": "Hva beregner sum(temperaturer) / len(temperaturer)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den høyeste temperaturen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Forskjellen mellom høyeste og laveste temperatur",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnittet av alle temperaturene i listen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Antall temperaturer over 20 grader",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sum av alle verdier delt på antall verdier gir gjennomsnittet. sum(temperaturer) legger sammen alle verdiene, len(temperaturer) gir antallet, og divisjonen gir gjennomsnittsverdien."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz2-q2",
+            "task": "Hva betyr elif i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Et annet ord for else",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En type løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En tilleggsbetingelse som sjekkes hvis den forrige if-betingelsen var usann",
+                "isCorrect": true
+              }
+            ],
+            "solution": "elif er en forkortelse for else if. Den brukes til å sjekke en ny betingelse hvis den forrige if-betingelsen var usann. Programmet sjekker betingelsene ovenfra og ned og utfører den første blokken der betingelsen er sann."
+          }
+        ]
+      }
+    },
+    {
+      "id": "naturfag-9-5-6-n-section3",
+      "type": "text",
+      "content": "## Datainnsamling og statistikk\n\nProgrammering er bare nyttig hvis vi har data å jobbe med. I naturfag samler vi inn data gjennom observasjoner, målinger og eksperimenter.\n\nData kan deles i to typer. **Kvantitative data** er tallverdier som kan måles og regnes med, som temperatur (21.3 grader), lengde (15 cm) eller tid (3.5 sekunder). **Kvalitative data** er beskrivelser som ikke er tall, som farge (rød), form (rund) eller lukt (sur).\n\nNår vi har samlet inn kvantitative data, bruker vi statistiske mål for å forstå dem.\n\n**Gjennomsnitt** er summen av alle verdier delt på antallet. Det gir oss en typisk verdi. Men gjennomsnittet kan lures av ekstreme verdier. Hvis ni elever tjener 100 kroner i uken og en elev tjener 10 000, er gjennomsnittet 1090 kroner -- ikke akkurat representativt.\n\n**Median** er den midterste verdien når dataene sorteres. I eksempelet over ville medianen være 100 kroner, som gir et mye mer realistisk bilde.\n\n**Variasjonsbredde** er forskjellen mellom den største og minste verdien. Den forteller oss hvor spredt dataene er. En stor variasjonsbredde betyr at målingene varierer mye.\n\nLa oss bruke et eksempel. En elev måler pH i seks vannprøver: 6.5, 7.0, 6.8, 7.2, 6.5, 7.0. Sortert: 6.5, 6.5, 6.8, 7.0, 7.0, 7.2. Gjennomsnittet er 6.83. Medianen er (6.8 + 7.0) / 2 = 6.9. Variasjonsbredden er 7.2 minus 6.5 = 0.7."
+    },
+    {
+      "id": "naturfag-9-5-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "naturfag-9-5-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "naturfag-9-5-6-n-quiz3-q0",
+            "task": "Hva er forskjellen mellom kvantitative og kvalitative data?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kvantitative data er tallverdier man kan regne med, kvalitative data er beskrivelser",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det er ingen forskjell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvalitative data er mer presise enn kvantitative",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kvantitative data handler om kvalitet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvantitative data er tallverdier som kan måles og regnes med (temperatur, lengde, masse). Kvalitative data er beskrivelser som ikke uttrykkes som tall (farge, lukt, form). Begge datatypene er viktige i naturfag."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz3-q1",
+            "task": "Datasett: 3, 5, 7, 8, 12. Hva er medianen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "7",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "8",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "12",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Medianen er den midterste verdien når dataene er sortert. Datasettet sortert er 3, 5, 7, 8, 12. Det er fem verdier, og den midterste (tredje) verdien er 7."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz3-q2",
+            "task": "Hva er variasjonsbredden til datasettet 6.5, 7.0, 6.8, 7.2, 6.5, 7.0?",
+            "options": [
+              {
+                "id": "a",
+                "text": "0.5",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0.7",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "6.5",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "7.2",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variasjonsbredden er forskjellen mellom den største og den minste verdien. Største verdi er 7.2 og minste er 6.5, så variasjonsbredden er 7.2 minus 6.5 = 0.7."
+          }
+        ]
+      }
+    },
+    {
+      "id": "naturfag-9-5-6-n-section4",
+      "type": "text",
+      "content": "## Diagrammer og datapresentasjon\n\nData i en tabell kan være vanskelig å tolke. Diagrammer gjør mønstre synlige på et øyeblikk.\n\n**Linjediagram** er perfekt for å vise endringer over tid. Hvis du måler temperaturen utendørs gjennom en uke, viser et linjediagram tydelig om temperaturen stiger eller synker. X-aksen viser tid, Y-aksen viser temperatur, og punktene forbindes med linjer.\n\n**Søylediagram** (stolpediagram) egner seg for å sammenligne kategorier. Hvor mange elever liker fotball, håndball eller svømming? Hver kategori får sin egen søyle, og høyden viser antallet.\n\n**Sektordiagram** (kakediagram) viser andeler av en helhet. Hvis du vil vise hvordan Norges energi fordeler seg mellom vannkraft, vindkraft og olje, er et sektordiagram ideelt. Hele sirkelen representerer 100 prosent.\n\n**Spredningsdiagram** (punktdiagram) brukes for å se om det er en sammenheng mellom to variabler. Hvert punkt representerer en måling. Hvis punktene danner et mønster -- for eksempel en stigende linje -- antyder det en sammenheng.\n\nUansett hvilken diagramtype du velger, er det tre ting som alltid må med: en **tittel** som beskriver hva diagrammet viser, **aksetitler** med riktige enheter, og en fornuftig **skala**.\n\nProgrammering gjør det enkelt å lage diagrammer. I Python kan biblioteket `matplotlib` tegne profesjonelle diagrammer med bare noen få linjer kode. Forskere verden over bruker det daglig til å visualisere alt fra temperaturdata til genetiske sekvenser. Å presentere data tydelig er like viktig som å samle dem inn -- for hva hjelper en oppdagelse hvis ingen forstår den?"
+    },
+    {
+      "id": "naturfag-9-5-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "naturfag-9-5-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "naturfag-9-5-6-n-quiz4-q0",
+            "task": "Hvilken diagramtype er best for å vise temperaturendringer gjennom en uke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sektordiagram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Søylediagram",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Linjediagram",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det spiller ingen rolle",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et linjediagram er best egnet for å vise endringer over tid. Punktene representerer målinger på ulike tidspunkter, og linjene mellom dem viser tydelig om verdien stiger, synker eller holder seg stabil."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz4-q1",
+            "task": "Hva er de tre viktigste elementene som alltid bør være med i et diagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Farger, emojier og logo",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Navn, dato og sidetall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare tallene er nødvendige",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tittel, aksetitler med enheter, og riktig skala",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Et godt diagram må ha en tittel som beskriver innholdet, aksetitler med riktige enheter (for eksempel Temperatur i grader Celsius), og en fornuftig skala som gjør det enkelt å lese av verdiene."
+          },
+          {
+            "id": "naturfag-9-5-6-n-quiz4-q2",
+            "task": "Når bruker du et spredningsdiagram?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å se om det er en sammenheng mellom to variabler",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For å vise andeler av en helhet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å sammenligne kategorier",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å vise endring over tid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et spredningsdiagram brukes for å undersøke om det er en sammenheng mellom to variabler. Hvert punkt representerer en måling med verdier på begge aksene. Hvis punktene danner et mønster, kan det tyde på en sammenheng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "naturfag-9-5-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi sett hvordan programmering og dataanalyse er kraftige verktøy i naturfag.\n\n**Programmering** handler om å gi datamaskinen presise instruksjoner. De tre viktigste byggesteinene er **variabler** (lagrer verdier), **betingelser** (if/else for å ta valg) og **løkker** (gjenta instruksjoner). Python er et mye brukt programmeringsspråk i vitenskap.\n\nI naturfag bruker vi programmering til å beregne gjennomsnitt, klassifisere data automatisk, og analysere store datasett. Lister lar oss lagre mange verdier, og funksjoner som `sum()` og `len()` gjør beregninger enkle.\n\nData deles i **kvantitative** (tallverdier) og **kvalitative** (beskrivelser). Viktige statistiske mål er **gjennomsnitt** (summen delt på antall), **median** (midtverdien) og **variasjonsbredde** (forskjell mellom største og minste verdi).\n\nData presenteres visuelt gjennom diagrammer: **linjediagram** for endring over tid, **søylediagram** for sammenligning av kategorier, **sektordiagram** for andeler, og **spredningsdiagram** for å undersøke sammenhenger. Alle diagrammer trenger tittel, aksetitler med enheter og riktig skala.\n\nProgrammering og dataanalyse er ferdigheter som brukes i nesten alle naturfaglige disipliner, fra klimaforskning til medisin."
+    }
+  ],
+  "exercises": []
+}

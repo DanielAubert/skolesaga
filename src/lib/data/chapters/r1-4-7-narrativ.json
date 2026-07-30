@@ -1,1 +1,341 @@
-{"id":"r1-4-7-narrativ","courseId":"r1","chapterNumber":"4.7","title":"Relaterte rater","subtitle":"Narrativ versjon","description":"En fortelling om relaterte rater -- ballongen som vokser tregere jo større den blir, stigen som sklir og tanken som fylles, alt bundet sammen av implisitt derivasjon med hensyn på tiden.","estimatedMinutes":35,"competenceGoals":["forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer"],"linkedChapterId":"r1-4-7","content":[{"id":"r1-4-7-n-intro","type":"text","content":"## Alt henger sammen med alt\n\nDu blåser opp en ballong. Lufta strømmer inn i jevnt tempo – men ballongen vokser ikke jevnt. I starten ser den ut til å ese ut fort, men jo større den blir, desto tregere vokser radiusen, selv om du blåser akkurat like hardt. Hvorfor? Fordi volum og radius er bundet sammen av en formel, og når den ene endrer seg, *må* den andre følge etter – i et tempo som formelen bestemmer.\n\nDette er kjernen i **relaterte rater**: problemer der flere størrelser endrer seg med tiden og er lenket sammen gjennom en likning. En stige sklir ut fra veggen – hvor fort synker toppen? Vann fylles i en kjegleformet tank – hvor fort stiger vannstanden? I alle tilfellene kjenner vi den ene endringsraten og jakter på den andre.\n\nNøkkelideen er like enkel som den er kraftig: vi tar likningen som binder størrelsene sammen, og deriverer hele likningen *med hensyn på tiden* $t$. Da forvandles sammenhengen mellom størrelsene til en sammenheng mellom endringsratene deres. Verktøyet som gjør dette mulig, er implisitt derivasjon med kjerneregelen – som du nettopp har lært. I dette kapittelet får du en fast fem-stegs oppskrift og tre klassiske problemer: ballongen, stigen og tanken."},{"id":"r1-4-7-n-section1","type":"text","content":"## Oppskriften – og fellen alle går i\n\nRelaterte rater-problemer kan se skremmende ut, men de løses alle med samme fem steg. **Steg 1:** Tegn en figur og definer variablene – hva heter størrelsene som endrer seg? **Steg 2:** Skriv ned det som er gitt og det du skal finne, med $\\frac{d}{dt}$-notasjon. Husk at $\\frac{dV}{dt}$ rett og slett betyr «hvor fort $V$ endrer seg over tid». **Steg 3:** Finn en likning som knytter variablene sammen – en geometrisk formel, Pytagoras, likedannede trekanter. **Steg 4:** Deriver likningen implisitt med hensyn på $t$. **Steg 5:** Sett inn de kjente verdiene og løs for den ukjente raten.\n\nDet kritiske steget er nummer fire, og her ligger fellen: *alle variablene er funksjoner av tiden*. Når du deriverer $x^2$ med hensyn på $t$, holder det ikke å skrive $2x$ – kjerneregelen krever $\\frac{d}{dt}(x^2) = 2x \\cdot \\frac{dx}{dt}$. Den ekstra faktoren $\\frac{dx}{dt}$ er selve poenget: det er den som kobler størrelsens endring til tiden. Glemmer du den, mister hele regnestykket forbindelsen til klokka.\n\nOg én ting til før vi regner: hold orden på enhetene. Er radius i centimeter og volum i kubikkcentimeter, måles $\\frac{dV}{dt}$ i cm³/s og $\\frac{dr}{dt}$ i cm/s. Skriv alltid enheten i svaret – det hjelper deg å sjekke at svaret gir mening, og det forventes på eksamen."},{"id":"r1-4-7-n-quiz1","type":"exercise","exercise":{"id":"r1-4-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på metoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-7-n-quiz1-q0","task":"Hva er $\\frac{d}{dt}(x^2)$ når $x$ er en funksjon av tiden $t$?","options":[{"id":"a","text":"$2x$","isCorrect":false},{"id":"b","text":"$2x \\cdot \\frac{dx}{dt}$","isCorrect":true},{"id":"c","text":"$x^2 \\cdot \\frac{dx}{dt}$","isCorrect":false},{"id":"d","text":"$2t$","isCorrect":false}],"solution":"Siden $x$ endrer seg med tiden, krever kjerneregelen en ekstra faktor: $\\frac{d}{dt}(x^2) = 2x \\cdot \\frac{dx}{dt}$. Å glemme $\\frac{dx}{dt}$ er den vanligste feilen i relaterte rater."},{"id":"r1-4-7-n-quiz1-q1","task":"Hva er første steg i fremgangsmåten for relaterte rater?","options":[{"id":"a","text":"Tegne en figur og definere variablene","isCorrect":true},{"id":"b","text":"Derivere med hensyn på $t$","isCorrect":false},{"id":"c","text":"Sette inn tallverdiene","isCorrect":false},{"id":"d","text":"Løse likningen for $y$","isCorrect":false}],"solution":"Først figur og variabeldefinisjon, så gitt/ukjent med $\\frac{d}{dt}$-notasjon, deretter likning, implisitt derivasjon og til slutt innsetting."},{"id":"r1-4-7-n-quiz1-q2","task":"Hva betyr notasjonen $\\frac{dV}{dt}$?","options":[{"id":"a","text":"Volumet delt på tiden","isCorrect":false},{"id":"b","text":"Volumets gjennomsnitt over tid","isCorrect":false},{"id":"c","text":"Tiden det tar å fylle volumet $V$","isCorrect":false},{"id":"d","text":"Hvor fort volumet $V$ endrer seg over tid","isCorrect":true}],"solution":"$\\frac{dV}{dt}$ er den deriverte av $V$ med hensyn på $t$ – endringsraten til volumet, for eksempel målt i cm³/s."}]}},{"id":"r1-4-7-n-section2","type":"text","content":"## Ballongen og stigen\n\nLa oss bruke oppskriften. **Ballongen:** En kuleformet ballong blåses opp slik at volumet øker med $100$ cm³/s. Hvor fort øker radiusen når $r = 25$ cm? Gitt: $\\frac{dV}{dt} = 100$. Søkes: $\\frac{dr}{dt}$. Likningen som binder dem er kuleformelen $V = \\frac{4}{3}\\pi r^3$. Vi deriverer med hensyn på $t$ – og kjerneregelen gir faktoren $\\frac{dr}{dt}$: $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. Innsetting: $100 = 4\\pi \\cdot 625 \\cdot \\frac{dr}{dt}$, så $\\frac{dr}{dt} = \\frac{1}{25\\pi} \\approx 0{,}013$ cm/s.\n\nLegg merke til hva formelen forteller: raten $\\frac{dr}{dt} = \\frac{100}{4\\pi r^2}$ blir mindre jo større $r$ er. Det er ballongmysteriet fra innledningen oppklart – samme luftstrøm skal smøres utover en stadig større overflate, så radiusen vokser tregere og tregere.\n\n**Stigen:** En 5 meter lang stige står mot en vegg, og bunnen sklir utover med $0{,}5$ m/s. Hvor fort synker toppen når bunnen er 3 m fra veggen? Variabler: $x$ er avstanden fra veggen til stigefoten, $y$ er høyden til toppen. Likningen er Pytagoras: $x^2 + y^2 = 25$. Når $x = 3$, er $y = \\sqrt{25-9} = 4$. Implisitt derivasjon: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$. Innsetting: $2 \\cdot 3 \\cdot 0{,}5 + 2 \\cdot 4 \\cdot \\frac{dy}{dt} = 0$, som gir $\\frac{dy}{dt} = -\\frac{3}{8} = -0{,}375$ m/s.\n\nDet negative fortegnet er ikke en feil – det er informasjon: $y$ *avtar*, toppen synker. Matematikkens fortegn forteller retningen, og din jobb er å oversette: toppen glir nedover veggen med 0,375 m/s."},{"id":"r1-4-7-n-quiz2","type":"exercise","exercise":{"id":"r1-4-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på ballongen og stigen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-7-n-quiz2-q0","task":"Hva blir kuleformelen $V = \\frac{4}{3}\\pi r^3$ etter derivasjon med hensyn på $t$?","options":[{"id":"a","text":"$\\frac{dV}{dt} = 4\\pi r^2$","isCorrect":false},{"id":"b","text":"$\\frac{dV}{dt} = \\frac{4}{3}\\pi r^2 \\frac{dr}{dt}$","isCorrect":false},{"id":"c","text":"$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$","isCorrect":true},{"id":"d","text":"$\\frac{dV}{dt} = \\frac{4}{3}\\pi \\cdot 3r^2$","isCorrect":false}],"solution":"Kjerneregelen: $\\frac{d}{dt}\\left(\\frac{4}{3}\\pi r^3\\right) = \\frac{4}{3}\\pi \\cdot 3r^2 \\cdot \\frac{dr}{dt} = 4\\pi r^2 \\frac{dr}{dt}$."},{"id":"r1-4-7-n-quiz2-q1","task":"Ballongen fylles med $100$ cm³/s. Hvor fort vokser radiusen når $r = 25$ cm?","options":[{"id":"a","text":"$\\frac{1}{25\\pi}$ cm/s","isCorrect":true},{"id":"b","text":"$25\\pi$ cm/s","isCorrect":false},{"id":"c","text":"$\\frac{100}{25}$ cm/s","isCorrect":false},{"id":"d","text":"$\\frac{4}{\\pi}$ cm/s","isCorrect":false}],"solution":"$100 = 4\\pi(25)^2 \\frac{dr}{dt} = 2500\\pi \\frac{dr}{dt}$ gir $\\frac{dr}{dt} = \\frac{100}{2500\\pi} = \\frac{1}{25\\pi} \\approx 0{,}013$ cm/s."},{"id":"r1-4-7-n-quiz2-q2","task":"Stigen er 5 m, bunnen sklir ut med $0{,}5$ m/s og er 3 m fra veggen. Hva er $\\frac{dy}{dt}$?","options":[{"id":"a","text":"$0{,}375$ m/s","isCorrect":false},{"id":"b","text":"$-0{,}5$ m/s","isCorrect":false},{"id":"c","text":"$-\\frac{4}{3}$ m/s","isCorrect":false},{"id":"d","text":"$-\\frac{3}{8}$ m/s","isCorrect":true}],"solution":"Pytagoras gir $y = 4$. Derivasjon: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$, så $3 + 8\\frac{dy}{dt} = 0$ og $\\frac{dy}{dt} = -\\frac{3}{8}$ m/s. Minustegnet betyr at toppen synker."}]}},{"id":"r1-4-7-n-section3","type":"text","content":"## Tanken, skyggen og kunsten å forenkle\n\nNoen ganger inneholder problemet *flere* variabler enn rater. Da er trikset å eliminere en variabel før du deriverer. **Kjegletanken:** Vann renner inn i en kjegleformet tank med $2$ m³/min. Kjeglen er 6 m høy med radius 3 m øverst. Hvor fort stiger vannstanden når dybden er 2 m?\n\nVannet i tanken danner en liten kjegle med høyde $h$ og radius $r$ – to variabler, men bare én gitt rate. Redningen er likedannede trekanter: vannkjeglen har samme form som tanken, så $\\frac{r}{h} = \\frac{3}{6} = \\frac{1}{2}$, altså $r = \\frac{h}{2}$. Setter vi dette inn i kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$, får vi alt uttrykt ved $h$ alene: $V = \\frac{\\pi h^3}{12}$. Nå deriverer vi: $\\frac{dV}{dt} = \\frac{\\pi h^2}{4}\\frac{dh}{dt}$. Med $h = 2$ og $\\frac{dV}{dt} = 2$: $2 = \\pi \\frac{dh}{dt}$, så $\\frac{dh}{dt} = \\frac{2}{\\pi} \\approx 0{,}64$ m/min.\n\n**Skyggen:** En lyskaster på bakken lyser mot en vegg 10 m unna. En ball kastes rett opp 5 m fra lyskasteren, med høyde $h(t) = 20t - 5t^2$. Hvor fort beveger skyggen seg på veggen ved $t = 1$? Likedannede trekanter igjen: $\\frac{S}{10} = \\frac{h}{5}$, så skyggehøyden er $S = 2h = 40t - 10t^2$. Derivasjon gir $\\frac{dS}{dt} = 40 - 20t$, og ved $t = 1$ farer skyggen oppover med $20$ m/s – dobbelt så fort som ballen selv, siden geometrien forstørrer bevegelsen med faktor 2.\n\nMønsteret er det samme hver gang: geometri kobler størrelsene, kjerneregelen kobler ratene, og innsetting til slutt – aldri før derivasjonen – gir svaret med riktig enhet."},{"id":"r1-4-7-n-quiz3","type":"exercise","exercise":{"id":"r1-4-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på tanken og skyggen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-7-n-quiz3-q0","task":"Hvorfor kan vi sette $r = \\frac{h}{2}$ i kjegletank-problemet?","options":[{"id":"a","text":"Fordi radius alltid er halvparten av høyden i kjegler","isCorrect":false},{"id":"b","text":"Fordi vannkjeglen er likedannet med tanken, og $\\frac{r}{h} = \\frac{3}{6} = \\frac{1}{2}$","isCorrect":true},{"id":"c","text":"Fordi vannet renner inn med konstant rate","isCorrect":false},{"id":"d","text":"Fordi $h = 2$ m","isCorrect":false}],"solution":"Vannoverflatens kjegle har samme form som selve tanken. Likedannede trekanter gir $\\frac{r}{h} = \\frac{3}{6}$, altså $r = \\frac{h}{2}$ – og dermed kan $V$ uttrykkes ved $h$ alene."},{"id":"r1-4-7-n-quiz3-q1","task":"Hvor fort stiger vannstanden når $h = 2$ m og $\\frac{dV}{dt} = 2$ m³/min?","options":[{"id":"a","text":"$\\frac{\\pi}{2}$ m/min","isCorrect":false},{"id":"b","text":"$2\\pi$ m/min","isCorrect":false},{"id":"c","text":"$\\frac{2}{\\pi}$ m/min","isCorrect":true},{"id":"d","text":"$\\frac{4}{\\pi}$ m/min","isCorrect":false}],"solution":"$V = \\frac{\\pi h^3}{12}$ gir $\\frac{dV}{dt} = \\frac{\\pi h^2}{4}\\frac{dh}{dt}$. Med $h = 2$: $2 = \\pi\\frac{dh}{dt}$, så $\\frac{dh}{dt} = \\frac{2}{\\pi} \\approx 0{,}64$ m/min."},{"id":"r1-4-7-n-quiz3-q2","task":"Radius måles i cm og tiden i sekunder. Hvilken enhet har $\\frac{dr}{dt}$?","options":[{"id":"a","text":"cm/s","isCorrect":true},{"id":"b","text":"cm³/s","isCorrect":false},{"id":"c","text":"s/cm","isCorrect":false},{"id":"d","text":"cm","isCorrect":false}],"solution":"$\\frac{dr}{dt}$ er endring i radius per tid, altså cm/s. Konsistente enheter er en gratis rimelighetssjekk – og forventes i svaret på eksamen."}]}},{"id":"r1-4-7-n-summary","type":"text","content":"## Lenkede endringer\n\nRelaterte rater handler om én innsikt: når størrelser er bundet sammen av en likning, er endringsratene deres bundet sammen av den deriverte likningen. Oppskriften er fast: tegn figur og definer variabler, noter gitt og ukjent med $\\frac{d}{dt}$-notasjon, finn likningen som kobler variablene, deriver implisitt med hensyn på $t$, og sett inn tallene helt til slutt.\n\nKjerneregelen er hjertet i metoden – hver variabel som endrer seg med tiden drar med seg sin egen rate: $\\frac{d}{dt}(x^2) = 2x\\frac{dx}{dt}$. Å glemme denne faktoren er den klassiske feilen. Formellageret ditt er geometrien: sirkelarealet $A = \\pi r^2$, kulevolumet $V = \\frac{4}{3}\\pi r^3$, kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$ og Pytagoras $a^2 + b^2 = c^2$.\n\nEksemplene viste hele spennvidden: ballongen, der voksende radius forklarer hvorfor lik luftstrøm gir stadig tregere vekst; stigen, der minustegnet i $-\\frac{3}{8}$ m/s bar selve svaret – toppen *synker*; og kjegletanken, der likedannede trekanter eliminerte en variabel før derivasjonen kunne starte. Og husk enhetene: cm³/s inn, cm/s ut, alltid oppgitt i svaret.\n\nDette er derivasjonen som arbeidsverktøy i den virkelige verden – ikke kurvetegning, men levende prosesser som utfolder seg i tid. I neste kapittel snur vi perspektivet og leter etter de *beste* verdiene: globale ekstremalpunkter og optimering."}],"exercises":[]}
+{
+  "id": "r1-4-7-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "4.7",
+  "title": "Relaterte rater",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om relaterte rater -- ballongen som vokser tregere jo større den blir, stigen som sklir og tanken som fylles, alt bundet sammen av implisitt derivasjon med hensyn på tiden.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer"
+  ],
+  "linkedChapterId": "r1-4-7",
+  "content": [
+    {
+      "id": "r1-4-7-n-intro",
+      "type": "text",
+      "content": "## Alt henger sammen med alt\n\nDu blåser opp en ballong. Lufta strømmer inn i jevnt tempo – men ballongen vokser ikke jevnt. I starten ser den ut til å ese ut fort, men jo større den blir, desto tregere vokser radiusen, selv om du blåser akkurat like hardt. Hvorfor? Fordi volum og radius er bundet sammen av en formel, og når den ene endrer seg, *må* den andre følge etter – i et tempo som formelen bestemmer.\n\nDette er kjernen i **relaterte rater**: problemer der flere størrelser endrer seg med tiden og er lenket sammen gjennom en likning. En stige sklir ut fra veggen – hvor fort synker toppen? Vann fylles i en kjegleformet tank – hvor fort stiger vannstanden? I alle tilfellene kjenner vi den ene endringsraten og jakter på den andre.\n\nNøkkelideen er like enkel som den er kraftig: vi tar likningen som binder størrelsene sammen, og deriverer hele likningen *med hensyn på tiden* $t$. Da forvandles sammenhengen mellom størrelsene til en sammenheng mellom endringsratene deres. Verktøyet som gjør dette mulig, er implisitt derivasjon med kjerneregelen – som du nettopp har lært. I dette kapittelet får du en fast fem-stegs oppskrift og tre klassiske problemer: ballongen, stigen og tanken."
+    },
+    {
+      "id": "r1-4-7-n-section1",
+      "type": "text",
+      "content": "## Oppskriften – og fellen alle går i\n\nRelaterte rater-problemer kan se skremmende ut, men de løses alle med samme fem steg. **Steg 1:** Tegn en figur og definer variablene – hva heter størrelsene som endrer seg? **Steg 2:** Skriv ned det som er gitt og det du skal finne, med $\\frac{d}{dt}$-notasjon. Husk at $\\frac{dV}{dt}$ rett og slett betyr «hvor fort $V$ endrer seg over tid». **Steg 3:** Finn en likning som knytter variablene sammen – en geometrisk formel, Pytagoras, likedannede trekanter. **Steg 4:** Deriver likningen implisitt med hensyn på $t$. **Steg 5:** Sett inn de kjente verdiene og løs for den ukjente raten.\n\nDet kritiske steget er nummer fire, og her ligger fellen: *alle variablene er funksjoner av tiden*. Når du deriverer $x^2$ med hensyn på $t$, holder det ikke å skrive $2x$ – kjerneregelen krever $\\frac{d}{dt}(x^2) = 2x \\cdot \\frac{dx}{dt}$. Den ekstra faktoren $\\frac{dx}{dt}$ er selve poenget: det er den som kobler størrelsens endring til tiden. Glemmer du den, mister hele regnestykket forbindelsen til klokka.\n\nOg én ting til før vi regner: hold orden på enhetene. Er radius i centimeter og volum i kubikkcentimeter, måles $\\frac{dV}{dt}$ i cm³/s og $\\frac{dr}{dt}$ i cm/s. Skriv alltid enheten i svaret – det hjelper deg å sjekke at svaret gir mening, og det forventes på eksamen."
+    },
+    {
+      "id": "r1-4-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på metoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-7-n-quiz1-q0",
+            "task": "Hva er $\\frac{d}{dt}(x^2)$ når $x$ er en funksjon av tiden $t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x \\cdot \\frac{dx}{dt}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x^2 \\cdot \\frac{dx}{dt}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $x$ endrer seg med tiden, krever kjerneregelen en ekstra faktor: $\\frac{d}{dt}(x^2) = 2x \\cdot \\frac{dx}{dt}$. Å glemme $\\frac{dx}{dt}$ er den vanligste feilen i relaterte rater."
+          },
+          {
+            "id": "r1-4-7-n-quiz1-q1",
+            "task": "Hva er første steg i fremgangsmåten for relaterte rater?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Derivere med hensyn på $t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sette inn tallverdiene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Løse likningen for $y$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Tegne en figur og definere variablene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Først figur og variabeldefinisjon, så gitt/ukjent med $\\frac{d}{dt}$-notasjon, deretter likning, implisitt derivasjon og til slutt innsetting."
+          },
+          {
+            "id": "r1-4-7-n-quiz1-q2",
+            "task": "Hva betyr notasjonen $\\frac{dV}{dt}$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Hvor fort volumet $V$ endrer seg over tid",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Volumet delt på tiden",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Volumets gjennomsnitt over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tiden det tar å fylle volumet $V$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{dV}{dt}$ er den deriverte av $V$ med hensyn på $t$ – endringsraten til volumet, for eksempel målt i cm³/s."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-7-n-section2",
+      "type": "text",
+      "content": "## Ballongen og stigen\n\nLa oss bruke oppskriften. **Ballongen:** En kuleformet ballong blåses opp slik at volumet øker med $100$ cm³/s. Hvor fort øker radiusen når $r = 25$ cm? Gitt: $\\frac{dV}{dt} = 100$. Søkes: $\\frac{dr}{dt}$. Likningen som binder dem er kuleformelen $V = \\frac{4}{3}\\pi r^3$. Vi deriverer med hensyn på $t$ – og kjerneregelen gir faktoren $\\frac{dr}{dt}$: $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. Innsetting: $100 = 4\\pi \\cdot 625 \\cdot \\frac{dr}{dt}$, så $\\frac{dr}{dt} = \\frac{1}{25\\pi} \\approx 0{,}013$ cm/s.\n\nLegg merke til hva formelen forteller: raten $\\frac{dr}{dt} = \\frac{100}{4\\pi r^2}$ blir mindre jo større $r$ er. Det er ballongmysteriet fra innledningen oppklart – samme luftstrøm skal smøres utover en stadig større overflate, så radiusen vokser tregere og tregere.\n\n**Stigen:** En 5 meter lang stige står mot en vegg, og bunnen sklir utover med $0{,}5$ m/s. Hvor fort synker toppen når bunnen er 3 m fra veggen? Variabler: $x$ er avstanden fra veggen til stigefoten, $y$ er høyden til toppen. Likningen er Pytagoras: $x^2 + y^2 = 25$. Når $x = 3$, er $y = \\sqrt{25-9} = 4$. Implisitt derivasjon: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$. Innsetting: $2 \\cdot 3 \\cdot 0{,}5 + 2 \\cdot 4 \\cdot \\frac{dy}{dt} = 0$, som gir $\\frac{dy}{dt} = -\\frac{3}{8} = -0{,}375$ m/s.\n\nDet negative fortegnet er ikke en feil – det er informasjon: $y$ *avtar*, toppen synker. Matematikkens fortegn forteller retningen, og din jobb er å oversette: toppen glir nedover veggen med 0,375 m/s."
+    },
+    {
+      "id": "r1-4-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ballongen og stigen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-7-n-quiz2-q0",
+            "task": "Hva blir kuleformelen $V = \\frac{4}{3}\\pi r^3$ etter derivasjon med hensyn på $t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{dV}{dt} = 4\\pi r^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{dV}{dt} = \\frac{4}{3}\\pi r^2 \\frac{dr}{dt}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{dV}{dt} = \\frac{4}{3}\\pi \\cdot 3r^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen: $\\frac{d}{dt}\\left(\\frac{4}{3}\\pi r^3\\right) = \\frac{4}{3}\\pi \\cdot 3r^2 \\cdot \\frac{dr}{dt} = 4\\pi r^2 \\frac{dr}{dt}$."
+          },
+          {
+            "id": "r1-4-7-n-quiz2-q1",
+            "task": "Ballongen fylles med $100$ cm³/s. Hvor fort vokser radiusen når $r = 25$ cm?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$25\\pi$ cm/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{100}{25}$ cm/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{4}{\\pi}$ cm/s",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{25\\pi}$ cm/s",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$100 = 4\\pi(25)^2 \\frac{dr}{dt} = 2500\\pi \\frac{dr}{dt}$ gir $\\frac{dr}{dt} = \\frac{100}{2500\\pi} = \\frac{1}{25\\pi} \\approx 0{,}013$ cm/s."
+          },
+          {
+            "id": "r1-4-7-n-quiz2-q2",
+            "task": "Stigen er 5 m, bunnen sklir ut med $0{,}5$ m/s og er 3 m fra veggen. Hva er $\\frac{dy}{dt}$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$-\\frac{3}{8}$ m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}375$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-0{,}5$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{4}{3}$ m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Pytagoras gir $y = 4$. Derivasjon: $2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$, så $3 + 8\\frac{dy}{dt} = 0$ og $\\frac{dy}{dt} = -\\frac{3}{8}$ m/s. Minustegnet betyr at toppen synker."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-7-n-section3",
+      "type": "text",
+      "content": "## Tanken, skyggen og kunsten å forenkle\n\nNoen ganger inneholder problemet *flere* variabler enn rater. Da er trikset å eliminere en variabel før du deriverer. **Kjegletanken:** Vann renner inn i en kjegleformet tank med $2$ m³/min. Kjeglen er 6 m høy med radius 3 m øverst. Hvor fort stiger vannstanden når dybden er 2 m?\n\nVannet i tanken danner en liten kjegle med høyde $h$ og radius $r$ – to variabler, men bare én gitt rate. Redningen er likedannede trekanter: vannkjeglen har samme form som tanken, så $\\frac{r}{h} = \\frac{3}{6} = \\frac{1}{2}$, altså $r = \\frac{h}{2}$. Setter vi dette inn i kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$, får vi alt uttrykt ved $h$ alene: $V = \\frac{\\pi h^3}{12}$. Nå deriverer vi: $\\frac{dV}{dt} = \\frac{\\pi h^2}{4}\\frac{dh}{dt}$. Med $h = 2$ og $\\frac{dV}{dt} = 2$: $2 = \\pi \\frac{dh}{dt}$, så $\\frac{dh}{dt} = \\frac{2}{\\pi} \\approx 0{,}64$ m/min.\n\n**Skyggen:** En lyskaster på bakken lyser mot en vegg 10 m unna. En ball kastes rett opp 5 m fra lyskasteren, med høyde $h(t) = 20t - 5t^2$. Hvor fort beveger skyggen seg på veggen ved $t = 1$? Likedannede trekanter igjen: $\\frac{S}{10} = \\frac{h}{5}$, så skyggehøyden er $S = 2h = 40t - 10t^2$. Derivasjon gir $\\frac{dS}{dt} = 40 - 20t$, og ved $t = 1$ farer skyggen oppover med $20$ m/s – dobbelt så fort som ballen selv, siden geometrien forstørrer bevegelsen med faktor 2.\n\nMønsteret er det samme hver gang: geometri kobler størrelsene, kjerneregelen kobler ratene, og innsetting til slutt – aldri før derivasjonen – gir svaret med riktig enhet."
+    },
+    {
+      "id": "r1-4-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på tanken og skyggen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-7-n-quiz3-q0",
+            "task": "Hvorfor kan vi sette $r = \\frac{h}{2}$ i kjegletank-problemet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi radius alltid er halvparten av høyden i kjegler",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi vannkjeglen er likedannet med tanken, og $\\frac{r}{h} = \\frac{3}{6} = \\frac{1}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi vannet renner inn med konstant rate",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $h = 2$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vannoverflatens kjegle har samme form som selve tanken. Likedannede trekanter gir $\\frac{r}{h} = \\frac{3}{6}$, altså $r = \\frac{h}{2}$ – og dermed kan $V$ uttrykkes ved $h$ alene."
+          },
+          {
+            "id": "r1-4-7-n-quiz3-q1",
+            "task": "Hvor fort stiger vannstanden når $h = 2$ m og $\\frac{dV}{dt} = 2$ m³/min?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{\\pi}{2}$ m/min",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\pi$ m/min",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{\\pi}$ m/min",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{4}{\\pi}$ m/min",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$V = \\frac{\\pi h^3}{12}$ gir $\\frac{dV}{dt} = \\frac{\\pi h^2}{4}\\frac{dh}{dt}$. Med $h = 2$: $2 = \\pi\\frac{dh}{dt}$, så $\\frac{dh}{dt} = \\frac{2}{\\pi} \\approx 0{,}64$ m/min."
+          },
+          {
+            "id": "r1-4-7-n-quiz3-q2",
+            "task": "Radius måles i cm og tiden i sekunder. Hvilken enhet har $\\frac{dr}{dt}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "cm³/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "s/cm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "cm",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "cm/s",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{dr}{dt}$ er endring i radius per tid, altså cm/s. Konsistente enheter er en gratis rimelighetssjekk – og forventes i svaret på eksamen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-7-n-summary",
+      "type": "text",
+      "content": "## Lenkede endringer\n\nRelaterte rater handler om én innsikt: når størrelser er bundet sammen av en likning, er endringsratene deres bundet sammen av den deriverte likningen. Oppskriften er fast: tegn figur og definer variabler, noter gitt og ukjent med $\\frac{d}{dt}$-notasjon, finn likningen som kobler variablene, deriver implisitt med hensyn på $t$, og sett inn tallene helt til slutt.\n\nKjerneregelen er hjertet i metoden – hver variabel som endrer seg med tiden drar med seg sin egen rate: $\\frac{d}{dt}(x^2) = 2x\\frac{dx}{dt}$. Å glemme denne faktoren er den klassiske feilen. Formellageret ditt er geometrien: sirkelarealet $A = \\pi r^2$, kulevolumet $V = \\frac{4}{3}\\pi r^3$, kjeglevolumet $V = \\frac{1}{3}\\pi r^2 h$ og Pytagoras $a^2 + b^2 = c^2$.\n\nEksemplene viste hele spennvidden: ballongen, der voksende radius forklarer hvorfor lik luftstrøm gir stadig tregere vekst; stigen, der minustegnet i $-\\frac{3}{8}$ m/s bar selve svaret – toppen *synker*; og kjegletanken, der likedannede trekanter eliminerte en variabel før derivasjonen kunne starte. Og husk enhetene: cm³/s inn, cm/s ut, alltid oppgitt i svaret.\n\nDette er derivasjonen som arbeidsverktøy i den virkelige verden – ikke kurvetegning, men levende prosesser som utfolder seg i tid. I neste kapittel snur vi perspektivet og leter etter de *beste* verdiene: globale ekstremalpunkter og optimering."
+    }
+  ],
+  "exercises": []
+}

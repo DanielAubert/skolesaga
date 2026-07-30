@@ -1,1 +1,423 @@
-{"id":"bi-okonomi-9-4-narrativ","courseId":"bi-okonomi","chapterNumber":"9.4","title":"Cramers regel og økonomiske anvendelser","subtitle":"Narrativ versjon","description":"En fortelling om Cramers elegante determinant-formel og om Leontief-modellen som vant Nobelprisen -- hvordan matriser fanger ringvirkningene når etterspørselen i én sektor brer seg gjennom hele økonomien.","estimatedMinutes":38,"competenceGoals":[],"linkedChapterId":"bi-okonomi-9-4","content":[{"id":"bi-okonomi-9-4-n-intro","type":"text","content":"## Determinanter som løsningsmaskin\n\nVi har lært tre måter å løse $A\\mathbf{x} = \\mathbf{b}$ på: Gauss-eliminasjon, invers matrise -- og nå en tredje, **Cramers regel**, som gir hver ukjent direkte som en brøk av to determinanter. Den er pen, kompakt og perfekt for små systemer. I dette siste kapittelet om lineær algebra ser vi også på en av de mest sentrale anvendelsene av matriser i hele økonomifaget: **Leontief input-output-modellen**, som Wassily Leontief fikk Nobelprisen for i 1973, og som statistikkbyråer fortsatt bruker for å spore hvordan etterspørsel forplanter seg gjennom et lands sektorer.\n\nKravet for Cramers regel er det samme som for invers matrise: koeffisientmatrisen $A$ må være kvadratisk med $\\det(A) \\neq 0$. Da finnes nøyaktig én løsning, og vi kan plukke ut hver enkelt ukjent uten å regne ut hele løsningsvektoren samtidig. Det gjør Cramer ekstra nyttig i teoretisk arbeid, der vi vil uttrykke én variabel som funksjon av høyresiden $\\mathbf{b}$ -- for eksempel i sensitivitetsanalyse. La oss se hvordan den fungerer."},{"id":"bi-okonomi-9-4-n-section1","type":"text","content":"## Cramers regel i praksis\n\nIdeen er enkel. La $A_i$ være matrisen vi får ved å **erstatte kolonne nummer $i$** i $A$ med høyresiden $\\mathbf{b}$. Da er den $i$-te ukjente $x_i = \\dfrac{\\det(A_i)}{\\det(A)}$.\n\nTa systemet $3x + 2y = 16$, $x + 4y = 12$. Her er $A = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix}$ med $\\det(A) = 12 - 2 = 10$. For $x$ bytter vi første kolonne med $\\mathbf{b}$: $A_1 = \\begin{pmatrix} 16 & 2 \\\\ 12 & 4 \\end{pmatrix}$, $\\det(A_1) = 64 - 24 = 40$. For $y$ bytter vi andre kolonne: $A_2 = \\begin{pmatrix} 3 & 16 \\\\ 1 & 12 \\end{pmatrix}$, $\\det(A_2) = 36 - 16 = 20$. Dermed er $x = \\tfrac{40}{10} = 4$ og $y = \\tfrac{20}{10} = 2$.\n\nMetoden skalerer til $3 \\times 3$ på akkurat samme vis -- vi regner én determinant for nevneren og én per ukjent for tellerne. For systemet $x + y + z = 6$, $2x - y + z = 3$, $x + 2y - z = 2$ blir $\\det(A) = 7$, og de tre teller-determinantene blir $\\det(A_1) = 7$, $\\det(A_2) = 14$ og $\\det(A_3) = 21$, slik at $x = 1$, $y = 2$, $z = 3$. Men husk: for større systemer er Gauss-eliminasjon normalt mye raskere, fordi antall determinant-beregninger vokser fort. Cramer skinner mest på $2 \\times 2$ og $3 \\times 3$."},{"id":"bi-okonomi-9-4-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-9-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på Cramers regel:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-9-4-n-quiz1-q0","task":"I Cramers regel, hva er $A_i$?","options":[{"id":"a","text":"$A$ med kolonne $i$ erstattet av $\\mathbf{b}$","isCorrect":true},{"id":"b","text":"$A$ med rad $i$ erstattet av $\\mathbf{b}$","isCorrect":false},{"id":"c","text":"Den inverse av $A$","isCorrect":false},{"id":"d","text":"$A$ transponert","isCorrect":false}],"solution":"Vi bytter ut kolonne nummer $i$ i $A$ med høyresiden $\\mathbf{b}$, og bruker $x_i = \\det(A_i)/\\det(A)$."},{"id":"bi-okonomi-9-4-n-quiz1-q1","task":"For $\\begin{cases} 2x + y = 7 \\\\ x + 3y = 11 \\end{cases}$ er $\\det(A) = 5$ og $\\det(A_1) = 10$. Hva er $x$?","options":[{"id":"a","text":"$x = 5$","isCorrect":false},{"id":"b","text":"$x = 2$","isCorrect":true},{"id":"c","text":"$x = 50$","isCorrect":false},{"id":"d","text":"$x = 0{,}5$","isCorrect":false}],"solution":"$x = \\det(A_1)/\\det(A) = 10/5 = 2$."},{"id":"bi-okonomi-9-4-n-quiz1-q2","task":"Når kan vi IKKE bruke Cramers regel?","options":[{"id":"a","text":"Når $A$ er $2 \\times 2$","isCorrect":false},{"id":"b","text":"Når høyresiden inneholder negative tall","isCorrect":false},{"id":"c","text":"Når $\\det(A) = 0$","isCorrect":true},{"id":"d","text":"Når systemet har tre ukjente","isCorrect":false}],"solution":"Cramers regel krever $\\det(A) \\neq 0$. Er determinanten null, deler vi på null, og metoden er ikke anvendelig."},{"id":"bi-okonomi-9-4-n-quiz1-q3","task":"For et stort $6 \\times 6$-system, hvilken metode er normalt raskest?","options":[{"id":"a","text":"Cramers regel","isCorrect":false},{"id":"b","text":"Transponering","isCorrect":false},{"id":"c","text":"Å gjette","isCorrect":false},{"id":"d","text":"Gauss-eliminasjon","isCorrect":true}],"solution":"For store systemer krever Cramer mange tunge determinant-beregninger. Gauss-eliminasjon er da normalt mye raskere."}]}},{"id":"bi-okonomi-9-4-n-section2","type":"text","content":"## Leontief -- når sektorene henger sammen\n\nWassily Leontief så at sektorene i en økonomi er **gjensidig avhengige**: stålet som industrien lager, brukes som innsats i bilfabrikken, som igjen leverer varebiler til jordbruket. Modellen hans holder styr på alle disse ringvirkningene. Vi setter opp en **teknologi-matrise** $A$, der element $a_{ij}$ forteller hvor mange enheter fra sektor $i$ som trengs for å lage én enhet i sektor $j$. Videre lar vi $\\mathbf{x}$ være **total produksjon** i hver sektor og $\\mathbf{d}$ være **sluttetterspørselen** -- det forbrukere, eksport og investering vil ha.\n\nGrunnlikningen sier at total produksjon dekker både internt bruk og sluttetterspørsel: $\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$. Vi løser ved å samle $\\mathbf{x}$-leddene: $\\mathbf{x} - A\\mathbf{x} = \\mathbf{d}$, altså $(I - A)\\mathbf{x} = \\mathbf{d}$, og dermed $\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$. Matrisen $(I - A)^{-1}$ kalles **Leontief-inversen**, og element $(i,j)$ forteller hvor mye sektor $i$ må produsere for én ekstra enhet sluttetterspørsel i sektor $j$ -- direkte og indirekte gjennom alle ringvirkninger.\n\nMed to sektorer og $A = \\begin{pmatrix} 0{,}2 & 0{,}3 \\\\ 0{,}1 & 0{,}4 \\end{pmatrix}$ blir $I - A = \\begin{pmatrix} 0{,}8 & -0{,}3 \\\\ -0{,}1 & 0{,}6 \\end{pmatrix}$ med $\\det = 0{,}48 - 0{,}03 = 0{,}45$. Med sluttetterspørsel $\\mathbf{d} = \\begin{pmatrix} 60 \\\\ 80 \\end{pmatrix}$ får vi $\\mathbf{x} = \\tfrac{1}{0{,}45}\\begin{pmatrix} 60 \\\\ 70 \\end{pmatrix} \\approx \\begin{pmatrix} 133{,}33 \\\\ 155{,}56 \\end{pmatrix}$. Selv om sluttetterspørselen bare summerer til $140$, må total produksjon bli nær $289$ -- forskjellen er varer som forbrukes **internt** mellom sektorene og aldri ender som sluttprodukt."},{"id":"bi-okonomi-9-4-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-9-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på Leontief-modellen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-9-4-n-quiz2-q0","task":"Hva er grunnlikningen i Leontief-modellen?","options":[{"id":"a","text":"$\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$","isCorrect":true},{"id":"b","text":"$\\mathbf{x} = A + \\mathbf{d}$","isCorrect":false},{"id":"c","text":"$\\mathbf{d} = A^{-1}\\mathbf{x}$","isCorrect":false},{"id":"d","text":"$\\mathbf{x} = A\\mathbf{d}$","isCorrect":false}],"solution":"Total produksjon = internt forbruk + sluttetterspørsel, altså $\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$."},{"id":"bi-okonomi-9-4-n-quiz2-q1","task":"Hvordan løser vi for total produksjon $\\mathbf{x}$?","options":[{"id":"a","text":"$\\mathbf{x} = (I + A)\\mathbf{d}$","isCorrect":false},{"id":"b","text":"$\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$","isCorrect":true},{"id":"c","text":"$\\mathbf{x} = A^{-1}\\mathbf{d}$","isCorrect":false},{"id":"d","text":"$\\mathbf{x} = (A - I)\\mathbf{d}$","isCorrect":false}],"solution":"Fra $(I - A)\\mathbf{x} = \\mathbf{d}$ ganger vi med Leontief-inversen: $\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$."},{"id":"bi-okonomi-9-4-n-quiz2-q2","task":"For $A = \\begin{pmatrix} 0{,}2 & 0{,}3 \\\\ 0{,}1 & 0{,}4 \\end{pmatrix}$, hva er $\\det(I - A)$?","options":[{"id":"a","text":"$0{,}48$","isCorrect":false},{"id":"b","text":"$0{,}03$","isCorrect":false},{"id":"c","text":"$0{,}45$","isCorrect":true},{"id":"d","text":"$1{,}00$","isCorrect":false}],"solution":"$I - A = \\begin{pmatrix} 0{,}8 & -0{,}3 \\\\ -0{,}1 & 0{,}6 \\end{pmatrix}$, og $\\det = 0{,}8\\cdot 0{,}6 - (-0{,}3)(-0{,}1) = 0{,}48 - 0{,}03 = 0{,}45$."},{"id":"bi-okonomi-9-4-n-quiz2-q3","task":"Hva betyr element $(i,j)$ i teknologi-matrisen $A$?","options":[{"id":"a","text":"Total produksjon i sektor $j$","isCorrect":false},{"id":"b","text":"Sluttetterspørsel i sektor $i$","isCorrect":false},{"id":"c","text":"Prisen på vare $i$","isCorrect":false},{"id":"d","text":"Enheter fra sektor $i$ per enhet produsert i sektor $j$","isCorrect":true}],"solution":"$a_{ij}$ er hvor mange enheter fra sektor $i$ som trengs som innsats for å produsere én enhet i sektor $j$."}]}},{"id":"bi-okonomi-9-4-n-section3","type":"text","content":"## Markedslikevekt og investerings-mix\n\nDe samme verktøyene løser to andre klassiske økonomiproblemer. Det første er **markedslikevekt med flere varer**, der etterspørsel og tilbud i sammenkoblede markeder -- som kaffe og te -- bestemmer prisene samtidig. Likevekt krever $Q_D = Q_S$ i hvert marked. Med $Q_D^1 = 200 - 4p_1 + 2p_2$, $Q_S^1 = -40 + 6p_1$ for vare 1 og tilsvarende for vare 2, samler vi leddene og får systemet $10p_1 - 2p_2 = 240$, $-p_1 + 8p_2 = 180$. Her er $\\det(A) = 80 - 2 = 78$, og Cramers regel gir $p_1 = \\tfrac{2280}{78} \\approx 29{,}23$ og $p_2 = \\tfrac{2040}{78} \\approx 26{,}15$ kr.\n\nDet andre er **investerings-mix**. Anta en investor har 600 000 kr fordelt på tre fond A, B og C med avkastning 3 %, 5 % og 8 %. Hun vil ha total avkastning på 30 000 kr (altså 5 %) og dobbelt så mye i C som i B. Det gir tre likninger: $a + b + c = 600\\,000$, $0{,}03a + 0{,}05b + 0{,}08c = 30\\,000$ og $c = 2b$. Setter vi $c = 2b$ inn, faller systemet pent sammen til $18\\,000 + 0{,}12b = 30\\,000$, så $b = 100\\,000$, $c = 200\\,000$ og $a = 300\\,000$. En rask kontroll bekrefter at avkastningen blir $9\\,000 + 5\\,000 + 16\\,000 = 30\\,000$ kr. Kjernen i alt dette -- markedslikevekt, porteføljer, input-output -- er den samme lineære algebraen vi nå har bygd opp gjennom hele kapittelet."},{"id":"bi-okonomi-9-4-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-9-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på markedslikevekt og investerings-mix:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-9-4-n-quiz3-q0","task":"Hvilken betingelse definerer markedslikevekt for hver vare?","options":[{"id":"a","text":"$Q_D = Q_S$","isCorrect":true},{"id":"b","text":"$Q_D = 0$","isCorrect":false},{"id":"c","text":"$p_1 = p_2$","isCorrect":false},{"id":"d","text":"$Q_S = $ total produksjon","isCorrect":false}],"solution":"Likevekt betyr at etterspørselen er lik tilbudet i hvert marked: $Q_D = Q_S$."},{"id":"bi-okonomi-9-4-n-quiz3-q1","task":"Likevektssystemet $\\begin{cases} 10p_1 - 2p_2 = 240 \\\\ -p_1 + 8p_2 = 180 \\end{cases}$ har $\\det(A)$ lik:","options":[{"id":"a","text":"$82$","isCorrect":false},{"id":"b","text":"$78$","isCorrect":true},{"id":"c","text":"$80$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"$\\det(A) = 10\\cdot 8 - (-2)(-1) = 80 - 2 = 78$."},{"id":"bi-okonomi-9-4-n-quiz3-q2","task":"I investerings-mixen settes $c = 2b$ inn slik at $18\\,000 + 0{,}12b = 30\\,000$. Hva er $b$?","options":[{"id":"a","text":"$50\\,000$","isCorrect":false},{"id":"b","text":"$200\\,000$","isCorrect":false},{"id":"c","text":"$100\\,000$","isCorrect":true},{"id":"d","text":"$300\\,000$","isCorrect":false}],"solution":"$0{,}12b = 30\\,000 - 18\\,000 = 12\\,000$, så $b = 100\\,000$. Da blir $c = 200\\,000$ og $a = 300\\,000$."},{"id":"bi-okonomi-9-4-n-quiz3-q3","task":"Hva er den røde tråden i markedslikevekt, porteføljer og Leontief-modellen?","options":[{"id":"a","text":"De krever alle integralregning","isCorrect":false},{"id":"b","text":"De kan ikke løses for hånd","isCorrect":false},{"id":"c","text":"De handler bare om to variabler","isCorrect":false},{"id":"d","text":"Kjernen er lineær algebra: lineære likningssystem","isCorrect":true}],"solution":"Alle tre koker ned til å løse lineære likningssystem med determinanter, invers matrise eller Gauss-eliminasjon."}]}},{"id":"bi-okonomi-9-4-n-summary","type":"text","content":"## Oppsummering\n\n**Cramers regel** løser $A\\mathbf{x} = \\mathbf{b}$ ved at hver ukjent blir $x_i = \\dfrac{\\det(A_i)}{\\det(A)}$, der $A_i$ er $A$ med kolonne $i$ byttet ut med $\\mathbf{b}$. Den krever $\\det(A) \\neq 0$ og er elegant for $2 \\times 2$ og $3 \\times 3$, mens Gauss-eliminasjon tar over for store systemer.\n\n**Leontief input-output-modellen** beskriver gjensidig avhengige sektorer gjennom likningen $\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$, som løses med Leontief-inversen: $\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$. Den fanger både direkte og indirekte ringvirkninger, slik at total produksjon overstiger sluttetterspørselen på grunn av internt forbruk. De samme metodene gir oss likevektspriser i sammenkoblede markeder og riktig fordeling i en investerings-mix. Felles for alt er at den lineære algebraen -- matriser, determinanter og likningssystem -- er motoren bak moderne kvantitativ økonomi."}],"exercises":[]}
+{
+  "id": "bi-okonomi-9-4-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "9.4",
+  "title": "Cramers regel og økonomiske anvendelser",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om Cramers elegante determinant-formel og om Leontief-modellen som vant Nobelprisen -- hvordan matriser fanger ringvirkningene når etterspørselen i én sektor brer seg gjennom hele økonomien.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-9-4",
+  "content": [
+    {
+      "id": "bi-okonomi-9-4-n-intro",
+      "type": "text",
+      "content": "## Determinanter som løsningsmaskin\n\nVi har lært tre måter å løse $A\\mathbf{x} = \\mathbf{b}$ på: Gauss-eliminasjon, invers matrise -- og nå en tredje, **Cramers regel**, som gir hver ukjent direkte som en brøk av to determinanter. Den er pen, kompakt og perfekt for små systemer. I dette siste kapittelet om lineær algebra ser vi også på en av de mest sentrale anvendelsene av matriser i hele økonomifaget: **Leontief input-output-modellen**, som Wassily Leontief fikk Nobelprisen for i 1973, og som statistikkbyråer fortsatt bruker for å spore hvordan etterspørsel forplanter seg gjennom et lands sektorer.\n\nKravet for Cramers regel er det samme som for invers matrise: koeffisientmatrisen $A$ må være kvadratisk med $\\det(A) \\neq 0$. Da finnes nøyaktig én løsning, og vi kan plukke ut hver enkelt ukjent uten å regne ut hele løsningsvektoren samtidig. Det gjør Cramer ekstra nyttig i teoretisk arbeid, der vi vil uttrykke én variabel som funksjon av høyresiden $\\mathbf{b}$ -- for eksempel i sensitivitetsanalyse. La oss se hvordan den fungerer."
+    },
+    {
+      "id": "bi-okonomi-9-4-n-section1",
+      "type": "text",
+      "content": "## Cramers regel i praksis\n\nIdeen er enkel. La $A_i$ være matrisen vi får ved å **erstatte kolonne nummer $i$** i $A$ med høyresiden $\\mathbf{b}$. Da er den $i$-te ukjente $x_i = \\dfrac{\\det(A_i)}{\\det(A)}$.\n\nTa systemet $3x + 2y = 16$, $x + 4y = 12$. Her er $A = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix}$ med $\\det(A) = 12 - 2 = 10$. For $x$ bytter vi første kolonne med $\\mathbf{b}$: $A_1 = \\begin{pmatrix} 16 & 2 \\\\ 12 & 4 \\end{pmatrix}$, $\\det(A_1) = 64 - 24 = 40$. For $y$ bytter vi andre kolonne: $A_2 = \\begin{pmatrix} 3 & 16 \\\\ 1 & 12 \\end{pmatrix}$, $\\det(A_2) = 36 - 16 = 20$. Dermed er $x = \\tfrac{40}{10} = 4$ og $y = \\tfrac{20}{10} = 2$.\n\nMetoden skalerer til $3 \\times 3$ på akkurat samme vis -- vi regner én determinant for nevneren og én per ukjent for tellerne. For systemet $x + y + z = 6$, $2x - y + z = 3$, $x + 2y - z = 2$ blir $\\det(A) = 7$, og de tre teller-determinantene blir $\\det(A_1) = 7$, $\\det(A_2) = 14$ og $\\det(A_3) = 21$, slik at $x = 1$, $y = 2$, $z = 3$. Men husk: for større systemer er Gauss-eliminasjon normalt mye raskere, fordi antall determinant-beregninger vokser fort. Cramer skinner mest på $2 \\times 2$ og $3 \\times 3$."
+    },
+    {
+      "id": "bi-okonomi-9-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-9-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Cramers regel:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-9-4-n-quiz1-q0",
+            "task": "I Cramers regel, hva er $A_i$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$A$ med rad $i$ erstattet av $\\mathbf{b}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den inverse av $A$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$A$ med kolonne $i$ erstattet av $\\mathbf{b}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$A$ transponert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi bytter ut kolonne nummer $i$ i $A$ med høyresiden $\\mathbf{b}$, og bruker $x_i = \\det(A_i)/\\det(A)$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz1-q1",
+            "task": "For $\\begin{cases} 2x + y = 7 \\\\ x + 3y = 11 \\end{cases}$ er $\\det(A) = 5$ og $\\det(A_1) = 10$. Hva er $x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x = \\det(A_1)/\\det(A) = 10/5 = 2$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz1-q2",
+            "task": "Når kan vi IKKE bruke Cramers regel?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Når $\\det(A) = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Når $A$ er $2 \\times 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når høyresiden inneholder negative tall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når systemet har tre ukjente",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Cramers regel krever $\\det(A) \\neq 0$. Er determinanten null, deler vi på null, og metoden er ikke anvendelig."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz1-q3",
+            "task": "For et stort $6 \\times 6$-system, hvilken metode er normalt raskest?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Cramers regel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gauss-eliminasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Transponering",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å gjette",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For store systemer krever Cramer mange tunge determinant-beregninger. Gauss-eliminasjon er da normalt mye raskere."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-9-4-n-section2",
+      "type": "text",
+      "content": "## Leontief -- når sektorene henger sammen\n\nWassily Leontief så at sektorene i en økonomi er **gjensidig avhengige**: stålet som industrien lager, brukes som innsats i bilfabrikken, som igjen leverer varebiler til jordbruket. Modellen hans holder styr på alle disse ringvirkningene. Vi setter opp en **teknologi-matrise** $A$, der element $a_{ij}$ forteller hvor mange enheter fra sektor $i$ som trengs for å lage én enhet i sektor $j$. Videre lar vi $\\mathbf{x}$ være **total produksjon** i hver sektor og $\\mathbf{d}$ være **sluttetterspørselen** -- det forbrukere, eksport og investering vil ha.\n\nGrunnlikningen sier at total produksjon dekker både internt bruk og sluttetterspørsel: $\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$. Vi løser ved å samle $\\mathbf{x}$-leddene: $\\mathbf{x} - A\\mathbf{x} = \\mathbf{d}$, altså $(I - A)\\mathbf{x} = \\mathbf{d}$, og dermed $\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$. Matrisen $(I - A)^{-1}$ kalles **Leontief-inversen**, og element $(i,j)$ forteller hvor mye sektor $i$ må produsere for én ekstra enhet sluttetterspørsel i sektor $j$ -- direkte og indirekte gjennom alle ringvirkninger.\n\nMed to sektorer og $A = \\begin{pmatrix} 0{,}2 & 0{,}3 \\\\ 0{,}1 & 0{,}4 \\end{pmatrix}$ blir $I - A = \\begin{pmatrix} 0{,}8 & -0{,}3 \\\\ -0{,}1 & 0{,}6 \\end{pmatrix}$ med $\\det = 0{,}48 - 0{,}03 = 0{,}45$. Med sluttetterspørsel $\\mathbf{d} = \\begin{pmatrix} 60 \\\\ 80 \\end{pmatrix}$ får vi $\\mathbf{x} = \\tfrac{1}{0{,}45}\\begin{pmatrix} 60 \\\\ 70 \\end{pmatrix} \\approx \\begin{pmatrix} 133{,}33 \\\\ 155{,}56 \\end{pmatrix}$. Selv om sluttetterspørselen bare summerer til $140$, må total produksjon bli nær $289$ -- forskjellen er varer som forbrukes **internt** mellom sektorene og aldri ender som sluttprodukt."
+    },
+    {
+      "id": "bi-okonomi-9-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-9-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Leontief-modellen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-9-4-n-quiz2-q0",
+            "task": "Hva er grunnlikningen i Leontief-modellen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\mathbf{x} = A + \\mathbf{d}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mathbf{d} = A^{-1}\\mathbf{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\mathbf{x} = A\\mathbf{d}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Total produksjon = internt forbruk + sluttetterspørsel, altså $\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz2-q1",
+            "task": "Hvordan løser vi for total produksjon $\\mathbf{x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mathbf{x} = (I + A)\\mathbf{d}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mathbf{x} = A^{-1}\\mathbf{d}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mathbf{x} = (A - I)\\mathbf{d}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fra $(I - A)\\mathbf{x} = \\mathbf{d}$ ganger vi med Leontief-inversen: $\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz2-q2",
+            "task": "For $A = \\begin{pmatrix} 0{,}2 & 0{,}3 \\\\ 0{,}1 & 0{,}4 \\end{pmatrix}$, hva er $\\det(I - A)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$0{,}45$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}48$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}03$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1{,}00$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I - A = \\begin{pmatrix} 0{,}8 & -0{,}3 \\\\ -0{,}1 & 0{,}6 \\end{pmatrix}$, og $\\det = 0{,}8\\cdot 0{,}6 - (-0{,}3)(-0{,}1) = 0{,}48 - 0{,}03 = 0{,}45$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz2-q3",
+            "task": "Hva betyr element $(i,j)$ i teknologi-matrisen $A$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Total produksjon i sektor $j$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Enheter fra sektor $i$ per enhet produsert i sektor $j$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Sluttetterspørsel i sektor $i$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Prisen på vare $i$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{ij}$ er hvor mange enheter fra sektor $i$ som trengs som innsats for å produsere én enhet i sektor $j$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-9-4-n-section3",
+      "type": "text",
+      "content": "## Markedslikevekt og investerings-mix\n\nDe samme verktøyene løser to andre klassiske økonomiproblemer. Det første er **markedslikevekt med flere varer**, der etterspørsel og tilbud i sammenkoblede markeder -- som kaffe og te -- bestemmer prisene samtidig. Likevekt krever $Q_D = Q_S$ i hvert marked. Med $Q_D^1 = 200 - 4p_1 + 2p_2$, $Q_S^1 = -40 + 6p_1$ for vare 1 og tilsvarende for vare 2, samler vi leddene og får systemet $10p_1 - 2p_2 = 240$, $-p_1 + 8p_2 = 180$. Her er $\\det(A) = 80 - 2 = 78$, og Cramers regel gir $p_1 = \\tfrac{2280}{78} \\approx 29{,}23$ og $p_2 = \\tfrac{2040}{78} \\approx 26{,}15$ kr.\n\nDet andre er **investerings-mix**. Anta en investor har 600 000 kr fordelt på tre fond A, B og C med avkastning 3 %, 5 % og 8 %. Hun vil ha total avkastning på 30 000 kr (altså 5 %) og dobbelt så mye i C som i B. Det gir tre likninger: $a + b + c = 600\\,000$, $0{,}03a + 0{,}05b + 0{,}08c = 30\\,000$ og $c = 2b$. Setter vi $c = 2b$ inn, faller systemet pent sammen til $18\\,000 + 0{,}12b = 30\\,000$, så $b = 100\\,000$, $c = 200\\,000$ og $a = 300\\,000$. En rask kontroll bekrefter at avkastningen blir $9\\,000 + 5\\,000 + 16\\,000 = 30\\,000$ kr. Kjernen i alt dette -- markedslikevekt, porteføljer, input-output -- er den samme lineære algebraen vi nå har bygd opp gjennom hele kapittelet."
+    },
+    {
+      "id": "bi-okonomi-9-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-9-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på markedslikevekt og investerings-mix:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-9-4-n-quiz3-q0",
+            "task": "Hvilken betingelse definerer markedslikevekt for hver vare?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$Q_D = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$p_1 = p_2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$Q_D = Q_S$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$Q_S = $ total produksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likevekt betyr at etterspørselen er lik tilbudet i hvert marked: $Q_D = Q_S$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz3-q1",
+            "task": "Likevektssystemet $\\begin{cases} 10p_1 - 2p_2 = 240 \\\\ -p_1 + 8p_2 = 180 \\end{cases}$ har $\\det(A)$ lik:",
+            "options": [
+              {
+                "id": "a",
+                "text": "$82$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$80$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$78$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\det(A) = 10\\cdot 8 - (-2)(-1) = 80 - 2 = 78$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz3-q2",
+            "task": "I investerings-mixen settes $c = 2b$ inn slik at $18\\,000 + 0{,}12b = 30\\,000$. Hva er $b$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$100\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$50\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$200\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$300\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$0{,}12b = 30\\,000 - 18\\,000 = 12\\,000$, så $b = 100\\,000$. Da blir $c = 200\\,000$ og $a = 300\\,000$."
+          },
+          {
+            "id": "bi-okonomi-9-4-n-quiz3-q3",
+            "task": "Hva er den røde tråden i markedslikevekt, porteføljer og Leontief-modellen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De krever alle integralregning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kjernen er lineær algebra: lineære likningssystem",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "De kan ikke løses for hånd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De handler bare om to variabler",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle tre koker ned til å løse lineære likningssystem med determinanter, invers matrise eller Gauss-eliminasjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-9-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Cramers regel** løser $A\\mathbf{x} = \\mathbf{b}$ ved at hver ukjent blir $x_i = \\dfrac{\\det(A_i)}{\\det(A)}$, der $A_i$ er $A$ med kolonne $i$ byttet ut med $\\mathbf{b}$. Den krever $\\det(A) \\neq 0$ og er elegant for $2 \\times 2$ og $3 \\times 3$, mens Gauss-eliminasjon tar over for store systemer.\n\n**Leontief input-output-modellen** beskriver gjensidig avhengige sektorer gjennom likningen $\\mathbf{x} = A\\mathbf{x} + \\mathbf{d}$, som løses med Leontief-inversen: $\\mathbf{x} = (I - A)^{-1}\\mathbf{d}$. Den fanger både direkte og indirekte ringvirkninger, slik at total produksjon overstiger sluttetterspørselen på grunn av internt forbruk. De samme metodene gir oss likevektspriser i sammenkoblede markeder og riktig fordeling i en investerings-mix. Felles for alt er at den lineære algebraen -- matriser, determinanter og likningssystem -- er motoren bak moderne kvantitativ økonomi."
+    }
+  ],
+  "exercises": []
+}

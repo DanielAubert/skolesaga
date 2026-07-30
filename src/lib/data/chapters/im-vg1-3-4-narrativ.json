@@ -1,1 +1,452 @@
-{"id":"im-vg1-3-4-narrativ","courseId":"im-vg1","chapterNumber":"3.4","title":"Responsivt webdesign","subtitle":"Narrativ versjon","description":"En fortelling om nettsider som tilpasser seg alle skjermer -- viewport-taggen, media queries som bytter layout, mobile-first-tankegangen og bilder som strekker seg etter skjermen.","estimatedMinutes":34,"competenceGoals":["utvikle nettsider som fungerer godt på ulike enheter og skjermstørrelser","bruke media queries og mobile-first-tilnærming","implementere responsive bilder og fleksible layouter"],"linkedChapterId":"im-vg1-3-4","content":[{"id":"im-vg1-3-4-n-intro","type":"text","content":"## Én side, mange skjermer\n\nTa fram telefonen din og besøk en nettside du liker. Så åpne den samme siden på en stor dataskjerm. Legg merke til at den ser ulik ut -- kanskje menyen er sammenfoldet på mobilen, kanskje innholdet ligger i én kolonne på telefonen og tre kolonner på skjermen. Likevel er det den *samme* nettsiden. Hvordan er det mulig?\n\nSvaret er **responsivt webdesign**. I dag kommer over halvparten av all nettrafikk fra mobiltelefoner, og en side som bare ser bra ut på en stor skjerm, vil frustrere de fleste besøkende. Responsivt design betyr at siden automatisk tilpasser seg skjermstørrelsen -- enten brukeren sitter med mobil, nettbrett eller storskjerm. Det er ikke lenger en luksus; det er en selvfølge.\n\nI denne fortellingen skal vi lære teknikkene som gjør dette mulig. Vi skal forstå viewport-taggen som forteller mobilen hvordan den skal skalere, media queries som bytter layout ved bestemte bredder, mobile-first-tankegangen som snur designprosessen, og responsive bilder og enheter som strekker seg etter skjermen i stedet for å låse seg til faste piksler."},{"id":"im-vg1-3-4-n-section1","type":"text","content":"## Den lille taggen som forteller mobilen sannheten\n\nFør vi gjør noe som helst annet, må vi sørge for at mobilnettleseren forstår hva vi holder på med. Det gjør vi med en liten, men helt avgjørende kodelinje i `<head>` -- **viewport-taggen**: `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">`.\n\nHvorfor er denne så viktig? Jo, uten den antar mobilnettleseren at siden din er laget for en stor dataskjerm, vanligvis rundt 980 piksler bred. Da gjør den noe ulogisk: den krymper hele skrivebordsversjonen ned til en bitteliten miniatyr som får plass på mobilskjermen. Resultatet er en side der teksten er så liten at du må zoome og dra deg rundt for å lese noe som helst -- en elendig opplevelse.\n\nMed viewport-taggen forteller du derimot nettleseren: «bredden på siden skal matche enhetens faktiske skjermbredde». Da tilpasses innholdet til den ekte mobilskjermen, og alt det andre responsive arbeidet vi skal gjøre, kan faktisk virke. Denne ene linjen er fundamentet -- glemmer du den, faller alt annet sammen, uansett hvor smart CSS-en din er."},{"id":"im-vg1-3-4-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-3-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på responsivt design og viewport:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-4-n-quiz1-q0","task":"Hva betyr responsivt webdesign?","options":[{"id":"a","text":"At siden laster raskt","isCorrect":false},{"id":"b","text":"At siden bruker mye JavaScript","isCorrect":false},{"id":"c","text":"At siden har mange bilder","isCorrect":false},{"id":"d","text":"At siden tilpasser seg skjermstørrelsen automatisk","isCorrect":true}],"solution":"Responsivt webdesign betyr at nettsiden automatisk tilpasser layout og innhold til skjermstørrelsen, så den fungerer godt på mobil, nettbrett og desktop."},{"id":"im-vg1-3-4-n-quiz1-q1","task":"Hva skjer hvis du glemmer viewport-taggen?","options":[{"id":"a","text":"Mobilen viser en forminsket skrivebordsversjon med altfor liten tekst","isCorrect":true},{"id":"b","text":"Siden blir helt svart","isCorrect":false},{"id":"c","text":"All CSS slutter å virke","isCorrect":false},{"id":"d","text":"Siden laster raskere","isCorrect":false}],"solution":"Uten viewport-taggen antar mobilen at siden er laget for desktop (ca. 980px) og viser en forminsket versjon der teksten blir for liten å lese."},{"id":"im-vg1-3-4-n-quiz1-q2","task":"Hva forteller width=device-width nettleseren?","options":[{"id":"a","text":"At siden alltid skal være 980px bred","isCorrect":false},{"id":"b","text":"At sidens bredde skal matche enhetens skjermbredde","isCorrect":true},{"id":"c","text":"At teksten skal være rød","isCorrect":false},{"id":"d","text":"At bildene skal skjules","isCorrect":false}],"solution":"width=device-width forteller nettleseren at sidens bredde skal tilpasses enhetens faktiske skjermbredde."}]}},{"id":"im-vg1-3-4-n-section2","type":"text","content":"## Når siden bytter ansikt\n\nNå til selve hjertet i responsivt design: **media queries**. Dette er en CSS-teknikk som lar deg bruke ulike stiler avhengig av egenskaper ved enheten -- som regel skjermbredden. Med media queries kan siden bokstavelig talt bytte ansikt når skjermen blir bredere eller smalere.\n\nSlik fungerer det: du skriver `@media (min-width: 768px) { ... }`, og CSS-reglene inni krøllparentesene gjelder *bare* når skjermen er minst 768 piksler bred. Tenk deg et rutenett av kort. På en smal mobilskjerm vil du kanskje ha dem i én kolonne. Men ved 768 piksler kan du la dem bli to kolonner, og ved 1024 piksler tre kolonner. Hver media query slår inn ved sin bredde og endrer layouten.\n\nDe punktene der layouten skifter, kaller vi **breakpoints**. Det finnes ingen hellige tall, men noen er svært vanlige: mobil regnes typisk fra 0 til 767 piksler, nettbrett fra 768 til 1023, og desktop fra 1024 og oppover. Du velger breakpoints ut fra der innholdet ditt faktisk trenger å endre seg -- ikke ut fra spesifikke telefonmodeller. Poenget er at den samme HTML-en, med hjelp av media queries, kan presentere seg helt ulikt på en liten og en stor skjerm. Det er som om siden har flere antrekk og bytter etter anledningen."},{"id":"im-vg1-3-4-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-3-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på media queries:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-4-n-quiz2-q0","task":"Hva gjør @media (min-width: 768px) { ... }?","options":[{"id":"a","text":"Reglene gjelder bare på skjermer smalere enn 768px","isCorrect":false},{"id":"b","text":"Den sletter alle stiler","isCorrect":false},{"id":"c","text":"Reglene inni gjelder bare når skjermen er minst 768px bred","isCorrect":true},{"id":"d","text":"Den gjelder bare på mobil","isCorrect":false}],"solution":"min-width: 768px betyr at reglene inni gjelder når skjermen er 768px eller bredere."},{"id":"im-vg1-3-4-n-quiz2-q1","task":"Hva er et breakpoint?","options":[{"id":"a","text":"En feil i koden","isCorrect":false},{"id":"b","text":"En type bilde","isCorrect":false},{"id":"c","text":"En lukkingstag","isCorrect":false},{"id":"d","text":"En skjermbredde der layouten endres","isCorrect":true}],"solution":"Et breakpoint er en skjermbredde der layouten skifter, for eksempel fra én kolonne til to kolonner."},{"id":"im-vg1-3-4-n-quiz2-q2","task":"Hvilket breakpoint brukes typisk som overgang til nettbrett?","options":[{"id":"a","text":"768px","isCorrect":true},{"id":"b","text":"320px","isCorrect":false},{"id":"c","text":"500px","isCorrect":false},{"id":"d","text":"2000px","isCorrect":false}],"solution":"768px er et svært vanlig breakpoint for overgangen fra mobil til nettbrett."}]}},{"id":"im-vg1-3-4-n-section3","type":"text","content":"## Å begynne i det små\n\nNår du skal bygge en responsiv side, kan du begynne fra to retninger -- og valget har større betydning enn du skulle tro. Den smarteste tilnærmingen heter **mobile-first**, og den går ut på å designe for mobil *først*, og deretter legge til stiler for større skjermer.\n\nI praksis betyr det at din grunnleggende CSS er laget for den lille skjermen. Så bruker du `min-width` media queries til å *legge til* og forbedre etter hvert som skjermen blir større. En navigasjonsmeny kan for eksempel være en vertikal kolonne på mobil -- `flex-direction: column` -- og så bytte til en horisontal rad på nettbrett og oppover med en media query. Du bygger fra det enkle mot det rike, ikke omvendt.\n\nHvorfor er dette bedre enn å starte med desktop? Av flere grunner. For det første får mobilen bare den CSS-en den faktisk trenger, noe som gir raskere lasting på de enhetene som ofte har dårligst nettforbindelse. For det andre tvinger det deg til å prioritere det aller viktigste innholdet, siden det er begrenset plass på en liten skjerm. Og for det tredje er det generelt enklere å *legge til* funksjonalitet for større skjermer enn å *fjerne* den for mindre. Mobile-first er ikke bare en teknikk -- det er en sunn tankegang som gir bedre sider for alle."},{"id":"im-vg1-3-4-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-3-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på mobile-first:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-4-n-quiz3-q0","task":"Hva betyr mobile-first-tilnærmingen?","options":[{"id":"a","text":"Man lager en egen app for mobil","isCorrect":false},{"id":"b","text":"Man designer for mobil først og legger til stiler for større skjermer med min-width","isCorrect":true},{"id":"c","text":"Man designer for desktop og fjerner stiler for mobil","isCorrect":false},{"id":"d","text":"Man ignorerer mobilbrukere","isCorrect":false}],"solution":"Mobile-first betyr at grunn-CSS er laget for mobil, og man bruker min-width media queries for å legge til stiler for større skjermer."},{"id":"im-vg1-3-4-n-quiz3-q1","task":"Hva er en fordel med mobile-first?","options":[{"id":"a","text":"Desktop slutter å virke","isCorrect":false},{"id":"b","text":"Man slipper å bruke CSS","isCorrect":false},{"id":"c","text":"Mobilen får bare CSS-en den trenger, noe som gir raskere lasting","isCorrect":true},{"id":"d","text":"Bildene forsvinner","isCorrect":false}],"solution":"Med mobile-first laster mobilen kun den nødvendige CSS-en, og man tvinges til å prioritere det viktigste innholdet."},{"id":"im-vg1-3-4-n-quiz3-q2","task":"Hvilken flex-direction passer for en meny på mobil i mobile-first?","options":[{"id":"a","text":"row","isCorrect":false},{"id":"b","text":"grid","isCorrect":false},{"id":"c","text":"hidden","isCorrect":false},{"id":"d","text":"column","isCorrect":true}],"solution":"På mobil stables menyelementene gjerne vertikalt med flex-direction: column, og byttes til row på større skjermer via en media query."}]}},{"id":"im-vg1-3-4-n-section4","type":"text","content":"## Bilder og enheter som strekker seg\n\nDet siste vi trenger for en virkelig responsiv side, er at *bildene* og *målenhetene* også tilpasser seg. Et bilde med fast bredde kan velte hele mobillayouten ved å stikke utenfor skjermen. Løsningen er enkel og elegant: regelen `img { max-width: 100%; height: auto; }`. Den sier at bildet aldri skal bli bredere enn beholderen sin, og at høyden skal justeres automatisk så proporsjonene beholdes. Bildet strekker og krymper seg pent etter plassen.\n\nVil du gå lenger og faktisk levere *ulike* bilder til ulike skjermer -- et lite bilde til mobil for å spare data, et stort til desktop -- finnes `<picture>`-elementet. Det lar deg liste opp flere bildekilder med tilhørende betingelser, og nettleseren velger det som passer best for skjermen. Slik slipper mobilbrukeren å laste ned et kjempebilde som likevel vises i miniatyr.\n\nTil slutt: glem de faste pikslene der du kan. Responsivt design lever på **relative enheter** som strekker seg. Enheten `rem` er relativ til rotskriftstørrelsen og er flott til skrift og avstander. Prosent (`%`) er fin til bredder, som er relative til forelderen. Enhetene `vw` og `vh` er prosent av selve viewporten -- nyttig for elementer som skal fylle hele skjermen. Og `fr` fordeler plass i Grid, som vi har sett. Ved å bygge med relative enheter i stedet for låste piksler, lager du en side som flyter naturlig på alle skjermstørrelser -- akkurat slik det responsive designet krever."},{"id":"im-vg1-3-4-n-quiz4","type":"exercise","exercise":{"id":"im-vg1-3-4-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på responsive bilder og enheter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-4-n-quiz4-q0","task":"Hvilken CSS gjør et bilde responsivt?","options":[{"id":"a","text":"img { max-width: 100%; height: auto; }","isCorrect":true},{"id":"b","text":"img { width: 980px; }","isCorrect":false},{"id":"c","text":"img { display: none; }","isCorrect":false},{"id":"d","text":"img { color: blue; }","isCorrect":false}],"solution":"max-width: 100% hindrer bildet i å bli bredere enn beholderen, og height: auto beholder proporsjonene."},{"id":"im-vg1-3-4-n-quiz4-q1","task":"Hva er en fordel med relative enheter som rem og % framfor faste piksler?","options":[{"id":"a","text":"De gjør siden svart-hvit","isCorrect":false},{"id":"b","text":"De gjør designet mer fleksibelt og tilpasningsdyktig","isCorrect":true},{"id":"c","text":"De fjerner alle bilder","isCorrect":false},{"id":"d","text":"De krever ingen viewport-tag","isCorrect":false}],"solution":"Relative enheter strekker seg etter konteksten, slik at designet flyter naturlig på ulike skjermstørrelser."},{"id":"im-vg1-3-4-n-quiz4-q2","task":"Hva representerer enheten vw?","options":[{"id":"a","text":"En fast pikselverdi","isCorrect":false},{"id":"b","text":"Skriftens vekt","isCorrect":false},{"id":"c","text":"Prosent av viewportens bredde","isCorrect":true},{"id":"d","text":"Antall ord på siden","isCorrect":false}],"solution":"vw står for «viewport width» og er en prosentandel av viewportens bredde, nyttig for elementer som skal fylle skjermen."}]}},{"id":"im-vg1-3-4-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært å lage nettsider som tilpasser seg alle skjermer. Alt starter med **viewport-taggen**, som forteller mobilen at sidebredden skal matche den ekte skjermbredden -- uten den faller alt annet sammen. **Media queries** med `@media (min-width: ...)` lar siden bytte layout ved bestemte **breakpoints**, typisk rundt 768px for nettbrett og 1024px for desktop.\n\nVi så hvorfor **mobile-first** er den smarte strategien: designe for liten skjerm først og legge til for større, noe som gir raskere lasting og tydeligere prioritering. Og vi gjorde innholdet fleksibelt med **responsive bilder** (`max-width: 100%` og `<picture>`) og **relative enheter** som `rem`, `%`, `vw` og `fr`. Med disse verktøyene flyter siden din naturlig fra den minste telefon til den største skjerm."}],"exercises":[]}
+{
+  "id": "im-vg1-3-4-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "3.4",
+  "title": "Responsivt webdesign",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om nettsider som tilpasser seg alle skjermer -- viewport-taggen, media queries som bytter layout, mobile-first-tankegangen og bilder som strekker seg etter skjermen.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "utvikle nettsider som fungerer godt på ulike enheter og skjermstørrelser",
+    "bruke media queries og mobile-first-tilnærming",
+    "implementere responsive bilder og fleksible layouter"
+  ],
+  "linkedChapterId": "im-vg1-3-4",
+  "content": [
+    {
+      "id": "im-vg1-3-4-n-intro",
+      "type": "text",
+      "content": "## Én side, mange skjermer\n\nTa fram telefonen din og besøk en nettside du liker. Så åpne den samme siden på en stor dataskjerm. Legg merke til at den ser ulik ut -- kanskje menyen er sammenfoldet på mobilen, kanskje innholdet ligger i én kolonne på telefonen og tre kolonner på skjermen. Likevel er det den *samme* nettsiden. Hvordan er det mulig?\n\nSvaret er **responsivt webdesign**. I dag kommer over halvparten av all nettrafikk fra mobiltelefoner, og en side som bare ser bra ut på en stor skjerm, vil frustrere de fleste besøkende. Responsivt design betyr at siden automatisk tilpasser seg skjermstørrelsen -- enten brukeren sitter med mobil, nettbrett eller storskjerm. Det er ikke lenger en luksus; det er en selvfølge.\n\nI denne fortellingen skal vi lære teknikkene som gjør dette mulig. Vi skal forstå viewport-taggen som forteller mobilen hvordan den skal skalere, media queries som bytter layout ved bestemte bredder, mobile-first-tankegangen som snur designprosessen, og responsive bilder og enheter som strekker seg etter skjermen i stedet for å låse seg til faste piksler."
+    },
+    {
+      "id": "im-vg1-3-4-n-section1",
+      "type": "text",
+      "content": "## Den lille taggen som forteller mobilen sannheten\n\nFør vi gjør noe som helst annet, må vi sørge for at mobilnettleseren forstår hva vi holder på med. Det gjør vi med en liten, men helt avgjørende kodelinje i `<head>` -- **viewport-taggen**: `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">`.\n\nHvorfor er denne så viktig? Jo, uten den antar mobilnettleseren at siden din er laget for en stor dataskjerm, vanligvis rundt 980 piksler bred. Da gjør den noe ulogisk: den krymper hele skrivebordsversjonen ned til en bitteliten miniatyr som får plass på mobilskjermen. Resultatet er en side der teksten er så liten at du må zoome og dra deg rundt for å lese noe som helst -- en elendig opplevelse.\n\nMed viewport-taggen forteller du derimot nettleseren: «bredden på siden skal matche enhetens faktiske skjermbredde». Da tilpasses innholdet til den ekte mobilskjermen, og alt det andre responsive arbeidet vi skal gjøre, kan faktisk virke. Denne ene linjen er fundamentet -- glemmer du den, faller alt annet sammen, uansett hvor smart CSS-en din er."
+    },
+    {
+      "id": "im-vg1-3-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på responsivt design og viewport:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-4-n-quiz1-q0",
+            "task": "Hva betyr responsivt webdesign?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At siden laster raskt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At siden tilpasser seg skjermstørrelsen automatisk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At siden bruker mye JavaScript",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At siden har mange bilder",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Responsivt webdesign betyr at nettsiden automatisk tilpasser layout og innhold til skjermstørrelsen, så den fungerer godt på mobil, nettbrett og desktop."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz1-q1",
+            "task": "Hva skjer hvis du glemmer viewport-taggen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Siden blir helt svart",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "All CSS slutter å virke",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Mobilen viser en forminsket skrivebordsversjon med altfor liten tekst",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Siden laster raskere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten viewport-taggen antar mobilen at siden er laget for desktop (ca. 980px) og viser en forminsket versjon der teksten blir for liten å lese."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz1-q2",
+            "task": "Hva forteller width=device-width nettleseren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At siden alltid skal være 980px bred",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At teksten skal være rød",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At bildene skal skjules",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At sidens bredde skal matche enhetens skjermbredde",
+                "isCorrect": true
+              }
+            ],
+            "solution": "width=device-width forteller nettleseren at sidens bredde skal tilpasses enhetens faktiske skjermbredde."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-4-n-section2",
+      "type": "text",
+      "content": "## Når siden bytter ansikt\n\nNå til selve hjertet i responsivt design: **media queries**. Dette er en CSS-teknikk som lar deg bruke ulike stiler avhengig av egenskaper ved enheten -- som regel skjermbredden. Med media queries kan siden bokstavelig talt bytte ansikt når skjermen blir bredere eller smalere.\n\nSlik fungerer det: du skriver `@media (min-width: 768px) { ... }`, og CSS-reglene inni krøllparentesene gjelder *bare* når skjermen er minst 768 piksler bred. Tenk deg et rutenett av kort. På en smal mobilskjerm vil du kanskje ha dem i én kolonne. Men ved 768 piksler kan du la dem bli to kolonner, og ved 1024 piksler tre kolonner. Hver media query slår inn ved sin bredde og endrer layouten.\n\nDe punktene der layouten skifter, kaller vi **breakpoints**. Det finnes ingen hellige tall, men noen er svært vanlige: mobil regnes typisk fra 0 til 767 piksler, nettbrett fra 768 til 1023, og desktop fra 1024 og oppover. Du velger breakpoints ut fra der innholdet ditt faktisk trenger å endre seg -- ikke ut fra spesifikke telefonmodeller. Poenget er at den samme HTML-en, med hjelp av media queries, kan presentere seg helt ulikt på en liten og en stor skjerm. Det er som om siden har flere antrekk og bytter etter anledningen."
+    },
+    {
+      "id": "im-vg1-3-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på media queries:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-4-n-quiz2-q0",
+            "task": "Hva gjør @media (min-width: 768px) { ... }?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Reglene inni gjelder bare når skjermen er minst 768px bred",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Reglene gjelder bare på skjermer smalere enn 768px",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den sletter alle stiler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den gjelder bare på mobil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "min-width: 768px betyr at reglene inni gjelder når skjermen er 768px eller bredere."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz2-q1",
+            "task": "Hva er et breakpoint?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En feil i koden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En skjermbredde der layouten endres",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "En type bilde",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En lukkingstag",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et breakpoint er en skjermbredde der layouten skifter, for eksempel fra én kolonne til to kolonner."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz2-q2",
+            "task": "Hvilket breakpoint brukes typisk som overgang til nettbrett?",
+            "options": [
+              {
+                "id": "b",
+                "text": "320px",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "500px",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "768px",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "2000px",
+                "isCorrect": false
+              }
+            ],
+            "solution": "768px er et svært vanlig breakpoint for overgangen fra mobil til nettbrett."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-4-n-section3",
+      "type": "text",
+      "content": "## Å begynne i det små\n\nNår du skal bygge en responsiv side, kan du begynne fra to retninger -- og valget har større betydning enn du skulle tro. Den smarteste tilnærmingen heter **mobile-first**, og den går ut på å designe for mobil *først*, og deretter legge til stiler for større skjermer.\n\nI praksis betyr det at din grunnleggende CSS er laget for den lille skjermen. Så bruker du `min-width` media queries til å *legge til* og forbedre etter hvert som skjermen blir større. En navigasjonsmeny kan for eksempel være en vertikal kolonne på mobil -- `flex-direction: column` -- og så bytte til en horisontal rad på nettbrett og oppover med en media query. Du bygger fra det enkle mot det rike, ikke omvendt.\n\nHvorfor er dette bedre enn å starte med desktop? Av flere grunner. For det første får mobilen bare den CSS-en den faktisk trenger, noe som gir raskere lasting på de enhetene som ofte har dårligst nettforbindelse. For det andre tvinger det deg til å prioritere det aller viktigste innholdet, siden det er begrenset plass på en liten skjerm. Og for det tredje er det generelt enklere å *legge til* funksjonalitet for større skjermer enn å *fjerne* den for mindre. Mobile-first er ikke bare en teknikk -- det er en sunn tankegang som gir bedre sider for alle."
+    },
+    {
+      "id": "im-vg1-3-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på mobile-first:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-4-n-quiz3-q0",
+            "task": "Hva betyr mobile-first-tilnærmingen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Man lager en egen app for mobil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Man designer for desktop og fjerner stiler for mobil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Man ignorerer mobilbrukere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Man designer for mobil først og legger til stiler for større skjermer med min-width",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Mobile-first betyr at grunn-CSS er laget for mobil, og man bruker min-width media queries for å legge til stiler for større skjermer."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz3-q1",
+            "task": "Hva er en fordel med mobile-first?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Mobilen får bare CSS-en den trenger, noe som gir raskere lasting",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Desktop slutter å virke",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Man slipper å bruke CSS",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bildene forsvinner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med mobile-first laster mobilen kun den nødvendige CSS-en, og man tvinges til å prioritere det viktigste innholdet."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz3-q2",
+            "task": "Hvilken flex-direction passer for en meny på mobil i mobile-first?",
+            "options": [
+              {
+                "id": "a",
+                "text": "row",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "column",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "grid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "hidden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "På mobil stables menyelementene gjerne vertikalt med flex-direction: column, og byttes til row på større skjermer via en media query."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-4-n-section4",
+      "type": "text",
+      "content": "## Bilder og enheter som strekker seg\n\nDet siste vi trenger for en virkelig responsiv side, er at *bildene* og *målenhetene* også tilpasser seg. Et bilde med fast bredde kan velte hele mobillayouten ved å stikke utenfor skjermen. Løsningen er enkel og elegant: regelen `img { max-width: 100%; height: auto; }`. Den sier at bildet aldri skal bli bredere enn beholderen sin, og at høyden skal justeres automatisk så proporsjonene beholdes. Bildet strekker og krymper seg pent etter plassen.\n\nVil du gå lenger og faktisk levere *ulike* bilder til ulike skjermer -- et lite bilde til mobil for å spare data, et stort til desktop -- finnes `<picture>`-elementet. Det lar deg liste opp flere bildekilder med tilhørende betingelser, og nettleseren velger det som passer best for skjermen. Slik slipper mobilbrukeren å laste ned et kjempebilde som likevel vises i miniatyr.\n\nTil slutt: glem de faste pikslene der du kan. Responsivt design lever på **relative enheter** som strekker seg. Enheten `rem` er relativ til rotskriftstørrelsen og er flott til skrift og avstander. Prosent (`%`) er fin til bredder, som er relative til forelderen. Enhetene `vw` og `vh` er prosent av selve viewporten -- nyttig for elementer som skal fylle hele skjermen. Og `fr` fordeler plass i Grid, som vi har sett. Ved å bygge med relative enheter i stedet for låste piksler, lager du en side som flyter naturlig på alle skjermstørrelser -- akkurat slik det responsive designet krever."
+    },
+    {
+      "id": "im-vg1-3-4-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-4-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på responsive bilder og enheter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-4-n-quiz4-q0",
+            "task": "Hvilken CSS gjør et bilde responsivt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "img { width: 980px; }",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "img { display: none; }",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "img { max-width: 100%; height: auto; }",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "img { color: blue; }",
+                "isCorrect": false
+              }
+            ],
+            "solution": "max-width: 100% hindrer bildet i å bli bredere enn beholderen, og height: auto beholder proporsjonene."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz4-q1",
+            "task": "Hva er en fordel med relative enheter som rem og % framfor faste piksler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De gjør siden svart-hvit",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De fjerner alle bilder",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De krever ingen viewport-tag",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De gjør designet mer fleksibelt og tilpasningsdyktig",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Relative enheter strekker seg etter konteksten, slik at designet flyter naturlig på ulike skjermstørrelser."
+          },
+          {
+            "id": "im-vg1-3-4-n-quiz4-q2",
+            "task": "Hva representerer enheten vw?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Prosent av viewportens bredde",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En fast pikselverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Skriftens vekt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antall ord på siden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "vw står for «viewport width» og er en prosentandel av viewportens bredde, nyttig for elementer som skal fylle skjermen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært å lage nettsider som tilpasser seg alle skjermer. Alt starter med **viewport-taggen**, som forteller mobilen at sidebredden skal matche den ekte skjermbredden -- uten den faller alt annet sammen. **Media queries** med `@media (min-width: ...)` lar siden bytte layout ved bestemte **breakpoints**, typisk rundt 768px for nettbrett og 1024px for desktop.\n\nVi så hvorfor **mobile-first** er den smarte strategien: designe for liten skjerm først og legge til for større, noe som gir raskere lasting og tydeligere prioritering. Og vi gjorde innholdet fleksibelt med **responsive bilder** (`max-width: 100%` og `<picture>`) og **relative enheter** som `rem`, `%`, `vw` og `fr`. Med disse verktøyene flyter siden din naturlig fra den minste telefon til den største skjerm."
+    }
+  ],
+  "exercises": []
+}

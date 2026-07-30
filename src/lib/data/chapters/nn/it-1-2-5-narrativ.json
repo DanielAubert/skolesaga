@@ -1,1 +1,385 @@
-{"id":"it-1-2-5-narrativ","courseId":"it-1","chapterNumber":"2.5","title":"Funksjonar og gjenbruk","subtitle":"Narrativ versjon","description":"Ei forteljing om funksjonar – maskinene du puttar noko inn i og får noko ut av. Lær def, parametrar og return, scope, og korleis du gjenbruker andre sin kode med modular.","estimatedMinutes":36,"competenceGoals":["definere og kalle egne funksjoner i Python","bruke parametere og returverdier i funksjoner","forklare forskjellen mellom lokale og globale variabler","importere og bruke moduler"],"linkedChapterId":"it-1-2-5","content":[{"id":"it-1-2-5-n-intro","type":"text","content":"## Slutt å kopiere og lime\n\nTenk deg at du har skrive kode som reknar ut gjennomsnittet av tre tal, og treng henne fleire stader. Du kan kopiere og lime inn – men det gir duplisering, fleire feil og vondt vedlikehald. **Funksjonar** løyser dette.\n\nEin funksjon er ei namngitt, gjenbrukbar kodeblokk som utfører ei bestemt oppgåve. Du har faktisk brukt funksjonar heile tida: `print()`, `input()`, `int()` og `range()`. No skal du lage dine eigne. Tenk på ein funksjon som ei maskin: du puttar noko inn (parametrar), maskinen jobbar, og du får noko ut (returverdi).\n\nDu definerer ein funksjon med `def`:\n\n```python\ndef si_hei():\n    print(\"Hei! Velkommen!\")\n\nsi_hei()\nsi_hei()\n```\n\nViktig: å *definere* ein funksjon køyrer han ikkje. Koden inni blir køyrd først når du *kallar* han ved å skrive namnet med parentesar. For å gjere funksjonen fleksibel sender du verdiar inn via **parametrar**:\n\n```python\ndef hils_paa(navn):\n    print(f\"Hei, {navn}!\")\n\nhils_paa(\"Sara\")\n```\n\nHer er `navn` ein *parameter* i definisjonen, medan `\"Sara\"` er eit *argument* du sender inn. Du kan ha fleire parametrar, som `presenter(fornavn, etternavn, alder)` – men då må rekkjefølgja på argumenta matche rekkjefølgja på parametrane."},{"id":"it-1-2-5-n-quiz1","type":"exercise","exercise":{"id":"it-1-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på funksjonar og parametrar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-5-n-quiz1-q0","task":"Kva for nøkkelord blir brukt for å definere ein funksjon i Python?","options":[{"id":"a","text":"def","isCorrect":true},{"id":"b","text":"function","isCorrect":false},{"id":"c","text":"func","isCorrect":false},{"id":"d","text":"define","isCorrect":false}],"solution":"I Python blir funksjonar definerte med nøkkelordet def."},{"id":"it-1-2-5-n-quiz1-q1","task":"Kva skjer når du berre definerer ein funksjon, men ikkje kallar han?","options":[{"id":"a","text":"Koden inni blir køyrd med ein gong","isCorrect":false},{"id":"b","text":"Koden inni blir ikkje køyrd før funksjonen blir kalla","isCorrect":true},{"id":"c","text":"Programmet stoppar","isCorrect":false},{"id":"d","text":"Det gir ei feilmelding","isCorrect":false}],"solution":"Å definere ein funksjon køyrer han ikkje – koden inni blir køyrd først når du kallar funksjonen med namnet og parentesar."},{"id":"it-1-2-5-n-quiz1-q2","task":"Kva er forskjellen på ein parameter og eit argument?","options":[{"id":"a","text":"Dei tyder nøyaktig det same","isCorrect":false},{"id":"b","text":"Argumentet står i definisjonen","isCorrect":false},{"id":"c","text":"Parameteren er variabelen i definisjonen, argumentet er verdien du sender inn","isCorrect":true},{"id":"d","text":"Parameteren returnerer alltid ein verdi","isCorrect":false}],"solution":"Parameteren er namnet i funksjonsdefinisjonen, medan argumentet er den konkrete verdien du sender inn når du kallar funksjonen."}]}},{"id":"it-1-2-5-n-section1","type":"text","content":"## Å få noko tilbake\n\nMange funksjonar skal ikkje berre gjere noko – dei skal *rekne ut* noko og gi svaret tilbake. Det gjer dei med `return`:\n\n```python\ndef beregn_areal(bredde, hoyde):\n    return bredde * hoyde\n\nresultat = beregn_areal(5, 3)  # resultat = 15\n```\n\nNår Python møter `return`, stoppar funksjonen med ein gong og sender verdien tilbake. Kode etter `return` i same funksjon blir aldri køyrd. Tommelfingerregelen er: reknar funksjonen ut noko, bruk `return`; gjer han berre ei handling som å skrive ut tekst, treng du han ikkje. Ein funksjon utan `return` returnerer automatisk `None`. Du kan til og med returnere fleire verdiar samtidig: `return summen, gjennomsnitt, storste` kan pakkast ut med `s, g, maks = ...`.\n\nDette leier oss til **scope** – kvar ein variabel er tilgjengeleg. **Lokale variablar** blir oppretta inne i ein funksjon og finst berre medan funksjonen køyrer; dei kan ikkje brukast utanfor. Òg parametrar er lokale. **Globale variablar** blir oppretta utanfor alle funksjonar og kan lesast overalt:\n\n```python\nmelding = \"Hei utenfra\"\ndef min_funksjon():\n    lokal = \"Hei innenfra\"\n    print(lokal)    # ok\n    print(melding)  # ok, kan lese global\nmin_funksjon()\n# print(lokal)  # FEIL – finnes ikke her\n```\n\nFunksjonar kan lese globale variablar, men for å *endre* dei må du bruke `global` – noko du som hovudregel bør unngå. Bruk heller parametrar og returverdiar. Du kan òg gi parametrar **standardverdiar** med `def hils(navn, hilsen=\"Hei\")`, men parametrar med standardverdi må komme sist."},{"id":"it-1-2-5-n-quiz2","type":"exercise","exercise":{"id":"it-1-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på return og scope:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-5-n-quiz2-q0","task":"Kva gjer return i ein funksjon?","options":[{"id":"a","text":"Skriv verdien direkte til skjermen","isCorrect":false},{"id":"b","text":"Startar funksjonen på nytt","isCorrect":false},{"id":"c","text":"Slettar ein variabel","isCorrect":false},{"id":"d","text":"Stoppar funksjonen og sender ein verdi tilbake","isCorrect":true}],"solution":"return avsluttar funksjonen med ein gong og sender verdien tilbake til der funksjonen vart kalla."},{"id":"it-1-2-5-n-quiz2-q1","task":"Kvar er ein lokal variabel tilgjengeleg?","options":[{"id":"a","text":"Berre inne i funksjonen der han vart oppretta","isCorrect":true},{"id":"b","text":"Overalt i programmet","isCorrect":false},{"id":"c","text":"Berre i andre funksjonar","isCorrect":false},{"id":"d","text":"Berre etter at funksjonen er ferdig","isCorrect":false}],"solution":"Ein lokal variabel finst berre inne i funksjonen der han vart oppretta, og forsvinn når funksjonen er ferdig."},{"id":"it-1-2-5-n-quiz2-q2","task":"Kva returnerer ein funksjon som ikkje har nokon return-setning?","options":[{"id":"a","text":"0","isCorrect":false},{"id":"b","text":"None","isCorrect":true},{"id":"c","text":"Ein tom streng","isCorrect":false},{"id":"d","text":"Ei feilmelding","isCorrect":false}],"solution":"Ein funksjon utan return (eller med tom return) returnerer automatisk verdien None."}]}},{"id":"it-1-2-5-n-section2","type":"text","content":"## Stå på skuldrene til andre\n\nDu treng ikkje skrive alt sjølv. Python kjem med hundrevis av ferdige **modular** fulle av nyttige funksjonar. Du hentar dei inn med `import`:\n\n```python\nimport math\nprint(math.pi)        # 3.141592653589793\nprint(math.sqrt(16))  # 4.0\n```\n\nDet finst fleire måtar å importere på. `import random` lèt deg skrive `random.randint(1, 10)`. `from random import randint` lèt deg droppe `random.`-forstavinga og berre skrive `randint(1, 10)`. Og `import random as rnd` gir modulen eit kortare kallenamn. Blant dei mest nyttige standardmodulane er `math` (matematikk), `random` (tilfeldige tal), `datetime` (dato og tid), `os` (operativsystem) og `string` (tekst).\n\nLat oss samle alt i eit døme – ein BMI-kalkulator delt i to funksjonar med klare oppgåver:\n\n```python\ndef beregn_bmi(vekt_kg, hoyde_m):\n    \"\"\"Beregner BMI fra vekt i kg og høyde i meter.\"\"\"\n    return round(vekt_kg / (hoyde_m ** 2), 1)\n\ndef bmi_kategori(bmi):\n    if bmi < 18.5:\n        return \"Undervekt\"\n    elif bmi < 25:\n        return \"Normalvekt\"\n    elif bmi < 30:\n        return \"Overvekt\"\n    else:\n        return \"Fedme\"\n```\n\nFor ein person på 70 kg og 1,75 m gir dette BMI 22.9 og kategorien «Normalvekt». Teksten i trippel-hermeteikn øvst i `beregn_bmi` er ein *docstring* – innebygd dokumentasjon som forklarer kva funksjonen gjer. Ved å dele programmet i små funksjonar med klare ansvarsområde blir koden lettare å lese, teste og gjenbruke."},{"id":"it-1-2-5-n-quiz3","type":"exercise","exercise":{"id":"it-1-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på modular:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-5-n-quiz3-q0","task":"Kva for modul ville du brukt for å lage eit tilfeldig tal mellom 1 og 100?","options":[{"id":"a","text":"math","isCorrect":false},{"id":"b","text":"datetime","isCorrect":false},{"id":"c","text":"random","isCorrect":true},{"id":"d","text":"os","isCorrect":false}],"solution":"random-modulen handterer tilfeldige tal, til dømes random.randint(1, 100)."},{"id":"it-1-2-5-n-quiz3-q1","task":"Kva gjer «from random import randint»?","options":[{"id":"a","text":"Importerer heile random-modulen med alias","isCorrect":false},{"id":"b","text":"Slettar random-modulen","isCorrect":false},{"id":"c","text":"Lagar eit tilfeldig tal med ein gong","isCorrect":false},{"id":"d","text":"Importerer randint slik at du kan bruke han utan random.-forstavinga","isCorrect":true}],"solution":"from random import randint hentar inn akkurat den funksjonen, slik at du kan skrive randint(...) direkte utan random.-forstavinga."}]}},{"id":"it-1-2-5-n-summary","type":"text","content":"## Oppsummering\n\nFunksjonar er gjenbrukbare kodeblokker som lèt deg slutte å kopiere og lime. Du definerer dei med `def`, sender data inn via **parametrar** (argumenta er verdiane du faktisk gir), og får svar tilbake med `return`. Hugs at å definere ein funksjon ikkje køyrer han – det skjer først når du kallar han.\n\n**Scope** styrer kvar variablar lever: lokale variablar finst berre inne i funksjonen, medan globale kan lesast overalt. Som hovudregel kommuniserer du via parametrar og returverdiar framfor globale variablar. Til slutt kan du **importere modular** som `math`, `random` og `datetime` for å gjenbruke ferdig kode. Med funksjonar og modular kan du byggje større program som er ryddige, lette å teste og enkle å vedlikehalde."}],"exercises":[],"_meta":{"sourceHash":"59f65afb699bf906","translatedAt":"2026-06-20T23:44:55.461Z","model":"claude-code-agent","strings":64,"tm":{"80119f843576f15d":"Funksjonar og gjenbruk","b195b06d1ed59702":"Narrativ versjon","c437ca231c8d7e8d":"Ei forteljing om funksjonar – maskinene du puttar noko inn i og får noko ut av. Lær def, parametrar og return, scope, og korleis du gjenbruker andre sin kode med modular.","755012bdc0c612ac":"definere og kalle egne funksjoner i Python","5e22f08aa1f79b34":"bruke parametere og returverdier i funksjoner","b12c1669d2c8f482":"forklare forskjellen mellom lokale og globale variabler","f77cff6a3cf80f41":"importere og bruke moduler","b083c5c02f0d8e95":"## Slutt å kopiere og lime\n\nTenk deg at du har skrive kode som reknar ut gjennomsnittet av tre tal, og treng henne fleire stader. Du kan kopiere og lime inn – men det gir duplisering, fleire feil og vondt vedlikehald. **Funksjonar** løyser dette.\n\nEin funksjon er ei namngitt, gjenbrukbar kodeblokk som utfører ei bestemt oppgåve. Du har faktisk brukt funksjonar heile tida: `print()`, `input()`, `int()` og `range()`. No skal du lage dine eigne. Tenk på ein funksjon som ei maskin: du puttar noko inn (parametrar), maskinen jobbar, og du får noko ut (returverdi).\n\nDu definerer ein funksjon med `def`:\n\n```python\ndef si_hei():\n    print(\"Hei! Velkommen!\")\n\nsi_hei()\nsi_hei()\n```\n\nViktig: å *definere* ein funksjon køyrer han ikkje. Koden inni blir køyrd først når du *kallar* han ved å skrive namnet med parentesar. For å gjere funksjonen fleksibel sender du verdiar inn via **parametrar**:\n\n```python\ndef hils_paa(navn):\n    print(f\"Hei, {navn}!\")\n\nhils_paa(\"Sara\")\n```\n\nHer er `navn` ein *parameter* i definisjonen, medan `\"Sara\"` er eit *argument* du sender inn. Du kan ha fleire parametrar, som `presenter(fornavn, etternavn, alder)` – men då må rekkjefølgja på argumenta matche rekkjefølgja på parametrane.","8eca731464d35e0f":"Test deg sjølv på funksjonar og parametrar:","4097889236a2af26":"placeholder","da22c48719fafd9d":"Kva for nøkkelord blir brukt for å definere ein funksjon i Python?","cb8379ac2098aa16":"def","78f9ac018e554365":"function","f63827270b16435e":"func","ecd38f260821a09a":"define","d3b5d18b9b039966":"I Python blir funksjonar definerte med nøkkelordet def.","0ec8be4bd7e90ee4":"Kva skjer når du berre definerer ein funksjon, men ikkje kallar han?","9f0787fa511888cf":"Koden inni blir køyrd med ein gong","807190a33bab50c1":"Koden inni blir ikkje køyrd før funksjonen blir kalla","a4e6b8c97379cd38":"Programmet stoppar","9db3c65cbfe751bb":"Det gir ei feilmelding","7c80247fe8844a5d":"Å definere ein funksjon køyrer han ikkje – koden inni blir køyrd først når du kallar funksjonen med namnet og parentesar.","46bd53c2b160bdd9":"Kva er forskjellen på ein parameter og eit argument?","554fd28858e6ce23":"Dei tyder nøyaktig det same","bd2867f872f1b4ff":"Argumentet står i definisjonen","5a224bf3f525e73b":"Parameteren er variabelen i definisjonen, argumentet er verdien du sender inn","c82182670fc1db59":"Parameteren returnerer alltid ein verdi","d5e4813aa2d4cf02":"Parameteren er namnet i funksjonsdefinisjonen, medan argumentet er den konkrete verdien du sender inn når du kallar funksjonen.","b51f01624e68bfea":"## Å få noko tilbake\n\nMange funksjonar skal ikkje berre gjere noko – dei skal *rekne ut* noko og gi svaret tilbake. Det gjer dei med `return`:\n\n```python\ndef beregn_areal(bredde, hoyde):\n    return bredde * hoyde\n\nresultat = beregn_areal(5, 3)  # resultat = 15\n```\n\nNår Python møter `return`, stoppar funksjonen med ein gong og sender verdien tilbake. Kode etter `return` i same funksjon blir aldri køyrd. Tommelfingerregelen er: reknar funksjonen ut noko, bruk `return`; gjer han berre ei handling som å skrive ut tekst, treng du han ikkje. Ein funksjon utan `return` returnerer automatisk `None`. Du kan til og med returnere fleire verdiar samtidig: `return summen, gjennomsnitt, storste` kan pakkast ut med `s, g, maks = ...`.\n\nDette leier oss til **scope** – kvar ein variabel er tilgjengeleg. **Lokale variablar** blir oppretta inne i ein funksjon og finst berre medan funksjonen køyrer; dei kan ikkje brukast utanfor. Òg parametrar er lokale. **Globale variablar** blir oppretta utanfor alle funksjonar og kan lesast overalt:\n\n```python\nmelding = \"Hei utenfra\"\ndef min_funksjon():\n    lokal = \"Hei innenfra\"\n    print(lokal)    # ok\n    print(melding)  # ok, kan lese global\nmin_funksjon()\n# print(lokal)  # FEIL – finnes ikke her\n```\n\nFunksjonar kan lese globale variablar, men for å *endre* dei må du bruke `global` – noko du som hovudregel bør unngå. Bruk heller parametrar og returverdiar. Du kan òg gi parametrar **standardverdiar** med `def hils(navn, hilsen=\"Hei\")`, men parametrar med standardverdi må komme sist.","0400dba05926f4c3":"Test deg sjølv på return og scope:","c9dbaa4df69012ed":"Kva gjer return i ein funksjon?","e6370cdb363c5820":"Skriv verdien direkte til skjermen","70190227ef98ddbb":"Startar funksjonen på nytt","e617a88667eed4a8":"Slettar ein variabel","416112422ad57b36":"Stoppar funksjonen og sender ein verdi tilbake","7f7afd173d5daeb1":"return avsluttar funksjonen med ein gong og sender verdien tilbake til der funksjonen vart kalla.","b4dbab8cdc73d41a":"Kvar er ein lokal variabel tilgjengeleg?","8c5a801a9a6c5129":"Berre inne i funksjonen der han vart oppretta","b0363661dad1fd21":"Overalt i programmet","9ed7bae4925a8ece":"Berre i andre funksjonar","bec65968b1edc5ff":"Berre etter at funksjonen er ferdig","456e75f270114c9a":"Ein lokal variabel finst berre inne i funksjonen der han vart oppretta, og forsvinn når funksjonen er ferdig.","c21da892a433cff3":"Kva returnerer ein funksjon som ikkje har nokon return-setning?","dc937b59892604f5":"None","1e74426baf4a63ec":"Ein tom streng","6b16392622e7b20a":"Ei feilmelding","56676ae4e5834e77":"Ein funksjon utan return (eller med tom return) returnerer automatisk verdien None.","c0f9460b0869f3ce":"## Stå på skuldrene til andre\n\nDu treng ikkje skrive alt sjølv. Python kjem med hundrevis av ferdige **modular** fulle av nyttige funksjonar. Du hentar dei inn med `import`:\n\n```python\nimport math\nprint(math.pi)        # 3.141592653589793\nprint(math.sqrt(16))  # 4.0\n```\n\nDet finst fleire måtar å importere på. `import random` lèt deg skrive `random.randint(1, 10)`. `from random import randint` lèt deg droppe `random.`-forstavinga og berre skrive `randint(1, 10)`. Og `import random as rnd` gir modulen eit kortare kallenamn. Blant dei mest nyttige standardmodulane er `math` (matematikk), `random` (tilfeldige tal), `datetime` (dato og tid), `os` (operativsystem) og `string` (tekst).\n\nLat oss samle alt i eit døme – ein BMI-kalkulator delt i to funksjonar med klare oppgåver:\n\n```python\ndef beregn_bmi(vekt_kg, hoyde_m):\n    \"\"\"Beregner BMI fra vekt i kg og høyde i meter.\"\"\"\n    return round(vekt_kg / (hoyde_m ** 2), 1)\n\ndef bmi_kategori(bmi):\n    if bmi < 18.5:\n        return \"Undervekt\"\n    elif bmi < 25:\n        return \"Normalvekt\"\n    elif bmi < 30:\n        return \"Overvekt\"\n    else:\n        return \"Fedme\"\n```\n\nFor ein person på 70 kg og 1,75 m gir dette BMI 22.9 og kategorien «Normalvekt». Teksten i trippel-hermeteikn øvst i `beregn_bmi` er ein *docstring* – innebygd dokumentasjon som forklarer kva funksjonen gjer. Ved å dele programmet i små funksjonar med klare ansvarsområde blir koden lettare å lese, teste og gjenbruke.","d6866cb770f6105d":"Test deg sjølv på modular:","8c9a3e79e0bbb13a":"Kva for modul ville du brukt for å lage eit tilfeldig tal mellom 1 og 100?","58a6d6801ae771e6":"math","2763d133c5e59ca4":"datetime","a441b15fe9a3cf56":"random","840a8dcfeae95966":"os","be3b1265996d3c7a":"random-modulen handterer tilfeldige tal, til dømes random.randint(1, 100).","4f307c684bfe5c62":"Kva gjer «from random import randint»?","402b59737182ca44":"Importerer heile random-modulen med alias","9530a4d432f6bf5e":"Slettar random-modulen","0604c35c30572d8b":"Lagar eit tilfeldig tal med ein gong","4c1da8591e9831ad":"Importerer randint slik at du kan bruke han utan random.-forstavinga","e6adfec0857eb80e":"from random import randint hentar inn akkurat den funksjonen, slik at du kan skrive randint(...) direkte utan random.-forstavinga.","0d11bdc9118fbd31":"## Oppsummering\n\nFunksjonar er gjenbrukbare kodeblokker som lèt deg slutte å kopiere og lime. Du definerer dei med `def`, sender data inn via **parametrar** (argumenta er verdiane du faktisk gir), og får svar tilbake med `return`. Hugs at å definere ein funksjon ikkje køyrer han – det skjer først når du kallar han.\n\n**Scope** styrer kvar variablar lever: lokale variablar finst berre inne i funksjonen, medan globale kan lesast overalt. Som hovudregel kommuniserer du via parametrar og returverdiar framfor globale variablar. Til slutt kan du **importere modular** som `math`, `random` og `datetime` for å gjenbruke ferdig kode. Med funksjonar og modular kan du byggje større program som er ryddige, lette å teste og enkle å vedlikehalde."}}}
+{
+  "id": "it-1-2-5-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "2.5",
+  "title": "Funksjonar og gjenbruk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om funksjonar – maskinene du puttar noko inn i og får noko ut av. Lær def, parametrar og return, scope, og korleis du gjenbruker andre sin kode med modular.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "definere og kalle egne funksjoner i Python",
+    "bruke parametere og returverdier i funksjoner",
+    "forklare forskjellen mellom lokale og globale variabler",
+    "importere og bruke moduler"
+  ],
+  "linkedChapterId": "it-1-2-5",
+  "content": [
+    {
+      "id": "it-1-2-5-n-intro",
+      "type": "text",
+      "content": "## Slutt å kopiere og lime\n\nTenk deg at du har skrive kode som reknar ut gjennomsnittet av tre tal, og treng henne fleire stader. Du kan kopiere og lime inn – men det gir duplisering, fleire feil og vondt vedlikehald. **Funksjonar** løyser dette.\n\nEin funksjon er ei namngitt, gjenbrukbar kodeblokk som utfører ei bestemt oppgåve. Du har faktisk brukt funksjonar heile tida: `print()`, `input()`, `int()` og `range()`. No skal du lage dine eigne. Tenk på ein funksjon som ei maskin: du puttar noko inn (parametrar), maskinen jobbar, og du får noko ut (returverdi).\n\nDu definerer ein funksjon med `def`:\n\n```python\ndef si_hei():\n    print(\"Hei! Velkommen!\")\n\nsi_hei()\nsi_hei()\n```\n\nViktig: å *definere* ein funksjon køyrer han ikkje. Koden inni blir køyrd først når du *kallar* han ved å skrive namnet med parentesar. For å gjere funksjonen fleksibel sender du verdiar inn via **parametrar**:\n\n```python\ndef hils_paa(navn):\n    print(f\"Hei, {navn}!\")\n\nhils_paa(\"Sara\")\n```\n\nHer er `navn` ein *parameter* i definisjonen, medan `\"Sara\"` er eit *argument* du sender inn. Du kan ha fleire parametrar, som `presenter(fornavn, etternavn, alder)` – men då må rekkjefølgja på argumenta matche rekkjefølgja på parametrane."
+    },
+    {
+      "id": "it-1-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på funksjonar og parametrar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-5-n-quiz1-q0",
+            "task": "Kva for nøkkelord blir brukt for å definere ein funksjon i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "function",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "func",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "define",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "def",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I Python blir funksjonar definerte med nøkkelordet def."
+          },
+          {
+            "id": "it-1-2-5-n-quiz1-q1",
+            "task": "Kva skjer når du berre definerer ein funksjon, men ikkje kallar han?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Koden inni blir ikkje køyrd før funksjonen blir kalla",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Koden inni blir køyrd med ein gong",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Programmet stoppar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det gir ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å definere ein funksjon køyrer han ikkje – koden inni blir køyrd først når du kallar funksjonen med namnet og parentesar."
+          },
+          {
+            "id": "it-1-2-5-n-quiz1-q2",
+            "task": "Kva er forskjellen på ein parameter og eit argument?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei tyder nøyaktig det same",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Parameteren er variabelen i definisjonen, argumentet er verdien du sender inn",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Argumentet står i definisjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Parameteren returnerer alltid ein verdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Parameteren er namnet i funksjonsdefinisjonen, medan argumentet er den konkrete verdien du sender inn når du kallar funksjonen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-5-n-section1",
+      "type": "text",
+      "content": "## Å få noko tilbake\n\nMange funksjonar skal ikkje berre gjere noko – dei skal *rekne ut* noko og gi svaret tilbake. Det gjer dei med `return`:\n\n```python\ndef beregn_areal(bredde, hoyde):\n    return bredde * hoyde\n\nresultat = beregn_areal(5, 3)  # resultat = 15\n```\n\nNår Python møter `return`, stoppar funksjonen med ein gong og sender verdien tilbake. Kode etter `return` i same funksjon blir aldri køyrd. Tommelfingerregelen er: reknar funksjonen ut noko, bruk `return`; gjer han berre ei handling som å skrive ut tekst, treng du han ikkje. Ein funksjon utan `return` returnerer automatisk `None`. Du kan til og med returnere fleire verdiar samtidig: `return summen, gjennomsnitt, storste` kan pakkast ut med `s, g, maks = ...`.\n\nDette leier oss til **scope** – kvar ein variabel er tilgjengeleg. **Lokale variablar** blir oppretta inne i ein funksjon og finst berre medan funksjonen køyrer; dei kan ikkje brukast utanfor. Òg parametrar er lokale. **Globale variablar** blir oppretta utanfor alle funksjonar og kan lesast overalt:\n\n```python\nmelding = \"Hei utenfra\"\ndef min_funksjon():\n    lokal = \"Hei innenfra\"\n    print(lokal)    # ok\n    print(melding)  # ok, kan lese global\nmin_funksjon()\n# print(lokal)  # FEIL – finnes ikke her\n```\n\nFunksjonar kan lese globale variablar, men for å *endre* dei må du bruke `global` – noko du som hovudregel bør unngå. Bruk heller parametrar og returverdiar. Du kan òg gi parametrar **standardverdiar** med `def hils(navn, hilsen=\"Hei\")`, men parametrar med standardverdi må komme sist."
+    },
+    {
+      "id": "it-1-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på return og scope:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-5-n-quiz2-q0",
+            "task": "Kva gjer return i ein funksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skriv verdien direkte til skjermen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Startar funksjonen på nytt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stoppar funksjonen og sender ein verdi tilbake",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Slettar ein variabel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "return avsluttar funksjonen med ein gong og sender verdien tilbake til der funksjonen vart kalla."
+          },
+          {
+            "id": "it-1-2-5-n-quiz2-q1",
+            "task": "Kvar er ein lokal variabel tilgjengeleg?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Overalt i programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre i andre funksjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre etter at funksjonen er ferdig",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Berre inne i funksjonen der han vart oppretta",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein lokal variabel finst berre inne i funksjonen der han vart oppretta, og forsvinn når funksjonen er ferdig."
+          },
+          {
+            "id": "it-1-2-5-n-quiz2-q2",
+            "task": "Kva returnerer ein funksjon som ikkje har nokon return-setning?",
+            "options": [
+              {
+                "id": "b",
+                "text": "None",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein tom streng",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein funksjon utan return (eller med tom return) returnerer automatisk verdien None."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-5-n-section2",
+      "type": "text",
+      "content": "## Stå på skuldrene til andre\n\nDu treng ikkje skrive alt sjølv. Python kjem med hundrevis av ferdige **modular** fulle av nyttige funksjonar. Du hentar dei inn med `import`:\n\n```python\nimport math\nprint(math.pi)        # 3.141592653589793\nprint(math.sqrt(16))  # 4.0\n```\n\nDet finst fleire måtar å importere på. `import random` lèt deg skrive `random.randint(1, 10)`. `from random import randint` lèt deg droppe `random.`-forstavinga og berre skrive `randint(1, 10)`. Og `import random as rnd` gir modulen eit kortare kallenamn. Blant dei mest nyttige standardmodulane er `math` (matematikk), `random` (tilfeldige tal), `datetime` (dato og tid), `os` (operativsystem) og `string` (tekst).\n\nLat oss samle alt i eit døme – ein BMI-kalkulator delt i to funksjonar med klare oppgåver:\n\n```python\ndef beregn_bmi(vekt_kg, hoyde_m):\n    \"\"\"Beregner BMI fra vekt i kg og høyde i meter.\"\"\"\n    return round(vekt_kg / (hoyde_m ** 2), 1)\n\ndef bmi_kategori(bmi):\n    if bmi < 18.5:\n        return \"Undervekt\"\n    elif bmi < 25:\n        return \"Normalvekt\"\n    elif bmi < 30:\n        return \"Overvekt\"\n    else:\n        return \"Fedme\"\n```\n\nFor ein person på 70 kg og 1,75 m gir dette BMI 22.9 og kategorien «Normalvekt». Teksten i trippel-hermeteikn øvst i `beregn_bmi` er ein *docstring* – innebygd dokumentasjon som forklarer kva funksjonen gjer. Ved å dele programmet i små funksjonar med klare ansvarsområde blir koden lettare å lese, teste og gjenbruke."
+    },
+    {
+      "id": "it-1-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modular:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-5-n-quiz3-q0",
+            "task": "Kva for modul ville du brukt for å lage eit tilfeldig tal mellom 1 og 100?",
+            "options": [
+              {
+                "id": "a",
+                "text": "math",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "random",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "datetime",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "os",
+                "isCorrect": false
+              }
+            ],
+            "solution": "random-modulen handterer tilfeldige tal, til dømes random.randint(1, 100)."
+          },
+          {
+            "id": "it-1-2-5-n-quiz3-q1",
+            "task": "Kva gjer «from random import randint»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Importerer heile random-modulen med alias",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Slettar random-modulen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Importerer randint slik at du kan bruke han utan random.-forstavinga",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Lagar eit tilfeldig tal med ein gong",
+                "isCorrect": false
+              }
+            ],
+            "solution": "from random import randint hentar inn akkurat den funksjonen, slik at du kan skrive randint(...) direkte utan random.-forstavinga."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFunksjonar er gjenbrukbare kodeblokker som lèt deg slutte å kopiere og lime. Du definerer dei med `def`, sender data inn via **parametrar** (argumenta er verdiane du faktisk gir), og får svar tilbake med `return`. Hugs at å definere ein funksjon ikkje køyrer han – det skjer først når du kallar han.\n\n**Scope** styrer kvar variablar lever: lokale variablar finst berre inne i funksjonen, medan globale kan lesast overalt. Som hovudregel kommuniserer du via parametrar og returverdiar framfor globale variablar. Til slutt kan du **importere modular** som `math`, `random` og `datetime` for å gjenbruke ferdig kode. Med funksjonar og modular kan du byggje større program som er ryddige, lette å teste og enkle å vedlikehalde."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "59f65afb699bf906",
+    "translatedAt": "2026-06-20T23:44:55.461Z",
+    "model": "claude-code-agent",
+    "strings": 64,
+    "tm": {
+      "80119f843576f15d": "Funksjonar og gjenbruk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "c437ca231c8d7e8d": "Ei forteljing om funksjonar – maskinene du puttar noko inn i og får noko ut av. Lær def, parametrar og return, scope, og korleis du gjenbruker andre sin kode med modular.",
+      "755012bdc0c612ac": "definere og kalle egne funksjoner i Python",
+      "5e22f08aa1f79b34": "bruke parametere og returverdier i funksjoner",
+      "b12c1669d2c8f482": "forklare forskjellen mellom lokale og globale variabler",
+      "f77cff6a3cf80f41": "importere og bruke moduler",
+      "b083c5c02f0d8e95": "## Slutt å kopiere og lime\n\nTenk deg at du har skrive kode som reknar ut gjennomsnittet av tre tal, og treng henne fleire stader. Du kan kopiere og lime inn – men det gir duplisering, fleire feil og vondt vedlikehald. **Funksjonar** løyser dette.\n\nEin funksjon er ei namngitt, gjenbrukbar kodeblokk som utfører ei bestemt oppgåve. Du har faktisk brukt funksjonar heile tida: `print()`, `input()`, `int()` og `range()`. No skal du lage dine eigne. Tenk på ein funksjon som ei maskin: du puttar noko inn (parametrar), maskinen jobbar, og du får noko ut (returverdi).\n\nDu definerer ein funksjon med `def`:\n\n```python\ndef si_hei():\n    print(\"Hei! Velkommen!\")\n\nsi_hei()\nsi_hei()\n```\n\nViktig: å *definere* ein funksjon køyrer han ikkje. Koden inni blir køyrd først når du *kallar* han ved å skrive namnet med parentesar. For å gjere funksjonen fleksibel sender du verdiar inn via **parametrar**:\n\n```python\ndef hils_paa(navn):\n    print(f\"Hei, {navn}!\")\n\nhils_paa(\"Sara\")\n```\n\nHer er `navn` ein *parameter* i definisjonen, medan `\"Sara\"` er eit *argument* du sender inn. Du kan ha fleire parametrar, som `presenter(fornavn, etternavn, alder)` – men då må rekkjefølgja på argumenta matche rekkjefølgja på parametrane.",
+      "8eca731464d35e0f": "Test deg sjølv på funksjonar og parametrar:",
+      "4097889236a2af26": "placeholder",
+      "da22c48719fafd9d": "Kva for nøkkelord blir brukt for å definere ein funksjon i Python?",
+      "cb8379ac2098aa16": "def",
+      "78f9ac018e554365": "function",
+      "f63827270b16435e": "func",
+      "ecd38f260821a09a": "define",
+      "d3b5d18b9b039966": "I Python blir funksjonar definerte med nøkkelordet def.",
+      "0ec8be4bd7e90ee4": "Kva skjer når du berre definerer ein funksjon, men ikkje kallar han?",
+      "9f0787fa511888cf": "Koden inni blir køyrd med ein gong",
+      "807190a33bab50c1": "Koden inni blir ikkje køyrd før funksjonen blir kalla",
+      "a4e6b8c97379cd38": "Programmet stoppar",
+      "9db3c65cbfe751bb": "Det gir ei feilmelding",
+      "7c80247fe8844a5d": "Å definere ein funksjon køyrer han ikkje – koden inni blir køyrd først når du kallar funksjonen med namnet og parentesar.",
+      "46bd53c2b160bdd9": "Kva er forskjellen på ein parameter og eit argument?",
+      "554fd28858e6ce23": "Dei tyder nøyaktig det same",
+      "bd2867f872f1b4ff": "Argumentet står i definisjonen",
+      "5a224bf3f525e73b": "Parameteren er variabelen i definisjonen, argumentet er verdien du sender inn",
+      "c82182670fc1db59": "Parameteren returnerer alltid ein verdi",
+      "d5e4813aa2d4cf02": "Parameteren er namnet i funksjonsdefinisjonen, medan argumentet er den konkrete verdien du sender inn når du kallar funksjonen.",
+      "b51f01624e68bfea": "## Å få noko tilbake\n\nMange funksjonar skal ikkje berre gjere noko – dei skal *rekne ut* noko og gi svaret tilbake. Det gjer dei med `return`:\n\n```python\ndef beregn_areal(bredde, hoyde):\n    return bredde * hoyde\n\nresultat = beregn_areal(5, 3)  # resultat = 15\n```\n\nNår Python møter `return`, stoppar funksjonen med ein gong og sender verdien tilbake. Kode etter `return` i same funksjon blir aldri køyrd. Tommelfingerregelen er: reknar funksjonen ut noko, bruk `return`; gjer han berre ei handling som å skrive ut tekst, treng du han ikkje. Ein funksjon utan `return` returnerer automatisk `None`. Du kan til og med returnere fleire verdiar samtidig: `return summen, gjennomsnitt, storste` kan pakkast ut med `s, g, maks = ...`.\n\nDette leier oss til **scope** – kvar ein variabel er tilgjengeleg. **Lokale variablar** blir oppretta inne i ein funksjon og finst berre medan funksjonen køyrer; dei kan ikkje brukast utanfor. Òg parametrar er lokale. **Globale variablar** blir oppretta utanfor alle funksjonar og kan lesast overalt:\n\n```python\nmelding = \"Hei utenfra\"\ndef min_funksjon():\n    lokal = \"Hei innenfra\"\n    print(lokal)    # ok\n    print(melding)  # ok, kan lese global\nmin_funksjon()\n# print(lokal)  # FEIL – finnes ikke her\n```\n\nFunksjonar kan lese globale variablar, men for å *endre* dei må du bruke `global` – noko du som hovudregel bør unngå. Bruk heller parametrar og returverdiar. Du kan òg gi parametrar **standardverdiar** med `def hils(navn, hilsen=\"Hei\")`, men parametrar med standardverdi må komme sist.",
+      "0400dba05926f4c3": "Test deg sjølv på return og scope:",
+      "c9dbaa4df69012ed": "Kva gjer return i ein funksjon?",
+      "e6370cdb363c5820": "Skriv verdien direkte til skjermen",
+      "70190227ef98ddbb": "Startar funksjonen på nytt",
+      "e617a88667eed4a8": "Slettar ein variabel",
+      "416112422ad57b36": "Stoppar funksjonen og sender ein verdi tilbake",
+      "7f7afd173d5daeb1": "return avsluttar funksjonen med ein gong og sender verdien tilbake til der funksjonen vart kalla.",
+      "b4dbab8cdc73d41a": "Kvar er ein lokal variabel tilgjengeleg?",
+      "8c5a801a9a6c5129": "Berre inne i funksjonen der han vart oppretta",
+      "b0363661dad1fd21": "Overalt i programmet",
+      "9ed7bae4925a8ece": "Berre i andre funksjonar",
+      "bec65968b1edc5ff": "Berre etter at funksjonen er ferdig",
+      "456e75f270114c9a": "Ein lokal variabel finst berre inne i funksjonen der han vart oppretta, og forsvinn når funksjonen er ferdig.",
+      "c21da892a433cff3": "Kva returnerer ein funksjon som ikkje har nokon return-setning?",
+      "dc937b59892604f5": "None",
+      "1e74426baf4a63ec": "Ein tom streng",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "56676ae4e5834e77": "Ein funksjon utan return (eller med tom return) returnerer automatisk verdien None.",
+      "c0f9460b0869f3ce": "## Stå på skuldrene til andre\n\nDu treng ikkje skrive alt sjølv. Python kjem med hundrevis av ferdige **modular** fulle av nyttige funksjonar. Du hentar dei inn med `import`:\n\n```python\nimport math\nprint(math.pi)        # 3.141592653589793\nprint(math.sqrt(16))  # 4.0\n```\n\nDet finst fleire måtar å importere på. `import random` lèt deg skrive `random.randint(1, 10)`. `from random import randint` lèt deg droppe `random.`-forstavinga og berre skrive `randint(1, 10)`. Og `import random as rnd` gir modulen eit kortare kallenamn. Blant dei mest nyttige standardmodulane er `math` (matematikk), `random` (tilfeldige tal), `datetime` (dato og tid), `os` (operativsystem) og `string` (tekst).\n\nLat oss samle alt i eit døme – ein BMI-kalkulator delt i to funksjonar med klare oppgåver:\n\n```python\ndef beregn_bmi(vekt_kg, hoyde_m):\n    \"\"\"Beregner BMI fra vekt i kg og høyde i meter.\"\"\"\n    return round(vekt_kg / (hoyde_m ** 2), 1)\n\ndef bmi_kategori(bmi):\n    if bmi < 18.5:\n        return \"Undervekt\"\n    elif bmi < 25:\n        return \"Normalvekt\"\n    elif bmi < 30:\n        return \"Overvekt\"\n    else:\n        return \"Fedme\"\n```\n\nFor ein person på 70 kg og 1,75 m gir dette BMI 22.9 og kategorien «Normalvekt». Teksten i trippel-hermeteikn øvst i `beregn_bmi` er ein *docstring* – innebygd dokumentasjon som forklarer kva funksjonen gjer. Ved å dele programmet i små funksjonar med klare ansvarsområde blir koden lettare å lese, teste og gjenbruke.",
+      "d6866cb770f6105d": "Test deg sjølv på modular:",
+      "8c9a3e79e0bbb13a": "Kva for modul ville du brukt for å lage eit tilfeldig tal mellom 1 og 100?",
+      "58a6d6801ae771e6": "math",
+      "2763d133c5e59ca4": "datetime",
+      "a441b15fe9a3cf56": "random",
+      "840a8dcfeae95966": "os",
+      "be3b1265996d3c7a": "random-modulen handterer tilfeldige tal, til dømes random.randint(1, 100).",
+      "4f307c684bfe5c62": "Kva gjer «from random import randint»?",
+      "402b59737182ca44": "Importerer heile random-modulen med alias",
+      "9530a4d432f6bf5e": "Slettar random-modulen",
+      "0604c35c30572d8b": "Lagar eit tilfeldig tal med ein gong",
+      "4c1da8591e9831ad": "Importerer randint slik at du kan bruke han utan random.-forstavinga",
+      "e6adfec0857eb80e": "from random import randint hentar inn akkurat den funksjonen, slik at du kan skrive randint(...) direkte utan random.-forstavinga.",
+      "0d11bdc9118fbd31": "## Oppsummering\n\nFunksjonar er gjenbrukbare kodeblokker som lèt deg slutte å kopiere og lime. Du definerer dei med `def`, sender data inn via **parametrar** (argumenta er verdiane du faktisk gir), og får svar tilbake med `return`. Hugs at å definere ein funksjon ikkje køyrer han – det skjer først når du kallar han.\n\n**Scope** styrer kvar variablar lever: lokale variablar finst berre inne i funksjonen, medan globale kan lesast overalt. Som hovudregel kommuniserer du via parametrar og returverdiar framfor globale variablar. Til slutt kan du **importere modular** som `math`, `random` og `datetime` for å gjenbruke ferdig kode. Med funksjonar og modular kan du byggje større program som er ryddige, lette å teste og enkle å vedlikehalde."
+    }
+  }
+}

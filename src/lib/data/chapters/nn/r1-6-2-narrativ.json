@@ -1,1 +1,531 @@
-{"id":"r1-6-2-narrativ","courseId":"r1","chapterNumber":"6.2","title":"Vektorrekning","subtitle":"Narrativ versjon","description":"Ei forteljing om vektorrekning -- om Pytagoras som måleband, skalarproduktet som kjenner vinkelen mellom to piler, ortogonalitetstesten, skuggen som blir kalla projeksjon og krafta som gjer arbeid.","estimatedMinutes":40,"competenceGoals":["rekne ut lengda til ein vektor","finne einingsvektorar","rekne ut skalarproduktet av to vektorar","finne vinkelen mellom to vektorar","forstå og bruke ortogonalitet","rekne ut projeksjonen av ein vektor på ein annan"],"linkedChapterId":"r1-6-2","content":[{"id":"r1-6-2-n-intro","type":"text","content":"## Måleband og gradskive for piler\n\nI førre kapittel lærte du å skrive vektorar som talpar og rekne med dei. Men to heilt grunnleggjande spørsmål står ubesvarte. Kor *lang* er eigentleg vektoren $[3, 4]$? Og kva *vinkel* dannar to vektorar med kvarandre?\n\nSpørsmåla er alt anna enn teoretiske. Ein slalåmkøyrar ned ein bakke blir påverka av tyngdekraft, normalkraft og luftmotstand – krefter med både storleik og retning. Kor stor er den samla krafta, og kor mykje av henne dreg i fartsretninga? Ein dronepilot vil vite kor langt unna dronen er, og om kursen hennar peikar mot målet eller skeivt unna. Alt dette krev at vi kan måle lengder og vinklar *direkte frå komponentane*, utan linjal og gradskive.\n\nI dette kapittelet byggjer vi nettopp dei verktøya. Lengda av ein vektor viser seg å vere rein Pytagoras. Deretter møter du hovudpersonen i kapittelet: **skalarproduktet**, ein uanseleg liten rekneoperasjon – gange saman komponentane og legg saman – som mirakuløst nok veit alt om vinkelen mellom to vektorar. Med det i handa kan vi avgjere når to vektorar står vinkelrett på kvarandre, rekne ut «skuggen» ein vektor kastar på ein annan, og til og med rekne ut fysisk arbeid. La oss starte med målebandet."},{"id":"r1-6-2-n-section1","type":"text","content":"## Lengda – Pytagoras i forkledning\n\nSjå på vektoren $\\vec{u} = [3, 4]$: tre bortover, fire oppover. Pila er hypotenusen i ein rettvinkla trekant med katetar 3 og 4, så lengda følgjer rett av Pytagoras: $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$. Generelt er **lengda** (òg kalla *norma* eller *absoluttverdien*) av $\\vec{v} = [a, b]$ gitt ved $$|\\vec{v}| = \\sqrt{a^2 + b^2}$$ Vi skriv henne med vertikale strekar, og ho er alltid eit ikkje-negativt tal. Forteikna på komponentane spelar inga rolle – dei blir kvadrerte bort: $|\\vec{v}| = |[-5, 12]| = \\sqrt{25 + 144} = \\sqrt{169} = 13$, og $|[2, -2]| = \\sqrt{4 + 4} = \\sqrt{8} = 2\\sqrt{2}$.\n\nNokre gonger treng vi det motsette av ein lang vektor: ein vektor som *berre* gir retning, utan å blande inn noka lengd. Tenk på eit kompass – nåla fortel kvar nord er, ikkje kor langt det er dit. Ein slik vektor med lengd nøyaktig 1 blir kalla ein **einingsvektor**, og oppskrifta er enkel: ta vektoren din og del han på si eiga lengd, $$\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$$ «Hatten» over $v$-en er standardnotasjon for einingsvektorar. For $\\vec{v} = [3, 4]$ med lengd 5 blir $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$ – same retning, lengd 1. Kontrollrekninga er tilfredsstillande: $\\sqrt{\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2} = \\sqrt{\\frac{9}{25} + \\frac{16}{25}} = \\sqrt{1} = 1$.\n\nKvifor er einingsvektorar nyttige? Fordi dei skil retning frå storleik. Vil du gå 100 meter i retninga til $\\vec{v}$, gangar du berre: $100 \\cdot \\hat{v}$. Retninga kjem frå $\\hat{v}$, lengda bestemmer du sjølv. Det er denne arbeidsdelinga – lengd for seg, retning for seg – som gjer resten av vektorrekninga ryddig."},{"id":"r1-6-2-n-quiz1","type":"exercise","exercise":{"id":"r1-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på lengd og einingsvektor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-2-n-quiz1-q0","task":"Kva er lengda av $\\vec{u} = [3, 4]$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$\\sqrt{7}$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"$|\\vec{u}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$."},{"id":"r1-6-2-n-quiz1-q1","task":"Kva er lengda av $\\vec{v} = [-5, 12]$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$\\sqrt{119}$","isCorrect":false},{"id":"c","text":"$17$","isCorrect":false},{"id":"d","text":"$13$","isCorrect":true}],"solution":"$|\\vec{v}| = \\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$. Forteiknet forsvinn i kvadreringa."},{"id":"r1-6-2-n-quiz1-q2","task":"Kva er einingsvektoren i same retning som $\\vec{v} = [3, 4]$?","options":[{"id":"a","text":"$\\left[\\frac{3}{5}, \\frac{4}{5}\\right]$","isCorrect":true},{"id":"b","text":"$[3, 4]$","isCorrect":false},{"id":"c","text":"$\\left[\\frac{1}{3}, \\frac{1}{4}\\right]$","isCorrect":false},{"id":"d","text":"$\\left[\\frac{3}{7}, \\frac{4}{7}\\right]$","isCorrect":false}],"solution":"$|\\vec{v}| = 5$, så $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$. Kontroll: $\\sqrt{\\frac{9}{25} + \\frac{16}{25}} = 1$."},{"id":"r1-6-2-n-quiz1-q3","task":"Kva er lengda av $\\vec{w} = [2, -2]$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$2\\sqrt{2}$","isCorrect":true},{"id":"d","text":"$2$","isCorrect":false}],"solution":"$|\\vec{w}| = \\sqrt{2^2 + (-2)^2} = \\sqrt{8} = 2\\sqrt{2}$."}]}},{"id":"r1-6-2-n-section2","type":"text","content":"## Skalarproduktet – talet som kjenner vinkelen\n\nNo til hovudpersonen i kapittelet. **Skalarproduktet** (òg kalla prikkproduktet) av $\\vec{u} = [a_1, b_1]$ og $\\vec{v} = [a_2, b_2]$ er $$\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$$ Gange førstekomponentane, gange andrekomponentane, legg saman. Merk det oppsiktsvekkjande: to vektorar går inn, men eit *tal* kjem ut – derav namnet *skalar*produkt. For $\\vec{u} = [2, 3]$ og $\\vec{v} = [4, -1]$: $\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$.\n\nSkalarproduktet oppfører seg pent: det er kommutativt ($\\vec{u} \\cdot \\vec{v} = \\vec{v} \\cdot \\vec{u}$), distributivt over addisjon ($\\vec{u} \\cdot (\\vec{v} + \\vec{w}) = \\vec{u} \\cdot \\vec{v} + \\vec{u} \\cdot \\vec{w}$), og skalarar kan flyttast fritt ($(k\\vec{u}) \\cdot \\vec{v} = k(\\vec{u} \\cdot \\vec{v})$). Og legg merke til perla blant reknereglane: $\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av si eiga lengd – sjekk sjølv at $\\vec{u} \\cdot \\vec{u} = 4 + 9 = 13 = |\\vec{u}|^2$ for $\\vec{u} = [2, 3]$.\n\nMen kvifor bry seg om dette talet? Fordi det ber på ein geometrisk løyndom: $$\\vec{u} \\cdot \\vec{v} = |\\vec{u}| \\cdot |\\vec{v}| \\cdot \\cos \\theta$$ der $\\theta$ er vinkelen mellom vektorane (alltid mellom $0°$ og $180°$). Snur vi formelen, kan vi *rekne ut vinkelen* frå komponentane åleine: $\\cos \\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$. Prøv med $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$. Skalarproduktet: $1 \\cdot \\sqrt{3} + \\sqrt{3} \\cdot 1 = 2\\sqrt{3}$. Lengdene: $|\\vec{u}| = \\sqrt{1 + 3} = 2$ og $|\\vec{v}| = \\sqrt{3 + 1} = 2$. Dermed $\\cos \\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, som gir $\\theta = 30°$. Inga gradskive, inga teikning – berre fire tal og litt rekning. Forteiknet åleine gir forresten ein gratis peikepinn: positivt skalarprodukt tyder spiss vinkel, negativt tyder stump vinkel. Og null? Det er så viktig at det får sin eigen seksjon."},{"id":"r1-6-2-n-quiz2","type":"exercise","exercise":{"id":"r1-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på skalarprodukt og vinkel:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-2-n-quiz2-q0","task":"Rekn ut $[2, 3] \\cdot [4, -1]$.","options":[{"id":"a","text":"$[8, -3]$","isCorrect":false},{"id":"b","text":"$11$","isCorrect":false},{"id":"c","text":"$5$","isCorrect":true},{"id":"d","text":"$-5$","isCorrect":false}],"solution":"$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$. Resultatet er eit tal, ikkje ein vektor."},{"id":"r1-6-2-n-quiz2-q1","task":"Kva slags objekt er resultatet av eit skalarprodukt?","options":[{"id":"a","text":"Eit tal (ein skalar)","isCorrect":true},{"id":"b","text":"Ein vektor","isCorrect":false},{"id":"c","text":"Ein vinkel","isCorrect":false},{"id":"d","text":"Eit punkt","isCorrect":false}],"solution":"Skalarproduktet av to vektorar er alltid eit tal – derav namnet. Det er nettopp dette som skil det frå vektoraddisjon."},{"id":"r1-6-2-n-quiz2-q2","task":"Kva er $\\vec{v} \\cdot \\vec{v}$ for ein vilkårleg vektor $\\vec{v}$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$2|\\vec{v}|$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$|\\vec{v}|^2$","isCorrect":true}],"solution":"$\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av lengda."},{"id":"r1-6-2-n-quiz2-q3","task":"Finn vinkelen mellom $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$.","options":[{"id":"a","text":"$60°$","isCorrect":false},{"id":"b","text":"$30°$","isCorrect":true},{"id":"c","text":"$45°$","isCorrect":false},{"id":"d","text":"$90°$","isCorrect":false}],"solution":"$\\vec{u} \\cdot \\vec{v} = 2\\sqrt{3}$, og $|\\vec{u}| = |\\vec{v}| = 2$. Dermed $\\cos\\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, så $\\theta = 30°$."}]}},{"id":"r1-6-2-n-section3","type":"text","content":"## Vinkelrett, skugge og arbeid\n\nKva skjer når vinkelen mellom to vektorar er nøyaktig $90°$? Då er $\\cos 90° = 0$, og dermed blir heile skalarproduktet null. Det gir oss ein lynrask test: $$\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0$$ To vektorar er **ortogonale** (vinkelrette) viss og berre viss skalarproduktet deira er null. Test $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$: $2 \\cdot 3 + 3 \\cdot (-2) = 6 - 6 = 0$ – vinkelrette! Og legg merke til mønsteret: komponentane har bytt plass, og den eine har skifta forteikn. Det er eit generelt triks: for kvar $\\vec{v} = [a, b]$ er $[-b, a]$ og $[b, -a]$ alltid ortogonale på $\\vec{v}$. Treng du ein vektor vinkelrett på $[4, 5]$? Byt og snu: $[5, -4]$. Sjekk: $4 \\cdot 5 + 5 \\cdot (-4) = 0$.\n\nNeste verktøy er **projeksjonen** – skuggen. Tenk deg sola rett over $\\vec{v}$: projeksjonen av $\\vec{u}$ på $\\vec{v}$ er skuggen $\\vec{u}$ kastar langs $\\vec{v}$, altså den delen av $\\vec{u}$ som peikar i $\\vec{v}$-retning. Formelen er $$\\text{proj}_{\\vec{v}}\\, \\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\, \\vec{v}$$ – skalarproduktet bestemmer kor mykje av $\\vec{v}$-retninga som trengst. Eksempel: projeksjonen av $\\vec{u} = [4, 3]$ på den horisontale $\\vec{v} = [5, 0]$. Vi får $\\vec{u} \\cdot \\vec{v} = 20$ og $|\\vec{v}|^2 = 25$, så $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{20}{25}[5, 0] = [4, 0]$ – nøyaktig den horisontale delen av $\\vec{u}$, som venta. Lengda av skuggen er for øvrig $\\frac{|\\vec{u} \\cdot \\vec{v}|}{|\\vec{v}|}$.\n\nTil slutt: favorittbruksområdet til fysikken. **Arbeid** er definert som $W = \\vec{F} \\cdot \\vec{s}$ – kraft prikka med forflytting. Verkar krafta $\\vec{F} = [30, 40]$ N på ei kasse som blir flytta $\\vec{s} = [5, 0]$ m, blir arbeidet $W = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Ser du historia i tala? Berre den horisontale kraftkomponenten på 30 N bidreg – dei 40 N som dreg oppover, gjer null arbeid når rørsla er vassrett. Skalarproduktet plukkar automatisk ut akkurat den delen av krafta som verkar *langs* rørsla. Det er projeksjonen i arbeidsklede."},{"id":"r1-6-2-n-quiz3","type":"exercise","exercise":{"id":"r1-6-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på ortogonalitet, projeksjon og arbeid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-2-n-quiz3-q0","task":"Kvifor er $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$ ortogonale?","options":[{"id":"a","text":"Fordi $\\vec{u} \\cdot \\vec{v} = 6 - 6 = 0$","isCorrect":true},{"id":"b","text":"Fordi dei har same lengd","isCorrect":false},{"id":"c","text":"Fordi komponentane er positive og negative","isCorrect":false},{"id":"d","text":"Fordi $\\vec{u} \\cdot \\vec{v} = 12$","isCorrect":false}],"solution":"$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 3 + 3 \\cdot (-2) = 0$, og skalarprodukt lik null er ein og same ting som at vektorane står vinkelrett på kvarandre."},{"id":"r1-6-2-n-quiz3-q1","task":"Kva vektor er ortogonal på $\\vec{w} = [4, 5]$?","options":[{"id":"a","text":"$[4, -5]$","isCorrect":false},{"id":"b","text":"$[8, 10]$","isCorrect":false},{"id":"c","text":"$[5, -4]$","isCorrect":true},{"id":"d","text":"$[-4, 5]$","isCorrect":false}],"solution":"Byt komponentane og snu eitt forteikn: $[5, -4]$. Kontroll: $4 \\cdot 5 + 5 \\cdot (-4) = 20 - 20 = 0$."},{"id":"r1-6-2-n-quiz3-q2","task":"Kva tyder det geometrisk at $\\vec{u} \\cdot \\vec{v} = 0$ for to vektorar ulik nullvektoren?","options":[{"id":"a","text":"Vektorane er parallelle","isCorrect":false},{"id":"b","text":"Vinkelen mellom dei er $90°$","isCorrect":true},{"id":"c","text":"Vektorane er like lange","isCorrect":false},{"id":"d","text":"Vinkelen mellom dei er $0°$","isCorrect":false}],"solution":"Frå $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$ gir skalarprodukt null at $\\cos\\theta = 0$, altså $\\theta = 90°$."},{"id":"r1-6-2-n-quiz3-q3","task":"Finn projeksjonen av $\\vec{u} = [4, 3]$ på $\\vec{v} = [5, 0]$.","options":[{"id":"a","text":"$[0, 3]$","isCorrect":false},{"id":"b","text":"$[5, 0]$","isCorrect":false},{"id":"c","text":"$\\left[\\frac{4}{5}, 0\\right]$","isCorrect":false},{"id":"d","text":"$[4, 0]$","isCorrect":true}],"solution":"$\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v} = \\frac{20}{25}[5, 0] = [4, 0]$ – den horisontale delen av $\\vec{u}$."},{"id":"r1-6-2-n-quiz3-q4","task":"Ei kraft $\\vec{F} = [30, 40]$ N verkar på ein gjenstand som blir flytta $\\vec{s} = [5, 0]$ m. Kva er arbeidet?","options":[{"id":"a","text":"$350$ J","isCorrect":false},{"id":"b","text":"$150$ J","isCorrect":true},{"id":"c","text":"$200$ J","isCorrect":false},{"id":"d","text":"$250$ J","isCorrect":false}],"solution":"$W = \\vec{F} \\cdot \\vec{s} = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Berre kraftkomponenten langs rørsla bidreg."}]}},{"id":"r1-6-2-n-summary","type":"text","content":"## Verktøya som måler alt\n\nKapittelet starta med to ubesvarte spørsmål – kor langt og kva vinkel – og no er begge besvarte med rein komponentrekning. **Lengda** av $\\vec{v} = [a, b]$ er Pytagoras i forkledning: $|\\vec{v}| = \\sqrt{a^2 + b^2}$. Og treng du berre retninga, deler du på lengda og får **einingsvektoren** $\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$ – kompassnåla som peikar utan å måle.\n\nHovudpersonen var **skalarproduktet** $\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$: to vektorar inn, eitt tal ut. Det vesle talet viste seg å romme heile vinkelgeometrien gjennom $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$, slik at $\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$ gir vinkelen direkte frå komponentane. Undervegs plukka vi opp perla $\\vec{v} \\cdot \\vec{v} = |\\vec{v}|^2$ og den lynraske testen for vinkelrette vektorar: $\\vec{u} \\perp \\vec{v}$ nøyaktig når $\\vec{u} \\cdot \\vec{v} = 0$ – med byt-og-snu-trikset $[a, b] \\mapsto [-b, a]$ som gratis bonus.\n\nTil slutt sette vi verktøya i arbeid: **projeksjonen** $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v}$ er skuggen éin vektor kastar på ein annan, og arbeidet i fysikken $W = \\vec{F} \\cdot \\vec{s}$ er nettopp skalarproduktet som siler ut den delen av krafta som verkar langs rørsla. Lengd, vinkel, vinkelrettheit, skugge – heile geometrien til vektorane, rekna med fire tal. I neste kapittel set vi vektorane i *rørsle* og lèt dei teikne linjer og sirklar med tida som penn."}],"exercises":[],"_meta":{"sourceHash":"8de757d27023bf4e","translatedAt":"2026-06-19T23:57:59.198Z","model":"claude-code-agent","strings":71,"tm":{"e28ddf38f32e1a95":"Vektorrekning","b195b06d1ed59702":"Narrativ versjon","aecf577ba303be3d":"Ei forteljing om vektorrekning -- om Pytagoras som måleband, skalarproduktet som kjenner vinkelen mellom to piler, ortogonalitetstesten, skuggen som blir kalla projeksjon og krafta som gjer arbeid.","03f6b22a7993bdcd":"rekne ut lengda til ein vektor","0c037f9e59ec1b1f":"finne einingsvektorar","4fdbf7f91fe86fe5":"rekne ut skalarproduktet av to vektorar","40b81c99908ab825":"finne vinkelen mellom to vektorar","02123e97f76d9992":"forstå og bruke ortogonalitet","ce0b9fdaff75ab53":"rekne ut projeksjonen av ein vektor på ein annan","ed000ccbb1abcc44":"## Måleband og gradskive for piler\n\nI førre kapittel lærte du å skrive vektorar som talpar og rekne med dei. Men to heilt grunnleggjande spørsmål står ubesvarte. Kor *lang* er eigentleg vektoren $[3, 4]$? Og kva *vinkel* dannar to vektorar med kvarandre?\n\nSpørsmåla er alt anna enn teoretiske. Ein slalåmkøyrar ned ein bakke blir påverka av tyngdekraft, normalkraft og luftmotstand – krefter med både storleik og retning. Kor stor er den samla krafta, og kor mykje av henne dreg i fartsretninga? Ein dronepilot vil vite kor langt unna dronen er, og om kursen hennar peikar mot målet eller skeivt unna. Alt dette krev at vi kan måle lengder og vinklar *direkte frå komponentane*, utan linjal og gradskive.\n\nI dette kapittelet byggjer vi nettopp dei verktøya. Lengda av ein vektor viser seg å vere rein Pytagoras. Deretter møter du hovudpersonen i kapittelet: **skalarproduktet**, ein uanseleg liten rekneoperasjon – gange saman komponentane og legg saman – som mirakuløst nok veit alt om vinkelen mellom to vektorar. Med det i handa kan vi avgjere når to vektorar står vinkelrett på kvarandre, rekne ut «skuggen» ein vektor kastar på ein annan, og til og med rekne ut fysisk arbeid. La oss starte med målebandet.","1ee112a4f3d123d6":"## Lengda – Pytagoras i forkledning\n\nSjå på vektoren $\\vec{u} = [3, 4]$: tre bortover, fire oppover. Pila er hypotenusen i ein rettvinkla trekant med katetar 3 og 4, så lengda følgjer rett av Pytagoras: $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$. Generelt er **lengda** (òg kalla *norma* eller *absoluttverdien*) av $\\vec{v} = [a, b]$ gitt ved $$|\\vec{v}| = \\sqrt{a^2 + b^2}$$ Vi skriv henne med vertikale strekar, og ho er alltid eit ikkje-negativt tal. Forteikna på komponentane spelar inga rolle – dei blir kvadrerte bort: $|\\vec{v}| = |[-5, 12]| = \\sqrt{25 + 144} = \\sqrt{169} = 13$, og $|[2, -2]| = \\sqrt{4 + 4} = \\sqrt{8} = 2\\sqrt{2}$.\n\nNokre gonger treng vi det motsette av ein lang vektor: ein vektor som *berre* gir retning, utan å blande inn noka lengd. Tenk på eit kompass – nåla fortel kvar nord er, ikkje kor langt det er dit. Ein slik vektor med lengd nøyaktig 1 blir kalla ein **einingsvektor**, og oppskrifta er enkel: ta vektoren din og del han på si eiga lengd, $$\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$$ «Hatten» over $v$-en er standardnotasjon for einingsvektorar. For $\\vec{v} = [3, 4]$ med lengd 5 blir $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$ – same retning, lengd 1. Kontrollrekninga er tilfredsstillande: $\\sqrt{\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2} = \\sqrt{\\frac{9}{25} + \\frac{16}{25}} = \\sqrt{1} = 1$.\n\nKvifor er einingsvektorar nyttige? Fordi dei skil retning frå storleik. Vil du gå 100 meter i retninga til $\\vec{v}$, gangar du berre: $100 \\cdot \\hat{v}$. Retninga kjem frå $\\hat{v}$, lengda bestemmer du sjølv. Det er denne arbeidsdelinga – lengd for seg, retning for seg – som gjer resten av vektorrekninga ryddig.","c371cfb46d8ac056":"Test deg sjølv på lengd og einingsvektor:","4097889236a2af26":"placeholder","bb76341f49ba6fa0":"Kva er lengda av $\\vec{u} = [3, 4]$?","7052a12c06ee3181":"$\\sqrt{7}$","ebc5c368c0a51589":"$|\\vec{u}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$.","0a9c464bf23de605":"Kva er lengda av $\\vec{v} = [-5, 12]$?","96c1a03cf365a8e5":"$\\sqrt{119}$","443e52edca253360":"$|\\vec{v}| = \\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$. Forteiknet forsvinn i kvadreringa.","615033209a580cdb":"Kva er einingsvektoren i same retning som $\\vec{v} = [3, 4]$?","a6b82a4a705145dd":"$\\left[\\frac{3}{5}, \\frac{4}{5}\\right]$","c7468d79772e552d":"$\\left[\\frac{1}{3}, \\frac{1}{4}\\right]$","60612930479a73b2":"$\\left[\\frac{3}{7}, \\frac{4}{7}\\right]$","876b8bc9d6524b12":"$|\\vec{v}| = 5$, så $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$. Kontroll: $\\sqrt{\\frac{9}{25} + \\frac{16}{25}} = 1$.","4c931c972339dca2":"Kva er lengda av $\\vec{w} = [2, -2]$?","02c8e32c15bee67f":"$2\\sqrt{2}$","f2250cb15eb14799":"$|\\vec{w}| = \\sqrt{2^2 + (-2)^2} = \\sqrt{8} = 2\\sqrt{2}$.","1ad27c7814f1f3e6":"## Skalarproduktet – talet som kjenner vinkelen\n\nNo til hovudpersonen i kapittelet. **Skalarproduktet** (òg kalla prikkproduktet) av $\\vec{u} = [a_1, b_1]$ og $\\vec{v} = [a_2, b_2]$ er $$\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$$ Gange førstekomponentane, gange andrekomponentane, legg saman. Merk det oppsiktsvekkjande: to vektorar går inn, men eit *tal* kjem ut – derav namnet *skalar*produkt. For $\\vec{u} = [2, 3]$ og $\\vec{v} = [4, -1]$: $\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$.\n\nSkalarproduktet oppfører seg pent: det er kommutativt ($\\vec{u} \\cdot \\vec{v} = \\vec{v} \\cdot \\vec{u}$), distributivt over addisjon ($\\vec{u} \\cdot (\\vec{v} + \\vec{w}) = \\vec{u} \\cdot \\vec{v} + \\vec{u} \\cdot \\vec{w}$), og skalarar kan flyttast fritt ($(k\\vec{u}) \\cdot \\vec{v} = k(\\vec{u} \\cdot \\vec{v})$). Og legg merke til perla blant reknereglane: $\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av si eiga lengd – sjekk sjølv at $\\vec{u} \\cdot \\vec{u} = 4 + 9 = 13 = |\\vec{u}|^2$ for $\\vec{u} = [2, 3]$.\n\nMen kvifor bry seg om dette talet? Fordi det ber på ein geometrisk løyndom: $$\\vec{u} \\cdot \\vec{v} = |\\vec{u}| \\cdot |\\vec{v}| \\cdot \\cos \\theta$$ der $\\theta$ er vinkelen mellom vektorane (alltid mellom $0°$ og $180°$). Snur vi formelen, kan vi *rekne ut vinkelen* frå komponentane åleine: $\\cos \\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$. Prøv med $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$. Skalarproduktet: $1 \\cdot \\sqrt{3} + \\sqrt{3} \\cdot 1 = 2\\sqrt{3}$. Lengdene: $|\\vec{u}| = \\sqrt{1 + 3} = 2$ og $|\\vec{v}| = \\sqrt{3 + 1} = 2$. Dermed $\\cos \\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, som gir $\\theta = 30°$. Inga gradskive, inga teikning – berre fire tal og litt rekning. Forteiknet åleine gir forresten ein gratis peikepinn: positivt skalarprodukt tyder spiss vinkel, negativt tyder stump vinkel. Og null? Det er så viktig at det får sin eigen seksjon.","fe7591d4e57bc166":"Test deg sjølv på skalarprodukt og vinkel:","6cf6dab474eccd5c":"Rekn ut $[2, 3] \\cdot [4, -1]$.","631cec312bfb64cf":"$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$. Resultatet er eit tal, ikkje ein vektor.","830a5f65e77972ae":"Kva slags objekt er resultatet av eit skalarprodukt?","47f30e707d6ed039":"Eit tal (ein skalar)","a430d44569499570":"Ein vektor","6864b66e0de8b249":"Ein vinkel","59c97725bebf80d5":"Eit punkt","0bef8a6bb07b7fb1":"Skalarproduktet av to vektorar er alltid eit tal – derav namnet. Det er nettopp dette som skil det frå vektoraddisjon.","7ccdd950121edec3":"Kva er $\\vec{v} \\cdot \\vec{v}$ for ein vilkårleg vektor $\\vec{v}$?","ac77a81f220a106b":"$2|\\vec{v}|$","aa917396573585e7":"$|\\vec{v}|^2$","289dd970a1630e4e":"$\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av lengda.","d42abfb3d7ecbcc1":"Finn vinkelen mellom $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$.","062bf9efb3642740":"$\\vec{u} \\cdot \\vec{v} = 2\\sqrt{3}$, og $|\\vec{u}| = |\\vec{v}| = 2$. Dermed $\\cos\\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, så $\\theta = 30°$.","8a7d0c2d82c5547e":"## Vinkelrett, skugge og arbeid\n\nKva skjer når vinkelen mellom to vektorar er nøyaktig $90°$? Då er $\\cos 90° = 0$, og dermed blir heile skalarproduktet null. Det gir oss ein lynrask test: $$\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0$$ To vektorar er **ortogonale** (vinkelrette) viss og berre viss skalarproduktet deira er null. Test $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$: $2 \\cdot 3 + 3 \\cdot (-2) = 6 - 6 = 0$ – vinkelrette! Og legg merke til mønsteret: komponentane har bytt plass, og den eine har skifta forteikn. Det er eit generelt triks: for kvar $\\vec{v} = [a, b]$ er $[-b, a]$ og $[b, -a]$ alltid ortogonale på $\\vec{v}$. Treng du ein vektor vinkelrett på $[4, 5]$? Byt og snu: $[5, -4]$. Sjekk: $4 \\cdot 5 + 5 \\cdot (-4) = 0$.\n\nNeste verktøy er **projeksjonen** – skuggen. Tenk deg sola rett over $\\vec{v}$: projeksjonen av $\\vec{u}$ på $\\vec{v}$ er skuggen $\\vec{u}$ kastar langs $\\vec{v}$, altså den delen av $\\vec{u}$ som peikar i $\\vec{v}$-retning. Formelen er $$\\text{proj}_{\\vec{v}}\\, \\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\, \\vec{v}$$ – skalarproduktet bestemmer kor mykje av $\\vec{v}$-retninga som trengst. Eksempel: projeksjonen av $\\vec{u} = [4, 3]$ på den horisontale $\\vec{v} = [5, 0]$. Vi får $\\vec{u} \\cdot \\vec{v} = 20$ og $|\\vec{v}|^2 = 25$, så $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{20}{25}[5, 0] = [4, 0]$ – nøyaktig den horisontale delen av $\\vec{u}$, som venta. Lengda av skuggen er for øvrig $\\frac{|\\vec{u} \\cdot \\vec{v}|}{|\\vec{v}|}$.\n\nTil slutt: favorittbruksområdet til fysikken. **Arbeid** er definert som $W = \\vec{F} \\cdot \\vec{s}$ – kraft prikka med forflytting. Verkar krafta $\\vec{F} = [30, 40]$ N på ei kasse som blir flytta $\\vec{s} = [5, 0]$ m, blir arbeidet $W = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Ser du historia i tala? Berre den horisontale kraftkomponenten på 30 N bidreg – dei 40 N som dreg oppover, gjer null arbeid når rørsla er vassrett. Skalarproduktet plukkar automatisk ut akkurat den delen av krafta som verkar *langs* rørsla. Det er projeksjonen i arbeidsklede.","44ad445d118a0245":"Test deg sjølv på ortogonalitet, projeksjon og arbeid:","c9ee5d7c69302d09":"Kvifor er $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$ ortogonale?","5c3f0be1825040a0":"Fordi $\\vec{u} \\cdot \\vec{v} = 6 - 6 = 0$","dcb74877feb24307":"Fordi dei har same lengd","810a2ca1e87cddfc":"Fordi komponentane er positive og negative","dd74d11efdf5a996":"Fordi $\\vec{u} \\cdot \\vec{v} = 12$","94072a3b063f3e07":"$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 3 + 3 \\cdot (-2) = 0$, og skalarprodukt lik null er ein og same ting som at vektorane står vinkelrett på kvarandre.","2320010590768bc9":"Kva vektor er ortogonal på $\\vec{w} = [4, 5]$?","85321713f34bbaf0":"Byt komponentane og snu eitt forteikn: $[5, -4]$. Kontroll: $4 \\cdot 5 + 5 \\cdot (-4) = 20 - 20 = 0$.","0bff6b4f3b20427f":"Kva tyder det geometrisk at $\\vec{u} \\cdot \\vec{v} = 0$ for to vektorar ulik nullvektoren?","ec0055de74ce39a4":"Vektorane er parallelle","7bd584cf2f96d2bb":"Vinkelen mellom dei er $90°$","7d4da3a1f1b770bc":"Vektorane er like lange","fb953fc5f217d95b":"Vinkelen mellom dei er $0°$","b2ba7f81df250092":"Frå $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$ gir skalarprodukt null at $\\cos\\theta = 0$, altså $\\theta = 90°$.","f3eaff4429bb3ffe":"Finn projeksjonen av $\\vec{u} = [4, 3]$ på $\\vec{v} = [5, 0]$.","69b8303bf174fd63":"$\\left[\\frac{4}{5}, 0\\right]$","a712dcfa3db91f53":"$\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v} = \\frac{20}{25}[5, 0] = [4, 0]$ – den horisontale delen av $\\vec{u}$.","76c43a5b5e6f6a68":"Ei kraft $\\vec{F} = [30, 40]$ N verkar på ein gjenstand som blir flytta $\\vec{s} = [5, 0]$ m. Kva er arbeidet?","242f463f1eae4e0c":"$350$ J","d377e5cc10a9a336":"$150$ J","b7f7191fe4b29bd8":"$200$ J","69b675060c4ea64a":"$250$ J","787168ec6767b1ac":"$W = \\vec{F} \\cdot \\vec{s} = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Berre kraftkomponenten langs rørsla bidreg.","41a35f57e05142ed":"## Verktøya som måler alt\n\nKapittelet starta med to ubesvarte spørsmål – kor langt og kva vinkel – og no er begge besvarte med rein komponentrekning. **Lengda** av $\\vec{v} = [a, b]$ er Pytagoras i forkledning: $|\\vec{v}| = \\sqrt{a^2 + b^2}$. Og treng du berre retninga, deler du på lengda og får **einingsvektoren** $\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$ – kompassnåla som peikar utan å måle.\n\nHovudpersonen var **skalarproduktet** $\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$: to vektorar inn, eitt tal ut. Det vesle talet viste seg å romme heile vinkelgeometrien gjennom $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$, slik at $\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$ gir vinkelen direkte frå komponentane. Undervegs plukka vi opp perla $\\vec{v} \\cdot \\vec{v} = |\\vec{v}|^2$ og den lynraske testen for vinkelrette vektorar: $\\vec{u} \\perp \\vec{v}$ nøyaktig når $\\vec{u} \\cdot \\vec{v} = 0$ – med byt-og-snu-trikset $[a, b] \\mapsto [-b, a]$ som gratis bonus.\n\nTil slutt sette vi verktøya i arbeid: **projeksjonen** $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v}$ er skuggen éin vektor kastar på ein annan, og arbeidet i fysikken $W = \\vec{F} \\cdot \\vec{s}$ er nettopp skalarproduktet som siler ut den delen av krafta som verkar langs rørsla. Lengd, vinkel, vinkelrettheit, skugge – heile geometrien til vektorane, rekna med fire tal. I neste kapittel set vi vektorane i *rørsle* og lèt dei teikne linjer og sirklar med tida som penn."}}}
+{
+  "id": "r1-6-2-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "6.2",
+  "title": "Vektorrekning",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om vektorrekning -- om Pytagoras som måleband, skalarproduktet som kjenner vinkelen mellom to piler, ortogonalitetstesten, skuggen som blir kalla projeksjon og krafta som gjer arbeid.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "rekne ut lengda til ein vektor",
+    "finne einingsvektorar",
+    "rekne ut skalarproduktet av to vektorar",
+    "finne vinkelen mellom to vektorar",
+    "forstå og bruke ortogonalitet",
+    "rekne ut projeksjonen av ein vektor på ein annan"
+  ],
+  "linkedChapterId": "r1-6-2",
+  "content": [
+    {
+      "id": "r1-6-2-n-intro",
+      "type": "text",
+      "content": "## Måleband og gradskive for piler\n\nI førre kapittel lærte du å skrive vektorar som talpar og rekne med dei. Men to heilt grunnleggjande spørsmål står ubesvarte. Kor *lang* er eigentleg vektoren $[3, 4]$? Og kva *vinkel* dannar to vektorar med kvarandre?\n\nSpørsmåla er alt anna enn teoretiske. Ein slalåmkøyrar ned ein bakke blir påverka av tyngdekraft, normalkraft og luftmotstand – krefter med både storleik og retning. Kor stor er den samla krafta, og kor mykje av henne dreg i fartsretninga? Ein dronepilot vil vite kor langt unna dronen er, og om kursen hennar peikar mot målet eller skeivt unna. Alt dette krev at vi kan måle lengder og vinklar *direkte frå komponentane*, utan linjal og gradskive.\n\nI dette kapittelet byggjer vi nettopp dei verktøya. Lengda av ein vektor viser seg å vere rein Pytagoras. Deretter møter du hovudpersonen i kapittelet: **skalarproduktet**, ein uanseleg liten rekneoperasjon – gange saman komponentane og legg saman – som mirakuløst nok veit alt om vinkelen mellom to vektorar. Med det i handa kan vi avgjere når to vektorar står vinkelrett på kvarandre, rekne ut «skuggen» ein vektor kastar på ein annan, og til og med rekne ut fysisk arbeid. La oss starte med målebandet."
+    },
+    {
+      "id": "r1-6-2-n-section1",
+      "type": "text",
+      "content": "## Lengda – Pytagoras i forkledning\n\nSjå på vektoren $\\vec{u} = [3, 4]$: tre bortover, fire oppover. Pila er hypotenusen i ein rettvinkla trekant med katetar 3 og 4, så lengda følgjer rett av Pytagoras: $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$. Generelt er **lengda** (òg kalla *norma* eller *absoluttverdien*) av $\\vec{v} = [a, b]$ gitt ved $$|\\vec{v}| = \\sqrt{a^2 + b^2}$$ Vi skriv henne med vertikale strekar, og ho er alltid eit ikkje-negativt tal. Forteikna på komponentane spelar inga rolle – dei blir kvadrerte bort: $|\\vec{v}| = |[-5, 12]| = \\sqrt{25 + 144} = \\sqrt{169} = 13$, og $|[2, -2]| = \\sqrt{4 + 4} = \\sqrt{8} = 2\\sqrt{2}$.\n\nNokre gonger treng vi det motsette av ein lang vektor: ein vektor som *berre* gir retning, utan å blande inn noka lengd. Tenk på eit kompass – nåla fortel kvar nord er, ikkje kor langt det er dit. Ein slik vektor med lengd nøyaktig 1 blir kalla ein **einingsvektor**, og oppskrifta er enkel: ta vektoren din og del han på si eiga lengd, $$\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$$ «Hatten» over $v$-en er standardnotasjon for einingsvektorar. For $\\vec{v} = [3, 4]$ med lengd 5 blir $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$ – same retning, lengd 1. Kontrollrekninga er tilfredsstillande: $\\sqrt{\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2} = \\sqrt{\\frac{9}{25} + \\frac{16}{25}} = \\sqrt{1} = 1$.\n\nKvifor er einingsvektorar nyttige? Fordi dei skil retning frå storleik. Vil du gå 100 meter i retninga til $\\vec{v}$, gangar du berre: $100 \\cdot \\hat{v}$. Retninga kjem frå $\\hat{v}$, lengda bestemmer du sjølv. Det er denne arbeidsdelinga – lengd for seg, retning for seg – som gjer resten av vektorrekninga ryddig."
+    },
+    {
+      "id": "r1-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lengd og einingsvektor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-2-n-quiz1-q0",
+            "task": "Kva er lengda av $\\vec{u} = [3, 4]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|\\vec{u}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$."
+          },
+          {
+            "id": "r1-6-2-n-quiz1-q1",
+            "task": "Kva er lengda av $\\vec{v} = [-5, 12]$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$13$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{119}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$17$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|\\vec{v}| = \\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$. Forteiknet forsvinn i kvadreringa."
+          },
+          {
+            "id": "r1-6-2-n-quiz1-q2",
+            "task": "Kva er einingsvektoren i same retning som $\\vec{v} = [3, 4]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[3, 4]$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\left[\\frac{3}{5}, \\frac{4}{5}\\right]$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\left[\\frac{1}{3}, \\frac{1}{4}\\right]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\left[\\frac{3}{7}, \\frac{4}{7}\\right]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|\\vec{v}| = 5$, så $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$. Kontroll: $\\sqrt{\\frac{9}{25} + \\frac{16}{25}} = 1$."
+          },
+          {
+            "id": "r1-6-2-n-quiz1-q3",
+            "task": "Kva er lengda av $\\vec{w} = [2, -2]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2\\sqrt{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|\\vec{w}| = \\sqrt{2^2 + (-2)^2} = \\sqrt{8} = 2\\sqrt{2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-2-n-section2",
+      "type": "text",
+      "content": "## Skalarproduktet – talet som kjenner vinkelen\n\nNo til hovudpersonen i kapittelet. **Skalarproduktet** (òg kalla prikkproduktet) av $\\vec{u} = [a_1, b_1]$ og $\\vec{v} = [a_2, b_2]$ er $$\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$$ Gange førstekomponentane, gange andrekomponentane, legg saman. Merk det oppsiktsvekkjande: to vektorar går inn, men eit *tal* kjem ut – derav namnet *skalar*produkt. For $\\vec{u} = [2, 3]$ og $\\vec{v} = [4, -1]$: $\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$.\n\nSkalarproduktet oppfører seg pent: det er kommutativt ($\\vec{u} \\cdot \\vec{v} = \\vec{v} \\cdot \\vec{u}$), distributivt over addisjon ($\\vec{u} \\cdot (\\vec{v} + \\vec{w}) = \\vec{u} \\cdot \\vec{v} + \\vec{u} \\cdot \\vec{w}$), og skalarar kan flyttast fritt ($(k\\vec{u}) \\cdot \\vec{v} = k(\\vec{u} \\cdot \\vec{v})$). Og legg merke til perla blant reknereglane: $\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av si eiga lengd – sjekk sjølv at $\\vec{u} \\cdot \\vec{u} = 4 + 9 = 13 = |\\vec{u}|^2$ for $\\vec{u} = [2, 3]$.\n\nMen kvifor bry seg om dette talet? Fordi det ber på ein geometrisk løyndom: $$\\vec{u} \\cdot \\vec{v} = |\\vec{u}| \\cdot |\\vec{v}| \\cdot \\cos \\theta$$ der $\\theta$ er vinkelen mellom vektorane (alltid mellom $0°$ og $180°$). Snur vi formelen, kan vi *rekne ut vinkelen* frå komponentane åleine: $\\cos \\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$. Prøv med $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$. Skalarproduktet: $1 \\cdot \\sqrt{3} + \\sqrt{3} \\cdot 1 = 2\\sqrt{3}$. Lengdene: $|\\vec{u}| = \\sqrt{1 + 3} = 2$ og $|\\vec{v}| = \\sqrt{3 + 1} = 2$. Dermed $\\cos \\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, som gir $\\theta = 30°$. Inga gradskive, inga teikning – berre fire tal og litt rekning. Forteiknet åleine gir forresten ein gratis peikepinn: positivt skalarprodukt tyder spiss vinkel, negativt tyder stump vinkel. Og null? Det er så viktig at det får sin eigen seksjon."
+    },
+    {
+      "id": "r1-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på skalarprodukt og vinkel:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-2-n-quiz2-q0",
+            "task": "Rekn ut $[2, 3] \\cdot [4, -1]$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[8, -3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$11$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$. Resultatet er eit tal, ikkje ein vektor."
+          },
+          {
+            "id": "r1-6-2-n-quiz2-q1",
+            "task": "Kva slags objekt er resultatet av eit skalarprodukt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eit tal (ein skalar)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein vektor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein vinkel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit punkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skalarproduktet av to vektorar er alltid eit tal – derav namnet. Det er nettopp dette som skil det frå vektoraddisjon."
+          },
+          {
+            "id": "r1-6-2-n-quiz2-q2",
+            "task": "Kva er $\\vec{v} \\cdot \\vec{v}$ for ein vilkårleg vektor $\\vec{v}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$|\\vec{v}|^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2|\\vec{v}|$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av lengda."
+          },
+          {
+            "id": "r1-6-2-n-quiz2-q3",
+            "task": "Finn vinkelen mellom $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$60°$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$45°$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$30°$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$90°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{u} \\cdot \\vec{v} = 2\\sqrt{3}$, og $|\\vec{u}| = |\\vec{v}| = 2$. Dermed $\\cos\\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, så $\\theta = 30°$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-2-n-section3",
+      "type": "text",
+      "content": "## Vinkelrett, skugge og arbeid\n\nKva skjer når vinkelen mellom to vektorar er nøyaktig $90°$? Då er $\\cos 90° = 0$, og dermed blir heile skalarproduktet null. Det gir oss ein lynrask test: $$\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0$$ To vektorar er **ortogonale** (vinkelrette) viss og berre viss skalarproduktet deira er null. Test $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$: $2 \\cdot 3 + 3 \\cdot (-2) = 6 - 6 = 0$ – vinkelrette! Og legg merke til mønsteret: komponentane har bytt plass, og den eine har skifta forteikn. Det er eit generelt triks: for kvar $\\vec{v} = [a, b]$ er $[-b, a]$ og $[b, -a]$ alltid ortogonale på $\\vec{v}$. Treng du ein vektor vinkelrett på $[4, 5]$? Byt og snu: $[5, -4]$. Sjekk: $4 \\cdot 5 + 5 \\cdot (-4) = 0$.\n\nNeste verktøy er **projeksjonen** – skuggen. Tenk deg sola rett over $\\vec{v}$: projeksjonen av $\\vec{u}$ på $\\vec{v}$ er skuggen $\\vec{u}$ kastar langs $\\vec{v}$, altså den delen av $\\vec{u}$ som peikar i $\\vec{v}$-retning. Formelen er $$\\text{proj}_{\\vec{v}}\\, \\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\, \\vec{v}$$ – skalarproduktet bestemmer kor mykje av $\\vec{v}$-retninga som trengst. Eksempel: projeksjonen av $\\vec{u} = [4, 3]$ på den horisontale $\\vec{v} = [5, 0]$. Vi får $\\vec{u} \\cdot \\vec{v} = 20$ og $|\\vec{v}|^2 = 25$, så $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{20}{25}[5, 0] = [4, 0]$ – nøyaktig den horisontale delen av $\\vec{u}$, som venta. Lengda av skuggen er for øvrig $\\frac{|\\vec{u} \\cdot \\vec{v}|}{|\\vec{v}|}$.\n\nTil slutt: favorittbruksområdet til fysikken. **Arbeid** er definert som $W = \\vec{F} \\cdot \\vec{s}$ – kraft prikka med forflytting. Verkar krafta $\\vec{F} = [30, 40]$ N på ei kasse som blir flytta $\\vec{s} = [5, 0]$ m, blir arbeidet $W = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Ser du historia i tala? Berre den horisontale kraftkomponenten på 30 N bidreg – dei 40 N som dreg oppover, gjer null arbeid når rørsla er vassrett. Skalarproduktet plukkar automatisk ut akkurat den delen av krafta som verkar *langs* rørsla. Det er projeksjonen i arbeidsklede."
+    },
+    {
+      "id": "r1-6-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på ortogonalitet, projeksjon og arbeid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-2-n-quiz3-q0",
+            "task": "Kvifor er $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$ ortogonale?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi dei har same lengd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi komponentane er positive og negative",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $\\vec{u} \\cdot \\vec{v} = 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $\\vec{u} \\cdot \\vec{v} = 6 - 6 = 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 3 + 3 \\cdot (-2) = 0$, og skalarprodukt lik null er ein og same ting som at vektorane står vinkelrett på kvarandre."
+          },
+          {
+            "id": "r1-6-2-n-quiz3-q1",
+            "task": "Kva vektor er ortogonal på $\\vec{w} = [4, 5]$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$[5, -4]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[4, -5]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[8, 10]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[-4, 5]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Byt komponentane og snu eitt forteikn: $[5, -4]$. Kontroll: $4 \\cdot 5 + 5 \\cdot (-4) = 20 - 20 = 0$."
+          },
+          {
+            "id": "r1-6-2-n-quiz3-q2",
+            "task": "Kva tyder det geometrisk at $\\vec{u} \\cdot \\vec{v} = 0$ for to vektorar ulik nullvektoren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vektorane er parallelle",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vinkelen mellom dei er $90°$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Vektorane er like lange",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vinkelen mellom dei er $0°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$ gir skalarprodukt null at $\\cos\\theta = 0$, altså $\\theta = 90°$."
+          },
+          {
+            "id": "r1-6-2-n-quiz3-q3",
+            "task": "Finn projeksjonen av $\\vec{u} = [4, 3]$ på $\\vec{v} = [5, 0]$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[0, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[5, 0]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[4, 0]$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\left[\\frac{4}{5}, 0\\right]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v} = \\frac{20}{25}[5, 0] = [4, 0]$ – den horisontale delen av $\\vec{u}$."
+          },
+          {
+            "id": "r1-6-2-n-quiz3-q4",
+            "task": "Ei kraft $\\vec{F} = [30, 40]$ N verkar på ein gjenstand som blir flytta $\\vec{s} = [5, 0]$ m. Kva er arbeidet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$350$ J",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$200$ J",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$250$ J",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$150$ J",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$W = \\vec{F} \\cdot \\vec{s} = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Berre kraftkomponenten langs rørsla bidreg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-2-n-summary",
+      "type": "text",
+      "content": "## Verktøya som måler alt\n\nKapittelet starta med to ubesvarte spørsmål – kor langt og kva vinkel – og no er begge besvarte med rein komponentrekning. **Lengda** av $\\vec{v} = [a, b]$ er Pytagoras i forkledning: $|\\vec{v}| = \\sqrt{a^2 + b^2}$. Og treng du berre retninga, deler du på lengda og får **einingsvektoren** $\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$ – kompassnåla som peikar utan å måle.\n\nHovudpersonen var **skalarproduktet** $\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$: to vektorar inn, eitt tal ut. Det vesle talet viste seg å romme heile vinkelgeometrien gjennom $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$, slik at $\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$ gir vinkelen direkte frå komponentane. Undervegs plukka vi opp perla $\\vec{v} \\cdot \\vec{v} = |\\vec{v}|^2$ og den lynraske testen for vinkelrette vektorar: $\\vec{u} \\perp \\vec{v}$ nøyaktig når $\\vec{u} \\cdot \\vec{v} = 0$ – med byt-og-snu-trikset $[a, b] \\mapsto [-b, a]$ som gratis bonus.\n\nTil slutt sette vi verktøya i arbeid: **projeksjonen** $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v}$ er skuggen éin vektor kastar på ein annan, og arbeidet i fysikken $W = \\vec{F} \\cdot \\vec{s}$ er nettopp skalarproduktet som siler ut den delen av krafta som verkar langs rørsla. Lengd, vinkel, vinkelrettheit, skugge – heile geometrien til vektorane, rekna med fire tal. I neste kapittel set vi vektorane i *rørsle* og lèt dei teikne linjer og sirklar med tida som penn."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "8de757d27023bf4e",
+    "translatedAt": "2026-06-19T23:57:59.198Z",
+    "model": "claude-code-agent",
+    "strings": 71,
+    "tm": {
+      "e28ddf38f32e1a95": "Vektorrekning",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "aecf577ba303be3d": "Ei forteljing om vektorrekning -- om Pytagoras som måleband, skalarproduktet som kjenner vinkelen mellom to piler, ortogonalitetstesten, skuggen som blir kalla projeksjon og krafta som gjer arbeid.",
+      "03f6b22a7993bdcd": "rekne ut lengda til ein vektor",
+      "0c037f9e59ec1b1f": "finne einingsvektorar",
+      "4fdbf7f91fe86fe5": "rekne ut skalarproduktet av to vektorar",
+      "40b81c99908ab825": "finne vinkelen mellom to vektorar",
+      "02123e97f76d9992": "forstå og bruke ortogonalitet",
+      "ce0b9fdaff75ab53": "rekne ut projeksjonen av ein vektor på ein annan",
+      "ed000ccbb1abcc44": "## Måleband og gradskive for piler\n\nI førre kapittel lærte du å skrive vektorar som talpar og rekne med dei. Men to heilt grunnleggjande spørsmål står ubesvarte. Kor *lang* er eigentleg vektoren $[3, 4]$? Og kva *vinkel* dannar to vektorar med kvarandre?\n\nSpørsmåla er alt anna enn teoretiske. Ein slalåmkøyrar ned ein bakke blir påverka av tyngdekraft, normalkraft og luftmotstand – krefter med både storleik og retning. Kor stor er den samla krafta, og kor mykje av henne dreg i fartsretninga? Ein dronepilot vil vite kor langt unna dronen er, og om kursen hennar peikar mot målet eller skeivt unna. Alt dette krev at vi kan måle lengder og vinklar *direkte frå komponentane*, utan linjal og gradskive.\n\nI dette kapittelet byggjer vi nettopp dei verktøya. Lengda av ein vektor viser seg å vere rein Pytagoras. Deretter møter du hovudpersonen i kapittelet: **skalarproduktet**, ein uanseleg liten rekneoperasjon – gange saman komponentane og legg saman – som mirakuløst nok veit alt om vinkelen mellom to vektorar. Med det i handa kan vi avgjere når to vektorar står vinkelrett på kvarandre, rekne ut «skuggen» ein vektor kastar på ein annan, og til og med rekne ut fysisk arbeid. La oss starte med målebandet.",
+      "1ee112a4f3d123d6": "## Lengda – Pytagoras i forkledning\n\nSjå på vektoren $\\vec{u} = [3, 4]$: tre bortover, fire oppover. Pila er hypotenusen i ein rettvinkla trekant med katetar 3 og 4, så lengda følgjer rett av Pytagoras: $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$. Generelt er **lengda** (òg kalla *norma* eller *absoluttverdien*) av $\\vec{v} = [a, b]$ gitt ved $$|\\vec{v}| = \\sqrt{a^2 + b^2}$$ Vi skriv henne med vertikale strekar, og ho er alltid eit ikkje-negativt tal. Forteikna på komponentane spelar inga rolle – dei blir kvadrerte bort: $|\\vec{v}| = |[-5, 12]| = \\sqrt{25 + 144} = \\sqrt{169} = 13$, og $|[2, -2]| = \\sqrt{4 + 4} = \\sqrt{8} = 2\\sqrt{2}$.\n\nNokre gonger treng vi det motsette av ein lang vektor: ein vektor som *berre* gir retning, utan å blande inn noka lengd. Tenk på eit kompass – nåla fortel kvar nord er, ikkje kor langt det er dit. Ein slik vektor med lengd nøyaktig 1 blir kalla ein **einingsvektor**, og oppskrifta er enkel: ta vektoren din og del han på si eiga lengd, $$\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$$ «Hatten» over $v$-en er standardnotasjon for einingsvektorar. For $\\vec{v} = [3, 4]$ med lengd 5 blir $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$ – same retning, lengd 1. Kontrollrekninga er tilfredsstillande: $\\sqrt{\\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{4}{5}\\right)^2} = \\sqrt{\\frac{9}{25} + \\frac{16}{25}} = \\sqrt{1} = 1$.\n\nKvifor er einingsvektorar nyttige? Fordi dei skil retning frå storleik. Vil du gå 100 meter i retninga til $\\vec{v}$, gangar du berre: $100 \\cdot \\hat{v}$. Retninga kjem frå $\\hat{v}$, lengda bestemmer du sjølv. Det er denne arbeidsdelinga – lengd for seg, retning for seg – som gjer resten av vektorrekninga ryddig.",
+      "c371cfb46d8ac056": "Test deg sjølv på lengd og einingsvektor:",
+      "4097889236a2af26": "placeholder",
+      "bb76341f49ba6fa0": "Kva er lengda av $\\vec{u} = [3, 4]$?",
+      "7052a12c06ee3181": "$\\sqrt{7}$",
+      "ebc5c368c0a51589": "$|\\vec{u}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$.",
+      "0a9c464bf23de605": "Kva er lengda av $\\vec{v} = [-5, 12]$?",
+      "96c1a03cf365a8e5": "$\\sqrt{119}$",
+      "443e52edca253360": "$|\\vec{v}| = \\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$. Forteiknet forsvinn i kvadreringa.",
+      "615033209a580cdb": "Kva er einingsvektoren i same retning som $\\vec{v} = [3, 4]$?",
+      "a6b82a4a705145dd": "$\\left[\\frac{3}{5}, \\frac{4}{5}\\right]$",
+      "c7468d79772e552d": "$\\left[\\frac{1}{3}, \\frac{1}{4}\\right]$",
+      "60612930479a73b2": "$\\left[\\frac{3}{7}, \\frac{4}{7}\\right]$",
+      "876b8bc9d6524b12": "$|\\vec{v}| = 5$, så $\\hat{v} = \\frac{1}{5}[3, 4] = \\left[\\frac{3}{5}, \\frac{4}{5}\\right]$. Kontroll: $\\sqrt{\\frac{9}{25} + \\frac{16}{25}} = 1$.",
+      "4c931c972339dca2": "Kva er lengda av $\\vec{w} = [2, -2]$?",
+      "02c8e32c15bee67f": "$2\\sqrt{2}$",
+      "f2250cb15eb14799": "$|\\vec{w}| = \\sqrt{2^2 + (-2)^2} = \\sqrt{8} = 2\\sqrt{2}$.",
+      "1ad27c7814f1f3e6": "## Skalarproduktet – talet som kjenner vinkelen\n\nNo til hovudpersonen i kapittelet. **Skalarproduktet** (òg kalla prikkproduktet) av $\\vec{u} = [a_1, b_1]$ og $\\vec{v} = [a_2, b_2]$ er $$\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$$ Gange førstekomponentane, gange andrekomponentane, legg saman. Merk det oppsiktsvekkjande: to vektorar går inn, men eit *tal* kjem ut – derav namnet *skalar*produkt. For $\\vec{u} = [2, 3]$ og $\\vec{v} = [4, -1]$: $\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$.\n\nSkalarproduktet oppfører seg pent: det er kommutativt ($\\vec{u} \\cdot \\vec{v} = \\vec{v} \\cdot \\vec{u}$), distributivt over addisjon ($\\vec{u} \\cdot (\\vec{v} + \\vec{w}) = \\vec{u} \\cdot \\vec{v} + \\vec{u} \\cdot \\vec{w}$), og skalarar kan flyttast fritt ($(k\\vec{u}) \\cdot \\vec{v} = k(\\vec{u} \\cdot \\vec{v})$). Og legg merke til perla blant reknereglane: $\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av si eiga lengd – sjekk sjølv at $\\vec{u} \\cdot \\vec{u} = 4 + 9 = 13 = |\\vec{u}|^2$ for $\\vec{u} = [2, 3]$.\n\nMen kvifor bry seg om dette talet? Fordi det ber på ein geometrisk løyndom: $$\\vec{u} \\cdot \\vec{v} = |\\vec{u}| \\cdot |\\vec{v}| \\cdot \\cos \\theta$$ der $\\theta$ er vinkelen mellom vektorane (alltid mellom $0°$ og $180°$). Snur vi formelen, kan vi *rekne ut vinkelen* frå komponentane åleine: $\\cos \\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$. Prøv med $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$. Skalarproduktet: $1 \\cdot \\sqrt{3} + \\sqrt{3} \\cdot 1 = 2\\sqrt{3}$. Lengdene: $|\\vec{u}| = \\sqrt{1 + 3} = 2$ og $|\\vec{v}| = \\sqrt{3 + 1} = 2$. Dermed $\\cos \\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, som gir $\\theta = 30°$. Inga gradskive, inga teikning – berre fire tal og litt rekning. Forteiknet åleine gir forresten ein gratis peikepinn: positivt skalarprodukt tyder spiss vinkel, negativt tyder stump vinkel. Og null? Det er så viktig at det får sin eigen seksjon.",
+      "fe7591d4e57bc166": "Test deg sjølv på skalarprodukt og vinkel:",
+      "6cf6dab474eccd5c": "Rekn ut $[2, 3] \\cdot [4, -1]$.",
+      "631cec312bfb64cf": "$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 4 + 3 \\cdot (-1) = 8 - 3 = 5$. Resultatet er eit tal, ikkje ein vektor.",
+      "830a5f65e77972ae": "Kva slags objekt er resultatet av eit skalarprodukt?",
+      "47f30e707d6ed039": "Eit tal (ein skalar)",
+      "a430d44569499570": "Ein vektor",
+      "6864b66e0de8b249": "Ein vinkel",
+      "59c97725bebf80d5": "Eit punkt",
+      "0bef8a6bb07b7fb1": "Skalarproduktet av to vektorar er alltid eit tal – derav namnet. Det er nettopp dette som skil det frå vektoraddisjon.",
+      "7ccdd950121edec3": "Kva er $\\vec{v} \\cdot \\vec{v}$ for ein vilkårleg vektor $\\vec{v}$?",
+      "ac77a81f220a106b": "$2|\\vec{v}|$",
+      "aa917396573585e7": "$|\\vec{v}|^2$",
+      "289dd970a1630e4e": "$\\vec{v} \\cdot \\vec{v} = a^2 + b^2 = |\\vec{v}|^2$. Ein vektor prikka med seg sjølv gir kvadratet av lengda.",
+      "d42abfb3d7ecbcc1": "Finn vinkelen mellom $\\vec{u} = [1, \\sqrt{3}]$ og $\\vec{v} = [\\sqrt{3}, 1]$.",
+      "062bf9efb3642740": "$\\vec{u} \\cdot \\vec{v} = 2\\sqrt{3}$, og $|\\vec{u}| = |\\vec{v}| = 2$. Dermed $\\cos\\theta = \\frac{2\\sqrt{3}}{4} = \\frac{\\sqrt{3}}{2}$, så $\\theta = 30°$.",
+      "8a7d0c2d82c5547e": "## Vinkelrett, skugge og arbeid\n\nKva skjer når vinkelen mellom to vektorar er nøyaktig $90°$? Då er $\\cos 90° = 0$, og dermed blir heile skalarproduktet null. Det gir oss ein lynrask test: $$\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0$$ To vektorar er **ortogonale** (vinkelrette) viss og berre viss skalarproduktet deira er null. Test $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$: $2 \\cdot 3 + 3 \\cdot (-2) = 6 - 6 = 0$ – vinkelrette! Og legg merke til mønsteret: komponentane har bytt plass, og den eine har skifta forteikn. Det er eit generelt triks: for kvar $\\vec{v} = [a, b]$ er $[-b, a]$ og $[b, -a]$ alltid ortogonale på $\\vec{v}$. Treng du ein vektor vinkelrett på $[4, 5]$? Byt og snu: $[5, -4]$. Sjekk: $4 \\cdot 5 + 5 \\cdot (-4) = 0$.\n\nNeste verktøy er **projeksjonen** – skuggen. Tenk deg sola rett over $\\vec{v}$: projeksjonen av $\\vec{u}$ på $\\vec{v}$ er skuggen $\\vec{u}$ kastar langs $\\vec{v}$, altså den delen av $\\vec{u}$ som peikar i $\\vec{v}$-retning. Formelen er $$\\text{proj}_{\\vec{v}}\\, \\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\, \\vec{v}$$ – skalarproduktet bestemmer kor mykje av $\\vec{v}$-retninga som trengst. Eksempel: projeksjonen av $\\vec{u} = [4, 3]$ på den horisontale $\\vec{v} = [5, 0]$. Vi får $\\vec{u} \\cdot \\vec{v} = 20$ og $|\\vec{v}|^2 = 25$, så $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{20}{25}[5, 0] = [4, 0]$ – nøyaktig den horisontale delen av $\\vec{u}$, som venta. Lengda av skuggen er for øvrig $\\frac{|\\vec{u} \\cdot \\vec{v}|}{|\\vec{v}|}$.\n\nTil slutt: favorittbruksområdet til fysikken. **Arbeid** er definert som $W = \\vec{F} \\cdot \\vec{s}$ – kraft prikka med forflytting. Verkar krafta $\\vec{F} = [30, 40]$ N på ei kasse som blir flytta $\\vec{s} = [5, 0]$ m, blir arbeidet $W = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Ser du historia i tala? Berre den horisontale kraftkomponenten på 30 N bidreg – dei 40 N som dreg oppover, gjer null arbeid når rørsla er vassrett. Skalarproduktet plukkar automatisk ut akkurat den delen av krafta som verkar *langs* rørsla. Det er projeksjonen i arbeidsklede.",
+      "44ad445d118a0245": "Test deg sjølv på ortogonalitet, projeksjon og arbeid:",
+      "c9ee5d7c69302d09": "Kvifor er $\\vec{u} = [2, 3]$ og $\\vec{v} = [3, -2]$ ortogonale?",
+      "5c3f0be1825040a0": "Fordi $\\vec{u} \\cdot \\vec{v} = 6 - 6 = 0$",
+      "dcb74877feb24307": "Fordi dei har same lengd",
+      "810a2ca1e87cddfc": "Fordi komponentane er positive og negative",
+      "dd74d11efdf5a996": "Fordi $\\vec{u} \\cdot \\vec{v} = 12$",
+      "94072a3b063f3e07": "$\\vec{u} \\cdot \\vec{v} = 2 \\cdot 3 + 3 \\cdot (-2) = 0$, og skalarprodukt lik null er ein og same ting som at vektorane står vinkelrett på kvarandre.",
+      "2320010590768bc9": "Kva vektor er ortogonal på $\\vec{w} = [4, 5]$?",
+      "85321713f34bbaf0": "Byt komponentane og snu eitt forteikn: $[5, -4]$. Kontroll: $4 \\cdot 5 + 5 \\cdot (-4) = 20 - 20 = 0$.",
+      "0bff6b4f3b20427f": "Kva tyder det geometrisk at $\\vec{u} \\cdot \\vec{v} = 0$ for to vektorar ulik nullvektoren?",
+      "ec0055de74ce39a4": "Vektorane er parallelle",
+      "7bd584cf2f96d2bb": "Vinkelen mellom dei er $90°$",
+      "7d4da3a1f1b770bc": "Vektorane er like lange",
+      "fb953fc5f217d95b": "Vinkelen mellom dei er $0°$",
+      "b2ba7f81df250092": "Frå $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$ gir skalarprodukt null at $\\cos\\theta = 0$, altså $\\theta = 90°$.",
+      "f3eaff4429bb3ffe": "Finn projeksjonen av $\\vec{u} = [4, 3]$ på $\\vec{v} = [5, 0]$.",
+      "69b8303bf174fd63": "$\\left[\\frac{4}{5}, 0\\right]$",
+      "a712dcfa3db91f53": "$\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v} = \\frac{20}{25}[5, 0] = [4, 0]$ – den horisontale delen av $\\vec{u}$.",
+      "76c43a5b5e6f6a68": "Ei kraft $\\vec{F} = [30, 40]$ N verkar på ein gjenstand som blir flytta $\\vec{s} = [5, 0]$ m. Kva er arbeidet?",
+      "242f463f1eae4e0c": "$350$ J",
+      "d377e5cc10a9a336": "$150$ J",
+      "b7f7191fe4b29bd8": "$200$ J",
+      "69b675060c4ea64a": "$250$ J",
+      "787168ec6767b1ac": "$W = \\vec{F} \\cdot \\vec{s} = 30 \\cdot 5 + 40 \\cdot 0 = 150$ J. Berre kraftkomponenten langs rørsla bidreg.",
+      "41a35f57e05142ed": "## Verktøya som måler alt\n\nKapittelet starta med to ubesvarte spørsmål – kor langt og kva vinkel – og no er begge besvarte med rein komponentrekning. **Lengda** av $\\vec{v} = [a, b]$ er Pytagoras i forkledning: $|\\vec{v}| = \\sqrt{a^2 + b^2}$. Og treng du berre retninga, deler du på lengda og får **einingsvektoren** $\\hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$ – kompassnåla som peikar utan å måle.\n\nHovudpersonen var **skalarproduktet** $\\vec{u} \\cdot \\vec{v} = a_1 a_2 + b_1 b_2$: to vektorar inn, eitt tal ut. Det vesle talet viste seg å romme heile vinkelgeometrien gjennom $\\vec{u} \\cdot \\vec{v} = |\\vec{u}||\\vec{v}|\\cos\\theta$, slik at $\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}||\\vec{v}|}$ gir vinkelen direkte frå komponentane. Undervegs plukka vi opp perla $\\vec{v} \\cdot \\vec{v} = |\\vec{v}|^2$ og den lynraske testen for vinkelrette vektorar: $\\vec{u} \\perp \\vec{v}$ nøyaktig når $\\vec{u} \\cdot \\vec{v} = 0$ – med byt-og-snu-trikset $[a, b] \\mapsto [-b, a]$ som gratis bonus.\n\nTil slutt sette vi verktøya i arbeid: **projeksjonen** $\\text{proj}_{\\vec{v}}\\vec{u} = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{v}|^2}\\vec{v}$ er skuggen éin vektor kastar på ein annan, og arbeidet i fysikken $W = \\vec{F} \\cdot \\vec{s}$ er nettopp skalarproduktet som siler ut den delen av krafta som verkar langs rørsla. Lengd, vinkel, vinkelrettheit, skugge – heile geometrien til vektorane, rekna med fire tal. I neste kapittel set vi vektorane i *rørsle* og lèt dei teikne linjer og sirklar med tida som penn."
+    }
+  }
+}

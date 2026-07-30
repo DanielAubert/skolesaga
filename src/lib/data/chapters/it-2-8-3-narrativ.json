@@ -1,1 +1,341 @@
-{"id":"it-2-8-3-narrativ","courseId":"it-2","chapterNumber":"3","title":"Versjonskontroll og samarbeid","subtitle":"Narrativ versjon","description":"En fortelling om hvordan team jobber på samme kode uten å trå på hverandre – fra Git-brancher og merging til merge-konflikter og pull requests som limet i moderne samarbeid.","estimatedMinutes":36,"competenceGoals":["Bruke brancher og branching-strategier i Git","Forstå merging og løse merge-konflikter","Forstå pull requests og GitHub Flow"],"linkedChapterId":"it-2-8-3","content":[{"id":"it-2-8-3-n-intro","type":"text","content":"## Mange hender, samme kode\n\nGit er det dominerende verktøyet for versjonskontroll i moderne programvareutvikling. Du kjenner allerede grunnleggende commits, men når flere jobber på samme kode samtidig, trenger vi mer. Nøkkelbegrepet er **branch** (forgreining) – en parallell versjon av kodebasen der du kan jobbe isolert uten å påvirke hovedversjonen (main eller master).\n\nDet finnes vanlige branching-strategier med navnekonvensjoner. **Feature branches** har én branch per ny funksjon, navngitt som `feature/brukerprofil`. **Bugfix branches** retter feil, som `bugfix/login-crash`. **Release branches** forbereder en ny versjon, som `release/v2.1.0`. Og **hotfix branches** håndterer kritiske feil i produksjon som må fikses umiddelbart, som `hotfix/security-patch`. Du oppretter og bytter til en ny branch med `git checkout -b feature/ny-funksjon`.\n\nFordelen er enorm. Hver utvikler kan jobbe på sin egen funksjon i sin egen branch, uten at halvferdig kode fra én person ødelegger for de andre. Når en funksjon er ferdig og testet, fletter man den inn i hovedversjonen. Slik kan et helt team jobbe parallelt på samme prosjekt, og main forblir alltid en stabil versjon som virker."},{"id":"it-2-8-3-n-quiz1","type":"exercise","exercise":{"id":"it-2-8-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på brancher:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-3-n-quiz1-q0","task":"Hva er en branch i Git?","options":[{"id":"a","text":"En parallell versjon av kodebasen der du kan jobbe isolert","isCorrect":true},{"id":"b","text":"En type feilmelding","isCorrect":false},{"id":"c","text":"En database","isCorrect":false},{"id":"d","text":"En sletteknapp","isCorrect":false}],"solution":"En branch lar deg jobbe isolert uten å påvirke hovedversjonen (main), til endringene er klare til å flettes inn."},{"id":"it-2-8-3-n-quiz1-q1","task":"Hvilken kommando oppretter og bytter til en ny branch?","options":[{"id":"a","text":"git delete branch","isCorrect":false},{"id":"b","text":"git checkout -b feature/ny-funksjon","isCorrect":true},{"id":"c","text":"git push origin","isCorrect":false},{"id":"d","text":"git merge main","isCorrect":false}],"solution":"git checkout -b lager en ny branch og bytter til den i én operasjon."},{"id":"it-2-8-3-n-quiz1-q2","task":"Hva brukes en hotfix-branch til?","options":[{"id":"a","text":"Å skrive ny dokumentasjon","isCorrect":false},{"id":"b","text":"Å slette gammel kode","isCorrect":false},{"id":"c","text":"Kritiske feil i produksjon som må fikses umiddelbart","isCorrect":true},{"id":"d","text":"Å lage en database","isCorrect":false}],"solution":"En hotfix-branch retter akutte, kritiske feil i den versjonen som allerede er i drift."}]}},{"id":"it-2-8-3-n-section1","type":"text","content":"## Merging og konflikter\n\nNår en branch er ferdig, må endringene **merges** (flettes) inn i en annen branch. Det finnes to varianter. En **fast-forward merge** skjer når målbranchen ikke har fått nye commits siden du forgrenet – da flyttes bare peker fram, helt uten problemer. En **three-way merge** skjer når begge brancher har nye commits; da lager Git en egen merge-commit som kombinerer endringene.\n\nMen noen ganger oppstår en **merge-konflikt**: samme linje er endret i begge brancher, og Git vet ikke hvilken som er riktig. Si at to utviklere har endret samme `config.py` ulikt. Når den ene prøver å merge, stopper Git og markerer konflikten i filen med spesielle markører:\n\n```\n<<<<<<< HEAD\nDATABASE_URL = \"postgresql://localhost/testdb\"\n=======\nDATABASE_URL = \"postgresql://localhost/myapp\"\n>>>>>>> main\n```\n\nDu løser den i fire steg: rediger filen manuelt og velg riktig versjon (eller kombiner dem), fjern konfliktmarkørene `<<<<<<<`, `=======` og `>>>>>>>`, kjør `git add` på filen, og `git commit`. Ofte krever det at de to utviklerne snakker sammen om hva som er rett. Et alternativ til merge er **rebase**, som flytter dine commits til toppen av en annen branch og gir en renere, lineær historikk – men du må aldri rebase på delte (public) brancher, fordi det omskriver historikk som andre allerede bygger på."},{"id":"it-2-8-3-n-quiz2","type":"exercise","exercise":{"id":"it-2-8-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på merging:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-3-n-quiz2-q0","task":"Når oppstår en merge-konflikt?","options":[{"id":"a","text":"Hver gang man lager en branch","isCorrect":false},{"id":"b","text":"Når man committer","isCorrect":false},{"id":"c","text":"Aldri","isCorrect":false},{"id":"d","text":"Når samme linje er endret ulikt i begge brancher","isCorrect":true}],"solution":"En konflikt oppstår når Git ikke kan avgjøre automatisk hvilken endring som skal gjelde for samme linje."},{"id":"it-2-8-3-n-quiz2-q1","task":"Hva må du fjerne fra filen når du løser en merge-konflikt?","options":[{"id":"a","text":"Konfliktmarkørene <<<<<<<, ======= og >>>>>>>","isCorrect":true},{"id":"b","text":"Alle kommentarer","isCorrect":false},{"id":"c","text":"Hele filen","isCorrect":false},{"id":"d","text":"Alle funksjoner","isCorrect":false}],"solution":"Etter å ha valgt riktig innhold må konfliktmarkørene fjernes før du add-er og committer."},{"id":"it-2-8-3-n-quiz2-q2","task":"Hvorfor må du aldri rebase på en delt (public) branch?","options":[{"id":"a","text":"Fordi det sletter databasen","isCorrect":false},{"id":"b","text":"Fordi det omskriver historikk som andre allerede bygger på","isCorrect":true},{"id":"c","text":"Fordi det er for tregt","isCorrect":false},{"id":"d","text":"Det er helt trygt å gjøre","isCorrect":false}],"solution":"Rebase endrer commit-historikken, noe som skaper kaos hvis andre allerede har basert arbeidet sitt på den."}]}},{"id":"it-2-8-3-n-section2","type":"text","content":"## Pull requests og GitHub Flow\n\nDet som virkelig binder teamsamarbeid sammen, er **pull requests** (PR), også kalt merge requests. En pull request er en formell forespørsel om å flette din branch inn i main. Men den er mer enn det – den er et sted for **kodegjennomgang** (code review). Når du åpner en PR, kan kollegene dine se nøyaktig hva du har endret, kommentere på enkeltlinjer, foreslå forbedringer og godkjenne før koden slippes inn i hovedversjonen. Dette fanger feil tidlig, sprer kunnskap i teamet, og holder kvaliteten oppe.\n\nDen typiske arbeidsflyten kalles **GitHub Flow**, og den er enkel. Du lager en branch fra main, gjør endringene dine og committer dem, åpner en pull request, får gjennomgang og eventuell godkjenning, og merger så til main. Etter merging slippes endringene ofte rett til produksjon, fordi main alltid holdes klar til bruk. Denne flyten passer godt for kontinuerlig leveranse, der man slipper små endringer ofte i stedet for sjeldne, store utgivelser.\n\nLæringen er at versjonskontroll handler om mye mer enn å lagre kode. Brancher gir isolasjon, merging samler arbeidet, og pull requests gir et strukturert sted for samarbeid og kvalitetssikring. Sammen lar dette mange utviklere bygge på samme prosjekt uten kaos – og det er nettopp dette som gjør Git til ryggraden i nesten all moderne programvareutvikling."},{"id":"it-2-8-3-n-quiz3","type":"exercise","exercise":{"id":"it-2-8-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på pull requests:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-3-n-quiz3-q0","task":"Hva er en pull request?","options":[{"id":"a","text":"En måte å slette en branch","isCorrect":false},{"id":"b","text":"En database-spørring","isCorrect":false},{"id":"c","text":"En forespørsel om å flette en branch inn i main, med rom for kodegjennomgang","isCorrect":true},{"id":"d","text":"En feilmelding","isCorrect":false}],"solution":"En PR ber om å merge en branch og gir teamet mulighet til å gjennomgå og godkjenne endringene først."},{"id":"it-2-8-3-n-quiz3-q1","task":"Hva er en hovedfordel med kodegjennomgang i en pull request?","options":[{"id":"a","text":"Den gjør koden tregere","isCorrect":false},{"id":"b","text":"Den fjerner behovet for tester","isCorrect":false},{"id":"c","text":"Den krypterer koden","isCorrect":false},{"id":"d","text":"Den fanger feil tidlig og sprer kunnskap i teamet","isCorrect":true}],"solution":"Kodegjennomgang lar kolleger oppdage feil før koden merges og hjelper alle å lære av hverandre."},{"id":"it-2-8-3-n-quiz3-q2","task":"Hva er riktig rekkefølge i GitHub Flow?","options":[{"id":"a","text":"Lag branch → commit → åpne PR → gjennomgang → merge til main","isCorrect":true},{"id":"b","text":"Merge til main → lag branch → commit","isCorrect":false},{"id":"c","text":"Slett main → commit → push","isCorrect":false},{"id":"d","text":"Commit → slett alle brancher","isCorrect":false}],"solution":"GitHub Flow går fra branch og commits, via pull request og gjennomgang, til merge i main."}]}},{"id":"it-2-8-3-n-summary","type":"text","content":"## Oppsummering\n\nVersjonskontroll lar mange hender jobbe på samme kode. **Brancher** gir isolasjon, med strategier som feature-, bugfix-, release- og hotfix-brancher. **Merging** samler arbeidet igjen, enten som fast-forward eller three-way merge, og **merge-konflikter** løses ved å redigere filen, fjerne konfliktmarkørene, og committe – mens rebase aldri skal brukes på delte brancher.\n\nDet limet som binder samarbeidet, er **pull requests**, som gir et strukturert sted for kodegjennomgang og godkjenning før merging. **GitHub Flow** beskriver den enkle syklusen fra branch til pull request til main. Sammen gjør dette Git til ryggraden i moderne utvikling. I neste kapittel ser vi på dokumentasjon og vedlikehold."}],"exercises":[]}
+{
+  "id": "it-2-8-3-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "3",
+  "title": "Versjonskontroll og samarbeid",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan team jobber på samme kode uten å trå på hverandre – fra Git-brancher og merging til merge-konflikter og pull requests som limet i moderne samarbeid.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "Bruke brancher og branching-strategier i Git",
+    "Forstå merging og løse merge-konflikter",
+    "Forstå pull requests og GitHub Flow"
+  ],
+  "linkedChapterId": "it-2-8-3",
+  "content": [
+    {
+      "id": "it-2-8-3-n-intro",
+      "type": "text",
+      "content": "## Mange hender, samme kode\n\nGit er det dominerende verktøyet for versjonskontroll i moderne programvareutvikling. Du kjenner allerede grunnleggende commits, men når flere jobber på samme kode samtidig, trenger vi mer. Nøkkelbegrepet er **branch** (forgreining) – en parallell versjon av kodebasen der du kan jobbe isolert uten å påvirke hovedversjonen (main eller master).\n\nDet finnes vanlige branching-strategier med navnekonvensjoner. **Feature branches** har én branch per ny funksjon, navngitt som `feature/brukerprofil`. **Bugfix branches** retter feil, som `bugfix/login-crash`. **Release branches** forbereder en ny versjon, som `release/v2.1.0`. Og **hotfix branches** håndterer kritiske feil i produksjon som må fikses umiddelbart, som `hotfix/security-patch`. Du oppretter og bytter til en ny branch med `git checkout -b feature/ny-funksjon`.\n\nFordelen er enorm. Hver utvikler kan jobbe på sin egen funksjon i sin egen branch, uten at halvferdig kode fra én person ødelegger for de andre. Når en funksjon er ferdig og testet, fletter man den inn i hovedversjonen. Slik kan et helt team jobbe parallelt på samme prosjekt, og main forblir alltid en stabil versjon som virker."
+    },
+    {
+      "id": "it-2-8-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på brancher:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-3-n-quiz1-q0",
+            "task": "Hva er en branch i Git?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En type feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En database",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En sletteknapp",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En parallell versjon av kodebasen der du kan jobbe isolert",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En branch lar deg jobbe isolert uten å påvirke hovedversjonen (main), til endringene er klare til å flettes inn."
+          },
+          {
+            "id": "it-2-8-3-n-quiz1-q1",
+            "task": "Hvilken kommando oppretter og bytter til en ny branch?",
+            "options": [
+              {
+                "id": "b",
+                "text": "git checkout -b feature/ny-funksjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "git delete branch",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "git push origin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "git merge main",
+                "isCorrect": false
+              }
+            ],
+            "solution": "git checkout -b lager en ny branch og bytter til den i én operasjon."
+          },
+          {
+            "id": "it-2-8-3-n-quiz1-q2",
+            "task": "Hva brukes en hotfix-branch til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å skrive ny dokumentasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kritiske feil i produksjon som må fikses umiddelbart",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å slette gammel kode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å lage en database",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En hotfix-branch retter akutte, kritiske feil i den versjonen som allerede er i drift."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-3-n-section1",
+      "type": "text",
+      "content": "## Merging og konflikter\n\nNår en branch er ferdig, må endringene **merges** (flettes) inn i en annen branch. Det finnes to varianter. En **fast-forward merge** skjer når målbranchen ikke har fått nye commits siden du forgrenet – da flyttes bare peker fram, helt uten problemer. En **three-way merge** skjer når begge brancher har nye commits; da lager Git en egen merge-commit som kombinerer endringene.\n\nMen noen ganger oppstår en **merge-konflikt**: samme linje er endret i begge brancher, og Git vet ikke hvilken som er riktig. Si at to utviklere har endret samme `config.py` ulikt. Når den ene prøver å merge, stopper Git og markerer konflikten i filen med spesielle markører:\n\n```\n<<<<<<< HEAD\nDATABASE_URL = \"postgresql://localhost/testdb\"\n=======\nDATABASE_URL = \"postgresql://localhost/myapp\"\n>>>>>>> main\n```\n\nDu løser den i fire steg: rediger filen manuelt og velg riktig versjon (eller kombiner dem), fjern konfliktmarkørene `<<<<<<<`, `=======` og `>>>>>>>`, kjør `git add` på filen, og `git commit`. Ofte krever det at de to utviklerne snakker sammen om hva som er rett. Et alternativ til merge er **rebase**, som flytter dine commits til toppen av en annen branch og gir en renere, lineær historikk – men du må aldri rebase på delte (public) brancher, fordi det omskriver historikk som andre allerede bygger på."
+    },
+    {
+      "id": "it-2-8-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på merging:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-3-n-quiz2-q0",
+            "task": "Når oppstår en merge-konflikt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hver gang man lager en branch",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når man committer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når samme linje er endret ulikt i begge brancher",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Aldri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En konflikt oppstår når Git ikke kan avgjøre automatisk hvilken endring som skal gjelde for samme linje."
+          },
+          {
+            "id": "it-2-8-3-n-quiz2-q1",
+            "task": "Hva må du fjerne fra filen når du løser en merge-konflikt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle kommentarer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hele filen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle funksjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Konfliktmarkørene <<<<<<<, ======= og >>>>>>>",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Etter å ha valgt riktig innhold må konfliktmarkørene fjernes før du add-er og committer."
+          },
+          {
+            "id": "it-2-8-3-n-quiz2-q2",
+            "task": "Hvorfor må du aldri rebase på en delt (public) branch?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi det omskriver historikk som andre allerede bygger på",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi det sletter databasen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det er for tregt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er helt trygt å gjøre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rebase endrer commit-historikken, noe som skaper kaos hvis andre allerede har basert arbeidet sitt på den."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-3-n-section2",
+      "type": "text",
+      "content": "## Pull requests og GitHub Flow\n\nDet som virkelig binder teamsamarbeid sammen, er **pull requests** (PR), også kalt merge requests. En pull request er en formell forespørsel om å flette din branch inn i main. Men den er mer enn det – den er et sted for **kodegjennomgang** (code review). Når du åpner en PR, kan kollegene dine se nøyaktig hva du har endret, kommentere på enkeltlinjer, foreslå forbedringer og godkjenne før koden slippes inn i hovedversjonen. Dette fanger feil tidlig, sprer kunnskap i teamet, og holder kvaliteten oppe.\n\nDen typiske arbeidsflyten kalles **GitHub Flow**, og den er enkel. Du lager en branch fra main, gjør endringene dine og committer dem, åpner en pull request, får gjennomgang og eventuell godkjenning, og merger så til main. Etter merging slippes endringene ofte rett til produksjon, fordi main alltid holdes klar til bruk. Denne flyten passer godt for kontinuerlig leveranse, der man slipper små endringer ofte i stedet for sjeldne, store utgivelser.\n\nLæringen er at versjonskontroll handler om mye mer enn å lagre kode. Brancher gir isolasjon, merging samler arbeidet, og pull requests gir et strukturert sted for samarbeid og kvalitetssikring. Sammen lar dette mange utviklere bygge på samme prosjekt uten kaos – og det er nettopp dette som gjør Git til ryggraden i nesten all moderne programvareutvikling."
+    },
+    {
+      "id": "it-2-8-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på pull requests:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-3-n-quiz3-q0",
+            "task": "Hva er en pull request?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En måte å slette en branch",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En forespørsel om å flette en branch inn i main, med rom for kodegjennomgang",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "En database-spørring",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En PR ber om å merge en branch og gir teamet mulighet til å gjennomgå og godkjenne endringene først."
+          },
+          {
+            "id": "it-2-8-3-n-quiz3-q1",
+            "task": "Hva er en hovedfordel med kodegjennomgang i en pull request?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den gjør koden tregere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den fjerner behovet for tester",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den fanger feil tidlig og sprer kunnskap i teamet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den krypterer koden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kodegjennomgang lar kolleger oppdage feil før koden merges og hjelper alle å lære av hverandre."
+          },
+          {
+            "id": "it-2-8-3-n-quiz3-q2",
+            "task": "Hva er riktig rekkefølge i GitHub Flow?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Merge til main → lag branch → commit",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Slett main → commit → push",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Commit → slett alle brancher",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Lag branch → commit → åpne PR → gjennomgang → merge til main",
+                "isCorrect": true
+              }
+            ],
+            "solution": "GitHub Flow går fra branch og commits, via pull request og gjennomgang, til merge i main."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVersjonskontroll lar mange hender jobbe på samme kode. **Brancher** gir isolasjon, med strategier som feature-, bugfix-, release- og hotfix-brancher. **Merging** samler arbeidet igjen, enten som fast-forward eller three-way merge, og **merge-konflikter** løses ved å redigere filen, fjerne konfliktmarkørene, og committe – mens rebase aldri skal brukes på delte brancher.\n\nDet limet som binder samarbeidet, er **pull requests**, som gir et strukturert sted for kodegjennomgang og godkjenning før merging. **GitHub Flow** beskriver den enkle syklusen fra branch til pull request til main. Sammen gjør dette Git til ryggraden i moderne utvikling. I neste kapittel ser vi på dokumentasjon og vedlikehold."
+    }
+  ],
+  "exercises": []
+}

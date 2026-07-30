@@ -1,1 +1,263 @@
-{"id":"bi-okonomi-5-2-narrativ","courseId":"bi-okonomi","chapterNumber":"5.2","title":"Derivasjonsregler","subtitle":"Narrativ versjon","description":"En fortelling om snarveiene som gjør derivasjon enkelt -- potensregelen, sum og konstant, produkt- og kvotientregelen, og kjerneregelen som pakker sammensatte funksjoner ut lag for lag.","estimatedMinutes":40,"competenceGoals":[],"linkedChapterId":"bi-okonomi-5-2","content":[{"id":"bi-okonomi-5-2-n-intro","type":"text","content":"## Slutt å regne grenseverdier hver gang\n\nI forrige kapittel regnet vi ut den deriverte fra definisjonen -- med grenseverdier og bokstaven $h$ som krympet mot null. Det fungerer, men det er tungvint. Tenk deg å gjøre det for $3x^4 - 5x^2 + 2x - 7$. Heldigvis finnes det **derivasjonsregler**, og de er alle utledet fra nettopp den definisjonen. Lærer du reglene, deriverer du på sekunder.\n\nDen viktigste er **potensregelen**. For $f(x) = x^n$, der $n$ er et hvilket som helst reelt tall, er $f'(x) = n \\cdot x^{n-1}$. Du trekker eksponenten ned som faktor og senker den med én. Så $(x^3)' = 3x^2$, og $(x)' = 1\\cdot x^0 = 1$.\n\nTo regler til hører naturlig med. **Konstantregelen** sier at en konstant deriveres til null: $(c)' = 0$ -- en flat linje har ingen stigning. Og en konstant foran en funksjon blir bare med på lasset: $(c\\cdot g(x))' = c\\cdot g'(x)$. Til slutt **sumregelen**: $(g(x) + h(x))' = g'(x) + h'(x)$, altså vi deriverer ledd for ledd.\n\nMed disse tre kan vi derivere ethvert polynom. Ta $f(x) = 3x^4 - 5x^2 + 2x - 7$. Ledd for ledd: $3\\cdot 4x^3 - 5\\cdot 2x + 2\\cdot 1 - 0 = 12x^3 - 10x + 2$. Ferdig."},{"id":"bi-okonomi-5-2-n-section1","type":"text","content":"## Produktregelen og kvotientregelen\n\nHva om funksjonen er et **produkt** av to deler som hver inneholder $x$? Da kan vi ikke bare gange de deriverte sammen -- det blir feil. I stedet bruker vi **produktregelen**: for $f(x) = g(x)\\cdot h(x)$ er\n\n$$f'(x) = g'(x)\\cdot h(x) + g(x)\\cdot h'(x).$$\n\nHuskeregelen lyder: «derivert av den første ganger den andre, pluss den første ganger derivert av den andre». La oss derivere $f(x) = (2x+1)(x^2-3)$. Vi setter $g(x) = 2x+1$ med $g'(x) = 2$, og $h(x) = x^2-3$ med $h'(x) = 2x$. Da blir $f'(x) = 2\\cdot(x^2-3) + (2x+1)\\cdot 2x = 2x^2 - 6 + 4x^2 + 2x = 6x^2 + 2x - 6$.\n\nNår funksjonen er en **brøk**, bruker vi **kvotientregelen**. For $f(x) = \\frac{g(x)}{h(x)}$ er\n\n$$f'(x) = \\frac{g'(x)\\cdot h(x) - g(x)\\cdot h'(x)}{(h(x))^2}.$$\n\nLegg merke til *minus* i telleren og kvadratet i nevneren. Et økonomieksempel: gjennomsnittskostnaden er $\\bar{K}(x) = \\frac{K(x)}{x}$, der $K(x) = x^2 + 100x + 2000$. Med $g(x) = x^2+100x+2000$ og $h(x) = x$ får vi $\\bar{K}'(x) = \\frac{(2x+100)\\cdot x - (x^2+100x+2000)\\cdot 1}{x^2}$. Telleren blir $2x^2 + 100x - x^2 - 100x - 2000 = x^2 - 2000$, så $\\bar{K}'(x) = \\frac{x^2 - 2000}{x^2} = 1 - \\frac{2000}{x^2}$."},{"id":"bi-okonomi-5-2-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på potens-, sum-, produkt- og kvotientregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-2-n-quiz1-q0","task":"Hva er den deriverte av $f(x)=x^n$ etter potensregelen?","options":[{"id":"a","text":"$nx^{n+1}$","isCorrect":false},{"id":"b","text":"$nx^{n-1}$","isCorrect":true},{"id":"c","text":"$(n-1)x^n$","isCorrect":false},{"id":"d","text":"$x^{n-1}$","isCorrect":false}],"solution":"Potensregelen: trekk ned eksponenten som faktor og senk den med én: $(x^n)'=nx^{n-1}$."},{"id":"bi-okonomi-5-2-n-quiz1-q1","task":"Deriver $f(x)=3x^4-5x^2+2x-7$.","options":[{"id":"a","text":"$12x^3-10x+2-7$","isCorrect":false},{"id":"b","text":"$3x^3-5x+2$","isCorrect":false},{"id":"c","text":"$12x^3-10x+2$","isCorrect":true},{"id":"d","text":"$12x^4-10x^2+2$","isCorrect":false}],"solution":"Ledd for ledd: $3\\cdot4x^3-5\\cdot2x+2\\cdot1-0=12x^3-10x+2$. Konstanten $-7$ deriveres til null."},{"id":"bi-okonomi-5-2-n-quiz1-q2","task":"Deriver $f(x)=(2x+1)(x^2-3)$ med produktregelen.","options":[{"id":"a","text":"$2\\cdot 2x=4x$","isCorrect":false},{"id":"b","text":"$6x^2-6$","isCorrect":false},{"id":"c","text":"$4x^2+2x$","isCorrect":false},{"id":"d","text":"$6x^2+2x-6$","isCorrect":true}],"solution":"$f'=2(x^2-3)+(2x+1)2x=2x^2-6+4x^2+2x=6x^2+2x-6$."},{"id":"bi-okonomi-5-2-n-quiz1-q3","task":"Hva er kvotientregelen for $f(x)=\\frac{g(x)}{h(x)}$?","options":[{"id":"a","text":"$\\frac{g'h-gh'}{h^2}$","isCorrect":true},{"id":"b","text":"$\\frac{g'h+gh'}{h^2}$","isCorrect":false},{"id":"c","text":"$\\frac{g'}{h'}$","isCorrect":false},{"id":"d","text":"$\\frac{g'h-gh'}{h}$","isCorrect":false}],"solution":"Kvotientregelen har minus i telleren og nevneren i andre: $\\frac{g'h-gh'}{h^2}$."}]}},{"id":"bi-okonomi-5-2-n-section2","type":"text","content":"## Kjerneregelen -- funksjoner inni funksjoner\n\nDen siste og kanskje mektigste regelen håndterer **sammensatte funksjoner** -- en funksjon pakket inni en annen. Se på $f(x) = (3x^2 + 1)^5$. Her er det en ytre funksjon (noe opphøyd i femte) og en indre funksjon, **kjernen**, nemlig $3x^2 + 1$. Vi kan ikke bare derivere ytterst og glemme kjernen.\n\n**Kjerneregelen** sier: for $f(x) = g(u(x))$ er\n\n$$f'(x) = g'(u(x)) \\cdot u'(x).$$\n\nHuskeregelen er: «deriver ytterst, behold kjernen, og gang med den deriverte av kjernen». La oss bruke den på $f(x) = (3x^2 + 1)^5$. Kjernen er $u = 3x^2 + 1$ og den ytre funksjonen er $g(u) = u^5$. Vi har $g'(u) = 5u^4$ og $u'(x) = 6x$. Setter vi sammen, får vi\n\n$$f'(x) = 5(3x^2 + 1)^4 \\cdot 6x = 30x(3x^2 + 1)^4.$$\n\nLegg merke til mønsteret: den ytre delen $5u^4$ ble til $5(3x^2+1)^4$ -- kjernen er bevart -- og så ganget vi med kjernens deriverte, $6x$. Det er denne faktoren $u'(x)$ som er lett å glemme, men som er hele poenget. Kjerneregelen blir spesielt viktig i neste kapittel, når vi deriverer eksponential- og logaritmefunksjoner med kjerner inni."},{"id":"bi-okonomi-5-2-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kjerneregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-2-n-quiz2-q0","task":"Hva er kjerneregelen for $f(x)=g(u(x))$?","options":[{"id":"a","text":"$g'(u(x))$","isCorrect":false},{"id":"b","text":"$g'(u(x))\\cdot u'(x)$","isCorrect":true},{"id":"c","text":"$g'(x)\\cdot u'(x)$","isCorrect":false},{"id":"d","text":"$g(u'(x))$","isCorrect":false}],"solution":"Deriver ytterst, behold kjernen, gang med kjernens deriverte: $g'(u(x))\\cdot u'(x)$."},{"id":"bi-okonomi-5-2-n-quiz2-q1","task":"Hva er den deriverte av kjernen $u=3x^2+1$?","options":[{"id":"a","text":"$3x$","isCorrect":false},{"id":"b","text":"$3x^2$","isCorrect":false},{"id":"c","text":"$6x$","isCorrect":true},{"id":"d","text":"$6x+1$","isCorrect":false}],"solution":"$u'=6x$ etter potens- og konstantregelen ($(3x^2)'=6x$, $(1)'=0$)."},{"id":"bi-okonomi-5-2-n-quiz2-q2","task":"Deriver $f(x)=(3x^2+1)^5$ med kjerneregelen.","options":[{"id":"a","text":"$5(3x^2+1)^4$","isCorrect":false},{"id":"b","text":"$30x(3x^2+1)^5$","isCorrect":false},{"id":"c","text":"$5(3x^2+1)^4\\cdot 3x$","isCorrect":false},{"id":"d","text":"$30x(3x^2+1)^4$","isCorrect":true}],"solution":"Ytre: $5u^4=5(3x^2+1)^4$. Gang med kjernens deriverte $6x$: $5(3x^2+1)^4\\cdot 6x=30x(3x^2+1)^4$."}]}},{"id":"bi-okonomi-5-2-n-summary","type":"text","content":"## Oppsummering\n\nDerivasjonsreglene erstatter den tungvinte definisjonen og lar oss derivere raskt. **Potensregelen** $(x^n)' = nx^{n-1}$ er arbeidshesten, sammen med **konstantregelen** $(c)' = 0$ og $(cf)' = cf'$, og **sumregelen** $(f+g)' = f' + g'$. Med disse deriverer vi ethvert polynom ledd for ledd, som $3x^4 - 5x^2 + 2x - 7 \\to 12x^3 - 10x + 2$.\n\nFor sammensatte uttrykk har vi tre kraftverktøy. **Produktregelen** $(fg)' = f'g + fg'$ håndterer produkter, **kvotientregelen** $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$ håndterer brøker -- husk minus i telleren -- og **kjerneregelen** $(g(u))' = g'(u)\\cdot u'$ pakker ut funksjoner inni funksjoner ved å derivere ytterst og gange med kjernens deriverte. Disse reglene er grunnmuren for alt som kommer videre i kurset, fra eksponentialfunksjoner til full funksjonsdrøfting."}],"exercises":[]}
+{
+  "id": "bi-okonomi-5-2-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "5.2",
+  "title": "Derivasjonsregler",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om snarveiene som gjør derivasjon enkelt -- potensregelen, sum og konstant, produkt- og kvotientregelen, og kjerneregelen som pakker sammensatte funksjoner ut lag for lag.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-5-2",
+  "content": [
+    {
+      "id": "bi-okonomi-5-2-n-intro",
+      "type": "text",
+      "content": "## Slutt å regne grenseverdier hver gang\n\nI forrige kapittel regnet vi ut den deriverte fra definisjonen -- med grenseverdier og bokstaven $h$ som krympet mot null. Det fungerer, men det er tungvint. Tenk deg å gjøre det for $3x^4 - 5x^2 + 2x - 7$. Heldigvis finnes det **derivasjonsregler**, og de er alle utledet fra nettopp den definisjonen. Lærer du reglene, deriverer du på sekunder.\n\nDen viktigste er **potensregelen**. For $f(x) = x^n$, der $n$ er et hvilket som helst reelt tall, er $f'(x) = n \\cdot x^{n-1}$. Du trekker eksponenten ned som faktor og senker den med én. Så $(x^3)' = 3x^2$, og $(x)' = 1\\cdot x^0 = 1$.\n\nTo regler til hører naturlig med. **Konstantregelen** sier at en konstant deriveres til null: $(c)' = 0$ -- en flat linje har ingen stigning. Og en konstant foran en funksjon blir bare med på lasset: $(c\\cdot g(x))' = c\\cdot g'(x)$. Til slutt **sumregelen**: $(g(x) + h(x))' = g'(x) + h'(x)$, altså vi deriverer ledd for ledd.\n\nMed disse tre kan vi derivere ethvert polynom. Ta $f(x) = 3x^4 - 5x^2 + 2x - 7$. Ledd for ledd: $3\\cdot 4x^3 - 5\\cdot 2x + 2\\cdot 1 - 0 = 12x^3 - 10x + 2$. Ferdig."
+    },
+    {
+      "id": "bi-okonomi-5-2-n-section1",
+      "type": "text",
+      "content": "## Produktregelen og kvotientregelen\n\nHva om funksjonen er et **produkt** av to deler som hver inneholder $x$? Da kan vi ikke bare gange de deriverte sammen -- det blir feil. I stedet bruker vi **produktregelen**: for $f(x) = g(x)\\cdot h(x)$ er\n\n$$f'(x) = g'(x)\\cdot h(x) + g(x)\\cdot h'(x).$$\n\nHuskeregelen lyder: «derivert av den første ganger den andre, pluss den første ganger derivert av den andre». La oss derivere $f(x) = (2x+1)(x^2-3)$. Vi setter $g(x) = 2x+1$ med $g'(x) = 2$, og $h(x) = x^2-3$ med $h'(x) = 2x$. Da blir $f'(x) = 2\\cdot(x^2-3) + (2x+1)\\cdot 2x = 2x^2 - 6 + 4x^2 + 2x = 6x^2 + 2x - 6$.\n\nNår funksjonen er en **brøk**, bruker vi **kvotientregelen**. For $f(x) = \\frac{g(x)}{h(x)}$ er\n\n$$f'(x) = \\frac{g'(x)\\cdot h(x) - g(x)\\cdot h'(x)}{(h(x))^2}.$$\n\nLegg merke til *minus* i telleren og kvadratet i nevneren. Et økonomieksempel: gjennomsnittskostnaden er $\\bar{K}(x) = \\frac{K(x)}{x}$, der $K(x) = x^2 + 100x + 2000$. Med $g(x) = x^2+100x+2000$ og $h(x) = x$ får vi $\\bar{K}'(x) = \\frac{(2x+100)\\cdot x - (x^2+100x+2000)\\cdot 1}{x^2}$. Telleren blir $2x^2 + 100x - x^2 - 100x - 2000 = x^2 - 2000$, så $\\bar{K}'(x) = \\frac{x^2 - 2000}{x^2} = 1 - \\frac{2000}{x^2}$."
+    },
+    {
+      "id": "bi-okonomi-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på potens-, sum-, produkt- og kvotientregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-2-n-quiz1-q0",
+            "task": "Hva er den deriverte av $f(x)=x^n$ etter potensregelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$nx^{n+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$nx^{n-1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(n-1)x^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^{n-1}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potensregelen: trekk ned eksponenten som faktor og senk den med én: $(x^n)'=nx^{n-1}$."
+          },
+          {
+            "id": "bi-okonomi-5-2-n-quiz1-q1",
+            "task": "Deriver $f(x)=3x^4-5x^2+2x-7$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12x^3-10x+2-7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3x^3-5x+2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12x^4-10x^2+2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12x^3-10x+2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ledd for ledd: $3\\cdot4x^3-5\\cdot2x+2\\cdot1-0=12x^3-10x+2$. Konstanten $-7$ deriveres til null."
+          },
+          {
+            "id": "bi-okonomi-5-2-n-quiz1-q2",
+            "task": "Deriver $f(x)=(2x+1)(x^2-3)$ med produktregelen.",
+            "options": [
+              {
+                "id": "d",
+                "text": "$6x^2+2x-6$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2\\cdot 2x=4x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6x^2-6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4x^2+2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'=2(x^2-3)+(2x+1)2x=2x^2-6+4x^2+2x=6x^2+2x-6$."
+          },
+          {
+            "id": "bi-okonomi-5-2-n-quiz1-q3",
+            "task": "Hva er kvotientregelen for $f(x)=\\frac{g(x)}{h(x)}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{g'h+gh'}{h^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{g'}{h'}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{g'h-gh'}{h^2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{g'h-gh'}{h}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvotientregelen har minus i telleren og nevneren i andre: $\\frac{g'h-gh'}{h^2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-2-n-section2",
+      "type": "text",
+      "content": "## Kjerneregelen -- funksjoner inni funksjoner\n\nDen siste og kanskje mektigste regelen håndterer **sammensatte funksjoner** -- en funksjon pakket inni en annen. Se på $f(x) = (3x^2 + 1)^5$. Her er det en ytre funksjon (noe opphøyd i femte) og en indre funksjon, **kjernen**, nemlig $3x^2 + 1$. Vi kan ikke bare derivere ytterst og glemme kjernen.\n\n**Kjerneregelen** sier: for $f(x) = g(u(x))$ er\n\n$$f'(x) = g'(u(x)) \\cdot u'(x).$$\n\nHuskeregelen er: «deriver ytterst, behold kjernen, og gang med den deriverte av kjernen». La oss bruke den på $f(x) = (3x^2 + 1)^5$. Kjernen er $u = 3x^2 + 1$ og den ytre funksjonen er $g(u) = u^5$. Vi har $g'(u) = 5u^4$ og $u'(x) = 6x$. Setter vi sammen, får vi\n\n$$f'(x) = 5(3x^2 + 1)^4 \\cdot 6x = 30x(3x^2 + 1)^4.$$\n\nLegg merke til mønsteret: den ytre delen $5u^4$ ble til $5(3x^2+1)^4$ -- kjernen er bevart -- og så ganget vi med kjernens deriverte, $6x$. Det er denne faktoren $u'(x)$ som er lett å glemme, men som er hele poenget. Kjerneregelen blir spesielt viktig i neste kapittel, når vi deriverer eksponential- og logaritmefunksjoner med kjerner inni."
+    },
+    {
+      "id": "bi-okonomi-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kjerneregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-2-n-quiz2-q0",
+            "task": "Hva er kjerneregelen for $f(x)=g(u(x))$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$g'(u(x))$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$g'(x)\\cdot u'(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$g(u'(x))$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$g'(u(x))\\cdot u'(x)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Deriver ytterst, behold kjernen, gang med kjernens deriverte: $g'(u(x))\\cdot u'(x)$."
+          },
+          {
+            "id": "bi-okonomi-5-2-n-quiz2-q1",
+            "task": "Hva er den deriverte av kjernen $u=3x^2+1$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$6x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$3x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6x+1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$u'=6x$ etter potens- og konstantregelen ($(3x^2)'=6x$, $(1)'=0$)."
+          },
+          {
+            "id": "bi-okonomi-5-2-n-quiz2-q2",
+            "task": "Deriver $f(x)=(3x^2+1)^5$ med kjerneregelen.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5(3x^2+1)^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$30x(3x^2+1)^4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$30x(3x^2+1)^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5(3x^2+1)^4\\cdot 3x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ytre: $5u^4=5(3x^2+1)^4$. Gang med kjernens deriverte $6x$: $5(3x^2+1)^4\\cdot 6x=30x(3x^2+1)^4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDerivasjonsreglene erstatter den tungvinte definisjonen og lar oss derivere raskt. **Potensregelen** $(x^n)' = nx^{n-1}$ er arbeidshesten, sammen med **konstantregelen** $(c)' = 0$ og $(cf)' = cf'$, og **sumregelen** $(f+g)' = f' + g'$. Med disse deriverer vi ethvert polynom ledd for ledd, som $3x^4 - 5x^2 + 2x - 7 \\to 12x^3 - 10x + 2$.\n\nFor sammensatte uttrykk har vi tre kraftverktøy. **Produktregelen** $(fg)' = f'g + fg'$ håndterer produkter, **kvotientregelen** $\\left(\\frac{f}{g}\\right)' = \\frac{f'g - fg'}{g^2}$ håndterer brøker -- husk minus i telleren -- og **kjerneregelen** $(g(u))' = g'(u)\\cdot u'$ pakker ut funksjoner inni funksjoner ved å derivere ytterst og gange med kjernens deriverte. Disse reglene er grunnmuren for alt som kommer videre i kurset, fra eksponentialfunksjoner til full funksjonsdrøfting."
+    }
+  ],
+  "exercises": []
+}

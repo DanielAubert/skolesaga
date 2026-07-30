@@ -1,1 +1,235 @@
-{"id":"s1-8-3-narrativ","courseId":"s1","chapterNumber":"8.3","title":"Lineær optimering utvidet","subtitle":"Narrativ versjon","description":"En fortelling om fabrikken som verdsetter sine flaskehalser — skyggepris, sensitivitet og heltallskrav i lineær optimering.","estimatedMinutes":34,"competenceGoals":["gjennomføre sensitivitetsanalyse av LP-problemer","håndtere heltallsbetingelser i optimeringsproblemer","tolke skyggepris i produksjonssammenheng","løse LP-problemer med to variabler grafisk","tolke og kommunisere optimeringsløsninger praktisk"],"linkedChapterId":"s1-8-3","content":[{"id":"s1-8-3-n-intro","type":"text","content":"## Mer enn ett optimalt hjørne\n\nEn møbelfabrikk produserer to bordmodeller og har funnet sin optimale produksjonsplan med lineær programmering (LP): tegn mulighetsområdet, regn ut målfunksjonen i hjørnepunktene, velg det beste. Men fabrikksjefen stiller spørsmålene som virkelig betyr noe i praksis: *Hvor mye er én ekstra maskintime verdt? Hva skjer hvis prisene endrer seg litt? Og hva gjør vi med at man ikke kan produsere 3,7 bord?*\n\nDette kapittelet utvider LP med tre slike verktøy: **sensitivitetsanalyse** (hvor stabilt er optimum?), **skyggepris** (verdien av økt kapasitet) og **heltallsprogrammering** (når variablene må være hele tall). De brukes daglig i logistikk, produksjonsplanlegging, ressursallokering og finans.\n\nDet viktigste nye begrepet er **skyggeprisen**: skyggeprisen til en bibetingelse er den marginale forbedringen i målfunksjonsverdien dersom høyresiden av betingelsen økes med 1 enhet. Har maskinkapasiteten betingelsen $2x_1 + 3x_2 \\leq 120$ og skyggepris $\\lambda$, vil en utvidelse til 121 timer forbedre optimal $z$ med $\\lambda$.\n\nTolkningen er umiddelbart økonomisk: skyggeprisen forteller hva det er **verdt å betale** for ekstra kapasitet. Kan kapasitet kjøpes billigere enn skyggeprisen, er investeringen lønnsom; koster den mer, er den det ikke. Og en viktig kontrast: **ikke-bindende betingelser** — de som ikke begrenser optimum — har skyggepris null. Det er ingenting å hente på å utvide en ressurs man ikke utnytter fullt ut. Slik blir skyggeprisene et kart over hvor flaskehalsene i bedriften faktisk sitter."},{"id":"s1-8-3-n-quiz1","type":"exercise","exercise":{"id":"s1-8-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på skyggepris:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-3-n-quiz1-q0","task":"Hva er skyggeprisen til en bibetingelse?","options":[{"id":"a","text":"Forbedringen i optimal målfunksjonsverdi når betingelsens høyreside økes med 1 enhet","isCorrect":true},{"id":"b","text":"Prisen på produktet i markedet","isCorrect":false},{"id":"c","text":"Kostnaden ved å bryte betingelsen","isCorrect":false},{"id":"d","text":"Differansen mellom to hjørnepunkter","isCorrect":false}],"solution":"Skyggeprisen er den marginale verdien av én ekstra kapasitetsenhet for målfunksjonen."},{"id":"s1-8-3-n-quiz1-q1","task":"En betingelse er ikke-bindende i optimum. Hva er skyggeprisen?","options":[{"id":"a","text":"Uendelig","isCorrect":false},{"id":"b","text":"Lik målfunksjonsverdien","isCorrect":false},{"id":"c","text":"Null","isCorrect":true},{"id":"d","text":"Negativ","isCorrect":false}],"solution":"En ressurs som ikke utnyttes fullt, gir ingen gevinst ved utvidelse — skyggeprisen er 0."},{"id":"s1-8-3-n-quiz1-q2","task":"Skyggeprisen for maskintid er $200$ kr/time, og ekstra maskintid kan leies for $150$ kr/time. Hva bør bedriften gjøre?","options":[{"id":"a","text":"Ikke leie — det er for dyrt","isCorrect":false},{"id":"b","text":"Leie ekstra maskintid — gevinsten ($200$) overstiger kostnaden ($150$)","isCorrect":true},{"id":"c","text":"Selge egen maskintid","isCorrect":false},{"id":"d","text":"Redusere produksjonen","isCorrect":false}],"solution":"Hver leid time gir 200 kr i økt målfunksjonsverdi mot 150 kr i kostnad — netto 50 kr per time."}]}},{"id":"s1-8-3-n-section1","type":"text","content":"## Fabrikkens regnestykke — og heltallsproblemet\n\nLa oss regne fabrikkens eksempel. To produkter gir $z = 400x_1 + 700x_2$ med betingelsene $2x_1 + 3x_2 \\leq 120$ (maskintimer), $x_1 + 2x_2 \\leq 60$ (arbeidstimer) og $x_1, x_2 \\geq 0$.\n\n**Hjørnepunktene:** $(0, 0)$ gir $z = 0$; $(60, 0)$ gir $z = 24\\,000$; $(0, 30)$ gir $z = 21\\,000$. Skjæringen mellom betingelsene: fra den andre er $x_1 = 60 - 2x_2$, som innsatt i den første gir $120 - 4x_2 + 3x_2 = 120$, altså $x_2 = 0$ og $x_1 = 60$ — samme punkt som før. **Optimal løsning: $x_1 = 60$, $x_2 = 0$, $z = 24\\,000$ kr.**\n\n**Skyggeprisen for maskinkapasitet:** øk høyresiden fra 120 til 121. Da gir $2x_1 = 121$ løsningen $x_1 = 60{,}5$ og $z = 400 \\cdot 60{,}5 = 24\\,200$. Skyggeprisen er $24\\,200 - 24\\,000 = 200$ kr per maskintime. Kan timer leies for 150 kr, tjener fabrikken 50 kr per leid time — lønnsomt.\n\nSå til virkelighetens harde krav: **heltall**. Man kan ikke produsere 3,7 bord, ansette 2,4 snekkere eller sende 1,6 lastebiler. **Heltallsprogrammering (IP)** legger til betingelsen $x_1, x_2 \\in \\mathbb{Z}_{\\geq 0}$. For to variabler finnes en enkel arbeidsgang: løs det kontinuerlige LP-problemet, rund av til nærmeste heltallspunkt, sjekk at det avrundede punktet faktisk er innenfor mulighetsområdet, og evaluer nabopunktene om nødvendig.\n\nMen merk advarselen: **det avrundede punktet er ikke alltid optimalt** — og noen ganger ikke engang gyldig. Det ekte heltallsoptimumet kan ligge i et annet nabopunkt enn det nærmeste. For store problemer kreves egne IP-algoritmer; for eksamensoppgaver med to variabler holder det å sjekke kandidatpunktene systematisk."},{"id":"s1-8-3-n-quiz2","type":"exercise","exercise":{"id":"s1-8-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på LP-løsning og heltall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-3-n-quiz2-q0","task":"Hvor ligger alltid optimum i et LP-problem med to variabler?","options":[{"id":"a","text":"I origo","isCorrect":false},{"id":"b","text":"Midt i mulighetsområdet","isCorrect":false},{"id":"c","text":"Utenfor mulighetsområdet","isCorrect":false},{"id":"d","text":"I et hjørnepunkt av mulighetsområdet","isCorrect":true}],"solution":"En lineær målfunksjon antar sin maksimale (og minimale) verdi i et hjørnepunkt av det konvekse mulighetsområdet."},{"id":"s1-8-3-n-quiz2-q1","task":"Fabrikken har optimum $z = 24\\,000$ med kapasitet $120$ maskintimer, og $z = 24\\,200$ med $121$ timer. Hva er skyggeprisen?","options":[{"id":"a","text":"$24\\,200$ kr","isCorrect":false},{"id":"b","text":"$200$ kr per maskintime","isCorrect":true},{"id":"c","text":"$120$ kr per maskintime","isCorrect":false},{"id":"d","text":"$50$ kr per maskintime","isCorrect":false}],"solution":"Skyggepris $= \\Delta z$ per enhet økt kapasitet $= 24\\,200 - 24\\,000 = 200$ kr."},{"id":"s1-8-3-n-quiz2-q2","task":"Den kontinuerlige LP-løsningen er $x_1 = 3{,}7$, $x_2 = 5{,}2$, men produksjonen krever hele enheter. Hva er riktig fremgangsmåte?","options":[{"id":"a","text":"Alltid runde opp begge verdiene","isCorrect":false},{"id":"b","text":"Bruke desimaltallene likevel","isCorrect":false},{"id":"c","text":"Runde av, sjekke at punktet er gyldig, og evaluere nabopunkter — avrunding gir ikke alltid optimum","isCorrect":true},{"id":"d","text":"Gange begge med 10","isCorrect":false}],"solution":"Avrundet punkt kan være ugyldig eller suboptimalt; kandidat- og nabopunkter må kontrolleres mot betingelsene og målfunksjonen."}]}},{"id":"s1-8-3-n-summary","type":"text","content":"## Oppsummering: robusthet, flaskehalser og hele tall\n\nFabrikksjefens tre spørsmål har fått sine verktøy. Grunnmuren er som før: **lineær optimering** maksimerer en lineær målfunksjon under lineære beskrankninger, og optimum ligger alltid i et **hjørnepunkt** av mulighetsområdet — regn ut målfunksjonen i alle hjørner og velg det beste, slik fabrikken fant $x_1 = 60$, $x_2 = 0$ og $z = 24\\,000$ kr.\n\n**Skyggeprisen** er utvidelsens juvel: verdien av én ekstra kapasitetsenhet, beregnet som $\\Delta z$ når høyresiden økes med 1. Fabrikkens 200 kr per maskintime mot leiepris 150 kr gjorde investeringsbeslutningen til ren aritmetikk — og ikke-bindende betingelser med skyggepris null viste hvor det *ikke* er noe å hente. Skyggeprisene er bedriftens flaskehalskart.\n\n**Heltallsbetingelser** minner om at virkeligheten teller i hele bord og hele ansatte: rund av den kontinuerlige løsningen, men sjekk gyldighet og nabopunkter, for avrunding gir ikke alltid optimum. Og **sensitivitetsanalysen** fra 8.1 går igjen: undersøk hvordan optimum flytter seg når priser og kapasiteter endres, før du satser penger på planen.\n\nFra kart til beslutning: det er spranget dette kapittelet handler om — og det samme spranget venter når modellene i neste kapittel møter ekte samfunnsøkonomiske data."}],"exercises":[]}
+{
+  "id": "s1-8-3-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "8.3",
+  "title": "Lineær optimering utvidet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om fabrikken som verdsetter sine flaskehalser — skyggepris, sensitivitet og heltallskrav i lineær optimering.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "gjennomføre sensitivitetsanalyse av LP-problemer",
+    "håndtere heltallsbetingelser i optimeringsproblemer",
+    "tolke skyggepris i produksjonssammenheng",
+    "løse LP-problemer med to variabler grafisk",
+    "tolke og kommunisere optimeringsløsninger praktisk"
+  ],
+  "linkedChapterId": "s1-8-3",
+  "content": [
+    {
+      "id": "s1-8-3-n-intro",
+      "type": "text",
+      "content": "## Mer enn ett optimalt hjørne\n\nEn møbelfabrikk produserer to bordmodeller og har funnet sin optimale produksjonsplan med lineær programmering (LP): tegn mulighetsområdet, regn ut målfunksjonen i hjørnepunktene, velg det beste. Men fabrikksjefen stiller spørsmålene som virkelig betyr noe i praksis: *Hvor mye er én ekstra maskintime verdt? Hva skjer hvis prisene endrer seg litt? Og hva gjør vi med at man ikke kan produsere 3,7 bord?*\n\nDette kapittelet utvider LP med tre slike verktøy: **sensitivitetsanalyse** (hvor stabilt er optimum?), **skyggepris** (verdien av økt kapasitet) og **heltallsprogrammering** (når variablene må være hele tall). De brukes daglig i logistikk, produksjonsplanlegging, ressursallokering og finans.\n\nDet viktigste nye begrepet er **skyggeprisen**: skyggeprisen til en bibetingelse er den marginale forbedringen i målfunksjonsverdien dersom høyresiden av betingelsen økes med 1 enhet. Har maskinkapasiteten betingelsen $2x_1 + 3x_2 \\leq 120$ og skyggepris $\\lambda$, vil en utvidelse til 121 timer forbedre optimal $z$ med $\\lambda$.\n\nTolkningen er umiddelbart økonomisk: skyggeprisen forteller hva det er **verdt å betale** for ekstra kapasitet. Kan kapasitet kjøpes billigere enn skyggeprisen, er investeringen lønnsom; koster den mer, er den det ikke. Og en viktig kontrast: **ikke-bindende betingelser** — de som ikke begrenser optimum — har skyggepris null. Det er ingenting å hente på å utvide en ressurs man ikke utnytter fullt ut. Slik blir skyggeprisene et kart over hvor flaskehalsene i bedriften faktisk sitter."
+    },
+    {
+      "id": "s1-8-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på skyggepris:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-3-n-quiz1-q0",
+            "task": "Hva er skyggeprisen til en bibetingelse?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Prisen på produktet i markedet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kostnaden ved å bryte betingelsen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Forbedringen i optimal målfunksjonsverdi når betingelsens høyreside økes med 1 enhet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Differansen mellom to hjørnepunkter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skyggeprisen er den marginale verdien av én ekstra kapasitetsenhet for målfunksjonen."
+          },
+          {
+            "id": "s1-8-3-n-quiz1-q1",
+            "task": "En betingelse er ikke-bindende i optimum. Hva er skyggeprisen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lik målfunksjonsverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Null",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En ressurs som ikke utnyttes fullt, gir ingen gevinst ved utvidelse — skyggeprisen er 0."
+          },
+          {
+            "id": "s1-8-3-n-quiz1-q2",
+            "task": "Skyggeprisen for maskintid er $200$ kr/time, og ekstra maskintid kan leies for $150$ kr/time. Hva bør bedriften gjøre?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Leie ekstra maskintid — gevinsten ($200$) overstiger kostnaden ($150$)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ikke leie — det er for dyrt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Selge egen maskintid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Redusere produksjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hver leid time gir 200 kr i økt målfunksjonsverdi mot 150 kr i kostnad — netto 50 kr per time."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-3-n-section1",
+      "type": "text",
+      "content": "## Fabrikkens regnestykke — og heltallsproblemet\n\nLa oss regne fabrikkens eksempel. To produkter gir $z = 400x_1 + 700x_2$ med betingelsene $2x_1 + 3x_2 \\leq 120$ (maskintimer), $x_1 + 2x_2 \\leq 60$ (arbeidstimer) og $x_1, x_2 \\geq 0$.\n\n**Hjørnepunktene:** $(0, 0)$ gir $z = 0$; $(60, 0)$ gir $z = 24\\,000$; $(0, 30)$ gir $z = 21\\,000$. Skjæringen mellom betingelsene: fra den andre er $x_1 = 60 - 2x_2$, som innsatt i den første gir $120 - 4x_2 + 3x_2 = 120$, altså $x_2 = 0$ og $x_1 = 60$ — samme punkt som før. **Optimal løsning: $x_1 = 60$, $x_2 = 0$, $z = 24\\,000$ kr.**\n\n**Skyggeprisen for maskinkapasitet:** øk høyresiden fra 120 til 121. Da gir $2x_1 = 121$ løsningen $x_1 = 60{,}5$ og $z = 400 \\cdot 60{,}5 = 24\\,200$. Skyggeprisen er $24\\,200 - 24\\,000 = 200$ kr per maskintime. Kan timer leies for 150 kr, tjener fabrikken 50 kr per leid time — lønnsomt.\n\nSå til virkelighetens harde krav: **heltall**. Man kan ikke produsere 3,7 bord, ansette 2,4 snekkere eller sende 1,6 lastebiler. **Heltallsprogrammering (IP)** legger til betingelsen $x_1, x_2 \\in \\mathbb{Z}_{\\geq 0}$. For to variabler finnes en enkel arbeidsgang: løs det kontinuerlige LP-problemet, rund av til nærmeste heltallspunkt, sjekk at det avrundede punktet faktisk er innenfor mulighetsområdet, og evaluer nabopunktene om nødvendig.\n\nMen merk advarselen: **det avrundede punktet er ikke alltid optimalt** — og noen ganger ikke engang gyldig. Det ekte heltallsoptimumet kan ligge i et annet nabopunkt enn det nærmeste. For store problemer kreves egne IP-algoritmer; for eksamensoppgaver med to variabler holder det å sjekke kandidatpunktene systematisk."
+    },
+    {
+      "id": "s1-8-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på LP-løsning og heltall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-3-n-quiz2-q0",
+            "task": "Hvor ligger alltid optimum i et LP-problem med to variabler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "I origo",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "I et hjørnepunkt av mulighetsområdet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Midt i mulighetsområdet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Utenfor mulighetsområdet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En lineær målfunksjon antar sin maksimale (og minimale) verdi i et hjørnepunkt av det konvekse mulighetsområdet."
+          },
+          {
+            "id": "s1-8-3-n-quiz2-q1",
+            "task": "Fabrikken har optimum $z = 24\\,000$ med kapasitet $120$ maskintimer, og $z = 24\\,200$ med $121$ timer. Hva er skyggeprisen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$24\\,200$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$120$ kr per maskintime",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$200$ kr per maskintime",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$50$ kr per maskintime",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skyggepris $= \\Delta z$ per enhet økt kapasitet $= 24\\,200 - 24\\,000 = 200$ kr."
+          },
+          {
+            "id": "s1-8-3-n-quiz2-q2",
+            "task": "Den kontinuerlige LP-løsningen er $x_1 = 3{,}7$, $x_2 = 5{,}2$, men produksjonen krever hele enheter. Hva er riktig fremgangsmåte?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alltid runde opp begge verdiene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bruke desimaltallene likevel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gange begge med 10",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Runde av, sjekke at punktet er gyldig, og evaluere nabopunkter — avrunding gir ikke alltid optimum",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Avrundet punkt kan være ugyldig eller suboptimalt; kandidat- og nabopunkter må kontrolleres mot betingelsene og målfunksjonen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: robusthet, flaskehalser og hele tall\n\nFabrikksjefens tre spørsmål har fått sine verktøy. Grunnmuren er som før: **lineær optimering** maksimerer en lineær målfunksjon under lineære beskrankninger, og optimum ligger alltid i et **hjørnepunkt** av mulighetsområdet — regn ut målfunksjonen i alle hjørner og velg det beste, slik fabrikken fant $x_1 = 60$, $x_2 = 0$ og $z = 24\\,000$ kr.\n\n**Skyggeprisen** er utvidelsens juvel: verdien av én ekstra kapasitetsenhet, beregnet som $\\Delta z$ når høyresiden økes med 1. Fabrikkens 200 kr per maskintime mot leiepris 150 kr gjorde investeringsbeslutningen til ren aritmetikk — og ikke-bindende betingelser med skyggepris null viste hvor det *ikke* er noe å hente. Skyggeprisene er bedriftens flaskehalskart.\n\n**Heltallsbetingelser** minner om at virkeligheten teller i hele bord og hele ansatte: rund av den kontinuerlige løsningen, men sjekk gyldighet og nabopunkter, for avrunding gir ikke alltid optimum. Og **sensitivitetsanalysen** fra 8.1 går igjen: undersøk hvordan optimum flytter seg når priser og kapasiteter endres, før du satser penger på planen.\n\nFra kart til beslutning: det er spranget dette kapittelet handler om — og det samme spranget venter når modellene i neste kapittel møter ekte samfunnsøkonomiske data."
+    }
+  ],
+  "exercises": []
+}

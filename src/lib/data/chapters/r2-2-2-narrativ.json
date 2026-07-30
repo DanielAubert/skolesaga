@@ -1,1 +1,396 @@
-{"id":"r2-2-2-narrativ","courseId":"r2","chapterNumber":"2.2","title":"Ubestemt integral","subtitle":"Narrativ versjon","description":"En fortelling om det ubestemte integralet — detektivarbeidet med å finne funksjonen bak den deriverte, potensregelen baklengs og konstanten C som aldri kan glemmes.","estimatedMinutes":33,"competenceGoals":["forsta sammenhengen mellom derivasjon og integrasjon","beherske grunnleggende integrasjonsregler"],"linkedChapterId":"r2-2-2","content":[{"id":"r2-2-2-n-intro","type":"text","content":"## Detektivarbeid baklengs\n\nI forrige kapittel var spørsmålet alltid det samme: her er en funksjon — hva er den deriverte? Nå snur vi saken på hodet og blir detektiver. Sporet vi finner, er en derivert: $f'(x) = 2x$. Spørsmålet er: hvilken funksjon etterlot dette sporet?\n\nDu ser kanskje svaret med en gang: $(x^2)' = 2x$, så $f(x) = x^2$ passer. Men vent — $(x^2 + 5)' = 2x$ også. Og $(x^2 - 3)' = 2x$. Konstantleddet forsvinner sporløst i derivasjonen, så *uendelig mange* funksjoner deler det samme sporet. Slik er det alltid i baklengs-derivasjon, og det er derfor svaret vårt alltid får et lite vedheng: konstanten $C$.\n\nDenne baklengs-operasjonen kalles **integrasjon**, og den er en av matematikkens to store søyler ved siden av derivasjonen. I dette kapittelet lærer du å finne **antideriverte**, å bruke potensregelen for integrasjon — og hvorfor det lille $+\\,C$-et aldri kan droppes."},{"id":"r2-2-2-n-section1","type":"text","content":"## Antiderivert og det ubestemte integralet\n\nLa oss gi detektivarbeidet presise navn. En funksjon $F(x)$ kalles en **antiderivert** til $f(x)$ dersom\n\n$$F'(x) = f(x)$$\n\nFor eksempel er $F(x) = x^3$ en antiderivert til $f(x) = 3x^2$, siden $(x^3)' = 3x^2$. Kontrollen er alltid den samme — og alltid tilgjengelig: deriver svaret ditt, og se om du får tilbake utgangspunktet.\n\nMen som vi så: er $F(x)$ en antiderivert, er $F(x) + C$ det også, for enhver konstant $C$. Hele familien av antideriverte samler vi i det **ubestemte integralet**:\n\n$$\\int f(x) \\, dx = F(x) + C$$\n\nSymbolene fortjener en presentasjon. Tegnet $\\int$ er integraltegnet (en strukket S — hvorfor S, avsløres i kapittel 2.4), $f(x)$ kalles **integranden**, $dx$ angir at vi integrerer med hensyn på $x$, og $C$ er **integrasjonskonstanten** — det matematiske «pluss en ukjent startverdi».\n\nEt eksempel: $\\int 6x^5 \\, dx$. Vi leter etter noe som derivert gir $6x^5$, og $(x^6)' = 6x^5$ treffer blink:\n\n$$\\int 6x^5 \\, dx = x^6 + C$$\n\nGlem aldri $C$-en. Den ser pedantisk ut, men den bærer reell informasjon: uten et ekstra holdepunkt — for eksempel en kjent funksjonsverdi — kan vi ikke vite hvilken av de uendelig mange antideriverte som er den rette."},{"id":"r2-2-2-n-quiz1","type":"exercise","exercise":{"id":"r2-2-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på antideriverte:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-2-n-quiz1-q0","task":"Hva vil det si at $F(x)$ er en antiderivert til $f(x)$?","options":[{"id":"a","text":"At $F(x) = f'(x)$","isCorrect":false},{"id":"b","text":"At $F'(x) = f(x)$","isCorrect":true},{"id":"c","text":"At $F(x) \\cdot f(x) = 1$","isCorrect":false},{"id":"d","text":"At $F(x) = f(x) + C$","isCorrect":false}],"solution":"Definisjonen: $F$ er antiderivert til $f$ når derivasjon av $F$ gir $f$, altså $F'(x) = f(x)$."},{"id":"r2-2-2-n-quiz1-q1","task":"Hva er $\\displaystyle\\int 6x^5 \\, dx$?","options":[{"id":"a","text":"$30x^4 + C$","isCorrect":false},{"id":"b","text":"$6x^6 + C$","isCorrect":false},{"id":"c","text":"$x^6 + C$","isCorrect":true},{"id":"d","text":"$\\frac{x^6}{6} + C$","isCorrect":false}],"solution":"$(x^6)' = 6x^5$, så $\\int 6x^5\\,dx = x^6 + C$. Kontroller alltid ved å derivere svaret."},{"id":"r2-2-2-n-quiz1-q2","task":"Hvorfor må det ubestemte integralet alltid ha med konstanten $C$?","options":[{"id":"a","text":"Fordi integralet ellers blir null","isCorrect":false},{"id":"b","text":"Fordi $C$ angir integrasjonsgrensene","isCorrect":false},{"id":"c","text":"Av historiske grunner","isCorrect":false},{"id":"d","text":"Fordi alle funksjoner på formen $F(x) + C$ har samme deriverte","isCorrect":true}],"solution":"Konstantledd forsvinner ved derivasjon: $(F(x) + C)' = F'(x)$ uansett $C$. Derfor finnes uendelig mange antideriverte, og $C$ representerer dem alle."}]}},{"id":"r2-2-2-n-section2","type":"text","content":"## Potensregelen — baklengs denne gangen\n\nForlengs sa potensregelen: eksponenten ned som faktor, ny eksponent én lavere. Baklengs må vi da gjøre det motsatte: *øk* eksponenten med én, og *del* på den nye eksponenten. Hvorfor delingen? Fordi $(x^{n+1})' = (n+1)x^n$ gir en uønsket faktor $(n+1)$ som må nøytraliseres:\n\n$$\\left(\\frac{x^{n+1}}{n+1}\\right)' = \\frac{(n+1)x^n}{n+1} = x^n$$\n\nDermed har vi **potensregelen for integrasjon**:\n\n$$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C \\qquad (n \\neq -1)$$\n\nSpesialtilfellet $n = 0$ gir $\\int 1 \\, dx = x + C$. Og unntaket $n = -1$? Da ville vi delt på null — integralet $\\int \\frac{1}{x}\\,dx$ er en helt egen historie som venter i kapittel 2.3.\n\nRegelen dekker mer enn det første blikket avslører, for både negative eksponenter og røtter er potenser i forkledning. Tre eksempler:\n\n$$\\int x^4 \\, dx = \\frac{x^5}{5} + C$$\n\n$$\\int x^{-3} \\, dx = \\frac{x^{-2}}{-2} + C = -\\frac{1}{2x^2} + C$$\n\n$$\\int \\sqrt{x} \\, dx = \\int x^{1/2} \\, dx = \\frac{x^{3/2}}{3/2} + C = \\frac{2}{3}\\sqrt{x^3} + C$$\n\nTrikset i de to siste: skriv om til potensform *før* du integrerer. Da er alt sammen samme regel."},{"id":"r2-2-2-n-quiz2","type":"exercise","exercise":{"id":"r2-2-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på potensregelen for integrasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-2-n-quiz2-q0","task":"Hva er $\\displaystyle\\int x^4 \\, dx$?","options":[{"id":"a","text":"$\\frac{x^5}{5} + C$","isCorrect":true},{"id":"b","text":"$4x^3 + C$","isCorrect":false},{"id":"c","text":"$\\frac{x^4}{4} + C$","isCorrect":false},{"id":"d","text":"$5x^5 + C$","isCorrect":false}],"solution":"Øk eksponenten med én og del på den nye: $\\int x^4\\,dx = \\frac{x^5}{5} + C$."},{"id":"r2-2-2-n-quiz2-q1","task":"Hva er $\\displaystyle\\int \\sqrt{x} \\, dx$?","options":[{"id":"a","text":"$\\frac{1}{2\\sqrt{x}} + C$","isCorrect":false},{"id":"b","text":"$\\frac{2}{3}x^{3/2} + C$","isCorrect":true},{"id":"c","text":"$\\frac{x^{1/2}}{2} + C$","isCorrect":false},{"id":"d","text":"$\\sqrt{x^2} + C$","isCorrect":false}],"solution":"$\\sqrt{x} = x^{1/2}$, så $\\int x^{1/2}\\,dx = \\frac{x^{3/2}}{3/2} + C = \\frac{2}{3}x^{3/2} + C$."},{"id":"r2-2-2-n-quiz2-q2","task":"For hvilken verdi av $n$ gjelder potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ IKKE?","options":[{"id":"a","text":"$n = 0$","isCorrect":false},{"id":"b","text":"$n = 1$","isCorrect":false},{"id":"c","text":"$n = \\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$n = -1$","isCorrect":true}],"solution":"For $n = -1$ ville vi delt på $n + 1 = 0$. Integralet $\\int \\frac{1}{x}\\,dx$ krever en egen formel ($\\ln|x| + C$, kapittel 2.3)."},{"id":"r2-2-2-n-quiz2-q3","task":"Hva er $\\displaystyle\\int x^{-3} \\, dx$?","options":[{"id":"a","text":"$-3x^{-4} + C$","isCorrect":false},{"id":"b","text":"$\\frac{x^{-2}}{2} + C$","isCorrect":false},{"id":"c","text":"$-\\frac{1}{2x^2} + C$","isCorrect":true},{"id":"d","text":"$\\ln|x^3| + C$","isCorrect":false}],"solution":"$\\int x^{-3}\\,dx = \\frac{x^{-2}}{-2} + C = -\\frac{1}{2x^2} + C$. Eksponenten øker fra $-3$ til $-2$."}]}},{"id":"r2-2-2-n-section3","type":"text","content":"## Regneregler og polynomer på samlebånd\n\nAkkurat som derivasjonen har integrasjonen sine kombinasjonsregler, og de er behagelig like. **Sumregelen** sier $\\int (f + g)\\,dx = \\int f\\,dx + \\int g\\,dx$ (tilsvarende for differanser), og **konstantfaktorregelen** sier $\\int k \\cdot f\\,dx = k \\int f\\,dx$. Vi kan altså integrere ledd for ledd og la tallfaktorer vente utenfor.\n\nDermed blir polynomer samlebåndsarbeid:\n\n$$\\int (4x^3 - 2x + 7) \\, dx = 4 \\cdot \\frac{x^4}{4} - 2 \\cdot \\frac{x^2}{2} + 7x + C = x^4 - x^2 + 7x + C$$\n\nMerk at det holder med én konstant $C$ til slutt — summen av flere vilkårlige konstanter er bare en ny vilkårlig konstant.\n\nTo førstehjelpstriks gjør mange oppgaver enklere. Det første: *gang ut før du integrerer*. Integralet $\\int (x+2)(x-3)\\,dx$ ser ubehagelig ut, men $(x+2)(x-3) = x^2 - x - 6$ integreres rett frem til $\\frac{x^3}{3} - \\frac{x^2}{2} - 6x + C$. Det andre: *forenkle brøker først*. I $\\int \\frac{x^3 - 2x}{x}\\,dx$ deler vi hvert ledd på $x$ og får $\\int (x^2 - 2)\\,dx = \\frac{x^3}{3} - 2x + C$.\n\nOg det evige sikkerhetsnettet: deriver svaret. Får du tilbake integranden, er alt i orden. De vanligste fellene er å glemme $C$, å bruke potensregelen feil vei (eksponenten skal *opp*, ikke ned) — og å prøve potensregelen på $\\frac{1}{x}$, der den ikke gjelder."},{"id":"r2-2-2-n-quiz3","type":"exercise","exercise":{"id":"r2-2-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på regnereglene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-2-n-quiz3-q0","task":"Hva er $\\displaystyle\\int (4x^3 - 2x + 7) \\, dx$?","options":[{"id":"a","text":"$12x^2 - 2 + C$","isCorrect":false},{"id":"b","text":"$x^4 - x^2 + 7x + C$","isCorrect":true},{"id":"c","text":"$4x^4 - 2x^2 + 7x + C$","isCorrect":false},{"id":"d","text":"$x^4 - x^2 + 7 + C$","isCorrect":false}],"solution":"Ledd for ledd: $4 \\cdot \\frac{x^4}{4} = x^4$, $-2 \\cdot \\frac{x^2}{2} = -x^2$ og $\\int 7\\,dx = 7x$. Til sammen $x^4 - x^2 + 7x + C$."},{"id":"r2-2-2-n-quiz3-q1","task":"Hvordan bør du angripe $\\displaystyle\\int (x+2)(x-3) \\, dx$?","options":[{"id":"a","text":"Integrere hver faktor for seg og gange svarene","isCorrect":false},{"id":"b","text":"Bruke kvotientregelen","isCorrect":false},{"id":"c","text":"Gange ut parentesene først og så integrere ledd for ledd","isCorrect":true},{"id":"d","text":"Sette $u = x + 2$","isCorrect":false}],"solution":"Det finnes ingen «produktregel for integrasjon» som ganger antideriverte. Gang ut: $(x+2)(x-3) = x^2 - x - 6$, og integrer leddvis."},{"id":"r2-2-2-n-quiz3-q2","task":"Hva er $\\displaystyle\\int \\frac{x^3 - 2x}{x} \\, dx$ (for $x \\neq 0$)?","options":[{"id":"a","text":"$\\frac{x^3}{3} - 2x + C$","isCorrect":true},{"id":"b","text":"$\\frac{x^4/4 - x^2}{x^2/2} + C$","isCorrect":false},{"id":"c","text":"$x^2 - 2 + C$","isCorrect":false},{"id":"d","text":"$\\frac{x^3}{3} - 2\\ln|x| + C$","isCorrect":false}],"solution":"Forenkle først: $\\frac{x^3 - 2x}{x} = x^2 - 2$. Så $\\int (x^2 - 2)\\,dx = \\frac{x^3}{3} - 2x + C$."},{"id":"r2-2-2-n-quiz3-q3","task":"Hvordan kontrollerer du raskest at $\\int f(x)\\,dx = F(x) + C$ er riktig regnet?","options":[{"id":"a","text":"Sett inn $x = 0$ på begge sider","isCorrect":false},{"id":"b","text":"Integrer $F(x)$ en gang til","isCorrect":false},{"id":"c","text":"Tegn grafene til $f$ og $F$","isCorrect":false},{"id":"d","text":"Deriver $F(x)$ og sjekk at du får $f(x)$","isCorrect":true}],"solution":"Integrasjon og derivasjon er motsatte operasjoner: $F'(x) = f(x)$ bekrefter svaret. Dette er den raskeste og sikreste kontrollen."}]}},{"id":"r2-2-2-n-summary","type":"text","content":"## Oppsummering: sporjakten har fått system\n\nDetektivarbeidet fra innledningen er blitt en metode. En **antiderivert** $F$ til $f$ oppfyller $F'(x) = f(x)$, og hele familien av antideriverte skrives som det **ubestemte integralet** $\\int f(x)\\,dx = F(x) + C$ — med integrasjonskonstanten $C$ som fast følgesvenn, fordi konstantledd ikke setter spor i derivasjonen.\n\nArbeidshesten er potensregelen baklengs: $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$ — eksponenten opp, del på den nye — og den dekker også røtter og negative potenser når vi først skriver om til potensform. Sum- og konstantfaktorregelen lar oss ta polynomer ledd for ledd, og forenklingstriksene (gang ut parenteser, del opp brøker) rydder veien. Sikkerhetsnettet er alltid det samme: deriver svaret og se at integranden kommer tilbake.\n\nEtt mysterium står åpent: hullet i potensregelen ved $n = -1$. Hva er egentlig $\\int \\frac{1}{x}\\,dx$? Svaret involverer en gammel kjenning fra logaritmenes verden — og det er neste kapittel."}],"exercises":[]}
+{
+  "id": "r2-2-2-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "2.2",
+  "title": "Ubestemt integral",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om det ubestemte integralet — detektivarbeidet med å finne funksjonen bak den deriverte, potensregelen baklengs og konstanten C som aldri kan glemmes.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "forsta sammenhengen mellom derivasjon og integrasjon",
+    "beherske grunnleggende integrasjonsregler"
+  ],
+  "linkedChapterId": "r2-2-2",
+  "content": [
+    {
+      "id": "r2-2-2-n-intro",
+      "type": "text",
+      "content": "## Detektivarbeid baklengs\n\nI forrige kapittel var spørsmålet alltid det samme: her er en funksjon — hva er den deriverte? Nå snur vi saken på hodet og blir detektiver. Sporet vi finner, er en derivert: $f'(x) = 2x$. Spørsmålet er: hvilken funksjon etterlot dette sporet?\n\nDu ser kanskje svaret med en gang: $(x^2)' = 2x$, så $f(x) = x^2$ passer. Men vent — $(x^2 + 5)' = 2x$ også. Og $(x^2 - 3)' = 2x$. Konstantleddet forsvinner sporløst i derivasjonen, så *uendelig mange* funksjoner deler det samme sporet. Slik er det alltid i baklengs-derivasjon, og det er derfor svaret vårt alltid får et lite vedheng: konstanten $C$.\n\nDenne baklengs-operasjonen kalles **integrasjon**, og den er en av matematikkens to store søyler ved siden av derivasjonen. I dette kapittelet lærer du å finne **antideriverte**, å bruke potensregelen for integrasjon — og hvorfor det lille $+\\,C$-et aldri kan droppes."
+    },
+    {
+      "id": "r2-2-2-n-section1",
+      "type": "text",
+      "content": "## Antiderivert og det ubestemte integralet\n\nLa oss gi detektivarbeidet presise navn. En funksjon $F(x)$ kalles en **antiderivert** til $f(x)$ dersom\n\n$$F'(x) = f(x)$$\n\nFor eksempel er $F(x) = x^3$ en antiderivert til $f(x) = 3x^2$, siden $(x^3)' = 3x^2$. Kontrollen er alltid den samme — og alltid tilgjengelig: deriver svaret ditt, og se om du får tilbake utgangspunktet.\n\nMen som vi så: er $F(x)$ en antiderivert, er $F(x) + C$ det også, for enhver konstant $C$. Hele familien av antideriverte samler vi i det **ubestemte integralet**:\n\n$$\\int f(x) \\, dx = F(x) + C$$\n\nSymbolene fortjener en presentasjon. Tegnet $\\int$ er integraltegnet (en strukket S — hvorfor S, avsløres i kapittel 2.4), $f(x)$ kalles **integranden**, $dx$ angir at vi integrerer med hensyn på $x$, og $C$ er **integrasjonskonstanten** — det matematiske «pluss en ukjent startverdi».\n\nEt eksempel: $\\int 6x^5 \\, dx$. Vi leter etter noe som derivert gir $6x^5$, og $(x^6)' = 6x^5$ treffer blink:\n\n$$\\int 6x^5 \\, dx = x^6 + C$$\n\nGlem aldri $C$-en. Den ser pedantisk ut, men den bærer reell informasjon: uten et ekstra holdepunkt — for eksempel en kjent funksjonsverdi — kan vi ikke vite hvilken av de uendelig mange antideriverte som er den rette."
+    },
+    {
+      "id": "r2-2-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på antideriverte:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-2-n-quiz1-q0",
+            "task": "Hva vil det si at $F(x)$ er en antiderivert til $f(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At $F(x) = f'(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At $F'(x) = f(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "At $F(x) \\cdot f(x) = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At $F(x) = f(x) + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Definisjonen: $F$ er antiderivert til $f$ når derivasjon av $F$ gir $f$, altså $F'(x) = f(x)$."
+          },
+          {
+            "id": "r2-2-2-n-quiz1-q1",
+            "task": "Hva er $\\displaystyle\\int 6x^5 \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30x^4 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6x^6 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^6 + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x^6}{6} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(x^6)' = 6x^5$, så $\\int 6x^5\\,dx = x^6 + C$. Kontroller alltid ved å derivere svaret."
+          },
+          {
+            "id": "r2-2-2-n-quiz1-q2",
+            "task": "Hvorfor må det ubestemte integralet alltid ha med konstanten $C$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi integralet ellers blir null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $C$ angir integrasjonsgrensene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Av historiske grunner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi alle funksjoner på formen $F(x) + C$ har samme deriverte",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Konstantledd forsvinner ved derivasjon: $(F(x) + C)' = F'(x)$ uansett $C$. Derfor finnes uendelig mange antideriverte, og $C$ representerer dem alle."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-2-n-section2",
+      "type": "text",
+      "content": "## Potensregelen — baklengs denne gangen\n\nForlengs sa potensregelen: eksponenten ned som faktor, ny eksponent én lavere. Baklengs må vi da gjøre det motsatte: *øk* eksponenten med én, og *del* på den nye eksponenten. Hvorfor delingen? Fordi $(x^{n+1})' = (n+1)x^n$ gir en uønsket faktor $(n+1)$ som må nøytraliseres:\n\n$$\\left(\\frac{x^{n+1}}{n+1}\\right)' = \\frac{(n+1)x^n}{n+1} = x^n$$\n\nDermed har vi **potensregelen for integrasjon**:\n\n$$\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C \\qquad (n \\neq -1)$$\n\nSpesialtilfellet $n = 0$ gir $\\int 1 \\, dx = x + C$. Og unntaket $n = -1$? Da ville vi delt på null — integralet $\\int \\frac{1}{x}\\,dx$ er en helt egen historie som venter i kapittel 2.3.\n\nRegelen dekker mer enn det første blikket avslører, for både negative eksponenter og røtter er potenser i forkledning. Tre eksempler:\n\n$$\\int x^4 \\, dx = \\frac{x^5}{5} + C$$\n\n$$\\int x^{-3} \\, dx = \\frac{x^{-2}}{-2} + C = -\\frac{1}{2x^2} + C$$\n\n$$\\int \\sqrt{x} \\, dx = \\int x^{1/2} \\, dx = \\frac{x^{3/2}}{3/2} + C = \\frac{2}{3}\\sqrt{x^3} + C$$\n\nTrikset i de to siste: skriv om til potensform *før* du integrerer. Da er alt sammen samme regel."
+    },
+    {
+      "id": "r2-2-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på potensregelen for integrasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-2-n-quiz2-q0",
+            "task": "Hva er $\\displaystyle\\int x^4 \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{x^5}{5} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$4x^3 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x^4}{4} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5x^5 + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Øk eksponenten med én og del på den nye: $\\int x^4\\,dx = \\frac{x^5}{5} + C$."
+          },
+          {
+            "id": "r2-2-2-n-quiz2-q1",
+            "task": "Hva er $\\displaystyle\\int \\sqrt{x} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2\\sqrt{x}} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2}{3}x^{3/2} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x^{1/2}}{2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{x^2} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{x} = x^{1/2}$, så $\\int x^{1/2}\\,dx = \\frac{x^{3/2}}{3/2} + C = \\frac{2}{3}x^{3/2} + C$."
+          },
+          {
+            "id": "r2-2-2-n-quiz2-q2",
+            "task": "For hvilken verdi av $n$ gjelder potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ IKKE?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$n = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$n = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n = -1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$n = \\frac{1}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $n = -1$ ville vi delt på $n + 1 = 0$. Integralet $\\int \\frac{1}{x}\\,dx$ krever en egen formel ($\\ln|x| + C$, kapittel 2.3)."
+          },
+          {
+            "id": "r2-2-2-n-quiz2-q3",
+            "task": "Hva er $\\displaystyle\\int x^{-3} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-3x^{-4} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{x^{-2}}{2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln|x^3| + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{1}{2x^2} + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\int x^{-3}\\,dx = \\frac{x^{-2}}{-2} + C = -\\frac{1}{2x^2} + C$. Eksponenten øker fra $-3$ til $-2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-2-n-section3",
+      "type": "text",
+      "content": "## Regneregler og polynomer på samlebånd\n\nAkkurat som derivasjonen har integrasjonen sine kombinasjonsregler, og de er behagelig like. **Sumregelen** sier $\\int (f + g)\\,dx = \\int f\\,dx + \\int g\\,dx$ (tilsvarende for differanser), og **konstantfaktorregelen** sier $\\int k \\cdot f\\,dx = k \\int f\\,dx$. Vi kan altså integrere ledd for ledd og la tallfaktorer vente utenfor.\n\nDermed blir polynomer samlebåndsarbeid:\n\n$$\\int (4x^3 - 2x + 7) \\, dx = 4 \\cdot \\frac{x^4}{4} - 2 \\cdot \\frac{x^2}{2} + 7x + C = x^4 - x^2 + 7x + C$$\n\nMerk at det holder med én konstant $C$ til slutt — summen av flere vilkårlige konstanter er bare en ny vilkårlig konstant.\n\nTo førstehjelpstriks gjør mange oppgaver enklere. Det første: *gang ut før du integrerer*. Integralet $\\int (x+2)(x-3)\\,dx$ ser ubehagelig ut, men $(x+2)(x-3) = x^2 - x - 6$ integreres rett frem til $\\frac{x^3}{3} - \\frac{x^2}{2} - 6x + C$. Det andre: *forenkle brøker først*. I $\\int \\frac{x^3 - 2x}{x}\\,dx$ deler vi hvert ledd på $x$ og får $\\int (x^2 - 2)\\,dx = \\frac{x^3}{3} - 2x + C$.\n\nOg det evige sikkerhetsnettet: deriver svaret. Får du tilbake integranden, er alt i orden. De vanligste fellene er å glemme $C$, å bruke potensregelen feil vei (eksponenten skal *opp*, ikke ned) — og å prøve potensregelen på $\\frac{1}{x}$, der den ikke gjelder."
+    },
+    {
+      "id": "r2-2-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regnereglene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-2-n-quiz3-q0",
+            "task": "Hva er $\\displaystyle\\int (4x^3 - 2x + 7) \\, dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^4 - x^2 + 7x + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$12x^2 - 2 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4x^4 - 2x^2 + 7x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^4 - x^2 + 7 + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledd for ledd: $4 \\cdot \\frac{x^4}{4} = x^4$, $-2 \\cdot \\frac{x^2}{2} = -x^2$ og $\\int 7\\,dx = 7x$. Til sammen $x^4 - x^2 + 7x + C$."
+          },
+          {
+            "id": "r2-2-2-n-quiz3-q1",
+            "task": "Hvordan bør du angripe $\\displaystyle\\int (x+2)(x-3) \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Integrere hver faktor for seg og gange svarene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gange ut parentesene først og så integrere ledd for ledd",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Bruke kvotientregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sette $u = x + 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det finnes ingen «produktregel for integrasjon» som ganger antideriverte. Gang ut: $(x+2)(x-3) = x^2 - x - 6$, og integrer leddvis."
+          },
+          {
+            "id": "r2-2-2-n-quiz3-q2",
+            "task": "Hva er $\\displaystyle\\int \\frac{x^3 - 2x}{x} \\, dx$ (for $x \\neq 0$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{x^4/4 - x^2}{x^2/2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 - 2 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{x^3}{3} - 2x + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x^3}{3} - 2\\ln|x| + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forenkle først: $\\frac{x^3 - 2x}{x} = x^2 - 2$. Så $\\int (x^2 - 2)\\,dx = \\frac{x^3}{3} - 2x + C$."
+          },
+          {
+            "id": "r2-2-2-n-quiz3-q3",
+            "task": "Hvordan kontrollerer du raskest at $\\int f(x)\\,dx = F(x) + C$ er riktig regnet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sett inn $x = 0$ på begge sider",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Integrer $F(x)$ en gang til",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tegn grafene til $f$ og $F$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Deriver $F(x)$ og sjekk at du får $f(x)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Integrasjon og derivasjon er motsatte operasjoner: $F'(x) = f(x)$ bekrefter svaret. Dette er den raskeste og sikreste kontrollen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: sporjakten har fått system\n\nDetektivarbeidet fra innledningen er blitt en metode. En **antiderivert** $F$ til $f$ oppfyller $F'(x) = f(x)$, og hele familien av antideriverte skrives som det **ubestemte integralet** $\\int f(x)\\,dx = F(x) + C$ — med integrasjonskonstanten $C$ som fast følgesvenn, fordi konstantledd ikke setter spor i derivasjonen.\n\nArbeidshesten er potensregelen baklengs: $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ for $n \\neq -1$ — eksponenten opp, del på den nye — og den dekker også røtter og negative potenser når vi først skriver om til potensform. Sum- og konstantfaktorregelen lar oss ta polynomer ledd for ledd, og forenklingstriksene (gang ut parenteser, del opp brøker) rydder veien. Sikkerhetsnettet er alltid det samme: deriver svaret og se at integranden kommer tilbake.\n\nEtt mysterium står åpent: hullet i potensregelen ved $n = -1$. Hva er egentlig $\\int \\frac{1}{x}\\,dx$? Svaret involverer en gammel kjenning fra logaritmenes verden — og det er neste kapittel."
+    }
+  ],
+  "exercises": []
+}

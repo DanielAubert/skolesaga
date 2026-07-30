@@ -1,1 +1,671 @@
-{"id":"r2-6-6-narrativ","courseId":"r2","chapterNumber":"6.6","title":"Bevis og matematisk argumentasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om matematikkens evigheitsgaranti — direkte bevis, motseiing, kontraposisjon og dominorekkja til induksjonen, og kunsten å avsløre eit bevis som juksar.","estimatedMinutes":40,"competenceGoals":["analysere og forsta matematiske bevis, forklare sentrale idear i bevis og utvikle eigne bevis"],"linkedChapterId":"r2-6-6","content":[{"id":"r2-6-6-n-intro","type":"text","content":"## Evigheitsgarantien\n\nFor 2300 år sidan skreiv Euklid ned eit argument for at det finst uendeleg mange primtal. Det argumentet er like gyldig i dag — ikkje «framleis godt stadfesta», ikkje «enno ikkje motbevist», men *gyldig*, punktum. Inga naturvitskap kan tilby noko liknande. Fysikkens teoriar blir reviderte når nye målingar kjem; Newtons mekanikk måtte vike for Einsteins. Men eit matematisk **bevis** er ein evigheitsgaranti: ei logisk argumentasjonsrekkje som viser at ein påstand *må* vere sann, gitt premissane.\n\nKva kviler garantien på? Tre slags byggjesteinar: **aksiom** — grunnsanningar vi aksepterer utan bevis, **definisjonar** — presise avgrensingar av omgrepa, og **tidlegare prova teorem** — resultat som alt har fått garantien. Frå desse blir nye sanningar bygde, steg for logisk steg, og eit godt bevis kjenneteiknast av presisjon, logisk samanheng, fullstende og gyldige slutningar. Merk kontrasten til empirien: at $n^2 - n + 41$ er primtal for $n = 1, 2, 3, \\ldots, 40$ er freistande bevismateriale — men ved $n = 41$ ryk det. Ein million eksempel beviser ingenting; eitt gyldig argument beviser alt.\n\nI dette kapittelet lærer du handverket. Tre hovudmetodar: det **direkte beviset**, som marsjerer frå premiss til konklusjon; **motseiingsbeviset**, som feller ein påstand ved å vise at det motsette er absurd; og **induksjonsbeviset**, dominorekkja som når alle naturlege tal. I tillegg: den elegante omvegen til kontraposisjonen, spelereglane til logikken — og kunsten å lese eit bevis kritisk nok til å avsløre det når det juksar."},{"id":"r2-6-6-n-section1","type":"text","content":"## Det direkte beviset — marsjen frå premiss til konklusjon\n\nDen mest naturlege bevisforma går rett fram: anta premissane, utfør logiske slutningar, land på konklusjonen. Drivstoffet er *definisjonane* — og dei to arbeidshestane i talteorien er presist definerte: eit heiltal $n$ er eit **partal** dersom $n = 2k$ for eit heiltal $k$, og eit **oddetal** dersom $n = 2k + 1$.\n\nSjå korleis definisjonane ber eit heilt bevis. *Påstand: summen av to partal er eit partal.* La $a$ og $b$ vere partal. Per definisjon finst heiltal $m$ og $n$ med $a = 2m$ og $b = 2n$. Då er\n\n$$a + b = 2m + 2n = 2(m + n)$$\n\nog sidan $m + n$ er eit heiltal, har summen forma $2 \\cdot (\\text{heiltal})$ — eit partal, per definisjon. $\\blacksquare$ Heile kunsten ligg i å *omsetje* påstanden til språket til definisjonane, rekne, og omsetje tilbake.\n\nSame marsj tek oddetala: produktet av $a = 2m + 1$ og $b = 2n + 1$ er $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$ — forma til eit oddetal, så *oddetal gonger oddetal er oddetal*. Og kvadratet av eit partal: $(2k)^2 = 4k^2$, deleleg med $4$, alltid.\n\nEit siste eksempel viser korleis eit smart oppsett gjer beviset til rein rekning. *Påstand: summen av tre påfølgjande heiltal er deleleg med 3.* Kall tala $n$, $n+1$ og $n+2$:\n\n$$n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$$\n\nFerdig — summen er tre gonger eit heiltal. Merk kor mykje arbeid valet av notasjon gjorde: «tre påfølgjande heiltal» vart til algebra som beviste seg sjølv. Slik ser direkte bevis ut når dei lukkast: ingen triks, berre definisjonar, omskriving og ein konklusjon som modnast fram."},{"id":"r2-6-6-n-quiz1","type":"exercise","exercise":{"id":"r2-6-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på direkte bevis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-6-n-quiz1-q0","task":"Kva er strukturen i eit direkte bevis?","options":[{"id":"a","text":"Anta premissane, utfør logiske slutningar, konkluder med påstanden","isCorrect":true},{"id":"b","text":"Anta det motsette og finn ei sjølvmotseiing","isCorrect":false},{"id":"c","text":"Sjekk mange eksempel","isCorrect":false},{"id":"d","text":"Vis basissteg og induksjonssteg","isCorrect":false}],"solution":"Det direkte beviset marsjerer frå kjende sanningar til konklusjonen via gyldige slutningar."},{"id":"r2-6-6-n-quiz1-q1","task":"I beviset for at summen av to partal er eit partal skriv vi $a = 2m$, $b = 2n$. Kvifor?","options":[{"id":"a","text":"Fordi $m$ og $n$ er partal","isCorrect":false},{"id":"b","text":"Det er definisjonen av partal — og han omset påstanden til algebra","isCorrect":true},{"id":"c","text":"Fordi alle heiltal kan skrivast slik","isCorrect":false},{"id":"d","text":"For å kunne dele på 2 seinare","isCorrect":false}],"solution":"Definisjonen «$n$ er partal dersom $n = 2k$» er drivstoffet til beviset: $a + b = 2(m+n)$ får partalsforma direkte."},{"id":"r2-6-6-n-quiz1-q2","task":"Kva er produktet av to oddetal $(2m+1)(2n+1)$ omskrive til?","options":[{"id":"a","text":"$2(2mn + m + n)$ — eit partal","isCorrect":false},{"id":"b","text":"$4mn + 1$ — verken partal eller oddetal","isCorrect":false},{"id":"c","text":"$2(2mn + m + n) + 1$ — eit oddetal","isCorrect":true},{"id":"d","text":"$2mn + 1$ — eit primtal","isCorrect":false}],"solution":"Utvidinga gir $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$, som har oddetalsforma $2k + 1$."},{"id":"r2-6-6-n-quiz1-q3","task":"Kvifor er summen av tre påfølgjande heiltal alltid deleleg med 3?","options":[{"id":"a","text":"Fordi eitt av tala alltid er 3","isCorrect":false},{"id":"b","text":"Fordi summen alltid er eit oddetal","isCorrect":false},{"id":"c","text":"Det stemmer berre for positive tal","isCorrect":false},{"id":"d","text":"Fordi $n + (n+1) + (n+2) = 3(n+1)$ — tre gonger eit heiltal","isCorrect":true}],"solution":"Smart notasjon gjer jobben: summen forenklast til $3(n+1)$, openbert deleleg med 3."}]}},{"id":"r2-6-6-n-section2","type":"text","content":"## Motseiing og kontraposisjon — å bevise baklengs\n\nNokre påstandar lèt seg vanskeleg angripe forfrå — særleg dei negative: «$\\sqrt{2}$ kan *ikkje* skrivast som brøk», «det finst *ikkje* eit største primtal». Då snur vi våpenet: **motseiingsbeviset** (*reductio ad absurdum*) antek det *motsette* av påstanden, utleier konsekvensar — og viser at dei kolliderer med seg sjølve. Då må føresetnaden vere gal, og påstanden står att som sann.\n\nJuvelen frå antikken: *$\\sqrt{2}$ er irrasjonal.* Anta det motsette — at $\\sqrt{2} = \\frac{p}{q}$ for heiltal utan felles faktorar (brøken maksimalt forkorta). Kvadrering gir $2q^2 = p^2$, så $p^2$ er eit partal — og då må $p$ sjølv vere det (eit oddetal i kvadrat er odde). Skriv $p = 2k$: då er $2q^2 = 4k^2$, altså $q^2 = 2k^2$ — så $q$ er *òg* partal. Men då har $p$ og $q$ felles faktor $2$, stikk i strid med at brøken var forkorta. Føresetnaden kollapsar; $\\sqrt{2}$ er irrasjonal. $\\blacksquare$ Pytagorearane skal ha halde dette resultatet hemmeleg — det knuste trua på at alt er forhold mellom heile tal.\n\nEuklids primtalsbevis følgjer same dramaturgi. Anta endeleg mange primtal $p_1, \\ldots, p_n$, og sjå på $N = p_1 p_2 \\cdots p_n + 1$. Divisjon med kvart $p_i$ gir rest $1$, så ingen av dei deler $N$ — men eitkvart tal større enn $1$ har ein primfaktor. Altså finst eit primtal utanfor lista som skulle vere komplett. Motseiing — primtala tek aldri slutt. Og miniatyrutgåva: finst det eit *minste* positive rasjonale tal $r$? Nei — $\\frac{r}{2}$ er mindre, positivt og rasjonalt. Føresetnaden motseier seg sjølv med ein gong.\n\nI slekt med motseiinga er **kontraposisjonen**: «dersom $P$, så $Q$» er logisk ekvivalent med «dersom ikkje $Q$, så ikkje $P$». Skal du vise at *$n^2$ partal medfører $n$ partal*, er det lettare baklengs: anta $n$ odde, $n = 2k+1$; då er $n^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ — odde. Dermed: er $n^2$ partal, kan $n$ umogleg vere odde. Same garanti, enklare marsjrute."},{"id":"r2-6-6-n-quiz2","type":"exercise","exercise":{"id":"r2-6-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på motseiingsbevis og kontraposisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-6-n-quiz2-q0","task":"Kva er første steg i eit motseiingsbevis?","options":[{"id":"a","text":"Å sjekke små eksempel","isCorrect":false},{"id":"b","text":"Å derivere begge sider","isCorrect":false},{"id":"c","text":"Å anta det motsette av det som skal bevisast","isCorrect":true},{"id":"d","text":"Å vise basissteget","isCorrect":false}],"solution":"Vi antek negasjonen av påstanden og viser at føresetnaden leier til ei logisk sjølvmotseiing."},{"id":"r2-6-6-n-quiz2-q1","task":"Kvar oppstår motseiinga i beviset for at $\\sqrt{2}$ er irrasjonal?","options":[{"id":"a","text":"Både $p$ og $q$ må vere partal — men brøken $\\frac{p}{q}$ var antatt maksimalt forkorta","isCorrect":true},{"id":"b","text":"$p^2$ blir negativt","isCorrect":false},{"id":"c","text":"$q$ må vere null","isCorrect":false},{"id":"d","text":"$\\sqrt{2}$ viser seg å vere eit heiltal","isCorrect":false}],"solution":"$2q^2 = p^2$ tvingar $p$ til å vere partal, og deretter $q$ òg — felles faktor 2 motseier forkorta brøk."},{"id":"r2-6-6-n-quiz2-q2","task":"I Euklids bevis: kvifor er $N = p_1 p_2 \\cdots p_n + 1$ ikkje deleleg med nokon $p_i$?","options":[{"id":"a","text":"Fordi $N$ er eit oddetal","isCorrect":false},{"id":"b","text":"Divisjon med kvart $p_i$ gir rest 1","isCorrect":true},{"id":"c","text":"Fordi $N$ er eit primtal","isCorrect":false},{"id":"d","text":"Fordi $N$ er mindre enn alle $p_i$","isCorrect":false}],"solution":"$N$ er produktet av alle $p_i$ pluss 1, så $N = p_i \\cdot (\\text{noko}) + 1$ — rest 1 ved kvar divisjon. Merk: $N$ treng ikkje sjølv vere primtal."},{"id":"r2-6-6-n-quiz2-q3","task":"Kva er kontraposisjonen til «dersom $P$, så $Q$»?","options":[{"id":"a","text":"Dersom $Q$, så $P$","isCorrect":false},{"id":"b","text":"Dersom ikkje $P$, så ikkje $Q$","isCorrect":false},{"id":"c","text":"$P$ dersom og berre dersom $Q$","isCorrect":false},{"id":"d","text":"Dersom ikkje $Q$, så ikkje $P$ — logisk ekvivalent med originalen","isCorrect":true}],"solution":"$(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$. Slik bevisast «$n^2$ partal $\\Rightarrow$ $n$ partal» via «$n$ odde $\\Rightarrow$ $n^2$ odde»."}]}},{"id":"r2-6-6-n-section3","type":"text","content":"## Induksjon — dominorekkja\n\nKorleis beviser ein noko for *alle* naturlege tal — uendeleg mange tilfelle — med endeleg mange ord? Svaret er dominorekkja til matematikken. Still opp éi brikke per tal. Dersom du veit at *den første brikka fell*, og at *kvar fallande brikke veltar den neste*, då fell alle saman — heile den uendelege rekkja.\n\nFormelt: la $P(n)$ vere ein påstand om talet $n$. **Induksjonsprinsippet** seier at $P(n)$ gjeld for alle $n \\geq n_0$ dersom to ting er vist: **basissteget** — $P(n_0)$ er sann — og **induksjonssteget** — for kvar $k \\geq n_0$: dersom $P(k)$ er sann (dette blir kalla *induksjonsføresetnaden*), så er $P(k+1)$ sann.\n\nKlassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$. *Basis* ($n = 1$): venstre side $1$, høgre side $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = k$, og legg til $k+1$:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\n— nøyaktig formelen for $n = k+1$. Brikke $k$ velta brikke $k+1$, og formelen gjeld for alle $n$. $\\blacksquare$ Legg merke til sjølve grepet: induksjonsføresetnaden *blir brukt* til å erstatte den lange summen, og resten er algebra.\n\nSame maskineri beviser at $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ (steget er $k^2 + (2k+1) = (k+1)^2$ — andre kvadratsetning i hovudrolla), at $n^3 - n$ alltid er deleleg med $6$ (skriv $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$; første ledd er deleleg med 6 per føresetnad, og $k(k+1)$ er produktet av to naboar, alltid partal), og den geometriske summeformelen $1 + r + \\cdots + r^n = \\frac{r^{n+1} - 1}{r - 1}$ som du kjenner frå rekkjekapittelet — induksjon er nettopp verktøyet som gjorde han til teorem."},{"id":"r2-6-6-n-quiz3","type":"exercise","exercise":{"id":"r2-6-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på induksjonsbevis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-6-n-quiz3-q0","task":"Kva to steg består eit induksjonsbevis av?","options":[{"id":"a","text":"Føresetnad og motseiing","isCorrect":false},{"id":"b","text":"Basissteg og induksjonssteg","isCorrect":true},{"id":"c","text":"Derivasjon og integrasjon","isCorrect":false},{"id":"d","text":"Definisjon og konklusjon","isCorrect":false}],"solution":"Basissteget feller første dominobrikke; induksjonssteget viser at kvar brikke veltar den neste."},{"id":"r2-6-6-n-quiz3-q1","task":"Kva er induksjonsføresetnaden?","options":[{"id":"a","text":"At påstanden gjeld for alle $n$","isCorrect":false},{"id":"b","text":"At $n = 1$","isCorrect":false},{"id":"c","text":"Føresetnaden om at $P(k)$ er sann, brukt til å vise $P(k+1)$","isCorrect":true},{"id":"d","text":"At påstanden er usann for eit eller anna $k$","isCorrect":false}],"solution":"I induksjonssteget antek vi $P(k)$ og bruker han aktivt — i sumformelen erstatta han heile summen $1 + \\cdots + k$."},{"id":"r2-6-6-n-quiz3-q2","task":"Sjekk formelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ for $n = 3$:","options":[{"id":"a","text":"Begge sider er $6$","isCorrect":true},{"id":"b","text":"Venstre er $6$, høgre er $12$","isCorrect":false},{"id":"c","text":"Begge sider er $9$","isCorrect":false},{"id":"d","text":"Venstre er $5$, høgre er $6$","isCorrect":false}],"solution":"$1 + 2 + 3 = 6$ og $\\frac{3 \\cdot 4}{2} = 6$ — formelen stemmer (men eitt eksempel er ikkje noko bevis!)."},{"id":"r2-6-6-n-quiz3-q3","task":"I beviset for at $6 \\mid n^3 - n$: kvifor er $3k(k+1)$ deleleg med 6?","options":[{"id":"a","text":"Fordi $k$ alltid er partal","isCorrect":false},{"id":"b","text":"Fordi $3k$ er deleleg med 6","isCorrect":false},{"id":"c","text":"Det er det ikkje — beviset bruker eit anna argument","isCorrect":false},{"id":"d","text":"$k(k+1)$ er produktet av to påfølgjande heiltal, så det er partal — og $3 \\cdot \\text{partal}$ er deleleg med 6","isCorrect":true}],"solution":"Av to nabotal er eitt alltid partal, så $k(k+1) = 2m$, og $3k(k+1) = 6m$."}]}},{"id":"r2-6-6-n-section4","type":"text","content":"## Å lese bevis med lupe — og spelereglane til logikken\n\nEit bevis skal ikkje berre skrivast — det skal *lesast*, kritisk. Strategien: identifiser premissane, konklusjonen og metoden; kontroller kvart steg; sjekk kvar kvar premiss blir brukt; og leit etter spesialtilfelle der argumentet kan svikte. At dette ikkje er pedanteri, viser tidenes mest lærerike falske bevis.\n\n*«Teorem»: alle hestar har same farge.* «Bevis» ved induksjon: éin hest har openbert same farge som seg sjølv. Anta så at kvar mengd med $k$ hestar er einsfarga, og sjå på $k+1$ hestar. Mengda $\\{H_1, \\ldots, H_k\\}$ er einsfarga per føresetnad; det same er $\\{H_2, \\ldots, H_{k+1}\\}$; og sidan $H_2$ står i begge, har alle same farge. $\\blacksquare$? Kvar juksar det? Set $k = 1$: mengdene er $\\{H_1\\}$ og $\\{H_2\\}$ — *ingen felles hest*, og limet ryk. Induksjonssteget sviktar nøyaktig i overgangen frå éin til to hestar, og heile rekkja står uvelta. Lærdomen: sjekk at steget held for *alle* $k$, særleg dei minste.\n\nSlik gransking krev spelereglane til logikken. Konnektiva: $P \\land Q$ (og), $P \\lor Q$ (eller), $\\neg P$ (ikkje), $P \\Rightarrow Q$ (dersom–så — usann *berre* når $P$ er sann og $Q$ usann) og $P \\Leftrightarrow Q$ (dersom og berre dersom). Dei viktigaste ekvivalensane: kontraposisjonen $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$, **De Morgans lover** $\\neg(P \\land Q) \\Leftrightarrow \\neg P \\lor \\neg Q$ og $\\neg(P \\lor Q) \\Leftrightarrow \\neg P \\land \\neg Q$, og negasjonen av implikasjonen $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$ — å nekte «dersom det regnar, blir bakken våt» er å påstå «det regnar *og* bakken er tørr».\n\nKvantorane følgjer same speillogikk: negasjonen av «for alle $x$ gjeld...» ($\\forall$) er «det finst ein $x$ der det ikkje gjeld» ($\\exists$), og omvendt. Negasjonen av «det finst eit reelt tal med $x^2 < 0$» er «for alle reelle $x$ er $x^2 \\geq 0$» — sann, så originalen er usann. Når du skal utvikle eigne bevis, er dette verktøya: forstå påstanden presist, vel metode — direkte når vegen fram er farbar, motseiing for negative påstandar, induksjon for «alle $n$» — skriv kvart steg grunngitt, og les til slutt ditt eige bevis som din strengaste kritikar."},{"id":"r2-6-6-n-quiz4","type":"exercise","exercise":{"id":"r2-6-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på bevisanalyse og logikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-6-n-quiz4-q0","task":"Kvar sviktar «beviset» for at alle hestar har same farge?","options":[{"id":"a","text":"I basissteget — éin hest kan ha fleire fargar","isCorrect":false},{"id":"b","text":"Induksjonssteget sviktar for $k = 1$: mengdene $\\{H_1\\}$ og $\\{H_2\\}$ har ingen felles hest","isCorrect":true},{"id":"c","text":"Det sviktar ikkje — konklusjonen er rett","isCorrect":false},{"id":"d","text":"Hestar kan ikkje teljast","isCorrect":false}],"solution":"Argumentet treng ein felles hest i begge delmengdene, men ved overgangen frå 1 til 2 hestar finst ingen — dominorekkja blir broten der."},{"id":"r2-6-6-n-quiz4-q1","task":"Kva er negasjonen av implikasjonen «dersom $P$, så $Q$»?","options":[{"id":"a","text":"Dersom $Q$, så $P$","isCorrect":false},{"id":"b","text":"Dersom ikkje $P$, så ikkje $Q$","isCorrect":false},{"id":"c","text":"$P$ er sann og $Q$ er usann ($P \\land \\neg Q$)","isCorrect":true},{"id":"d","text":"Verken $P$ eller $Q$","isCorrect":false}],"solution":"$\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$: «det regnar og bakken er tørr» nektar «dersom det regnar, blir bakken våt»."},{"id":"r2-6-6-n-quiz4-q2","task":"Kva seier De Morgans lov om $\\neg(P \\land Q)$?","options":[{"id":"a","text":"$\\neg P \\land \\neg Q$","isCorrect":false},{"id":"b","text":"$P \\lor Q$","isCorrect":false},{"id":"c","text":"$\\neg(P \\lor Q)$","isCorrect":false},{"id":"d","text":"$\\neg P \\lor \\neg Q$","isCorrect":true}],"solution":"Negasjonen av «både $P$ og $Q$» er «minst éin av dei er usann»: $\\neg P \\lor \\neg Q$."},{"id":"r2-6-6-n-quiz4-q3","task":"Kva er negasjonen av «det finst eit reelt tal $x$ slik at $x^2 < 0$»?","options":[{"id":"a","text":"For alle reelle $x$ er $x^2 \\geq 0$","isCorrect":true},{"id":"b","text":"Det finst eit reelt tal $x$ med $x^2 \\geq 0$","isCorrect":false},{"id":"c","text":"For alle reelle $x$ er $x^2 < 0$","isCorrect":false},{"id":"d","text":"Det finst ingen reelle tal","isCorrect":false}],"solution":"$\\neg\\exists$ blir $\\forall$ med negert vilkår: for alle $x$ er $x^2 \\geq 0$ — som er sann, så originalen er usann."}]}},{"id":"r2-6-6-n-summary","type":"text","content":"## Oppsummering\n\nEvigheitsgarantien har fått sitt handverk. Eit **bevis** byggjer nye sanningar av aksiom, definisjonar og tidlegare teorem — og i motsetnad til empirien gir det visse: ein million eksempel beviser ingenting, eitt gyldig argument beviser alt.\n\nTre metodar bar kapittelet. Det **direkte beviset** marsjerte frå definisjon til konklusjon: partal $2k$ og oddetal $2k+1$ gav sum-, produkt- og delelegheitsresultata, og «tre påfølgjande heiltal» vart til $3(n+1)$ av seg sjølv. **Motseiingsbeviset** antok det motsette og lét føresetnaden kollapse: $\\sqrt{2} = \\frac{p}{q}$ tvinga både $p$ og $q$ til å vere partal i ein forkorta brøk, og Euklids $N = p_1 \\cdots p_n + 1$ avslørte eit primtal utanfor kvar komplett liste. **Kontraposisjonen** $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$ gav baklengsruta: «$n$ odde gir $n^2$ odde» beviste «$n^2$ partal gir $n$ partal». Og **induksjonen** velta si uendelege dominorekkje med basissteg og induksjonssteg: sumformelen $\\frac{n(n+1)}{2}$, oddetalssummen $n^2$, delelegheita $6 \\mid n^3 - n$ og den geometriske rekkjeformelen.\n\nTil slutt lupa: hestefarge-«beviset» viste at induksjonssteg må halde for *alle* $k$ — det rauk ved overgangen frå éin til to. Reglane til logikken — konnektiv, De Morgan, $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$, kvantorbyte mellom $\\forall$ og $\\exists$ — er presisjonsverktøya som gjer slik gransking mogleg.\n\nDermed sluttar R2 der matematikken byrjar: ikkje med å rekne rett, men med å *vite kvifor* det er rett. Det er den djupaste dugleiken i faget — og no er han din."}],"exercises":[],"_meta":{"sourceHash":"d90f51dddd6ffc95","translatedAt":"2026-06-20T01:42:27.286Z","model":"claude-code-agent","strings":114,"tm":{"2eeb9a184f5346a2":"Bevis og matematisk argumentasjon","b195b06d1ed59702":"Narrativ versjon","ea754b9fb3236d1e":"Ei forteljing om matematikkens evigheitsgaranti — direkte bevis, motseiing, kontraposisjon og dominorekkja til induksjonen, og kunsten å avsløre eit bevis som juksar.","4658809f7b635740":"analysere og forsta matematiske bevis, forklare sentrale idear i bevis og utvikle eigne bevis","926208c50ed5f0bb":"## Evigheitsgarantien\n\nFor 2300 år sidan skreiv Euklid ned eit argument for at det finst uendeleg mange primtal. Det argumentet er like gyldig i dag — ikkje «framleis godt stadfesta», ikkje «enno ikkje motbevist», men *gyldig*, punktum. Inga naturvitskap kan tilby noko liknande. Fysikkens teoriar blir reviderte når nye målingar kjem; Newtons mekanikk måtte vike for Einsteins. Men eit matematisk **bevis** er ein evigheitsgaranti: ei logisk argumentasjonsrekkje som viser at ein påstand *må* vere sann, gitt premissane.\n\nKva kviler garantien på? Tre slags byggjesteinar: **aksiom** — grunnsanningar vi aksepterer utan bevis, **definisjonar** — presise avgrensingar av omgrepa, og **tidlegare prova teorem** — resultat som alt har fått garantien. Frå desse blir nye sanningar bygde, steg for logisk steg, og eit godt bevis kjenneteiknast av presisjon, logisk samanheng, fullstende og gyldige slutningar. Merk kontrasten til empirien: at $n^2 - n + 41$ er primtal for $n = 1, 2, 3, \\ldots, 40$ er freistande bevismateriale — men ved $n = 41$ ryk det. Ein million eksempel beviser ingenting; eitt gyldig argument beviser alt.\n\nI dette kapittelet lærer du handverket. Tre hovudmetodar: det **direkte beviset**, som marsjerer frå premiss til konklusjon; **motseiingsbeviset**, som feller ein påstand ved å vise at det motsette er absurd; og **induksjonsbeviset**, dominorekkja som når alle naturlege tal. I tillegg: den elegante omvegen til kontraposisjonen, spelereglane til logikken — og kunsten å lese eit bevis kritisk nok til å avsløre det når det juksar.","07732ebde6a1fdcb":"## Det direkte beviset — marsjen frå premiss til konklusjon\n\nDen mest naturlege bevisforma går rett fram: anta premissane, utfør logiske slutningar, land på konklusjonen. Drivstoffet er *definisjonane* — og dei to arbeidshestane i talteorien er presist definerte: eit heiltal $n$ er eit **partal** dersom $n = 2k$ for eit heiltal $k$, og eit **oddetal** dersom $n = 2k + 1$.\n\nSjå korleis definisjonane ber eit heilt bevis. *Påstand: summen av to partal er eit partal.* La $a$ og $b$ vere partal. Per definisjon finst heiltal $m$ og $n$ med $a = 2m$ og $b = 2n$. Då er\n\n$$a + b = 2m + 2n = 2(m + n)$$\n\nog sidan $m + n$ er eit heiltal, har summen forma $2 \\cdot (\\text{heiltal})$ — eit partal, per definisjon. $\\blacksquare$ Heile kunsten ligg i å *omsetje* påstanden til språket til definisjonane, rekne, og omsetje tilbake.\n\nSame marsj tek oddetala: produktet av $a = 2m + 1$ og $b = 2n + 1$ er $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$ — forma til eit oddetal, så *oddetal gonger oddetal er oddetal*. Og kvadratet av eit partal: $(2k)^2 = 4k^2$, deleleg med $4$, alltid.\n\nEit siste eksempel viser korleis eit smart oppsett gjer beviset til rein rekning. *Påstand: summen av tre påfølgjande heiltal er deleleg med 3.* Kall tala $n$, $n+1$ og $n+2$:\n\n$$n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$$\n\nFerdig — summen er tre gonger eit heiltal. Merk kor mykje arbeid valet av notasjon gjorde: «tre påfølgjande heiltal» vart til algebra som beviste seg sjølv. Slik ser direkte bevis ut når dei lukkast: ingen triks, berre definisjonar, omskriving og ein konklusjon som modnast fram.","635ddd21ff0ca56d":"Test deg sjølv på direkte bevis:","4097889236a2af26":"placeholder","24d2de90d40d0791":"Kva er strukturen i eit direkte bevis?","de2428cbfb6524c7":"Anta premissane, utfør logiske slutningar, konkluder med påstanden","18929a681886e89e":"Anta det motsette og finn ei sjølvmotseiing","687e442e8814807f":"Sjekk mange eksempel","e70a754d51e4bf93":"Vis basissteg og induksjonssteg","f1a44a6c5f6f3b65":"Det direkte beviset marsjerer frå kjende sanningar til konklusjonen via gyldige slutningar.","7b520b4f9a224792":"I beviset for at summen av to partal er eit partal skriv vi $a = 2m$, $b = 2n$. Kvifor?","627f836d4cb54c86":"Fordi $m$ og $n$ er partal","c817b6b13cb9f62b":"Det er definisjonen av partal — og han omset påstanden til algebra","276d832a52062af5":"Fordi alle heiltal kan skrivast slik","4255c61c56e39bfb":"For å kunne dele på 2 seinare","717b70b5d8729d4c":"Definisjonen «$n$ er partal dersom $n = 2k$» er drivstoffet til beviset: $a + b = 2(m+n)$ får partalsforma direkte.","2605200c78fd0456":"Kva er produktet av to oddetal $(2m+1)(2n+1)$ omskrive til?","36458975f8b0f4b6":"$2(2mn + m + n)$ — eit partal","2e42d054065c3ba4":"$4mn + 1$ — verken partal eller oddetal","664ad6868fdf775e":"$2(2mn + m + n) + 1$ — eit oddetal","6cb4546184d23834":"$2mn + 1$ — eit primtal","f5689b75b4930339":"Utvidinga gir $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$, som har oddetalsforma $2k + 1$.","6c338e077cd65321":"Kvifor er summen av tre påfølgjande heiltal alltid deleleg med 3?","d8615fd33b54b2c0":"Fordi eitt av tala alltid er 3","e9f06246079a77af":"Fordi summen alltid er eit oddetal","dd9cc1e390de4760":"Det stemmer berre for positive tal","a1224c68cab65494":"Fordi $n + (n+1) + (n+2) = 3(n+1)$ — tre gonger eit heiltal","1cbc6a697604c9c8":"Smart notasjon gjer jobben: summen forenklast til $3(n+1)$, openbert deleleg med 3.","dc04b163120d3c23":"## Motseiing og kontraposisjon — å bevise baklengs\n\nNokre påstandar lèt seg vanskeleg angripe forfrå — særleg dei negative: «$\\sqrt{2}$ kan *ikkje* skrivast som brøk», «det finst *ikkje* eit største primtal». Då snur vi våpenet: **motseiingsbeviset** (*reductio ad absurdum*) antek det *motsette* av påstanden, utleier konsekvensar — og viser at dei kolliderer med seg sjølve. Då må føresetnaden vere gal, og påstanden står att som sann.\n\nJuvelen frå antikken: *$\\sqrt{2}$ er irrasjonal.* Anta det motsette — at $\\sqrt{2} = \\frac{p}{q}$ for heiltal utan felles faktorar (brøken maksimalt forkorta). Kvadrering gir $2q^2 = p^2$, så $p^2$ er eit partal — og då må $p$ sjølv vere det (eit oddetal i kvadrat er odde). Skriv $p = 2k$: då er $2q^2 = 4k^2$, altså $q^2 = 2k^2$ — så $q$ er *òg* partal. Men då har $p$ og $q$ felles faktor $2$, stikk i strid med at brøken var forkorta. Føresetnaden kollapsar; $\\sqrt{2}$ er irrasjonal. $\\blacksquare$ Pytagorearane skal ha halde dette resultatet hemmeleg — det knuste trua på at alt er forhold mellom heile tal.\n\nEuklids primtalsbevis følgjer same dramaturgi. Anta endeleg mange primtal $p_1, \\ldots, p_n$, og sjå på $N = p_1 p_2 \\cdots p_n + 1$. Divisjon med kvart $p_i$ gir rest $1$, så ingen av dei deler $N$ — men eitkvart tal større enn $1$ har ein primfaktor. Altså finst eit primtal utanfor lista som skulle vere komplett. Motseiing — primtala tek aldri slutt. Og miniatyrutgåva: finst det eit *minste* positive rasjonale tal $r$? Nei — $\\frac{r}{2}$ er mindre, positivt og rasjonalt. Føresetnaden motseier seg sjølv med ein gong.\n\nI slekt med motseiinga er **kontraposisjonen**: «dersom $P$, så $Q$» er logisk ekvivalent med «dersom ikkje $Q$, så ikkje $P$». Skal du vise at *$n^2$ partal medfører $n$ partal*, er det lettare baklengs: anta $n$ odde, $n = 2k+1$; då er $n^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ — odde. Dermed: er $n^2$ partal, kan $n$ umogleg vere odde. Same garanti, enklare marsjrute.","0b02773e3c7ebc73":"Test deg sjølv på motseiingsbevis og kontraposisjon:","f666afbc03945e2c":"Kva er første steg i eit motseiingsbevis?","75b6e54a2ab33e77":"Å sjekke små eksempel","7acba9f4c74ffdfa":"Å derivere begge sider","295b0cb9519aff2e":"Å anta det motsette av det som skal bevisast","850cb974e26fcf15":"Å vise basissteget","7d1d27a73b933f81":"Vi antek negasjonen av påstanden og viser at føresetnaden leier til ei logisk sjølvmotseiing.","e03274ac1f80c093":"Kvar oppstår motseiinga i beviset for at $\\sqrt{2}$ er irrasjonal?","15a78529bbcd9a6a":"Både $p$ og $q$ må vere partal — men brøken $\\frac{p}{q}$ var antatt maksimalt forkorta","e9b897e329792dbe":"$p^2$ blir negativt","d724c0051d45142a":"$q$ må vere null","bf82012a6747c8e0":"$\\sqrt{2}$ viser seg å vere eit heiltal","165e7cacf2c0d246":"$2q^2 = p^2$ tvingar $p$ til å vere partal, og deretter $q$ òg — felles faktor 2 motseier forkorta brøk.","b921763913ef7d1d":"I Euklids bevis: kvifor er $N = p_1 p_2 \\cdots p_n + 1$ ikkje deleleg med nokon $p_i$?","152969a1714c200e":"Fordi $N$ er eit oddetal","2ccac9f88a9b03d7":"Divisjon med kvart $p_i$ gir rest 1","4c1d921bbb5a45de":"Fordi $N$ er eit primtal","d4eec866a80721f5":"Fordi $N$ er mindre enn alle $p_i$","ff3e23b601449ed4":"$N$ er produktet av alle $p_i$ pluss 1, så $N = p_i \\cdot (\\text{noko}) + 1$ — rest 1 ved kvar divisjon. Merk: $N$ treng ikkje sjølv vere primtal.","fa57036863b7bcf7":"Kva er kontraposisjonen til «dersom $P$, så $Q$»?","db2aeeeaaffa0ad4":"Dersom $Q$, så $P$","925e7ca32fe42cec":"Dersom ikkje $P$, så ikkje $Q$","4c878e1cc08c6a90":"$P$ dersom og berre dersom $Q$","4452758c2eaad221":"Dersom ikkje $Q$, så ikkje $P$ — logisk ekvivalent med originalen","4ea255196bcda94e":"$(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$. Slik bevisast «$n^2$ partal $\\Rightarrow$ $n$ partal» via «$n$ odde $\\Rightarrow$ $n^2$ odde».","385ff63e66c29ac3":"## Induksjon — dominorekkja\n\nKorleis beviser ein noko for *alle* naturlege tal — uendeleg mange tilfelle — med endeleg mange ord? Svaret er dominorekkja til matematikken. Still opp éi brikke per tal. Dersom du veit at *den første brikka fell*, og at *kvar fallande brikke veltar den neste*, då fell alle saman — heile den uendelege rekkja.\n\nFormelt: la $P(n)$ vere ein påstand om talet $n$. **Induksjonsprinsippet** seier at $P(n)$ gjeld for alle $n \\geq n_0$ dersom to ting er vist: **basissteget** — $P(n_0)$ er sann — og **induksjonssteget** — for kvar $k \\geq n_0$: dersom $P(k)$ er sann (dette blir kalla *induksjonsføresetnaden*), så er $P(k+1)$ sann.\n\nKlassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$. *Basis* ($n = 1$): venstre side $1$, høgre side $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = k$, og legg til $k+1$:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\n— nøyaktig formelen for $n = k+1$. Brikke $k$ velta brikke $k+1$, og formelen gjeld for alle $n$. $\\blacksquare$ Legg merke til sjølve grepet: induksjonsføresetnaden *blir brukt* til å erstatte den lange summen, og resten er algebra.\n\nSame maskineri beviser at $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ (steget er $k^2 + (2k+1) = (k+1)^2$ — andre kvadratsetning i hovudrolla), at $n^3 - n$ alltid er deleleg med $6$ (skriv $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$; første ledd er deleleg med 6 per føresetnad, og $k(k+1)$ er produktet av to naboar, alltid partal), og den geometriske summeformelen $1 + r + \\cdots + r^n = \\frac{r^{n+1} - 1}{r - 1}$ som du kjenner frå rekkjekapittelet — induksjon er nettopp verktøyet som gjorde han til teorem.","29fd4bd727b17adb":"Test deg sjølv på induksjonsbevis:","c83ca7bb6c29e635":"Kva to steg består eit induksjonsbevis av?","41d92eaadc3c944e":"Føresetnad og motseiing","d79115facd0a7c8c":"Basissteg og induksjonssteg","ee5def80af81fcdd":"Derivasjon og integrasjon","404e760a6b0223cb":"Definisjon og konklusjon","ffee1ff986905fd5":"Basissteget feller første dominobrikke; induksjonssteget viser at kvar brikke veltar den neste.","ab8aae3ac4b36cee":"Kva er induksjonsføresetnaden?","cebd41175f4ff91d":"At påstanden gjeld for alle $n$","c95ae0baf3c0804d":"At $n = 1$","4fa432ff6e65a25a":"Føresetnaden om at $P(k)$ er sann, brukt til å vise $P(k+1)$","88555dd963478873":"At påstanden er usann for eit eller anna $k$","fd7561eadf80a318":"I induksjonssteget antek vi $P(k)$ og bruker han aktivt — i sumformelen erstatta han heile summen $1 + \\cdots + k$.","6b4816bf84cafd4b":"Sjekk formelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ for $n = 3$:","b5506258416220a3":"Begge sider er $6$","758694fc6e944527":"Venstre er $6$, høgre er $12$","2268b0bbdbd5a8da":"Begge sider er $9$","77ae4a4b13ca05a6":"Venstre er $5$, høgre er $6$","c2f47e96d5c7b7c7":"$1 + 2 + 3 = 6$ og $\\frac{3 \\cdot 4}{2} = 6$ — formelen stemmer (men eitt eksempel er ikkje noko bevis!).","c33b4f9539886dd7":"I beviset for at $6 \\mid n^3 - n$: kvifor er $3k(k+1)$ deleleg med 6?","95499cfb40090693":"Fordi $k$ alltid er partal","751af6799a638e06":"Fordi $3k$ er deleleg med 6","0bc1a95db497868f":"Det er det ikkje — beviset bruker eit anna argument","9c7dd03aa1cad94b":"$k(k+1)$ er produktet av to påfølgjande heiltal, så det er partal — og $3 \\cdot \\text{partal}$ er deleleg med 6","37995974a0b39613":"Av to nabotal er eitt alltid partal, så $k(k+1) = 2m$, og $3k(k+1) = 6m$.","b0e098c713a9b16e":"## Å lese bevis med lupe — og spelereglane til logikken\n\nEit bevis skal ikkje berre skrivast — det skal *lesast*, kritisk. Strategien: identifiser premissane, konklusjonen og metoden; kontroller kvart steg; sjekk kvar kvar premiss blir brukt; og leit etter spesialtilfelle der argumentet kan svikte. At dette ikkje er pedanteri, viser tidenes mest lærerike falske bevis.\n\n*«Teorem»: alle hestar har same farge.* «Bevis» ved induksjon: éin hest har openbert same farge som seg sjølv. Anta så at kvar mengd med $k$ hestar er einsfarga, og sjå på $k+1$ hestar. Mengda $\\{H_1, \\ldots, H_k\\}$ er einsfarga per føresetnad; det same er $\\{H_2, \\ldots, H_{k+1}\\}$; og sidan $H_2$ står i begge, har alle same farge. $\\blacksquare$? Kvar juksar det? Set $k = 1$: mengdene er $\\{H_1\\}$ og $\\{H_2\\}$ — *ingen felles hest*, og limet ryk. Induksjonssteget sviktar nøyaktig i overgangen frå éin til to hestar, og heile rekkja står uvelta. Lærdomen: sjekk at steget held for *alle* $k$, særleg dei minste.\n\nSlik gransking krev spelereglane til logikken. Konnektiva: $P \\land Q$ (og), $P \\lor Q$ (eller), $\\neg P$ (ikkje), $P \\Rightarrow Q$ (dersom–så — usann *berre* når $P$ er sann og $Q$ usann) og $P \\Leftrightarrow Q$ (dersom og berre dersom). Dei viktigaste ekvivalensane: kontraposisjonen $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$, **De Morgans lover** $\\neg(P \\land Q) \\Leftrightarrow \\neg P \\lor \\neg Q$ og $\\neg(P \\lor Q) \\Leftrightarrow \\neg P \\land \\neg Q$, og negasjonen av implikasjonen $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$ — å nekte «dersom det regnar, blir bakken våt» er å påstå «det regnar *og* bakken er tørr».\n\nKvantorane følgjer same speillogikk: negasjonen av «for alle $x$ gjeld...» ($\\forall$) er «det finst ein $x$ der det ikkje gjeld» ($\\exists$), og omvendt. Negasjonen av «det finst eit reelt tal med $x^2 < 0$» er «for alle reelle $x$ er $x^2 \\geq 0$» — sann, så originalen er usann. Når du skal utvikle eigne bevis, er dette verktøya: forstå påstanden presist, vel metode — direkte når vegen fram er farbar, motseiing for negative påstandar, induksjon for «alle $n$» — skriv kvart steg grunngitt, og les til slutt ditt eige bevis som din strengaste kritikar.","eb0be5b76c1eff97":"Test deg sjølv på bevisanalyse og logikk:","e5f887d0c9bf8436":"Kvar sviktar «beviset» for at alle hestar har same farge?","f715345166cf870e":"I basissteget — éin hest kan ha fleire fargar","ecaca08c32699c9c":"Induksjonssteget sviktar for $k = 1$: mengdene $\\{H_1\\}$ og $\\{H_2\\}$ har ingen felles hest","c18060f49ffcd195":"Det sviktar ikkje — konklusjonen er rett","f31b43d862f4b9de":"Hestar kan ikkje teljast","b56c34599df2fcff":"Argumentet treng ein felles hest i begge delmengdene, men ved overgangen frå 1 til 2 hestar finst ingen — dominorekkja blir broten der.","3e20f50f51f2a916":"Kva er negasjonen av implikasjonen «dersom $P$, så $Q$»?","e2768f1be7007808":"$P$ er sann og $Q$ er usann ($P \\land \\neg Q$)","71e42313f4041371":"Verken $P$ eller $Q$","1997b07fb23d105f":"$\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$: «det regnar og bakken er tørr» nektar «dersom det regnar, blir bakken våt».","bcc35e64d6550cb4":"Kva seier De Morgans lov om $\\neg(P \\land Q)$?","1b48d5842031022d":"$\\neg P \\land \\neg Q$","9ca3145688b988df":"$P \\lor Q$","933db1d671454d34":"$\\neg(P \\lor Q)$","10caa9100611538f":"$\\neg P \\lor \\neg Q$","086dda7f00c76c8f":"Negasjonen av «både $P$ og $Q$» er «minst éin av dei er usann»: $\\neg P \\lor \\neg Q$.","f5dba5e95a3b66bc":"Kva er negasjonen av «det finst eit reelt tal $x$ slik at $x^2 < 0$»?","a229b9bcf4d4fb43":"For alle reelle $x$ er $x^2 \\geq 0$","626ac7631f15dde9":"Det finst eit reelt tal $x$ med $x^2 \\geq 0$","4b1ead97038d6eb3":"For alle reelle $x$ er $x^2 < 0$","59a9036836afa25b":"Det finst ingen reelle tal","60f97c6098c8d202":"$\\neg\\exists$ blir $\\forall$ med negert vilkår: for alle $x$ er $x^2 \\geq 0$ — som er sann, så originalen er usann.","0a38aebb601f851e":"## Oppsummering\n\nEvigheitsgarantien har fått sitt handverk. Eit **bevis** byggjer nye sanningar av aksiom, definisjonar og tidlegare teorem — og i motsetnad til empirien gir det visse: ein million eksempel beviser ingenting, eitt gyldig argument beviser alt.\n\nTre metodar bar kapittelet. Det **direkte beviset** marsjerte frå definisjon til konklusjon: partal $2k$ og oddetal $2k+1$ gav sum-, produkt- og delelegheitsresultata, og «tre påfølgjande heiltal» vart til $3(n+1)$ av seg sjølv. **Motseiingsbeviset** antok det motsette og lét føresetnaden kollapse: $\\sqrt{2} = \\frac{p}{q}$ tvinga både $p$ og $q$ til å vere partal i ein forkorta brøk, og Euklids $N = p_1 \\cdots p_n + 1$ avslørte eit primtal utanfor kvar komplett liste. **Kontraposisjonen** $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$ gav baklengsruta: «$n$ odde gir $n^2$ odde» beviste «$n^2$ partal gir $n$ partal». Og **induksjonen** velta si uendelege dominorekkje med basissteg og induksjonssteg: sumformelen $\\frac{n(n+1)}{2}$, oddetalssummen $n^2$, delelegheita $6 \\mid n^3 - n$ og den geometriske rekkjeformelen.\n\nTil slutt lupa: hestefarge-«beviset» viste at induksjonssteg må halde for *alle* $k$ — det rauk ved overgangen frå éin til to. Reglane til logikken — konnektiv, De Morgan, $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$, kvantorbyte mellom $\\forall$ og $\\exists$ — er presisjonsverktøya som gjer slik gransking mogleg.\n\nDermed sluttar R2 der matematikken byrjar: ikkje med å rekne rett, men med å *vite kvifor* det er rett. Det er den djupaste dugleiken i faget — og no er han din."}}}
+{
+  "id": "r2-6-6-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "6.6",
+  "title": "Bevis og matematisk argumentasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om matematikkens evigheitsgaranti — direkte bevis, motseiing, kontraposisjon og dominorekkja til induksjonen, og kunsten å avsløre eit bevis som juksar.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "analysere og forsta matematiske bevis, forklare sentrale idear i bevis og utvikle eigne bevis"
+  ],
+  "linkedChapterId": "r2-6-6",
+  "content": [
+    {
+      "id": "r2-6-6-n-intro",
+      "type": "text",
+      "content": "## Evigheitsgarantien\n\nFor 2300 år sidan skreiv Euklid ned eit argument for at det finst uendeleg mange primtal. Det argumentet er like gyldig i dag — ikkje «framleis godt stadfesta», ikkje «enno ikkje motbevist», men *gyldig*, punktum. Inga naturvitskap kan tilby noko liknande. Fysikkens teoriar blir reviderte når nye målingar kjem; Newtons mekanikk måtte vike for Einsteins. Men eit matematisk **bevis** er ein evigheitsgaranti: ei logisk argumentasjonsrekkje som viser at ein påstand *må* vere sann, gitt premissane.\n\nKva kviler garantien på? Tre slags byggjesteinar: **aksiom** — grunnsanningar vi aksepterer utan bevis, **definisjonar** — presise avgrensingar av omgrepa, og **tidlegare prova teorem** — resultat som alt har fått garantien. Frå desse blir nye sanningar bygde, steg for logisk steg, og eit godt bevis kjenneteiknast av presisjon, logisk samanheng, fullstende og gyldige slutningar. Merk kontrasten til empirien: at $n^2 - n + 41$ er primtal for $n = 1, 2, 3, \\ldots, 40$ er freistande bevismateriale — men ved $n = 41$ ryk det. Ein million eksempel beviser ingenting; eitt gyldig argument beviser alt.\n\nI dette kapittelet lærer du handverket. Tre hovudmetodar: det **direkte beviset**, som marsjerer frå premiss til konklusjon; **motseiingsbeviset**, som feller ein påstand ved å vise at det motsette er absurd; og **induksjonsbeviset**, dominorekkja som når alle naturlege tal. I tillegg: den elegante omvegen til kontraposisjonen, spelereglane til logikken — og kunsten å lese eit bevis kritisk nok til å avsløre det når det juksar."
+    },
+    {
+      "id": "r2-6-6-n-section1",
+      "type": "text",
+      "content": "## Det direkte beviset — marsjen frå premiss til konklusjon\n\nDen mest naturlege bevisforma går rett fram: anta premissane, utfør logiske slutningar, land på konklusjonen. Drivstoffet er *definisjonane* — og dei to arbeidshestane i talteorien er presist definerte: eit heiltal $n$ er eit **partal** dersom $n = 2k$ for eit heiltal $k$, og eit **oddetal** dersom $n = 2k + 1$.\n\nSjå korleis definisjonane ber eit heilt bevis. *Påstand: summen av to partal er eit partal.* La $a$ og $b$ vere partal. Per definisjon finst heiltal $m$ og $n$ med $a = 2m$ og $b = 2n$. Då er\n\n$$a + b = 2m + 2n = 2(m + n)$$\n\nog sidan $m + n$ er eit heiltal, har summen forma $2 \\cdot (\\text{heiltal})$ — eit partal, per definisjon. $\\blacksquare$ Heile kunsten ligg i å *omsetje* påstanden til språket til definisjonane, rekne, og omsetje tilbake.\n\nSame marsj tek oddetala: produktet av $a = 2m + 1$ og $b = 2n + 1$ er $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$ — forma til eit oddetal, så *oddetal gonger oddetal er oddetal*. Og kvadratet av eit partal: $(2k)^2 = 4k^2$, deleleg med $4$, alltid.\n\nEit siste eksempel viser korleis eit smart oppsett gjer beviset til rein rekning. *Påstand: summen av tre påfølgjande heiltal er deleleg med 3.* Kall tala $n$, $n+1$ og $n+2$:\n\n$$n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$$\n\nFerdig — summen er tre gonger eit heiltal. Merk kor mykje arbeid valet av notasjon gjorde: «tre påfølgjande heiltal» vart til algebra som beviste seg sjølv. Slik ser direkte bevis ut når dei lukkast: ingen triks, berre definisjonar, omskriving og ein konklusjon som modnast fram."
+    },
+    {
+      "id": "r2-6-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på direkte bevis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-6-n-quiz1-q0",
+            "task": "Kva er strukturen i eit direkte bevis?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Anta premissane, utfør logiske slutningar, konkluder med påstanden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Anta det motsette og finn ei sjølvmotseiing",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sjekk mange eksempel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vis basissteg og induksjonssteg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det direkte beviset marsjerer frå kjende sanningar til konklusjonen via gyldige slutningar."
+          },
+          {
+            "id": "r2-6-6-n-quiz1-q1",
+            "task": "I beviset for at summen av to partal er eit partal skriv vi $a = 2m$, $b = 2n$. Kvifor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $m$ og $n$ er partal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det er definisjonen av partal — og han omset påstanden til algebra",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi alle heiltal kan skrivast slik",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å kunne dele på 2 seinare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Definisjonen «$n$ er partal dersom $n = 2k$» er drivstoffet til beviset: $a + b = 2(m+n)$ får partalsforma direkte."
+          },
+          {
+            "id": "r2-6-6-n-quiz1-q2",
+            "task": "Kva er produktet av to oddetal $(2m+1)(2n+1)$ omskrive til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2(2mn + m + n)$ — eit partal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4mn + 1$ — verken partal eller oddetal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2(2mn + m + n) + 1$ — eit oddetal",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2mn + 1$ — eit primtal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Utvidinga gir $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$, som har oddetalsforma $2k + 1$."
+          },
+          {
+            "id": "r2-6-6-n-quiz1-q3",
+            "task": "Kvifor er summen av tre påfølgjande heiltal alltid deleleg med 3?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi eitt av tala alltid er 3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi summen alltid er eit oddetal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det stemmer berre for positive tal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $n + (n+1) + (n+2) = 3(n+1)$ — tre gonger eit heiltal",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Smart notasjon gjer jobben: summen forenklast til $3(n+1)$, openbert deleleg med 3."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-6-n-section2",
+      "type": "text",
+      "content": "## Motseiing og kontraposisjon — å bevise baklengs\n\nNokre påstandar lèt seg vanskeleg angripe forfrå — særleg dei negative: «$\\sqrt{2}$ kan *ikkje* skrivast som brøk», «det finst *ikkje* eit største primtal». Då snur vi våpenet: **motseiingsbeviset** (*reductio ad absurdum*) antek det *motsette* av påstanden, utleier konsekvensar — og viser at dei kolliderer med seg sjølve. Då må føresetnaden vere gal, og påstanden står att som sann.\n\nJuvelen frå antikken: *$\\sqrt{2}$ er irrasjonal.* Anta det motsette — at $\\sqrt{2} = \\frac{p}{q}$ for heiltal utan felles faktorar (brøken maksimalt forkorta). Kvadrering gir $2q^2 = p^2$, så $p^2$ er eit partal — og då må $p$ sjølv vere det (eit oddetal i kvadrat er odde). Skriv $p = 2k$: då er $2q^2 = 4k^2$, altså $q^2 = 2k^2$ — så $q$ er *òg* partal. Men då har $p$ og $q$ felles faktor $2$, stikk i strid med at brøken var forkorta. Føresetnaden kollapsar; $\\sqrt{2}$ er irrasjonal. $\\blacksquare$ Pytagorearane skal ha halde dette resultatet hemmeleg — det knuste trua på at alt er forhold mellom heile tal.\n\nEuklids primtalsbevis følgjer same dramaturgi. Anta endeleg mange primtal $p_1, \\ldots, p_n$, og sjå på $N = p_1 p_2 \\cdots p_n + 1$. Divisjon med kvart $p_i$ gir rest $1$, så ingen av dei deler $N$ — men eitkvart tal større enn $1$ har ein primfaktor. Altså finst eit primtal utanfor lista som skulle vere komplett. Motseiing — primtala tek aldri slutt. Og miniatyrutgåva: finst det eit *minste* positive rasjonale tal $r$? Nei — $\\frac{r}{2}$ er mindre, positivt og rasjonalt. Føresetnaden motseier seg sjølv med ein gong.\n\nI slekt med motseiinga er **kontraposisjonen**: «dersom $P$, så $Q$» er logisk ekvivalent med «dersom ikkje $Q$, så ikkje $P$». Skal du vise at *$n^2$ partal medfører $n$ partal*, er det lettare baklengs: anta $n$ odde, $n = 2k+1$; då er $n^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ — odde. Dermed: er $n^2$ partal, kan $n$ umogleg vere odde. Same garanti, enklare marsjrute."
+    },
+    {
+      "id": "r2-6-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på motseiingsbevis og kontraposisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-6-n-quiz2-q0",
+            "task": "Kva er første steg i eit motseiingsbevis?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Å anta det motsette av det som skal bevisast",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å sjekke små eksempel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å derivere begge sider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å vise basissteget",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi antek negasjonen av påstanden og viser at føresetnaden leier til ei logisk sjølvmotseiing."
+          },
+          {
+            "id": "r2-6-6-n-quiz2-q1",
+            "task": "Kvar oppstår motseiinga i beviset for at $\\sqrt{2}$ er irrasjonal?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$p^2$ blir negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Både $p$ og $q$ må vere partal — men brøken $\\frac{p}{q}$ var antatt maksimalt forkorta",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$q$ må vere null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{2}$ viser seg å vere eit heiltal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2q^2 = p^2$ tvingar $p$ til å vere partal, og deretter $q$ òg — felles faktor 2 motseier forkorta brøk."
+          },
+          {
+            "id": "r2-6-6-n-quiz2-q2",
+            "task": "I Euklids bevis: kvifor er $N = p_1 p_2 \\cdots p_n + 1$ ikkje deleleg med nokon $p_i$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $N$ er eit oddetal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $N$ er eit primtal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Divisjon med kvart $p_i$ gir rest 1",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi $N$ er mindre enn alle $p_i$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N$ er produktet av alle $p_i$ pluss 1, så $N = p_i \\cdot (\\text{noko}) + 1$ — rest 1 ved kvar divisjon. Merk: $N$ treng ikkje sjølv vere primtal."
+          },
+          {
+            "id": "r2-6-6-n-quiz2-q3",
+            "task": "Kva er kontraposisjonen til «dersom $P$, så $Q$»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dersom $Q$, så $P$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dersom ikkje $P$, så ikkje $Q$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P$ dersom og berre dersom $Q$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dersom ikkje $Q$, så ikkje $P$ — logisk ekvivalent med originalen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$. Slik bevisast «$n^2$ partal $\\Rightarrow$ $n$ partal» via «$n$ odde $\\Rightarrow$ $n^2$ odde»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-6-n-section3",
+      "type": "text",
+      "content": "## Induksjon — dominorekkja\n\nKorleis beviser ein noko for *alle* naturlege tal — uendeleg mange tilfelle — med endeleg mange ord? Svaret er dominorekkja til matematikken. Still opp éi brikke per tal. Dersom du veit at *den første brikka fell*, og at *kvar fallande brikke veltar den neste*, då fell alle saman — heile den uendelege rekkja.\n\nFormelt: la $P(n)$ vere ein påstand om talet $n$. **Induksjonsprinsippet** seier at $P(n)$ gjeld for alle $n \\geq n_0$ dersom to ting er vist: **basissteget** — $P(n_0)$ er sann — og **induksjonssteget** — for kvar $k \\geq n_0$: dersom $P(k)$ er sann (dette blir kalla *induksjonsføresetnaden*), så er $P(k+1)$ sann.\n\nKlassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$. *Basis* ($n = 1$): venstre side $1$, høgre side $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = k$, og legg til $k+1$:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\n— nøyaktig formelen for $n = k+1$. Brikke $k$ velta brikke $k+1$, og formelen gjeld for alle $n$. $\\blacksquare$ Legg merke til sjølve grepet: induksjonsføresetnaden *blir brukt* til å erstatte den lange summen, og resten er algebra.\n\nSame maskineri beviser at $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ (steget er $k^2 + (2k+1) = (k+1)^2$ — andre kvadratsetning i hovudrolla), at $n^3 - n$ alltid er deleleg med $6$ (skriv $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$; første ledd er deleleg med 6 per føresetnad, og $k(k+1)$ er produktet av to naboar, alltid partal), og den geometriske summeformelen $1 + r + \\cdots + r^n = \\frac{r^{n+1} - 1}{r - 1}$ som du kjenner frå rekkjekapittelet — induksjon er nettopp verktøyet som gjorde han til teorem."
+    },
+    {
+      "id": "r2-6-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på induksjonsbevis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-6-n-quiz3-q0",
+            "task": "Kva to steg består eit induksjonsbevis av?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Basissteg og induksjonssteg",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Føresetnad og motseiing",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Derivasjon og integrasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Definisjon og konklusjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Basissteget feller første dominobrikke; induksjonssteget viser at kvar brikke veltar den neste."
+          },
+          {
+            "id": "r2-6-6-n-quiz3-q1",
+            "task": "Kva er induksjonsføresetnaden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At påstanden gjeld for alle $n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Føresetnaden om at $P(k)$ er sann, brukt til å vise $P(k+1)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At $n = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At påstanden er usann for eit eller anna $k$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I induksjonssteget antek vi $P(k)$ og bruker han aktivt — i sumformelen erstatta han heile summen $1 + \\cdots + k$."
+          },
+          {
+            "id": "r2-6-6-n-quiz3-q2",
+            "task": "Sjekk formelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ for $n = 3$:",
+            "options": [
+              {
+                "id": "b",
+                "text": "Venstre er $6$, høgre er $12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge sider er $9$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Begge sider er $6$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Venstre er $5$, høgre er $6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$1 + 2 + 3 = 6$ og $\\frac{3 \\cdot 4}{2} = 6$ — formelen stemmer (men eitt eksempel er ikkje noko bevis!)."
+          },
+          {
+            "id": "r2-6-6-n-quiz3-q3",
+            "task": "I beviset for at $6 \\mid n^3 - n$: kvifor er $3k(k+1)$ deleleg med 6?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $k$ alltid er partal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $3k$ er deleleg med 6",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er det ikkje — beviset bruker eit anna argument",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$k(k+1)$ er produktet av to påfølgjande heiltal, så det er partal — og $3 \\cdot \\text{partal}$ er deleleg med 6",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Av to nabotal er eitt alltid partal, så $k(k+1) = 2m$, og $3k(k+1) = 6m$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-6-n-section4",
+      "type": "text",
+      "content": "## Å lese bevis med lupe — og spelereglane til logikken\n\nEit bevis skal ikkje berre skrivast — det skal *lesast*, kritisk. Strategien: identifiser premissane, konklusjonen og metoden; kontroller kvart steg; sjekk kvar kvar premiss blir brukt; og leit etter spesialtilfelle der argumentet kan svikte. At dette ikkje er pedanteri, viser tidenes mest lærerike falske bevis.\n\n*«Teorem»: alle hestar har same farge.* «Bevis» ved induksjon: éin hest har openbert same farge som seg sjølv. Anta så at kvar mengd med $k$ hestar er einsfarga, og sjå på $k+1$ hestar. Mengda $\\{H_1, \\ldots, H_k\\}$ er einsfarga per føresetnad; det same er $\\{H_2, \\ldots, H_{k+1}\\}$; og sidan $H_2$ står i begge, har alle same farge. $\\blacksquare$? Kvar juksar det? Set $k = 1$: mengdene er $\\{H_1\\}$ og $\\{H_2\\}$ — *ingen felles hest*, og limet ryk. Induksjonssteget sviktar nøyaktig i overgangen frå éin til to hestar, og heile rekkja står uvelta. Lærdomen: sjekk at steget held for *alle* $k$, særleg dei minste.\n\nSlik gransking krev spelereglane til logikken. Konnektiva: $P \\land Q$ (og), $P \\lor Q$ (eller), $\\neg P$ (ikkje), $P \\Rightarrow Q$ (dersom–så — usann *berre* når $P$ er sann og $Q$ usann) og $P \\Leftrightarrow Q$ (dersom og berre dersom). Dei viktigaste ekvivalensane: kontraposisjonen $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$, **De Morgans lover** $\\neg(P \\land Q) \\Leftrightarrow \\neg P \\lor \\neg Q$ og $\\neg(P \\lor Q) \\Leftrightarrow \\neg P \\land \\neg Q$, og negasjonen av implikasjonen $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$ — å nekte «dersom det regnar, blir bakken våt» er å påstå «det regnar *og* bakken er tørr».\n\nKvantorane følgjer same speillogikk: negasjonen av «for alle $x$ gjeld...» ($\\forall$) er «det finst ein $x$ der det ikkje gjeld» ($\\exists$), og omvendt. Negasjonen av «det finst eit reelt tal med $x^2 < 0$» er «for alle reelle $x$ er $x^2 \\geq 0$» — sann, så originalen er usann. Når du skal utvikle eigne bevis, er dette verktøya: forstå påstanden presist, vel metode — direkte når vegen fram er farbar, motseiing for negative påstandar, induksjon for «alle $n$» — skriv kvart steg grunngitt, og les til slutt ditt eige bevis som din strengaste kritikar."
+    },
+    {
+      "id": "r2-6-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på bevisanalyse og logikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-6-n-quiz4-q0",
+            "task": "Kvar sviktar «beviset» for at alle hestar har same farge?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Induksjonssteget sviktar for $k = 1$: mengdene $\\{H_1\\}$ og $\\{H_2\\}$ har ingen felles hest",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "I basissteget — éin hest kan ha fleire fargar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det sviktar ikkje — konklusjonen er rett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hestar kan ikkje teljast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Argumentet treng ein felles hest i begge delmengdene, men ved overgangen frå 1 til 2 hestar finst ingen — dominorekkja blir broten der."
+          },
+          {
+            "id": "r2-6-6-n-quiz4-q1",
+            "task": "Kva er negasjonen av implikasjonen «dersom $P$, så $Q$»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dersom $Q$, så $P$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P$ er sann og $Q$ er usann ($P \\land \\neg Q$)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Dersom ikkje $P$, så ikkje $Q$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verken $P$ eller $Q$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$: «det regnar og bakken er tørr» nektar «dersom det regnar, blir bakken våt»."
+          },
+          {
+            "id": "r2-6-6-n-quiz4-q2",
+            "task": "Kva seier De Morgans lov om $\\neg(P \\land Q)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\neg P \\land \\neg Q$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P \\lor Q$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\neg P \\lor \\neg Q$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\neg(P \\lor Q)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Negasjonen av «både $P$ og $Q$» er «minst éin av dei er usann»: $\\neg P \\lor \\neg Q$."
+          },
+          {
+            "id": "r2-6-6-n-quiz4-q3",
+            "task": "Kva er negasjonen av «det finst eit reelt tal $x$ slik at $x^2 < 0$»?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det finst eit reelt tal $x$ med $x^2 \\geq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For alle reelle $x$ er $x^2 < 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det finst ingen reelle tal",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For alle reelle $x$ er $x^2 \\geq 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\neg\\exists$ blir $\\forall$ med negert vilkår: for alle $x$ er $x^2 \\geq 0$ — som er sann, så originalen er usann."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEvigheitsgarantien har fått sitt handverk. Eit **bevis** byggjer nye sanningar av aksiom, definisjonar og tidlegare teorem — og i motsetnad til empirien gir det visse: ein million eksempel beviser ingenting, eitt gyldig argument beviser alt.\n\nTre metodar bar kapittelet. Det **direkte beviset** marsjerte frå definisjon til konklusjon: partal $2k$ og oddetal $2k+1$ gav sum-, produkt- og delelegheitsresultata, og «tre påfølgjande heiltal» vart til $3(n+1)$ av seg sjølv. **Motseiingsbeviset** antok det motsette og lét føresetnaden kollapse: $\\sqrt{2} = \\frac{p}{q}$ tvinga både $p$ og $q$ til å vere partal i ein forkorta brøk, og Euklids $N = p_1 \\cdots p_n + 1$ avslørte eit primtal utanfor kvar komplett liste. **Kontraposisjonen** $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$ gav baklengsruta: «$n$ odde gir $n^2$ odde» beviste «$n^2$ partal gir $n$ partal». Og **induksjonen** velta si uendelege dominorekkje med basissteg og induksjonssteg: sumformelen $\\frac{n(n+1)}{2}$, oddetalssummen $n^2$, delelegheita $6 \\mid n^3 - n$ og den geometriske rekkjeformelen.\n\nTil slutt lupa: hestefarge-«beviset» viste at induksjonssteg må halde for *alle* $k$ — det rauk ved overgangen frå éin til to. Reglane til logikken — konnektiv, De Morgan, $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$, kvantorbyte mellom $\\forall$ og $\\exists$ — er presisjonsverktøya som gjer slik gransking mogleg.\n\nDermed sluttar R2 der matematikken byrjar: ikkje med å rekne rett, men med å *vite kvifor* det er rett. Det er den djupaste dugleiken i faget — og no er han din."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d90f51dddd6ffc95",
+    "translatedAt": "2026-06-20T01:42:27.286Z",
+    "model": "claude-code-agent",
+    "strings": 114,
+    "tm": {
+      "2eeb9a184f5346a2": "Bevis og matematisk argumentasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ea754b9fb3236d1e": "Ei forteljing om matematikkens evigheitsgaranti — direkte bevis, motseiing, kontraposisjon og dominorekkja til induksjonen, og kunsten å avsløre eit bevis som juksar.",
+      "4658809f7b635740": "analysere og forsta matematiske bevis, forklare sentrale idear i bevis og utvikle eigne bevis",
+      "926208c50ed5f0bb": "## Evigheitsgarantien\n\nFor 2300 år sidan skreiv Euklid ned eit argument for at det finst uendeleg mange primtal. Det argumentet er like gyldig i dag — ikkje «framleis godt stadfesta», ikkje «enno ikkje motbevist», men *gyldig*, punktum. Inga naturvitskap kan tilby noko liknande. Fysikkens teoriar blir reviderte når nye målingar kjem; Newtons mekanikk måtte vike for Einsteins. Men eit matematisk **bevis** er ein evigheitsgaranti: ei logisk argumentasjonsrekkje som viser at ein påstand *må* vere sann, gitt premissane.\n\nKva kviler garantien på? Tre slags byggjesteinar: **aksiom** — grunnsanningar vi aksepterer utan bevis, **definisjonar** — presise avgrensingar av omgrepa, og **tidlegare prova teorem** — resultat som alt har fått garantien. Frå desse blir nye sanningar bygde, steg for logisk steg, og eit godt bevis kjenneteiknast av presisjon, logisk samanheng, fullstende og gyldige slutningar. Merk kontrasten til empirien: at $n^2 - n + 41$ er primtal for $n = 1, 2, 3, \\ldots, 40$ er freistande bevismateriale — men ved $n = 41$ ryk det. Ein million eksempel beviser ingenting; eitt gyldig argument beviser alt.\n\nI dette kapittelet lærer du handverket. Tre hovudmetodar: det **direkte beviset**, som marsjerer frå premiss til konklusjon; **motseiingsbeviset**, som feller ein påstand ved å vise at det motsette er absurd; og **induksjonsbeviset**, dominorekkja som når alle naturlege tal. I tillegg: den elegante omvegen til kontraposisjonen, spelereglane til logikken — og kunsten å lese eit bevis kritisk nok til å avsløre det når det juksar.",
+      "07732ebde6a1fdcb": "## Det direkte beviset — marsjen frå premiss til konklusjon\n\nDen mest naturlege bevisforma går rett fram: anta premissane, utfør logiske slutningar, land på konklusjonen. Drivstoffet er *definisjonane* — og dei to arbeidshestane i talteorien er presist definerte: eit heiltal $n$ er eit **partal** dersom $n = 2k$ for eit heiltal $k$, og eit **oddetal** dersom $n = 2k + 1$.\n\nSjå korleis definisjonane ber eit heilt bevis. *Påstand: summen av to partal er eit partal.* La $a$ og $b$ vere partal. Per definisjon finst heiltal $m$ og $n$ med $a = 2m$ og $b = 2n$. Då er\n\n$$a + b = 2m + 2n = 2(m + n)$$\n\nog sidan $m + n$ er eit heiltal, har summen forma $2 \\cdot (\\text{heiltal})$ — eit partal, per definisjon. $\\blacksquare$ Heile kunsten ligg i å *omsetje* påstanden til språket til definisjonane, rekne, og omsetje tilbake.\n\nSame marsj tek oddetala: produktet av $a = 2m + 1$ og $b = 2n + 1$ er $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$ — forma til eit oddetal, så *oddetal gonger oddetal er oddetal*. Og kvadratet av eit partal: $(2k)^2 = 4k^2$, deleleg med $4$, alltid.\n\nEit siste eksempel viser korleis eit smart oppsett gjer beviset til rein rekning. *Påstand: summen av tre påfølgjande heiltal er deleleg med 3.* Kall tala $n$, $n+1$ og $n+2$:\n\n$$n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$$\n\nFerdig — summen er tre gonger eit heiltal. Merk kor mykje arbeid valet av notasjon gjorde: «tre påfølgjande heiltal» vart til algebra som beviste seg sjølv. Slik ser direkte bevis ut når dei lukkast: ingen triks, berre definisjonar, omskriving og ein konklusjon som modnast fram.",
+      "635ddd21ff0ca56d": "Test deg sjølv på direkte bevis:",
+      "4097889236a2af26": "placeholder",
+      "24d2de90d40d0791": "Kva er strukturen i eit direkte bevis?",
+      "de2428cbfb6524c7": "Anta premissane, utfør logiske slutningar, konkluder med påstanden",
+      "18929a681886e89e": "Anta det motsette og finn ei sjølvmotseiing",
+      "687e442e8814807f": "Sjekk mange eksempel",
+      "e70a754d51e4bf93": "Vis basissteg og induksjonssteg",
+      "f1a44a6c5f6f3b65": "Det direkte beviset marsjerer frå kjende sanningar til konklusjonen via gyldige slutningar.",
+      "7b520b4f9a224792": "I beviset for at summen av to partal er eit partal skriv vi $a = 2m$, $b = 2n$. Kvifor?",
+      "627f836d4cb54c86": "Fordi $m$ og $n$ er partal",
+      "c817b6b13cb9f62b": "Det er definisjonen av partal — og han omset påstanden til algebra",
+      "276d832a52062af5": "Fordi alle heiltal kan skrivast slik",
+      "4255c61c56e39bfb": "For å kunne dele på 2 seinare",
+      "717b70b5d8729d4c": "Definisjonen «$n$ er partal dersom $n = 2k$» er drivstoffet til beviset: $a + b = 2(m+n)$ får partalsforma direkte.",
+      "2605200c78fd0456": "Kva er produktet av to oddetal $(2m+1)(2n+1)$ omskrive til?",
+      "36458975f8b0f4b6": "$2(2mn + m + n)$ — eit partal",
+      "2e42d054065c3ba4": "$4mn + 1$ — verken partal eller oddetal",
+      "664ad6868fdf775e": "$2(2mn + m + n) + 1$ — eit oddetal",
+      "6cb4546184d23834": "$2mn + 1$ — eit primtal",
+      "f5689b75b4930339": "Utvidinga gir $4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$, som har oddetalsforma $2k + 1$.",
+      "6c338e077cd65321": "Kvifor er summen av tre påfølgjande heiltal alltid deleleg med 3?",
+      "d8615fd33b54b2c0": "Fordi eitt av tala alltid er 3",
+      "e9f06246079a77af": "Fordi summen alltid er eit oddetal",
+      "dd9cc1e390de4760": "Det stemmer berre for positive tal",
+      "a1224c68cab65494": "Fordi $n + (n+1) + (n+2) = 3(n+1)$ — tre gonger eit heiltal",
+      "1cbc6a697604c9c8": "Smart notasjon gjer jobben: summen forenklast til $3(n+1)$, openbert deleleg med 3.",
+      "dc04b163120d3c23": "## Motseiing og kontraposisjon — å bevise baklengs\n\nNokre påstandar lèt seg vanskeleg angripe forfrå — særleg dei negative: «$\\sqrt{2}$ kan *ikkje* skrivast som brøk», «det finst *ikkje* eit største primtal». Då snur vi våpenet: **motseiingsbeviset** (*reductio ad absurdum*) antek det *motsette* av påstanden, utleier konsekvensar — og viser at dei kolliderer med seg sjølve. Då må føresetnaden vere gal, og påstanden står att som sann.\n\nJuvelen frå antikken: *$\\sqrt{2}$ er irrasjonal.* Anta det motsette — at $\\sqrt{2} = \\frac{p}{q}$ for heiltal utan felles faktorar (brøken maksimalt forkorta). Kvadrering gir $2q^2 = p^2$, så $p^2$ er eit partal — og då må $p$ sjølv vere det (eit oddetal i kvadrat er odde). Skriv $p = 2k$: då er $2q^2 = 4k^2$, altså $q^2 = 2k^2$ — så $q$ er *òg* partal. Men då har $p$ og $q$ felles faktor $2$, stikk i strid med at brøken var forkorta. Føresetnaden kollapsar; $\\sqrt{2}$ er irrasjonal. $\\blacksquare$ Pytagorearane skal ha halde dette resultatet hemmeleg — det knuste trua på at alt er forhold mellom heile tal.\n\nEuklids primtalsbevis følgjer same dramaturgi. Anta endeleg mange primtal $p_1, \\ldots, p_n$, og sjå på $N = p_1 p_2 \\cdots p_n + 1$. Divisjon med kvart $p_i$ gir rest $1$, så ingen av dei deler $N$ — men eitkvart tal større enn $1$ har ein primfaktor. Altså finst eit primtal utanfor lista som skulle vere komplett. Motseiing — primtala tek aldri slutt. Og miniatyrutgåva: finst det eit *minste* positive rasjonale tal $r$? Nei — $\\frac{r}{2}$ er mindre, positivt og rasjonalt. Føresetnaden motseier seg sjølv med ein gong.\n\nI slekt med motseiinga er **kontraposisjonen**: «dersom $P$, så $Q$» er logisk ekvivalent med «dersom ikkje $Q$, så ikkje $P$». Skal du vise at *$n^2$ partal medfører $n$ partal*, er det lettare baklengs: anta $n$ odde, $n = 2k+1$; då er $n^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ — odde. Dermed: er $n^2$ partal, kan $n$ umogleg vere odde. Same garanti, enklare marsjrute.",
+      "0b02773e3c7ebc73": "Test deg sjølv på motseiingsbevis og kontraposisjon:",
+      "f666afbc03945e2c": "Kva er første steg i eit motseiingsbevis?",
+      "75b6e54a2ab33e77": "Å sjekke små eksempel",
+      "7acba9f4c74ffdfa": "Å derivere begge sider",
+      "295b0cb9519aff2e": "Å anta det motsette av det som skal bevisast",
+      "850cb974e26fcf15": "Å vise basissteget",
+      "7d1d27a73b933f81": "Vi antek negasjonen av påstanden og viser at føresetnaden leier til ei logisk sjølvmotseiing.",
+      "e03274ac1f80c093": "Kvar oppstår motseiinga i beviset for at $\\sqrt{2}$ er irrasjonal?",
+      "15a78529bbcd9a6a": "Både $p$ og $q$ må vere partal — men brøken $\\frac{p}{q}$ var antatt maksimalt forkorta",
+      "e9b897e329792dbe": "$p^2$ blir negativt",
+      "d724c0051d45142a": "$q$ må vere null",
+      "bf82012a6747c8e0": "$\\sqrt{2}$ viser seg å vere eit heiltal",
+      "165e7cacf2c0d246": "$2q^2 = p^2$ tvingar $p$ til å vere partal, og deretter $q$ òg — felles faktor 2 motseier forkorta brøk.",
+      "b921763913ef7d1d": "I Euklids bevis: kvifor er $N = p_1 p_2 \\cdots p_n + 1$ ikkje deleleg med nokon $p_i$?",
+      "152969a1714c200e": "Fordi $N$ er eit oddetal",
+      "2ccac9f88a9b03d7": "Divisjon med kvart $p_i$ gir rest 1",
+      "4c1d921bbb5a45de": "Fordi $N$ er eit primtal",
+      "d4eec866a80721f5": "Fordi $N$ er mindre enn alle $p_i$",
+      "ff3e23b601449ed4": "$N$ er produktet av alle $p_i$ pluss 1, så $N = p_i \\cdot (\\text{noko}) + 1$ — rest 1 ved kvar divisjon. Merk: $N$ treng ikkje sjølv vere primtal.",
+      "fa57036863b7bcf7": "Kva er kontraposisjonen til «dersom $P$, så $Q$»?",
+      "db2aeeeaaffa0ad4": "Dersom $Q$, så $P$",
+      "925e7ca32fe42cec": "Dersom ikkje $P$, så ikkje $Q$",
+      "4c878e1cc08c6a90": "$P$ dersom og berre dersom $Q$",
+      "4452758c2eaad221": "Dersom ikkje $Q$, så ikkje $P$ — logisk ekvivalent med originalen",
+      "4ea255196bcda94e": "$(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$. Slik bevisast «$n^2$ partal $\\Rightarrow$ $n$ partal» via «$n$ odde $\\Rightarrow$ $n^2$ odde».",
+      "385ff63e66c29ac3": "## Induksjon — dominorekkja\n\nKorleis beviser ein noko for *alle* naturlege tal — uendeleg mange tilfelle — med endeleg mange ord? Svaret er dominorekkja til matematikken. Still opp éi brikke per tal. Dersom du veit at *den første brikka fell*, og at *kvar fallande brikke veltar den neste*, då fell alle saman — heile den uendelege rekkja.\n\nFormelt: la $P(n)$ vere ein påstand om talet $n$. **Induksjonsprinsippet** seier at $P(n)$ gjeld for alle $n \\geq n_0$ dersom to ting er vist: **basissteget** — $P(n_0)$ er sann — og **induksjonssteget** — for kvar $k \\geq n_0$: dersom $P(k)$ er sann (dette blir kalla *induksjonsføresetnaden*), så er $P(k+1)$ sann.\n\nKlassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$. *Basis* ($n = 1$): venstre side $1$, høgre side $\\frac{1 \\cdot 2}{2} = 1$. ✓ *Induksjonssteg*: anta formelen for $n = k$, og legg til $k+1$:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\n— nøyaktig formelen for $n = k+1$. Brikke $k$ velta brikke $k+1$, og formelen gjeld for alle $n$. $\\blacksquare$ Legg merke til sjølve grepet: induksjonsføresetnaden *blir brukt* til å erstatte den lange summen, og resten er algebra.\n\nSame maskineri beviser at $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ (steget er $k^2 + (2k+1) = (k+1)^2$ — andre kvadratsetning i hovudrolla), at $n^3 - n$ alltid er deleleg med $6$ (skriv $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$; første ledd er deleleg med 6 per føresetnad, og $k(k+1)$ er produktet av to naboar, alltid partal), og den geometriske summeformelen $1 + r + \\cdots + r^n = \\frac{r^{n+1} - 1}{r - 1}$ som du kjenner frå rekkjekapittelet — induksjon er nettopp verktøyet som gjorde han til teorem.",
+      "29fd4bd727b17adb": "Test deg sjølv på induksjonsbevis:",
+      "c83ca7bb6c29e635": "Kva to steg består eit induksjonsbevis av?",
+      "41d92eaadc3c944e": "Føresetnad og motseiing",
+      "d79115facd0a7c8c": "Basissteg og induksjonssteg",
+      "ee5def80af81fcdd": "Derivasjon og integrasjon",
+      "404e760a6b0223cb": "Definisjon og konklusjon",
+      "ffee1ff986905fd5": "Basissteget feller første dominobrikke; induksjonssteget viser at kvar brikke veltar den neste.",
+      "ab8aae3ac4b36cee": "Kva er induksjonsføresetnaden?",
+      "cebd41175f4ff91d": "At påstanden gjeld for alle $n$",
+      "c95ae0baf3c0804d": "At $n = 1$",
+      "4fa432ff6e65a25a": "Føresetnaden om at $P(k)$ er sann, brukt til å vise $P(k+1)$",
+      "88555dd963478873": "At påstanden er usann for eit eller anna $k$",
+      "fd7561eadf80a318": "I induksjonssteget antek vi $P(k)$ og bruker han aktivt — i sumformelen erstatta han heile summen $1 + \\cdots + k$.",
+      "6b4816bf84cafd4b": "Sjekk formelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ for $n = 3$:",
+      "b5506258416220a3": "Begge sider er $6$",
+      "758694fc6e944527": "Venstre er $6$, høgre er $12$",
+      "2268b0bbdbd5a8da": "Begge sider er $9$",
+      "77ae4a4b13ca05a6": "Venstre er $5$, høgre er $6$",
+      "c2f47e96d5c7b7c7": "$1 + 2 + 3 = 6$ og $\\frac{3 \\cdot 4}{2} = 6$ — formelen stemmer (men eitt eksempel er ikkje noko bevis!).",
+      "c33b4f9539886dd7": "I beviset for at $6 \\mid n^3 - n$: kvifor er $3k(k+1)$ deleleg med 6?",
+      "95499cfb40090693": "Fordi $k$ alltid er partal",
+      "751af6799a638e06": "Fordi $3k$ er deleleg med 6",
+      "0bc1a95db497868f": "Det er det ikkje — beviset bruker eit anna argument",
+      "9c7dd03aa1cad94b": "$k(k+1)$ er produktet av to påfølgjande heiltal, så det er partal — og $3 \\cdot \\text{partal}$ er deleleg med 6",
+      "37995974a0b39613": "Av to nabotal er eitt alltid partal, så $k(k+1) = 2m$, og $3k(k+1) = 6m$.",
+      "b0e098c713a9b16e": "## Å lese bevis med lupe — og spelereglane til logikken\n\nEit bevis skal ikkje berre skrivast — det skal *lesast*, kritisk. Strategien: identifiser premissane, konklusjonen og metoden; kontroller kvart steg; sjekk kvar kvar premiss blir brukt; og leit etter spesialtilfelle der argumentet kan svikte. At dette ikkje er pedanteri, viser tidenes mest lærerike falske bevis.\n\n*«Teorem»: alle hestar har same farge.* «Bevis» ved induksjon: éin hest har openbert same farge som seg sjølv. Anta så at kvar mengd med $k$ hestar er einsfarga, og sjå på $k+1$ hestar. Mengda $\\{H_1, \\ldots, H_k\\}$ er einsfarga per føresetnad; det same er $\\{H_2, \\ldots, H_{k+1}\\}$; og sidan $H_2$ står i begge, har alle same farge. $\\blacksquare$? Kvar juksar det? Set $k = 1$: mengdene er $\\{H_1\\}$ og $\\{H_2\\}$ — *ingen felles hest*, og limet ryk. Induksjonssteget sviktar nøyaktig i overgangen frå éin til to hestar, og heile rekkja står uvelta. Lærdomen: sjekk at steget held for *alle* $k$, særleg dei minste.\n\nSlik gransking krev spelereglane til logikken. Konnektiva: $P \\land Q$ (og), $P \\lor Q$ (eller), $\\neg P$ (ikkje), $P \\Rightarrow Q$ (dersom–så — usann *berre* når $P$ er sann og $Q$ usann) og $P \\Leftrightarrow Q$ (dersom og berre dersom). Dei viktigaste ekvivalensane: kontraposisjonen $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$, **De Morgans lover** $\\neg(P \\land Q) \\Leftrightarrow \\neg P \\lor \\neg Q$ og $\\neg(P \\lor Q) \\Leftrightarrow \\neg P \\land \\neg Q$, og negasjonen av implikasjonen $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$ — å nekte «dersom det regnar, blir bakken våt» er å påstå «det regnar *og* bakken er tørr».\n\nKvantorane følgjer same speillogikk: negasjonen av «for alle $x$ gjeld...» ($\\forall$) er «det finst ein $x$ der det ikkje gjeld» ($\\exists$), og omvendt. Negasjonen av «det finst eit reelt tal med $x^2 < 0$» er «for alle reelle $x$ er $x^2 \\geq 0$» — sann, så originalen er usann. Når du skal utvikle eigne bevis, er dette verktøya: forstå påstanden presist, vel metode — direkte når vegen fram er farbar, motseiing for negative påstandar, induksjon for «alle $n$» — skriv kvart steg grunngitt, og les til slutt ditt eige bevis som din strengaste kritikar.",
+      "eb0be5b76c1eff97": "Test deg sjølv på bevisanalyse og logikk:",
+      "e5f887d0c9bf8436": "Kvar sviktar «beviset» for at alle hestar har same farge?",
+      "f715345166cf870e": "I basissteget — éin hest kan ha fleire fargar",
+      "ecaca08c32699c9c": "Induksjonssteget sviktar for $k = 1$: mengdene $\\{H_1\\}$ og $\\{H_2\\}$ har ingen felles hest",
+      "c18060f49ffcd195": "Det sviktar ikkje — konklusjonen er rett",
+      "f31b43d862f4b9de": "Hestar kan ikkje teljast",
+      "b56c34599df2fcff": "Argumentet treng ein felles hest i begge delmengdene, men ved overgangen frå 1 til 2 hestar finst ingen — dominorekkja blir broten der.",
+      "3e20f50f51f2a916": "Kva er negasjonen av implikasjonen «dersom $P$, så $Q$»?",
+      "e2768f1be7007808": "$P$ er sann og $Q$ er usann ($P \\land \\neg Q$)",
+      "71e42313f4041371": "Verken $P$ eller $Q$",
+      "1997b07fb23d105f": "$\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$: «det regnar og bakken er tørr» nektar «dersom det regnar, blir bakken våt».",
+      "bcc35e64d6550cb4": "Kva seier De Morgans lov om $\\neg(P \\land Q)$?",
+      "1b48d5842031022d": "$\\neg P \\land \\neg Q$",
+      "9ca3145688b988df": "$P \\lor Q$",
+      "933db1d671454d34": "$\\neg(P \\lor Q)$",
+      "10caa9100611538f": "$\\neg P \\lor \\neg Q$",
+      "086dda7f00c76c8f": "Negasjonen av «både $P$ og $Q$» er «minst éin av dei er usann»: $\\neg P \\lor \\neg Q$.",
+      "f5dba5e95a3b66bc": "Kva er negasjonen av «det finst eit reelt tal $x$ slik at $x^2 < 0$»?",
+      "a229b9bcf4d4fb43": "For alle reelle $x$ er $x^2 \\geq 0$",
+      "626ac7631f15dde9": "Det finst eit reelt tal $x$ med $x^2 \\geq 0$",
+      "4b1ead97038d6eb3": "For alle reelle $x$ er $x^2 < 0$",
+      "59a9036836afa25b": "Det finst ingen reelle tal",
+      "60f97c6098c8d202": "$\\neg\\exists$ blir $\\forall$ med negert vilkår: for alle $x$ er $x^2 \\geq 0$ — som er sann, så originalen er usann.",
+      "0a38aebb601f851e": "## Oppsummering\n\nEvigheitsgarantien har fått sitt handverk. Eit **bevis** byggjer nye sanningar av aksiom, definisjonar og tidlegare teorem — og i motsetnad til empirien gir det visse: ein million eksempel beviser ingenting, eitt gyldig argument beviser alt.\n\nTre metodar bar kapittelet. Det **direkte beviset** marsjerte frå definisjon til konklusjon: partal $2k$ og oddetal $2k+1$ gav sum-, produkt- og delelegheitsresultata, og «tre påfølgjande heiltal» vart til $3(n+1)$ av seg sjølv. **Motseiingsbeviset** antok det motsette og lét føresetnaden kollapse: $\\sqrt{2} = \\frac{p}{q}$ tvinga både $p$ og $q$ til å vere partal i ein forkorta brøk, og Euklids $N = p_1 \\cdots p_n + 1$ avslørte eit primtal utanfor kvar komplett liste. **Kontraposisjonen** $(P \\Rightarrow Q) \\Leftrightarrow (\\neg Q \\Rightarrow \\neg P)$ gav baklengsruta: «$n$ odde gir $n^2$ odde» beviste «$n^2$ partal gir $n$ partal». Og **induksjonen** velta si uendelege dominorekkje med basissteg og induksjonssteg: sumformelen $\\frac{n(n+1)}{2}$, oddetalssummen $n^2$, delelegheita $6 \\mid n^3 - n$ og den geometriske rekkjeformelen.\n\nTil slutt lupa: hestefarge-«beviset» viste at induksjonssteg må halde for *alle* $k$ — det rauk ved overgangen frå éin til to. Reglane til logikken — konnektiv, De Morgan, $\\neg(P \\Rightarrow Q) \\Leftrightarrow P \\land \\neg Q$, kvantorbyte mellom $\\forall$ og $\\exists$ — er presisjonsverktøya som gjer slik gransking mogleg.\n\nDermed sluttar R2 der matematikken byrjar: ikkje med å rekne rett, men med å *vite kvifor* det er rett. Det er den djupaste dugleiken i faget — og no er han din."
+    }
+  }
+}

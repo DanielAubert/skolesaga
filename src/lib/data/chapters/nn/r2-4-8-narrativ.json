@@ -1,1 +1,622 @@
-{"id":"r2-4-8-narrativ","courseId":"r2","chapterNumber":"4.8","title":"Trigonometriske funksjonar og grafar","subtitle":"Narrativ versjon","description":"Ei forteljing om alt som svingar — grafane til sin, cos og tan, dei fire parametrane i A sin(Bx + C) + D, og modellering av tidvatn, pariserhjul, lyd og daglengd.","estimatedMinutes":36,"competenceGoals":["utforske eigenskapar ved trigonometriske funksjonar","bruke trigonometriske funksjonar til å modellere periodiske fenomen"],"linkedChapterId":"r2-4-8","content":[{"id":"r2-4-8-n-intro","type":"text","content":"## Verda svingar\n\nLukk auga og lytt til verda: tidvatnet som stig og fell to gonger i døgnet, temperaturen som vandrar frå januarmørke til julivarme og tilbake, kammertonen A som får lufta til å skjelve 440 gonger i sekundet, vekselstraumen som pulserer i stikkontakten, pendelen som tikkar i eit gamalt klokketårn. Alle desse fenomena har éin ting felles: dei **gjentek seg** med jamne mellomrom. Dei er periodiske.\n\nOg naturen har gjeve oss eit perfekt matematisk språk for slike fenomen: dei trigonometriske funksjonane. Grafen til $\\sin x$ er sjølve urbiletet av ei svingning — ei jamn bølgje som rullar evig vidare. Men bølgjene i verkelegheita er sjeldan så pene som standardkurva. Tidvatnet svingar ikkje mellom $-1$ og $1$ meter, og det har ikkje periode $2\\pi$ timar. Skal sinuskurva skildre verkelegheita, må ho kunne strekkjast, klemmast, løftast og forskyvast.\n\nDet er nøyaktig dette kapitlet handlar om. Først blir vi godt kjende med grunngrafane til $\\sin x$, $\\cos x$ og $\\tan x$ — periodane, nullpunkta, ekstremalpunkta og symmetriane deira. Deretter lærer vi den generelle forma $f(x) = A\\sin(Bx + C) + D$ og kva kvar av dei fire parametrane gjer med grafen. Så snur vi prosessen: frå ein graf eller ei skildring finn vi funksjonsuttrykket. Og til slutt set vi alt i arbeid og modellerer tidvatn, pariserhjul, lyd og daglengd."},{"id":"r2-4-8-n-section1","type":"text","content":"## Dei tre grunngrafane\n\nSinusfunksjonen $f(x) = \\sin x$ er definert for alle reelle tal, med $x$ målt i radianar. Grafen bølgjer mellom $-1$ og $1$ — verdimengda er $[-1, 1]$ — og gjentek seg med periode $2\\pi$. Nullpunkta ligg i $x = n\\pi$, toppane ($\\sin x = 1$) i $x = \\frac{\\pi}{2} + 2\\pi n$ og botnane ($\\sin x = -1$) i $x = \\frac{3\\pi}{2} + 2\\pi n$. Funksjonen er **odde**: $\\sin(-x) = -\\sin x$, så grafen er symmetrisk om origo.\n\nCosinusgrafen er tvillingen til sinus. Han deler definisjonsmengd, verdimengd og periode, men startar på toppen: maksimum i $x = 2\\pi n$, minimum i $x = \\pi + 2\\pi n$, og nullpunkt i $x = \\frac{\\pi}{2} + n\\pi$. Samanhengen er presis: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$ — cosinuskurva er sinuskurva forskyvd $\\frac{\\pi}{2}$ til venstre. Du kan sjekke sjølv: $\\cos 0 = 1$ og $\\sin\\frac{\\pi}{2} = 1$, $\\cos\\frac{\\pi}{2} = 0$ og $\\sin\\pi = 0$. Cosinus er dessutan **like**: $\\cos(-x) = \\cos x$, symmetrisk om $y$-aksen.\n\nTangens dansar til ein annan rytme. Som brøken $\\tan x = \\frac{\\sin x}{\\cos x}$ er han udefinert der nemnaren er null, altså i $x = \\frac{\\pi}{2} + n\\pi$, der grafen har **loddrette asymptotar**. Når $x$ nærmar seg $\\frac{\\pi}{2}$ frå venstre, går $\\sin x$ mot $1$ medan $\\cos x$ kryp mot null frå positiv side — og brøken skyt mot $+\\infty$. Mellom to asymptotar løper tangens gjennom alle reelle verdiar; verdimengda er heile $\\mathbb{R}$. Perioden er berre $\\pi$, helvta av søskena sine, nullpunkta ligg i $x = n\\pi$, og funksjonen er odde som sinus. Verdiane $\\tan 0 = 0$, $\\tan\\frac{\\pi}{4} = 1$ og $\\tan\\frac{\\pi}{3} = \\sqrt{3}$ følgjer rett frå brøken."},{"id":"r2-4-8-n-quiz1","type":"exercise","exercise":{"id":"r2-4-8-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grunngrafane til sin, cos og tan:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-8-n-quiz1-q0","task":"Kva er verdimengda til $f(x) = \\sin x$?","options":[{"id":"a","text":"$[-1, 1]$","isCorrect":true},{"id":"b","text":"$\\mathbb{R}$","isCorrect":false},{"id":"c","text":"$[0, 1]$","isCorrect":false},{"id":"d","text":"$[0, 2\\pi]$","isCorrect":false}],"solution":"Sinuskurva bølgjer mellom $-1$ og $1$: verdimengda er $[-1, 1]$."},{"id":"r2-4-8-n-quiz1-q1","task":"Kva er perioden til tangensfunksjonen?","options":[{"id":"a","text":"$2\\pi$","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{2}$","isCorrect":false},{"id":"c","text":"$\\pi$","isCorrect":true},{"id":"d","text":"$4\\pi$","isCorrect":false}],"solution":"Tangens gjentek seg for kvar $\\pi$ — helvta av perioden til sinus og cosinus."},{"id":"r2-4-8-n-quiz1-q2","task":"Kva for samanheng gjeld mellom sinus- og cosinusgrafen?","options":[{"id":"a","text":"$\\cos x = \\sin\\left(x - \\frac{\\pi}{2}\\right)$","isCorrect":false},{"id":"b","text":"$\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$","isCorrect":true},{"id":"c","text":"$\\cos x = -\\sin x$","isCorrect":false},{"id":"d","text":"$\\cos x = \\sin(2x)$","isCorrect":false}],"solution":"Cosinusgrafen er sinusgrafen forskyvd $\\frac{\\pi}{2}$ til venstre: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$."},{"id":"r2-4-8-n-quiz1-q3","task":"Kvar ligg nullpunkta til $\\sin x$?","options":[{"id":"a","text":"$x = \\frac{\\pi}{2} + n\\pi$","isCorrect":false},{"id":"b","text":"$x = \\frac{\\pi}{2} + 2\\pi n$","isCorrect":false},{"id":"c","text":"$x = 2\\pi n$","isCorrect":false},{"id":"d","text":"$x = n\\pi$","isCorrect":true}],"solution":"$\\sin x = 0$ for $x = 0, \\pi, 2\\pi, \\ldots$ — altså $x = n\\pi$, $n \\in \\mathbb{Z}$."}]}},{"id":"r2-4-8-n-section2","type":"text","content":"## Fire skruar å skru på: $A\\sin(Bx + C) + D$\n\nFor å tilpasse sinuskurva til verkelegheita har vi fire parametrar, kvar med sin presise jobb i $f(x) = A\\sin(Bx + C) + D$.\n\n**$A$ — amplituden.** $|A|$ er avstanden frå likevektslinja til topp og botn: maksverdien er $D + |A|$, minverdien $D - |A|$. Negativt $A$ speglar grafen om likevektslinja, men amplituden er framleis $|A|$ — difor har $h(x) = -4\\sin(\\pi x)$ amplitude $4$.\n\n**$B$ — frekvensparameteren.** Han klemmer eller strekkjer grafen vassrett, og perioden blir $T = \\frac{2\\pi}{|B|}$. For $f(x) = 3\\sin(2x)$ er perioden $\\pi$; for $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$ er han heile $6\\pi$.\n\n**$C$ — faseforskyvinga.** Skriv vi $A\\sin\\left(B\\left(x + \\frac{C}{B}\\right)\\right) + D$, ser vi at grafen er forskyvd $-\\frac{C}{B}$ einingar vassrett: positiv $C$ (med $B > 0$) skyv mot venstre, negativ mot høgre. For $\\sin\\left(x - \\frac{\\pi}{4}\\right)$ er forskyvinga $\\frac{\\pi}{4}$ mot høgre; for $3\\sin\\left(4x - \\frac{\\pi}{2}\\right)$ er ho $\\frac{\\pi}{8}$ mot høgre, sidan vi deler på $B = 4$.\n\n**$D$ — det vertikale skiftet.** Heile grafen blir løfta $D$ einingar, og linja $y = D$ blir kalla **likevektslinja**.\n\nEit samla eksempel: $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$ har amplitude $2$, periode $\\frac{2\\pi}{3}$, faseforskyving $\\frac{\\pi}{6}$ mot høgre og likevektslinje $y = 1$, slik at maksverdien er $1 + 2 = 3$ og minverdien $1 - 2 = -1$. Fire skruar — og full kontroll over kvar einaste sinusforma kurve."},{"id":"r2-4-8-n-quiz2","type":"exercise","exercise":{"id":"r2-4-8-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på amplitude, periode, fase og skift:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-8-n-quiz2-q0","task":"Kva er amplituden til $f(x) = 3\\sin(2x)$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":true},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$\\frac{3}{2}$","isCorrect":false}],"solution":"Amplituden er $|A| = 3$. Talet $2$ påverkar perioden, ikkje amplituden."},{"id":"r2-4-8-n-quiz2-q1","task":"Kva er perioden til $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$?","options":[{"id":"a","text":"$6\\pi$","isCorrect":true},{"id":"b","text":"$\\frac{2\\pi}{3}$","isCorrect":false},{"id":"c","text":"$3\\pi$","isCorrect":false},{"id":"d","text":"$\\frac{\\pi}{3}$","isCorrect":false}],"solution":"$T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{1/3} = 6\\pi$."},{"id":"r2-4-8-n-quiz2-q2","task":"Kva er den største verdien til $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$5$","isCorrect":false},{"id":"d","text":"$3$","isCorrect":true}],"solution":"Maksverdi $= D + |A| = 1 + 2 = 3$."},{"id":"r2-4-8-n-quiz2-q3","task":"Korleis er grafen til $f(x) = \\sin\\left(x - \\frac{\\pi}{4}\\right)$ forskyvd i høve til $\\sin x$?","options":[{"id":"a","text":"$\\frac{\\pi}{4}$ til venstre","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{4}$ opp","isCorrect":false},{"id":"c","text":"$\\frac{\\pi}{4}$ til høgre","isCorrect":true},{"id":"d","text":"Ikkje i det heile teke","isCorrect":false}],"solution":"Faseforskyvinga er $-\\frac{C}{B} = \\frac{\\pi}{4}$, altså $\\frac{\\pi}{4}$ mot høgre."}]}},{"id":"r2-4-8-n-section3","type":"text","content":"## Detektivarbeidet: frå graf til uttrykk\n\nOfte går oppgåva motsett veg: du får ein bølgjande graf — eller nokre nøkkeltal frå ei måling — og skal finne funksjonsuttrykket. Då jobbar du som detektiv, og spora blir lesne i fast rekkjefølgje.\n\nFørst **amplituden og likevektslinja**, som begge gøymer seg i maks- og minverdiane: $|A| = \\frac{\\text{maks} - \\text{min}}{2}$ og $D = \\frac{\\text{maks} + \\text{min}}{2}$. Deretter **perioden**: mål avstanden mellom to påfølgjande toppunkt (eller botnpunkt), og rekn ut $B = \\frac{2\\pi}{T}$. Til slutt **faseforskyvinga**: finn eit kjenneteikn du kan navigere etter — gjerne der grafen kryssar likevektslinja på veg opp, for der er $Bx + C = 0$, altså $x = -\\frac{C}{B}$.\n\nLat oss prøve. Ein graf har maksimum $5$, minimum $1$, periode $4$, og toppunkt i $x = 1$. Amplituden blir $\\frac{5-1}{2} = 2$ og likevektslinja $D = \\frac{5+1}{2} = 3$. Perioden gjev $B = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$. Ein rein sinus $2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$ har toppunkt der $\\frac{\\pi}{2}x = \\frac{\\pi}{2}$, altså i $x = 1$ — akkurat som grafen vår, så $C = 0$ og svaret er $f(x) = 2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$.\n\nEit eksempel til, no med fase: maks $10$, min $2$, periode $\\pi$, og oppovervend kryssing av likevektslinja i $x = \\frac{\\pi}{6}$. Vi får $|A| = 4$, $D = 6$ og $B = \\frac{2\\pi}{\\pi} = 2$. Kryssingsvilkåret $-\\frac{C}{B} = \\frac{\\pi}{6}$ gjev $C = -\\frac{\\pi}{3}$, og dermed $f(x) = 4\\sin\\left(2x - \\frac{\\pi}{3}\\right) + 6$. Kontroller gjerne: maksimum inntreff når $2x - \\frac{\\pi}{3} = \\frac{\\pi}{2}$, i $x = \\frac{5\\pi}{12}$, der $f = 4 + 6 = 10$. Detektivarbeidet stemmer."},{"id":"r2-4-8-n-quiz3","type":"exercise","exercise":{"id":"r2-4-8-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på frå graf til funksjonsuttrykk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-8-n-quiz3-q0","task":"Ein graf har maksverdi $5$ og minverdi $1$. Kva er amplituden?","options":[{"id":"a","text":"$2$","isCorrect":true},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":false}],"solution":"$|A| = \\frac{\\text{maks} - \\text{min}}{2} = \\frac{5 - 1}{2} = 2$."},{"id":"r2-4-8-n-quiz3-q1","task":"Same graf: kvar ligg likevektslinja?","options":[{"id":"a","text":"$y = 2$","isCorrect":false},{"id":"b","text":"$y = 2{,}5$","isCorrect":false},{"id":"c","text":"$y = 3$","isCorrect":true},{"id":"d","text":"$y = 4$","isCorrect":false}],"solution":"$D = \\frac{\\text{maks} + \\text{min}}{2} = \\frac{5 + 1}{2} = 3$."},{"id":"r2-4-8-n-quiz3-q2","task":"Ein graf har periode $4$. Kva er $B$ i uttrykket $A\\sin(Bx + C) + D$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{2}$","isCorrect":true},{"id":"c","text":"$2\\pi$","isCorrect":false},{"id":"d","text":"$\\frac{\\pi}{4}$","isCorrect":false}],"solution":"$B = \\frac{2\\pi}{T} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$."}]}},{"id":"r2-4-8-n-section4","type":"text","content":"## Modellering — bølgjene i arbeid\n\nNo har vi heile verktøykassa, og verkelegheita ventar. Oppskrifta er alltid den same: finn maks og min, rekn ut amplitude og likevektslinje, finn perioden, og vel sinus eller cosinus etter kva du veit om starttidspunktet — **cosinus** når du kjenner tidspunktet for maksimum eller minimum, **sinus** når du kjenner ei kryssing av likevektslinja.\n\n**Tidvatnet:** I ei hamn varierer djupna mellom $2$ og $10$ meter med $12$ timar mellom høgvatna, og det er høgvatn kl. 06. Amplituden er $4$, likevekta $6$, og $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$. Sidan vi kjenner maksimum, vel vi cosinus forskyvd til $t = 6$: $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kl. 09 er djupna $4\\cos\\frac{\\pi}{2} + 6 = 6$ meter, og likninga $h(t) = 8$ gjev $\\cos\\left(\\frac{\\pi}{6}(t-6)\\right) = \\frac{1}{2}$, med første løysing kl. 04.\n\n**Pariserhjulet:** Radius $20$ m, lågaste punkt $2$ m over bakken, omløpstid $3$ minutt, start nedst. Då er maks $42$, likevekt $22$, og start i *minimum* gjev cosinus med negativt forteikn: $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Etter eitt minutt: $-20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 32$ meter.\n\n**Lyd og straum:** Kammertonen er $p(t) = A\\sin(880\\pi t)$ med periode $\\frac{1}{440}$ s — doblar du frekvensen (ein oktav opp), blir perioden halvert. Norsk vekselstraum er $U(t) = 230\\sqrt{2}\\sin(100\\pi t)$ med periode $\\frac{1}{50}$ s, og sidan sinus kryssar null to gonger per periode, er spenninga null $100$ gonger i sekundet.\n\n**Daglengda** i Oslo svingar mellom $6$ og $19$ timar med periode $365$ døgn og maksimum ved sommarsolverv (dag 172): $L(d) = 6{,}5\\cos\\left(\\frac{2\\pi}{365}(d - 172)\\right) + 12{,}5$. Same fire skruar, same tankegang — frå hamnebasseng til himmelmekanikk."},{"id":"r2-4-8-n-quiz4","type":"exercise","exercise":{"id":"r2-4-8-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på modellering av periodiske fenomen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-8-n-quiz4-q0","task":"Tidvassmodellen er $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kva er djupna kl. 09 ($t = 9$)?","options":[{"id":"a","text":"$8$ m","isCorrect":false},{"id":"b","text":"$6$ m","isCorrect":true},{"id":"c","text":"$10$ m","isCorrect":false},{"id":"d","text":"$4$ m","isCorrect":false}],"solution":"$h(9) = 4\\cos\\left(\\frac{\\pi}{6} \\cdot 3\\right) + 6 = 4\\cos\\frac{\\pi}{2} + 6 = 0 + 6 = 6$ m."},{"id":"r2-4-8-n-quiz4-q1","task":"Pariserhjulet følgjer $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Kor høgt er passasjeren etter $1$ minutt?","options":[{"id":"a","text":"$12$ m","isCorrect":false},{"id":"b","text":"$22$ m","isCorrect":false},{"id":"c","text":"$42$ m","isCorrect":false},{"id":"d","text":"$32$ m","isCorrect":true}],"solution":"$h(1) = -20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 10 + 22 = 32$ m."},{"id":"r2-4-8-n-quiz4-q2","task":"Vekselstraumen i Noreg har frekvens $50$ Hz. Kor mange gonger per sekund er spenninga null?","options":[{"id":"a","text":"$100$","isCorrect":true},{"id":"b","text":"$50$","isCorrect":false},{"id":"c","text":"$25$","isCorrect":false},{"id":"d","text":"$200$","isCorrect":false}],"solution":"Sinusfunksjonen er null to gonger per periode, og det er $50$ periodar per sekund: $50 \\cdot 2 = 100$ gonger."},{"id":"r2-4-8-n-quiz4-q3","task":"Når bør du velje cosinus i staden for sinus i ein modell?","options":[{"id":"a","text":"Når perioden er kjend","isCorrect":false},{"id":"b","text":"Når amplituden er negativ","isCorrect":false},{"id":"c","text":"Når du veit når maksimum eller minimum inntreff","isCorrect":true},{"id":"d","text":"Når funksjonen er odde","isCorrect":false}],"solution":"Cosinus startar i eit ytterpunkt, så han er naturleg når du kjenner tidspunktet for maks eller min. Sinus passar når du kjenner ei kryssing av likevektslinja."}]}},{"id":"r2-4-8-n-summary","type":"text","content":"## Oppsummering\n\nVi opna med å lytte til ei verd som svingar — tidvatn, temperatur, tonar, straum og pendlar — og fann språket som skildrar det heile: dei trigonometriske funksjonane og grafane deira.\n\nGrunngrafane la fundamentet. Sinus og cosinus bølgjer begge mellom $-1$ og $1$ med periode $2\\pi$; cosinus er berre sinus forskyvd $\\frac{\\pi}{2}$ til venstre, $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$. Sinus er odde, cosinus like. Tangens skil seg ut med periode $\\pi$, verdimengd $\\mathbb{R}$ og loddrette asymptotar i $x = \\frac{\\pi}{2} + n\\pi$, der cosinus i nemnaren blir null.\n\nSå kom dei fire skruane i $f(x) = A\\sin(Bx + C) + D$: amplituden $|A|$ (halve avstanden mellom maks og min), perioden $T = \\frac{2\\pi}{|B|}$, faseforskyvinga $-\\frac{C}{B}$ og likevektslinja $y = D$, med maksverdi $D + |A|$ og minverdi $D - |A|$. Detektivarbeidet frå graf til uttrykk følgde alltid same spor: amplitude og likevekt frå maks og min, $B$ frå perioden, og fasen frå eit attkjenneleg punkt på kurva.\n\nTil slutt sette vi modellane i arbeid: tidvatnet i hamna, pariserhjulet som løfta oss $32$ meter på eitt minutt, dei $440$ svingningane til kammertonen i sekundet, dei $100$ nullgjennomgangane til vekselstraumen og daglengda gjennom året. Hugs tommelfingerregelen: cosinus når du kjenner eit ytterpunkt, sinus når du kjenner ei kryssing. Med fire parametrar og to systerfunksjonar kan du no skildre nær sagt alt som svingar."}],"exercises":[],"_meta":{"sourceHash":"0f8c197a29674668","translatedAt":"2026-06-20T00:35:45.541Z","model":"claude-code-agent","strings":91,"tm":{"644fdfc74ab331e5":"Trigonometriske funksjonar og grafar","b195b06d1ed59702":"Narrativ versjon","38233b3a02e7ee15":"Ei forteljing om alt som svingar — grafane til sin, cos og tan, dei fire parametrane i A sin(Bx + C) + D, og modellering av tidvatn, pariserhjul, lyd og daglengd.","af5512da06380fba":"utforske eigenskapar ved trigonometriske funksjonar","d5d75b14f5ecba9e":"bruke trigonometriske funksjonar til å modellere periodiske fenomen","8f2ed2e004977e03":"## Verda svingar\n\nLukk auga og lytt til verda: tidvatnet som stig og fell to gonger i døgnet, temperaturen som vandrar frå januarmørke til julivarme og tilbake, kammertonen A som får lufta til å skjelve 440 gonger i sekundet, vekselstraumen som pulserer i stikkontakten, pendelen som tikkar i eit gamalt klokketårn. Alle desse fenomena har éin ting felles: dei **gjentek seg** med jamne mellomrom. Dei er periodiske.\n\nOg naturen har gjeve oss eit perfekt matematisk språk for slike fenomen: dei trigonometriske funksjonane. Grafen til $\\sin x$ er sjølve urbiletet av ei svingning — ei jamn bølgje som rullar evig vidare. Men bølgjene i verkelegheita er sjeldan så pene som standardkurva. Tidvatnet svingar ikkje mellom $-1$ og $1$ meter, og det har ikkje periode $2\\pi$ timar. Skal sinuskurva skildre verkelegheita, må ho kunne strekkjast, klemmast, løftast og forskyvast.\n\nDet er nøyaktig dette kapitlet handlar om. Først blir vi godt kjende med grunngrafane til $\\sin x$, $\\cos x$ og $\\tan x$ — periodane, nullpunkta, ekstremalpunkta og symmetriane deira. Deretter lærer vi den generelle forma $f(x) = A\\sin(Bx + C) + D$ og kva kvar av dei fire parametrane gjer med grafen. Så snur vi prosessen: frå ein graf eller ei skildring finn vi funksjonsuttrykket. Og til slutt set vi alt i arbeid og modellerer tidvatn, pariserhjul, lyd og daglengd.","93161da8dd1a4eee":"## Dei tre grunngrafane\n\nSinusfunksjonen $f(x) = \\sin x$ er definert for alle reelle tal, med $x$ målt i radianar. Grafen bølgjer mellom $-1$ og $1$ — verdimengda er $[-1, 1]$ — og gjentek seg med periode $2\\pi$. Nullpunkta ligg i $x = n\\pi$, toppane ($\\sin x = 1$) i $x = \\frac{\\pi}{2} + 2\\pi n$ og botnane ($\\sin x = -1$) i $x = \\frac{3\\pi}{2} + 2\\pi n$. Funksjonen er **odde**: $\\sin(-x) = -\\sin x$, så grafen er symmetrisk om origo.\n\nCosinusgrafen er tvillingen til sinus. Han deler definisjonsmengd, verdimengd og periode, men startar på toppen: maksimum i $x = 2\\pi n$, minimum i $x = \\pi + 2\\pi n$, og nullpunkt i $x = \\frac{\\pi}{2} + n\\pi$. Samanhengen er presis: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$ — cosinuskurva er sinuskurva forskyvd $\\frac{\\pi}{2}$ til venstre. Du kan sjekke sjølv: $\\cos 0 = 1$ og $\\sin\\frac{\\pi}{2} = 1$, $\\cos\\frac{\\pi}{2} = 0$ og $\\sin\\pi = 0$. Cosinus er dessutan **like**: $\\cos(-x) = \\cos x$, symmetrisk om $y$-aksen.\n\nTangens dansar til ein annan rytme. Som brøken $\\tan x = \\frac{\\sin x}{\\cos x}$ er han udefinert der nemnaren er null, altså i $x = \\frac{\\pi}{2} + n\\pi$, der grafen har **loddrette asymptotar**. Når $x$ nærmar seg $\\frac{\\pi}{2}$ frå venstre, går $\\sin x$ mot $1$ medan $\\cos x$ kryp mot null frå positiv side — og brøken skyt mot $+\\infty$. Mellom to asymptotar løper tangens gjennom alle reelle verdiar; verdimengda er heile $\\mathbb{R}$. Perioden er berre $\\pi$, helvta av søskena sine, nullpunkta ligg i $x = n\\pi$, og funksjonen er odde som sinus. Verdiane $\\tan 0 = 0$, $\\tan\\frac{\\pi}{4} = 1$ og $\\tan\\frac{\\pi}{3} = \\sqrt{3}$ følgjer rett frå brøken.","53bbe55d3a335b24":"Test deg sjølv på grunngrafane til sin, cos og tan:","4097889236a2af26":"placeholder","1fc887f5fc5b3f62":"Kva er verdimengda til $f(x) = \\sin x$?","48ff44047ef8ff67":"$\\mathbb{R}$","36be98f1b8ca365c":"$[0, 2\\pi]$","479a8854c9187498":"Sinuskurva bølgjer mellom $-1$ og $1$: verdimengda er $[-1, 1]$.","e960013236a23093":"Kva er perioden til tangensfunksjonen?","168b576751641805":"$2\\pi$","c12589f420c60053":"$\\frac{\\pi}{2}$","7fb34fd76c28bba5":"$\\pi$","29e9b166b9116b4e":"$4\\pi$","2df1488a21df3361":"Tangens gjentek seg for kvar $\\pi$ — helvta av perioden til sinus og cosinus.","be6ef23761cec51b":"Kva for samanheng gjeld mellom sinus- og cosinusgrafen?","fca8b64650d4a104":"$\\cos x = \\sin\\left(x - \\frac{\\pi}{2}\\right)$","0522e4aff2801c2d":"$\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$","a97f0bbe198bbbd0":"$\\cos x = -\\sin x$","65b5d3e669d8ca0d":"$\\cos x = \\sin(2x)$","b587273622124a7f":"Cosinusgrafen er sinusgrafen forskyvd $\\frac{\\pi}{2}$ til venstre: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$.","2a47f918c77f2d57":"Kvar ligg nullpunkta til $\\sin x$?","496c07d9ac2e9425":"$x = \\frac{\\pi}{2} + n\\pi$","bbe53ed81b05d7eb":"$x = \\frac{\\pi}{2} + 2\\pi n$","9db5a21ce3ed3b6a":"$x = 2\\pi n$","8b7bebe83cfc3137":"$x = n\\pi$","8c9a68626920fadc":"$\\sin x = 0$ for $x = 0, \\pi, 2\\pi, \\ldots$ — altså $x = n\\pi$, $n \\in \\mathbb{Z}$.","b416a2b2800c9e49":"## Fire skruar å skru på: $A\\sin(Bx + C) + D$\n\nFor å tilpasse sinuskurva til verkelegheita har vi fire parametrar, kvar med sin presise jobb i $f(x) = A\\sin(Bx + C) + D$.\n\n**$A$ — amplituden.** $|A|$ er avstanden frå likevektslinja til topp og botn: maksverdien er $D + |A|$, minverdien $D - |A|$. Negativt $A$ speglar grafen om likevektslinja, men amplituden er framleis $|A|$ — difor har $h(x) = -4\\sin(\\pi x)$ amplitude $4$.\n\n**$B$ — frekvensparameteren.** Han klemmer eller strekkjer grafen vassrett, og perioden blir $T = \\frac{2\\pi}{|B|}$. For $f(x) = 3\\sin(2x)$ er perioden $\\pi$; for $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$ er han heile $6\\pi$.\n\n**$C$ — faseforskyvinga.** Skriv vi $A\\sin\\left(B\\left(x + \\frac{C}{B}\\right)\\right) + D$, ser vi at grafen er forskyvd $-\\frac{C}{B}$ einingar vassrett: positiv $C$ (med $B > 0$) skyv mot venstre, negativ mot høgre. For $\\sin\\left(x - \\frac{\\pi}{4}\\right)$ er forskyvinga $\\frac{\\pi}{4}$ mot høgre; for $3\\sin\\left(4x - \\frac{\\pi}{2}\\right)$ er ho $\\frac{\\pi}{8}$ mot høgre, sidan vi deler på $B = 4$.\n\n**$D$ — det vertikale skiftet.** Heile grafen blir løfta $D$ einingar, og linja $y = D$ blir kalla **likevektslinja**.\n\nEit samla eksempel: $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$ har amplitude $2$, periode $\\frac{2\\pi}{3}$, faseforskyving $\\frac{\\pi}{6}$ mot høgre og likevektslinje $y = 1$, slik at maksverdien er $1 + 2 = 3$ og minverdien $1 - 2 = -1$. Fire skruar — og full kontroll over kvar einaste sinusforma kurve.","75c850822731d99b":"Test deg sjølv på amplitude, periode, fase og skift:","111e798891f8731f":"Kva er amplituden til $f(x) = 3\\sin(2x)$?","9663be320a691f04":"$\\frac{3}{2}$","8336319897ed3c16":"Amplituden er $|A| = 3$. Talet $2$ påverkar perioden, ikkje amplituden.","017022e9965c8aa7":"Kva er perioden til $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$?","15ddc057b4d1f822":"$6\\pi$","67e7d8a4c141e7b4":"$\\frac{2\\pi}{3}$","5af201af7a0698a2":"$3\\pi$","01a79120857df01f":"$\\frac{\\pi}{3}$","ca18f41da25e4afe":"$T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{1/3} = 6\\pi$.","7c9059fa0cc32c3a":"Kva er den største verdien til $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$?","311ca836badba8be":"Maksverdi $= D + |A| = 1 + 2 = 3$.","b0bd6ce4169251b4":"Korleis er grafen til $f(x) = \\sin\\left(x - \\frac{\\pi}{4}\\right)$ forskyvd i høve til $\\sin x$?","66ec9714a6b3b66b":"$\\frac{\\pi}{4}$ til venstre","7385619eb2c757ee":"$\\frac{\\pi}{4}$ opp","c753d6e24c561c0e":"$\\frac{\\pi}{4}$ til høgre","e7b25774ae7658d8":"Ikkje i det heile teke","9b96a57c79e690e8":"Faseforskyvinga er $-\\frac{C}{B} = \\frac{\\pi}{4}$, altså $\\frac{\\pi}{4}$ mot høgre.","5f4b9c13e766ef4e":"## Detektivarbeidet: frå graf til uttrykk\n\nOfte går oppgåva motsett veg: du får ein bølgjande graf — eller nokre nøkkeltal frå ei måling — og skal finne funksjonsuttrykket. Då jobbar du som detektiv, og spora blir lesne i fast rekkjefølgje.\n\nFørst **amplituden og likevektslinja**, som begge gøymer seg i maks- og minverdiane: $|A| = \\frac{\\text{maks} - \\text{min}}{2}$ og $D = \\frac{\\text{maks} + \\text{min}}{2}$. Deretter **perioden**: mål avstanden mellom to påfølgjande toppunkt (eller botnpunkt), og rekn ut $B = \\frac{2\\pi}{T}$. Til slutt **faseforskyvinga**: finn eit kjenneteikn du kan navigere etter — gjerne der grafen kryssar likevektslinja på veg opp, for der er $Bx + C = 0$, altså $x = -\\frac{C}{B}$.\n\nLat oss prøve. Ein graf har maksimum $5$, minimum $1$, periode $4$, og toppunkt i $x = 1$. Amplituden blir $\\frac{5-1}{2} = 2$ og likevektslinja $D = \\frac{5+1}{2} = 3$. Perioden gjev $B = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$. Ein rein sinus $2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$ har toppunkt der $\\frac{\\pi}{2}x = \\frac{\\pi}{2}$, altså i $x = 1$ — akkurat som grafen vår, så $C = 0$ og svaret er $f(x) = 2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$.\n\nEit eksempel til, no med fase: maks $10$, min $2$, periode $\\pi$, og oppovervend kryssing av likevektslinja i $x = \\frac{\\pi}{6}$. Vi får $|A| = 4$, $D = 6$ og $B = \\frac{2\\pi}{\\pi} = 2$. Kryssingsvilkåret $-\\frac{C}{B} = \\frac{\\pi}{6}$ gjev $C = -\\frac{\\pi}{3}$, og dermed $f(x) = 4\\sin\\left(2x - \\frac{\\pi}{3}\\right) + 6$. Kontroller gjerne: maksimum inntreff når $2x - \\frac{\\pi}{3} = \\frac{\\pi}{2}$, i $x = \\frac{5\\pi}{12}$, der $f = 4 + 6 = 10$. Detektivarbeidet stemmer.","be8d16c28e6d5004":"Test deg sjølv på frå graf til funksjonsuttrykk:","a1d0dd2c70c81cd8":"Ein graf har maksverdi $5$ og minverdi $1$. Kva er amplituden?","b47432dac49f3805":"$|A| = \\frac{\\text{maks} - \\text{min}}{2} = \\frac{5 - 1}{2} = 2$.","f959daf8b43c0d47":"Same graf: kvar ligg likevektslinja?","bde4156b254c3ef5":"$y = 2$","7c221f94cb40edd4":"$y = 2{,}5$","6bd78d036d61be2f":"$y = 3$","c1acf23dd72a5a25":"$y = 4$","3441847717a358af":"$D = \\frac{\\text{maks} + \\text{min}}{2} = \\frac{5 + 1}{2} = 3$.","b280c591ccf57e9a":"Ein graf har periode $4$. Kva er $B$ i uttrykket $A\\sin(Bx + C) + D$?","8ccee5a469058933":"$\\frac{\\pi}{4}$","54f68aeb7b8c7793":"$B = \\frac{2\\pi}{T} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$.","cad9dc4debb3bca8":"## Modellering — bølgjene i arbeid\n\nNo har vi heile verktøykassa, og verkelegheita ventar. Oppskrifta er alltid den same: finn maks og min, rekn ut amplitude og likevektslinje, finn perioden, og vel sinus eller cosinus etter kva du veit om starttidspunktet — **cosinus** når du kjenner tidspunktet for maksimum eller minimum, **sinus** når du kjenner ei kryssing av likevektslinja.\n\n**Tidvatnet:** I ei hamn varierer djupna mellom $2$ og $10$ meter med $12$ timar mellom høgvatna, og det er høgvatn kl. 06. Amplituden er $4$, likevekta $6$, og $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$. Sidan vi kjenner maksimum, vel vi cosinus forskyvd til $t = 6$: $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kl. 09 er djupna $4\\cos\\frac{\\pi}{2} + 6 = 6$ meter, og likninga $h(t) = 8$ gjev $\\cos\\left(\\frac{\\pi}{6}(t-6)\\right) = \\frac{1}{2}$, med første løysing kl. 04.\n\n**Pariserhjulet:** Radius $20$ m, lågaste punkt $2$ m over bakken, omløpstid $3$ minutt, start nedst. Då er maks $42$, likevekt $22$, og start i *minimum* gjev cosinus med negativt forteikn: $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Etter eitt minutt: $-20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 32$ meter.\n\n**Lyd og straum:** Kammertonen er $p(t) = A\\sin(880\\pi t)$ med periode $\\frac{1}{440}$ s — doblar du frekvensen (ein oktav opp), blir perioden halvert. Norsk vekselstraum er $U(t) = 230\\sqrt{2}\\sin(100\\pi t)$ med periode $\\frac{1}{50}$ s, og sidan sinus kryssar null to gonger per periode, er spenninga null $100$ gonger i sekundet.\n\n**Daglengda** i Oslo svingar mellom $6$ og $19$ timar med periode $365$ døgn og maksimum ved sommarsolverv (dag 172): $L(d) = 6{,}5\\cos\\left(\\frac{2\\pi}{365}(d - 172)\\right) + 12{,}5$. Same fire skruar, same tankegang — frå hamnebasseng til himmelmekanikk.","b047422fc9aeb52d":"Test deg sjølv på modellering av periodiske fenomen:","fb6f6bc9a95b7291":"Tidvassmodellen er $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kva er djupna kl. 09 ($t = 9$)?","300a7caca9514c50":"$8$ m","66558147b63d179f":"$6$ m","02655e0752feb755":"$10$ m","487c51356189caf7":"$4$ m","46c8f0b2ad37052d":"$h(9) = 4\\cos\\left(\\frac{\\pi}{6} \\cdot 3\\right) + 6 = 4\\cos\\frac{\\pi}{2} + 6 = 0 + 6 = 6$ m.","6225b14ddc9b4789":"Pariserhjulet følgjer $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Kor høgt er passasjeren etter $1$ minutt?","5d6da4f1b3e3a101":"$12$ m","08c29fc9fbab8b32":"$22$ m","44f6b5dd52f1e332":"$42$ m","3995899cba93b1b5":"$32$ m","2ca2f9d79fff401c":"$h(1) = -20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 10 + 22 = 32$ m.","a2c8740384d85160":"Vekselstraumen i Noreg har frekvens $50$ Hz. Kor mange gonger per sekund er spenninga null?","3ed3606b7a78d66f":"Sinusfunksjonen er null to gonger per periode, og det er $50$ periodar per sekund: $50 \\cdot 2 = 100$ gonger.","05091da153bebe7f":"Når bør du velje cosinus i staden for sinus i ein modell?","b30c33ecc9c2fc1a":"Når perioden er kjend","798e507c2cd3e0bc":"Når amplituden er negativ","b9cafc80d140e4a1":"Når du veit når maksimum eller minimum inntreff","efd00a5d6c01864d":"Når funksjonen er odde","49c23fbe935590f4":"Cosinus startar i eit ytterpunkt, så han er naturleg når du kjenner tidspunktet for maks eller min. Sinus passar når du kjenner ei kryssing av likevektslinja.","55101a30e6c10fec":"## Oppsummering\n\nVi opna med å lytte til ei verd som svingar — tidvatn, temperatur, tonar, straum og pendlar — og fann språket som skildrar det heile: dei trigonometriske funksjonane og grafane deira.\n\nGrunngrafane la fundamentet. Sinus og cosinus bølgjer begge mellom $-1$ og $1$ med periode $2\\pi$; cosinus er berre sinus forskyvd $\\frac{\\pi}{2}$ til venstre, $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$. Sinus er odde, cosinus like. Tangens skil seg ut med periode $\\pi$, verdimengd $\\mathbb{R}$ og loddrette asymptotar i $x = \\frac{\\pi}{2} + n\\pi$, der cosinus i nemnaren blir null.\n\nSå kom dei fire skruane i $f(x) = A\\sin(Bx + C) + D$: amplituden $|A|$ (halve avstanden mellom maks og min), perioden $T = \\frac{2\\pi}{|B|}$, faseforskyvinga $-\\frac{C}{B}$ og likevektslinja $y = D$, med maksverdi $D + |A|$ og minverdi $D - |A|$. Detektivarbeidet frå graf til uttrykk følgde alltid same spor: amplitude og likevekt frå maks og min, $B$ frå perioden, og fasen frå eit attkjenneleg punkt på kurva.\n\nTil slutt sette vi modellane i arbeid: tidvatnet i hamna, pariserhjulet som løfta oss $32$ meter på eitt minutt, dei $440$ svingningane til kammertonen i sekundet, dei $100$ nullgjennomgangane til vekselstraumen og daglengda gjennom året. Hugs tommelfingerregelen: cosinus når du kjenner eit ytterpunkt, sinus når du kjenner ei kryssing. Med fire parametrar og to systerfunksjonar kan du no skildre nær sagt alt som svingar."}}}
+{
+  "id": "r2-4-8-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "4.8",
+  "title": "Trigonometriske funksjonar og grafar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om alt som svingar — grafane til sin, cos og tan, dei fire parametrane i A sin(Bx + C) + D, og modellering av tidvatn, pariserhjul, lyd og daglengd.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "utforske eigenskapar ved trigonometriske funksjonar",
+    "bruke trigonometriske funksjonar til å modellere periodiske fenomen"
+  ],
+  "linkedChapterId": "r2-4-8",
+  "content": [
+    {
+      "id": "r2-4-8-n-intro",
+      "type": "text",
+      "content": "## Verda svingar\n\nLukk auga og lytt til verda: tidvatnet som stig og fell to gonger i døgnet, temperaturen som vandrar frå januarmørke til julivarme og tilbake, kammertonen A som får lufta til å skjelve 440 gonger i sekundet, vekselstraumen som pulserer i stikkontakten, pendelen som tikkar i eit gamalt klokketårn. Alle desse fenomena har éin ting felles: dei **gjentek seg** med jamne mellomrom. Dei er periodiske.\n\nOg naturen har gjeve oss eit perfekt matematisk språk for slike fenomen: dei trigonometriske funksjonane. Grafen til $\\sin x$ er sjølve urbiletet av ei svingning — ei jamn bølgje som rullar evig vidare. Men bølgjene i verkelegheita er sjeldan så pene som standardkurva. Tidvatnet svingar ikkje mellom $-1$ og $1$ meter, og det har ikkje periode $2\\pi$ timar. Skal sinuskurva skildre verkelegheita, må ho kunne strekkjast, klemmast, løftast og forskyvast.\n\nDet er nøyaktig dette kapitlet handlar om. Først blir vi godt kjende med grunngrafane til $\\sin x$, $\\cos x$ og $\\tan x$ — periodane, nullpunkta, ekstremalpunkta og symmetriane deira. Deretter lærer vi den generelle forma $f(x) = A\\sin(Bx + C) + D$ og kva kvar av dei fire parametrane gjer med grafen. Så snur vi prosessen: frå ein graf eller ei skildring finn vi funksjonsuttrykket. Og til slutt set vi alt i arbeid og modellerer tidvatn, pariserhjul, lyd og daglengd."
+    },
+    {
+      "id": "r2-4-8-n-section1",
+      "type": "text",
+      "content": "## Dei tre grunngrafane\n\nSinusfunksjonen $f(x) = \\sin x$ er definert for alle reelle tal, med $x$ målt i radianar. Grafen bølgjer mellom $-1$ og $1$ — verdimengda er $[-1, 1]$ — og gjentek seg med periode $2\\pi$. Nullpunkta ligg i $x = n\\pi$, toppane ($\\sin x = 1$) i $x = \\frac{\\pi}{2} + 2\\pi n$ og botnane ($\\sin x = -1$) i $x = \\frac{3\\pi}{2} + 2\\pi n$. Funksjonen er **odde**: $\\sin(-x) = -\\sin x$, så grafen er symmetrisk om origo.\n\nCosinusgrafen er tvillingen til sinus. Han deler definisjonsmengd, verdimengd og periode, men startar på toppen: maksimum i $x = 2\\pi n$, minimum i $x = \\pi + 2\\pi n$, og nullpunkt i $x = \\frac{\\pi}{2} + n\\pi$. Samanhengen er presis: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$ — cosinuskurva er sinuskurva forskyvd $\\frac{\\pi}{2}$ til venstre. Du kan sjekke sjølv: $\\cos 0 = 1$ og $\\sin\\frac{\\pi}{2} = 1$, $\\cos\\frac{\\pi}{2} = 0$ og $\\sin\\pi = 0$. Cosinus er dessutan **like**: $\\cos(-x) = \\cos x$, symmetrisk om $y$-aksen.\n\nTangens dansar til ein annan rytme. Som brøken $\\tan x = \\frac{\\sin x}{\\cos x}$ er han udefinert der nemnaren er null, altså i $x = \\frac{\\pi}{2} + n\\pi$, der grafen har **loddrette asymptotar**. Når $x$ nærmar seg $\\frac{\\pi}{2}$ frå venstre, går $\\sin x$ mot $1$ medan $\\cos x$ kryp mot null frå positiv side — og brøken skyt mot $+\\infty$. Mellom to asymptotar løper tangens gjennom alle reelle verdiar; verdimengda er heile $\\mathbb{R}$. Perioden er berre $\\pi$, helvta av søskena sine, nullpunkta ligg i $x = n\\pi$, og funksjonen er odde som sinus. Verdiane $\\tan 0 = 0$, $\\tan\\frac{\\pi}{4} = 1$ og $\\tan\\frac{\\pi}{3} = \\sqrt{3}$ følgjer rett frå brøken."
+    },
+    {
+      "id": "r2-4-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grunngrafane til sin, cos og tan:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-8-n-quiz1-q0",
+            "task": "Kva er verdimengda til $f(x) = \\sin x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\mathbb{R}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[0, 1]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[0, 2\\pi]$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$[-1, 1]$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sinuskurva bølgjer mellom $-1$ og $1$: verdimengda er $[-1, 1]$."
+          },
+          {
+            "id": "r2-4-8-n-quiz1-q1",
+            "task": "Kva er perioden til tangensfunksjonen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\pi$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4\\pi$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tangens gjentek seg for kvar $\\pi$ — helvta av perioden til sinus og cosinus."
+          },
+          {
+            "id": "r2-4-8-n-quiz1-q2",
+            "task": "Kva for samanheng gjeld mellom sinus- og cosinusgrafen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos x = \\sin\\left(x - \\frac{\\pi}{2}\\right)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\cos x = -\\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\cos x = \\sin(2x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Cosinusgrafen er sinusgrafen forskyvd $\\frac{\\pi}{2}$ til venstre: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$."
+          },
+          {
+            "id": "r2-4-8-n-quiz1-q3",
+            "task": "Kvar ligg nullpunkta til $\\sin x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = \\frac{\\pi}{2} + n\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{2} + 2\\pi n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = n\\pi$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 2\\pi n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin x = 0$ for $x = 0, \\pi, 2\\pi, \\ldots$ — altså $x = n\\pi$, $n \\in \\mathbb{Z}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-8-n-section2",
+      "type": "text",
+      "content": "## Fire skruar å skru på: $A\\sin(Bx + C) + D$\n\nFor å tilpasse sinuskurva til verkelegheita har vi fire parametrar, kvar med sin presise jobb i $f(x) = A\\sin(Bx + C) + D$.\n\n**$A$ — amplituden.** $|A|$ er avstanden frå likevektslinja til topp og botn: maksverdien er $D + |A|$, minverdien $D - |A|$. Negativt $A$ speglar grafen om likevektslinja, men amplituden er framleis $|A|$ — difor har $h(x) = -4\\sin(\\pi x)$ amplitude $4$.\n\n**$B$ — frekvensparameteren.** Han klemmer eller strekkjer grafen vassrett, og perioden blir $T = \\frac{2\\pi}{|B|}$. For $f(x) = 3\\sin(2x)$ er perioden $\\pi$; for $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$ er han heile $6\\pi$.\n\n**$C$ — faseforskyvinga.** Skriv vi $A\\sin\\left(B\\left(x + \\frac{C}{B}\\right)\\right) + D$, ser vi at grafen er forskyvd $-\\frac{C}{B}$ einingar vassrett: positiv $C$ (med $B > 0$) skyv mot venstre, negativ mot høgre. For $\\sin\\left(x - \\frac{\\pi}{4}\\right)$ er forskyvinga $\\frac{\\pi}{4}$ mot høgre; for $3\\sin\\left(4x - \\frac{\\pi}{2}\\right)$ er ho $\\frac{\\pi}{8}$ mot høgre, sidan vi deler på $B = 4$.\n\n**$D$ — det vertikale skiftet.** Heile grafen blir løfta $D$ einingar, og linja $y = D$ blir kalla **likevektslinja**.\n\nEit samla eksempel: $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$ har amplitude $2$, periode $\\frac{2\\pi}{3}$, faseforskyving $\\frac{\\pi}{6}$ mot høgre og likevektslinje $y = 1$, slik at maksverdien er $1 + 2 = 3$ og minverdien $1 - 2 = -1$. Fire skruar — og full kontroll over kvar einaste sinusforma kurve."
+    },
+    {
+      "id": "r2-4-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på amplitude, periode, fase og skift:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-8-n-quiz2-q0",
+            "task": "Kva er amplituden til $f(x) = 3\\sin(2x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Amplituden er $|A| = 3$. Talet $2$ påverkar perioden, ikkje amplituden."
+          },
+          {
+            "id": "r2-4-8-n-quiz2-q1",
+            "task": "Kva er perioden til $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6\\pi$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2\\pi}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\pi}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{1/3} = 6\\pi$."
+          },
+          {
+            "id": "r2-4-8-n-quiz2-q2",
+            "task": "Kva er den største verdien til $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Maksverdi $= D + |A| = 1 + 2 = 3$."
+          },
+          {
+            "id": "r2-4-8-n-quiz2-q3",
+            "task": "Korleis er grafen til $f(x) = \\sin\\left(x - \\frac{\\pi}{4}\\right)$ forskyvd i høve til $\\sin x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{\\pi}{4}$ til venstre",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{4}$ opp",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\pi}{4}$ til høgre",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ikkje i det heile teke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faseforskyvinga er $-\\frac{C}{B} = \\frac{\\pi}{4}$, altså $\\frac{\\pi}{4}$ mot høgre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-8-n-section3",
+      "type": "text",
+      "content": "## Detektivarbeidet: frå graf til uttrykk\n\nOfte går oppgåva motsett veg: du får ein bølgjande graf — eller nokre nøkkeltal frå ei måling — og skal finne funksjonsuttrykket. Då jobbar du som detektiv, og spora blir lesne i fast rekkjefølgje.\n\nFørst **amplituden og likevektslinja**, som begge gøymer seg i maks- og minverdiane: $|A| = \\frac{\\text{maks} - \\text{min}}{2}$ og $D = \\frac{\\text{maks} + \\text{min}}{2}$. Deretter **perioden**: mål avstanden mellom to påfølgjande toppunkt (eller botnpunkt), og rekn ut $B = \\frac{2\\pi}{T}$. Til slutt **faseforskyvinga**: finn eit kjenneteikn du kan navigere etter — gjerne der grafen kryssar likevektslinja på veg opp, for der er $Bx + C = 0$, altså $x = -\\frac{C}{B}$.\n\nLat oss prøve. Ein graf har maksimum $5$, minimum $1$, periode $4$, og toppunkt i $x = 1$. Amplituden blir $\\frac{5-1}{2} = 2$ og likevektslinja $D = \\frac{5+1}{2} = 3$. Perioden gjev $B = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$. Ein rein sinus $2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$ har toppunkt der $\\frac{\\pi}{2}x = \\frac{\\pi}{2}$, altså i $x = 1$ — akkurat som grafen vår, så $C = 0$ og svaret er $f(x) = 2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$.\n\nEit eksempel til, no med fase: maks $10$, min $2$, periode $\\pi$, og oppovervend kryssing av likevektslinja i $x = \\frac{\\pi}{6}$. Vi får $|A| = 4$, $D = 6$ og $B = \\frac{2\\pi}{\\pi} = 2$. Kryssingsvilkåret $-\\frac{C}{B} = \\frac{\\pi}{6}$ gjev $C = -\\frac{\\pi}{3}$, og dermed $f(x) = 4\\sin\\left(2x - \\frac{\\pi}{3}\\right) + 6$. Kontroller gjerne: maksimum inntreff når $2x - \\frac{\\pi}{3} = \\frac{\\pi}{2}$, i $x = \\frac{5\\pi}{12}$, der $f = 4 + 6 = 10$. Detektivarbeidet stemmer."
+    },
+    {
+      "id": "r2-4-8-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-8-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på frå graf til funksjonsuttrykk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-8-n-quiz3-q0",
+            "task": "Ein graf har maksverdi $5$ og minverdi $1$. Kva er amplituden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|A| = \\frac{\\text{maks} - \\text{min}}{2} = \\frac{5 - 1}{2} = 2$."
+          },
+          {
+            "id": "r2-4-8-n-quiz3-q1",
+            "task": "Same graf: kvar ligg likevektslinja?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$y = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$y = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = 2{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D = \\frac{\\text{maks} + \\text{min}}{2} = \\frac{5 + 1}{2} = 3$."
+          },
+          {
+            "id": "r2-4-8-n-quiz3-q2",
+            "task": "Ein graf har periode $4$. Kva er $B$ i uttrykket $A\\sin(Bx + C) + D$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\pi}{4}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$B = \\frac{2\\pi}{T} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-8-n-section4",
+      "type": "text",
+      "content": "## Modellering — bølgjene i arbeid\n\nNo har vi heile verktøykassa, og verkelegheita ventar. Oppskrifta er alltid den same: finn maks og min, rekn ut amplitude og likevektslinje, finn perioden, og vel sinus eller cosinus etter kva du veit om starttidspunktet — **cosinus** når du kjenner tidspunktet for maksimum eller minimum, **sinus** når du kjenner ei kryssing av likevektslinja.\n\n**Tidvatnet:** I ei hamn varierer djupna mellom $2$ og $10$ meter med $12$ timar mellom høgvatna, og det er høgvatn kl. 06. Amplituden er $4$, likevekta $6$, og $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$. Sidan vi kjenner maksimum, vel vi cosinus forskyvd til $t = 6$: $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kl. 09 er djupna $4\\cos\\frac{\\pi}{2} + 6 = 6$ meter, og likninga $h(t) = 8$ gjev $\\cos\\left(\\frac{\\pi}{6}(t-6)\\right) = \\frac{1}{2}$, med første løysing kl. 04.\n\n**Pariserhjulet:** Radius $20$ m, lågaste punkt $2$ m over bakken, omløpstid $3$ minutt, start nedst. Då er maks $42$, likevekt $22$, og start i *minimum* gjev cosinus med negativt forteikn: $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Etter eitt minutt: $-20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 32$ meter.\n\n**Lyd og straum:** Kammertonen er $p(t) = A\\sin(880\\pi t)$ med periode $\\frac{1}{440}$ s — doblar du frekvensen (ein oktav opp), blir perioden halvert. Norsk vekselstraum er $U(t) = 230\\sqrt{2}\\sin(100\\pi t)$ med periode $\\frac{1}{50}$ s, og sidan sinus kryssar null to gonger per periode, er spenninga null $100$ gonger i sekundet.\n\n**Daglengda** i Oslo svingar mellom $6$ og $19$ timar med periode $365$ døgn og maksimum ved sommarsolverv (dag 172): $L(d) = 6{,}5\\cos\\left(\\frac{2\\pi}{365}(d - 172)\\right) + 12{,}5$. Same fire skruar, same tankegang — frå hamnebasseng til himmelmekanikk."
+    },
+    {
+      "id": "r2-4-8-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-8-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modellering av periodiske fenomen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-8-n-quiz4-q0",
+            "task": "Tidvassmodellen er $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kva er djupna kl. 09 ($t = 9$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$4$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h(9) = 4\\cos\\left(\\frac{\\pi}{6} \\cdot 3\\right) + 6 = 4\\cos\\frac{\\pi}{2} + 6 = 0 + 6 = 6$ m."
+          },
+          {
+            "id": "r2-4-8-n-quiz4-q1",
+            "task": "Pariserhjulet følgjer $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Kor høgt er passasjeren etter $1$ minutt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$22$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$42$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$32$ m",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$h(1) = -20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 10 + 22 = 32$ m."
+          },
+          {
+            "id": "r2-4-8-n-quiz4-q2",
+            "task": "Vekselstraumen i Noreg har frekvens $50$ Hz. Kor mange gonger per sekund er spenninga null?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$50$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$200$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sinusfunksjonen er null to gonger per periode, og det er $50$ periodar per sekund: $50 \\cdot 2 = 100$ gonger."
+          },
+          {
+            "id": "r2-4-8-n-quiz4-q3",
+            "task": "Når bør du velje cosinus i staden for sinus i ein modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når perioden er kjend",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når du veit når maksimum eller minimum inntreff",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når amplituden er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når funksjonen er odde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Cosinus startar i eit ytterpunkt, så han er naturleg når du kjenner tidspunktet for maks eller min. Sinus passar når du kjenner ei kryssing av likevektslinja."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi opna med å lytte til ei verd som svingar — tidvatn, temperatur, tonar, straum og pendlar — og fann språket som skildrar det heile: dei trigonometriske funksjonane og grafane deira.\n\nGrunngrafane la fundamentet. Sinus og cosinus bølgjer begge mellom $-1$ og $1$ med periode $2\\pi$; cosinus er berre sinus forskyvd $\\frac{\\pi}{2}$ til venstre, $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$. Sinus er odde, cosinus like. Tangens skil seg ut med periode $\\pi$, verdimengd $\\mathbb{R}$ og loddrette asymptotar i $x = \\frac{\\pi}{2} + n\\pi$, der cosinus i nemnaren blir null.\n\nSå kom dei fire skruane i $f(x) = A\\sin(Bx + C) + D$: amplituden $|A|$ (halve avstanden mellom maks og min), perioden $T = \\frac{2\\pi}{|B|}$, faseforskyvinga $-\\frac{C}{B}$ og likevektslinja $y = D$, med maksverdi $D + |A|$ og minverdi $D - |A|$. Detektivarbeidet frå graf til uttrykk følgde alltid same spor: amplitude og likevekt frå maks og min, $B$ frå perioden, og fasen frå eit attkjenneleg punkt på kurva.\n\nTil slutt sette vi modellane i arbeid: tidvatnet i hamna, pariserhjulet som løfta oss $32$ meter på eitt minutt, dei $440$ svingningane til kammertonen i sekundet, dei $100$ nullgjennomgangane til vekselstraumen og daglengda gjennom året. Hugs tommelfingerregelen: cosinus når du kjenner eit ytterpunkt, sinus når du kjenner ei kryssing. Med fire parametrar og to systerfunksjonar kan du no skildre nær sagt alt som svingar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0f8c197a29674668",
+    "translatedAt": "2026-06-20T00:35:45.541Z",
+    "model": "claude-code-agent",
+    "strings": 91,
+    "tm": {
+      "644fdfc74ab331e5": "Trigonometriske funksjonar og grafar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "38233b3a02e7ee15": "Ei forteljing om alt som svingar — grafane til sin, cos og tan, dei fire parametrane i A sin(Bx + C) + D, og modellering av tidvatn, pariserhjul, lyd og daglengd.",
+      "af5512da06380fba": "utforske eigenskapar ved trigonometriske funksjonar",
+      "d5d75b14f5ecba9e": "bruke trigonometriske funksjonar til å modellere periodiske fenomen",
+      "8f2ed2e004977e03": "## Verda svingar\n\nLukk auga og lytt til verda: tidvatnet som stig og fell to gonger i døgnet, temperaturen som vandrar frå januarmørke til julivarme og tilbake, kammertonen A som får lufta til å skjelve 440 gonger i sekundet, vekselstraumen som pulserer i stikkontakten, pendelen som tikkar i eit gamalt klokketårn. Alle desse fenomena har éin ting felles: dei **gjentek seg** med jamne mellomrom. Dei er periodiske.\n\nOg naturen har gjeve oss eit perfekt matematisk språk for slike fenomen: dei trigonometriske funksjonane. Grafen til $\\sin x$ er sjølve urbiletet av ei svingning — ei jamn bølgje som rullar evig vidare. Men bølgjene i verkelegheita er sjeldan så pene som standardkurva. Tidvatnet svingar ikkje mellom $-1$ og $1$ meter, og det har ikkje periode $2\\pi$ timar. Skal sinuskurva skildre verkelegheita, må ho kunne strekkjast, klemmast, løftast og forskyvast.\n\nDet er nøyaktig dette kapitlet handlar om. Først blir vi godt kjende med grunngrafane til $\\sin x$, $\\cos x$ og $\\tan x$ — periodane, nullpunkta, ekstremalpunkta og symmetriane deira. Deretter lærer vi den generelle forma $f(x) = A\\sin(Bx + C) + D$ og kva kvar av dei fire parametrane gjer med grafen. Så snur vi prosessen: frå ein graf eller ei skildring finn vi funksjonsuttrykket. Og til slutt set vi alt i arbeid og modellerer tidvatn, pariserhjul, lyd og daglengd.",
+      "93161da8dd1a4eee": "## Dei tre grunngrafane\n\nSinusfunksjonen $f(x) = \\sin x$ er definert for alle reelle tal, med $x$ målt i radianar. Grafen bølgjer mellom $-1$ og $1$ — verdimengda er $[-1, 1]$ — og gjentek seg med periode $2\\pi$. Nullpunkta ligg i $x = n\\pi$, toppane ($\\sin x = 1$) i $x = \\frac{\\pi}{2} + 2\\pi n$ og botnane ($\\sin x = -1$) i $x = \\frac{3\\pi}{2} + 2\\pi n$. Funksjonen er **odde**: $\\sin(-x) = -\\sin x$, så grafen er symmetrisk om origo.\n\nCosinusgrafen er tvillingen til sinus. Han deler definisjonsmengd, verdimengd og periode, men startar på toppen: maksimum i $x = 2\\pi n$, minimum i $x = \\pi + 2\\pi n$, og nullpunkt i $x = \\frac{\\pi}{2} + n\\pi$. Samanhengen er presis: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$ — cosinuskurva er sinuskurva forskyvd $\\frac{\\pi}{2}$ til venstre. Du kan sjekke sjølv: $\\cos 0 = 1$ og $\\sin\\frac{\\pi}{2} = 1$, $\\cos\\frac{\\pi}{2} = 0$ og $\\sin\\pi = 0$. Cosinus er dessutan **like**: $\\cos(-x) = \\cos x$, symmetrisk om $y$-aksen.\n\nTangens dansar til ein annan rytme. Som brøken $\\tan x = \\frac{\\sin x}{\\cos x}$ er han udefinert der nemnaren er null, altså i $x = \\frac{\\pi}{2} + n\\pi$, der grafen har **loddrette asymptotar**. Når $x$ nærmar seg $\\frac{\\pi}{2}$ frå venstre, går $\\sin x$ mot $1$ medan $\\cos x$ kryp mot null frå positiv side — og brøken skyt mot $+\\infty$. Mellom to asymptotar løper tangens gjennom alle reelle verdiar; verdimengda er heile $\\mathbb{R}$. Perioden er berre $\\pi$, helvta av søskena sine, nullpunkta ligg i $x = n\\pi$, og funksjonen er odde som sinus. Verdiane $\\tan 0 = 0$, $\\tan\\frac{\\pi}{4} = 1$ og $\\tan\\frac{\\pi}{3} = \\sqrt{3}$ følgjer rett frå brøken.",
+      "53bbe55d3a335b24": "Test deg sjølv på grunngrafane til sin, cos og tan:",
+      "4097889236a2af26": "placeholder",
+      "1fc887f5fc5b3f62": "Kva er verdimengda til $f(x) = \\sin x$?",
+      "48ff44047ef8ff67": "$\\mathbb{R}$",
+      "36be98f1b8ca365c": "$[0, 2\\pi]$",
+      "479a8854c9187498": "Sinuskurva bølgjer mellom $-1$ og $1$: verdimengda er $[-1, 1]$.",
+      "e960013236a23093": "Kva er perioden til tangensfunksjonen?",
+      "168b576751641805": "$2\\pi$",
+      "c12589f420c60053": "$\\frac{\\pi}{2}$",
+      "7fb34fd76c28bba5": "$\\pi$",
+      "29e9b166b9116b4e": "$4\\pi$",
+      "2df1488a21df3361": "Tangens gjentek seg for kvar $\\pi$ — helvta av perioden til sinus og cosinus.",
+      "be6ef23761cec51b": "Kva for samanheng gjeld mellom sinus- og cosinusgrafen?",
+      "fca8b64650d4a104": "$\\cos x = \\sin\\left(x - \\frac{\\pi}{2}\\right)$",
+      "0522e4aff2801c2d": "$\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$",
+      "a97f0bbe198bbbd0": "$\\cos x = -\\sin x$",
+      "65b5d3e669d8ca0d": "$\\cos x = \\sin(2x)$",
+      "b587273622124a7f": "Cosinusgrafen er sinusgrafen forskyvd $\\frac{\\pi}{2}$ til venstre: $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$.",
+      "2a47f918c77f2d57": "Kvar ligg nullpunkta til $\\sin x$?",
+      "496c07d9ac2e9425": "$x = \\frac{\\pi}{2} + n\\pi$",
+      "bbe53ed81b05d7eb": "$x = \\frac{\\pi}{2} + 2\\pi n$",
+      "9db5a21ce3ed3b6a": "$x = 2\\pi n$",
+      "8b7bebe83cfc3137": "$x = n\\pi$",
+      "8c9a68626920fadc": "$\\sin x = 0$ for $x = 0, \\pi, 2\\pi, \\ldots$ — altså $x = n\\pi$, $n \\in \\mathbb{Z}$.",
+      "b416a2b2800c9e49": "## Fire skruar å skru på: $A\\sin(Bx + C) + D$\n\nFor å tilpasse sinuskurva til verkelegheita har vi fire parametrar, kvar med sin presise jobb i $f(x) = A\\sin(Bx + C) + D$.\n\n**$A$ — amplituden.** $|A|$ er avstanden frå likevektslinja til topp og botn: maksverdien er $D + |A|$, minverdien $D - |A|$. Negativt $A$ speglar grafen om likevektslinja, men amplituden er framleis $|A|$ — difor har $h(x) = -4\\sin(\\pi x)$ amplitude $4$.\n\n**$B$ — frekvensparameteren.** Han klemmer eller strekkjer grafen vassrett, og perioden blir $T = \\frac{2\\pi}{|B|}$. For $f(x) = 3\\sin(2x)$ er perioden $\\pi$; for $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$ er han heile $6\\pi$.\n\n**$C$ — faseforskyvinga.** Skriv vi $A\\sin\\left(B\\left(x + \\frac{C}{B}\\right)\\right) + D$, ser vi at grafen er forskyvd $-\\frac{C}{B}$ einingar vassrett: positiv $C$ (med $B > 0$) skyv mot venstre, negativ mot høgre. For $\\sin\\left(x - \\frac{\\pi}{4}\\right)$ er forskyvinga $\\frac{\\pi}{4}$ mot høgre; for $3\\sin\\left(4x - \\frac{\\pi}{2}\\right)$ er ho $\\frac{\\pi}{8}$ mot høgre, sidan vi deler på $B = 4$.\n\n**$D$ — det vertikale skiftet.** Heile grafen blir løfta $D$ einingar, og linja $y = D$ blir kalla **likevektslinja**.\n\nEit samla eksempel: $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$ har amplitude $2$, periode $\\frac{2\\pi}{3}$, faseforskyving $\\frac{\\pi}{6}$ mot høgre og likevektslinje $y = 1$, slik at maksverdien er $1 + 2 = 3$ og minverdien $1 - 2 = -1$. Fire skruar — og full kontroll over kvar einaste sinusforma kurve.",
+      "75c850822731d99b": "Test deg sjølv på amplitude, periode, fase og skift:",
+      "111e798891f8731f": "Kva er amplituden til $f(x) = 3\\sin(2x)$?",
+      "9663be320a691f04": "$\\frac{3}{2}$",
+      "8336319897ed3c16": "Amplituden er $|A| = 3$. Talet $2$ påverkar perioden, ikkje amplituden.",
+      "017022e9965c8aa7": "Kva er perioden til $g(x) = 2\\cos\\left(\\frac{x}{3}\\right)$?",
+      "15ddc057b4d1f822": "$6\\pi$",
+      "67e7d8a4c141e7b4": "$\\frac{2\\pi}{3}$",
+      "5af201af7a0698a2": "$3\\pi$",
+      "01a79120857df01f": "$\\frac{\\pi}{3}$",
+      "ca18f41da25e4afe": "$T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{1/3} = 6\\pi$.",
+      "7c9059fa0cc32c3a": "Kva er den største verdien til $f(x) = 2\\sin\\left(3x - \\frac{\\pi}{2}\\right) + 1$?",
+      "311ca836badba8be": "Maksverdi $= D + |A| = 1 + 2 = 3$.",
+      "b0bd6ce4169251b4": "Korleis er grafen til $f(x) = \\sin\\left(x - \\frac{\\pi}{4}\\right)$ forskyvd i høve til $\\sin x$?",
+      "66ec9714a6b3b66b": "$\\frac{\\pi}{4}$ til venstre",
+      "7385619eb2c757ee": "$\\frac{\\pi}{4}$ opp",
+      "c753d6e24c561c0e": "$\\frac{\\pi}{4}$ til høgre",
+      "e7b25774ae7658d8": "Ikkje i det heile teke",
+      "9b96a57c79e690e8": "Faseforskyvinga er $-\\frac{C}{B} = \\frac{\\pi}{4}$, altså $\\frac{\\pi}{4}$ mot høgre.",
+      "5f4b9c13e766ef4e": "## Detektivarbeidet: frå graf til uttrykk\n\nOfte går oppgåva motsett veg: du får ein bølgjande graf — eller nokre nøkkeltal frå ei måling — og skal finne funksjonsuttrykket. Då jobbar du som detektiv, og spora blir lesne i fast rekkjefølgje.\n\nFørst **amplituden og likevektslinja**, som begge gøymer seg i maks- og minverdiane: $|A| = \\frac{\\text{maks} - \\text{min}}{2}$ og $D = \\frac{\\text{maks} + \\text{min}}{2}$. Deretter **perioden**: mål avstanden mellom to påfølgjande toppunkt (eller botnpunkt), og rekn ut $B = \\frac{2\\pi}{T}$. Til slutt **faseforskyvinga**: finn eit kjenneteikn du kan navigere etter — gjerne der grafen kryssar likevektslinja på veg opp, for der er $Bx + C = 0$, altså $x = -\\frac{C}{B}$.\n\nLat oss prøve. Ein graf har maksimum $5$, minimum $1$, periode $4$, og toppunkt i $x = 1$. Amplituden blir $\\frac{5-1}{2} = 2$ og likevektslinja $D = \\frac{5+1}{2} = 3$. Perioden gjev $B = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$. Ein rein sinus $2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$ har toppunkt der $\\frac{\\pi}{2}x = \\frac{\\pi}{2}$, altså i $x = 1$ — akkurat som grafen vår, så $C = 0$ og svaret er $f(x) = 2\\sin\\left(\\frac{\\pi}{2}x\\right) + 3$.\n\nEit eksempel til, no med fase: maks $10$, min $2$, periode $\\pi$, og oppovervend kryssing av likevektslinja i $x = \\frac{\\pi}{6}$. Vi får $|A| = 4$, $D = 6$ og $B = \\frac{2\\pi}{\\pi} = 2$. Kryssingsvilkåret $-\\frac{C}{B} = \\frac{\\pi}{6}$ gjev $C = -\\frac{\\pi}{3}$, og dermed $f(x) = 4\\sin\\left(2x - \\frac{\\pi}{3}\\right) + 6$. Kontroller gjerne: maksimum inntreff når $2x - \\frac{\\pi}{3} = \\frac{\\pi}{2}$, i $x = \\frac{5\\pi}{12}$, der $f = 4 + 6 = 10$. Detektivarbeidet stemmer.",
+      "be8d16c28e6d5004": "Test deg sjølv på frå graf til funksjonsuttrykk:",
+      "a1d0dd2c70c81cd8": "Ein graf har maksverdi $5$ og minverdi $1$. Kva er amplituden?",
+      "b47432dac49f3805": "$|A| = \\frac{\\text{maks} - \\text{min}}{2} = \\frac{5 - 1}{2} = 2$.",
+      "f959daf8b43c0d47": "Same graf: kvar ligg likevektslinja?",
+      "bde4156b254c3ef5": "$y = 2$",
+      "7c221f94cb40edd4": "$y = 2{,}5$",
+      "6bd78d036d61be2f": "$y = 3$",
+      "c1acf23dd72a5a25": "$y = 4$",
+      "3441847717a358af": "$D = \\frac{\\text{maks} + \\text{min}}{2} = \\frac{5 + 1}{2} = 3$.",
+      "b280c591ccf57e9a": "Ein graf har periode $4$. Kva er $B$ i uttrykket $A\\sin(Bx + C) + D$?",
+      "8ccee5a469058933": "$\\frac{\\pi}{4}$",
+      "54f68aeb7b8c7793": "$B = \\frac{2\\pi}{T} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$.",
+      "cad9dc4debb3bca8": "## Modellering — bølgjene i arbeid\n\nNo har vi heile verktøykassa, og verkelegheita ventar. Oppskrifta er alltid den same: finn maks og min, rekn ut amplitude og likevektslinje, finn perioden, og vel sinus eller cosinus etter kva du veit om starttidspunktet — **cosinus** når du kjenner tidspunktet for maksimum eller minimum, **sinus** når du kjenner ei kryssing av likevektslinja.\n\n**Tidvatnet:** I ei hamn varierer djupna mellom $2$ og $10$ meter med $12$ timar mellom høgvatna, og det er høgvatn kl. 06. Amplituden er $4$, likevekta $6$, og $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$. Sidan vi kjenner maksimum, vel vi cosinus forskyvd til $t = 6$: $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kl. 09 er djupna $4\\cos\\frac{\\pi}{2} + 6 = 6$ meter, og likninga $h(t) = 8$ gjev $\\cos\\left(\\frac{\\pi}{6}(t-6)\\right) = \\frac{1}{2}$, med første løysing kl. 04.\n\n**Pariserhjulet:** Radius $20$ m, lågaste punkt $2$ m over bakken, omløpstid $3$ minutt, start nedst. Då er maks $42$, likevekt $22$, og start i *minimum* gjev cosinus med negativt forteikn: $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Etter eitt minutt: $-20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 32$ meter.\n\n**Lyd og straum:** Kammertonen er $p(t) = A\\sin(880\\pi t)$ med periode $\\frac{1}{440}$ s — doblar du frekvensen (ein oktav opp), blir perioden halvert. Norsk vekselstraum er $U(t) = 230\\sqrt{2}\\sin(100\\pi t)$ med periode $\\frac{1}{50}$ s, og sidan sinus kryssar null to gonger per periode, er spenninga null $100$ gonger i sekundet.\n\n**Daglengda** i Oslo svingar mellom $6$ og $19$ timar med periode $365$ døgn og maksimum ved sommarsolverv (dag 172): $L(d) = 6{,}5\\cos\\left(\\frac{2\\pi}{365}(d - 172)\\right) + 12{,}5$. Same fire skruar, same tankegang — frå hamnebasseng til himmelmekanikk.",
+      "b047422fc9aeb52d": "Test deg sjølv på modellering av periodiske fenomen:",
+      "fb6f6bc9a95b7291": "Tidvassmodellen er $h(t) = 4\\cos\\left(\\frac{\\pi}{6}(t - 6)\\right) + 6$. Kva er djupna kl. 09 ($t = 9$)?",
+      "300a7caca9514c50": "$8$ m",
+      "66558147b63d179f": "$6$ m",
+      "02655e0752feb755": "$10$ m",
+      "487c51356189caf7": "$4$ m",
+      "46c8f0b2ad37052d": "$h(9) = 4\\cos\\left(\\frac{\\pi}{6} \\cdot 3\\right) + 6 = 4\\cos\\frac{\\pi}{2} + 6 = 0 + 6 = 6$ m.",
+      "6225b14ddc9b4789": "Pariserhjulet følgjer $h(t) = -20\\cos\\left(\\frac{2\\pi}{3}t\\right) + 22$. Kor høgt er passasjeren etter $1$ minutt?",
+      "5d6da4f1b3e3a101": "$12$ m",
+      "08c29fc9fbab8b32": "$22$ m",
+      "44f6b5dd52f1e332": "$42$ m",
+      "3995899cba93b1b5": "$32$ m",
+      "2ca2f9d79fff401c": "$h(1) = -20\\cos\\frac{2\\pi}{3} + 22 = -20 \\cdot \\left(-\\frac{1}{2}\\right) + 22 = 10 + 22 = 32$ m.",
+      "a2c8740384d85160": "Vekselstraumen i Noreg har frekvens $50$ Hz. Kor mange gonger per sekund er spenninga null?",
+      "3ed3606b7a78d66f": "Sinusfunksjonen er null to gonger per periode, og det er $50$ periodar per sekund: $50 \\cdot 2 = 100$ gonger.",
+      "05091da153bebe7f": "Når bør du velje cosinus i staden for sinus i ein modell?",
+      "b30c33ecc9c2fc1a": "Når perioden er kjend",
+      "798e507c2cd3e0bc": "Når amplituden er negativ",
+      "b9cafc80d140e4a1": "Når du veit når maksimum eller minimum inntreff",
+      "efd00a5d6c01864d": "Når funksjonen er odde",
+      "49c23fbe935590f4": "Cosinus startar i eit ytterpunkt, så han er naturleg når du kjenner tidspunktet for maks eller min. Sinus passar når du kjenner ei kryssing av likevektslinja.",
+      "55101a30e6c10fec": "## Oppsummering\n\nVi opna med å lytte til ei verd som svingar — tidvatn, temperatur, tonar, straum og pendlar — og fann språket som skildrar det heile: dei trigonometriske funksjonane og grafane deira.\n\nGrunngrafane la fundamentet. Sinus og cosinus bølgjer begge mellom $-1$ og $1$ med periode $2\\pi$; cosinus er berre sinus forskyvd $\\frac{\\pi}{2}$ til venstre, $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$. Sinus er odde, cosinus like. Tangens skil seg ut med periode $\\pi$, verdimengd $\\mathbb{R}$ og loddrette asymptotar i $x = \\frac{\\pi}{2} + n\\pi$, der cosinus i nemnaren blir null.\n\nSå kom dei fire skruane i $f(x) = A\\sin(Bx + C) + D$: amplituden $|A|$ (halve avstanden mellom maks og min), perioden $T = \\frac{2\\pi}{|B|}$, faseforskyvinga $-\\frac{C}{B}$ og likevektslinja $y = D$, med maksverdi $D + |A|$ og minverdi $D - |A|$. Detektivarbeidet frå graf til uttrykk følgde alltid same spor: amplitude og likevekt frå maks og min, $B$ frå perioden, og fasen frå eit attkjenneleg punkt på kurva.\n\nTil slutt sette vi modellane i arbeid: tidvatnet i hamna, pariserhjulet som løfta oss $32$ meter på eitt minutt, dei $440$ svingningane til kammertonen i sekundet, dei $100$ nullgjennomgangane til vekselstraumen og daglengda gjennom året. Hugs tommelfingerregelen: cosinus når du kjenner eit ytterpunkt, sinus når du kjenner ei kryssing. Med fire parametrar og to systerfunksjonar kan du no skildre nær sagt alt som svingar."
+    }
+  }
+}

@@ -1,1 +1,577 @@
-{"id":"10-1-3-narrativ","courseId":"10","chapterNumber":"1.3","title":"Faktorisering og forenkling","subtitle":"Narrativ versjon","description":"Ein engasjerande fortelling om å \"pakke opp\" algebraiske uttrykk, finne felles faktorar og meistre kvadratsetningane.","estimatedMinutes":40,"competenceGoals":["bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar"],"linkedChapterId":"10-1-3","content":[{"id":"10-1-3-n-intro","type":"text","content":"## Algebra som puslespill\n\nTenk deg at du har uttrykket $x^2 - 9$. Det ser kanskje enkelt ut, men det gjemmer ein hemmelighet: det kan skrivast som $(x+3)(x-3)$. Denne \"oppdelinga\" av uttrykk i faktorar kallast faktorisering, og det er ein av dei viktigaste ferdigheitene i algebra.\n\nKorleis bryr vi oss? Fordi faktorisering let oss forenkle brøkar, løyse likningar og sjå samanhengjar som elles er usynlege. Det er som å knekke ein kode -- når du ser mønsteret, opnar dørane seg."},{"id":"10-1-3-n-section1","type":"text","content":"## Felles faktor -- det enklaste trikset\n\nÅ **faktorisere** tyder å skrive eit uttrykk som eit produkt av faktorar. Det enklaste tilfellet er når alle ledda har ein felles faktor som vi kan \"trekke ut\".\n\nGrunnregelen er: $ab + ac = a(b + c)$. Vi finn det som er felles og set det utanfor ein parentes.\n\nLa oss ta $6x + 9$. Begge ledda er delelege med 3: $6x + 9 = 3(2x + 3)$.\n\nKva med $4x^2 - 8x$? Her er felles faktor $4x$ (begge ledda har minst $4$ og minst $x$): $4x^2 - 8x = 4x(x - 2)$.\n\nFor $15x^2y + 10xy^2$ ser vi at begge ledda inneheld $5xy$: $15x^2y + 10xy^2 = 5xy(3x + 2y)$.\n\nTrikset er å finne den **største** felles faktoren. $8x + 12$ kan skrivast som $2(4x + 6)$, men det er ikkje ferdig forenklad! Den største felles faktoren er 4: $8x + 12 = 4(2x + 3)$.\n\nMed tre ledd fungerer det på same måte: $20x^3 - 8x^2 + 4x$. Alle tre ledda har felles faktor $4x$, så $20x^3 - 8x^2 + 4x = 4x(5x^2 - 2x + 1)$."},{"id":"10-1-3-n-quiz1","type":"exercise","exercise":{"id":"10-1-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på faktorisering med felles faktor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-1-3-n-quiz1-q0","task":"Kva er $6x^2 - 15x$ faktorisert?","options":[{"id":"a","text":"$3(2x^2 - 5x)$","isCorrect":false},{"id":"b","text":"$3x(2x - 5)$","isCorrect":true},{"id":"c","text":"$x(6x - 15)$","isCorrect":false},{"id":"d","text":"$3x(2x + 5)$","isCorrect":false}],"solution":"Største felles faktor er $3x$: $6x^2 - 15x = 3x(2x - 5)$."},{"id":"10-1-3-n-quiz1-q1","task":"Kva er $12ab + 18a^2$ faktorisert?","options":[{"id":"a","text":"$6a(2b + 3a)$","isCorrect":true},{"id":"b","text":"$2a(6b + 9a)$","isCorrect":false},{"id":"c","text":"$6(2ab + 3a^2)$","isCorrect":false},{"id":"d","text":"$6a(2b - 3a)$","isCorrect":false}],"solution":"Største felles faktor er $6a$: $12ab + 18a^2 = 6a(2b + 3a)$."},{"id":"10-1-3-n-quiz1-q2","task":"Kva tyder det å faktorisere eit uttrykk?","options":[{"id":"a","text":"Å gange ut parentesar","isCorrect":false},{"id":"b","text":"Å finne nullpunkta","isCorrect":false},{"id":"c","text":"Å skrive uttrykket som eit produkt av faktorar","isCorrect":true},{"id":"d","text":"Å forenkle brøkar","isCorrect":false}],"solution":"Å faktorisere tyder å skrive eit uttrykk som eit produkt av faktorar. Det er det motsette av å gange ut parentesar."}],"solution":""}},{"id":"10-1-3-n-section2","type":"text","content":"## Kvadratsetningane -- tre gullformlar\n\nDet finst tre algebraiske identitetar som dukkar opp så ofte at dei har fått eigne namn. Desse tre **kvadratsetningane** er:\n\n**Fyrste kvadratsetning:** $(a + b)^2 = a^2 + 2ab + b^2$\n\n**Andre kvadratsetning:** $(a - b)^2 = a^2 - 2ab + b^2$\n\n**Konjugatsetningen:** $(a + b)(a - b) = a^2 - b^2$\n\nVi bruker desse \"baklengs\" for å faktorisere. Ser du eit uttrykk som $x^2 + 6x + 9$? Sjekk om det samsvarar ein av kvadratsetningane. Her er $a = x$ og $b = 3$, for $3^2 = 9$ og $2 \\cdot x \\cdot 3 = 6x$. Altso: $x^2 + 6x + 9 = (x + 3)^2$.\n\nKva med $x^2 - 10x + 25$? Her er $a = x$ og $b = 5$: $x^2 - 10x + 25 = (x - 5)^2$.\n\nOg $x^2 - 16$? Det er ein differanse av kvadrat: $x^2 - 16 = x^2 - 4^2 = (x + 4)(x - 4)$.\n\nKonjugatsetningen er spesielt nyttig fordi differansen av to kvadrat er eit svært vanleg mønster. $4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ -- legg merke til at vi her bruker $a = 2x$ og $b = 5$."},{"id":"10-1-3-n-quiz2","type":"exercise","exercise":{"id":"10-1-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kvadratsetningane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-1-3-n-quiz2-q0","task":"Kva er $x^2 + 8x + 16$ faktorisert?","options":[{"id":"a","text":"$(x + 4)^2$","isCorrect":true},{"id":"b","text":"$(x + 8)(x + 2)$","isCorrect":false},{"id":"c","text":"$(x - 4)^2$","isCorrect":false},{"id":"d","text":"$(x + 4)(x - 4)$","isCorrect":false}],"solution":"$x^2 + 8x + 16 = x^2 + 2 \\cdot x \\cdot 4 + 4^2 = (x + 4)^2$ (fyrste kvadratsetning)."},{"id":"10-1-3-n-quiz2-q1","task":"Kva er $x^2 - 81$ faktorisert?","options":[{"id":"a","text":"$(x - 9)^2$","isCorrect":false},{"id":"b","text":"$(x + 9)(x - 9)$","isCorrect":true},{"id":"c","text":"$(x + 9)^2$","isCorrect":false},{"id":"d","text":"$(x - 81)(x + 1)$","isCorrect":false}],"solution":"$x^2 - 81 = x^2 - 9^2 = (x + 9)(x - 9)$ (konjugatsetningen)."},{"id":"10-1-3-n-quiz2-q2","task":"Kva er $4x^2 - 25$ faktorisert?","options":[{"id":"a","text":"$(4x + 5)(x - 5)$","isCorrect":false},{"id":"b","text":"$(2x - 5)^2$","isCorrect":false},{"id":"c","text":"$(2x + 5)(2x - 5)$","isCorrect":true},{"id":"d","text":"$(2x + 5)^2$","isCorrect":false}],"solution":"$4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ (konjugatsetningen med $a = 2x$ og $b = 5$)."},{"id":"10-1-3-n-quiz2-q3","task":"Kva er $x^2 - 14x + 49$ faktorisert?","options":[{"id":"a","text":"$(x + 7)(x - 7)$","isCorrect":false},{"id":"b","text":"$(x + 7)^2$","isCorrect":false},{"id":"c","text":"$(x - 14)(x - 7)$","isCorrect":false},{"id":"d","text":"$(x - 7)^2$","isCorrect":true}],"solution":"$x^2 - 14x + 49 = x^2 - 2 \\cdot x \\cdot 7 + 7^2 = (x - 7)^2$ (andre kvadratsetning)."}],"solution":""}},{"id":"10-1-3-n-section3","type":"text","content":"## Faktorisere andregradsuttrykk -- finne tallparet\n\nIkkje alle andregradsuttrykk matcher kvadratsetningane. For eit generelt uttrykk som $x^2 + 5x + 6$ treng vi ei anna strategi. Vi søkjer to tal som **ganget gir konstantleddet** (6) og **summert gir koeffisienten foran $x$** (5).\n\nFor $x^2 + 5x + 6$: Kva to tal ganget gir 6 og summert gir 5? Svaret er 2 og 3, fordi $2 \\cdot 3 = 6$ og $2 + 3 = 5$. Altso: $x^2 + 5x + 6 = (x + 2)(x + 3)$.\n\nKva med $x^2 - 2x - 15$? Vi treng to tal som ganget gir $-15$ og summert gir $-2$. Det er 3 og $-5$, fordi $3 \\cdot (-5) = -15$ og $3 + (-5) = -2$. Altso: $x^2 - 2x - 15 = (x + 3)(x - 5)$.\n\nLa oss ta eit par til: $x^2 + 7x + 12 = (x + 3)(x + 4)$ fordi $3 \\cdot 4 = 12$ og $3 + 4 = 7$. Og $x^2 - 11x + 30 = (x - 5)(x - 6)$ fordi $(-5) \\cdot (-6) = 30$ og $(-5) + (-6) = -11$.\n\nPass på forteikna! Hvis konstantleddet er positivt, har båe tala same forteikn (båe positive eller båe negative). Hvis konstantleddet er negativt, har tala ulikt forteikn."},{"id":"10-1-3-n-quiz3","type":"exercise","exercise":{"id":"10-1-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på faktorisering av andregradsuttrykk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-1-3-n-quiz3-q0","task":"Kva er $x^2 - x - 12$ faktorisert?","options":[{"id":"a","text":"$(x + 3)(x - 4)$","isCorrect":true},{"id":"b","text":"$(x - 3)(x + 4)$","isCorrect":false},{"id":"c","text":"$(x + 2)(x - 6)$","isCorrect":false},{"id":"d","text":"$(x - 2)(x + 6)$","isCorrect":false}],"solution":"Vi treng to tal som ganget gir $-12$ og summert gir $-1$. Det er $3$ og $-4$: $3 \\cdot (-4) = -12$ og $3 + (-4) = -1$. Altso $(x + 3)(x - 4)$."},{"id":"10-1-3-n-quiz3-q1","task":"Kva er $x^2 + 2x - 35$ faktorisert?","options":[{"id":"a","text":"$(x - 7)(x + 5)$","isCorrect":false},{"id":"b","text":"$(x + 7)(x - 5)$","isCorrect":true},{"id":"c","text":"$(x + 5)(x + 7)$","isCorrect":false},{"id":"d","text":"$(x - 5)(x - 7)$","isCorrect":false}],"solution":"Vi treng to tal som ganget gir $-35$ og summert gir $2$. Det er $7$ og $-5$: $7 \\cdot (-5) = -35$ og $7 + (-5) = 2$. Altso $(x + 7)(x - 5)$."},{"id":"10-1-3-n-quiz3-q2","task":"For $x^2 + bx + c$, kva skal dei to tala oppfylle?","options":[{"id":"a","text":"Ganget gi $b$ og summert gi $c$","isCorrect":false},{"id":"b","text":"Ganget gi $c$ og summert gi $b$","isCorrect":true},{"id":"c","text":"Ganget gi $b \\cdot c$ og summert gi $b + c$","isCorrect":false},{"id":"d","text":"Båe skal vera like $c$","isCorrect":false}],"solution":"Vi søkjer to tal $m$ og $n$ slik at $m \\cdot n = c$ (konstantleddet) og $m + n = b$ (koeffisienten foran $x$). Da er $x^2 + bx + c = (x + m)(x + n)$."}],"solution":""}},{"id":"10-1-3-n-section4","type":"text","content":"## Forenkle algebraiske brøkar\n\nNo kjem premien for all faktoriseringsøvinga! Algebraiske brøkar blir forenkla ved å **faktorisere teljar og nemnar** og deretter **forkorte like faktorar**.\n\nTa $\\frac{x^2 - 9}{x + 3}$. Vi faktoriserer teljaren: $x^2 - 9 = (x+3)(x-3)$. Da blir brøken $\\frac{(x+3)(x-3)}{x+3}$. Faktoren $(x+3)$ finst i både teljar og nemnar, så vi kan forkorte: $\\frac{(x+3)(x-3)}{x+3} = x - 3$.\n\nEit meir avansert døme: $\\frac{x^2 + 5x + 6}{x^2 - 4}$. Teljar: $x^2 + 5x + 6 = (x+2)(x+3)$. Nemnar: $x^2 - 4 = (x+2)(x-2)$. Forkortar $(x+2)$: $\\frac{(x+2)(x+3)}{(x+2)(x-2)} = \\frac{x+3}{x-2}$.\n\nLa oss ta den vanskelegaste: $\\frac{2x^2 - 8}{x^2 + 4x + 4}$. I teljaren trekkjer vi ut 2 først: $2x^2 - 8 = 2(x^2 - 4) = 2(x+2)(x-2)$. Nemnaren er $(x+2)^2$. Forkortar éin $(x+2)$: $\\frac{2(x+2)(x-2)}{(x+2)^2} = \\frac{2(x-2)}{x+2}$.\n\nMerk: Vi kan berre forkorte **faktorar** (ting som er ganget saman), aldri **ledd** (ting som er addert). $\\frac{x + 3}{x + 5}$ kan IKKJE forenkla!"},{"id":"10-1-3-n-quiz4","type":"exercise","exercise":{"id":"10-1-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på forenkling av algebraiske brøkar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-1-3-n-quiz4-q0","task":"Kva er $\\frac{x^2 - 25}{x - 5}$ forenkla?","options":[{"id":"a","text":"$x - 5$","isCorrect":false},{"id":"b","text":"$x + 5$","isCorrect":true},{"id":"c","text":"$\\frac{x + 5}{x - 5}$","isCorrect":false},{"id":"d","text":"$x^2 - 5$","isCorrect":false}],"solution":"$\\frac{x^2 - 25}{x - 5} = \\frac{(x+5)(x-5)}{x - 5} = x + 5$."},{"id":"10-1-3-n-quiz4-q1","task":"Kva er $\\frac{x^2 + 6x + 9}{x^2 - 9}$ forenkla?","options":[{"id":"a","text":"$\\frac{x+3}{x-3}$","isCorrect":true},{"id":"b","text":"$\\frac{x-3}{x+3}$","isCorrect":false},{"id":"c","text":"$x + 3$","isCorrect":false},{"id":"d","text":"$\\frac{(x+3)^2}{x-3}$","isCorrect":false}],"solution":"Teljar: $(x+3)^2$. Nemnar: $(x+3)(x-3)$. Forkortar $(x+3)$: $\\frac{x+3}{x-3}$."},{"id":"10-1-3-n-quiz4-q2","task":"Kva er $\\frac{x^2 - 4x - 5}{x^2 - 1}$ forenkla?","options":[{"id":"a","text":"$\\frac{x+5}{x+1}$","isCorrect":false},{"id":"b","text":"$x - 5$","isCorrect":false},{"id":"c","text":"$\\frac{x-5}{x+1}$","isCorrect":false},{"id":"d","text":"$\\frac{x-5}{x-1}$","isCorrect":true}],"solution":"Teljar: $(x-5)(x+1)$. Nemnar: $(x+1)(x-1)$. Forkortar $(x+1)$: $\\frac{x-5}{x-1}$."}],"solution":""}},{"id":"10-1-3-n-summary","type":"text","content":"## Oppsummering\n\n**Faktorisering** er å skrive eit uttrykk som eit produkt. Vi har lært tre hovudmetodar:\n\n1. **Felles faktor:** $ab + ac = a(b + c)$ -- trekk ut det som er felles for alle ledd.\n2. **Kvadratsetningane:** $(a+b)^2 = a^2 + 2ab + b^2$, $(a-b)^2 = a^2 - 2ab + b^2$, og $(a+b)(a-b) = a^2 - b^2$.\n3. **Tallparet:** For $x^2 + bx + c$, finn to tal som ganget gir $c$ og summert gir $b$.\n\nFor å **forenkle algebraiske brøkar** faktoriserer vi teljar og nemnar, og forkortar like faktorar. Husk at vi berre kan forkorte faktorar, aldri ledd!"}],"exercises":[],"_meta":{"sourceHash":"6cdeda36992a25ce","translatedAt":"2026-06-16T09:38:37.285Z","model":"claude-haiku-4-5-20251001","strings":96,"tm":{"b9d93586366a3734":"Faktorisering og forenkling","b195b06d1ed59702":"Narrativ versjon","37e01c36eea38ac7":"Ein engasjerande fortelling om å \"pakke opp\" algebraiske uttrykk, finne felles faktorar og meistre kvadratsetningane.","6dd93ed5ee7679c6":"bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar","4e0f7900752ca011":"## Algebra som puslespill\n\nTenk deg at du har uttrykket $x^2 - 9$. Det ser kanskje enkelt ut, men det gjemmer ein hemmelighet: det kan skrivast som $(x+3)(x-3)$. Denne \"oppdelinga\" av uttrykk i faktorar kallast faktorisering, og det er ein av dei viktigaste ferdigheitene i algebra.\n\nKorleis bryr vi oss? Fordi faktorisering let oss forenkle brøkar, løyse likningar og sjå samanhengjar som elles er usynlege. Det er som å knekke ein kode -- når du ser mønsteret, opnar dørane seg.","b0ae0069d5a42b38":"## Felles faktor -- det enklaste trikset\n\nÅ **faktorisere** tyder å skrive eit uttrykk som eit produkt av faktorar. Det enklaste tilfellet er når alle ledda har ein felles faktor som vi kan \"trekke ut\".\n\nGrunnregelen er: $ab + ac = a(b + c)$. Vi finn det som er felles og set det utanfor ein parentes.\n\nLa oss ta $6x + 9$. Begge ledda er delelege med 3: $6x + 9 = 3(2x + 3)$.\n\nKva med $4x^2 - 8x$? Her er felles faktor $4x$ (begge ledda har minst $4$ og minst $x$): $4x^2 - 8x = 4x(x - 2)$.\n\nFor $15x^2y + 10xy^2$ ser vi at begge ledda inneheld $5xy$: $15x^2y + 10xy^2 = 5xy(3x + 2y)$.\n\nTrikset er å finne den **største** felles faktoren. $8x + 12$ kan skrivast som $2(4x + 6)$, men det er ikkje ferdig forenklad! Den største felles faktoren er 4: $8x + 12 = 4(2x + 3)$.\n\nMed tre ledd fungerer det på same måte: $20x^3 - 8x^2 + 4x$. Alle tre ledda har felles faktor $4x$, så $20x^3 - 8x^2 + 4x = 4x(5x^2 - 2x + 1)$.","97674252af872c32":"Test deg sjølv på faktorisering med felles faktor:","4097889236a2af26":"placeholder","127447c49ca84b1b":"Kva er $6x^2 - 15x$ faktorisert?","4645f95e29394063":"$3(2x^2 - 5x)$","089c01de8abc53a1":"$3x(2x - 5)$","7121c35e68775e7a":"$x(6x - 15)$","83704625e908c1f5":"$3x(2x + 5)$","55cba3ff73fadd80":"Største felles faktor er $3x$: $6x^2 - 15x = 3x(2x - 5)$.","40861bf3192e31af":"Kva er $12ab + 18a^2$ faktorisert?","22b5242c09a50266":"$6a(2b + 3a)$","984602ced1a8a7cb":"$2a(6b + 9a)$","7ede2e7dbcd96cf9":"$6(2ab + 3a^2)$","042e9f01a735e6c5":"$6a(2b - 3a)$","7c04062b68332d5b":"Største felles faktor er $6a$: $12ab + 18a^2 = 6a(2b + 3a)$.","7c8db170c42548f9":"Kva tyder det å faktorisere eit uttrykk?","4399a69e91bdc304":"Å gange ut parentesar","5d750dc7c068033b":"Å finne nullpunkta","b7951c71b5235032":"Å skrive uttrykket som eit produkt av faktorar","673373b0431f2f42":"Å forenkle brøkar","46769fef035ee514":"Å faktorisere tyder å skrive eit uttrykk som eit produkt av faktorar. Det er det motsette av å gange ut parentesar.","9a070d3e99e5ebc7":"## Kvadratsetningane -- tre gullformlar\n\nDet finst tre algebraiske identitetar som dukkar opp så ofte at dei har fått eigne namn. Desse tre **kvadratsetningane** er:\n\n**Fyrste kvadratsetning:** $(a + b)^2 = a^2 + 2ab + b^2$\n\n**Andre kvadratsetning:** $(a - b)^2 = a^2 - 2ab + b^2$\n\n**Konjugatsetningen:** $(a + b)(a - b) = a^2 - b^2$\n\nVi bruker desse \"baklengs\" for å faktorisere. Ser du eit uttrykk som $x^2 + 6x + 9$? Sjekk om det samsvarar ein av kvadratsetningane. Her er $a = x$ og $b = 3$, for $3^2 = 9$ og $2 \\cdot x \\cdot 3 = 6x$. Altso: $x^2 + 6x + 9 = (x + 3)^2$.\n\nKva med $x^2 - 10x + 25$? Her er $a = x$ og $b = 5$: $x^2 - 10x + 25 = (x - 5)^2$.\n\nOg $x^2 - 16$? Det er ein differanse av kvadrat: $x^2 - 16 = x^2 - 4^2 = (x + 4)(x - 4)$.\n\nKonjugatsetningen er spesielt nyttig fordi differansen av to kvadrat er eit svært vanleg mønster. $4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ -- legg merke til at vi her bruker $a = 2x$ og $b = 5$.","d61278e3682837d0":"Test deg sjølv på kvadratsetningane:","a1c9977eb01a3fc7":"Kva er $x^2 + 8x + 16$ faktorisert?","026c04485fc136c8":"$(x + 4)^2$","27f905d1c2a9a605":"$(x + 8)(x + 2)$","9f4269c978a5bde6":"$(x - 4)^2$","ad45c40218199f99":"$(x + 4)(x - 4)$","b2b27e836e7f177c":"$x^2 + 8x + 16 = x^2 + 2 \\cdot x \\cdot 4 + 4^2 = (x + 4)^2$ (fyrste kvadratsetning).","f6fec7ad3b7fa71e":"Kva er $x^2 - 81$ faktorisert?","fa96472313aa4648":"$(x - 9)^2$","3b8dac7d96936a2b":"$(x + 9)(x - 9)$","4642403aa4082822":"$(x + 9)^2$","e6a079fb2fe37039":"$(x - 81)(x + 1)$","ffa4398f2e92c4bf":"$x^2 - 81 = x^2 - 9^2 = (x + 9)(x - 9)$ (konjugatsetningen).","f18c77dad6a9fa6b":"Kva er $4x^2 - 25$ faktorisert?","1305483c4025fed1":"$(4x + 5)(x - 5)$","6f2bc18d4288ad44":"$(2x - 5)^2$","4df7153045d14add":"$(2x + 5)(2x - 5)$","aa89d3b5021eb972":"$(2x + 5)^2$","c3c8e5e8182aad41":"$4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ (konjugatsetningen med $a = 2x$ og $b = 5$).","0d79eeb61416a3fb":"Kva er $x^2 - 14x + 49$ faktorisert?","e954b44ed83b4f1a":"$(x + 7)(x - 7)$","c4f101483933c1b9":"$(x + 7)^2$","cbafeaf35c005c3b":"$(x - 14)(x - 7)$","5672dc33b3a1ca1b":"$(x - 7)^2$","be230fd81a0f259a":"$x^2 - 14x + 49 = x^2 - 2 \\cdot x \\cdot 7 + 7^2 = (x - 7)^2$ (andre kvadratsetning).","74b050c8a1f254f8":"## Faktorisere andregradsuttrykk -- finne tallparet\n\nIkkje alle andregradsuttrykk matcher kvadratsetningane. For eit generelt uttrykk som $x^2 + 5x + 6$ treng vi ei anna strategi. Vi søkjer to tal som **ganget gir konstantleddet** (6) og **summert gir koeffisienten foran $x$** (5).\n\nFor $x^2 + 5x + 6$: Kva to tal ganget gir 6 og summert gir 5? Svaret er 2 og 3, fordi $2 \\cdot 3 = 6$ og $2 + 3 = 5$. Altso: $x^2 + 5x + 6 = (x + 2)(x + 3)$.\n\nKva med $x^2 - 2x - 15$? Vi treng to tal som ganget gir $-15$ og summert gir $-2$. Det er 3 og $-5$, fordi $3 \\cdot (-5) = -15$ og $3 + (-5) = -2$. Altso: $x^2 - 2x - 15 = (x + 3)(x - 5)$.\n\nLa oss ta eit par til: $x^2 + 7x + 12 = (x + 3)(x + 4)$ fordi $3 \\cdot 4 = 12$ og $3 + 4 = 7$. Og $x^2 - 11x + 30 = (x - 5)(x - 6)$ fordi $(-5) \\cdot (-6) = 30$ og $(-5) + (-6) = -11$.\n\nPass på forteikna! Hvis konstantleddet er positivt, har båe tala same forteikn (båe positive eller båe negative). Hvis konstantleddet er negativt, har tala ulikt forteikn.","3d64d21f45e642b5":"Test deg sjølv på faktorisering av andregradsuttrykk:","f52c79cdbddbc604":"Kva er $x^2 - x - 12$ faktorisert?","715f3bce023c2eba":"$(x + 3)(x - 4)$","b0f81f130f31007e":"$(x - 3)(x + 4)$","222d85ea06a4cb87":"$(x + 2)(x - 6)$","2a12c67c2d73db74":"$(x - 2)(x + 6)$","458b274e011eca5e":"Vi treng to tal som ganget gir $-12$ og summert gir $-1$. Det er $3$ og $-4$: $3 \\cdot (-4) = -12$ og $3 + (-4) = -1$. Altso $(x + 3)(x - 4)$.","0ee4be9c5f284b46":"Kva er $x^2 + 2x - 35$ faktorisert?","cc884b9e2cb7d6af":"$(x - 7)(x + 5)$","23e0626f12c34e55":"$(x + 7)(x - 5)$","a054c45a2fc9d731":"$(x + 5)(x + 7)$","d91c64d656ce0dda":"$(x - 5)(x - 7)$","b1171440ef4bc5a8":"Vi treng to tal som ganget gir $-35$ og summert gir $2$. Det er $7$ og $-5$: $7 \\cdot (-5) = -35$ og $7 + (-5) = 2$. Altso $(x + 7)(x - 5)$.","dacfb0c385f2d527":"For $x^2 + bx + c$, kva skal dei to tala oppfylle?","06a71122106da182":"Ganget gi $b$ og summert gi $c$","7538e46f8df580e5":"Ganget gi $c$ og summert gi $b$","900969ee3739c70d":"Ganget gi $b \\cdot c$ og summert gi $b + c$","8984ca82970ac14f":"Båe skal vera like $c$","6db3df6926059ee6":"Vi søkjer to tal $m$ og $n$ slik at $m \\cdot n = c$ (konstantleddet) og $m + n = b$ (koeffisienten foran $x$). Da er $x^2 + bx + c = (x + m)(x + n)$.","d86bb65cbf867986":"## Forenkle algebraiske brøkar\n\nNo kjem premien for all faktoriseringsøvinga! Algebraiske brøkar blir forenkla ved å **faktorisere teljar og nemnar** og deretter **forkorte like faktorar**.\n\nTa $\\frac{x^2 - 9}{x + 3}$. Vi faktoriserer teljaren: $x^2 - 9 = (x+3)(x-3)$. Da blir brøken $\\frac{(x+3)(x-3)}{x+3}$. Faktoren $(x+3)$ finst i både teljar og nemnar, så vi kan forkorte: $\\frac{(x+3)(x-3)}{x+3} = x - 3$.\n\nEit meir avansert døme: $\\frac{x^2 + 5x + 6}{x^2 - 4}$. Teljar: $x^2 + 5x + 6 = (x+2)(x+3)$. Nemnar: $x^2 - 4 = (x+2)(x-2)$. Forkortar $(x+2)$: $\\frac{(x+2)(x+3)}{(x+2)(x-2)} = \\frac{x+3}{x-2}$.\n\nLa oss ta den vanskelegaste: $\\frac{2x^2 - 8}{x^2 + 4x + 4}$. I teljaren trekkjer vi ut 2 først: $2x^2 - 8 = 2(x^2 - 4) = 2(x+2)(x-2)$. Nemnaren er $(x+2)^2$. Forkortar éin $(x+2)$: $\\frac{2(x+2)(x-2)}{(x+2)^2} = \\frac{2(x-2)}{x+2}$.\n\nMerk: Vi kan berre forkorte **faktorar** (ting som er ganget saman), aldri **ledd** (ting som er addert). $\\frac{x + 3}{x + 5}$ kan IKKJE forenkla!","3e6bb0c3a43c7ee8":"Test deg sjølv på forenkling av algebraiske brøkar:","398246ff01ea21ce":"Kva er $\\frac{x^2 - 25}{x - 5}$ forenkla?","25f682c5c77595c1":"$x - 5$","ff2ae6de27ede279":"$x + 5$","0c21e7ee433a3b97":"$\\frac{x + 5}{x - 5}$","1fc94aee2b8a6e82":"$x^2 - 5$","7ad0c950ee8a2676":"$\\frac{x^2 - 25}{x - 5} = \\frac{(x+5)(x-5)}{x - 5} = x + 5$.","3d3106c3713e60c9":"Kva er $\\frac{x^2 + 6x + 9}{x^2 - 9}$ forenkla?","e954817ed22aeec9":"$\\frac{x+3}{x-3}$","eef67d2ca0b99ceb":"$\\frac{x-3}{x+3}$","c3d62e3337ca6623":"$x + 3$","4386551a3d0dad73":"$\\frac{(x+3)^2}{x-3}$","ef2b52afa3ceeae3":"Teljar: $(x+3)^2$. Nemnar: $(x+3)(x-3)$. Forkortar $(x+3)$: $\\frac{x+3}{x-3}$.","03e77197a0f9825d":"Kva er $\\frac{x^2 - 4x - 5}{x^2 - 1}$ forenkla?","60bf8d9fc3b07644":"$\\frac{x+5}{x+1}$","13b1548de92b8b00":"$\\frac{x-5}{x+1}$","953b722530a9bd13":"$\\frac{x-5}{x-1}$","cf19a2cf9266475a":"Teljar: $(x-5)(x+1)$. Nemnar: $(x+1)(x-1)$. Forkortar $(x+1)$: $\\frac{x-5}{x-1}$.","f2bf2067cc0d5e08":"## Oppsummering\n\n**Faktorisering** er å skrive eit uttrykk som eit produkt. Vi har lært tre hovudmetodar:\n\n1. **Felles faktor:** $ab + ac = a(b + c)$ -- trekk ut det som er felles for alle ledd.\n2. **Kvadratsetningane:** $(a+b)^2 = a^2 + 2ab + b^2$, $(a-b)^2 = a^2 - 2ab + b^2$, og $(a+b)(a-b) = a^2 - b^2$.\n3. **Tallparet:** For $x^2 + bx + c$, finn to tal som ganget gir $c$ og summert gir $b$.\n\nFor å **forenkle algebraiske brøkar** faktoriserer vi teljar og nemnar, og forkortar like faktorar. Husk at vi berre kan forkorte faktorar, aldri ledd!"}}}
+{
+  "id": "10-1-3-narrativ",
+  "courseId": "10",
+  "chapterNumber": "1.3",
+  "title": "Faktorisering og forenkling",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein engasjerande fortelling om å \"pakke opp\" algebraiske uttrykk, finne felles faktorar og meistre kvadratsetningane.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar"
+  ],
+  "linkedChapterId": "10-1-3",
+  "content": [
+    {
+      "id": "10-1-3-n-intro",
+      "type": "text",
+      "content": "## Algebra som puslespill\n\nTenk deg at du har uttrykket $x^2 - 9$. Det ser kanskje enkelt ut, men det gjemmer ein hemmelighet: det kan skrivast som $(x+3)(x-3)$. Denne \"oppdelinga\" av uttrykk i faktorar kallast faktorisering, og det er ein av dei viktigaste ferdigheitene i algebra.\n\nKorleis bryr vi oss? Fordi faktorisering let oss forenkle brøkar, løyse likningar og sjå samanhengjar som elles er usynlege. Det er som å knekke ein kode -- når du ser mønsteret, opnar dørane seg."
+    },
+    {
+      "id": "10-1-3-n-section1",
+      "type": "text",
+      "content": "## Felles faktor -- det enklaste trikset\n\nÅ **faktorisere** tyder å skrive eit uttrykk som eit produkt av faktorar. Det enklaste tilfellet er når alle ledda har ein felles faktor som vi kan \"trekke ut\".\n\nGrunnregelen er: $ab + ac = a(b + c)$. Vi finn det som er felles og set det utanfor ein parentes.\n\nLa oss ta $6x + 9$. Begge ledda er delelege med 3: $6x + 9 = 3(2x + 3)$.\n\nKva med $4x^2 - 8x$? Her er felles faktor $4x$ (begge ledda har minst $4$ og minst $x$): $4x^2 - 8x = 4x(x - 2)$.\n\nFor $15x^2y + 10xy^2$ ser vi at begge ledda inneheld $5xy$: $15x^2y + 10xy^2 = 5xy(3x + 2y)$.\n\nTrikset er å finne den **største** felles faktoren. $8x + 12$ kan skrivast som $2(4x + 6)$, men det er ikkje ferdig forenklad! Den største felles faktoren er 4: $8x + 12 = 4(2x + 3)$.\n\nMed tre ledd fungerer det på same måte: $20x^3 - 8x^2 + 4x$. Alle tre ledda har felles faktor $4x$, så $20x^3 - 8x^2 + 4x = 4x(5x^2 - 2x + 1)$."
+    },
+    {
+      "id": "10-1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisering med felles faktor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-1-3-n-quiz1-q0",
+            "task": "Kva er $6x^2 - 15x$ faktorisert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3x(2x - 5)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$3(2x^2 - 5x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x(6x - 15)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x(2x + 5)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Største felles faktor er $3x$: $6x^2 - 15x = 3x(2x - 5)$."
+          },
+          {
+            "id": "10-1-3-n-quiz1-q1",
+            "task": "Kva er $12ab + 18a^2$ faktorisert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2a(6b + 9a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$6a(2b + 3a)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$6(2ab + 3a^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6a(2b - 3a)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Største felles faktor er $6a$: $12ab + 18a^2 = 6a(2b + 3a)$."
+          },
+          {
+            "id": "10-1-3-n-quiz1-q2",
+            "task": "Kva tyder det å faktorisere eit uttrykk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gange ut parentesar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å finne nullpunkta",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å skrive uttrykket som eit produkt av faktorar",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å forenkle brøkar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å faktorisere tyder å skrive eit uttrykk som eit produkt av faktorar. Det er det motsette av å gange ut parentesar."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-1-3-n-section2",
+      "type": "text",
+      "content": "## Kvadratsetningane -- tre gullformlar\n\nDet finst tre algebraiske identitetar som dukkar opp så ofte at dei har fått eigne namn. Desse tre **kvadratsetningane** er:\n\n**Fyrste kvadratsetning:** $(a + b)^2 = a^2 + 2ab + b^2$\n\n**Andre kvadratsetning:** $(a - b)^2 = a^2 - 2ab + b^2$\n\n**Konjugatsetningen:** $(a + b)(a - b) = a^2 - b^2$\n\nVi bruker desse \"baklengs\" for å faktorisere. Ser du eit uttrykk som $x^2 + 6x + 9$? Sjekk om det samsvarar ein av kvadratsetningane. Her er $a = x$ og $b = 3$, for $3^2 = 9$ og $2 \\cdot x \\cdot 3 = 6x$. Altso: $x^2 + 6x + 9 = (x + 3)^2$.\n\nKva med $x^2 - 10x + 25$? Her er $a = x$ og $b = 5$: $x^2 - 10x + 25 = (x - 5)^2$.\n\nOg $x^2 - 16$? Det er ein differanse av kvadrat: $x^2 - 16 = x^2 - 4^2 = (x + 4)(x - 4)$.\n\nKonjugatsetningen er spesielt nyttig fordi differansen av to kvadrat er eit svært vanleg mønster. $4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ -- legg merke til at vi her bruker $a = 2x$ og $b = 5$."
+    },
+    {
+      "id": "10-1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kvadratsetningane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-1-3-n-quiz2-q0",
+            "task": "Kva er $x^2 + 8x + 16$ faktorisert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x + 8)(x + 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x - 4)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x + 4)(x - 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(x + 4)^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x^2 + 8x + 16 = x^2 + 2 \\cdot x \\cdot 4 + 4^2 = (x + 4)^2$ (fyrste kvadratsetning)."
+          },
+          {
+            "id": "10-1-3-n-quiz2-q1",
+            "task": "Kva er $x^2 - 81$ faktorisert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x + 9)(x - 9)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(x - 9)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x + 9)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 81)(x + 1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^2 - 81 = x^2 - 9^2 = (x + 9)(x - 9)$ (konjugatsetningen)."
+          },
+          {
+            "id": "10-1-3-n-quiz2-q2",
+            "task": "Kva er $4x^2 - 25$ faktorisert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(4x + 5)(x - 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(2x + 5)(2x - 5)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(2x - 5)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(2x + 5)^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ (konjugatsetningen med $a = 2x$ og $b = 5$)."
+          },
+          {
+            "id": "10-1-3-n-quiz2-q3",
+            "task": "Kva er $x^2 - 14x + 49$ faktorisert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x + 7)(x - 7)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x + 7)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 7)^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(x - 14)(x - 7)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^2 - 14x + 49 = x^2 - 2 \\cdot x \\cdot 7 + 7^2 = (x - 7)^2$ (andre kvadratsetning)."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-1-3-n-section3",
+      "type": "text",
+      "content": "## Faktorisere andregradsuttrykk -- finne tallparet\n\nIkkje alle andregradsuttrykk matcher kvadratsetningane. For eit generelt uttrykk som $x^2 + 5x + 6$ treng vi ei anna strategi. Vi søkjer to tal som **ganget gir konstantleddet** (6) og **summert gir koeffisienten foran $x$** (5).\n\nFor $x^2 + 5x + 6$: Kva to tal ganget gir 6 og summert gir 5? Svaret er 2 og 3, fordi $2 \\cdot 3 = 6$ og $2 + 3 = 5$. Altso: $x^2 + 5x + 6 = (x + 2)(x + 3)$.\n\nKva med $x^2 - 2x - 15$? Vi treng to tal som ganget gir $-15$ og summert gir $-2$. Det er 3 og $-5$, fordi $3 \\cdot (-5) = -15$ og $3 + (-5) = -2$. Altso: $x^2 - 2x - 15 = (x + 3)(x - 5)$.\n\nLa oss ta eit par til: $x^2 + 7x + 12 = (x + 3)(x + 4)$ fordi $3 \\cdot 4 = 12$ og $3 + 4 = 7$. Og $x^2 - 11x + 30 = (x - 5)(x - 6)$ fordi $(-5) \\cdot (-6) = 30$ og $(-5) + (-6) = -11$.\n\nPass på forteikna! Hvis konstantleddet er positivt, har båe tala same forteikn (båe positive eller båe negative). Hvis konstantleddet er negativt, har tala ulikt forteikn."
+    },
+    {
+      "id": "10-1-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-1-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisering av andregradsuttrykk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-1-3-n-quiz3-q0",
+            "task": "Kva er $x^2 - x - 12$ faktorisert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x - 3)(x + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x + 2)(x - 6)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 2)(x + 6)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(x + 3)(x - 4)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi treng to tal som ganget gir $-12$ og summert gir $-1$. Det er $3$ og $-4$: $3 \\cdot (-4) = -12$ og $3 + (-4) = -1$. Altso $(x + 3)(x - 4)$."
+          },
+          {
+            "id": "10-1-3-n-quiz3-q1",
+            "task": "Kva er $x^2 + 2x - 35$ faktorisert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x + 7)(x - 5)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(x - 7)(x + 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x + 5)(x + 7)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 5)(x - 7)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng to tal som ganget gir $-35$ og summert gir $2$. Det er $7$ og $-5$: $7 \\cdot (-5) = -35$ og $7 + (-5) = 2$. Altso $(x + 7)(x - 5)$."
+          },
+          {
+            "id": "10-1-3-n-quiz3-q2",
+            "task": "For $x^2 + bx + c$, kva skal dei to tala oppfylle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ganget gi $b$ og summert gi $c$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ganget gi $c$ og summert gi $b$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ganget gi $b \\cdot c$ og summert gi $b + c$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Båe skal vera like $c$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi søkjer to tal $m$ og $n$ slik at $m \\cdot n = c$ (konstantleddet) og $m + n = b$ (koeffisienten foran $x$). Da er $x^2 + bx + c = (x + m)(x + n)$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-1-3-n-section4",
+      "type": "text",
+      "content": "## Forenkle algebraiske brøkar\n\nNo kjem premien for all faktoriseringsøvinga! Algebraiske brøkar blir forenkla ved å **faktorisere teljar og nemnar** og deretter **forkorte like faktorar**.\n\nTa $\\frac{x^2 - 9}{x + 3}$. Vi faktoriserer teljaren: $x^2 - 9 = (x+3)(x-3)$. Da blir brøken $\\frac{(x+3)(x-3)}{x+3}$. Faktoren $(x+3)$ finst i både teljar og nemnar, så vi kan forkorte: $\\frac{(x+3)(x-3)}{x+3} = x - 3$.\n\nEit meir avansert døme: $\\frac{x^2 + 5x + 6}{x^2 - 4}$. Teljar: $x^2 + 5x + 6 = (x+2)(x+3)$. Nemnar: $x^2 - 4 = (x+2)(x-2)$. Forkortar $(x+2)$: $\\frac{(x+2)(x+3)}{(x+2)(x-2)} = \\frac{x+3}{x-2}$.\n\nLa oss ta den vanskelegaste: $\\frac{2x^2 - 8}{x^2 + 4x + 4}$. I teljaren trekkjer vi ut 2 først: $2x^2 - 8 = 2(x^2 - 4) = 2(x+2)(x-2)$. Nemnaren er $(x+2)^2$. Forkortar éin $(x+2)$: $\\frac{2(x+2)(x-2)}{(x+2)^2} = \\frac{2(x-2)}{x+2}$.\n\nMerk: Vi kan berre forkorte **faktorar** (ting som er ganget saman), aldri **ledd** (ting som er addert). $\\frac{x + 3}{x + 5}$ kan IKKJE forenkla!"
+    },
+    {
+      "id": "10-1-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-1-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på forenkling av algebraiske brøkar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-1-3-n-quiz4-q0",
+            "task": "Kva er $\\frac{x^2 - 25}{x - 5}$ forenkla?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x - 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x + 5}{x - 5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x + 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x^2 - 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{x^2 - 25}{x - 5} = \\frac{(x+5)(x-5)}{x - 5} = x + 5$."
+          },
+          {
+            "id": "10-1-3-n-quiz4-q1",
+            "task": "Kva er $\\frac{x^2 + 6x + 9}{x^2 - 9}$ forenkla?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{x-3}{x+3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{(x+3)^2}{x-3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{x+3}{x-3}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Teljar: $(x+3)^2$. Nemnar: $(x+3)(x-3)$. Forkortar $(x+3)$: $\\frac{x+3}{x-3}$."
+          },
+          {
+            "id": "10-1-3-n-quiz4-q2",
+            "task": "Kva er $\\frac{x^2 - 4x - 5}{x^2 - 1}$ forenkla?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{x-5}{x-1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{x+5}{x+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x - 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x-5}{x+1}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Teljar: $(x-5)(x+1)$. Nemnar: $(x+1)(x-1)$. Forkortar $(x+1)$: $\\frac{x-5}{x-1}$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-1-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Faktorisering** er å skrive eit uttrykk som eit produkt. Vi har lært tre hovudmetodar:\n\n1. **Felles faktor:** $ab + ac = a(b + c)$ -- trekk ut det som er felles for alle ledd.\n2. **Kvadratsetningane:** $(a+b)^2 = a^2 + 2ab + b^2$, $(a-b)^2 = a^2 - 2ab + b^2$, og $(a+b)(a-b) = a^2 - b^2$.\n3. **Tallparet:** For $x^2 + bx + c$, finn to tal som ganget gir $c$ og summert gir $b$.\n\nFor å **forenkle algebraiske brøkar** faktoriserer vi teljar og nemnar, og forkortar like faktorar. Husk at vi berre kan forkorte faktorar, aldri ledd!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6cdeda36992a25ce",
+    "translatedAt": "2026-06-16T09:38:37.285Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 96,
+    "tm": {
+      "b9d93586366a3734": "Faktorisering og forenkling",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "37e01c36eea38ac7": "Ein engasjerande fortelling om å \"pakke opp\" algebraiske uttrykk, finne felles faktorar og meistre kvadratsetningane.",
+      "6dd93ed5ee7679c6": "bruke variablar og formlar til å uttrykkje samanhengar i praktiske situasjonar",
+      "4e0f7900752ca011": "## Algebra som puslespill\n\nTenk deg at du har uttrykket $x^2 - 9$. Det ser kanskje enkelt ut, men det gjemmer ein hemmelighet: det kan skrivast som $(x+3)(x-3)$. Denne \"oppdelinga\" av uttrykk i faktorar kallast faktorisering, og det er ein av dei viktigaste ferdigheitene i algebra.\n\nKorleis bryr vi oss? Fordi faktorisering let oss forenkle brøkar, løyse likningar og sjå samanhengjar som elles er usynlege. Det er som å knekke ein kode -- når du ser mønsteret, opnar dørane seg.",
+      "b0ae0069d5a42b38": "## Felles faktor -- det enklaste trikset\n\nÅ **faktorisere** tyder å skrive eit uttrykk som eit produkt av faktorar. Det enklaste tilfellet er når alle ledda har ein felles faktor som vi kan \"trekke ut\".\n\nGrunnregelen er: $ab + ac = a(b + c)$. Vi finn det som er felles og set det utanfor ein parentes.\n\nLa oss ta $6x + 9$. Begge ledda er delelege med 3: $6x + 9 = 3(2x + 3)$.\n\nKva med $4x^2 - 8x$? Her er felles faktor $4x$ (begge ledda har minst $4$ og minst $x$): $4x^2 - 8x = 4x(x - 2)$.\n\nFor $15x^2y + 10xy^2$ ser vi at begge ledda inneheld $5xy$: $15x^2y + 10xy^2 = 5xy(3x + 2y)$.\n\nTrikset er å finne den **største** felles faktoren. $8x + 12$ kan skrivast som $2(4x + 6)$, men det er ikkje ferdig forenklad! Den største felles faktoren er 4: $8x + 12 = 4(2x + 3)$.\n\nMed tre ledd fungerer det på same måte: $20x^3 - 8x^2 + 4x$. Alle tre ledda har felles faktor $4x$, så $20x^3 - 8x^2 + 4x = 4x(5x^2 - 2x + 1)$.",
+      "97674252af872c32": "Test deg sjølv på faktorisering med felles faktor:",
+      "4097889236a2af26": "placeholder",
+      "127447c49ca84b1b": "Kva er $6x^2 - 15x$ faktorisert?",
+      "4645f95e29394063": "$3(2x^2 - 5x)$",
+      "089c01de8abc53a1": "$3x(2x - 5)$",
+      "7121c35e68775e7a": "$x(6x - 15)$",
+      "83704625e908c1f5": "$3x(2x + 5)$",
+      "55cba3ff73fadd80": "Største felles faktor er $3x$: $6x^2 - 15x = 3x(2x - 5)$.",
+      "40861bf3192e31af": "Kva er $12ab + 18a^2$ faktorisert?",
+      "22b5242c09a50266": "$6a(2b + 3a)$",
+      "984602ced1a8a7cb": "$2a(6b + 9a)$",
+      "7ede2e7dbcd96cf9": "$6(2ab + 3a^2)$",
+      "042e9f01a735e6c5": "$6a(2b - 3a)$",
+      "7c04062b68332d5b": "Største felles faktor er $6a$: $12ab + 18a^2 = 6a(2b + 3a)$.",
+      "7c8db170c42548f9": "Kva tyder det å faktorisere eit uttrykk?",
+      "4399a69e91bdc304": "Å gange ut parentesar",
+      "5d750dc7c068033b": "Å finne nullpunkta",
+      "b7951c71b5235032": "Å skrive uttrykket som eit produkt av faktorar",
+      "673373b0431f2f42": "Å forenkle brøkar",
+      "46769fef035ee514": "Å faktorisere tyder å skrive eit uttrykk som eit produkt av faktorar. Det er det motsette av å gange ut parentesar.",
+      "9a070d3e99e5ebc7": "## Kvadratsetningane -- tre gullformlar\n\nDet finst tre algebraiske identitetar som dukkar opp så ofte at dei har fått eigne namn. Desse tre **kvadratsetningane** er:\n\n**Fyrste kvadratsetning:** $(a + b)^2 = a^2 + 2ab + b^2$\n\n**Andre kvadratsetning:** $(a - b)^2 = a^2 - 2ab + b^2$\n\n**Konjugatsetningen:** $(a + b)(a - b) = a^2 - b^2$\n\nVi bruker desse \"baklengs\" for å faktorisere. Ser du eit uttrykk som $x^2 + 6x + 9$? Sjekk om det samsvarar ein av kvadratsetningane. Her er $a = x$ og $b = 3$, for $3^2 = 9$ og $2 \\cdot x \\cdot 3 = 6x$. Altso: $x^2 + 6x + 9 = (x + 3)^2$.\n\nKva med $x^2 - 10x + 25$? Her er $a = x$ og $b = 5$: $x^2 - 10x + 25 = (x - 5)^2$.\n\nOg $x^2 - 16$? Det er ein differanse av kvadrat: $x^2 - 16 = x^2 - 4^2 = (x + 4)(x - 4)$.\n\nKonjugatsetningen er spesielt nyttig fordi differansen av to kvadrat er eit svært vanleg mønster. $4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ -- legg merke til at vi her bruker $a = 2x$ og $b = 5$.",
+      "d61278e3682837d0": "Test deg sjølv på kvadratsetningane:",
+      "a1c9977eb01a3fc7": "Kva er $x^2 + 8x + 16$ faktorisert?",
+      "026c04485fc136c8": "$(x + 4)^2$",
+      "27f905d1c2a9a605": "$(x + 8)(x + 2)$",
+      "9f4269c978a5bde6": "$(x - 4)^2$",
+      "ad45c40218199f99": "$(x + 4)(x - 4)$",
+      "b2b27e836e7f177c": "$x^2 + 8x + 16 = x^2 + 2 \\cdot x \\cdot 4 + 4^2 = (x + 4)^2$ (fyrste kvadratsetning).",
+      "f6fec7ad3b7fa71e": "Kva er $x^2 - 81$ faktorisert?",
+      "fa96472313aa4648": "$(x - 9)^2$",
+      "3b8dac7d96936a2b": "$(x + 9)(x - 9)$",
+      "4642403aa4082822": "$(x + 9)^2$",
+      "e6a079fb2fe37039": "$(x - 81)(x + 1)$",
+      "ffa4398f2e92c4bf": "$x^2 - 81 = x^2 - 9^2 = (x + 9)(x - 9)$ (konjugatsetningen).",
+      "f18c77dad6a9fa6b": "Kva er $4x^2 - 25$ faktorisert?",
+      "1305483c4025fed1": "$(4x + 5)(x - 5)$",
+      "6f2bc18d4288ad44": "$(2x - 5)^2$",
+      "4df7153045d14add": "$(2x + 5)(2x - 5)$",
+      "aa89d3b5021eb972": "$(2x + 5)^2$",
+      "c3c8e5e8182aad41": "$4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$ (konjugatsetningen med $a = 2x$ og $b = 5$).",
+      "0d79eeb61416a3fb": "Kva er $x^2 - 14x + 49$ faktorisert?",
+      "e954b44ed83b4f1a": "$(x + 7)(x - 7)$",
+      "c4f101483933c1b9": "$(x + 7)^2$",
+      "cbafeaf35c005c3b": "$(x - 14)(x - 7)$",
+      "5672dc33b3a1ca1b": "$(x - 7)^2$",
+      "be230fd81a0f259a": "$x^2 - 14x + 49 = x^2 - 2 \\cdot x \\cdot 7 + 7^2 = (x - 7)^2$ (andre kvadratsetning).",
+      "74b050c8a1f254f8": "## Faktorisere andregradsuttrykk -- finne tallparet\n\nIkkje alle andregradsuttrykk matcher kvadratsetningane. For eit generelt uttrykk som $x^2 + 5x + 6$ treng vi ei anna strategi. Vi søkjer to tal som **ganget gir konstantleddet** (6) og **summert gir koeffisienten foran $x$** (5).\n\nFor $x^2 + 5x + 6$: Kva to tal ganget gir 6 og summert gir 5? Svaret er 2 og 3, fordi $2 \\cdot 3 = 6$ og $2 + 3 = 5$. Altso: $x^2 + 5x + 6 = (x + 2)(x + 3)$.\n\nKva med $x^2 - 2x - 15$? Vi treng to tal som ganget gir $-15$ og summert gir $-2$. Det er 3 og $-5$, fordi $3 \\cdot (-5) = -15$ og $3 + (-5) = -2$. Altso: $x^2 - 2x - 15 = (x + 3)(x - 5)$.\n\nLa oss ta eit par til: $x^2 + 7x + 12 = (x + 3)(x + 4)$ fordi $3 \\cdot 4 = 12$ og $3 + 4 = 7$. Og $x^2 - 11x + 30 = (x - 5)(x - 6)$ fordi $(-5) \\cdot (-6) = 30$ og $(-5) + (-6) = -11$.\n\nPass på forteikna! Hvis konstantleddet er positivt, har båe tala same forteikn (båe positive eller båe negative). Hvis konstantleddet er negativt, har tala ulikt forteikn.",
+      "3d64d21f45e642b5": "Test deg sjølv på faktorisering av andregradsuttrykk:",
+      "f52c79cdbddbc604": "Kva er $x^2 - x - 12$ faktorisert?",
+      "715f3bce023c2eba": "$(x + 3)(x - 4)$",
+      "b0f81f130f31007e": "$(x - 3)(x + 4)$",
+      "222d85ea06a4cb87": "$(x + 2)(x - 6)$",
+      "2a12c67c2d73db74": "$(x - 2)(x + 6)$",
+      "458b274e011eca5e": "Vi treng to tal som ganget gir $-12$ og summert gir $-1$. Det er $3$ og $-4$: $3 \\cdot (-4) = -12$ og $3 + (-4) = -1$. Altso $(x + 3)(x - 4)$.",
+      "0ee4be9c5f284b46": "Kva er $x^2 + 2x - 35$ faktorisert?",
+      "cc884b9e2cb7d6af": "$(x - 7)(x + 5)$",
+      "23e0626f12c34e55": "$(x + 7)(x - 5)$",
+      "a054c45a2fc9d731": "$(x + 5)(x + 7)$",
+      "d91c64d656ce0dda": "$(x - 5)(x - 7)$",
+      "b1171440ef4bc5a8": "Vi treng to tal som ganget gir $-35$ og summert gir $2$. Det er $7$ og $-5$: $7 \\cdot (-5) = -35$ og $7 + (-5) = 2$. Altso $(x + 7)(x - 5)$.",
+      "dacfb0c385f2d527": "For $x^2 + bx + c$, kva skal dei to tala oppfylle?",
+      "06a71122106da182": "Ganget gi $b$ og summert gi $c$",
+      "7538e46f8df580e5": "Ganget gi $c$ og summert gi $b$",
+      "900969ee3739c70d": "Ganget gi $b \\cdot c$ og summert gi $b + c$",
+      "8984ca82970ac14f": "Båe skal vera like $c$",
+      "6db3df6926059ee6": "Vi søkjer to tal $m$ og $n$ slik at $m \\cdot n = c$ (konstantleddet) og $m + n = b$ (koeffisienten foran $x$). Da er $x^2 + bx + c = (x + m)(x + n)$.",
+      "d86bb65cbf867986": "## Forenkle algebraiske brøkar\n\nNo kjem premien for all faktoriseringsøvinga! Algebraiske brøkar blir forenkla ved å **faktorisere teljar og nemnar** og deretter **forkorte like faktorar**.\n\nTa $\\frac{x^2 - 9}{x + 3}$. Vi faktoriserer teljaren: $x^2 - 9 = (x+3)(x-3)$. Da blir brøken $\\frac{(x+3)(x-3)}{x+3}$. Faktoren $(x+3)$ finst i både teljar og nemnar, så vi kan forkorte: $\\frac{(x+3)(x-3)}{x+3} = x - 3$.\n\nEit meir avansert døme: $\\frac{x^2 + 5x + 6}{x^2 - 4}$. Teljar: $x^2 + 5x + 6 = (x+2)(x+3)$. Nemnar: $x^2 - 4 = (x+2)(x-2)$. Forkortar $(x+2)$: $\\frac{(x+2)(x+3)}{(x+2)(x-2)} = \\frac{x+3}{x-2}$.\n\nLa oss ta den vanskelegaste: $\\frac{2x^2 - 8}{x^2 + 4x + 4}$. I teljaren trekkjer vi ut 2 først: $2x^2 - 8 = 2(x^2 - 4) = 2(x+2)(x-2)$. Nemnaren er $(x+2)^2$. Forkortar éin $(x+2)$: $\\frac{2(x+2)(x-2)}{(x+2)^2} = \\frac{2(x-2)}{x+2}$.\n\nMerk: Vi kan berre forkorte **faktorar** (ting som er ganget saman), aldri **ledd** (ting som er addert). $\\frac{x + 3}{x + 5}$ kan IKKJE forenkla!",
+      "3e6bb0c3a43c7ee8": "Test deg sjølv på forenkling av algebraiske brøkar:",
+      "398246ff01ea21ce": "Kva er $\\frac{x^2 - 25}{x - 5}$ forenkla?",
+      "25f682c5c77595c1": "$x - 5$",
+      "ff2ae6de27ede279": "$x + 5$",
+      "0c21e7ee433a3b97": "$\\frac{x + 5}{x - 5}$",
+      "1fc94aee2b8a6e82": "$x^2 - 5$",
+      "7ad0c950ee8a2676": "$\\frac{x^2 - 25}{x - 5} = \\frac{(x+5)(x-5)}{x - 5} = x + 5$.",
+      "3d3106c3713e60c9": "Kva er $\\frac{x^2 + 6x + 9}{x^2 - 9}$ forenkla?",
+      "e954817ed22aeec9": "$\\frac{x+3}{x-3}$",
+      "eef67d2ca0b99ceb": "$\\frac{x-3}{x+3}$",
+      "c3d62e3337ca6623": "$x + 3$",
+      "4386551a3d0dad73": "$\\frac{(x+3)^2}{x-3}$",
+      "ef2b52afa3ceeae3": "Teljar: $(x+3)^2$. Nemnar: $(x+3)(x-3)$. Forkortar $(x+3)$: $\\frac{x+3}{x-3}$.",
+      "03e77197a0f9825d": "Kva er $\\frac{x^2 - 4x - 5}{x^2 - 1}$ forenkla?",
+      "60bf8d9fc3b07644": "$\\frac{x+5}{x+1}$",
+      "13b1548de92b8b00": "$\\frac{x-5}{x+1}$",
+      "953b722530a9bd13": "$\\frac{x-5}{x-1}$",
+      "cf19a2cf9266475a": "Teljar: $(x-5)(x+1)$. Nemnar: $(x+1)(x-1)$. Forkortar $(x+1)$: $\\frac{x-5}{x-1}$.",
+      "f2bf2067cc0d5e08": "## Oppsummering\n\n**Faktorisering** er å skrive eit uttrykk som eit produkt. Vi har lært tre hovudmetodar:\n\n1. **Felles faktor:** $ab + ac = a(b + c)$ -- trekk ut det som er felles for alle ledd.\n2. **Kvadratsetningane:** $(a+b)^2 = a^2 + 2ab + b^2$, $(a-b)^2 = a^2 - 2ab + b^2$, og $(a+b)(a-b) = a^2 - b^2$.\n3. **Tallparet:** For $x^2 + bx + c$, finn to tal som ganget gir $c$ og summert gir $b$.\n\nFor å **forenkle algebraiske brøkar** faktoriserer vi teljar og nemnar, og forkortar like faktorar. Husk at vi berre kan forkorte faktorar, aldri ledd!"
+    }
+  }
+}

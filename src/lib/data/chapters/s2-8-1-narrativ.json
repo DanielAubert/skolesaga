@@ -1,1 +1,396 @@
-{"id":"s2-8-1-narrativ","courseId":"s2","chapterNumber":"8.1","title":"Kostnads- og inntektsfunksjoner","subtitle":"Narrativ versjon","description":"En fortelling om to venner med brusbryggeri i garasjen — om faste og variable kostnader, enhetskostnad, marginalkostnad og grenseinntekt som verktøy for smarte beslutninger.","estimatedMinutes":40,"competenceGoals":["modellere og analysere økonomiske problemstillinger ved hjelp av funksjoner og derivasjon","tolke den deriverte i praktiske sammenhenger, spesielt i økonomi"],"linkedChapterId":"s2-8-1","content":[{"id":"s2-8-1-n-intro","type":"text","content":"## Brusbryggeriet i garasjen\n\nTo venner har startet et lite bryggeri for håndverksbrus i en garasje. De betaler husleie og forsikring uansett hvor mye de produserer, og i tillegg koster hver flaske råvarer og arbeidstid. En kveld sitter de med regnskapet og spør seg: Hva koster egentlig flaske nummer 21? Lønner det seg å produsere mer — eller mindre?\n\nSlike spørsmål er kjernen i den økonomiske analysen i S2. En bedrift har **kostnader** knyttet til produksjon og **inntekter** fra salg, og ved å beskrive begge som funksjoner av antall produserte enheter $x$, kan vi bruke derivasjon til å analysere bedriftens økonomi. Den deriverte — som du kjenner som stigningstall og vekstfart — får her en helt konkret tolkning i kroner og øre: hva koster *én enhet til*, og hva tjener vi på *én enhet til*?\n\nI denne fortellingen bygger vi opp rammeverket: kostnadsfunksjoner med faste og variable kostnader, enhetskostnad og marginalkostnad, og inntektsfunksjoner med grenseinntekt. Det er fundamentet for å finne optimale produksjonsnivåer i kapitlene som følger."},{"id":"s2-8-1-n-section1","type":"text","content":"## Kostnadene: faste, variable og marginale\n\nVi lar $K(x)$ være **totalkostnaden** ved å produsere $x$ enheter. Den består av to deler. De **faste kostnadene** $K(0)$ påløper uansett — husleie, forsikring, lisenser — selv om bryggeriet ikke fyller en eneste flaske. De **variable kostnadene** $K(x) - K(0)$ vokser med produksjonen: råvarer, strøm, arbeidstimer. For eksempel har funksjonen $K(x) = 0{,}01x^3 - 0{,}6x^2 + 15x + 100$ faste kostnader på 100 og variable kostnader $0{,}01x^3 - 0{,}6x^2 + 15x$.\n\nTo avledede størrelser er sentrale. **Enhetskostnaden** (gjennomsnittskostnaden) er kostnad per flaske, $E(x) = \\frac{K(x)}{x}$. Og **marginalkostnaden** er den deriverte av totalkostnaden, $K'(x)$ — den gir tilnærmet kostnaden ved å produsere én enhet til: $K'(x) \\approx K(x+1) - K(x)$.\n\nLa oss regne på bryggeriets kostnadsfunksjon $K(x) = 0{,}01x^3 - 0{,}6x^2 + 15x + 200$. De faste kostnadene er $K(0) = 200$ kroner. Marginalkostnaden er $K'(x) = 0{,}03x^2 - 1{,}2x + 15$, og ved 20 flasker: $K'(20) = 12 - 24 + 15 = 3$ — det koster omtrent 3 kroner å lage flaske nummer 21.\n\nNår er enhetskostnaden lavest? Deriverer vi $E(x) = \\frac{K(x)}{x}$ med brøkregelen og setter lik null, får vi $\\frac{K'(x) \\cdot x - K(x)}{x^2} = 0$, altså $K'(x) = \\frac{K(x)}{x} = E(x)$. Resultatet er verdt å huske: **enhetskostnaden er minst der marginalkostnaden er lik enhetskostnaden.** Intuisjonen er som med karaktersnitt: er neste karakter (marginalen) bedre enn snittet, drar den snittet opp — er den dårligere, drar den snittet ned. Snittet er lavest akkurat der marginalen krysser det. For bryggeriet gir likningen $K'(x) = E(x)$ numerisk løsning $x \\approx 39$ flasker."},{"id":"s2-8-1-n-quiz1","type":"exercise","exercise":{"id":"s2-8-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kostnadsfunksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-1-n-quiz1-q0","task":"Hva er de faste kostnadene i $K(x) = 0{,}01x^3 - 0{,}6x^2 + 15x + 200$?","options":[{"id":"a","text":"$15$","isCorrect":false},{"id":"b","text":"$200$","isCorrect":true},{"id":"c","text":"$0{,}01$","isCorrect":false},{"id":"d","text":"Kan ikke avgjøres","isCorrect":false}],"solution":"Faste kostnader er kostnadene ved null produksjon: $K(0) = 200$ kroner."},{"id":"s2-8-1-n-quiz1-q1","task":"Hva er tolkningen av marginalkostnaden $K'(20) = 3$?","options":[{"id":"a","text":"Det koster ca. 3 kroner å produsere enhet nummer 21","isCorrect":true},{"id":"b","text":"Hver av de 20 enhetene kostet 3 kroner","isCorrect":false},{"id":"c","text":"Totalkostnaden ved 20 enheter er 3 kroner","isCorrect":false},{"id":"d","text":"Enhetskostnaden er 3 kroner","isCorrect":false}],"solution":"$K'(x) \\approx K(x+1) - K(x)$: marginalkostnaden ved $x = 20$ er den tilnærmede kostnaden for neste enhet."},{"id":"s2-8-1-n-quiz1-q2","task":"En bedrift har $K(x) = 2x^2 + 8x + 50$. Hva er enhetskostnaden $E(x)$?","options":[{"id":"a","text":"$4x + 8$","isCorrect":false},{"id":"b","text":"$2x^2 + 8x$","isCorrect":false},{"id":"c","text":"$2x + 8 + \\frac{50}{x}$","isCorrect":true},{"id":"d","text":"$\\frac{2x + 8}{50}$","isCorrect":false}],"solution":"$E(x) = \\frac{K(x)}{x} = \\frac{2x^2 + 8x + 50}{x} = 2x + 8 + \\frac{50}{x}$."},{"id":"s2-8-1-n-quiz1-q3","task":"Hvor er enhetskostnaden på sitt laveste?","options":[{"id":"a","text":"Der de faste kostnadene er null","isCorrect":false},{"id":"b","text":"Der $K(x)$ har bunnpunkt","isCorrect":false},{"id":"c","text":"Der marginalkostnaden er størst","isCorrect":false},{"id":"d","text":"Der marginalkostnaden er lik enhetskostnaden, $K'(x) = E(x)$","isCorrect":true}],"solution":"$E'(x) = 0$ er ekvivalent med $K'(x) = E(x)$: snittet er lavest der marginalen krysser snittet — som med karaktersnitt."}]}},{"id":"s2-8-1-n-section2","type":"text","content":"## Inntektene: pris, etterspørsel og grenseinntekt\n\nOver til inntektssiden. Selger bryggeriet $x$ flasker til pris $p(x)$ per flaske, er **totalinntekten**\n\n$$I(x) = p(x) \\cdot x$$\n\nI det enkleste tilfellet er prisen konstant — bedriften er for liten til å påvirke markedet (fullkommen konkurranse). Da er $I(x) = px$ og $I'(x) = p$: hver ekstra flaske gir nøyaktig prisen i ekstra inntekt.\n\nMen ofte avhenger prisen av mengden: skal du selge mer, må du sette ned prisen. Dette beskrives av en **etterspørselsfunksjon**, typisk lineær: $p(x) = a - bx$. Da blir totalinntekten $I(x) = (a - bx) \\cdot x = ax - bx^2$ — en parabel med toppunkt. **Grenseinntekten** (marginalinntekten) er den deriverte $I'(x)$, som gir tilnærmet inntektsøkningen ved å selge én enhet til. For lineær etterspørsel er $I'(x) = a - 2bx$ — legg merke til at grenseinntekten avtar dobbelt så raskt som prisen; grafisk har grenseinntektslinjen dobbelt så bratt helning som etterspørselslinjen.\n\nEt regneeksempel: bryggeriet møter etterspørselen $p(x) = 120 - 2x$. Totalinntekten blir $I(x) = 120x - 2x^2$ og grenseinntekten $I'(x) = 120 - 4x$. Ved 25 solgte flasker er $I'(25) = 20$: én flaske til gir omtrent 20 kroner ekstra. Inntekten er størst der $I'(x) = 0$, altså $x = 30$, og siden $I''(x) = -4 < 0$ er det et maksimum; $I(30) = 3600 - 1800 = 1800$ kroner. Mer salg enn 30 gir faktisk *lavere* totalinntekt — prisen må senkes så mye at det spiser opp gevinsten.\n\nTil slutt en smakebit på neste kapittel: med $K(x) = 0{,}5x^2 + 10x + 500$ og $I(x) = 80x - 0{,}5x^2$ er $K'(x) = x + 10$ og $I'(x) = 80 - x$. Setter vi dem like: $x + 10 = 80 - x$ gir $x = 35$, der begge marginalene er 45 kroner. Akkurat der — hvor grenseinntekt møter marginalkostnad — ligger det optimale produksjonsnivået."},{"id":"s2-8-1-n-quiz2","type":"exercise","exercise":{"id":"s2-8-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på inntektsfunksjoner og grenseinntekt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-1-n-quiz2-q0","task":"Etterspørselen er $p(x) = 120 - 2x$. Hva er totalinntekten $I(x)$?","options":[{"id":"a","text":"$120 - 2x^2$","isCorrect":false},{"id":"b","text":"$120x - 2x^2$","isCorrect":true},{"id":"c","text":"$120x - 2x$","isCorrect":false},{"id":"d","text":"$\\frac{120 - 2x}{x}$","isCorrect":false}],"solution":"$I(x) = p(x) \\cdot x = (120 - 2x)x = 120x - 2x^2$."},{"id":"s2-8-1-n-quiz2-q1","task":"For lineær etterspørsel $p(x) = a - bx$ er grenseinntekten …","options":[{"id":"a","text":"$I'(x) = a - bx$","isCorrect":false},{"id":"b","text":"$I'(x) = a + 2bx$","isCorrect":false},{"id":"c","text":"$I'(x) = a - 2bx$","isCorrect":true},{"id":"d","text":"$I'(x) = -b$","isCorrect":false}],"solution":"$I(x) = ax - bx^2$ gir $I'(x) = a - 2bx$ — grenseinntekten faller dobbelt så bratt som prisen."},{"id":"s2-8-1-n-quiz2-q2","task":"Med $I(x) = 120x - 2x^2$: For hvilken $x$ er totalinntekten størst?","options":[{"id":"a","text":"$x = 60$","isCorrect":false},{"id":"b","text":"$x = 20$","isCorrect":false},{"id":"c","text":"$x = 120$","isCorrect":false},{"id":"d","text":"$x = 30$","isCorrect":true}],"solution":"$I'(x) = 120 - 4x = 0$ gir $x = 30$, og $I''(x) = -4 < 0$ bekrefter maksimum. $I(30) = 1800$ kr."},{"id":"s2-8-1-n-quiz2-q3","task":"Bedriften selger til fast pris $p = 60$ kr. Hva er grenseinntekten?","options":[{"id":"a","text":"$I'(x) = 60$ for alle $x$","isCorrect":true},{"id":"b","text":"$I'(x) = 60 - 2x$","isCorrect":false},{"id":"c","text":"$I'(x) = 60x$","isCorrect":false},{"id":"d","text":"$I'(x) = 0$","isCorrect":false}],"solution":"Med fast pris er $I(x) = 60x$, så $I'(x) = 60$: hver ekstra enhet gir nøyaktig 60 kr — prisen."}]}},{"id":"s2-8-1-n-section3","type":"text","content":"## Marginaltenkning — økonomens superkraft\n\nHvorfor er disse deriverte så viktige? Fordi økonomiske beslutninger sjelden handler om alt eller ingenting — de handler om *litt mer eller litt mindre*. Skal bryggeriet brygge én kasse til? Svaret ligger i marginalstørrelsene: $K'(x)$ er tilnærmet kostnaden for enhet nummer $x+1$, $I'(x)$ er tilnærmet ekstrainntekten for samme enhet, og der $E'(x) = 0$ er gjennomsnittskostnaden på sitt laveste.\n\nHvor god er egentlig tilnærmingen $K'(x) \\approx K(x+1) - K(x)$? Den deriverte er stigningen til tangenten i punktet $x$, mens den faktiske ekstrakostnaden er stigningen til sekanten fra $x$ til $x+1$. For store $x$ og funksjoner med liten krumning er forskjellen ubetydelig; for små $x$ kan avviket være merkbart. I praksis — og på eksamen — bruker vi den deriverte som modell for marginalkostnaden.\n\nEn ærlig fotnote om modellen: i virkeligheten kan $x$ bare ta heltallsverdier — bryggeriet kan ikke produsere 38,7 flasker. Men ved å behandle $K$ og $I$ som kontinuerlige, deriverbare funksjoner får vi tilgang til hele analysens verktøykasse: derivasjon, ekstremalpunkter, andrederiverttest. Vi løser problemet i den kontinuerlige modellen og runder av til nærmeste fornuftige heltall til slutt.\n\nMed kostnads- og inntektssiden på plass er scenen rigget for neste spørsmål, det viktigste av dem alle: hvilken produksjonsmengde gir størst *overskudd*? Svaret — prinsippet om at grenseinntekt skal være lik marginalkostnad — er hovedpersonen i neste kapittel."},{"id":"s2-8-1-n-quiz3","type":"exercise","exercise":{"id":"s2-8-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på marginalstørrelser og modellforståelse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-1-n-quiz3-q0","task":"Hva er forskjellen på $K'(20)$ og $K(21) - K(20)$?","options":[{"id":"a","text":"Ingen — de er per definisjon like","isCorrect":false},{"id":"b","text":"$K'(20)$ er tangentstigningen i $x = 20$, mens $K(21)-K(20)$ er den faktiske ekstrakostnaden (sekantstigningen); de er tilnærmet like","isCorrect":true},{"id":"c","text":"$K'(20)$ er alltid større","isCorrect":false},{"id":"d","text":"$K(21) - K(20)$ er enhetskostnaden","isCorrect":false}],"solution":"Den deriverte er en tilnærming til den faktiske ekstrakostnaden. For funksjoner med liten krumning er avviket lite."},{"id":"s2-8-1-n-quiz3-q1","task":"$K'(x) = x + 10$ og $I'(x) = 80 - x$. For hvilken $x$ er marginalkostnad lik grenseinntekt?","options":[{"id":"a","text":"$x = 70$","isCorrect":false},{"id":"b","text":"$x = 10$","isCorrect":false},{"id":"c","text":"$x = 35$","isCorrect":true},{"id":"d","text":"$x = 45$","isCorrect":false}],"solution":"$x + 10 = 80 - x \\Rightarrow 2x = 70 \\Rightarrow x = 35$. Begge marginalene er da 45 kr — det optimale produksjonsnivået."},{"id":"s2-8-1-n-quiz3-q2","task":"Hvorfor behandler vi $K(x)$ som en kontinuerlig funksjon selv om antall enheter er heltall?","options":[{"id":"a","text":"Fordi bedrifter kan produsere brøkdeler av enheter","isCorrect":false},{"id":"b","text":"Fordi heltallsfunksjoner ikke finnes","isCorrect":false},{"id":"c","text":"Fordi faste kostnader krever det","isCorrect":false},{"id":"d","text":"For å kunne bruke derivasjon og analysens verktøy — og så runde av til slutt","isCorrect":true}],"solution":"Den kontinuerlige modellen gir tilgang til derivasjon og ekstremalpunktanalyse. Svaret tolkes og avrundes til heltall etterpå."}]}},{"id":"s2-8-1-n-summary","type":"text","content":"## Oppsummering: bryggeriets regnskap som funksjoner\n\nGarasjebryggeriet ga oss hele begrepsapparatet. **Totalkostnaden** $K(x)$ deles i faste kostnader $K(0)$ og variable kostnader $K(x) - K(0)$. **Enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ måler kostnad per enhet, og **marginalkostnaden** $K'(x)$ er den deriverte — tilnærmet kostnaden for enhet nummer $x + 1$. Enhetskostnaden er på sitt laveste nøyaktig der $K'(x) = E(x)$: snittet bunner der marginalen krysser det.\n\nPå inntektssiden er **totalinntekten** $I(x) = p(x) \\cdot x$. Med fast pris er $I'(x) = p$; med lineær etterspørsel $p(x) = a - bx$ blir $I(x) = ax - bx^2$ og **grenseinntekten** $I'(x) = a - 2bx$, som faller dobbelt så bratt som prisen. Bryggeriets inntekt toppet ved $x = 30$ flasker — mer salg krevde så lav pris at totalinntekten sank.\n\nDen røde tråden er marginaltenkning: beslutninger tas «på marginen», én enhet av gangen, og den deriverte er det presise verktøyet — med forbeholdet om at $K'(x) \\approx K(x+1) - K(x)$ er en (svært god) tilnærming i en kontinuerlig modell av en heltallsverden. Og vi så konturene av det store resultatet: der $I'(x) = K'(x)$ møtes marginalene, og der ligger det optimale produksjonsnivået. Det er profittmaksimering — neste kapittel."}],"exercises":[]}
+{
+  "id": "s2-8-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "8.1",
+  "title": "Kostnads- og inntektsfunksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om to venner med brusbryggeri i garasjen — om faste og variable kostnader, enhetskostnad, marginalkostnad og grenseinntekt som verktøy for smarte beslutninger.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "modellere og analysere økonomiske problemstillinger ved hjelp av funksjoner og derivasjon",
+    "tolke den deriverte i praktiske sammenhenger, spesielt i økonomi"
+  ],
+  "linkedChapterId": "s2-8-1",
+  "content": [
+    {
+      "id": "s2-8-1-n-intro",
+      "type": "text",
+      "content": "## Brusbryggeriet i garasjen\n\nTo venner har startet et lite bryggeri for håndverksbrus i en garasje. De betaler husleie og forsikring uansett hvor mye de produserer, og i tillegg koster hver flaske råvarer og arbeidstid. En kveld sitter de med regnskapet og spør seg: Hva koster egentlig flaske nummer 21? Lønner det seg å produsere mer — eller mindre?\n\nSlike spørsmål er kjernen i den økonomiske analysen i S2. En bedrift har **kostnader** knyttet til produksjon og **inntekter** fra salg, og ved å beskrive begge som funksjoner av antall produserte enheter $x$, kan vi bruke derivasjon til å analysere bedriftens økonomi. Den deriverte — som du kjenner som stigningstall og vekstfart — får her en helt konkret tolkning i kroner og øre: hva koster *én enhet til*, og hva tjener vi på *én enhet til*?\n\nI denne fortellingen bygger vi opp rammeverket: kostnadsfunksjoner med faste og variable kostnader, enhetskostnad og marginalkostnad, og inntektsfunksjoner med grenseinntekt. Det er fundamentet for å finne optimale produksjonsnivåer i kapitlene som følger."
+    },
+    {
+      "id": "s2-8-1-n-section1",
+      "type": "text",
+      "content": "## Kostnadene: faste, variable og marginale\n\nVi lar $K(x)$ være **totalkostnaden** ved å produsere $x$ enheter. Den består av to deler. De **faste kostnadene** $K(0)$ påløper uansett — husleie, forsikring, lisenser — selv om bryggeriet ikke fyller en eneste flaske. De **variable kostnadene** $K(x) - K(0)$ vokser med produksjonen: råvarer, strøm, arbeidstimer. For eksempel har funksjonen $K(x) = 0{,}01x^3 - 0{,}6x^2 + 15x + 100$ faste kostnader på 100 og variable kostnader $0{,}01x^3 - 0{,}6x^2 + 15x$.\n\nTo avledede størrelser er sentrale. **Enhetskostnaden** (gjennomsnittskostnaden) er kostnad per flaske, $E(x) = \\frac{K(x)}{x}$. Og **marginalkostnaden** er den deriverte av totalkostnaden, $K'(x)$ — den gir tilnærmet kostnaden ved å produsere én enhet til: $K'(x) \\approx K(x+1) - K(x)$.\n\nLa oss regne på bryggeriets kostnadsfunksjon $K(x) = 0{,}01x^3 - 0{,}6x^2 + 15x + 200$. De faste kostnadene er $K(0) = 200$ kroner. Marginalkostnaden er $K'(x) = 0{,}03x^2 - 1{,}2x + 15$, og ved 20 flasker: $K'(20) = 12 - 24 + 15 = 3$ — det koster omtrent 3 kroner å lage flaske nummer 21.\n\nNår er enhetskostnaden lavest? Deriverer vi $E(x) = \\frac{K(x)}{x}$ med brøkregelen og setter lik null, får vi $\\frac{K'(x) \\cdot x - K(x)}{x^2} = 0$, altså $K'(x) = \\frac{K(x)}{x} = E(x)$. Resultatet er verdt å huske: **enhetskostnaden er minst der marginalkostnaden er lik enhetskostnaden.** Intuisjonen er som med karaktersnitt: er neste karakter (marginalen) bedre enn snittet, drar den snittet opp — er den dårligere, drar den snittet ned. Snittet er lavest akkurat der marginalen krysser det. For bryggeriet gir likningen $K'(x) = E(x)$ numerisk løsning $x \\approx 39$ flasker."
+    },
+    {
+      "id": "s2-8-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kostnadsfunksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-1-n-quiz1-q0",
+            "task": "Hva er de faste kostnadene i $K(x) = 0{,}01x^3 - 0{,}6x^2 + 15x + 200$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}01$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kan ikke avgjøres",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$200$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Faste kostnader er kostnadene ved null produksjon: $K(0) = 200$ kroner."
+          },
+          {
+            "id": "s2-8-1-n-quiz1-q1",
+            "task": "Hva er tolkningen av marginalkostnaden $K'(20) = 3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det koster ca. 3 kroner å produsere enhet nummer 21",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Hver av de 20 enhetene kostet 3 kroner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Totalkostnaden ved 20 enheter er 3 kroner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Enhetskostnaden er 3 kroner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K'(x) \\approx K(x+1) - K(x)$: marginalkostnaden ved $x = 20$ er den tilnærmede kostnaden for neste enhet."
+          },
+          {
+            "id": "s2-8-1-n-quiz1-q2",
+            "task": "En bedrift har $K(x) = 2x^2 + 8x + 50$. Hva er enhetskostnaden $E(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4x + 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x + 8 + \\frac{50}{x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2x^2 + 8x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2x + 8}{50}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(x) = \\frac{K(x)}{x} = \\frac{2x^2 + 8x + 50}{x} = 2x + 8 + \\frac{50}{x}$."
+          },
+          {
+            "id": "s2-8-1-n-quiz1-q3",
+            "task": "Hvor er enhetskostnaden på sitt laveste?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Der de faste kostnadene er null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Der $K(x)$ har bunnpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Der marginalkostnaden er lik enhetskostnaden, $K'(x) = E(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Der marginalkostnaden er størst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E'(x) = 0$ er ekvivalent med $K'(x) = E(x)$: snittet er lavest der marginalen krysser snittet — som med karaktersnitt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-1-n-section2",
+      "type": "text",
+      "content": "## Inntektene: pris, etterspørsel og grenseinntekt\n\nOver til inntektssiden. Selger bryggeriet $x$ flasker til pris $p(x)$ per flaske, er **totalinntekten**\n\n$$I(x) = p(x) \\cdot x$$\n\nI det enkleste tilfellet er prisen konstant — bedriften er for liten til å påvirke markedet (fullkommen konkurranse). Da er $I(x) = px$ og $I'(x) = p$: hver ekstra flaske gir nøyaktig prisen i ekstra inntekt.\n\nMen ofte avhenger prisen av mengden: skal du selge mer, må du sette ned prisen. Dette beskrives av en **etterspørselsfunksjon**, typisk lineær: $p(x) = a - bx$. Da blir totalinntekten $I(x) = (a - bx) \\cdot x = ax - bx^2$ — en parabel med toppunkt. **Grenseinntekten** (marginalinntekten) er den deriverte $I'(x)$, som gir tilnærmet inntektsøkningen ved å selge én enhet til. For lineær etterspørsel er $I'(x) = a - 2bx$ — legg merke til at grenseinntekten avtar dobbelt så raskt som prisen; grafisk har grenseinntektslinjen dobbelt så bratt helning som etterspørselslinjen.\n\nEt regneeksempel: bryggeriet møter etterspørselen $p(x) = 120 - 2x$. Totalinntekten blir $I(x) = 120x - 2x^2$ og grenseinntekten $I'(x) = 120 - 4x$. Ved 25 solgte flasker er $I'(25) = 20$: én flaske til gir omtrent 20 kroner ekstra. Inntekten er størst der $I'(x) = 0$, altså $x = 30$, og siden $I''(x) = -4 < 0$ er det et maksimum; $I(30) = 3600 - 1800 = 1800$ kroner. Mer salg enn 30 gir faktisk *lavere* totalinntekt — prisen må senkes så mye at det spiser opp gevinsten.\n\nTil slutt en smakebit på neste kapittel: med $K(x) = 0{,}5x^2 + 10x + 500$ og $I(x) = 80x - 0{,}5x^2$ er $K'(x) = x + 10$ og $I'(x) = 80 - x$. Setter vi dem like: $x + 10 = 80 - x$ gir $x = 35$, der begge marginalene er 45 kroner. Akkurat der — hvor grenseinntekt møter marginalkostnad — ligger det optimale produksjonsnivået."
+    },
+    {
+      "id": "s2-8-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på inntektsfunksjoner og grenseinntekt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-1-n-quiz2-q0",
+            "task": "Etterspørselen er $p(x) = 120 - 2x$. Hva er totalinntekten $I(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$120 - 2x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$120x - 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{120 - 2x}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$120x - 2x^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$I(x) = p(x) \\cdot x = (120 - 2x)x = 120x - 2x^2$."
+          },
+          {
+            "id": "s2-8-1-n-quiz2-q1",
+            "task": "For lineær etterspørsel $p(x) = a - bx$ er grenseinntekten …",
+            "options": [
+              {
+                "id": "c",
+                "text": "$I'(x) = a - 2bx$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$I'(x) = a - bx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$I'(x) = a + 2bx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$I'(x) = -b$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I(x) = ax - bx^2$ gir $I'(x) = a - 2bx$ — grenseinntekten faller dobbelt så bratt som prisen."
+          },
+          {
+            "id": "s2-8-1-n-quiz2-q2",
+            "task": "Med $I(x) = 120x - 2x^2$: For hvilken $x$ er totalinntekten størst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 60$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 30$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 20$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 120$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I'(x) = 120 - 4x = 0$ gir $x = 30$, og $I''(x) = -4 < 0$ bekrefter maksimum. $I(30) = 1800$ kr."
+          },
+          {
+            "id": "s2-8-1-n-quiz2-q3",
+            "task": "Bedriften selger til fast pris $p = 60$ kr. Hva er grenseinntekten?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$I'(x) = 60 - 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$I'(x) = 60x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$I'(x) = 60$ for alle $x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$I'(x) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med fast pris er $I(x) = 60x$, så $I'(x) = 60$: hver ekstra enhet gir nøyaktig 60 kr — prisen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-1-n-section3",
+      "type": "text",
+      "content": "## Marginaltenkning — økonomens superkraft\n\nHvorfor er disse deriverte så viktige? Fordi økonomiske beslutninger sjelden handler om alt eller ingenting — de handler om *litt mer eller litt mindre*. Skal bryggeriet brygge én kasse til? Svaret ligger i marginalstørrelsene: $K'(x)$ er tilnærmet kostnaden for enhet nummer $x+1$, $I'(x)$ er tilnærmet ekstrainntekten for samme enhet, og der $E'(x) = 0$ er gjennomsnittskostnaden på sitt laveste.\n\nHvor god er egentlig tilnærmingen $K'(x) \\approx K(x+1) - K(x)$? Den deriverte er stigningen til tangenten i punktet $x$, mens den faktiske ekstrakostnaden er stigningen til sekanten fra $x$ til $x+1$. For store $x$ og funksjoner med liten krumning er forskjellen ubetydelig; for små $x$ kan avviket være merkbart. I praksis — og på eksamen — bruker vi den deriverte som modell for marginalkostnaden.\n\nEn ærlig fotnote om modellen: i virkeligheten kan $x$ bare ta heltallsverdier — bryggeriet kan ikke produsere 38,7 flasker. Men ved å behandle $K$ og $I$ som kontinuerlige, deriverbare funksjoner får vi tilgang til hele analysens verktøykasse: derivasjon, ekstremalpunkter, andrederiverttest. Vi løser problemet i den kontinuerlige modellen og runder av til nærmeste fornuftige heltall til slutt.\n\nMed kostnads- og inntektssiden på plass er scenen rigget for neste spørsmål, det viktigste av dem alle: hvilken produksjonsmengde gir størst *overskudd*? Svaret — prinsippet om at grenseinntekt skal være lik marginalkostnad — er hovedpersonen i neste kapittel."
+    },
+    {
+      "id": "s2-8-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på marginalstørrelser og modellforståelse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-1-n-quiz3-q0",
+            "task": "Hva er forskjellen på $K'(20)$ og $K(21) - K(20)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ingen — de er per definisjon like",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$K'(20)$ er alltid større",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$K(21) - K(20)$ er enhetskostnaden",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$K'(20)$ er tangentstigningen i $x = 20$, mens $K(21)-K(20)$ er den faktiske ekstrakostnaden (sekantstigningen); de er tilnærmet like",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den deriverte er en tilnærming til den faktiske ekstrakostnaden. For funksjoner med liten krumning er avviket lite."
+          },
+          {
+            "id": "s2-8-1-n-quiz3-q1",
+            "task": "$K'(x) = x + 10$ og $I'(x) = 80 - x$. For hvilken $x$ er marginalkostnad lik grenseinntekt?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x = 35$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = 70$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 45$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x + 10 = 80 - x \\Rightarrow 2x = 70 \\Rightarrow x = 35$. Begge marginalene er da 45 kr — det optimale produksjonsnivået."
+          },
+          {
+            "id": "s2-8-1-n-quiz3-q2",
+            "task": "Hvorfor behandler vi $K(x)$ som en kontinuerlig funksjon selv om antall enheter er heltall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi bedrifter kan produsere brøkdeler av enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å kunne bruke derivasjon og analysens verktøy — og så runde av til slutt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi heltallsfunksjoner ikke finnes",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi faste kostnader krever det",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den kontinuerlige modellen gir tilgang til derivasjon og ekstremalpunktanalyse. Svaret tolkes og avrundes til heltall etterpå."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: bryggeriets regnskap som funksjoner\n\nGarasjebryggeriet ga oss hele begrepsapparatet. **Totalkostnaden** $K(x)$ deles i faste kostnader $K(0)$ og variable kostnader $K(x) - K(0)$. **Enhetskostnaden** $E(x) = \\frac{K(x)}{x}$ måler kostnad per enhet, og **marginalkostnaden** $K'(x)$ er den deriverte — tilnærmet kostnaden for enhet nummer $x + 1$. Enhetskostnaden er på sitt laveste nøyaktig der $K'(x) = E(x)$: snittet bunner der marginalen krysser det.\n\nPå inntektssiden er **totalinntekten** $I(x) = p(x) \\cdot x$. Med fast pris er $I'(x) = p$; med lineær etterspørsel $p(x) = a - bx$ blir $I(x) = ax - bx^2$ og **grenseinntekten** $I'(x) = a - 2bx$, som faller dobbelt så bratt som prisen. Bryggeriets inntekt toppet ved $x = 30$ flasker — mer salg krevde så lav pris at totalinntekten sank.\n\nDen røde tråden er marginaltenkning: beslutninger tas «på marginen», én enhet av gangen, og den deriverte er det presise verktøyet — med forbeholdet om at $K'(x) \\approx K(x+1) - K(x)$ er en (svært god) tilnærming i en kontinuerlig modell av en heltallsverden. Og vi så konturene av det store resultatet: der $I'(x) = K'(x)$ møtes marginalene, og der ligger det optimale produksjonsnivået. Det er profittmaksimering — neste kapittel."
+    }
+  ],
+  "exercises": []
+}

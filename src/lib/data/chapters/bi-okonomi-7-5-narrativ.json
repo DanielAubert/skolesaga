@@ -1,1 +1,263 @@
-{"id":"bi-okonomi-7-5-narrativ","courseId":"bi-okonomi","chapterNumber":"7.5","title":"Cobb-Douglas og økonomiske anvendelser","subtitle":"Narrativ versjon","description":"En fortelling om økonomiens mest berømte produktfunksjon -- hvorfor eksponentene er elastisiteter, hvordan summen avgjør skalaavkastning, og hvordan grensesubstitusjonsraten og Eulers teorem binder alt sammen.","estimatedMinutes":36,"competenceGoals":[],"linkedChapterId":"bi-okonomi-7-5","content":[{"id":"bi-okonomi-7-5-n-intro","type":"text","content":"## En funksjon med en historie\n\nI 1928 satte økonomen Paul Douglas og matematikeren Charles Cobb seg fore å beskrive amerikansk industriproduksjon med én enkel formel. Resultatet, **Cobb-Douglas produktfunksjonen**, har siden vært en bærebjelke i økonomisk modellering. Vi har møtt den i tidligere kapitler; nå samler vi alle de viktige egenskapene på ett sted.\n\nFunksjonen har formen $Q(K,L)=AK^{\\alpha}L^{\\beta}$, der $A>0$ er en **teknologi-konstant** som måler den generelle produktiviteten, og $\\alpha,\\beta>0$ er eksponenter. $K>0$ er kapital og $L>0$ arbeidskraft. Samme form brukes for nytte, $U(x,y)=x^{\\alpha}y^{\\beta}$.\n\nHvorfor kaller vi $\\alpha$ og $\\beta$ for **elastisiteter**? Produksjonselastisiteten av kapital er $\\varepsilon_K=\\dfrac{K}{Q}\\cdot\\dfrac{\\partial Q}{\\partial K}$. Setter vi inn $Q_K=\\alpha AK^{\\alpha-1}L^{\\beta}$, får vi $\\varepsilon_K=\\dfrac{K}{AK^{\\alpha}L^{\\beta}}\\cdot\\alpha AK^{\\alpha-1}L^{\\beta}=\\alpha$. Eksponenten **er** elastisiteten, og den er konstant: en 1 % økning i kapital gir alltid en $\\alpha$ % økning i produksjon, uansett nivå. Det samme gjelder $\\beta$ for arbeidskraft -- en av Cobb-Douglas' aller viktigste egenskaper."},{"id":"bi-okonomi-7-5-n-section1","type":"text","content":"## Skalaavkastning -- hva skjer når vi blåser opp alt?\n\nEt sentralt spørsmål er hva som skjer når vi skalerer **begge** innsatsfaktorer med samme faktor $t>0$. For Cobb-Douglas gjelder $Q(tK,tL)=A(tK)^{\\alpha}(tL)^{\\beta}=t^{\\alpha+\\beta}\\,AK^{\\alpha}L^{\\beta}=t^{\\alpha+\\beta}Q(K,L)$. Summen av eksponentene styrer alt.\n\nEr $\\alpha+\\beta=1$, har vi **konstant skalaavkastning** (CRS): dobler vi innsatsen, dobles produksjonen. Er $\\alpha+\\beta>1$, har vi **økende skalaavkastning** (IRS), og er $\\alpha+\\beta<1$, **avtakende skalaavkastning** (DRS). La oss klassifisere tre tilfeller. For $Q=10K^{0{,}5}L^{0{,}5}$ er $\\alpha+\\beta=1$ -- konstant. For $Q=4K^{0{,}4}L^{0{,}5}$ er summen $0{,}9<1$ -- avtakende; en dobling gir bare faktoren $2^{0{,}9}\\approx 1{,}87$. For $Q=2K^{0{,}6}L^{0{,}5}$ er summen $1{,}1>1$ -- økende; en dobling gir $2^{1{,}1}\\approx 2{,}14$.\n\nDette begrepet er nært knyttet til **homogene funksjoner**. En funksjon er homogen av grad $n$ dersom $f(tx,ty)=t^n f(x,y)$ for alle $t>0$. Cobb-Douglas $Q=AK^{\\alpha}L^{\\beta}$ er nettopp homogen av grad $\\alpha+\\beta$. Et eksempel: $f(x,y)=x^2+xy+y^2$ er homogen av grad $2$, mens $f(x,y)=x+2y+3$ ikke er homogen i det hele tatt -- konstantleddet $3$ ødelegger egenskapen."},{"id":"bi-okonomi-7-5-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-7-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på elastisitet og skalaavkastning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-7-5-n-quiz1-q0","task":"For $Q(K,L)=AK^{\\alpha}L^{\\beta}$, hva er produksjonselastisiteten av kapital?","options":[{"id":"a","text":"$\\alpha+\\beta$","isCorrect":false},{"id":"b","text":"$\\alpha$","isCorrect":true},{"id":"c","text":"$A$","isCorrect":false},{"id":"d","text":"$\\alpha\\beta$","isCorrect":false}],"solution":"$\\varepsilon_K=\\dfrac{K}{Q}Q_K=\\alpha$ -- eksponenten på $K$ er selve elastisiteten, og den er konstant."},{"id":"bi-okonomi-7-5-n-quiz1-q1","task":"For $Q=2K^{0{,}6}L^{0{,}5}$, hvilken skalaavkastning har funksjonen?","options":[{"id":"a","text":"Konstant","isCorrect":false},{"id":"b","text":"Avtakende","isCorrect":false},{"id":"c","text":"Økende","isCorrect":true},{"id":"d","text":"Ingen skalaavkastning","isCorrect":false}],"solution":"$\\alpha+\\beta=0{,}6+0{,}5=1{,}1>1$ gir økende skalaavkastning: en dobling gir faktoren $2^{1{,}1}\\approx 2{,}14$."},{"id":"bi-okonomi-7-5-n-quiz1-q2","task":"Hvilken funksjon er IKKE homogen?","options":[{"id":"a","text":"$f(x,y)=x^2+xy+y^2$","isCorrect":false},{"id":"b","text":"$Q=AK^{0{,}3}L^{0{,}7}$","isCorrect":false},{"id":"c","text":"$f(x,y)=x^{0{,}5}y^{0{,}5}$","isCorrect":false},{"id":"d","text":"$f(x,y)=x+2y+3$","isCorrect":true}],"solution":"Konstantleddet $3$ gjør at $f(tx,ty)\\neq t^n f(x,y)$. De andre er homogene av henholdsvis grad $2$, $1$ og $1$."}]}},{"id":"bi-okonomi-7-5-n-section2","type":"text","content":"## Grensesubstitusjonsraten og Eulers teorem\n\nHvor mye av ett gode er en konsument villig til å gi opp for én ekstra enhet av et annet, uten å bli mindre fornøyd? Svaret er **grensesubstitusjonsraten**, $\\text{MRS}_{xy}=\\dfrac{f_x}{f_y}$. Geometrisk er den den absolutte verdien av stigningstallet til indifferenskurven. For Cobb-Douglas $U=Ax^{\\alpha}y^{\\beta}$ blir $\\text{MRS}_{xy}=\\dfrac{\\alpha y}{\\beta x}$ -- den avhenger bare av **forholdet** $y/x$, ikke av nivåene. Når $x$ øker langs indifferenskurven, avtar MRS; vi snakker om **avtakende grensesubstitusjonsrate**.\n\nLa oss regne på $U(x,y)=x^{0{,}4}y^{0{,}6}$ i punktet $(10,20)$. Her er $\\text{MRS}=\\dfrac{0{,}4}{0{,}6}\\cdot\\dfrac{y}{x}=\\dfrac{2}{3}\\cdot\\dfrac{20}{10}=\\dfrac{4}{3}\\approx 1{,}33$ -- konsumenten gir opp ca. 1,33 enheter $y$ for én ekstra $x$. I optimum (fra Lagrange) er MRS lik prisforholdet: $\\text{MRS}_{xy}=\\dfrac{p_x}{p_y}$. Dette gir en herlig snarvei -- **andelsregelen**: for $U=x^a y^b$ bruker konsumenten andelen $\\tfrac{a}{a+b}$ av inntekten på $x$ og $\\tfrac{b}{a+b}$ på $y$. For $U=x^2 y$ med $m=60$, $p_x=5$, $p_y=4$ blir $p_x x=\\tfrac{2}{3}\\cdot 60=40\\Rightarrow x=8$ og $p_y y=20\\Rightarrow y=5$.\n\nTil slutt et elegant resultat. **Eulers teorem** sier at hvis $f$ er homogen av grad $n$, så er $xf_x+yf_y=nf$. For Cobb-Douglas med $\\alpha+\\beta=n$ betyr det $KQ_K+LQ_L=nQ$. Ved konstant skalaavkastning ($n=1$) blir hele produksjonen **fullstendig fordelt** på innsatsfaktorene betalt etter marginalproduktet: $KQ_K+LQ_L=Q$. Det gir et teoretisk fundament for at lønn og kapitalavkastning til sammen kan bruke opp akkurat all verdiskaping."},{"id":"bi-okonomi-7-5-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-7-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på MRS, andelsregelen og Eulers teorem:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-7-5-n-quiz2-q0","task":"For $U(x,y)=x^{0{,}4}y^{0{,}6}$, hva er $\\text{MRS}_{xy}$ ved $(10,20)$?","options":[{"id":"a","text":"$\\tfrac{4}{3}$","isCorrect":true},{"id":"b","text":"$\\tfrac{2}{3}$","isCorrect":false},{"id":"c","text":"$2$","isCorrect":false},{"id":"d","text":"$\\tfrac{3}{2}$","isCorrect":false}],"solution":"$\\text{MRS}=\\dfrac{0{,}4}{0{,}6}\\cdot\\dfrac{y}{x}=\\dfrac{2}{3}\\cdot\\dfrac{20}{10}=\\dfrac{4}{3}$."},{"id":"bi-okonomi-7-5-n-quiz2-q1","task":"For $U(x,y)=x^2 y$ med inntekt $m=60$ og $p_x=5$. Hvor mye brukes på $x$ etter andelsregelen?","options":[{"id":"a","text":"$20$ kr","isCorrect":false},{"id":"b","text":"$40$ kr","isCorrect":true},{"id":"c","text":"$30$ kr","isCorrect":false},{"id":"d","text":"$60$ kr","isCorrect":false}],"solution":"Vektene er $2$ og $1$, total $3$. Andelen på $x$ er $\\tfrac{2}{3}\\cdot 60=40$ kr, så $x=40/5=8$."},{"id":"bi-okonomi-7-5-n-quiz2-q2","task":"Eulers teorem for Cobb-Douglas med konstant skalaavkastning ($\\alpha+\\beta=1$) sier at ...","options":[{"id":"a","text":"$Q_K=Q_L$","isCorrect":false},{"id":"b","text":"$KQ_K+LQ_L=2Q$","isCorrect":false},{"id":"c","text":"$KQ_K+LQ_L=Q$","isCorrect":true},{"id":"d","text":"$Q_{KL}=0$","isCorrect":false}],"solution":"Med $n=\\alpha+\\beta=1$ gir $KQ_K+LQ_L=nQ=Q$ -- hele produksjonen fordeles fullstendig på innsatsfaktorene."},{"id":"bi-okonomi-7-5-n-quiz2-q3","task":"For Cobb-Douglas $U=x^{\\alpha}y^{\\beta}$ er $U_{xy}>0$. Hva betyr det for godene?","options":[{"id":"a","text":"De er substitutter","isCorrect":false},{"id":"b","text":"De er uavhengige","isCorrect":false},{"id":"c","text":"Nytten er lineær","isCorrect":false},{"id":"d","text":"De er alltid komplementære","isCorrect":true}],"solution":"$U_{xy}=\\alpha\\beta x^{\\alpha-1}y^{\\beta-1}>0$ alltid, så Cobb-Douglas-goder er komplementære -- i kontrast til lineær nytte der $U_{xy}=0$ (perfekte substitutter)."}]}},{"id":"bi-okonomi-7-5-n-summary","type":"text","content":"## Oppsummering\n\n**Cobb-Douglas-funksjonen** $Q(K,L)=AK^{\\alpha}L^{\\beta}$ er økonomiens arbeidshest. Eksponentene $\\alpha$ og $\\beta$ er **produksjonselastisiteter** -- konstante prosentvise responser i produksjonen på endringer i innsatsfaktorene. Summen $\\alpha+\\beta$ avgjør **skalaavkastningen**: $=1$ konstant, $>1$ økende, $<1$ avtakende. Dette henger sammen med at funksjonen er **homogen av grad $\\alpha+\\beta$**, og at $Q(tK,tL)=t^{\\alpha+\\beta}Q$.\n\n**Grensesubstitusjonsraten** $\\text{MRS}=\\dfrac{f_x}{f_y}=\\dfrac{\\alpha y}{\\beta x}$ måler hvor mye av ett gode vi vil bytte mot et annet, og i optimum er den lik prisforholdet $p_x/p_y$. For Cobb-Douglas gir det den praktiske **andelsregelen** for hvordan inntekten fordeles. Cobb-Douglas-goder er alltid komplementære ($U_{xy}>0$). Til slutt knytter **Eulers teorem** $KQ_K+LQ_L=(\\alpha+\\beta)Q$ marginalproduktene til hele produksjonen -- ved konstant skalaavkastning fordeles all verdiskaping fullstendig på innsatsfaktorene. Med dette har vi en komplett verktøykasse for å analysere produksjon og forbruk i to variabler."}],"exercises":[]}
+{
+  "id": "bi-okonomi-7-5-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "7.5",
+  "title": "Cobb-Douglas og økonomiske anvendelser",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om økonomiens mest berømte produktfunksjon -- hvorfor eksponentene er elastisiteter, hvordan summen avgjør skalaavkastning, og hvordan grensesubstitusjonsraten og Eulers teorem binder alt sammen.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-7-5",
+  "content": [
+    {
+      "id": "bi-okonomi-7-5-n-intro",
+      "type": "text",
+      "content": "## En funksjon med en historie\n\nI 1928 satte økonomen Paul Douglas og matematikeren Charles Cobb seg fore å beskrive amerikansk industriproduksjon med én enkel formel. Resultatet, **Cobb-Douglas produktfunksjonen**, har siden vært en bærebjelke i økonomisk modellering. Vi har møtt den i tidligere kapitler; nå samler vi alle de viktige egenskapene på ett sted.\n\nFunksjonen har formen $Q(K,L)=AK^{\\alpha}L^{\\beta}$, der $A>0$ er en **teknologi-konstant** som måler den generelle produktiviteten, og $\\alpha,\\beta>0$ er eksponenter. $K>0$ er kapital og $L>0$ arbeidskraft. Samme form brukes for nytte, $U(x,y)=x^{\\alpha}y^{\\beta}$.\n\nHvorfor kaller vi $\\alpha$ og $\\beta$ for **elastisiteter**? Produksjonselastisiteten av kapital er $\\varepsilon_K=\\dfrac{K}{Q}\\cdot\\dfrac{\\partial Q}{\\partial K}$. Setter vi inn $Q_K=\\alpha AK^{\\alpha-1}L^{\\beta}$, får vi $\\varepsilon_K=\\dfrac{K}{AK^{\\alpha}L^{\\beta}}\\cdot\\alpha AK^{\\alpha-1}L^{\\beta}=\\alpha$. Eksponenten **er** elastisiteten, og den er konstant: en 1 % økning i kapital gir alltid en $\\alpha$ % økning i produksjon, uansett nivå. Det samme gjelder $\\beta$ for arbeidskraft -- en av Cobb-Douglas' aller viktigste egenskaper."
+    },
+    {
+      "id": "bi-okonomi-7-5-n-section1",
+      "type": "text",
+      "content": "## Skalaavkastning -- hva skjer når vi blåser opp alt?\n\nEt sentralt spørsmål er hva som skjer når vi skalerer **begge** innsatsfaktorer med samme faktor $t>0$. For Cobb-Douglas gjelder $Q(tK,tL)=A(tK)^{\\alpha}(tL)^{\\beta}=t^{\\alpha+\\beta}\\,AK^{\\alpha}L^{\\beta}=t^{\\alpha+\\beta}Q(K,L)$. Summen av eksponentene styrer alt.\n\nEr $\\alpha+\\beta=1$, har vi **konstant skalaavkastning** (CRS): dobler vi innsatsen, dobles produksjonen. Er $\\alpha+\\beta>1$, har vi **økende skalaavkastning** (IRS), og er $\\alpha+\\beta<1$, **avtakende skalaavkastning** (DRS). La oss klassifisere tre tilfeller. For $Q=10K^{0{,}5}L^{0{,}5}$ er $\\alpha+\\beta=1$ -- konstant. For $Q=4K^{0{,}4}L^{0{,}5}$ er summen $0{,}9<1$ -- avtakende; en dobling gir bare faktoren $2^{0{,}9}\\approx 1{,}87$. For $Q=2K^{0{,}6}L^{0{,}5}$ er summen $1{,}1>1$ -- økende; en dobling gir $2^{1{,}1}\\approx 2{,}14$.\n\nDette begrepet er nært knyttet til **homogene funksjoner**. En funksjon er homogen av grad $n$ dersom $f(tx,ty)=t^n f(x,y)$ for alle $t>0$. Cobb-Douglas $Q=AK^{\\alpha}L^{\\beta}$ er nettopp homogen av grad $\\alpha+\\beta$. Et eksempel: $f(x,y)=x^2+xy+y^2$ er homogen av grad $2$, mens $f(x,y)=x+2y+3$ ikke er homogen i det hele tatt -- konstantleddet $3$ ødelegger egenskapen."
+    },
+    {
+      "id": "bi-okonomi-7-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-7-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på elastisitet og skalaavkastning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-7-5-n-quiz1-q0",
+            "task": "For $Q(K,L)=AK^{\\alpha}L^{\\beta}$, hva er produksjonselastisiteten av kapital?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\alpha+\\beta$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$A$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\alpha\\beta$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\alpha$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\varepsilon_K=\\dfrac{K}{Q}Q_K=\\alpha$ -- eksponenten på $K$ er selve elastisiteten, og den er konstant."
+          },
+          {
+            "id": "bi-okonomi-7-5-n-quiz1-q1",
+            "task": "For $Q=2K^{0{,}6}L^{0{,}5}$, hvilken skalaavkastning har funksjonen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Økende",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Avtakende",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen skalaavkastning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\alpha+\\beta=0{,}6+0{,}5=1{,}1>1$ gir økende skalaavkastning: en dobling gir faktoren $2^{1{,}1}\\approx 2{,}14$."
+          },
+          {
+            "id": "bi-okonomi-7-5-n-quiz1-q2",
+            "task": "Hvilken funksjon er IKKE homogen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x,y)=x^2+xy+y^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x,y)=x+2y+3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$Q=AK^{0{,}3}L^{0{,}7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x,y)=x^{0{,}5}y^{0{,}5}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstantleddet $3$ gjør at $f(tx,ty)\\neq t^n f(x,y)$. De andre er homogene av henholdsvis grad $2$, $1$ og $1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-7-5-n-section2",
+      "type": "text",
+      "content": "## Grensesubstitusjonsraten og Eulers teorem\n\nHvor mye av ett gode er en konsument villig til å gi opp for én ekstra enhet av et annet, uten å bli mindre fornøyd? Svaret er **grensesubstitusjonsraten**, $\\text{MRS}_{xy}=\\dfrac{f_x}{f_y}$. Geometrisk er den den absolutte verdien av stigningstallet til indifferenskurven. For Cobb-Douglas $U=Ax^{\\alpha}y^{\\beta}$ blir $\\text{MRS}_{xy}=\\dfrac{\\alpha y}{\\beta x}$ -- den avhenger bare av **forholdet** $y/x$, ikke av nivåene. Når $x$ øker langs indifferenskurven, avtar MRS; vi snakker om **avtakende grensesubstitusjonsrate**.\n\nLa oss regne på $U(x,y)=x^{0{,}4}y^{0{,}6}$ i punktet $(10,20)$. Her er $\\text{MRS}=\\dfrac{0{,}4}{0{,}6}\\cdot\\dfrac{y}{x}=\\dfrac{2}{3}\\cdot\\dfrac{20}{10}=\\dfrac{4}{3}\\approx 1{,}33$ -- konsumenten gir opp ca. 1,33 enheter $y$ for én ekstra $x$. I optimum (fra Lagrange) er MRS lik prisforholdet: $\\text{MRS}_{xy}=\\dfrac{p_x}{p_y}$. Dette gir en herlig snarvei -- **andelsregelen**: for $U=x^a y^b$ bruker konsumenten andelen $\\tfrac{a}{a+b}$ av inntekten på $x$ og $\\tfrac{b}{a+b}$ på $y$. For $U=x^2 y$ med $m=60$, $p_x=5$, $p_y=4$ blir $p_x x=\\tfrac{2}{3}\\cdot 60=40\\Rightarrow x=8$ og $p_y y=20\\Rightarrow y=5$.\n\nTil slutt et elegant resultat. **Eulers teorem** sier at hvis $f$ er homogen av grad $n$, så er $xf_x+yf_y=nf$. For Cobb-Douglas med $\\alpha+\\beta=n$ betyr det $KQ_K+LQ_L=nQ$. Ved konstant skalaavkastning ($n=1$) blir hele produksjonen **fullstendig fordelt** på innsatsfaktorene betalt etter marginalproduktet: $KQ_K+LQ_L=Q$. Det gir et teoretisk fundament for at lønn og kapitalavkastning til sammen kan bruke opp akkurat all verdiskaping."
+    },
+    {
+      "id": "bi-okonomi-7-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-7-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på MRS, andelsregelen og Eulers teorem:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-7-5-n-quiz2-q0",
+            "task": "For $U(x,y)=x^{0{,}4}y^{0{,}6}$, hva er $\\text{MRS}_{xy}$ ved $(10,20)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\tfrac{2}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\tfrac{4}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{3}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{MRS}=\\dfrac{0{,}4}{0{,}6}\\cdot\\dfrac{y}{x}=\\dfrac{2}{3}\\cdot\\dfrac{20}{10}=\\dfrac{4}{3}$."
+          },
+          {
+            "id": "bi-okonomi-7-5-n-quiz2-q1",
+            "task": "For $U(x,y)=x^2 y$ med inntekt $m=60$ og $p_x=5$. Hvor mye brukes på $x$ etter andelsregelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$20$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$30$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$60$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$40$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vektene er $2$ og $1$, total $3$. Andelen på $x$ er $\\tfrac{2}{3}\\cdot 60=40$ kr, så $x=40/5=8$."
+          },
+          {
+            "id": "bi-okonomi-7-5-n-quiz2-q2",
+            "task": "Eulers teorem for Cobb-Douglas med konstant skalaavkastning ($\\alpha+\\beta=1$) sier at ...",
+            "options": [
+              {
+                "id": "c",
+                "text": "$KQ_K+LQ_L=Q$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$Q_K=Q_L$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$KQ_K+LQ_L=2Q$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$Q_{KL}=0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $n=\\alpha+\\beta=1$ gir $KQ_K+LQ_L=nQ=Q$ -- hele produksjonen fordeles fullstendig på innsatsfaktorene."
+          },
+          {
+            "id": "bi-okonomi-7-5-n-quiz2-q3",
+            "task": "For Cobb-Douglas $U=x^{\\alpha}y^{\\beta}$ er $U_{xy}>0$. Hva betyr det for godene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er substitutter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De er alltid komplementære",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "De er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nytten er lineær",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$U_{xy}=\\alpha\\beta x^{\\alpha-1}y^{\\beta-1}>0$ alltid, så Cobb-Douglas-goder er komplementære -- i kontrast til lineær nytte der $U_{xy}=0$ (perfekte substitutter)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-7-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Cobb-Douglas-funksjonen** $Q(K,L)=AK^{\\alpha}L^{\\beta}$ er økonomiens arbeidshest. Eksponentene $\\alpha$ og $\\beta$ er **produksjonselastisiteter** -- konstante prosentvise responser i produksjonen på endringer i innsatsfaktorene. Summen $\\alpha+\\beta$ avgjør **skalaavkastningen**: $=1$ konstant, $>1$ økende, $<1$ avtakende. Dette henger sammen med at funksjonen er **homogen av grad $\\alpha+\\beta$**, og at $Q(tK,tL)=t^{\\alpha+\\beta}Q$.\n\n**Grensesubstitusjonsraten** $\\text{MRS}=\\dfrac{f_x}{f_y}=\\dfrac{\\alpha y}{\\beta x}$ måler hvor mye av ett gode vi vil bytte mot et annet, og i optimum er den lik prisforholdet $p_x/p_y$. For Cobb-Douglas gir det den praktiske **andelsregelen** for hvordan inntekten fordeles. Cobb-Douglas-goder er alltid komplementære ($U_{xy}>0$). Til slutt knytter **Eulers teorem** $KQ_K+LQ_L=(\\alpha+\\beta)Q$ marginalproduktene til hele produksjonen -- ved konstant skalaavkastning fordeles all verdiskaping fullstendig på innsatsfaktorene. Med dette har vi en komplett verktøykasse for å analysere produksjon og forbruk i to variabler."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,479 @@
-{"id":"10-5-1-narrativ","courseId":"10","chapterNumber":"5.1","title":"Kombinatorikk","subtitle":"Narrativ versjon","description":"Oppdag kunsten å telle muligheter systematisk -- fra PIN-koder og antrekk til lotteritrekninger og pokerhender.","estimatedMinutes":35,"competenceGoals":["bruke kombinatorikk til å systematisk telle antall muligheter","anvende multiplikasjonsprinsippet, permutasjoner og kombinasjoner i praktiske situasjoner","skille mellom situasjoner der rekkefølge betyr noe og der den ikke gjør det"],"linkedChapterId":"10-5-1","content":[{"id":"10-5-1-n-intro","type":"text","content":"## Hvor mange muligheter finnes det egentlig?\n\nTenk deg at du står foran garderoben din en morgen. Du har 4 bukser og 5 t-skjorter. Hvor mange ulike antrekk kan du lage? Du kunne prøvd å liste opp alle kombinasjonene, men det finnes en mye smartere måte.\n\nKombinatorikk er matematikkens verktøy for å telle muligheter på en systematisk måte -- uten å måtte liste opp hver eneste en. Det er nyttig i alt fra å beregne sjansen for å vinne i Lotto til å forstå hvor sikkert passordet ditt egentlig er.\n\nVi skal lære tre kraftige verktøy: **multiplikasjonsprinsippet** for trinnvise valg, **permutasjoner** når rekkefølgen betyr noe, og **kombinasjoner** når rekkefølgen ikke betyr noe."},{"id":"10-5-1-n-section1","type":"text","content":"## Multiplikasjonsprinsippet -- å gange antall valg\n\nLa oss gå tilbake til garderoben. Du skal først velge bukse -- 4 muligheter. Deretter velger du t-skjorte -- 5 muligheter. Til hver bukse kan du pare enhver t-skjorte. Det gir $4 \\cdot 5 = 20$ ulike antrekk.\n\nDette er **multiplikasjonsprinsippet**: når en handling kan gjøres på $m$ måter, og en annen uavhengig handling kan gjøres på $n$ måter, kan begge handlingene til sammen gjøres på $m \\cdot n$ måter. Prinsippet kan utvides til så mange handlinger du vil: $m \\cdot n \\cdot p \\cdot \\ldots$\n\nLa oss se på noen hverdagseksempler. En PIN-kode består av 4 siffer, der hvert siffer kan være 0 til 9. Hvert av de fire sifrene har 10 valgmuligheter, så antall PIN-koder er:\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$$\n\nHva med et passord på 3 bokstaver (a-z) etterfulgt av 2 siffer (0-9)? Da får vi:\n\n$$26^3 \\cdot 10^2 = 17\\,576 \\cdot 100 = 1\\,757\\,600 \\text{ mulige passord}$$\n\nEn restaurant tilbyr 3 forretter, 5 hovedretter og 4 desserter. Antall ulike 3-retters menyer blir $3 \\cdot 5 \\cdot 4 = 60$."},{"id":"10-5-1-n-quiz1","type":"exercise","exercise":{"id":"10-5-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på multiplikasjonsprinsippet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-5-1-n-quiz1-q0","task":"Et bilskilt har 2 bokstaver (A-Z) etterfulgt av 5 siffer (0-9). Hvor mange ulike bilskilt kan lages?","options":[{"id":"a","text":"$676\\,000$","isCorrect":false},{"id":"b","text":"$6\\,760\\,000$","isCorrect":false},{"id":"c","text":"$67\\,600\\,000$","isCorrect":true},{"id":"d","text":"$67\\,600$","isCorrect":false}],"solution":"Vi ganger antall valg for hver posisjon: $26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 = 26^2 \\cdot 10^5 = 676 \\cdot 100\\,000 = 67\\,600\\,000$."},{"id":"10-5-1-n-quiz1-q1","task":"En flervalgstest har 10 spørsmål med 4 svaralternativer hver. Hvor mange ulike besvarelser er mulige?","options":[{"id":"a","text":"$40$","isCorrect":false},{"id":"b","text":"$10\\,000$","isCorrect":false},{"id":"c","text":"$104\\,857$","isCorrect":false},{"id":"d","text":"$1\\,048\\,576$","isCorrect":true}],"solution":"Hvert spørsmål har 4 muligheter, og det er 10 spørsmål: $4^{10} = 1\\,048\\,576$."},{"id":"10-5-1-n-quiz1-q2","task":"Du skal velge brød (3 typer), pålegg (6 typer) og drikke (4 typer) til lunsj. Hvor mange kombinasjoner finnes?","options":[{"id":"a","text":"$13$","isCorrect":false},{"id":"b","text":"$72$","isCorrect":true},{"id":"c","text":"$36$","isCorrect":false},{"id":"d","text":"$24$","isCorrect":false}],"solution":"Multiplikasjonsprinsippet: $3 \\cdot 6 \\cdot 4 = 72$ kombinasjoner."}]}},{"id":"10-5-1-n-section2","type":"text","content":"## Fakultet og permutasjoner -- når rekkefølgen betyr noe\n\nForestill deg at 6 venner skal stille seg opp på en rekke for et bilde. På hvor mange måter kan de gjøre det?\n\nFørste plass kan fylles av hvem som helst -- 6 valg. Når den er fylt, gjenstår 5 personer for andre plass, så 4 for tredje, og så videre. Totalt:\n\n$$6 \\cdot 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 720 \\text{ måter}$$\n\nDenne typen produkt dukker opp så ofte at det har fått et eget navn: **fakultet**. Vi skriver $n!$ (leses \"n fakultet\") og det betyr:\n\n$$n! = n \\cdot (n-1) \\cdot (n-2) \\cdot \\ldots \\cdot 2 \\cdot 1$$\n\nNoen nyttige verdier: $5! = 120$, $4! = 24$, $1! = 1$, og -- kanskje overraskende -- $0! = 1$ (det er definert slik).\n\nEn **permutasjon** er en ordnet rekkefølge av elementer. Antall permutasjoner av alle $n$ elementer er rett og slett $n!$\n\nMen hva om vi bare skal ordne noen av elementene? I et løp med 10 deltakere skal det deles ut gull, sølv og bronse. Vi trenger ikke plassere alle 10 -- bare de 3 første. Da blir det:\n\n$$P(10,3) = \\frac{10!}{(10-3)!} = \\frac{10!}{7!} = 10 \\cdot 9 \\cdot 8 = 720$$\n\nVi kan også forenkle brøk med fakultet. For eksempel: $\\frac{8!}{6!} = \\frac{8 \\cdot 7 \\cdot 6!}{6!} = 8 \\cdot 7 = 56$."},{"id":"10-5-1-n-quiz2","type":"exercise","exercise":{"id":"10-5-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på fakultet og permutasjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-5-1-n-quiz2-q0","task":"På hvor mange måter kan 5 bøker ordnes på en hylle?","options":[{"id":"a","text":"$25$","isCorrect":false},{"id":"b","text":"$120$","isCorrect":true},{"id":"c","text":"$60$","isCorrect":false},{"id":"d","text":"$720$","isCorrect":false}],"solution":"Alle 5 bøkene skal ordnes, så svaret er $5! = 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 120$."},{"id":"10-5-1-n-quiz2-q1","task":"I en klasse på 25 elever skal det velges president, visepresident og sekretær. På hvor mange måter kan dette gjøres?","options":[{"id":"a","text":"$75$","isCorrect":false},{"id":"b","text":"$15\\,000$","isCorrect":false},{"id":"c","text":"$13\\,800$","isCorrect":true},{"id":"d","text":"$2300$","isCorrect":false}],"solution":"Rekkefølgen betyr noe (president er ikke det samme som sekretær): $P(25,3) = 25 \\cdot 24 \\cdot 23 = 13\\,800$."},{"id":"10-5-1-n-quiz2-q2","task":"Hva er verdien av $\\frac{10!}{8!}$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$45$","isCorrect":false},{"id":"c","text":"$90$","isCorrect":true},{"id":"d","text":"$80$","isCorrect":false}],"solution":"Vi forenkler: $\\frac{10!}{8!} = \\frac{10 \\cdot 9 \\cdot 8!}{8!} = 10 \\cdot 9 = 90$."}]}},{"id":"10-5-1-n-section3","type":"text","content":"## Kombinasjoner -- når rekkefølgen ikke betyr noe\n\nNå kommer vi til et viktig skille. Tenk på forskjellen mellom disse situasjonene:\n\n- **Velge hvem som blir 1., 2. og 3.** i et løp -- her betyr rekkefølgen noe (permutasjon)\n- **Velge hvilke 3 personer** som skal være med i en komite -- her betyr rekkefølgen ikke noe (kombinasjon)\n\nEn **kombinasjon** er et utvalg der rekkefølgen ikke spiller noen rolle. Formelen for å velge $r$ elementer fra $n$ elementer er:\n\n$$C(n,r) = \\binom{n}{r} = \\frac{n!}{r!(n-r)!}$$\n\nDette leses \"$n$ over $r$\" eller \"$n$ velg $r$\".\n\nLa oss se på et konkret eksempel. En komite på 4 personer skal velges fra en gruppe på 10. Siden alle i komiteen er likestilte, bruker vi kombinasjoner:\n\n$$\\binom{10}{4} = \\frac{10!}{4! \\cdot 6!} = \\frac{10 \\cdot 9 \\cdot 8 \\cdot 7}{4 \\cdot 3 \\cdot 2 \\cdot 1} = \\frac{5040}{24} = 210$$\n\nEt annet eksempel: i et lotteri trekkes 6 tall fra tallene 1-34. Rekkefølgen tallene trekkes i spiller ingen rolle. Antall mulige kombinasjoner:\n\n$$\\binom{34}{6} = \\frac{34 \\cdot 33 \\cdot 32 \\cdot 31 \\cdot 30 \\cdot 29}{6!} = \\frac{968\\,330\\,880}{720} = 1\\,344\\,904$$\n\nEn nyttig egenskap: $\\binom{n}{r} = \\binom{n}{n-r}$. For eksempel er $\\binom{6}{2} = \\binom{6}{4} = 15$. Det gir mening: å velge ut 2 av 6 er det samme som å velge bort 4 av 6."},{"id":"10-5-1-n-quiz3","type":"exercise","exercise":{"id":"10-5-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på kombinasjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-5-1-n-quiz3-q0","task":"På hvor mange måter kan 3 elever velges fra en klasse på 15 til å representere klassen?","options":[{"id":"a","text":"$455$","isCorrect":true},{"id":"b","text":"$2730$","isCorrect":false},{"id":"c","text":"$45$","isCorrect":false},{"id":"d","text":"$3375$","isCorrect":false}],"solution":"Alle representanter er likestilte, så vi bruker kombinasjoner: $\\binom{15}{3} = \\frac{15 \\cdot 14 \\cdot 13}{3!} = \\frac{2730}{6} = 455$."},{"id":"10-5-1-n-quiz3-q1","task":"I poker får du 5 kort fra en kortstokk på 52. Hvor mange ulike hender finnes?","options":[{"id":"a","text":"$259\\,896$","isCorrect":false},{"id":"b","text":"$2\\,598\\,960$","isCorrect":true},{"id":"c","text":"$311\\,875\\,200$","isCorrect":false},{"id":"d","text":"$25\\,989\\,600$","isCorrect":false}],"solution":"Rekkefølgen du får kortene i betyr ingenting: $\\binom{52}{5} = 2\\,598\\,960$ mulige pokerhender."},{"id":"10-5-1-n-quiz3-q2","task":"Du skal velge 4 sanger fra 20 til en spilleliste der rekkefølgen betyr noe. Hva bruker du?","options":[{"id":"a","text":"Kombinasjoner: $\\binom{20}{4} = 4845$","isCorrect":false},{"id":"b","text":"Permutasjoner: $P(20,4) = 116\\,280$","isCorrect":true},{"id":"c","text":"Multiplikasjonsprinsippet: $20^4 = 160\\,000$","isCorrect":false},{"id":"d","text":"Fakultet: $20! = $ veldig stort tall","isCorrect":false}],"solution":"Siden rekkefølgen i spillelisten betyr noe, bruker vi permutasjoner: $P(20,4) = 20 \\cdot 19 \\cdot 18 \\cdot 17 = 116\\,280$."},{"id":"10-5-1-n-quiz3-q3","task":"Hva er $\\binom{7}{7}$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$49$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":true}],"solution":"Å velge alle 7 av 7 kan bare gjøres på en måte: $\\binom{7}{7} = \\frac{7!}{7! \\cdot 0!} = 1$."}]}},{"id":"10-5-1-n-section4","type":"text","content":"## Sammensatte problemer -- knep og strategier\n\nI virkeligheten må vi ofte kombinere flere metoder. Her er noen nyttige strategier:\n\n**Strategi 1: Totalt minus uønskede.** Hvor mange 4-tegns passord (bokstaver A-Z og siffer 0-9) inneholder minst ett siffer? Det er enklere å beregne totalt antall passord minus de uten siffer:\n\n$$36^4 - 26^4 = 1\\,679\\,616 - 456\\,976 = 1\\,222\\,640$$\n\n**Strategi 2: Del opp i tilfeller.** Fra en gruppe på 6 gutter og 5 jenter skal det velges 4 personer med minst 2 jenter. Vi deler opp:\n\n- 2 jenter, 2 gutter: $\\binom{5}{2} \\cdot \\binom{6}{2} = 10 \\cdot 15 = 150$\n- 3 jenter, 1 gutt: $\\binom{5}{3} \\cdot \\binom{6}{1} = 10 \\cdot 6 = 60$\n- 4 jenter, 0 gutter: $\\binom{5}{4} \\cdot \\binom{6}{0} = 5 \\cdot 1 = 5$\n\nTotalt: $150 + 60 + 5 = 215$ måter.\n\n**Strategi 3: Betingelser.** En komite på 5 fra 10 personer, men en bestemt person MÅ være med. Da er den personen allerede valgt, og vi velger 4 til fra de 9 andre: $\\binom{9}{4} = 126$.\n\nEn sjakkturning med 8 deltakere der alle spiller mot alle -- antall kamper er $\\binom{8}{2} = 28$, fordi hver kamp er et utvalg av 2 spillere.\n\nBokstavene i ordet MATTE kan ordnes på $\\frac{5!}{2!} = 60$ måter, fordi vi må dele på $2!$ for de to like T-ene."},{"id":"10-5-1-n-quiz4","type":"exercise","exercise":{"id":"10-5-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på sammensatte problemer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-5-1-n-quiz4-q0","task":"Fra 7 nordmenn og 4 svensker skal det velges et lag på 5 med minst 2 svensker. Hvor mange måter?","options":[{"id":"a","text":"$210$","isCorrect":false},{"id":"b","text":"$462$","isCorrect":false},{"id":"c","text":"$301$","isCorrect":true},{"id":"d","text":"$84$","isCorrect":false}],"solution":"2 sv + 3 no: $\\binom{4}{2} \\cdot \\binom{7}{3} = 6 \\cdot 35 = 210$. 3 sv + 2 no: $\\binom{4}{3} \\cdot \\binom{7}{2} = 4 \\cdot 21 = 84$. 4 sv + 1 no: $\\binom{4}{4} \\cdot \\binom{7}{1} = 1 \\cdot 7 = 7$. Totalt: $210 + 84 + 7 = 301$."},{"id":"10-5-1-n-quiz4-q1","task":"To bestemte personer KAN IKKE begge være med i en komite på 5 valgt fra 10 personer. Antall måter?","options":[{"id":"a","text":"$252$","isCorrect":false},{"id":"b","text":"$126$","isCorrect":false},{"id":"c","text":"$196$","isCorrect":true},{"id":"d","text":"$56$","isCorrect":false}],"solution":"Totalt: $\\binom{10}{5} = 252$. Begge med: $\\binom{8}{3} = 56$. Uten begge: $252 - 56 = 196$."},{"id":"10-5-1-n-quiz4-q2","task":"En kortstokk har 52 kort. Hvor mange måter kan du få 5 kort av samme farge (flush)?","options":[{"id":"a","text":"$1287$","isCorrect":false},{"id":"b","text":"$5148$","isCorrect":true},{"id":"c","text":"$2598$","isCorrect":false},{"id":"d","text":"$10\\,296$","isCorrect":false}],"solution":"Det er 4 farger, og fra hver farge velger vi 5 av 13 kort: $4 \\cdot \\binom{13}{5} = 4 \\cdot 1287 = 5148$."}]}},{"id":"10-5-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært tre hovedverktøy for å telle muligheter:\n\n- **Multiplikasjonsprinsippet:** Når du gjør flere uavhengige valg etter hverandre, ganger du antall muligheter for hvert valg. Antrekk, PIN-koder og passord er typiske eksempler.\n\n- **Permutasjoner:** Når rekkefølgen betyr noe. Alle $n$ elementer: $n!$. Velge $r$ fra $n$: $P(n,r) = \\frac{n!}{(n-r)!}$. Pallplasser og køer er typiske eksempler.\n\n- **Kombinasjoner:** Når rekkefølgen ikke betyr noe. Velge $r$ fra $n$: $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$. Komiteer, lag og lottotrekninger er typiske eksempler.\n\n**Nøkkelspørsmålet:** Betyr rekkefølgen noe? Ja = permutasjon. Nei = kombinasjon.\n\nFor sammensatte problemer: bruk \"totalt minus uønskede\", del opp i tilfeller, eller reduser problemet ved betingelser."}],"exercises":[]}
+{
+  "id": "10-5-1-narrativ",
+  "courseId": "10",
+  "chapterNumber": "5.1",
+  "title": "Kombinatorikk",
+  "subtitle": "Narrativ versjon",
+  "description": "Oppdag kunsten å telle muligheter systematisk -- fra PIN-koder og antrekk til lotteritrekninger og pokerhender.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke kombinatorikk til å systematisk telle antall muligheter",
+    "anvende multiplikasjonsprinsippet, permutasjoner og kombinasjoner i praktiske situasjoner",
+    "skille mellom situasjoner der rekkefølge betyr noe og der den ikke gjør det"
+  ],
+  "linkedChapterId": "10-5-1",
+  "content": [
+    {
+      "id": "10-5-1-n-intro",
+      "type": "text",
+      "content": "## Hvor mange muligheter finnes det egentlig?\n\nTenk deg at du står foran garderoben din en morgen. Du har 4 bukser og 5 t-skjorter. Hvor mange ulike antrekk kan du lage? Du kunne prøvd å liste opp alle kombinasjonene, men det finnes en mye smartere måte.\n\nKombinatorikk er matematikkens verktøy for å telle muligheter på en systematisk måte -- uten å måtte liste opp hver eneste en. Det er nyttig i alt fra å beregne sjansen for å vinne i Lotto til å forstå hvor sikkert passordet ditt egentlig er.\n\nVi skal lære tre kraftige verktøy: **multiplikasjonsprinsippet** for trinnvise valg, **permutasjoner** når rekkefølgen betyr noe, og **kombinasjoner** når rekkefølgen ikke betyr noe."
+    },
+    {
+      "id": "10-5-1-n-section1",
+      "type": "text",
+      "content": "## Multiplikasjonsprinsippet -- å gange antall valg\n\nLa oss gå tilbake til garderoben. Du skal først velge bukse -- 4 muligheter. Deretter velger du t-skjorte -- 5 muligheter. Til hver bukse kan du pare enhver t-skjorte. Det gir $4 \\cdot 5 = 20$ ulike antrekk.\n\nDette er **multiplikasjonsprinsippet**: når en handling kan gjøres på $m$ måter, og en annen uavhengig handling kan gjøres på $n$ måter, kan begge handlingene til sammen gjøres på $m \\cdot n$ måter. Prinsippet kan utvides til så mange handlinger du vil: $m \\cdot n \\cdot p \\cdot \\ldots$\n\nLa oss se på noen hverdagseksempler. En PIN-kode består av 4 siffer, der hvert siffer kan være 0 til 9. Hvert av de fire sifrene har 10 valgmuligheter, så antall PIN-koder er:\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$$\n\nHva med et passord på 3 bokstaver (a-z) etterfulgt av 2 siffer (0-9)? Da får vi:\n\n$$26^3 \\cdot 10^2 = 17\\,576 \\cdot 100 = 1\\,757\\,600 \\text{ mulige passord}$$\n\nEn restaurant tilbyr 3 forretter, 5 hovedretter og 4 desserter. Antall ulike 3-retters menyer blir $3 \\cdot 5 \\cdot 4 = 60$."
+    },
+    {
+      "id": "10-5-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-5-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på multiplikasjonsprinsippet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-5-1-n-quiz1-q0",
+            "task": "Et bilskilt har 2 bokstaver (A-Z) etterfulgt av 5 siffer (0-9). Hvor mange ulike bilskilt kan lages?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$676\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6\\,760\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$67\\,600\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$67\\,600$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi ganger antall valg for hver posisjon: $26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 = 26^2 \\cdot 10^5 = 676 \\cdot 100\\,000 = 67\\,600\\,000$."
+          },
+          {
+            "id": "10-5-1-n-quiz1-q1",
+            "task": "En flervalgstest har 10 spørsmål med 4 svaralternativer hver. Hvor mange ulike besvarelser er mulige?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$40$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$104\\,857$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1\\,048\\,576$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hvert spørsmål har 4 muligheter, og det er 10 spørsmål: $4^{10} = 1\\,048\\,576$."
+          },
+          {
+            "id": "10-5-1-n-quiz1-q2",
+            "task": "Du skal velge brød (3 typer), pålegg (6 typer) og drikke (4 typer) til lunsj. Hvor mange kombinasjoner finnes?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$72$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$13$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$36$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$24$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikasjonsprinsippet: $3 \\cdot 6 \\cdot 4 = 72$ kombinasjoner."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-5-1-n-section2",
+      "type": "text",
+      "content": "## Fakultet og permutasjoner -- når rekkefølgen betyr noe\n\nForestill deg at 6 venner skal stille seg opp på en rekke for et bilde. På hvor mange måter kan de gjøre det?\n\nFørste plass kan fylles av hvem som helst -- 6 valg. Når den er fylt, gjenstår 5 personer for andre plass, så 4 for tredje, og så videre. Totalt:\n\n$$6 \\cdot 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 720 \\text{ måter}$$\n\nDenne typen produkt dukker opp så ofte at det har fått et eget navn: **fakultet**. Vi skriver $n!$ (leses \"n fakultet\") og det betyr:\n\n$$n! = n \\cdot (n-1) \\cdot (n-2) \\cdot \\ldots \\cdot 2 \\cdot 1$$\n\nNoen nyttige verdier: $5! = 120$, $4! = 24$, $1! = 1$, og -- kanskje overraskende -- $0! = 1$ (det er definert slik).\n\nEn **permutasjon** er en ordnet rekkefølge av elementer. Antall permutasjoner av alle $n$ elementer er rett og slett $n!$\n\nMen hva om vi bare skal ordne noen av elementene? I et løp med 10 deltakere skal det deles ut gull, sølv og bronse. Vi trenger ikke plassere alle 10 -- bare de 3 første. Da blir det:\n\n$$P(10,3) = \\frac{10!}{(10-3)!} = \\frac{10!}{7!} = 10 \\cdot 9 \\cdot 8 = 720$$\n\nVi kan også forenkle brøk med fakultet. For eksempel: $\\frac{8!}{6!} = \\frac{8 \\cdot 7 \\cdot 6!}{6!} = 8 \\cdot 7 = 56$."
+    },
+    {
+      "id": "10-5-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-5-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på fakultet og permutasjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-5-1-n-quiz2-q0",
+            "task": "På hvor mange måter kan 5 bøker ordnes på en hylle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$120$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$60$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$720$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle 5 bøkene skal ordnes, så svaret er $5! = 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 120$."
+          },
+          {
+            "id": "10-5-1-n-quiz2-q1",
+            "task": "I en klasse på 25 elever skal det velges president, visepresident og sekretær. På hvor mange måter kan dette gjøres?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$75$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$13\\,800$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2300$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rekkefølgen betyr noe (president er ikke det samme som sekretær): $P(25,3) = 25 \\cdot 24 \\cdot 23 = 13\\,800$."
+          },
+          {
+            "id": "10-5-1-n-quiz2-q2",
+            "task": "Hva er verdien av $\\frac{10!}{8!}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$45$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$80$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$90$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi forenkler: $\\frac{10!}{8!} = \\frac{10 \\cdot 9 \\cdot 8!}{8!} = 10 \\cdot 9 = 90$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-5-1-n-section3",
+      "type": "text",
+      "content": "## Kombinasjoner -- når rekkefølgen ikke betyr noe\n\nNå kommer vi til et viktig skille. Tenk på forskjellen mellom disse situasjonene:\n\n- **Velge hvem som blir 1., 2. og 3.** i et løp -- her betyr rekkefølgen noe (permutasjon)\n- **Velge hvilke 3 personer** som skal være med i en komite -- her betyr rekkefølgen ikke noe (kombinasjon)\n\nEn **kombinasjon** er et utvalg der rekkefølgen ikke spiller noen rolle. Formelen for å velge $r$ elementer fra $n$ elementer er:\n\n$$C(n,r) = \\binom{n}{r} = \\frac{n!}{r!(n-r)!}$$\n\nDette leses \"$n$ over $r$\" eller \"$n$ velg $r$\".\n\nLa oss se på et konkret eksempel. En komite på 4 personer skal velges fra en gruppe på 10. Siden alle i komiteen er likestilte, bruker vi kombinasjoner:\n\n$$\\binom{10}{4} = \\frac{10!}{4! \\cdot 6!} = \\frac{10 \\cdot 9 \\cdot 8 \\cdot 7}{4 \\cdot 3 \\cdot 2 \\cdot 1} = \\frac{5040}{24} = 210$$\n\nEt annet eksempel: i et lotteri trekkes 6 tall fra tallene 1-34. Rekkefølgen tallene trekkes i spiller ingen rolle. Antall mulige kombinasjoner:\n\n$$\\binom{34}{6} = \\frac{34 \\cdot 33 \\cdot 32 \\cdot 31 \\cdot 30 \\cdot 29}{6!} = \\frac{968\\,330\\,880}{720} = 1\\,344\\,904$$\n\nEn nyttig egenskap: $\\binom{n}{r} = \\binom{n}{n-r}$. For eksempel er $\\binom{6}{2} = \\binom{6}{4} = 15$. Det gir mening: å velge ut 2 av 6 er det samme som å velge bort 4 av 6."
+    },
+    {
+      "id": "10-5-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-5-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kombinasjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-5-1-n-quiz3-q0",
+            "task": "På hvor mange måter kan 3 elever velges fra en klasse på 15 til å representere klassen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$455$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2730$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$45$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3375$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle representanter er likestilte, så vi bruker kombinasjoner: $\\binom{15}{3} = \\frac{15 \\cdot 14 \\cdot 13}{3!} = \\frac{2730}{6} = 455$."
+          },
+          {
+            "id": "10-5-1-n-quiz3-q1",
+            "task": "I poker får du 5 kort fra en kortstokk på 52. Hvor mange ulike hender finnes?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$259\\,896$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\,598\\,960$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$311\\,875\\,200$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25\\,989\\,600$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rekkefølgen du får kortene i betyr ingenting: $\\binom{52}{5} = 2\\,598\\,960$ mulige pokerhender."
+          },
+          {
+            "id": "10-5-1-n-quiz3-q2",
+            "task": "Du skal velge 4 sanger fra 20 til en spilleliste der rekkefølgen betyr noe. Hva bruker du?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kombinasjoner: $\\binom{20}{4} = 4845$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Multiplikasjonsprinsippet: $20^4 = 160\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Permutasjoner: $P(20,4) = 116\\,280$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fakultet: $20! = $ veldig stort tall",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden rekkefølgen i spillelisten betyr noe, bruker vi permutasjoner: $P(20,4) = 20 \\cdot 19 \\cdot 18 \\cdot 17 = 116\\,280$."
+          },
+          {
+            "id": "10-5-1-n-quiz3-q3",
+            "task": "Hva er $\\binom{7}{7}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$49$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Å velge alle 7 av 7 kan bare gjøres på en måte: $\\binom{7}{7} = \\frac{7!}{7! \\cdot 0!} = 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-5-1-n-section4",
+      "type": "text",
+      "content": "## Sammensatte problemer -- knep og strategier\n\nI virkeligheten må vi ofte kombinere flere metoder. Her er noen nyttige strategier:\n\n**Strategi 1: Totalt minus uønskede.** Hvor mange 4-tegns passord (bokstaver A-Z og siffer 0-9) inneholder minst ett siffer? Det er enklere å beregne totalt antall passord minus de uten siffer:\n\n$$36^4 - 26^4 = 1\\,679\\,616 - 456\\,976 = 1\\,222\\,640$$\n\n**Strategi 2: Del opp i tilfeller.** Fra en gruppe på 6 gutter og 5 jenter skal det velges 4 personer med minst 2 jenter. Vi deler opp:\n\n- 2 jenter, 2 gutter: $\\binom{5}{2} \\cdot \\binom{6}{2} = 10 \\cdot 15 = 150$\n- 3 jenter, 1 gutt: $\\binom{5}{3} \\cdot \\binom{6}{1} = 10 \\cdot 6 = 60$\n- 4 jenter, 0 gutter: $\\binom{5}{4} \\cdot \\binom{6}{0} = 5 \\cdot 1 = 5$\n\nTotalt: $150 + 60 + 5 = 215$ måter.\n\n**Strategi 3: Betingelser.** En komite på 5 fra 10 personer, men en bestemt person MÅ være med. Da er den personen allerede valgt, og vi velger 4 til fra de 9 andre: $\\binom{9}{4} = 126$.\n\nEn sjakkturning med 8 deltakere der alle spiller mot alle -- antall kamper er $\\binom{8}{2} = 28$, fordi hver kamp er et utvalg av 2 spillere.\n\nBokstavene i ordet MATTE kan ordnes på $\\frac{5!}{2!} = 60$ måter, fordi vi må dele på $2!$ for de to like T-ene."
+    },
+    {
+      "id": "10-5-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-5-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sammensatte problemer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-5-1-n-quiz4-q0",
+            "task": "Fra 7 nordmenn og 4 svensker skal det velges et lag på 5 med minst 2 svensker. Hvor mange måter?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$301$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$210$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$462$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$84$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "2 sv + 3 no: $\\binom{4}{2} \\cdot \\binom{7}{3} = 6 \\cdot 35 = 210$. 3 sv + 2 no: $\\binom{4}{3} \\cdot \\binom{7}{2} = 4 \\cdot 21 = 84$. 4 sv + 1 no: $\\binom{4}{4} \\cdot \\binom{7}{1} = 1 \\cdot 7 = 7$. Totalt: $210 + 84 + 7 = 301$."
+          },
+          {
+            "id": "10-5-1-n-quiz4-q1",
+            "task": "To bestemte personer KAN IKKE begge være med i en komite på 5 valgt fra 10 personer. Antall måter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$252$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$196$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$126$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$56$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Totalt: $\\binom{10}{5} = 252$. Begge med: $\\binom{8}{3} = 56$. Uten begge: $252 - 56 = 196$."
+          },
+          {
+            "id": "10-5-1-n-quiz4-q2",
+            "task": "En kortstokk har 52 kort. Hvor mange måter kan du få 5 kort av samme farge (flush)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1287$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2598$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5148$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$10\\,296$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er 4 farger, og fra hver farge velger vi 5 av 13 kort: $4 \\cdot \\binom{13}{5} = 4 \\cdot 1287 = 5148$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-5-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært tre hovedverktøy for å telle muligheter:\n\n- **Multiplikasjonsprinsippet:** Når du gjør flere uavhengige valg etter hverandre, ganger du antall muligheter for hvert valg. Antrekk, PIN-koder og passord er typiske eksempler.\n\n- **Permutasjoner:** Når rekkefølgen betyr noe. Alle $n$ elementer: $n!$. Velge $r$ fra $n$: $P(n,r) = \\frac{n!}{(n-r)!}$. Pallplasser og køer er typiske eksempler.\n\n- **Kombinasjoner:** Når rekkefølgen ikke betyr noe. Velge $r$ fra $n$: $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$. Komiteer, lag og lottotrekninger er typiske eksempler.\n\n**Nøkkelspørsmålet:** Betyr rekkefølgen noe? Ja = permutasjon. Nei = kombinasjon.\n\nFor sammensatte problemer: bruk \"totalt minus uønskede\", del opp i tilfeller, eller reduser problemet ved betingelser."
+    }
+  ],
+  "exercises": []
+}

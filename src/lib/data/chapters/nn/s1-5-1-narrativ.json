@@ -1,1 +1,605 @@
-{"id":"s1-5-1-narrativ","courseId":"s1","chapterNumber":"5.1","title":"Kombinatorikk","subtitle":"Narrativ versjon","description":"Ei forteljing om teljekunst -- frå lotterimistankar hos Lotteritilsynet til PIN-kodar, vallister og pokerhender, og korleis systematisk teljing gjev oss sannsyn.","estimatedMinutes":35,"competenceGoals":["bruke kombinatorikk til å berekne sannsyn"],"linkedChapterId":"s1-5-1","content":[{"id":"s1-5-1-n-intro","type":"text","content":"## Talet som avgjorde lotterimistanken\n\nFørestill deg at du jobbar i Lotteritilsynet. Ein dag kjem det inn ei uromelding: ein spelar hevdar at Lotto-trekninga må vere rigga, fordi «dei same tala aldri kjem att». For å vurdere påstanden treng du svar på eit heilt grunnleggjande spørsmål: kor mange ulike lottorekkjer finst det eigentleg?\n\nÅ liste opp alle rekkjene er håplaust — det ville teke år. Men med **kombinatorikk**, læra om systematisk teljing, kan du rekne ut svaret på under eitt minutt. Kombinatorikk er verktøykassen forskarar, statistikarar og tilsynsstyresmakter bruker når dei skal telje moglegheiter utan å liste dei opp: Kor mange PIN-kodar finst det? På kor mange måtar kan eit utval til ei spørjeundersøking setjast saman? Kor sannsynleg er ei bestemt pokerhand?\n\nI dette kapittelet skal vi byggje opp denne verktøykassen steg for steg. Vi startar med **multiplikasjonsprinsippet**, held fram med **fakultet** og **permutasjonar** (ordna utval), og endar opp med **kombinasjonar** (uordna utval) — sjølve nøkkelen til lottospørsmålet. Til slutt ser vi korleis teljinga let oss rekne ut sannsyn, akkurat slik Lotteritilsynet gjer når dei vurderer om eit spel er rettferdig."},{"id":"s1-5-1-n-section1","type":"text","content":"## Multiplikasjonsprinsippet — å telje utan å liste\n\nVi byrjar med noko du møter kvar dag: PIN-koden til bankkortet ditt. Ein kode har fire siffer, og kvart siffer kan vere alt frå 0 til 9. Kor mange kodar finst det? Tenk på det som fire val etter kvarandre. Første siffer kan veljast på 10 måtar. Uansett kva du valde, kan andre siffer òg veljast på 10 måtar — og det same gjeld tredje og fjerde. Totalt blir det\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$$\n\nmoglege kodar. Dette er **multiplikasjonsprinsippet**: Dersom vi skal gjere $k$ uavhengige val, og det første valet kan gjerast på $n_1$ måtar, det andre på $n_2$ måtar, og så vidare, er det totale talet på moglegheiter\n\n$$n_1 \\cdot n_2 \\cdot n_3 \\cdot \\ldots \\cdot n_k$$\n\nPrinsippet dukkar opp overalt. Skal du setje saman eit antrekk av 4 skjorter og 3 bukser, har du $4 \\cdot 3 = 12$ antrekk å velje mellom. Du kan teikne det som eit trediagram: frå kvar skjorte går det tre greiner, éi for kvar bukse, og du endar med tolv blad nedst i treet.\n\nLegg merke til ordet *uavhengige*: talet på moglegheiter i kvart trinn må vere det same uansett kva du valde i trinna før. Når det stemmer, kan du berre gange saman — og det er nettopp denne enkle ideen alt det følgjande byggjer på."},{"id":"s1-5-1-n-quiz1","type":"exercise","exercise":{"id":"s1-5-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på multiplikasjonsprinsippet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-1-n-quiz1-q0","task":"Ein kafé tilbyr 5 typar kaffi og 4 typar bakst. På kor mange måtar kan du velje éin kaffi og éin bakst?","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$20$","isCorrect":true},{"id":"c","text":"$45$","isCorrect":false},{"id":"d","text":"$5^4 = 625$","isCorrect":false}],"solution":"Multiplikasjonsprinsippet: $5 \\cdot 4 = 20$ kombinasjonar."},{"id":"s1-5-1-n-quiz1-q1","task":"Kor mange 3-sifra kodar finst det når kvart siffer kan vere 0–9?","options":[{"id":"a","text":"$30$","isCorrect":false},{"id":"b","text":"$100$","isCorrect":false},{"id":"c","text":"$729$","isCorrect":false},{"id":"d","text":"$1000$","isCorrect":true}],"solution":"Tre uavhengige val med 10 moglegheiter kvar: $10 \\cdot 10 \\cdot 10 = 10^3 = 1000$."},{"id":"s1-5-1-n-quiz1-q2","task":"Ei undersøking har 4 spørsmål med 3 svaralternativ kvar. På kor mange ulike måtar kan eit skjema fyllast ut?","options":[{"id":"a","text":"$12$","isCorrect":false},{"id":"b","text":"$64$","isCorrect":false},{"id":"c","text":"$81$","isCorrect":true},{"id":"d","text":"$3 \\cdot 4 = 12$, altså 12","isCorrect":false}],"solution":"Fire uavhengige val med 3 moglegheiter kvar: $3^4 = 81$."},{"id":"s1-5-1-n-quiz1-q3","task":"Kva krevst for at multiplikasjonsprinsippet skal kunne brukast direkte?","options":[{"id":"a","text":"At alle vala har like mange moglegheiter","isCorrect":false},{"id":"b","text":"At talet på moglegheiter i kvart trinn ikkje avheng av tidlegare val","isCorrect":true},{"id":"c","text":"At rekkjefølgja på vala ikkje spelar noka rolle","isCorrect":false},{"id":"d","text":"At utfalla er like sannsynlege","isCorrect":false}],"solution":"Vala må vere uavhengige: talet på moglegheiter i kvart trinn må vere det same uansett kva som blei valt før. Dei treng ikkje ha like mange moglegheiter ($4 \\cdot 3$ er heilt greitt)."}]}},{"id":"s1-5-1-n-section2","type":"text","content":"## Fakultet og permutasjonar — når rekkjefølgja tel\n\nTilbake til samfunnslivet: ein valkomité skal setje opp fem kandidatar på ei valliste. Rekkjefølgja er alt anna enn likegyldig — førsteplassen er nesten garantert eit verv. På kor mange måtar kan lista ordnast?\n\nFørsteplassen kan fyllast av 5 kandidatar. Når han er teken, står det att 4 til andreplassen, så 3, så 2, og til slutt 1. Multiplikasjonsprinsippet gjev $5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 120$ moglege lister. Produktet av alle heiltal frå $n$ og ned til 1 er så vanleg at det har fått eige namn og symbol: **fakultet**,\n\n$$n! = n \\cdot (n-1) \\cdot (n-2) \\cdot \\ldots \\cdot 2 \\cdot 1$$\n\nTil dømes er $3! = 6$, $4! = 24$ og $5! = 120$. Per definisjon set vi $0! = 1$ — det finst nøyaktig éin måte å ordne ingenting på.\n\nMen kva om vi ikkje skal ordne *alle*? I eit løp med 8 deltakarar skal gull, sølv og bronse delast ut. Gullet kan gå til 8 løparar, sølvet til 7, bronsen til 6: $8 \\cdot 7 \\cdot 6 = 336$ moglege pallplasseringar. Eit slikt *ordna utval* blir kalla ein **permutasjon**, og den generelle formelen for å velje $r$ av $n$ objekt når rekkjefølgja har noko å seie er\n\n$$P(n,r) = \\frac{n!}{(n-r)!}$$\n\nSjekk gjerne: $P(8,3) = \\frac{8!}{5!} = 8 \\cdot 7 \\cdot 6 = 336$. Divisjonen med $(n-r)!$ «kuttar av» dei faktorane vi ikkje treng. Og når vi ordnar alle $n$ objekta, blir $P(n,n) = n!$ — akkurat som med vallista."},{"id":"s1-5-1-n-quiz2","type":"exercise","exercise":{"id":"s1-5-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på fakultet og permutasjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-1-n-quiz2-q0","task":"Kva er $4!$?","options":[{"id":"a","text":"$24$","isCorrect":true},{"id":"b","text":"$16$","isCorrect":false},{"id":"c","text":"$12$","isCorrect":false},{"id":"d","text":"$10$","isCorrect":false}],"solution":"$4! = 4 \\cdot 3 \\cdot 2 \\cdot 1 = 24$."},{"id":"s1-5-1-n-quiz2-q1","task":"Kva er $0!$ definert som?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"Udefinert","isCorrect":false},{"id":"c","text":"$1$","isCorrect":true},{"id":"d","text":"$-1$","isCorrect":false}],"solution":"Per definisjon er $0! = 1$ — det finst éin måte å ordne ingen objekt på. Definisjonen gjer òg formlane konsistente."},{"id":"s1-5-1-n-quiz2-q2","task":"Ein komité på 6 personar skal velje leiar og nestleiar (to ulike personar). Kor mange moglegheiter finst?","options":[{"id":"a","text":"$36$","isCorrect":false},{"id":"b","text":"$15$","isCorrect":false},{"id":"c","text":"$30$","isCorrect":true},{"id":"d","text":"$12$","isCorrect":false}],"solution":"Ordna utval: $P(6,2) = 6 \\cdot 5 = 30$. (Rekkjefølgja tel fordi leiar og nestleiar er ulike verv.)"},{"id":"s1-5-1-n-quiz2-q3","task":"Kva er $P(10,2)$?","options":[{"id":"a","text":"$100$","isCorrect":false},{"id":"b","text":"$45$","isCorrect":false},{"id":"c","text":"$20$","isCorrect":false},{"id":"d","text":"$90$","isCorrect":true}],"solution":"$P(10,2) = \\frac{10!}{8!} = 10 \\cdot 9 = 90$."}]}},{"id":"s1-5-1-n-section3","type":"text","content":"## Kombinasjonar — når rekkjefølgja er likegyldig\n\nNo skiftar vi situasjon. Eit forskingsinstitutt skal plukke ut 4 av 10 studentar til ei referansegruppe. Her er alle medlemmene likeverdige — det spelar inga rolle kven som blei valt «først». Eit slikt *uordna utval* blir kalla ein **kombinasjon**.\n\nKorleis tel vi? Vi kan starte med permutasjonane: $P(10,4) = 10 \\cdot 9 \\cdot 8 \\cdot 7 = 5040$ ordna utval. Men kvar gruppe på fire personar er no telt mange gonger — éin gong for kvar rekkjefølgje dei kan stillast opp i, altså $4! = 24$ gonger. Det rette talet på grupper blir difor $5040 / 24 = 210$. Generelt:\n\n$$C(n,r) = \\binom{n}{r} = \\frac{n!}{r!(n-r)!} = \\frac{P(n,r)}{r!}$$\n\nSymbolet $\\binom{n}{r}$ blir lese «$n$ over $r$» og blir kalla binomialkoeffisienten. Divisjonen med $r!$ er heile skilnaden på permutasjonar og kombinasjonar: vi deler bort rekkjefølgja.\n\nOg no kan vi endeleg svare Lotteritilsynet. I ei forenkla lottotrekning blir 6 tal trekte blant tala 1 til 34, og rekkjefølgja dei blir trekte i er utan betydning. Talet på moglege rekkjer er\n\n$$\\binom{34}{6} = \\frac{34 \\cdot 33 \\cdot 32 \\cdot 31 \\cdot 30 \\cdot 29}{6!} = \\frac{968\\,330\\,880}{720} = 1\\,344\\,904$$\n\nOver 1,3 millionar rekkjer! At same vinnarrekkje «aldri kjem att» er altså ikkje mistenkjeleg — det er nøyaktig kva vi ventar.\n\nEin enkel hugseregel skil dei to omgrepa: **P**ermutasjon — *posisjonen* tel (pallplassar, PIN-kodar, vallister). **K**ombinasjon — berre *kolleksjonen* tel (lottorekkjer, komitéar, utval til undersøkingar)."},{"id":"s1-5-1-n-quiz3","type":"exercise","exercise":{"id":"s1-5-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på kombinasjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-1-n-quiz3-q0","task":"Kva er $\\binom{5}{2}$?","options":[{"id":"a","text":"$20$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":true},{"id":"c","text":"$25$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":false}],"solution":"$\\binom{5}{2} = \\frac{5 \\cdot 4}{2!} = \\frac{20}{2} = 10$."},{"id":"s1-5-1-n-quiz3-q1","task":"Eit meiningsmålingsbyrå skal velje ut 3 av 8 kommunar til ei pilotundersøking. Kor mange utval er moglege?","options":[{"id":"a","text":"$336$","isCorrect":false},{"id":"b","text":"$24$","isCorrect":false},{"id":"c","text":"$56$","isCorrect":true},{"id":"d","text":"$512$","isCorrect":false}],"solution":"Rekkjefølgja er likegyldig, så vi bruker kombinasjonar: $\\binom{8}{3} = \\frac{8 \\cdot 7 \\cdot 6}{3!} = \\frac{336}{6} = 56$. ($336$ er permutasjonstalet $P(8,3)$.)"},{"id":"s1-5-1-n-quiz3-q2","task":"Kva er samanhengen mellom $C(n,r)$ og $P(n,r)$?","options":[{"id":"a","text":"$C(n,r) = P(n,r) \\cdot r!$","isCorrect":false},{"id":"b","text":"$C(n,r) = \\dfrac{P(n,r)}{r!}$","isCorrect":true},{"id":"c","text":"$C(n,r) = P(n,r) - r!$","isCorrect":false},{"id":"d","text":"Dei er alltid like store","isCorrect":false}],"solution":"Kvar kombinasjon svarar til $r!$ permutasjonar, så $C(n,r) = \\frac{P(n,r)}{r!}$."},{"id":"s1-5-1-n-quiz3-q3","task":"Kva situasjon krev kombinasjonar (ikkje permutasjonar)?","options":[{"id":"a","text":"Fordele gull, sølv og bronse i eit løp","isCorrect":false},{"id":"b","text":"Lage ein 4-sifra PIN-kode","isCorrect":false},{"id":"c","text":"Setje opp rekkjefølgja på ei valliste","isCorrect":false},{"id":"d","text":"Velje 5 personar til ei referansegruppe","isCorrect":true}],"solution":"I referansegruppa er medlemmene likeverdige — rekkjefølgja tel ikkje. I dei tre andre situasjonane har posisjonen noko å seie."}]}},{"id":"s1-5-1-n-section4","type":"text","content":"## Frå teljing til sannsyn\n\nKvifor bryr Lotteritilsynet, forsikringsselskap og forskarar seg så mykje om teljing? Fordi teljing er brua til **sannsyn**. Når alle utfall er like sannsynlege, gjeld den klassiske formelen\n\n$$P(A) = \\frac{\\text{tal på gunstige utfall}}{\\text{tal på moglege utfall}}$$\n\nKombinatorikken let oss telje både teljar og nemnar systematisk — sjølv når tala blir astronomiske.\n\nLat oss teste det på eit klassisk eksempel: ein kortstokk. Han har 52 kort fordelte på fire fargar — hjarter og ruter (raude), spar og kløver (svarte) — med 13 kort i kvar farge, deriblant 4 ess totalt. Du trekkjer 5 kort tilfeldig. Kva er sannsynet for nøyaktig 3 ess?\n\nFørst nemnaren: talet på moglege pokerhender er $\\binom{52}{5} = 2\\,598\\,960$. Så teljaren, og her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vi må velje 3 av dei 4 essa, $\\binom{4}{3} = 4$ måtar, *og* 2 av dei 48 øvrige korta, $\\binom{48}{2} = \\frac{48 \\cdot 47}{2} = 1128$ måtar. Talet på gunstige hender er dermed $4 \\cdot 1128 = 4512$, og\n\n$$P(3 \\text{ ess}) = \\frac{4512}{2\\,598\\,960} \\approx 0{,}0017 \\approx 0{,}17\\,\\%$$\n\nDet skjer altså i færre enn 2 av 1000 hender. Ser du mønsteret? Vel dei «spesielle» objekta med éin binomialkoeffisient, resten med ein annan, og gang saman. Akkurat denne strukturen møter du att i kapittelet om hypergeometrisk fordeling — der blir han sett i system for kvalitetskontroll og stikkprøver."},{"id":"s1-5-1-n-quiz4","type":"exercise","exercise":{"id":"s1-5-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på kombinatorikk og sannsyn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-1-n-quiz4-q0","task":"Ei lottorekkje i ein variant med 6 tal av 34 har $1\\,344\\,904$ moglege rekkjer. Kva er sannsynet for å vinne med éi rekkje?","options":[{"id":"a","text":"$\\dfrac{6}{34}$","isCorrect":false},{"id":"b","text":"$\\dfrac{1}{1\\,344\\,904}$","isCorrect":true},{"id":"c","text":"$\\dfrac{1}{34^6}$","isCorrect":false},{"id":"d","text":"$\\dfrac{6!}{34!}$","isCorrect":false}],"solution":"Éi gunstig rekkje av $1\\,344\\,904$ like sannsynlege: $P = \\frac{1}{1\\,344\\,904}$."},{"id":"s1-5-1-n-quiz4-q1","task":"Du trekkjer 2 kort frå ein kortstokk. Kor mange av dei $\\binom{52}{2} = 1326$ moglege para består av to ess?","options":[{"id":"a","text":"$\\binom{4}{2} = 6$","isCorrect":true},{"id":"b","text":"$4 \\cdot 4 = 16$","isCorrect":false},{"id":"c","text":"$P(4,2) = 12$","isCorrect":false},{"id":"d","text":"$4$","isCorrect":false}],"solution":"Vi vel 2 av dei 4 essa, uordna: $\\binom{4}{2} = 6$."},{"id":"s1-5-1-n-quiz4-q2","task":"I ei eske med 10 komponentar er 3 defekte. Du trekkjer 2 tilfeldig. Kva er sannsynet for at begge er defekte?","options":[{"id":"a","text":"$\\dfrac{3}{10} \\cdot \\dfrac{3}{10} = 0{,}09$","isCorrect":false},{"id":"b","text":"$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{3}{45} = \\dfrac{1}{15}$","isCorrect":true},{"id":"c","text":"$\\dfrac{2}{10}$","isCorrect":false},{"id":"d","text":"$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{6}{90} = \\dfrac{1}{10}$","isCorrect":false}],"solution":"Gunstige: $\\binom{3}{2} = 3$. Moglege: $\\binom{10}{2} = 45$. $P = \\frac{3}{45} = \\frac{1}{15} \\approx 0{,}067$. (Trekning utan tilbakelegging — difor kan vi ikkje gange $0{,}3 \\cdot 0{,}3$.)"}]}},{"id":"s1-5-1-n-summary","type":"text","content":"## Oppsummering: teljekunsten\n\nLotterimistanken frå innleiinga løyste seg med rein teljing: med over 1,3 millionar moglege lottorekkjer er det ingenting mystisk i at vinnarrekkjene aldri gjentek seg. Undervegs bygde vi opp heile den kombinatoriske verktøykassen.\n\nAlt kviler på **multiplikasjonsprinsippet**: uavhengige val med $n_1, n_2, \\ldots, n_k$ moglegheiter gjev $n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$ kombinasjonar totalt. Skal vi ordne $n$ objekt i rekkjefølgje, finst det $n! = n(n-1)\\cdots 2 \\cdot 1$ måtar, der vi hugsar spesialtilfellet $0! = 1$.\n\nNår vi vel $r$ av $n$ objekt, må vi alltid stille kontrollspørsmålet: *tel rekkjefølgja?* Gjer ho det — som ved pallplassar og vallister — bruker vi **permutasjonar**, $P(n,r) = \\frac{n!}{(n-r)!}$. Er rekkjefølgja likegyldig — som ved lottorekkjer og utval til undersøkingar — bruker vi **kombinasjonar**, $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$. Dei to heng saman ved at $C(n,r) = P(n,r)/r!$: vi deler bort rekkjefølgja.\n\nTil slutt såg vi at teljinga er springbrettet til sannsyn. Med like sannsynlege utfall er $P(A)$ talet på gunstige delt på talet på moglege, og kombinatorikken tel begge delar — som då vi fann at sannsynet for nøyaktig 3 ess i ei pokerhand er om lag $0{,}17\\,\\%$. Denne måten å telje gunstige utfall på, med binomialkoeffisientar for kvar gruppe, blir grunnmuren når vi seinare møter den hypergeometriske fordelinga og binomisk fordeling."}],"exercises":[],"_meta":{"sourceHash":"20c81bc57fbdf376","translatedAt":"2026-06-20T03:33:54.883Z","model":"claude-code-agent","strings":73,"tm":{"4ed92842e252201e":"Kombinatorikk","b195b06d1ed59702":"Narrativ versjon","b9e108ea655ef289":"Ei forteljing om teljekunst -- frå lotterimistankar hos Lotteritilsynet til PIN-kodar, vallister og pokerhender, og korleis systematisk teljing gjev oss sannsyn.","6f8683053d9bad78":"bruke kombinatorikk til å berekne sannsyn","bde12b072d76e931":"## Talet som avgjorde lotterimistanken\n\nFørestill deg at du jobbar i Lotteritilsynet. Ein dag kjem det inn ei uromelding: ein spelar hevdar at Lotto-trekninga må vere rigga, fordi «dei same tala aldri kjem att». For å vurdere påstanden treng du svar på eit heilt grunnleggjande spørsmål: kor mange ulike lottorekkjer finst det eigentleg?\n\nÅ liste opp alle rekkjene er håplaust — det ville teke år. Men med **kombinatorikk**, læra om systematisk teljing, kan du rekne ut svaret på under eitt minutt. Kombinatorikk er verktøykassen forskarar, statistikarar og tilsynsstyresmakter bruker når dei skal telje moglegheiter utan å liste dei opp: Kor mange PIN-kodar finst det? På kor mange måtar kan eit utval til ei spørjeundersøking setjast saman? Kor sannsynleg er ei bestemt pokerhand?\n\nI dette kapittelet skal vi byggje opp denne verktøykassen steg for steg. Vi startar med **multiplikasjonsprinsippet**, held fram med **fakultet** og **permutasjonar** (ordna utval), og endar opp med **kombinasjonar** (uordna utval) — sjølve nøkkelen til lottospørsmålet. Til slutt ser vi korleis teljinga let oss rekne ut sannsyn, akkurat slik Lotteritilsynet gjer når dei vurderer om eit spel er rettferdig.","8f7ab8277a1b85d1":"## Multiplikasjonsprinsippet — å telje utan å liste\n\nVi byrjar med noko du møter kvar dag: PIN-koden til bankkortet ditt. Ein kode har fire siffer, og kvart siffer kan vere alt frå 0 til 9. Kor mange kodar finst det? Tenk på det som fire val etter kvarandre. Første siffer kan veljast på 10 måtar. Uansett kva du valde, kan andre siffer òg veljast på 10 måtar — og det same gjeld tredje og fjerde. Totalt blir det\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$$\n\nmoglege kodar. Dette er **multiplikasjonsprinsippet**: Dersom vi skal gjere $k$ uavhengige val, og det første valet kan gjerast på $n_1$ måtar, det andre på $n_2$ måtar, og så vidare, er det totale talet på moglegheiter\n\n$$n_1 \\cdot n_2 \\cdot n_3 \\cdot \\ldots \\cdot n_k$$\n\nPrinsippet dukkar opp overalt. Skal du setje saman eit antrekk av 4 skjorter og 3 bukser, har du $4 \\cdot 3 = 12$ antrekk å velje mellom. Du kan teikne det som eit trediagram: frå kvar skjorte går det tre greiner, éi for kvar bukse, og du endar med tolv blad nedst i treet.\n\nLegg merke til ordet *uavhengige*: talet på moglegheiter i kvart trinn må vere det same uansett kva du valde i trinna før. Når det stemmer, kan du berre gange saman — og det er nettopp denne enkle ideen alt det følgjande byggjer på.","a75f80d8204ada31":"Test deg sjølv på multiplikasjonsprinsippet:","4097889236a2af26":"placeholder","06bb742f47d2d722":"Ein kafé tilbyr 5 typar kaffi og 4 typar bakst. På kor mange måtar kan du velje éin kaffi og éin bakst?","7dafdbb3bec9b9bc":"Multiplikasjonsprinsippet: $5 \\cdot 4 = 20$ kombinasjonar.","1f15fa2bbe8385e3":"Kor mange 3-sifra kodar finst det når kvart siffer kan vere 0–9?","3161c4b941c614a0":"Tre uavhengige val med 10 moglegheiter kvar: $10 \\cdot 10 \\cdot 10 = 10^3 = 1000$.","17baf4e5f25923ce":"Ei undersøking har 4 spørsmål med 3 svaralternativ kvar. På kor mange ulike måtar kan eit skjema fyllast ut?","b2e0af81d4895be2":"$3 \\cdot 4 = 12$, altså 12","0fc134b42dfa1f6d":"Fire uavhengige val med 3 moglegheiter kvar: $3^4 = 81$.","a35cede704fd5c56":"Kva krevst for at multiplikasjonsprinsippet skal kunne brukast direkte?","8bbee4d53fe1472a":"At alle vala har like mange moglegheiter","91cc14ed3021f42a":"At talet på moglegheiter i kvart trinn ikkje avheng av tidlegare val","6a193a8d3d1c9f81":"At rekkjefølgja på vala ikkje spelar noka rolle","4a698385e3ffacea":"At utfalla er like sannsynlege","3ed8089ce7200faf":"Vala må vere uavhengige: talet på moglegheiter i kvart trinn må vere det same uansett kva som blei valt før. Dei treng ikkje ha like mange moglegheiter ($4 \\cdot 3$ er heilt greitt).","a4c8b91e756c22de":"## Fakultet og permutasjonar — når rekkjefølgja tel\n\nTilbake til samfunnslivet: ein valkomité skal setje opp fem kandidatar på ei valliste. Rekkjefølgja er alt anna enn likegyldig — førsteplassen er nesten garantert eit verv. På kor mange måtar kan lista ordnast?\n\nFørsteplassen kan fyllast av 5 kandidatar. Når han er teken, står det att 4 til andreplassen, så 3, så 2, og til slutt 1. Multiplikasjonsprinsippet gjev $5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 120$ moglege lister. Produktet av alle heiltal frå $n$ og ned til 1 er så vanleg at det har fått eige namn og symbol: **fakultet**,\n\n$$n! = n \\cdot (n-1) \\cdot (n-2) \\cdot \\ldots \\cdot 2 \\cdot 1$$\n\nTil dømes er $3! = 6$, $4! = 24$ og $5! = 120$. Per definisjon set vi $0! = 1$ — det finst nøyaktig éin måte å ordne ingenting på.\n\nMen kva om vi ikkje skal ordne *alle*? I eit løp med 8 deltakarar skal gull, sølv og bronse delast ut. Gullet kan gå til 8 løparar, sølvet til 7, bronsen til 6: $8 \\cdot 7 \\cdot 6 = 336$ moglege pallplasseringar. Eit slikt *ordna utval* blir kalla ein **permutasjon**, og den generelle formelen for å velje $r$ av $n$ objekt når rekkjefølgja har noko å seie er\n\n$$P(n,r) = \\frac{n!}{(n-r)!}$$\n\nSjekk gjerne: $P(8,3) = \\frac{8!}{5!} = 8 \\cdot 7 \\cdot 6 = 336$. Divisjonen med $(n-r)!$ «kuttar av» dei faktorane vi ikkje treng. Og når vi ordnar alle $n$ objekta, blir $P(n,n) = n!$ — akkurat som med vallista.","474ecd198626a19f":"Test deg sjølv på fakultet og permutasjonar:","b3b3f73d8c34d813":"Kva er $4!$?","248c36acd6aa0411":"$4! = 4 \\cdot 3 \\cdot 2 \\cdot 1 = 24$.","da02560a4025aeb2":"Kva er $0!$ definert som?","0acc0f9632d29def":"Udefinert","ee4c43fe22faab6f":"Per definisjon er $0! = 1$ — det finst éin måte å ordne ingen objekt på. Definisjonen gjer òg formlane konsistente.","c2c96be50a27a3e5":"Ein komité på 6 personar skal velje leiar og nestleiar (to ulike personar). Kor mange moglegheiter finst?","3d8cf1716d9dbe67":"Ordna utval: $P(6,2) = 6 \\cdot 5 = 30$. (Rekkjefølgja tel fordi leiar og nestleiar er ulike verv.)","2faca5fe7a87b12c":"Kva er $P(10,2)$?","514dd5fa753b648f":"$P(10,2) = \\frac{10!}{8!} = 10 \\cdot 9 = 90$.","039d51614f8926c5":"## Kombinasjonar — når rekkjefølgja er likegyldig\n\nNo skiftar vi situasjon. Eit forskingsinstitutt skal plukke ut 4 av 10 studentar til ei referansegruppe. Her er alle medlemmene likeverdige — det spelar inga rolle kven som blei valt «først». Eit slikt *uordna utval* blir kalla ein **kombinasjon**.\n\nKorleis tel vi? Vi kan starte med permutasjonane: $P(10,4) = 10 \\cdot 9 \\cdot 8 \\cdot 7 = 5040$ ordna utval. Men kvar gruppe på fire personar er no telt mange gonger — éin gong for kvar rekkjefølgje dei kan stillast opp i, altså $4! = 24$ gonger. Det rette talet på grupper blir difor $5040 / 24 = 210$. Generelt:\n\n$$C(n,r) = \\binom{n}{r} = \\frac{n!}{r!(n-r)!} = \\frac{P(n,r)}{r!}$$\n\nSymbolet $\\binom{n}{r}$ blir lese «$n$ over $r$» og blir kalla binomialkoeffisienten. Divisjonen med $r!$ er heile skilnaden på permutasjonar og kombinasjonar: vi deler bort rekkjefølgja.\n\nOg no kan vi endeleg svare Lotteritilsynet. I ei forenkla lottotrekning blir 6 tal trekte blant tala 1 til 34, og rekkjefølgja dei blir trekte i er utan betydning. Talet på moglege rekkjer er\n\n$$\\binom{34}{6} = \\frac{34 \\cdot 33 \\cdot 32 \\cdot 31 \\cdot 30 \\cdot 29}{6!} = \\frac{968\\,330\\,880}{720} = 1\\,344\\,904$$\n\nOver 1,3 millionar rekkjer! At same vinnarrekkje «aldri kjem att» er altså ikkje mistenkjeleg — det er nøyaktig kva vi ventar.\n\nEin enkel hugseregel skil dei to omgrepa: **P**ermutasjon — *posisjonen* tel (pallplassar, PIN-kodar, vallister). **K**ombinasjon — berre *kolleksjonen* tel (lottorekkjer, komitéar, utval til undersøkingar).","3f2a8a9a79492576":"Test deg sjølv på kombinasjonar:","be8d26bf616ab25c":"Kva er $\\binom{5}{2}$?","b8e2d0a5ffc435ed":"$\\binom{5}{2} = \\frac{5 \\cdot 4}{2!} = \\frac{20}{2} = 10$.","16a59914035c43d8":"Eit meiningsmålingsbyrå skal velje ut 3 av 8 kommunar til ei pilotundersøking. Kor mange utval er moglege?","e1953db218f71401":"Rekkjefølgja er likegyldig, så vi bruker kombinasjonar: $\\binom{8}{3} = \\frac{8 \\cdot 7 \\cdot 6}{3!} = \\frac{336}{6} = 56$. ($336$ er permutasjonstalet $P(8,3)$.)","8296bc34f2c6c0f0":"Kva er samanhengen mellom $C(n,r)$ og $P(n,r)$?","b59b7fc8027f1e75":"$C(n,r) = P(n,r) \\cdot r!$","62b506adc3429504":"$C(n,r) = \\dfrac{P(n,r)}{r!}$","82631c5addd897b5":"$C(n,r) = P(n,r) - r!$","de10480fbf610d48":"Dei er alltid like store","8242990e3b566ae8":"Kvar kombinasjon svarar til $r!$ permutasjonar, så $C(n,r) = \\frac{P(n,r)}{r!}$.","1ed27b553137740a":"Kva situasjon krev kombinasjonar (ikkje permutasjonar)?","2faa07c3d1340d47":"Fordele gull, sølv og bronse i eit løp","1a08840742a6c79c":"Lage ein 4-sifra PIN-kode","e4dad2aa0c6249a2":"Setje opp rekkjefølgja på ei valliste","996080cbad7eaa4a":"Velje 5 personar til ei referansegruppe","9f3f1ab0254ea192":"I referansegruppa er medlemmene likeverdige — rekkjefølgja tel ikkje. I dei tre andre situasjonane har posisjonen noko å seie.","aad27ff2c6595ceb":"## Frå teljing til sannsyn\n\nKvifor bryr Lotteritilsynet, forsikringsselskap og forskarar seg så mykje om teljing? Fordi teljing er brua til **sannsyn**. Når alle utfall er like sannsynlege, gjeld den klassiske formelen\n\n$$P(A) = \\frac{\\text{tal på gunstige utfall}}{\\text{tal på moglege utfall}}$$\n\nKombinatorikken let oss telje både teljar og nemnar systematisk — sjølv når tala blir astronomiske.\n\nLat oss teste det på eit klassisk eksempel: ein kortstokk. Han har 52 kort fordelte på fire fargar — hjarter og ruter (raude), spar og kløver (svarte) — med 13 kort i kvar farge, deriblant 4 ess totalt. Du trekkjer 5 kort tilfeldig. Kva er sannsynet for nøyaktig 3 ess?\n\nFørst nemnaren: talet på moglege pokerhender er $\\binom{52}{5} = 2\\,598\\,960$. Så teljaren, og her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vi må velje 3 av dei 4 essa, $\\binom{4}{3} = 4$ måtar, *og* 2 av dei 48 øvrige korta, $\\binom{48}{2} = \\frac{48 \\cdot 47}{2} = 1128$ måtar. Talet på gunstige hender er dermed $4 \\cdot 1128 = 4512$, og\n\n$$P(3 \\text{ ess}) = \\frac{4512}{2\\,598\\,960} \\approx 0{,}0017 \\approx 0{,}17\\,\\%$$\n\nDet skjer altså i færre enn 2 av 1000 hender. Ser du mønsteret? Vel dei «spesielle» objekta med éin binomialkoeffisient, resten med ein annan, og gang saman. Akkurat denne strukturen møter du att i kapittelet om hypergeometrisk fordeling — der blir han sett i system for kvalitetskontroll og stikkprøver.","51a188f0d70a87bb":"Test deg sjølv på kombinatorikk og sannsyn:","3359a82e088c18e9":"Ei lottorekkje i ein variant med 6 tal av 34 har $1\\,344\\,904$ moglege rekkjer. Kva er sannsynet for å vinne med éi rekkje?","8bd9b094c85cc09a":"$\\dfrac{6}{34}$","1bedcac81d2c6cf5":"$\\dfrac{1}{1\\,344\\,904}$","9092ef2cade95a91":"$\\dfrac{1}{34^6}$","39071fbafb6b47e5":"$\\dfrac{6!}{34!}$","5dc48ab4b843f75a":"Éi gunstig rekkje av $1\\,344\\,904$ like sannsynlege: $P = \\frac{1}{1\\,344\\,904}$.","68ffb19501f0d5b5":"Du trekkjer 2 kort frå ein kortstokk. Kor mange av dei $\\binom{52}{2} = 1326$ moglege para består av to ess?","d872ad8444478bf5":"$\\binom{4}{2} = 6$","60210d901690050c":"$4 \\cdot 4 = 16$","38f0d6063acc8e99":"$P(4,2) = 12$","600f47a41952e4e4":"Vi vel 2 av dei 4 essa, uordna: $\\binom{4}{2} = 6$.","7d3bac1f68fd75ea":"I ei eske med 10 komponentar er 3 defekte. Du trekkjer 2 tilfeldig. Kva er sannsynet for at begge er defekte?","0a92154cfaa8a9d2":"$\\dfrac{3}{10} \\cdot \\dfrac{3}{10} = 0{,}09$","585abf79c2f4ec9a":"$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{3}{45} = \\dfrac{1}{15}$","c788624d4a7b527e":"$\\dfrac{2}{10}$","bf013a26c25f8066":"$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{6}{90} = \\dfrac{1}{10}$","d6f6bac54ca4dc28":"Gunstige: $\\binom{3}{2} = 3$. Moglege: $\\binom{10}{2} = 45$. $P = \\frac{3}{45} = \\frac{1}{15} \\approx 0{,}067$. (Trekning utan tilbakelegging — difor kan vi ikkje gange $0{,}3 \\cdot 0{,}3$.)","68c1aa52ea8fa5cf":"## Oppsummering: teljekunsten\n\nLotterimistanken frå innleiinga løyste seg med rein teljing: med over 1,3 millionar moglege lottorekkjer er det ingenting mystisk i at vinnarrekkjene aldri gjentek seg. Undervegs bygde vi opp heile den kombinatoriske verktøykassen.\n\nAlt kviler på **multiplikasjonsprinsippet**: uavhengige val med $n_1, n_2, \\ldots, n_k$ moglegheiter gjev $n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$ kombinasjonar totalt. Skal vi ordne $n$ objekt i rekkjefølgje, finst det $n! = n(n-1)\\cdots 2 \\cdot 1$ måtar, der vi hugsar spesialtilfellet $0! = 1$.\n\nNår vi vel $r$ av $n$ objekt, må vi alltid stille kontrollspørsmålet: *tel rekkjefølgja?* Gjer ho det — som ved pallplassar og vallister — bruker vi **permutasjonar**, $P(n,r) = \\frac{n!}{(n-r)!}$. Er rekkjefølgja likegyldig — som ved lottorekkjer og utval til undersøkingar — bruker vi **kombinasjonar**, $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$. Dei to heng saman ved at $C(n,r) = P(n,r)/r!$: vi deler bort rekkjefølgja.\n\nTil slutt såg vi at teljinga er springbrettet til sannsyn. Med like sannsynlege utfall er $P(A)$ talet på gunstige delt på talet på moglege, og kombinatorikken tel begge delar — som då vi fann at sannsynet for nøyaktig 3 ess i ei pokerhand er om lag $0{,}17\\,\\%$. Denne måten å telje gunstige utfall på, med binomialkoeffisientar for kvar gruppe, blir grunnmuren når vi seinare møter den hypergeometriske fordelinga og binomisk fordeling."}}}
+{
+  "id": "s1-5-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "5.1",
+  "title": "Kombinatorikk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om teljekunst -- frå lotterimistankar hos Lotteritilsynet til PIN-kodar, vallister og pokerhender, og korleis systematisk teljing gjev oss sannsyn.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke kombinatorikk til å berekne sannsyn"
+  ],
+  "linkedChapterId": "s1-5-1",
+  "content": [
+    {
+      "id": "s1-5-1-n-intro",
+      "type": "text",
+      "content": "## Talet som avgjorde lotterimistanken\n\nFørestill deg at du jobbar i Lotteritilsynet. Ein dag kjem det inn ei uromelding: ein spelar hevdar at Lotto-trekninga må vere rigga, fordi «dei same tala aldri kjem att». For å vurdere påstanden treng du svar på eit heilt grunnleggjande spørsmål: kor mange ulike lottorekkjer finst det eigentleg?\n\nÅ liste opp alle rekkjene er håplaust — det ville teke år. Men med **kombinatorikk**, læra om systematisk teljing, kan du rekne ut svaret på under eitt minutt. Kombinatorikk er verktøykassen forskarar, statistikarar og tilsynsstyresmakter bruker når dei skal telje moglegheiter utan å liste dei opp: Kor mange PIN-kodar finst det? På kor mange måtar kan eit utval til ei spørjeundersøking setjast saman? Kor sannsynleg er ei bestemt pokerhand?\n\nI dette kapittelet skal vi byggje opp denne verktøykassen steg for steg. Vi startar med **multiplikasjonsprinsippet**, held fram med **fakultet** og **permutasjonar** (ordna utval), og endar opp med **kombinasjonar** (uordna utval) — sjølve nøkkelen til lottospørsmålet. Til slutt ser vi korleis teljinga let oss rekne ut sannsyn, akkurat slik Lotteritilsynet gjer når dei vurderer om eit spel er rettferdig."
+    },
+    {
+      "id": "s1-5-1-n-section1",
+      "type": "text",
+      "content": "## Multiplikasjonsprinsippet — å telje utan å liste\n\nVi byrjar med noko du møter kvar dag: PIN-koden til bankkortet ditt. Ein kode har fire siffer, og kvart siffer kan vere alt frå 0 til 9. Kor mange kodar finst det? Tenk på det som fire val etter kvarandre. Første siffer kan veljast på 10 måtar. Uansett kva du valde, kan andre siffer òg veljast på 10 måtar — og det same gjeld tredje og fjerde. Totalt blir det\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$$\n\nmoglege kodar. Dette er **multiplikasjonsprinsippet**: Dersom vi skal gjere $k$ uavhengige val, og det første valet kan gjerast på $n_1$ måtar, det andre på $n_2$ måtar, og så vidare, er det totale talet på moglegheiter\n\n$$n_1 \\cdot n_2 \\cdot n_3 \\cdot \\ldots \\cdot n_k$$\n\nPrinsippet dukkar opp overalt. Skal du setje saman eit antrekk av 4 skjorter og 3 bukser, har du $4 \\cdot 3 = 12$ antrekk å velje mellom. Du kan teikne det som eit trediagram: frå kvar skjorte går det tre greiner, éi for kvar bukse, og du endar med tolv blad nedst i treet.\n\nLegg merke til ordet *uavhengige*: talet på moglegheiter i kvart trinn må vere det same uansett kva du valde i trinna før. Når det stemmer, kan du berre gange saman — og det er nettopp denne enkle ideen alt det følgjande byggjer på."
+    },
+    {
+      "id": "s1-5-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på multiplikasjonsprinsippet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-1-n-quiz1-q0",
+            "task": "Ein kafé tilbyr 5 typar kaffi og 4 typar bakst. På kor mange måtar kan du velje éin kaffi og éin bakst?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$20$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$45$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5^4 = 625$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikasjonsprinsippet: $5 \\cdot 4 = 20$ kombinasjonar."
+          },
+          {
+            "id": "s1-5-1-n-quiz1-q1",
+            "task": "Kor mange 3-sifra kodar finst det når kvart siffer kan vere 0–9?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$729$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1000$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tre uavhengige val med 10 moglegheiter kvar: $10 \\cdot 10 \\cdot 10 = 10^3 = 1000$."
+          },
+          {
+            "id": "s1-5-1-n-quiz1-q2",
+            "task": "Ei undersøking har 4 spørsmål med 3 svaralternativ kvar. På kor mange ulike måtar kan eit skjema fyllast ut?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$81$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$64$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3 \\cdot 4 = 12$, altså 12",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fire uavhengige val med 3 moglegheiter kvar: $3^4 = 81$."
+          },
+          {
+            "id": "s1-5-1-n-quiz1-q3",
+            "task": "Kva krevst for at multiplikasjonsprinsippet skal kunne brukast direkte?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At alle vala har like mange moglegheiter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At rekkjefølgja på vala ikkje spelar noka rolle",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At talet på moglegheiter i kvart trinn ikkje avheng av tidlegare val",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At utfalla er like sannsynlege",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vala må vere uavhengige: talet på moglegheiter i kvart trinn må vere det same uansett kva som blei valt før. Dei treng ikkje ha like mange moglegheiter ($4 \\cdot 3$ er heilt greitt)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-1-n-section2",
+      "type": "text",
+      "content": "## Fakultet og permutasjonar — når rekkjefølgja tel\n\nTilbake til samfunnslivet: ein valkomité skal setje opp fem kandidatar på ei valliste. Rekkjefølgja er alt anna enn likegyldig — førsteplassen er nesten garantert eit verv. På kor mange måtar kan lista ordnast?\n\nFørsteplassen kan fyllast av 5 kandidatar. Når han er teken, står det att 4 til andreplassen, så 3, så 2, og til slutt 1. Multiplikasjonsprinsippet gjev $5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 120$ moglege lister. Produktet av alle heiltal frå $n$ og ned til 1 er så vanleg at det har fått eige namn og symbol: **fakultet**,\n\n$$n! = n \\cdot (n-1) \\cdot (n-2) \\cdot \\ldots \\cdot 2 \\cdot 1$$\n\nTil dømes er $3! = 6$, $4! = 24$ og $5! = 120$. Per definisjon set vi $0! = 1$ — det finst nøyaktig éin måte å ordne ingenting på.\n\nMen kva om vi ikkje skal ordne *alle*? I eit løp med 8 deltakarar skal gull, sølv og bronse delast ut. Gullet kan gå til 8 løparar, sølvet til 7, bronsen til 6: $8 \\cdot 7 \\cdot 6 = 336$ moglege pallplasseringar. Eit slikt *ordna utval* blir kalla ein **permutasjon**, og den generelle formelen for å velje $r$ av $n$ objekt når rekkjefølgja har noko å seie er\n\n$$P(n,r) = \\frac{n!}{(n-r)!}$$\n\nSjekk gjerne: $P(8,3) = \\frac{8!}{5!} = 8 \\cdot 7 \\cdot 6 = 336$. Divisjonen med $(n-r)!$ «kuttar av» dei faktorane vi ikkje treng. Og når vi ordnar alle $n$ objekta, blir $P(n,n) = n!$ — akkurat som med vallista."
+    },
+    {
+      "id": "s1-5-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på fakultet og permutasjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-1-n-quiz2-q0",
+            "task": "Kva er $4!$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$24$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4! = 4 \\cdot 3 \\cdot 2 \\cdot 1 = 24$."
+          },
+          {
+            "id": "s1-5-1-n-quiz2-q1",
+            "task": "Kva er $0!$ definert som?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Udefinert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Per definisjon er $0! = 1$ — det finst éin måte å ordne ingen objekt på. Definisjonen gjer òg formlane konsistente."
+          },
+          {
+            "id": "s1-5-1-n-quiz2-q2",
+            "task": "Ein komité på 6 personar skal velje leiar og nestleiar (to ulike personar). Kor mange moglegheiter finst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$36$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$30$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ordna utval: $P(6,2) = 6 \\cdot 5 = 30$. (Rekkjefølgja tel fordi leiar og nestleiar er ulike verv.)"
+          },
+          {
+            "id": "s1-5-1-n-quiz2-q3",
+            "task": "Kva er $P(10,2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$45$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$90$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(10,2) = \\frac{10!}{8!} = 10 \\cdot 9 = 90$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-1-n-section3",
+      "type": "text",
+      "content": "## Kombinasjonar — når rekkjefølgja er likegyldig\n\nNo skiftar vi situasjon. Eit forskingsinstitutt skal plukke ut 4 av 10 studentar til ei referansegruppe. Her er alle medlemmene likeverdige — det spelar inga rolle kven som blei valt «først». Eit slikt *uordna utval* blir kalla ein **kombinasjon**.\n\nKorleis tel vi? Vi kan starte med permutasjonane: $P(10,4) = 10 \\cdot 9 \\cdot 8 \\cdot 7 = 5040$ ordna utval. Men kvar gruppe på fire personar er no telt mange gonger — éin gong for kvar rekkjefølgje dei kan stillast opp i, altså $4! = 24$ gonger. Det rette talet på grupper blir difor $5040 / 24 = 210$. Generelt:\n\n$$C(n,r) = \\binom{n}{r} = \\frac{n!}{r!(n-r)!} = \\frac{P(n,r)}{r!}$$\n\nSymbolet $\\binom{n}{r}$ blir lese «$n$ over $r$» og blir kalla binomialkoeffisienten. Divisjonen med $r!$ er heile skilnaden på permutasjonar og kombinasjonar: vi deler bort rekkjefølgja.\n\nOg no kan vi endeleg svare Lotteritilsynet. I ei forenkla lottotrekning blir 6 tal trekte blant tala 1 til 34, og rekkjefølgja dei blir trekte i er utan betydning. Talet på moglege rekkjer er\n\n$$\\binom{34}{6} = \\frac{34 \\cdot 33 \\cdot 32 \\cdot 31 \\cdot 30 \\cdot 29}{6!} = \\frac{968\\,330\\,880}{720} = 1\\,344\\,904$$\n\nOver 1,3 millionar rekkjer! At same vinnarrekkje «aldri kjem att» er altså ikkje mistenkjeleg — det er nøyaktig kva vi ventar.\n\nEin enkel hugseregel skil dei to omgrepa: **P**ermutasjon — *posisjonen* tel (pallplassar, PIN-kodar, vallister). **K**ombinasjon — berre *kolleksjonen* tel (lottorekkjer, komitéar, utval til undersøkingar)."
+    },
+    {
+      "id": "s1-5-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kombinasjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-1-n-quiz3-q0",
+            "task": "Kva er $\\binom{5}{2}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\binom{5}{2} = \\frac{5 \\cdot 4}{2!} = \\frac{20}{2} = 10$."
+          },
+          {
+            "id": "s1-5-1-n-quiz3-q1",
+            "task": "Eit meiningsmålingsbyrå skal velje ut 3 av 8 kommunar til ei pilotundersøking. Kor mange utval er moglege?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$336$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$56$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$24$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$512$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rekkjefølgja er likegyldig, så vi bruker kombinasjonar: $\\binom{8}{3} = \\frac{8 \\cdot 7 \\cdot 6}{3!} = \\frac{336}{6} = 56$. ($336$ er permutasjonstalet $P(8,3)$.)"
+          },
+          {
+            "id": "s1-5-1-n-quiz3-q2",
+            "task": "Kva er samanhengen mellom $C(n,r)$ og $P(n,r)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$C(n,r) = P(n,r) \\cdot r!$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$C(n,r) = P(n,r) - r!$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$C(n,r) = \\dfrac{P(n,r)}{r!}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Dei er alltid like store",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvar kombinasjon svarar til $r!$ permutasjonar, så $C(n,r) = \\frac{P(n,r)}{r!}$."
+          },
+          {
+            "id": "s1-5-1-n-quiz3-q3",
+            "task": "Kva situasjon krev kombinasjonar (ikkje permutasjonar)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordele gull, sølv og bronse i eit løp",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lage ein 4-sifra PIN-kode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Setje opp rekkjefølgja på ei valliste",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Velje 5 personar til ei referansegruppe",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I referansegruppa er medlemmene likeverdige — rekkjefølgja tel ikkje. I dei tre andre situasjonane har posisjonen noko å seie."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-1-n-section4",
+      "type": "text",
+      "content": "## Frå teljing til sannsyn\n\nKvifor bryr Lotteritilsynet, forsikringsselskap og forskarar seg så mykje om teljing? Fordi teljing er brua til **sannsyn**. Når alle utfall er like sannsynlege, gjeld den klassiske formelen\n\n$$P(A) = \\frac{\\text{tal på gunstige utfall}}{\\text{tal på moglege utfall}}$$\n\nKombinatorikken let oss telje både teljar og nemnar systematisk — sjølv når tala blir astronomiske.\n\nLat oss teste det på eit klassisk eksempel: ein kortstokk. Han har 52 kort fordelte på fire fargar — hjarter og ruter (raude), spar og kløver (svarte) — med 13 kort i kvar farge, deriblant 4 ess totalt. Du trekkjer 5 kort tilfeldig. Kva er sannsynet for nøyaktig 3 ess?\n\nFørst nemnaren: talet på moglege pokerhender er $\\binom{52}{5} = 2\\,598\\,960$. Så teljaren, og her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vi må velje 3 av dei 4 essa, $\\binom{4}{3} = 4$ måtar, *og* 2 av dei 48 øvrige korta, $\\binom{48}{2} = \\frac{48 \\cdot 47}{2} = 1128$ måtar. Talet på gunstige hender er dermed $4 \\cdot 1128 = 4512$, og\n\n$$P(3 \\text{ ess}) = \\frac{4512}{2\\,598\\,960} \\approx 0{,}0017 \\approx 0{,}17\\,\\%$$\n\nDet skjer altså i færre enn 2 av 1000 hender. Ser du mønsteret? Vel dei «spesielle» objekta med éin binomialkoeffisient, resten med ein annan, og gang saman. Akkurat denne strukturen møter du att i kapittelet om hypergeometrisk fordeling — der blir han sett i system for kvalitetskontroll og stikkprøver."
+    },
+    {
+      "id": "s1-5-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kombinatorikk og sannsyn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-1-n-quiz4-q0",
+            "task": "Ei lottorekkje i ein variant med 6 tal av 34 har $1\\,344\\,904$ moglege rekkjer. Kva er sannsynet for å vinne med éi rekkje?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\dfrac{1}{1\\,344\\,904}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{6}{34}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\dfrac{1}{34^6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{6!}{34!}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Éi gunstig rekkje av $1\\,344\\,904$ like sannsynlege: $P = \\frac{1}{1\\,344\\,904}$."
+          },
+          {
+            "id": "s1-5-1-n-quiz4-q1",
+            "task": "Du trekkjer 2 kort frå ein kortstokk. Kor mange av dei $\\binom{52}{2} = 1326$ moglege para består av to ess?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4 \\cdot 4 = 16$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\binom{4}{2} = 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$P(4,2) = 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi vel 2 av dei 4 essa, uordna: $\\binom{4}{2} = 6$."
+          },
+          {
+            "id": "s1-5-1-n-quiz4-q2",
+            "task": "I ei eske med 10 komponentar er 3 defekte. Du trekkjer 2 tilfeldig. Kva er sannsynet for at begge er defekte?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\dfrac{3}{10} \\cdot \\dfrac{3}{10} = 0{,}09$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\dfrac{2}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{3}{45} = \\dfrac{1}{15}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{6}{90} = \\dfrac{1}{10}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gunstige: $\\binom{3}{2} = 3$. Moglege: $\\binom{10}{2} = 45$. $P = \\frac{3}{45} = \\frac{1}{15} \\approx 0{,}067$. (Trekning utan tilbakelegging — difor kan vi ikkje gange $0{,}3 \\cdot 0{,}3$.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: teljekunsten\n\nLotterimistanken frå innleiinga løyste seg med rein teljing: med over 1,3 millionar moglege lottorekkjer er det ingenting mystisk i at vinnarrekkjene aldri gjentek seg. Undervegs bygde vi opp heile den kombinatoriske verktøykassen.\n\nAlt kviler på **multiplikasjonsprinsippet**: uavhengige val med $n_1, n_2, \\ldots, n_k$ moglegheiter gjev $n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$ kombinasjonar totalt. Skal vi ordne $n$ objekt i rekkjefølgje, finst det $n! = n(n-1)\\cdots 2 \\cdot 1$ måtar, der vi hugsar spesialtilfellet $0! = 1$.\n\nNår vi vel $r$ av $n$ objekt, må vi alltid stille kontrollspørsmålet: *tel rekkjefølgja?* Gjer ho det — som ved pallplassar og vallister — bruker vi **permutasjonar**, $P(n,r) = \\frac{n!}{(n-r)!}$. Er rekkjefølgja likegyldig — som ved lottorekkjer og utval til undersøkingar — bruker vi **kombinasjonar**, $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$. Dei to heng saman ved at $C(n,r) = P(n,r)/r!$: vi deler bort rekkjefølgja.\n\nTil slutt såg vi at teljinga er springbrettet til sannsyn. Med like sannsynlege utfall er $P(A)$ talet på gunstige delt på talet på moglege, og kombinatorikken tel begge delar — som då vi fann at sannsynet for nøyaktig 3 ess i ei pokerhand er om lag $0{,}17\\,\\%$. Denne måten å telje gunstige utfall på, med binomialkoeffisientar for kvar gruppe, blir grunnmuren når vi seinare møter den hypergeometriske fordelinga og binomisk fordeling."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "20c81bc57fbdf376",
+    "translatedAt": "2026-06-20T03:33:54.883Z",
+    "model": "claude-code-agent",
+    "strings": 73,
+    "tm": {
+      "4ed92842e252201e": "Kombinatorikk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b9e108ea655ef289": "Ei forteljing om teljekunst -- frå lotterimistankar hos Lotteritilsynet til PIN-kodar, vallister og pokerhender, og korleis systematisk teljing gjev oss sannsyn.",
+      "6f8683053d9bad78": "bruke kombinatorikk til å berekne sannsyn",
+      "bde12b072d76e931": "## Talet som avgjorde lotterimistanken\n\nFørestill deg at du jobbar i Lotteritilsynet. Ein dag kjem det inn ei uromelding: ein spelar hevdar at Lotto-trekninga må vere rigga, fordi «dei same tala aldri kjem att». For å vurdere påstanden treng du svar på eit heilt grunnleggjande spørsmål: kor mange ulike lottorekkjer finst det eigentleg?\n\nÅ liste opp alle rekkjene er håplaust — det ville teke år. Men med **kombinatorikk**, læra om systematisk teljing, kan du rekne ut svaret på under eitt minutt. Kombinatorikk er verktøykassen forskarar, statistikarar og tilsynsstyresmakter bruker når dei skal telje moglegheiter utan å liste dei opp: Kor mange PIN-kodar finst det? På kor mange måtar kan eit utval til ei spørjeundersøking setjast saman? Kor sannsynleg er ei bestemt pokerhand?\n\nI dette kapittelet skal vi byggje opp denne verktøykassen steg for steg. Vi startar med **multiplikasjonsprinsippet**, held fram med **fakultet** og **permutasjonar** (ordna utval), og endar opp med **kombinasjonar** (uordna utval) — sjølve nøkkelen til lottospørsmålet. Til slutt ser vi korleis teljinga let oss rekne ut sannsyn, akkurat slik Lotteritilsynet gjer når dei vurderer om eit spel er rettferdig.",
+      "8f7ab8277a1b85d1": "## Multiplikasjonsprinsippet — å telje utan å liste\n\nVi byrjar med noko du møter kvar dag: PIN-koden til bankkortet ditt. Ein kode har fire siffer, og kvart siffer kan vere alt frå 0 til 9. Kor mange kodar finst det? Tenk på det som fire val etter kvarandre. Første siffer kan veljast på 10 måtar. Uansett kva du valde, kan andre siffer òg veljast på 10 måtar — og det same gjeld tredje og fjerde. Totalt blir det\n\n$$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$$\n\nmoglege kodar. Dette er **multiplikasjonsprinsippet**: Dersom vi skal gjere $k$ uavhengige val, og det første valet kan gjerast på $n_1$ måtar, det andre på $n_2$ måtar, og så vidare, er det totale talet på moglegheiter\n\n$$n_1 \\cdot n_2 \\cdot n_3 \\cdot \\ldots \\cdot n_k$$\n\nPrinsippet dukkar opp overalt. Skal du setje saman eit antrekk av 4 skjorter og 3 bukser, har du $4 \\cdot 3 = 12$ antrekk å velje mellom. Du kan teikne det som eit trediagram: frå kvar skjorte går det tre greiner, éi for kvar bukse, og du endar med tolv blad nedst i treet.\n\nLegg merke til ordet *uavhengige*: talet på moglegheiter i kvart trinn må vere det same uansett kva du valde i trinna før. Når det stemmer, kan du berre gange saman — og det er nettopp denne enkle ideen alt det følgjande byggjer på.",
+      "a75f80d8204ada31": "Test deg sjølv på multiplikasjonsprinsippet:",
+      "4097889236a2af26": "placeholder",
+      "06bb742f47d2d722": "Ein kafé tilbyr 5 typar kaffi og 4 typar bakst. På kor mange måtar kan du velje éin kaffi og éin bakst?",
+      "7dafdbb3bec9b9bc": "Multiplikasjonsprinsippet: $5 \\cdot 4 = 20$ kombinasjonar.",
+      "1f15fa2bbe8385e3": "Kor mange 3-sifra kodar finst det når kvart siffer kan vere 0–9?",
+      "3161c4b941c614a0": "Tre uavhengige val med 10 moglegheiter kvar: $10 \\cdot 10 \\cdot 10 = 10^3 = 1000$.",
+      "17baf4e5f25923ce": "Ei undersøking har 4 spørsmål med 3 svaralternativ kvar. På kor mange ulike måtar kan eit skjema fyllast ut?",
+      "b2e0af81d4895be2": "$3 \\cdot 4 = 12$, altså 12",
+      "0fc134b42dfa1f6d": "Fire uavhengige val med 3 moglegheiter kvar: $3^4 = 81$.",
+      "a35cede704fd5c56": "Kva krevst for at multiplikasjonsprinsippet skal kunne brukast direkte?",
+      "8bbee4d53fe1472a": "At alle vala har like mange moglegheiter",
+      "91cc14ed3021f42a": "At talet på moglegheiter i kvart trinn ikkje avheng av tidlegare val",
+      "6a193a8d3d1c9f81": "At rekkjefølgja på vala ikkje spelar noka rolle",
+      "4a698385e3ffacea": "At utfalla er like sannsynlege",
+      "3ed8089ce7200faf": "Vala må vere uavhengige: talet på moglegheiter i kvart trinn må vere det same uansett kva som blei valt før. Dei treng ikkje ha like mange moglegheiter ($4 \\cdot 3$ er heilt greitt).",
+      "a4c8b91e756c22de": "## Fakultet og permutasjonar — når rekkjefølgja tel\n\nTilbake til samfunnslivet: ein valkomité skal setje opp fem kandidatar på ei valliste. Rekkjefølgja er alt anna enn likegyldig — førsteplassen er nesten garantert eit verv. På kor mange måtar kan lista ordnast?\n\nFørsteplassen kan fyllast av 5 kandidatar. Når han er teken, står det att 4 til andreplassen, så 3, så 2, og til slutt 1. Multiplikasjonsprinsippet gjev $5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 120$ moglege lister. Produktet av alle heiltal frå $n$ og ned til 1 er så vanleg at det har fått eige namn og symbol: **fakultet**,\n\n$$n! = n \\cdot (n-1) \\cdot (n-2) \\cdot \\ldots \\cdot 2 \\cdot 1$$\n\nTil dømes er $3! = 6$, $4! = 24$ og $5! = 120$. Per definisjon set vi $0! = 1$ — det finst nøyaktig éin måte å ordne ingenting på.\n\nMen kva om vi ikkje skal ordne *alle*? I eit løp med 8 deltakarar skal gull, sølv og bronse delast ut. Gullet kan gå til 8 løparar, sølvet til 7, bronsen til 6: $8 \\cdot 7 \\cdot 6 = 336$ moglege pallplasseringar. Eit slikt *ordna utval* blir kalla ein **permutasjon**, og den generelle formelen for å velje $r$ av $n$ objekt når rekkjefølgja har noko å seie er\n\n$$P(n,r) = \\frac{n!}{(n-r)!}$$\n\nSjekk gjerne: $P(8,3) = \\frac{8!}{5!} = 8 \\cdot 7 \\cdot 6 = 336$. Divisjonen med $(n-r)!$ «kuttar av» dei faktorane vi ikkje treng. Og når vi ordnar alle $n$ objekta, blir $P(n,n) = n!$ — akkurat som med vallista.",
+      "474ecd198626a19f": "Test deg sjølv på fakultet og permutasjonar:",
+      "b3b3f73d8c34d813": "Kva er $4!$?",
+      "248c36acd6aa0411": "$4! = 4 \\cdot 3 \\cdot 2 \\cdot 1 = 24$.",
+      "da02560a4025aeb2": "Kva er $0!$ definert som?",
+      "0acc0f9632d29def": "Udefinert",
+      "ee4c43fe22faab6f": "Per definisjon er $0! = 1$ — det finst éin måte å ordne ingen objekt på. Definisjonen gjer òg formlane konsistente.",
+      "c2c96be50a27a3e5": "Ein komité på 6 personar skal velje leiar og nestleiar (to ulike personar). Kor mange moglegheiter finst?",
+      "3d8cf1716d9dbe67": "Ordna utval: $P(6,2) = 6 \\cdot 5 = 30$. (Rekkjefølgja tel fordi leiar og nestleiar er ulike verv.)",
+      "2faca5fe7a87b12c": "Kva er $P(10,2)$?",
+      "514dd5fa753b648f": "$P(10,2) = \\frac{10!}{8!} = 10 \\cdot 9 = 90$.",
+      "039d51614f8926c5": "## Kombinasjonar — når rekkjefølgja er likegyldig\n\nNo skiftar vi situasjon. Eit forskingsinstitutt skal plukke ut 4 av 10 studentar til ei referansegruppe. Her er alle medlemmene likeverdige — det spelar inga rolle kven som blei valt «først». Eit slikt *uordna utval* blir kalla ein **kombinasjon**.\n\nKorleis tel vi? Vi kan starte med permutasjonane: $P(10,4) = 10 \\cdot 9 \\cdot 8 \\cdot 7 = 5040$ ordna utval. Men kvar gruppe på fire personar er no telt mange gonger — éin gong for kvar rekkjefølgje dei kan stillast opp i, altså $4! = 24$ gonger. Det rette talet på grupper blir difor $5040 / 24 = 210$. Generelt:\n\n$$C(n,r) = \\binom{n}{r} = \\frac{n!}{r!(n-r)!} = \\frac{P(n,r)}{r!}$$\n\nSymbolet $\\binom{n}{r}$ blir lese «$n$ over $r$» og blir kalla binomialkoeffisienten. Divisjonen med $r!$ er heile skilnaden på permutasjonar og kombinasjonar: vi deler bort rekkjefølgja.\n\nOg no kan vi endeleg svare Lotteritilsynet. I ei forenkla lottotrekning blir 6 tal trekte blant tala 1 til 34, og rekkjefølgja dei blir trekte i er utan betydning. Talet på moglege rekkjer er\n\n$$\\binom{34}{6} = \\frac{34 \\cdot 33 \\cdot 32 \\cdot 31 \\cdot 30 \\cdot 29}{6!} = \\frac{968\\,330\\,880}{720} = 1\\,344\\,904$$\n\nOver 1,3 millionar rekkjer! At same vinnarrekkje «aldri kjem att» er altså ikkje mistenkjeleg — det er nøyaktig kva vi ventar.\n\nEin enkel hugseregel skil dei to omgrepa: **P**ermutasjon — *posisjonen* tel (pallplassar, PIN-kodar, vallister). **K**ombinasjon — berre *kolleksjonen* tel (lottorekkjer, komitéar, utval til undersøkingar).",
+      "3f2a8a9a79492576": "Test deg sjølv på kombinasjonar:",
+      "be8d26bf616ab25c": "Kva er $\\binom{5}{2}$?",
+      "b8e2d0a5ffc435ed": "$\\binom{5}{2} = \\frac{5 \\cdot 4}{2!} = \\frac{20}{2} = 10$.",
+      "16a59914035c43d8": "Eit meiningsmålingsbyrå skal velje ut 3 av 8 kommunar til ei pilotundersøking. Kor mange utval er moglege?",
+      "e1953db218f71401": "Rekkjefølgja er likegyldig, så vi bruker kombinasjonar: $\\binom{8}{3} = \\frac{8 \\cdot 7 \\cdot 6}{3!} = \\frac{336}{6} = 56$. ($336$ er permutasjonstalet $P(8,3)$.)",
+      "8296bc34f2c6c0f0": "Kva er samanhengen mellom $C(n,r)$ og $P(n,r)$?",
+      "b59b7fc8027f1e75": "$C(n,r) = P(n,r) \\cdot r!$",
+      "62b506adc3429504": "$C(n,r) = \\dfrac{P(n,r)}{r!}$",
+      "82631c5addd897b5": "$C(n,r) = P(n,r) - r!$",
+      "de10480fbf610d48": "Dei er alltid like store",
+      "8242990e3b566ae8": "Kvar kombinasjon svarar til $r!$ permutasjonar, så $C(n,r) = \\frac{P(n,r)}{r!}$.",
+      "1ed27b553137740a": "Kva situasjon krev kombinasjonar (ikkje permutasjonar)?",
+      "2faa07c3d1340d47": "Fordele gull, sølv og bronse i eit løp",
+      "1a08840742a6c79c": "Lage ein 4-sifra PIN-kode",
+      "e4dad2aa0c6249a2": "Setje opp rekkjefølgja på ei valliste",
+      "996080cbad7eaa4a": "Velje 5 personar til ei referansegruppe",
+      "9f3f1ab0254ea192": "I referansegruppa er medlemmene likeverdige — rekkjefølgja tel ikkje. I dei tre andre situasjonane har posisjonen noko å seie.",
+      "aad27ff2c6595ceb": "## Frå teljing til sannsyn\n\nKvifor bryr Lotteritilsynet, forsikringsselskap og forskarar seg så mykje om teljing? Fordi teljing er brua til **sannsyn**. Når alle utfall er like sannsynlege, gjeld den klassiske formelen\n\n$$P(A) = \\frac{\\text{tal på gunstige utfall}}{\\text{tal på moglege utfall}}$$\n\nKombinatorikken let oss telje både teljar og nemnar systematisk — sjølv når tala blir astronomiske.\n\nLat oss teste det på eit klassisk eksempel: ein kortstokk. Han har 52 kort fordelte på fire fargar — hjarter og ruter (raude), spar og kløver (svarte) — med 13 kort i kvar farge, deriblant 4 ess totalt. Du trekkjer 5 kort tilfeldig. Kva er sannsynet for nøyaktig 3 ess?\n\nFørst nemnaren: talet på moglege pokerhender er $\\binom{52}{5} = 2\\,598\\,960$. Så teljaren, og her bruker vi multiplikasjonsprinsippet på to kombinasjonar: vi må velje 3 av dei 4 essa, $\\binom{4}{3} = 4$ måtar, *og* 2 av dei 48 øvrige korta, $\\binom{48}{2} = \\frac{48 \\cdot 47}{2} = 1128$ måtar. Talet på gunstige hender er dermed $4 \\cdot 1128 = 4512$, og\n\n$$P(3 \\text{ ess}) = \\frac{4512}{2\\,598\\,960} \\approx 0{,}0017 \\approx 0{,}17\\,\\%$$\n\nDet skjer altså i færre enn 2 av 1000 hender. Ser du mønsteret? Vel dei «spesielle» objekta med éin binomialkoeffisient, resten med ein annan, og gang saman. Akkurat denne strukturen møter du att i kapittelet om hypergeometrisk fordeling — der blir han sett i system for kvalitetskontroll og stikkprøver.",
+      "51a188f0d70a87bb": "Test deg sjølv på kombinatorikk og sannsyn:",
+      "3359a82e088c18e9": "Ei lottorekkje i ein variant med 6 tal av 34 har $1\\,344\\,904$ moglege rekkjer. Kva er sannsynet for å vinne med éi rekkje?",
+      "8bd9b094c85cc09a": "$\\dfrac{6}{34}$",
+      "1bedcac81d2c6cf5": "$\\dfrac{1}{1\\,344\\,904}$",
+      "9092ef2cade95a91": "$\\dfrac{1}{34^6}$",
+      "39071fbafb6b47e5": "$\\dfrac{6!}{34!}$",
+      "5dc48ab4b843f75a": "Éi gunstig rekkje av $1\\,344\\,904$ like sannsynlege: $P = \\frac{1}{1\\,344\\,904}$.",
+      "68ffb19501f0d5b5": "Du trekkjer 2 kort frå ein kortstokk. Kor mange av dei $\\binom{52}{2} = 1326$ moglege para består av to ess?",
+      "d872ad8444478bf5": "$\\binom{4}{2} = 6$",
+      "60210d901690050c": "$4 \\cdot 4 = 16$",
+      "38f0d6063acc8e99": "$P(4,2) = 12$",
+      "600f47a41952e4e4": "Vi vel 2 av dei 4 essa, uordna: $\\binom{4}{2} = 6$.",
+      "7d3bac1f68fd75ea": "I ei eske med 10 komponentar er 3 defekte. Du trekkjer 2 tilfeldig. Kva er sannsynet for at begge er defekte?",
+      "0a92154cfaa8a9d2": "$\\dfrac{3}{10} \\cdot \\dfrac{3}{10} = 0{,}09$",
+      "585abf79c2f4ec9a": "$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{3}{45} = \\dfrac{1}{15}$",
+      "c788624d4a7b527e": "$\\dfrac{2}{10}$",
+      "bf013a26c25f8066": "$\\dfrac{\\binom{3}{2}}{\\binom{10}{2}} = \\dfrac{6}{90} = \\dfrac{1}{10}$",
+      "d6f6bac54ca4dc28": "Gunstige: $\\binom{3}{2} = 3$. Moglege: $\\binom{10}{2} = 45$. $P = \\frac{3}{45} = \\frac{1}{15} \\approx 0{,}067$. (Trekning utan tilbakelegging — difor kan vi ikkje gange $0{,}3 \\cdot 0{,}3$.)",
+      "68c1aa52ea8fa5cf": "## Oppsummering: teljekunsten\n\nLotterimistanken frå innleiinga løyste seg med rein teljing: med over 1,3 millionar moglege lottorekkjer er det ingenting mystisk i at vinnarrekkjene aldri gjentek seg. Undervegs bygde vi opp heile den kombinatoriske verktøykassen.\n\nAlt kviler på **multiplikasjonsprinsippet**: uavhengige val med $n_1, n_2, \\ldots, n_k$ moglegheiter gjev $n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$ kombinasjonar totalt. Skal vi ordne $n$ objekt i rekkjefølgje, finst det $n! = n(n-1)\\cdots 2 \\cdot 1$ måtar, der vi hugsar spesialtilfellet $0! = 1$.\n\nNår vi vel $r$ av $n$ objekt, må vi alltid stille kontrollspørsmålet: *tel rekkjefølgja?* Gjer ho det — som ved pallplassar og vallister — bruker vi **permutasjonar**, $P(n,r) = \\frac{n!}{(n-r)!}$. Er rekkjefølgja likegyldig — som ved lottorekkjer og utval til undersøkingar — bruker vi **kombinasjonar**, $\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$. Dei to heng saman ved at $C(n,r) = P(n,r)/r!$: vi deler bort rekkjefølgja.\n\nTil slutt såg vi at teljinga er springbrettet til sannsyn. Med like sannsynlege utfall er $P(A)$ talet på gunstige delt på talet på moglege, og kombinatorikken tel begge delar — som då vi fann at sannsynet for nøyaktig 3 ess i ei pokerhand er om lag $0{,}17\\,\\%$. Denne måten å telje gunstige utfall på, med binomialkoeffisientar for kvar gruppe, blir grunnmuren når vi seinare møter den hypergeometriske fordelinga og binomisk fordeling."
+    }
+  }
+}

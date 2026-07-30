@@ -1,1 +1,291 @@
-{"id":"s2-1-2-narrativ","courseId":"s2","chapterNumber":"1.2","title":"Bestemte integraler","subtitle":"Narrativ versjon","description":"En fortelling om en nettbutikk som vil vite totalinntekten over en periode — og om fundamentalteoremet som gjør jobben med én antiderivert og to innsettinger.","estimatedMinutes":35,"competenceGoals":["bruke integrasjon i praktiske anvendelser","beregne og tolke integraler"],"linkedChapterId":"s2-1-2","content":[{"id":"s2-1-2-n-intro","type":"text","content":"## Hvor mye ble det til sammen?\n\nDu sitter i et møte i en gründerbedrift som driver en strikkevarebutikk på nett. Salgsinntektene strømmer inn med varierende fart gjennom sesongen, og daglig leder vil vite én ting: «Hvor mye tjente vi *totalt* mellom uke 1 og uke 3?» Du har en modell for inntektsraten, men raten alene svarer ikke på spørsmålet. Du trenger summen av alle de små bidragene over hele perioden.\n\nDet er akkurat dette et **bestemt integral** gjør. Mens det ubestemte integralet fra forrige kapittel ga oss en funksjonsfamilie $F(x) + C$, beregner det bestemte integralet «summen» av funksjonsverdier over et intervall. Vi skriver\n\n$$\\int_a^b f(x) \\, dx$$\n\nder $a$ er **nedre grense** og $b$ er **øvre grense**. Du kan tenke på det som at vi deler intervallet fra $a$ til $b$ i bittesmå biter, ganger funksjonsverdien i hver bit med bitens bredde, og legger sammen alt. Geometrisk er resultatet arealet mellom grafen og $x$-aksen — i hvert fall så lenge grafen ligger over aksen.\n\nDen store forskjellen fra forrige kapittel er at svaret ikke lenger er en funksjon med en mystisk konstant $C$, men et helt konkret **tall**: totale inntekter i kroner, total strekning i meter, totalt strømforbruk i kilowattimer. Og det vakre er at vi slipper å summere uendelig mange småbiter manuelt. En av matematikkhistoriens viktigste oppdagelser — analysens fundamentalteorem — gir oss en snarvei som bruker antideriverte direkte. La oss se hvordan."},{"id":"s2-1-2-n-section1","type":"text","content":"## Analysens fundamentalteorem\n\nSnarveien heter **analysens fundamentalteorem**, og det fortjener navnet: det kobler sammen de to store operasjonene derivasjon og integrasjon. Teoremet sier at hvis $F(x)$ er en antiderivert til $f(x)$, så er\n\n$$\\int_a^b f(x) \\, dx = F(b) - F(a) = [F(x)]_a^b$$\n\nI stedet for å summere uendelig mange småbiter, finner vi en antiderivert, setter inn øvre og nedre grense og trekker fra. Klammeparentesen $[F(x)]_a^b$ er bare en praktisk skrivemåte for «$F(b)$ minus $F(a)$».\n\nLa oss bruke dette på strikkebutikken. Si at inntektsraten i tusen kroner per uke er $f(x) = 2x + 1$, der $x$ er ukenummer. Totalinntekten fra uke 1 til uke 3 er da\n\n$$\\int_1^3 (2x + 1) \\, dx$$\n\nFørst finner vi en antiderivert: $F(x) = x^2 + x$. Så setter vi inn grensene:\n\n$$[x^2 + x]_1^3 = (9 + 3) - (1 + 1) = 12 - 2 = 10$$\n\nButikken tjente altså 10 000 kroner i perioden. Legg merke til at vi ikke trengte noen $+C$: hadde vi tatt med konstanten, ville den stått i både $F(b)$ og $F(a)$ og forsvunnet i subtraksjonen. Det bestemte integralet er et tall, ikke en funksjon.\n\nDet samme oppskriften fungerer for alle funksjonene du lærte å integrere i forrige kapittel. For eksempel er $\\int_0^2 e^x \\, dx = [e^x]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Finn antiderivert, sett inn, trekk fra — det er hele jobben."},{"id":"s2-1-2-n-quiz1","type":"exercise","exercise":{"id":"s2-1-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på bestemte integraler og fundamentalteoremet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-2-n-quiz1-q0","task":"Hva er den viktigste forskjellen på et ubestemt og et bestemt integral?","options":[{"id":"a","text":"Det bestemte integralet er et tall, det ubestemte er en funksjonsfamilie $F(x) + C$","isCorrect":true},{"id":"b","text":"Det ubestemte integralet er alltid størst","isCorrect":false},{"id":"c","text":"Det bestemte integralet kan bare brukes på polynomer","isCorrect":false},{"id":"d","text":"Det er ingen forskjell, bare ulik notasjon","isCorrect":false}],"solution":"Et bestemt integral $\\int_a^b f(x)\\,dx$ har grenser og gir et konkret tall, mens det ubestemte integralet $\\int f(x)\\,dx = F(x) + C$ beskriver alle antideriverte."},{"id":"s2-1-2-n-quiz1-q1","task":"Hva er $\\int_1^3 (2x + 1)\\,dx$?","options":[{"id":"a","text":"$8$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":false},{"id":"c","text":"$10$","isCorrect":true},{"id":"d","text":"$14$","isCorrect":false}],"solution":"Antiderivert: $F(x) = x^2 + x$. Da er $[x^2 + x]_1^3 = (9 + 3) - (1 + 1) = 12 - 2 = 10$."},{"id":"s2-1-2-n-quiz1-q2","task":"Hvorfor trenger vi ikke integrasjonskonstanten $C$ i bestemte integraler?","options":[{"id":"a","text":"Fordi $C$ alltid er null når grensene er positive","isCorrect":false},{"id":"b","text":"Fordi $C$ inngår i både $F(b)$ og $F(a)$ og forsvinner i subtraksjonen $F(b) - F(a)$","isCorrect":true},{"id":"c","text":"Fordi bestemte integraler ikke bygger på antideriverte","isCorrect":false},{"id":"d","text":"Fordi vi avrunder svaret til slutt","isCorrect":false}],"solution":"Med $F(x) + C$ får vi $(F(b) + C) - (F(a) + C) = F(b) - F(a)$. Konstanten kansellerer uansett verdi."},{"id":"s2-1-2-n-quiz1-q3","task":"Hva er $\\int_0^2 e^x\\,dx$?","options":[{"id":"a","text":"$e^2$","isCorrect":false},{"id":"b","text":"$e^2 + 1$","isCorrect":false},{"id":"c","text":"$2e$","isCorrect":false},{"id":"d","text":"$e^2 - 1$","isCorrect":true}],"solution":"$[e^x]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Husk at $e^0 = 1$, ikke $0$."}]}},{"id":"s2-1-2-n-section2","type":"text","content":"## Regneregler og tolkning av fortegn\n\nBestemte integraler følger noen enkle og svært nyttige regneregler. Den første er nesten selvsagt: $\\int_a^a f(x)\\,dx = 0$ — et intervall uten bredde gir ingen sum, akkurat som en butikk ikke tjener noe på null uker. Den andre handler om retning: bytter vi grensene, skifter integralet fortegn, $\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx$.\n\nDen tredje regelen er kanskje den mest praktiske: vi kan dele opp intervallet i et mellomliggende punkt $c$,\n\n$$\\int_a^b f(x) \\, dx = \\int_a^c f(x) \\, dx + \\int_c^b f(x) \\, dx$$\n\nInntekten for hele kvartalet er summen av inntektene for hver måned — det høres opplagt ut, men regelen er gull verdt når en funksjon oppfører seg ulikt på ulike deler av intervallet. Og som før kan konstanter settes utenfor: $\\int_a^b kf(x)\\,dx = k\\int_a^b f(x)\\,dx$.\n\nSå en viktig advarsel om tolkning: integralet kan bli **negativt**. Hvis grafen ligger under $x$-aksen — for eksempel hvis bedriftens resultat per uke er negativt i en tapsperiode — gir integralet et negativt bidrag. Det bestemte integralet måler altså *fortegnsbestemt* areal, og et negativt svar betyr ofte noe konkret: underskudd, tilbakelagt strekning i negativ retning, netto uttak fra en konto.\n\nSymmetri kan utnyttes også. For en *odde* funksjon (der $f(-x) = -f(x)$, som $f(x) = x^3$) er $\\int_{-a}^{a} f(x)\\,dx = 0$, fordi det negative arealet til venstre nøyaktig opphever det positive til høyre. Og substitusjonsteknikken fra forrige kapittel virker fortsatt — men husk at grensene hører til $x$, så du må enten bytte dem til $u$-verdier eller gå tilbake til $x$ før du setter inn."},{"id":"s2-1-2-n-quiz2","type":"exercise","exercise":{"id":"s2-1-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på regnereglene for bestemte integraler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-2-n-quiz2-q0","task":"Hva er $\\int_3^3 f(x)\\,dx$ for en vilkårlig funksjon $f$?","options":[{"id":"a","text":"$f(3)$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"Umulig å vite uten å kjenne $f$","isCorrect":false}],"solution":"Når øvre og nedre grense er like, har intervallet ingen bredde, og $\\int_a^a f(x)\\,dx = 0$."},{"id":"s2-1-2-n-quiz2-q1","task":"Vi vet at $\\int_2^5 f(x)\\,dx = 7$. Hva er da $\\int_5^2 f(x)\\,dx$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$\\frac{1}{7}$","isCorrect":false},{"id":"d","text":"$-7$","isCorrect":true}],"solution":"Å bytte grensene skifter fortegnet: $\\int_5^2 f(x)\\,dx = -\\int_2^5 f(x)\\,dx = -7$."},{"id":"s2-1-2-n-quiz2-q2","task":"En bedrift hadde resultatrate $r(t)$ slik at $\\int_0^2 r(t)\\,dt = 3$ og $\\int_0^4 r(t)\\,dt = 10$ (millioner kroner). Hva er resultatet fra $t = 2$ til $t = 4$?","options":[{"id":"a","text":"$13$ millioner","isCorrect":false},{"id":"b","text":"$7$ millioner","isCorrect":true},{"id":"c","text":"$10$ millioner","isCorrect":false},{"id":"d","text":"$3$ millioner","isCorrect":false}],"solution":"Oppdelingsregelen gir $\\int_0^4 = \\int_0^2 + \\int_2^4$, altså $\\int_2^4 r(t)\\,dt = 10 - 3 = 7$ millioner kroner."},{"id":"s2-1-2-n-quiz2-q3","task":"Hva er $\\int_{-2}^{2} x^3\\,dx$?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$8$","isCorrect":false},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$16$","isCorrect":false}],"solution":"$f(x) = x^3$ er en odde funksjon, så det negative bidraget på $[-2, 0]$ opphever det positive på $[0, 2]$: integralet er $0$. Kontroll: $[\\frac{x^4}{4}]_{-2}^2 = 4 - 4 = 0$."}]}},{"id":"s2-1-2-n-summary","type":"text","content":"## Et tall med mening\n\nDaglig leder fikk svaret sitt: 10 000 kroner mellom uke 1 og uke 3, regnet ut på tre linjer takket være analysens fundamentalteorem. Det er kapittelets store idé: integrasjon og derivasjon er motsatte operasjoner, og derfor kan vi beregne $\\int_a^b f(x)\\,dx = F(b) - F(a)$ ved å finne en antiderivert $F$ og bruke innsettingsnotasjonen $[F(x)]_a^b$.\n\nUnderveis lærte du at det bestemte integralet er et tall, ikke en funksjon, og at integrasjonskonstanten $C$ kansellerer i subtraksjonen. Du fikk regnereglene: $\\int_a^a = 0$, grensebytte gir fortegnsskifte, intervaller kan deles opp i et mellompunkt, og konstanter kan settes utenfor. Og du så at integralet måler fortegnsbestemt areal — ligger grafen under $x$-aksen, blir bidraget negativt, noe som i en økonomisk modell typisk betyr underskudd. For odde funksjoner over symmetriske intervaller gir det null, og substitusjon fungerer fortsatt så lenge du holder styr på grensene.\n\nI neste delkapittel snur vi på perspektivet: i stedet for å tolke integralet som en totalsum, skal vi bruke det til å beregne selve arealene — under én kurve og mellom to kurver. Da blir fortegnsdiskusjonen herfra helt avgjørende."}],"exercises":[]}
+{
+  "id": "s2-1-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "1.2",
+  "title": "Bestemte integraler",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om en nettbutikk som vil vite totalinntekten over en periode — og om fundamentalteoremet som gjør jobben med én antiderivert og to innsettinger.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke integrasjon i praktiske anvendelser",
+    "beregne og tolke integraler"
+  ],
+  "linkedChapterId": "s2-1-2",
+  "content": [
+    {
+      "id": "s2-1-2-n-intro",
+      "type": "text",
+      "content": "## Hvor mye ble det til sammen?\n\nDu sitter i et møte i en gründerbedrift som driver en strikkevarebutikk på nett. Salgsinntektene strømmer inn med varierende fart gjennom sesongen, og daglig leder vil vite én ting: «Hvor mye tjente vi *totalt* mellom uke 1 og uke 3?» Du har en modell for inntektsraten, men raten alene svarer ikke på spørsmålet. Du trenger summen av alle de små bidragene over hele perioden.\n\nDet er akkurat dette et **bestemt integral** gjør. Mens det ubestemte integralet fra forrige kapittel ga oss en funksjonsfamilie $F(x) + C$, beregner det bestemte integralet «summen» av funksjonsverdier over et intervall. Vi skriver\n\n$$\\int_a^b f(x) \\, dx$$\n\nder $a$ er **nedre grense** og $b$ er **øvre grense**. Du kan tenke på det som at vi deler intervallet fra $a$ til $b$ i bittesmå biter, ganger funksjonsverdien i hver bit med bitens bredde, og legger sammen alt. Geometrisk er resultatet arealet mellom grafen og $x$-aksen — i hvert fall så lenge grafen ligger over aksen.\n\nDen store forskjellen fra forrige kapittel er at svaret ikke lenger er en funksjon med en mystisk konstant $C$, men et helt konkret **tall**: totale inntekter i kroner, total strekning i meter, totalt strømforbruk i kilowattimer. Og det vakre er at vi slipper å summere uendelig mange småbiter manuelt. En av matematikkhistoriens viktigste oppdagelser — analysens fundamentalteorem — gir oss en snarvei som bruker antideriverte direkte. La oss se hvordan."
+    },
+    {
+      "id": "s2-1-2-n-section1",
+      "type": "text",
+      "content": "## Analysens fundamentalteorem\n\nSnarveien heter **analysens fundamentalteorem**, og det fortjener navnet: det kobler sammen de to store operasjonene derivasjon og integrasjon. Teoremet sier at hvis $F(x)$ er en antiderivert til $f(x)$, så er\n\n$$\\int_a^b f(x) \\, dx = F(b) - F(a) = [F(x)]_a^b$$\n\nI stedet for å summere uendelig mange småbiter, finner vi en antiderivert, setter inn øvre og nedre grense og trekker fra. Klammeparentesen $[F(x)]_a^b$ er bare en praktisk skrivemåte for «$F(b)$ minus $F(a)$».\n\nLa oss bruke dette på strikkebutikken. Si at inntektsraten i tusen kroner per uke er $f(x) = 2x + 1$, der $x$ er ukenummer. Totalinntekten fra uke 1 til uke 3 er da\n\n$$\\int_1^3 (2x + 1) \\, dx$$\n\nFørst finner vi en antiderivert: $F(x) = x^2 + x$. Så setter vi inn grensene:\n\n$$[x^2 + x]_1^3 = (9 + 3) - (1 + 1) = 12 - 2 = 10$$\n\nButikken tjente altså 10 000 kroner i perioden. Legg merke til at vi ikke trengte noen $+C$: hadde vi tatt med konstanten, ville den stått i både $F(b)$ og $F(a)$ og forsvunnet i subtraksjonen. Det bestemte integralet er et tall, ikke en funksjon.\n\nDet samme oppskriften fungerer for alle funksjonene du lærte å integrere i forrige kapittel. For eksempel er $\\int_0^2 e^x \\, dx = [e^x]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Finn antiderivert, sett inn, trekk fra — det er hele jobben."
+    },
+    {
+      "id": "s2-1-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på bestemte integraler og fundamentalteoremet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-2-n-quiz1-q0",
+            "task": "Hva er den viktigste forskjellen på et ubestemt og et bestemt integral?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det ubestemte integralet er alltid størst",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det bestemte integralet kan bare brukes på polynomer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen forskjell, bare ulik notasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Det bestemte integralet er et tall, det ubestemte er en funksjonsfamilie $F(x) + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Et bestemt integral $\\int_a^b f(x)\\,dx$ har grenser og gir et konkret tall, mens det ubestemte integralet $\\int f(x)\\,dx = F(x) + C$ beskriver alle antideriverte."
+          },
+          {
+            "id": "s2-1-2-n-quiz1-q1",
+            "task": "Hva er $\\int_1^3 (2x + 1)\\,dx$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$14$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Antiderivert: $F(x) = x^2 + x$. Da er $[x^2 + x]_1^3 = (9 + 3) - (1 + 1) = 12 - 2 = 10$."
+          },
+          {
+            "id": "s2-1-2-n-quiz1-q2",
+            "task": "Hvorfor trenger vi ikke integrasjonskonstanten $C$ i bestemte integraler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $C$ alltid er null når grensene er positive",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $C$ inngår i både $F(b)$ og $F(a)$ og forsvinner i subtraksjonen $F(b) - F(a)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi bestemte integraler ikke bygger på antideriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi vi avrunder svaret til slutt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $F(x) + C$ får vi $(F(b) + C) - (F(a) + C) = F(b) - F(a)$. Konstanten kansellerer uansett verdi."
+          },
+          {
+            "id": "s2-1-2-n-quiz1-q3",
+            "task": "Hva er $\\int_0^2 e^x\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$e^2 + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^2 - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2e$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$[e^x]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Husk at $e^0 = 1$, ikke $0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-2-n-section2",
+      "type": "text",
+      "content": "## Regneregler og tolkning av fortegn\n\nBestemte integraler følger noen enkle og svært nyttige regneregler. Den første er nesten selvsagt: $\\int_a^a f(x)\\,dx = 0$ — et intervall uten bredde gir ingen sum, akkurat som en butikk ikke tjener noe på null uker. Den andre handler om retning: bytter vi grensene, skifter integralet fortegn, $\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx$.\n\nDen tredje regelen er kanskje den mest praktiske: vi kan dele opp intervallet i et mellomliggende punkt $c$,\n\n$$\\int_a^b f(x) \\, dx = \\int_a^c f(x) \\, dx + \\int_c^b f(x) \\, dx$$\n\nInntekten for hele kvartalet er summen av inntektene for hver måned — det høres opplagt ut, men regelen er gull verdt når en funksjon oppfører seg ulikt på ulike deler av intervallet. Og som før kan konstanter settes utenfor: $\\int_a^b kf(x)\\,dx = k\\int_a^b f(x)\\,dx$.\n\nSå en viktig advarsel om tolkning: integralet kan bli **negativt**. Hvis grafen ligger under $x$-aksen — for eksempel hvis bedriftens resultat per uke er negativt i en tapsperiode — gir integralet et negativt bidrag. Det bestemte integralet måler altså *fortegnsbestemt* areal, og et negativt svar betyr ofte noe konkret: underskudd, tilbakelagt strekning i negativ retning, netto uttak fra en konto.\n\nSymmetri kan utnyttes også. For en *odde* funksjon (der $f(-x) = -f(x)$, som $f(x) = x^3$) er $\\int_{-a}^{a} f(x)\\,dx = 0$, fordi det negative arealet til venstre nøyaktig opphever det positive til høyre. Og substitusjonsteknikken fra forrige kapittel virker fortsatt — men husk at grensene hører til $x$, så du må enten bytte dem til $u$-verdier eller gå tilbake til $x$ før du setter inn."
+    },
+    {
+      "id": "s2-1-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regnereglene for bestemte integraler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-2-n-quiz2-q0",
+            "task": "Hva er $\\int_3^3 f(x)\\,dx$ for en vilkårlig funksjon $f$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Umulig å vite uten å kjenne $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når øvre og nedre grense er like, har intervallet ingen bredde, og $\\int_a^a f(x)\\,dx = 0$."
+          },
+          {
+            "id": "s2-1-2-n-quiz2-q1",
+            "task": "Vi vet at $\\int_2^5 f(x)\\,dx = 7$. Hva er da $\\int_5^2 f(x)\\,dx$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$-7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{7}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å bytte grensene skifter fortegnet: $\\int_5^2 f(x)\\,dx = -\\int_2^5 f(x)\\,dx = -7$."
+          },
+          {
+            "id": "s2-1-2-n-quiz2-q2",
+            "task": "En bedrift hadde resultatrate $r(t)$ slik at $\\int_0^2 r(t)\\,dt = 3$ og $\\int_0^4 r(t)\\,dt = 10$ (millioner kroner). Hva er resultatet fra $t = 2$ til $t = 4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$13$ millioner",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7$ millioner",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$10$ millioner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$ millioner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Oppdelingsregelen gir $\\int_0^4 = \\int_0^2 + \\int_2^4$, altså $\\int_2^4 r(t)\\,dt = 10 - 3 = 7$ millioner kroner."
+          },
+          {
+            "id": "s2-1-2-n-quiz2-q3",
+            "task": "Hva er $\\int_{-2}^{2} x^3\\,dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$16$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(x) = x^3$ er en odde funksjon, så det negative bidraget på $[-2, 0]$ opphever det positive på $[0, 2]$: integralet er $0$. Kontroll: $[\\frac{x^4}{4}]_{-2}^2 = 4 - 4 = 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-2-n-summary",
+      "type": "text",
+      "content": "## Et tall med mening\n\nDaglig leder fikk svaret sitt: 10 000 kroner mellom uke 1 og uke 3, regnet ut på tre linjer takket være analysens fundamentalteorem. Det er kapittelets store idé: integrasjon og derivasjon er motsatte operasjoner, og derfor kan vi beregne $\\int_a^b f(x)\\,dx = F(b) - F(a)$ ved å finne en antiderivert $F$ og bruke innsettingsnotasjonen $[F(x)]_a^b$.\n\nUnderveis lærte du at det bestemte integralet er et tall, ikke en funksjon, og at integrasjonskonstanten $C$ kansellerer i subtraksjonen. Du fikk regnereglene: $\\int_a^a = 0$, grensebytte gir fortegnsskifte, intervaller kan deles opp i et mellompunkt, og konstanter kan settes utenfor. Og du så at integralet måler fortegnsbestemt areal — ligger grafen under $x$-aksen, blir bidraget negativt, noe som i en økonomisk modell typisk betyr underskudd. For odde funksjoner over symmetriske intervaller gir det null, og substitusjon fungerer fortsatt så lenge du holder styr på grensene.\n\nI neste delkapittel snur vi på perspektivet: i stedet for å tolke integralet som en totalsum, skal vi bruke det til å beregne selve arealene — under én kurve og mellom to kurver. Da blir fortegnsdiskusjonen herfra helt avgjørende."
+    }
+  ],
+  "exercises": []
+}

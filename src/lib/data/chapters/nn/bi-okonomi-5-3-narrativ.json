@@ -1,1 +1,289 @@
-{"id":"bi-okonomi-5-3-narrativ","courseId":"bi-okonomi","chapterNumber":"5.3","title":"Derivasjon av spesielle funksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om å derivere vekstens eigne funksjonar -- eksponentialfunksjonen som er sin eigen deriverte, logaritmen med sin $1/x$, og kjerneregelen som bind det heile saman.","estimatedMinutes":30,"competenceGoals":[],"linkedChapterId":"bi-okonomi-5-3","content":[{"id":"bi-okonomi-5-3-n-intro","type":"text","content":"## Funksjonane som skildrar vekst\n\nNår vi modellerer renter, investeringar og avskrivingar i økonomi, dukkar det stadig opp **eksponentialfunksjonar** og **logaritmar**. Ei investering som blir forrenta kontinuerleg veks som $e^{rt}$; ein storleik som veks saktare og saktare blir gjerne skildra med $\\ln x$. For å finne kor raskt slike storleikar endrar seg, må vi kunne derivere dei. Heldigvis har dei nokre forbløffande elegante derivasjonsreglar.\n\nLat oss byrje med den mest bemerkelsesverdige funksjonen i matematikken. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**:\n\n$$\\frac{d}{dx}(e^x) = e^x.$$\n\nHan forandrar seg ikkje når du deriverer han. Det er nettopp denne eigenskapen som gjer $e$ til naturens valde vekstkonstant. For eit generelt grunntal er det ei lita justering: $\\frac{d}{dx}(a^x) = a^x \\cdot \\ln a$. Når $a = e$ blir $\\ln e = 1$, og vi er tilbake til $e^x$.\n\nKombinerer vi med kjerneregelen frå førre kapittel, får vi det vi verkeleg treng i økonomi: $\\frac{d}{dx}(e^{u(x)}) = e^{u(x)} \\cdot u'(x)$. Kjernen $u$ blir bevart i eksponenten, og vi gangar med den deriverte av kjernen. Ein konsekvens er den hyppig brukte regelen $(e^{kx})' = k\\,e^{kx}$."},{"id":"bi-okonomi-5-3-n-section1","type":"text","content":"## Eksponentialfunksjonar i praksis\n\nLat oss sjå korleis dette verkar på ei ekte investering. Anta at ein sum veks etter $V(t) = 10000 \\cdot e^{0{,}05t}$, der $t$ er tida i år. Kor raskt veks han? Vi deriverer med kjerneregelen, der kjernen er $u = 0{,}05t$ med $u' = 0{,}05$:\n\n$$V'(t) = 10000 \\cdot e^{0{,}05t} \\cdot 0{,}05 = 500 \\cdot e^{0{,}05t}.$$\n\nMerk at vekstfarten sjølv veks over tid -- det er rentes rente i eit nøtteskal. Ved starten, $t = 0$, er $V'(0) = 500\\cdot e^0 = 500$ kroner per år. Seinare går det fortare.\n\nOfte støyter vi på funksjonar som blandar eksponential med polynom. Sjå på $f(x) = x^2 \\cdot e^{-x}$. Her må vi bruke **produktregelen** frå førre kapittel, med $g = x^2$ og $h = e^{-x}$. Vi har $g' = 2x$, og for $h$ bruker vi kjerneregelen: $(e^{-x})' = e^{-x}\\cdot(-1) = -e^{-x}$. Då blir\n\n$$f'(x) = 2x\\cdot e^{-x} + x^2\\cdot(-e^{-x}) = e^{-x}(2x - x^2) = xe^{-x}(2 - x).$$\n\nLegg merke til korleis vi faktoriserte ut $e^{-x}$ for å rydde opp. Slike kombinasjonar -- produkt- og kjerneregel saman -- er heilt vanlege når vi seinare skal drøfte funksjonar og finne topp- og botnpunkt."},{"id":"bi-okonomi-5-3-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-5-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på derivasjon av eksponentialfunksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-3-n-quiz1-q0","task":"Kva er den deriverte av $e^x$?","options":[{"id":"a","text":"$e^x$","isCorrect":true},{"id":"b","text":"$x e^{x-1}$","isCorrect":false},{"id":"c","text":"$e^x\\ln x$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":false}],"solution":"$e^x$ er sin eigen deriverte: $(e^x)'=e^x$."},{"id":"bi-okonomi-5-3-n-quiz1-q1","task":"Kva er $(a^x)'$ for eit grunntal $a$?","options":[{"id":"a","text":"$a^x$","isCorrect":false},{"id":"b","text":"$a^x\\ln a$","isCorrect":true},{"id":"c","text":"$x a^{x-1}$","isCorrect":false},{"id":"d","text":"$a^x / \\ln a$","isCorrect":false}],"solution":"$(a^x)'=a^x\\ln a$. Når $a=e$ blir $\\ln e=1$, så vi får $e^x$ igjen."},{"id":"bi-okonomi-5-3-n-quiz1-q2","task":"For $V(t)=10000\\,e^{0{,}05t}$, kva er $V'(t)$?","options":[{"id":"a","text":"$10000\\,e^{0{,}05t}$","isCorrect":false},{"id":"b","text":"$10000\\,e^{0{,}05t}\\cdot t$","isCorrect":false},{"id":"c","text":"$500\\,e^{0{,}05t}$","isCorrect":true},{"id":"d","text":"$0{,}05\\,e^{0{,}05t}$","isCorrect":false}],"solution":"Kjerneregelen: $V'=10000\\,e^{0{,}05t}\\cdot 0{,}05=500\\,e^{0{,}05t}$."}]}},{"id":"bi-okonomi-5-3-n-section2","type":"text","content":"## Logaritmar og deira deriverte\n\nLogaritmen er motstykket til eksponentialfunksjonen, og han har ein uventa pen derivert. For den naturlege logaritmen gjeld\n\n$$\\frac{d}{dx}(\\ln x) = \\frac{1}{x}, \\quad x > 0.$$\n\nDet er nesten for enkelt: ein logaritme, som veks så sakte, har ein derivert som berre er $1/x$. For ein logaritme med anna grunntal blir det $\\frac{d}{dx}(\\log_a x) = \\frac{1}{x\\,\\ln a}$.\n\nDet verkeleg nyttige kjem når vi kombinerer med kjerneregelen. For ein samansett logaritme er\n\n$$\\frac{d}{dx}(\\ln u(x)) = \\frac{u'(x)}{u(x)}.$$\n\nMed ord: den deriverte av $\\ln$ av noko, er den deriverte av kjernen delt på kjernen sjølv. Lat oss bruke han på $f(x) = \\ln(x^2 + 1)$. Her er kjernen $u = x^2 + 1$ med $u' = 2x$. Då blir rett og slett\n\n$$f'(x) = \\frac{2x}{x^2 + 1}.$$\n\nVi tek berre kjernens deriverte $2x$ og deler på kjernen $x^2 + 1$. Denne forma -- ein brøk med ein derivert over eit uttrykk -- vil du kjenne att overalt der logaritmar dukkar opp. Og sidan $e^x$ og $\\ln x$ er kvarandres inverse, heng derivasjonsreglane deira tett saman og dukkar stadig opp side om side i økonomiske modellar for vekst og avtakande utbytte."},{"id":"bi-okonomi-5-3-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-5-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på derivasjon av logaritmar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-3-n-quiz2-q0","task":"Kva er den deriverte av $\\ln x$?","options":[{"id":"a","text":"$\\ln x$","isCorrect":false},{"id":"b","text":"$x\\ln x$","isCorrect":false},{"id":"c","text":"$-\\frac{1}{x^2}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{x}$","isCorrect":true}],"solution":"$(\\ln x)'=\\frac{1}{x}$ for $x>0$."},{"id":"bi-okonomi-5-3-n-quiz2-q1","task":"Kva er den deriverte av $\\ln(u(x))$ med kjerneregelen?","options":[{"id":"a","text":"$\\frac{u'(x)}{u(x)}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{u(x)}$","isCorrect":false},{"id":"c","text":"$u'(x)\\cdot\\ln u(x)$","isCorrect":false},{"id":"d","text":"$\\frac{u(x)}{u'(x)}$","isCorrect":false}],"solution":"Kjernens deriverte over kjernen sjølv: $\\frac{u'(x)}{u(x)}$."},{"id":"bi-okonomi-5-3-n-quiz2-q2","task":"Deriver $f(x)=\\ln(x^2+1)$.","options":[{"id":"a","text":"$\\frac{1}{x^2+1}$","isCorrect":false},{"id":"b","text":"$\\frac{2x}{x^2+1}$","isCorrect":true},{"id":"c","text":"$\\frac{2x}{x^2}$","isCorrect":false},{"id":"d","text":"$2x\\ln(x^2+1)$","isCorrect":false}],"solution":"Kjernen $u=x^2+1$ har $u'=2x$, så $f'=\\frac{2x}{x^2+1}$."}]}},{"id":"bi-okonomi-5-3-n-summary","type":"text","content":"## Oppsummering\n\nVekstens eigne funksjonar har overraskande elegante deriverte. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**, $(e^x)' = e^x$, medan eit generelt grunntal gir $(a^x)' = a^x\\ln a$. Med kjerneregelen blir $(e^{u})' = e^{u}\\cdot u'$, så til dømes $(e^{kx})' = k\\,e^{kx}$ -- som vi brukte til å vise at ei investering $V(t) = 10000\\,e^{0{,}05t}$ har vekstfart $V'(t) = 500\\,e^{0{,}05t}$.\n\nLogaritmen er motstykket: $(\\ln x)' = \\frac{1}{x}$, og med kjerneregelen $(\\ln u)' = \\frac{u'}{u}$, slik at $\\ln(x^2+1)$ har derivert $\\frac{2x}{x^2+1}$. Når desse blir blanda med produktregelen -- som i $x^2 e^{-x}$ -- kan vi derivere nær sagt kva som helst funksjon vi møter i økonomiske vekstmodellar. Verktøykassa er no komplett nok til at vi i dei neste kapitla kan byrje å drøfte funksjonar og løyse optimeringsproblem."}],"exercises":[],"_meta":{"sourceHash":"c0b0e2285d5b1522","translatedAt":"2026-06-21T00:51:11.855Z","model":"claude-code-agent","strings":46,"tm":{"201a06908a196609":"Derivasjon av spesielle funksjonar","b195b06d1ed59702":"Narrativ versjon","89875922c9d47dc7":"Ei forteljing om å derivere vekstens eigne funksjonar -- eksponentialfunksjonen som er sin eigen deriverte, logaritmen med sin $1/x$, og kjerneregelen som bind det heile saman.","85a4a7d0dcd952d8":"## Funksjonane som skildrar vekst\n\nNår vi modellerer renter, investeringar og avskrivingar i økonomi, dukkar det stadig opp **eksponentialfunksjonar** og **logaritmar**. Ei investering som blir forrenta kontinuerleg veks som $e^{rt}$; ein storleik som veks saktare og saktare blir gjerne skildra med $\\ln x$. For å finne kor raskt slike storleikar endrar seg, må vi kunne derivere dei. Heldigvis har dei nokre forbløffande elegante derivasjonsreglar.\n\nLat oss byrje med den mest bemerkelsesverdige funksjonen i matematikken. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**:\n\n$$\\frac{d}{dx}(e^x) = e^x.$$\n\nHan forandrar seg ikkje når du deriverer han. Det er nettopp denne eigenskapen som gjer $e$ til naturens valde vekstkonstant. For eit generelt grunntal er det ei lita justering: $\\frac{d}{dx}(a^x) = a^x \\cdot \\ln a$. Når $a = e$ blir $\\ln e = 1$, og vi er tilbake til $e^x$.\n\nKombinerer vi med kjerneregelen frå førre kapittel, får vi det vi verkeleg treng i økonomi: $\\frac{d}{dx}(e^{u(x)}) = e^{u(x)} \\cdot u'(x)$. Kjernen $u$ blir bevart i eksponenten, og vi gangar med den deriverte av kjernen. Ein konsekvens er den hyppig brukte regelen $(e^{kx})' = k\\,e^{kx}$.","6dc502f3e4702261":"## Eksponentialfunksjonar i praksis\n\nLat oss sjå korleis dette verkar på ei ekte investering. Anta at ein sum veks etter $V(t) = 10000 \\cdot e^{0{,}05t}$, der $t$ er tida i år. Kor raskt veks han? Vi deriverer med kjerneregelen, der kjernen er $u = 0{,}05t$ med $u' = 0{,}05$:\n\n$$V'(t) = 10000 \\cdot e^{0{,}05t} \\cdot 0{,}05 = 500 \\cdot e^{0{,}05t}.$$\n\nMerk at vekstfarten sjølv veks over tid -- det er rentes rente i eit nøtteskal. Ved starten, $t = 0$, er $V'(0) = 500\\cdot e^0 = 500$ kroner per år. Seinare går det fortare.\n\nOfte støyter vi på funksjonar som blandar eksponential med polynom. Sjå på $f(x) = x^2 \\cdot e^{-x}$. Her må vi bruke **produktregelen** frå førre kapittel, med $g = x^2$ og $h = e^{-x}$. Vi har $g' = 2x$, og for $h$ bruker vi kjerneregelen: $(e^{-x})' = e^{-x}\\cdot(-1) = -e^{-x}$. Då blir\n\n$$f'(x) = 2x\\cdot e^{-x} + x^2\\cdot(-e^{-x}) = e^{-x}(2x - x^2) = xe^{-x}(2 - x).$$\n\nLegg merke til korleis vi faktoriserte ut $e^{-x}$ for å rydde opp. Slike kombinasjonar -- produkt- og kjerneregel saman -- er heilt vanlege når vi seinare skal drøfte funksjonar og finne topp- og botnpunkt.","b320946e53e2002d":"Test deg sjølv på derivasjon av eksponentialfunksjonar:","4097889236a2af26":"placeholder","87312de6f9a12016":"Kva er den deriverte av $e^x$?","d61cf6ef09ec53a6":"$e^x$","6f628e9a74defd82":"$x e^{x-1}$","4e3b4ed1aa673064":"$e^x\\ln x$","94de0f85ed72e754":"$e^x$ er sin eigen deriverte: $(e^x)'=e^x$.","bc40493d3bacc2d0":"Kva er $(a^x)'$ for eit grunntal $a$?","0589167b070fb826":"$a^x$","9574fd0f66dae746":"$a^x\\ln a$","0546affedf54cba7":"$x a^{x-1}$","c8fd4f8358945dec":"$a^x / \\ln a$","3820e729bc3ae604":"$(a^x)'=a^x\\ln a$. Når $a=e$ blir $\\ln e=1$, så vi får $e^x$ igjen.","4d75ccdf23f27a71":"For $V(t)=10000\\,e^{0{,}05t}$, kva er $V'(t)$?","0580464565996a46":"$10000\\,e^{0{,}05t}$","acccf5e8b3c8882e":"$10000\\,e^{0{,}05t}\\cdot t$","1a3c35d0005b5a15":"$500\\,e^{0{,}05t}$","d6d43c52b4540524":"$0{,}05\\,e^{0{,}05t}$","2a1d8cbbd89990c9":"Kjerneregelen: $V'=10000\\,e^{0{,}05t}\\cdot 0{,}05=500\\,e^{0{,}05t}$.","ee11c7b08f4a9450":"## Logaritmar og deira deriverte\n\nLogaritmen er motstykket til eksponentialfunksjonen, og han har ein uventa pen derivert. For den naturlege logaritmen gjeld\n\n$$\\frac{d}{dx}(\\ln x) = \\frac{1}{x}, \\quad x > 0.$$\n\nDet er nesten for enkelt: ein logaritme, som veks så sakte, har ein derivert som berre er $1/x$. For ein logaritme med anna grunntal blir det $\\frac{d}{dx}(\\log_a x) = \\frac{1}{x\\,\\ln a}$.\n\nDet verkeleg nyttige kjem når vi kombinerer med kjerneregelen. For ein samansett logaritme er\n\n$$\\frac{d}{dx}(\\ln u(x)) = \\frac{u'(x)}{u(x)}.$$\n\nMed ord: den deriverte av $\\ln$ av noko, er den deriverte av kjernen delt på kjernen sjølv. Lat oss bruke han på $f(x) = \\ln(x^2 + 1)$. Her er kjernen $u = x^2 + 1$ med $u' = 2x$. Då blir rett og slett\n\n$$f'(x) = \\frac{2x}{x^2 + 1}.$$\n\nVi tek berre kjernens deriverte $2x$ og deler på kjernen $x^2 + 1$. Denne forma -- ein brøk med ein derivert over eit uttrykk -- vil du kjenne att overalt der logaritmar dukkar opp. Og sidan $e^x$ og $\\ln x$ er kvarandres inverse, heng derivasjonsreglane deira tett saman og dukkar stadig opp side om side i økonomiske modellar for vekst og avtakande utbytte.","e07ec0d6734b7198":"Test deg sjølv på derivasjon av logaritmar:","3e273efb76371ecd":"Kva er den deriverte av $\\ln x$?","5baeaa2459d35eaa":"$\\ln x$","8e5375c882bf5b32":"$x\\ln x$","3c6dbfbfa555b128":"$-\\frac{1}{x^2}$","67a691bb8a51fd28":"$\\frac{1}{x}$","24d3bcf379212b87":"$(\\ln x)'=\\frac{1}{x}$ for $x>0$.","7a36ed119a7135c3":"Kva er den deriverte av $\\ln(u(x))$ med kjerneregelen?","23043ac57198b253":"$\\frac{u'(x)}{u(x)}$","6ac99ff588369ffd":"$\\frac{1}{u(x)}$","2f840e289ff8903a":"$u'(x)\\cdot\\ln u(x)$","5d7aa63a2130512a":"$\\frac{u(x)}{u'(x)}$","0c1750ac1c719b9a":"Kjernens deriverte over kjernen sjølv: $\\frac{u'(x)}{u(x)}$.","3870a2847f1e3e7e":"Deriver $f(x)=\\ln(x^2+1)$.","e2c8d1f5e27d3d1f":"$\\frac{1}{x^2+1}$","74e2ba6e1f83fdf4":"$\\frac{2x}{x^2+1}$","b0b6d99e10781016":"$\\frac{2x}{x^2}$","1639b771ba263869":"$2x\\ln(x^2+1)$","1224420f6366b330":"Kjernen $u=x^2+1$ har $u'=2x$, så $f'=\\frac{2x}{x^2+1}$.","5746f4e7fd1265ec":"## Oppsummering\n\nVekstens eigne funksjonar har overraskande elegante deriverte. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**, $(e^x)' = e^x$, medan eit generelt grunntal gir $(a^x)' = a^x\\ln a$. Med kjerneregelen blir $(e^{u})' = e^{u}\\cdot u'$, så til dømes $(e^{kx})' = k\\,e^{kx}$ -- som vi brukte til å vise at ei investering $V(t) = 10000\\,e^{0{,}05t}$ har vekstfart $V'(t) = 500\\,e^{0{,}05t}$.\n\nLogaritmen er motstykket: $(\\ln x)' = \\frac{1}{x}$, og med kjerneregelen $(\\ln u)' = \\frac{u'}{u}$, slik at $\\ln(x^2+1)$ har derivert $\\frac{2x}{x^2+1}$. Når desse blir blanda med produktregelen -- som i $x^2 e^{-x}$ -- kan vi derivere nær sagt kva som helst funksjon vi møter i økonomiske vekstmodellar. Verktøykassa er no komplett nok til at vi i dei neste kapitla kan byrje å drøfte funksjonar og løyse optimeringsproblem."}}}
+{
+  "id": "bi-okonomi-5-3-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "5.3",
+  "title": "Derivasjon av spesielle funksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å derivere vekstens eigne funksjonar -- eksponentialfunksjonen som er sin eigen deriverte, logaritmen med sin $1/x$, og kjerneregelen som bind det heile saman.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-5-3",
+  "content": [
+    {
+      "id": "bi-okonomi-5-3-n-intro",
+      "type": "text",
+      "content": "## Funksjonane som skildrar vekst\n\nNår vi modellerer renter, investeringar og avskrivingar i økonomi, dukkar det stadig opp **eksponentialfunksjonar** og **logaritmar**. Ei investering som blir forrenta kontinuerleg veks som $e^{rt}$; ein storleik som veks saktare og saktare blir gjerne skildra med $\\ln x$. For å finne kor raskt slike storleikar endrar seg, må vi kunne derivere dei. Heldigvis har dei nokre forbløffande elegante derivasjonsreglar.\n\nLat oss byrje med den mest bemerkelsesverdige funksjonen i matematikken. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**:\n\n$$\\frac{d}{dx}(e^x) = e^x.$$\n\nHan forandrar seg ikkje når du deriverer han. Det er nettopp denne eigenskapen som gjer $e$ til naturens valde vekstkonstant. For eit generelt grunntal er det ei lita justering: $\\frac{d}{dx}(a^x) = a^x \\cdot \\ln a$. Når $a = e$ blir $\\ln e = 1$, og vi er tilbake til $e^x$.\n\nKombinerer vi med kjerneregelen frå førre kapittel, får vi det vi verkeleg treng i økonomi: $\\frac{d}{dx}(e^{u(x)}) = e^{u(x)} \\cdot u'(x)$. Kjernen $u$ blir bevart i eksponenten, og vi gangar med den deriverte av kjernen. Ein konsekvens er den hyppig brukte regelen $(e^{kx})' = k\\,e^{kx}$."
+    },
+    {
+      "id": "bi-okonomi-5-3-n-section1",
+      "type": "text",
+      "content": "## Eksponentialfunksjonar i praksis\n\nLat oss sjå korleis dette verkar på ei ekte investering. Anta at ein sum veks etter $V(t) = 10000 \\cdot e^{0{,}05t}$, der $t$ er tida i år. Kor raskt veks han? Vi deriverer med kjerneregelen, der kjernen er $u = 0{,}05t$ med $u' = 0{,}05$:\n\n$$V'(t) = 10000 \\cdot e^{0{,}05t} \\cdot 0{,}05 = 500 \\cdot e^{0{,}05t}.$$\n\nMerk at vekstfarten sjølv veks over tid -- det er rentes rente i eit nøtteskal. Ved starten, $t = 0$, er $V'(0) = 500\\cdot e^0 = 500$ kroner per år. Seinare går det fortare.\n\nOfte støyter vi på funksjonar som blandar eksponential med polynom. Sjå på $f(x) = x^2 \\cdot e^{-x}$. Her må vi bruke **produktregelen** frå førre kapittel, med $g = x^2$ og $h = e^{-x}$. Vi har $g' = 2x$, og for $h$ bruker vi kjerneregelen: $(e^{-x})' = e^{-x}\\cdot(-1) = -e^{-x}$. Då blir\n\n$$f'(x) = 2x\\cdot e^{-x} + x^2\\cdot(-e^{-x}) = e^{-x}(2x - x^2) = xe^{-x}(2 - x).$$\n\nLegg merke til korleis vi faktoriserte ut $e^{-x}$ for å rydde opp. Slike kombinasjonar -- produkt- og kjerneregel saman -- er heilt vanlege når vi seinare skal drøfte funksjonar og finne topp- og botnpunkt."
+    },
+    {
+      "id": "bi-okonomi-5-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på derivasjon av eksponentialfunksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-3-n-quiz1-q0",
+            "task": "Kva er den deriverte av $e^x$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x e^{x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e^x\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$e^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$e^x$ er sin eigen deriverte: $(e^x)'=e^x$."
+          },
+          {
+            "id": "bi-okonomi-5-3-n-quiz1-q1",
+            "task": "Kva er $(a^x)'$ for eit grunntal $a$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x a^{x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a^x / \\ln a$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a^x\\ln a$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$(a^x)'=a^x\\ln a$. Når $a=e$ blir $\\ln e=1$, så vi får $e^x$ igjen."
+          },
+          {
+            "id": "bi-okonomi-5-3-n-quiz1-q2",
+            "task": "For $V(t)=10000\\,e^{0{,}05t}$, kva er $V'(t)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$500\\,e^{0{,}05t}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$10000\\,e^{0{,}05t}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10000\\,e^{0{,}05t}\\cdot t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}05\\,e^{0{,}05t}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen: $V'=10000\\,e^{0{,}05t}\\cdot 0{,}05=500\\,e^{0{,}05t}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-3-n-section2",
+      "type": "text",
+      "content": "## Logaritmar og deira deriverte\n\nLogaritmen er motstykket til eksponentialfunksjonen, og han har ein uventa pen derivert. For den naturlege logaritmen gjeld\n\n$$\\frac{d}{dx}(\\ln x) = \\frac{1}{x}, \\quad x > 0.$$\n\nDet er nesten for enkelt: ein logaritme, som veks så sakte, har ein derivert som berre er $1/x$. For ein logaritme med anna grunntal blir det $\\frac{d}{dx}(\\log_a x) = \\frac{1}{x\\,\\ln a}$.\n\nDet verkeleg nyttige kjem når vi kombinerer med kjerneregelen. For ein samansett logaritme er\n\n$$\\frac{d}{dx}(\\ln u(x)) = \\frac{u'(x)}{u(x)}.$$\n\nMed ord: den deriverte av $\\ln$ av noko, er den deriverte av kjernen delt på kjernen sjølv. Lat oss bruke han på $f(x) = \\ln(x^2 + 1)$. Her er kjernen $u = x^2 + 1$ med $u' = 2x$. Då blir rett og slett\n\n$$f'(x) = \\frac{2x}{x^2 + 1}.$$\n\nVi tek berre kjernens deriverte $2x$ og deler på kjernen $x^2 + 1$. Denne forma -- ein brøk med ein derivert over eit uttrykk -- vil du kjenne att overalt der logaritmar dukkar opp. Og sidan $e^x$ og $\\ln x$ er kvarandres inverse, heng derivasjonsreglane deira tett saman og dukkar stadig opp side om side i økonomiske modellar for vekst og avtakande utbytte."
+    },
+    {
+      "id": "bi-okonomi-5-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på derivasjon av logaritmar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-3-n-quiz2-q0",
+            "task": "Kva er den deriverte av $\\ln x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{1}{x^2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(\\ln x)'=\\frac{1}{x}$ for $x>0$."
+          },
+          {
+            "id": "bi-okonomi-5-3-n-quiz2-q1",
+            "task": "Kva er den deriverte av $\\ln(u(x))$ med kjerneregelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{u(x)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$u'(x)\\cdot\\ln u(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{u'(x)}{u(x)}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{u(x)}{u'(x)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernens deriverte over kjernen sjølv: $\\frac{u'(x)}{u(x)}$."
+          },
+          {
+            "id": "bi-okonomi-5-3-n-quiz2-q2",
+            "task": "Deriver $f(x)=\\ln(x^2+1)$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{x^2+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2x}{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x\\ln(x^2+1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2x}{x^2+1}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kjernen $u=x^2+1$ har $u'=2x$, så $f'=\\frac{2x}{x^2+1}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVekstens eigne funksjonar har overraskande elegante deriverte. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**, $(e^x)' = e^x$, medan eit generelt grunntal gir $(a^x)' = a^x\\ln a$. Med kjerneregelen blir $(e^{u})' = e^{u}\\cdot u'$, så til dømes $(e^{kx})' = k\\,e^{kx}$ -- som vi brukte til å vise at ei investering $V(t) = 10000\\,e^{0{,}05t}$ har vekstfart $V'(t) = 500\\,e^{0{,}05t}$.\n\nLogaritmen er motstykket: $(\\ln x)' = \\frac{1}{x}$, og med kjerneregelen $(\\ln u)' = \\frac{u'}{u}$, slik at $\\ln(x^2+1)$ har derivert $\\frac{2x}{x^2+1}$. Når desse blir blanda med produktregelen -- som i $x^2 e^{-x}$ -- kan vi derivere nær sagt kva som helst funksjon vi møter i økonomiske vekstmodellar. Verktøykassa er no komplett nok til at vi i dei neste kapitla kan byrje å drøfte funksjonar og løyse optimeringsproblem."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c0b0e2285d5b1522",
+    "translatedAt": "2026-06-21T00:51:11.855Z",
+    "model": "claude-code-agent",
+    "strings": 46,
+    "tm": {
+      "201a06908a196609": "Derivasjon av spesielle funksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "89875922c9d47dc7": "Ei forteljing om å derivere vekstens eigne funksjonar -- eksponentialfunksjonen som er sin eigen deriverte, logaritmen med sin $1/x$, og kjerneregelen som bind det heile saman.",
+      "85a4a7d0dcd952d8": "## Funksjonane som skildrar vekst\n\nNår vi modellerer renter, investeringar og avskrivingar i økonomi, dukkar det stadig opp **eksponentialfunksjonar** og **logaritmar**. Ei investering som blir forrenta kontinuerleg veks som $e^{rt}$; ein storleik som veks saktare og saktare blir gjerne skildra med $\\ln x$. For å finne kor raskt slike storleikar endrar seg, må vi kunne derivere dei. Heldigvis har dei nokre forbløffande elegante derivasjonsreglar.\n\nLat oss byrje med den mest bemerkelsesverdige funksjonen i matematikken. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**:\n\n$$\\frac{d}{dx}(e^x) = e^x.$$\n\nHan forandrar seg ikkje når du deriverer han. Det er nettopp denne eigenskapen som gjer $e$ til naturens valde vekstkonstant. For eit generelt grunntal er det ei lita justering: $\\frac{d}{dx}(a^x) = a^x \\cdot \\ln a$. Når $a = e$ blir $\\ln e = 1$, og vi er tilbake til $e^x$.\n\nKombinerer vi med kjerneregelen frå førre kapittel, får vi det vi verkeleg treng i økonomi: $\\frac{d}{dx}(e^{u(x)}) = e^{u(x)} \\cdot u'(x)$. Kjernen $u$ blir bevart i eksponenten, og vi gangar med den deriverte av kjernen. Ein konsekvens er den hyppig brukte regelen $(e^{kx})' = k\\,e^{kx}$.",
+      "6dc502f3e4702261": "## Eksponentialfunksjonar i praksis\n\nLat oss sjå korleis dette verkar på ei ekte investering. Anta at ein sum veks etter $V(t) = 10000 \\cdot e^{0{,}05t}$, der $t$ er tida i år. Kor raskt veks han? Vi deriverer med kjerneregelen, der kjernen er $u = 0{,}05t$ med $u' = 0{,}05$:\n\n$$V'(t) = 10000 \\cdot e^{0{,}05t} \\cdot 0{,}05 = 500 \\cdot e^{0{,}05t}.$$\n\nMerk at vekstfarten sjølv veks over tid -- det er rentes rente i eit nøtteskal. Ved starten, $t = 0$, er $V'(0) = 500\\cdot e^0 = 500$ kroner per år. Seinare går det fortare.\n\nOfte støyter vi på funksjonar som blandar eksponential med polynom. Sjå på $f(x) = x^2 \\cdot e^{-x}$. Her må vi bruke **produktregelen** frå førre kapittel, med $g = x^2$ og $h = e^{-x}$. Vi har $g' = 2x$, og for $h$ bruker vi kjerneregelen: $(e^{-x})' = e^{-x}\\cdot(-1) = -e^{-x}$. Då blir\n\n$$f'(x) = 2x\\cdot e^{-x} + x^2\\cdot(-e^{-x}) = e^{-x}(2x - x^2) = xe^{-x}(2 - x).$$\n\nLegg merke til korleis vi faktoriserte ut $e^{-x}$ for å rydde opp. Slike kombinasjonar -- produkt- og kjerneregel saman -- er heilt vanlege når vi seinare skal drøfte funksjonar og finne topp- og botnpunkt.",
+      "b320946e53e2002d": "Test deg sjølv på derivasjon av eksponentialfunksjonar:",
+      "4097889236a2af26": "placeholder",
+      "87312de6f9a12016": "Kva er den deriverte av $e^x$?",
+      "d61cf6ef09ec53a6": "$e^x$",
+      "6f628e9a74defd82": "$x e^{x-1}$",
+      "4e3b4ed1aa673064": "$e^x\\ln x$",
+      "94de0f85ed72e754": "$e^x$ er sin eigen deriverte: $(e^x)'=e^x$.",
+      "bc40493d3bacc2d0": "Kva er $(a^x)'$ for eit grunntal $a$?",
+      "0589167b070fb826": "$a^x$",
+      "9574fd0f66dae746": "$a^x\\ln a$",
+      "0546affedf54cba7": "$x a^{x-1}$",
+      "c8fd4f8358945dec": "$a^x / \\ln a$",
+      "3820e729bc3ae604": "$(a^x)'=a^x\\ln a$. Når $a=e$ blir $\\ln e=1$, så vi får $e^x$ igjen.",
+      "4d75ccdf23f27a71": "For $V(t)=10000\\,e^{0{,}05t}$, kva er $V'(t)$?",
+      "0580464565996a46": "$10000\\,e^{0{,}05t}$",
+      "acccf5e8b3c8882e": "$10000\\,e^{0{,}05t}\\cdot t$",
+      "1a3c35d0005b5a15": "$500\\,e^{0{,}05t}$",
+      "d6d43c52b4540524": "$0{,}05\\,e^{0{,}05t}$",
+      "2a1d8cbbd89990c9": "Kjerneregelen: $V'=10000\\,e^{0{,}05t}\\cdot 0{,}05=500\\,e^{0{,}05t}$.",
+      "ee11c7b08f4a9450": "## Logaritmar og deira deriverte\n\nLogaritmen er motstykket til eksponentialfunksjonen, og han har ein uventa pen derivert. For den naturlege logaritmen gjeld\n\n$$\\frac{d}{dx}(\\ln x) = \\frac{1}{x}, \\quad x > 0.$$\n\nDet er nesten for enkelt: ein logaritme, som veks så sakte, har ein derivert som berre er $1/x$. For ein logaritme med anna grunntal blir det $\\frac{d}{dx}(\\log_a x) = \\frac{1}{x\\,\\ln a}$.\n\nDet verkeleg nyttige kjem når vi kombinerer med kjerneregelen. For ein samansett logaritme er\n\n$$\\frac{d}{dx}(\\ln u(x)) = \\frac{u'(x)}{u(x)}.$$\n\nMed ord: den deriverte av $\\ln$ av noko, er den deriverte av kjernen delt på kjernen sjølv. Lat oss bruke han på $f(x) = \\ln(x^2 + 1)$. Her er kjernen $u = x^2 + 1$ med $u' = 2x$. Då blir rett og slett\n\n$$f'(x) = \\frac{2x}{x^2 + 1}.$$\n\nVi tek berre kjernens deriverte $2x$ og deler på kjernen $x^2 + 1$. Denne forma -- ein brøk med ein derivert over eit uttrykk -- vil du kjenne att overalt der logaritmar dukkar opp. Og sidan $e^x$ og $\\ln x$ er kvarandres inverse, heng derivasjonsreglane deira tett saman og dukkar stadig opp side om side i økonomiske modellar for vekst og avtakande utbytte.",
+      "e07ec0d6734b7198": "Test deg sjølv på derivasjon av logaritmar:",
+      "3e273efb76371ecd": "Kva er den deriverte av $\\ln x$?",
+      "5baeaa2459d35eaa": "$\\ln x$",
+      "8e5375c882bf5b32": "$x\\ln x$",
+      "3c6dbfbfa555b128": "$-\\frac{1}{x^2}$",
+      "67a691bb8a51fd28": "$\\frac{1}{x}$",
+      "24d3bcf379212b87": "$(\\ln x)'=\\frac{1}{x}$ for $x>0$.",
+      "7a36ed119a7135c3": "Kva er den deriverte av $\\ln(u(x))$ med kjerneregelen?",
+      "23043ac57198b253": "$\\frac{u'(x)}{u(x)}$",
+      "6ac99ff588369ffd": "$\\frac{1}{u(x)}$",
+      "2f840e289ff8903a": "$u'(x)\\cdot\\ln u(x)$",
+      "5d7aa63a2130512a": "$\\frac{u(x)}{u'(x)}$",
+      "0c1750ac1c719b9a": "Kjernens deriverte over kjernen sjølv: $\\frac{u'(x)}{u(x)}$.",
+      "3870a2847f1e3e7e": "Deriver $f(x)=\\ln(x^2+1)$.",
+      "e2c8d1f5e27d3d1f": "$\\frac{1}{x^2+1}$",
+      "74e2ba6e1f83fdf4": "$\\frac{2x}{x^2+1}$",
+      "b0b6d99e10781016": "$\\frac{2x}{x^2}$",
+      "1639b771ba263869": "$2x\\ln(x^2+1)$",
+      "1224420f6366b330": "Kjernen $u=x^2+1$ har $u'=2x$, så $f'=\\frac{2x}{x^2+1}$.",
+      "5746f4e7fd1265ec": "## Oppsummering\n\nVekstens eigne funksjonar har overraskande elegante deriverte. Eksponentialfunksjonen $e^x$ er **sin eigen deriverte**, $(e^x)' = e^x$, medan eit generelt grunntal gir $(a^x)' = a^x\\ln a$. Med kjerneregelen blir $(e^{u})' = e^{u}\\cdot u'$, så til dømes $(e^{kx})' = k\\,e^{kx}$ -- som vi brukte til å vise at ei investering $V(t) = 10000\\,e^{0{,}05t}$ har vekstfart $V'(t) = 500\\,e^{0{,}05t}$.\n\nLogaritmen er motstykket: $(\\ln x)' = \\frac{1}{x}$, og med kjerneregelen $(\\ln u)' = \\frac{u'}{u}$, slik at $\\ln(x^2+1)$ har derivert $\\frac{2x}{x^2+1}$. Når desse blir blanda med produktregelen -- som i $x^2 e^{-x}$ -- kan vi derivere nær sagt kva som helst funksjon vi møter i økonomiske vekstmodellar. Verktøykassa er no komplett nok til at vi i dei neste kapitla kan byrje å drøfte funksjonar og løyse optimeringsproblem."
+    }
+  }
+}

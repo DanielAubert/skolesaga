@@ -1,1 +1,586 @@
-{"id":"fys1-5-4-narrativ","courseId":"fys1","chapterNumber":"5.4","title":"Jordas strålingsbalanse og klimaendringer","subtitle":"Narrativ versjon","description":"Ei forteljing om reknestykket som avgjer temperaturen på jorda -- kvifor planeten eigentleg burde ha vore frosen, og korleis atmosfæren held oss varme.","estimatedMinutes":42,"competenceGoals":["forklare jordas strålingsbalanse","beregne jordas likevektstemperatur","forklare drivhuseffekten","beskrive albedo og dens betydning","forklare årsakene til og konsekvensene av klimaendringer"],"linkedChapterId":"fys1-5-4","content":[{"id":"fys1-5-4-n-intro","type":"text","content":"## Eit reknestykke som avgjer om jorda er buleg\n\nTemperaturen på jorda er ikkje tilfeldig. Han er resultatet av eit kontinuerleg rekneskap: energien som kjem inn frå sola, sett opp mot energien som stråler ut i verdsrommet. Når desse to balanserer, held temperaturen seg stabil. Dette er **strålingsbalansen til jorda**, og han er bokstaveleg talt skilnaden på ein levande og ein livlaus planet.\n\nVi har no alle verktøya vi treng. Vi veit at sola stråler som ein svart lekam (Stefan-Boltzmann), og at jorda stråler tilbake på same måten. Set vi inn-energien lik ut-energien, kan vi faktisk *rekne ut* kva temperatur jorda burde ha. Og svaret blir overraskande: planeten burde eigentleg ha vore frosen.\n\nI dette kapittelet skal vi gjere dette reknestykket, møte omgrepet albedo, og forstå drivhuseffekten -- den naturlege prosessen som hevar temperaturen til noko leveleg. Til slutt ser vi på korleis menneskeleg aktivitet forskyv balansen, og kva fysikken fortel oss om klimaendringar. Lat oss byrje med energien som treffer oss."},{"id":"fys1-5-4-n-section1","type":"text","content":"## Solkonstanten, albedo og energien som faktisk blir att\n\nKor mykje energi sender sola oss? Like utanfor atmosfæren treffer **solkonstanten** $S_0 = 1361$ W/m² -- altså 1361 watt per kvadratmeter som står vinkelrett på solstrålane. Men det er ikkje gjennomsnittet over heile kloden. Jorda fangar sollys på eit tverrsnitt som er ein sirkel med areal $\\pi r^2$, men strålinga skal fordelast over heile kuleflata $4\\pi r^2$. Forholdet er nøyaktig $\\frac{1}{4}$, så gjennomsnittleg innstråling er $\\frac{S_0}{4} = \\frac{1361}{4} = 340$ W/m².\n\nMen ikkje alt blir absorbert. Ein del blir kasta rett tilbake. **Albedo** $\\alpha$ er delen av innkomande solstråling som blir reflektert til verdsrommet. Den gjennomsnittlege albedoen til jorda er rundt 0,30 -- 30 % blir reflektert, 70 % absorbert. Albedoen varierer sterkt med overflata: nysnø reflekterer 80-95 % (høg albedo), hav berre 6-10 % (låg albedo), skog rundt 10 %, ørken 25-40 %. Lys, blank overflate kastar sola tilbake; mørk overflate syg henne til seg.\n\nDen absorberte strålinga blir difor $P_{abs} = \\frac{S_0}{4}(1 - \\alpha) = 340 \\cdot 0{,}70 = 238$ W/m². Dette er energien som faktisk blir att og varmar jorda -- og som jorda må kvitte seg med igjen for at temperaturen skal halde seg stabil. Albedoen er altså ein kraftig spak: endrar han seg -- til dømes om snø og is smeltar og blottlegg mørkare bakke -- endrar det seg kor mykje energi planeten held på."},{"id":"fys1-5-4-n-quiz1","type":"exercise","exercise":{"id":"fys1-5-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på solstråling og albedo:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-5-4-n-quiz1-q0","task":"Kva er albedo?","options":[{"id":"a","text":"Delen solstråling som blir absorbert","isCorrect":false},{"id":"b","text":"Delen av innkomande solstråling som blir reflektert tilbake til verdsrommet","isCorrect":true},{"id":"c","text":"Temperaturen på jorda","isCorrect":false},{"id":"d","text":"Solkonstanten","isCorrect":false}],"solution":"Albedo er refleksjonsdelen. Den gjennomsnittlege albedoen til jorda er ~0,30, så 30 % blir reflektert og 70 % absorbert."},{"id":"fys1-5-4-n-quiz1-q1","task":"Kvifor er gjennomsnittleg innstråling $S_0/4$ og ikkje $S_0$?","options":[{"id":"a","text":"Fordi sola berre lyser om dagen","isCorrect":false},{"id":"b","text":"Fordi atmosfæren stoppar 75 %","isCorrect":false},{"id":"c","text":"Fordi tverrsnittet ($\\pi r^2$) fangar lys, men det blir fordelt over heile kuleflata ($4\\pi r^2$)","isCorrect":true},{"id":"d","text":"Fordi jorda er flat","isCorrect":false}],"solution":"Jorda fangar sollys på eit tverrsnitt $\\pi r^2$, men energien blir spreidd over heile overflata $4\\pi r^2$. Forholdet er $\\frac{1}{4}$."},{"id":"fys1-5-4-n-quiz1-q2","task":"Kva overflate har høgast albedo?","options":[{"id":"a","text":"Hav","isCorrect":false},{"id":"b","text":"Skog","isCorrect":false},{"id":"c","text":"Asfalt","isCorrect":false},{"id":"d","text":"Nysnø","isCorrect":true}],"solution":"Nysnø reflekterer 80-95 % (svært høg albedo), medan hav (6-10 %) og skog (~10 %) absorberer det meste."}]}},{"id":"fys1-5-4-n-section2","type":"text","content":"## Likevektstemperaturen -- jorda burde ha vore frosen\n\nNo kan vi gjere sjølve reknestykket. For at temperaturen skal vere stabil, må energien ut balansere energien inn. Jorda stråler ut som ein (nesten) svart lekam etter Stefan-Boltzmann: $P_{ut} = \\sigma T^4$. Vi set dette lik den absorberte solstrålinga:\n\n$$\\frac{S_0}{4}(1 - \\alpha) = \\sigma T^4$$\n\nLøyser vi for temperaturen, får vi $T = \\left[\\frac{S_0(1-\\alpha)}{4\\sigma}\\right]^{1/4}$. Set vi inn tala for jorda -- $S_0 = 1361$, $\\alpha = 0{,}30$, $\\sigma = 5{,}67 \\times 10^{-8}$ -- blir det $T = \\left[\\frac{1361 \\cdot 0{,}70}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} = [4{,}20 \\times 10^9]^{1/4} \\approx 255$ K, altså $-18$ °C.\n\nDette er oppsiktsvekkjande. Reknestykket seier at jorda burde ha ein gjennomsnittstemperatur på $-18$ °C -- altfor kaldt for flytande vatn, og dermed for liv slik vi kjenner det. Men den faktiske gjennomsnittstemperaturen er rundt $+15$ °C, eller 288 K. Det er ein skilnad på heile 33 grader. Kvar kjem dei frå?\n\nMetoden verkar for andre planetar òg. Mars ligg lenger frå sola, med svakare innstråling ($S \\approx 590$ W/m²) og albedo 0,25. Reknestykket gjev $T = \\left[\\frac{590 \\cdot 0{,}75}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} \\approx 210$ K, altså $-63$ °C. Og her stemmer det godt med den faktiske temperaturen på rundt $-60$ °C -- nettopp fordi Mars har ein så tynn atmosfære at han nesten ikkje har noko ekstra oppvarming. På jorda er det noko anna som gjev oss dei manglande 33 gradene: drivhuseffekten."},{"id":"fys1-5-4-n-quiz2","type":"exercise","exercise":{"id":"fys1-5-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på strålingsbalanse og likevektstemperatur:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-5-4-n-quiz2-q0","task":"Kva er føresetnaden for at temperaturen på jorda skal vere stabil?","options":[{"id":"a","text":"Innkomande energi = utgåande energi","isCorrect":true},{"id":"b","text":"Innkomande energi > utgåande energi","isCorrect":false},{"id":"c","text":"All energi blir reflektert","isCorrect":false},{"id":"d","text":"Ingen energi stråler ut","isCorrect":false}],"solution":"Ved strålingsbalanse er $P_{inn}=P_{ut}$, altså $\\frac{S_0}{4}(1-\\alpha)=\\sigma T^4$. Då held temperaturen seg konstant."},{"id":"fys1-5-4-n-quiz2-q1","task":"Kva blir den teoretiske likevektstemperaturen til jorda utan atmosfære?","options":[{"id":"a","text":"+15 °C","isCorrect":false},{"id":"b","text":"-18 °C (255 K)","isCorrect":true},{"id":"c","text":"+33 °C","isCorrect":false},{"id":"d","text":"0 °C","isCorrect":false}],"solution":"Reknestykket gjev $T\\approx 255$ K $=-18$ °C -- altfor kaldt for liv. Den faktiske temperaturen er +15 °C."},{"id":"fys1-5-4-n-quiz2-q2","task":"Kva forklarar skilnaden på 33 grader mellom rekna og faktisk temperatur?","options":[{"id":"a","text":"Albedoen er feil","isCorrect":false},{"id":"b","text":"Sola er varmare enn anteke","isCorrect":false},{"id":"c","text":"Drivhuseffekten","isCorrect":true},{"id":"d","text":"Jorda roterer","isCorrect":false}],"solution":"Dei manglande 33 gradene skuldast drivhuseffekten -- atmosfæren held jorda varmare enn det reine strålingsrekneskapet tilseier."}]}},{"id":"fys1-5-4-n-section3","type":"text","content":"## Drivhuseffekten -- varmeteppet til atmosfæren\n\nDei manglande 33 gradene kjem frå **drivhuseffekten**: atmosfæren absorberer utgåande varmestråling frå jorda og sender ein del av henne tilbake, slik at planeten held seg varmare enn han elles ville. Mekanismen er elegant og heng direkte saman med Wiens lov frå det førre kapittelet.\n\nSlik fungerer han, steg for steg. Sola sender hovudsakleg ut *synleg lys* (ho er varm, så kort bølgjelengd), og atmosfæren er nesten gjennomsiktig for dette -- sollyset slepp ned og varmar overflata. Jorda, som er mykje kaldare ($\\sim 288$ K), stråler tilbake ved mykje lengre bølgjelengd, rundt 10 μm -- *infraraud* varmestråling. Og her er nøkkelen: **drivhusgassane** i atmosfæren (vassdamp, CO₂, metan, lystgass) er gjennomsiktige for synleg lys, men absorberer infraraudt. Dei fangar den utgåande varmestrålinga og sender henne ut igjen i alle retningar, slik at om lag halvparten går tilbake mot bakken. Nettoeffekten er at meir energi blir halden nær overflata, og jorda blir varmare.\n\nDei viktigaste drivhusgassane er vassdamp (står for rundt 60 % av effekten, men blir regulert naturleg), CO₂ (~25 %), metan (~8 %) og lystgass (~5 %). Metan er kraftigare per molekyl enn CO₂, men finst i mindre mengd.\n\nDet er viktig å forstå at drivhuseffekten i seg sjølv er heilt *nødvendig*. Utan han ville jorda hatt $-18$ °C, for kaldt for flytande vatn og dermed for liv. Med den naturlege drivhuseffekten har vi behagelege $+15$ °C. Utfordringa oppstår når effekten blir *forsterka* -- når menneskeskapte utslepp aukar konsentrasjonen av drivhusgassar, blir varmeteppet tjukkare, og temperaturen stig. Her spelar òg sjølvforsterkande tilbakekoplingar inn: blir det varmare, fordampar meir vatn (meir drivhusgass), og smeltar meir is (lågare albedo, meir absorpsjon) -- effektar som kan forsterke ei oppvarming."},{"id":"fys1-5-4-n-quiz3","type":"exercise","exercise":{"id":"fys1-5-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på drivhuseffekten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-5-4-n-quiz3-q0","task":"Kvifor slepp sollys lett gjennom atmosfæren, medan varmestrålinga frå jorda blir fanga?","options":[{"id":"a","text":"Sollys er infraraudt, strålinga frå jorda er synleg","isCorrect":false},{"id":"b","text":"Atmosfæren stoppar alt sollys","isCorrect":false},{"id":"c","text":"Det er ingen skilnad","isCorrect":false},{"id":"d","text":"Sola stråler synleg lys (slepp gjennom), jorda stråler infraraudt (blir absorbert av drivhusgassar)","isCorrect":true}],"solution":"Den varme sola stråler kortbølga synleg lys som slepp gjennom. Den kaldare jorda stråler langbølga infraraudt, som drivhusgassane absorberer."},{"id":"fys1-5-4-n-quiz3-q1","task":"Er drivhuseffekten i seg sjølv skadeleg?","options":[{"id":"a","text":"Nei, den naturlege effekten er nødvendig for liv -- problemet er forsterkinga","isCorrect":true},{"id":"b","text":"Ja, han bør fjernast heilt","isCorrect":false},{"id":"c","text":"Ja, han gjer jorda for kald","isCorrect":false},{"id":"d","text":"Han har ingen effekt","isCorrect":false}],"solution":"Utan drivhuseffekten ville jorda hatt -18 °C. Den naturlege effekten gjev levelege +15 °C. Det er den menneskeskapte forsterkinga som skaper utfordringa."},{"id":"fys1-5-4-n-quiz3-q2","task":"Kva er is-albedo-tilbakekoplinga?","options":[{"id":"a","text":"Is blir danna, og jorda blir kjølt ned","isCorrect":false},{"id":"b","text":"Is smeltar, albedoen søkk, meir stråling blir absorbert, og oppvarminga blir forsterka","isCorrect":true},{"id":"c","text":"Is reflekterer all stråling for alltid","isCorrect":false},{"id":"d","text":"Is har ingen effekt på klimaet","isCorrect":false}],"solution":"Smeltande is blottlegg mørkare hav og land med lågare albedo, som absorberer meir solstråling -- ei sjølvforsterkande oppvarming."}]}},{"id":"fys1-5-4-n-section4","type":"text","content":"## Klimaendringar -- når balansen blir forskyven\n\nFysikken viser at balansen kan bli forskyven, og målingar viser at han er det. Den globale gjennomsnittstemperaturen har stige med rundt 1,1 °C sidan førindustriell tid (1850-1900). Samstundes har konsentrasjonen av CO₂ i atmosfæren auka frå rundt 280 ppm (delar per million) i 1750 til over 420 ppm i dag -- ein auke på om lag 50 %, og det høgaste nivået på minst 800 000 år, lese ut av iskjernar. Andre observasjonar følgjer same mønster: isbrear smeltar, havet stig med rundt 3,3 mm i året, og arktisk havis krympar.\n\nKvifor stig CO₂? Hovudkjeldene er **forbrenning av fossilt brensel** -- kol, olje og naturgass -- som frigjer karbon lagra i millionar av år, og som står for om lag tre fjerdedelar av CO₂-utsleppa. **Avskoging** medverkar òg, sidan tre elles tek opp CO₂ gjennom fotosyntese, og **jordbruk** slepp ut metan (frå husdyr og rismarker) og lystgass (frå gjødsel).\n\nKonsekvensane av auka oppvarming spenner vidt. Meir hyppige og intense hetebølgjer, stigande havnivå som truar kystområde, kraftigare nedbør og flaum somme stader og tørke andre, press på økosystem som korallrev, og verknader på matproduksjon og busetjing. FNs klimapanel (IPCC) har laga fleire scenario alt etter framtidige utslepp -- frå rundt +1,4 °C ved sterke kutt til over +4 °C ved framleis høge utslepp innan 2100. Parisavtalen frå 2015 sette som mål å halde oppvarminga godt under 2 °C, helst 1,5 °C.\n\nLøysingane fysikken og forskinga peikar på, går i tre retningar: redusere utslepp (fornybar energi, elektrifisering, energieffektivisering), fjerne CO₂ (skogplanting, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar). For å gjere det konkret: ein bensinbil som køyrer 15 000 km i året med 0,6 liter/mil forbrenn $1500 \\cdot 0{,}6 = 900$ liter bensin, og sidan kvar liter gjev 2,3 kg CO₂, blir utsleppet $900 \\cdot 2{,}3 = 2070$ kg $\\approx 2{,}1$ tonn CO₂ årleg. Til samanlikning ligg eit gjennomsnittleg norsk fotavtrykk på rundt 8 tonn per person per år. Slik koplar fysikken i dette kapittelet -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store linjene i klimaet til heilt konkrete tal i kvardagen."},{"id":"fys1-5-4-n-quiz4","type":"exercise","exercise":{"id":"fys1-5-4-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på klimaendringar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-5-4-n-quiz4-q0","task":"Kor mykje har CO₂-konsentrasjonen om lag auka sidan førindustriell tid?","options":[{"id":"a","text":"Han er uendra","isCorrect":false},{"id":"b","text":"Han er halvert","isCorrect":false},{"id":"c","text":"Frå ~280 ppm til over 420 ppm, ein auke på rundt 50 %","isCorrect":true},{"id":"d","text":"Frå 420 til 280 ppm","isCorrect":false}],"solution":"CO₂ har auka frå ~280 ppm (1750) til over 420 ppm i dag -- rundt 50 %, det høgaste nivået på minst 800 000 år."},{"id":"fys1-5-4-n-quiz4-q1","task":"Kva er den største kjelda til menneskeskapte CO₂-utslepp?","options":[{"id":"a","text":"Avskoging","isCorrect":false},{"id":"b","text":"Husdyr","isCorrect":false},{"id":"c","text":"Vulkanar","isCorrect":false},{"id":"d","text":"Forbrenning av fossilt brensel (kol, olje, gass)","isCorrect":true}],"solution":"Forbrenning av fossilt brensel står for om lag tre fjerdedelar av CO₂-utsleppa, ved å frigjere karbon lagra i millionar av år."},{"id":"fys1-5-4-n-quiz4-q2","task":"Ein bil forbrenn 900 liter bensin i året (2,3 kg CO₂/liter). Kor mykje CO₂ slepp han ut?","options":[{"id":"a","text":"2,1 tonn","isCorrect":true},{"id":"b","text":"0,9 tonn","isCorrect":false},{"id":"c","text":"23 tonn","isCorrect":false},{"id":"d","text":"390 kg","isCorrect":false}],"solution":"$900\\cdot 2{,}3=2070$ kg $\\approx 2{,}1$ tonn CO₂ per år."},{"id":"fys1-5-4-n-quiz4-q3","task":"Kva tre hovudretningar peikar forskinga på for å møte klimaendringane?","options":[{"id":"a","text":"Berre byggje flaumsikringar","isCorrect":false},{"id":"b","text":"Redusere utslepp, fjerne CO₂, og tilpasse seg","isCorrect":true},{"id":"c","text":"Auke albedoen til 1","isCorrect":false},{"id":"d","text":"Slutte å måle temperaturen","isCorrect":false}],"solution":"Dei tre hovudretningane er å redusere utslepp (fornybar energi, effektivisering), fjerne CO₂ (skog, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar)."}]}},{"id":"fys1-5-4-n-summary","type":"text","content":"## Oppsummering\n\nTemperaturen på jorda er eit rekneskap: energi inn frå sola mot energi ut i rommet. Av solkonstanten $S_0 = 1361$ W/m² blir gjennomsnittet $\\frac{S_0}{4} = 340$ W/m², og etter at **albedoen** (~0,30 for jorda) har reflektert bort ein del, blir 238 W/m² absorbert.\n\nSet vi inn lik ut, $\\frac{S_0}{4}(1-\\alpha) = \\sigma T^4$, gjev reknestykket ein **likevektstemperatur** på berre $-18$ °C -- altfor kaldt for liv. Dei manglande 33 gradene opp til faktiske $+15$ °C skuldast **drivhuseffekten**: atmosfæren slepp inn det synlege lyset frå sola, men drivhusgassane (vassdamp, CO₂, metan) fangar den utgåande infraraude varmestrålinga frå jorda og sender ein del tilbake. Den naturlege effekten er heilt nødvendig for liv.\n\n**Klimaendringar** oppstår når balansen blir forskyven -- CO₂ har auka rundt 50 % sidan førindustriell tid, hovudsakleg frå forbrenning av fossilt brensel, og temperaturen har stige om lag 1,1 °C. Sjølvforsterkande tilbakekoplingar som is-albedo og vassdamp kan forsterke endringa. Forskinga peikar på tre svar: redusere utslepp, fjerne CO₂ og tilpasse seg. Slik knyter den same fysikken -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store klimalinjene til heilt konkrete tal, heilt ned til CO₂-utsleppet frå éin enkelt bil."}],"exercises":[],"_meta":{"sourceHash":"2c69320a564d1f1e","translatedAt":"2026-06-20T22:47:50.316Z","model":"claude-code-agent","strings":100,"tm":{"e8cffeb83b8652b5":"Jordas strålingsbalanse og klimaendringer","b195b06d1ed59702":"Narrativ versjon","912c2580b8c20f08":"Ei forteljing om reknestykket som avgjer temperaturen på jorda -- kvifor planeten eigentleg burde ha vore frosen, og korleis atmosfæren held oss varme.","055461fa398ceb2a":"forklare jordas strålingsbalanse","ddf9a94cac55ad18":"beregne jordas likevektstemperatur","26814a7ae580e6b2":"forklare drivhuseffekten","4941522a02adfd2b":"beskrive albedo og dens betydning","5731913c1842be25":"forklare årsakene til og konsekvensene av klimaendringer","c6012836518bbad0":"## Eit reknestykke som avgjer om jorda er buleg\n\nTemperaturen på jorda er ikkje tilfeldig. Han er resultatet av eit kontinuerleg rekneskap: energien som kjem inn frå sola, sett opp mot energien som stråler ut i verdsrommet. Når desse to balanserer, held temperaturen seg stabil. Dette er **strålingsbalansen til jorda**, og han er bokstaveleg talt skilnaden på ein levande og ein livlaus planet.\n\nVi har no alle verktøya vi treng. Vi veit at sola stråler som ein svart lekam (Stefan-Boltzmann), og at jorda stråler tilbake på same måten. Set vi inn-energien lik ut-energien, kan vi faktisk *rekne ut* kva temperatur jorda burde ha. Og svaret blir overraskande: planeten burde eigentleg ha vore frosen.\n\nI dette kapittelet skal vi gjere dette reknestykket, møte omgrepet albedo, og forstå drivhuseffekten -- den naturlege prosessen som hevar temperaturen til noko leveleg. Til slutt ser vi på korleis menneskeleg aktivitet forskyv balansen, og kva fysikken fortel oss om klimaendringar. Lat oss byrje med energien som treffer oss.","bd1d445dac2e6798":"## Solkonstanten, albedo og energien som faktisk blir att\n\nKor mykje energi sender sola oss? Like utanfor atmosfæren treffer **solkonstanten** $S_0 = 1361$ W/m² -- altså 1361 watt per kvadratmeter som står vinkelrett på solstrålane. Men det er ikkje gjennomsnittet over heile kloden. Jorda fangar sollys på eit tverrsnitt som er ein sirkel med areal $\\pi r^2$, men strålinga skal fordelast over heile kuleflata $4\\pi r^2$. Forholdet er nøyaktig $\\frac{1}{4}$, så gjennomsnittleg innstråling er $\\frac{S_0}{4} = \\frac{1361}{4} = 340$ W/m².\n\nMen ikkje alt blir absorbert. Ein del blir kasta rett tilbake. **Albedo** $\\alpha$ er delen av innkomande solstråling som blir reflektert til verdsrommet. Den gjennomsnittlege albedoen til jorda er rundt 0,30 -- 30 % blir reflektert, 70 % absorbert. Albedoen varierer sterkt med overflata: nysnø reflekterer 80-95 % (høg albedo), hav berre 6-10 % (låg albedo), skog rundt 10 %, ørken 25-40 %. Lys, blank overflate kastar sola tilbake; mørk overflate syg henne til seg.\n\nDen absorberte strålinga blir difor $P_{abs} = \\frac{S_0}{4}(1 - \\alpha) = 340 \\cdot 0{,}70 = 238$ W/m². Dette er energien som faktisk blir att og varmar jorda -- og som jorda må kvitte seg med igjen for at temperaturen skal halde seg stabil. Albedoen er altså ein kraftig spak: endrar han seg -- til dømes om snø og is smeltar og blottlegg mørkare bakke -- endrar det seg kor mykje energi planeten held på.","e42ba94dab6031e6":"Test deg sjølv på solstråling og albedo:","4097889236a2af26":"placeholder","3262d6b365cbea1b":"Kva er albedo?","aa5a3e8e5a377da5":"Delen solstråling som blir absorbert","3a3cae14aa6aa86c":"Delen av innkomande solstråling som blir reflektert tilbake til verdsrommet","5e564aadfc09c21e":"Temperaturen på jorda","4c6ee7a5ef5fe68e":"Solkonstanten","eed1b278e5affb31":"Albedo er refleksjonsdelen. Den gjennomsnittlege albedoen til jorda er ~0,30, så 30 % blir reflektert og 70 % absorbert.","6ae792adc742666f":"Kvifor er gjennomsnittleg innstråling $S_0/4$ og ikkje $S_0$?","d987ee0f32077173":"Fordi sola berre lyser om dagen","3976988831cff0ff":"Fordi atmosfæren stoppar 75 %","20daab0cd7b239cb":"Fordi tverrsnittet ($\\pi r^2$) fangar lys, men det blir fordelt over heile kuleflata ($4\\pi r^2$)","e3400c79c1604e3d":"Fordi jorda er flat","0a78f0c9c0d41a7b":"Jorda fangar sollys på eit tverrsnitt $\\pi r^2$, men energien blir spreidd over heile overflata $4\\pi r^2$. Forholdet er $\\frac{1}{4}$.","35f8e8223ec9a4f8":"Kva overflate har høgast albedo?","6728627f0180c459":"Hav","40f91a647470999e":"Skog","04c29f6e344dcef8":"Asfalt","9051debc10091e1f":"Nysnø","d165d4cc3a383abe":"Nysnø reflekterer 80-95 % (svært høg albedo), medan hav (6-10 %) og skog (~10 %) absorberer det meste.","96862af45423b851":"## Likevektstemperaturen -- jorda burde ha vore frosen\n\nNo kan vi gjere sjølve reknestykket. For at temperaturen skal vere stabil, må energien ut balansere energien inn. Jorda stråler ut som ein (nesten) svart lekam etter Stefan-Boltzmann: $P_{ut} = \\sigma T^4$. Vi set dette lik den absorberte solstrålinga:\n\n$$\\frac{S_0}{4}(1 - \\alpha) = \\sigma T^4$$\n\nLøyser vi for temperaturen, får vi $T = \\left[\\frac{S_0(1-\\alpha)}{4\\sigma}\\right]^{1/4}$. Set vi inn tala for jorda -- $S_0 = 1361$, $\\alpha = 0{,}30$, $\\sigma = 5{,}67 \\times 10^{-8}$ -- blir det $T = \\left[\\frac{1361 \\cdot 0{,}70}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} = [4{,}20 \\times 10^9]^{1/4} \\approx 255$ K, altså $-18$ °C.\n\nDette er oppsiktsvekkjande. Reknestykket seier at jorda burde ha ein gjennomsnittstemperatur på $-18$ °C -- altfor kaldt for flytande vatn, og dermed for liv slik vi kjenner det. Men den faktiske gjennomsnittstemperaturen er rundt $+15$ °C, eller 288 K. Det er ein skilnad på heile 33 grader. Kvar kjem dei frå?\n\nMetoden verkar for andre planetar òg. Mars ligg lenger frå sola, med svakare innstråling ($S \\approx 590$ W/m²) og albedo 0,25. Reknestykket gjev $T = \\left[\\frac{590 \\cdot 0{,}75}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} \\approx 210$ K, altså $-63$ °C. Og her stemmer det godt med den faktiske temperaturen på rundt $-60$ °C -- nettopp fordi Mars har ein så tynn atmosfære at han nesten ikkje har noko ekstra oppvarming. På jorda er det noko anna som gjev oss dei manglande 33 gradene: drivhuseffekten.","29dc49456e46be5d":"Test deg sjølv på strålingsbalanse og likevektstemperatur:","319a9d965dcc0178":"Kva er føresetnaden for at temperaturen på jorda skal vere stabil?","b0f476467c59786a":"Innkomande energi = utgåande energi","e0982d5258414ad9":"Innkomande energi > utgåande energi","1e441abe3ffd4c54":"All energi blir reflektert","3864bab1b0cff58d":"Ingen energi stråler ut","c0d276d861814e2f":"Ved strålingsbalanse er $P_{inn}=P_{ut}$, altså $\\frac{S_0}{4}(1-\\alpha)=\\sigma T^4$. Då held temperaturen seg konstant.","68c9b66a2a0b1e4f":"Kva blir den teoretiske likevektstemperaturen til jorda utan atmosfære?","afcab8633255f66e":"+15 °C","d189d33082c85d22":"-18 °C (255 K)","8f693ffd69a6c9b4":"+33 °C","1adfa07304c8303f":"0 °C","476de3faf5605012":"Reknestykket gjev $T\\approx 255$ K $=-18$ °C -- altfor kaldt for liv. Den faktiske temperaturen er +15 °C.","c70bf970f6e398aa":"Kva forklarar skilnaden på 33 grader mellom rekna og faktisk temperatur?","0188f4101bafbf58":"Albedoen er feil","bf80e4465cae1be2":"Sola er varmare enn anteke","0eb0f3f276955dcb":"Drivhuseffekten","f7a26047a1ff6c85":"Jorda roterer","2f6e3c8c8f2d4501":"Dei manglande 33 gradene skuldast drivhuseffekten -- atmosfæren held jorda varmare enn det reine strålingsrekneskapet tilseier.","f599b77036c57f8f":"## Drivhuseffekten -- varmeteppet til atmosfæren\n\nDei manglande 33 gradene kjem frå **drivhuseffekten**: atmosfæren absorberer utgåande varmestråling frå jorda og sender ein del av henne tilbake, slik at planeten held seg varmare enn han elles ville. Mekanismen er elegant og heng direkte saman med Wiens lov frå det førre kapittelet.\n\nSlik fungerer han, steg for steg. Sola sender hovudsakleg ut *synleg lys* (ho er varm, så kort bølgjelengd), og atmosfæren er nesten gjennomsiktig for dette -- sollyset slepp ned og varmar overflata. Jorda, som er mykje kaldare ($\\sim 288$ K), stråler tilbake ved mykje lengre bølgjelengd, rundt 10 μm -- *infraraud* varmestråling. Og her er nøkkelen: **drivhusgassane** i atmosfæren (vassdamp, CO₂, metan, lystgass) er gjennomsiktige for synleg lys, men absorberer infraraudt. Dei fangar den utgåande varmestrålinga og sender henne ut igjen i alle retningar, slik at om lag halvparten går tilbake mot bakken. Nettoeffekten er at meir energi blir halden nær overflata, og jorda blir varmare.\n\nDei viktigaste drivhusgassane er vassdamp (står for rundt 60 % av effekten, men blir regulert naturleg), CO₂ (~25 %), metan (~8 %) og lystgass (~5 %). Metan er kraftigare per molekyl enn CO₂, men finst i mindre mengd.\n\nDet er viktig å forstå at drivhuseffekten i seg sjølv er heilt *nødvendig*. Utan han ville jorda hatt $-18$ °C, for kaldt for flytande vatn og dermed for liv. Med den naturlege drivhuseffekten har vi behagelege $+15$ °C. Utfordringa oppstår når effekten blir *forsterka* -- når menneskeskapte utslepp aukar konsentrasjonen av drivhusgassar, blir varmeteppet tjukkare, og temperaturen stig. Her spelar òg sjølvforsterkande tilbakekoplingar inn: blir det varmare, fordampar meir vatn (meir drivhusgass), og smeltar meir is (lågare albedo, meir absorpsjon) -- effektar som kan forsterke ei oppvarming.","c8bc3744a8f82292":"Test deg sjølv på drivhuseffekten:","a538b5f76e368b3d":"Kvifor slepp sollys lett gjennom atmosfæren, medan varmestrålinga frå jorda blir fanga?","0062e11bbbabcd7a":"Sollys er infraraudt, strålinga frå jorda er synleg","c40c38bd8fa5268b":"Atmosfæren stoppar alt sollys","290d93c2e3522153":"Det er ingen skilnad","8c6f9acd16bbb606":"Sola stråler synleg lys (slepp gjennom), jorda stråler infraraudt (blir absorbert av drivhusgassar)","dfa7985cd5a0e0e7":"Den varme sola stråler kortbølga synleg lys som slepp gjennom. Den kaldare jorda stråler langbølga infraraudt, som drivhusgassane absorberer.","9e56b4b014c266a3":"Er drivhuseffekten i seg sjølv skadeleg?","58b2bc8025ee53a2":"Nei, den naturlege effekten er nødvendig for liv -- problemet er forsterkinga","b58cc490826bc46e":"Ja, han bør fjernast heilt","0252b5a9ac2a57bc":"Ja, han gjer jorda for kald","f9a6b57e0cd88763":"Han har ingen effekt","b89e072dac35e9a6":"Utan drivhuseffekten ville jorda hatt -18 °C. Den naturlege effekten gjev levelege +15 °C. Det er den menneskeskapte forsterkinga som skaper utfordringa.","8857f6259fe1408c":"Kva er is-albedo-tilbakekoplinga?","6683d5ea8257e527":"Is blir danna, og jorda blir kjølt ned","89360005f5484bfc":"Is smeltar, albedoen søkk, meir stråling blir absorbert, og oppvarminga blir forsterka","d8636a11c91fc62a":"Is reflekterer all stråling for alltid","9f612a1e140161d9":"Is har ingen effekt på klimaet","31e1ac6850152498":"Smeltande is blottlegg mørkare hav og land med lågare albedo, som absorberer meir solstråling -- ei sjølvforsterkande oppvarming.","a2f4818bcad5e32f":"## Klimaendringar -- når balansen blir forskyven\n\nFysikken viser at balansen kan bli forskyven, og målingar viser at han er det. Den globale gjennomsnittstemperaturen har stige med rundt 1,1 °C sidan førindustriell tid (1850-1900). Samstundes har konsentrasjonen av CO₂ i atmosfæren auka frå rundt 280 ppm (delar per million) i 1750 til over 420 ppm i dag -- ein auke på om lag 50 %, og det høgaste nivået på minst 800 000 år, lese ut av iskjernar. Andre observasjonar følgjer same mønster: isbrear smeltar, havet stig med rundt 3,3 mm i året, og arktisk havis krympar.\n\nKvifor stig CO₂? Hovudkjeldene er **forbrenning av fossilt brensel** -- kol, olje og naturgass -- som frigjer karbon lagra i millionar av år, og som står for om lag tre fjerdedelar av CO₂-utsleppa. **Avskoging** medverkar òg, sidan tre elles tek opp CO₂ gjennom fotosyntese, og **jordbruk** slepp ut metan (frå husdyr og rismarker) og lystgass (frå gjødsel).\n\nKonsekvensane av auka oppvarming spenner vidt. Meir hyppige og intense hetebølgjer, stigande havnivå som truar kystområde, kraftigare nedbør og flaum somme stader og tørke andre, press på økosystem som korallrev, og verknader på matproduksjon og busetjing. FNs klimapanel (IPCC) har laga fleire scenario alt etter framtidige utslepp -- frå rundt +1,4 °C ved sterke kutt til over +4 °C ved framleis høge utslepp innan 2100. Parisavtalen frå 2015 sette som mål å halde oppvarminga godt under 2 °C, helst 1,5 °C.\n\nLøysingane fysikken og forskinga peikar på, går i tre retningar: redusere utslepp (fornybar energi, elektrifisering, energieffektivisering), fjerne CO₂ (skogplanting, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar). For å gjere det konkret: ein bensinbil som køyrer 15 000 km i året med 0,6 liter/mil forbrenn $1500 \\cdot 0{,}6 = 900$ liter bensin, og sidan kvar liter gjev 2,3 kg CO₂, blir utsleppet $900 \\cdot 2{,}3 = 2070$ kg $\\approx 2{,}1$ tonn CO₂ årleg. Til samanlikning ligg eit gjennomsnittleg norsk fotavtrykk på rundt 8 tonn per person per år. Slik koplar fysikken i dette kapittelet -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store linjene i klimaet til heilt konkrete tal i kvardagen.","871c77123b796359":"Test deg sjølv på klimaendringar:","0d8200694597cf59":"Kor mykje har CO₂-konsentrasjonen om lag auka sidan førindustriell tid?","142245cc422dd35c":"Han er uendra","69cb551b183bd76b":"Han er halvert","3603c97eaba8bd35":"Frå ~280 ppm til over 420 ppm, ein auke på rundt 50 %","fbcafd12527ec88e":"Frå 420 til 280 ppm","31d84da3f72422af":"CO₂ har auka frå ~280 ppm (1750) til over 420 ppm i dag -- rundt 50 %, det høgaste nivået på minst 800 000 år.","a48e0ca72155dba5":"Kva er den største kjelda til menneskeskapte CO₂-utslepp?","d83e281f8a5d492e":"Avskoging","ad454382908cafd5":"Husdyr","7ffbfb54c878cfe4":"Vulkanar","42b7b6341e234f59":"Forbrenning av fossilt brensel (kol, olje, gass)","1befed43f40554e0":"Forbrenning av fossilt brensel står for om lag tre fjerdedelar av CO₂-utsleppa, ved å frigjere karbon lagra i millionar av år.","14f2b51e189462d2":"Ein bil forbrenn 900 liter bensin i året (2,3 kg CO₂/liter). Kor mykje CO₂ slepp han ut?","01c8f094de9ccb2a":"2,1 tonn","518381ccc24af76c":"0,9 tonn","24d74dff388437cf":"23 tonn","19990fd8fd6b034e":"390 kg","6bc9867472a6e123":"$900\\cdot 2{,}3=2070$ kg $\\approx 2{,}1$ tonn CO₂ per år.","802c606b83f2aeeb":"Kva tre hovudretningar peikar forskinga på for å møte klimaendringane?","29423c2ec5886868":"Berre byggje flaumsikringar","f7cf00faa7aada41":"Redusere utslepp, fjerne CO₂, og tilpasse seg","e7c816794f72c0a0":"Auke albedoen til 1","bce8d07b09940013":"Slutte å måle temperaturen","647d892029bb08da":"Dei tre hovudretningane er å redusere utslepp (fornybar energi, effektivisering), fjerne CO₂ (skog, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar).","2ab335c130e17fd8":"## Oppsummering\n\nTemperaturen på jorda er eit rekneskap: energi inn frå sola mot energi ut i rommet. Av solkonstanten $S_0 = 1361$ W/m² blir gjennomsnittet $\\frac{S_0}{4} = 340$ W/m², og etter at **albedoen** (~0,30 for jorda) har reflektert bort ein del, blir 238 W/m² absorbert.\n\nSet vi inn lik ut, $\\frac{S_0}{4}(1-\\alpha) = \\sigma T^4$, gjev reknestykket ein **likevektstemperatur** på berre $-18$ °C -- altfor kaldt for liv. Dei manglande 33 gradene opp til faktiske $+15$ °C skuldast **drivhuseffekten**: atmosfæren slepp inn det synlege lyset frå sola, men drivhusgassane (vassdamp, CO₂, metan) fangar den utgåande infraraude varmestrålinga frå jorda og sender ein del tilbake. Den naturlege effekten er heilt nødvendig for liv.\n\n**Klimaendringar** oppstår når balansen blir forskyven -- CO₂ har auka rundt 50 % sidan førindustriell tid, hovudsakleg frå forbrenning av fossilt brensel, og temperaturen har stige om lag 1,1 °C. Sjølvforsterkande tilbakekoplingar som is-albedo og vassdamp kan forsterke endringa. Forskinga peikar på tre svar: redusere utslepp, fjerne CO₂ og tilpasse seg. Slik knyter den same fysikken -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store klimalinjene til heilt konkrete tal, heilt ned til CO₂-utsleppet frå éin enkelt bil."}}}
+{
+  "id": "fys1-5-4-narrativ",
+  "courseId": "fys1",
+  "chapterNumber": "5.4",
+  "title": "Jordas strålingsbalanse og klimaendringer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om reknestykket som avgjer temperaturen på jorda -- kvifor planeten eigentleg burde ha vore frosen, og korleis atmosfæren held oss varme.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "forklare jordas strålingsbalanse",
+    "beregne jordas likevektstemperatur",
+    "forklare drivhuseffekten",
+    "beskrive albedo og dens betydning",
+    "forklare årsakene til og konsekvensene av klimaendringer"
+  ],
+  "linkedChapterId": "fys1-5-4",
+  "content": [
+    {
+      "id": "fys1-5-4-n-intro",
+      "type": "text",
+      "content": "## Eit reknestykke som avgjer om jorda er buleg\n\nTemperaturen på jorda er ikkje tilfeldig. Han er resultatet av eit kontinuerleg rekneskap: energien som kjem inn frå sola, sett opp mot energien som stråler ut i verdsrommet. Når desse to balanserer, held temperaturen seg stabil. Dette er **strålingsbalansen til jorda**, og han er bokstaveleg talt skilnaden på ein levande og ein livlaus planet.\n\nVi har no alle verktøya vi treng. Vi veit at sola stråler som ein svart lekam (Stefan-Boltzmann), og at jorda stråler tilbake på same måten. Set vi inn-energien lik ut-energien, kan vi faktisk *rekne ut* kva temperatur jorda burde ha. Og svaret blir overraskande: planeten burde eigentleg ha vore frosen.\n\nI dette kapittelet skal vi gjere dette reknestykket, møte omgrepet albedo, og forstå drivhuseffekten -- den naturlege prosessen som hevar temperaturen til noko leveleg. Til slutt ser vi på korleis menneskeleg aktivitet forskyv balansen, og kva fysikken fortel oss om klimaendringar. Lat oss byrje med energien som treffer oss."
+    },
+    {
+      "id": "fys1-5-4-n-section1",
+      "type": "text",
+      "content": "## Solkonstanten, albedo og energien som faktisk blir att\n\nKor mykje energi sender sola oss? Like utanfor atmosfæren treffer **solkonstanten** $S_0 = 1361$ W/m² -- altså 1361 watt per kvadratmeter som står vinkelrett på solstrålane. Men det er ikkje gjennomsnittet over heile kloden. Jorda fangar sollys på eit tverrsnitt som er ein sirkel med areal $\\pi r^2$, men strålinga skal fordelast over heile kuleflata $4\\pi r^2$. Forholdet er nøyaktig $\\frac{1}{4}$, så gjennomsnittleg innstråling er $\\frac{S_0}{4} = \\frac{1361}{4} = 340$ W/m².\n\nMen ikkje alt blir absorbert. Ein del blir kasta rett tilbake. **Albedo** $\\alpha$ er delen av innkomande solstråling som blir reflektert til verdsrommet. Den gjennomsnittlege albedoen til jorda er rundt 0,30 -- 30 % blir reflektert, 70 % absorbert. Albedoen varierer sterkt med overflata: nysnø reflekterer 80-95 % (høg albedo), hav berre 6-10 % (låg albedo), skog rundt 10 %, ørken 25-40 %. Lys, blank overflate kastar sola tilbake; mørk overflate syg henne til seg.\n\nDen absorberte strålinga blir difor $P_{abs} = \\frac{S_0}{4}(1 - \\alpha) = 340 \\cdot 0{,}70 = 238$ W/m². Dette er energien som faktisk blir att og varmar jorda -- og som jorda må kvitte seg med igjen for at temperaturen skal halde seg stabil. Albedoen er altså ein kraftig spak: endrar han seg -- til dømes om snø og is smeltar og blottlegg mørkare bakke -- endrar det seg kor mykje energi planeten held på."
+    },
+    {
+      "id": "fys1-5-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-5-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på solstråling og albedo:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-5-4-n-quiz1-q0",
+            "task": "Kva er albedo?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Delen av innkomande solstråling som blir reflektert tilbake til verdsrommet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Delen solstråling som blir absorbert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Temperaturen på jorda",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Solkonstanten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Albedo er refleksjonsdelen. Den gjennomsnittlege albedoen til jorda er ~0,30, så 30 % blir reflektert og 70 % absorbert."
+          },
+          {
+            "id": "fys1-5-4-n-quiz1-q1",
+            "task": "Kvifor er gjennomsnittleg innstråling $S_0/4$ og ikkje $S_0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi sola berre lyser om dagen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi tverrsnittet ($\\pi r^2$) fangar lys, men det blir fordelt over heile kuleflata ($4\\pi r^2$)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi atmosfæren stoppar 75 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi jorda er flat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Jorda fangar sollys på eit tverrsnitt $\\pi r^2$, men energien blir spreidd over heile overflata $4\\pi r^2$. Forholdet er $\\frac{1}{4}$."
+          },
+          {
+            "id": "fys1-5-4-n-quiz1-q2",
+            "task": "Kva overflate har høgast albedo?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hav",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Skog",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nysnø",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Asfalt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nysnø reflekterer 80-95 % (svært høg albedo), medan hav (6-10 %) og skog (~10 %) absorberer det meste."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-5-4-n-section2",
+      "type": "text",
+      "content": "## Likevektstemperaturen -- jorda burde ha vore frosen\n\nNo kan vi gjere sjølve reknestykket. For at temperaturen skal vere stabil, må energien ut balansere energien inn. Jorda stråler ut som ein (nesten) svart lekam etter Stefan-Boltzmann: $P_{ut} = \\sigma T^4$. Vi set dette lik den absorberte solstrålinga:\n\n$$\\frac{S_0}{4}(1 - \\alpha) = \\sigma T^4$$\n\nLøyser vi for temperaturen, får vi $T = \\left[\\frac{S_0(1-\\alpha)}{4\\sigma}\\right]^{1/4}$. Set vi inn tala for jorda -- $S_0 = 1361$, $\\alpha = 0{,}30$, $\\sigma = 5{,}67 \\times 10^{-8}$ -- blir det $T = \\left[\\frac{1361 \\cdot 0{,}70}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} = [4{,}20 \\times 10^9]^{1/4} \\approx 255$ K, altså $-18$ °C.\n\nDette er oppsiktsvekkjande. Reknestykket seier at jorda burde ha ein gjennomsnittstemperatur på $-18$ °C -- altfor kaldt for flytande vatn, og dermed for liv slik vi kjenner det. Men den faktiske gjennomsnittstemperaturen er rundt $+15$ °C, eller 288 K. Det er ein skilnad på heile 33 grader. Kvar kjem dei frå?\n\nMetoden verkar for andre planetar òg. Mars ligg lenger frå sola, med svakare innstråling ($S \\approx 590$ W/m²) og albedo 0,25. Reknestykket gjev $T = \\left[\\frac{590 \\cdot 0{,}75}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} \\approx 210$ K, altså $-63$ °C. Og her stemmer det godt med den faktiske temperaturen på rundt $-60$ °C -- nettopp fordi Mars har ein så tynn atmosfære at han nesten ikkje har noko ekstra oppvarming. På jorda er det noko anna som gjev oss dei manglande 33 gradene: drivhuseffekten."
+    },
+    {
+      "id": "fys1-5-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-5-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på strålingsbalanse og likevektstemperatur:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-5-4-n-quiz2-q0",
+            "task": "Kva er føresetnaden for at temperaturen på jorda skal vere stabil?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Innkomande energi > utgåande energi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "All energi blir reflektert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen energi stråler ut",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Innkomande energi = utgåande energi",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ved strålingsbalanse er $P_{inn}=P_{ut}$, altså $\\frac{S_0}{4}(1-\\alpha)=\\sigma T^4$. Då held temperaturen seg konstant."
+          },
+          {
+            "id": "fys1-5-4-n-quiz2-q1",
+            "task": "Kva blir den teoretiske likevektstemperaturen til jorda utan atmosfære?",
+            "options": [
+              {
+                "id": "b",
+                "text": "-18 °C (255 K)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "+15 °C",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "+33 °C",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0 °C",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Reknestykket gjev $T\\approx 255$ K $=-18$ °C -- altfor kaldt for liv. Den faktiske temperaturen er +15 °C."
+          },
+          {
+            "id": "fys1-5-4-n-quiz2-q2",
+            "task": "Kva forklarar skilnaden på 33 grader mellom rekna og faktisk temperatur?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Albedoen er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Drivhuseffekten",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Sola er varmare enn anteke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Jorda roterer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei manglande 33 gradene skuldast drivhuseffekten -- atmosfæren held jorda varmare enn det reine strålingsrekneskapet tilseier."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-5-4-n-section3",
+      "type": "text",
+      "content": "## Drivhuseffekten -- varmeteppet til atmosfæren\n\nDei manglande 33 gradene kjem frå **drivhuseffekten**: atmosfæren absorberer utgåande varmestråling frå jorda og sender ein del av henne tilbake, slik at planeten held seg varmare enn han elles ville. Mekanismen er elegant og heng direkte saman med Wiens lov frå det førre kapittelet.\n\nSlik fungerer han, steg for steg. Sola sender hovudsakleg ut *synleg lys* (ho er varm, så kort bølgjelengd), og atmosfæren er nesten gjennomsiktig for dette -- sollyset slepp ned og varmar overflata. Jorda, som er mykje kaldare ($\\sim 288$ K), stråler tilbake ved mykje lengre bølgjelengd, rundt 10 μm -- *infraraud* varmestråling. Og her er nøkkelen: **drivhusgassane** i atmosfæren (vassdamp, CO₂, metan, lystgass) er gjennomsiktige for synleg lys, men absorberer infraraudt. Dei fangar den utgåande varmestrålinga og sender henne ut igjen i alle retningar, slik at om lag halvparten går tilbake mot bakken. Nettoeffekten er at meir energi blir halden nær overflata, og jorda blir varmare.\n\nDei viktigaste drivhusgassane er vassdamp (står for rundt 60 % av effekten, men blir regulert naturleg), CO₂ (~25 %), metan (~8 %) og lystgass (~5 %). Metan er kraftigare per molekyl enn CO₂, men finst i mindre mengd.\n\nDet er viktig å forstå at drivhuseffekten i seg sjølv er heilt *nødvendig*. Utan han ville jorda hatt $-18$ °C, for kaldt for flytande vatn og dermed for liv. Med den naturlege drivhuseffekten har vi behagelege $+15$ °C. Utfordringa oppstår når effekten blir *forsterka* -- når menneskeskapte utslepp aukar konsentrasjonen av drivhusgassar, blir varmeteppet tjukkare, og temperaturen stig. Her spelar òg sjølvforsterkande tilbakekoplingar inn: blir det varmare, fordampar meir vatn (meir drivhusgass), og smeltar meir is (lågare albedo, meir absorpsjon) -- effektar som kan forsterke ei oppvarming."
+    },
+    {
+      "id": "fys1-5-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-5-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på drivhuseffekten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-5-4-n-quiz3-q0",
+            "task": "Kvifor slepp sollys lett gjennom atmosfæren, medan varmestrålinga frå jorda blir fanga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sollys er infraraudt, strålinga frå jorda er synleg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Atmosfæren stoppar alt sollys",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sola stråler synleg lys (slepp gjennom), jorda stråler infraraudt (blir absorbert av drivhusgassar)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den varme sola stråler kortbølga synleg lys som slepp gjennom. Den kaldare jorda stråler langbølga infraraudt, som drivhusgassane absorberer."
+          },
+          {
+            "id": "fys1-5-4-n-quiz3-q1",
+            "task": "Er drivhuseffekten i seg sjølv skadeleg?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ja, han bør fjernast heilt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ja, han gjer jorda for kald",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han har ingen effekt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Nei, den naturlege effekten er nødvendig for liv -- problemet er forsterkinga",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan drivhuseffekten ville jorda hatt -18 °C. Den naturlege effekten gjev levelege +15 °C. Det er den menneskeskapte forsterkinga som skaper utfordringa."
+          },
+          {
+            "id": "fys1-5-4-n-quiz3-q2",
+            "task": "Kva er is-albedo-tilbakekoplinga?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Is smeltar, albedoen søkk, meir stråling blir absorbert, og oppvarminga blir forsterka",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Is blir danna, og jorda blir kjølt ned",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Is reflekterer all stråling for alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Is har ingen effekt på klimaet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Smeltande is blottlegg mørkare hav og land med lågare albedo, som absorberer meir solstråling -- ei sjølvforsterkande oppvarming."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-5-4-n-section4",
+      "type": "text",
+      "content": "## Klimaendringar -- når balansen blir forskyven\n\nFysikken viser at balansen kan bli forskyven, og målingar viser at han er det. Den globale gjennomsnittstemperaturen har stige med rundt 1,1 °C sidan førindustriell tid (1850-1900). Samstundes har konsentrasjonen av CO₂ i atmosfæren auka frå rundt 280 ppm (delar per million) i 1750 til over 420 ppm i dag -- ein auke på om lag 50 %, og det høgaste nivået på minst 800 000 år, lese ut av iskjernar. Andre observasjonar følgjer same mønster: isbrear smeltar, havet stig med rundt 3,3 mm i året, og arktisk havis krympar.\n\nKvifor stig CO₂? Hovudkjeldene er **forbrenning av fossilt brensel** -- kol, olje og naturgass -- som frigjer karbon lagra i millionar av år, og som står for om lag tre fjerdedelar av CO₂-utsleppa. **Avskoging** medverkar òg, sidan tre elles tek opp CO₂ gjennom fotosyntese, og **jordbruk** slepp ut metan (frå husdyr og rismarker) og lystgass (frå gjødsel).\n\nKonsekvensane av auka oppvarming spenner vidt. Meir hyppige og intense hetebølgjer, stigande havnivå som truar kystområde, kraftigare nedbør og flaum somme stader og tørke andre, press på økosystem som korallrev, og verknader på matproduksjon og busetjing. FNs klimapanel (IPCC) har laga fleire scenario alt etter framtidige utslepp -- frå rundt +1,4 °C ved sterke kutt til over +4 °C ved framleis høge utslepp innan 2100. Parisavtalen frå 2015 sette som mål å halde oppvarminga godt under 2 °C, helst 1,5 °C.\n\nLøysingane fysikken og forskinga peikar på, går i tre retningar: redusere utslepp (fornybar energi, elektrifisering, energieffektivisering), fjerne CO₂ (skogplanting, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar). For å gjere det konkret: ein bensinbil som køyrer 15 000 km i året med 0,6 liter/mil forbrenn $1500 \\cdot 0{,}6 = 900$ liter bensin, og sidan kvar liter gjev 2,3 kg CO₂, blir utsleppet $900 \\cdot 2{,}3 = 2070$ kg $\\approx 2{,}1$ tonn CO₂ årleg. Til samanlikning ligg eit gjennomsnittleg norsk fotavtrykk på rundt 8 tonn per person per år. Slik koplar fysikken i dette kapittelet -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store linjene i klimaet til heilt konkrete tal i kvardagen."
+    },
+    {
+      "id": "fys1-5-4-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-5-4-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på klimaendringar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-5-4-n-quiz4-q0",
+            "task": "Kor mykje har CO₂-konsentrasjonen om lag auka sidan førindustriell tid?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han er uendra",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Frå ~280 ppm til over 420 ppm, ein auke på rundt 50 %",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han er halvert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Frå 420 til 280 ppm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CO₂ har auka frå ~280 ppm (1750) til over 420 ppm i dag -- rundt 50 %, det høgaste nivået på minst 800 000 år."
+          },
+          {
+            "id": "fys1-5-4-n-quiz4-q1",
+            "task": "Kva er den største kjelda til menneskeskapte CO₂-utslepp?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avskoging",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Husdyr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forbrenning av fossilt brensel (kol, olje, gass)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Vulkanar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forbrenning av fossilt brensel står for om lag tre fjerdedelar av CO₂-utsleppa, ved å frigjere karbon lagra i millionar av år."
+          },
+          {
+            "id": "fys1-5-4-n-quiz4-q2",
+            "task": "Ein bil forbrenn 900 liter bensin i året (2,3 kg CO₂/liter). Kor mykje CO₂ slepp han ut?",
+            "options": [
+              {
+                "id": "b",
+                "text": "0,9 tonn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "23 tonn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "390 kg",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "2,1 tonn",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$900\\cdot 2{,}3=2070$ kg $\\approx 2{,}1$ tonn CO₂ per år."
+          },
+          {
+            "id": "fys1-5-4-n-quiz4-q3",
+            "task": "Kva tre hovudretningar peikar forskinga på for å møte klimaendringane?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Redusere utslepp, fjerne CO₂, og tilpasse seg",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Berre byggje flaumsikringar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Auke albedoen til 1",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Slutte å måle temperaturen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei tre hovudretningane er å redusere utslepp (fornybar energi, effektivisering), fjerne CO₂ (skog, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-5-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nTemperaturen på jorda er eit rekneskap: energi inn frå sola mot energi ut i rommet. Av solkonstanten $S_0 = 1361$ W/m² blir gjennomsnittet $\\frac{S_0}{4} = 340$ W/m², og etter at **albedoen** (~0,30 for jorda) har reflektert bort ein del, blir 238 W/m² absorbert.\n\nSet vi inn lik ut, $\\frac{S_0}{4}(1-\\alpha) = \\sigma T^4$, gjev reknestykket ein **likevektstemperatur** på berre $-18$ °C -- altfor kaldt for liv. Dei manglande 33 gradene opp til faktiske $+15$ °C skuldast **drivhuseffekten**: atmosfæren slepp inn det synlege lyset frå sola, men drivhusgassane (vassdamp, CO₂, metan) fangar den utgåande infraraude varmestrålinga frå jorda og sender ein del tilbake. Den naturlege effekten er heilt nødvendig for liv.\n\n**Klimaendringar** oppstår når balansen blir forskyven -- CO₂ har auka rundt 50 % sidan førindustriell tid, hovudsakleg frå forbrenning av fossilt brensel, og temperaturen har stige om lag 1,1 °C. Sjølvforsterkande tilbakekoplingar som is-albedo og vassdamp kan forsterke endringa. Forskinga peikar på tre svar: redusere utslepp, fjerne CO₂ og tilpasse seg. Slik knyter den same fysikken -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store klimalinjene til heilt konkrete tal, heilt ned til CO₂-utsleppet frå éin enkelt bil."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "2c69320a564d1f1e",
+    "translatedAt": "2026-06-20T22:47:50.316Z",
+    "model": "claude-code-agent",
+    "strings": 100,
+    "tm": {
+      "e8cffeb83b8652b5": "Jordas strålingsbalanse og klimaendringer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "912c2580b8c20f08": "Ei forteljing om reknestykket som avgjer temperaturen på jorda -- kvifor planeten eigentleg burde ha vore frosen, og korleis atmosfæren held oss varme.",
+      "055461fa398ceb2a": "forklare jordas strålingsbalanse",
+      "ddf9a94cac55ad18": "beregne jordas likevektstemperatur",
+      "26814a7ae580e6b2": "forklare drivhuseffekten",
+      "4941522a02adfd2b": "beskrive albedo og dens betydning",
+      "5731913c1842be25": "forklare årsakene til og konsekvensene av klimaendringer",
+      "c6012836518bbad0": "## Eit reknestykke som avgjer om jorda er buleg\n\nTemperaturen på jorda er ikkje tilfeldig. Han er resultatet av eit kontinuerleg rekneskap: energien som kjem inn frå sola, sett opp mot energien som stråler ut i verdsrommet. Når desse to balanserer, held temperaturen seg stabil. Dette er **strålingsbalansen til jorda**, og han er bokstaveleg talt skilnaden på ein levande og ein livlaus planet.\n\nVi har no alle verktøya vi treng. Vi veit at sola stråler som ein svart lekam (Stefan-Boltzmann), og at jorda stråler tilbake på same måten. Set vi inn-energien lik ut-energien, kan vi faktisk *rekne ut* kva temperatur jorda burde ha. Og svaret blir overraskande: planeten burde eigentleg ha vore frosen.\n\nI dette kapittelet skal vi gjere dette reknestykket, møte omgrepet albedo, og forstå drivhuseffekten -- den naturlege prosessen som hevar temperaturen til noko leveleg. Til slutt ser vi på korleis menneskeleg aktivitet forskyv balansen, og kva fysikken fortel oss om klimaendringar. Lat oss byrje med energien som treffer oss.",
+      "bd1d445dac2e6798": "## Solkonstanten, albedo og energien som faktisk blir att\n\nKor mykje energi sender sola oss? Like utanfor atmosfæren treffer **solkonstanten** $S_0 = 1361$ W/m² -- altså 1361 watt per kvadratmeter som står vinkelrett på solstrålane. Men det er ikkje gjennomsnittet over heile kloden. Jorda fangar sollys på eit tverrsnitt som er ein sirkel med areal $\\pi r^2$, men strålinga skal fordelast over heile kuleflata $4\\pi r^2$. Forholdet er nøyaktig $\\frac{1}{4}$, så gjennomsnittleg innstråling er $\\frac{S_0}{4} = \\frac{1361}{4} = 340$ W/m².\n\nMen ikkje alt blir absorbert. Ein del blir kasta rett tilbake. **Albedo** $\\alpha$ er delen av innkomande solstråling som blir reflektert til verdsrommet. Den gjennomsnittlege albedoen til jorda er rundt 0,30 -- 30 % blir reflektert, 70 % absorbert. Albedoen varierer sterkt med overflata: nysnø reflekterer 80-95 % (høg albedo), hav berre 6-10 % (låg albedo), skog rundt 10 %, ørken 25-40 %. Lys, blank overflate kastar sola tilbake; mørk overflate syg henne til seg.\n\nDen absorberte strålinga blir difor $P_{abs} = \\frac{S_0}{4}(1 - \\alpha) = 340 \\cdot 0{,}70 = 238$ W/m². Dette er energien som faktisk blir att og varmar jorda -- og som jorda må kvitte seg med igjen for at temperaturen skal halde seg stabil. Albedoen er altså ein kraftig spak: endrar han seg -- til dømes om snø og is smeltar og blottlegg mørkare bakke -- endrar det seg kor mykje energi planeten held på.",
+      "e42ba94dab6031e6": "Test deg sjølv på solstråling og albedo:",
+      "4097889236a2af26": "placeholder",
+      "3262d6b365cbea1b": "Kva er albedo?",
+      "aa5a3e8e5a377da5": "Delen solstråling som blir absorbert",
+      "3a3cae14aa6aa86c": "Delen av innkomande solstråling som blir reflektert tilbake til verdsrommet",
+      "5e564aadfc09c21e": "Temperaturen på jorda",
+      "4c6ee7a5ef5fe68e": "Solkonstanten",
+      "eed1b278e5affb31": "Albedo er refleksjonsdelen. Den gjennomsnittlege albedoen til jorda er ~0,30, så 30 % blir reflektert og 70 % absorbert.",
+      "6ae792adc742666f": "Kvifor er gjennomsnittleg innstråling $S_0/4$ og ikkje $S_0$?",
+      "d987ee0f32077173": "Fordi sola berre lyser om dagen",
+      "3976988831cff0ff": "Fordi atmosfæren stoppar 75 %",
+      "20daab0cd7b239cb": "Fordi tverrsnittet ($\\pi r^2$) fangar lys, men det blir fordelt over heile kuleflata ($4\\pi r^2$)",
+      "e3400c79c1604e3d": "Fordi jorda er flat",
+      "0a78f0c9c0d41a7b": "Jorda fangar sollys på eit tverrsnitt $\\pi r^2$, men energien blir spreidd over heile overflata $4\\pi r^2$. Forholdet er $\\frac{1}{4}$.",
+      "35f8e8223ec9a4f8": "Kva overflate har høgast albedo?",
+      "6728627f0180c459": "Hav",
+      "40f91a647470999e": "Skog",
+      "04c29f6e344dcef8": "Asfalt",
+      "9051debc10091e1f": "Nysnø",
+      "d165d4cc3a383abe": "Nysnø reflekterer 80-95 % (svært høg albedo), medan hav (6-10 %) og skog (~10 %) absorberer det meste.",
+      "96862af45423b851": "## Likevektstemperaturen -- jorda burde ha vore frosen\n\nNo kan vi gjere sjølve reknestykket. For at temperaturen skal vere stabil, må energien ut balansere energien inn. Jorda stråler ut som ein (nesten) svart lekam etter Stefan-Boltzmann: $P_{ut} = \\sigma T^4$. Vi set dette lik den absorberte solstrålinga:\n\n$$\\frac{S_0}{4}(1 - \\alpha) = \\sigma T^4$$\n\nLøyser vi for temperaturen, får vi $T = \\left[\\frac{S_0(1-\\alpha)}{4\\sigma}\\right]^{1/4}$. Set vi inn tala for jorda -- $S_0 = 1361$, $\\alpha = 0{,}30$, $\\sigma = 5{,}67 \\times 10^{-8}$ -- blir det $T = \\left[\\frac{1361 \\cdot 0{,}70}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} = [4{,}20 \\times 10^9]^{1/4} \\approx 255$ K, altså $-18$ °C.\n\nDette er oppsiktsvekkjande. Reknestykket seier at jorda burde ha ein gjennomsnittstemperatur på $-18$ °C -- altfor kaldt for flytande vatn, og dermed for liv slik vi kjenner det. Men den faktiske gjennomsnittstemperaturen er rundt $+15$ °C, eller 288 K. Det er ein skilnad på heile 33 grader. Kvar kjem dei frå?\n\nMetoden verkar for andre planetar òg. Mars ligg lenger frå sola, med svakare innstråling ($S \\approx 590$ W/m²) og albedo 0,25. Reknestykket gjev $T = \\left[\\frac{590 \\cdot 0{,}75}{4 \\cdot 5{,}67 \\times 10^{-8}}\\right]^{1/4} \\approx 210$ K, altså $-63$ °C. Og her stemmer det godt med den faktiske temperaturen på rundt $-60$ °C -- nettopp fordi Mars har ein så tynn atmosfære at han nesten ikkje har noko ekstra oppvarming. På jorda er det noko anna som gjev oss dei manglande 33 gradene: drivhuseffekten.",
+      "29dc49456e46be5d": "Test deg sjølv på strålingsbalanse og likevektstemperatur:",
+      "319a9d965dcc0178": "Kva er føresetnaden for at temperaturen på jorda skal vere stabil?",
+      "b0f476467c59786a": "Innkomande energi = utgåande energi",
+      "e0982d5258414ad9": "Innkomande energi > utgåande energi",
+      "1e441abe3ffd4c54": "All energi blir reflektert",
+      "3864bab1b0cff58d": "Ingen energi stråler ut",
+      "c0d276d861814e2f": "Ved strålingsbalanse er $P_{inn}=P_{ut}$, altså $\\frac{S_0}{4}(1-\\alpha)=\\sigma T^4$. Då held temperaturen seg konstant.",
+      "68c9b66a2a0b1e4f": "Kva blir den teoretiske likevektstemperaturen til jorda utan atmosfære?",
+      "afcab8633255f66e": "+15 °C",
+      "d189d33082c85d22": "-18 °C (255 K)",
+      "8f693ffd69a6c9b4": "+33 °C",
+      "1adfa07304c8303f": "0 °C",
+      "476de3faf5605012": "Reknestykket gjev $T\\approx 255$ K $=-18$ °C -- altfor kaldt for liv. Den faktiske temperaturen er +15 °C.",
+      "c70bf970f6e398aa": "Kva forklarar skilnaden på 33 grader mellom rekna og faktisk temperatur?",
+      "0188f4101bafbf58": "Albedoen er feil",
+      "bf80e4465cae1be2": "Sola er varmare enn anteke",
+      "0eb0f3f276955dcb": "Drivhuseffekten",
+      "f7a26047a1ff6c85": "Jorda roterer",
+      "2f6e3c8c8f2d4501": "Dei manglande 33 gradene skuldast drivhuseffekten -- atmosfæren held jorda varmare enn det reine strålingsrekneskapet tilseier.",
+      "f599b77036c57f8f": "## Drivhuseffekten -- varmeteppet til atmosfæren\n\nDei manglande 33 gradene kjem frå **drivhuseffekten**: atmosfæren absorberer utgåande varmestråling frå jorda og sender ein del av henne tilbake, slik at planeten held seg varmare enn han elles ville. Mekanismen er elegant og heng direkte saman med Wiens lov frå det førre kapittelet.\n\nSlik fungerer han, steg for steg. Sola sender hovudsakleg ut *synleg lys* (ho er varm, så kort bølgjelengd), og atmosfæren er nesten gjennomsiktig for dette -- sollyset slepp ned og varmar overflata. Jorda, som er mykje kaldare ($\\sim 288$ K), stråler tilbake ved mykje lengre bølgjelengd, rundt 10 μm -- *infraraud* varmestråling. Og her er nøkkelen: **drivhusgassane** i atmosfæren (vassdamp, CO₂, metan, lystgass) er gjennomsiktige for synleg lys, men absorberer infraraudt. Dei fangar den utgåande varmestrålinga og sender henne ut igjen i alle retningar, slik at om lag halvparten går tilbake mot bakken. Nettoeffekten er at meir energi blir halden nær overflata, og jorda blir varmare.\n\nDei viktigaste drivhusgassane er vassdamp (står for rundt 60 % av effekten, men blir regulert naturleg), CO₂ (~25 %), metan (~8 %) og lystgass (~5 %). Metan er kraftigare per molekyl enn CO₂, men finst i mindre mengd.\n\nDet er viktig å forstå at drivhuseffekten i seg sjølv er heilt *nødvendig*. Utan han ville jorda hatt $-18$ °C, for kaldt for flytande vatn og dermed for liv. Med den naturlege drivhuseffekten har vi behagelege $+15$ °C. Utfordringa oppstår når effekten blir *forsterka* -- når menneskeskapte utslepp aukar konsentrasjonen av drivhusgassar, blir varmeteppet tjukkare, og temperaturen stig. Her spelar òg sjølvforsterkande tilbakekoplingar inn: blir det varmare, fordampar meir vatn (meir drivhusgass), og smeltar meir is (lågare albedo, meir absorpsjon) -- effektar som kan forsterke ei oppvarming.",
+      "c8bc3744a8f82292": "Test deg sjølv på drivhuseffekten:",
+      "a538b5f76e368b3d": "Kvifor slepp sollys lett gjennom atmosfæren, medan varmestrålinga frå jorda blir fanga?",
+      "0062e11bbbabcd7a": "Sollys er infraraudt, strålinga frå jorda er synleg",
+      "c40c38bd8fa5268b": "Atmosfæren stoppar alt sollys",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "8c6f9acd16bbb606": "Sola stråler synleg lys (slepp gjennom), jorda stråler infraraudt (blir absorbert av drivhusgassar)",
+      "dfa7985cd5a0e0e7": "Den varme sola stråler kortbølga synleg lys som slepp gjennom. Den kaldare jorda stråler langbølga infraraudt, som drivhusgassane absorberer.",
+      "9e56b4b014c266a3": "Er drivhuseffekten i seg sjølv skadeleg?",
+      "58b2bc8025ee53a2": "Nei, den naturlege effekten er nødvendig for liv -- problemet er forsterkinga",
+      "b58cc490826bc46e": "Ja, han bør fjernast heilt",
+      "0252b5a9ac2a57bc": "Ja, han gjer jorda for kald",
+      "f9a6b57e0cd88763": "Han har ingen effekt",
+      "b89e072dac35e9a6": "Utan drivhuseffekten ville jorda hatt -18 °C. Den naturlege effekten gjev levelege +15 °C. Det er den menneskeskapte forsterkinga som skaper utfordringa.",
+      "8857f6259fe1408c": "Kva er is-albedo-tilbakekoplinga?",
+      "6683d5ea8257e527": "Is blir danna, og jorda blir kjølt ned",
+      "89360005f5484bfc": "Is smeltar, albedoen søkk, meir stråling blir absorbert, og oppvarminga blir forsterka",
+      "d8636a11c91fc62a": "Is reflekterer all stråling for alltid",
+      "9f612a1e140161d9": "Is har ingen effekt på klimaet",
+      "31e1ac6850152498": "Smeltande is blottlegg mørkare hav og land med lågare albedo, som absorberer meir solstråling -- ei sjølvforsterkande oppvarming.",
+      "a2f4818bcad5e32f": "## Klimaendringar -- når balansen blir forskyven\n\nFysikken viser at balansen kan bli forskyven, og målingar viser at han er det. Den globale gjennomsnittstemperaturen har stige med rundt 1,1 °C sidan førindustriell tid (1850-1900). Samstundes har konsentrasjonen av CO₂ i atmosfæren auka frå rundt 280 ppm (delar per million) i 1750 til over 420 ppm i dag -- ein auke på om lag 50 %, og det høgaste nivået på minst 800 000 år, lese ut av iskjernar. Andre observasjonar følgjer same mønster: isbrear smeltar, havet stig med rundt 3,3 mm i året, og arktisk havis krympar.\n\nKvifor stig CO₂? Hovudkjeldene er **forbrenning av fossilt brensel** -- kol, olje og naturgass -- som frigjer karbon lagra i millionar av år, og som står for om lag tre fjerdedelar av CO₂-utsleppa. **Avskoging** medverkar òg, sidan tre elles tek opp CO₂ gjennom fotosyntese, og **jordbruk** slepp ut metan (frå husdyr og rismarker) og lystgass (frå gjødsel).\n\nKonsekvensane av auka oppvarming spenner vidt. Meir hyppige og intense hetebølgjer, stigande havnivå som truar kystområde, kraftigare nedbør og flaum somme stader og tørke andre, press på økosystem som korallrev, og verknader på matproduksjon og busetjing. FNs klimapanel (IPCC) har laga fleire scenario alt etter framtidige utslepp -- frå rundt +1,4 °C ved sterke kutt til over +4 °C ved framleis høge utslepp innan 2100. Parisavtalen frå 2015 sette som mål å halde oppvarminga godt under 2 °C, helst 1,5 °C.\n\nLøysingane fysikken og forskinga peikar på, går i tre retningar: redusere utslepp (fornybar energi, elektrifisering, energieffektivisering), fjerne CO₂ (skogplanting, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar). For å gjere det konkret: ein bensinbil som køyrer 15 000 km i året med 0,6 liter/mil forbrenn $1500 \\cdot 0{,}6 = 900$ liter bensin, og sidan kvar liter gjev 2,3 kg CO₂, blir utsleppet $900 \\cdot 2{,}3 = 2070$ kg $\\approx 2{,}1$ tonn CO₂ årleg. Til samanlikning ligg eit gjennomsnittleg norsk fotavtrykk på rundt 8 tonn per person per år. Slik koplar fysikken i dette kapittelet -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store linjene i klimaet til heilt konkrete tal i kvardagen.",
+      "871c77123b796359": "Test deg sjølv på klimaendringar:",
+      "0d8200694597cf59": "Kor mykje har CO₂-konsentrasjonen om lag auka sidan førindustriell tid?",
+      "142245cc422dd35c": "Han er uendra",
+      "69cb551b183bd76b": "Han er halvert",
+      "3603c97eaba8bd35": "Frå ~280 ppm til over 420 ppm, ein auke på rundt 50 %",
+      "fbcafd12527ec88e": "Frå 420 til 280 ppm",
+      "31d84da3f72422af": "CO₂ har auka frå ~280 ppm (1750) til over 420 ppm i dag -- rundt 50 %, det høgaste nivået på minst 800 000 år.",
+      "a48e0ca72155dba5": "Kva er den største kjelda til menneskeskapte CO₂-utslepp?",
+      "d83e281f8a5d492e": "Avskoging",
+      "ad454382908cafd5": "Husdyr",
+      "7ffbfb54c878cfe4": "Vulkanar",
+      "42b7b6341e234f59": "Forbrenning av fossilt brensel (kol, olje, gass)",
+      "1befed43f40554e0": "Forbrenning av fossilt brensel står for om lag tre fjerdedelar av CO₂-utsleppa, ved å frigjere karbon lagra i millionar av år.",
+      "14f2b51e189462d2": "Ein bil forbrenn 900 liter bensin i året (2,3 kg CO₂/liter). Kor mykje CO₂ slepp han ut?",
+      "01c8f094de9ccb2a": "2,1 tonn",
+      "518381ccc24af76c": "0,9 tonn",
+      "24d74dff388437cf": "23 tonn",
+      "19990fd8fd6b034e": "390 kg",
+      "6bc9867472a6e123": "$900\\cdot 2{,}3=2070$ kg $\\approx 2{,}1$ tonn CO₂ per år.",
+      "802c606b83f2aeeb": "Kva tre hovudretningar peikar forskinga på for å møte klimaendringane?",
+      "29423c2ec5886868": "Berre byggje flaumsikringar",
+      "f7cf00faa7aada41": "Redusere utslepp, fjerne CO₂, og tilpasse seg",
+      "e7c816794f72c0a0": "Auke albedoen til 1",
+      "bce8d07b09940013": "Slutte å måle temperaturen",
+      "647d892029bb08da": "Dei tre hovudretningane er å redusere utslepp (fornybar energi, effektivisering), fjerne CO₂ (skog, karbonfangst), og tilpasse seg (flaumsikring, robuste avlingar).",
+      "2ab335c130e17fd8": "## Oppsummering\n\nTemperaturen på jorda er eit rekneskap: energi inn frå sola mot energi ut i rommet. Av solkonstanten $S_0 = 1361$ W/m² blir gjennomsnittet $\\frac{S_0}{4} = 340$ W/m², og etter at **albedoen** (~0,30 for jorda) har reflektert bort ein del, blir 238 W/m² absorbert.\n\nSet vi inn lik ut, $\\frac{S_0}{4}(1-\\alpha) = \\sigma T^4$, gjev reknestykket ein **likevektstemperatur** på berre $-18$ °C -- altfor kaldt for liv. Dei manglande 33 gradene opp til faktiske $+15$ °C skuldast **drivhuseffekten**: atmosfæren slepp inn det synlege lyset frå sola, men drivhusgassane (vassdamp, CO₂, metan) fangar den utgåande infraraude varmestrålinga frå jorda og sender ein del tilbake. Den naturlege effekten er heilt nødvendig for liv.\n\n**Klimaendringar** oppstår når balansen blir forskyven -- CO₂ har auka rundt 50 % sidan førindustriell tid, hovudsakleg frå forbrenning av fossilt brensel, og temperaturen har stige om lag 1,1 °C. Sjølvforsterkande tilbakekoplingar som is-albedo og vassdamp kan forsterke endringa. Forskinga peikar på tre svar: redusere utslepp, fjerne CO₂ og tilpasse seg. Slik knyter den same fysikken -- Stefan-Boltzmann, albedo og drivhuseffekt -- dei store klimalinjene til heilt konkrete tal, heilt ned til CO₂-utsleppet frå éin enkelt bil."
+    }
+  }
+}

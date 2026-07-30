@@ -1,1 +1,502 @@
-{"id":"r1-6-3-narrativ","courseId":"r1","chapterNumber":"6.3","title":"Parameterframstilling","subtitle":"Narrativ versjon","description":"Ei forteljing om parameterframstilling -- om kurva som film i staden for fotografi, linjer som reiser, sirklar teikna av ein roterande visar, og fartsvektoren som den deriverte av filmen.","estimatedMinutes":40,"competenceGoals":["setje opp parameterframstilling for ei linje","finne skjeringspunkt mellom linjer gitt ved parameterframstilling","setje opp parameterframstilling for sirklar og andre kurver","forstå samanhengen mellom parameterframstilling og rørsle","bruke GeoGebra til å animere parameterframstillingar"],"linkedChapterId":"r1-6-3","content":[{"id":"r1-6-3-n-intro","type":"text","content":"## Kurva som film, ikkje fotografi\n\nTil no har du skildra kurver med likningar som $y = 2x + 3$ eller $x^2 + y^2 = 25$. Slike likningar er som *fotografi*: dei viser kvar kurva ligg, heile kurva på éin gong, frosen i tid. Men tenk på ein drone som flyg over eit jorde, eit skip som kryssar ein fjord, eller ein satellitt i bane. Då vil vi ikkje berre vite *kvar* bana ligg – vi vil vite *kvar objektet er når*. Vi treng ikkje eit fotografi, vi treng ein *film*.\n\nDet er nøyaktig kva **parameterframstilling** gir oss. I staden for éi likning som bind $x$ og $y$ saman, lèt vi begge koordinatane vere funksjonar av ein tredje variabel $t$ – *parameteren*: $x = x(t)$ og $y = y(t)$. For kvart tidspunkt $t$ får vi eitt punkt $(x(t), y(t))$, og når $t$ løper, teiknar punktet opp kurva – som ein lysande prikk som rører seg over skjermen. Ofte er parameteren bokstaveleg talt tida, men han kan òg berre vere eit hjelpetal som nummererer punkta langs kurva.\n\nGevinstane er store. Vi kan skildre kurver som slett ikkje er funksjonsgrafar – sirklar og ellipsar, for eksempel. Vi kan finne ut når og kvar to rørsler kryssar kvarandre. Og med derivasjon kan vi lese av fart og fart direkte frå framstillinga. La oss starte med den enklaste filmen av alle: ei jamn vandring langs ei rett linje."},{"id":"r1-6-3-n-section1","type":"text","content":"## Linja som ei reise\n\nKorleis skildrar du ei vandring langs ei rett linje? Du treng to opplysningar: kvar du startar, og kva retning du går i. Matematisk: eit startpunkt $P = (x_0, y_0)$ og ein **retningsvektor** $\\vec{v} = [a, b]$. Då er posisjonen etter «$t$ skritt» gitt ved $$\\vec{r}(t) = \\vec{p} + t \\cdot \\vec{v}$$ der $\\vec{p} = [x_0, y_0]$ er stadvektoren til startpunktet. På komponentform: $x(t) = x_0 + at$ og $y(t) = y_0 + bt$. Ved $t = 0$ står du i startpunktet; for kvar eining $t$ aukar, forflyttar du deg éin heil retningsvektor. Negative $t$-verdiar? Dei gir punkta *bakover* langs linja – framstillinga dekkjer heile linja, ikkje berre ein stråle.\n\nLa oss lage ei konkret reise: linja gjennom $A = (1, 2)$ og $B = (4, 6)$. Som startpunkt vel vi $A$, og som retningsvektor tek vi $\\vec{AB} = [4-1, 6-2] = [3, 4]$. Dermed: $x(t) = 1 + 3t$ og $y(t) = 2 + 4t$. Kontrollen er innebygd: $t = 0$ gir $(1, 2) = A$, og $t = 1$ gir $(4, 6) = B$. Merk at framstillinga ikkje er unik – du kunne starta i $B$ eller brukt $[6, 8]$ som retning. Same linje, annan «køyreplan».\n\nOg vegen tilbake til fotografiet? Vil du ha den vanlege likninga $y = ax + b$, løyser du den eine likninga for $t$ og set inn i den andre. For $x = 1 + 2t$, $y = 3 + 4t$: frå første likning er $t = \\frac{x-1}{2}$, og innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 3 + 2(x - 1) = 2x + 1$. Rimelegheitssjekk: retningsvektoren $[2, 4]$ stig 4 i $y$ per 2 i $x$, altså stigingstal $\\frac{4}{2} = 2$ – akkurat det likninga seier. Parameteren var eit stillas; når kurva er bygd, kan det rivast."},{"id":"r1-6-3-n-quiz1","type":"exercise","exercise":{"id":"r1-6-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på parameterframstilling av linje:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-3-n-quiz1-q0","task":"Ei linje går gjennom $A = (1, 2)$ og $B = (4, 6)$. Kva retningsvektor kan du bruke?","options":[{"id":"a","text":"$[5, 8]$","isCorrect":false},{"id":"b","text":"$[3, 4]$","isCorrect":true},{"id":"c","text":"$[4, 3]$","isCorrect":false},{"id":"d","text":"$[1, 2]$","isCorrect":false}],"solution":"$\\vec{AB} = [4 - 1, 6 - 2] = [3, 4]$. (Kvart multiplum, som $[6, 8]$, duger òg.)"},{"id":"r1-6-3-n-quiz1-q1","task":"Linja har framstillinga $x = 1 + 3t$, $y = 2 + 4t$. Kva punkt svarar til $t = 1$?","options":[{"id":"a","text":"$(1, 2)$","isCorrect":false},{"id":"b","text":"$(3, 4)$","isCorrect":false},{"id":"c","text":"$(2, 6)$","isCorrect":false},{"id":"d","text":"$(4, 6)$","isCorrect":true}],"solution":"$x(1) = 1 + 3 = 4$ og $y(1) = 2 + 4 = 6$, altså punktet $(4, 6)$."},{"id":"r1-6-3-n-quiz1-q2","task":"Finn den kartesiske likninga for linja $x = 1 + 2t$, $y = 3 + 4t$.","options":[{"id":"a","text":"$y = 2x + 1$","isCorrect":true},{"id":"b","text":"$y = 4x + 3$","isCorrect":false},{"id":"c","text":"$y = \\frac{1}{2}x + 1$","isCorrect":false},{"id":"d","text":"$y = 2x - 1$","isCorrect":false}],"solution":"Frå $x = 1 + 2t$ er $t = \\frac{x-1}{2}$. Innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 2x + 1$."},{"id":"r1-6-3-n-quiz1-q3","task":"Ei linje har retningsvektor $[2, 4]$. Kva er stigingstalet?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$2$","isCorrect":true},{"id":"d","text":"$8$","isCorrect":false}],"solution":"Stigingstalet er $\\frac{b}{a} = \\frac{4}{2} = 2$: linja stig 4 i $y$-retning for kvar 2 i $x$-retning."}]}},{"id":"r1-6-3-n-section2","type":"text","content":"## Kryssande kurs og roterande prikkar\n\nNår kryssar to reiseruter kvarandre? Her lurer ei klassisk felle. Tenk på to skip med kvar sin køyreplan: linje 1 med $x = 1 + 2t$, $y = 3 + t$, og linje 2 med $x = 4 + s$, $y = 1 + 2s$. Legg merke til at vi *må* bruke ulike parameternamn, $t$ og $s$ – dei to objekta følgjer kvar si klokke, og linjene kan godt krysse sjølv om objekta passerer punktet til ulik «tid». I skjeringspunktet er koordinatane like: $1 + 2t = 4 + s$ og $3 + t = 1 + 2s$. Frå den første: $s = 2t - 3$. Innsett i den andre: $3 + t = 1 + 2(2t - 3) = 4t - 5$, som gir $3t = 8$, altså $t = \\frac{8}{3}$. Då er $x = 1 + \\frac{16}{3} = \\frac{19}{3}$ og $y = 3 + \\frac{8}{3} = \\frac{17}{3}$ – linjene blir kryssa i $\\left(\\frac{19}{3}, \\frac{17}{3}\\right)$.\n\nDen verkelege triumfen til parameterframstillinga kjem likevel for kurver som *ikkje* er grafar til funksjonar. Ein sirkel stryk på vertikallinjetesten – men som film er han uimotståeleg enkel. Ein sirkel med sentrum $(h, k)$ og radius $r$ er $$x(t) = h + r\\cos t, \\qquad y(t) = k + r\\sin t, \\qquad t \\in [0, 2\\pi)$$ Tenk på $t$ som vinkelen til ein roterande visar: $\\cos t$ og $\\sin t$ leverer rotasjonen, $r$ skalerer, og $(h, k)$ flyttar sentrum på plass. For sirkelen med sentrum $(2, 3)$ og radius 4 gir $t = \\frac{\\pi}{3}$ punktet $x = 2 + 4 \\cdot \\frac{1}{2} = 4$, $y = 3 + 4 \\cdot \\frac{\\sqrt{3}}{2} = 3 + 2\\sqrt{3}$. Avstanden frå sentrum: $\\sqrt{2^2 + (2\\sqrt{3})^2} = \\sqrt{16} = 4$ – punktet ligg på sirkelen, som det skal.\n\nOg med éi lita vri opnar eit heilt kurvegalleri seg: bruk *ulike* radiusar i dei to retningane, $x = a\\cos t$, $y = b\\sin t$, og du har ein **ellipse**. For $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ er $a = 3$ og $b = 2$, altså $x = 3\\cos t$, $y = 2\\sin t$ – og identiteten $\\cos^2 t + \\sin^2 t = 1$ stadfestar at likninga er oppfylt."},{"id":"r1-6-3-n-quiz2","type":"exercise","exercise":{"id":"r1-6-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på skjering, sirklar og ellipsar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-3-n-quiz2-q0","task":"Kvifor må to linjer ha ulike parameternamn ($t$ og $s$) når vi leitar etter skjeringspunkt?","options":[{"id":"a","text":"For at likningssystemet skal få to ukjende i staden for fire","isCorrect":false},{"id":"b","text":"Fordi GeoGebra krev det","isCorrect":false},{"id":"c","text":"Fordi punkta kan nåast ved ulike parameterverdiar på kvar linje","isCorrect":true},{"id":"d","text":"Fordi linjene elles blir parallelle","isCorrect":false}],"solution":"Dei to framstillingane er uavhengige «køyreplanar». Skjeringspunktet kan svare til $t = \\frac{8}{3}$ på den eine linja og ein heilt annan verdi av $s$ på den andre."},{"id":"r1-6-3-n-quiz2-q1","task":"Kva parameterframstilling skildrar sirkelen med sentrum $(2, 3)$ og radius 4?","options":[{"id":"a","text":"$x = 2 + 4\\cos t,\\; y = 3 + 4\\sin t$","isCorrect":true},{"id":"b","text":"$x = 4 + 2\\cos t,\\; y = 4 + 3\\sin t$","isCorrect":false},{"id":"c","text":"$x = 2 + 3\\cos t,\\; y = 4 + 2\\sin t$","isCorrect":false},{"id":"d","text":"$x = 4\\cos t,\\; y = 4\\sin t$","isCorrect":false}],"solution":"Mønsteret er $x = h + r\\cos t$, $y = k + r\\sin t$ med sentrum $(h, k) = (2, 3)$ og radius $r = 4$."},{"id":"r1-6-3-n-quiz2-q2","task":"For sirkelen $x = 2 + 4\\cos t$, $y = 3 + 4\\sin t$: kva punkt gir $t = \\frac{\\pi}{3}$?","options":[{"id":"a","text":"$(2, 7)$","isCorrect":false},{"id":"b","text":"$(6, 3)$","isCorrect":false},{"id":"c","text":"$(4, 5)$","isCorrect":false},{"id":"d","text":"$(4,\\; 3 + 2\\sqrt{3})$","isCorrect":true}],"solution":"$\\cos\\frac{\\pi}{3} = \\frac{1}{2}$ og $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$ gir $x = 2 + 2 = 4$ og $y = 3 + 2\\sqrt{3}$."},{"id":"r1-6-3-n-quiz2-q3","task":"Kva parameterframstilling passar til ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$?","options":[{"id":"a","text":"$x = 9\\cos t,\\; y = 4\\sin t$","isCorrect":false},{"id":"b","text":"$x = 3\\cos t,\\; y = 2\\sin t$","isCorrect":true},{"id":"c","text":"$x = 2\\cos t,\\; y = 3\\sin t$","isCorrect":false},{"id":"d","text":"$x = 3\\sin t,\\; y = 2\\sin t$","isCorrect":false}],"solution":"Med $a = 3$ og $b = 2$: $\\frac{(3\\cos t)^2}{9} + \\frac{(2\\sin t)^2}{4} = \\cos^2 t + \\sin^2 t = 1$ ✓."}]}},{"id":"r1-6-3-n-section3","type":"text","content":"## Farten – den deriverte av filmen\n\nDersom parameterframstillinga er ein film, kva er då den deriverte? Svaret er vakkert: han er *farten*. Rører eit punkt seg langs $\\vec{r}(t) = [x(t), y(t)]$, er **fartsvektoren** $$\\vec{v}(t) = \\vec{r}\\,'(t) = [x'(t), y'(t)]$$ – vi deriverer kvar komponent for seg. Fartsvektoren peikar alltid i rørsleretninga og ligg tangentielt til bana, og lengda hans er **farten**: $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$. (Deriverer du éin gong til, får du akselerasjonsvektoren $\\vec{a}(t) = \\vec{v}\\,'(t)$.)\n\nTa partikkelen med bane $\\vec{r}(t) = [1 + 2t, 3 + 4t]$, der $t$ blir målt i sekund og posisjon i meter. Derivasjon komponentvis gir $\\vec{v}(t) = [2, 4]$ – ein *konstant* vektor, som fortel at partikkelen går i rett linje med jamn fart. Farten er $|\\vec{v}| = \\sqrt{4 + 16} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s, og etter 3 sekund er posisjonen $\\vec{r}(3) = [7, 15]$.\n\nMeir spennande blir det på ei sirkelbane: $\\vec{r}(t) = [5\\cos t, 5\\sin t]$. No gir derivasjonen $\\vec{v}(t) = [-5\\sin t, 5\\cos t]$ – ein fart som heile tida endrar retning. Og her ventar ei perle. Rekn ut skalarproduktet av posisjon og fart: $$\\vec{r} \\cdot \\vec{v} = (5\\cos t)(-5\\sin t) + (5\\sin t)(5\\cos t) = -25\\cos t \\sin t + 25 \\sin t \\cos t = 0$$ Null – *alltid*! Fartsvektoren står til kvar tid vinkelrett på posisjonsvektoren, altså vinkelrett på radien: han er tangent til sirkelen, akkurat slik ein stein i ei slynge flyg av garde langs tangenten i det augneblikket du slepper. Farten er likevel konstant: $|\\vec{v}| = \\sqrt{25\\sin^2 t + 25\\cos^2 t} = 5$. Konstant fart, men stadig skiftande retning – signaturen til sirkelrørsla, fanga i to deriverte komponentar."},{"id":"r1-6-3-n-quiz3","type":"exercise","exercise":{"id":"r1-6-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på rørsle og fartsvektor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-3-n-quiz3-q0","task":"Ein partikkel følgjer $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$. Kva er fartsvektoren?","options":[{"id":"a","text":"$[1, 3]$","isCorrect":false},{"id":"b","text":"$[2, 4]$","isCorrect":true},{"id":"c","text":"$[2t, 4t]$","isCorrect":false},{"id":"d","text":"$[3, 7]$","isCorrect":false}],"solution":"Vi deriverer komponentvis: $\\vec{v}(t) = [(1 + 2t)', (3 + 4t)'] = [2, 4]$. Konstant fart – rettlinja rørsle."},{"id":"r1-6-3-n-quiz3-q1","task":"Kva er farten til partikkelen med $\\vec{v} = [2, 4]$?","options":[{"id":"a","text":"$6$ m/s","isCorrect":false},{"id":"b","text":"$\\sqrt{6}$ m/s","isCorrect":false},{"id":"c","text":"$4$ m/s","isCorrect":false},{"id":"d","text":"$2\\sqrt{5}$ m/s","isCorrect":true}],"solution":"Farten er lengda av fartsvektoren: $|\\vec{v}| = \\sqrt{2^2 + 4^2} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s."},{"id":"r1-6-3-n-quiz3-q2","task":"Kvar er partikkelen $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$ etter 3 sekund?","options":[{"id":"a","text":"$(7, 15)$","isCorrect":true},{"id":"b","text":"$(6, 12)$","isCorrect":false},{"id":"c","text":"$(4, 7)$","isCorrect":false},{"id":"d","text":"$(2, 4)$","isCorrect":false}],"solution":"$\\vec{r}(3) = [1 + 2 \\cdot 3,\\; 3 + 4 \\cdot 3] = [7, 15]$."},{"id":"r1-6-3-n-quiz3-q3","task":"For sirkelrørsla $\\vec{r}(t) = [5\\cos t, 5\\sin t]$: kva er forholdet mellom $\\vec{v}(t)$ og $\\vec{r}(t)$?","options":[{"id":"a","text":"Dei er parallelle","isCorrect":false},{"id":"b","text":"Dei har same lengd, men $\\vec{v}$ er dobbelt så rask","isCorrect":false},{"id":"c","text":"$\\vec{v}$ er alltid ortogonal på $\\vec{r}$ -- tangent til sirkelen","isCorrect":true},{"id":"d","text":"$\\vec{v}$ peikar alltid mot sentrum","isCorrect":false}],"solution":"$\\vec{r} \\cdot \\vec{v} = -25\\cos t\\sin t + 25\\sin t\\cos t = 0$ for alle $t$, så fartsvektoren står vinkelrett på radien og er tangent til sirkelen."}]}},{"id":"r1-6-3-n-summary","type":"text","content":"## Filmen er ferdig klipt\n\nVi bytte ut fotografiet med film, og kurvene vakna til liv. Ei **parameterframstilling** $x = x(t)$, $y = y(t)$ – eller på vektorform $\\vec{r}(t) = [x(t), y(t)]$ – lèt punktet $(x(t), y(t))$ teikne kurva medan parameteren $t$ løper, ofte i rolla som tid.\n\nDen rette **linja** vart ei jamn vandring: $\\vec{r}(t) = \\vec{p} + t\\vec{v}$, med startpunkt og retningsvektor som heile køyreplanen. Vil du tilbake til den kartesiske likninga, løyser du ut $t$ frå den eine likninga og set inn i den andre. Skal to parameterframstilte linjer kryssast, må dei få kvar sin parameter – $t$ og $s$ – før du set koordinatane like og løyser systemet; dei to objekta følgjer trass alt kvar si klokke.\n\nSå opna trigonometrien kurvegalleriet: **sirkelen** med sentrum $(h, k)$ og radius $r$ er $x = h + r\\cos t$, $y = k + r\\sin t$, og med ulike «radiusar» $a$ og $b$ i dei to retningane får du ellipsen – kurver ingen funksjonsgraf kan fange. Til slutt kom krona på verket: derivasjon komponentvis gir **fartsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$, tangent til bana, med farten $|\\vec{v}(t)|$ som lengd. Den rettlinja partikkelen hadde konstant $\\vec{v} = [2, 4]$; sirkelpartikkelen hadde konstant fart, men evig skiftande retning, med $\\vec{v}$ alltid vinkelrett på radien.\n\nLinje, sirkel, rørsle – tre forteljingar, éin notasjon. I kapitla som kjem, skal nettopp dette språket bere både geometrien til linjer og sirklar og problema i fysikken om kurs, krefter og kollisjonar."}],"exercises":[],"_meta":{"sourceHash":"286debb9d7b1377b","translatedAt":"2026-06-19T23:57:59.199Z","model":"claude-code-agent","strings":70,"tm":{"c16d93c80f238bef":"Parameterframstilling","b195b06d1ed59702":"Narrativ versjon","9e1c8cfa896850cc":"Ei forteljing om parameterframstilling -- om kurva som film i staden for fotografi, linjer som reiser, sirklar teikna av ein roterande visar, og fartsvektoren som den deriverte av filmen.","43fd92288165992b":"setje opp parameterframstilling for ei linje","a8011723e70f431a":"finne skjeringspunkt mellom linjer gitt ved parameterframstilling","02ca71d89ed49998":"setje opp parameterframstilling for sirklar og andre kurver","79a894af231efec8":"forstå samanhengen mellom parameterframstilling og rørsle","fa8c28822f8ffd6c":"bruke GeoGebra til å animere parameterframstillingar","f32d0a3ab7ce8036":"## Kurva som film, ikkje fotografi\n\nTil no har du skildra kurver med likningar som $y = 2x + 3$ eller $x^2 + y^2 = 25$. Slike likningar er som *fotografi*: dei viser kvar kurva ligg, heile kurva på éin gong, frosen i tid. Men tenk på ein drone som flyg over eit jorde, eit skip som kryssar ein fjord, eller ein satellitt i bane. Då vil vi ikkje berre vite *kvar* bana ligg – vi vil vite *kvar objektet er når*. Vi treng ikkje eit fotografi, vi treng ein *film*.\n\nDet er nøyaktig kva **parameterframstilling** gir oss. I staden for éi likning som bind $x$ og $y$ saman, lèt vi begge koordinatane vere funksjonar av ein tredje variabel $t$ – *parameteren*: $x = x(t)$ og $y = y(t)$. For kvart tidspunkt $t$ får vi eitt punkt $(x(t), y(t))$, og når $t$ løper, teiknar punktet opp kurva – som ein lysande prikk som rører seg over skjermen. Ofte er parameteren bokstaveleg talt tida, men han kan òg berre vere eit hjelpetal som nummererer punkta langs kurva.\n\nGevinstane er store. Vi kan skildre kurver som slett ikkje er funksjonsgrafar – sirklar og ellipsar, for eksempel. Vi kan finne ut når og kvar to rørsler kryssar kvarandre. Og med derivasjon kan vi lese av fart og fart direkte frå framstillinga. La oss starte med den enklaste filmen av alle: ei jamn vandring langs ei rett linje.","20a3f2b567cc3446":"## Linja som ei reise\n\nKorleis skildrar du ei vandring langs ei rett linje? Du treng to opplysningar: kvar du startar, og kva retning du går i. Matematisk: eit startpunkt $P = (x_0, y_0)$ og ein **retningsvektor** $\\vec{v} = [a, b]$. Då er posisjonen etter «$t$ skritt» gitt ved $$\\vec{r}(t) = \\vec{p} + t \\cdot \\vec{v}$$ der $\\vec{p} = [x_0, y_0]$ er stadvektoren til startpunktet. På komponentform: $x(t) = x_0 + at$ og $y(t) = y_0 + bt$. Ved $t = 0$ står du i startpunktet; for kvar eining $t$ aukar, forflyttar du deg éin heil retningsvektor. Negative $t$-verdiar? Dei gir punkta *bakover* langs linja – framstillinga dekkjer heile linja, ikkje berre ein stråle.\n\nLa oss lage ei konkret reise: linja gjennom $A = (1, 2)$ og $B = (4, 6)$. Som startpunkt vel vi $A$, og som retningsvektor tek vi $\\vec{AB} = [4-1, 6-2] = [3, 4]$. Dermed: $x(t) = 1 + 3t$ og $y(t) = 2 + 4t$. Kontrollen er innebygd: $t = 0$ gir $(1, 2) = A$, og $t = 1$ gir $(4, 6) = B$. Merk at framstillinga ikkje er unik – du kunne starta i $B$ eller brukt $[6, 8]$ som retning. Same linje, annan «køyreplan».\n\nOg vegen tilbake til fotografiet? Vil du ha den vanlege likninga $y = ax + b$, løyser du den eine likninga for $t$ og set inn i den andre. For $x = 1 + 2t$, $y = 3 + 4t$: frå første likning er $t = \\frac{x-1}{2}$, og innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 3 + 2(x - 1) = 2x + 1$. Rimelegheitssjekk: retningsvektoren $[2, 4]$ stig 4 i $y$ per 2 i $x$, altså stigingstal $\\frac{4}{2} = 2$ – akkurat det likninga seier. Parameteren var eit stillas; når kurva er bygd, kan det rivast.","50a73a88034f776e":"Test deg sjølv på parameterframstilling av linje:","4097889236a2af26":"placeholder","714fe9914b2caa34":"Ei linje går gjennom $A = (1, 2)$ og $B = (4, 6)$. Kva retningsvektor kan du bruke?","2289de913d7c0cee":"$\\vec{AB} = [4 - 1, 6 - 2] = [3, 4]$. (Kvart multiplum, som $[6, 8]$, duger òg.)","e30a4e60f6ea17b5":"Linja har framstillinga $x = 1 + 3t$, $y = 2 + 4t$. Kva punkt svarar til $t = 1$?","0d7eeacc11f5384a":"$x(1) = 1 + 3 = 4$ og $y(1) = 2 + 4 = 6$, altså punktet $(4, 6)$.","a17528d78ff61953":"Finn den kartesiske likninga for linja $x = 1 + 2t$, $y = 3 + 4t$.","99339ec2797c5ddb":"$y = 2x + 1$","f78ce98cdeb77fbc":"$y = 4x + 3$","8c803fb5c9b5ce8a":"$y = \\frac{1}{2}x + 1$","fcc4bf69a24d943a":"$y = 2x - 1$","1ba543b6f7fb88b8":"Frå $x = 1 + 2t$ er $t = \\frac{x-1}{2}$. Innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 2x + 1$.","5e5e3da9e05cfd4d":"Ei linje har retningsvektor $[2, 4]$. Kva er stigingstalet?","b61def0872c567fe":"$\\frac{1}{2}$","b0a4497443646b11":"Stigingstalet er $\\frac{b}{a} = \\frac{4}{2} = 2$: linja stig 4 i $y$-retning for kvar 2 i $x$-retning.","8cf6866800d1e494":"## Kryssande kurs og roterande prikkar\n\nNår kryssar to reiseruter kvarandre? Her lurer ei klassisk felle. Tenk på to skip med kvar sin køyreplan: linje 1 med $x = 1 + 2t$, $y = 3 + t$, og linje 2 med $x = 4 + s$, $y = 1 + 2s$. Legg merke til at vi *må* bruke ulike parameternamn, $t$ og $s$ – dei to objekta følgjer kvar si klokke, og linjene kan godt krysse sjølv om objekta passerer punktet til ulik «tid». I skjeringspunktet er koordinatane like: $1 + 2t = 4 + s$ og $3 + t = 1 + 2s$. Frå den første: $s = 2t - 3$. Innsett i den andre: $3 + t = 1 + 2(2t - 3) = 4t - 5$, som gir $3t = 8$, altså $t = \\frac{8}{3}$. Då er $x = 1 + \\frac{16}{3} = \\frac{19}{3}$ og $y = 3 + \\frac{8}{3} = \\frac{17}{3}$ – linjene blir kryssa i $\\left(\\frac{19}{3}, \\frac{17}{3}\\right)$.\n\nDen verkelege triumfen til parameterframstillinga kjem likevel for kurver som *ikkje* er grafar til funksjonar. Ein sirkel stryk på vertikallinjetesten – men som film er han uimotståeleg enkel. Ein sirkel med sentrum $(h, k)$ og radius $r$ er $$x(t) = h + r\\cos t, \\qquad y(t) = k + r\\sin t, \\qquad t \\in [0, 2\\pi)$$ Tenk på $t$ som vinkelen til ein roterande visar: $\\cos t$ og $\\sin t$ leverer rotasjonen, $r$ skalerer, og $(h, k)$ flyttar sentrum på plass. For sirkelen med sentrum $(2, 3)$ og radius 4 gir $t = \\frac{\\pi}{3}$ punktet $x = 2 + 4 \\cdot \\frac{1}{2} = 4$, $y = 3 + 4 \\cdot \\frac{\\sqrt{3}}{2} = 3 + 2\\sqrt{3}$. Avstanden frå sentrum: $\\sqrt{2^2 + (2\\sqrt{3})^2} = \\sqrt{16} = 4$ – punktet ligg på sirkelen, som det skal.\n\nOg med éi lita vri opnar eit heilt kurvegalleri seg: bruk *ulike* radiusar i dei to retningane, $x = a\\cos t$, $y = b\\sin t$, og du har ein **ellipse**. For $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ er $a = 3$ og $b = 2$, altså $x = 3\\cos t$, $y = 2\\sin t$ – og identiteten $\\cos^2 t + \\sin^2 t = 1$ stadfestar at likninga er oppfylt.","54b5ccd932ac45d5":"Test deg sjølv på skjering, sirklar og ellipsar:","1e0dfbc6476ae7e6":"Kvifor må to linjer ha ulike parameternamn ($t$ og $s$) når vi leitar etter skjeringspunkt?","d9a4597a156edbf3":"For at likningssystemet skal få to ukjende i staden for fire","caa4ba0cbfe455e9":"Fordi GeoGebra krev det","d2dfb710a92b02f4":"Fordi punkta kan nåast ved ulike parameterverdiar på kvar linje","c759da0124a3c10e":"Fordi linjene elles blir parallelle","2221cfe75b9765b2":"Dei to framstillingane er uavhengige «køyreplanar». Skjeringspunktet kan svare til $t = \\frac{8}{3}$ på den eine linja og ein heilt annan verdi av $s$ på den andre.","ec15fdebfeb1b6f3":"Kva parameterframstilling skildrar sirkelen med sentrum $(2, 3)$ og radius 4?","c2fa3da52a7c6e5e":"$x = 2 + 4\\cos t,\\; y = 3 + 4\\sin t$","bf437f0a21524688":"$x = 4 + 2\\cos t,\\; y = 4 + 3\\sin t$","e6168cda2016dfab":"$x = 2 + 3\\cos t,\\; y = 4 + 2\\sin t$","a23cff33da8af78f":"$x = 4\\cos t,\\; y = 4\\sin t$","9ce8c174da96a3f5":"Mønsteret er $x = h + r\\cos t$, $y = k + r\\sin t$ med sentrum $(h, k) = (2, 3)$ og radius $r = 4$.","61c775aab1710c66":"For sirkelen $x = 2 + 4\\cos t$, $y = 3 + 4\\sin t$: kva punkt gir $t = \\frac{\\pi}{3}$?","20190762f3eb7dc9":"$(4,\\; 3 + 2\\sqrt{3})$","2a14be59907a11af":"$\\cos\\frac{\\pi}{3} = \\frac{1}{2}$ og $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$ gir $x = 2 + 2 = 4$ og $y = 3 + 2\\sqrt{3}$.","af0cfc005a1c3a2d":"Kva parameterframstilling passar til ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$?","f2d32379f772ea6a":"$x = 9\\cos t,\\; y = 4\\sin t$","e5620bd6903b2429":"$x = 3\\cos t,\\; y = 2\\sin t$","977e640a534269de":"$x = 2\\cos t,\\; y = 3\\sin t$","192e258ff9963ef6":"$x = 3\\sin t,\\; y = 2\\sin t$","68e7e162b33718a7":"Med $a = 3$ og $b = 2$: $\\frac{(3\\cos t)^2}{9} + \\frac{(2\\sin t)^2}{4} = \\cos^2 t + \\sin^2 t = 1$ ✓.","b077ff6d62798caf":"## Farten – den deriverte av filmen\n\nDersom parameterframstillinga er ein film, kva er då den deriverte? Svaret er vakkert: han er *farten*. Rører eit punkt seg langs $\\vec{r}(t) = [x(t), y(t)]$, er **fartsvektoren** $$\\vec{v}(t) = \\vec{r}\\,'(t) = [x'(t), y'(t)]$$ – vi deriverer kvar komponent for seg. Fartsvektoren peikar alltid i rørsleretninga og ligg tangentielt til bana, og lengda hans er **farten**: $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$. (Deriverer du éin gong til, får du akselerasjonsvektoren $\\vec{a}(t) = \\vec{v}\\,'(t)$.)\n\nTa partikkelen med bane $\\vec{r}(t) = [1 + 2t, 3 + 4t]$, der $t$ blir målt i sekund og posisjon i meter. Derivasjon komponentvis gir $\\vec{v}(t) = [2, 4]$ – ein *konstant* vektor, som fortel at partikkelen går i rett linje med jamn fart. Farten er $|\\vec{v}| = \\sqrt{4 + 16} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s, og etter 3 sekund er posisjonen $\\vec{r}(3) = [7, 15]$.\n\nMeir spennande blir det på ei sirkelbane: $\\vec{r}(t) = [5\\cos t, 5\\sin t]$. No gir derivasjonen $\\vec{v}(t) = [-5\\sin t, 5\\cos t]$ – ein fart som heile tida endrar retning. Og her ventar ei perle. Rekn ut skalarproduktet av posisjon og fart: $$\\vec{r} \\cdot \\vec{v} = (5\\cos t)(-5\\sin t) + (5\\sin t)(5\\cos t) = -25\\cos t \\sin t + 25 \\sin t \\cos t = 0$$ Null – *alltid*! Fartsvektoren står til kvar tid vinkelrett på posisjonsvektoren, altså vinkelrett på radien: han er tangent til sirkelen, akkurat slik ein stein i ei slynge flyg av garde langs tangenten i det augneblikket du slepper. Farten er likevel konstant: $|\\vec{v}| = \\sqrt{25\\sin^2 t + 25\\cos^2 t} = 5$. Konstant fart, men stadig skiftande retning – signaturen til sirkelrørsla, fanga i to deriverte komponentar.","fd79ab3bc1401aa2":"Test deg sjølv på rørsle og fartsvektor:","e462ae45b1cfd3b8":"Ein partikkel følgjer $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$. Kva er fartsvektoren?","d402834a26ae4528":"$[2t, 4t]$","a7c8ec61361a086d":"Vi deriverer komponentvis: $\\vec{v}(t) = [(1 + 2t)', (3 + 4t)'] = [2, 4]$. Konstant fart – rettlinja rørsle.","2e4138cdf0576e78":"Kva er farten til partikkelen med $\\vec{v} = [2, 4]$?","85001938c80ee8ea":"$6$ m/s","2059c6726ad6eb02":"$\\sqrt{6}$ m/s","649b21f1f07e7a97":"$4$ m/s","5f0906f6fa5718db":"$2\\sqrt{5}$ m/s","c1f581bfa92b790b":"Farten er lengda av fartsvektoren: $|\\vec{v}| = \\sqrt{2^2 + 4^2} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s.","24da7d7b545a6236":"Kvar er partikkelen $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$ etter 3 sekund?","57e27b7686267548":"$\\vec{r}(3) = [1 + 2 \\cdot 3,\\; 3 + 4 \\cdot 3] = [7, 15]$.","a492adbb2564ccfc":"For sirkelrørsla $\\vec{r}(t) = [5\\cos t, 5\\sin t]$: kva er forholdet mellom $\\vec{v}(t)$ og $\\vec{r}(t)$?","824ea7e1c278c5c2":"Dei er parallelle","a6e7830a2b23d79e":"Dei har same lengd, men $\\vec{v}$ er dobbelt så rask","ad0960b3b67a7c88":"$\\vec{v}$ er alltid ortogonal på $\\vec{r}$ -- tangent til sirkelen","7041871de4014cdc":"$\\vec{v}$ peikar alltid mot sentrum","db9b39357821c978":"$\\vec{r} \\cdot \\vec{v} = -25\\cos t\\sin t + 25\\sin t\\cos t = 0$ for alle $t$, så fartsvektoren står vinkelrett på radien og er tangent til sirkelen.","5d1ca559e92c22fc":"## Filmen er ferdig klipt\n\nVi bytte ut fotografiet med film, og kurvene vakna til liv. Ei **parameterframstilling** $x = x(t)$, $y = y(t)$ – eller på vektorform $\\vec{r}(t) = [x(t), y(t)]$ – lèt punktet $(x(t), y(t))$ teikne kurva medan parameteren $t$ løper, ofte i rolla som tid.\n\nDen rette **linja** vart ei jamn vandring: $\\vec{r}(t) = \\vec{p} + t\\vec{v}$, med startpunkt og retningsvektor som heile køyreplanen. Vil du tilbake til den kartesiske likninga, løyser du ut $t$ frå den eine likninga og set inn i den andre. Skal to parameterframstilte linjer kryssast, må dei få kvar sin parameter – $t$ og $s$ – før du set koordinatane like og løyser systemet; dei to objekta følgjer trass alt kvar si klokke.\n\nSå opna trigonometrien kurvegalleriet: **sirkelen** med sentrum $(h, k)$ og radius $r$ er $x = h + r\\cos t$, $y = k + r\\sin t$, og med ulike «radiusar» $a$ og $b$ i dei to retningane får du ellipsen – kurver ingen funksjonsgraf kan fange. Til slutt kom krona på verket: derivasjon komponentvis gir **fartsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$, tangent til bana, med farten $|\\vec{v}(t)|$ som lengd. Den rettlinja partikkelen hadde konstant $\\vec{v} = [2, 4]$; sirkelpartikkelen hadde konstant fart, men evig skiftande retning, med $\\vec{v}$ alltid vinkelrett på radien.\n\nLinje, sirkel, rørsle – tre forteljingar, éin notasjon. I kapitla som kjem, skal nettopp dette språket bere både geometrien til linjer og sirklar og problema i fysikken om kurs, krefter og kollisjonar."}}}
+{
+  "id": "r1-6-3-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "6.3",
+  "title": "Parameterframstilling",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om parameterframstilling -- om kurva som film i staden for fotografi, linjer som reiser, sirklar teikna av ein roterande visar, og fartsvektoren som den deriverte av filmen.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "setje opp parameterframstilling for ei linje",
+    "finne skjeringspunkt mellom linjer gitt ved parameterframstilling",
+    "setje opp parameterframstilling for sirklar og andre kurver",
+    "forstå samanhengen mellom parameterframstilling og rørsle",
+    "bruke GeoGebra til å animere parameterframstillingar"
+  ],
+  "linkedChapterId": "r1-6-3",
+  "content": [
+    {
+      "id": "r1-6-3-n-intro",
+      "type": "text",
+      "content": "## Kurva som film, ikkje fotografi\n\nTil no har du skildra kurver med likningar som $y = 2x + 3$ eller $x^2 + y^2 = 25$. Slike likningar er som *fotografi*: dei viser kvar kurva ligg, heile kurva på éin gong, frosen i tid. Men tenk på ein drone som flyg over eit jorde, eit skip som kryssar ein fjord, eller ein satellitt i bane. Då vil vi ikkje berre vite *kvar* bana ligg – vi vil vite *kvar objektet er når*. Vi treng ikkje eit fotografi, vi treng ein *film*.\n\nDet er nøyaktig kva **parameterframstilling** gir oss. I staden for éi likning som bind $x$ og $y$ saman, lèt vi begge koordinatane vere funksjonar av ein tredje variabel $t$ – *parameteren*: $x = x(t)$ og $y = y(t)$. For kvart tidspunkt $t$ får vi eitt punkt $(x(t), y(t))$, og når $t$ løper, teiknar punktet opp kurva – som ein lysande prikk som rører seg over skjermen. Ofte er parameteren bokstaveleg talt tida, men han kan òg berre vere eit hjelpetal som nummererer punkta langs kurva.\n\nGevinstane er store. Vi kan skildre kurver som slett ikkje er funksjonsgrafar – sirklar og ellipsar, for eksempel. Vi kan finne ut når og kvar to rørsler kryssar kvarandre. Og med derivasjon kan vi lese av fart og fart direkte frå framstillinga. La oss starte med den enklaste filmen av alle: ei jamn vandring langs ei rett linje."
+    },
+    {
+      "id": "r1-6-3-n-section1",
+      "type": "text",
+      "content": "## Linja som ei reise\n\nKorleis skildrar du ei vandring langs ei rett linje? Du treng to opplysningar: kvar du startar, og kva retning du går i. Matematisk: eit startpunkt $P = (x_0, y_0)$ og ein **retningsvektor** $\\vec{v} = [a, b]$. Då er posisjonen etter «$t$ skritt» gitt ved $$\\vec{r}(t) = \\vec{p} + t \\cdot \\vec{v}$$ der $\\vec{p} = [x_0, y_0]$ er stadvektoren til startpunktet. På komponentform: $x(t) = x_0 + at$ og $y(t) = y_0 + bt$. Ved $t = 0$ står du i startpunktet; for kvar eining $t$ aukar, forflyttar du deg éin heil retningsvektor. Negative $t$-verdiar? Dei gir punkta *bakover* langs linja – framstillinga dekkjer heile linja, ikkje berre ein stråle.\n\nLa oss lage ei konkret reise: linja gjennom $A = (1, 2)$ og $B = (4, 6)$. Som startpunkt vel vi $A$, og som retningsvektor tek vi $\\vec{AB} = [4-1, 6-2] = [3, 4]$. Dermed: $x(t) = 1 + 3t$ og $y(t) = 2 + 4t$. Kontrollen er innebygd: $t = 0$ gir $(1, 2) = A$, og $t = 1$ gir $(4, 6) = B$. Merk at framstillinga ikkje er unik – du kunne starta i $B$ eller brukt $[6, 8]$ som retning. Same linje, annan «køyreplan».\n\nOg vegen tilbake til fotografiet? Vil du ha den vanlege likninga $y = ax + b$, løyser du den eine likninga for $t$ og set inn i den andre. For $x = 1 + 2t$, $y = 3 + 4t$: frå første likning er $t = \\frac{x-1}{2}$, og innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 3 + 2(x - 1) = 2x + 1$. Rimelegheitssjekk: retningsvektoren $[2, 4]$ stig 4 i $y$ per 2 i $x$, altså stigingstal $\\frac{4}{2} = 2$ – akkurat det likninga seier. Parameteren var eit stillas; når kurva er bygd, kan det rivast."
+    },
+    {
+      "id": "r1-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på parameterframstilling av linje:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-3-n-quiz1-q0",
+            "task": "Ei linje går gjennom $A = (1, 2)$ og $B = (4, 6)$. Kva retningsvektor kan du bruke?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[3, 4]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[5, 8]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[4, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[1, 2]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{AB} = [4 - 1, 6 - 2] = [3, 4]$. (Kvart multiplum, som $[6, 8]$, duger òg.)"
+          },
+          {
+            "id": "r1-6-3-n-quiz1-q1",
+            "task": "Linja har framstillinga $x = 1 + 3t$, $y = 2 + 4t$. Kva punkt svarar til $t = 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(1, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(4, 6)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(3, 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(2, 6)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x(1) = 1 + 3 = 4$ og $y(1) = 2 + 4 = 6$, altså punktet $(4, 6)$."
+          },
+          {
+            "id": "r1-6-3-n-quiz1-q2",
+            "task": "Finn den kartesiske likninga for linja $x = 1 + 2t$, $y = 3 + 4t$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 4x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = \\frac{1}{2}x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = 2x + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = 2x - 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå $x = 1 + 2t$ er $t = \\frac{x-1}{2}$. Innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 2x + 1$."
+          },
+          {
+            "id": "r1-6-3-n-quiz1-q3",
+            "task": "Ei linje har retningsvektor $[2, 4]$. Kva er stigingstalet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Stigingstalet er $\\frac{b}{a} = \\frac{4}{2} = 2$: linja stig 4 i $y$-retning for kvar 2 i $x$-retning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-3-n-section2",
+      "type": "text",
+      "content": "## Kryssande kurs og roterande prikkar\n\nNår kryssar to reiseruter kvarandre? Her lurer ei klassisk felle. Tenk på to skip med kvar sin køyreplan: linje 1 med $x = 1 + 2t$, $y = 3 + t$, og linje 2 med $x = 4 + s$, $y = 1 + 2s$. Legg merke til at vi *må* bruke ulike parameternamn, $t$ og $s$ – dei to objekta følgjer kvar si klokke, og linjene kan godt krysse sjølv om objekta passerer punktet til ulik «tid». I skjeringspunktet er koordinatane like: $1 + 2t = 4 + s$ og $3 + t = 1 + 2s$. Frå den første: $s = 2t - 3$. Innsett i den andre: $3 + t = 1 + 2(2t - 3) = 4t - 5$, som gir $3t = 8$, altså $t = \\frac{8}{3}$. Då er $x = 1 + \\frac{16}{3} = \\frac{19}{3}$ og $y = 3 + \\frac{8}{3} = \\frac{17}{3}$ – linjene blir kryssa i $\\left(\\frac{19}{3}, \\frac{17}{3}\\right)$.\n\nDen verkelege triumfen til parameterframstillinga kjem likevel for kurver som *ikkje* er grafar til funksjonar. Ein sirkel stryk på vertikallinjetesten – men som film er han uimotståeleg enkel. Ein sirkel med sentrum $(h, k)$ og radius $r$ er $$x(t) = h + r\\cos t, \\qquad y(t) = k + r\\sin t, \\qquad t \\in [0, 2\\pi)$$ Tenk på $t$ som vinkelen til ein roterande visar: $\\cos t$ og $\\sin t$ leverer rotasjonen, $r$ skalerer, og $(h, k)$ flyttar sentrum på plass. For sirkelen med sentrum $(2, 3)$ og radius 4 gir $t = \\frac{\\pi}{3}$ punktet $x = 2 + 4 \\cdot \\frac{1}{2} = 4$, $y = 3 + 4 \\cdot \\frac{\\sqrt{3}}{2} = 3 + 2\\sqrt{3}$. Avstanden frå sentrum: $\\sqrt{2^2 + (2\\sqrt{3})^2} = \\sqrt{16} = 4$ – punktet ligg på sirkelen, som det skal.\n\nOg med éi lita vri opnar eit heilt kurvegalleri seg: bruk *ulike* radiusar i dei to retningane, $x = a\\cos t$, $y = b\\sin t$, og du har ein **ellipse**. For $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ er $a = 3$ og $b = 2$, altså $x = 3\\cos t$, $y = 2\\sin t$ – og identiteten $\\cos^2 t + \\sin^2 t = 1$ stadfestar at likninga er oppfylt."
+    },
+    {
+      "id": "r1-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på skjering, sirklar og ellipsar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-3-n-quiz2-q0",
+            "task": "Kvifor må to linjer ha ulike parameternamn ($t$ og $s$) når vi leitar etter skjeringspunkt?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fordi punkta kan nåast ved ulike parameterverdiar på kvar linje",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For at likningssystemet skal få to ukjende i staden for fire",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi GeoGebra krev det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi linjene elles blir parallelle",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei to framstillingane er uavhengige «køyreplanar». Skjeringspunktet kan svare til $t = \\frac{8}{3}$ på den eine linja og ein heilt annan verdi av $s$ på den andre."
+          },
+          {
+            "id": "r1-6-3-n-quiz2-q1",
+            "task": "Kva parameterframstilling skildrar sirkelen med sentrum $(2, 3)$ og radius 4?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = 4 + 2\\cos t,\\; y = 4 + 3\\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = 2 + 4\\cos t,\\; y = 3 + 4\\sin t$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 2 + 3\\cos t,\\; y = 4 + 2\\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 4\\cos t,\\; y = 4\\sin t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mønsteret er $x = h + r\\cos t$, $y = k + r\\sin t$ med sentrum $(h, k) = (2, 3)$ og radius $r = 4$."
+          },
+          {
+            "id": "r1-6-3-n-quiz2-q2",
+            "task": "For sirkelen $x = 2 + 4\\cos t$, $y = 3 + 4\\sin t$: kva punkt gir $t = \\frac{\\pi}{3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(2, 7)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(6, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(4,\\; 3 + 2\\sqrt{3})$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(4, 5)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos\\frac{\\pi}{3} = \\frac{1}{2}$ og $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$ gir $x = 2 + 2 = 4$ og $y = 3 + 2\\sqrt{3}$."
+          },
+          {
+            "id": "r1-6-3-n-quiz2-q3",
+            "task": "Kva parameterframstilling passar til ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 9\\cos t,\\; y = 4\\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 2\\cos t,\\; y = 3\\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 3\\sin t,\\; y = 2\\sin t$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 3\\cos t,\\; y = 2\\sin t$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $a = 3$ og $b = 2$: $\\frac{(3\\cos t)^2}{9} + \\frac{(2\\sin t)^2}{4} = \\cos^2 t + \\sin^2 t = 1$ ✓."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-3-n-section3",
+      "type": "text",
+      "content": "## Farten – den deriverte av filmen\n\nDersom parameterframstillinga er ein film, kva er då den deriverte? Svaret er vakkert: han er *farten*. Rører eit punkt seg langs $\\vec{r}(t) = [x(t), y(t)]$, er **fartsvektoren** $$\\vec{v}(t) = \\vec{r}\\,'(t) = [x'(t), y'(t)]$$ – vi deriverer kvar komponent for seg. Fartsvektoren peikar alltid i rørsleretninga og ligg tangentielt til bana, og lengda hans er **farten**: $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$. (Deriverer du éin gong til, får du akselerasjonsvektoren $\\vec{a}(t) = \\vec{v}\\,'(t)$.)\n\nTa partikkelen med bane $\\vec{r}(t) = [1 + 2t, 3 + 4t]$, der $t$ blir målt i sekund og posisjon i meter. Derivasjon komponentvis gir $\\vec{v}(t) = [2, 4]$ – ein *konstant* vektor, som fortel at partikkelen går i rett linje med jamn fart. Farten er $|\\vec{v}| = \\sqrt{4 + 16} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s, og etter 3 sekund er posisjonen $\\vec{r}(3) = [7, 15]$.\n\nMeir spennande blir det på ei sirkelbane: $\\vec{r}(t) = [5\\cos t, 5\\sin t]$. No gir derivasjonen $\\vec{v}(t) = [-5\\sin t, 5\\cos t]$ – ein fart som heile tida endrar retning. Og her ventar ei perle. Rekn ut skalarproduktet av posisjon og fart: $$\\vec{r} \\cdot \\vec{v} = (5\\cos t)(-5\\sin t) + (5\\sin t)(5\\cos t) = -25\\cos t \\sin t + 25 \\sin t \\cos t = 0$$ Null – *alltid*! Fartsvektoren står til kvar tid vinkelrett på posisjonsvektoren, altså vinkelrett på radien: han er tangent til sirkelen, akkurat slik ein stein i ei slynge flyg av garde langs tangenten i det augneblikket du slepper. Farten er likevel konstant: $|\\vec{v}| = \\sqrt{25\\sin^2 t + 25\\cos^2 t} = 5$. Konstant fart, men stadig skiftande retning – signaturen til sirkelrørsla, fanga i to deriverte komponentar."
+    },
+    {
+      "id": "r1-6-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rørsle og fartsvektor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-3-n-quiz3-q0",
+            "task": "Ein partikkel følgjer $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$. Kva er fartsvektoren?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[2, 4]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[1, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[2t, 4t]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[3, 7]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer komponentvis: $\\vec{v}(t) = [(1 + 2t)', (3 + 4t)'] = [2, 4]$. Konstant fart – rettlinja rørsle."
+          },
+          {
+            "id": "r1-6-3-n-quiz3-q1",
+            "task": "Kva er farten til partikkelen med $\\vec{v} = [2, 4]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\sqrt{5}$ m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{6}$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$ m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Farten er lengda av fartsvektoren: $|\\vec{v}| = \\sqrt{2^2 + 4^2} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s."
+          },
+          {
+            "id": "r1-6-3-n-quiz3-q2",
+            "task": "Kvar er partikkelen $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$ etter 3 sekund?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(6, 12)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(4, 7)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(7, 15)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(2, 4)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{r}(3) = [1 + 2 \\cdot 3,\\; 3 + 4 \\cdot 3] = [7, 15]$."
+          },
+          {
+            "id": "r1-6-3-n-quiz3-q3",
+            "task": "For sirkelrørsla $\\vec{r}(t) = [5\\cos t, 5\\sin t]$: kva er forholdet mellom $\\vec{v}(t)$ og $\\vec{r}(t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei er parallelle",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei har same lengd, men $\\vec{v}$ er dobbelt så rask",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\vec{v}$ peikar alltid mot sentrum",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\vec{v}$ er alltid ortogonal på $\\vec{r}$ -- tangent til sirkelen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\vec{r} \\cdot \\vec{v} = -25\\cos t\\sin t + 25\\sin t\\cos t = 0$ for alle $t$, så fartsvektoren står vinkelrett på radien og er tangent til sirkelen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-3-n-summary",
+      "type": "text",
+      "content": "## Filmen er ferdig klipt\n\nVi bytte ut fotografiet med film, og kurvene vakna til liv. Ei **parameterframstilling** $x = x(t)$, $y = y(t)$ – eller på vektorform $\\vec{r}(t) = [x(t), y(t)]$ – lèt punktet $(x(t), y(t))$ teikne kurva medan parameteren $t$ løper, ofte i rolla som tid.\n\nDen rette **linja** vart ei jamn vandring: $\\vec{r}(t) = \\vec{p} + t\\vec{v}$, med startpunkt og retningsvektor som heile køyreplanen. Vil du tilbake til den kartesiske likninga, løyser du ut $t$ frå den eine likninga og set inn i den andre. Skal to parameterframstilte linjer kryssast, må dei få kvar sin parameter – $t$ og $s$ – før du set koordinatane like og løyser systemet; dei to objekta følgjer trass alt kvar si klokke.\n\nSå opna trigonometrien kurvegalleriet: **sirkelen** med sentrum $(h, k)$ og radius $r$ er $x = h + r\\cos t$, $y = k + r\\sin t$, og med ulike «radiusar» $a$ og $b$ i dei to retningane får du ellipsen – kurver ingen funksjonsgraf kan fange. Til slutt kom krona på verket: derivasjon komponentvis gir **fartsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$, tangent til bana, med farten $|\\vec{v}(t)|$ som lengd. Den rettlinja partikkelen hadde konstant $\\vec{v} = [2, 4]$; sirkelpartikkelen hadde konstant fart, men evig skiftande retning, med $\\vec{v}$ alltid vinkelrett på radien.\n\nLinje, sirkel, rørsle – tre forteljingar, éin notasjon. I kapitla som kjem, skal nettopp dette språket bere både geometrien til linjer og sirklar og problema i fysikken om kurs, krefter og kollisjonar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "286debb9d7b1377b",
+    "translatedAt": "2026-06-19T23:57:59.199Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "c16d93c80f238bef": "Parameterframstilling",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "9e1c8cfa896850cc": "Ei forteljing om parameterframstilling -- om kurva som film i staden for fotografi, linjer som reiser, sirklar teikna av ein roterande visar, og fartsvektoren som den deriverte av filmen.",
+      "43fd92288165992b": "setje opp parameterframstilling for ei linje",
+      "a8011723e70f431a": "finne skjeringspunkt mellom linjer gitt ved parameterframstilling",
+      "02ca71d89ed49998": "setje opp parameterframstilling for sirklar og andre kurver",
+      "79a894af231efec8": "forstå samanhengen mellom parameterframstilling og rørsle",
+      "fa8c28822f8ffd6c": "bruke GeoGebra til å animere parameterframstillingar",
+      "f32d0a3ab7ce8036": "## Kurva som film, ikkje fotografi\n\nTil no har du skildra kurver med likningar som $y = 2x + 3$ eller $x^2 + y^2 = 25$. Slike likningar er som *fotografi*: dei viser kvar kurva ligg, heile kurva på éin gong, frosen i tid. Men tenk på ein drone som flyg over eit jorde, eit skip som kryssar ein fjord, eller ein satellitt i bane. Då vil vi ikkje berre vite *kvar* bana ligg – vi vil vite *kvar objektet er når*. Vi treng ikkje eit fotografi, vi treng ein *film*.\n\nDet er nøyaktig kva **parameterframstilling** gir oss. I staden for éi likning som bind $x$ og $y$ saman, lèt vi begge koordinatane vere funksjonar av ein tredje variabel $t$ – *parameteren*: $x = x(t)$ og $y = y(t)$. For kvart tidspunkt $t$ får vi eitt punkt $(x(t), y(t))$, og når $t$ løper, teiknar punktet opp kurva – som ein lysande prikk som rører seg over skjermen. Ofte er parameteren bokstaveleg talt tida, men han kan òg berre vere eit hjelpetal som nummererer punkta langs kurva.\n\nGevinstane er store. Vi kan skildre kurver som slett ikkje er funksjonsgrafar – sirklar og ellipsar, for eksempel. Vi kan finne ut når og kvar to rørsler kryssar kvarandre. Og med derivasjon kan vi lese av fart og fart direkte frå framstillinga. La oss starte med den enklaste filmen av alle: ei jamn vandring langs ei rett linje.",
+      "20a3f2b567cc3446": "## Linja som ei reise\n\nKorleis skildrar du ei vandring langs ei rett linje? Du treng to opplysningar: kvar du startar, og kva retning du går i. Matematisk: eit startpunkt $P = (x_0, y_0)$ og ein **retningsvektor** $\\vec{v} = [a, b]$. Då er posisjonen etter «$t$ skritt» gitt ved $$\\vec{r}(t) = \\vec{p} + t \\cdot \\vec{v}$$ der $\\vec{p} = [x_0, y_0]$ er stadvektoren til startpunktet. På komponentform: $x(t) = x_0 + at$ og $y(t) = y_0 + bt$. Ved $t = 0$ står du i startpunktet; for kvar eining $t$ aukar, forflyttar du deg éin heil retningsvektor. Negative $t$-verdiar? Dei gir punkta *bakover* langs linja – framstillinga dekkjer heile linja, ikkje berre ein stråle.\n\nLa oss lage ei konkret reise: linja gjennom $A = (1, 2)$ og $B = (4, 6)$. Som startpunkt vel vi $A$, og som retningsvektor tek vi $\\vec{AB} = [4-1, 6-2] = [3, 4]$. Dermed: $x(t) = 1 + 3t$ og $y(t) = 2 + 4t$. Kontrollen er innebygd: $t = 0$ gir $(1, 2) = A$, og $t = 1$ gir $(4, 6) = B$. Merk at framstillinga ikkje er unik – du kunne starta i $B$ eller brukt $[6, 8]$ som retning. Same linje, annan «køyreplan».\n\nOg vegen tilbake til fotografiet? Vil du ha den vanlege likninga $y = ax + b$, løyser du den eine likninga for $t$ og set inn i den andre. For $x = 1 + 2t$, $y = 3 + 4t$: frå første likning er $t = \\frac{x-1}{2}$, og innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 3 + 2(x - 1) = 2x + 1$. Rimelegheitssjekk: retningsvektoren $[2, 4]$ stig 4 i $y$ per 2 i $x$, altså stigingstal $\\frac{4}{2} = 2$ – akkurat det likninga seier. Parameteren var eit stillas; når kurva er bygd, kan det rivast.",
+      "50a73a88034f776e": "Test deg sjølv på parameterframstilling av linje:",
+      "4097889236a2af26": "placeholder",
+      "714fe9914b2caa34": "Ei linje går gjennom $A = (1, 2)$ og $B = (4, 6)$. Kva retningsvektor kan du bruke?",
+      "2289de913d7c0cee": "$\\vec{AB} = [4 - 1, 6 - 2] = [3, 4]$. (Kvart multiplum, som $[6, 8]$, duger òg.)",
+      "e30a4e60f6ea17b5": "Linja har framstillinga $x = 1 + 3t$, $y = 2 + 4t$. Kva punkt svarar til $t = 1$?",
+      "0d7eeacc11f5384a": "$x(1) = 1 + 3 = 4$ og $y(1) = 2 + 4 = 6$, altså punktet $(4, 6)$.",
+      "a17528d78ff61953": "Finn den kartesiske likninga for linja $x = 1 + 2t$, $y = 3 + 4t$.",
+      "99339ec2797c5ddb": "$y = 2x + 1$",
+      "f78ce98cdeb77fbc": "$y = 4x + 3$",
+      "8c803fb5c9b5ce8a": "$y = \\frac{1}{2}x + 1$",
+      "fcc4bf69a24d943a": "$y = 2x - 1$",
+      "1ba543b6f7fb88b8": "Frå $x = 1 + 2t$ er $t = \\frac{x-1}{2}$. Innsett: $y = 3 + 4 \\cdot \\frac{x-1}{2} = 2x + 1$.",
+      "5e5e3da9e05cfd4d": "Ei linje har retningsvektor $[2, 4]$. Kva er stigingstalet?",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "b0a4497443646b11": "Stigingstalet er $\\frac{b}{a} = \\frac{4}{2} = 2$: linja stig 4 i $y$-retning for kvar 2 i $x$-retning.",
+      "8cf6866800d1e494": "## Kryssande kurs og roterande prikkar\n\nNår kryssar to reiseruter kvarandre? Her lurer ei klassisk felle. Tenk på to skip med kvar sin køyreplan: linje 1 med $x = 1 + 2t$, $y = 3 + t$, og linje 2 med $x = 4 + s$, $y = 1 + 2s$. Legg merke til at vi *må* bruke ulike parameternamn, $t$ og $s$ – dei to objekta følgjer kvar si klokke, og linjene kan godt krysse sjølv om objekta passerer punktet til ulik «tid». I skjeringspunktet er koordinatane like: $1 + 2t = 4 + s$ og $3 + t = 1 + 2s$. Frå den første: $s = 2t - 3$. Innsett i den andre: $3 + t = 1 + 2(2t - 3) = 4t - 5$, som gir $3t = 8$, altså $t = \\frac{8}{3}$. Då er $x = 1 + \\frac{16}{3} = \\frac{19}{3}$ og $y = 3 + \\frac{8}{3} = \\frac{17}{3}$ – linjene blir kryssa i $\\left(\\frac{19}{3}, \\frac{17}{3}\\right)$.\n\nDen verkelege triumfen til parameterframstillinga kjem likevel for kurver som *ikkje* er grafar til funksjonar. Ein sirkel stryk på vertikallinjetesten – men som film er han uimotståeleg enkel. Ein sirkel med sentrum $(h, k)$ og radius $r$ er $$x(t) = h + r\\cos t, \\qquad y(t) = k + r\\sin t, \\qquad t \\in [0, 2\\pi)$$ Tenk på $t$ som vinkelen til ein roterande visar: $\\cos t$ og $\\sin t$ leverer rotasjonen, $r$ skalerer, og $(h, k)$ flyttar sentrum på plass. For sirkelen med sentrum $(2, 3)$ og radius 4 gir $t = \\frac{\\pi}{3}$ punktet $x = 2 + 4 \\cdot \\frac{1}{2} = 4$, $y = 3 + 4 \\cdot \\frac{\\sqrt{3}}{2} = 3 + 2\\sqrt{3}$. Avstanden frå sentrum: $\\sqrt{2^2 + (2\\sqrt{3})^2} = \\sqrt{16} = 4$ – punktet ligg på sirkelen, som det skal.\n\nOg med éi lita vri opnar eit heilt kurvegalleri seg: bruk *ulike* radiusar i dei to retningane, $x = a\\cos t$, $y = b\\sin t$, og du har ein **ellipse**. For $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$ er $a = 3$ og $b = 2$, altså $x = 3\\cos t$, $y = 2\\sin t$ – og identiteten $\\cos^2 t + \\sin^2 t = 1$ stadfestar at likninga er oppfylt.",
+      "54b5ccd932ac45d5": "Test deg sjølv på skjering, sirklar og ellipsar:",
+      "1e0dfbc6476ae7e6": "Kvifor må to linjer ha ulike parameternamn ($t$ og $s$) når vi leitar etter skjeringspunkt?",
+      "d9a4597a156edbf3": "For at likningssystemet skal få to ukjende i staden for fire",
+      "caa4ba0cbfe455e9": "Fordi GeoGebra krev det",
+      "d2dfb710a92b02f4": "Fordi punkta kan nåast ved ulike parameterverdiar på kvar linje",
+      "c759da0124a3c10e": "Fordi linjene elles blir parallelle",
+      "2221cfe75b9765b2": "Dei to framstillingane er uavhengige «køyreplanar». Skjeringspunktet kan svare til $t = \\frac{8}{3}$ på den eine linja og ein heilt annan verdi av $s$ på den andre.",
+      "ec15fdebfeb1b6f3": "Kva parameterframstilling skildrar sirkelen med sentrum $(2, 3)$ og radius 4?",
+      "c2fa3da52a7c6e5e": "$x = 2 + 4\\cos t,\\; y = 3 + 4\\sin t$",
+      "bf437f0a21524688": "$x = 4 + 2\\cos t,\\; y = 4 + 3\\sin t$",
+      "e6168cda2016dfab": "$x = 2 + 3\\cos t,\\; y = 4 + 2\\sin t$",
+      "a23cff33da8af78f": "$x = 4\\cos t,\\; y = 4\\sin t$",
+      "9ce8c174da96a3f5": "Mønsteret er $x = h + r\\cos t$, $y = k + r\\sin t$ med sentrum $(h, k) = (2, 3)$ og radius $r = 4$.",
+      "61c775aab1710c66": "For sirkelen $x = 2 + 4\\cos t$, $y = 3 + 4\\sin t$: kva punkt gir $t = \\frac{\\pi}{3}$?",
+      "20190762f3eb7dc9": "$(4,\\; 3 + 2\\sqrt{3})$",
+      "2a14be59907a11af": "$\\cos\\frac{\\pi}{3} = \\frac{1}{2}$ og $\\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$ gir $x = 2 + 2 = 4$ og $y = 3 + 2\\sqrt{3}$.",
+      "af0cfc005a1c3a2d": "Kva parameterframstilling passar til ellipsen $\\frac{x^2}{9} + \\frac{y^2}{4} = 1$?",
+      "f2d32379f772ea6a": "$x = 9\\cos t,\\; y = 4\\sin t$",
+      "e5620bd6903b2429": "$x = 3\\cos t,\\; y = 2\\sin t$",
+      "977e640a534269de": "$x = 2\\cos t,\\; y = 3\\sin t$",
+      "192e258ff9963ef6": "$x = 3\\sin t,\\; y = 2\\sin t$",
+      "68e7e162b33718a7": "Med $a = 3$ og $b = 2$: $\\frac{(3\\cos t)^2}{9} + \\frac{(2\\sin t)^2}{4} = \\cos^2 t + \\sin^2 t = 1$ ✓.",
+      "b077ff6d62798caf": "## Farten – den deriverte av filmen\n\nDersom parameterframstillinga er ein film, kva er då den deriverte? Svaret er vakkert: han er *farten*. Rører eit punkt seg langs $\\vec{r}(t) = [x(t), y(t)]$, er **fartsvektoren** $$\\vec{v}(t) = \\vec{r}\\,'(t) = [x'(t), y'(t)]$$ – vi deriverer kvar komponent for seg. Fartsvektoren peikar alltid i rørsleretninga og ligg tangentielt til bana, og lengda hans er **farten**: $|\\vec{v}(t)| = \\sqrt{(x'(t))^2 + (y'(t))^2}$. (Deriverer du éin gong til, får du akselerasjonsvektoren $\\vec{a}(t) = \\vec{v}\\,'(t)$.)\n\nTa partikkelen med bane $\\vec{r}(t) = [1 + 2t, 3 + 4t]$, der $t$ blir målt i sekund og posisjon i meter. Derivasjon komponentvis gir $\\vec{v}(t) = [2, 4]$ – ein *konstant* vektor, som fortel at partikkelen går i rett linje med jamn fart. Farten er $|\\vec{v}| = \\sqrt{4 + 16} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s, og etter 3 sekund er posisjonen $\\vec{r}(3) = [7, 15]$.\n\nMeir spennande blir det på ei sirkelbane: $\\vec{r}(t) = [5\\cos t, 5\\sin t]$. No gir derivasjonen $\\vec{v}(t) = [-5\\sin t, 5\\cos t]$ – ein fart som heile tida endrar retning. Og her ventar ei perle. Rekn ut skalarproduktet av posisjon og fart: $$\\vec{r} \\cdot \\vec{v} = (5\\cos t)(-5\\sin t) + (5\\sin t)(5\\cos t) = -25\\cos t \\sin t + 25 \\sin t \\cos t = 0$$ Null – *alltid*! Fartsvektoren står til kvar tid vinkelrett på posisjonsvektoren, altså vinkelrett på radien: han er tangent til sirkelen, akkurat slik ein stein i ei slynge flyg av garde langs tangenten i det augneblikket du slepper. Farten er likevel konstant: $|\\vec{v}| = \\sqrt{25\\sin^2 t + 25\\cos^2 t} = 5$. Konstant fart, men stadig skiftande retning – signaturen til sirkelrørsla, fanga i to deriverte komponentar.",
+      "fd79ab3bc1401aa2": "Test deg sjølv på rørsle og fartsvektor:",
+      "e462ae45b1cfd3b8": "Ein partikkel følgjer $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$. Kva er fartsvektoren?",
+      "d402834a26ae4528": "$[2t, 4t]$",
+      "a7c8ec61361a086d": "Vi deriverer komponentvis: $\\vec{v}(t) = [(1 + 2t)', (3 + 4t)'] = [2, 4]$. Konstant fart – rettlinja rørsle.",
+      "2e4138cdf0576e78": "Kva er farten til partikkelen med $\\vec{v} = [2, 4]$?",
+      "85001938c80ee8ea": "$6$ m/s",
+      "2059c6726ad6eb02": "$\\sqrt{6}$ m/s",
+      "649b21f1f07e7a97": "$4$ m/s",
+      "5f0906f6fa5718db": "$2\\sqrt{5}$ m/s",
+      "c1f581bfa92b790b": "Farten er lengda av fartsvektoren: $|\\vec{v}| = \\sqrt{2^2 + 4^2} = \\sqrt{20} = 2\\sqrt{5} \\approx 4{,}47$ m/s.",
+      "24da7d7b545a6236": "Kvar er partikkelen $\\vec{r}(t) = [1 + 2t,\\; 3 + 4t]$ etter 3 sekund?",
+      "57e27b7686267548": "$\\vec{r}(3) = [1 + 2 \\cdot 3,\\; 3 + 4 \\cdot 3] = [7, 15]$.",
+      "a492adbb2564ccfc": "For sirkelrørsla $\\vec{r}(t) = [5\\cos t, 5\\sin t]$: kva er forholdet mellom $\\vec{v}(t)$ og $\\vec{r}(t)$?",
+      "824ea7e1c278c5c2": "Dei er parallelle",
+      "a6e7830a2b23d79e": "Dei har same lengd, men $\\vec{v}$ er dobbelt så rask",
+      "ad0960b3b67a7c88": "$\\vec{v}$ er alltid ortogonal på $\\vec{r}$ -- tangent til sirkelen",
+      "7041871de4014cdc": "$\\vec{v}$ peikar alltid mot sentrum",
+      "db9b39357821c978": "$\\vec{r} \\cdot \\vec{v} = -25\\cos t\\sin t + 25\\sin t\\cos t = 0$ for alle $t$, så fartsvektoren står vinkelrett på radien og er tangent til sirkelen.",
+      "5d1ca559e92c22fc": "## Filmen er ferdig klipt\n\nVi bytte ut fotografiet med film, og kurvene vakna til liv. Ei **parameterframstilling** $x = x(t)$, $y = y(t)$ – eller på vektorform $\\vec{r}(t) = [x(t), y(t)]$ – lèt punktet $(x(t), y(t))$ teikne kurva medan parameteren $t$ løper, ofte i rolla som tid.\n\nDen rette **linja** vart ei jamn vandring: $\\vec{r}(t) = \\vec{p} + t\\vec{v}$, med startpunkt og retningsvektor som heile køyreplanen. Vil du tilbake til den kartesiske likninga, løyser du ut $t$ frå den eine likninga og set inn i den andre. Skal to parameterframstilte linjer kryssast, må dei få kvar sin parameter – $t$ og $s$ – før du set koordinatane like og løyser systemet; dei to objekta følgjer trass alt kvar si klokke.\n\nSå opna trigonometrien kurvegalleriet: **sirkelen** med sentrum $(h, k)$ og radius $r$ er $x = h + r\\cos t$, $y = k + r\\sin t$, og med ulike «radiusar» $a$ og $b$ i dei to retningane får du ellipsen – kurver ingen funksjonsgraf kan fange. Til slutt kom krona på verket: derivasjon komponentvis gir **fartsvektoren** $\\vec{v}(t) = \\vec{r}\\,'(t)$, tangent til bana, med farten $|\\vec{v}(t)|$ som lengd. Den rettlinja partikkelen hadde konstant $\\vec{v} = [2, 4]$; sirkelpartikkelen hadde konstant fart, men evig skiftande retning, med $\\vec{v}$ alltid vinkelrett på radien.\n\nLinje, sirkel, rørsle – tre forteljingar, éin notasjon. I kapitla som kjem, skal nettopp dette språket bere både geometrien til linjer og sirklar og problema i fysikken om kurs, krefter og kollisjonar."
+    }
+  }
+}

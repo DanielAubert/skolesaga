@@ -1,1 +1,557 @@
-{"id":"r2-3-1-narrativ","courseId":"r2","chapterNumber":"3.1","title":"Variabelskifte (substitusjon)","subtitle":"Narrativ versjon","description":"En fortelling om substitusjon — kjerneregelen i revers, der en ny variabel u får innfløkte integraler til å kollapse, fra lineære kjerner til grensebytte i bestemte integraler.","estimatedMinutes":50,"competenceGoals":["bruke substitusjon for å finne integraler","velge hensiktsmessig substitusjon","håndtere grenseendring ved bestemte integraler","anvende substitusjon på ulike funksjonstyper"],"linkedChapterId":"r2-3-1","content":[{"id":"r2-3-1-n-intro","type":"text","content":"## Kjerneregelen i revers\n\nI kapittel 2.3 lærte du å *se* visse mønstre: når telleren er nevnerens deriverte, eller når eksponentens deriverte står klar som faktor, faller integralet på plass av seg selv. Det blikket skal nå bli til en fullverdig, systematisk teknikk — den viktigste i hele integralregningen.\n\nHusk kjerneregelen forlengs: $\\frac{d}{dx}\\left[F(g(x))\\right] = F'(g(x)) \\cdot g'(x)$. Derivasjon av en sammensatt funksjon etterlater alltid et fingeravtrykk: kjernens deriverte som faktor. **Substitusjon** (variabelskifte) er kunsten å lese fingeravtrykket baklengs. Ser vi $\\int f(g(x)) \\cdot g'(x)\\,dx$, døper vi kjernen om til en ny variabel $u = g(x)$ — og det innfløkte integralet i $x$ kollapser til et enkelt integral i $u$.\n\nI dette kapittelet lærer du å velge riktig $u$, å håndtere $dx$-byttet, å bruke teknikken på potenser, røtter, trigonometri, eksponential- og logaritmefunksjoner — og det elegante grensebyttet som gjør bestemte integraler enda raskere."},{"id":"r2-3-1-n-section1","type":"text","content":"## Metoden: døp om kjernen\n\nOppskriften har fire steg. Vi setter $u = g(x)$, og da er $\\frac{du}{dx} = g'(x)$, som vi skriver $du = g'(x)\\,dx$ — en bokføringsregel som sier at $g'(x)\\,dx$ kan byttes ut med $du$. Substitusjonsregelen blir\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du$$\n\nIntegrer i $u$-verdenen, og sett til slutt tilbake $u = g(x)$.\n\nSe den i arbeid på $\\int 2x \\cdot e^{x^2}\\,dx$. Kjernen er $x^2$, og dens deriverte $2x$ står klar i integranden. Sett $u = x^2$, slik at $du = 2x\\,dx$:\n\n$$\\int 2x \\cdot e^{x^2}\\,dx = \\int e^u\\,du = e^u + C = e^{x^2} + C$$\n\nKontroll ved derivasjon: $(e^{x^2})' = e^{x^2} \\cdot 2x$. ✓\n\nHvordan velge $u$? Tommelfingerregel: let etter en indre funksjon hvis deriverte (eventuelt ganget med en konstant) også står i integranden. Typiske kandidater er uttrykket i en parentes ($u = 3x+2$ i $(3x+2)^5$), eksponenten ($u = x^2$ i $e^{x^2}$), uttrykket under rottegnet, argumentet til en trigonometrisk funksjon — eller nevneren i en brøk, hvis telleren ligner dens deriverte.\n\nEnklest av alt er lineære kjerner $u = ax + b$: da er $du = a\\,dx$, altså $dx = \\frac{1}{a}du$, og vi får den nyttige formelen $\\int f(ax+b)\\,dx = \\frac{1}{a}F(ax+b) + C$. For eksempel gir $u = 2x - 5$ i $\\int (2x-5)^7\\,dx$ resultatet $\\frac{1}{2} \\cdot \\frac{u^8}{8} = \\frac{(2x-5)^8}{16} + C$, og tilsvarende er $\\int \\sin(3x+1)\\,dx = -\\frac{1}{3}\\cos(3x+1) + C$ og $\\int e^{-4x}\\,dx = -\\frac{1}{4}e^{-4x} + C$."},{"id":"r2-3-1-n-quiz1","type":"exercise","exercise":{"id":"r2-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på grunnleggende substitusjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-1-n-quiz1-q0","task":"Hvilket integral er substitusjon skreddersydd for?","options":[{"id":"a","text":"$\\displaystyle\\int f(g(x)) \\cdot g'(x)\\,dx$","isCorrect":true},{"id":"b","text":"$\\displaystyle\\int f(x) \\cdot g(x)\\,dx$","isCorrect":false},{"id":"c","text":"$\\displaystyle\\int \\frac{f(x)}{g(x)}\\,dx$ generelt","isCorrect":false},{"id":"d","text":"$\\displaystyle\\int f(x) + g(x)\\,dx$","isCorrect":false}],"solution":"Substitusjon er kjerneregelen baklengs og krever mønsteret «funksjon av en kjerne ganget med kjernens deriverte»: $\\int f(g(x))g'(x)\\,dx = \\int f(u)\\,du$."},{"id":"r2-3-1-n-quiz1-q1","task":"Hva er $\\displaystyle\\int (2x - 5)^7 \\, dx$?","options":[{"id":"a","text":"$\\frac{(2x-5)^8}{8} + C$","isCorrect":false},{"id":"b","text":"$7(2x-5)^6 + C$","isCorrect":false},{"id":"c","text":"$\\frac{(2x-5)^8}{16} + C$","isCorrect":true},{"id":"d","text":"$\\frac{(2x-5)^8}{2} + C$","isCorrect":false}],"solution":"Med $u = 2x-5$ er $dx = \\frac{1}{2}du$: $\\frac{1}{2}\\int u^7\\,du = \\frac{u^8}{16} + C = \\frac{(2x-5)^8}{16} + C$."},{"id":"r2-3-1-n-quiz1-q2","task":"Hva er $\\displaystyle\\int \\sin(3x + 1) \\, dx$?","options":[{"id":"a","text":"$\\cos(3x+1) + C$","isCorrect":false},{"id":"b","text":"$-\\frac{1}{3}\\cos(3x+1) + C$","isCorrect":true},{"id":"c","text":"$-3\\cos(3x+1) + C$","isCorrect":false},{"id":"d","text":"$\\frac{1}{3}\\cos(3x+1) + C$","isCorrect":false}],"solution":"$u = 3x+1$ gir $dx = \\frac{1}{3}du$: $\\frac{1}{3}\\int \\sin u\\,du = -\\frac{1}{3}\\cos u + C$. Husk at antideriverten til $\\sin$ er $-\\cos$."},{"id":"r2-3-1-n-quiz1-q3","task":"Hva er $\\displaystyle\\int x \\cdot (x^2+1)^4\\,dx$?","options":[{"id":"a","text":"$\\frac{(x^2+1)^5}{5} + C$","isCorrect":false},{"id":"b","text":"$2x(x^2+1)^4 + C$","isCorrect":false},{"id":"c","text":"$\\frac{x^2(x^2+1)^5}{10} + C$","isCorrect":false},{"id":"d","text":"$\\frac{(x^2+1)^5}{10} + C$","isCorrect":true}],"solution":"$u = x^2+1$ gir $du = 2x\\,dx$, altså $x\\,dx = \\frac{1}{2}du$: $\\frac{1}{2}\\int u^4\\,du = \\frac{u^5}{10} + C = \\frac{(x^2+1)^5}{10} + C$."}]}},{"id":"r2-3-1-n-section2","type":"text","content":"## Røtter, trigonometri og potensmønstre\n\nMed metoden på plass kan vi gå på tyngre vilt. Røtter er potenser i forkledning: i $\\int \\frac{x}{\\sqrt{x^2+4}}\\,dx$ setter vi $u = x^2 + 4$ (uttrykket *under* rottegnet, ikke hele roten), får $x\\,dx = \\frac{1}{2}du$ og\n\n$$\\frac{1}{2}\\int u^{-1/2}\\,du = u^{1/2} + C = \\sqrt{x^2+4} + C$$\n\nSamme idé for kubikkrøtter: $\\int x^2\\sqrt[3]{x^3+5}\\,dx$ med $u = x^3+5$ gir $\\frac{1}{3}\\int u^{1/3}\\,du = \\frac{(x^3+5)^{4/3}}{4} + C$.\n\nI trigonometrien er nøkkelen at $\\sin$ og $\\cos$ er hverandres deriverte (med et fortegn): ser du et produkt av dem, substituer med den ene. I $\\int \\sin^3 x \\cos x\\,dx$ setter vi $u = \\sin x$, $du = \\cos x\\,dx$:\n\n$$\\int u^3\\,du = \\frac{u^4}{4} + C = \\frac{\\sin^4 x}{4} + C$$\n\nGenerelt: $\\int \\sin^n x \\cos x\\,dx = \\frac{\\sin^{n+1}x}{n+1} + C$ og $\\int \\cos^n x \\sin x\\,dx = -\\frac{\\cos^{n+1}x}{n+1} + C$.\n\nTo klassikere fortjener egen plass. **Tangens:** skriv $\\tan x = \\frac{\\sin x}{\\cos x}$ og sett $u = \\cos x$, $du = -\\sin x\\,dx$:\n\n$$\\int \\tan x\\,dx = \\int \\frac{-du}{u} = -\\ln|\\cos x| + C$$\n\n**Cotangens** på samme vis: $\\int \\cot x\\,dx = \\int \\frac{\\cos x}{\\sin x}\\,dx = \\ln|\\sin x| + C$. Begge er egentlig $\\frac{g'}{g}$-mønsteret fra kapittel 2.3 — substitusjonen bare formaliserer blikket."},{"id":"r2-3-1-n-quiz2","type":"exercise","exercise":{"id":"r2-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på substitusjon med røtter og trigonometri:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-1-n-quiz2-q0","task":"Hva er $\\displaystyle\\int \\frac{x}{\\sqrt{x^2+4}} \\, dx$?","options":[{"id":"a","text":"$\\frac{1}{2}\\ln(x^2+4) + C$","isCorrect":false},{"id":"b","text":"$\\sqrt{x^2+4} + C$","isCorrect":true},{"id":"c","text":"$\\frac{2}{3}(x^2+4)^{3/2} + C$","isCorrect":false},{"id":"d","text":"$\\frac{1}{\\sqrt{x^2+4}} + C$","isCorrect":false}],"solution":"$u = x^2+4$, $x\\,dx = \\frac{1}{2}du$: $\\frac{1}{2}\\int u^{-1/2}\\,du = u^{1/2} + C = \\sqrt{x^2+4} + C$."},{"id":"r2-3-1-n-quiz2-q1","task":"Hva er $\\displaystyle\\int \\sin^3 x \\cdot \\cos x \\, dx$?","options":[{"id":"a","text":"$\\frac{\\sin^4 x}{4} + C$","isCorrect":true},{"id":"b","text":"$\\frac{\\cos^4 x}{4} + C$","isCorrect":false},{"id":"c","text":"$-\\frac{\\sin^4 x}{4} + C$","isCorrect":false},{"id":"d","text":"$3\\sin^2 x \\cos x + C$","isCorrect":false}],"solution":"$u = \\sin x$ gir $du = \\cos x\\,dx$: $\\int u^3\\,du = \\frac{u^4}{4} + C = \\frac{\\sin^4 x}{4} + C$."},{"id":"r2-3-1-n-quiz2-q2","task":"Hva er $\\displaystyle\\int \\tan x \\, dx$?","options":[{"id":"a","text":"$\\frac{1}{\\cos^2 x} + C$","isCorrect":false},{"id":"b","text":"$\\ln|\\sin x| + C$","isCorrect":false},{"id":"c","text":"$\\frac{\\tan^2 x}{2} + C$","isCorrect":false},{"id":"d","text":"$-\\ln|\\cos x| + C$","isCorrect":true}],"solution":"$\\tan x = \\frac{\\sin x}{\\cos x}$; med $u = \\cos x$ er $\\sin x\\,dx = -du$, så integralet blir $-\\ln|u| + C = -\\ln|\\cos x| + C$."},{"id":"r2-3-1-n-quiz2-q3","task":"I $\\displaystyle\\int x^2 \\sqrt[3]{x^3+5}\\,dx$: hva er riktig substitusjon?","options":[{"id":"a","text":"$u = x^2$","isCorrect":false},{"id":"b","text":"$u = \\sqrt[3]{x^3+5}$","isCorrect":false},{"id":"c","text":"$u = x^3 + 5$","isCorrect":true},{"id":"d","text":"$u = x^3$","isCorrect":false}],"solution":"Velg uttrykket under roten: $u = x^3+5$ gir $du = 3x^2\\,dx$, og faktoren $x^2$ i integranden gjør substitusjonen komplett. Svaret blir $\\frac{(x^3+5)^{4/3}}{4} + C$."}]}},{"id":"r2-3-1-n-section3","type":"text","content":"## Eksponentialer, logaritmer og $\\frac{g'}{g}$-mønsteret\n\nEksponential- og logaritmefunksjonene gir substitusjonen noen av dens fineste øyeblikk. Tre eksempler i stigende eleganse:\n\n$\\int x \\cdot e^{x^2}\\,dx$: kjernen $u = x^2$ gir $x\\,dx = \\frac{1}{2}du$ og svaret $\\frac{1}{2}e^{x^2} + C$.\n\n$\\int e^{\\sin x}\\cos x\\,dx$: kjernen $u = \\sin x$ har sin deriverte $\\cos x$ på plass — svaret er $e^{\\sin x} + C$, rett frem.\n\n$\\int \\frac{e^x}{1+e^x}\\,dx$: telleren er nevnerens deriverte! Med $u = 1 + e^x$ blir det $\\int \\frac{du}{u} = \\ln(1+e^x) + C$ (absoluttverdi unødvendig siden $1 + e^x > 0$).\n\nLogaritmen byr på et mønster det er lett å overse: $\\ln x$ og dens deriverte $\\frac{1}{x}$ opptrer ofte sammen. I $\\int \\frac{\\ln x}{x}\\,dx$ setter vi $u = \\ln x$, $du = \\frac{1}{x}dx$:\n\n$$\\int u\\,du = \\frac{u^2}{2} + C = \\frac{(\\ln x)^2}{2} + C$$\n\nOg i $\\int \\frac{1}{x \\ln x}\\,dx$ gir samme substitusjon $\\int \\frac{du}{u} = \\ln|\\ln x| + C$ — en logaritme av en logaritme.\n\nTil slutt et eksempel som ser umulig ut, men er $\\frac{g'}{g}$ i forkledning: $\\int \\frac{e^x - e^{-x}}{e^x + e^{-x}}\\,dx$. Sjekk: $(e^x + e^{-x})' = e^x - e^{-x}$ — telleren! Altså er svaret $\\ln(e^x + e^{-x}) + C$. Treningen i å gjenkjenne mønstre er halve teknikken; den andre halvparten er ryddig bokføring med $u$ og $du$."},{"id":"r2-3-1-n-quiz3","type":"exercise","exercise":{"id":"r2-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på eksponential- og logaritmesubstitusjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-1-n-quiz3-q0","task":"Hva er $\\displaystyle\\int \\frac{e^x}{1 + e^x} \\, dx$?","options":[{"id":"a","text":"$\\frac{e^x}{x} + C$","isCorrect":false},{"id":"b","text":"$\\ln(1 + e^x) + C$","isCorrect":true},{"id":"c","text":"$e^x \\ln(1+e^x) + C$","isCorrect":false},{"id":"d","text":"$\\frac{1}{1+e^x} + C$","isCorrect":false}],"solution":"Telleren $e^x$ er den deriverte av nevneren $1 + e^x$: $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C = \\ln(1+e^x) + C$."},{"id":"r2-3-1-n-quiz3-q1","task":"Hva er $\\displaystyle\\int \\frac{\\ln x}{x} \\, dx$?","options":[{"id":"a","text":"$\\ln|\\ln x| + C$","isCorrect":false},{"id":"b","text":"$\\frac{\\ln x}{x^2} + C$","isCorrect":false},{"id":"c","text":"$\\frac{(\\ln x)^2}{2} + C$","isCorrect":true},{"id":"d","text":"$x\\ln x - x + C$","isCorrect":false}],"solution":"$u = \\ln x$ gir $du = \\frac{1}{x}dx$: $\\int u\\,du = \\frac{u^2}{2} + C = \\frac{(\\ln x)^2}{2} + C$."},{"id":"r2-3-1-n-quiz3-q2","task":"Hva er $\\displaystyle\\int \\frac{1}{x \\ln x} \\, dx$?","options":[{"id":"a","text":"$\\ln|\\ln x| + C$","isCorrect":true},{"id":"b","text":"$\\frac{(\\ln x)^2}{2} + C$","isCorrect":false},{"id":"c","text":"$\\frac{1}{\\ln x} + C$","isCorrect":false},{"id":"d","text":"$\\ln|x| + C$","isCorrect":false}],"solution":"$u = \\ln x$, $du = \\frac{1}{x}dx$: $\\int \\frac{du}{u} = \\ln|u| + C = \\ln|\\ln x| + C$."},{"id":"r2-3-1-n-quiz3-q3","task":"Hvorfor løses $\\displaystyle\\int \\frac{e^x - e^{-x}}{e^x + e^{-x}}\\,dx$ enkelt med substitusjon?","options":[{"id":"a","text":"Fordi integranden kan forenkles til $1$","isCorrect":false},{"id":"b","text":"Fordi begge eksponentialfunksjonene har samme grunntall","isCorrect":false},{"id":"c","text":"Fordi integralet er symmetrisk om origo","isCorrect":false},{"id":"d","text":"Fordi telleren er den deriverte av nevneren — $\\frac{g'}{g}$-mønsteret","isCorrect":true}],"solution":"$(e^x + e^{-x})' = e^x - e^{-x}$, som er nøyaktig telleren. Med $u = e^x + e^{-x}$ blir svaret $\\ln(e^x + e^{-x}) + C$."}]}},{"id":"r2-3-1-n-section4","type":"text","content":"## Bestemte integraler: bytt grensene, slipp tilbaketuren\n\nVed bestemte integraler har vi et valg: integrere ubestemt, sette tilbake til $x$ og bruke de gamle grensene — eller den smartere veien: **bytt grensene til $u$-verdier** og bli i $u$-verdenen hele veien:\n\n$$\\int_a^b f(g(x)) \\cdot g'(x)\\,dx = \\int_{g(a)}^{g(b)} f(u)\\,du$$\n\nEksempel: $\\int_0^1 2x(x^2+1)^3\\,dx$. Med $u = x^2+1$ blir nedre grense $g(0) = 1$ og øvre $g(1) = 2$:\n\n$$\\int_1^2 u^3\\,du = \\left[\\frac{u^4}{4}\\right]_1^2 = 4 - \\frac{1}{4} = \\frac{15}{4}$$\n\nIngen tilbakesetting, ingen omveier. Flere i samme stil: $\\int_0^{\\pi/2} \\sin^2 x \\cos x\\,dx$ med $u = \\sin x$ får grensene $0$ og $1$, og blir $\\int_0^1 u^2\\,du = \\frac{1}{3}$. Og $\\int_1^e \\frac{(\\ln x)^2}{x}\\,dx$ med $u = \\ln x$ får grensene $0$ og $1$ — også $\\frac{1}{3}$.\n\nTil slutt fellene som koster flest poeng til eksamen. *Glemt $dx$-bytte:* $dx$ må alltid erstattes via $du = g'(x)\\,dx$ — du kan ikke bare bytte navn på variabelen. *Ufullstendig substitusjon:* alle $x$-er må forsvinne; står det igjen en $x$ du ikke får uttrykt ved $u$, var substitusjonen feil valgt. *Blandede grenser:* enten $u$-grenser uten tilbakesetting, eller $x$-grenser etter tilbakesetting — aldri en blanding. Og når intet «funksjon pluss derivert»-mønster finnes? Da er substitusjon feil verktøy, og de neste kapitlenes teknikker — delvis integrasjon og delbrøkoppspalting — tar over."},{"id":"r2-3-1-n-quiz4","type":"exercise","exercise":{"id":"r2-3-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på bestemte integraler med substitusjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-1-n-quiz4-q0","task":"Du beregner $\\int_0^1 2x(x^2+1)^3\\,dx$ med $u = x^2 + 1$. Hva blir de nye grensene?","options":[{"id":"a","text":"Fra $0$ til $1$","isCorrect":false},{"id":"b","text":"Fra $1$ til $2$","isCorrect":true},{"id":"c","text":"Fra $0$ til $2$","isCorrect":false},{"id":"d","text":"Fra $1$ til $4$","isCorrect":false}],"solution":"Nedre: $u = 0^2 + 1 = 1$. Øvre: $u = 1^2 + 1 = 2$. Integralet blir $\\int_1^2 u^3\\,du = \\frac{15}{4}$."},{"id":"r2-3-1-n-quiz4-q1","task":"Hva er $\\displaystyle\\int_0^{\\pi/2} \\sin^2 x \\cdot \\cos x \\, dx$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\frac{\\pi}{6}$","isCorrect":false}],"solution":"$u = \\sin x$ gir grensene $\\sin 0 = 0$ og $\\sin\\frac{\\pi}{2} = 1$: $\\int_0^1 u^2\\,du = \\frac{1}{3}$."},{"id":"r2-3-1-n-quiz4-q2","task":"Hva er fordelen med å bytte grensene til $u$-verdier?","options":[{"id":"a","text":"Vi slipper å sette tilbake til $x$ før innsetting","isCorrect":true},{"id":"b","text":"Integralet blir alltid enklere å derivere","isCorrect":false},{"id":"c","text":"Grensene blir alltid $0$ og $1$","isCorrect":false},{"id":"d","text":"Vi slipper å finne $du$","isCorrect":false}],"solution":"Med $u$-grenser kan vi evaluere direkte i $u$-verdenen: $\\int_{g(a)}^{g(b)} f(u)\\,du$. Tilbakesettingen er unødvendig."},{"id":"r2-3-1-n-quiz4-q3","task":"Etter substitusjonen $u = g(x)$ står det fortsatt igjen en enslig $x$ i integranden som ikke lar seg uttrykke ved $u$. Hva betyr det?","options":[{"id":"a","text":"At vi kan behandle $x$ som konstant","isCorrect":false},{"id":"b","text":"At vi må derivere en gang til","isCorrect":false},{"id":"c","text":"At svaret får både $x$ og $u$","isCorrect":false},{"id":"d","text":"At substitusjonen ikke fungerer her — prøv et annet valg av $u$ eller en annen teknikk","isCorrect":true}],"solution":"En gyldig substitusjon må fjerne alle $x$-er. Mislykkes det, mangler integranden mønsteret $f(g(x))g'(x)$, og et annet $u$ — eller en annen metode — må til."}]}},{"id":"r2-3-1-n-summary","type":"text","content":"## Oppsummering: den reverserte kjerneregelen\n\nSubstitusjon er kjerneregelen spilt baklengs, og metoden er nå et fast ritual: finn kjernen $u = g(x)$ hvis deriverte (eventuelt ganget med en konstant) står i integranden, bokfør $du = g'(x)\\,dx$, oversett hele integralet til $u$-verdenen via $\\int f(g(x))g'(x)\\,dx = \\int f(u)\\,du$, integrer — og sett tilbake, eller bytt grensene $a \\to g(a)$, $b \\to g(b)$ hvis integralet er bestemt.\n\nUnderveis har mønstergjenkjennelsen blitt trent på hele funksjonsfloraen: lineære kjerner med $\\frac{1}{a}$-faktoren, potenser og røtter der $u$ er uttrykket innenfor, trigonometriske par der $\\sin$ og $\\cos$ bytter på å være kjerne og derivert (med $\\int \\tan x\\,dx = -\\ln|\\cos x| + C$ som kronjuvel), eksponentialer og logaritmer — og overalt det allestedsnærværende $\\frac{g'}{g}$-mønsteret som gir logaritmesvar. Huskelisten mot fellene: bytt alltid $dx$, fjern alle $x$-er, og bland aldri gamle og nye grenser.\n\nMen hva med integraler som $\\int x e^x\\,dx$, der ingen faktor er den andres deriverte? Der hjelper ingen omdøping — vi trenger produktregelen baklengs. Den heter delvis integrasjon, og den venter i neste kapittel."}],"exercises":[]}
+{
+  "id": "r2-3-1-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "3.1",
+  "title": "Variabelskifte (substitusjon)",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om substitusjon — kjerneregelen i revers, der en ny variabel u får innfløkte integraler til å kollapse, fra lineære kjerner til grensebytte i bestemte integraler.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "bruke substitusjon for å finne integraler",
+    "velge hensiktsmessig substitusjon",
+    "håndtere grenseendring ved bestemte integraler",
+    "anvende substitusjon på ulike funksjonstyper"
+  ],
+  "linkedChapterId": "r2-3-1",
+  "content": [
+    {
+      "id": "r2-3-1-n-intro",
+      "type": "text",
+      "content": "## Kjerneregelen i revers\n\nI kapittel 2.3 lærte du å *se* visse mønstre: når telleren er nevnerens deriverte, eller når eksponentens deriverte står klar som faktor, faller integralet på plass av seg selv. Det blikket skal nå bli til en fullverdig, systematisk teknikk — den viktigste i hele integralregningen.\n\nHusk kjerneregelen forlengs: $\\frac{d}{dx}\\left[F(g(x))\\right] = F'(g(x)) \\cdot g'(x)$. Derivasjon av en sammensatt funksjon etterlater alltid et fingeravtrykk: kjernens deriverte som faktor. **Substitusjon** (variabelskifte) er kunsten å lese fingeravtrykket baklengs. Ser vi $\\int f(g(x)) \\cdot g'(x)\\,dx$, døper vi kjernen om til en ny variabel $u = g(x)$ — og det innfløkte integralet i $x$ kollapser til et enkelt integral i $u$.\n\nI dette kapittelet lærer du å velge riktig $u$, å håndtere $dx$-byttet, å bruke teknikken på potenser, røtter, trigonometri, eksponential- og logaritmefunksjoner — og det elegante grensebyttet som gjør bestemte integraler enda raskere."
+    },
+    {
+      "id": "r2-3-1-n-section1",
+      "type": "text",
+      "content": "## Metoden: døp om kjernen\n\nOppskriften har fire steg. Vi setter $u = g(x)$, og da er $\\frac{du}{dx} = g'(x)$, som vi skriver $du = g'(x)\\,dx$ — en bokføringsregel som sier at $g'(x)\\,dx$ kan byttes ut med $du$. Substitusjonsregelen blir\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du$$\n\nIntegrer i $u$-verdenen, og sett til slutt tilbake $u = g(x)$.\n\nSe den i arbeid på $\\int 2x \\cdot e^{x^2}\\,dx$. Kjernen er $x^2$, og dens deriverte $2x$ står klar i integranden. Sett $u = x^2$, slik at $du = 2x\\,dx$:\n\n$$\\int 2x \\cdot e^{x^2}\\,dx = \\int e^u\\,du = e^u + C = e^{x^2} + C$$\n\nKontroll ved derivasjon: $(e^{x^2})' = e^{x^2} \\cdot 2x$. ✓\n\nHvordan velge $u$? Tommelfingerregel: let etter en indre funksjon hvis deriverte (eventuelt ganget med en konstant) også står i integranden. Typiske kandidater er uttrykket i en parentes ($u = 3x+2$ i $(3x+2)^5$), eksponenten ($u = x^2$ i $e^{x^2}$), uttrykket under rottegnet, argumentet til en trigonometrisk funksjon — eller nevneren i en brøk, hvis telleren ligner dens deriverte.\n\nEnklest av alt er lineære kjerner $u = ax + b$: da er $du = a\\,dx$, altså $dx = \\frac{1}{a}du$, og vi får den nyttige formelen $\\int f(ax+b)\\,dx = \\frac{1}{a}F(ax+b) + C$. For eksempel gir $u = 2x - 5$ i $\\int (2x-5)^7\\,dx$ resultatet $\\frac{1}{2} \\cdot \\frac{u^8}{8} = \\frac{(2x-5)^8}{16} + C$, og tilsvarende er $\\int \\sin(3x+1)\\,dx = -\\frac{1}{3}\\cos(3x+1) + C$ og $\\int e^{-4x}\\,dx = -\\frac{1}{4}e^{-4x} + C$."
+    },
+    {
+      "id": "r2-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grunnleggende substitusjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-1-n-quiz1-q0",
+            "task": "Hvilket integral er substitusjon skreddersydd for?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\displaystyle\\int f(x) \\cdot g(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\displaystyle\\int f(g(x)) \\cdot g'(x)\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\displaystyle\\int \\frac{f(x)}{g(x)}\\,dx$ generelt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\displaystyle\\int f(x) + g(x)\\,dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Substitusjon er kjerneregelen baklengs og krever mønsteret «funksjon av en kjerne ganget med kjernens deriverte»: $\\int f(g(x))g'(x)\\,dx = \\int f(u)\\,du$."
+          },
+          {
+            "id": "r2-3-1-n-quiz1-q1",
+            "task": "Hva er $\\displaystyle\\int (2x - 5)^7 \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{(2x-5)^8}{8} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7(2x-5)^6 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{(2x-5)^8}{16} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{(2x-5)^8}{2} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $u = 2x-5$ er $dx = \\frac{1}{2}du$: $\\frac{1}{2}\\int u^7\\,du = \\frac{u^8}{16} + C = \\frac{(2x-5)^8}{16} + C$."
+          },
+          {
+            "id": "r2-3-1-n-quiz1-q2",
+            "task": "Hva er $\\displaystyle\\int \\sin(3x + 1) \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos(3x+1) + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-3\\cos(3x+1) + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{3}\\cos(3x+1) + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-\\frac{1}{3}\\cos(3x+1) + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$u = 3x+1$ gir $dx = \\frac{1}{3}du$: $\\frac{1}{3}\\int \\sin u\\,du = -\\frac{1}{3}\\cos u + C$. Husk at antideriverten til $\\sin$ er $-\\cos$."
+          },
+          {
+            "id": "r2-3-1-n-quiz1-q3",
+            "task": "Hva er $\\displaystyle\\int x \\cdot (x^2+1)^4\\,dx$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{(x^2+1)^5}{10} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{(x^2+1)^5}{5} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x(x^2+1)^4 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x^2(x^2+1)^5}{10} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$u = x^2+1$ gir $du = 2x\\,dx$, altså $x\\,dx = \\frac{1}{2}du$: $\\frac{1}{2}\\int u^4\\,du = \\frac{u^5}{10} + C = \\frac{(x^2+1)^5}{10} + C$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-1-n-section2",
+      "type": "text",
+      "content": "## Røtter, trigonometri og potensmønstre\n\nMed metoden på plass kan vi gå på tyngre vilt. Røtter er potenser i forkledning: i $\\int \\frac{x}{\\sqrt{x^2+4}}\\,dx$ setter vi $u = x^2 + 4$ (uttrykket *under* rottegnet, ikke hele roten), får $x\\,dx = \\frac{1}{2}du$ og\n\n$$\\frac{1}{2}\\int u^{-1/2}\\,du = u^{1/2} + C = \\sqrt{x^2+4} + C$$\n\nSamme idé for kubikkrøtter: $\\int x^2\\sqrt[3]{x^3+5}\\,dx$ med $u = x^3+5$ gir $\\frac{1}{3}\\int u^{1/3}\\,du = \\frac{(x^3+5)^{4/3}}{4} + C$.\n\nI trigonometrien er nøkkelen at $\\sin$ og $\\cos$ er hverandres deriverte (med et fortegn): ser du et produkt av dem, substituer med den ene. I $\\int \\sin^3 x \\cos x\\,dx$ setter vi $u = \\sin x$, $du = \\cos x\\,dx$:\n\n$$\\int u^3\\,du = \\frac{u^4}{4} + C = \\frac{\\sin^4 x}{4} + C$$\n\nGenerelt: $\\int \\sin^n x \\cos x\\,dx = \\frac{\\sin^{n+1}x}{n+1} + C$ og $\\int \\cos^n x \\sin x\\,dx = -\\frac{\\cos^{n+1}x}{n+1} + C$.\n\nTo klassikere fortjener egen plass. **Tangens:** skriv $\\tan x = \\frac{\\sin x}{\\cos x}$ og sett $u = \\cos x$, $du = -\\sin x\\,dx$:\n\n$$\\int \\tan x\\,dx = \\int \\frac{-du}{u} = -\\ln|\\cos x| + C$$\n\n**Cotangens** på samme vis: $\\int \\cot x\\,dx = \\int \\frac{\\cos x}{\\sin x}\\,dx = \\ln|\\sin x| + C$. Begge er egentlig $\\frac{g'}{g}$-mønsteret fra kapittel 2.3 — substitusjonen bare formaliserer blikket."
+    },
+    {
+      "id": "r2-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på substitusjon med røtter og trigonometri:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-1-n-quiz2-q0",
+            "task": "Hva er $\\displaystyle\\int \\frac{x}{\\sqrt{x^2+4}} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2}\\ln(x^2+4) + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{x^2+4} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{3}(x^2+4)^{3/2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{\\sqrt{x^2+4}} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$u = x^2+4$, $x\\,dx = \\frac{1}{2}du$: $\\frac{1}{2}\\int u^{-1/2}\\,du = u^{1/2} + C = \\sqrt{x^2+4} + C$."
+          },
+          {
+            "id": "r2-3-1-n-quiz2-q1",
+            "task": "Hva er $\\displaystyle\\int \\sin^3 x \\cdot \\cos x \\, dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{\\cos^4 x}{4} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{\\sin^4 x}{4} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{\\sin^4 x}{4} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$3\\sin^2 x \\cos x + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$u = \\sin x$ gir $du = \\cos x\\,dx$: $\\int u^3\\,du = \\frac{u^4}{4} + C = \\frac{\\sin^4 x}{4} + C$."
+          },
+          {
+            "id": "r2-3-1-n-quiz2-q2",
+            "task": "Hva er $\\displaystyle\\int \\tan x \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{\\cos^2 x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\ln|\\sin x| + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\tan^2 x}{2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\ln|\\cos x| + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\tan x = \\frac{\\sin x}{\\cos x}$; med $u = \\cos x$ er $\\sin x\\,dx = -du$, så integralet blir $-\\ln|u| + C = -\\ln|\\cos x| + C$."
+          },
+          {
+            "id": "r2-3-1-n-quiz2-q3",
+            "task": "I $\\displaystyle\\int x^2 \\sqrt[3]{x^3+5}\\,dx$: hva er riktig substitusjon?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$u = x^3 + 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$u = x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$u = \\sqrt[3]{x^3+5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$u = x^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Velg uttrykket under roten: $u = x^3+5$ gir $du = 3x^2\\,dx$, og faktoren $x^2$ i integranden gjør substitusjonen komplett. Svaret blir $\\frac{(x^3+5)^{4/3}}{4} + C$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-1-n-section3",
+      "type": "text",
+      "content": "## Eksponentialer, logaritmer og $\\frac{g'}{g}$-mønsteret\n\nEksponential- og logaritmefunksjonene gir substitusjonen noen av dens fineste øyeblikk. Tre eksempler i stigende eleganse:\n\n$\\int x \\cdot e^{x^2}\\,dx$: kjernen $u = x^2$ gir $x\\,dx = \\frac{1}{2}du$ og svaret $\\frac{1}{2}e^{x^2} + C$.\n\n$\\int e^{\\sin x}\\cos x\\,dx$: kjernen $u = \\sin x$ har sin deriverte $\\cos x$ på plass — svaret er $e^{\\sin x} + C$, rett frem.\n\n$\\int \\frac{e^x}{1+e^x}\\,dx$: telleren er nevnerens deriverte! Med $u = 1 + e^x$ blir det $\\int \\frac{du}{u} = \\ln(1+e^x) + C$ (absoluttverdi unødvendig siden $1 + e^x > 0$).\n\nLogaritmen byr på et mønster det er lett å overse: $\\ln x$ og dens deriverte $\\frac{1}{x}$ opptrer ofte sammen. I $\\int \\frac{\\ln x}{x}\\,dx$ setter vi $u = \\ln x$, $du = \\frac{1}{x}dx$:\n\n$$\\int u\\,du = \\frac{u^2}{2} + C = \\frac{(\\ln x)^2}{2} + C$$\n\nOg i $\\int \\frac{1}{x \\ln x}\\,dx$ gir samme substitusjon $\\int \\frac{du}{u} = \\ln|\\ln x| + C$ — en logaritme av en logaritme.\n\nTil slutt et eksempel som ser umulig ut, men er $\\frac{g'}{g}$ i forkledning: $\\int \\frac{e^x - e^{-x}}{e^x + e^{-x}}\\,dx$. Sjekk: $(e^x + e^{-x})' = e^x - e^{-x}$ — telleren! Altså er svaret $\\ln(e^x + e^{-x}) + C$. Treningen i å gjenkjenne mønstre er halve teknikken; den andre halvparten er ryddig bokføring med $u$ og $du$."
+    },
+    {
+      "id": "r2-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponential- og logaritmesubstitusjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-1-n-quiz3-q0",
+            "task": "Hva er $\\displaystyle\\int \\frac{e^x}{1 + e^x} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{e^x}{x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\ln(1 + e^x) + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$e^x \\ln(1+e^x) + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{1+e^x} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Telleren $e^x$ er den deriverte av nevneren $1 + e^x$: $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C = \\ln(1+e^x) + C$."
+          },
+          {
+            "id": "r2-3-1-n-quiz3-q1",
+            "task": "Hva er $\\displaystyle\\int \\frac{\\ln x}{x} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\ln|\\ln x| + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\ln x}{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{(\\ln x)^2}{2} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x\\ln x - x + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$u = \\ln x$ gir $du = \\frac{1}{x}dx$: $\\int u\\,du = \\frac{u^2}{2} + C = \\frac{(\\ln x)^2}{2} + C$."
+          },
+          {
+            "id": "r2-3-1-n-quiz3-q2",
+            "task": "Hva er $\\displaystyle\\int \\frac{1}{x \\ln x} \\, dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{(\\ln x)^2}{2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{\\ln x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln|x| + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\ln|\\ln x| + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$u = \\ln x$, $du = \\frac{1}{x}dx$: $\\int \\frac{du}{u} = \\ln|u| + C = \\ln|\\ln x| + C$."
+          },
+          {
+            "id": "r2-3-1-n-quiz3-q3",
+            "task": "Hvorfor løses $\\displaystyle\\int \\frac{e^x - e^{-x}}{e^x + e^{-x}}\\,dx$ enkelt med substitusjon?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Fordi telleren er den deriverte av nevneren — $\\frac{g'}{g}$-mønsteret",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi integranden kan forenkles til $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi begge eksponentialfunksjonene har samme grunntall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi integralet er symmetrisk om origo",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(e^x + e^{-x})' = e^x - e^{-x}$, som er nøyaktig telleren. Med $u = e^x + e^{-x}$ blir svaret $\\ln(e^x + e^{-x}) + C$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-1-n-section4",
+      "type": "text",
+      "content": "## Bestemte integraler: bytt grensene, slipp tilbaketuren\n\nVed bestemte integraler har vi et valg: integrere ubestemt, sette tilbake til $x$ og bruke de gamle grensene — eller den smartere veien: **bytt grensene til $u$-verdier** og bli i $u$-verdenen hele veien:\n\n$$\\int_a^b f(g(x)) \\cdot g'(x)\\,dx = \\int_{g(a)}^{g(b)} f(u)\\,du$$\n\nEksempel: $\\int_0^1 2x(x^2+1)^3\\,dx$. Med $u = x^2+1$ blir nedre grense $g(0) = 1$ og øvre $g(1) = 2$:\n\n$$\\int_1^2 u^3\\,du = \\left[\\frac{u^4}{4}\\right]_1^2 = 4 - \\frac{1}{4} = \\frac{15}{4}$$\n\nIngen tilbakesetting, ingen omveier. Flere i samme stil: $\\int_0^{\\pi/2} \\sin^2 x \\cos x\\,dx$ med $u = \\sin x$ får grensene $0$ og $1$, og blir $\\int_0^1 u^2\\,du = \\frac{1}{3}$. Og $\\int_1^e \\frac{(\\ln x)^2}{x}\\,dx$ med $u = \\ln x$ får grensene $0$ og $1$ — også $\\frac{1}{3}$.\n\nTil slutt fellene som koster flest poeng til eksamen. *Glemt $dx$-bytte:* $dx$ må alltid erstattes via $du = g'(x)\\,dx$ — du kan ikke bare bytte navn på variabelen. *Ufullstendig substitusjon:* alle $x$-er må forsvinne; står det igjen en $x$ du ikke får uttrykt ved $u$, var substitusjonen feil valgt. *Blandede grenser:* enten $u$-grenser uten tilbakesetting, eller $x$-grenser etter tilbakesetting — aldri en blanding. Og når intet «funksjon pluss derivert»-mønster finnes? Da er substitusjon feil verktøy, og de neste kapitlenes teknikker — delvis integrasjon og delbrøkoppspalting — tar over."
+    },
+    {
+      "id": "r2-3-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på bestemte integraler med substitusjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-1-n-quiz4-q0",
+            "task": "Du beregner $\\int_0^1 2x(x^2+1)^3\\,dx$ med $u = x^2 + 1$. Hva blir de nye grensene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fra $0$ til $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fra $1$ til $2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fra $0$ til $2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fra $1$ til $4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nedre: $u = 0^2 + 1 = 1$. Øvre: $u = 1^2 + 1 = 2$. Integralet blir $\\int_1^2 u^3\\,du = \\frac{15}{4}$."
+          },
+          {
+            "id": "r2-3-1-n-quiz4-q1",
+            "task": "Hva er $\\displaystyle\\int_0^{\\pi/2} \\sin^2 x \\cdot \\cos x \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\pi}{6}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$u = \\sin x$ gir grensene $\\sin 0 = 0$ og $\\sin\\frac{\\pi}{2} = 1$: $\\int_0^1 u^2\\,du = \\frac{1}{3}$."
+          },
+          {
+            "id": "r2-3-1-n-quiz4-q2",
+            "task": "Hva er fordelen med å bytte grensene til $u$-verdier?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Integralet blir alltid enklere å derivere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Grensene blir alltid $0$ og $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi slipper å finne $du$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Vi slipper å sette tilbake til $x$ før innsetting",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $u$-grenser kan vi evaluere direkte i $u$-verdenen: $\\int_{g(a)}^{g(b)} f(u)\\,du$. Tilbakesettingen er unødvendig."
+          },
+          {
+            "id": "r2-3-1-n-quiz4-q3",
+            "task": "Etter substitusjonen $u = g(x)$ står det fortsatt igjen en enslig $x$ i integranden som ikke lar seg uttrykke ved $u$. Hva betyr det?",
+            "options": [
+              {
+                "id": "d",
+                "text": "At substitusjonen ikke fungerer her — prøv et annet valg av $u$ eller en annen teknikk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At vi kan behandle $x$ som konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At vi må derivere en gang til",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At svaret får både $x$ og $u$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En gyldig substitusjon må fjerne alle $x$-er. Mislykkes det, mangler integranden mønsteret $f(g(x))g'(x)$, og et annet $u$ — eller en annen metode — må til."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: den reverserte kjerneregelen\n\nSubstitusjon er kjerneregelen spilt baklengs, og metoden er nå et fast ritual: finn kjernen $u = g(x)$ hvis deriverte (eventuelt ganget med en konstant) står i integranden, bokfør $du = g'(x)\\,dx$, oversett hele integralet til $u$-verdenen via $\\int f(g(x))g'(x)\\,dx = \\int f(u)\\,du$, integrer — og sett tilbake, eller bytt grensene $a \\to g(a)$, $b \\to g(b)$ hvis integralet er bestemt.\n\nUnderveis har mønstergjenkjennelsen blitt trent på hele funksjonsfloraen: lineære kjerner med $\\frac{1}{a}$-faktoren, potenser og røtter der $u$ er uttrykket innenfor, trigonometriske par der $\\sin$ og $\\cos$ bytter på å være kjerne og derivert (med $\\int \\tan x\\,dx = -\\ln|\\cos x| + C$ som kronjuvel), eksponentialer og logaritmer — og overalt det allestedsnærværende $\\frac{g'}{g}$-mønsteret som gir logaritmesvar. Huskelisten mot fellene: bytt alltid $dx$, fjern alle $x$-er, og bland aldri gamle og nye grenser.\n\nMen hva med integraler som $\\int x e^x\\,dx$, der ingen faktor er den andres deriverte? Der hjelper ingen omdøping — vi trenger produktregelen baklengs. Den heter delvis integrasjon, og den venter i neste kapittel."
+    }
+  ],
+  "exercises": []
+}

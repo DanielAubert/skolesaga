@@ -1,1 +1,423 @@
-{"id":"it-2-1-1-narrativ","courseId":"it-2","chapterNumber":"1","title":"Kva er objektorientert programmering?","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi gjekk frå lause funksjonar til objekt som speglar røynda – og kvifor ei norsk oppfinning frå 1960-talet endra måten vi programmerer på.","estimatedMinutes":32,"competenceGoals":["Forstå forskjellen på prosedyrell og objektorientert programmering","Kjenne til grunnbegrepene klasse, objekt, attributt og metode","Forstå fordelene med OOP og når det bør brukes"],"linkedChapterId":"it-2-1-1","content":[{"id":"it-2-1-1-n-intro","type":"text","content":"## Velkomen til ein ny måte å tenkje på\n\nTenk deg at du skal byggje eit bibliotek-system. Det skal halde styr på tusenvis av bøker, hundrevis av lånarar, alle utlån og reservasjonar – og fem tilsette skal bruke det samtidig. I IT 1 lærte du å programmere prosedyrelt: du skreiv funksjonar som gjorde ting, lagra data i variablar og lister, og kalla funksjonane når du trong dei. Det fungerer framifrå for små program. Men prøv å byggje biblioteket på den måten, og du druknar raskt i eit hav av variablar.\n\nDet er her **objektorientert programmering** kjem inn – ofte forkorta OOP. Det er ein grunnleggjande annan måte å organisere kode på, og han blir brukt i dei aller fleste moderne programmeringsspråk. I dette kapittelet skal vi finne ut kva OOP eigentleg er, kvifor det vart oppfunne, og korleis det skil seg frå programmeringa du allereie kjenner.\n\nFor å forstå OOP må vi først snakke om **paradigme**. Eit programmeringsparadigme er ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode. Dei to viktigaste du møter, er nettopp prosedyrell og objektorientert programmering. I prosedyrell programmering blir koden organisert i funksjonar som utfører oppgåver i ei bestemt rekkjefølgje. I OOP blir koden organisert rundt **objekt** som representerer ting i den verkelege verda eller i programmet."},{"id":"it-2-1-1-n-section1","type":"text","content":"## Kvifor prosedyrell kode bryt saman\n\nLat oss sjå kva som faktisk går gale når prosedyrelle program veks. Det dukkar opp tre tilbakevendande problem.\n\nFor det første blir **data og funksjonar skilde**. Når du har mange funksjonar og mange variablar, er det lett å miste oversikta over kva funksjonar som høyrer til kva data. For det andre blir det **vanskeleg å gjenbruke kode**. Vil du ha to spelarar i eit spel, må du lage separate variablar for kvar: `spiller1_poeng`, `spiller2_poeng` og så vidare. For det tredje **veks kompleksiteten fort** – jo fleire funksjonar du legg til, jo vanskelegare blir det å halde orden på kva som høyrer saman.\n\nOOP løyser dette ved å samle relatert data og funksjonar i objekt. Lat oss samanlikne med eit konkret døme: ein bankkonto. Prosedyrelt ville du hatt lause variablar for kontonummer, saldo og eigar, og frittståande funksjonar som `sett_inn`, `ta_ut` og `vis_saldo` som jobbar på ein global `saldo`. Objektorientert samlar vi alt i ein klasse:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, startsaldo=0):\n        self.kontonummer = kontonummer\n        self.saldo = startsaldo\n        self.eier = eier\n\n    def sett_inn(self, belop):\n        self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop <= self.saldo:\n            self.saldo -= belop\n            return True\n        return False\n\nkonto = Bankkonto(\"12345678\", \"Kari Nordmann\", 1000)\nkonto.sett_inn(500)\nkonto.ta_ut(200)\n```\n\nNo er alt som høyrer til ein bankkonto samla på éin stad. Vi kan enkelt lage fleire kontoar, og kvar konto har sine eigne data. Metodane er bundne til objektet."},{"id":"it-2-1-1-n-quiz1","type":"exercise","exercise":{"id":"it-2-1-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på paradigme:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-1-n-quiz1-q0","task":"Kva er eit programmeringsparadigme?","options":[{"id":"a","text":"Ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode","isCorrect":true},{"id":"b","text":"Eit bestemt programmeringsspråk","isCorrect":false},{"id":"c","text":"Ein type datamaskin","isCorrect":false},{"id":"d","text":"Ei feilmelding i koden","isCorrect":false}],"solution":"Eit paradigme er ein grunnleggjande stil for å organisere kode. Prosedyrell og objektorientert programmering er dei to viktigaste."},{"id":"it-2-1-1-n-quiz1-q1","task":"Kva paradigme blir brukt her?\n\n```python\ndef beregn_areal(lengde, bredde):\n    return lengde * bredde\nareal = beregn_areal(5, 3)\n```","options":[{"id":"a","text":"Objektorientert programmering","isCorrect":false},{"id":"b","text":"Prosedyrell programmering","isCorrect":true},{"id":"c","text":"Funksjonell programmering","isCorrect":false},{"id":"d","text":"Logisk programmering","isCorrect":false}],"solution":"Dette er prosedyrell programmering: ein funksjon tek inn data og returnerer eit resultat, men data og funksjon er ikkje samla i eit objekt."},{"id":"it-2-1-1-n-quiz1-q2","task":"Kva er ei kjerneutfordring med prosedyrell kode i store program?","options":[{"id":"a","text":"Funksjonar kan ikkje ta argument","isCorrect":false},{"id":"b","text":"Koden køyrer alltid for seint","isCorrect":false},{"id":"c","text":"Data og funksjonar blir skilde, og oversikta forsvinn","isCorrect":true},{"id":"d","text":"Det er umogleg å lagre tal","isCorrect":false}],"solution":"I store prosedyrelle program blir det vanskeleg å sjå kva funksjonar som høyrer til kva data, og kompleksiteten veks fort."}]}},{"id":"it-2-1-1-n-section2","type":"text","content":"## Ei norsk oppfinning og fem fordelar\n\nKanskje trur du OOP er noko nymotens. Sanninga er det stikk motsette – og ho har ein norsk stoltheit i seg. Det første objektorienterte språket, **Simula**, vart utvikla i Noreg på 1960-talet av Ole-Johan Dahl og Kristen Nygaard ved Norsk Regnesentral. Dei ville simulere komplekse system, derav namnet, og trong ein betre måte å organisere kode på. Seinare bygde andre vidare: Smalltalk kom i 1972 som eit reint objektorientert språk, C++ la til OOP i C-språket i 1983, og Java populariserte OOP for nettet i 1995. I dag støttar nesten alle moderne språk OOP – Python, JavaScript, C#, Ruby, Swift, Kotlin.\n\nKvifor vart OOP så populært? Fem grunnar peikar seg ut. **Modularitet**: koden blir delt inn i sjølvstendige klassar med klart ansvar. **Gjenbrukbarheit**: ein god klasse kan brukast i mange program, og du kan utvide han med arv utan å endre originalen. **Vedlikehaldbarheit**: oppdagar du ein feil i bankkonto-logikken, fiksar du det éin stad. **Abstraksjon**: du kan gøyme kompleksitet, slik at brukaren berre kallar metodane utan å vite korleis ting blir lagra. **Naturleg modellering**: eit dyrehospital-system kan ha klassar som Hund, Katt, Behandling og Veterinær, akkurat som røynda.\n\nArv er gjenbruk i praksis. Ein `Sparekonto` kan arve alt frå `Bankkonto` og berre leggje til renteberekning:\n\n```python\nclass Sparekonto(Bankkonto):\n    def __init__(self, kontonummer, eier, startsaldo=0, rentesats=0.02):\n        super().__init__(kontonummer, eier, startsaldo)\n        self.rentesats = rentesats\n\n    def legg_til_renter(self):\n        renter = self.saldo * self.rentesats\n        self.sett_inn(renter)\n```\n\nÉin ting er verdt å merke seg: OOP gjev ikkje nødvendigvis raskare køyretid. Fordelen ligg i struktur, gjenbruk og vedlikehald – ikkje i fart."},{"id":"it-2-1-1-n-quiz2","type":"exercise","exercise":{"id":"it-2-1-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på historie og fordelar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-1-n-quiz2-q0","task":"Kva språk blir rekna som det første objektorienterte, og vart laga i Noreg?","options":[{"id":"a","text":"Java","isCorrect":false},{"id":"b","text":"Python","isCorrect":false},{"id":"c","text":"C++","isCorrect":false},{"id":"d","text":"Simula","isCorrect":true}],"solution":"Simula vart utvikla av Ole-Johan Dahl og Kristen Nygaard på 1960-talet ved Norsk Regnesentral, og blir rekna som det første OOP-språket."},{"id":"it-2-1-1-n-quiz2-q1","task":"Kva er IKKJE ein hovudfordel med OOP?","options":[{"id":"a","text":"Raskare køyretid enn all prosedyrell kode","isCorrect":true},{"id":"b","text":"Betre gjenbruk av kode","isCorrect":false},{"id":"c","text":"Enklare vedlikehald av store program","isCorrect":false},{"id":"d","text":"Naturleg modellering av verkelege konsept","isCorrect":false}],"solution":"OOP gjev ikkje garantert raskare køyretid – det er avhengig av algoritmar. Fordelen ligg i struktur, gjenbruk og vedlikehald."},{"id":"it-2-1-1-n-quiz2-q2","task":"Kva tyder det at Sparekonto arvar frå Bankkonto?","options":[{"id":"a","text":"Sparekonto slettar alle metodane i Bankkonto","isCorrect":false},{"id":"b","text":"Sparekonto får tilgang til metodane i Bankkonto og kan leggje til nye","isCorrect":true},{"id":"c","text":"Bankkonto kan ikkje lenger brukast","isCorrect":false},{"id":"d","text":"Dei to klassane blir til same objekt","isCorrect":false}],"solution":"Med arv får Sparekonto alle metodane frå Bankkonto (som sett_inn og ta_ut) og kan leggje til ny funksjonalitet, som legg_til_renter."}]}},{"id":"it-2-1-1-n-section3","type":"text","content":"## Grunnomgrepa og når du bør velje OOP\n\nFør vi går vidare, treng du fire ord i ryggmergen. Ein **klasse** er ein mal eller oppskrift for å lage objekt – tenk på ei kakeform. Eit **objekt** er ein konkret instans av klassen – den ferdigbakte kaka. Eit **attributt** er data som høyrer til objektet, som kontonummer eller saldo. Ein **metode** er ein funksjon som høyrer til objektet, som `sett_inn` eller `ta_ut`. I Python definerer vi ein klasse med `class`, set opp objektet i konstruktøren `__init__`, og bruker `self` for å referere til objektet sjølv:\n\n```python\nclass Hund:\n    def __init__(self, navn):\n        self.navn = navn\n\n    def bjeff(self):\n        print(f\"{self.navn} sier: Voff!\")\n\nmin_hund = Hund(\"Fido\")\nmin_hund.bjeff()  # Fido sier: Voff!\n```\n\nMen OOP er ikkje alltid rett val. Bruk det når programmet er stort og komplekst, når data naturleg kan grupperast som personar, produkt eller køyretøy, når du vil gjenbruke kode på tvers av prosjekt, eller når fleire utviklarar jobbar saman. Prosedyrell kode kan derimot vere betre når programmet er lite, når du skriv eit eingongsskript, eller når yting er kritisk. Skal du til dømes konvertere éin temperatur frå Celsius til Fahrenheit, er ein enkel funksjon mest formålstenleg – ein heil Temperatur-klasse ville vore å skyte spurv med kanon. I IT 2 fokuserer vi likevel på OOP, fordi det er den dominerande stilen i moderne utvikling og lærer deg å tenkje strukturert om komplekse problem."},{"id":"it-2-1-1-n-quiz3","type":"exercise","exercise":{"id":"it-2-1-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på omgrep og bruk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-1-n-quiz3-q0","task":"Kva er forholdet mellom ein klasse og eit objekt?","options":[{"id":"a","text":"Klassen er ein konkret instans, objektet er malen","isCorrect":false},{"id":"b","text":"Dei tyder nøyaktig det same","isCorrect":false},{"id":"c","text":"Klassen er malen, objektet er ein konkret instans laga frå malen","isCorrect":true},{"id":"d","text":"Objektet inneheld fleire klassar","isCorrect":false}],"solution":"Klassen er oppskrifta (kakeforma), objektet er den konkrete instansen (den ferdigbakte kaka)."},{"id":"it-2-1-1-n-quiz3-q1","task":"Kva gjer `self` i ein Python-klasse?","options":[{"id":"a","text":"Slettar objektet","isCorrect":false},{"id":"b","text":"Importerer ein modul","isCorrect":false},{"id":"c","text":"Lagar ein ny klasse","isCorrect":false},{"id":"d","text":"Refererer til sjølve objektet metoden køyrer på","isCorrect":true}],"solution":"`self` er ein referanse til objektet sjølv, slik at metoden får tilgang til dei eigne attributta til objektet."},{"id":"it-2-1-1-n-quiz3-q2","task":"Du skal lage eit skript som konverterer ÉIN temperatur og skriv ut svaret. Kva passar best?","options":[{"id":"a","text":"Ein enkel prosedyrell funksjon som returnerer verdien","isCorrect":true},{"id":"b","text":"Ein stor Temperatur-klasse med mange metodar","isCorrect":false},{"id":"c","text":"Separate klassar for Celsius og Fahrenheit","isCorrect":false},{"id":"d","text":"Ein database med alle moglege temperaturar","isCorrect":false}],"solution":"For ei enkel eingongsberekning er ein prosedyrell funksjon mest formålstenleg. OOP ville vore unødvendig kompleks."}]}},{"id":"it-2-1-1-n-summary","type":"text","content":"## Oppsummering\n\nVi starta med eit bibliotek-system som vart for stort for lause variablar, og enda med ein heilt ny måte å tenkje kode på. Eit **paradigme** er ein grunnleggjande stil for å strukturere kode, og dei to viktigaste er **prosedyrell** programmering, der koden blir organisert i funksjonar, og **objektorientert** programmering, der koden blir organisert rundt objekt. OOP løyser problema med skilde data, vanskeleg gjenbruk og veksande kompleksitet ved å samle data og metodar i klassar.\n\nFire omgrep er fundamentet: **klasse** (malen), **objekt** (instansen), **attributt** (dataa) og **metode** (funksjonen). Vi såg at OOP har eit norsk opphav i Simula frå 1960-talet, og at fordelane er modularitet, gjenbrukbarheit, vedlikehaldbarheit, abstraksjon og naturleg modellering – men ikkje nødvendigvis raskare køyretid. OOP eignar seg best for store, komplekse system med mange samanhengande entitetar, medan enkle eingongsoppgåver framleis blir løyste best prosedyrelt. I neste kapittel dykkar vi djupare inn i korleis klassar og objekt faktisk fungerer."}],"exercises":[],"_meta":{"sourceHash":"6ef7112611b1722c","translatedAt":"2026-06-21T00:00:54.565Z","model":"claude-code-agent","strings":71,"tm":{"16ca8bdcd1422d52":"Kva er objektorientert programmering?","b195b06d1ed59702":"Narrativ versjon","db5ece3cd42980c8":"Ei forteljing om korleis vi gjekk frå lause funksjonar til objekt som speglar røynda – og kvifor ei norsk oppfinning frå 1960-talet endra måten vi programmerer på.","6423c7e2003c5f45":"Forstå forskjellen på prosedyrell og objektorientert programmering","5ebee9b3143aba98":"Kjenne til grunnbegrepene klasse, objekt, attributt og metode","916ee753f7d9b34d":"Forstå fordelene med OOP og når det bør brukes","01a67707ae76ca4a":"## Velkomen til ein ny måte å tenkje på\n\nTenk deg at du skal byggje eit bibliotek-system. Det skal halde styr på tusenvis av bøker, hundrevis av lånarar, alle utlån og reservasjonar – og fem tilsette skal bruke det samtidig. I IT 1 lærte du å programmere prosedyrelt: du skreiv funksjonar som gjorde ting, lagra data i variablar og lister, og kalla funksjonane når du trong dei. Det fungerer framifrå for små program. Men prøv å byggje biblioteket på den måten, og du druknar raskt i eit hav av variablar.\n\nDet er her **objektorientert programmering** kjem inn – ofte forkorta OOP. Det er ein grunnleggjande annan måte å organisere kode på, og han blir brukt i dei aller fleste moderne programmeringsspråk. I dette kapittelet skal vi finne ut kva OOP eigentleg er, kvifor det vart oppfunne, og korleis det skil seg frå programmeringa du allereie kjenner.\n\nFor å forstå OOP må vi først snakke om **paradigme**. Eit programmeringsparadigme er ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode. Dei to viktigaste du møter, er nettopp prosedyrell og objektorientert programmering. I prosedyrell programmering blir koden organisert i funksjonar som utfører oppgåver i ei bestemt rekkjefølgje. I OOP blir koden organisert rundt **objekt** som representerer ting i den verkelege verda eller i programmet.","200a4350e2ec0d32":"## Kvifor prosedyrell kode bryt saman\n\nLat oss sjå kva som faktisk går gale når prosedyrelle program veks. Det dukkar opp tre tilbakevendande problem.\n\nFor det første blir **data og funksjonar skilde**. Når du har mange funksjonar og mange variablar, er det lett å miste oversikta over kva funksjonar som høyrer til kva data. For det andre blir det **vanskeleg å gjenbruke kode**. Vil du ha to spelarar i eit spel, må du lage separate variablar for kvar: `spiller1_poeng`, `spiller2_poeng` og så vidare. For det tredje **veks kompleksiteten fort** – jo fleire funksjonar du legg til, jo vanskelegare blir det å halde orden på kva som høyrer saman.\n\nOOP løyser dette ved å samle relatert data og funksjonar i objekt. Lat oss samanlikne med eit konkret døme: ein bankkonto. Prosedyrelt ville du hatt lause variablar for kontonummer, saldo og eigar, og frittståande funksjonar som `sett_inn`, `ta_ut` og `vis_saldo` som jobbar på ein global `saldo`. Objektorientert samlar vi alt i ein klasse:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, startsaldo=0):\n        self.kontonummer = kontonummer\n        self.saldo = startsaldo\n        self.eier = eier\n\n    def sett_inn(self, belop):\n        self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop <= self.saldo:\n            self.saldo -= belop\n            return True\n        return False\n\nkonto = Bankkonto(\"12345678\", \"Kari Nordmann\", 1000)\nkonto.sett_inn(500)\nkonto.ta_ut(200)\n```\n\nNo er alt som høyrer til ein bankkonto samla på éin stad. Vi kan enkelt lage fleire kontoar, og kvar konto har sine eigne data. Metodane er bundne til objektet.","77894ada559f8481":"Test deg sjølv på paradigme:","4097889236a2af26":"placeholder","d90944e2feccca66":"Kva er eit programmeringsparadigme?","6b8049c00c10b59c":"Ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode","cce761b1d632c3cd":"Eit bestemt programmeringsspråk","c98a26207f13749b":"Ein type datamaskin","527e329beaea02c0":"Ei feilmelding i koden","8210c1a39bca640d":"Eit paradigme er ein grunnleggjande stil for å organisere kode. Prosedyrell og objektorientert programmering er dei to viktigaste.","ef42a0707b018b5e":"Kva paradigme blir brukt her?\n\n```python\ndef beregn_areal(lengde, bredde):\n    return lengde * bredde\nareal = beregn_areal(5, 3)\n```","79252ef4d277d4e6":"Objektorientert programmering","e23b202c36ca516f":"Prosedyrell programmering","0bb46e9032c92fb8":"Funksjonell programmering","b2ef35c7e1168799":"Logisk programmering","10e4fdbbbb9f2fa8":"Dette er prosedyrell programmering: ein funksjon tek inn data og returnerer eit resultat, men data og funksjon er ikkje samla i eit objekt.","b6d8523fba2f560b":"Kva er ei kjerneutfordring med prosedyrell kode i store program?","489d62dad94c3b50":"Funksjonar kan ikkje ta argument","5400494c2a7b00a0":"Koden køyrer alltid for seint","313913fa4279ce5e":"Data og funksjonar blir skilde, og oversikta forsvinn","28210f74dc60aaaa":"Det er umogleg å lagre tal","4b703c1b91797abb":"I store prosedyrelle program blir det vanskeleg å sjå kva funksjonar som høyrer til kva data, og kompleksiteten veks fort.","eecd02f3aa718d26":"## Ei norsk oppfinning og fem fordelar\n\nKanskje trur du OOP er noko nymotens. Sanninga er det stikk motsette – og ho har ein norsk stoltheit i seg. Det første objektorienterte språket, **Simula**, vart utvikla i Noreg på 1960-talet av Ole-Johan Dahl og Kristen Nygaard ved Norsk Regnesentral. Dei ville simulere komplekse system, derav namnet, og trong ein betre måte å organisere kode på. Seinare bygde andre vidare: Smalltalk kom i 1972 som eit reint objektorientert språk, C++ la til OOP i C-språket i 1983, og Java populariserte OOP for nettet i 1995. I dag støttar nesten alle moderne språk OOP – Python, JavaScript, C#, Ruby, Swift, Kotlin.\n\nKvifor vart OOP så populært? Fem grunnar peikar seg ut. **Modularitet**: koden blir delt inn i sjølvstendige klassar med klart ansvar. **Gjenbrukbarheit**: ein god klasse kan brukast i mange program, og du kan utvide han med arv utan å endre originalen. **Vedlikehaldbarheit**: oppdagar du ein feil i bankkonto-logikken, fiksar du det éin stad. **Abstraksjon**: du kan gøyme kompleksitet, slik at brukaren berre kallar metodane utan å vite korleis ting blir lagra. **Naturleg modellering**: eit dyrehospital-system kan ha klassar som Hund, Katt, Behandling og Veterinær, akkurat som røynda.\n\nArv er gjenbruk i praksis. Ein `Sparekonto` kan arve alt frå `Bankkonto` og berre leggje til renteberekning:\n\n```python\nclass Sparekonto(Bankkonto):\n    def __init__(self, kontonummer, eier, startsaldo=0, rentesats=0.02):\n        super().__init__(kontonummer, eier, startsaldo)\n        self.rentesats = rentesats\n\n    def legg_til_renter(self):\n        renter = self.saldo * self.rentesats\n        self.sett_inn(renter)\n```\n\nÉin ting er verdt å merke seg: OOP gjev ikkje nødvendigvis raskare køyretid. Fordelen ligg i struktur, gjenbruk og vedlikehald – ikkje i fart.","1b070439b867f41e":"Test deg sjølv på historie og fordelar:","2e12e5412aae2745":"Kva språk blir rekna som det første objektorienterte, og vart laga i Noreg?","c1ba60ce13586503":"Java","18885f27b5af9012":"Python","f1deb75fa21d3c47":"C++","5a6b9dfcffb2795f":"Simula","9114423f326d849a":"Simula vart utvikla av Ole-Johan Dahl og Kristen Nygaard på 1960-talet ved Norsk Regnesentral, og blir rekna som det første OOP-språket.","776f1e6583025eb7":"Kva er IKKJE ein hovudfordel med OOP?","fe352a9b0fe2f228":"Raskare køyretid enn all prosedyrell kode","c3fe2a9468313ae3":"Betre gjenbruk av kode","739af9448b205159":"Enklare vedlikehald av store program","c5da1be7eca2258e":"Naturleg modellering av verkelege konsept","2d5033376fd62535":"OOP gjev ikkje garantert raskare køyretid – det er avhengig av algoritmar. Fordelen ligg i struktur, gjenbruk og vedlikehald.","a4d3b6903045c242":"Kva tyder det at Sparekonto arvar frå Bankkonto?","f922dd26371cd8ec":"Sparekonto slettar alle metodane i Bankkonto","52d171c0053c7b22":"Sparekonto får tilgang til metodane i Bankkonto og kan leggje til nye","7285346fb63e8508":"Bankkonto kan ikkje lenger brukast","5fc75d53e3f554e6":"Dei to klassane blir til same objekt","b05d015373a73944":"Med arv får Sparekonto alle metodane frå Bankkonto (som sett_inn og ta_ut) og kan leggje til ny funksjonalitet, som legg_til_renter.","2672a1c2cad26330":"## Grunnomgrepa og når du bør velje OOP\n\nFør vi går vidare, treng du fire ord i ryggmergen. Ein **klasse** er ein mal eller oppskrift for å lage objekt – tenk på ei kakeform. Eit **objekt** er ein konkret instans av klassen – den ferdigbakte kaka. Eit **attributt** er data som høyrer til objektet, som kontonummer eller saldo. Ein **metode** er ein funksjon som høyrer til objektet, som `sett_inn` eller `ta_ut`. I Python definerer vi ein klasse med `class`, set opp objektet i konstruktøren `__init__`, og bruker `self` for å referere til objektet sjølv:\n\n```python\nclass Hund:\n    def __init__(self, navn):\n        self.navn = navn\n\n    def bjeff(self):\n        print(f\"{self.navn} sier: Voff!\")\n\nmin_hund = Hund(\"Fido\")\nmin_hund.bjeff()  # Fido sier: Voff!\n```\n\nMen OOP er ikkje alltid rett val. Bruk det når programmet er stort og komplekst, når data naturleg kan grupperast som personar, produkt eller køyretøy, når du vil gjenbruke kode på tvers av prosjekt, eller når fleire utviklarar jobbar saman. Prosedyrell kode kan derimot vere betre når programmet er lite, når du skriv eit eingongsskript, eller når yting er kritisk. Skal du til dømes konvertere éin temperatur frå Celsius til Fahrenheit, er ein enkel funksjon mest formålstenleg – ein heil Temperatur-klasse ville vore å skyte spurv med kanon. I IT 2 fokuserer vi likevel på OOP, fordi det er den dominerande stilen i moderne utvikling og lærer deg å tenkje strukturert om komplekse problem.","e87ddca57ca3e759":"Test deg sjølv på omgrep og bruk:","9d949e0e564857ec":"Kva er forholdet mellom ein klasse og eit objekt?","9334df77c4b63a3c":"Klassen er ein konkret instans, objektet er malen","554fd28858e6ce23":"Dei tyder nøyaktig det same","28d18064955116bd":"Klassen er malen, objektet er ein konkret instans laga frå malen","7c07fcc5129b4415":"Objektet inneheld fleire klassar","9d46669a59e45c4f":"Klassen er oppskrifta (kakeforma), objektet er den konkrete instansen (den ferdigbakte kaka).","0d107fb333fcb39a":"Kva gjer `self` i ein Python-klasse?","5d6a5911b0f11d1f":"Slettar objektet","11b0edf44c0068c5":"Importerer ein modul","4946d6ee09212350":"Lagar ein ny klasse","7ebc7802f7a63616":"Refererer til sjølve objektet metoden køyrer på","93b0aea566f90a6c":"`self` er ein referanse til objektet sjølv, slik at metoden får tilgang til dei eigne attributta til objektet.","8ea38c071db55a10":"Du skal lage eit skript som konverterer ÉIN temperatur og skriv ut svaret. Kva passar best?","8f5be7dacd37b7a8":"Ein enkel prosedyrell funksjon som returnerer verdien","c72c914ffd0e8bd6":"Ein stor Temperatur-klasse med mange metodar","26f4c553fa89df39":"Separate klassar for Celsius og Fahrenheit","3b935e26822248a0":"Ein database med alle moglege temperaturar","cc0054be8adb01bf":"For ei enkel eingongsberekning er ein prosedyrell funksjon mest formålstenleg. OOP ville vore unødvendig kompleks.","3906e0781ba10578":"## Oppsummering\n\nVi starta med eit bibliotek-system som vart for stort for lause variablar, og enda med ein heilt ny måte å tenkje kode på. Eit **paradigme** er ein grunnleggjande stil for å strukturere kode, og dei to viktigaste er **prosedyrell** programmering, der koden blir organisert i funksjonar, og **objektorientert** programmering, der koden blir organisert rundt objekt. OOP løyser problema med skilde data, vanskeleg gjenbruk og veksande kompleksitet ved å samle data og metodar i klassar.\n\nFire omgrep er fundamentet: **klasse** (malen), **objekt** (instansen), **attributt** (dataa) og **metode** (funksjonen). Vi såg at OOP har eit norsk opphav i Simula frå 1960-talet, og at fordelane er modularitet, gjenbrukbarheit, vedlikehaldbarheit, abstraksjon og naturleg modellering – men ikkje nødvendigvis raskare køyretid. OOP eignar seg best for store, komplekse system med mange samanhengande entitetar, medan enkle eingongsoppgåver framleis blir løyste best prosedyrelt. I neste kapittel dykkar vi djupare inn i korleis klassar og objekt faktisk fungerer."}}}
+{
+  "id": "it-2-1-1-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "1",
+  "title": "Kva er objektorientert programmering?",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi gjekk frå lause funksjonar til objekt som speglar røynda – og kvifor ei norsk oppfinning frå 1960-talet endra måten vi programmerer på.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "Forstå forskjellen på prosedyrell og objektorientert programmering",
+    "Kjenne til grunnbegrepene klasse, objekt, attributt og metode",
+    "Forstå fordelene med OOP og når det bør brukes"
+  ],
+  "linkedChapterId": "it-2-1-1",
+  "content": [
+    {
+      "id": "it-2-1-1-n-intro",
+      "type": "text",
+      "content": "## Velkomen til ein ny måte å tenkje på\n\nTenk deg at du skal byggje eit bibliotek-system. Det skal halde styr på tusenvis av bøker, hundrevis av lånarar, alle utlån og reservasjonar – og fem tilsette skal bruke det samtidig. I IT 1 lærte du å programmere prosedyrelt: du skreiv funksjonar som gjorde ting, lagra data i variablar og lister, og kalla funksjonane når du trong dei. Det fungerer framifrå for små program. Men prøv å byggje biblioteket på den måten, og du druknar raskt i eit hav av variablar.\n\nDet er her **objektorientert programmering** kjem inn – ofte forkorta OOP. Det er ein grunnleggjande annan måte å organisere kode på, og han blir brukt i dei aller fleste moderne programmeringsspråk. I dette kapittelet skal vi finne ut kva OOP eigentleg er, kvifor det vart oppfunne, og korleis det skil seg frå programmeringa du allereie kjenner.\n\nFor å forstå OOP må vi først snakke om **paradigme**. Eit programmeringsparadigme er ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode. Dei to viktigaste du møter, er nettopp prosedyrell og objektorientert programmering. I prosedyrell programmering blir koden organisert i funksjonar som utfører oppgåver i ei bestemt rekkjefølgje. I OOP blir koden organisert rundt **objekt** som representerer ting i den verkelege verda eller i programmet."
+    },
+    {
+      "id": "it-2-1-1-n-section1",
+      "type": "text",
+      "content": "## Kvifor prosedyrell kode bryt saman\n\nLat oss sjå kva som faktisk går gale når prosedyrelle program veks. Det dukkar opp tre tilbakevendande problem.\n\nFor det første blir **data og funksjonar skilde**. Når du har mange funksjonar og mange variablar, er det lett å miste oversikta over kva funksjonar som høyrer til kva data. For det andre blir det **vanskeleg å gjenbruke kode**. Vil du ha to spelarar i eit spel, må du lage separate variablar for kvar: `spiller1_poeng`, `spiller2_poeng` og så vidare. For det tredje **veks kompleksiteten fort** – jo fleire funksjonar du legg til, jo vanskelegare blir det å halde orden på kva som høyrer saman.\n\nOOP løyser dette ved å samle relatert data og funksjonar i objekt. Lat oss samanlikne med eit konkret døme: ein bankkonto. Prosedyrelt ville du hatt lause variablar for kontonummer, saldo og eigar, og frittståande funksjonar som `sett_inn`, `ta_ut` og `vis_saldo` som jobbar på ein global `saldo`. Objektorientert samlar vi alt i ein klasse:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, startsaldo=0):\n        self.kontonummer = kontonummer\n        self.saldo = startsaldo\n        self.eier = eier\n\n    def sett_inn(self, belop):\n        self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop <= self.saldo:\n            self.saldo -= belop\n            return True\n        return False\n\nkonto = Bankkonto(\"12345678\", \"Kari Nordmann\", 1000)\nkonto.sett_inn(500)\nkonto.ta_ut(200)\n```\n\nNo er alt som høyrer til ein bankkonto samla på éin stad. Vi kan enkelt lage fleire kontoar, og kvar konto har sine eigne data. Metodane er bundne til objektet."
+    },
+    {
+      "id": "it-2-1-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på paradigme:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-1-n-quiz1-q0",
+            "task": "Kva er eit programmeringsparadigme?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Eit bestemt programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein type datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei feilmelding i koden",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eit paradigme er ein grunnleggjande stil for å organisere kode. Prosedyrell og objektorientert programmering er dei to viktigaste."
+          },
+          {
+            "id": "it-2-1-1-n-quiz1-q1",
+            "task": "Kva paradigme blir brukt her?\n\n```python\ndef beregn_areal(lengde, bredde):\n    return lengde * bredde\nareal = beregn_areal(5, 3)\n```",
+            "options": [
+              {
+                "id": "b",
+                "text": "Prosedyrell programmering",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Objektorientert programmering",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonell programmering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Logisk programmering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dette er prosedyrell programmering: ein funksjon tek inn data og returnerer eit resultat, men data og funksjon er ikkje samla i eit objekt."
+          },
+          {
+            "id": "it-2-1-1-n-quiz1-q2",
+            "task": "Kva er ei kjerneutfordring med prosedyrell kode i store program?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Funksjonar kan ikkje ta argument",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Data og funksjonar blir skilde, og oversikta forsvinn",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Koden køyrer alltid for seint",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er umogleg å lagre tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I store prosedyrelle program blir det vanskeleg å sjå kva funksjonar som høyrer til kva data, og kompleksiteten veks fort."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-1-n-section2",
+      "type": "text",
+      "content": "## Ei norsk oppfinning og fem fordelar\n\nKanskje trur du OOP er noko nymotens. Sanninga er det stikk motsette – og ho har ein norsk stoltheit i seg. Det første objektorienterte språket, **Simula**, vart utvikla i Noreg på 1960-talet av Ole-Johan Dahl og Kristen Nygaard ved Norsk Regnesentral. Dei ville simulere komplekse system, derav namnet, og trong ein betre måte å organisere kode på. Seinare bygde andre vidare: Smalltalk kom i 1972 som eit reint objektorientert språk, C++ la til OOP i C-språket i 1983, og Java populariserte OOP for nettet i 1995. I dag støttar nesten alle moderne språk OOP – Python, JavaScript, C#, Ruby, Swift, Kotlin.\n\nKvifor vart OOP så populært? Fem grunnar peikar seg ut. **Modularitet**: koden blir delt inn i sjølvstendige klassar med klart ansvar. **Gjenbrukbarheit**: ein god klasse kan brukast i mange program, og du kan utvide han med arv utan å endre originalen. **Vedlikehaldbarheit**: oppdagar du ein feil i bankkonto-logikken, fiksar du det éin stad. **Abstraksjon**: du kan gøyme kompleksitet, slik at brukaren berre kallar metodane utan å vite korleis ting blir lagra. **Naturleg modellering**: eit dyrehospital-system kan ha klassar som Hund, Katt, Behandling og Veterinær, akkurat som røynda.\n\nArv er gjenbruk i praksis. Ein `Sparekonto` kan arve alt frå `Bankkonto` og berre leggje til renteberekning:\n\n```python\nclass Sparekonto(Bankkonto):\n    def __init__(self, kontonummer, eier, startsaldo=0, rentesats=0.02):\n        super().__init__(kontonummer, eier, startsaldo)\n        self.rentesats = rentesats\n\n    def legg_til_renter(self):\n        renter = self.saldo * self.rentesats\n        self.sett_inn(renter)\n```\n\nÉin ting er verdt å merke seg: OOP gjev ikkje nødvendigvis raskare køyretid. Fordelen ligg i struktur, gjenbruk og vedlikehald – ikkje i fart."
+    },
+    {
+      "id": "it-2-1-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på historie og fordelar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-1-n-quiz2-q0",
+            "task": "Kva språk blir rekna som det første objektorienterte, og vart laga i Noreg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Java",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Python",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Simula",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "C++",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Simula vart utvikla av Ole-Johan Dahl og Kristen Nygaard på 1960-talet ved Norsk Regnesentral, og blir rekna som det første OOP-språket."
+          },
+          {
+            "id": "it-2-1-1-n-quiz2-q1",
+            "task": "Kva er IKKJE ein hovudfordel med OOP?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Betre gjenbruk av kode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Enklare vedlikehald av store program",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Naturleg modellering av verkelege konsept",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Raskare køyretid enn all prosedyrell kode",
+                "isCorrect": true
+              }
+            ],
+            "solution": "OOP gjev ikkje garantert raskare køyretid – det er avhengig av algoritmar. Fordelen ligg i struktur, gjenbruk og vedlikehald."
+          },
+          {
+            "id": "it-2-1-1-n-quiz2-q2",
+            "task": "Kva tyder det at Sparekonto arvar frå Bankkonto?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sparekonto får tilgang til metodane i Bankkonto og kan leggje til nye",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sparekonto slettar alle metodane i Bankkonto",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bankkonto kan ikkje lenger brukast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei to klassane blir til same objekt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med arv får Sparekonto alle metodane frå Bankkonto (som sett_inn og ta_ut) og kan leggje til ny funksjonalitet, som legg_til_renter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-1-n-section3",
+      "type": "text",
+      "content": "## Grunnomgrepa og når du bør velje OOP\n\nFør vi går vidare, treng du fire ord i ryggmergen. Ein **klasse** er ein mal eller oppskrift for å lage objekt – tenk på ei kakeform. Eit **objekt** er ein konkret instans av klassen – den ferdigbakte kaka. Eit **attributt** er data som høyrer til objektet, som kontonummer eller saldo. Ein **metode** er ein funksjon som høyrer til objektet, som `sett_inn` eller `ta_ut`. I Python definerer vi ein klasse med `class`, set opp objektet i konstruktøren `__init__`, og bruker `self` for å referere til objektet sjølv:\n\n```python\nclass Hund:\n    def __init__(self, navn):\n        self.navn = navn\n\n    def bjeff(self):\n        print(f\"{self.navn} sier: Voff!\")\n\nmin_hund = Hund(\"Fido\")\nmin_hund.bjeff()  # Fido sier: Voff!\n```\n\nMen OOP er ikkje alltid rett val. Bruk det når programmet er stort og komplekst, når data naturleg kan grupperast som personar, produkt eller køyretøy, når du vil gjenbruke kode på tvers av prosjekt, eller når fleire utviklarar jobbar saman. Prosedyrell kode kan derimot vere betre når programmet er lite, når du skriv eit eingongsskript, eller når yting er kritisk. Skal du til dømes konvertere éin temperatur frå Celsius til Fahrenheit, er ein enkel funksjon mest formålstenleg – ein heil Temperatur-klasse ville vore å skyte spurv med kanon. I IT 2 fokuserer vi likevel på OOP, fordi det er den dominerande stilen i moderne utvikling og lærer deg å tenkje strukturert om komplekse problem."
+    },
+    {
+      "id": "it-2-1-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på omgrep og bruk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-1-n-quiz3-q0",
+            "task": "Kva er forholdet mellom ein klasse og eit objekt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Klassen er ein konkret instans, objektet er malen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Klassen er malen, objektet er ein konkret instans laga frå malen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Dei tyder nøyaktig det same",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Objektet inneheld fleire klassar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Klassen er oppskrifta (kakeforma), objektet er den konkrete instansen (den ferdigbakte kaka)."
+          },
+          {
+            "id": "it-2-1-1-n-quiz3-q1",
+            "task": "Kva gjer `self` i ein Python-klasse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Slettar objektet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Importerer ein modul",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Refererer til sjølve objektet metoden køyrer på",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Lagar ein ny klasse",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`self` er ein referanse til objektet sjølv, slik at metoden får tilgang til dei eigne attributta til objektet."
+          },
+          {
+            "id": "it-2-1-1-n-quiz3-q2",
+            "task": "Du skal lage eit skript som konverterer ÉIN temperatur og skriv ut svaret. Kva passar best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein stor Temperatur-klasse med mange metodar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Separate klassar for Celsius og Fahrenheit",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein database med alle moglege temperaturar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein enkel prosedyrell funksjon som returnerer verdien",
+                "isCorrect": true
+              }
+            ],
+            "solution": "For ei enkel eingongsberekning er ein prosedyrell funksjon mest formålstenleg. OOP ville vore unødvendig kompleks."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi starta med eit bibliotek-system som vart for stort for lause variablar, og enda med ein heilt ny måte å tenkje kode på. Eit **paradigme** er ein grunnleggjande stil for å strukturere kode, og dei to viktigaste er **prosedyrell** programmering, der koden blir organisert i funksjonar, og **objektorientert** programmering, der koden blir organisert rundt objekt. OOP løyser problema med skilde data, vanskeleg gjenbruk og veksande kompleksitet ved å samle data og metodar i klassar.\n\nFire omgrep er fundamentet: **klasse** (malen), **objekt** (instansen), **attributt** (dataa) og **metode** (funksjonen). Vi såg at OOP har eit norsk opphav i Simula frå 1960-talet, og at fordelane er modularitet, gjenbrukbarheit, vedlikehaldbarheit, abstraksjon og naturleg modellering – men ikkje nødvendigvis raskare køyretid. OOP eignar seg best for store, komplekse system med mange samanhengande entitetar, medan enkle eingongsoppgåver framleis blir løyste best prosedyrelt. I neste kapittel dykkar vi djupare inn i korleis klassar og objekt faktisk fungerer."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6ef7112611b1722c",
+    "translatedAt": "2026-06-21T00:00:54.565Z",
+    "model": "claude-code-agent",
+    "strings": 71,
+    "tm": {
+      "16ca8bdcd1422d52": "Kva er objektorientert programmering?",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "db5ece3cd42980c8": "Ei forteljing om korleis vi gjekk frå lause funksjonar til objekt som speglar røynda – og kvifor ei norsk oppfinning frå 1960-talet endra måten vi programmerer på.",
+      "6423c7e2003c5f45": "Forstå forskjellen på prosedyrell og objektorientert programmering",
+      "5ebee9b3143aba98": "Kjenne til grunnbegrepene klasse, objekt, attributt og metode",
+      "916ee753f7d9b34d": "Forstå fordelene med OOP og når det bør brukes",
+      "01a67707ae76ca4a": "## Velkomen til ein ny måte å tenkje på\n\nTenk deg at du skal byggje eit bibliotek-system. Det skal halde styr på tusenvis av bøker, hundrevis av lånarar, alle utlån og reservasjonar – og fem tilsette skal bruke det samtidig. I IT 1 lærte du å programmere prosedyrelt: du skreiv funksjonar som gjorde ting, lagra data i variablar og lister, og kalla funksjonane når du trong dei. Det fungerer framifrå for små program. Men prøv å byggje biblioteket på den måten, og du druknar raskt i eit hav av variablar.\n\nDet er her **objektorientert programmering** kjem inn – ofte forkorta OOP. Det er ein grunnleggjande annan måte å organisere kode på, og han blir brukt i dei aller fleste moderne programmeringsspråk. I dette kapittelet skal vi finne ut kva OOP eigentleg er, kvifor det vart oppfunne, og korleis det skil seg frå programmeringa du allereie kjenner.\n\nFor å forstå OOP må vi først snakke om **paradigme**. Eit programmeringsparadigme er ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode. Dei to viktigaste du møter, er nettopp prosedyrell og objektorientert programmering. I prosedyrell programmering blir koden organisert i funksjonar som utfører oppgåver i ei bestemt rekkjefølgje. I OOP blir koden organisert rundt **objekt** som representerer ting i den verkelege verda eller i programmet.",
+      "200a4350e2ec0d32": "## Kvifor prosedyrell kode bryt saman\n\nLat oss sjå kva som faktisk går gale når prosedyrelle program veks. Det dukkar opp tre tilbakevendande problem.\n\nFor det første blir **data og funksjonar skilde**. Når du har mange funksjonar og mange variablar, er det lett å miste oversikta over kva funksjonar som høyrer til kva data. For det andre blir det **vanskeleg å gjenbruke kode**. Vil du ha to spelarar i eit spel, må du lage separate variablar for kvar: `spiller1_poeng`, `spiller2_poeng` og så vidare. For det tredje **veks kompleksiteten fort** – jo fleire funksjonar du legg til, jo vanskelegare blir det å halde orden på kva som høyrer saman.\n\nOOP løyser dette ved å samle relatert data og funksjonar i objekt. Lat oss samanlikne med eit konkret døme: ein bankkonto. Prosedyrelt ville du hatt lause variablar for kontonummer, saldo og eigar, og frittståande funksjonar som `sett_inn`, `ta_ut` og `vis_saldo` som jobbar på ein global `saldo`. Objektorientert samlar vi alt i ein klasse:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, eier, startsaldo=0):\n        self.kontonummer = kontonummer\n        self.saldo = startsaldo\n        self.eier = eier\n\n    def sett_inn(self, belop):\n        self.saldo += belop\n\n    def ta_ut(self, belop):\n        if belop <= self.saldo:\n            self.saldo -= belop\n            return True\n        return False\n\nkonto = Bankkonto(\"12345678\", \"Kari Nordmann\", 1000)\nkonto.sett_inn(500)\nkonto.ta_ut(200)\n```\n\nNo er alt som høyrer til ein bankkonto samla på éin stad. Vi kan enkelt lage fleire kontoar, og kvar konto har sine eigne data. Metodane er bundne til objektet.",
+      "77894ada559f8481": "Test deg sjølv på paradigme:",
+      "4097889236a2af26": "placeholder",
+      "d90944e2feccca66": "Kva er eit programmeringsparadigme?",
+      "6b8049c00c10b59c": "Ein grunnleggjande stil eller filosofi for korleis vi strukturerer kode",
+      "cce761b1d632c3cd": "Eit bestemt programmeringsspråk",
+      "c98a26207f13749b": "Ein type datamaskin",
+      "527e329beaea02c0": "Ei feilmelding i koden",
+      "8210c1a39bca640d": "Eit paradigme er ein grunnleggjande stil for å organisere kode. Prosedyrell og objektorientert programmering er dei to viktigaste.",
+      "ef42a0707b018b5e": "Kva paradigme blir brukt her?\n\n```python\ndef beregn_areal(lengde, bredde):\n    return lengde * bredde\nareal = beregn_areal(5, 3)\n```",
+      "79252ef4d277d4e6": "Objektorientert programmering",
+      "e23b202c36ca516f": "Prosedyrell programmering",
+      "0bb46e9032c92fb8": "Funksjonell programmering",
+      "b2ef35c7e1168799": "Logisk programmering",
+      "10e4fdbbbb9f2fa8": "Dette er prosedyrell programmering: ein funksjon tek inn data og returnerer eit resultat, men data og funksjon er ikkje samla i eit objekt.",
+      "b6d8523fba2f560b": "Kva er ei kjerneutfordring med prosedyrell kode i store program?",
+      "489d62dad94c3b50": "Funksjonar kan ikkje ta argument",
+      "5400494c2a7b00a0": "Koden køyrer alltid for seint",
+      "313913fa4279ce5e": "Data og funksjonar blir skilde, og oversikta forsvinn",
+      "28210f74dc60aaaa": "Det er umogleg å lagre tal",
+      "4b703c1b91797abb": "I store prosedyrelle program blir det vanskeleg å sjå kva funksjonar som høyrer til kva data, og kompleksiteten veks fort.",
+      "eecd02f3aa718d26": "## Ei norsk oppfinning og fem fordelar\n\nKanskje trur du OOP er noko nymotens. Sanninga er det stikk motsette – og ho har ein norsk stoltheit i seg. Det første objektorienterte språket, **Simula**, vart utvikla i Noreg på 1960-talet av Ole-Johan Dahl og Kristen Nygaard ved Norsk Regnesentral. Dei ville simulere komplekse system, derav namnet, og trong ein betre måte å organisere kode på. Seinare bygde andre vidare: Smalltalk kom i 1972 som eit reint objektorientert språk, C++ la til OOP i C-språket i 1983, og Java populariserte OOP for nettet i 1995. I dag støttar nesten alle moderne språk OOP – Python, JavaScript, C#, Ruby, Swift, Kotlin.\n\nKvifor vart OOP så populært? Fem grunnar peikar seg ut. **Modularitet**: koden blir delt inn i sjølvstendige klassar med klart ansvar. **Gjenbrukbarheit**: ein god klasse kan brukast i mange program, og du kan utvide han med arv utan å endre originalen. **Vedlikehaldbarheit**: oppdagar du ein feil i bankkonto-logikken, fiksar du det éin stad. **Abstraksjon**: du kan gøyme kompleksitet, slik at brukaren berre kallar metodane utan å vite korleis ting blir lagra. **Naturleg modellering**: eit dyrehospital-system kan ha klassar som Hund, Katt, Behandling og Veterinær, akkurat som røynda.\n\nArv er gjenbruk i praksis. Ein `Sparekonto` kan arve alt frå `Bankkonto` og berre leggje til renteberekning:\n\n```python\nclass Sparekonto(Bankkonto):\n    def __init__(self, kontonummer, eier, startsaldo=0, rentesats=0.02):\n        super().__init__(kontonummer, eier, startsaldo)\n        self.rentesats = rentesats\n\n    def legg_til_renter(self):\n        renter = self.saldo * self.rentesats\n        self.sett_inn(renter)\n```\n\nÉin ting er verdt å merke seg: OOP gjev ikkje nødvendigvis raskare køyretid. Fordelen ligg i struktur, gjenbruk og vedlikehald – ikkje i fart.",
+      "1b070439b867f41e": "Test deg sjølv på historie og fordelar:",
+      "2e12e5412aae2745": "Kva språk blir rekna som det første objektorienterte, og vart laga i Noreg?",
+      "c1ba60ce13586503": "Java",
+      "18885f27b5af9012": "Python",
+      "f1deb75fa21d3c47": "C++",
+      "5a6b9dfcffb2795f": "Simula",
+      "9114423f326d849a": "Simula vart utvikla av Ole-Johan Dahl og Kristen Nygaard på 1960-talet ved Norsk Regnesentral, og blir rekna som det første OOP-språket.",
+      "776f1e6583025eb7": "Kva er IKKJE ein hovudfordel med OOP?",
+      "fe352a9b0fe2f228": "Raskare køyretid enn all prosedyrell kode",
+      "c3fe2a9468313ae3": "Betre gjenbruk av kode",
+      "739af9448b205159": "Enklare vedlikehald av store program",
+      "c5da1be7eca2258e": "Naturleg modellering av verkelege konsept",
+      "2d5033376fd62535": "OOP gjev ikkje garantert raskare køyretid – det er avhengig av algoritmar. Fordelen ligg i struktur, gjenbruk og vedlikehald.",
+      "a4d3b6903045c242": "Kva tyder det at Sparekonto arvar frå Bankkonto?",
+      "f922dd26371cd8ec": "Sparekonto slettar alle metodane i Bankkonto",
+      "52d171c0053c7b22": "Sparekonto får tilgang til metodane i Bankkonto og kan leggje til nye",
+      "7285346fb63e8508": "Bankkonto kan ikkje lenger brukast",
+      "5fc75d53e3f554e6": "Dei to klassane blir til same objekt",
+      "b05d015373a73944": "Med arv får Sparekonto alle metodane frå Bankkonto (som sett_inn og ta_ut) og kan leggje til ny funksjonalitet, som legg_til_renter.",
+      "2672a1c2cad26330": "## Grunnomgrepa og når du bør velje OOP\n\nFør vi går vidare, treng du fire ord i ryggmergen. Ein **klasse** er ein mal eller oppskrift for å lage objekt – tenk på ei kakeform. Eit **objekt** er ein konkret instans av klassen – den ferdigbakte kaka. Eit **attributt** er data som høyrer til objektet, som kontonummer eller saldo. Ein **metode** er ein funksjon som høyrer til objektet, som `sett_inn` eller `ta_ut`. I Python definerer vi ein klasse med `class`, set opp objektet i konstruktøren `__init__`, og bruker `self` for å referere til objektet sjølv:\n\n```python\nclass Hund:\n    def __init__(self, navn):\n        self.navn = navn\n\n    def bjeff(self):\n        print(f\"{self.navn} sier: Voff!\")\n\nmin_hund = Hund(\"Fido\")\nmin_hund.bjeff()  # Fido sier: Voff!\n```\n\nMen OOP er ikkje alltid rett val. Bruk det når programmet er stort og komplekst, når data naturleg kan grupperast som personar, produkt eller køyretøy, når du vil gjenbruke kode på tvers av prosjekt, eller når fleire utviklarar jobbar saman. Prosedyrell kode kan derimot vere betre når programmet er lite, når du skriv eit eingongsskript, eller når yting er kritisk. Skal du til dømes konvertere éin temperatur frå Celsius til Fahrenheit, er ein enkel funksjon mest formålstenleg – ein heil Temperatur-klasse ville vore å skyte spurv med kanon. I IT 2 fokuserer vi likevel på OOP, fordi det er den dominerande stilen i moderne utvikling og lærer deg å tenkje strukturert om komplekse problem.",
+      "e87ddca57ca3e759": "Test deg sjølv på omgrep og bruk:",
+      "9d949e0e564857ec": "Kva er forholdet mellom ein klasse og eit objekt?",
+      "9334df77c4b63a3c": "Klassen er ein konkret instans, objektet er malen",
+      "554fd28858e6ce23": "Dei tyder nøyaktig det same",
+      "28d18064955116bd": "Klassen er malen, objektet er ein konkret instans laga frå malen",
+      "7c07fcc5129b4415": "Objektet inneheld fleire klassar",
+      "9d46669a59e45c4f": "Klassen er oppskrifta (kakeforma), objektet er den konkrete instansen (den ferdigbakte kaka).",
+      "0d107fb333fcb39a": "Kva gjer `self` i ein Python-klasse?",
+      "5d6a5911b0f11d1f": "Slettar objektet",
+      "11b0edf44c0068c5": "Importerer ein modul",
+      "4946d6ee09212350": "Lagar ein ny klasse",
+      "7ebc7802f7a63616": "Refererer til sjølve objektet metoden køyrer på",
+      "93b0aea566f90a6c": "`self` er ein referanse til objektet sjølv, slik at metoden får tilgang til dei eigne attributta til objektet.",
+      "8ea38c071db55a10": "Du skal lage eit skript som konverterer ÉIN temperatur og skriv ut svaret. Kva passar best?",
+      "8f5be7dacd37b7a8": "Ein enkel prosedyrell funksjon som returnerer verdien",
+      "c72c914ffd0e8bd6": "Ein stor Temperatur-klasse med mange metodar",
+      "26f4c553fa89df39": "Separate klassar for Celsius og Fahrenheit",
+      "3b935e26822248a0": "Ein database med alle moglege temperaturar",
+      "cc0054be8adb01bf": "For ei enkel eingongsberekning er ein prosedyrell funksjon mest formålstenleg. OOP ville vore unødvendig kompleks.",
+      "3906e0781ba10578": "## Oppsummering\n\nVi starta med eit bibliotek-system som vart for stort for lause variablar, og enda med ein heilt ny måte å tenkje kode på. Eit **paradigme** er ein grunnleggjande stil for å strukturere kode, og dei to viktigaste er **prosedyrell** programmering, der koden blir organisert i funksjonar, og **objektorientert** programmering, der koden blir organisert rundt objekt. OOP løyser problema med skilde data, vanskeleg gjenbruk og veksande kompleksitet ved å samle data og metodar i klassar.\n\nFire omgrep er fundamentet: **klasse** (malen), **objekt** (instansen), **attributt** (dataa) og **metode** (funksjonen). Vi såg at OOP har eit norsk opphav i Simula frå 1960-talet, og at fordelane er modularitet, gjenbrukbarheit, vedlikehaldbarheit, abstraksjon og naturleg modellering – men ikkje nødvendigvis raskare køyretid. OOP eignar seg best for store, komplekse system med mange samanhengande entitetar, medan enkle eingongsoppgåver framleis blir løyste best prosedyrelt. I neste kapittel dykkar vi djupare inn i korleis klassar og objekt faktisk fungerer."
+    }
+  }
+}

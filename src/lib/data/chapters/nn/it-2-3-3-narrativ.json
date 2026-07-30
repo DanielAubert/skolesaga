@@ -1,1 +1,532 @@
-{"id":"it-2-3-3-narrativ","courseId":"it-2","chapterNumber":"3","title":"Datastrukturar","subtitle":"Narrativ versjon","description":"Ei forteljing om kunsten å velje rett oppbevaringsboks for data – frå styrkane og veikskapane til listene til stakken som balanserer parentesar, og kvifor ei mengd kan vere tusenvis av gonger raskare enn ei liste.","estimatedMinutes":38,"competenceGoals":["Forstå styrkane til lister, stakkar, køar, ordbøker og mengder","Kjenne tidskompleksiteten til vanlege operasjonar","Velje rett datastruktur for eit gitt problem"],"linkedChapterId":"it-2-3-3","content":[{"id":"it-2-3-3-n-intro","type":"text","content":"## Rett boks for jobben\n\nEin datastruktur er ein måte å organisere og lagre data på, slik at vi kan bruke dei effektivt. Tenk på skilnaden mellom å leite etter eit ord i ein usortert bunke lappar og å slå opp i ei ordbok. Begge inneheld dei same orda, men organiseringa gjer ein enorm skilnad. Val av rett datastruktur kan avgjere både yting og lesbarheit i koden din.\n\nNår vi vurderer ein datastruktur, spør vi kor raskt vi kan setje inn, slette, søkje og hente data, om rekkjefølgja må takast vare på, og om vi tillèt duplikat. Python gir oss fem innebygde verktøy: **list** (ordna, indeksert, tillèt duplikat), **dict** (nøkkel-verdi-par med raske oppslag), **set** (uordna, ingen duplikat), **tuple** (ordna og uforanderleg) og **deque** (ein dobbel-enda kø frå modulen collections).\n\nLista er den mest brukte. Ho er lynrask til indekstilgang `liste[i]` (O(1)), til å leggje til på slutten med `append` (O(1)) og fjerne frå slutten med `pop` (O(1)). Men ho er treg i den andre enden: `insert(0, x)` og `pop(0)` er O(n), fordi alle elementa må skubbast. Og medlemssjekken `x in liste` er O(n), fordi han må gå gjennom alt. Denne innsikta – rask i enden, treg i starten – er nøkkelen til å forstå når lista ikkje er nok."},{"id":"it-2-3-3-n-quiz1","type":"exercise","exercise":{"id":"it-2-3-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på lister:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-3-n-quiz1-q0","task":"Kva er tidskompleksiteten til `liste.insert(0, x)`?","options":[{"id":"a","text":"O(1)","isCorrect":false},{"id":"b","text":"O(n) – alle elementa må skubbast","isCorrect":true},{"id":"c","text":"O(log n)","isCorrect":false},{"id":"d","text":"O(n²)","isCorrect":false}],"solution":"Å setje inn først krev at alle eksisterande element blir flytta eitt hakk, noko som gir O(n)."},{"id":"it-2-3-3-n-quiz1-q1","task":"Kva blir `data` etter: start [10,20,30,40,50], så append(60), insert(0,5), pop(), pop(0)?","options":[{"id":"a","text":"[5, 10, 20, 30, 40, 50, 60]","isCorrect":false},{"id":"b","text":"[10, 20, 30, 40, 50, 60]","isCorrect":false},{"id":"c","text":"[10, 20, 30, 40, 50]","isCorrect":true},{"id":"d","text":"[]","isCorrect":false}],"solution":"Vi la til 60 og 5, og fjerna dei same to igjen (pop fjernar 60, pop(0) fjernar 5), så vi endar med originalen."},{"id":"it-2-3-3-n-quiz1-q2","task":"Kva listeoperasjon er O(1)?","options":[{"id":"a","text":"x in liste","isCorrect":false},{"id":"b","text":"pop(0)","isCorrect":false},{"id":"c","text":"remove(x)","isCorrect":false},{"id":"d","text":"append(x)","isCorrect":true}],"solution":"append() legg til på slutten i konstant tid. Dei andre må anten søkje eller flytte element."}]}},{"id":"it-2-3-3-n-section1","type":"text","content":"## Stakkar, køar og ein parentes-vakt\n\nNår lista kjem til kort, har vi spesialstrukturar. Ein **stakk** følgjer LIFO – siste inn, første ut – som ein tallerkenstabel. I Python brukar vi ei vanleg liste: `append` for push og `pop` for pop, begge O(1). Ein **kø** følgjer FIFO – første inn, første ut – som ein kø i butikken. For køar bør du bruke `collections.deque`, ikkje ei vanleg liste, fordi `deque.popleft()` er O(1) medan `list.pop(0)` er O(n). Ein deque er rask i begge ender, medan ei liste er rask berre i den eine.\n\nValet mellom stakk og kø følgjer problemet. Angre-funksjonen og tilbake-knappen i nettlesaren er stakkar, fordi du alltid vil reversere den siste handlinga først. Skrivekøen til printaren og handsaming av kundehenvendingar i ankomstrekkjefølgje er køar, fordi rettferd tyder først til mølla.\n\nEit elegant døme på ein stakk i arbeid er å sjekke **balanserte parentesar**. Du går gjennom teksten, og kvar gong du møter ein opningsparentes pushar du han på stakken. Møter du ein lukkeparentes, poppar du toppen og sjekkar at han matchar. Viss stakken er tom når du møter ein lukkeparentes, eller viss han ikkje er tom til slutt, er noko ubalansert. For `(a + [b])` endar stakken tom – alt stemmer. For `((a + b)` blir det igjen ein opningsparentes – ubalansert."},{"id":"it-2-3-3-n-quiz2","type":"exercise","exercise":{"id":"it-2-3-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på stakkar og køar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-3-n-quiz2-q0","task":"Kva struktur passar best for ein skrivekø til ein printar?","options":[{"id":"a","text":"Kø (FIFO)","isCorrect":true},{"id":"b","text":"Stakk (LIFO)","isCorrect":false},{"id":"c","text":"Mengd","isCorrect":false},{"id":"d","text":"Tuppel","isCorrect":false}],"solution":"Dokument blir skrivne ut i den rekkjefølgja dei vart sende – først inn, først ut – altså ein kø."},{"id":"it-2-3-3-n-quiz2-q1","task":"Kvifor bør du bruke deque framfor list for ein kø?","options":[{"id":"a","text":"deque kan ikkje halde tal","isCorrect":false},{"id":"b","text":"deque.popleft() er O(1), medan list.pop(0) er O(n)","isCorrect":true},{"id":"c","text":"list støttar ikkje append","isCorrect":false},{"id":"d","text":"Det er ingen skilnad","isCorrect":false}],"solution":"deque er optimalisert for begge ender, så fjerning frå fronten er O(1), medan ei liste må flytte alle elementa (O(n))."},{"id":"it-2-3-3-n-quiz2-q2","task":"Kva sjekkar ein stakk i parentes-balansering når han møter ein lukkeparentes?","options":[{"id":"a","text":"Om lista er sortert","isCorrect":false},{"id":"b","text":"Om teksten er tom","isCorrect":false},{"id":"c","text":"Om toppen av stakken er ein matchande opningsparentes","isCorrect":true},{"id":"d","text":"Talet på ord","isCorrect":false}],"solution":"Han poppar toppen og kontrollerer at han matchar lukkeparentesen. Stakken må dessutan vere tom til slutt for at alt skal vere balansert."}]}},{"id":"it-2-3-3-n-section2","type":"text","content":"## Ordbøker og mengder for fart\n\nDei to siste verktøya gir lynrask tilgang via hashtabellar. Ei **ordbok** lagrar nøkkel-verdi-par med O(1) oppslag, innsetjing og sletting i snitt. Nøklane må vere unike og uforanderlege (strengar, tal, tuplar), verdiane kan vere kva som helst, og frå Python 3.7 blir innsetjingsrekkjefølgja teken vare på. Internt brukar ordboka ein hashtabell: nøkkelen blir omdanna til eit tal som peikar rett på kvar verdien ligg. Ordbøker er perfekte for oppslag (brukarnamn til brukardata), telling av førekomstar og caching.\n\nEi **mengd** er ei uordna samling av unike element, med O(1) medlemssjekk. Ho fjernar duplikat automatisk og støttar mengdeoperasjonane union (`|`), snitt (`&`), differanse (`-`) og symmetrisk differanse (`^`). Til dømes gir `{1,2,3,4,5} & {4,5,6,7,8}` resultatet `{4,5}` – elementa som finst i begge.\n\nSkilnaden i fart kan vere svimlande. Ein medlemssjekk `x in samling` er O(n) for ei liste, men O(1) for ei mengd eller ordbok. På ein million element kan mengda vere titusenvis av gonger raskare. Eit konkret døme: skal du sjekke om to lister har felles element, er den naive løysinga med `element in liste2` O(n·m). Konverterer du `liste2` til ei mengd først, blir kvar sjekk O(1), og heile algoritmen O(n+m) – ofte tusenvis av gonger raskare berre ved den eine endringa."},{"id":"it-2-3-3-n-quiz3","type":"exercise","exercise":{"id":"it-2-3-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på ordbøker og mengder:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-3-n-quiz3-q0","task":"Kva er tidskompleksiteten for `x in mengde`?","options":[{"id":"a","text":"O(n)","isCorrect":false},{"id":"b","text":"O(log n)","isCorrect":false},{"id":"c","text":"O(n²)","isCorrect":false},{"id":"d","text":"O(1)","isCorrect":true}],"solution":"Mengder brukar hashtabellar, så medlemssjekk er O(1) – langt raskare enn ei liste sin O(n)."},{"id":"it-2-3-3-n-quiz3-q1","task":"Du skal slå opp ein av 10 000 elevar på eit tilfeldig elevnummer. Kva er best?","options":[{"id":"a","text":"Ei ordbok med elevnummer som nøkkel","isCorrect":true},{"id":"b","text":"Ei liste der elevnummer er indeks","isCorrect":false},{"id":"c","text":"Ei sortert liste med binærsøk","isCorrect":false},{"id":"d","text":"Alle er like gode","isCorrect":false}],"solution":"Ei ordbok gir O(1)-oppslag og brukar berre plass på faktiske elevar, uansett kor spreidde elevnummera er."},{"id":"it-2-3-3-n-quiz3-q2","task":"Kva blir tidskompleksiteten viss du gjer liste2 om til ei mengd før du sjekkar felles element med liste1?","options":[{"id":"a","text":"O(n·m)","isCorrect":false},{"id":"b","text":"O(n+m)","isCorrect":true},{"id":"c","text":"O(n²)","isCorrect":false},{"id":"d","text":"O(1)","isCorrect":false}],"solution":"Å byggje mengda er O(m), og deretter er kvar sjekk O(1) over n element, totalt O(n+m) – mykje raskare enn O(n·m)."}]}},{"id":"it-2-3-3-n-section3","type":"text","content":"## Å velje rett\n\nMed alle verktøya på bordet blir spørsmålet: kva vel du? Eit lite avgjerdstre hjelper. Treng du nøkkel-verdi-par? Vel **dict**. Treng du berre unike element og raske medlemssjekkar? Vel **set**. Treng du ein ordna sekvens? Då kjem det an på: skal han ikkje endrast, vel **tuple**; legg du til og fjernar mest i endane, vel **deque**; elles ei vanleg **list**.\n\nTa ein nettbutikk som døme. Produktinformasjon med unik ID høyrer heime i ei ordbok, så du kan slå opp eit produkt på ID-en i O(1). Handlekorga passar i ei liste – ordna, og same produkt kan leggjast til fleire gonger. Kva produkt ein kunde har sett, blir lagra i ei mengd, så du unngår duplikat og kan sjekke medlemskap raskt. Og ein «sist sett»-funksjon der det nyaste blir vist først, er ein stakk – gjerne ein `deque(maxlen=10)` som automatisk avgrensar seg til dei ti siste.\n\nDei viktigaste ytingsgrepa er enkle å hugse. Bruk ei mengd, ikkje ei liste, til medlemssjekkar. Bruk ein deque, ikkje ei liste, til køar. Bruk ei ordbok, ikkje nøsta løkker, til oppslag. Og aller viktigast: vel rett datastruktur *før* du byrjar å kode, ikkje etterpå."},{"id":"it-2-3-3-n-quiz4","type":"exercise","exercise":{"id":"it-2-3-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på val av datastruktur:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-3-n-quiz4-q0","task":"Du treng ein ordna sekvens som ikkje skal kunne endrast. Kva vel du?","options":[{"id":"a","text":"set","isCorrect":false},{"id":"b","text":"dict","isCorrect":false},{"id":"c","text":"tuple","isCorrect":true},{"id":"d","text":"deque","isCorrect":false}],"solution":"Ein tuppel er ordna og uforanderleg, og eignar seg når dataene ikkje skal endrast."},{"id":"it-2-3-3-n-quiz4-q1","task":"Kva struktur passar for å halde styr på kva produkt ein kunde har sett (utan duplikat)?","options":[{"id":"a","text":"list","isCorrect":false},{"id":"b","text":"tuple","isCorrect":false},{"id":"c","text":"stakk","isCorrect":false},{"id":"d","text":"set","isCorrect":true}],"solution":"Ei mengd sikrar unike element og gir rask medlemssjekk, perfekt for «sette produkt»."},{"id":"it-2-3-3-n-quiz4-q2","task":"Kva er det viktigaste rådet for val av datastruktur?","options":[{"id":"a","text":"Vel rett struktur før du byrjar å kode","isCorrect":true},{"id":"b","text":"Vel alltid ei liste","isCorrect":false},{"id":"c","text":"Byt struktur så ofte som mogleg","isCorrect":false},{"id":"d","text":"Unngå ordbøker","isCorrect":false}],"solution":"Å velje rett datastruktur tidleg, ut frå kva operasjonar du treng mest, gir både raskare og ryddigare kode."}]}},{"id":"it-2-3-3-n-summary","type":"text","content":"## Oppsummering\n\nVal av datastruktur er val av rett boks for jobben. **Lister** er raske i enden (append, pop) men trege i starten og på medlemssjekk. **Stakkar** (LIFO, via list) og **køar** (FIFO, via deque) løyser problem med reversering og rettferdig rekkjefølgje – og ein stakk kan til og med vakte balanserte parentesar. **Ordbøker** gir O(1)-oppslag via hashtabellar og er ideelle for nøkkelbasert tilgang og telling, medan **mengder** gir unike element, lynrask medlemssjekk og mengdeoperasjonar.\n\nDen store gevinsten ligg i å velje rett: ei mengd kan vere titusenvis av gonger raskare enn ei liste på medlemssjekk, og eit lite avgjerdstre – nøkkel-verdi, unikheit, eller ordna sekvens – peikar deg mot dict, set, tuple, deque eller list. Bestem deg før du kodar. I neste kapittel utforskar vi rekursjon."}],"exercises":[],"_meta":{"sourceHash":"6838cf53fd996578","translatedAt":"2026-06-20T23:59:09.030Z","model":"claude-code-agent","strings":87,"tm":{"1b40340e0db4ce68":"Datastrukturar","b195b06d1ed59702":"Narrativ versjon","01d853a55e308942":"Ei forteljing om kunsten å velje rett oppbevaringsboks for data – frå styrkane og veikskapane til listene til stakken som balanserer parentesar, og kvifor ei mengd kan vere tusenvis av gonger raskare enn ei liste.","c8c732216040343f":"Forstå styrkane til lister, stakkar, køar, ordbøker og mengder","da9089cf5c2dab9e":"Kjenne tidskompleksiteten til vanlege operasjonar","b0e2389b50fcddd1":"Velje rett datastruktur for eit gitt problem","42b74a9b27d8f872":"## Rett boks for jobben\n\nEin datastruktur er ein måte å organisere og lagre data på, slik at vi kan bruke dei effektivt. Tenk på skilnaden mellom å leite etter eit ord i ein usortert bunke lappar og å slå opp i ei ordbok. Begge inneheld dei same orda, men organiseringa gjer ein enorm skilnad. Val av rett datastruktur kan avgjere både yting og lesbarheit i koden din.\n\nNår vi vurderer ein datastruktur, spør vi kor raskt vi kan setje inn, slette, søkje og hente data, om rekkjefølgja må takast vare på, og om vi tillèt duplikat. Python gir oss fem innebygde verktøy: **list** (ordna, indeksert, tillèt duplikat), **dict** (nøkkel-verdi-par med raske oppslag), **set** (uordna, ingen duplikat), **tuple** (ordna og uforanderleg) og **deque** (ein dobbel-enda kø frå modulen collections).\n\nLista er den mest brukte. Ho er lynrask til indekstilgang `liste[i]` (O(1)), til å leggje til på slutten med `append` (O(1)) og fjerne frå slutten med `pop` (O(1)). Men ho er treg i den andre enden: `insert(0, x)` og `pop(0)` er O(n), fordi alle elementa må skubbast. Og medlemssjekken `x in liste` er O(n), fordi han må gå gjennom alt. Denne innsikta – rask i enden, treg i starten – er nøkkelen til å forstå når lista ikkje er nok.","35e5a6a3f7a347d7":"Test deg sjølv på lister:","4097889236a2af26":"placeholder","45f50b44c1c4a8e6":"Kva er tidskompleksiteten til `liste.insert(0, x)`?","4a137b861e8d266f":"O(1)","0e68deef75689f8c":"O(n) – alle elementa må skubbast","82da2851d2e34fc1":"O(log n)","ba64b525fd6cdf4c":"O(n²)","6a35ef4eb0d93bcd":"Å setje inn først krev at alle eksisterande element blir flytta eitt hakk, noko som gir O(n).","3e136865b87d146b":"Kva blir `data` etter: start [10,20,30,40,50], så append(60), insert(0,5), pop(), pop(0)?","2d761998187387f1":"Vi la til 60 og 5, og fjerna dei same to igjen (pop fjernar 60, pop(0) fjernar 5), så vi endar med originalen.","446422b9575295ed":"Kva listeoperasjon er O(1)?","dca53e0cf55abd8a":"x in liste","8468bc7247d3a0f4":"pop(0)","c7b0306c5cbd5997":"remove(x)","ad3040e17eb98d3b":"append(x)","9ec4a1b239230f98":"append() legg til på slutten i konstant tid. Dei andre må anten søkje eller flytte element.","7bf3cec7c17dfd1a":"## Stakkar, køar og ein parentes-vakt\n\nNår lista kjem til kort, har vi spesialstrukturar. Ein **stakk** følgjer LIFO – siste inn, første ut – som ein tallerkenstabel. I Python brukar vi ei vanleg liste: `append` for push og `pop` for pop, begge O(1). Ein **kø** følgjer FIFO – første inn, første ut – som ein kø i butikken. For køar bør du bruke `collections.deque`, ikkje ei vanleg liste, fordi `deque.popleft()` er O(1) medan `list.pop(0)` er O(n). Ein deque er rask i begge ender, medan ei liste er rask berre i den eine.\n\nValet mellom stakk og kø følgjer problemet. Angre-funksjonen og tilbake-knappen i nettlesaren er stakkar, fordi du alltid vil reversere den siste handlinga først. Skrivekøen til printaren og handsaming av kundehenvendingar i ankomstrekkjefølgje er køar, fordi rettferd tyder først til mølla.\n\nEit elegant døme på ein stakk i arbeid er å sjekke **balanserte parentesar**. Du går gjennom teksten, og kvar gong du møter ein opningsparentes pushar du han på stakken. Møter du ein lukkeparentes, poppar du toppen og sjekkar at han matchar. Viss stakken er tom når du møter ein lukkeparentes, eller viss han ikkje er tom til slutt, er noko ubalansert. For `(a + [b])` endar stakken tom – alt stemmer. For `((a + b)` blir det igjen ein opningsparentes – ubalansert.","8e6a9c37e8843b27":"Test deg sjølv på stakkar og køar:","bfa110b951e70c2a":"Kva struktur passar best for ein skrivekø til ein printar?","915602a610e39028":"Kø (FIFO)","91a210a1f9894832":"Stakk (LIFO)","029fe2342a1ba0ae":"Mengd","aa7f58e804597758":"Tuppel","5c6713e07c12f8b7":"Dokument blir skrivne ut i den rekkjefølgja dei vart sende – først inn, først ut – altså ein kø.","d04c5a85091929a8":"Kvifor bør du bruke deque framfor list for ein kø?","072be21500043f42":"deque kan ikkje halde tal","137929424fc8ad7c":"deque.popleft() er O(1), medan list.pop(0) er O(n)","f140d3c5b603cf57":"list støttar ikkje append","290d93c2e3522153":"Det er ingen skilnad","67c1f108c8aed122":"deque er optimalisert for begge ender, så fjerning frå fronten er O(1), medan ei liste må flytte alle elementa (O(n)).","8d7bd4ae2e559a57":"Kva sjekkar ein stakk i parentes-balansering når han møter ein lukkeparentes?","e3e57623be568a78":"Om lista er sortert","ce75b57880f9f55f":"Om teksten er tom","b8a9866c1ed07b3f":"Om toppen av stakken er ein matchande opningsparentes","5f782cd81909a5cb":"Talet på ord","b34388ed35dd3743":"Han poppar toppen og kontrollerer at han matchar lukkeparentesen. Stakken må dessutan vere tom til slutt for at alt skal vere balansert.","64ba8115078d9765":"## Ordbøker og mengder for fart\n\nDei to siste verktøya gir lynrask tilgang via hashtabellar. Ei **ordbok** lagrar nøkkel-verdi-par med O(1) oppslag, innsetjing og sletting i snitt. Nøklane må vere unike og uforanderlege (strengar, tal, tuplar), verdiane kan vere kva som helst, og frå Python 3.7 blir innsetjingsrekkjefølgja teken vare på. Internt brukar ordboka ein hashtabell: nøkkelen blir omdanna til eit tal som peikar rett på kvar verdien ligg. Ordbøker er perfekte for oppslag (brukarnamn til brukardata), telling av førekomstar og caching.\n\nEi **mengd** er ei uordna samling av unike element, med O(1) medlemssjekk. Ho fjernar duplikat automatisk og støttar mengdeoperasjonane union (`|`), snitt (`&`), differanse (`-`) og symmetrisk differanse (`^`). Til dømes gir `{1,2,3,4,5} & {4,5,6,7,8}` resultatet `{4,5}` – elementa som finst i begge.\n\nSkilnaden i fart kan vere svimlande. Ein medlemssjekk `x in samling` er O(n) for ei liste, men O(1) for ei mengd eller ordbok. På ein million element kan mengda vere titusenvis av gonger raskare. Eit konkret døme: skal du sjekke om to lister har felles element, er den naive løysinga med `element in liste2` O(n·m). Konverterer du `liste2` til ei mengd først, blir kvar sjekk O(1), og heile algoritmen O(n+m) – ofte tusenvis av gonger raskare berre ved den eine endringa.","b28dcabad8b1918b":"Test deg sjølv på ordbøker og mengder:","25e8da81c67f9878":"Kva er tidskompleksiteten for `x in mengde`?","387008096a415eb2":"O(n)","70b8b1716881a057":"Mengder brukar hashtabellar, så medlemssjekk er O(1) – langt raskare enn ei liste sin O(n).","03758f49942b8f6b":"Du skal slå opp ein av 10 000 elevar på eit tilfeldig elevnummer. Kva er best?","6404cca4ad6bee63":"Ei ordbok med elevnummer som nøkkel","2aff754ffcd2d42e":"Ei liste der elevnummer er indeks","e05b3803cbe21cb2":"Ei sortert liste med binærsøk","fe79ee5c6f0becbe":"Alle er like gode","080b78059d659a8e":"Ei ordbok gir O(1)-oppslag og brukar berre plass på faktiske elevar, uansett kor spreidde elevnummera er.","5a26977e29062a7d":"Kva blir tidskompleksiteten viss du gjer liste2 om til ei mengd før du sjekkar felles element med liste1?","bdf3d7632a72bf83":"O(n·m)","0117325c4f4e755b":"O(n+m)","a0542837f36ef087":"Å byggje mengda er O(m), og deretter er kvar sjekk O(1) over n element, totalt O(n+m) – mykje raskare enn O(n·m).","2fb929ff7c0cf9b3":"## Å velje rett\n\nMed alle verktøya på bordet blir spørsmålet: kva vel du? Eit lite avgjerdstre hjelper. Treng du nøkkel-verdi-par? Vel **dict**. Treng du berre unike element og raske medlemssjekkar? Vel **set**. Treng du ein ordna sekvens? Då kjem det an på: skal han ikkje endrast, vel **tuple**; legg du til og fjernar mest i endane, vel **deque**; elles ei vanleg **list**.\n\nTa ein nettbutikk som døme. Produktinformasjon med unik ID høyrer heime i ei ordbok, så du kan slå opp eit produkt på ID-en i O(1). Handlekorga passar i ei liste – ordna, og same produkt kan leggjast til fleire gonger. Kva produkt ein kunde har sett, blir lagra i ei mengd, så du unngår duplikat og kan sjekke medlemskap raskt. Og ein «sist sett»-funksjon der det nyaste blir vist først, er ein stakk – gjerne ein `deque(maxlen=10)` som automatisk avgrensar seg til dei ti siste.\n\nDei viktigaste ytingsgrepa er enkle å hugse. Bruk ei mengd, ikkje ei liste, til medlemssjekkar. Bruk ein deque, ikkje ei liste, til køar. Bruk ei ordbok, ikkje nøsta løkker, til oppslag. Og aller viktigast: vel rett datastruktur *før* du byrjar å kode, ikkje etterpå.","62245188d80cb27b":"Test deg sjølv på val av datastruktur:","5564e0260eff7521":"Du treng ein ordna sekvens som ikkje skal kunne endrast. Kva vel du?","6ee0eb490ff83210":"set","6ab47d70854a8c69":"dict","fb2c3dcbe52aa287":"tuple","e93b27204f48c8bf":"deque","f7a076dec5b4dca3":"Ein tuppel er ordna og uforanderleg, og eignar seg når dataene ikkje skal endrast.","6a6fd98576dd0ea7":"Kva struktur passar for å halde styr på kva produkt ein kunde har sett (utan duplikat)?","a330395cc0a53ad1":"list","a127c06f76821c1c":"stakk","df44db0449ff1831":"Ei mengd sikrar unike element og gir rask medlemssjekk, perfekt for «sette produkt».","54de9203bd1171da":"Kva er det viktigaste rådet for val av datastruktur?","c0e58c836e2b1443":"Vel rett struktur før du byrjar å kode","c5fb3275d77e6561":"Vel alltid ei liste","c0e0d5665b4501e0":"Byt struktur så ofte som mogleg","02fce548ae218ba5":"Unngå ordbøker","46058469552fc403":"Å velje rett datastruktur tidleg, ut frå kva operasjonar du treng mest, gir både raskare og ryddigare kode.","c980de1e14be74aa":"## Oppsummering\n\nVal av datastruktur er val av rett boks for jobben. **Lister** er raske i enden (append, pop) men trege i starten og på medlemssjekk. **Stakkar** (LIFO, via list) og **køar** (FIFO, via deque) løyser problem med reversering og rettferdig rekkjefølgje – og ein stakk kan til og med vakte balanserte parentesar. **Ordbøker** gir O(1)-oppslag via hashtabellar og er ideelle for nøkkelbasert tilgang og telling, medan **mengder** gir unike element, lynrask medlemssjekk og mengdeoperasjonar.\n\nDen store gevinsten ligg i å velje rett: ei mengd kan vere titusenvis av gonger raskare enn ei liste på medlemssjekk, og eit lite avgjerdstre – nøkkel-verdi, unikheit, eller ordna sekvens – peikar deg mot dict, set, tuple, deque eller list. Bestem deg før du kodar. I neste kapittel utforskar vi rekursjon."}}}
+{
+  "id": "it-2-3-3-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "3",
+  "title": "Datastrukturar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kunsten å velje rett oppbevaringsboks for data – frå styrkane og veikskapane til listene til stakken som balanserer parentesar, og kvifor ei mengd kan vere tusenvis av gonger raskare enn ei liste.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "Forstå styrkane til lister, stakkar, køar, ordbøker og mengder",
+    "Kjenne tidskompleksiteten til vanlege operasjonar",
+    "Velje rett datastruktur for eit gitt problem"
+  ],
+  "linkedChapterId": "it-2-3-3",
+  "content": [
+    {
+      "id": "it-2-3-3-n-intro",
+      "type": "text",
+      "content": "## Rett boks for jobben\n\nEin datastruktur er ein måte å organisere og lagre data på, slik at vi kan bruke dei effektivt. Tenk på skilnaden mellom å leite etter eit ord i ein usortert bunke lappar og å slå opp i ei ordbok. Begge inneheld dei same orda, men organiseringa gjer ein enorm skilnad. Val av rett datastruktur kan avgjere både yting og lesbarheit i koden din.\n\nNår vi vurderer ein datastruktur, spør vi kor raskt vi kan setje inn, slette, søkje og hente data, om rekkjefølgja må takast vare på, og om vi tillèt duplikat. Python gir oss fem innebygde verktøy: **list** (ordna, indeksert, tillèt duplikat), **dict** (nøkkel-verdi-par med raske oppslag), **set** (uordna, ingen duplikat), **tuple** (ordna og uforanderleg) og **deque** (ein dobbel-enda kø frå modulen collections).\n\nLista er den mest brukte. Ho er lynrask til indekstilgang `liste[i]` (O(1)), til å leggje til på slutten med `append` (O(1)) og fjerne frå slutten med `pop` (O(1)). Men ho er treg i den andre enden: `insert(0, x)` og `pop(0)` er O(n), fordi alle elementa må skubbast. Og medlemssjekken `x in liste` er O(n), fordi han må gå gjennom alt. Denne innsikta – rask i enden, treg i starten – er nøkkelen til å forstå når lista ikkje er nok."
+    },
+    {
+      "id": "it-2-3-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lister:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-3-n-quiz1-q0",
+            "task": "Kva er tidskompleksiteten til `liste.insert(0, x)`?",
+            "options": [
+              {
+                "id": "b",
+                "text": "O(n) – alle elementa må skubbast",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "O(1)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "O(log n)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(n²)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å setje inn først krev at alle eksisterande element blir flytta eitt hakk, noko som gir O(n)."
+          },
+          {
+            "id": "it-2-3-3-n-quiz1-q1",
+            "task": "Kva blir `data` etter: start [10,20,30,40,50], så append(60), insert(0,5), pop(), pop(0)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "[5, 10, 20, 30, 40, 50, 60]",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "[10, 20, 30, 40, 50]",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "[10, 20, 30, 40, 50, 60]",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "[]",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi la til 60 og 5, og fjerna dei same to igjen (pop fjernar 60, pop(0) fjernar 5), så vi endar med originalen."
+          },
+          {
+            "id": "it-2-3-3-n-quiz1-q2",
+            "task": "Kva listeoperasjon er O(1)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "x in liste",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "pop(0)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "append(x)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "remove(x)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "append() legg til på slutten i konstant tid. Dei andre må anten søkje eller flytte element."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-3-n-section1",
+      "type": "text",
+      "content": "## Stakkar, køar og ein parentes-vakt\n\nNår lista kjem til kort, har vi spesialstrukturar. Ein **stakk** følgjer LIFO – siste inn, første ut – som ein tallerkenstabel. I Python brukar vi ei vanleg liste: `append` for push og `pop` for pop, begge O(1). Ein **kø** følgjer FIFO – første inn, første ut – som ein kø i butikken. For køar bør du bruke `collections.deque`, ikkje ei vanleg liste, fordi `deque.popleft()` er O(1) medan `list.pop(0)` er O(n). Ein deque er rask i begge ender, medan ei liste er rask berre i den eine.\n\nValet mellom stakk og kø følgjer problemet. Angre-funksjonen og tilbake-knappen i nettlesaren er stakkar, fordi du alltid vil reversere den siste handlinga først. Skrivekøen til printaren og handsaming av kundehenvendingar i ankomstrekkjefølgje er køar, fordi rettferd tyder først til mølla.\n\nEit elegant døme på ein stakk i arbeid er å sjekke **balanserte parentesar**. Du går gjennom teksten, og kvar gong du møter ein opningsparentes pushar du han på stakken. Møter du ein lukkeparentes, poppar du toppen og sjekkar at han matchar. Viss stakken er tom når du møter ein lukkeparentes, eller viss han ikkje er tom til slutt, er noko ubalansert. For `(a + [b])` endar stakken tom – alt stemmer. For `((a + b)` blir det igjen ein opningsparentes – ubalansert."
+    },
+    {
+      "id": "it-2-3-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på stakkar og køar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-3-n-quiz2-q0",
+            "task": "Kva struktur passar best for ein skrivekø til ein printar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Stakk (LIFO)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Mengd",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tuppel",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Kø (FIFO)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Dokument blir skrivne ut i den rekkjefølgja dei vart sende – først inn, først ut – altså ein kø."
+          },
+          {
+            "id": "it-2-3-3-n-quiz2-q1",
+            "task": "Kvifor bør du bruke deque framfor list for ein kø?",
+            "options": [
+              {
+                "id": "b",
+                "text": "deque.popleft() er O(1), medan list.pop(0) er O(n)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "deque kan ikkje halde tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "list støttar ikkje append",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              }
+            ],
+            "solution": "deque er optimalisert for begge ender, så fjerning frå fronten er O(1), medan ei liste må flytte alle elementa (O(n))."
+          },
+          {
+            "id": "it-2-3-3-n-quiz2-q2",
+            "task": "Kva sjekkar ein stakk i parentes-balansering når han møter ein lukkeparentes?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Om lista er sortert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Om toppen av stakken er ein matchande opningsparentes",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Om teksten er tom",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Talet på ord",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Han poppar toppen og kontrollerer at han matchar lukkeparentesen. Stakken må dessutan vere tom til slutt for at alt skal vere balansert."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-3-n-section2",
+      "type": "text",
+      "content": "## Ordbøker og mengder for fart\n\nDei to siste verktøya gir lynrask tilgang via hashtabellar. Ei **ordbok** lagrar nøkkel-verdi-par med O(1) oppslag, innsetjing og sletting i snitt. Nøklane må vere unike og uforanderlege (strengar, tal, tuplar), verdiane kan vere kva som helst, og frå Python 3.7 blir innsetjingsrekkjefølgja teken vare på. Internt brukar ordboka ein hashtabell: nøkkelen blir omdanna til eit tal som peikar rett på kvar verdien ligg. Ordbøker er perfekte for oppslag (brukarnamn til brukardata), telling av førekomstar og caching.\n\nEi **mengd** er ei uordna samling av unike element, med O(1) medlemssjekk. Ho fjernar duplikat automatisk og støttar mengdeoperasjonane union (`|`), snitt (`&`), differanse (`-`) og symmetrisk differanse (`^`). Til dømes gir `{1,2,3,4,5} & {4,5,6,7,8}` resultatet `{4,5}` – elementa som finst i begge.\n\nSkilnaden i fart kan vere svimlande. Ein medlemssjekk `x in samling` er O(n) for ei liste, men O(1) for ei mengd eller ordbok. På ein million element kan mengda vere titusenvis av gonger raskare. Eit konkret døme: skal du sjekke om to lister har felles element, er den naive løysinga med `element in liste2` O(n·m). Konverterer du `liste2` til ei mengd først, blir kvar sjekk O(1), og heile algoritmen O(n+m) – ofte tusenvis av gonger raskare berre ved den eine endringa."
+    },
+    {
+      "id": "it-2-3-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på ordbøker og mengder:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-3-n-quiz3-q0",
+            "task": "Kva er tidskompleksiteten for `x in mengde`?",
+            "options": [
+              {
+                "id": "a",
+                "text": "O(n)",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "O(log n)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(1)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "O(n²)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mengder brukar hashtabellar, så medlemssjekk er O(1) – langt raskare enn ei liste sin O(n)."
+          },
+          {
+            "id": "it-2-3-3-n-quiz3-q1",
+            "task": "Du skal slå opp ein av 10 000 elevar på eit tilfeldig elevnummer. Kva er best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei liste der elevnummer er indeks",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei sortert liste med binærsøk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle er like gode",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ei ordbok med elevnummer som nøkkel",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ei ordbok gir O(1)-oppslag og brukar berre plass på faktiske elevar, uansett kor spreidde elevnummera er."
+          },
+          {
+            "id": "it-2-3-3-n-quiz3-q2",
+            "task": "Kva blir tidskompleksiteten viss du gjer liste2 om til ei mengd før du sjekkar felles element med liste1?",
+            "options": [
+              {
+                "id": "b",
+                "text": "O(n+m)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "O(n·m)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "O(n²)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(1)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å byggje mengda er O(m), og deretter er kvar sjekk O(1) over n element, totalt O(n+m) – mykje raskare enn O(n·m)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-3-n-section3",
+      "type": "text",
+      "content": "## Å velje rett\n\nMed alle verktøya på bordet blir spørsmålet: kva vel du? Eit lite avgjerdstre hjelper. Treng du nøkkel-verdi-par? Vel **dict**. Treng du berre unike element og raske medlemssjekkar? Vel **set**. Treng du ein ordna sekvens? Då kjem det an på: skal han ikkje endrast, vel **tuple**; legg du til og fjernar mest i endane, vel **deque**; elles ei vanleg **list**.\n\nTa ein nettbutikk som døme. Produktinformasjon med unik ID høyrer heime i ei ordbok, så du kan slå opp eit produkt på ID-en i O(1). Handlekorga passar i ei liste – ordna, og same produkt kan leggjast til fleire gonger. Kva produkt ein kunde har sett, blir lagra i ei mengd, så du unngår duplikat og kan sjekke medlemskap raskt. Og ein «sist sett»-funksjon der det nyaste blir vist først, er ein stakk – gjerne ein `deque(maxlen=10)` som automatisk avgrensar seg til dei ti siste.\n\nDei viktigaste ytingsgrepa er enkle å hugse. Bruk ei mengd, ikkje ei liste, til medlemssjekkar. Bruk ein deque, ikkje ei liste, til køar. Bruk ei ordbok, ikkje nøsta løkker, til oppslag. Og aller viktigast: vel rett datastruktur *før* du byrjar å kode, ikkje etterpå."
+    },
+    {
+      "id": "it-2-3-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på val av datastruktur:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-3-n-quiz4-q0",
+            "task": "Du treng ein ordna sekvens som ikkje skal kunne endrast. Kva vel du?",
+            "options": [
+              {
+                "id": "a",
+                "text": "set",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "tuple",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "dict",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "deque",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein tuppel er ordna og uforanderleg, og eignar seg når dataene ikkje skal endrast."
+          },
+          {
+            "id": "it-2-3-3-n-quiz4-q1",
+            "task": "Kva struktur passar for å halde styr på kva produkt ein kunde har sett (utan duplikat)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "list",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "tuple",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "set",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "stakk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei mengd sikrar unike element og gir rask medlemssjekk, perfekt for «sette produkt»."
+          },
+          {
+            "id": "it-2-3-3-n-quiz4-q2",
+            "task": "Kva er det viktigaste rådet for val av datastruktur?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Vel alltid ei liste",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Byt struktur så ofte som mogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Unngå ordbøker",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Vel rett struktur før du byrjar å kode",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Å velje rett datastruktur tidleg, ut frå kva operasjonar du treng mest, gir både raskare og ryddigare kode."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVal av datastruktur er val av rett boks for jobben. **Lister** er raske i enden (append, pop) men trege i starten og på medlemssjekk. **Stakkar** (LIFO, via list) og **køar** (FIFO, via deque) løyser problem med reversering og rettferdig rekkjefølgje – og ein stakk kan til og med vakte balanserte parentesar. **Ordbøker** gir O(1)-oppslag via hashtabellar og er ideelle for nøkkelbasert tilgang og telling, medan **mengder** gir unike element, lynrask medlemssjekk og mengdeoperasjonar.\n\nDen store gevinsten ligg i å velje rett: ei mengd kan vere titusenvis av gonger raskare enn ei liste på medlemssjekk, og eit lite avgjerdstre – nøkkel-verdi, unikheit, eller ordna sekvens – peikar deg mot dict, set, tuple, deque eller list. Bestem deg før du kodar. I neste kapittel utforskar vi rekursjon."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6838cf53fd996578",
+    "translatedAt": "2026-06-20T23:59:09.030Z",
+    "model": "claude-code-agent",
+    "strings": 87,
+    "tm": {
+      "1b40340e0db4ce68": "Datastrukturar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "01d853a55e308942": "Ei forteljing om kunsten å velje rett oppbevaringsboks for data – frå styrkane og veikskapane til listene til stakken som balanserer parentesar, og kvifor ei mengd kan vere tusenvis av gonger raskare enn ei liste.",
+      "c8c732216040343f": "Forstå styrkane til lister, stakkar, køar, ordbøker og mengder",
+      "da9089cf5c2dab9e": "Kjenne tidskompleksiteten til vanlege operasjonar",
+      "b0e2389b50fcddd1": "Velje rett datastruktur for eit gitt problem",
+      "42b74a9b27d8f872": "## Rett boks for jobben\n\nEin datastruktur er ein måte å organisere og lagre data på, slik at vi kan bruke dei effektivt. Tenk på skilnaden mellom å leite etter eit ord i ein usortert bunke lappar og å slå opp i ei ordbok. Begge inneheld dei same orda, men organiseringa gjer ein enorm skilnad. Val av rett datastruktur kan avgjere både yting og lesbarheit i koden din.\n\nNår vi vurderer ein datastruktur, spør vi kor raskt vi kan setje inn, slette, søkje og hente data, om rekkjefølgja må takast vare på, og om vi tillèt duplikat. Python gir oss fem innebygde verktøy: **list** (ordna, indeksert, tillèt duplikat), **dict** (nøkkel-verdi-par med raske oppslag), **set** (uordna, ingen duplikat), **tuple** (ordna og uforanderleg) og **deque** (ein dobbel-enda kø frå modulen collections).\n\nLista er den mest brukte. Ho er lynrask til indekstilgang `liste[i]` (O(1)), til å leggje til på slutten med `append` (O(1)) og fjerne frå slutten med `pop` (O(1)). Men ho er treg i den andre enden: `insert(0, x)` og `pop(0)` er O(n), fordi alle elementa må skubbast. Og medlemssjekken `x in liste` er O(n), fordi han må gå gjennom alt. Denne innsikta – rask i enden, treg i starten – er nøkkelen til å forstå når lista ikkje er nok.",
+      "35e5a6a3f7a347d7": "Test deg sjølv på lister:",
+      "4097889236a2af26": "placeholder",
+      "45f50b44c1c4a8e6": "Kva er tidskompleksiteten til `liste.insert(0, x)`?",
+      "4a137b861e8d266f": "O(1)",
+      "0e68deef75689f8c": "O(n) – alle elementa må skubbast",
+      "82da2851d2e34fc1": "O(log n)",
+      "ba64b525fd6cdf4c": "O(n²)",
+      "6a35ef4eb0d93bcd": "Å setje inn først krev at alle eksisterande element blir flytta eitt hakk, noko som gir O(n).",
+      "3e136865b87d146b": "Kva blir `data` etter: start [10,20,30,40,50], så append(60), insert(0,5), pop(), pop(0)?",
+      "2d761998187387f1": "Vi la til 60 og 5, og fjerna dei same to igjen (pop fjernar 60, pop(0) fjernar 5), så vi endar med originalen.",
+      "446422b9575295ed": "Kva listeoperasjon er O(1)?",
+      "dca53e0cf55abd8a": "x in liste",
+      "8468bc7247d3a0f4": "pop(0)",
+      "c7b0306c5cbd5997": "remove(x)",
+      "ad3040e17eb98d3b": "append(x)",
+      "9ec4a1b239230f98": "append() legg til på slutten i konstant tid. Dei andre må anten søkje eller flytte element.",
+      "7bf3cec7c17dfd1a": "## Stakkar, køar og ein parentes-vakt\n\nNår lista kjem til kort, har vi spesialstrukturar. Ein **stakk** følgjer LIFO – siste inn, første ut – som ein tallerkenstabel. I Python brukar vi ei vanleg liste: `append` for push og `pop` for pop, begge O(1). Ein **kø** følgjer FIFO – første inn, første ut – som ein kø i butikken. For køar bør du bruke `collections.deque`, ikkje ei vanleg liste, fordi `deque.popleft()` er O(1) medan `list.pop(0)` er O(n). Ein deque er rask i begge ender, medan ei liste er rask berre i den eine.\n\nValet mellom stakk og kø følgjer problemet. Angre-funksjonen og tilbake-knappen i nettlesaren er stakkar, fordi du alltid vil reversere den siste handlinga først. Skrivekøen til printaren og handsaming av kundehenvendingar i ankomstrekkjefølgje er køar, fordi rettferd tyder først til mølla.\n\nEit elegant døme på ein stakk i arbeid er å sjekke **balanserte parentesar**. Du går gjennom teksten, og kvar gong du møter ein opningsparentes pushar du han på stakken. Møter du ein lukkeparentes, poppar du toppen og sjekkar at han matchar. Viss stakken er tom når du møter ein lukkeparentes, eller viss han ikkje er tom til slutt, er noko ubalansert. For `(a + [b])` endar stakken tom – alt stemmer. For `((a + b)` blir det igjen ein opningsparentes – ubalansert.",
+      "8e6a9c37e8843b27": "Test deg sjølv på stakkar og køar:",
+      "bfa110b951e70c2a": "Kva struktur passar best for ein skrivekø til ein printar?",
+      "915602a610e39028": "Kø (FIFO)",
+      "91a210a1f9894832": "Stakk (LIFO)",
+      "029fe2342a1ba0ae": "Mengd",
+      "aa7f58e804597758": "Tuppel",
+      "5c6713e07c12f8b7": "Dokument blir skrivne ut i den rekkjefølgja dei vart sende – først inn, først ut – altså ein kø.",
+      "d04c5a85091929a8": "Kvifor bør du bruke deque framfor list for ein kø?",
+      "072be21500043f42": "deque kan ikkje halde tal",
+      "137929424fc8ad7c": "deque.popleft() er O(1), medan list.pop(0) er O(n)",
+      "f140d3c5b603cf57": "list støttar ikkje append",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "67c1f108c8aed122": "deque er optimalisert for begge ender, så fjerning frå fronten er O(1), medan ei liste må flytte alle elementa (O(n)).",
+      "8d7bd4ae2e559a57": "Kva sjekkar ein stakk i parentes-balansering når han møter ein lukkeparentes?",
+      "e3e57623be568a78": "Om lista er sortert",
+      "ce75b57880f9f55f": "Om teksten er tom",
+      "b8a9866c1ed07b3f": "Om toppen av stakken er ein matchande opningsparentes",
+      "5f782cd81909a5cb": "Talet på ord",
+      "b34388ed35dd3743": "Han poppar toppen og kontrollerer at han matchar lukkeparentesen. Stakken må dessutan vere tom til slutt for at alt skal vere balansert.",
+      "64ba8115078d9765": "## Ordbøker og mengder for fart\n\nDei to siste verktøya gir lynrask tilgang via hashtabellar. Ei **ordbok** lagrar nøkkel-verdi-par med O(1) oppslag, innsetjing og sletting i snitt. Nøklane må vere unike og uforanderlege (strengar, tal, tuplar), verdiane kan vere kva som helst, og frå Python 3.7 blir innsetjingsrekkjefølgja teken vare på. Internt brukar ordboka ein hashtabell: nøkkelen blir omdanna til eit tal som peikar rett på kvar verdien ligg. Ordbøker er perfekte for oppslag (brukarnamn til brukardata), telling av førekomstar og caching.\n\nEi **mengd** er ei uordna samling av unike element, med O(1) medlemssjekk. Ho fjernar duplikat automatisk og støttar mengdeoperasjonane union (`|`), snitt (`&`), differanse (`-`) og symmetrisk differanse (`^`). Til dømes gir `{1,2,3,4,5} & {4,5,6,7,8}` resultatet `{4,5}` – elementa som finst i begge.\n\nSkilnaden i fart kan vere svimlande. Ein medlemssjekk `x in samling` er O(n) for ei liste, men O(1) for ei mengd eller ordbok. På ein million element kan mengda vere titusenvis av gonger raskare. Eit konkret døme: skal du sjekke om to lister har felles element, er den naive løysinga med `element in liste2` O(n·m). Konverterer du `liste2` til ei mengd først, blir kvar sjekk O(1), og heile algoritmen O(n+m) – ofte tusenvis av gonger raskare berre ved den eine endringa.",
+      "b28dcabad8b1918b": "Test deg sjølv på ordbøker og mengder:",
+      "25e8da81c67f9878": "Kva er tidskompleksiteten for `x in mengde`?",
+      "387008096a415eb2": "O(n)",
+      "70b8b1716881a057": "Mengder brukar hashtabellar, så medlemssjekk er O(1) – langt raskare enn ei liste sin O(n).",
+      "03758f49942b8f6b": "Du skal slå opp ein av 10 000 elevar på eit tilfeldig elevnummer. Kva er best?",
+      "6404cca4ad6bee63": "Ei ordbok med elevnummer som nøkkel",
+      "2aff754ffcd2d42e": "Ei liste der elevnummer er indeks",
+      "e05b3803cbe21cb2": "Ei sortert liste med binærsøk",
+      "fe79ee5c6f0becbe": "Alle er like gode",
+      "080b78059d659a8e": "Ei ordbok gir O(1)-oppslag og brukar berre plass på faktiske elevar, uansett kor spreidde elevnummera er.",
+      "5a26977e29062a7d": "Kva blir tidskompleksiteten viss du gjer liste2 om til ei mengd før du sjekkar felles element med liste1?",
+      "bdf3d7632a72bf83": "O(n·m)",
+      "0117325c4f4e755b": "O(n+m)",
+      "a0542837f36ef087": "Å byggje mengda er O(m), og deretter er kvar sjekk O(1) over n element, totalt O(n+m) – mykje raskare enn O(n·m).",
+      "2fb929ff7c0cf9b3": "## Å velje rett\n\nMed alle verktøya på bordet blir spørsmålet: kva vel du? Eit lite avgjerdstre hjelper. Treng du nøkkel-verdi-par? Vel **dict**. Treng du berre unike element og raske medlemssjekkar? Vel **set**. Treng du ein ordna sekvens? Då kjem det an på: skal han ikkje endrast, vel **tuple**; legg du til og fjernar mest i endane, vel **deque**; elles ei vanleg **list**.\n\nTa ein nettbutikk som døme. Produktinformasjon med unik ID høyrer heime i ei ordbok, så du kan slå opp eit produkt på ID-en i O(1). Handlekorga passar i ei liste – ordna, og same produkt kan leggjast til fleire gonger. Kva produkt ein kunde har sett, blir lagra i ei mengd, så du unngår duplikat og kan sjekke medlemskap raskt. Og ein «sist sett»-funksjon der det nyaste blir vist først, er ein stakk – gjerne ein `deque(maxlen=10)` som automatisk avgrensar seg til dei ti siste.\n\nDei viktigaste ytingsgrepa er enkle å hugse. Bruk ei mengd, ikkje ei liste, til medlemssjekkar. Bruk ein deque, ikkje ei liste, til køar. Bruk ei ordbok, ikkje nøsta løkker, til oppslag. Og aller viktigast: vel rett datastruktur *før* du byrjar å kode, ikkje etterpå.",
+      "62245188d80cb27b": "Test deg sjølv på val av datastruktur:",
+      "5564e0260eff7521": "Du treng ein ordna sekvens som ikkje skal kunne endrast. Kva vel du?",
+      "6ee0eb490ff83210": "set",
+      "6ab47d70854a8c69": "dict",
+      "fb2c3dcbe52aa287": "tuple",
+      "e93b27204f48c8bf": "deque",
+      "f7a076dec5b4dca3": "Ein tuppel er ordna og uforanderleg, og eignar seg når dataene ikkje skal endrast.",
+      "6a6fd98576dd0ea7": "Kva struktur passar for å halde styr på kva produkt ein kunde har sett (utan duplikat)?",
+      "a330395cc0a53ad1": "list",
+      "a127c06f76821c1c": "stakk",
+      "df44db0449ff1831": "Ei mengd sikrar unike element og gir rask medlemssjekk, perfekt for «sette produkt».",
+      "54de9203bd1171da": "Kva er det viktigaste rådet for val av datastruktur?",
+      "c0e58c836e2b1443": "Vel rett struktur før du byrjar å kode",
+      "c5fb3275d77e6561": "Vel alltid ei liste",
+      "c0e0d5665b4501e0": "Byt struktur så ofte som mogleg",
+      "02fce548ae218ba5": "Unngå ordbøker",
+      "46058469552fc403": "Å velje rett datastruktur tidleg, ut frå kva operasjonar du treng mest, gir både raskare og ryddigare kode.",
+      "c980de1e14be74aa": "## Oppsummering\n\nVal av datastruktur er val av rett boks for jobben. **Lister** er raske i enden (append, pop) men trege i starten og på medlemssjekk. **Stakkar** (LIFO, via list) og **køar** (FIFO, via deque) løyser problem med reversering og rettferdig rekkjefølgje – og ein stakk kan til og med vakte balanserte parentesar. **Ordbøker** gir O(1)-oppslag via hashtabellar og er ideelle for nøkkelbasert tilgang og telling, medan **mengder** gir unike element, lynrask medlemssjekk og mengdeoperasjonar.\n\nDen store gevinsten ligg i å velje rett: ei mengd kan vere titusenvis av gonger raskare enn ei liste på medlemssjekk, og eit lite avgjerdstre – nøkkel-verdi, unikheit, eller ordna sekvens – peikar deg mot dict, set, tuple, deque eller list. Bestem deg før du kodar. I neste kapittel utforskar vi rekursjon."
+    }
+  }
+}

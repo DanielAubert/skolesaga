@@ -1,1 +1,423 @@
-{"id":"s2-3-1-narrativ","courseId":"s2","chapterNumber":"3.1","title":"Fullstendig funksjonsdrøfting","subtitle":"Narrativ versjon","description":"En fortelling om en ung analytiker som lærer å røntgenfotografere matematiske modeller — fra definisjonsmengde til ferdig skisse.","estimatedMinutes":42,"competenceGoals":["utforske og beskrive egenskapene ved polynomfunksjoner, rasjonale funksjoner, eksponentialfunksjoner og potensfunksjoner","bruke derivasjon til å analysere og drøfte funksjoner"],"linkedChapterId":"s2-3-1","content":[{"id":"s2-3-1-n-intro","type":"text","content":"## Røntgenbildet av en modell\n\nTenk deg at du har fått sommerjobb hos et analysebyrå som lager prognoser for kommuner og bedrifter. Den første dagen får du en funksjon i hendene — en modell for utviklingen i et boligmarked — og sjefen sier: «Drøft den.» Hva betyr egentlig det?\n\nEn **fullstendig funksjonsdrøfting** er en systematisk analyse av en funksjon, litt som et røntgenbilde: vi undersøker alle viktige egenskaper for å forstå hvordan funksjonen oppfører seg, og til slutt kan vi tegne en nøyaktig skisse. Dette er et av de mest sentrale temaene i S2, og det dukker opp på nesten alle eksamener.\n\nHeldigvis finnes det en fast oppskrift. En fullstendig drøfting av $f(x)$ inneholder elleve punkter: vi bestemmer **definisjonsmengden** $D_f$, finner **nullpunkter** ved å løse $f(x) = 0$, undersøker **fortegnet** til $f$, leter etter **asymptoter** (vertikale, horisontale eller skrå), deriverer og løser $f'(x) = 0$ for å finne **stasjonære punkter**, lager fortegnsskjema for $f'(x)$ og bestemmer **monotoni**, klassifiserer **ekstremalpunkter** (topp- og bunnpunkter), finner $f''(x)$ og løser $f''(x) = 0$, lager fortegnsskjema for $f''(x)$ og bestemmer **krumning**, identifiserer **vendepunkter** der $f''$ skifter fortegn — og tegner til slutt en **skisse** basert på alt vi har funnet.\n\nDet høres mye ut, men ved å følge denne fremgangsmåten steg for steg kan du løse slike oppgaver effektivt og komplett. I denne fortellingen drøfter vi tre funksjoner sammen: et polynom, en rasjonal funksjon og en eksponentialfunksjon."},{"id":"s2-3-1-n-section1","type":"text","content":"## Første oppdrag: et polynom\n\nDen første modellen du får, er tredjegradspolynomet $f(x) = x^3 - 3x^2 + 4$. Vi følger oppskriften.\n\n**Definisjonsmengden** er enkel: et polynom er definert for alle $x$, så $D_f = \\mathbb{R}$. **Nullpunktene** finner vi ved å løse $f(x) = 0$. Vi prøver $x = -1$: $(-1)^3 - 3(-1)^2 + 4 = -1 - 3 + 4 = 0$. Treff! Polynomdivisjon gir $x^3 - 3x^2 + 4 = (x+1)(x^2 - 4x + 4) = (x+1)(x-2)^2$, så nullpunktene er $x = -1$ og $x = 2$ (dobbelt nullpunkt). Fortegnet følger med på kjøpet: $f(x) < 0$ for $x < -1$ og $f(x) > 0$ for $x > -1$, bortsett fra at $f(2) = 0$. Asymptoter finnes ikke — polynomer har aldri det.\n\nSå deriverer vi: $f'(x) = 3x^2 - 6x = 3x(x-2)$, som er null for $x = 0$ og $x = 2$. Et **fortegnsskjema** for $f'$ er det viktigste verktøyet i hele drøftingen: de stasjonære punktene deler tallinjen i intervaller, og vi sjekker fortegnet til $f'$ i hvert intervall med en testverdi. Her er $f'$ positiv for $x < 0$, negativ mellom $0$ og $2$, og positiv for $x > 2$. Funksjonen vokser, avtar og vokser igjen — altså **toppunkt** i $(0, 4)$ og **bunnpunkt** i $(2, 0)$.\n\nTil slutt krumningen: $f''(x) = 6x - 6$, som er null for $x = 1$. Fortegnet skifter fra minus (konkav) til pluss (konveks), så $(1, 2)$ er et **vendepunkt**. Nå kan du tegne skissen: grafen kommer fra $-\\infty$, krysser aksen i $-1$, topper seg i $(0,4)$, vender i $(1,2)$, tangerer aksen i $(2,0)$ og vokser mot $+\\infty$."},{"id":"s2-3-1-n-quiz1","type":"exercise","exercise":{"id":"s2-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på drøftingsoppskriften og polynomdrøfting:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-1-n-quiz1-q0","task":"Hva er definisjonsmengden til polynomfunksjonen $f(x) = x^3 - 3x^2 + 4$?","options":[{"id":"a","text":"$D_f = \\mathbb{R}$","isCorrect":true},{"id":"b","text":"$D_f = (0, \\infty)$","isCorrect":false},{"id":"c","text":"$D_f = \\mathbb{R} \\setminus \\{2\\}$","isCorrect":false},{"id":"d","text":"$D_f = [-1, 2]$","isCorrect":false}],"solution":"Polynomfunksjoner er definert for alle reelle tall, så $D_f = \\mathbb{R}$."},{"id":"s2-3-1-n-quiz1-q1","task":"Hva betyr det at $f'(x) > 0$ på et intervall?","options":[{"id":"a","text":"$f$ er konveks der","isCorrect":false},{"id":"b","text":"$f$ er voksende der","isCorrect":true},{"id":"c","text":"$f$ har et toppunkt der","isCorrect":false},{"id":"d","text":"$f$ er positiv der","isCorrect":false}],"solution":"Den deriverte beskriver stigningen: $f'(x) > 0$ betyr at funksjonen er voksende. Fortegnet til $f$ selv og krumningen er noe annet."},{"id":"s2-3-1-n-quiz1-q2","task":"For $f(x) = x^3 - 3x^2 + 4$ er $f'(x) = 3x(x-2)$. Hva skjer i $x = 0$?","options":[{"id":"a","text":"Bunnpunkt, fordi $f'$ skifter fra $-$ til $+$","isCorrect":false},{"id":"b","text":"Vendepunkt, fordi $f''(0) = 0$","isCorrect":false},{"id":"c","text":"Toppunkt, fordi $f'$ skifter fra $+$ til $-$","isCorrect":true},{"id":"d","text":"Ingenting spesielt","isCorrect":false}],"solution":"$f'(x) > 0$ for $x < 0$ og $f'(x) < 0$ for $0 < x < 2$. Når den deriverte skifter fra positiv til negativ, har funksjonen et toppunkt: $(0, 4)$."},{"id":"s2-3-1-n-quiz1-q3","task":"Hvor har $f(x) = x^3 - 3x^2 + 4$ sitt vendepunkt?","options":[{"id":"a","text":"$(0, 4)$","isCorrect":false},{"id":"b","text":"$(2, 0)$","isCorrect":false},{"id":"c","text":"$(-1, 0)$","isCorrect":false},{"id":"d","text":"$(1, 2)$","isCorrect":true}],"solution":"$f''(x) = 6x - 6 = 0$ gir $x = 1$, og $f''$ skifter fortegn der. $f(1) = 1 - 3 + 4 = 2$, så vendepunktet er $(1, 2)$."}]}},{"id":"s2-3-1-n-section2","type":"text","content":"## Andre oppdrag: en rasjonal funksjon\n\nNeste modell på pulten din er $f(x) = \\frac{x^2 - 1}{x - 2}$, og nå blir det mer å passe på. **Definisjonsmengden** er ikke lenger hele tallinjen: nevneren kan ikke være null, så $D_f = \\mathbb{R} \\setminus \\{2\\}$. **Nullpunktene** kommer fra telleren: $x^2 - 1 = 0$ gir $x = \\pm 1$.\n\nDet nye er **asymptotene**. Siden nevneren er null i $x = 2$ (mens telleren er $3 \\neq 0$ der), har grafen en vertikal asymptote $x = 2$. Og fordi graden i telleren er nøyaktig én mer enn i nevneren, finnes det en skrå asymptote. Polynomdivisjon avslører den: $\\frac{x^2-1}{x-2} = x + 2 + \\frac{3}{x-2}$. Når $x \\to \\pm\\infty$, forsvinner brøken, og grafen legger seg inntil linjen $y = x + 2$.\n\nSå deriverer vi med brøkregelen: $f'(x) = \\frac{2x(x-2) - (x^2-1)}{(x-2)^2} = \\frac{x^2 - 4x + 1}{(x-2)^2}$. Telleren er null når $x = 2 \\pm \\sqrt{3}$, altså $x_1 \\approx 0{,}27$ og $x_2 \\approx 3{,}73$. Fortegnsskjemaet viser at $f$ vokser utenfor disse verdiene og avtar mellom dem (unntatt i $x = 2$, der funksjonen ikke er definert). Dermed får vi **toppunkt** i $x = 2 - \\sqrt{3}$ med $f(2-\\sqrt{3}) = 4 - 2\\sqrt{3} \\approx 0{,}54$, og **bunnpunkt** i $x = 2 + \\sqrt{3}$ med $f(2+\\sqrt{3}) = 4 + 2\\sqrt{3} \\approx 7{,}46$.\n\nLegg merke til et mønster som går igjen i alle drøftinger: hvert funn — nullpunkt, asymptote, ekstremalpunkt — er én brikke i skissen. Og husk alltid å oppgi både $x$- og $y$-koordinaten til punktene du finner. Det er en klassisk kilde til poengtap på eksamen."},{"id":"s2-3-1-n-quiz2","type":"exercise","exercise":{"id":"s2-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på drøfting av rasjonale funksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-1-n-quiz2-q0","task":"Hvorfor er $D_f = \\mathbb{R} \\setminus \\{2\\}$ for $f(x) = \\frac{x^2-1}{x-2}$?","options":[{"id":"a","text":"Fordi telleren er null i $x = 2$","isCorrect":false},{"id":"b","text":"Fordi nevneren er null i $x = 2$","isCorrect":true},{"id":"c","text":"Fordi $f(2)$ er negativ","isCorrect":false},{"id":"d","text":"Fordi grafen har toppunkt i $x = 2$","isCorrect":false}],"solution":"Vi kan ikke dele på null. Nevneren $x - 2$ er null når $x = 2$, så funksjonen er udefinert der."},{"id":"s2-3-1-n-quiz2-q1","task":"Polynomdivisjon gir $\\frac{x^2-1}{x-2} = x + 2 + \\frac{3}{x-2}$. Hva er den skrå asymptoten?","options":[{"id":"a","text":"$y = x + 2$","isCorrect":true},{"id":"b","text":"$y = 3$","isCorrect":false},{"id":"c","text":"$x = 2$","isCorrect":false},{"id":"d","text":"$y = x - 2$","isCorrect":false}],"solution":"Når $x \\to \\pm\\infty$ går restleddet $\\frac{3}{x-2}$ mot null, og grafen nærmer seg linjen $y = x + 2$."},{"id":"s2-3-1-n-quiz2-q2","task":"Når har en rasjonal funksjon $\\frac{P(x)}{Q(x)}$ en vertikal asymptote i $x = a$?","options":[{"id":"a","text":"Når $P(a) = 0$","isCorrect":false},{"id":"b","text":"Når både $P(a) = 0$ og $Q(a) = 0$","isCorrect":false},{"id":"c","text":"Når $Q(a) = 0$ og $P(a) \\neq 0$","isCorrect":true},{"id":"d","text":"Når graden i teller er størst","isCorrect":false}],"solution":"Vertikale asymptoter oppstår der nevneren er null uten at telleren også er null i samme punkt — da går $f(x)$ mot $\\pm\\infty$."},{"id":"s2-3-1-n-quiz2-q3","task":"Hva er en vanlig feil på eksamen i funksjonsdrøfting?","options":[{"id":"a","text":"Å derivere funksjonen to ganger","isCorrect":false},{"id":"b","text":"Å glemme å oppgi $y$-verdien til ekstremalpunkter og vendepunkter","isCorrect":true},{"id":"c","text":"Å lage fortegnsskjema for $f'(x)$","isCorrect":false},{"id":"d","text":"Å markere asymptoter på skissen","isCorrect":false}],"solution":"Typiske feil er å glemme $y$-verdiene, forveksle stasjonære punkter med ekstremalpunkter, glemme definisjonsmengden og ikke markere asymptoter. Et punkt krever alltid begge koordinater."}]}},{"id":"s2-3-1-n-section3","type":"text","content":"## Tredje oppdrag: eksponentialfunksjonen\n\nDen siste modellen er $f(x) = x \\cdot e^{-x}$ — en type funksjon som ofte beskriver virkninger som først vokser og så dør ut, for eksempel konsentrasjonen av et legemiddel i blodet.\n\n**Definisjonsmengden** er $\\mathbb{R}$, og siden $e^{-x} > 0$ for alle $x$, er det eneste **nullpunktet** $x = 0$. Fortegnet følger $x$: negativt for $x < 0$, positivt for $x > 0$. Grenseatferden er interessant: når $x \\to \\infty$ skriver vi $f(x) = \\frac{x}{e^x}$, og siden eksponentialvekst alltid slår polynomvekst, går dette mot $0$. Grafen har altså horisontal asymptote $y = 0$ mot høyre. Mot venstre vokser $e^{-x}$ uten grenser, så $f(x) \\to -\\infty$.\n\nProduktregelen gir $f'(x) = e^{-x} + x(-e^{-x}) = e^{-x}(1 - x)$. Her ser du et knep som går igjen: faktoriser ut $e^{-x}$, som aldri er null, slik at $f'(x) = 0$ bare når $1 - x = 0$, altså $x = 1$. Fortegnsskjemaet viser vekst for $x < 1$ og fall for $x > 1$, så vi har **toppunkt** i $(1, \\frac{1}{e}) \\approx (1, 0{,}37)$. Den andrederiverte blir $f''(x) = e^{-x}(x - 2)$, som skifter fortegn i $x = 2$: **vendepunkt** i $(2, 2e^{-2}) \\approx (2, 0{,}27)$.\n\nPå eksamen er det systematikken som gir poeng. Skriv hvert steg tydelig, selv de korte, og bruk sjekklisten: definisjonsmengde, nullpunkter, asymptoter, $f'$ med fortegnsskjema, ekstremalpunkter med $y$-verdier, $f''$ med vendepunkter, og en skisse der alle viktige punkter og asymptoter er markert. Sensor gir poeng for hvert element — en halvferdig drøfting er bortkastede poeng."},{"id":"s2-3-1-n-quiz3","type":"exercise","exercise":{"id":"s2-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på eksponentialdrøfting og eksamensstrategi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-1-n-quiz3-q0","task":"Hvorfor har $f(x) = x e^{-x}$ bare ett nullpunkt?","options":[{"id":"a","text":"Fordi $e^{-x} > 0$ for alle $x$, så bare faktoren $x$ kan bli null","isCorrect":true},{"id":"b","text":"Fordi funksjonen er voksende overalt","isCorrect":false},{"id":"c","text":"Fordi $e^{-x} = 0$ når $x = 0$","isCorrect":false},{"id":"d","text":"Fordi definisjonsmengden er begrenset","isCorrect":false}],"solution":"Eksponentialfunksjonen $e^{-x}$ er alltid strengt positiv. Et produkt er null bare når en faktor er null, så $f(x) = 0$ krever $x = 0$."},{"id":"s2-3-1-n-quiz3-q1","task":"Hva er $\\lim_{x \\to \\infty} \\frac{x}{e^x}$?","options":[{"id":"a","text":"$\\infty$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":true},{"id":"d","text":"$e$","isCorrect":false}],"solution":"Eksponentialvekst dominerer polynomvekst: $e^x$ vokser mye raskere enn $x$, så brøken går mot $0$. Dette gir horisontal asymptote $y = 0$."},{"id":"s2-3-1-n-quiz3-q2","task":"Hvilket punkt er toppunktet til $f(x) = x e^{-x}$?","options":[{"id":"a","text":"$(0, 0)$","isCorrect":false},{"id":"b","text":"$(1, \\tfrac{1}{e})$","isCorrect":true},{"id":"c","text":"$(2, 2e^{-2})$","isCorrect":false},{"id":"d","text":"$(e, 1)$","isCorrect":false}],"solution":"$f'(x) = e^{-x}(1-x) = 0$ gir $x = 1$, og $f'$ skifter fra $+$ til $-$ der. $f(1) = 1 \\cdot e^{-1} = \\tfrac{1}{e} \\approx 0{,}37$. Punktet $(2, 2e^{-2})$ er vendepunktet."},{"id":"s2-3-1-n-quiz3-q3","task":"Et punkt har $f'(a) = 0$. Hva kan vi konkludere?","options":[{"id":"a","text":"Punktet er alltid et toppunkt eller bunnpunkt","isCorrect":false},{"id":"b","text":"Punktet er et vendepunkt","isCorrect":false},{"id":"c","text":"Funksjonen er udefinert i $a$","isCorrect":false},{"id":"d","text":"Punktet er stasjonært, men vi må sjekke fortegnskifte for å klassifisere det","isCorrect":true}],"solution":"$f'(a) = 0$ gir bare et stasjonært punkt. Det er et ekstremalpunkt kun dersom $f'$ faktisk skifter fortegn der — for eksempel har $f(x) = x^3$ stasjonært punkt i $x = 0$ uten ekstremalverdi."}]}},{"id":"s2-3-1-n-summary","type":"text","content":"## Oppsummering: oppskriften som alltid virker\n\nEtter tre oppdrag hos analysebyrået sitter oppskriften: en fullstendig funksjonsdrøfting følger alltid samme spor. Først kartlegger du terrenget — **definisjonsmengde**, **nullpunkter**, **fortegn** og **asymptoter**. For polynomer er dette enkelt; for rasjonale funksjoner må du passe på nevneren og lete etter vertikale, horisontale eller skrå asymptoter, gjerne med polynomdivisjon. For eksponentialfunksjoner bruker du at $e^{g(x)}$ aldri er null, og at eksponentialvekst slår polynomvekst i grenseverdier.\n\nSå kommer derivasjonen. $f'(x) = 0$ gir de **stasjonære punktene**, og **fortegnsskjemaet** for $f'$ — det viktigste verktøyet i hele drøftingen — avgjør hvor funksjonen vokser og avtar, og dermed hvor topp- og bunnpunktene ligger. Deretter gjør du det samme med $f''$: positiv andrederivert betyr konveks graf (smiler), negativ betyr konkav (sur), og der $f''$ skifter fortegn ligger **vendepunktene**.\n\nTil slutt samler du alt i en skisse med alle viktige punkter og asymptoter markert. Husk fellene: oppgi alltid både $x$- og $y$-koordinat, ikke kall et stasjonært punkt for ekstremalpunkt uten å sjekke fortegnskifte, og glem aldri definisjonsmengden for rasjonale funksjoner. Med denne systematikken kan du drøfte en hvilken som helst funksjon noen legger på pulten din — enten det er på eksamen eller i en jobb der modellene betyr noe for virkelige beslutninger."}],"exercises":[]}
+{
+  "id": "s2-3-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "3.1",
+  "title": "Fullstendig funksjonsdrøfting",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om en ung analytiker som lærer å røntgenfotografere matematiske modeller — fra definisjonsmengde til ferdig skisse.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "utforske og beskrive egenskapene ved polynomfunksjoner, rasjonale funksjoner, eksponentialfunksjoner og potensfunksjoner",
+    "bruke derivasjon til å analysere og drøfte funksjoner"
+  ],
+  "linkedChapterId": "s2-3-1",
+  "content": [
+    {
+      "id": "s2-3-1-n-intro",
+      "type": "text",
+      "content": "## Røntgenbildet av en modell\n\nTenk deg at du har fått sommerjobb hos et analysebyrå som lager prognoser for kommuner og bedrifter. Den første dagen får du en funksjon i hendene — en modell for utviklingen i et boligmarked — og sjefen sier: «Drøft den.» Hva betyr egentlig det?\n\nEn **fullstendig funksjonsdrøfting** er en systematisk analyse av en funksjon, litt som et røntgenbilde: vi undersøker alle viktige egenskaper for å forstå hvordan funksjonen oppfører seg, og til slutt kan vi tegne en nøyaktig skisse. Dette er et av de mest sentrale temaene i S2, og det dukker opp på nesten alle eksamener.\n\nHeldigvis finnes det en fast oppskrift. En fullstendig drøfting av $f(x)$ inneholder elleve punkter: vi bestemmer **definisjonsmengden** $D_f$, finner **nullpunkter** ved å løse $f(x) = 0$, undersøker **fortegnet** til $f$, leter etter **asymptoter** (vertikale, horisontale eller skrå), deriverer og løser $f'(x) = 0$ for å finne **stasjonære punkter**, lager fortegnsskjema for $f'(x)$ og bestemmer **monotoni**, klassifiserer **ekstremalpunkter** (topp- og bunnpunkter), finner $f''(x)$ og løser $f''(x) = 0$, lager fortegnsskjema for $f''(x)$ og bestemmer **krumning**, identifiserer **vendepunkter** der $f''$ skifter fortegn — og tegner til slutt en **skisse** basert på alt vi har funnet.\n\nDet høres mye ut, men ved å følge denne fremgangsmåten steg for steg kan du løse slike oppgaver effektivt og komplett. I denne fortellingen drøfter vi tre funksjoner sammen: et polynom, en rasjonal funksjon og en eksponentialfunksjon."
+    },
+    {
+      "id": "s2-3-1-n-section1",
+      "type": "text",
+      "content": "## Første oppdrag: et polynom\n\nDen første modellen du får, er tredjegradspolynomet $f(x) = x^3 - 3x^2 + 4$. Vi følger oppskriften.\n\n**Definisjonsmengden** er enkel: et polynom er definert for alle $x$, så $D_f = \\mathbb{R}$. **Nullpunktene** finner vi ved å løse $f(x) = 0$. Vi prøver $x = -1$: $(-1)^3 - 3(-1)^2 + 4 = -1 - 3 + 4 = 0$. Treff! Polynomdivisjon gir $x^3 - 3x^2 + 4 = (x+1)(x^2 - 4x + 4) = (x+1)(x-2)^2$, så nullpunktene er $x = -1$ og $x = 2$ (dobbelt nullpunkt). Fortegnet følger med på kjøpet: $f(x) < 0$ for $x < -1$ og $f(x) > 0$ for $x > -1$, bortsett fra at $f(2) = 0$. Asymptoter finnes ikke — polynomer har aldri det.\n\nSå deriverer vi: $f'(x) = 3x^2 - 6x = 3x(x-2)$, som er null for $x = 0$ og $x = 2$. Et **fortegnsskjema** for $f'$ er det viktigste verktøyet i hele drøftingen: de stasjonære punktene deler tallinjen i intervaller, og vi sjekker fortegnet til $f'$ i hvert intervall med en testverdi. Her er $f'$ positiv for $x < 0$, negativ mellom $0$ og $2$, og positiv for $x > 2$. Funksjonen vokser, avtar og vokser igjen — altså **toppunkt** i $(0, 4)$ og **bunnpunkt** i $(2, 0)$.\n\nTil slutt krumningen: $f''(x) = 6x - 6$, som er null for $x = 1$. Fortegnet skifter fra minus (konkav) til pluss (konveks), så $(1, 2)$ er et **vendepunkt**. Nå kan du tegne skissen: grafen kommer fra $-\\infty$, krysser aksen i $-1$, topper seg i $(0,4)$, vender i $(1,2)$, tangerer aksen i $(2,0)$ og vokser mot $+\\infty$."
+    },
+    {
+      "id": "s2-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på drøftingsoppskriften og polynomdrøfting:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-1-n-quiz1-q0",
+            "task": "Hva er definisjonsmengden til polynomfunksjonen $f(x) = x^3 - 3x^2 + 4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$D_f = \\mathbb{R}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$D_f = (0, \\infty)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$D_f = \\mathbb{R} \\setminus \\{2\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$D_f = [-1, 2]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Polynomfunksjoner er definert for alle reelle tall, så $D_f = \\mathbb{R}$."
+          },
+          {
+            "id": "s2-3-1-n-quiz1-q1",
+            "task": "Hva betyr det at $f'(x) > 0$ på et intervall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f$ er konveks der",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f$ er voksende der",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f$ har et toppunkt der",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f$ er positiv der",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte beskriver stigningen: $f'(x) > 0$ betyr at funksjonen er voksende. Fortegnet til $f$ selv og krumningen er noe annet."
+          },
+          {
+            "id": "s2-3-1-n-quiz1-q2",
+            "task": "For $f(x) = x^3 - 3x^2 + 4$ er $f'(x) = 3x(x-2)$. Hva skjer i $x = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bunnpunkt, fordi $f'$ skifter fra $-$ til $+$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vendepunkt, fordi $f''(0) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Toppunkt, fordi $f'$ skifter fra $+$ til $-$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingenting spesielt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) > 0$ for $x < 0$ og $f'(x) < 0$ for $0 < x < 2$. Når den deriverte skifter fra positiv til negativ, har funksjonen et toppunkt: $(0, 4)$."
+          },
+          {
+            "id": "s2-3-1-n-quiz1-q3",
+            "task": "Hvor har $f(x) = x^3 - 3x^2 + 4$ sitt vendepunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(0, 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(2, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(-1, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(1, 2)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f''(x) = 6x - 6 = 0$ gir $x = 1$, og $f''$ skifter fortegn der. $f(1) = 1 - 3 + 4 = 2$, så vendepunktet er $(1, 2)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-1-n-section2",
+      "type": "text",
+      "content": "## Andre oppdrag: en rasjonal funksjon\n\nNeste modell på pulten din er $f(x) = \\frac{x^2 - 1}{x - 2}$, og nå blir det mer å passe på. **Definisjonsmengden** er ikke lenger hele tallinjen: nevneren kan ikke være null, så $D_f = \\mathbb{R} \\setminus \\{2\\}$. **Nullpunktene** kommer fra telleren: $x^2 - 1 = 0$ gir $x = \\pm 1$.\n\nDet nye er **asymptotene**. Siden nevneren er null i $x = 2$ (mens telleren er $3 \\neq 0$ der), har grafen en vertikal asymptote $x = 2$. Og fordi graden i telleren er nøyaktig én mer enn i nevneren, finnes det en skrå asymptote. Polynomdivisjon avslører den: $\\frac{x^2-1}{x-2} = x + 2 + \\frac{3}{x-2}$. Når $x \\to \\pm\\infty$, forsvinner brøken, og grafen legger seg inntil linjen $y = x + 2$.\n\nSå deriverer vi med brøkregelen: $f'(x) = \\frac{2x(x-2) - (x^2-1)}{(x-2)^2} = \\frac{x^2 - 4x + 1}{(x-2)^2}$. Telleren er null når $x = 2 \\pm \\sqrt{3}$, altså $x_1 \\approx 0{,}27$ og $x_2 \\approx 3{,}73$. Fortegnsskjemaet viser at $f$ vokser utenfor disse verdiene og avtar mellom dem (unntatt i $x = 2$, der funksjonen ikke er definert). Dermed får vi **toppunkt** i $x = 2 - \\sqrt{3}$ med $f(2-\\sqrt{3}) = 4 - 2\\sqrt{3} \\approx 0{,}54$, og **bunnpunkt** i $x = 2 + \\sqrt{3}$ med $f(2+\\sqrt{3}) = 4 + 2\\sqrt{3} \\approx 7{,}46$.\n\nLegg merke til et mønster som går igjen i alle drøftinger: hvert funn — nullpunkt, asymptote, ekstremalpunkt — er én brikke i skissen. Og husk alltid å oppgi både $x$- og $y$-koordinaten til punktene du finner. Det er en klassisk kilde til poengtap på eksamen."
+    },
+    {
+      "id": "s2-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på drøfting av rasjonale funksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-1-n-quiz2-q0",
+            "task": "Hvorfor er $D_f = \\mathbb{R} \\setminus \\{2\\}$ for $f(x) = \\frac{x^2-1}{x-2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi telleren er null i $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi nevneren er null i $x = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi $f(2)$ er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi grafen har toppunkt i $x = 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi kan ikke dele på null. Nevneren $x - 2$ er null når $x = 2$, så funksjonen er udefinert der."
+          },
+          {
+            "id": "s2-3-1-n-quiz2-q1",
+            "task": "Polynomdivisjon gir $\\frac{x^2-1}{x-2} = x + 2 + \\frac{3}{x-2}$. Hva er den skrå asymptoten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = x + 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$y = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = x - 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $x \\to \\pm\\infty$ går restleddet $\\frac{3}{x-2}$ mot null, og grafen nærmer seg linjen $y = x + 2$."
+          },
+          {
+            "id": "s2-3-1-n-quiz2-q2",
+            "task": "Når har en rasjonal funksjon $\\frac{P(x)}{Q(x)}$ en vertikal asymptote i $x = a$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $P(a) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når både $P(a) = 0$ og $Q(a) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $Q(a) = 0$ og $P(a) \\neq 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når graden i teller er størst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vertikale asymptoter oppstår der nevneren er null uten at telleren også er null i samme punkt — da går $f(x)$ mot $\\pm\\infty$."
+          },
+          {
+            "id": "s2-3-1-n-quiz2-q3",
+            "task": "Hva er en vanlig feil på eksamen i funksjonsdrøfting?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å derivere funksjonen to ganger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å lage fortegnsskjema for $f'(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å markere asymptoter på skissen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å glemme å oppgi $y$-verdien til ekstremalpunkter og vendepunkter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Typiske feil er å glemme $y$-verdiene, forveksle stasjonære punkter med ekstremalpunkter, glemme definisjonsmengden og ikke markere asymptoter. Et punkt krever alltid begge koordinater."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-1-n-section3",
+      "type": "text",
+      "content": "## Tredje oppdrag: eksponentialfunksjonen\n\nDen siste modellen er $f(x) = x \\cdot e^{-x}$ — en type funksjon som ofte beskriver virkninger som først vokser og så dør ut, for eksempel konsentrasjonen av et legemiddel i blodet.\n\n**Definisjonsmengden** er $\\mathbb{R}$, og siden $e^{-x} > 0$ for alle $x$, er det eneste **nullpunktet** $x = 0$. Fortegnet følger $x$: negativt for $x < 0$, positivt for $x > 0$. Grenseatferden er interessant: når $x \\to \\infty$ skriver vi $f(x) = \\frac{x}{e^x}$, og siden eksponentialvekst alltid slår polynomvekst, går dette mot $0$. Grafen har altså horisontal asymptote $y = 0$ mot høyre. Mot venstre vokser $e^{-x}$ uten grenser, så $f(x) \\to -\\infty$.\n\nProduktregelen gir $f'(x) = e^{-x} + x(-e^{-x}) = e^{-x}(1 - x)$. Her ser du et knep som går igjen: faktoriser ut $e^{-x}$, som aldri er null, slik at $f'(x) = 0$ bare når $1 - x = 0$, altså $x = 1$. Fortegnsskjemaet viser vekst for $x < 1$ og fall for $x > 1$, så vi har **toppunkt** i $(1, \\frac{1}{e}) \\approx (1, 0{,}37)$. Den andrederiverte blir $f''(x) = e^{-x}(x - 2)$, som skifter fortegn i $x = 2$: **vendepunkt** i $(2, 2e^{-2}) \\approx (2, 0{,}27)$.\n\nPå eksamen er det systematikken som gir poeng. Skriv hvert steg tydelig, selv de korte, og bruk sjekklisten: definisjonsmengde, nullpunkter, asymptoter, $f'$ med fortegnsskjema, ekstremalpunkter med $y$-verdier, $f''$ med vendepunkter, og en skisse der alle viktige punkter og asymptoter er markert. Sensor gir poeng for hvert element — en halvferdig drøfting er bortkastede poeng."
+    },
+    {
+      "id": "s2-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentialdrøfting og eksamensstrategi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-1-n-quiz3-q0",
+            "task": "Hvorfor har $f(x) = x e^{-x}$ bare ett nullpunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $e^{-x} > 0$ for alle $x$, så bare faktoren $x$ kan bli null",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi funksjonen er voksende overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $e^{-x} = 0$ når $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi definisjonsmengden er begrenset",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentialfunksjonen $e^{-x}$ er alltid strengt positiv. Et produkt er null bare når en faktor er null, så $f(x) = 0$ krever $x = 0$."
+          },
+          {
+            "id": "s2-3-1-n-quiz3-q1",
+            "task": "Hva er $\\lim_{x \\to \\infty} \\frac{x}{e^x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentialvekst dominerer polynomvekst: $e^x$ vokser mye raskere enn $x$, så brøken går mot $0$. Dette gir horisontal asymptote $y = 0$."
+          },
+          {
+            "id": "s2-3-1-n-quiz3-q2",
+            "task": "Hvilket punkt er toppunktet til $f(x) = x e^{-x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(0, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(2, 2e^{-2})$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(1, \\tfrac{1}{e})$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(e, 1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = e^{-x}(1-x) = 0$ gir $x = 1$, og $f'$ skifter fra $+$ til $-$ der. $f(1) = 1 \\cdot e^{-1} = \\tfrac{1}{e} \\approx 0{,}37$. Punktet $(2, 2e^{-2})$ er vendepunktet."
+          },
+          {
+            "id": "s2-3-1-n-quiz3-q3",
+            "task": "Et punkt har $f'(a) = 0$. Hva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Punktet er alltid et toppunkt eller bunnpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Punktet er et vendepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonen er udefinert i $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Punktet er stasjonært, men vi må sjekke fortegnskifte for å klassifisere det",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(a) = 0$ gir bare et stasjonært punkt. Det er et ekstremalpunkt kun dersom $f'$ faktisk skifter fortegn der — for eksempel har $f(x) = x^3$ stasjonært punkt i $x = 0$ uten ekstremalverdi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: oppskriften som alltid virker\n\nEtter tre oppdrag hos analysebyrået sitter oppskriften: en fullstendig funksjonsdrøfting følger alltid samme spor. Først kartlegger du terrenget — **definisjonsmengde**, **nullpunkter**, **fortegn** og **asymptoter**. For polynomer er dette enkelt; for rasjonale funksjoner må du passe på nevneren og lete etter vertikale, horisontale eller skrå asymptoter, gjerne med polynomdivisjon. For eksponentialfunksjoner bruker du at $e^{g(x)}$ aldri er null, og at eksponentialvekst slår polynomvekst i grenseverdier.\n\nSå kommer derivasjonen. $f'(x) = 0$ gir de **stasjonære punktene**, og **fortegnsskjemaet** for $f'$ — det viktigste verktøyet i hele drøftingen — avgjør hvor funksjonen vokser og avtar, og dermed hvor topp- og bunnpunktene ligger. Deretter gjør du det samme med $f''$: positiv andrederivert betyr konveks graf (smiler), negativ betyr konkav (sur), og der $f''$ skifter fortegn ligger **vendepunktene**.\n\nTil slutt samler du alt i en skisse med alle viktige punkter og asymptoter markert. Husk fellene: oppgi alltid både $x$- og $y$-koordinat, ikke kall et stasjonært punkt for ekstremalpunkt uten å sjekke fortegnskifte, og glem aldri definisjonsmengden for rasjonale funksjoner. Med denne systematikken kan du drøfte en hvilken som helst funksjon noen legger på pulten din — enten det er på eksamen eller i en jobb der modellene betyr noe for virkelige beslutninger."
+    }
+  ],
+  "exercises": []
+}

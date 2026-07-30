@@ -1,1 +1,397 @@
-{"id":"s2-6-1-narrativ","courseId":"s2","chapterNumber":"6.1","title":"Lineær regresjon","subtitle":"Narrativ versjon","description":"En fortelling om en sommerjobb i en nettbutikk, der minste kvadraters metode, residualer og R² avslører om annonsekronene faktisk gir mer salg.","estimatedMinutes":35,"competenceGoals":["forstå og bruke minste kvadraters metode","beregne og tolke regresjonskoeffisienter","vurdere modellens tilpasning ved hjelp av residualer og R²"],"linkedChapterId":"s2-6-1","content":[{"id":"s2-6-1-n-intro","type":"text","content":"## Linjen som forklarer salget\n\nTenk deg at du har sommerjobb i en liten nettbutikk. Sjefen din lurer på om pengene hun bruker på annonsering faktisk gir mer salg, og hun viser deg tallene: når butikken brukte 1 tusen kroner på annonser, solgte de 3 tusen enheter. Med 2 tusen kroner ble det 5 tusen enheter, med 3 tusen ble det 6, med 4 tusen ble det 8, og med 5 tusen ble det 9. «Ser du et mønster her?» spør hun.\n\nDu plotter punktene og ser at de ligger nesten på en rett linje. Men bare *nesten* — ingen rett linje treffer alle punktene perfekt. Spørsmålet blir da: hvilken linje passer *best*? Dette er kjernen i **lineær regresjon**, en statistisk metode for å finne den rette linjen som best beskriver sammenhengen mellom to variabler.\n\nVi kaller annonsebudsjettet $x$ for **forklaringsvariabelen** (den uavhengige variabelen — den vi bruker til å forklare eller predikere) og salget $y$ for **responsvariabelen** (den avhengige variabelen — den vi ønsker å forklare). Når vi har $n$ observasjonspar $(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)$, leter vi etter linjen\n\n$$\\hat{y} = ax + b$$\n\nder $\\hat{y}$ («y-hatt») er den *predikerte* verdien av $y$ for en gitt $x$. I denne fortellingen skal vi finne ut hvordan vi beregner linjen, hvordan vi måler hvor god den er, og hvor grensen går for hva den kan fortelle oss."},{"id":"s2-6-1-n-section1","type":"text","content":"## Minste kvadraters metode\n\nHvordan avgjør vi hvilken linje som passer «best»? Idéen er like enkel som den er genial: for hvert datapunkt måler vi den vertikale avstanden fra punktet til linjen, kvadrerer den (slik at positive og negative avvik ikke utligner hverandre), og summerer. **Minste kvadraters metode** (MKM) finner koeffisientene $a$ og $b$ som gjør denne summen minst mulig:\n\n$$\\text{SSE} = \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2 = \\sum_{i=1}^{n} (y_i - ax_i - b)^2$$\n\nSSE står for *Sum of Squared Errors* — summen av kvadratavvikene. Metoden gir oss konkrete formler. Stigningstallet blir\n\n$$a = \\frac{n\\sum x_i y_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2}$$\n\nog konstantleddet $b = \\bar{y} - a\\bar{x}$, der $\\bar{x}$ og $\\bar{y}$ er gjennomsnittene. En fin konsekvens av dette er at regresjonslinjen alltid går gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$ i datasettet.\n\nLa oss regne på nettbutikkens tall. Vi har $n = 5$, $\\bar{x} = 3$ og $\\bar{y} = 6{,}2$. Hjelpesummene blir $\\sum x_i y_i = 3 + 10 + 18 + 32 + 45 = 108$, $\\sum x_i = 15$, $\\sum y_i = 31$ og $\\sum x_i^2 = 55$. Da får vi\n\n$$a = \\frac{5 \\cdot 108 - 15 \\cdot 31}{5 \\cdot 55 - 15^2} = \\frac{540 - 465}{275 - 225} = \\frac{75}{50} = 1{,}5$$\n\nog $b = 6{,}2 - 1{,}5 \\cdot 3 = 1{,}7$. Regresjonslinjen er altså $\\hat{y} = 1{,}5x + 1{,}7$. Tolkningen kan du servere sjefen din direkte: for hver ekstra tusenlapp i annonsering øker salget med omtrent 1500 enheter. Konstantleddet $b = 1{,}7$ er det predikerte salget helt uten annonsering."},{"id":"s2-6-1-n-quiz1","type":"exercise","exercise":{"id":"s2-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på regresjonslinjen og minste kvadraters metode:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-1-n-quiz1-q0","task":"Hva minimerer minste kvadraters metode?","options":[{"id":"a","text":"Summen av residualene $\\sum e_i$","isCorrect":false},{"id":"b","text":"Summen av de kvadrerte residualene $\\sum e_i^2$","isCorrect":true},{"id":"c","text":"Den største vertikale avstanden til linjen","isCorrect":false},{"id":"d","text":"Antall punkter som ikke ligger på linjen","isCorrect":false}],"solution":"MKM finner $a$ og $b$ som minimerer $\\text{SSE} = \\sum (y_i - \\hat{y}_i)^2$, altså summen av de kvadrerte avvikene. Summen av residualene alene blir alltid null og kan ikke brukes."},{"id":"s2-6-1-n-quiz1-q1","task":"I modellen $\\hat{y} = 1{,}5x + 1{,}7$ for nettbutikken, hva forteller stigningstallet $1{,}5$?","options":[{"id":"a","text":"Salget uten annonsering er 1500 enheter","isCorrect":false},{"id":"b","text":"Salget kan maksimalt bli 1,5 tusen enheter","isCorrect":false},{"id":"c","text":"Hver ekstra tusenlapp i annonsering gir ca. 1500 flere solgte enheter","isCorrect":true},{"id":"d","text":"Modellen forklarer 150 % av variasjonen","isCorrect":false}],"solution":"Stigningstallet $a$ angir endringen i $\\hat{y}$ per enhets økning i $x$: én tusenlapp mer i annonsering gir ca. 1,5 tusen (1500) flere enheter solgt."},{"id":"s2-6-1-n-quiz1-q2","task":"Et datasett har $\\bar{x} = 4$, $\\bar{y} = 10$ og stigningstall $a = 2$. Hva er konstantleddet $b$?","options":[{"id":"a","text":"$b = 2$","isCorrect":true},{"id":"b","text":"$b = 18$","isCorrect":false},{"id":"c","text":"$b = 6$","isCorrect":false},{"id":"d","text":"$b = -2$","isCorrect":false}],"solution":"Linjen går gjennom tyngdepunktet, så $b = \\bar{y} - a\\bar{x} = 10 - 2 \\cdot 4 = 2$."},{"id":"s2-6-1-n-quiz1-q3","task":"Hvilket punkt ligger alltid på regresjonslinjen?","options":[{"id":"a","text":"Origo $(0, 0)$","isCorrect":false},{"id":"b","text":"Det første datapunktet $(x_1, y_1)$","isCorrect":false},{"id":"c","text":"Punktet med størst residual","isCorrect":false},{"id":"d","text":"Tyngdepunktet $(\\bar{x}, \\bar{y})$","isCorrect":true}],"solution":"Fordi $b = \\bar{y} - a\\bar{x}$, gjelder $\\hat{y}(\\bar{x}) = a\\bar{x} + \\bar{y} - a\\bar{x} = \\bar{y}$. Linjen går alltid gjennom $(\\bar{x}, \\bar{y})$."}]}},{"id":"s2-6-1-n-section2","type":"text","content":"## Residualer og forklaringsgraden\n\nLinjen er funnet — men hvor godt passer den egentlig? For å svare på det ser vi på **residualene**: forskjellen mellom det vi observerte og det modellen predikerte, $e_i = y_i - \\hat{y}_i$. For nettbutikken gir $\\hat{y} = 1{,}5x + 1{,}7$ de predikerte verdiene $3{,}2$; $4{,}7$; $6{,}2$; $7{,}7$ og $9{,}2$, og residualene blir $-0{,}2$; $0{,}3$; $-0{,}2$; $0{,}3$ og $-0{,}2$. Legg merke til at summen er null — det gjelder alltid for MKM. Residualene er små og veksler i fortegn, et godt tegn.\n\nFor å se etter mønstre tegner vi et **residualplott**, der residualene $e_i$ plottes mot $x_i$. Et godt residualplott viser tilfeldig spredning rundt null med omtrent lik spredning over hele området. Tre mønstre varsler trøbbel: **krumning** betyr at en lineær modell ikke passer og at vi bør prøve ikke-lineær regresjon, en **vifteform** betyr at variasjonen øker og forutsetningen om konstant varians er brutt, og **klynger** kan tyde på gruppering i dataene.\n\nVi kan også tallfeste kvaliteten med **forklaringsgraden** $R^2$, som måler hvor stor andel av variasjonen i $y$ modellen forklarer:\n\n$$R^2 = 1 - \\frac{\\text{SSE}}{\\text{SST}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$$\n\nHer er SSE den uforklarte variasjonen og SST den totale variasjonen rundt gjennomsnittet. $R^2 = 0$ betyr at modellen ikke forklarer noe, $R^2 = 1$ betyr perfekt tilpasning. For nettbutikken blir $\\text{SSE} = 0{,}04 + 0{,}09 + 0{,}04 + 0{,}09 + 0{,}04 = 0{,}30$ og $\\text{SST} = 10{,}24 + 1{,}44 + 0{,}04 + 3{,}24 + 7{,}84 = 22{,}80$, så\n\n$$R^2 = 1 - \\frac{0{,}30}{22{,}80} \\approx 0{,}987$$\n\nHele 98,7 % av variasjonen i salget forklares av annonseringen. For enkel lineær regresjon gjelder dessuten at $R^2 = r^2$, kvadratet av korrelasjonskoeffisienten — den skal vi møte i neste kapittel."},{"id":"s2-6-1-n-quiz2","type":"exercise","exercise":{"id":"s2-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på residualer og forklaringsgrad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-1-n-quiz2-q0","task":"Et datapunkt har $y_i = 8$ og predikert verdi $\\hat{y}_i = 7{,}7$. Hva er residualet?","options":[{"id":"a","text":"$-0{,}3$","isCorrect":false},{"id":"b","text":"$0{,}3$","isCorrect":true},{"id":"c","text":"$15{,}7$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":false}],"solution":"Residualet er $e_i = y_i - \\hat{y}_i = 8 - 7{,}7 = 0{,}3$. Observert verdi ligger 0,3 over linjen."},{"id":"s2-6-1-n-quiz2-q1","task":"Et residualplott viser en tydelig U-form. Hva betyr det?","options":[{"id":"a","text":"Modellen passer perfekt","isCorrect":false},{"id":"b","text":"Dataene inneholder en uteligger","isCorrect":false},{"id":"c","text":"Variansen er konstant","isCorrect":false},{"id":"d","text":"Sammenhengen er ikke lineær — prøv en ikke-lineær modell","isCorrect":true}],"solution":"Et buet (U-formet) mønster i residualplottet betyr at den lineære modellen systematisk bommer — sammenhengen er krum, og en ikke-lineær modell bør vurderes."},{"id":"s2-6-1-n-quiz2-q2","task":"En regresjonsmodell har $\\text{SSE} = 5$ og $\\text{SST} = 50$. Hva er $R^2$?","options":[{"id":"a","text":"$0{,}1$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":false},{"id":"c","text":"$0{,}9$","isCorrect":true},{"id":"d","text":"$0{,}5$","isCorrect":false}],"solution":"$R^2 = 1 - \\frac{\\text{SSE}}{\\text{SST}} = 1 - \\frac{5}{50} = 1 - 0{,}1 = 0{,}9$. Modellen forklarer 90 % av variasjonen i $y$."},{"id":"s2-6-1-n-quiz2-q3","task":"Hva er alltid sant om residualene fra minste kvadraters metode?","options":[{"id":"a","text":"Summen av residualene er null","isCorrect":true},{"id":"b","text":"Alle residualene er positive","isCorrect":false},{"id":"c","text":"Residualene øker med $x$","isCorrect":false},{"id":"d","text":"Residualene er alltid mindre enn 1","isCorrect":false}],"solution":"En egenskap ved MKM er at $\\sum e_i = 0$ — de positive og negative avvikene balanserer hverandre nøyaktig."}]}},{"id":"s2-6-1-n-section3","type":"text","content":"## Prediksjon — og fellen ved å gå for langt\n\nSjefen din er begeistret. «Hvis vi bruker 20 tusen på annonser, selger vi altså $1{,}5 \\cdot 20 + 1{,}7 = 31{,}7$ tusen enheter!» Her bør du trekke i nødbremsen. Å bruke modellen til å anslå $y$ for en gitt $x$ kalles **prediksjon**, og det finnes to varianter med svært ulik pålitelighet.\n\n**Interpolering** er prediksjon for $x$-verdier *innenfor* området til de observerte dataene. Butikken har data for annonsering mellom 1 og 5 tusen kroner, så å predikere salget ved $x = 3{,}5$ er rimelig trygt: $\\hat{y} = 1{,}5 \\cdot 3{,}5 + 1{,}7 = 6{,}95$ tusen enheter.\n\n**Ekstrapolering** er prediksjon *utenfor* det observerte området — som sjefens $x = 20$. Det kan være svært upålitelig, for vi vet ikke om det lineære mønsteret fortsetter. I virkeligheten finnes det gjerne en metningseffekt: når alle som er interessert i produktet allerede har sett annonsen, gir flere annonsekroner stadig mindre igjen. Modellen vår vet ingenting om dette, for den har aldri «sett» data der ute.\n\nTommelfingerregelen er altså: stol på modellen innenfor dataområdet, og vær skeptisk — gjerne åpent kritisk — til prediksjoner langt utenfor. En god statistiker leverer ikke bare et tall, men også en vurdering av hvor mye tallet er verdt."},{"id":"s2-6-1-n-quiz3","type":"exercise","exercise":{"id":"s2-6-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på prediksjon og ekstrapolering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-1-n-quiz3-q0","task":"Nettbutikken har data for $x$ mellom 1 og 5. Hva kalles det å predikere salget for $x = 3{,}5$?","options":[{"id":"a","text":"Ekstrapolering","isCorrect":false},{"id":"b","text":"Interpolering","isCorrect":true},{"id":"c","text":"Residualanalyse","isCorrect":false},{"id":"d","text":"Konfundering","isCorrect":false}],"solution":"$x = 3{,}5$ ligger innenfor det observerte området $[1, 5]$, så dette er interpolering — som regel pålitelig."},{"id":"s2-6-1-n-quiz3-q1","task":"Hvorfor er ekstrapolering risikabelt?","options":[{"id":"a","text":"Fordi regnestykket blir vanskeligere for store $x$","isCorrect":false},{"id":"b","text":"Fordi $R^2$ alltid synker utenfor dataområdet","isCorrect":false},{"id":"c","text":"Fordi vi ikke vet om det lineære mønsteret fortsetter utenfor dataene","isCorrect":true},{"id":"d","text":"Fordi residualene blir negative","isCorrect":false}],"solution":"Modellen er bare dokumentert gyldig der vi har data. Utenfor kan virkeligheten ha metningseffekter eller andre mønstre som modellen ikke fanger opp."},{"id":"s2-6-1-n-quiz3-q2","task":"Hva er det predikerte salget ved $x = 4$ med modellen $\\hat{y} = 1{,}5x + 1{,}7$?","options":[{"id":"a","text":"$6{,}2$ tusen enheter","isCorrect":false},{"id":"b","text":"$5{,}7$ tusen enheter","isCorrect":false},{"id":"c","text":"$8{,}3$ tusen enheter","isCorrect":false},{"id":"d","text":"$7{,}7$ tusen enheter","isCorrect":true}],"solution":"$\\hat{y} = 1{,}5 \\cdot 4 + 1{,}7 = 6 + 1{,}7 = 7{,}7$ tusen enheter."}]}},{"id":"s2-6-1-n-summary","type":"text","content":"## Oppsummering: fra punktsky til innsikt\n\nFortellingen om nettbutikken viser hele arbeidsflyten i lineær regresjon. Vi startet med en punktsky og et spørsmål: henger annonsering og salg sammen? **Minste kvadraters metode** ga oss linjen $\\hat{y} = ax + b$ som minimerer summen av kvadrerte residualer, med stigningstall $a = \\frac{n\\sum x_iy_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2}$ og konstantledd $b = \\bar{y} - a\\bar{x}$. Linjen går alltid gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$.\n\nDeretter kvalitetssjekket vi modellen. **Residualene** $e_i = y_i - \\hat{y}_i$ summerer seg alltid til null, og et residualplott uten systematiske mønstre — ingen krumning, vifte eller klynger — tyder på god tilpasning. **Forklaringsgraden** $R^2 = 1 - \\frac{\\text{SSE}}{\\text{SST}}$ tallfester hvor stor andel av variasjonen i $y$ modellen forklarer; for nettbutikken var den hele 98,7 %.\n\nTil slutt brukte vi modellen med fornuft: **interpolering** innenfor dataområdet er vanligvis trygt, mens **ekstrapolering** utenfor kan lede galt av sted fordi mønsteret ikke nødvendigvis fortsetter. Stigningstallet forteller hvor mye responsen endrer seg per enhet, konstantleddet er predikert verdi når $x = 0$ — og en høy $R^2$ er et godt tegn, men aldri en garanti. Neste steg er å måle styrken på samvariasjonen direkte, med korrelasjonskoeffisienten $r$."}],"exercises":[]}
+{
+  "id": "s2-6-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "6.1",
+  "title": "Lineær regresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om en sommerjobb i en nettbutikk, der minste kvadraters metode, residualer og R² avslører om annonsekronene faktisk gir mer salg.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå og bruke minste kvadraters metode",
+    "beregne og tolke regresjonskoeffisienter",
+    "vurdere modellens tilpasning ved hjelp av residualer og R²"
+  ],
+  "linkedChapterId": "s2-6-1",
+  "content": [
+    {
+      "id": "s2-6-1-n-intro",
+      "type": "text",
+      "content": "## Linjen som forklarer salget\n\nTenk deg at du har sommerjobb i en liten nettbutikk. Sjefen din lurer på om pengene hun bruker på annonsering faktisk gir mer salg, og hun viser deg tallene: når butikken brukte 1 tusen kroner på annonser, solgte de 3 tusen enheter. Med 2 tusen kroner ble det 5 tusen enheter, med 3 tusen ble det 6, med 4 tusen ble det 8, og med 5 tusen ble det 9. «Ser du et mønster her?» spør hun.\n\nDu plotter punktene og ser at de ligger nesten på en rett linje. Men bare *nesten* — ingen rett linje treffer alle punktene perfekt. Spørsmålet blir da: hvilken linje passer *best*? Dette er kjernen i **lineær regresjon**, en statistisk metode for å finne den rette linjen som best beskriver sammenhengen mellom to variabler.\n\nVi kaller annonsebudsjettet $x$ for **forklaringsvariabelen** (den uavhengige variabelen — den vi bruker til å forklare eller predikere) og salget $y$ for **responsvariabelen** (den avhengige variabelen — den vi ønsker å forklare). Når vi har $n$ observasjonspar $(x_1, y_1), (x_2, y_2), \\ldots, (x_n, y_n)$, leter vi etter linjen\n\n$$\\hat{y} = ax + b$$\n\nder $\\hat{y}$ («y-hatt») er den *predikerte* verdien av $y$ for en gitt $x$. I denne fortellingen skal vi finne ut hvordan vi beregner linjen, hvordan vi måler hvor god den er, og hvor grensen går for hva den kan fortelle oss."
+    },
+    {
+      "id": "s2-6-1-n-section1",
+      "type": "text",
+      "content": "## Minste kvadraters metode\n\nHvordan avgjør vi hvilken linje som passer «best»? Idéen er like enkel som den er genial: for hvert datapunkt måler vi den vertikale avstanden fra punktet til linjen, kvadrerer den (slik at positive og negative avvik ikke utligner hverandre), og summerer. **Minste kvadraters metode** (MKM) finner koeffisientene $a$ og $b$ som gjør denne summen minst mulig:\n\n$$\\text{SSE} = \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2 = \\sum_{i=1}^{n} (y_i - ax_i - b)^2$$\n\nSSE står for *Sum of Squared Errors* — summen av kvadratavvikene. Metoden gir oss konkrete formler. Stigningstallet blir\n\n$$a = \\frac{n\\sum x_i y_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2}$$\n\nog konstantleddet $b = \\bar{y} - a\\bar{x}$, der $\\bar{x}$ og $\\bar{y}$ er gjennomsnittene. En fin konsekvens av dette er at regresjonslinjen alltid går gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$ i datasettet.\n\nLa oss regne på nettbutikkens tall. Vi har $n = 5$, $\\bar{x} = 3$ og $\\bar{y} = 6{,}2$. Hjelpesummene blir $\\sum x_i y_i = 3 + 10 + 18 + 32 + 45 = 108$, $\\sum x_i = 15$, $\\sum y_i = 31$ og $\\sum x_i^2 = 55$. Da får vi\n\n$$a = \\frac{5 \\cdot 108 - 15 \\cdot 31}{5 \\cdot 55 - 15^2} = \\frac{540 - 465}{275 - 225} = \\frac{75}{50} = 1{,}5$$\n\nog $b = 6{,}2 - 1{,}5 \\cdot 3 = 1{,}7$. Regresjonslinjen er altså $\\hat{y} = 1{,}5x + 1{,}7$. Tolkningen kan du servere sjefen din direkte: for hver ekstra tusenlapp i annonsering øker salget med omtrent 1500 enheter. Konstantleddet $b = 1{,}7$ er det predikerte salget helt uten annonsering."
+    },
+    {
+      "id": "s2-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regresjonslinjen og minste kvadraters metode:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-1-n-quiz1-q0",
+            "task": "Hva minimerer minste kvadraters metode?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Summen av de kvadrerte residualene $\\sum e_i^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Summen av residualene $\\sum e_i$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den største vertikale avstanden til linjen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antall punkter som ikke ligger på linjen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "MKM finner $a$ og $b$ som minimerer $\\text{SSE} = \\sum (y_i - \\hat{y}_i)^2$, altså summen av de kvadrerte avvikene. Summen av residualene alene blir alltid null og kan ikke brukes."
+          },
+          {
+            "id": "s2-6-1-n-quiz1-q1",
+            "task": "I modellen $\\hat{y} = 1{,}5x + 1{,}7$ for nettbutikken, hva forteller stigningstallet $1{,}5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Salget uten annonsering er 1500 enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hver ekstra tusenlapp i annonsering gir ca. 1500 flere solgte enheter",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Salget kan maksimalt bli 1,5 tusen enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Modellen forklarer 150 % av variasjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigningstallet $a$ angir endringen i $\\hat{y}$ per enhets økning i $x$: én tusenlapp mer i annonsering gir ca. 1,5 tusen (1500) flere enheter solgt."
+          },
+          {
+            "id": "s2-6-1-n-quiz1-q2",
+            "task": "Et datasett har $\\bar{x} = 4$, $\\bar{y} = 10$ og stigningstall $a = 2$. Hva er konstantleddet $b$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$b = 18$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$b = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$b = -2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Linjen går gjennom tyngdepunktet, så $b = \\bar{y} - a\\bar{x} = 10 - 2 \\cdot 4 = 2$."
+          },
+          {
+            "id": "s2-6-1-n-quiz1-q3",
+            "task": "Hvilket punkt ligger alltid på regresjonslinjen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Origo $(0, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det første datapunktet $(x_1, y_1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Punktet med størst residual",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tyngdepunktet $(\\bar{x}, \\bar{y})$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fordi $b = \\bar{y} - a\\bar{x}$, gjelder $\\hat{y}(\\bar{x}) = a\\bar{x} + \\bar{y} - a\\bar{x} = \\bar{y}$. Linjen går alltid gjennom $(\\bar{x}, \\bar{y})$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-1-n-section2",
+      "type": "text",
+      "content": "## Residualer og forklaringsgraden\n\nLinjen er funnet — men hvor godt passer den egentlig? For å svare på det ser vi på **residualene**: forskjellen mellom det vi observerte og det modellen predikerte, $e_i = y_i - \\hat{y}_i$. For nettbutikken gir $\\hat{y} = 1{,}5x + 1{,}7$ de predikerte verdiene $3{,}2$; $4{,}7$; $6{,}2$; $7{,}7$ og $9{,}2$, og residualene blir $-0{,}2$; $0{,}3$; $-0{,}2$; $0{,}3$ og $-0{,}2$. Legg merke til at summen er null — det gjelder alltid for MKM. Residualene er små og veksler i fortegn, et godt tegn.\n\nFor å se etter mønstre tegner vi et **residualplott**, der residualene $e_i$ plottes mot $x_i$. Et godt residualplott viser tilfeldig spredning rundt null med omtrent lik spredning over hele området. Tre mønstre varsler trøbbel: **krumning** betyr at en lineær modell ikke passer og at vi bør prøve ikke-lineær regresjon, en **vifteform** betyr at variasjonen øker og forutsetningen om konstant varians er brutt, og **klynger** kan tyde på gruppering i dataene.\n\nVi kan også tallfeste kvaliteten med **forklaringsgraden** $R^2$, som måler hvor stor andel av variasjonen i $y$ modellen forklarer:\n\n$$R^2 = 1 - \\frac{\\text{SSE}}{\\text{SST}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$$\n\nHer er SSE den uforklarte variasjonen og SST den totale variasjonen rundt gjennomsnittet. $R^2 = 0$ betyr at modellen ikke forklarer noe, $R^2 = 1$ betyr perfekt tilpasning. For nettbutikken blir $\\text{SSE} = 0{,}04 + 0{,}09 + 0{,}04 + 0{,}09 + 0{,}04 = 0{,}30$ og $\\text{SST} = 10{,}24 + 1{,}44 + 0{,}04 + 3{,}24 + 7{,}84 = 22{,}80$, så\n\n$$R^2 = 1 - \\frac{0{,}30}{22{,}80} \\approx 0{,}987$$\n\nHele 98,7 % av variasjonen i salget forklares av annonseringen. For enkel lineær regresjon gjelder dessuten at $R^2 = r^2$, kvadratet av korrelasjonskoeffisienten — den skal vi møte i neste kapittel."
+    },
+    {
+      "id": "s2-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på residualer og forklaringsgrad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-1-n-quiz2-q0",
+            "task": "Et datapunkt har $y_i = 8$ og predikert verdi $\\hat{y}_i = 7{,}7$. Hva er residualet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-0{,}3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15{,}7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Residualet er $e_i = y_i - \\hat{y}_i = 8 - 7{,}7 = 0{,}3$. Observert verdi ligger 0,3 over linjen."
+          },
+          {
+            "id": "s2-6-1-n-quiz2-q1",
+            "task": "Et residualplott viser en tydelig U-form. Hva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellen passer perfekt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sammenhengen er ikke lineær — prøv en ikke-lineær modell",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Dataene inneholder en uteligger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Variansen er konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et buet (U-formet) mønster i residualplottet betyr at den lineære modellen systematisk bommer — sammenhengen er krum, og en ikke-lineær modell bør vurderes."
+          },
+          {
+            "id": "s2-6-1-n-quiz2-q2",
+            "task": "En regresjonsmodell har $\\text{SSE} = 5$ og $\\text{SST} = 50$. Hva er $R^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}9$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2 = 1 - \\frac{\\text{SSE}}{\\text{SST}} = 1 - \\frac{5}{50} = 1 - 0{,}1 = 0{,}9$. Modellen forklarer 90 % av variasjonen i $y$."
+          },
+          {
+            "id": "s2-6-1-n-quiz2-q3",
+            "task": "Hva er alltid sant om residualene fra minste kvadraters metode?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle residualene er positive",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Residualene øker med $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Residualene er alltid mindre enn 1",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Summen av residualene er null",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En egenskap ved MKM er at $\\sum e_i = 0$ — de positive og negative avvikene balanserer hverandre nøyaktig."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-1-n-section3",
+      "type": "text",
+      "content": "## Prediksjon — og fellen ved å gå for langt\n\nSjefen din er begeistret. «Hvis vi bruker 20 tusen på annonser, selger vi altså $1{,}5 \\cdot 20 + 1{,}7 = 31{,}7$ tusen enheter!» Her bør du trekke i nødbremsen. Å bruke modellen til å anslå $y$ for en gitt $x$ kalles **prediksjon**, og det finnes to varianter med svært ulik pålitelighet.\n\n**Interpolering** er prediksjon for $x$-verdier *innenfor* området til de observerte dataene. Butikken har data for annonsering mellom 1 og 5 tusen kroner, så å predikere salget ved $x = 3{,}5$ er rimelig trygt: $\\hat{y} = 1{,}5 \\cdot 3{,}5 + 1{,}7 = 6{,}95$ tusen enheter.\n\n**Ekstrapolering** er prediksjon *utenfor* det observerte området — som sjefens $x = 20$. Det kan være svært upålitelig, for vi vet ikke om det lineære mønsteret fortsetter. I virkeligheten finnes det gjerne en metningseffekt: når alle som er interessert i produktet allerede har sett annonsen, gir flere annonsekroner stadig mindre igjen. Modellen vår vet ingenting om dette, for den har aldri «sett» data der ute.\n\nTommelfingerregelen er altså: stol på modellen innenfor dataområdet, og vær skeptisk — gjerne åpent kritisk — til prediksjoner langt utenfor. En god statistiker leverer ikke bare et tall, men også en vurdering av hvor mye tallet er verdt."
+    },
+    {
+      "id": "s2-6-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på prediksjon og ekstrapolering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-1-n-quiz3-q0",
+            "task": "Nettbutikken har data for $x$ mellom 1 og 5. Hva kalles det å predikere salget for $x = 3{,}5$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Interpolering",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ekstrapolering",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Residualanalyse",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Konfundering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = 3{,}5$ ligger innenfor det observerte området $[1, 5]$, så dette er interpolering — som regel pålitelig."
+          },
+          {
+            "id": "s2-6-1-n-quiz3-q1",
+            "task": "Hvorfor er ekstrapolering risikabelt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi regnestykket blir vanskeligere for store $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi vi ikke vet om det lineære mønsteret fortsetter utenfor dataene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi $R^2$ alltid synker utenfor dataområdet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi residualene blir negative",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Modellen er bare dokumentert gyldig der vi har data. Utenfor kan virkeligheten ha metningseffekter eller andre mønstre som modellen ikke fanger opp."
+          },
+          {
+            "id": "s2-6-1-n-quiz3-q2",
+            "task": "Hva er det predikerte salget ved $x = 4$ med modellen $\\hat{y} = 1{,}5x + 1{,}7$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6{,}2$ tusen enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5{,}7$ tusen enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7{,}7$ tusen enheter",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$8{,}3$ tusen enheter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\hat{y} = 1{,}5 \\cdot 4 + 1{,}7 = 6 + 1{,}7 = 7{,}7$ tusen enheter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: fra punktsky til innsikt\n\nFortellingen om nettbutikken viser hele arbeidsflyten i lineær regresjon. Vi startet med en punktsky og et spørsmål: henger annonsering og salg sammen? **Minste kvadraters metode** ga oss linjen $\\hat{y} = ax + b$ som minimerer summen av kvadrerte residualer, med stigningstall $a = \\frac{n\\sum x_iy_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2}$ og konstantledd $b = \\bar{y} - a\\bar{x}$. Linjen går alltid gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$.\n\nDeretter kvalitetssjekket vi modellen. **Residualene** $e_i = y_i - \\hat{y}_i$ summerer seg alltid til null, og et residualplott uten systematiske mønstre — ingen krumning, vifte eller klynger — tyder på god tilpasning. **Forklaringsgraden** $R^2 = 1 - \\frac{\\text{SSE}}{\\text{SST}}$ tallfester hvor stor andel av variasjonen i $y$ modellen forklarer; for nettbutikken var den hele 98,7 %.\n\nTil slutt brukte vi modellen med fornuft: **interpolering** innenfor dataområdet er vanligvis trygt, mens **ekstrapolering** utenfor kan lede galt av sted fordi mønsteret ikke nødvendigvis fortsetter. Stigningstallet forteller hvor mye responsen endrer seg per enhet, konstantleddet er predikert verdi når $x = 0$ — og en høy $R^2$ er et godt tegn, men aldri en garanti. Neste steg er å måle styrken på samvariasjonen direkte, med korrelasjonskoeffisienten $r$."
+    }
+  ],
+  "exercises": []
+}

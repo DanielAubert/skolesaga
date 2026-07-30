@@ -1,1 +1,511 @@
-{"id":"r1-5-1-narrativ","courseId":"r1","chapterNumber":"5.1","title":"Eksponentiell vekst","subtitle":"Narrativ versjon","description":"Ei forteljing om eksponentiell vekst -- frå riskorn på sjakkbrettet til rentes rente, doblingstid og karbon-14-datering, og den deriverte som avslører den inste løyndomen til veksten.","estimatedMinutes":45,"competenceGoals":["forstå og bruke eksponentielle vekstmodellar","rekne ut vekstfaktor og vekstrate","rekne ut doblingstid og halveringstid","derivere eksponentiell vekst","bruke modellane på praktiske problem"],"linkedChapterId":"r1-5-1","content":[{"id":"r1-5-1-n-intro","type":"text","content":"## Riskornet som velta eit sjakkbrett\n\nDet finst ei gammal segn om mannen som fann opp sjakkspelet. Som løn bad han kongen om eitt riskorn på den første ruta, to på den andre, fire på den tredje – ei dobling for kvar av dei 64 rutene. Kongen lo av den nøkterne førespurnaden, heilt til reknemeistrane hans fortalde at det ville krevje meir ris enn det fanst i heile riket. Det kongen ikkje forstod, var **eksponentiell vekst**.\n\nEksponentiell vekst oppstår når ein storleik veks med ein fast *prosent* per tidseining – ikkje eit fast beløp. Skilnaden er dramatisk. Veks sparekontoen din med 1000 kr i året, er det lineær vekst, jamn og forutseieleg. Veks han med 5 % i året, veks veksten sjølv: kvart år blir renta lagd til eit stadig større beløp, og kurva blir brattare og brattare.\n\nDu møter denne vekstforma overalt: i folketal som veks med høg fødselsrate, i rentes rente på bankinnskot, i bakteriekoloniar under ideelle forhold og i virusinfeksjonar i tidleg fase. I dette kapittelet skal vi byggje den matematiske modellen for slik vekst, lære å rekne ut kor fort noko doblar eller halverer seg, og sjå kva derivasjon avslører om den inste naturen til veksten. Lat oss starte med talet som styrer alt: vekstfaktoren."},{"id":"r1-5-1-n-section1","type":"text","content":"## Vekstfaktoren – talet du gangar med\n\nTenk deg eit land med 10 millionar innbyggjarar der folketalet veks med 2 % i året. Etter eitt år har vi ikkje berre lagt til noko – vi har *ganga* med noko. 2 % vekst tyder at vi gangar med $1{,}02$. Dette talet blir kalla **vekstfaktoren**, og heile den eksponentielle vekstmodellen er bygd rundt det: $N(t) = N_0 \\cdot a^t$, der $N_0$ er startverdien når $t = 0$, $a$ er vekstfaktoren per tidseining og $t$ er tida. For landet vårt blir modellen $N(t) = 10 \\cdot 1{,}02^t$ millionar, og i 2030 – ti år seinare – gir han $N(10) = 10 \\cdot 1{,}02^{10} \\approx 12{,}2$ millionar.\n\nVekstfaktoren fortel med ein gong kva som skjer: er $a > 1$, veks storleiken; er $0 < a < 1$, minkar han; og $a = 1$ tyder stillstand. Her må du skilje mellom **vekstraten** $r$ (sjølve prosenten som desimaltal, $r = \\frac{p}{100}$) og vekstfaktoren $a = 1 + r$. Med 5 % vekst er $a = 1{,}05$. Søkk ein bilverdi med 15 % i året, er $a = 1 - 0{,}15 = 0{,}85$. Og møter du vekstfaktoren $a = 1{,}08$, veit du at veksten er 8 %.\n\nDet finst òg ein annan måte å skrive nøyaktig same modell på: $N(t) = N_0 \\cdot e^{kt}$, der $e \\approx 2{,}718$ er Eulertalet og $k$ blir kalla den **kontinuerlege vekstraten**. Er $k > 0$ veks storleiken, er $k < 0$ snakkar vi om eksponentiell avtaking. Dei to formene heng saman gjennom $a = e^k$, altså $k = \\ln a$. For folketalet vårt er $k = \\ln(1{,}02) \\approx 0{,}0198$, så modellen kan like gjerne skrivast $N(t) = 10 \\cdot e^{0{,}0198t}$. Legg merke til at $k$ og $r$ liknar, men ikkje er like: 5 % vekst gir $a = 1{,}05$ og $k = \\ln(1{,}05) \\approx 0{,}0488$. Kvifor gidd vi å ha to skrivemåtar? Det får du sjå når vi no skal rekne med logaritmar – og seinare når vi deriverer."},{"id":"r1-5-1-n-quiz1","type":"exercise","exercise":{"id":"r1-5-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vekstfaktor og vekstrate:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-1-n-quiz1-q0","task":"Eit innskot gir 3,5 % rente per år. Kva er vekstfaktoren?","options":[{"id":"a","text":"$0{,}035$","isCorrect":false},{"id":"b","text":"$1{,}35$","isCorrect":false},{"id":"c","text":"$1{,}035$","isCorrect":true},{"id":"d","text":"$0{,}965$","isCorrect":false}],"solution":"Vekstfaktoren er $a = 1 + r = 1 + 0{,}035 = 1{,}035$."},{"id":"r1-5-1-n-quiz1-q1","task":"Ein bilverdi søkk med 15 % per år. Kva er vekstfaktoren?","options":[{"id":"a","text":"$0{,}85$","isCorrect":true},{"id":"b","text":"$1{,}15$","isCorrect":false},{"id":"c","text":"$0{,}15$","isCorrect":false},{"id":"d","text":"$-0{,}15$","isCorrect":false}],"solution":"Nedgang på 15 % gir $a = 1 - 0{,}15 = 0{,}85$. Vekstfaktoren er framleis positiv – han er berre mindre enn 1."},{"id":"r1-5-1-n-quiz1-q2","task":"Ein vekstfaktor er $a = 1{,}08$. Kva er den prosentvise veksten?","options":[{"id":"a","text":"$1{,}08\\,\\%$","isCorrect":false},{"id":"b","text":"$0{,}08\\,\\%$","isCorrect":false},{"id":"c","text":"$108\\,\\%$","isCorrect":false},{"id":"d","text":"$8\\,\\%$","isCorrect":true}],"solution":"Frå $a = 1 + r$ får vi $r = 0{,}08$, altså 8 % vekst per tidseining."},{"id":"r1-5-1-n-quiz1-q3","task":"Eit folketal følgjer $N(t) = 10 \\cdot 1{,}02^t$ millionar. Omtrent kor stort er det etter 10 år?","options":[{"id":"a","text":"$10{,}2$ millionar","isCorrect":false},{"id":"b","text":"$12{,}2$ millionar","isCorrect":true},{"id":"c","text":"$20$ millionar","isCorrect":false},{"id":"d","text":"$11{,}0$ millionar","isCorrect":false}],"solution":"$N(10) = 10 \\cdot 1{,}02^{10} \\approx 10 \\cdot 1{,}219 \\approx 12{,}2$ millionar. Ti år med 2 % vekst gir omtrent 22 % samla vekst – meir enn $10 \\cdot 2\\,\\% = 20\\,\\%$, på grunn av rentesrente-effekten."}]}},{"id":"r1-5-1-n-section2","type":"text","content":"## Når blir det dobla? Når blir det halvert?\n\nHer er noko forbløffande ved eksponentiell vekst: **doblingstida er konstant**. Uansett om folketalet er på éin million eller hundre millionar, tek det like lang tid å doble seg. Lat oss finne denne tida. Vi leitar etter tidspunktet $t_2$ der $N(t_2) = 2N_0$, altså $N_0 \\cdot e^{kt_2} = 2N_0$. Vi deler på $N_0$ og får $e^{kt_2} = 2$. Logaritmen løyser opp: $kt_2 = \\ln 2$, og dermed $$t_2 = \\frac{\\ln 2}{k}$$ Med vekstfaktor i staden blir det $t_2 = \\frac{\\ln 2}{\\ln a}$. Talet $\\ln 2 \\approx 0{,}693$ er verdt å hugse.\n\nPrøv med eit folketal som veks 3 % i året: $k = \\ln(1{,}03) \\approx 0{,}0296$, så $t_2 = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. På 100 år rekk folketalet å doble seg rundt fire gonger og blir omtrent $2^4 = 16$ gonger så stort – kontrollrekninga $1{,}03^{100} \\approx 19{,}2$ stadfestar storleiksordenen. I økonomi blir ofte ein kjapp tommelfingerregel brukt, **72-regelen**: $t_2 \\approx \\frac{72}{p}$, der $p$ er vekstraten i prosent. Med 6 % rente blir pengane dobla på cirka $\\frac{72}{6} = 12$ år.\n\nNår $k < 0$ snur alt på hovudet, og vi spør i staden kor lang tid det tek før halvparten er igjen. **Halveringstida** er $t_{1/2} = \\frac{\\ln 2}{|k|}$ – same formel, berre med talverdien av $k$. Det mest berømte eksempelet er karbon-14, som har halveringstid 5730 år og blir brukt til å datere arkeologiske funn. Nedbrytingsraten er $|k| = \\frac{\\ln 2}{5730} \\approx 0{,}000121$ per år, så mengda følgjer $N(t) = N_0 \\cdot e^{-0{,}000121t}$, eller like elegant $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Finn arkeologane eit trestykke med berre 25 % av det opphavlege C-14-innhaldet, treng dei knapt kalkulator: $25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider – funnet er omtrent $2 \\cdot 5730 = 11\\,460$ år gammalt."},{"id":"r1-5-1-n-quiz2","type":"exercise","exercise":{"id":"r1-5-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på doblingstid og halveringstid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-1-n-quiz2-q0","task":"Eit folketal veks med 3 % per år ($k \\approx 0{,}0296$). Kva er doblingstida?","options":[{"id":"a","text":"Ca. 23 år","isCorrect":true},{"id":"b","text":"Ca. 33 år","isCorrect":false},{"id":"c","text":"Ca. 3 år","isCorrect":false},{"id":"d","text":"Ca. 50 år","isCorrect":false}],"solution":"$t_2 = \\frac{\\ln 2}{k} = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. 72-regelen gir same storleiksorden: $72/3 = 24$ år."},{"id":"r1-5-1-n-quiz2-q1","task":"Bruk 72-regelen: Omtrent kor lang er doblingstida ved 6 % årleg vekst?","options":[{"id":"a","text":"6 år","isCorrect":false},{"id":"b","text":"24 år","isCorrect":false},{"id":"c","text":"12 år","isCorrect":true},{"id":"d","text":"18 år","isCorrect":false}],"solution":"72-regelen: $t_2 \\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år."},{"id":"r1-5-1-n-quiz2-q2","task":"Karbon-14 har halveringstid 5730 år. Eit funn inneheld 25 % av opphavleg C-14-mengd. Kor gammalt er funnet?","options":[{"id":"a","text":"Ca. 5\\,730 år","isCorrect":false},{"id":"b","text":"Ca. 11\\,460 år","isCorrect":true},{"id":"c","text":"Ca. 22\\,920 år","isCorrect":false},{"id":"d","text":"Ca. 2\\,865 år","isCorrect":false}],"solution":"$25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider: $2 \\cdot 5730 = 11\\,460$ år."},{"id":"r1-5-1-n-quiz2-q3","task":"Kva kjenneteiknar doblingstida ved eksponentiell vekst?","options":[{"id":"a","text":"Ho blir kortare etter kvart som storleiken veks","isCorrect":false},{"id":"b","text":"Ho blir lengre etter kvart som storleiken veks","isCorrect":false},{"id":"c","text":"Ho avheng av startverdien $N_0$","isCorrect":false},{"id":"d","text":"Ho er konstant, uansett startverdi","isCorrect":true}],"solution":"Doblingstida $t_2 = \\frac{\\ln 2}{k}$ avheng berre av vekstraten $k$, ikkje av kor stor storleiken er. Det er eit særtrekk ved eksponentiell vekst."}]}},{"id":"r1-5-1-n-section3","type":"text","content":"## Veksten som speglar seg sjølv\n\nNo kjem den djupaste eigenskapen ved eksponentiell vekst – den du ser først når du deriverer. For $N(t) = N_0 \\cdot e^{kt}$ er den deriverte $N'(t) = k \\cdot N_0 \\cdot e^{kt}$. Men vent: uttrykket $N_0 \\cdot e^{kt}$ er jo berre $N(t)$ sjølv! Altså er $$N'(t) = k \\cdot N(t)$$ Veksthastigheita er til kvar tid ein fast del $k$ av storleiken sjølv. Jo meir det finst, dess fortare veks det – det er sjølve *definisjonen* på eksponentiell vekst, og grunnen til at $e$-forma er så elegant. Bruker du vekstfaktor-forma $f(t) = N_0 \\cdot a^t$, blir den deriverte $f'(t) = f(t) \\cdot \\ln a$ – same mønster, med $\\ln a$ i rolla som $k$.\n\nSjå det i praksis: folketalet i eit land følgjer $N(t) = 5 \\cdot e^{0{,}02t}$ millionar, med $t$ i år etter 2020. Då er $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$, som fortel kor mange millionar folketalet aukar med per år. I 2025 er $N'(5) = 0{,}1 \\cdot e^{0{,}1} \\approx 0{,}11$ – cirka 110 000 nye innbyggjarar det året. Og den *relative* veksten? $\\frac{N'(t)}{N(t)} = k = 0{,}02$, alltid nøyaktig 2 %, uansett år.\n\nTil slutt, det mest kvardagslege eksempelet av alle: sparepengar. Set du 100 000 kr i banken til 5 % rente, har du etter 20 år $100\\,000 \\cdot 1{,}05^{20} \\approx 265\\,300$ kr, og pengane blir dobla på $t_2 = \\frac{\\ln 2}{\\ln 1{,}05} \\approx 14{,}2$ år. Samanlikn med ein konto til 3 %: etter 30 år gir 5 %-kontoen cirka 432 200 kr, medan 3 %-kontoen gir cirka 242 700 kr. To prosentpoeng i skilnad vart til nesten 190 000 kr. Det er rentes rente i eit nøtteskal – og grunnen til at små skilnader i vekstrate får enorme konsekvensar over tid."},{"id":"r1-5-1-n-quiz3","type":"exercise","exercise":{"id":"r1-5-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på derivasjon og rentes rente:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-1-n-quiz3-q0","task":"Folketalet følgjer $N(t) = 5 \\cdot e^{0{,}02t}$. Kva er $N'(t)$?","options":[{"id":"a","text":"$5 \\cdot e^{0{,}02t}$","isCorrect":false},{"id":"b","text":"$0{,}1 \\cdot e^{0{,}02t}$","isCorrect":true},{"id":"c","text":"$0{,}02 \\cdot e^{0{,}02t}$","isCorrect":false},{"id":"d","text":"$2{,}5 \\cdot e^{0{,}02t}$","isCorrect":false}],"solution":"Kjerneregelen gir $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$."},{"id":"r1-5-1-n-quiz3-q1","task":"Kva tyder samanhengen $N'(t) = k \\cdot N(t)$?","options":[{"id":"a","text":"Veksthastigheita er alltid ein fast del av storleiken sjølv","isCorrect":true},{"id":"b","text":"Veksthastigheita er konstant","isCorrect":false},{"id":"c","text":"Storleiken veks med eit fast beløp per tidseining","isCorrect":false},{"id":"d","text":"Den deriverte er alltid lik startverdien","isCorrect":false}],"solution":"Veksthastigheita $N'(t)$ er proporsjonal med $N(t)$, med proporsjonalitetskonstant $k$. Jo meir som finst, dess raskare veks det – kjenneteiknet på eksponentiell vekst."},{"id":"r1-5-1-n-quiz3-q2","task":"Kva er den deriverte av $f(t) = N_0 \\cdot a^t$?","options":[{"id":"a","text":"$N_0 \\cdot t \\cdot a^{t-1}$","isCorrect":false},{"id":"b","text":"$N_0 \\cdot a^t$","isCorrect":false},{"id":"c","text":"$N_0 \\cdot a^t \\cdot \\ln a$","isCorrect":true},{"id":"d","text":"$N_0 \\cdot \\ln a$","isCorrect":false}],"solution":"Eksponentialfunksjonen med grunntal $a$ har derivert $f'(t) = N_0 \\cdot a^t \\cdot \\ln a = f(t) \\cdot \\ln a$. Potensregelen gjeld ikkje her – eksponenten er variabelen!"},{"id":"r1-5-1-n-quiz3-q3","task":"Du set 100 000 kr i banken til 5 % årleg rente. Omtrent kor mykje har du etter 20 år?","options":[{"id":"a","text":"Ca. 200\\,000 kr","isCorrect":false},{"id":"b","text":"Ca. 150\\,000 kr","isCorrect":false},{"id":"c","text":"Ca. 110\\,000 kr","isCorrect":false},{"id":"d","text":"Ca. 265\\,000 kr","isCorrect":true}],"solution":"$100\\,000 \\cdot 1{,}05^{20} \\approx 100\\,000 \\cdot 2{,}653 \\approx 265\\,300$ kr. Doblingstida er ca. 14 år, så på 20 år er beløpet godt over dobla."}]}},{"id":"r1-5-1-n-summary","type":"text","content":"## Forteljinga om det som gangar seg sjølv\n\nKongen i sjakksegna tapte fordi han tenkte lineært om noko som voks eksponentielt. No har du verktøya han mangla. Eksponentiell vekst blir skriven $N(t) = N_0 \\cdot a^t$ med **vekstfaktoren** $a = 1 + r$, der vekstraten $r$ kjem frå prosenten: 5 % vekst gir $a = 1{,}05$, og 15 % nedgang gir $a = 0{,}85$. Den same modellen kan skrivast $N(t) = N_0 \\cdot e^{kt}$ med den kontinuerlege vekstraten $k = \\ln a$ – to språk for same verkelegheit.\n\nDet mest slåande kjenneteiknet er at **doblingstida** $t_2 = \\frac{\\ln 2}{k}$ er konstant: eit folketal med 3 % årleg vekst doblar seg kvart 23. år, uansett kor stort det er, og 72-regelen $t_2 \\approx \\frac{72}{p}$ gir eit kjapt overslag. Ved avtaking ($k < 0$) snakkar vi om **halveringstida** $t_{1/2} = \\frac{\\ln 2}{|k|}$ – det er den som lèt arkeologar datere eit 11 000 år gammalt funn ut frå at berre ein firedel av karbon-14-et er igjen.\n\nOg under det heile ligg den vakraste samanhengen: $N'(t) = k \\cdot N(t)$. Veksthastigheita er alltid ein fast del av storleiken sjølv – det som finst, driv sin eigen vekst. Det er difor sparepengar med 5 % rente blir 2,65 gonger så store på 20 år, og difor små skilnader i vekstrate blir enorme over tid. Men ingenting kan vekse eksponentielt for alltid. Kva som skjer når veksten møter veggen, er forteljinga i neste kapittel – den logistiske."}],"exercises":[],"_meta":{"sourceHash":"06581ac7791db3fb","translatedAt":"2026-06-20T00:00:10.574Z","model":"claude-code-agent","strings":79,"tm":{"9e406c20a9940e41":"Eksponentiell vekst","b195b06d1ed59702":"Narrativ versjon","017dcdc17307dd8d":"Ei forteljing om eksponentiell vekst -- frå riskorn på sjakkbrettet til rentes rente, doblingstid og karbon-14-datering, og den deriverte som avslører den inste løyndomen til veksten.","39b8e2ceee920820":"forstå og bruke eksponentielle vekstmodellar","c3de2777ca000de8":"rekne ut vekstfaktor og vekstrate","27d00fdedc74e654":"rekne ut doblingstid og halveringstid","4f5e3fec4541b4a1":"derivere eksponentiell vekst","7193ff33c824f2c0":"bruke modellane på praktiske problem","b36dd178220e168d":"## Riskornet som velta eit sjakkbrett\n\nDet finst ei gammal segn om mannen som fann opp sjakkspelet. Som løn bad han kongen om eitt riskorn på den første ruta, to på den andre, fire på den tredje – ei dobling for kvar av dei 64 rutene. Kongen lo av den nøkterne førespurnaden, heilt til reknemeistrane hans fortalde at det ville krevje meir ris enn det fanst i heile riket. Det kongen ikkje forstod, var **eksponentiell vekst**.\n\nEksponentiell vekst oppstår når ein storleik veks med ein fast *prosent* per tidseining – ikkje eit fast beløp. Skilnaden er dramatisk. Veks sparekontoen din med 1000 kr i året, er det lineær vekst, jamn og forutseieleg. Veks han med 5 % i året, veks veksten sjølv: kvart år blir renta lagd til eit stadig større beløp, og kurva blir brattare og brattare.\n\nDu møter denne vekstforma overalt: i folketal som veks med høg fødselsrate, i rentes rente på bankinnskot, i bakteriekoloniar under ideelle forhold og i virusinfeksjonar i tidleg fase. I dette kapittelet skal vi byggje den matematiske modellen for slik vekst, lære å rekne ut kor fort noko doblar eller halverer seg, og sjå kva derivasjon avslører om den inste naturen til veksten. Lat oss starte med talet som styrer alt: vekstfaktoren.","a2b4f94c142250ea":"## Vekstfaktoren – talet du gangar med\n\nTenk deg eit land med 10 millionar innbyggjarar der folketalet veks med 2 % i året. Etter eitt år har vi ikkje berre lagt til noko – vi har *ganga* med noko. 2 % vekst tyder at vi gangar med $1{,}02$. Dette talet blir kalla **vekstfaktoren**, og heile den eksponentielle vekstmodellen er bygd rundt det: $N(t) = N_0 \\cdot a^t$, der $N_0$ er startverdien når $t = 0$, $a$ er vekstfaktoren per tidseining og $t$ er tida. For landet vårt blir modellen $N(t) = 10 \\cdot 1{,}02^t$ millionar, og i 2030 – ti år seinare – gir han $N(10) = 10 \\cdot 1{,}02^{10} \\approx 12{,}2$ millionar.\n\nVekstfaktoren fortel med ein gong kva som skjer: er $a > 1$, veks storleiken; er $0 < a < 1$, minkar han; og $a = 1$ tyder stillstand. Her må du skilje mellom **vekstraten** $r$ (sjølve prosenten som desimaltal, $r = \\frac{p}{100}$) og vekstfaktoren $a = 1 + r$. Med 5 % vekst er $a = 1{,}05$. Søkk ein bilverdi med 15 % i året, er $a = 1 - 0{,}15 = 0{,}85$. Og møter du vekstfaktoren $a = 1{,}08$, veit du at veksten er 8 %.\n\nDet finst òg ein annan måte å skrive nøyaktig same modell på: $N(t) = N_0 \\cdot e^{kt}$, der $e \\approx 2{,}718$ er Eulertalet og $k$ blir kalla den **kontinuerlege vekstraten**. Er $k > 0$ veks storleiken, er $k < 0$ snakkar vi om eksponentiell avtaking. Dei to formene heng saman gjennom $a = e^k$, altså $k = \\ln a$. For folketalet vårt er $k = \\ln(1{,}02) \\approx 0{,}0198$, så modellen kan like gjerne skrivast $N(t) = 10 \\cdot e^{0{,}0198t}$. Legg merke til at $k$ og $r$ liknar, men ikkje er like: 5 % vekst gir $a = 1{,}05$ og $k = \\ln(1{,}05) \\approx 0{,}0488$. Kvifor gidd vi å ha to skrivemåtar? Det får du sjå når vi no skal rekne med logaritmar – og seinare når vi deriverer.","e05aca4824b5e900":"Test deg sjølv på vekstfaktor og vekstrate:","4097889236a2af26":"placeholder","e8488bb3a43e033b":"Eit innskot gir 3,5 % rente per år. Kva er vekstfaktoren?","f1acf403a1e01a38":"Vekstfaktoren er $a = 1 + r = 1 + 0{,}035 = 1{,}035$.","3fdc87cda7f7a821":"Ein bilverdi søkk med 15 % per år. Kva er vekstfaktoren?","8d48dddd3d0b4bdb":"Nedgang på 15 % gir $a = 1 - 0{,}15 = 0{,}85$. Vekstfaktoren er framleis positiv – han er berre mindre enn 1.","e5c1acd04b45ef67":"Ein vekstfaktor er $a = 1{,}08$. Kva er den prosentvise veksten?","136831ba1df357ab":"Frå $a = 1 + r$ får vi $r = 0{,}08$, altså 8 % vekst per tidseining.","8f152367b1cbde9a":"Eit folketal følgjer $N(t) = 10 \\cdot 1{,}02^t$ millionar. Omtrent kor stort er det etter 10 år?","f76157fc1557a6a6":"$10{,}2$ millionar","25e880b0fab054cd":"$12{,}2$ millionar","e3df723c24dffd9b":"$20$ millionar","6743c266338d94b6":"$11{,}0$ millionar","98379e0cea4f89db":"$N(10) = 10 \\cdot 1{,}02^{10} \\approx 10 \\cdot 1{,}219 \\approx 12{,}2$ millionar. Ti år med 2 % vekst gir omtrent 22 % samla vekst – meir enn $10 \\cdot 2\\,\\% = 20\\,\\%$, på grunn av rentesrente-effekten.","9208044bc2556882":"## Når blir det dobla? Når blir det halvert?\n\nHer er noko forbløffande ved eksponentiell vekst: **doblingstida er konstant**. Uansett om folketalet er på éin million eller hundre millionar, tek det like lang tid å doble seg. Lat oss finne denne tida. Vi leitar etter tidspunktet $t_2$ der $N(t_2) = 2N_0$, altså $N_0 \\cdot e^{kt_2} = 2N_0$. Vi deler på $N_0$ og får $e^{kt_2} = 2$. Logaritmen løyser opp: $kt_2 = \\ln 2$, og dermed $$t_2 = \\frac{\\ln 2}{k}$$ Med vekstfaktor i staden blir det $t_2 = \\frac{\\ln 2}{\\ln a}$. Talet $\\ln 2 \\approx 0{,}693$ er verdt å hugse.\n\nPrøv med eit folketal som veks 3 % i året: $k = \\ln(1{,}03) \\approx 0{,}0296$, så $t_2 = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. På 100 år rekk folketalet å doble seg rundt fire gonger og blir omtrent $2^4 = 16$ gonger så stort – kontrollrekninga $1{,}03^{100} \\approx 19{,}2$ stadfestar storleiksordenen. I økonomi blir ofte ein kjapp tommelfingerregel brukt, **72-regelen**: $t_2 \\approx \\frac{72}{p}$, der $p$ er vekstraten i prosent. Med 6 % rente blir pengane dobla på cirka $\\frac{72}{6} = 12$ år.\n\nNår $k < 0$ snur alt på hovudet, og vi spør i staden kor lang tid det tek før halvparten er igjen. **Halveringstida** er $t_{1/2} = \\frac{\\ln 2}{|k|}$ – same formel, berre med talverdien av $k$. Det mest berømte eksempelet er karbon-14, som har halveringstid 5730 år og blir brukt til å datere arkeologiske funn. Nedbrytingsraten er $|k| = \\frac{\\ln 2}{5730} \\approx 0{,}000121$ per år, så mengda følgjer $N(t) = N_0 \\cdot e^{-0{,}000121t}$, eller like elegant $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Finn arkeologane eit trestykke med berre 25 % av det opphavlege C-14-innhaldet, treng dei knapt kalkulator: $25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider – funnet er omtrent $2 \\cdot 5730 = 11\\,460$ år gammalt.","10d26ad52f3ba11f":"Test deg sjølv på doblingstid og halveringstid:","504ab2fd8f73ede7":"Eit folketal veks med 3 % per år ($k \\approx 0{,}0296$). Kva er doblingstida?","af51b1724c0091f5":"Ca. 23 år","a0f48d0a85fe289a":"Ca. 33 år","bbef8c5dd3f6001a":"Ca. 3 år","6bf3f0c5df16df07":"Ca. 50 år","440b0fce9e353e7a":"$t_2 = \\frac{\\ln 2}{k} = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. 72-regelen gir same storleiksorden: $72/3 = 24$ år.","c5a41c0dbf07fdf6":"Bruk 72-regelen: Omtrent kor lang er doblingstida ved 6 % årleg vekst?","08a49d2ebb9bbc61":"6 år","7bfc214dc9505398":"24 år","622b5030c3b5f20f":"12 år","22a33dae2da39868":"18 år","07e8419d59381776":"72-regelen: $t_2 \\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år.","40d81c5d8c2e6ca3":"Karbon-14 har halveringstid 5730 år. Eit funn inneheld 25 % av opphavleg C-14-mengd. Kor gammalt er funnet?","2241a26589a4cd0d":"Ca. 5\\,730 år","43465ca35c3fd59e":"Ca. 11\\,460 år","ef3f49f7b80c77a1":"Ca. 22\\,920 år","f5b1f9b0cb49dadb":"Ca. 2\\,865 år","272a09dbf8c1011e":"$25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider: $2 \\cdot 5730 = 11\\,460$ år.","3dbeaf26dbb7d2c1":"Kva kjenneteiknar doblingstida ved eksponentiell vekst?","e078a2333d17c7e0":"Ho blir kortare etter kvart som storleiken veks","1a950491555cdd60":"Ho blir lengre etter kvart som storleiken veks","97d8bdf6f388443a":"Ho avheng av startverdien $N_0$","80d1a8c8c6066d64":"Ho er konstant, uansett startverdi","6e82cc73b3c309d4":"Doblingstida $t_2 = \\frac{\\ln 2}{k}$ avheng berre av vekstraten $k$, ikkje av kor stor storleiken er. Det er eit særtrekk ved eksponentiell vekst.","0e5ce5ddf491bacb":"## Veksten som speglar seg sjølv\n\nNo kjem den djupaste eigenskapen ved eksponentiell vekst – den du ser først når du deriverer. For $N(t) = N_0 \\cdot e^{kt}$ er den deriverte $N'(t) = k \\cdot N_0 \\cdot e^{kt}$. Men vent: uttrykket $N_0 \\cdot e^{kt}$ er jo berre $N(t)$ sjølv! Altså er $$N'(t) = k \\cdot N(t)$$ Veksthastigheita er til kvar tid ein fast del $k$ av storleiken sjølv. Jo meir det finst, dess fortare veks det – det er sjølve *definisjonen* på eksponentiell vekst, og grunnen til at $e$-forma er så elegant. Bruker du vekstfaktor-forma $f(t) = N_0 \\cdot a^t$, blir den deriverte $f'(t) = f(t) \\cdot \\ln a$ – same mønster, med $\\ln a$ i rolla som $k$.\n\nSjå det i praksis: folketalet i eit land følgjer $N(t) = 5 \\cdot e^{0{,}02t}$ millionar, med $t$ i år etter 2020. Då er $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$, som fortel kor mange millionar folketalet aukar med per år. I 2025 er $N'(5) = 0{,}1 \\cdot e^{0{,}1} \\approx 0{,}11$ – cirka 110 000 nye innbyggjarar det året. Og den *relative* veksten? $\\frac{N'(t)}{N(t)} = k = 0{,}02$, alltid nøyaktig 2 %, uansett år.\n\nTil slutt, det mest kvardagslege eksempelet av alle: sparepengar. Set du 100 000 kr i banken til 5 % rente, har du etter 20 år $100\\,000 \\cdot 1{,}05^{20} \\approx 265\\,300$ kr, og pengane blir dobla på $t_2 = \\frac{\\ln 2}{\\ln 1{,}05} \\approx 14{,}2$ år. Samanlikn med ein konto til 3 %: etter 30 år gir 5 %-kontoen cirka 432 200 kr, medan 3 %-kontoen gir cirka 242 700 kr. To prosentpoeng i skilnad vart til nesten 190 000 kr. Det er rentes rente i eit nøtteskal – og grunnen til at små skilnader i vekstrate får enorme konsekvensar over tid.","ceace96635b83602":"Test deg sjølv på derivasjon og rentes rente:","b5ea6f24d6f46516":"Folketalet følgjer $N(t) = 5 \\cdot e^{0{,}02t}$. Kva er $N'(t)$?","5374a6c5fe75b3f4":"$5 \\cdot e^{0{,}02t}$","0aeb0d01b2177b83":"$0{,}1 \\cdot e^{0{,}02t}$","a55d47b7098f3312":"$0{,}02 \\cdot e^{0{,}02t}$","fdff11a56a18e5a4":"$2{,}5 \\cdot e^{0{,}02t}$","4eac1e7eb0a7e579":"Kjerneregelen gir $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$.","001c7439d30adeef":"Kva tyder samanhengen $N'(t) = k \\cdot N(t)$?","0b682455b86fd30c":"Veksthastigheita er alltid ein fast del av storleiken sjølv","0f77bcc053d46643":"Veksthastigheita er konstant","dd274a772cad4af5":"Storleiken veks med eit fast beløp per tidseining","393f485df294a177":"Den deriverte er alltid lik startverdien","a86c9e21fdea8ad4":"Veksthastigheita $N'(t)$ er proporsjonal med $N(t)$, med proporsjonalitetskonstant $k$. Jo meir som finst, dess raskare veks det – kjenneteiknet på eksponentiell vekst.","a81d97f29a2c3386":"Kva er den deriverte av $f(t) = N_0 \\cdot a^t$?","0f24c499a8b9afc6":"$N_0 \\cdot t \\cdot a^{t-1}$","ec7c24fb12ccbec4":"$N_0 \\cdot a^t$","f2190c63cabc7832":"$N_0 \\cdot a^t \\cdot \\ln a$","4e261c2be4b950a2":"$N_0 \\cdot \\ln a$","281142d8ca0c97e8":"Eksponentialfunksjonen med grunntal $a$ har derivert $f'(t) = N_0 \\cdot a^t \\cdot \\ln a = f(t) \\cdot \\ln a$. Potensregelen gjeld ikkje her – eksponenten er variabelen!","2c2c73ed262b1f73":"Du set 100 000 kr i banken til 5 % årleg rente. Omtrent kor mykje har du etter 20 år?","1428681f199911a5":"Ca. 200\\,000 kr","4524f9e510bb14f2":"Ca. 150\\,000 kr","5195bd8c03ea9952":"Ca. 110\\,000 kr","eb3184432ed133c8":"Ca. 265\\,000 kr","7367c7d4a057a65e":"$100\\,000 \\cdot 1{,}05^{20} \\approx 100\\,000 \\cdot 2{,}653 \\approx 265\\,300$ kr. Doblingstida er ca. 14 år, så på 20 år er beløpet godt over dobla.","bd3d724586fd307e":"## Forteljinga om det som gangar seg sjølv\n\nKongen i sjakksegna tapte fordi han tenkte lineært om noko som voks eksponentielt. No har du verktøya han mangla. Eksponentiell vekst blir skriven $N(t) = N_0 \\cdot a^t$ med **vekstfaktoren** $a = 1 + r$, der vekstraten $r$ kjem frå prosenten: 5 % vekst gir $a = 1{,}05$, og 15 % nedgang gir $a = 0{,}85$. Den same modellen kan skrivast $N(t) = N_0 \\cdot e^{kt}$ med den kontinuerlege vekstraten $k = \\ln a$ – to språk for same verkelegheit.\n\nDet mest slåande kjenneteiknet er at **doblingstida** $t_2 = \\frac{\\ln 2}{k}$ er konstant: eit folketal med 3 % årleg vekst doblar seg kvart 23. år, uansett kor stort det er, og 72-regelen $t_2 \\approx \\frac{72}{p}$ gir eit kjapt overslag. Ved avtaking ($k < 0$) snakkar vi om **halveringstida** $t_{1/2} = \\frac{\\ln 2}{|k|}$ – det er den som lèt arkeologar datere eit 11 000 år gammalt funn ut frå at berre ein firedel av karbon-14-et er igjen.\n\nOg under det heile ligg den vakraste samanhengen: $N'(t) = k \\cdot N(t)$. Veksthastigheita er alltid ein fast del av storleiken sjølv – det som finst, driv sin eigen vekst. Det er difor sparepengar med 5 % rente blir 2,65 gonger så store på 20 år, og difor små skilnader i vekstrate blir enorme over tid. Men ingenting kan vekse eksponentielt for alltid. Kva som skjer når veksten møter veggen, er forteljinga i neste kapittel – den logistiske."}}}
+{
+  "id": "r1-5-1-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "5.1",
+  "title": "Eksponentiell vekst",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om eksponentiell vekst -- frå riskorn på sjakkbrettet til rentes rente, doblingstid og karbon-14-datering, og den deriverte som avslører den inste løyndomen til veksten.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forstå og bruke eksponentielle vekstmodellar",
+    "rekne ut vekstfaktor og vekstrate",
+    "rekne ut doblingstid og halveringstid",
+    "derivere eksponentiell vekst",
+    "bruke modellane på praktiske problem"
+  ],
+  "linkedChapterId": "r1-5-1",
+  "content": [
+    {
+      "id": "r1-5-1-n-intro",
+      "type": "text",
+      "content": "## Riskornet som velta eit sjakkbrett\n\nDet finst ei gammal segn om mannen som fann opp sjakkspelet. Som løn bad han kongen om eitt riskorn på den første ruta, to på den andre, fire på den tredje – ei dobling for kvar av dei 64 rutene. Kongen lo av den nøkterne førespurnaden, heilt til reknemeistrane hans fortalde at det ville krevje meir ris enn det fanst i heile riket. Det kongen ikkje forstod, var **eksponentiell vekst**.\n\nEksponentiell vekst oppstår når ein storleik veks med ein fast *prosent* per tidseining – ikkje eit fast beløp. Skilnaden er dramatisk. Veks sparekontoen din med 1000 kr i året, er det lineær vekst, jamn og forutseieleg. Veks han med 5 % i året, veks veksten sjølv: kvart år blir renta lagd til eit stadig større beløp, og kurva blir brattare og brattare.\n\nDu møter denne vekstforma overalt: i folketal som veks med høg fødselsrate, i rentes rente på bankinnskot, i bakteriekoloniar under ideelle forhold og i virusinfeksjonar i tidleg fase. I dette kapittelet skal vi byggje den matematiske modellen for slik vekst, lære å rekne ut kor fort noko doblar eller halverer seg, og sjå kva derivasjon avslører om den inste naturen til veksten. Lat oss starte med talet som styrer alt: vekstfaktoren."
+    },
+    {
+      "id": "r1-5-1-n-section1",
+      "type": "text",
+      "content": "## Vekstfaktoren – talet du gangar med\n\nTenk deg eit land med 10 millionar innbyggjarar der folketalet veks med 2 % i året. Etter eitt år har vi ikkje berre lagt til noko – vi har *ganga* med noko. 2 % vekst tyder at vi gangar med $1{,}02$. Dette talet blir kalla **vekstfaktoren**, og heile den eksponentielle vekstmodellen er bygd rundt det: $N(t) = N_0 \\cdot a^t$, der $N_0$ er startverdien når $t = 0$, $a$ er vekstfaktoren per tidseining og $t$ er tida. For landet vårt blir modellen $N(t) = 10 \\cdot 1{,}02^t$ millionar, og i 2030 – ti år seinare – gir han $N(10) = 10 \\cdot 1{,}02^{10} \\approx 12{,}2$ millionar.\n\nVekstfaktoren fortel med ein gong kva som skjer: er $a > 1$, veks storleiken; er $0 < a < 1$, minkar han; og $a = 1$ tyder stillstand. Her må du skilje mellom **vekstraten** $r$ (sjølve prosenten som desimaltal, $r = \\frac{p}{100}$) og vekstfaktoren $a = 1 + r$. Med 5 % vekst er $a = 1{,}05$. Søkk ein bilverdi med 15 % i året, er $a = 1 - 0{,}15 = 0{,}85$. Og møter du vekstfaktoren $a = 1{,}08$, veit du at veksten er 8 %.\n\nDet finst òg ein annan måte å skrive nøyaktig same modell på: $N(t) = N_0 \\cdot e^{kt}$, der $e \\approx 2{,}718$ er Eulertalet og $k$ blir kalla den **kontinuerlege vekstraten**. Er $k > 0$ veks storleiken, er $k < 0$ snakkar vi om eksponentiell avtaking. Dei to formene heng saman gjennom $a = e^k$, altså $k = \\ln a$. For folketalet vårt er $k = \\ln(1{,}02) \\approx 0{,}0198$, så modellen kan like gjerne skrivast $N(t) = 10 \\cdot e^{0{,}0198t}$. Legg merke til at $k$ og $r$ liknar, men ikkje er like: 5 % vekst gir $a = 1{,}05$ og $k = \\ln(1{,}05) \\approx 0{,}0488$. Kvifor gidd vi å ha to skrivemåtar? Det får du sjå når vi no skal rekne med logaritmar – og seinare når vi deriverer."
+    },
+    {
+      "id": "r1-5-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vekstfaktor og vekstrate:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-1-n-quiz1-q0",
+            "task": "Eit innskot gir 3,5 % rente per år. Kva er vekstfaktoren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}035$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}35$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}035$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}965$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktoren er $a = 1 + r = 1 + 0{,}035 = 1{,}035$."
+          },
+          {
+            "id": "r1-5-1-n-quiz1-q1",
+            "task": "Ein bilverdi søkk med 15 % per år. Kva er vekstfaktoren?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-0{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0{,}85$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Nedgang på 15 % gir $a = 1 - 0{,}15 = 0{,}85$. Vekstfaktoren er framleis positiv – han er berre mindre enn 1."
+          },
+          {
+            "id": "r1-5-1-n-quiz1-q2",
+            "task": "Ein vekstfaktor er $a = 1{,}08$. Kva er den prosentvise veksten?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$8\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1{,}08\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}08\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$108\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå $a = 1 + r$ får vi $r = 0{,}08$, altså 8 % vekst per tidseining."
+          },
+          {
+            "id": "r1-5-1-n-quiz1-q3",
+            "task": "Eit folketal følgjer $N(t) = 10 \\cdot 1{,}02^t$ millionar. Omtrent kor stort er det etter 10 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10{,}2$ millionar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12{,}2$ millionar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$20$ millionar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$11{,}0$ millionar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N(10) = 10 \\cdot 1{,}02^{10} \\approx 10 \\cdot 1{,}219 \\approx 12{,}2$ millionar. Ti år med 2 % vekst gir omtrent 22 % samla vekst – meir enn $10 \\cdot 2\\,\\% = 20\\,\\%$, på grunn av rentesrente-effekten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-1-n-section2",
+      "type": "text",
+      "content": "## Når blir det dobla? Når blir det halvert?\n\nHer er noko forbløffande ved eksponentiell vekst: **doblingstida er konstant**. Uansett om folketalet er på éin million eller hundre millionar, tek det like lang tid å doble seg. Lat oss finne denne tida. Vi leitar etter tidspunktet $t_2$ der $N(t_2) = 2N_0$, altså $N_0 \\cdot e^{kt_2} = 2N_0$. Vi deler på $N_0$ og får $e^{kt_2} = 2$. Logaritmen løyser opp: $kt_2 = \\ln 2$, og dermed $$t_2 = \\frac{\\ln 2}{k}$$ Med vekstfaktor i staden blir det $t_2 = \\frac{\\ln 2}{\\ln a}$. Talet $\\ln 2 \\approx 0{,}693$ er verdt å hugse.\n\nPrøv med eit folketal som veks 3 % i året: $k = \\ln(1{,}03) \\approx 0{,}0296$, så $t_2 = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. På 100 år rekk folketalet å doble seg rundt fire gonger og blir omtrent $2^4 = 16$ gonger så stort – kontrollrekninga $1{,}03^{100} \\approx 19{,}2$ stadfestar storleiksordenen. I økonomi blir ofte ein kjapp tommelfingerregel brukt, **72-regelen**: $t_2 \\approx \\frac{72}{p}$, der $p$ er vekstraten i prosent. Med 6 % rente blir pengane dobla på cirka $\\frac{72}{6} = 12$ år.\n\nNår $k < 0$ snur alt på hovudet, og vi spør i staden kor lang tid det tek før halvparten er igjen. **Halveringstida** er $t_{1/2} = \\frac{\\ln 2}{|k|}$ – same formel, berre med talverdien av $k$. Det mest berømte eksempelet er karbon-14, som har halveringstid 5730 år og blir brukt til å datere arkeologiske funn. Nedbrytingsraten er $|k| = \\frac{\\ln 2}{5730} \\approx 0{,}000121$ per år, så mengda følgjer $N(t) = N_0 \\cdot e^{-0{,}000121t}$, eller like elegant $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Finn arkeologane eit trestykke med berre 25 % av det opphavlege C-14-innhaldet, treng dei knapt kalkulator: $25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider – funnet er omtrent $2 \\cdot 5730 = 11\\,460$ år gammalt."
+    },
+    {
+      "id": "r1-5-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på doblingstid og halveringstid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-1-n-quiz2-q0",
+            "task": "Eit folketal veks med 3 % per år ($k \\approx 0{,}0296$). Kva er doblingstida?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 33 år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 3 år",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. 23 år",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ca. 50 år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$t_2 = \\frac{\\ln 2}{k} = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. 72-regelen gir same storleiksorden: $72/3 = 24$ år."
+          },
+          {
+            "id": "r1-5-1-n-quiz2-q1",
+            "task": "Bruk 72-regelen: Omtrent kor lang er doblingstida ved 6 % årleg vekst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "6 år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "24 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "18 år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "12 år",
+                "isCorrect": true
+              }
+            ],
+            "solution": "72-regelen: $t_2 \\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år."
+          },
+          {
+            "id": "r1-5-1-n-quiz2-q2",
+            "task": "Karbon-14 har halveringstid 5730 år. Eit funn inneheld 25 % av opphavleg C-14-mengd. Kor gammalt er funnet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 11\\,460 år",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. 5\\,730 år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 22\\,920 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 2\\,865 år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider: $2 \\cdot 5730 = 11\\,460$ år."
+          },
+          {
+            "id": "r1-5-1-n-quiz2-q3",
+            "task": "Kva kjenneteiknar doblingstida ved eksponentiell vekst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ho blir kortare etter kvart som storleiken veks",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ho er konstant, uansett startverdi",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ho blir lengre etter kvart som storleiken veks",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho avheng av startverdien $N_0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Doblingstida $t_2 = \\frac{\\ln 2}{k}$ avheng berre av vekstraten $k$, ikkje av kor stor storleiken er. Det er eit særtrekk ved eksponentiell vekst."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-1-n-section3",
+      "type": "text",
+      "content": "## Veksten som speglar seg sjølv\n\nNo kjem den djupaste eigenskapen ved eksponentiell vekst – den du ser først når du deriverer. For $N(t) = N_0 \\cdot e^{kt}$ er den deriverte $N'(t) = k \\cdot N_0 \\cdot e^{kt}$. Men vent: uttrykket $N_0 \\cdot e^{kt}$ er jo berre $N(t)$ sjølv! Altså er $$N'(t) = k \\cdot N(t)$$ Veksthastigheita er til kvar tid ein fast del $k$ av storleiken sjølv. Jo meir det finst, dess fortare veks det – det er sjølve *definisjonen* på eksponentiell vekst, og grunnen til at $e$-forma er så elegant. Bruker du vekstfaktor-forma $f(t) = N_0 \\cdot a^t$, blir den deriverte $f'(t) = f(t) \\cdot \\ln a$ – same mønster, med $\\ln a$ i rolla som $k$.\n\nSjå det i praksis: folketalet i eit land følgjer $N(t) = 5 \\cdot e^{0{,}02t}$ millionar, med $t$ i år etter 2020. Då er $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$, som fortel kor mange millionar folketalet aukar med per år. I 2025 er $N'(5) = 0{,}1 \\cdot e^{0{,}1} \\approx 0{,}11$ – cirka 110 000 nye innbyggjarar det året. Og den *relative* veksten? $\\frac{N'(t)}{N(t)} = k = 0{,}02$, alltid nøyaktig 2 %, uansett år.\n\nTil slutt, det mest kvardagslege eksempelet av alle: sparepengar. Set du 100 000 kr i banken til 5 % rente, har du etter 20 år $100\\,000 \\cdot 1{,}05^{20} \\approx 265\\,300$ kr, og pengane blir dobla på $t_2 = \\frac{\\ln 2}{\\ln 1{,}05} \\approx 14{,}2$ år. Samanlikn med ein konto til 3 %: etter 30 år gir 5 %-kontoen cirka 432 200 kr, medan 3 %-kontoen gir cirka 242 700 kr. To prosentpoeng i skilnad vart til nesten 190 000 kr. Det er rentes rente i eit nøtteskal – og grunnen til at små skilnader i vekstrate får enorme konsekvensar over tid."
+    },
+    {
+      "id": "r1-5-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på derivasjon og rentes rente:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-1-n-quiz3-q0",
+            "task": "Folketalet følgjer $N(t) = 5 \\cdot e^{0{,}02t}$. Kva er $N'(t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5 \\cdot e^{0{,}02t}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}02 \\cdot e^{0{,}02t}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}1 \\cdot e^{0{,}02t}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2{,}5 \\cdot e^{0{,}02t}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen gir $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$."
+          },
+          {
+            "id": "r1-5-1-n-quiz3-q1",
+            "task": "Kva tyder samanhengen $N'(t) = k \\cdot N(t)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Veksthastigheita er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Storleiken veks med eit fast beløp per tidseining",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den deriverte er alltid lik startverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Veksthastigheita er alltid ein fast del av storleiken sjølv",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Veksthastigheita $N'(t)$ er proporsjonal med $N(t)$, med proporsjonalitetskonstant $k$. Jo meir som finst, dess raskare veks det – kjenneteiknet på eksponentiell vekst."
+          },
+          {
+            "id": "r1-5-1-n-quiz3-q2",
+            "task": "Kva er den deriverte av $f(t) = N_0 \\cdot a^t$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$N_0 \\cdot a^t \\cdot \\ln a$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$N_0 \\cdot t \\cdot a^{t-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$N_0 \\cdot a^t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$N_0 \\cdot \\ln a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentialfunksjonen med grunntal $a$ har derivert $f'(t) = N_0 \\cdot a^t \\cdot \\ln a = f(t) \\cdot \\ln a$. Potensregelen gjeld ikkje her – eksponenten er variabelen!"
+          },
+          {
+            "id": "r1-5-1-n-quiz3-q3",
+            "task": "Du set 100 000 kr i banken til 5 % årleg rente. Omtrent kor mykje har du etter 20 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 200\\,000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 265\\,000 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ca. 150\\,000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 110\\,000 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$100\\,000 \\cdot 1{,}05^{20} \\approx 100\\,000 \\cdot 2{,}653 \\approx 265\\,300$ kr. Doblingstida er ca. 14 år, så på 20 år er beløpet godt over dobla."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-1-n-summary",
+      "type": "text",
+      "content": "## Forteljinga om det som gangar seg sjølv\n\nKongen i sjakksegna tapte fordi han tenkte lineært om noko som voks eksponentielt. No har du verktøya han mangla. Eksponentiell vekst blir skriven $N(t) = N_0 \\cdot a^t$ med **vekstfaktoren** $a = 1 + r$, der vekstraten $r$ kjem frå prosenten: 5 % vekst gir $a = 1{,}05$, og 15 % nedgang gir $a = 0{,}85$. Den same modellen kan skrivast $N(t) = N_0 \\cdot e^{kt}$ med den kontinuerlege vekstraten $k = \\ln a$ – to språk for same verkelegheit.\n\nDet mest slåande kjenneteiknet er at **doblingstida** $t_2 = \\frac{\\ln 2}{k}$ er konstant: eit folketal med 3 % årleg vekst doblar seg kvart 23. år, uansett kor stort det er, og 72-regelen $t_2 \\approx \\frac{72}{p}$ gir eit kjapt overslag. Ved avtaking ($k < 0$) snakkar vi om **halveringstida** $t_{1/2} = \\frac{\\ln 2}{|k|}$ – det er den som lèt arkeologar datere eit 11 000 år gammalt funn ut frå at berre ein firedel av karbon-14-et er igjen.\n\nOg under det heile ligg den vakraste samanhengen: $N'(t) = k \\cdot N(t)$. Veksthastigheita er alltid ein fast del av storleiken sjølv – det som finst, driv sin eigen vekst. Det er difor sparepengar med 5 % rente blir 2,65 gonger så store på 20 år, og difor små skilnader i vekstrate blir enorme over tid. Men ingenting kan vekse eksponentielt for alltid. Kva som skjer når veksten møter veggen, er forteljinga i neste kapittel – den logistiske."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "06581ac7791db3fb",
+    "translatedAt": "2026-06-20T00:00:10.574Z",
+    "model": "claude-code-agent",
+    "strings": 79,
+    "tm": {
+      "9e406c20a9940e41": "Eksponentiell vekst",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "017dcdc17307dd8d": "Ei forteljing om eksponentiell vekst -- frå riskorn på sjakkbrettet til rentes rente, doblingstid og karbon-14-datering, og den deriverte som avslører den inste løyndomen til veksten.",
+      "39b8e2ceee920820": "forstå og bruke eksponentielle vekstmodellar",
+      "c3de2777ca000de8": "rekne ut vekstfaktor og vekstrate",
+      "27d00fdedc74e654": "rekne ut doblingstid og halveringstid",
+      "4f5e3fec4541b4a1": "derivere eksponentiell vekst",
+      "7193ff33c824f2c0": "bruke modellane på praktiske problem",
+      "b36dd178220e168d": "## Riskornet som velta eit sjakkbrett\n\nDet finst ei gammal segn om mannen som fann opp sjakkspelet. Som løn bad han kongen om eitt riskorn på den første ruta, to på den andre, fire på den tredje – ei dobling for kvar av dei 64 rutene. Kongen lo av den nøkterne førespurnaden, heilt til reknemeistrane hans fortalde at det ville krevje meir ris enn det fanst i heile riket. Det kongen ikkje forstod, var **eksponentiell vekst**.\n\nEksponentiell vekst oppstår når ein storleik veks med ein fast *prosent* per tidseining – ikkje eit fast beløp. Skilnaden er dramatisk. Veks sparekontoen din med 1000 kr i året, er det lineær vekst, jamn og forutseieleg. Veks han med 5 % i året, veks veksten sjølv: kvart år blir renta lagd til eit stadig større beløp, og kurva blir brattare og brattare.\n\nDu møter denne vekstforma overalt: i folketal som veks med høg fødselsrate, i rentes rente på bankinnskot, i bakteriekoloniar under ideelle forhold og i virusinfeksjonar i tidleg fase. I dette kapittelet skal vi byggje den matematiske modellen for slik vekst, lære å rekne ut kor fort noko doblar eller halverer seg, og sjå kva derivasjon avslører om den inste naturen til veksten. Lat oss starte med talet som styrer alt: vekstfaktoren.",
+      "a2b4f94c142250ea": "## Vekstfaktoren – talet du gangar med\n\nTenk deg eit land med 10 millionar innbyggjarar der folketalet veks med 2 % i året. Etter eitt år har vi ikkje berre lagt til noko – vi har *ganga* med noko. 2 % vekst tyder at vi gangar med $1{,}02$. Dette talet blir kalla **vekstfaktoren**, og heile den eksponentielle vekstmodellen er bygd rundt det: $N(t) = N_0 \\cdot a^t$, der $N_0$ er startverdien når $t = 0$, $a$ er vekstfaktoren per tidseining og $t$ er tida. For landet vårt blir modellen $N(t) = 10 \\cdot 1{,}02^t$ millionar, og i 2030 – ti år seinare – gir han $N(10) = 10 \\cdot 1{,}02^{10} \\approx 12{,}2$ millionar.\n\nVekstfaktoren fortel med ein gong kva som skjer: er $a > 1$, veks storleiken; er $0 < a < 1$, minkar han; og $a = 1$ tyder stillstand. Her må du skilje mellom **vekstraten** $r$ (sjølve prosenten som desimaltal, $r = \\frac{p}{100}$) og vekstfaktoren $a = 1 + r$. Med 5 % vekst er $a = 1{,}05$. Søkk ein bilverdi med 15 % i året, er $a = 1 - 0{,}15 = 0{,}85$. Og møter du vekstfaktoren $a = 1{,}08$, veit du at veksten er 8 %.\n\nDet finst òg ein annan måte å skrive nøyaktig same modell på: $N(t) = N_0 \\cdot e^{kt}$, der $e \\approx 2{,}718$ er Eulertalet og $k$ blir kalla den **kontinuerlege vekstraten**. Er $k > 0$ veks storleiken, er $k < 0$ snakkar vi om eksponentiell avtaking. Dei to formene heng saman gjennom $a = e^k$, altså $k = \\ln a$. For folketalet vårt er $k = \\ln(1{,}02) \\approx 0{,}0198$, så modellen kan like gjerne skrivast $N(t) = 10 \\cdot e^{0{,}0198t}$. Legg merke til at $k$ og $r$ liknar, men ikkje er like: 5 % vekst gir $a = 1{,}05$ og $k = \\ln(1{,}05) \\approx 0{,}0488$. Kvifor gidd vi å ha to skrivemåtar? Det får du sjå når vi no skal rekne med logaritmar – og seinare når vi deriverer.",
+      "e05aca4824b5e900": "Test deg sjølv på vekstfaktor og vekstrate:",
+      "4097889236a2af26": "placeholder",
+      "e8488bb3a43e033b": "Eit innskot gir 3,5 % rente per år. Kva er vekstfaktoren?",
+      "f1acf403a1e01a38": "Vekstfaktoren er $a = 1 + r = 1 + 0{,}035 = 1{,}035$.",
+      "3fdc87cda7f7a821": "Ein bilverdi søkk med 15 % per år. Kva er vekstfaktoren?",
+      "8d48dddd3d0b4bdb": "Nedgang på 15 % gir $a = 1 - 0{,}15 = 0{,}85$. Vekstfaktoren er framleis positiv – han er berre mindre enn 1.",
+      "e5c1acd04b45ef67": "Ein vekstfaktor er $a = 1{,}08$. Kva er den prosentvise veksten?",
+      "136831ba1df357ab": "Frå $a = 1 + r$ får vi $r = 0{,}08$, altså 8 % vekst per tidseining.",
+      "8f152367b1cbde9a": "Eit folketal følgjer $N(t) = 10 \\cdot 1{,}02^t$ millionar. Omtrent kor stort er det etter 10 år?",
+      "f76157fc1557a6a6": "$10{,}2$ millionar",
+      "25e880b0fab054cd": "$12{,}2$ millionar",
+      "e3df723c24dffd9b": "$20$ millionar",
+      "6743c266338d94b6": "$11{,}0$ millionar",
+      "98379e0cea4f89db": "$N(10) = 10 \\cdot 1{,}02^{10} \\approx 10 \\cdot 1{,}219 \\approx 12{,}2$ millionar. Ti år med 2 % vekst gir omtrent 22 % samla vekst – meir enn $10 \\cdot 2\\,\\% = 20\\,\\%$, på grunn av rentesrente-effekten.",
+      "9208044bc2556882": "## Når blir det dobla? Når blir det halvert?\n\nHer er noko forbløffande ved eksponentiell vekst: **doblingstida er konstant**. Uansett om folketalet er på éin million eller hundre millionar, tek det like lang tid å doble seg. Lat oss finne denne tida. Vi leitar etter tidspunktet $t_2$ der $N(t_2) = 2N_0$, altså $N_0 \\cdot e^{kt_2} = 2N_0$. Vi deler på $N_0$ og får $e^{kt_2} = 2$. Logaritmen løyser opp: $kt_2 = \\ln 2$, og dermed $$t_2 = \\frac{\\ln 2}{k}$$ Med vekstfaktor i staden blir det $t_2 = \\frac{\\ln 2}{\\ln a}$. Talet $\\ln 2 \\approx 0{,}693$ er verdt å hugse.\n\nPrøv med eit folketal som veks 3 % i året: $k = \\ln(1{,}03) \\approx 0{,}0296$, så $t_2 = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. På 100 år rekk folketalet å doble seg rundt fire gonger og blir omtrent $2^4 = 16$ gonger så stort – kontrollrekninga $1{,}03^{100} \\approx 19{,}2$ stadfestar storleiksordenen. I økonomi blir ofte ein kjapp tommelfingerregel brukt, **72-regelen**: $t_2 \\approx \\frac{72}{p}$, der $p$ er vekstraten i prosent. Med 6 % rente blir pengane dobla på cirka $\\frac{72}{6} = 12$ år.\n\nNår $k < 0$ snur alt på hovudet, og vi spør i staden kor lang tid det tek før halvparten er igjen. **Halveringstida** er $t_{1/2} = \\frac{\\ln 2}{|k|}$ – same formel, berre med talverdien av $k$. Det mest berømte eksempelet er karbon-14, som har halveringstid 5730 år og blir brukt til å datere arkeologiske funn. Nedbrytingsraten er $|k| = \\frac{\\ln 2}{5730} \\approx 0{,}000121$ per år, så mengda følgjer $N(t) = N_0 \\cdot e^{-0{,}000121t}$, eller like elegant $N(t) = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/5730}$. Finn arkeologane eit trestykke med berre 25 % av det opphavlege C-14-innhaldet, treng dei knapt kalkulator: $25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider – funnet er omtrent $2 \\cdot 5730 = 11\\,460$ år gammalt.",
+      "10d26ad52f3ba11f": "Test deg sjølv på doblingstid og halveringstid:",
+      "504ab2fd8f73ede7": "Eit folketal veks med 3 % per år ($k \\approx 0{,}0296$). Kva er doblingstida?",
+      "af51b1724c0091f5": "Ca. 23 år",
+      "a0f48d0a85fe289a": "Ca. 33 år",
+      "bbef8c5dd3f6001a": "Ca. 3 år",
+      "6bf3f0c5df16df07": "Ca. 50 år",
+      "440b0fce9e353e7a": "$t_2 = \\frac{\\ln 2}{k} = \\frac{0{,}693}{0{,}0296} \\approx 23{,}4$ år. 72-regelen gir same storleiksorden: $72/3 = 24$ år.",
+      "c5a41c0dbf07fdf6": "Bruk 72-regelen: Omtrent kor lang er doblingstida ved 6 % årleg vekst?",
+      "08a49d2ebb9bbc61": "6 år",
+      "7bfc214dc9505398": "24 år",
+      "622b5030c3b5f20f": "12 år",
+      "22a33dae2da39868": "18 år",
+      "07e8419d59381776": "72-regelen: $t_2 \\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år.",
+      "40d81c5d8c2e6ca3": "Karbon-14 har halveringstid 5730 år. Eit funn inneheld 25 % av opphavleg C-14-mengd. Kor gammalt er funnet?",
+      "2241a26589a4cd0d": "Ca. 5\\,730 år",
+      "43465ca35c3fd59e": "Ca. 11\\,460 år",
+      "ef3f49f7b80c77a1": "Ca. 22\\,920 år",
+      "f5b1f9b0cb49dadb": "Ca. 2\\,865 år",
+      "272a09dbf8c1011e": "$25\\,\\% = \\left(\\frac{1}{2}\\right)^2$, så det har gått to halveringstider: $2 \\cdot 5730 = 11\\,460$ år.",
+      "3dbeaf26dbb7d2c1": "Kva kjenneteiknar doblingstida ved eksponentiell vekst?",
+      "e078a2333d17c7e0": "Ho blir kortare etter kvart som storleiken veks",
+      "1a950491555cdd60": "Ho blir lengre etter kvart som storleiken veks",
+      "97d8bdf6f388443a": "Ho avheng av startverdien $N_0$",
+      "80d1a8c8c6066d64": "Ho er konstant, uansett startverdi",
+      "6e82cc73b3c309d4": "Doblingstida $t_2 = \\frac{\\ln 2}{k}$ avheng berre av vekstraten $k$, ikkje av kor stor storleiken er. Det er eit særtrekk ved eksponentiell vekst.",
+      "0e5ce5ddf491bacb": "## Veksten som speglar seg sjølv\n\nNo kjem den djupaste eigenskapen ved eksponentiell vekst – den du ser først når du deriverer. For $N(t) = N_0 \\cdot e^{kt}$ er den deriverte $N'(t) = k \\cdot N_0 \\cdot e^{kt}$. Men vent: uttrykket $N_0 \\cdot e^{kt}$ er jo berre $N(t)$ sjølv! Altså er $$N'(t) = k \\cdot N(t)$$ Veksthastigheita er til kvar tid ein fast del $k$ av storleiken sjølv. Jo meir det finst, dess fortare veks det – det er sjølve *definisjonen* på eksponentiell vekst, og grunnen til at $e$-forma er så elegant. Bruker du vekstfaktor-forma $f(t) = N_0 \\cdot a^t$, blir den deriverte $f'(t) = f(t) \\cdot \\ln a$ – same mønster, med $\\ln a$ i rolla som $k$.\n\nSjå det i praksis: folketalet i eit land følgjer $N(t) = 5 \\cdot e^{0{,}02t}$ millionar, med $t$ i år etter 2020. Då er $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$, som fortel kor mange millionar folketalet aukar med per år. I 2025 er $N'(5) = 0{,}1 \\cdot e^{0{,}1} \\approx 0{,}11$ – cirka 110 000 nye innbyggjarar det året. Og den *relative* veksten? $\\frac{N'(t)}{N(t)} = k = 0{,}02$, alltid nøyaktig 2 %, uansett år.\n\nTil slutt, det mest kvardagslege eksempelet av alle: sparepengar. Set du 100 000 kr i banken til 5 % rente, har du etter 20 år $100\\,000 \\cdot 1{,}05^{20} \\approx 265\\,300$ kr, og pengane blir dobla på $t_2 = \\frac{\\ln 2}{\\ln 1{,}05} \\approx 14{,}2$ år. Samanlikn med ein konto til 3 %: etter 30 år gir 5 %-kontoen cirka 432 200 kr, medan 3 %-kontoen gir cirka 242 700 kr. To prosentpoeng i skilnad vart til nesten 190 000 kr. Det er rentes rente i eit nøtteskal – og grunnen til at små skilnader i vekstrate får enorme konsekvensar over tid.",
+      "ceace96635b83602": "Test deg sjølv på derivasjon og rentes rente:",
+      "b5ea6f24d6f46516": "Folketalet følgjer $N(t) = 5 \\cdot e^{0{,}02t}$. Kva er $N'(t)$?",
+      "5374a6c5fe75b3f4": "$5 \\cdot e^{0{,}02t}$",
+      "0aeb0d01b2177b83": "$0{,}1 \\cdot e^{0{,}02t}$",
+      "a55d47b7098f3312": "$0{,}02 \\cdot e^{0{,}02t}$",
+      "fdff11a56a18e5a4": "$2{,}5 \\cdot e^{0{,}02t}$",
+      "4eac1e7eb0a7e579": "Kjerneregelen gir $N'(t) = 0{,}02 \\cdot 5 \\cdot e^{0{,}02t} = 0{,}1 \\cdot e^{0{,}02t}$.",
+      "001c7439d30adeef": "Kva tyder samanhengen $N'(t) = k \\cdot N(t)$?",
+      "0b682455b86fd30c": "Veksthastigheita er alltid ein fast del av storleiken sjølv",
+      "0f77bcc053d46643": "Veksthastigheita er konstant",
+      "dd274a772cad4af5": "Storleiken veks med eit fast beløp per tidseining",
+      "393f485df294a177": "Den deriverte er alltid lik startverdien",
+      "a86c9e21fdea8ad4": "Veksthastigheita $N'(t)$ er proporsjonal med $N(t)$, med proporsjonalitetskonstant $k$. Jo meir som finst, dess raskare veks det – kjenneteiknet på eksponentiell vekst.",
+      "a81d97f29a2c3386": "Kva er den deriverte av $f(t) = N_0 \\cdot a^t$?",
+      "0f24c499a8b9afc6": "$N_0 \\cdot t \\cdot a^{t-1}$",
+      "ec7c24fb12ccbec4": "$N_0 \\cdot a^t$",
+      "f2190c63cabc7832": "$N_0 \\cdot a^t \\cdot \\ln a$",
+      "4e261c2be4b950a2": "$N_0 \\cdot \\ln a$",
+      "281142d8ca0c97e8": "Eksponentialfunksjonen med grunntal $a$ har derivert $f'(t) = N_0 \\cdot a^t \\cdot \\ln a = f(t) \\cdot \\ln a$. Potensregelen gjeld ikkje her – eksponenten er variabelen!",
+      "2c2c73ed262b1f73": "Du set 100 000 kr i banken til 5 % årleg rente. Omtrent kor mykje har du etter 20 år?",
+      "1428681f199911a5": "Ca. 200\\,000 kr",
+      "4524f9e510bb14f2": "Ca. 150\\,000 kr",
+      "5195bd8c03ea9952": "Ca. 110\\,000 kr",
+      "eb3184432ed133c8": "Ca. 265\\,000 kr",
+      "7367c7d4a057a65e": "$100\\,000 \\cdot 1{,}05^{20} \\approx 100\\,000 \\cdot 2{,}653 \\approx 265\\,300$ kr. Doblingstida er ca. 14 år, så på 20 år er beløpet godt over dobla.",
+      "bd3d724586fd307e": "## Forteljinga om det som gangar seg sjølv\n\nKongen i sjakksegna tapte fordi han tenkte lineært om noko som voks eksponentielt. No har du verktøya han mangla. Eksponentiell vekst blir skriven $N(t) = N_0 \\cdot a^t$ med **vekstfaktoren** $a = 1 + r$, der vekstraten $r$ kjem frå prosenten: 5 % vekst gir $a = 1{,}05$, og 15 % nedgang gir $a = 0{,}85$. Den same modellen kan skrivast $N(t) = N_0 \\cdot e^{kt}$ med den kontinuerlege vekstraten $k = \\ln a$ – to språk for same verkelegheit.\n\nDet mest slåande kjenneteiknet er at **doblingstida** $t_2 = \\frac{\\ln 2}{k}$ er konstant: eit folketal med 3 % årleg vekst doblar seg kvart 23. år, uansett kor stort det er, og 72-regelen $t_2 \\approx \\frac{72}{p}$ gir eit kjapt overslag. Ved avtaking ($k < 0$) snakkar vi om **halveringstida** $t_{1/2} = \\frac{\\ln 2}{|k|}$ – det er den som lèt arkeologar datere eit 11 000 år gammalt funn ut frå at berre ein firedel av karbon-14-et er igjen.\n\nOg under det heile ligg den vakraste samanhengen: $N'(t) = k \\cdot N(t)$. Veksthastigheita er alltid ein fast del av storleiken sjølv – det som finst, driv sin eigen vekst. Det er difor sparepengar med 5 % rente blir 2,65 gonger så store på 20 år, og difor små skilnader i vekstrate blir enorme over tid. Men ingenting kan vekse eksponentielt for alltid. Kva som skjer når veksten møter veggen, er forteljinga i neste kapittel – den logistiske."
+    }
+  }
+}

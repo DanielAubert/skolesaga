@@ -1,1 +1,562 @@
-{"id":"2p-6-2-narrativ","courseId":"2p","chapterNumber":"6.2","title":"Digitale verktøy","subtitle":"Narrativ versjon","description":"Ein praktisk guide til rekneark, GeoGebra og diagram -- verktøya som gjer matematikken levande og lèt deg løyse verkelege problem.","estimatedMinutes":35,"competenceGoals":["forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy","analysere og presentere funn i datasett fra lokalsamfunn og media"],"linkedChapterId":"2p-6-2","content":[{"id":"2p-6-2-n-intro","type":"text","content":"## Matematikk med musklar\n\nTenk deg at du skal setje opp ein nedbetalingsplan for eit lån, samanlikne to spareplanar over ti år, eller analysere straumprisane gjennom eit heilt år. Du *kan* gjere alt for hand, men det ville teke timar og vore utsett for reknefeil. Heldigvis finst det verktøy som gjer jobben på sekund -- og i matematikk 2P er det forventa at du kan bruke dei.\n\nDei to viktigaste digitale verktøya i 2P er **rekneark** (som Excel eller Google Rekneark) og **GeoGebra**. Rekneark er framifrå for å organisere data, gjere utrekningar og lage diagram. GeoGebra er spesialdesigna for matematikk og er fantastisk for å plotte funksjonar, utføre regresjon og utforske geometri.\n\nI dette kapittelet skal vi gå gjennom begge verktøya og sjå korleis dei kan brukast til å løyse praktiske problem. Vi startar med rekneark -- det verktøyet du mest sannsynleg allereie har brukt, sjølv om du kanskje ikkje har utnytta det fulle potensialet."},{"id":"2p-6-2-n-section1","type":"text","content":"## Rekneark -- din personlege reknemaskin\n\nEit rekneark organiserer data i rader og kolonnar, og kvar rute blir kalla ei **celle**. Cella har ei adresse -- til dømes A1 (kolonne A, rad 1) eller B3 (kolonne B, rad 3). Krafta i rekneark ligg i *formlar*: du startar med eit likskapsteikn og skriv eit uttrykk, og reknearket reknar ut svaret automatisk.\n\nLat oss setje opp eit enkelt budsjett. Du har ei inntekt på 25 000 kr i celle B1. I cellene B3 til B8 har du utgiftene dine: husleige 8 500, straum 1 200, mat 4 000, transport 1 500, fritid 2 000 og anna 1 000. I celle B10 skriv du formelen `=SUMMER(B3:B8)` for å summere alle utgiftene. I B11 skriv du `=B1-B10` for å finne ut kva du har til overs. Og i B12 kan du skrive `=B11/B1*100` for å sjå spareprosenten din. Det geniale er at viss du endrar eitt tal -- til dømes set ned matbudsjettet frå 4 000 til 3 500 -- blir alt oppdatert automatisk.\n\nDet er to typar **cellereferansar** du må kjenne. Ein **relativ referanse** som `A1` endrar seg når du kopierer formelen nedover (han blir `A2`, `A3` osv.). Ein **absolutt referanse** som `$A$1` held seg fast uansett kvar du kopierer han. Det er viktig å forstå forskjellen. Tenk deg at du har renta i celle B1 og vil multiplisere mange ulike beløp med denne renta. Då bruker du `$B$1` i formelen, så referansen til renta held seg fast medan beløpsreferansen endrar seg. Formelen `=A1*(1+$B$1)` i celle C1 kan kopierast nedover, og B1 peikar alltid på renta medan A1 endrar seg til A2, A3 og så vidare."},{"id":"2p-6-2-n-quiz1","type":"exercise","exercise":{"id":"2p-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på rekneark og formlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-2-n-quiz1-q0","task":"I eit rekneark står talet 500 i celle A1 og talet 0,05 i celle B1. Kva gir formelen `=A1*(1+B1)`?","options":[{"id":"a","text":"25","isCorrect":false},{"id":"b","text":"525","isCorrect":true},{"id":"c","text":"500,05","isCorrect":false},{"id":"d","text":"505","isCorrect":false}],"solution":"`=A1*(1+B1)` = $500 \\cdot (1 + 0{,}05) = 500 \\cdot 1{,}05 = 525$. Formelen reknar ut 500 med 5 % påslag."},{"id":"2p-6-2-n-quiz1-q1","task":"Utgiftene dine står i cellene B3 til B8. Kva for formel summerer alle utgiftene?","options":[{"id":"a","text":"`=B3+B4+B5+B6+B7+B8`","isCorrect":false},{"id":"b","text":"`=GJENNOMSNITT(B3:B8)`","isCorrect":false},{"id":"c","text":"`=SUMMER(B3:B8)`","isCorrect":true},{"id":"d","text":"`=PRODUKT(B3:B8)`","isCorrect":false}],"solution":"`=SUMMER(B3:B8)` summerer alle verdiar i celleområdet B3 til B8. Alternativ a gir same resultat, men `SUMMER` er meir effektivt og lettare å vedlikehalde. `GJENNOMSNITT` gir gjennomsnittet, og `PRODUKT` multipliserer verdiane."},{"id":"2p-6-2-n-quiz1-q2","task":"Kva er forskjellen mellom ein relativ referanse (`A1`) og ein absolutt referanse (`$A$1`)?","options":[{"id":"a","text":"Absolutt referanse er meir nøyaktig enn relativ","isCorrect":false},{"id":"b","text":"Relativ referanse endrar seg når du kopierer formelen, absolutt held seg fast","isCorrect":true},{"id":"c","text":"Absolutt referanse kan berre brukast i kolonnar, relativ i rader","isCorrect":false},{"id":"d","text":"Det er ingen praktisk forskjell","isCorrect":false}],"solution":"Ein relativ referanse som `A1` endrar seg når formelen blir kopiert (blir `A2`, `A3`, osv.). Ein absolutt referanse som `$A$1` held seg fast uansett kvar du kopierer. Dollarteikna \"låser\" referansen."}],"solution":""}},{"id":"2p-6-2-n-section2","type":"text","content":"## GeoGebra -- leikeplassen til matematikken\n\nMedan rekneark er gode til tal og tabellar, er **GeoGebra** designa spesielt for matematikk. Det er gratis, tilgjengeleg på nett, og lèt deg gjere ting som ville teke lang tid for hand.\n\nDet enklaste du kan gjere i GeoGebra er å plotte ein funksjon. Skriv `f(x) = 2x + 3` i inntastingsfeltet, og du ser umiddelbart ei rett linje. Skriv `g(x) = 100*1.05^x`, og du ser ei eksponentiell kurve. Du kan bruke kommandoen `Nullpunkt(f)` for å finne kvar funksjonen kryssar $x$-aksen, og `Skjæring(f, g)` for å finne kvar to funksjonar møtest.\n\nMen der GeoGebra verkeleg skin, er i **regresjonsanalyse**. Sei at du har målt temperaturen i ein kopp kaffi: 85 grader ved start, 72 etter 5 minutt, 62 etter 10, 55 etter 15, 49 etter 20 og 40 etter 30 minutt. Du legg dataa inn i reknearket til GeoGebra, lagar ei punktliste, og skriv `RegEksp(L1)`. GeoGebra gir deg den eksponentielle funksjonen som passar best til dataa, til dømes $f(x) = 83{,}2 \\cdot 0{,}975^x$.\n\nHan gir deg òg ein **$r^2$-verdi** -- determinasjonskoeffisienten -- som fortel kor godt modellen passar. Verdien $r^2 = 0{,}98$ tyder at 98 prosent av variasjonen i dataa blir forklart av modellen. Di nærmare 1, di betre. Med denne modellen kan du estimere temperaturen etter 45 minutt: $f(45) = 83{,}2 \\cdot 0{,}975^{45} \\approx 27$ grader. Lineær regresjon gjer du med `RegLin(L1)`."},{"id":"2p-6-2-n-quiz2","type":"exercise","exercise":{"id":"2p-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på GeoGebra og regresjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-2-n-quiz2-q0","task":"Kva tyder det at $r^2 = 0{,}98$ i ein regresjonsanalyse?","options":[{"id":"a","text":"Modellen har ein feilmargin på 2 %","isCorrect":false},{"id":"b","text":"Modellen passar til 98 av 100 datapunkt","isCorrect":false},{"id":"c","text":"98 % av variasjonen i dataa blir forklart av modellen","isCorrect":true},{"id":"d","text":"Korrelasjonskoeffisienten er 0,98","isCorrect":false}],"solution":"$r^2 = 0{,}98$ tyder at 98 % av variasjonen i dataa kan forklarast av modellen. Di nærmare 1, di betre passar modellen. Korrelasjonskoeffisienten $r$ ville vore $\\sqrt{0{,}98} \\approx 0{,}99$, altså ikkje heilt det same som $r^2$."},{"id":"2p-6-2-n-quiz2-q1","task":"Kva for GeoGebra-kommando bruker du for å finne den eksponentielle funksjonen som passar best til ei punktliste L1?","options":[{"id":"a","text":"`RegLin(L1)`","isCorrect":false},{"id":"b","text":"`Nullpunkt(L1)`","isCorrect":false},{"id":"c","text":"`RegEksp(L1)`","isCorrect":true},{"id":"d","text":"`Skjæring(L1)`","isCorrect":false}],"solution":"`RegEksp(L1)` utfører eksponentiell regresjon og gir deg funksjonen $f(x) = a \\cdot b^x$ som passar best til datapunkta. `RegLin(L1)` gir lineær regresjon."}],"solution":""}},{"id":"2p-6-2-n-section3","type":"text","content":"## Diagram -- å sjå mønstera\n\nTal i ein tabell er informative, men eit godt diagram kan avsløre mønster du aldri ville sett i tala åleine. Ulike diagramtypar eignar seg til ulike formål, og å velje rett diagram er ein ferdigheit i seg sjølv.\n\nEit **søylediagram** er perfekt for å samanlikne verdiar i ulike kategoriar -- til dømes sal per månad eller karakterfordeling i ein klasse. Eit **linjediagram** viser utvikling over tid og er ideelt for å sjå trendar -- til dømes korleis temperaturen endrar seg gjennom døgnet eller korleis elbilsalet har utvikla seg frå 2015 til 2024. Eit **sektordiagram** (eller kakediagram) viser delar av ein heilskap -- til dømes korleis budsjettet ditt fordeler seg mellom husleige, mat og fritid.\n\nEit **punktdiagram** (spreiingsdiagram) er noko anna igjen: det viser samanhengen mellom to variablar. Viss du plottar tal timar studert mot eksamensresultat, kan du sjå om det er ein samanheng -- og leggje inn ei regresjonslinje. Eit **histogram** viser frekvensfordelinga av data, til dømes aldersfordelinga i ein kommune.\n\nHer er nokre tips for gode diagram: Vel rett type for det du vil vise. Ha tydelege aksetitlar med einingar. Bruk ein passande skala -- ikkje start $y$-aksen midt i for å overdrive forskjellar, for det kan villeie lesaren. Og gi diagrammet ein skildrande tittel.\n\nLat oss ta eit konkret val. Du har tre datasett: budsjettfordeling, turistutvikling over tid, og samanhengen mellom studietid og eksamenspoeng. Budsjettfordelinga er delar av ein heilskap, altså eit sektordiagram. Turistutviklinga er endring over tid, altså eit linjediagram. Studietid versus poeng er to variablar du vil samanlikne, altså eit punktdiagram."},{"id":"2p-6-2-n-quiz3","type":"exercise","exercise":{"id":"2p-6-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på diagramtypar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-2-n-quiz3-q0","task":"Du vil vise korleis salet av elbilar i Noreg har utvikla seg frå 2015 til 2024. Kva for diagramtype er best eigna?","options":[{"id":"a","text":"Sektordiagram","isCorrect":false},{"id":"b","text":"Histogram","isCorrect":false},{"id":"c","text":"Linjediagram","isCorrect":true},{"id":"d","text":"Boblediagram","isCorrect":false}],"solution":"Linjediagram viser utvikling over tid og er ideelt for å sjå trenden i elbilsalet gjennom åra. Søylediagram kunne òg fungert, men linjediagram er vanlegast for tidsseriar."},{"id":"2p-6-2-n-quiz3-q1","task":"Du vil vise korleis budsjettet ditt fordeler seg mellom husleige, mat, transport og fritid. Kva for diagramtype passar best?","options":[{"id":"a","text":"Punktdiagram","isCorrect":false},{"id":"b","text":"Sektordiagram (kakediagram)","isCorrect":true},{"id":"c","text":"Linjediagram","isCorrect":false},{"id":"d","text":"Histogram","isCorrect":false}],"solution":"Sektordiagram viser delar av ein heilskap og er perfekt for budsjettfordeling. Kvart \"kakestykke\" representerer ein utgiftspost som del av totalen."},{"id":"2p-6-2-n-quiz3-q2","task":"Du vil undersøkje samanhengen mellom tal timar studert og eksamensresultat. Kva for diagramtype vel du?","options":[{"id":"a","text":"Sektordiagram","isCorrect":false},{"id":"b","text":"Søylediagram","isCorrect":false},{"id":"c","text":"Linjediagram","isCorrect":false},{"id":"d","text":"Punktdiagram (spreiingsdiagram)","isCorrect":true}],"solution":"Punktdiagram viser samanhengen mellom to variablar. Kvart punkt representerer ein elev med studietid langs x-aksen og resultat langs y-aksen. Du kan leggje inn ei regresjonslinje for å sjå trenden."}],"solution":""}},{"id":"2p-6-2-n-section4","type":"text","content":"## Problemløysing i praksis -- lån, sparing og analyse\n\nLat oss sjå på ei større oppgåve som viser korleis rekneark blir brukt i praksis. Du vil lage ein nedbetalingsplan for eit **annuitetslån** på 100 000 kr med 5 prosent årleg rente over 4 år. Først reknar du ut det faste terminbeløpet: $T = 100\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} \\approx 28\\,201$ kr per år.\n\nDeretter set du opp reknearket. I kolonne A har du årstalet, i B restlånet ved starten av året, i C rentekostnaden (`=B1*0,05`), i D terminbeløpet (28 201), i E avdraget (`=D1-C1`), og i F restlånet ved slutten av året (`=B1-E1`). Startbeløpet for neste år (B2) er likt sluttbeløpet for førre år (`=F1`). Reknearket viser automatisk at renta søkk for kvart år medan avdraga aukar -- sjølv om terminbeløpet er konstant.\n\nEller tenk at du sparar 1 000 kr i månaden til 3 prosent årleg rente. I reknearket har du månadsnummer i kolonne A, innskot i B (1 000), saldo etter innskot i C (gammal saldo pluss 1 000), og saldo etter rente i D (`=C1*(1+0,0025)`, fordi månadleg rente er $3\\%/12 = 0{,}25\\%$). Etter 12 månader har du sett inn 12 000 kr og fått omtrent 198 kr i rente, totalt ca. 12 198 kr.\n\nHugs at digitale verktøy er *hjelpemiddel*. Reknearket gjer utrekningane for deg, men du må framleis forstå matematikken bak for å setje opp formlane rett og tolke resultata. Verktøyet er berre så smart som den som bruker det."},{"id":"2p-6-2-n-quiz4","type":"exercise","exercise":{"id":"2p-6-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på lån og rente i rekneark:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-2-n-quiz4-q0","task":"Du har eit lån på 200 000 kr med 4 % årleg rente. Kva gir formelen `=A1*B1` viss A1 inneheld 200 000 og B1 inneheld 0,04?","options":[{"id":"a","text":"800 kr","isCorrect":false},{"id":"b","text":"80 000 kr","isCorrect":false},{"id":"c","text":"8 000 kr","isCorrect":true},{"id":"d","text":"2 000 kr","isCorrect":false}],"solution":"`=A1*B1` = $200\\,000 \\cdot 0{,}04 = 8\\,000$ kr. Dette er rentekostnaden for det første året."},{"id":"2p-6-2-n-quiz4-q1","task":"Du sparar 1 000 kr i månaden til 3 % årleg rente. Kva er månadleg rente?","options":[{"id":"a","text":"$3\\%$","isCorrect":false},{"id":"b","text":"$0{,}25\\%$","isCorrect":true},{"id":"c","text":"$0{,}3\\%$","isCorrect":false},{"id":"d","text":"$0{,}03\\%$","isCorrect":false}],"solution":"Månadleg rente = årleg rente / 12 = $3\\% / 12 = 0{,}25\\%$. I rekneark bruker du vekstfaktoren $1{,}0025$ for å rekne ut rente kvar månad."}],"solution":""}},{"id":"2p-6-2-n-section5","type":"text","content":"## Absolutte og relative referansar -- den vanlegaste fella\n\nLat oss snakke meir om eit tema som forvirrar mange: forskjellen mellom absolutte og relative referansar. Det er kanskje det viktigaste omgrepet i rekneark, fordi det avgjer om formlane dine fungerer rett når du kopierer dei.\n\nTenk at du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer? Den relative referansen B2 endrar seg til B3, B4 og B5 -- han følgjer med nedover. Men den absolutte referansen `$C$1` held seg som `$C$1` i alle radene. Dollarteikna \"låser\" referansen på plass.\n\nNår bruker du kva? Bruk **relativ referanse** når du vil at referansen skal flytte seg -- til dømes når du summerer verdiar i ulike rader. Bruk **absolutt referanse** når du peikar på ein fast verdi -- til dømes ei rente, ein skattesats eller ein vekstfaktor som skal brukast i alle utrekningane. Mange feil i rekneark kjem av at folk bruker relativ referanse der dei burde brukt absolutt, slik at formelen plutseleg peikar på feil celle.\n\nLat oss ta eit siste eksempel. Du samanliknar to spareplanar over 10 år: Plan A set inn 500 kr i månaden til 3,5 prosent årleg rente, og Plan B set inn 6 000 kr éin gong i året til 3,8 prosent rente. Begge planane har totalt 60 000 kr i innskot. Men resultatet er litt forskjellig -- Plan A gir ca. 71 200 kr og Plan B ca. 71 600 kr. Forskjellen er liten, men han illustrerer to motstridande effektar: Plan A set inn pengane jamnare slik at dei jobbar lenger (renters rente oftare), men Plan B har høgare rente. I dette tilfellet veg dei to effektane kvarandre opp nesten heilt. Eit rekneark lèt deg utforske slike samanlikningar enkelt og raskt."},{"id":"2p-6-2-n-quiz5","type":"exercise","exercise":{"id":"2p-6-2-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på absolutte og relative referansar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-6-2-n-quiz5-q0","task":"Du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer med cellereferansane?","options":[{"id":"a","text":"Begge referansane blir endra til B3*C2, B4*C3 osv.","isCorrect":false},{"id":"b","text":"Ingen av referansane blir endra","isCorrect":false},{"id":"c","text":"Berre $C$1 blir endra, B2 held seg fast","isCorrect":false},{"id":"d","text":"B2 blir endra til B3, B4, B5 medan $C$1 held seg som $C$1 i alle radene","isCorrect":true}],"solution":"B2 er ein relativ referanse og blir endra til B3, B4, B5 når formelen blir kopiert nedover. $C$1 er ein absolutt referanse (med dollarteikn) og held seg fast uansett kvar formelen blir kopiert."},{"id":"2p-6-2-n-quiz5-q1","task":"Du har renta 0,05 i celle B1 og ulike beløp i A2, A3, A4. Du vil rekne ut renta av kvart beløp i kolonne C. Kva for formel i C2 kan kopierast rett nedover?","options":[{"id":"a","text":"`=A2*B1`","isCorrect":false},{"id":"b","text":"`=$A$2*$B$1`","isCorrect":false},{"id":"c","text":"`=A2*$B$1`","isCorrect":true},{"id":"d","text":"`=$A2*B$1`","isCorrect":false}],"solution":"`=A2*$B$1` bruker relativ referanse for beløpet (A2 endrar seg til A3, A4 når du kopierer nedover) og absolutt referanse for renta ($B$1 held seg fast). Alternativ a ville flytte B1 til B2, B3 osv., som peikar på feil celler."}],"solution":""}},{"id":"2p-6-2-n-summary","type":"text","content":"## Oppsummering\n\nDigitale verktøy gjer det mogleg å løyse matematiske problem som ville vore svært tidkrevjande for hand. Men verktøya er berre hjelpemiddel -- du må forstå matematikken for å bruke dei rett.\n\nI **rekneark** bruker du formlar (som startar med `=`), cellereferansar (relative som `A1` og absolutte som `$A$1`), og innebygde funksjonar som `SUMMER` og `GJENNOMSNITT`. I **GeoGebra** plottar du funksjonar, finn nullpunkt og skjeringspunkt, og utfører regresjon med kommandoar som `RegLin` og `RegEksp`. **$r^2$-verdien** fortel deg kor godt modellen passar til dataa.\n\nFor **diagram** vel du type etter formål: søylediagram for samanlikning, linjediagram for utvikling over tid, sektordiagram for delar, og punktdiagram for samanhengar mellom to variablar. Hugs at gode diagram har tydelege aksetitlar, passande skala og ein skildrande tittel."}],"exercises":[],"_meta":{"sourceHash":"d1d5dac3160630f2","translatedAt":"2026-06-17T00:07:07.777Z","model":"claude-code-agent","strings":86,"tm":{"38f30ead93b8a4e2":"Digitale verktøy","b195b06d1ed59702":"Narrativ versjon","026272ed65d32c12":"Ein praktisk guide til rekneark, GeoGebra og diagram -- verktøya som gjer matematikken levande og lèt deg løyse verkelege problem.","f4c063f77cf50e3f":"forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy","b32273a2297199df":"analysere og presentere funn i datasett fra lokalsamfunn og media","45e5ec6af0053cac":"## Matematikk med musklar\n\nTenk deg at du skal setje opp ein nedbetalingsplan for eit lån, samanlikne to spareplanar over ti år, eller analysere straumprisane gjennom eit heilt år. Du *kan* gjere alt for hand, men det ville teke timar og vore utsett for reknefeil. Heldigvis finst det verktøy som gjer jobben på sekund -- og i matematikk 2P er det forventa at du kan bruke dei.\n\nDei to viktigaste digitale verktøya i 2P er **rekneark** (som Excel eller Google Rekneark) og **GeoGebra**. Rekneark er framifrå for å organisere data, gjere utrekningar og lage diagram. GeoGebra er spesialdesigna for matematikk og er fantastisk for å plotte funksjonar, utføre regresjon og utforske geometri.\n\nI dette kapittelet skal vi gå gjennom begge verktøya og sjå korleis dei kan brukast til å løyse praktiske problem. Vi startar med rekneark -- det verktøyet du mest sannsynleg allereie har brukt, sjølv om du kanskje ikkje har utnytta det fulle potensialet.","9677994df8582f6d":"## Rekneark -- din personlege reknemaskin\n\nEit rekneark organiserer data i rader og kolonnar, og kvar rute blir kalla ei **celle**. Cella har ei adresse -- til dømes A1 (kolonne A, rad 1) eller B3 (kolonne B, rad 3). Krafta i rekneark ligg i *formlar*: du startar med eit likskapsteikn og skriv eit uttrykk, og reknearket reknar ut svaret automatisk.\n\nLat oss setje opp eit enkelt budsjett. Du har ei inntekt på 25 000 kr i celle B1. I cellene B3 til B8 har du utgiftene dine: husleige 8 500, straum 1 200, mat 4 000, transport 1 500, fritid 2 000 og anna 1 000. I celle B10 skriv du formelen `=SUMMER(B3:B8)` for å summere alle utgiftene. I B11 skriv du `=B1-B10` for å finne ut kva du har til overs. Og i B12 kan du skrive `=B11/B1*100` for å sjå spareprosenten din. Det geniale er at viss du endrar eitt tal -- til dømes set ned matbudsjettet frå 4 000 til 3 500 -- blir alt oppdatert automatisk.\n\nDet er to typar **cellereferansar** du må kjenne. Ein **relativ referanse** som `A1` endrar seg når du kopierer formelen nedover (han blir `A2`, `A3` osv.). Ein **absolutt referanse** som `$A$1` held seg fast uansett kvar du kopierer han. Det er viktig å forstå forskjellen. Tenk deg at du har renta i celle B1 og vil multiplisere mange ulike beløp med denne renta. Då bruker du `$B$1` i formelen, så referansen til renta held seg fast medan beløpsreferansen endrar seg. Formelen `=A1*(1+$B$1)` i celle C1 kan kopierast nedover, og B1 peikar alltid på renta medan A1 endrar seg til A2, A3 og så vidare.","e93d3f887c993b57":"Test deg sjølv på rekneark og formlar:","4097889236a2af26":"placeholder","ec28c36b1d41085e":"I eit rekneark står talet 500 i celle A1 og talet 0,05 i celle B1. Kva gir formelen `=A1*(1+B1)`?","ab937085c7a335c2":"`=A1*(1+B1)` = $500 \\cdot (1 + 0{,}05) = 500 \\cdot 1{,}05 = 525$. Formelen reknar ut 500 med 5 % påslag.","81e9dcb3874e4887":"Utgiftene dine står i cellene B3 til B8. Kva for formel summerer alle utgiftene?","1033ae8533eeca8b":"`=B3+B4+B5+B6+B7+B8`","31da20b41284578f":"`=GJENNOMSNITT(B3:B8)`","1cab9af1a958d080":"`=SUMMER(B3:B8)`","6b8c4ce71ac3a6d5":"`=PRODUKT(B3:B8)`","7a77a2a3c7cfcc03":"`=SUMMER(B3:B8)` summerer alle verdiar i celleområdet B3 til B8. Alternativ a gir same resultat, men `SUMMER` er meir effektivt og lettare å vedlikehalde. `GJENNOMSNITT` gir gjennomsnittet, og `PRODUKT` multipliserer verdiane.","e451c38ddc2c790a":"Kva er forskjellen mellom ein relativ referanse (`A1`) og ein absolutt referanse (`$A$1`)?","f3d49f37f4de9dbf":"Absolutt referanse er meir nøyaktig enn relativ","e5bc68b90b2cdfad":"Relativ referanse endrar seg når du kopierer formelen, absolutt held seg fast","bd95175b45864b50":"Absolutt referanse kan berre brukast i kolonnar, relativ i rader","6b54a88bc65ea9aa":"Det er ingen praktisk forskjell","469506c8c5ded260":"Ein relativ referanse som `A1` endrar seg når formelen blir kopiert (blir `A2`, `A3`, osv.). Ein absolutt referanse som `$A$1` held seg fast uansett kvar du kopierer. Dollarteikna \"låser\" referansen.","a9992fac8b466514":"## GeoGebra -- leikeplassen til matematikken\n\nMedan rekneark er gode til tal og tabellar, er **GeoGebra** designa spesielt for matematikk. Det er gratis, tilgjengeleg på nett, og lèt deg gjere ting som ville teke lang tid for hand.\n\nDet enklaste du kan gjere i GeoGebra er å plotte ein funksjon. Skriv `f(x) = 2x + 3` i inntastingsfeltet, og du ser umiddelbart ei rett linje. Skriv `g(x) = 100*1.05^x`, og du ser ei eksponentiell kurve. Du kan bruke kommandoen `Nullpunkt(f)` for å finne kvar funksjonen kryssar $x$-aksen, og `Skjæring(f, g)` for å finne kvar to funksjonar møtest.\n\nMen der GeoGebra verkeleg skin, er i **regresjonsanalyse**. Sei at du har målt temperaturen i ein kopp kaffi: 85 grader ved start, 72 etter 5 minutt, 62 etter 10, 55 etter 15, 49 etter 20 og 40 etter 30 minutt. Du legg dataa inn i reknearket til GeoGebra, lagar ei punktliste, og skriv `RegEksp(L1)`. GeoGebra gir deg den eksponentielle funksjonen som passar best til dataa, til dømes $f(x) = 83{,}2 \\cdot 0{,}975^x$.\n\nHan gir deg òg ein **$r^2$-verdi** -- determinasjonskoeffisienten -- som fortel kor godt modellen passar. Verdien $r^2 = 0{,}98$ tyder at 98 prosent av variasjonen i dataa blir forklart av modellen. Di nærmare 1, di betre. Med denne modellen kan du estimere temperaturen etter 45 minutt: $f(45) = 83{,}2 \\cdot 0{,}975^{45} \\approx 27$ grader. Lineær regresjon gjer du med `RegLin(L1)`.","de86b4bee6d6ae19":"Test deg sjølv på GeoGebra og regresjon:","0682b9248b2aa530":"Kva tyder det at $r^2 = 0{,}98$ i ein regresjonsanalyse?","7ae9d40e871401c9":"Modellen har ein feilmargin på 2 %","3685a558207401c6":"Modellen passar til 98 av 100 datapunkt","4d98aa39eb9f23c4":"98 % av variasjonen i dataa blir forklart av modellen","638368f0b502d7bb":"Korrelasjonskoeffisienten er 0,98","41c406b9f4db6cac":"$r^2 = 0{,}98$ tyder at 98 % av variasjonen i dataa kan forklarast av modellen. Di nærmare 1, di betre passar modellen. Korrelasjonskoeffisienten $r$ ville vore $\\sqrt{0{,}98} \\approx 0{,}99$, altså ikkje heilt det same som $r^2$.","1ba04b568cc41193":"Kva for GeoGebra-kommando bruker du for å finne den eksponentielle funksjonen som passar best til ei punktliste L1?","234f9537ecb275eb":"`RegLin(L1)`","868b11829c1dcbcb":"`Nullpunkt(L1)`","4c96af85388da786":"`RegEksp(L1)`","75ad9d22f980c319":"`Skjæring(L1)`","8233130b381e8a96":"`RegEksp(L1)` utfører eksponentiell regresjon og gir deg funksjonen $f(x) = a \\cdot b^x$ som passar best til datapunkta. `RegLin(L1)` gir lineær regresjon.","b9fcbd4255401f1b":"## Diagram -- å sjå mønstera\n\nTal i ein tabell er informative, men eit godt diagram kan avsløre mønster du aldri ville sett i tala åleine. Ulike diagramtypar eignar seg til ulike formål, og å velje rett diagram er ein ferdigheit i seg sjølv.\n\nEit **søylediagram** er perfekt for å samanlikne verdiar i ulike kategoriar -- til dømes sal per månad eller karakterfordeling i ein klasse. Eit **linjediagram** viser utvikling over tid og er ideelt for å sjå trendar -- til dømes korleis temperaturen endrar seg gjennom døgnet eller korleis elbilsalet har utvikla seg frå 2015 til 2024. Eit **sektordiagram** (eller kakediagram) viser delar av ein heilskap -- til dømes korleis budsjettet ditt fordeler seg mellom husleige, mat og fritid.\n\nEit **punktdiagram** (spreiingsdiagram) er noko anna igjen: det viser samanhengen mellom to variablar. Viss du plottar tal timar studert mot eksamensresultat, kan du sjå om det er ein samanheng -- og leggje inn ei regresjonslinje. Eit **histogram** viser frekvensfordelinga av data, til dømes aldersfordelinga i ein kommune.\n\nHer er nokre tips for gode diagram: Vel rett type for det du vil vise. Ha tydelege aksetitlar med einingar. Bruk ein passande skala -- ikkje start $y$-aksen midt i for å overdrive forskjellar, for det kan villeie lesaren. Og gi diagrammet ein skildrande tittel.\n\nLat oss ta eit konkret val. Du har tre datasett: budsjettfordeling, turistutvikling over tid, og samanhengen mellom studietid og eksamenspoeng. Budsjettfordelinga er delar av ein heilskap, altså eit sektordiagram. Turistutviklinga er endring over tid, altså eit linjediagram. Studietid versus poeng er to variablar du vil samanlikne, altså eit punktdiagram.","a082a146361de1c7":"Test deg sjølv på diagramtypar:","346aa31201e07c59":"Du vil vise korleis salet av elbilar i Noreg har utvikla seg frå 2015 til 2024. Kva for diagramtype er best eigna?","cdf87bb74edd8681":"Sektordiagram","b32dc489fba87a9a":"Histogram","aaa899b40e0da3ae":"Linjediagram","9f714e3cdfe8ea1f":"Boblediagram","d122d4ebc8868d25":"Linjediagram viser utvikling over tid og er ideelt for å sjå trenden i elbilsalet gjennom åra. Søylediagram kunne òg fungert, men linjediagram er vanlegast for tidsseriar.","83a96381bd9135cd":"Du vil vise korleis budsjettet ditt fordeler seg mellom husleige, mat, transport og fritid. Kva for diagramtype passar best?","3035f5bb33360e61":"Punktdiagram","5f228762db1336fb":"Sektordiagram (kakediagram)","6c20952feea65ea5":"Sektordiagram viser delar av ein heilskap og er perfekt for budsjettfordeling. Kvart \"kakestykke\" representerer ein utgiftspost som del av totalen.","9651511f812f5179":"Du vil undersøkje samanhengen mellom tal timar studert og eksamensresultat. Kva for diagramtype vel du?","89184d05139419cf":"Søylediagram","c6b1c3e7708e55cc":"Punktdiagram (spreiingsdiagram)","c7369b0d32bbed08":"Punktdiagram viser samanhengen mellom to variablar. Kvart punkt representerer ein elev med studietid langs x-aksen og resultat langs y-aksen. Du kan leggje inn ei regresjonslinje for å sjå trenden.","14231e06c658abf7":"## Problemløysing i praksis -- lån, sparing og analyse\n\nLat oss sjå på ei større oppgåve som viser korleis rekneark blir brukt i praksis. Du vil lage ein nedbetalingsplan for eit **annuitetslån** på 100 000 kr med 5 prosent årleg rente over 4 år. Først reknar du ut det faste terminbeløpet: $T = 100\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} \\approx 28\\,201$ kr per år.\n\nDeretter set du opp reknearket. I kolonne A har du årstalet, i B restlånet ved starten av året, i C rentekostnaden (`=B1*0,05`), i D terminbeløpet (28 201), i E avdraget (`=D1-C1`), og i F restlånet ved slutten av året (`=B1-E1`). Startbeløpet for neste år (B2) er likt sluttbeløpet for førre år (`=F1`). Reknearket viser automatisk at renta søkk for kvart år medan avdraga aukar -- sjølv om terminbeløpet er konstant.\n\nEller tenk at du sparar 1 000 kr i månaden til 3 prosent årleg rente. I reknearket har du månadsnummer i kolonne A, innskot i B (1 000), saldo etter innskot i C (gammal saldo pluss 1 000), og saldo etter rente i D (`=C1*(1+0,0025)`, fordi månadleg rente er $3\\%/12 = 0{,}25\\%$). Etter 12 månader har du sett inn 12 000 kr og fått omtrent 198 kr i rente, totalt ca. 12 198 kr.\n\nHugs at digitale verktøy er *hjelpemiddel*. Reknearket gjer utrekningane for deg, men du må framleis forstå matematikken bak for å setje opp formlane rett og tolke resultata. Verktøyet er berre så smart som den som bruker det.","d5e92a65bdce18bd":"Test deg sjølv på lån og rente i rekneark:","b7ae7019d3d42bd9":"Du har eit lån på 200 000 kr med 4 % årleg rente. Kva gir formelen `=A1*B1` viss A1 inneheld 200 000 og B1 inneheld 0,04?","1048c6709aacbb65":"800 kr","243915a2df2070bf":"80 000 kr","95c121de50c70d5e":"8 000 kr","dc6aba6899de3939":"2 000 kr","1fec1b19a0f5d782":"`=A1*B1` = $200\\,000 \\cdot 0{,}04 = 8\\,000$ kr. Dette er rentekostnaden for det første året.","62af32b0327e95d5":"Du sparar 1 000 kr i månaden til 3 % årleg rente. Kva er månadleg rente?","65546d5d40e163a0":"Månadleg rente = årleg rente / 12 = $3\\% / 12 = 0{,}25\\%$. I rekneark bruker du vekstfaktoren $1{,}0025$ for å rekne ut rente kvar månad.","e6077f4162371489":"## Absolutte og relative referansar -- den vanlegaste fella\n\nLat oss snakke meir om eit tema som forvirrar mange: forskjellen mellom absolutte og relative referansar. Det er kanskje det viktigaste omgrepet i rekneark, fordi det avgjer om formlane dine fungerer rett når du kopierer dei.\n\nTenk at du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer? Den relative referansen B2 endrar seg til B3, B4 og B5 -- han følgjer med nedover. Men den absolutte referansen `$C$1` held seg som `$C$1` i alle radene. Dollarteikna \"låser\" referansen på plass.\n\nNår bruker du kva? Bruk **relativ referanse** når du vil at referansen skal flytte seg -- til dømes når du summerer verdiar i ulike rader. Bruk **absolutt referanse** når du peikar på ein fast verdi -- til dømes ei rente, ein skattesats eller ein vekstfaktor som skal brukast i alle utrekningane. Mange feil i rekneark kjem av at folk bruker relativ referanse der dei burde brukt absolutt, slik at formelen plutseleg peikar på feil celle.\n\nLat oss ta eit siste eksempel. Du samanliknar to spareplanar over 10 år: Plan A set inn 500 kr i månaden til 3,5 prosent årleg rente, og Plan B set inn 6 000 kr éin gong i året til 3,8 prosent rente. Begge planane har totalt 60 000 kr i innskot. Men resultatet er litt forskjellig -- Plan A gir ca. 71 200 kr og Plan B ca. 71 600 kr. Forskjellen er liten, men han illustrerer to motstridande effektar: Plan A set inn pengane jamnare slik at dei jobbar lenger (renters rente oftare), men Plan B har høgare rente. I dette tilfellet veg dei to effektane kvarandre opp nesten heilt. Eit rekneark lèt deg utforske slike samanlikningar enkelt og raskt.","8ca62eb539257aa1":"Test deg sjølv på absolutte og relative referansar:","ba453afeeda91a73":"Du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer med cellereferansane?","8471eaaec27d6326":"Begge referansane blir endra til B3*C2, B4*C3 osv.","7aa5af2674e1e9d0":"Ingen av referansane blir endra","d549757fb68e02ed":"Berre $C$1 blir endra, B2 held seg fast","6fe6f20c5630b370":"B2 blir endra til B3, B4, B5 medan $C$1 held seg som $C$1 i alle radene","a7476d5f57ae744e":"B2 er ein relativ referanse og blir endra til B3, B4, B5 når formelen blir kopiert nedover. $C$1 er ein absolutt referanse (med dollarteikn) og held seg fast uansett kvar formelen blir kopiert.","9cb9a86f46ffd012":"Du har renta 0,05 i celle B1 og ulike beløp i A2, A3, A4. Du vil rekne ut renta av kvart beløp i kolonne C. Kva for formel i C2 kan kopierast rett nedover?","9b9777efadb2817d":"`=A2*B1`","c5da04944c909c66":"`=$A$2*$B$1`","8bf4ccaee630f399":"`=A2*$B$1`","3ced279a0c54a130":"`=$A2*B$1`","c974f83ab0090f25":"`=A2*$B$1` bruker relativ referanse for beløpet (A2 endrar seg til A3, A4 når du kopierer nedover) og absolutt referanse for renta ($B$1 held seg fast). Alternativ a ville flytte B1 til B2, B3 osv., som peikar på feil celler.","4f77c5de52342788":"## Oppsummering\n\nDigitale verktøy gjer det mogleg å løyse matematiske problem som ville vore svært tidkrevjande for hand. Men verktøya er berre hjelpemiddel -- du må forstå matematikken for å bruke dei rett.\n\nI **rekneark** bruker du formlar (som startar med `=`), cellereferansar (relative som `A1` og absolutte som `$A$1`), og innebygde funksjonar som `SUMMER` og `GJENNOMSNITT`. I **GeoGebra** plottar du funksjonar, finn nullpunkt og skjeringspunkt, og utfører regresjon med kommandoar som `RegLin` og `RegEksp`. **$r^2$-verdien** fortel deg kor godt modellen passar til dataa.\n\nFor **diagram** vel du type etter formål: søylediagram for samanlikning, linjediagram for utvikling over tid, sektordiagram for delar, og punktdiagram for samanhengar mellom to variablar. Hugs at gode diagram har tydelege aksetitlar, passande skala og ein skildrande tittel."}}}
+{
+  "id": "2p-6-2-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "6.2",
+  "title": "Digitale verktøy",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein praktisk guide til rekneark, GeoGebra og diagram -- verktøya som gjer matematikken levande og lèt deg løyse verkelege problem.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy",
+    "analysere og presentere funn i datasett fra lokalsamfunn og media"
+  ],
+  "linkedChapterId": "2p-6-2",
+  "content": [
+    {
+      "id": "2p-6-2-n-intro",
+      "type": "text",
+      "content": "## Matematikk med musklar\n\nTenk deg at du skal setje opp ein nedbetalingsplan for eit lån, samanlikne to spareplanar over ti år, eller analysere straumprisane gjennom eit heilt år. Du *kan* gjere alt for hand, men det ville teke timar og vore utsett for reknefeil. Heldigvis finst det verktøy som gjer jobben på sekund -- og i matematikk 2P er det forventa at du kan bruke dei.\n\nDei to viktigaste digitale verktøya i 2P er **rekneark** (som Excel eller Google Rekneark) og **GeoGebra**. Rekneark er framifrå for å organisere data, gjere utrekningar og lage diagram. GeoGebra er spesialdesigna for matematikk og er fantastisk for å plotte funksjonar, utføre regresjon og utforske geometri.\n\nI dette kapittelet skal vi gå gjennom begge verktøya og sjå korleis dei kan brukast til å løyse praktiske problem. Vi startar med rekneark -- det verktøyet du mest sannsynleg allereie har brukt, sjølv om du kanskje ikkje har utnytta det fulle potensialet."
+    },
+    {
+      "id": "2p-6-2-n-section1",
+      "type": "text",
+      "content": "## Rekneark -- din personlege reknemaskin\n\nEit rekneark organiserer data i rader og kolonnar, og kvar rute blir kalla ei **celle**. Cella har ei adresse -- til dømes A1 (kolonne A, rad 1) eller B3 (kolonne B, rad 3). Krafta i rekneark ligg i *formlar*: du startar med eit likskapsteikn og skriv eit uttrykk, og reknearket reknar ut svaret automatisk.\n\nLat oss setje opp eit enkelt budsjett. Du har ei inntekt på 25 000 kr i celle B1. I cellene B3 til B8 har du utgiftene dine: husleige 8 500, straum 1 200, mat 4 000, transport 1 500, fritid 2 000 og anna 1 000. I celle B10 skriv du formelen `=SUMMER(B3:B8)` for å summere alle utgiftene. I B11 skriv du `=B1-B10` for å finne ut kva du har til overs. Og i B12 kan du skrive `=B11/B1*100` for å sjå spareprosenten din. Det geniale er at viss du endrar eitt tal -- til dømes set ned matbudsjettet frå 4 000 til 3 500 -- blir alt oppdatert automatisk.\n\nDet er to typar **cellereferansar** du må kjenne. Ein **relativ referanse** som `A1` endrar seg når du kopierer formelen nedover (han blir `A2`, `A3` osv.). Ein **absolutt referanse** som `$A$1` held seg fast uansett kvar du kopierer han. Det er viktig å forstå forskjellen. Tenk deg at du har renta i celle B1 og vil multiplisere mange ulike beløp med denne renta. Då bruker du `$B$1` i formelen, så referansen til renta held seg fast medan beløpsreferansen endrar seg. Formelen `=A1*(1+$B$1)` i celle C1 kan kopierast nedover, og B1 peikar alltid på renta medan A1 endrar seg til A2, A3 og så vidare."
+    },
+    {
+      "id": "2p-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rekneark og formlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-2-n-quiz1-q0",
+            "task": "I eit rekneark står talet 500 i celle A1 og talet 0,05 i celle B1. Kva gir formelen `=A1*(1+B1)`?",
+            "options": [
+              {
+                "id": "a",
+                "text": "25",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "525",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "500,05",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "505",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`=A1*(1+B1)` = $500 \\cdot (1 + 0{,}05) = 500 \\cdot 1{,}05 = 525$. Formelen reknar ut 500 med 5 % påslag."
+          },
+          {
+            "id": "2p-6-2-n-quiz1-q1",
+            "task": "Utgiftene dine står i cellene B3 til B8. Kva for formel summerer alle utgiftene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`=B3+B4+B5+B6+B7+B8`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`=GJENNOMSNITT(B3:B8)`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`=SUMMER(B3:B8)`",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "`=PRODUKT(B3:B8)`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`=SUMMER(B3:B8)` summerer alle verdiar i celleområdet B3 til B8. Alternativ a gir same resultat, men `SUMMER` er meir effektivt og lettare å vedlikehalde. `GJENNOMSNITT` gir gjennomsnittet, og `PRODUKT` multipliserer verdiane."
+          },
+          {
+            "id": "2p-6-2-n-quiz1-q2",
+            "task": "Kva er forskjellen mellom ein relativ referanse (`A1`) og ein absolutt referanse (`$A$1`)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Absolutt referanse er meir nøyaktig enn relativ",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Absolutt referanse kan berre brukast i kolonnar, relativ i rader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen praktisk forskjell",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Relativ referanse endrar seg når du kopierer formelen, absolutt held seg fast",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein relativ referanse som `A1` endrar seg når formelen blir kopiert (blir `A2`, `A3`, osv.). Ein absolutt referanse som `$A$1` held seg fast uansett kvar du kopierer. Dollarteikna \"låser\" referansen."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-2-n-section2",
+      "type": "text",
+      "content": "## GeoGebra -- leikeplassen til matematikken\n\nMedan rekneark er gode til tal og tabellar, er **GeoGebra** designa spesielt for matematikk. Det er gratis, tilgjengeleg på nett, og lèt deg gjere ting som ville teke lang tid for hand.\n\nDet enklaste du kan gjere i GeoGebra er å plotte ein funksjon. Skriv `f(x) = 2x + 3` i inntastingsfeltet, og du ser umiddelbart ei rett linje. Skriv `g(x) = 100*1.05^x`, og du ser ei eksponentiell kurve. Du kan bruke kommandoen `Nullpunkt(f)` for å finne kvar funksjonen kryssar $x$-aksen, og `Skjæring(f, g)` for å finne kvar to funksjonar møtest.\n\nMen der GeoGebra verkeleg skin, er i **regresjonsanalyse**. Sei at du har målt temperaturen i ein kopp kaffi: 85 grader ved start, 72 etter 5 minutt, 62 etter 10, 55 etter 15, 49 etter 20 og 40 etter 30 minutt. Du legg dataa inn i reknearket til GeoGebra, lagar ei punktliste, og skriv `RegEksp(L1)`. GeoGebra gir deg den eksponentielle funksjonen som passar best til dataa, til dømes $f(x) = 83{,}2 \\cdot 0{,}975^x$.\n\nHan gir deg òg ein **$r^2$-verdi** -- determinasjonskoeffisienten -- som fortel kor godt modellen passar. Verdien $r^2 = 0{,}98$ tyder at 98 prosent av variasjonen i dataa blir forklart av modellen. Di nærmare 1, di betre. Med denne modellen kan du estimere temperaturen etter 45 minutt: $f(45) = 83{,}2 \\cdot 0{,}975^{45} \\approx 27$ grader. Lineær regresjon gjer du med `RegLin(L1)`."
+    },
+    {
+      "id": "2p-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på GeoGebra og regresjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-2-n-quiz2-q0",
+            "task": "Kva tyder det at $r^2 = 0{,}98$ i ein regresjonsanalyse?",
+            "options": [
+              {
+                "id": "c",
+                "text": "98 % av variasjonen i dataa blir forklart av modellen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Modellen har ein feilmargin på 2 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Modellen passar til 98 av 100 datapunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Korrelasjonskoeffisienten er 0,98",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$r^2 = 0{,}98$ tyder at 98 % av variasjonen i dataa kan forklarast av modellen. Di nærmare 1, di betre passar modellen. Korrelasjonskoeffisienten $r$ ville vore $\\sqrt{0{,}98} \\approx 0{,}99$, altså ikkje heilt det same som $r^2$."
+          },
+          {
+            "id": "2p-6-2-n-quiz2-q1",
+            "task": "Kva for GeoGebra-kommando bruker du for å finne den eksponentielle funksjonen som passar best til ei punktliste L1?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`RegLin(L1)`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`Nullpunkt(L1)`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`RegEksp(L1)`",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "`Skjæring(L1)`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`RegEksp(L1)` utfører eksponentiell regresjon og gir deg funksjonen $f(x) = a \\cdot b^x$ som passar best til datapunkta. `RegLin(L1)` gir lineær regresjon."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-2-n-section3",
+      "type": "text",
+      "content": "## Diagram -- å sjå mønstera\n\nTal i ein tabell er informative, men eit godt diagram kan avsløre mønster du aldri ville sett i tala åleine. Ulike diagramtypar eignar seg til ulike formål, og å velje rett diagram er ein ferdigheit i seg sjølv.\n\nEit **søylediagram** er perfekt for å samanlikne verdiar i ulike kategoriar -- til dømes sal per månad eller karakterfordeling i ein klasse. Eit **linjediagram** viser utvikling over tid og er ideelt for å sjå trendar -- til dømes korleis temperaturen endrar seg gjennom døgnet eller korleis elbilsalet har utvikla seg frå 2015 til 2024. Eit **sektordiagram** (eller kakediagram) viser delar av ein heilskap -- til dømes korleis budsjettet ditt fordeler seg mellom husleige, mat og fritid.\n\nEit **punktdiagram** (spreiingsdiagram) er noko anna igjen: det viser samanhengen mellom to variablar. Viss du plottar tal timar studert mot eksamensresultat, kan du sjå om det er ein samanheng -- og leggje inn ei regresjonslinje. Eit **histogram** viser frekvensfordelinga av data, til dømes aldersfordelinga i ein kommune.\n\nHer er nokre tips for gode diagram: Vel rett type for det du vil vise. Ha tydelege aksetitlar med einingar. Bruk ein passande skala -- ikkje start $y$-aksen midt i for å overdrive forskjellar, for det kan villeie lesaren. Og gi diagrammet ein skildrande tittel.\n\nLat oss ta eit konkret val. Du har tre datasett: budsjettfordeling, turistutvikling over tid, og samanhengen mellom studietid og eksamenspoeng. Budsjettfordelinga er delar av ein heilskap, altså eit sektordiagram. Turistutviklinga er endring over tid, altså eit linjediagram. Studietid versus poeng er to variablar du vil samanlikne, altså eit punktdiagram."
+    },
+    {
+      "id": "2p-6-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på diagramtypar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-2-n-quiz3-q0",
+            "task": "Du vil vise korleis salet av elbilar i Noreg har utvikla seg frå 2015 til 2024. Kva for diagramtype er best eigna?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sektordiagram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Linjediagram",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Histogram",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Boblediagram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Linjediagram viser utvikling over tid og er ideelt for å sjå trenden i elbilsalet gjennom åra. Søylediagram kunne òg fungert, men linjediagram er vanlegast for tidsseriar."
+          },
+          {
+            "id": "2p-6-2-n-quiz3-q1",
+            "task": "Du vil vise korleis budsjettet ditt fordeler seg mellom husleige, mat, transport og fritid. Kva for diagramtype passar best?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Punktdiagram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Linjediagram",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Histogram",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sektordiagram (kakediagram)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sektordiagram viser delar av ein heilskap og er perfekt for budsjettfordeling. Kvart \"kakestykke\" representerer ein utgiftspost som del av totalen."
+          },
+          {
+            "id": "2p-6-2-n-quiz3-q2",
+            "task": "Du vil undersøkje samanhengen mellom tal timar studert og eksamensresultat. Kva for diagramtype vel du?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Punktdiagram (spreiingsdiagram)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sektordiagram",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Søylediagram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Linjediagram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Punktdiagram viser samanhengen mellom to variablar. Kvart punkt representerer ein elev med studietid langs x-aksen og resultat langs y-aksen. Du kan leggje inn ei regresjonslinje for å sjå trenden."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-2-n-section4",
+      "type": "text",
+      "content": "## Problemløysing i praksis -- lån, sparing og analyse\n\nLat oss sjå på ei større oppgåve som viser korleis rekneark blir brukt i praksis. Du vil lage ein nedbetalingsplan for eit **annuitetslån** på 100 000 kr med 5 prosent årleg rente over 4 år. Først reknar du ut det faste terminbeløpet: $T = 100\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} \\approx 28\\,201$ kr per år.\n\nDeretter set du opp reknearket. I kolonne A har du årstalet, i B restlånet ved starten av året, i C rentekostnaden (`=B1*0,05`), i D terminbeløpet (28 201), i E avdraget (`=D1-C1`), og i F restlånet ved slutten av året (`=B1-E1`). Startbeløpet for neste år (B2) er likt sluttbeløpet for førre år (`=F1`). Reknearket viser automatisk at renta søkk for kvart år medan avdraga aukar -- sjølv om terminbeløpet er konstant.\n\nEller tenk at du sparar 1 000 kr i månaden til 3 prosent årleg rente. I reknearket har du månadsnummer i kolonne A, innskot i B (1 000), saldo etter innskot i C (gammal saldo pluss 1 000), og saldo etter rente i D (`=C1*(1+0,0025)`, fordi månadleg rente er $3\\%/12 = 0{,}25\\%$). Etter 12 månader har du sett inn 12 000 kr og fått omtrent 198 kr i rente, totalt ca. 12 198 kr.\n\nHugs at digitale verktøy er *hjelpemiddel*. Reknearket gjer utrekningane for deg, men du må framleis forstå matematikken bak for å setje opp formlane rett og tolke resultata. Verktøyet er berre så smart som den som bruker det."
+    },
+    {
+      "id": "2p-6-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lån og rente i rekneark:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-2-n-quiz4-q0",
+            "task": "Du har eit lån på 200 000 kr med 4 % årleg rente. Kva gir formelen `=A1*B1` viss A1 inneheld 200 000 og B1 inneheld 0,04?",
+            "options": [
+              {
+                "id": "a",
+                "text": "800 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "8 000 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "80 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "2 000 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`=A1*B1` = $200\\,000 \\cdot 0{,}04 = 8\\,000$ kr. Dette er rentekostnaden for det første året."
+          },
+          {
+            "id": "2p-6-2-n-quiz4-q1",
+            "task": "Du sparar 1 000 kr i månaden til 3 % årleg rente. Kva er månadleg rente?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}3\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}25\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}03\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Månadleg rente = årleg rente / 12 = $3\\% / 12 = 0{,}25\\%$. I rekneark bruker du vekstfaktoren $1{,}0025$ for å rekne ut rente kvar månad."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-2-n-section5",
+      "type": "text",
+      "content": "## Absolutte og relative referansar -- den vanlegaste fella\n\nLat oss snakke meir om eit tema som forvirrar mange: forskjellen mellom absolutte og relative referansar. Det er kanskje det viktigaste omgrepet i rekneark, fordi det avgjer om formlane dine fungerer rett når du kopierer dei.\n\nTenk at du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer? Den relative referansen B2 endrar seg til B3, B4 og B5 -- han følgjer med nedover. Men den absolutte referansen `$C$1` held seg som `$C$1` i alle radene. Dollarteikna \"låser\" referansen på plass.\n\nNår bruker du kva? Bruk **relativ referanse** når du vil at referansen skal flytte seg -- til dømes når du summerer verdiar i ulike rader. Bruk **absolutt referanse** når du peikar på ein fast verdi -- til dømes ei rente, ein skattesats eller ein vekstfaktor som skal brukast i alle utrekningane. Mange feil i rekneark kjem av at folk bruker relativ referanse der dei burde brukt absolutt, slik at formelen plutseleg peikar på feil celle.\n\nLat oss ta eit siste eksempel. Du samanliknar to spareplanar over 10 år: Plan A set inn 500 kr i månaden til 3,5 prosent årleg rente, og Plan B set inn 6 000 kr éin gong i året til 3,8 prosent rente. Begge planane har totalt 60 000 kr i innskot. Men resultatet er litt forskjellig -- Plan A gir ca. 71 200 kr og Plan B ca. 71 600 kr. Forskjellen er liten, men han illustrerer to motstridande effektar: Plan A set inn pengane jamnare slik at dei jobbar lenger (renters rente oftare), men Plan B har høgare rente. I dette tilfellet veg dei to effektane kvarandre opp nesten heilt. Eit rekneark lèt deg utforske slike samanlikningar enkelt og raskt."
+    },
+    {
+      "id": "2p-6-2-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-6-2-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på absolutte og relative referansar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-6-2-n-quiz5-q0",
+            "task": "Du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer med cellereferansane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Begge referansane blir endra til B3*C2, B4*C3 osv.",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ingen av referansane blir endra",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre $C$1 blir endra, B2 held seg fast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "B2 blir endra til B3, B4, B5 medan $C$1 held seg som $C$1 i alle radene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "B2 er ein relativ referanse og blir endra til B3, B4, B5 når formelen blir kopiert nedover. $C$1 er ein absolutt referanse (med dollarteikn) og held seg fast uansett kvar formelen blir kopiert."
+          },
+          {
+            "id": "2p-6-2-n-quiz5-q1",
+            "task": "Du har renta 0,05 i celle B1 og ulike beløp i A2, A3, A4. Du vil rekne ut renta av kvart beløp i kolonne C. Kva for formel i C2 kan kopierast rett nedover?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`=A2*B1`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`=$A$2*$B$1`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`=A2*$B$1`",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "`=$A2*B$1`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`=A2*$B$1` bruker relativ referanse for beløpet (A2 endrar seg til A3, A4 når du kopierer nedover) og absolutt referanse for renta ($B$1 held seg fast). Alternativ a ville flytte B1 til B2, B3 osv., som peikar på feil celler."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDigitale verktøy gjer det mogleg å løyse matematiske problem som ville vore svært tidkrevjande for hand. Men verktøya er berre hjelpemiddel -- du må forstå matematikken for å bruke dei rett.\n\nI **rekneark** bruker du formlar (som startar med `=`), cellereferansar (relative som `A1` og absolutte som `$A$1`), og innebygde funksjonar som `SUMMER` og `GJENNOMSNITT`. I **GeoGebra** plottar du funksjonar, finn nullpunkt og skjeringspunkt, og utfører regresjon med kommandoar som `RegLin` og `RegEksp`. **$r^2$-verdien** fortel deg kor godt modellen passar til dataa.\n\nFor **diagram** vel du type etter formål: søylediagram for samanlikning, linjediagram for utvikling over tid, sektordiagram for delar, og punktdiagram for samanhengar mellom to variablar. Hugs at gode diagram har tydelege aksetitlar, passande skala og ein skildrande tittel."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d1d5dac3160630f2",
+    "translatedAt": "2026-06-17T00:07:07.777Z",
+    "model": "claude-code-agent",
+    "strings": 86,
+    "tm": {
+      "38f30ead93b8a4e2": "Digitale verktøy",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "026272ed65d32c12": "Ein praktisk guide til rekneark, GeoGebra og diagram -- verktøya som gjer matematikken levande og lèt deg løyse verkelege problem.",
+      "f4c063f77cf50e3f": "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy",
+      "b32273a2297199df": "analysere og presentere funn i datasett fra lokalsamfunn og media",
+      "45e5ec6af0053cac": "## Matematikk med musklar\n\nTenk deg at du skal setje opp ein nedbetalingsplan for eit lån, samanlikne to spareplanar over ti år, eller analysere straumprisane gjennom eit heilt år. Du *kan* gjere alt for hand, men det ville teke timar og vore utsett for reknefeil. Heldigvis finst det verktøy som gjer jobben på sekund -- og i matematikk 2P er det forventa at du kan bruke dei.\n\nDei to viktigaste digitale verktøya i 2P er **rekneark** (som Excel eller Google Rekneark) og **GeoGebra**. Rekneark er framifrå for å organisere data, gjere utrekningar og lage diagram. GeoGebra er spesialdesigna for matematikk og er fantastisk for å plotte funksjonar, utføre regresjon og utforske geometri.\n\nI dette kapittelet skal vi gå gjennom begge verktøya og sjå korleis dei kan brukast til å løyse praktiske problem. Vi startar med rekneark -- det verktøyet du mest sannsynleg allereie har brukt, sjølv om du kanskje ikkje har utnytta det fulle potensialet.",
+      "9677994df8582f6d": "## Rekneark -- din personlege reknemaskin\n\nEit rekneark organiserer data i rader og kolonnar, og kvar rute blir kalla ei **celle**. Cella har ei adresse -- til dømes A1 (kolonne A, rad 1) eller B3 (kolonne B, rad 3). Krafta i rekneark ligg i *formlar*: du startar med eit likskapsteikn og skriv eit uttrykk, og reknearket reknar ut svaret automatisk.\n\nLat oss setje opp eit enkelt budsjett. Du har ei inntekt på 25 000 kr i celle B1. I cellene B3 til B8 har du utgiftene dine: husleige 8 500, straum 1 200, mat 4 000, transport 1 500, fritid 2 000 og anna 1 000. I celle B10 skriv du formelen `=SUMMER(B3:B8)` for å summere alle utgiftene. I B11 skriv du `=B1-B10` for å finne ut kva du har til overs. Og i B12 kan du skrive `=B11/B1*100` for å sjå spareprosenten din. Det geniale er at viss du endrar eitt tal -- til dømes set ned matbudsjettet frå 4 000 til 3 500 -- blir alt oppdatert automatisk.\n\nDet er to typar **cellereferansar** du må kjenne. Ein **relativ referanse** som `A1` endrar seg når du kopierer formelen nedover (han blir `A2`, `A3` osv.). Ein **absolutt referanse** som `$A$1` held seg fast uansett kvar du kopierer han. Det er viktig å forstå forskjellen. Tenk deg at du har renta i celle B1 og vil multiplisere mange ulike beløp med denne renta. Då bruker du `$B$1` i formelen, så referansen til renta held seg fast medan beløpsreferansen endrar seg. Formelen `=A1*(1+$B$1)` i celle C1 kan kopierast nedover, og B1 peikar alltid på renta medan A1 endrar seg til A2, A3 og så vidare.",
+      "e93d3f887c993b57": "Test deg sjølv på rekneark og formlar:",
+      "4097889236a2af26": "placeholder",
+      "ec28c36b1d41085e": "I eit rekneark står talet 500 i celle A1 og talet 0,05 i celle B1. Kva gir formelen `=A1*(1+B1)`?",
+      "ab937085c7a335c2": "`=A1*(1+B1)` = $500 \\cdot (1 + 0{,}05) = 500 \\cdot 1{,}05 = 525$. Formelen reknar ut 500 med 5 % påslag.",
+      "81e9dcb3874e4887": "Utgiftene dine står i cellene B3 til B8. Kva for formel summerer alle utgiftene?",
+      "1033ae8533eeca8b": "`=B3+B4+B5+B6+B7+B8`",
+      "31da20b41284578f": "`=GJENNOMSNITT(B3:B8)`",
+      "1cab9af1a958d080": "`=SUMMER(B3:B8)`",
+      "6b8c4ce71ac3a6d5": "`=PRODUKT(B3:B8)`",
+      "7a77a2a3c7cfcc03": "`=SUMMER(B3:B8)` summerer alle verdiar i celleområdet B3 til B8. Alternativ a gir same resultat, men `SUMMER` er meir effektivt og lettare å vedlikehalde. `GJENNOMSNITT` gir gjennomsnittet, og `PRODUKT` multipliserer verdiane.",
+      "e451c38ddc2c790a": "Kva er forskjellen mellom ein relativ referanse (`A1`) og ein absolutt referanse (`$A$1`)?",
+      "f3d49f37f4de9dbf": "Absolutt referanse er meir nøyaktig enn relativ",
+      "e5bc68b90b2cdfad": "Relativ referanse endrar seg når du kopierer formelen, absolutt held seg fast",
+      "bd95175b45864b50": "Absolutt referanse kan berre brukast i kolonnar, relativ i rader",
+      "6b54a88bc65ea9aa": "Det er ingen praktisk forskjell",
+      "469506c8c5ded260": "Ein relativ referanse som `A1` endrar seg når formelen blir kopiert (blir `A2`, `A3`, osv.). Ein absolutt referanse som `$A$1` held seg fast uansett kvar du kopierer. Dollarteikna \"låser\" referansen.",
+      "a9992fac8b466514": "## GeoGebra -- leikeplassen til matematikken\n\nMedan rekneark er gode til tal og tabellar, er **GeoGebra** designa spesielt for matematikk. Det er gratis, tilgjengeleg på nett, og lèt deg gjere ting som ville teke lang tid for hand.\n\nDet enklaste du kan gjere i GeoGebra er å plotte ein funksjon. Skriv `f(x) = 2x + 3` i inntastingsfeltet, og du ser umiddelbart ei rett linje. Skriv `g(x) = 100*1.05^x`, og du ser ei eksponentiell kurve. Du kan bruke kommandoen `Nullpunkt(f)` for å finne kvar funksjonen kryssar $x$-aksen, og `Skjæring(f, g)` for å finne kvar to funksjonar møtest.\n\nMen der GeoGebra verkeleg skin, er i **regresjonsanalyse**. Sei at du har målt temperaturen i ein kopp kaffi: 85 grader ved start, 72 etter 5 minutt, 62 etter 10, 55 etter 15, 49 etter 20 og 40 etter 30 minutt. Du legg dataa inn i reknearket til GeoGebra, lagar ei punktliste, og skriv `RegEksp(L1)`. GeoGebra gir deg den eksponentielle funksjonen som passar best til dataa, til dømes $f(x) = 83{,}2 \\cdot 0{,}975^x$.\n\nHan gir deg òg ein **$r^2$-verdi** -- determinasjonskoeffisienten -- som fortel kor godt modellen passar. Verdien $r^2 = 0{,}98$ tyder at 98 prosent av variasjonen i dataa blir forklart av modellen. Di nærmare 1, di betre. Med denne modellen kan du estimere temperaturen etter 45 minutt: $f(45) = 83{,}2 \\cdot 0{,}975^{45} \\approx 27$ grader. Lineær regresjon gjer du med `RegLin(L1)`.",
+      "de86b4bee6d6ae19": "Test deg sjølv på GeoGebra og regresjon:",
+      "0682b9248b2aa530": "Kva tyder det at $r^2 = 0{,}98$ i ein regresjonsanalyse?",
+      "7ae9d40e871401c9": "Modellen har ein feilmargin på 2 %",
+      "3685a558207401c6": "Modellen passar til 98 av 100 datapunkt",
+      "4d98aa39eb9f23c4": "98 % av variasjonen i dataa blir forklart av modellen",
+      "638368f0b502d7bb": "Korrelasjonskoeffisienten er 0,98",
+      "41c406b9f4db6cac": "$r^2 = 0{,}98$ tyder at 98 % av variasjonen i dataa kan forklarast av modellen. Di nærmare 1, di betre passar modellen. Korrelasjonskoeffisienten $r$ ville vore $\\sqrt{0{,}98} \\approx 0{,}99$, altså ikkje heilt det same som $r^2$.",
+      "1ba04b568cc41193": "Kva for GeoGebra-kommando bruker du for å finne den eksponentielle funksjonen som passar best til ei punktliste L1?",
+      "234f9537ecb275eb": "`RegLin(L1)`",
+      "868b11829c1dcbcb": "`Nullpunkt(L1)`",
+      "4c96af85388da786": "`RegEksp(L1)`",
+      "75ad9d22f980c319": "`Skjæring(L1)`",
+      "8233130b381e8a96": "`RegEksp(L1)` utfører eksponentiell regresjon og gir deg funksjonen $f(x) = a \\cdot b^x$ som passar best til datapunkta. `RegLin(L1)` gir lineær regresjon.",
+      "b9fcbd4255401f1b": "## Diagram -- å sjå mønstera\n\nTal i ein tabell er informative, men eit godt diagram kan avsløre mønster du aldri ville sett i tala åleine. Ulike diagramtypar eignar seg til ulike formål, og å velje rett diagram er ein ferdigheit i seg sjølv.\n\nEit **søylediagram** er perfekt for å samanlikne verdiar i ulike kategoriar -- til dømes sal per månad eller karakterfordeling i ein klasse. Eit **linjediagram** viser utvikling over tid og er ideelt for å sjå trendar -- til dømes korleis temperaturen endrar seg gjennom døgnet eller korleis elbilsalet har utvikla seg frå 2015 til 2024. Eit **sektordiagram** (eller kakediagram) viser delar av ein heilskap -- til dømes korleis budsjettet ditt fordeler seg mellom husleige, mat og fritid.\n\nEit **punktdiagram** (spreiingsdiagram) er noko anna igjen: det viser samanhengen mellom to variablar. Viss du plottar tal timar studert mot eksamensresultat, kan du sjå om det er ein samanheng -- og leggje inn ei regresjonslinje. Eit **histogram** viser frekvensfordelinga av data, til dømes aldersfordelinga i ein kommune.\n\nHer er nokre tips for gode diagram: Vel rett type for det du vil vise. Ha tydelege aksetitlar med einingar. Bruk ein passande skala -- ikkje start $y$-aksen midt i for å overdrive forskjellar, for det kan villeie lesaren. Og gi diagrammet ein skildrande tittel.\n\nLat oss ta eit konkret val. Du har tre datasett: budsjettfordeling, turistutvikling over tid, og samanhengen mellom studietid og eksamenspoeng. Budsjettfordelinga er delar av ein heilskap, altså eit sektordiagram. Turistutviklinga er endring over tid, altså eit linjediagram. Studietid versus poeng er to variablar du vil samanlikne, altså eit punktdiagram.",
+      "a082a146361de1c7": "Test deg sjølv på diagramtypar:",
+      "346aa31201e07c59": "Du vil vise korleis salet av elbilar i Noreg har utvikla seg frå 2015 til 2024. Kva for diagramtype er best eigna?",
+      "cdf87bb74edd8681": "Sektordiagram",
+      "b32dc489fba87a9a": "Histogram",
+      "aaa899b40e0da3ae": "Linjediagram",
+      "9f714e3cdfe8ea1f": "Boblediagram",
+      "d122d4ebc8868d25": "Linjediagram viser utvikling over tid og er ideelt for å sjå trenden i elbilsalet gjennom åra. Søylediagram kunne òg fungert, men linjediagram er vanlegast for tidsseriar.",
+      "83a96381bd9135cd": "Du vil vise korleis budsjettet ditt fordeler seg mellom husleige, mat, transport og fritid. Kva for diagramtype passar best?",
+      "3035f5bb33360e61": "Punktdiagram",
+      "5f228762db1336fb": "Sektordiagram (kakediagram)",
+      "6c20952feea65ea5": "Sektordiagram viser delar av ein heilskap og er perfekt for budsjettfordeling. Kvart \"kakestykke\" representerer ein utgiftspost som del av totalen.",
+      "9651511f812f5179": "Du vil undersøkje samanhengen mellom tal timar studert og eksamensresultat. Kva for diagramtype vel du?",
+      "89184d05139419cf": "Søylediagram",
+      "c6b1c3e7708e55cc": "Punktdiagram (spreiingsdiagram)",
+      "c7369b0d32bbed08": "Punktdiagram viser samanhengen mellom to variablar. Kvart punkt representerer ein elev med studietid langs x-aksen og resultat langs y-aksen. Du kan leggje inn ei regresjonslinje for å sjå trenden.",
+      "14231e06c658abf7": "## Problemløysing i praksis -- lån, sparing og analyse\n\nLat oss sjå på ei større oppgåve som viser korleis rekneark blir brukt i praksis. Du vil lage ein nedbetalingsplan for eit **annuitetslån** på 100 000 kr med 5 prosent årleg rente over 4 år. Først reknar du ut det faste terminbeløpet: $T = 100\\,000 \\cdot \\frac{0{,}05 \\cdot 1{,}05^4}{1{,}05^4 - 1} \\approx 28\\,201$ kr per år.\n\nDeretter set du opp reknearket. I kolonne A har du årstalet, i B restlånet ved starten av året, i C rentekostnaden (`=B1*0,05`), i D terminbeløpet (28 201), i E avdraget (`=D1-C1`), og i F restlånet ved slutten av året (`=B1-E1`). Startbeløpet for neste år (B2) er likt sluttbeløpet for førre år (`=F1`). Reknearket viser automatisk at renta søkk for kvart år medan avdraga aukar -- sjølv om terminbeløpet er konstant.\n\nEller tenk at du sparar 1 000 kr i månaden til 3 prosent årleg rente. I reknearket har du månadsnummer i kolonne A, innskot i B (1 000), saldo etter innskot i C (gammal saldo pluss 1 000), og saldo etter rente i D (`=C1*(1+0,0025)`, fordi månadleg rente er $3\\%/12 = 0{,}25\\%$). Etter 12 månader har du sett inn 12 000 kr og fått omtrent 198 kr i rente, totalt ca. 12 198 kr.\n\nHugs at digitale verktøy er *hjelpemiddel*. Reknearket gjer utrekningane for deg, men du må framleis forstå matematikken bak for å setje opp formlane rett og tolke resultata. Verktøyet er berre så smart som den som bruker det.",
+      "d5e92a65bdce18bd": "Test deg sjølv på lån og rente i rekneark:",
+      "b7ae7019d3d42bd9": "Du har eit lån på 200 000 kr med 4 % årleg rente. Kva gir formelen `=A1*B1` viss A1 inneheld 200 000 og B1 inneheld 0,04?",
+      "1048c6709aacbb65": "800 kr",
+      "243915a2df2070bf": "80 000 kr",
+      "95c121de50c70d5e": "8 000 kr",
+      "dc6aba6899de3939": "2 000 kr",
+      "1fec1b19a0f5d782": "`=A1*B1` = $200\\,000 \\cdot 0{,}04 = 8\\,000$ kr. Dette er rentekostnaden for det første året.",
+      "62af32b0327e95d5": "Du sparar 1 000 kr i månaden til 3 % årleg rente. Kva er månadleg rente?",
+      "65546d5d40e163a0": "Månadleg rente = årleg rente / 12 = $3\\% / 12 = 0{,}25\\%$. I rekneark bruker du vekstfaktoren $1{,}0025$ for å rekne ut rente kvar månad.",
+      "e6077f4162371489": "## Absolutte og relative referansar -- den vanlegaste fella\n\nLat oss snakke meir om eit tema som forvirrar mange: forskjellen mellom absolutte og relative referansar. Det er kanskje det viktigaste omgrepet i rekneark, fordi det avgjer om formlane dine fungerer rett når du kopierer dei.\n\nTenk at du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer? Den relative referansen B2 endrar seg til B3, B4 og B5 -- han følgjer med nedover. Men den absolutte referansen `$C$1` held seg som `$C$1` i alle radene. Dollarteikna \"låser\" referansen på plass.\n\nNår bruker du kva? Bruk **relativ referanse** når du vil at referansen skal flytte seg -- til dømes når du summerer verdiar i ulike rader. Bruk **absolutt referanse** når du peikar på ein fast verdi -- til dømes ei rente, ein skattesats eller ein vekstfaktor som skal brukast i alle utrekningane. Mange feil i rekneark kjem av at folk bruker relativ referanse der dei burde brukt absolutt, slik at formelen plutseleg peikar på feil celle.\n\nLat oss ta eit siste eksempel. Du samanliknar to spareplanar over 10 år: Plan A set inn 500 kr i månaden til 3,5 prosent årleg rente, og Plan B set inn 6 000 kr éin gong i året til 3,8 prosent rente. Begge planane har totalt 60 000 kr i innskot. Men resultatet er litt forskjellig -- Plan A gir ca. 71 200 kr og Plan B ca. 71 600 kr. Forskjellen er liten, men han illustrerer to motstridande effektar: Plan A set inn pengane jamnare slik at dei jobbar lenger (renters rente oftare), men Plan B har høgare rente. I dette tilfellet veg dei to effektane kvarandre opp nesten heilt. Eit rekneark lèt deg utforske slike samanlikningar enkelt og raskt.",
+      "8ca62eb539257aa1": "Test deg sjølv på absolutte og relative referansar:",
+      "ba453afeeda91a73": "Du skriv formelen `=B2*$C$1` i celle D2 og kopierer han ned til D3, D4 og D5. Kva skjer med cellereferansane?",
+      "8471eaaec27d6326": "Begge referansane blir endra til B3*C2, B4*C3 osv.",
+      "7aa5af2674e1e9d0": "Ingen av referansane blir endra",
+      "d549757fb68e02ed": "Berre $C$1 blir endra, B2 held seg fast",
+      "6fe6f20c5630b370": "B2 blir endra til B3, B4, B5 medan $C$1 held seg som $C$1 i alle radene",
+      "a7476d5f57ae744e": "B2 er ein relativ referanse og blir endra til B3, B4, B5 når formelen blir kopiert nedover. $C$1 er ein absolutt referanse (med dollarteikn) og held seg fast uansett kvar formelen blir kopiert.",
+      "9cb9a86f46ffd012": "Du har renta 0,05 i celle B1 og ulike beløp i A2, A3, A4. Du vil rekne ut renta av kvart beløp i kolonne C. Kva for formel i C2 kan kopierast rett nedover?",
+      "9b9777efadb2817d": "`=A2*B1`",
+      "c5da04944c909c66": "`=$A$2*$B$1`",
+      "8bf4ccaee630f399": "`=A2*$B$1`",
+      "3ced279a0c54a130": "`=$A2*B$1`",
+      "c974f83ab0090f25": "`=A2*$B$1` bruker relativ referanse for beløpet (A2 endrar seg til A3, A4 når du kopierer nedover) og absolutt referanse for renta ($B$1 held seg fast). Alternativ a ville flytte B1 til B2, B3 osv., som peikar på feil celler.",
+      "4f77c5de52342788": "## Oppsummering\n\nDigitale verktøy gjer det mogleg å løyse matematiske problem som ville vore svært tidkrevjande for hand. Men verktøya er berre hjelpemiddel -- du må forstå matematikken for å bruke dei rett.\n\nI **rekneark** bruker du formlar (som startar med `=`), cellereferansar (relative som `A1` og absolutte som `$A$1`), og innebygde funksjonar som `SUMMER` og `GJENNOMSNITT`. I **GeoGebra** plottar du funksjonar, finn nullpunkt og skjeringspunkt, og utfører regresjon med kommandoar som `RegLin` og `RegEksp`. **$r^2$-verdien** fortel deg kor godt modellen passar til dataa.\n\nFor **diagram** vel du type etter formål: søylediagram for samanlikning, linjediagram for utvikling over tid, sektordiagram for delar, og punktdiagram for samanhengar mellom to variablar. Hugs at gode diagram har tydelege aksetitlar, passande skala og ein skildrande tittel."
+    }
+  }
+}

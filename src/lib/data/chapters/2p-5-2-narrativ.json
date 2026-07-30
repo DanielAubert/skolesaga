@@ -1,1 +1,421 @@
-{"id":"2p-5-2-narrativ","courseId":"2p","chapterNumber":"5.2","title":"Trigonometri i praksis","subtitle":"Narrativ versjon","description":"Historien om hvordan trekanter hjelper oss å måle det umålelige -- fra stiger mot vegger og skygger fra trær til bredden av en elv du ikke kan krysse.","estimatedMinutes":40,"competenceGoals":["utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid"],"linkedChapterId":"2p-5-2","content":[{"id":"2p-5-2-n-intro","type":"text","content":"## Trekantens superkrefter\n\nForestill deg at du står ved foten av et stort tre og lurer på hvor høyt det er. Du kan ikke klatre opp med et målebånd, og å felle treet bare for å måle det er åpenbart en dårlig idé. Men med litt trigonometri kan du finne høyden uten å forlate bakken. Alt du trenger er skyggens lengde og solens vinkel -- eller en enkel vinkelmåler og en kjent avstand.\n\nTrigonometri er læren om trekanter, og spesielt om forholdene mellom sider og vinkler i trekanter. Ordet kommer fra gresk: *trigonon* betyr trekant og *metron* betyr mål. Det har vært brukt i tusenvis av år til landmåling, navigasjon og astronomi. I dag bruker vi trigonometri i alt fra å beregne takhelling til å måle avstander vi ikke kan nå fysisk.\n\nI dette kapittelet starter vi med Pytagoras' setning -- en av de mest berømte formlene i matematikken. Deretter lærer vi om sinus, cosinus og tangens, som lar oss koble vinkler til sidelengder. Til slutt ser vi hvordan vi kan bruke inverse trigonometriske funksjoner til å finne ukjente vinkler."},{"id":"2p-5-2-n-section1","type":"text","content":"## Pytagoras -- en 2500 år gammel superstjerne\n\nFor over 2500 år siden formulerte den greske matematikeren Pytagoras en setning som fortsatt er en av de mest brukte i matematikken. I en **rettvinklet trekant** -- altså en trekant der én vinkel er nøyaktig 90 grader -- gjelder det at $a^2 + b^2 = c^2$, der $a$ og $b$ er de to kortere sidene (katetene) og $c$ er den lengste siden (**hypotenusen**). Hypotenusen ligger alltid overfor den rette vinkelen.\n\nLa oss se dette i praksis. Tenk deg en stige som er 5,0 m lang og lener mot en vegg. Foten av stigen står 1,5 m fra veggen. Hvor høyt opp rekker stigen? Stigen danner hypotenusen, avstanden fra veggen er én katet, og høyden opp veggen er den andre kateten. Vi setter opp: $h^2 + 1{,}5^2 = 5{,}0^2$, som gir $h^2 = 25 - 2{,}25 = 22{,}75$, altså $h = \\sqrt{22{,}75} \\approx 4{,}77$ m. Stigen rekker omtrent 4,8 m opp på veggen.\n\nDu kan også bruke setningen \"baklengs.\" Hvis du kjenner hypotenusen og én katet, finner du den andre: $a = \\sqrt{c^2 - b^2}$. Tenk deg at diagonalen i et rektangulært rom måler 7,2 m og rommet er 5,4 m langt. Da er bredden $b = \\sqrt{7{,}2^2 - 5{,}4^2} = \\sqrt{51{,}84 - 29{,}16} = \\sqrt{22{,}68} \\approx 4{,}76$ m.\n\nPytagoras-trippelet 3-4-5 er det mest kjente: $3^2 + 4^2 = 9 + 16 = 25 = 5^2$. Multipler av dette trippelet, som 6-8-10, fungerer også. Håndverkere bruker denne sammenhengen for å sjekke om et hjørne er rett vinkel: mål 3 m langs én vegg, 4 m langs den andre, og sjekk at diagonalen er 5 m."},{"id":"2p-5-2-n-quiz1","type":"exercise","exercise":{"id":"2p-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på Pytagoras:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-5-2-n-quiz1-q0","task":"En rettvinklet trekant har kateter på 6 cm og 8 cm. Hvor lang er hypotenusen?","options":[{"id":"a","text":"14 cm","isCorrect":false},{"id":"b","text":"10 cm","isCorrect":true},{"id":"c","text":"$\\sqrt{48} \\approx 6{,}9$ cm","isCorrect":false},{"id":"d","text":"12 cm","isCorrect":false}],"solution":"$c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$ cm. Pytagoras-trippelet 6-8-10."},{"id":"2p-5-2-n-quiz1-q1","task":"En stige er 5,0 m lang og lener mot en vegg. Foten står 1,5 m fra veggen. Hvor høyt opp rekker stigen?","options":[{"id":"a","text":"$\\sqrt{27{,}25} \\approx 5{,}22$ m","isCorrect":false},{"id":"b","text":"$3{,}5$ m","isCorrect":false},{"id":"c","text":"$\\sqrt{22{,}75} \\approx 4{,}77$ m","isCorrect":true},{"id":"d","text":"$6{,}5$ m","isCorrect":false}],"solution":"$h^2 + 1{,}5^2 = 5{,}0^2 \\Rightarrow h^2 = 25 - 2{,}25 = 22{,}75 \\Rightarrow h = \\sqrt{22{,}75} \\approx 4{,}77$ m."}],"solution":""}},{"id":"2p-5-2-n-section2","type":"text","content":"## Sinus, cosinus og tangens -- de tre vennene\n\nPytagoras' setning er kraftig, men den har en begrensning: den sier ingenting om vinklene. Hva om du kjenner en vinkel og én side, og vil finne en annen side? Da trenger du de **trigonometriske forholdene**: sinus, cosinus og tangens.\n\nI en rettvinklet trekant med en spiss vinkel $v$ definerer vi: $\\sin v = \\frac{\\text{motstående katet}}{\\text{hypotenus}}$, $\\cos v = \\frac{\\text{hosliggende katet}}{\\text{hypotenus}}$, og $\\tan v = \\frac{\\text{motstående katet}}{\\text{hosliggende katet}}$. En populær huskeregel er **SOH-CAH-TOA**: **S**in = **O**pposite / **H**ypotenuse, **C**os = **A**djacent / **H**ypotenuse, **T**an = **O**pposite / **A**djacent.\n\nLa oss gå tilbake til treet du ville måle. Treet kaster en skygge på 15 m langs bakken, og solens vinkel over horisonten er 38 grader. Du kjenner den hosliggende kateten (skyggen) og søker den motstående kateten (trehøyden). Da bruker du tangens: $\\tan 38° = \\frac{h}{15}$, som gir $h = 15 \\cdot \\tan 38° = 15 \\cdot 0{,}7813 \\approx 11{,}7$ m. Treet er omtrent 11,7 m høyt.\n\nHva om du kjenner hypotenusen og en vinkel? Hvis hypotenusen er 13 cm og vinkelen er 22 grader, er den motstående kateten $13 \\cdot \\sin 22° = 13 \\cdot 0{,}3746 \\approx 4{,}9$ cm, og den hosliggende kateten er $13 \\cdot \\cos 22° \\approx 12{,}1$ cm. Merk at det er viktig å velge riktig funksjon ut fra hvilke sider du kjenner og hvilke du søker."},{"id":"2p-5-2-n-quiz2","type":"exercise","exercise":{"id":"2p-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på sinus, cosinus og tangens:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-5-2-n-quiz2-q0","task":"I en rettvinklet trekant er hypotenusen 13 cm og en vinkel er 22°. Hva er lengden av den motstående kateten?","options":[{"id":"a","text":"$13 \\cdot \\cos 22° \\approx 12{,}1$ cm","isCorrect":false},{"id":"b","text":"$13 \\cdot \\tan 22° \\approx 5{,}3$ cm","isCorrect":false},{"id":"c","text":"$\\frac{13}{\\sin 22°} \\approx 34{,}7$ cm","isCorrect":false},{"id":"d","text":"$13 \\cdot \\sin 22° \\approx 4{,}9$ cm","isCorrect":true}],"solution":"Motstående katet = hypotenus $\\cdot \\sin v = 13 \\cdot \\sin 22° \\approx 4{,}9$ cm. Vi bruker sinus (SOH) fordi vi har hypotenusen og søker den motstående kateten."},{"id":"2p-5-2-n-quiz2-q1","task":"Et tre kaster en skygge på 15 m. Solens vinkel er 38°. Hva er trehøyden?","options":[{"id":"a","text":"$15 \\cdot \\sin 38° \\approx 9{,}2$ m","isCorrect":false},{"id":"b","text":"$15 \\cdot \\cos 38° \\approx 11{,}8$ m","isCorrect":false},{"id":"c","text":"$15 \\cdot \\tan 38° \\approx 11{,}7$ m","isCorrect":true},{"id":"d","text":"$\\frac{15}{\\tan 38°} \\approx 19{,}2$ m","isCorrect":false}],"solution":"Vi kjenner hosliggende katet (skyggen 15 m) og søker motstående katet (trehøyden). $\\tan 38° = \\frac{h}{15}$, altså $h = 15 \\cdot \\tan 38° \\approx 11{,}7$ m."}],"solution":""}},{"id":"2p-5-2-n-section3","type":"text","content":"## Å finne ukjente vinkler\n\nTil nå har vi brukt trigonometri til å finne ukjente sider. Men hva om vi kjenner sidene og vil finne en vinkel? Da bruker vi de **inverse trigonometriske funksjonene**: $\\sin^{-1}$, $\\cos^{-1}$ og $\\tan^{-1}$ (også kalt arcsin, arccos og arctan).\n\nLa oss se på et praktisk eksempel. Et saltak har en halvbredde på 5,0 m (horisontal avstand fra vegg til møne) og en høyde på 2,5 m fra takfoten til mønet. Hva er helningsvinkelen? Vi kjenner motstående katet (høyden 2,5 m) og hosliggende katet (halvbredden 5,0 m), så vi bruker tangens: $\\tan v = \\frac{2{,}5}{5{,}0} = 0{,}5$. Dermed er $v = \\tan^{-1}(0{,}5) \\approx 26{,}6°$. Taket har en helning på omtrent 27 grader.\n\nHer er et annet eksempel som viser at trigonometri kan avsløre viktig informasjon. En rampe for rullestol er 6,0 m lang og stiger 0,5 m i høyden. Hvilken vinkel danner rampen med bakken? Vi bruker sinus: $\\sin v = \\frac{0{,}5}{6{,}0} = 0{,}0833$, som gir $v = \\sin^{-1}(0{,}0833) \\approx 4{,}78°$. Norsk Standard sier at ramper for rullestol skal ha maks stigning 1:20, som tilsvarer $\\arctan(1/20) \\approx 2{,}86°$. Rampen i eksempelet er altså for bratt -- den oppfyller ikke kravet. Slik kan trigonometri være avgjørende for tilgjengelighet og sikkerhet."},{"id":"2p-5-2-n-quiz3","type":"exercise","exercise":{"id":"2p-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på inverse trigonometriske funksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-5-2-n-quiz3-q0","task":"Et saltak har halvbredde 5,0 m og mønet er 2,5 m over takfoten. Hva er helningsvinkelen (omtrent)?","options":[{"id":"a","text":"Ca. 45°","isCorrect":false},{"id":"b","text":"Ca. 27°","isCorrect":true},{"id":"c","text":"Ca. 60°","isCorrect":false},{"id":"d","text":"Ca. 15°","isCorrect":false}],"solution":"$\\tan v = \\frac{2{,}5}{5{,}0} = 0{,}5$. $v = \\tan^{-1}(0{,}5) \\approx 26{,}6° \\approx 27°$."},{"id":"2p-5-2-n-quiz3-q1","task":"En rampe er 6,0 m lang og stiger 0,5 m. Hva er vinkelen med bakken?","options":[{"id":"a","text":"$\\sin^{-1}(0{,}0833) \\approx 4{,}8°$","isCorrect":true},{"id":"b","text":"$\\tan^{-1}(0{,}0833) \\approx 4{,}8°$","isCorrect":false},{"id":"c","text":"Ca. 12°","isCorrect":false},{"id":"d","text":"Ca. 8{,}3°","isCorrect":false}],"solution":"Vi kjenner motstående katet (0,5 m) og hypotenusen (6,0 m). $\\sin v = \\frac{0{,}5}{6{,}0} = 0{,}0833$. $v = \\sin^{-1}(0{,}0833) \\approx 4{,}78°$."}],"solution":""}},{"id":"2p-5-2-n-section4","type":"text","content":"## Trigonometri i felten -- tårn, flaggstenger og bakker\n\nLa oss se på noen praktiske situasjoner der trigonometri virkelig viser sin styrke. Tenk deg at du står 40 m fra foten av et tårn. Du måler vinkelen opp til toppen av tårnet til 52 grader, og øynene dine er 1,7 m over bakken. Med tangens finner du at tårnet rager $40 \\cdot \\tan 52° = 40 \\cdot 1{,}2799 \\approx 51{,}2$ m over øyehøyden din. Total høyde er dermed $51{,}2 + 1{,}7 \\approx 52{,}9$ m. En viktig detalj mange glemmer: du måler fra øynenes høyde, ikke fra bakken.\n\nEller forestill deg en flaggstang som kaster en 12 m lang skygge. Vinkelen mellom bakken og solstrålen er 54 grader. Flaggstangens høyde er $12 \\cdot \\tan 54° = 12 \\cdot 1{,}376 \\approx 16{,}5$ m. Med Pytagoras kan du også finne lengden av selve solstrålen: $c = \\sqrt{12^2 + 16{,}5^2} = \\sqrt{144 + 272{,}25} = \\sqrt{416{,}25} \\approx 20{,}4$ m.\n\nTrigonometri er også nyttig i naturen. Tenk at du går opp en sti og tilbakelegger 250 m langs stien. GPS-en viser at du har steget 85 m i høyden. Stigningsvinkelen finner du med sinus: $\\sin v = 85/250 = 0{,}34$, så $v = \\sin^{-1}(0{,}34) \\approx 19{,}9°$. Den horisontale avstanden er $\\sqrt{250^2 - 85^2} = \\sqrt{55\\,275} \\approx 235{,}1$ m. Du har altså gått lenger langs bakken enn du har beveget deg horisontalt -- forskjellen er nesten 15 m."},{"id":"2p-5-2-n-quiz4","type":"exercise","exercise":{"id":"2p-5-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på trigonometri i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-5-2-n-quiz4-q0","task":"Et tak med helningsvinkel 30° har en takflate som er 8 m lang (skrålengden). Hva er den horisontale bredden fra yttervegg til møne?","options":[{"id":"a","text":"$8 \\cdot \\sin 30° = 4$ m","isCorrect":false},{"id":"b","text":"$8 \\cdot \\cos 30° \\approx 6{,}93$ m","isCorrect":true},{"id":"c","text":"$8 \\cdot \\tan 30° \\approx 4{,}62$ m","isCorrect":false},{"id":"d","text":"$\\frac{8}{\\cos 30°} \\approx 9{,}24$ m","isCorrect":false}],"solution":"Hosliggende katet = hypotenus $\\cdot \\cos v = 8 \\cdot \\cos 30° \\approx 6{,}93$ m."},{"id":"2p-5-2-n-quiz4-q1","task":"Du står 40 m fra et tårn. Vinkelen opp til toppen er 52°. Øynene dine er 1,7 m over bakken. Hva er tårnets totale høyde?","options":[{"id":"a","text":"Ca. 51,2 m","isCorrect":false},{"id":"b","text":"Ca. 52,9 m","isCorrect":true},{"id":"c","text":"Ca. 33,5 m","isCorrect":false},{"id":"d","text":"Ca. 40,0 m","isCorrect":false}],"solution":"Høyde over øyehøyde $= 40 \\cdot \\tan 52° \\approx 51{,}2$ m. Total høyde $= 51{,}2 + 1{,}7 \\approx 52{,}9$ m. Husk å legge til øyehøyden!"}],"solution":""}},{"id":"2p-5-2-n-section5","type":"text","content":"## Å måle det uoppnåelige -- elvebredden\n\nEn av de mest elegante bruksområdene for trigonometri er å måle avstander du ikke kan nå fysisk. Tenk deg at du står ved en elv og vil vite hvor bred den er, men du kan ikke krysse den. Her er trikset: Du plasserer deg rett overfor et tre på den andre siden -- la oss kalle det punkt A. Deretter går du 50 m langs elvebredden til punkt B. Fra B måler du vinkelen til treet (målt fra elvebredden) til 62 grader.\n\nNå har du en rettvinklet trekant: den rette vinkelen er ved A (fordi du sto *rett overfor* treet), vinkelen ved B er 62 grader, og siden AB er 50 m. Elvebredden er den motstående kateten sett fra vinkel B, og AB er den hosliggende kateten. Da gir tangens: $\\text{bredde} = 50 \\cdot \\tan 62° = 50 \\cdot 1{,}8807 \\approx 94$ m. Elven er omtrent 94 m bred, og du har funnet det uten å våte føttene.\n\nDenne metoden -- å bruke en kjent avstand og en målt vinkel til å beregne en ukjent avstand -- er grunnlaget for **triangulering**, en teknikk som har vært brukt i landmåling i hundrevis av år. Det er også prinsippet bak hvordan GPS-systemer bestemmer posisjonen din, bare med satellitter i stedet for trær.\n\nTrigonometri gir oss altså en superkraft: evnen til å finne mål vi ikke kan måle direkte. Med bare en vinkelmåler og et målebånd kan du bestemme høyden på et fjell, bredden av en fjord eller avstanden til en øy. Det er ganske imponerende for en 2500 år gammel oppdagelse."},{"id":"2p-5-2-n-quiz5","type":"exercise","exercise":{"id":"2p-5-2-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på triangulering og huskeregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-5-2-n-quiz5-q0","task":"Huskeregelen SOH-CAH-TOA brukes til å huske trigonometriske forhold. Hva står \"TOA\" for?","options":[{"id":"a","text":"Tan = Opposite / Adjacent (motstående / hosliggende)","isCorrect":true},{"id":"b","text":"Tan = Over / Above (hypotenus / katet)","isCorrect":false},{"id":"c","text":"Tan = Opposite / Angle (motstående / vinkel)","isCorrect":false},{"id":"d","text":"Tan = Opposite / Area (motstående / areal)","isCorrect":false}],"solution":"TOA: **T**an = **O**pposite / **A**djacent = motstående katet / hosliggende katet."},{"id":"2p-5-2-n-quiz5-q1","task":"Du står ved en elv og går 50 m langs bredden. Fra den nye posisjonen måler du vinkelen til et tre på den andre siden til 62°. Hvor bred er elven?","options":[{"id":"a","text":"$50 \\cdot \\sin 62° \\approx 44$ m","isCorrect":false},{"id":"b","text":"$50 \\cdot \\cos 62° \\approx 23$ m","isCorrect":false},{"id":"c","text":"$50 \\cdot \\tan 62° \\approx 94$ m","isCorrect":true},{"id":"d","text":"$\\frac{50}{\\tan 62°} \\approx 27$ m","isCorrect":false}],"solution":"Elvebredden er den motstående kateten, og 50 m er den hosliggende. $\\text{bredde} = 50 \\cdot \\tan 62° \\approx 94$ m. Dette er triangulering i praksis."}],"solution":""}},{"id":"2p-5-2-n-summary","type":"text","content":"## Oppsummering\n\nTrigonometri er et av de mest praktiske verktøyene i matematikken. Med noen få formler kan du finne sider og vinkler i rettvinklede trekanter, og dermed løse en mengde problemer fra den virkelige verden.\n\n**Pytagoras' setning** ($a^2 + b^2 = c^2$) lar deg finne en ukjent side når du kjenner de to andre sidene i en rettvinklet trekant. **Sinus** ($\\sin v = \\frac{\\text{motstående}}{\\text{hypotenus}}$), **cosinus** ($\\cos v = \\frac{\\text{hosliggende}}{\\text{hypotenus}}$) og **tangens** ($\\tan v = \\frac{\\text{motstående}}{\\text{hosliggende}}$) kobler vinkler til sidelengder. De **inverse funksjonene** ($\\sin^{-1}$, $\\cos^{-1}$, $\\tan^{-1}$) lar deg finne vinkler når du kjenner sidelengdene.\n\nDet viktigste du tar med deg er *når* du bruker hvilken funksjon. Huskeregelen SOH-CAH-TOA er din beste venn her. Og husk: trigonometri lar deg måle det du ikke kan nå -- det er trekantens superkraft."}],"exercises":[]}
+{
+  "id": "2p-5-2-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "5.2",
+  "title": "Trigonometri i praksis",
+  "subtitle": "Narrativ versjon",
+  "description": "Historien om hvordan trekanter hjelper oss å måle det umålelige -- fra stiger mot vegger og skygger fra trær til bredden av en elv du ikke kan krysse.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "utforske og forklare hvordan formlikhet, målestokk og egenskaper ved geometriske figurer kan brukes i beregninger og i praktisk arbeid"
+  ],
+  "linkedChapterId": "2p-5-2",
+  "content": [
+    {
+      "id": "2p-5-2-n-intro",
+      "type": "text",
+      "content": "## Trekantens superkrefter\n\nForestill deg at du står ved foten av et stort tre og lurer på hvor høyt det er. Du kan ikke klatre opp med et målebånd, og å felle treet bare for å måle det er åpenbart en dårlig idé. Men med litt trigonometri kan du finne høyden uten å forlate bakken. Alt du trenger er skyggens lengde og solens vinkel -- eller en enkel vinkelmåler og en kjent avstand.\n\nTrigonometri er læren om trekanter, og spesielt om forholdene mellom sider og vinkler i trekanter. Ordet kommer fra gresk: *trigonon* betyr trekant og *metron* betyr mål. Det har vært brukt i tusenvis av år til landmåling, navigasjon og astronomi. I dag bruker vi trigonometri i alt fra å beregne takhelling til å måle avstander vi ikke kan nå fysisk.\n\nI dette kapittelet starter vi med Pytagoras' setning -- en av de mest berømte formlene i matematikken. Deretter lærer vi om sinus, cosinus og tangens, som lar oss koble vinkler til sidelengder. Til slutt ser vi hvordan vi kan bruke inverse trigonometriske funksjoner til å finne ukjente vinkler."
+    },
+    {
+      "id": "2p-5-2-n-section1",
+      "type": "text",
+      "content": "## Pytagoras -- en 2500 år gammel superstjerne\n\nFor over 2500 år siden formulerte den greske matematikeren Pytagoras en setning som fortsatt er en av de mest brukte i matematikken. I en **rettvinklet trekant** -- altså en trekant der én vinkel er nøyaktig 90 grader -- gjelder det at $a^2 + b^2 = c^2$, der $a$ og $b$ er de to kortere sidene (katetene) og $c$ er den lengste siden (**hypotenusen**). Hypotenusen ligger alltid overfor den rette vinkelen.\n\nLa oss se dette i praksis. Tenk deg en stige som er 5,0 m lang og lener mot en vegg. Foten av stigen står 1,5 m fra veggen. Hvor høyt opp rekker stigen? Stigen danner hypotenusen, avstanden fra veggen er én katet, og høyden opp veggen er den andre kateten. Vi setter opp: $h^2 + 1{,}5^2 = 5{,}0^2$, som gir $h^2 = 25 - 2{,}25 = 22{,}75$, altså $h = \\sqrt{22{,}75} \\approx 4{,}77$ m. Stigen rekker omtrent 4,8 m opp på veggen.\n\nDu kan også bruke setningen \"baklengs.\" Hvis du kjenner hypotenusen og én katet, finner du den andre: $a = \\sqrt{c^2 - b^2}$. Tenk deg at diagonalen i et rektangulært rom måler 7,2 m og rommet er 5,4 m langt. Da er bredden $b = \\sqrt{7{,}2^2 - 5{,}4^2} = \\sqrt{51{,}84 - 29{,}16} = \\sqrt{22{,}68} \\approx 4{,}76$ m.\n\nPytagoras-trippelet 3-4-5 er det mest kjente: $3^2 + 4^2 = 9 + 16 = 25 = 5^2$. Multipler av dette trippelet, som 6-8-10, fungerer også. Håndverkere bruker denne sammenhengen for å sjekke om et hjørne er rett vinkel: mål 3 m langs én vegg, 4 m langs den andre, og sjekk at diagonalen er 5 m."
+    },
+    {
+      "id": "2p-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Pytagoras:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-5-2-n-quiz1-q0",
+            "task": "En rettvinklet trekant har kateter på 6 cm og 8 cm. Hvor lang er hypotenusen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "10 cm",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "14 cm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{48} \\approx 6{,}9$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "12 cm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$ cm. Pytagoras-trippelet 6-8-10."
+          },
+          {
+            "id": "2p-5-2-n-quiz1-q1",
+            "task": "En stige er 5,0 m lang og lener mot en vegg. Foten står 1,5 m fra veggen. Hvor høyt opp rekker stigen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{27{,}25} \\approx 5{,}22$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{22{,}75} \\approx 4{,}77$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3{,}5$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6{,}5$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h^2 + 1{,}5^2 = 5{,}0^2 \\Rightarrow h^2 = 25 - 2{,}25 = 22{,}75 \\Rightarrow h = \\sqrt{22{,}75} \\approx 4{,}77$ m."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-5-2-n-section2",
+      "type": "text",
+      "content": "## Sinus, cosinus og tangens -- de tre vennene\n\nPytagoras' setning er kraftig, men den har en begrensning: den sier ingenting om vinklene. Hva om du kjenner en vinkel og én side, og vil finne en annen side? Da trenger du de **trigonometriske forholdene**: sinus, cosinus og tangens.\n\nI en rettvinklet trekant med en spiss vinkel $v$ definerer vi: $\\sin v = \\frac{\\text{motstående katet}}{\\text{hypotenus}}$, $\\cos v = \\frac{\\text{hosliggende katet}}{\\text{hypotenus}}$, og $\\tan v = \\frac{\\text{motstående katet}}{\\text{hosliggende katet}}$. En populær huskeregel er **SOH-CAH-TOA**: **S**in = **O**pposite / **H**ypotenuse, **C**os = **A**djacent / **H**ypotenuse, **T**an = **O**pposite / **A**djacent.\n\nLa oss gå tilbake til treet du ville måle. Treet kaster en skygge på 15 m langs bakken, og solens vinkel over horisonten er 38 grader. Du kjenner den hosliggende kateten (skyggen) og søker den motstående kateten (trehøyden). Da bruker du tangens: $\\tan 38° = \\frac{h}{15}$, som gir $h = 15 \\cdot \\tan 38° = 15 \\cdot 0{,}7813 \\approx 11{,}7$ m. Treet er omtrent 11,7 m høyt.\n\nHva om du kjenner hypotenusen og en vinkel? Hvis hypotenusen er 13 cm og vinkelen er 22 grader, er den motstående kateten $13 \\cdot \\sin 22° = 13 \\cdot 0{,}3746 \\approx 4{,}9$ cm, og den hosliggende kateten er $13 \\cdot \\cos 22° \\approx 12{,}1$ cm. Merk at det er viktig å velge riktig funksjon ut fra hvilke sider du kjenner og hvilke du søker."
+    },
+    {
+      "id": "2p-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sinus, cosinus og tangens:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-5-2-n-quiz2-q0",
+            "task": "I en rettvinklet trekant er hypotenusen 13 cm og en vinkel er 22°. Hva er lengden av den motstående kateten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$13 \\cdot \\cos 22° \\approx 12{,}1$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$13 \\cdot \\tan 22° \\approx 5{,}3$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$13 \\cdot \\sin 22° \\approx 4{,}9$ cm",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{13}{\\sin 22°} \\approx 34{,}7$ cm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Motstående katet = hypotenus $\\cdot \\sin v = 13 \\cdot \\sin 22° \\approx 4{,}9$ cm. Vi bruker sinus (SOH) fordi vi har hypotenusen og søker den motstående kateten."
+          },
+          {
+            "id": "2p-5-2-n-quiz2-q1",
+            "task": "Et tre kaster en skygge på 15 m. Solens vinkel er 38°. Hva er trehøyden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15 \\cdot \\sin 38° \\approx 9{,}2$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15 \\cdot \\cos 38° \\approx 11{,}8$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{15}{\\tan 38°} \\approx 19{,}2$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15 \\cdot \\tan 38° \\approx 11{,}7$ m",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi kjenner hosliggende katet (skyggen 15 m) og søker motstående katet (trehøyden). $\\tan 38° = \\frac{h}{15}$, altså $h = 15 \\cdot \\tan 38° \\approx 11{,}7$ m."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-5-2-n-section3",
+      "type": "text",
+      "content": "## Å finne ukjente vinkler\n\nTil nå har vi brukt trigonometri til å finne ukjente sider. Men hva om vi kjenner sidene og vil finne en vinkel? Da bruker vi de **inverse trigonometriske funksjonene**: $\\sin^{-1}$, $\\cos^{-1}$ og $\\tan^{-1}$ (også kalt arcsin, arccos og arctan).\n\nLa oss se på et praktisk eksempel. Et saltak har en halvbredde på 5,0 m (horisontal avstand fra vegg til møne) og en høyde på 2,5 m fra takfoten til mønet. Hva er helningsvinkelen? Vi kjenner motstående katet (høyden 2,5 m) og hosliggende katet (halvbredden 5,0 m), så vi bruker tangens: $\\tan v = \\frac{2{,}5}{5{,}0} = 0{,}5$. Dermed er $v = \\tan^{-1}(0{,}5) \\approx 26{,}6°$. Taket har en helning på omtrent 27 grader.\n\nHer er et annet eksempel som viser at trigonometri kan avsløre viktig informasjon. En rampe for rullestol er 6,0 m lang og stiger 0,5 m i høyden. Hvilken vinkel danner rampen med bakken? Vi bruker sinus: $\\sin v = \\frac{0{,}5}{6{,}0} = 0{,}0833$, som gir $v = \\sin^{-1}(0{,}0833) \\approx 4{,}78°$. Norsk Standard sier at ramper for rullestol skal ha maks stigning 1:20, som tilsvarer $\\arctan(1/20) \\approx 2{,}86°$. Rampen i eksempelet er altså for bratt -- den oppfyller ikke kravet. Slik kan trigonometri være avgjørende for tilgjengelighet og sikkerhet."
+    },
+    {
+      "id": "2p-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på inverse trigonometriske funksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-5-2-n-quiz3-q0",
+            "task": "Et saltak har halvbredde 5,0 m og mønet er 2,5 m over takfoten. Hva er helningsvinkelen (omtrent)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 27°",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. 45°",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 60°",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 15°",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\tan v = \\frac{2{,}5}{5{,}0} = 0{,}5$. $v = \\tan^{-1}(0{,}5) \\approx 26{,}6° \\approx 27°$."
+          },
+          {
+            "id": "2p-5-2-n-quiz3-q1",
+            "task": "En rampe er 6,0 m lang og stiger 0,5 m. Hva er vinkelen med bakken?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\tan^{-1}(0{,}0833) \\approx 4{,}8°$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\sin^{-1}(0{,}0833) \\approx 4{,}8°$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 12°",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 8{,}3°",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi kjenner motstående katet (0,5 m) og hypotenusen (6,0 m). $\\sin v = \\frac{0{,}5}{6{,}0} = 0{,}0833$. $v = \\sin^{-1}(0{,}0833) \\approx 4{,}78°$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-5-2-n-section4",
+      "type": "text",
+      "content": "## Trigonometri i felten -- tårn, flaggstenger og bakker\n\nLa oss se på noen praktiske situasjoner der trigonometri virkelig viser sin styrke. Tenk deg at du står 40 m fra foten av et tårn. Du måler vinkelen opp til toppen av tårnet til 52 grader, og øynene dine er 1,7 m over bakken. Med tangens finner du at tårnet rager $40 \\cdot \\tan 52° = 40 \\cdot 1{,}2799 \\approx 51{,}2$ m over øyehøyden din. Total høyde er dermed $51{,}2 + 1{,}7 \\approx 52{,}9$ m. En viktig detalj mange glemmer: du måler fra øynenes høyde, ikke fra bakken.\n\nEller forestill deg en flaggstang som kaster en 12 m lang skygge. Vinkelen mellom bakken og solstrålen er 54 grader. Flaggstangens høyde er $12 \\cdot \\tan 54° = 12 \\cdot 1{,}376 \\approx 16{,}5$ m. Med Pytagoras kan du også finne lengden av selve solstrålen: $c = \\sqrt{12^2 + 16{,}5^2} = \\sqrt{144 + 272{,}25} = \\sqrt{416{,}25} \\approx 20{,}4$ m.\n\nTrigonometri er også nyttig i naturen. Tenk at du går opp en sti og tilbakelegger 250 m langs stien. GPS-en viser at du har steget 85 m i høyden. Stigningsvinkelen finner du med sinus: $\\sin v = 85/250 = 0{,}34$, så $v = \\sin^{-1}(0{,}34) \\approx 19{,}9°$. Den horisontale avstanden er $\\sqrt{250^2 - 85^2} = \\sqrt{55\\,275} \\approx 235{,}1$ m. Du har altså gått lenger langs bakken enn du har beveget deg horisontalt -- forskjellen er nesten 15 m."
+    },
+    {
+      "id": "2p-5-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-5-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på trigonometri i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-5-2-n-quiz4-q0",
+            "task": "Et tak med helningsvinkel 30° har en takflate som er 8 m lang (skrålengden). Hva er den horisontale bredden fra yttervegg til møne?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8 \\cdot \\sin 30° = 4$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8 \\cdot \\tan 30° \\approx 4{,}62$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8 \\cdot \\cos 30° \\approx 6{,}93$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{8}{\\cos 30°} \\approx 9{,}24$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hosliggende katet = hypotenus $\\cdot \\cos v = 8 \\cdot \\cos 30° \\approx 6{,}93$ m."
+          },
+          {
+            "id": "2p-5-2-n-quiz4-q1",
+            "task": "Du står 40 m fra et tårn. Vinkelen opp til toppen er 52°. Øynene dine er 1,7 m over bakken. Hva er tårnets totale høyde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 51,2 m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 33,5 m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 40,0 m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 52,9 m",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Høyde over øyehøyde $= 40 \\cdot \\tan 52° \\approx 51{,}2$ m. Total høyde $= 51{,}2 + 1{,}7 \\approx 52{,}9$ m. Husk å legge til øyehøyden!"
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-5-2-n-section5",
+      "type": "text",
+      "content": "## Å måle det uoppnåelige -- elvebredden\n\nEn av de mest elegante bruksområdene for trigonometri er å måle avstander du ikke kan nå fysisk. Tenk deg at du står ved en elv og vil vite hvor bred den er, men du kan ikke krysse den. Her er trikset: Du plasserer deg rett overfor et tre på den andre siden -- la oss kalle det punkt A. Deretter går du 50 m langs elvebredden til punkt B. Fra B måler du vinkelen til treet (målt fra elvebredden) til 62 grader.\n\nNå har du en rettvinklet trekant: den rette vinkelen er ved A (fordi du sto *rett overfor* treet), vinkelen ved B er 62 grader, og siden AB er 50 m. Elvebredden er den motstående kateten sett fra vinkel B, og AB er den hosliggende kateten. Da gir tangens: $\\text{bredde} = 50 \\cdot \\tan 62° = 50 \\cdot 1{,}8807 \\approx 94$ m. Elven er omtrent 94 m bred, og du har funnet det uten å våte føttene.\n\nDenne metoden -- å bruke en kjent avstand og en målt vinkel til å beregne en ukjent avstand -- er grunnlaget for **triangulering**, en teknikk som har vært brukt i landmåling i hundrevis av år. Det er også prinsippet bak hvordan GPS-systemer bestemmer posisjonen din, bare med satellitter i stedet for trær.\n\nTrigonometri gir oss altså en superkraft: evnen til å finne mål vi ikke kan måle direkte. Med bare en vinkelmåler og et målebånd kan du bestemme høyden på et fjell, bredden av en fjord eller avstanden til en øy. Det er ganske imponerende for en 2500 år gammel oppdagelse."
+    },
+    {
+      "id": "2p-5-2-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-5-2-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på triangulering og huskeregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-5-2-n-quiz5-q0",
+            "task": "Huskeregelen SOH-CAH-TOA brukes til å huske trigonometriske forhold. Hva står \"TOA\" for?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tan = Opposite / Adjacent (motstående / hosliggende)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Tan = Over / Above (hypotenus / katet)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tan = Opposite / Angle (motstående / vinkel)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tan = Opposite / Area (motstående / areal)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "TOA: **T**an = **O**pposite / **A**djacent = motstående katet / hosliggende katet."
+          },
+          {
+            "id": "2p-5-2-n-quiz5-q1",
+            "task": "Du står ved en elv og går 50 m langs bredden. Fra den nye posisjonen måler du vinkelen til et tre på den andre siden til 62°. Hvor bred er elven?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$50 \\cdot \\sin 62° \\approx 44$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$50 \\cdot \\tan 62° \\approx 94$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$50 \\cdot \\cos 62° \\approx 23$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{50}{\\tan 62°} \\approx 27$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Elvebredden er den motstående kateten, og 50 m er den hosliggende. $\\text{bredde} = 50 \\cdot \\tan 62° \\approx 94$ m. Dette er triangulering i praksis."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nTrigonometri er et av de mest praktiske verktøyene i matematikken. Med noen få formler kan du finne sider og vinkler i rettvinklede trekanter, og dermed løse en mengde problemer fra den virkelige verden.\n\n**Pytagoras' setning** ($a^2 + b^2 = c^2$) lar deg finne en ukjent side når du kjenner de to andre sidene i en rettvinklet trekant. **Sinus** ($\\sin v = \\frac{\\text{motstående}}{\\text{hypotenus}}$), **cosinus** ($\\cos v = \\frac{\\text{hosliggende}}{\\text{hypotenus}}$) og **tangens** ($\\tan v = \\frac{\\text{motstående}}{\\text{hosliggende}}$) kobler vinkler til sidelengder. De **inverse funksjonene** ($\\sin^{-1}$, $\\cos^{-1}$, $\\tan^{-1}$) lar deg finne vinkler når du kjenner sidelengdene.\n\nDet viktigste du tar med deg er *når* du bruker hvilken funksjon. Huskeregelen SOH-CAH-TOA er din beste venn her. Og husk: trigonometri lar deg måle det du ikke kan nå -- det er trekantens superkraft."
+    }
+  ],
+  "exercises": []
+}

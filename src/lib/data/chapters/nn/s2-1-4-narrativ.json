@@ -1,1 +1,355 @@
-{"id":"s2-1-4-narrativ","courseId":"s2","chapterNumber":"1.4","title":"Bruksområde for integrasjon","subtitle":"Narrativ versjon","description":"Ei forteljing frå ein sommarjobb i kommunen, der ratar blir til totalar: gjennomsnittstemperatur, strekning frå fart, marginalkostnad — og marknaden sitt konsument- og produsentoverskot.","estimatedMinutes":32,"competenceGoals":["bruke integrasjon i praktiske bruksområde","tolke og bruke integral i ulike samanhengar"],"linkedChapterId":"s2-1-4","content":[{"id":"s2-1-4-n-intro","type":"text","content":"## Ei verd full av ratar\n\nDu har fått sommarjobb som analytikar i ein kommune, og alt første veka merkar du noko: nesten alle tala du får, er *ratar*. Straumforbruket blir målt i kilowatt — energi per time. Trafikken blir målt i bilar per minutt. Budsjettavdelinga snakkar om marginalkostnader — kroner per ekstra eining. Og meteorologane leverer temperatur som funksjon av tid, time for time.\n\nMen spørsmåla folk faktisk stiller, handlar sjeldan om ratane sjølve. «Kor mykje straum brukte vi i går?» «Kva var gjennomsnittstemperaturen i juli?» «Kor mykje kostar det å auke produksjonen frå 100 til 200 einingar?» Alle desse spørsmåla handlar om å gå frå rate til total — og det er, som du no veit, nøyaktig kva integrasjon gjer.\n\nI dette kapittelet skal vi bruke integralrekninga på praktiske problem. Vi skal finne **total mengd frå ein rate** — til dømes strekning frå fart eller energi frå effekt. Vi skal rekne ut **gjennomsnittsverdien** av ein funksjon, som gir presis meining til utsegner som «gjennomsnittstemperaturen var 22,5 grader». Og vi skal sjå korleis økonomar bruker integral til å måle **konsument- og produsentoverskot** — kor mykje ein marknad eigentleg er verd for kjøparane og seljarane. I fysikk blir same idé brukt til å rekne ut arbeid frå kraft over avstand.\n\nFellesnemnaren er alltid den same: ein storleik varierer kontinuerleg, og vi vil summere eller midle han over eit intervall. Der tabellar og gjennomsnitt av nokre få målingar berre gir grove anslag, gir integralet det eksakte svaret."},{"id":"s2-1-4-n-section1","type":"text","content":"## Gjennomsnittsverdien av ein funksjon\n\nKva meiner vi eigentleg med «gjennomsnittstemperaturen» ein dag? Temperaturen tek jo uendeleg mange verdiar gjennom døgnet — vi kan ikkje berre legge saman og dele på talet. Løysinga er å la integralet gjere summeringa. **Gjennomsnittsverdien** av $f$ på intervallet $[a, b]$ er definert som\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nIntegralet summerer alle funksjonsverdiane over intervallet, og divisjonen med intervallbreidda $b - a$ gjer summen om til eit gjennomsnitt. Geometrisk er $\\bar{f}$ høgda på det rektangelet over $[a, b]$ som har nøyaktig same areal som området under grafen — den «typiske» verdien av funksjonen.\n\nLat oss bruke definisjonen på eit verdatasett. Temperaturen ein sommardag følgjer modellen $T(t) = 20 + 8\\sin\\!\\big(\\frac{\\pi t}{12}\\big)$ grader, der $t$ er timar etter midnatt. Kva var gjennomsnittstemperaturen i formiddagstimane, frå kl. 6 til kl. 12?\n\n$$\\bar{T} = \\frac{1}{12-6} \\int_6^{12} \\left(20 + 8\\sin\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right) dt = \\frac{1}{6} \\left[20t - \\frac{96}{\\pi}\\cos\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right]_6^{12}$$\n\nVed $t = 12$ er $\\cos \\pi = -1$, så klamma blir $240 + \\frac{96}{\\pi}$. Ved $t = 6$ er $\\cos\\frac{\\pi}{2} = 0$, så klamma blir $120$. Dermed er\n\n$$\\bar{T} = \\frac{1}{6}\\left(240 + \\frac{96}{\\pi} - 120\\right) = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$$\n\nLegg merke til at svaret er høgare enn «grunnivået» 20 grader: sinusleddet er positivt på heile intervallet, og integralet fangar opp nøyaktig kor mykje det bidreg. Eit slikt gjennomsnitt er umogleg å lese rett ut av grafen, men integralet leverer det eksakt."},{"id":"s2-1-4-n-quiz1","type":"exercise","exercise":{"id":"s2-1-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på gjennomsnittsverdi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-4-n-quiz1-q0","task":"Kva er formelen for gjennomsnittsverdien av $f$ på $[a, b]$?","options":[{"id":"a","text":"$\\bar{f} = \\frac{f(a) + f(b)}{2}$","isCorrect":false},{"id":"b","text":"$\\bar{f} = \\int_a^b f(x)\\,dx$","isCorrect":false},{"id":"c","text":"$\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$","isCorrect":true},{"id":"d","text":"$\\bar{f} = \\frac{1}{2}\\int_a^b f(x)\\,dx$","isCorrect":false}],"solution":"Integralet summerer funksjonsverdiane, og vi deler på intervallbreidda $b - a$. Formelen $\\frac{f(a)+f(b)}{2}$ midlar berre endepunkta og ignorerer alt som skjer imellom."},{"id":"s2-1-4-n-quiz1-q1","task":"Kva er gjennomsnittsverdien av $f(x) = 2x$ på intervallet $[0, 4]$?","options":[{"id":"a","text":"$8$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":true},{"id":"c","text":"$16$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"$\\bar{f} = \\frac{1}{4}\\int_0^4 2x\\,dx = \\frac{1}{4}[x^2]_0^4 = \\frac{16}{4} = 4$. Rimeleg: $f$ veks lineært frå $0$ til $8$, så gjennomsnittet er $4$."},{"id":"s2-1-4-n-quiz1-q2","task":"Korleis kan gjennomsnittsverdien $\\bar{f}$ tolkast geometrisk?","options":[{"id":"a","text":"Som stigingstalet til grafen i midtpunktet","isCorrect":false},{"id":"b","text":"Som høgda på rektangelet over $[a, b]$ med same areal som området under grafen","isCorrect":true},{"id":"c","text":"Som arealet under grafen","isCorrect":false},{"id":"d","text":"Som den største verdien $f$ tek på intervallet","isCorrect":false}],"solution":"Per definisjon er $\\bar{f} \\cdot (b - a) = \\int_a^b f(x)\\,dx$: rektangelet med høgd $\\bar{f}$ har nøyaktig same areal som området under grafen."},{"id":"s2-1-4-n-quiz1-q3","task":"Temperaturen følgjer $T(t) = 20 + 8\\sin(\\frac{\\pi t}{12})$. Kva blei gjennomsnittstemperaturen frå kl. 6 til kl. 12?","options":[{"id":"a","text":"Ca. $20{,}0\\ °\\mathrm{C}$","isCorrect":false},{"id":"b","text":"Ca. $28{,}0\\ °\\mathrm{C}$","isCorrect":false},{"id":"c","text":"Ca. $25{,}1\\ °\\mathrm{C}$","isCorrect":true},{"id":"d","text":"Ca. $22{,}0\\ °\\mathrm{C}$","isCorrect":false}],"solution":"$\\bar{T} = \\frac{1}{6}\\int_6^{12} T(t)\\,dt = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$ — over grunnivået 20 fordi sinusleddet er positivt på heile formiddagsintervallet."}]}},{"id":"s2-1-4-n-section2","type":"text","content":"## Frå rate til total — og overskotet i marknaden\n\nDet andre store bruksområdet er å summere ein rate til ei total endring. Kjernen er fundamentalteoremet lese baklengs: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Integralet av ein endringsrate over eit tidsintervall gir den totale endringa i perioden. Køyrer ein bil med fart $v(t) = 10 + 2t$ m/s, er strekninga dei første fem sekunda $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 75$ meter.\n\nSame mønster går igjen overalt: fart blir integrert til strekning, vekstrate til total vekst, effekt til energi — og i økonomien blir **marginalkostnaden** $K'(x)$ integrert til kostnadsendring: $\\int_a^b K'(x)\\,dx = K(b) - K(a)$ er nøyaktig kva det kostar å auke produksjonen frå $a$ til $b$ einingar. Merk ein viktig detalj: integralet gir berre *endringa*. Vil du ha sjølve funksjonen — totalkostnaden, ikkje kostnadsauken — treng du i tillegg ein startverdi, ein initialvilkår, akkurat som i kapittel 1.1.\n\nTil slutt eit glimt av kanskje det mest elegante økonomibruksområdet i integralrekninga. I ein marknad skildrar etterspurnadskurva kva forbrukarane er *villige* til å betale for kvar eining, medan alle i praksis betaler same likevektspris. Dei som var villige til å betale meir enn prisen, gjer dermed eit «kupp» — og summen av alle desse kuppa blir kalla **konsumentoverskotet**: differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler. Tilsvarande er **produsentoverskotet** differansen mellom kva produsentane mottek og kva dei minst var villige til å produsere for. Begge er areal mellom kurver og prislinja, og blir rekna ut med teknikken frå kapittel 1.3: integrer differansen mellom øvre og nedre kurve. Slik måler økonomar i kroner kor mykje verdi ein marknad skaper for begge sider."},{"id":"s2-1-4-n-quiz2","type":"exercise","exercise":{"id":"s2-1-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på rate, total endring og økonomisk overskot:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-4-n-quiz2-q0","task":"Ein bil har fart $v(t) = 10 + 2t$ m/s. Kor langt køyrer han frå $t = 0$ til $t = 5$ sekund?","options":[{"id":"a","text":"$20$ meter","isCorrect":false},{"id":"b","text":"$50$ meter","isCorrect":false},{"id":"c","text":"$100$ meter","isCorrect":false},{"id":"d","text":"$75$ meter","isCorrect":true}],"solution":"Strekninga er integralet av farten: $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 50 + 25 = 75$ meter."},{"id":"s2-1-4-n-quiz2-q1","task":"Korleis tolkar vi $\\int_{100}^{200} K'(x)\\,dx$ når $K'(x)$ er marginalkostnaden?","options":[{"id":"a","text":"Totalkostnaden ved å produsere 200 einingar","isCorrect":false},{"id":"b","text":"Kostnadsauken ved å auke produksjonen frå 100 til 200 einingar","isCorrect":true},{"id":"c","text":"Gjennomsnittskostnaden per eining","isCorrect":false},{"id":"d","text":"Overskotet ved å selje 100 einingar","isCorrect":false}],"solution":"Fundamentalteoremet gir $\\int_{100}^{200} K'(x)\\,dx = K(200) - K(100)$ — endringa i totalkostnad, ikkje totalkostnaden sjølv. Til han trengst i tillegg ein startverdi."},{"id":"s2-1-4-n-quiz2-q2","task":"Kva er konsumentoverskotet i ein marknad?","options":[{"id":"a","text":"Differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler","isCorrect":true},{"id":"b","text":"Det totale beløpet forbrukarane betaler","isCorrect":false},{"id":"c","text":"Forteneste til produsentane etter skatt","isCorrect":false},{"id":"d","text":"Talet på varer som blir til overs i marknaden","isCorrect":false}],"solution":"Konsumentoverskotet måler «kuppet» til alle som var villige til å betale meir enn likevektsprisen — arealet mellom etterspurnadskurva og prislinja."},{"id":"s2-1-4-n-quiz2-q3","task":"Kvifor treng vi ein initialvilkår i tillegg til raten for å finne sjølve funksjonen?","options":[{"id":"a","text":"Fordi integralet av raten berre gir endringa, ikkje nivået vi starta på","isCorrect":true},{"id":"b","text":"Fordi ratar ikkje kan integrerast utan startverdi","isCorrect":false},{"id":"c","text":"Fordi initialvilkåret endrar forma på grafen","isCorrect":false},{"id":"d","text":"Det treng vi ikkje — integralet gir alltid heile funksjonen","isCorrect":false}],"solution":"$\\int_a^b f'(t)\\,dt = f(b) - f(a)$ fortel kor mykje funksjonen har endra seg, men ikkje kvar han starta. Startverdien (initialvilkåret) fastlegg nivået — altså konstanten $C$."}]}},{"id":"s2-1-4-n-summary","type":"text","content":"## Integralet som samfunnsverktøy\n\nSommarjobben i kommunen viste deg mønsteret: verda leverer ratar, men avgjerder krev totalar og gjennomsnitt — og integralet er brua mellom dei. Gjennomsnittsverdien $\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$ gjer ein kontinuerleg varierande storleik om til eitt representativt tal, som då temperaturmodellen gav 25,1 grader som formiddagsgjennomsnitt. Geometrisk er det høgda på rektangelet med same areal som området under grafen.\n\nTotal endring får du ved å integrere raten: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Fart blir strekning, effekt blir energi, vekstrate blir total vekst, og marginalkostnad blir kostnadsendring. Hugs atterhaldet: integralet gir endringa, og du treng ein initialvilkår for å feste nivået og finne sjølve funksjonen.\n\nOg i marknadsøkonomien såg du at areala frå kapittel 1.3 får prisar i kroner: konsumentoverskotet er differansen mellom betalingsvilje og faktisk pris, produsentoverskotet differansen mellom motteken pris og produksjonsvilje — begge rekna ut som areal mellom kurver.\n\nMen kva gjer vi når funksjonen ikkje *kan* integrerast med formlar, eller når vi berre har måledata i ein tabell? Det er temaet for neste delkapittel: numerisk integrasjon, der trapes og parablar overtek jobben når antideriverte ikkje finst."}],"exercises":[],"_meta":{"sourceHash":"0d02b5fb4db80334","translatedAt":"2026-06-20T08:59:55.656Z","model":"claude-code-agent","strings":57,"tm":{"88ca20f656032da1":"Bruksområde for integrasjon","b195b06d1ed59702":"Narrativ versjon","9b61a190df9d8365":"Ei forteljing frå ein sommarjobb i kommunen, der ratar blir til totalar: gjennomsnittstemperatur, strekning frå fart, marginalkostnad — og marknaden sitt konsument- og produsentoverskot.","efa3d9a781a2ae70":"bruke integrasjon i praktiske bruksområde","f1be738b92205ea5":"tolke og bruke integral i ulike samanhengar","4518d0a31a503d0d":"## Ei verd full av ratar\n\nDu har fått sommarjobb som analytikar i ein kommune, og alt første veka merkar du noko: nesten alle tala du får, er *ratar*. Straumforbruket blir målt i kilowatt — energi per time. Trafikken blir målt i bilar per minutt. Budsjettavdelinga snakkar om marginalkostnader — kroner per ekstra eining. Og meteorologane leverer temperatur som funksjon av tid, time for time.\n\nMen spørsmåla folk faktisk stiller, handlar sjeldan om ratane sjølve. «Kor mykje straum brukte vi i går?» «Kva var gjennomsnittstemperaturen i juli?» «Kor mykje kostar det å auke produksjonen frå 100 til 200 einingar?» Alle desse spørsmåla handlar om å gå frå rate til total — og det er, som du no veit, nøyaktig kva integrasjon gjer.\n\nI dette kapittelet skal vi bruke integralrekninga på praktiske problem. Vi skal finne **total mengd frå ein rate** — til dømes strekning frå fart eller energi frå effekt. Vi skal rekne ut **gjennomsnittsverdien** av ein funksjon, som gir presis meining til utsegner som «gjennomsnittstemperaturen var 22,5 grader». Og vi skal sjå korleis økonomar bruker integral til å måle **konsument- og produsentoverskot** — kor mykje ein marknad eigentleg er verd for kjøparane og seljarane. I fysikk blir same idé brukt til å rekne ut arbeid frå kraft over avstand.\n\nFellesnemnaren er alltid den same: ein storleik varierer kontinuerleg, og vi vil summere eller midle han over eit intervall. Der tabellar og gjennomsnitt av nokre få målingar berre gir grove anslag, gir integralet det eksakte svaret.","185819d74961628c":"## Gjennomsnittsverdien av ein funksjon\n\nKva meiner vi eigentleg med «gjennomsnittstemperaturen» ein dag? Temperaturen tek jo uendeleg mange verdiar gjennom døgnet — vi kan ikkje berre legge saman og dele på talet. Løysinga er å la integralet gjere summeringa. **Gjennomsnittsverdien** av $f$ på intervallet $[a, b]$ er definert som\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nIntegralet summerer alle funksjonsverdiane over intervallet, og divisjonen med intervallbreidda $b - a$ gjer summen om til eit gjennomsnitt. Geometrisk er $\\bar{f}$ høgda på det rektangelet over $[a, b]$ som har nøyaktig same areal som området under grafen — den «typiske» verdien av funksjonen.\n\nLat oss bruke definisjonen på eit verdatasett. Temperaturen ein sommardag følgjer modellen $T(t) = 20 + 8\\sin\\!\\big(\\frac{\\pi t}{12}\\big)$ grader, der $t$ er timar etter midnatt. Kva var gjennomsnittstemperaturen i formiddagstimane, frå kl. 6 til kl. 12?\n\n$$\\bar{T} = \\frac{1}{12-6} \\int_6^{12} \\left(20 + 8\\sin\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right) dt = \\frac{1}{6} \\left[20t - \\frac{96}{\\pi}\\cos\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right]_6^{12}$$\n\nVed $t = 12$ er $\\cos \\pi = -1$, så klamma blir $240 + \\frac{96}{\\pi}$. Ved $t = 6$ er $\\cos\\frac{\\pi}{2} = 0$, så klamma blir $120$. Dermed er\n\n$$\\bar{T} = \\frac{1}{6}\\left(240 + \\frac{96}{\\pi} - 120\\right) = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$$\n\nLegg merke til at svaret er høgare enn «grunnivået» 20 grader: sinusleddet er positivt på heile intervallet, og integralet fangar opp nøyaktig kor mykje det bidreg. Eit slikt gjennomsnitt er umogleg å lese rett ut av grafen, men integralet leverer det eksakt.","3139fa7187b96459":"Test deg sjølv på gjennomsnittsverdi:","4097889236a2af26":"placeholder","54943cd7686866fc":"Kva er formelen for gjennomsnittsverdien av $f$ på $[a, b]$?","64f5e315e059cbd6":"$\\bar{f} = \\frac{f(a) + f(b)}{2}$","7bc57cbf1bee8764":"$\\bar{f} = \\int_a^b f(x)\\,dx$","79a2bbbdf44b8e36":"$\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$","2923ae3722aa9084":"$\\bar{f} = \\frac{1}{2}\\int_a^b f(x)\\,dx$","af21f404f6e3ad64":"Integralet summerer funksjonsverdiane, og vi deler på intervallbreidda $b - a$. Formelen $\\frac{f(a)+f(b)}{2}$ midlar berre endepunkta og ignorerer alt som skjer imellom.","55ef34b8882a2bb9":"Kva er gjennomsnittsverdien av $f(x) = 2x$ på intervallet $[0, 4]$?","8a5db4908b359fef":"$\\bar{f} = \\frac{1}{4}\\int_0^4 2x\\,dx = \\frac{1}{4}[x^2]_0^4 = \\frac{16}{4} = 4$. Rimeleg: $f$ veks lineært frå $0$ til $8$, så gjennomsnittet er $4$.","5e973cd4bbcdca04":"Korleis kan gjennomsnittsverdien $\\bar{f}$ tolkast geometrisk?","a6ccab48053ac980":"Som stigingstalet til grafen i midtpunktet","80ce25247fe108b9":"Som høgda på rektangelet over $[a, b]$ med same areal som området under grafen","8db970181f74d66a":"Som arealet under grafen","2912b79940bcee8a":"Som den største verdien $f$ tek på intervallet","d575161612c48bd3":"Per definisjon er $\\bar{f} \\cdot (b - a) = \\int_a^b f(x)\\,dx$: rektangelet med høgd $\\bar{f}$ har nøyaktig same areal som området under grafen.","d503f6eb7c399284":"Temperaturen følgjer $T(t) = 20 + 8\\sin(\\frac{\\pi t}{12})$. Kva blei gjennomsnittstemperaturen frå kl. 6 til kl. 12?","9478733ca0c64fff":"Ca. $20{,}0\\ °\\mathrm{C}$","72b2f5b9a5084e45":"Ca. $28{,}0\\ °\\mathrm{C}$","de27de8ef5f3de6c":"Ca. $25{,}1\\ °\\mathrm{C}$","6a1e1d10799535b2":"Ca. $22{,}0\\ °\\mathrm{C}$","d055209d22b372f9":"$\\bar{T} = \\frac{1}{6}\\int_6^{12} T(t)\\,dt = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$ — over grunnivået 20 fordi sinusleddet er positivt på heile formiddagsintervallet.","27acf9d9e208757f":"## Frå rate til total — og overskotet i marknaden\n\nDet andre store bruksområdet er å summere ein rate til ei total endring. Kjernen er fundamentalteoremet lese baklengs: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Integralet av ein endringsrate over eit tidsintervall gir den totale endringa i perioden. Køyrer ein bil med fart $v(t) = 10 + 2t$ m/s, er strekninga dei første fem sekunda $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 75$ meter.\n\nSame mønster går igjen overalt: fart blir integrert til strekning, vekstrate til total vekst, effekt til energi — og i økonomien blir **marginalkostnaden** $K'(x)$ integrert til kostnadsendring: $\\int_a^b K'(x)\\,dx = K(b) - K(a)$ er nøyaktig kva det kostar å auke produksjonen frå $a$ til $b$ einingar. Merk ein viktig detalj: integralet gir berre *endringa*. Vil du ha sjølve funksjonen — totalkostnaden, ikkje kostnadsauken — treng du i tillegg ein startverdi, ein initialvilkår, akkurat som i kapittel 1.1.\n\nTil slutt eit glimt av kanskje det mest elegante økonomibruksområdet i integralrekninga. I ein marknad skildrar etterspurnadskurva kva forbrukarane er *villige* til å betale for kvar eining, medan alle i praksis betaler same likevektspris. Dei som var villige til å betale meir enn prisen, gjer dermed eit «kupp» — og summen av alle desse kuppa blir kalla **konsumentoverskotet**: differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler. Tilsvarande er **produsentoverskotet** differansen mellom kva produsentane mottek og kva dei minst var villige til å produsere for. Begge er areal mellom kurver og prislinja, og blir rekna ut med teknikken frå kapittel 1.3: integrer differansen mellom øvre og nedre kurve. Slik måler økonomar i kroner kor mykje verdi ein marknad skaper for begge sider.","1e66a2bacb4e23bb":"Test deg sjølv på rate, total endring og økonomisk overskot:","404638b5df5e1774":"Ein bil har fart $v(t) = 10 + 2t$ m/s. Kor langt køyrer han frå $t = 0$ til $t = 5$ sekund?","0bb43c5ab75163b2":"$20$ meter","14c95574f892cf04":"$50$ meter","b364843daf5a9c62":"$100$ meter","b9c0c0d3ca4053c1":"$75$ meter","59f29455b4f65bde":"Strekninga er integralet av farten: $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 50 + 25 = 75$ meter.","7c82caa61152fe02":"Korleis tolkar vi $\\int_{100}^{200} K'(x)\\,dx$ når $K'(x)$ er marginalkostnaden?","b68c01628a6c99ff":"Totalkostnaden ved å produsere 200 einingar","a5be7cd784126215":"Kostnadsauken ved å auke produksjonen frå 100 til 200 einingar","1392dd029122ac0c":"Gjennomsnittskostnaden per eining","5d0ab62114dae88e":"Overskotet ved å selje 100 einingar","bed79d9c9ee80e6c":"Fundamentalteoremet gir $\\int_{100}^{200} K'(x)\\,dx = K(200) - K(100)$ — endringa i totalkostnad, ikkje totalkostnaden sjølv. Til han trengst i tillegg ein startverdi.","2a42777929394d52":"Kva er konsumentoverskotet i ein marknad?","7f3e53a02327b0bb":"Differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler","36e130e4c09417e7":"Det totale beløpet forbrukarane betaler","04ee1e835a655d69":"Forteneste til produsentane etter skatt","77e264838619d48a":"Talet på varer som blir til overs i marknaden","72bf04cd88fd364a":"Konsumentoverskotet måler «kuppet» til alle som var villige til å betale meir enn likevektsprisen — arealet mellom etterspurnadskurva og prislinja.","ee08975dff000617":"Kvifor treng vi ein initialvilkår i tillegg til raten for å finne sjølve funksjonen?","d9e979d3a2650a64":"Fordi integralet av raten berre gir endringa, ikkje nivået vi starta på","638aed2be6b4dad2":"Fordi ratar ikkje kan integrerast utan startverdi","477dd23950c8479c":"Fordi initialvilkåret endrar forma på grafen","878b55e48f575e71":"Det treng vi ikkje — integralet gir alltid heile funksjonen","df3d43620caf1626":"$\\int_a^b f'(t)\\,dt = f(b) - f(a)$ fortel kor mykje funksjonen har endra seg, men ikkje kvar han starta. Startverdien (initialvilkåret) fastlegg nivået — altså konstanten $C$.","b002b0d0dfb52106":"## Integralet som samfunnsverktøy\n\nSommarjobben i kommunen viste deg mønsteret: verda leverer ratar, men avgjerder krev totalar og gjennomsnitt — og integralet er brua mellom dei. Gjennomsnittsverdien $\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$ gjer ein kontinuerleg varierande storleik om til eitt representativt tal, som då temperaturmodellen gav 25,1 grader som formiddagsgjennomsnitt. Geometrisk er det høgda på rektangelet med same areal som området under grafen.\n\nTotal endring får du ved å integrere raten: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Fart blir strekning, effekt blir energi, vekstrate blir total vekst, og marginalkostnad blir kostnadsendring. Hugs atterhaldet: integralet gir endringa, og du treng ein initialvilkår for å feste nivået og finne sjølve funksjonen.\n\nOg i marknadsøkonomien såg du at areala frå kapittel 1.3 får prisar i kroner: konsumentoverskotet er differansen mellom betalingsvilje og faktisk pris, produsentoverskotet differansen mellom motteken pris og produksjonsvilje — begge rekna ut som areal mellom kurver.\n\nMen kva gjer vi når funksjonen ikkje *kan* integrerast med formlar, eller når vi berre har måledata i ein tabell? Det er temaet for neste delkapittel: numerisk integrasjon, der trapes og parablar overtek jobben når antideriverte ikkje finst."}}}
+{
+  "id": "s2-1-4-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "1.4",
+  "title": "Bruksområde for integrasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing frå ein sommarjobb i kommunen, der ratar blir til totalar: gjennomsnittstemperatur, strekning frå fart, marginalkostnad — og marknaden sitt konsument- og produsentoverskot.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "bruke integrasjon i praktiske bruksområde",
+    "tolke og bruke integral i ulike samanhengar"
+  ],
+  "linkedChapterId": "s2-1-4",
+  "content": [
+    {
+      "id": "s2-1-4-n-intro",
+      "type": "text",
+      "content": "## Ei verd full av ratar\n\nDu har fått sommarjobb som analytikar i ein kommune, og alt første veka merkar du noko: nesten alle tala du får, er *ratar*. Straumforbruket blir målt i kilowatt — energi per time. Trafikken blir målt i bilar per minutt. Budsjettavdelinga snakkar om marginalkostnader — kroner per ekstra eining. Og meteorologane leverer temperatur som funksjon av tid, time for time.\n\nMen spørsmåla folk faktisk stiller, handlar sjeldan om ratane sjølve. «Kor mykje straum brukte vi i går?» «Kva var gjennomsnittstemperaturen i juli?» «Kor mykje kostar det å auke produksjonen frå 100 til 200 einingar?» Alle desse spørsmåla handlar om å gå frå rate til total — og det er, som du no veit, nøyaktig kva integrasjon gjer.\n\nI dette kapittelet skal vi bruke integralrekninga på praktiske problem. Vi skal finne **total mengd frå ein rate** — til dømes strekning frå fart eller energi frå effekt. Vi skal rekne ut **gjennomsnittsverdien** av ein funksjon, som gir presis meining til utsegner som «gjennomsnittstemperaturen var 22,5 grader». Og vi skal sjå korleis økonomar bruker integral til å måle **konsument- og produsentoverskot** — kor mykje ein marknad eigentleg er verd for kjøparane og seljarane. I fysikk blir same idé brukt til å rekne ut arbeid frå kraft over avstand.\n\nFellesnemnaren er alltid den same: ein storleik varierer kontinuerleg, og vi vil summere eller midle han over eit intervall. Der tabellar og gjennomsnitt av nokre få målingar berre gir grove anslag, gir integralet det eksakte svaret."
+    },
+    {
+      "id": "s2-1-4-n-section1",
+      "type": "text",
+      "content": "## Gjennomsnittsverdien av ein funksjon\n\nKva meiner vi eigentleg med «gjennomsnittstemperaturen» ein dag? Temperaturen tek jo uendeleg mange verdiar gjennom døgnet — vi kan ikkje berre legge saman og dele på talet. Løysinga er å la integralet gjere summeringa. **Gjennomsnittsverdien** av $f$ på intervallet $[a, b]$ er definert som\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nIntegralet summerer alle funksjonsverdiane over intervallet, og divisjonen med intervallbreidda $b - a$ gjer summen om til eit gjennomsnitt. Geometrisk er $\\bar{f}$ høgda på det rektangelet over $[a, b]$ som har nøyaktig same areal som området under grafen — den «typiske» verdien av funksjonen.\n\nLat oss bruke definisjonen på eit verdatasett. Temperaturen ein sommardag følgjer modellen $T(t) = 20 + 8\\sin\\!\\big(\\frac{\\pi t}{12}\\big)$ grader, der $t$ er timar etter midnatt. Kva var gjennomsnittstemperaturen i formiddagstimane, frå kl. 6 til kl. 12?\n\n$$\\bar{T} = \\frac{1}{12-6} \\int_6^{12} \\left(20 + 8\\sin\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right) dt = \\frac{1}{6} \\left[20t - \\frac{96}{\\pi}\\cos\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right]_6^{12}$$\n\nVed $t = 12$ er $\\cos \\pi = -1$, så klamma blir $240 + \\frac{96}{\\pi}$. Ved $t = 6$ er $\\cos\\frac{\\pi}{2} = 0$, så klamma blir $120$. Dermed er\n\n$$\\bar{T} = \\frac{1}{6}\\left(240 + \\frac{96}{\\pi} - 120\\right) = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$$\n\nLegg merke til at svaret er høgare enn «grunnivået» 20 grader: sinusleddet er positivt på heile intervallet, og integralet fangar opp nøyaktig kor mykje det bidreg. Eit slikt gjennomsnitt er umogleg å lese rett ut av grafen, men integralet leverer det eksakt."
+    },
+    {
+      "id": "s2-1-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på gjennomsnittsverdi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-4-n-quiz1-q0",
+            "task": "Kva er formelen for gjennomsnittsverdien av $f$ på $[a, b]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\bar{f} = \\frac{f(a) + f(b)}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\bar{f} = \\int_a^b f(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\bar{f} = \\frac{1}{2}\\int_a^b f(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Integralet summerer funksjonsverdiane, og vi deler på intervallbreidda $b - a$. Formelen $\\frac{f(a)+f(b)}{2}$ midlar berre endepunkta og ignorerer alt som skjer imellom."
+          },
+          {
+            "id": "s2-1-4-n-quiz1-q1",
+            "task": "Kva er gjennomsnittsverdien av $f(x) = 2x$ på intervallet $[0, 4]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\bar{f} = \\frac{1}{4}\\int_0^4 2x\\,dx = \\frac{1}{4}[x^2]_0^4 = \\frac{16}{4} = 4$. Rimeleg: $f$ veks lineært frå $0$ til $8$, så gjennomsnittet er $4$."
+          },
+          {
+            "id": "s2-1-4-n-quiz1-q2",
+            "task": "Korleis kan gjennomsnittsverdien $\\bar{f}$ tolkast geometrisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Som stigingstalet til grafen i midtpunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Som høgda på rektangelet over $[a, b]$ med same areal som området under grafen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Som arealet under grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Som den største verdien $f$ tek på intervallet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Per definisjon er $\\bar{f} \\cdot (b - a) = \\int_a^b f(x)\\,dx$: rektangelet med høgd $\\bar{f}$ har nøyaktig same areal som området under grafen."
+          },
+          {
+            "id": "s2-1-4-n-quiz1-q3",
+            "task": "Temperaturen følgjer $T(t) = 20 + 8\\sin(\\frac{\\pi t}{12})$. Kva blei gjennomsnittstemperaturen frå kl. 6 til kl. 12?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. $20{,}0\\ °\\mathrm{C}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. $28{,}0\\ °\\mathrm{C}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $25{,}1\\ °\\mathrm{C}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ca. $22{,}0\\ °\\mathrm{C}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\bar{T} = \\frac{1}{6}\\int_6^{12} T(t)\\,dt = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$ — over grunnivået 20 fordi sinusleddet er positivt på heile formiddagsintervallet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-4-n-section2",
+      "type": "text",
+      "content": "## Frå rate til total — og overskotet i marknaden\n\nDet andre store bruksområdet er å summere ein rate til ei total endring. Kjernen er fundamentalteoremet lese baklengs: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Integralet av ein endringsrate over eit tidsintervall gir den totale endringa i perioden. Køyrer ein bil med fart $v(t) = 10 + 2t$ m/s, er strekninga dei første fem sekunda $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 75$ meter.\n\nSame mønster går igjen overalt: fart blir integrert til strekning, vekstrate til total vekst, effekt til energi — og i økonomien blir **marginalkostnaden** $K'(x)$ integrert til kostnadsendring: $\\int_a^b K'(x)\\,dx = K(b) - K(a)$ er nøyaktig kva det kostar å auke produksjonen frå $a$ til $b$ einingar. Merk ein viktig detalj: integralet gir berre *endringa*. Vil du ha sjølve funksjonen — totalkostnaden, ikkje kostnadsauken — treng du i tillegg ein startverdi, ein initialvilkår, akkurat som i kapittel 1.1.\n\nTil slutt eit glimt av kanskje det mest elegante økonomibruksområdet i integralrekninga. I ein marknad skildrar etterspurnadskurva kva forbrukarane er *villige* til å betale for kvar eining, medan alle i praksis betaler same likevektspris. Dei som var villige til å betale meir enn prisen, gjer dermed eit «kupp» — og summen av alle desse kuppa blir kalla **konsumentoverskotet**: differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler. Tilsvarande er **produsentoverskotet** differansen mellom kva produsentane mottek og kva dei minst var villige til å produsere for. Begge er areal mellom kurver og prislinja, og blir rekna ut med teknikken frå kapittel 1.3: integrer differansen mellom øvre og nedre kurve. Slik måler økonomar i kroner kor mykje verdi ein marknad skaper for begge sider."
+    },
+    {
+      "id": "s2-1-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rate, total endring og økonomisk overskot:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-4-n-quiz2-q0",
+            "task": "Ein bil har fart $v(t) = 10 + 2t$ m/s. Kor langt køyrer han frå $t = 0$ til $t = 5$ sekund?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$20$ meter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$50$ meter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$100$ meter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$75$ meter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Strekninga er integralet av farten: $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 50 + 25 = 75$ meter."
+          },
+          {
+            "id": "s2-1-4-n-quiz2-q1",
+            "task": "Korleis tolkar vi $\\int_{100}^{200} K'(x)\\,dx$ når $K'(x)$ er marginalkostnaden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kostnadsauken ved å auke produksjonen frå 100 til 200 einingar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Totalkostnaden ved å produsere 200 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjennomsnittskostnaden per eining",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Overskotet ved å selje 100 einingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fundamentalteoremet gir $\\int_{100}^{200} K'(x)\\,dx = K(200) - K(100)$ — endringa i totalkostnad, ikkje totalkostnaden sjølv. Til han trengst i tillegg ein startverdi."
+          },
+          {
+            "id": "s2-1-4-n-quiz2-q2",
+            "task": "Kva er konsumentoverskotet i ein marknad?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det totale beløpet forbrukarane betaler",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Forteneste til produsentane etter skatt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Talet på varer som blir til overs i marknaden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konsumentoverskotet måler «kuppet» til alle som var villige til å betale meir enn likevektsprisen — arealet mellom etterspurnadskurva og prislinja."
+          },
+          {
+            "id": "s2-1-4-n-quiz2-q3",
+            "task": "Kvifor treng vi ein initialvilkår i tillegg til raten for å finne sjølve funksjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi ratar ikkje kan integrerast utan startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi initialvilkåret endrar forma på grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi integralet av raten berre gir endringa, ikkje nivået vi starta på",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det treng vi ikkje — integralet gir alltid heile funksjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_a^b f'(t)\\,dt = f(b) - f(a)$ fortel kor mykje funksjonen har endra seg, men ikkje kvar han starta. Startverdien (initialvilkåret) fastlegg nivået — altså konstanten $C$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-4-n-summary",
+      "type": "text",
+      "content": "## Integralet som samfunnsverktøy\n\nSommarjobben i kommunen viste deg mønsteret: verda leverer ratar, men avgjerder krev totalar og gjennomsnitt — og integralet er brua mellom dei. Gjennomsnittsverdien $\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$ gjer ein kontinuerleg varierande storleik om til eitt representativt tal, som då temperaturmodellen gav 25,1 grader som formiddagsgjennomsnitt. Geometrisk er det høgda på rektangelet med same areal som området under grafen.\n\nTotal endring får du ved å integrere raten: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Fart blir strekning, effekt blir energi, vekstrate blir total vekst, og marginalkostnad blir kostnadsendring. Hugs atterhaldet: integralet gir endringa, og du treng ein initialvilkår for å feste nivået og finne sjølve funksjonen.\n\nOg i marknadsøkonomien såg du at areala frå kapittel 1.3 får prisar i kroner: konsumentoverskotet er differansen mellom betalingsvilje og faktisk pris, produsentoverskotet differansen mellom motteken pris og produksjonsvilje — begge rekna ut som areal mellom kurver.\n\nMen kva gjer vi når funksjonen ikkje *kan* integrerast med formlar, eller når vi berre har måledata i ein tabell? Det er temaet for neste delkapittel: numerisk integrasjon, der trapes og parablar overtek jobben når antideriverte ikkje finst."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0d02b5fb4db80334",
+    "translatedAt": "2026-06-20T08:59:55.656Z",
+    "model": "claude-code-agent",
+    "strings": 57,
+    "tm": {
+      "88ca20f656032da1": "Bruksområde for integrasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "9b61a190df9d8365": "Ei forteljing frå ein sommarjobb i kommunen, der ratar blir til totalar: gjennomsnittstemperatur, strekning frå fart, marginalkostnad — og marknaden sitt konsument- og produsentoverskot.",
+      "efa3d9a781a2ae70": "bruke integrasjon i praktiske bruksområde",
+      "f1be738b92205ea5": "tolke og bruke integral i ulike samanhengar",
+      "4518d0a31a503d0d": "## Ei verd full av ratar\n\nDu har fått sommarjobb som analytikar i ein kommune, og alt første veka merkar du noko: nesten alle tala du får, er *ratar*. Straumforbruket blir målt i kilowatt — energi per time. Trafikken blir målt i bilar per minutt. Budsjettavdelinga snakkar om marginalkostnader — kroner per ekstra eining. Og meteorologane leverer temperatur som funksjon av tid, time for time.\n\nMen spørsmåla folk faktisk stiller, handlar sjeldan om ratane sjølve. «Kor mykje straum brukte vi i går?» «Kva var gjennomsnittstemperaturen i juli?» «Kor mykje kostar det å auke produksjonen frå 100 til 200 einingar?» Alle desse spørsmåla handlar om å gå frå rate til total — og det er, som du no veit, nøyaktig kva integrasjon gjer.\n\nI dette kapittelet skal vi bruke integralrekninga på praktiske problem. Vi skal finne **total mengd frå ein rate** — til dømes strekning frå fart eller energi frå effekt. Vi skal rekne ut **gjennomsnittsverdien** av ein funksjon, som gir presis meining til utsegner som «gjennomsnittstemperaturen var 22,5 grader». Og vi skal sjå korleis økonomar bruker integral til å måle **konsument- og produsentoverskot** — kor mykje ein marknad eigentleg er verd for kjøparane og seljarane. I fysikk blir same idé brukt til å rekne ut arbeid frå kraft over avstand.\n\nFellesnemnaren er alltid den same: ein storleik varierer kontinuerleg, og vi vil summere eller midle han over eit intervall. Der tabellar og gjennomsnitt av nokre få målingar berre gir grove anslag, gir integralet det eksakte svaret.",
+      "185819d74961628c": "## Gjennomsnittsverdien av ein funksjon\n\nKva meiner vi eigentleg med «gjennomsnittstemperaturen» ein dag? Temperaturen tek jo uendeleg mange verdiar gjennom døgnet — vi kan ikkje berre legge saman og dele på talet. Løysinga er å la integralet gjere summeringa. **Gjennomsnittsverdien** av $f$ på intervallet $[a, b]$ er definert som\n\n$$\\bar{f} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx$$\n\nIntegralet summerer alle funksjonsverdiane over intervallet, og divisjonen med intervallbreidda $b - a$ gjer summen om til eit gjennomsnitt. Geometrisk er $\\bar{f}$ høgda på det rektangelet over $[a, b]$ som har nøyaktig same areal som området under grafen — den «typiske» verdien av funksjonen.\n\nLat oss bruke definisjonen på eit verdatasett. Temperaturen ein sommardag følgjer modellen $T(t) = 20 + 8\\sin\\!\\big(\\frac{\\pi t}{12}\\big)$ grader, der $t$ er timar etter midnatt. Kva var gjennomsnittstemperaturen i formiddagstimane, frå kl. 6 til kl. 12?\n\n$$\\bar{T} = \\frac{1}{12-6} \\int_6^{12} \\left(20 + 8\\sin\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right) dt = \\frac{1}{6} \\left[20t - \\frac{96}{\\pi}\\cos\\!\\Big(\\frac{\\pi t}{12}\\Big)\\right]_6^{12}$$\n\nVed $t = 12$ er $\\cos \\pi = -1$, så klamma blir $240 + \\frac{96}{\\pi}$. Ved $t = 6$ er $\\cos\\frac{\\pi}{2} = 0$, så klamma blir $120$. Dermed er\n\n$$\\bar{T} = \\frac{1}{6}\\left(240 + \\frac{96}{\\pi} - 120\\right) = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$$\n\nLegg merke til at svaret er høgare enn «grunnivået» 20 grader: sinusleddet er positivt på heile intervallet, og integralet fangar opp nøyaktig kor mykje det bidreg. Eit slikt gjennomsnitt er umogleg å lese rett ut av grafen, men integralet leverer det eksakt.",
+      "3139fa7187b96459": "Test deg sjølv på gjennomsnittsverdi:",
+      "4097889236a2af26": "placeholder",
+      "54943cd7686866fc": "Kva er formelen for gjennomsnittsverdien av $f$ på $[a, b]$?",
+      "64f5e315e059cbd6": "$\\bar{f} = \\frac{f(a) + f(b)}{2}$",
+      "7bc57cbf1bee8764": "$\\bar{f} = \\int_a^b f(x)\\,dx$",
+      "79a2bbbdf44b8e36": "$\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$",
+      "2923ae3722aa9084": "$\\bar{f} = \\frac{1}{2}\\int_a^b f(x)\\,dx$",
+      "af21f404f6e3ad64": "Integralet summerer funksjonsverdiane, og vi deler på intervallbreidda $b - a$. Formelen $\\frac{f(a)+f(b)}{2}$ midlar berre endepunkta og ignorerer alt som skjer imellom.",
+      "55ef34b8882a2bb9": "Kva er gjennomsnittsverdien av $f(x) = 2x$ på intervallet $[0, 4]$?",
+      "8a5db4908b359fef": "$\\bar{f} = \\frac{1}{4}\\int_0^4 2x\\,dx = \\frac{1}{4}[x^2]_0^4 = \\frac{16}{4} = 4$. Rimeleg: $f$ veks lineært frå $0$ til $8$, så gjennomsnittet er $4$.",
+      "5e973cd4bbcdca04": "Korleis kan gjennomsnittsverdien $\\bar{f}$ tolkast geometrisk?",
+      "a6ccab48053ac980": "Som stigingstalet til grafen i midtpunktet",
+      "80ce25247fe108b9": "Som høgda på rektangelet over $[a, b]$ med same areal som området under grafen",
+      "8db970181f74d66a": "Som arealet under grafen",
+      "2912b79940bcee8a": "Som den største verdien $f$ tek på intervallet",
+      "d575161612c48bd3": "Per definisjon er $\\bar{f} \\cdot (b - a) = \\int_a^b f(x)\\,dx$: rektangelet med høgd $\\bar{f}$ har nøyaktig same areal som området under grafen.",
+      "d503f6eb7c399284": "Temperaturen følgjer $T(t) = 20 + 8\\sin(\\frac{\\pi t}{12})$. Kva blei gjennomsnittstemperaturen frå kl. 6 til kl. 12?",
+      "9478733ca0c64fff": "Ca. $20{,}0\\ °\\mathrm{C}$",
+      "72b2f5b9a5084e45": "Ca. $28{,}0\\ °\\mathrm{C}$",
+      "de27de8ef5f3de6c": "Ca. $25{,}1\\ °\\mathrm{C}$",
+      "6a1e1d10799535b2": "Ca. $22{,}0\\ °\\mathrm{C}$",
+      "d055209d22b372f9": "$\\bar{T} = \\frac{1}{6}\\int_6^{12} T(t)\\,dt = 20 + \\frac{16}{\\pi} \\approx 25{,}1\\ °\\mathrm{C}$ — over grunnivået 20 fordi sinusleddet er positivt på heile formiddagsintervallet.",
+      "27acf9d9e208757f": "## Frå rate til total — og overskotet i marknaden\n\nDet andre store bruksområdet er å summere ein rate til ei total endring. Kjernen er fundamentalteoremet lese baklengs: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Integralet av ein endringsrate over eit tidsintervall gir den totale endringa i perioden. Køyrer ein bil med fart $v(t) = 10 + 2t$ m/s, er strekninga dei første fem sekunda $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 75$ meter.\n\nSame mønster går igjen overalt: fart blir integrert til strekning, vekstrate til total vekst, effekt til energi — og i økonomien blir **marginalkostnaden** $K'(x)$ integrert til kostnadsendring: $\\int_a^b K'(x)\\,dx = K(b) - K(a)$ er nøyaktig kva det kostar å auke produksjonen frå $a$ til $b$ einingar. Merk ein viktig detalj: integralet gir berre *endringa*. Vil du ha sjølve funksjonen — totalkostnaden, ikkje kostnadsauken — treng du i tillegg ein startverdi, ein initialvilkår, akkurat som i kapittel 1.1.\n\nTil slutt eit glimt av kanskje det mest elegante økonomibruksområdet i integralrekninga. I ein marknad skildrar etterspurnadskurva kva forbrukarane er *villige* til å betale for kvar eining, medan alle i praksis betaler same likevektspris. Dei som var villige til å betale meir enn prisen, gjer dermed eit «kupp» — og summen av alle desse kuppa blir kalla **konsumentoverskotet**: differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler. Tilsvarande er **produsentoverskotet** differansen mellom kva produsentane mottek og kva dei minst var villige til å produsere for. Begge er areal mellom kurver og prislinja, og blir rekna ut med teknikken frå kapittel 1.3: integrer differansen mellom øvre og nedre kurve. Slik måler økonomar i kroner kor mykje verdi ein marknad skaper for begge sider.",
+      "1e66a2bacb4e23bb": "Test deg sjølv på rate, total endring og økonomisk overskot:",
+      "404638b5df5e1774": "Ein bil har fart $v(t) = 10 + 2t$ m/s. Kor langt køyrer han frå $t = 0$ til $t = 5$ sekund?",
+      "0bb43c5ab75163b2": "$20$ meter",
+      "14c95574f892cf04": "$50$ meter",
+      "b364843daf5a9c62": "$100$ meter",
+      "b9c0c0d3ca4053c1": "$75$ meter",
+      "59f29455b4f65bde": "Strekninga er integralet av farten: $\\int_0^5 (10 + 2t)\\,dt = [10t + t^2]_0^5 = 50 + 25 = 75$ meter.",
+      "7c82caa61152fe02": "Korleis tolkar vi $\\int_{100}^{200} K'(x)\\,dx$ når $K'(x)$ er marginalkostnaden?",
+      "b68c01628a6c99ff": "Totalkostnaden ved å produsere 200 einingar",
+      "a5be7cd784126215": "Kostnadsauken ved å auke produksjonen frå 100 til 200 einingar",
+      "1392dd029122ac0c": "Gjennomsnittskostnaden per eining",
+      "5d0ab62114dae88e": "Overskotet ved å selje 100 einingar",
+      "bed79d9c9ee80e6c": "Fundamentalteoremet gir $\\int_{100}^{200} K'(x)\\,dx = K(200) - K(100)$ — endringa i totalkostnad, ikkje totalkostnaden sjølv. Til han trengst i tillegg ein startverdi.",
+      "2a42777929394d52": "Kva er konsumentoverskotet i ein marknad?",
+      "7f3e53a02327b0bb": "Differansen mellom kva forbrukarane er villige til å betale og kva dei faktisk betaler",
+      "36e130e4c09417e7": "Det totale beløpet forbrukarane betaler",
+      "04ee1e835a655d69": "Forteneste til produsentane etter skatt",
+      "77e264838619d48a": "Talet på varer som blir til overs i marknaden",
+      "72bf04cd88fd364a": "Konsumentoverskotet måler «kuppet» til alle som var villige til å betale meir enn likevektsprisen — arealet mellom etterspurnadskurva og prislinja.",
+      "ee08975dff000617": "Kvifor treng vi ein initialvilkår i tillegg til raten for å finne sjølve funksjonen?",
+      "d9e979d3a2650a64": "Fordi integralet av raten berre gir endringa, ikkje nivået vi starta på",
+      "638aed2be6b4dad2": "Fordi ratar ikkje kan integrerast utan startverdi",
+      "477dd23950c8479c": "Fordi initialvilkåret endrar forma på grafen",
+      "878b55e48f575e71": "Det treng vi ikkje — integralet gir alltid heile funksjonen",
+      "df3d43620caf1626": "$\\int_a^b f'(t)\\,dt = f(b) - f(a)$ fortel kor mykje funksjonen har endra seg, men ikkje kvar han starta. Startverdien (initialvilkåret) fastlegg nivået — altså konstanten $C$.",
+      "b002b0d0dfb52106": "## Integralet som samfunnsverktøy\n\nSommarjobben i kommunen viste deg mønsteret: verda leverer ratar, men avgjerder krev totalar og gjennomsnitt — og integralet er brua mellom dei. Gjennomsnittsverdien $\\bar{f} = \\frac{1}{b-a}\\int_a^b f(x)\\,dx$ gjer ein kontinuerleg varierande storleik om til eitt representativt tal, som då temperaturmodellen gav 25,1 grader som formiddagsgjennomsnitt. Geometrisk er det høgda på rektangelet med same areal som området under grafen.\n\nTotal endring får du ved å integrere raten: $\\int_a^b f'(t)\\,dt = f(b) - f(a)$. Fart blir strekning, effekt blir energi, vekstrate blir total vekst, og marginalkostnad blir kostnadsendring. Hugs atterhaldet: integralet gir endringa, og du treng ein initialvilkår for å feste nivået og finne sjølve funksjonen.\n\nOg i marknadsøkonomien såg du at areala frå kapittel 1.3 får prisar i kroner: konsumentoverskotet er differansen mellom betalingsvilje og faktisk pris, produsentoverskotet differansen mellom motteken pris og produksjonsvilje — begge rekna ut som areal mellom kurver.\n\nMen kva gjer vi når funksjonen ikkje *kan* integrerast med formlar, eller når vi berre har måledata i ein tabell? Det er temaet for neste delkapittel: numerisk integrasjon, der trapes og parablar overtek jobben når antideriverte ikkje finst."
+    }
+  }
+}

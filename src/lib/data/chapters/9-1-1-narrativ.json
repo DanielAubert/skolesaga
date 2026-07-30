@@ -1,1 +1,424 @@
-{"id":"9-1-1-narrativ","courseId":"9","chapterNumber":"1.1","title":"Potenser og røtter","subtitle":"Narrativ versjon","description":"En fortellende reise gjennom potensenes og røttenes verden -- fra gjentatt multiplikasjon til potensregler og kvadratrøtter, med hverdagseksempler som gjør abstrakte begreper håndgripelige.","estimatedMinutes":35,"competenceGoals":["utforske og bruke eigenskapane ved potensar og røter i berekningar og i praktiske situasjonar"],"linkedChapterId":"9-1-1","content":[{"id":"9-1-1-n-intro","type":"text","content":"## Hva om du kunne forkorte gjentatt ganging?\n\nTenk deg at du legger et ark papir dobbelt, så dobbelt igjen, og igjen, og igjen. Etter $1$ brett er det $2$ lag. Etter $2$ brett er det $4$ lag. Etter $3$ brett er det $8$ lag. Ser du mønsteret? Antall lag er alltid $2$ ganget med seg selv et visst antall ganger: $2$, $2 \\times 2$, $2 \\times 2 \\times 2$, ...\n\nDet blir fort slitsomt å skrive alle disse gangetegnene. Heldigvis finnes det en elegant forkortelse: **potenser**. I stedet for $2 \\times 2 \\times 2 \\times 2 \\times 2$ skriver vi ganske enkelt $2^5$. Liten skrift, stor effekt!\n\nI dette kapittelet skal vi utforske hvordan potenser fungerer, hvilke regler som gjelder, og hvordan **røtter** henger sammen med potenser som en slags omvendt operasjon."},{"id":"9-1-1-n-section1","type":"text","content":"## Hva er en potens?\n\nNår vi skriver $a^n$, kaller vi $a$ for **grunntallet** og $n$ for **eksponenten**. Uttrykket betyr at vi ganger $a$ med seg selv $n$ ganger:\n\n$$a^n = \\underbrace{a \\times a \\times a \\times \\cdots \\times a}_{n \\text{ faktorer}}$$\n\nNoen eksempler:\n- $3^4 = 3 \\times 3 \\times 3 \\times 3 = 81$\n- $5^3 = 5 \\times 5 \\times 5 = 125$\n- $10^6 = 1\\,000\\,000$ (en million)\n- $(-2)^3 = (-2) \\times (-2) \\times (-2) = -8$\n\nPass godt på **negative grunntall**! Det er stor forskjell på $(-3)^2$ og $-3^2$:\n- $(-3)^2 = (-3) \\times (-3) = 9$ (minus ganger minus er pluss)\n- $-3^2 = -(3^2) = -9$ (her er det bare $3$ som opphøyes, og minustegnet settes på etterpå)\n\nEt par spesialtilfeller er verdt å huske:\n- $a^1 = a$ (hva som helst opphøyd i $1$ er seg selv)\n- $a^0 = 1$ for alle $a \\neq 0$ (dette virker kanskje rart, men det følger logisk av potensreglene vi snart skal se)\n- $1^n = 1$ for alle $n$ (én ganget med seg selv er alltid én)"},{"id":"9-1-1-n-quiz1","type":"exercise","exercise":{"id":"9-1-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på grunnleggende potenser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-1-1-n-quiz1-q0","task":"Hva er $2^6$?","options":[{"id":"a","text":"$12$","isCorrect":false},{"id":"b","text":"$32$","isCorrect":false},{"id":"c","text":"$64$","isCorrect":true},{"id":"d","text":"$128$","isCorrect":false}],"solution":"$2^6 = 2 \\times 2 \\times 2 \\times 2 \\times 2 \\times 2 = 64$. Merk: $2^6$ betyr ikke $2 \\times 6 = 12$."},{"id":"9-1-1-n-quiz1-q1","task":"Hva er forskjellen mellom $(-4)^2$ og $-4^2$?","options":[{"id":"a","text":"De er begge lik $16$","isCorrect":false},{"id":"b","text":"De er begge lik $-16$","isCorrect":false},{"id":"c","text":"$(-4)^2 = 16$ og $-4^2 = -16$","isCorrect":true},{"id":"d","text":"$(-4)^2 = -16$ og $-4^2 = 16$","isCorrect":false}],"solution":"$(-4)^2 = (-4) \\times (-4) = 16$ fordi minus ganger minus gir pluss. $-4^2 = -(4^2) = -16$ fordi kun $4$ opphøyes."},{"id":"9-1-1-n-quiz1-q2","task":"Hva er $7^0$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":true},{"id":"c","text":"$7$","isCorrect":false},{"id":"d","text":"Udefinert","isCorrect":false}],"solution":"Ethvert tall (unntatt $0$) opphøyd i $0$ er lik $1$. Altså $7^0 = 1$. Dette følger av potensregelen $a^n \\div a^n = a^{n-n} = a^0 = 1$."}]}},{"id":"9-1-1-n-section2","type":"text","content":"## Potensreglene -- snarveier for regning\n\nPotenser følger noen elegante regler som gjør det mye enklere å regne. Tenk på dem som snarveier:\n\n**Regel 1 -- Multiplikasjon med samme grunntall:**\n$$a^m \\times a^n = a^{m+n}$$\n\nNår du ganger potenser med samme grunntall, **adderer** du eksponentene. Logikken er enkel: $2^3 \\times 2^4 = (2 \\times 2 \\times 2) \\times (2 \\times 2 \\times 2 \\times 2) = 2^7$.\n\n**Regel 2 -- Divisjon med samme grunntall:**\n$$a^m \\div a^n = a^{m-n}$$\n\nNår du deler potenser med samme grunntall, **subtraherer** du eksponentene. For eksempel: $5^7 \\div 5^3 = 5^{7-3} = 5^4$.\n\n**Regel 3 -- Potens av potens:**\n$$(a^m)^n = a^{m \\cdot n}$$\n\nNår du opphøyer en potens i en ny potens, **multipliserer** du eksponentene. For eksempel: $(3^2)^4 = 3^{2 \\cdot 4} = 3^8$.\n\n**Regel 4 -- Potens av produkt:**\n$$(a \\cdot b)^n = a^n \\cdot b^n$$\n\nFor eksempel: $(2 \\cdot 5)^3 = 2^3 \\cdot 5^3 = 8 \\cdot 125 = 1000$.\n\n**Regel 5 -- Potens av brøk:**\n$$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$$\n\nFor eksempel: $\\left(\\frac{3}{4}\\right)^2 = \\frac{3^2}{4^2} = \\frac{9}{16}$.\n\nDisse reglene gjelder **bare** når grunntallene er like (for regel 1 og 2) eller når eksponentene er like (for regel 4 og 5). Du kan altså ikke forenkle $2^3 \\times 3^4$ med regel 1, fordi grunntallene er forskjellige."},{"id":"9-1-1-n-quiz2","type":"exercise","exercise":{"id":"9-1-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på potensreglene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-1-1-n-quiz2-q0","task":"Forenkle $3^5 \\times 3^2$.","options":[{"id":"a","text":"$3^{10}$","isCorrect":false},{"id":"b","text":"$3^7$","isCorrect":true},{"id":"c","text":"$9^7$","isCorrect":false},{"id":"d","text":"$3^3$","isCorrect":false}],"solution":"Multiplikasjon med samme grunntall: $3^5 \\times 3^2 = 3^{5+2} = 3^7$. Vi adderer eksponentene."},{"id":"9-1-1-n-quiz2-q1","task":"Forenkle $(2^3)^4$.","options":[{"id":"a","text":"$2^7$","isCorrect":false},{"id":"b","text":"$2^{64}$","isCorrect":false},{"id":"c","text":"$2^{12}$","isCorrect":true},{"id":"d","text":"$8^4$","isCorrect":false}],"solution":"Potens av potens: $(2^3)^4 = 2^{3 \\cdot 4} = 2^{12}$. Vi multipliserer eksponentene."},{"id":"9-1-1-n-quiz2-q2","task":"Hva er $\\frac{10^8}{10^5}$?","options":[{"id":"a","text":"$10^{40}$","isCorrect":false},{"id":"b","text":"$10^3$","isCorrect":true},{"id":"c","text":"$1^3$","isCorrect":false},{"id":"d","text":"$10^{13}$","isCorrect":false}],"solution":"Divisjon med samme grunntall: $\\frac{10^8}{10^5} = 10^{8-5} = 10^3 = 1000$."}]}},{"id":"9-1-1-n-section3","type":"text","content":"## Negative eksponenter\n\nHva skjer når eksponenten er negativ? La oss bruke divisjonsregelen: $2^3 \\div 2^5 = 2^{3-5} = 2^{-2}$. Men vi kan også regne det ut direkte:\n\n$$\\frac{2^3}{2^5} = \\frac{8}{32} = \\frac{1}{4} = \\frac{1}{2^2}$$\n\nAltså betyr $2^{-2} = \\frac{1}{2^2} = \\frac{1}{4}$. Generelt:\n\n$$a^{-n} = \\frac{1}{a^n}$$\n\nEn negativ eksponent betyr altså «snu brøken» eller «ta den omvendte verdien». Noen eksempler:\n- $5^{-1} = \\frac{1}{5}$\n- $3^{-3} = \\frac{1}{3^3} = \\frac{1}{27}$\n- $10^{-4} = \\frac{1}{10^4} = \\frac{1}{10\\,000} = 0{,}0001$\n\nFor brøker «snur» den negative eksponenten alt:\n\n$$\\left(\\frac{a}{b}\\right)^{-n} = \\left(\\frac{b}{a}\\right)^n$$\n\nFor eksempel: $\\left(\\frac{2}{3}\\right)^{-2} = \\left(\\frac{3}{2}\\right)^2 = \\frac{9}{4}$.\n\nNegative eksponenter er spesielt nyttige når vi skriver svært små tall, som vi skal se når vi kommer til standardform."},{"id":"9-1-1-n-section4","type":"text","content":"## Røtter -- potensenes motsetning\n\nÅ ta en rot er det omvendte av å opphøye. Hvis $3^2 = 9$, er $\\sqrt{9} = 3$. Generelt:\n\n$$\\text{Hvis } a^n = b, \\text{ da er } \\sqrt[n]{b} = a$$\n\n**Kvadratroten** ($\\sqrt{\\phantom{x}}$, altså $n = 2$) er den vanligste. Den spør: «Hvilket tall ganget med seg selv gir dette?»\n- $\\sqrt{25} = 5$ fordi $5^2 = 25$\n- $\\sqrt{100} = 10$ fordi $10^2 = 100$\n- $\\sqrt{2} = 1{,}4142\\ldots$ (dette er et irrasjonalt tall!)\n\n**Kubikkroten** ($\\sqrt[3]{\\phantom{x}}$, $n = 3$) spør: «Hvilket tall ganget med seg selv tre ganger gir dette?»\n- $\\sqrt[3]{8} = 2$ fordi $2^3 = 8$\n- $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$\n- $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$ (kubikkrøtter av negative tall gir mening!)\n\nDet finnes en elegant sammenheng mellom røtter og potenser:\n\n$$\\sqrt[n]{a} = a^{1/n}$$\n\nAltså er $\\sqrt{9} = 9^{1/2}$ og $\\sqrt[3]{8} = 8^{1/3}$. Mer generelt:\n\n$$\\sqrt[n]{a^m} = a^{m/n}$$\n\nDenne sammenhengen betyr at alle potensreglene vi allerede har lært, gjelder for røtter også! For eksempel: $\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (ab)^{1/2} = \\sqrt{ab}$.\n\nHer er noen nyttige regneregler for kvadratrøtter:\n- $\\sqrt{a \\cdot b} = \\sqrt{a} \\cdot \\sqrt{b}$, for eksempel $\\sqrt{50} = \\sqrt{25 \\cdot 2} = 5\\sqrt{2}$\n- $\\sqrt{\\frac{a}{b}} = \\frac{\\sqrt{a}}{\\sqrt{b}}$, for eksempel $\\sqrt{\\frac{9}{16}} = \\frac{3}{4}$\n- Men pass på: $\\sqrt{a + b} \\neq \\sqrt{a} + \\sqrt{b}$ ! (En vanlig feil!)"},{"id":"9-1-1-n-quiz3","type":"exercise","exercise":{"id":"9-1-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på røtter og negative eksponenter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-1-1-n-quiz3-q0","task":"Hva er $4^{-2}$?","options":[{"id":"a","text":"$-16$","isCorrect":false},{"id":"b","text":"$\\frac{1}{16}$","isCorrect":true},{"id":"c","text":"$-8$","isCorrect":false},{"id":"d","text":"$\\frac{1}{8}$","isCorrect":false}],"solution":"$4^{-2} = \\frac{1}{4^2} = \\frac{1}{16}$. En negativ eksponent betyr «ta den omvendte verdien»."},{"id":"9-1-1-n-quiz3-q1","task":"Forenkle $\\sqrt{72}$.","options":[{"id":"a","text":"$6\\sqrt{2}$","isCorrect":true},{"id":"b","text":"$8\\sqrt{3}$","isCorrect":false},{"id":"c","text":"$36\\sqrt{2}$","isCorrect":false},{"id":"d","text":"$3\\sqrt{8}$","isCorrect":false}],"solution":"$\\sqrt{72} = \\sqrt{36 \\cdot 2} = \\sqrt{36} \\cdot \\sqrt{2} = 6\\sqrt{2}$. Vi finner det største perfekte kvadrattallet som er en faktor."},{"id":"9-1-1-n-quiz3-q2","task":"Hva er $\\sqrt[3]{-27}$?","options":[{"id":"a","text":"Udefinert (kan ikke ta rot av negativt tall)","isCorrect":false},{"id":"b","text":"$-3$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$-9$","isCorrect":false}],"solution":"$\\sqrt[3]{-27} = -3$ fordi $(-3)^3 = (-3) \\times (-3) \\times (-3) = -27$. Kubikkrøtter av negative tall er definert."}]}},{"id":"9-1-1-n-section5","type":"text","content":"## Potenser i praksis\n\nPotenser og røtter dukker opp overalt i den virkelige verden:\n\n**Eksponentiell vekst:** Tenk deg en bakteriekultur der antallet dobles hver time. Etter $t$ timer er antallet $N = N_0 \\cdot 2^t$, der $N_0$ er startantallet. Starter du med $100$ bakterier, har du etter $10$ timer $100 \\cdot 2^{10} = 100 \\cdot 1024 = 102\\,400$ bakterier!\n\n**Areal og volum:** Arealet av et kvadrat med side $s$ er $s^2$ (derav navnet «kvadrat»). Volumet av en kube med side $s$ er $s^3$ (derav «kube»). Hvis du kjenner arealet og vil finne siden, tar du kvadratroten: $s = \\sqrt{A}$.\n\n**Papirfolding:** Hvert brett dobler antall lag. Etter $n$ brett har du $2^n$ lag. Med et vanlig papir på $0{,}1$ mm tykkelse gir $42$ brett en tykkelse på $0{,}1 \\cdot 2^{42}$ mm $\\approx 440\\,000$ km -- mer enn avstanden til månen!\n\n**Pythagorassetningen:** I en rettvinklet trekant gjelder $a^2 + b^2 = c^2$, der $c$ er hypotenusen. For å finne $c$ tar du kvadratroten: $c = \\sqrt{a^2 + b^2}$."},{"id":"9-1-1-n-quiz4","type":"exercise","exercise":{"id":"9-1-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på praktisk bruk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-1-1-n-quiz4-q0","task":"Et kvadratisk rom har areal $81$ m$^2$. Hvor lang er hver side?","options":[{"id":"a","text":"$9{,}5$ m","isCorrect":false},{"id":"b","text":"$9$ m","isCorrect":true},{"id":"c","text":"$40{,}5$ m","isCorrect":false},{"id":"d","text":"$8{,}1$ m","isCorrect":false}],"solution":"Sidelengden er $\\sqrt{81} = 9$ m, fordi $9^2 = 81$."},{"id":"9-1-1-n-quiz4-q1","task":"En bakteriekultur dobles hver time. Du starter med $500$ bakterier. Hvor mange har du etter $8$ timer?","options":[{"id":"a","text":"$4\\,000$","isCorrect":false},{"id":"b","text":"$128\\,000$","isCorrect":true},{"id":"c","text":"$256\\,000$","isCorrect":false},{"id":"d","text":"$64\\,000$","isCorrect":false}],"solution":"$500 \\times 2^8 = 500 \\times 256 = 128\\,000$. Husk at $2^8 = 256$."}]}},{"id":"9-1-1-n-summary","type":"text","content":"## Oppsummering\n\n**Potenser** er en forkortelse for gjentatt multiplikasjon: $a^n$ betyr $a$ ganget med seg selv $n$ ganger.\n\n**Potensreglene:**\n| Regel | Formel |\n|-------|--------|\n| Multiplikasjon | $a^m \\times a^n = a^{m+n}$ |\n| Divisjon | $a^m \\div a^n = a^{m-n}$ |\n| Potens av potens | $(a^m)^n = a^{m \\cdot n}$ |\n| Potens av produkt | $(ab)^n = a^n b^n$ |\n| Negativ eksponent | $a^{-n} = \\frac{1}{a^n}$ |\n| Null som eksponent | $a^0 = 1$ (for $a \\neq 0$) |\n\n**Røtter** er det omvendte av potenser: $\\sqrt[n]{a} = a^{1/n}$. Kvadratroten $\\sqrt{a}$ svarer på «hva ganget med seg selv gir $a$?». Regneregler for røtter følger direkte fra potensreglene."}],"exercises":[]}
+{
+  "id": "9-1-1-narrativ",
+  "courseId": "9",
+  "chapterNumber": "1.1",
+  "title": "Potenser og røtter",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende reise gjennom potensenes og røttenes verden -- fra gjentatt multiplikasjon til potensregler og kvadratrøtter, med hverdagseksempler som gjør abstrakte begreper håndgripelige.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og bruke eigenskapane ved potensar og røter i berekningar og i praktiske situasjonar"
+  ],
+  "linkedChapterId": "9-1-1",
+  "content": [
+    {
+      "id": "9-1-1-n-intro",
+      "type": "text",
+      "content": "## Hva om du kunne forkorte gjentatt ganging?\n\nTenk deg at du legger et ark papir dobbelt, så dobbelt igjen, og igjen, og igjen. Etter $1$ brett er det $2$ lag. Etter $2$ brett er det $4$ lag. Etter $3$ brett er det $8$ lag. Ser du mønsteret? Antall lag er alltid $2$ ganget med seg selv et visst antall ganger: $2$, $2 \\times 2$, $2 \\times 2 \\times 2$, ...\n\nDet blir fort slitsomt å skrive alle disse gangetegnene. Heldigvis finnes det en elegant forkortelse: **potenser**. I stedet for $2 \\times 2 \\times 2 \\times 2 \\times 2$ skriver vi ganske enkelt $2^5$. Liten skrift, stor effekt!\n\nI dette kapittelet skal vi utforske hvordan potenser fungerer, hvilke regler som gjelder, og hvordan **røtter** henger sammen med potenser som en slags omvendt operasjon."
+    },
+    {
+      "id": "9-1-1-n-section1",
+      "type": "text",
+      "content": "## Hva er en potens?\n\nNår vi skriver $a^n$, kaller vi $a$ for **grunntallet** og $n$ for **eksponenten**. Uttrykket betyr at vi ganger $a$ med seg selv $n$ ganger:\n\n$$a^n = \\underbrace{a \\times a \\times a \\times \\cdots \\times a}_{n \\text{ faktorer}}$$\n\nNoen eksempler:\n- $3^4 = 3 \\times 3 \\times 3 \\times 3 = 81$\n- $5^3 = 5 \\times 5 \\times 5 = 125$\n- $10^6 = 1\\,000\\,000$ (en million)\n- $(-2)^3 = (-2) \\times (-2) \\times (-2) = -8$\n\nPass godt på **negative grunntall**! Det er stor forskjell på $(-3)^2$ og $-3^2$:\n- $(-3)^2 = (-3) \\times (-3) = 9$ (minus ganger minus er pluss)\n- $-3^2 = -(3^2) = -9$ (her er det bare $3$ som opphøyes, og minustegnet settes på etterpå)\n\nEt par spesialtilfeller er verdt å huske:\n- $a^1 = a$ (hva som helst opphøyd i $1$ er seg selv)\n- $a^0 = 1$ for alle $a \\neq 0$ (dette virker kanskje rart, men det følger logisk av potensreglene vi snart skal se)\n- $1^n = 1$ for alle $n$ (én ganget med seg selv er alltid én)"
+    },
+    {
+      "id": "9-1-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-1-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grunnleggende potenser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-1-1-n-quiz1-q0",
+            "task": "Hva er $2^6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$32$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$64$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$128$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2^6 = 2 \\times 2 \\times 2 \\times 2 \\times 2 \\times 2 = 64$. Merk: $2^6$ betyr ikke $2 \\times 6 = 12$."
+          },
+          {
+            "id": "9-1-1-n-quiz1-q1",
+            "task": "Hva er forskjellen mellom $(-4)^2$ og $-4^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er begge lik $16$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De er begge lik $-16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(-4)^2 = -16$ og $-4^2 = 16$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(-4)^2 = 16$ og $-4^2 = -16$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$(-4)^2 = (-4) \\times (-4) = 16$ fordi minus ganger minus gir pluss. $-4^2 = -(4^2) = -16$ fordi kun $4$ opphøyes."
+          },
+          {
+            "id": "9-1-1-n-quiz1-q2",
+            "task": "Hva er $7^0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Udefinert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ethvert tall (unntatt $0$) opphøyd i $0$ er lik $1$. Altså $7^0 = 1$. Dette følger av potensregelen $a^n \\div a^n = a^{n-n} = a^0 = 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-1-1-n-section2",
+      "type": "text",
+      "content": "## Potensreglene -- snarveier for regning\n\nPotenser følger noen elegante regler som gjør det mye enklere å regne. Tenk på dem som snarveier:\n\n**Regel 1 -- Multiplikasjon med samme grunntall:**\n$$a^m \\times a^n = a^{m+n}$$\n\nNår du ganger potenser med samme grunntall, **adderer** du eksponentene. Logikken er enkel: $2^3 \\times 2^4 = (2 \\times 2 \\times 2) \\times (2 \\times 2 \\times 2 \\times 2) = 2^7$.\n\n**Regel 2 -- Divisjon med samme grunntall:**\n$$a^m \\div a^n = a^{m-n}$$\n\nNår du deler potenser med samme grunntall, **subtraherer** du eksponentene. For eksempel: $5^7 \\div 5^3 = 5^{7-3} = 5^4$.\n\n**Regel 3 -- Potens av potens:**\n$$(a^m)^n = a^{m \\cdot n}$$\n\nNår du opphøyer en potens i en ny potens, **multipliserer** du eksponentene. For eksempel: $(3^2)^4 = 3^{2 \\cdot 4} = 3^8$.\n\n**Regel 4 -- Potens av produkt:**\n$$(a \\cdot b)^n = a^n \\cdot b^n$$\n\nFor eksempel: $(2 \\cdot 5)^3 = 2^3 \\cdot 5^3 = 8 \\cdot 125 = 1000$.\n\n**Regel 5 -- Potens av brøk:**\n$$\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$$\n\nFor eksempel: $\\left(\\frac{3}{4}\\right)^2 = \\frac{3^2}{4^2} = \\frac{9}{16}$.\n\nDisse reglene gjelder **bare** når grunntallene er like (for regel 1 og 2) eller når eksponentene er like (for regel 4 og 5). Du kan altså ikke forenkle $2^3 \\times 3^4$ med regel 1, fordi grunntallene er forskjellige."
+    },
+    {
+      "id": "9-1-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-1-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på potensreglene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-1-1-n-quiz2-q0",
+            "task": "Forenkle $3^5 \\times 3^2$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3^{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3^7$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$9^7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikasjon med samme grunntall: $3^5 \\times 3^2 = 3^{5+2} = 3^7$. Vi adderer eksponentene."
+          },
+          {
+            "id": "9-1-1-n-quiz2-q1",
+            "task": "Forenkle $(2^3)^4$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2^7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2^{64}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2^{12}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$8^4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potens av potens: $(2^3)^4 = 2^{3 \\cdot 4} = 2^{12}$. Vi multipliserer eksponentene."
+          },
+          {
+            "id": "9-1-1-n-quiz2-q2",
+            "task": "Hva er $\\frac{10^8}{10^5}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10^{40}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10^{13}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10^3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Divisjon med samme grunntall: $\\frac{10^8}{10^5} = 10^{8-5} = 10^3 = 1000$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-1-1-n-section3",
+      "type": "text",
+      "content": "## Negative eksponenter\n\nHva skjer når eksponenten er negativ? La oss bruke divisjonsregelen: $2^3 \\div 2^5 = 2^{3-5} = 2^{-2}$. Men vi kan også regne det ut direkte:\n\n$$\\frac{2^3}{2^5} = \\frac{8}{32} = \\frac{1}{4} = \\frac{1}{2^2}$$\n\nAltså betyr $2^{-2} = \\frac{1}{2^2} = \\frac{1}{4}$. Generelt:\n\n$$a^{-n} = \\frac{1}{a^n}$$\n\nEn negativ eksponent betyr altså «snu brøken» eller «ta den omvendte verdien». Noen eksempler:\n- $5^{-1} = \\frac{1}{5}$\n- $3^{-3} = \\frac{1}{3^3} = \\frac{1}{27}$\n- $10^{-4} = \\frac{1}{10^4} = \\frac{1}{10\\,000} = 0{,}0001$\n\nFor brøker «snur» den negative eksponenten alt:\n\n$$\\left(\\frac{a}{b}\\right)^{-n} = \\left(\\frac{b}{a}\\right)^n$$\n\nFor eksempel: $\\left(\\frac{2}{3}\\right)^{-2} = \\left(\\frac{3}{2}\\right)^2 = \\frac{9}{4}$.\n\nNegative eksponenter er spesielt nyttige når vi skriver svært små tall, som vi skal se når vi kommer til standardform."
+    },
+    {
+      "id": "9-1-1-n-section4",
+      "type": "text",
+      "content": "## Røtter -- potensenes motsetning\n\nÅ ta en rot er det omvendte av å opphøye. Hvis $3^2 = 9$, er $\\sqrt{9} = 3$. Generelt:\n\n$$\\text{Hvis } a^n = b, \\text{ da er } \\sqrt[n]{b} = a$$\n\n**Kvadratroten** ($\\sqrt{\\phantom{x}}$, altså $n = 2$) er den vanligste. Den spør: «Hvilket tall ganget med seg selv gir dette?»\n- $\\sqrt{25} = 5$ fordi $5^2 = 25$\n- $\\sqrt{100} = 10$ fordi $10^2 = 100$\n- $\\sqrt{2} = 1{,}4142\\ldots$ (dette er et irrasjonalt tall!)\n\n**Kubikkroten** ($\\sqrt[3]{\\phantom{x}}$, $n = 3$) spør: «Hvilket tall ganget med seg selv tre ganger gir dette?»\n- $\\sqrt[3]{8} = 2$ fordi $2^3 = 8$\n- $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$\n- $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$ (kubikkrøtter av negative tall gir mening!)\n\nDet finnes en elegant sammenheng mellom røtter og potenser:\n\n$$\\sqrt[n]{a} = a^{1/n}$$\n\nAltså er $\\sqrt{9} = 9^{1/2}$ og $\\sqrt[3]{8} = 8^{1/3}$. Mer generelt:\n\n$$\\sqrt[n]{a^m} = a^{m/n}$$\n\nDenne sammenhengen betyr at alle potensreglene vi allerede har lært, gjelder for røtter også! For eksempel: $\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (ab)^{1/2} = \\sqrt{ab}$.\n\nHer er noen nyttige regneregler for kvadratrøtter:\n- $\\sqrt{a \\cdot b} = \\sqrt{a} \\cdot \\sqrt{b}$, for eksempel $\\sqrt{50} = \\sqrt{25 \\cdot 2} = 5\\sqrt{2}$\n- $\\sqrt{\\frac{a}{b}} = \\frac{\\sqrt{a}}{\\sqrt{b}}$, for eksempel $\\sqrt{\\frac{9}{16}} = \\frac{3}{4}$\n- Men pass på: $\\sqrt{a + b} \\neq \\sqrt{a} + \\sqrt{b}$ ! (En vanlig feil!)"
+    },
+    {
+      "id": "9-1-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-1-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på røtter og negative eksponenter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-1-1-n-quiz3-q0",
+            "task": "Hva er $4^{-2}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{16}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-16$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{8}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4^{-2} = \\frac{1}{4^2} = \\frac{1}{16}$. En negativ eksponent betyr «ta den omvendte verdien»."
+          },
+          {
+            "id": "9-1-1-n-quiz3-q1",
+            "task": "Forenkle $\\sqrt{72}$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$8\\sqrt{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$6\\sqrt{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$36\\sqrt{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3\\sqrt{8}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{72} = \\sqrt{36 \\cdot 2} = \\sqrt{36} \\cdot \\sqrt{2} = 6\\sqrt{2}$. Vi finner det største perfekte kvadrattallet som er en faktor."
+          },
+          {
+            "id": "9-1-1-n-quiz3-q2",
+            "task": "Hva er $\\sqrt[3]{-27}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Udefinert (kan ikke ta rot av negativt tall)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$-9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt[3]{-27} = -3$ fordi $(-3)^3 = (-3) \\times (-3) \\times (-3) = -27$. Kubikkrøtter av negative tall er definert."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-1-1-n-section5",
+      "type": "text",
+      "content": "## Potenser i praksis\n\nPotenser og røtter dukker opp overalt i den virkelige verden:\n\n**Eksponentiell vekst:** Tenk deg en bakteriekultur der antallet dobles hver time. Etter $t$ timer er antallet $N = N_0 \\cdot 2^t$, der $N_0$ er startantallet. Starter du med $100$ bakterier, har du etter $10$ timer $100 \\cdot 2^{10} = 100 \\cdot 1024 = 102\\,400$ bakterier!\n\n**Areal og volum:** Arealet av et kvadrat med side $s$ er $s^2$ (derav navnet «kvadrat»). Volumet av en kube med side $s$ er $s^3$ (derav «kube»). Hvis du kjenner arealet og vil finne siden, tar du kvadratroten: $s = \\sqrt{A}$.\n\n**Papirfolding:** Hvert brett dobler antall lag. Etter $n$ brett har du $2^n$ lag. Med et vanlig papir på $0{,}1$ mm tykkelse gir $42$ brett en tykkelse på $0{,}1 \\cdot 2^{42}$ mm $\\approx 440\\,000$ km -- mer enn avstanden til månen!\n\n**Pythagorassetningen:** I en rettvinklet trekant gjelder $a^2 + b^2 = c^2$, der $c$ er hypotenusen. For å finne $c$ tar du kvadratroten: $c = \\sqrt{a^2 + b^2}$."
+    },
+    {
+      "id": "9-1-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-1-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på praktisk bruk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-1-1-n-quiz4-q0",
+            "task": "Et kvadratisk rom har areal $81$ m$^2$. Hvor lang er hver side?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9{,}5$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$40{,}5$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8{,}1$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$9$ m",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sidelengden er $\\sqrt{81} = 9$ m, fordi $9^2 = 81$."
+          },
+          {
+            "id": "9-1-1-n-quiz4-q1",
+            "task": "En bakteriekultur dobles hver time. Du starter med $500$ bakterier. Hvor mange har du etter $8$ timer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$128\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$256\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$64\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$500 \\times 2^8 = 500 \\times 256 = 128\\,000$. Husk at $2^8 = 256$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-1-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Potenser** er en forkortelse for gjentatt multiplikasjon: $a^n$ betyr $a$ ganget med seg selv $n$ ganger.\n\n**Potensreglene:**\n| Regel | Formel |\n|-------|--------|\n| Multiplikasjon | $a^m \\times a^n = a^{m+n}$ |\n| Divisjon | $a^m \\div a^n = a^{m-n}$ |\n| Potens av potens | $(a^m)^n = a^{m \\cdot n}$ |\n| Potens av produkt | $(ab)^n = a^n b^n$ |\n| Negativ eksponent | $a^{-n} = \\frac{1}{a^n}$ |\n| Null som eksponent | $a^0 = 1$ (for $a \\neq 0$) |\n\n**Røtter** er det omvendte av potenser: $\\sqrt[n]{a} = a^{1/n}$. Kvadratroten $\\sqrt{a}$ svarer på «hva ganget med seg selv gir $a$?». Regneregler for røtter følger direkte fra potensreglene."
+    }
+  ],
+  "exercises": []
+}

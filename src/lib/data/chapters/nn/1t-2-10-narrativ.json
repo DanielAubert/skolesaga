@@ -1,1 +1,934 @@
-{"id":"1t-2-10-narrativ","courseId":"1t","chapterNumber":"2.10","title":"Polynomsdivisjon og likningsløysing","subtitle":"Narrativ versjon","description":"Ei fortelling om korleis du bruker polynomsdivisjon og faktorteoremet til å knekke polynomlikningar av tredje og fjerde grad.","estimatedMinutes":35,"competenceGoals":["bruke polynomsdivisjon til å løyse likningar"],"linkedChapterId":"1t-2-10","content":[{"id":"1t-2-10-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-10-narrativ-del1.mp3","description":"Lydfil som les opp teksten fram til første quiz."},{"id":"1t-2-10-n-intro","type":"text","content":"## Å knekke polynomer i bitar\n\nTenk deg at du har ei tredjegradslikning som $x^3 - 6x^2 + 11x - 6 = 0$. Du kan ikkje bruke abc-formelen, for ho gjeld berre andregradslikningar. Kva gjer du då?\n\nSvaret er ei elegant strategi i tre steg. Først finn du eitt nullpunkt ved å prøve deg fram. Deretter bruker du polynomsdivisjon til å dele polynomet på faktoren du fann, slik at du sit igjen med eit enklare polynom. Til slutt løyser du det enklare polynomet med metodane du allereie kan.\n\nDenna teknikken byggjer på **faktorteoremet**: viss $P(a) = 0$, altså at $a$ er eit nullpunkt, så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$ av lågare grad. Og $Q(x)$ finn du ved polynomsdivisjon."},{"id":"1t-2-10-n-section1","type":"text","content":"## Tredjegradslikningar -- steg for steg\n\nLet oss ta likningen $x^3 - 6x^2 + 11x - 6 = 0$ og jobbe oss gjennom ho systematisk. Først treng vi eit nullpunkt. Eit smart triks er å prøve **divisorane av konstantleddet**. Konstantleddet her er $-6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $P(1) = 1 - 6 + 11 - 6 = 0$. Bingo!\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomsdivisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. No har vi redusert problemet til ei andregradslikning: $x^2 - 5x + 6 = 0$. Denne faktoriserer vi: $(x - 2)(x - 3) = 0$.\n\nDen fullstendige faktoriseringa er altså $x^3 - 6x^2 + 11x - 6 = (x - 1)(x - 2)(x - 3) = 0$, og løysingane er $x = 1$, $x = 2$ og $x = 3$. Legg merke til det vake: ei tredjegradslikning kan ha opptil tre løysingar.\n\nLet oss prøve eit til: $x^3 - 4x^2 + x + 6 = 0$. Konstantleddet er 6. Vi prøver $x = -1$: $P(-1) = -1 - 4 - 1 + 6 = 0$. Det fungerer! Polynomsdivisjon gir $(x^3 - 4x^2 + x + 6) : (x + 1) = x^2 - 5x + 6 = (x - 2)(x - 3)$. Løysingane er $x = -1$, $x = 2$ og $x = 3$.\n\nMønsteret er alltid det same: finn eitt nullpunkt, divider, og løys resten. Nokre gonger er andregradslikningen du endar opp med enkel å faktorisere, andre gonger treng du abc-formelen."},{"id":"1t-2-10-n-quiz1","type":"exercise","exercise":{"id":"1t-2-10-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på tredjegradslikningar og faktorteoremet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-10-n-quiz1-q0","task":"Du skal løyse $x^3 + 6x^2 + 11x + 6 = 0$ og prøver $x = -1$. Kva finn du?","options":[{"id":"a","text":"$P(-1) = 2$, altså er $-1$ ikkje eit nullpunkt","isCorrect":false},{"id":"b","text":"$P(-1) = 0$, altså er $(x + 1)$ ein faktor","isCorrect":true},{"id":"c","text":"$P(-1) = -6$, altså er $-1$ ikkje eit nullpunkt","isCorrect":false},{"id":"d","text":"$P(-1) = 0$, altså er $(x - 1)$ ein faktor","isCorrect":false}],"solution":"Vi reknar ut: $P(-1) = (-1)^3 + 6(-1)^2 + 11(-1) + 6 = -1 + 6 - 11 + 6 = 0$. Sidan $P(-1) = 0$, er $(x - (-1)) = (x + 1)$ ein faktor."},{"id":"1t-2-10-n-quiz1-q1","task":"Kva seier faktorteoremet?","options":[{"id":"a","text":"Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$","isCorrect":false},{"id":"b","text":"Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$","isCorrect":true},{"id":"c","text":"Viss $P(a) = 1$, så er $(x - a)$ ein faktor i $P(x)$","isCorrect":false},{"id":"d","text":"Alle polynomer har minst ein faktor","isCorrect":false}],"solution":"Faktorteoremet seier at viss $a$ er eit nullpunkt for $P(x)$ (dvs. $P(a) = 0$), så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$."},{"id":"1t-2-10-n-quiz1-q2","task":"For $x^3 - 6x^2 + 11x - 6 = 0$: konstantleddet er $-6$. Kva er det første du prøver?","options":[{"id":"a","text":"Å bruke abc-formelen","isCorrect":false},{"id":"b","text":"Å teikne grafen","isCorrect":false},{"id":"c","text":"Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$","isCorrect":true},{"id":"d","text":"Å prøve $x = 0$","isCorrect":false}],"solution":"For å finne eit nullpunkt i ei tredjegradslikning prøver vi divisorane av konstantleddet. For $-6$ er desse $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $1 - 6 + 11 - 6 = 0$. Bingo!"},{"id":"1t-2-10-n-quiz1-q3","task":"Etter polynomsdivisjon finn du $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. Kva er alle løysingane?","options":[{"id":"a","text":"$x = 1$ og $x = 6$","isCorrect":false},{"id":"b","text":"$x = 1, x = 2, x = 3$","isCorrect":true},{"id":"c","text":"$x = 1, x = -2, x = -3$","isCorrect":false},{"id":"d","text":"$x = 1$ og $x = 5$","isCorrect":false}],"solution":"Vi har $x = 1$ frå divisjonen. Kvotienten $x^2 - 5x + 6 = (x - 2)(x - 3) = 0$ gir $x = 2$ og $x = 3$. Dei tre løysingane er $x = 1, 2, 3$."},{"id":"1t-2-10-n-quiz1-q4","task":"Kor mange løysingar kan ei tredjegradslikning ha som mest?","options":[{"id":"a","text":"To","isCorrect":false},{"id":"b","text":"Ein","isCorrect":false},{"id":"c","text":"Fire","isCorrect":false},{"id":"d","text":"Tre","isCorrect":true}],"solution":"Ei tredjegradslikning $ax^3 + bx^2 + cx + d = 0$ kan ha opptil tre reelle løysingar. Ho har alltid minst ei reell løysing (grafen må krysse $x$-aksen minst ein gong)."}]}},{"id":"1t-2-10-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-10-narrativ-del2.mp3","description":"Lydfil som les upp teksten fram til neste sjalv-test."},{"id":"1t-2-10-n-section2","type":"text","content":"## Kva skjer når kvotienten ikkje let seg faktorisere pent?\n\nIkke alle tredjegradslikningar har tre pene heiltalsløysingar. Nokre gonger faktoriserer du vekk eitt nullpunkt og sit igjen med ei andregradslikning som har irrasjonale løysingar (med kvadratrøter) eller til og med ingen reelle løysingar.\n\nTa til dømes $x^3 - 8 = 0$. Her ser vi raskt at $x = 2$ er eit nullpunkt, fordi $2^3 = 8$. Vi deler: $(x^3 - 8) : (x - 2) = x^2 + 2x + 4$. No prøver vi å løyse $x^2 + 2x + 4 = 0$. Diskriminanten er $\\Delta = 4 - 16 = -12$. Ho er negativ! Det betyr at denne andregradslikningen ikkje har nokre reelle løysingar. Altså er $x = 2$ den einaste reelle løysinga av $x^3 - 8 = 0$.\n\nSjølv om det kan kjennast skuffande å \"berre\" finne ei løysing, gir det faktisk god meining. Grafen til $y = x^3 - 8$ kryssar $x$-aksen berre eitt stade. Dei to andre løysingane eksisterer i det komplekse tallplanet, men det er stoff for seinare kurs.\n\nEit anna døme der du kan forenkle utan polynomdivisjon er $x^3 - 27 = 0$. Her er løysinga rett og slett $x = \\sqrt[3]{27} = 3$. Og for $x^3 + 8 = 0$ får vi $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige, i motsetning til kvadratrøter.\n\nDenne typen likningar der polynomet har forma $x^3 - a = 0$ blir kalla **kubiske likningar**, og dei har alltid nøyaktig ein reell løysing: $x = \\sqrt[3]{a}$."},{"id":"1t-2-10-n-quiz2","type":"exercise","exercise":{"id":"1t-2-10-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kubiske likningar og diskriminant:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-10-n-quiz2-q0","task":"Kor mange reelle løysingar har $x^3 - 27 = 0$?","options":[{"id":"a","text":"Ingen","isCorrect":false},{"id":"b","text":"To","isCorrect":false},{"id":"c","text":"Tre","isCorrect":false},{"id":"d","text":"Ein","isCorrect":true}],"solution":"$x^3 = 27$ gir $x = \\sqrt[3]{27} = 3$. Polynomdivisjon gir $(x^3 - 27) : (x - 3) = x^2 + 3x + 9$. Diskriminanten er $9 - 36 = -27 < 0$, så andregradslikningen har ingen reelle løysingar. Dermed er $x = 3$ den einaste reelle løysinga."},{"id":"1t-2-10-n-quiz2-q1","task":"Kva er løysinga av $x^3 + 8 = 0$?","options":[{"id":"a","text":"$x = 2$","isCorrect":false},{"id":"b","text":"$x = -2$","isCorrect":true},{"id":"c","text":"$x = -8$","isCorrect":false},{"id":"d","text":"Ingen reell løysing","isCorrect":false}],"solution":"Vi har $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige: $(-2)^3 = -8$."},{"id":"1t-2-10-n-quiz2-q2","task":"Du deler $(x^3 - 8)$ på $(x - 2)$ og får $x^2 + 2x + 4$. Diskriminanten til andregradslikningen er $-12$. Kva betyr det?","options":[{"id":"a","text":"At vi har gjort ein feil i polynomdivisjonen","isCorrect":false},{"id":"b","text":"At $x = 2$ er den einaste reelle løysinga","isCorrect":true},{"id":"c","text":"At likningen har tre reelle løysingar","isCorrect":false},{"id":"d","text":"At vi må prøve andre divisorar","isCorrect":false}],"solution":"Negativ diskriminant betyr at andregradslikningen $x^2 + 2x + 4 = 0$ ikkje har reelle løysingar. Dei to \"manglande\" løysingane eksisterer i det komplekse tallplanet, men $x = 2$ er den einaste reelle løysinga."},{"id":"1t-2-10-n-quiz2-q3","task":"Kva er $\\sqrt[3]{-64}$?","options":[{"id":"a","text":"Ikkje definert","isCorrect":false},{"id":"b","text":"$-4$","isCorrect":true},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$-8$","isCorrect":false}],"solution":"$\\sqrt[3]{-64} = -4$ fordi $(-4)^3 = (-4) \\cdot (-4) \\cdot (-4) = -64$. I motsetning til kvadratrøter kan kubikkrøter av negative tal reknast ut."}]}},{"id":"1t-2-10-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-10-narrativ-del3.mp3","description":"Lydfil som les upp teksten fram til neste sjalv-test."},{"id":"1t-2-10-n-section3","type":"text","content":"## Fjerdegradslikningar -- når du må dele to gonger\n\nKva gjer du med ei fjerdegradslikning som $x^4 - 5x^2 + 4 = 0$? Her finst det to elegante tilnærmingar.\n\nDen første er **substitusjon**. Legg merke til at likningen berre inneheld $x^4$ og $x^2$, ingen $x^3$ eller $x$. Viss vi set $u = x^2$, blir likningen $u^2 - 5u + 4 = 0$. Dette er ei vanleg andregradslikning! Vi faktoriserer: $(u - 1)(u - 4) = 0$, som gir $u = 1$ eller $u = 4$. No går vi tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar!\n\nDen andre tilnærminga er **direkte faktorisering**: $x^4 - 5x^2 + 4 = (x^2 - 1)(x^2 - 4) = (x - 1)(x + 1)(x - 2)(x + 2)$. Same resultat, men kanskje enno raskare.\n\nSolke likningar der berre partalspotensar av $x$ opptreder blir kalla **bikubiske** (eller **bikvadratiске**) likningar, og substitusjon er standardmetoden.\n\nMen ikkje alle fjerdegradslikningar er bikubiske. For ei generell fjerdegradslikning som $x^4 + x^3 - 4x^2 - 4x = 0$ kan du nokre gonger starta med å setje felles faktor utanfor. Her: $x(x^3 + x^2 - 4x - 4) = 0$. Ein løysing er umiddelbart $x = 0$. For den kubiske delen prøver du $x = -1$: $(-1)^3 + (-1)^2 - 4(-1) - 4 = -1 + 1 + 4 - 4 = 0$. Det fungerer! Polynomdivisjon gir $x^2 - 4 = (x - 2)(x + 2)$. Dei fire løysingane er altså $x = 0$, $x = -1$, $x = 2$ og $x = -2$.\n\nHovudpoenget er at fjerdegradslikningar krev meir arbeid, men strategien er den same: del problemet opp i mindre bitar, steg for steg."},{"id":"1t-2-10-n-quiz3","type":"exercise","exercise":{"id":"1t-2-10-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på fjerdegradslikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-10-n-quiz3-q0","task":"Kva er det smartaste første steget for å løyse $x^4 - 10x^2 + 9 = 0$?","options":[{"id":"a","text":"Prøve $x = 1$ som nullpunkt og bruke polynomdivisjon","isCorrect":false},{"id":"b","text":"Setje $u = x^2$ og løyse $u^2 - 10u + 9 = 0$","isCorrect":true},{"id":"c","text":"Bruke abc-formelen direkte","isCorrect":false},{"id":"d","text":"Setje felles faktor utanfor","isCorrect":false}],"solution":"Likningen inneheld berre $x^4$ og $x^2$ (ingen $x^3$ eller $x$), så substitusjon $u = x^2$ er den smartaste tilnærminga. Då blir det $u^2 - 10u + 9 = (u - 1)(u - 9) = 0$, som gir $u = 1$ eller $u = 9$, altså $x = \\pm 1$ eller $x = \\pm 3$."},{"id":"1t-2-10-n-quiz3-q1","task":"Kva kenneteknar ei biquadratisk (bikubisk) likning?","options":[{"id":"a","text":"Ho har berre oddetalspotensar av $x$","isCorrect":false},{"id":"b","text":"Ho har fire ledd","isCorrect":false},{"id":"c","text":"Ho inneheld berre partallspotenser av $x$ (og konstantledd)","isCorrect":true},{"id":"d","text":"Ho har alltid fire løysingar","isCorrect":false}],"solution":"Ein biquadratisk likning inneheld berre partallspotenser: $x^4$, $x^2$ og konstantledd. Ingen $x^3$- eller $x$-ledd. Dette gjer at substitusjon $u = x^2$ fungerer perfekt."},{"id":"1t-2-10-n-quiz3-q2","task":"Løys $x^4 - 5x^2 + 4 = 0$. Kor mange løysingar finnast?","options":[{"id":"a","text":"To: $x = 1$ og $x = 2$","isCorrect":false},{"id":"b","text":"Fire: $x = \\pm 1$ og $x = \\pm 2$","isCorrect":true},{"id":"c","text":"Tre: $x = -1, 1, 2$","isCorrect":false},{"id":"d","text":"Ein: $x = 1$","isCorrect":false}],"solution":"Med $u = x^2$: $u^2 - 5u + 4 = (u-1)(u-4) = 0$, altso $u = 1$ eller $u = 4$. Tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar totalt."},{"id":"1t-2-10-n-quiz3-q3","task":"For $x^4 + x^3 - 4x^2 - 4x = 0$: kva er det luraste første steget?","options":[{"id":"a","text":"Bruka substitusjon $u = x^2$","isCorrect":false},{"id":"b","text":"Setja felles faktor $x$ utanfor","isCorrect":true},{"id":"c","text":"Bruka abc-formelen","isCorrect":false},{"id":"d","text":"Prøva $x = 4$ som nullpunkt","isCorrect":false}],"solution":"Alle ledda inneheld $x$, så vi set $x$ utanfor: $x(x^3 + x^2 - 4x - 4) = 0$. Det gir umiddelbar $x = 0$ som ei løysing, og vi har redusert til ei tredjegradslikning."},{"id":"1t-2-10-n-quiz3-q4","task":"Kor mange reelle løysingar kan ein fjerdegradslikning ha som mest?","options":[{"id":"a","text":"Tre","isCorrect":false},{"id":"b","text":"To","isCorrect":false},{"id":"c","text":"Fire","isCorrect":true},{"id":"d","text":"Fem","isCorrect":false}],"solution":"Ein fjerdegradslikning kan ha 0, 1, 2, 3 eller 4 reelle løysingar. Maksimalt fire, fordi graden til polynomet er 4."}]}},{"id":"1t-2-10-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-10-narrativ-del4.mp3","description":"Lydfil som les upp teksten fram til neste sjalv-test."},{"id":"1t-2-10-n-section4","type":"text","content":"## Å velja riktig strategi\n\nVi har no sett fleire metodar for å løysa polynomlikningar, og det er verdt å stoppa opp og tenka over når du bruker kva.\n\nFor **andregradslikningar** ($ax^2 + bx + c = 0$) har du tre verktøy: faktorisering, fullstendig kvadrat og abc-formelen. Vel den som passar best for den konkrete oppgåva.\n\nFor **tredjegradslikningar** er strategien alltid den same: finn eitt nullpunkt ved å prøva divisorar av konstantleddet, bruk polynomdivisjon for å redusera til ein andregradslikning, og løys den med ein av dei tre metodane over.\n\nFor **fjerdegradslikningar** har du to hovudval. Hvis likningen er biquadratisk (berre partallspotenser), bruk substitusjon $u = x^2$. Elles, sjå om du kan setja felles faktor utanfor, eller finn eit nullpunkt og bruk polynomdivisjon gjentekne gonger.\n\nEin ting til om å finna nullpunkt ved prøving: det er ikkje tilfeldig gjetting. Start alltid med divisorane av konstantleddet. Ifølgje den rasjonale-rot-teoremet, hvis polynomet har heiltalkoeffisientar, er alle rasjonale nullpunkt av forma $\\frac{p}{q}$ der $p$ er ein divisor av konstantleddet og $q$ er ein divisor av ledande koeffisient. For dei fleste oppgåvene du møter i 1T, er den ledande koeffisienten 1, så du prøver berre divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3$ osv.\n\nEit tips til slutt: doble nullpunkt finnast og. I likningen $x^4 - 4x^3 + 4x^2 = 0$ kan du setja $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Her er $x = 0$ eit dobbelt nullpunkt og $x = 2$ eit dobbelt nullpunkt."},{"id":"1t-2-10-n-quiz4","type":"exercise","exercise":{"id":"1t-2-10-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på å velja riktig strategi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-10-n-quiz4-q0","task":"Likningen $x^3 - 2x^2 - 5x + 6 = 0$ har konstantledd 6. Kva verdiar bør du prøva først?","options":[{"id":"a","text":"$x = 0, 1, 2, 3$","isCorrect":false},{"id":"b","text":"$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$","isCorrect":true},{"id":"c","text":"$x = 1, 2, 3, 4, 5, 6$","isCorrect":false},{"id":"d","text":"$x = -6, -5, -4, -3, -2, -1$","isCorrect":false}],"solution":"Vi prøver divisorane av konstantleddet, inkludert negative verdiar: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Prøving viser at $P(1) = 1 - 2 - 5 + 6 = 0$, så $x = 1$ er eit nullpunkt."},{"id":"1t-2-10-n-quiz4-q1","task":"Kva metode bruker du for $3x^2 - 7x + 2 = 0$?","options":[{"id":"a","text":"Polynomdivisjon","isCorrect":false},{"id":"b","text":"Substitusjon $u = x^2$","isCorrect":false},{"id":"c","text":"Faktorisering eller abc-formelen","isCorrect":true},{"id":"d","text":"Prøva divisorar av konstantleddet","isCorrect":false}],"solution":"Dette er ein andregradslikning, så du bruker faktorisering, fullstendig kvadrat eller abc-formelen. Polynomdivisjon trengst berre for tredje- og fjerdegradslikningar."},{"id":"1t-2-10-n-quiz4-q2","task":"Kva er doble nullpunkt?","options":[{"id":"a","text":"Nullpunkt som er negative","isCorrect":false},{"id":"b","text":"Nullpunkt som opptreder som faktor to gonger, til dømes $(x - 2)^2$","isCorrect":true},{"id":"c","text":"To ulike nullpunkt","isCorrect":false},{"id":"d","text":"Nullpunkt som er dobbelt så store","isCorrect":false}],"solution":"Eit dobbelt nullpunkt betyr at faktoren opptreder to gonger. Til dømes i $x^2(x-2)^2 = 0$ er både $x = 0$ og $x = 2$ doble nullpunkt. Grafen «berører» $x$-aksen utan å krysse henne."},{"id":"1t-2-10-n-quiz4-q3","task":"For $x^4 - 4x^3 + 4x^2 = 0$: kva er løysingane?","options":[{"id":"a","text":"$x = 0$ og $x = 4$","isCorrect":false},{"id":"b","text":"$x = 0, x = 1, x = 2, x = 4$","isCorrect":false},{"id":"c","text":"$x = 0$ (dobbelt) og $x = 2$ (dobbelt)","isCorrect":true},{"id":"d","text":"$x = 2$ (enkelt)","isCorrect":false}],"solution":"Vi set $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Det gir $x = 0$ (dobbelt nullpunkt frå $x^2$) og $x = 2$ (dobbelt nullpunkt frå $(x-2)^2$)."}]}},{"id":"1t-2-10-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-10-narrativ-del5.mp3","description":"Lydfil som les upp teksten fram til neste sjalv-test."},{"id":"1t-2-10-n-section5","type":"text","content":"## Eit komplett døme frå start til slutt\n\nLat oss avslutta med å arbeida gjennom eit meir samanfatta døme for å sjå heile prosessen i aksjon. Vi skal løysa $2x^3 - 3x^2 - 11x + 6 = 0$.\n\nKonstantleddet er 6 og den ledande koeffisienten er 2. Moglege rasjonale nullpunkt er av forma $\\frac{p}{q}$ der $p$ deler 6 og $q$ deler 2. Det gir kandidatane $\\pm 1, \\pm 2, \\pm 3, \\pm 6, \\pm \\frac{1}{2}, \\pm \\frac{3}{2}$.\n\nVi prøver $x = 3$: $P(3) = 2 \\cdot 27 - 3 \\cdot 9 - 11 \\cdot 3 + 6 = 54 - 27 - 33 + 6 = 0$. Fantastisk!\n\nPolynomdivisjon: $(2x^3 - 3x^2 - 11x + 6) : (x - 3) = 2x^2 + 3x - 2$. No løyser vi $2x^2 + 3x - 2 = 0$. Vi kan faktorisera: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$.\n\nDe tre løysingane er altso $x = 3$, $x = \\frac{1}{2}$ og $x = -2$. Legg merke til at $\\frac{1}{2}$ er ein brøk -- det skjer når den ledande koeffisienten ikkje er 1.\n\nVi kan kontrollera ved å setja inn: $P\\left(\\frac{1}{2}\\right) = 2 \\cdot \\frac{1}{8} - 3 \\cdot \\frac{1}{4} - 11 \\cdot \\frac{1}{2} + 6 = \\frac{1}{4} - \\frac{3}{4} - \\frac{11}{2} + 6 = \\frac{1 - 3}{4} + \\frac{-11 + 12}{2} = -\\frac{1}{2} + \\frac{1}{2} = 0$. Stemmer!\n\nHeile prosessen kan oppsumerast i fire ord: prøv, del, løys, kontroller."},{"id":"1t-2-10-n-quiz5","type":"exercise","exercise":{"id":"1t-2-10-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på eit komplett døme:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-10-n-quiz5-q0","task":"Du har utført polynomdivisjon og fått $(x^3 + 2x^2 - x - 2) : (x - 1) = x^2 + 3x + 2$. Kva er dei tre løysingane av $x^3 + 2x^2 - x - 2 = 0$?","options":[{"id":"a","text":"$x = 1, x = 2, x = 3$","isCorrect":false},{"id":"b","text":"$x = 1, x = -1, x = 2$","isCorrect":false},{"id":"c","text":"$x = 1, x = -1, x = -2$","isCorrect":true},{"id":"d","text":"$x = -1, x = -2, x = -3$","isCorrect":false}],"solution":"Vi har allereie $x = 1$ frå divisjonen. Kvotienten $x^2 + 3x + 2 = (x + 1)(x + 2) = 0$ gir $x = -1$ og $x = -2$. Dei tre løysingane er $x = 1$, $x = -1$ og $x = -2$."},{"id":"1t-2-10-n-quiz5-q1","task":"For $2x^3 - 3x^2 - 11x + 6 = 0$: ledande koeffisient er 2 og konstantledd er 6. Kva brøkverdiar bør du og prøva i tillegg til heiltal?","options":[{"id":"a","text":"$\\pm \\frac{1}{3}$ og $\\pm \\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\pm \\frac{1}{2}$ og $\\pm \\frac{3}{2}$","isCorrect":true},{"id":"c","text":"Ingen brøkar trengs","isCorrect":false},{"id":"d","text":"$\\pm \\frac{2}{3}$ og $\\pm \\frac{2}{6}$","isCorrect":false}],"solution":"Den rasjonale-rot-teoremet seier at moglege rasjonale nullpunkt er $\\frac{p}{q}$ der $p$ deler konstantleddet (6) og $q$ deler ledande koeffisient (2). Brøkverdiane er $\\pm \\frac{1}{2}, \\pm \\frac{3}{2}$ (i tillegg til heiltala $\\pm 1, \\pm 2, \\pm 3, \\pm 6$)."},{"id":"1t-2-10-n-quiz5-q2","task":"For $2x^3 - 3x^2 - 11x + 6 = 0$ finn du at $x = 3$ er nullpunkt. Polynomdivisjon gir $2x^2 + 3x - 2$. Kva er dei andre løysingane?","options":[{"id":"a","text":"$x = 1$ og $x = -1$","isCorrect":false},{"id":"b","text":"$x = \\frac{1}{2}$ og $x = -2$","isCorrect":true},{"id":"c","text":"$x = 2$ og $x = -\\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$x = -1$ og $x = \\frac{3}{2}$","isCorrect":false}],"solution":"Vi løyser $2x^2 + 3x - 2 = 0$. Faktorisering: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$. Dei tre løysingane er $x = 3$, $x = \\frac{1}{2}$ og $x = -2$."},{"id":"1t-2-10-n-quiz5-q3","task":"Kva er dei fire stega for å løysa ei polynomlikning av høgare grad?","options":[{"id":"a","text":"Tegn, les av, avrund, skriv svar","isCorrect":false},{"id":"b","text":"Prøv, del, løys, kontroller","isCorrect":true},{"id":"c","text":"Flytt, forenkle, rekn ut, kontroller","isCorrect":false},{"id":"d","text":"Faktoriser, set inn, forenkle, les av","isCorrect":false}],"solution":"Dei fire stega er: (1) Prøv divisorar av konstantleddet for å finna eit nullpunkt. (2) Del polynomet med polynomdivisjon. (3) Løys den gjenverande likninga. (4) Kontroller alle løysingane ved innsetting."}]}},{"id":"1t-2-10-n-audio-6","type":"audio","title":"Lytt til oppsummeringa","src":"/audio/1t/1t-2-10-narrativ-del6.mp3","description":"Lydfil som les opp samanfattinga."},{"id":"1t-2-10-n-summary","type":"text","content":"## Samanfatting\n\nI dette kapitlet har vi lært ein systematisk metode for å løyse polynomlikningar av høgare grad enn andre. Nøkkelen er **faktorteoremet**: dersom $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nFor **tredjegradslikningar** prøver du divisorar av konstantleddet for å finne eit nullpunkt. Deretter utfører du polynomdivisjon for å redusere polynomet til ein andregradslikning, som du løyser med faktorisering, fullstendig kvadrat eller abc-formelen.\n\nFor **fjerdegradslikningar** har du to hovudstrategiar. Er likningen biquadratisk (berre partalspotensiar av $x$), bruker du substitusjon $u = x^2$ for å redusere til ein andregradslikning. Elles settast felles faktor utanfor, eller du finn nullpunkt og bruker polynomdivisjon gjentatte gonger til du kjem ned til andregradslikningar.\n\nSpesialtilfella $x^3 = a$ og $x^4 = a$ løysast direkte med $x = \\sqrt[3]{a}$ og $x = \\pm \\sqrt[4]{a}$. Hugs at ein tredjegradsligning har oppatt tre reelle løysingar, medan ein fjerdegradsligning kan ha oppatt fire. Nokre av desse kan vere doble nullpunkt. Og nokre gonger gir andregradslikningen du endar opp med negativ diskriminant, noko som betyr at det ikkje finst fleire reelle løysingar."}],"exercises":[],"_meta":{"sourceHash":"69ecf3b47398eea3","translatedAt":"2026-06-16T10:02:07.750Z","model":"claude-haiku-4-5-20251001","strings":162,"tm":{"599036daff4f0d71":"Polynomsdivisjon og likningsløysing","b195b06d1ed59702":"Narrativ versjon","1ffd54d211fb7940":"Ei fortelling om korleis du bruker polynomsdivisjon og faktorteoremet til å knekke polynomlikningar av tredje og fjerde grad.","b4d2a6e913187867":"bruke polynomsdivisjon til å løyse likningar","d2c9d9ef5d3f774f":"Lytt til denne delen","21954805f17795e8":"Lydfil som les opp teksten fram til første quiz.","b098b8c9303ed758":"## Å knekke polynomer i bitar\n\nTenk deg at du har ei tredjegradslikning som $x^3 - 6x^2 + 11x - 6 = 0$. Du kan ikkje bruke abc-formelen, for ho gjeld berre andregradslikningar. Kva gjer du då?\n\nSvaret er ei elegant strategi i tre steg. Først finn du eitt nullpunkt ved å prøve deg fram. Deretter bruker du polynomsdivisjon til å dele polynomet på faktoren du fann, slik at du sit igjen med eit enklare polynom. Til slutt løyser du det enklare polynomet med metodane du allereie kan.\n\nDenna teknikken byggjer på **faktorteoremet**: viss $P(a) = 0$, altså at $a$ er eit nullpunkt, så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$ av lågare grad. Og $Q(x)$ finn du ved polynomsdivisjon.","d88d0b71311db280":"## Tredjegradslikningar -- steg for steg\n\nLet oss ta likningen $x^3 - 6x^2 + 11x - 6 = 0$ og jobbe oss gjennom ho systematisk. Først treng vi eit nullpunkt. Eit smart triks er å prøve **divisorane av konstantleddet**. Konstantleddet her er $-6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $P(1) = 1 - 6 + 11 - 6 = 0$. Bingo!\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomsdivisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. No har vi redusert problemet til ei andregradslikning: $x^2 - 5x + 6 = 0$. Denne faktoriserer vi: $(x - 2)(x - 3) = 0$.\n\nDen fullstendige faktoriseringa er altså $x^3 - 6x^2 + 11x - 6 = (x - 1)(x - 2)(x - 3) = 0$, og løysingane er $x = 1$, $x = 2$ og $x = 3$. Legg merke til det vake: ei tredjegradslikning kan ha opptil tre løysingar.\n\nLet oss prøve eit til: $x^3 - 4x^2 + x + 6 = 0$. Konstantleddet er 6. Vi prøver $x = -1$: $P(-1) = -1 - 4 - 1 + 6 = 0$. Det fungerer! Polynomsdivisjon gir $(x^3 - 4x^2 + x + 6) : (x + 1) = x^2 - 5x + 6 = (x - 2)(x - 3)$. Løysingane er $x = -1$, $x = 2$ og $x = 3$.\n\nMønsteret er alltid det same: finn eitt nullpunkt, divider, og løys resten. Nokre gonger er andregradslikningen du endar opp med enkel å faktorisere, andre gonger treng du abc-formelen.","74d1c0da1bbdd1cd":"Test deg sjølv på tredjegradslikningar og faktorteoremet:","4097889236a2af26":"placeholder","2bd536b946a6ae00":"Du skal løyse $x^3 + 6x^2 + 11x + 6 = 0$ og prøver $x = -1$. Kva finn du?","ee2241bb7ab99d27":"$P(-1) = 2$, altså er $-1$ ikkje eit nullpunkt","18392621ee3a8c01":"$P(-1) = 0$, altså er $(x + 1)$ ein faktor","3e289db17ee48fa7":"$P(-1) = -6$, altså er $-1$ ikkje eit nullpunkt","780aa359cc32e780":"$P(-1) = 0$, altså er $(x - 1)$ ein faktor","d2159cad17bf298a":"Vi reknar ut: $P(-1) = (-1)^3 + 6(-1)^2 + 11(-1) + 6 = -1 + 6 - 11 + 6 = 0$. Sidan $P(-1) = 0$, er $(x - (-1)) = (x + 1)$ ein faktor.","a355708b3d918782":"Kva seier faktorteoremet?","04fd7bdeb602c0c7":"Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$","3498ae659641b183":"Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$","399844ec4010bff9":"Viss $P(a) = 1$, så er $(x - a)$ ein faktor i $P(x)$","9e2a85b51583f458":"Alle polynomer har minst ein faktor","828747c2cb4cb38b":"Faktorteoremet seier at viss $a$ er eit nullpunkt for $P(x)$ (dvs. $P(a) = 0$), så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$.","fd9a7600ea59f6c0":"For $x^3 - 6x^2 + 11x - 6 = 0$: konstantleddet er $-6$. Kva er det første du prøver?","0ad64a811747de34":"Å bruke abc-formelen","5e80b4531fc7f115":"Å teikne grafen","2aa7f5c12f5356e4":"Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$","d6cab78176a15490":"Å prøve $x = 0$","e836640053616d3a":"For å finne eit nullpunkt i ei tredjegradslikning prøver vi divisorane av konstantleddet. For $-6$ er desse $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $1 - 6 + 11 - 6 = 0$. Bingo!","f8febcc5dc308df3":"Etter polynomsdivisjon finn du $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. Kva er alle løysingane?","31710a5283f25413":"$x = 1$ og $x = 6$","75ed5045ead8b93e":"$x = 1, x = 2, x = 3$","5820664b7736d8b0":"$x = 1, x = -2, x = -3$","808add8aeebf5791":"$x = 1$ og $x = 5$","934a977bc88deae2":"Vi har $x = 1$ frå divisjonen. Kvotienten $x^2 - 5x + 6 = (x - 2)(x - 3) = 0$ gir $x = 2$ og $x = 3$. Dei tre løysingane er $x = 1, 2, 3$.","859fc7f1faa16289":"Kor mange løysingar kan ei tredjegradslikning ha som mest?","f4b06ef6d3c81436":"To","fb92c7e381b71ced":"Ein","c141faa80e43a119":"Fire","41ad5fbe0619e72b":"Tre","45b6df4b30c79dec":"Ei tredjegradslikning $ax^3 + bx^2 + cx + d = 0$ kan ha opptil tre reelle løysingar. Ho har alltid minst ei reell løysing (grafen må krysse $x$-aksen minst ein gong).","058005533831b7f6":"Lydfil som les upp teksten fram til neste sjalv-test.","679eb127fa4c130d":"## Kva skjer når kvotienten ikkje let seg faktorisere pent?\n\nIkke alle tredjegradslikningar har tre pene heiltalsløysingar. Nokre gonger faktoriserer du vekk eitt nullpunkt og sit igjen med ei andregradslikning som har irrasjonale løysingar (med kvadratrøter) eller til og med ingen reelle løysingar.\n\nTa til dømes $x^3 - 8 = 0$. Her ser vi raskt at $x = 2$ er eit nullpunkt, fordi $2^3 = 8$. Vi deler: $(x^3 - 8) : (x - 2) = x^2 + 2x + 4$. No prøver vi å løyse $x^2 + 2x + 4 = 0$. Diskriminanten er $\\Delta = 4 - 16 = -12$. Ho er negativ! Det betyr at denne andregradslikningen ikkje har nokre reelle løysingar. Altså er $x = 2$ den einaste reelle løysinga av $x^3 - 8 = 0$.\n\nSjølv om det kan kjennast skuffande å \"berre\" finne ei løysing, gir det faktisk god meining. Grafen til $y = x^3 - 8$ kryssar $x$-aksen berre eitt stade. Dei to andre løysingane eksisterer i det komplekse tallplanet, men det er stoff for seinare kurs.\n\nEit anna døme der du kan forenkle utan polynomdivisjon er $x^3 - 27 = 0$. Her er løysinga rett og slett $x = \\sqrt[3]{27} = 3$. Og for $x^3 + 8 = 0$ får vi $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige, i motsetning til kvadratrøter.\n\nDenne typen likningar der polynomet har forma $x^3 - a = 0$ blir kalla **kubiske likningar**, og dei har alltid nøyaktig ein reell løysing: $x = \\sqrt[3]{a}$.","29416e82d107400a":"Test deg sjølv på kubiske likningar og diskriminant:","2fe73f8310976c16":"Kor mange reelle løysingar har $x^3 - 27 = 0$?","4caa44f124d9c5e5":"Ingen","1bcc8f721b047a56":"$x^3 = 27$ gir $x = \\sqrt[3]{27} = 3$. Polynomdivisjon gir $(x^3 - 27) : (x - 3) = x^2 + 3x + 9$. Diskriminanten er $9 - 36 = -27 < 0$, så andregradslikningen har ingen reelle løysingar. Dermed er $x = 3$ den einaste reelle løysinga.","84189ad1e8286770":"Kva er løysinga av $x^3 + 8 = 0$?","0c82bd6cd3ab8ff8":"$x = 2$","0ae482c265a0e7fd":"$x = -2$","91f8390bc44c4b7e":"$x = -8$","f354ac6e48023532":"Ingen reell løysing","2c4706c7314c5502":"Vi har $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige: $(-2)^3 = -8$.","820b957b1ed33910":"Du deler $(x^3 - 8)$ på $(x - 2)$ og får $x^2 + 2x + 4$. Diskriminanten til andregradslikningen er $-12$. Kva betyr det?","d6beb0e121b5394b":"At vi har gjort ein feil i polynomdivisjonen","2716a5d24f06cf9c":"At $x = 2$ er den einaste reelle løysinga","ac601894335f2cc5":"At likningen har tre reelle løysingar","4ad73de975df56ad":"At vi må prøve andre divisorar","c5e834e6349140b2":"Negativ diskriminant betyr at andregradslikningen $x^2 + 2x + 4 = 0$ ikkje har reelle løysingar. Dei to \"manglande\" løysingane eksisterer i det komplekse tallplanet, men $x = 2$ er den einaste reelle løysinga.","72d6977456140557":"Kva er $\\sqrt[3]{-64}$?","6047eb28e4039af6":"Ikkje definert","3adea827d467463e":"$\\sqrt[3]{-64} = -4$ fordi $(-4)^3 = (-4) \\cdot (-4) \\cdot (-4) = -64$. I motsetning til kvadratrøter kan kubikkrøter av negative tal reknast ut.","229b0bff4b578e58":"## Fjerdegradslikningar -- når du må dele to gonger\n\nKva gjer du med ei fjerdegradslikning som $x^4 - 5x^2 + 4 = 0$? Her finst det to elegante tilnærmingar.\n\nDen første er **substitusjon**. Legg merke til at likningen berre inneheld $x^4$ og $x^2$, ingen $x^3$ eller $x$. Viss vi set $u = x^2$, blir likningen $u^2 - 5u + 4 = 0$. Dette er ei vanleg andregradslikning! Vi faktoriserer: $(u - 1)(u - 4) = 0$, som gir $u = 1$ eller $u = 4$. No går vi tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar!\n\nDen andre tilnærminga er **direkte faktorisering**: $x^4 - 5x^2 + 4 = (x^2 - 1)(x^2 - 4) = (x - 1)(x + 1)(x - 2)(x + 2)$. Same resultat, men kanskje enno raskare.\n\nSolke likningar der berre partalspotensar av $x$ opptreder blir kalla **bikubiske** (eller **bikvadratiске**) likningar, og substitusjon er standardmetoden.\n\nMen ikkje alle fjerdegradslikningar er bikubiske. For ei generell fjerdegradslikning som $x^4 + x^3 - 4x^2 - 4x = 0$ kan du nokre gonger starta med å setje felles faktor utanfor. Her: $x(x^3 + x^2 - 4x - 4) = 0$. Ein løysing er umiddelbart $x = 0$. For den kubiske delen prøver du $x = -1$: $(-1)^3 + (-1)^2 - 4(-1) - 4 = -1 + 1 + 4 - 4 = 0$. Det fungerer! Polynomdivisjon gir $x^2 - 4 = (x - 2)(x + 2)$. Dei fire løysingane er altså $x = 0$, $x = -1$, $x = 2$ og $x = -2$.\n\nHovudpoenget er at fjerdegradslikningar krev meir arbeid, men strategien er den same: del problemet opp i mindre bitar, steg for steg.","4bbb6860a9bd3a91":"Test deg sjølv på fjerdegradslikningar:","3c667c11169aa1fb":"Kva er det smartaste første steget for å løyse $x^4 - 10x^2 + 9 = 0$?","45e3b9d29acc99e8":"Prøve $x = 1$ som nullpunkt og bruke polynomdivisjon","cab571b9b03d30a5":"Setje $u = x^2$ og løyse $u^2 - 10u + 9 = 0$","48104d6de5deb069":"Bruke abc-formelen direkte","0ac20704b52994b4":"Setje felles faktor utanfor","47d41a6e0f364476":"Likningen inneheld berre $x^4$ og $x^2$ (ingen $x^3$ eller $x$), så substitusjon $u = x^2$ er den smartaste tilnærminga. Då blir det $u^2 - 10u + 9 = (u - 1)(u - 9) = 0$, som gir $u = 1$ eller $u = 9$, altså $x = \\pm 1$ eller $x = \\pm 3$.","c959cea59c5a778e":"Kva kenneteknar ei biquadratisk (bikubisk) likning?","8c5d2dee60ea6218":"Ho har berre oddetalspotensar av $x$","17cc9ea5cf63f4bf":"Ho har fire ledd","da9ed94125c5219c":"Ho inneheld berre partallspotenser av $x$ (og konstantledd)","fb600ba60c10e994":"Ho har alltid fire løysingar","6976013e3daf3470":"Ein biquadratisk likning inneheld berre partallspotenser: $x^4$, $x^2$ og konstantledd. Ingen $x^3$- eller $x$-ledd. Dette gjer at substitusjon $u = x^2$ fungerer perfekt.","8359cd8769ed8aec":"Løys $x^4 - 5x^2 + 4 = 0$. Kor mange løysingar finnast?","b03d76c391dcd9ed":"To: $x = 1$ og $x = 2$","d755e9091405e25d":"Fire: $x = \\pm 1$ og $x = \\pm 2$","d0bcbb333fcd9f3b":"Tre: $x = -1, 1, 2$","db073295cceaf563":"Ein: $x = 1$","d05d62395f2d2f57":"Med $u = x^2$: $u^2 - 5u + 4 = (u-1)(u-4) = 0$, altso $u = 1$ eller $u = 4$. Tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar totalt.","389c05994d6ca909":"For $x^4 + x^3 - 4x^2 - 4x = 0$: kva er det luraste første steget?","2dcaf7885c23c4aa":"Bruka substitusjon $u = x^2$","ea1e61d75d1440d8":"Setja felles faktor $x$ utanfor","c8fd89632f71bc88":"Bruka abc-formelen","e482b09f80c0e0d6":"Prøva $x = 4$ som nullpunkt","cadcb2a2d2ffa2aa":"Alle ledda inneheld $x$, så vi set $x$ utanfor: $x(x^3 + x^2 - 4x - 4) = 0$. Det gir umiddelbar $x = 0$ som ei løysing, og vi har redusert til ei tredjegradslikning.","98a85347fb42fa66":"Kor mange reelle løysingar kan ein fjerdegradslikning ha som mest?","ff8456403d1abfe0":"Fem","552bcd892c40afca":"Ein fjerdegradslikning kan ha 0, 1, 2, 3 eller 4 reelle løysingar. Maksimalt fire, fordi graden til polynomet er 4.","cbca66c5d6206631":"## Å velja riktig strategi\n\nVi har no sett fleire metodar for å løysa polynomlikningar, og det er verdt å stoppa opp og tenka over når du bruker kva.\n\nFor **andregradslikningar** ($ax^2 + bx + c = 0$) har du tre verktøy: faktorisering, fullstendig kvadrat og abc-formelen. Vel den som passar best for den konkrete oppgåva.\n\nFor **tredjegradslikningar** er strategien alltid den same: finn eitt nullpunkt ved å prøva divisorar av konstantleddet, bruk polynomdivisjon for å redusera til ein andregradslikning, og løys den med ein av dei tre metodane over.\n\nFor **fjerdegradslikningar** har du to hovudval. Hvis likningen er biquadratisk (berre partallspotenser), bruk substitusjon $u = x^2$. Elles, sjå om du kan setja felles faktor utanfor, eller finn eit nullpunkt og bruk polynomdivisjon gjentekne gonger.\n\nEin ting til om å finna nullpunkt ved prøving: det er ikkje tilfeldig gjetting. Start alltid med divisorane av konstantleddet. Ifølgje den rasjonale-rot-teoremet, hvis polynomet har heiltalkoeffisientar, er alle rasjonale nullpunkt av forma $\\frac{p}{q}$ der $p$ er ein divisor av konstantleddet og $q$ er ein divisor av ledande koeffisient. For dei fleste oppgåvene du møter i 1T, er den ledande koeffisienten 1, så du prøver berre divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3$ osv.\n\nEit tips til slutt: doble nullpunkt finnast og. I likningen $x^4 - 4x^3 + 4x^2 = 0$ kan du setja $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Her er $x = 0$ eit dobbelt nullpunkt og $x = 2$ eit dobbelt nullpunkt.","7553152244a10948":"Test deg sjølv på å velja riktig strategi:","edb736c4672c7554":"Likningen $x^3 - 2x^2 - 5x + 6 = 0$ har konstantledd 6. Kva verdiar bør du prøva først?","6824bbbc05f9dced":"$x = 0, 1, 2, 3$","59917aae173c7584":"$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$","b4eec57649ffbfd0":"$x = 1, 2, 3, 4, 5, 6$","7f47d00db4346a95":"$x = -6, -5, -4, -3, -2, -1$","003edd29d63f397e":"Vi prøver divisorane av konstantleddet, inkludert negative verdiar: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Prøving viser at $P(1) = 1 - 2 - 5 + 6 = 0$, så $x = 1$ er eit nullpunkt.","a2109670e0f799ee":"Kva metode bruker du for $3x^2 - 7x + 2 = 0$?","cf5339ee08968232":"Polynomdivisjon","081c8dd4d76f3fa6":"Substitusjon $u = x^2$","c09139f968621a15":"Faktorisering eller abc-formelen","0d2e48b65c98e6c8":"Prøva divisorar av konstantleddet","c4dc0067333eda31":"Dette er ein andregradslikning, så du bruker faktorisering, fullstendig kvadrat eller abc-formelen. Polynomdivisjon trengst berre for tredje- og fjerdegradslikningar.","28c0d000612b5a2c":"Kva er doble nullpunkt?","57990ffc946f6603":"Nullpunkt som er negative","01ff253311ead504":"Nullpunkt som opptreder som faktor to gonger, til dømes $(x - 2)^2$","1c3d0549718e8280":"To ulike nullpunkt","e460fa93823514a5":"Nullpunkt som er dobbelt så store","da54fca6a7e5c495":"Eit dobbelt nullpunkt betyr at faktoren opptreder to gonger. Til dømes i $x^2(x-2)^2 = 0$ er både $x = 0$ og $x = 2$ doble nullpunkt. Grafen «berører» $x$-aksen utan å krysse henne.","f0cfe5f823e19428":"For $x^4 - 4x^3 + 4x^2 = 0$: kva er løysingane?","159b2daf51a8880b":"$x = 0$ og $x = 4$","aa741f61e211209a":"$x = 0, x = 1, x = 2, x = 4$","be85bb36911b601a":"$x = 0$ (dobbelt) og $x = 2$ (dobbelt)","d7042b519864fca3":"$x = 2$ (enkelt)","a4655f9c84f3659c":"Vi set $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Det gir $x = 0$ (dobbelt nullpunkt frå $x^2$) og $x = 2$ (dobbelt nullpunkt frå $(x-2)^2$).","6ea55374f7ef3085":"## Eit komplett døme frå start til slutt\n\nLat oss avslutta med å arbeida gjennom eit meir samanfatta døme for å sjå heile prosessen i aksjon. Vi skal løysa $2x^3 - 3x^2 - 11x + 6 = 0$.\n\nKonstantleddet er 6 og den ledande koeffisienten er 2. Moglege rasjonale nullpunkt er av forma $\\frac{p}{q}$ der $p$ deler 6 og $q$ deler 2. Det gir kandidatane $\\pm 1, \\pm 2, \\pm 3, \\pm 6, \\pm \\frac{1}{2}, \\pm \\frac{3}{2}$.\n\nVi prøver $x = 3$: $P(3) = 2 \\cdot 27 - 3 \\cdot 9 - 11 \\cdot 3 + 6 = 54 - 27 - 33 + 6 = 0$. Fantastisk!\n\nPolynomdivisjon: $(2x^3 - 3x^2 - 11x + 6) : (x - 3) = 2x^2 + 3x - 2$. No løyser vi $2x^2 + 3x - 2 = 0$. Vi kan faktorisera: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$.\n\nDe tre løysingane er altso $x = 3$, $x = \\frac{1}{2}$ og $x = -2$. Legg merke til at $\\frac{1}{2}$ er ein brøk -- det skjer når den ledande koeffisienten ikkje er 1.\n\nVi kan kontrollera ved å setja inn: $P\\left(\\frac{1}{2}\\right) = 2 \\cdot \\frac{1}{8} - 3 \\cdot \\frac{1}{4} - 11 \\cdot \\frac{1}{2} + 6 = \\frac{1}{4} - \\frac{3}{4} - \\frac{11}{2} + 6 = \\frac{1 - 3}{4} + \\frac{-11 + 12}{2} = -\\frac{1}{2} + \\frac{1}{2} = 0$. Stemmer!\n\nHeile prosessen kan oppsumerast i fire ord: prøv, del, løys, kontroller.","9506e2c9dae1523b":"Test deg sjølv på eit komplett døme:","54f03c9c11963150":"Du har utført polynomdivisjon og fått $(x^3 + 2x^2 - x - 2) : (x - 1) = x^2 + 3x + 2$. Kva er dei tre løysingane av $x^3 + 2x^2 - x - 2 = 0$?","2615533ba85a257e":"$x = 1, x = -1, x = 2$","4709b633b8db47c3":"$x = 1, x = -1, x = -2$","7c0b8f15ae6a0c74":"$x = -1, x = -2, x = -3$","85d24bef33aeb1fc":"Vi har allereie $x = 1$ frå divisjonen. Kvotienten $x^2 + 3x + 2 = (x + 1)(x + 2) = 0$ gir $x = -1$ og $x = -2$. Dei tre løysingane er $x = 1$, $x = -1$ og $x = -2$.","03c64dc441aa8560":"For $2x^3 - 3x^2 - 11x + 6 = 0$: ledande koeffisient er 2 og konstantledd er 6. Kva brøkverdiar bør du og prøva i tillegg til heiltal?","3cddf4321cd77c55":"$\\pm \\frac{1}{3}$ og $\\pm \\frac{1}{6}$","df08a8a4b1769541":"$\\pm \\frac{1}{2}$ og $\\pm \\frac{3}{2}$","dd268a5d731fc661":"Ingen brøkar trengs","5916bb97d84733bc":"$\\pm \\frac{2}{3}$ og $\\pm \\frac{2}{6}$","2530b84ce76536a2":"Den rasjonale-rot-teoremet seier at moglege rasjonale nullpunkt er $\\frac{p}{q}$ der $p$ deler konstantleddet (6) og $q$ deler ledande koeffisient (2). Brøkverdiane er $\\pm \\frac{1}{2}, \\pm \\frac{3}{2}$ (i tillegg til heiltala $\\pm 1, \\pm 2, \\pm 3, \\pm 6$).","3392e29dbf70019a":"For $2x^3 - 3x^2 - 11x + 6 = 0$ finn du at $x = 3$ er nullpunkt. Polynomdivisjon gir $2x^2 + 3x - 2$. Kva er dei andre løysingane?","2fcf40eca190b76b":"$x = 1$ og $x = -1$","a07586970f9cb006":"$x = \\frac{1}{2}$ og $x = -2$","03de293902d3843e":"$x = 2$ og $x = -\\frac{1}{2}$","4118821f11adb945":"$x = -1$ og $x = \\frac{3}{2}$","a7de409171098055":"Vi løyser $2x^2 + 3x - 2 = 0$. Faktorisering: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$. Dei tre løysingane er $x = 3$, $x = \\frac{1}{2}$ og $x = -2$.","b69ef9bdfc1f44ab":"Kva er dei fire stega for å løysa ei polynomlikning av høgare grad?","43b5b0247da019a8":"Tegn, les av, avrund, skriv svar","a8a1395367227433":"Prøv, del, løys, kontroller","8c7f38d109040d76":"Flytt, forenkle, rekn ut, kontroller","d952c1bae34ed1da":"Faktoriser, set inn, forenkle, les av","1a49a883555247e6":"Dei fire stega er: (1) Prøv divisorar av konstantleddet for å finna eit nullpunkt. (2) Del polynomet med polynomdivisjon. (3) Løys den gjenverande likninga. (4) Kontroller alle løysingane ved innsetting.","79eeeec37aef74be":"Lytt til oppsummeringa","b409d1128419f9c6":"Lydfil som les opp samanfattinga.","ed8039ce21bebe5f":"## Samanfatting\n\nI dette kapitlet har vi lært ein systematisk metode for å løyse polynomlikningar av høgare grad enn andre. Nøkkelen er **faktorteoremet**: dersom $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nFor **tredjegradslikningar** prøver du divisorar av konstantleddet for å finne eit nullpunkt. Deretter utfører du polynomdivisjon for å redusere polynomet til ein andregradslikning, som du løyser med faktorisering, fullstendig kvadrat eller abc-formelen.\n\nFor **fjerdegradslikningar** har du to hovudstrategiar. Er likningen biquadratisk (berre partalspotensiar av $x$), bruker du substitusjon $u = x^2$ for å redusere til ein andregradslikning. Elles settast felles faktor utanfor, eller du finn nullpunkt og bruker polynomdivisjon gjentatte gonger til du kjem ned til andregradslikningar.\n\nSpesialtilfella $x^3 = a$ og $x^4 = a$ løysast direkte med $x = \\sqrt[3]{a}$ og $x = \\pm \\sqrt[4]{a}$. Hugs at ein tredjegradsligning har oppatt tre reelle løysingar, medan ein fjerdegradsligning kan ha oppatt fire. Nokre av desse kan vere doble nullpunkt. Og nokre gonger gir andregradslikningen du endar opp med negativ diskriminant, noko som betyr at det ikkje finst fleire reelle løysingar."}}}
+{
+  "id": "1t-2-10-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "2.10",
+  "title": "Polynomsdivisjon og likningsløysing",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei fortelling om korleis du bruker polynomsdivisjon og faktorteoremet til å knekke polynomlikningar av tredje og fjerde grad.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke polynomsdivisjon til å løyse likningar"
+  ],
+  "linkedChapterId": "1t-2-10",
+  "content": [
+    {
+      "id": "1t-2-10-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-10-narrativ-del1.mp3",
+      "description": "Lydfil som les opp teksten fram til første quiz."
+    },
+    {
+      "id": "1t-2-10-n-intro",
+      "type": "text",
+      "content": "## Å knekke polynomer i bitar\n\nTenk deg at du har ei tredjegradslikning som $x^3 - 6x^2 + 11x - 6 = 0$. Du kan ikkje bruke abc-formelen, for ho gjeld berre andregradslikningar. Kva gjer du då?\n\nSvaret er ei elegant strategi i tre steg. Først finn du eitt nullpunkt ved å prøve deg fram. Deretter bruker du polynomsdivisjon til å dele polynomet på faktoren du fann, slik at du sit igjen med eit enklare polynom. Til slutt løyser du det enklare polynomet med metodane du allereie kan.\n\nDenna teknikken byggjer på **faktorteoremet**: viss $P(a) = 0$, altså at $a$ er eit nullpunkt, så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$ av lågare grad. Og $Q(x)$ finn du ved polynomsdivisjon."
+    },
+    {
+      "id": "1t-2-10-n-section1",
+      "type": "text",
+      "content": "## Tredjegradslikningar -- steg for steg\n\nLet oss ta likningen $x^3 - 6x^2 + 11x - 6 = 0$ og jobbe oss gjennom ho systematisk. Først treng vi eit nullpunkt. Eit smart triks er å prøve **divisorane av konstantleddet**. Konstantleddet her er $-6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $P(1) = 1 - 6 + 11 - 6 = 0$. Bingo!\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomsdivisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. No har vi redusert problemet til ei andregradslikning: $x^2 - 5x + 6 = 0$. Denne faktoriserer vi: $(x - 2)(x - 3) = 0$.\n\nDen fullstendige faktoriseringa er altså $x^3 - 6x^2 + 11x - 6 = (x - 1)(x - 2)(x - 3) = 0$, og løysingane er $x = 1$, $x = 2$ og $x = 3$. Legg merke til det vake: ei tredjegradslikning kan ha opptil tre løysingar.\n\nLet oss prøve eit til: $x^3 - 4x^2 + x + 6 = 0$. Konstantleddet er 6. Vi prøver $x = -1$: $P(-1) = -1 - 4 - 1 + 6 = 0$. Det fungerer! Polynomsdivisjon gir $(x^3 - 4x^2 + x + 6) : (x + 1) = x^2 - 5x + 6 = (x - 2)(x - 3)$. Løysingane er $x = -1$, $x = 2$ og $x = 3$.\n\nMønsteret er alltid det same: finn eitt nullpunkt, divider, og løys resten. Nokre gonger er andregradslikningen du endar opp med enkel å faktorisere, andre gonger treng du abc-formelen."
+    },
+    {
+      "id": "1t-2-10-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-10-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tredjegradslikningar og faktorteoremet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-10-n-quiz1-q0",
+            "task": "Du skal løyse $x^3 + 6x^2 + 11x + 6 = 0$ og prøver $x = -1$. Kva finn du?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(-1) = 0$, altså er $(x + 1)$ ein faktor",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$P(-1) = 2$, altså er $-1$ ikkje eit nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(-1) = -6$, altså er $-1$ ikkje eit nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(-1) = 0$, altså er $(x - 1)$ ein faktor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi reknar ut: $P(-1) = (-1)^3 + 6(-1)^2 + 11(-1) + 6 = -1 + 6 - 11 + 6 = 0$. Sidan $P(-1) = 0$, er $(x - (-1)) = (x + 1)$ ein faktor."
+          },
+          {
+            "id": "1t-2-10-n-quiz1-q1",
+            "task": "Kva seier faktorteoremet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Viss $P(a) = 1$, så er $(x - a)$ ein faktor i $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle polynomer har minst ein faktor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorteoremet seier at viss $a$ er eit nullpunkt for $P(x)$ (dvs. $P(a) = 0$), så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$."
+          },
+          {
+            "id": "1t-2-10-n-quiz1-q2",
+            "task": "For $x^3 - 6x^2 + 11x - 6 = 0$: konstantleddet er $-6$. Kva er det første du prøver?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å bruke abc-formelen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å teikne grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å prøve $x = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For å finne eit nullpunkt i ei tredjegradslikning prøver vi divisorane av konstantleddet. For $-6$ er desse $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $1 - 6 + 11 - 6 = 0$. Bingo!"
+          },
+          {
+            "id": "1t-2-10-n-quiz1-q3",
+            "task": "Etter polynomsdivisjon finn du $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. Kva er alle løysingane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 1$ og $x = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 1, x = -2, x = -3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 1$ og $x = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 1, x = 2, x = 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi har $x = 1$ frå divisjonen. Kvotienten $x^2 - 5x + 6 = (x - 2)(x - 3) = 0$ gir $x = 2$ og $x = 3$. Dei tre løysingane er $x = 1, 2, 3$."
+          },
+          {
+            "id": "1t-2-10-n-quiz1-q4",
+            "task": "Kor mange løysingar kan ei tredjegradslikning ha som mest?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Tre",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fire",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei tredjegradslikning $ax^3 + bx^2 + cx + d = 0$ kan ha opptil tre reelle løysingar. Ho har alltid minst ei reell løysing (grafen må krysse $x$-aksen minst ein gong)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-2-10-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-10-narrativ-del2.mp3",
+      "description": "Lydfil som les upp teksten fram til neste sjalv-test."
+    },
+    {
+      "id": "1t-2-10-n-section2",
+      "type": "text",
+      "content": "## Kva skjer når kvotienten ikkje let seg faktorisere pent?\n\nIkke alle tredjegradslikningar har tre pene heiltalsløysingar. Nokre gonger faktoriserer du vekk eitt nullpunkt og sit igjen med ei andregradslikning som har irrasjonale løysingar (med kvadratrøter) eller til og med ingen reelle løysingar.\n\nTa til dømes $x^3 - 8 = 0$. Her ser vi raskt at $x = 2$ er eit nullpunkt, fordi $2^3 = 8$. Vi deler: $(x^3 - 8) : (x - 2) = x^2 + 2x + 4$. No prøver vi å løyse $x^2 + 2x + 4 = 0$. Diskriminanten er $\\Delta = 4 - 16 = -12$. Ho er negativ! Det betyr at denne andregradslikningen ikkje har nokre reelle løysingar. Altså er $x = 2$ den einaste reelle løysinga av $x^3 - 8 = 0$.\n\nSjølv om det kan kjennast skuffande å \"berre\" finne ei løysing, gir det faktisk god meining. Grafen til $y = x^3 - 8$ kryssar $x$-aksen berre eitt stade. Dei to andre løysingane eksisterer i det komplekse tallplanet, men det er stoff for seinare kurs.\n\nEit anna døme der du kan forenkle utan polynomdivisjon er $x^3 - 27 = 0$. Her er løysinga rett og slett $x = \\sqrt[3]{27} = 3$. Og for $x^3 + 8 = 0$ får vi $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige, i motsetning til kvadratrøter.\n\nDenne typen likningar der polynomet har forma $x^3 - a = 0$ blir kalla **kubiske likningar**, og dei har alltid nøyaktig ein reell løysing: $x = \\sqrt[3]{a}$."
+    },
+    {
+      "id": "1t-2-10-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-10-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kubiske likningar og diskriminant:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-10-n-quiz2-q0",
+            "task": "Kor mange reelle løysingar har $x^3 - 27 = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ingen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^3 = 27$ gir $x = \\sqrt[3]{27} = 3$. Polynomdivisjon gir $(x^3 - 27) : (x - 3) = x^2 + 3x + 9$. Diskriminanten er $9 - 36 = -27 < 0$, så andregradslikningen har ingen reelle løysingar. Dermed er $x = 3$ den einaste reelle løysinga."
+          },
+          {
+            "id": "1t-2-10-n-quiz2-q1",
+            "task": "Kva er løysinga av $x^3 + 8 = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = -8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = -2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen reell løysing",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi har $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige: $(-2)^3 = -8$."
+          },
+          {
+            "id": "1t-2-10-n-quiz2-q2",
+            "task": "Du deler $(x^3 - 8)$ på $(x - 2)$ og får $x^2 + 2x + 4$. Diskriminanten til andregradslikningen er $-12$. Kva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At vi har gjort ein feil i polynomdivisjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At likningen har tre reelle løysingar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At vi må prøve andre divisorar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At $x = 2$ er den einaste reelle løysinga",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativ diskriminant betyr at andregradslikningen $x^2 + 2x + 4 = 0$ ikkje har reelle løysingar. Dei to \"manglande\" løysingane eksisterer i det komplekse tallplanet, men $x = 2$ er den einaste reelle løysinga."
+          },
+          {
+            "id": "1t-2-10-n-quiz2-q3",
+            "task": "Kva er $\\sqrt[3]{-64}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ikkje definert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt[3]{-64} = -4$ fordi $(-4)^3 = (-4) \\cdot (-4) \\cdot (-4) = -64$. I motsetning til kvadratrøter kan kubikkrøter av negative tal reknast ut."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-2-10-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-10-narrativ-del3.mp3",
+      "description": "Lydfil som les upp teksten fram til neste sjalv-test."
+    },
+    {
+      "id": "1t-2-10-n-section3",
+      "type": "text",
+      "content": "## Fjerdegradslikningar -- når du må dele to gonger\n\nKva gjer du med ei fjerdegradslikning som $x^4 - 5x^2 + 4 = 0$? Her finst det to elegante tilnærmingar.\n\nDen første er **substitusjon**. Legg merke til at likningen berre inneheld $x^4$ og $x^2$, ingen $x^3$ eller $x$. Viss vi set $u = x^2$, blir likningen $u^2 - 5u + 4 = 0$. Dette er ei vanleg andregradslikning! Vi faktoriserer: $(u - 1)(u - 4) = 0$, som gir $u = 1$ eller $u = 4$. No går vi tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar!\n\nDen andre tilnærminga er **direkte faktorisering**: $x^4 - 5x^2 + 4 = (x^2 - 1)(x^2 - 4) = (x - 1)(x + 1)(x - 2)(x + 2)$. Same resultat, men kanskje enno raskare.\n\nSolke likningar der berre partalspotensar av $x$ opptreder blir kalla **bikubiske** (eller **bikvadratiске**) likningar, og substitusjon er standardmetoden.\n\nMen ikkje alle fjerdegradslikningar er bikubiske. For ei generell fjerdegradslikning som $x^4 + x^3 - 4x^2 - 4x = 0$ kan du nokre gonger starta med å setje felles faktor utanfor. Her: $x(x^3 + x^2 - 4x - 4) = 0$. Ein løysing er umiddelbart $x = 0$. For den kubiske delen prøver du $x = -1$: $(-1)^3 + (-1)^2 - 4(-1) - 4 = -1 + 1 + 4 - 4 = 0$. Det fungerer! Polynomdivisjon gir $x^2 - 4 = (x - 2)(x + 2)$. Dei fire løysingane er altså $x = 0$, $x = -1$, $x = 2$ og $x = -2$.\n\nHovudpoenget er at fjerdegradslikningar krev meir arbeid, men strategien er den same: del problemet opp i mindre bitar, steg for steg."
+    },
+    {
+      "id": "1t-2-10-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-10-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på fjerdegradslikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-10-n-quiz3-q0",
+            "task": "Kva er det smartaste første steget for å løyse $x^4 - 10x^2 + 9 = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Prøve $x = 1$ som nullpunkt og bruke polynomdivisjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Setje $u = x^2$ og løyse $u^2 - 10u + 9 = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bruke abc-formelen direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Setje felles faktor utanfor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likningen inneheld berre $x^4$ og $x^2$ (ingen $x^3$ eller $x$), så substitusjon $u = x^2$ er den smartaste tilnærminga. Då blir det $u^2 - 10u + 9 = (u - 1)(u - 9) = 0$, som gir $u = 1$ eller $u = 9$, altså $x = \\pm 1$ eller $x = \\pm 3$."
+          },
+          {
+            "id": "1t-2-10-n-quiz3-q1",
+            "task": "Kva kenneteknar ei biquadratisk (bikubisk) likning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ho har berre oddetalspotensar av $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ho har fire ledd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho inneheld berre partallspotenser av $x$ (og konstantledd)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ho har alltid fire løysingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein biquadratisk likning inneheld berre partallspotenser: $x^4$, $x^2$ og konstantledd. Ingen $x^3$- eller $x$-ledd. Dette gjer at substitusjon $u = x^2$ fungerer perfekt."
+          },
+          {
+            "id": "1t-2-10-n-quiz3-q2",
+            "task": "Løys $x^4 - 5x^2 + 4 = 0$. Kor mange løysingar finnast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "To: $x = 1$ og $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tre: $x = -1, 1, 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein: $x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fire: $x = \\pm 1$ og $x = \\pm 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $u = x^2$: $u^2 - 5u + 4 = (u-1)(u-4) = 0$, altso $u = 1$ eller $u = 4$. Tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar totalt."
+          },
+          {
+            "id": "1t-2-10-n-quiz3-q3",
+            "task": "For $x^4 + x^3 - 4x^2 - 4x = 0$: kva er det luraste første steget?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Setja felles faktor $x$ utanfor",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bruka substitusjon $u = x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bruka abc-formelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Prøva $x = 4$ som nullpunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle ledda inneheld $x$, så vi set $x$ utanfor: $x(x^3 + x^2 - 4x - 4) = 0$. Det gir umiddelbar $x = 0$ som ei løysing, og vi har redusert til ei tredjegradslikning."
+          },
+          {
+            "id": "1t-2-10-n-quiz3-q4",
+            "task": "Kor mange reelle løysingar kan ein fjerdegradslikning ha som mest?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fire",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fem",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein fjerdegradslikning kan ha 0, 1, 2, 3 eller 4 reelle løysingar. Maksimalt fire, fordi graden til polynomet er 4."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-2-10-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-10-narrativ-del4.mp3",
+      "description": "Lydfil som les upp teksten fram til neste sjalv-test."
+    },
+    {
+      "id": "1t-2-10-n-section4",
+      "type": "text",
+      "content": "## Å velja riktig strategi\n\nVi har no sett fleire metodar for å løysa polynomlikningar, og det er verdt å stoppa opp og tenka over når du bruker kva.\n\nFor **andregradslikningar** ($ax^2 + bx + c = 0$) har du tre verktøy: faktorisering, fullstendig kvadrat og abc-formelen. Vel den som passar best for den konkrete oppgåva.\n\nFor **tredjegradslikningar** er strategien alltid den same: finn eitt nullpunkt ved å prøva divisorar av konstantleddet, bruk polynomdivisjon for å redusera til ein andregradslikning, og løys den med ein av dei tre metodane over.\n\nFor **fjerdegradslikningar** har du to hovudval. Hvis likningen er biquadratisk (berre partallspotenser), bruk substitusjon $u = x^2$. Elles, sjå om du kan setja felles faktor utanfor, eller finn eit nullpunkt og bruk polynomdivisjon gjentekne gonger.\n\nEin ting til om å finna nullpunkt ved prøving: det er ikkje tilfeldig gjetting. Start alltid med divisorane av konstantleddet. Ifølgje den rasjonale-rot-teoremet, hvis polynomet har heiltalkoeffisientar, er alle rasjonale nullpunkt av forma $\\frac{p}{q}$ der $p$ er ein divisor av konstantleddet og $q$ er ein divisor av ledande koeffisient. For dei fleste oppgåvene du møter i 1T, er den ledande koeffisienten 1, så du prøver berre divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3$ osv.\n\nEit tips til slutt: doble nullpunkt finnast og. I likningen $x^4 - 4x^3 + 4x^2 = 0$ kan du setja $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Her er $x = 0$ eit dobbelt nullpunkt og $x = 2$ eit dobbelt nullpunkt."
+    },
+    {
+      "id": "1t-2-10-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-10-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å velja riktig strategi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-10-n-quiz4-q0",
+            "task": "Likningen $x^3 - 2x^2 - 5x + 6 = 0$ har konstantledd 6. Kva verdiar bør du prøva først?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 0, 1, 2, 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 1, 2, 3, 4, 5, 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = -6, -5, -4, -3, -2, -1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi prøver divisorane av konstantleddet, inkludert negative verdiar: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Prøving viser at $P(1) = 1 - 2 - 5 + 6 = 0$, så $x = 1$ er eit nullpunkt."
+          },
+          {
+            "id": "1t-2-10-n-quiz4-q1",
+            "task": "Kva metode bruker du for $3x^2 - 7x + 2 = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Polynomdivisjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Substitusjon $u = x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Prøva divisorar av konstantleddet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Faktorisering eller abc-formelen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Dette er ein andregradslikning, så du bruker faktorisering, fullstendig kvadrat eller abc-formelen. Polynomdivisjon trengst berre for tredje- og fjerdegradslikningar."
+          },
+          {
+            "id": "1t-2-10-n-quiz4-q2",
+            "task": "Kva er doble nullpunkt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nullpunkt som opptreder som faktor to gonger, til dømes $(x - 2)^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nullpunkt som er negative",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "To ulike nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nullpunkt som er dobbelt så store",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit dobbelt nullpunkt betyr at faktoren opptreder to gonger. Til dømes i $x^2(x-2)^2 = 0$ er både $x = 0$ og $x = 2$ doble nullpunkt. Grafen «berører» $x$-aksen utan å krysse henne."
+          },
+          {
+            "id": "1t-2-10-n-quiz4-q3",
+            "task": "For $x^4 - 4x^3 + 4x^2 = 0$: kva er løysingane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 0$ og $x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 0$ (dobbelt) og $x = 2$ (dobbelt)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 0, x = 1, x = 2, x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 2$ (enkelt)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi set $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Det gir $x = 0$ (dobbelt nullpunkt frå $x^2$) og $x = 2$ (dobbelt nullpunkt frå $(x-2)^2$)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-2-10-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-10-narrativ-del5.mp3",
+      "description": "Lydfil som les upp teksten fram til neste sjalv-test."
+    },
+    {
+      "id": "1t-2-10-n-section5",
+      "type": "text",
+      "content": "## Eit komplett døme frå start til slutt\n\nLat oss avslutta med å arbeida gjennom eit meir samanfatta døme for å sjå heile prosessen i aksjon. Vi skal løysa $2x^3 - 3x^2 - 11x + 6 = 0$.\n\nKonstantleddet er 6 og den ledande koeffisienten er 2. Moglege rasjonale nullpunkt er av forma $\\frac{p}{q}$ der $p$ deler 6 og $q$ deler 2. Det gir kandidatane $\\pm 1, \\pm 2, \\pm 3, \\pm 6, \\pm \\frac{1}{2}, \\pm \\frac{3}{2}$.\n\nVi prøver $x = 3$: $P(3) = 2 \\cdot 27 - 3 \\cdot 9 - 11 \\cdot 3 + 6 = 54 - 27 - 33 + 6 = 0$. Fantastisk!\n\nPolynomdivisjon: $(2x^3 - 3x^2 - 11x + 6) : (x - 3) = 2x^2 + 3x - 2$. No løyser vi $2x^2 + 3x - 2 = 0$. Vi kan faktorisera: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$.\n\nDe tre løysingane er altso $x = 3$, $x = \\frac{1}{2}$ og $x = -2$. Legg merke til at $\\frac{1}{2}$ er ein brøk -- det skjer når den ledande koeffisienten ikkje er 1.\n\nVi kan kontrollera ved å setja inn: $P\\left(\\frac{1}{2}\\right) = 2 \\cdot \\frac{1}{8} - 3 \\cdot \\frac{1}{4} - 11 \\cdot \\frac{1}{2} + 6 = \\frac{1}{4} - \\frac{3}{4} - \\frac{11}{2} + 6 = \\frac{1 - 3}{4} + \\frac{-11 + 12}{2} = -\\frac{1}{2} + \\frac{1}{2} = 0$. Stemmer!\n\nHeile prosessen kan oppsumerast i fire ord: prøv, del, løys, kontroller."
+    },
+    {
+      "id": "1t-2-10-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-10-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eit komplett døme:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-10-n-quiz5-q0",
+            "task": "Du har utført polynomdivisjon og fått $(x^3 + 2x^2 - x - 2) : (x - 1) = x^2 + 3x + 2$. Kva er dei tre løysingane av $x^3 + 2x^2 - x - 2 = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 1, x = 2, x = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 1, x = -1, x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 1, x = -1, x = -2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = -1, x = -2, x = -3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi har allereie $x = 1$ frå divisjonen. Kvotienten $x^2 + 3x + 2 = (x + 1)(x + 2) = 0$ gir $x = -1$ og $x = -2$. Dei tre løysingane er $x = 1$, $x = -1$ og $x = -2$."
+          },
+          {
+            "id": "1t-2-10-n-quiz5-q1",
+            "task": "For $2x^3 - 3x^2 - 11x + 6 = 0$: ledande koeffisient er 2 og konstantledd er 6. Kva brøkverdiar bør du og prøva i tillegg til heiltal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\pm \\frac{1}{3}$ og $\\pm \\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen brøkar trengs",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\pm \\frac{2}{3}$ og $\\pm \\frac{2}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\pm \\frac{1}{2}$ og $\\pm \\frac{3}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den rasjonale-rot-teoremet seier at moglege rasjonale nullpunkt er $\\frac{p}{q}$ der $p$ deler konstantleddet (6) og $q$ deler ledande koeffisient (2). Brøkverdiane er $\\pm \\frac{1}{2}, \\pm \\frac{3}{2}$ (i tillegg til heiltala $\\pm 1, \\pm 2, \\pm 3, \\pm 6$)."
+          },
+          {
+            "id": "1t-2-10-n-quiz5-q2",
+            "task": "For $2x^3 - 3x^2 - 11x + 6 = 0$ finn du at $x = 3$ er nullpunkt. Polynomdivisjon gir $2x^2 + 3x - 2$. Kva er dei andre løysingane?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = \\frac{1}{2}$ og $x = -2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x = 1$ og $x = -1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 2$ og $x = -\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = -1$ og $x = \\frac{3}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi løyser $2x^2 + 3x - 2 = 0$. Faktorisering: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$. Dei tre løysingane er $x = 3$, $x = \\frac{1}{2}$ og $x = -2$."
+          },
+          {
+            "id": "1t-2-10-n-quiz5-q3",
+            "task": "Kva er dei fire stega for å løysa ei polynomlikning av høgare grad?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tegn, les av, avrund, skriv svar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Prøv, del, løys, kontroller",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Flytt, forenkle, rekn ut, kontroller",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Faktoriser, set inn, forenkle, les av",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei fire stega er: (1) Prøv divisorar av konstantleddet for å finna eit nullpunkt. (2) Del polynomet med polynomdivisjon. (3) Løys den gjenverande likninga. (4) Kontroller alle løysingane ved innsetting."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-2-10-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringa",
+      "src": "/audio/1t/1t-2-10-narrativ-del6.mp3",
+      "description": "Lydfil som les opp samanfattinga."
+    },
+    {
+      "id": "1t-2-10-n-summary",
+      "type": "text",
+      "content": "## Samanfatting\n\nI dette kapitlet har vi lært ein systematisk metode for å løyse polynomlikningar av høgare grad enn andre. Nøkkelen er **faktorteoremet**: dersom $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nFor **tredjegradslikningar** prøver du divisorar av konstantleddet for å finne eit nullpunkt. Deretter utfører du polynomdivisjon for å redusere polynomet til ein andregradslikning, som du løyser med faktorisering, fullstendig kvadrat eller abc-formelen.\n\nFor **fjerdegradslikningar** har du to hovudstrategiar. Er likningen biquadratisk (berre partalspotensiar av $x$), bruker du substitusjon $u = x^2$ for å redusere til ein andregradslikning. Elles settast felles faktor utanfor, eller du finn nullpunkt og bruker polynomdivisjon gjentatte gonger til du kjem ned til andregradslikningar.\n\nSpesialtilfella $x^3 = a$ og $x^4 = a$ løysast direkte med $x = \\sqrt[3]{a}$ og $x = \\pm \\sqrt[4]{a}$. Hugs at ein tredjegradsligning har oppatt tre reelle løysingar, medan ein fjerdegradsligning kan ha oppatt fire. Nokre av desse kan vere doble nullpunkt. Og nokre gonger gir andregradslikningen du endar opp med negativ diskriminant, noko som betyr at det ikkje finst fleire reelle løysingar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "69ecf3b47398eea3",
+    "translatedAt": "2026-06-16T10:02:07.750Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 162,
+    "tm": {
+      "599036daff4f0d71": "Polynomsdivisjon og likningsløysing",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1ffd54d211fb7940": "Ei fortelling om korleis du bruker polynomsdivisjon og faktorteoremet til å knekke polynomlikningar av tredje og fjerde grad.",
+      "b4d2a6e913187867": "bruke polynomsdivisjon til å løyse likningar",
+      "d2c9d9ef5d3f774f": "Lytt til denne delen",
+      "21954805f17795e8": "Lydfil som les opp teksten fram til første quiz.",
+      "b098b8c9303ed758": "## Å knekke polynomer i bitar\n\nTenk deg at du har ei tredjegradslikning som $x^3 - 6x^2 + 11x - 6 = 0$. Du kan ikkje bruke abc-formelen, for ho gjeld berre andregradslikningar. Kva gjer du då?\n\nSvaret er ei elegant strategi i tre steg. Først finn du eitt nullpunkt ved å prøve deg fram. Deretter bruker du polynomsdivisjon til å dele polynomet på faktoren du fann, slik at du sit igjen med eit enklare polynom. Til slutt løyser du det enklare polynomet med metodane du allereie kan.\n\nDenna teknikken byggjer på **faktorteoremet**: viss $P(a) = 0$, altså at $a$ er eit nullpunkt, så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$ av lågare grad. Og $Q(x)$ finn du ved polynomsdivisjon.",
+      "d88d0b71311db280": "## Tredjegradslikningar -- steg for steg\n\nLet oss ta likningen $x^3 - 6x^2 + 11x - 6 = 0$ og jobbe oss gjennom ho systematisk. Først treng vi eit nullpunkt. Eit smart triks er å prøve **divisorane av konstantleddet**. Konstantleddet her er $-6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $P(1) = 1 - 6 + 11 - 6 = 0$. Bingo!\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomsdivisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. No har vi redusert problemet til ei andregradslikning: $x^2 - 5x + 6 = 0$. Denne faktoriserer vi: $(x - 2)(x - 3) = 0$.\n\nDen fullstendige faktoriseringa er altså $x^3 - 6x^2 + 11x - 6 = (x - 1)(x - 2)(x - 3) = 0$, og løysingane er $x = 1$, $x = 2$ og $x = 3$. Legg merke til det vake: ei tredjegradslikning kan ha opptil tre løysingar.\n\nLet oss prøve eit til: $x^3 - 4x^2 + x + 6 = 0$. Konstantleddet er 6. Vi prøver $x = -1$: $P(-1) = -1 - 4 - 1 + 6 = 0$. Det fungerer! Polynomsdivisjon gir $(x^3 - 4x^2 + x + 6) : (x + 1) = x^2 - 5x + 6 = (x - 2)(x - 3)$. Løysingane er $x = -1$, $x = 2$ og $x = 3$.\n\nMønsteret er alltid det same: finn eitt nullpunkt, divider, og løys resten. Nokre gonger er andregradslikningen du endar opp med enkel å faktorisere, andre gonger treng du abc-formelen.",
+      "74d1c0da1bbdd1cd": "Test deg sjølv på tredjegradslikningar og faktorteoremet:",
+      "4097889236a2af26": "placeholder",
+      "2bd536b946a6ae00": "Du skal løyse $x^3 + 6x^2 + 11x + 6 = 0$ og prøver $x = -1$. Kva finn du?",
+      "ee2241bb7ab99d27": "$P(-1) = 2$, altså er $-1$ ikkje eit nullpunkt",
+      "18392621ee3a8c01": "$P(-1) = 0$, altså er $(x + 1)$ ein faktor",
+      "3e289db17ee48fa7": "$P(-1) = -6$, altså er $-1$ ikkje eit nullpunkt",
+      "780aa359cc32e780": "$P(-1) = 0$, altså er $(x - 1)$ ein faktor",
+      "d2159cad17bf298a": "Vi reknar ut: $P(-1) = (-1)^3 + 6(-1)^2 + 11(-1) + 6 = -1 + 6 - 11 + 6 = 0$. Sidan $P(-1) = 0$, er $(x - (-1)) = (x + 1)$ ein faktor.",
+      "a355708b3d918782": "Kva seier faktorteoremet?",
+      "04fd7bdeb602c0c7": "Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$",
+      "3498ae659641b183": "Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$",
+      "399844ec4010bff9": "Viss $P(a) = 1$, så er $(x - a)$ ein faktor i $P(x)$",
+      "9e2a85b51583f458": "Alle polynomer har minst ein faktor",
+      "828747c2cb4cb38b": "Faktorteoremet seier at viss $a$ er eit nullpunkt for $P(x)$ (dvs. $P(a) = 0$), så er $(x - a)$ ein faktor i $P(x)$. Det tyder at $P(x) = (x - a) \\cdot Q(x)$ for eit polynom $Q(x)$.",
+      "fd9a7600ea59f6c0": "For $x^3 - 6x^2 + 11x - 6 = 0$: konstantleddet er $-6$. Kva er det første du prøver?",
+      "0ad64a811747de34": "Å bruke abc-formelen",
+      "5e80b4531fc7f115": "Å teikne grafen",
+      "2aa7f5c12f5356e4": "Divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+      "d6cab78176a15490": "Å prøve $x = 0$",
+      "e836640053616d3a": "For å finne eit nullpunkt i ei tredjegradslikning prøver vi divisorane av konstantleddet. For $-6$ er desse $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi prøver $x = 1$: $1 - 6 + 11 - 6 = 0$. Bingo!",
+      "f8febcc5dc308df3": "Etter polynomsdivisjon finn du $(x^3 - 6x^2 + 11x - 6) : (x - 1) = x^2 - 5x + 6$. Kva er alle løysingane?",
+      "31710a5283f25413": "$x = 1$ og $x = 6$",
+      "75ed5045ead8b93e": "$x = 1, x = 2, x = 3$",
+      "5820664b7736d8b0": "$x = 1, x = -2, x = -3$",
+      "808add8aeebf5791": "$x = 1$ og $x = 5$",
+      "934a977bc88deae2": "Vi har $x = 1$ frå divisjonen. Kvotienten $x^2 - 5x + 6 = (x - 2)(x - 3) = 0$ gir $x = 2$ og $x = 3$. Dei tre løysingane er $x = 1, 2, 3$.",
+      "859fc7f1faa16289": "Kor mange løysingar kan ei tredjegradslikning ha som mest?",
+      "f4b06ef6d3c81436": "To",
+      "fb92c7e381b71ced": "Ein",
+      "c141faa80e43a119": "Fire",
+      "41ad5fbe0619e72b": "Tre",
+      "45b6df4b30c79dec": "Ei tredjegradslikning $ax^3 + bx^2 + cx + d = 0$ kan ha opptil tre reelle løysingar. Ho har alltid minst ei reell løysing (grafen må krysse $x$-aksen minst ein gong).",
+      "058005533831b7f6": "Lydfil som les upp teksten fram til neste sjalv-test.",
+      "679eb127fa4c130d": "## Kva skjer når kvotienten ikkje let seg faktorisere pent?\n\nIkke alle tredjegradslikningar har tre pene heiltalsløysingar. Nokre gonger faktoriserer du vekk eitt nullpunkt og sit igjen med ei andregradslikning som har irrasjonale løysingar (med kvadratrøter) eller til og med ingen reelle løysingar.\n\nTa til dømes $x^3 - 8 = 0$. Her ser vi raskt at $x = 2$ er eit nullpunkt, fordi $2^3 = 8$. Vi deler: $(x^3 - 8) : (x - 2) = x^2 + 2x + 4$. No prøver vi å løyse $x^2 + 2x + 4 = 0$. Diskriminanten er $\\Delta = 4 - 16 = -12$. Ho er negativ! Det betyr at denne andregradslikningen ikkje har nokre reelle løysingar. Altså er $x = 2$ den einaste reelle løysinga av $x^3 - 8 = 0$.\n\nSjølv om det kan kjennast skuffande å \"berre\" finne ei løysing, gir det faktisk god meining. Grafen til $y = x^3 - 8$ kryssar $x$-aksen berre eitt stade. Dei to andre løysingane eksisterer i det komplekse tallplanet, men det er stoff for seinare kurs.\n\nEit anna døme der du kan forenkle utan polynomdivisjon er $x^3 - 27 = 0$. Her er løysinga rett og slett $x = \\sqrt[3]{27} = 3$. Og for $x^3 + 8 = 0$ får vi $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige, i motsetning til kvadratrøter.\n\nDenne typen likningar der polynomet har forma $x^3 - a = 0$ blir kalla **kubiske likningar**, og dei har alltid nøyaktig ein reell løysing: $x = \\sqrt[3]{a}$.",
+      "29416e82d107400a": "Test deg sjølv på kubiske likningar og diskriminant:",
+      "2fe73f8310976c16": "Kor mange reelle løysingar har $x^3 - 27 = 0$?",
+      "4caa44f124d9c5e5": "Ingen",
+      "1bcc8f721b047a56": "$x^3 = 27$ gir $x = \\sqrt[3]{27} = 3$. Polynomdivisjon gir $(x^3 - 27) : (x - 3) = x^2 + 3x + 9$. Diskriminanten er $9 - 36 = -27 < 0$, så andregradslikningen har ingen reelle løysingar. Dermed er $x = 3$ den einaste reelle løysinga.",
+      "84189ad1e8286770": "Kva er løysinga av $x^3 + 8 = 0$?",
+      "0c82bd6cd3ab8ff8": "$x = 2$",
+      "0ae482c265a0e7fd": "$x = -2$",
+      "91f8390bc44c4b7e": "$x = -8$",
+      "f354ac6e48023532": "Ingen reell løysing",
+      "2c4706c7314c5502": "Vi har $x^3 = -8$, altså $x = \\sqrt[3]{-8} = -2$. Kubikkrøter av negative tal er gyldige: $(-2)^3 = -8$.",
+      "820b957b1ed33910": "Du deler $(x^3 - 8)$ på $(x - 2)$ og får $x^2 + 2x + 4$. Diskriminanten til andregradslikningen er $-12$. Kva betyr det?",
+      "d6beb0e121b5394b": "At vi har gjort ein feil i polynomdivisjonen",
+      "2716a5d24f06cf9c": "At $x = 2$ er den einaste reelle løysinga",
+      "ac601894335f2cc5": "At likningen har tre reelle løysingar",
+      "4ad73de975df56ad": "At vi må prøve andre divisorar",
+      "c5e834e6349140b2": "Negativ diskriminant betyr at andregradslikningen $x^2 + 2x + 4 = 0$ ikkje har reelle løysingar. Dei to \"manglande\" løysingane eksisterer i det komplekse tallplanet, men $x = 2$ er den einaste reelle løysinga.",
+      "72d6977456140557": "Kva er $\\sqrt[3]{-64}$?",
+      "6047eb28e4039af6": "Ikkje definert",
+      "3adea827d467463e": "$\\sqrt[3]{-64} = -4$ fordi $(-4)^3 = (-4) \\cdot (-4) \\cdot (-4) = -64$. I motsetning til kvadratrøter kan kubikkrøter av negative tal reknast ut.",
+      "229b0bff4b578e58": "## Fjerdegradslikningar -- når du må dele to gonger\n\nKva gjer du med ei fjerdegradslikning som $x^4 - 5x^2 + 4 = 0$? Her finst det to elegante tilnærmingar.\n\nDen første er **substitusjon**. Legg merke til at likningen berre inneheld $x^4$ og $x^2$, ingen $x^3$ eller $x$. Viss vi set $u = x^2$, blir likningen $u^2 - 5u + 4 = 0$. Dette er ei vanleg andregradslikning! Vi faktoriserer: $(u - 1)(u - 4) = 0$, som gir $u = 1$ eller $u = 4$. No går vi tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar!\n\nDen andre tilnærminga er **direkte faktorisering**: $x^4 - 5x^2 + 4 = (x^2 - 1)(x^2 - 4) = (x - 1)(x + 1)(x - 2)(x + 2)$. Same resultat, men kanskje enno raskare.\n\nSolke likningar der berre partalspotensar av $x$ opptreder blir kalla **bikubiske** (eller **bikvadratiске**) likningar, og substitusjon er standardmetoden.\n\nMen ikkje alle fjerdegradslikningar er bikubiske. For ei generell fjerdegradslikning som $x^4 + x^3 - 4x^2 - 4x = 0$ kan du nokre gonger starta med å setje felles faktor utanfor. Her: $x(x^3 + x^2 - 4x - 4) = 0$. Ein løysing er umiddelbart $x = 0$. For den kubiske delen prøver du $x = -1$: $(-1)^3 + (-1)^2 - 4(-1) - 4 = -1 + 1 + 4 - 4 = 0$. Det fungerer! Polynomdivisjon gir $x^2 - 4 = (x - 2)(x + 2)$. Dei fire løysingane er altså $x = 0$, $x = -1$, $x = 2$ og $x = -2$.\n\nHovudpoenget er at fjerdegradslikningar krev meir arbeid, men strategien er den same: del problemet opp i mindre bitar, steg for steg.",
+      "4bbb6860a9bd3a91": "Test deg sjølv på fjerdegradslikningar:",
+      "3c667c11169aa1fb": "Kva er det smartaste første steget for å løyse $x^4 - 10x^2 + 9 = 0$?",
+      "45e3b9d29acc99e8": "Prøve $x = 1$ som nullpunkt og bruke polynomdivisjon",
+      "cab571b9b03d30a5": "Setje $u = x^2$ og løyse $u^2 - 10u + 9 = 0$",
+      "48104d6de5deb069": "Bruke abc-formelen direkte",
+      "0ac20704b52994b4": "Setje felles faktor utanfor",
+      "47d41a6e0f364476": "Likningen inneheld berre $x^4$ og $x^2$ (ingen $x^3$ eller $x$), så substitusjon $u = x^2$ er den smartaste tilnærminga. Då blir det $u^2 - 10u + 9 = (u - 1)(u - 9) = 0$, som gir $u = 1$ eller $u = 9$, altså $x = \\pm 1$ eller $x = \\pm 3$.",
+      "c959cea59c5a778e": "Kva kenneteknar ei biquadratisk (bikubisk) likning?",
+      "8c5d2dee60ea6218": "Ho har berre oddetalspotensar av $x$",
+      "17cc9ea5cf63f4bf": "Ho har fire ledd",
+      "da9ed94125c5219c": "Ho inneheld berre partallspotenser av $x$ (og konstantledd)",
+      "fb600ba60c10e994": "Ho har alltid fire løysingar",
+      "6976013e3daf3470": "Ein biquadratisk likning inneheld berre partallspotenser: $x^4$, $x^2$ og konstantledd. Ingen $x^3$- eller $x$-ledd. Dette gjer at substitusjon $u = x^2$ fungerer perfekt.",
+      "8359cd8769ed8aec": "Løys $x^4 - 5x^2 + 4 = 0$. Kor mange løysingar finnast?",
+      "b03d76c391dcd9ed": "To: $x = 1$ og $x = 2$",
+      "d755e9091405e25d": "Fire: $x = \\pm 1$ og $x = \\pm 2$",
+      "d0bcbb333fcd9f3b": "Tre: $x = -1, 1, 2$",
+      "db073295cceaf563": "Ein: $x = 1$",
+      "d05d62395f2d2f57": "Med $u = x^2$: $u^2 - 5u + 4 = (u-1)(u-4) = 0$, altso $u = 1$ eller $u = 4$. Tilbake: $x^2 = 1$ gir $x = \\pm 1$, og $x^2 = 4$ gir $x = \\pm 2$. Fire løysingar totalt.",
+      "389c05994d6ca909": "For $x^4 + x^3 - 4x^2 - 4x = 0$: kva er det luraste første steget?",
+      "2dcaf7885c23c4aa": "Bruka substitusjon $u = x^2$",
+      "ea1e61d75d1440d8": "Setja felles faktor $x$ utanfor",
+      "c8fd89632f71bc88": "Bruka abc-formelen",
+      "e482b09f80c0e0d6": "Prøva $x = 4$ som nullpunkt",
+      "cadcb2a2d2ffa2aa": "Alle ledda inneheld $x$, så vi set $x$ utanfor: $x(x^3 + x^2 - 4x - 4) = 0$. Det gir umiddelbar $x = 0$ som ei løysing, og vi har redusert til ei tredjegradslikning.",
+      "98a85347fb42fa66": "Kor mange reelle løysingar kan ein fjerdegradslikning ha som mest?",
+      "ff8456403d1abfe0": "Fem",
+      "552bcd892c40afca": "Ein fjerdegradslikning kan ha 0, 1, 2, 3 eller 4 reelle løysingar. Maksimalt fire, fordi graden til polynomet er 4.",
+      "cbca66c5d6206631": "## Å velja riktig strategi\n\nVi har no sett fleire metodar for å løysa polynomlikningar, og det er verdt å stoppa opp og tenka over når du bruker kva.\n\nFor **andregradslikningar** ($ax^2 + bx + c = 0$) har du tre verktøy: faktorisering, fullstendig kvadrat og abc-formelen. Vel den som passar best for den konkrete oppgåva.\n\nFor **tredjegradslikningar** er strategien alltid den same: finn eitt nullpunkt ved å prøva divisorar av konstantleddet, bruk polynomdivisjon for å redusera til ein andregradslikning, og løys den med ein av dei tre metodane over.\n\nFor **fjerdegradslikningar** har du to hovudval. Hvis likningen er biquadratisk (berre partallspotenser), bruk substitusjon $u = x^2$. Elles, sjå om du kan setja felles faktor utanfor, eller finn eit nullpunkt og bruk polynomdivisjon gjentekne gonger.\n\nEin ting til om å finna nullpunkt ved prøving: det er ikkje tilfeldig gjetting. Start alltid med divisorane av konstantleddet. Ifølgje den rasjonale-rot-teoremet, hvis polynomet har heiltalkoeffisientar, er alle rasjonale nullpunkt av forma $\\frac{p}{q}$ der $p$ er ein divisor av konstantleddet og $q$ er ein divisor av ledande koeffisient. For dei fleste oppgåvene du møter i 1T, er den ledande koeffisienten 1, så du prøver berre divisorane av konstantleddet: $\\pm 1, \\pm 2, \\pm 3$ osv.\n\nEit tips til slutt: doble nullpunkt finnast og. I likningen $x^4 - 4x^3 + 4x^2 = 0$ kan du setja $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Her er $x = 0$ eit dobbelt nullpunkt og $x = 2$ eit dobbelt nullpunkt.",
+      "7553152244a10948": "Test deg sjølv på å velja riktig strategi:",
+      "edb736c4672c7554": "Likningen $x^3 - 2x^2 - 5x + 6 = 0$ har konstantledd 6. Kva verdiar bør du prøva først?",
+      "6824bbbc05f9dced": "$x = 0, 1, 2, 3$",
+      "59917aae173c7584": "$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+      "b4eec57649ffbfd0": "$x = 1, 2, 3, 4, 5, 6$",
+      "7f47d00db4346a95": "$x = -6, -5, -4, -3, -2, -1$",
+      "003edd29d63f397e": "Vi prøver divisorane av konstantleddet, inkludert negative verdiar: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Prøving viser at $P(1) = 1 - 2 - 5 + 6 = 0$, så $x = 1$ er eit nullpunkt.",
+      "a2109670e0f799ee": "Kva metode bruker du for $3x^2 - 7x + 2 = 0$?",
+      "cf5339ee08968232": "Polynomdivisjon",
+      "081c8dd4d76f3fa6": "Substitusjon $u = x^2$",
+      "c09139f968621a15": "Faktorisering eller abc-formelen",
+      "0d2e48b65c98e6c8": "Prøva divisorar av konstantleddet",
+      "c4dc0067333eda31": "Dette er ein andregradslikning, så du bruker faktorisering, fullstendig kvadrat eller abc-formelen. Polynomdivisjon trengst berre for tredje- og fjerdegradslikningar.",
+      "28c0d000612b5a2c": "Kva er doble nullpunkt?",
+      "57990ffc946f6603": "Nullpunkt som er negative",
+      "01ff253311ead504": "Nullpunkt som opptreder som faktor to gonger, til dømes $(x - 2)^2$",
+      "1c3d0549718e8280": "To ulike nullpunkt",
+      "e460fa93823514a5": "Nullpunkt som er dobbelt så store",
+      "da54fca6a7e5c495": "Eit dobbelt nullpunkt betyr at faktoren opptreder to gonger. Til dømes i $x^2(x-2)^2 = 0$ er både $x = 0$ og $x = 2$ doble nullpunkt. Grafen «berører» $x$-aksen utan å krysse henne.",
+      "f0cfe5f823e19428": "For $x^4 - 4x^3 + 4x^2 = 0$: kva er løysingane?",
+      "159b2daf51a8880b": "$x = 0$ og $x = 4$",
+      "aa741f61e211209a": "$x = 0, x = 1, x = 2, x = 4$",
+      "be85bb36911b601a": "$x = 0$ (dobbelt) og $x = 2$ (dobbelt)",
+      "d7042b519864fca3": "$x = 2$ (enkelt)",
+      "a4655f9c84f3659c": "Vi set $x^2$ utanfor: $x^2(x^2 - 4x + 4) = x^2(x - 2)^2 = 0$. Det gir $x = 0$ (dobbelt nullpunkt frå $x^2$) og $x = 2$ (dobbelt nullpunkt frå $(x-2)^2$).",
+      "6ea55374f7ef3085": "## Eit komplett døme frå start til slutt\n\nLat oss avslutta med å arbeida gjennom eit meir samanfatta døme for å sjå heile prosessen i aksjon. Vi skal løysa $2x^3 - 3x^2 - 11x + 6 = 0$.\n\nKonstantleddet er 6 og den ledande koeffisienten er 2. Moglege rasjonale nullpunkt er av forma $\\frac{p}{q}$ der $p$ deler 6 og $q$ deler 2. Det gir kandidatane $\\pm 1, \\pm 2, \\pm 3, \\pm 6, \\pm \\frac{1}{2}, \\pm \\frac{3}{2}$.\n\nVi prøver $x = 3$: $P(3) = 2 \\cdot 27 - 3 \\cdot 9 - 11 \\cdot 3 + 6 = 54 - 27 - 33 + 6 = 0$. Fantastisk!\n\nPolynomdivisjon: $(2x^3 - 3x^2 - 11x + 6) : (x - 3) = 2x^2 + 3x - 2$. No løyser vi $2x^2 + 3x - 2 = 0$. Vi kan faktorisera: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$.\n\nDe tre løysingane er altso $x = 3$, $x = \\frac{1}{2}$ og $x = -2$. Legg merke til at $\\frac{1}{2}$ er ein brøk -- det skjer når den ledande koeffisienten ikkje er 1.\n\nVi kan kontrollera ved å setja inn: $P\\left(\\frac{1}{2}\\right) = 2 \\cdot \\frac{1}{8} - 3 \\cdot \\frac{1}{4} - 11 \\cdot \\frac{1}{2} + 6 = \\frac{1}{4} - \\frac{3}{4} - \\frac{11}{2} + 6 = \\frac{1 - 3}{4} + \\frac{-11 + 12}{2} = -\\frac{1}{2} + \\frac{1}{2} = 0$. Stemmer!\n\nHeile prosessen kan oppsumerast i fire ord: prøv, del, løys, kontroller.",
+      "9506e2c9dae1523b": "Test deg sjølv på eit komplett døme:",
+      "54f03c9c11963150": "Du har utført polynomdivisjon og fått $(x^3 + 2x^2 - x - 2) : (x - 1) = x^2 + 3x + 2$. Kva er dei tre løysingane av $x^3 + 2x^2 - x - 2 = 0$?",
+      "2615533ba85a257e": "$x = 1, x = -1, x = 2$",
+      "4709b633b8db47c3": "$x = 1, x = -1, x = -2$",
+      "7c0b8f15ae6a0c74": "$x = -1, x = -2, x = -3$",
+      "85d24bef33aeb1fc": "Vi har allereie $x = 1$ frå divisjonen. Kvotienten $x^2 + 3x + 2 = (x + 1)(x + 2) = 0$ gir $x = -1$ og $x = -2$. Dei tre løysingane er $x = 1$, $x = -1$ og $x = -2$.",
+      "03c64dc441aa8560": "For $2x^3 - 3x^2 - 11x + 6 = 0$: ledande koeffisient er 2 og konstantledd er 6. Kva brøkverdiar bør du og prøva i tillegg til heiltal?",
+      "3cddf4321cd77c55": "$\\pm \\frac{1}{3}$ og $\\pm \\frac{1}{6}$",
+      "df08a8a4b1769541": "$\\pm \\frac{1}{2}$ og $\\pm \\frac{3}{2}$",
+      "dd268a5d731fc661": "Ingen brøkar trengs",
+      "5916bb97d84733bc": "$\\pm \\frac{2}{3}$ og $\\pm \\frac{2}{6}$",
+      "2530b84ce76536a2": "Den rasjonale-rot-teoremet seier at moglege rasjonale nullpunkt er $\\frac{p}{q}$ der $p$ deler konstantleddet (6) og $q$ deler ledande koeffisient (2). Brøkverdiane er $\\pm \\frac{1}{2}, \\pm \\frac{3}{2}$ (i tillegg til heiltala $\\pm 1, \\pm 2, \\pm 3, \\pm 6$).",
+      "3392e29dbf70019a": "For $2x^3 - 3x^2 - 11x + 6 = 0$ finn du at $x = 3$ er nullpunkt. Polynomdivisjon gir $2x^2 + 3x - 2$. Kva er dei andre løysingane?",
+      "2fcf40eca190b76b": "$x = 1$ og $x = -1$",
+      "a07586970f9cb006": "$x = \\frac{1}{2}$ og $x = -2$",
+      "03de293902d3843e": "$x = 2$ og $x = -\\frac{1}{2}$",
+      "4118821f11adb945": "$x = -1$ og $x = \\frac{3}{2}$",
+      "a7de409171098055": "Vi løyser $2x^2 + 3x - 2 = 0$. Faktorisering: $(2x - 1)(x + 2) = 0$, som gir $x = \\frac{1}{2}$ eller $x = -2$. Dei tre løysingane er $x = 3$, $x = \\frac{1}{2}$ og $x = -2$.",
+      "b69ef9bdfc1f44ab": "Kva er dei fire stega for å løysa ei polynomlikning av høgare grad?",
+      "43b5b0247da019a8": "Tegn, les av, avrund, skriv svar",
+      "a8a1395367227433": "Prøv, del, løys, kontroller",
+      "8c7f38d109040d76": "Flytt, forenkle, rekn ut, kontroller",
+      "d952c1bae34ed1da": "Faktoriser, set inn, forenkle, les av",
+      "1a49a883555247e6": "Dei fire stega er: (1) Prøv divisorar av konstantleddet for å finna eit nullpunkt. (2) Del polynomet med polynomdivisjon. (3) Løys den gjenverande likninga. (4) Kontroller alle løysingane ved innsetting.",
+      "79eeeec37aef74be": "Lytt til oppsummeringa",
+      "b409d1128419f9c6": "Lydfil som les opp samanfattinga.",
+      "ed8039ce21bebe5f": "## Samanfatting\n\nI dette kapitlet har vi lært ein systematisk metode for å løyse polynomlikningar av høgare grad enn andre. Nøkkelen er **faktorteoremet**: dersom $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nFor **tredjegradslikningar** prøver du divisorar av konstantleddet for å finne eit nullpunkt. Deretter utfører du polynomdivisjon for å redusere polynomet til ein andregradslikning, som du løyser med faktorisering, fullstendig kvadrat eller abc-formelen.\n\nFor **fjerdegradslikningar** har du to hovudstrategiar. Er likningen biquadratisk (berre partalspotensiar av $x$), bruker du substitusjon $u = x^2$ for å redusere til ein andregradslikning. Elles settast felles faktor utanfor, eller du finn nullpunkt og bruker polynomdivisjon gjentatte gonger til du kjem ned til andregradslikningar.\n\nSpesialtilfella $x^3 = a$ og $x^4 = a$ løysast direkte med $x = \\sqrt[3]{a}$ og $x = \\pm \\sqrt[4]{a}$. Hugs at ein tredjegradsligning har oppatt tre reelle løysingar, medan ein fjerdegradsligning kan ha oppatt fire. Nokre av desse kan vere doble nullpunkt. Og nokre gonger gir andregradslikningen du endar opp med negativ diskriminant, noko som betyr at det ikkje finst fleire reelle løysingar."
+    }
+  }
+}

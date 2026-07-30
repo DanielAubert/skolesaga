@@ -1,1 +1,291 @@
-{"id":"s2-7-2-narrativ","courseId":"s2","chapterNumber":"7.2","title":"Geometriske følger og rekker","subtitle":"Narrativ versjon","description":"En fortelling om kronen som dobles og tusenlappen som taper — om geometriske følger, vekstfaktorer og det elegante trikset som summerer eksponentiell vekst.","estimatedMinutes":35,"competenceGoals":["gjøre rede for begrepene rekker, konvergens og divergens, og bruke rekker i modellering","beregne summen av endelige aritmetiske og geometriske rekker og bruke dette i praktiske situasjoner"],"linkedChapterId":"s2-7-2","content":[{"id":"s2-7-2-n-intro","type":"text","content":"## Fra addisjon til multiplikasjon\n\nTenk deg at du får et valg: 1000 kroner ekstra i lommepenger hver måned i et år — eller én krone som dobles hver måned i samme periode. Mange velger tusenlappene. Men dobling er multiplikativ vekst, og den oppfører seg helt annerledes enn de jevne tilleggene fra forrige kapittel: $1, 2, 4, 8, \\ldots$ passerer tusenlappen alt i måned 11, og i måned 12 er du på 2048 kroner — for så å eksplodere videre om avtalen forlenges.\n\nI en aritmetisk følge *la vi til* et fast tall for å komme til neste ledd. I en **geometrisk følge** *multipliserer* vi i stedet med et fast tall. Det høres ut som en liten endring, men det er forskjellen på lineær og eksponentiell vekst — og det er nettopp geometriske følger som modellerer renter, lån og investeringer. Derfor er de helt sentrale i økonomien, og derfor er de helt sentrale i S2.\n\nI denne fortellingen lærer du å gjenkjenne geometriske følger, finne et vilkårlig ledd direkte, og summere mange ledd med ett elegant grep. Underveis møter du vekstfaktoren — broen mellom prosentregning og følgeteori."},{"id":"s2-7-2-n-section1","type":"text","content":"## Den geometriske følgen\n\nEn **geometrisk følge** er en tallfølge der forholdet (kvotienten) mellom hvert ledd og det foregående er konstant:\n\n$$\\frac{a_{n+1}}{a_n} = k \\quad \\text{for alle } n \\geq 1, \\ a_n \\neq 0$$\n\nKonstanten $k$ kalles den **faste kvotienten** eller fellesforholdet. Følgen $2, 6, 18, 54, \\ldots$ har $k = 3$; følgen $100, 50, 25, 12{,}5, \\ldots$ har $k = \\frac{1}{2}$; og følgen $1, -2, 4, -8, 16, \\ldots$ har faktisk $k = -2$ — kvotienten kan være negativ, og da veksler fortegnet.\n\nOgså her finnes en eksplisitt formel. Fra $a_1$ til $a_n$ multipliserer vi med $k$ nøyaktig $n-1$ ganger:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nLegg merke til slektskapet med eksponentiell vekst $f(x) = a \\cdot b^x$ — en geometrisk følge er rett og slett eksponentiell vekst i diskrete steg.\n\nEt eksempel: en geometrisk følge har $a_1 = 5$ og $k = 2$. Da er $a_n = 5 \\cdot 2^{n-1}$, og det tiende leddet blir $a_{10} = 5 \\cdot 2^9 = 5 \\cdot 512 = 2560$. Kontroll: de første leddene er $5, 10, 20, 40, 80, \\ldots$ — stemmer med formelen.\n\nI økonomiske sammenhenger er kvotienten ofte en **vekstfaktor**. Vokser noe med $p\\%$ per periode, er $k = 1 + \\frac{p}{100}$; minker det med $p\\%$, er $k = 1 - \\frac{p}{100}$. En investering som vokser 5 % per år har altså $k = 1{,}05$, og etter $n$ år er verdien $a_n = a_1 \\cdot 1{,}05^{n-1}$. Slik kobles prosentregningen du kan fra før, rett inn i følgenes verden."},{"id":"s2-7-2-n-quiz1","type":"exercise","exercise":{"id":"s2-7-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på geometriske følger og vekstfaktor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-2-n-quiz1-q0","task":"Hva kjennetegner en geometrisk følge?","options":[{"id":"a","text":"Differansen mellom påfølgende ledd er konstant","isCorrect":false},{"id":"b","text":"Alle leddene er positive","isCorrect":false},{"id":"c","text":"Forholdet mellom påfølgende ledd er konstant","isCorrect":true},{"id":"d","text":"Summen av leddene er alltid endelig","isCorrect":false}],"solution":"I en geometrisk følge er $\\frac{a_{n+1}}{a_n} = k$ konstant. Konstant differanse kjennetegner aritmetiske følger."},{"id":"s2-7-2-n-quiz1-q1","task":"En geometrisk følge har $a_1 = 5$ og $k = 2$. Hva er $a_{10}$?","options":[{"id":"a","text":"$2560$","isCorrect":true},{"id":"b","text":"$5120$","isCorrect":false},{"id":"c","text":"$1280$","isCorrect":false},{"id":"d","text":"$50$","isCorrect":false}],"solution":"$a_{10} = 5 \\cdot 2^{10-1} = 5 \\cdot 512 = 2560$."},{"id":"s2-7-2-n-quiz1-q2","task":"En vare synker 20 % i verdi hvert år. Hvilken vekstfaktor $k$ beskriver utviklingen?","options":[{"id":"a","text":"$k = 0{,}2$","isCorrect":false},{"id":"b","text":"$k = -0{,}2$","isCorrect":false},{"id":"c","text":"$k = 1{,}2$","isCorrect":false},{"id":"d","text":"$k = 0{,}8$","isCorrect":true}],"solution":"Reduksjon på $p\\%$ gir $k = 1 - \\frac{p}{100} = 1 - 0{,}20 = 0{,}8$."},{"id":"s2-7-2-n-quiz1-q3","task":"Hvilken følge har negativ kvotient?","options":[{"id":"a","text":"$100, 50, 25, 12{,}5, \\ldots$","isCorrect":false},{"id":"b","text":"$1, -2, 4, -8, \\ldots$","isCorrect":true},{"id":"c","text":"$2, 6, 18, 54, \\ldots$","isCorrect":false},{"id":"d","text":"$20, 17, 14, 11, \\ldots$","isCorrect":false}],"solution":"$\\frac{-2}{1} = \\frac{4}{-2} = -2$, så $k = -2$. Negativ kvotient gir vekslende fortegn. (Den siste følgen er aritmetisk.)"}]}},{"id":"s2-7-2-n-section2","type":"text","content":"## Summen — med et elegant triks\n\nNå vil vi summere: $S_n = a_1 + a_1k + a_1k^2 + \\cdots + a_1k^{n-1}$. Gauss' speilvendingstriks fra de aritmetiske rekkene fungerer ikke her — men det finnes et enda mer elegant grep. Multipliser hele summen med $k$:\n\n$$k \\cdot S_n = a_1k + a_1k^2 + \\cdots + a_1k^n$$\n\nSammenlign de to linjene: nesten alle ledd er felles! Trekker vi den første fra den andre, kansellerer alt unntatt ytterpunktene: $kS_n - S_n = a_1k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$. Dermed har vi, for $k \\neq 1$:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\nLa oss teste på følgen $3, 6, 12, 24, \\ldots$ med $a_1 = 3$ og $k = 2$. Summen av de åtte første leddene blir\n\n$$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot 255 = 765$$\n\nKontroll ved å summere for hånd: $3 + 6 + 12 + 24 + 48 + 96 + 192 + 384 = 765$. ✓\n\nEt praktisk eksempel fra biologien: en bakteriekultur dobler seg hver time, og starter med 500 bakterier. Antallet per time danner en geometrisk følge med $a_1 = 500$ og $k = 2$. Etter 10 timer er det $a_{10} = 500 \\cdot 2^9 = 256\\,000$ bakterier i kulturen — men hvor mange har *eksistert totalt* gjennom de ti timene? Det er en sum: $S_{10} = 500 \\cdot \\frac{2^{10} - 1}{2 - 1} = 500 \\cdot 1023 = 511\\,500$.\n\nGeometriske rekker er selve grunnmuren i finansmatematikken: **sammensatt rente** (innskudd som vokser med fast rentesats), **regelmessig sparing** (faste innskudd med renter blir en geometrisk rekke) og **avskrivning** (utstyr som taper fast prosent i verdi). Disse økonomiske anvendelsene utforsker vi grundig i kapittel 7.4."},{"id":"s2-7-2-n-quiz2","type":"exercise","exercise":{"id":"s2-7-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på summen av geometriske rekker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-2-n-quiz2-q0","task":"Hvilket triks gir sumformelen for en geometrisk rekke?","options":[{"id":"a","text":"Skrive summen baklengs og legge sammen","isCorrect":false},{"id":"b","text":"Derivere ledd for ledd","isCorrect":false},{"id":"c","text":"Ta logaritmen av hvert ledd","isCorrect":false},{"id":"d","text":"Multiplisere summen med $k$ og trekke fra, slik at nesten alle ledd kansellerer","isCorrect":true}],"solution":"$kS_n - S_n = a_1k^n - a_1$ fordi alle mellomleddene er felles. Det gir $S_n = a_1\\frac{k^n-1}{k-1}$."},{"id":"s2-7-2-n-quiz2-q1","task":"Hva er summen av de 8 første leddene i $3, 6, 12, 24, \\ldots$?","options":[{"id":"a","text":"$765$","isCorrect":true},{"id":"b","text":"$384$","isCorrect":false},{"id":"c","text":"$1530$","isCorrect":false},{"id":"d","text":"$255$","isCorrect":false}],"solution":"$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot 255 = 765$."},{"id":"s2-7-2-n-quiz2-q2","task":"En bakteriekultur starter med 500 bakterier og dobler seg hver time. Hvor mange bakterier har eksistert totalt i løpet av 10 timer?","options":[{"id":"a","text":"$256\\,000$","isCorrect":false},{"id":"b","text":"$511\\,500$","isCorrect":true},{"id":"c","text":"$512\\,000$","isCorrect":false},{"id":"d","text":"$1\\,023\\,000$","isCorrect":false}],"solution":"$S_{10} = 500 \\cdot \\frac{2^{10}-1}{2-1} = 500 \\cdot 1023 = 511\\,500$. ($256\\,000$ er bare antallet i time 10.)"},{"id":"s2-7-2-n-quiz2-q3","task":"Hvorfor krever sumformelen $S_n = a_1\\frac{k^n-1}{k-1}$ at $k \\neq 1$?","options":[{"id":"a","text":"Fordi følgen ikke finnes når $k = 1$","isCorrect":false},{"id":"b","text":"Fordi $k = 1$ gir negativ sum","isCorrect":false},{"id":"c","text":"Fordi nevneren $k - 1$ blir null; med $k = 1$ er summen i stedet $S_n = n \\cdot a_1$","isCorrect":true},{"id":"d","text":"Fordi $k = 1$ gir uendelig sum","isCorrect":false}],"solution":"Med $k = 1$ er alle leddene like $a_1$, så $S_n = n a_1$ — men formelen bryter sammen siden vi ikke kan dele på null."}]}},{"id":"s2-7-2-n-summary","type":"text","content":"## Oppsummering: multiplikasjonens kraft\n\nKrone-doblingen i starten var ikke noe triksespørsmål — den var en demonstrasjon av hvor fort multiplikativ vekst forbikjører additiv. En **geometrisk følge** har konstant kvotient $k = \\frac{a_{n+1}}{a_n}$, og det $n$-te leddet er $a_n = a_1 \\cdot k^{n-1}$ — eksponentiell vekst i diskrete steg. Summen av de $n$ første leddene fant vi med kanselleringstrikset:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1} \\qquad (k \\neq 1)$$\n\nBroen til økonomien heter **vekstfaktor**: vekst på $p\\%$ gir $k = 1 + \\frac{p}{100}$, reduksjon gir $k = 1 - \\frac{p}{100}$. Slik blir en investering med 5 % årlig avkastning en geometrisk følge med $k = 1{,}05$, og bakteriekulturen som dobler seg, en følge med $k = 2$.\n\nHold de to følgefamiliene fra hverandre: aritmetiske følger *legger til* en fast differanse $d$ og gir lineær vekst; geometriske følger *multipliserer* med en fast kvotient $k$ og gir eksponentiell vekst. Spør alltid: er det differansen eller forholdet som er konstant?\n\nTo spørsmål gjenstår. Hva skjer hvis vi summerer *uendelig* mange ledd — kan svaret bli endelig? Og hvordan brukes disse rekkene på ekte sparekontoer og boliglån? Det er de to neste fortellingene."}],"exercises":[]}
+{
+  "id": "s2-7-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "7.2",
+  "title": "Geometriske følger og rekker",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kronen som dobles og tusenlappen som taper — om geometriske følger, vekstfaktorer og det elegante trikset som summerer eksponentiell vekst.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "gjøre rede for begrepene rekker, konvergens og divergens, og bruke rekker i modellering",
+    "beregne summen av endelige aritmetiske og geometriske rekker og bruke dette i praktiske situasjoner"
+  ],
+  "linkedChapterId": "s2-7-2",
+  "content": [
+    {
+      "id": "s2-7-2-n-intro",
+      "type": "text",
+      "content": "## Fra addisjon til multiplikasjon\n\nTenk deg at du får et valg: 1000 kroner ekstra i lommepenger hver måned i et år — eller én krone som dobles hver måned i samme periode. Mange velger tusenlappene. Men dobling er multiplikativ vekst, og den oppfører seg helt annerledes enn de jevne tilleggene fra forrige kapittel: $1, 2, 4, 8, \\ldots$ passerer tusenlappen alt i måned 11, og i måned 12 er du på 2048 kroner — for så å eksplodere videre om avtalen forlenges.\n\nI en aritmetisk følge *la vi til* et fast tall for å komme til neste ledd. I en **geometrisk følge** *multipliserer* vi i stedet med et fast tall. Det høres ut som en liten endring, men det er forskjellen på lineær og eksponentiell vekst — og det er nettopp geometriske følger som modellerer renter, lån og investeringer. Derfor er de helt sentrale i økonomien, og derfor er de helt sentrale i S2.\n\nI denne fortellingen lærer du å gjenkjenne geometriske følger, finne et vilkårlig ledd direkte, og summere mange ledd med ett elegant grep. Underveis møter du vekstfaktoren — broen mellom prosentregning og følgeteori."
+    },
+    {
+      "id": "s2-7-2-n-section1",
+      "type": "text",
+      "content": "## Den geometriske følgen\n\nEn **geometrisk følge** er en tallfølge der forholdet (kvotienten) mellom hvert ledd og det foregående er konstant:\n\n$$\\frac{a_{n+1}}{a_n} = k \\quad \\text{for alle } n \\geq 1, \\ a_n \\neq 0$$\n\nKonstanten $k$ kalles den **faste kvotienten** eller fellesforholdet. Følgen $2, 6, 18, 54, \\ldots$ har $k = 3$; følgen $100, 50, 25, 12{,}5, \\ldots$ har $k = \\frac{1}{2}$; og følgen $1, -2, 4, -8, 16, \\ldots$ har faktisk $k = -2$ — kvotienten kan være negativ, og da veksler fortegnet.\n\nOgså her finnes en eksplisitt formel. Fra $a_1$ til $a_n$ multipliserer vi med $k$ nøyaktig $n-1$ ganger:\n\n$$a_n = a_1 \\cdot k^{n-1}$$\n\nLegg merke til slektskapet med eksponentiell vekst $f(x) = a \\cdot b^x$ — en geometrisk følge er rett og slett eksponentiell vekst i diskrete steg.\n\nEt eksempel: en geometrisk følge har $a_1 = 5$ og $k = 2$. Da er $a_n = 5 \\cdot 2^{n-1}$, og det tiende leddet blir $a_{10} = 5 \\cdot 2^9 = 5 \\cdot 512 = 2560$. Kontroll: de første leddene er $5, 10, 20, 40, 80, \\ldots$ — stemmer med formelen.\n\nI økonomiske sammenhenger er kvotienten ofte en **vekstfaktor**. Vokser noe med $p\\%$ per periode, er $k = 1 + \\frac{p}{100}$; minker det med $p\\%$, er $k = 1 - \\frac{p}{100}$. En investering som vokser 5 % per år har altså $k = 1{,}05$, og etter $n$ år er verdien $a_n = a_1 \\cdot 1{,}05^{n-1}$. Slik kobles prosentregningen du kan fra før, rett inn i følgenes verden."
+    },
+    {
+      "id": "s2-7-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på geometriske følger og vekstfaktor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-2-n-quiz1-q0",
+            "task": "Hva kjennetegner en geometrisk følge?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Differansen mellom påfølgende ledd er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alle leddene er positive",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Summen av leddene er alltid endelig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Forholdet mellom påfølgende ledd er konstant",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I en geometrisk følge er $\\frac{a_{n+1}}{a_n} = k$ konstant. Konstant differanse kjennetegner aritmetiske følger."
+          },
+          {
+            "id": "s2-7-2-n-quiz1-q1",
+            "task": "En geometrisk følge har $a_1 = 5$ og $k = 2$. Hva er $a_{10}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2560$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$5120$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1280$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$50$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{10} = 5 \\cdot 2^{10-1} = 5 \\cdot 512 = 2560$."
+          },
+          {
+            "id": "s2-7-2-n-quiz1-q2",
+            "task": "En vare synker 20 % i verdi hvert år. Hvilken vekstfaktor $k$ beskriver utviklingen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$k = 0{,}2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$k = 0{,}8$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$k = -0{,}2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$k = 1{,}2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Reduksjon på $p\\%$ gir $k = 1 - \\frac{p}{100} = 1 - 0{,}20 = 0{,}8$."
+          },
+          {
+            "id": "s2-7-2-n-quiz1-q3",
+            "task": "Hvilken følge har negativ kvotient?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$100, 50, 25, 12{,}5, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2, 6, 18, 54, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1, -2, 4, -8, \\ldots$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$20, 17, 14, 11, \\ldots$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{-2}{1} = \\frac{4}{-2} = -2$, så $k = -2$. Negativ kvotient gir vekslende fortegn. (Den siste følgen er aritmetisk.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-n-section2",
+      "type": "text",
+      "content": "## Summen — med et elegant triks\n\nNå vil vi summere: $S_n = a_1 + a_1k + a_1k^2 + \\cdots + a_1k^{n-1}$. Gauss' speilvendingstriks fra de aritmetiske rekkene fungerer ikke her — men det finnes et enda mer elegant grep. Multipliser hele summen med $k$:\n\n$$k \\cdot S_n = a_1k + a_1k^2 + \\cdots + a_1k^n$$\n\nSammenlign de to linjene: nesten alle ledd er felles! Trekker vi den første fra den andre, kansellerer alt unntatt ytterpunktene: $kS_n - S_n = a_1k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$. Dermed har vi, for $k \\neq 1$:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$$\n\nLa oss teste på følgen $3, 6, 12, 24, \\ldots$ med $a_1 = 3$ og $k = 2$. Summen av de åtte første leddene blir\n\n$$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot 255 = 765$$\n\nKontroll ved å summere for hånd: $3 + 6 + 12 + 24 + 48 + 96 + 192 + 384 = 765$. ✓\n\nEt praktisk eksempel fra biologien: en bakteriekultur dobler seg hver time, og starter med 500 bakterier. Antallet per time danner en geometrisk følge med $a_1 = 500$ og $k = 2$. Etter 10 timer er det $a_{10} = 500 \\cdot 2^9 = 256\\,000$ bakterier i kulturen — men hvor mange har *eksistert totalt* gjennom de ti timene? Det er en sum: $S_{10} = 500 \\cdot \\frac{2^{10} - 1}{2 - 1} = 500 \\cdot 1023 = 511\\,500$.\n\nGeometriske rekker er selve grunnmuren i finansmatematikken: **sammensatt rente** (innskudd som vokser med fast rentesats), **regelmessig sparing** (faste innskudd med renter blir en geometrisk rekke) og **avskrivning** (utstyr som taper fast prosent i verdi). Disse økonomiske anvendelsene utforsker vi grundig i kapittel 7.4."
+    },
+    {
+      "id": "s2-7-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på summen av geometriske rekker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-2-n-quiz2-q0",
+            "task": "Hvilket triks gir sumformelen for en geometrisk rekke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skrive summen baklengs og legge sammen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Derivere ledd for ledd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ta logaritmen av hvert ledd",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Multiplisere summen med $k$ og trekke fra, slik at nesten alle ledd kansellerer",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$kS_n - S_n = a_1k^n - a_1$ fordi alle mellomleddene er felles. Det gir $S_n = a_1\\frac{k^n-1}{k-1}$."
+          },
+          {
+            "id": "s2-7-2-n-quiz2-q1",
+            "task": "Hva er summen av de 8 første leddene i $3, 6, 12, 24, \\ldots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$765$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$384$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1530$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$255$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S_8 = 3 \\cdot \\frac{2^8 - 1}{2 - 1} = 3 \\cdot 255 = 765$."
+          },
+          {
+            "id": "s2-7-2-n-quiz2-q2",
+            "task": "En bakteriekultur starter med 500 bakterier og dobler seg hver time. Hvor mange bakterier har eksistert totalt i løpet av 10 timer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$256\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$511\\,500$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$512\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1\\,023\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S_{10} = 500 \\cdot \\frac{2^{10}-1}{2-1} = 500 \\cdot 1023 = 511\\,500$. ($256\\,000$ er bare antallet i time 10.)"
+          },
+          {
+            "id": "s2-7-2-n-quiz2-q3",
+            "task": "Hvorfor krever sumformelen $S_n = a_1\\frac{k^n-1}{k-1}$ at $k \\neq 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi følgen ikke finnes når $k = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $k = 1$ gir negativ sum",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi nevneren $k - 1$ blir null; med $k = 1$ er summen i stedet $S_n = n \\cdot a_1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi $k = 1$ gir uendelig sum",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $k = 1$ er alle leddene like $a_1$, så $S_n = n a_1$ — men formelen bryter sammen siden vi ikke kan dele på null."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: multiplikasjonens kraft\n\nKrone-doblingen i starten var ikke noe triksespørsmål — den var en demonstrasjon av hvor fort multiplikativ vekst forbikjører additiv. En **geometrisk følge** har konstant kvotient $k = \\frac{a_{n+1}}{a_n}$, og det $n$-te leddet er $a_n = a_1 \\cdot k^{n-1}$ — eksponentiell vekst i diskrete steg. Summen av de $n$ første leddene fant vi med kanselleringstrikset:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1} \\qquad (k \\neq 1)$$\n\nBroen til økonomien heter **vekstfaktor**: vekst på $p\\%$ gir $k = 1 + \\frac{p}{100}$, reduksjon gir $k = 1 - \\frac{p}{100}$. Slik blir en investering med 5 % årlig avkastning en geometrisk følge med $k = 1{,}05$, og bakteriekulturen som dobler seg, en følge med $k = 2$.\n\nHold de to følgefamiliene fra hverandre: aritmetiske følger *legger til* en fast differanse $d$ og gir lineær vekst; geometriske følger *multipliserer* med en fast kvotient $k$ og gir eksponentiell vekst. Spør alltid: er det differansen eller forholdet som er konstant?\n\nTo spørsmål gjenstår. Hva skjer hvis vi summerer *uendelig* mange ledd — kan svaret bli endelig? Og hvordan brukes disse rekkene på ekte sparekontoer og boliglån? Det er de to neste fortellingene."
+    }
+  ],
+  "exercises": []
+}

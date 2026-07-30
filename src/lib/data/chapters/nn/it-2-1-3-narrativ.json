@@ -1,1 +1,423 @@
-{"id":"it-2-1-3-narrativ","courseId":"it-2","chapterNumber":"3","title":"Innkapsling og tilgangskontroll","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi vernar dataa i klassane våre – frå det farlege problemet med opne attributt til elegante properties som validerer alt som slepp inn.","estimatedMinutes":38,"competenceGoals":["Forstå innkapsling og information hiding","Bruke private attributt, getter og setter","Bruke @property og @setter for kontrollert tilgang"],"linkedChapterId":"it-2-1-3","content":[{"id":"it-2-1-3-n-intro","type":"text","content":"## Når nokon kan tømme bankkontoen din\n\nDu har lært å lage klassar med attributt og metodar. Men det låg ei bombe under det heile: alle attributta var direkte tilgjengelege utanfrå. Førestill deg ein bankkonto der kven som helst kan skrive `konto.saldo = -1000000` og dermed øydeleggje heile logikken. Metoden `ta_ut`, som du skreiv så omhugsamt for å sjekke om det var nok pengar, blir plutseleg meiningslaus – saldoen kan jo berre overstyrast.\n\nLøysinga heiter **innkapsling**: prinsippet om å skjule intern data og berre eksponere det som er nødvendig. Dette er ein av dei fire grunnpilarane i OOP, saman med arv, polymorfisme og abstraksjon. Innkapsling betyr å pakke data og metodar saman i ein klasse og samtidig skjule den interne implementasjonen frå omverda.\n\nFormålet er firedelt: vi vil **verne data** mot ugyldig tilgang, **kontrollere endringar** ved å validere før vi lagrar, **skjule kompleksitet** så brukaren slepp å vite korleis ting fungerer internt, og gjere **vedlikehald enklare** ved at vi kan endre intern logikk utan å bryte ekstern kode."},{"id":"it-2-1-3-n-section1","type":"text","content":"## Private attributt, getter og setter\n\nI Python markerer vi tilgangsnivå med understrekar framfor namnet. `self.navn` er **offentleg** og kan aksesserast kvar som helst. `self._navn` med éin understrek er **verna** – ein konvensjon som seier «intern bruk, ikkje rør». `self.__navn` med to understrekar er **privat**, og Python utfører såkalla name mangling som gjer det vanskeleg å nå utanfrå. Men merk deg: Python har ikkje ekte private attributt slik Java og C++ har. Dette er konvensjonar og hindringar, ikkje jernlås. Pythons filosofi er «we're all consenting adults here» – vi stolar på at utviklarar respekterer konvensjonane.\n\nMed eit privat attributt vernar vi saldoen og tvingar fram bruk av metodar som validerer:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, saldo=0):\n        self.kontonummer = kontonummer\n        self.__saldo = saldo  # privat\n\n    def hent_saldo(self):\n        return self.__saldo\n\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.__saldo += belop\n\n    def ta_ut(self, belop):\n        if 0 < belop <= self.__saldo:\n            self.__saldo -= belop\n```\n\nMetoden `hent_saldo` blir kalla ein **getter** – han hentar verdien. Metodar som `sett_inn` og `ta_ut`, som endrar verdien med validering, fungerer som **settere**. No kan ingen setje saldoen til ein ugyldig verdi direkte; dei må gå gjennom dei validerte metodane."},{"id":"it-2-1-3-n-quiz1","type":"exercise","exercise":{"id":"it-2-1-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på innkapsling og private attributt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-3-n-quiz1-q0","task":"Kva attributt blir rekna som privat i Python-konvensjonen?","options":[{"id":"a","text":"self.navn","isCorrect":false},{"id":"b","text":"self._alder","isCorrect":false},{"id":"c","text":"self.__passord","isCorrect":true},{"id":"d","text":"self.KONSTANT","isCorrect":false}],"solution":"To understrekar (__passord) markerer privat. Éin understrek er verna (konvensjon), og utan understrek er det offentleg."},{"id":"it-2-1-3-n-quiz1-q1","task":"Kva er hovudformålet med innkapsling?","options":[{"id":"a","text":"Å gjere programmet raskare","isCorrect":false},{"id":"b","text":"Å fjerne behovet for metodar","isCorrect":false},{"id":"c","text":"Å gjere alle attributt offentlege","isCorrect":false},{"id":"d","text":"Å verne data og kontrollere tilgangen til dei","isCorrect":true}],"solution":"Innkapsling skjuler intern data og kontrollerer tilgangen, slik at dataa blir verna mot ugyldige endringar."},{"id":"it-2-1-3-n-quiz1-q2","task":"Har Python ekte private attributt slik som Java?","options":[{"id":"a","text":"Nei, det er konvensjonar og name mangling, men ikkje ein jernlås","isCorrect":true},{"id":"b","text":"Ja, doble understrekar gjer attributtet heilt utilgjengeleg","isCorrect":false},{"id":"c","text":"Ja, men berre for tal","isCorrect":false},{"id":"d","text":"Nei, Python har ingen måte å skjule attributt på","isCorrect":false}],"solution":"Python bruker name mangling (__x blir _Klasse__x), men attributtet kan framleis nåast. Det er ei hindring, ikkje ekte privatheit."}]}},{"id":"it-2-1-3-n-section2","type":"text","content":"## Properties – den pythoniske eleganzen\n\nÅ skrive `konto.hent_saldo()` kvar gong kjennest tungvint. Python har ei mykje meir elegant løysing: **properties**. Ein property gjer at ein metode oppfører seg som eit attributt. Vi bruker dekoratoren `@property` for getteren og `@attributt.setter` for setteren:\n\n```python\n    @property\n    def saldo(self):\n        return self.__saldo\n\n    @saldo.setter\n    def saldo(self, verdi):\n        if verdi >= 0:\n            self.__saldo = verdi\n        else:\n            raise ValueError(\"Saldo kan ikke være negativ\")\n```\n\nNo skriv brukaren `konto.saldo` for å lese og `konto.saldo = 1500` for å setje – det ser ut som vanleg attributt-tilgang, men bak kulissane køyrer validering. Det er det finaste med properties: enkel syntaks utetter, full kontroll inni.\n\nProperties er òg perfekte for **berekna verdiar** som ikkje blir lagra, men reknast ut når du treng dei. Ein `Person` med `fornavn` og `etternavn` kan ha ein property `fullt_navn` som returnerer `f\"{self.fornavn} {self.etternavn}\"`. Endrar du fornamnet, blir det fulle namnet oppdatert automatisk neste gong du les det – fordi det aldri blei lagra, berre berekna. Vil du derimot ha eit **read-only**-attributt som kan lesast men ikkje endrast utanfrå, lagar du berre ein getter utan setter. Eit produkts `antall_solgt` kan då berre aukast gjennom ein `selg`-metode, aldri setjast direkte."},{"id":"it-2-1-3-n-quiz2","type":"exercise","exercise":{"id":"it-2-1-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på properties:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-3-n-quiz2-q0","task":"Kva er fordelen med @property framfor ein vanleg hent_saldo()-metode?","options":[{"id":"a","text":"Han køyrer alltid raskare","isCorrect":false},{"id":"b","text":"Han gjev attributt-liknande syntaks med validering bak kulissane","isCorrect":true},{"id":"c","text":"Han gjer attributtet umogleg å lese","isCorrect":false},{"id":"d","text":"Han fjernar behovet for self","isCorrect":false}],"solution":"@property gjev elegant syntaks (konto.saldo) samtidig som ein kan validere og kontrollere i bakgrunnen."},{"id":"it-2-1-3-n-quiz2-q1","task":"Korleis lagar du eit read-only-attributt med property?","options":[{"id":"a","text":"Ved å bruke to settere","isCorrect":false},{"id":"b","text":"Ved å fjerne __init__","isCorrect":false},{"id":"c","text":"Ved å lage ein getter utan setter","isCorrect":true},{"id":"d","text":"Ved å bruke @public","isCorrect":false}],"solution":"Ein property med berre getter (ingen @x.setter) kan lesast, men ikkje endrast utanfrå."},{"id":"it-2-1-3-n-quiz2-q2","task":"Kva kjenneteiknar ein berekna property som fullt_navn?","options":[{"id":"a","text":"Han blir lagra som eige attributt i __init__","isCorrect":false},{"id":"b","text":"Han kan ikkje lesast meir enn éin gong","isCorrect":false},{"id":"c","text":"Han krev ein database","isCorrect":false},{"id":"d","text":"Han reknast ut on-the-fly frå andre attributt, og blir ikkje lagra","isCorrect":true}],"solution":"Ein berekna property reknast ut frå andre attributt kvar gong han blir lesen, så han held seg automatisk oppdatert."}]}},{"id":"it-2-1-3-n-section3","type":"text","content":"## Information hiding – og når du faktisk treng det\n\n**Information hiding** handlar ikkje om å vere hemmelegheitsfull. Det handlar om fire praktiske gevinstar. Det **reduserer kompleksitet**, fordi brukaren slepp å vite korleis saldo blir lagra internt. Det **hindrar feil**, fordi ingen ved eit uhell kan setje ein ugyldig verdi. Det **gjer endringar mogleg**: du kan byte intern representasjon – til dømes lagre saldo i øre i staden for kroner for betre presisjon – utan at koden som bruker klassen merkar noko, så lenge getteren returnerer kroner. Og det **tvingar rett bruk** av API-et, fordi private attributt krev at brukarar går via dine validerte metodar. Merk at information hiding handlar om design og vedlikehald, ikkje om fart – properties kan til og med ha litt overhead.\n\nMen ikkje alle klassar treng streng innkapsling. Bruk private attributt når attributtet må validerast, når det inngår i berekningar som må vere konsistente, når du vil reservere retten til å endre intern representasjon, eller når det er kritisk for objektets integritet. Offentlege attributt er heilt greitt for enkle data utan logikk, som koordinatar `x` og `y`, for reine datastrukturar, og for intern kode som ingen andre skal bruke. Ein god tommelfingerregel: start enkelt med offentlege attributt, og gjer dei private med properties først når du faktisk treng validering eller kontroll."},{"id":"it-2-1-3-n-quiz3","type":"exercise","exercise":{"id":"it-2-1-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på information hiding:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-3-n-quiz3-q0","task":"Kva er IKKJE ein fordel med information hiding?","options":[{"id":"a","text":"Gjer koden raskare å køyre","isCorrect":true},{"id":"b","text":"Lettare å endre intern implementasjon seinare","isCorrect":false},{"id":"c","text":"Hindrar ugyldige verdiar","isCorrect":false},{"id":"d","text":"Reduserer kompleksiteten brukaren ser","isCorrect":false}],"solution":"Information hiding handlar om struktur og vedlikehald, ikkje yting. Det gjer ikkje koden raskare."},{"id":"it-2-1-3-n-quiz3-q1","task":"Når er offentlege attributt heilt greitt?","options":[{"id":"a","text":"Aldri","isCorrect":false},{"id":"b","text":"For enkle data utan logikk, som koordinatar x og y","isCorrect":true},{"id":"c","text":"Berre for bankkontoar","isCorrect":false},{"id":"d","text":"Berre når klassen har arv","isCorrect":false}],"solution":"Enkle datafelt utan valideringsbehov, som koordinatar, kan trygt vere offentlege."},{"id":"it-2-1-3-n-quiz3-q2","task":"Viss du byter intern lagring frå kroner til øre, kva må halde seg likt for brukaren?","options":[{"id":"a","text":"Det private attributtnamnet","isCorrect":false},{"id":"b","text":"Talet på metodar i klassen","isCorrect":false},{"id":"c","text":"API-et – det getteren returnerer (kroner)","isCorrect":true},{"id":"d","text":"Rekkjefølgja på attributta","isCorrect":false}],"solution":"Så lenge getteren framleis returnerer kroner, merkar brukaren ingen skilnad sjølv om intern lagring blir endra til øre."}]}},{"id":"it-2-1-3-n-summary","type":"text","content":"## Oppsummering\n\nVi starta med ein bankkonto kven som helst kunne tømme, og enda med full kontroll over dataa. **Innkapsling** betyr å skjule intern data og styre tilgangen. Private attributt blir markerte med `__attributt`, verna med `_attributt`, medan offentlege attributt står utan understrek. **Getter** og **setter** er metodar som les og endrar private attributt, gjerne med validering.\n\nDet pythoniske grepet er **@property**, som gjev elegant attributt-syntaks utetter og full kontroll inni, og **@attributt.setter** for å definere setteren. Properties eignar seg òg for berekna verdiar og for read-only-attributt utan setter. Bak alt ligg **information hiding** – idéen om at å skjule interne detaljar gjev enklare vedlikehald, færre feil og fridom til å endre. Men hugs: ikkje alt treng innkapsling. Start enkelt, og lås ned først når du faktisk treng validering. I neste kapittel skal vi sjå på arv – korleis klassar kan byggje vidare på kvarandre."}],"exercises":[],"_meta":{"sourceHash":"bbd34b0410a851dd","translatedAt":"2026-06-20T23:59:44.535Z","model":"claude-code-agent","strings":71,"tm":{"8816a60d7583e1f2":"Innkapsling og tilgangskontroll","b195b06d1ed59702":"Narrativ versjon","ca89c1904beb12d8":"Ei forteljing om korleis vi vernar dataa i klassane våre – frå det farlege problemet med opne attributt til elegante properties som validerer alt som slepp inn.","6ca6b84d49ce9da6":"Forstå innkapsling og information hiding","4793e021cc0aed4d":"Bruke private attributt, getter og setter","bc0e577d67ffb372":"Bruke @property og @setter for kontrollert tilgang","372ba6b39c086004":"## Når nokon kan tømme bankkontoen din\n\nDu har lært å lage klassar med attributt og metodar. Men det låg ei bombe under det heile: alle attributta var direkte tilgjengelege utanfrå. Førestill deg ein bankkonto der kven som helst kan skrive `konto.saldo = -1000000` og dermed øydeleggje heile logikken. Metoden `ta_ut`, som du skreiv så omhugsamt for å sjekke om det var nok pengar, blir plutseleg meiningslaus – saldoen kan jo berre overstyrast.\n\nLøysinga heiter **innkapsling**: prinsippet om å skjule intern data og berre eksponere det som er nødvendig. Dette er ein av dei fire grunnpilarane i OOP, saman med arv, polymorfisme og abstraksjon. Innkapsling betyr å pakke data og metodar saman i ein klasse og samtidig skjule den interne implementasjonen frå omverda.\n\nFormålet er firedelt: vi vil **verne data** mot ugyldig tilgang, **kontrollere endringar** ved å validere før vi lagrar, **skjule kompleksitet** så brukaren slepp å vite korleis ting fungerer internt, og gjere **vedlikehald enklare** ved at vi kan endre intern logikk utan å bryte ekstern kode.","6ed4620961435a05":"## Private attributt, getter og setter\n\nI Python markerer vi tilgangsnivå med understrekar framfor namnet. `self.navn` er **offentleg** og kan aksesserast kvar som helst. `self._navn` med éin understrek er **verna** – ein konvensjon som seier «intern bruk, ikkje rør». `self.__navn` med to understrekar er **privat**, og Python utfører såkalla name mangling som gjer det vanskeleg å nå utanfrå. Men merk deg: Python har ikkje ekte private attributt slik Java og C++ har. Dette er konvensjonar og hindringar, ikkje jernlås. Pythons filosofi er «we're all consenting adults here» – vi stolar på at utviklarar respekterer konvensjonane.\n\nMed eit privat attributt vernar vi saldoen og tvingar fram bruk av metodar som validerer:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, saldo=0):\n        self.kontonummer = kontonummer\n        self.__saldo = saldo  # privat\n\n    def hent_saldo(self):\n        return self.__saldo\n\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.__saldo += belop\n\n    def ta_ut(self, belop):\n        if 0 < belop <= self.__saldo:\n            self.__saldo -= belop\n```\n\nMetoden `hent_saldo` blir kalla ein **getter** – han hentar verdien. Metodar som `sett_inn` og `ta_ut`, som endrar verdien med validering, fungerer som **settere**. No kan ingen setje saldoen til ein ugyldig verdi direkte; dei må gå gjennom dei validerte metodane.","09a0f3695fd98637":"Test deg sjølv på innkapsling og private attributt:","4097889236a2af26":"placeholder","977429166e8f7b1f":"Kva attributt blir rekna som privat i Python-konvensjonen?","ec6c80b80cf57646":"self.navn","107db365625e52ec":"self._alder","2fbd80441a250407":"self.__passord","89c89663c9ddca5a":"self.KONSTANT","9969be70e418d0e6":"To understrekar (__passord) markerer privat. Éin understrek er verna (konvensjon), og utan understrek er det offentleg.","64d3215755f6a0d2":"Kva er hovudformålet med innkapsling?","843f76ba6eb3e628":"Å gjere programmet raskare","c05cb4bb36a0b297":"Å fjerne behovet for metodar","26e42e2b5c6f5f02":"Å gjere alle attributt offentlege","a0529549725a2ec8":"Å verne data og kontrollere tilgangen til dei","61a1e7b0d2453508":"Innkapsling skjuler intern data og kontrollerer tilgangen, slik at dataa blir verna mot ugyldige endringar.","c51bdb0019526f41":"Har Python ekte private attributt slik som Java?","1867230075e30cd2":"Nei, det er konvensjonar og name mangling, men ikkje ein jernlås","b595ca8f122f841b":"Ja, doble understrekar gjer attributtet heilt utilgjengeleg","f8e374219bc72c87":"Ja, men berre for tal","159c3010fdd6c429":"Nei, Python har ingen måte å skjule attributt på","7b34b42f156e5033":"Python bruker name mangling (__x blir _Klasse__x), men attributtet kan framleis nåast. Det er ei hindring, ikkje ekte privatheit.","555a49b0097898d7":"## Properties – den pythoniske eleganzen\n\nÅ skrive `konto.hent_saldo()` kvar gong kjennest tungvint. Python har ei mykje meir elegant løysing: **properties**. Ein property gjer at ein metode oppfører seg som eit attributt. Vi bruker dekoratoren `@property` for getteren og `@attributt.setter` for setteren:\n\n```python\n    @property\n    def saldo(self):\n        return self.__saldo\n\n    @saldo.setter\n    def saldo(self, verdi):\n        if verdi >= 0:\n            self.__saldo = verdi\n        else:\n            raise ValueError(\"Saldo kan ikke være negativ\")\n```\n\nNo skriv brukaren `konto.saldo` for å lese og `konto.saldo = 1500` for å setje – det ser ut som vanleg attributt-tilgang, men bak kulissane køyrer validering. Det er det finaste med properties: enkel syntaks utetter, full kontroll inni.\n\nProperties er òg perfekte for **berekna verdiar** som ikkje blir lagra, men reknast ut når du treng dei. Ein `Person` med `fornavn` og `etternavn` kan ha ein property `fullt_navn` som returnerer `f\"{self.fornavn} {self.etternavn}\"`. Endrar du fornamnet, blir det fulle namnet oppdatert automatisk neste gong du les det – fordi det aldri blei lagra, berre berekna. Vil du derimot ha eit **read-only**-attributt som kan lesast men ikkje endrast utanfrå, lagar du berre ein getter utan setter. Eit produkts `antall_solgt` kan då berre aukast gjennom ein `selg`-metode, aldri setjast direkte.","769b62c7f1f49ebf":"Test deg sjølv på properties:","3ea3d644dcfeae95":"Kva er fordelen med @property framfor ein vanleg hent_saldo()-metode?","b0131fe4f9148da0":"Han køyrer alltid raskare","8040990303f0309e":"Han gjev attributt-liknande syntaks med validering bak kulissane","5ab15f8773a345bd":"Han gjer attributtet umogleg å lese","94bcf93bdbfdc3fd":"Han fjernar behovet for self","608b856a2a9c18bf":"@property gjev elegant syntaks (konto.saldo) samtidig som ein kan validere og kontrollere i bakgrunnen.","1e5440fd1ba87c83":"Korleis lagar du eit read-only-attributt med property?","1b85746ee9aa9940":"Ved å bruke to settere","64ef9b47ac8980c9":"Ved å fjerne __init__","b4573c885ad58751":"Ved å lage ein getter utan setter","fb53072190bde26c":"Ved å bruke @public","9b5527566e498606":"Ein property med berre getter (ingen @x.setter) kan lesast, men ikkje endrast utanfrå.","769beaa05ee2ea66":"Kva kjenneteiknar ein berekna property som fullt_navn?","ac1dc0904365b651":"Han blir lagra som eige attributt i __init__","2d0c51f21f0db20e":"Han kan ikkje lesast meir enn éin gong","a1a5a0d153c55509":"Han krev ein database","3460a2428411ea8f":"Han reknast ut on-the-fly frå andre attributt, og blir ikkje lagra","108b5d6f89bd6a5b":"Ein berekna property reknast ut frå andre attributt kvar gong han blir lesen, så han held seg automatisk oppdatert.","0ecb45d3a3786e8d":"## Information hiding – og når du faktisk treng det\n\n**Information hiding** handlar ikkje om å vere hemmelegheitsfull. Det handlar om fire praktiske gevinstar. Det **reduserer kompleksitet**, fordi brukaren slepp å vite korleis saldo blir lagra internt. Det **hindrar feil**, fordi ingen ved eit uhell kan setje ein ugyldig verdi. Det **gjer endringar mogleg**: du kan byte intern representasjon – til dømes lagre saldo i øre i staden for kroner for betre presisjon – utan at koden som bruker klassen merkar noko, så lenge getteren returnerer kroner. Og det **tvingar rett bruk** av API-et, fordi private attributt krev at brukarar går via dine validerte metodar. Merk at information hiding handlar om design og vedlikehald, ikkje om fart – properties kan til og med ha litt overhead.\n\nMen ikkje alle klassar treng streng innkapsling. Bruk private attributt når attributtet må validerast, når det inngår i berekningar som må vere konsistente, når du vil reservere retten til å endre intern representasjon, eller når det er kritisk for objektets integritet. Offentlege attributt er heilt greitt for enkle data utan logikk, som koordinatar `x` og `y`, for reine datastrukturar, og for intern kode som ingen andre skal bruke. Ein god tommelfingerregel: start enkelt med offentlege attributt, og gjer dei private med properties først når du faktisk treng validering eller kontroll.","95cf98eae17ce7b1":"Test deg sjølv på information hiding:","3bb062a96ed6b2fd":"Kva er IKKJE ein fordel med information hiding?","a13cb863ea4afe19":"Gjer koden raskare å køyre","0e518e1c7d972663":"Lettare å endre intern implementasjon seinare","4addc38c883b317a":"Hindrar ugyldige verdiar","3b9e39b54acb39b5":"Reduserer kompleksiteten brukaren ser","50adf1bdadc097de":"Information hiding handlar om struktur og vedlikehald, ikkje yting. Det gjer ikkje koden raskare.","6a64e1b6c54024a5":"Når er offentlege attributt heilt greitt?","72816c36bd404a80":"Aldri","19fe1f5115506f08":"For enkle data utan logikk, som koordinatar x og y","6063e179f7279eba":"Berre for bankkontoar","6af454374f57f765":"Berre når klassen har arv","02e83f343702b323":"Enkle datafelt utan valideringsbehov, som koordinatar, kan trygt vere offentlege.","4924db1ef7c89045":"Viss du byter intern lagring frå kroner til øre, kva må halde seg likt for brukaren?","30a6b611d4ac702f":"Det private attributtnamnet","ae9e2d143714a803":"Talet på metodar i klassen","a33d7673a2f99796":"API-et – det getteren returnerer (kroner)","a6c9ea7ba9614c74":"Rekkjefølgja på attributta","9aec45f1aec1ad16":"Så lenge getteren framleis returnerer kroner, merkar brukaren ingen skilnad sjølv om intern lagring blir endra til øre.","85b42876874d0252":"## Oppsummering\n\nVi starta med ein bankkonto kven som helst kunne tømme, og enda med full kontroll over dataa. **Innkapsling** betyr å skjule intern data og styre tilgangen. Private attributt blir markerte med `__attributt`, verna med `_attributt`, medan offentlege attributt står utan understrek. **Getter** og **setter** er metodar som les og endrar private attributt, gjerne med validering.\n\nDet pythoniske grepet er **@property**, som gjev elegant attributt-syntaks utetter og full kontroll inni, og **@attributt.setter** for å definere setteren. Properties eignar seg òg for berekna verdiar og for read-only-attributt utan setter. Bak alt ligg **information hiding** – idéen om at å skjule interne detaljar gjev enklare vedlikehald, færre feil og fridom til å endre. Men hugs: ikkje alt treng innkapsling. Start enkelt, og lås ned først når du faktisk treng validering. I neste kapittel skal vi sjå på arv – korleis klassar kan byggje vidare på kvarandre."}}}
+{
+  "id": "it-2-1-3-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "3",
+  "title": "Innkapsling og tilgangskontroll",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi vernar dataa i klassane våre – frå det farlege problemet med opne attributt til elegante properties som validerer alt som slepp inn.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "Forstå innkapsling og information hiding",
+    "Bruke private attributt, getter og setter",
+    "Bruke @property og @setter for kontrollert tilgang"
+  ],
+  "linkedChapterId": "it-2-1-3",
+  "content": [
+    {
+      "id": "it-2-1-3-n-intro",
+      "type": "text",
+      "content": "## Når nokon kan tømme bankkontoen din\n\nDu har lært å lage klassar med attributt og metodar. Men det låg ei bombe under det heile: alle attributta var direkte tilgjengelege utanfrå. Førestill deg ein bankkonto der kven som helst kan skrive `konto.saldo = -1000000` og dermed øydeleggje heile logikken. Metoden `ta_ut`, som du skreiv så omhugsamt for å sjekke om det var nok pengar, blir plutseleg meiningslaus – saldoen kan jo berre overstyrast.\n\nLøysinga heiter **innkapsling**: prinsippet om å skjule intern data og berre eksponere det som er nødvendig. Dette er ein av dei fire grunnpilarane i OOP, saman med arv, polymorfisme og abstraksjon. Innkapsling betyr å pakke data og metodar saman i ein klasse og samtidig skjule den interne implementasjonen frå omverda.\n\nFormålet er firedelt: vi vil **verne data** mot ugyldig tilgang, **kontrollere endringar** ved å validere før vi lagrar, **skjule kompleksitet** så brukaren slepp å vite korleis ting fungerer internt, og gjere **vedlikehald enklare** ved at vi kan endre intern logikk utan å bryte ekstern kode."
+    },
+    {
+      "id": "it-2-1-3-n-section1",
+      "type": "text",
+      "content": "## Private attributt, getter og setter\n\nI Python markerer vi tilgangsnivå med understrekar framfor namnet. `self.navn` er **offentleg** og kan aksesserast kvar som helst. `self._navn` med éin understrek er **verna** – ein konvensjon som seier «intern bruk, ikkje rør». `self.__navn` med to understrekar er **privat**, og Python utfører såkalla name mangling som gjer det vanskeleg å nå utanfrå. Men merk deg: Python har ikkje ekte private attributt slik Java og C++ har. Dette er konvensjonar og hindringar, ikkje jernlås. Pythons filosofi er «we're all consenting adults here» – vi stolar på at utviklarar respekterer konvensjonane.\n\nMed eit privat attributt vernar vi saldoen og tvingar fram bruk av metodar som validerer:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, saldo=0):\n        self.kontonummer = kontonummer\n        self.__saldo = saldo  # privat\n\n    def hent_saldo(self):\n        return self.__saldo\n\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.__saldo += belop\n\n    def ta_ut(self, belop):\n        if 0 < belop <= self.__saldo:\n            self.__saldo -= belop\n```\n\nMetoden `hent_saldo` blir kalla ein **getter** – han hentar verdien. Metodar som `sett_inn` og `ta_ut`, som endrar verdien med validering, fungerer som **settere**. No kan ingen setje saldoen til ein ugyldig verdi direkte; dei må gå gjennom dei validerte metodane."
+    },
+    {
+      "id": "it-2-1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på innkapsling og private attributt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-3-n-quiz1-q0",
+            "task": "Kva attributt blir rekna som privat i Python-konvensjonen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "self.navn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "self.__passord",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "self._alder",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "self.KONSTANT",
+                "isCorrect": false
+              }
+            ],
+            "solution": "To understrekar (__passord) markerer privat. Éin understrek er verna (konvensjon), og utan understrek er det offentleg."
+          },
+          {
+            "id": "it-2-1-3-n-quiz1-q1",
+            "task": "Kva er hovudformålet med innkapsling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gjere programmet raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å fjerne behovet for metodar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å verne data og kontrollere tilgangen til dei",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å gjere alle attributt offentlege",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Innkapsling skjuler intern data og kontrollerer tilgangen, slik at dataa blir verna mot ugyldige endringar."
+          },
+          {
+            "id": "it-2-1-3-n-quiz1-q2",
+            "task": "Har Python ekte private attributt slik som Java?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ja, doble understrekar gjer attributtet heilt utilgjengeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ja, men berre for tal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei, Python har ingen måte å skjule attributt på",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Nei, det er konvensjonar og name mangling, men ikkje ein jernlås",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Python bruker name mangling (__x blir _Klasse__x), men attributtet kan framleis nåast. Det er ei hindring, ikkje ekte privatheit."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-3-n-section2",
+      "type": "text",
+      "content": "## Properties – den pythoniske eleganzen\n\nÅ skrive `konto.hent_saldo()` kvar gong kjennest tungvint. Python har ei mykje meir elegant løysing: **properties**. Ein property gjer at ein metode oppfører seg som eit attributt. Vi bruker dekoratoren `@property` for getteren og `@attributt.setter` for setteren:\n\n```python\n    @property\n    def saldo(self):\n        return self.__saldo\n\n    @saldo.setter\n    def saldo(self, verdi):\n        if verdi >= 0:\n            self.__saldo = verdi\n        else:\n            raise ValueError(\"Saldo kan ikke være negativ\")\n```\n\nNo skriv brukaren `konto.saldo` for å lese og `konto.saldo = 1500` for å setje – det ser ut som vanleg attributt-tilgang, men bak kulissane køyrer validering. Det er det finaste med properties: enkel syntaks utetter, full kontroll inni.\n\nProperties er òg perfekte for **berekna verdiar** som ikkje blir lagra, men reknast ut når du treng dei. Ein `Person` med `fornavn` og `etternavn` kan ha ein property `fullt_navn` som returnerer `f\"{self.fornavn} {self.etternavn}\"`. Endrar du fornamnet, blir det fulle namnet oppdatert automatisk neste gong du les det – fordi det aldri blei lagra, berre berekna. Vil du derimot ha eit **read-only**-attributt som kan lesast men ikkje endrast utanfrå, lagar du berre ein getter utan setter. Eit produkts `antall_solgt` kan då berre aukast gjennom ein `selg`-metode, aldri setjast direkte."
+    },
+    {
+      "id": "it-2-1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på properties:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-3-n-quiz2-q0",
+            "task": "Kva er fordelen med @property framfor ein vanleg hent_saldo()-metode?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han gjev attributt-liknande syntaks med validering bak kulissane",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Han køyrer alltid raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han gjer attributtet umogleg å lese",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han fjernar behovet for self",
+                "isCorrect": false
+              }
+            ],
+            "solution": "@property gjev elegant syntaks (konto.saldo) samtidig som ein kan validere og kontrollere i bakgrunnen."
+          },
+          {
+            "id": "it-2-1-3-n-quiz2-q1",
+            "task": "Korleis lagar du eit read-only-attributt med property?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ved å bruke to settere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ved å lage ein getter utan setter",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ved å fjerne __init__",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ved å bruke @public",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein property med berre getter (ingen @x.setter) kan lesast, men ikkje endrast utanfrå."
+          },
+          {
+            "id": "it-2-1-3-n-quiz2-q2",
+            "task": "Kva kjenneteiknar ein berekna property som fullt_navn?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han blir lagra som eige attributt i __init__",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han kan ikkje lesast meir enn éin gong",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han reknast ut on-the-fly frå andre attributt, og blir ikkje lagra",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han krev ein database",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein berekna property reknast ut frå andre attributt kvar gong han blir lesen, så han held seg automatisk oppdatert."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-3-n-section3",
+      "type": "text",
+      "content": "## Information hiding – og når du faktisk treng det\n\n**Information hiding** handlar ikkje om å vere hemmelegheitsfull. Det handlar om fire praktiske gevinstar. Det **reduserer kompleksitet**, fordi brukaren slepp å vite korleis saldo blir lagra internt. Det **hindrar feil**, fordi ingen ved eit uhell kan setje ein ugyldig verdi. Det **gjer endringar mogleg**: du kan byte intern representasjon – til dømes lagre saldo i øre i staden for kroner for betre presisjon – utan at koden som bruker klassen merkar noko, så lenge getteren returnerer kroner. Og det **tvingar rett bruk** av API-et, fordi private attributt krev at brukarar går via dine validerte metodar. Merk at information hiding handlar om design og vedlikehald, ikkje om fart – properties kan til og med ha litt overhead.\n\nMen ikkje alle klassar treng streng innkapsling. Bruk private attributt når attributtet må validerast, når det inngår i berekningar som må vere konsistente, når du vil reservere retten til å endre intern representasjon, eller når det er kritisk for objektets integritet. Offentlege attributt er heilt greitt for enkle data utan logikk, som koordinatar `x` og `y`, for reine datastrukturar, og for intern kode som ingen andre skal bruke. Ein god tommelfingerregel: start enkelt med offentlege attributt, og gjer dei private med properties først når du faktisk treng validering eller kontroll."
+    },
+    {
+      "id": "it-2-1-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på information hiding:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-3-n-quiz3-q0",
+            "task": "Kva er IKKJE ein fordel med information hiding?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Lettare å endre intern implementasjon seinare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hindrar ugyldige verdiar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Reduserer kompleksiteten brukaren ser",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Gjer koden raskare å køyre",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Information hiding handlar om struktur og vedlikehald, ikkje yting. Det gjer ikkje koden raskare."
+          },
+          {
+            "id": "it-2-1-3-n-quiz3-q1",
+            "task": "Når er offentlege attributt heilt greitt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For enkle data utan logikk, som koordinatar x og y",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre for bankkontoar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre når klassen har arv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Enkle datafelt utan valideringsbehov, som koordinatar, kan trygt vere offentlege."
+          },
+          {
+            "id": "it-2-1-3-n-quiz3-q2",
+            "task": "Viss du byter intern lagring frå kroner til øre, kva må halde seg likt for brukaren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det private attributtnamnet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "API-et – det getteren returnerer (kroner)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Talet på metodar i klassen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rekkjefølgja på attributta",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Så lenge getteren framleis returnerer kroner, merkar brukaren ingen skilnad sjølv om intern lagring blir endra til øre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi starta med ein bankkonto kven som helst kunne tømme, og enda med full kontroll over dataa. **Innkapsling** betyr å skjule intern data og styre tilgangen. Private attributt blir markerte med `__attributt`, verna med `_attributt`, medan offentlege attributt står utan understrek. **Getter** og **setter** er metodar som les og endrar private attributt, gjerne med validering.\n\nDet pythoniske grepet er **@property**, som gjev elegant attributt-syntaks utetter og full kontroll inni, og **@attributt.setter** for å definere setteren. Properties eignar seg òg for berekna verdiar og for read-only-attributt utan setter. Bak alt ligg **information hiding** – idéen om at å skjule interne detaljar gjev enklare vedlikehald, færre feil og fridom til å endre. Men hugs: ikkje alt treng innkapsling. Start enkelt, og lås ned først når du faktisk treng validering. I neste kapittel skal vi sjå på arv – korleis klassar kan byggje vidare på kvarandre."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "bbd34b0410a851dd",
+    "translatedAt": "2026-06-20T23:59:44.535Z",
+    "model": "claude-code-agent",
+    "strings": 71,
+    "tm": {
+      "8816a60d7583e1f2": "Innkapsling og tilgangskontroll",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ca89c1904beb12d8": "Ei forteljing om korleis vi vernar dataa i klassane våre – frå det farlege problemet med opne attributt til elegante properties som validerer alt som slepp inn.",
+      "6ca6b84d49ce9da6": "Forstå innkapsling og information hiding",
+      "4793e021cc0aed4d": "Bruke private attributt, getter og setter",
+      "bc0e577d67ffb372": "Bruke @property og @setter for kontrollert tilgang",
+      "372ba6b39c086004": "## Når nokon kan tømme bankkontoen din\n\nDu har lært å lage klassar med attributt og metodar. Men det låg ei bombe under det heile: alle attributta var direkte tilgjengelege utanfrå. Førestill deg ein bankkonto der kven som helst kan skrive `konto.saldo = -1000000` og dermed øydeleggje heile logikken. Metoden `ta_ut`, som du skreiv så omhugsamt for å sjekke om det var nok pengar, blir plutseleg meiningslaus – saldoen kan jo berre overstyrast.\n\nLøysinga heiter **innkapsling**: prinsippet om å skjule intern data og berre eksponere det som er nødvendig. Dette er ein av dei fire grunnpilarane i OOP, saman med arv, polymorfisme og abstraksjon. Innkapsling betyr å pakke data og metodar saman i ein klasse og samtidig skjule den interne implementasjonen frå omverda.\n\nFormålet er firedelt: vi vil **verne data** mot ugyldig tilgang, **kontrollere endringar** ved å validere før vi lagrar, **skjule kompleksitet** så brukaren slepp å vite korleis ting fungerer internt, og gjere **vedlikehald enklare** ved at vi kan endre intern logikk utan å bryte ekstern kode.",
+      "6ed4620961435a05": "## Private attributt, getter og setter\n\nI Python markerer vi tilgangsnivå med understrekar framfor namnet. `self.navn` er **offentleg** og kan aksesserast kvar som helst. `self._navn` med éin understrek er **verna** – ein konvensjon som seier «intern bruk, ikkje rør». `self.__navn` med to understrekar er **privat**, og Python utfører såkalla name mangling som gjer det vanskeleg å nå utanfrå. Men merk deg: Python har ikkje ekte private attributt slik Java og C++ har. Dette er konvensjonar og hindringar, ikkje jernlås. Pythons filosofi er «we're all consenting adults here» – vi stolar på at utviklarar respekterer konvensjonane.\n\nMed eit privat attributt vernar vi saldoen og tvingar fram bruk av metodar som validerer:\n\n```python\nclass Bankkonto:\n    def __init__(self, kontonummer, saldo=0):\n        self.kontonummer = kontonummer\n        self.__saldo = saldo  # privat\n\n    def hent_saldo(self):\n        return self.__saldo\n\n    def sett_inn(self, belop):\n        if belop > 0:\n            self.__saldo += belop\n\n    def ta_ut(self, belop):\n        if 0 < belop <= self.__saldo:\n            self.__saldo -= belop\n```\n\nMetoden `hent_saldo` blir kalla ein **getter** – han hentar verdien. Metodar som `sett_inn` og `ta_ut`, som endrar verdien med validering, fungerer som **settere**. No kan ingen setje saldoen til ein ugyldig verdi direkte; dei må gå gjennom dei validerte metodane.",
+      "09a0f3695fd98637": "Test deg sjølv på innkapsling og private attributt:",
+      "4097889236a2af26": "placeholder",
+      "977429166e8f7b1f": "Kva attributt blir rekna som privat i Python-konvensjonen?",
+      "ec6c80b80cf57646": "self.navn",
+      "107db365625e52ec": "self._alder",
+      "2fbd80441a250407": "self.__passord",
+      "89c89663c9ddca5a": "self.KONSTANT",
+      "9969be70e418d0e6": "To understrekar (__passord) markerer privat. Éin understrek er verna (konvensjon), og utan understrek er det offentleg.",
+      "64d3215755f6a0d2": "Kva er hovudformålet med innkapsling?",
+      "843f76ba6eb3e628": "Å gjere programmet raskare",
+      "c05cb4bb36a0b297": "Å fjerne behovet for metodar",
+      "26e42e2b5c6f5f02": "Å gjere alle attributt offentlege",
+      "a0529549725a2ec8": "Å verne data og kontrollere tilgangen til dei",
+      "61a1e7b0d2453508": "Innkapsling skjuler intern data og kontrollerer tilgangen, slik at dataa blir verna mot ugyldige endringar.",
+      "c51bdb0019526f41": "Har Python ekte private attributt slik som Java?",
+      "1867230075e30cd2": "Nei, det er konvensjonar og name mangling, men ikkje ein jernlås",
+      "b595ca8f122f841b": "Ja, doble understrekar gjer attributtet heilt utilgjengeleg",
+      "f8e374219bc72c87": "Ja, men berre for tal",
+      "159c3010fdd6c429": "Nei, Python har ingen måte å skjule attributt på",
+      "7b34b42f156e5033": "Python bruker name mangling (__x blir _Klasse__x), men attributtet kan framleis nåast. Det er ei hindring, ikkje ekte privatheit.",
+      "555a49b0097898d7": "## Properties – den pythoniske eleganzen\n\nÅ skrive `konto.hent_saldo()` kvar gong kjennest tungvint. Python har ei mykje meir elegant løysing: **properties**. Ein property gjer at ein metode oppfører seg som eit attributt. Vi bruker dekoratoren `@property` for getteren og `@attributt.setter` for setteren:\n\n```python\n    @property\n    def saldo(self):\n        return self.__saldo\n\n    @saldo.setter\n    def saldo(self, verdi):\n        if verdi >= 0:\n            self.__saldo = verdi\n        else:\n            raise ValueError(\"Saldo kan ikke være negativ\")\n```\n\nNo skriv brukaren `konto.saldo` for å lese og `konto.saldo = 1500` for å setje – det ser ut som vanleg attributt-tilgang, men bak kulissane køyrer validering. Det er det finaste med properties: enkel syntaks utetter, full kontroll inni.\n\nProperties er òg perfekte for **berekna verdiar** som ikkje blir lagra, men reknast ut når du treng dei. Ein `Person` med `fornavn` og `etternavn` kan ha ein property `fullt_navn` som returnerer `f\"{self.fornavn} {self.etternavn}\"`. Endrar du fornamnet, blir det fulle namnet oppdatert automatisk neste gong du les det – fordi det aldri blei lagra, berre berekna. Vil du derimot ha eit **read-only**-attributt som kan lesast men ikkje endrast utanfrå, lagar du berre ein getter utan setter. Eit produkts `antall_solgt` kan då berre aukast gjennom ein `selg`-metode, aldri setjast direkte.",
+      "769b62c7f1f49ebf": "Test deg sjølv på properties:",
+      "3ea3d644dcfeae95": "Kva er fordelen med @property framfor ein vanleg hent_saldo()-metode?",
+      "b0131fe4f9148da0": "Han køyrer alltid raskare",
+      "8040990303f0309e": "Han gjev attributt-liknande syntaks med validering bak kulissane",
+      "5ab15f8773a345bd": "Han gjer attributtet umogleg å lese",
+      "94bcf93bdbfdc3fd": "Han fjernar behovet for self",
+      "608b856a2a9c18bf": "@property gjev elegant syntaks (konto.saldo) samtidig som ein kan validere og kontrollere i bakgrunnen.",
+      "1e5440fd1ba87c83": "Korleis lagar du eit read-only-attributt med property?",
+      "1b85746ee9aa9940": "Ved å bruke to settere",
+      "64ef9b47ac8980c9": "Ved å fjerne __init__",
+      "b4573c885ad58751": "Ved å lage ein getter utan setter",
+      "fb53072190bde26c": "Ved å bruke @public",
+      "9b5527566e498606": "Ein property med berre getter (ingen @x.setter) kan lesast, men ikkje endrast utanfrå.",
+      "769beaa05ee2ea66": "Kva kjenneteiknar ein berekna property som fullt_navn?",
+      "ac1dc0904365b651": "Han blir lagra som eige attributt i __init__",
+      "2d0c51f21f0db20e": "Han kan ikkje lesast meir enn éin gong",
+      "a1a5a0d153c55509": "Han krev ein database",
+      "3460a2428411ea8f": "Han reknast ut on-the-fly frå andre attributt, og blir ikkje lagra",
+      "108b5d6f89bd6a5b": "Ein berekna property reknast ut frå andre attributt kvar gong han blir lesen, så han held seg automatisk oppdatert.",
+      "0ecb45d3a3786e8d": "## Information hiding – og når du faktisk treng det\n\n**Information hiding** handlar ikkje om å vere hemmelegheitsfull. Det handlar om fire praktiske gevinstar. Det **reduserer kompleksitet**, fordi brukaren slepp å vite korleis saldo blir lagra internt. Det **hindrar feil**, fordi ingen ved eit uhell kan setje ein ugyldig verdi. Det **gjer endringar mogleg**: du kan byte intern representasjon – til dømes lagre saldo i øre i staden for kroner for betre presisjon – utan at koden som bruker klassen merkar noko, så lenge getteren returnerer kroner. Og det **tvingar rett bruk** av API-et, fordi private attributt krev at brukarar går via dine validerte metodar. Merk at information hiding handlar om design og vedlikehald, ikkje om fart – properties kan til og med ha litt overhead.\n\nMen ikkje alle klassar treng streng innkapsling. Bruk private attributt når attributtet må validerast, når det inngår i berekningar som må vere konsistente, når du vil reservere retten til å endre intern representasjon, eller når det er kritisk for objektets integritet. Offentlege attributt er heilt greitt for enkle data utan logikk, som koordinatar `x` og `y`, for reine datastrukturar, og for intern kode som ingen andre skal bruke. Ein god tommelfingerregel: start enkelt med offentlege attributt, og gjer dei private med properties først når du faktisk treng validering eller kontroll.",
+      "95cf98eae17ce7b1": "Test deg sjølv på information hiding:",
+      "3bb062a96ed6b2fd": "Kva er IKKJE ein fordel med information hiding?",
+      "a13cb863ea4afe19": "Gjer koden raskare å køyre",
+      "0e518e1c7d972663": "Lettare å endre intern implementasjon seinare",
+      "4addc38c883b317a": "Hindrar ugyldige verdiar",
+      "3b9e39b54acb39b5": "Reduserer kompleksiteten brukaren ser",
+      "50adf1bdadc097de": "Information hiding handlar om struktur og vedlikehald, ikkje yting. Det gjer ikkje koden raskare.",
+      "6a64e1b6c54024a5": "Når er offentlege attributt heilt greitt?",
+      "72816c36bd404a80": "Aldri",
+      "19fe1f5115506f08": "For enkle data utan logikk, som koordinatar x og y",
+      "6063e179f7279eba": "Berre for bankkontoar",
+      "6af454374f57f765": "Berre når klassen har arv",
+      "02e83f343702b323": "Enkle datafelt utan valideringsbehov, som koordinatar, kan trygt vere offentlege.",
+      "4924db1ef7c89045": "Viss du byter intern lagring frå kroner til øre, kva må halde seg likt for brukaren?",
+      "30a6b611d4ac702f": "Det private attributtnamnet",
+      "ae9e2d143714a803": "Talet på metodar i klassen",
+      "a33d7673a2f99796": "API-et – det getteren returnerer (kroner)",
+      "a6c9ea7ba9614c74": "Rekkjefølgja på attributta",
+      "9aec45f1aec1ad16": "Så lenge getteren framleis returnerer kroner, merkar brukaren ingen skilnad sjølv om intern lagring blir endra til øre.",
+      "85b42876874d0252": "## Oppsummering\n\nVi starta med ein bankkonto kven som helst kunne tømme, og enda med full kontroll over dataa. **Innkapsling** betyr å skjule intern data og styre tilgangen. Private attributt blir markerte med `__attributt`, verna med `_attributt`, medan offentlege attributt står utan understrek. **Getter** og **setter** er metodar som les og endrar private attributt, gjerne med validering.\n\nDet pythoniske grepet er **@property**, som gjev elegant attributt-syntaks utetter og full kontroll inni, og **@attributt.setter** for å definere setteren. Properties eignar seg òg for berekna verdiar og for read-only-attributt utan setter. Bak alt ligg **information hiding** – idéen om at å skjule interne detaljar gjev enklare vedlikehald, færre feil og fridom til å endre. Men hugs: ikkje alt treng innkapsling. Start enkelt, og lås ned først når du faktisk treng validering. I neste kapittel skal vi sjå på arv – korleis klassar kan byggje vidare på kvarandre."
+    }
+  }
+}

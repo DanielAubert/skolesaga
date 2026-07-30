@@ -1,1 +1,419 @@
-{"id":"okonomi-drift-3-2-narrativ","courseId":"okonomi-drift","chapterNumber":"3.2","title":"Lagerstyring","subtitle":"Narrativ versjon","description":"Ei forteljing om balansekunsten i lagerstyring -- korleis økonomisk ordrekvantum, sikkerheitslager og Just-in-Time finn det optimale punktet mellom for mykje og for lite på lager.","estimatedMinutes":30,"competenceGoals":["vurdere og bruke ulike metoder for lagerstyring og innkjøp"],"linkedChapterId":"okonomi-drift-3-2","content":[{"id":"okonomi-drift-3-2-n-intro","type":"text","content":"## For mykje eller for lite?\n\nDu driv ein butikk. Kor mykje av kvar vare bør du ha på lager? Det er freistande å fylle opp -- då går du aldri tom. Men lager kostar pengar: kapital blir bunden, lokale må leigast, og varer kan bli umoderne. Samstundes: å gå tom kostar *endå* meir, for då mistar du sal og kanskje kunden for godt.\n\nGod **lagerstyring** handlar om denne balansekunsten -- å ha nok varer tilgjengeleg utan å binde opp unødvendig mykje kapital. Det er planlegging og kontroll av varebehaldninga, med avgjerder om bestillingsmengd, bestillingstidspunkt og sikkerheitslager.\n\nI dette kapittelet skal vi finne det optimale punktet. Vi skal rekne ut **økonomisk ordrekvantum** -- den bestillingsmengda som gjev lågast totalkostnad. Vi skal forstå kvifor du treng eit **sikkerheitslager** som buffer mot det uføresette. Og vi skal møte **Just-in-Time**, den dristige strategien som prøver å eliminere lager heilt."},{"id":"okonomi-drift-3-2-n-section1","type":"text","content":"## Lagerkostnader og økonomisk ordrekvantum\n\nÅ halde varer på lager gjev to motstridande kostnader. **Lagerhaldskostnaden (H)** -- kapitalbinding, lokale, svinn og handtering -- utgjer typisk 15-30 % av vareverdien per år, og aukar jo meir du har på lager. **Bestillingskostnaden (S)** -- administrasjon, frakt og varemottak -- er fast per bestilling, og blir høgare jo oftare du bestiller. Bestiller du sjeldan i store kvanta, får du låge bestillingskostnader, men høge lagerkostnader. Bestiller du ofte i små kvanta, blir det omvendt.\n\n**Økonomisk ordrekvantum** (EOQ, Economic Order Quantity) finn punktet der summen av desse kostnadene er lågast: $EOQ = \\sqrt{\\frac{2 \\cdot D \\cdot S}{H}}$, der $D$ er årleg etterspurnad, $S$ er bestillingskostnad per ordre og $H$ er lagerhaldskostnad per eining per år.\n\nLat oss rekne. Ein butikk sel 10 000 einingar i året, bestillingskostnaden er 500 kr, og lagerhaldskostnaden 20 kr per eining. Då blir $EOQ = \\sqrt{\\frac{2 \\cdot 10\\,000 \\cdot 500}{20}} = \\sqrt{500\\,000} \\approx 707$ einingar. Talet på bestillingar blir $10\\,000 / 707 \\approx 14$ per år. Eit fascinerande trekk: ved EOQ er bestillingskostnadene og lagerhaldskostnadene alltid om lag like store -- her begge rundt 7 070 kr, til saman 14 140 kr. Og legg merke til at $S$ står under kvadratrota: doblar du bestillingskostnaden, aukar ikkje EOQ med 100 %, men berre med faktoren $\\sqrt{2} \\approx 1{,}41$, altså om lag 41 %."},{"id":"okonomi-drift-3-2-n-quiz1","type":"exercise","exercise":{"id":"okonomi-drift-3-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på lagerkostnader og EOQ:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-3-2-n-quiz1-q0","task":"Kva minimerer økonomisk ordrekvantum (EOQ)?","options":[{"id":"a","text":"Berre bestillingskostnadene","isCorrect":false},{"id":"b","text":"Summen av bestillings- og lagerhaldskostnadene","isCorrect":true},{"id":"c","text":"Berre lagerhaldskostnadene","isCorrect":false},{"id":"d","text":"Innkjøpsprisen per eining","isCorrect":false}],"solution":"EOQ finn bestillingsmengda der summen av bestillingskostnader og lagerhaldskostnader er lågast."},{"id":"okonomi-drift-3-2-n-quiz1-q1","task":"D = 10 000, S = 500 kr, H = 20 kr. Kva blir EOQ?","options":[{"id":"a","text":"Ca. 500 einingar","isCorrect":false},{"id":"b","text":"Ca. 250 einingar","isCorrect":false},{"id":"c","text":"Ca. 707 einingar","isCorrect":true},{"id":"d","text":"Ca. 1 000 einingar","isCorrect":false}],"solution":"EOQ = √(2 × 10 000 × 500 / 20) = √500 000 ≈ 707 einingar."},{"id":"okonomi-drift-3-2-n-quiz1-q2","task":"Kva skjer med EOQ dersom bestillingskostnaden S blir dobla?","options":[{"id":"a","text":"EOQ blir dobla","isCorrect":false},{"id":"b","text":"EOQ blir halvert","isCorrect":false},{"id":"c","text":"EOQ er uendra","isCorrect":false},{"id":"d","text":"EOQ aukar med ca. 41 %","isCorrect":true}],"solution":"S står under kvadratrota, så ny EOQ = √2 × gammal EOQ ≈ 1,41 × gammal, ein auke på ca. 41 %."}]}},{"id":"okonomi-drift-3-2-n-section2","type":"text","content":"## Sikkerheitslager og bestillingspunkt\n\nEOQ fortel *kor mykje* du skal bestille, men ikkje *når*. Og røynda er usikker: etterspurnaden kan plutseleg stige, eller leverandøren kan bli forseinka. For å sleppe å gå tom held vi difor eit **sikkerheitslager** -- ein ekstra buffer utover det venta forbruket i bestillingsperioden.\n\nKor stort sikkerheitslageret bør vere, kjem an på uvissa i etterspurnaden, uvissa i leveringstida, og det ønskte **servicenivået**. Eit servicenivå på 95 % betyr at ein godtek tomt lager i 5 % av tilfella. Vil du opp mot 99 %, kostar det raskt mykje meir sikkerheitslager.\n\nMen når skal du bestille? Det fortel **bestillingspunktet** (reorder point): $\\text{Bestillingspunkt} = \\text{Forbruk per dag} \\times \\text{Leveringstid} + \\text{Sikkerhetslager}$. Sei at ei bedrift brukar 50 einingar per dag, leveringstida er 6 dagar og sikkerheitslageret 100 einingar. Då blir bestillingspunktet $50 \\times 6 + 100 = 400$ einingar. Når lageret søkk til 400, bestiller du på nytt. Dei 300 einingane dekkjer normalt forbruk medan du ventar på leveransen, og dei 100 ekstra er bufferen mot det uføresette."},{"id":"okonomi-drift-3-2-n-quiz2","type":"exercise","exercise":{"id":"okonomi-drift-3-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på sikkerheitslager og bestillingspunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-3-2-n-quiz2-q0","task":"Kva er hensikta med eit sikkerheitslager?","options":[{"id":"a","text":"Å vere ein buffer mot uvisse i etterspurnad og leveringstid","isCorrect":true},{"id":"b","text":"Å minimere talet på bestillingar","isCorrect":false},{"id":"c","text":"Å erstatte EOQ","isCorrect":false},{"id":"d","text":"Å redusere innkjøpsprisen","isCorrect":false}],"solution":"Sikkerheitslageret er ein buffer som hindrar tomt lager når etterspurnaden blir høgare enn venta eller leveransen blir forseinka."},{"id":"okonomi-drift-3-2-n-quiz2-q1","task":"Forbruk 50 einingar/dag, leveringstid 6 dagar, sikkerheitslager 100. Kva er bestillingspunktet?","options":[{"id":"a","text":"300 einingar","isCorrect":false},{"id":"b","text":"400 einingar","isCorrect":true},{"id":"c","text":"600 einingar","isCorrect":false},{"id":"d","text":"150 einingar","isCorrect":false}],"solution":"Bestillingspunkt = 50 × 6 + 100 = 300 + 100 = 400 einingar."},{"id":"okonomi-drift-3-2-n-quiz2-q2","task":"Kva betyr eit servicenivå på 95 %?","options":[{"id":"a","text":"At lageret alltid er 95 % fullt","isCorrect":false},{"id":"b","text":"At 95 % av varene er feilfrie","isCorrect":false},{"id":"c","text":"At ein godtek tomt lager i 5 % av tilfella","isCorrect":true},{"id":"d","text":"At leveringstida er 95 dagar","isCorrect":false}],"solution":"Servicenivå 95 % betyr at ein godtek å gå tom for lager i 5 % av tilfella. Høgare servicenivå krev større sikkerheitslager."}]}},{"id":"okonomi-drift-3-2-n-section3","type":"text","content":"## Just-in-Time og ABC-analyse\n\nNokre bedrifter går endå lenger og prøver å eliminere lageret heilt. Det er ideen bak **Just-in-Time (JIT)** -- varer og materialar blir leverte nøyaktig når dei trengst i produksjonen, ikkje før og ikkje etter. Toyota er mest kjend for dette: bildelar kjem til fabrikken berre timar før dei skal på samlebandet.\n\nFordelane er openberre: minimale lagerkostnader, lite kapitalbinding, redusert svinn, og ein tvang til kvalitetsforbetring fordi det ikkje finst buffer til å skjule feil. Men JIT er òg sårbart. Det krev ekstremt påletelege leverandørar, og det er lite rom for feil eller forseinkingar. Under pandemien i 2020, då forsyningskjedene vart forstyrra, fekk mange JIT-bedrifter store problem -- og fleire har sidan auka sikkerheitslagra igjen.\n\nEin klok lagerstyrar skjønar òg at ikkje alle varer fortener like mykje merksemd. Her hjelper **ABC-analysen**, basert på Pareto-prinsippet (80/20-regelen). **A-varer** er typisk om lag 20 % av varene, men står for 80 % av verdien -- dei krev tett oppfølging og nøyaktig prognostisering. **B-varer** er om lag 30 % av varene og 15 % av verdien, med moderat oppfølging. Og **C-varer** er om lag 50 % av varene, men berre 5 % av verdien -- her held enkel oppfølging og store bestillingar. Det lønner seg rett og slett ikkje å bruke mykje tid på å optimalisere C-varer."},{"id":"okonomi-drift-3-2-n-quiz3","type":"exercise","exercise":{"id":"okonomi-drift-3-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på Just-in-Time og ABC-analyse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-3-2-n-quiz3-q0","task":"Kva er hovudideen bak Just-in-Time (JIT)?","options":[{"id":"a","text":"Å ha størst mogleg sikkerheitslager","isCorrect":false},{"id":"b","text":"Å produsere berre til lager","isCorrect":false},{"id":"c","text":"Å bestille alt på førehand","isCorrect":false},{"id":"d","text":"Å levere varer nøyaktig når dei trengst, og dermed eliminere lager","isCorrect":true}],"solution":"JIT går ut på å levere varer akkurat når dei trengst i produksjonen, slik at lageret og tilhøyrande kostnader blir minimerte."},{"id":"okonomi-drift-3-2-n-quiz3-q1","task":"Kva er ein sentral ulempe med JIT?","options":[{"id":"a","text":"Det er sårbart for forstyrringar i forsyningskjeda","isCorrect":true},{"id":"b","text":"Det gjev høge lagerkostnader","isCorrect":false},{"id":"c","text":"Det bind mykje kapital","isCorrect":false},{"id":"d","text":"Det aukar svinnet","isCorrect":false}],"solution":"Utan buffer er JIT svært sårbart -- forseinkingar eller kriser hos leverandørar kan stoppe produksjonen med ein gong, slik pandemien i 2020 viste."},{"id":"okonomi-drift-3-2-n-quiz3-q2","task":"I ein ABC-analyse utgjer A-varene typisk:","options":[{"id":"a","text":"80 % av varene og 20 % av verdien","isCorrect":false},{"id":"b","text":"20 % av varene og 80 % av verdien","isCorrect":true},{"id":"c","text":"50 % av varene og 50 % av verdien","isCorrect":false},{"id":"d","text":"30 % av varene og 15 % av verdien","isCorrect":false}],"solution":"A-varer er om lag 20 % av talet, men står for om lag 80 % av verdien (Pareto-prinsippet), og krev tett oppfølging."}]}},{"id":"okonomi-drift-3-2-n-summary","type":"text","content":"## Oppsummering\n\nLagerstyring er ein balansekunst mellom å ha for mykje og for lite på lager. **Lagerkostnadene** består av lagerhaldskostnader (aukar med lagernivået), bestillingskostnader (aukar med talet på bestillingar) og mangelkostnader (når ein går tom).\n\n**Økonomisk ordrekvantum (EOQ)** finn bestillingsmengda som minimerer summen av kostnadene, og ved EOQ er bestillings- og lagerhaldskostnadene alltid om lag like store. **Sikkerheitslageret** vernar mot uvisse, og **bestillingspunktet** -- forbruk per dag ganga med leveringstid pluss sikkerheitslager -- fortel når du skal bestille på nytt.\n\n**Just-in-Time** eliminerer nesten lageret, men krev påletelege leverandørar og er sårbart for forstyrringar. Og **ABC-analysen** sorterer varene etter verdi, slik at A-varene (20 % av varene, 80 % av verdien) får tett oppfølging, medan C-varene blir styrte enkelt."}],"exercises":[],"_meta":{"sourceHash":"f30b50a9cfc45066","translatedAt":"2026-06-21T01:16:09.973Z","model":"claude-code-agent","strings":69,"tm":{"091e81b22c817abf":"Lagerstyring","b195b06d1ed59702":"Narrativ versjon","632b7d7412b665c5":"Ei forteljing om balansekunsten i lagerstyring -- korleis økonomisk ordrekvantum, sikkerheitslager og Just-in-Time finn det optimale punktet mellom for mykje og for lite på lager.","8c7fc54f6ede4513":"vurdere og bruke ulike metoder for lagerstyring og innkjøp","9f25073d972a1d64":"## For mykje eller for lite?\n\nDu driv ein butikk. Kor mykje av kvar vare bør du ha på lager? Det er freistande å fylle opp -- då går du aldri tom. Men lager kostar pengar: kapital blir bunden, lokale må leigast, og varer kan bli umoderne. Samstundes: å gå tom kostar *endå* meir, for då mistar du sal og kanskje kunden for godt.\n\nGod **lagerstyring** handlar om denne balansekunsten -- å ha nok varer tilgjengeleg utan å binde opp unødvendig mykje kapital. Det er planlegging og kontroll av varebehaldninga, med avgjerder om bestillingsmengd, bestillingstidspunkt og sikkerheitslager.\n\nI dette kapittelet skal vi finne det optimale punktet. Vi skal rekne ut **økonomisk ordrekvantum** -- den bestillingsmengda som gjev lågast totalkostnad. Vi skal forstå kvifor du treng eit **sikkerheitslager** som buffer mot det uføresette. Og vi skal møte **Just-in-Time**, den dristige strategien som prøver å eliminere lager heilt.","023c4e6468198b40":"## Lagerkostnader og økonomisk ordrekvantum\n\nÅ halde varer på lager gjev to motstridande kostnader. **Lagerhaldskostnaden (H)** -- kapitalbinding, lokale, svinn og handtering -- utgjer typisk 15-30 % av vareverdien per år, og aukar jo meir du har på lager. **Bestillingskostnaden (S)** -- administrasjon, frakt og varemottak -- er fast per bestilling, og blir høgare jo oftare du bestiller. Bestiller du sjeldan i store kvanta, får du låge bestillingskostnader, men høge lagerkostnader. Bestiller du ofte i små kvanta, blir det omvendt.\n\n**Økonomisk ordrekvantum** (EOQ, Economic Order Quantity) finn punktet der summen av desse kostnadene er lågast: $EOQ = \\sqrt{\\frac{2 \\cdot D \\cdot S}{H}}$, der $D$ er årleg etterspurnad, $S$ er bestillingskostnad per ordre og $H$ er lagerhaldskostnad per eining per år.\n\nLat oss rekne. Ein butikk sel 10 000 einingar i året, bestillingskostnaden er 500 kr, og lagerhaldskostnaden 20 kr per eining. Då blir $EOQ = \\sqrt{\\frac{2 \\cdot 10\\,000 \\cdot 500}{20}} = \\sqrt{500\\,000} \\approx 707$ einingar. Talet på bestillingar blir $10\\,000 / 707 \\approx 14$ per år. Eit fascinerande trekk: ved EOQ er bestillingskostnadene og lagerhaldskostnadene alltid om lag like store -- her begge rundt 7 070 kr, til saman 14 140 kr. Og legg merke til at $S$ står under kvadratrota: doblar du bestillingskostnaden, aukar ikkje EOQ med 100 %, men berre med faktoren $\\sqrt{2} \\approx 1{,}41$, altså om lag 41 %.","a64a00a124681089":"Test deg sjølv på lagerkostnader og EOQ:","4097889236a2af26":"placeholder","41499619c69267fd":"Kva minimerer økonomisk ordrekvantum (EOQ)?","3c33d2e84544c6ec":"Berre bestillingskostnadene","e21874045e7a2e69":"Summen av bestillings- og lagerhaldskostnadene","e6b1c15af033639b":"Berre lagerhaldskostnadene","d04e20b4adf47ec0":"Innkjøpsprisen per eining","6e18a2ef3757716b":"EOQ finn bestillingsmengda der summen av bestillingskostnader og lagerhaldskostnader er lågast.","2b15dd736606dadd":"D = 10 000, S = 500 kr, H = 20 kr. Kva blir EOQ?","70af4443a5334014":"Ca. 500 einingar","ba8d01c371c0ffce":"Ca. 250 einingar","8cd07d100bcd823a":"Ca. 707 einingar","334da81425586291":"Ca. 1 000 einingar","cd6785e52bbcff4a":"EOQ = √(2 × 10 000 × 500 / 20) = √500 000 ≈ 707 einingar.","0c096c73c3f86d82":"Kva skjer med EOQ dersom bestillingskostnaden S blir dobla?","89c6a91773d534a4":"EOQ blir dobla","826429f1f81c34b5":"EOQ blir halvert","3924b5a780ea606a":"EOQ er uendra","2bc8026e68f3b509":"EOQ aukar med ca. 41 %","cd9488de77824958":"S står under kvadratrota, så ny EOQ = √2 × gammal EOQ ≈ 1,41 × gammal, ein auke på ca. 41 %.","62351ffb206005ce":"## Sikkerheitslager og bestillingspunkt\n\nEOQ fortel *kor mykje* du skal bestille, men ikkje *når*. Og røynda er usikker: etterspurnaden kan plutseleg stige, eller leverandøren kan bli forseinka. For å sleppe å gå tom held vi difor eit **sikkerheitslager** -- ein ekstra buffer utover det venta forbruket i bestillingsperioden.\n\nKor stort sikkerheitslageret bør vere, kjem an på uvissa i etterspurnaden, uvissa i leveringstida, og det ønskte **servicenivået**. Eit servicenivå på 95 % betyr at ein godtek tomt lager i 5 % av tilfella. Vil du opp mot 99 %, kostar det raskt mykje meir sikkerheitslager.\n\nMen når skal du bestille? Det fortel **bestillingspunktet** (reorder point): $\\text{Bestillingspunkt} = \\text{Forbruk per dag} \\times \\text{Leveringstid} + \\text{Sikkerhetslager}$. Sei at ei bedrift brukar 50 einingar per dag, leveringstida er 6 dagar og sikkerheitslageret 100 einingar. Då blir bestillingspunktet $50 \\times 6 + 100 = 400$ einingar. Når lageret søkk til 400, bestiller du på nytt. Dei 300 einingane dekkjer normalt forbruk medan du ventar på leveransen, og dei 100 ekstra er bufferen mot det uføresette.","f006cfc01d768c3a":"Test deg sjølv på sikkerheitslager og bestillingspunkt:","49e8c25d2e075a13":"Kva er hensikta med eit sikkerheitslager?","c4cfc9f29bc07a5d":"Å vere ein buffer mot uvisse i etterspurnad og leveringstid","fef60bb7b8ef1f55":"Å minimere talet på bestillingar","ad7035ecf58faf25":"Å erstatte EOQ","01496df1842b3848":"Å redusere innkjøpsprisen","0e85446f65e19529":"Sikkerheitslageret er ein buffer som hindrar tomt lager når etterspurnaden blir høgare enn venta eller leveransen blir forseinka.","61b19c5043ffeaea":"Forbruk 50 einingar/dag, leveringstid 6 dagar, sikkerheitslager 100. Kva er bestillingspunktet?","40bc50c44cc31827":"300 einingar","04b856edc3f638ed":"400 einingar","92f2a4cd899ebeac":"600 einingar","234de9f4d06ccd05":"150 einingar","965dce99ba8684fa":"Bestillingspunkt = 50 × 6 + 100 = 300 + 100 = 400 einingar.","f066b9068291caef":"Kva betyr eit servicenivå på 95 %?","5ee63578d2dc4ad4":"At lageret alltid er 95 % fullt","e5ad6afeba364e1c":"At 95 % av varene er feilfrie","9314760a45892403":"At ein godtek tomt lager i 5 % av tilfella","3e353f2c70f37e6e":"At leveringstida er 95 dagar","959120096a9987e3":"Servicenivå 95 % betyr at ein godtek å gå tom for lager i 5 % av tilfella. Høgare servicenivå krev større sikkerheitslager.","7bfe7cb34d3cdb90":"## Just-in-Time og ABC-analyse\n\nNokre bedrifter går endå lenger og prøver å eliminere lageret heilt. Det er ideen bak **Just-in-Time (JIT)** -- varer og materialar blir leverte nøyaktig når dei trengst i produksjonen, ikkje før og ikkje etter. Toyota er mest kjend for dette: bildelar kjem til fabrikken berre timar før dei skal på samlebandet.\n\nFordelane er openberre: minimale lagerkostnader, lite kapitalbinding, redusert svinn, og ein tvang til kvalitetsforbetring fordi det ikkje finst buffer til å skjule feil. Men JIT er òg sårbart. Det krev ekstremt påletelege leverandørar, og det er lite rom for feil eller forseinkingar. Under pandemien i 2020, då forsyningskjedene vart forstyrra, fekk mange JIT-bedrifter store problem -- og fleire har sidan auka sikkerheitslagra igjen.\n\nEin klok lagerstyrar skjønar òg at ikkje alle varer fortener like mykje merksemd. Her hjelper **ABC-analysen**, basert på Pareto-prinsippet (80/20-regelen). **A-varer** er typisk om lag 20 % av varene, men står for 80 % av verdien -- dei krev tett oppfølging og nøyaktig prognostisering. **B-varer** er om lag 30 % av varene og 15 % av verdien, med moderat oppfølging. Og **C-varer** er om lag 50 % av varene, men berre 5 % av verdien -- her held enkel oppfølging og store bestillingar. Det lønner seg rett og slett ikkje å bruke mykje tid på å optimalisere C-varer.","c670514bab958b76":"Test deg sjølv på Just-in-Time og ABC-analyse:","0d427cf2149106d8":"Kva er hovudideen bak Just-in-Time (JIT)?","3de61d1e18240b58":"Å ha størst mogleg sikkerheitslager","2aa384fa74dacfe0":"Å produsere berre til lager","8100453e10fe49d3":"Å bestille alt på førehand","7a60425662427331":"Å levere varer nøyaktig når dei trengst, og dermed eliminere lager","9bcab364cfebfd2b":"JIT går ut på å levere varer akkurat når dei trengst i produksjonen, slik at lageret og tilhøyrande kostnader blir minimerte.","1b4ea39db3a89dba":"Kva er ein sentral ulempe med JIT?","03ef2601abebe9bf":"Det er sårbart for forstyrringar i forsyningskjeda","5b8527ffe17e801a":"Det gjev høge lagerkostnader","39f76791de2303f7":"Det bind mykje kapital","636b5525aeb8c3fc":"Det aukar svinnet","4091c0e31e3db7cd":"Utan buffer er JIT svært sårbart -- forseinkingar eller kriser hos leverandørar kan stoppe produksjonen med ein gong, slik pandemien i 2020 viste.","365ec10d4bf73e61":"I ein ABC-analyse utgjer A-varene typisk:","dae672a2d14db920":"80 % av varene og 20 % av verdien","ead7e5e3e3fa1e23":"20 % av varene og 80 % av verdien","da7b6f2ffac94390":"50 % av varene og 50 % av verdien","5d8bfc01faaa1ae9":"30 % av varene og 15 % av verdien","3976d247ba718d58":"A-varer er om lag 20 % av talet, men står for om lag 80 % av verdien (Pareto-prinsippet), og krev tett oppfølging.","31e798923cc700fa":"## Oppsummering\n\nLagerstyring er ein balansekunst mellom å ha for mykje og for lite på lager. **Lagerkostnadene** består av lagerhaldskostnader (aukar med lagernivået), bestillingskostnader (aukar med talet på bestillingar) og mangelkostnader (når ein går tom).\n\n**Økonomisk ordrekvantum (EOQ)** finn bestillingsmengda som minimerer summen av kostnadene, og ved EOQ er bestillings- og lagerhaldskostnadene alltid om lag like store. **Sikkerheitslageret** vernar mot uvisse, og **bestillingspunktet** -- forbruk per dag ganga med leveringstid pluss sikkerheitslager -- fortel når du skal bestille på nytt.\n\n**Just-in-Time** eliminerer nesten lageret, men krev påletelege leverandørar og er sårbart for forstyrringar. Og **ABC-analysen** sorterer varene etter verdi, slik at A-varene (20 % av varene, 80 % av verdien) får tett oppfølging, medan C-varene blir styrte enkelt."}}}
+{
+  "id": "okonomi-drift-3-2-narrativ",
+  "courseId": "okonomi-drift",
+  "chapterNumber": "3.2",
+  "title": "Lagerstyring",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om balansekunsten i lagerstyring -- korleis økonomisk ordrekvantum, sikkerheitslager og Just-in-Time finn det optimale punktet mellom for mykje og for lite på lager.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "vurdere og bruke ulike metoder for lagerstyring og innkjøp"
+  ],
+  "linkedChapterId": "okonomi-drift-3-2",
+  "content": [
+    {
+      "id": "okonomi-drift-3-2-n-intro",
+      "type": "text",
+      "content": "## For mykje eller for lite?\n\nDu driv ein butikk. Kor mykje av kvar vare bør du ha på lager? Det er freistande å fylle opp -- då går du aldri tom. Men lager kostar pengar: kapital blir bunden, lokale må leigast, og varer kan bli umoderne. Samstundes: å gå tom kostar *endå* meir, for då mistar du sal og kanskje kunden for godt.\n\nGod **lagerstyring** handlar om denne balansekunsten -- å ha nok varer tilgjengeleg utan å binde opp unødvendig mykje kapital. Det er planlegging og kontroll av varebehaldninga, med avgjerder om bestillingsmengd, bestillingstidspunkt og sikkerheitslager.\n\nI dette kapittelet skal vi finne det optimale punktet. Vi skal rekne ut **økonomisk ordrekvantum** -- den bestillingsmengda som gjev lågast totalkostnad. Vi skal forstå kvifor du treng eit **sikkerheitslager** som buffer mot det uføresette. Og vi skal møte **Just-in-Time**, den dristige strategien som prøver å eliminere lager heilt."
+    },
+    {
+      "id": "okonomi-drift-3-2-n-section1",
+      "type": "text",
+      "content": "## Lagerkostnader og økonomisk ordrekvantum\n\nÅ halde varer på lager gjev to motstridande kostnader. **Lagerhaldskostnaden (H)** -- kapitalbinding, lokale, svinn og handtering -- utgjer typisk 15-30 % av vareverdien per år, og aukar jo meir du har på lager. **Bestillingskostnaden (S)** -- administrasjon, frakt og varemottak -- er fast per bestilling, og blir høgare jo oftare du bestiller. Bestiller du sjeldan i store kvanta, får du låge bestillingskostnader, men høge lagerkostnader. Bestiller du ofte i små kvanta, blir det omvendt.\n\n**Økonomisk ordrekvantum** (EOQ, Economic Order Quantity) finn punktet der summen av desse kostnadene er lågast: $EOQ = \\sqrt{\\frac{2 \\cdot D \\cdot S}{H}}$, der $D$ er årleg etterspurnad, $S$ er bestillingskostnad per ordre og $H$ er lagerhaldskostnad per eining per år.\n\nLat oss rekne. Ein butikk sel 10 000 einingar i året, bestillingskostnaden er 500 kr, og lagerhaldskostnaden 20 kr per eining. Då blir $EOQ = \\sqrt{\\frac{2 \\cdot 10\\,000 \\cdot 500}{20}} = \\sqrt{500\\,000} \\approx 707$ einingar. Talet på bestillingar blir $10\\,000 / 707 \\approx 14$ per år. Eit fascinerande trekk: ved EOQ er bestillingskostnadene og lagerhaldskostnadene alltid om lag like store -- her begge rundt 7 070 kr, til saman 14 140 kr. Og legg merke til at $S$ står under kvadratrota: doblar du bestillingskostnaden, aukar ikkje EOQ med 100 %, men berre med faktoren $\\sqrt{2} \\approx 1{,}41$, altså om lag 41 %."
+    },
+    {
+      "id": "okonomi-drift-3-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-3-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lagerkostnader og EOQ:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-3-2-n-quiz1-q0",
+            "task": "Kva minimerer økonomisk ordrekvantum (EOQ)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre bestillingskostnadene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre lagerhaldskostnadene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Summen av bestillings- og lagerhaldskostnadene",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Innkjøpsprisen per eining",
+                "isCorrect": false
+              }
+            ],
+            "solution": "EOQ finn bestillingsmengda der summen av bestillingskostnader og lagerhaldskostnader er lågast."
+          },
+          {
+            "id": "okonomi-drift-3-2-n-quiz1-q1",
+            "task": "D = 10 000, S = 500 kr, H = 20 kr. Kva blir EOQ?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 500 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 250 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 1 000 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 707 einingar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "EOQ = √(2 × 10 000 × 500 / 20) = √500 000 ≈ 707 einingar."
+          },
+          {
+            "id": "okonomi-drift-3-2-n-quiz1-q2",
+            "task": "Kva skjer med EOQ dersom bestillingskostnaden S blir dobla?",
+            "options": [
+              {
+                "id": "d",
+                "text": "EOQ aukar med ca. 41 %",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "EOQ blir dobla",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "EOQ blir halvert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "EOQ er uendra",
+                "isCorrect": false
+              }
+            ],
+            "solution": "S står under kvadratrota, så ny EOQ = √2 × gammal EOQ ≈ 1,41 × gammal, ein auke på ca. 41 %."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-3-2-n-section2",
+      "type": "text",
+      "content": "## Sikkerheitslager og bestillingspunkt\n\nEOQ fortel *kor mykje* du skal bestille, men ikkje *når*. Og røynda er usikker: etterspurnaden kan plutseleg stige, eller leverandøren kan bli forseinka. For å sleppe å gå tom held vi difor eit **sikkerheitslager** -- ein ekstra buffer utover det venta forbruket i bestillingsperioden.\n\nKor stort sikkerheitslageret bør vere, kjem an på uvissa i etterspurnaden, uvissa i leveringstida, og det ønskte **servicenivået**. Eit servicenivå på 95 % betyr at ein godtek tomt lager i 5 % av tilfella. Vil du opp mot 99 %, kostar det raskt mykje meir sikkerheitslager.\n\nMen når skal du bestille? Det fortel **bestillingspunktet** (reorder point): $\\text{Bestillingspunkt} = \\text{Forbruk per dag} \\times \\text{Leveringstid} + \\text{Sikkerhetslager}$. Sei at ei bedrift brukar 50 einingar per dag, leveringstida er 6 dagar og sikkerheitslageret 100 einingar. Då blir bestillingspunktet $50 \\times 6 + 100 = 400$ einingar. Når lageret søkk til 400, bestiller du på nytt. Dei 300 einingane dekkjer normalt forbruk medan du ventar på leveransen, og dei 100 ekstra er bufferen mot det uføresette."
+    },
+    {
+      "id": "okonomi-drift-3-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-3-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sikkerheitslager og bestillingspunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-3-2-n-quiz2-q0",
+            "task": "Kva er hensikta med eit sikkerheitslager?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å minimere talet på bestillingar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å vere ein buffer mot uvisse i etterspurnad og leveringstid",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å erstatte EOQ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å redusere innkjøpsprisen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sikkerheitslageret er ein buffer som hindrar tomt lager når etterspurnaden blir høgare enn venta eller leveransen blir forseinka."
+          },
+          {
+            "id": "okonomi-drift-3-2-n-quiz2-q1",
+            "task": "Forbruk 50 einingar/dag, leveringstid 6 dagar, sikkerheitslager 100. Kva er bestillingspunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "300 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "600 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "400 einingar",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "150 einingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bestillingspunkt = 50 × 6 + 100 = 300 + 100 = 400 einingar."
+          },
+          {
+            "id": "okonomi-drift-3-2-n-quiz2-q2",
+            "task": "Kva betyr eit servicenivå på 95 %?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At lageret alltid er 95 % fullt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At 95 % av varene er feilfrie",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At leveringstida er 95 dagar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At ein godtek tomt lager i 5 % av tilfella",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Servicenivå 95 % betyr at ein godtek å gå tom for lager i 5 % av tilfella. Høgare servicenivå krev større sikkerheitslager."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-3-2-n-section3",
+      "type": "text",
+      "content": "## Just-in-Time og ABC-analyse\n\nNokre bedrifter går endå lenger og prøver å eliminere lageret heilt. Det er ideen bak **Just-in-Time (JIT)** -- varer og materialar blir leverte nøyaktig når dei trengst i produksjonen, ikkje før og ikkje etter. Toyota er mest kjend for dette: bildelar kjem til fabrikken berre timar før dei skal på samlebandet.\n\nFordelane er openberre: minimale lagerkostnader, lite kapitalbinding, redusert svinn, og ein tvang til kvalitetsforbetring fordi det ikkje finst buffer til å skjule feil. Men JIT er òg sårbart. Det krev ekstremt påletelege leverandørar, og det er lite rom for feil eller forseinkingar. Under pandemien i 2020, då forsyningskjedene vart forstyrra, fekk mange JIT-bedrifter store problem -- og fleire har sidan auka sikkerheitslagra igjen.\n\nEin klok lagerstyrar skjønar òg at ikkje alle varer fortener like mykje merksemd. Her hjelper **ABC-analysen**, basert på Pareto-prinsippet (80/20-regelen). **A-varer** er typisk om lag 20 % av varene, men står for 80 % av verdien -- dei krev tett oppfølging og nøyaktig prognostisering. **B-varer** er om lag 30 % av varene og 15 % av verdien, med moderat oppfølging. Og **C-varer** er om lag 50 % av varene, men berre 5 % av verdien -- her held enkel oppfølging og store bestillingar. Det lønner seg rett og slett ikkje å bruke mykje tid på å optimalisere C-varer."
+    },
+    {
+      "id": "okonomi-drift-3-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-3-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Just-in-Time og ABC-analyse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-3-2-n-quiz3-q0",
+            "task": "Kva er hovudideen bak Just-in-Time (JIT)?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Å levere varer nøyaktig når dei trengst, og dermed eliminere lager",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å ha størst mogleg sikkerheitslager",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å produsere berre til lager",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bestille alt på førehand",
+                "isCorrect": false
+              }
+            ],
+            "solution": "JIT går ut på å levere varer akkurat når dei trengst i produksjonen, slik at lageret og tilhøyrande kostnader blir minimerte."
+          },
+          {
+            "id": "okonomi-drift-3-2-n-quiz3-q1",
+            "task": "Kva er ein sentral ulempe med JIT?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det gjev høge lagerkostnader",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Det er sårbart for forstyrringar i forsyningskjeda",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det bind mykje kapital",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det aukar svinnet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Utan buffer er JIT svært sårbart -- forseinkingar eller kriser hos leverandørar kan stoppe produksjonen med ein gong, slik pandemien i 2020 viste."
+          },
+          {
+            "id": "okonomi-drift-3-2-n-quiz3-q2",
+            "task": "I ein ABC-analyse utgjer A-varene typisk:",
+            "options": [
+              {
+                "id": "a",
+                "text": "80 % av varene og 20 % av verdien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "50 % av varene og 50 % av verdien",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "20 % av varene og 80 % av verdien",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "30 % av varene og 15 % av verdien",
+                "isCorrect": false
+              }
+            ],
+            "solution": "A-varer er om lag 20 % av talet, men står for om lag 80 % av verdien (Pareto-prinsippet), og krev tett oppfølging."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-3-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nLagerstyring er ein balansekunst mellom å ha for mykje og for lite på lager. **Lagerkostnadene** består av lagerhaldskostnader (aukar med lagernivået), bestillingskostnader (aukar med talet på bestillingar) og mangelkostnader (når ein går tom).\n\n**Økonomisk ordrekvantum (EOQ)** finn bestillingsmengda som minimerer summen av kostnadene, og ved EOQ er bestillings- og lagerhaldskostnadene alltid om lag like store. **Sikkerheitslageret** vernar mot uvisse, og **bestillingspunktet** -- forbruk per dag ganga med leveringstid pluss sikkerheitslager -- fortel når du skal bestille på nytt.\n\n**Just-in-Time** eliminerer nesten lageret, men krev påletelege leverandørar og er sårbart for forstyrringar. Og **ABC-analysen** sorterer varene etter verdi, slik at A-varene (20 % av varene, 80 % av verdien) får tett oppfølging, medan C-varene blir styrte enkelt."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f30b50a9cfc45066",
+    "translatedAt": "2026-06-21T01:16:09.973Z",
+    "model": "claude-code-agent",
+    "strings": 69,
+    "tm": {
+      "091e81b22c817abf": "Lagerstyring",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "632b7d7412b665c5": "Ei forteljing om balansekunsten i lagerstyring -- korleis økonomisk ordrekvantum, sikkerheitslager og Just-in-Time finn det optimale punktet mellom for mykje og for lite på lager.",
+      "8c7fc54f6ede4513": "vurdere og bruke ulike metoder for lagerstyring og innkjøp",
+      "9f25073d972a1d64": "## For mykje eller for lite?\n\nDu driv ein butikk. Kor mykje av kvar vare bør du ha på lager? Det er freistande å fylle opp -- då går du aldri tom. Men lager kostar pengar: kapital blir bunden, lokale må leigast, og varer kan bli umoderne. Samstundes: å gå tom kostar *endå* meir, for då mistar du sal og kanskje kunden for godt.\n\nGod **lagerstyring** handlar om denne balansekunsten -- å ha nok varer tilgjengeleg utan å binde opp unødvendig mykje kapital. Det er planlegging og kontroll av varebehaldninga, med avgjerder om bestillingsmengd, bestillingstidspunkt og sikkerheitslager.\n\nI dette kapittelet skal vi finne det optimale punktet. Vi skal rekne ut **økonomisk ordrekvantum** -- den bestillingsmengda som gjev lågast totalkostnad. Vi skal forstå kvifor du treng eit **sikkerheitslager** som buffer mot det uføresette. Og vi skal møte **Just-in-Time**, den dristige strategien som prøver å eliminere lager heilt.",
+      "023c4e6468198b40": "## Lagerkostnader og økonomisk ordrekvantum\n\nÅ halde varer på lager gjev to motstridande kostnader. **Lagerhaldskostnaden (H)** -- kapitalbinding, lokale, svinn og handtering -- utgjer typisk 15-30 % av vareverdien per år, og aukar jo meir du har på lager. **Bestillingskostnaden (S)** -- administrasjon, frakt og varemottak -- er fast per bestilling, og blir høgare jo oftare du bestiller. Bestiller du sjeldan i store kvanta, får du låge bestillingskostnader, men høge lagerkostnader. Bestiller du ofte i små kvanta, blir det omvendt.\n\n**Økonomisk ordrekvantum** (EOQ, Economic Order Quantity) finn punktet der summen av desse kostnadene er lågast: $EOQ = \\sqrt{\\frac{2 \\cdot D \\cdot S}{H}}$, der $D$ er årleg etterspurnad, $S$ er bestillingskostnad per ordre og $H$ er lagerhaldskostnad per eining per år.\n\nLat oss rekne. Ein butikk sel 10 000 einingar i året, bestillingskostnaden er 500 kr, og lagerhaldskostnaden 20 kr per eining. Då blir $EOQ = \\sqrt{\\frac{2 \\cdot 10\\,000 \\cdot 500}{20}} = \\sqrt{500\\,000} \\approx 707$ einingar. Talet på bestillingar blir $10\\,000 / 707 \\approx 14$ per år. Eit fascinerande trekk: ved EOQ er bestillingskostnadene og lagerhaldskostnadene alltid om lag like store -- her begge rundt 7 070 kr, til saman 14 140 kr. Og legg merke til at $S$ står under kvadratrota: doblar du bestillingskostnaden, aukar ikkje EOQ med 100 %, men berre med faktoren $\\sqrt{2} \\approx 1{,}41$, altså om lag 41 %.",
+      "a64a00a124681089": "Test deg sjølv på lagerkostnader og EOQ:",
+      "4097889236a2af26": "placeholder",
+      "41499619c69267fd": "Kva minimerer økonomisk ordrekvantum (EOQ)?",
+      "3c33d2e84544c6ec": "Berre bestillingskostnadene",
+      "e21874045e7a2e69": "Summen av bestillings- og lagerhaldskostnadene",
+      "e6b1c15af033639b": "Berre lagerhaldskostnadene",
+      "d04e20b4adf47ec0": "Innkjøpsprisen per eining",
+      "6e18a2ef3757716b": "EOQ finn bestillingsmengda der summen av bestillingskostnader og lagerhaldskostnader er lågast.",
+      "2b15dd736606dadd": "D = 10 000, S = 500 kr, H = 20 kr. Kva blir EOQ?",
+      "70af4443a5334014": "Ca. 500 einingar",
+      "ba8d01c371c0ffce": "Ca. 250 einingar",
+      "8cd07d100bcd823a": "Ca. 707 einingar",
+      "334da81425586291": "Ca. 1 000 einingar",
+      "cd6785e52bbcff4a": "EOQ = √(2 × 10 000 × 500 / 20) = √500 000 ≈ 707 einingar.",
+      "0c096c73c3f86d82": "Kva skjer med EOQ dersom bestillingskostnaden S blir dobla?",
+      "89c6a91773d534a4": "EOQ blir dobla",
+      "826429f1f81c34b5": "EOQ blir halvert",
+      "3924b5a780ea606a": "EOQ er uendra",
+      "2bc8026e68f3b509": "EOQ aukar med ca. 41 %",
+      "cd9488de77824958": "S står under kvadratrota, så ny EOQ = √2 × gammal EOQ ≈ 1,41 × gammal, ein auke på ca. 41 %.",
+      "62351ffb206005ce": "## Sikkerheitslager og bestillingspunkt\n\nEOQ fortel *kor mykje* du skal bestille, men ikkje *når*. Og røynda er usikker: etterspurnaden kan plutseleg stige, eller leverandøren kan bli forseinka. For å sleppe å gå tom held vi difor eit **sikkerheitslager** -- ein ekstra buffer utover det venta forbruket i bestillingsperioden.\n\nKor stort sikkerheitslageret bør vere, kjem an på uvissa i etterspurnaden, uvissa i leveringstida, og det ønskte **servicenivået**. Eit servicenivå på 95 % betyr at ein godtek tomt lager i 5 % av tilfella. Vil du opp mot 99 %, kostar det raskt mykje meir sikkerheitslager.\n\nMen når skal du bestille? Det fortel **bestillingspunktet** (reorder point): $\\text{Bestillingspunkt} = \\text{Forbruk per dag} \\times \\text{Leveringstid} + \\text{Sikkerhetslager}$. Sei at ei bedrift brukar 50 einingar per dag, leveringstida er 6 dagar og sikkerheitslageret 100 einingar. Då blir bestillingspunktet $50 \\times 6 + 100 = 400$ einingar. Når lageret søkk til 400, bestiller du på nytt. Dei 300 einingane dekkjer normalt forbruk medan du ventar på leveransen, og dei 100 ekstra er bufferen mot det uføresette.",
+      "f006cfc01d768c3a": "Test deg sjølv på sikkerheitslager og bestillingspunkt:",
+      "49e8c25d2e075a13": "Kva er hensikta med eit sikkerheitslager?",
+      "c4cfc9f29bc07a5d": "Å vere ein buffer mot uvisse i etterspurnad og leveringstid",
+      "fef60bb7b8ef1f55": "Å minimere talet på bestillingar",
+      "ad7035ecf58faf25": "Å erstatte EOQ",
+      "01496df1842b3848": "Å redusere innkjøpsprisen",
+      "0e85446f65e19529": "Sikkerheitslageret er ein buffer som hindrar tomt lager når etterspurnaden blir høgare enn venta eller leveransen blir forseinka.",
+      "61b19c5043ffeaea": "Forbruk 50 einingar/dag, leveringstid 6 dagar, sikkerheitslager 100. Kva er bestillingspunktet?",
+      "40bc50c44cc31827": "300 einingar",
+      "04b856edc3f638ed": "400 einingar",
+      "92f2a4cd899ebeac": "600 einingar",
+      "234de9f4d06ccd05": "150 einingar",
+      "965dce99ba8684fa": "Bestillingspunkt = 50 × 6 + 100 = 300 + 100 = 400 einingar.",
+      "f066b9068291caef": "Kva betyr eit servicenivå på 95 %?",
+      "5ee63578d2dc4ad4": "At lageret alltid er 95 % fullt",
+      "e5ad6afeba364e1c": "At 95 % av varene er feilfrie",
+      "9314760a45892403": "At ein godtek tomt lager i 5 % av tilfella",
+      "3e353f2c70f37e6e": "At leveringstida er 95 dagar",
+      "959120096a9987e3": "Servicenivå 95 % betyr at ein godtek å gå tom for lager i 5 % av tilfella. Høgare servicenivå krev større sikkerheitslager.",
+      "7bfe7cb34d3cdb90": "## Just-in-Time og ABC-analyse\n\nNokre bedrifter går endå lenger og prøver å eliminere lageret heilt. Det er ideen bak **Just-in-Time (JIT)** -- varer og materialar blir leverte nøyaktig når dei trengst i produksjonen, ikkje før og ikkje etter. Toyota er mest kjend for dette: bildelar kjem til fabrikken berre timar før dei skal på samlebandet.\n\nFordelane er openberre: minimale lagerkostnader, lite kapitalbinding, redusert svinn, og ein tvang til kvalitetsforbetring fordi det ikkje finst buffer til å skjule feil. Men JIT er òg sårbart. Det krev ekstremt påletelege leverandørar, og det er lite rom for feil eller forseinkingar. Under pandemien i 2020, då forsyningskjedene vart forstyrra, fekk mange JIT-bedrifter store problem -- og fleire har sidan auka sikkerheitslagra igjen.\n\nEin klok lagerstyrar skjønar òg at ikkje alle varer fortener like mykje merksemd. Her hjelper **ABC-analysen**, basert på Pareto-prinsippet (80/20-regelen). **A-varer** er typisk om lag 20 % av varene, men står for 80 % av verdien -- dei krev tett oppfølging og nøyaktig prognostisering. **B-varer** er om lag 30 % av varene og 15 % av verdien, med moderat oppfølging. Og **C-varer** er om lag 50 % av varene, men berre 5 % av verdien -- her held enkel oppfølging og store bestillingar. Det lønner seg rett og slett ikkje å bruke mykje tid på å optimalisere C-varer.",
+      "c670514bab958b76": "Test deg sjølv på Just-in-Time og ABC-analyse:",
+      "0d427cf2149106d8": "Kva er hovudideen bak Just-in-Time (JIT)?",
+      "3de61d1e18240b58": "Å ha størst mogleg sikkerheitslager",
+      "2aa384fa74dacfe0": "Å produsere berre til lager",
+      "8100453e10fe49d3": "Å bestille alt på førehand",
+      "7a60425662427331": "Å levere varer nøyaktig når dei trengst, og dermed eliminere lager",
+      "9bcab364cfebfd2b": "JIT går ut på å levere varer akkurat når dei trengst i produksjonen, slik at lageret og tilhøyrande kostnader blir minimerte.",
+      "1b4ea39db3a89dba": "Kva er ein sentral ulempe med JIT?",
+      "03ef2601abebe9bf": "Det er sårbart for forstyrringar i forsyningskjeda",
+      "5b8527ffe17e801a": "Det gjev høge lagerkostnader",
+      "39f76791de2303f7": "Det bind mykje kapital",
+      "636b5525aeb8c3fc": "Det aukar svinnet",
+      "4091c0e31e3db7cd": "Utan buffer er JIT svært sårbart -- forseinkingar eller kriser hos leverandørar kan stoppe produksjonen med ein gong, slik pandemien i 2020 viste.",
+      "365ec10d4bf73e61": "I ein ABC-analyse utgjer A-varene typisk:",
+      "dae672a2d14db920": "80 % av varene og 20 % av verdien",
+      "ead7e5e3e3fa1e23": "20 % av varene og 80 % av verdien",
+      "da7b6f2ffac94390": "50 % av varene og 50 % av verdien",
+      "5d8bfc01faaa1ae9": "30 % av varene og 15 % av verdien",
+      "3976d247ba718d58": "A-varer er om lag 20 % av talet, men står for om lag 80 % av verdien (Pareto-prinsippet), og krev tett oppfølging.",
+      "31e798923cc700fa": "## Oppsummering\n\nLagerstyring er ein balansekunst mellom å ha for mykje og for lite på lager. **Lagerkostnadene** består av lagerhaldskostnader (aukar med lagernivået), bestillingskostnader (aukar med talet på bestillingar) og mangelkostnader (når ein går tom).\n\n**Økonomisk ordrekvantum (EOQ)** finn bestillingsmengda som minimerer summen av kostnadene, og ved EOQ er bestillings- og lagerhaldskostnadene alltid om lag like store. **Sikkerheitslageret** vernar mot uvisse, og **bestillingspunktet** -- forbruk per dag ganga med leveringstid pluss sikkerheitslager -- fortel når du skal bestille på nytt.\n\n**Just-in-Time** eliminerer nesten lageret, men krev påletelege leverandørar og er sårbart for forstyrringar. Og **ABC-analysen** sorterer varene etter verdi, slik at A-varene (20 % av varene, 80 % av verdien) får tett oppfølging, medan C-varene blir styrte enkelt."
+    }
+  }
+}

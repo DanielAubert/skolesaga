@@ -1,1 +1,380 @@
-{"id":"2p-4-4-narrativ","courseId":"2p","chapterNumber":"4.4","title":"Vilkårsbunde sannsyn","subtitle":"Narrativ versjon","description":"Ei forteljing om kuler som ikkje vert lagde tilbake – korleis sannsyn endrar seg når du veit kva som allereie har skjedd.","estimatedMinutes":30,"competenceGoals":["berekne sannsyn ved hjelp av systematiske oppteljingar og bruke addisjonsprinsippet og multiplikasjonsprinsippet"],"linkedChapterId":"2p-4-4","content":[{"id":"2p-4-4-n-intro","type":"text","content":"## Kortet som forandra alt\n\nDu spelar kort med vener og treng eit ess. I ein full kortstokk er sjansen $\\frac{4}{52}$. Du trekkjer – og får eit ess! Men så trekkjer du ein gong til, utan å leggje det første kortet tilbake. Kva er sjansen for ess no? Ikkje $\\frac{4}{52}$ lenger – det ligg jo berre $3$ ess att blant $51$ kort. Sannsynet har *endra seg*, fordi noko allereie har skjedd.\n\nDette er kjernen i **vilkårsbunde sannsyn**: sjansen for ei hending avheng av kva vi veit frå før. Trekkjer du kuler frå ein pose utan å leggje dei tilbake, vel læraren elevar til framføring, eller testar ein fabrikk produkt for feil – overalt dukkar det same mønsteret opp. I denne forteljinga lærer du å rekne på det, med ein formel, eit prinsipp og eit teikneverktøy som gjer alt oversiktleg."},{"id":"2p-4-4-n-section1","type":"text","content":"## Gitt at … – den nye spelereglen\n\nVi skriv **vilkårsbunde sannsyn** som $P(B \\mid A)$, og les det «sannsynet for $B$ gitt at $A$ har inntreft». Den loddrette streken tyder altså «gitt at» – informasjonen om at $A$ har skjedd, endrar spelebrettet for $B$. Formelt er $$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$$ der $P(A \\cap B)$ er sannsynet for at *begge* hendingane inntreff.\n\nSnur vi formelen, får vi **multiplikasjonsprinsippet**, som er arbeidshesten i dette kapittelet: $$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$$ Sannsynet for at begge skjer, er sjansen for den første, ganga med sjansen for den andre *gitt at* den første har skjedd.\n\nLat oss bruke det. Ein pose inneheld $4$ raude og $6$ blå kuler, og du trekkjer to kuler utan å leggje den første tilbake. Kva er sjansen for at begge er raude? Første trekk: $P(R_1) = \\frac{4}{10}$. Men no er situasjonen endra – det ligg berre $3$ raude att blant $9$ kuler, så $P(R_2 \\mid R_1) = \\frac{3}{9}$. Multiplikasjonsprinsippet gir $$P(\\text{begge røde}) = \\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15} \\approx 13{,}3\\,\\%$$\n\nLegg merke til det viktigaste grepet: etter første trekk oppdaterer vi *både* teljaren og nemnaren. Éi kule mindre i posen, éi raud mindre å trekkje. Det er nettopp dette «utan tilbakelegging» tyder – kvart trekk endrar føresetnadene for det neste."},{"id":"2p-4-4-n-quiz1","type":"exercise","exercise":{"id":"2p-4-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vilkårsbunde sannsyn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"2p-4-4-n-quiz1-q0","task":"Kva tyder $P(B \\mid A)$?","options":[{"id":"a","text":"Sannsynet for at både A og B skjer","isCorrect":false},{"id":"b","text":"Sannsynet for B gitt at A har inntreft","isCorrect":true},{"id":"c","text":"Sannsynet for B delt på sannsynet for A","isCorrect":false},{"id":"d","text":"Sannsynet for at A skjer før B","isCorrect":false}],"solution":"$P(B \\mid A)$ er det vilkårsbundne sannsynet for $B$ gitt at $A$ har skjedd. Det reknast ut som $\\frac{P(A \\cap B)}{P(A)}$."},{"id":"2p-4-4-n-quiz1-q1","task":"Ein pose har 5 grøne og 3 gule kuler. Du trekkjer to utan tilbakelegging. Kva er sannsynet for at begge er grøne?","options":[{"id":"a","text":"$\\frac{25}{64}$","isCorrect":false},{"id":"b","text":"$\\frac{5}{8}$","isCorrect":false},{"id":"c","text":"$\\frac{5}{14}$","isCorrect":true},{"id":"d","text":"$\\frac{10}{56}$","isCorrect":false}],"solution":"$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$. Etter første trekk er det 4 grøne att blant 7 kuler."},{"id":"2p-4-4-n-quiz1-q2","task":"Kvifor endrar sannsyna seg når vi trekkjer utan tilbakelegging?","options":[{"id":"a","text":"Fordi talet på moglege og gunstige utfall endrast etter kvart trekk","isCorrect":true},{"id":"b","text":"Fordi kulene blir tyngre","isCorrect":false},{"id":"c","text":"Dei endrar seg ikkje – sannsynet er alltid det same","isCorrect":false},{"id":"d","text":"Fordi vi rundar av undervegs","isCorrect":false}],"solution":"Kvart trekk fjernar ei kule frå posen. Både totalen (nemnaren) og talet på gunstige utfall (teljaren) kan endre seg, så neste trekk har nye sannsyn."}]}},{"id":"2p-4-4-n-section2","type":"text","content":"## Valtreet – kartet over alle moglegheiter\n\nNår situasjonane blir meir samansette, er eit **valtre** det beste verktøyet. Du teiknar første trekk som greiner ut frå start, og frå kvar grein teiknar du neste trekk – med *oppdaterte* sannsyn. Så gjeld to reglar: **multipliser** langs greinene for å finne sannsynet for éin bestemt veg, og **adder** sannsyna for ulike vegar som fører til same resultat.\n\nPrøv dette: i ein klasse er det $15$ jenter og $13$ gutar, altså $28$ elevar, og to skal trekkjast tilfeldig til ei framføring. Kva er sjansen for at begge er jenter? Langs «jente–jente»-vegen i treet: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$.\n\nMen kva når fleire vegar fører til målet? Ei fruktskål har $3$ eple og $2$ pærer, og du forsyner deg med to tilfeldige frukter. Kva er sjansen for å få eitt eple *og* éi pære? Her finst to vegar: eple først og så pære, eller pære først og så eple. Den første vegen gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, den andre gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sidan begge vegane fører til same resultat, adderer vi: $\\frac{6}{20} + \\frac{6}{20} = \\frac{12}{20} = \\frac{3}{5}$.\n\nDet er lett å gløyme den andre vegen og ende på halvparten av rett svar. Difor er valtreet gull verdt: når alle vegar er teikna opp, *ser* du kva som skal med. Multipliser langs greinene, adder mellom vegane – det er heile oppskrifta."},{"id":"2p-4-4-n-quiz2","type":"exercise","exercise":{"id":"2p-4-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på valtre og fleire vegar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"2p-4-4-n-quiz2-q0","task":"I ein klasse er det 15 jenter og 13 gutar. To elevar vert trekte tilfeldig. Kva er sannsynet for at begge er jenter?","options":[{"id":"a","text":"$\\frac{15}{28} \\cdot \\frac{15}{28} \\approx 28{,}7\\,\\%$","isCorrect":false},{"id":"b","text":"$\\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{5}{18} \\approx 27{,}8\\,\\%$","isCorrect":true},{"id":"c","text":"$\\frac{15}{28} \\approx 53{,}6\\,\\%$","isCorrect":false},{"id":"d","text":"$\\frac{14}{27} \\approx 51{,}9\\,\\%$","isCorrect":false}],"solution":"Utan tilbakelegging: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$. Etter at éi jente er trekt, er det 14 jenter att av 27 elevar."},{"id":"2p-4-4-n-quiz2-q1","task":"Ei skål har 3 eple og 2 pærer. Du trekkjer to frukter utan tilbakelegging. Kva er sannsynet for eitt eple og éi pære?","options":[{"id":"a","text":"$\\frac{6}{20}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{5}$","isCorrect":false},{"id":"c","text":"$\\frac{6}{25}$","isCorrect":false},{"id":"d","text":"$\\frac{3}{5}$","isCorrect":true}],"solution":"To vegar: eple så pære gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, pære så eple gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sum: $\\frac{12}{20} = \\frac{3}{5}$. Hugs å ta med begge vegane!"}]}},{"id":"2p-4-4-n-section3","type":"text","content":"## Uavhengige hendingar – og trikset med «minst éin»\n\nNokre gonger påverkar ikkje hendingane kvarandre i det heile teke. Då vert dei kalla **uavhengige**, og kjenneteiknet er at $P(B \\mid A) = P(B)$ – informasjonen om $A$ endrar ingenting. For uavhengige hendingar blir multiplikasjonsprinsippet ekstra enkelt: $$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nVêrmeldinga seier $70\\,\\%$ sjanse for regn på måndag og $40\\,\\%$ på tysdag, uavhengig av kvarandre. Sjansen for regn begge dagar er då $0{,}70 \\cdot 0{,}40 = 0{,}28$, altså $28\\,\\%$. Inga oppdatering nødvendig – tysdagens vêr bryr seg ikkje om måndagens.\n\nTil slutt eit av dei mest elegante triksa i sannsynsrekninga. Ein fabrikk veit at $2\\,\\%$ av produkta er defekte, og du trekkjer to produkt frå eit stort parti. Kva er sjansen for *minst eitt* defekt? Å rekne direkte er kronglete – «minst eitt» kan tyde eitt eller to defekte, altså fleire tilfelle å halde styr på. Men motsatsen til «minst eitt defekt» er «ingen defekte», og den er lett: $P(\\text{ingen}) = 0{,}98 \\cdot 0{,}98 = 0{,}9604$. Dermed er $$P(\\text{minst ett defekt}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$$\n\nRegelen er verdt å ramme inn: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Når du ser orda «minst éin» i ei oppgåve, gå via komplementet – det sparar deg nesten alltid for arbeid."},{"id":"2p-4-4-n-quiz3","type":"exercise","exercise":{"id":"2p-4-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på uavhengige hendingar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"2p-4-4-n-quiz3-q0","task":"Det er 70 % sjanse for regn måndag og 40 % tysdag, uavhengig av kvarandre. Kva er sannsynet for regn begge dagar?","options":[{"id":"a","text":"$110\\,\\%$","isCorrect":false},{"id":"b","text":"$55\\,\\%$","isCorrect":false},{"id":"c","text":"$28\\,\\%$","isCorrect":true},{"id":"d","text":"$30\\,\\%$","isCorrect":false}],"solution":"Uavhengige hendingar: $P = 0{,}70 \\cdot 0{,}40 = 0{,}28 = 28\\,\\%$."},{"id":"2p-4-4-n-quiz3-q1","task":"2 % av produkta frå ein fabrikk er defekte. Du trekkjer to produkt frå eit stort parti. Kva er sannsynet for minst eitt defekt?","options":[{"id":"a","text":"$4\\,\\%$ (fordi $2\\,\\% + 2\\,\\% = 4\\,\\%$)","isCorrect":false},{"id":"b","text":"$1 - 0{,}98^2 \\approx 4{,}0\\,\\%$","isCorrect":true},{"id":"c","text":"$0{,}02^2 = 0{,}04\\,\\%$","isCorrect":false},{"id":"d","text":"$2\\,\\%$","isCorrect":false}],"solution":"Gå via komplementet: $P(\\text{ingen defekte}) = 0{,}98^2 = 0{,}9604$. Då er $P(\\text{minst ett}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$."},{"id":"2p-4-4-n-quiz3-q2","task":"Kva kjenneteiknar to uavhengige hendingar A og B?","options":[{"id":"a","text":"$P(B \\mid A) = P(B)$ – informasjonen om A endrar ikkje sannsynet for B","isCorrect":true},{"id":"b","text":"$P(A \\cap B) = 0$","isCorrect":false},{"id":"c","text":"A og B kan ikkje skje samtidig","isCorrect":false},{"id":"d","text":"$P(A) = P(B)$","isCorrect":false}],"solution":"Uavhengigheit tyder at $P(B \\mid A) = P(B)$. Då vert multiplikasjonsprinsippet forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$."}]}},{"id":"2p-4-4-n-summary","type":"text","content":"## Oppsummering\n\nVi starta med eit ess som forandra kortstokken, og no har du heile verktøykassa. **Vilkårsbunde sannsyn** $P(B \\mid A)$ er sjansen for $B$ gitt at $A$ allereie har skjedd, definert ved $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$. **Multiplikasjonsprinsippet** $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ lèt oss rekne på hendingar i rekkjefølgje – og ved trekning *utan tilbakelegging* må både teljar og nemnar oppdaterast etter kvart trekk.\n\n**Valtreet** held orden på det heile: multipliser langs greinene, og adder sannsyna for ulike vegar som fører til same resultat – som dei to vegane til «eitt eple og éi pære». Er hendingane **uavhengige**, gjeld $P(B \\mid A) = P(B)$, og alt vert forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$. Og når oppgåva spør om «minst éin», hugsar du snarvegen: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Frå kortspel til kvalitetskontroll – det er same matematikk heile vegen."}],"exercises":[],"_meta":{"sourceHash":"3a7d39c98ba2cc95","translatedAt":"2026-06-17T00:22:41.690Z","model":"claude-code-agent","strings":57,"tm":{"00fce03a24b77d0c":"Vilkårsbunde sannsyn","b195b06d1ed59702":"Narrativ versjon","2b6f083ee17e7a9e":"Ei forteljing om kuler som ikkje vert lagde tilbake – korleis sannsyn endrar seg når du veit kva som allereie har skjedd.","497fdc4d8b306b9e":"berekne sannsyn ved hjelp av systematiske oppteljingar og bruke addisjonsprinsippet og multiplikasjonsprinsippet","36986067a8438d43":"## Kortet som forandra alt\n\nDu spelar kort med vener og treng eit ess. I ein full kortstokk er sjansen $\\frac{4}{52}$. Du trekkjer – og får eit ess! Men så trekkjer du ein gong til, utan å leggje det første kortet tilbake. Kva er sjansen for ess no? Ikkje $\\frac{4}{52}$ lenger – det ligg jo berre $3$ ess att blant $51$ kort. Sannsynet har *endra seg*, fordi noko allereie har skjedd.\n\nDette er kjernen i **vilkårsbunde sannsyn**: sjansen for ei hending avheng av kva vi veit frå før. Trekkjer du kuler frå ein pose utan å leggje dei tilbake, vel læraren elevar til framføring, eller testar ein fabrikk produkt for feil – overalt dukkar det same mønsteret opp. I denne forteljinga lærer du å rekne på det, med ein formel, eit prinsipp og eit teikneverktøy som gjer alt oversiktleg.","cf620d7be7f5f103":"## Gitt at … – den nye spelereglen\n\nVi skriv **vilkårsbunde sannsyn** som $P(B \\mid A)$, og les det «sannsynet for $B$ gitt at $A$ har inntreft». Den loddrette streken tyder altså «gitt at» – informasjonen om at $A$ har skjedd, endrar spelebrettet for $B$. Formelt er $$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$$ der $P(A \\cap B)$ er sannsynet for at *begge* hendingane inntreff.\n\nSnur vi formelen, får vi **multiplikasjonsprinsippet**, som er arbeidshesten i dette kapittelet: $$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$$ Sannsynet for at begge skjer, er sjansen for den første, ganga med sjansen for den andre *gitt at* den første har skjedd.\n\nLat oss bruke det. Ein pose inneheld $4$ raude og $6$ blå kuler, og du trekkjer to kuler utan å leggje den første tilbake. Kva er sjansen for at begge er raude? Første trekk: $P(R_1) = \\frac{4}{10}$. Men no er situasjonen endra – det ligg berre $3$ raude att blant $9$ kuler, så $P(R_2 \\mid R_1) = \\frac{3}{9}$. Multiplikasjonsprinsippet gir $$P(\\text{begge røde}) = \\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15} \\approx 13{,}3\\,\\%$$\n\nLegg merke til det viktigaste grepet: etter første trekk oppdaterer vi *både* teljaren og nemnaren. Éi kule mindre i posen, éi raud mindre å trekkje. Det er nettopp dette «utan tilbakelegging» tyder – kvart trekk endrar føresetnadene for det neste.","003e63fedb51b4fb":"Test deg sjølv på vilkårsbunde sannsyn:","4097889236a2af26":"placeholder","240450f36a8c434d":"Kva tyder $P(B \\mid A)$?","57a1a19ca9c3015b":"Sannsynet for at både A og B skjer","069dec8306c5497a":"Sannsynet for B gitt at A har inntreft","2e80f16bc27938ec":"Sannsynet for B delt på sannsynet for A","41ef9d957a17800b":"Sannsynet for at A skjer før B","86fd9122a43029ad":"$P(B \\mid A)$ er det vilkårsbundne sannsynet for $B$ gitt at $A$ har skjedd. Det reknast ut som $\\frac{P(A \\cap B)}{P(A)}$.","dc07271bc679d106":"Ein pose har 5 grøne og 3 gule kuler. Du trekkjer to utan tilbakelegging. Kva er sannsynet for at begge er grøne?","a52b310c61de9716":"$\\frac{25}{64}$","5257a310e0070b54":"$\\frac{5}{8}$","25546dce0460f093":"$\\frac{5}{14}$","75caf6d6d1373b33":"$\\frac{10}{56}$","b35a7338dee58d19":"$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$. Etter første trekk er det 4 grøne att blant 7 kuler.","241726a22e35bc1e":"Kvifor endrar sannsyna seg når vi trekkjer utan tilbakelegging?","83d9c438f1075e8b":"Fordi talet på moglege og gunstige utfall endrast etter kvart trekk","82a7593bbb4ee059":"Fordi kulene blir tyngre","11bcf548e9bceb63":"Dei endrar seg ikkje – sannsynet er alltid det same","c1309372306dab67":"Fordi vi rundar av undervegs","54923588af0d15bf":"Kvart trekk fjernar ei kule frå posen. Både totalen (nemnaren) og talet på gunstige utfall (teljaren) kan endre seg, så neste trekk har nye sannsyn.","a1c4b9ab81828c7f":"## Valtreet – kartet over alle moglegheiter\n\nNår situasjonane blir meir samansette, er eit **valtre** det beste verktøyet. Du teiknar første trekk som greiner ut frå start, og frå kvar grein teiknar du neste trekk – med *oppdaterte* sannsyn. Så gjeld to reglar: **multipliser** langs greinene for å finne sannsynet for éin bestemt veg, og **adder** sannsyna for ulike vegar som fører til same resultat.\n\nPrøv dette: i ein klasse er det $15$ jenter og $13$ gutar, altså $28$ elevar, og to skal trekkjast tilfeldig til ei framføring. Kva er sjansen for at begge er jenter? Langs «jente–jente»-vegen i treet: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$.\n\nMen kva når fleire vegar fører til målet? Ei fruktskål har $3$ eple og $2$ pærer, og du forsyner deg med to tilfeldige frukter. Kva er sjansen for å få eitt eple *og* éi pære? Her finst to vegar: eple først og så pære, eller pære først og så eple. Den første vegen gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, den andre gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sidan begge vegane fører til same resultat, adderer vi: $\\frac{6}{20} + \\frac{6}{20} = \\frac{12}{20} = \\frac{3}{5}$.\n\nDet er lett å gløyme den andre vegen og ende på halvparten av rett svar. Difor er valtreet gull verdt: når alle vegar er teikna opp, *ser* du kva som skal med. Multipliser langs greinene, adder mellom vegane – det er heile oppskrifta.","44cd52468c0997a7":"Test deg sjølv på valtre og fleire vegar:","38c4b45a3bc6bac0":"I ein klasse er det 15 jenter og 13 gutar. To elevar vert trekte tilfeldig. Kva er sannsynet for at begge er jenter?","465b4e0dc1101c8b":"$\\frac{15}{28} \\cdot \\frac{15}{28} \\approx 28{,}7\\,\\%$","c0c3b7784d789dac":"$\\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{5}{18} \\approx 27{,}8\\,\\%$","14b8022b2ac256b6":"$\\frac{15}{28} \\approx 53{,}6\\,\\%$","8f55f3e7629b3a7f":"$\\frac{14}{27} \\approx 51{,}9\\,\\%$","88009474f666b91e":"Utan tilbakelegging: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$. Etter at éi jente er trekt, er det 14 jenter att av 27 elevar.","839352f6a62658a7":"Ei skål har 3 eple og 2 pærer. Du trekkjer to frukter utan tilbakelegging. Kva er sannsynet for eitt eple og éi pære?","cef0bbc781033542":"$\\frac{6}{20}$","7e6026b35a80b9fb":"$\\frac{1}{5}$","a5ae581e0996ccb5":"$\\frac{6}{25}$","e1879d7a93f60436":"$\\frac{3}{5}$","81658c85d16ffaa3":"To vegar: eple så pære gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, pære så eple gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sum: $\\frac{12}{20} = \\frac{3}{5}$. Hugs å ta med begge vegane!","02dc92d13c144192":"## Uavhengige hendingar – og trikset med «minst éin»\n\nNokre gonger påverkar ikkje hendingane kvarandre i det heile teke. Då vert dei kalla **uavhengige**, og kjenneteiknet er at $P(B \\mid A) = P(B)$ – informasjonen om $A$ endrar ingenting. For uavhengige hendingar blir multiplikasjonsprinsippet ekstra enkelt: $$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nVêrmeldinga seier $70\\,\\%$ sjanse for regn på måndag og $40\\,\\%$ på tysdag, uavhengig av kvarandre. Sjansen for regn begge dagar er då $0{,}70 \\cdot 0{,}40 = 0{,}28$, altså $28\\,\\%$. Inga oppdatering nødvendig – tysdagens vêr bryr seg ikkje om måndagens.\n\nTil slutt eit av dei mest elegante triksa i sannsynsrekninga. Ein fabrikk veit at $2\\,\\%$ av produkta er defekte, og du trekkjer to produkt frå eit stort parti. Kva er sjansen for *minst eitt* defekt? Å rekne direkte er kronglete – «minst eitt» kan tyde eitt eller to defekte, altså fleire tilfelle å halde styr på. Men motsatsen til «minst eitt defekt» er «ingen defekte», og den er lett: $P(\\text{ingen}) = 0{,}98 \\cdot 0{,}98 = 0{,}9604$. Dermed er $$P(\\text{minst ett defekt}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$$\n\nRegelen er verdt å ramme inn: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Når du ser orda «minst éin» i ei oppgåve, gå via komplementet – det sparar deg nesten alltid for arbeid.","7b92d03aa782109a":"Test deg sjølv på uavhengige hendingar:","6410631fdc7c7c40":"Det er 70 % sjanse for regn måndag og 40 % tysdag, uavhengig av kvarandre. Kva er sannsynet for regn begge dagar?","c29748bcc211e47b":"Uavhengige hendingar: $P = 0{,}70 \\cdot 0{,}40 = 0{,}28 = 28\\,\\%$.","8c4c66bc5bdb4b3c":"2 % av produkta frå ein fabrikk er defekte. Du trekkjer to produkt frå eit stort parti. Kva er sannsynet for minst eitt defekt?","4d1f52a4cfc9adc4":"$4\\,\\%$ (fordi $2\\,\\% + 2\\,\\% = 4\\,\\%$)","7b576900c64d33d7":"$1 - 0{,}98^2 \\approx 4{,}0\\,\\%$","afcadab86118a6dd":"Gå via komplementet: $P(\\text{ingen defekte}) = 0{,}98^2 = 0{,}9604$. Då er $P(\\text{minst ett}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$.","a6aedc039711eba8":"Kva kjenneteiknar to uavhengige hendingar A og B?","491dffaa9879e575":"$P(B \\mid A) = P(B)$ – informasjonen om A endrar ikkje sannsynet for B","cb5fadb67795cdcf":"$P(A \\cap B) = 0$","f9007f894fe768ca":"A og B kan ikkje skje samtidig","28f82af58f037176":"$P(A) = P(B)$","cea1c1795292ea9c":"Uavhengigheit tyder at $P(B \\mid A) = P(B)$. Då vert multiplikasjonsprinsippet forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$.","d912539891b4c260":"## Oppsummering\n\nVi starta med eit ess som forandra kortstokken, og no har du heile verktøykassa. **Vilkårsbunde sannsyn** $P(B \\mid A)$ er sjansen for $B$ gitt at $A$ allereie har skjedd, definert ved $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$. **Multiplikasjonsprinsippet** $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ lèt oss rekne på hendingar i rekkjefølgje – og ved trekning *utan tilbakelegging* må både teljar og nemnar oppdaterast etter kvart trekk.\n\n**Valtreet** held orden på det heile: multipliser langs greinene, og adder sannsyna for ulike vegar som fører til same resultat – som dei to vegane til «eitt eple og éi pære». Er hendingane **uavhengige**, gjeld $P(B \\mid A) = P(B)$, og alt vert forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$. Og når oppgåva spør om «minst éin», hugsar du snarvegen: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Frå kortspel til kvalitetskontroll – det er same matematikk heile vegen."}}}
+{
+  "id": "2p-4-4-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "4.4",
+  "title": "Vilkårsbunde sannsyn",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kuler som ikkje vert lagde tilbake – korleis sannsyn endrar seg når du veit kva som allereie har skjedd.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "berekne sannsyn ved hjelp av systematiske oppteljingar og bruke addisjonsprinsippet og multiplikasjonsprinsippet"
+  ],
+  "linkedChapterId": "2p-4-4",
+  "content": [
+    {
+      "id": "2p-4-4-n-intro",
+      "type": "text",
+      "content": "## Kortet som forandra alt\n\nDu spelar kort med vener og treng eit ess. I ein full kortstokk er sjansen $\\frac{4}{52}$. Du trekkjer – og får eit ess! Men så trekkjer du ein gong til, utan å leggje det første kortet tilbake. Kva er sjansen for ess no? Ikkje $\\frac{4}{52}$ lenger – det ligg jo berre $3$ ess att blant $51$ kort. Sannsynet har *endra seg*, fordi noko allereie har skjedd.\n\nDette er kjernen i **vilkårsbunde sannsyn**: sjansen for ei hending avheng av kva vi veit frå før. Trekkjer du kuler frå ein pose utan å leggje dei tilbake, vel læraren elevar til framføring, eller testar ein fabrikk produkt for feil – overalt dukkar det same mønsteret opp. I denne forteljinga lærer du å rekne på det, med ein formel, eit prinsipp og eit teikneverktøy som gjer alt oversiktleg."
+    },
+    {
+      "id": "2p-4-4-n-section1",
+      "type": "text",
+      "content": "## Gitt at … – den nye spelereglen\n\nVi skriv **vilkårsbunde sannsyn** som $P(B \\mid A)$, og les det «sannsynet for $B$ gitt at $A$ har inntreft». Den loddrette streken tyder altså «gitt at» – informasjonen om at $A$ har skjedd, endrar spelebrettet for $B$. Formelt er $$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$$ der $P(A \\cap B)$ er sannsynet for at *begge* hendingane inntreff.\n\nSnur vi formelen, får vi **multiplikasjonsprinsippet**, som er arbeidshesten i dette kapittelet: $$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$$ Sannsynet for at begge skjer, er sjansen for den første, ganga med sjansen for den andre *gitt at* den første har skjedd.\n\nLat oss bruke det. Ein pose inneheld $4$ raude og $6$ blå kuler, og du trekkjer to kuler utan å leggje den første tilbake. Kva er sjansen for at begge er raude? Første trekk: $P(R_1) = \\frac{4}{10}$. Men no er situasjonen endra – det ligg berre $3$ raude att blant $9$ kuler, så $P(R_2 \\mid R_1) = \\frac{3}{9}$. Multiplikasjonsprinsippet gir $$P(\\text{begge røde}) = \\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15} \\approx 13{,}3\\,\\%$$\n\nLegg merke til det viktigaste grepet: etter første trekk oppdaterer vi *både* teljaren og nemnaren. Éi kule mindre i posen, éi raud mindre å trekkje. Det er nettopp dette «utan tilbakelegging» tyder – kvart trekk endrar føresetnadene for det neste."
+    },
+    {
+      "id": "2p-4-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vilkårsbunde sannsyn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-4-4-n-quiz1-q0",
+            "task": "Kva tyder $P(B \\mid A)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sannsynet for at både A og B skjer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sannsynet for B delt på sannsynet for A",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sannsynet for B gitt at A har inntreft",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Sannsynet for at A skjer før B",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(B \\mid A)$ er det vilkårsbundne sannsynet for $B$ gitt at $A$ har skjedd. Det reknast ut som $\\frac{P(A \\cap B)}{P(A)}$."
+          },
+          {
+            "id": "2p-4-4-n-quiz1-q1",
+            "task": "Ein pose har 5 grøne og 3 gule kuler. Du trekkjer to utan tilbakelegging. Kva er sannsynet for at begge er grøne?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{25}{64}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{5}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{10}{56}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{5}{14}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$. Etter første trekk er det 4 grøne att blant 7 kuler."
+          },
+          {
+            "id": "2p-4-4-n-quiz1-q2",
+            "task": "Kvifor endrar sannsyna seg når vi trekkjer utan tilbakelegging?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi talet på moglege og gunstige utfall endrast etter kvart trekk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi kulene blir tyngre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei endrar seg ikkje – sannsynet er alltid det same",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi vi rundar av undervegs",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvart trekk fjernar ei kule frå posen. Både totalen (nemnaren) og talet på gunstige utfall (teljaren) kan endre seg, så neste trekk har nye sannsyn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-4-4-n-section2",
+      "type": "text",
+      "content": "## Valtreet – kartet over alle moglegheiter\n\nNår situasjonane blir meir samansette, er eit **valtre** det beste verktøyet. Du teiknar første trekk som greiner ut frå start, og frå kvar grein teiknar du neste trekk – med *oppdaterte* sannsyn. Så gjeld to reglar: **multipliser** langs greinene for å finne sannsynet for éin bestemt veg, og **adder** sannsyna for ulike vegar som fører til same resultat.\n\nPrøv dette: i ein klasse er det $15$ jenter og $13$ gutar, altså $28$ elevar, og to skal trekkjast tilfeldig til ei framføring. Kva er sjansen for at begge er jenter? Langs «jente–jente»-vegen i treet: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$.\n\nMen kva når fleire vegar fører til målet? Ei fruktskål har $3$ eple og $2$ pærer, og du forsyner deg med to tilfeldige frukter. Kva er sjansen for å få eitt eple *og* éi pære? Her finst to vegar: eple først og så pære, eller pære først og så eple. Den første vegen gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, den andre gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sidan begge vegane fører til same resultat, adderer vi: $\\frac{6}{20} + \\frac{6}{20} = \\frac{12}{20} = \\frac{3}{5}$.\n\nDet er lett å gløyme den andre vegen og ende på halvparten av rett svar. Difor er valtreet gull verdt: når alle vegar er teikna opp, *ser* du kva som skal med. Multipliser langs greinene, adder mellom vegane – det er heile oppskrifta."
+    },
+    {
+      "id": "2p-4-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på valtre og fleire vegar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-4-4-n-quiz2-q0",
+            "task": "I ein klasse er det 15 jenter og 13 gutar. To elevar vert trekte tilfeldig. Kva er sannsynet for at begge er jenter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{15}{28} \\cdot \\frac{15}{28} \\approx 28{,}7\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{5}{18} \\approx 27{,}8\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{15}{28} \\approx 53{,}6\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{14}{27} \\approx 51{,}9\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Utan tilbakelegging: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$. Etter at éi jente er trekt, er det 14 jenter att av 27 elevar."
+          },
+          {
+            "id": "2p-4-4-n-quiz2-q1",
+            "task": "Ei skål har 3 eple og 2 pærer. Du trekkjer to frukter utan tilbakelegging. Kva er sannsynet for eitt eple og éi pære?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{6}{20}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{5}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{6}{25}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "To vegar: eple så pære gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, pære så eple gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sum: $\\frac{12}{20} = \\frac{3}{5}$. Hugs å ta med begge vegane!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-4-4-n-section3",
+      "type": "text",
+      "content": "## Uavhengige hendingar – og trikset med «minst éin»\n\nNokre gonger påverkar ikkje hendingane kvarandre i det heile teke. Då vert dei kalla **uavhengige**, og kjenneteiknet er at $P(B \\mid A) = P(B)$ – informasjonen om $A$ endrar ingenting. For uavhengige hendingar blir multiplikasjonsprinsippet ekstra enkelt: $$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nVêrmeldinga seier $70\\,\\%$ sjanse for regn på måndag og $40\\,\\%$ på tysdag, uavhengig av kvarandre. Sjansen for regn begge dagar er då $0{,}70 \\cdot 0{,}40 = 0{,}28$, altså $28\\,\\%$. Inga oppdatering nødvendig – tysdagens vêr bryr seg ikkje om måndagens.\n\nTil slutt eit av dei mest elegante triksa i sannsynsrekninga. Ein fabrikk veit at $2\\,\\%$ av produkta er defekte, og du trekkjer to produkt frå eit stort parti. Kva er sjansen for *minst eitt* defekt? Å rekne direkte er kronglete – «minst eitt» kan tyde eitt eller to defekte, altså fleire tilfelle å halde styr på. Men motsatsen til «minst eitt defekt» er «ingen defekte», og den er lett: $P(\\text{ingen}) = 0{,}98 \\cdot 0{,}98 = 0{,}9604$. Dermed er $$P(\\text{minst ett defekt}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$$\n\nRegelen er verdt å ramme inn: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Når du ser orda «minst éin» i ei oppgåve, gå via komplementet – det sparar deg nesten alltid for arbeid."
+    },
+    {
+      "id": "2p-4-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på uavhengige hendingar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "2p-4-4-n-quiz3-q0",
+            "task": "Det er 70 % sjanse for regn måndag og 40 % tysdag, uavhengig av kvarandre. Kva er sannsynet for regn begge dagar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$110\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$55\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$30\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$28\\,\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uavhengige hendingar: $P = 0{,}70 \\cdot 0{,}40 = 0{,}28 = 28\\,\\%$."
+          },
+          {
+            "id": "2p-4-4-n-quiz3-q1",
+            "task": "2 % av produkta frå ein fabrikk er defekte. Du trekkjer to produkt frå eit stort parti. Kva er sannsynet for minst eitt defekt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1 - 0{,}98^2 \\approx 4{,}0\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4\\,\\%$ (fordi $2\\,\\% + 2\\,\\% = 4\\,\\%$)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}02^2 = 0{,}04\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gå via komplementet: $P(\\text{ingen defekte}) = 0{,}98^2 = 0{,}9604$. Då er $P(\\text{minst ett}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$."
+          },
+          {
+            "id": "2p-4-4-n-quiz3-q2",
+            "task": "Kva kjenneteiknar to uavhengige hendingar A og B?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(A \\cap B) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$P(B \\mid A) = P(B)$ – informasjonen om A endrar ikkje sannsynet for B",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "A og B kan ikkje skje samtidig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A) = P(B)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uavhengigheit tyder at $P(B \\mid A) = P(B)$. Då vert multiplikasjonsprinsippet forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2p-4-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi starta med eit ess som forandra kortstokken, og no har du heile verktøykassa. **Vilkårsbunde sannsyn** $P(B \\mid A)$ er sjansen for $B$ gitt at $A$ allereie har skjedd, definert ved $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$. **Multiplikasjonsprinsippet** $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ lèt oss rekne på hendingar i rekkjefølgje – og ved trekning *utan tilbakelegging* må både teljar og nemnar oppdaterast etter kvart trekk.\n\n**Valtreet** held orden på det heile: multipliser langs greinene, og adder sannsyna for ulike vegar som fører til same resultat – som dei to vegane til «eitt eple og éi pære». Er hendingane **uavhengige**, gjeld $P(B \\mid A) = P(B)$, og alt vert forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$. Og når oppgåva spør om «minst éin», hugsar du snarvegen: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Frå kortspel til kvalitetskontroll – det er same matematikk heile vegen."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3a7d39c98ba2cc95",
+    "translatedAt": "2026-06-17T00:22:41.690Z",
+    "model": "claude-code-agent",
+    "strings": 57,
+    "tm": {
+      "00fce03a24b77d0c": "Vilkårsbunde sannsyn",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "2b6f083ee17e7a9e": "Ei forteljing om kuler som ikkje vert lagde tilbake – korleis sannsyn endrar seg når du veit kva som allereie har skjedd.",
+      "497fdc4d8b306b9e": "berekne sannsyn ved hjelp av systematiske oppteljingar og bruke addisjonsprinsippet og multiplikasjonsprinsippet",
+      "36986067a8438d43": "## Kortet som forandra alt\n\nDu spelar kort med vener og treng eit ess. I ein full kortstokk er sjansen $\\frac{4}{52}$. Du trekkjer – og får eit ess! Men så trekkjer du ein gong til, utan å leggje det første kortet tilbake. Kva er sjansen for ess no? Ikkje $\\frac{4}{52}$ lenger – det ligg jo berre $3$ ess att blant $51$ kort. Sannsynet har *endra seg*, fordi noko allereie har skjedd.\n\nDette er kjernen i **vilkårsbunde sannsyn**: sjansen for ei hending avheng av kva vi veit frå før. Trekkjer du kuler frå ein pose utan å leggje dei tilbake, vel læraren elevar til framføring, eller testar ein fabrikk produkt for feil – overalt dukkar det same mønsteret opp. I denne forteljinga lærer du å rekne på det, med ein formel, eit prinsipp og eit teikneverktøy som gjer alt oversiktleg.",
+      "cf620d7be7f5f103": "## Gitt at … – den nye spelereglen\n\nVi skriv **vilkårsbunde sannsyn** som $P(B \\mid A)$, og les det «sannsynet for $B$ gitt at $A$ har inntreft». Den loddrette streken tyder altså «gitt at» – informasjonen om at $A$ har skjedd, endrar spelebrettet for $B$. Formelt er $$P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$$ der $P(A \\cap B)$ er sannsynet for at *begge* hendingane inntreff.\n\nSnur vi formelen, får vi **multiplikasjonsprinsippet**, som er arbeidshesten i dette kapittelet: $$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$$ Sannsynet for at begge skjer, er sjansen for den første, ganga med sjansen for den andre *gitt at* den første har skjedd.\n\nLat oss bruke det. Ein pose inneheld $4$ raude og $6$ blå kuler, og du trekkjer to kuler utan å leggje den første tilbake. Kva er sjansen for at begge er raude? Første trekk: $P(R_1) = \\frac{4}{10}$. Men no er situasjonen endra – det ligg berre $3$ raude att blant $9$ kuler, så $P(R_2 \\mid R_1) = \\frac{3}{9}$. Multiplikasjonsprinsippet gir $$P(\\text{begge røde}) = \\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15} \\approx 13{,}3\\,\\%$$\n\nLegg merke til det viktigaste grepet: etter første trekk oppdaterer vi *både* teljaren og nemnaren. Éi kule mindre i posen, éi raud mindre å trekkje. Det er nettopp dette «utan tilbakelegging» tyder – kvart trekk endrar føresetnadene for det neste.",
+      "003e63fedb51b4fb": "Test deg sjølv på vilkårsbunde sannsyn:",
+      "4097889236a2af26": "placeholder",
+      "240450f36a8c434d": "Kva tyder $P(B \\mid A)$?",
+      "57a1a19ca9c3015b": "Sannsynet for at både A og B skjer",
+      "069dec8306c5497a": "Sannsynet for B gitt at A har inntreft",
+      "2e80f16bc27938ec": "Sannsynet for B delt på sannsynet for A",
+      "41ef9d957a17800b": "Sannsynet for at A skjer før B",
+      "86fd9122a43029ad": "$P(B \\mid A)$ er det vilkårsbundne sannsynet for $B$ gitt at $A$ har skjedd. Det reknast ut som $\\frac{P(A \\cap B)}{P(A)}$.",
+      "dc07271bc679d106": "Ein pose har 5 grøne og 3 gule kuler. Du trekkjer to utan tilbakelegging. Kva er sannsynet for at begge er grøne?",
+      "a52b310c61de9716": "$\\frac{25}{64}$",
+      "5257a310e0070b54": "$\\frac{5}{8}$",
+      "25546dce0460f093": "$\\frac{5}{14}$",
+      "75caf6d6d1373b33": "$\\frac{10}{56}$",
+      "b35a7338dee58d19": "$P = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14}$. Etter første trekk er det 4 grøne att blant 7 kuler.",
+      "241726a22e35bc1e": "Kvifor endrar sannsyna seg når vi trekkjer utan tilbakelegging?",
+      "83d9c438f1075e8b": "Fordi talet på moglege og gunstige utfall endrast etter kvart trekk",
+      "82a7593bbb4ee059": "Fordi kulene blir tyngre",
+      "11bcf548e9bceb63": "Dei endrar seg ikkje – sannsynet er alltid det same",
+      "c1309372306dab67": "Fordi vi rundar av undervegs",
+      "54923588af0d15bf": "Kvart trekk fjernar ei kule frå posen. Både totalen (nemnaren) og talet på gunstige utfall (teljaren) kan endre seg, så neste trekk har nye sannsyn.",
+      "a1c4b9ab81828c7f": "## Valtreet – kartet over alle moglegheiter\n\nNår situasjonane blir meir samansette, er eit **valtre** det beste verktøyet. Du teiknar første trekk som greiner ut frå start, og frå kvar grein teiknar du neste trekk – med *oppdaterte* sannsyn. Så gjeld to reglar: **multipliser** langs greinene for å finne sannsynet for éin bestemt veg, og **adder** sannsyna for ulike vegar som fører til same resultat.\n\nPrøv dette: i ein klasse er det $15$ jenter og $13$ gutar, altså $28$ elevar, og to skal trekkjast tilfeldig til ei framføring. Kva er sjansen for at begge er jenter? Langs «jente–jente»-vegen i treet: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$.\n\nMen kva når fleire vegar fører til målet? Ei fruktskål har $3$ eple og $2$ pærer, og du forsyner deg med to tilfeldige frukter. Kva er sjansen for å få eitt eple *og* éi pære? Her finst to vegar: eple først og så pære, eller pære først og så eple. Den første vegen gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, den andre gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sidan begge vegane fører til same resultat, adderer vi: $\\frac{6}{20} + \\frac{6}{20} = \\frac{12}{20} = \\frac{3}{5}$.\n\nDet er lett å gløyme den andre vegen og ende på halvparten av rett svar. Difor er valtreet gull verdt: når alle vegar er teikna opp, *ser* du kva som skal med. Multipliser langs greinene, adder mellom vegane – det er heile oppskrifta.",
+      "44cd52468c0997a7": "Test deg sjølv på valtre og fleire vegar:",
+      "38c4b45a3bc6bac0": "I ein klasse er det 15 jenter og 13 gutar. To elevar vert trekte tilfeldig. Kva er sannsynet for at begge er jenter?",
+      "465b4e0dc1101c8b": "$\\frac{15}{28} \\cdot \\frac{15}{28} \\approx 28{,}7\\,\\%$",
+      "c0c3b7784d789dac": "$\\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{5}{18} \\approx 27{,}8\\,\\%$",
+      "14b8022b2ac256b6": "$\\frac{15}{28} \\approx 53{,}6\\,\\%$",
+      "8f55f3e7629b3a7f": "$\\frac{14}{27} \\approx 51{,}9\\,\\%$",
+      "88009474f666b91e": "Utan tilbakelegging: $P = \\frac{15}{28} \\cdot \\frac{14}{27} = \\frac{210}{756} = \\frac{5}{18} \\approx 27{,}8\\,\\%$. Etter at éi jente er trekt, er det 14 jenter att av 27 elevar.",
+      "839352f6a62658a7": "Ei skål har 3 eple og 2 pærer. Du trekkjer to frukter utan tilbakelegging. Kva er sannsynet for eitt eple og éi pære?",
+      "cef0bbc781033542": "$\\frac{6}{20}$",
+      "7e6026b35a80b9fb": "$\\frac{1}{5}$",
+      "a5ae581e0996ccb5": "$\\frac{6}{25}$",
+      "e1879d7a93f60436": "$\\frac{3}{5}$",
+      "81658c85d16ffaa3": "To vegar: eple så pære gir $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20}$, pære så eple gir $\\frac{2}{5} \\cdot \\frac{3}{4} = \\frac{6}{20}$. Sum: $\\frac{12}{20} = \\frac{3}{5}$. Hugs å ta med begge vegane!",
+      "02dc92d13c144192": "## Uavhengige hendingar – og trikset med «minst éin»\n\nNokre gonger påverkar ikkje hendingane kvarandre i det heile teke. Då vert dei kalla **uavhengige**, og kjenneteiknet er at $P(B \\mid A) = P(B)$ – informasjonen om $A$ endrar ingenting. For uavhengige hendingar blir multiplikasjonsprinsippet ekstra enkelt: $$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nVêrmeldinga seier $70\\,\\%$ sjanse for regn på måndag og $40\\,\\%$ på tysdag, uavhengig av kvarandre. Sjansen for regn begge dagar er då $0{,}70 \\cdot 0{,}40 = 0{,}28$, altså $28\\,\\%$. Inga oppdatering nødvendig – tysdagens vêr bryr seg ikkje om måndagens.\n\nTil slutt eit av dei mest elegante triksa i sannsynsrekninga. Ein fabrikk veit at $2\\,\\%$ av produkta er defekte, og du trekkjer to produkt frå eit stort parti. Kva er sjansen for *minst eitt* defekt? Å rekne direkte er kronglete – «minst eitt» kan tyde eitt eller to defekte, altså fleire tilfelle å halde styr på. Men motsatsen til «minst eitt defekt» er «ingen defekte», og den er lett: $P(\\text{ingen}) = 0{,}98 \\cdot 0{,}98 = 0{,}9604$. Dermed er $$P(\\text{minst ett defekt}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$$\n\nRegelen er verdt å ramme inn: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Når du ser orda «minst éin» i ei oppgåve, gå via komplementet – det sparar deg nesten alltid for arbeid.",
+      "7b92d03aa782109a": "Test deg sjølv på uavhengige hendingar:",
+      "6410631fdc7c7c40": "Det er 70 % sjanse for regn måndag og 40 % tysdag, uavhengig av kvarandre. Kva er sannsynet for regn begge dagar?",
+      "c29748bcc211e47b": "Uavhengige hendingar: $P = 0{,}70 \\cdot 0{,}40 = 0{,}28 = 28\\,\\%$.",
+      "8c4c66bc5bdb4b3c": "2 % av produkta frå ein fabrikk er defekte. Du trekkjer to produkt frå eit stort parti. Kva er sannsynet for minst eitt defekt?",
+      "4d1f52a4cfc9adc4": "$4\\,\\%$ (fordi $2\\,\\% + 2\\,\\% = 4\\,\\%$)",
+      "7b576900c64d33d7": "$1 - 0{,}98^2 \\approx 4{,}0\\,\\%$",
+      "afcadab86118a6dd": "Gå via komplementet: $P(\\text{ingen defekte}) = 0{,}98^2 = 0{,}9604$. Då er $P(\\text{minst ett}) = 1 - 0{,}9604 = 0{,}0396 \\approx 4{,}0\\,\\%$.",
+      "a6aedc039711eba8": "Kva kjenneteiknar to uavhengige hendingar A og B?",
+      "491dffaa9879e575": "$P(B \\mid A) = P(B)$ – informasjonen om A endrar ikkje sannsynet for B",
+      "cb5fadb67795cdcf": "$P(A \\cap B) = 0$",
+      "f9007f894fe768ca": "A og B kan ikkje skje samtidig",
+      "28f82af58f037176": "$P(A) = P(B)$",
+      "cea1c1795292ea9c": "Uavhengigheit tyder at $P(B \\mid A) = P(B)$. Då vert multiplikasjonsprinsippet forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$.",
+      "d912539891b4c260": "## Oppsummering\n\nVi starta med eit ess som forandra kortstokken, og no har du heile verktøykassa. **Vilkårsbunde sannsyn** $P(B \\mid A)$ er sjansen for $B$ gitt at $A$ allereie har skjedd, definert ved $P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}$. **Multiplikasjonsprinsippet** $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ lèt oss rekne på hendingar i rekkjefølgje – og ved trekning *utan tilbakelegging* må både teljar og nemnar oppdaterast etter kvart trekk.\n\n**Valtreet** held orden på det heile: multipliser langs greinene, og adder sannsyna for ulike vegar som fører til same resultat – som dei to vegane til «eitt eple og éi pære». Er hendingane **uavhengige**, gjeld $P(B \\mid A) = P(B)$, og alt vert forenkla til $P(A \\cap B) = P(A) \\cdot P(B)$. Og når oppgåva spør om «minst éin», hugsar du snarvegen: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. Frå kortspel til kvalitetskontroll – det er same matematikk heile vegen."
+    }
+  }
+}

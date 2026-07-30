@@ -1,1 +1,451 @@
-{"id":"im-vg1-6-2-narrativ","courseId":"im-vg1","chapterNumber":"6.2","title":"Internettprotokoller og kommunikasjon","subtitle":"Narrativ versjon","description":"En fortelling om reglene som styrer internett -- TCP/IP-modellens fire lag, protokollene fra HTTP til SMTP, pakkene som finner sin vei, og subnettene som organiserer nettet.","estimatedMinutes":34,"competenceGoals":["beskrive, utforske og konfigurere datanettverk med egne subnett","gjøre rede for hvordan internett fungerer, og hvordan det blir brukt til kommunikasjon og lagring"],"linkedChapterId":"im-vg1-6-2","content":[{"id":"im-vg1-6-2-n-intro","type":"text","content":"## Et felles språk for milliarder av maskiner\n\nTenk på hvor utrolig det egentlig er: en datamaskin i Norge kan snakke med en server i USA, en telefon i Japan og en nettsky i Tyskland -- alle bygget av ulike produsenter, med ulike operativsystemer, og likevel forstår de hverandre perfekt. Hvordan er det mulig? Svaret er **protokoller** -- felles regler som alle maskiner er enige om å følge.\n\nEn protokoll er et standardisert sett med regler for hvordan data skal formateres, sendes, mottas og bekreftes. Uten protokoller ville internett vært et babelsk kaos. Med dem fungerer det som et velsmurt maskineri på tvers av hele kloden. Og internett er ikke bygget på én protokoll, men på en hel *stabel* av protokoller som samarbeider i lag.\n\nI denne fortellingen skal vi forstå reglene som styrer internett. Vi skal lære TCP/IP-modellen og dens fire lag, som beskriver dataens reise fra sender til mottaker. Vi skal bli kjent med de vanligste protokollene -- fra HTTP for nettsider til SMTP for e-post. Vi skal se hvordan data deles opp i pakker som finner sin egen vei. Og vi skal lære om subnett som organiserer nettet i håndterbare deler."},{"id":"im-vg1-6-2-n-section1","type":"text","content":"## Fire lag, ett system\n\nFor å organisere all kompleksiteten i internett, deler vi protokollene inn i lag -- og den mest brukte modellen heter **TCP/IP-modellen**, med fire lag. Tenk på det som etasjer i et bygg, der hver etasje har sin oppgave på dataens reise.\n\nØverst er **applikasjonslaget** -- her bor protokollene du som bruker faktisk møter direkte: HTTP og HTTPS for nettsider, SMTP og IMAP for e-post, FTP for filoverføring, og DNS for navneoppslag. Under det ligger **transportlaget**, som sikrer at data kommer fram riktig. Her finner vi to viktige protokoller. **TCP** (Transmission Control Protocol) gir pålitelig, ordnet levering -- den oppretter en forbindelse, bekrefter at hver pakke er mottatt, og sender på nytt hvis noe går tapt. Den brukes for nettsider, e-post og filer der alt *må* komme fram korrekt. **UDP** (User Datagram Protocol) er det raske alternativet -- ingen bekreftelse, ingen garanti for rekkefølge, men lynraskt. Den brukes til strømming, spill og videosamtaler, der det er bedre å miste en liten bit enn å vente.\n\nDe to nederste lagene jobber mer i kulissene. **Nettverkslaget** (eller internett-laget) tar seg av adressering og ruting, og her hersker **IP** (Internet Protocol), som merker hver pakke med avsender- og mottaker-IP -- det er på dette laget ruterne jobber. Og helt nederst ligger **nettverkstilgangslaget**, som tar seg av selve den fysiske overføringen over Ethernet, Wi-Fi eller fiber, der MAC-adresser brukes til lokal levering. Hvert lag stoler på laget under, og sammen bærer de dataene helt fram."},{"id":"im-vg1-6-2-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på TCP/IP-modellen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-6-2-n-quiz1-q0","task":"Hva er hovedforskjellen mellom TCP og UDP?","options":[{"id":"a","text":"TCP er trådløst, UDP er kablet","isCorrect":false},{"id":"b","text":"TCP gir pålitelig levering med bekreftelse, UDP er raskere men uten garanti","isCorrect":true},{"id":"c","text":"UDP er alltid sikrere enn TCP","isCorrect":false},{"id":"d","text":"TCP brukes bare til e-post","isCorrect":false}],"solution":"TCP gir pålitelig, ordnet levering med bekreftelse og gjensending. UDP er raskere uten bekreftelse, og passer til strømming og spill."},{"id":"im-vg1-6-2-n-quiz1-q1","task":"På hvilket lag jobber IP-protokollen og ruterne?","options":[{"id":"a","text":"Applikasjonslaget","isCorrect":false},{"id":"b","text":"Transportlaget","isCorrect":false},{"id":"c","text":"Nettverkslaget (internett-laget)","isCorrect":true},{"id":"d","text":"Nettverkstilgangslaget","isCorrect":false}],"solution":"IP-protokollen og ruterne jobber på nettverkslaget, som tar seg av adressering og ruting av pakker."},{"id":"im-vg1-6-2-n-quiz1-q2","task":"Hvilken protokolltype passer best for live videosamtaler?","options":[{"id":"a","text":"TCP, fordi den bekrefter alt","isCorrect":false},{"id":"b","text":"FTP","isCorrect":false},{"id":"c","text":"SMTP","isCorrect":false},{"id":"d","text":"UDP, fordi den er rask","isCorrect":true}],"solution":"UDP passer best for videosamtaler fordi den er rask. Det er bedre å miste en liten bit enn å vente på gjensending i sanntid."}]}},{"id":"im-vg1-6-2-n-section2","type":"text","content":"## Protokollene du møter hver dag\n\nLa oss bli bedre kjent med protokollene i applikasjonslaget -- de du faktisk bruker hver eneste dag, ofte uten å vite det.\n\n**HTTP** (HyperText Transfer Protocol) er grunnlaget for all nettsurfing -- den sender forespørsler om nettsider og mottar svar fra webservere. Men HTTP er *ukryptert*, så hvem som helst kan i prinsippet snappe opp det som sendes. Derfor har vi **HTTPS** (HTTP Secure), den krypterte versjonen som bruker SSL/TLS for å beskytte dataene underveis. Det er HTTPS du ser representert ved hengelåsen i nettleseren, og i dag er det standard for praktisk talt alle nettsider -- spesielt der du logger inn eller betaler.\n\nFor andre oppgaver finnes andre protokoller. **FTP** (File Transfer Protocol) brukes til å overføre filer mellom maskiner, ofte for å laste filer opp til en webserver. For e-post er det flere: **SMTP** (Simple Mail Transfer Protocol) *sender* e-post fra klient til server og mellom servere, mens **IMAP** og **POP3** *henter* e-post fra serveren til klienten din. Forskjellen mellom de to siste er verdt å merke seg: IMAP synkroniserer e-posten på tvers av alle enhetene dine -- leser du den på telefonen, er den markert som lest på PC-en også -- mens POP3 laster ned e-posten og sletter den fra serveren. Hver protokoll har altså sin spesialitet, og til sammen dekker de alt fra nettsurfing til e-post til filoverføring."},{"id":"im-vg1-6-2-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på protokoller:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-6-2-n-quiz2-q0","task":"Hva betyr HTTPS?","options":[{"id":"a","text":"HyperText Transfer Protocol Secure -- den krypterte versjonen av HTTP","isCorrect":true},{"id":"b","text":"HyperText Transfer Protocol Simple","isCorrect":false},{"id":"c","text":"High Transfer Protocol System","isCorrect":false},{"id":"d","text":"Host Transfer Protocol Service","isCorrect":false}],"solution":"HTTPS står for HyperText Transfer Protocol Secure -- en kryptert versjon av HTTP som bruker SSL/TLS for å beskytte data."},{"id":"im-vg1-6-2-n-quiz2-q1","task":"Hvilken protokoll brukes til å SENDE e-post?","options":[{"id":"a","text":"IMAP","isCorrect":false},{"id":"b","text":"SMTP","isCorrect":true},{"id":"c","text":"POP3","isCorrect":false},{"id":"d","text":"HTTP","isCorrect":false}],"solution":"SMTP (Simple Mail Transfer Protocol) brukes til å sende e-post fra klient til server og mellom servere. IMAP og POP3 henter e-post."},{"id":"im-vg1-6-2-n-quiz2-q2","task":"Hva er forskjellen på IMAP og POP3?","options":[{"id":"a","text":"De er nøyaktig like","isCorrect":false},{"id":"b","text":"IMAP sender e-post, POP3 mottar","isCorrect":false},{"id":"c","text":"IMAP synkroniserer på tvers av enheter, POP3 laster ned og sletter fra serveren","isCorrect":true},{"id":"d","text":"POP3 er kryptert, IMAP ikke","isCorrect":false}],"solution":"IMAP synkroniserer e-post på tvers av enheter, mens POP3 laster ned e-posten og sletter den fra serveren."}]}},{"id":"im-vg1-6-2-n-section3","type":"text","content":"## Pakker som finner sin egen vei\n\nHer kommer en av de mest geniale ideene i hele internett. Når du sender data -- en e-post, en nettside, en video -- sendes det ikke som én sammenhengende strøm. I stedet deles dataene opp i mange små biter som kalles **pakker**. Dette kalles **pakkesvitsjing**, og det er selve hemmeligheten bak internettets robusthet.\n\nHver pakke er som en liten konvolutt med viktig informasjon. Den inneholder avsenderadresse og mottakeradresse, et sekvensnummer som sier hvor i rekkefølgen den hører hjemme, selve datafragmentet -- en liten bit av filen eller nettsiden -- og litt feilkontrolldata for å sjekke at den kom fram uskadd. Det fascinerende er at de ulike pakkene kan ta *helt forskjellige veier* gjennom nettet for å nå fram, og så settes de sammen igjen i riktig rekkefølge hos mottakeren ved hjelp av sekvensnumrene.\n\nHvorfor gjør internett det på denne måten i stedet for å sende en sammenhengende strøm? Av flere gode grunner. For det første er det *effektivt* -- mange brukere kan dele de samme forbindelsene, fordi pakkene flettes sammen. For det andre er det *robust* -- hvis én rute svikter eller en kabel kuttes, finner pakkene bare en annen vei rundt. Og for det tredje er det *skalerbart* -- det fungerer med milliarder av samtidige brukere. En sammenhengende strøm ville krevd en dedikert linje mellom hver sender og mottaker, noe som hadde vært vanvittig ineffektivt og dyrt. Pakkesvitsjing er grunnen til at internett tåler at en kabel kuttes et sted i verden uten at alt bryter sammen."},{"id":"im-vg1-6-2-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-6-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på pakkesvitsjing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-6-2-n-quiz3-q0","task":"Hva er pakkesvitsjing?","options":[{"id":"a","text":"At all data sendes som én sammenhengende strøm","isCorrect":false},{"id":"b","text":"At man bytter ut nettverkskabler","isCorrect":false},{"id":"c","text":"At pakker fra posten leveres","isCorrect":false},{"id":"d","text":"At data deles i pakker som sendes uavhengig gjennom nettet","isCorrect":true}],"solution":"Pakkesvitsjing er metoden der data deles opp i små pakker som sendes uavhengig gjennom nettet og settes sammen hos mottakeren."},{"id":"im-vg1-6-2-n-quiz3-q1","task":"Hva brukes sekvensnummeret i en pakke til?","options":[{"id":"a","text":"Å sette pakkene sammen i riktig rekkefølge hos mottakeren","isCorrect":true},{"id":"b","text":"Å kryptere pakken","isCorrect":false},{"id":"c","text":"Å slette pakken","isCorrect":false},{"id":"d","text":"Å gjøre pakken større","isCorrect":false}],"solution":"Sekvensnummeret forteller hvor i rekkefølgen pakken hører hjemme, slik at mottakeren kan sette dem sammen riktig."},{"id":"im-vg1-6-2-n-quiz3-q2","task":"Hvorfor er pakkesvitsjing robust?","options":[{"id":"a","text":"Fordi data aldri kan gå tapt","isCorrect":false},{"id":"b","text":"Hvis en rute svikter, kan pakkene finne alternative veier","isCorrect":true},{"id":"c","text":"Fordi det krever en dedikert linje","isCorrect":false},{"id":"d","text":"Fordi det er tregt","isCorrect":false}],"solution":"Pakkesvitsjing er robust fordi pakkene kan ta alternative veier hvis en rute svikter, så nettet tåler at deler bryter sammen."}]}},{"id":"im-vg1-6-2-n-section4","type":"text","content":"## Å dele nettet i håndterbare deler\n\nStore nettverk kan bli uoversiktlige og trege hvis all trafikk flyter fritt om hverandre. Løsningen er **subnett** -- en logisk inndeling av et nettverk i mindre deler. Det er litt som å dele en stor by inn i postnummer-soner: lettere å organisere, og posten finner raskere fram.\n\nNøkkelen til subnett er **nettverksmasken**, eller subnet mask. Den bestemmer hvilken del av en IP-adresse som er *nettverksadressen* og hvilken del som er *enhetsadressen*. La oss ta et eksempel med den vanlige masken 255.255.255.0, ofte skrevet som /24. Si at en enhet har IP-adressen 192.168.1.50. Med denne masken utgjør de tre første tallgruppene -- 192.168.1 -- selve nettverksadressen, mens den siste -- .50 -- er enhetens egen adresse innenfor nettverket. I et slikt subnett er det plass til 254 enheter (fra .1 til .254), siden .0 er reservert for selve nettverksadressen og .255 for kringkasting til alle.\n\nMen hvorfor bry seg med subnett i det hele tatt? Av flere praktiske grunner. De *organiserer* store nettverk i mindre, håndterbare deler. De *begrenser* trafikk til relevante segmenter, så ikke alt flyter overalt og bremser nettet. De *forbedrer sikkerheten* ved å isolere deler av nettverket fra hverandre -- bryter noen inn i ett subnett, når de ikke automatisk resten. Og de gjør *feilsøking* enklere, fordi du kan avgrense hvor et problem ligger. La oss til slutt se hele kommunikasjonen i ett bilde, når du besøker www.nrk.no: nettleseren slår opp IP-adressen via DNS, oppretter en TCP-forbindelse med et treveis håndtrykk, sender en kryptert HTTPS-forespørsel, serveren svarer, svaret deles i pakker som tar ulike ruter, nettleseren setter dem sammen i riktig rekkefølge, og tolker til slutt HTML, CSS og JavaScript til den ferdige siden. Alt sammen på brøkdelen av et sekund -- takket være protokollene, lagene, pakkene og subnettene vi nå forstår."},{"id":"im-vg1-6-2-n-quiz4","type":"exercise","exercise":{"id":"im-vg1-6-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på subnett:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-6-2-n-quiz4-q0","task":"Hva gjør en nettverksmaske?","options":[{"id":"a","text":"Beskytter mot virus","isCorrect":false},{"id":"b","text":"Krypterer all trafikk","isCorrect":false},{"id":"c","text":"Bestemmer hvilken del av IP-adressen som er nettverks- og hvilken som er enhetsadresse","isCorrect":true},{"id":"d","text":"Øker hastigheten direkte","isCorrect":false}],"solution":"En nettverksmaske bestemmer hvilken del av IP-adressen som identifiserer nettverket, og hvilken del som identifiserer enheten."},{"id":"im-vg1-6-2-n-quiz4-q1","task":"Med masken 255.255.255.0 (/24), hva er nettverksdelen av adressen 192.168.1.50?","options":[{"id":"a","text":".50","isCorrect":false},{"id":"b","text":"255.255.255","isCorrect":false},{"id":"c","text":"Hele adressen","isCorrect":false},{"id":"d","text":"192.168.1","isCorrect":true}],"solution":"Med /24-masken utgjør de tre første tallgruppene (192.168.1) nettverksdelen, mens .50 er enhetsadressen."},{"id":"im-vg1-6-2-n-quiz4-q2","task":"Hvorfor brukes subnett?","options":[{"id":"a","text":"For å organisere nettverk, begrense trafikk og forbedre sikkerhet","isCorrect":true},{"id":"b","text":"For å gjøre nettverket tregere","isCorrect":false},{"id":"c","text":"For å fjerne alle IP-adresser","isCorrect":false},{"id":"d","text":"Det har ingen hensikt","isCorrect":false}],"solution":"Subnett organiserer store nettverk i mindre deler, begrenser trafikk til relevante segmenter, forbedrer sikkerheten og letter feilsøking."}]}},{"id":"im-vg1-6-2-n-summary","type":"text","content":"## Oppsummering\n\nVi har forstått reglene som styrer internett. **TCP/IP-modellen** organiserer protokollene i fire lag -- applikasjon, transport, nettverk og nettverkstilgang -- der **TCP** gir pålitelig levering og **UDP** rask, ugarantert overføring. Vi ble kjent med protokollene vi møter daglig: **HTTP/HTTPS** for nettsider, **FTP** for filer, og **SMTP** med **IMAP/POP3** for e-post.\n\nVi så hvordan **pakkesvitsjing** deler data i pakker som finner sin egen vei og settes sammen igjen -- effektivt, robust og skalerbart. Og vi lærte hvordan **subnett** og **nettverksmasker** organiserer nettet i håndterbare, sikre deler. Til slutt fulgte vi hele kommunikasjonen fra DNS-oppslag til ferdig nettside. Med denne kunnskapen forstår du ikke bare *at* internett virker, men *hvordan* -- det felles språket som binder milliarder av maskiner sammen."}],"exercises":[]}
+{
+  "id": "im-vg1-6-2-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "6.2",
+  "title": "Internettprotokoller og kommunikasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om reglene som styrer internett -- TCP/IP-modellens fire lag, protokollene fra HTTP til SMTP, pakkene som finner sin vei, og subnettene som organiserer nettet.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "beskrive, utforske og konfigurere datanettverk med egne subnett",
+    "gjøre rede for hvordan internett fungerer, og hvordan det blir brukt til kommunikasjon og lagring"
+  ],
+  "linkedChapterId": "im-vg1-6-2",
+  "content": [
+    {
+      "id": "im-vg1-6-2-n-intro",
+      "type": "text",
+      "content": "## Et felles språk for milliarder av maskiner\n\nTenk på hvor utrolig det egentlig er: en datamaskin i Norge kan snakke med en server i USA, en telefon i Japan og en nettsky i Tyskland -- alle bygget av ulike produsenter, med ulike operativsystemer, og likevel forstår de hverandre perfekt. Hvordan er det mulig? Svaret er **protokoller** -- felles regler som alle maskiner er enige om å følge.\n\nEn protokoll er et standardisert sett med regler for hvordan data skal formateres, sendes, mottas og bekreftes. Uten protokoller ville internett vært et babelsk kaos. Med dem fungerer det som et velsmurt maskineri på tvers av hele kloden. Og internett er ikke bygget på én protokoll, men på en hel *stabel* av protokoller som samarbeider i lag.\n\nI denne fortellingen skal vi forstå reglene som styrer internett. Vi skal lære TCP/IP-modellen og dens fire lag, som beskriver dataens reise fra sender til mottaker. Vi skal bli kjent med de vanligste protokollene -- fra HTTP for nettsider til SMTP for e-post. Vi skal se hvordan data deles opp i pakker som finner sin egen vei. Og vi skal lære om subnett som organiserer nettet i håndterbare deler."
+    },
+    {
+      "id": "im-vg1-6-2-n-section1",
+      "type": "text",
+      "content": "## Fire lag, ett system\n\nFor å organisere all kompleksiteten i internett, deler vi protokollene inn i lag -- og den mest brukte modellen heter **TCP/IP-modellen**, med fire lag. Tenk på det som etasjer i et bygg, der hver etasje har sin oppgave på dataens reise.\n\nØverst er **applikasjonslaget** -- her bor protokollene du som bruker faktisk møter direkte: HTTP og HTTPS for nettsider, SMTP og IMAP for e-post, FTP for filoverføring, og DNS for navneoppslag. Under det ligger **transportlaget**, som sikrer at data kommer fram riktig. Her finner vi to viktige protokoller. **TCP** (Transmission Control Protocol) gir pålitelig, ordnet levering -- den oppretter en forbindelse, bekrefter at hver pakke er mottatt, og sender på nytt hvis noe går tapt. Den brukes for nettsider, e-post og filer der alt *må* komme fram korrekt. **UDP** (User Datagram Protocol) er det raske alternativet -- ingen bekreftelse, ingen garanti for rekkefølge, men lynraskt. Den brukes til strømming, spill og videosamtaler, der det er bedre å miste en liten bit enn å vente.\n\nDe to nederste lagene jobber mer i kulissene. **Nettverkslaget** (eller internett-laget) tar seg av adressering og ruting, og her hersker **IP** (Internet Protocol), som merker hver pakke med avsender- og mottaker-IP -- det er på dette laget ruterne jobber. Og helt nederst ligger **nettverkstilgangslaget**, som tar seg av selve den fysiske overføringen over Ethernet, Wi-Fi eller fiber, der MAC-adresser brukes til lokal levering. Hvert lag stoler på laget under, og sammen bærer de dataene helt fram."
+    },
+    {
+      "id": "im-vg1-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på TCP/IP-modellen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-6-2-n-quiz1-q0",
+            "task": "Hva er hovedforskjellen mellom TCP og UDP?",
+            "options": [
+              {
+                "id": "a",
+                "text": "TCP er trådløst, UDP er kablet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "UDP er alltid sikrere enn TCP",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "TCP brukes bare til e-post",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "TCP gir pålitelig levering med bekreftelse, UDP er raskere men uten garanti",
+                "isCorrect": true
+              }
+            ],
+            "solution": "TCP gir pålitelig, ordnet levering med bekreftelse og gjensending. UDP er raskere uten bekreftelse, og passer til strømming og spill."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz1-q1",
+            "task": "På hvilket lag jobber IP-protokollen og ruterne?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Nettverkslaget (internett-laget)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Applikasjonslaget",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Transportlaget",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nettverkstilgangslaget",
+                "isCorrect": false
+              }
+            ],
+            "solution": "IP-protokollen og ruterne jobber på nettverkslaget, som tar seg av adressering og ruting av pakker."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz1-q2",
+            "task": "Hvilken protokolltype passer best for live videosamtaler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "TCP, fordi den bekrefter alt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "UDP, fordi den er rask",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "FTP",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "SMTP",
+                "isCorrect": false
+              }
+            ],
+            "solution": "UDP passer best for videosamtaler fordi den er rask. Det er bedre å miste en liten bit enn å vente på gjensending i sanntid."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-6-2-n-section2",
+      "type": "text",
+      "content": "## Protokollene du møter hver dag\n\nLa oss bli bedre kjent med protokollene i applikasjonslaget -- de du faktisk bruker hver eneste dag, ofte uten å vite det.\n\n**HTTP** (HyperText Transfer Protocol) er grunnlaget for all nettsurfing -- den sender forespørsler om nettsider og mottar svar fra webservere. Men HTTP er *ukryptert*, så hvem som helst kan i prinsippet snappe opp det som sendes. Derfor har vi **HTTPS** (HTTP Secure), den krypterte versjonen som bruker SSL/TLS for å beskytte dataene underveis. Det er HTTPS du ser representert ved hengelåsen i nettleseren, og i dag er det standard for praktisk talt alle nettsider -- spesielt der du logger inn eller betaler.\n\nFor andre oppgaver finnes andre protokoller. **FTP** (File Transfer Protocol) brukes til å overføre filer mellom maskiner, ofte for å laste filer opp til en webserver. For e-post er det flere: **SMTP** (Simple Mail Transfer Protocol) *sender* e-post fra klient til server og mellom servere, mens **IMAP** og **POP3** *henter* e-post fra serveren til klienten din. Forskjellen mellom de to siste er verdt å merke seg: IMAP synkroniserer e-posten på tvers av alle enhetene dine -- leser du den på telefonen, er den markert som lest på PC-en også -- mens POP3 laster ned e-posten og sletter den fra serveren. Hver protokoll har altså sin spesialitet, og til sammen dekker de alt fra nettsurfing til e-post til filoverføring."
+    },
+    {
+      "id": "im-vg1-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på protokoller:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-6-2-n-quiz2-q0",
+            "task": "Hva betyr HTTPS?",
+            "options": [
+              {
+                "id": "b",
+                "text": "HyperText Transfer Protocol Simple",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "High Transfer Protocol System",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "HyperText Transfer Protocol Secure -- den krypterte versjonen av HTTP",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Host Transfer Protocol Service",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HTTPS står for HyperText Transfer Protocol Secure -- en kryptert versjon av HTTP som bruker SSL/TLS for å beskytte data."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz2-q1",
+            "task": "Hvilken protokoll brukes til å SENDE e-post?",
+            "options": [
+              {
+                "id": "a",
+                "text": "IMAP",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "POP3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "HTTP",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "SMTP",
+                "isCorrect": true
+              }
+            ],
+            "solution": "SMTP (Simple Mail Transfer Protocol) brukes til å sende e-post fra klient til server og mellom servere. IMAP og POP3 henter e-post."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz2-q2",
+            "task": "Hva er forskjellen på IMAP og POP3?",
+            "options": [
+              {
+                "id": "c",
+                "text": "IMAP synkroniserer på tvers av enheter, POP3 laster ned og sletter fra serveren",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "De er nøyaktig like",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "IMAP sender e-post, POP3 mottar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "POP3 er kryptert, IMAP ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "IMAP synkroniserer e-post på tvers av enheter, mens POP3 laster ned e-posten og sletter den fra serveren."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-6-2-n-section3",
+      "type": "text",
+      "content": "## Pakker som finner sin egen vei\n\nHer kommer en av de mest geniale ideene i hele internett. Når du sender data -- en e-post, en nettside, en video -- sendes det ikke som én sammenhengende strøm. I stedet deles dataene opp i mange små biter som kalles **pakker**. Dette kalles **pakkesvitsjing**, og det er selve hemmeligheten bak internettets robusthet.\n\nHver pakke er som en liten konvolutt med viktig informasjon. Den inneholder avsenderadresse og mottakeradresse, et sekvensnummer som sier hvor i rekkefølgen den hører hjemme, selve datafragmentet -- en liten bit av filen eller nettsiden -- og litt feilkontrolldata for å sjekke at den kom fram uskadd. Det fascinerende er at de ulike pakkene kan ta *helt forskjellige veier* gjennom nettet for å nå fram, og så settes de sammen igjen i riktig rekkefølge hos mottakeren ved hjelp av sekvensnumrene.\n\nHvorfor gjør internett det på denne måten i stedet for å sende en sammenhengende strøm? Av flere gode grunner. For det første er det *effektivt* -- mange brukere kan dele de samme forbindelsene, fordi pakkene flettes sammen. For det andre er det *robust* -- hvis én rute svikter eller en kabel kuttes, finner pakkene bare en annen vei rundt. Og for det tredje er det *skalerbart* -- det fungerer med milliarder av samtidige brukere. En sammenhengende strøm ville krevd en dedikert linje mellom hver sender og mottaker, noe som hadde vært vanvittig ineffektivt og dyrt. Pakkesvitsjing er grunnen til at internett tåler at en kabel kuttes et sted i verden uten at alt bryter sammen."
+    },
+    {
+      "id": "im-vg1-6-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-6-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på pakkesvitsjing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-6-2-n-quiz3-q0",
+            "task": "Hva er pakkesvitsjing?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At all data sendes som én sammenhengende strøm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At data deles i pakker som sendes uavhengig gjennom nettet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At man bytter ut nettverkskabler",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At pakker fra posten leveres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Pakkesvitsjing er metoden der data deles opp i små pakker som sendes uavhengig gjennom nettet og settes sammen hos mottakeren."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz3-q1",
+            "task": "Hva brukes sekvensnummeret i en pakke til?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å kryptere pakken",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å slette pakken",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å sette pakkene sammen i riktig rekkefølge hos mottakeren",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å gjøre pakken større",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sekvensnummeret forteller hvor i rekkefølgen pakken hører hjemme, slik at mottakeren kan sette dem sammen riktig."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz3-q2",
+            "task": "Hvorfor er pakkesvitsjing robust?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi data aldri kan gå tapt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det krever en dedikert linje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det er tregt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hvis en rute svikter, kan pakkene finne alternative veier",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Pakkesvitsjing er robust fordi pakkene kan ta alternative veier hvis en rute svikter, så nettet tåler at deler bryter sammen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-6-2-n-section4",
+      "type": "text",
+      "content": "## Å dele nettet i håndterbare deler\n\nStore nettverk kan bli uoversiktlige og trege hvis all trafikk flyter fritt om hverandre. Løsningen er **subnett** -- en logisk inndeling av et nettverk i mindre deler. Det er litt som å dele en stor by inn i postnummer-soner: lettere å organisere, og posten finner raskere fram.\n\nNøkkelen til subnett er **nettverksmasken**, eller subnet mask. Den bestemmer hvilken del av en IP-adresse som er *nettverksadressen* og hvilken del som er *enhetsadressen*. La oss ta et eksempel med den vanlige masken 255.255.255.0, ofte skrevet som /24. Si at en enhet har IP-adressen 192.168.1.50. Med denne masken utgjør de tre første tallgruppene -- 192.168.1 -- selve nettverksadressen, mens den siste -- .50 -- er enhetens egen adresse innenfor nettverket. I et slikt subnett er det plass til 254 enheter (fra .1 til .254), siden .0 er reservert for selve nettverksadressen og .255 for kringkasting til alle.\n\nMen hvorfor bry seg med subnett i det hele tatt? Av flere praktiske grunner. De *organiserer* store nettverk i mindre, håndterbare deler. De *begrenser* trafikk til relevante segmenter, så ikke alt flyter overalt og bremser nettet. De *forbedrer sikkerheten* ved å isolere deler av nettverket fra hverandre -- bryter noen inn i ett subnett, når de ikke automatisk resten. Og de gjør *feilsøking* enklere, fordi du kan avgrense hvor et problem ligger. La oss til slutt se hele kommunikasjonen i ett bilde, når du besøker www.nrk.no: nettleseren slår opp IP-adressen via DNS, oppretter en TCP-forbindelse med et treveis håndtrykk, sender en kryptert HTTPS-forespørsel, serveren svarer, svaret deles i pakker som tar ulike ruter, nettleseren setter dem sammen i riktig rekkefølge, og tolker til slutt HTML, CSS og JavaScript til den ferdige siden. Alt sammen på brøkdelen av et sekund -- takket være protokollene, lagene, pakkene og subnettene vi nå forstår."
+    },
+    {
+      "id": "im-vg1-6-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-6-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på subnett:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-6-2-n-quiz4-q0",
+            "task": "Hva gjør en nettverksmaske?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Bestemmer hvilken del av IP-adressen som er nettverks- og hvilken som er enhetsadresse",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Beskytter mot virus",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Krypterer all trafikk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Øker hastigheten direkte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En nettverksmaske bestemmer hvilken del av IP-adressen som identifiserer nettverket, og hvilken del som identifiserer enheten."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz4-q1",
+            "task": "Med masken 255.255.255.0 (/24), hva er nettverksdelen av adressen 192.168.1.50?",
+            "options": [
+              {
+                "id": "a",
+                "text": ".50",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "192.168.1",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "255.255.255",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hele adressen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med /24-masken utgjør de tre første tallgruppene (192.168.1) nettverksdelen, mens .50 er enhetsadressen."
+          },
+          {
+            "id": "im-vg1-6-2-n-quiz4-q2",
+            "task": "Hvorfor brukes subnett?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å gjøre nettverket tregere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å fjerne alle IP-adresser",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For å organisere nettverk, begrense trafikk og forbedre sikkerhet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det har ingen hensikt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Subnett organiserer store nettverk i mindre deler, begrenser trafikk til relevante segmenter, forbedrer sikkerheten og letter feilsøking."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har forstått reglene som styrer internett. **TCP/IP-modellen** organiserer protokollene i fire lag -- applikasjon, transport, nettverk og nettverkstilgang -- der **TCP** gir pålitelig levering og **UDP** rask, ugarantert overføring. Vi ble kjent med protokollene vi møter daglig: **HTTP/HTTPS** for nettsider, **FTP** for filer, og **SMTP** med **IMAP/POP3** for e-post.\n\nVi så hvordan **pakkesvitsjing** deler data i pakker som finner sin egen vei og settes sammen igjen -- effektivt, robust og skalerbart. Og vi lærte hvordan **subnett** og **nettverksmasker** organiserer nettet i håndterbare, sikre deler. Til slutt fulgte vi hele kommunikasjonen fra DNS-oppslag til ferdig nettside. Med denne kunnskapen forstår du ikke bare *at* internett virker, men *hvordan* -- det felles språket som binder milliarder av maskiner sammen."
+    }
+  ],
+  "exercises": []
+}

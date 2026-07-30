@@ -1,1 +1,343 @@
-{"id":"fysikk2-8-2-narrativ","courseId":"fysikk2","chapterNumber":"8.2","title":"Dataanalyse og feilkilder","subtitle":"Narrativ versjon","description":"En fortelling om veien fra rådata til innsikt — grafer, lineær regresjon, R², linearisering av kurver og hvordan vi jakter på feilkilder og outliers.","estimatedMinutes":33,"competenceGoals":["bearbeide og fremstille måledata grafisk","bruke lineær regresjon, R² og linearisering","identifisere feilkilder, outliers og vurdere reproduserbarhet"],"linkedChapterId":"fysikk2-8-2","content":[{"id":"fysikk2-8-2-n-intro","type":"text","content":"## Fra rådata til innsikt\n\nNår eksperimentet er gjennomført og dataene samlet inn, begynner det virkelige arbeidet: å **analysere** dem for å trekke meningsfulle konklusjoner. Tall i en tabell forteller lite før vi bearbeider dem. Vi må organisere dataene, regne ut gjennomsnitt og usikkerhet, fremstille dem grafisk, tilpasse en matematisk modell, vurdere hvor godt den passer, og identifisere feilkilder og avvik. I dette kapittelet skal vi lære hele dataanalyseprosessen — grafer, lineær regresjon, R²-verdien, linearisering av ikke-lineære sammenhenger, og hvordan vi håndterer outliers og vurderer reproduserbarhet."},{"id":"fysikk2-8-2-n-section1","type":"text","content":"## Tabeller, grafer og lineær regresjon\n\nFørste steg er å organisere dataene i en ryddig **tabell** med kolonner for uavhengig og avhengig variabel, gjentatte målinger, gjennomsnitt, enheter og usikkerhet. Deretter lager vi en **graf** — kanskje dataanalysens viktigste verktøy, fordi den avslører mønstre og avvik som tallene skjuler. En god graf har tittel, aksetitler med enhet, passende skala, tydelige datapunkter, **feilstaver** som viser usikkerheten, og en best-tilpasset kurve. Den uavhengige variabelen går langs x-aksen, den avhengige langs y-aksen. Du skal aldri koble datapunktene med rette linjer mellom hvert punkt — det er ikke en kurvetilpasning.\n\nFor å finne den beste rette linjen gjennom datapunktene bruker vi **lineær regresjon** med formen $y = ax + b$, der $a$ er stigningstallet og $b$ konstantleddet. Den vanligste metoden er **minste kvadraters metode**, som finner $a$ og $b$ ved å minimere summen av de kvadrerte avstandene mellom punktene og linjen, $S = \\sum(y_i - (ax_i + b))^2$. I praksis bruker vi digitale verktøy som GeoGebra, Excel eller Python, som også gir usikkerhetene i $a$ og $b$. Et eksempel: måler vi strømmen gjennom en motstand ved ulike spenninger og plotter $I$ mot $U$, gir stigningstallet $1/R$ ifølge Ohms lov — slik bestemmer vi motstanden."},{"id":"fysikk2-8-2-n-quiz1","type":"exercise","exercise":{"id":"fysikk2-8-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på grafer og regresjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-8-2-n-quiz1-q0","task":"Hva viser feilstaver i en graf?","options":[{"id":"a","text":"Gjennomsnittet","isCorrect":false},{"id":"b","text":"Stigningstallet","isCorrect":false},{"id":"c","text":"Antall målinger","isCorrect":false},{"id":"d","text":"Usikkerhetsintervallet for hvert datapunkt","isCorrect":true}],"solution":"Feilstaver er streker gjennom datapunktene som viser måleusikkerheten visuelt."},{"id":"fysikk2-8-2-n-quiz1-q1","task":"Hva gjør minste kvadraters metode?","options":[{"id":"a","text":"Finner $a$ og $b$ som minimerer summen av kvadrerte avvik fra linjen","isCorrect":true},{"id":"b","text":"Kobler punktene med linjer","isCorrect":false},{"id":"c","text":"Fjerner outliers","isCorrect":false},{"id":"d","text":"Beregner gjennomsnittet","isCorrect":false}],"solution":"Minste kvadraters metode minimerer $S = \\sum(y_i - (ax_i+b))^2$ for å finne den best tilpassede rette linjen."},{"id":"fysikk2-8-2-n-quiz1-q2","task":"Hvilken variabel skal langs x-aksen?","options":[{"id":"a","text":"Den avhengige","isCorrect":false},{"id":"b","text":"Den uavhengige","isCorrect":true},{"id":"c","text":"Den med størst usikkerhet","isCorrect":false},{"id":"d","text":"Tilfeldig","isCorrect":false}],"solution":"Den uavhengige variabelen (den vi endrer) går langs x-aksen, den avhengige langs y-aksen."}]}},{"id":"fysikk2-8-2-n-section2","type":"text","content":"## R²-verdien og linearisering\n\nHvor godt passer modellen? Det forteller **R²-verdien** (bestemmelseskoeffisienten), et tall mellom $0$ og $1$ som angir hvor stor andel av variasjonen i dataene modellen forklarer: $R^2 = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$. En $R^2 > 0{,}99$ er en utmerket tilpasning, $0{,}95$–$0{,}99$ god, og under $0{,}90$ svak — da bør du vurdere om modellen passer. Men pass på: en høy $R^2$ betyr ikke automatisk at den lineære modellen er riktig, så sjekk alltid residualene (avvikene) visuelt. For en lineær modell er $R^2 = r^2$, der $r$ er korrelasjonskoeffisienten.\n\nMange fysiske sammenhenger er ikke-lineære, men vi kan ofte **linearisere** dem ved å transformere variablene. En **potenssammenheng** $y = ax^n$ blir lineær hvis vi tar logaritmen: $\\ln y = \\ln a + n\\ln x$, så et log-log-plot av $\\ln y$ mot $\\ln x$ gir en rett linje med stigningstall $n$. En **eksponentiell** sammenheng $y = ae^{bx}$ gir $\\ln y = \\ln a + bx$, så $\\ln y$ mot $x$ gir stigningstall $b$. En **invers** sammenheng $y = a/x + b$ lineariseres ved å plotte $y$ mot $1/x$. Det klassiske eksempelet er pendelen: $T = 2\\pi\\sqrt{L/g}$ blir $T^2 = (4\\pi^2/g)L$, så et plot av $T^2$ mot $L$ gir en rett linje gjennom origo med stigningstall $4\\pi^2/g$ — og dermed kan vi bestemme tyngdeakselerasjonen $g$ fra stigningstallet."},{"id":"fysikk2-8-2-n-quiz2","type":"exercise","exercise":{"id":"fysikk2-8-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på R² og linearisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-8-2-n-quiz2-q0","task":"Hva forteller R²-verdien?","options":[{"id":"a","text":"Antall datapunkter","isCorrect":false},{"id":"b","text":"Stigningstallet","isCorrect":false},{"id":"c","text":"Andelen av variasjonen som modellen forklarer (0 til 1)","isCorrect":true},{"id":"d","text":"Usikkerheten","isCorrect":false}],"solution":"$R^2$ angir hvor stor andel av variasjonen i dataene modellen forklarer; $R^2 = 1$ er perfekt tilpasning."},{"id":"fysikk2-8-2-n-quiz2-q1","task":"Hvordan lineariserer du $T = 2\\pi\\sqrt{L/g}$?","options":[{"id":"a","text":"Plot $T$ mot $L$","isCorrect":false},{"id":"b","text":"Plot $T$ mot $1/L$","isCorrect":false},{"id":"c","text":"Plot $\\ln T$ mot $\\ln L$","isCorrect":false},{"id":"d","text":"Plot $T^2$ mot $L$","isCorrect":true}],"solution":"Kvadrering gir $T^2 = (4\\pi^2/g)L$, så et plot av $T^2$ mot $L$ blir lineært med stigningstall $4\\pi^2/g$."},{"id":"fysikk2-8-2-n-quiz2-q2","task":"Hvordan lineariserer du en potenssammenheng $y = ax^n$?","options":[{"id":"a","text":"Plot $\\ln y$ mot $\\ln x$ (log-log)","isCorrect":true},{"id":"b","text":"Plot $y$ mot $x$","isCorrect":false},{"id":"c","text":"Plot $y^2$ mot $x$","isCorrect":false},{"id":"d","text":"Plot $y$ mot $1/x$","isCorrect":false}],"solution":"Logaritmen gir $\\ln y = \\ln a + n\\ln x$, så et log-log-plot blir lineært med stigningstall $n$."}]}},{"id":"fysikk2-8-2-n-section3","type":"text","content":"## Feilkilder, outliers og reproduserbarhet\n\nEn viktig del av analysen er å **identifisere feilkilder**. Systematiske feil — feilkalibrerte instrumenter, parallaksefeil, uberegnet friksjon, reaksjonstid ved manuell tidtaking — avsløres gjerne ved at resultatet konsekvent avviker fra en tabellverdi, eller ved å måle med ulike metoder. Tilfeldige feil — vibrasjoner, variasjoner i startbetingelser, elektronisk støy — reduseres ved å gjenta målinger.\n\nNoen ganger dukker det opp en **outlier**: et datapunkt som avviker markant fra de andre, ofte mer enn $2s$ eller $3s$ fra gjennomsnittet. Det kan skyldes en avlesingsfeil, en forstyrrelse eller et ekte fenomen. Regelen er streng: undersøk alltid årsaken, og hvis du fjerner en outlier, *må* du begrunne hvorfor — fjern aldri data bare fordi de «ser feil ut». Gjør gjerne regresjonen både med og uten for å vise at konklusjonen holder. Chauvenet-kriteriet gir en statistisk test.\n\nTil slutt: et grunnprinsipp i all vitenskap er **reproduserbarhet**. Vi skiller mellom **repeterbarhet** (samme person, samme utstyr) og **reproduserbarhet** (andre forskere, annet utstyr, annet sted). To resultater er **forenlige** hvis usikkerhetsintervallene overlapper — mer presist hvis $|x_1 - x_2| \\leq 2\\sqrt{\\Delta x_1^2 + \\Delta x_2^2}$. God reproduserbarhet krever grundig dokumentasjon av oppsett, instrumenter, omgivelser og analysemetoder."},{"id":"fysikk2-8-2-n-quiz3","type":"exercise","exercise":{"id":"fysikk2-8-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på feilkilder og reproduserbarhet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-8-2-n-quiz3-q0","task":"Hva må du gjøre hvis du fjerner en outlier?","options":[{"id":"a","text":"Ingenting","isCorrect":false},{"id":"b","text":"Begrunne hvorfor i rapporten og helst vise resultatet med og uten","isCorrect":true},{"id":"c","text":"Fjerne alle datapunkter","isCorrect":false},{"id":"d","text":"Skjule det","isCorrect":false}],"solution":"Du må alltid undersøke årsaken og begrunne en fjerning. Fjern aldri data bare fordi de ser feil ut."},{"id":"fysikk2-8-2-n-quiz3-q1","task":"Hva er forskjellen på repeterbarhet og reproduserbarhet?","options":[{"id":"a","text":"Det samme","isCorrect":false},{"id":"b","text":"Reproduserbarhet er enklere","isCorrect":false},{"id":"c","text":"Repeterbarhet: samme person/utstyr; reproduserbarhet: andre forskere/utstyr","isCorrect":true},{"id":"d","text":"Bare reproduserbarhet teller","isCorrect":false}],"solution":"Repeterbarhet er samme person og utstyr; reproduserbarhet er andre forskere, annet utstyr og sted som får tilsvarende resultat."},{"id":"fysikk2-8-2-n-quiz3-q2","task":"Når er to måleresultater forenlige?","options":[{"id":"a","text":"Når de er nøyaktig like","isCorrect":false},{"id":"b","text":"Aldri","isCorrect":false},{"id":"c","text":"Når R² er høy","isCorrect":false},{"id":"d","text":"Når usikkerhetsintervallene overlapper","isCorrect":true}],"solution":"To resultater er forenlige når usikkerhetsintervallene overlapper, dvs. $|x_1 - x_2| \\leq 2\\sqrt{\\Delta x_1^2 + \\Delta x_2^2}$."}]}},{"id":"fysikk2-8-2-n-summary","type":"text","content":"## Oppsummering\n\nDataanalyse går fra rådata til innsikt: organiser i **tabeller**, lag **grafer** med feilstaver, og finn den beste linjen med **lineær regresjon** ($y = ax + b$, minste kvadraters metode). **R²-verdien** måler hvor godt modellen passer (1 = perfekt). Ikke-lineære sammenhenger **lineariseres** — log-log for potenser, semilog for eksponentialer, $T^2$ mot $L$ for pendelen for å finne $g$. Vi identifiserer **systematiske og tilfeldige feilkilder**, håndterer **outliers** med begrunnelse, og sikrer **reproduserbarhet** gjennom grundig dokumentasjon. To resultater er forenlige når usikkerhetsintervallene overlapper."}],"exercises":[]}
+{
+  "id": "fysikk2-8-2-narrativ",
+  "courseId": "fysikk2",
+  "chapterNumber": "8.2",
+  "title": "Dataanalyse og feilkilder",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om veien fra rådata til innsikt — grafer, lineær regresjon, R², linearisering av kurver og hvordan vi jakter på feilkilder og outliers.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "bearbeide og fremstille måledata grafisk",
+    "bruke lineær regresjon, R² og linearisering",
+    "identifisere feilkilder, outliers og vurdere reproduserbarhet"
+  ],
+  "linkedChapterId": "fysikk2-8-2",
+  "content": [
+    {
+      "id": "fysikk2-8-2-n-intro",
+      "type": "text",
+      "content": "## Fra rådata til innsikt\n\nNår eksperimentet er gjennomført og dataene samlet inn, begynner det virkelige arbeidet: å **analysere** dem for å trekke meningsfulle konklusjoner. Tall i en tabell forteller lite før vi bearbeider dem. Vi må organisere dataene, regne ut gjennomsnitt og usikkerhet, fremstille dem grafisk, tilpasse en matematisk modell, vurdere hvor godt den passer, og identifisere feilkilder og avvik. I dette kapittelet skal vi lære hele dataanalyseprosessen — grafer, lineær regresjon, R²-verdien, linearisering av ikke-lineære sammenhenger, og hvordan vi håndterer outliers og vurderer reproduserbarhet."
+    },
+    {
+      "id": "fysikk2-8-2-n-section1",
+      "type": "text",
+      "content": "## Tabeller, grafer og lineær regresjon\n\nFørste steg er å organisere dataene i en ryddig **tabell** med kolonner for uavhengig og avhengig variabel, gjentatte målinger, gjennomsnitt, enheter og usikkerhet. Deretter lager vi en **graf** — kanskje dataanalysens viktigste verktøy, fordi den avslører mønstre og avvik som tallene skjuler. En god graf har tittel, aksetitler med enhet, passende skala, tydelige datapunkter, **feilstaver** som viser usikkerheten, og en best-tilpasset kurve. Den uavhengige variabelen går langs x-aksen, den avhengige langs y-aksen. Du skal aldri koble datapunktene med rette linjer mellom hvert punkt — det er ikke en kurvetilpasning.\n\nFor å finne den beste rette linjen gjennom datapunktene bruker vi **lineær regresjon** med formen $y = ax + b$, der $a$ er stigningstallet og $b$ konstantleddet. Den vanligste metoden er **minste kvadraters metode**, som finner $a$ og $b$ ved å minimere summen av de kvadrerte avstandene mellom punktene og linjen, $S = \\sum(y_i - (ax_i + b))^2$. I praksis bruker vi digitale verktøy som GeoGebra, Excel eller Python, som også gir usikkerhetene i $a$ og $b$. Et eksempel: måler vi strømmen gjennom en motstand ved ulike spenninger og plotter $I$ mot $U$, gir stigningstallet $1/R$ ifølge Ohms lov — slik bestemmer vi motstanden."
+    },
+    {
+      "id": "fysikk2-8-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-8-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grafer og regresjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-8-2-n-quiz1-q0",
+            "task": "Hva viser feilstaver i en graf?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjennomsnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Stigningstallet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall målinger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Usikkerhetsintervallet for hvert datapunkt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Feilstaver er streker gjennom datapunktene som viser måleusikkerheten visuelt."
+          },
+          {
+            "id": "fysikk2-8-2-n-quiz1-q1",
+            "task": "Hva gjør minste kvadraters metode?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Finner $a$ og $b$ som minimerer summen av kvadrerte avvik fra linjen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Kobler punktene med linjer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fjerner outliers",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Beregner gjennomsnittet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Minste kvadraters metode minimerer $S = \\sum(y_i - (ax_i+b))^2$ for å finne den best tilpassede rette linjen."
+          },
+          {
+            "id": "fysikk2-8-2-n-quiz1-q2",
+            "task": "Hvilken variabel skal langs x-aksen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den avhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den uavhengige",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den med størst usikkerhet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tilfeldig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den uavhengige variabelen (den vi endrer) går langs x-aksen, den avhengige langs y-aksen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-8-2-n-section2",
+      "type": "text",
+      "content": "## R²-verdien og linearisering\n\nHvor godt passer modellen? Det forteller **R²-verdien** (bestemmelseskoeffisienten), et tall mellom $0$ og $1$ som angir hvor stor andel av variasjonen i dataene modellen forklarer: $R^2 = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$. En $R^2 > 0{,}99$ er en utmerket tilpasning, $0{,}95$–$0{,}99$ god, og under $0{,}90$ svak — da bør du vurdere om modellen passer. Men pass på: en høy $R^2$ betyr ikke automatisk at den lineære modellen er riktig, så sjekk alltid residualene (avvikene) visuelt. For en lineær modell er $R^2 = r^2$, der $r$ er korrelasjonskoeffisienten.\n\nMange fysiske sammenhenger er ikke-lineære, men vi kan ofte **linearisere** dem ved å transformere variablene. En **potenssammenheng** $y = ax^n$ blir lineær hvis vi tar logaritmen: $\\ln y = \\ln a + n\\ln x$, så et log-log-plot av $\\ln y$ mot $\\ln x$ gir en rett linje med stigningstall $n$. En **eksponentiell** sammenheng $y = ae^{bx}$ gir $\\ln y = \\ln a + bx$, så $\\ln y$ mot $x$ gir stigningstall $b$. En **invers** sammenheng $y = a/x + b$ lineariseres ved å plotte $y$ mot $1/x$. Det klassiske eksempelet er pendelen: $T = 2\\pi\\sqrt{L/g}$ blir $T^2 = (4\\pi^2/g)L$, så et plot av $T^2$ mot $L$ gir en rett linje gjennom origo med stigningstall $4\\pi^2/g$ — og dermed kan vi bestemme tyngdeakselerasjonen $g$ fra stigningstallet."
+    },
+    {
+      "id": "fysikk2-8-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-8-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på R² og linearisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-8-2-n-quiz2-q0",
+            "task": "Hva forteller R²-verdien?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Antall datapunkter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Stigningstallet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Usikkerheten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Andelen av variasjonen som modellen forklarer (0 til 1)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$R^2$ angir hvor stor andel av variasjonen i dataene modellen forklarer; $R^2 = 1$ er perfekt tilpasning."
+          },
+          {
+            "id": "fysikk2-8-2-n-quiz2-q1",
+            "task": "Hvordan lineariserer du $T = 2\\pi\\sqrt{L/g}$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Plot $T^2$ mot $L$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Plot $T$ mot $L$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Plot $T$ mot $1/L$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Plot $\\ln T$ mot $\\ln L$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvadrering gir $T^2 = (4\\pi^2/g)L$, så et plot av $T^2$ mot $L$ blir lineært med stigningstall $4\\pi^2/g$."
+          },
+          {
+            "id": "fysikk2-8-2-n-quiz2-q2",
+            "task": "Hvordan lineariserer du en potenssammenheng $y = ax^n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Plot $y$ mot $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Plot $\\ln y$ mot $\\ln x$ (log-log)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Plot $y^2$ mot $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Plot $y$ mot $1/x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logaritmen gir $\\ln y = \\ln a + n\\ln x$, så et log-log-plot blir lineært med stigningstall $n$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-8-2-n-section3",
+      "type": "text",
+      "content": "## Feilkilder, outliers og reproduserbarhet\n\nEn viktig del av analysen er å **identifisere feilkilder**. Systematiske feil — feilkalibrerte instrumenter, parallaksefeil, uberegnet friksjon, reaksjonstid ved manuell tidtaking — avsløres gjerne ved at resultatet konsekvent avviker fra en tabellverdi, eller ved å måle med ulike metoder. Tilfeldige feil — vibrasjoner, variasjoner i startbetingelser, elektronisk støy — reduseres ved å gjenta målinger.\n\nNoen ganger dukker det opp en **outlier**: et datapunkt som avviker markant fra de andre, ofte mer enn $2s$ eller $3s$ fra gjennomsnittet. Det kan skyldes en avlesingsfeil, en forstyrrelse eller et ekte fenomen. Regelen er streng: undersøk alltid årsaken, og hvis du fjerner en outlier, *må* du begrunne hvorfor — fjern aldri data bare fordi de «ser feil ut». Gjør gjerne regresjonen både med og uten for å vise at konklusjonen holder. Chauvenet-kriteriet gir en statistisk test.\n\nTil slutt: et grunnprinsipp i all vitenskap er **reproduserbarhet**. Vi skiller mellom **repeterbarhet** (samme person, samme utstyr) og **reproduserbarhet** (andre forskere, annet utstyr, annet sted). To resultater er **forenlige** hvis usikkerhetsintervallene overlapper — mer presist hvis $|x_1 - x_2| \\leq 2\\sqrt{\\Delta x_1^2 + \\Delta x_2^2}$. God reproduserbarhet krever grundig dokumentasjon av oppsett, instrumenter, omgivelser og analysemetoder."
+    },
+    {
+      "id": "fysikk2-8-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-8-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på feilkilder og reproduserbarhet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-8-2-n-quiz3-q0",
+            "task": "Hva må du gjøre hvis du fjerner en outlier?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fjerne alle datapunkter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Begrunne hvorfor i rapporten og helst vise resultatet med og uten",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Skjule det",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du må alltid undersøke årsaken og begrunne en fjerning. Fjern aldri data bare fordi de ser feil ut."
+          },
+          {
+            "id": "fysikk2-8-2-n-quiz3-q1",
+            "task": "Hva er forskjellen på repeterbarhet og reproduserbarhet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Reproduserbarhet er enklere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare reproduserbarhet teller",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Repeterbarhet: samme person/utstyr; reproduserbarhet: andre forskere/utstyr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Repeterbarhet er samme person og utstyr; reproduserbarhet er andre forskere, annet utstyr og sted som får tilsvarende resultat."
+          },
+          {
+            "id": "fysikk2-8-2-n-quiz3-q2",
+            "task": "Når er to måleresultater forenlige?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Når usikkerhetsintervallene overlapper",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Når de er nøyaktig like",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når R² er høy",
+                "isCorrect": false
+              }
+            ],
+            "solution": "To resultater er forenlige når usikkerhetsintervallene overlapper, dvs. $|x_1 - x_2| \\leq 2\\sqrt{\\Delta x_1^2 + \\Delta x_2^2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-8-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDataanalyse går fra rådata til innsikt: organiser i **tabeller**, lag **grafer** med feilstaver, og finn den beste linjen med **lineær regresjon** ($y = ax + b$, minste kvadraters metode). **R²-verdien** måler hvor godt modellen passer (1 = perfekt). Ikke-lineære sammenhenger **lineariseres** — log-log for potenser, semilog for eksponentialer, $T^2$ mot $L$ for pendelen for å finne $g$. Vi identifiserer **systematiske og tilfeldige feilkilder**, håndterer **outliers** med begrunnelse, og sikrer **reproduserbarhet** gjennom grundig dokumentasjon. To resultater er forenlige når usikkerhetsintervallene overlapper."
+    }
+  ],
+  "exercises": []
+}

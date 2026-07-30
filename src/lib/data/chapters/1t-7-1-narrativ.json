@@ -1,1 +1,681 @@
-{"id":"1t-7-1-narrativ","courseId":"1t","chapterNumber":"7.1","title":"Gjennomsnittlig vekstfart","subtitle":"Narrativ versjon","description":"En fortelling om stigningstall, sekanter og gjennomsnittlig vekstfart – hvordan du måler endring mellom to punkter på en graf.","estimatedMinutes":35,"competenceGoals":["forstå begrepet gjennomsnittlig vekstfart","beregne gjennomsnittlig vekstfart for en funksjon i et intervall","tolke gjennomsnittlig vekstfart grafisk som stigningstallet til en sekant"],"linkedChapterId":"1t-7-1","content":[{"id":"1t-7-1-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-1-narrativ-del1.mp3","description":"Lydfil som leser opp teksten frem til første quiz."},{"id":"1t-7-1-n-intro","type":"text","content":"## Hvor bratt er det egentlig?\n\nForestill deg at du står ved foten av en bakke og lurer på hvor bratt den er. Du kan peke på bakken og si «den er ganske bratt», men i matematikken vil vi ha noe mer presist enn det. Vi vil ha et tall som forteller oss nøyaktig hvor bratt noe er – og det er her **stigningstall** kommer inn.\n\nI dette kapittelet skal vi starte med å forstå stigningstall, som er noe du kanskje har møtt før. Deretter bruker vi det til å introdusere et nytt begrep: **gjennomsnittlig vekstfart**. Det handler om å måle hvor fort noe endrer seg mellom to punkter. Underveis skal vi også bli kjent med **ettpunktsformelen** og begrepet **sekant**. Alt henger sammen, og vi tar det steg for steg."},{"id":"1t-7-1-n-section1","type":"text","content":"## Stigningstall – brattheten til en linje\n\nLa oss starte med det grunnleggende. Når du har en rett linje i et koordinatsystem, forteller **stigningstallet** deg hvor mye $y$-verdien endrer seg når $x$-verdien øker med 1. Vi bruker bokstaven $a$ for stigningstallet.\n\nFor å finne stigningstallet trenger du to punkter på linjen. La oss si at du har $P_1 = (x_1, y_1)$ og $P_2 = (x_2, y_2)$. Da er stigningstallet gitt ved formelen:\n\n$$a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$$\n\nHer betyr $\\Delta$ (den greske bokstaven delta) rett og slett *endring*. Så $\\Delta y$ er endringen i $y$, og $\\Delta x$ er endringen i $x$. Du tar altså forskjellen i $y$-verdier og deler på forskjellen i $x$-verdier.\n\nLa oss prøve et eksempel. Tenk deg at linjen går gjennom punktene $(1, 3)$ og $(3, 9)$. Da blir stigningstallet $a = \\frac{9 - 3}{3 - 1} = \\frac{6}{2} = 3$. Det betyr at for hver gang $x$ øker med 1, så øker $y$ med 3. Linjen stiger altså ganske bratt oppover.\n\nHvis stigningstallet er negativt, betyr det at linjen synker. Og hvis stigningstallet er 0, er linjen helt flat – horisontal."},{"id":"1t-7-1-n-quiz1","type":"exercise","exercise":{"id":"1t-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på stigningstall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-1-n-quiz1-q0","task":"Hva er stigningstallet til linjen gjennom punktene $(-1, -2)$ og $(1, -4)$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$-1$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$-3$","isCorrect":false}],"solution":"Vi bruker formelen: $a = \\frac{-4 - (-2)}{1 - (-1)} = \\frac{-4 + 2}{1 + 1} = \\frac{-2}{2} = -1$. Stigningstallet er $-1$, som betyr at linjen synker."},{"id":"1t-7-1-n-quiz1-q1","task":"Hva betyr $\\Delta y$ i formelen for stigningstall?","options":[{"id":"a","text":"Summen av $y$-verdiene","isCorrect":false},{"id":"b","text":"Produktet av $y$-verdiene","isCorrect":false},{"id":"c","text":"Endringen i $y$-verdi","isCorrect":true},{"id":"d","text":"Gjennomsnittet av $y$-verdiene","isCorrect":false}],"solution":"$\\Delta y$ betyr endringen i $y$, altså $y_2 - y_1$. Det greske symbolet $\\Delta$ (delta) betyr «endring» i matematikken."},{"id":"1t-7-1-n-quiz1-q2","task":"Hva er stigningstallet til linjen gjennom $(2, 5)$ og $(6, 5)$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$5$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":true}],"solution":"$a = \\frac{5 - 5}{6 - 2} = \\frac{0}{4} = 0$. Stigningstallet er $0$ fordi $y$-verdiene er like, så linjen er horisontal."},{"id":"1t-7-1-n-quiz1-q3","task":"Hva forteller et negativt stigningstall oss om linjen?","options":[{"id":"a","text":"Linjen er horisontal","isCorrect":false},{"id":"b","text":"Linjen stiger fra venstre mot høyre","isCorrect":false},{"id":"c","text":"Linjen synker fra venstre mot høyre","isCorrect":true},{"id":"d","text":"Linjen er vertikal","isCorrect":false}],"solution":"Et negativt stigningstall betyr at $y$ minker når $x$ øker, altså at linjen synker fra venstre mot høyre."}]}},{"id":"1t-7-1-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-1-narrativ-del2.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-1-n-section2","type":"text","content":"## Ettpunktsformelen – fra punkt og stigning til likning\n\nNå som vi kan finne stigningstall, skal vi lære en elegant formel som lar oss finne likningen til en linje når vi kjenner stigningstallet og ett punkt på linjen. Den heter **ettpunktsformelen** og ser slik ut:\n\n$$y - y_0 = a(x - x_0)$$\n\nHer er $(x_0, y_0)$ punktet vi kjenner, og $a$ er stigningstallet. Formelen sier egentlig noe intuitivt: forskjellen i $y$-verdi fra det kjente punktet er lik stigningstallet ganget med forskjellen i $x$-verdi.\n\nLa oss bruke den. Hvis vi vet at en linje har stigningstall $3$ og går gjennom punktet $(1, 2)$, setter vi inn: $y - 2 = 3(x - 1)$. Vi løser opp: $y - 2 = 3x - 3$, altså $y = 3x - 1$. Der har vi likningen til linjen.\n\nEttpunktsformelen er spesielt nyttig når vi har to punkter. Da finner vi først stigningstallet, og så bruker vi ett av punktene i ettpunktsformelen. For eksempel: punktene $(1, 5)$ og $(3, 9)$ gir stigningstall $a = \\frac{9 - 5}{3 - 1} = 2$. Med punktet $(1, 5)$ i ettpunktsformelen: $y - 5 = 2(x - 1)$, som gir $y = 2x + 3$."},{"id":"1t-7-1-n-quiz2","type":"exercise","exercise":{"id":"1t-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på ettpunktsformelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-1-n-quiz2-q0","task":"Hva er likningen til linjen som går gjennom punktet $(2, -3)$ med stigningstall $a = -2$?","options":[{"id":"a","text":"$y = -2x - 3$","isCorrect":false},{"id":"b","text":"$y = 2x + 1$","isCorrect":false},{"id":"c","text":"$y = -2x + 1$","isCorrect":true},{"id":"d","text":"$y = -2x + 7$","isCorrect":false}],"solution":"Vi setter inn i ettpunktsformelen: $y - (-3) = -2(x - 2)$, altså $y + 3 = -2x + 4$, som gir $y = -2x + 1$."},{"id":"1t-7-1-n-quiz2-q1","task":"Hva er ettpunktsformelen?","options":[{"id":"a","text":"$y = ax + b$","isCorrect":false},{"id":"b","text":"$y - y_0 = a(x - x_0)$","isCorrect":true},{"id":"c","text":"$a = \\frac{y_2 - y_1}{x_2 - x_1}$","isCorrect":false},{"id":"d","text":"$y = x^2 + bx + c$","isCorrect":false}],"solution":"Ettpunktsformelen er $y - y_0 = a(x - x_0)$, der $(x_0, y_0)$ er et kjent punkt og $a$ er stigningstallet."},{"id":"1t-7-1-n-quiz2-q2","task":"Linjen går gjennom $(1, 5)$ og $(3, 9)$. Hva er likningen til linjen?","options":[{"id":"a","text":"$y = 2x + 3$","isCorrect":true},{"id":"b","text":"$y = 2x + 5$","isCorrect":false},{"id":"c","text":"$y = 4x + 1$","isCorrect":false},{"id":"d","text":"$y = 3x + 2$","isCorrect":false}],"solution":"Først finner vi stigningstallet: $a = \\frac{9 - 5}{3 - 1} = 2$. Så bruker vi ettpunktsformelen med $(1, 5)$: $y - 5 = 2(x - 1)$, som gir $y = 2x + 3$."},{"id":"1t-7-1-n-quiz2-q3","task":"En linje har stigningstall $3$ og går gjennom $(0, -1)$. Hva er $y$ når $x = 4$?","options":[{"id":"a","text":"$11$","isCorrect":true},{"id":"b","text":"$12$","isCorrect":false},{"id":"c","text":"$7$","isCorrect":false},{"id":"d","text":"$13$","isCorrect":false}],"solution":"Likningen er $y - (-1) = 3(x - 0)$, altså $y = 3x - 1$. Når $x = 4$: $y = 3 \\cdot 4 - 1 = 12 - 1 = 11$."}]}},{"id":"1t-7-1-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-1-narrativ-del3.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-1-n-section3","type":"text","content":"## Gjennomsnittlig vekstfart – stigningstall for funksjoner\n\nNå tar vi steget fra rette linjer til funksjoner som kurver. Tenk deg at du ser på grafen til $f(x) = x^2 - 1$. Denne grafen er ikke en rett linje – den buer. Men vi kan fortsatt snakke om hvor fort funksjonen endrer seg i et bestemt intervall.\n\n**Gjennomsnittlig vekstfart** beskriver hvor mye funksjonsverdien i gjennomsnitt endrer seg per enhet $x$ i et gitt intervall. Formelt er det definert som:\n\n$$\\text{Gjennomsnittlig vekstfart} = \\frac{f(x_2) - f(x_1)}{x_2 - x_1} = \\frac{\\Delta y}{\\Delta x}$$\n\nLegg merke til at dette er nøyaktig den samme formelen som for stigningstall! Og det er ikke tilfeldig. Grafisk svarer den gjennomsnittlige vekstfarten til stigningstallet til linjen som går gjennom de to punktene $(x_1, f(x_1))$ og $(x_2, f(x_2))$ på grafen. Denne linjen har et eget navn – vi kaller den en **sekant**.\n\nEn sekant er altså en rett linje som skjærer grafen i to punkter. Stigningstallet til sekanten gir oss den gjennomsnittlige vekstfarten mellom disse to punktene."},{"id":"1t-7-1-n-quiz3","type":"exercise","exercise":{"id":"1t-7-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på gjennomsnittlig vekstfart og sekanter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-1-n-quiz3-q0","task":"Hva kalles linjen som skjærer grafen til en funksjon i to punkter?","options":[{"id":"a","text":"Tangent","isCorrect":false},{"id":"b","text":"Normal","isCorrect":false},{"id":"c","text":"Asymptote","isCorrect":false},{"id":"d","text":"Sekant","isCorrect":true}],"solution":"En **sekant** er en rett linje som skjærer grafen til en funksjon i to punkter. Stigningstallet til sekanten gir den gjennomsnittlige vekstfarten mellom de to punktene."},{"id":"1t-7-1-n-quiz3-q1","task":"Hva er formelen for gjennomsnittlig vekstfart til $f$ i intervallet $[x_1, x_2]$?","options":[{"id":"a","text":"$f(x_2) \\cdot f(x_1)$","isCorrect":false},{"id":"b","text":"$\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$","isCorrect":true},{"id":"c","text":"$\\frac{x_2 - x_1}{f(x_2) - f(x_1)}$","isCorrect":false},{"id":"d","text":"$f(x_2) + f(x_1)$","isCorrect":false}],"solution":"Gjennomsnittlig vekstfart er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$, altså endringen i funksjonsverdi delt på endringen i $x$. Dette er stigningstallet til sekanten."},{"id":"1t-7-1-n-quiz3-q2","task":"Hva svarer den gjennomsnittlige vekstfarten grafisk til?","options":[{"id":"a","text":"Arealet under grafen","isCorrect":false},{"id":"b","text":"Nullpunktet til funksjonen","isCorrect":false},{"id":"c","text":"Stigningstallet til sekanten","isCorrect":true},{"id":"d","text":"Funksjonsverdien i midtpunktet","isCorrect":false}],"solution":"Gjennomsnittlig vekstfart svarer grafisk til stigningstallet til sekanten mellom de to punktene på grafen. Sekanten er den rette linjen som forbinder disse punktene."}]}},{"id":"1t-7-1-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-1-narrativ-del4.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-1-n-section4","type":"text","content":"## Regneeksempel – gjennomsnittlig vekstfart i praksis\n\nLa oss ta et konkret eksempel. Vi har funksjonen $f(x) = x^2 - 1$ og vil finne den gjennomsnittlige vekstfarten i intervallet $[-2, 1]$.\n\nVi trenger funksjonsverdiene i endepunktene. Først $f(-2) = (-2)^2 - 1 = 4 - 1 = 3$. Deretter $f(1) = 1^2 - 1 = 0$. Så vi har punktene $A = (-2, 3)$ og $B = (1, 0)$.\n\nNå setter vi inn i formelen: $\\frac{f(1) - f(-2)}{1 - (-2)} = \\frac{0 - 3}{1 + 2} = \\frac{-3}{3} = -1$.\n\nDen gjennomsnittlige vekstfarten er altså $-1$. Det betyr at i gjennomsnitt synker funksjonen med 1 enhet for hver enhet $x$ øker i dette intervallet. Grafisk ser vi at sekanten gjennom $A$ og $B$ har negativt stigningstall – den peker nedover fra venstre mot høyre.\n\nDet er viktig å forstå at dette er et *gjennomsnitt*. Funksjonen $x^2 - 1$ synker først og stiger deretter i dette intervallet, men totalt sett – fra $A$ til $B$ – er nettobevegelsen nedover."},{"id":"1t-7-1-n-quiz4","type":"exercise","exercise":{"id":"1t-7-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på beregning av gjennomsnittlig vekstfart:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-1-n-quiz4-q0","task":"La $f(x) = x^2 - 3x + 2$. Hva er den gjennomsnittlige vekstfarten i intervallet $[1, 5]$?","options":[{"id":"a","text":"$3$","isCorrect":true},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$-3$","isCorrect":false},{"id":"d","text":"$6$","isCorrect":false}],"solution":"Vi finner $f(1) = 1 - 3 + 2 = 0$ og $f(5) = 25 - 15 + 2 = 12$. Gjennomsnittlig vekstfart $= \\frac{12 - 0}{5 - 1} = \\frac{12}{4} = 3$."},{"id":"1t-7-1-n-quiz4-q1","task":"La $f(x) = x^2 - 1$. Hva er $f(-2)$?","options":[{"id":"a","text":"$-5$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":true},{"id":"c","text":"$5$","isCorrect":false},{"id":"d","text":"$-3$","isCorrect":false}],"solution":"$f(-2) = (-2)^2 - 1 = 4 - 1 = 3$. Husk at $(-2)^2 = 4$ fordi minus ganger minus gir pluss."},{"id":"1t-7-1-n-quiz4-q2","task":"Gjennomsnittlig vekstfart for $f(x) = x^2 - 1$ i $[-2, 1]$ er $-1$. Hva betyr det?","options":[{"id":"a","text":"Funksjonen synker med 1 enhet per $x$-enhet i gjennomsnitt","isCorrect":true},{"id":"b","text":"Funksjonen er alltid synkende i intervallet","isCorrect":false},{"id":"c","text":"Funksjonsverdien er $-1$ overalt","isCorrect":false},{"id":"d","text":"Funksjonen har et nullpunkt i $x = -1$","isCorrect":false}],"solution":"Gjennomsnittlig vekstfart $-1$ betyr at funksjonsverdien i gjennomsnitt synker med 1 enhet for hver enhet $x$ øker. Det sier ingenting om hva som skjer lokalt – funksjonen kan både stige og synke underveis."}]}},{"id":"1t-7-1-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-1-narrativ-del5.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-7-1-n-section5","type":"text","content":"## Vekstfart i virkeligheten – en ball i luften\n\nGjennomsnittlig vekstfart er ikke bare et abstrakt matematisk begrep – det dukker opp hele tiden i den virkelige verden. Tenk for eksempel på en ball som kastes opp i luften. Høyden $h$ over bakken etter $t$ sekunder kan beskrives med funksjonen $h(t) = -5t^2 + 20t + 1$.\n\nHva er gjennomsnittlig hastighet i det første sekundet, altså i intervallet $[0, 1]$? Vi regner: $h(0) = 1$ meter og $h(1) = -5 + 20 + 1 = 16$ meter. Gjennomsnittlig hastighet er $\\frac{16 - 1}{1 - 0} = 15$ m/s. Ballen beveger seg i snitt 15 meter per sekund oppover.\n\nHva med intervallet $[2, 3]$? Her er $h(2) = -20 + 40 + 1 = 21$ meter og $h(3) = -45 + 60 + 1 = 16$ meter. Gjennomsnittlig hastighet er $\\frac{16 - 21}{3 - 2} = -5$ m/s. Det negative fortegnet forteller oss at ballen er på vei ned i dette intervallet.\n\nGjennomsnittlig hastighet er faktisk bare et annet ord for gjennomsnittlig vekstfart når vi snakker om bevegelse. Og legg merke til noe interessant: vi kan få forskjellige svar for ulike intervaller, selv for den samme funksjonen. Det er fordi vi måler gjennomsnittlig endring, og den avhenger av *hvor* på grafen vi befinner oss."},{"id":"1t-7-1-n-quiz5","type":"exercise","exercise":{"id":"1t-7-1-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på gjennomsnittlig vekstfart i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-1-n-quiz5-q0","task":"En ball har høydefunksjon $h(t) = -5t^2 + 20t + 1$. Hva er gjennomsnittlig hastighet i intervallet $[1, 2]$?","options":[{"id":"a","text":"$15$ m/s","isCorrect":false},{"id":"b","text":"$5$ m/s","isCorrect":true},{"id":"c","text":"$-5$ m/s","isCorrect":false},{"id":"d","text":"$10$ m/s","isCorrect":false}],"solution":"Vi finner $h(1) = -5 + 20 + 1 = 16$ og $h(2) = -20 + 40 + 1 = 21$. Gjennomsnittlig hastighet $= \\frac{21 - 16}{2 - 1} = \\frac{5}{1} = 5$ m/s."},{"id":"1t-7-1-n-quiz5-q1","task":"Hva er et annet ord for gjennomsnittlig vekstfart når vi snakker om bevegelse?","options":[{"id":"a","text":"Akselerasjon","isCorrect":false},{"id":"b","text":"Gjennomsnittlig hastighet","isCorrect":true},{"id":"c","text":"Momentan fart","isCorrect":false},{"id":"d","text":"Bremselengde","isCorrect":false}],"solution":"Gjennomsnittlig hastighet er det samme som gjennomsnittlig vekstfart for en posisjonsfunksjon. Det forteller oss hvor langt noe beveger seg per tidsenhet i gjennomsnitt."},{"id":"1t-7-1-n-quiz5-q2","task":"For $h(t) = -5t^2 + 20t + 1$, er gjennomsnittlig hastighet $-5$ m/s i $[2, 3]$. Hva betyr det negative fortegnet?","options":[{"id":"a","text":"Ballen akselererer","isCorrect":false},{"id":"b","text":"Ballen er i ro","isCorrect":false},{"id":"c","text":"Ballen beveger seg oppover","isCorrect":false},{"id":"d","text":"Ballen er på vei ned","isCorrect":true}],"solution":"Negativ gjennomsnittlig hastighet betyr at ballen i gjennomsnitt beveger seg nedover i dette intervallet. Høyden synker fra $h(2) = 21$ til $h(3) = 16$ meter."},{"id":"1t-7-1-n-quiz5-q3","task":"Hvorfor kan gjennomsnittlig vekstfart gi forskjellige verdier for forskjellige intervaller av samme funksjon?","options":[{"id":"a","text":"Fordi formelen endrer seg","isCorrect":false},{"id":"b","text":"Fordi funksjonen kan oppføre seg ulikt i ulike deler av definisjonsområdet","isCorrect":true},{"id":"c","text":"Fordi vi bruker feil formel","isCorrect":false},{"id":"d","text":"Fordi stigningstallet alltid er konstant","isCorrect":false}],"solution":"Funksjonen kan stige i noen intervaller og synke i andre. Gjennomsnittlig vekstfart måler den totale endringen i et bestemt intervall, og derfor avhenger svaret av hvilket intervall vi ser på."}]}},{"id":"1t-7-1-n-audio-6","type":"audio","title":"Lytt til oppsummeringen","src":"/audio/1t/1t-7-1-narrativ-del6.mp3","description":"Lydfil som leser opp oppsummeringen."},{"id":"1t-7-1-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi bygget opp forståelsen steg for steg. Vi startet med **stigningstall**, som forteller hvor bratt en linje er. Formelen er $a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$, og den gir oss endringen i $y$ per enhet endring i $x$.\n\nDeretter lærte vi **ettpunktsformelen** $y - y_0 = a(x - x_0)$, som lar oss finne likningen til en linje når vi kjenner stigningstallet og ett punkt. Denne formelen er spesielt nyttig når vi først beregner stigningstallet mellom to punkter og deretter setter opp likningen.\n\nTil slutt introduserte vi **gjennomsnittlig vekstfart**, som er stigningstallet til **sekanten** mellom to punkter på en funksjons graf. Formelen $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$ gir oss gjennomsnittlig endring i funksjonsverdi per enhet endring i $x$. I praktiske sammenhenger, som bevegelse, tilsvarer dette gjennomsnittshastigheten. Gjennomsnittlig vekstfart avhenger av hvilket intervall vi ser på, fordi funksjonen kan oppføre seg ulikt i forskjellige deler av definisjonsområdet."}],"exercises":[]}
+{
+  "id": "1t-7-1-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "7.1",
+  "title": "Gjennomsnittlig vekstfart",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om stigningstall, sekanter og gjennomsnittlig vekstfart – hvordan du måler endring mellom to punkter på en graf.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå begrepet gjennomsnittlig vekstfart",
+    "beregne gjennomsnittlig vekstfart for en funksjon i et intervall",
+    "tolke gjennomsnittlig vekstfart grafisk som stigningstallet til en sekant"
+  ],
+  "linkedChapterId": "1t-7-1",
+  "content": [
+    {
+      "id": "1t-7-1-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-1-narrativ-del1.mp3",
+      "description": "Lydfil som leser opp teksten frem til første quiz."
+    },
+    {
+      "id": "1t-7-1-n-intro",
+      "type": "text",
+      "content": "## Hvor bratt er det egentlig?\n\nForestill deg at du står ved foten av en bakke og lurer på hvor bratt den er. Du kan peke på bakken og si «den er ganske bratt», men i matematikken vil vi ha noe mer presist enn det. Vi vil ha et tall som forteller oss nøyaktig hvor bratt noe er – og det er her **stigningstall** kommer inn.\n\nI dette kapittelet skal vi starte med å forstå stigningstall, som er noe du kanskje har møtt før. Deretter bruker vi det til å introdusere et nytt begrep: **gjennomsnittlig vekstfart**. Det handler om å måle hvor fort noe endrer seg mellom to punkter. Underveis skal vi også bli kjent med **ettpunktsformelen** og begrepet **sekant**. Alt henger sammen, og vi tar det steg for steg."
+    },
+    {
+      "id": "1t-7-1-n-section1",
+      "type": "text",
+      "content": "## Stigningstall – brattheten til en linje\n\nLa oss starte med det grunnleggende. Når du har en rett linje i et koordinatsystem, forteller **stigningstallet** deg hvor mye $y$-verdien endrer seg når $x$-verdien øker med 1. Vi bruker bokstaven $a$ for stigningstallet.\n\nFor å finne stigningstallet trenger du to punkter på linjen. La oss si at du har $P_1 = (x_1, y_1)$ og $P_2 = (x_2, y_2)$. Da er stigningstallet gitt ved formelen:\n\n$$a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$$\n\nHer betyr $\\Delta$ (den greske bokstaven delta) rett og slett *endring*. Så $\\Delta y$ er endringen i $y$, og $\\Delta x$ er endringen i $x$. Du tar altså forskjellen i $y$-verdier og deler på forskjellen i $x$-verdier.\n\nLa oss prøve et eksempel. Tenk deg at linjen går gjennom punktene $(1, 3)$ og $(3, 9)$. Da blir stigningstallet $a = \\frac{9 - 3}{3 - 1} = \\frac{6}{2} = 3$. Det betyr at for hver gang $x$ øker med 1, så øker $y$ med 3. Linjen stiger altså ganske bratt oppover.\n\nHvis stigningstallet er negativt, betyr det at linjen synker. Og hvis stigningstallet er 0, er linjen helt flat – horisontal."
+    },
+    {
+      "id": "1t-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på stigningstall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-1-n-quiz1-q0",
+            "task": "Hva er stigningstallet til linjen gjennom punktene $(-1, -2)$ og $(1, -4)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi bruker formelen: $a = \\frac{-4 - (-2)}{1 - (-1)} = \\frac{-4 + 2}{1 + 1} = \\frac{-2}{2} = -1$. Stigningstallet er $-1$, som betyr at linjen synker."
+          },
+          {
+            "id": "1t-7-1-n-quiz1-q1",
+            "task": "Hva betyr $\\Delta y$ i formelen for stigningstall?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Endringen i $y$-verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Summen av $y$-verdiene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Produktet av $y$-verdiene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gjennomsnittet av $y$-verdiene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\Delta y$ betyr endringen i $y$, altså $y_2 - y_1$. Det greske symbolet $\\Delta$ (delta) betyr «endring» i matematikken."
+          },
+          {
+            "id": "1t-7-1-n-quiz1-q2",
+            "task": "Hva er stigningstallet til linjen gjennom $(2, 5)$ og $(6, 5)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a = \\frac{5 - 5}{6 - 2} = \\frac{0}{4} = 0$. Stigningstallet er $0$ fordi $y$-verdiene er like, så linjen er horisontal."
+          },
+          {
+            "id": "1t-7-1-n-quiz1-q3",
+            "task": "Hva forteller et negativt stigningstall oss om linjen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Linjen er horisontal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Linjen stiger fra venstre mot høyre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Linjen synker fra venstre mot høyre",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Linjen er vertikal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et negativt stigningstall betyr at $y$ minker når $x$ øker, altså at linjen synker fra venstre mot høyre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-1-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-1-narrativ-del2.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-1-n-section2",
+      "type": "text",
+      "content": "## Ettpunktsformelen – fra punkt og stigning til likning\n\nNå som vi kan finne stigningstall, skal vi lære en elegant formel som lar oss finne likningen til en linje når vi kjenner stigningstallet og ett punkt på linjen. Den heter **ettpunktsformelen** og ser slik ut:\n\n$$y - y_0 = a(x - x_0)$$\n\nHer er $(x_0, y_0)$ punktet vi kjenner, og $a$ er stigningstallet. Formelen sier egentlig noe intuitivt: forskjellen i $y$-verdi fra det kjente punktet er lik stigningstallet ganget med forskjellen i $x$-verdi.\n\nLa oss bruke den. Hvis vi vet at en linje har stigningstall $3$ og går gjennom punktet $(1, 2)$, setter vi inn: $y - 2 = 3(x - 1)$. Vi løser opp: $y - 2 = 3x - 3$, altså $y = 3x - 1$. Der har vi likningen til linjen.\n\nEttpunktsformelen er spesielt nyttig når vi har to punkter. Da finner vi først stigningstallet, og så bruker vi ett av punktene i ettpunktsformelen. For eksempel: punktene $(1, 5)$ og $(3, 9)$ gir stigningstall $a = \\frac{9 - 5}{3 - 1} = 2$. Med punktet $(1, 5)$ i ettpunktsformelen: $y - 5 = 2(x - 1)$, som gir $y = 2x + 3$."
+    },
+    {
+      "id": "1t-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ettpunktsformelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-1-n-quiz2-q0",
+            "task": "Hva er likningen til linjen som går gjennom punktet $(2, -3)$ med stigningstall $a = -2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = -2x - 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = 2x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = -2x + 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = -2x + 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi setter inn i ettpunktsformelen: $y - (-3) = -2(x - 2)$, altså $y + 3 = -2x + 4$, som gir $y = -2x + 1$."
+          },
+          {
+            "id": "1t-7-1-n-quiz2-q1",
+            "task": "Hva er ettpunktsformelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y - y_0 = a(x - x_0)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$y = ax + b$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a = \\frac{y_2 - y_1}{x_2 - x_1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = x^2 + bx + c$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ettpunktsformelen er $y - y_0 = a(x - x_0)$, der $(x_0, y_0)$ er et kjent punkt og $a$ er stigningstallet."
+          },
+          {
+            "id": "1t-7-1-n-quiz2-q2",
+            "task": "Linjen går gjennom $(1, 5)$ og $(3, 9)$. Hva er likningen til linjen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 2x + 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = 2x + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$y = 4x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = 3x + 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først finner vi stigningstallet: $a = \\frac{9 - 5}{3 - 1} = 2$. Så bruker vi ettpunktsformelen med $(1, 5)$: $y - 5 = 2(x - 1)$, som gir $y = 2x + 3$."
+          },
+          {
+            "id": "1t-7-1-n-quiz2-q3",
+            "task": "En linje har stigningstall $3$ og går gjennom $(0, -1)$. Hva er $y$ når $x = 4$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$11$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$13$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likningen er $y - (-1) = 3(x - 0)$, altså $y = 3x - 1$. Når $x = 4$: $y = 3 \\cdot 4 - 1 = 12 - 1 = 11$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-1-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-1-narrativ-del3.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-1-n-section3",
+      "type": "text",
+      "content": "## Gjennomsnittlig vekstfart – stigningstall for funksjoner\n\nNå tar vi steget fra rette linjer til funksjoner som kurver. Tenk deg at du ser på grafen til $f(x) = x^2 - 1$. Denne grafen er ikke en rett linje – den buer. Men vi kan fortsatt snakke om hvor fort funksjonen endrer seg i et bestemt intervall.\n\n**Gjennomsnittlig vekstfart** beskriver hvor mye funksjonsverdien i gjennomsnitt endrer seg per enhet $x$ i et gitt intervall. Formelt er det definert som:\n\n$$\\text{Gjennomsnittlig vekstfart} = \\frac{f(x_2) - f(x_1)}{x_2 - x_1} = \\frac{\\Delta y}{\\Delta x}$$\n\nLegg merke til at dette er nøyaktig den samme formelen som for stigningstall! Og det er ikke tilfeldig. Grafisk svarer den gjennomsnittlige vekstfarten til stigningstallet til linjen som går gjennom de to punktene $(x_1, f(x_1))$ og $(x_2, f(x_2))$ på grafen. Denne linjen har et eget navn – vi kaller den en **sekant**.\n\nEn sekant er altså en rett linje som skjærer grafen i to punkter. Stigningstallet til sekanten gir oss den gjennomsnittlige vekstfarten mellom disse to punktene."
+    },
+    {
+      "id": "1t-7-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gjennomsnittlig vekstfart og sekanter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-1-n-quiz3-q0",
+            "task": "Hva kalles linjen som skjærer grafen til en funksjon i to punkter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tangent",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Normal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Asymptote",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sekant",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En **sekant** er en rett linje som skjærer grafen til en funksjon i to punkter. Stigningstallet til sekanten gir den gjennomsnittlige vekstfarten mellom de to punktene."
+          },
+          {
+            "id": "1t-7-1-n-quiz3-q1",
+            "task": "Hva er formelen for gjennomsnittlig vekstfart til $f$ i intervallet $[x_1, x_2]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$f(x_2) \\cdot f(x_1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x_2 - x_1}{f(x_2) - f(x_1)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x_2) + f(x_1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittlig vekstfart er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$, altså endringen i funksjonsverdi delt på endringen i $x$. Dette er stigningstallet til sekanten."
+          },
+          {
+            "id": "1t-7-1-n-quiz3-q2",
+            "task": "Hva svarer den gjennomsnittlige vekstfarten grafisk til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Arealet under grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stigningstallet til sekanten",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Nullpunktet til funksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonsverdien i midtpunktet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittlig vekstfart svarer grafisk til stigningstallet til sekanten mellom de to punktene på grafen. Sekanten er den rette linjen som forbinder disse punktene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-1-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-1-narrativ-del4.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-1-n-section4",
+      "type": "text",
+      "content": "## Regneeksempel – gjennomsnittlig vekstfart i praksis\n\nLa oss ta et konkret eksempel. Vi har funksjonen $f(x) = x^2 - 1$ og vil finne den gjennomsnittlige vekstfarten i intervallet $[-2, 1]$.\n\nVi trenger funksjonsverdiene i endepunktene. Først $f(-2) = (-2)^2 - 1 = 4 - 1 = 3$. Deretter $f(1) = 1^2 - 1 = 0$. Så vi har punktene $A = (-2, 3)$ og $B = (1, 0)$.\n\nNå setter vi inn i formelen: $\\frac{f(1) - f(-2)}{1 - (-2)} = \\frac{0 - 3}{1 + 2} = \\frac{-3}{3} = -1$.\n\nDen gjennomsnittlige vekstfarten er altså $-1$. Det betyr at i gjennomsnitt synker funksjonen med 1 enhet for hver enhet $x$ øker i dette intervallet. Grafisk ser vi at sekanten gjennom $A$ og $B$ har negativt stigningstall – den peker nedover fra venstre mot høyre.\n\nDet er viktig å forstå at dette er et *gjennomsnitt*. Funksjonen $x^2 - 1$ synker først og stiger deretter i dette intervallet, men totalt sett – fra $A$ til $B$ – er nettobevegelsen nedover."
+    },
+    {
+      "id": "1t-7-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på beregning av gjennomsnittlig vekstfart:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-1-n-quiz4-q0",
+            "task": "La $f(x) = x^2 - 3x + 2$. Hva er den gjennomsnittlige vekstfarten i intervallet $[1, 5]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi finner $f(1) = 1 - 3 + 2 = 0$ og $f(5) = 25 - 15 + 2 = 12$. Gjennomsnittlig vekstfart $= \\frac{12 - 0}{5 - 1} = \\frac{12}{4} = 3$."
+          },
+          {
+            "id": "1t-7-1-n-quiz4-q1",
+            "task": "La $f(x) = x^2 - 1$. Hva er $f(-2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f(-2) = (-2)^2 - 1 = 4 - 1 = 3$. Husk at $(-2)^2 = 4$ fordi minus ganger minus gir pluss."
+          },
+          {
+            "id": "1t-7-1-n-quiz4-q2",
+            "task": "Gjennomsnittlig vekstfart for $f(x) = x^2 - 1$ i $[-2, 1]$ er $-1$. Hva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Funksjonen synker med 1 enhet per $x$-enhet i gjennomsnitt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Funksjonen er alltid synkende i intervallet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonsverdien er $-1$ overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonen har et nullpunkt i $x = -1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittlig vekstfart $-1$ betyr at funksjonsverdien i gjennomsnitt synker med 1 enhet for hver enhet $x$ øker. Det sier ingenting om hva som skjer lokalt – funksjonen kan både stige og synke underveis."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-1-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-1-narrativ-del5.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-7-1-n-section5",
+      "type": "text",
+      "content": "## Vekstfart i virkeligheten – en ball i luften\n\nGjennomsnittlig vekstfart er ikke bare et abstrakt matematisk begrep – det dukker opp hele tiden i den virkelige verden. Tenk for eksempel på en ball som kastes opp i luften. Høyden $h$ over bakken etter $t$ sekunder kan beskrives med funksjonen $h(t) = -5t^2 + 20t + 1$.\n\nHva er gjennomsnittlig hastighet i det første sekundet, altså i intervallet $[0, 1]$? Vi regner: $h(0) = 1$ meter og $h(1) = -5 + 20 + 1 = 16$ meter. Gjennomsnittlig hastighet er $\\frac{16 - 1}{1 - 0} = 15$ m/s. Ballen beveger seg i snitt 15 meter per sekund oppover.\n\nHva med intervallet $[2, 3]$? Her er $h(2) = -20 + 40 + 1 = 21$ meter og $h(3) = -45 + 60 + 1 = 16$ meter. Gjennomsnittlig hastighet er $\\frac{16 - 21}{3 - 2} = -5$ m/s. Det negative fortegnet forteller oss at ballen er på vei ned i dette intervallet.\n\nGjennomsnittlig hastighet er faktisk bare et annet ord for gjennomsnittlig vekstfart når vi snakker om bevegelse. Og legg merke til noe interessant: vi kan få forskjellige svar for ulike intervaller, selv for den samme funksjonen. Det er fordi vi måler gjennomsnittlig endring, og den avhenger av *hvor* på grafen vi befinner oss."
+    },
+    {
+      "id": "1t-7-1-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-1-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gjennomsnittlig vekstfart i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-1-n-quiz5-q0",
+            "task": "En ball har høydefunksjon $h(t) = -5t^2 + 20t + 1$. Hva er gjennomsnittlig hastighet i intervallet $[1, 2]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$ m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-5$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$ m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi finner $h(1) = -5 + 20 + 1 = 16$ og $h(2) = -20 + 40 + 1 = 21$. Gjennomsnittlig hastighet $= \\frac{21 - 16}{2 - 1} = \\frac{5}{1} = 5$ m/s."
+          },
+          {
+            "id": "1t-7-1-n-quiz5-q1",
+            "task": "Hva er et annet ord for gjennomsnittlig vekstfart når vi snakker om bevegelse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Akselerasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Momentan fart",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnittlig hastighet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Bremselengde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittlig hastighet er det samme som gjennomsnittlig vekstfart for en posisjonsfunksjon. Det forteller oss hvor langt noe beveger seg per tidsenhet i gjennomsnitt."
+          },
+          {
+            "id": "1t-7-1-n-quiz5-q2",
+            "task": "For $h(t) = -5t^2 + 20t + 1$, er gjennomsnittlig hastighet $-5$ m/s i $[2, 3]$. Hva betyr det negative fortegnet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ballen akselererer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ballen er i ro",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ballen beveger seg oppover",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ballen er på vei ned",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativ gjennomsnittlig hastighet betyr at ballen i gjennomsnitt beveger seg nedover i dette intervallet. Høyden synker fra $h(2) = 21$ til $h(3) = 16$ meter."
+          },
+          {
+            "id": "1t-7-1-n-quiz5-q3",
+            "task": "Hvorfor kan gjennomsnittlig vekstfart gi forskjellige verdier for forskjellige intervaller av samme funksjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi funksjonen kan oppføre seg ulikt i ulike deler av definisjonsområdet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi formelen endrer seg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi vi bruker feil formel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi stigningstallet alltid er konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonen kan stige i noen intervaller og synke i andre. Gjennomsnittlig vekstfart måler den totale endringen i et bestemt intervall, og derfor avhenger svaret av hvilket intervall vi ser på."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-1-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringen",
+      "src": "/audio/1t/1t-7-1-narrativ-del6.mp3",
+      "description": "Lydfil som leser opp oppsummeringen."
+    },
+    {
+      "id": "1t-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi bygget opp forståelsen steg for steg. Vi startet med **stigningstall**, som forteller hvor bratt en linje er. Formelen er $a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$, og den gir oss endringen i $y$ per enhet endring i $x$.\n\nDeretter lærte vi **ettpunktsformelen** $y - y_0 = a(x - x_0)$, som lar oss finne likningen til en linje når vi kjenner stigningstallet og ett punkt. Denne formelen er spesielt nyttig når vi først beregner stigningstallet mellom to punkter og deretter setter opp likningen.\n\nTil slutt introduserte vi **gjennomsnittlig vekstfart**, som er stigningstallet til **sekanten** mellom to punkter på en funksjons graf. Formelen $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$ gir oss gjennomsnittlig endring i funksjonsverdi per enhet endring i $x$. I praktiske sammenhenger, som bevegelse, tilsvarer dette gjennomsnittshastigheten. Gjennomsnittlig vekstfart avhenger av hvilket intervall vi ser på, fordi funksjonen kan oppføre seg ulikt i forskjellige deler av definisjonsområdet."
+    }
+  ],
+  "exercises": []
+}

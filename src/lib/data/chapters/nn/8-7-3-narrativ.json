@@ -1,1 +1,388 @@
-{"id":"8-7-3-narrativ","courseId":"8","chapterNumber":"7.3","title":"Største felles faktor (SFF) og minste felles multiplum (MFM)","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av SFF og MFM -- to sentrale omgrep som byggjer på primtalsfaktorisering -- der vi lærer å finne kva tal har til felles og kva som foreinar dei, med praktiske døme frå kvardagen.","estimatedMinutes":35,"competenceGoals":["bruke faktorisering og primtall i berekningar"],"linkedChapterId":"8-7-3","content":[{"id":"8-7-3-n-intro","type":"text","content":"## Kva har tala til felles?\n\nTenk deg at du skal dele $24$ sjokoladar og $36$ kjeks jamt i posar. Kvar pose skal ha like mange sjokoladar, og like mange kjeks -- og du vil lage flest mogleg posar. Kor mange posar kan du lage?\n\nTal på posar må gå opp i både $24$ og $36$. Tala som går opp i $24$ (faktorane) er: $1, 2, 3, 4, 6, 8, 12, 24$. Tala som går opp i $36$ er: $1, 2, 3, 4, 6, 9, 12, 18, 36$.\n\n**Felles faktorar** -- tal som er i begge listene: $1, 2, 3, 4, 6, 12$.\n\nDen største av dei er $12$. Altså kan du lage $12$ posar (med $2$ sjokoladar og $3$ kjeks i kvar).\n\nTalet $12$ blir kalla **største felles faktor** av $24$ og $36$, og vi skriv $\\text{SFF}(24, 36) = 12$.\n\nMen kva om spørsmålet er annleis? To bussar køyrer frå same haldeplass. Buss A kjem kvart $8.$ minutt, buss B kvart $12.$ minutt. Når kjem dei neste gong samtidig? Då treng vi det **minste felles multiplum**: $\\text{MFM}(8, 12) = 24$ minutt."},{"id":"8-7-3-n-section1","type":"text","content":"## SFF med primtalsfaktorisering\n\nÅ liste opp alle faktorar fungerer for små tal, men for store tal treng vi ein betre metode. Her kjem primtalsfaktorisering til unnsetning!\n\n**Oppskrift for SFF:**\n1. Faktoriser begge tala i primtal\n2. Finn primtala som er **felles** for begge\n3. For kvart felles primtal, vel den **lågaste** eksponenten\n4. Gong saman\n\n**Døme: SFF(72, 120)**\n\nFaktoriser:\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nFelles primtal: $2$ og $3$ (begge førekjem i begge faktoriseringane).\n\n- $2$: lågaste eksponent er $\\min(3, 3) = 3$\n- $3$: lågaste eksponent er $\\min(2, 1) = 1$\n- $5$: berre i $120$, ikkje felles -- hopp over\n\n$$\\text{SFF}(72, 120) = 2^3 \\cdot 3 = 8 \\cdot 3 = 24$$\n\n**Døme: SFF(48, 180)**\n\n$$48 = 2^4 \\cdot 3$$\n$$180 = 2^2 \\cdot 3^2 \\cdot 5$$\n\nFelles: $2$ og $3$.\n- $2$: $\\min(4, 2) = 2$\n- $3$: $\\min(1, 2) = 1$\n\n$$\\text{SFF}(48, 180) = 2^2 \\cdot 3 = 4 \\cdot 3 = 12$$\n\nIntuisjonen: SFF er «det som er felles» -- vi beheld berre det begge tala deler, og tek minst mogleg av kvar."},{"id":"8-7-3-n-quiz1","type":"exercise","exercise":{"id":"8-7-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på SFF:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-3-n-quiz1-q0","task":"Kva er $\\text{SFF}(36, 60)$?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$18$","isCorrect":false},{"id":"d","text":"$24$","isCorrect":false}],"solution":"$36 = 2^2 \\cdot 3^2$ og $60 = 2^2 \\cdot 3 \\cdot 5$. SFF: $2^{\\min(2,2)} \\cdot 3^{\\min(2,1)} = 2^2 \\cdot 3 = 12$."},{"id":"8-7-3-n-quiz1-q1","task":"Kva er $\\text{SFF}(28, 45)$?","options":[{"id":"a","text":"$1$","isCorrect":true},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$7$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":false}],"solution":"$28 = 2^2 \\cdot 7$ og $45 = 3^2 \\cdot 5$. Dei har ingen felles primfaktorar! Derfor er $\\text{SFF}(28, 45) = 1$. (Slike tal blir kalla innbyrdes primiske.)"},{"id":"8-7-3-n-quiz1-q2","task":"$\\text{SFF}(a, b) = 1$. Kva tyder dette?","options":[{"id":"a","text":"Tala er like","isCorrect":false},{"id":"b","text":"Det eine talet er $1$","isCorrect":false},{"id":"c","text":"Tala har ingen felles primfaktorar (innbyrdes primiske)","isCorrect":true},{"id":"d","text":"Begge tala er primtal","isCorrect":false}],"solution":"Når SFF er $1$, tyder det at tala ikkje deler nokon primfaktor. Dei blir kalla innbyrdes primiske. Døme: $8$ og $15$ -- $8 = 2^3$ og $15 = 3 \\cdot 5$, ingen felles primtal."}]}},{"id":"8-7-3-n-section2","type":"text","content":"## MFM med primtalsfaktorisering\n\n**Minste felles multiplum** (MFM) er det minste talet som begge tala går opp i. Der SFF finn det tala deler, finn MFM det som **foreinar** dei.\n\n**Oppskrift for MFM:**\n1. Faktoriser begge tala i primtal\n2. Finn **alle** primtal som førekjem (i minst eitt av tala)\n3. For kvart primtal, vel den **høgaste** eksponenten\n4. Gong saman\n\n**Døme: MFM(72, 120)**\n\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nAlle primtal: $2, 3, 5$.\n- $2$: høgaste eksponent $= \\max(3, 3) = 3$\n- $3$: høgaste eksponent $= \\max(2, 1) = 2$\n- $5$: høgaste eksponent $= \\max(0, 1) = 1$\n\n$$\\text{MFM}(72, 120) = 2^3 \\cdot 3^2 \\cdot 5 = 8 \\cdot 9 \\cdot 5 = 360$$\n\nSjekk: $360 \\div 72 = 5$ ✓ og $360 \\div 120 = 3$ ✓\n\n**Samanheng mellom SFF og MFM:**\n\nDet finst ein nyttig formel:\n\n$$\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$$\n\nFor $72$ og $120$: $24 \\cdot 360 = 8640 = 72 \\cdot 120$ ✓\n\nDenne formelen gir ein snarveg: viss du allereie har funne SFF, kan du finne MFM ved divisjon:\n\n$$\\text{MFM}(a, b) = \\frac{a \\cdot b}{\\text{SFF}(a, b)}$$"},{"id":"8-7-3-n-quiz2","type":"exercise","exercise":{"id":"8-7-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på MFM:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-3-n-quiz2-q0","task":"Kva er $\\text{MFM}(8, 12)$?","options":[{"id":"a","text":"$48$","isCorrect":false},{"id":"b","text":"$24$","isCorrect":true},{"id":"c","text":"$36$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"$8 = 2^3$ og $12 = 2^2 \\cdot 3$. MFM: $2^3 \\cdot 3 = 24$. Sjekk: $24 \\div 8 = 3$ ✓ og $24 \\div 12 = 2$ ✓."},{"id":"8-7-3-n-quiz2-q1","task":"Kva er $\\text{MFM}(15, 20)$?","options":[{"id":"a","text":"$30$","isCorrect":false},{"id":"b","text":"$60$","isCorrect":true},{"id":"c","text":"$100$","isCorrect":false},{"id":"d","text":"$300$","isCorrect":false}],"solution":"$15 = 3 \\cdot 5$ og $20 = 2^2 \\cdot 5$. MFM: $2^2 \\cdot 3 \\cdot 5 = 60$."},{"id":"8-7-3-n-quiz2-q2","task":"$\\text{SFF}(18, 24) = 6$. Kva er $\\text{MFM}(18, 24)$?","options":[{"id":"a","text":"$72$","isCorrect":true},{"id":"b","text":"$48$","isCorrect":false},{"id":"c","text":"$36$","isCorrect":false},{"id":"d","text":"$96$","isCorrect":false}],"solution":"Bruk formelen: $\\text{MFM} = \\frac{18 \\cdot 24}{\\text{SFF}} = \\frac{432}{6} = 72$."}]}},{"id":"8-7-3-n-section3","type":"text","content":"## Praktiske bruksområde\n\nSFF og MFM er ikkje berre teori -- dei dukkar opp i mange praktiske situasjonar.\n\n**SFF i praksis -- dele jamt:**\nDu har $24$ eple og $36$ bananar. Du vil lage flest mogleg like fruktposar. $\\text{SFF}(24, 36) = 12$, så du kan lage $12$ posar med $2$ eple og $3$ bananar i kvar.\n\n**MFM i praksis -- når ting samanfell:**\nDu trenar symjing kvar $3.$ dag og løping kvar $5.$ dag. Du trenar begge delar i dag. Om kor mange dagar trenar du begge delar igjen? $\\text{MFM}(3, 5) = 15$ dagar.\n\n**MFM i praksis -- fliser og mønster:**\nDu skal flisleggje eit golv som er $180$ cm $\\times$ $120$ cm med kvadratiske fliser utan å skjere nokon flis. Kva er den største flisstorleiken? Sidelengda må gå opp i både $180$ og $120$: $\\text{SFF}(180, 120) = 60$ cm.\n\n**SFF med tre tal:**\nFinn $\\text{SFF}(12, 18, 24)$. Faktoriser: $12 = 2^2 \\cdot 3$, $18 = 2 \\cdot 3^2$, $24 = 2^3 \\cdot 3$. Felles primtal med lågaste eksponent: $2^1 \\cdot 3^1 = 6$."},{"id":"8-7-3-n-quiz3","type":"exercise","exercise":{"id":"8-7-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på praktiske oppgåver:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-3-n-quiz3-q0","task":"To lysfyr blinkar. Det eine blinkar kvart $6.$ sekund, det andre kvart $10.$ sekund. Dei blinkar no samtidig. Etter kor mange sekund blinkar dei samtidig igjen?","options":[{"id":"a","text":"$60$ sekund","isCorrect":false},{"id":"b","text":"$30$ sekund","isCorrect":true},{"id":"c","text":"$16$ sekund","isCorrect":false},{"id":"d","text":"$20$ sekund","isCorrect":false}],"solution":"$\\text{MFM}(6, 10)$. $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2 \\cdot 3 \\cdot 5 = 30$ sekund."},{"id":"8-7-3-n-quiz3-q1","task":"Du har $42$ raude perler og $56$ blå perler, og vil lage flest mogleg like armband. Kor mange armband kan du lage?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$14$","isCorrect":true},{"id":"c","text":"$21$","isCorrect":false},{"id":"d","text":"$28$","isCorrect":false}],"solution":"$\\text{SFF}(42, 56)$. $42 = 2 \\cdot 3 \\cdot 7$ og $56 = 2^3 \\cdot 7$. SFF $= 2 \\cdot 7 = 14$ armband (med $3$ raude og $4$ blå i kvart)."},{"id":"8-7-3-n-quiz3-q2","task":"Kva er $\\text{MFM}(4, 6, 10)$?","options":[{"id":"a","text":"$30$","isCorrect":false},{"id":"b","text":"$60$","isCorrect":true},{"id":"c","text":"$120$","isCorrect":false},{"id":"d","text":"$240$","isCorrect":false}],"solution":"$4 = 2^2$, $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2^2 \\cdot 3 \\cdot 5 = 60$."}]}},{"id":"8-7-3-n-summary","type":"text","content":"## Oppsummering\n\n| Omgrep | Definisjon | Metode |\n|--------|-----------|--------|\n| **SFF** (Største felles faktor) | Største tal som deler begge | Felles primtal med **lågaste** eksponent |\n| **MFM** (Minste felles multiplum) | Minste tal begge går opp i | Alle primtal med **høgaste** eksponent |\n\n**Nyttig formel:** $\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$\n\n**Hugseregel:**\n- **SFF:** det tala *deler* -- ta det minste av det felles\n- **MFM:** det som *foreinar* tala -- ta det største av alt\n\n**Når bruker du kva?**\n- **SFF:** dele jamt, forenkle brøkar, finne fellesnemnar\n- **MFM:** finne når hendingar samanfell, finne fellesnemnar i brøk"}],"exercises":[],"_meta":{"sourceHash":"c810e9ac7727a4d4","translatedAt":"2026-06-17T01:55:36.484Z","model":"claude-code-agent","strings":41,"tm":{"f62cab6f03e9088b":"Største felles faktor (SFF) og minste felles multiplum (MFM)","b195b06d1ed59702":"Narrativ versjon","2f2833de43c8997a":"Ein forteljande gjennomgang av SFF og MFM -- to sentrale omgrep som byggjer på primtalsfaktorisering -- der vi lærer å finne kva tal har til felles og kva som foreinar dei, med praktiske døme frå kvardagen.","a9a173982997b684":"bruke faktorisering og primtall i berekningar","284e13a857a1ff7a":"## Kva har tala til felles?\n\nTenk deg at du skal dele $24$ sjokoladar og $36$ kjeks jamt i posar. Kvar pose skal ha like mange sjokoladar, og like mange kjeks -- og du vil lage flest mogleg posar. Kor mange posar kan du lage?\n\nTal på posar må gå opp i både $24$ og $36$. Tala som går opp i $24$ (faktorane) er: $1, 2, 3, 4, 6, 8, 12, 24$. Tala som går opp i $36$ er: $1, 2, 3, 4, 6, 9, 12, 18, 36$.\n\n**Felles faktorar** -- tal som er i begge listene: $1, 2, 3, 4, 6, 12$.\n\nDen største av dei er $12$. Altså kan du lage $12$ posar (med $2$ sjokoladar og $3$ kjeks i kvar).\n\nTalet $12$ blir kalla **største felles faktor** av $24$ og $36$, og vi skriv $\\text{SFF}(24, 36) = 12$.\n\nMen kva om spørsmålet er annleis? To bussar køyrer frå same haldeplass. Buss A kjem kvart $8.$ minutt, buss B kvart $12.$ minutt. Når kjem dei neste gong samtidig? Då treng vi det **minste felles multiplum**: $\\text{MFM}(8, 12) = 24$ minutt.","062e4e48cd09799c":"## SFF med primtalsfaktorisering\n\nÅ liste opp alle faktorar fungerer for små tal, men for store tal treng vi ein betre metode. Her kjem primtalsfaktorisering til unnsetning!\n\n**Oppskrift for SFF:**\n1. Faktoriser begge tala i primtal\n2. Finn primtala som er **felles** for begge\n3. For kvart felles primtal, vel den **lågaste** eksponenten\n4. Gong saman\n\n**Døme: SFF(72, 120)**\n\nFaktoriser:\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nFelles primtal: $2$ og $3$ (begge førekjem i begge faktoriseringane).\n\n- $2$: lågaste eksponent er $\\min(3, 3) = 3$\n- $3$: lågaste eksponent er $\\min(2, 1) = 1$\n- $5$: berre i $120$, ikkje felles -- hopp over\n\n$$\\text{SFF}(72, 120) = 2^3 \\cdot 3 = 8 \\cdot 3 = 24$$\n\n**Døme: SFF(48, 180)**\n\n$$48 = 2^4 \\cdot 3$$\n$$180 = 2^2 \\cdot 3^2 \\cdot 5$$\n\nFelles: $2$ og $3$.\n- $2$: $\\min(4, 2) = 2$\n- $3$: $\\min(1, 2) = 1$\n\n$$\\text{SFF}(48, 180) = 2^2 \\cdot 3 = 4 \\cdot 3 = 12$$\n\nIntuisjonen: SFF er «det som er felles» -- vi beheld berre det begge tala deler, og tek minst mogleg av kvar.","f7bb1e88c57ab415":"Test deg sjølv på SFF:","4097889236a2af26":"placeholder","3d53529facf2c83e":"Kva er $\\text{SFF}(36, 60)$?","d41a4f8c4f2b90ad":"$36 = 2^2 \\cdot 3^2$ og $60 = 2^2 \\cdot 3 \\cdot 5$. SFF: $2^{\\min(2,2)} \\cdot 3^{\\min(2,1)} = 2^2 \\cdot 3 = 12$.","7fbee5627b2f3e4c":"Kva er $\\text{SFF}(28, 45)$?","531f5a4bda389ecc":"$28 = 2^2 \\cdot 7$ og $45 = 3^2 \\cdot 5$. Dei har ingen felles primfaktorar! Derfor er $\\text{SFF}(28, 45) = 1$. (Slike tal blir kalla innbyrdes primiske.)","677751e43c351f0d":"$\\text{SFF}(a, b) = 1$. Kva tyder dette?","9d5e9bcc40312fbc":"Tala er like","0016d23bf029d4c3":"Det eine talet er $1$","733a5cb2c77007bb":"Tala har ingen felles primfaktorar (innbyrdes primiske)","507f8838282e5d6d":"Begge tala er primtal","35d32cf03f8f09f5":"Når SFF er $1$, tyder det at tala ikkje deler nokon primfaktor. Dei blir kalla innbyrdes primiske. Døme: $8$ og $15$ -- $8 = 2^3$ og $15 = 3 \\cdot 5$, ingen felles primtal.","09e25e5e6e3e7770":"## MFM med primtalsfaktorisering\n\n**Minste felles multiplum** (MFM) er det minste talet som begge tala går opp i. Der SFF finn det tala deler, finn MFM det som **foreinar** dei.\n\n**Oppskrift for MFM:**\n1. Faktoriser begge tala i primtal\n2. Finn **alle** primtal som førekjem (i minst eitt av tala)\n3. For kvart primtal, vel den **høgaste** eksponenten\n4. Gong saman\n\n**Døme: MFM(72, 120)**\n\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nAlle primtal: $2, 3, 5$.\n- $2$: høgaste eksponent $= \\max(3, 3) = 3$\n- $3$: høgaste eksponent $= \\max(2, 1) = 2$\n- $5$: høgaste eksponent $= \\max(0, 1) = 1$\n\n$$\\text{MFM}(72, 120) = 2^3 \\cdot 3^2 \\cdot 5 = 8 \\cdot 9 \\cdot 5 = 360$$\n\nSjekk: $360 \\div 72 = 5$ ✓ og $360 \\div 120 = 3$ ✓\n\n**Samanheng mellom SFF og MFM:**\n\nDet finst ein nyttig formel:\n\n$$\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$$\n\nFor $72$ og $120$: $24 \\cdot 360 = 8640 = 72 \\cdot 120$ ✓\n\nDenne formelen gir ein snarveg: viss du allereie har funne SFF, kan du finne MFM ved divisjon:\n\n$$\\text{MFM}(a, b) = \\frac{a \\cdot b}{\\text{SFF}(a, b)}$$","d5bf6bffad9f452a":"Test deg sjølv på MFM:","26f3ac0c1efd291a":"Kva er $\\text{MFM}(8, 12)$?","b9c1d725a38c1659":"$8 = 2^3$ og $12 = 2^2 \\cdot 3$. MFM: $2^3 \\cdot 3 = 24$. Sjekk: $24 \\div 8 = 3$ ✓ og $24 \\div 12 = 2$ ✓.","93e0646fccf98960":"Kva er $\\text{MFM}(15, 20)$?","de07fa4571727207":"$15 = 3 \\cdot 5$ og $20 = 2^2 \\cdot 5$. MFM: $2^2 \\cdot 3 \\cdot 5 = 60$.","f2d529c427ec94fb":"$\\text{SFF}(18, 24) = 6$. Kva er $\\text{MFM}(18, 24)$?","b0db0a4f58665576":"Bruk formelen: $\\text{MFM} = \\frac{18 \\cdot 24}{\\text{SFF}} = \\frac{432}{6} = 72$.","d17ba70a50b7dad3":"## Praktiske bruksområde\n\nSFF og MFM er ikkje berre teori -- dei dukkar opp i mange praktiske situasjonar.\n\n**SFF i praksis -- dele jamt:**\nDu har $24$ eple og $36$ bananar. Du vil lage flest mogleg like fruktposar. $\\text{SFF}(24, 36) = 12$, så du kan lage $12$ posar med $2$ eple og $3$ bananar i kvar.\n\n**MFM i praksis -- når ting samanfell:**\nDu trenar symjing kvar $3.$ dag og løping kvar $5.$ dag. Du trenar begge delar i dag. Om kor mange dagar trenar du begge delar igjen? $\\text{MFM}(3, 5) = 15$ dagar.\n\n**MFM i praksis -- fliser og mønster:**\nDu skal flisleggje eit golv som er $180$ cm $\\times$ $120$ cm med kvadratiske fliser utan å skjere nokon flis. Kva er den største flisstorleiken? Sidelengda må gå opp i både $180$ og $120$: $\\text{SFF}(180, 120) = 60$ cm.\n\n**SFF med tre tal:**\nFinn $\\text{SFF}(12, 18, 24)$. Faktoriser: $12 = 2^2 \\cdot 3$, $18 = 2 \\cdot 3^2$, $24 = 2^3 \\cdot 3$. Felles primtal med lågaste eksponent: $2^1 \\cdot 3^1 = 6$.","0956aabab1eb7bfe":"Test deg sjølv på praktiske oppgåver:","371e6e94c7e892b3":"To lysfyr blinkar. Det eine blinkar kvart $6.$ sekund, det andre kvart $10.$ sekund. Dei blinkar no samtidig. Etter kor mange sekund blinkar dei samtidig igjen?","cc83c5312da5431d":"$60$ sekund","09c44ec1f30ebb75":"$30$ sekund","2bb6ab09b8623523":"$16$ sekund","32953680da0da219":"$20$ sekund","6f1e07e921a2ff37":"$\\text{MFM}(6, 10)$. $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2 \\cdot 3 \\cdot 5 = 30$ sekund.","957fc2ed7be00f36":"Du har $42$ raude perler og $56$ blå perler, og vil lage flest mogleg like armband. Kor mange armband kan du lage?","07dd7758fb9d8c4f":"$\\text{SFF}(42, 56)$. $42 = 2 \\cdot 3 \\cdot 7$ og $56 = 2^3 \\cdot 7$. SFF $= 2 \\cdot 7 = 14$ armband (med $3$ raude og $4$ blå i kvart).","7b1ca8c3deb56211":"Kva er $\\text{MFM}(4, 6, 10)$?","df15180390acbb53":"$4 = 2^2$, $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2^2 \\cdot 3 \\cdot 5 = 60$.","6b180b859389246d":"## Oppsummering\n\n| Omgrep | Definisjon | Metode |\n|--------|-----------|--------|\n| **SFF** (Største felles faktor) | Største tal som deler begge | Felles primtal med **lågaste** eksponent |\n| **MFM** (Minste felles multiplum) | Minste tal begge går opp i | Alle primtal med **høgaste** eksponent |\n\n**Nyttig formel:** $\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$\n\n**Hugseregel:**\n- **SFF:** det tala *deler* -- ta det minste av det felles\n- **MFM:** det som *foreinar* tala -- ta det største av alt\n\n**Når bruker du kva?**\n- **SFF:** dele jamt, forenkle brøkar, finne fellesnemnar\n- **MFM:** finne når hendingar samanfell, finne fellesnemnar i brøk"}}}
+{
+  "id": "8-7-3-narrativ",
+  "courseId": "8",
+  "chapterNumber": "7.3",
+  "title": "Største felles faktor (SFF) og minste felles multiplum (MFM)",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av SFF og MFM -- to sentrale omgrep som byggjer på primtalsfaktorisering -- der vi lærer å finne kva tal har til felles og kva som foreinar dei, med praktiske døme frå kvardagen.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke faktorisering og primtall i berekningar"
+  ],
+  "linkedChapterId": "8-7-3",
+  "content": [
+    {
+      "id": "8-7-3-n-intro",
+      "type": "text",
+      "content": "## Kva har tala til felles?\n\nTenk deg at du skal dele $24$ sjokoladar og $36$ kjeks jamt i posar. Kvar pose skal ha like mange sjokoladar, og like mange kjeks -- og du vil lage flest mogleg posar. Kor mange posar kan du lage?\n\nTal på posar må gå opp i både $24$ og $36$. Tala som går opp i $24$ (faktorane) er: $1, 2, 3, 4, 6, 8, 12, 24$. Tala som går opp i $36$ er: $1, 2, 3, 4, 6, 9, 12, 18, 36$.\n\n**Felles faktorar** -- tal som er i begge listene: $1, 2, 3, 4, 6, 12$.\n\nDen største av dei er $12$. Altså kan du lage $12$ posar (med $2$ sjokoladar og $3$ kjeks i kvar).\n\nTalet $12$ blir kalla **største felles faktor** av $24$ og $36$, og vi skriv $\\text{SFF}(24, 36) = 12$.\n\nMen kva om spørsmålet er annleis? To bussar køyrer frå same haldeplass. Buss A kjem kvart $8.$ minutt, buss B kvart $12.$ minutt. Når kjem dei neste gong samtidig? Då treng vi det **minste felles multiplum**: $\\text{MFM}(8, 12) = 24$ minutt."
+    },
+    {
+      "id": "8-7-3-n-section1",
+      "type": "text",
+      "content": "## SFF med primtalsfaktorisering\n\nÅ liste opp alle faktorar fungerer for små tal, men for store tal treng vi ein betre metode. Her kjem primtalsfaktorisering til unnsetning!\n\n**Oppskrift for SFF:**\n1. Faktoriser begge tala i primtal\n2. Finn primtala som er **felles** for begge\n3. For kvart felles primtal, vel den **lågaste** eksponenten\n4. Gong saman\n\n**Døme: SFF(72, 120)**\n\nFaktoriser:\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nFelles primtal: $2$ og $3$ (begge førekjem i begge faktoriseringane).\n\n- $2$: lågaste eksponent er $\\min(3, 3) = 3$\n- $3$: lågaste eksponent er $\\min(2, 1) = 1$\n- $5$: berre i $120$, ikkje felles -- hopp over\n\n$$\\text{SFF}(72, 120) = 2^3 \\cdot 3 = 8 \\cdot 3 = 24$$\n\n**Døme: SFF(48, 180)**\n\n$$48 = 2^4 \\cdot 3$$\n$$180 = 2^2 \\cdot 3^2 \\cdot 5$$\n\nFelles: $2$ og $3$.\n- $2$: $\\min(4, 2) = 2$\n- $3$: $\\min(1, 2) = 1$\n\n$$\\text{SFF}(48, 180) = 2^2 \\cdot 3 = 4 \\cdot 3 = 12$$\n\nIntuisjonen: SFF er «det som er felles» -- vi beheld berre det begge tala deler, og tek minst mogleg av kvar."
+    },
+    {
+      "id": "8-7-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på SFF:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-3-n-quiz1-q0",
+            "task": "Kva er $\\text{SFF}(36, 60)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$24$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$36 = 2^2 \\cdot 3^2$ og $60 = 2^2 \\cdot 3 \\cdot 5$. SFF: $2^{\\min(2,2)} \\cdot 3^{\\min(2,1)} = 2^2 \\cdot 3 = 12$."
+          },
+          {
+            "id": "8-7-3-n-quiz1-q1",
+            "task": "Kva er $\\text{SFF}(28, 45)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$28 = 2^2 \\cdot 7$ og $45 = 3^2 \\cdot 5$. Dei har ingen felles primfaktorar! Derfor er $\\text{SFF}(28, 45) = 1$. (Slike tal blir kalla innbyrdes primiske.)"
+          },
+          {
+            "id": "8-7-3-n-quiz1-q2",
+            "task": "$\\text{SFF}(a, b) = 1$. Kva tyder dette?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tala er like",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det eine talet er $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge tala er primtal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tala har ingen felles primfaktorar (innbyrdes primiske)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når SFF er $1$, tyder det at tala ikkje deler nokon primfaktor. Dei blir kalla innbyrdes primiske. Døme: $8$ og $15$ -- $8 = 2^3$ og $15 = 3 \\cdot 5$, ingen felles primtal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-3-n-section2",
+      "type": "text",
+      "content": "## MFM med primtalsfaktorisering\n\n**Minste felles multiplum** (MFM) er det minste talet som begge tala går opp i. Der SFF finn det tala deler, finn MFM det som **foreinar** dei.\n\n**Oppskrift for MFM:**\n1. Faktoriser begge tala i primtal\n2. Finn **alle** primtal som førekjem (i minst eitt av tala)\n3. For kvart primtal, vel den **høgaste** eksponenten\n4. Gong saman\n\n**Døme: MFM(72, 120)**\n\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nAlle primtal: $2, 3, 5$.\n- $2$: høgaste eksponent $= \\max(3, 3) = 3$\n- $3$: høgaste eksponent $= \\max(2, 1) = 2$\n- $5$: høgaste eksponent $= \\max(0, 1) = 1$\n\n$$\\text{MFM}(72, 120) = 2^3 \\cdot 3^2 \\cdot 5 = 8 \\cdot 9 \\cdot 5 = 360$$\n\nSjekk: $360 \\div 72 = 5$ ✓ og $360 \\div 120 = 3$ ✓\n\n**Samanheng mellom SFF og MFM:**\n\nDet finst ein nyttig formel:\n\n$$\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$$\n\nFor $72$ og $120$: $24 \\cdot 360 = 8640 = 72 \\cdot 120$ ✓\n\nDenne formelen gir ein snarveg: viss du allereie har funne SFF, kan du finne MFM ved divisjon:\n\n$$\\text{MFM}(a, b) = \\frac{a \\cdot b}{\\text{SFF}(a, b)}$$"
+    },
+    {
+      "id": "8-7-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på MFM:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-3-n-quiz2-q0",
+            "task": "Kva er $\\text{MFM}(8, 12)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$24$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$48$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$36$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$8 = 2^3$ og $12 = 2^2 \\cdot 3$. MFM: $2^3 \\cdot 3 = 24$. Sjekk: $24 \\div 8 = 3$ ✓ og $24 \\div 12 = 2$ ✓."
+          },
+          {
+            "id": "8-7-3-n-quiz2-q1",
+            "task": "Kva er $\\text{MFM}(15, 20)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$60$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$300$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$15 = 3 \\cdot 5$ og $20 = 2^2 \\cdot 5$. MFM: $2^2 \\cdot 3 \\cdot 5 = 60$."
+          },
+          {
+            "id": "8-7-3-n-quiz2-q2",
+            "task": "$\\text{SFF}(18, 24) = 6$. Kva er $\\text{MFM}(18, 24)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$48$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$36$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$72$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$96$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bruk formelen: $\\text{MFM} = \\frac{18 \\cdot 24}{\\text{SFF}} = \\frac{432}{6} = 72$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-3-n-section3",
+      "type": "text",
+      "content": "## Praktiske bruksområde\n\nSFF og MFM er ikkje berre teori -- dei dukkar opp i mange praktiske situasjonar.\n\n**SFF i praksis -- dele jamt:**\nDu har $24$ eple og $36$ bananar. Du vil lage flest mogleg like fruktposar. $\\text{SFF}(24, 36) = 12$, så du kan lage $12$ posar med $2$ eple og $3$ bananar i kvar.\n\n**MFM i praksis -- når ting samanfell:**\nDu trenar symjing kvar $3.$ dag og løping kvar $5.$ dag. Du trenar begge delar i dag. Om kor mange dagar trenar du begge delar igjen? $\\text{MFM}(3, 5) = 15$ dagar.\n\n**MFM i praksis -- fliser og mønster:**\nDu skal flisleggje eit golv som er $180$ cm $\\times$ $120$ cm med kvadratiske fliser utan å skjere nokon flis. Kva er den største flisstorleiken? Sidelengda må gå opp i både $180$ og $120$: $\\text{SFF}(180, 120) = 60$ cm.\n\n**SFF med tre tal:**\nFinn $\\text{SFF}(12, 18, 24)$. Faktoriser: $12 = 2^2 \\cdot 3$, $18 = 2 \\cdot 3^2$, $24 = 2^3 \\cdot 3$. Felles primtal med lågaste eksponent: $2^1 \\cdot 3^1 = 6$."
+    },
+    {
+      "id": "8-7-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på praktiske oppgåver:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-3-n-quiz3-q0",
+            "task": "To lysfyr blinkar. Det eine blinkar kvart $6.$ sekund, det andre kvart $10.$ sekund. Dei blinkar no samtidig. Etter kor mange sekund blinkar dei samtidig igjen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$60$ sekund",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16$ sekund",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$20$ sekund",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$30$ sekund",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\text{MFM}(6, 10)$. $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2 \\cdot 3 \\cdot 5 = 30$ sekund."
+          },
+          {
+            "id": "8-7-3-n-quiz3-q1",
+            "task": "Du har $42$ raude perler og $56$ blå perler, og vil lage flest mogleg like armband. Kor mange armband kan du lage?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$14$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$21$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$28$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{SFF}(42, 56)$. $42 = 2 \\cdot 3 \\cdot 7$ og $56 = 2^3 \\cdot 7$. SFF $= 2 \\cdot 7 = 14$ armband (med $3$ raude og $4$ blå i kvart)."
+          },
+          {
+            "id": "8-7-3-n-quiz3-q2",
+            "task": "Kva er $\\text{MFM}(4, 6, 10)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$60$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$120$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$240$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4 = 2^2$, $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2^2 \\cdot 3 \\cdot 5 = 60$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n| Omgrep | Definisjon | Metode |\n|--------|-----------|--------|\n| **SFF** (Største felles faktor) | Største tal som deler begge | Felles primtal med **lågaste** eksponent |\n| **MFM** (Minste felles multiplum) | Minste tal begge går opp i | Alle primtal med **høgaste** eksponent |\n\n**Nyttig formel:** $\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$\n\n**Hugseregel:**\n- **SFF:** det tala *deler* -- ta det minste av det felles\n- **MFM:** det som *foreinar* tala -- ta det største av alt\n\n**Når bruker du kva?**\n- **SFF:** dele jamt, forenkle brøkar, finne fellesnemnar\n- **MFM:** finne når hendingar samanfell, finne fellesnemnar i brøk"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c810e9ac7727a4d4",
+    "translatedAt": "2026-06-17T01:55:36.484Z",
+    "model": "claude-code-agent",
+    "strings": 41,
+    "tm": {
+      "f62cab6f03e9088b": "Største felles faktor (SFF) og minste felles multiplum (MFM)",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "2f2833de43c8997a": "Ein forteljande gjennomgang av SFF og MFM -- to sentrale omgrep som byggjer på primtalsfaktorisering -- der vi lærer å finne kva tal har til felles og kva som foreinar dei, med praktiske døme frå kvardagen.",
+      "a9a173982997b684": "bruke faktorisering og primtall i berekningar",
+      "284e13a857a1ff7a": "## Kva har tala til felles?\n\nTenk deg at du skal dele $24$ sjokoladar og $36$ kjeks jamt i posar. Kvar pose skal ha like mange sjokoladar, og like mange kjeks -- og du vil lage flest mogleg posar. Kor mange posar kan du lage?\n\nTal på posar må gå opp i både $24$ og $36$. Tala som går opp i $24$ (faktorane) er: $1, 2, 3, 4, 6, 8, 12, 24$. Tala som går opp i $36$ er: $1, 2, 3, 4, 6, 9, 12, 18, 36$.\n\n**Felles faktorar** -- tal som er i begge listene: $1, 2, 3, 4, 6, 12$.\n\nDen største av dei er $12$. Altså kan du lage $12$ posar (med $2$ sjokoladar og $3$ kjeks i kvar).\n\nTalet $12$ blir kalla **største felles faktor** av $24$ og $36$, og vi skriv $\\text{SFF}(24, 36) = 12$.\n\nMen kva om spørsmålet er annleis? To bussar køyrer frå same haldeplass. Buss A kjem kvart $8.$ minutt, buss B kvart $12.$ minutt. Når kjem dei neste gong samtidig? Då treng vi det **minste felles multiplum**: $\\text{MFM}(8, 12) = 24$ minutt.",
+      "062e4e48cd09799c": "## SFF med primtalsfaktorisering\n\nÅ liste opp alle faktorar fungerer for små tal, men for store tal treng vi ein betre metode. Her kjem primtalsfaktorisering til unnsetning!\n\n**Oppskrift for SFF:**\n1. Faktoriser begge tala i primtal\n2. Finn primtala som er **felles** for begge\n3. For kvart felles primtal, vel den **lågaste** eksponenten\n4. Gong saman\n\n**Døme: SFF(72, 120)**\n\nFaktoriser:\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nFelles primtal: $2$ og $3$ (begge førekjem i begge faktoriseringane).\n\n- $2$: lågaste eksponent er $\\min(3, 3) = 3$\n- $3$: lågaste eksponent er $\\min(2, 1) = 1$\n- $5$: berre i $120$, ikkje felles -- hopp over\n\n$$\\text{SFF}(72, 120) = 2^3 \\cdot 3 = 8 \\cdot 3 = 24$$\n\n**Døme: SFF(48, 180)**\n\n$$48 = 2^4 \\cdot 3$$\n$$180 = 2^2 \\cdot 3^2 \\cdot 5$$\n\nFelles: $2$ og $3$.\n- $2$: $\\min(4, 2) = 2$\n- $3$: $\\min(1, 2) = 1$\n\n$$\\text{SFF}(48, 180) = 2^2 \\cdot 3 = 4 \\cdot 3 = 12$$\n\nIntuisjonen: SFF er «det som er felles» -- vi beheld berre det begge tala deler, og tek minst mogleg av kvar.",
+      "f7bb1e88c57ab415": "Test deg sjølv på SFF:",
+      "4097889236a2af26": "placeholder",
+      "3d53529facf2c83e": "Kva er $\\text{SFF}(36, 60)$?",
+      "d41a4f8c4f2b90ad": "$36 = 2^2 \\cdot 3^2$ og $60 = 2^2 \\cdot 3 \\cdot 5$. SFF: $2^{\\min(2,2)} \\cdot 3^{\\min(2,1)} = 2^2 \\cdot 3 = 12$.",
+      "7fbee5627b2f3e4c": "Kva er $\\text{SFF}(28, 45)$?",
+      "531f5a4bda389ecc": "$28 = 2^2 \\cdot 7$ og $45 = 3^2 \\cdot 5$. Dei har ingen felles primfaktorar! Derfor er $\\text{SFF}(28, 45) = 1$. (Slike tal blir kalla innbyrdes primiske.)",
+      "677751e43c351f0d": "$\\text{SFF}(a, b) = 1$. Kva tyder dette?",
+      "9d5e9bcc40312fbc": "Tala er like",
+      "0016d23bf029d4c3": "Det eine talet er $1$",
+      "733a5cb2c77007bb": "Tala har ingen felles primfaktorar (innbyrdes primiske)",
+      "507f8838282e5d6d": "Begge tala er primtal",
+      "35d32cf03f8f09f5": "Når SFF er $1$, tyder det at tala ikkje deler nokon primfaktor. Dei blir kalla innbyrdes primiske. Døme: $8$ og $15$ -- $8 = 2^3$ og $15 = 3 \\cdot 5$, ingen felles primtal.",
+      "09e25e5e6e3e7770": "## MFM med primtalsfaktorisering\n\n**Minste felles multiplum** (MFM) er det minste talet som begge tala går opp i. Der SFF finn det tala deler, finn MFM det som **foreinar** dei.\n\n**Oppskrift for MFM:**\n1. Faktoriser begge tala i primtal\n2. Finn **alle** primtal som førekjem (i minst eitt av tala)\n3. For kvart primtal, vel den **høgaste** eksponenten\n4. Gong saman\n\n**Døme: MFM(72, 120)**\n\n$$72 = 2^3 \\cdot 3^2$$\n$$120 = 2^3 \\cdot 3 \\cdot 5$$\n\nAlle primtal: $2, 3, 5$.\n- $2$: høgaste eksponent $= \\max(3, 3) = 3$\n- $3$: høgaste eksponent $= \\max(2, 1) = 2$\n- $5$: høgaste eksponent $= \\max(0, 1) = 1$\n\n$$\\text{MFM}(72, 120) = 2^3 \\cdot 3^2 \\cdot 5 = 8 \\cdot 9 \\cdot 5 = 360$$\n\nSjekk: $360 \\div 72 = 5$ ✓ og $360 \\div 120 = 3$ ✓\n\n**Samanheng mellom SFF og MFM:**\n\nDet finst ein nyttig formel:\n\n$$\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$$\n\nFor $72$ og $120$: $24 \\cdot 360 = 8640 = 72 \\cdot 120$ ✓\n\nDenne formelen gir ein snarveg: viss du allereie har funne SFF, kan du finne MFM ved divisjon:\n\n$$\\text{MFM}(a, b) = \\frac{a \\cdot b}{\\text{SFF}(a, b)}$$",
+      "d5bf6bffad9f452a": "Test deg sjølv på MFM:",
+      "26f3ac0c1efd291a": "Kva er $\\text{MFM}(8, 12)$?",
+      "b9c1d725a38c1659": "$8 = 2^3$ og $12 = 2^2 \\cdot 3$. MFM: $2^3 \\cdot 3 = 24$. Sjekk: $24 \\div 8 = 3$ ✓ og $24 \\div 12 = 2$ ✓.",
+      "93e0646fccf98960": "Kva er $\\text{MFM}(15, 20)$?",
+      "de07fa4571727207": "$15 = 3 \\cdot 5$ og $20 = 2^2 \\cdot 5$. MFM: $2^2 \\cdot 3 \\cdot 5 = 60$.",
+      "f2d529c427ec94fb": "$\\text{SFF}(18, 24) = 6$. Kva er $\\text{MFM}(18, 24)$?",
+      "b0db0a4f58665576": "Bruk formelen: $\\text{MFM} = \\frac{18 \\cdot 24}{\\text{SFF}} = \\frac{432}{6} = 72$.",
+      "d17ba70a50b7dad3": "## Praktiske bruksområde\n\nSFF og MFM er ikkje berre teori -- dei dukkar opp i mange praktiske situasjonar.\n\n**SFF i praksis -- dele jamt:**\nDu har $24$ eple og $36$ bananar. Du vil lage flest mogleg like fruktposar. $\\text{SFF}(24, 36) = 12$, så du kan lage $12$ posar med $2$ eple og $3$ bananar i kvar.\n\n**MFM i praksis -- når ting samanfell:**\nDu trenar symjing kvar $3.$ dag og løping kvar $5.$ dag. Du trenar begge delar i dag. Om kor mange dagar trenar du begge delar igjen? $\\text{MFM}(3, 5) = 15$ dagar.\n\n**MFM i praksis -- fliser og mønster:**\nDu skal flisleggje eit golv som er $180$ cm $\\times$ $120$ cm med kvadratiske fliser utan å skjere nokon flis. Kva er den største flisstorleiken? Sidelengda må gå opp i både $180$ og $120$: $\\text{SFF}(180, 120) = 60$ cm.\n\n**SFF med tre tal:**\nFinn $\\text{SFF}(12, 18, 24)$. Faktoriser: $12 = 2^2 \\cdot 3$, $18 = 2 \\cdot 3^2$, $24 = 2^3 \\cdot 3$. Felles primtal med lågaste eksponent: $2^1 \\cdot 3^1 = 6$.",
+      "0956aabab1eb7bfe": "Test deg sjølv på praktiske oppgåver:",
+      "371e6e94c7e892b3": "To lysfyr blinkar. Det eine blinkar kvart $6.$ sekund, det andre kvart $10.$ sekund. Dei blinkar no samtidig. Etter kor mange sekund blinkar dei samtidig igjen?",
+      "cc83c5312da5431d": "$60$ sekund",
+      "09c44ec1f30ebb75": "$30$ sekund",
+      "2bb6ab09b8623523": "$16$ sekund",
+      "32953680da0da219": "$20$ sekund",
+      "6f1e07e921a2ff37": "$\\text{MFM}(6, 10)$. $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2 \\cdot 3 \\cdot 5 = 30$ sekund.",
+      "957fc2ed7be00f36": "Du har $42$ raude perler og $56$ blå perler, og vil lage flest mogleg like armband. Kor mange armband kan du lage?",
+      "07dd7758fb9d8c4f": "$\\text{SFF}(42, 56)$. $42 = 2 \\cdot 3 \\cdot 7$ og $56 = 2^3 \\cdot 7$. SFF $= 2 \\cdot 7 = 14$ armband (med $3$ raude og $4$ blå i kvart).",
+      "7b1ca8c3deb56211": "Kva er $\\text{MFM}(4, 6, 10)$?",
+      "df15180390acbb53": "$4 = 2^2$, $6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$. MFM $= 2^2 \\cdot 3 \\cdot 5 = 60$.",
+      "6b180b859389246d": "## Oppsummering\n\n| Omgrep | Definisjon | Metode |\n|--------|-----------|--------|\n| **SFF** (Største felles faktor) | Største tal som deler begge | Felles primtal med **lågaste** eksponent |\n| **MFM** (Minste felles multiplum) | Minste tal begge går opp i | Alle primtal med **høgaste** eksponent |\n\n**Nyttig formel:** $\\text{SFF}(a, b) \\cdot \\text{MFM}(a, b) = a \\cdot b$\n\n**Hugseregel:**\n- **SFF:** det tala *deler* -- ta det minste av det felles\n- **MFM:** det som *foreinar* tala -- ta det største av alt\n\n**Når bruker du kva?**\n- **SFF:** dele jamt, forenkle brøkar, finne fellesnemnar\n- **MFM:** finne når hendingar samanfell, finne fellesnemnar i brøk"
+    }
+  }
+}

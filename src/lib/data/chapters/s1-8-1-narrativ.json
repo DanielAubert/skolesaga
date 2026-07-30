@@ -1,1 +1,364 @@
-{"id":"s1-8-1-narrativ","courseId":"s1","chapterNumber":"8.1","title":"Matematisk modellering","subtitle":"Narrativ versjon","description":"En fortelling om kartet som ikke er terrenget — modelleringsprosessen, modellvalg, validering og sensitivitetsanalyse.","estimatedMinutes":34,"competenceGoals":["bruke matematisk modellering til a beskrive og analysere praktiske problemer","vurdere modellers gyldighet, begrensninger og sensitivitet"],"linkedChapterId":"s1-8-1","content":[{"id":"s1-8-1-n-intro","type":"text","content":"## Kartet er ikke terrenget\n\nEn kommune skal dimensjonere vannverket for de neste tjue årene. En analytiker skal forutsi bakterievekst i en matprøve. En bedrift vil vite hvordan salget reagerer på prisendringer. Felles for alle tre: virkeligheten er for kompleks til å regnes på direkte, så de bygger en **modell** — en forenklet matematisk representasjon av virkeligheten. **Matematisk modellering** er prosessen der vi bruker matematikk til å beskrive, forutsi og forstå virkelige fenomener.\n\nDu har allerede laget modeller: en lineær modell for bilpris som funksjon av alder, eksponentiell bakterievekst, regresjonsmodeller for sammenhenger. Nå løfter vi blikket og ser på selve **modelleringsprosessen** — en syklus i seks steg:\n\n**(1) Problemformulering:** Hva skal beskrives? Hvilke variabler er relevante? **(2) Forenkling og antakelser:** Hva er viktigst, og hva kan vi se bort fra? **(3) Matematisk formulering:** Velg modelltype og bestem parametere. **(4) Løsning:** Bruk modellen til beregninger og prediksjoner. **(5) Validering:** Sammenlign med virkeligheten — passer modellen? **(6) Forbedring:** Juster, eller gå tilbake til steg 2.\n\nProsessen er **iterativ** — modellen forbedres runde for runde, som et kart som tegnes om etter hvert som terrenget blir kjent.\n\nVerktøykassen av modelltyper kjenner du fra før: **lineær** $f(x) = ax + b$ for jevn vekst, **kvadratisk** $f(x) = ax^2 + bx + c$ for kastkurver og optimering, **eksponentiell** $f(x) = a \\cdot b^x$ for befolkning, renter og radioaktivitet, **potens** $f(x) = a \\cdot x^b$ for naturvitenskapelige skalaforhold, og **logistisk** $f(x) = \\frac{K}{1 + ce^{-bx}}$ for vekst som flater ut mot en bæreevne."},{"id":"s1-8-1-n-quiz1","type":"exercise","exercise":{"id":"s1-8-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på modelleringsprosessen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-1-n-quiz1-q0","task":"Hva er en matematisk modell?","options":[{"id":"a","text":"En nøyaktig kopi av virkeligheten","isCorrect":false},{"id":"b","text":"En forenklet matematisk representasjon av et virkelig fenomen","isCorrect":true},{"id":"c","text":"Et dataprogram","isCorrect":false},{"id":"d","text":"En graf i GeoGebra","isCorrect":false}],"solution":"En modell forenkler virkeligheten bevisst for å gjøre den regnbar — kartet er ikke terrenget."},{"id":"s1-8-1-n-quiz1-q1","task":"Hva betyr det at modelleringsprosessen er iterativ?","options":[{"id":"a","text":"Den må gjøres i ett forsøk","isCorrect":false},{"id":"b","text":"Den krever integrasjon","isCorrect":false},{"id":"c","text":"Vi forbedrer modellen trinnvis gjennom flere runder","isCorrect":true},{"id":"d","text":"Den kan bare brukes på lineære modeller","isCorrect":false}],"solution":"Etter validering justeres antakelser og parametre, og prosessen gjentas til modellen er god nok."},{"id":"s1-8-1-n-quiz1-q2","task":"Hvilken modelltype passer for vekst som flater ut mot en øvre grense?","options":[{"id":"a","text":"Lineær","isCorrect":false},{"id":"b","text":"Eksponentiell","isCorrect":false},{"id":"c","text":"Kvadratisk","isCorrect":false},{"id":"d","text":"Logistisk","isCorrect":true}],"solution":"Den logistiske modellen $f(x) = \\frac{K}{1 + ce^{-bx}}$ beskriver begrenset vekst mot bæreevnen $K$."}]}},{"id":"s1-8-1-n-section1","type":"text","content":"## Å velge modell fra data — og validere den\n\nAnalytikeren med matprøven får målingene: 100 bakterier ved start, 195 etter to timer, 410 etter fire, 1620 etter åtte. Hvilken modell? Et blikk på tallene avslører mønsteret: antallet **dobles omtrent annenhver time** — det lukter eksponentiell vekst.\n\nModellansatsen er $f(t) = 100 \\cdot b^t$. Fra $f(2) = 195$ får vi $b^2 = 1{,}95$, altså $b = \\sqrt{1{,}95} \\approx 1{,}40$:\n\n$$f(t) \\approx 100 \\cdot 1{,}40^t$$\n\nSå til steg 5 — **validering**: $f(4) \\approx 384$ mot observert 410 (6 % avvik), og $f(8) \\approx 1475$ mot observert 1620 (9 % avvik). Modellen passer rimelig godt, men undervurderer litt for store $t$. Det er typisk valideringsspråk: ikke «riktig/galt», men *hvor godt* og *hvor*.\n\nVerktøyene for validering kjenner du igjen fra kapittel 7: **residualer** $e_i = y_i - \\hat{y}_i$ (små og tilfeldige er bra), **$R^2$** (over 0,9 regnes vanligvis som god tilpasning), **grafisk kontroll** (tegn modellen oppå datapunktene) og **ekstrapolasjonssjekk** (gir modellen rimelige svar utenfor dataområdet?).\n\nOg her kommer modelleringens ydmyke sannhet: **ingen modell er perfekt**. Tre begrensninger må alltid vurderes. **Ekstrapolasjon:** modellen gjelder bare i nærheten av datapunktene — bakterieveksten fortsetter ikke eksponentielt når næringen tar slutt. **Forenkling:** viktige faktorer kan være utelatt. **Gyldighetsområde:** angi alltid for hvilke verdier modellen er rimelig. En modell uten oppgitt gyldighetsområde er som et kart uten målestokk."},{"id":"s1-8-1-n-quiz2","type":"exercise","exercise":{"id":"s1-8-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på modellvalg og validering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-1-n-quiz2-q0","task":"Bakterietallet dobles omtrent annenhver time. Hvilken modelltype antyder det?","options":[{"id":"a","text":"Eksponentiell vekst","isCorrect":true},{"id":"b","text":"Lineær vekst","isCorrect":false},{"id":"c","text":"Logaritmisk vekst","isCorrect":false},{"id":"d","text":"Kvadratisk vekst","isCorrect":false}],"solution":"Fast doblingstid betyr fast prosentvis vekst — kjennetegnet på eksponentialmodellen."},{"id":"s1-8-1-n-quiz2-q1","task":"Av $f(2) = 195$ og $f(t) = 100 \\cdot b^t$ følger $b^2 = 1{,}95$. Hva er $b$?","options":[{"id":"a","text":"$b = 0{,}975$","isCorrect":false},{"id":"b","text":"$b = \\sqrt{1{,}95} \\approx 1{,}40$","isCorrect":true},{"id":"c","text":"$b = 1{,}95$","isCorrect":false},{"id":"d","text":"$b = 1{,}95^2 \\approx 3{,}80$","isCorrect":false}],"solution":"$b = \\sqrt{1{,}95} \\approx 1{,}396$ — cirka 40 % vekst per time."},{"id":"s1-8-1-n-quiz2-q2","task":"Modellen gir $f(8) \\approx 1475$, men det observerte er $1620$. Hva er riktig konklusjon?","options":[{"id":"a","text":"Modellen er ubrukelig og må forkastes","isCorrect":false},{"id":"b","text":"Observasjonen må være feil","isCorrect":false},{"id":"c","text":"Modellen passer rimelig, men undervurderer noe for store $t$ (ca. 9 % avvik)","isCorrect":true},{"id":"d","text":"Modellen er perfekt","isCorrect":false}],"solution":"Validering handler om grader: 9 % avvik er akseptabelt for mange formål, men svakheten bør rapporteres."},{"id":"s1-8-1-n-quiz2-q3","task":"Hvorfor er ekstrapolasjon risikabelt?","options":[{"id":"a","text":"Fordi kalkulatoren ikke takler store tall","isCorrect":false},{"id":"b","text":"Fordi $R^2$ blir negativ","isCorrect":false},{"id":"c","text":"Fordi residualene da alltid blir null","isCorrect":false},{"id":"d","text":"Fordi modellen bare er testet i nærheten av datapunktene — utenfor kan forutsetningene svikte","isCorrect":true}],"solution":"Utenfor dataområdet vet vi ikke om modellens antakelser holder — bakterievekst stopper når næringen tar slutt."}]}},{"id":"s1-8-1-n-section2","type":"text","content":"## Sensitivitetsanalyse — hvor robust er svaret?\n\nModellen er bygget og validert. Men ett spørsmål gjenstår, og det skiller amatører fra profesjonelle: *hva om parametrene er litt feil?* **Sensitivitetsanalyse** undersøker hvordan modellens resultater endrer seg når vi varierer parametrene.\n\nFremgangsmåten: **(1)** identifiser nøkkelparametrene i modellen, **(2)** varier hver av dem med for eksempel $\\pm 10\\,\\%$ eller $\\pm 20\\,\\%$, **(3)** beregn ny løsning for hver variasjon, og **(4)** vurder om endringene er store (modellen er **sensitiv**) eller små (modellen er **robust**). En modell som gir helt ulike svar ved små parameterendringer, må brukes med stor forsiktighet.\n\nEt eksempel fra prissetting: en bedrift har inntektsmodellen $I(x) = 500x - 2x^2$, og den optimale mengden er $I'(x) = 500 - 4x = 0$, altså $x = 125$ med $I(125) = 31\\,250$ kr. Men koeffisienten 2 er et estimat. Hva om den egentlig er 2,5? Da blir $I'(x) = 500 - 5x = 0$, $x = 100$ og $I(100) = 25\\,000$ kr. Og med 1,5: $x \\approx 167$ og $I \\approx 41\\,667$ kr. En endring på 25 % i koeffisienten flytter altså optimal inntekt med 20–33 %. Konklusjon: modellen er **moderat sensitiv** for denne parameteren — og beslutningstakeren bør få vite det.\n\nTil slutt, modellbyggerens fem gode vaner: start med den **enkleste** modellen som kan være rimelig; bruk **fagkunnskap** til å velge modelltype, ikke bare $R^2$; angi alltid **antakelser** og **gyldighetsområde**; sammenlign gjerne flere modelltyper; og sjekk at modellen gir **rimelige svar** for ekstremverdier. Med de vanene blir kartet aldri forvekslet med terrenget — men det blir et kart man kan stole på."},{"id":"s1-8-1-n-quiz3","type":"exercise","exercise":{"id":"s1-8-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sensitivitetsanalyse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-8-1-n-quiz3-q0","task":"Hva undersøker en sensitivitetsanalyse?","options":[{"id":"a","text":"Hvor raskt modellen kan beregnes","isCorrect":false},{"id":"b","text":"Hvor mye resultatene endres når parametrene varieres","isCorrect":true},{"id":"c","text":"Om dataene er normalfordelte","isCorrect":false},{"id":"d","text":"Hvor mange datapunkter som trengs","isCorrect":false}],"solution":"Sensitivitetsanalyse varierer parametrene (f.eks. ±10–20 %) og måler utslaget i resultatet."},{"id":"s1-8-1-n-quiz3-q1","task":"Inntektsmodellen $I(x) = 500x - 2x^2$ gir optimum $x = 125$. Hva blir optimum hvis koeffisienten $2$ endres til $2{,}5$?","options":[{"id":"a","text":"$x = 125$","isCorrect":false},{"id":"b","text":"$x = 167$","isCorrect":false},{"id":"c","text":"$x = 100$","isCorrect":true},{"id":"d","text":"$x = 80$","isCorrect":false}],"solution":"$I'(x) = 500 - 5x = 0$ gir $x = 100$."},{"id":"s1-8-1-n-quiz3-q2","task":"En modell gir nesten samme svar selv om parametrene endres mye. Hva kaller vi den?","options":[{"id":"a","text":"Robust","isCorrect":true},{"id":"b","text":"Sensitiv","isCorrect":false},{"id":"c","text":"Overtilpasset","isCorrect":false},{"id":"d","text":"Diskontinuerlig","isCorrect":false}],"solution":"Små utslag ved parameterendringer betyr robust modell — konklusjonene tåler usikkerhet i estimatene."}]}},{"id":"s1-8-1-n-summary","type":"text","content":"## Oppsummering: syklusen som aldri helt slutter\n\nVannverket, matprøven og prismodellen fulgte alle samme oppskrift. **Modelleringsprosessen** går fra virkelig problem via forenkling og matematisk formulering til løsning, **validering** og forbedring — en iterativ syklus der modellen skjerpes for hver runde. **Modellvalget** styres av mønsteret i dataene og av fagkunnskap: lineær for fast absolutt endring, eksponentiell for fast prosentvis endring, kvadratisk for optimering med topp- eller bunnpunkt, potens for skalaforhold og logistisk for vekst mot et tak.\n\n**Valideringen** bruker verktøyene fra kapittel 7 — residualer, $R^2$, grafisk kontroll — og munner ut i graderte konklusjoner som «passer godt, men undervurderer for store $t$». Tre begrensninger skal alltid drøftes: ekstrapolasjon utenfor dataområdet, utelatte faktorer, og gyldighetsområdet som alltid skal angis.\n\n**Sensitivitetsanalysen** er kvalitetsstempelet: varier parametrene med ±10–20 % og se om konklusjonen står seg. Prismodellens optimum flyttet seg 20–33 % ved 25 % parameterendring — moderat sensitivt, og verdt å rapportere.\n\nModellering er altså ikke en formel, men et håndverk med dømmekraft i hvert steg. I de neste kapitlene får håndverket flere verktøy: numeriske metoder for likninger uten pen løsning, og til slutt møtet med ekte, uryddige samfunnsøkonomiske datasett."}],"exercises":[]}
+{
+  "id": "s1-8-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "8.1",
+  "title": "Matematisk modellering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kartet som ikke er terrenget — modelleringsprosessen, modellvalg, validering og sensitivitetsanalyse.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "bruke matematisk modellering til a beskrive og analysere praktiske problemer",
+    "vurdere modellers gyldighet, begrensninger og sensitivitet"
+  ],
+  "linkedChapterId": "s1-8-1",
+  "content": [
+    {
+      "id": "s1-8-1-n-intro",
+      "type": "text",
+      "content": "## Kartet er ikke terrenget\n\nEn kommune skal dimensjonere vannverket for de neste tjue årene. En analytiker skal forutsi bakterievekst i en matprøve. En bedrift vil vite hvordan salget reagerer på prisendringer. Felles for alle tre: virkeligheten er for kompleks til å regnes på direkte, så de bygger en **modell** — en forenklet matematisk representasjon av virkeligheten. **Matematisk modellering** er prosessen der vi bruker matematikk til å beskrive, forutsi og forstå virkelige fenomener.\n\nDu har allerede laget modeller: en lineær modell for bilpris som funksjon av alder, eksponentiell bakterievekst, regresjonsmodeller for sammenhenger. Nå løfter vi blikket og ser på selve **modelleringsprosessen** — en syklus i seks steg:\n\n**(1) Problemformulering:** Hva skal beskrives? Hvilke variabler er relevante? **(2) Forenkling og antakelser:** Hva er viktigst, og hva kan vi se bort fra? **(3) Matematisk formulering:** Velg modelltype og bestem parametere. **(4) Løsning:** Bruk modellen til beregninger og prediksjoner. **(5) Validering:** Sammenlign med virkeligheten — passer modellen? **(6) Forbedring:** Juster, eller gå tilbake til steg 2.\n\nProsessen er **iterativ** — modellen forbedres runde for runde, som et kart som tegnes om etter hvert som terrenget blir kjent.\n\nVerktøykassen av modelltyper kjenner du fra før: **lineær** $f(x) = ax + b$ for jevn vekst, **kvadratisk** $f(x) = ax^2 + bx + c$ for kastkurver og optimering, **eksponentiell** $f(x) = a \\cdot b^x$ for befolkning, renter og radioaktivitet, **potens** $f(x) = a \\cdot x^b$ for naturvitenskapelige skalaforhold, og **logistisk** $f(x) = \\frac{K}{1 + ce^{-bx}}$ for vekst som flater ut mot en bæreevne."
+    },
+    {
+      "id": "s1-8-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modelleringsprosessen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-1-n-quiz1-q0",
+            "task": "Hva er en matematisk modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En nøyaktig kopi av virkeligheten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et dataprogram",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En forenklet matematisk representasjon av et virkelig fenomen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "En graf i GeoGebra",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En modell forenkler virkeligheten bevisst for å gjøre den regnbar — kartet er ikke terrenget."
+          },
+          {
+            "id": "s1-8-1-n-quiz1-q1",
+            "task": "Hva betyr det at modelleringsprosessen er iterativ?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den må gjøres i ett forsøk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den krever integrasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den kan bare brukes på lineære modeller",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi forbedrer modellen trinnvis gjennom flere runder",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Etter validering justeres antakelser og parametre, og prosessen gjentas til modellen er god nok."
+          },
+          {
+            "id": "s1-8-1-n-quiz1-q2",
+            "task": "Hvilken modelltype passer for vekst som flater ut mot en øvre grense?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Logistisk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvadratisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den logistiske modellen $f(x) = \\frac{K}{1 + ce^{-bx}}$ beskriver begrenset vekst mot bæreevnen $K$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-1-n-section1",
+      "type": "text",
+      "content": "## Å velge modell fra data — og validere den\n\nAnalytikeren med matprøven får målingene: 100 bakterier ved start, 195 etter to timer, 410 etter fire, 1620 etter åtte. Hvilken modell? Et blikk på tallene avslører mønsteret: antallet **dobles omtrent annenhver time** — det lukter eksponentiell vekst.\n\nModellansatsen er $f(t) = 100 \\cdot b^t$. Fra $f(2) = 195$ får vi $b^2 = 1{,}95$, altså $b = \\sqrt{1{,}95} \\approx 1{,}40$:\n\n$$f(t) \\approx 100 \\cdot 1{,}40^t$$\n\nSå til steg 5 — **validering**: $f(4) \\approx 384$ mot observert 410 (6 % avvik), og $f(8) \\approx 1475$ mot observert 1620 (9 % avvik). Modellen passer rimelig godt, men undervurderer litt for store $t$. Det er typisk valideringsspråk: ikke «riktig/galt», men *hvor godt* og *hvor*.\n\nVerktøyene for validering kjenner du igjen fra kapittel 7: **residualer** $e_i = y_i - \\hat{y}_i$ (små og tilfeldige er bra), **$R^2$** (over 0,9 regnes vanligvis som god tilpasning), **grafisk kontroll** (tegn modellen oppå datapunktene) og **ekstrapolasjonssjekk** (gir modellen rimelige svar utenfor dataområdet?).\n\nOg her kommer modelleringens ydmyke sannhet: **ingen modell er perfekt**. Tre begrensninger må alltid vurderes. **Ekstrapolasjon:** modellen gjelder bare i nærheten av datapunktene — bakterieveksten fortsetter ikke eksponentielt når næringen tar slutt. **Forenkling:** viktige faktorer kan være utelatt. **Gyldighetsområde:** angi alltid for hvilke verdier modellen er rimelig. En modell uten oppgitt gyldighetsområde er som et kart uten målestokk."
+    },
+    {
+      "id": "s1-8-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modellvalg og validering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-1-n-quiz2-q0",
+            "task": "Bakterietallet dobles omtrent annenhver time. Hvilken modelltype antyder det?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Lineær vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Eksponentiell vekst",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Logaritmisk vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kvadratisk vekst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fast doblingstid betyr fast prosentvis vekst — kjennetegnet på eksponentialmodellen."
+          },
+          {
+            "id": "s1-8-1-n-quiz2-q1",
+            "task": "Av $f(2) = 195$ og $f(t) = 100 \\cdot b^t$ følger $b^2 = 1{,}95$. Hva er $b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b = 0{,}975$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = 1{,}95$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$b = \\sqrt{1{,}95} \\approx 1{,}40$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$b = 1{,}95^2 \\approx 3{,}80$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$b = \\sqrt{1{,}95} \\approx 1{,}396$ — cirka 40 % vekst per time."
+          },
+          {
+            "id": "s1-8-1-n-quiz2-q2",
+            "task": "Modellen gir $f(8) \\approx 1475$, men det observerte er $1620$. Hva er riktig konklusjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellen er ubrukelig og må forkastes",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Observasjonen må være feil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Modellen er perfekt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Modellen passer rimelig, men undervurderer noe for store $t$ (ca. 9 % avvik)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Validering handler om grader: 9 % avvik er akseptabelt for mange formål, men svakheten bør rapporteres."
+          },
+          {
+            "id": "s1-8-1-n-quiz2-q3",
+            "task": "Hvorfor er ekstrapolasjon risikabelt?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Fordi modellen bare er testet i nærheten av datapunktene — utenfor kan forutsetningene svikte",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi kalkulatoren ikke takler store tall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $R^2$ blir negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi residualene da alltid blir null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Utenfor dataområdet vet vi ikke om modellens antakelser holder — bakterievekst stopper når næringen tar slutt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-1-n-section2",
+      "type": "text",
+      "content": "## Sensitivitetsanalyse — hvor robust er svaret?\n\nModellen er bygget og validert. Men ett spørsmål gjenstår, og det skiller amatører fra profesjonelle: *hva om parametrene er litt feil?* **Sensitivitetsanalyse** undersøker hvordan modellens resultater endrer seg når vi varierer parametrene.\n\nFremgangsmåten: **(1)** identifiser nøkkelparametrene i modellen, **(2)** varier hver av dem med for eksempel $\\pm 10\\,\\%$ eller $\\pm 20\\,\\%$, **(3)** beregn ny løsning for hver variasjon, og **(4)** vurder om endringene er store (modellen er **sensitiv**) eller små (modellen er **robust**). En modell som gir helt ulike svar ved små parameterendringer, må brukes med stor forsiktighet.\n\nEt eksempel fra prissetting: en bedrift har inntektsmodellen $I(x) = 500x - 2x^2$, og den optimale mengden er $I'(x) = 500 - 4x = 0$, altså $x = 125$ med $I(125) = 31\\,250$ kr. Men koeffisienten 2 er et estimat. Hva om den egentlig er 2,5? Da blir $I'(x) = 500 - 5x = 0$, $x = 100$ og $I(100) = 25\\,000$ kr. Og med 1,5: $x \\approx 167$ og $I \\approx 41\\,667$ kr. En endring på 25 % i koeffisienten flytter altså optimal inntekt med 20–33 %. Konklusjon: modellen er **moderat sensitiv** for denne parameteren — og beslutningstakeren bør få vite det.\n\nTil slutt, modellbyggerens fem gode vaner: start med den **enkleste** modellen som kan være rimelig; bruk **fagkunnskap** til å velge modelltype, ikke bare $R^2$; angi alltid **antakelser** og **gyldighetsområde**; sammenlign gjerne flere modelltyper; og sjekk at modellen gir **rimelige svar** for ekstremverdier. Med de vanene blir kartet aldri forvekslet med terrenget — men det blir et kart man kan stole på."
+    },
+    {
+      "id": "s1-8-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-8-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sensitivitetsanalyse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-8-1-n-quiz3-q0",
+            "task": "Hva undersøker en sensitivitetsanalyse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hvor raskt modellen kan beregnes",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hvor mye resultatene endres når parametrene varieres",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Om dataene er normalfordelte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hvor mange datapunkter som trengs",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sensitivitetsanalyse varierer parametrene (f.eks. ±10–20 %) og måler utslaget i resultatet."
+          },
+          {
+            "id": "s1-8-1-n-quiz3-q1",
+            "task": "Inntektsmodellen $I(x) = 500x - 2x^2$ gir optimum $x = 125$. Hva blir optimum hvis koeffisienten $2$ endres til $2{,}5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 125$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 167$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 100$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = 80$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I'(x) = 500 - 5x = 0$ gir $x = 100$."
+          },
+          {
+            "id": "s1-8-1-n-quiz3-q2",
+            "task": "En modell gir nesten samme svar selv om parametrene endres mye. Hva kaller vi den?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sensitiv",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Overtilpasset",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Diskontinuerlig",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Robust",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Små utslag ved parameterendringer betyr robust modell — konklusjonene tåler usikkerhet i estimatene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-8-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: syklusen som aldri helt slutter\n\nVannverket, matprøven og prismodellen fulgte alle samme oppskrift. **Modelleringsprosessen** går fra virkelig problem via forenkling og matematisk formulering til løsning, **validering** og forbedring — en iterativ syklus der modellen skjerpes for hver runde. **Modellvalget** styres av mønsteret i dataene og av fagkunnskap: lineær for fast absolutt endring, eksponentiell for fast prosentvis endring, kvadratisk for optimering med topp- eller bunnpunkt, potens for skalaforhold og logistisk for vekst mot et tak.\n\n**Valideringen** bruker verktøyene fra kapittel 7 — residualer, $R^2$, grafisk kontroll — og munner ut i graderte konklusjoner som «passer godt, men undervurderer for store $t$». Tre begrensninger skal alltid drøftes: ekstrapolasjon utenfor dataområdet, utelatte faktorer, og gyldighetsområdet som alltid skal angis.\n\n**Sensitivitetsanalysen** er kvalitetsstempelet: varier parametrene med ±10–20 % og se om konklusjonen står seg. Prismodellens optimum flyttet seg 20–33 % ved 25 % parameterendring — moderat sensitivt, og verdt å rapportere.\n\nModellering er altså ikke en formel, men et håndverk med dømmekraft i hvert steg. I de neste kapitlene får håndverket flere verktøy: numeriske metoder for likninger uten pen løsning, og til slutt møtet med ekte, uryddige samfunnsøkonomiske datasett."
+    }
+  ],
+  "exercises": []
+}

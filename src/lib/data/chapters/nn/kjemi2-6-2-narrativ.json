@@ -1,1 +1,365 @@
-{"id":"kjemi2-6-2-narrativ","courseId":"kjemi2","chapterNumber":"6.2","title":"Galvaniske celler","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis ein kjemisk reaksjon kan tvingast til å sende elektron gjennom ein leidning og drive ein motor. Vi byggjer Daniell-cella, forstår saltbrua, skriv cellediagram og reknar ut spenninga med Nernst-likninga.","estimatedMinutes":45,"competenceGoals":["beskrive oppbygningen av en galvanisk celle","forklare funksjonen til anode, katode og saltbro","skrive cellereaksjoner og cellediagrammer","beregne cellespenning fra standardpotensial"],"linkedChapterId":"kjemi2-6-2","content":[{"id":"kjemi2-6-2-n-intro","type":"text","content":"## Kjemi som blir til straum\n\nI førre kapittel såg vi at sink gir elektron til koparion. Men kva om vi kunne tvinge dei elektrona til å gå ein omveg -- gjennom ein leidning, ei lyspære, ein motor -- før dei når fram? Då har vi laga ei **galvanisk celle**, ei innretning som omdannar kjemisk energi til elektrisk energi gjennom ein spontan redoksreaksjon. Dette er prinsippet bak kvart einaste batteri.\n\nEi galvanisk celle har tre delar: to **halvceller** (ein elektrode i ei elektrolyttløysing kvar), ei **saltbru** som bind dei saman, og ein **ytre krins** -- ein leidning -- som leier elektrona. Den klassiske **Daniell-cella** bruker ein sinkelektrode i ZnSO₄-løysing og ein koparelektrode i CuSO₄-løysing. Elektroden der oksidasjon skjer, blir kalla **anode** (her sink, $\\text{Zn} \\rightarrow \\text{Zn}^{2+} + 2e^-$), og elektroden der reduksjon skjer, blir kalla **katode** (her kopar, $\\text{Cu}^{2+} + 2e^- \\rightarrow \\text{Cu}$). Eit nyttig minneord er ANOKS: ANode er OKSidasjon. Anoden er den negative polen, katoden den positive."},{"id":"kjemi2-6-2-n-section1","type":"text","content":"## Saltbrua og cellediagrammet\n\nKvifor treng vi ei **saltbru**? Tenk over kva som skjer i dei to halvcellene. Ved anoden blir det danna Zn²⁺, så det hopar seg opp positiv ladning der. Ved katoden blir Cu²⁺ forbrukt, så det blir eit underskot av positiv ladning der. Utan noko som jamnar dette ut, byggjer ladninga seg opp og reaksjonen stoppar nesten med ein gong. Saltbrua, fylt med ein elektrolytt som KNO₃, løyser problemet: ho lukkar krinsen ionisk og held ved like elektronøytralitet. Anion (NO₃⁻) vandrar mot anoden, og kation (K⁺) mot katoden, slik at straumen kan gå og gå.\n\nFor å skrive ei celle kompakt bruker vi eit **cellediagram**. Anoden blir skriven til venstre, katoden til høgre. Ein enkel strek $|$ markerer ei grenseflate mellom fasar, ein dobbel strek $||$ markerer saltbrua, og komma skil stoff i same fase. Daniell-cella blir då:\n\n$$\\text{Zn}(s) \\,|\\, \\text{Zn}^{2+}(aq) \\,||\\, \\text{Cu}^{2+}(aq) \\,|\\, \\text{Cu}(s)$$\n\nDu les det frå venstre: sinkmetall i kontakt med Zn²⁺-løysing (anode), saltbru, og så Cu²⁺-løysing i kontakt med koparmetall (katode). Vil vi vere presise, kan vi føre på konsentrasjonane, til dømes $\\text{Zn}^{2+}(1{,}0\\text{ M})$."},{"id":"kjemi2-6-2-n-quiz1","type":"exercise","exercise":{"id":"kjemi2-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på oppbygning, saltbru og cellediagram:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"kjemi2-6-2-n-quiz1-q0","task":"På kva for ein elektrode skjer oksidasjon i ei galvanisk celle?","options":[{"id":"a","text":"Katoden","isCorrect":false},{"id":"b","text":"Saltbrua","isCorrect":false},{"id":"c","text":"Den ytre krinsen","isCorrect":false},{"id":"d","text":"Anoden","isCorrect":true}],"solution":"Oksidasjon skjer på anoden -- hugs ANOKS: ANode = OKSidasjon. Anoden er den negative polen."},{"id":"kjemi2-6-2-n-quiz1-q1","task":"Kva er den viktigaste funksjonen til saltbrua?","options":[{"id":"a","text":"Å lukke krinsen ionisk og halde ved like elektronøytralitet","isCorrect":true},{"id":"b","text":"Å leie elektron","isCorrect":false},{"id":"c","text":"Å varme opp cella","isCorrect":false},{"id":"d","text":"Å stoppe reaksjonen","isCorrect":false}],"solution":"Saltbrua lukkar krinsen ionisk og held ved like elektronøytralitet ved at ion vandrar mellom halvcellene. Utan henne stoppar reaksjonen raskt."},{"id":"kjemi2-6-2-n-quiz1-q2","task":"Kva tyder den doble streken || i eit cellediagram?","options":[{"id":"a","text":"Ei fasegrense","isCorrect":false},{"id":"b","text":"Ei saltbru","isCorrect":true},{"id":"c","text":"Ein leidning","isCorrect":false},{"id":"d","text":"To elektron","isCorrect":false}],"solution":"Dobbel strek || markerer saltbrua, medan enkel strek | markerer ei grenseflate mellom fasar."},{"id":"kjemi2-6-2-n-quiz1-q3","task":"I cellediagrammet, kvar blir anoden skriven?","options":[{"id":"a","text":"Til høgre","isCorrect":false},{"id":"b","text":"I midten","isCorrect":false},{"id":"c","text":"Til venstre","isCorrect":true},{"id":"d","text":"Han blir ikkje skriven","isCorrect":false}],"solution":"Etter konvensjonen blir anoden (oksidasjon) skriven til venstre og katoden (reduksjon) til høgre."}]}},{"id":"kjemi2-6-2-n-section2","type":"text","content":"## Kor sterk blir spenninga?\n\nDen elektriske «trykkforskjellen» som driv elektrona, blir kalla **cellespenninga** eller EMK. Under standardvilkår (1 M, 1 atm, 25 °C) blir ho rekna ut frå standardpotensialet til elektrodane:\n\n$$E°_{celle} = E°_{katode} - E°_{anode}$$\n\nEr $E°_{celle}$ positiv, går reaksjonen spontant. Lat oss byggje ei celle med ein jernelektrode i FeSO₄ og ein sølvelektrode i AgNO₃, der $E°(\\text{Ag}^+/\\text{Ag}) = +0{,}80$ V og $E°(\\text{Fe}^{2+}/\\text{Fe}) = -0{,}44$ V. Jern har det mest negative potensialet og er lettast å oksidere, så jern blir anode. Halvreaksjonane er $\\text{Fe} \\rightarrow \\text{Fe}^{2+} + 2e^-$ og $\\text{Ag}^+ + e^- \\rightarrow \\text{Ag}$ (som vi doblar for elektronbalanse). Cellediagrammet blir $\\text{Fe}(s)|\\text{Fe}^{2+}(aq)||\\text{Ag}^+(aq)|\\text{Ag}(s)$, og spenninga blir $E°_{celle} = (+0{,}80) - (-0{,}44) = +1{,}24$ V.\n\nMen røynda er sjeldan ved standardvilkår. Då bruker vi **Nernst-likninga**, som ved 25 °C kan skrivast:\n\n$$E = E° - \\frac{0{,}0592}{n}\\log Q$$\n\nHer er $n$ talet på elektron overførte og $Q$ reaksjonskvotienten. For Daniell-cella med $[\\text{Zn}^{2+}] = 0{,}10$ M og $[\\text{Cu}^{2+}] = 1{,}0$ M er $E° = 1{,}10$ V og $Q = [\\text{Zn}^{2+}]/[\\text{Cu}^{2+}] = 0{,}10$. Då blir $E = 1{,}10 - \\frac{0{,}0592}{2}\\log(0{,}10) = 1{,}10 + 0{,}030 = 1{,}13$ V -- litt høgare enn standard, fordi $Q < 1$."},{"id":"kjemi2-6-2-n-quiz2","type":"exercise","exercise":{"id":"kjemi2-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på cellespenning og Nernst-likninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"kjemi2-6-2-n-quiz2-q0","task":"Korleis blir standard cellespenning rekna ut?","options":[{"id":"a","text":"$E°_{celle} = E°_{anode} - E°_{katode}$","isCorrect":false},{"id":"b","text":"$E°_{celle} = E°_{katode} + E°_{anode}$","isCorrect":false},{"id":"c","text":"$E°_{celle} = E°_{katode} \\times E°_{anode}$","isCorrect":false},{"id":"d","text":"$E°_{celle} = E°_{katode} - E°_{anode}$","isCorrect":true}],"solution":"Standard cellespenning er katodepotensialet minus anodepotensialet: E°celle = E°katode − E°anode."},{"id":"kjemi2-6-2-n-quiz2-q1","task":"For ei celle med Fe (E° = −0,44 V) og Ag (E° = +0,80 V), kva er E°celle?","options":[{"id":"a","text":"+1,24 V","isCorrect":true},{"id":"b","text":"+0,36 V","isCorrect":false},{"id":"c","text":"−1,24 V","isCorrect":false},{"id":"d","text":"+0,44 V","isCorrect":false}],"solution":"Fe er anode (mest negativ). E°celle = E°katode − E°anode = 0,80 − (−0,44) = +1,24 V."},{"id":"kjemi2-6-2-n-quiz2-q2","task":"Kva fortel ein positiv E°celle?","options":[{"id":"a","text":"Reaksjonen er ikkje-spontan","isCorrect":false},{"id":"b","text":"Reaksjonen er spontan","isCorrect":true},{"id":"c","text":"Cella er øydelagd","isCorrect":false},{"id":"d","text":"Ingen reaksjon skjer","isCorrect":false}],"solution":"Ein positiv E°celle tyder at redoksreaksjonen går spontant -- det er nettopp det som driv ei galvanisk celle."},{"id":"kjemi2-6-2-n-quiz2-q3","task":"I Nernst-likninga E = E° − (0,0592/n)·log Q, kva er n?","options":[{"id":"a","text":"Talet på ion","isCorrect":false},{"id":"b","text":"Temperaturen","isCorrect":false},{"id":"c","text":"Talet på elektron overførte","isCorrect":true},{"id":"d","text":"Talet på halvceller","isCorrect":false}],"solution":"n er talet på elektron overførte i den balanserte cellereaksjonen, og Q er reaksjonskvotienten."}]}},{"id":"kjemi2-6-2-n-summary","type":"text","content":"## Oppsummering\n\nVi har sett at ei **galvanisk celle** omdannar kjemisk energi til elektrisk energi via ein spontan redoksreaksjon. Ho er sett saman av to halvceller bundne saman med ei **saltbru** og ein ytre krins. **Anoden** er der oksidasjon skjer (negativ pol), **katoden** der reduksjon skjer (positiv pol) -- hugs ANOKS. Saltbrua lukkar krinsen ionisk og held begge halvcellene elektrisk nøytrale.\n\nEi celle blir skriven kompakt som eit **cellediagram** med anode til venstre, $|$ for fasegrense og $||$ for saltbru. Spenninga under standardvilkår er $E°_{celle} = E°_{katode} - E°_{anode}$, og ein positiv verdi tyder spontan reaksjon. Ved andre forhold bruker vi **Nernst-likninga**, $E = E° - \\frac{0{,}0592}{n}\\log Q$, der låg $Q$ gir høgare spenning. Med dette grunnlaget er vi klare til å rangere metall i spenningsrekkja."}],"exercises":[],"_meta":{"sourceHash":"a21704e29b073015","translatedAt":"2026-06-20T23:13:30.466Z","model":"claude-code-agent","strings":63,"tm":{"f22869446b9aeac3":"Galvaniske celler","b195b06d1ed59702":"Narrativ versjon","2aeb6601129dbe35":"Ei forteljing om korleis ein kjemisk reaksjon kan tvingast til å sende elektron gjennom ein leidning og drive ein motor. Vi byggjer Daniell-cella, forstår saltbrua, skriv cellediagram og reknar ut spenninga med Nernst-likninga.","a0e122b20eeac390":"beskrive oppbygningen av en galvanisk celle","5050bea47f63dbef":"forklare funksjonen til anode, katode og saltbro","4c19e90fffe7adae":"skrive cellereaksjoner og cellediagrammer","cdcdc515f8671f42":"beregne cellespenning fra standardpotensial","e9bce4315fbe5450":"## Kjemi som blir til straum\n\nI førre kapittel såg vi at sink gir elektron til koparion. Men kva om vi kunne tvinge dei elektrona til å gå ein omveg -- gjennom ein leidning, ei lyspære, ein motor -- før dei når fram? Då har vi laga ei **galvanisk celle**, ei innretning som omdannar kjemisk energi til elektrisk energi gjennom ein spontan redoksreaksjon. Dette er prinsippet bak kvart einaste batteri.\n\nEi galvanisk celle har tre delar: to **halvceller** (ein elektrode i ei elektrolyttløysing kvar), ei **saltbru** som bind dei saman, og ein **ytre krins** -- ein leidning -- som leier elektrona. Den klassiske **Daniell-cella** bruker ein sinkelektrode i ZnSO₄-løysing og ein koparelektrode i CuSO₄-løysing. Elektroden der oksidasjon skjer, blir kalla **anode** (her sink, $\\text{Zn} \\rightarrow \\text{Zn}^{2+} + 2e^-$), og elektroden der reduksjon skjer, blir kalla **katode** (her kopar, $\\text{Cu}^{2+} + 2e^- \\rightarrow \\text{Cu}$). Eit nyttig minneord er ANOKS: ANode er OKSidasjon. Anoden er den negative polen, katoden den positive.","ea4782beb44eba45":"## Saltbrua og cellediagrammet\n\nKvifor treng vi ei **saltbru**? Tenk over kva som skjer i dei to halvcellene. Ved anoden blir det danna Zn²⁺, så det hopar seg opp positiv ladning der. Ved katoden blir Cu²⁺ forbrukt, så det blir eit underskot av positiv ladning der. Utan noko som jamnar dette ut, byggjer ladninga seg opp og reaksjonen stoppar nesten med ein gong. Saltbrua, fylt med ein elektrolytt som KNO₃, løyser problemet: ho lukkar krinsen ionisk og held ved like elektronøytralitet. Anion (NO₃⁻) vandrar mot anoden, og kation (K⁺) mot katoden, slik at straumen kan gå og gå.\n\nFor å skrive ei celle kompakt bruker vi eit **cellediagram**. Anoden blir skriven til venstre, katoden til høgre. Ein enkel strek $|$ markerer ei grenseflate mellom fasar, ein dobbel strek $||$ markerer saltbrua, og komma skil stoff i same fase. Daniell-cella blir då:\n\n$$\\text{Zn}(s) \\,|\\, \\text{Zn}^{2+}(aq) \\,||\\, \\text{Cu}^{2+}(aq) \\,|\\, \\text{Cu}(s)$$\n\nDu les det frå venstre: sinkmetall i kontakt med Zn²⁺-løysing (anode), saltbru, og så Cu²⁺-løysing i kontakt med koparmetall (katode). Vil vi vere presise, kan vi føre på konsentrasjonane, til dømes $\\text{Zn}^{2+}(1{,}0\\text{ M})$.","96d51caab3a20b52":"Test deg sjølv på oppbygning, saltbru og cellediagram:","4097889236a2af26":"placeholder","0f5250fc85b9cf57":"På kva for ein elektrode skjer oksidasjon i ei galvanisk celle?","2a398723b457ffba":"Katoden","71f23dbbb1668e3d":"Saltbrua","25678aeda544cdeb":"Den ytre krinsen","4e7a5684fdc78094":"Anoden","1a5446b40e3039ed":"Oksidasjon skjer på anoden -- hugs ANOKS: ANode = OKSidasjon. Anoden er den negative polen.","398b7ba06674b807":"Kva er den viktigaste funksjonen til saltbrua?","4e49d8704da2bb92":"Å lukke krinsen ionisk og halde ved like elektronøytralitet","c631d35e787fa996":"Å leie elektron","bf06832219f81f27":"Å varme opp cella","f77006cf2414daca":"Å stoppe reaksjonen","e3dcbe6060eb48e6":"Saltbrua lukkar krinsen ionisk og held ved like elektronøytralitet ved at ion vandrar mellom halvcellene. Utan henne stoppar reaksjonen raskt.","040a2327845b0b27":"Kva tyder den doble streken || i eit cellediagram?","e1d6e88f69aab67d":"Ei fasegrense","8317b1961e2addd2":"Ei saltbru","d923a0b326c81c30":"Ein leidning","54ff1ad5567d3e9c":"To elektron","8cda1c5a94f85230":"Dobbel strek || markerer saltbrua, medan enkel strek | markerer ei grenseflate mellom fasar.","9f4a74eece924753":"I cellediagrammet, kvar blir anoden skriven?","de0a11fadc8e8fea":"Til høgre","06eed70e6ccc5346":"I midten","2593cca7b732eaa8":"Til venstre","5f6b23c40dd9d867":"Han blir ikkje skriven","9c4f07d6a1f2cdcd":"Etter konvensjonen blir anoden (oksidasjon) skriven til venstre og katoden (reduksjon) til høgre.","d8b7d9cb7e386273":"## Kor sterk blir spenninga?\n\nDen elektriske «trykkforskjellen» som driv elektrona, blir kalla **cellespenninga** eller EMK. Under standardvilkår (1 M, 1 atm, 25 °C) blir ho rekna ut frå standardpotensialet til elektrodane:\n\n$$E°_{celle} = E°_{katode} - E°_{anode}$$\n\nEr $E°_{celle}$ positiv, går reaksjonen spontant. Lat oss byggje ei celle med ein jernelektrode i FeSO₄ og ein sølvelektrode i AgNO₃, der $E°(\\text{Ag}^+/\\text{Ag}) = +0{,}80$ V og $E°(\\text{Fe}^{2+}/\\text{Fe}) = -0{,}44$ V. Jern har det mest negative potensialet og er lettast å oksidere, så jern blir anode. Halvreaksjonane er $\\text{Fe} \\rightarrow \\text{Fe}^{2+} + 2e^-$ og $\\text{Ag}^+ + e^- \\rightarrow \\text{Ag}$ (som vi doblar for elektronbalanse). Cellediagrammet blir $\\text{Fe}(s)|\\text{Fe}^{2+}(aq)||\\text{Ag}^+(aq)|\\text{Ag}(s)$, og spenninga blir $E°_{celle} = (+0{,}80) - (-0{,}44) = +1{,}24$ V.\n\nMen røynda er sjeldan ved standardvilkår. Då bruker vi **Nernst-likninga**, som ved 25 °C kan skrivast:\n\n$$E = E° - \\frac{0{,}0592}{n}\\log Q$$\n\nHer er $n$ talet på elektron overførte og $Q$ reaksjonskvotienten. For Daniell-cella med $[\\text{Zn}^{2+}] = 0{,}10$ M og $[\\text{Cu}^{2+}] = 1{,}0$ M er $E° = 1{,}10$ V og $Q = [\\text{Zn}^{2+}]/[\\text{Cu}^{2+}] = 0{,}10$. Då blir $E = 1{,}10 - \\frac{0{,}0592}{2}\\log(0{,}10) = 1{,}10 + 0{,}030 = 1{,}13$ V -- litt høgare enn standard, fordi $Q < 1$.","d275b9b229a8cbc9":"Test deg sjølv på cellespenning og Nernst-likninga:","2a5978c257f76881":"Korleis blir standard cellespenning rekna ut?","fe351a1ab93e35c7":"$E°_{celle} = E°_{anode} - E°_{katode}$","9687f98102d32ad8":"$E°_{celle} = E°_{katode} + E°_{anode}$","f2d277c8e17679c0":"$E°_{celle} = E°_{katode} \\times E°_{anode}$","bd4cdc7aba062b2e":"$E°_{celle} = E°_{katode} - E°_{anode}$","407efbe9b0e29d94":"Standard cellespenning er katodepotensialet minus anodepotensialet: E°celle = E°katode − E°anode.","0c67ce42ce1dd82c":"For ei celle med Fe (E° = −0,44 V) og Ag (E° = +0,80 V), kva er E°celle?","191cf4f45d215019":"+1,24 V","1e0344d56ec7895f":"+0,36 V","d4cdec1aea209644":"−1,24 V","b81159c35bfb6ed9":"+0,44 V","da034f66037b8c7b":"Fe er anode (mest negativ). E°celle = E°katode − E°anode = 0,80 − (−0,44) = +1,24 V.","5c227d59c4e319ef":"Kva fortel ein positiv E°celle?","bd1241d2fe5ba923":"Reaksjonen er ikkje-spontan","cf264ce7fd7c46b4":"Reaksjonen er spontan","5536c4121d15ce57":"Cella er øydelagd","728ee52b71cf9dcb":"Ingen reaksjon skjer","16246646821f7695":"Ein positiv E°celle tyder at redoksreaksjonen går spontant -- det er nettopp det som driv ei galvanisk celle.","fec10b580b75c039":"I Nernst-likninga E = E° − (0,0592/n)·log Q, kva er n?","239eb6b70e2020bc":"Talet på ion","c79a8e3ade8edfc8":"Temperaturen","7ed78bcc7a8ec52e":"Talet på elektron overførte","b8b030cbaa2a01e9":"Talet på halvceller","30a8bd11f167ab6f":"n er talet på elektron overførte i den balanserte cellereaksjonen, og Q er reaksjonskvotienten.","95e0b2ee5208ecc9":"## Oppsummering\n\nVi har sett at ei **galvanisk celle** omdannar kjemisk energi til elektrisk energi via ein spontan redoksreaksjon. Ho er sett saman av to halvceller bundne saman med ei **saltbru** og ein ytre krins. **Anoden** er der oksidasjon skjer (negativ pol), **katoden** der reduksjon skjer (positiv pol) -- hugs ANOKS. Saltbrua lukkar krinsen ionisk og held begge halvcellene elektrisk nøytrale.\n\nEi celle blir skriven kompakt som eit **cellediagram** med anode til venstre, $|$ for fasegrense og $||$ for saltbru. Spenninga under standardvilkår er $E°_{celle} = E°_{katode} - E°_{anode}$, og ein positiv verdi tyder spontan reaksjon. Ved andre forhold bruker vi **Nernst-likninga**, $E = E° - \\frac{0{,}0592}{n}\\log Q$, der låg $Q$ gir høgare spenning. Med dette grunnlaget er vi klare til å rangere metall i spenningsrekkja."}}}
+{
+  "id": "kjemi2-6-2-narrativ",
+  "courseId": "kjemi2",
+  "chapterNumber": "6.2",
+  "title": "Galvaniske celler",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis ein kjemisk reaksjon kan tvingast til å sende elektron gjennom ein leidning og drive ein motor. Vi byggjer Daniell-cella, forstår saltbrua, skriv cellediagram og reknar ut spenninga med Nernst-likninga.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "beskrive oppbygningen av en galvanisk celle",
+    "forklare funksjonen til anode, katode og saltbro",
+    "skrive cellereaksjoner og cellediagrammer",
+    "beregne cellespenning fra standardpotensial"
+  ],
+  "linkedChapterId": "kjemi2-6-2",
+  "content": [
+    {
+      "id": "kjemi2-6-2-n-intro",
+      "type": "text",
+      "content": "## Kjemi som blir til straum\n\nI førre kapittel såg vi at sink gir elektron til koparion. Men kva om vi kunne tvinge dei elektrona til å gå ein omveg -- gjennom ein leidning, ei lyspære, ein motor -- før dei når fram? Då har vi laga ei **galvanisk celle**, ei innretning som omdannar kjemisk energi til elektrisk energi gjennom ein spontan redoksreaksjon. Dette er prinsippet bak kvart einaste batteri.\n\nEi galvanisk celle har tre delar: to **halvceller** (ein elektrode i ei elektrolyttløysing kvar), ei **saltbru** som bind dei saman, og ein **ytre krins** -- ein leidning -- som leier elektrona. Den klassiske **Daniell-cella** bruker ein sinkelektrode i ZnSO₄-løysing og ein koparelektrode i CuSO₄-løysing. Elektroden der oksidasjon skjer, blir kalla **anode** (her sink, $\\text{Zn} \\rightarrow \\text{Zn}^{2+} + 2e^-$), og elektroden der reduksjon skjer, blir kalla **katode** (her kopar, $\\text{Cu}^{2+} + 2e^- \\rightarrow \\text{Cu}$). Eit nyttig minneord er ANOKS: ANode er OKSidasjon. Anoden er den negative polen, katoden den positive."
+    },
+    {
+      "id": "kjemi2-6-2-n-section1",
+      "type": "text",
+      "content": "## Saltbrua og cellediagrammet\n\nKvifor treng vi ei **saltbru**? Tenk over kva som skjer i dei to halvcellene. Ved anoden blir det danna Zn²⁺, så det hopar seg opp positiv ladning der. Ved katoden blir Cu²⁺ forbrukt, så det blir eit underskot av positiv ladning der. Utan noko som jamnar dette ut, byggjer ladninga seg opp og reaksjonen stoppar nesten med ein gong. Saltbrua, fylt med ein elektrolytt som KNO₃, løyser problemet: ho lukkar krinsen ionisk og held ved like elektronøytralitet. Anion (NO₃⁻) vandrar mot anoden, og kation (K⁺) mot katoden, slik at straumen kan gå og gå.\n\nFor å skrive ei celle kompakt bruker vi eit **cellediagram**. Anoden blir skriven til venstre, katoden til høgre. Ein enkel strek $|$ markerer ei grenseflate mellom fasar, ein dobbel strek $||$ markerer saltbrua, og komma skil stoff i same fase. Daniell-cella blir då:\n\n$$\\text{Zn}(s) \\,|\\, \\text{Zn}^{2+}(aq) \\,||\\, \\text{Cu}^{2+}(aq) \\,|\\, \\text{Cu}(s)$$\n\nDu les det frå venstre: sinkmetall i kontakt med Zn²⁺-løysing (anode), saltbru, og så Cu²⁺-løysing i kontakt med koparmetall (katode). Vil vi vere presise, kan vi føre på konsentrasjonane, til dømes $\\text{Zn}^{2+}(1{,}0\\text{ M})$."
+    },
+    {
+      "id": "kjemi2-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "kjemi2-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på oppbygning, saltbru og cellediagram:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "kjemi2-6-2-n-quiz1-q0",
+            "task": "På kva for ein elektrode skjer oksidasjon i ei galvanisk celle?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Anoden",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Katoden",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Saltbrua",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den ytre krinsen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Oksidasjon skjer på anoden -- hugs ANOKS: ANode = OKSidasjon. Anoden er den negative polen."
+          },
+          {
+            "id": "kjemi2-6-2-n-quiz1-q1",
+            "task": "Kva er den viktigaste funksjonen til saltbrua?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å leie elektron",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å lukke krinsen ionisk og halde ved like elektronøytralitet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å varme opp cella",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å stoppe reaksjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Saltbrua lukkar krinsen ionisk og held ved like elektronøytralitet ved at ion vandrar mellom halvcellene. Utan henne stoppar reaksjonen raskt."
+          },
+          {
+            "id": "kjemi2-6-2-n-quiz1-q2",
+            "task": "Kva tyder den doble streken || i eit cellediagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei fasegrense",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein leidning",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ei saltbru",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "To elektron",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dobbel strek || markerer saltbrua, medan enkel strek | markerer ei grenseflate mellom fasar."
+          },
+          {
+            "id": "kjemi2-6-2-n-quiz1-q3",
+            "task": "I cellediagrammet, kvar blir anoden skriven?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Til høgre",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "I midten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han blir ikkje skriven",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Til venstre",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Etter konvensjonen blir anoden (oksidasjon) skriven til venstre og katoden (reduksjon) til høgre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kjemi2-6-2-n-section2",
+      "type": "text",
+      "content": "## Kor sterk blir spenninga?\n\nDen elektriske «trykkforskjellen» som driv elektrona, blir kalla **cellespenninga** eller EMK. Under standardvilkår (1 M, 1 atm, 25 °C) blir ho rekna ut frå standardpotensialet til elektrodane:\n\n$$E°_{celle} = E°_{katode} - E°_{anode}$$\n\nEr $E°_{celle}$ positiv, går reaksjonen spontant. Lat oss byggje ei celle med ein jernelektrode i FeSO₄ og ein sølvelektrode i AgNO₃, der $E°(\\text{Ag}^+/\\text{Ag}) = +0{,}80$ V og $E°(\\text{Fe}^{2+}/\\text{Fe}) = -0{,}44$ V. Jern har det mest negative potensialet og er lettast å oksidere, så jern blir anode. Halvreaksjonane er $\\text{Fe} \\rightarrow \\text{Fe}^{2+} + 2e^-$ og $\\text{Ag}^+ + e^- \\rightarrow \\text{Ag}$ (som vi doblar for elektronbalanse). Cellediagrammet blir $\\text{Fe}(s)|\\text{Fe}^{2+}(aq)||\\text{Ag}^+(aq)|\\text{Ag}(s)$, og spenninga blir $E°_{celle} = (+0{,}80) - (-0{,}44) = +1{,}24$ V.\n\nMen røynda er sjeldan ved standardvilkår. Då bruker vi **Nernst-likninga**, som ved 25 °C kan skrivast:\n\n$$E = E° - \\frac{0{,}0592}{n}\\log Q$$\n\nHer er $n$ talet på elektron overførte og $Q$ reaksjonskvotienten. For Daniell-cella med $[\\text{Zn}^{2+}] = 0{,}10$ M og $[\\text{Cu}^{2+}] = 1{,}0$ M er $E° = 1{,}10$ V og $Q = [\\text{Zn}^{2+}]/[\\text{Cu}^{2+}] = 0{,}10$. Då blir $E = 1{,}10 - \\frac{0{,}0592}{2}\\log(0{,}10) = 1{,}10 + 0{,}030 = 1{,}13$ V -- litt høgare enn standard, fordi $Q < 1$."
+    },
+    {
+      "id": "kjemi2-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "kjemi2-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på cellespenning og Nernst-likninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "kjemi2-6-2-n-quiz2-q0",
+            "task": "Korleis blir standard cellespenning rekna ut?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$E°_{celle} = E°_{katode} - E°_{anode}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$E°_{celle} = E°_{anode} - E°_{katode}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$E°_{celle} = E°_{katode} + E°_{anode}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E°_{celle} = E°_{katode} \\times E°_{anode}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Standard cellespenning er katodepotensialet minus anodepotensialet: E°celle = E°katode − E°anode."
+          },
+          {
+            "id": "kjemi2-6-2-n-quiz2-q1",
+            "task": "For ei celle med Fe (E° = −0,44 V) og Ag (E° = +0,80 V), kva er E°celle?",
+            "options": [
+              {
+                "id": "b",
+                "text": "+0,36 V",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "+1,24 V",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "−1,24 V",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "+0,44 V",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fe er anode (mest negativ). E°celle = E°katode − E°anode = 0,80 − (−0,44) = +1,24 V."
+          },
+          {
+            "id": "kjemi2-6-2-n-quiz2-q2",
+            "task": "Kva fortel ein positiv E°celle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Reaksjonen er ikkje-spontan",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Cella er øydelagd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Reaksjonen er spontan",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen reaksjon skjer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein positiv E°celle tyder at redoksreaksjonen går spontant -- det er nettopp det som driv ei galvanisk celle."
+          },
+          {
+            "id": "kjemi2-6-2-n-quiz2-q3",
+            "task": "I Nernst-likninga E = E° − (0,0592/n)·log Q, kva er n?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Talet på ion",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Temperaturen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Talet på halvceller",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Talet på elektron overførte",
+                "isCorrect": true
+              }
+            ],
+            "solution": "n er talet på elektron overførte i den balanserte cellereaksjonen, og Q er reaksjonskvotienten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kjemi2-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har sett at ei **galvanisk celle** omdannar kjemisk energi til elektrisk energi via ein spontan redoksreaksjon. Ho er sett saman av to halvceller bundne saman med ei **saltbru** og ein ytre krins. **Anoden** er der oksidasjon skjer (negativ pol), **katoden** der reduksjon skjer (positiv pol) -- hugs ANOKS. Saltbrua lukkar krinsen ionisk og held begge halvcellene elektrisk nøytrale.\n\nEi celle blir skriven kompakt som eit **cellediagram** med anode til venstre, $|$ for fasegrense og $||$ for saltbru. Spenninga under standardvilkår er $E°_{celle} = E°_{katode} - E°_{anode}$, og ein positiv verdi tyder spontan reaksjon. Ved andre forhold bruker vi **Nernst-likninga**, $E = E° - \\frac{0{,}0592}{n}\\log Q$, der låg $Q$ gir høgare spenning. Med dette grunnlaget er vi klare til å rangere metall i spenningsrekkja."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "a21704e29b073015",
+    "translatedAt": "2026-06-20T23:13:30.466Z",
+    "model": "claude-code-agent",
+    "strings": 63,
+    "tm": {
+      "f22869446b9aeac3": "Galvaniske celler",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "2aeb6601129dbe35": "Ei forteljing om korleis ein kjemisk reaksjon kan tvingast til å sende elektron gjennom ein leidning og drive ein motor. Vi byggjer Daniell-cella, forstår saltbrua, skriv cellediagram og reknar ut spenninga med Nernst-likninga.",
+      "a0e122b20eeac390": "beskrive oppbygningen av en galvanisk celle",
+      "5050bea47f63dbef": "forklare funksjonen til anode, katode og saltbro",
+      "4c19e90fffe7adae": "skrive cellereaksjoner og cellediagrammer",
+      "cdcdc515f8671f42": "beregne cellespenning fra standardpotensial",
+      "e9bce4315fbe5450": "## Kjemi som blir til straum\n\nI førre kapittel såg vi at sink gir elektron til koparion. Men kva om vi kunne tvinge dei elektrona til å gå ein omveg -- gjennom ein leidning, ei lyspære, ein motor -- før dei når fram? Då har vi laga ei **galvanisk celle**, ei innretning som omdannar kjemisk energi til elektrisk energi gjennom ein spontan redoksreaksjon. Dette er prinsippet bak kvart einaste batteri.\n\nEi galvanisk celle har tre delar: to **halvceller** (ein elektrode i ei elektrolyttløysing kvar), ei **saltbru** som bind dei saman, og ein **ytre krins** -- ein leidning -- som leier elektrona. Den klassiske **Daniell-cella** bruker ein sinkelektrode i ZnSO₄-løysing og ein koparelektrode i CuSO₄-løysing. Elektroden der oksidasjon skjer, blir kalla **anode** (her sink, $\\text{Zn} \\rightarrow \\text{Zn}^{2+} + 2e^-$), og elektroden der reduksjon skjer, blir kalla **katode** (her kopar, $\\text{Cu}^{2+} + 2e^- \\rightarrow \\text{Cu}$). Eit nyttig minneord er ANOKS: ANode er OKSidasjon. Anoden er den negative polen, katoden den positive.",
+      "ea4782beb44eba45": "## Saltbrua og cellediagrammet\n\nKvifor treng vi ei **saltbru**? Tenk over kva som skjer i dei to halvcellene. Ved anoden blir det danna Zn²⁺, så det hopar seg opp positiv ladning der. Ved katoden blir Cu²⁺ forbrukt, så det blir eit underskot av positiv ladning der. Utan noko som jamnar dette ut, byggjer ladninga seg opp og reaksjonen stoppar nesten med ein gong. Saltbrua, fylt med ein elektrolytt som KNO₃, løyser problemet: ho lukkar krinsen ionisk og held ved like elektronøytralitet. Anion (NO₃⁻) vandrar mot anoden, og kation (K⁺) mot katoden, slik at straumen kan gå og gå.\n\nFor å skrive ei celle kompakt bruker vi eit **cellediagram**. Anoden blir skriven til venstre, katoden til høgre. Ein enkel strek $|$ markerer ei grenseflate mellom fasar, ein dobbel strek $||$ markerer saltbrua, og komma skil stoff i same fase. Daniell-cella blir då:\n\n$$\\text{Zn}(s) \\,|\\, \\text{Zn}^{2+}(aq) \\,||\\, \\text{Cu}^{2+}(aq) \\,|\\, \\text{Cu}(s)$$\n\nDu les det frå venstre: sinkmetall i kontakt med Zn²⁺-løysing (anode), saltbru, og så Cu²⁺-løysing i kontakt med koparmetall (katode). Vil vi vere presise, kan vi føre på konsentrasjonane, til dømes $\\text{Zn}^{2+}(1{,}0\\text{ M})$.",
+      "96d51caab3a20b52": "Test deg sjølv på oppbygning, saltbru og cellediagram:",
+      "4097889236a2af26": "placeholder",
+      "0f5250fc85b9cf57": "På kva for ein elektrode skjer oksidasjon i ei galvanisk celle?",
+      "2a398723b457ffba": "Katoden",
+      "71f23dbbb1668e3d": "Saltbrua",
+      "25678aeda544cdeb": "Den ytre krinsen",
+      "4e7a5684fdc78094": "Anoden",
+      "1a5446b40e3039ed": "Oksidasjon skjer på anoden -- hugs ANOKS: ANode = OKSidasjon. Anoden er den negative polen.",
+      "398b7ba06674b807": "Kva er den viktigaste funksjonen til saltbrua?",
+      "4e49d8704da2bb92": "Å lukke krinsen ionisk og halde ved like elektronøytralitet",
+      "c631d35e787fa996": "Å leie elektron",
+      "bf06832219f81f27": "Å varme opp cella",
+      "f77006cf2414daca": "Å stoppe reaksjonen",
+      "e3dcbe6060eb48e6": "Saltbrua lukkar krinsen ionisk og held ved like elektronøytralitet ved at ion vandrar mellom halvcellene. Utan henne stoppar reaksjonen raskt.",
+      "040a2327845b0b27": "Kva tyder den doble streken || i eit cellediagram?",
+      "e1d6e88f69aab67d": "Ei fasegrense",
+      "8317b1961e2addd2": "Ei saltbru",
+      "d923a0b326c81c30": "Ein leidning",
+      "54ff1ad5567d3e9c": "To elektron",
+      "8cda1c5a94f85230": "Dobbel strek || markerer saltbrua, medan enkel strek | markerer ei grenseflate mellom fasar.",
+      "9f4a74eece924753": "I cellediagrammet, kvar blir anoden skriven?",
+      "de0a11fadc8e8fea": "Til høgre",
+      "06eed70e6ccc5346": "I midten",
+      "2593cca7b732eaa8": "Til venstre",
+      "5f6b23c40dd9d867": "Han blir ikkje skriven",
+      "9c4f07d6a1f2cdcd": "Etter konvensjonen blir anoden (oksidasjon) skriven til venstre og katoden (reduksjon) til høgre.",
+      "d8b7d9cb7e386273": "## Kor sterk blir spenninga?\n\nDen elektriske «trykkforskjellen» som driv elektrona, blir kalla **cellespenninga** eller EMK. Under standardvilkår (1 M, 1 atm, 25 °C) blir ho rekna ut frå standardpotensialet til elektrodane:\n\n$$E°_{celle} = E°_{katode} - E°_{anode}$$\n\nEr $E°_{celle}$ positiv, går reaksjonen spontant. Lat oss byggje ei celle med ein jernelektrode i FeSO₄ og ein sølvelektrode i AgNO₃, der $E°(\\text{Ag}^+/\\text{Ag}) = +0{,}80$ V og $E°(\\text{Fe}^{2+}/\\text{Fe}) = -0{,}44$ V. Jern har det mest negative potensialet og er lettast å oksidere, så jern blir anode. Halvreaksjonane er $\\text{Fe} \\rightarrow \\text{Fe}^{2+} + 2e^-$ og $\\text{Ag}^+ + e^- \\rightarrow \\text{Ag}$ (som vi doblar for elektronbalanse). Cellediagrammet blir $\\text{Fe}(s)|\\text{Fe}^{2+}(aq)||\\text{Ag}^+(aq)|\\text{Ag}(s)$, og spenninga blir $E°_{celle} = (+0{,}80) - (-0{,}44) = +1{,}24$ V.\n\nMen røynda er sjeldan ved standardvilkår. Då bruker vi **Nernst-likninga**, som ved 25 °C kan skrivast:\n\n$$E = E° - \\frac{0{,}0592}{n}\\log Q$$\n\nHer er $n$ talet på elektron overførte og $Q$ reaksjonskvotienten. For Daniell-cella med $[\\text{Zn}^{2+}] = 0{,}10$ M og $[\\text{Cu}^{2+}] = 1{,}0$ M er $E° = 1{,}10$ V og $Q = [\\text{Zn}^{2+}]/[\\text{Cu}^{2+}] = 0{,}10$. Då blir $E = 1{,}10 - \\frac{0{,}0592}{2}\\log(0{,}10) = 1{,}10 + 0{,}030 = 1{,}13$ V -- litt høgare enn standard, fordi $Q < 1$.",
+      "d275b9b229a8cbc9": "Test deg sjølv på cellespenning og Nernst-likninga:",
+      "2a5978c257f76881": "Korleis blir standard cellespenning rekna ut?",
+      "fe351a1ab93e35c7": "$E°_{celle} = E°_{anode} - E°_{katode}$",
+      "9687f98102d32ad8": "$E°_{celle} = E°_{katode} + E°_{anode}$",
+      "f2d277c8e17679c0": "$E°_{celle} = E°_{katode} \\times E°_{anode}$",
+      "bd4cdc7aba062b2e": "$E°_{celle} = E°_{katode} - E°_{anode}$",
+      "407efbe9b0e29d94": "Standard cellespenning er katodepotensialet minus anodepotensialet: E°celle = E°katode − E°anode.",
+      "0c67ce42ce1dd82c": "For ei celle med Fe (E° = −0,44 V) og Ag (E° = +0,80 V), kva er E°celle?",
+      "191cf4f45d215019": "+1,24 V",
+      "1e0344d56ec7895f": "+0,36 V",
+      "d4cdec1aea209644": "−1,24 V",
+      "b81159c35bfb6ed9": "+0,44 V",
+      "da034f66037b8c7b": "Fe er anode (mest negativ). E°celle = E°katode − E°anode = 0,80 − (−0,44) = +1,24 V.",
+      "5c227d59c4e319ef": "Kva fortel ein positiv E°celle?",
+      "bd1241d2fe5ba923": "Reaksjonen er ikkje-spontan",
+      "cf264ce7fd7c46b4": "Reaksjonen er spontan",
+      "5536c4121d15ce57": "Cella er øydelagd",
+      "728ee52b71cf9dcb": "Ingen reaksjon skjer",
+      "16246646821f7695": "Ein positiv E°celle tyder at redoksreaksjonen går spontant -- det er nettopp det som driv ei galvanisk celle.",
+      "fec10b580b75c039": "I Nernst-likninga E = E° − (0,0592/n)·log Q, kva er n?",
+      "239eb6b70e2020bc": "Talet på ion",
+      "c79a8e3ade8edfc8": "Temperaturen",
+      "7ed78bcc7a8ec52e": "Talet på elektron overførte",
+      "b8b030cbaa2a01e9": "Talet på halvceller",
+      "30a8bd11f167ab6f": "n er talet på elektron overførte i den balanserte cellereaksjonen, og Q er reaksjonskvotienten.",
+      "95e0b2ee5208ecc9": "## Oppsummering\n\nVi har sett at ei **galvanisk celle** omdannar kjemisk energi til elektrisk energi via ein spontan redoksreaksjon. Ho er sett saman av to halvceller bundne saman med ei **saltbru** og ein ytre krins. **Anoden** er der oksidasjon skjer (negativ pol), **katoden** der reduksjon skjer (positiv pol) -- hugs ANOKS. Saltbrua lukkar krinsen ionisk og held begge halvcellene elektrisk nøytrale.\n\nEi celle blir skriven kompakt som eit **cellediagram** med anode til venstre, $|$ for fasegrense og $||$ for saltbru. Spenninga under standardvilkår er $E°_{celle} = E°_{katode} - E°_{anode}$, og ein positiv verdi tyder spontan reaksjon. Ved andre forhold bruker vi **Nernst-likninga**, $E = E° - \\frac{0{,}0592}{n}\\log Q$, der låg $Q$ gir høgare spenning. Med dette grunnlaget er vi klare til å rangere metall i spenningsrekkja."
+    }
+  }
+}

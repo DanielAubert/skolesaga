@@ -1,1 +1,314 @@
-{"id":"9-6-1-narrativ","courseId":"9","chapterNumber":"6.1","title":"Statistiske mål","subtitle":"Narrativ versjon","description":"En fortellende gjennomgang av statistiske sentralmål og spredningsmål -- gjennomsnitt, median, typetall, variasjonsbredde og kvartiler forklart med hverdagseksempler.","estimatedMinutes":35,"competenceGoals":["planleggje, gjennomføre og vurdere statistiske undersøkingar og presentere resultata"],"linkedChapterId":"9-6-1","content":[{"id":"9-6-1-n-intro","type":"text","content":"## Tall som forteller historier\n\nTenk deg at du er fotballtrener og vil vite hvordan laget presterer. Du har resultatene fra de siste ti kampene: $2, 0, 3, 1, 1, 0, 4, 1, 2, 1$ mål per kamp. Men hva sier egentlig disse tallene? Er laget bra? Jevnt? Uforutsigbart?\n\n**Statistiske mål** er verktøy som hjelper oss å oppsummere og forstå store mengder data med bare noen få tall. I stedet for å lese gjennom alle resultatene, kan du si: «Vi scorer i gjennomsnitt $1{,}5$ mål per kamp.» Det gir et raskt og nyttig bilde.\n\nVi deler statistiske mål i to grupper: **sentralmål** (som beskriver hva som er «typisk») og **spredningsmål** (som beskriver hvor mye dataene varierer)."},{"id":"9-6-1-n-section1","type":"text","content":"## Sentralmål: Gjennomsnitt, median og typetall\n\nDe tre viktigste sentralmålene er **gjennomsnitt**, **median** og **typetall**.\n\n### Gjennomsnitt (middelverdi)\n\nGjennomsnittet er det de fleste tenker på når de hører «gjennomsnitt». Du summerer alle verdiene og deler på antallet:\n\n$$\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$$\n\nMed fotballeksempelet: $\\bar{x} = \\frac{2 + 0 + 3 + 1 + 1 + 0 + 4 + 1 + 2 + 1}{10} = \\frac{15}{10} = 1{,}5$ mål.\n\nGjennomsnittet er lett å beregne og bruker alle dataene. Men det har en svakhet: det påvirkes sterkt av **ekstremverdier**. Hvis laget scorer $15$ mål i en kamp (kanskje mot et veldig svakt lag), hopper gjennomsnittet opp til $\\frac{15 + 15 - 4}{10} = 2{,}6$, selv om de fleste kampene fortsatt har $0$--$3$ mål.\n\n### Median\n\nMedianen er den **midterste verdien** når dataene er sortert. Sortert: $0, 0, 1, 1, 1, 1, 2, 2, 3, 4$. Med et partall observasjoner ($10$ stykker) er medianen gjennomsnittet av de to midterste: $\\frac{1 + 1}{2} = 1$.\n\nMedianen er mer robust mot ekstremverdier. Selv om en kamp har $15$ mål, forblir medianen $1$.\n\n### Typetall (modus)\n\nTypetallet er den verdien som forekommer **oftest**. I vårt datasett forekommer $1$ hele fire ganger, så typetallet er $1$. Et datasett kan ha flere typetall (hvis to verdier forekommer like ofte) eller ingen (hvis alle verdier er unike)."},{"id":"9-6-1-n-quiz1","type":"exercise","exercise":{"id":"9-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på sentralmål:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-6-1-n-quiz1-q0","task":"Hva er gjennomsnittet av tallene $4, 7, 3, 8, 3$?","options":[{"id":"a","text":"$3$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$7$","isCorrect":false}],"solution":"$\\bar{x} = \\frac{4 + 7 + 3 + 8 + 3}{5} = \\frac{25}{5} = 5$."},{"id":"9-6-1-n-quiz1-q1","task":"Hva er medianen av tallene $12, 5, 8, 3, 15$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":true},{"id":"c","text":"$8{,}6$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"Sortert: $3, 5, 8, 12, 15$. Med $5$ verdier er medianen den midterste, altså den tredje: $8$."},{"id":"9-6-1-n-quiz1-q2","task":"Et datasett har verdiene $2, 5, 5, 7, 8, 8, 8, 9$. Hva er typetallet?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$6{,}5$","isCorrect":false},{"id":"c","text":"$8$","isCorrect":true},{"id":"d","text":"$7$","isCorrect":false}],"solution":"$8$ forekommer tre ganger, mer enn noen annen verdi. Typetallet er $8$."}]}},{"id":"9-6-1-n-section2","type":"text","content":"## Spredningsmål: Variasjonsbredde og kvartiler\n\nSentralmål forteller oss hva som er «typisk», men de sier ingenting om hvor mye dataene **varierer**. To klasser kan ha samme gjennomsnittskarakter, men i den ene klassen ligger alle rundt $4$, mens i den andre varierer det fra $1$ til $6$. Spredningsmål fanger opp denne forskjellen.\n\n### Variasjonsbredde\n\nDet enkleste spredningsmålet er **variasjonsbredden** -- forskjellen mellom største og minste verdi:\n\n$$\\text{Variasjonsbredde} = x_{\\text{maks}} - x_{\\text{min}}$$\n\nI fotballeksempelet: $4 - 0 = 4$ mål. Variasjonsbredden er enkel, men sårbar for ekstremverdier -- én uvanlig kamp kan gi et misvisende bilde.\n\n### Kvartiler og IQR\n\nFor et mer robust spredningsmål bruker vi **kvartiler**. De deler det sorterte datasettet i fire like deler:\n- $Q_1$ (nedre kvartil) -- medianen av den nedre halvdelen\n- $Q_2$ -- medianen (deler datasettet i to halvdeler)\n- $Q_3$ (øvre kvartil) -- medianen av den øvre halvdelen\n\n**Interkvartilbredden** (IQR) er avstanden mellom $Q_3$ og $Q_1$:\n\n$$\\text{IQR} = Q_3 - Q_1$$\n\nIQR forteller oss hvor stor spredning de midterste $50\\,\\%$ av dataene har. Den påvirkes ikke av ekstremverdier.\n\nLa oss bruke fotballtallene: $0, 0, 1, 1, 1, 1, 2, 2, 3, 4$.\n\nNedre halvdel: $0, 0, 1, 1, 1$ $\\Rightarrow$ $Q_1 = 1$.\nØvre halvdel: $1, 2, 2, 3, 4$ $\\Rightarrow$ $Q_3 = 2$.\nIQR $= 2 - 1 = 1$.\n\nDet betyr at mesteparten av kampene har mellom $1$ og $2$ mål."},{"id":"9-6-1-n-quiz2","type":"exercise","exercise":{"id":"9-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på spredningsmål:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-6-1-n-quiz2-q0","task":"Datasettet er $3, 5, 7, 9, 11, 13, 15$. Hva er variasjonsbredden?","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$15$","isCorrect":false},{"id":"c","text":"$12$","isCorrect":true},{"id":"d","text":"$7$","isCorrect":false}],"solution":"Variasjonsbredde $= 15 - 3 = 12$."},{"id":"9-6-1-n-quiz2-q1","task":"For datasettet $2, 4, 6, 8, 10, 12, 14, 16$, hva er $Q_1$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$9$","isCorrect":false}],"solution":"Nedre halvdel: $2, 4, 6, 8$. Medianen av disse er $\\frac{4 + 6}{2} = 5$. Altså er $Q_1 = 5$."},{"id":"9-6-1-n-quiz2-q2","task":"Hvilket spredningsmål er minst påvirket av ekstremverdier?","options":[{"id":"a","text":"Variasjonsbredden","isCorrect":false},{"id":"b","text":"Gjennomsnittet","isCorrect":false},{"id":"c","text":"Interkvartilbredden (IQR)","isCorrect":true},{"id":"d","text":"Største verdi","isCorrect":false}],"solution":"IQR måler spredningen i de midterste $50\\,\\%$ av dataene og påvirkes ikke av ekstreme verdier i topp eller bunn."}]}},{"id":"9-6-1-n-section3","type":"text","content":"## Hvilket mål skal du velge?\n\nUlike situasjoner krever ulike mål. Her er noen tommelfingerregler:\n\n| Situasjon | Beste sentralmål | Hvorfor |\n|-----------|-------------------|---------|\n| Symmetriske data uten ekstremverdier | Gjennomsnitt | Bruker all informasjonen |\n| Data med ekstremverdier (f.eks. lønn) | Median | Ikke påvirket av de rikeste/fattigste |\n| Kategoridata (f.eks. favorittfarge) | Typetall | Eneste mål som fungerer for kategorier |\n\nFor eksempel: Hvis ti ansatte i en bedrift tjener $400\\,000$--$500\\,000$ kr, men sjefen tjener $5\\,000\\,000$ kr, er gjennomsnittslønnen misvisende høy. Medianlønnen gir et mye bedre bilde av hva en «typisk» ansatt tjener.\n\nSpredningsmål supplerer sentralmålene. Variasjonsbredden er rask å beregne men sårbar, mens IQR er mer robust og gir et bedre bilde av den «normale» spredningen."},{"id":"9-6-1-n-quiz3","type":"exercise","exercise":{"id":"9-6-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på valg av statistisk mål:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-6-1-n-quiz3-q0","task":"Du vil beskrive «typisk» inntekt i Norge. Hvorfor er medianen bedre enn gjennomsnittet?","options":[{"id":"a","text":"Fordi medianen er enklere å beregne","isCorrect":false},{"id":"b","text":"Fordi noen svært høye inntekter drar gjennomsnittet opp","isCorrect":true},{"id":"c","text":"Fordi medianen alltid er lavere","isCorrect":false},{"id":"d","text":"Fordi gjennomsnittet ikke kan beregnes for inntekt","isCorrect":false}],"solution":"Inntektsfordelingen har noen svært høye verdier (millionærer, milliardærer) som trekker gjennomsnittet opp. Medianen, som den midterste verdien, gir et bedre bilde av hva en «vanlig» person tjener."},{"id":"9-6-1-n-quiz3-q1","task":"Elevene i en klasse stemmer på favorittfag: Matte, Norsk, Gym, Matte, Gym, Gym, Norsk, Gym. Hvilket sentralmål er mest nyttig?","options":[{"id":"a","text":"Gjennomsnitt","isCorrect":false},{"id":"b","text":"Median","isCorrect":false},{"id":"c","text":"Typetall","isCorrect":true},{"id":"d","text":"Variasjonsbredde","isCorrect":false}],"solution":"For kategoridata (som fagnavn) er det bare typetallet som gir mening. Du kan ikke beregne gjennomsnitt eller median av «Matte» og «Gym». Typetallet er Gym (forekommer $4$ ganger)."}]}},{"id":"9-6-1-n-summary","type":"text","content":"## Oppsummering\n\n**Sentralmål** beskriver hva som er typisk:\n- **Gjennomsnitt** ($\\bar{x}$): Summen delt på antall. Bruker alle data, men påvirkes av ekstremverdier.\n- **Median**: Den midterste verdien i sorterte data. Robust mot ekstremverdier.\n- **Typetall**: Den mest frekvente verdien. Eneste mål som fungerer for kategoridata.\n\n**Spredningsmål** beskriver variasjon:\n- **Variasjonsbredde**: $x_{\\text{maks}} - x_{\\text{min}}$. Enkel, men sårbar for ekstremverdier.\n- **Kvartiler**: $Q_1$ og $Q_3$ deler datasettet i fire deler.\n- **IQR** (interkvartilbredde): $Q_3 - Q_1$. Robust mål for spredning i de midterste $50\\,\\%$.\n\nVelg mål etter kontekst: gjennomsnitt for symmetriske data, median for skjeve data med ekstremverdier, typetall for kategorier."}],"exercises":[]}
+{
+  "id": "9-6-1-narrativ",
+  "courseId": "9",
+  "chapterNumber": "6.1",
+  "title": "Statistiske mål",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende gjennomgang av statistiske sentralmål og spredningsmål -- gjennomsnitt, median, typetall, variasjonsbredde og kvartiler forklart med hverdagseksempler.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "planleggje, gjennomføre og vurdere statistiske undersøkingar og presentere resultata"
+  ],
+  "linkedChapterId": "9-6-1",
+  "content": [
+    {
+      "id": "9-6-1-n-intro",
+      "type": "text",
+      "content": "## Tall som forteller historier\n\nTenk deg at du er fotballtrener og vil vite hvordan laget presterer. Du har resultatene fra de siste ti kampene: $2, 0, 3, 1, 1, 0, 4, 1, 2, 1$ mål per kamp. Men hva sier egentlig disse tallene? Er laget bra? Jevnt? Uforutsigbart?\n\n**Statistiske mål** er verktøy som hjelper oss å oppsummere og forstå store mengder data med bare noen få tall. I stedet for å lese gjennom alle resultatene, kan du si: «Vi scorer i gjennomsnitt $1{,}5$ mål per kamp.» Det gir et raskt og nyttig bilde.\n\nVi deler statistiske mål i to grupper: **sentralmål** (som beskriver hva som er «typisk») og **spredningsmål** (som beskriver hvor mye dataene varierer)."
+    },
+    {
+      "id": "9-6-1-n-section1",
+      "type": "text",
+      "content": "## Sentralmål: Gjennomsnitt, median og typetall\n\nDe tre viktigste sentralmålene er **gjennomsnitt**, **median** og **typetall**.\n\n### Gjennomsnitt (middelverdi)\n\nGjennomsnittet er det de fleste tenker på når de hører «gjennomsnitt». Du summerer alle verdiene og deler på antallet:\n\n$$\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$$\n\nMed fotballeksempelet: $\\bar{x} = \\frac{2 + 0 + 3 + 1 + 1 + 0 + 4 + 1 + 2 + 1}{10} = \\frac{15}{10} = 1{,}5$ mål.\n\nGjennomsnittet er lett å beregne og bruker alle dataene. Men det har en svakhet: det påvirkes sterkt av **ekstremverdier**. Hvis laget scorer $15$ mål i en kamp (kanskje mot et veldig svakt lag), hopper gjennomsnittet opp til $\\frac{15 + 15 - 4}{10} = 2{,}6$, selv om de fleste kampene fortsatt har $0$--$3$ mål.\n\n### Median\n\nMedianen er den **midterste verdien** når dataene er sortert. Sortert: $0, 0, 1, 1, 1, 1, 2, 2, 3, 4$. Med et partall observasjoner ($10$ stykker) er medianen gjennomsnittet av de to midterste: $\\frac{1 + 1}{2} = 1$.\n\nMedianen er mer robust mot ekstremverdier. Selv om en kamp har $15$ mål, forblir medianen $1$.\n\n### Typetall (modus)\n\nTypetallet er den verdien som forekommer **oftest**. I vårt datasett forekommer $1$ hele fire ganger, så typetallet er $1$. Et datasett kan ha flere typetall (hvis to verdier forekommer like ofte) eller ingen (hvis alle verdier er unike)."
+    },
+    {
+      "id": "9-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sentralmål:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-6-1-n-quiz1-q0",
+            "task": "Hva er gjennomsnittet av tallene $4, 7, 3, 8, 3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\bar{x} = \\frac{4 + 7 + 3 + 8 + 3}{5} = \\frac{25}{5} = 5$."
+          },
+          {
+            "id": "9-6-1-n-quiz1-q1",
+            "task": "Hva er medianen av tallene $12, 5, 8, 3, 15$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8{,}6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sortert: $3, 5, 8, 12, 15$. Med $5$ verdier er medianen den midterste, altså den tredje: $8$."
+          },
+          {
+            "id": "9-6-1-n-quiz1-q2",
+            "task": "Et datasett har verdiene $2, 5, 5, 7, 8, 8, 8, 9$. Hva er typetallet?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$8$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$8$ forekommer tre ganger, mer enn noen annen verdi. Typetallet er $8$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-6-1-n-section2",
+      "type": "text",
+      "content": "## Spredningsmål: Variasjonsbredde og kvartiler\n\nSentralmål forteller oss hva som er «typisk», men de sier ingenting om hvor mye dataene **varierer**. To klasser kan ha samme gjennomsnittskarakter, men i den ene klassen ligger alle rundt $4$, mens i den andre varierer det fra $1$ til $6$. Spredningsmål fanger opp denne forskjellen.\n\n### Variasjonsbredde\n\nDet enkleste spredningsmålet er **variasjonsbredden** -- forskjellen mellom største og minste verdi:\n\n$$\\text{Variasjonsbredde} = x_{\\text{maks}} - x_{\\text{min}}$$\n\nI fotballeksempelet: $4 - 0 = 4$ mål. Variasjonsbredden er enkel, men sårbar for ekstremverdier -- én uvanlig kamp kan gi et misvisende bilde.\n\n### Kvartiler og IQR\n\nFor et mer robust spredningsmål bruker vi **kvartiler**. De deler det sorterte datasettet i fire like deler:\n- $Q_1$ (nedre kvartil) -- medianen av den nedre halvdelen\n- $Q_2$ -- medianen (deler datasettet i to halvdeler)\n- $Q_3$ (øvre kvartil) -- medianen av den øvre halvdelen\n\n**Interkvartilbredden** (IQR) er avstanden mellom $Q_3$ og $Q_1$:\n\n$$\\text{IQR} = Q_3 - Q_1$$\n\nIQR forteller oss hvor stor spredning de midterste $50\\,\\%$ av dataene har. Den påvirkes ikke av ekstremverdier.\n\nLa oss bruke fotballtallene: $0, 0, 1, 1, 1, 1, 2, 2, 3, 4$.\n\nNedre halvdel: $0, 0, 1, 1, 1$ $\\Rightarrow$ $Q_1 = 1$.\nØvre halvdel: $1, 2, 2, 3, 4$ $\\Rightarrow$ $Q_3 = 2$.\nIQR $= 2 - 1 = 1$.\n\nDet betyr at mesteparten av kampene har mellom $1$ og $2$ mål."
+    },
+    {
+      "id": "9-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på spredningsmål:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-6-1-n-quiz2-q0",
+            "task": "Datasettet er $3, 5, 7, 9, 11, 13, 15$. Hva er variasjonsbredden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variasjonsbredde $= 15 - 3 = 12$."
+          },
+          {
+            "id": "9-6-1-n-quiz2-q1",
+            "task": "For datasettet $2, 4, 6, 8, 10, 12, 14, 16$, hva er $Q_1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nedre halvdel: $2, 4, 6, 8$. Medianen av disse er $\\frac{4 + 6}{2} = 5$. Altså er $Q_1 = 5$."
+          },
+          {
+            "id": "9-6-1-n-quiz2-q2",
+            "task": "Hvilket spredningsmål er minst påvirket av ekstremverdier?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Variasjonsbredden",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Interkvartilbredden (IQR)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Største verdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "IQR måler spredningen i de midterste $50\\,\\%$ av dataene og påvirkes ikke av ekstreme verdier i topp eller bunn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-6-1-n-section3",
+      "type": "text",
+      "content": "## Hvilket mål skal du velge?\n\nUlike situasjoner krever ulike mål. Her er noen tommelfingerregler:\n\n| Situasjon | Beste sentralmål | Hvorfor |\n|-----------|-------------------|---------|\n| Symmetriske data uten ekstremverdier | Gjennomsnitt | Bruker all informasjonen |\n| Data med ekstremverdier (f.eks. lønn) | Median | Ikke påvirket av de rikeste/fattigste |\n| Kategoridata (f.eks. favorittfarge) | Typetall | Eneste mål som fungerer for kategorier |\n\nFor eksempel: Hvis ti ansatte i en bedrift tjener $400\\,000$--$500\\,000$ kr, men sjefen tjener $5\\,000\\,000$ kr, er gjennomsnittslønnen misvisende høy. Medianlønnen gir et mye bedre bilde av hva en «typisk» ansatt tjener.\n\nSpredningsmål supplerer sentralmålene. Variasjonsbredden er rask å beregne men sårbar, mens IQR er mer robust og gir et bedre bilde av den «normale» spredningen."
+    },
+    {
+      "id": "9-6-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-6-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på valg av statistisk mål:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-6-1-n-quiz3-q0",
+            "task": "Du vil beskrive «typisk» inntekt i Norge. Hvorfor er medianen bedre enn gjennomsnittet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi medianen er enklere å beregne",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi medianen alltid er lavere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi gjennomsnittet ikke kan beregnes for inntekt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi noen svært høye inntekter drar gjennomsnittet opp",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Inntektsfordelingen har noen svært høye verdier (millionærer, milliardærer) som trekker gjennomsnittet opp. Medianen, som den midterste verdien, gir et bedre bilde av hva en «vanlig» person tjener."
+          },
+          {
+            "id": "9-6-1-n-quiz3-q1",
+            "task": "Elevene i en klasse stemmer på favorittfag: Matte, Norsk, Gym, Matte, Gym, Gym, Norsk, Gym. Hvilket sentralmål er mest nyttig?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Typetall",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Gjennomsnitt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Median",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Variasjonsbredde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For kategoridata (som fagnavn) er det bare typetallet som gir mening. Du kan ikke beregne gjennomsnitt eller median av «Matte» og «Gym». Typetallet er Gym (forekommer $4$ ganger)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Sentralmål** beskriver hva som er typisk:\n- **Gjennomsnitt** ($\\bar{x}$): Summen delt på antall. Bruker alle data, men påvirkes av ekstremverdier.\n- **Median**: Den midterste verdien i sorterte data. Robust mot ekstremverdier.\n- **Typetall**: Den mest frekvente verdien. Eneste mål som fungerer for kategoridata.\n\n**Spredningsmål** beskriver variasjon:\n- **Variasjonsbredde**: $x_{\\text{maks}} - x_{\\text{min}}$. Enkel, men sårbar for ekstremverdier.\n- **Kvartiler**: $Q_1$ og $Q_3$ deler datasettet i fire deler.\n- **IQR** (interkvartilbredde): $Q_3 - Q_1$. Robust mål for spredning i de midterste $50\\,\\%$.\n\nVelg mål etter kontekst: gjennomsnitt for symmetriske data, median for skjeve data med ekstremverdier, typetall for kategorier."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,385 @@
-{"id":"it-1-2-6-narrativ","courseId":"it-1","chapterNumber":"2.6","title":"Feilsøking og debugging","subtitle":"Narrativ versjon","description":"Ei forteljing om kunsten å finne feil – frå Grace Hoppers møll til dei tre feiltypane, print-debugging og try/except som hindrar programmet i å krasje.","estimatedMinutes":34,"competenceGoals":["identifisere og skille mellom syntaksfeil, logiske feil og kjøretidsfeil","bruke print-debugging til å finne feil i kode","bruke try/except til å håndtere feil på en kontrollert måte","lese og forstå feilmeldinger i Python"],"linkedChapterId":"it-1-2-6","content":[{"id":"it-1-2-6-n-intro","type":"text","content":"## Møllen i maskinen\n\nI 1947 fann programmeraren Grace Hopper ein faktisk møll fanga i ei relémaskin – han hadde forårsaka feil. Sidan har vi kalla programmeringsfeil for «bugs», og prosessen med å fjerne dei for **debugging**. Feil er uunngåeleg; sjølv dei mest røynde programmerarane skriv kode med feil. Forskjellen er at dei veit korleis dei finn og rettar dei effektivt. Å finne ein feil er ikkje eit teikn på at du er dårleg – det er ein heilt naturleg del av prosessen.\n\nDet finst tre hovudtypar feil. Den enklaste er **syntaksfeil** – skrivefeil som bryt med reglane i språket. Python oppdagar dei før programmet startar og peikar på linja, slik som eit manglande kolon etter `if alder >= 18`, ein gløymd parentes, feil innrykk eller manglande hermeteikn. Slike feil fiksar du ved å lese feilmeldinga nøye, sjekke linja ho peikar på *og* linja over, og leite etter dei vanlege tabbane.\n\nVerre er **kjøretidsfeil**: koden er syntaktisk rett, men noko går gale medan han køyrer. `10 / 0` gir `ZeroDivisionError`, `int(\"hei\")` gir `ValueError`, `\"5\" + 3` gir `TypeError`, ein for høg listeindeks gir `IndexError`, og ein ukjend variabel gir `NameError`. Python viser då ein *traceback*. Den les du nedanfrå og opp: siste linje seier kva feilen er, linja over viser koden som forårsaka han, og filnamn pluss linjenummer seier kvar."},{"id":"it-1-2-6-n-quiz1","type":"exercise","exercise":{"id":"it-1-2-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på feiltypar og tracebacks:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-6-n-quiz1-q0","task":"Når oppdagar Python ein syntaksfeil?","options":[{"id":"a","text":"Før programmet startar","isCorrect":true},{"id":"b","text":"Aldri","isCorrect":false},{"id":"c","text":"Berre viss brukaren ber om det","isCorrect":false},{"id":"d","text":"Etter at programmet er ferdig","isCorrect":false}],"solution":"Syntaksfeil blir oppdaga før programmet startar, og Python peikar på kvar i koden feilen er."},{"id":"it-1-2-6-n-quiz1-q1","task":"Kva for feiltype gir int(\"hei\")?","options":[{"id":"a","text":"ZeroDivisionError","isCorrect":false},{"id":"b","text":"ValueError","isCorrect":true},{"id":"c","text":"SyntaxError","isCorrect":false},{"id":"d","text":"IndexError","isCorrect":false}],"solution":"int(\"hei\") gir ein ValueError, fordi teksten «hei» ikkje kan konverterast til eit heiltal."},{"id":"it-1-2-6-n-quiz1-q2","task":"Korleis les du ein traceback raskast?","options":[{"id":"a","text":"Frå toppen og berre den første linja","isCorrect":false},{"id":"b","text":"I tilfeldig rekkjefølgje","isCorrect":false},{"id":"c","text":"Frå botnen og opp – siste linje seier kva feilen er","isCorrect":true},{"id":"d","text":"Du treng ikkje lese han","isCorrect":false}],"solution":"Les tracebacken nedanfrå: den nedste linja fortel kva feilen er, og linjene over viser kvar han oppstod."}]}},{"id":"it-1-2-6-n-section1","type":"text","content":"## Dei feila Python ikkje åtvarar om\n\nDen vanskelegaste feiltypen er **logiske feil**. Her gir Python inga feilmelding – koden køyrer heilt fint, men svaret er feil, fordi logikken i hovudet ditt var feil. Eit klassisk døme er gløymde parentesar: `tall1 + tall2 + tall3 / 3` deler berre det siste talet, medan `(tall1 + tall2 + tall3) / 3` gir rett gjennomsnitt. Eit anna er ein grensefeil: `if alder > 18` utelukkar 18-åringar, medan `if alder >= 18` inkluderer dei. Og ein *ein-av-feil* (off-by-one) oppstår når `range(10)` gir 0–9 i staden for det du trudde.\n\nKorleis finn du noko Python teier om? Den mest effektive teknikken for nybyrjarar er **print-debugging**: du legg inn `print()`-setningar for å sjå kva som faktisk skjer undervegs. Tenk deg ein rabattfunksjon som gir negativt resultat:\n\n```python\ndef beregn_rabatt(pris, rabatt_prosent):\n    rabatt = pris * rabatt_prosent\n    print(f\"DEBUG: rabatt = {rabatt}\")\n    return pris - rabatt\n```\n\nDebug-utskrifta avslører at rabatten vart 2000 i staden for 20 – formelen mangla ei deling på 100. Rettinga er `pris * rabatt_prosent / 100`. Eit godt råd er å merke debug-utskrifter med «DEBUG:» så dei er lette å fjerne etterpå. Eit nærskylt døme: ein funksjon som leitar etter det største talet, men startar med `storst = 0`. For ei liste med berre negative tal returnerer han feilaktig 0. Løysinga er å starte med det første elementet: `storst = tall_liste[0]`."},{"id":"it-1-2-6-n-quiz2","type":"exercise","exercise":{"id":"it-1-2-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på logiske feil og print-debugging:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-6-n-quiz2-q0","task":"Kva kjenneteiknar ein logisk feil?","options":[{"id":"a","text":"Programmet krasjar alltid","isCorrect":false},{"id":"b","text":"Python nektar å starte programmet","isCorrect":false},{"id":"c","text":"Det manglar alltid ein parentes","isCorrect":false},{"id":"d","text":"Koden køyrer utan feilmelding, men gir feil resultat","isCorrect":true}],"solution":"Ein logisk feil gir inga feilmelding – koden køyrer, men resultatet er feil fordi logikken er feil."},{"id":"it-1-2-6-n-quiz2-q1","task":"Kva er print-debugging?","options":[{"id":"a","text":"Å legge inn print()-setningar for å sjå variabelverdiar undervegs","isCorrect":true},{"id":"b","text":"Å skrive ut koden på papir","isCorrect":false},{"id":"c","text":"Å fjerne alle print-setningar","isCorrect":false},{"id":"d","text":"Ein innebygd Python-feil","isCorrect":false}],"solution":"Print-debugging tyder å sette inn print()-setningar som viser kva variablane inneheld undervegs, slik at du finn kvar det går gale."},{"id":"it-1-2-6-n-quiz2-q2","task":"Kvifor er «storst = 0» ein dårleg start når ein søkjer det største talet?","options":[{"id":"a","text":"Det gir alltid ein syntaksfeil","isCorrect":false},{"id":"b","text":"Viss alle tala er negative, blir 0 returnert i staden for det faktiske største","isCorrect":true},{"id":"c","text":"Det er for tregt","isCorrect":false},{"id":"d","text":"Python tillèt ikkje variabelen storst","isCorrect":false}],"solution":"Med start på 0 vil ingen negativ verdi vere større, så funksjonen returnerer feilaktig 0. Start heller med det første elementet i lista."}]}},{"id":"it-1-2-6-n-section2","type":"text","content":"## Når feil er forventa: try/except\n\nNokre feil kan du ikkje hindre – som at brukaren skriv «hei» når du bad om eit tal. I staden for å la programmet krasje, kan du fange feilen med **try/except**. Koden som kan feile, legg du i `try`-blokka. Viss ein feil oppstår, hoppar Python til `except`-blokka; viss ikkje, blir ho hoppa over:\n\n```python\ntry:\n    tall = int(input(\"Skriv et tall: \"))\n    print(f\"Du skrev {tall}\")\nexcept ValueError:\n    print(\"Det var ikke et gyldig tall!\")\n```\n\nDu kan ha fleire `except`-blokker for ulike feiltypar, til dømes både `ValueError` og `ZeroDivisionError`. Det finst òg `else`, som blir køyrd berre viss ingen feil oppstod, og `finally`, som blir køyrd *alltid* – uansett om det gjekk gale eller ikkje.\n\nEit svært nyttig mønster er try/except inne i ei løkke, slik at brukaren får prøve på nytt til input er gyldig:\n\n```python\nwhile True:\n    try:\n        alder = int(input(\"Hvor gammel er du? \"))\n        break\n    except ValueError:\n        print(\"Ugyldig! Skriv inn et helt tall.\")\n```\n\nDette er mykje betre enn eit program som krasjar. Set du dette saman, kan du byggje ein robust kalkulator: ein `hent_tall`-funksjon som bruker `while True` med try/except for å sikre gyldige tal, og ein `beregn`-funksjon som sjekkar for divisjon med null og ukjend operator. Resultatet er eit program som aldri krasjar, uansett kva brukaren finn på."},{"id":"it-1-2-6-n-quiz3","type":"exercise","exercise":{"id":"it-1-2-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på try/except:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-6-n-quiz3-q0","task":"Kva er hovudføremålet med try/except?","options":[{"id":"a","text":"Å gjere koden raskare","isCorrect":false},{"id":"b","text":"Å skjule all kode","isCorrect":false},{"id":"c","text":"Å fange opp feil så programmet ikkje krasjar","isCorrect":true},{"id":"d","text":"Å lage tilfeldige tal","isCorrect":false}],"solution":"try/except lèt deg fange opp feil og handtere dei kontrollert, i staden for at programmet krasjar."},{"id":"it-1-2-6-n-quiz3-q1","task":"Når blir koden i ei finally-blokk køyrd?","options":[{"id":"a","text":"Berre viss det oppstod ein feil","isCorrect":false},{"id":"b","text":"Berre viss det ikkje oppstod ein feil","isCorrect":false},{"id":"c","text":"Aldri","isCorrect":false},{"id":"d","text":"Alltid, uansett om det var ein feil eller ikkje","isCorrect":true}],"solution":"finally-blokka blir alltid køyrd, både når det oppstår ein feil og når alt går bra."}]}},{"id":"it-1-2-6-n-summary","type":"text","content":"## Oppsummering\n\nFeil høyrer programmering til – frå Grace Hoppers møll til dine eigne bugs. Det finst tre typar: **syntaksfeil** (skrivefeil Python fangar før køyring), **kjøretidsfeil** (krasj under køyring, som ZeroDivisionError og ValueError) og **logiske feil** (koden køyrer, men gir feil svar). Tracebacks les du nedanfrå og opp.\n\nDin viktigaste teknikk er **print-debugging**: legg inn print()-setningar som viser variabelverdiar undervegs. Og når feil er forventa – som ugyldig brukarinput – fangar du dei med **try/except**, gjerne i ei løkke som lèt brukaren prøve igjen. Då byggjer du robuste program som ikkje krasjar, og du blir ein betre programmerar for kvar feil du finn."}],"exercises":[],"_meta":{"sourceHash":"0df757e22f1e6e9f","translatedAt":"2026-06-20T23:44:55.462Z","model":"claude-code-agent","strings":65,"tm":{"b81342578ad945ef":"Feilsøking og debugging","b195b06d1ed59702":"Narrativ versjon","6315224e1b478b12":"Ei forteljing om kunsten å finne feil – frå Grace Hoppers møll til dei tre feiltypane, print-debugging og try/except som hindrar programmet i å krasje.","9552d4ac9cd26c6e":"identifisere og skille mellom syntaksfeil, logiske feil og kjøretidsfeil","42ad7dcd2041bd08":"bruke print-debugging til å finne feil i kode","8096b1823b96a88d":"bruke try/except til å håndtere feil på en kontrollert måte","964163e3c83297c9":"lese og forstå feilmeldinger i Python","389d657fb0e8a14a":"## Møllen i maskinen\n\nI 1947 fann programmeraren Grace Hopper ein faktisk møll fanga i ei relémaskin – han hadde forårsaka feil. Sidan har vi kalla programmeringsfeil for «bugs», og prosessen med å fjerne dei for **debugging**. Feil er uunngåeleg; sjølv dei mest røynde programmerarane skriv kode med feil. Forskjellen er at dei veit korleis dei finn og rettar dei effektivt. Å finne ein feil er ikkje eit teikn på at du er dårleg – det er ein heilt naturleg del av prosessen.\n\nDet finst tre hovudtypar feil. Den enklaste er **syntaksfeil** – skrivefeil som bryt med reglane i språket. Python oppdagar dei før programmet startar og peikar på linja, slik som eit manglande kolon etter `if alder >= 18`, ein gløymd parentes, feil innrykk eller manglande hermeteikn. Slike feil fiksar du ved å lese feilmeldinga nøye, sjekke linja ho peikar på *og* linja over, og leite etter dei vanlege tabbane.\n\nVerre er **kjøretidsfeil**: koden er syntaktisk rett, men noko går gale medan han køyrer. `10 / 0` gir `ZeroDivisionError`, `int(\"hei\")` gir `ValueError`, `\"5\" + 3` gir `TypeError`, ein for høg listeindeks gir `IndexError`, og ein ukjend variabel gir `NameError`. Python viser då ein *traceback*. Den les du nedanfrå og opp: siste linje seier kva feilen er, linja over viser koden som forårsaka han, og filnamn pluss linjenummer seier kvar.","b6d4e51fe9cddb4a":"Test deg sjølv på feiltypar og tracebacks:","4097889236a2af26":"placeholder","0cbc2cbe0522706d":"Når oppdagar Python ein syntaksfeil?","6c49fac576a5cce5":"Før programmet startar","72816c36bd404a80":"Aldri","b121532a451d1898":"Berre viss brukaren ber om det","48a03925aa38d4cc":"Etter at programmet er ferdig","731676c2d36cc830":"Syntaksfeil blir oppdaga før programmet startar, og Python peikar på kvar i koden feilen er.","9d375cf8a7373311":"Kva for feiltype gir int(\"hei\")?","7bb3f1819e84786f":"ZeroDivisionError","b6276ba72bbc5084":"ValueError","a076233d0cb04ba9":"SyntaxError","a20dcf583f56126d":"IndexError","246d1b6fe5a4313f":"int(\"hei\") gir ein ValueError, fordi teksten «hei» ikkje kan konverterast til eit heiltal.","9e9ceb70c4424461":"Korleis les du ein traceback raskast?","7fbacb957d97cc35":"Frå toppen og berre den første linja","ba11dd6ba84db7d1":"I tilfeldig rekkjefølgje","a03a8483f5a7a2a3":"Frå botnen og opp – siste linje seier kva feilen er","8c00844cee67470a":"Du treng ikkje lese han","bc0be34159837c67":"Les tracebacken nedanfrå: den nedste linja fortel kva feilen er, og linjene over viser kvar han oppstod.","e1b947e318b99e93":"## Dei feila Python ikkje åtvarar om\n\nDen vanskelegaste feiltypen er **logiske feil**. Her gir Python inga feilmelding – koden køyrer heilt fint, men svaret er feil, fordi logikken i hovudet ditt var feil. Eit klassisk døme er gløymde parentesar: `tall1 + tall2 + tall3 / 3` deler berre det siste talet, medan `(tall1 + tall2 + tall3) / 3` gir rett gjennomsnitt. Eit anna er ein grensefeil: `if alder > 18` utelukkar 18-åringar, medan `if alder >= 18` inkluderer dei. Og ein *ein-av-feil* (off-by-one) oppstår når `range(10)` gir 0–9 i staden for det du trudde.\n\nKorleis finn du noko Python teier om? Den mest effektive teknikken for nybyrjarar er **print-debugging**: du legg inn `print()`-setningar for å sjå kva som faktisk skjer undervegs. Tenk deg ein rabattfunksjon som gir negativt resultat:\n\n```python\ndef beregn_rabatt(pris, rabatt_prosent):\n    rabatt = pris * rabatt_prosent\n    print(f\"DEBUG: rabatt = {rabatt}\")\n    return pris - rabatt\n```\n\nDebug-utskrifta avslører at rabatten vart 2000 i staden for 20 – formelen mangla ei deling på 100. Rettinga er `pris * rabatt_prosent / 100`. Eit godt råd er å merke debug-utskrifter med «DEBUG:» så dei er lette å fjerne etterpå. Eit nærskylt døme: ein funksjon som leitar etter det største talet, men startar med `storst = 0`. For ei liste med berre negative tal returnerer han feilaktig 0. Løysinga er å starte med det første elementet: `storst = tall_liste[0]`.","50c380768c31be41":"Test deg sjølv på logiske feil og print-debugging:","88c2e7a5d99b0b86":"Kva kjenneteiknar ein logisk feil?","4906377fd5229a9d":"Programmet krasjar alltid","51980943ff671d54":"Python nektar å starte programmet","00a653afa53839c6":"Det manglar alltid ein parentes","9485afa4803cfe53":"Koden køyrer utan feilmelding, men gir feil resultat","6a1cb021c0d10f1e":"Ein logisk feil gir inga feilmelding – koden køyrer, men resultatet er feil fordi logikken er feil.","9174eb51e179a334":"Kva er print-debugging?","a379a079dd5a5b9e":"Å legge inn print()-setningar for å sjå variabelverdiar undervegs","519ad6e123f3bc63":"Å skrive ut koden på papir","e0d28a3d143f666b":"Å fjerne alle print-setningar","e218786542701f8a":"Ein innebygd Python-feil","aa19fc86d3e9385d":"Print-debugging tyder å sette inn print()-setningar som viser kva variablane inneheld undervegs, slik at du finn kvar det går gale.","9b52fe6f2bfbfa70":"Kvifor er «storst = 0» ein dårleg start når ein søkjer det største talet?","6ec05acefc581468":"Det gir alltid ein syntaksfeil","e02aacee34ca3f31":"Viss alle tala er negative, blir 0 returnert i staden for det faktiske største","ab9667f7c901d98d":"Det er for tregt","e7d128059867edfb":"Python tillèt ikkje variabelen storst","e99ae82f1a8a1e03":"Med start på 0 vil ingen negativ verdi vere større, så funksjonen returnerer feilaktig 0. Start heller med det første elementet i lista.","6ef60876d6570ac6":"## Når feil er forventa: try/except\n\nNokre feil kan du ikkje hindre – som at brukaren skriv «hei» når du bad om eit tal. I staden for å la programmet krasje, kan du fange feilen med **try/except**. Koden som kan feile, legg du i `try`-blokka. Viss ein feil oppstår, hoppar Python til `except`-blokka; viss ikkje, blir ho hoppa over:\n\n```python\ntry:\n    tall = int(input(\"Skriv et tall: \"))\n    print(f\"Du skrev {tall}\")\nexcept ValueError:\n    print(\"Det var ikke et gyldig tall!\")\n```\n\nDu kan ha fleire `except`-blokker for ulike feiltypar, til dømes både `ValueError` og `ZeroDivisionError`. Det finst òg `else`, som blir køyrd berre viss ingen feil oppstod, og `finally`, som blir køyrd *alltid* – uansett om det gjekk gale eller ikkje.\n\nEit svært nyttig mønster er try/except inne i ei løkke, slik at brukaren får prøve på nytt til input er gyldig:\n\n```python\nwhile True:\n    try:\n        alder = int(input(\"Hvor gammel er du? \"))\n        break\n    except ValueError:\n        print(\"Ugyldig! Skriv inn et helt tall.\")\n```\n\nDette er mykje betre enn eit program som krasjar. Set du dette saman, kan du byggje ein robust kalkulator: ein `hent_tall`-funksjon som bruker `while True` med try/except for å sikre gyldige tal, og ein `beregn`-funksjon som sjekkar for divisjon med null og ukjend operator. Resultatet er eit program som aldri krasjar, uansett kva brukaren finn på.","9bfb99cde8c6780e":"Test deg sjølv på try/except:","40b87e46eafb458a":"Kva er hovudføremålet med try/except?","560bac9302261a53":"Å gjere koden raskare","149411bccd4cfa5f":"Å skjule all kode","f8b09f5ea8b3cd81":"Å fange opp feil så programmet ikkje krasjar","6c5a6aa156d29775":"Å lage tilfeldige tal","8ddf9828ad79b580":"try/except lèt deg fange opp feil og handtere dei kontrollert, i staden for at programmet krasjar.","5dea7bd8951c3b9b":"Når blir koden i ei finally-blokk køyrd?","4966dfbe95d4092c":"Berre viss det oppstod ein feil","fc8e5d9fa0b1b7b9":"Berre viss det ikkje oppstod ein feil","5cca1c5c7a047361":"Alltid, uansett om det var ein feil eller ikkje","ed02400d6f9e123c":"finally-blokka blir alltid køyrd, både når det oppstår ein feil og når alt går bra.","7817dde8f5e00c65":"## Oppsummering\n\nFeil høyrer programmering til – frå Grace Hoppers møll til dine eigne bugs. Det finst tre typar: **syntaksfeil** (skrivefeil Python fangar før køyring), **kjøretidsfeil** (krasj under køyring, som ZeroDivisionError og ValueError) og **logiske feil** (koden køyrer, men gir feil svar). Tracebacks les du nedanfrå og opp.\n\nDin viktigaste teknikk er **print-debugging**: legg inn print()-setningar som viser variabelverdiar undervegs. Og når feil er forventa – som ugyldig brukarinput – fangar du dei med **try/except**, gjerne i ei løkke som lèt brukaren prøve igjen. Då byggjer du robuste program som ikkje krasjar, og du blir ein betre programmerar for kvar feil du finn."}}}
+{
+  "id": "it-1-2-6-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "2.6",
+  "title": "Feilsøking og debugging",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kunsten å finne feil – frå Grace Hoppers møll til dei tre feiltypane, print-debugging og try/except som hindrar programmet i å krasje.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "identifisere og skille mellom syntaksfeil, logiske feil og kjøretidsfeil",
+    "bruke print-debugging til å finne feil i kode",
+    "bruke try/except til å håndtere feil på en kontrollert måte",
+    "lese og forstå feilmeldinger i Python"
+  ],
+  "linkedChapterId": "it-1-2-6",
+  "content": [
+    {
+      "id": "it-1-2-6-n-intro",
+      "type": "text",
+      "content": "## Møllen i maskinen\n\nI 1947 fann programmeraren Grace Hopper ein faktisk møll fanga i ei relémaskin – han hadde forårsaka feil. Sidan har vi kalla programmeringsfeil for «bugs», og prosessen med å fjerne dei for **debugging**. Feil er uunngåeleg; sjølv dei mest røynde programmerarane skriv kode med feil. Forskjellen er at dei veit korleis dei finn og rettar dei effektivt. Å finne ein feil er ikkje eit teikn på at du er dårleg – det er ein heilt naturleg del av prosessen.\n\nDet finst tre hovudtypar feil. Den enklaste er **syntaksfeil** – skrivefeil som bryt med reglane i språket. Python oppdagar dei før programmet startar og peikar på linja, slik som eit manglande kolon etter `if alder >= 18`, ein gløymd parentes, feil innrykk eller manglande hermeteikn. Slike feil fiksar du ved å lese feilmeldinga nøye, sjekke linja ho peikar på *og* linja over, og leite etter dei vanlege tabbane.\n\nVerre er **kjøretidsfeil**: koden er syntaktisk rett, men noko går gale medan han køyrer. `10 / 0` gir `ZeroDivisionError`, `int(\"hei\")` gir `ValueError`, `\"5\" + 3` gir `TypeError`, ein for høg listeindeks gir `IndexError`, og ein ukjend variabel gir `NameError`. Python viser då ein *traceback*. Den les du nedanfrå og opp: siste linje seier kva feilen er, linja over viser koden som forårsaka han, og filnamn pluss linjenummer seier kvar."
+    },
+    {
+      "id": "it-1-2-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på feiltypar og tracebacks:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-6-n-quiz1-q0",
+            "task": "Når oppdagar Python ein syntaksfeil?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre viss brukaren ber om det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etter at programmet er ferdig",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Før programmet startar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Syntaksfeil blir oppdaga før programmet startar, og Python peikar på kvar i koden feilen er."
+          },
+          {
+            "id": "it-1-2-6-n-quiz1-q1",
+            "task": "Kva for feiltype gir int(\"hei\")?",
+            "options": [
+              {
+                "id": "b",
+                "text": "ValueError",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "ZeroDivisionError",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "SyntaxError",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "IndexError",
+                "isCorrect": false
+              }
+            ],
+            "solution": "int(\"hei\") gir ein ValueError, fordi teksten «hei» ikkje kan konverterast til eit heiltal."
+          },
+          {
+            "id": "it-1-2-6-n-quiz1-q2",
+            "task": "Korleis les du ein traceback raskast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Frå toppen og berre den første linja",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Frå botnen og opp – siste linje seier kva feilen er",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "I tilfeldig rekkjefølgje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Du treng ikkje lese han",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Les tracebacken nedanfrå: den nedste linja fortel kva feilen er, og linjene over viser kvar han oppstod."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-6-n-section1",
+      "type": "text",
+      "content": "## Dei feila Python ikkje åtvarar om\n\nDen vanskelegaste feiltypen er **logiske feil**. Her gir Python inga feilmelding – koden køyrer heilt fint, men svaret er feil, fordi logikken i hovudet ditt var feil. Eit klassisk døme er gløymde parentesar: `tall1 + tall2 + tall3 / 3` deler berre det siste talet, medan `(tall1 + tall2 + tall3) / 3` gir rett gjennomsnitt. Eit anna er ein grensefeil: `if alder > 18` utelukkar 18-åringar, medan `if alder >= 18` inkluderer dei. Og ein *ein-av-feil* (off-by-one) oppstår når `range(10)` gir 0–9 i staden for det du trudde.\n\nKorleis finn du noko Python teier om? Den mest effektive teknikken for nybyrjarar er **print-debugging**: du legg inn `print()`-setningar for å sjå kva som faktisk skjer undervegs. Tenk deg ein rabattfunksjon som gir negativt resultat:\n\n```python\ndef beregn_rabatt(pris, rabatt_prosent):\n    rabatt = pris * rabatt_prosent\n    print(f\"DEBUG: rabatt = {rabatt}\")\n    return pris - rabatt\n```\n\nDebug-utskrifta avslører at rabatten vart 2000 i staden for 20 – formelen mangla ei deling på 100. Rettinga er `pris * rabatt_prosent / 100`. Eit godt råd er å merke debug-utskrifter med «DEBUG:» så dei er lette å fjerne etterpå. Eit nærskylt døme: ein funksjon som leitar etter det største talet, men startar med `storst = 0`. For ei liste med berre negative tal returnerer han feilaktig 0. Løysinga er å starte med det første elementet: `storst = tall_liste[0]`."
+    },
+    {
+      "id": "it-1-2-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logiske feil og print-debugging:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-6-n-quiz2-q0",
+            "task": "Kva kjenneteiknar ein logisk feil?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Programmet krasjar alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Python nektar å starte programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Koden køyrer utan feilmelding, men gir feil resultat",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det manglar alltid ein parentes",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein logisk feil gir inga feilmelding – koden køyrer, men resultatet er feil fordi logikken er feil."
+          },
+          {
+            "id": "it-1-2-6-n-quiz2-q1",
+            "task": "Kva er print-debugging?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å skrive ut koden på papir",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å fjerne alle print-setningar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein innebygd Python-feil",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å legge inn print()-setningar for å sjå variabelverdiar undervegs",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Print-debugging tyder å sette inn print()-setningar som viser kva variablane inneheld undervegs, slik at du finn kvar det går gale."
+          },
+          {
+            "id": "it-1-2-6-n-quiz2-q2",
+            "task": "Kvifor er «storst = 0» ein dårleg start når ein søkjer det største talet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Viss alle tala er negative, blir 0 returnert i staden for det faktiske største",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det gir alltid ein syntaksfeil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er for tregt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Python tillèt ikkje variabelen storst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med start på 0 vil ingen negativ verdi vere større, så funksjonen returnerer feilaktig 0. Start heller med det første elementet i lista."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-6-n-section2",
+      "type": "text",
+      "content": "## Når feil er forventa: try/except\n\nNokre feil kan du ikkje hindre – som at brukaren skriv «hei» når du bad om eit tal. I staden for å la programmet krasje, kan du fange feilen med **try/except**. Koden som kan feile, legg du i `try`-blokka. Viss ein feil oppstår, hoppar Python til `except`-blokka; viss ikkje, blir ho hoppa over:\n\n```python\ntry:\n    tall = int(input(\"Skriv et tall: \"))\n    print(f\"Du skrev {tall}\")\nexcept ValueError:\n    print(\"Det var ikke et gyldig tall!\")\n```\n\nDu kan ha fleire `except`-blokker for ulike feiltypar, til dømes både `ValueError` og `ZeroDivisionError`. Det finst òg `else`, som blir køyrd berre viss ingen feil oppstod, og `finally`, som blir køyrd *alltid* – uansett om det gjekk gale eller ikkje.\n\nEit svært nyttig mønster er try/except inne i ei løkke, slik at brukaren får prøve på nytt til input er gyldig:\n\n```python\nwhile True:\n    try:\n        alder = int(input(\"Hvor gammel er du? \"))\n        break\n    except ValueError:\n        print(\"Ugyldig! Skriv inn et helt tall.\")\n```\n\nDette er mykje betre enn eit program som krasjar. Set du dette saman, kan du byggje ein robust kalkulator: ein `hent_tall`-funksjon som bruker `while True` med try/except for å sikre gyldige tal, og ein `beregn`-funksjon som sjekkar for divisjon med null og ukjend operator. Resultatet er eit program som aldri krasjar, uansett kva brukaren finn på."
+    },
+    {
+      "id": "it-1-2-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på try/except:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-6-n-quiz3-q0",
+            "task": "Kva er hovudføremålet med try/except?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gjere koden raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å fange opp feil så programmet ikkje krasjar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å skjule all kode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å lage tilfeldige tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "try/except lèt deg fange opp feil og handtere dei kontrollert, i staden for at programmet krasjar."
+          },
+          {
+            "id": "it-1-2-6-n-quiz3-q1",
+            "task": "Når blir koden i ei finally-blokk køyrd?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre viss det oppstod ein feil",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre viss det ikkje oppstod ein feil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid, uansett om det var ein feil eller ikkje",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Aldri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "finally-blokka blir alltid køyrd, både når det oppstår ein feil og når alt går bra."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFeil høyrer programmering til – frå Grace Hoppers møll til dine eigne bugs. Det finst tre typar: **syntaksfeil** (skrivefeil Python fangar før køyring), **kjøretidsfeil** (krasj under køyring, som ZeroDivisionError og ValueError) og **logiske feil** (koden køyrer, men gir feil svar). Tracebacks les du nedanfrå og opp.\n\nDin viktigaste teknikk er **print-debugging**: legg inn print()-setningar som viser variabelverdiar undervegs. Og når feil er forventa – som ugyldig brukarinput – fangar du dei med **try/except**, gjerne i ei løkke som lèt brukaren prøve igjen. Då byggjer du robuste program som ikkje krasjar, og du blir ein betre programmerar for kvar feil du finn."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0df757e22f1e6e9f",
+    "translatedAt": "2026-06-20T23:44:55.462Z",
+    "model": "claude-code-agent",
+    "strings": 65,
+    "tm": {
+      "b81342578ad945ef": "Feilsøking og debugging",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6315224e1b478b12": "Ei forteljing om kunsten å finne feil – frå Grace Hoppers møll til dei tre feiltypane, print-debugging og try/except som hindrar programmet i å krasje.",
+      "9552d4ac9cd26c6e": "identifisere og skille mellom syntaksfeil, logiske feil og kjøretidsfeil",
+      "42ad7dcd2041bd08": "bruke print-debugging til å finne feil i kode",
+      "8096b1823b96a88d": "bruke try/except til å håndtere feil på en kontrollert måte",
+      "964163e3c83297c9": "lese og forstå feilmeldinger i Python",
+      "389d657fb0e8a14a": "## Møllen i maskinen\n\nI 1947 fann programmeraren Grace Hopper ein faktisk møll fanga i ei relémaskin – han hadde forårsaka feil. Sidan har vi kalla programmeringsfeil for «bugs», og prosessen med å fjerne dei for **debugging**. Feil er uunngåeleg; sjølv dei mest røynde programmerarane skriv kode med feil. Forskjellen er at dei veit korleis dei finn og rettar dei effektivt. Å finne ein feil er ikkje eit teikn på at du er dårleg – det er ein heilt naturleg del av prosessen.\n\nDet finst tre hovudtypar feil. Den enklaste er **syntaksfeil** – skrivefeil som bryt med reglane i språket. Python oppdagar dei før programmet startar og peikar på linja, slik som eit manglande kolon etter `if alder >= 18`, ein gløymd parentes, feil innrykk eller manglande hermeteikn. Slike feil fiksar du ved å lese feilmeldinga nøye, sjekke linja ho peikar på *og* linja over, og leite etter dei vanlege tabbane.\n\nVerre er **kjøretidsfeil**: koden er syntaktisk rett, men noko går gale medan han køyrer. `10 / 0` gir `ZeroDivisionError`, `int(\"hei\")` gir `ValueError`, `\"5\" + 3` gir `TypeError`, ein for høg listeindeks gir `IndexError`, og ein ukjend variabel gir `NameError`. Python viser då ein *traceback*. Den les du nedanfrå og opp: siste linje seier kva feilen er, linja over viser koden som forårsaka han, og filnamn pluss linjenummer seier kvar.",
+      "b6d4e51fe9cddb4a": "Test deg sjølv på feiltypar og tracebacks:",
+      "4097889236a2af26": "placeholder",
+      "0cbc2cbe0522706d": "Når oppdagar Python ein syntaksfeil?",
+      "6c49fac576a5cce5": "Før programmet startar",
+      "72816c36bd404a80": "Aldri",
+      "b121532a451d1898": "Berre viss brukaren ber om det",
+      "48a03925aa38d4cc": "Etter at programmet er ferdig",
+      "731676c2d36cc830": "Syntaksfeil blir oppdaga før programmet startar, og Python peikar på kvar i koden feilen er.",
+      "9d375cf8a7373311": "Kva for feiltype gir int(\"hei\")?",
+      "7bb3f1819e84786f": "ZeroDivisionError",
+      "b6276ba72bbc5084": "ValueError",
+      "a076233d0cb04ba9": "SyntaxError",
+      "a20dcf583f56126d": "IndexError",
+      "246d1b6fe5a4313f": "int(\"hei\") gir ein ValueError, fordi teksten «hei» ikkje kan konverterast til eit heiltal.",
+      "9e9ceb70c4424461": "Korleis les du ein traceback raskast?",
+      "7fbacb957d97cc35": "Frå toppen og berre den første linja",
+      "ba11dd6ba84db7d1": "I tilfeldig rekkjefølgje",
+      "a03a8483f5a7a2a3": "Frå botnen og opp – siste linje seier kva feilen er",
+      "8c00844cee67470a": "Du treng ikkje lese han",
+      "bc0be34159837c67": "Les tracebacken nedanfrå: den nedste linja fortel kva feilen er, og linjene over viser kvar han oppstod.",
+      "e1b947e318b99e93": "## Dei feila Python ikkje åtvarar om\n\nDen vanskelegaste feiltypen er **logiske feil**. Her gir Python inga feilmelding – koden køyrer heilt fint, men svaret er feil, fordi logikken i hovudet ditt var feil. Eit klassisk døme er gløymde parentesar: `tall1 + tall2 + tall3 / 3` deler berre det siste talet, medan `(tall1 + tall2 + tall3) / 3` gir rett gjennomsnitt. Eit anna er ein grensefeil: `if alder > 18` utelukkar 18-åringar, medan `if alder >= 18` inkluderer dei. Og ein *ein-av-feil* (off-by-one) oppstår når `range(10)` gir 0–9 i staden for det du trudde.\n\nKorleis finn du noko Python teier om? Den mest effektive teknikken for nybyrjarar er **print-debugging**: du legg inn `print()`-setningar for å sjå kva som faktisk skjer undervegs. Tenk deg ein rabattfunksjon som gir negativt resultat:\n\n```python\ndef beregn_rabatt(pris, rabatt_prosent):\n    rabatt = pris * rabatt_prosent\n    print(f\"DEBUG: rabatt = {rabatt}\")\n    return pris - rabatt\n```\n\nDebug-utskrifta avslører at rabatten vart 2000 i staden for 20 – formelen mangla ei deling på 100. Rettinga er `pris * rabatt_prosent / 100`. Eit godt råd er å merke debug-utskrifter med «DEBUG:» så dei er lette å fjerne etterpå. Eit nærskylt døme: ein funksjon som leitar etter det største talet, men startar med `storst = 0`. For ei liste med berre negative tal returnerer han feilaktig 0. Løysinga er å starte med det første elementet: `storst = tall_liste[0]`.",
+      "50c380768c31be41": "Test deg sjølv på logiske feil og print-debugging:",
+      "88c2e7a5d99b0b86": "Kva kjenneteiknar ein logisk feil?",
+      "4906377fd5229a9d": "Programmet krasjar alltid",
+      "51980943ff671d54": "Python nektar å starte programmet",
+      "00a653afa53839c6": "Det manglar alltid ein parentes",
+      "9485afa4803cfe53": "Koden køyrer utan feilmelding, men gir feil resultat",
+      "6a1cb021c0d10f1e": "Ein logisk feil gir inga feilmelding – koden køyrer, men resultatet er feil fordi logikken er feil.",
+      "9174eb51e179a334": "Kva er print-debugging?",
+      "a379a079dd5a5b9e": "Å legge inn print()-setningar for å sjå variabelverdiar undervegs",
+      "519ad6e123f3bc63": "Å skrive ut koden på papir",
+      "e0d28a3d143f666b": "Å fjerne alle print-setningar",
+      "e218786542701f8a": "Ein innebygd Python-feil",
+      "aa19fc86d3e9385d": "Print-debugging tyder å sette inn print()-setningar som viser kva variablane inneheld undervegs, slik at du finn kvar det går gale.",
+      "9b52fe6f2bfbfa70": "Kvifor er «storst = 0» ein dårleg start når ein søkjer det største talet?",
+      "6ec05acefc581468": "Det gir alltid ein syntaksfeil",
+      "e02aacee34ca3f31": "Viss alle tala er negative, blir 0 returnert i staden for det faktiske største",
+      "ab9667f7c901d98d": "Det er for tregt",
+      "e7d128059867edfb": "Python tillèt ikkje variabelen storst",
+      "e99ae82f1a8a1e03": "Med start på 0 vil ingen negativ verdi vere større, så funksjonen returnerer feilaktig 0. Start heller med det første elementet i lista.",
+      "6ef60876d6570ac6": "## Når feil er forventa: try/except\n\nNokre feil kan du ikkje hindre – som at brukaren skriv «hei» når du bad om eit tal. I staden for å la programmet krasje, kan du fange feilen med **try/except**. Koden som kan feile, legg du i `try`-blokka. Viss ein feil oppstår, hoppar Python til `except`-blokka; viss ikkje, blir ho hoppa over:\n\n```python\ntry:\n    tall = int(input(\"Skriv et tall: \"))\n    print(f\"Du skrev {tall}\")\nexcept ValueError:\n    print(\"Det var ikke et gyldig tall!\")\n```\n\nDu kan ha fleire `except`-blokker for ulike feiltypar, til dømes både `ValueError` og `ZeroDivisionError`. Det finst òg `else`, som blir køyrd berre viss ingen feil oppstod, og `finally`, som blir køyrd *alltid* – uansett om det gjekk gale eller ikkje.\n\nEit svært nyttig mønster er try/except inne i ei løkke, slik at brukaren får prøve på nytt til input er gyldig:\n\n```python\nwhile True:\n    try:\n        alder = int(input(\"Hvor gammel er du? \"))\n        break\n    except ValueError:\n        print(\"Ugyldig! Skriv inn et helt tall.\")\n```\n\nDette er mykje betre enn eit program som krasjar. Set du dette saman, kan du byggje ein robust kalkulator: ein `hent_tall`-funksjon som bruker `while True` med try/except for å sikre gyldige tal, og ein `beregn`-funksjon som sjekkar for divisjon med null og ukjend operator. Resultatet er eit program som aldri krasjar, uansett kva brukaren finn på.",
+      "9bfb99cde8c6780e": "Test deg sjølv på try/except:",
+      "40b87e46eafb458a": "Kva er hovudføremålet med try/except?",
+      "560bac9302261a53": "Å gjere koden raskare",
+      "149411bccd4cfa5f": "Å skjule all kode",
+      "f8b09f5ea8b3cd81": "Å fange opp feil så programmet ikkje krasjar",
+      "6c5a6aa156d29775": "Å lage tilfeldige tal",
+      "8ddf9828ad79b580": "try/except lèt deg fange opp feil og handtere dei kontrollert, i staden for at programmet krasjar.",
+      "5dea7bd8951c3b9b": "Når blir koden i ei finally-blokk køyrd?",
+      "4966dfbe95d4092c": "Berre viss det oppstod ein feil",
+      "fc8e5d9fa0b1b7b9": "Berre viss det ikkje oppstod ein feil",
+      "5cca1c5c7a047361": "Alltid, uansett om det var ein feil eller ikkje",
+      "ed02400d6f9e123c": "finally-blokka blir alltid køyrd, både når det oppstår ein feil og når alt går bra.",
+      "7817dde8f5e00c65": "## Oppsummering\n\nFeil høyrer programmering til – frå Grace Hoppers møll til dine eigne bugs. Det finst tre typar: **syntaksfeil** (skrivefeil Python fangar før køyring), **kjøretidsfeil** (krasj under køyring, som ZeroDivisionError og ValueError) og **logiske feil** (koden køyrer, men gir feil svar). Tracebacks les du nedanfrå og opp.\n\nDin viktigaste teknikk er **print-debugging**: legg inn print()-setningar som viser variabelverdiar undervegs. Og når feil er forventa – som ugyldig brukarinput – fangar du dei med **try/except**, gjerne i ei løkke som lèt brukaren prøve igjen. Då byggjer du robuste program som ikkje krasjar, og du blir ein betre programmerar for kvar feil du finn."
+    }
+  }
+}

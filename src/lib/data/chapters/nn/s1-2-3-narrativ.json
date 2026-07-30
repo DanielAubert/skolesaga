@@ -1,1 +1,347 @@
-{"id":"s1-2-3-narrativ","courseId":"s1","chapterNumber":"2.3","title":"Eksponentialfunksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om byen som veks to prosent i året — vekstfaktor, halveringstid, talet e og kontinuerleg vekst.","estimatedMinutes":34,"competenceGoals":["analysere og tolke ulike funksjonstypar","bruke funksjonar i modellering","bruke digitale verktøy i utforsking og problemløysing"],"linkedChapterId":"s1-2-3","content":[{"id":"s1-2-3-n-intro","type":"text","content":"## Byen som veks to prosent i året\n\nKommunestyret i ein by med 50 000 innbyggjarar planlegg skular og bustader for framtida, og demografane melder at folkesetnaden veks med omtrent 2 % per år. Korleis reknar vi ut kor mange som bur der om ti år? Svaret er ikkje å leggje til 1 000 personar ti gonger — for kvart år veks òg fjorårets vekst. Vi treng ein funksjon der variabelen står i eksponenten: ein **eksponentialfunksjon**.\n\nEin eksponentialfunksjon har forma\n\n$$f(x) = a \\cdot b^x$$\n\nder $a \\neq 0$, $b > 0$ og $b \\neq 1$. Talet $a$ er **startverdien** — verdien når $x = 0$ — og $b$ er **vekstfaktoren**. Er $b > 1$, har vi eksponentiell vekst; er $0 < b < 1$, har vi eksponentiell nedgang.\n\nVekstfaktoren heng direkte saman med prosentvis endring $p$ per tidseining:\n\n$$b = 1 + \\frac{p}{100}$$\n\nEin auke på 5 % gir $b = 1{,}05$, ein nedgang på 3 % gir $b = 0{,}97$, og ein auke på 12 % gir $b = 1{,}12$. Eksponentialfunksjonar er difor det naturlege språket for alt som endrar seg med **fast prosent**: folkevekst, rentes rente, radioaktivt forfall og verdifall på bilar.\n\nFor byen vår blir modellen $P(t) = 50000 \\cdot 1{,}02^t$, der $t$ er talet på år. Etter ti år: $P(10) = 50000 \\cdot 1{,}02^{10} \\approx 50000 \\cdot 1{,}219 \\approx 60\\,950$ innbyggjarar. Nesten 11 000 fleire — og det er den typen tal kommunestyret treng for å vite kor mange klasserom som må byggjast."},{"id":"s1-2-3-n-quiz1","type":"exercise","exercise":{"id":"s1-2-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vekstfaktor og eksponentiell vekst:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-3-n-quiz1-q0","task":"Ein verdi aukar med $5\\,\\%$ per år. Kva er vekstfaktoren?","options":[{"id":"a","text":"$0{,}95$","isCorrect":false},{"id":"b","text":"$1{,}05$","isCorrect":true},{"id":"c","text":"$1{,}5$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":false}],"solution":"Vekstfaktor: $b = 1 + \\frac{5}{100} = 1{,}05$."},{"id":"s1-2-3-n-quiz1-q1","task":"Kva er startverdien i $f(x) = 3 \\cdot 2^x$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$6$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":true},{"id":"d","text":"$1$","isCorrect":false}],"solution":"Startverdien er $a = f(0) = 3 \\cdot 2^0 = 3$."},{"id":"s1-2-3-n-quiz1-q2","task":"Ein vekstfaktor er $0{,}93$. Kva tyder det?","options":[{"id":"a","text":"Verdien søkk med $7\\,\\%$ per periode","isCorrect":true},{"id":"b","text":"Verdien søkk med $93\\,\\%$ per periode","isCorrect":false},{"id":"c","text":"Verdien aukar med $93\\,\\%$ per periode","isCorrect":false},{"id":"d","text":"Verdien aukar med $0{,}93\\,\\%$ per periode","isCorrect":false}],"solution":"$1 - 0{,}93 = 0{,}07$, altså ein nedgang på $7\\,\\%$ per periode."},{"id":"s1-2-3-n-quiz1-q3","task":"Ein by med $50\\,000$ innbyggjarar veks $2\\,\\%$ per år. Kva modell skildrar folkesetnaden etter $t$ år?","options":[{"id":"a","text":"$P(t) = 50000 + 1000t$","isCorrect":false},{"id":"b","text":"$P(t) = 50000 \\cdot 0{,}02^t$","isCorrect":false},{"id":"c","text":"$P(t) = 50000 \\cdot 2^t$","isCorrect":false},{"id":"d","text":"$P(t) = 50000 \\cdot 1{,}02^t$","isCorrect":true}],"solution":"Fast prosentvis vekst gir eksponentialfunksjon med vekstfaktor $b = 1{,}02$: $P(t) = 50000 \\cdot 1{,}02^t$."}]}},{"id":"s1-2-3-n-section1","type":"text","content":"## Halveringstid, grafen og talet $e$\n\nEksponentiell nedgang møter du mellom anna i fysikk og medisin. Eit radioaktivt stoff på 100 gram har halveringstid på 5 år — kor mykje er igjen etter 15 år? Kvar halvering gangar mengda med $0{,}5$, og på 15 år rekk stoffet $\\frac{15}{5} = 3$ halveringar:\n\n$$m = 100 \\cdot 0{,}5^3 = 12{,}5 \\text{ gram}$$\n\nVil vi ha ein modell per år, finn vi vekstfaktoren $b = 0{,}5^{1/5} \\approx 0{,}871$ og skriv $m(t) = 100 \\cdot 0{,}871^t$ — same svar, $m(15) \\approx 12{,}5$ gram.\n\nGrafane til eksponentialfunksjonar har eit umiskjenneleg utsjånad. For $f(x) = a \\cdot b^x$ med $a > 0$ er definisjonsmengda alle reelle tal, verdimengda $(0, \\infty)$, og grafen skjer $y$-aksen i $(0, a)$. Han har **ingen nullpunkt** — han kryssar aldri $x$-aksen — men har $y = 0$ som horisontal asymptote. Er $b > 1$ stig grafen, er $0 < b < 1$ søkk han. Samanlikn $f(x) = 2^x$ og $g(x) = \\left(\\frac{1}{2}\\right)^x = 2^{-x}$: begge går gjennom $(0, 1)$, og den eine er spegelbiletet av den andre om $y$-aksen.\n\nTil slutt: blant alle grunntal finst eitt som matematikken sjølv peikar ut. Den **naturlege eksponentialfunksjonen** $f(x) = e^x$ har grunntal $e = \\lim_{n \\to \\infty}\\left(1 + \\frac{1}{n}\\right)^n \\approx 2{,}71828$, og er spesiell fordi han er sin eigen deriverte: $(e^x)' = e^x$. Ved **kontinuerleg vekst** — vekst som skjer heile tida, ikkje i årlege hopp — brukar vi $f(t) = a \\cdot e^{kt}$, der $k > 0$ gir vekst og $k < 0$ nedgang. Samanhengen med den diskrete vekstfaktoren er $b = e^k$, eller $k = \\ln(b)$."},{"id":"s1-2-3-n-quiz2","type":"exercise","exercise":{"id":"s1-2-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på halvering, grafar og kontinuerleg vekst:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-3-n-quiz2-q0","task":"Eit radioaktivt stoff på $800$ mg halverer seg kvar 6. time. Kor mykje er igjen etter $18$ timar?","options":[{"id":"a","text":"$400$ mg","isCorrect":false},{"id":"b","text":"$100$ mg","isCorrect":true},{"id":"c","text":"$200$ mg","isCorrect":false},{"id":"d","text":"$266{,}7$ mg","isCorrect":false}],"solution":"$18$ timar er $3$ halveringar: $800 \\cdot 0{,}5^3 = 100$ mg."},{"id":"s1-2-3-n-quiz2-q1","task":"Kor mange nullpunkt har $f(x) = 5 \\cdot 1{,}2^x$?","options":[{"id":"a","text":"Eitt","isCorrect":false},{"id":"b","text":"To","isCorrect":false},{"id":"c","text":"Uendeleg mange","isCorrect":false},{"id":"d","text":"Ingen","isCorrect":true}],"solution":"Ein eksponentialfunksjon med $a > 0$ er alltid positiv og kryssar aldri $x$-aksen. Han har $y = 0$ som horisontal asymptote."},{"id":"s1-2-3-n-quiz2-q2","task":"Ein eksponentialfunksjon $f(x) = a \\cdot b^x$ oppfyller $f(0) = 4$ og $f(1) = 12$. Kva er $b$?","options":[{"id":"a","text":"$b = 8$","isCorrect":false},{"id":"b","text":"$b = 4$","isCorrect":false},{"id":"c","text":"$b = 3$","isCorrect":true},{"id":"d","text":"$b = 12$","isCorrect":false}],"solution":"$f(0) = a = 4$, og $f(1) = 4b = 12$ gir $b = 3$."},{"id":"s1-2-3-n-quiz2-q3","task":"Ved kontinuerleg vekst $f(t) = a \\cdot e^{kt}$ — kva er samanhengen mellom $k$ og vekstfaktoren $b$?","options":[{"id":"a","text":"$b = e^k$","isCorrect":true},{"id":"b","text":"$b = k + 1$","isCorrect":false},{"id":"c","text":"$k = b - 1$","isCorrect":false},{"id":"d","text":"$b = \\ln k$","isCorrect":false}],"solution":"Den diskrete vekstfaktoren er $b = e^k$, som òg kan skrivast $k = \\ln(b)$."}]}},{"id":"s1-2-3-n-summary","type":"text","content":"## Oppsummering: grammatikken til veksten\n\nKommunestyret fekk svaret sitt: med 2 % årleg vekst gir modellen $P(t) = 50000 \\cdot 1{,}02^t$ omtrent 60 950 innbyggjarar etter ti år. Undervegs har du lært grammatikken som styrer all slik vekst.\n\nEin **eksponentialfunksjon** $f(x) = a \\cdot b^x$ har startverdien $a = f(0)$ og vekstfaktoren $b$. Fast prosentvis endring blir omsett til vekstfaktor med $b = 1 \\pm \\frac{p}{100}$: vekst når $b > 1$, nedgang når $0 < b < 1$. Halveringstid er berre nedgang i forkleding — kvar halvering gangar med $0{,}5$, og talet på halveringar styrer eksponenten.\n\n**Grafen** til $f(x) = a \\cdot b^x$ med $a > 0$ ligg alltid over $x$-aksen, skjer $y$-aksen i $(0, a)$, har ingen nullpunkt og nærmar seg $y = 0$ som horisontal asymptote. Og bak det heile lurer **Eulertalet** $e \\approx 2{,}718$: den naturlege eksponentialfunksjonen $e^x$ er sin eigen deriverte, og kontinuerleg vekst blir skriven $f(t) = a \\cdot e^{kt}$ med brua $b = e^k$ mellom dei to skrivemåtane.\n\nNeste gong du høyrer «prisane steig 3,5 % i år» eller «batterikapasiteten fell 2 % per ladesyklus», veit du nøyaktig kva funksjon som ligg under — og i neste kapittel lærer du verktøyet som løyser likningar der $x$ sit fast oppe i eksponenten: logaritmen."}],"exercises":[],"_meta":{"sourceHash":"27de58aa803fa48f","translatedAt":"2026-06-20T03:15:10.424Z","model":"claude-code-agent","strings":53,"tm":{"26b6a95a6a0c76c0":"Eksponentialfunksjonar","b195b06d1ed59702":"Narrativ versjon","09fe1ca13c6db83d":"Ei forteljing om byen som veks to prosent i året — vekstfaktor, halveringstid, talet e og kontinuerleg vekst.","1b9f981eea196759":"analysere og tolke ulike funksjonstypar","f460b40ff86c4d2b":"bruke funksjonar i modellering","5dfe9dabcfc1710c":"bruke digitale verktøy i utforsking og problemløysing","bb0f435e6810ac55":"## Byen som veks to prosent i året\n\nKommunestyret i ein by med 50 000 innbyggjarar planlegg skular og bustader for framtida, og demografane melder at folkesetnaden veks med omtrent 2 % per år. Korleis reknar vi ut kor mange som bur der om ti år? Svaret er ikkje å leggje til 1 000 personar ti gonger — for kvart år veks òg fjorårets vekst. Vi treng ein funksjon der variabelen står i eksponenten: ein **eksponentialfunksjon**.\n\nEin eksponentialfunksjon har forma\n\n$$f(x) = a \\cdot b^x$$\n\nder $a \\neq 0$, $b > 0$ og $b \\neq 1$. Talet $a$ er **startverdien** — verdien når $x = 0$ — og $b$ er **vekstfaktoren**. Er $b > 1$, har vi eksponentiell vekst; er $0 < b < 1$, har vi eksponentiell nedgang.\n\nVekstfaktoren heng direkte saman med prosentvis endring $p$ per tidseining:\n\n$$b = 1 + \\frac{p}{100}$$\n\nEin auke på 5 % gir $b = 1{,}05$, ein nedgang på 3 % gir $b = 0{,}97$, og ein auke på 12 % gir $b = 1{,}12$. Eksponentialfunksjonar er difor det naturlege språket for alt som endrar seg med **fast prosent**: folkevekst, rentes rente, radioaktivt forfall og verdifall på bilar.\n\nFor byen vår blir modellen $P(t) = 50000 \\cdot 1{,}02^t$, der $t$ er talet på år. Etter ti år: $P(10) = 50000 \\cdot 1{,}02^{10} \\approx 50000 \\cdot 1{,}219 \\approx 60\\,950$ innbyggjarar. Nesten 11 000 fleire — og det er den typen tal kommunestyret treng for å vite kor mange klasserom som må byggjast.","4c91464306d5e1e7":"Test deg sjølv på vekstfaktor og eksponentiell vekst:","4097889236a2af26":"placeholder","43245680d6c2a78e":"Ein verdi aukar med $5\\,\\%$ per år. Kva er vekstfaktoren?","8c8d50b7672244b9":"Vekstfaktor: $b = 1 + \\frac{5}{100} = 1{,}05$.","890366d863c9868c":"Kva er startverdien i $f(x) = 3 \\cdot 2^x$?","ecc42ea6ea38f89e":"Startverdien er $a = f(0) = 3 \\cdot 2^0 = 3$.","13f818e1a73c5840":"Ein vekstfaktor er $0{,}93$. Kva tyder det?","b2153732a919a183":"Verdien søkk med $7\\,\\%$ per periode","78244dc69fbb72e0":"Verdien søkk med $93\\,\\%$ per periode","0607fa14bf6d7cdb":"Verdien aukar med $93\\,\\%$ per periode","dad0a5d018dd5d8b":"Verdien aukar med $0{,}93\\,\\%$ per periode","64a6fba02316b23c":"$1 - 0{,}93 = 0{,}07$, altså ein nedgang på $7\\,\\%$ per periode.","3caded6770dbf4df":"Ein by med $50\\,000$ innbyggjarar veks $2\\,\\%$ per år. Kva modell skildrar folkesetnaden etter $t$ år?","69ddb3830a99c0b9":"$P(t) = 50000 + 1000t$","7ef8fccb1b3715f0":"$P(t) = 50000 \\cdot 0{,}02^t$","2c9a9b83515b10a3":"$P(t) = 50000 \\cdot 2^t$","898deb1f3b573f13":"$P(t) = 50000 \\cdot 1{,}02^t$","4c59db59124692c3":"Fast prosentvis vekst gir eksponentialfunksjon med vekstfaktor $b = 1{,}02$: $P(t) = 50000 \\cdot 1{,}02^t$.","901f392914e86fb0":"## Halveringstid, grafen og talet $e$\n\nEksponentiell nedgang møter du mellom anna i fysikk og medisin. Eit radioaktivt stoff på 100 gram har halveringstid på 5 år — kor mykje er igjen etter 15 år? Kvar halvering gangar mengda med $0{,}5$, og på 15 år rekk stoffet $\\frac{15}{5} = 3$ halveringar:\n\n$$m = 100 \\cdot 0{,}5^3 = 12{,}5 \\text{ gram}$$\n\nVil vi ha ein modell per år, finn vi vekstfaktoren $b = 0{,}5^{1/5} \\approx 0{,}871$ og skriv $m(t) = 100 \\cdot 0{,}871^t$ — same svar, $m(15) \\approx 12{,}5$ gram.\n\nGrafane til eksponentialfunksjonar har eit umiskjenneleg utsjånad. For $f(x) = a \\cdot b^x$ med $a > 0$ er definisjonsmengda alle reelle tal, verdimengda $(0, \\infty)$, og grafen skjer $y$-aksen i $(0, a)$. Han har **ingen nullpunkt** — han kryssar aldri $x$-aksen — men har $y = 0$ som horisontal asymptote. Er $b > 1$ stig grafen, er $0 < b < 1$ søkk han. Samanlikn $f(x) = 2^x$ og $g(x) = \\left(\\frac{1}{2}\\right)^x = 2^{-x}$: begge går gjennom $(0, 1)$, og den eine er spegelbiletet av den andre om $y$-aksen.\n\nTil slutt: blant alle grunntal finst eitt som matematikken sjølv peikar ut. Den **naturlege eksponentialfunksjonen** $f(x) = e^x$ har grunntal $e = \\lim_{n \\to \\infty}\\left(1 + \\frac{1}{n}\\right)^n \\approx 2{,}71828$, og er spesiell fordi han er sin eigen deriverte: $(e^x)' = e^x$. Ved **kontinuerleg vekst** — vekst som skjer heile tida, ikkje i årlege hopp — brukar vi $f(t) = a \\cdot e^{kt}$, der $k > 0$ gir vekst og $k < 0$ nedgang. Samanhengen med den diskrete vekstfaktoren er $b = e^k$, eller $k = \\ln(b)$.","b5fb89d186d93c0c":"Test deg sjølv på halvering, grafar og kontinuerleg vekst:","cda2ae63df7c674e":"Eit radioaktivt stoff på $800$ mg halverer seg kvar 6. time. Kor mykje er igjen etter $18$ timar?","a1552ed1c8721d21":"$400$ mg","02548254e64a1665":"$100$ mg","e3ff19b0200c2ad2":"$200$ mg","6ea1cbafd5d9fc4c":"$266{,}7$ mg","fc3bb40c3d123172":"$18$ timar er $3$ halveringar: $800 \\cdot 0{,}5^3 = 100$ mg.","a085d3c21420487b":"Kor mange nullpunkt har $f(x) = 5 \\cdot 1{,}2^x$?","64fc821125025fd5":"Eitt","f4b06ef6d3c81436":"To","6b5eccd31267a114":"Uendeleg mange","4caa44f124d9c5e5":"Ingen","e5a46b3477372321":"Ein eksponentialfunksjon med $a > 0$ er alltid positiv og kryssar aldri $x$-aksen. Han har $y = 0$ som horisontal asymptote.","659fd4e0a53c7aeb":"Ein eksponentialfunksjon $f(x) = a \\cdot b^x$ oppfyller $f(0) = 4$ og $f(1) = 12$. Kva er $b$?","2b6bdd618a5a1840":"$b = 8$","86859b82558782c2":"$b = 4$","72da37eb52ff9614":"$b = 3$","6fbee981ef2588ed":"$b = 12$","76936558cc5221a9":"$f(0) = a = 4$, og $f(1) = 4b = 12$ gir $b = 3$.","cd4fb135b08884b2":"Ved kontinuerleg vekst $f(t) = a \\cdot e^{kt}$ — kva er samanhengen mellom $k$ og vekstfaktoren $b$?","3bde9dcb72bce0bb":"$b = e^k$","a77135fb490bb98d":"$b = k + 1$","a13c6a095294635b":"$k = b - 1$","03540054cee4681a":"$b = \\ln k$","7c930c1ca24252c4":"Den diskrete vekstfaktoren er $b = e^k$, som òg kan skrivast $k = \\ln(b)$.","9baa348e1f4bd491":"## Oppsummering: grammatikken til veksten\n\nKommunestyret fekk svaret sitt: med 2 % årleg vekst gir modellen $P(t) = 50000 \\cdot 1{,}02^t$ omtrent 60 950 innbyggjarar etter ti år. Undervegs har du lært grammatikken som styrer all slik vekst.\n\nEin **eksponentialfunksjon** $f(x) = a \\cdot b^x$ har startverdien $a = f(0)$ og vekstfaktoren $b$. Fast prosentvis endring blir omsett til vekstfaktor med $b = 1 \\pm \\frac{p}{100}$: vekst når $b > 1$, nedgang når $0 < b < 1$. Halveringstid er berre nedgang i forkleding — kvar halvering gangar med $0{,}5$, og talet på halveringar styrer eksponenten.\n\n**Grafen** til $f(x) = a \\cdot b^x$ med $a > 0$ ligg alltid over $x$-aksen, skjer $y$-aksen i $(0, a)$, har ingen nullpunkt og nærmar seg $y = 0$ som horisontal asymptote. Og bak det heile lurer **Eulertalet** $e \\approx 2{,}718$: den naturlege eksponentialfunksjonen $e^x$ er sin eigen deriverte, og kontinuerleg vekst blir skriven $f(t) = a \\cdot e^{kt}$ med brua $b = e^k$ mellom dei to skrivemåtane.\n\nNeste gong du høyrer «prisane steig 3,5 % i år» eller «batterikapasiteten fell 2 % per ladesyklus», veit du nøyaktig kva funksjon som ligg under — og i neste kapittel lærer du verktøyet som løyser likningar der $x$ sit fast oppe i eksponenten: logaritmen."}}}
+{
+  "id": "s1-2-3-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "2.3",
+  "title": "Eksponentialfunksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om byen som veks to prosent i året — vekstfaktor, halveringstid, talet e og kontinuerleg vekst.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "analysere og tolke ulike funksjonstypar",
+    "bruke funksjonar i modellering",
+    "bruke digitale verktøy i utforsking og problemløysing"
+  ],
+  "linkedChapterId": "s1-2-3",
+  "content": [
+    {
+      "id": "s1-2-3-n-intro",
+      "type": "text",
+      "content": "## Byen som veks to prosent i året\n\nKommunestyret i ein by med 50 000 innbyggjarar planlegg skular og bustader for framtida, og demografane melder at folkesetnaden veks med omtrent 2 % per år. Korleis reknar vi ut kor mange som bur der om ti år? Svaret er ikkje å leggje til 1 000 personar ti gonger — for kvart år veks òg fjorårets vekst. Vi treng ein funksjon der variabelen står i eksponenten: ein **eksponentialfunksjon**.\n\nEin eksponentialfunksjon har forma\n\n$$f(x) = a \\cdot b^x$$\n\nder $a \\neq 0$, $b > 0$ og $b \\neq 1$. Talet $a$ er **startverdien** — verdien når $x = 0$ — og $b$ er **vekstfaktoren**. Er $b > 1$, har vi eksponentiell vekst; er $0 < b < 1$, har vi eksponentiell nedgang.\n\nVekstfaktoren heng direkte saman med prosentvis endring $p$ per tidseining:\n\n$$b = 1 + \\frac{p}{100}$$\n\nEin auke på 5 % gir $b = 1{,}05$, ein nedgang på 3 % gir $b = 0{,}97$, og ein auke på 12 % gir $b = 1{,}12$. Eksponentialfunksjonar er difor det naturlege språket for alt som endrar seg med **fast prosent**: folkevekst, rentes rente, radioaktivt forfall og verdifall på bilar.\n\nFor byen vår blir modellen $P(t) = 50000 \\cdot 1{,}02^t$, der $t$ er talet på år. Etter ti år: $P(10) = 50000 \\cdot 1{,}02^{10} \\approx 50000 \\cdot 1{,}219 \\approx 60\\,950$ innbyggjarar. Nesten 11 000 fleire — og det er den typen tal kommunestyret treng for å vite kor mange klasserom som må byggjast."
+    },
+    {
+      "id": "s1-2-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vekstfaktor og eksponentiell vekst:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-3-n-quiz1-q0",
+            "task": "Ein verdi aukar med $5\\,\\%$ per år. Kva er vekstfaktoren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}95$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}05$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor: $b = 1 + \\frac{5}{100} = 1{,}05$."
+          },
+          {
+            "id": "s1-2-3-n-quiz1-q1",
+            "task": "Kva er startverdien i $f(x) = 3 \\cdot 2^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Startverdien er $a = f(0) = 3 \\cdot 2^0 = 3$."
+          },
+          {
+            "id": "s1-2-3-n-quiz1-q2",
+            "task": "Ein vekstfaktor er $0{,}93$. Kva tyder det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Verdien søkk med $7\\,\\%$ per periode",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Verdien søkk med $93\\,\\%$ per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Verdien aukar med $93\\,\\%$ per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verdien aukar med $0{,}93\\,\\%$ per periode",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$1 - 0{,}93 = 0{,}07$, altså ein nedgang på $7\\,\\%$ per periode."
+          },
+          {
+            "id": "s1-2-3-n-quiz1-q3",
+            "task": "Ein by med $50\\,000$ innbyggjarar veks $2\\,\\%$ per år. Kva modell skildrar folkesetnaden etter $t$ år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(t) = 50000 + 1000t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(t) = 50000 \\cdot 1{,}02^t$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$P(t) = 50000 \\cdot 0{,}02^t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(t) = 50000 \\cdot 2^t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fast prosentvis vekst gir eksponentialfunksjon med vekstfaktor $b = 1{,}02$: $P(t) = 50000 \\cdot 1{,}02^t$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-3-n-section1",
+      "type": "text",
+      "content": "## Halveringstid, grafen og talet $e$\n\nEksponentiell nedgang møter du mellom anna i fysikk og medisin. Eit radioaktivt stoff på 100 gram har halveringstid på 5 år — kor mykje er igjen etter 15 år? Kvar halvering gangar mengda med $0{,}5$, og på 15 år rekk stoffet $\\frac{15}{5} = 3$ halveringar:\n\n$$m = 100 \\cdot 0{,}5^3 = 12{,}5 \\text{ gram}$$\n\nVil vi ha ein modell per år, finn vi vekstfaktoren $b = 0{,}5^{1/5} \\approx 0{,}871$ og skriv $m(t) = 100 \\cdot 0{,}871^t$ — same svar, $m(15) \\approx 12{,}5$ gram.\n\nGrafane til eksponentialfunksjonar har eit umiskjenneleg utsjånad. For $f(x) = a \\cdot b^x$ med $a > 0$ er definisjonsmengda alle reelle tal, verdimengda $(0, \\infty)$, og grafen skjer $y$-aksen i $(0, a)$. Han har **ingen nullpunkt** — han kryssar aldri $x$-aksen — men har $y = 0$ som horisontal asymptote. Er $b > 1$ stig grafen, er $0 < b < 1$ søkk han. Samanlikn $f(x) = 2^x$ og $g(x) = \\left(\\frac{1}{2}\\right)^x = 2^{-x}$: begge går gjennom $(0, 1)$, og den eine er spegelbiletet av den andre om $y$-aksen.\n\nTil slutt: blant alle grunntal finst eitt som matematikken sjølv peikar ut. Den **naturlege eksponentialfunksjonen** $f(x) = e^x$ har grunntal $e = \\lim_{n \\to \\infty}\\left(1 + \\frac{1}{n}\\right)^n \\approx 2{,}71828$, og er spesiell fordi han er sin eigen deriverte: $(e^x)' = e^x$. Ved **kontinuerleg vekst** — vekst som skjer heile tida, ikkje i årlege hopp — brukar vi $f(t) = a \\cdot e^{kt}$, der $k > 0$ gir vekst og $k < 0$ nedgang. Samanhengen med den diskrete vekstfaktoren er $b = e^k$, eller $k = \\ln(b)$."
+    },
+    {
+      "id": "s1-2-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på halvering, grafar og kontinuerleg vekst:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-3-n-quiz2-q0",
+            "task": "Eit radioaktivt stoff på $800$ mg halverer seg kvar 6. time. Kor mykje er igjen etter $18$ timar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$400$ mg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$200$ mg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$100$ mg",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$266{,}7$ mg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$18$ timar er $3$ halveringar: $800 \\cdot 0{,}5^3 = 100$ mg."
+          },
+          {
+            "id": "s1-2-3-n-quiz2-q1",
+            "task": "Kor mange nullpunkt har $f(x) = 5 \\cdot 1{,}2^x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eitt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendeleg mange",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein eksponentialfunksjon med $a > 0$ er alltid positiv og kryssar aldri $x$-aksen. Han har $y = 0$ som horisontal asymptote."
+          },
+          {
+            "id": "s1-2-3-n-quiz2-q2",
+            "task": "Ein eksponentialfunksjon $f(x) = a \\cdot b^x$ oppfyller $f(0) = 4$ og $f(1) = 12$. Kva er $b$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$b = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$b = 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$b = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$b = 12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(0) = a = 4$, og $f(1) = 4b = 12$ gir $b = 3$."
+          },
+          {
+            "id": "s1-2-3-n-quiz2-q3",
+            "task": "Ved kontinuerleg vekst $f(t) = a \\cdot e^{kt}$ — kva er samanhengen mellom $k$ og vekstfaktoren $b$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$b = k + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$b = e^k$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$k = b - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$b = \\ln k$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den diskrete vekstfaktoren er $b = e^k$, som òg kan skrivast $k = \\ln(b)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: grammatikken til veksten\n\nKommunestyret fekk svaret sitt: med 2 % årleg vekst gir modellen $P(t) = 50000 \\cdot 1{,}02^t$ omtrent 60 950 innbyggjarar etter ti år. Undervegs har du lært grammatikken som styrer all slik vekst.\n\nEin **eksponentialfunksjon** $f(x) = a \\cdot b^x$ har startverdien $a = f(0)$ og vekstfaktoren $b$. Fast prosentvis endring blir omsett til vekstfaktor med $b = 1 \\pm \\frac{p}{100}$: vekst når $b > 1$, nedgang når $0 < b < 1$. Halveringstid er berre nedgang i forkleding — kvar halvering gangar med $0{,}5$, og talet på halveringar styrer eksponenten.\n\n**Grafen** til $f(x) = a \\cdot b^x$ med $a > 0$ ligg alltid over $x$-aksen, skjer $y$-aksen i $(0, a)$, har ingen nullpunkt og nærmar seg $y = 0$ som horisontal asymptote. Og bak det heile lurer **Eulertalet** $e \\approx 2{,}718$: den naturlege eksponentialfunksjonen $e^x$ er sin eigen deriverte, og kontinuerleg vekst blir skriven $f(t) = a \\cdot e^{kt}$ med brua $b = e^k$ mellom dei to skrivemåtane.\n\nNeste gong du høyrer «prisane steig 3,5 % i år» eller «batterikapasiteten fell 2 % per ladesyklus», veit du nøyaktig kva funksjon som ligg under — og i neste kapittel lærer du verktøyet som løyser likningar der $x$ sit fast oppe i eksponenten: logaritmen."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "27de58aa803fa48f",
+    "translatedAt": "2026-06-20T03:15:10.424Z",
+    "model": "claude-code-agent",
+    "strings": 53,
+    "tm": {
+      "26b6a95a6a0c76c0": "Eksponentialfunksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "09fe1ca13c6db83d": "Ei forteljing om byen som veks to prosent i året — vekstfaktor, halveringstid, talet e og kontinuerleg vekst.",
+      "1b9f981eea196759": "analysere og tolke ulike funksjonstypar",
+      "f460b40ff86c4d2b": "bruke funksjonar i modellering",
+      "5dfe9dabcfc1710c": "bruke digitale verktøy i utforsking og problemløysing",
+      "bb0f435e6810ac55": "## Byen som veks to prosent i året\n\nKommunestyret i ein by med 50 000 innbyggjarar planlegg skular og bustader for framtida, og demografane melder at folkesetnaden veks med omtrent 2 % per år. Korleis reknar vi ut kor mange som bur der om ti år? Svaret er ikkje å leggje til 1 000 personar ti gonger — for kvart år veks òg fjorårets vekst. Vi treng ein funksjon der variabelen står i eksponenten: ein **eksponentialfunksjon**.\n\nEin eksponentialfunksjon har forma\n\n$$f(x) = a \\cdot b^x$$\n\nder $a \\neq 0$, $b > 0$ og $b \\neq 1$. Talet $a$ er **startverdien** — verdien når $x = 0$ — og $b$ er **vekstfaktoren**. Er $b > 1$, har vi eksponentiell vekst; er $0 < b < 1$, har vi eksponentiell nedgang.\n\nVekstfaktoren heng direkte saman med prosentvis endring $p$ per tidseining:\n\n$$b = 1 + \\frac{p}{100}$$\n\nEin auke på 5 % gir $b = 1{,}05$, ein nedgang på 3 % gir $b = 0{,}97$, og ein auke på 12 % gir $b = 1{,}12$. Eksponentialfunksjonar er difor det naturlege språket for alt som endrar seg med **fast prosent**: folkevekst, rentes rente, radioaktivt forfall og verdifall på bilar.\n\nFor byen vår blir modellen $P(t) = 50000 \\cdot 1{,}02^t$, der $t$ er talet på år. Etter ti år: $P(10) = 50000 \\cdot 1{,}02^{10} \\approx 50000 \\cdot 1{,}219 \\approx 60\\,950$ innbyggjarar. Nesten 11 000 fleire — og det er den typen tal kommunestyret treng for å vite kor mange klasserom som må byggjast.",
+      "4c91464306d5e1e7": "Test deg sjølv på vekstfaktor og eksponentiell vekst:",
+      "4097889236a2af26": "placeholder",
+      "43245680d6c2a78e": "Ein verdi aukar med $5\\,\\%$ per år. Kva er vekstfaktoren?",
+      "8c8d50b7672244b9": "Vekstfaktor: $b = 1 + \\frac{5}{100} = 1{,}05$.",
+      "890366d863c9868c": "Kva er startverdien i $f(x) = 3 \\cdot 2^x$?",
+      "ecc42ea6ea38f89e": "Startverdien er $a = f(0) = 3 \\cdot 2^0 = 3$.",
+      "13f818e1a73c5840": "Ein vekstfaktor er $0{,}93$. Kva tyder det?",
+      "b2153732a919a183": "Verdien søkk med $7\\,\\%$ per periode",
+      "78244dc69fbb72e0": "Verdien søkk med $93\\,\\%$ per periode",
+      "0607fa14bf6d7cdb": "Verdien aukar med $93\\,\\%$ per periode",
+      "dad0a5d018dd5d8b": "Verdien aukar med $0{,}93\\,\\%$ per periode",
+      "64a6fba02316b23c": "$1 - 0{,}93 = 0{,}07$, altså ein nedgang på $7\\,\\%$ per periode.",
+      "3caded6770dbf4df": "Ein by med $50\\,000$ innbyggjarar veks $2\\,\\%$ per år. Kva modell skildrar folkesetnaden etter $t$ år?",
+      "69ddb3830a99c0b9": "$P(t) = 50000 + 1000t$",
+      "7ef8fccb1b3715f0": "$P(t) = 50000 \\cdot 0{,}02^t$",
+      "2c9a9b83515b10a3": "$P(t) = 50000 \\cdot 2^t$",
+      "898deb1f3b573f13": "$P(t) = 50000 \\cdot 1{,}02^t$",
+      "4c59db59124692c3": "Fast prosentvis vekst gir eksponentialfunksjon med vekstfaktor $b = 1{,}02$: $P(t) = 50000 \\cdot 1{,}02^t$.",
+      "901f392914e86fb0": "## Halveringstid, grafen og talet $e$\n\nEksponentiell nedgang møter du mellom anna i fysikk og medisin. Eit radioaktivt stoff på 100 gram har halveringstid på 5 år — kor mykje er igjen etter 15 år? Kvar halvering gangar mengda med $0{,}5$, og på 15 år rekk stoffet $\\frac{15}{5} = 3$ halveringar:\n\n$$m = 100 \\cdot 0{,}5^3 = 12{,}5 \\text{ gram}$$\n\nVil vi ha ein modell per år, finn vi vekstfaktoren $b = 0{,}5^{1/5} \\approx 0{,}871$ og skriv $m(t) = 100 \\cdot 0{,}871^t$ — same svar, $m(15) \\approx 12{,}5$ gram.\n\nGrafane til eksponentialfunksjonar har eit umiskjenneleg utsjånad. For $f(x) = a \\cdot b^x$ med $a > 0$ er definisjonsmengda alle reelle tal, verdimengda $(0, \\infty)$, og grafen skjer $y$-aksen i $(0, a)$. Han har **ingen nullpunkt** — han kryssar aldri $x$-aksen — men har $y = 0$ som horisontal asymptote. Er $b > 1$ stig grafen, er $0 < b < 1$ søkk han. Samanlikn $f(x) = 2^x$ og $g(x) = \\left(\\frac{1}{2}\\right)^x = 2^{-x}$: begge går gjennom $(0, 1)$, og den eine er spegelbiletet av den andre om $y$-aksen.\n\nTil slutt: blant alle grunntal finst eitt som matematikken sjølv peikar ut. Den **naturlege eksponentialfunksjonen** $f(x) = e^x$ har grunntal $e = \\lim_{n \\to \\infty}\\left(1 + \\frac{1}{n}\\right)^n \\approx 2{,}71828$, og er spesiell fordi han er sin eigen deriverte: $(e^x)' = e^x$. Ved **kontinuerleg vekst** — vekst som skjer heile tida, ikkje i årlege hopp — brukar vi $f(t) = a \\cdot e^{kt}$, der $k > 0$ gir vekst og $k < 0$ nedgang. Samanhengen med den diskrete vekstfaktoren er $b = e^k$, eller $k = \\ln(b)$.",
+      "b5fb89d186d93c0c": "Test deg sjølv på halvering, grafar og kontinuerleg vekst:",
+      "cda2ae63df7c674e": "Eit radioaktivt stoff på $800$ mg halverer seg kvar 6. time. Kor mykje er igjen etter $18$ timar?",
+      "a1552ed1c8721d21": "$400$ mg",
+      "02548254e64a1665": "$100$ mg",
+      "e3ff19b0200c2ad2": "$200$ mg",
+      "6ea1cbafd5d9fc4c": "$266{,}7$ mg",
+      "fc3bb40c3d123172": "$18$ timar er $3$ halveringar: $800 \\cdot 0{,}5^3 = 100$ mg.",
+      "a085d3c21420487b": "Kor mange nullpunkt har $f(x) = 5 \\cdot 1{,}2^x$?",
+      "64fc821125025fd5": "Eitt",
+      "f4b06ef6d3c81436": "To",
+      "6b5eccd31267a114": "Uendeleg mange",
+      "4caa44f124d9c5e5": "Ingen",
+      "e5a46b3477372321": "Ein eksponentialfunksjon med $a > 0$ er alltid positiv og kryssar aldri $x$-aksen. Han har $y = 0$ som horisontal asymptote.",
+      "659fd4e0a53c7aeb": "Ein eksponentialfunksjon $f(x) = a \\cdot b^x$ oppfyller $f(0) = 4$ og $f(1) = 12$. Kva er $b$?",
+      "2b6bdd618a5a1840": "$b = 8$",
+      "86859b82558782c2": "$b = 4$",
+      "72da37eb52ff9614": "$b = 3$",
+      "6fbee981ef2588ed": "$b = 12$",
+      "76936558cc5221a9": "$f(0) = a = 4$, og $f(1) = 4b = 12$ gir $b = 3$.",
+      "cd4fb135b08884b2": "Ved kontinuerleg vekst $f(t) = a \\cdot e^{kt}$ — kva er samanhengen mellom $k$ og vekstfaktoren $b$?",
+      "3bde9dcb72bce0bb": "$b = e^k$",
+      "a77135fb490bb98d": "$b = k + 1$",
+      "a13c6a095294635b": "$k = b - 1$",
+      "03540054cee4681a": "$b = \\ln k$",
+      "7c930c1ca24252c4": "Den diskrete vekstfaktoren er $b = e^k$, som òg kan skrivast $k = \\ln(b)$.",
+      "9baa348e1f4bd491": "## Oppsummering: grammatikken til veksten\n\nKommunestyret fekk svaret sitt: med 2 % årleg vekst gir modellen $P(t) = 50000 \\cdot 1{,}02^t$ omtrent 60 950 innbyggjarar etter ti år. Undervegs har du lært grammatikken som styrer all slik vekst.\n\nEin **eksponentialfunksjon** $f(x) = a \\cdot b^x$ har startverdien $a = f(0)$ og vekstfaktoren $b$. Fast prosentvis endring blir omsett til vekstfaktor med $b = 1 \\pm \\frac{p}{100}$: vekst når $b > 1$, nedgang når $0 < b < 1$. Halveringstid er berre nedgang i forkleding — kvar halvering gangar med $0{,}5$, og talet på halveringar styrer eksponenten.\n\n**Grafen** til $f(x) = a \\cdot b^x$ med $a > 0$ ligg alltid over $x$-aksen, skjer $y$-aksen i $(0, a)$, har ingen nullpunkt og nærmar seg $y = 0$ som horisontal asymptote. Og bak det heile lurer **Eulertalet** $e \\approx 2{,}718$: den naturlege eksponentialfunksjonen $e^x$ er sin eigen deriverte, og kontinuerleg vekst blir skriven $f(t) = a \\cdot e^{kt}$ med brua $b = e^k$ mellom dei to skrivemåtane.\n\nNeste gong du høyrer «prisane steig 3,5 % i år» eller «batterikapasiteten fell 2 % per ladesyklus», veit du nøyaktig kva funksjon som ligg under — og i neste kapittel lærer du verktøyet som løyser likningar der $x$ sit fast oppe i eksponenten: logaritmen."
+    }
+  }
+}

@@ -1,1 +1,358 @@
-{"id":"s2-6-2-narrativ","courseId":"s2","chapterNumber":"6.2","title":"Korrelasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om iskrem, drukningsulukker og brannbilar — om korleis korrelasjonskoeffisienten måler samvariasjon, og kvifor korrelasjon ikkje er det same som årsak.","estimatedMinutes":30,"competenceGoals":["rekne ut og tolke Pearsons korrelasjonskoeffisient","forstå at korrelasjon ikkje inneber kausalitet","kjenne att spuriøs korrelasjon og konfunderande variablar"],"linkedChapterId":"s2-6-2","content":[{"id":"s2-6-2-n-intro","type":"text","content":"## Iskrem, drukningsulukker og ein farleg kortslutning\n\nEin sommardag les du ei overskrift: «Forskarar har funne sterk samanheng mellom iskremsal og drukningsulukker.» Bør badevakter konfiskere softisen din? Sjølvsagt ikkje — begge delar aukar når det er varmt. Men overskrifta peikar på noko viktig: tal kan samvariere utan at det eine forårsakar det andre, og det å skilje ekte samanhengar frå tilfeldige er ein av dei viktigaste ferdigheitene du tek med deg frå statistikken.\n\nI førre kapittel fann vi regresjonslinja som skildrar *korleis* $y$ endrar seg med $x$. No skal vi måle *kor sterkt* to variablar heng saman. Det gjer vi med **korrelasjon** — eit mål på styrken og retninga til den *lineære* samanhengen mellom to variablar. Til forskjell frå regresjon, der den eine variabelen er forklaringsvariabel og den andre respons, behandlar korrelasjonen begge variablane symmetrisk. Spørsmålet er rett og slett: varierer $x$ og $y$ saman? Og i så fall, kor sterkt?\n\nI denne forteljinga skal vi først lære å rekne ut og tolke korrelasjonskoeffisienten, og deretter — like viktig — lære når vi *ikkje* skal stole på han."},{"id":"s2-6-2-n-section1","type":"text","content":"## Pearsons korrelasjonskoeffisient\n\nVerktøyet vårt heiter **Pearsons korrelasjonskoeffisient** og blir betegna $r$:\n\n$$r = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum(x_i - \\bar{x})^2 \\cdot \\sum(y_i - \\bar{y})^2}}$$\n\nEi ekvivalent form som er praktisk å rekne med, er\n\n$$r = \\frac{n\\sum x_iy_i - \\sum x_i \\sum y_i}{\\sqrt{[n\\sum x_i^2 - (\\sum x_i)^2][n\\sum y_i^2 - (\\sum y_i)^2]}}$$\n\nTalet $r$ ligg alltid mellom $-1$ og $1$. Er $r > 0$, har vi positiv korrelasjon: begge variablane aukar saman. Er $r < 0$, aukar den eine medan den andre søkk. $r = 0$ betyr ingen *lineær* samanheng — merk at det framleis kan finnast ein sterk ikkje-lineær samanheng! Og $|r| = 1$ betyr at punkta ligg perfekt på ei rett linje. Det er også ei vakker kobling til førre kapittel: $r^2 = R^2$, forklaringsgraden i enkel lineær regresjon.\n\nLa oss bruke nettbutikkens data igjen: $(1,3)$, $(2,5)$, $(3,6)$, $(4,8)$, $(5,9)$. Vi har $\\sum x_iy_i = 108$, $\\sum x_i = 15$, $\\sum y_i = 31$, $\\sum x_i^2 = 55$ og $\\sum y_i^2 = 215$. Då blir\n\n$$r = \\frac{5 \\cdot 108 - 15 \\cdot 31}{\\sqrt{(5 \\cdot 55 - 225)(5 \\cdot 215 - 961)}} = \\frac{75}{\\sqrt{50 \\cdot 114}} = \\frac{75}{\\sqrt{5700}} \\approx 0{,}993$$\n\nEi svært sterk positiv korrelasjon — og ganske riktig: $r^2 = 0{,}987$, som var nettopp $R^2$-verdien vi fann i førre kapittel.\n\nKorleis tolkar vi styrken? Ei vanleg rettesnor er at $|r|$ under 0,2 er svært svak, 0,2–0,4 svak, 0,4–0,6 moderat, 0,6–0,8 sterk og over 0,8 svært sterk. Men grensene er retningslinjer, ikkje naturlover: i fysikk kan $r = 0{,}7$ reknast som svakt, medan det i samfunnsvitskap ofte blir rekna som sterkt. Konteksten avgjer."},{"id":"s2-6-2-n-quiz1","type":"exercise","exercise":{"id":"s2-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på korrelasjonskoeffisienten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-2-n-quiz1-q0","task":"Kva verdiar kan Pearsons korrelasjonskoeffisient $r$ ta?","options":[{"id":"a","text":"Alle reelle tal","isCorrect":false},{"id":"b","text":"$-1 \\leq r \\leq 1$","isCorrect":true},{"id":"c","text":"$0 \\leq r \\leq 1$","isCorrect":false},{"id":"d","text":"$0 \\leq r \\leq 100$","isCorrect":false}],"solution":"Korrelasjonskoeffisienten ligg alltid i intervallet $[-1, 1]$. Forteiknet angir retninga, og absoluttverdien angir styrken."},{"id":"s2-6-2-n-quiz1-q1","task":"To variablar har $r = -0{,}85$. Kva betyr det?","options":[{"id":"a","text":"Sterk negativ lineær samanheng: når den eine aukar, søkk den andre","isCorrect":true},{"id":"b","text":"Svak samanheng sidan $r$ er negativ","isCorrect":false},{"id":"c","text":"Det må vere ein reknefeil, $r$ kan ikkje vere negativ","isCorrect":false},{"id":"d","text":"Den eine variabelen forårsakar at den andre søkk","isCorrect":false}],"solution":"$|r| = 0{,}85$ er ein svært sterk lineær samanheng, og det negative forteiknet betyr at variablane varierer i motsett retning. Korrelasjon seier likevel ingenting om årsak."},{"id":"s2-6-2-n-quiz1-q2","task":"Ein lineær regresjon har $R^2 = 0{,}64$ og positivt stigingstal. Kva er $r$?","options":[{"id":"a","text":"$0{,}64$","isCorrect":false},{"id":"b","text":"$0{,}41$","isCorrect":false},{"id":"c","text":"$0{,}8$","isCorrect":true},{"id":"d","text":"Kan ikkje bestemmast","isCorrect":false}],"solution":"For enkel lineær regresjon er $r^2 = R^2$, så $|r| = \\sqrt{0{,}64} = 0{,}8$. Positivt stigingstal gir $r = 0{,}8$."},{"id":"s2-6-2-n-quiz1-q3","task":"$r = 0$ for eit datasett. Kva konklusjon er rett?","options":[{"id":"a","text":"Det finst ingen samanheng av noko slag mellom variablane","isCorrect":false},{"id":"b","text":"Variablane er identiske","isCorrect":false},{"id":"c","text":"Datasettet inneheld feil","isCorrect":false},{"id":"d","text":"Det finst ingen lineær samanheng, men ein ikkje-lineær samanheng er framleis mogleg","isCorrect":true}],"solution":"$r$ måler berre lineær samvariasjon. Til dømes gir punkt på ein perfekt parabel symmetrisk om $y$-aksen $r = 0$, sjølv om samanhengen er sterk."}]}},{"id":"s2-6-2-n-section2","type":"text","content":"## Korrelasjon er ikkje kausalitet\n\nNo tilbake til iskremen og drukningsulukkene. Korrelasjonen er reell nok — men betyr han at iskrem *forårsakar* drukning? Her kjem eit av dei viktigaste prinsippa i all statistikk: **korrelasjon mellom $x$ og $y$ betyr ikkje at $x$ forårsakar $y$.**\n\nNår to variablar samvarierer, finst det faktisk fem moglege forklaringar. Det kan hende at $x$ forårsakar $y$ — slik røyking forårsakar lungekreft. Det kan vere omvendt: $y$ forårsakar $x$. Det kan finnast ei **felles årsak**, ein tredje variabel som påverkar begge — for iskrem og drukning er det varmt vêr som driv begge oppover. Det kan vere rein **tilfeldigheit** — korrelasjonen er berre støy. Eller det kan vere ein **spuriøs samanheng**: ein tilsynelatande korrelasjon utan reell forbindelse.\n\nKlassiske eksempel på spuriøse korrelasjonar er talet på piratar og global temperatur (begge har endra seg over tid — trendkorrelasjon) og margarinforbruk og skilsmisseraten i Maine (rein tilfeldigheit). Med nok variablar og nok data vil ein *alltid* finne nokre tilfeldige korrelasjonar — difor må ein samanheng også ha ei teoretisk grunngjeving før vi tek han på alvor.\n\nEit lærerikt eksempel: ei studie finn sterk positiv korrelasjon ($r = 0{,}82$) mellom talet på brannbilar ved ein brann og skadeomfanget. Forårsakar brannbilar skade? Nei — den **konfunderande variabelen** er storleiken på brannen. Store brannar får mange brannbilar *og* gir store skadar. Begge dei observerte variablane er konsekvensar av ein tredje.\n\nEin konfunderande variabel (lurking variable) er nettopp dette: ein variabel som påverkar både $x$ og $y$, skaper ein tilsynelatande samanheng mellom dei, og ikkje er inkludert i analysen. Korleis avslører vi han? Med **kontrollerte eksperiment** der tilfeldig tildeling (randomisering) eliminerer konfundering, med **stratifisering** (analysere undergrupper kvar for seg), med **multippel regresjon** (inkludere den konfunderande variabelen i modellen) — og alltid med kritisk tenking: finst det ei alternativ forklaring? For å *påvise* kausalitet trengst kontrollerte eksperiment eller spesielle statistiske metodar som instrumentvariablar og naturlege eksperiment."},{"id":"s2-6-2-n-quiz2","type":"exercise","exercise":{"id":"s2-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kausalitet, spuriøse samanhengar og konfundering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-2-n-quiz2-q0","task":"Iskremsal og drukningsulukker korrelerer sterkt. Kva er den beste forklaringa?","options":[{"id":"a","text":"Iskrem gjer folk dårlegare til å symje","isCorrect":false},{"id":"b","text":"Drukningsulukker aukar iskremsalet","isCorrect":false},{"id":"c","text":"Ei felles årsak — varmt vêr — aukar begge","isCorrect":true},{"id":"d","text":"Korrelasjonen er rein tilfeldigheit","isCorrect":false}],"solution":"Varmt vêr er ein konfunderande variabel: fleire kjøper is, og fleire badar (og dermed skjer fleire drukningsulukker). Ingen av variablane forårsakar den andre."},{"id":"s2-6-2-n-quiz2-q1","task":"Kva kjenneteiknar ein konfunderande variabel?","options":[{"id":"a","text":"Han er alltid umogleg å måle","isCorrect":false},{"id":"b","text":"Han påverkar både $x$ og $y$ og skaper ein tilsynelatande samanheng, utan å vere med i analysen","isCorrect":true},{"id":"c","text":"Han har alltid korrelasjon $r = 1$ med responsvariabelen","isCorrect":false},{"id":"d","text":"Han gjer at $R^2$ blir negativ","isCorrect":false}],"solution":"Ein konfunderande variabel (lurking variable) påverkar begge dei observerte variablane og skaper samvariasjon mellom dei, men er utelaten frå analysen."},{"id":"s2-6-2-n-quiz2-q2","task":"Kva metode kan i prinsippet eliminere konfundering fullstendig?","options":[{"id":"a","text":"Å samle inn fleire observasjonsdata","isCorrect":false},{"id":"b","text":"Å rekne ut $r$ med fleire desimalar","isCorrect":false},{"id":"c","text":"Å fjerne uteliggjarar frå datasettet","isCorrect":false},{"id":"d","text":"Kontrollert eksperiment med randomisering","isCorrect":true}],"solution":"Ved tilfeldig tildeling blir alle tenkjelege konfunderande faktorar fordelte jamt mellom gruppene, slik at ein forskjell i utfall kan tilskrivast behandlinga."},{"id":"s2-6-2-n-quiz2-q3","task":"At margarinforbruk korrelerer med skilsmisseraten i Maine er eit eksempel på …","options":[{"id":"a","text":"spuriøs korrelasjon","isCorrect":true},{"id":"b","text":"kausal samanheng","isCorrect":false},{"id":"c","text":"negativ korrelasjon","isCorrect":false},{"id":"d","text":"stratifisering","isCorrect":false}],"solution":"Dette er ein klassisk spuriøs korrelasjon — ein tilsynelatande samanheng som skuldast tilfeldigheit, utan nokon reell forbindelse. Med nok variablar finn ein alltid slike."}]}},{"id":"s2-6-2-n-summary","type":"text","content":"## Oppsummering: mål styrken, men tenk sjølv\n\nVi starta med ei tabloid overskrift og enda med eit presist verktøy og ein sunn dose skepsis. **Pearsons korrelasjonskoeffisient** $r$ måler styrken og retninga på den lineære samanhengen mellom to variablar og ligg alltid mellom $-1$ og $1$. Verdiar nær $\\pm 1$ betyr sterk lineær samvariasjon, verdiar nær null betyr svak eller ingen *lineær* samanheng — men ein krum samanheng kan gøyme seg bak $r = 0$. Koeffisienten er symmetrisk i $x$ og $y$, endrar seg ikkje av lineære transformasjonar av variablane, og heng saman med regresjonen gjennom $r^2 = R^2$.\n\nDen andre — og kanskje viktigaste — lærdommen er at korrelasjon ikkje inneber kausalitet. Samvariasjon kan skuldast at $x$ påverkar $y$, at $y$ påverkar $x$, ei felles årsak, rein tilfeldigheit eller ein spuriøs samanheng. Brannbilane og skadeomfanget minner oss om at ein **konfunderande variabel** — storleiken på brannen — kan liggje bak heile korrelasjonen. Vil vi påvise årsakssamanhengar, treng vi kontrollerte eksperiment med randomisering, stratifisering eller multippel regresjon.\n\nSå neste gong du ser ei overskrift om ein «sterk samanheng», veit du kva du skal spørje om: Kor sterk er $r$? Er samanhengen lineær? Og kven er den skjulte tredje variabelen som kanskje trekkjer i trådane?"}],"exercises":[],"_meta":{"sourceHash":"c6f76a936807046b","translatedAt":"2026-06-20T09:34:22.771Z","model":"claude-code-agent","strings":59,"tm":{"dd440d266c496580":"Korrelasjon","b195b06d1ed59702":"Narrativ versjon","d960df4fd98f7530":"Ei forteljing om iskrem, drukningsulukker og brannbilar — om korleis korrelasjonskoeffisienten måler samvariasjon, og kvifor korrelasjon ikkje er det same som årsak.","2a5d343bd182ec10":"rekne ut og tolke Pearsons korrelasjonskoeffisient","a5143234aaad48a9":"forstå at korrelasjon ikkje inneber kausalitet","5829ee995fdb6b30":"kjenne att spuriøs korrelasjon og konfunderande variablar","5ba9d7eac3dcfad8":"## Iskrem, drukningsulukker og ein farleg kortslutning\n\nEin sommardag les du ei overskrift: «Forskarar har funne sterk samanheng mellom iskremsal og drukningsulukker.» Bør badevakter konfiskere softisen din? Sjølvsagt ikkje — begge delar aukar når det er varmt. Men overskrifta peikar på noko viktig: tal kan samvariere utan at det eine forårsakar det andre, og det å skilje ekte samanhengar frå tilfeldige er ein av dei viktigaste ferdigheitene du tek med deg frå statistikken.\n\nI førre kapittel fann vi regresjonslinja som skildrar *korleis* $y$ endrar seg med $x$. No skal vi måle *kor sterkt* to variablar heng saman. Det gjer vi med **korrelasjon** — eit mål på styrken og retninga til den *lineære* samanhengen mellom to variablar. Til forskjell frå regresjon, der den eine variabelen er forklaringsvariabel og den andre respons, behandlar korrelasjonen begge variablane symmetrisk. Spørsmålet er rett og slett: varierer $x$ og $y$ saman? Og i så fall, kor sterkt?\n\nI denne forteljinga skal vi først lære å rekne ut og tolke korrelasjonskoeffisienten, og deretter — like viktig — lære når vi *ikkje* skal stole på han.","42cf3ac2cb2718f0":"## Pearsons korrelasjonskoeffisient\n\nVerktøyet vårt heiter **Pearsons korrelasjonskoeffisient** og blir betegna $r$:\n\n$$r = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum(x_i - \\bar{x})^2 \\cdot \\sum(y_i - \\bar{y})^2}}$$\n\nEi ekvivalent form som er praktisk å rekne med, er\n\n$$r = \\frac{n\\sum x_iy_i - \\sum x_i \\sum y_i}{\\sqrt{[n\\sum x_i^2 - (\\sum x_i)^2][n\\sum y_i^2 - (\\sum y_i)^2]}}$$\n\nTalet $r$ ligg alltid mellom $-1$ og $1$. Er $r > 0$, har vi positiv korrelasjon: begge variablane aukar saman. Er $r < 0$, aukar den eine medan den andre søkk. $r = 0$ betyr ingen *lineær* samanheng — merk at det framleis kan finnast ein sterk ikkje-lineær samanheng! Og $|r| = 1$ betyr at punkta ligg perfekt på ei rett linje. Det er også ei vakker kobling til førre kapittel: $r^2 = R^2$, forklaringsgraden i enkel lineær regresjon.\n\nLa oss bruke nettbutikkens data igjen: $(1,3)$, $(2,5)$, $(3,6)$, $(4,8)$, $(5,9)$. Vi har $\\sum x_iy_i = 108$, $\\sum x_i = 15$, $\\sum y_i = 31$, $\\sum x_i^2 = 55$ og $\\sum y_i^2 = 215$. Då blir\n\n$$r = \\frac{5 \\cdot 108 - 15 \\cdot 31}{\\sqrt{(5 \\cdot 55 - 225)(5 \\cdot 215 - 961)}} = \\frac{75}{\\sqrt{50 \\cdot 114}} = \\frac{75}{\\sqrt{5700}} \\approx 0{,}993$$\n\nEi svært sterk positiv korrelasjon — og ganske riktig: $r^2 = 0{,}987$, som var nettopp $R^2$-verdien vi fann i førre kapittel.\n\nKorleis tolkar vi styrken? Ei vanleg rettesnor er at $|r|$ under 0,2 er svært svak, 0,2–0,4 svak, 0,4–0,6 moderat, 0,6–0,8 sterk og over 0,8 svært sterk. Men grensene er retningslinjer, ikkje naturlover: i fysikk kan $r = 0{,}7$ reknast som svakt, medan det i samfunnsvitskap ofte blir rekna som sterkt. Konteksten avgjer.","2f26cbc67390bb53":"Test deg sjølv på korrelasjonskoeffisienten:","4097889236a2af26":"placeholder","2f91251922e75552":"Kva verdiar kan Pearsons korrelasjonskoeffisient $r$ ta?","c88fef1c0641f109":"Alle reelle tal","f77f8aa6bac17992":"$-1 \\leq r \\leq 1$","129d41aa83e58dd0":"$0 \\leq r \\leq 1$","fc74c5b54043413e":"$0 \\leq r \\leq 100$","3ed26cccf32ac49c":"Korrelasjonskoeffisienten ligg alltid i intervallet $[-1, 1]$. Forteiknet angir retninga, og absoluttverdien angir styrken.","94a8d3dd3a7eae78":"To variablar har $r = -0{,}85$. Kva betyr det?","a2d2274cf902c329":"Sterk negativ lineær samanheng: når den eine aukar, søkk den andre","ad7fd2c3b7b3fa88":"Svak samanheng sidan $r$ er negativ","5f4c572ac8915bd1":"Det må vere ein reknefeil, $r$ kan ikkje vere negativ","2de7f25850bfeef4":"Den eine variabelen forårsakar at den andre søkk","3454bdaa1d542d3a":"$|r| = 0{,}85$ er ein svært sterk lineær samanheng, og det negative forteiknet betyr at variablane varierer i motsett retning. Korrelasjon seier likevel ingenting om årsak.","a20c7549c126f7c0":"Ein lineær regresjon har $R^2 = 0{,}64$ og positivt stigingstal. Kva er $r$?","d441befc9c0bfd0c":"Kan ikkje bestemmast","f402cc3fdfac6f07":"For enkel lineær regresjon er $r^2 = R^2$, så $|r| = \\sqrt{0{,}64} = 0{,}8$. Positivt stigingstal gir $r = 0{,}8$.","a3749837b46fafe6":"$r = 0$ for eit datasett. Kva konklusjon er rett?","24eab733d7161f80":"Det finst ingen samanheng av noko slag mellom variablane","d11a089278234686":"Variablane er identiske","c6f79a38e56a0e21":"Datasettet inneheld feil","6fda118ef572f3fb":"Det finst ingen lineær samanheng, men ein ikkje-lineær samanheng er framleis mogleg","414ad5d008403b4c":"$r$ måler berre lineær samvariasjon. Til dømes gir punkt på ein perfekt parabel symmetrisk om $y$-aksen $r = 0$, sjølv om samanhengen er sterk.","de6286feb98bd42b":"## Korrelasjon er ikkje kausalitet\n\nNo tilbake til iskremen og drukningsulukkene. Korrelasjonen er reell nok — men betyr han at iskrem *forårsakar* drukning? Her kjem eit av dei viktigaste prinsippa i all statistikk: **korrelasjon mellom $x$ og $y$ betyr ikkje at $x$ forårsakar $y$.**\n\nNår to variablar samvarierer, finst det faktisk fem moglege forklaringar. Det kan hende at $x$ forårsakar $y$ — slik røyking forårsakar lungekreft. Det kan vere omvendt: $y$ forårsakar $x$. Det kan finnast ei **felles årsak**, ein tredje variabel som påverkar begge — for iskrem og drukning er det varmt vêr som driv begge oppover. Det kan vere rein **tilfeldigheit** — korrelasjonen er berre støy. Eller det kan vere ein **spuriøs samanheng**: ein tilsynelatande korrelasjon utan reell forbindelse.\n\nKlassiske eksempel på spuriøse korrelasjonar er talet på piratar og global temperatur (begge har endra seg over tid — trendkorrelasjon) og margarinforbruk og skilsmisseraten i Maine (rein tilfeldigheit). Med nok variablar og nok data vil ein *alltid* finne nokre tilfeldige korrelasjonar — difor må ein samanheng også ha ei teoretisk grunngjeving før vi tek han på alvor.\n\nEit lærerikt eksempel: ei studie finn sterk positiv korrelasjon ($r = 0{,}82$) mellom talet på brannbilar ved ein brann og skadeomfanget. Forårsakar brannbilar skade? Nei — den **konfunderande variabelen** er storleiken på brannen. Store brannar får mange brannbilar *og* gir store skadar. Begge dei observerte variablane er konsekvensar av ein tredje.\n\nEin konfunderande variabel (lurking variable) er nettopp dette: ein variabel som påverkar både $x$ og $y$, skaper ein tilsynelatande samanheng mellom dei, og ikkje er inkludert i analysen. Korleis avslører vi han? Med **kontrollerte eksperiment** der tilfeldig tildeling (randomisering) eliminerer konfundering, med **stratifisering** (analysere undergrupper kvar for seg), med **multippel regresjon** (inkludere den konfunderande variabelen i modellen) — og alltid med kritisk tenking: finst det ei alternativ forklaring? For å *påvise* kausalitet trengst kontrollerte eksperiment eller spesielle statistiske metodar som instrumentvariablar og naturlege eksperiment.","4eaf47cbb69e2676":"Test deg sjølv på kausalitet, spuriøse samanhengar og konfundering:","3d4722b8350a9386":"Iskremsal og drukningsulukker korrelerer sterkt. Kva er den beste forklaringa?","6f8f070c2ad4e5cf":"Iskrem gjer folk dårlegare til å symje","1d9cd4d678021b5a":"Drukningsulukker aukar iskremsalet","e16b8fc4467f1f2f":"Ei felles årsak — varmt vêr — aukar begge","cba103ce405066f6":"Korrelasjonen er rein tilfeldigheit","17738de360fd00a6":"Varmt vêr er ein konfunderande variabel: fleire kjøper is, og fleire badar (og dermed skjer fleire drukningsulukker). Ingen av variablane forårsakar den andre.","42c69ab9e3a5792e":"Kva kjenneteiknar ein konfunderande variabel?","d92cb3eb6447521a":"Han er alltid umogleg å måle","62443e9f089a9f18":"Han påverkar både $x$ og $y$ og skaper ein tilsynelatande samanheng, utan å vere med i analysen","37d2877f7a6a86bd":"Han har alltid korrelasjon $r = 1$ med responsvariabelen","d016ad2e74841c5b":"Han gjer at $R^2$ blir negativ","2c8548e0cabdfc3c":"Ein konfunderande variabel (lurking variable) påverkar begge dei observerte variablane og skaper samvariasjon mellom dei, men er utelaten frå analysen.","2fd868eb4e7563e1":"Kva metode kan i prinsippet eliminere konfundering fullstendig?","b2095468d4b07d75":"Å samle inn fleire observasjonsdata","0d8a173458240463":"Å rekne ut $r$ med fleire desimalar","33c655110f305ec1":"Å fjerne uteliggjarar frå datasettet","771a700036397f6c":"Kontrollert eksperiment med randomisering","a04e540829057550":"Ved tilfeldig tildeling blir alle tenkjelege konfunderande faktorar fordelte jamt mellom gruppene, slik at ein forskjell i utfall kan tilskrivast behandlinga.","864908a340cd3563":"At margarinforbruk korrelerer med skilsmisseraten i Maine er eit eksempel på …","26c6b802a49d9964":"spuriøs korrelasjon","e0cd0189ab35afcd":"kausal samanheng","87d2b076e540fb02":"negativ korrelasjon","f507bdd22688319d":"stratifisering","6f184d5e0df4264d":"Dette er ein klassisk spuriøs korrelasjon — ein tilsynelatande samanheng som skuldast tilfeldigheit, utan nokon reell forbindelse. Med nok variablar finn ein alltid slike.","71fe2854e6efcfcc":"## Oppsummering: mål styrken, men tenk sjølv\n\nVi starta med ei tabloid overskrift og enda med eit presist verktøy og ein sunn dose skepsis. **Pearsons korrelasjonskoeffisient** $r$ måler styrken og retninga på den lineære samanhengen mellom to variablar og ligg alltid mellom $-1$ og $1$. Verdiar nær $\\pm 1$ betyr sterk lineær samvariasjon, verdiar nær null betyr svak eller ingen *lineær* samanheng — men ein krum samanheng kan gøyme seg bak $r = 0$. Koeffisienten er symmetrisk i $x$ og $y$, endrar seg ikkje av lineære transformasjonar av variablane, og heng saman med regresjonen gjennom $r^2 = R^2$.\n\nDen andre — og kanskje viktigaste — lærdommen er at korrelasjon ikkje inneber kausalitet. Samvariasjon kan skuldast at $x$ påverkar $y$, at $y$ påverkar $x$, ei felles årsak, rein tilfeldigheit eller ein spuriøs samanheng. Brannbilane og skadeomfanget minner oss om at ein **konfunderande variabel** — storleiken på brannen — kan liggje bak heile korrelasjonen. Vil vi påvise årsakssamanhengar, treng vi kontrollerte eksperiment med randomisering, stratifisering eller multippel regresjon.\n\nSå neste gong du ser ei overskrift om ein «sterk samanheng», veit du kva du skal spørje om: Kor sterk er $r$? Er samanhengen lineær? Og kven er den skjulte tredje variabelen som kanskje trekkjer i trådane?"}}}
+{
+  "id": "s2-6-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "6.2",
+  "title": "Korrelasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om iskrem, drukningsulukker og brannbilar — om korleis korrelasjonskoeffisienten måler samvariasjon, og kvifor korrelasjon ikkje er det same som årsak.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "rekne ut og tolke Pearsons korrelasjonskoeffisient",
+    "forstå at korrelasjon ikkje inneber kausalitet",
+    "kjenne att spuriøs korrelasjon og konfunderande variablar"
+  ],
+  "linkedChapterId": "s2-6-2",
+  "content": [
+    {
+      "id": "s2-6-2-n-intro",
+      "type": "text",
+      "content": "## Iskrem, drukningsulukker og ein farleg kortslutning\n\nEin sommardag les du ei overskrift: «Forskarar har funne sterk samanheng mellom iskremsal og drukningsulukker.» Bør badevakter konfiskere softisen din? Sjølvsagt ikkje — begge delar aukar når det er varmt. Men overskrifta peikar på noko viktig: tal kan samvariere utan at det eine forårsakar det andre, og det å skilje ekte samanhengar frå tilfeldige er ein av dei viktigaste ferdigheitene du tek med deg frå statistikken.\n\nI førre kapittel fann vi regresjonslinja som skildrar *korleis* $y$ endrar seg med $x$. No skal vi måle *kor sterkt* to variablar heng saman. Det gjer vi med **korrelasjon** — eit mål på styrken og retninga til den *lineære* samanhengen mellom to variablar. Til forskjell frå regresjon, der den eine variabelen er forklaringsvariabel og den andre respons, behandlar korrelasjonen begge variablane symmetrisk. Spørsmålet er rett og slett: varierer $x$ og $y$ saman? Og i så fall, kor sterkt?\n\nI denne forteljinga skal vi først lære å rekne ut og tolke korrelasjonskoeffisienten, og deretter — like viktig — lære når vi *ikkje* skal stole på han."
+    },
+    {
+      "id": "s2-6-2-n-section1",
+      "type": "text",
+      "content": "## Pearsons korrelasjonskoeffisient\n\nVerktøyet vårt heiter **Pearsons korrelasjonskoeffisient** og blir betegna $r$:\n\n$$r = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum(x_i - \\bar{x})^2 \\cdot \\sum(y_i - \\bar{y})^2}}$$\n\nEi ekvivalent form som er praktisk å rekne med, er\n\n$$r = \\frac{n\\sum x_iy_i - \\sum x_i \\sum y_i}{\\sqrt{[n\\sum x_i^2 - (\\sum x_i)^2][n\\sum y_i^2 - (\\sum y_i)^2]}}$$\n\nTalet $r$ ligg alltid mellom $-1$ og $1$. Er $r > 0$, har vi positiv korrelasjon: begge variablane aukar saman. Er $r < 0$, aukar den eine medan den andre søkk. $r = 0$ betyr ingen *lineær* samanheng — merk at det framleis kan finnast ein sterk ikkje-lineær samanheng! Og $|r| = 1$ betyr at punkta ligg perfekt på ei rett linje. Det er også ei vakker kobling til førre kapittel: $r^2 = R^2$, forklaringsgraden i enkel lineær regresjon.\n\nLa oss bruke nettbutikkens data igjen: $(1,3)$, $(2,5)$, $(3,6)$, $(4,8)$, $(5,9)$. Vi har $\\sum x_iy_i = 108$, $\\sum x_i = 15$, $\\sum y_i = 31$, $\\sum x_i^2 = 55$ og $\\sum y_i^2 = 215$. Då blir\n\n$$r = \\frac{5 \\cdot 108 - 15 \\cdot 31}{\\sqrt{(5 \\cdot 55 - 225)(5 \\cdot 215 - 961)}} = \\frac{75}{\\sqrt{50 \\cdot 114}} = \\frac{75}{\\sqrt{5700}} \\approx 0{,}993$$\n\nEi svært sterk positiv korrelasjon — og ganske riktig: $r^2 = 0{,}987$, som var nettopp $R^2$-verdien vi fann i førre kapittel.\n\nKorleis tolkar vi styrken? Ei vanleg rettesnor er at $|r|$ under 0,2 er svært svak, 0,2–0,4 svak, 0,4–0,6 moderat, 0,6–0,8 sterk og over 0,8 svært sterk. Men grensene er retningslinjer, ikkje naturlover: i fysikk kan $r = 0{,}7$ reknast som svakt, medan det i samfunnsvitskap ofte blir rekna som sterkt. Konteksten avgjer."
+    },
+    {
+      "id": "s2-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på korrelasjonskoeffisienten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-2-n-quiz1-q0",
+            "task": "Kva verdiar kan Pearsons korrelasjonskoeffisient $r$ ta?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle reelle tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0 \\leq r \\leq 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0 \\leq r \\leq 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-1 \\leq r \\leq 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Korrelasjonskoeffisienten ligg alltid i intervallet $[-1, 1]$. Forteiknet angir retninga, og absoluttverdien angir styrken."
+          },
+          {
+            "id": "s2-6-2-n-quiz1-q1",
+            "task": "To variablar har $r = -0{,}85$. Kva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sterk negativ lineær samanheng: når den eine aukar, søkk den andre",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Svak samanheng sidan $r$ er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det må vere ein reknefeil, $r$ kan ikkje vere negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den eine variabelen forårsakar at den andre søkk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|r| = 0{,}85$ er ein svært sterk lineær samanheng, og det negative forteiknet betyr at variablane varierer i motsett retning. Korrelasjon seier likevel ingenting om årsak."
+          },
+          {
+            "id": "s2-6-2-n-quiz1-q2",
+            "task": "Ein lineær regresjon har $R^2 = 0{,}64$ og positivt stigingstal. Kva er $r$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}64$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}8$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}41$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kan ikkje bestemmast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For enkel lineær regresjon er $r^2 = R^2$, så $|r| = \\sqrt{0{,}64} = 0{,}8$. Positivt stigingstal gir $r = 0{,}8$."
+          },
+          {
+            "id": "s2-6-2-n-quiz1-q3",
+            "task": "$r = 0$ for eit datasett. Kva konklusjon er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det finst ingen samanheng av noko slag mellom variablane",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Variablane er identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det finst ingen lineær samanheng, men ein ikkje-lineær samanheng er framleis mogleg",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Datasettet inneheld feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$r$ måler berre lineær samvariasjon. Til dømes gir punkt på ein perfekt parabel symmetrisk om $y$-aksen $r = 0$, sjølv om samanhengen er sterk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-2-n-section2",
+      "type": "text",
+      "content": "## Korrelasjon er ikkje kausalitet\n\nNo tilbake til iskremen og drukningsulukkene. Korrelasjonen er reell nok — men betyr han at iskrem *forårsakar* drukning? Her kjem eit av dei viktigaste prinsippa i all statistikk: **korrelasjon mellom $x$ og $y$ betyr ikkje at $x$ forårsakar $y$.**\n\nNår to variablar samvarierer, finst det faktisk fem moglege forklaringar. Det kan hende at $x$ forårsakar $y$ — slik røyking forårsakar lungekreft. Det kan vere omvendt: $y$ forårsakar $x$. Det kan finnast ei **felles årsak**, ein tredje variabel som påverkar begge — for iskrem og drukning er det varmt vêr som driv begge oppover. Det kan vere rein **tilfeldigheit** — korrelasjonen er berre støy. Eller det kan vere ein **spuriøs samanheng**: ein tilsynelatande korrelasjon utan reell forbindelse.\n\nKlassiske eksempel på spuriøse korrelasjonar er talet på piratar og global temperatur (begge har endra seg over tid — trendkorrelasjon) og margarinforbruk og skilsmisseraten i Maine (rein tilfeldigheit). Med nok variablar og nok data vil ein *alltid* finne nokre tilfeldige korrelasjonar — difor må ein samanheng også ha ei teoretisk grunngjeving før vi tek han på alvor.\n\nEit lærerikt eksempel: ei studie finn sterk positiv korrelasjon ($r = 0{,}82$) mellom talet på brannbilar ved ein brann og skadeomfanget. Forårsakar brannbilar skade? Nei — den **konfunderande variabelen** er storleiken på brannen. Store brannar får mange brannbilar *og* gir store skadar. Begge dei observerte variablane er konsekvensar av ein tredje.\n\nEin konfunderande variabel (lurking variable) er nettopp dette: ein variabel som påverkar både $x$ og $y$, skaper ein tilsynelatande samanheng mellom dei, og ikkje er inkludert i analysen. Korleis avslører vi han? Med **kontrollerte eksperiment** der tilfeldig tildeling (randomisering) eliminerer konfundering, med **stratifisering** (analysere undergrupper kvar for seg), med **multippel regresjon** (inkludere den konfunderande variabelen i modellen) — og alltid med kritisk tenking: finst det ei alternativ forklaring? For å *påvise* kausalitet trengst kontrollerte eksperiment eller spesielle statistiske metodar som instrumentvariablar og naturlege eksperiment."
+    },
+    {
+      "id": "s2-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kausalitet, spuriøse samanhengar og konfundering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-2-n-quiz2-q0",
+            "task": "Iskremsal og drukningsulukker korrelerer sterkt. Kva er den beste forklaringa?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Iskrem gjer folk dårlegare til å symje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Drukningsulukker aukar iskremsalet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Korrelasjonen er rein tilfeldigheit",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei felles årsak — varmt vêr — aukar begge",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Varmt vêr er ein konfunderande variabel: fleire kjøper is, og fleire badar (og dermed skjer fleire drukningsulukker). Ingen av variablane forårsakar den andre."
+          },
+          {
+            "id": "s2-6-2-n-quiz2-q1",
+            "task": "Kva kjenneteiknar ein konfunderande variabel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han påverkar både $x$ og $y$ og skaper ein tilsynelatande samanheng, utan å vere med i analysen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Han er alltid umogleg å måle",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han har alltid korrelasjon $r = 1$ med responsvariabelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han gjer at $R^2$ blir negativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein konfunderande variabel (lurking variable) påverkar begge dei observerte variablane og skaper samvariasjon mellom dei, men er utelaten frå analysen."
+          },
+          {
+            "id": "s2-6-2-n-quiz2-q2",
+            "task": "Kva metode kan i prinsippet eliminere konfundering fullstendig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å samle inn fleire observasjonsdata",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kontrollert eksperiment med randomisering",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å rekne ut $r$ med fleire desimalar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å fjerne uteliggjarar frå datasettet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved tilfeldig tildeling blir alle tenkjelege konfunderande faktorar fordelte jamt mellom gruppene, slik at ein forskjell i utfall kan tilskrivast behandlinga."
+          },
+          {
+            "id": "s2-6-2-n-quiz2-q3",
+            "task": "At margarinforbruk korrelerer med skilsmisseraten i Maine er eit eksempel på …",
+            "options": [
+              {
+                "id": "b",
+                "text": "kausal samanheng",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "negativ korrelasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "spuriøs korrelasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "stratifisering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dette er ein klassisk spuriøs korrelasjon — ein tilsynelatande samanheng som skuldast tilfeldigheit, utan nokon reell forbindelse. Med nok variablar finn ein alltid slike."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: mål styrken, men tenk sjølv\n\nVi starta med ei tabloid overskrift og enda med eit presist verktøy og ein sunn dose skepsis. **Pearsons korrelasjonskoeffisient** $r$ måler styrken og retninga på den lineære samanhengen mellom to variablar og ligg alltid mellom $-1$ og $1$. Verdiar nær $\\pm 1$ betyr sterk lineær samvariasjon, verdiar nær null betyr svak eller ingen *lineær* samanheng — men ein krum samanheng kan gøyme seg bak $r = 0$. Koeffisienten er symmetrisk i $x$ og $y$, endrar seg ikkje av lineære transformasjonar av variablane, og heng saman med regresjonen gjennom $r^2 = R^2$.\n\nDen andre — og kanskje viktigaste — lærdommen er at korrelasjon ikkje inneber kausalitet. Samvariasjon kan skuldast at $x$ påverkar $y$, at $y$ påverkar $x$, ei felles årsak, rein tilfeldigheit eller ein spuriøs samanheng. Brannbilane og skadeomfanget minner oss om at ein **konfunderande variabel** — storleiken på brannen — kan liggje bak heile korrelasjonen. Vil vi påvise årsakssamanhengar, treng vi kontrollerte eksperiment med randomisering, stratifisering eller multippel regresjon.\n\nSå neste gong du ser ei overskrift om ein «sterk samanheng», veit du kva du skal spørje om: Kor sterk er $r$? Er samanhengen lineær? Og kven er den skjulte tredje variabelen som kanskje trekkjer i trådane?"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c6f76a936807046b",
+    "translatedAt": "2026-06-20T09:34:22.771Z",
+    "model": "claude-code-agent",
+    "strings": 59,
+    "tm": {
+      "dd440d266c496580": "Korrelasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "d960df4fd98f7530": "Ei forteljing om iskrem, drukningsulukker og brannbilar — om korleis korrelasjonskoeffisienten måler samvariasjon, og kvifor korrelasjon ikkje er det same som årsak.",
+      "2a5d343bd182ec10": "rekne ut og tolke Pearsons korrelasjonskoeffisient",
+      "a5143234aaad48a9": "forstå at korrelasjon ikkje inneber kausalitet",
+      "5829ee995fdb6b30": "kjenne att spuriøs korrelasjon og konfunderande variablar",
+      "5ba9d7eac3dcfad8": "## Iskrem, drukningsulukker og ein farleg kortslutning\n\nEin sommardag les du ei overskrift: «Forskarar har funne sterk samanheng mellom iskremsal og drukningsulukker.» Bør badevakter konfiskere softisen din? Sjølvsagt ikkje — begge delar aukar når det er varmt. Men overskrifta peikar på noko viktig: tal kan samvariere utan at det eine forårsakar det andre, og det å skilje ekte samanhengar frå tilfeldige er ein av dei viktigaste ferdigheitene du tek med deg frå statistikken.\n\nI førre kapittel fann vi regresjonslinja som skildrar *korleis* $y$ endrar seg med $x$. No skal vi måle *kor sterkt* to variablar heng saman. Det gjer vi med **korrelasjon** — eit mål på styrken og retninga til den *lineære* samanhengen mellom to variablar. Til forskjell frå regresjon, der den eine variabelen er forklaringsvariabel og den andre respons, behandlar korrelasjonen begge variablane symmetrisk. Spørsmålet er rett og slett: varierer $x$ og $y$ saman? Og i så fall, kor sterkt?\n\nI denne forteljinga skal vi først lære å rekne ut og tolke korrelasjonskoeffisienten, og deretter — like viktig — lære når vi *ikkje* skal stole på han.",
+      "42cf3ac2cb2718f0": "## Pearsons korrelasjonskoeffisient\n\nVerktøyet vårt heiter **Pearsons korrelasjonskoeffisient** og blir betegna $r$:\n\n$$r = \\frac{\\sum_{i=1}^{n}(x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum(x_i - \\bar{x})^2 \\cdot \\sum(y_i - \\bar{y})^2}}$$\n\nEi ekvivalent form som er praktisk å rekne med, er\n\n$$r = \\frac{n\\sum x_iy_i - \\sum x_i \\sum y_i}{\\sqrt{[n\\sum x_i^2 - (\\sum x_i)^2][n\\sum y_i^2 - (\\sum y_i)^2]}}$$\n\nTalet $r$ ligg alltid mellom $-1$ og $1$. Er $r > 0$, har vi positiv korrelasjon: begge variablane aukar saman. Er $r < 0$, aukar den eine medan den andre søkk. $r = 0$ betyr ingen *lineær* samanheng — merk at det framleis kan finnast ein sterk ikkje-lineær samanheng! Og $|r| = 1$ betyr at punkta ligg perfekt på ei rett linje. Det er også ei vakker kobling til førre kapittel: $r^2 = R^2$, forklaringsgraden i enkel lineær regresjon.\n\nLa oss bruke nettbutikkens data igjen: $(1,3)$, $(2,5)$, $(3,6)$, $(4,8)$, $(5,9)$. Vi har $\\sum x_iy_i = 108$, $\\sum x_i = 15$, $\\sum y_i = 31$, $\\sum x_i^2 = 55$ og $\\sum y_i^2 = 215$. Då blir\n\n$$r = \\frac{5 \\cdot 108 - 15 \\cdot 31}{\\sqrt{(5 \\cdot 55 - 225)(5 \\cdot 215 - 961)}} = \\frac{75}{\\sqrt{50 \\cdot 114}} = \\frac{75}{\\sqrt{5700}} \\approx 0{,}993$$\n\nEi svært sterk positiv korrelasjon — og ganske riktig: $r^2 = 0{,}987$, som var nettopp $R^2$-verdien vi fann i førre kapittel.\n\nKorleis tolkar vi styrken? Ei vanleg rettesnor er at $|r|$ under 0,2 er svært svak, 0,2–0,4 svak, 0,4–0,6 moderat, 0,6–0,8 sterk og over 0,8 svært sterk. Men grensene er retningslinjer, ikkje naturlover: i fysikk kan $r = 0{,}7$ reknast som svakt, medan det i samfunnsvitskap ofte blir rekna som sterkt. Konteksten avgjer.",
+      "2f26cbc67390bb53": "Test deg sjølv på korrelasjonskoeffisienten:",
+      "4097889236a2af26": "placeholder",
+      "2f91251922e75552": "Kva verdiar kan Pearsons korrelasjonskoeffisient $r$ ta?",
+      "c88fef1c0641f109": "Alle reelle tal",
+      "f77f8aa6bac17992": "$-1 \\leq r \\leq 1$",
+      "129d41aa83e58dd0": "$0 \\leq r \\leq 1$",
+      "fc74c5b54043413e": "$0 \\leq r \\leq 100$",
+      "3ed26cccf32ac49c": "Korrelasjonskoeffisienten ligg alltid i intervallet $[-1, 1]$. Forteiknet angir retninga, og absoluttverdien angir styrken.",
+      "94a8d3dd3a7eae78": "To variablar har $r = -0{,}85$. Kva betyr det?",
+      "a2d2274cf902c329": "Sterk negativ lineær samanheng: når den eine aukar, søkk den andre",
+      "ad7fd2c3b7b3fa88": "Svak samanheng sidan $r$ er negativ",
+      "5f4c572ac8915bd1": "Det må vere ein reknefeil, $r$ kan ikkje vere negativ",
+      "2de7f25850bfeef4": "Den eine variabelen forårsakar at den andre søkk",
+      "3454bdaa1d542d3a": "$|r| = 0{,}85$ er ein svært sterk lineær samanheng, og det negative forteiknet betyr at variablane varierer i motsett retning. Korrelasjon seier likevel ingenting om årsak.",
+      "a20c7549c126f7c0": "Ein lineær regresjon har $R^2 = 0{,}64$ og positivt stigingstal. Kva er $r$?",
+      "d441befc9c0bfd0c": "Kan ikkje bestemmast",
+      "f402cc3fdfac6f07": "For enkel lineær regresjon er $r^2 = R^2$, så $|r| = \\sqrt{0{,}64} = 0{,}8$. Positivt stigingstal gir $r = 0{,}8$.",
+      "a3749837b46fafe6": "$r = 0$ for eit datasett. Kva konklusjon er rett?",
+      "24eab733d7161f80": "Det finst ingen samanheng av noko slag mellom variablane",
+      "d11a089278234686": "Variablane er identiske",
+      "c6f79a38e56a0e21": "Datasettet inneheld feil",
+      "6fda118ef572f3fb": "Det finst ingen lineær samanheng, men ein ikkje-lineær samanheng er framleis mogleg",
+      "414ad5d008403b4c": "$r$ måler berre lineær samvariasjon. Til dømes gir punkt på ein perfekt parabel symmetrisk om $y$-aksen $r = 0$, sjølv om samanhengen er sterk.",
+      "de6286feb98bd42b": "## Korrelasjon er ikkje kausalitet\n\nNo tilbake til iskremen og drukningsulukkene. Korrelasjonen er reell nok — men betyr han at iskrem *forårsakar* drukning? Her kjem eit av dei viktigaste prinsippa i all statistikk: **korrelasjon mellom $x$ og $y$ betyr ikkje at $x$ forårsakar $y$.**\n\nNår to variablar samvarierer, finst det faktisk fem moglege forklaringar. Det kan hende at $x$ forårsakar $y$ — slik røyking forårsakar lungekreft. Det kan vere omvendt: $y$ forårsakar $x$. Det kan finnast ei **felles årsak**, ein tredje variabel som påverkar begge — for iskrem og drukning er det varmt vêr som driv begge oppover. Det kan vere rein **tilfeldigheit** — korrelasjonen er berre støy. Eller det kan vere ein **spuriøs samanheng**: ein tilsynelatande korrelasjon utan reell forbindelse.\n\nKlassiske eksempel på spuriøse korrelasjonar er talet på piratar og global temperatur (begge har endra seg over tid — trendkorrelasjon) og margarinforbruk og skilsmisseraten i Maine (rein tilfeldigheit). Med nok variablar og nok data vil ein *alltid* finne nokre tilfeldige korrelasjonar — difor må ein samanheng også ha ei teoretisk grunngjeving før vi tek han på alvor.\n\nEit lærerikt eksempel: ei studie finn sterk positiv korrelasjon ($r = 0{,}82$) mellom talet på brannbilar ved ein brann og skadeomfanget. Forårsakar brannbilar skade? Nei — den **konfunderande variabelen** er storleiken på brannen. Store brannar får mange brannbilar *og* gir store skadar. Begge dei observerte variablane er konsekvensar av ein tredje.\n\nEin konfunderande variabel (lurking variable) er nettopp dette: ein variabel som påverkar både $x$ og $y$, skaper ein tilsynelatande samanheng mellom dei, og ikkje er inkludert i analysen. Korleis avslører vi han? Med **kontrollerte eksperiment** der tilfeldig tildeling (randomisering) eliminerer konfundering, med **stratifisering** (analysere undergrupper kvar for seg), med **multippel regresjon** (inkludere den konfunderande variabelen i modellen) — og alltid med kritisk tenking: finst det ei alternativ forklaring? For å *påvise* kausalitet trengst kontrollerte eksperiment eller spesielle statistiske metodar som instrumentvariablar og naturlege eksperiment.",
+      "4eaf47cbb69e2676": "Test deg sjølv på kausalitet, spuriøse samanhengar og konfundering:",
+      "3d4722b8350a9386": "Iskremsal og drukningsulukker korrelerer sterkt. Kva er den beste forklaringa?",
+      "6f8f070c2ad4e5cf": "Iskrem gjer folk dårlegare til å symje",
+      "1d9cd4d678021b5a": "Drukningsulukker aukar iskremsalet",
+      "e16b8fc4467f1f2f": "Ei felles årsak — varmt vêr — aukar begge",
+      "cba103ce405066f6": "Korrelasjonen er rein tilfeldigheit",
+      "17738de360fd00a6": "Varmt vêr er ein konfunderande variabel: fleire kjøper is, og fleire badar (og dermed skjer fleire drukningsulukker). Ingen av variablane forårsakar den andre.",
+      "42c69ab9e3a5792e": "Kva kjenneteiknar ein konfunderande variabel?",
+      "d92cb3eb6447521a": "Han er alltid umogleg å måle",
+      "62443e9f089a9f18": "Han påverkar både $x$ og $y$ og skaper ein tilsynelatande samanheng, utan å vere med i analysen",
+      "37d2877f7a6a86bd": "Han har alltid korrelasjon $r = 1$ med responsvariabelen",
+      "d016ad2e74841c5b": "Han gjer at $R^2$ blir negativ",
+      "2c8548e0cabdfc3c": "Ein konfunderande variabel (lurking variable) påverkar begge dei observerte variablane og skaper samvariasjon mellom dei, men er utelaten frå analysen.",
+      "2fd868eb4e7563e1": "Kva metode kan i prinsippet eliminere konfundering fullstendig?",
+      "b2095468d4b07d75": "Å samle inn fleire observasjonsdata",
+      "0d8a173458240463": "Å rekne ut $r$ med fleire desimalar",
+      "33c655110f305ec1": "Å fjerne uteliggjarar frå datasettet",
+      "771a700036397f6c": "Kontrollert eksperiment med randomisering",
+      "a04e540829057550": "Ved tilfeldig tildeling blir alle tenkjelege konfunderande faktorar fordelte jamt mellom gruppene, slik at ein forskjell i utfall kan tilskrivast behandlinga.",
+      "864908a340cd3563": "At margarinforbruk korrelerer med skilsmisseraten i Maine er eit eksempel på …",
+      "26c6b802a49d9964": "spuriøs korrelasjon",
+      "e0cd0189ab35afcd": "kausal samanheng",
+      "87d2b076e540fb02": "negativ korrelasjon",
+      "f507bdd22688319d": "stratifisering",
+      "6f184d5e0df4264d": "Dette er ein klassisk spuriøs korrelasjon — ein tilsynelatande samanheng som skuldast tilfeldigheit, utan nokon reell forbindelse. Med nok variablar finn ein alltid slike.",
+      "71fe2854e6efcfcc": "## Oppsummering: mål styrken, men tenk sjølv\n\nVi starta med ei tabloid overskrift og enda med eit presist verktøy og ein sunn dose skepsis. **Pearsons korrelasjonskoeffisient** $r$ måler styrken og retninga på den lineære samanhengen mellom to variablar og ligg alltid mellom $-1$ og $1$. Verdiar nær $\\pm 1$ betyr sterk lineær samvariasjon, verdiar nær null betyr svak eller ingen *lineær* samanheng — men ein krum samanheng kan gøyme seg bak $r = 0$. Koeffisienten er symmetrisk i $x$ og $y$, endrar seg ikkje av lineære transformasjonar av variablane, og heng saman med regresjonen gjennom $r^2 = R^2$.\n\nDen andre — og kanskje viktigaste — lærdommen er at korrelasjon ikkje inneber kausalitet. Samvariasjon kan skuldast at $x$ påverkar $y$, at $y$ påverkar $x$, ei felles årsak, rein tilfeldigheit eller ein spuriøs samanheng. Brannbilane og skadeomfanget minner oss om at ein **konfunderande variabel** — storleiken på brannen — kan liggje bak heile korrelasjonen. Vil vi påvise årsakssamanhengar, treng vi kontrollerte eksperiment med randomisering, stratifisering eller multippel regresjon.\n\nSå neste gong du ser ei overskrift om ein «sterk samanheng», veit du kva du skal spørje om: Kor sterk er $r$? Er samanhengen lineær? Og kven er den skjulte tredje variabelen som kanskje trekkjer i trådane?"
+    }
+  }
+}

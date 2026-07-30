@@ -1,1 +1,340 @@
-{"id":"it-1-7-5-narrativ","courseId":"it-1","chapterNumber":"7.5","title":"Kryptering og autentisering","subtitle":"Narrativ versjon","description":"En fortelling om den usynlige teknologien som beskytter oss – fra Cæsar-chifferet og Enigma til symmetrisk og asymmetrisk kryptering, hashing, tofaktorautentisering og digitale sertifikater.","estimatedMinutes":40,"competenceGoals":["gjøre rede for prinsippene bak kryptering og autentisering","forklare hvordan kryptering brukes for å sikre digital kommunikasjon"],"linkedChapterId":"it-1-7-5","content":[{"id":"it-1-7-5-n-intro","type":"text","content":"## Den usynlige beskyttelsen\n\nHver gang du logger inn, sender en melding eller betaler med Vipps, bruker du kryptering uten å tenke over det. Uten kryptering ville all digital kommunikasjon vært som å sende postkort – hvem som helst underveis kunne lest innholdet.\n\n**Kryptering** gjør lesbar **klartekst** om til uleselig **chiffertekst** ved hjelp av en matematisk algoritme og en **nøkkel**. Bare den som har riktig dekrypteringsnøkkel kan gjøre den lesbar igjen. Mennesker har gjort dette i tusenvis av år. Julius Cæsar brukte **Cæsar-chifferet** og erstattet hver bokstav med en lenger ut i alfabetet – med forskyvning 3 ble «ANGRIP» til «DQJULS». Under andre verdenskrig brukte tyskerne **Enigma-maskinen**, men Alan Turing og teamet ved Bletchley Park knekte koden, noe som ifølge mange historikere forkortet krigen med flere år. Moderne kryptering bygger på matematiske problemer som er lette i én retning, men ekstremt vanskelige å reversere – som å gange to store primtall versus å faktorisere produktet.\n\nDen første hovedtypen er **symmetrisk kryptering**, som bruker *samme nøkkel* til å kryptere og dekryptere – som en safe med én nøkkel der både avsender og mottaker må ha en kopi. Den er rask og sterk (AES-256 regnes som uknuselig), og brukes i HTTPS, diskryptering og VPN. Men den har et stort problem: **nøkkeldistribusjon**. Hvordan får du trygt overlevert nøkkelen til mottakeren? Fanges den opp underveis, kan angriperen dekryptere alt. Og den skalerer dårlig – skal 100 personer kommunisere parvis, trengs nesten 5000 nøkler."},{"id":"it-1-7-5-n-quiz1","type":"exercise","exercise":{"id":"it-1-7-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kryptering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-5-n-quiz1-q0","task":"Hva gjør kryptering?","options":[{"id":"a","text":"Komprimerer filer","isCorrect":false},{"id":"b","text":"Gjør lesbar klartekst om til uleselig chiffertekst ved hjelp av en nøkkel","isCorrect":true},{"id":"c","text":"Sletter data","isCorrect":false},{"id":"d","text":"Sender e-post raskere","isCorrect":false}],"solution":"Kryptering gjør klartekst om til uleselig chiffertekst, som bare kan gjøres lesbar igjen med riktig nøkkel."},{"id":"it-1-7-5-n-quiz1-q1","task":"Hva er hovedforskjellen mellom symmetrisk og asymmetrisk kryptering?","options":[{"id":"a","text":"Symmetrisk er alltid sikrere","isCorrect":false},{"id":"b","text":"Asymmetrisk er raskere","isCorrect":false},{"id":"c","text":"Symmetrisk bruker samme nøkkel til kryptering og dekryptering, asymmetrisk bruker to ulike nøkler","isCorrect":true},{"id":"d","text":"Symmetrisk er bare for tekst","isCorrect":false}],"solution":"Symmetrisk kryptering bruker samme nøkkel begge veier, mens asymmetrisk bruker et par av to ulike nøkler."},{"id":"it-1-7-5-n-quiz1-q2","task":"Hva er den største ulempen med symmetrisk kryptering?","options":[{"id":"a","text":"Den er for treg","isCorrect":false},{"id":"b","text":"Den virker bare på bilder","isCorrect":false},{"id":"c","text":"Den kan ikke krypteres","isCorrect":false},{"id":"d","text":"Nøkkeldistribusjon – hvordan dele nøkkelen trygt med mottakeren","isCorrect":true}],"solution":"Hovedutfordringen er nøkkeldistribusjon: begge parter må ha samme nøkkel, og den må deles på en trygg måte."}]}},{"id":"it-1-7-5-n-section1","type":"text","content":"## To nøkler og en enveisgate\n\n**Asymmetrisk kryptering** løser nøkkeldistribusjonsproblemet med *to* nøkler som hører matematisk sammen: en **offentlig nøkkel** som kan deles fritt, og en **privat nøkkel** som holdes hemmelig. Data kryptert med den offentlige nøkkelen kan *bare* dekrypteres med den private. Slik fungerer det: mottakeren deler sin offentlige nøkkel fritt, avsenderen krypterer meldingen med den, og bare mottakeren – med sin private nøkkel – kan lese den. Selv om en angriper fanger opp meldingen og kjenner den offentlige nøkkelen, kan de ikke dekryptere den. Asymmetrisk kryptering brukes også til **digitale signaturer**: signerer du med din private nøkkel, kan alle verifisere med din offentlige at meldingen er fra deg og uendret. Ulempen er at den er rundt 1000 ganger tregere enn symmetrisk. Kjente algoritmer er RSA (basert på faktorisering av store tall) og ECC (samme sikkerhet med kortere nøkler). I praksis kombineres begge i HTTPS: asymmetrisk for å utveksle en symmetrisk sesjonsnøkkel, og deretter rask symmetrisk kryptering for selve dataene.\n\nDette muliggjør også **ende-til-ende-kryptering (E2EE)** i meldingsapper. Meldingene krypteres med mottakerens offentlige nøkkel på *avsenderens* enhet, og bare mottakerens private nøkkel kan dekryptere dem – derfor kan ikke engang tjenesteleverandøren lese dem.\n\nEn helt egen teknologi er **hashing**, som er fundamentalt forskjellig fra kryptering fordi den er **enveis** – du kan ikke gjenskape originaldataene fra hash-verdien. En god hash-funksjon er deterministisk (samme input gir alltid samme hash), har skredeffekt (minste endring gir helt annen hash) og fast størrelse uansett input. Hashing brukes til **passordlagring**: seriøse nettsteder lagrer aldri passordet i klartekst, men en hash av det. Når du logger inn, hashes passordet ditt og sammenlignes med den lagrede. Et **salt** – en tilfeldig streng lagt til før hashing – sørger for at to like passord får ulike hasher, og beskytter mot rainbow table-angrep. Hashing brukes også til filintegritet og signaturer. Vanlige algoritmer er SHA-256 og bcrypt (laget for passord), mens MD5 ikke lenger regnes som sikkert."},{"id":"it-1-7-5-n-quiz2","type":"exercise","exercise":{"id":"it-1-7-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på asymmetrisk kryptering og hashing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-5-n-quiz2-q0","task":"Hva er hashing?","options":[{"id":"a","text":"En enveisfunksjon som lager en unik fingeravtrykk-streng av data, som ikke kan reverseres","isCorrect":true},{"id":"b","text":"Det samme som kryptering","isCorrect":false},{"id":"c","text":"En metode for å komprimere filer","isCorrect":false},{"id":"d","text":"Et ekstra sterkt passord","isCorrect":false}],"solution":"Hashing er en enveisfunksjon som lager en fast «fingeravtrykk»-streng av data – den kan ikke reverseres til originalen."},{"id":"it-1-7-5-n-quiz2-q1","task":"Hvorfor lagrer seriøse nettsteder passord som hash i stedet for klartekst?","options":[{"id":"a","text":"For å spare lagringsplass","isCorrect":false},{"id":"b","text":"Fordi hash-verdien ikke kan reverseres – selv ved en lekkasje kan ikke angriperen finne passordene","isCorrect":true},{"id":"c","text":"Fordi hashing gjør verifisering raskere","isCorrect":false},{"id":"d","text":"Fordi det er lovpålagt","isCorrect":false}],"solution":"Siden en hash ikke kan reverseres, er passordene beskyttet selv om databasen lekker."},{"id":"it-1-7-5-n-quiz2-q2","task":"Hvorfor kan ikke tjenesteleverandøren lese meldinger med ende-til-ende-kryptering?","options":[{"id":"a","text":"Fordi meldingene slettes fra serveren","isCorrect":false},{"id":"b","text":"Fordi leverandøren har lovet å la være","isCorrect":false},{"id":"c","text":"Fordi meldingene krypteres med mottakerens offentlige nøkkel, og bare mottakerens private nøkkel kan dekryptere dem","isCorrect":true},{"id":"d","text":"Fordi meldingene unngår serverne","isCorrect":false}],"solution":"Ved E2EE krypteres meldingen med mottakerens offentlige nøkkel på avsenderens enhet, og bare mottakerens private nøkkel kan låse den opp."}]}},{"id":"it-1-7-5-n-section2","type":"text","content":"## Å bevise hvem du er\n\n**Autentisering** er å verifisere at en bruker er den de utgir seg for å være. Det bygger på tre faktorkategorier: *noe du vet* (passord, PIN), *noe du har* (mobil, sikkerhetsnøkkel) og *noe du er* (fingeravtrykk, ansikt). De fleste innlogginger bruker bare én faktor – passord – men passord kan stjeles gjennom phishing, lekkasjer eller brute force. Derfor finnes **tofaktorautentisering (2FA)**, som krever to faktorer fra *ulike* kategorier. Et godt eksempel er å logge inn med passord og deretter en kode fra en autentiseringsapp. Vanlige kombinasjoner er passord + SMS-kode (enkelt, men SMS kan avlyttes), passord + autentiseringsapp (tryggere, kodene lages lokalt), passord + fysisk sikkerhetsnøkkel som YubiKey (sterkest), eller passord + biometri. Norske banker bruker BankID som en form for 2FA. En ny trend er **passkeys** – passordløs innlogging der biometri frigjør en privat nøkkel på enheten, motstandsdyktig mot phishing fordi nøkkelen aldri forlater enheten.\n\nMen asymmetrisk kryptering reiser et nytt spørsmål: hvordan vet du at den offentlige nøkkelen du mottar, faktisk tilhører riktig person? En angriper kunne gi deg sin egen nøkkel og utgi seg for noen andre. Løsningen er **digitale sertifikater** og **PKI**. Et digitalt sertifikat binder en offentlig nøkkel til en identitet og inneholder eierens identitet og nøkkel, utsteders identitet, gyldighetstid og en digital signatur. Utstederen er en **sertifikatautoritet (CA)** – en pålitelig tredjepart som verifiserer identiteten og signerer sertifikatet. Når du besøker en HTTPS-side, sjekker nettleseren at sertifikatet er signert av en pålitelig CA, ikke er utløpt, og at domenet stemmer. Er alt OK, vises hengelåsen. Du bør aldri ignorere en sertifikatadvarsel. **Let's Encrypt** har gjort HTTPS gratis og utbredt, og bidratt til at HTTPS-bruken har steget fra rundt 40 % til over 95 % av all webtrafikk."},{"id":"it-1-7-5-n-quiz3","type":"exercise","exercise":{"id":"it-1-7-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på autentisering og sertifikater:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-5-n-quiz3-q0","task":"Hvilken er et eksempel på tofaktorautentisering (2FA)?","options":[{"id":"a","text":"Å logge inn med brukernavn og passord","isCorrect":false},{"id":"b","text":"Å bruke to passord etter hverandre","isCorrect":false},{"id":"c","text":"Å logge inn med e-post i stedet for brukernavn","isCorrect":false},{"id":"d","text":"Å logge inn med passord og deretter oppgi en kode fra en autentiseringsapp","isCorrect":true}],"solution":"2FA krever to faktorer fra ulike kategorier – her passord (noe du vet) og en kode fra mobilappen (noe du har)."},{"id":"it-1-7-5-n-quiz3-q1","task":"Hva er rollen til en sertifikatautoritet (CA) i HTTPS?","options":[{"id":"a","text":"CA-en verifiserer serverens identitet og utsteder et signert sertifikat som nettleseren stoler på","isCorrect":true},{"id":"b","text":"CA-en krypterer all trafikk","isCorrect":false},{"id":"c","text":"CA-en lagrer alle brukeres passord","isCorrect":false},{"id":"d","text":"CA-en blokkerer DDoS-angrep","isCorrect":false}],"solution":"En sertifikatautoritet verifiserer serverens identitet og signerer et digitalt sertifikat som nettleseren stoler på."},{"id":"it-1-7-5-n-quiz3-q2","task":"Hva er de tre kategoriene av autentiseringsfaktorer?","options":[{"id":"a","text":"Passord, PIN og kode","isCorrect":false},{"id":"b","text":"Noe du vet, noe du har, noe du er","isCorrect":true},{"id":"c","text":"Tekst, bilde og lyd","isCorrect":false},{"id":"d","text":"Offentlig, privat og delt","isCorrect":false}],"solution":"De tre faktorkategoriene er noe du vet (passord), noe du har (mobil) og noe du er (biometri)."}]}},{"id":"it-1-7-5-n-summary","type":"text","content":"## Oppsummering\n\nKryptering er den usynlige teknologien som beskytter oss, med en historie fra Cæsar-chifferet til moderne matematikk. **Symmetrisk kryptering** bruker samme nøkkel (rask, men nøkkeldistribusjon er problemet), mens **asymmetrisk kryptering** bruker et offentlig/privat nøkkelpar som løser nettopp det – og muliggjør digitale signaturer og ende-til-ende-kryptering. **Hashing** er en enveisfunksjon som beskytter passord, gjerne med salt.\n\n**Autentisering** bygger på faktorene noe du vet, har og er, og **2FA** kombinerer to av dem for langt sterkere beskyttelse. Til slutt sørger **digitale sertifikater** og **sertifikatautoriteter** for at du kan stole på at en offentlig nøkkel virkelig tilhører riktig server – grunnlaget for hengelåsen i HTTPS, som Let's Encrypt har gjort tilgjengelig for nesten hele webben."}],"exercises":[]}
+{
+  "id": "it-1-7-5-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "7.5",
+  "title": "Kryptering og autentisering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om den usynlige teknologien som beskytter oss – fra Cæsar-chifferet og Enigma til symmetrisk og asymmetrisk kryptering, hashing, tofaktorautentisering og digitale sertifikater.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "gjøre rede for prinsippene bak kryptering og autentisering",
+    "forklare hvordan kryptering brukes for å sikre digital kommunikasjon"
+  ],
+  "linkedChapterId": "it-1-7-5",
+  "content": [
+    {
+      "id": "it-1-7-5-n-intro",
+      "type": "text",
+      "content": "## Den usynlige beskyttelsen\n\nHver gang du logger inn, sender en melding eller betaler med Vipps, bruker du kryptering uten å tenke over det. Uten kryptering ville all digital kommunikasjon vært som å sende postkort – hvem som helst underveis kunne lest innholdet.\n\n**Kryptering** gjør lesbar **klartekst** om til uleselig **chiffertekst** ved hjelp av en matematisk algoritme og en **nøkkel**. Bare den som har riktig dekrypteringsnøkkel kan gjøre den lesbar igjen. Mennesker har gjort dette i tusenvis av år. Julius Cæsar brukte **Cæsar-chifferet** og erstattet hver bokstav med en lenger ut i alfabetet – med forskyvning 3 ble «ANGRIP» til «DQJULS». Under andre verdenskrig brukte tyskerne **Enigma-maskinen**, men Alan Turing og teamet ved Bletchley Park knekte koden, noe som ifølge mange historikere forkortet krigen med flere år. Moderne kryptering bygger på matematiske problemer som er lette i én retning, men ekstremt vanskelige å reversere – som å gange to store primtall versus å faktorisere produktet.\n\nDen første hovedtypen er **symmetrisk kryptering**, som bruker *samme nøkkel* til å kryptere og dekryptere – som en safe med én nøkkel der både avsender og mottaker må ha en kopi. Den er rask og sterk (AES-256 regnes som uknuselig), og brukes i HTTPS, diskryptering og VPN. Men den har et stort problem: **nøkkeldistribusjon**. Hvordan får du trygt overlevert nøkkelen til mottakeren? Fanges den opp underveis, kan angriperen dekryptere alt. Og den skalerer dårlig – skal 100 personer kommunisere parvis, trengs nesten 5000 nøkler."
+    },
+    {
+      "id": "it-1-7-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kryptering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-5-n-quiz1-q0",
+            "task": "Hva gjør kryptering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Gjør lesbar klartekst om til uleselig chiffertekst ved hjelp av en nøkkel",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Komprimerer filer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sletter data",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sender e-post raskere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kryptering gjør klartekst om til uleselig chiffertekst, som bare kan gjøres lesbar igjen med riktig nøkkel."
+          },
+          {
+            "id": "it-1-7-5-n-quiz1-q1",
+            "task": "Hva er hovedforskjellen mellom symmetrisk og asymmetrisk kryptering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Symmetrisk er alltid sikrere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Symmetrisk bruker samme nøkkel til kryptering og dekryptering, asymmetrisk bruker to ulike nøkler",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Asymmetrisk er raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Symmetrisk er bare for tekst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Symmetrisk kryptering bruker samme nøkkel begge veier, mens asymmetrisk bruker et par av to ulike nøkler."
+          },
+          {
+            "id": "it-1-7-5-n-quiz1-q2",
+            "task": "Hva er den største ulempen med symmetrisk kryptering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den er for treg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den virker bare på bilder",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nøkkeldistribusjon – hvordan dele nøkkelen trygt med mottakeren",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den kan ikke krypteres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hovedutfordringen er nøkkeldistribusjon: begge parter må ha samme nøkkel, og den må deles på en trygg måte."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-5-n-section1",
+      "type": "text",
+      "content": "## To nøkler og en enveisgate\n\n**Asymmetrisk kryptering** løser nøkkeldistribusjonsproblemet med *to* nøkler som hører matematisk sammen: en **offentlig nøkkel** som kan deles fritt, og en **privat nøkkel** som holdes hemmelig. Data kryptert med den offentlige nøkkelen kan *bare* dekrypteres med den private. Slik fungerer det: mottakeren deler sin offentlige nøkkel fritt, avsenderen krypterer meldingen med den, og bare mottakeren – med sin private nøkkel – kan lese den. Selv om en angriper fanger opp meldingen og kjenner den offentlige nøkkelen, kan de ikke dekryptere den. Asymmetrisk kryptering brukes også til **digitale signaturer**: signerer du med din private nøkkel, kan alle verifisere med din offentlige at meldingen er fra deg og uendret. Ulempen er at den er rundt 1000 ganger tregere enn symmetrisk. Kjente algoritmer er RSA (basert på faktorisering av store tall) og ECC (samme sikkerhet med kortere nøkler). I praksis kombineres begge i HTTPS: asymmetrisk for å utveksle en symmetrisk sesjonsnøkkel, og deretter rask symmetrisk kryptering for selve dataene.\n\nDette muliggjør også **ende-til-ende-kryptering (E2EE)** i meldingsapper. Meldingene krypteres med mottakerens offentlige nøkkel på *avsenderens* enhet, og bare mottakerens private nøkkel kan dekryptere dem – derfor kan ikke engang tjenesteleverandøren lese dem.\n\nEn helt egen teknologi er **hashing**, som er fundamentalt forskjellig fra kryptering fordi den er **enveis** – du kan ikke gjenskape originaldataene fra hash-verdien. En god hash-funksjon er deterministisk (samme input gir alltid samme hash), har skredeffekt (minste endring gir helt annen hash) og fast størrelse uansett input. Hashing brukes til **passordlagring**: seriøse nettsteder lagrer aldri passordet i klartekst, men en hash av det. Når du logger inn, hashes passordet ditt og sammenlignes med den lagrede. Et **salt** – en tilfeldig streng lagt til før hashing – sørger for at to like passord får ulike hasher, og beskytter mot rainbow table-angrep. Hashing brukes også til filintegritet og signaturer. Vanlige algoritmer er SHA-256 og bcrypt (laget for passord), mens MD5 ikke lenger regnes som sikkert."
+    },
+    {
+      "id": "it-1-7-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på asymmetrisk kryptering og hashing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-5-n-quiz2-q0",
+            "task": "Hva er hashing?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det samme som kryptering",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En metode for å komprimere filer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et ekstra sterkt passord",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En enveisfunksjon som lager en unik fingeravtrykk-streng av data, som ikke kan reverseres",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hashing er en enveisfunksjon som lager en fast «fingeravtrykk»-streng av data – den kan ikke reverseres til originalen."
+          },
+          {
+            "id": "it-1-7-5-n-quiz2-q1",
+            "task": "Hvorfor lagrer seriøse nettsteder passord som hash i stedet for klartekst?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi hash-verdien ikke kan reverseres – selv ved en lekkasje kan ikke angriperen finne passordene",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For å spare lagringsplass",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi hashing gjør verifisering raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det er lovpålagt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden en hash ikke kan reverseres, er passordene beskyttet selv om databasen lekker."
+          },
+          {
+            "id": "it-1-7-5-n-quiz2-q2",
+            "task": "Hvorfor kan ikke tjenesteleverandøren lese meldinger med ende-til-ende-kryptering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi meldingene slettes fra serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi meldingene krypteres med mottakerens offentlige nøkkel, og bare mottakerens private nøkkel kan dekryptere dem",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi leverandøren har lovet å la være",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi meldingene unngår serverne",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved E2EE krypteres meldingen med mottakerens offentlige nøkkel på avsenderens enhet, og bare mottakerens private nøkkel kan låse den opp."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-5-n-section2",
+      "type": "text",
+      "content": "## Å bevise hvem du er\n\n**Autentisering** er å verifisere at en bruker er den de utgir seg for å være. Det bygger på tre faktorkategorier: *noe du vet* (passord, PIN), *noe du har* (mobil, sikkerhetsnøkkel) og *noe du er* (fingeravtrykk, ansikt). De fleste innlogginger bruker bare én faktor – passord – men passord kan stjeles gjennom phishing, lekkasjer eller brute force. Derfor finnes **tofaktorautentisering (2FA)**, som krever to faktorer fra *ulike* kategorier. Et godt eksempel er å logge inn med passord og deretter en kode fra en autentiseringsapp. Vanlige kombinasjoner er passord + SMS-kode (enkelt, men SMS kan avlyttes), passord + autentiseringsapp (tryggere, kodene lages lokalt), passord + fysisk sikkerhetsnøkkel som YubiKey (sterkest), eller passord + biometri. Norske banker bruker BankID som en form for 2FA. En ny trend er **passkeys** – passordløs innlogging der biometri frigjør en privat nøkkel på enheten, motstandsdyktig mot phishing fordi nøkkelen aldri forlater enheten.\n\nMen asymmetrisk kryptering reiser et nytt spørsmål: hvordan vet du at den offentlige nøkkelen du mottar, faktisk tilhører riktig person? En angriper kunne gi deg sin egen nøkkel og utgi seg for noen andre. Løsningen er **digitale sertifikater** og **PKI**. Et digitalt sertifikat binder en offentlig nøkkel til en identitet og inneholder eierens identitet og nøkkel, utsteders identitet, gyldighetstid og en digital signatur. Utstederen er en **sertifikatautoritet (CA)** – en pålitelig tredjepart som verifiserer identiteten og signerer sertifikatet. Når du besøker en HTTPS-side, sjekker nettleseren at sertifikatet er signert av en pålitelig CA, ikke er utløpt, og at domenet stemmer. Er alt OK, vises hengelåsen. Du bør aldri ignorere en sertifikatadvarsel. **Let's Encrypt** har gjort HTTPS gratis og utbredt, og bidratt til at HTTPS-bruken har steget fra rundt 40 % til over 95 % av all webtrafikk."
+    },
+    {
+      "id": "it-1-7-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på autentisering og sertifikater:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-5-n-quiz3-q0",
+            "task": "Hvilken er et eksempel på tofaktorautentisering (2FA)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å logge inn med brukernavn og passord",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å bruke to passord etter hverandre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å logge inn med passord og deretter oppgi en kode fra en autentiseringsapp",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å logge inn med e-post i stedet for brukernavn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "2FA krever to faktorer fra ulike kategorier – her passord (noe du vet) og en kode fra mobilappen (noe du har)."
+          },
+          {
+            "id": "it-1-7-5-n-quiz3-q1",
+            "task": "Hva er rollen til en sertifikatautoritet (CA) i HTTPS?",
+            "options": [
+              {
+                "id": "b",
+                "text": "CA-en krypterer all trafikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "CA-en lagrer alle brukeres passord",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "CA-en blokkerer DDoS-angrep",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "CA-en verifiserer serverens identitet og utsteder et signert sertifikat som nettleseren stoler på",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En sertifikatautoritet verifiserer serverens identitet og signerer et digitalt sertifikat som nettleseren stoler på."
+          },
+          {
+            "id": "it-1-7-5-n-quiz3-q2",
+            "task": "Hva er de tre kategoriene av autentiseringsfaktorer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Noe du vet, noe du har, noe du er",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Passord, PIN og kode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tekst, bilde og lyd",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Offentlig, privat og delt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "De tre faktorkategoriene er noe du vet (passord), noe du har (mobil) og noe du er (biometri)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nKryptering er den usynlige teknologien som beskytter oss, med en historie fra Cæsar-chifferet til moderne matematikk. **Symmetrisk kryptering** bruker samme nøkkel (rask, men nøkkeldistribusjon er problemet), mens **asymmetrisk kryptering** bruker et offentlig/privat nøkkelpar som løser nettopp det – og muliggjør digitale signaturer og ende-til-ende-kryptering. **Hashing** er en enveisfunksjon som beskytter passord, gjerne med salt.\n\n**Autentisering** bygger på faktorene noe du vet, har og er, og **2FA** kombinerer to av dem for langt sterkere beskyttelse. Til slutt sørger **digitale sertifikater** og **sertifikatautoriteter** for at du kan stole på at en offentlig nøkkel virkelig tilhører riktig server – grunnlaget for hengelåsen i HTTPS, som Let's Encrypt har gjort tilgjengelig for nesten hele webben."
+    }
+  ],
+  "exercises": []
+}

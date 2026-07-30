@@ -1,1 +1,423 @@
-{"id":"s2-3-3-narrativ","courseId":"s2","chapterNumber":"3.3","title":"Optimering","subtitle":"Narrativ versjon","description":"En fortelling om å finne det beste — størst areal, minst emballasje og maksimal fortjeneste — med derivasjon som verktøy.","estimatedMinutes":40,"competenceGoals":["bruke derivasjon til å løse praktiske optimeringsproblemer","modellere praktiske situasjoner med funksjoner og bruke modellene til å løse problemer"],"linkedChapterId":"s2-3-3","content":[{"id":"s2-3-3-n-intro","type":"text","content":"## Jakten på det beste\n\nEn bonde med 100 meter gjerde. En emballasjedesigner som vil bruke minst mulig aluminium. En økonomisjef som lurer på hvor mange enheter bedriften bør produsere. Alle tre stiller i bunn og grunn samme spørsmål: hva er den **beste** løsningen? **Optimering** handler om å finne den største eller minste verdien av en størrelse — maksimere areal, volum eller fortjeneste, eller minimere kostnad, materialbruk eller avstand. Og derivasjon er det perfekte verktøyet, for ekstremalverdier gjemmer seg der den deriverte er null.\n\nAlle optimeringsproblemer kan løses med samme fremgangsmåte. Først leser du oppgaven nøye: hva skal optimeres, og hvilke begrensninger finnes? Så innfører du variabler og tegner gjerne en figur. Deretter setter du opp funksjonsuttrykket for størrelsen som skal optimeres, og bruker begrensningene til å uttrykke funksjonen med **én** variabel. Du bestemmer definisjonsmengden — hvilke verdier gir fysisk mening? — før du deriverer, setter $f'(x) = 0$ og løser. Til slutt verifiserer du at løsningen virkelig er et maksimum eller minimum (med andrederivert-test eller fortegnslinje), og svarer på spørsmålet med riktig enhet.\n\nDet er denne oppskriften vi skal følge gjennom tre fortellinger: en innhegning ved elva, en sylinder uten lokk, og en bedrift som leter etter sitt mest lønnsomme produksjonsnivå."},{"id":"s2-3-3-n-section1","type":"text","content":"## Bonden ved elva\n\nBonden har 100 meter gjerde og vil lage en rektangulær innhegning langs en elv. Elva fungerer som den ene langsiden, så gjerdet trengs bare til tre sider. Hvilke dimensjoner gir størst areal?\n\nVi innfører variabler: la $x$ være bredden (de to kortsidene) og $y$ lengden. Arealet er $A = x \\cdot y$ — men dette er en funksjon av to variabler, og det kan vi ikke derivere uten videre. Her kommer begrensningen til unnsetning: gjerdet er 100 meter, så $2x + y = 100$, altså $y = 100 - 2x$. Nå kan arealet skrives med én variabel: $A(x) = x(100 - 2x) = 100x - 2x^2$. Definisjonsmengden følger av at både $x$ og $y$ må være positive: $0 < x < 50$.\n\nSå deriverer vi: $A'(x) = 100 - 4x$, som er null når $x = 25$. Er dette et maksimum? $A''(x) = -4 < 0$, så grafen er konkav overalt — toppunkt bekreftet. Dimensjonene blir $x = 25$ m og $y = 100 - 50 = 50$ m, og det største arealet er $A = 25 \\cdot 50 = 1250$ m$^2$.\n\nLegg merke til strukturen, for den går igjen i alle slike problemer: målfunksjon ($A = xy$), begrensning ($2x + y = 100$), reduksjon til én variabel, derivasjon, verifisering og svar med enhet. Og legg merke til fellene: hadde svaret blitt $x = 60$, måtte vi forkastet det fordi det ligger utenfor definisjonsmengden. Noen ganger ligger faktisk maksimum eller minimum i et **endepunkt** av det tillatte intervallet — sjekk alltid det også."},{"id":"s2-3-3-n-quiz1","type":"exercise","exercise":{"id":"s2-3-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på optimeringsmetoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-3-n-quiz1-q0","task":"Hva er hensikten med begrensningen ($2x + y = 100$) i gjerdeproblemet?","options":[{"id":"a","text":"Å gjøre arealet større","isCorrect":false},{"id":"b","text":"Å uttrykke målfunksjonen med bare én variabel","isCorrect":true},{"id":"c","text":"Å finne definisjonsmengden til $y$","isCorrect":false},{"id":"d","text":"Å bestemme den deriverte direkte","isCorrect":false}],"solution":"Vi kan bare derivere funksjoner av én variabel. Begrensningen lar oss skrive $y = 100 - 2x$ og dermed $A(x) = 100x - 2x^2$."},{"id":"s2-3-3-n-quiz1-q1","task":"$A(x) = 100x - 2x^2$ gir $A'(x) = 100 - 4x$. Hvilken bredde maksimerer arealet?","options":[{"id":"a","text":"$x = 50$","isCorrect":false},{"id":"b","text":"$x = 100$","isCorrect":false},{"id":"c","text":"$x = 25$","isCorrect":true},{"id":"d","text":"$x = 20$","isCorrect":false}],"solution":"$A'(x) = 0$ gir $100 = 4x$, altså $x = 25$. Siden $A''(x) = -4 < 0$ er dette et toppunkt, og arealet blir $25 \\cdot 50 = 1250$ m$^2$."},{"id":"s2-3-3-n-quiz1-q2","task":"Hvorfor er definisjonsmengden $0 < x < 50$ i gjerdeproblemet?","options":[{"id":"a","text":"Fordi både bredden $x$ og lengden $y = 100 - 2x$ må være positive","isCorrect":true},{"id":"b","text":"Fordi $A'(x)$ bare er definert der","isCorrect":false},{"id":"c","text":"Fordi arealet ikke kan overstige 50 m$^2$","isCorrect":false},{"id":"d","text":"Fordi gjerdet bare har to sider","isCorrect":false}],"solution":"Fysisk mening krever $x > 0$ og $y = 100 - 2x > 0$, som gir $x < 50$. Løsninger utenfor definisjonsmengden må forkastes."},{"id":"s2-3-3-n-quiz1-q3","task":"Hva er en typisk feil i optimeringsoppgaver?","options":[{"id":"a","text":"Å verifisere med andrederivert-testen","isCorrect":false},{"id":"b","text":"Å tegne figur av situasjonen","isCorrect":false},{"id":"c","text":"Å bruke begrensningen til å eliminere en variabel","isCorrect":false},{"id":"d","text":"Å glemme å sjekke endepunktene av det tillatte intervallet","isCorrect":true}],"solution":"Maksimum eller minimum kan ligge i et endepunkt av definisjonsmengden. Andre klassikere: ikke verifisere maks/min, blande enheter og ikke svare på det oppgaven spør om."}]}},{"id":"s2-3-3-n-section2","type":"text","content":"## Designeren og boksen\n\nEn emballasjedesigner får i oppdrag å lage en sylinderformet boks **uten lokk** som skal romme $500$ cm$^3$. Materialet koster penger, så målet er minst mulig overflate. Hvilke dimensjoner velger hun?\n\nVariablene er radius $r$ og høyde $h$. Overflaten består av bunn og sideflate: $S = \\pi r^2 + 2\\pi r h$. Begrensningen er volumet: $\\pi r^2 h = 500$, som gir $h = \\frac{500}{\\pi r^2}$. Innsatt i overflaten: $S(r) = \\pi r^2 + 2\\pi r \\cdot \\frac{500}{\\pi r^2} = \\pi r^2 + \\frac{1000}{r}$, med definisjonsmengde $r > 0$.\n\nVi deriverer: $S'(r) = 2\\pi r - \\frac{1000}{r^2}$. Setter vi dette lik null, får vi $2\\pi r = \\frac{1000}{r^2}$, altså $r^3 = \\frac{500}{\\pi}$ og $r = \\sqrt[3]{\\frac{500}{\\pi}} \\approx 5{,}42$ cm. Verifiseringen er behagelig her: $S''(r) = 2\\pi + \\frac{2000}{r^3} > 0$ for alle $r > 0$, så dette er garantert et bunnpunkt. Regner vi ut høyden, skjer noe pent: $h = \\frac{500}{\\pi r^2} = r \\approx 5{,}42$ cm. Den optimale boksen uten lokk er akkurat like høy som den er bred i radius, og minste overflate blir omtrent $277$ cm$^2$.\n\nSamme teknikk løser avstandsproblemer. Hvilket punkt på parabelen $y = x^2$ ligger nærmest punktet $(0, 1)$? Avstanden er $d = \\sqrt{x^2 + (x^2-1)^2}$, men her finnes et lurt triks: minimer heller $D(x) = d^2 = x^4 - x^2 + 1$, som har minimum samme sted og er mye enklere å derivere. $D'(x) = 4x^3 - 2x = 2x(2x^2 - 1)$ gir kandidatene $x = 0$ og $x = \\pm\\frac{1}{\\sqrt{2}}$. Andrederiverten $D''(x) = 12x^2 - 2$ avslører at $x = 0$ er et lokalt maksimum, mens $x = \\pm\\frac{1}{\\sqrt{2}}$ gir minimum. De nærmeste punktene er $(\\pm\\frac{1}{\\sqrt{2}}, \\frac{1}{2})$, med avstand $\\frac{\\sqrt{3}}{2} \\approx 0{,}87$."},{"id":"s2-3-3-n-quiz2","type":"exercise","exercise":{"id":"s2-3-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på geometrisk optimering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-3-n-quiz2-q0","task":"Sylinderen uten lokk skal ha volum 500 cm$^3$. Hvordan brukes denne opplysningen?","options":[{"id":"a","text":"Som målfunksjonen som skal minimeres","isCorrect":false},{"id":"b","text":"Som begrensning: $h = \\frac{500}{\\pi r^2}$ settes inn i overflateformelen","isCorrect":true},{"id":"c","text":"Som definisjonsmengde for $r$","isCorrect":false},{"id":"d","text":"Den trengs ikke i beregningen","isCorrect":false}],"solution":"Det er overflaten som skal minimeres; volumkravet er begrensningen som lar oss uttrykke $h$ ved $r$ og få $S(r) = \\pi r^2 + \\frac{1000}{r}$."},{"id":"s2-3-3-n-quiz2-q1","task":"$S'(r) = 2\\pi r - \\frac{1000}{r^2} = 0$ gir hvilken likning for $r$?","options":[{"id":"a","text":"$r^2 = \\frac{1000}{\\pi}$","isCorrect":false},{"id":"b","text":"$r = \\frac{500}{\\pi}$","isCorrect":false},{"id":"c","text":"$r^3 = \\frac{500}{\\pi}$","isCorrect":true},{"id":"d","text":"$r^3 = 1000\\pi$","isCorrect":false}],"solution":"$2\\pi r = \\frac{1000}{r^2}$ gir $2\\pi r^3 = 1000$, altså $r^3 = \\frac{500}{\\pi}$ og $r = \\sqrt[3]{500/\\pi} \\approx 5{,}42$ cm."},{"id":"s2-3-3-n-quiz2-q2","task":"Hvorfor minimerer vi $d^2$ i stedet for $d = \\sqrt{x^2 + (x^2-1)^2}$ i avstandsproblemet?","options":[{"id":"a","text":"Fordi $d^2$ har minimum samme sted som $d$, men er enklere å derivere","isCorrect":true},{"id":"b","text":"Fordi $d$ ikke kan deriveres","isCorrect":false},{"id":"c","text":"Fordi $d^2$ alltid er mindre enn $d$","isCorrect":false},{"id":"d","text":"Fordi kvadratroten gjør svaret negativt","isCorrect":false}],"solution":"Kvadratfunksjonen er voksende for positive tall, så $d$ og $d^2$ har minimum i samme $x$. Å slippe kvadratroten gjør derivasjonen mye enklere."},{"id":"s2-3-3-n-quiz2-q3","task":"$S''(r) = 2\\pi + \\frac{2000}{r^3} > 0$ for alle $r > 0$. Hva betyr det?","options":[{"id":"a","text":"Overflaten har ingen ekstremalpunkter","isCorrect":false},{"id":"b","text":"Det stasjonære punktet er et toppunkt","isCorrect":false},{"id":"c","text":"Funksjonen er avtagende overalt","isCorrect":false},{"id":"d","text":"Det stasjonære punktet er et bunnpunkt — minst materialforbruk er bekreftet","isCorrect":true}],"solution":"Positiv andrederivert i hele definisjonsmengden betyr konveks funksjon, så det stasjonære punktet er et globalt minimum."}]}},{"id":"s2-3-3-n-section3","type":"text","content":"## Økonomisjefens regnestykke\n\nDen tredje fortellingen foregår på et styremøte. En bedrift selger et produkt til prisen $p(x) = 200 - 2x$ kroner per enhet, der $x$ er antall enheter i tusen — jo mer de prøver å selge, desto lavere pris må de sette. Kostnadene er $K(x) = x^3 - 6x^2 + 15x + 50$ (i tusen kroner). Hvor mye bør de produsere?\n\nI økonomisk optimering er begrepene faste: **inntekten** er $I(x) = p(x) \\cdot x$, **kostnaden** er $K(x)$, og **overskuddet** er $O(x) = I(x) - K(x)$. De deriverte har egne navn: $I'(x)$ er **grenseinntekten** — inntekten fra å selge én enhet til — og $K'(x)$ er **grensekostnaden** — kostnaden ved å produsere én enhet til. Et viktig resultat følger direkte av $O'(x) = I'(x) - K'(x) = 0$: maksimalt overskudd oppnås når grenseinntekten er lik grensekostnaden, $I'(x) = K'(x)$. Så lenge en ekstra enhet gir mer inntekt enn den koster, lønner det seg å øke produksjonen; i det øyeblikket kostnaden tar igjen inntekten, bør du stoppe.\n\nFor bedriften vår: $I(x) = (200 - 2x)x = 200x - 2x^2$, så $O(x) = 200x - 2x^2 - (x^3 - 6x^2 + 15x + 50) = -x^3 + 4x^2 + 185x - 50$. Deriverer: $O'(x) = -3x^2 + 8x + 185 = 0$, som med abc-formelen gir $x = \\frac{8 \\pm \\sqrt{64 + 2220}}{6} = \\frac{8 \\pm \\sqrt{2284}}{6}$. Den positive løsningen er $x \\approx 9{,}3$; den negative forkastes som meningsløs. Verifisering: $O''(x) = -6x + 8$, og $O''(9{,}3) \\approx -47{,}8 < 0$ — toppunkt bekreftet. Bedriften bør produsere omtrent 9300 enheter.\n\nFør du leverer et slikt svar, kontrollerer du listen over klassiske feil: ligger løsningen i definisjonsmengden, har du verifisert at det er maks (ikke min), har du sjekket endepunktene, stemmer enhetene — og svarer du faktisk på det oppgaven spør om?"},{"id":"s2-3-3-n-quiz3","type":"exercise","exercise":{"id":"s2-3-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på økonomisk optimering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-3-n-quiz3-q0","task":"Hva er grensekostnaden $K'(x)$?","options":[{"id":"a","text":"Den totale kostnaden ved å produsere $x$ enheter","isCorrect":false},{"id":"b","text":"Kostnaden for å produsere én enhet til","isCorrect":true},{"id":"c","text":"Den laveste mulige kostnaden","isCorrect":false},{"id":"d","text":"Kostnaden delt på antall enheter","isCorrect":false}],"solution":"Grensekostnaden er den deriverte av kostnadsfunksjonen og tolkes som kostnaden ved å produsere én enhet til."},{"id":"s2-3-3-n-quiz3-q1","task":"Når oppnås maksimalt overskudd?","options":[{"id":"a","text":"Når inntekten er størst","isCorrect":false},{"id":"b","text":"Når kostnaden er minst","isCorrect":false},{"id":"c","text":"Når grenseinntekten er lik grensekostnaden, $I'(x) = K'(x)$","isCorrect":true},{"id":"d","text":"Når prisen er høyest","isCorrect":false}],"solution":"Overskuddet $O = I - K$ har stasjonært punkt når $O'(x) = I'(x) - K'(x) = 0$, altså når grenseinntekt er lik grensekostnad."},{"id":"s2-3-3-n-quiz3-q2","task":"Prisen er $p(x) = 200 - 2x$. Hva er inntektsfunksjonen $I(x)$?","options":[{"id":"a","text":"$I(x) = 200x - 2x^2$","isCorrect":true},{"id":"b","text":"$I(x) = 200 - 2x$","isCorrect":false},{"id":"c","text":"$I(x) = 200x + 2x^2$","isCorrect":false},{"id":"d","text":"$I(x) = \\frac{200 - 2x}{x}$","isCorrect":false}],"solution":"Inntekt er pris ganger antall: $I(x) = p(x) \\cdot x = (200 - 2x)x = 200x - 2x^2$."},{"id":"s2-3-3-n-quiz3-q3","task":"Likningen $O'(x) = 0$ ga løsningene $x \\approx 9{,}3$ og $x \\approx -6{,}6$. Hvorfor forkastes den negative?","options":[{"id":"a","text":"Fordi den ikke gir fysisk mening — negativ produksjonsmengde finnes ikke","isCorrect":true},{"id":"b","text":"Fordi $O''(-6{,}6) < 0$","isCorrect":false},{"id":"c","text":"Fordi overskuddet er null der","isCorrect":false},{"id":"d","text":"Fordi abc-formelen bare gir positive svar","isCorrect":false}],"solution":"Optimeringsproblemer har en praktisk definisjonsmengde. Produksjonsmengden må være positiv, så $x \\approx -6{,}6$ ligger utenfor og forkastes."}]}},{"id":"s2-3-3-n-summary","type":"text","content":"## Oppsummering: én oppskrift, mange problemer\n\nBonden, designeren og økonomisjefen løste tilsynelatende helt ulike problemer — størst areal, minst overflate, høyest overskudd — men fulgte nøyaktig samme oppskrift. Forstå problemet og identifiser hva som skal optimeres. Innfør variabler og sett opp funksjonsuttrykket. Bruk begrensningene til å redusere til én variabel, og bestem definisjonsmengden ut fra hva som gir fysisk mening. Deriver, sett $f'(x) = 0$ og løs. Verifiser med andrederivert eller fortegnslinje at du faktisk har et maksimum eller minimum. Og svar på spørsmålet med riktig enhet.\n\nUnderveis plukket vi opp nyttige knep: avstander minimeres enklest ved å minimere kvadratet $d^2$, og i økonomi gjelder det elegante prinsippet om at maksimalt overskudd nås når **grenseinntekt er lik grensekostnad**, $I'(x) = K'(x)$, der $I(x) = p(x) \\cdot x$ og $O(x) = I(x) - K(x)$.\n\nDe vanlige optimeringsproblemene i S2 kommer fra geometri (areal, volum, overflate), økonomi (inntekt, kostnad, overskudd), avstand (korteste avstand til en kurve) og emballasje (minst materiale for gitt volum). Fellene er like forutsigbare som oppgavetypene: løsninger utenfor definisjonsmengden, manglende verifisering av maks/min, glemte endepunkter, blandede enheter og svar som ikke svarer på spørsmålet. Med oppskriften i ryggraden er optimering en av de mest takknemlige oppgavetypene på eksamen — det finnes alltid en beste løsning, og nå vet du hvordan du finner den."}],"exercises":[]}
+{
+  "id": "s2-3-3-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "3.3",
+  "title": "Optimering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å finne det beste — størst areal, minst emballasje og maksimal fortjeneste — med derivasjon som verktøy.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bruke derivasjon til å løse praktiske optimeringsproblemer",
+    "modellere praktiske situasjoner med funksjoner og bruke modellene til å løse problemer"
+  ],
+  "linkedChapterId": "s2-3-3",
+  "content": [
+    {
+      "id": "s2-3-3-n-intro",
+      "type": "text",
+      "content": "## Jakten på det beste\n\nEn bonde med 100 meter gjerde. En emballasjedesigner som vil bruke minst mulig aluminium. En økonomisjef som lurer på hvor mange enheter bedriften bør produsere. Alle tre stiller i bunn og grunn samme spørsmål: hva er den **beste** løsningen? **Optimering** handler om å finne den største eller minste verdien av en størrelse — maksimere areal, volum eller fortjeneste, eller minimere kostnad, materialbruk eller avstand. Og derivasjon er det perfekte verktøyet, for ekstremalverdier gjemmer seg der den deriverte er null.\n\nAlle optimeringsproblemer kan løses med samme fremgangsmåte. Først leser du oppgaven nøye: hva skal optimeres, og hvilke begrensninger finnes? Så innfører du variabler og tegner gjerne en figur. Deretter setter du opp funksjonsuttrykket for størrelsen som skal optimeres, og bruker begrensningene til å uttrykke funksjonen med **én** variabel. Du bestemmer definisjonsmengden — hvilke verdier gir fysisk mening? — før du deriverer, setter $f'(x) = 0$ og løser. Til slutt verifiserer du at løsningen virkelig er et maksimum eller minimum (med andrederivert-test eller fortegnslinje), og svarer på spørsmålet med riktig enhet.\n\nDet er denne oppskriften vi skal følge gjennom tre fortellinger: en innhegning ved elva, en sylinder uten lokk, og en bedrift som leter etter sitt mest lønnsomme produksjonsnivå."
+    },
+    {
+      "id": "s2-3-3-n-section1",
+      "type": "text",
+      "content": "## Bonden ved elva\n\nBonden har 100 meter gjerde og vil lage en rektangulær innhegning langs en elv. Elva fungerer som den ene langsiden, så gjerdet trengs bare til tre sider. Hvilke dimensjoner gir størst areal?\n\nVi innfører variabler: la $x$ være bredden (de to kortsidene) og $y$ lengden. Arealet er $A = x \\cdot y$ — men dette er en funksjon av to variabler, og det kan vi ikke derivere uten videre. Her kommer begrensningen til unnsetning: gjerdet er 100 meter, så $2x + y = 100$, altså $y = 100 - 2x$. Nå kan arealet skrives med én variabel: $A(x) = x(100 - 2x) = 100x - 2x^2$. Definisjonsmengden følger av at både $x$ og $y$ må være positive: $0 < x < 50$.\n\nSå deriverer vi: $A'(x) = 100 - 4x$, som er null når $x = 25$. Er dette et maksimum? $A''(x) = -4 < 0$, så grafen er konkav overalt — toppunkt bekreftet. Dimensjonene blir $x = 25$ m og $y = 100 - 50 = 50$ m, og det største arealet er $A = 25 \\cdot 50 = 1250$ m$^2$.\n\nLegg merke til strukturen, for den går igjen i alle slike problemer: målfunksjon ($A = xy$), begrensning ($2x + y = 100$), reduksjon til én variabel, derivasjon, verifisering og svar med enhet. Og legg merke til fellene: hadde svaret blitt $x = 60$, måtte vi forkastet det fordi det ligger utenfor definisjonsmengden. Noen ganger ligger faktisk maksimum eller minimum i et **endepunkt** av det tillatte intervallet — sjekk alltid det også."
+    },
+    {
+      "id": "s2-3-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på optimeringsmetoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-3-n-quiz1-q0",
+            "task": "Hva er hensikten med begrensningen ($2x + y = 100$) i gjerdeproblemet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å uttrykke målfunksjonen med bare én variabel",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å gjøre arealet større",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å finne definisjonsmengden til $y$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å bestemme den deriverte direkte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi kan bare derivere funksjoner av én variabel. Begrensningen lar oss skrive $y = 100 - 2x$ og dermed $A(x) = 100x - 2x^2$."
+          },
+          {
+            "id": "s2-3-3-n-quiz1-q1",
+            "task": "$A(x) = 100x - 2x^2$ gir $A'(x) = 100 - 4x$. Hvilken bredde maksimerer arealet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 25$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 20$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$A'(x) = 0$ gir $100 = 4x$, altså $x = 25$. Siden $A''(x) = -4 < 0$ er dette et toppunkt, og arealet blir $25 \\cdot 50 = 1250$ m$^2$."
+          },
+          {
+            "id": "s2-3-3-n-quiz1-q2",
+            "task": "Hvorfor er definisjonsmengden $0 < x < 50$ i gjerdeproblemet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $A'(x)$ bare er definert der",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi arealet ikke kan overstige 50 m$^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi både bredden $x$ og lengden $y = 100 - 2x$ må være positive",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi gjerdet bare har to sider",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fysisk mening krever $x > 0$ og $y = 100 - 2x > 0$, som gir $x < 50$. Løsninger utenfor definisjonsmengden må forkastes."
+          },
+          {
+            "id": "s2-3-3-n-quiz1-q3",
+            "task": "Hva er en typisk feil i optimeringsoppgaver?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å verifisere med andrederivert-testen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å tegne figur av situasjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bruke begrensningen til å eliminere en variabel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å glemme å sjekke endepunktene av det tillatte intervallet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Maksimum eller minimum kan ligge i et endepunkt av definisjonsmengden. Andre klassikere: ikke verifisere maks/min, blande enheter og ikke svare på det oppgaven spør om."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-3-n-section2",
+      "type": "text",
+      "content": "## Designeren og boksen\n\nEn emballasjedesigner får i oppdrag å lage en sylinderformet boks **uten lokk** som skal romme $500$ cm$^3$. Materialet koster penger, så målet er minst mulig overflate. Hvilke dimensjoner velger hun?\n\nVariablene er radius $r$ og høyde $h$. Overflaten består av bunn og sideflate: $S = \\pi r^2 + 2\\pi r h$. Begrensningen er volumet: $\\pi r^2 h = 500$, som gir $h = \\frac{500}{\\pi r^2}$. Innsatt i overflaten: $S(r) = \\pi r^2 + 2\\pi r \\cdot \\frac{500}{\\pi r^2} = \\pi r^2 + \\frac{1000}{r}$, med definisjonsmengde $r > 0$.\n\nVi deriverer: $S'(r) = 2\\pi r - \\frac{1000}{r^2}$. Setter vi dette lik null, får vi $2\\pi r = \\frac{1000}{r^2}$, altså $r^3 = \\frac{500}{\\pi}$ og $r = \\sqrt[3]{\\frac{500}{\\pi}} \\approx 5{,}42$ cm. Verifiseringen er behagelig her: $S''(r) = 2\\pi + \\frac{2000}{r^3} > 0$ for alle $r > 0$, så dette er garantert et bunnpunkt. Regner vi ut høyden, skjer noe pent: $h = \\frac{500}{\\pi r^2} = r \\approx 5{,}42$ cm. Den optimale boksen uten lokk er akkurat like høy som den er bred i radius, og minste overflate blir omtrent $277$ cm$^2$.\n\nSamme teknikk løser avstandsproblemer. Hvilket punkt på parabelen $y = x^2$ ligger nærmest punktet $(0, 1)$? Avstanden er $d = \\sqrt{x^2 + (x^2-1)^2}$, men her finnes et lurt triks: minimer heller $D(x) = d^2 = x^4 - x^2 + 1$, som har minimum samme sted og er mye enklere å derivere. $D'(x) = 4x^3 - 2x = 2x(2x^2 - 1)$ gir kandidatene $x = 0$ og $x = \\pm\\frac{1}{\\sqrt{2}}$. Andrederiverten $D''(x) = 12x^2 - 2$ avslører at $x = 0$ er et lokalt maksimum, mens $x = \\pm\\frac{1}{\\sqrt{2}}$ gir minimum. De nærmeste punktene er $(\\pm\\frac{1}{\\sqrt{2}}, \\frac{1}{2})$, med avstand $\\frac{\\sqrt{3}}{2} \\approx 0{,}87$."
+    },
+    {
+      "id": "s2-3-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på geometrisk optimering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-3-n-quiz2-q0",
+            "task": "Sylinderen uten lokk skal ha volum 500 cm$^3$. Hvordan brukes denne opplysningen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Som begrensning: $h = \\frac{500}{\\pi r^2}$ settes inn i overflateformelen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Som målfunksjonen som skal minimeres",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Som definisjonsmengde for $r$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den trengs ikke i beregningen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er overflaten som skal minimeres; volumkravet er begrensningen som lar oss uttrykke $h$ ved $r$ og få $S(r) = \\pi r^2 + \\frac{1000}{r}$."
+          },
+          {
+            "id": "s2-3-3-n-quiz2-q1",
+            "task": "$S'(r) = 2\\pi r - \\frac{1000}{r^2} = 0$ gir hvilken likning for $r$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$r^2 = \\frac{1000}{\\pi}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$r^3 = \\frac{500}{\\pi}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$r = \\frac{500}{\\pi}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$r^3 = 1000\\pi$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2\\pi r = \\frac{1000}{r^2}$ gir $2\\pi r^3 = 1000$, altså $r^3 = \\frac{500}{\\pi}$ og $r = \\sqrt[3]{500/\\pi} \\approx 5{,}42$ cm."
+          },
+          {
+            "id": "s2-3-3-n-quiz2-q2",
+            "task": "Hvorfor minimerer vi $d^2$ i stedet for $d = \\sqrt{x^2 + (x^2-1)^2}$ i avstandsproblemet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $d$ ikke kan deriveres",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $d^2$ alltid er mindre enn $d$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $d^2$ har minimum samme sted som $d$, men er enklere å derivere",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi kvadratroten gjør svaret negativt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvadratfunksjonen er voksende for positive tall, så $d$ og $d^2$ har minimum i samme $x$. Å slippe kvadratroten gjør derivasjonen mye enklere."
+          },
+          {
+            "id": "s2-3-3-n-quiz2-q3",
+            "task": "$S''(r) = 2\\pi + \\frac{2000}{r^3} > 0$ for alle $r > 0$. Hva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Overflaten har ingen ekstremalpunkter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det stasjonære punktet er et toppunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonen er avtagende overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det stasjonære punktet er et bunnpunkt — minst materialforbruk er bekreftet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Positiv andrederivert i hele definisjonsmengden betyr konveks funksjon, så det stasjonære punktet er et globalt minimum."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-3-n-section3",
+      "type": "text",
+      "content": "## Økonomisjefens regnestykke\n\nDen tredje fortellingen foregår på et styremøte. En bedrift selger et produkt til prisen $p(x) = 200 - 2x$ kroner per enhet, der $x$ er antall enheter i tusen — jo mer de prøver å selge, desto lavere pris må de sette. Kostnadene er $K(x) = x^3 - 6x^2 + 15x + 50$ (i tusen kroner). Hvor mye bør de produsere?\n\nI økonomisk optimering er begrepene faste: **inntekten** er $I(x) = p(x) \\cdot x$, **kostnaden** er $K(x)$, og **overskuddet** er $O(x) = I(x) - K(x)$. De deriverte har egne navn: $I'(x)$ er **grenseinntekten** — inntekten fra å selge én enhet til — og $K'(x)$ er **grensekostnaden** — kostnaden ved å produsere én enhet til. Et viktig resultat følger direkte av $O'(x) = I'(x) - K'(x) = 0$: maksimalt overskudd oppnås når grenseinntekten er lik grensekostnaden, $I'(x) = K'(x)$. Så lenge en ekstra enhet gir mer inntekt enn den koster, lønner det seg å øke produksjonen; i det øyeblikket kostnaden tar igjen inntekten, bør du stoppe.\n\nFor bedriften vår: $I(x) = (200 - 2x)x = 200x - 2x^2$, så $O(x) = 200x - 2x^2 - (x^3 - 6x^2 + 15x + 50) = -x^3 + 4x^2 + 185x - 50$. Deriverer: $O'(x) = -3x^2 + 8x + 185 = 0$, som med abc-formelen gir $x = \\frac{8 \\pm \\sqrt{64 + 2220}}{6} = \\frac{8 \\pm \\sqrt{2284}}{6}$. Den positive løsningen er $x \\approx 9{,}3$; den negative forkastes som meningsløs. Verifisering: $O''(x) = -6x + 8$, og $O''(9{,}3) \\approx -47{,}8 < 0$ — toppunkt bekreftet. Bedriften bør produsere omtrent 9300 enheter.\n\nFør du leverer et slikt svar, kontrollerer du listen over klassiske feil: ligger løsningen i definisjonsmengden, har du verifisert at det er maks (ikke min), har du sjekket endepunktene, stemmer enhetene — og svarer du faktisk på det oppgaven spør om?"
+    },
+    {
+      "id": "s2-3-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på økonomisk optimering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-3-n-quiz3-q0",
+            "task": "Hva er grensekostnaden $K'(x)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kostnaden for å produsere én enhet til",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den totale kostnaden ved å produsere $x$ enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den laveste mulige kostnaden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kostnaden delt på antall enheter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grensekostnaden er den deriverte av kostnadsfunksjonen og tolkes som kostnaden ved å produsere én enhet til."
+          },
+          {
+            "id": "s2-3-3-n-quiz3-q1",
+            "task": "Når oppnås maksimalt overskudd?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når inntekten er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når grenseinntekten er lik grensekostnaden, $I'(x) = K'(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når kostnaden er minst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når prisen er høyest",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overskuddet $O = I - K$ har stasjonært punkt når $O'(x) = I'(x) - K'(x) = 0$, altså når grenseinntekt er lik grensekostnad."
+          },
+          {
+            "id": "s2-3-3-n-quiz3-q2",
+            "task": "Prisen er $p(x) = 200 - 2x$. Hva er inntektsfunksjonen $I(x)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$I(x) = 200 - 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$I(x) = 200x + 2x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$I(x) = 200x - 2x^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$I(x) = \\frac{200 - 2x}{x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Inntekt er pris ganger antall: $I(x) = p(x) \\cdot x = (200 - 2x)x = 200x - 2x^2$."
+          },
+          {
+            "id": "s2-3-3-n-quiz3-q3",
+            "task": "Likningen $O'(x) = 0$ ga løsningene $x \\approx 9{,}3$ og $x \\approx -6{,}6$. Hvorfor forkastes den negative?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $O''(-6{,}6) < 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi overskuddet er null der",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi abc-formelen bare gir positive svar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi den ikke gir fysisk mening — negativ produksjonsmengde finnes ikke",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Optimeringsproblemer har en praktisk definisjonsmengde. Produksjonsmengden må være positiv, så $x \\approx -6{,}6$ ligger utenfor og forkastes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: én oppskrift, mange problemer\n\nBonden, designeren og økonomisjefen løste tilsynelatende helt ulike problemer — størst areal, minst overflate, høyest overskudd — men fulgte nøyaktig samme oppskrift. Forstå problemet og identifiser hva som skal optimeres. Innfør variabler og sett opp funksjonsuttrykket. Bruk begrensningene til å redusere til én variabel, og bestem definisjonsmengden ut fra hva som gir fysisk mening. Deriver, sett $f'(x) = 0$ og løs. Verifiser med andrederivert eller fortegnslinje at du faktisk har et maksimum eller minimum. Og svar på spørsmålet med riktig enhet.\n\nUnderveis plukket vi opp nyttige knep: avstander minimeres enklest ved å minimere kvadratet $d^2$, og i økonomi gjelder det elegante prinsippet om at maksimalt overskudd nås når **grenseinntekt er lik grensekostnad**, $I'(x) = K'(x)$, der $I(x) = p(x) \\cdot x$ og $O(x) = I(x) - K(x)$.\n\nDe vanlige optimeringsproblemene i S2 kommer fra geometri (areal, volum, overflate), økonomi (inntekt, kostnad, overskudd), avstand (korteste avstand til en kurve) og emballasje (minst materiale for gitt volum). Fellene er like forutsigbare som oppgavetypene: løsninger utenfor definisjonsmengden, manglende verifisering av maks/min, glemte endepunkter, blandede enheter og svar som ikke svarer på spørsmålet. Med oppskriften i ryggraden er optimering en av de mest takknemlige oppgavetypene på eksamen — det finnes alltid en beste løsning, og nå vet du hvordan du finner den."
+    }
+  ],
+  "exercises": []
+}

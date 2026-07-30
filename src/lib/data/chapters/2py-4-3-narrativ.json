@@ -1,1 +1,292 @@
-{"id":"2py-4-3-narrativ","courseId":"2py","chapterNumber":"4.3","title":"Frekvenstabeller og klassifisering","subtitle":"Narrativ versjon","description":"En fortelling om å rydde i tallkaos – hvordan ventetider på verkstedet blir til klasser, frekvenser og kumulative tabeller som faktisk gir oversikt.","estimatedMinutes":32,"competenceGoals":["gruppere data i klasser","lage frekvenstabeller","beregne kumulative frekvenser"],"linkedChapterId":"2py-4-3","content":[{"id":"2py-4-3-n-intro","type":"text","content":"## Tjue ventetider og null oversikt\n\nVerkstedsjefen på bilverkstedet der Jonas er lærling, har fått klager på ventetiden. Jonas får jobben med å undersøke, og registrerer ventetiden i minutter for 20 kunder: 15, 8, 32, 45, 12, 28, 5, 22, 38, 18, 55, 10, 25, 42, 20, 35, 14, 48, 30, 7. Han stirrer på tallrekken. Er dette bra eller dårlig? Umulig å si – tjue løse tall gir ingen oversikt.\n\nProblemet er velkjent i alle yrker: en elektriker måler strømforbruk i 50 boliger, en helsefagarbeider registrerer blodtrykk hos 30 pasienter, en kokk noterer ventetid på 40 bestillinger, en mekaniker leser av kilometerstanden på 60 biler til EU-kontroll. Når observasjonene blir mange, er det vanskelig å se mønstre i en lang tallrekke. Løsningen er å gruppere dataene i **klasser** og lage en **frekvenstabell**.\n\nEn klasse er et intervall som verdiene grupperes i, for eksempel $[0, 10\\rangle$, $[10, 20\\rangle$ og $[20, 30\\rangle$. **Klassebredden** er avstanden mellom nedre og øvre grense – her 10. **Frekvensen** er antall observasjoner i hver klasse. I denne fortellingen hjelper vi Jonas med å bygge tabellen, velge fornuftige klasser – og hente ut svar med relative og kumulative frekvenser."},{"id":"2py-4-3-n-section1","type":"text","content":"## Jonas bygger frekvenstabellen\n\nJonas velger klassebredde 10 og setter opp klassene $[0, 10\\rangle$, $[10, 20\\rangle$, $[20, 30\\rangle$, $[30, 40\\rangle$, $[40, 50\\rangle$ og $[50, 60\\rangle$. Legg merke til skrivemåten: **halvåpne intervaller**. $[10, 20\\rangle$ betyr *fra og med* 10 til, men *ikke med*, 20. Dermed hører 10, 15 og 19,9 til klassen $[10, 20\\rangle$, mens 20 hører til neste klasse. Uten denne regelen ville en ventetid på nøyaktig 20 minutter havnet i to klasser samtidig – halvåpne intervaller sikrer at hver observasjon får nøyaktig én plass.\n\nSå teller han opp: 3 kunder ventet under 10 minutter, 5 ventet mellom 10 og 20, 4 mellom 20 og 30, 4 mellom 30 og 40, 3 mellom 40 og 50, og 1 stakkar over 50. Summen er 20 – stemmer med antall kunder.\n\nNeste kolonne er **relativ frekvens** – andelen i hver klasse: $\\frac{\\text{frekvens}}{\\text{totalt antall}}$. Klassen $[10, 20\\rangle$ får $\\frac{5}{20} = 25\\,\\%$, og hele kolonnen blir 15 %, 25 %, 20 %, 20 %, 15 % og 5 % – til sammen 100 %.\n\nSiste kolonne er **kumulativ frekvens**: summen av frekvensene *opp til og med* hver klasse. Den løper 3, 8, 12, 16, 19, 20. Nå kan Jonas svare sjefen presist: flest kunder (25 %) ventet mellom 10 og 20 minutter, og den kumulative frekvensen 12 viser at 12 av 20 kunder – 60 % – ventet under en halvtime. Spørsmål av typen «hvor mange ventet mindre enn ...?» er nøyaktig det kumulativ frekvens er bygget for."},{"id":"2py-4-3-n-quiz1","type":"exercise","exercise":{"id":"2py-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på klasser og frekvenstabeller:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-4-3-n-quiz1-q0","task":"Hvilken klasse hører en ventetid på nøyaktig 20 minutter til?","options":[{"id":"a","text":"$[10, 20\\rangle$","isCorrect":false},{"id":"b","text":"$[20, 30\\rangle$","isCorrect":true},{"id":"c","text":"Begge klassene","isCorrect":false},{"id":"d","text":"Ingen av klassene","isCorrect":false}],"solution":"$[10, 20\\rangle$ er halvåpent: fra og med 10, men ikke med 20. Verdien 20 hører til $[20, 30\\rangle$ – slik havner hver observasjon i nøyaktig én klasse."},{"id":"2py-4-3-n-quiz1-q1","task":"Klassen $[10, 20\\rangle$ har frekvens 5 av totalt 20 observasjoner. Hva er den relative frekvensen?","options":[{"id":"a","text":"5 %","isCorrect":false},{"id":"b","text":"20 %","isCorrect":false},{"id":"c","text":"25 %","isCorrect":true},{"id":"d","text":"50 %","isCorrect":false}],"solution":"Relativ frekvens $= \\frac{5}{20} = 0{,}25 = 25\\,\\%$."},{"id":"2py-4-3-n-quiz1-q2","task":"Frekvensene er 3, 5, 4, 4, 3, 1. Hva er den kumulative frekvensen til og med klassen $[20, 30\\rangle$?","options":[{"id":"a","text":"4","isCorrect":false},{"id":"b","text":"8","isCorrect":false},{"id":"c","text":"16","isCorrect":false},{"id":"d","text":"12","isCorrect":true}],"solution":"Kumulativ frekvens er summen til og med klassen: $3 + 5 + 4 = 12$. Altså ventet 12 av 20 kunder under 30 minutter."},{"id":"2py-4-3-n-quiz1-q3","task":"Hvilket spørsmål er kumulativ frekvens spesielt egnet til å svare på?","options":[{"id":"a","text":"Hvor mange observasjoner ligger under en gitt grense?","isCorrect":true},{"id":"b","text":"Hva er gjennomsnittet?","isCorrect":false},{"id":"c","text":"Hvilken verdi forekommer oftest?","isCorrect":false},{"id":"d","text":"Hvor bred er hver klasse?","isCorrect":false}],"solution":"Kumulativ frekvens summerer opp til og med en klasse – perfekt for spørsmål som «hvor mange ventet under 30 minutter?»."}]}},{"id":"2py-4-3-n-section2","type":"text","content":"## Å velge klassebredde – og regne videre på klassedelte data\n\nHvorfor valgte Jonas akkurat klassebredde 10? Det finnes ingen fasit, men gode tommelfingerregler: bruk mellom 5 og 10 klasser, gi alle klassene **lik bredde**, velg «runde» tall som bredde (5, 10, 20, 50, 100), og pass på at klassene dekker alle observasjonene. En enkel formel gir startpunktet: klassebredde $\\approx \\frac{\\text{største verdi} - \\text{minste verdi}}{\\text{antall klasser}}$, rundet opp til et praktisk tall. For Jonas: $\\frac{55 - 5}{5} = 10$. Perfekt.\n\nFor få klasser klumper alt sammen og skjuler mønsteret; for mange klasser gir én og én observasjon per klasse – like uoversiktlig som rådataene. Mellom fem og ti klasser treffer som regel balansen.\n\nMen klassedeling har en pris: vi mister de eksakte verdiene. Hva om sjefen vil vite gjennomsnittlig ventetid? Da bruker vi **klassemidtpunktet** – midten av hver klasse – som representant for alle observasjonene i klassen. For $[10, 20\\rangle$ er midtpunktet 15. Det tilnærmede gjennomsnittet blir $\\bar{x} \\approx \\frac{\\sum (m_i \\cdot f_i)}{n}$, der $m_i$ er midtpunktene og $f_i$ frekvensene. For Jonas: $\\frac{5 \\cdot 3 + 15 \\cdot 5 + 25 \\cdot 4 + 35 \\cdot 4 + 45 \\cdot 3 + 55 \\cdot 1}{20} = \\frac{520}{20} = 26$ minutter.\n\nOgså medianen kan spores i tabellen: med 20 observasjoner ligger medianen rundt observasjon 10–11, og den kumulative kolonnen (3, 8, 12, ...) viser at begge ligger i klassen $[20, 30\\rangle$. Slik gir den ferdige tabellen både oversikt og regnegrunnlag – mønsteret synlig, og sentralmålene innen rekkevidde."},{"id":"2py-4-3-n-quiz2","type":"exercise","exercise":{"id":"2py-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på klassebredde og klassemidtpunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-4-3-n-quiz2-q0","task":"Dataene går fra 5 til 55, og du vil ha 5 klasser. Hvilken klassebredde foreslår formelen?","options":[{"id":"a","text":"5","isCorrect":false},{"id":"b","text":"10","isCorrect":true},{"id":"c","text":"20","isCorrect":false},{"id":"d","text":"50","isCorrect":false}],"solution":"Klassebredde $\\approx \\frac{55 - 5}{5} = 10$ – et «rundt» og praktisk tall."},{"id":"2py-4-3-n-quiz2-q1","task":"Hvor mange klasser anbefales vanligvis i en frekvenstabell?","options":[{"id":"a","text":"2–3","isCorrect":false},{"id":"b","text":"Minst 20","isCorrect":false},{"id":"c","text":"5–10","isCorrect":true},{"id":"d","text":"Så mange som mulig","isCorrect":false}],"solution":"5–10 klasser med lik bredde gir best balanse: nok detaljer til å se mønsteret, men ikke så mange at oversikten forsvinner."},{"id":"2py-4-3-n-quiz2-q2","task":"Hva er klassemidtpunktet til klassen $[20, 30\\rangle$?","options":[{"id":"a","text":"20","isCorrect":false},{"id":"b","text":"30","isCorrect":false},{"id":"c","text":"10","isCorrect":false},{"id":"d","text":"25","isCorrect":true}],"solution":"Klassemidtpunktet er midten av intervallet: $\\frac{20 + 30}{2} = 25$. Det brukes som representant for observasjonene i klassen."},{"id":"2py-4-3-n-quiz2-q3","task":"Hvordan beregner du tilnærmet gjennomsnitt fra en klassedelt frekvenstabell?","options":[{"id":"a","text":"$\\bar{x} \\approx \\frac{\\sum (m_i \\cdot f_i)}{n}$ der $m_i$ er klassemidtpunkt og $f_i$ frekvens","isCorrect":true},{"id":"b","text":"Summen av klassemidtpunktene delt på antall klasser","isCorrect":false},{"id":"c","text":"Største pluss minste verdi delt på to","isCorrect":false},{"id":"d","text":"Det er umulig uten rådataene","isCorrect":false}],"solution":"Hvert midtpunkt ganges med klassens frekvens, summeres og deles på antall observasjoner. For Jonas: $\\frac{520}{20} = 26$ minutter."}]}},{"id":"2py-4-3-n-summary","type":"text","content":"## Fra tallrekke til beslutningsgrunnlag\n\nJonas leverte ikke en tallrekke til sjefen – han leverte en tabell som svarte på spørsmålene. Veien dit er oppskriften du nå kan: Del dataene inn i **klasser** med lik **klassebredde**, valgt etter tommelfingerregelen om 5–10 klasser og formelen $\\frac{\\text{største} - \\text{minste}}{\\text{antall klasser}}$, rundet til et praktisk tall. Bruk **halvåpne intervaller** som $[10, 20\\rangle$, slik at hver observasjon hører hjemme i nøyaktig én klasse.\n\nSelve tabellen har tre regnekolonner: **frekvensen** teller observasjonene i hver klasse (og skal summere seg til totalen), **relativ frekvens** $= \\frac{\\text{frekvens}}{n}$ gjør tallene om til andeler, og **kumulativ frekvens** summerer oppover og svarer på «hvor mange under grensen?» – som da 12 av 20 kunder viste seg å vente under en halvtime.\n\nOg når eksaktverdiene er borte, redder **klassemidtpunktet** regnestykkene: tilnærmet gjennomsnitt er $\\bar{x} \\approx \\frac{\\sum (m_i \\cdot f_i)}{n}$, og medianklassen finner du ved å lete i den kumulative kolonnen. Enten det gjelder ventetider, blodtrykk, strømforbruk eller kilometerstand: store datasett blir håndterbare i det øyeblikket du gir dem klasser – og en god frekvenstabell er forskjellen på å *ha* data og å *forstå* dem."}],"exercises":[]}
+{
+  "id": "2py-4-3-narrativ",
+  "courseId": "2py",
+  "chapterNumber": "4.3",
+  "title": "Frekvenstabeller og klassifisering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å rydde i tallkaos – hvordan ventetider på verkstedet blir til klasser, frekvenser og kumulative tabeller som faktisk gir oversikt.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "gruppere data i klasser",
+    "lage frekvenstabeller",
+    "beregne kumulative frekvenser"
+  ],
+  "linkedChapterId": "2py-4-3",
+  "content": [
+    {
+      "id": "2py-4-3-n-intro",
+      "type": "text",
+      "content": "## Tjue ventetider og null oversikt\n\nVerkstedsjefen på bilverkstedet der Jonas er lærling, har fått klager på ventetiden. Jonas får jobben med å undersøke, og registrerer ventetiden i minutter for 20 kunder: 15, 8, 32, 45, 12, 28, 5, 22, 38, 18, 55, 10, 25, 42, 20, 35, 14, 48, 30, 7. Han stirrer på tallrekken. Er dette bra eller dårlig? Umulig å si – tjue løse tall gir ingen oversikt.\n\nProblemet er velkjent i alle yrker: en elektriker måler strømforbruk i 50 boliger, en helsefagarbeider registrerer blodtrykk hos 30 pasienter, en kokk noterer ventetid på 40 bestillinger, en mekaniker leser av kilometerstanden på 60 biler til EU-kontroll. Når observasjonene blir mange, er det vanskelig å se mønstre i en lang tallrekke. Løsningen er å gruppere dataene i **klasser** og lage en **frekvenstabell**.\n\nEn klasse er et intervall som verdiene grupperes i, for eksempel $[0, 10\\rangle$, $[10, 20\\rangle$ og $[20, 30\\rangle$. **Klassebredden** er avstanden mellom nedre og øvre grense – her 10. **Frekvensen** er antall observasjoner i hver klasse. I denne fortellingen hjelper vi Jonas med å bygge tabellen, velge fornuftige klasser – og hente ut svar med relative og kumulative frekvenser."
+    },
+    {
+      "id": "2py-4-3-n-section1",
+      "type": "text",
+      "content": "## Jonas bygger frekvenstabellen\n\nJonas velger klassebredde 10 og setter opp klassene $[0, 10\\rangle$, $[10, 20\\rangle$, $[20, 30\\rangle$, $[30, 40\\rangle$, $[40, 50\\rangle$ og $[50, 60\\rangle$. Legg merke til skrivemåten: **halvåpne intervaller**. $[10, 20\\rangle$ betyr *fra og med* 10 til, men *ikke med*, 20. Dermed hører 10, 15 og 19,9 til klassen $[10, 20\\rangle$, mens 20 hører til neste klasse. Uten denne regelen ville en ventetid på nøyaktig 20 minutter havnet i to klasser samtidig – halvåpne intervaller sikrer at hver observasjon får nøyaktig én plass.\n\nSå teller han opp: 3 kunder ventet under 10 minutter, 5 ventet mellom 10 og 20, 4 mellom 20 og 30, 4 mellom 30 og 40, 3 mellom 40 og 50, og 1 stakkar over 50. Summen er 20 – stemmer med antall kunder.\n\nNeste kolonne er **relativ frekvens** – andelen i hver klasse: $\\frac{\\text{frekvens}}{\\text{totalt antall}}$. Klassen $[10, 20\\rangle$ får $\\frac{5}{20} = 25\\,\\%$, og hele kolonnen blir 15 %, 25 %, 20 %, 20 %, 15 % og 5 % – til sammen 100 %.\n\nSiste kolonne er **kumulativ frekvens**: summen av frekvensene *opp til og med* hver klasse. Den løper 3, 8, 12, 16, 19, 20. Nå kan Jonas svare sjefen presist: flest kunder (25 %) ventet mellom 10 og 20 minutter, og den kumulative frekvensen 12 viser at 12 av 20 kunder – 60 % – ventet under en halvtime. Spørsmål av typen «hvor mange ventet mindre enn ...?» er nøyaktig det kumulativ frekvens er bygget for."
+    },
+    {
+      "id": "2py-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på klasser og frekvenstabeller:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-4-3-n-quiz1-q0",
+            "task": "Hvilken klasse hører en ventetid på nøyaktig 20 minutter til?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[20, 30\\rangle$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[10, 20\\rangle$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge klassene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen av klassene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$[10, 20\\rangle$ er halvåpent: fra og med 10, men ikke med 20. Verdien 20 hører til $[20, 30\\rangle$ – slik havner hver observasjon i nøyaktig én klasse."
+          },
+          {
+            "id": "2py-4-3-n-quiz1-q1",
+            "task": "Klassen $[10, 20\\rangle$ har frekvens 5 av totalt 20 observasjoner. Hva er den relative frekvensen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "5 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "20 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "25 %",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "50 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Relativ frekvens $= \\frac{5}{20} = 0{,}25 = 25\\,\\%$."
+          },
+          {
+            "id": "2py-4-3-n-quiz1-q2",
+            "task": "Frekvensene er 3, 5, 4, 4, 3, 1. Hva er den kumulative frekvensen til og med klassen $[20, 30\\rangle$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "4",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "12",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "8",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "16",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kumulativ frekvens er summen til og med klassen: $3 + 5 + 4 = 12$. Altså ventet 12 av 20 kunder under 30 minutter."
+          },
+          {
+            "id": "2py-4-3-n-quiz1-q3",
+            "task": "Hvilket spørsmål er kumulativ frekvens spesielt egnet til å svare på?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Hva er gjennomsnittet?",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hvilken verdi forekommer oftest?",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hvor bred er hver klasse?",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Hvor mange observasjoner ligger under en gitt grense?",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kumulativ frekvens summerer opp til og med en klasse – perfekt for spørsmål som «hvor mange ventet under 30 minutter?»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-4-3-n-section2",
+      "type": "text",
+      "content": "## Å velge klassebredde – og regne videre på klassedelte data\n\nHvorfor valgte Jonas akkurat klassebredde 10? Det finnes ingen fasit, men gode tommelfingerregler: bruk mellom 5 og 10 klasser, gi alle klassene **lik bredde**, velg «runde» tall som bredde (5, 10, 20, 50, 100), og pass på at klassene dekker alle observasjonene. En enkel formel gir startpunktet: klassebredde $\\approx \\frac{\\text{største verdi} - \\text{minste verdi}}{\\text{antall klasser}}$, rundet opp til et praktisk tall. For Jonas: $\\frac{55 - 5}{5} = 10$. Perfekt.\n\nFor få klasser klumper alt sammen og skjuler mønsteret; for mange klasser gir én og én observasjon per klasse – like uoversiktlig som rådataene. Mellom fem og ti klasser treffer som regel balansen.\n\nMen klassedeling har en pris: vi mister de eksakte verdiene. Hva om sjefen vil vite gjennomsnittlig ventetid? Da bruker vi **klassemidtpunktet** – midten av hver klasse – som representant for alle observasjonene i klassen. For $[10, 20\\rangle$ er midtpunktet 15. Det tilnærmede gjennomsnittet blir $\\bar{x} \\approx \\frac{\\sum (m_i \\cdot f_i)}{n}$, der $m_i$ er midtpunktene og $f_i$ frekvensene. For Jonas: $\\frac{5 \\cdot 3 + 15 \\cdot 5 + 25 \\cdot 4 + 35 \\cdot 4 + 45 \\cdot 3 + 55 \\cdot 1}{20} = \\frac{520}{20} = 26$ minutter.\n\nOgså medianen kan spores i tabellen: med 20 observasjoner ligger medianen rundt observasjon 10–11, og den kumulative kolonnen (3, 8, 12, ...) viser at begge ligger i klassen $[20, 30\\rangle$. Slik gir den ferdige tabellen både oversikt og regnegrunnlag – mønsteret synlig, og sentralmålene innen rekkevidde."
+    },
+    {
+      "id": "2py-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på klassebredde og klassemidtpunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-4-3-n-quiz2-q0",
+            "task": "Dataene går fra 5 til 55, og du vil ha 5 klasser. Hvilken klassebredde foreslår formelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "5",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "10",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "20",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "50",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Klassebredde $\\approx \\frac{55 - 5}{5} = 10$ – et «rundt» og praktisk tall."
+          },
+          {
+            "id": "2py-4-3-n-quiz2-q1",
+            "task": "Hvor mange klasser anbefales vanligvis i en frekvenstabell?",
+            "options": [
+              {
+                "id": "c",
+                "text": "5–10",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "2–3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Minst 20",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Så mange som mulig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "5–10 klasser med lik bredde gir best balanse: nok detaljer til å se mønsteret, men ikke så mange at oversikten forsvinner."
+          },
+          {
+            "id": "2py-4-3-n-quiz2-q2",
+            "task": "Hva er klassemidtpunktet til klassen $[20, 30\\rangle$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "20",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "30",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "25",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "10",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Klassemidtpunktet er midten av intervallet: $\\frac{20 + 30}{2} = 25$. Det brukes som representant for observasjonene i klassen."
+          },
+          {
+            "id": "2py-4-3-n-quiz2-q3",
+            "task": "Hvordan beregner du tilnærmet gjennomsnitt fra en klassedelt frekvenstabell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Summen av klassemidtpunktene delt på antall klasser",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Største pluss minste verdi delt på to",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er umulig uten rådataene",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\bar{x} \\approx \\frac{\\sum (m_i \\cdot f_i)}{n}$ der $m_i$ er klassemidtpunkt og $f_i$ frekvens",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hvert midtpunkt ganges med klassens frekvens, summeres og deles på antall observasjoner. For Jonas: $\\frac{520}{20} = 26$ minutter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-4-3-n-summary",
+      "type": "text",
+      "content": "## Fra tallrekke til beslutningsgrunnlag\n\nJonas leverte ikke en tallrekke til sjefen – han leverte en tabell som svarte på spørsmålene. Veien dit er oppskriften du nå kan: Del dataene inn i **klasser** med lik **klassebredde**, valgt etter tommelfingerregelen om 5–10 klasser og formelen $\\frac{\\text{største} - \\text{minste}}{\\text{antall klasser}}$, rundet til et praktisk tall. Bruk **halvåpne intervaller** som $[10, 20\\rangle$, slik at hver observasjon hører hjemme i nøyaktig én klasse.\n\nSelve tabellen har tre regnekolonner: **frekvensen** teller observasjonene i hver klasse (og skal summere seg til totalen), **relativ frekvens** $= \\frac{\\text{frekvens}}{n}$ gjør tallene om til andeler, og **kumulativ frekvens** summerer oppover og svarer på «hvor mange under grensen?» – som da 12 av 20 kunder viste seg å vente under en halvtime.\n\nOg når eksaktverdiene er borte, redder **klassemidtpunktet** regnestykkene: tilnærmet gjennomsnitt er $\\bar{x} \\approx \\frac{\\sum (m_i \\cdot f_i)}{n}$, og medianklassen finner du ved å lete i den kumulative kolonnen. Enten det gjelder ventetider, blodtrykk, strømforbruk eller kilometerstand: store datasett blir håndterbare i det øyeblikket du gir dem klasser – og en god frekvenstabell er forskjellen på å *ha* data og å *forstå* dem."
+    }
+  ],
+  "exercises": []
+}

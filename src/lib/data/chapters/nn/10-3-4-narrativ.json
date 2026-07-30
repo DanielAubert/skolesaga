@@ -1,1 +1,293 @@
-{"id":"10-3-4-narrativ","courseId":"10","chapterNumber":"3.4","title":"Regresjon","subtitle":"Narrativ versjon","description":"Ein fortelling om å finne mønster i data -- frå studietid og karakterar til iskrem og drukning.","estimatedMinutes":30,"competenceGoals":["bruke digitale verktøy til å presentere og analysere data","vurdere om ein modell skildrar datamaterialet på ein god måte"],"linkedChapterId":"10-3-4","content":[{"id":"10-3-4-n-intro","type":"text","content":"## Å finne linja i kaoset\n\nI røynda har vi sjelden data som passar perfekt på ein funksjon. Måleresultat spriker, og punkta i eit diagram dannar ikkje ei pen linje -- dei strør seg litt hit og dit. Men ofte kan vi sjå ein trend, ei generell retning som dataa følgjer. Lineær regresjon er metoden for å finne den rette linja som passar best til eit sett med datapunkt.\n\nTenk deg at du undersøkjer samanhengen mellom studietid og eksamenskarakter. Du spør fem vener og får dataa: 2 timar gav karakter 3, 4 timar gav 4, 5 timar gav 4, 7 timar gav 5 og 8 timar gav 6. Punkta ligg ikkje perfekt på ei linje, men det er ein klar trend: jo meir studietid, desto betre karakter.\n\nRegressionslinje-metoden (ofte kalla minste kvadraters metode) finn linja $y = ax + b$ som minimerer den samla avstanden frå alle punkta til linja. I praksis bruker vi digitale verktøy som GeoGebra til dette. For studietid-dataa gir GeoGebra oss $y = 0{,}47x + 2{,}2$. Regresjonskoeffisienten 0,47 er stigningstalet, og konstantleddet er 2,2."},{"id":"10-3-4-n-section1","type":"text","content":"## Korrelasjon -- kor sterk er samanhengen?\n\nKorrelasjonkoeffisienten $r$ er eit tal mellom $-1$ og $1$ som fortel kor godt dataa følgjer ein lineær sammenheng. Viss $r = 1$, ligg alle punkt perfekt på ei stigande linje. Viss $r = -1$, ligg dei perfekt på ei synkande linje. Og $r = 0$ betyr at det ikkje finst nokon lineær sammenheng.\n\nSom tommelfingerregel: $|r| > 0{,}7$ er sterk korrelasjon, $0{,}4 < |r| < 0{,}7$ er moderat, og $|r| < 0{,}4$ er svak. Fortegnet fortel retninga: positiv betyr at begge variablane aukar saman (som høgd og vekt), negativ betyr at den eine synk når den andre aukar (som alder på bil og verdi).\n\nNår vi tolkar korrelasjon, er det viktig å tenkje over kva slags sammenheng vi forventar. Temperatur og iskremssalg? Positiv korrelasjon. Øvingtimar og feil på prøve? Negativ korrelasjon. Skostorleik og intelligens? Forventanleg ingen korrelasjon!"},{"id":"10-3-4-n-quiz1","type":"exercise","exercise":{"id":"10-3-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-3-4-n-quiz1-q0","task":"Kva betyr $r = -0{,}78$?","options":[{"id":"a","text":"Svak positiv korrelasjon","isCorrect":false},{"id":"b","text":"Sterk negativ korrelasjon","isCorrect":true},{"id":"c","text":"Moderat negativ korrelasjon","isCorrect":false},{"id":"d","text":"Ingen korrelasjon","isCorrect":false}],"solution":"$|{-0{,}78}| = 0{,}78 > 0{,}7$ betyr sterk korrelasjon, og negativt fortegn betyr negativ sammenheng."},{"id":"10-3-4-n-quiz1-q1","task":"Kva korrelasjon forventar du mellom alder på bil og verdi?","options":[{"id":"a","text":"Positiv korrelasjon","isCorrect":false},{"id":"b","text":"Ingen korrelasjon","isCorrect":false},{"id":"c","text":"Negativ korrelasjon","isCorrect":true},{"id":"d","text":"Perfekt korrelasjon","isCorrect":false}],"solution":"Eldre bilar er som regel mindre verdfulle, altso negativ korrelasjon."},{"id":"10-3-4-n-quiz1-q2","task":"Ei regresjonsline er $y = 2{,}5x + 10$ med $r = 0{,}95$. Kva betyr konstantleddet 10?","options":[{"id":"a","text":"Stigningstalet","isCorrect":false},{"id":"b","text":"$y$-verdien når $x = 0$","isCorrect":true},{"id":"c","text":"Korrelasjonkoeffisienten","isCorrect":false},{"id":"d","text":"Gjennomsnittsverdien av $x$","isCorrect":false}],"solution":"Konstantleddet $b = 10$ er verdien av $y$ når $x = 0$, altso starverdien."}]}},{"id":"10-3-4-n-section2","type":"text","content":"## Prediksjon og fallgruver\n\nNår vi har ei regresjonsline, kan vi bruke ho til å estimere verdiar. Interpolasjon (estimering innan dataintervallet) er relativt påliteleg. Ekstrapolasjon (utanfor dataintervallet) er meir risikabelt, fordi vi ikkje veit om trenden fortsett.\n\nFor å vurdere modellkvaliteten ser vi på korrelasjonkoeffisienten (jo nærmere $|r|$ er 1, desto betre), sjekkar at avvika er tilfeldige, og bruker sunn fornuft.\n\nMen her kjem den viktigaste åtvaringa: korrelasjon betyr IKKJE årsaksammenheng! Det finst sterk korrelasjon mellom iskremssalg og druningsulykker. Betyr det at is forårsaker druning? Sjølvsagt ikkje! Begge påverkast av ein tredje faktor -- varmt vær. Fleire kjøper is når det er varmt, og fleire badar (og riskerer å drukne) når det er varmt. Denne typen feilslutning er ein av dei vanlegaste i statistikk.\n\nTemperaturdata frå ein vårdag (som stig og deretter synk) passar dessutan ikkje alltid til ei rett linje. Då kan ei andregradstilpassing (parabel) gi ein betre modell. Å velje rett modell er ein viktig del av dataanalyse."},{"id":"10-3-4-n-quiz2","type":"exercise","exercise":{"id":"10-3-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-3-4-n-quiz2-q0","task":"Det er sterk korrelasjon mellom iskremssalg og druning. Kva er den rette tolkinga?","options":[{"id":"a","text":"Iskrem forårsaker druning","isCorrect":false},{"id":"b","text":"Druning forårsaker auka iskremssalg","isCorrect":false},{"id":"c","text":"Begge påverkast av ein tredje faktor (varmt vær)","isCorrect":true},{"id":"d","text":"Det er tilfeldig","isCorrect":false}],"solution":"Korrelasjon betyr ikkje årsaksammenheng. Her er varmt vær den underliggande faktoren som påverkar begge variablane."},{"id":"10-3-4-n-quiz2-q1","task":"Kva er skilnaden mellom interpolasjon og ekstrapolasjon?","options":[{"id":"a","text":"Interpolasjon bruker fleire datapunkt enn ekstrapolasjon","isCorrect":false},{"id":"b","text":"Interpolasjon estimerer innan dataområdet, ekstrapolasjon utanfor","isCorrect":true},{"id":"c","text":"Ekstrapolasjon er alltid meir nøyaktig","isCorrect":false},{"id":"d","text":"Det er ingen skilnad","isCorrect":false}],"solution":"Interpolasjon er estimering innan dataintervallet (relativt trygt), medan ekstrapolasjon er estimering utanfor (meir usikkert)."},{"id":"10-3-4-n-quiz2-q2","task":"Regresjonslinjen $y = -2{,}4x + 320$ beskriver samanhengen mellom pris og sal. Kva betyr stigningstalet?","options":[{"id":"a","text":"Salet aukar med 2,4 einingar per krone","isCorrect":false},{"id":"b","text":"Salet minskar med 2,4 einingar per krone prisauke","isCorrect":true},{"id":"c","text":"Prisen minskar med 2,4 kr per selde eininga","isCorrect":false},{"id":"d","text":"Det blir selt 320 einingar","isCorrect":false}],"solution":"Stigningstalet $-2{,}4$ betyr at for kvar krone prisen aukar, minskar antal selde einingar med 2,4."}]}},{"id":"10-3-4-n-summary","type":"text","content":"## Samandrag\n\nLineær regresjon finn den rette linja som best beskriver samanhengen mellom to variablar. Korrelasjonskoeffisienten $r$ (mellom $-1$ og $1$) fortel kor sterk og i kva retning samanhengen er. Vi bruker regresjonslinjen til prediksjon, men må vere forsiktige med ekstrapolasjon. Den viktigaste regelen: korrelasjon betyr ikkje årsakstilknyting! Vurder alltid om modellen gir meining i konteksten, og vel riktig funksjonstype (lineær, kvadratisk, eksponensiell) basert på datamønsteret."}],"exercises":[],"_meta":{"sourceHash":"5fbcb248b57d1ead","translatedAt":"2026-06-16T09:43:45.316Z","model":"claude-haiku-4-5-20251001","strings":49,"tm":{"4bc8b602fc642ff8":"Regresjon","b195b06d1ed59702":"Narrativ versjon","140fa20e271ef1d5":"Ein fortelling om å finne mønster i data -- frå studietid og karakterar til iskrem og drukning.","3fb37713c8b41d03":"bruke digitale verktøy til å presentere og analysere data","3e7b459701ddafa6":"vurdere om ein modell skildrar datamaterialet på ein god måte","d37a14ff79579dbb":"## Å finne linja i kaoset\n\nI røynda har vi sjelden data som passar perfekt på ein funksjon. Måleresultat spriker, og punkta i eit diagram dannar ikkje ei pen linje -- dei strør seg litt hit og dit. Men ofte kan vi sjå ein trend, ei generell retning som dataa følgjer. Lineær regresjon er metoden for å finne den rette linja som passar best til eit sett med datapunkt.\n\nTenk deg at du undersøkjer samanhengen mellom studietid og eksamenskarakter. Du spør fem vener og får dataa: 2 timar gav karakter 3, 4 timar gav 4, 5 timar gav 4, 7 timar gav 5 og 8 timar gav 6. Punkta ligg ikkje perfekt på ei linje, men det er ein klar trend: jo meir studietid, desto betre karakter.\n\nRegressionslinje-metoden (ofte kalla minste kvadraters metode) finn linja $y = ax + b$ som minimerer den samla avstanden frå alle punkta til linja. I praksis bruker vi digitale verktøy som GeoGebra til dette. For studietid-dataa gir GeoGebra oss $y = 0{,}47x + 2{,}2$. Regresjonskoeffisienten 0,47 er stigningstalet, og konstantleddet er 2,2.","85a27ff5054c62d6":"## Korrelasjon -- kor sterk er samanhengen?\n\nKorrelasjonkoeffisienten $r$ er eit tal mellom $-1$ og $1$ som fortel kor godt dataa følgjer ein lineær sammenheng. Viss $r = 1$, ligg alle punkt perfekt på ei stigande linje. Viss $r = -1$, ligg dei perfekt på ei synkande linje. Og $r = 0$ betyr at det ikkje finst nokon lineær sammenheng.\n\nSom tommelfingerregel: $|r| > 0{,}7$ er sterk korrelasjon, $0{,}4 < |r| < 0{,}7$ er moderat, og $|r| < 0{,}4$ er svak. Fortegnet fortel retninga: positiv betyr at begge variablane aukar saman (som høgd og vekt), negativ betyr at den eine synk når den andre aukar (som alder på bil og verdi).\n\nNår vi tolkar korrelasjon, er det viktig å tenkje over kva slags sammenheng vi forventar. Temperatur og iskremssalg? Positiv korrelasjon. Øvingtimar og feil på prøve? Negativ korrelasjon. Skostorleik og intelligens? Forventanleg ingen korrelasjon!","9654e25982570594":"Test deg sjølv:","4097889236a2af26":"placeholder","bd2b163af2bfc6c5":"Kva betyr $r = -0{,}78$?","5070e16cd73a7b00":"Svak positiv korrelasjon","d5ab0db68cdef45d":"Sterk negativ korrelasjon","467f36b12e4e3ed3":"Moderat negativ korrelasjon","afe9e8bb54f30bf6":"Ingen korrelasjon","a6813bdea025a46e":"$|{-0{,}78}| = 0{,}78 > 0{,}7$ betyr sterk korrelasjon, og negativt fortegn betyr negativ sammenheng.","4db0f1d31f7e49fa":"Kva korrelasjon forventar du mellom alder på bil og verdi?","29c3e48fcce81fdb":"Positiv korrelasjon","ef08cc0ffc4696cf":"Negativ korrelasjon","32c62070b2c76758":"Perfekt korrelasjon","2a45d9facdc7f0bc":"Eldre bilar er som regel mindre verdfulle, altso negativ korrelasjon.","3c5320140d64aa2f":"Ei regresjonsline er $y = 2{,}5x + 10$ med $r = 0{,}95$. Kva betyr konstantleddet 10?","90acc6c185b01f52":"Stigningstalet","c62d570f70ccd993":"$y$-verdien når $x = 0$","bc163a8746e0c49d":"Korrelasjonkoeffisienten","88506a1e282b6253":"Gjennomsnittsverdien av $x$","f652f6a9a798efc2":"Konstantleddet $b = 10$ er verdien av $y$ når $x = 0$, altso starverdien.","a72bc3e05e48f91b":"## Prediksjon og fallgruver\n\nNår vi har ei regresjonsline, kan vi bruke ho til å estimere verdiar. Interpolasjon (estimering innan dataintervallet) er relativt påliteleg. Ekstrapolasjon (utanfor dataintervallet) er meir risikabelt, fordi vi ikkje veit om trenden fortsett.\n\nFor å vurdere modellkvaliteten ser vi på korrelasjonkoeffisienten (jo nærmere $|r|$ er 1, desto betre), sjekkar at avvika er tilfeldige, og bruker sunn fornuft.\n\nMen her kjem den viktigaste åtvaringa: korrelasjon betyr IKKJE årsaksammenheng! Det finst sterk korrelasjon mellom iskremssalg og druningsulykker. Betyr det at is forårsaker druning? Sjølvsagt ikkje! Begge påverkast av ein tredje faktor -- varmt vær. Fleire kjøper is når det er varmt, og fleire badar (og riskerer å drukne) når det er varmt. Denne typen feilslutning er ein av dei vanlegaste i statistikk.\n\nTemperaturdata frå ein vårdag (som stig og deretter synk) passar dessutan ikkje alltid til ei rett linje. Då kan ei andregradstilpassing (parabel) gi ein betre modell. Å velje rett modell er ein viktig del av dataanalyse.","a71dfcfe9e43a993":"Det er sterk korrelasjon mellom iskremssalg og druning. Kva er den rette tolkinga?","9325911b55eb5c4a":"Iskrem forårsaker druning","561374c3e8017800":"Druning forårsaker auka iskremssalg","e6550f875cd1463d":"Begge påverkast av ein tredje faktor (varmt vær)","457216d33670f4b1":"Det er tilfeldig","fdbd3d5c751b62ed":"Korrelasjon betyr ikkje årsaksammenheng. Her er varmt vær den underliggande faktoren som påverkar begge variablane.","3f302b585b6e8eff":"Kva er skilnaden mellom interpolasjon og ekstrapolasjon?","60c6da7794d38167":"Interpolasjon bruker fleire datapunkt enn ekstrapolasjon","e8526e50a244bc87":"Interpolasjon estimerer innan dataområdet, ekstrapolasjon utanfor","d376add1b67b0d87":"Ekstrapolasjon er alltid meir nøyaktig","290d93c2e3522153":"Det er ingen skilnad","4f360a8f95a5bc86":"Interpolasjon er estimering innan dataintervallet (relativt trygt), medan ekstrapolasjon er estimering utanfor (meir usikkert).","e39ec4b133398ab0":"Regresjonslinjen $y = -2{,}4x + 320$ beskriver samanhengen mellom pris og sal. Kva betyr stigningstalet?","82e97cc0f8004b03":"Salet aukar med 2,4 einingar per krone","cb4696ff133a4be6":"Salet minskar med 2,4 einingar per krone prisauke","593f0a3d701fea3a":"Prisen minskar med 2,4 kr per selde eininga","74b13cae96bbbcad":"Det blir selt 320 einingar","3e86fac54f56d61e":"Stigningstalet $-2{,}4$ betyr at for kvar krone prisen aukar, minskar antal selde einingar med 2,4.","e73a5e387b94a88b":"## Samandrag\n\nLineær regresjon finn den rette linja som best beskriver samanhengen mellom to variablar. Korrelasjonskoeffisienten $r$ (mellom $-1$ og $1$) fortel kor sterk og i kva retning samanhengen er. Vi bruker regresjonslinjen til prediksjon, men må vere forsiktige med ekstrapolasjon. Den viktigaste regelen: korrelasjon betyr ikkje årsakstilknyting! Vurder alltid om modellen gir meining i konteksten, og vel riktig funksjonstype (lineær, kvadratisk, eksponensiell) basert på datamønsteret."}}}
+{
+  "id": "10-3-4-narrativ",
+  "courseId": "10",
+  "chapterNumber": "3.4",
+  "title": "Regresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein fortelling om å finne mønster i data -- frå studietid og karakterar til iskrem og drukning.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke digitale verktøy til å presentere og analysere data",
+    "vurdere om ein modell skildrar datamaterialet på ein god måte"
+  ],
+  "linkedChapterId": "10-3-4",
+  "content": [
+    {
+      "id": "10-3-4-n-intro",
+      "type": "text",
+      "content": "## Å finne linja i kaoset\n\nI røynda har vi sjelden data som passar perfekt på ein funksjon. Måleresultat spriker, og punkta i eit diagram dannar ikkje ei pen linje -- dei strør seg litt hit og dit. Men ofte kan vi sjå ein trend, ei generell retning som dataa følgjer. Lineær regresjon er metoden for å finne den rette linja som passar best til eit sett med datapunkt.\n\nTenk deg at du undersøkjer samanhengen mellom studietid og eksamenskarakter. Du spør fem vener og får dataa: 2 timar gav karakter 3, 4 timar gav 4, 5 timar gav 4, 7 timar gav 5 og 8 timar gav 6. Punkta ligg ikkje perfekt på ei linje, men det er ein klar trend: jo meir studietid, desto betre karakter.\n\nRegressionslinje-metoden (ofte kalla minste kvadraters metode) finn linja $y = ax + b$ som minimerer den samla avstanden frå alle punkta til linja. I praksis bruker vi digitale verktøy som GeoGebra til dette. For studietid-dataa gir GeoGebra oss $y = 0{,}47x + 2{,}2$. Regresjonskoeffisienten 0,47 er stigningstalet, og konstantleddet er 2,2."
+    },
+    {
+      "id": "10-3-4-n-section1",
+      "type": "text",
+      "content": "## Korrelasjon -- kor sterk er samanhengen?\n\nKorrelasjonkoeffisienten $r$ er eit tal mellom $-1$ og $1$ som fortel kor godt dataa følgjer ein lineær sammenheng. Viss $r = 1$, ligg alle punkt perfekt på ei stigande linje. Viss $r = -1$, ligg dei perfekt på ei synkande linje. Og $r = 0$ betyr at det ikkje finst nokon lineær sammenheng.\n\nSom tommelfingerregel: $|r| > 0{,}7$ er sterk korrelasjon, $0{,}4 < |r| < 0{,}7$ er moderat, og $|r| < 0{,}4$ er svak. Fortegnet fortel retninga: positiv betyr at begge variablane aukar saman (som høgd og vekt), negativ betyr at den eine synk når den andre aukar (som alder på bil og verdi).\n\nNår vi tolkar korrelasjon, er det viktig å tenkje over kva slags sammenheng vi forventar. Temperatur og iskremssalg? Positiv korrelasjon. Øvingtimar og feil på prøve? Negativ korrelasjon. Skostorleik og intelligens? Forventanleg ingen korrelasjon!"
+    },
+    {
+      "id": "10-3-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-3-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-3-4-n-quiz1-q0",
+            "task": "Kva betyr $r = -0{,}78$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sterk negativ korrelasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Svak positiv korrelasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Moderat negativ korrelasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen korrelasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|{-0{,}78}| = 0{,}78 > 0{,}7$ betyr sterk korrelasjon, og negativt fortegn betyr negativ sammenheng."
+          },
+          {
+            "id": "10-3-4-n-quiz1-q1",
+            "task": "Kva korrelasjon forventar du mellom alder på bil og verdi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Positiv korrelasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Negativ korrelasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ingen korrelasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Perfekt korrelasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eldre bilar er som regel mindre verdfulle, altso negativ korrelasjon."
+          },
+          {
+            "id": "10-3-4-n-quiz1-q2",
+            "task": "Ei regresjonsline er $y = 2{,}5x + 10$ med $r = 0{,}95$. Kva betyr konstantleddet 10?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Stigningstalet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Korrelasjonkoeffisienten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y$-verdien når $x = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Gjennomsnittsverdien av $x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstantleddet $b = 10$ er verdien av $y$ når $x = 0$, altso starverdien."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-3-4-n-section2",
+      "type": "text",
+      "content": "## Prediksjon og fallgruver\n\nNår vi har ei regresjonsline, kan vi bruke ho til å estimere verdiar. Interpolasjon (estimering innan dataintervallet) er relativt påliteleg. Ekstrapolasjon (utanfor dataintervallet) er meir risikabelt, fordi vi ikkje veit om trenden fortsett.\n\nFor å vurdere modellkvaliteten ser vi på korrelasjonkoeffisienten (jo nærmere $|r|$ er 1, desto betre), sjekkar at avvika er tilfeldige, og bruker sunn fornuft.\n\nMen her kjem den viktigaste åtvaringa: korrelasjon betyr IKKJE årsaksammenheng! Det finst sterk korrelasjon mellom iskremssalg og druningsulykker. Betyr det at is forårsaker druning? Sjølvsagt ikkje! Begge påverkast av ein tredje faktor -- varmt vær. Fleire kjøper is når det er varmt, og fleire badar (og riskerer å drukne) når det er varmt. Denne typen feilslutning er ein av dei vanlegaste i statistikk.\n\nTemperaturdata frå ein vårdag (som stig og deretter synk) passar dessutan ikkje alltid til ei rett linje. Då kan ei andregradstilpassing (parabel) gi ein betre modell. Å velje rett modell er ein viktig del av dataanalyse."
+    },
+    {
+      "id": "10-3-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-3-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-3-4-n-quiz2-q0",
+            "task": "Det er sterk korrelasjon mellom iskremssalg og druning. Kva er den rette tolkinga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Iskrem forårsaker druning",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Druning forårsaker auka iskremssalg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er tilfeldig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge påverkast av ein tredje faktor (varmt vær)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Korrelasjon betyr ikkje årsaksammenheng. Her er varmt vær den underliggande faktoren som påverkar begge variablane."
+          },
+          {
+            "id": "10-3-4-n-quiz2-q1",
+            "task": "Kva er skilnaden mellom interpolasjon og ekstrapolasjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Interpolasjon estimerer innan dataområdet, ekstrapolasjon utanfor",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Interpolasjon bruker fleire datapunkt enn ekstrapolasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ekstrapolasjon er alltid meir nøyaktig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Interpolasjon er estimering innan dataintervallet (relativt trygt), medan ekstrapolasjon er estimering utanfor (meir usikkert)."
+          },
+          {
+            "id": "10-3-4-n-quiz2-q2",
+            "task": "Regresjonslinjen $y = -2{,}4x + 320$ beskriver samanhengen mellom pris og sal. Kva betyr stigningstalet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Salet aukar med 2,4 einingar per krone",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Salet minskar med 2,4 einingar per krone prisauke",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Prisen minskar med 2,4 kr per selde eininga",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det blir selt 320 einingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigningstalet $-2{,}4$ betyr at for kvar krone prisen aukar, minskar antal selde einingar med 2,4."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-3-4-n-summary",
+      "type": "text",
+      "content": "## Samandrag\n\nLineær regresjon finn den rette linja som best beskriver samanhengen mellom to variablar. Korrelasjonskoeffisienten $r$ (mellom $-1$ og $1$) fortel kor sterk og i kva retning samanhengen er. Vi bruker regresjonslinjen til prediksjon, men må vere forsiktige med ekstrapolasjon. Den viktigaste regelen: korrelasjon betyr ikkje årsakstilknyting! Vurder alltid om modellen gir meining i konteksten, og vel riktig funksjonstype (lineær, kvadratisk, eksponensiell) basert på datamønsteret."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "5fbcb248b57d1ead",
+    "translatedAt": "2026-06-16T09:43:45.316Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 49,
+    "tm": {
+      "4bc8b602fc642ff8": "Regresjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "140fa20e271ef1d5": "Ein fortelling om å finne mønster i data -- frå studietid og karakterar til iskrem og drukning.",
+      "3fb37713c8b41d03": "bruke digitale verktøy til å presentere og analysere data",
+      "3e7b459701ddafa6": "vurdere om ein modell skildrar datamaterialet på ein god måte",
+      "d37a14ff79579dbb": "## Å finne linja i kaoset\n\nI røynda har vi sjelden data som passar perfekt på ein funksjon. Måleresultat spriker, og punkta i eit diagram dannar ikkje ei pen linje -- dei strør seg litt hit og dit. Men ofte kan vi sjå ein trend, ei generell retning som dataa følgjer. Lineær regresjon er metoden for å finne den rette linja som passar best til eit sett med datapunkt.\n\nTenk deg at du undersøkjer samanhengen mellom studietid og eksamenskarakter. Du spør fem vener og får dataa: 2 timar gav karakter 3, 4 timar gav 4, 5 timar gav 4, 7 timar gav 5 og 8 timar gav 6. Punkta ligg ikkje perfekt på ei linje, men det er ein klar trend: jo meir studietid, desto betre karakter.\n\nRegressionslinje-metoden (ofte kalla minste kvadraters metode) finn linja $y = ax + b$ som minimerer den samla avstanden frå alle punkta til linja. I praksis bruker vi digitale verktøy som GeoGebra til dette. For studietid-dataa gir GeoGebra oss $y = 0{,}47x + 2{,}2$. Regresjonskoeffisienten 0,47 er stigningstalet, og konstantleddet er 2,2.",
+      "85a27ff5054c62d6": "## Korrelasjon -- kor sterk er samanhengen?\n\nKorrelasjonkoeffisienten $r$ er eit tal mellom $-1$ og $1$ som fortel kor godt dataa følgjer ein lineær sammenheng. Viss $r = 1$, ligg alle punkt perfekt på ei stigande linje. Viss $r = -1$, ligg dei perfekt på ei synkande linje. Og $r = 0$ betyr at det ikkje finst nokon lineær sammenheng.\n\nSom tommelfingerregel: $|r| > 0{,}7$ er sterk korrelasjon, $0{,}4 < |r| < 0{,}7$ er moderat, og $|r| < 0{,}4$ er svak. Fortegnet fortel retninga: positiv betyr at begge variablane aukar saman (som høgd og vekt), negativ betyr at den eine synk når den andre aukar (som alder på bil og verdi).\n\nNår vi tolkar korrelasjon, er det viktig å tenkje over kva slags sammenheng vi forventar. Temperatur og iskremssalg? Positiv korrelasjon. Øvingtimar og feil på prøve? Negativ korrelasjon. Skostorleik og intelligens? Forventanleg ingen korrelasjon!",
+      "9654e25982570594": "Test deg sjølv:",
+      "4097889236a2af26": "placeholder",
+      "bd2b163af2bfc6c5": "Kva betyr $r = -0{,}78$?",
+      "5070e16cd73a7b00": "Svak positiv korrelasjon",
+      "d5ab0db68cdef45d": "Sterk negativ korrelasjon",
+      "467f36b12e4e3ed3": "Moderat negativ korrelasjon",
+      "afe9e8bb54f30bf6": "Ingen korrelasjon",
+      "a6813bdea025a46e": "$|{-0{,}78}| = 0{,}78 > 0{,}7$ betyr sterk korrelasjon, og negativt fortegn betyr negativ sammenheng.",
+      "4db0f1d31f7e49fa": "Kva korrelasjon forventar du mellom alder på bil og verdi?",
+      "29c3e48fcce81fdb": "Positiv korrelasjon",
+      "ef08cc0ffc4696cf": "Negativ korrelasjon",
+      "32c62070b2c76758": "Perfekt korrelasjon",
+      "2a45d9facdc7f0bc": "Eldre bilar er som regel mindre verdfulle, altso negativ korrelasjon.",
+      "3c5320140d64aa2f": "Ei regresjonsline er $y = 2{,}5x + 10$ med $r = 0{,}95$. Kva betyr konstantleddet 10?",
+      "90acc6c185b01f52": "Stigningstalet",
+      "c62d570f70ccd993": "$y$-verdien når $x = 0$",
+      "bc163a8746e0c49d": "Korrelasjonkoeffisienten",
+      "88506a1e282b6253": "Gjennomsnittsverdien av $x$",
+      "f652f6a9a798efc2": "Konstantleddet $b = 10$ er verdien av $y$ når $x = 0$, altso starverdien.",
+      "a72bc3e05e48f91b": "## Prediksjon og fallgruver\n\nNår vi har ei regresjonsline, kan vi bruke ho til å estimere verdiar. Interpolasjon (estimering innan dataintervallet) er relativt påliteleg. Ekstrapolasjon (utanfor dataintervallet) er meir risikabelt, fordi vi ikkje veit om trenden fortsett.\n\nFor å vurdere modellkvaliteten ser vi på korrelasjonkoeffisienten (jo nærmere $|r|$ er 1, desto betre), sjekkar at avvika er tilfeldige, og bruker sunn fornuft.\n\nMen her kjem den viktigaste åtvaringa: korrelasjon betyr IKKJE årsaksammenheng! Det finst sterk korrelasjon mellom iskremssalg og druningsulykker. Betyr det at is forårsaker druning? Sjølvsagt ikkje! Begge påverkast av ein tredje faktor -- varmt vær. Fleire kjøper is når det er varmt, og fleire badar (og riskerer å drukne) når det er varmt. Denne typen feilslutning er ein av dei vanlegaste i statistikk.\n\nTemperaturdata frå ein vårdag (som stig og deretter synk) passar dessutan ikkje alltid til ei rett linje. Då kan ei andregradstilpassing (parabel) gi ein betre modell. Å velje rett modell er ein viktig del av dataanalyse.",
+      "a71dfcfe9e43a993": "Det er sterk korrelasjon mellom iskremssalg og druning. Kva er den rette tolkinga?",
+      "9325911b55eb5c4a": "Iskrem forårsaker druning",
+      "561374c3e8017800": "Druning forårsaker auka iskremssalg",
+      "e6550f875cd1463d": "Begge påverkast av ein tredje faktor (varmt vær)",
+      "457216d33670f4b1": "Det er tilfeldig",
+      "fdbd3d5c751b62ed": "Korrelasjon betyr ikkje årsaksammenheng. Her er varmt vær den underliggande faktoren som påverkar begge variablane.",
+      "3f302b585b6e8eff": "Kva er skilnaden mellom interpolasjon og ekstrapolasjon?",
+      "60c6da7794d38167": "Interpolasjon bruker fleire datapunkt enn ekstrapolasjon",
+      "e8526e50a244bc87": "Interpolasjon estimerer innan dataområdet, ekstrapolasjon utanfor",
+      "d376add1b67b0d87": "Ekstrapolasjon er alltid meir nøyaktig",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "4f360a8f95a5bc86": "Interpolasjon er estimering innan dataintervallet (relativt trygt), medan ekstrapolasjon er estimering utanfor (meir usikkert).",
+      "e39ec4b133398ab0": "Regresjonslinjen $y = -2{,}4x + 320$ beskriver samanhengen mellom pris og sal. Kva betyr stigningstalet?",
+      "82e97cc0f8004b03": "Salet aukar med 2,4 einingar per krone",
+      "cb4696ff133a4be6": "Salet minskar med 2,4 einingar per krone prisauke",
+      "593f0a3d701fea3a": "Prisen minskar med 2,4 kr per selde eininga",
+      "74b13cae96bbbcad": "Det blir selt 320 einingar",
+      "3e86fac54f56d61e": "Stigningstalet $-2{,}4$ betyr at for kvar krone prisen aukar, minskar antal selde einingar med 2,4.",
+      "e73a5e387b94a88b": "## Samandrag\n\nLineær regresjon finn den rette linja som best beskriver samanhengen mellom to variablar. Korrelasjonskoeffisienten $r$ (mellom $-1$ og $1$) fortel kor sterk og i kva retning samanhengen er. Vi bruker regresjonslinjen til prediksjon, men må vere forsiktige med ekstrapolasjon. Den viktigaste regelen: korrelasjon betyr ikkje årsakstilknyting! Vurder alltid om modellen gir meining i konteksten, og vel riktig funksjonstype (lineær, kvadratisk, eksponensiell) basert på datamønsteret."
+    }
+  }
+}

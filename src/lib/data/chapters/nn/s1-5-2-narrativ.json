@@ -1,1 +1,594 @@
-{"id":"s1-5-2-narrativ","courseId":"s1","chapterNumber":"5.2","title":"Vilkårsbunde sannsyn","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis ny informasjon endrar sannsyn -- frå eksamenstala til studierettleiaren til kvalitetskontroll på fabrikkgolvet, med produktregel, uavhengigheit og totalsetning.","estimatedMinutes":32,"competenceGoals":["bruke kombinatorikk til å berekne sannsyn"],"linkedChapterId":"s1-5-2","content":[{"id":"s1-5-2-n-intro","type":"text","content":"## Når ny informasjon endrar alt\n\nEin studierettleiar ved eit universitet sit med tala frå eksamen i fjor. Av alle studentane besto 78 %. Men så stiller ein kollega eit meir interessant spørsmål: «Kva er sannsynet for at ein student består, *gitt at* studenten har gjort alle dei obligatoriske innleveringane?» Plutseleg handlar det ikkje lenger om heile kullet, men om ei bestemt delgruppe — og svaret viser seg å bli eit heilt anna.\n\nDette er kjernen i **vilkårsbunde sannsyn**: korleis sannsyn endrar seg når vi får ny informasjon. Vi skriv $P(A|B)$ og les det «sannsynet for $A$ gitt $B$». Tankegangen er overalt i samfunnet: Kva er sannsynet for at ein pasient er sjuk, gitt ein positiv test? At ein del er defekt, gitt at han kjem frå ei bestemt maskin? At ein veljar stemmer på eit parti, gitt aldersgruppa?\n\nI dette kapittelet skal vi først definere vilkårsbunde sannsyn presist, deretter utleie **produktregelen** for trekningar utan tilbakelegging, lære å avgjere om hendingar er **uavhengige**, og til slutt bruke **totalsetninga** til å vege saman sannsyn frå ulike kjelder — slik kvalitetskontrollørar i industrien gjer kvar dag."},{"id":"s1-5-2-n-section1","type":"text","content":"## Definisjonen — å krympe utfallsrommet\n\nKva tyder eigentleg «gitt at»? Tenk deg eit venndiagram med heile utfallsrommet $S$, og to overlappande hendingar $A$ og $B$. Når vi får vite at $B$ har inntruffe, kan vi gløyme alt utanfor $B$ — sirkelen $B$ blir det nye, krympa utfallsrommet vårt. Spørsmålet «kor sannsynleg er $A$ no?» blir då: kor stor del av $B$ høyrer òg til $A$? Det gjev definisjonen, som krev $P(B) > 0$:\n\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\n\nder $P(A \\cap B)$ er sannsynet for at *både* $A$ og $B$ inntreff.\n\nLat oss prøve han på ein kortstokk. Du trekkjer eitt kort og får vite at det er eit biletkort (knekt, dame eller konge). Kva er sannsynet for at det er hjarter? Lat $A$ vere «hjarter» og $B$ «biletkort». Kortstokken har 12 biletkort, kvar av 3 er hjarter, så $P(B) = \\frac{12}{52}$ og $P(A \\cap B) = \\frac{3}{52}$. Formelen gjev\n\n$$P(A|B) = \\frac{3/52}{12/52} = \\frac{3}{12} = \\frac{1}{4}$$\n\nMen legg merke til at vi kunne tenkt direkte: gitt eit biletkort er det 12 moglegheiter, og 3 av dei er hjarter — altså $\\frac{1}{4}$. Begge vegar fører til 25 %. Det er nettopp dette «krympe utfallsrommet»-biletet som gjer vilkårsbunde sannsyn handterleg: tel på nytt innanfor den nye totalmengda."},{"id":"s1-5-2-n-quiz1","type":"exercise","exercise":{"id":"s1-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vilkårsbunde sannsyn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz1-q0","task":"Kva er definisjonen av $P(A|B)$ når $P(B) > 0$?","options":[{"id":"a","text":"$P(A \\cap B) \\cdot P(B)$","isCorrect":false},{"id":"b","text":"$\\dfrac{P(A \\cap B)}{P(B)}$","isCorrect":true},{"id":"c","text":"$\\dfrac{P(B)}{P(A \\cap B)}$","isCorrect":false},{"id":"d","text":"$P(A) + P(B) - P(A \\cap B)$","isCorrect":false}],"solution":"Vilkårsbunde sannsyn: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$ — delen av $B$ som òg ligg i $A$."},{"id":"s1-5-2-n-quiz1-q1","task":"Du kastar ein terning og får vite at resultatet er eit partal. Kva er sannsynet for at det er ein seksar?","options":[{"id":"a","text":"$\\dfrac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\dfrac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\dfrac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\dfrac{2}{3}$","isCorrect":false}],"solution":"Det nye utfallsrommet er $\\{2, 4, 6\\}$ med tre like sannsynlege utfall. $P(\\text{seks}|\\text{partal}) = \\frac{1}{3}$."},{"id":"s1-5-2-n-quiz1-q2","task":"I ein klasse har 60 % av elevane mobilforbod heime, og 24 % har både mobilforbod og les dagleg. Kva er $P(\\text{les dagleg}|\\text{mobilforbod})$?","options":[{"id":"a","text":"$0{,}24$","isCorrect":false},{"id":"b","text":"$0{,}40$","isCorrect":true},{"id":"c","text":"$0{,}36$","isCorrect":false},{"id":"d","text":"$0{,}60$","isCorrect":false}],"solution":"$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}24}{0{,}60} = 0{,}40$."}]}},{"id":"s1-5-2-n-section2","type":"text","content":"## Produktregelen — sannsyn trinn for trinn\n\nSnur vi definisjonen på hovudet, får vi eitt av dei mest brukte verktøya i sannsynsrekning. Gangar vi begge sider av definisjonen med $P(B)$, står vi att med **produktregelen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n\nI ord: sannsynet for at to ting begge skjer, er sannsynet for den første ganga med det vilkårsbundne sannsynet for den andre. Regelen kan forlengjast til tre hendingar: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$ — kvart nytt ledd er betinga av alt som har skjedd før.\n\nProduktregelen skin når vi trekkjer *utan tilbakelegging*. Tenk deg ei veske med 5 raude og 3 blå kuler, og at du trekkjer to kuler. Kva er sannsynet for at begge er raude? Teikn gjerne eit trediagram: første gren deler seg i raud ($\\frac{5}{8}$) og blå ($\\frac{3}{8}$). Har du trekt ei raud, ligg det 4 raude att blant 7 kuler, så det vilkårsbundne sannsynet for raud nummer to er $\\frac{4}{7}$. Produktregelen gjev\n\n$$P(\\text{raud} \\cap \\text{raud}) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 35{,}7\\,\\%$$\n\nLegg merke til logikken i trediagrammet: du *gangar langs greinene*. Kvar grein ber eit vilkårsbunde sannsyn som tek omsyn til alt som allereie er trekt. Same tankegang blir brukt når eit meiningsmålingsbyrå trekkjer respondentar frå eit register, eller når ein kvalitetskontrollør plukkar komponentar frå eit parti — kvart trekk endrar samansetninga av det som er att."},{"id":"s1-5-2-n-quiz2","type":"exercise","exercise":{"id":"s1-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på produktregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz2-q0","task":"Kva formel er produktregelen for to hendingar?","options":[{"id":"a","text":"$P(A \\cap B) = P(A) \\cdot P(B|A)$","isCorrect":true},{"id":"b","text":"$P(A \\cap B) = P(A) \\cdot P(B)$ alltid","isCorrect":false},{"id":"c","text":"$P(A \\cup B) = P(A) + P(B)$","isCorrect":false},{"id":"d","text":"$P(A \\cap B) = P(A|B) \\cdot P(A)$","isCorrect":false}],"solution":"Produktregelen: $P(A \\cap B) = P(A) \\cdot P(B|A) = P(B) \\cdot P(A|B)$. Formelen $P(A)P(B)$ gjeld berre når hendingane er uavhengige."},{"id":"s1-5-2-n-quiz2-q1","task":"Ein skuff har 4 kvite og 2 svarte sokkar. Du trekkjer to utan å sjå. Kva er sannsynet for to kvite?","options":[{"id":"a","text":"$\\dfrac{4}{6} \\cdot \\dfrac{4}{6} = \\dfrac{4}{9}$","isCorrect":false},{"id":"b","text":"$\\dfrac{4}{6} \\cdot \\dfrac{3}{5} = \\dfrac{2}{5}$","isCorrect":true},{"id":"c","text":"$\\dfrac{4}{6} \\cdot \\dfrac{3}{6} = \\dfrac{1}{3}$","isCorrect":false},{"id":"d","text":"$\\dfrac{2}{6} \\cdot \\dfrac{1}{5} = \\dfrac{1}{15}$","isCorrect":false}],"solution":"Utan tilbakelegging: $P = \\frac{4}{6} \\cdot \\frac{3}{5} = \\frac{12}{30} = \\frac{2}{5}$. Etter første kvite sokk står det att 3 kvite av 5."},{"id":"s1-5-2-n-quiz2-q2","task":"Kva representerer tala langs greinene i eit trediagram for trekning utan tilbakelegging?","options":[{"id":"a","text":"Ubundne sannsyn for kvar hending","isCorrect":false},{"id":"b","text":"Vilkårsbundne sannsyn gitt det som har skjedd tidlegare i treet","isCorrect":true},{"id":"c","text":"Talet på gunstige utfall","isCorrect":false},{"id":"d","text":"Alltid dei same verdiane i kvart trinn","isCorrect":false}],"solution":"Kvar grein ber sannsynet betinga av vegen dit — difor endrar brøkane seg frå trinn til trinn, og vi gangar langs greinene."}]}},{"id":"s1-5-2-n-section3","type":"text","content":"## Uavhengigheit — når informasjonen ikkje betyr noko\n\nNokre gonger er den nye informasjonen verdilaus: at mynten viste kron, fortel ingenting om kva terningen vil vise. Då seier vi at hendingane er **uavhengige**, og definisjonen er presis:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nEkvivalent kan vi seie at $P(A|B) = P(A)$ — å få vite $B$ endrar ikkje sannsynet for $A$. Kastar du mynt og terning, er $P(\\text{kron} \\cap \\text{seks}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$. Klassiske eksempel er to terningkast, mynt pluss terning, og trekning *med* tilbakelegging.\n\nMen pass på ei klassisk felle: uavhengigheit er **ikkje** det same som disjunkte hendingar. Disjunkte hendingar ($A \\cap B = \\emptyset$) kan ikkje skje samtidig — og nettopp difor er dei sterkt *avhengige* når begge har positivt sannsyn: skjer $A$, veit du med visse at $B$ ikkje skjedde.\n\nUavhengigheit kan òg *testast* mot data, og her vender vi tilbake til studierettleiaren. I ei undersøking av 100 studentar gjorde 60 obligane, 78 besto, og 54 gjorde begge delar. Er «gjer obligar» og «består» uavhengige? Vi samanliknar: $P(A) \\cdot P(B) = 0{,}78 \\cdot 0{,}60 = 0{,}468$, medan $P(A \\cap B) = 0{,}54$. Sidan $0{,}54 \\neq 0{,}468$ er hendingane avhengige. Endå tydelegare: $P(\\text{består}|\\text{obligar}) = \\frac{54}{60} = 0{,}90$, klart høgare enn dei 78 % som gjeld heile kullet. Akkurat slike krysstabell-testar bruker forskarar når dei leitar etter samanhengar i spørjeundersøkingar."},{"id":"s1-5-2-n-quiz3","type":"exercise","exercise":{"id":"s1-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på uavhengigheit:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz3-q0","task":"Når er $A$ og $B$ uavhengige?","options":[{"id":"a","text":"Når $P(A \\cap B) = P(A) \\cdot P(B)$","isCorrect":true},{"id":"b","text":"Når $A \\cap B = \\emptyset$","isCorrect":false},{"id":"c","text":"Når $P(A) = P(B)$","isCorrect":false},{"id":"d","text":"Når $P(A \\cup B) = 1$","isCorrect":false}],"solution":"Definisjonen: $P(A \\cap B) = P(A) \\cdot P(B)$, ekvivalent $P(A|B) = P(A)$. Disjunktheit er noko anna."},{"id":"s1-5-2-n-quiz3-q1","task":"To hendingar $A$ og $B$ er disjunkte, og begge har positivt sannsyn. Kva kan vi konkludere?","options":[{"id":"a","text":"Dei er uavhengige","isCorrect":false},{"id":"b","text":"Dei er avhengige","isCorrect":true},{"id":"c","text":"Dei er komplementære","isCorrect":false},{"id":"d","text":"Vi kan ikkje vite noko","isCorrect":false}],"solution":"Disjunkte hendingar med positivt sannsyn er avhengige: dersom $A$ inntreff, veit vi at $B$ ikkje kan inntreffe, så $P(B|A) = 0 \\neq P(B)$."},{"id":"s1-5-2-n-quiz3-q2","task":"I ei undersøking er $P(A) = 0{,}5$, $P(B) = 0{,}4$ og $P(A \\cap B) = 0{,}2$. Er $A$ og $B$ uavhengige?","options":[{"id":"a","text":"Ja, fordi $0{,}5 \\cdot 0{,}4 = 0{,}2 = P(A \\cap B)$","isCorrect":true},{"id":"b","text":"Nei, fordi $P(A) \\neq P(B)$","isCorrect":false},{"id":"c","text":"Nei, fordi $P(A \\cap B) < P(B)$","isCorrect":false},{"id":"d","text":"Ja, fordi $P(A) + P(B)$ er mindre enn 1","isCorrect":false}],"solution":"Test: $P(A) \\cdot P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$, som er nøyaktig $P(A \\cap B)$. Hendingane er uavhengige."},{"id":"s1-5-2-n-quiz3-q3","task":"Ein terning blir kasta to gonger. Kva er sannsynet for to seksarar?","options":[{"id":"a","text":"$\\dfrac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\dfrac{2}{6}$","isCorrect":false},{"id":"c","text":"$\\dfrac{1}{36}$","isCorrect":true},{"id":"d","text":"$\\dfrac{1}{12}$","isCorrect":false}],"solution":"Kasta er uavhengige: $P = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$."}]}},{"id":"s1-5-2-n-section4","type":"text","content":"## Totalsetninga — å vege saman kjeldene\n\nVi avsluttar på ein fabrikk, der ein kvalitetsansvarleg får eit tilsynelatande enkelt spørsmål: «Kor stor del av delane våre er defekte?» Problemet er at delane kjem frå to maskiner med ulik kvalitet. Maskin M1 lagar 60 % av produksjonen med 2 % defekte; M2 lagar 40 % med 5 % defekte. Kva er den samla defektdelen?\n\nTrikset er å dele opp i tilfelle. Hendingane $M_1$ og $M_2$ er gjensidig utelukkande og dekkjer heile produksjonen — dei utgjer ein *partisjon* av utfallsrommet. Då seier **totalsetninga** (setninga om total sannsyn) at vi kan rekne sannsynet for «defekt» veg for veg og leggje saman:\n\n$$P(D) = P(D|M_1) \\cdot P(M_1) + P(D|M_2) \\cdot P(M_2) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032$$\n\nAltså 3,2 % defekte totalt. I trediagrammet er dette å gange langs kvar grein som endar i «defekt», og så *summere greinene*.\n\nGenerelt, dersom $B_1, B_2, \\ldots, B_n$ er gjensidig utelukkande og til saman dekkjer heile utfallsrommet:\n\n$$P(A) = P(A|B_1) \\cdot P(B_1) + P(A|B_2) \\cdot P(B_2) + \\ldots + P(A|B_n) \\cdot P(B_n)$$\n\nOftast blir ho brukt med berre to tilfelle, ei hending $B$ og komplementet $\\overline{B}$: $P(A) = P(A|B) \\cdot P(B) + P(A|\\overline{B}) \\cdot P(\\overline{B})$.\n\nTotalsetninga er arbeidshesten bak utallige berekningar i samfunnet: eit forsikringsselskap veg saman skaderisiko for ulike kundegrupper, ein epidemiolog veg saman smitteratar i ulike aldersgrupper. Og i neste kapittel skal vi snu heile resonnementet på hovudet med Bayes' setning: gitt at delen *er* defekt — kva maskin kom han mest sannsynleg frå?"},{"id":"s1-5-2-n-quiz4","type":"exercise","exercise":{"id":"s1-5-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på totalsetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-2-n-quiz4-q0","task":"Kva krevst av hendingane $B_1, \\ldots, B_n$ for at totalsetninga skal gjelde?","options":[{"id":"a","text":"Dei må vere uavhengige av $A$","isCorrect":false},{"id":"b","text":"Dei må vere gjensidig utelukkande og dekkje heile utfallsrommet","isCorrect":true},{"id":"c","text":"Dei må ha like stort sannsyn","isCorrect":false},{"id":"d","text":"Dei må alle innehalde $A$","isCorrect":false}],"solution":"Hendingane må utgjere ein partisjon: gjensidig utelukkande og til saman dekkje heile utfallsrommet."},{"id":"s1-5-2-n-quiz4-q1","task":"To maskiner: M1 lagar 70 % av delane med 4 % defekte, M2 lagar 30 % med 10 % defekte. Kva er $P(\\text{defekt})$?","options":[{"id":"a","text":"$0{,}070$","isCorrect":false},{"id":"b","text":"$0{,}14$","isCorrect":false},{"id":"c","text":"$0{,}058$","isCorrect":true},{"id":"d","text":"$0{,}028$","isCorrect":false}],"solution":"Totalsetninga: $P(D) = 0{,}04 \\cdot 0{,}70 + 0{,}10 \\cdot 0{,}30 = 0{,}028 + 0{,}030 = 0{,}058$, altså 5,8 %."},{"id":"s1-5-2-n-quiz4-q2","task":"I eit trediagram svarar totalsetninga til å ...","options":[{"id":"a","text":"gange sannsyna langs éi grein","isCorrect":false},{"id":"b","text":"summere sluttsannsyna for alle greiner som endar i hendinga","isCorrect":true},{"id":"c","text":"dele talet på greiner på det totale talet på utfall","isCorrect":false},{"id":"d","text":"velje greina med høgast sannsyn","isCorrect":false}],"solution":"Vi gangar langs kvar grein (produktregelen) og summerer alle greinene som fører til hendinga — det er totalsetninga i praksis."},{"id":"s1-5-2-n-quiz4-q3","task":"20 % av kundane i eit forsikringsselskap er unge sjåførar med skadesannsyn 0,15; resten har skadesannsyn 0,05. Kva er sannsynet for at ein tilfeldig kunde får skade?","options":[{"id":"a","text":"$0{,}07$","isCorrect":true},{"id":"b","text":"$0{,}10$","isCorrect":false},{"id":"c","text":"$0{,}20$","isCorrect":false},{"id":"d","text":"$0{,}03$","isCorrect":false}],"solution":"$P(S) = 0{,}15 \\cdot 0{,}20 + 0{,}05 \\cdot 0{,}80 = 0{,}03 + 0{,}04 = 0{,}07$."}]}},{"id":"s1-5-2-n-summary","type":"text","content":"## Oppsummering: prisen på informasjon\n\nVi starta hos studierettleiaren, som oppdaga at sannsynet for å bestå hoppa frå 78 % til 90 % i det augneblinket vi visste at studenten hadde gjort obligane. Det er essensen i **vilkårsbunde sannsyn**: ny informasjon krympar utfallsrommet, og vi reknar på nytt innanfor det som er att. Formelt: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$.\n\nFrå definisjonen følgde **produktregelen**, $P(A \\cap B) = P(A) \\cdot P(B|A)$, som let oss rekne trinn for trinn gjennom eit trediagram — uunnverleg ved trekning utan tilbakelegging, der kvart trekk endrar samansetninga av det som står att.\n\nVi såg òg når informasjon *ikkje* har verdi: hendingar er **uavhengige** nettopp når $P(A \\cap B) = P(A) \\cdot P(B)$, eller ekvivalent $P(A|B) = P(A)$. Det gav oss både ein rekneregel for ting som mynt- og terningkast, og ein test vi kan køyre på data i ein krysstabell. Og vi avslørte fella: disjunkte hendingar er ikkje uavhengige — dei er ekstremt avhengige.\n\nTil slutt samla **totalsetninga** trådane: når $B_1, \\ldots, B_n$ deler opp utfallsrommet, er $P(A) = \\sum_i P(A|B_i) \\cdot P(B_i)$ — gang langs greinene, summer greinene. Slik fann kvalitetskontrolløren at 3,2 % av delane på fabrikken var defekte.\n\nMen eitt spørsmål heng att frå fabrikkgolvet: dersom du står med ein defekt del i handa, kva maskin er syndaren? Å snu betinginga — frå $P(D|M_1)$ til $P(M_1|D)$ — er tema for neste kapittel: Bayes' setning."}],"exercises":[],"_meta":{"sourceHash":"77b8a11e847c7232","translatedAt":"2026-06-20T03:33:54.885Z","model":"claude-code-agent","strings":90,"tm":{"00fce03a24b77d0c":"Vilkårsbunde sannsyn","b195b06d1ed59702":"Narrativ versjon","834dde927a7a37ed":"Ei forteljing om korleis ny informasjon endrar sannsyn -- frå eksamenstala til studierettleiaren til kvalitetskontroll på fabrikkgolvet, med produktregel, uavhengigheit og totalsetning.","6f8683053d9bad78":"bruke kombinatorikk til å berekne sannsyn","ce8c71844a8a3bc4":"## Når ny informasjon endrar alt\n\nEin studierettleiar ved eit universitet sit med tala frå eksamen i fjor. Av alle studentane besto 78 %. Men så stiller ein kollega eit meir interessant spørsmål: «Kva er sannsynet for at ein student består, *gitt at* studenten har gjort alle dei obligatoriske innleveringane?» Plutseleg handlar det ikkje lenger om heile kullet, men om ei bestemt delgruppe — og svaret viser seg å bli eit heilt anna.\n\nDette er kjernen i **vilkårsbunde sannsyn**: korleis sannsyn endrar seg når vi får ny informasjon. Vi skriv $P(A|B)$ og les det «sannsynet for $A$ gitt $B$». Tankegangen er overalt i samfunnet: Kva er sannsynet for at ein pasient er sjuk, gitt ein positiv test? At ein del er defekt, gitt at han kjem frå ei bestemt maskin? At ein veljar stemmer på eit parti, gitt aldersgruppa?\n\nI dette kapittelet skal vi først definere vilkårsbunde sannsyn presist, deretter utleie **produktregelen** for trekningar utan tilbakelegging, lære å avgjere om hendingar er **uavhengige**, og til slutt bruke **totalsetninga** til å vege saman sannsyn frå ulike kjelder — slik kvalitetskontrollørar i industrien gjer kvar dag.","9fdc7c295b801c8a":"## Definisjonen — å krympe utfallsrommet\n\nKva tyder eigentleg «gitt at»? Tenk deg eit venndiagram med heile utfallsrommet $S$, og to overlappande hendingar $A$ og $B$. Når vi får vite at $B$ har inntruffe, kan vi gløyme alt utanfor $B$ — sirkelen $B$ blir det nye, krympa utfallsrommet vårt. Spørsmålet «kor sannsynleg er $A$ no?» blir då: kor stor del av $B$ høyrer òg til $A$? Det gjev definisjonen, som krev $P(B) > 0$:\n\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\n\nder $P(A \\cap B)$ er sannsynet for at *både* $A$ og $B$ inntreff.\n\nLat oss prøve han på ein kortstokk. Du trekkjer eitt kort og får vite at det er eit biletkort (knekt, dame eller konge). Kva er sannsynet for at det er hjarter? Lat $A$ vere «hjarter» og $B$ «biletkort». Kortstokken har 12 biletkort, kvar av 3 er hjarter, så $P(B) = \\frac{12}{52}$ og $P(A \\cap B) = \\frac{3}{52}$. Formelen gjev\n\n$$P(A|B) = \\frac{3/52}{12/52} = \\frac{3}{12} = \\frac{1}{4}$$\n\nMen legg merke til at vi kunne tenkt direkte: gitt eit biletkort er det 12 moglegheiter, og 3 av dei er hjarter — altså $\\frac{1}{4}$. Begge vegar fører til 25 %. Det er nettopp dette «krympe utfallsrommet»-biletet som gjer vilkårsbunde sannsyn handterleg: tel på nytt innanfor den nye totalmengda.","003e63fedb51b4fb":"Test deg sjølv på vilkårsbunde sannsyn:","4097889236a2af26":"placeholder","77b97a3699a68112":"Kva er definisjonen av $P(A|B)$ når $P(B) > 0$?","fd104fe8f775a866":"$P(A \\cap B) \\cdot P(B)$","2965b182be4cd2b4":"$\\dfrac{P(A \\cap B)}{P(B)}$","bdf5f216a075027b":"$\\dfrac{P(B)}{P(A \\cap B)}$","153f73fae7428228":"$P(A) + P(B) - P(A \\cap B)$","446f4d059c603322":"Vilkårsbunde sannsyn: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$ — delen av $B$ som òg ligg i $A$.","777f5fab44df727f":"Du kastar ein terning og får vite at resultatet er eit partal. Kva er sannsynet for at det er ein seksar?","ffc71f5d22cc58c6":"$\\dfrac{1}{6}$","671388beaad4e539":"$\\dfrac{1}{2}$","ed17813775e145d8":"$\\dfrac{1}{3}$","e2f7ed43e43c429e":"$\\dfrac{2}{3}$","a686623fe0ac9732":"Det nye utfallsrommet er $\\{2, 4, 6\\}$ med tre like sannsynlege utfall. $P(\\text{seks}|\\text{partal}) = \\frac{1}{3}$.","c636b86055a698f3":"I ein klasse har 60 % av elevane mobilforbod heime, og 24 % har både mobilforbod og les dagleg. Kva er $P(\\text{les dagleg}|\\text{mobilforbod})$?","f0de95b2626027d6":"$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}24}{0{,}60} = 0{,}40$.","0fbf58a94b6b7a97":"## Produktregelen — sannsyn trinn for trinn\n\nSnur vi definisjonen på hovudet, får vi eitt av dei mest brukte verktøya i sannsynsrekning. Gangar vi begge sider av definisjonen med $P(B)$, står vi att med **produktregelen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n\nI ord: sannsynet for at to ting begge skjer, er sannsynet for den første ganga med det vilkårsbundne sannsynet for den andre. Regelen kan forlengjast til tre hendingar: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$ — kvart nytt ledd er betinga av alt som har skjedd før.\n\nProduktregelen skin når vi trekkjer *utan tilbakelegging*. Tenk deg ei veske med 5 raude og 3 blå kuler, og at du trekkjer to kuler. Kva er sannsynet for at begge er raude? Teikn gjerne eit trediagram: første gren deler seg i raud ($\\frac{5}{8}$) og blå ($\\frac{3}{8}$). Har du trekt ei raud, ligg det 4 raude att blant 7 kuler, så det vilkårsbundne sannsynet for raud nummer to er $\\frac{4}{7}$. Produktregelen gjev\n\n$$P(\\text{raud} \\cap \\text{raud}) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 35{,}7\\,\\%$$\n\nLegg merke til logikken i trediagrammet: du *gangar langs greinene*. Kvar grein ber eit vilkårsbunde sannsyn som tek omsyn til alt som allereie er trekt. Same tankegang blir brukt når eit meiningsmålingsbyrå trekkjer respondentar frå eit register, eller når ein kvalitetskontrollør plukkar komponentar frå eit parti — kvart trekk endrar samansetninga av det som er att.","faecbf89040ddba3":"Test deg sjølv på produktregelen:","639fe847a4e0ad34":"Kva formel er produktregelen for to hendingar?","e7bc790f7733e14f":"$P(A \\cap B) = P(A) \\cdot P(B|A)$","86bc71f6d9dd26b3":"$P(A \\cap B) = P(A) \\cdot P(B)$ alltid","9e0e23d00d8c74eb":"$P(A \\cup B) = P(A) + P(B)$","65e2620851ecf086":"$P(A \\cap B) = P(A|B) \\cdot P(A)$","c9b388662b2441ce":"Produktregelen: $P(A \\cap B) = P(A) \\cdot P(B|A) = P(B) \\cdot P(A|B)$. Formelen $P(A)P(B)$ gjeld berre når hendingane er uavhengige.","6ad9e5b77b5b113d":"Ein skuff har 4 kvite og 2 svarte sokkar. Du trekkjer to utan å sjå. Kva er sannsynet for to kvite?","3de667a77fa3d84b":"$\\dfrac{4}{6} \\cdot \\dfrac{4}{6} = \\dfrac{4}{9}$","b2b84b20dff42beb":"$\\dfrac{4}{6} \\cdot \\dfrac{3}{5} = \\dfrac{2}{5}$","0e1c910c233324cd":"$\\dfrac{4}{6} \\cdot \\dfrac{3}{6} = \\dfrac{1}{3}$","99abe7e6e0023896":"$\\dfrac{2}{6} \\cdot \\dfrac{1}{5} = \\dfrac{1}{15}$","82d1bc249e22c39b":"Utan tilbakelegging: $P = \\frac{4}{6} \\cdot \\frac{3}{5} = \\frac{12}{30} = \\frac{2}{5}$. Etter første kvite sokk står det att 3 kvite av 5.","4fb63c906bffc389":"Kva representerer tala langs greinene i eit trediagram for trekning utan tilbakelegging?","4159d0fd993e977c":"Ubundne sannsyn for kvar hending","eb74cbea74892d5e":"Vilkårsbundne sannsyn gitt det som har skjedd tidlegare i treet","3168672ed3f01c51":"Talet på gunstige utfall","7ac66b90f4f37566":"Alltid dei same verdiane i kvart trinn","f64157f9d7899c7d":"Kvar grein ber sannsynet betinga av vegen dit — difor endrar brøkane seg frå trinn til trinn, og vi gangar langs greinene.","a6d82fd4b147ef6b":"## Uavhengigheit — når informasjonen ikkje betyr noko\n\nNokre gonger er den nye informasjonen verdilaus: at mynten viste kron, fortel ingenting om kva terningen vil vise. Då seier vi at hendingane er **uavhengige**, og definisjonen er presis:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nEkvivalent kan vi seie at $P(A|B) = P(A)$ — å få vite $B$ endrar ikkje sannsynet for $A$. Kastar du mynt og terning, er $P(\\text{kron} \\cap \\text{seks}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$. Klassiske eksempel er to terningkast, mynt pluss terning, og trekning *med* tilbakelegging.\n\nMen pass på ei klassisk felle: uavhengigheit er **ikkje** det same som disjunkte hendingar. Disjunkte hendingar ($A \\cap B = \\emptyset$) kan ikkje skje samtidig — og nettopp difor er dei sterkt *avhengige* når begge har positivt sannsyn: skjer $A$, veit du med visse at $B$ ikkje skjedde.\n\nUavhengigheit kan òg *testast* mot data, og her vender vi tilbake til studierettleiaren. I ei undersøking av 100 studentar gjorde 60 obligane, 78 besto, og 54 gjorde begge delar. Er «gjer obligar» og «består» uavhengige? Vi samanliknar: $P(A) \\cdot P(B) = 0{,}78 \\cdot 0{,}60 = 0{,}468$, medan $P(A \\cap B) = 0{,}54$. Sidan $0{,}54 \\neq 0{,}468$ er hendingane avhengige. Endå tydelegare: $P(\\text{består}|\\text{obligar}) = \\frac{54}{60} = 0{,}90$, klart høgare enn dei 78 % som gjeld heile kullet. Akkurat slike krysstabell-testar bruker forskarar når dei leitar etter samanhengar i spørjeundersøkingar.","61c9b02cec80d8f7":"Test deg sjølv på uavhengigheit:","38412f93117227bc":"Når er $A$ og $B$ uavhengige?","2f5ad23a91ab2476":"Når $P(A \\cap B) = P(A) \\cdot P(B)$","694ba6a40170a817":"Når $A \\cap B = \\emptyset$","3cca8363f0077162":"Når $P(A) = P(B)$","d53297f715471730":"Når $P(A \\cup B) = 1$","887a7e381fa2b517":"Definisjonen: $P(A \\cap B) = P(A) \\cdot P(B)$, ekvivalent $P(A|B) = P(A)$. Disjunktheit er noko anna.","34841be72b2129ee":"To hendingar $A$ og $B$ er disjunkte, og begge har positivt sannsyn. Kva kan vi konkludere?","3f347f27919a0576":"Dei er uavhengige","e1d128a5520a3e79":"Dei er avhengige","3c37b7c0d9d3c343":"Dei er komplementære","c497032860bb7e5f":"Vi kan ikkje vite noko","710bca93dbec7ee3":"Disjunkte hendingar med positivt sannsyn er avhengige: dersom $A$ inntreff, veit vi at $B$ ikkje kan inntreffe, så $P(B|A) = 0 \\neq P(B)$.","6fd83f0c93a89cc5":"I ei undersøking er $P(A) = 0{,}5$, $P(B) = 0{,}4$ og $P(A \\cap B) = 0{,}2$. Er $A$ og $B$ uavhengige?","c949167d24346c8c":"Ja, fordi $0{,}5 \\cdot 0{,}4 = 0{,}2 = P(A \\cap B)$","b05aea5407df13bc":"Nei, fordi $P(A) \\neq P(B)$","d2d1c6ea8993994c":"Nei, fordi $P(A \\cap B) < P(B)$","8ec9f69acc16c34e":"Ja, fordi $P(A) + P(B)$ er mindre enn 1","04fa298f1e4335cc":"Test: $P(A) \\cdot P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$, som er nøyaktig $P(A \\cap B)$. Hendingane er uavhengige.","ef39e3281cdef7da":"Ein terning blir kasta to gonger. Kva er sannsynet for to seksarar?","fb5ca22c2804130b":"$\\dfrac{2}{6}$","668165e8a8f8e6c1":"$\\dfrac{1}{36}$","8a46400008b6e740":"$\\dfrac{1}{12}$","7c0ed6c7c636d56f":"Kasta er uavhengige: $P = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$.","81021710389a678a":"## Totalsetninga — å vege saman kjeldene\n\nVi avsluttar på ein fabrikk, der ein kvalitetsansvarleg får eit tilsynelatande enkelt spørsmål: «Kor stor del av delane våre er defekte?» Problemet er at delane kjem frå to maskiner med ulik kvalitet. Maskin M1 lagar 60 % av produksjonen med 2 % defekte; M2 lagar 40 % med 5 % defekte. Kva er den samla defektdelen?\n\nTrikset er å dele opp i tilfelle. Hendingane $M_1$ og $M_2$ er gjensidig utelukkande og dekkjer heile produksjonen — dei utgjer ein *partisjon* av utfallsrommet. Då seier **totalsetninga** (setninga om total sannsyn) at vi kan rekne sannsynet for «defekt» veg for veg og leggje saman:\n\n$$P(D) = P(D|M_1) \\cdot P(M_1) + P(D|M_2) \\cdot P(M_2) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032$$\n\nAltså 3,2 % defekte totalt. I trediagrammet er dette å gange langs kvar grein som endar i «defekt», og så *summere greinene*.\n\nGenerelt, dersom $B_1, B_2, \\ldots, B_n$ er gjensidig utelukkande og til saman dekkjer heile utfallsrommet:\n\n$$P(A) = P(A|B_1) \\cdot P(B_1) + P(A|B_2) \\cdot P(B_2) + \\ldots + P(A|B_n) \\cdot P(B_n)$$\n\nOftast blir ho brukt med berre to tilfelle, ei hending $B$ og komplementet $\\overline{B}$: $P(A) = P(A|B) \\cdot P(B) + P(A|\\overline{B}) \\cdot P(\\overline{B})$.\n\nTotalsetninga er arbeidshesten bak utallige berekningar i samfunnet: eit forsikringsselskap veg saman skaderisiko for ulike kundegrupper, ein epidemiolog veg saman smitteratar i ulike aldersgrupper. Og i neste kapittel skal vi snu heile resonnementet på hovudet med Bayes' setning: gitt at delen *er* defekt — kva maskin kom han mest sannsynleg frå?","5ae803c7cacbba09":"Test deg sjølv på totalsetninga:","9ab9889f8f519de3":"Kva krevst av hendingane $B_1, \\ldots, B_n$ for at totalsetninga skal gjelde?","753bfec6576dbb1a":"Dei må vere uavhengige av $A$","e7907e563386446b":"Dei må vere gjensidig utelukkande og dekkje heile utfallsrommet","986da8e45f1e0886":"Dei må ha like stort sannsyn","c77d7bc6b84af07c":"Dei må alle innehalde $A$","f0b6333595d842ad":"Hendingane må utgjere ein partisjon: gjensidig utelukkande og til saman dekkje heile utfallsrommet.","2c7bf92781417b3e":"To maskiner: M1 lagar 70 % av delane med 4 % defekte, M2 lagar 30 % med 10 % defekte. Kva er $P(\\text{defekt})$?","4927a1f8053745a8":"Totalsetninga: $P(D) = 0{,}04 \\cdot 0{,}70 + 0{,}10 \\cdot 0{,}30 = 0{,}028 + 0{,}030 = 0{,}058$, altså 5,8 %.","63a207146d8d4aa8":"I eit trediagram svarar totalsetninga til å ...","563b4b2cf659296f":"gange sannsyna langs éi grein","8dc310962a0488a0":"summere sluttsannsyna for alle greiner som endar i hendinga","b1d85cad6a60f586":"dele talet på greiner på det totale talet på utfall","48ea05aaad6584a1":"velje greina med høgast sannsyn","a308054ee3523097":"Vi gangar langs kvar grein (produktregelen) og summerer alle greinene som fører til hendinga — det er totalsetninga i praksis.","bc83bb4ed3ab3121":"20 % av kundane i eit forsikringsselskap er unge sjåførar med skadesannsyn 0,15; resten har skadesannsyn 0,05. Kva er sannsynet for at ein tilfeldig kunde får skade?","530eb8c89e284922":"$P(S) = 0{,}15 \\cdot 0{,}20 + 0{,}05 \\cdot 0{,}80 = 0{,}03 + 0{,}04 = 0{,}07$.","9b65ed795a14876c":"## Oppsummering: prisen på informasjon\n\nVi starta hos studierettleiaren, som oppdaga at sannsynet for å bestå hoppa frå 78 % til 90 % i det augneblinket vi visste at studenten hadde gjort obligane. Det er essensen i **vilkårsbunde sannsyn**: ny informasjon krympar utfallsrommet, og vi reknar på nytt innanfor det som er att. Formelt: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$.\n\nFrå definisjonen følgde **produktregelen**, $P(A \\cap B) = P(A) \\cdot P(B|A)$, som let oss rekne trinn for trinn gjennom eit trediagram — uunnverleg ved trekning utan tilbakelegging, der kvart trekk endrar samansetninga av det som står att.\n\nVi såg òg når informasjon *ikkje* har verdi: hendingar er **uavhengige** nettopp når $P(A \\cap B) = P(A) \\cdot P(B)$, eller ekvivalent $P(A|B) = P(A)$. Det gav oss både ein rekneregel for ting som mynt- og terningkast, og ein test vi kan køyre på data i ein krysstabell. Og vi avslørte fella: disjunkte hendingar er ikkje uavhengige — dei er ekstremt avhengige.\n\nTil slutt samla **totalsetninga** trådane: når $B_1, \\ldots, B_n$ deler opp utfallsrommet, er $P(A) = \\sum_i P(A|B_i) \\cdot P(B_i)$ — gang langs greinene, summer greinene. Slik fann kvalitetskontrolløren at 3,2 % av delane på fabrikken var defekte.\n\nMen eitt spørsmål heng att frå fabrikkgolvet: dersom du står med ein defekt del i handa, kva maskin er syndaren? Å snu betinginga — frå $P(D|M_1)$ til $P(M_1|D)$ — er tema for neste kapittel: Bayes' setning."}}}
+{
+  "id": "s1-5-2-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "5.2",
+  "title": "Vilkårsbunde sannsyn",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis ny informasjon endrar sannsyn -- frå eksamenstala til studierettleiaren til kvalitetskontroll på fabrikkgolvet, med produktregel, uavhengigheit og totalsetning.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "bruke kombinatorikk til å berekne sannsyn"
+  ],
+  "linkedChapterId": "s1-5-2",
+  "content": [
+    {
+      "id": "s1-5-2-n-intro",
+      "type": "text",
+      "content": "## Når ny informasjon endrar alt\n\nEin studierettleiar ved eit universitet sit med tala frå eksamen i fjor. Av alle studentane besto 78 %. Men så stiller ein kollega eit meir interessant spørsmål: «Kva er sannsynet for at ein student består, *gitt at* studenten har gjort alle dei obligatoriske innleveringane?» Plutseleg handlar det ikkje lenger om heile kullet, men om ei bestemt delgruppe — og svaret viser seg å bli eit heilt anna.\n\nDette er kjernen i **vilkårsbunde sannsyn**: korleis sannsyn endrar seg når vi får ny informasjon. Vi skriv $P(A|B)$ og les det «sannsynet for $A$ gitt $B$». Tankegangen er overalt i samfunnet: Kva er sannsynet for at ein pasient er sjuk, gitt ein positiv test? At ein del er defekt, gitt at han kjem frå ei bestemt maskin? At ein veljar stemmer på eit parti, gitt aldersgruppa?\n\nI dette kapittelet skal vi først definere vilkårsbunde sannsyn presist, deretter utleie **produktregelen** for trekningar utan tilbakelegging, lære å avgjere om hendingar er **uavhengige**, og til slutt bruke **totalsetninga** til å vege saman sannsyn frå ulike kjelder — slik kvalitetskontrollørar i industrien gjer kvar dag."
+    },
+    {
+      "id": "s1-5-2-n-section1",
+      "type": "text",
+      "content": "## Definisjonen — å krympe utfallsrommet\n\nKva tyder eigentleg «gitt at»? Tenk deg eit venndiagram med heile utfallsrommet $S$, og to overlappande hendingar $A$ og $B$. Når vi får vite at $B$ har inntruffe, kan vi gløyme alt utanfor $B$ — sirkelen $B$ blir det nye, krympa utfallsrommet vårt. Spørsmålet «kor sannsynleg er $A$ no?» blir då: kor stor del av $B$ høyrer òg til $A$? Det gjev definisjonen, som krev $P(B) > 0$:\n\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\n\nder $P(A \\cap B)$ er sannsynet for at *både* $A$ og $B$ inntreff.\n\nLat oss prøve han på ein kortstokk. Du trekkjer eitt kort og får vite at det er eit biletkort (knekt, dame eller konge). Kva er sannsynet for at det er hjarter? Lat $A$ vere «hjarter» og $B$ «biletkort». Kortstokken har 12 biletkort, kvar av 3 er hjarter, så $P(B) = \\frac{12}{52}$ og $P(A \\cap B) = \\frac{3}{52}$. Formelen gjev\n\n$$P(A|B) = \\frac{3/52}{12/52} = \\frac{3}{12} = \\frac{1}{4}$$\n\nMen legg merke til at vi kunne tenkt direkte: gitt eit biletkort er det 12 moglegheiter, og 3 av dei er hjarter — altså $\\frac{1}{4}$. Begge vegar fører til 25 %. Det er nettopp dette «krympe utfallsrommet»-biletet som gjer vilkårsbunde sannsyn handterleg: tel på nytt innanfor den nye totalmengda."
+    },
+    {
+      "id": "s1-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vilkårsbunde sannsyn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz1-q0",
+            "task": "Kva er definisjonen av $P(A|B)$ når $P(B) > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) \\cdot P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\dfrac{P(B)}{P(A \\cap B)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A) + P(B) - P(A \\cap B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{P(A \\cap B)}{P(B)}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vilkårsbunde sannsyn: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$ — delen av $B$ som òg ligg i $A$."
+          },
+          {
+            "id": "s1-5-2-n-quiz1-q1",
+            "task": "Du kastar ein terning og får vite at resultatet er eit partal. Kva er sannsynet for at det er ein seksar?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\dfrac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det nye utfallsrommet er $\\{2, 4, 6\\}$ med tre like sannsynlege utfall. $P(\\text{seks}|\\text{partal}) = \\frac{1}{3}$."
+          },
+          {
+            "id": "s1-5-2-n-quiz1-q2",
+            "task": "I ein klasse har 60 % av elevane mobilforbod heime, og 24 % har både mobilforbod og les dagleg. Kva er $P(\\text{les dagleg}|\\text{mobilforbod})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}24$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}40$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$0{,}36$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}60$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}24}{0{,}60} = 0{,}40$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-section2",
+      "type": "text",
+      "content": "## Produktregelen — sannsyn trinn for trinn\n\nSnur vi definisjonen på hovudet, får vi eitt av dei mest brukte verktøya i sannsynsrekning. Gangar vi begge sider av definisjonen med $P(B)$, står vi att med **produktregelen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n\nI ord: sannsynet for at to ting begge skjer, er sannsynet for den første ganga med det vilkårsbundne sannsynet for den andre. Regelen kan forlengjast til tre hendingar: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$ — kvart nytt ledd er betinga av alt som har skjedd før.\n\nProduktregelen skin når vi trekkjer *utan tilbakelegging*. Tenk deg ei veske med 5 raude og 3 blå kuler, og at du trekkjer to kuler. Kva er sannsynet for at begge er raude? Teikn gjerne eit trediagram: første gren deler seg i raud ($\\frac{5}{8}$) og blå ($\\frac{3}{8}$). Har du trekt ei raud, ligg det 4 raude att blant 7 kuler, så det vilkårsbundne sannsynet for raud nummer to er $\\frac{4}{7}$. Produktregelen gjev\n\n$$P(\\text{raud} \\cap \\text{raud}) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 35{,}7\\,\\%$$\n\nLegg merke til logikken i trediagrammet: du *gangar langs greinene*. Kvar grein ber eit vilkårsbunde sannsyn som tek omsyn til alt som allereie er trekt. Same tankegang blir brukt når eit meiningsmålingsbyrå trekkjer respondentar frå eit register, eller når ein kvalitetskontrollør plukkar komponentar frå eit parti — kvart trekk endrar samansetninga av det som er att."
+    },
+    {
+      "id": "s1-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på produktregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz2-q0",
+            "task": "Kva formel er produktregelen for to hendingar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B)$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A \\cup B) = P(A) + P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B|A)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\cap B) = P(A|B) \\cdot P(A)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen: $P(A \\cap B) = P(A) \\cdot P(B|A) = P(B) \\cdot P(A|B)$. Formelen $P(A)P(B)$ gjeld berre når hendingane er uavhengige."
+          },
+          {
+            "id": "s1-5-2-n-quiz2-q1",
+            "task": "Ein skuff har 4 kvite og 2 svarte sokkar. Du trekkjer to utan å sjå. Kva er sannsynet for to kvite?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\dfrac{4}{6} \\cdot \\dfrac{4}{6} = \\dfrac{4}{9}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\dfrac{4}{6} \\cdot \\dfrac{3}{6} = \\dfrac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{2}{6} \\cdot \\dfrac{1}{5} = \\dfrac{1}{15}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{4}{6} \\cdot \\dfrac{3}{5} = \\dfrac{2}{5}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan tilbakelegging: $P = \\frac{4}{6} \\cdot \\frac{3}{5} = \\frac{12}{30} = \\frac{2}{5}$. Etter første kvite sokk står det att 3 kvite av 5."
+          },
+          {
+            "id": "s1-5-2-n-quiz2-q2",
+            "task": "Kva representerer tala langs greinene i eit trediagram for trekning utan tilbakelegging?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Vilkårsbundne sannsyn gitt det som har skjedd tidlegare i treet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ubundne sannsyn for kvar hending",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Talet på gunstige utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid dei same verdiane i kvart trinn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvar grein ber sannsynet betinga av vegen dit — difor endrar brøkane seg frå trinn til trinn, og vi gangar langs greinene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-section3",
+      "type": "text",
+      "content": "## Uavhengigheit — når informasjonen ikkje betyr noko\n\nNokre gonger er den nye informasjonen verdilaus: at mynten viste kron, fortel ingenting om kva terningen vil vise. Då seier vi at hendingane er **uavhengige**, og definisjonen er presis:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nEkvivalent kan vi seie at $P(A|B) = P(A)$ — å få vite $B$ endrar ikkje sannsynet for $A$. Kastar du mynt og terning, er $P(\\text{kron} \\cap \\text{seks}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$. Klassiske eksempel er to terningkast, mynt pluss terning, og trekning *med* tilbakelegging.\n\nMen pass på ei klassisk felle: uavhengigheit er **ikkje** det same som disjunkte hendingar. Disjunkte hendingar ($A \\cap B = \\emptyset$) kan ikkje skje samtidig — og nettopp difor er dei sterkt *avhengige* når begge har positivt sannsyn: skjer $A$, veit du med visse at $B$ ikkje skjedde.\n\nUavhengigheit kan òg *testast* mot data, og her vender vi tilbake til studierettleiaren. I ei undersøking av 100 studentar gjorde 60 obligane, 78 besto, og 54 gjorde begge delar. Er «gjer obligar» og «består» uavhengige? Vi samanliknar: $P(A) \\cdot P(B) = 0{,}78 \\cdot 0{,}60 = 0{,}468$, medan $P(A \\cap B) = 0{,}54$. Sidan $0{,}54 \\neq 0{,}468$ er hendingane avhengige. Endå tydelegare: $P(\\text{består}|\\text{obligar}) = \\frac{54}{60} = 0{,}90$, klart høgare enn dei 78 % som gjeld heile kullet. Akkurat slike krysstabell-testar bruker forskarar når dei leitar etter samanhengar i spørjeundersøkingar."
+    },
+    {
+      "id": "s1-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på uavhengigheit:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz3-q0",
+            "task": "Når er $A$ og $B$ uavhengige?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når $A \\cap B = \\emptyset$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når $P(A \\cap B) = P(A) \\cdot P(B)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når $P(A) = P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $P(A \\cup B) = 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Definisjonen: $P(A \\cap B) = P(A) \\cdot P(B)$, ekvivalent $P(A|B) = P(A)$. Disjunktheit er noko anna."
+          },
+          {
+            "id": "s1-5-2-n-quiz3-q1",
+            "task": "To hendingar $A$ og $B$ er disjunkte, og begge har positivt sannsyn. Kva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei er komplementære",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei er avhengige",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Vi kan ikkje vite noko",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Disjunkte hendingar med positivt sannsyn er avhengige: dersom $A$ inntreff, veit vi at $B$ ikkje kan inntreffe, så $P(B|A) = 0 \\neq P(B)$."
+          },
+          {
+            "id": "s1-5-2-n-quiz3-q2",
+            "task": "I ei undersøking er $P(A) = 0{,}5$, $P(B) = 0{,}4$ og $P(A \\cap B) = 0{,}2$. Er $A$ og $B$ uavhengige?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nei, fordi $P(A) \\neq P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, fordi $P(A \\cap B) < P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja, fordi $P(A) + P(B)$ er mindre enn 1",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ja, fordi $0{,}5 \\cdot 0{,}4 = 0{,}2 = P(A \\cap B)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Test: $P(A) \\cdot P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$, som er nøyaktig $P(A \\cap B)$. Hendingane er uavhengige."
+          },
+          {
+            "id": "s1-5-2-n-quiz3-q3",
+            "task": "Ein terning blir kasta to gonger. Kva er sannsynet for to seksarar?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\dfrac{1}{36}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{2}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{1}{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kasta er uavhengige: $P = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-section4",
+      "type": "text",
+      "content": "## Totalsetninga — å vege saman kjeldene\n\nVi avsluttar på ein fabrikk, der ein kvalitetsansvarleg får eit tilsynelatande enkelt spørsmål: «Kor stor del av delane våre er defekte?» Problemet er at delane kjem frå to maskiner med ulik kvalitet. Maskin M1 lagar 60 % av produksjonen med 2 % defekte; M2 lagar 40 % med 5 % defekte. Kva er den samla defektdelen?\n\nTrikset er å dele opp i tilfelle. Hendingane $M_1$ og $M_2$ er gjensidig utelukkande og dekkjer heile produksjonen — dei utgjer ein *partisjon* av utfallsrommet. Då seier **totalsetninga** (setninga om total sannsyn) at vi kan rekne sannsynet for «defekt» veg for veg og leggje saman:\n\n$$P(D) = P(D|M_1) \\cdot P(M_1) + P(D|M_2) \\cdot P(M_2) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032$$\n\nAltså 3,2 % defekte totalt. I trediagrammet er dette å gange langs kvar grein som endar i «defekt», og så *summere greinene*.\n\nGenerelt, dersom $B_1, B_2, \\ldots, B_n$ er gjensidig utelukkande og til saman dekkjer heile utfallsrommet:\n\n$$P(A) = P(A|B_1) \\cdot P(B_1) + P(A|B_2) \\cdot P(B_2) + \\ldots + P(A|B_n) \\cdot P(B_n)$$\n\nOftast blir ho brukt med berre to tilfelle, ei hending $B$ og komplementet $\\overline{B}$: $P(A) = P(A|B) \\cdot P(B) + P(A|\\overline{B}) \\cdot P(\\overline{B})$.\n\nTotalsetninga er arbeidshesten bak utallige berekningar i samfunnet: eit forsikringsselskap veg saman skaderisiko for ulike kundegrupper, ein epidemiolog veg saman smitteratar i ulike aldersgrupper. Og i neste kapittel skal vi snu heile resonnementet på hovudet med Bayes' setning: gitt at delen *er* defekt — kva maskin kom han mest sannsynleg frå?"
+    },
+    {
+      "id": "s1-5-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på totalsetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-2-n-quiz4-q0",
+            "task": "Kva krevst av hendingane $B_1, \\ldots, B_n$ for at totalsetninga skal gjelde?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei må vere uavhengige av $A$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei må vere gjensidig utelukkande og dekkje heile utfallsrommet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Dei må ha like stort sannsyn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei må alle innehalde $A$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hendingane må utgjere ein partisjon: gjensidig utelukkande og til saman dekkje heile utfallsrommet."
+          },
+          {
+            "id": "s1-5-2-n-quiz4-q1",
+            "task": "To maskiner: M1 lagar 70 % av delane med 4 % defekte, M2 lagar 30 % med 10 % defekte. Kva er $P(\\text{defekt})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}070$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}14$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}058$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}028$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Totalsetninga: $P(D) = 0{,}04 \\cdot 0{,}70 + 0{,}10 \\cdot 0{,}30 = 0{,}028 + 0{,}030 = 0{,}058$, altså 5,8 %."
+          },
+          {
+            "id": "s1-5-2-n-quiz4-q2",
+            "task": "I eit trediagram svarar totalsetninga til å ...",
+            "options": [
+              {
+                "id": "a",
+                "text": "gange sannsyna langs éi grein",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "dele talet på greiner på det totale talet på utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "velje greina med høgast sannsyn",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "summere sluttsannsyna for alle greiner som endar i hendinga",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi gangar langs kvar grein (produktregelen) og summerer alle greinene som fører til hendinga — det er totalsetninga i praksis."
+          },
+          {
+            "id": "s1-5-2-n-quiz4-q3",
+            "task": "20 % av kundane i eit forsikringsselskap er unge sjåførar med skadesannsyn 0,15; resten har skadesannsyn 0,05. Kva er sannsynet for at ein tilfeldig kunde får skade?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}07$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}03$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(S) = 0{,}15 \\cdot 0{,}20 + 0{,}05 \\cdot 0{,}80 = 0{,}03 + 0{,}04 = 0{,}07$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: prisen på informasjon\n\nVi starta hos studierettleiaren, som oppdaga at sannsynet for å bestå hoppa frå 78 % til 90 % i det augneblinket vi visste at studenten hadde gjort obligane. Det er essensen i **vilkårsbunde sannsyn**: ny informasjon krympar utfallsrommet, og vi reknar på nytt innanfor det som er att. Formelt: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$.\n\nFrå definisjonen følgde **produktregelen**, $P(A \\cap B) = P(A) \\cdot P(B|A)$, som let oss rekne trinn for trinn gjennom eit trediagram — uunnverleg ved trekning utan tilbakelegging, der kvart trekk endrar samansetninga av det som står att.\n\nVi såg òg når informasjon *ikkje* har verdi: hendingar er **uavhengige** nettopp når $P(A \\cap B) = P(A) \\cdot P(B)$, eller ekvivalent $P(A|B) = P(A)$. Det gav oss både ein rekneregel for ting som mynt- og terningkast, og ein test vi kan køyre på data i ein krysstabell. Og vi avslørte fella: disjunkte hendingar er ikkje uavhengige — dei er ekstremt avhengige.\n\nTil slutt samla **totalsetninga** trådane: når $B_1, \\ldots, B_n$ deler opp utfallsrommet, er $P(A) = \\sum_i P(A|B_i) \\cdot P(B_i)$ — gang langs greinene, summer greinene. Slik fann kvalitetskontrolløren at 3,2 % av delane på fabrikken var defekte.\n\nMen eitt spørsmål heng att frå fabrikkgolvet: dersom du står med ein defekt del i handa, kva maskin er syndaren? Å snu betinginga — frå $P(D|M_1)$ til $P(M_1|D)$ — er tema for neste kapittel: Bayes' setning."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "77b8a11e847c7232",
+    "translatedAt": "2026-06-20T03:33:54.885Z",
+    "model": "claude-code-agent",
+    "strings": 90,
+    "tm": {
+      "00fce03a24b77d0c": "Vilkårsbunde sannsyn",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "834dde927a7a37ed": "Ei forteljing om korleis ny informasjon endrar sannsyn -- frå eksamenstala til studierettleiaren til kvalitetskontroll på fabrikkgolvet, med produktregel, uavhengigheit og totalsetning.",
+      "6f8683053d9bad78": "bruke kombinatorikk til å berekne sannsyn",
+      "ce8c71844a8a3bc4": "## Når ny informasjon endrar alt\n\nEin studierettleiar ved eit universitet sit med tala frå eksamen i fjor. Av alle studentane besto 78 %. Men så stiller ein kollega eit meir interessant spørsmål: «Kva er sannsynet for at ein student består, *gitt at* studenten har gjort alle dei obligatoriske innleveringane?» Plutseleg handlar det ikkje lenger om heile kullet, men om ei bestemt delgruppe — og svaret viser seg å bli eit heilt anna.\n\nDette er kjernen i **vilkårsbunde sannsyn**: korleis sannsyn endrar seg når vi får ny informasjon. Vi skriv $P(A|B)$ og les det «sannsynet for $A$ gitt $B$». Tankegangen er overalt i samfunnet: Kva er sannsynet for at ein pasient er sjuk, gitt ein positiv test? At ein del er defekt, gitt at han kjem frå ei bestemt maskin? At ein veljar stemmer på eit parti, gitt aldersgruppa?\n\nI dette kapittelet skal vi først definere vilkårsbunde sannsyn presist, deretter utleie **produktregelen** for trekningar utan tilbakelegging, lære å avgjere om hendingar er **uavhengige**, og til slutt bruke **totalsetninga** til å vege saman sannsyn frå ulike kjelder — slik kvalitetskontrollørar i industrien gjer kvar dag.",
+      "9fdc7c295b801c8a": "## Definisjonen — å krympe utfallsrommet\n\nKva tyder eigentleg «gitt at»? Tenk deg eit venndiagram med heile utfallsrommet $S$, og to overlappande hendingar $A$ og $B$. Når vi får vite at $B$ har inntruffe, kan vi gløyme alt utanfor $B$ — sirkelen $B$ blir det nye, krympa utfallsrommet vårt. Spørsmålet «kor sannsynleg er $A$ no?» blir då: kor stor del av $B$ høyrer òg til $A$? Det gjev definisjonen, som krev $P(B) > 0$:\n\n$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$\n\nder $P(A \\cap B)$ er sannsynet for at *både* $A$ og $B$ inntreff.\n\nLat oss prøve han på ein kortstokk. Du trekkjer eitt kort og får vite at det er eit biletkort (knekt, dame eller konge). Kva er sannsynet for at det er hjarter? Lat $A$ vere «hjarter» og $B$ «biletkort». Kortstokken har 12 biletkort, kvar av 3 er hjarter, så $P(B) = \\frac{12}{52}$ og $P(A \\cap B) = \\frac{3}{52}$. Formelen gjev\n\n$$P(A|B) = \\frac{3/52}{12/52} = \\frac{3}{12} = \\frac{1}{4}$$\n\nMen legg merke til at vi kunne tenkt direkte: gitt eit biletkort er det 12 moglegheiter, og 3 av dei er hjarter — altså $\\frac{1}{4}$. Begge vegar fører til 25 %. Det er nettopp dette «krympe utfallsrommet»-biletet som gjer vilkårsbunde sannsyn handterleg: tel på nytt innanfor den nye totalmengda.",
+      "003e63fedb51b4fb": "Test deg sjølv på vilkårsbunde sannsyn:",
+      "4097889236a2af26": "placeholder",
+      "77b97a3699a68112": "Kva er definisjonen av $P(A|B)$ når $P(B) > 0$?",
+      "fd104fe8f775a866": "$P(A \\cap B) \\cdot P(B)$",
+      "2965b182be4cd2b4": "$\\dfrac{P(A \\cap B)}{P(B)}$",
+      "bdf5f216a075027b": "$\\dfrac{P(B)}{P(A \\cap B)}$",
+      "153f73fae7428228": "$P(A) + P(B) - P(A \\cap B)$",
+      "446f4d059c603322": "Vilkårsbunde sannsyn: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$ — delen av $B$ som òg ligg i $A$.",
+      "777f5fab44df727f": "Du kastar ein terning og får vite at resultatet er eit partal. Kva er sannsynet for at det er ein seksar?",
+      "ffc71f5d22cc58c6": "$\\dfrac{1}{6}$",
+      "671388beaad4e539": "$\\dfrac{1}{2}$",
+      "ed17813775e145d8": "$\\dfrac{1}{3}$",
+      "e2f7ed43e43c429e": "$\\dfrac{2}{3}$",
+      "a686623fe0ac9732": "Det nye utfallsrommet er $\\{2, 4, 6\\}$ med tre like sannsynlege utfall. $P(\\text{seks}|\\text{partal}) = \\frac{1}{3}$.",
+      "c636b86055a698f3": "I ein klasse har 60 % av elevane mobilforbod heime, og 24 % har både mobilforbod og les dagleg. Kva er $P(\\text{les dagleg}|\\text{mobilforbod})$?",
+      "f0de95b2626027d6": "$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0{,}24}{0{,}60} = 0{,}40$.",
+      "0fbf58a94b6b7a97": "## Produktregelen — sannsyn trinn for trinn\n\nSnur vi definisjonen på hovudet, får vi eitt av dei mest brukte verktøya i sannsynsrekning. Gangar vi begge sider av definisjonen med $P(B)$, står vi att med **produktregelen**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n\nI ord: sannsynet for at to ting begge skjer, er sannsynet for den første ganga med det vilkårsbundne sannsynet for den andre. Regelen kan forlengjast til tre hendingar: $P(A \\cap B \\cap C) = P(A) \\cdot P(B|A) \\cdot P(C|A \\cap B)$ — kvart nytt ledd er betinga av alt som har skjedd før.\n\nProduktregelen skin når vi trekkjer *utan tilbakelegging*. Tenk deg ei veske med 5 raude og 3 blå kuler, og at du trekkjer to kuler. Kva er sannsynet for at begge er raude? Teikn gjerne eit trediagram: første gren deler seg i raud ($\\frac{5}{8}$) og blå ($\\frac{3}{8}$). Har du trekt ei raud, ligg det 4 raude att blant 7 kuler, så det vilkårsbundne sannsynet for raud nummer to er $\\frac{4}{7}$. Produktregelen gjev\n\n$$P(\\text{raud} \\cap \\text{raud}) = \\frac{5}{8} \\cdot \\frac{4}{7} = \\frac{20}{56} = \\frac{5}{14} \\approx 35{,}7\\,\\%$$\n\nLegg merke til logikken i trediagrammet: du *gangar langs greinene*. Kvar grein ber eit vilkårsbunde sannsyn som tek omsyn til alt som allereie er trekt. Same tankegang blir brukt når eit meiningsmålingsbyrå trekkjer respondentar frå eit register, eller når ein kvalitetskontrollør plukkar komponentar frå eit parti — kvart trekk endrar samansetninga av det som er att.",
+      "faecbf89040ddba3": "Test deg sjølv på produktregelen:",
+      "639fe847a4e0ad34": "Kva formel er produktregelen for to hendingar?",
+      "e7bc790f7733e14f": "$P(A \\cap B) = P(A) \\cdot P(B|A)$",
+      "86bc71f6d9dd26b3": "$P(A \\cap B) = P(A) \\cdot P(B)$ alltid",
+      "9e0e23d00d8c74eb": "$P(A \\cup B) = P(A) + P(B)$",
+      "65e2620851ecf086": "$P(A \\cap B) = P(A|B) \\cdot P(A)$",
+      "c9b388662b2441ce": "Produktregelen: $P(A \\cap B) = P(A) \\cdot P(B|A) = P(B) \\cdot P(A|B)$. Formelen $P(A)P(B)$ gjeld berre når hendingane er uavhengige.",
+      "6ad9e5b77b5b113d": "Ein skuff har 4 kvite og 2 svarte sokkar. Du trekkjer to utan å sjå. Kva er sannsynet for to kvite?",
+      "3de667a77fa3d84b": "$\\dfrac{4}{6} \\cdot \\dfrac{4}{6} = \\dfrac{4}{9}$",
+      "b2b84b20dff42beb": "$\\dfrac{4}{6} \\cdot \\dfrac{3}{5} = \\dfrac{2}{5}$",
+      "0e1c910c233324cd": "$\\dfrac{4}{6} \\cdot \\dfrac{3}{6} = \\dfrac{1}{3}$",
+      "99abe7e6e0023896": "$\\dfrac{2}{6} \\cdot \\dfrac{1}{5} = \\dfrac{1}{15}$",
+      "82d1bc249e22c39b": "Utan tilbakelegging: $P = \\frac{4}{6} \\cdot \\frac{3}{5} = \\frac{12}{30} = \\frac{2}{5}$. Etter første kvite sokk står det att 3 kvite av 5.",
+      "4fb63c906bffc389": "Kva representerer tala langs greinene i eit trediagram for trekning utan tilbakelegging?",
+      "4159d0fd993e977c": "Ubundne sannsyn for kvar hending",
+      "eb74cbea74892d5e": "Vilkårsbundne sannsyn gitt det som har skjedd tidlegare i treet",
+      "3168672ed3f01c51": "Talet på gunstige utfall",
+      "7ac66b90f4f37566": "Alltid dei same verdiane i kvart trinn",
+      "f64157f9d7899c7d": "Kvar grein ber sannsynet betinga av vegen dit — difor endrar brøkane seg frå trinn til trinn, og vi gangar langs greinene.",
+      "a6d82fd4b147ef6b": "## Uavhengigheit — når informasjonen ikkje betyr noko\n\nNokre gonger er den nye informasjonen verdilaus: at mynten viste kron, fortel ingenting om kva terningen vil vise. Då seier vi at hendingane er **uavhengige**, og definisjonen er presis:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nEkvivalent kan vi seie at $P(A|B) = P(A)$ — å få vite $B$ endrar ikkje sannsynet for $A$. Kastar du mynt og terning, er $P(\\text{kron} \\cap \\text{seks}) = \\frac{1}{2} \\cdot \\frac{1}{6} = \\frac{1}{12}$. Klassiske eksempel er to terningkast, mynt pluss terning, og trekning *med* tilbakelegging.\n\nMen pass på ei klassisk felle: uavhengigheit er **ikkje** det same som disjunkte hendingar. Disjunkte hendingar ($A \\cap B = \\emptyset$) kan ikkje skje samtidig — og nettopp difor er dei sterkt *avhengige* når begge har positivt sannsyn: skjer $A$, veit du med visse at $B$ ikkje skjedde.\n\nUavhengigheit kan òg *testast* mot data, og her vender vi tilbake til studierettleiaren. I ei undersøking av 100 studentar gjorde 60 obligane, 78 besto, og 54 gjorde begge delar. Er «gjer obligar» og «består» uavhengige? Vi samanliknar: $P(A) \\cdot P(B) = 0{,}78 \\cdot 0{,}60 = 0{,}468$, medan $P(A \\cap B) = 0{,}54$. Sidan $0{,}54 \\neq 0{,}468$ er hendingane avhengige. Endå tydelegare: $P(\\text{består}|\\text{obligar}) = \\frac{54}{60} = 0{,}90$, klart høgare enn dei 78 % som gjeld heile kullet. Akkurat slike krysstabell-testar bruker forskarar når dei leitar etter samanhengar i spørjeundersøkingar.",
+      "61c9b02cec80d8f7": "Test deg sjølv på uavhengigheit:",
+      "38412f93117227bc": "Når er $A$ og $B$ uavhengige?",
+      "2f5ad23a91ab2476": "Når $P(A \\cap B) = P(A) \\cdot P(B)$",
+      "694ba6a40170a817": "Når $A \\cap B = \\emptyset$",
+      "3cca8363f0077162": "Når $P(A) = P(B)$",
+      "d53297f715471730": "Når $P(A \\cup B) = 1$",
+      "887a7e381fa2b517": "Definisjonen: $P(A \\cap B) = P(A) \\cdot P(B)$, ekvivalent $P(A|B) = P(A)$. Disjunktheit er noko anna.",
+      "34841be72b2129ee": "To hendingar $A$ og $B$ er disjunkte, og begge har positivt sannsyn. Kva kan vi konkludere?",
+      "3f347f27919a0576": "Dei er uavhengige",
+      "e1d128a5520a3e79": "Dei er avhengige",
+      "3c37b7c0d9d3c343": "Dei er komplementære",
+      "c497032860bb7e5f": "Vi kan ikkje vite noko",
+      "710bca93dbec7ee3": "Disjunkte hendingar med positivt sannsyn er avhengige: dersom $A$ inntreff, veit vi at $B$ ikkje kan inntreffe, så $P(B|A) = 0 \\neq P(B)$.",
+      "6fd83f0c93a89cc5": "I ei undersøking er $P(A) = 0{,}5$, $P(B) = 0{,}4$ og $P(A \\cap B) = 0{,}2$. Er $A$ og $B$ uavhengige?",
+      "c949167d24346c8c": "Ja, fordi $0{,}5 \\cdot 0{,}4 = 0{,}2 = P(A \\cap B)$",
+      "b05aea5407df13bc": "Nei, fordi $P(A) \\neq P(B)$",
+      "d2d1c6ea8993994c": "Nei, fordi $P(A \\cap B) < P(B)$",
+      "8ec9f69acc16c34e": "Ja, fordi $P(A) + P(B)$ er mindre enn 1",
+      "04fa298f1e4335cc": "Test: $P(A) \\cdot P(B) = 0{,}5 \\cdot 0{,}4 = 0{,}2$, som er nøyaktig $P(A \\cap B)$. Hendingane er uavhengige.",
+      "ef39e3281cdef7da": "Ein terning blir kasta to gonger. Kva er sannsynet for to seksarar?",
+      "fb5ca22c2804130b": "$\\dfrac{2}{6}$",
+      "668165e8a8f8e6c1": "$\\dfrac{1}{36}$",
+      "8a46400008b6e740": "$\\dfrac{1}{12}$",
+      "7c0ed6c7c636d56f": "Kasta er uavhengige: $P = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$.",
+      "81021710389a678a": "## Totalsetninga — å vege saman kjeldene\n\nVi avsluttar på ein fabrikk, der ein kvalitetsansvarleg får eit tilsynelatande enkelt spørsmål: «Kor stor del av delane våre er defekte?» Problemet er at delane kjem frå to maskiner med ulik kvalitet. Maskin M1 lagar 60 % av produksjonen med 2 % defekte; M2 lagar 40 % med 5 % defekte. Kva er den samla defektdelen?\n\nTrikset er å dele opp i tilfelle. Hendingane $M_1$ og $M_2$ er gjensidig utelukkande og dekkjer heile produksjonen — dei utgjer ein *partisjon* av utfallsrommet. Då seier **totalsetninga** (setninga om total sannsyn) at vi kan rekne sannsynet for «defekt» veg for veg og leggje saman:\n\n$$P(D) = P(D|M_1) \\cdot P(M_1) + P(D|M_2) \\cdot P(M_2) = 0{,}02 \\cdot 0{,}60 + 0{,}05 \\cdot 0{,}40 = 0{,}012 + 0{,}020 = 0{,}032$$\n\nAltså 3,2 % defekte totalt. I trediagrammet er dette å gange langs kvar grein som endar i «defekt», og så *summere greinene*.\n\nGenerelt, dersom $B_1, B_2, \\ldots, B_n$ er gjensidig utelukkande og til saman dekkjer heile utfallsrommet:\n\n$$P(A) = P(A|B_1) \\cdot P(B_1) + P(A|B_2) \\cdot P(B_2) + \\ldots + P(A|B_n) \\cdot P(B_n)$$\n\nOftast blir ho brukt med berre to tilfelle, ei hending $B$ og komplementet $\\overline{B}$: $P(A) = P(A|B) \\cdot P(B) + P(A|\\overline{B}) \\cdot P(\\overline{B})$.\n\nTotalsetninga er arbeidshesten bak utallige berekningar i samfunnet: eit forsikringsselskap veg saman skaderisiko for ulike kundegrupper, ein epidemiolog veg saman smitteratar i ulike aldersgrupper. Og i neste kapittel skal vi snu heile resonnementet på hovudet med Bayes' setning: gitt at delen *er* defekt — kva maskin kom han mest sannsynleg frå?",
+      "5ae803c7cacbba09": "Test deg sjølv på totalsetninga:",
+      "9ab9889f8f519de3": "Kva krevst av hendingane $B_1, \\ldots, B_n$ for at totalsetninga skal gjelde?",
+      "753bfec6576dbb1a": "Dei må vere uavhengige av $A$",
+      "e7907e563386446b": "Dei må vere gjensidig utelukkande og dekkje heile utfallsrommet",
+      "986da8e45f1e0886": "Dei må ha like stort sannsyn",
+      "c77d7bc6b84af07c": "Dei må alle innehalde $A$",
+      "f0b6333595d842ad": "Hendingane må utgjere ein partisjon: gjensidig utelukkande og til saman dekkje heile utfallsrommet.",
+      "2c7bf92781417b3e": "To maskiner: M1 lagar 70 % av delane med 4 % defekte, M2 lagar 30 % med 10 % defekte. Kva er $P(\\text{defekt})$?",
+      "4927a1f8053745a8": "Totalsetninga: $P(D) = 0{,}04 \\cdot 0{,}70 + 0{,}10 \\cdot 0{,}30 = 0{,}028 + 0{,}030 = 0{,}058$, altså 5,8 %.",
+      "63a207146d8d4aa8": "I eit trediagram svarar totalsetninga til å ...",
+      "563b4b2cf659296f": "gange sannsyna langs éi grein",
+      "8dc310962a0488a0": "summere sluttsannsyna for alle greiner som endar i hendinga",
+      "b1d85cad6a60f586": "dele talet på greiner på det totale talet på utfall",
+      "48ea05aaad6584a1": "velje greina med høgast sannsyn",
+      "a308054ee3523097": "Vi gangar langs kvar grein (produktregelen) og summerer alle greinene som fører til hendinga — det er totalsetninga i praksis.",
+      "bc83bb4ed3ab3121": "20 % av kundane i eit forsikringsselskap er unge sjåførar med skadesannsyn 0,15; resten har skadesannsyn 0,05. Kva er sannsynet for at ein tilfeldig kunde får skade?",
+      "530eb8c89e284922": "$P(S) = 0{,}15 \\cdot 0{,}20 + 0{,}05 \\cdot 0{,}80 = 0{,}03 + 0{,}04 = 0{,}07$.",
+      "9b65ed795a14876c": "## Oppsummering: prisen på informasjon\n\nVi starta hos studierettleiaren, som oppdaga at sannsynet for å bestå hoppa frå 78 % til 90 % i det augneblinket vi visste at studenten hadde gjort obligane. Det er essensen i **vilkårsbunde sannsyn**: ny informasjon krympar utfallsrommet, og vi reknar på nytt innanfor det som er att. Formelt: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$.\n\nFrå definisjonen følgde **produktregelen**, $P(A \\cap B) = P(A) \\cdot P(B|A)$, som let oss rekne trinn for trinn gjennom eit trediagram — uunnverleg ved trekning utan tilbakelegging, der kvart trekk endrar samansetninga av det som står att.\n\nVi såg òg når informasjon *ikkje* har verdi: hendingar er **uavhengige** nettopp når $P(A \\cap B) = P(A) \\cdot P(B)$, eller ekvivalent $P(A|B) = P(A)$. Det gav oss både ein rekneregel for ting som mynt- og terningkast, og ein test vi kan køyre på data i ein krysstabell. Og vi avslørte fella: disjunkte hendingar er ikkje uavhengige — dei er ekstremt avhengige.\n\nTil slutt samla **totalsetninga** trådane: når $B_1, \\ldots, B_n$ deler opp utfallsrommet, er $P(A) = \\sum_i P(A|B_i) \\cdot P(B_i)$ — gang langs greinene, summer greinene. Slik fann kvalitetskontrolløren at 3,2 % av delane på fabrikken var defekte.\n\nMen eitt spørsmål heng att frå fabrikkgolvet: dersom du står med ein defekt del i handa, kva maskin er syndaren? Å snu betinginga — frå $P(D|M_1)$ til $P(M_1|D)$ — er tema for neste kapittel: Bayes' setning."
+    }
+  }
+}

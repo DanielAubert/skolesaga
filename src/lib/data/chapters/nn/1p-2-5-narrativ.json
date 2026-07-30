@@ -1,1 +1,524 @@
-{"id":"1p-2-5-narrativ","courseId":"1p","chapterNumber":"2.5","title":"Røter og standardform","subtitle":"Narrativ versjon","description":"Ei fortelling om kvadratiske hagar, avstanden til sola og tykkelsen på eit hårstrå -- om røter som speilvender potenser, og standardformen som temmer dei enormous og bittesmå tala.","estimatedMinutes":32,"competenceGoals":["bruke standardform til å uttrykkje store og små tal"],"linkedChapterId":"1p-2-5","content":[{"id":"1p-2-5-n-intro","type":"text","content":"## Den kvadratiske hagen\n\nFamilien din skal anlegge ein kvadratisk grønnsakshage på 25 kvadratmeter. Kor lange blir sidene? Du leiter etter talet som ganget med seg sjølv gir 25 -- og det er 5, siden $5^2 = 25$. Du har nettopp tatt ein **kvadratrot**:\n\n$$\\sqrt{25} = 5$$\n\nÅ ta rota av eit tal er det *motsette* av å opphøye i ein potens, akkurat som subtraksjon er det motsette av addisjon. Formelt er kvadratrota av eit tal $a \\geq 0$ det ikkje-negative talet $b$ som oppfyller $b^2 = a$. For døme er $\\sqrt{9} = 3$ fordi $3^2 = 9$, $\\sqrt{49} = 7$ fordi $7^2 = 49$, og $\\sqrt{0} = 0$. Røter blir brukte i geometri -- Pytagoras' setning endar alltid i ein kvadratrot -- i statistikk når vi reknar standardavvik, og i utallige formlar frå naturfag.\n\nFlere du kan ta i hovudet: $\\sqrt{16} = 4$, $\\sqrt{144} = 12$, og til og med desimaltal: $\\sqrt{0{,}04} = 0{,}2$, fordi $0{,}2^2 = 0{,}04$.\n\nKva med ein terning -- eit akvaarium med volum 27 liter, for døme? Då treng vi talet som ganget med seg sjølv *tre* gonger gir 27. Det er **tredjerota** (kubikkrota): $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$. Tilsvarande er $\\sqrt[3]{64} = 4$ og $\\sqrt[3]{125} = 5$. Og her er ein skilnad frå kvadratrøter: tredjerota av negative tal finnes! $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$, og $\\sqrt[3]{-1} = -1$. Kvadratrota krev eit ikkje-negativt tal, tredjerota tek imot alle."},{"id":"1p-2-5-n-quiz1","type":"exercise","exercise":{"id":"1p-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på kvadratrøter og tredjerøter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-2-5-n-quiz1-q0","task":"Kva er $\\sqrt{144}$?","options":[{"id":"a","text":"$14$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$72$","isCorrect":false},{"id":"d","text":"$11$","isCorrect":false}],"solution":"$12^2 = 144$, så $\\sqrt{144} = 12$."},{"id":"1p-2-5-n-quiz1-q1","task":"Kva er $\\sqrt{0{,}04}$?","options":[{"id":"a","text":"$0{,}02$","isCorrect":false},{"id":"b","text":"$0{,}4$","isCorrect":false},{"id":"c","text":"$0{,}2$","isCorrect":true},{"id":"d","text":"$0{,}016$","isCorrect":false}],"solution":"$0{,}2 \\cdot 0{,}2 = 0{,}04$, så $\\sqrt{0{,}04} = 0{,}2$."},{"id":"1p-2-5-n-quiz1-q2","task":"Kva er $\\sqrt[3]{64}$?","options":[{"id":"a","text":"$4$","isCorrect":true},{"id":"b","text":"$8$","isCorrect":false},{"id":"c","text":"$16$","isCorrect":false},{"id":"d","text":"$21$","isCorrect":false}],"solution":"$4^3 = 4 \\cdot 4 \\cdot 4 = 64$, så tredjerota av 64 er 4."},{"id":"1p-2-5-n-quiz1-q3","task":"Kva utsegn er rett?","options":[{"id":"a","text":"$\\sqrt{-9} = -3$","isCorrect":false},{"id":"b","text":"Verken kvadratrot eller tredjerot kan takast av negative tal","isCorrect":false},{"id":"c","text":"$\\sqrt[3]{-8}$ finnes ikkje","isCorrect":false},{"id":"d","text":"$\\sqrt[3]{-8} = -2$, men $\\sqrt{-9}$ er ikkje definert","isCorrect":true}],"solution":"Tredjerota av negative tal finnes: $(-2)^3 = -8$. Kvadratrota av eit negativt tal er derimot ikkje definert blant dei reelle tala."}]}},{"id":"1p-2-5-n-section1","type":"text","content":"## Røter er potenser i forkledning\n\nHer kjem ein elegant hemmelighet: røter *er* potenser -- berre med brøk som eksponent. Kvadratrota er det same som å opphøye i ein halv, og tredjerota i ein tredel:\n\n$$\\sqrt{a} = a^{1/2} \\qquad \\text{og} \\qquad \\sqrt[3]{a} = a^{1/3}$$\n\nGenerelt er $\\sqrt[n]{a} = a^{1/n}$. Kvifor er det smart å vite? Fordi det betyr at *alle potensreglane frå førre kapittel også gjeld for røter*. For døme gir regel 4 oss at\n\n$$\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (a \\cdot b)^{1/2} = \\sqrt{a \\cdot b}$$\n\nRota av eit produkt er produktet av røtene -- og tilsvarande for divisjon. Dette gir oss kraftige forenklingstrikk.\n\nSe på $\\sqrt{4 \\cdot 9}$: vi kan dele opp i $\\sqrt{4} \\cdot \\sqrt{9} = 2 \\cdot 3 = 6$, eller rekne $\\sqrt{36} = 6$ direkte -- same svar, som seg høyrer og bør. Meir imponerande blir det med $\\sqrt{50}$, som ikkje er noko pent heilt tal. Men $50 = 25 \\cdot 2$, og 25 er eit kvadrattal: $\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$. Vi har trekt det «pene» ut av rota.\n\nOg motsett veg, med divisjon: $\\frac{\\sqrt{72}}{\\sqrt{2}}$ ser stygg ut, men samlast til éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$. Strategien er alltid den same -- let etter kvadrattal (4, 9, 16, 25, 36, 49, ...) som gjemmer seg som faktorar, og bruk reglane til å hente dei ut."},{"id":"1p-2-5-n-quiz2","type":"exercise","exercise":{"id":"1p-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på rekning med røter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-2-5-n-quiz2-q0","task":"Korleis kan $\\sqrt{a}$ skrivast som potens?","options":[{"id":"a","text":"$a^2$","isCorrect":false},{"id":"b","text":"$a^{1/2}$","isCorrect":true},{"id":"c","text":"$a^{-2}$","isCorrect":false},{"id":"d","text":"$2^a$","isCorrect":false}],"solution":"Kvadratrota er ein potens med eksponent $\\frac{1}{2}$: $\\sqrt{a} = a^{1/2}$. Derfor gjeld potensreglane også for røter."},{"id":"1p-2-5-n-quiz2-q1","task":"Forenkle $\\sqrt{50}$.","options":[{"id":"a","text":"$25\\sqrt{2}$","isCorrect":false},{"id":"b","text":"$2\\sqrt{5}$","isCorrect":false},{"id":"c","text":"$5\\sqrt{2}$","isCorrect":true},{"id":"d","text":"$10\\sqrt{5}$","isCorrect":false}],"solution":"$50 = 25 \\cdot 2$, så $\\sqrt{50} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$."},{"id":"1p-2-5-n-quiz2-q2","task":"Kva er $\\frac{\\sqrt{72}}{\\sqrt{2}}$?","options":[{"id":"a","text":"$6$","isCorrect":true},{"id":"b","text":"$36$","isCorrect":false},{"id":"c","text":"$\\sqrt{70}$","isCorrect":false},{"id":"d","text":"$8$","isCorrect":false}],"solution":"Samle under éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$."},{"id":"1p-2-5-n-quiz2-q3","task":"Kva regel er rett?","options":[{"id":"a","text":"$\\sqrt{a + b} = \\sqrt{a} + \\sqrt{b}$","isCorrect":false},{"id":"b","text":"$\\sqrt{a \\cdot b} = \\sqrt{a} + \\sqrt{b}$","isCorrect":false},{"id":"c","text":"$\\sqrt{a} \\cdot \\sqrt{a} = a$","isCorrect":false},{"id":"d","text":"$\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{a \\cdot b}$","isCorrect":true}],"solution":"Rota av eit produkt er produktet av røtene. Merk at regelen IKKJE gjeld for addisjon: $\\sqrt{9+16} = 5$, men $\\sqrt{9} + \\sqrt{16} = 7$."}]}},{"id":"1p-2-5-n-section2","type":"text","content":"## Tal som sprengjer skalaen -- standardform\n\nAvstanden frå jorda til sola er 149 600 000 km. Tykkelsen på eit hårstrå er 0,00007 meter. Prøv å lese dei tala høgt utan å miste tellingen på nullane! Når tala blir veldig store eller veldig små, trengst ein smartare skrivemåte: **standardform**, også kalla vitskapeleg notasjon. Eit tal er på standardform når det er skrive som\n\n$$a \\cdot 10^n \\quad \\text{der } 1 \\leq a < 10 \\text{ og } n \\text{ er eit heiltal}$$\n\nAvstanden til sola blir $1{,}496 \\cdot 10^8$ km, og hårstrået $7 \\cdot 10^{-5}$ m. Talet $a$ skal alltid ligge mellom 1 og 10, og tierpotensen tek seg av størrelsesordenen: positiv eksponent for store tal, negativ for små.\n\nOmrekninga handlar om å flytte desimalkommaet. $47\\,000$ blir $4{,}7 \\cdot 10^4$ -- vi flytta kommaet 4 plassar til venstre, og eksponenten teljar flytta. $8\\,350\\,000 = 8{,}35 \\cdot 10^6$. For små tal flytta vi mot høgre og får negativ eksponent: $0{,}00032 = 3{,}2 \\cdot 10^{-4}$ og $0{,}0091 = 9{,}1 \\cdot 10^{-3}$.\n\nDet verkeleg fine er at rekninga blir enkel. Potensreglane tek seg av tierpotensane: ved multiplikasjon gangar vi tala og *legg saman* eksponentane, $(a \\cdot 10^n)(b \\cdot 10^m) = ab \\cdot 10^{n+m}$; ved divisjon delar vi og *trekkst frå*. Til dømes $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3) = 6 \\cdot 10^7$ og $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3} = 2 \\cdot 10^6$.\n\nEit stjernedøme til slutt: lyset farar av stad med $3 \\cdot 10^8$ m/s. Kor langt kjem det på eitt minutt? Strekning er fart gong tid: $(3 \\cdot 10^8) \\cdot 60 = (3 \\cdot 10^8)(6 \\cdot 10^1) = 18 \\cdot 10^9$. Men vent -- 18 er ikkje mellom 1 og 10, så vi justerer: $1{,}8 \\cdot 10^{10}$ m, altso 18 milliardar meter. Og når kalkulatoren din viser `3.5E8`, er det hennar måte å seie $3{,}5 \\cdot 10^8$ på -- E-en står for eksponenten til 10."},{"id":"1p-2-5-n-quiz3","type":"exercise","exercise":{"id":"1p-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på standardform:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-2-5-n-quiz3-q0","task":"Kva tal er skrive på riktig standardform?","options":[{"id":"a","text":"$47 \\cdot 10^3$","isCorrect":false},{"id":"b","text":"$4{,}7 \\cdot 10^4$","isCorrect":true},{"id":"c","text":"$0{,}47 \\cdot 10^5$","isCorrect":false},{"id":"d","text":"$47\\,000$","isCorrect":false}],"solution":"På standardform skal $a$ oppfylle $1 \\leq a < 10$. Berre $4{,}7 \\cdot 10^4$ gjer det."},{"id":"1p-2-5-n-quiz3-q1","task":"Skriv $0{,}00032$ på standardform.","options":[{"id":"a","text":"$3{,}2 \\cdot 10^{-4}$","isCorrect":true},{"id":"b","text":"$32 \\cdot 10^{-5}$","isCorrect":false},{"id":"c","text":"$3{,}2 \\cdot 10^4$","isCorrect":false},{"id":"d","text":"$3{,}2 \\cdot 10^{-3}$","isCorrect":false}],"solution":"Flytt kommaet 4 plassar til høgre: $3{,}2 \\cdot 10^{-4}$. Små tal får negativ eksponent."},{"id":"1p-2-5-n-quiz3-q2","task":"Kva er $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3)$?","options":[{"id":"a","text":"$5 \\cdot 10^7$","isCorrect":false},{"id":"b","text":"$6 \\cdot 10^{12}$","isCorrect":false},{"id":"c","text":"$6 \\cdot 10^7$","isCorrect":true},{"id":"d","text":"$5 \\cdot 10^{12}$","isCorrect":false}],"solution":"Gang tala og legg saman eksponentane: $3 \\cdot 2 = 6$ og $10^{4+3} = 10^7$."},{"id":"1p-2-5-n-quiz3-q3","task":"Kva er $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3}$?","options":[{"id":"a","text":"$2 \\cdot 10^3$","isCorrect":false},{"id":"b","text":"$2 \\cdot 10^6$","isCorrect":true},{"id":"c","text":"$4 \\cdot 10^6$","isCorrect":false},{"id":"d","text":"$2 \\cdot 10^{12}$","isCorrect":false}],"solution":"Del tala og trekk frå eksponentane: $\\frac{8}{4} = 2$ og $10^{9-3} = 10^6$."},{"id":"1p-2-5-n-quiz3-q4","task":"Kalkulatoren viser `1.8E10`. Kva betyr det?","options":[{"id":"a","text":"$1{,}8^{10}$","isCorrect":false},{"id":"b","text":"$18^{10}$","isCorrect":false},{"id":"c","text":"$1{,}8 \\cdot e^{10}$","isCorrect":false},{"id":"d","text":"$1{,}8 \\cdot 10^{10}$","isCorrect":true}],"solution":"E-notasjonen er kalkulatoren sin standardform: `1.8E10` betyr $1{,}8 \\cdot 10^{10}$."}]}},{"id":"1p-2-5-n-summary","type":"text","content":"## Fortellingen om røtene og dei enorme tala -- kort fortelja\n\nDen kvadratiske hagen gav oss **kvadratrota**: $\\sqrt{a}$ er det ikkje-negative talet som ganga med seg sjølv gjev $a$, slik $\\sqrt{25} = 5$. Akvariet gav oss **tredjerota**: $\\sqrt[3]{27} = 3$ -- og ho tollar til og med negative tal, som $\\sqrt[3]{-8} = -2$.\n\nSå avslørte vi at røter berre er potenser i forkledning: $\\sqrt{a} = a^{1/2}$ og $\\sqrt[3]{a} = a^{1/3}$. Difor gjeld potensreglane, og vi kunne forenkle som profar: $\\sqrt{50} = 5\\sqrt{2}$ ved å hente kvadrattalet 25 ut av rota, og $\\frac{\\sqrt{72}}{\\sqrt{2}} = \\sqrt{36} = 6$ ved å samle under éi rot.\n\nTil slutt temja vi dei ekstreme tala med **standardform** $a \\cdot 10^n$, der $1 \\leq a < 10$: avstanden til sola vart $1{,}496 \\cdot 10^8$ km og hårstrået $7 \\cdot 10^{-5}$ m. Rekninga fylgde potensreglane -- legg saman eksponentar ved ganging, trekk frå ved deling -- og lyset sin ferd på eitt minutt enda på $1{,}8 \\cdot 10^{10}$ m. Frå hagen i bakgarden til avstander i verdensrommet: røter og standardform gjev oss språket for alle størrleiker."}],"exercises":[],"_meta":{"sourceHash":"39ca5def0b60a9fc","translatedAt":"2026-06-16T09:51:43.121Z","model":"claude-haiku-4-5-20251001","strings":74,"tm":{"4f6e9471421ab986":"Røter og standardform","b195b06d1ed59702":"Narrativ versjon","6bd9b95a9c93a7bc":"Ei fortelling om kvadratiske hagar, avstanden til sola og tykkelsen på eit hårstrå -- om røter som speilvender potenser, og standardformen som temmer dei enormous og bittesmå tala.","5204c5908003d848":"bruke standardform til å uttrykkje store og små tal","35cf567e4b4891d8":"## Den kvadratiske hagen\n\nFamilien din skal anlegge ein kvadratisk grønnsakshage på 25 kvadratmeter. Kor lange blir sidene? Du leiter etter talet som ganget med seg sjølv gir 25 -- og det er 5, siden $5^2 = 25$. Du har nettopp tatt ein **kvadratrot**:\n\n$$\\sqrt{25} = 5$$\n\nÅ ta rota av eit tal er det *motsette* av å opphøye i ein potens, akkurat som subtraksjon er det motsette av addisjon. Formelt er kvadratrota av eit tal $a \\geq 0$ det ikkje-negative talet $b$ som oppfyller $b^2 = a$. For døme er $\\sqrt{9} = 3$ fordi $3^2 = 9$, $\\sqrt{49} = 7$ fordi $7^2 = 49$, og $\\sqrt{0} = 0$. Røter blir brukte i geometri -- Pytagoras' setning endar alltid i ein kvadratrot -- i statistikk når vi reknar standardavvik, og i utallige formlar frå naturfag.\n\nFlere du kan ta i hovudet: $\\sqrt{16} = 4$, $\\sqrt{144} = 12$, og til og med desimaltal: $\\sqrt{0{,}04} = 0{,}2$, fordi $0{,}2^2 = 0{,}04$.\n\nKva med ein terning -- eit akvaarium med volum 27 liter, for døme? Då treng vi talet som ganget med seg sjølv *tre* gonger gir 27. Det er **tredjerota** (kubikkrota): $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$. Tilsvarande er $\\sqrt[3]{64} = 4$ og $\\sqrt[3]{125} = 5$. Og her er ein skilnad frå kvadratrøter: tredjerota av negative tal finnes! $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$, og $\\sqrt[3]{-1} = -1$. Kvadratrota krev eit ikkje-negativt tal, tredjerota tek imot alle.","b8066913111fba35":"Test deg sjølv på kvadratrøter og tredjerøter:","4097889236a2af26":"placeholder","149b28e561df72b9":"Kva er $\\sqrt{144}$?","5da24f97a00abe52":"$12^2 = 144$, så $\\sqrt{144} = 12$.","0844db12d4b9d46c":"Kva er $\\sqrt{0{,}04}$?","87e51bf86d8bf854":"$0{,}2 \\cdot 0{,}2 = 0{,}04$, så $\\sqrt{0{,}04} = 0{,}2$.","a1dd4b6ef33f0664":"Kva er $\\sqrt[3]{64}$?","7aefa2eb7325818d":"$4^3 = 4 \\cdot 4 \\cdot 4 = 64$, så tredjerota av 64 er 4.","0b34dfa0b12f332f":"Kva utsegn er rett?","fa4a4f2a77ec74d8":"$\\sqrt{-9} = -3$","22120c000826ac8a":"Verken kvadratrot eller tredjerot kan takast av negative tal","5ddfc20fd4d343c2":"$\\sqrt[3]{-8}$ finnes ikkje","f0401aae5398e9e4":"$\\sqrt[3]{-8} = -2$, men $\\sqrt{-9}$ er ikkje definert","a5d944b368671bd1":"Tredjerota av negative tal finnes: $(-2)^3 = -8$. Kvadratrota av eit negativt tal er derimot ikkje definert blant dei reelle tala.","e08c139af101e9ef":"## Røter er potenser i forkledning\n\nHer kjem ein elegant hemmelighet: røter *er* potenser -- berre med brøk som eksponent. Kvadratrota er det same som å opphøye i ein halv, og tredjerota i ein tredel:\n\n$$\\sqrt{a} = a^{1/2} \\qquad \\text{og} \\qquad \\sqrt[3]{a} = a^{1/3}$$\n\nGenerelt er $\\sqrt[n]{a} = a^{1/n}$. Kvifor er det smart å vite? Fordi det betyr at *alle potensreglane frå førre kapittel også gjeld for røter*. For døme gir regel 4 oss at\n\n$$\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (a \\cdot b)^{1/2} = \\sqrt{a \\cdot b}$$\n\nRota av eit produkt er produktet av røtene -- og tilsvarande for divisjon. Dette gir oss kraftige forenklingstrikk.\n\nSe på $\\sqrt{4 \\cdot 9}$: vi kan dele opp i $\\sqrt{4} \\cdot \\sqrt{9} = 2 \\cdot 3 = 6$, eller rekne $\\sqrt{36} = 6$ direkte -- same svar, som seg høyrer og bør. Meir imponerande blir det med $\\sqrt{50}$, som ikkje er noko pent heilt tal. Men $50 = 25 \\cdot 2$, og 25 er eit kvadrattal: $\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$. Vi har trekt det «pene» ut av rota.\n\nOg motsett veg, med divisjon: $\\frac{\\sqrt{72}}{\\sqrt{2}}$ ser stygg ut, men samlast til éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$. Strategien er alltid den same -- let etter kvadrattal (4, 9, 16, 25, 36, 49, ...) som gjemmer seg som faktorar, og bruk reglane til å hente dei ut.","8dfd6aafb84fca7e":"Test deg sjølv på rekning med røter:","4f3a12a9432acfea":"Korleis kan $\\sqrt{a}$ skrivast som potens?","05a3c9c2bce78ce7":"$a^2$","1c9eeef168e80d68":"$a^{1/2}$","038bf51278da8cb0":"$a^{-2}$","4fcabeee40e87424":"$2^a$","970150e96317760c":"Kvadratrota er ein potens med eksponent $\\frac{1}{2}$: $\\sqrt{a} = a^{1/2}$. Derfor gjeld potensreglane også for røter.","d1de4e8332b48454":"Forenkle $\\sqrt{50}$.","dbad429f9d6eaa10":"$25\\sqrt{2}$","092d2c6ed0fdc362":"$2\\sqrt{5}$","1a149f5209af8876":"$5\\sqrt{2}$","6c6c7c6bdf0d6d0e":"$10\\sqrt{5}$","735a5eb182236e0c":"$50 = 25 \\cdot 2$, så $\\sqrt{50} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$.","24cb754323868bda":"Kva er $\\frac{\\sqrt{72}}{\\sqrt{2}}$?","c5f83f005671d736":"$\\sqrt{70}$","be4eebe8f39d2fd9":"Samle under éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$.","42d354da3402b784":"Kva regel er rett?","659ded052e4fa0d2":"$\\sqrt{a + b} = \\sqrt{a} + \\sqrt{b}$","adc17c3baad7427c":"$\\sqrt{a \\cdot b} = \\sqrt{a} + \\sqrt{b}$","58b8bc5f2944965d":"$\\sqrt{a} \\cdot \\sqrt{a} = a$","88b40edfbdb74f91":"$\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{a \\cdot b}$","018a87e9f3716ea2":"Rota av eit produkt er produktet av røtene. Merk at regelen IKKJE gjeld for addisjon: $\\sqrt{9+16} = 5$, men $\\sqrt{9} + \\sqrt{16} = 7$.","7006c3acfe7df3f3":"## Tal som sprengjer skalaen -- standardform\n\nAvstanden frå jorda til sola er 149 600 000 km. Tykkelsen på eit hårstrå er 0,00007 meter. Prøv å lese dei tala høgt utan å miste tellingen på nullane! Når tala blir veldig store eller veldig små, trengst ein smartare skrivemåte: **standardform**, også kalla vitskapeleg notasjon. Eit tal er på standardform når det er skrive som\n\n$$a \\cdot 10^n \\quad \\text{der } 1 \\leq a < 10 \\text{ og } n \\text{ er eit heiltal}$$\n\nAvstanden til sola blir $1{,}496 \\cdot 10^8$ km, og hårstrået $7 \\cdot 10^{-5}$ m. Talet $a$ skal alltid ligge mellom 1 og 10, og tierpotensen tek seg av størrelsesordenen: positiv eksponent for store tal, negativ for små.\n\nOmrekninga handlar om å flytte desimalkommaet. $47\\,000$ blir $4{,}7 \\cdot 10^4$ -- vi flytta kommaet 4 plassar til venstre, og eksponenten teljar flytta. $8\\,350\\,000 = 8{,}35 \\cdot 10^6$. For små tal flytta vi mot høgre og får negativ eksponent: $0{,}00032 = 3{,}2 \\cdot 10^{-4}$ og $0{,}0091 = 9{,}1 \\cdot 10^{-3}$.\n\nDet verkeleg fine er at rekninga blir enkel. Potensreglane tek seg av tierpotensane: ved multiplikasjon gangar vi tala og *legg saman* eksponentane, $(a \\cdot 10^n)(b \\cdot 10^m) = ab \\cdot 10^{n+m}$; ved divisjon delar vi og *trekkst frå*. Til dømes $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3) = 6 \\cdot 10^7$ og $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3} = 2 \\cdot 10^6$.\n\nEit stjernedøme til slutt: lyset farar av stad med $3 \\cdot 10^8$ m/s. Kor langt kjem det på eitt minutt? Strekning er fart gong tid: $(3 \\cdot 10^8) \\cdot 60 = (3 \\cdot 10^8)(6 \\cdot 10^1) = 18 \\cdot 10^9$. Men vent -- 18 er ikkje mellom 1 og 10, så vi justerer: $1{,}8 \\cdot 10^{10}$ m, altso 18 milliardar meter. Og når kalkulatoren din viser `3.5E8`, er det hennar måte å seie $3{,}5 \\cdot 10^8$ på -- E-en står for eksponenten til 10.","582c6cad6a960847":"Test deg sjølv på standardform:","37e865aa87b0fff0":"Kva tal er skrive på riktig standardform?","2272c884720f6b07":"$47 \\cdot 10^3$","414b6fbead327758":"$4{,}7 \\cdot 10^4$","17f8081cc56dbb5d":"$0{,}47 \\cdot 10^5$","640669fd38044a7e":"På standardform skal $a$ oppfylle $1 \\leq a < 10$. Berre $4{,}7 \\cdot 10^4$ gjer det.","af39261ee3f5ba8a":"Skriv $0{,}00032$ på standardform.","449baa1a554cc365":"$3{,}2 \\cdot 10^{-4}$","085b45d73c463d15":"$32 \\cdot 10^{-5}$","ac9d7a132f741db8":"$3{,}2 \\cdot 10^4$","b735893343fe4a78":"$3{,}2 \\cdot 10^{-3}$","ec8abd0bf5ca9ccd":"Flytt kommaet 4 plassar til høgre: $3{,}2 \\cdot 10^{-4}$. Små tal får negativ eksponent.","851815d2b5a3488e":"Kva er $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3)$?","957f9f53003442de":"$5 \\cdot 10^7$","11749e8086394551":"$6 \\cdot 10^{12}$","847f4f666ee3c5e9":"$6 \\cdot 10^7$","073a8ae604191dab":"$5 \\cdot 10^{12}$","d7b5529d19611dc7":"Gang tala og legg saman eksponentane: $3 \\cdot 2 = 6$ og $10^{4+3} = 10^7$.","21a056bc7fdf89ad":"Kva er $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3}$?","a69b6e32aa54efe7":"$2 \\cdot 10^3$","50b06691a8e9ba49":"$2 \\cdot 10^6$","63e8dc6283853809":"$4 \\cdot 10^6$","4aca53e3ed51e9f0":"$2 \\cdot 10^{12}$","4809c5e56edc8077":"Del tala og trekk frå eksponentane: $\\frac{8}{4} = 2$ og $10^{9-3} = 10^6$.","d1378c4feafd3e56":"Kalkulatoren viser `1.8E10`. Kva betyr det?","d1af5708104a72f5":"$1{,}8 \\cdot e^{10}$","9b7d1350eab23c0c":"$1{,}8 \\cdot 10^{10}$","668ae2dbf5584c9a":"E-notasjonen er kalkulatoren sin standardform: `1.8E10` betyr $1{,}8 \\cdot 10^{10}$.","9ce2a16b9b5c0e3e":"## Fortellingen om røtene og dei enorme tala -- kort fortelja\n\nDen kvadratiske hagen gav oss **kvadratrota**: $\\sqrt{a}$ er det ikkje-negative talet som ganga med seg sjølv gjev $a$, slik $\\sqrt{25} = 5$. Akvariet gav oss **tredjerota**: $\\sqrt[3]{27} = 3$ -- og ho tollar til og med negative tal, som $\\sqrt[3]{-8} = -2$.\n\nSå avslørte vi at røter berre er potenser i forkledning: $\\sqrt{a} = a^{1/2}$ og $\\sqrt[3]{a} = a^{1/3}$. Difor gjeld potensreglane, og vi kunne forenkle som profar: $\\sqrt{50} = 5\\sqrt{2}$ ved å hente kvadrattalet 25 ut av rota, og $\\frac{\\sqrt{72}}{\\sqrt{2}} = \\sqrt{36} = 6$ ved å samle under éi rot.\n\nTil slutt temja vi dei ekstreme tala med **standardform** $a \\cdot 10^n$, der $1 \\leq a < 10$: avstanden til sola vart $1{,}496 \\cdot 10^8$ km og hårstrået $7 \\cdot 10^{-5}$ m. Rekninga fylgde potensreglane -- legg saman eksponentar ved ganging, trekk frå ved deling -- og lyset sin ferd på eitt minutt enda på $1{,}8 \\cdot 10^{10}$ m. Frå hagen i bakgarden til avstander i verdensrommet: røter og standardform gjev oss språket for alle størrleiker."}}}
+{
+  "id": "1p-2-5-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "2.5",
+  "title": "Røter og standardform",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei fortelling om kvadratiske hagar, avstanden til sola og tykkelsen på eit hårstrå -- om røter som speilvender potenser, og standardformen som temmer dei enormous og bittesmå tala.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "bruke standardform til å uttrykkje store og små tal"
+  ],
+  "linkedChapterId": "1p-2-5",
+  "content": [
+    {
+      "id": "1p-2-5-n-intro",
+      "type": "text",
+      "content": "## Den kvadratiske hagen\n\nFamilien din skal anlegge ein kvadratisk grønnsakshage på 25 kvadratmeter. Kor lange blir sidene? Du leiter etter talet som ganget med seg sjølv gir 25 -- og det er 5, siden $5^2 = 25$. Du har nettopp tatt ein **kvadratrot**:\n\n$$\\sqrt{25} = 5$$\n\nÅ ta rota av eit tal er det *motsette* av å opphøye i ein potens, akkurat som subtraksjon er det motsette av addisjon. Formelt er kvadratrota av eit tal $a \\geq 0$ det ikkje-negative talet $b$ som oppfyller $b^2 = a$. For døme er $\\sqrt{9} = 3$ fordi $3^2 = 9$, $\\sqrt{49} = 7$ fordi $7^2 = 49$, og $\\sqrt{0} = 0$. Røter blir brukte i geometri -- Pytagoras' setning endar alltid i ein kvadratrot -- i statistikk når vi reknar standardavvik, og i utallige formlar frå naturfag.\n\nFlere du kan ta i hovudet: $\\sqrt{16} = 4$, $\\sqrt{144} = 12$, og til og med desimaltal: $\\sqrt{0{,}04} = 0{,}2$, fordi $0{,}2^2 = 0{,}04$.\n\nKva med ein terning -- eit akvaarium med volum 27 liter, for døme? Då treng vi talet som ganget med seg sjølv *tre* gonger gir 27. Det er **tredjerota** (kubikkrota): $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$. Tilsvarande er $\\sqrt[3]{64} = 4$ og $\\sqrt[3]{125} = 5$. Og her er ein skilnad frå kvadratrøter: tredjerota av negative tal finnes! $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$, og $\\sqrt[3]{-1} = -1$. Kvadratrota krev eit ikkje-negativt tal, tredjerota tek imot alle."
+    },
+    {
+      "id": "1p-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kvadratrøter og tredjerøter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-2-5-n-quiz1-q0",
+            "task": "Kva er $\\sqrt{144}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$14$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$72$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$11$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$12^2 = 144$, så $\\sqrt{144} = 12$."
+          },
+          {
+            "id": "1p-2-5-n-quiz1-q1",
+            "task": "Kva er $\\sqrt{0{,}04}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}02$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}016$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$0{,}2 \\cdot 0{,}2 = 0{,}04$, så $\\sqrt{0{,}04} = 0{,}2$."
+          },
+          {
+            "id": "1p-2-5-n-quiz1-q2",
+            "task": "Kva er $\\sqrt[3]{64}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$21$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4^3 = 4 \\cdot 4 \\cdot 4 = 64$, så tredjerota av 64 er 4."
+          },
+          {
+            "id": "1p-2-5-n-quiz1-q3",
+            "task": "Kva utsegn er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{-9} = -3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt[3]{-8} = -2$, men $\\sqrt{-9}$ er ikkje definert",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Verken kvadratrot eller tredjerot kan takast av negative tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt[3]{-8}$ finnes ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tredjerota av negative tal finnes: $(-2)^3 = -8$. Kvadratrota av eit negativt tal er derimot ikkje definert blant dei reelle tala."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-2-5-n-section1",
+      "type": "text",
+      "content": "## Røter er potenser i forkledning\n\nHer kjem ein elegant hemmelighet: røter *er* potenser -- berre med brøk som eksponent. Kvadratrota er det same som å opphøye i ein halv, og tredjerota i ein tredel:\n\n$$\\sqrt{a} = a^{1/2} \\qquad \\text{og} \\qquad \\sqrt[3]{a} = a^{1/3}$$\n\nGenerelt er $\\sqrt[n]{a} = a^{1/n}$. Kvifor er det smart å vite? Fordi det betyr at *alle potensreglane frå førre kapittel også gjeld for røter*. For døme gir regel 4 oss at\n\n$$\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (a \\cdot b)^{1/2} = \\sqrt{a \\cdot b}$$\n\nRota av eit produkt er produktet av røtene -- og tilsvarande for divisjon. Dette gir oss kraftige forenklingstrikk.\n\nSe på $\\sqrt{4 \\cdot 9}$: vi kan dele opp i $\\sqrt{4} \\cdot \\sqrt{9} = 2 \\cdot 3 = 6$, eller rekne $\\sqrt{36} = 6$ direkte -- same svar, som seg høyrer og bør. Meir imponerande blir det med $\\sqrt{50}$, som ikkje er noko pent heilt tal. Men $50 = 25 \\cdot 2$, og 25 er eit kvadrattal: $\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$. Vi har trekt det «pene» ut av rota.\n\nOg motsett veg, med divisjon: $\\frac{\\sqrt{72}}{\\sqrt{2}}$ ser stygg ut, men samlast til éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$. Strategien er alltid den same -- let etter kvadrattal (4, 9, 16, 25, 36, 49, ...) som gjemmer seg som faktorar, og bruk reglane til å hente dei ut."
+    },
+    {
+      "id": "1p-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rekning med røter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-2-5-n-quiz2-q0",
+            "task": "Korleis kan $\\sqrt{a}$ skrivast som potens?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a^{-2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a^{1/2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2^a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvadratrota er ein potens med eksponent $\\frac{1}{2}$: $\\sqrt{a} = a^{1/2}$. Derfor gjeld potensreglane også for røter."
+          },
+          {
+            "id": "1p-2-5-n-quiz2-q1",
+            "task": "Forenkle $\\sqrt{50}$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$25\\sqrt{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\sqrt{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10\\sqrt{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5\\sqrt{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$50 = 25 \\cdot 2$, så $\\sqrt{50} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$."
+          },
+          {
+            "id": "1p-2-5-n-quiz2-q2",
+            "task": "Kva er $\\frac{\\sqrt{72}}{\\sqrt{2}}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$36$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{70}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Samle under éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$."
+          },
+          {
+            "id": "1p-2-5-n-quiz2-q3",
+            "task": "Kva regel er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{a + b} = \\sqrt{a} + \\sqrt{b}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{a \\cdot b}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{a \\cdot b} = \\sqrt{a} + \\sqrt{b}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{a} \\cdot \\sqrt{a} = a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rota av eit produkt er produktet av røtene. Merk at regelen IKKJE gjeld for addisjon: $\\sqrt{9+16} = 5$, men $\\sqrt{9} + \\sqrt{16} = 7$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-2-5-n-section2",
+      "type": "text",
+      "content": "## Tal som sprengjer skalaen -- standardform\n\nAvstanden frå jorda til sola er 149 600 000 km. Tykkelsen på eit hårstrå er 0,00007 meter. Prøv å lese dei tala høgt utan å miste tellingen på nullane! Når tala blir veldig store eller veldig små, trengst ein smartare skrivemåte: **standardform**, også kalla vitskapeleg notasjon. Eit tal er på standardform når det er skrive som\n\n$$a \\cdot 10^n \\quad \\text{der } 1 \\leq a < 10 \\text{ og } n \\text{ er eit heiltal}$$\n\nAvstanden til sola blir $1{,}496 \\cdot 10^8$ km, og hårstrået $7 \\cdot 10^{-5}$ m. Talet $a$ skal alltid ligge mellom 1 og 10, og tierpotensen tek seg av størrelsesordenen: positiv eksponent for store tal, negativ for små.\n\nOmrekninga handlar om å flytte desimalkommaet. $47\\,000$ blir $4{,}7 \\cdot 10^4$ -- vi flytta kommaet 4 plassar til venstre, og eksponenten teljar flytta. $8\\,350\\,000 = 8{,}35 \\cdot 10^6$. For små tal flytta vi mot høgre og får negativ eksponent: $0{,}00032 = 3{,}2 \\cdot 10^{-4}$ og $0{,}0091 = 9{,}1 \\cdot 10^{-3}$.\n\nDet verkeleg fine er at rekninga blir enkel. Potensreglane tek seg av tierpotensane: ved multiplikasjon gangar vi tala og *legg saman* eksponentane, $(a \\cdot 10^n)(b \\cdot 10^m) = ab \\cdot 10^{n+m}$; ved divisjon delar vi og *trekkst frå*. Til dømes $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3) = 6 \\cdot 10^7$ og $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3} = 2 \\cdot 10^6$.\n\nEit stjernedøme til slutt: lyset farar av stad med $3 \\cdot 10^8$ m/s. Kor langt kjem det på eitt minutt? Strekning er fart gong tid: $(3 \\cdot 10^8) \\cdot 60 = (3 \\cdot 10^8)(6 \\cdot 10^1) = 18 \\cdot 10^9$. Men vent -- 18 er ikkje mellom 1 og 10, så vi justerer: $1{,}8 \\cdot 10^{10}$ m, altso 18 milliardar meter. Og når kalkulatoren din viser `3.5E8`, er det hennar måte å seie $3{,}5 \\cdot 10^8$ på -- E-en står for eksponenten til 10."
+    },
+    {
+      "id": "1p-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på standardform:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-2-5-n-quiz3-q0",
+            "task": "Kva tal er skrive på riktig standardform?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$47 \\cdot 10^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}47 \\cdot 10^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4{,}7 \\cdot 10^4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$47\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "På standardform skal $a$ oppfylle $1 \\leq a < 10$. Berre $4{,}7 \\cdot 10^4$ gjer det."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q1",
+            "task": "Skriv $0{,}00032$ på standardform.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$32 \\cdot 10^{-5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3{,}2 \\cdot 10^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}2 \\cdot 10^{-3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3{,}2 \\cdot 10^{-4}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Flytt kommaet 4 plassar til høgre: $3{,}2 \\cdot 10^{-4}$. Små tal får negativ eksponent."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q2",
+            "task": "Kva er $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$6 \\cdot 10^7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5 \\cdot 10^7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6 \\cdot 10^{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5 \\cdot 10^{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gang tala og legg saman eksponentane: $3 \\cdot 2 = 6$ og $10^{4+3} = 10^7$."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q3",
+            "task": "Kva er $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2 \\cdot 10^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2 \\cdot 10^6$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$4 \\cdot 10^6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2 \\cdot 10^{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Del tala og trekk frå eksponentane: $\\frac{8}{4} = 2$ og $10^{9-3} = 10^6$."
+          },
+          {
+            "id": "1p-2-5-n-quiz3-q4",
+            "task": "Kalkulatoren viser `1.8E10`. Kva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}8^{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$18^{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1{,}8 \\cdot 10^{10}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1{,}8 \\cdot e^{10}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "E-notasjonen er kalkulatoren sin standardform: `1.8E10` betyr $1{,}8 \\cdot 10^{10}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-2-5-n-summary",
+      "type": "text",
+      "content": "## Fortellingen om røtene og dei enorme tala -- kort fortelja\n\nDen kvadratiske hagen gav oss **kvadratrota**: $\\sqrt{a}$ er det ikkje-negative talet som ganga med seg sjølv gjev $a$, slik $\\sqrt{25} = 5$. Akvariet gav oss **tredjerota**: $\\sqrt[3]{27} = 3$ -- og ho tollar til og med negative tal, som $\\sqrt[3]{-8} = -2$.\n\nSå avslørte vi at røter berre er potenser i forkledning: $\\sqrt{a} = a^{1/2}$ og $\\sqrt[3]{a} = a^{1/3}$. Difor gjeld potensreglane, og vi kunne forenkle som profar: $\\sqrt{50} = 5\\sqrt{2}$ ved å hente kvadrattalet 25 ut av rota, og $\\frac{\\sqrt{72}}{\\sqrt{2}} = \\sqrt{36} = 6$ ved å samle under éi rot.\n\nTil slutt temja vi dei ekstreme tala med **standardform** $a \\cdot 10^n$, der $1 \\leq a < 10$: avstanden til sola vart $1{,}496 \\cdot 10^8$ km og hårstrået $7 \\cdot 10^{-5}$ m. Rekninga fylgde potensreglane -- legg saman eksponentar ved ganging, trekk frå ved deling -- og lyset sin ferd på eitt minutt enda på $1{,}8 \\cdot 10^{10}$ m. Frå hagen i bakgarden til avstander i verdensrommet: røter og standardform gjev oss språket for alle størrleiker."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "39ca5def0b60a9fc",
+    "translatedAt": "2026-06-16T09:51:43.121Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 74,
+    "tm": {
+      "4f6e9471421ab986": "Røter og standardform",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6bd9b95a9c93a7bc": "Ei fortelling om kvadratiske hagar, avstanden til sola og tykkelsen på eit hårstrå -- om røter som speilvender potenser, og standardformen som temmer dei enormous og bittesmå tala.",
+      "5204c5908003d848": "bruke standardform til å uttrykkje store og små tal",
+      "35cf567e4b4891d8": "## Den kvadratiske hagen\n\nFamilien din skal anlegge ein kvadratisk grønnsakshage på 25 kvadratmeter. Kor lange blir sidene? Du leiter etter talet som ganget med seg sjølv gir 25 -- og det er 5, siden $5^2 = 25$. Du har nettopp tatt ein **kvadratrot**:\n\n$$\\sqrt{25} = 5$$\n\nÅ ta rota av eit tal er det *motsette* av å opphøye i ein potens, akkurat som subtraksjon er det motsette av addisjon. Formelt er kvadratrota av eit tal $a \\geq 0$ det ikkje-negative talet $b$ som oppfyller $b^2 = a$. For døme er $\\sqrt{9} = 3$ fordi $3^2 = 9$, $\\sqrt{49} = 7$ fordi $7^2 = 49$, og $\\sqrt{0} = 0$. Røter blir brukte i geometri -- Pytagoras' setning endar alltid i ein kvadratrot -- i statistikk når vi reknar standardavvik, og i utallige formlar frå naturfag.\n\nFlere du kan ta i hovudet: $\\sqrt{16} = 4$, $\\sqrt{144} = 12$, og til og med desimaltal: $\\sqrt{0{,}04} = 0{,}2$, fordi $0{,}2^2 = 0{,}04$.\n\nKva med ein terning -- eit akvaarium med volum 27 liter, for døme? Då treng vi talet som ganget med seg sjølv *tre* gonger gir 27. Det er **tredjerota** (kubikkrota): $\\sqrt[3]{27} = 3$ fordi $3^3 = 27$. Tilsvarande er $\\sqrt[3]{64} = 4$ og $\\sqrt[3]{125} = 5$. Og her er ein skilnad frå kvadratrøter: tredjerota av negative tal finnes! $\\sqrt[3]{-8} = -2$ fordi $(-2)^3 = -8$, og $\\sqrt[3]{-1} = -1$. Kvadratrota krev eit ikkje-negativt tal, tredjerota tek imot alle.",
+      "b8066913111fba35": "Test deg sjølv på kvadratrøter og tredjerøter:",
+      "4097889236a2af26": "placeholder",
+      "149b28e561df72b9": "Kva er $\\sqrt{144}$?",
+      "5da24f97a00abe52": "$12^2 = 144$, så $\\sqrt{144} = 12$.",
+      "0844db12d4b9d46c": "Kva er $\\sqrt{0{,}04}$?",
+      "87e51bf86d8bf854": "$0{,}2 \\cdot 0{,}2 = 0{,}04$, så $\\sqrt{0{,}04} = 0{,}2$.",
+      "a1dd4b6ef33f0664": "Kva er $\\sqrt[3]{64}$?",
+      "7aefa2eb7325818d": "$4^3 = 4 \\cdot 4 \\cdot 4 = 64$, så tredjerota av 64 er 4.",
+      "0b34dfa0b12f332f": "Kva utsegn er rett?",
+      "fa4a4f2a77ec74d8": "$\\sqrt{-9} = -3$",
+      "22120c000826ac8a": "Verken kvadratrot eller tredjerot kan takast av negative tal",
+      "5ddfc20fd4d343c2": "$\\sqrt[3]{-8}$ finnes ikkje",
+      "f0401aae5398e9e4": "$\\sqrt[3]{-8} = -2$, men $\\sqrt{-9}$ er ikkje definert",
+      "a5d944b368671bd1": "Tredjerota av negative tal finnes: $(-2)^3 = -8$. Kvadratrota av eit negativt tal er derimot ikkje definert blant dei reelle tala.",
+      "e08c139af101e9ef": "## Røter er potenser i forkledning\n\nHer kjem ein elegant hemmelighet: røter *er* potenser -- berre med brøk som eksponent. Kvadratrota er det same som å opphøye i ein halv, og tredjerota i ein tredel:\n\n$$\\sqrt{a} = a^{1/2} \\qquad \\text{og} \\qquad \\sqrt[3]{a} = a^{1/3}$$\n\nGenerelt er $\\sqrt[n]{a} = a^{1/n}$. Kvifor er det smart å vite? Fordi det betyr at *alle potensreglane frå førre kapittel også gjeld for røter*. For døme gir regel 4 oss at\n\n$$\\sqrt{a} \\cdot \\sqrt{b} = a^{1/2} \\cdot b^{1/2} = (a \\cdot b)^{1/2} = \\sqrt{a \\cdot b}$$\n\nRota av eit produkt er produktet av røtene -- og tilsvarande for divisjon. Dette gir oss kraftige forenklingstrikk.\n\nSe på $\\sqrt{4 \\cdot 9}$: vi kan dele opp i $\\sqrt{4} \\cdot \\sqrt{9} = 2 \\cdot 3 = 6$, eller rekne $\\sqrt{36} = 6$ direkte -- same svar, som seg høyrer og bør. Meir imponerande blir det med $\\sqrt{50}$, som ikkje er noko pent heilt tal. Men $50 = 25 \\cdot 2$, og 25 er eit kvadrattal: $\\sqrt{50} = \\sqrt{25 \\cdot 2} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$. Vi har trekt det «pene» ut av rota.\n\nOg motsett veg, med divisjon: $\\frac{\\sqrt{72}}{\\sqrt{2}}$ ser stygg ut, men samlast til éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$. Strategien er alltid den same -- let etter kvadrattal (4, 9, 16, 25, 36, 49, ...) som gjemmer seg som faktorar, og bruk reglane til å hente dei ut.",
+      "8dfd6aafb84fca7e": "Test deg sjølv på rekning med røter:",
+      "4f3a12a9432acfea": "Korleis kan $\\sqrt{a}$ skrivast som potens?",
+      "05a3c9c2bce78ce7": "$a^2$",
+      "1c9eeef168e80d68": "$a^{1/2}$",
+      "038bf51278da8cb0": "$a^{-2}$",
+      "4fcabeee40e87424": "$2^a$",
+      "970150e96317760c": "Kvadratrota er ein potens med eksponent $\\frac{1}{2}$: $\\sqrt{a} = a^{1/2}$. Derfor gjeld potensreglane også for røter.",
+      "d1de4e8332b48454": "Forenkle $\\sqrt{50}$.",
+      "dbad429f9d6eaa10": "$25\\sqrt{2}$",
+      "092d2c6ed0fdc362": "$2\\sqrt{5}$",
+      "1a149f5209af8876": "$5\\sqrt{2}$",
+      "6c6c7c6bdf0d6d0e": "$10\\sqrt{5}$",
+      "735a5eb182236e0c": "$50 = 25 \\cdot 2$, så $\\sqrt{50} = \\sqrt{25} \\cdot \\sqrt{2} = 5\\sqrt{2}$.",
+      "24cb754323868bda": "Kva er $\\frac{\\sqrt{72}}{\\sqrt{2}}$?",
+      "c5f83f005671d736": "$\\sqrt{70}$",
+      "be4eebe8f39d2fd9": "Samle under éin rot: $\\sqrt{\\frac{72}{2}} = \\sqrt{36} = 6$.",
+      "42d354da3402b784": "Kva regel er rett?",
+      "659ded052e4fa0d2": "$\\sqrt{a + b} = \\sqrt{a} + \\sqrt{b}$",
+      "adc17c3baad7427c": "$\\sqrt{a \\cdot b} = \\sqrt{a} + \\sqrt{b}$",
+      "58b8bc5f2944965d": "$\\sqrt{a} \\cdot \\sqrt{a} = a$",
+      "88b40edfbdb74f91": "$\\sqrt{a} \\cdot \\sqrt{b} = \\sqrt{a \\cdot b}$",
+      "018a87e9f3716ea2": "Rota av eit produkt er produktet av røtene. Merk at regelen IKKJE gjeld for addisjon: $\\sqrt{9+16} = 5$, men $\\sqrt{9} + \\sqrt{16} = 7$.",
+      "7006c3acfe7df3f3": "## Tal som sprengjer skalaen -- standardform\n\nAvstanden frå jorda til sola er 149 600 000 km. Tykkelsen på eit hårstrå er 0,00007 meter. Prøv å lese dei tala høgt utan å miste tellingen på nullane! Når tala blir veldig store eller veldig små, trengst ein smartare skrivemåte: **standardform**, også kalla vitskapeleg notasjon. Eit tal er på standardform når det er skrive som\n\n$$a \\cdot 10^n \\quad \\text{der } 1 \\leq a < 10 \\text{ og } n \\text{ er eit heiltal}$$\n\nAvstanden til sola blir $1{,}496 \\cdot 10^8$ km, og hårstrået $7 \\cdot 10^{-5}$ m. Talet $a$ skal alltid ligge mellom 1 og 10, og tierpotensen tek seg av størrelsesordenen: positiv eksponent for store tal, negativ for små.\n\nOmrekninga handlar om å flytte desimalkommaet. $47\\,000$ blir $4{,}7 \\cdot 10^4$ -- vi flytta kommaet 4 plassar til venstre, og eksponenten teljar flytta. $8\\,350\\,000 = 8{,}35 \\cdot 10^6$. For små tal flytta vi mot høgre og får negativ eksponent: $0{,}00032 = 3{,}2 \\cdot 10^{-4}$ og $0{,}0091 = 9{,}1 \\cdot 10^{-3}$.\n\nDet verkeleg fine er at rekninga blir enkel. Potensreglane tek seg av tierpotensane: ved multiplikasjon gangar vi tala og *legg saman* eksponentane, $(a \\cdot 10^n)(b \\cdot 10^m) = ab \\cdot 10^{n+m}$; ved divisjon delar vi og *trekkst frå*. Til dømes $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3) = 6 \\cdot 10^7$ og $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3} = 2 \\cdot 10^6$.\n\nEit stjernedøme til slutt: lyset farar av stad med $3 \\cdot 10^8$ m/s. Kor langt kjem det på eitt minutt? Strekning er fart gong tid: $(3 \\cdot 10^8) \\cdot 60 = (3 \\cdot 10^8)(6 \\cdot 10^1) = 18 \\cdot 10^9$. Men vent -- 18 er ikkje mellom 1 og 10, så vi justerer: $1{,}8 \\cdot 10^{10}$ m, altso 18 milliardar meter. Og når kalkulatoren din viser `3.5E8`, er det hennar måte å seie $3{,}5 \\cdot 10^8$ på -- E-en står for eksponenten til 10.",
+      "582c6cad6a960847": "Test deg sjølv på standardform:",
+      "37e865aa87b0fff0": "Kva tal er skrive på riktig standardform?",
+      "2272c884720f6b07": "$47 \\cdot 10^3$",
+      "414b6fbead327758": "$4{,}7 \\cdot 10^4$",
+      "17f8081cc56dbb5d": "$0{,}47 \\cdot 10^5$",
+      "640669fd38044a7e": "På standardform skal $a$ oppfylle $1 \\leq a < 10$. Berre $4{,}7 \\cdot 10^4$ gjer det.",
+      "af39261ee3f5ba8a": "Skriv $0{,}00032$ på standardform.",
+      "449baa1a554cc365": "$3{,}2 \\cdot 10^{-4}$",
+      "085b45d73c463d15": "$32 \\cdot 10^{-5}$",
+      "ac9d7a132f741db8": "$3{,}2 \\cdot 10^4$",
+      "b735893343fe4a78": "$3{,}2 \\cdot 10^{-3}$",
+      "ec8abd0bf5ca9ccd": "Flytt kommaet 4 plassar til høgre: $3{,}2 \\cdot 10^{-4}$. Små tal får negativ eksponent.",
+      "851815d2b5a3488e": "Kva er $(3 \\cdot 10^4) \\cdot (2 \\cdot 10^3)$?",
+      "957f9f53003442de": "$5 \\cdot 10^7$",
+      "11749e8086394551": "$6 \\cdot 10^{12}$",
+      "847f4f666ee3c5e9": "$6 \\cdot 10^7$",
+      "073a8ae604191dab": "$5 \\cdot 10^{12}$",
+      "d7b5529d19611dc7": "Gang tala og legg saman eksponentane: $3 \\cdot 2 = 6$ og $10^{4+3} = 10^7$.",
+      "21a056bc7fdf89ad": "Kva er $\\frac{8 \\cdot 10^9}{4 \\cdot 10^3}$?",
+      "a69b6e32aa54efe7": "$2 \\cdot 10^3$",
+      "50b06691a8e9ba49": "$2 \\cdot 10^6$",
+      "63e8dc6283853809": "$4 \\cdot 10^6$",
+      "4aca53e3ed51e9f0": "$2 \\cdot 10^{12}$",
+      "4809c5e56edc8077": "Del tala og trekk frå eksponentane: $\\frac{8}{4} = 2$ og $10^{9-3} = 10^6$.",
+      "d1378c4feafd3e56": "Kalkulatoren viser `1.8E10`. Kva betyr det?",
+      "d1af5708104a72f5": "$1{,}8 \\cdot e^{10}$",
+      "9b7d1350eab23c0c": "$1{,}8 \\cdot 10^{10}$",
+      "668ae2dbf5584c9a": "E-notasjonen er kalkulatoren sin standardform: `1.8E10` betyr $1{,}8 \\cdot 10^{10}$.",
+      "9ce2a16b9b5c0e3e": "## Fortellingen om røtene og dei enorme tala -- kort fortelja\n\nDen kvadratiske hagen gav oss **kvadratrota**: $\\sqrt{a}$ er det ikkje-negative talet som ganga med seg sjølv gjev $a$, slik $\\sqrt{25} = 5$. Akvariet gav oss **tredjerota**: $\\sqrt[3]{27} = 3$ -- og ho tollar til og med negative tal, som $\\sqrt[3]{-8} = -2$.\n\nSå avslørte vi at røter berre er potenser i forkledning: $\\sqrt{a} = a^{1/2}$ og $\\sqrt[3]{a} = a^{1/3}$. Difor gjeld potensreglane, og vi kunne forenkle som profar: $\\sqrt{50} = 5\\sqrt{2}$ ved å hente kvadrattalet 25 ut av rota, og $\\frac{\\sqrt{72}}{\\sqrt{2}} = \\sqrt{36} = 6$ ved å samle under éi rot.\n\nTil slutt temja vi dei ekstreme tala med **standardform** $a \\cdot 10^n$, der $1 \\leq a < 10$: avstanden til sola vart $1{,}496 \\cdot 10^8$ km og hårstrået $7 \\cdot 10^{-5}$ m. Rekninga fylgde potensreglane -- legg saman eksponentar ved ganging, trekk frå ved deling -- og lyset sin ferd på eitt minutt enda på $1{,}8 \\cdot 10^{10}$ m. Frå hagen i bakgarden til avstander i verdensrommet: røter og standardform gjev oss språket for alle størrleiker."
+    }
+  }
+}

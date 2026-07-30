@@ -1,1 +1,425 @@
-{"id":"1p-7-2-narrativ","courseId":"1p","chapterNumber":"7.2","title":"Regneark og digital modellering","subtitle":"Narrativ versjon","description":"En fortelling om regnearkets superkrefter -- fra å sjekke lønnsslippen med formler og cellereferanser til å simulere sparing og vekst med hva-hvis-analyse.","estimatedMinutes":30,"competenceGoals":["bruke regneark til beregninger og modellering","lage formler med cellereferanser","bruke funksjoner som SUM, SNITT, MAKS og MIN","lage diagrammer fra data i regneark"],"linkedChapterId":"1p-7-2","content":[{"id":"1p-7-2-n-intro","type":"text","content":"## Lønningsdagen og det smarte arket\n\nDu har fått deg deltidsjobb, og etter første uke vil du sjekke at lønnen stemmer: $7$ timer mandag, $8$ tirsdag, $6$ onsdag, $8$ torsdag og $5$ fredag, med $180$ kr timen. Du kan selvsagt taste alt på kalkulatoren -- men hva når du vil sjekke neste uke også? Og uken etter? Og hva om timelønnen endres?\n\nDette er jobben for et **regneark** -- programmer som Excel eller Google Sheets. Et regneark er som en kalkulator med hukommelse og struktur: du bygger regnestykkene én gang, og etterpå kan du endre tallene og se alt oppdatere seg automatisk. Regneark brukes til beregninger med formler, tabeller og grafer, simulering av scenarier og analyse av data -- og i dette kapittelet skal du lære å bruke dem til alt sammen, fra lønnsslippen din til modeller for sparing og befolkningsvekst."},{"id":"1p-7-2-n-section1","type":"text","content":"## Celler, formler og innebygde funksjoner\n\nEt regneark er organisert i **kolonner** med bokstaver (A, B, C, ...) og **rader** med tall (1, 2, 3, ...). Skjæringspunktet mellom en kolonne og en rad er en **celle**, og hver celle har en adresse: A1 er cellen i kolonne A, rad 1; B3 er kolonne B, rad 3; D10 er kolonne D, rad 10.\n\nMagien starter med likhetstegnet. En formel i et regneark begynner *alltid* med **=**. Skriver du `=3+5` i en celle, viser den $8$. Regneoperasjonene har sine tegn: `+` og `-` som vanlig, `*` for ganging, `/` for deling og `^` for potens -- så `=6*7` gir $42$ og `=2^3` gir $8$.\n\nMen den virkelige styrken er **cellereferanser**: i stedet for tall kan formelen peke på andre celler. Står $100$ i A1 og $0{,}05$ i B1, gir `=A1*B1` svaret $5$. Og her kommer poenget -- endrer du A1 til $200$, oppdateres svaret *automatisk* til $10$. Du bygger regnestykket én gang og gjenbruker det for alltid.\n\nFor lange tallkolonner finnes ferdige **funksjoner**: `=SUM(A1:A10)` summerer cellene A1 til og med A10, `=SNITT(A1:A10)` beregner gjennomsnittet, `=MAKS(A1:A10)` og `=MIN(A1:A10)` finner største og minste verdi, `=ANTALL(A1:A10)` teller celler med tall, og `=AVRUND(A1;2)` avrunder til to desimaler. Kolonnen med ukens timer summeres altså med én kort formel -- ingen kalkulatortasting."},{"id":"1p-7-2-n-quiz1","type":"exercise","exercise":{"id":"1p-7-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på celler, formler og funksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-2-n-quiz1-q0","task":"Hva betegner cellereferansen B3?","options":[{"id":"a","text":"Kolonne 3, rad B","isCorrect":false},{"id":"b","text":"Cellen i kolonne B, rad 3","isCorrect":true},{"id":"c","text":"De tre første cellene i kolonne B","isCorrect":false},{"id":"d","text":"Rad B ganger 3","isCorrect":false}],"solution":"Bokstaven angir kolonnen og tallet raden: B3 er skjæringspunktet mellom kolonne B og rad 3."},{"id":"1p-7-2-n-quiz1-q1","task":"Hva må en formel i et regneark alltid starte med?","options":[{"id":"a","text":"Likhetstegn (=)","isCorrect":true},{"id":"b","text":"Pluss (+)","isCorrect":false},{"id":"c","text":"Anførselstegn","isCorrect":false},{"id":"d","text":"SUM","isCorrect":false}],"solution":"Uten likhetstegnet tolker regnearket innholdet som tekst eller tall -- med = vet det at det skal regnes."},{"id":"1p-7-2-n-quiz1-q2","task":"Hvilken formel summerer verdiene i cellene A1 til A10?","options":[{"id":"a","text":"=A1+A10","isCorrect":false},{"id":"b","text":"=SNITT(A1:A10)","isCorrect":false},{"id":"c","text":"=SUM(A1:A10)","isCorrect":true},{"id":"d","text":"=ANTALL(A1-A10)","isCorrect":false}],"solution":"SUM-funksjonen med området A1:A10 legger sammen alle verdiene fra A1 til og med A10."},{"id":"1p-7-2-n-quiz1-q3","task":"Cellen A1 inneholder $100$ og B1 inneholder $0{,}05$. Hva skjer med =A1*B1 hvis du endrer A1 til $200$?","options":[{"id":"a","text":"Ingenting -- formelen må skrives på nytt","isCorrect":false},{"id":"b","text":"Regnearket viser feilmelding","isCorrect":false},{"id":"c","text":"Svaret blir $10{,}05$","isCorrect":false},{"id":"d","text":"Svaret oppdateres automatisk fra $5$ til $10$","isCorrect":true}],"solution":"Formler med cellereferanser oppdateres automatisk når cellene de peker på, endres. Det er regnearkets store styrke."}]}},{"id":"1p-7-2-n-section2","type":"text","content":"## Lønnsregnearket -- og dollartegnets hemmelighet\n\nNå bygger vi lønnsoversikten. Kolonne A får dagene mandag til fredag, kolonne B antall timer, og kolonne C skal beregne dagslønnen. Timesatsen $180$ legger vi i celle E1 -- på *ett* sted, slik at den er lett å endre.\n\nI C2 skriver vi formelen for mandagslønnen: `=B2*$E$1`. Hvorfor de rare dollartegnene? Det handler om hva som skjer når formelen *kopieres*.\n\nEn vanlig referanse som B2 er **relativ**: kopierer du formelen én rad ned, blir B2 automatisk til B3, så B4, og så videre. Det er akkurat det vi vil for timene -- hver rad skal bruke sin egen dags timer. Men timesatsen står bare i E1! Uten dollartegn ville kopieringen flyttet referansen til E2, E3 ... som er tomme celler. Skriver vi derimot **$E$1**, er referansen **absolutt**: den står bom fast uansett hvor formelen kopieres. (Det finnes også blandede varianter: \\$E1 låser bare kolonnen, E\\$1 bare raden.) Tommelfingerregel: faste verdier som timesatser, rentesatser og MVA-satser får absolutt referanse.\n\nVi kopierer C2 nedover og ser resultatet: mandag $7 \\cdot 180 = 1\\,260$ kr, tirsdag $8 \\cdot 180 = 1\\,440$ kr, onsdag $6 \\cdot 180 = 1\\,080$ kr, torsdag $1\\,440$ kr og fredag $5 \\cdot 180 = 900$ kr. Nederst samler `=SUM(C2:C6)` det hele: $6\\,120$ kr for uken.\n\nOg her høster du gevinsten av godt regnearkhåndverk: får du lønnsøkning til $190$ kr, endrer du *én* celle -- E1 -- og hele oversikten regner seg om på et blunk."},{"id":"1p-7-2-n-quiz2","type":"exercise","exercise":{"id":"1p-7-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på cellereferanser og kopiering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-2-n-quiz2-q0","task":"Du kopierer formelen =B2*$E$1 fra C2 til C3. Hva blir formelen i C3?","options":[{"id":"a","text":"=B2*$E$1","isCorrect":false},{"id":"b","text":"=B3*$E$2","isCorrect":false},{"id":"c","text":"=B3*$E$1","isCorrect":true},{"id":"d","text":"=B2*$E$2","isCorrect":false}],"solution":"Den relative referansen B2 følger med ned til B3, mens den absolutte $E$1 står fast."},{"id":"1p-7-2-n-quiz2-q1","task":"Når bør du bruke absolutt referanse (dollartegn)?","options":[{"id":"a","text":"Når cellen inneholder en fast verdi som alle formlene skal bruke, f.eks. en timesats","isCorrect":true},{"id":"b","text":"Alltid -- det er tryggest","isCorrect":false},{"id":"c","text":"Aldri -- relative referanser er raskere","isCorrect":false},{"id":"d","text":"Bare i SUM-formler","isCorrect":false}],"solution":"Faste verdier som timesats, rentesats eller MVA-sats skal stå på ett sted og refereres absolutt, så kopiering ikke flytter referansen."},{"id":"1p-7-2-n-quiz2-q2","task":"Du jobbet $7$, $8$, $6$, $8$ og $5$ timer til $180$ kr/t. Hva er ukelønnen?","options":[{"id":"a","text":"$5\\,940$ kr","isCorrect":false},{"id":"b","text":"$6\\,120$ kr","isCorrect":true},{"id":"c","text":"$6\\,300$ kr","isCorrect":false},{"id":"d","text":"$5\\,760$ kr","isCorrect":false}],"solution":"Totalt $7+8+6+8+5=34$ timer, og $34\\cdot 180=6\\,120$ kr."},{"id":"1p-7-2-n-quiz2-q3","task":"Hva er fordelen med å legge timesatsen i én egen celle i stedet for å skrive $180$ inn i hver formel?","options":[{"id":"a","text":"Regnearket blir penere","isCorrect":false},{"id":"b","text":"Formlene regner raskere","isCorrect":false},{"id":"c","text":"Tallet blir automatisk avrundet","isCorrect":false},{"id":"d","text":"Endrer du satsen ett sted, oppdateres hele regnearket","isCorrect":true}],"solution":"Med satsen samlet i én celle (med absolutt referanse) holder det å endre den ett sted -- alle formler oppdateres automatisk."}]}},{"id":"1p-7-2-n-section3","type":"text","content":"## Modeller som svarer på «hva hvis?»\n\nLønnen er sjekket -- nå skal pengene vokse. Du setter $10\\,000$ kr i et fond med $4\\,\\%$ årlig avkastning og vil se utviklingen. Dette er **digital modellering**: å bruke regnearkets formler til å simulere virkeligheten.\n\nOppsettet er elegant enkelt. Kolonne A teller år, kolonne B beløp. I rad 2 står startåret: $0$ og $10\\,000$. I rad 3 skriver vi `=A2+1` i A-kolonnen og `=B2*1,04` i B-kolonnen -- neste års beløp er forrige beløp ganget med vekstfaktoren $1{,}04$. Så kopierer vi raden nedover så langt vi vil. Hver rad bygger på den forrige, og rentesrenten ruller av seg selv.\n\nSamme teknikk modellerer en by med $50\\,000$ innbyggere som vokser $2\\,\\%$ i året: `=B2*1,02` nedover gir $51\\,000$, $52\\,020$, $53\\,060$, $54\\,122$ og $55\\,204$ etter fem år. Bak tallene skjuler det seg en **eksponentiell modell**, $B_n = B_0 \\cdot 1{,}02^n$ -- men regnearket gjør jobben rad for rad uten at du trenger formelen.\n\nNå kommer regnearkets superkraft: **hva-hvis-analysen**. Hva skjer hvis renten øker til $6\\,\\%$? Hvis du sparer i $20$ år i stedet for $10$? Hvis du skyter inn $500$ kr ekstra i måneden? Endre én celle -- og hele fremtidsbildet tegnes om umiddelbart.\n\nTil slutt fortjener tallene en god presentasjon. Regnearket lager **diagrammer** automatisk: stolpediagram for å sammenligne kategorier, linjediagram for utvikling over tid (perfekt for sparepengene), sektordiagram for fordeling av en helhet. Husk god skikk: gi diagrammet tittel, merk aksene med navn og enhet, velg riktig type -- og dropp 3D-effekter og annen pynt som bare forstyrrer."},{"id":"1p-7-2-n-quiz3","type":"exercise","exercise":{"id":"1p-7-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på digital modellering og diagrammer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-7-2-n-quiz3-q0","task":"Cellen B2 inneholder $10\\,000$. Hva regner formelen =B2*1,04 ut?","options":[{"id":"a","text":"Beløpet etter ett år med $4\\,\\%$ vekst: $10\\,400$","isCorrect":true},{"id":"b","text":"Beløpet etter ett år med $1{,}04\\,\\%$ vekst","isCorrect":false},{"id":"c","text":"Renten alene: $400$ kr","isCorrect":false},{"id":"d","text":"Beløpet etter fire år","isCorrect":false}],"solution":"Vekstfaktoren $1{,}04$ tilsvarer $+4\\,\\%$: $10\\,000\\cdot 1{,}04=10\\,400$ kr."},{"id":"1p-7-2-n-quiz3-q1","task":"En by har $50\\,000$ innbyggere og vokser $2\\,\\%$ per år. Hva viser regnearksmodellen etter $2$ år?","options":[{"id":"a","text":"$52\\,000$","isCorrect":false},{"id":"b","text":"$54\\,000$","isCorrect":false},{"id":"c","text":"$52\\,020$","isCorrect":true},{"id":"d","text":"$51\\,000$","isCorrect":false}],"solution":"År 1: $50\\,000\\cdot 1{,}02=51\\,000$. År 2: $51\\,000\\cdot 1{,}02=52\\,020$."},{"id":"1p-7-2-n-quiz3-q2","task":"Hva menes med hva-hvis-analyse i regneark?","options":[{"id":"a","text":"Å gjette hva svaret blir før man regner","isCorrect":false},{"id":"b","text":"Å teste om formlene inneholder feil","isCorrect":false},{"id":"c","text":"Å lage diagrammer av dataene","isCorrect":false},{"id":"d","text":"Å endre én verdi og se hvordan hele modellen påvirkes","isCorrect":true}],"solution":"Fordi alle formler oppdateres automatisk, kan du utforske scenarier -- høyere rente, lengre sparetid -- ved å endre én enkelt celle."},{"id":"1p-7-2-n-quiz3-q3","task":"Du vil vise utviklingen av sparepengene dine over $10$ år. Hvilken diagramtype passer best?","options":[{"id":"a","text":"Sektordiagram","isCorrect":false},{"id":"b","text":"Linjediagram","isCorrect":true},{"id":"c","text":"Stolpediagram","isCorrect":false},{"id":"d","text":"Tabell uten diagram","isCorrect":false}],"solution":"Linjediagram er best til å vise utvikling over tid -- stolper sammenligner kategorier og sektorer viser fordeling av en helhet."}]}},{"id":"1p-7-2-n-summary","type":"text","content":"## Oppsummering\n\nFra lønnsslipp til fremtidsscenarier -- regnearket viste seg som en kalkulator med hukommelse og superkrefter.\n\nGrunnmuren er **cellene** med adresser som A1 og B3, og **formlene** som alltid starter med `=` og bruker `+`, `-`, `*`, `/` og `^`. Innebygde funksjoner som **SUM**, **SNITT**, **MAKS**, **MIN** og **ANTALL** håndterer hele tallkolonner i ett jafs.\n\n**Cellereferansene** er nøkkelen til gjenbruk: relative referanser (B2) flytter seg ved kopiering, mens absolutte ($E$1) står fast -- perfekt for faste satser som timelønnen i lønnsregnearket, der `=B2*$E$1` kopiert nedover ga ukelønnen $6\\,120$ kr med ett tastetrykk på SUM.\n\nMed formler som bygger rad på rad -- `=B2*1,04` -- ble regnearket et **modelleringsverktøy** for rentesrente og befolkningsvekst, og **hva-hvis-analysen** lot oss teste scenarier ved å endre én eneste celle. Til slutt kledde vi tallene i riktige **diagrammer**: stolper for sammenligning, linjer for utvikling, sektorer for fordeling -- med tittel og merkede akser, uten unødig pynt.\n\nNeste gang noen rekker deg en haug med tall, vet du hva du gjør: inn i regnearket med dem."}],"exercises":[]}
+{
+  "id": "1p-7-2-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "7.2",
+  "title": "Regneark og digital modellering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om regnearkets superkrefter -- fra å sjekke lønnsslippen med formler og cellereferanser til å simulere sparing og vekst med hva-hvis-analyse.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke regneark til beregninger og modellering",
+    "lage formler med cellereferanser",
+    "bruke funksjoner som SUM, SNITT, MAKS og MIN",
+    "lage diagrammer fra data i regneark"
+  ],
+  "linkedChapterId": "1p-7-2",
+  "content": [
+    {
+      "id": "1p-7-2-n-intro",
+      "type": "text",
+      "content": "## Lønningsdagen og det smarte arket\n\nDu har fått deg deltidsjobb, og etter første uke vil du sjekke at lønnen stemmer: $7$ timer mandag, $8$ tirsdag, $6$ onsdag, $8$ torsdag og $5$ fredag, med $180$ kr timen. Du kan selvsagt taste alt på kalkulatoren -- men hva når du vil sjekke neste uke også? Og uken etter? Og hva om timelønnen endres?\n\nDette er jobben for et **regneark** -- programmer som Excel eller Google Sheets. Et regneark er som en kalkulator med hukommelse og struktur: du bygger regnestykkene én gang, og etterpå kan du endre tallene og se alt oppdatere seg automatisk. Regneark brukes til beregninger med formler, tabeller og grafer, simulering av scenarier og analyse av data -- og i dette kapittelet skal du lære å bruke dem til alt sammen, fra lønnsslippen din til modeller for sparing og befolkningsvekst."
+    },
+    {
+      "id": "1p-7-2-n-section1",
+      "type": "text",
+      "content": "## Celler, formler og innebygde funksjoner\n\nEt regneark er organisert i **kolonner** med bokstaver (A, B, C, ...) og **rader** med tall (1, 2, 3, ...). Skjæringspunktet mellom en kolonne og en rad er en **celle**, og hver celle har en adresse: A1 er cellen i kolonne A, rad 1; B3 er kolonne B, rad 3; D10 er kolonne D, rad 10.\n\nMagien starter med likhetstegnet. En formel i et regneark begynner *alltid* med **=**. Skriver du `=3+5` i en celle, viser den $8$. Regneoperasjonene har sine tegn: `+` og `-` som vanlig, `*` for ganging, `/` for deling og `^` for potens -- så `=6*7` gir $42$ og `=2^3` gir $8$.\n\nMen den virkelige styrken er **cellereferanser**: i stedet for tall kan formelen peke på andre celler. Står $100$ i A1 og $0{,}05$ i B1, gir `=A1*B1` svaret $5$. Og her kommer poenget -- endrer du A1 til $200$, oppdateres svaret *automatisk* til $10$. Du bygger regnestykket én gang og gjenbruker det for alltid.\n\nFor lange tallkolonner finnes ferdige **funksjoner**: `=SUM(A1:A10)` summerer cellene A1 til og med A10, `=SNITT(A1:A10)` beregner gjennomsnittet, `=MAKS(A1:A10)` og `=MIN(A1:A10)` finner største og minste verdi, `=ANTALL(A1:A10)` teller celler med tall, og `=AVRUND(A1;2)` avrunder til to desimaler. Kolonnen med ukens timer summeres altså med én kort formel -- ingen kalkulatortasting."
+    },
+    {
+      "id": "1p-7-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på celler, formler og funksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-2-n-quiz1-q0",
+            "task": "Hva betegner cellereferansen B3?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kolonne 3, rad B",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Cellen i kolonne B, rad 3",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "De tre første cellene i kolonne B",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rad B ganger 3",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bokstaven angir kolonnen og tallet raden: B3 er skjæringspunktet mellom kolonne B og rad 3."
+          },
+          {
+            "id": "1p-7-2-n-quiz1-q1",
+            "task": "Hva må en formel i et regneark alltid starte med?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Pluss (+)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Anførselstegn",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Likhetstegn (=)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "SUM",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten likhetstegnet tolker regnearket innholdet som tekst eller tall -- med = vet det at det skal regnes."
+          },
+          {
+            "id": "1p-7-2-n-quiz1-q2",
+            "task": "Hvilken formel summerer verdiene i cellene A1 til A10?",
+            "options": [
+              {
+                "id": "a",
+                "text": "=A1+A10",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "=SNITT(A1:A10)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "=ANTALL(A1-A10)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "=SUM(A1:A10)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "SUM-funksjonen med området A1:A10 legger sammen alle verdiene fra A1 til og med A10."
+          },
+          {
+            "id": "1p-7-2-n-quiz1-q3",
+            "task": "Cellen A1 inneholder $100$ og B1 inneholder $0{,}05$. Hva skjer med =A1*B1 hvis du endrer A1 til $200$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Svaret oppdateres automatisk fra $5$ til $10$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ingenting -- formelen må skrives på nytt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Regnearket viser feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Svaret blir $10{,}05$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formler med cellereferanser oppdateres automatisk når cellene de peker på, endres. Det er regnearkets store styrke."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-2-n-section2",
+      "type": "text",
+      "content": "## Lønnsregnearket -- og dollartegnets hemmelighet\n\nNå bygger vi lønnsoversikten. Kolonne A får dagene mandag til fredag, kolonne B antall timer, og kolonne C skal beregne dagslønnen. Timesatsen $180$ legger vi i celle E1 -- på *ett* sted, slik at den er lett å endre.\n\nI C2 skriver vi formelen for mandagslønnen: `=B2*$E$1`. Hvorfor de rare dollartegnene? Det handler om hva som skjer når formelen *kopieres*.\n\nEn vanlig referanse som B2 er **relativ**: kopierer du formelen én rad ned, blir B2 automatisk til B3, så B4, og så videre. Det er akkurat det vi vil for timene -- hver rad skal bruke sin egen dags timer. Men timesatsen står bare i E1! Uten dollartegn ville kopieringen flyttet referansen til E2, E3 ... som er tomme celler. Skriver vi derimot **$E$1**, er referansen **absolutt**: den står bom fast uansett hvor formelen kopieres. (Det finnes også blandede varianter: \\$E1 låser bare kolonnen, E\\$1 bare raden.) Tommelfingerregel: faste verdier som timesatser, rentesatser og MVA-satser får absolutt referanse.\n\nVi kopierer C2 nedover og ser resultatet: mandag $7 \\cdot 180 = 1\\,260$ kr, tirsdag $8 \\cdot 180 = 1\\,440$ kr, onsdag $6 \\cdot 180 = 1\\,080$ kr, torsdag $1\\,440$ kr og fredag $5 \\cdot 180 = 900$ kr. Nederst samler `=SUM(C2:C6)` det hele: $6\\,120$ kr for uken.\n\nOg her høster du gevinsten av godt regnearkhåndverk: får du lønnsøkning til $190$ kr, endrer du *én* celle -- E1 -- og hele oversikten regner seg om på et blunk."
+    },
+    {
+      "id": "1p-7-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på cellereferanser og kopiering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-2-n-quiz2-q0",
+            "task": "Du kopierer formelen =B2*$E$1 fra C2 til C3. Hva blir formelen i C3?",
+            "options": [
+              {
+                "id": "a",
+                "text": "=B2*$E$1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "=B3*$E$1",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "=B3*$E$2",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "=B2*$E$2",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den relative referansen B2 følger med ned til B3, mens den absolutte $E$1 står fast."
+          },
+          {
+            "id": "1p-7-2-n-quiz2-q1",
+            "task": "Når bør du bruke absolutt referanse (dollartegn)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alltid -- det er tryggest",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aldri -- relative referanser er raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når cellen inneholder en fast verdi som alle formlene skal bruke, f.eks. en timesats",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Bare i SUM-formler",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faste verdier som timesats, rentesats eller MVA-sats skal stå på ett sted og refereres absolutt, så kopiering ikke flytter referansen."
+          },
+          {
+            "id": "1p-7-2-n-quiz2-q2",
+            "task": "Du jobbet $7$, $8$, $6$, $8$ og $5$ timer til $180$ kr/t. Hva er ukelønnen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5\\,940$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6\\,300$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5\\,760$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6\\,120$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Totalt $7+8+6+8+5=34$ timer, og $34\\cdot 180=6\\,120$ kr."
+          },
+          {
+            "id": "1p-7-2-n-quiz2-q3",
+            "task": "Hva er fordelen med å legge timesatsen i én egen celle i stedet for å skrive $180$ inn i hver formel?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Endrer du satsen ett sted, oppdateres hele regnearket",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Regnearket blir penere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Formlene regner raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tallet blir automatisk avrundet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med satsen samlet i én celle (med absolutt referanse) holder det å endre den ett sted -- alle formler oppdateres automatisk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-2-n-section3",
+      "type": "text",
+      "content": "## Modeller som svarer på «hva hvis?»\n\nLønnen er sjekket -- nå skal pengene vokse. Du setter $10\\,000$ kr i et fond med $4\\,\\%$ årlig avkastning og vil se utviklingen. Dette er **digital modellering**: å bruke regnearkets formler til å simulere virkeligheten.\n\nOppsettet er elegant enkelt. Kolonne A teller år, kolonne B beløp. I rad 2 står startåret: $0$ og $10\\,000$. I rad 3 skriver vi `=A2+1` i A-kolonnen og `=B2*1,04` i B-kolonnen -- neste års beløp er forrige beløp ganget med vekstfaktoren $1{,}04$. Så kopierer vi raden nedover så langt vi vil. Hver rad bygger på den forrige, og rentesrenten ruller av seg selv.\n\nSamme teknikk modellerer en by med $50\\,000$ innbyggere som vokser $2\\,\\%$ i året: `=B2*1,02` nedover gir $51\\,000$, $52\\,020$, $53\\,060$, $54\\,122$ og $55\\,204$ etter fem år. Bak tallene skjuler det seg en **eksponentiell modell**, $B_n = B_0 \\cdot 1{,}02^n$ -- men regnearket gjør jobben rad for rad uten at du trenger formelen.\n\nNå kommer regnearkets superkraft: **hva-hvis-analysen**. Hva skjer hvis renten øker til $6\\,\\%$? Hvis du sparer i $20$ år i stedet for $10$? Hvis du skyter inn $500$ kr ekstra i måneden? Endre én celle -- og hele fremtidsbildet tegnes om umiddelbart.\n\nTil slutt fortjener tallene en god presentasjon. Regnearket lager **diagrammer** automatisk: stolpediagram for å sammenligne kategorier, linjediagram for utvikling over tid (perfekt for sparepengene), sektordiagram for fordeling av en helhet. Husk god skikk: gi diagrammet tittel, merk aksene med navn og enhet, velg riktig type -- og dropp 3D-effekter og annen pynt som bare forstyrrer."
+    },
+    {
+      "id": "1p-7-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-7-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på digital modellering og diagrammer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-7-2-n-quiz3-q0",
+            "task": "Cellen B2 inneholder $10\\,000$. Hva regner formelen =B2*1,04 ut?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Beløpet etter ett år med $1{,}04\\,\\%$ vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Beløpet etter ett år med $4\\,\\%$ vekst: $10\\,400$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Renten alene: $400$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Beløpet etter fire år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktoren $1{,}04$ tilsvarer $+4\\,\\%$: $10\\,000\\cdot 1{,}04=10\\,400$ kr."
+          },
+          {
+            "id": "1p-7-2-n-quiz3-q1",
+            "task": "En by har $50\\,000$ innbyggere og vokser $2\\,\\%$ per år. Hva viser regnearksmodellen etter $2$ år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$52\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$54\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$52\\,020$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$51\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "År 1: $50\\,000\\cdot 1{,}02=51\\,000$. År 2: $51\\,000\\cdot 1{,}02=52\\,020$."
+          },
+          {
+            "id": "1p-7-2-n-quiz3-q2",
+            "task": "Hva menes med hva-hvis-analyse i regneark?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gjette hva svaret blir før man regner",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å teste om formlene inneholder feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å lage diagrammer av dataene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å endre én verdi og se hvordan hele modellen påvirkes",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fordi alle formler oppdateres automatisk, kan du utforske scenarier -- høyere rente, lengre sparetid -- ved å endre én enkelt celle."
+          },
+          {
+            "id": "1p-7-2-n-quiz3-q3",
+            "task": "Du vil vise utviklingen av sparepengene dine over $10$ år. Hvilken diagramtype passer best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Linjediagram",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sektordiagram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stolpediagram",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tabell uten diagram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Linjediagram er best til å vise utvikling over tid -- stolper sammenligner kategorier og sektorer viser fordeling av en helhet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-7-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFra lønnsslipp til fremtidsscenarier -- regnearket viste seg som en kalkulator med hukommelse og superkrefter.\n\nGrunnmuren er **cellene** med adresser som A1 og B3, og **formlene** som alltid starter med `=` og bruker `+`, `-`, `*`, `/` og `^`. Innebygde funksjoner som **SUM**, **SNITT**, **MAKS**, **MIN** og **ANTALL** håndterer hele tallkolonner i ett jafs.\n\n**Cellereferansene** er nøkkelen til gjenbruk: relative referanser (B2) flytter seg ved kopiering, mens absolutte ($E$1) står fast -- perfekt for faste satser som timelønnen i lønnsregnearket, der `=B2*$E$1` kopiert nedover ga ukelønnen $6\\,120$ kr med ett tastetrykk på SUM.\n\nMed formler som bygger rad på rad -- `=B2*1,04` -- ble regnearket et **modelleringsverktøy** for rentesrente og befolkningsvekst, og **hva-hvis-analysen** lot oss teste scenarier ved å endre én eneste celle. Til slutt kledde vi tallene i riktige **diagrammer**: stolper for sammenligning, linjer for utvikling, sektorer for fordeling -- med tittel og merkede akser, uten unødig pynt.\n\nNeste gang noen rekker deg en haug med tall, vet du hva du gjør: inn i regnearket med dem."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,358 @@
-{"id":"s2-3-5-narrativ","courseId":"s2","chapterNumber":"3.5","title":"Implisitt derivasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om kurver der y ikkje lèt seg isolere — og teknikken som likevel finn stigingstalet.","estimatedMinutes":33,"competenceGoals":["derivere implisitt definerte funksjonar","bruke implisitt derivasjon til å finne tangentlinjer og analysere samanhengar mellom variable"],"linkedChapterId":"s2-3-5","content":[{"id":"s2-3-5-n-intro","type":"text","content":"## Når y nektar å stå åleine\n\nSjå for deg at du jobbar med ei designoppgåve: ei sirkelforma rundkøyring skal teiknast inn på eit kart, skildra ved likninga $x^2 + y^2 = 25$ — ein sirkel med radius 5. Du treng stigingstalet til tangenten i eit punkt på sirkelen. Men kvar er funksjonen? Det finst ingen pen formel $y = f(x)$; likninga blandar $x$ og $y$ saman. Samanhengen er gitt **implisitt**.\n\nHittil har vi derivert funksjonar gitt eksplisitt som $y = f(x)$. Men mange viktige samanhengar — sirklar, ellipsar, kurver i økonomiske modellar — lèt seg ikkje løyse for $y$, eller blir stygge når vi prøver. Løysinga heiter **implisitt derivasjon**: vi deriverer begge sider av likninga med omsyn på $x$, og handsamar $y$ som ein funksjon av $x$.\n\nNøkkelregelen er kjerneregelen. Sidan $y$ er ein funksjon av $x$, må kvart ledd som inneheld $y$ deriverast med eit ekstra ledd $\\frac{dy}{dx}$ på slutten: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$. Til dømes blir $\\frac{d}{dx}[y^2] = 2y \\cdot \\frac{dy}{dx}$ — ikkje berre $2y$. Når alt er derivert, samlar vi ledda med $\\frac{dy}{dx}$ på éi side og løyser. Svaret kan innehalde både $x$ og $y$, og det er heilt greitt: stigingstalet i eit punkt på kurva avheng jo av kvar på kurva du står.\n\nLat oss bruke teknikken på sirkelen, på styggare kurver — og til slutt på problem der tida sjølv er den skjulte variabelen."},{"id":"s2-3-5-n-section1","type":"text","content":"## Sirkelen og dei samansette kurvene\n\nVi deriverer sirkellikninga $x^2 + y^2 = 25$ ledd for ledd med omsyn på $x$. Venstre side: $\\frac{d}{dx}(x^2) = 2x$, og $\\frac{d}{dx}(y^2) = 2y \\cdot \\frac{dy}{dx}$ ved kjerneregelen. Høgre side: konstanten 25 blir derivert til null. Dermed har vi $2x + 2y\\frac{dy}{dx} = 0$, og vi løyser: $\\frac{dy}{dx} = -\\frac{x}{y}$.\n\nVi kan kontrollere svaret. Den øvre halvsirkelen kan faktisk skrivast eksplisitt som $y = \\sqrt{25 - x^2}$, og vanleg derivasjon gir $y' = \\frac{-x}{\\sqrt{25-x^2}} = -\\frac{x}{y}$ — nøyaktig det same. Men det implisitte svaret gjeld heile sirkelen på éin gong, både øvre og nedre halvdel.\n\nNo ei kurve der eksplisitt løysing er håplaus: $x^2 y + xy^2 = 6$. Her treng vi produktregelen i begge ledd. Første ledd: $\\frac{d}{dx}(x^2 y) = 2xy + x^2\\frac{dy}{dx}$. Andre ledd: $\\frac{d}{dx}(xy^2) = y^2 + 2xy\\frac{dy}{dx}$. Summen er null: $2xy + y^2 + (x^2 + 2xy)\\frac{dy}{dx} = 0$, som gir $\\frac{dy}{dx} = -\\frac{2xy + y^2}{x^2 + 2xy} = -\\frac{y(2x+y)}{x(x+2y)}$.\n\nDen vanlegaste bruken er **tangentlinjer**. Finn tangenten til kurva $x^3 + y^3 = 9$ i punktet $(1, 2)$. Først sjekkar vi at punktet ligg på kurva: $1 + 8 = 9$. ✓ Implisitt derivasjon gir $3x^2 + 3y^2\\frac{dy}{dx} = 0$, altså $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I punktet $(1,2)$ er stigingstalet $-\\frac{1}{4}$, og eittpunktsformelen gir tangenten $y - 2 = -\\frac{1}{4}(x - 1)$, det vil seie $y = -\\frac{1}{4}x + \\frac{9}{4}$."},{"id":"s2-3-5-n-quiz1","type":"exercise","exercise":{"id":"s2-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på implisitt derivasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-5-n-quiz1-q0","task":"Kva er $\\frac{d}{dx}[y^2]$ når $y$ er ein funksjon av $x$?","options":[{"id":"a","text":"$2y$","isCorrect":false},{"id":"b","text":"$2y \\cdot \\frac{dy}{dx}$","isCorrect":true},{"id":"c","text":"$y^2 \\cdot \\frac{dy}{dx}$","isCorrect":false},{"id":"d","text":"$2x$","isCorrect":false}],"solution":"Kjerneregelen: $y$ er ein funksjon av $x$, så vi deriverer det ytre ($2y$) og gangar med den deriverte av det indre ($\\frac{dy}{dx}$)."},{"id":"s2-3-5-n-quiz1-q1","task":"Implisitt derivasjon av $x^2 + y^2 = 25$ gir kva uttrykk for $\\frac{dy}{dx}$?","options":[{"id":"a","text":"$-\\frac{y}{x}$","isCorrect":false},{"id":"b","text":"$\\frac{x}{y}$","isCorrect":false},{"id":"c","text":"$-\\frac{x}{y}$","isCorrect":true},{"id":"d","text":"$-2x$","isCorrect":false}],"solution":"$2x + 2y\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x}{y}$. Svaret inneheld både $x$ og $y$ — heilt normalt ved implisitt derivasjon."},{"id":"s2-3-5-n-quiz1-q2","task":"Kva er stigingstalet til tangenten til $x^3 + y^3 = 9$ i punktet $(1, 2)$?","options":[{"id":"a","text":"$-\\frac{1}{4}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{4}$","isCorrect":false},{"id":"c","text":"$-\\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$-4$","isCorrect":false}],"solution":"$3x^2 + 3y^2\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I $(1,2)$: $-\\frac{1}{4}$."},{"id":"s2-3-5-n-quiz1-q3","task":"Kvifor inneheld svaret frå implisitt derivasjon ofte både $x$ og $y$?","options":[{"id":"a","text":"Fordi vi har rekna feil — svaret skal berre ha $x$","isCorrect":false},{"id":"b","text":"Fordi kurva ikkje er deriverbar","isCorrect":false},{"id":"c","text":"Fordi $y$ er ein konstant","isCorrect":false},{"id":"d","text":"Fordi stigingstalet avheng av kva for eit punkt $(x, y)$ på kurva vi står i","isCorrect":true}],"solution":"På til dømes ein sirkel har ulike punkt med same $x$-verdi ulike tangentar. Difor må stigingstalet $-\\frac{x}{y}$ avhenge av begge koordinatane."}]}},{"id":"s2-3-5-n-section2","type":"text","content":"## Når tida er den skjulte variabelen\n\nImplisitt derivasjon er grunnlaget for ein heil klasse praktiske problem: **relaterte ratar**. Tenk deg ein vêrballong som blir blåsen opp før oppskyting, slik at volumet aukar med $100$ cm$^3$ per sekund. Kor raskt aukar radiusen i det augneblinken han er 10 cm? Her endrar fleire storleikar seg over tid samtidig — volum og radius — og dei er knytte saman av ei likning. Kjenner vi den eine endringsraten, kan vi finne den andre.\n\nFramgangsmåten har tre steg. Først identifiserer vi dei variable og skriv opp samanhengen mellom dei: for ei kule er $V = \\frac{4}{3}\\pi r^3$. Så deriverer vi **implisitt med omsyn på tida $t$** — både $V$ og $r$ er funksjonar av $t$, så kjerneregelen gir $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. Til slutt set vi inn dei kjende verdiane og løyser for den ukjende raten: med $\\frac{dV}{dt} = 100$ og $r = 10$ får vi $100 = 4\\pi \\cdot 100 \\cdot \\frac{dr}{dt} = 400\\pi\\frac{dr}{dt}$, altså $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s.\n\nLegg merke til logikken i svaret: volumauken er konstant, men jo større ballongen blir, desto seinare veks radiusen — dei 100 kubikkcentimeterane skal smørjast utover ei stadig større overflate.\n\nEi viktig regel: set inn talverdiane **etter** at du har derivert, aldri før. Deriverer du likninga $V = \\frac{4}{3}\\pi \\cdot 10^3$, deriverer du ein konstant og får null — og heile samanhengen er borte. Derivasjonen skjer alltid på den generelle likninga."},{"id":"s2-3-5-n-quiz2","type":"exercise","exercise":{"id":"s2-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på relaterte ratar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-5-n-quiz2-q0","task":"Kva kjenneteiknar eit problem med relaterte ratar?","options":[{"id":"a","text":"Fleire storleikar endrar seg over tid og er knytte saman av ei likning","isCorrect":true},{"id":"b","text":"Funksjonen har fleire nullpunkt","isCorrect":false},{"id":"c","text":"Vi kjenner alle endringsratane frå før","isCorrect":false},{"id":"d","text":"Likninga kan løysast eksplisitt for $y$","isCorrect":false}],"solution":"Relaterte ratar handlar om storleikar som alle avheng av tida og heng saman via ei likning — kjenner vi éin rate, finn vi den andre ved implisitt derivasjon med omsyn på $t$."},{"id":"s2-3-5-n-quiz2-q1","task":"Kulevolumet er $V = \\frac{4}{3}\\pi r^3$. Kva gir implisitt derivasjon med omsyn på $t$?","options":[{"id":"a","text":"$\\frac{dV}{dt} = 4\\pi r^2$","isCorrect":false},{"id":"b","text":"$\\frac{dV}{dt} = \\frac{4}{3}\\pi r^3 \\frac{dr}{dt}$","isCorrect":false},{"id":"c","text":"$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$","isCorrect":true},{"id":"d","text":"$\\frac{dV}{dt} = \\frac{dr}{dt}$","isCorrect":false}],"solution":"Kjerneregelen: deriver $\\frac{4}{3}\\pi r^3$ med omsyn på $r$ (gir $4\\pi r^2$) og gang med $\\frac{dr}{dt}$."},{"id":"s2-3-5-n-quiz2-q2","task":"Ballongen får $100$ cm$^3$/s og har $r = 10$ cm. Kor raskt veks radiusen?","options":[{"id":"a","text":"$\\frac{1}{40\\pi}$ cm/s","isCorrect":false},{"id":"b","text":"$\\frac{1}{4\\pi} \\approx 0{,}080$ cm/s","isCorrect":true},{"id":"c","text":"$4\\pi \\approx 12{,}6$ cm/s","isCorrect":false},{"id":"d","text":"$0{,}25$ cm/s","isCorrect":false}],"solution":"$100 = 4\\pi (10)^2 \\frac{dr}{dt} = 400\\pi \\frac{dr}{dt}$ gir $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s."},{"id":"s2-3-5-n-quiz2-q3","task":"Kvifor må vi setje inn talverdiar ETTER derivasjonen?","options":[{"id":"a","text":"Fordi tala blir for store elles","isCorrect":false},{"id":"b","text":"Det spelar inga rolle når vi set inn","isCorrect":false},{"id":"c","text":"Fordi kalkulatoren krev det","isCorrect":false},{"id":"d","text":"Fordi innsette verdiar gjer uttrykket til ein konstant, og samanhengen mellom ratane forsvinn","isCorrect":true}],"solution":"Derivasjon må gjerast på den generelle likninga. Set du inn $r = 10$ først, deriverer du ein konstant og mistar leddet med $\\frac{dr}{dt}$."}]}},{"id":"s2-3-5-n-summary","type":"text","content":"## Oppsummering: derivasjon utan fasit for y\n\nVi starta med ei kurve som nekta å la seg skrive som $y = f(x)$, og fann ein teknikk som ikkje bryr seg: **implisitt derivasjon**. Framgangsmåten er alltid den same. Deriver begge sider av likninga med omsyn på $x$. Bruk kjerneregelen på alle ledd med $y$: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$ — kvar gong du deriverer noko med $y$ i, heng det ein faktor $\\frac{dy}{dx}$ på. Samle så alle ledd med $\\frac{dy}{dx}$ på éi side og løys. At svaret inneheld både $x$ og $y$, er ikkje ein feil, men eit faktum: stigingstalet avheng av kvar på kurva du er, slik $-\\frac{x}{y}$ gjorde på sirkelen.\n\nMed produktregelen i tillegg takla vi kurver som $x^2y + xy^2 = 6$, og vi brukte teknikken til det han oftast blir brukt til: å finne **tangentlinjer**, som tangenten $y = -\\frac{1}{4}x + \\frac{9}{4}$ til kurva $x^3 + y^3 = 9$ i $(1,2)$.\n\nTil slutt lét vi tida vere den underliggjande variabelen og fekk **relaterte ratar**: finn samanhengen mellom storleikane, deriver implisitt med omsyn på $t$, set inn kjende verdiar og løys for den ukjende raten — slik vi fann at radiusen til ballongen voks med $\\frac{1}{4\\pi}$ cm/s. Og hugs den gylne regelen: tala blir sette inn etter derivasjonen, aldri før. Implisitt derivasjon er eit lite grep med stor rekkjevidd — det opnar for analyse av alle kurver, ikkje berre dei som er så vennlege å stille opp som funksjonar."}],"exercises":[],"_meta":{"sourceHash":"405b10e939c54d87","translatedAt":"2026-06-20T07:59:03.715Z","model":"claude-code-agent","strings":60,"tm":{"1f00545e9b211f25":"Implisitt derivasjon","b195b06d1ed59702":"Narrativ versjon","4dad96e1e10f059b":"Ei forteljing om kurver der y ikkje lèt seg isolere — og teknikken som likevel finn stigingstalet.","50a2c46d6445a564":"derivere implisitt definerte funksjonar","fdec7862f7bac6f1":"bruke implisitt derivasjon til å finne tangentlinjer og analysere samanhengar mellom variable","1e561e700fc84392":"## Når y nektar å stå åleine\n\nSjå for deg at du jobbar med ei designoppgåve: ei sirkelforma rundkøyring skal teiknast inn på eit kart, skildra ved likninga $x^2 + y^2 = 25$ — ein sirkel med radius 5. Du treng stigingstalet til tangenten i eit punkt på sirkelen. Men kvar er funksjonen? Det finst ingen pen formel $y = f(x)$; likninga blandar $x$ og $y$ saman. Samanhengen er gitt **implisitt**.\n\nHittil har vi derivert funksjonar gitt eksplisitt som $y = f(x)$. Men mange viktige samanhengar — sirklar, ellipsar, kurver i økonomiske modellar — lèt seg ikkje løyse for $y$, eller blir stygge når vi prøver. Løysinga heiter **implisitt derivasjon**: vi deriverer begge sider av likninga med omsyn på $x$, og handsamar $y$ som ein funksjon av $x$.\n\nNøkkelregelen er kjerneregelen. Sidan $y$ er ein funksjon av $x$, må kvart ledd som inneheld $y$ deriverast med eit ekstra ledd $\\frac{dy}{dx}$ på slutten: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$. Til dømes blir $\\frac{d}{dx}[y^2] = 2y \\cdot \\frac{dy}{dx}$ — ikkje berre $2y$. Når alt er derivert, samlar vi ledda med $\\frac{dy}{dx}$ på éi side og løyser. Svaret kan innehalde både $x$ og $y$, og det er heilt greitt: stigingstalet i eit punkt på kurva avheng jo av kvar på kurva du står.\n\nLat oss bruke teknikken på sirkelen, på styggare kurver — og til slutt på problem der tida sjølv er den skjulte variabelen.","630a6ae56b17f55d":"## Sirkelen og dei samansette kurvene\n\nVi deriverer sirkellikninga $x^2 + y^2 = 25$ ledd for ledd med omsyn på $x$. Venstre side: $\\frac{d}{dx}(x^2) = 2x$, og $\\frac{d}{dx}(y^2) = 2y \\cdot \\frac{dy}{dx}$ ved kjerneregelen. Høgre side: konstanten 25 blir derivert til null. Dermed har vi $2x + 2y\\frac{dy}{dx} = 0$, og vi løyser: $\\frac{dy}{dx} = -\\frac{x}{y}$.\n\nVi kan kontrollere svaret. Den øvre halvsirkelen kan faktisk skrivast eksplisitt som $y = \\sqrt{25 - x^2}$, og vanleg derivasjon gir $y' = \\frac{-x}{\\sqrt{25-x^2}} = -\\frac{x}{y}$ — nøyaktig det same. Men det implisitte svaret gjeld heile sirkelen på éin gong, både øvre og nedre halvdel.\n\nNo ei kurve der eksplisitt løysing er håplaus: $x^2 y + xy^2 = 6$. Her treng vi produktregelen i begge ledd. Første ledd: $\\frac{d}{dx}(x^2 y) = 2xy + x^2\\frac{dy}{dx}$. Andre ledd: $\\frac{d}{dx}(xy^2) = y^2 + 2xy\\frac{dy}{dx}$. Summen er null: $2xy + y^2 + (x^2 + 2xy)\\frac{dy}{dx} = 0$, som gir $\\frac{dy}{dx} = -\\frac{2xy + y^2}{x^2 + 2xy} = -\\frac{y(2x+y)}{x(x+2y)}$.\n\nDen vanlegaste bruken er **tangentlinjer**. Finn tangenten til kurva $x^3 + y^3 = 9$ i punktet $(1, 2)$. Først sjekkar vi at punktet ligg på kurva: $1 + 8 = 9$. ✓ Implisitt derivasjon gir $3x^2 + 3y^2\\frac{dy}{dx} = 0$, altså $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I punktet $(1,2)$ er stigingstalet $-\\frac{1}{4}$, og eittpunktsformelen gir tangenten $y - 2 = -\\frac{1}{4}(x - 1)$, det vil seie $y = -\\frac{1}{4}x + \\frac{9}{4}$.","3489bbe8d53865b1":"Test deg sjølv på implisitt derivasjon:","4097889236a2af26":"placeholder","83e35a312a844778":"Kva er $\\frac{d}{dx}[y^2]$ når $y$ er ein funksjon av $x$?","601d4e57c6706135":"$2y$","f23264f9a16c1688":"$2y \\cdot \\frac{dy}{dx}$","be732d2ea2224736":"$y^2 \\cdot \\frac{dy}{dx}$","78a5bb6d2b2ceac0":"$2x$","b8ee71351c88fd05":"Kjerneregelen: $y$ er ein funksjon av $x$, så vi deriverer det ytre ($2y$) og gangar med den deriverte av det indre ($\\frac{dy}{dx}$).","8fd9f50a45d3c86b":"Implisitt derivasjon av $x^2 + y^2 = 25$ gir kva uttrykk for $\\frac{dy}{dx}$?","fd668df9d7c86720":"$-\\frac{y}{x}$","e0580f91c7d6222f":"$\\frac{x}{y}$","180a3610be904180":"$-\\frac{x}{y}$","1e57c986e54fca21":"$-2x$","d31afdbc732ac954":"$2x + 2y\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x}{y}$. Svaret inneheld både $x$ og $y$ — heilt normalt ved implisitt derivasjon.","434df8d06e20e5d0":"Kva er stigingstalet til tangenten til $x^3 + y^3 = 9$ i punktet $(1, 2)$?","c7489ee95cb0e898":"$-\\frac{1}{4}$","f2bf6d932e14b55c":"$\\frac{1}{4}$","92474fd5be2f4a27":"$-\\frac{1}{2}$","d01cd45429feaea8":"$3x^2 + 3y^2\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I $(1,2)$: $-\\frac{1}{4}$.","e0f3f69da1352caa":"Kvifor inneheld svaret frå implisitt derivasjon ofte både $x$ og $y$?","e252846f96172f71":"Fordi vi har rekna feil — svaret skal berre ha $x$","f0df3bcd9e38d17f":"Fordi kurva ikkje er deriverbar","f09b900b78caf7db":"Fordi $y$ er ein konstant","d09cf6735ceaed26":"Fordi stigingstalet avheng av kva for eit punkt $(x, y)$ på kurva vi står i","c7e052edb6070025":"På til dømes ein sirkel har ulike punkt med same $x$-verdi ulike tangentar. Difor må stigingstalet $-\\frac{x}{y}$ avhenge av begge koordinatane.","c0529c2ce609e354":"## Når tida er den skjulte variabelen\n\nImplisitt derivasjon er grunnlaget for ein heil klasse praktiske problem: **relaterte ratar**. Tenk deg ein vêrballong som blir blåsen opp før oppskyting, slik at volumet aukar med $100$ cm$^3$ per sekund. Kor raskt aukar radiusen i det augneblinken han er 10 cm? Her endrar fleire storleikar seg over tid samtidig — volum og radius — og dei er knytte saman av ei likning. Kjenner vi den eine endringsraten, kan vi finne den andre.\n\nFramgangsmåten har tre steg. Først identifiserer vi dei variable og skriv opp samanhengen mellom dei: for ei kule er $V = \\frac{4}{3}\\pi r^3$. Så deriverer vi **implisitt med omsyn på tida $t$** — både $V$ og $r$ er funksjonar av $t$, så kjerneregelen gir $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. Til slutt set vi inn dei kjende verdiane og løyser for den ukjende raten: med $\\frac{dV}{dt} = 100$ og $r = 10$ får vi $100 = 4\\pi \\cdot 100 \\cdot \\frac{dr}{dt} = 400\\pi\\frac{dr}{dt}$, altså $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s.\n\nLegg merke til logikken i svaret: volumauken er konstant, men jo større ballongen blir, desto seinare veks radiusen — dei 100 kubikkcentimeterane skal smørjast utover ei stadig større overflate.\n\nEi viktig regel: set inn talverdiane **etter** at du har derivert, aldri før. Deriverer du likninga $V = \\frac{4}{3}\\pi \\cdot 10^3$, deriverer du ein konstant og får null — og heile samanhengen er borte. Derivasjonen skjer alltid på den generelle likninga.","054827e63bb57daa":"Test deg sjølv på relaterte ratar:","55b5930b4233dea0":"Kva kjenneteiknar eit problem med relaterte ratar?","53254c87ffcae4e8":"Fleire storleikar endrar seg over tid og er knytte saman av ei likning","d7b2719cc54741d0":"Funksjonen har fleire nullpunkt","a2666ef51c978063":"Vi kjenner alle endringsratane frå før","4ebb83f56119886a":"Likninga kan løysast eksplisitt for $y$","dd35105b06c7105d":"Relaterte ratar handlar om storleikar som alle avheng av tida og heng saman via ei likning — kjenner vi éin rate, finn vi den andre ved implisitt derivasjon med omsyn på $t$.","8565de318e2bfda6":"Kulevolumet er $V = \\frac{4}{3}\\pi r^3$. Kva gir implisitt derivasjon med omsyn på $t$?","d12ed13bd79ec518":"$\\frac{dV}{dt} = 4\\pi r^2$","8fd86ae371499650":"$\\frac{dV}{dt} = \\frac{4}{3}\\pi r^3 \\frac{dr}{dt}$","2d6d7f730389cfe4":"$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$","822f05c3457334b2":"$\\frac{dV}{dt} = \\frac{dr}{dt}$","4efc263b614f685f":"Kjerneregelen: deriver $\\frac{4}{3}\\pi r^3$ med omsyn på $r$ (gir $4\\pi r^2$) og gang med $\\frac{dr}{dt}$.","df61a81de647e0a0":"Ballongen får $100$ cm$^3$/s og har $r = 10$ cm. Kor raskt veks radiusen?","1964ac140152e981":"$\\frac{1}{40\\pi}$ cm/s","659e699059a8ce9b":"$\\frac{1}{4\\pi} \\approx 0{,}080$ cm/s","cfaf5cf9461bdf71":"$4\\pi \\approx 12{,}6$ cm/s","6f25af14853f35f8":"$0{,}25$ cm/s","1514db7894ffb5d7":"$100 = 4\\pi (10)^2 \\frac{dr}{dt} = 400\\pi \\frac{dr}{dt}$ gir $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s.","da52519d7fbabd23":"Kvifor må vi setje inn talverdiar ETTER derivasjonen?","3abb5b38d423572b":"Fordi tala blir for store elles","9980174501ce3546":"Det spelar inga rolle når vi set inn","0f8a0f93b7eb97bd":"Fordi kalkulatoren krev det","c990c45d12135a98":"Fordi innsette verdiar gjer uttrykket til ein konstant, og samanhengen mellom ratane forsvinn","d0bcd1bece103d08":"Derivasjon må gjerast på den generelle likninga. Set du inn $r = 10$ først, deriverer du ein konstant og mistar leddet med $\\frac{dr}{dt}$.","3b6628dc922cd7e1":"## Oppsummering: derivasjon utan fasit for y\n\nVi starta med ei kurve som nekta å la seg skrive som $y = f(x)$, og fann ein teknikk som ikkje bryr seg: **implisitt derivasjon**. Framgangsmåten er alltid den same. Deriver begge sider av likninga med omsyn på $x$. Bruk kjerneregelen på alle ledd med $y$: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$ — kvar gong du deriverer noko med $y$ i, heng det ein faktor $\\frac{dy}{dx}$ på. Samle så alle ledd med $\\frac{dy}{dx}$ på éi side og løys. At svaret inneheld både $x$ og $y$, er ikkje ein feil, men eit faktum: stigingstalet avheng av kvar på kurva du er, slik $-\\frac{x}{y}$ gjorde på sirkelen.\n\nMed produktregelen i tillegg takla vi kurver som $x^2y + xy^2 = 6$, og vi brukte teknikken til det han oftast blir brukt til: å finne **tangentlinjer**, som tangenten $y = -\\frac{1}{4}x + \\frac{9}{4}$ til kurva $x^3 + y^3 = 9$ i $(1,2)$.\n\nTil slutt lét vi tida vere den underliggjande variabelen og fekk **relaterte ratar**: finn samanhengen mellom storleikane, deriver implisitt med omsyn på $t$, set inn kjende verdiar og løys for den ukjende raten — slik vi fann at radiusen til ballongen voks med $\\frac{1}{4\\pi}$ cm/s. Og hugs den gylne regelen: tala blir sette inn etter derivasjonen, aldri før. Implisitt derivasjon er eit lite grep med stor rekkjevidd — det opnar for analyse av alle kurver, ikkje berre dei som er så vennlege å stille opp som funksjonar."}}}
+{
+  "id": "s2-3-5-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "3.5",
+  "title": "Implisitt derivasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kurver der y ikkje lèt seg isolere — og teknikken som likevel finn stigingstalet.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "derivere implisitt definerte funksjonar",
+    "bruke implisitt derivasjon til å finne tangentlinjer og analysere samanhengar mellom variable"
+  ],
+  "linkedChapterId": "s2-3-5",
+  "content": [
+    {
+      "id": "s2-3-5-n-intro",
+      "type": "text",
+      "content": "## Når y nektar å stå åleine\n\nSjå for deg at du jobbar med ei designoppgåve: ei sirkelforma rundkøyring skal teiknast inn på eit kart, skildra ved likninga $x^2 + y^2 = 25$ — ein sirkel med radius 5. Du treng stigingstalet til tangenten i eit punkt på sirkelen. Men kvar er funksjonen? Det finst ingen pen formel $y = f(x)$; likninga blandar $x$ og $y$ saman. Samanhengen er gitt **implisitt**.\n\nHittil har vi derivert funksjonar gitt eksplisitt som $y = f(x)$. Men mange viktige samanhengar — sirklar, ellipsar, kurver i økonomiske modellar — lèt seg ikkje løyse for $y$, eller blir stygge når vi prøver. Løysinga heiter **implisitt derivasjon**: vi deriverer begge sider av likninga med omsyn på $x$, og handsamar $y$ som ein funksjon av $x$.\n\nNøkkelregelen er kjerneregelen. Sidan $y$ er ein funksjon av $x$, må kvart ledd som inneheld $y$ deriverast med eit ekstra ledd $\\frac{dy}{dx}$ på slutten: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$. Til dømes blir $\\frac{d}{dx}[y^2] = 2y \\cdot \\frac{dy}{dx}$ — ikkje berre $2y$. Når alt er derivert, samlar vi ledda med $\\frac{dy}{dx}$ på éi side og løyser. Svaret kan innehalde både $x$ og $y$, og det er heilt greitt: stigingstalet i eit punkt på kurva avheng jo av kvar på kurva du står.\n\nLat oss bruke teknikken på sirkelen, på styggare kurver — og til slutt på problem der tida sjølv er den skjulte variabelen."
+    },
+    {
+      "id": "s2-3-5-n-section1",
+      "type": "text",
+      "content": "## Sirkelen og dei samansette kurvene\n\nVi deriverer sirkellikninga $x^2 + y^2 = 25$ ledd for ledd med omsyn på $x$. Venstre side: $\\frac{d}{dx}(x^2) = 2x$, og $\\frac{d}{dx}(y^2) = 2y \\cdot \\frac{dy}{dx}$ ved kjerneregelen. Høgre side: konstanten 25 blir derivert til null. Dermed har vi $2x + 2y\\frac{dy}{dx} = 0$, og vi løyser: $\\frac{dy}{dx} = -\\frac{x}{y}$.\n\nVi kan kontrollere svaret. Den øvre halvsirkelen kan faktisk skrivast eksplisitt som $y = \\sqrt{25 - x^2}$, og vanleg derivasjon gir $y' = \\frac{-x}{\\sqrt{25-x^2}} = -\\frac{x}{y}$ — nøyaktig det same. Men det implisitte svaret gjeld heile sirkelen på éin gong, både øvre og nedre halvdel.\n\nNo ei kurve der eksplisitt løysing er håplaus: $x^2 y + xy^2 = 6$. Her treng vi produktregelen i begge ledd. Første ledd: $\\frac{d}{dx}(x^2 y) = 2xy + x^2\\frac{dy}{dx}$. Andre ledd: $\\frac{d}{dx}(xy^2) = y^2 + 2xy\\frac{dy}{dx}$. Summen er null: $2xy + y^2 + (x^2 + 2xy)\\frac{dy}{dx} = 0$, som gir $\\frac{dy}{dx} = -\\frac{2xy + y^2}{x^2 + 2xy} = -\\frac{y(2x+y)}{x(x+2y)}$.\n\nDen vanlegaste bruken er **tangentlinjer**. Finn tangenten til kurva $x^3 + y^3 = 9$ i punktet $(1, 2)$. Først sjekkar vi at punktet ligg på kurva: $1 + 8 = 9$. ✓ Implisitt derivasjon gir $3x^2 + 3y^2\\frac{dy}{dx} = 0$, altså $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I punktet $(1,2)$ er stigingstalet $-\\frac{1}{4}$, og eittpunktsformelen gir tangenten $y - 2 = -\\frac{1}{4}(x - 1)$, det vil seie $y = -\\frac{1}{4}x + \\frac{9}{4}$."
+    },
+    {
+      "id": "s2-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på implisitt derivasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-5-n-quiz1-q0",
+            "task": "Kva er $\\frac{d}{dx}[y^2]$ når $y$ er ein funksjon av $x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2y$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2y \\cdot \\frac{dy}{dx}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$y^2 \\cdot \\frac{dy}{dx}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen: $y$ er ein funksjon av $x$, så vi deriverer det ytre ($2y$) og gangar med den deriverte av det indre ($\\frac{dy}{dx}$)."
+          },
+          {
+            "id": "s2-3-5-n-quiz1-q1",
+            "task": "Implisitt derivasjon av $x^2 + y^2 = 25$ gir kva uttrykk for $\\frac{dy}{dx}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$-\\frac{x}{y}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{y}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{x}{y}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2x + 2y\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x}{y}$. Svaret inneheld både $x$ og $y$ — heilt normalt ved implisitt derivasjon."
+          },
+          {
+            "id": "s2-3-5-n-quiz1-q2",
+            "task": "Kva er stigingstalet til tangenten til $x^3 + y^3 = 9$ i punktet $(1, 2)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$-\\frac{1}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$-4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3x^2 + 3y^2\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I $(1,2)$: $-\\frac{1}{4}$."
+          },
+          {
+            "id": "s2-3-5-n-quiz1-q3",
+            "task": "Kvifor inneheld svaret frå implisitt derivasjon ofte både $x$ og $y$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi vi har rekna feil — svaret skal berre ha $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi kurva ikkje er deriverbar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $y$ er ein konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi stigingstalet avheng av kva for eit punkt $(x, y)$ på kurva vi står i",
+                "isCorrect": true
+              }
+            ],
+            "solution": "På til dømes ein sirkel har ulike punkt med same $x$-verdi ulike tangentar. Difor må stigingstalet $-\\frac{x}{y}$ avhenge av begge koordinatane."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-5-n-section2",
+      "type": "text",
+      "content": "## Når tida er den skjulte variabelen\n\nImplisitt derivasjon er grunnlaget for ein heil klasse praktiske problem: **relaterte ratar**. Tenk deg ein vêrballong som blir blåsen opp før oppskyting, slik at volumet aukar med $100$ cm$^3$ per sekund. Kor raskt aukar radiusen i det augneblinken han er 10 cm? Her endrar fleire storleikar seg over tid samtidig — volum og radius — og dei er knytte saman av ei likning. Kjenner vi den eine endringsraten, kan vi finne den andre.\n\nFramgangsmåten har tre steg. Først identifiserer vi dei variable og skriv opp samanhengen mellom dei: for ei kule er $V = \\frac{4}{3}\\pi r^3$. Så deriverer vi **implisitt med omsyn på tida $t$** — både $V$ og $r$ er funksjonar av $t$, så kjerneregelen gir $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. Til slutt set vi inn dei kjende verdiane og løyser for den ukjende raten: med $\\frac{dV}{dt} = 100$ og $r = 10$ får vi $100 = 4\\pi \\cdot 100 \\cdot \\frac{dr}{dt} = 400\\pi\\frac{dr}{dt}$, altså $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s.\n\nLegg merke til logikken i svaret: volumauken er konstant, men jo større ballongen blir, desto seinare veks radiusen — dei 100 kubikkcentimeterane skal smørjast utover ei stadig større overflate.\n\nEi viktig regel: set inn talverdiane **etter** at du har derivert, aldri før. Deriverer du likninga $V = \\frac{4}{3}\\pi \\cdot 10^3$, deriverer du ein konstant og får null — og heile samanhengen er borte. Derivasjonen skjer alltid på den generelle likninga."
+    },
+    {
+      "id": "s2-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på relaterte ratar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-5-n-quiz2-q0",
+            "task": "Kva kjenneteiknar eit problem med relaterte ratar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fleire storleikar endrar seg over tid og er knytte saman av ei likning",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Funksjonen har fleire nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi kjenner alle endringsratane frå før",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Likninga kan løysast eksplisitt for $y$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Relaterte ratar handlar om storleikar som alle avheng av tida og heng saman via ei likning — kjenner vi éin rate, finn vi den andre ved implisitt derivasjon med omsyn på $t$."
+          },
+          {
+            "id": "s2-3-5-n-quiz2-q1",
+            "task": "Kulevolumet er $V = \\frac{4}{3}\\pi r^3$. Kva gir implisitt derivasjon med omsyn på $t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{dV}{dt} = 4\\pi r^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{dV}{dt} = \\frac{4}{3}\\pi r^3 \\frac{dr}{dt}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{dV}{dt} = \\frac{dr}{dt}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen: deriver $\\frac{4}{3}\\pi r^3$ med omsyn på $r$ (gir $4\\pi r^2$) og gang med $\\frac{dr}{dt}$."
+          },
+          {
+            "id": "s2-3-5-n-quiz2-q2",
+            "task": "Ballongen får $100$ cm$^3$/s og har $r = 10$ cm. Kor raskt veks radiusen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{40\\pi}$ cm/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4\\pi \\approx 12{,}6$ cm/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{4\\pi} \\approx 0{,}080$ cm/s",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}25$ cm/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$100 = 4\\pi (10)^2 \\frac{dr}{dt} = 400\\pi \\frac{dr}{dt}$ gir $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s."
+          },
+          {
+            "id": "s2-3-5-n-quiz2-q3",
+            "task": "Kvifor må vi setje inn talverdiar ETTER derivasjonen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi tala blir for store elles",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det spelar inga rolle når vi set inn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi kalkulatoren krev det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi innsette verdiar gjer uttrykket til ein konstant, og samanhengen mellom ratane forsvinn",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Derivasjon må gjerast på den generelle likninga. Set du inn $r = 10$ først, deriverer du ein konstant og mistar leddet med $\\frac{dr}{dt}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: derivasjon utan fasit for y\n\nVi starta med ei kurve som nekta å la seg skrive som $y = f(x)$, og fann ein teknikk som ikkje bryr seg: **implisitt derivasjon**. Framgangsmåten er alltid den same. Deriver begge sider av likninga med omsyn på $x$. Bruk kjerneregelen på alle ledd med $y$: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$ — kvar gong du deriverer noko med $y$ i, heng det ein faktor $\\frac{dy}{dx}$ på. Samle så alle ledd med $\\frac{dy}{dx}$ på éi side og løys. At svaret inneheld både $x$ og $y$, er ikkje ein feil, men eit faktum: stigingstalet avheng av kvar på kurva du er, slik $-\\frac{x}{y}$ gjorde på sirkelen.\n\nMed produktregelen i tillegg takla vi kurver som $x^2y + xy^2 = 6$, og vi brukte teknikken til det han oftast blir brukt til: å finne **tangentlinjer**, som tangenten $y = -\\frac{1}{4}x + \\frac{9}{4}$ til kurva $x^3 + y^3 = 9$ i $(1,2)$.\n\nTil slutt lét vi tida vere den underliggjande variabelen og fekk **relaterte ratar**: finn samanhengen mellom storleikane, deriver implisitt med omsyn på $t$, set inn kjende verdiar og løys for den ukjende raten — slik vi fann at radiusen til ballongen voks med $\\frac{1}{4\\pi}$ cm/s. Og hugs den gylne regelen: tala blir sette inn etter derivasjonen, aldri før. Implisitt derivasjon er eit lite grep med stor rekkjevidd — det opnar for analyse av alle kurver, ikkje berre dei som er så vennlege å stille opp som funksjonar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "405b10e939c54d87",
+    "translatedAt": "2026-06-20T07:59:03.715Z",
+    "model": "claude-code-agent",
+    "strings": 60,
+    "tm": {
+      "1f00545e9b211f25": "Implisitt derivasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "4dad96e1e10f059b": "Ei forteljing om kurver der y ikkje lèt seg isolere — og teknikken som likevel finn stigingstalet.",
+      "50a2c46d6445a564": "derivere implisitt definerte funksjonar",
+      "fdec7862f7bac6f1": "bruke implisitt derivasjon til å finne tangentlinjer og analysere samanhengar mellom variable",
+      "1e561e700fc84392": "## Når y nektar å stå åleine\n\nSjå for deg at du jobbar med ei designoppgåve: ei sirkelforma rundkøyring skal teiknast inn på eit kart, skildra ved likninga $x^2 + y^2 = 25$ — ein sirkel med radius 5. Du treng stigingstalet til tangenten i eit punkt på sirkelen. Men kvar er funksjonen? Det finst ingen pen formel $y = f(x)$; likninga blandar $x$ og $y$ saman. Samanhengen er gitt **implisitt**.\n\nHittil har vi derivert funksjonar gitt eksplisitt som $y = f(x)$. Men mange viktige samanhengar — sirklar, ellipsar, kurver i økonomiske modellar — lèt seg ikkje løyse for $y$, eller blir stygge når vi prøver. Løysinga heiter **implisitt derivasjon**: vi deriverer begge sider av likninga med omsyn på $x$, og handsamar $y$ som ein funksjon av $x$.\n\nNøkkelregelen er kjerneregelen. Sidan $y$ er ein funksjon av $x$, må kvart ledd som inneheld $y$ deriverast med eit ekstra ledd $\\frac{dy}{dx}$ på slutten: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$. Til dømes blir $\\frac{d}{dx}[y^2] = 2y \\cdot \\frac{dy}{dx}$ — ikkje berre $2y$. Når alt er derivert, samlar vi ledda med $\\frac{dy}{dx}$ på éi side og løyser. Svaret kan innehalde både $x$ og $y$, og det er heilt greitt: stigingstalet i eit punkt på kurva avheng jo av kvar på kurva du står.\n\nLat oss bruke teknikken på sirkelen, på styggare kurver — og til slutt på problem der tida sjølv er den skjulte variabelen.",
+      "630a6ae56b17f55d": "## Sirkelen og dei samansette kurvene\n\nVi deriverer sirkellikninga $x^2 + y^2 = 25$ ledd for ledd med omsyn på $x$. Venstre side: $\\frac{d}{dx}(x^2) = 2x$, og $\\frac{d}{dx}(y^2) = 2y \\cdot \\frac{dy}{dx}$ ved kjerneregelen. Høgre side: konstanten 25 blir derivert til null. Dermed har vi $2x + 2y\\frac{dy}{dx} = 0$, og vi løyser: $\\frac{dy}{dx} = -\\frac{x}{y}$.\n\nVi kan kontrollere svaret. Den øvre halvsirkelen kan faktisk skrivast eksplisitt som $y = \\sqrt{25 - x^2}$, og vanleg derivasjon gir $y' = \\frac{-x}{\\sqrt{25-x^2}} = -\\frac{x}{y}$ — nøyaktig det same. Men det implisitte svaret gjeld heile sirkelen på éin gong, både øvre og nedre halvdel.\n\nNo ei kurve der eksplisitt løysing er håplaus: $x^2 y + xy^2 = 6$. Her treng vi produktregelen i begge ledd. Første ledd: $\\frac{d}{dx}(x^2 y) = 2xy + x^2\\frac{dy}{dx}$. Andre ledd: $\\frac{d}{dx}(xy^2) = y^2 + 2xy\\frac{dy}{dx}$. Summen er null: $2xy + y^2 + (x^2 + 2xy)\\frac{dy}{dx} = 0$, som gir $\\frac{dy}{dx} = -\\frac{2xy + y^2}{x^2 + 2xy} = -\\frac{y(2x+y)}{x(x+2y)}$.\n\nDen vanlegaste bruken er **tangentlinjer**. Finn tangenten til kurva $x^3 + y^3 = 9$ i punktet $(1, 2)$. Først sjekkar vi at punktet ligg på kurva: $1 + 8 = 9$. ✓ Implisitt derivasjon gir $3x^2 + 3y^2\\frac{dy}{dx} = 0$, altså $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I punktet $(1,2)$ er stigingstalet $-\\frac{1}{4}$, og eittpunktsformelen gir tangenten $y - 2 = -\\frac{1}{4}(x - 1)$, det vil seie $y = -\\frac{1}{4}x + \\frac{9}{4}$.",
+      "3489bbe8d53865b1": "Test deg sjølv på implisitt derivasjon:",
+      "4097889236a2af26": "placeholder",
+      "83e35a312a844778": "Kva er $\\frac{d}{dx}[y^2]$ når $y$ er ein funksjon av $x$?",
+      "601d4e57c6706135": "$2y$",
+      "f23264f9a16c1688": "$2y \\cdot \\frac{dy}{dx}$",
+      "be732d2ea2224736": "$y^2 \\cdot \\frac{dy}{dx}$",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "b8ee71351c88fd05": "Kjerneregelen: $y$ er ein funksjon av $x$, så vi deriverer det ytre ($2y$) og gangar med den deriverte av det indre ($\\frac{dy}{dx}$).",
+      "8fd9f50a45d3c86b": "Implisitt derivasjon av $x^2 + y^2 = 25$ gir kva uttrykk for $\\frac{dy}{dx}$?",
+      "fd668df9d7c86720": "$-\\frac{y}{x}$",
+      "e0580f91c7d6222f": "$\\frac{x}{y}$",
+      "180a3610be904180": "$-\\frac{x}{y}$",
+      "1e57c986e54fca21": "$-2x$",
+      "d31afdbc732ac954": "$2x + 2y\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x}{y}$. Svaret inneheld både $x$ og $y$ — heilt normalt ved implisitt derivasjon.",
+      "434df8d06e20e5d0": "Kva er stigingstalet til tangenten til $x^3 + y^3 = 9$ i punktet $(1, 2)$?",
+      "c7489ee95cb0e898": "$-\\frac{1}{4}$",
+      "f2bf6d932e14b55c": "$\\frac{1}{4}$",
+      "92474fd5be2f4a27": "$-\\frac{1}{2}$",
+      "d01cd45429feaea8": "$3x^2 + 3y^2\\frac{dy}{dx} = 0$ gir $\\frac{dy}{dx} = -\\frac{x^2}{y^2}$. I $(1,2)$: $-\\frac{1}{4}$.",
+      "e0f3f69da1352caa": "Kvifor inneheld svaret frå implisitt derivasjon ofte både $x$ og $y$?",
+      "e252846f96172f71": "Fordi vi har rekna feil — svaret skal berre ha $x$",
+      "f0df3bcd9e38d17f": "Fordi kurva ikkje er deriverbar",
+      "f09b900b78caf7db": "Fordi $y$ er ein konstant",
+      "d09cf6735ceaed26": "Fordi stigingstalet avheng av kva for eit punkt $(x, y)$ på kurva vi står i",
+      "c7e052edb6070025": "På til dømes ein sirkel har ulike punkt med same $x$-verdi ulike tangentar. Difor må stigingstalet $-\\frac{x}{y}$ avhenge av begge koordinatane.",
+      "c0529c2ce609e354": "## Når tida er den skjulte variabelen\n\nImplisitt derivasjon er grunnlaget for ein heil klasse praktiske problem: **relaterte ratar**. Tenk deg ein vêrballong som blir blåsen opp før oppskyting, slik at volumet aukar med $100$ cm$^3$ per sekund. Kor raskt aukar radiusen i det augneblinken han er 10 cm? Her endrar fleire storleikar seg over tid samtidig — volum og radius — og dei er knytte saman av ei likning. Kjenner vi den eine endringsraten, kan vi finne den andre.\n\nFramgangsmåten har tre steg. Først identifiserer vi dei variable og skriv opp samanhengen mellom dei: for ei kule er $V = \\frac{4}{3}\\pi r^3$. Så deriverer vi **implisitt med omsyn på tida $t$** — både $V$ og $r$ er funksjonar av $t$, så kjerneregelen gir $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$. Til slutt set vi inn dei kjende verdiane og løyser for den ukjende raten: med $\\frac{dV}{dt} = 100$ og $r = 10$ får vi $100 = 4\\pi \\cdot 100 \\cdot \\frac{dr}{dt} = 400\\pi\\frac{dr}{dt}$, altså $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s.\n\nLegg merke til logikken i svaret: volumauken er konstant, men jo større ballongen blir, desto seinare veks radiusen — dei 100 kubikkcentimeterane skal smørjast utover ei stadig større overflate.\n\nEi viktig regel: set inn talverdiane **etter** at du har derivert, aldri før. Deriverer du likninga $V = \\frac{4}{3}\\pi \\cdot 10^3$, deriverer du ein konstant og får null — og heile samanhengen er borte. Derivasjonen skjer alltid på den generelle likninga.",
+      "054827e63bb57daa": "Test deg sjølv på relaterte ratar:",
+      "55b5930b4233dea0": "Kva kjenneteiknar eit problem med relaterte ratar?",
+      "53254c87ffcae4e8": "Fleire storleikar endrar seg over tid og er knytte saman av ei likning",
+      "d7b2719cc54741d0": "Funksjonen har fleire nullpunkt",
+      "a2666ef51c978063": "Vi kjenner alle endringsratane frå før",
+      "4ebb83f56119886a": "Likninga kan løysast eksplisitt for $y$",
+      "dd35105b06c7105d": "Relaterte ratar handlar om storleikar som alle avheng av tida og heng saman via ei likning — kjenner vi éin rate, finn vi den andre ved implisitt derivasjon med omsyn på $t$.",
+      "8565de318e2bfda6": "Kulevolumet er $V = \\frac{4}{3}\\pi r^3$. Kva gir implisitt derivasjon med omsyn på $t$?",
+      "d12ed13bd79ec518": "$\\frac{dV}{dt} = 4\\pi r^2$",
+      "8fd86ae371499650": "$\\frac{dV}{dt} = \\frac{4}{3}\\pi r^3 \\frac{dr}{dt}$",
+      "2d6d7f730389cfe4": "$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$",
+      "822f05c3457334b2": "$\\frac{dV}{dt} = \\frac{dr}{dt}$",
+      "4efc263b614f685f": "Kjerneregelen: deriver $\\frac{4}{3}\\pi r^3$ med omsyn på $r$ (gir $4\\pi r^2$) og gang med $\\frac{dr}{dt}$.",
+      "df61a81de647e0a0": "Ballongen får $100$ cm$^3$/s og har $r = 10$ cm. Kor raskt veks radiusen?",
+      "1964ac140152e981": "$\\frac{1}{40\\pi}$ cm/s",
+      "659e699059a8ce9b": "$\\frac{1}{4\\pi} \\approx 0{,}080$ cm/s",
+      "cfaf5cf9461bdf71": "$4\\pi \\approx 12{,}6$ cm/s",
+      "6f25af14853f35f8": "$0{,}25$ cm/s",
+      "1514db7894ffb5d7": "$100 = 4\\pi (10)^2 \\frac{dr}{dt} = 400\\pi \\frac{dr}{dt}$ gir $\\frac{dr}{dt} = \\frac{100}{400\\pi} = \\frac{1}{4\\pi} \\approx 0{,}080$ cm/s.",
+      "da52519d7fbabd23": "Kvifor må vi setje inn talverdiar ETTER derivasjonen?",
+      "3abb5b38d423572b": "Fordi tala blir for store elles",
+      "9980174501ce3546": "Det spelar inga rolle når vi set inn",
+      "0f8a0f93b7eb97bd": "Fordi kalkulatoren krev det",
+      "c990c45d12135a98": "Fordi innsette verdiar gjer uttrykket til ein konstant, og samanhengen mellom ratane forsvinn",
+      "d0bcd1bece103d08": "Derivasjon må gjerast på den generelle likninga. Set du inn $r = 10$ først, deriverer du ein konstant og mistar leddet med $\\frac{dr}{dt}$.",
+      "3b6628dc922cd7e1": "## Oppsummering: derivasjon utan fasit for y\n\nVi starta med ei kurve som nekta å la seg skrive som $y = f(x)$, og fann ein teknikk som ikkje bryr seg: **implisitt derivasjon**. Framgangsmåten er alltid den same. Deriver begge sider av likninga med omsyn på $x$. Bruk kjerneregelen på alle ledd med $y$: $\\frac{d}{dx}[g(y)] = g'(y) \\cdot \\frac{dy}{dx}$ — kvar gong du deriverer noko med $y$ i, heng det ein faktor $\\frac{dy}{dx}$ på. Samle så alle ledd med $\\frac{dy}{dx}$ på éi side og løys. At svaret inneheld både $x$ og $y$, er ikkje ein feil, men eit faktum: stigingstalet avheng av kvar på kurva du er, slik $-\\frac{x}{y}$ gjorde på sirkelen.\n\nMed produktregelen i tillegg takla vi kurver som $x^2y + xy^2 = 6$, og vi brukte teknikken til det han oftast blir brukt til: å finne **tangentlinjer**, som tangenten $y = -\\frac{1}{4}x + \\frac{9}{4}$ til kurva $x^3 + y^3 = 9$ i $(1,2)$.\n\nTil slutt lét vi tida vere den underliggjande variabelen og fekk **relaterte ratar**: finn samanhengen mellom storleikane, deriver implisitt med omsyn på $t$, set inn kjende verdiar og løys for den ukjende raten — slik vi fann at radiusen til ballongen voks med $\\frac{1}{4\\pi}$ cm/s. Og hugs den gylne regelen: tala blir sette inn etter derivasjonen, aldri før. Implisitt derivasjon er eit lite grep med stor rekkjevidd — det opnar for analyse av alle kurver, ikkje berre dei som er så vennlege å stille opp som funksjonar."
+    }
+  }
+}

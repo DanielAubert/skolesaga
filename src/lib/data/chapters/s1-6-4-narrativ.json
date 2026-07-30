@@ -1,1 +1,285 @@
-{"id":"s1-6-4-narrativ","courseId":"s1","chapterNumber":"6.4","title":"Normalfordelingen","subtitle":"Narrativ versjon","description":"En fortelling om klokkekurven bak sesjonsdataene — normalfordelingen, 68-95-99,7-regelen og z-score.","estimatedMinutes":31,"competenceGoals":["bruke normalfordelingen som modell og beregne sannsynligheter med digitale verktøy"],"linkedChapterId":"s1-6-4","content":[{"id":"s1-6-4-n-intro","type":"text","content":"## Klokkekurven bak sesjonsdataene\n\nNår Forsvaret måler høyden på tusenvis av unge på sesjon, og noen plotter alle målingene i et diagram, dukker det opp en form som statistikere kjenner igjen umiddelbart: en symmetrisk, klokkeformet kurve med de fleste i midten og stadig færre ut mot kantene. Det samme skjer med fødselsvekter, testresultater og målefeil i laboratorier. Formen har et navn: **normalfordelingen** — den viktigste kontinuerlige sannsynlighetsfordelingen av dem alle.\n\nKurven er symmetrisk om **forventningsverdien** $\\mu$, og spredningen bestemmes av **standardavviket** $\\sigma$. Vi skriver $X \\sim N(\\mu, \\sigma^2)$ for en normalfordelt variabel. Selve tetthetsfunksjonen ser avskrekkende ut,\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nmen du trenger sjelden å røre den direkte. Sannsynligheter beregnes som **arealet under kurven**: $P(a < X < b) = \\int_a^b f(x)\\,dx$, og i praksis lar vi GeoGebra eller kalkulatoren gjøre integralene.\n\nDet du derimot bør kunne på fingrene, er **68-95-99,7-regelen**. For enhver normalfordeling gjelder at cirka 68 % av verdiene ligger innenfor ett standardavvik fra $\\mu$, cirka 95 % innenfor to, og cirka 99,7 % innenfor tre.\n\nPrøv den på sesjonsdataene: menns høyde er omtrent normalfordelt med $\\mu = 180$ cm og $\\sigma = 7$ cm. Hvor stor andel er mellom 173 og 187 cm? Intervallet er nøyaktig $[\\mu - \\sigma, \\mu + \\sigma]$, så svaret er omtrent **68,3 %** — uten en eneste integrasjon."},{"id":"s1-6-4-n-quiz1","type":"exercise","exercise":{"id":"s1-6-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på normalfordelingen og 68-95-99,7-regelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-4-n-quiz1-q0","task":"Hva bestemmer formen på normalfordelingskurven?","options":[{"id":"a","text":"Forventningsverdien $\\mu$ og standardavviket $\\sigma$","isCorrect":true},{"id":"b","text":"Bare antall observasjoner","isCorrect":false},{"id":"c","text":"Medianen og typetallet","isCorrect":false},{"id":"d","text":"Maksimums- og minimumsverdien","isCorrect":false}],"solution":"Kurven er sentrert i $\\mu$ og spredningen styres av $\\sigma$. Vi skriver $X \\sim N(\\mu, \\sigma^2)$."},{"id":"s1-6-4-n-quiz1-q1","task":"Omtrent hvor stor andel av verdiene ligger innenfor to standardavvik fra gjennomsnittet?","options":[{"id":"a","text":"$68\\,\\%$","isCorrect":false},{"id":"b","text":"$95\\,\\%$","isCorrect":true},{"id":"c","text":"$99{,}7\\,\\%$","isCorrect":false},{"id":"d","text":"$50\\,\\%$","isCorrect":false}],"solution":"68-95-99,7-regelen: ca. 95 % ligger i intervallet $[\\mu - 2\\sigma, \\mu + 2\\sigma]$."},{"id":"s1-6-4-n-quiz1-q2","task":"Høyder er normalfordelt med $\\mu = 180$ og $\\sigma = 7$. Hvor stor andel er mellom $173$ og $187$ cm?","options":[{"id":"a","text":"Ca. $95\\,\\%$","isCorrect":false},{"id":"b","text":"Ca. $50\\,\\%$","isCorrect":false},{"id":"c","text":"Ca. $68\\,\\%$","isCorrect":true},{"id":"d","text":"Ca. $99{,}7\\,\\%$","isCorrect":false}],"solution":"Intervallet er $[\\mu - \\sigma, \\mu + \\sigma]$, som rommer ca. 68,3 % av fordelingen."},{"id":"s1-6-4-n-quiz1-q3","task":"Hvordan beregnes $P(a < X < b)$ for en normalfordelt variabel?","options":[{"id":"a","text":"Som differansen $b - a$ delt på $\\sigma$","isCorrect":false},{"id":"b","text":"Som høyden av kurven i midtpunktet","isCorrect":false},{"id":"c","text":"Som $\\frac{b-a}{\\mu}$","isCorrect":false},{"id":"d","text":"Som arealet under tetthetskurven fra $a$ til $b$","isCorrect":true}],"solution":"Sannsynligheten er arealet under kurven: $P(a < X < b) = \\int_a^b f(x)\\,dx$, beregnet med digitale verktøy."}]}},{"id":"s1-6-4-n-section1","type":"text","content":"## Z-score — alle normalfordelinger i én\n\nSesjonskontoret får et spørsmål: hvor stor andel av mennene er over 190 cm? Intervallgrensene treffer ikke lenger pent på hele standardavvik, så vi trenger et mer presist verktøy: **standardisering**.\n\nEnhver normalfordelt variabel kan omgjøres til **standardnormalfordelingen** $Z \\sim N(0, 1)$ — normalfordelingen med gjennomsnitt 0 og standardavvik 1 — ved transformasjonen\n\n$$Z = \\frac{X - \\mu}{\\sigma}$$\n\nTallet $z$ kalles **z-score** og forteller hvor mange standardavvik en verdi ligger fra gjennomsnittet. En positiv z-score betyr over snittet, en negativ under. Det geniale er at alle normalfordelinger dermed kan slås opp i én og samme tabell — eller beregnes med ett og samme kommandosett i GeoGebra.\n\nFor høydespørsmålet: $z = \\frac{190 - 180}{7} = \\frac{10}{7} \\approx 1{,}43$. En mann på 190 cm ligger altså 1,43 standardavvik over snittet, og\n\n$$P(X > 190) = P(Z > 1{,}43) \\approx 0{,}0764$$\n\nOmtrent **7,6 %** av mennene er over 190 cm.\n\nZ-scoren gjør også verdier fra *ulike* fordelinger sammenlignbare. Er 85 poeng på en prøve med $\\mu = 70, \\sigma = 10$ bedre enn 78 på en med $\\mu = 65, \\sigma = 8$? Regn ut: $z_1 = 1{,}5$ mot $z_2 = 1{,}625$ — den andre prestasjonen er faktisk sterkere relativt til sin gruppe. Og sammenhengen kan snus: kjenner du andelen, kan du gå fra $z$ tilbake til $x = \\mu + z\\sigma$ og bestemme ukjente grenser, eller til og med finne ukjente $\\mu$ eller $\\sigma$ fra observerte andeler. Det er denne fleksibiliteten som gjør normalfordelingen til arbeidshesten i alt fra kvalitetskontroll til meningsmålinger — som du skal se i kapitlene som følger."},{"id":"s1-6-4-n-quiz2","type":"exercise","exercise":{"id":"s1-6-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på standardisering og z-score:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-4-n-quiz2-q0","task":"Hva er formelen for z-score?","options":[{"id":"a","text":"$z = \\dfrac{x - \\mu}{\\sigma}$","isCorrect":true},{"id":"b","text":"$z = \\dfrac{\\mu - \\sigma}{x}$","isCorrect":false},{"id":"c","text":"$z = \\dfrac{x + \\mu}{\\sigma}$","isCorrect":false},{"id":"d","text":"$z = \\sigma(x - \\mu)$","isCorrect":false}],"solution":"$z = \\frac{x - \\mu}{\\sigma}$ — antall standardavvik verdien ligger fra gjennomsnittet."},{"id":"s1-6-4-n-quiz2-q1","task":"Høyder: $\\mu = 180$, $\\sigma = 7$. Hva er z-scoren til en som er $190$ cm?","options":[{"id":"a","text":"$z = 10$","isCorrect":false},{"id":"b","text":"$z = 0{,}7$","isCorrect":false},{"id":"c","text":"$z \\approx 1{,}43$","isCorrect":true},{"id":"d","text":"$z = -1{,}43$","isCorrect":false}],"solution":"$z = \\frac{190 - 180}{7} = \\frac{10}{7} \\approx 1{,}43$."},{"id":"s1-6-4-n-quiz2-q2","task":"Hva kjennetegner standardnormalfordelingen?","options":[{"id":"a","text":"$\\mu = 1$ og $\\sigma = 0$","isCorrect":false},{"id":"b","text":"$\\mu = 0$ og $\\sigma = 1$","isCorrect":true},{"id":"c","text":"$\\mu = 100$ og $\\sigma = 15$","isCorrect":false},{"id":"d","text":"Den har ingen standardavvik","isCorrect":false}],"solution":"Standardnormalfordelingen $Z \\sim N(0, 1)$ har gjennomsnitt 0 og standardavvik 1."},{"id":"s1-6-4-n-quiz2-q3","task":"En verdi har z-score $z = 2$ i fordelingen $N(50, 5^2)$. Hva er verdien?","options":[{"id":"a","text":"$52$","isCorrect":false},{"id":"b","text":"$55$","isCorrect":false},{"id":"c","text":"$100$","isCorrect":false},{"id":"d","text":"$60$","isCorrect":true}],"solution":"$x = \\mu + z\\sigma = 50 + 2 \\cdot 5 = 60$."}]}},{"id":"s1-6-4-n-summary","type":"text","content":"## Oppsummering: én kurve, tusen anvendelser\n\nSesjonsmålingene tegnet klokkekurven selv, og du har nå verktøyene til å regne på den. **Normalfordelingen** $N(\\mu, \\sigma)$ beskriver utallige naturlige størrelser — høyde, vekt, måleresultater — med en symmetrisk kurve sentrert i forventningsverdien $\\mu$ og spredning styrt av standardavviket $\\sigma$. Sannsynligheter er arealer under kurven, og de beregnes med digitale verktøy.\n\n**68-95-99,7-regelen** gir lynraske overslag: omtrent 68 % av verdiene ligger innenfor $\\mu \\pm \\sigma$, 95 % innenfor $\\mu \\pm 2\\sigma$ og 99,7 % innenfor $\\mu \\pm 3\\sigma$. Når grensene ikke treffer hele standardavvik, standardiserer du med **z-scoren** $z = \\frac{x - \\mu}{\\sigma}$, som oversetter enhver normalfordeling til standardnormalfordelingen $N(0, 1)$ — slik fant vi at bare 7,6 % av mennene er over 190 cm. Formelen kan snus til $x = \\mu + z\\sigma$ når du kjenner andelen og leter etter grensen, og z-scorer gjør prestasjoner fra ulike fordelinger direkte sammenlignbare.\n\nNormalfordelingen er ikke bare en kuriositet fra sesjonshallen: i kapittel 6.6 skal du se at selv binomiske forsøksrekker — valgmålinger, kvalitetskontroller — nærmer seg klokkeformen når antallet blir stort. Da blir z-scoren ditt viktigste regneverktøy."}],"exercises":[]}
+{
+  "id": "s1-6-4-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "6.4",
+  "title": "Normalfordelingen",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om klokkekurven bak sesjonsdataene — normalfordelingen, 68-95-99,7-regelen og z-score.",
+  "estimatedMinutes": 31,
+  "competenceGoals": [
+    "bruke normalfordelingen som modell og beregne sannsynligheter med digitale verktøy"
+  ],
+  "linkedChapterId": "s1-6-4",
+  "content": [
+    {
+      "id": "s1-6-4-n-intro",
+      "type": "text",
+      "content": "## Klokkekurven bak sesjonsdataene\n\nNår Forsvaret måler høyden på tusenvis av unge på sesjon, og noen plotter alle målingene i et diagram, dukker det opp en form som statistikere kjenner igjen umiddelbart: en symmetrisk, klokkeformet kurve med de fleste i midten og stadig færre ut mot kantene. Det samme skjer med fødselsvekter, testresultater og målefeil i laboratorier. Formen har et navn: **normalfordelingen** — den viktigste kontinuerlige sannsynlighetsfordelingen av dem alle.\n\nKurven er symmetrisk om **forventningsverdien** $\\mu$, og spredningen bestemmes av **standardavviket** $\\sigma$. Vi skriver $X \\sim N(\\mu, \\sigma^2)$ for en normalfordelt variabel. Selve tetthetsfunksjonen ser avskrekkende ut,\n\n$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$\n\nmen du trenger sjelden å røre den direkte. Sannsynligheter beregnes som **arealet under kurven**: $P(a < X < b) = \\int_a^b f(x)\\,dx$, og i praksis lar vi GeoGebra eller kalkulatoren gjøre integralene.\n\nDet du derimot bør kunne på fingrene, er **68-95-99,7-regelen**. For enhver normalfordeling gjelder at cirka 68 % av verdiene ligger innenfor ett standardavvik fra $\\mu$, cirka 95 % innenfor to, og cirka 99,7 % innenfor tre.\n\nPrøv den på sesjonsdataene: menns høyde er omtrent normalfordelt med $\\mu = 180$ cm og $\\sigma = 7$ cm. Hvor stor andel er mellom 173 og 187 cm? Intervallet er nøyaktig $[\\mu - \\sigma, \\mu + \\sigma]$, så svaret er omtrent **68,3 %** — uten en eneste integrasjon."
+    },
+    {
+      "id": "s1-6-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på normalfordelingen og 68-95-99,7-regelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-4-n-quiz1-q0",
+            "task": "Hva bestemmer formen på normalfordelingskurven?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bare antall observasjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Forventningsverdien $\\mu$ og standardavviket $\\sigma$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Medianen og typetallet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Maksimums- og minimumsverdien",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kurven er sentrert i $\\mu$ og spredningen styres av $\\sigma$. Vi skriver $X \\sim N(\\mu, \\sigma^2)$."
+          },
+          {
+            "id": "s1-6-4-n-quiz1-q1",
+            "task": "Omtrent hvor stor andel av verdiene ligger innenfor to standardavvik fra gjennomsnittet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$68\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$99{,}7\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$95\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$50\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "68-95-99,7-regelen: ca. 95 % ligger i intervallet $[\\mu - 2\\sigma, \\mu + 2\\sigma]$."
+          },
+          {
+            "id": "s1-6-4-n-quiz1-q2",
+            "task": "Høyder er normalfordelt med $\\mu = 180$ og $\\sigma = 7$. Hvor stor andel er mellom $173$ og $187$ cm?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. $95\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. $50\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $99{,}7\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $68\\,\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Intervallet er $[\\mu - \\sigma, \\mu + \\sigma]$, som rommer ca. 68,3 % av fordelingen."
+          },
+          {
+            "id": "s1-6-4-n-quiz1-q3",
+            "task": "Hvordan beregnes $P(a < X < b)$ for en normalfordelt variabel?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Som arealet under tetthetskurven fra $a$ til $b$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Som differansen $b - a$ delt på $\\sigma$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Som høyden av kurven i midtpunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Som $\\frac{b-a}{\\mu}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sannsynligheten er arealet under kurven: $P(a < X < b) = \\int_a^b f(x)\\,dx$, beregnet med digitale verktøy."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-4-n-section1",
+      "type": "text",
+      "content": "## Z-score — alle normalfordelinger i én\n\nSesjonskontoret får et spørsmål: hvor stor andel av mennene er over 190 cm? Intervallgrensene treffer ikke lenger pent på hele standardavvik, så vi trenger et mer presist verktøy: **standardisering**.\n\nEnhver normalfordelt variabel kan omgjøres til **standardnormalfordelingen** $Z \\sim N(0, 1)$ — normalfordelingen med gjennomsnitt 0 og standardavvik 1 — ved transformasjonen\n\n$$Z = \\frac{X - \\mu}{\\sigma}$$\n\nTallet $z$ kalles **z-score** og forteller hvor mange standardavvik en verdi ligger fra gjennomsnittet. En positiv z-score betyr over snittet, en negativ under. Det geniale er at alle normalfordelinger dermed kan slås opp i én og samme tabell — eller beregnes med ett og samme kommandosett i GeoGebra.\n\nFor høydespørsmålet: $z = \\frac{190 - 180}{7} = \\frac{10}{7} \\approx 1{,}43$. En mann på 190 cm ligger altså 1,43 standardavvik over snittet, og\n\n$$P(X > 190) = P(Z > 1{,}43) \\approx 0{,}0764$$\n\nOmtrent **7,6 %** av mennene er over 190 cm.\n\nZ-scoren gjør også verdier fra *ulike* fordelinger sammenlignbare. Er 85 poeng på en prøve med $\\mu = 70, \\sigma = 10$ bedre enn 78 på en med $\\mu = 65, \\sigma = 8$? Regn ut: $z_1 = 1{,}5$ mot $z_2 = 1{,}625$ — den andre prestasjonen er faktisk sterkere relativt til sin gruppe. Og sammenhengen kan snus: kjenner du andelen, kan du gå fra $z$ tilbake til $x = \\mu + z\\sigma$ og bestemme ukjente grenser, eller til og med finne ukjente $\\mu$ eller $\\sigma$ fra observerte andeler. Det er denne fleksibiliteten som gjør normalfordelingen til arbeidshesten i alt fra kvalitetskontroll til meningsmålinger — som du skal se i kapitlene som følger."
+    },
+    {
+      "id": "s1-6-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på standardisering og z-score:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-4-n-quiz2-q0",
+            "task": "Hva er formelen for z-score?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$z = \\dfrac{\\mu - \\sigma}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$z = \\dfrac{x - \\mu}{\\sigma}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$z = \\dfrac{x + \\mu}{\\sigma}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$z = \\sigma(x - \\mu)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$z = \\frac{x - \\mu}{\\sigma}$ — antall standardavvik verdien ligger fra gjennomsnittet."
+          },
+          {
+            "id": "s1-6-4-n-quiz2-q1",
+            "task": "Høyder: $\\mu = 180$, $\\sigma = 7$. Hva er z-scoren til en som er $190$ cm?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$z = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$z = 0{,}7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$z \\approx 1{,}43$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$z = -1{,}43$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$z = \\frac{190 - 180}{7} = \\frac{10}{7} \\approx 1{,}43$."
+          },
+          {
+            "id": "s1-6-4-n-quiz2-q2",
+            "task": "Hva kjennetegner standardnormalfordelingen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mu = 1$ og $\\sigma = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mu = 100$ og $\\sigma = 15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den har ingen standardavvik",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mu = 0$ og $\\sigma = 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Standardnormalfordelingen $Z \\sim N(0, 1)$ har gjennomsnitt 0 og standardavvik 1."
+          },
+          {
+            "id": "s1-6-4-n-quiz2-q3",
+            "task": "En verdi har z-score $z = 2$ i fordelingen $N(50, 5^2)$. Hva er verdien?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$60$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$52$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$55$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$100$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = \\mu + z\\sigma = 50 + 2 \\cdot 5 = 60$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: én kurve, tusen anvendelser\n\nSesjonsmålingene tegnet klokkekurven selv, og du har nå verktøyene til å regne på den. **Normalfordelingen** $N(\\mu, \\sigma)$ beskriver utallige naturlige størrelser — høyde, vekt, måleresultater — med en symmetrisk kurve sentrert i forventningsverdien $\\mu$ og spredning styrt av standardavviket $\\sigma$. Sannsynligheter er arealer under kurven, og de beregnes med digitale verktøy.\n\n**68-95-99,7-regelen** gir lynraske overslag: omtrent 68 % av verdiene ligger innenfor $\\mu \\pm \\sigma$, 95 % innenfor $\\mu \\pm 2\\sigma$ og 99,7 % innenfor $\\mu \\pm 3\\sigma$. Når grensene ikke treffer hele standardavvik, standardiserer du med **z-scoren** $z = \\frac{x - \\mu}{\\sigma}$, som oversetter enhver normalfordeling til standardnormalfordelingen $N(0, 1)$ — slik fant vi at bare 7,6 % av mennene er over 190 cm. Formelen kan snus til $x = \\mu + z\\sigma$ når du kjenner andelen og leter etter grensen, og z-scorer gjør prestasjoner fra ulike fordelinger direkte sammenlignbare.\n\nNormalfordelingen er ikke bare en kuriositet fra sesjonshallen: i kapittel 6.6 skal du se at selv binomiske forsøksrekker — valgmålinger, kvalitetskontroller — nærmer seg klokkeformen når antallet blir stort. Da blir z-scoren ditt viktigste regneverktøy."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,370 @@
-{"id":"fysikk2-2-3-narrativ","courseId":"fysikk2","chapterNumber":"2.3","title":"Satellittbevegelse og romfart","subtitle":"Narrativ versjon","description":"En fortelling om satellitter som faller forbi jorda i evig bane — banehastighet, omløpstid, geostasjonære satellitter, fluktfart og hvordan GPS faktisk fungerer.","estimatedMinutes":30,"competenceGoals":["beregne banehastighet og omløpstid for satellitter","forklare geostasjonær bane og fluktfart","anvende gravitasjon og sirkelbevegelse på romfart"],"linkedChapterId":"fysikk2-2-3","content":[{"id":"fysikk2-2-3-n-intro","type":"text","content":"## Hvorfor faller ikke satellitten ned?\n\nHver dag stoler du på satellitter uten å tenke over det: GPS-en i mobilen, værvarselet, TV-signalene, internett. Men hvordan klarer en satellitt å holde seg oppe? Hvorfor faller den ikke bare ned? Svaret er forbløffende: den **faller** faktisk hele tiden — men den faller «forbi» jorda! Farten bortover er så stor at jordoverflaten krummer seg unna like fort som satellitten faller mot den. Resultatet er en evig bane. I dette kapittelet skal vi se hvordan gravitasjon og sirkelbevegelse samarbeider om å holde satellitter i bane, hvordan vi regner ut banehastighet og omløpstid, hva en geostasjonær bane er, og hvordan vi sender romfartøy helt ut av jordas gravitasjonsfelt."},{"id":"fysikk2-2-3-n-section1","type":"text","content":"## Banehastighet og omløpstid\n\nFor at en satellitt skal gå i stabil sirkelbane, må gravitasjonskraften være nøyaktig den sentripetalkraften som trengs for å holde den i sirkel. Vi setter de to like:\n\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r}$$\n\nSatellittens masse $m$ kansellerer, og etter forenkling sitter vi igjen med **banehastigheten**\n\n$$v = \\sqrt{\\frac{GM}{r}}$$\n\nMerk to ting: avstanden $r$ måles fra jordas **sentrum**, ikke fra overflaten, og hastigheten er uavhengig av satellittens masse — derfor opplever astronauter og romstasjon samme fall og dermed vektløshet. Større $r$ gir lavere nødvendig fart.\n\n**Omløpstiden** $T$ er tiden for én runde. Siden $v = 2\\pi r/T$, kan vi kombinere med banehastigheten og løse for $T$:\n\n$$T = 2\\pi\\sqrt{\\frac{r^3}{GM}}$$\n\nDette er ikke noe annet enn Keplers tredje lov for sirkelbaner: $T^2 \\propto r^3$. For ISS i $400$ km høyde ($r \\approx 6{,}77\\times 10^6$ m) gir formlene en banehastighet på om lag $7{,}7$ km/s og en omløpstid på cirka $92$ minutter."},{"id":"fysikk2-2-3-n-quiz1","type":"exercise","exercise":{"id":"fysikk2-2-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på banehastighet og omløpstid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-2-3-n-quiz1-q0","task":"Hva balanserer gravitasjonskraften for en satellitt i sirkelbane?","options":[{"id":"a","text":"Luftmotstanden","isCorrect":false},{"id":"b","text":"Sentrifugalkraften","isCorrect":false},{"id":"c","text":"Sentripetalkraften","isCorrect":true},{"id":"d","text":"Normalkraften","isCorrect":false}],"solution":"Gravitasjonskraften $GMm/r^2$ leverer akkurat sentripetalkraften $mv^2/r$ som holder satellitten i sirkel."},{"id":"fysikk2-2-3-n-quiz1-q1","task":"Hva er banehastigheten i en sirkelbane?","options":[{"id":"a","text":"$\\sqrt{2GM/r}$","isCorrect":false},{"id":"b","text":"$GM/r$","isCorrect":false},{"id":"c","text":"$\\sqrt{GM/r^2}$","isCorrect":false},{"id":"d","text":"$\\sqrt{GM/r}$","isCorrect":true}],"solution":"Fra kraftbalansen $GMm/r^2 = mv^2/r$ får vi $v = \\sqrt{GM/r}$, uavhengig av satellittens masse."},{"id":"fysikk2-2-3-n-quiz1-q2","task":"Fra hvilket punkt måles avstanden $r$ for en satellitt?","options":[{"id":"a","text":"Fra jordas sentrum","isCorrect":true},{"id":"b","text":"Fra jordoverflaten","isCorrect":false},{"id":"c","text":"Fra ekvator","isCorrect":false},{"id":"d","text":"Fra satellittens forrige posisjon","isCorrect":false}],"solution":"$r$ måles alltid fra jordas sentrum. Høyden over bakken må legges til jordradiusen."},{"id":"fysikk2-2-3-n-quiz1-q3","task":"Hva er sammenhengen mellom omløpstid og baneradius?","options":[{"id":"a","text":"$T \\propto r$","isCorrect":false},{"id":"b","text":"$T^2 \\propto r^3$","isCorrect":true},{"id":"c","text":"$T \\propto r^2$","isCorrect":false},{"id":"d","text":"$T^2 \\propto r$","isCorrect":false}],"solution":"$T = 2\\pi\\sqrt{r^3/GM}$ gir $T^2 \\propto r^3$ — Keplers tredje lov for sirkelbaner."}]}},{"id":"fysikk2-2-3-n-section2","type":"text","content":"## Geostasjonær bane og fluktfart\n\nEn helt spesiell bane oppstår når omløpstiden er nøyaktig lik jordas rotasjon, om lag $24$ timer. En slik **geostasjonær satellitt** ser ut til å henge helt stille over samme punkt på ekvator. Setter vi $T = 86\\,400$ s inn i $T = 2\\pi\\sqrt{r^3/GM}$ og løser for $r$, finner vi en baneradius på cirka $42\\,164$ km fra jordas sentrum, altså en høyde på om lag $35\\,786$ km over ekvator, med banehastighet rundt $3{,}1$ km/s. Dette gjør slike satellitter perfekte for TV, vær og kommunikasjon — antennen din kan alltid peke mot samme punkt på himmelen. Ulempen er signalforsinkelsen på rundt $0{,}25$ s hver vei.\n\nVil vi derimot at noe skal forlate jorda helt, trenger det **fluktfart** — nok kinetisk energi til å «betale» for all potensiell energi opp til uendelig. Kravet $E_k + E_p \\geq 0$ gir ved grensen\n\n$$v_{\\text{flukt}} = \\sqrt{\\frac{2GM}{r}}$$\n\nFor jorda fra overflaten blir dette $11{,}2$ km/s, eller rundt $40\\,000$ km/t. Det er en vakker sammenheng her: fluktfarten er alltid $\\sqrt{2} \\approx 1{,}41$ ganger banehastigheten i samme avstand. Hastigheten avgjør skjebnen: er $v$ mindre enn banehastighet faller objektet ned; lik banehastighet gir sirkelbane; mellom bane- og fluktfart gir elliptisk bane; lik fluktfart gir parabel; større enn fluktfart gir hyperbel med overskuddsfart."},{"id":"fysikk2-2-3-n-quiz2","type":"exercise","exercise":{"id":"fysikk2-2-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på geostasjonær bane og fluktfart:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-2-3-n-quiz2-q0","task":"Hva kjennetegner en geostasjonær bane?","options":[{"id":"a","text":"Lavest mulig bane","isCorrect":false},{"id":"b","text":"Omløpstid på 92 minutter","isCorrect":false},{"id":"c","text":"Omløpstid lik jordas rotasjon (ca. 24 t)","isCorrect":true},{"id":"d","text":"Bane over polene","isCorrect":false}],"solution":"En geostasjonær satellitt har omløpstid lik jordas rotasjon (~24 t) og henger stille over samme punkt på ekvator, i ca. 35 786 km høyde."},{"id":"fysikk2-2-3-n-quiz2-q1","task":"Hva er fluktfarten fra jordoverflaten?","options":[{"id":"a","text":"7,7 km/s","isCorrect":false},{"id":"b","text":"3,1 km/s","isCorrect":false},{"id":"c","text":"42 km/s","isCorrect":false},{"id":"d","text":"11,2 km/s","isCorrect":true}],"solution":"$v_{\\text{flukt}} = \\sqrt{2GM/R} \\approx 11{,}2$ km/s for jorda fra overflaten."},{"id":"fysikk2-2-3-n-quiz2-q2","task":"Hvilken bane får et objekt med fart mellom banehastighet og fluktfart?","options":[{"id":"a","text":"Elliptisk bane","isCorrect":true},{"id":"b","text":"Sirkel","isCorrect":false},{"id":"c","text":"Hyperbel","isCorrect":false},{"id":"d","text":"Det faller ned","isCorrect":false}],"solution":"Mellom banehastighet og fluktfart er bevegelsen bundet, men ikke sirkulær — banen blir en ellipse."}]}},{"id":"fysikk2-2-3-n-section3","type":"text","content":"## Baneendring og satellittsystemer\n\nÅ flytte en satellitt fra én sirkelbane til en annen gjøres mest drivstoffeffektivt med en **Hohmann-overføringsbane**. Ideen er elegant: fra en lav bane med radius $r_1$ øker du farten ved ett punkt slik at satellitten går inn i en elliptisk bane som akkurat rekker opp til $r_2$. Ved det fjerneste punktet (apogeum) øker du farten igjen, og satellitten slår seg til ro i den høyere sirkelbanen. Den totale hastighetsendringen er $\\Delta v_{\\text{total}} = \\Delta v_1 + \\Delta v_2$, og overføringen tar halve perioden til overføringsellipsen.\n\nSlike beregninger ligger bak hele vår satellittinfrastruktur. **GPS** bruker $31$ satellitter i $20\\,200$ km høyde med $12$ timers omløpstid; minst fire er alltid synlige, slik at mottakeren kan beregne posisjon ved trilaterasjon — tre satellitter for posisjon og én for tidssynkronisering. Andre systemer er GLONASS (Russland), Galileo (EU), BeiDou (Kina) og SpaceX' Starlink med tusenvis av satellitter i $550$ km høyde for internett. Et fascinerende poeng: GPS-satellittene må korrigere for både spesiell og generell relativitet, fordi klokkene deres går litt annerledes enn klokker på bakken."},{"id":"fysikk2-2-3-n-quiz3","type":"exercise","exercise":{"id":"fysikk2-2-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på baneendring og satellittsystemer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-2-3-n-quiz3-q0","task":"Hva er en Hohmann-overføringsbane?","options":[{"id":"a","text":"En rett linje mellom baner","isCorrect":false},{"id":"b","text":"Den mest drivstoffeffektive måten å bytte sirkelbane på, via en ellipse","isCorrect":true},{"id":"c","text":"En geostasjonær bane","isCorrect":false},{"id":"d","text":"En bane rundt månen","isCorrect":false}],"solution":"Hohmann-overføringen bruker en elliptisk mellombane med to motorpådrag og er den mest drivstoffeffektive måten å bytte sirkelbane på."},{"id":"fysikk2-2-3-n-quiz3-q1","task":"Hvor mange GPS-satellitter trengs minst for å bestemme posisjon og tid?","options":[{"id":"a","text":"Én","isCorrect":false},{"id":"b","text":"To","isCorrect":false},{"id":"c","text":"Fire","isCorrect":true},{"id":"d","text":"Tre","isCorrect":false}],"solution":"Fire satellitter trengs: tre for posisjon (trilaterasjon) og én for tidssynkronisering."},{"id":"fysikk2-2-3-n-quiz3-q2","task":"Hvorfor må GPS korrigere for relativitet?","options":[{"id":"a","text":"Signalene er for svake","isCorrect":false},{"id":"b","text":"Jorda roterer","isCorrect":false},{"id":"c","text":"Satellittene veier for mye","isCorrect":false},{"id":"d","text":"Satellittklokkene går litt annerledes enn klokker på bakken","isCorrect":true}],"solution":"Både spesiell og generell relativitet påvirker satellittklokkenes gang, og uten korreksjon ville posisjonene drevet av sted."}]}},{"id":"fysikk2-2-3-n-summary","type":"text","content":"## Oppsummering\n\nEn satellitt holdes i bane fordi gravitasjonskraften leverer akkurat sentripetalkraften — den faller kontinuerlig «forbi» jorda. Av kraftbalansen $GMm/r^2 = mv^2/r$ får vi **banehastigheten** $v = \\sqrt{GM/r}$ og **omløpstiden** $T = 2\\pi\\sqrt{r^3/GM}$, der $r$ måles fra jordas sentrum og begge er uavhengige av satellittmassen. En **geostasjonær** satellitt har $T = 24$ t i ca. $35\\,800$ km høyde og henger stille over ekvator. **Fluktfarten** $v_{\\text{flukt}} = \\sqrt{2GM/r}$ (11,2 km/s fra jorda) er $\\sqrt{2}$ ganger banehastigheten. Baner endres effektivt med **Hohmann-overføring**, og hele vår satellittinfrastruktur — GPS, Galileo, Starlink — bygger på disse lovene, helt ned til relativistiske klokkekorreksjoner."}],"exercises":[]}
+{
+  "id": "fysikk2-2-3-narrativ",
+  "courseId": "fysikk2",
+  "chapterNumber": "2.3",
+  "title": "Satellittbevegelse og romfart",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om satellitter som faller forbi jorda i evig bane — banehastighet, omløpstid, geostasjonære satellitter, fluktfart og hvordan GPS faktisk fungerer.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "beregne banehastighet og omløpstid for satellitter",
+    "forklare geostasjonær bane og fluktfart",
+    "anvende gravitasjon og sirkelbevegelse på romfart"
+  ],
+  "linkedChapterId": "fysikk2-2-3",
+  "content": [
+    {
+      "id": "fysikk2-2-3-n-intro",
+      "type": "text",
+      "content": "## Hvorfor faller ikke satellitten ned?\n\nHver dag stoler du på satellitter uten å tenke over det: GPS-en i mobilen, værvarselet, TV-signalene, internett. Men hvordan klarer en satellitt å holde seg oppe? Hvorfor faller den ikke bare ned? Svaret er forbløffende: den **faller** faktisk hele tiden — men den faller «forbi» jorda! Farten bortover er så stor at jordoverflaten krummer seg unna like fort som satellitten faller mot den. Resultatet er en evig bane. I dette kapittelet skal vi se hvordan gravitasjon og sirkelbevegelse samarbeider om å holde satellitter i bane, hvordan vi regner ut banehastighet og omløpstid, hva en geostasjonær bane er, og hvordan vi sender romfartøy helt ut av jordas gravitasjonsfelt."
+    },
+    {
+      "id": "fysikk2-2-3-n-section1",
+      "type": "text",
+      "content": "## Banehastighet og omløpstid\n\nFor at en satellitt skal gå i stabil sirkelbane, må gravitasjonskraften være nøyaktig den sentripetalkraften som trengs for å holde den i sirkel. Vi setter de to like:\n\n$$\\frac{GMm}{r^2} = \\frac{mv^2}{r}$$\n\nSatellittens masse $m$ kansellerer, og etter forenkling sitter vi igjen med **banehastigheten**\n\n$$v = \\sqrt{\\frac{GM}{r}}$$\n\nMerk to ting: avstanden $r$ måles fra jordas **sentrum**, ikke fra overflaten, og hastigheten er uavhengig av satellittens masse — derfor opplever astronauter og romstasjon samme fall og dermed vektløshet. Større $r$ gir lavere nødvendig fart.\n\n**Omløpstiden** $T$ er tiden for én runde. Siden $v = 2\\pi r/T$, kan vi kombinere med banehastigheten og løse for $T$:\n\n$$T = 2\\pi\\sqrt{\\frac{r^3}{GM}}$$\n\nDette er ikke noe annet enn Keplers tredje lov for sirkelbaner: $T^2 \\propto r^3$. For ISS i $400$ km høyde ($r \\approx 6{,}77\\times 10^6$ m) gir formlene en banehastighet på om lag $7{,}7$ km/s og en omløpstid på cirka $92$ minutter."
+    },
+    {
+      "id": "fysikk2-2-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-2-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på banehastighet og omløpstid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-2-3-n-quiz1-q0",
+            "task": "Hva balanserer gravitasjonskraften for en satellitt i sirkelbane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Luftmotstanden",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sentrifugalkraften",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Normalkraften",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sentripetalkraften",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Gravitasjonskraften $GMm/r^2$ leverer akkurat sentripetalkraften $mv^2/r$ som holder satellitten i sirkel."
+          },
+          {
+            "id": "fysikk2-2-3-n-quiz1-q1",
+            "task": "Hva er banehastigheten i en sirkelbane?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\sqrt{GM/r}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\sqrt{2GM/r}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$GM/r$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{GM/r^2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fra kraftbalansen $GMm/r^2 = mv^2/r$ får vi $v = \\sqrt{GM/r}$, uavhengig av satellittens masse."
+          },
+          {
+            "id": "fysikk2-2-3-n-quiz1-q2",
+            "task": "Fra hvilket punkt måles avstanden $r$ for en satellitt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fra jordoverflaten",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fra jordas sentrum",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fra ekvator",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fra satellittens forrige posisjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$r$ måles alltid fra jordas sentrum. Høyden over bakken må legges til jordradiusen."
+          },
+          {
+            "id": "fysikk2-2-3-n-quiz1-q3",
+            "task": "Hva er sammenhengen mellom omløpstid og baneradius?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$T \\propto r$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$T \\propto r^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$T^2 \\propto r^3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$T^2 \\propto r$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T = 2\\pi\\sqrt{r^3/GM}$ gir $T^2 \\propto r^3$ — Keplers tredje lov for sirkelbaner."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-2-3-n-section2",
+      "type": "text",
+      "content": "## Geostasjonær bane og fluktfart\n\nEn helt spesiell bane oppstår når omløpstiden er nøyaktig lik jordas rotasjon, om lag $24$ timer. En slik **geostasjonær satellitt** ser ut til å henge helt stille over samme punkt på ekvator. Setter vi $T = 86\\,400$ s inn i $T = 2\\pi\\sqrt{r^3/GM}$ og løser for $r$, finner vi en baneradius på cirka $42\\,164$ km fra jordas sentrum, altså en høyde på om lag $35\\,786$ km over ekvator, med banehastighet rundt $3{,}1$ km/s. Dette gjør slike satellitter perfekte for TV, vær og kommunikasjon — antennen din kan alltid peke mot samme punkt på himmelen. Ulempen er signalforsinkelsen på rundt $0{,}25$ s hver vei.\n\nVil vi derimot at noe skal forlate jorda helt, trenger det **fluktfart** — nok kinetisk energi til å «betale» for all potensiell energi opp til uendelig. Kravet $E_k + E_p \\geq 0$ gir ved grensen\n\n$$v_{\\text{flukt}} = \\sqrt{\\frac{2GM}{r}}$$\n\nFor jorda fra overflaten blir dette $11{,}2$ km/s, eller rundt $40\\,000$ km/t. Det er en vakker sammenheng her: fluktfarten er alltid $\\sqrt{2} \\approx 1{,}41$ ganger banehastigheten i samme avstand. Hastigheten avgjør skjebnen: er $v$ mindre enn banehastighet faller objektet ned; lik banehastighet gir sirkelbane; mellom bane- og fluktfart gir elliptisk bane; lik fluktfart gir parabel; større enn fluktfart gir hyperbel med overskuddsfart."
+    },
+    {
+      "id": "fysikk2-2-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-2-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på geostasjonær bane og fluktfart:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-2-3-n-quiz2-q0",
+            "task": "Hva kjennetegner en geostasjonær bane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lavest mulig bane",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Omløpstid på 92 minutter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bane over polene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Omløpstid lik jordas rotasjon (ca. 24 t)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En geostasjonær satellitt har omløpstid lik jordas rotasjon (~24 t) og henger stille over samme punkt på ekvator, i ca. 35 786 km høyde."
+          },
+          {
+            "id": "fysikk2-2-3-n-quiz2-q1",
+            "task": "Hva er fluktfarten fra jordoverflaten?",
+            "options": [
+              {
+                "id": "d",
+                "text": "11,2 km/s",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "7,7 km/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3,1 km/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "42 km/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$v_{\\text{flukt}} = \\sqrt{2GM/R} \\approx 11{,}2$ km/s for jorda fra overflaten."
+          },
+          {
+            "id": "fysikk2-2-3-n-quiz2-q2",
+            "task": "Hvilken bane får et objekt med fart mellom banehastighet og fluktfart?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sirkel",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Elliptisk bane",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Hyperbel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det faller ned",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mellom banehastighet og fluktfart er bevegelsen bundet, men ikke sirkulær — banen blir en ellipse."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-2-3-n-section3",
+      "type": "text",
+      "content": "## Baneendring og satellittsystemer\n\nÅ flytte en satellitt fra én sirkelbane til en annen gjøres mest drivstoffeffektivt med en **Hohmann-overføringsbane**. Ideen er elegant: fra en lav bane med radius $r_1$ øker du farten ved ett punkt slik at satellitten går inn i en elliptisk bane som akkurat rekker opp til $r_2$. Ved det fjerneste punktet (apogeum) øker du farten igjen, og satellitten slår seg til ro i den høyere sirkelbanen. Den totale hastighetsendringen er $\\Delta v_{\\text{total}} = \\Delta v_1 + \\Delta v_2$, og overføringen tar halve perioden til overføringsellipsen.\n\nSlike beregninger ligger bak hele vår satellittinfrastruktur. **GPS** bruker $31$ satellitter i $20\\,200$ km høyde med $12$ timers omløpstid; minst fire er alltid synlige, slik at mottakeren kan beregne posisjon ved trilaterasjon — tre satellitter for posisjon og én for tidssynkronisering. Andre systemer er GLONASS (Russland), Galileo (EU), BeiDou (Kina) og SpaceX' Starlink med tusenvis av satellitter i $550$ km høyde for internett. Et fascinerende poeng: GPS-satellittene må korrigere for både spesiell og generell relativitet, fordi klokkene deres går litt annerledes enn klokker på bakken."
+    },
+    {
+      "id": "fysikk2-2-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-2-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på baneendring og satellittsystemer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-2-3-n-quiz3-q0",
+            "task": "Hva er en Hohmann-overføringsbane?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En rett linje mellom baner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En geostasjonær bane",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den mest drivstoffeffektive måten å bytte sirkelbane på, via en ellipse",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "En bane rundt månen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hohmann-overføringen bruker en elliptisk mellombane med to motorpådrag og er den mest drivstoffeffektive måten å bytte sirkelbane på."
+          },
+          {
+            "id": "fysikk2-2-3-n-quiz3-q1",
+            "task": "Hvor mange GPS-satellitter trengs minst for å bestemme posisjon og tid?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Én",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fire",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fire satellitter trengs: tre for posisjon (trilaterasjon) og én for tidssynkronisering."
+          },
+          {
+            "id": "fysikk2-2-3-n-quiz3-q2",
+            "task": "Hvorfor må GPS korrigere for relativitet?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Satellittklokkene går litt annerledes enn klokker på bakken",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Signalene er for svake",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Jorda roterer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Satellittene veier for mye",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Både spesiell og generell relativitet påvirker satellittklokkenes gang, og uten korreksjon ville posisjonene drevet av sted."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-2-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEn satellitt holdes i bane fordi gravitasjonskraften leverer akkurat sentripetalkraften — den faller kontinuerlig «forbi» jorda. Av kraftbalansen $GMm/r^2 = mv^2/r$ får vi **banehastigheten** $v = \\sqrt{GM/r}$ og **omløpstiden** $T = 2\\pi\\sqrt{r^3/GM}$, der $r$ måles fra jordas sentrum og begge er uavhengige av satellittmassen. En **geostasjonær** satellitt har $T = 24$ t i ca. $35\\,800$ km høyde og henger stille over ekvator. **Fluktfarten** $v_{\\text{flukt}} = \\sqrt{2GM/r}$ (11,2 km/s fra jorda) er $\\sqrt{2}$ ganger banehastigheten. Baner endres effektivt med **Hohmann-overføring**, og hele vår satellittinfrastruktur — GPS, Galileo, Starlink — bygger på disse lovene, helt ned til relativistiske klokkekorreksjoner."
+    }
+  ],
+  "exercises": []
+}

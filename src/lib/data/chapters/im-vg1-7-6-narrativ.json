@@ -1,1 +1,345 @@
-{"id":"im-vg1-7-6-narrativ","courseId":"im-vg1","chapterNumber":"7.6","title":"Designsystemer og stilguider","subtitle":"Narrativ versjon","description":"En fortelling om hvordan team holder et produkt helstøpt -- fra designtokens og komponentbibliotek til stilguider og dokumentasjon -- og hvorfor konsistens bygger tillit.","estimatedMinutes":32,"competenceGoals":["visualisere og utvikle konsepter og ideer tilpasset ulike plattformer","bruke dokumentasjon og dokumentere faglige prosesser"],"linkedChapterId":"im-vg1-7-6","content":[{"id":"im-vg1-7-6-n-intro","type":"text","content":"## Når mange hender lager én ting\n\nTenk deg at fem designere og ti utviklere jobber på samme app, hver på sin del. Uten felles regler ender du fort opp med blå knapper på én skjerm, grønne på en annen, tre ulike skrifttyper og knapper som oppfører seg forskjellig fra side til side. Produktet føles rotete og uprofesjonelt -- og brukeren mister tilliten. Hvordan unngår man dette? Svaret er et designsystem.\n\nNår et team jobber med et digitalt produkt over tid, trenger de et felles språk og felles regler for design. Et **designsystem** sørger for at alle deler av produktet ser ut og oppfører seg likt, uansett hvem som lager dem. Det gjør arbeidet raskere, mer konsistent og enklere å vedlikeholde. I dette kapittelet skal vi se hva et designsystem egentlig er, bli kjent med komponentbiblioteker og gjenbrukbare elementer, lære hva en stilguide inneholder, forstå de minste byggesteinene vi kaller designtokens, og se hvorfor god dokumentasjon og konsistens er selve limet i det hele."},{"id":"im-vg1-7-6-n-section1","type":"text","content":"## Byggeklossene i et designsystem\n\nEt **designsystem** er en samling av gjenbrukbare komponenter, retningslinjer og standarder som styrer hvordan et produkt ser ut og fungerer. Det består av flere deler som henger sammen. **Designtokens** er de aller minste byggesteinene -- navngitte grunnverdier for farger, typografi, avstand og avrundinger. **Komponentbiblioteket** inneholder ferdige, gjenbrukbare UI-elementer som knapper, skjemafelter, kort og menyer. **Mønstre** er gjennomprøvde løsninger for vanlige utfordringer som navigasjon, skjemavalidering og feilmeldinger. Og **retningslinjene** er reglene for tone, tilgjengelighet, responsivitet og bruk.\n\nHvorfor er dette så verdifullt? Fordi fordelene er konkrete. Du får **konsistens** -- produktet ser likt ut overalt. Du får **effektivitet**, fordi designere og utviklere slipper å lage alt fra bunnen hver gang. Du får **kvalitet**, siden hver komponent testes og optimaliseres én gang, ikke om og om igjen. Du får **skalerbarhet**, fordi en endring gjøres ett sted og slår igjennom overalt. Og du får bedre **samarbeid**, fordi alle snakker samme språk. De største selskapene deler til og med designsystemene sine offentlig -- tenk på Googles Material Design og Apples Human Interface Guidelines."},{"id":"im-vg1-7-6-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-7-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på designsystemets fordeler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-7-6-n-quiz1-q0","task":"Hva er et designsystem?","options":[{"id":"a","text":"Et programmeringsspråk for nettsider","isCorrect":false},{"id":"b","text":"En type server","isCorrect":false},{"id":"c","text":"En samling gjenbrukbare komponenter, retningslinjer og standarder for et produkt","isCorrect":true},{"id":"d","text":"Et verktøy for å teste nettverkshastighet","isCorrect":false}],"solution":"Et designsystem er en samling av gjenbrukbare komponenter, retningslinjer og standarder som styrer hvordan et digitalt produkt ser ut og fungerer."},{"id":"im-vg1-7-6-n-quiz1-q1","task":"Hva er en hovedfordel med et designsystem?","options":[{"id":"a","text":"Det erstatter behovet for brukertesting","isCorrect":false},{"id":"b","text":"Det gjør produktet billigere å lagre på serveren","isCorrect":false},{"id":"c","text":"Det fjerner behovet for designere","isCorrect":false},{"id":"d","text":"Det sikrer konsistens, effektivitet og kvalitet ved å gjenbruke komponenter","isCorrect":true}],"solution":"Et designsystem gir konsistens (produktet ser likt ut overalt), effektivitet (slipper å lage alt på nytt) og kvalitet (komponenter testes én gang), og gjør samarbeid lettere."},{"id":"im-vg1-7-6-n-quiz1-q2","task":"Hva betyr skalerbarhet i et designsystem?","options":[{"id":"a","text":"At en endring gjøres ett sted og slår igjennom overalt","isCorrect":true},{"id":"b","text":"At produktet bare fungerer på store skjermer","isCorrect":false},{"id":"c","text":"At man må lage hver komponent på nytt for hver side","isCorrect":false},{"id":"d","text":"At systemet aldri kan endres","isCorrect":false}],"solution":"Skalerbarhet betyr at en endring gjøres ett sted i designsystemet og automatisk oppdateres overalt der komponenten brukes."}]}},{"id":"im-vg1-7-6-n-section2","type":"text","content":"## Ferdige deler og et felles visuelt språk\n\nHjertet i mange designsystemer er **komponentbiblioteket** -- en samling ferdige UI-elementer du kan gjenbruke i stedet for å bygge på nytt hver gang. Her finner du knapper i ulike varianter (primær, sekundær, deaktivert), inndatafelt for tekst, passord, søk og nedtrekkslister, avkrysningsbokser og radioknapper, kort for å vise innhold, modaler som er popup-vinduer, og navigasjonselementer. Men en komponent er ikke nyttig uten dokumentasjon, så hver av dem beskrives med sitt visuelle utseende i alle tilstander -- normal, hover, aktiv og deaktivert -- med retningslinjer for når og hvorfor den brukes, med kodeeksempler for utviklerne, og med tilgjengelighetskrav.\n\nVed siden av komponentene står **stilguiden**, som dokumenterer hele det visuelle språket. Den definerer fargepaletten med primærfarge, sekundærfarger, bakgrunns- og tekstfarger oppgitt som heksadesimale koder. Den fastsetter typografien -- skriftfamilier, størrelser og vekter for hvert bruksområde. Den setter et system for avstand med faste verdier, gjerne 4, 8, 16, 24 og 32 piksler. Og den beskriver ikonstil, retningslinjer for bildebruk, og «tone of voice» -- altså hvordan teksten skal skrives, formelt eller uformelt, kort eller detaljert. En enkel stilguide for et skoleprosjekt kan for eksempel slå fast at primærfargen er en mørk blå til knapper og lenker, en grønn brukes til suksess og bekreftelser, en rød til feilmeldinger, at overskrifter settes i Inter Bold og brødtekst i Inter Regular på 16 piksler med god linjeavstand. Sammen gir komponentbiblioteket og stilguiden teamet et felles vokabular for alt visuelt."},{"id":"im-vg1-7-6-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-7-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på komponentbibliotek og stilguide:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-7-6-n-quiz2-q0","task":"Hva bør dokumenteres for hver komponent i et komponentbibliotek?","options":[{"id":"a","text":"Bare den visuelle designen","isCorrect":false},{"id":"b","text":"Visuelt utseende i alle tilstander, bruksretningslinjer, kode og tilgjengelighetskrav","isCorrect":true},{"id":"c","text":"Bare navnet på komponenten","isCorrect":false},{"id":"d","text":"Bare prisen på komponenten","isCorrect":false}],"solution":"Hver komponent bør dokumenteres med utseende i alle tilstander (normal, hover, aktiv, deaktivert), bruksretningslinjer, kodeeksempler og tilgjengelighetskrav."},{"id":"im-vg1-7-6-n-quiz2-q1","task":"Hva er en stilguide?","options":[{"id":"a","text":"En type kodeeditor","isCorrect":false},{"id":"b","text":"En guide for å skrive essay","isCorrect":false},{"id":"c","text":"Dokumentasjon av det visuelle språket med farger, typografi og regler","isCorrect":true},{"id":"d","text":"Et alternativt navn for et designprogram","isCorrect":false}],"solution":"En stilguide dokumenterer det visuelle språket: fargepalett, typografi, avstand, ikonstil, bildebruk og tone of voice, og sikrer konsistens i all visuell kommunikasjon."},{"id":"im-vg1-7-6-n-quiz2-q2","task":"Hva er «tone of voice» i en stilguide?","options":[{"id":"a","text":"Lydnivået på varslinger","isCorrect":false},{"id":"b","text":"Fargen på knappene","isCorrect":false},{"id":"c","text":"Hastigheten på animasjoner","isCorrect":false},{"id":"d","text":"Hvordan tekst skrives, for eksempel formelt eller uformelt","isCorrect":true}],"solution":"Tone of voice handler om hvordan teksten i produktet skrives -- formelt eller uformelt, kort eller detaljert -- slik at språket blir konsistent."}]}},{"id":"im-vg1-7-6-n-section3","type":"text","content":"## De minste klossene og limet som holder alt sammen\n\nLa oss zoome helt inn, til de aller minste byggesteinene. **Designtokens** er navngitte verdier som brukes konsistent gjennom hele produktet. I stedet for å skrive en konkret fargekode hundre steder, gir du verdien et navn. Eksempler kan være color-primary satt til en bestemt blåtone, color-text til en mørk grå, font-family-heading til «Inter», font-size-body til 16 piksler, spacing-small til 8 piksler og border-radius-medium til 8 piksler. Det geniale er at når du bruker tokens i stedet for faste verdier spredt utover, kan du endre hele produktets utseende ved å oppdatere én eneste verdi -- bytt ut primærfargen ett sted, og den endrer seg overalt.\n\nMen et designsystem er bare så nyttig som dokumentasjonen rundt det. God **dokumentasjon** forklarer designprinsippene -- altså hvorfor vi tar de valgene vi gjør -- og bruksmønstrene for når og hvordan hver komponent brukes. Den viser gjerne «do og don't», konkrete eksempler på riktig og feil bruk. Den beskriver tilgjengelighetskrav til kontrast, tastaturnavigasjon og skjermlesere. Og den fører en endringslogg over hva som er oppdatert og når. Helt til slutt er det verdt å forstå hvorfor **konsistens** er så viktig. Konsistens gjør et produkt forutsigbart og lett å lære. Når en bruker ser at en blå knapp betyr «bekreft» på én side, forventer hen at alle blå knapper betyr det samme. Mangler konsistensen -- om «Lagre»-knappen er grønn ett sted, blå et annet og rød et tredje -- blir brukeren forvirret. Betyr den røde knappen «lagre» eller «slett»? Brukeren nøler, stoler ikke på grensesnittet, og opplevelsen føles uprofesjonell. Konsistens bygger tillit, reduserer kognitivt arbeid og gjør produktet helstøpt."},{"id":"im-vg1-7-6-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-7-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på designtokens, dokumentasjon og konsistens:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-7-6-n-quiz3-q0","task":"Hva er designtokens?","options":[{"id":"a","text":"Navngitte verdier (farger, størrelser) som brukes konsistent gjennom produktet","isCorrect":true},{"id":"b","text":"Fysiske brikker man bruker i design","isCorrect":false},{"id":"c","text":"En type betaling for designverktøy","isCorrect":false},{"id":"d","text":"Sikkerhetskoder for innlogging","isCorrect":false}],"solution":"Designtokens er navngitte verdier, som color-primary eller spacing-small, som brukes konsistent gjennom hele produktet. De er de minste byggesteinene i et designsystem."},{"id":"im-vg1-7-6-n-quiz3-q1","task":"Hva er fordelen med å bruke designtokens i stedet for faste verdier?","options":[{"id":"a","text":"Det gjør koden lengre og mer komplisert","isCorrect":false},{"id":"b","text":"Du kan endre hele produktets utseende ved å oppdatere én verdi","isCorrect":true},{"id":"c","text":"Det fjerner behovet for en stilguide","isCorrect":false},{"id":"d","text":"Det gjør at produktet ikke kan endres","isCorrect":false}],"solution":"Ved å bruke tokens kan du endre hele produktets utseende ved å oppdatere én verdi ett sted, i stedet for å rette faste verdier mange steder."},{"id":"im-vg1-7-6-n-quiz3-q2","task":"Hvorfor er konsistens viktig i design?","options":[{"id":"a","text":"Fordi det gjør produktet penere uten å påvirke bruken","isCorrect":false},{"id":"b","text":"Fordi det gjør produktet tregere","isCorrect":false},{"id":"c","text":"Fordi det gjør produktet forutsigbart, bygger tillit og reduserer kognitivt arbeid","isCorrect":true},{"id":"d","text":"Fordi det erstatter behovet for testing","isCorrect":false}],"solution":"Konsistens gjør produktet forutsigbart og lett å lære. Når like elementer ser ut og oppfører seg likt, bygges tillit og brukeren slipper å tenke -- mangler konsistens, blir brukeren forvirret."}]}},{"id":"im-vg1-7-6-n-summary","type":"text","content":"## Oppsummering\n\nVi har sett at når mange hender lager ett produkt, holder et **designsystem** det helstøpt. Systemet samler gjenbrukbare komponenter, retningslinjer og standarder, og gir konsistens, effektivitet, kvalitet, skalerbarhet og bedre samarbeid -- slik vi ser i Googles Material Design og Apples Human Interface Guidelines.\n\nVi ble kjent med **komponentbiblioteket** av ferdige UI-elementer, hver dokumentert i alle tilstander, og med **stilguiden** som definerer farger, typografi, avstand og tone of voice. Vi zoomet inn på **designtokens**, de minste navngitte byggesteinene som lar deg endre hele utseendet ett sted. Og vi forsto hvor avgjørende god **dokumentasjon** og ikke minst **konsistens** er: når like elementer ser ut og oppfører seg likt, bygges tillit, brukeren slipper å tenke, og produktet føles profesjonelt."}],"exercises":[]}
+{
+  "id": "im-vg1-7-6-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "7.6",
+  "title": "Designsystemer og stilguider",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan team holder et produkt helstøpt -- fra designtokens og komponentbibliotek til stilguider og dokumentasjon -- og hvorfor konsistens bygger tillit.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "visualisere og utvikle konsepter og ideer tilpasset ulike plattformer",
+    "bruke dokumentasjon og dokumentere faglige prosesser"
+  ],
+  "linkedChapterId": "im-vg1-7-6",
+  "content": [
+    {
+      "id": "im-vg1-7-6-n-intro",
+      "type": "text",
+      "content": "## Når mange hender lager én ting\n\nTenk deg at fem designere og ti utviklere jobber på samme app, hver på sin del. Uten felles regler ender du fort opp med blå knapper på én skjerm, grønne på en annen, tre ulike skrifttyper og knapper som oppfører seg forskjellig fra side til side. Produktet føles rotete og uprofesjonelt -- og brukeren mister tilliten. Hvordan unngår man dette? Svaret er et designsystem.\n\nNår et team jobber med et digitalt produkt over tid, trenger de et felles språk og felles regler for design. Et **designsystem** sørger for at alle deler av produktet ser ut og oppfører seg likt, uansett hvem som lager dem. Det gjør arbeidet raskere, mer konsistent og enklere å vedlikeholde. I dette kapittelet skal vi se hva et designsystem egentlig er, bli kjent med komponentbiblioteker og gjenbrukbare elementer, lære hva en stilguide inneholder, forstå de minste byggesteinene vi kaller designtokens, og se hvorfor god dokumentasjon og konsistens er selve limet i det hele."
+    },
+    {
+      "id": "im-vg1-7-6-n-section1",
+      "type": "text",
+      "content": "## Byggeklossene i et designsystem\n\nEt **designsystem** er en samling av gjenbrukbare komponenter, retningslinjer og standarder som styrer hvordan et produkt ser ut og fungerer. Det består av flere deler som henger sammen. **Designtokens** er de aller minste byggesteinene -- navngitte grunnverdier for farger, typografi, avstand og avrundinger. **Komponentbiblioteket** inneholder ferdige, gjenbrukbare UI-elementer som knapper, skjemafelter, kort og menyer. **Mønstre** er gjennomprøvde løsninger for vanlige utfordringer som navigasjon, skjemavalidering og feilmeldinger. Og **retningslinjene** er reglene for tone, tilgjengelighet, responsivitet og bruk.\n\nHvorfor er dette så verdifullt? Fordi fordelene er konkrete. Du får **konsistens** -- produktet ser likt ut overalt. Du får **effektivitet**, fordi designere og utviklere slipper å lage alt fra bunnen hver gang. Du får **kvalitet**, siden hver komponent testes og optimaliseres én gang, ikke om og om igjen. Du får **skalerbarhet**, fordi en endring gjøres ett sted og slår igjennom overalt. Og du får bedre **samarbeid**, fordi alle snakker samme språk. De største selskapene deler til og med designsystemene sine offentlig -- tenk på Googles Material Design og Apples Human Interface Guidelines."
+    },
+    {
+      "id": "im-vg1-7-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-7-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på designsystemets fordeler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-7-6-n-quiz1-q0",
+            "task": "Hva er et designsystem?",
+            "options": [
+              {
+                "id": "c",
+                "text": "En samling gjenbrukbare komponenter, retningslinjer og standarder for et produkt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Et programmeringsspråk for nettsider",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En type server",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et verktøy for å teste nettverkshastighet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et designsystem er en samling av gjenbrukbare komponenter, retningslinjer og standarder som styrer hvordan et digitalt produkt ser ut og fungerer."
+          },
+          {
+            "id": "im-vg1-7-6-n-quiz1-q1",
+            "task": "Hva er en hovedfordel med et designsystem?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det erstatter behovet for brukertesting",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det sikrer konsistens, effektivitet og kvalitet ved å gjenbruke komponenter",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det gjør produktet billigere å lagre på serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det fjerner behovet for designere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et designsystem gir konsistens (produktet ser likt ut overalt), effektivitet (slipper å lage alt på nytt) og kvalitet (komponenter testes én gang), og gjør samarbeid lettere."
+          },
+          {
+            "id": "im-vg1-7-6-n-quiz1-q2",
+            "task": "Hva betyr skalerbarhet i et designsystem?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At produktet bare fungerer på store skjermer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At man må lage hver komponent på nytt for hver side",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At en endring gjøres ett sted og slår igjennom overalt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At systemet aldri kan endres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skalerbarhet betyr at en endring gjøres ett sted i designsystemet og automatisk oppdateres overalt der komponenten brukes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-7-6-n-section2",
+      "type": "text",
+      "content": "## Ferdige deler og et felles visuelt språk\n\nHjertet i mange designsystemer er **komponentbiblioteket** -- en samling ferdige UI-elementer du kan gjenbruke i stedet for å bygge på nytt hver gang. Her finner du knapper i ulike varianter (primær, sekundær, deaktivert), inndatafelt for tekst, passord, søk og nedtrekkslister, avkrysningsbokser og radioknapper, kort for å vise innhold, modaler som er popup-vinduer, og navigasjonselementer. Men en komponent er ikke nyttig uten dokumentasjon, så hver av dem beskrives med sitt visuelle utseende i alle tilstander -- normal, hover, aktiv og deaktivert -- med retningslinjer for når og hvorfor den brukes, med kodeeksempler for utviklerne, og med tilgjengelighetskrav.\n\nVed siden av komponentene står **stilguiden**, som dokumenterer hele det visuelle språket. Den definerer fargepaletten med primærfarge, sekundærfarger, bakgrunns- og tekstfarger oppgitt som heksadesimale koder. Den fastsetter typografien -- skriftfamilier, størrelser og vekter for hvert bruksområde. Den setter et system for avstand med faste verdier, gjerne 4, 8, 16, 24 og 32 piksler. Og den beskriver ikonstil, retningslinjer for bildebruk, og «tone of voice» -- altså hvordan teksten skal skrives, formelt eller uformelt, kort eller detaljert. En enkel stilguide for et skoleprosjekt kan for eksempel slå fast at primærfargen er en mørk blå til knapper og lenker, en grønn brukes til suksess og bekreftelser, en rød til feilmeldinger, at overskrifter settes i Inter Bold og brødtekst i Inter Regular på 16 piksler med god linjeavstand. Sammen gir komponentbiblioteket og stilguiden teamet et felles vokabular for alt visuelt."
+    },
+    {
+      "id": "im-vg1-7-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-7-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på komponentbibliotek og stilguide:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-7-6-n-quiz2-q0",
+            "task": "Hva bør dokumenteres for hver komponent i et komponentbibliotek?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare den visuelle designen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bare navnet på komponenten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare prisen på komponenten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Visuelt utseende i alle tilstander, bruksretningslinjer, kode og tilgjengelighetskrav",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hver komponent bør dokumenteres med utseende i alle tilstander (normal, hover, aktiv, deaktivert), bruksretningslinjer, kodeeksempler og tilgjengelighetskrav."
+          },
+          {
+            "id": "im-vg1-7-6-n-quiz2-q1",
+            "task": "Hva er en stilguide?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Dokumentasjon av det visuelle språket med farger, typografi og regler",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En type kodeeditor",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En guide for å skrive essay",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et alternativt navn for et designprogram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En stilguide dokumenterer det visuelle språket: fargepalett, typografi, avstand, ikonstil, bildebruk og tone of voice, og sikrer konsistens i all visuell kommunikasjon."
+          },
+          {
+            "id": "im-vg1-7-6-n-quiz2-q2",
+            "task": "Hva er «tone of voice» i en stilguide?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lydnivået på varslinger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hvordan tekst skrives, for eksempel formelt eller uformelt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fargen på knappene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hastigheten på animasjoner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tone of voice handler om hvordan teksten i produktet skrives -- formelt eller uformelt, kort eller detaljert -- slik at språket blir konsistent."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-7-6-n-section3",
+      "type": "text",
+      "content": "## De minste klossene og limet som holder alt sammen\n\nLa oss zoome helt inn, til de aller minste byggesteinene. **Designtokens** er navngitte verdier som brukes konsistent gjennom hele produktet. I stedet for å skrive en konkret fargekode hundre steder, gir du verdien et navn. Eksempler kan være color-primary satt til en bestemt blåtone, color-text til en mørk grå, font-family-heading til «Inter», font-size-body til 16 piksler, spacing-small til 8 piksler og border-radius-medium til 8 piksler. Det geniale er at når du bruker tokens i stedet for faste verdier spredt utover, kan du endre hele produktets utseende ved å oppdatere én eneste verdi -- bytt ut primærfargen ett sted, og den endrer seg overalt.\n\nMen et designsystem er bare så nyttig som dokumentasjonen rundt det. God **dokumentasjon** forklarer designprinsippene -- altså hvorfor vi tar de valgene vi gjør -- og bruksmønstrene for når og hvordan hver komponent brukes. Den viser gjerne «do og don't», konkrete eksempler på riktig og feil bruk. Den beskriver tilgjengelighetskrav til kontrast, tastaturnavigasjon og skjermlesere. Og den fører en endringslogg over hva som er oppdatert og når. Helt til slutt er det verdt å forstå hvorfor **konsistens** er så viktig. Konsistens gjør et produkt forutsigbart og lett å lære. Når en bruker ser at en blå knapp betyr «bekreft» på én side, forventer hen at alle blå knapper betyr det samme. Mangler konsistensen -- om «Lagre»-knappen er grønn ett sted, blå et annet og rød et tredje -- blir brukeren forvirret. Betyr den røde knappen «lagre» eller «slett»? Brukeren nøler, stoler ikke på grensesnittet, og opplevelsen føles uprofesjonell. Konsistens bygger tillit, reduserer kognitivt arbeid og gjør produktet helstøpt."
+    },
+    {
+      "id": "im-vg1-7-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-7-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på designtokens, dokumentasjon og konsistens:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-7-6-n-quiz3-q0",
+            "task": "Hva er designtokens?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fysiske brikker man bruker i design",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En type betaling for designverktøy",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Navngitte verdier (farger, størrelser) som brukes konsistent gjennom produktet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Sikkerhetskoder for innlogging",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Designtokens er navngitte verdier, som color-primary eller spacing-small, som brukes konsistent gjennom hele produktet. De er de minste byggesteinene i et designsystem."
+          },
+          {
+            "id": "im-vg1-7-6-n-quiz3-q1",
+            "task": "Hva er fordelen med å bruke designtokens i stedet for faste verdier?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det gjør koden lengre og mer komplisert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det fjerner behovet for en stilguide",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det gjør at produktet ikke kan endres",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Du kan endre hele produktets utseende ved å oppdatere én verdi",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ved å bruke tokens kan du endre hele produktets utseende ved å oppdatere én verdi ett sted, i stedet for å rette faste verdier mange steder."
+          },
+          {
+            "id": "im-vg1-7-6-n-quiz3-q2",
+            "task": "Hvorfor er konsistens viktig i design?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fordi det gjør produktet forutsigbart, bygger tillit og reduserer kognitivt arbeid",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi det gjør produktet penere uten å påvirke bruken",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi det gjør produktet tregere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det erstatter behovet for testing",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konsistens gjør produktet forutsigbart og lett å lære. Når like elementer ser ut og oppfører seg likt, bygges tillit og brukeren slipper å tenke -- mangler konsistens, blir brukeren forvirret."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-7-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har sett at når mange hender lager ett produkt, holder et **designsystem** det helstøpt. Systemet samler gjenbrukbare komponenter, retningslinjer og standarder, og gir konsistens, effektivitet, kvalitet, skalerbarhet og bedre samarbeid -- slik vi ser i Googles Material Design og Apples Human Interface Guidelines.\n\nVi ble kjent med **komponentbiblioteket** av ferdige UI-elementer, hver dokumentert i alle tilstander, og med **stilguiden** som definerer farger, typografi, avstand og tone of voice. Vi zoomet inn på **designtokens**, de minste navngitte byggesteinene som lar deg endre hele utseendet ett sted. Og vi forsto hvor avgjørende god **dokumentasjon** og ikke minst **konsistens** er: når like elementer ser ut og oppfører seg likt, bygges tillit, brukeren slipper å tenke, og produktet føles profesjonelt."
+    }
+  ],
+  "exercises": []
+}

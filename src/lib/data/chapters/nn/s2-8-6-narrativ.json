@@ -1,1 +1,518 @@
-{"id":"s2-8-6-narrativ","courseId":"s2","chapterNumber":"8.6","title":"Kostnad, inntekt og overskot","subtitle":"Narrativ versjon","description":"Ei forteljing om keramikkverkstaden til tante Maja — om kostnads-, inntekts- og overskotsfunksjonen, break-even-punkta og einingskostnaden som avgjer om drifta kan løne seg.","estimatedMinutes":30,"competenceGoals":["modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar","bruke derivasjon til å finne optimale løysingar i økonomi","tolke funksjonar og grafar i økonomiske samanhengar"],"linkedChapterId":"s2-8-6","content":[{"id":"s2-8-6-n-intro","type":"text","content":"## Tre funksjonar som fortel om bedrifta går rundt\n\nTante Maja har starta ein liten keramikkverkstad og spør deg, mattetalentet i familien, om hjelp: «Eg veit kva eg betaler i husleige og kva leira kostar, og eg veit kva eg får per kopp. Men går eg eigentleg med overskot?» Spørsmålet hennar er presist nok til å bli matematikk — og svaret bur i tre funksjonar.\n\n**Kostnadsfunksjonen** $K(x)$ gir dei totale kostnadene ved å produsere $x$ einingar. **Inntektsfunksjonen** $I(x)$ gir dei totale inntektene ved å selje dei. Og **overskotsfunksjonen** er skilnaden:\n\n$$O(x) = I(x) - K(x)$$\n\nEr $O(x) > 0$, har verkstaden **forteneste**; er $O(x) < 0$, går han med **tap**. Dei produksjonsnivåa der $O(x) = 0$ — der inntektene akkurat dekkjer kostnadene — blir kalla **nullpunkt** eller **break-even-punkt**.\n\nI denne forteljinga byggjer vi opp dei tre funksjonane, finn ut kvar tante Maja går i null, kvar overskotet er størst, og korleis einingskostnaden avslører om drifta i det heile teke kan bli lønsam."},{"id":"s2-8-6-n-section1","type":"text","content":"## Kostnader og inntekter på funksjonsform\n\nVi startar med kostnadene. Totalkostnaden består av **faste kostnader** $K(0)$ — husleige, forsikring, lån, som kjem uansett produksjon — og **variable kostnader** $V(x) = K(x) - K(0)$, som aukar med produksjonen: leire, glasur, straum til omnen. I tillegg er **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ den gjennomsnittlege kostnaden per kopp.\n\nI S2 møter du tre typiske kostnadsformer. Ein **lineær** kostnadsfunksjon $K(x) = ax + b$ har konstant variabel kostnad per eining. Ein **kvadratisk** $K(x) = ax^2 + bx + c$ har aukande marginalkostnad — kvar ny eining kostar meir enn førre. Og ein **kubisk** $K(x) = ax^3 + bx^2 + cx + d$ gir eit S-forma kostnadsforløp som fangar både stordriftsfordelar (midt i) og kapasitetsproblem (på slutten).\n\nInntektssida: blir $x$ koppar selde til pris $p(x)$, er totalinntekta $I(x) = p(x) \\cdot x$. Med fast pris er $I(x) = p \\cdot x$, ei rett linje. Møter verkstaden ein lineær etterspurnad $p(x) = a - bx$, blir $I(x) = ax - bx^2$, ein parabel.\n\nOg dermed: $O(x) = I(x) - K(x)$, med **break-even** der $O(x) = 0$, altså $I(x) = K(x)$ — grafisk der inntektslinja kryssar kostnadskurva. Teiknar du $I$ og $K$ i same koordinatsystem, er overskotet den vertikale avstanden mellom dei: over break-even-intervallet ligg $I$ øvst, og bedrifta tener pengar."},{"id":"s2-8-6-n-quiz1","type":"exercise","exercise":{"id":"s2-8-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på kostnads-, inntekts- og overskotsfunksjonen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-6-n-quiz1-q0","task":"Kva er overskotsfunksjonen?","options":[{"id":"a","text":"$O(x) = I(x) - K(x)$","isCorrect":true},{"id":"b","text":"$O(x) = K(x) - I(x)$","isCorrect":false},{"id":"c","text":"$O(x) = I(x) \\cdot K(x)$","isCorrect":false},{"id":"d","text":"$O(x) = p(x) \\cdot x$","isCorrect":false}],"solution":"Overskotet er inntekter minus kostnader. Positiv $O(x)$ betyr forteneste, negativ betyr tap."},{"id":"s2-8-6-n-quiz1-q1","task":"Verkstaden har $K(x) = 0{,}5x^2 + 10x + 200$. Kva er dei variable kostnadene?","options":[{"id":"a","text":"$200$","isCorrect":false},{"id":"b","text":"$0{,}5x^2 + 10x + 200$","isCorrect":false},{"id":"c","text":"$0{,}5x^2 + 10x$","isCorrect":true},{"id":"d","text":"$10x$","isCorrect":false}],"solution":"Variable kostnader er $V(x) = K(x) - K(0) = 0{,}5x^2 + 10x$. Dei faste er $K(0) = 200$."},{"id":"s2-8-6-n-quiz1-q2","task":"Kva for ei kostnadsform fangar både stordriftsfordelar og kapasitetsproblem?","options":[{"id":"a","text":"Lineær $K(x) = ax + b$","isCorrect":false},{"id":"b","text":"Konstant $K(x) = b$","isCorrect":false},{"id":"c","text":"Kvadratisk $K(x) = ax^2 + bx + c$","isCorrect":false},{"id":"d","text":"Kubisk $K(x) = ax^3 + bx^2 + cx + d$","isCorrect":true}],"solution":"Den kubiske gir eit S-forma forløp: kostnadene per eining fell først (stordrift) og stig så bratt (kapasitetstak)."},{"id":"s2-8-6-n-quiz1-q3","task":"Kva betyr break-even grafisk?","options":[{"id":"a","text":"Toppunktet på $O(x)$","isCorrect":false},{"id":"b","text":"Skjeringspunkta mellom grafane til $I(x)$ og $K(x)$","isCorrect":true},{"id":"c","text":"Botnpunktet på $K(x)$","isCorrect":false},{"id":"d","text":"Der $I(x)$ har størst stigning","isCorrect":false}],"solution":"Break-even er der $I(x) = K(x)$ — inntektskurva kryssar kostnadskurva, og overskotet skiftar forteikn."}]}},{"id":"s2-8-6-n-section2","type":"text","content":"## Kvar er overskotet størst?\n\nKostnadsfunksjonen til tante Maja viser seg å vere $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner for $x$ koppar, og ho sel til fast pris 50 kroner per kopp. Då er $I(x) = 50x$ og\n\n$$O(x) = 50x - (0{,}01x^3 - 0{,}9x^2 + 30x + 500) = -0{,}01x^3 + 0{,}9x^2 + 20x - 500$$\n\nFørst: kvar går ho i null? $O(x) = 0$ er ei tredjegradslikning som blir løyst numerisk eller med CAS: $x \\approx 15$ og $x \\approx 75$. Verkstaden tener pengar for produksjon mellom 15 og 75 koppar — under 15 et dei faste kostnadene alt, over 75 tek dei aukande produksjonskostnadene over.\n\nSå: kvar er overskotet *størst*? Vi deriverer og set lik null — det generelle prinsippet er at $O'(x) = I'(x) - K'(x) = 0$, altså $I'(x) = K'(x)$: **grenseinntekt lik marginalkostnad**. Her: $O'(x) = -0{,}03x^2 + 1{,}8x + 20 = 0$, som med abc-formelen gir $x \\approx 69{,}6$ (den negative løysinga blir forkasta). Andrederiverttesten: $O''(69{,}6) = -0{,}06 \\cdot 69{,}6 + 1{,}8 \\approx -2{,}4 < 0$ — eit maksimum. Cirka 70 koppar er altså den optimale produksjonen til Maja.\n\nSame metoden med variabel pris: med $K(x) = x^2 + 20x + 400$ og etterspurnad $p(x) = 100 - x$ blir $I(x) = 100x - x^2$ og $O(x) = -2x^2 + 80x - 400$. Break-even: $x = 20 \\pm 10\\sqrt{2}$, altså cirka 5,9 og 34,1. Maksimum: $O'(x) = -4x + 80 = 0$ gir $x = 20$ med $O(20) = 400$ kroner og pris $p(20) = 80$ kroner. Oppskrifta er den same kvar gong: set opp funksjonane, finn nullpunkta, deriver, og test med andrederiverten."},{"id":"s2-8-6-n-quiz2","type":"exercise","exercise":{"id":"s2-8-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på break-even og maksimalt overskot:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-6-n-quiz2-q0","task":"Verkstaden til Maja har break-even ved $x \\approx 15$ og $x \\approx 75$. Kva skjer ved produksjon av 80 koppar?","options":[{"id":"a","text":"Maksimalt overskot","isCorrect":false},{"id":"b","text":"Inntektene er null","isCorrect":false},{"id":"c","text":"Ho går akkurat i null","isCorrect":false},{"id":"d","text":"Verkstaden går med tap","isCorrect":true}],"solution":"Overskot finst berre mellom break-even-punkta. $x = 80 > 75$ gir $O(x) < 0$ — tap."},{"id":"s2-8-6-n-quiz2-q1","task":"Kva for eit vilkår gir maksimalt overskot?","options":[{"id":"a","text":"$I(x) = K(x)$","isCorrect":false},{"id":"b","text":"$O'(x) = 0$, altså $I'(x) = K'(x)$, med $O''(x) < 0$","isCorrect":true},{"id":"c","text":"$K'(x) = 0$","isCorrect":false},{"id":"d","text":"$I(x)$ er størst mogleg","isCorrect":false}],"solution":"Overskotet blir maksimert der grenseinntekta er lik marginalkostnaden — og andrederiverten må vere negativ for at det skal vere eit toppunkt."},{"id":"s2-8-6-n-quiz2-q2","task":"Med $O(x) = -2x^2 + 80x - 400$: kva er maksimalt overskot?","options":[{"id":"a","text":"$O(20) = 400$ kr","isCorrect":true},{"id":"b","text":"$O(40) = 0$ kr","isCorrect":false},{"id":"c","text":"$O(20) = 600$ kr","isCorrect":false},{"id":"d","text":"$O(80) = 400$ kr","isCorrect":false}],"solution":"$O'(x) = -4x + 80 = 0$ gir $x = 20$, og $O(20) = -800 + 1600 - 400 = 400$ kr. $O''= -4 < 0$ stadfestar maksimum."},{"id":"s2-8-6-n-quiz2-q3","task":"Kvifor er produksjon under det første break-even-punktet ulønsam?","options":[{"id":"a","text":"Fordi prisen er for høg","isCorrect":false},{"id":"b","text":"Fordi marginalkostnaden er null der","isCorrect":false},{"id":"c","text":"Fordi dei faste kostnadene enno ikkje er dekte av inntektene","isCorrect":true},{"id":"d","text":"Fordi etterspurnaden er elastisk","isCorrect":false}],"solution":"Ved låg produksjon blir dei faste kostnadene fordelte på få einingar, og inntektene rekk ikkje over totalkostnadene før det første nullpunktet."}]}},{"id":"s2-8-6-n-section3","type":"text","content":"## Einingskostnaden — lakmustesten for lønsemd\n\nDet siste verktøyet svarar på eit spørsmål kvar bedriftseigar bør stille: *kan* dette i det heile teke bli lønsamt? Samanlikn prisen med einingskostnaden. Er prisen per kopp høgare enn kostnaden per kopp, finst det rom for forteneste; er han lågare, hjelper inga produksjonsmengd i verda.\n\nTa ein verkstad med $K(x) = 0{,}5x^2 + 10x + 200$ som sel til fast pris 40 kroner. Einingskostnaden er\n\n$$E(x) = \\frac{K(x)}{x} = 0{,}5x + 10 + \\frac{200}{x}$$\n\nKvar er han lågast? Vi deriverer: $E'(x) = 0{,}5 - \\frac{200}{x^2} = 0$ gir $x^2 = 400$, altså $x = 20$, og\n\n$$E(20) = 10 + 10 + 10 = 30 \\text{ kroner per eining}$$\n\nLegg merke til strukturen i $E(x)$: leddet $0{,}5x + 10$ veks med produksjonen (variable kostnader per eining), medan $\\frac{200}{x}$ krympar (faste kostnader blir fordelte på fleire einingar). Minimum ligg der dei to kreftene balanserer.\n\nEr bedrifta lønsam? Ved $x = 20$ er einingskostnaden 30 kroner og prisen 40 — overskot på 10 kroner per eining, og totalt $O(20) = 40 \\cdot 20 - K(20) = 800 - 600 = 200$ kroner. Svaret er ja: den minimale einingskostnaden ligg under salsprisen, så det finst produksjonsnivå som gir forteneste. Hadde minimum vore 45 kroner, ville inga mengd redda rekneskapen — då måtte anten prisen opp eller kostnadene ned. Slik gir $E(x)$ eit raskt lønsemdssjekkpunkt før den fulle overskotsanalysen."},{"id":"s2-8-6-n-quiz3","type":"exercise","exercise":{"id":"s2-8-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på einingskostnad og lønsemd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-8-6-n-quiz3-q0","task":"$K(x) = 0{,}5x^2 + 10x + 200$. For kva for ein $x$ er einingskostnaden minst?","options":[{"id":"a","text":"$x = 10$","isCorrect":false},{"id":"b","text":"$x = 20$","isCorrect":true},{"id":"c","text":"$x = 40$","isCorrect":false},{"id":"d","text":"$x = 200$","isCorrect":false}],"solution":"$E'(x) = 0{,}5 - \\frac{200}{x^2} = 0 \\Rightarrow x^2 = 400 \\Rightarrow x = 20$, med $E(20) = 30$ kr/eining."},{"id":"s2-8-6-n-quiz3-q1","task":"Prisen er 40 kr og minimal einingskostnad 30 kr. Kva kan vi konkludere med?","options":[{"id":"a","text":"Bedrifta taper pengar uansett","isCorrect":false},{"id":"b","text":"Bedrifta går akkurat i null","isCorrect":false},{"id":"c","text":"Bedrifta kan drive lønsamt — prisen er større enn einingskostnaden","isCorrect":true},{"id":"d","text":"Prisen må senkast","isCorrect":false}],"solution":"Når $p > E(x)$ for nokre $x$, finst produksjonsnivå med forteneste; ved $x = 20$ er marginen 10 kr per eining."},{"id":"s2-8-6-n-quiz3-q2","task":"Kvifor søkk leddet $\\frac{200}{x}$ i einingskostnaden når produksjonen aukar?","options":[{"id":"a","text":"Fordi dei faste kostnadene blir fordelte på stadig fleire einingar","isCorrect":true},{"id":"b","text":"Fordi husleiga søkk med produksjonen","isCorrect":false},{"id":"c","text":"Fordi variable kostnader er null","isCorrect":false},{"id":"d","text":"Fordi prisen søkk","isCorrect":false}],"solution":"Dei faste kostnadene på 200 kr er konstante; per eining blir dei $\\frac{200}{x}$, som krympar når $x$ veks — ein stordriftseffekt."},{"id":"s2-8-6-n-quiz3-q3","task":"Kva skjer dersom salsprisen ligg under den minimale einingskostnaden?","options":[{"id":"a","text":"Bedrifta bør produsere meir for å kompensere","isCorrect":false},{"id":"b","text":"Overskotet blir maksimert ved break-even","isCorrect":false},{"id":"c","text":"Dei faste kostnadene forsvinn","isCorrect":false},{"id":"d","text":"Inga produksjonsmengd gir overskot — pris eller kostnader må endrast","isCorrect":true}],"solution":"Viss $p < E(x)$ for alle $x$, kostar kvar eining i snitt meir enn ho dreg inn, uansett volum. Då må prisen opp eller kostnadene ned."}]}},{"id":"s2-8-6-n-summary","type":"text","content":"## Oppsummering: rekneskapen til keramikkverkstaden\n\nTante Maja fekk svar — og du fekk metoden. **Overskotsfunksjonen** $O(x) = I(x) - K(x)$ samlar heile drifta: kostnader med faste ($K(0)$) og variable ($K(x) - K(0)$) delar, og inntekter $I(x) = p(x) \\cdot x$, lineære ved fast pris og parabelforma ved lineær etterspurnad $p(x) = a - bx$.\n\n**Break-even** finn du ved å løyse $O(x) = 0$, altså $I(x) = K(x)$: mellom nullpunkta tener bedrifta pengar, utanfor taper ho. **Maksimalt overskot** ligg der $O'(x) = 0$ — det vil seie der grenseinntekt er lik marginalkostnad, $I'(x) = K'(x)$ — stadfesta med $O''(x) < 0$. Grafisk er overskotet den vertikale avstanden mellom inntekts- og kostnadskurva, størst der tangentane er parallelle.\n\nOg **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ er lakmustesten: bedrifta kan drive lønsamt berre viss prisen er større enn den minimale einingskostnaden — som for verkstaden med $E(20) = 30$ kroner mot prisen 40. Tre funksjonar, tre spørsmål, tre svar: Går vi rundt? Kvar går vi i null? Og kvar tener vi mest? Det er bedriftsøkonomi på funksjonsform."}],"exercises":[],"_meta":{"sourceHash":"3cda6d80a9b6726a","translatedAt":"2026-06-20T09:44:28.111Z","model":"claude-code-agent","strings":88,"tm":{"55b20b16de28bbd8":"Kostnad, inntekt og overskot","b195b06d1ed59702":"Narrativ versjon","701dcfb83420152d":"Ei forteljing om keramikkverkstaden til tante Maja — om kostnads-, inntekts- og overskotsfunksjonen, break-even-punkta og einingskostnaden som avgjer om drifta kan løne seg.","9b86846e54dc55ea":"modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar","2c767f8ea1f58c10":"bruke derivasjon til å finne optimale løysingar i økonomi","a0fb9aa53f1e2aa1":"tolke funksjonar og grafar i økonomiske samanhengar","a227b9c86122c0fc":"## Tre funksjonar som fortel om bedrifta går rundt\n\nTante Maja har starta ein liten keramikkverkstad og spør deg, mattetalentet i familien, om hjelp: «Eg veit kva eg betaler i husleige og kva leira kostar, og eg veit kva eg får per kopp. Men går eg eigentleg med overskot?» Spørsmålet hennar er presist nok til å bli matematikk — og svaret bur i tre funksjonar.\n\n**Kostnadsfunksjonen** $K(x)$ gir dei totale kostnadene ved å produsere $x$ einingar. **Inntektsfunksjonen** $I(x)$ gir dei totale inntektene ved å selje dei. Og **overskotsfunksjonen** er skilnaden:\n\n$$O(x) = I(x) - K(x)$$\n\nEr $O(x) > 0$, har verkstaden **forteneste**; er $O(x) < 0$, går han med **tap**. Dei produksjonsnivåa der $O(x) = 0$ — der inntektene akkurat dekkjer kostnadene — blir kalla **nullpunkt** eller **break-even-punkt**.\n\nI denne forteljinga byggjer vi opp dei tre funksjonane, finn ut kvar tante Maja går i null, kvar overskotet er størst, og korleis einingskostnaden avslører om drifta i det heile teke kan bli lønsam.","e18d3a6996cd9815":"## Kostnader og inntekter på funksjonsform\n\nVi startar med kostnadene. Totalkostnaden består av **faste kostnader** $K(0)$ — husleige, forsikring, lån, som kjem uansett produksjon — og **variable kostnader** $V(x) = K(x) - K(0)$, som aukar med produksjonen: leire, glasur, straum til omnen. I tillegg er **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ den gjennomsnittlege kostnaden per kopp.\n\nI S2 møter du tre typiske kostnadsformer. Ein **lineær** kostnadsfunksjon $K(x) = ax + b$ har konstant variabel kostnad per eining. Ein **kvadratisk** $K(x) = ax^2 + bx + c$ har aukande marginalkostnad — kvar ny eining kostar meir enn førre. Og ein **kubisk** $K(x) = ax^3 + bx^2 + cx + d$ gir eit S-forma kostnadsforløp som fangar både stordriftsfordelar (midt i) og kapasitetsproblem (på slutten).\n\nInntektssida: blir $x$ koppar selde til pris $p(x)$, er totalinntekta $I(x) = p(x) \\cdot x$. Med fast pris er $I(x) = p \\cdot x$, ei rett linje. Møter verkstaden ein lineær etterspurnad $p(x) = a - bx$, blir $I(x) = ax - bx^2$, ein parabel.\n\nOg dermed: $O(x) = I(x) - K(x)$, med **break-even** der $O(x) = 0$, altså $I(x) = K(x)$ — grafisk der inntektslinja kryssar kostnadskurva. Teiknar du $I$ og $K$ i same koordinatsystem, er overskotet den vertikale avstanden mellom dei: over break-even-intervallet ligg $I$ øvst, og bedrifta tener pengar.","83b194991f3a0f9d":"Test deg sjølv på kostnads-, inntekts- og overskotsfunksjonen:","4097889236a2af26":"placeholder","f22e49d4d2384b34":"Kva er overskotsfunksjonen?","f9e471f0fd460610":"$O(x) = I(x) - K(x)$","630a176bdfbcb879":"$O(x) = K(x) - I(x)$","9d6992353eda801e":"$O(x) = I(x) \\cdot K(x)$","1e55d93aecfd147f":"$O(x) = p(x) \\cdot x$","d5c1df4b60457628":"Overskotet er inntekter minus kostnader. Positiv $O(x)$ betyr forteneste, negativ betyr tap.","1aeec6700cc8c205":"Verkstaden har $K(x) = 0{,}5x^2 + 10x + 200$. Kva er dei variable kostnadene?","33d7c3660b133342":"$0{,}5x^2 + 10x + 200$","7725a6d91e8d72ad":"$0{,}5x^2 + 10x$","68bc17a106bb7d91":"$10x$","9affcb026f7167f9":"Variable kostnader er $V(x) = K(x) - K(0) = 0{,}5x^2 + 10x$. Dei faste er $K(0) = 200$.","68776f1cb6d9f39c":"Kva for ei kostnadsform fangar både stordriftsfordelar og kapasitetsproblem?","53e74052f39a84e7":"Lineær $K(x) = ax + b$","f6ddd9a2f5de41bb":"Konstant $K(x) = b$","55d39381aff7ffc1":"Kvadratisk $K(x) = ax^2 + bx + c$","fe0d6566e2e8b178":"Kubisk $K(x) = ax^3 + bx^2 + cx + d$","48950ba302b8e291":"Den kubiske gir eit S-forma forløp: kostnadene per eining fell først (stordrift) og stig så bratt (kapasitetstak).","84c3092414e0c96c":"Kva betyr break-even grafisk?","36582cebf55d6f91":"Toppunktet på $O(x)$","b8210fa6449d6628":"Skjeringspunkta mellom grafane til $I(x)$ og $K(x)$","afa161419f272c75":"Botnpunktet på $K(x)$","09ce390ac09a05f9":"Der $I(x)$ har størst stigning","e26f196057f31a59":"Break-even er der $I(x) = K(x)$ — inntektskurva kryssar kostnadskurva, og overskotet skiftar forteikn.","0011198bece8e040":"## Kvar er overskotet størst?\n\nKostnadsfunksjonen til tante Maja viser seg å vere $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner for $x$ koppar, og ho sel til fast pris 50 kroner per kopp. Då er $I(x) = 50x$ og\n\n$$O(x) = 50x - (0{,}01x^3 - 0{,}9x^2 + 30x + 500) = -0{,}01x^3 + 0{,}9x^2 + 20x - 500$$\n\nFørst: kvar går ho i null? $O(x) = 0$ er ei tredjegradslikning som blir løyst numerisk eller med CAS: $x \\approx 15$ og $x \\approx 75$. Verkstaden tener pengar for produksjon mellom 15 og 75 koppar — under 15 et dei faste kostnadene alt, over 75 tek dei aukande produksjonskostnadene over.\n\nSå: kvar er overskotet *størst*? Vi deriverer og set lik null — det generelle prinsippet er at $O'(x) = I'(x) - K'(x) = 0$, altså $I'(x) = K'(x)$: **grenseinntekt lik marginalkostnad**. Her: $O'(x) = -0{,}03x^2 + 1{,}8x + 20 = 0$, som med abc-formelen gir $x \\approx 69{,}6$ (den negative løysinga blir forkasta). Andrederiverttesten: $O''(69{,}6) = -0{,}06 \\cdot 69{,}6 + 1{,}8 \\approx -2{,}4 < 0$ — eit maksimum. Cirka 70 koppar er altså den optimale produksjonen til Maja.\n\nSame metoden med variabel pris: med $K(x) = x^2 + 20x + 400$ og etterspurnad $p(x) = 100 - x$ blir $I(x) = 100x - x^2$ og $O(x) = -2x^2 + 80x - 400$. Break-even: $x = 20 \\pm 10\\sqrt{2}$, altså cirka 5,9 og 34,1. Maksimum: $O'(x) = -4x + 80 = 0$ gir $x = 20$ med $O(20) = 400$ kroner og pris $p(20) = 80$ kroner. Oppskrifta er den same kvar gong: set opp funksjonane, finn nullpunkta, deriver, og test med andrederiverten.","da9b12ce224d313b":"Test deg sjølv på break-even og maksimalt overskot:","9dc6550884d5eb15":"Verkstaden til Maja har break-even ved $x \\approx 15$ og $x \\approx 75$. Kva skjer ved produksjon av 80 koppar?","f99f4b082077b5d0":"Maksimalt overskot","f027a78a0ad5a2e4":"Inntektene er null","ec70a1067110316d":"Ho går akkurat i null","2f391d49dc59fa1b":"Verkstaden går med tap","3ea4b8ebd00042e1":"Overskot finst berre mellom break-even-punkta. $x = 80 > 75$ gir $O(x) < 0$ — tap.","e0f89d60b27a4e41":"Kva for eit vilkår gir maksimalt overskot?","365a79715261b62f":"$I(x) = K(x)$","0ddc638f7715388e":"$O'(x) = 0$, altså $I'(x) = K'(x)$, med $O''(x) < 0$","872dbf10a2a29400":"$K'(x) = 0$","6fba7c3c81923c66":"$I(x)$ er størst mogleg","9e34c54a130d242f":"Overskotet blir maksimert der grenseinntekta er lik marginalkostnaden — og andrederiverten må vere negativ for at det skal vere eit toppunkt.","a3dd354e0c2433b5":"Med $O(x) = -2x^2 + 80x - 400$: kva er maksimalt overskot?","a9a0b77c2c633ec4":"$O(20) = 400$ kr","762c19b6f25c1a6c":"$O(40) = 0$ kr","db233f2b0802effa":"$O(20) = 600$ kr","318fdd5c90b1c03b":"$O(80) = 400$ kr","262f11e92fab4ac9":"$O'(x) = -4x + 80 = 0$ gir $x = 20$, og $O(20) = -800 + 1600 - 400 = 400$ kr. $O''= -4 < 0$ stadfestar maksimum.","a264f401a03d9fc4":"Kvifor er produksjon under det første break-even-punktet ulønsam?","c44c72214bcf0116":"Fordi prisen er for høg","9de8f3de4e0242ee":"Fordi marginalkostnaden er null der","de37de2833139112":"Fordi dei faste kostnadene enno ikkje er dekte av inntektene","adf82755228f2897":"Fordi etterspurnaden er elastisk","2d793e92008d2ac9":"Ved låg produksjon blir dei faste kostnadene fordelte på få einingar, og inntektene rekk ikkje over totalkostnadene før det første nullpunktet.","6320326aa0c8276b":"## Einingskostnaden — lakmustesten for lønsemd\n\nDet siste verktøyet svarar på eit spørsmål kvar bedriftseigar bør stille: *kan* dette i det heile teke bli lønsamt? Samanlikn prisen med einingskostnaden. Er prisen per kopp høgare enn kostnaden per kopp, finst det rom for forteneste; er han lågare, hjelper inga produksjonsmengd i verda.\n\nTa ein verkstad med $K(x) = 0{,}5x^2 + 10x + 200$ som sel til fast pris 40 kroner. Einingskostnaden er\n\n$$E(x) = \\frac{K(x)}{x} = 0{,}5x + 10 + \\frac{200}{x}$$\n\nKvar er han lågast? Vi deriverer: $E'(x) = 0{,}5 - \\frac{200}{x^2} = 0$ gir $x^2 = 400$, altså $x = 20$, og\n\n$$E(20) = 10 + 10 + 10 = 30 \\text{ kroner per eining}$$\n\nLegg merke til strukturen i $E(x)$: leddet $0{,}5x + 10$ veks med produksjonen (variable kostnader per eining), medan $\\frac{200}{x}$ krympar (faste kostnader blir fordelte på fleire einingar). Minimum ligg der dei to kreftene balanserer.\n\nEr bedrifta lønsam? Ved $x = 20$ er einingskostnaden 30 kroner og prisen 40 — overskot på 10 kroner per eining, og totalt $O(20) = 40 \\cdot 20 - K(20) = 800 - 600 = 200$ kroner. Svaret er ja: den minimale einingskostnaden ligg under salsprisen, så det finst produksjonsnivå som gir forteneste. Hadde minimum vore 45 kroner, ville inga mengd redda rekneskapen — då måtte anten prisen opp eller kostnadene ned. Slik gir $E(x)$ eit raskt lønsemdssjekkpunkt før den fulle overskotsanalysen.","cc2382eca2ccf782":"Test deg sjølv på einingskostnad og lønsemd:","55ece1bf41907505":"$K(x) = 0{,}5x^2 + 10x + 200$. For kva for ein $x$ er einingskostnaden minst?","b17c025fc1fca5ef":"$x = 10$","761499b32c8b8212":"$x = 20$","eb4e03a6a8aa4e11":"$x = 40$","b53d7160450017ed":"$x = 200$","b615879d3b51bf42":"$E'(x) = 0{,}5 - \\frac{200}{x^2} = 0 \\Rightarrow x^2 = 400 \\Rightarrow x = 20$, med $E(20) = 30$ kr/eining.","456f97e0d3a83946":"Prisen er 40 kr og minimal einingskostnad 30 kr. Kva kan vi konkludere med?","8c5f9d4797c38f7f":"Bedrifta taper pengar uansett","94e0570f99531462":"Bedrifta går akkurat i null","bc5f3f9dfa793d31":"Bedrifta kan drive lønsamt — prisen er større enn einingskostnaden","025b0392196ab8d3":"Prisen må senkast","9628b029ca9476a4":"Når $p > E(x)$ for nokre $x$, finst produksjonsnivå med forteneste; ved $x = 20$ er marginen 10 kr per eining.","6f7620bbaa237dd7":"Kvifor søkk leddet $\\frac{200}{x}$ i einingskostnaden når produksjonen aukar?","67097f203b1be223":"Fordi dei faste kostnadene blir fordelte på stadig fleire einingar","4db8f6e9f3948e92":"Fordi husleiga søkk med produksjonen","c288620f74ee78b1":"Fordi variable kostnader er null","88e70221c4e64fdc":"Fordi prisen søkk","39d400d8412920a2":"Dei faste kostnadene på 200 kr er konstante; per eining blir dei $\\frac{200}{x}$, som krympar når $x$ veks — ein stordriftseffekt.","c413842a9e0c2229":"Kva skjer dersom salsprisen ligg under den minimale einingskostnaden?","c665c5129467b04f":"Bedrifta bør produsere meir for å kompensere","ee0d4da9a399efa7":"Overskotet blir maksimert ved break-even","d4f4841ddef53d78":"Dei faste kostnadene forsvinn","a6c26c7722bd4bfa":"Inga produksjonsmengd gir overskot — pris eller kostnader må endrast","ed559e8b952ab6dd":"Viss $p < E(x)$ for alle $x$, kostar kvar eining i snitt meir enn ho dreg inn, uansett volum. Då må prisen opp eller kostnadene ned.","1617447f7b3bcaa4":"## Oppsummering: rekneskapen til keramikkverkstaden\n\nTante Maja fekk svar — og du fekk metoden. **Overskotsfunksjonen** $O(x) = I(x) - K(x)$ samlar heile drifta: kostnader med faste ($K(0)$) og variable ($K(x) - K(0)$) delar, og inntekter $I(x) = p(x) \\cdot x$, lineære ved fast pris og parabelforma ved lineær etterspurnad $p(x) = a - bx$.\n\n**Break-even** finn du ved å løyse $O(x) = 0$, altså $I(x) = K(x)$: mellom nullpunkta tener bedrifta pengar, utanfor taper ho. **Maksimalt overskot** ligg der $O'(x) = 0$ — det vil seie der grenseinntekt er lik marginalkostnad, $I'(x) = K'(x)$ — stadfesta med $O''(x) < 0$. Grafisk er overskotet den vertikale avstanden mellom inntekts- og kostnadskurva, størst der tangentane er parallelle.\n\nOg **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ er lakmustesten: bedrifta kan drive lønsamt berre viss prisen er større enn den minimale einingskostnaden — som for verkstaden med $E(20) = 30$ kroner mot prisen 40. Tre funksjonar, tre spørsmål, tre svar: Går vi rundt? Kvar går vi i null? Og kvar tener vi mest? Det er bedriftsøkonomi på funksjonsform."}}}
+{
+  "id": "s2-8-6-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "8.6",
+  "title": "Kostnad, inntekt og overskot",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om keramikkverkstaden til tante Maja — om kostnads-, inntekts- og overskotsfunksjonen, break-even-punkta og einingskostnaden som avgjer om drifta kan løne seg.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar",
+    "bruke derivasjon til å finne optimale løysingar i økonomi",
+    "tolke funksjonar og grafar i økonomiske samanhengar"
+  ],
+  "linkedChapterId": "s2-8-6",
+  "content": [
+    {
+      "id": "s2-8-6-n-intro",
+      "type": "text",
+      "content": "## Tre funksjonar som fortel om bedrifta går rundt\n\nTante Maja har starta ein liten keramikkverkstad og spør deg, mattetalentet i familien, om hjelp: «Eg veit kva eg betaler i husleige og kva leira kostar, og eg veit kva eg får per kopp. Men går eg eigentleg med overskot?» Spørsmålet hennar er presist nok til å bli matematikk — og svaret bur i tre funksjonar.\n\n**Kostnadsfunksjonen** $K(x)$ gir dei totale kostnadene ved å produsere $x$ einingar. **Inntektsfunksjonen** $I(x)$ gir dei totale inntektene ved å selje dei. Og **overskotsfunksjonen** er skilnaden:\n\n$$O(x) = I(x) - K(x)$$\n\nEr $O(x) > 0$, har verkstaden **forteneste**; er $O(x) < 0$, går han med **tap**. Dei produksjonsnivåa der $O(x) = 0$ — der inntektene akkurat dekkjer kostnadene — blir kalla **nullpunkt** eller **break-even-punkt**.\n\nI denne forteljinga byggjer vi opp dei tre funksjonane, finn ut kvar tante Maja går i null, kvar overskotet er størst, og korleis einingskostnaden avslører om drifta i det heile teke kan bli lønsam."
+    },
+    {
+      "id": "s2-8-6-n-section1",
+      "type": "text",
+      "content": "## Kostnader og inntekter på funksjonsform\n\nVi startar med kostnadene. Totalkostnaden består av **faste kostnader** $K(0)$ — husleige, forsikring, lån, som kjem uansett produksjon — og **variable kostnader** $V(x) = K(x) - K(0)$, som aukar med produksjonen: leire, glasur, straum til omnen. I tillegg er **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ den gjennomsnittlege kostnaden per kopp.\n\nI S2 møter du tre typiske kostnadsformer. Ein **lineær** kostnadsfunksjon $K(x) = ax + b$ har konstant variabel kostnad per eining. Ein **kvadratisk** $K(x) = ax^2 + bx + c$ har aukande marginalkostnad — kvar ny eining kostar meir enn førre. Og ein **kubisk** $K(x) = ax^3 + bx^2 + cx + d$ gir eit S-forma kostnadsforløp som fangar både stordriftsfordelar (midt i) og kapasitetsproblem (på slutten).\n\nInntektssida: blir $x$ koppar selde til pris $p(x)$, er totalinntekta $I(x) = p(x) \\cdot x$. Med fast pris er $I(x) = p \\cdot x$, ei rett linje. Møter verkstaden ein lineær etterspurnad $p(x) = a - bx$, blir $I(x) = ax - bx^2$, ein parabel.\n\nOg dermed: $O(x) = I(x) - K(x)$, med **break-even** der $O(x) = 0$, altså $I(x) = K(x)$ — grafisk der inntektslinja kryssar kostnadskurva. Teiknar du $I$ og $K$ i same koordinatsystem, er overskotet den vertikale avstanden mellom dei: over break-even-intervallet ligg $I$ øvst, og bedrifta tener pengar."
+    },
+    {
+      "id": "s2-8-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kostnads-, inntekts- og overskotsfunksjonen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-6-n-quiz1-q0",
+            "task": "Kva er overskotsfunksjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$O(x) = K(x) - I(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$O(x) = I(x) \\cdot K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$O(x) = I(x) - K(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$O(x) = p(x) \\cdot x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overskotet er inntekter minus kostnader. Positiv $O(x)$ betyr forteneste, negativ betyr tap."
+          },
+          {
+            "id": "s2-8-6-n-quiz1-q1",
+            "task": "Verkstaden har $K(x) = 0{,}5x^2 + 10x + 200$. Kva er dei variable kostnadene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$200$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}5x^2 + 10x + 200$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}5x^2 + 10x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Variable kostnader er $V(x) = K(x) - K(0) = 0{,}5x^2 + 10x$. Dei faste er $K(0) = 200$."
+          },
+          {
+            "id": "s2-8-6-n-quiz1-q2",
+            "task": "Kva for ei kostnadsform fangar både stordriftsfordelar og kapasitetsproblem?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Kubisk $K(x) = ax^3 + bx^2 + cx + d$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lineær $K(x) = ax + b$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Konstant $K(x) = b$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvadratisk $K(x) = ax^2 + bx + c$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den kubiske gir eit S-forma forløp: kostnadene per eining fell først (stordrift) og stig så bratt (kapasitetstak)."
+          },
+          {
+            "id": "s2-8-6-n-quiz1-q3",
+            "task": "Kva betyr break-even grafisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Toppunktet på $O(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Skjeringspunkta mellom grafane til $I(x)$ og $K(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Botnpunktet på $K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Der $I(x)$ har størst stigning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Break-even er der $I(x) = K(x)$ — inntektskurva kryssar kostnadskurva, og overskotet skiftar forteikn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-6-n-section2",
+      "type": "text",
+      "content": "## Kvar er overskotet størst?\n\nKostnadsfunksjonen til tante Maja viser seg å vere $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner for $x$ koppar, og ho sel til fast pris 50 kroner per kopp. Då er $I(x) = 50x$ og\n\n$$O(x) = 50x - (0{,}01x^3 - 0{,}9x^2 + 30x + 500) = -0{,}01x^3 + 0{,}9x^2 + 20x - 500$$\n\nFørst: kvar går ho i null? $O(x) = 0$ er ei tredjegradslikning som blir løyst numerisk eller med CAS: $x \\approx 15$ og $x \\approx 75$. Verkstaden tener pengar for produksjon mellom 15 og 75 koppar — under 15 et dei faste kostnadene alt, over 75 tek dei aukande produksjonskostnadene over.\n\nSå: kvar er overskotet *størst*? Vi deriverer og set lik null — det generelle prinsippet er at $O'(x) = I'(x) - K'(x) = 0$, altså $I'(x) = K'(x)$: **grenseinntekt lik marginalkostnad**. Her: $O'(x) = -0{,}03x^2 + 1{,}8x + 20 = 0$, som med abc-formelen gir $x \\approx 69{,}6$ (den negative løysinga blir forkasta). Andrederiverttesten: $O''(69{,}6) = -0{,}06 \\cdot 69{,}6 + 1{,}8 \\approx -2{,}4 < 0$ — eit maksimum. Cirka 70 koppar er altså den optimale produksjonen til Maja.\n\nSame metoden med variabel pris: med $K(x) = x^2 + 20x + 400$ og etterspurnad $p(x) = 100 - x$ blir $I(x) = 100x - x^2$ og $O(x) = -2x^2 + 80x - 400$. Break-even: $x = 20 \\pm 10\\sqrt{2}$, altså cirka 5,9 og 34,1. Maksimum: $O'(x) = -4x + 80 = 0$ gir $x = 20$ med $O(20) = 400$ kroner og pris $p(20) = 80$ kroner. Oppskrifta er den same kvar gong: set opp funksjonane, finn nullpunkta, deriver, og test med andrederiverten."
+    },
+    {
+      "id": "s2-8-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på break-even og maksimalt overskot:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-6-n-quiz2-q0",
+            "task": "Verkstaden til Maja har break-even ved $x \\approx 15$ og $x \\approx 75$. Kva skjer ved produksjon av 80 koppar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Maksimalt overskot",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Inntektene er null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verkstaden går med tap",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ho går akkurat i null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overskot finst berre mellom break-even-punkta. $x = 80 > 75$ gir $O(x) < 0$ — tap."
+          },
+          {
+            "id": "s2-8-6-n-quiz2-q1",
+            "task": "Kva for eit vilkår gir maksimalt overskot?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$I(x) = K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$K'(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$I(x)$ er størst mogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$O'(x) = 0$, altså $I'(x) = K'(x)$, med $O''(x) < 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Overskotet blir maksimert der grenseinntekta er lik marginalkostnaden — og andrederiverten må vere negativ for at det skal vere eit toppunkt."
+          },
+          {
+            "id": "s2-8-6-n-quiz2-q2",
+            "task": "Med $O(x) = -2x^2 + 80x - 400$: kva er maksimalt overskot?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$O(20) = 400$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$O(40) = 0$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$O(20) = 600$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$O(80) = 400$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$O'(x) = -4x + 80 = 0$ gir $x = 20$, og $O(20) = -800 + 1600 - 400 = 400$ kr. $O''= -4 < 0$ stadfestar maksimum."
+          },
+          {
+            "id": "s2-8-6-n-quiz2-q3",
+            "task": "Kvifor er produksjon under det første break-even-punktet ulønsam?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi prisen er for høg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi dei faste kostnadene enno ikkje er dekte av inntektene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi marginalkostnaden er null der",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi etterspurnaden er elastisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved låg produksjon blir dei faste kostnadene fordelte på få einingar, og inntektene rekk ikkje over totalkostnadene før det første nullpunktet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-6-n-section3",
+      "type": "text",
+      "content": "## Einingskostnaden — lakmustesten for lønsemd\n\nDet siste verktøyet svarar på eit spørsmål kvar bedriftseigar bør stille: *kan* dette i det heile teke bli lønsamt? Samanlikn prisen med einingskostnaden. Er prisen per kopp høgare enn kostnaden per kopp, finst det rom for forteneste; er han lågare, hjelper inga produksjonsmengd i verda.\n\nTa ein verkstad med $K(x) = 0{,}5x^2 + 10x + 200$ som sel til fast pris 40 kroner. Einingskostnaden er\n\n$$E(x) = \\frac{K(x)}{x} = 0{,}5x + 10 + \\frac{200}{x}$$\n\nKvar er han lågast? Vi deriverer: $E'(x) = 0{,}5 - \\frac{200}{x^2} = 0$ gir $x^2 = 400$, altså $x = 20$, og\n\n$$E(20) = 10 + 10 + 10 = 30 \\text{ kroner per eining}$$\n\nLegg merke til strukturen i $E(x)$: leddet $0{,}5x + 10$ veks med produksjonen (variable kostnader per eining), medan $\\frac{200}{x}$ krympar (faste kostnader blir fordelte på fleire einingar). Minimum ligg der dei to kreftene balanserer.\n\nEr bedrifta lønsam? Ved $x = 20$ er einingskostnaden 30 kroner og prisen 40 — overskot på 10 kroner per eining, og totalt $O(20) = 40 \\cdot 20 - K(20) = 800 - 600 = 200$ kroner. Svaret er ja: den minimale einingskostnaden ligg under salsprisen, så det finst produksjonsnivå som gir forteneste. Hadde minimum vore 45 kroner, ville inga mengd redda rekneskapen — då måtte anten prisen opp eller kostnadene ned. Slik gir $E(x)$ eit raskt lønsemdssjekkpunkt før den fulle overskotsanalysen."
+    },
+    {
+      "id": "s2-8-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-8-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på einingskostnad og lønsemd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-8-6-n-quiz3-q0",
+            "task": "$K(x) = 0{,}5x^2 + 10x + 200$. For kva for ein $x$ er einingskostnaden minst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 20$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 40$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 200$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E'(x) = 0{,}5 - \\frac{200}{x^2} = 0 \\Rightarrow x^2 = 400 \\Rightarrow x = 20$, med $E(20) = 30$ kr/eining."
+          },
+          {
+            "id": "s2-8-6-n-quiz3-q1",
+            "task": "Prisen er 40 kr og minimal einingskostnad 30 kr. Kva kan vi konkludere med?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bedrifta taper pengar uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bedrifta går akkurat i null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bedrifta kan drive lønsamt — prisen er større enn einingskostnaden",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Prisen må senkast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $p > E(x)$ for nokre $x$, finst produksjonsnivå med forteneste; ved $x = 20$ er marginen 10 kr per eining."
+          },
+          {
+            "id": "s2-8-6-n-quiz3-q2",
+            "task": "Kvifor søkk leddet $\\frac{200}{x}$ i einingskostnaden når produksjonen aukar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi husleiga søkk med produksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi variable kostnader er null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi prisen søkk",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi dei faste kostnadene blir fordelte på stadig fleire einingar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Dei faste kostnadene på 200 kr er konstante; per eining blir dei $\\frac{200}{x}$, som krympar når $x$ veks — ein stordriftseffekt."
+          },
+          {
+            "id": "s2-8-6-n-quiz3-q3",
+            "task": "Kva skjer dersom salsprisen ligg under den minimale einingskostnaden?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Inga produksjonsmengd gir overskot — pris eller kostnader må endrast",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bedrifta bør produsere meir for å kompensere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Overskotet blir maksimert ved break-even",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei faste kostnadene forsvinn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Viss $p < E(x)$ for alle $x$, kostar kvar eining i snitt meir enn ho dreg inn, uansett volum. Då må prisen opp eller kostnadene ned."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-8-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: rekneskapen til keramikkverkstaden\n\nTante Maja fekk svar — og du fekk metoden. **Overskotsfunksjonen** $O(x) = I(x) - K(x)$ samlar heile drifta: kostnader med faste ($K(0)$) og variable ($K(x) - K(0)$) delar, og inntekter $I(x) = p(x) \\cdot x$, lineære ved fast pris og parabelforma ved lineær etterspurnad $p(x) = a - bx$.\n\n**Break-even** finn du ved å løyse $O(x) = 0$, altså $I(x) = K(x)$: mellom nullpunkta tener bedrifta pengar, utanfor taper ho. **Maksimalt overskot** ligg der $O'(x) = 0$ — det vil seie der grenseinntekt er lik marginalkostnad, $I'(x) = K'(x)$ — stadfesta med $O''(x) < 0$. Grafisk er overskotet den vertikale avstanden mellom inntekts- og kostnadskurva, størst der tangentane er parallelle.\n\nOg **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ er lakmustesten: bedrifta kan drive lønsamt berre viss prisen er større enn den minimale einingskostnaden — som for verkstaden med $E(20) = 30$ kroner mot prisen 40. Tre funksjonar, tre spørsmål, tre svar: Går vi rundt? Kvar går vi i null? Og kvar tener vi mest? Det er bedriftsøkonomi på funksjonsform."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3cda6d80a9b6726a",
+    "translatedAt": "2026-06-20T09:44:28.111Z",
+    "model": "claude-code-agent",
+    "strings": 88,
+    "tm": {
+      "55b20b16de28bbd8": "Kostnad, inntekt og overskot",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "701dcfb83420152d": "Ei forteljing om keramikkverkstaden til tante Maja — om kostnads-, inntekts- og overskotsfunksjonen, break-even-punkta og einingskostnaden som avgjer om drifta kan løne seg.",
+      "9b86846e54dc55ea": "modellere og analysere økonomiske problemstillingar ved hjelp av funksjonar",
+      "2c767f8ea1f58c10": "bruke derivasjon til å finne optimale løysingar i økonomi",
+      "a0fb9aa53f1e2aa1": "tolke funksjonar og grafar i økonomiske samanhengar",
+      "a227b9c86122c0fc": "## Tre funksjonar som fortel om bedrifta går rundt\n\nTante Maja har starta ein liten keramikkverkstad og spør deg, mattetalentet i familien, om hjelp: «Eg veit kva eg betaler i husleige og kva leira kostar, og eg veit kva eg får per kopp. Men går eg eigentleg med overskot?» Spørsmålet hennar er presist nok til å bli matematikk — og svaret bur i tre funksjonar.\n\n**Kostnadsfunksjonen** $K(x)$ gir dei totale kostnadene ved å produsere $x$ einingar. **Inntektsfunksjonen** $I(x)$ gir dei totale inntektene ved å selje dei. Og **overskotsfunksjonen** er skilnaden:\n\n$$O(x) = I(x) - K(x)$$\n\nEr $O(x) > 0$, har verkstaden **forteneste**; er $O(x) < 0$, går han med **tap**. Dei produksjonsnivåa der $O(x) = 0$ — der inntektene akkurat dekkjer kostnadene — blir kalla **nullpunkt** eller **break-even-punkt**.\n\nI denne forteljinga byggjer vi opp dei tre funksjonane, finn ut kvar tante Maja går i null, kvar overskotet er størst, og korleis einingskostnaden avslører om drifta i det heile teke kan bli lønsam.",
+      "e18d3a6996cd9815": "## Kostnader og inntekter på funksjonsform\n\nVi startar med kostnadene. Totalkostnaden består av **faste kostnader** $K(0)$ — husleige, forsikring, lån, som kjem uansett produksjon — og **variable kostnader** $V(x) = K(x) - K(0)$, som aukar med produksjonen: leire, glasur, straum til omnen. I tillegg er **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ den gjennomsnittlege kostnaden per kopp.\n\nI S2 møter du tre typiske kostnadsformer. Ein **lineær** kostnadsfunksjon $K(x) = ax + b$ har konstant variabel kostnad per eining. Ein **kvadratisk** $K(x) = ax^2 + bx + c$ har aukande marginalkostnad — kvar ny eining kostar meir enn førre. Og ein **kubisk** $K(x) = ax^3 + bx^2 + cx + d$ gir eit S-forma kostnadsforløp som fangar både stordriftsfordelar (midt i) og kapasitetsproblem (på slutten).\n\nInntektssida: blir $x$ koppar selde til pris $p(x)$, er totalinntekta $I(x) = p(x) \\cdot x$. Med fast pris er $I(x) = p \\cdot x$, ei rett linje. Møter verkstaden ein lineær etterspurnad $p(x) = a - bx$, blir $I(x) = ax - bx^2$, ein parabel.\n\nOg dermed: $O(x) = I(x) - K(x)$, med **break-even** der $O(x) = 0$, altså $I(x) = K(x)$ — grafisk der inntektslinja kryssar kostnadskurva. Teiknar du $I$ og $K$ i same koordinatsystem, er overskotet den vertikale avstanden mellom dei: over break-even-intervallet ligg $I$ øvst, og bedrifta tener pengar.",
+      "83b194991f3a0f9d": "Test deg sjølv på kostnads-, inntekts- og overskotsfunksjonen:",
+      "4097889236a2af26": "placeholder",
+      "f22e49d4d2384b34": "Kva er overskotsfunksjonen?",
+      "f9e471f0fd460610": "$O(x) = I(x) - K(x)$",
+      "630a176bdfbcb879": "$O(x) = K(x) - I(x)$",
+      "9d6992353eda801e": "$O(x) = I(x) \\cdot K(x)$",
+      "1e55d93aecfd147f": "$O(x) = p(x) \\cdot x$",
+      "d5c1df4b60457628": "Overskotet er inntekter minus kostnader. Positiv $O(x)$ betyr forteneste, negativ betyr tap.",
+      "1aeec6700cc8c205": "Verkstaden har $K(x) = 0{,}5x^2 + 10x + 200$. Kva er dei variable kostnadene?",
+      "33d7c3660b133342": "$0{,}5x^2 + 10x + 200$",
+      "7725a6d91e8d72ad": "$0{,}5x^2 + 10x$",
+      "68bc17a106bb7d91": "$10x$",
+      "9affcb026f7167f9": "Variable kostnader er $V(x) = K(x) - K(0) = 0{,}5x^2 + 10x$. Dei faste er $K(0) = 200$.",
+      "68776f1cb6d9f39c": "Kva for ei kostnadsform fangar både stordriftsfordelar og kapasitetsproblem?",
+      "53e74052f39a84e7": "Lineær $K(x) = ax + b$",
+      "f6ddd9a2f5de41bb": "Konstant $K(x) = b$",
+      "55d39381aff7ffc1": "Kvadratisk $K(x) = ax^2 + bx + c$",
+      "fe0d6566e2e8b178": "Kubisk $K(x) = ax^3 + bx^2 + cx + d$",
+      "48950ba302b8e291": "Den kubiske gir eit S-forma forløp: kostnadene per eining fell først (stordrift) og stig så bratt (kapasitetstak).",
+      "84c3092414e0c96c": "Kva betyr break-even grafisk?",
+      "36582cebf55d6f91": "Toppunktet på $O(x)$",
+      "b8210fa6449d6628": "Skjeringspunkta mellom grafane til $I(x)$ og $K(x)$",
+      "afa161419f272c75": "Botnpunktet på $K(x)$",
+      "09ce390ac09a05f9": "Der $I(x)$ har størst stigning",
+      "e26f196057f31a59": "Break-even er der $I(x) = K(x)$ — inntektskurva kryssar kostnadskurva, og overskotet skiftar forteikn.",
+      "0011198bece8e040": "## Kvar er overskotet størst?\n\nKostnadsfunksjonen til tante Maja viser seg å vere $K(x) = 0{,}01x^3 - 0{,}9x^2 + 30x + 500$ kroner for $x$ koppar, og ho sel til fast pris 50 kroner per kopp. Då er $I(x) = 50x$ og\n\n$$O(x) = 50x - (0{,}01x^3 - 0{,}9x^2 + 30x + 500) = -0{,}01x^3 + 0{,}9x^2 + 20x - 500$$\n\nFørst: kvar går ho i null? $O(x) = 0$ er ei tredjegradslikning som blir løyst numerisk eller med CAS: $x \\approx 15$ og $x \\approx 75$. Verkstaden tener pengar for produksjon mellom 15 og 75 koppar — under 15 et dei faste kostnadene alt, over 75 tek dei aukande produksjonskostnadene over.\n\nSå: kvar er overskotet *størst*? Vi deriverer og set lik null — det generelle prinsippet er at $O'(x) = I'(x) - K'(x) = 0$, altså $I'(x) = K'(x)$: **grenseinntekt lik marginalkostnad**. Her: $O'(x) = -0{,}03x^2 + 1{,}8x + 20 = 0$, som med abc-formelen gir $x \\approx 69{,}6$ (den negative løysinga blir forkasta). Andrederiverttesten: $O''(69{,}6) = -0{,}06 \\cdot 69{,}6 + 1{,}8 \\approx -2{,}4 < 0$ — eit maksimum. Cirka 70 koppar er altså den optimale produksjonen til Maja.\n\nSame metoden med variabel pris: med $K(x) = x^2 + 20x + 400$ og etterspurnad $p(x) = 100 - x$ blir $I(x) = 100x - x^2$ og $O(x) = -2x^2 + 80x - 400$. Break-even: $x = 20 \\pm 10\\sqrt{2}$, altså cirka 5,9 og 34,1. Maksimum: $O'(x) = -4x + 80 = 0$ gir $x = 20$ med $O(20) = 400$ kroner og pris $p(20) = 80$ kroner. Oppskrifta er den same kvar gong: set opp funksjonane, finn nullpunkta, deriver, og test med andrederiverten.",
+      "da9b12ce224d313b": "Test deg sjølv på break-even og maksimalt overskot:",
+      "9dc6550884d5eb15": "Verkstaden til Maja har break-even ved $x \\approx 15$ og $x \\approx 75$. Kva skjer ved produksjon av 80 koppar?",
+      "f99f4b082077b5d0": "Maksimalt overskot",
+      "f027a78a0ad5a2e4": "Inntektene er null",
+      "ec70a1067110316d": "Ho går akkurat i null",
+      "2f391d49dc59fa1b": "Verkstaden går med tap",
+      "3ea4b8ebd00042e1": "Overskot finst berre mellom break-even-punkta. $x = 80 > 75$ gir $O(x) < 0$ — tap.",
+      "e0f89d60b27a4e41": "Kva for eit vilkår gir maksimalt overskot?",
+      "365a79715261b62f": "$I(x) = K(x)$",
+      "0ddc638f7715388e": "$O'(x) = 0$, altså $I'(x) = K'(x)$, med $O''(x) < 0$",
+      "872dbf10a2a29400": "$K'(x) = 0$",
+      "6fba7c3c81923c66": "$I(x)$ er størst mogleg",
+      "9e34c54a130d242f": "Overskotet blir maksimert der grenseinntekta er lik marginalkostnaden — og andrederiverten må vere negativ for at det skal vere eit toppunkt.",
+      "a3dd354e0c2433b5": "Med $O(x) = -2x^2 + 80x - 400$: kva er maksimalt overskot?",
+      "a9a0b77c2c633ec4": "$O(20) = 400$ kr",
+      "762c19b6f25c1a6c": "$O(40) = 0$ kr",
+      "db233f2b0802effa": "$O(20) = 600$ kr",
+      "318fdd5c90b1c03b": "$O(80) = 400$ kr",
+      "262f11e92fab4ac9": "$O'(x) = -4x + 80 = 0$ gir $x = 20$, og $O(20) = -800 + 1600 - 400 = 400$ kr. $O''= -4 < 0$ stadfestar maksimum.",
+      "a264f401a03d9fc4": "Kvifor er produksjon under det første break-even-punktet ulønsam?",
+      "c44c72214bcf0116": "Fordi prisen er for høg",
+      "9de8f3de4e0242ee": "Fordi marginalkostnaden er null der",
+      "de37de2833139112": "Fordi dei faste kostnadene enno ikkje er dekte av inntektene",
+      "adf82755228f2897": "Fordi etterspurnaden er elastisk",
+      "2d793e92008d2ac9": "Ved låg produksjon blir dei faste kostnadene fordelte på få einingar, og inntektene rekk ikkje over totalkostnadene før det første nullpunktet.",
+      "6320326aa0c8276b": "## Einingskostnaden — lakmustesten for lønsemd\n\nDet siste verktøyet svarar på eit spørsmål kvar bedriftseigar bør stille: *kan* dette i det heile teke bli lønsamt? Samanlikn prisen med einingskostnaden. Er prisen per kopp høgare enn kostnaden per kopp, finst det rom for forteneste; er han lågare, hjelper inga produksjonsmengd i verda.\n\nTa ein verkstad med $K(x) = 0{,}5x^2 + 10x + 200$ som sel til fast pris 40 kroner. Einingskostnaden er\n\n$$E(x) = \\frac{K(x)}{x} = 0{,}5x + 10 + \\frac{200}{x}$$\n\nKvar er han lågast? Vi deriverer: $E'(x) = 0{,}5 - \\frac{200}{x^2} = 0$ gir $x^2 = 400$, altså $x = 20$, og\n\n$$E(20) = 10 + 10 + 10 = 30 \\text{ kroner per eining}$$\n\nLegg merke til strukturen i $E(x)$: leddet $0{,}5x + 10$ veks med produksjonen (variable kostnader per eining), medan $\\frac{200}{x}$ krympar (faste kostnader blir fordelte på fleire einingar). Minimum ligg der dei to kreftene balanserer.\n\nEr bedrifta lønsam? Ved $x = 20$ er einingskostnaden 30 kroner og prisen 40 — overskot på 10 kroner per eining, og totalt $O(20) = 40 \\cdot 20 - K(20) = 800 - 600 = 200$ kroner. Svaret er ja: den minimale einingskostnaden ligg under salsprisen, så det finst produksjonsnivå som gir forteneste. Hadde minimum vore 45 kroner, ville inga mengd redda rekneskapen — då måtte anten prisen opp eller kostnadene ned. Slik gir $E(x)$ eit raskt lønsemdssjekkpunkt før den fulle overskotsanalysen.",
+      "cc2382eca2ccf782": "Test deg sjølv på einingskostnad og lønsemd:",
+      "55ece1bf41907505": "$K(x) = 0{,}5x^2 + 10x + 200$. For kva for ein $x$ er einingskostnaden minst?",
+      "b17c025fc1fca5ef": "$x = 10$",
+      "761499b32c8b8212": "$x = 20$",
+      "eb4e03a6a8aa4e11": "$x = 40$",
+      "b53d7160450017ed": "$x = 200$",
+      "b615879d3b51bf42": "$E'(x) = 0{,}5 - \\frac{200}{x^2} = 0 \\Rightarrow x^2 = 400 \\Rightarrow x = 20$, med $E(20) = 30$ kr/eining.",
+      "456f97e0d3a83946": "Prisen er 40 kr og minimal einingskostnad 30 kr. Kva kan vi konkludere med?",
+      "8c5f9d4797c38f7f": "Bedrifta taper pengar uansett",
+      "94e0570f99531462": "Bedrifta går akkurat i null",
+      "bc5f3f9dfa793d31": "Bedrifta kan drive lønsamt — prisen er større enn einingskostnaden",
+      "025b0392196ab8d3": "Prisen må senkast",
+      "9628b029ca9476a4": "Når $p > E(x)$ for nokre $x$, finst produksjonsnivå med forteneste; ved $x = 20$ er marginen 10 kr per eining.",
+      "6f7620bbaa237dd7": "Kvifor søkk leddet $\\frac{200}{x}$ i einingskostnaden når produksjonen aukar?",
+      "67097f203b1be223": "Fordi dei faste kostnadene blir fordelte på stadig fleire einingar",
+      "4db8f6e9f3948e92": "Fordi husleiga søkk med produksjonen",
+      "c288620f74ee78b1": "Fordi variable kostnader er null",
+      "88e70221c4e64fdc": "Fordi prisen søkk",
+      "39d400d8412920a2": "Dei faste kostnadene på 200 kr er konstante; per eining blir dei $\\frac{200}{x}$, som krympar når $x$ veks — ein stordriftseffekt.",
+      "c413842a9e0c2229": "Kva skjer dersom salsprisen ligg under den minimale einingskostnaden?",
+      "c665c5129467b04f": "Bedrifta bør produsere meir for å kompensere",
+      "ee0d4da9a399efa7": "Overskotet blir maksimert ved break-even",
+      "d4f4841ddef53d78": "Dei faste kostnadene forsvinn",
+      "a6c26c7722bd4bfa": "Inga produksjonsmengd gir overskot — pris eller kostnader må endrast",
+      "ed559e8b952ab6dd": "Viss $p < E(x)$ for alle $x$, kostar kvar eining i snitt meir enn ho dreg inn, uansett volum. Då må prisen opp eller kostnadene ned.",
+      "1617447f7b3bcaa4": "## Oppsummering: rekneskapen til keramikkverkstaden\n\nTante Maja fekk svar — og du fekk metoden. **Overskotsfunksjonen** $O(x) = I(x) - K(x)$ samlar heile drifta: kostnader med faste ($K(0)$) og variable ($K(x) - K(0)$) delar, og inntekter $I(x) = p(x) \\cdot x$, lineære ved fast pris og parabelforma ved lineær etterspurnad $p(x) = a - bx$.\n\n**Break-even** finn du ved å løyse $O(x) = 0$, altså $I(x) = K(x)$: mellom nullpunkta tener bedrifta pengar, utanfor taper ho. **Maksimalt overskot** ligg der $O'(x) = 0$ — det vil seie der grenseinntekt er lik marginalkostnad, $I'(x) = K'(x)$ — stadfesta med $O''(x) < 0$. Grafisk er overskotet den vertikale avstanden mellom inntekts- og kostnadskurva, størst der tangentane er parallelle.\n\nOg **einingskostnaden** $E(x) = \\frac{K(x)}{x}$ er lakmustesten: bedrifta kan drive lønsamt berre viss prisen er større enn den minimale einingskostnaden — som for verkstaden med $E(20) = 30$ kroner mot prisen 40. Tre funksjonar, tre spørsmål, tre svar: Går vi rundt? Kvar går vi i null? Og kvar tener vi mest? Det er bedriftsøkonomi på funksjonsform."
+    }
+  }
+}

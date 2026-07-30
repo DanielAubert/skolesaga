@@ -1,1 +1,371 @@
-{"id":"tif-vg1-4-5-narrativ","courseId":"tif-vg1","chapterNumber":"4.5","title":"3D-modellering og konstruksjon","subtitle":"Narrativ versjon","description":"En fortelling om hvordan du bygger en virtuell maskindel av skisser og features, setter delene sammen til en mekanisme, og lar tegningen lage seg selv fra modellen.","estimatedMinutes":40,"competenceGoals":["bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon"],"linkedChapterId":"tif-vg1-4-5","content":[{"id":"tif-vg1-4-5-n-intro","type":"text","content":"## Bygg delen før du lager den\n\nTenk deg at du kan bygge en maskindel, snu og vri på den, sjekke om den passer med naboen sin, og finne feilene -- alt sammen før du har skåret i et eneste stykke metall. Det er nettopp dette **3D-modellering** lar deg gjøre. Du lager en virtuell del som kan roteres, analyseres og brukes til å generere både tegninger og produksjonsdata.\n\nFordelene er store. Du visualiserer designet før produksjon, kan generere 2D-tegninger automatisk, kjøre analyser av styrke og kollisjoner, eksportere direkte til CAM og CNC, og oppdage feil tidlig mens de fortsatt er billige å rette.\n\nDet finnes ulike typer 3D-program. **Parametrisk modellering** -- som SolidWorks, Inventor og Fusion 360 -- lagrer en redigerbar designhistorikk med relasjoner mellom features, og er best for mekaniske deler. **Direkte modellering** manipulerer geometrien direkte uten historikk, intuitivt for raske endringer. **Overflatemodellering** brukes til komplekse kurver som bilkarosseri, i program som Rhino og CATIA.\n\nBlant programmene er SolidWorks ofte foretrukket i industrien, Fusion 360 er skybasert og gratis for studenter, Inventor integrerer godt med andre Autodesk-verktøy, og FreeCAD er åpen kildekode. Uansett valg er det parametriske, feature-baserte tankesettet det viktigste å forstå -- for når du endrer ett mål, oppdaterer hele modellen seg automatisk."},{"id":"tif-vg1-4-5-n-section1","type":"text","content":"## Skisse, så form: feature-basert modellering\n\nI parametrisk 3D bygger du en del av **features** -- operasjoner som legger til eller fjerner materiale, ett steg av gangen. Arbeidsflyten er alltid den samme: du velger et plan å skisse på, tegner en 2D-skisse, anvender en 3D-operasjon, og gjentar for hver ny feature.\n\nGrunnsteinen er **skissen** -- 2D-profilen som operasjonen baserer seg på. Du tegner linjer, sirkler og buer, legger til dimensjoner, og legger til relasjoner som parallell eller tangent. Når alt er låst, er skissen 'fullt bestemt' -- og det er målet, for da kan ingenting flytte seg utilsiktet.\n\nMed skissen klar bruker du en av de grunnleggende operasjonene. **Extrude** trekker en lukket profil rett ut til 3D -- du kan velge blind (fast lengde), til neste flate, gjennom alle, eller symmetrisk om midtplanet. **Revolve** roterer profilen rundt en akse, $360^\\circ$ for en hel rotasjonsdel eller mindre for et segment. **Sweep** trekker en profil langs en bane, perfekt for rør og kanaler. Og **Loft** blander mellom to eller flere profiler for å lage myke overganger.\n\nEn enkel huskeregel: extrude bygger prismatiske deler (plater, klosser), mens revolve bygger dreiede, rotasjonssymmetriske deler (aksler, flenser). Tegner du halve tverrsnittet av en aksel og roterer det rundt senterlinjen, har du på sekunder en perfekt rund aksel. Skisse, så form -- det er rytmen i all parametrisk modellering."},{"id":"tif-vg1-4-5-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-4-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på 3D-grunnlag og features:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-5-n-quiz1-q0","task":"Hva er en hovedfordel med parametrisk 3D-modellering?","options":[{"id":"a","text":"Modellene blir alltid mindre i filstørrelse","isCorrect":false},{"id":"b","text":"Den kan bare lage enkle deler","isCorrect":false},{"id":"c","text":"Designhistorikken kan redigeres, og endringer oppdaterer modellen automatisk","isCorrect":true},{"id":"d","text":"Den krever ingen skisser","isCorrect":false}],"solution":"Parametrisk modellering lagrer en redigerbar designhistorikk med relasjoner mellom features. Endrer du ett mål, oppdateres hele modellen automatisk."},{"id":"tif-vg1-4-5-n-quiz1-q1","task":"Hvilken operasjon passer best for å lage en dreid, rotasjonssymmetrisk aksel?","options":[{"id":"a","text":"Extrude","isCorrect":false},{"id":"b","text":"Sweep","isCorrect":false},{"id":"c","text":"Shell","isCorrect":false},{"id":"d","text":"Revolve","isCorrect":true}],"solution":"Revolve roterer en profil rundt en akse og lager rotasjonssymmetriske deler som aksler. Extrude passer best for prismatiske deler."},{"id":"tif-vg1-4-5-n-quiz1-q2","task":"Hva betyr det at en skisse er 'fullt bestemt'?","options":[{"id":"a","text":"At alle dimensjoner og relasjoner er låst, så geometrien ikke kan flytte seg","isCorrect":true},{"id":"b","text":"At den er ferdig fargelagt","isCorrect":false},{"id":"c","text":"At den er tegnet på riktig plan","isCorrect":false},{"id":"d","text":"At den er eksportert til CNC","isCorrect":false}],"solution":"En fullt bestemt skisse har alle dimensjoner og relasjoner låst, slik at ingen geometri kan bevege seg utilsiktet. Det er målet for en god skisse."},{"id":"tif-vg1-4-5-n-quiz1-q3","task":"Hva gjør Extrude-operasjonen?","options":[{"id":"a","text":"Roterer en profil rundt en akse","isCorrect":false},{"id":"b","text":"Trekker en lukket 2D-profil ut til et 3D-volum","isCorrect":true},{"id":"c","text":"Huler ut en del","isCorrect":false},{"id":"d","text":"Avrunder kanter","isCorrect":false}],"solution":"Extrude trekker en lukket 2D-profil rett ut i én retning og skaper et 3D-volum. Du kan velge fast lengde, til neste flate, gjennom alle eller symmetrisk."}]}},{"id":"tif-vg1-4-5-n-section2","type":"text","content":"## Forme videre: kutt, avrund og gjenta\n\nNår grunnformen står, finpusser du den med **modifikasjonsfeatures**. **Cut** fjerner materiale på samme måte som extrude og revolve legger til -- en Extrude Cut lager hull og spor, en Revolve Cut lager en innvendig dreid form. **Fillet** avrunder kanter med en radius (konstant eller variabel), og **Chamfer** lager en skrå fas, angitt som avstand × avstand eller avstand × vinkel.\n\nNoen features er spesielt smarte. **Shell** huler ut delen til en jevn veggtykkelse -- tenk på et plasthus eller en boks -- der du velger hvilke flater som skal være åpne. **Pattern** gjentar en feature automatisk: lineært i en rad, sirkulært rundt en akse, eller speilet over et plan. Og **Hole Wizard** lager standardiserte hull-typer som gjengehull, forsenkede hull (countersunk) for skruehoder som skal ligge i flukt, og sylinderforsenkede hull (counterbore).\n\nLa oss bygge en aksel for å se hvordan alt henger sammen. Først tegner du en $\\varnothing 30$-sirkel på frontplanet og bruker Extrude 100 mm -- nå har du en sylinder. Så skisser du en $\\varnothing 25$-sirkel på endeflaten og bruker Extrude Cut 20 mm inn for en forsenkning. Du legger en Chamfer på $1 \\times 45^\\circ$ på endene så de blir lette å montere, og en Fillet R2 på overgangene for å unngå skarpe spenningskonsentrasjoner. På et halvt minutt har du en ferdig, profesjonell aksel -- og fordi alt er parametrisk, kan du når som helst gå tilbake og endre et mål."},{"id":"tif-vg1-4-5-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-4-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på modifikasjonsfeatures:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-5-n-quiz2-q0","task":"Hva gjør Shell-operasjonen?","options":[{"id":"a","text":"Avrunder kanter","isCorrect":false},{"id":"b","text":"Gjentar en feature i et mønster","isCorrect":false},{"id":"c","text":"Huler ut en del til en jevn veggtykkelse","isCorrect":true},{"id":"d","text":"Lager gjengehull","isCorrect":false}],"solution":"Shell huler ut delen til en angitt veggtykkelse og lar deg velge hvilke flater som skal være åpne -- nyttig for hus og bokser."},{"id":"tif-vg1-4-5-n-quiz2-q1","task":"Du skal lage 4 like hull jevnt fordelt rundt en sirkel. Hvilken feature bruker du?","options":[{"id":"a","text":"Chamfer","isCorrect":false},{"id":"b","text":"Loft","isCorrect":false},{"id":"c","text":"Sweep","isCorrect":false},{"id":"d","text":"Sirkulær Pattern","isCorrect":true}],"solution":"En sirkulær Pattern gjentar et hull rundt en akse med valgt antall og vinkel, så du slipper å lage hvert hull manuelt."},{"id":"tif-vg1-4-5-n-quiz2-q2","task":"Hva er forskjellen på Fillet og Chamfer?","options":[{"id":"a","text":"Fillet avrunder en kant, Chamfer lager en rett skråflate (fas)","isCorrect":true},{"id":"b","text":"Fillet lager hull, Chamfer lager spor","isCorrect":false},{"id":"c","text":"De gjør nøyaktig det samme","isCorrect":false},{"id":"d","text":"Fillet fjerner materiale, Chamfer legger til","isCorrect":false}],"solution":"Fillet avrunder en kant med en radius, mens Chamfer lager en rett skråflate (fas) angitt som avstand × avstand eller avstand × vinkel."}]}},{"id":"tif-vg1-4-5-n-section3","type":"text","content":"## Fra enkeltdel til mekanisme -- og til tegning\n\nEn enkeltdel er sjelden hele historien. Som regel skal flere deler settes sammen til en fungerende enhet -- en **sammenstilling** (assembly). For å posisjonere delene riktig bruker du **mates**, geometriske forbindelser som låser dem til hverandre. **Coincident** legger flater inntil hverandre, **Concentric** setter to sirkler på samme akse (hull og aksel), **Parallel** holder flater parallelle, **Distance** setter en fast avstand, og **Angle** en fast vinkel. Hver mate fjerner frihetsgrader, til delene sitter akkurat som de skal.\n\nNår sammenstillingen er ferdig, kan du gjøre **bevegelsesanalyse**: sjekke at deler beveger seg som tenkt, oppdage kollisjoner og animere mekanismen. Slik fanger du designfeil før noe lages.\n\nDen virkelige magien kommer til slutt: **tegningsgenerering**. Fra 3D-modellen lager programmet 2D-tegninger nesten automatisk. Du oppretter en tegning fra en mal, velger standardvisninger (front, topp, iso), legger til snitt og detaljer, målsetter, og legger til merknader, toleranser og overflatekrav. Og her ligger den store gevinsten -- **assosiativitet**: tegningen er koblet til modellen, så endrer du modellen, oppdaterer tegningen seg selv. Ingen risiko for at front- og toppvisning ikke stemmer overens.\n\nFor sammenstillinger genereres også en **BOM** (Bill of Materials, stykkliste) automatisk, med delenummer, beskrivelse, antall og materiale. Sammenlignet med å tegne alt manuelt er dette raskere, alltid oppdatert og langt mindre feilutsatt -- derfor er 3D-baserte tegninger standarden i moderne industri."},{"id":"tif-vg1-4-5-n-quiz3","type":"exercise","exercise":{"id":"tif-vg1-4-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sammenstillinger og tegninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-4-5-n-quiz3-q0","task":"Hva brukes mates til i en sammenstilling?","options":[{"id":"a","text":"Å endre fargen på deler","isCorrect":false},{"id":"b","text":"Å definere geometriske relasjoner som posisjonerer delene","isCorrect":true},{"id":"c","text":"Å slette deler","isCorrect":false},{"id":"d","text":"Å lage 2D-skisser","isCorrect":false}],"solution":"Mates definerer geometriske relasjoner (coincident, concentric, parallel, distance, angle) som posisjonerer delene i forhold til hverandre og fjerner frihetsgrader."},{"id":"tif-vg1-4-5-n-quiz3-q1","task":"Hva betyr assosiativitet mellom modell og tegning?","options":[{"id":"a","text":"At tegningen og modellen lagres i samme mappe","isCorrect":false},{"id":"b","text":"At tegningen må tegnes på nytt for hver endring","isCorrect":false},{"id":"c","text":"At en endring i modellen automatisk oppdaterer tegningen","isCorrect":true},{"id":"d","text":"At modellen blir låst","isCorrect":false}],"solution":"Assosiativitet betyr at tegningen er koblet til modellen, slik at endringer i 3D-modellen automatisk oppdaterer 2D-tegningen. Det hindrer inkonsistens mellom visninger."},{"id":"tif-vg1-4-5-n-quiz3-q2","task":"Hva er en BOM i en sammenstilling?","options":[{"id":"a","text":"En type mate","isCorrect":false},{"id":"b","text":"En 3D-skisse","isCorrect":false},{"id":"c","text":"En kollisjonsanalyse","isCorrect":false},{"id":"d","text":"En stykkliste med delenummer, antall og materiale","isCorrect":true}],"solution":"BOM (Bill of Materials) er en stykkliste som genereres automatisk fra sammenstillingen, med delenummer, beskrivelse, antall og materiale."}]}},{"id":"tif-vg1-4-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har bygd en del før vi laget den. **3D-modellering** gir virtuelle deler du kan rotere, analysere og generere tegninger fra. **Parametrisk** modellering med redigerbar historikk er kjernen, der du arbeider feature for feature.\n\nDu starter alltid med en **skisse** som gjøres fullt bestemt, og bygger form med **Extrude**, **Revolve**, **Sweep** og **Loft** -- extrude for prismatiske deler, revolve for dreiede. Deretter finpusser du med **Cut**, **Fillet**, **Chamfer**, **Shell**, **Pattern** og **Hole Wizard**.\n\nFlere deler settes sammen i en **sammenstilling** ved hjelp av **mates**, der du kan kjøre bevegelses- og kollisjonsanalyse. Til slutt genererer du 2D-tegninger nesten automatisk, med **assosiativitet** som holder dem oppdatert og en **BOM** som lister alle deler. Slik gjør 3D-modellering hele veien fra idé til ferdig tegning raskere, tryggere og mer presis."}],"exercises":[]}
+{
+  "id": "tif-vg1-4-5-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "4.5",
+  "title": "3D-modellering og konstruksjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan du bygger en virtuell maskindel av skisser og features, setter delene sammen til en mekanisme, og lar tegningen lage seg selv fra modellen.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bruke programmer for 2D- og 3D-dataassistert konstruksjon (DAK) og dataassistert produksjon (DAP) til grunnleggende tegning og dokumentasjon"
+  ],
+  "linkedChapterId": "tif-vg1-4-5",
+  "content": [
+    {
+      "id": "tif-vg1-4-5-n-intro",
+      "type": "text",
+      "content": "## Bygg delen før du lager den\n\nTenk deg at du kan bygge en maskindel, snu og vri på den, sjekke om den passer med naboen sin, og finne feilene -- alt sammen før du har skåret i et eneste stykke metall. Det er nettopp dette **3D-modellering** lar deg gjøre. Du lager en virtuell del som kan roteres, analyseres og brukes til å generere både tegninger og produksjonsdata.\n\nFordelene er store. Du visualiserer designet før produksjon, kan generere 2D-tegninger automatisk, kjøre analyser av styrke og kollisjoner, eksportere direkte til CAM og CNC, og oppdage feil tidlig mens de fortsatt er billige å rette.\n\nDet finnes ulike typer 3D-program. **Parametrisk modellering** -- som SolidWorks, Inventor og Fusion 360 -- lagrer en redigerbar designhistorikk med relasjoner mellom features, og er best for mekaniske deler. **Direkte modellering** manipulerer geometrien direkte uten historikk, intuitivt for raske endringer. **Overflatemodellering** brukes til komplekse kurver som bilkarosseri, i program som Rhino og CATIA.\n\nBlant programmene er SolidWorks ofte foretrukket i industrien, Fusion 360 er skybasert og gratis for studenter, Inventor integrerer godt med andre Autodesk-verktøy, og FreeCAD er åpen kildekode. Uansett valg er det parametriske, feature-baserte tankesettet det viktigste å forstå -- for når du endrer ett mål, oppdaterer hele modellen seg automatisk."
+    },
+    {
+      "id": "tif-vg1-4-5-n-section1",
+      "type": "text",
+      "content": "## Skisse, så form: feature-basert modellering\n\nI parametrisk 3D bygger du en del av **features** -- operasjoner som legger til eller fjerner materiale, ett steg av gangen. Arbeidsflyten er alltid den samme: du velger et plan å skisse på, tegner en 2D-skisse, anvender en 3D-operasjon, og gjentar for hver ny feature.\n\nGrunnsteinen er **skissen** -- 2D-profilen som operasjonen baserer seg på. Du tegner linjer, sirkler og buer, legger til dimensjoner, og legger til relasjoner som parallell eller tangent. Når alt er låst, er skissen 'fullt bestemt' -- og det er målet, for da kan ingenting flytte seg utilsiktet.\n\nMed skissen klar bruker du en av de grunnleggende operasjonene. **Extrude** trekker en lukket profil rett ut til 3D -- du kan velge blind (fast lengde), til neste flate, gjennom alle, eller symmetrisk om midtplanet. **Revolve** roterer profilen rundt en akse, $360^\\circ$ for en hel rotasjonsdel eller mindre for et segment. **Sweep** trekker en profil langs en bane, perfekt for rør og kanaler. Og **Loft** blander mellom to eller flere profiler for å lage myke overganger.\n\nEn enkel huskeregel: extrude bygger prismatiske deler (plater, klosser), mens revolve bygger dreiede, rotasjonssymmetriske deler (aksler, flenser). Tegner du halve tverrsnittet av en aksel og roterer det rundt senterlinjen, har du på sekunder en perfekt rund aksel. Skisse, så form -- det er rytmen i all parametrisk modellering."
+    },
+    {
+      "id": "tif-vg1-4-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på 3D-grunnlag og features:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-5-n-quiz1-q0",
+            "task": "Hva er en hovedfordel med parametrisk 3D-modellering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Modellene blir alltid mindre i filstørrelse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Designhistorikken kan redigeres, og endringer oppdaterer modellen automatisk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den kan bare lage enkle deler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den krever ingen skisser",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Parametrisk modellering lagrer en redigerbar designhistorikk med relasjoner mellom features. Endrer du ett mål, oppdateres hele modellen automatisk."
+          },
+          {
+            "id": "tif-vg1-4-5-n-quiz1-q1",
+            "task": "Hvilken operasjon passer best for å lage en dreid, rotasjonssymmetrisk aksel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Extrude",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sweep",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Revolve",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Shell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Revolve roterer en profil rundt en akse og lager rotasjonssymmetriske deler som aksler. Extrude passer best for prismatiske deler."
+          },
+          {
+            "id": "tif-vg1-4-5-n-quiz1-q2",
+            "task": "Hva betyr det at en skisse er 'fullt bestemt'?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At den er ferdig fargelagt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At den er tegnet på riktig plan",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At den er eksportert til CNC",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At alle dimensjoner og relasjoner er låst, så geometrien ikke kan flytte seg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En fullt bestemt skisse har alle dimensjoner og relasjoner låst, slik at ingen geometri kan bevege seg utilsiktet. Det er målet for en god skisse."
+          },
+          {
+            "id": "tif-vg1-4-5-n-quiz1-q3",
+            "task": "Hva gjør Extrude-operasjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Trekker en lukket 2D-profil ut til et 3D-volum",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Roterer en profil rundt en akse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Huler ut en del",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avrunder kanter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Extrude trekker en lukket 2D-profil rett ut i én retning og skaper et 3D-volum. Du kan velge fast lengde, til neste flate, gjennom alle eller symmetrisk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-5-n-section2",
+      "type": "text",
+      "content": "## Forme videre: kutt, avrund og gjenta\n\nNår grunnformen står, finpusser du den med **modifikasjonsfeatures**. **Cut** fjerner materiale på samme måte som extrude og revolve legger til -- en Extrude Cut lager hull og spor, en Revolve Cut lager en innvendig dreid form. **Fillet** avrunder kanter med en radius (konstant eller variabel), og **Chamfer** lager en skrå fas, angitt som avstand × avstand eller avstand × vinkel.\n\nNoen features er spesielt smarte. **Shell** huler ut delen til en jevn veggtykkelse -- tenk på et plasthus eller en boks -- der du velger hvilke flater som skal være åpne. **Pattern** gjentar en feature automatisk: lineært i en rad, sirkulært rundt en akse, eller speilet over et plan. Og **Hole Wizard** lager standardiserte hull-typer som gjengehull, forsenkede hull (countersunk) for skruehoder som skal ligge i flukt, og sylinderforsenkede hull (counterbore).\n\nLa oss bygge en aksel for å se hvordan alt henger sammen. Først tegner du en $\\varnothing 30$-sirkel på frontplanet og bruker Extrude 100 mm -- nå har du en sylinder. Så skisser du en $\\varnothing 25$-sirkel på endeflaten og bruker Extrude Cut 20 mm inn for en forsenkning. Du legger en Chamfer på $1 \\times 45^\\circ$ på endene så de blir lette å montere, og en Fillet R2 på overgangene for å unngå skarpe spenningskonsentrasjoner. På et halvt minutt har du en ferdig, profesjonell aksel -- og fordi alt er parametrisk, kan du når som helst gå tilbake og endre et mål."
+    },
+    {
+      "id": "tif-vg1-4-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modifikasjonsfeatures:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-5-n-quiz2-q0",
+            "task": "Hva gjør Shell-operasjonen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avrunder kanter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Huler ut en del til en jevn veggtykkelse",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Gjentar en feature i et mønster",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lager gjengehull",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Shell huler ut delen til en angitt veggtykkelse og lar deg velge hvilke flater som skal være åpne -- nyttig for hus og bokser."
+          },
+          {
+            "id": "tif-vg1-4-5-n-quiz2-q1",
+            "task": "Du skal lage 4 like hull jevnt fordelt rundt en sirkel. Hvilken feature bruker du?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Chamfer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Loft",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sirkulær Pattern",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Sweep",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En sirkulær Pattern gjentar et hull rundt en akse med valgt antall og vinkel, så du slipper å lage hvert hull manuelt."
+          },
+          {
+            "id": "tif-vg1-4-5-n-quiz2-q2",
+            "task": "Hva er forskjellen på Fillet og Chamfer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fillet lager hull, Chamfer lager spor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De gjør nøyaktig det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fillet fjerner materiale, Chamfer legger til",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fillet avrunder en kant, Chamfer lager en rett skråflate (fas)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fillet avrunder en kant med en radius, mens Chamfer lager en rett skråflate (fas) angitt som avstand × avstand eller avstand × vinkel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-5-n-section3",
+      "type": "text",
+      "content": "## Fra enkeltdel til mekanisme -- og til tegning\n\nEn enkeltdel er sjelden hele historien. Som regel skal flere deler settes sammen til en fungerende enhet -- en **sammenstilling** (assembly). For å posisjonere delene riktig bruker du **mates**, geometriske forbindelser som låser dem til hverandre. **Coincident** legger flater inntil hverandre, **Concentric** setter to sirkler på samme akse (hull og aksel), **Parallel** holder flater parallelle, **Distance** setter en fast avstand, og **Angle** en fast vinkel. Hver mate fjerner frihetsgrader, til delene sitter akkurat som de skal.\n\nNår sammenstillingen er ferdig, kan du gjøre **bevegelsesanalyse**: sjekke at deler beveger seg som tenkt, oppdage kollisjoner og animere mekanismen. Slik fanger du designfeil før noe lages.\n\nDen virkelige magien kommer til slutt: **tegningsgenerering**. Fra 3D-modellen lager programmet 2D-tegninger nesten automatisk. Du oppretter en tegning fra en mal, velger standardvisninger (front, topp, iso), legger til snitt og detaljer, målsetter, og legger til merknader, toleranser og overflatekrav. Og her ligger den store gevinsten -- **assosiativitet**: tegningen er koblet til modellen, så endrer du modellen, oppdaterer tegningen seg selv. Ingen risiko for at front- og toppvisning ikke stemmer overens.\n\nFor sammenstillinger genereres også en **BOM** (Bill of Materials, stykkliste) automatisk, med delenummer, beskrivelse, antall og materiale. Sammenlignet med å tegne alt manuelt er dette raskere, alltid oppdatert og langt mindre feilutsatt -- derfor er 3D-baserte tegninger standarden i moderne industri."
+    },
+    {
+      "id": "tif-vg1-4-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-4-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sammenstillinger og tegninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-4-5-n-quiz3-q0",
+            "task": "Hva brukes mates til i en sammenstilling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å definere geometriske relasjoner som posisjonerer delene",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å endre fargen på deler",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å slette deler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å lage 2D-skisser",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mates definerer geometriske relasjoner (coincident, concentric, parallel, distance, angle) som posisjonerer delene i forhold til hverandre og fjerner frihetsgrader."
+          },
+          {
+            "id": "tif-vg1-4-5-n-quiz3-q1",
+            "task": "Hva betyr assosiativitet mellom modell og tegning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At tegningen og modellen lagres i samme mappe",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At en endring i modellen automatisk oppdaterer tegningen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At tegningen må tegnes på nytt for hver endring",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At modellen blir låst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Assosiativitet betyr at tegningen er koblet til modellen, slik at endringer i 3D-modellen automatisk oppdaterer 2D-tegningen. Det hindrer inkonsistens mellom visninger."
+          },
+          {
+            "id": "tif-vg1-4-5-n-quiz3-q2",
+            "task": "Hva er en BOM i en sammenstilling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En type mate",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En 3D-skisse",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En stykkliste med delenummer, antall og materiale",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "En kollisjonsanalyse",
+                "isCorrect": false
+              }
+            ],
+            "solution": "BOM (Bill of Materials) er en stykkliste som genereres automatisk fra sammenstillingen, med delenummer, beskrivelse, antall og materiale."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-4-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har bygd en del før vi laget den. **3D-modellering** gir virtuelle deler du kan rotere, analysere og generere tegninger fra. **Parametrisk** modellering med redigerbar historikk er kjernen, der du arbeider feature for feature.\n\nDu starter alltid med en **skisse** som gjøres fullt bestemt, og bygger form med **Extrude**, **Revolve**, **Sweep** og **Loft** -- extrude for prismatiske deler, revolve for dreiede. Deretter finpusser du med **Cut**, **Fillet**, **Chamfer**, **Shell**, **Pattern** og **Hole Wizard**.\n\nFlere deler settes sammen i en **sammenstilling** ved hjelp av **mates**, der du kan kjøre bevegelses- og kollisjonsanalyse. Til slutt genererer du 2D-tegninger nesten automatisk, med **assosiativitet** som holder dem oppdatert og en **BOM** som lister alle deler. Slik gjør 3D-modellering hele veien fra idé til ferdig tegning raskere, tryggere og mer presis."
+    }
+  ],
+  "exercises": []
+}

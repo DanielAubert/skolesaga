@@ -1,1 +1,421 @@
-{"id":"s1-4-2-narrativ","courseId":"s1","chapterNumber":"4.2","title":"Grensekostnader og grenseinntekter","subtitle":"Narrativ versjon","description":"Ei forteljing om den neste eininga — grensekostnad, grenseinntekt og møtepunktet der overskotet er størst.","estimatedMinutes":33,"competenceGoals":["anvende derivasjon til å analysere og forstå optimaliseringsproblemer","anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"],"linkedChapterId":"s1-4-2","content":[{"id":"s1-4-2-n-intro","type":"text","content":"## Spørsmålet om den neste eininga\n\nProduksjonssjefen står i døra med eitt spørsmål: «Lønner det seg å produsere éi eining til?» Det er kanskje det viktigaste spørsmålet i heile bedriftsøkonomien -- og legg merke til at det ikkje handlar om totalen, men om *den neste eininga*. Kva kostar ho? Kva bringer ho inn?\n\nI førre kapittelet fann vi kostnaden ved éi ekstra eining ved å rekne $K(x+1) - K(x)$ -- to innsetjingar i eit polynom og ein subtraksjon, kvar gong. Det fungerer, men er tungvint. Derivasjon gir oss ein snarveg som er både raskare og meir kraftfull: **grensekostnaden**.\n\nHugs frå kapittel 3 at den deriverte er den momentane vekstfarten. For ein kostnadsfunksjon tyder det: kor raskt veks kostnadene per eining, akkurat ved dagens produksjonsnivå? Det er i praksis nettopp kostnaden for neste eining. I dette kapittelet byggjer vi omgrepsparet grensekostnad og grenseinntekt -- og bruker det til å finne produksjonsmengda som gjer overskotet størst."},{"id":"s1-4-2-n-section1","type":"text","content":"## Grensekostnaden -- den deriverte i arbeidsklede\n\n**Grensekostnaden** er den deriverte av kostnadsfunksjonen:\n\n$$K'(x) = \\frac{dK}{dx}$$\n\nHo angir tilnærma kor mykje kostnadene aukar når produksjonen aukar med éi eining:\n\n$$K'(x) \\approx K(x+1) - K(x)$$\n\nKor god er tilnærminga? La oss teste. Ei bedrift har $K(x) = 0{,}05x^2 + 100x + 20000$. Grensekostnaden er\n\n$$K'(x) = 0{,}1x + 100$$\n\nVed produksjonsnivået 200 einingar: $K'(200) = 0{,}1 \\cdot 200 + 100 = 120$ kr.\n\nNo den eksakte meirkostnaden, den tungvinte vegen: $K(201) = 0{,}05 \\cdot 201^2 + 100 \\cdot 201 + 20000 = 2020{,}05 + 20100 + 20000 = 42120{,}05$ kr, og $K(200) = 2000 + 20000 + 20000 = 42000$ kr. Differansen:\n\n$$K(201) - K(200) = 120{,}05 \\text{ kr}$$\n\nGrensekostnaden trefte på fem øre nær! Og merk skilnaden i arbeidsmengd: derivasjonen gav oss ein *formel* som svarar for alle produksjonsnivå på éin gong, medan differansemetoden krev nye utrekningar for kvart nivå. Det er difor økonomar snakkar om marginalkostnad i alle samanhengar -- den deriverte er rett og slett bedrifta sitt mest brukte matematiske verktøy."},{"id":"s1-4-2-n-quiz1","type":"exercise","exercise":{"id":"s1-4-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grensekostnad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-2-n-quiz1-q0","task":"Kva er grensekostnaden?","options":[{"id":"a","text":"Kostnaden delt på tal på einingar","isCorrect":false},{"id":"b","text":"Den deriverte av kostnadsfunksjonen, $K'(x)$","isCorrect":true},{"id":"c","text":"Dei faste kostnadene","isCorrect":false},{"id":"d","text":"Kostnaden ved første eining","isCorrect":false}],"solution":"Grensekostnaden er $K'(x)$ — den momentane vekstfarten til kostnadene, tolka som kostnaden for neste eining."},{"id":"s1-4-2-n-quiz1-q1","task":"$K(x) = 0{,}05x^2 + 100x + 20000$. Kva er grensekostnaden ved $x = 200$?","options":[{"id":"a","text":"$42\\,000$ kr","isCorrect":false},{"id":"b","text":"$100$ kr","isCorrect":false},{"id":"c","text":"$210$ kr","isCorrect":false},{"id":"d","text":"$120$ kr","isCorrect":true}],"solution":"$K'(x) = 0{,}1x + 100$, så $K'(200) = 20 + 100 = 120$ kr."},{"id":"s1-4-2-n-quiz1-q2","task":"Kva samanheng gjeld mellom grensekostnaden og den faktiske meirkostnaden?","options":[{"id":"a","text":"$K'(x) \\approx K(x+1) - K(x)$","isCorrect":true},{"id":"b","text":"$K'(x) = \\frac{K(x)}{x}$","isCorrect":false},{"id":"c","text":"$K'(x) = K(x+1) + K(x)$","isCorrect":false},{"id":"d","text":"$K'(x) \\approx K(x) - I(x)$","isCorrect":false}],"solution":"Grensekostnaden er ei svært god tilnærming til den faktiske kostnadsauken ved éi ekstra eining — i eksempelet 120 mot 120,05 kr."}],"solution":""}},{"id":"s1-4-2-n-section2","type":"text","content":"## Grenseinntekt og grenseoverskot\n\nSame idé på inntektssida: **grenseinntekta** er den deriverte av inntektsfunksjonen,\n\n$$I'(x) = \\frac{dI}{dx}$$\n\nog fortel kor mykje inntektene aukar ved sal av éi eining til. Når prisen $p$ er konstant og $I(x) = p \\cdot x$, blir grenseinntekta spesielt enkel:\n\n$$I'(x) = p$$\n\nSel bedrifta produkt for 150 kr stykket, er $I(x) = 150x$ og $I'(x) = 150$ -- kvar ekstra eining gir nøyaktig 150 kr i ekstra inntekt, uansett kor mange som allereie er selde. Det gir god meining: med fast pris er neste sal alltid verdt like mykje. (I kapittel 4.3 skal vi sjå at dette endrar seg når prisen påverkar etterspurnaden -- då blir grenseinntekta meir interessant.)\n\nNo kan vi svare produksjonssjefen. Endringa i overskot ved éi eining ekstra er **grenseoverskotet**:\n\n$$O'(x) = I'(x) - K'(x)$$\n\nForteiknet er heile avgjerdsregelen. Dersom $O'(x) > 0$, aukar overskotet ved auka produksjon -- den neste eininga bringer inn meir enn ho kostar, så set i gang! Dersom $O'(x) < 0$, søkk overskotet -- den neste eininga kostar meir enn ho smakar. Og dersom $O'(x) = 0$, står vi ved eit mogleg maksimum (eller minimum) for overskotet.\n\nMed andre ord: så lenge $I'(x) > K'(x)$ lønner det seg å auke produksjonen. Bedrifta bør halde fram med å vekse heilt til grenseinntekta og grensekostnaden møtest -- og akkurat det møtepunktet er neste seksjon."},{"id":"s1-4-2-n-quiz2","type":"exercise","exercise":{"id":"s1-4-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på grenseinntekt og grenseoverskot:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-2-n-quiz2-q0","task":"Prisen er konstant 150 kr per eining. Kva er grenseinntekta?","options":[{"id":"a","text":"$I'(x) = 150x$","isCorrect":false},{"id":"b","text":"$I'(x) = \\frac{150}{x}$","isCorrect":false},{"id":"c","text":"$I'(x) = 150$","isCorrect":true},{"id":"d","text":"$I'(x) = 0$","isCorrect":false}],"solution":"$I(x) = 150x$ gir $I'(x) = 150$ — med fast pris er grenseinntekta lik prisen."},{"id":"s1-4-2-n-quiz2-q1","task":"Kva er grenseoverskotet?","options":[{"id":"a","text":"$O'(x) = I'(x) - K'(x)$","isCorrect":true},{"id":"b","text":"$O'(x) = I(x) - K(x)$","isCorrect":false},{"id":"c","text":"$O'(x) = K'(x) - I'(x)$","isCorrect":false},{"id":"d","text":"$O'(x) = I'(x) \\cdot K'(x)$","isCorrect":false}],"solution":"Grenseoverskotet er den deriverte av overskotsfunksjonen: $O' = I' - K'$."},{"id":"s1-4-2-n-quiz2-q2","task":"Kva tyder det at $O'(x) > 0$ ved dagens produksjonsnivå?","options":[{"id":"a","text":"Bedrifta går med underskot","isCorrect":false},{"id":"b","text":"Det lønner seg å auke produksjonen — neste eining gir meir inntekt enn ho kostar","isCorrect":true},{"id":"c","text":"Produksjonen bør reduserast","isCorrect":false},{"id":"d","text":"Overskotet er på sitt største","isCorrect":false}],"solution":"$O'(x) > 0$ tyder $I'(x) > K'(x)$: kvar ny eining aukar overskotet. Først der $O'(x) = 0$ bør bedrifta stoppe."}],"solution":""}},{"id":"s1-4-2-n-section3","type":"text","content":"## Møtepunktet -- optimal produksjon\n\nHer er hovudresultatet i kapittelet: **Overskotet er maksimalt når grenseinntekta er lik grensekostnaden:**\n\n$$I'(x) = K'(x)$$\n\nIntuisjonen er grei å fortelje: den siste eininga som blir produsert, gir like mykje i ekstra inntekt som ho kostar å produsere. Før det punktet tener bedrifta på kvar ny eining; etter det punktet taper ho.\n\nLa oss bruke regelen. Ei bedrift har kostnadsfunksjonen $K(x) = 0{,}01x^2 + 40x + 10000$ og sel til fast pris 120 kr per eining. Kva produksjonsmengd gir størst overskot?\n\n**Metode 1 -- via overskotsfunksjonen:** Med $I(x) = 120x$ blir\n\n$$O(x) = 120x - (0{,}01x^2 + 40x + 10000) = -0{,}01x^2 + 80x - 10000$$\n\nVi set $O'(x) = -0{,}02x + 80 = 0$ og får $x = 4000$.\n\n**Metode 2 -- grenseinntekt lik grensekostnad:** $I'(x) = 120$ og $K'(x) = 0{,}02x + 40$. Vi set dei like:\n\n$$120 = 0{,}02x + 40 \\quad \\Rightarrow \\quad 80 = 0{,}02x \\quad \\Rightarrow \\quad x = 4000$$\n\nSame svar, som seg høyrer og bør -- dei to metodane er matematisk identiske. Optimal produksjon er **4000 einingar**, og det maksimale overskotet blir\n\n$$O(4000) = -0{,}01 \\cdot 4000^2 + 80 \\cdot 4000 - 10000 = -160000 + 320000 - 10000 = 150\\,000 \\text{ kr}$$\n\nVerdt å merke seg: ved $x = 4000$ er grensekostnaden $K'(4000) = 120$ kr -- nøyaktig lik prisen. Bedrifta produserer altså heilt til neste eining kostar like mykje som ho blir seld for. Meir enn det, og ho taper på kvar ekstra eining; mindre, og ho lèt forteneste liggje att på bordet."},{"id":"s1-4-2-n-quiz3","type":"exercise","exercise":{"id":"s1-4-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på optimal produksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-2-n-quiz3-q0","task":"Når er overskotet maksimalt?","options":[{"id":"a","text":"Når $K'(x) = 0$","isCorrect":false},{"id":"b","text":"Når $I(x) = K(x)$","isCorrect":false},{"id":"c","text":"Når $I'(x) > K'(x)$","isCorrect":false},{"id":"d","text":"Når $I'(x) = K'(x)$","isCorrect":true}],"solution":"Maksimalt overskot krev $O'(x) = I'(x) - K'(x) = 0$, altså grenseinntekt lik grensekostnad. ($I(x) = K(x)$ er derimot break-even!)"},{"id":"s1-4-2-n-quiz3-q1","task":"$K'(x) = 0{,}02x + 40$ og prisen er 120 kr. Kva produksjonsmengd maksimerer overskotet?","options":[{"id":"a","text":"$x = 4000$","isCorrect":true},{"id":"b","text":"$x = 6000$","isCorrect":false},{"id":"c","text":"$x = 2000$","isCorrect":false},{"id":"d","text":"$x = 8000$","isCorrect":false}],"solution":"$120 = 0{,}02x + 40$ gir $0{,}02x = 80$, altså $x = 4000$ einingar."},{"id":"s1-4-2-n-quiz3-q2","task":"Kva er det maksimale overskotet når $O(x) = -0{,}01x^2 + 80x - 10000$?","options":[{"id":"a","text":"$320\\,000$ kr","isCorrect":false},{"id":"b","text":"$160\\,000$ kr","isCorrect":false},{"id":"c","text":"$150\\,000$ kr","isCorrect":true},{"id":"d","text":"$80\\,000$ kr","isCorrect":false}],"solution":"$O(4000) = -0{,}01 \\cdot 16\\,000\\,000 + 320\\,000 - 10\\,000 = 150\\,000$ kr."}],"solution":""}},{"id":"s1-4-2-n-summary","type":"text","content":"## Oppsummering\n\nSpørsmålet til produksjonssjefen -- «lønner det seg med éi eining til?» -- blir svart på av tre deriverte.\n\n**Grensekostnaden** $K'(x)$ er den tilnærma kostnaden ved å produsere éi eining til, med $K'(x) \\approx K(x+1) - K(x)$ -- i eksempelet vårt trefte ho på fem øre nær. **Grenseinntekta** $I'(x)$ er den tilnærma inntektsauken ved å selje éi eining til; med fast pris er ho ganske enkelt lik prisen. **Grenseoverskotet** $O'(x) = I'(x) - K'(x)$ er avgjerdsregelen: positivt tyder «produser meir», negativt tyder «produser mindre».\n\nHovudresultatet er møtepunktet: overskotet er størst der **grenseinntekta er lik grensekostnaden**, $I'(x) = K'(x)$, med $O''(x) < 0$ som stadfesting på at det er eit maksimum. Den siste eininga gir då like mykje i inntekt som ho kostar -- bedrifta har pressa sitronen akkurat passe. For eksempelbedrifta låg punktet ved 4000 einingar og gav 150 000 kr i overskot.\n\nSå langt har prisen vore fast. Men kva når prisen sjølv påverkar kor mykje kundane kjøper? Det er neste kapittel: etterspurnad og elastisitet."}],"exercises":[],"_meta":{"sourceHash":"38108fc935071825","translatedAt":"2026-06-20T03:28:44.553Z","model":"claude-code-agent","strings":70,"tm":{"2b4ee68de7132fa1":"Grensekostnader og grenseinntekter","b195b06d1ed59702":"Narrativ versjon","2af2ba230d6f8c37":"Ei forteljing om den neste eininga — grensekostnad, grenseinntekt og møtepunktet der overskotet er størst.","b977895472710067":"anvende derivasjon til å analysere og forstå optimaliseringsproblemer","6c8c1b0ca1a567ea":"anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett","658cd2e3e863e9ea":"## Spørsmålet om den neste eininga\n\nProduksjonssjefen står i døra med eitt spørsmål: «Lønner det seg å produsere éi eining til?» Det er kanskje det viktigaste spørsmålet i heile bedriftsøkonomien -- og legg merke til at det ikkje handlar om totalen, men om *den neste eininga*. Kva kostar ho? Kva bringer ho inn?\n\nI førre kapittelet fann vi kostnaden ved éi ekstra eining ved å rekne $K(x+1) - K(x)$ -- to innsetjingar i eit polynom og ein subtraksjon, kvar gong. Det fungerer, men er tungvint. Derivasjon gir oss ein snarveg som er både raskare og meir kraftfull: **grensekostnaden**.\n\nHugs frå kapittel 3 at den deriverte er den momentane vekstfarten. For ein kostnadsfunksjon tyder det: kor raskt veks kostnadene per eining, akkurat ved dagens produksjonsnivå? Det er i praksis nettopp kostnaden for neste eining. I dette kapittelet byggjer vi omgrepsparet grensekostnad og grenseinntekt -- og bruker det til å finne produksjonsmengda som gjer overskotet størst.","7e05a1e49bfc2972":"## Grensekostnaden -- den deriverte i arbeidsklede\n\n**Grensekostnaden** er den deriverte av kostnadsfunksjonen:\n\n$$K'(x) = \\frac{dK}{dx}$$\n\nHo angir tilnærma kor mykje kostnadene aukar når produksjonen aukar med éi eining:\n\n$$K'(x) \\approx K(x+1) - K(x)$$\n\nKor god er tilnærminga? La oss teste. Ei bedrift har $K(x) = 0{,}05x^2 + 100x + 20000$. Grensekostnaden er\n\n$$K'(x) = 0{,}1x + 100$$\n\nVed produksjonsnivået 200 einingar: $K'(200) = 0{,}1 \\cdot 200 + 100 = 120$ kr.\n\nNo den eksakte meirkostnaden, den tungvinte vegen: $K(201) = 0{,}05 \\cdot 201^2 + 100 \\cdot 201 + 20000 = 2020{,}05 + 20100 + 20000 = 42120{,}05$ kr, og $K(200) = 2000 + 20000 + 20000 = 42000$ kr. Differansen:\n\n$$K(201) - K(200) = 120{,}05 \\text{ kr}$$\n\nGrensekostnaden trefte på fem øre nær! Og merk skilnaden i arbeidsmengd: derivasjonen gav oss ein *formel* som svarar for alle produksjonsnivå på éin gong, medan differansemetoden krev nye utrekningar for kvart nivå. Det er difor økonomar snakkar om marginalkostnad i alle samanhengar -- den deriverte er rett og slett bedrifta sitt mest brukte matematiske verktøy.","d6df8c328eb10474":"Test deg sjølv på grensekostnad:","4097889236a2af26":"placeholder","a7e72372cf9cb522":"Kva er grensekostnaden?","d3f4bca25a824737":"Kostnaden delt på tal på einingar","c9ed79079b458da3":"Den deriverte av kostnadsfunksjonen, $K'(x)$","44655cb54568697d":"Dei faste kostnadene","69231975e379f59c":"Kostnaden ved første eining","70113c1b4ca632cd":"Grensekostnaden er $K'(x)$ — den momentane vekstfarten til kostnadene, tolka som kostnaden for neste eining.","d1191ece1fdc0bfc":"$K(x) = 0{,}05x^2 + 100x + 20000$. Kva er grensekostnaden ved $x = 200$?","c2fe882a237505cb":"$42\\,000$ kr","db435dddf91a45f8":"$100$ kr","757033e9c6703262":"$210$ kr","4af910007fc3ddfd":"$120$ kr","1ab7bb7e75c55ce1":"$K'(x) = 0{,}1x + 100$, så $K'(200) = 20 + 100 = 120$ kr.","8710cb6a6c1fe5ef":"Kva samanheng gjeld mellom grensekostnaden og den faktiske meirkostnaden?","81c41a7b990709fe":"$K'(x) \\approx K(x+1) - K(x)$","190ca47006f5677c":"$K'(x) = \\frac{K(x)}{x}$","c896f9dc3ad1d3e5":"$K'(x) = K(x+1) + K(x)$","918799becb9f14d8":"$K'(x) \\approx K(x) - I(x)$","b93b22338c1e2667":"Grensekostnaden er ei svært god tilnærming til den faktiske kostnadsauken ved éi ekstra eining — i eksempelet 120 mot 120,05 kr.","18091edca6919891":"## Grenseinntekt og grenseoverskot\n\nSame idé på inntektssida: **grenseinntekta** er den deriverte av inntektsfunksjonen,\n\n$$I'(x) = \\frac{dI}{dx}$$\n\nog fortel kor mykje inntektene aukar ved sal av éi eining til. Når prisen $p$ er konstant og $I(x) = p \\cdot x$, blir grenseinntekta spesielt enkel:\n\n$$I'(x) = p$$\n\nSel bedrifta produkt for 150 kr stykket, er $I(x) = 150x$ og $I'(x) = 150$ -- kvar ekstra eining gir nøyaktig 150 kr i ekstra inntekt, uansett kor mange som allereie er selde. Det gir god meining: med fast pris er neste sal alltid verdt like mykje. (I kapittel 4.3 skal vi sjå at dette endrar seg når prisen påverkar etterspurnaden -- då blir grenseinntekta meir interessant.)\n\nNo kan vi svare produksjonssjefen. Endringa i overskot ved éi eining ekstra er **grenseoverskotet**:\n\n$$O'(x) = I'(x) - K'(x)$$\n\nForteiknet er heile avgjerdsregelen. Dersom $O'(x) > 0$, aukar overskotet ved auka produksjon -- den neste eininga bringer inn meir enn ho kostar, så set i gang! Dersom $O'(x) < 0$, søkk overskotet -- den neste eininga kostar meir enn ho smakar. Og dersom $O'(x) = 0$, står vi ved eit mogleg maksimum (eller minimum) for overskotet.\n\nMed andre ord: så lenge $I'(x) > K'(x)$ lønner det seg å auke produksjonen. Bedrifta bør halde fram med å vekse heilt til grenseinntekta og grensekostnaden møtest -- og akkurat det møtepunktet er neste seksjon.","29ffe9df53e38f23":"Test deg sjølv på grenseinntekt og grenseoverskot:","679ac39ae2eb472c":"Prisen er konstant 150 kr per eining. Kva er grenseinntekta?","e07aaecfa5863355":"$I'(x) = 150x$","c080fc5613ac3902":"$I'(x) = \\frac{150}{x}$","5b7d4cf3ac54945b":"$I'(x) = 150$","3d2e039ba3ef2211":"$I'(x) = 0$","48d0b160bfecc6e4":"$I(x) = 150x$ gir $I'(x) = 150$ — med fast pris er grenseinntekta lik prisen.","12e6c794bf4fb1aa":"Kva er grenseoverskotet?","df5b4362aec534bf":"$O'(x) = I'(x) - K'(x)$","b3f8805b55854cb1":"$O'(x) = I(x) - K(x)$","56e1f91cbe985a2c":"$O'(x) = K'(x) - I'(x)$","00756d1c8ee79183":"$O'(x) = I'(x) \\cdot K'(x)$","0b0b0da91ac79418":"Grenseoverskotet er den deriverte av overskotsfunksjonen: $O' = I' - K'$.","6b8e9a97315f994f":"Kva tyder det at $O'(x) > 0$ ved dagens produksjonsnivå?","9317668a78bf72c2":"Bedrifta går med underskot","a02251639e3e58c5":"Det lønner seg å auke produksjonen — neste eining gir meir inntekt enn ho kostar","69c48e10ebe10090":"Produksjonen bør reduserast","f2151371f6b7b0cc":"Overskotet er på sitt største","50f37cc10dd7ecd9":"$O'(x) > 0$ tyder $I'(x) > K'(x)$: kvar ny eining aukar overskotet. Først der $O'(x) = 0$ bør bedrifta stoppe.","bff8faa6462a6862":"## Møtepunktet -- optimal produksjon\n\nHer er hovudresultatet i kapittelet: **Overskotet er maksimalt når grenseinntekta er lik grensekostnaden:**\n\n$$I'(x) = K'(x)$$\n\nIntuisjonen er grei å fortelje: den siste eininga som blir produsert, gir like mykje i ekstra inntekt som ho kostar å produsere. Før det punktet tener bedrifta på kvar ny eining; etter det punktet taper ho.\n\nLa oss bruke regelen. Ei bedrift har kostnadsfunksjonen $K(x) = 0{,}01x^2 + 40x + 10000$ og sel til fast pris 120 kr per eining. Kva produksjonsmengd gir størst overskot?\n\n**Metode 1 -- via overskotsfunksjonen:** Med $I(x) = 120x$ blir\n\n$$O(x) = 120x - (0{,}01x^2 + 40x + 10000) = -0{,}01x^2 + 80x - 10000$$\n\nVi set $O'(x) = -0{,}02x + 80 = 0$ og får $x = 4000$.\n\n**Metode 2 -- grenseinntekt lik grensekostnad:** $I'(x) = 120$ og $K'(x) = 0{,}02x + 40$. Vi set dei like:\n\n$$120 = 0{,}02x + 40 \\quad \\Rightarrow \\quad 80 = 0{,}02x \\quad \\Rightarrow \\quad x = 4000$$\n\nSame svar, som seg høyrer og bør -- dei to metodane er matematisk identiske. Optimal produksjon er **4000 einingar**, og det maksimale overskotet blir\n\n$$O(4000) = -0{,}01 \\cdot 4000^2 + 80 \\cdot 4000 - 10000 = -160000 + 320000 - 10000 = 150\\,000 \\text{ kr}$$\n\nVerdt å merke seg: ved $x = 4000$ er grensekostnaden $K'(4000) = 120$ kr -- nøyaktig lik prisen. Bedrifta produserer altså heilt til neste eining kostar like mykje som ho blir seld for. Meir enn det, og ho taper på kvar ekstra eining; mindre, og ho lèt forteneste liggje att på bordet.","728326e1e67fa85f":"Test deg sjølv på optimal produksjon:","231b642461f0c26a":"Når er overskotet maksimalt?","1ce07b24254d818d":"Når $K'(x) = 0$","0c376a4eb0d703d9":"Når $I(x) = K(x)$","13f0946210177843":"Når $I'(x) > K'(x)$","5ee25e85a63bf855":"Når $I'(x) = K'(x)$","fb984c5045f41317":"Maksimalt overskot krev $O'(x) = I'(x) - K'(x) = 0$, altså grenseinntekt lik grensekostnad. ($I(x) = K(x)$ er derimot break-even!)","ffee657d1b657a1d":"$K'(x) = 0{,}02x + 40$ og prisen er 120 kr. Kva produksjonsmengd maksimerer overskotet?","8f5eabd3a8827c10":"$x = 4000$","6f6a677030431163":"$x = 6000$","9cfd1e632249dcce":"$x = 2000$","6bc84e65493bca5c":"$x = 8000$","b9944633d408d992":"$120 = 0{,}02x + 40$ gir $0{,}02x = 80$, altså $x = 4000$ einingar.","5b7a43f0bb8d69e9":"Kva er det maksimale overskotet når $O(x) = -0{,}01x^2 + 80x - 10000$?","a686ac4459e54b69":"$320\\,000$ kr","399366f1b20153cd":"$160\\,000$ kr","3fa37c2b0d31dfee":"$150\\,000$ kr","eeb9a93bdb6c57b4":"$80\\,000$ kr","fe60443ed10cf58d":"$O(4000) = -0{,}01 \\cdot 16\\,000\\,000 + 320\\,000 - 10\\,000 = 150\\,000$ kr.","9cc22bd6baa99218":"## Oppsummering\n\nSpørsmålet til produksjonssjefen -- «lønner det seg med éi eining til?» -- blir svart på av tre deriverte.\n\n**Grensekostnaden** $K'(x)$ er den tilnærma kostnaden ved å produsere éi eining til, med $K'(x) \\approx K(x+1) - K(x)$ -- i eksempelet vårt trefte ho på fem øre nær. **Grenseinntekta** $I'(x)$ er den tilnærma inntektsauken ved å selje éi eining til; med fast pris er ho ganske enkelt lik prisen. **Grenseoverskotet** $O'(x) = I'(x) - K'(x)$ er avgjerdsregelen: positivt tyder «produser meir», negativt tyder «produser mindre».\n\nHovudresultatet er møtepunktet: overskotet er størst der **grenseinntekta er lik grensekostnaden**, $I'(x) = K'(x)$, med $O''(x) < 0$ som stadfesting på at det er eit maksimum. Den siste eininga gir då like mykje i inntekt som ho kostar -- bedrifta har pressa sitronen akkurat passe. For eksempelbedrifta låg punktet ved 4000 einingar og gav 150 000 kr i overskot.\n\nSå langt har prisen vore fast. Men kva når prisen sjølv påverkar kor mykje kundane kjøper? Det er neste kapittel: etterspurnad og elastisitet."}}}
+{
+  "id": "s1-4-2-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "4.2",
+  "title": "Grensekostnader og grenseinntekter",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om den neste eininga — grensekostnad, grenseinntekt og møtepunktet der overskotet er størst.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "anvende derivasjon til å analysere og forstå optimaliseringsproblemer",
+    "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"
+  ],
+  "linkedChapterId": "s1-4-2",
+  "content": [
+    {
+      "id": "s1-4-2-n-intro",
+      "type": "text",
+      "content": "## Spørsmålet om den neste eininga\n\nProduksjonssjefen står i døra med eitt spørsmål: «Lønner det seg å produsere éi eining til?» Det er kanskje det viktigaste spørsmålet i heile bedriftsøkonomien -- og legg merke til at det ikkje handlar om totalen, men om *den neste eininga*. Kva kostar ho? Kva bringer ho inn?\n\nI førre kapittelet fann vi kostnaden ved éi ekstra eining ved å rekne $K(x+1) - K(x)$ -- to innsetjingar i eit polynom og ein subtraksjon, kvar gong. Det fungerer, men er tungvint. Derivasjon gir oss ein snarveg som er både raskare og meir kraftfull: **grensekostnaden**.\n\nHugs frå kapittel 3 at den deriverte er den momentane vekstfarten. For ein kostnadsfunksjon tyder det: kor raskt veks kostnadene per eining, akkurat ved dagens produksjonsnivå? Det er i praksis nettopp kostnaden for neste eining. I dette kapittelet byggjer vi omgrepsparet grensekostnad og grenseinntekt -- og bruker det til å finne produksjonsmengda som gjer overskotet størst."
+    },
+    {
+      "id": "s1-4-2-n-section1",
+      "type": "text",
+      "content": "## Grensekostnaden -- den deriverte i arbeidsklede\n\n**Grensekostnaden** er den deriverte av kostnadsfunksjonen:\n\n$$K'(x) = \\frac{dK}{dx}$$\n\nHo angir tilnærma kor mykje kostnadene aukar når produksjonen aukar med éi eining:\n\n$$K'(x) \\approx K(x+1) - K(x)$$\n\nKor god er tilnærminga? La oss teste. Ei bedrift har $K(x) = 0{,}05x^2 + 100x + 20000$. Grensekostnaden er\n\n$$K'(x) = 0{,}1x + 100$$\n\nVed produksjonsnivået 200 einingar: $K'(200) = 0{,}1 \\cdot 200 + 100 = 120$ kr.\n\nNo den eksakte meirkostnaden, den tungvinte vegen: $K(201) = 0{,}05 \\cdot 201^2 + 100 \\cdot 201 + 20000 = 2020{,}05 + 20100 + 20000 = 42120{,}05$ kr, og $K(200) = 2000 + 20000 + 20000 = 42000$ kr. Differansen:\n\n$$K(201) - K(200) = 120{,}05 \\text{ kr}$$\n\nGrensekostnaden trefte på fem øre nær! Og merk skilnaden i arbeidsmengd: derivasjonen gav oss ein *formel* som svarar for alle produksjonsnivå på éin gong, medan differansemetoden krev nye utrekningar for kvart nivå. Det er difor økonomar snakkar om marginalkostnad i alle samanhengar -- den deriverte er rett og slett bedrifta sitt mest brukte matematiske verktøy."
+    },
+    {
+      "id": "s1-4-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grensekostnad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-2-n-quiz1-q0",
+            "task": "Kva er grensekostnaden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kostnaden delt på tal på einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den deriverte av kostnadsfunksjonen, $K'(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Dei faste kostnadene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kostnaden ved første eining",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grensekostnaden er $K'(x)$ — den momentane vekstfarten til kostnadene, tolka som kostnaden for neste eining."
+          },
+          {
+            "id": "s1-4-2-n-quiz1-q1",
+            "task": "$K(x) = 0{,}05x^2 + 100x + 20000$. Kva er grensekostnaden ved $x = 200$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$42\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$100$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$120$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$210$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K'(x) = 0{,}1x + 100$, så $K'(200) = 20 + 100 = 120$ kr."
+          },
+          {
+            "id": "s1-4-2-n-quiz1-q2",
+            "task": "Kva samanheng gjeld mellom grensekostnaden og den faktiske meirkostnaden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$K'(x) = \\frac{K(x)}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$K'(x) = K(x+1) + K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$K'(x) \\approx K(x) - I(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$K'(x) \\approx K(x+1) - K(x)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Grensekostnaden er ei svært god tilnærming til den faktiske kostnadsauken ved éi ekstra eining — i eksempelet 120 mot 120,05 kr."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-4-2-n-section2",
+      "type": "text",
+      "content": "## Grenseinntekt og grenseoverskot\n\nSame idé på inntektssida: **grenseinntekta** er den deriverte av inntektsfunksjonen,\n\n$$I'(x) = \\frac{dI}{dx}$$\n\nog fortel kor mykje inntektene aukar ved sal av éi eining til. Når prisen $p$ er konstant og $I(x) = p \\cdot x$, blir grenseinntekta spesielt enkel:\n\n$$I'(x) = p$$\n\nSel bedrifta produkt for 150 kr stykket, er $I(x) = 150x$ og $I'(x) = 150$ -- kvar ekstra eining gir nøyaktig 150 kr i ekstra inntekt, uansett kor mange som allereie er selde. Det gir god meining: med fast pris er neste sal alltid verdt like mykje. (I kapittel 4.3 skal vi sjå at dette endrar seg når prisen påverkar etterspurnaden -- då blir grenseinntekta meir interessant.)\n\nNo kan vi svare produksjonssjefen. Endringa i overskot ved éi eining ekstra er **grenseoverskotet**:\n\n$$O'(x) = I'(x) - K'(x)$$\n\nForteiknet er heile avgjerdsregelen. Dersom $O'(x) > 0$, aukar overskotet ved auka produksjon -- den neste eininga bringer inn meir enn ho kostar, så set i gang! Dersom $O'(x) < 0$, søkk overskotet -- den neste eininga kostar meir enn ho smakar. Og dersom $O'(x) = 0$, står vi ved eit mogleg maksimum (eller minimum) for overskotet.\n\nMed andre ord: så lenge $I'(x) > K'(x)$ lønner det seg å auke produksjonen. Bedrifta bør halde fram med å vekse heilt til grenseinntekta og grensekostnaden møtest -- og akkurat det møtepunktet er neste seksjon."
+    },
+    {
+      "id": "s1-4-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grenseinntekt og grenseoverskot:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-2-n-quiz2-q0",
+            "task": "Prisen er konstant 150 kr per eining. Kva er grenseinntekta?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$I'(x) = 150x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$I'(x) = \\frac{150}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$I'(x) = 150$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$I'(x) = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I(x) = 150x$ gir $I'(x) = 150$ — med fast pris er grenseinntekta lik prisen."
+          },
+          {
+            "id": "s1-4-2-n-quiz2-q1",
+            "task": "Kva er grenseoverskotet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$O'(x) = I'(x) - K'(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$O'(x) = I(x) - K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$O'(x) = K'(x) - I'(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$O'(x) = I'(x) \\cdot K'(x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grenseoverskotet er den deriverte av overskotsfunksjonen: $O' = I' - K'$."
+          },
+          {
+            "id": "s1-4-2-n-quiz2-q2",
+            "task": "Kva tyder det at $O'(x) > 0$ ved dagens produksjonsnivå?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bedrifta går med underskot",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det lønner seg å auke produksjonen — neste eining gir meir inntekt enn ho kostar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Produksjonen bør reduserast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Overskotet er på sitt største",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$O'(x) > 0$ tyder $I'(x) > K'(x)$: kvar ny eining aukar overskotet. Først der $O'(x) = 0$ bør bedrifta stoppe."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-4-2-n-section3",
+      "type": "text",
+      "content": "## Møtepunktet -- optimal produksjon\n\nHer er hovudresultatet i kapittelet: **Overskotet er maksimalt når grenseinntekta er lik grensekostnaden:**\n\n$$I'(x) = K'(x)$$\n\nIntuisjonen er grei å fortelje: den siste eininga som blir produsert, gir like mykje i ekstra inntekt som ho kostar å produsere. Før det punktet tener bedrifta på kvar ny eining; etter det punktet taper ho.\n\nLa oss bruke regelen. Ei bedrift har kostnadsfunksjonen $K(x) = 0{,}01x^2 + 40x + 10000$ og sel til fast pris 120 kr per eining. Kva produksjonsmengd gir størst overskot?\n\n**Metode 1 -- via overskotsfunksjonen:** Med $I(x) = 120x$ blir\n\n$$O(x) = 120x - (0{,}01x^2 + 40x + 10000) = -0{,}01x^2 + 80x - 10000$$\n\nVi set $O'(x) = -0{,}02x + 80 = 0$ og får $x = 4000$.\n\n**Metode 2 -- grenseinntekt lik grensekostnad:** $I'(x) = 120$ og $K'(x) = 0{,}02x + 40$. Vi set dei like:\n\n$$120 = 0{,}02x + 40 \\quad \\Rightarrow \\quad 80 = 0{,}02x \\quad \\Rightarrow \\quad x = 4000$$\n\nSame svar, som seg høyrer og bør -- dei to metodane er matematisk identiske. Optimal produksjon er **4000 einingar**, og det maksimale overskotet blir\n\n$$O(4000) = -0{,}01 \\cdot 4000^2 + 80 \\cdot 4000 - 10000 = -160000 + 320000 - 10000 = 150\\,000 \\text{ kr}$$\n\nVerdt å merke seg: ved $x = 4000$ er grensekostnaden $K'(4000) = 120$ kr -- nøyaktig lik prisen. Bedrifta produserer altså heilt til neste eining kostar like mykje som ho blir seld for. Meir enn det, og ho taper på kvar ekstra eining; mindre, og ho lèt forteneste liggje att på bordet."
+    },
+    {
+      "id": "s1-4-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på optimal produksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-2-n-quiz3-q0",
+            "task": "Når er overskotet maksimalt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $K'(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $I(x) = K(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $I'(x) > K'(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $I'(x) = K'(x)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Maksimalt overskot krev $O'(x) = I'(x) - K'(x) = 0$, altså grenseinntekt lik grensekostnad. ($I(x) = K(x)$ er derimot break-even!)"
+          },
+          {
+            "id": "s1-4-2-n-quiz3-q1",
+            "task": "$K'(x) = 0{,}02x + 40$ og prisen er 120 kr. Kva produksjonsmengd maksimerer overskotet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 4000$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 6000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 2000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 8000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$120 = 0{,}02x + 40$ gir $0{,}02x = 80$, altså $x = 4000$ einingar."
+          },
+          {
+            "id": "s1-4-2-n-quiz3-q2",
+            "task": "Kva er det maksimale overskotet når $O(x) = -0{,}01x^2 + 80x - 10000$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$320\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$150\\,000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$160\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$80\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$O(4000) = -0{,}01 \\cdot 16\\,000\\,000 + 320\\,000 - 10\\,000 = 150\\,000$ kr."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-4-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nSpørsmålet til produksjonssjefen -- «lønner det seg med éi eining til?» -- blir svart på av tre deriverte.\n\n**Grensekostnaden** $K'(x)$ er den tilnærma kostnaden ved å produsere éi eining til, med $K'(x) \\approx K(x+1) - K(x)$ -- i eksempelet vårt trefte ho på fem øre nær. **Grenseinntekta** $I'(x)$ er den tilnærma inntektsauken ved å selje éi eining til; med fast pris er ho ganske enkelt lik prisen. **Grenseoverskotet** $O'(x) = I'(x) - K'(x)$ er avgjerdsregelen: positivt tyder «produser meir», negativt tyder «produser mindre».\n\nHovudresultatet er møtepunktet: overskotet er størst der **grenseinntekta er lik grensekostnaden**, $I'(x) = K'(x)$, med $O''(x) < 0$ som stadfesting på at det er eit maksimum. Den siste eininga gir då like mykje i inntekt som ho kostar -- bedrifta har pressa sitronen akkurat passe. For eksempelbedrifta låg punktet ved 4000 einingar og gav 150 000 kr i overskot.\n\nSå langt har prisen vore fast. Men kva når prisen sjølv påverkar kor mykje kundane kjøper? Det er neste kapittel: etterspurnad og elastisitet."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "38108fc935071825",
+    "translatedAt": "2026-06-20T03:28:44.553Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "2b4ee68de7132fa1": "Grensekostnader og grenseinntekter",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "2af2ba230d6f8c37": "Ei forteljing om den neste eininga — grensekostnad, grenseinntekt og møtepunktet der overskotet er størst.",
+      "b977895472710067": "anvende derivasjon til å analysere og forstå optimaliseringsproblemer",
+      "6c8c1b0ca1a567ea": "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett",
+      "658cd2e3e863e9ea": "## Spørsmålet om den neste eininga\n\nProduksjonssjefen står i døra med eitt spørsmål: «Lønner det seg å produsere éi eining til?» Det er kanskje det viktigaste spørsmålet i heile bedriftsøkonomien -- og legg merke til at det ikkje handlar om totalen, men om *den neste eininga*. Kva kostar ho? Kva bringer ho inn?\n\nI førre kapittelet fann vi kostnaden ved éi ekstra eining ved å rekne $K(x+1) - K(x)$ -- to innsetjingar i eit polynom og ein subtraksjon, kvar gong. Det fungerer, men er tungvint. Derivasjon gir oss ein snarveg som er både raskare og meir kraftfull: **grensekostnaden**.\n\nHugs frå kapittel 3 at den deriverte er den momentane vekstfarten. For ein kostnadsfunksjon tyder det: kor raskt veks kostnadene per eining, akkurat ved dagens produksjonsnivå? Det er i praksis nettopp kostnaden for neste eining. I dette kapittelet byggjer vi omgrepsparet grensekostnad og grenseinntekt -- og bruker det til å finne produksjonsmengda som gjer overskotet størst.",
+      "7e05a1e49bfc2972": "## Grensekostnaden -- den deriverte i arbeidsklede\n\n**Grensekostnaden** er den deriverte av kostnadsfunksjonen:\n\n$$K'(x) = \\frac{dK}{dx}$$\n\nHo angir tilnærma kor mykje kostnadene aukar når produksjonen aukar med éi eining:\n\n$$K'(x) \\approx K(x+1) - K(x)$$\n\nKor god er tilnærminga? La oss teste. Ei bedrift har $K(x) = 0{,}05x^2 + 100x + 20000$. Grensekostnaden er\n\n$$K'(x) = 0{,}1x + 100$$\n\nVed produksjonsnivået 200 einingar: $K'(200) = 0{,}1 \\cdot 200 + 100 = 120$ kr.\n\nNo den eksakte meirkostnaden, den tungvinte vegen: $K(201) = 0{,}05 \\cdot 201^2 + 100 \\cdot 201 + 20000 = 2020{,}05 + 20100 + 20000 = 42120{,}05$ kr, og $K(200) = 2000 + 20000 + 20000 = 42000$ kr. Differansen:\n\n$$K(201) - K(200) = 120{,}05 \\text{ kr}$$\n\nGrensekostnaden trefte på fem øre nær! Og merk skilnaden i arbeidsmengd: derivasjonen gav oss ein *formel* som svarar for alle produksjonsnivå på éin gong, medan differansemetoden krev nye utrekningar for kvart nivå. Det er difor økonomar snakkar om marginalkostnad i alle samanhengar -- den deriverte er rett og slett bedrifta sitt mest brukte matematiske verktøy.",
+      "d6df8c328eb10474": "Test deg sjølv på grensekostnad:",
+      "4097889236a2af26": "placeholder",
+      "a7e72372cf9cb522": "Kva er grensekostnaden?",
+      "d3f4bca25a824737": "Kostnaden delt på tal på einingar",
+      "c9ed79079b458da3": "Den deriverte av kostnadsfunksjonen, $K'(x)$",
+      "44655cb54568697d": "Dei faste kostnadene",
+      "69231975e379f59c": "Kostnaden ved første eining",
+      "70113c1b4ca632cd": "Grensekostnaden er $K'(x)$ — den momentane vekstfarten til kostnadene, tolka som kostnaden for neste eining.",
+      "d1191ece1fdc0bfc": "$K(x) = 0{,}05x^2 + 100x + 20000$. Kva er grensekostnaden ved $x = 200$?",
+      "c2fe882a237505cb": "$42\\,000$ kr",
+      "db435dddf91a45f8": "$100$ kr",
+      "757033e9c6703262": "$210$ kr",
+      "4af910007fc3ddfd": "$120$ kr",
+      "1ab7bb7e75c55ce1": "$K'(x) = 0{,}1x + 100$, så $K'(200) = 20 + 100 = 120$ kr.",
+      "8710cb6a6c1fe5ef": "Kva samanheng gjeld mellom grensekostnaden og den faktiske meirkostnaden?",
+      "81c41a7b990709fe": "$K'(x) \\approx K(x+1) - K(x)$",
+      "190ca47006f5677c": "$K'(x) = \\frac{K(x)}{x}$",
+      "c896f9dc3ad1d3e5": "$K'(x) = K(x+1) + K(x)$",
+      "918799becb9f14d8": "$K'(x) \\approx K(x) - I(x)$",
+      "b93b22338c1e2667": "Grensekostnaden er ei svært god tilnærming til den faktiske kostnadsauken ved éi ekstra eining — i eksempelet 120 mot 120,05 kr.",
+      "18091edca6919891": "## Grenseinntekt og grenseoverskot\n\nSame idé på inntektssida: **grenseinntekta** er den deriverte av inntektsfunksjonen,\n\n$$I'(x) = \\frac{dI}{dx}$$\n\nog fortel kor mykje inntektene aukar ved sal av éi eining til. Når prisen $p$ er konstant og $I(x) = p \\cdot x$, blir grenseinntekta spesielt enkel:\n\n$$I'(x) = p$$\n\nSel bedrifta produkt for 150 kr stykket, er $I(x) = 150x$ og $I'(x) = 150$ -- kvar ekstra eining gir nøyaktig 150 kr i ekstra inntekt, uansett kor mange som allereie er selde. Det gir god meining: med fast pris er neste sal alltid verdt like mykje. (I kapittel 4.3 skal vi sjå at dette endrar seg når prisen påverkar etterspurnaden -- då blir grenseinntekta meir interessant.)\n\nNo kan vi svare produksjonssjefen. Endringa i overskot ved éi eining ekstra er **grenseoverskotet**:\n\n$$O'(x) = I'(x) - K'(x)$$\n\nForteiknet er heile avgjerdsregelen. Dersom $O'(x) > 0$, aukar overskotet ved auka produksjon -- den neste eininga bringer inn meir enn ho kostar, så set i gang! Dersom $O'(x) < 0$, søkk overskotet -- den neste eininga kostar meir enn ho smakar. Og dersom $O'(x) = 0$, står vi ved eit mogleg maksimum (eller minimum) for overskotet.\n\nMed andre ord: så lenge $I'(x) > K'(x)$ lønner det seg å auke produksjonen. Bedrifta bør halde fram med å vekse heilt til grenseinntekta og grensekostnaden møtest -- og akkurat det møtepunktet er neste seksjon.",
+      "29ffe9df53e38f23": "Test deg sjølv på grenseinntekt og grenseoverskot:",
+      "679ac39ae2eb472c": "Prisen er konstant 150 kr per eining. Kva er grenseinntekta?",
+      "e07aaecfa5863355": "$I'(x) = 150x$",
+      "c080fc5613ac3902": "$I'(x) = \\frac{150}{x}$",
+      "5b7d4cf3ac54945b": "$I'(x) = 150$",
+      "3d2e039ba3ef2211": "$I'(x) = 0$",
+      "48d0b160bfecc6e4": "$I(x) = 150x$ gir $I'(x) = 150$ — med fast pris er grenseinntekta lik prisen.",
+      "12e6c794bf4fb1aa": "Kva er grenseoverskotet?",
+      "df5b4362aec534bf": "$O'(x) = I'(x) - K'(x)$",
+      "b3f8805b55854cb1": "$O'(x) = I(x) - K(x)$",
+      "56e1f91cbe985a2c": "$O'(x) = K'(x) - I'(x)$",
+      "00756d1c8ee79183": "$O'(x) = I'(x) \\cdot K'(x)$",
+      "0b0b0da91ac79418": "Grenseoverskotet er den deriverte av overskotsfunksjonen: $O' = I' - K'$.",
+      "6b8e9a97315f994f": "Kva tyder det at $O'(x) > 0$ ved dagens produksjonsnivå?",
+      "9317668a78bf72c2": "Bedrifta går med underskot",
+      "a02251639e3e58c5": "Det lønner seg å auke produksjonen — neste eining gir meir inntekt enn ho kostar",
+      "69c48e10ebe10090": "Produksjonen bør reduserast",
+      "f2151371f6b7b0cc": "Overskotet er på sitt største",
+      "50f37cc10dd7ecd9": "$O'(x) > 0$ tyder $I'(x) > K'(x)$: kvar ny eining aukar overskotet. Først der $O'(x) = 0$ bør bedrifta stoppe.",
+      "bff8faa6462a6862": "## Møtepunktet -- optimal produksjon\n\nHer er hovudresultatet i kapittelet: **Overskotet er maksimalt når grenseinntekta er lik grensekostnaden:**\n\n$$I'(x) = K'(x)$$\n\nIntuisjonen er grei å fortelje: den siste eininga som blir produsert, gir like mykje i ekstra inntekt som ho kostar å produsere. Før det punktet tener bedrifta på kvar ny eining; etter det punktet taper ho.\n\nLa oss bruke regelen. Ei bedrift har kostnadsfunksjonen $K(x) = 0{,}01x^2 + 40x + 10000$ og sel til fast pris 120 kr per eining. Kva produksjonsmengd gir størst overskot?\n\n**Metode 1 -- via overskotsfunksjonen:** Med $I(x) = 120x$ blir\n\n$$O(x) = 120x - (0{,}01x^2 + 40x + 10000) = -0{,}01x^2 + 80x - 10000$$\n\nVi set $O'(x) = -0{,}02x + 80 = 0$ og får $x = 4000$.\n\n**Metode 2 -- grenseinntekt lik grensekostnad:** $I'(x) = 120$ og $K'(x) = 0{,}02x + 40$. Vi set dei like:\n\n$$120 = 0{,}02x + 40 \\quad \\Rightarrow \\quad 80 = 0{,}02x \\quad \\Rightarrow \\quad x = 4000$$\n\nSame svar, som seg høyrer og bør -- dei to metodane er matematisk identiske. Optimal produksjon er **4000 einingar**, og det maksimale overskotet blir\n\n$$O(4000) = -0{,}01 \\cdot 4000^2 + 80 \\cdot 4000 - 10000 = -160000 + 320000 - 10000 = 150\\,000 \\text{ kr}$$\n\nVerdt å merke seg: ved $x = 4000$ er grensekostnaden $K'(4000) = 120$ kr -- nøyaktig lik prisen. Bedrifta produserer altså heilt til neste eining kostar like mykje som ho blir seld for. Meir enn det, og ho taper på kvar ekstra eining; mindre, og ho lèt forteneste liggje att på bordet.",
+      "728326e1e67fa85f": "Test deg sjølv på optimal produksjon:",
+      "231b642461f0c26a": "Når er overskotet maksimalt?",
+      "1ce07b24254d818d": "Når $K'(x) = 0$",
+      "0c376a4eb0d703d9": "Når $I(x) = K(x)$",
+      "13f0946210177843": "Når $I'(x) > K'(x)$",
+      "5ee25e85a63bf855": "Når $I'(x) = K'(x)$",
+      "fb984c5045f41317": "Maksimalt overskot krev $O'(x) = I'(x) - K'(x) = 0$, altså grenseinntekt lik grensekostnad. ($I(x) = K(x)$ er derimot break-even!)",
+      "ffee657d1b657a1d": "$K'(x) = 0{,}02x + 40$ og prisen er 120 kr. Kva produksjonsmengd maksimerer overskotet?",
+      "8f5eabd3a8827c10": "$x = 4000$",
+      "6f6a677030431163": "$x = 6000$",
+      "9cfd1e632249dcce": "$x = 2000$",
+      "6bc84e65493bca5c": "$x = 8000$",
+      "b9944633d408d992": "$120 = 0{,}02x + 40$ gir $0{,}02x = 80$, altså $x = 4000$ einingar.",
+      "5b7a43f0bb8d69e9": "Kva er det maksimale overskotet når $O(x) = -0{,}01x^2 + 80x - 10000$?",
+      "a686ac4459e54b69": "$320\\,000$ kr",
+      "399366f1b20153cd": "$160\\,000$ kr",
+      "3fa37c2b0d31dfee": "$150\\,000$ kr",
+      "eeb9a93bdb6c57b4": "$80\\,000$ kr",
+      "fe60443ed10cf58d": "$O(4000) = -0{,}01 \\cdot 16\\,000\\,000 + 320\\,000 - 10\\,000 = 150\\,000$ kr.",
+      "9cc22bd6baa99218": "## Oppsummering\n\nSpørsmålet til produksjonssjefen -- «lønner det seg med éi eining til?» -- blir svart på av tre deriverte.\n\n**Grensekostnaden** $K'(x)$ er den tilnærma kostnaden ved å produsere éi eining til, med $K'(x) \\approx K(x+1) - K(x)$ -- i eksempelet vårt trefte ho på fem øre nær. **Grenseinntekta** $I'(x)$ er den tilnærma inntektsauken ved å selje éi eining til; med fast pris er ho ganske enkelt lik prisen. **Grenseoverskotet** $O'(x) = I'(x) - K'(x)$ er avgjerdsregelen: positivt tyder «produser meir», negativt tyder «produser mindre».\n\nHovudresultatet er møtepunktet: overskotet er størst der **grenseinntekta er lik grensekostnaden**, $I'(x) = K'(x)$, med $O''(x) < 0$ som stadfesting på at det er eit maksimum. Den siste eininga gir då like mykje i inntekt som ho kostar -- bedrifta har pressa sitronen akkurat passe. For eksempelbedrifta låg punktet ved 4000 einingar og gav 150 000 kr i overskot.\n\nSå langt har prisen vore fast. Men kva når prisen sjølv påverkar kor mykje kundane kjøper? Det er neste kapittel: etterspurnad og elastisitet."
+    }
+  }
+}

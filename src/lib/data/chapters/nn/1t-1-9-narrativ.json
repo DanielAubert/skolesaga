@@ -1,1 +1,934 @@
-{"id":"1t-1-9-narrativ","courseId":"1t","chapterNumber":"1.9","title":"Polynomdivisjon med lineær divisor","subtitle":"Narrativ versjon","description":"Ei forteljing om den magiske samanhengen mellom nullpunkt og faktorar -- korleis faktorteoremet og restteoremet let deg knekke polynom i små bitar og forstå strukturen deira fullstendig.","estimatedMinutes":40,"competenceGoals":["bruke polynomdivisjon til å omskrive algebraiske uttrykk","bruke faktorteoremet"],"linkedChapterId":"1t-1-9","content":[{"id":"1t-1-9-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-9-narrativ-del1.mp3","description":"Lydfil som les opp teksten fram til første quiz."},{"id":"1t-1-9-n-intro","type":"text","content":"## Nullpunkt og faktorar -- ein djup sammenhang\n\nI førre kapittel lærte du å utføre polynomdivisjon steg for steg. No skal vi oppdage noko fascinerende: det finst ein direkte kopling mellom **nullpunkta** til eit polynom og **faktorane** det kan delast opp i.\n\nTenk deg at du har polynomet $P(x) = x^2 - 5x + 6$. Viss du set inn $x = 2$, får du $P(2) = 4 - 10 + 6 = 0$. Talet $2$ er altso eit **nullpunkt** -- ein $x$-verdi som gjer polynomet lik null. Og det viser seg at når $2$ er eit nullpunkt, så er $(x - 2)$ ein **faktor** i polynomet. Faktisk er $x^2 - 5x + 6 = (x - 2)(x - 3)$.\n\nDenna samanhengen er ikkje tilfeldig. Ho er ein grunnleggjande eigenskap ved polynom, og ho gir oss to kraftige verktøy: **faktorteoremet** og **restteoremet**. Saman let dei oss bryte ned polynom til sine minste bestanddelar og avgjere om ein divisjon går opp -- utan å faktisk utføre heile divisjonen. I dette kapittelet skal vi utforske båe setningane, lære å finne nullpunkt systematisk, og meistre kunsten å faktorisere polynom fullstendig."},{"id":"1t-1-9-n-section1","type":"text","content":"## Faktorteoremet -- frå nullpunkt til faktor\n\n**Faktorteoremet** seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nMed andre ord: når talet $a$ er eit nullpunkt for polynomet, går $(x - a)$ opp i $P(x)$ utan rest. La oss sjå kvifor dette gir meining.\n\nMinn frå førre kapittel at kvar polynomdivisjon kan skrivast på forma $P(x) = D(x) \\cdot Q(x) + R(x)$. Når vi deler på ein lineær divisor $(x - a)$, blir resten alltid ein konstant (eit tal utan $x$). Viss resten er $0$, betyr det at $P(x) = (x - a) \\cdot Q(x)$ -- og då er $(x - a)$ ein faktor.\n\nLa oss teste dette med $P(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver $x = 2$:\n\n$P(2) = 2^3 - 6 \\cdot 2^2 + 11 \\cdot 2 - 6 = 8 - 24 + 22 - 6 = 0$\n\nSidan $P(2) = 0$, garanterer faktorteoremet at $(x - 2)$ er ein faktor. Vi kan bekrefte dette med lang divisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 2) = x^2 - 4x + 3$. Og $x^2 - 4x + 3 = (x - 1)(x - 3)$.\n\nLa oss også sjekke eit negativt døme. Er $(x + 1)$ ein faktor i $x^2 + 2x + 3$? Hugs at $(x + 1) = (x - (-1))$, så vi set inn $x = -1$: $P(-1) = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1)$ ikkje er null, er $(x + 1)$ *ikkje* ein faktor. Faktorteoremet fungerer båe vegar: $P(a) = 0$ betyr at $(x - a)$ er ein faktor, og $P(a) \\neq 0$ betyr at $(x - a)$ ikkje er ein faktor."},{"id":"1t-1-9-n-quiz1","type":"exercise","exercise":{"id":"1t-1-9-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på faktorteoremet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-9-n-quiz1-q0","task":"Polynomet $P(x) = x^2 - 3x + 2$ har $P(1) = 0$. Kva kan vi konkludere?","options":[{"id":"a","text":"$(x + 1)$ er ein faktor i $P(x)$","isCorrect":false},{"id":"b","text":"$(x - 1)$ er ein faktor i $P(x)$","isCorrect":true},{"id":"c","text":"Resten ved divisjon med $(x - 1)$ er $1$","isCorrect":false},{"id":"d","text":"$P(x)$ kan ikkje faktoriserast","isCorrect":false}],"solution":"Faktorteoremet seier at når $P(a) = 0$, er $(x - a)$ ein faktor. Sidan $P(1) = 0$, er $(x - 1)$ ein faktor i $P(x)$. Vi kan bekrefte: $x^2 - 3x + 2 = (x-1)(x-2)$."},{"id":"1t-1-9-n-quiz1-q1","task":"Kva seier faktorteoremet?","options":[{"id":"a","text":"Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$","isCorrect":false},{"id":"b","text":"Viss $P(a) = 0$, så er $a$ ein faktor i $P(x)$","isCorrect":false},{"id":"c","text":"Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$","isCorrect":true},{"id":"d","text":"Viss $(x - a)$ er ein faktor, så er $P(a) = a$","isCorrect":false}],"solution":"Faktorteoremet seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$. Merk at det er $(x - a)$, ikkje $(x + a)$. Til dømes gir nullpunktet $a = 3$ faktoren $(x - 3)$."},{"id":"1t-1-9-n-quiz1-q2","task":"Er $(x + 1)$ ein faktor i $P(x) = x^2 + 2x + 3$?","options":[{"id":"a","text":"Ja, fordi $P(1) = 6$","isCorrect":false},{"id":"b","text":"Ja, fordi koeffisienten foran $x$ er $2$","isCorrect":false},{"id":"c","text":"Nei, fordi $P(-1) = 2 \\neq 0$","isCorrect":true},{"id":"d","text":"Nei, fordi polynomet har odd koeffisientar","isCorrect":false}],"solution":"$(x + 1) = (x - (-1))$, så vi må sjekke $P(-1)$. $P(-1) = (-1)^2 + 2(-1) + 3 = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1) \\neq 0$, er $(x + 1)$ IKKJE ein faktor."},{"id":"1t-1-9-n-quiz1-q3","task":"Du har $P(x) = x^3 - 6x^2 + 11x - 6$ og finn at $P(2) = 0$. Kva gir polynomdivisjonen $(x^3 - 6x^2 + 11x - 6) : (x - 2)$?","options":[{"id":"a","text":"$x^2 - 4x + 3$","isCorrect":true},{"id":"b","text":"$x^2 - 8x + 3$","isCorrect":false},{"id":"c","text":"$x^2 + 4x - 3$","isCorrect":false},{"id":"d","text":"$x^2 - 4x + 6$","isCorrect":false}],"solution":"Runde 1: $x^3/x = x^2$. Gang: $x^2(x-2) = x^3 - 2x^2$. Rest: $-4x^2 + 11x - 6$. Runde 2: $-4x^2/x = -4x$. Gang: $-4x(x-2) = -4x^2 + 8x$. Rest: $3x - 6$. Runde 3: $3x/x = 3$. Gang: $3(x-2) = 3x - 6$. Rest: $0$. Kvotienten er $x^2 - 4x + 3 = (x-1)(x-3)$."}]}},{"id":"1t-1-9-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-9-narrativ-del2.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-9-n-section2","type":"text","content":"## Å finne nullpunkt -- divisorar av konstantleddet\n\nFaktorteoremet er fantastisk, men det krev at vi allereie *kjenner* eit nullpunkt. Korleis finn vi det? For polynom med heiltalkoeffisientar finst det ein smart strategi: **prøv divisorane av konstantleddet**.\n\nIdéen er denne: viss polynomet $P(x) = x^n + ... + c$ har heiltalkoeffisientar og ledande koeffisient $1$, må eventuelle heiltalsnullpunkt vere blant divisorane av konstantleddet $c$. Det betyr at vi kan prøve $\\pm 1, \\pm 2, \\pm 3, ...$ opp til $\\pm |c|$.\n\nLa oss ta eit døme: $P(x) = x^3 - 2x^2 - 5x + 6$. Konstantleddet er $6$, så vi prøver divisorane: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$.\n\nVi startar med dei enklaste: $P(1) = 1 - 2 - 5 + 6 = 0$. Bingo! $x = 1$ er eit nullpunkt.\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomdivisjon: $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Kvotienten $x^2 - x - 6$ er eit andregradspolynom, som vi kan faktorisere med kjende metodar: $x^2 - x - 6 = (x - 3)(x + 2)$.\n\nDermed er $P(x) = (x - 1)(x - 3)(x + 2)$. Vi har faktorisert tredjegradspolynomet fullstendig!\n\nEit anna døme: $P(x) = x^3 + 6x^2 + 11x + 6$. Konstantleddet er $6$. Vi prøver $P(-1) = -1 + 6 - 11 + 6 = 0$. So $(x + 1)$ er ein faktor. Divisjon gir $x^2 + 5x + 6 = (x + 2)(x + 3)$. Altso: $P(x) = (x + 1)(x + 2)(x + 3)$. Legg merke til at alle nullpunkta ($-1, -2, -3$) er divisorar av konstantleddet $6$."},{"id":"1t-1-9-n-quiz2","type":"exercise","exercise":{"id":"1t-1-9-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på å finne nullpunkt med divisorar av konstantleddet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-9-n-quiz2-q0","task":"Du skal finne nullpunkter for $P(x) = x^3 - 4x^2 + x + 6$. Kva verdiar bør du prøve først?","options":[{"id":"a","text":"Alle desimaltal mellom $-10$ og $10$","isCorrect":false},{"id":"b","text":"$x = 0, 1, 2, 3, 4, 5, 6$","isCorrect":false},{"id":"c","text":"$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$","isCorrect":true},{"id":"d","text":"Berre positive tal","isCorrect":false}],"solution":"Vi prøver divisorane av konstantleddet. Konstantleddet er $6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi må prøve både positive og negative verdiar, fordi nullpunkt kan vere negative."},{"id":"1t-1-9-n-quiz2-q1","task":"For $P(x) = x^3 - 2x^2 - 5x + 6$, er $P(1) = 1 - 2 - 5 + 6 = 0$. Kva gjer vi no?","options":[{"id":"a","text":"Vi er ferdige -- svaret er $x = 1$","isCorrect":false},{"id":"b","text":"Vi deler $P(x)$ på $(x - 1)$ for å få ein andregradskvotient vi kan faktorisere vidare","isCorrect":true},{"id":"c","text":"Vi prøver $x = 2$ som neste nullpunkt utan å dele først","isCorrect":false},{"id":"d","text":"Vi bruker abc-formelen direkte på tredjegradspolynomet","isCorrect":false}],"solution":"Når vi har funne eit nullpunkt i eit tredjegradspolynom, deler vi på den tilhøyrande faktoren. $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Denne andregradskvotienten kan vi faktorisere med kjende metodar: $(x - 3)(x + 2)$."},{"id":"1t-1-9-n-quiz2-q2","task":"Kva er den fullstendige faktoriseringa av $P(x) = x^3 + 6x^2 + 11x + 6$ når du veit at $P(-1) = 0$?","options":[{"id":"a","text":"$(x + 1)(x + 2)(x + 3)$","isCorrect":true},{"id":"b","text":"$(x - 1)(x + 2)(x + 3)$","isCorrect":false},{"id":"c","text":"$(x + 1)(x + 6)(x + 1)$","isCorrect":false},{"id":"d","text":"$(x + 1)(x^2 + 6)$","isCorrect":false}],"solution":"Sidan $P(-1) = 0$, er $(x + 1)$ ein faktor. Divisjon gir $(x^3 + 6x^2 + 11x + 6) : (x + 1) = x^2 + 5x + 6$. Vi faktoriserer kvotienten: to tal som gangar til $6$ og summerer til $5$ er $2$ og $3$. Altso: $x^2 + 5x + 6 = (x+2)(x+3)$. Komplett: $(x+1)(x+2)(x+3)$."},{"id":"1t-1-9-n-quiz2-q3","task":"Konstantleddet i $P(x) = x^3 + 3x^2 - 4x - 12$ er $-12$. Kva av det følgjande er IKKJE ein divisor av $-12$ som vi bør prøve?","options":[{"id":"a","text":"$x = 5$","isCorrect":true},{"id":"b","text":"$x = -2$","isCorrect":false},{"id":"c","text":"$x = 4$","isCorrect":false},{"id":"d","text":"$x = -6$","isCorrect":false}],"solution":"Divisorane av $-12$ er $\\pm 1, \\pm 2, \\pm 3, \\pm 4, \\pm 6, \\pm 12$. Talet $5$ er ikkje ein divisor av $12$ ($12 / 5 = 2{,}4$), så $x = 5$ treng vi ikkje prøve. Dei andre ($-2$, $4$, $-6$) er alle divisorar av $12$."}]}},{"id":"1t-1-9-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-9-narrativ-del3.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-9-n-section3","type":"text","content":"## Resteoremet -- resten utan divisjon\n\nFaktorteoremten handlar om tilfellet der resten er null. Men kva når resten *ikkje* er null? Her kjem **resteoremet** inn:\n\n**Når polynomet $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$.**\n\nMatematisk: $P(x) = (x - a) \\cdot Q(x) + P(a)$\n\nDette er eit utruleg nyttig verktøy. I staden for å utføre heile lang divisjon for å finne resten, kan du berre **setje inn $a$ i polynomet**. Resten får du på sekund!\n\nLa oss sjå på eit døme. Kva er resten når $P(x) = x^3 + 2x^2 - x + 3$ blir delt på $(x - 2)$?\n\nIf følgje resteoremet er resten $P(2) = 2^3 + 2 \\cdot 2^2 - 2 + 3 = 8 + 8 - 2 + 3 = 17$.\n\nVi kunne ha utført lang divisjon og fått nøyaktig same svar, men resteoremet sparte oss for heile prosessen.\n\nEit anna døme: Finn resten når $(x^2 + 3x + 5)$ blir delt på $(x - 1)$. Resten er $P(1) = 1 + 3 + 5 = 9$.\n\nOg eitt til: Finn resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$. Husk at $(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$.\n\nLegg merke til korleis faktorteoremten eigentleg er eit spesialtilfelle av resteoremet: når resten $P(a) = 0$, går divisjonen opp, og $(x - a)$ er ein faktor. Dei to teoremane hengar altso tett saman."},{"id":"1t-1-9-n-quiz3","type":"exercise","exercise":{"id":"1t-1-9-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på resteoremet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-9-n-quiz3-q0","task":"Kva er resten når $P(x) = 2x^3 - 5x + 3$ blir delt på $(x + 2)$?","options":[{"id":"a","text":"$17$","isCorrect":false},{"id":"b","text":"$-3$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$-13$","isCorrect":false}],"solution":"Vi bruker resteoremet. Divisoren er $(x + 2) = (x - (-2))$, så $a = -2$. Resten er $P(-2) = 2(-2)^3 - 5(-2) + 3 = 2 \\cdot (-8) + 10 + 3 = -16 + 10 + 3 = -3$."},{"id":"1t-1-9-n-quiz3-q1","task":"Kva seier resteoremet?","options":[{"id":"a","text":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(0)$","isCorrect":false},{"id":"b","text":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(a)$","isCorrect":true},{"id":"c","text":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(-a)$","isCorrect":false},{"id":"d","text":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $a$","isCorrect":false}],"solution":"Resteoremet seier at når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Vi treng altso berre å setje inn $a$ i polynomet for å finne resten -- utan å utføre heile lang divisjon."},{"id":"1t-1-9-n-quiz3-q2","task":"Kva er resten når $P(x) = x^2 + 3x + 5$ blir delt på $(x - 1)$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$7$","isCorrect":false},{"id":"c","text":"$9$","isCorrect":true},{"id":"d","text":"$1$","isCorrect":false}],"solution":"Resteoremet gir resten som $P(1) = 1^2 + 3 \\cdot 1 + 5 = 1 + 3 + 5 = 9$."},{"id":"1t-1-9-n-quiz3-q3","task":"Kva er resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$?","options":[{"id":"a","text":"$2$","isCorrect":true},{"id":"b","text":"$-2$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$4$","isCorrect":false}],"solution":"$(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$. Husk at $(x + 1)$ betyr at vi set inn $-1$, ikkje $1$."},{"id":"1t-1-9-n-quiz3-q4","task":"Korleis hengar faktorteoremet saman med restteoremet?","options":[{"id":"a","text":"Dei er heilt uavhengige teoremer","isCorrect":false},{"id":"b","text":"Restteoremet er eit spesialtilfelle av faktorteoremet","isCorrect":false},{"id":"c","text":"Faktorteoremet er spesialtilfellet av restteoremet der resten $P(a) = 0$","isCorrect":true},{"id":"d","text":"Faktorteoremet gjeld berre for andregradspolynom","isCorrect":false}],"solution":"Faktorteoremet er eit spesialtilfelle av restteoremet. Restteoremet seier at resten er $P(a)$. Når $P(a) = 0$ (resten er null), går divisjonen opp, og $(x - a)$ er ein faktor. Det er nøyaktig det faktorteoremet seier."}]}},{"id":"1t-1-9-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-9-narrativ-del4.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-9-n-section4","type":"text","content":"## Fullstendig faktorisering -- strategi\n\nNo har vi alle verktøya vi treng for å faktorisere polynom fullstendig. Her er strategien, steg for steg:\n\n**1.** Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet.\n**2.** Divider polynomet på $(x - a)$ med lang divisjon.\n**3.** Faktoriser kvotienten vidare (om mogleg).\n**4.** Gjenta til du ikkje kan faktorisere meir.\n\nLa oss ta $P(x) = x^3 - 7x + 6$. Konstantleddet er $6$, så vi prøver: $P(1) = 1 - 7 + 6 = 0$. Flott, $x = 1$ er eit nullpunkt.\n\nVi deler: $(x^3 - 7x + 6) : (x - 1)$. Husk å skrive dividenden som $x^3 + 0x^2 - 7x + 6$ for å inkludere null-leddet. Divisjonen gir $x^2 + x - 6$.\n\nNo faktoriserer vi $x^2 + x - 6$. Vi leiter etter to tal som gangar til $-6$ og summerer til $1$. Det er $3$ og $-2$: $x^2 + x - 6 = (x + 3)(x - 2)$.\n\nEndanleg svar: $P(x) = (x - 1)(x + 3)(x - 2)$.\n\nLa oss ta eit vanskelegare døme: $P(x) = x^3 + 2x^2 - x - 2$. Prøv $P(1) = 1 + 2 - 1 - 2 = 0$. $(x - 1)$ er ein faktor. Divisjon gir $x^2 + 3x + 2 = (x + 1)(x + 2)$. Altso: $P(x) = (x - 1)(x + 1)(x + 2)$.\n\nNokon gonger finn du nullpunktet på andre forsøk. For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = -2 \\neq 0$, men $P(-1) = -1 - 4 - 1 + 6 = 0$. Så $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x - 2)(x - 3)$. Altso: $P(x) = (x + 1)(x - 2)(x - 3)$."},{"id":"1t-1-9-n-quiz4","type":"exercise","exercise":{"id":"1t-1-9-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på fullstendig faktorisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-9-n-quiz4-q0","task":"$P(x) = x^3 - 6x^2 + 11x - 6$. Du finn at $P(1) = 0$. Kva er neste steg?","options":[{"id":"a","text":"Faktoriser direkte til $(x-1)(x-2)(x-3)$ utan vidare rekning","isCorrect":false},{"id":"b","text":"Prøv å finne fleire nullpunkt ved å setje inn $x = 2, 3, ...$","isCorrect":false},{"id":"c","text":"Del $P(x)$ på $(x - 1)$ og faktoriser kvotienten","isCorrect":true},{"id":"d","text":"Bruk restteoremet til å finne resten","isCorrect":false}],"solution":"Når du har funne eit nullpunkt, er neste steg å utføre polynomdivisjon med den tilhøyrande faktoren. Del $P(x)$ på $(x - 1)$ for å få ein andregradskvotient, og faktoriser den vidare."},{"id":"1t-1-9-n-quiz4-q1","task":"Kva er riktig strategi for å faktorisere eit tredjegradspolynom fullstendig?","options":[{"id":"a","text":"Bruk abc-formelen direkte på tredjegradspolynomet","isCorrect":false},{"id":"b","text":"Finn eitt nullpunkt, divider for å få andregradspolynom, faktoriser det","isCorrect":true},{"id":"c","text":"Prøv å gjette alle tre faktorane på ein gong","isCorrect":false},{"id":"d","text":"Trekk ut største felles faktor -- det held alltid","isCorrect":false}],"solution":"Strategien er: (1) Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet. (2) Divider på $(x - a)$ for å få eit andregradspolynom. (3) Faktoriser andregradspolynomet med kjende metodar (inspeksjon eller abc-formelen)."},{"id":"1t-1-9-n-quiz4-q2","task":"Faktoriser $P(x) = x^3 - 7x + 6$ fullstendig. (Hint: $P(1) = 0$.","options":[{"id":"a","text":"$(x - 1)(x - 2)(x + 3)$","isCorrect":false},{"id":"b","text":"$(x - 1)(x + 2)(x - 3)$","isCorrect":false},{"id":"c","text":"$(x - 1)(x - 3)(x + 2)$","isCorrect":false},{"id":"d","text":"$(x - 1)(x + 3)(x - 2)$","isCorrect":true}],"solution":"Siden $P(1) = 0$, deler vi: $(x^3 + 0x^2 - 7x + 6) : (x - 1) = x^2 + x - 6$. Vi faktoriserer: to tal som gangar til $-6$ og summerer til $1$ er $3$ og $-2$. Altso $x^2 + x - 6 = (x + 3)(x - 2)$. Komplett: $(x-1)(x+3)(x-2)$."},{"id":"1t-1-9-n-quiz4-q3","task":"For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = 4 \\neq 0$. Kva gjer du?","options":[{"id":"a","text":"Gir opp -- polynomet kan ikkje faktoriiserast","isCorrect":false},{"id":"b","text":"Prøver $P(-1)$, deretter $P(2)$, $P(-2)$, osv.","isCorrect":true},{"id":"c","text":"Bruker lang divisjon med $(x - 1)$ uansett","isCorrect":false},{"id":"d","text":"Endrar konstantleddet til $4$","isCorrect":false}],"solution":"Når første forsøk ikkje gir null, prøver vi neste divisor. $P(-1) = -1 - 4 - 1 + 6 = 0$. Bingo! $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x-2)(x-3)$. Fullstendig: $(x+1)(x-2)(x-3)$."}]}},{"id":"1t-1-9-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-9-narrativ-del5.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-9-n-section5","type":"text","content":"## Spesialtilfelle -- kubar og fjerdepotenser\n\nNo skal vi sjå på nokre spesialtilfelle som dukkar opp overraskande ofte, særleg når polynom inneheld **perfekte potenser**.\n\nLa oss starta med $x^3 - 8$. Konstantleddet er $-8$. Vi prøver $P(2) = 8 - 8 = 0$. Så $(x - 2)$ er ein faktor. Husk å setje inn null-ledd: $(x^3 + 0x^2 + 0x - 8) : (x - 2)$. Divisjonen gir $x^2 + 2x + 4$. Altso: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$.\n\nDet vi nett har sett er eit døme på **tredjegrads konjugatsetning**: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Her er $a = x$ og $b = 2$.\n\nTilsvarande: $x^3 + 27 = x^3 + 3^3$. Vi prøver $P(-3) = -27 + 27 = 0$, så $(x + 3)$ er ein faktor. Divisjon gir $x^2 - 3x + 9$. Her ser vi den andre forma: $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.\n\nKva med fjerdepotenser? Ta $P(x) = x^4 - 5x^2 + 4$. Konstantleddet er $4$. Vi prøver $P(1) = 1 - 5 + 4 = 0$. $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 4x - 4$. Vi prøver $P(-1)$ på kvotienten: $-1 + 1 + 4 - 4 = 0$. $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 4 = (x-2)(x+2)$.\n\nKomplett faktorisering: $x^4 - 5x^2 + 4 = (x-1)(x+1)(x-2)(x+2)$.\n\nEit anna fjerdegradseksempel: $(x^4 - 16) : (x - 2)$. Prøv $P(2) = 16 - 16 = 0$. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Denne kan faktoriiserast vidare: $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x+2)$ er ein faktor. Divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Altso: $x^4 - 16 = (x-2)(x+2)(x^2 + 4)$.\n\nOg heilt til slutt: $(x^4 - 1) : (x - 1) = x^3 + x^2 + x + 1$. Denne kvotienten kan faktoriiserast vidare: $x^3 + x^2 + x + 1 = (x + 1)(x^2 + 1)$. Så $x^4 - 1 = (x-1)(x+1)(x^2+1)$."},{"id":"1t-1-9-n-quiz5","type":"exercise","exercise":{"id":"1t-1-9-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på spesialtilfelle med kubar og fjerdepotenser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-9-n-quiz5-q0","task":"Kva er den fullstendige faktoriseringa av $x^4 - 10x^2 + 9$?","options":[{"id":"a","text":"$(x - 1)(x + 1)(x^2 - 9)$","isCorrect":false},{"id":"b","text":"$(x^2 - 1)(x^2 - 9)$","isCorrect":false},{"id":"c","text":"$(x - 1)(x + 1)(x - 3)(x + 3)$","isCorrect":true},{"id":"d","text":"$(x - 3)^2(x + 1)^2$","isCorrect":false}],"solution":"Start med $P(1) = 1 - 10 + 9 = 0$, så $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 9x - 9$. Prøv $P(-1) = -1 + 1 + 9 - 9 = 0$, så $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 9 = (x-3)(x+3)$. Fullstendig: $(x-1)(x+1)(x-3)(x+3)$."},{"id":"1t-1-9-n-quiz5-q1","task":"Kva er faktoriseringa av $x^3 - 8$?","options":[{"id":"a","text":"$(x - 2)(x^2 - 2x + 4)$","isCorrect":false},{"id":"b","text":"$(x - 2)(x^2 + 2x + 4)$","isCorrect":true},{"id":"c","text":"$(x - 2)(x^2 + 4)$","isCorrect":false},{"id":"d","text":"$(x - 2)^3$","isCorrect":false}],"solution":"$x^3 - 8 = x^3 - 2^3$. Vi brukar formelen $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ med $a = x$ og $b = 2$: $(x - 2)(x^2 + 2x + 4)$. Merk pluss-teikna i andregradsuttrykket -- det er lett å forveksle med $(a-b)^2$-formelen."},{"id":"1t-1-9-n-quiz5-q2","task":"Kva er faktoriseringa av $x^3 + 27$?","options":[{"id":"a","text":"$(x + 3)(x^2 + 3x + 9)$","isCorrect":false},{"id":"b","text":"$(x + 3)(x^2 + 9)$","isCorrect":false},{"id":"c","text":"$(x + 3)(x^2 - 3x + 9)$","isCorrect":true},{"id":"d","text":"$(x + 3)^3$","isCorrect":false}],"solution":"$x^3 + 27 = x^3 + 3^3$. Formelen $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ gir $(x + 3)(x^2 - 3x + 9)$. Merk at forteikna i andregradsuttrykket er motsett av tilfellet $a^3 - b^3$: her er det minus framfor $ab$-leddet."},{"id":"1t-1-9-n-quiz5-q3","task":"Kva er faktoriseringa av $x^4 - 16$?","options":[{"id":"a","text":"$(x - 2)(x + 2)(x - 2)(x + 2)$","isCorrect":false},{"id":"b","text":"$(x^2 - 4)(x^2 + 4)$","isCorrect":false},{"id":"c","text":"$(x - 2)(x + 2)(x^2 + 4)$","isCorrect":true},{"id":"d","text":"$(x - 4)(x + 4)$","isCorrect":false}],"solution":"Vi kan starte med $P(2) = 16 - 16 = 0$, så $(x - 2)$ er ein faktor. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Prøv $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x + 2)$ er ein faktor. Ny divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Alternativ b) er ufullstendig -- $(x^2 - 4)$ kan faktorirerast vidare til $(x-2)(x+2)$."},{"id":"1t-1-9-n-quiz5-q4","task":"Når vi faktoriserer $x^4 - 1$, får vi $(x - 1)(x + 1)(x^2 + 1)$. Kvifor stoppar vi her og faktoriserer ikkje $x^2 + 1$ vidare?","options":[{"id":"a","text":"Fordi $x^2 + 1$ er eit fyrstegraadspolynom","isCorrect":false},{"id":"b","text":"Fordi vi allereie har fire faktorar","isCorrect":false},{"id":"c","text":"Fordi $x^2 + 1$ ikkje har nokon reelle nullpunkt ($x^2 + 1 > 0$ for alle reelle $x$)","isCorrect":true},{"id":"d","text":"Fordi $x^2 + 1 = (x + 1)^2$ og vi allereie har $(x + 1)$","isCorrect":false}],"solution":"$x^2 + 1 = 0$ gir $x^2 = -1$, som ikkje har noka reell løysing. Sidan $x^2 \\geq 0$ for alle reelle $x$, er $x^2 + 1 \\geq 1 > 0$ alltid. Polynomet har ingen reelle nullpunkt og kan ikkje faktorirerast vidare over dei reelle tala."}]}},{"id":"1t-1-9-n-audio-6","type":"audio","title":"Lytt til oppsummeringa","src":"/audio/1t/1t-1-9-narrativ-del6.mp3","description":"Lydfil som les opp oppsummeringa."},{"id":"1t-1-9-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi oppdaga den djupe samanhengen mellom nullpunkt og faktorar, og lært to kraftige teoremår.\n\n**Faktorteoremet** seier at viss $P(a) = 0$, er $(x - a)$ ein faktor i $P(x)$. Det betyr at kvart nullpunkt avslører ein faktor -- og omvendt. For å sjekke om $(x - a)$ er ein faktor, treng du berre å setje inn $a$ i polynomet.\n\n**Restteoremet** er den generelle versjonen: når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Formelt: $P(x) = (x - a) \\cdot Q(x) + P(a)$. Faktorteoremet er spesialtilfellet der resten er null.\n\n**Strategien for å finne nullpunkt** i polynom med heiltallekoeffisientar er å prøve divisorane av konstantleddet: $\\pm 1, \\pm 2, ...$ opp til $\\pm |c|$.\n\n**Fullstendig faktorisering** fylgjer ein klar oppskrift: finn eit nullpunkt, del, faktoriser kvotienten vidare, og gjenta. For tredjegradaspolynom endar du med tre lineære faktorar (eller ein lineær og ein andregradsfaktor utan reelle nullpunkt). For fjerdegradspolynom kan du få opptil fire lineære faktorar.\n\n**Spesialtilfellea** $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$ og $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$ er nyttige å kjenne att. På same måten kan fjerdepotenser som $x^4 - 16$ og $x^4 - 1$ brytast ned systematisk med gjenteken bruk av faktorteoremet."}],"exercises":[],"_meta":{"sourceHash":"3da14c669d249642","translatedAt":"2026-06-16T10:01:56.805Z","model":"claude-haiku-4-5-20251001","strings":154,"tm":{"3289d9e4b9389021":"Polynomdivisjon med lineær divisor","b195b06d1ed59702":"Narrativ versjon","fd08844d81c81adb":"Ei forteljing om den magiske samanhengen mellom nullpunkt og faktorar -- korleis faktorteoremet og restteoremet let deg knekke polynom i små bitar og forstå strukturen deira fullstendig.","bce7faea378fe561":"bruke polynomdivisjon til å omskrive algebraiske uttrykk","750a19f77fbf9ef5":"bruke faktorteoremet","d2c9d9ef5d3f774f":"Lytt til denne delen","21954805f17795e8":"Lydfil som les opp teksten fram til første quiz.","17c1ca067f33348d":"## Nullpunkt og faktorar -- ein djup sammenhang\n\nI førre kapittel lærte du å utføre polynomdivisjon steg for steg. No skal vi oppdage noko fascinerende: det finst ein direkte kopling mellom **nullpunkta** til eit polynom og **faktorane** det kan delast opp i.\n\nTenk deg at du har polynomet $P(x) = x^2 - 5x + 6$. Viss du set inn $x = 2$, får du $P(2) = 4 - 10 + 6 = 0$. Talet $2$ er altso eit **nullpunkt** -- ein $x$-verdi som gjer polynomet lik null. Og det viser seg at når $2$ er eit nullpunkt, så er $(x - 2)$ ein **faktor** i polynomet. Faktisk er $x^2 - 5x + 6 = (x - 2)(x - 3)$.\n\nDenna samanhengen er ikkje tilfeldig. Ho er ein grunnleggjande eigenskap ved polynom, og ho gir oss to kraftige verktøy: **faktorteoremet** og **restteoremet**. Saman let dei oss bryte ned polynom til sine minste bestanddelar og avgjere om ein divisjon går opp -- utan å faktisk utføre heile divisjonen. I dette kapittelet skal vi utforske båe setningane, lære å finne nullpunkt systematisk, og meistre kunsten å faktorisere polynom fullstendig.","c166e9fafbc442b7":"## Faktorteoremet -- frå nullpunkt til faktor\n\n**Faktorteoremet** seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nMed andre ord: når talet $a$ er eit nullpunkt for polynomet, går $(x - a)$ opp i $P(x)$ utan rest. La oss sjå kvifor dette gir meining.\n\nMinn frå førre kapittel at kvar polynomdivisjon kan skrivast på forma $P(x) = D(x) \\cdot Q(x) + R(x)$. Når vi deler på ein lineær divisor $(x - a)$, blir resten alltid ein konstant (eit tal utan $x$). Viss resten er $0$, betyr det at $P(x) = (x - a) \\cdot Q(x)$ -- og då er $(x - a)$ ein faktor.\n\nLa oss teste dette med $P(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver $x = 2$:\n\n$P(2) = 2^3 - 6 \\cdot 2^2 + 11 \\cdot 2 - 6 = 8 - 24 + 22 - 6 = 0$\n\nSidan $P(2) = 0$, garanterer faktorteoremet at $(x - 2)$ er ein faktor. Vi kan bekrefte dette med lang divisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 2) = x^2 - 4x + 3$. Og $x^2 - 4x + 3 = (x - 1)(x - 3)$.\n\nLa oss også sjekke eit negativt døme. Er $(x + 1)$ ein faktor i $x^2 + 2x + 3$? Hugs at $(x + 1) = (x - (-1))$, så vi set inn $x = -1$: $P(-1) = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1)$ ikkje er null, er $(x + 1)$ *ikkje* ein faktor. Faktorteoremet fungerer båe vegar: $P(a) = 0$ betyr at $(x - a)$ er ein faktor, og $P(a) \\neq 0$ betyr at $(x - a)$ ikkje er ein faktor.","78cc4e054da829e1":"Test deg sjølv på faktorteoremet:","4097889236a2af26":"placeholder","9c61c9af93293105":"Polynomet $P(x) = x^2 - 3x + 2$ har $P(1) = 0$. Kva kan vi konkludere?","3415f25956b10005":"$(x + 1)$ er ein faktor i $P(x)$","1464b4a4bbf0586c":"$(x - 1)$ er ein faktor i $P(x)$","dbafcf9996c15e87":"Resten ved divisjon med $(x - 1)$ er $1$","20ffa6c13fe27071":"$P(x)$ kan ikkje faktoriserast","7476b580b2b91691":"Faktorteoremet seier at når $P(a) = 0$, er $(x - a)$ ein faktor. Sidan $P(1) = 0$, er $(x - 1)$ ein faktor i $P(x)$. Vi kan bekrefte: $x^2 - 3x + 2 = (x-1)(x-2)$.","a355708b3d918782":"Kva seier faktorteoremet?","04fd7bdeb602c0c7":"Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$","35070a3607f531e2":"Viss $P(a) = 0$, så er $a$ ein faktor i $P(x)$","3498ae659641b183":"Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$","c19c490cb718c0ce":"Viss $(x - a)$ er ein faktor, så er $P(a) = a$","1e04df6fa8574f2f":"Faktorteoremet seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$. Merk at det er $(x - a)$, ikkje $(x + a)$. Til dømes gir nullpunktet $a = 3$ faktoren $(x - 3)$.","c4b9b0cda3ec47bf":"Er $(x + 1)$ ein faktor i $P(x) = x^2 + 2x + 3$?","7c8436900b3984f5":"Ja, fordi $P(1) = 6$","e1a8bd85228c2b8c":"Ja, fordi koeffisienten foran $x$ er $2$","20578aa312143c00":"Nei, fordi $P(-1) = 2 \\neq 0$","e8460d40be703545":"Nei, fordi polynomet har odd koeffisientar","d85d454839158f52":"$(x + 1) = (x - (-1))$, så vi må sjekke $P(-1)$. $P(-1) = (-1)^2 + 2(-1) + 3 = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1) \\neq 0$, er $(x + 1)$ IKKJE ein faktor.","67cabd865597c034":"Du har $P(x) = x^3 - 6x^2 + 11x - 6$ og finn at $P(2) = 0$. Kva gir polynomdivisjonen $(x^3 - 6x^2 + 11x - 6) : (x - 2)$?","a84057fd2d006fe1":"$x^2 - 4x + 3$","3c71c93fbdbacd8c":"$x^2 - 8x + 3$","3baa8d11b59054df":"$x^2 + 4x - 3$","368ac1fd16f123bd":"$x^2 - 4x + 6$","143e3e288d89041e":"Runde 1: $x^3/x = x^2$. Gang: $x^2(x-2) = x^3 - 2x^2$. Rest: $-4x^2 + 11x - 6$. Runde 2: $-4x^2/x = -4x$. Gang: $-4x(x-2) = -4x^2 + 8x$. Rest: $3x - 6$. Runde 3: $3x/x = 3$. Gang: $3(x-2) = 3x - 6$. Rest: $0$. Kvotienten er $x^2 - 4x + 3 = (x-1)(x-3)$.","058005533831b7f6":"Lydfil som les opp teksten fram til neste quiz.","721075caa1051e57":"## Å finne nullpunkt -- divisorar av konstantleddet\n\nFaktorteoremet er fantastisk, men det krev at vi allereie *kjenner* eit nullpunkt. Korleis finn vi det? For polynom med heiltalkoeffisientar finst det ein smart strategi: **prøv divisorane av konstantleddet**.\n\nIdéen er denne: viss polynomet $P(x) = x^n + ... + c$ har heiltalkoeffisientar og ledande koeffisient $1$, må eventuelle heiltalsnullpunkt vere blant divisorane av konstantleddet $c$. Det betyr at vi kan prøve $\\pm 1, \\pm 2, \\pm 3, ...$ opp til $\\pm |c|$.\n\nLa oss ta eit døme: $P(x) = x^3 - 2x^2 - 5x + 6$. Konstantleddet er $6$, så vi prøver divisorane: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$.\n\nVi startar med dei enklaste: $P(1) = 1 - 2 - 5 + 6 = 0$. Bingo! $x = 1$ er eit nullpunkt.\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomdivisjon: $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Kvotienten $x^2 - x - 6$ er eit andregradspolynom, som vi kan faktorisere med kjende metodar: $x^2 - x - 6 = (x - 3)(x + 2)$.\n\nDermed er $P(x) = (x - 1)(x - 3)(x + 2)$. Vi har faktorisert tredjegradspolynomet fullstendig!\n\nEit anna døme: $P(x) = x^3 + 6x^2 + 11x + 6$. Konstantleddet er $6$. Vi prøver $P(-1) = -1 + 6 - 11 + 6 = 0$. So $(x + 1)$ er ein faktor. Divisjon gir $x^2 + 5x + 6 = (x + 2)(x + 3)$. Altso: $P(x) = (x + 1)(x + 2)(x + 3)$. Legg merke til at alle nullpunkta ($-1, -2, -3$) er divisorar av konstantleddet $6$.","5a7b911b5efab059":"Test deg sjølv på å finne nullpunkt med divisorar av konstantleddet:","5b48d78c8b8fbaf5":"Du skal finne nullpunkter for $P(x) = x^3 - 4x^2 + x + 6$. Kva verdiar bør du prøve først?","babd11c4105a8de2":"Alle desimaltal mellom $-10$ og $10$","8ed923f808cf1a18":"$x = 0, 1, 2, 3, 4, 5, 6$","59917aae173c7584":"$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$","0c9f901dde7c7144":"Berre positive tal","f7921cf068fe541f":"Vi prøver divisorane av konstantleddet. Konstantleddet er $6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi må prøve både positive og negative verdiar, fordi nullpunkt kan vere negative.","bd676efddefecd59":"For $P(x) = x^3 - 2x^2 - 5x + 6$, er $P(1) = 1 - 2 - 5 + 6 = 0$. Kva gjer vi no?","73d29efc04c9f116":"Vi er ferdige -- svaret er $x = 1$","4af108aed19066bb":"Vi deler $P(x)$ på $(x - 1)$ for å få ein andregradskvotient vi kan faktorisere vidare","52ecc2d6d6f8750e":"Vi prøver $x = 2$ som neste nullpunkt utan å dele først","dedae19f3d0030d6":"Vi bruker abc-formelen direkte på tredjegradspolynomet","7112649be0761071":"Når vi har funne eit nullpunkt i eit tredjegradspolynom, deler vi på den tilhøyrande faktoren. $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Denne andregradskvotienten kan vi faktorisere med kjende metodar: $(x - 3)(x + 2)$.","b3364dc96a519603":"Kva er den fullstendige faktoriseringa av $P(x) = x^3 + 6x^2 + 11x + 6$ når du veit at $P(-1) = 0$?","77b9f2a0931f4c4a":"$(x + 1)(x + 2)(x + 3)$","36e29331fa4fda78":"$(x - 1)(x + 2)(x + 3)$","426bfdecd8be6d33":"$(x + 1)(x + 6)(x + 1)$","4f21208d1043a642":"$(x + 1)(x^2 + 6)$","8fe5c6254c7e981c":"Sidan $P(-1) = 0$, er $(x + 1)$ ein faktor. Divisjon gir $(x^3 + 6x^2 + 11x + 6) : (x + 1) = x^2 + 5x + 6$. Vi faktoriserer kvotienten: to tal som gangar til $6$ og summerer til $5$ er $2$ og $3$. Altso: $x^2 + 5x + 6 = (x+2)(x+3)$. Komplett: $(x+1)(x+2)(x+3)$.","548e4b5377bb3fd7":"Konstantleddet i $P(x) = x^3 + 3x^2 - 4x - 12$ er $-12$. Kva av det følgjande er IKKJE ein divisor av $-12$ som vi bør prøve?","b8d921f3516666fe":"$x = 5$","0ae482c265a0e7fd":"$x = -2$","d14d177d812c2ded":"$x = 4$","50a348317f5a3c60":"$x = -6$","7d6c5f98d9176f11":"Divisorane av $-12$ er $\\pm 1, \\pm 2, \\pm 3, \\pm 4, \\pm 6, \\pm 12$. Talet $5$ er ikkje ein divisor av $12$ ($12 / 5 = 2{,}4$), så $x = 5$ treng vi ikkje prøve. Dei andre ($-2$, $4$, $-6$) er alle divisorar av $12$.","72f5a6f55fec7153":"## Resteoremet -- resten utan divisjon\n\nFaktorteoremten handlar om tilfellet der resten er null. Men kva når resten *ikkje* er null? Her kjem **resteoremet** inn:\n\n**Når polynomet $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$.**\n\nMatematisk: $P(x) = (x - a) \\cdot Q(x) + P(a)$\n\nDette er eit utruleg nyttig verktøy. I staden for å utføre heile lang divisjon for å finne resten, kan du berre **setje inn $a$ i polynomet**. Resten får du på sekund!\n\nLa oss sjå på eit døme. Kva er resten når $P(x) = x^3 + 2x^2 - x + 3$ blir delt på $(x - 2)$?\n\nIf følgje resteoremet er resten $P(2) = 2^3 + 2 \\cdot 2^2 - 2 + 3 = 8 + 8 - 2 + 3 = 17$.\n\nVi kunne ha utført lang divisjon og fått nøyaktig same svar, men resteoremet sparte oss for heile prosessen.\n\nEit anna døme: Finn resten når $(x^2 + 3x + 5)$ blir delt på $(x - 1)$. Resten er $P(1) = 1 + 3 + 5 = 9$.\n\nOg eitt til: Finn resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$. Husk at $(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$.\n\nLegg merke til korleis faktorteoremten eigentleg er eit spesialtilfelle av resteoremet: når resten $P(a) = 0$, går divisjonen opp, og $(x - a)$ er ein faktor. Dei to teoremane hengar altso tett saman.","0601fe6bca491ef0":"Test deg sjølv på resteoremet:","6fb232ce788b3f99":"Kva er resten når $P(x) = 2x^3 - 5x + 3$ blir delt på $(x + 2)$?","5d2c3afa283f1310":"Vi bruker resteoremet. Divisoren er $(x + 2) = (x - (-2))$, så $a = -2$. Resten er $P(-2) = 2(-2)^3 - 5(-2) + 3 = 2 \\cdot (-8) + 10 + 3 = -16 + 10 + 3 = -3$.","665787e9b69b73c0":"Kva seier resteoremet?","fe617bfcdb588e54":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(0)$","010be7239cc0e392":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(a)$","789a8f6d6e622d64":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(-a)$","8a384a36271c89cd":"Resten når $P(x)$ blir delt på $(x - a)$ er lik $a$","9449b6234f4e0804":"Resteoremet seier at når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Vi treng altso berre å setje inn $a$ i polynomet for å finne resten -- utan å utføre heile lang divisjon.","3c977931994a0e89":"Kva er resten når $P(x) = x^2 + 3x + 5$ blir delt på $(x - 1)$?","8f6c898b7d97aad4":"Resteoremet gir resten som $P(1) = 1^2 + 3 \\cdot 1 + 5 = 1 + 3 + 5 = 9$.","c409f9747ee76705":"Kva er resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$?","d9a23ae308bf0dd2":"$(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$. Husk at $(x + 1)$ betyr at vi set inn $-1$, ikkje $1$.","37ecba2fe1ee4c63":"Korleis hengar faktorteoremet saman med restteoremet?","0a5b164923471c20":"Dei er heilt uavhengige teoremer","a1d3302afbb6436c":"Restteoremet er eit spesialtilfelle av faktorteoremet","fc4d361ed0384403":"Faktorteoremet er spesialtilfellet av restteoremet der resten $P(a) = 0$","45efa8057133d23b":"Faktorteoremet gjeld berre for andregradspolynom","bcbd35671de3a0d4":"Faktorteoremet er eit spesialtilfelle av restteoremet. Restteoremet seier at resten er $P(a)$. Når $P(a) = 0$ (resten er null), går divisjonen opp, og $(x - a)$ er ein faktor. Det er nøyaktig det faktorteoremet seier.","3839761b47d02080":"## Fullstendig faktorisering -- strategi\n\nNo har vi alle verktøya vi treng for å faktorisere polynom fullstendig. Her er strategien, steg for steg:\n\n**1.** Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet.\n**2.** Divider polynomet på $(x - a)$ med lang divisjon.\n**3.** Faktoriser kvotienten vidare (om mogleg).\n**4.** Gjenta til du ikkje kan faktorisere meir.\n\nLa oss ta $P(x) = x^3 - 7x + 6$. Konstantleddet er $6$, så vi prøver: $P(1) = 1 - 7 + 6 = 0$. Flott, $x = 1$ er eit nullpunkt.\n\nVi deler: $(x^3 - 7x + 6) : (x - 1)$. Husk å skrive dividenden som $x^3 + 0x^2 - 7x + 6$ for å inkludere null-leddet. Divisjonen gir $x^2 + x - 6$.\n\nNo faktoriserer vi $x^2 + x - 6$. Vi leiter etter to tal som gangar til $-6$ og summerer til $1$. Det er $3$ og $-2$: $x^2 + x - 6 = (x + 3)(x - 2)$.\n\nEndanleg svar: $P(x) = (x - 1)(x + 3)(x - 2)$.\n\nLa oss ta eit vanskelegare døme: $P(x) = x^3 + 2x^2 - x - 2$. Prøv $P(1) = 1 + 2 - 1 - 2 = 0$. $(x - 1)$ er ein faktor. Divisjon gir $x^2 + 3x + 2 = (x + 1)(x + 2)$. Altso: $P(x) = (x - 1)(x + 1)(x + 2)$.\n\nNokon gonger finn du nullpunktet på andre forsøk. For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = -2 \\neq 0$, men $P(-1) = -1 - 4 - 1 + 6 = 0$. Så $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x - 2)(x - 3)$. Altso: $P(x) = (x + 1)(x - 2)(x - 3)$.","a8a1c89d7df53246":"Test deg sjølv på fullstendig faktorisering:","96630ea5ddf2b7f3":"$P(x) = x^3 - 6x^2 + 11x - 6$. Du finn at $P(1) = 0$. Kva er neste steg?","bde0025759e97aa6":"Faktoriser direkte til $(x-1)(x-2)(x-3)$ utan vidare rekning","49288a8c28978a19":"Prøv å finne fleire nullpunkt ved å setje inn $x = 2, 3, ...$","5885fdc3c91bdf70":"Del $P(x)$ på $(x - 1)$ og faktoriser kvotienten","af8cdfa74d84b715":"Bruk restteoremet til å finne resten","a981f3c4605b6734":"Når du har funne eit nullpunkt, er neste steg å utføre polynomdivisjon med den tilhøyrande faktoren. Del $P(x)$ på $(x - 1)$ for å få ein andregradskvotient, og faktoriser den vidare.","4b4a06f1d0beee80":"Kva er riktig strategi for å faktorisere eit tredjegradspolynom fullstendig?","f81cab3c9fa99554":"Bruk abc-formelen direkte på tredjegradspolynomet","4eecd9f6cf668b24":"Finn eitt nullpunkt, divider for å få andregradspolynom, faktoriser det","6e20f0dd9cf0a69f":"Prøv å gjette alle tre faktorane på ein gong","72d430292d1277b4":"Trekk ut største felles faktor -- det held alltid","282c9df5c68ff8b5":"Strategien er: (1) Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet. (2) Divider på $(x - a)$ for å få eit andregradspolynom. (3) Faktoriser andregradspolynomet med kjende metodar (inspeksjon eller abc-formelen).","127571af1161369e":"Faktoriser $P(x) = x^3 - 7x + 6$ fullstendig. (Hint: $P(1) = 0$.","c382f0274556d292":"$(x - 1)(x - 2)(x + 3)$","27315283892a901f":"$(x - 1)(x + 2)(x - 3)$","bcb54aaeb2b341d7":"$(x - 1)(x - 3)(x + 2)$","c58b1e68c457be57":"$(x - 1)(x + 3)(x - 2)$","484e6e16692ef9c0":"Siden $P(1) = 0$, deler vi: $(x^3 + 0x^2 - 7x + 6) : (x - 1) = x^2 + x - 6$. Vi faktoriserer: to tal som gangar til $-6$ og summerer til $1$ er $3$ og $-2$. Altso $x^2 + x - 6 = (x + 3)(x - 2)$. Komplett: $(x-1)(x+3)(x-2)$.","5d6c94ca85955e86":"For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = 4 \\neq 0$. Kva gjer du?","c1acc6f3eb6949b2":"Gir opp -- polynomet kan ikkje faktoriiserast","d69bac85cb7b53e1":"Prøver $P(-1)$, deretter $P(2)$, $P(-2)$, osv.","bd1a60413f3ffebc":"Bruker lang divisjon med $(x - 1)$ uansett","b0988a1b3a7d9693":"Endrar konstantleddet til $4$","fa9ec314c4028041":"Når første forsøk ikkje gir null, prøver vi neste divisor. $P(-1) = -1 - 4 - 1 + 6 = 0$. Bingo! $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x-2)(x-3)$. Fullstendig: $(x+1)(x-2)(x-3)$.","dccdc61c0421aafc":"## Spesialtilfelle -- kubar og fjerdepotenser\n\nNo skal vi sjå på nokre spesialtilfelle som dukkar opp overraskande ofte, særleg når polynom inneheld **perfekte potenser**.\n\nLa oss starta med $x^3 - 8$. Konstantleddet er $-8$. Vi prøver $P(2) = 8 - 8 = 0$. Så $(x - 2)$ er ein faktor. Husk å setje inn null-ledd: $(x^3 + 0x^2 + 0x - 8) : (x - 2)$. Divisjonen gir $x^2 + 2x + 4$. Altso: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$.\n\nDet vi nett har sett er eit døme på **tredjegrads konjugatsetning**: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Her er $a = x$ og $b = 2$.\n\nTilsvarande: $x^3 + 27 = x^3 + 3^3$. Vi prøver $P(-3) = -27 + 27 = 0$, så $(x + 3)$ er ein faktor. Divisjon gir $x^2 - 3x + 9$. Her ser vi den andre forma: $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.\n\nKva med fjerdepotenser? Ta $P(x) = x^4 - 5x^2 + 4$. Konstantleddet er $4$. Vi prøver $P(1) = 1 - 5 + 4 = 0$. $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 4x - 4$. Vi prøver $P(-1)$ på kvotienten: $-1 + 1 + 4 - 4 = 0$. $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 4 = (x-2)(x+2)$.\n\nKomplett faktorisering: $x^4 - 5x^2 + 4 = (x-1)(x+1)(x-2)(x+2)$.\n\nEit anna fjerdegradseksempel: $(x^4 - 16) : (x - 2)$. Prøv $P(2) = 16 - 16 = 0$. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Denne kan faktoriiserast vidare: $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x+2)$ er ein faktor. Divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Altso: $x^4 - 16 = (x-2)(x+2)(x^2 + 4)$.\n\nOg heilt til slutt: $(x^4 - 1) : (x - 1) = x^3 + x^2 + x + 1$. Denne kvotienten kan faktoriiserast vidare: $x^3 + x^2 + x + 1 = (x + 1)(x^2 + 1)$. Så $x^4 - 1 = (x-1)(x+1)(x^2+1)$.","8334f6de1782237d":"Test deg sjølv på spesialtilfelle med kubar og fjerdepotenser:","6b8bf73212c5a6dd":"Kva er den fullstendige faktoriseringa av $x^4 - 10x^2 + 9$?","58e32383637f1596":"$(x - 1)(x + 1)(x^2 - 9)$","804a2d60d0971dda":"$(x^2 - 1)(x^2 - 9)$","1bfad5f17b9c245d":"$(x - 1)(x + 1)(x - 3)(x + 3)$","09b0965e23335074":"$(x - 3)^2(x + 1)^2$","21083380ff6676d1":"Start med $P(1) = 1 - 10 + 9 = 0$, så $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 9x - 9$. Prøv $P(-1) = -1 + 1 + 9 - 9 = 0$, så $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 9 = (x-3)(x+3)$. Fullstendig: $(x-1)(x+1)(x-3)(x+3)$.","7a7009badbed0b30":"Kva er faktoriseringa av $x^3 - 8$?","6f044da419106a76":"$(x - 2)(x^2 - 2x + 4)$","43bbae51dca8618e":"$(x - 2)(x^2 + 2x + 4)$","fbae95d77fe6a306":"$(x - 2)(x^2 + 4)$","8fb54ea46556e51e":"$(x - 2)^3$","f06d8c46d2402e7c":"$x^3 - 8 = x^3 - 2^3$. Vi brukar formelen $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ med $a = x$ og $b = 2$: $(x - 2)(x^2 + 2x + 4)$. Merk pluss-teikna i andregradsuttrykket -- det er lett å forveksle med $(a-b)^2$-formelen.","4dc18e0deedd6bfb":"Kva er faktoriseringa av $x^3 + 27$?","314b67f9d8b3ad15":"$(x + 3)(x^2 + 3x + 9)$","eee909a8f2cb2273":"$(x + 3)(x^2 + 9)$","0e9bc406adb653dd":"$(x + 3)(x^2 - 3x + 9)$","279b0065b9ed8ae0":"$(x + 3)^3$","b7dbf723a3a16553":"$x^3 + 27 = x^3 + 3^3$. Formelen $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ gir $(x + 3)(x^2 - 3x + 9)$. Merk at forteikna i andregradsuttrykket er motsett av tilfellet $a^3 - b^3$: her er det minus framfor $ab$-leddet.","0c3d4c1ff3cb4a82":"Kva er faktoriseringa av $x^4 - 16$?","435baadc081d17b2":"$(x - 2)(x + 2)(x - 2)(x + 2)$","766ede19d638d20d":"$(x^2 - 4)(x^2 + 4)$","68d44df19107f1c9":"$(x - 2)(x + 2)(x^2 + 4)$","e704b2960dfcc19f":"$(x - 4)(x + 4)$","8026aa3c5b5874f1":"Vi kan starte med $P(2) = 16 - 16 = 0$, så $(x - 2)$ er ein faktor. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Prøv $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x + 2)$ er ein faktor. Ny divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Alternativ b) er ufullstendig -- $(x^2 - 4)$ kan faktorirerast vidare til $(x-2)(x+2)$.","22ad5d7841c8e908":"Når vi faktoriserer $x^4 - 1$, får vi $(x - 1)(x + 1)(x^2 + 1)$. Kvifor stoppar vi her og faktoriserer ikkje $x^2 + 1$ vidare?","b7ba85f21c6a66f3":"Fordi $x^2 + 1$ er eit fyrstegraadspolynom","e4c66609a6cbe532":"Fordi vi allereie har fire faktorar","8b47c3ec2c96b95f":"Fordi $x^2 + 1$ ikkje har nokon reelle nullpunkt ($x^2 + 1 > 0$ for alle reelle $x$)","e3a81e290978391b":"Fordi $x^2 + 1 = (x + 1)^2$ og vi allereie har $(x + 1)$","7d660e5751f9e3d3":"$x^2 + 1 = 0$ gir $x^2 = -1$, som ikkje har noka reell løysing. Sidan $x^2 \\geq 0$ for alle reelle $x$, er $x^2 + 1 \\geq 1 > 0$ alltid. Polynomet har ingen reelle nullpunkt og kan ikkje faktorirerast vidare over dei reelle tala.","79eeeec37aef74be":"Lytt til oppsummeringa","b409d1128419f9c6":"Lydfil som les opp oppsummeringa.","1b0914c7ab1bfed6":"## Oppsummering\n\nI dette kapittelet har vi oppdaga den djupe samanhengen mellom nullpunkt og faktorar, og lært to kraftige teoremår.\n\n**Faktorteoremet** seier at viss $P(a) = 0$, er $(x - a)$ ein faktor i $P(x)$. Det betyr at kvart nullpunkt avslører ein faktor -- og omvendt. For å sjekke om $(x - a)$ er ein faktor, treng du berre å setje inn $a$ i polynomet.\n\n**Restteoremet** er den generelle versjonen: når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Formelt: $P(x) = (x - a) \\cdot Q(x) + P(a)$. Faktorteoremet er spesialtilfellet der resten er null.\n\n**Strategien for å finne nullpunkt** i polynom med heiltallekoeffisientar er å prøve divisorane av konstantleddet: $\\pm 1, \\pm 2, ...$ opp til $\\pm |c|$.\n\n**Fullstendig faktorisering** fylgjer ein klar oppskrift: finn eit nullpunkt, del, faktoriser kvotienten vidare, og gjenta. For tredjegradaspolynom endar du med tre lineære faktorar (eller ein lineær og ein andregradsfaktor utan reelle nullpunkt). For fjerdegradspolynom kan du få opptil fire lineære faktorar.\n\n**Spesialtilfellea** $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$ og $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$ er nyttige å kjenne att. På same måten kan fjerdepotenser som $x^4 - 16$ og $x^4 - 1$ brytast ned systematisk med gjenteken bruk av faktorteoremet."}}}
+{
+  "id": "1t-1-9-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "1.9",
+  "title": "Polynomdivisjon med lineær divisor",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om den magiske samanhengen mellom nullpunkt og faktorar -- korleis faktorteoremet og restteoremet let deg knekke polynom i små bitar og forstå strukturen deira fullstendig.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bruke polynomdivisjon til å omskrive algebraiske uttrykk",
+    "bruke faktorteoremet"
+  ],
+  "linkedChapterId": "1t-1-9",
+  "content": [
+    {
+      "id": "1t-1-9-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-9-narrativ-del1.mp3",
+      "description": "Lydfil som les opp teksten fram til første quiz."
+    },
+    {
+      "id": "1t-1-9-n-intro",
+      "type": "text",
+      "content": "## Nullpunkt og faktorar -- ein djup sammenhang\n\nI førre kapittel lærte du å utføre polynomdivisjon steg for steg. No skal vi oppdage noko fascinerende: det finst ein direkte kopling mellom **nullpunkta** til eit polynom og **faktorane** det kan delast opp i.\n\nTenk deg at du har polynomet $P(x) = x^2 - 5x + 6$. Viss du set inn $x = 2$, får du $P(2) = 4 - 10 + 6 = 0$. Talet $2$ er altso eit **nullpunkt** -- ein $x$-verdi som gjer polynomet lik null. Og det viser seg at når $2$ er eit nullpunkt, så er $(x - 2)$ ein **faktor** i polynomet. Faktisk er $x^2 - 5x + 6 = (x - 2)(x - 3)$.\n\nDenna samanhengen er ikkje tilfeldig. Ho er ein grunnleggjande eigenskap ved polynom, og ho gir oss to kraftige verktøy: **faktorteoremet** og **restteoremet**. Saman let dei oss bryte ned polynom til sine minste bestanddelar og avgjere om ein divisjon går opp -- utan å faktisk utføre heile divisjonen. I dette kapittelet skal vi utforske båe setningane, lære å finne nullpunkt systematisk, og meistre kunsten å faktorisere polynom fullstendig."
+    },
+    {
+      "id": "1t-1-9-n-section1",
+      "type": "text",
+      "content": "## Faktorteoremet -- frå nullpunkt til faktor\n\n**Faktorteoremet** seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nMed andre ord: når talet $a$ er eit nullpunkt for polynomet, går $(x - a)$ opp i $P(x)$ utan rest. La oss sjå kvifor dette gir meining.\n\nMinn frå førre kapittel at kvar polynomdivisjon kan skrivast på forma $P(x) = D(x) \\cdot Q(x) + R(x)$. Når vi deler på ein lineær divisor $(x - a)$, blir resten alltid ein konstant (eit tal utan $x$). Viss resten er $0$, betyr det at $P(x) = (x - a) \\cdot Q(x)$ -- og då er $(x - a)$ ein faktor.\n\nLa oss teste dette med $P(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver $x = 2$:\n\n$P(2) = 2^3 - 6 \\cdot 2^2 + 11 \\cdot 2 - 6 = 8 - 24 + 22 - 6 = 0$\n\nSidan $P(2) = 0$, garanterer faktorteoremet at $(x - 2)$ er ein faktor. Vi kan bekrefte dette med lang divisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 2) = x^2 - 4x + 3$. Og $x^2 - 4x + 3 = (x - 1)(x - 3)$.\n\nLa oss også sjekke eit negativt døme. Er $(x + 1)$ ein faktor i $x^2 + 2x + 3$? Hugs at $(x + 1) = (x - (-1))$, så vi set inn $x = -1$: $P(-1) = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1)$ ikkje er null, er $(x + 1)$ *ikkje* ein faktor. Faktorteoremet fungerer båe vegar: $P(a) = 0$ betyr at $(x - a)$ er ein faktor, og $P(a) \\neq 0$ betyr at $(x - a)$ ikkje er ein faktor."
+    },
+    {
+      "id": "1t-1-9-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-9-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorteoremet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-9-n-quiz1-q0",
+            "task": "Polynomet $P(x) = x^2 - 3x + 2$ har $P(1) = 0$. Kva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x + 1)$ er ein faktor i $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Resten ved divisjon med $(x - 1)$ er $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(x)$ kan ikkje faktoriserast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x - 1)$ er ein faktor i $P(x)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Faktorteoremet seier at når $P(a) = 0$, er $(x - a)$ ein faktor. Sidan $P(1) = 0$, er $(x - 1)$ ein faktor i $P(x)$. Vi kan bekrefte: $x^2 - 3x + 2 = (x-1)(x-2)$."
+          },
+          {
+            "id": "1t-1-9-n-quiz1-q1",
+            "task": "Kva seier faktorteoremet?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Viss $P(a) = 0$, så er $a$ ein faktor i $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Viss $(x - a)$ er ein faktor, så er $P(a) = a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorteoremet seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$. Merk at det er $(x - a)$, ikkje $(x + a)$. Til dømes gir nullpunktet $a = 3$ faktoren $(x - 3)$."
+          },
+          {
+            "id": "1t-1-9-n-quiz1-q2",
+            "task": "Er $(x + 1)$ ein faktor i $P(x) = x^2 + 2x + 3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, fordi $P(1) = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, fordi $P(-1) = 2 \\neq 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ja, fordi koeffisienten foran $x$ er $2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei, fordi polynomet har odd koeffisientar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(x + 1) = (x - (-1))$, så vi må sjekke $P(-1)$. $P(-1) = (-1)^2 + 2(-1) + 3 = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1) \\neq 0$, er $(x + 1)$ IKKJE ein faktor."
+          },
+          {
+            "id": "1t-1-9-n-quiz1-q3",
+            "task": "Du har $P(x) = x^3 - 6x^2 + 11x - 6$ og finn at $P(2) = 0$. Kva gir polynomdivisjonen $(x^3 - 6x^2 + 11x - 6) : (x - 2)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^2 - 8x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 + 4x - 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x^2 - 4x + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x^2 - 4x + 6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Runde 1: $x^3/x = x^2$. Gang: $x^2(x-2) = x^3 - 2x^2$. Rest: $-4x^2 + 11x - 6$. Runde 2: $-4x^2/x = -4x$. Gang: $-4x(x-2) = -4x^2 + 8x$. Rest: $3x - 6$. Runde 3: $3x/x = 3$. Gang: $3(x-2) = 3x - 6$. Rest: $0$. Kvotienten er $x^2 - 4x + 3 = (x-1)(x-3)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-9-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-9-narrativ-del2.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-9-n-section2",
+      "type": "text",
+      "content": "## Å finne nullpunkt -- divisorar av konstantleddet\n\nFaktorteoremet er fantastisk, men det krev at vi allereie *kjenner* eit nullpunkt. Korleis finn vi det? For polynom med heiltalkoeffisientar finst det ein smart strategi: **prøv divisorane av konstantleddet**.\n\nIdéen er denne: viss polynomet $P(x) = x^n + ... + c$ har heiltalkoeffisientar og ledande koeffisient $1$, må eventuelle heiltalsnullpunkt vere blant divisorane av konstantleddet $c$. Det betyr at vi kan prøve $\\pm 1, \\pm 2, \\pm 3, ...$ opp til $\\pm |c|$.\n\nLa oss ta eit døme: $P(x) = x^3 - 2x^2 - 5x + 6$. Konstantleddet er $6$, så vi prøver divisorane: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$.\n\nVi startar med dei enklaste: $P(1) = 1 - 2 - 5 + 6 = 0$. Bingo! $x = 1$ er eit nullpunkt.\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomdivisjon: $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Kvotienten $x^2 - x - 6$ er eit andregradspolynom, som vi kan faktorisere med kjende metodar: $x^2 - x - 6 = (x - 3)(x + 2)$.\n\nDermed er $P(x) = (x - 1)(x - 3)(x + 2)$. Vi har faktorisert tredjegradspolynomet fullstendig!\n\nEit anna døme: $P(x) = x^3 + 6x^2 + 11x + 6$. Konstantleddet er $6$. Vi prøver $P(-1) = -1 + 6 - 11 + 6 = 0$. So $(x + 1)$ er ein faktor. Divisjon gir $x^2 + 5x + 6 = (x + 2)(x + 3)$. Altso: $P(x) = (x + 1)(x + 2)(x + 3)$. Legg merke til at alle nullpunkta ($-1, -2, -3$) er divisorar av konstantleddet $6$."
+    },
+    {
+      "id": "1t-1-9-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-9-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på å finne nullpunkt med divisorar av konstantleddet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-9-n-quiz2-q0",
+            "task": "Du skal finne nullpunkter for $P(x) = x^3 - 4x^2 + x + 6$. Kva verdiar bør du prøve først?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle desimaltal mellom $-10$ og $10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 0, 1, 2, 3, 4, 5, 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre positive tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi prøver divisorane av konstantleddet. Konstantleddet er $6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi må prøve både positive og negative verdiar, fordi nullpunkt kan vere negative."
+          },
+          {
+            "id": "1t-1-9-n-quiz2-q1",
+            "task": "For $P(x) = x^3 - 2x^2 - 5x + 6$, er $P(1) = 1 - 2 - 5 + 6 = 0$. Kva gjer vi no?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Vi deler $P(x)$ på $(x - 1)$ for å få ein andregradskvotient vi kan faktorisere vidare",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Vi er ferdige -- svaret er $x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi prøver $x = 2$ som neste nullpunkt utan å dele først",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi bruker abc-formelen direkte på tredjegradspolynomet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når vi har funne eit nullpunkt i eit tredjegradspolynom, deler vi på den tilhøyrande faktoren. $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Denne andregradskvotienten kan vi faktorisere med kjende metodar: $(x - 3)(x + 2)$."
+          },
+          {
+            "id": "1t-1-9-n-quiz2-q2",
+            "task": "Kva er den fullstendige faktoriseringa av $P(x) = x^3 + 6x^2 + 11x + 6$ når du veit at $P(-1) = 0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x - 1)(x + 2)(x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(x + 1)(x + 2)(x + 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(x + 1)(x + 6)(x + 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x + 1)(x^2 + 6)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $P(-1) = 0$, er $(x + 1)$ ein faktor. Divisjon gir $(x^3 + 6x^2 + 11x + 6) : (x + 1) = x^2 + 5x + 6$. Vi faktoriserer kvotienten: to tal som gangar til $6$ og summerer til $5$ er $2$ og $3$. Altso: $x^2 + 5x + 6 = (x+2)(x+3)$. Komplett: $(x+1)(x+2)(x+3)$."
+          },
+          {
+            "id": "1t-1-9-n-quiz2-q3",
+            "task": "Konstantleddet i $P(x) = x^3 + 3x^2 - 4x - 12$ er $-12$. Kva av det følgjande er IKKJE ein divisor av $-12$ som vi bør prøve?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = -6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Divisorane av $-12$ er $\\pm 1, \\pm 2, \\pm 3, \\pm 4, \\pm 6, \\pm 12$. Talet $5$ er ikkje ein divisor av $12$ ($12 / 5 = 2{,}4$), så $x = 5$ treng vi ikkje prøve. Dei andre ($-2$, $4$, $-6$) er alle divisorar av $12$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-9-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-9-narrativ-del3.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-9-n-section3",
+      "type": "text",
+      "content": "## Resteoremet -- resten utan divisjon\n\nFaktorteoremten handlar om tilfellet der resten er null. Men kva når resten *ikkje* er null? Her kjem **resteoremet** inn:\n\n**Når polynomet $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$.**\n\nMatematisk: $P(x) = (x - a) \\cdot Q(x) + P(a)$\n\nDette er eit utruleg nyttig verktøy. I staden for å utføre heile lang divisjon for å finne resten, kan du berre **setje inn $a$ i polynomet**. Resten får du på sekund!\n\nLa oss sjå på eit døme. Kva er resten når $P(x) = x^3 + 2x^2 - x + 3$ blir delt på $(x - 2)$?\n\nIf følgje resteoremet er resten $P(2) = 2^3 + 2 \\cdot 2^2 - 2 + 3 = 8 + 8 - 2 + 3 = 17$.\n\nVi kunne ha utført lang divisjon og fått nøyaktig same svar, men resteoremet sparte oss for heile prosessen.\n\nEit anna døme: Finn resten når $(x^2 + 3x + 5)$ blir delt på $(x - 1)$. Resten er $P(1) = 1 + 3 + 5 = 9$.\n\nOg eitt til: Finn resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$. Husk at $(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$.\n\nLegg merke til korleis faktorteoremten eigentleg er eit spesialtilfelle av resteoremet: når resten $P(a) = 0$, går divisjonen opp, og $(x - a)$ er ein faktor. Dei to teoremane hengar altso tett saman."
+    },
+    {
+      "id": "1t-1-9-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-9-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på resteoremet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-9-n-quiz3-q0",
+            "task": "Kva er resten når $P(x) = 2x^3 - 5x + 3$ blir delt på $(x + 2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$17$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-13$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi bruker resteoremet. Divisoren er $(x + 2) = (x - (-2))$, så $a = -2$. Resten er $P(-2) = 2(-2)^3 - 5(-2) + 3 = 2 \\cdot (-8) + 10 + 3 = -16 + 10 + 3 = -3$."
+          },
+          {
+            "id": "1t-1-9-n-quiz3-q1",
+            "task": "Kva seier resteoremet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(a)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(-a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Resteoremet seier at når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Vi treng altso berre å setje inn $a$ i polynomet for å finne resten -- utan å utføre heile lang divisjon."
+          },
+          {
+            "id": "1t-1-9-n-quiz3-q2",
+            "task": "Kva er resten når $P(x) = x^2 + 3x + 5$ blir delt på $(x - 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Resteoremet gir resten som $P(1) = 1^2 + 3 \\cdot 1 + 5 = 1 + 3 + 5 = 9$."
+          },
+          {
+            "id": "1t-1-9-n-quiz3-q3",
+            "task": "Kva er resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$. Husk at $(x + 1)$ betyr at vi set inn $-1$, ikkje $1$."
+          },
+          {
+            "id": "1t-1-9-n-quiz3-q4",
+            "task": "Korleis hengar faktorteoremet saman med restteoremet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei er heilt uavhengige teoremer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Restteoremet er eit spesialtilfelle av faktorteoremet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Faktorteoremet gjeld berre for andregradspolynom",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Faktorteoremet er spesialtilfellet av restteoremet der resten $P(a) = 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Faktorteoremet er eit spesialtilfelle av restteoremet. Restteoremet seier at resten er $P(a)$. Når $P(a) = 0$ (resten er null), går divisjonen opp, og $(x - a)$ er ein faktor. Det er nøyaktig det faktorteoremet seier."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-9-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-9-narrativ-del4.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-9-n-section4",
+      "type": "text",
+      "content": "## Fullstendig faktorisering -- strategi\n\nNo har vi alle verktøya vi treng for å faktorisere polynom fullstendig. Her er strategien, steg for steg:\n\n**1.** Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet.\n**2.** Divider polynomet på $(x - a)$ med lang divisjon.\n**3.** Faktoriser kvotienten vidare (om mogleg).\n**4.** Gjenta til du ikkje kan faktorisere meir.\n\nLa oss ta $P(x) = x^3 - 7x + 6$. Konstantleddet er $6$, så vi prøver: $P(1) = 1 - 7 + 6 = 0$. Flott, $x = 1$ er eit nullpunkt.\n\nVi deler: $(x^3 - 7x + 6) : (x - 1)$. Husk å skrive dividenden som $x^3 + 0x^2 - 7x + 6$ for å inkludere null-leddet. Divisjonen gir $x^2 + x - 6$.\n\nNo faktoriserer vi $x^2 + x - 6$. Vi leiter etter to tal som gangar til $-6$ og summerer til $1$. Det er $3$ og $-2$: $x^2 + x - 6 = (x + 3)(x - 2)$.\n\nEndanleg svar: $P(x) = (x - 1)(x + 3)(x - 2)$.\n\nLa oss ta eit vanskelegare døme: $P(x) = x^3 + 2x^2 - x - 2$. Prøv $P(1) = 1 + 2 - 1 - 2 = 0$. $(x - 1)$ er ein faktor. Divisjon gir $x^2 + 3x + 2 = (x + 1)(x + 2)$. Altso: $P(x) = (x - 1)(x + 1)(x + 2)$.\n\nNokon gonger finn du nullpunktet på andre forsøk. For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = -2 \\neq 0$, men $P(-1) = -1 - 4 - 1 + 6 = 0$. Så $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x - 2)(x - 3)$. Altso: $P(x) = (x + 1)(x - 2)(x - 3)$."
+    },
+    {
+      "id": "1t-1-9-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-9-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på fullstendig faktorisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-9-n-quiz4-q0",
+            "task": "$P(x) = x^3 - 6x^2 + 11x - 6$. Du finn at $P(1) = 0$. Kva er neste steg?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Del $P(x)$ på $(x - 1)$ og faktoriser kvotienten",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Faktoriser direkte til $(x-1)(x-2)(x-3)$ utan vidare rekning",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Prøv å finne fleire nullpunkt ved å setje inn $x = 2, 3, ...$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bruk restteoremet til å finne resten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når du har funne eit nullpunkt, er neste steg å utføre polynomdivisjon med den tilhøyrande faktoren. Del $P(x)$ på $(x - 1)$ for å få ein andregradskvotient, og faktoriser den vidare."
+          },
+          {
+            "id": "1t-1-9-n-quiz4-q1",
+            "task": "Kva er riktig strategi for å faktorisere eit tredjegradspolynom fullstendig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bruk abc-formelen direkte på tredjegradspolynomet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Finn eitt nullpunkt, divider for å få andregradspolynom, faktoriser det",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Prøv å gjette alle tre faktorane på ein gong",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Trekk ut største felles faktor -- det held alltid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strategien er: (1) Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet. (2) Divider på $(x - a)$ for å få eit andregradspolynom. (3) Faktoriser andregradspolynomet med kjende metodar (inspeksjon eller abc-formelen)."
+          },
+          {
+            "id": "1t-1-9-n-quiz4-q2",
+            "task": "Faktoriser $P(x) = x^3 - 7x + 6$ fullstendig. (Hint: $P(1) = 0$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x - 1)(x - 2)(x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x - 1)(x + 2)(x - 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 1)(x + 3)(x - 2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(x - 1)(x - 3)(x + 2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $P(1) = 0$, deler vi: $(x^3 + 0x^2 - 7x + 6) : (x - 1) = x^2 + x - 6$. Vi faktoriserer: to tal som gangar til $-6$ og summerer til $1$ er $3$ og $-2$. Altso $x^2 + x - 6 = (x + 3)(x - 2)$. Komplett: $(x-1)(x+3)(x-2)$."
+          },
+          {
+            "id": "1t-1-9-n-quiz4-q3",
+            "task": "For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = 4 \\neq 0$. Kva gjer du?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gir opp -- polynomet kan ikkje faktoriiserast",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bruker lang divisjon med $(x - 1)$ uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Endrar konstantleddet til $4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Prøver $P(-1)$, deretter $P(2)$, $P(-2)$, osv.",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når første forsøk ikkje gir null, prøver vi neste divisor. $P(-1) = -1 - 4 - 1 + 6 = 0$. Bingo! $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x-2)(x-3)$. Fullstendig: $(x+1)(x-2)(x-3)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-9-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-9-narrativ-del5.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-9-n-section5",
+      "type": "text",
+      "content": "## Spesialtilfelle -- kubar og fjerdepotenser\n\nNo skal vi sjå på nokre spesialtilfelle som dukkar opp overraskande ofte, særleg når polynom inneheld **perfekte potenser**.\n\nLa oss starta med $x^3 - 8$. Konstantleddet er $-8$. Vi prøver $P(2) = 8 - 8 = 0$. Så $(x - 2)$ er ein faktor. Husk å setje inn null-ledd: $(x^3 + 0x^2 + 0x - 8) : (x - 2)$. Divisjonen gir $x^2 + 2x + 4$. Altso: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$.\n\nDet vi nett har sett er eit døme på **tredjegrads konjugatsetning**: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Her er $a = x$ og $b = 2$.\n\nTilsvarande: $x^3 + 27 = x^3 + 3^3$. Vi prøver $P(-3) = -27 + 27 = 0$, så $(x + 3)$ er ein faktor. Divisjon gir $x^2 - 3x + 9$. Her ser vi den andre forma: $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.\n\nKva med fjerdepotenser? Ta $P(x) = x^4 - 5x^2 + 4$. Konstantleddet er $4$. Vi prøver $P(1) = 1 - 5 + 4 = 0$. $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 4x - 4$. Vi prøver $P(-1)$ på kvotienten: $-1 + 1 + 4 - 4 = 0$. $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 4 = (x-2)(x+2)$.\n\nKomplett faktorisering: $x^4 - 5x^2 + 4 = (x-1)(x+1)(x-2)(x+2)$.\n\nEit anna fjerdegradseksempel: $(x^4 - 16) : (x - 2)$. Prøv $P(2) = 16 - 16 = 0$. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Denne kan faktoriiserast vidare: $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x+2)$ er ein faktor. Divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Altso: $x^4 - 16 = (x-2)(x+2)(x^2 + 4)$.\n\nOg heilt til slutt: $(x^4 - 1) : (x - 1) = x^3 + x^2 + x + 1$. Denne kvotienten kan faktoriiserast vidare: $x^3 + x^2 + x + 1 = (x + 1)(x^2 + 1)$. Så $x^4 - 1 = (x-1)(x+1)(x^2+1)$."
+    },
+    {
+      "id": "1t-1-9-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-9-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på spesialtilfelle med kubar og fjerdepotenser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-9-n-quiz5-q0",
+            "task": "Kva er den fullstendige faktoriseringa av $x^4 - 10x^2 + 9$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$(x - 1)(x + 1)(x - 3)(x + 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(x - 1)(x + 1)(x^2 - 9)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x^2 - 1)(x^2 - 9)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 3)^2(x + 1)^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Start med $P(1) = 1 - 10 + 9 = 0$, så $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 9x - 9$. Prøv $P(-1) = -1 + 1 + 9 - 9 = 0$, så $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 9 = (x-3)(x+3)$. Fullstendig: $(x-1)(x+1)(x-3)(x+3)$."
+          },
+          {
+            "id": "1t-1-9-n-quiz5-q1",
+            "task": "Kva er faktoriseringa av $x^3 - 8$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x - 2)(x^2 - 2x + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x - 2)(x^2 + 2x + 4)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(x - 2)(x^2 + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 2)^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^3 - 8 = x^3 - 2^3$. Vi brukar formelen $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ med $a = x$ og $b = 2$: $(x - 2)(x^2 + 2x + 4)$. Merk pluss-teikna i andregradsuttrykket -- det er lett å forveksle med $(a-b)^2$-formelen."
+          },
+          {
+            "id": "1t-1-9-n-quiz5-q2",
+            "task": "Kva er faktoriseringa av $x^3 + 27$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x + 3)(x^2 + 3x + 9)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x + 3)(x^2 + 9)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x + 3)(x^2 - 3x + 9)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(x + 3)^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^3 + 27 = x^3 + 3^3$. Formelen $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ gir $(x + 3)(x^2 - 3x + 9)$. Merk at forteikna i andregradsuttrykket er motsett av tilfellet $a^3 - b^3$: her er det minus framfor $ab$-leddet."
+          },
+          {
+            "id": "1t-1-9-n-quiz5-q3",
+            "task": "Kva er faktoriseringa av $x^4 - 16$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x - 2)(x + 2)(x - 2)(x + 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x^2 - 4)(x^2 + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x - 2)(x + 2)(x^2 + 4)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(x - 4)(x + 4)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi kan starte med $P(2) = 16 - 16 = 0$, så $(x - 2)$ er ein faktor. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Prøv $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x + 2)$ er ein faktor. Ny divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Alternativ b) er ufullstendig -- $(x^2 - 4)$ kan faktorirerast vidare til $(x-2)(x+2)$."
+          },
+          {
+            "id": "1t-1-9-n-quiz5-q4",
+            "task": "Når vi faktoriserer $x^4 - 1$, får vi $(x - 1)(x + 1)(x^2 + 1)$. Kvifor stoppar vi her og faktoriserer ikkje $x^2 + 1$ vidare?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $x^2 + 1$ er eit fyrstegraadspolynom",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi vi allereie har fire faktorar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $x^2 + 1 = (x + 1)^2$ og vi allereie har $(x + 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $x^2 + 1$ ikkje har nokon reelle nullpunkt ($x^2 + 1 > 0$ for alle reelle $x$)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x^2 + 1 = 0$ gir $x^2 = -1$, som ikkje har noka reell løysing. Sidan $x^2 \\geq 0$ for alle reelle $x$, er $x^2 + 1 \\geq 1 > 0$ alltid. Polynomet har ingen reelle nullpunkt og kan ikkje faktorirerast vidare over dei reelle tala."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-9-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringa",
+      "src": "/audio/1t/1t-1-9-narrativ-del6.mp3",
+      "description": "Lydfil som les opp oppsummeringa."
+    },
+    {
+      "id": "1t-1-9-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi oppdaga den djupe samanhengen mellom nullpunkt og faktorar, og lært to kraftige teoremår.\n\n**Faktorteoremet** seier at viss $P(a) = 0$, er $(x - a)$ ein faktor i $P(x)$. Det betyr at kvart nullpunkt avslører ein faktor -- og omvendt. For å sjekke om $(x - a)$ er ein faktor, treng du berre å setje inn $a$ i polynomet.\n\n**Restteoremet** er den generelle versjonen: når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Formelt: $P(x) = (x - a) \\cdot Q(x) + P(a)$. Faktorteoremet er spesialtilfellet der resten er null.\n\n**Strategien for å finne nullpunkt** i polynom med heiltallekoeffisientar er å prøve divisorane av konstantleddet: $\\pm 1, \\pm 2, ...$ opp til $\\pm |c|$.\n\n**Fullstendig faktorisering** fylgjer ein klar oppskrift: finn eit nullpunkt, del, faktoriser kvotienten vidare, og gjenta. For tredjegradaspolynom endar du med tre lineære faktorar (eller ein lineær og ein andregradsfaktor utan reelle nullpunkt). For fjerdegradspolynom kan du få opptil fire lineære faktorar.\n\n**Spesialtilfellea** $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$ og $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$ er nyttige å kjenne att. På same måten kan fjerdepotenser som $x^4 - 16$ og $x^4 - 1$ brytast ned systematisk med gjenteken bruk av faktorteoremet."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "3da14c669d249642",
+    "translatedAt": "2026-06-16T10:01:56.805Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 154,
+    "tm": {
+      "3289d9e4b9389021": "Polynomdivisjon med lineær divisor",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "fd08844d81c81adb": "Ei forteljing om den magiske samanhengen mellom nullpunkt og faktorar -- korleis faktorteoremet og restteoremet let deg knekke polynom i små bitar og forstå strukturen deira fullstendig.",
+      "bce7faea378fe561": "bruke polynomdivisjon til å omskrive algebraiske uttrykk",
+      "750a19f77fbf9ef5": "bruke faktorteoremet",
+      "d2c9d9ef5d3f774f": "Lytt til denne delen",
+      "21954805f17795e8": "Lydfil som les opp teksten fram til første quiz.",
+      "17c1ca067f33348d": "## Nullpunkt og faktorar -- ein djup sammenhang\n\nI førre kapittel lærte du å utføre polynomdivisjon steg for steg. No skal vi oppdage noko fascinerende: det finst ein direkte kopling mellom **nullpunkta** til eit polynom og **faktorane** det kan delast opp i.\n\nTenk deg at du har polynomet $P(x) = x^2 - 5x + 6$. Viss du set inn $x = 2$, får du $P(2) = 4 - 10 + 6 = 0$. Talet $2$ er altso eit **nullpunkt** -- ein $x$-verdi som gjer polynomet lik null. Og det viser seg at når $2$ er eit nullpunkt, så er $(x - 2)$ ein **faktor** i polynomet. Faktisk er $x^2 - 5x + 6 = (x - 2)(x - 3)$.\n\nDenna samanhengen er ikkje tilfeldig. Ho er ein grunnleggjande eigenskap ved polynom, og ho gir oss to kraftige verktøy: **faktorteoremet** og **restteoremet**. Saman let dei oss bryte ned polynom til sine minste bestanddelar og avgjere om ein divisjon går opp -- utan å faktisk utføre heile divisjonen. I dette kapittelet skal vi utforske båe setningane, lære å finne nullpunkt systematisk, og meistre kunsten å faktorisere polynom fullstendig.",
+      "c166e9fafbc442b7": "## Faktorteoremet -- frå nullpunkt til faktor\n\n**Faktorteoremet** seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$.\n\nMed andre ord: når talet $a$ er eit nullpunkt for polynomet, går $(x - a)$ opp i $P(x)$ utan rest. La oss sjå kvifor dette gir meining.\n\nMinn frå førre kapittel at kvar polynomdivisjon kan skrivast på forma $P(x) = D(x) \\cdot Q(x) + R(x)$. Når vi deler på ein lineær divisor $(x - a)$, blir resten alltid ein konstant (eit tal utan $x$). Viss resten er $0$, betyr det at $P(x) = (x - a) \\cdot Q(x)$ -- og då er $(x - a)$ ein faktor.\n\nLa oss teste dette med $P(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver $x = 2$:\n\n$P(2) = 2^3 - 6 \\cdot 2^2 + 11 \\cdot 2 - 6 = 8 - 24 + 22 - 6 = 0$\n\nSidan $P(2) = 0$, garanterer faktorteoremet at $(x - 2)$ er ein faktor. Vi kan bekrefte dette med lang divisjon: $(x^3 - 6x^2 + 11x - 6) : (x - 2) = x^2 - 4x + 3$. Og $x^2 - 4x + 3 = (x - 1)(x - 3)$.\n\nLa oss også sjekke eit negativt døme. Er $(x + 1)$ ein faktor i $x^2 + 2x + 3$? Hugs at $(x + 1) = (x - (-1))$, så vi set inn $x = -1$: $P(-1) = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1)$ ikkje er null, er $(x + 1)$ *ikkje* ein faktor. Faktorteoremet fungerer båe vegar: $P(a) = 0$ betyr at $(x - a)$ er ein faktor, og $P(a) \\neq 0$ betyr at $(x - a)$ ikkje er ein faktor.",
+      "78cc4e054da829e1": "Test deg sjølv på faktorteoremet:",
+      "4097889236a2af26": "placeholder",
+      "9c61c9af93293105": "Polynomet $P(x) = x^2 - 3x + 2$ har $P(1) = 0$. Kva kan vi konkludere?",
+      "3415f25956b10005": "$(x + 1)$ er ein faktor i $P(x)$",
+      "1464b4a4bbf0586c": "$(x - 1)$ er ein faktor i $P(x)$",
+      "dbafcf9996c15e87": "Resten ved divisjon med $(x - 1)$ er $1$",
+      "20ffa6c13fe27071": "$P(x)$ kan ikkje faktoriserast",
+      "7476b580b2b91691": "Faktorteoremet seier at når $P(a) = 0$, er $(x - a)$ ein faktor. Sidan $P(1) = 0$, er $(x - 1)$ ein faktor i $P(x)$. Vi kan bekrefte: $x^2 - 3x + 2 = (x-1)(x-2)$.",
+      "a355708b3d918782": "Kva seier faktorteoremet?",
+      "04fd7bdeb602c0c7": "Viss $P(a) = 0$, så er $(x + a)$ ein faktor i $P(x)$",
+      "35070a3607f531e2": "Viss $P(a) = 0$, så er $a$ ein faktor i $P(x)$",
+      "3498ae659641b183": "Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$",
+      "c19c490cb718c0ce": "Viss $(x - a)$ er ein faktor, så er $P(a) = a$",
+      "1e04df6fa8574f2f": "Faktorteoremet seier: Viss $P(a) = 0$, så er $(x - a)$ ein faktor i $P(x)$. Merk at det er $(x - a)$, ikkje $(x + a)$. Til dømes gir nullpunktet $a = 3$ faktoren $(x - 3)$.",
+      "c4b9b0cda3ec47bf": "Er $(x + 1)$ ein faktor i $P(x) = x^2 + 2x + 3$?",
+      "7c8436900b3984f5": "Ja, fordi $P(1) = 6$",
+      "e1a8bd85228c2b8c": "Ja, fordi koeffisienten foran $x$ er $2$",
+      "20578aa312143c00": "Nei, fordi $P(-1) = 2 \\neq 0$",
+      "e8460d40be703545": "Nei, fordi polynomet har odd koeffisientar",
+      "d85d454839158f52": "$(x + 1) = (x - (-1))$, så vi må sjekke $P(-1)$. $P(-1) = (-1)^2 + 2(-1) + 3 = 1 - 2 + 3 = 2 \\neq 0$. Sidan $P(-1) \\neq 0$, er $(x + 1)$ IKKJE ein faktor.",
+      "67cabd865597c034": "Du har $P(x) = x^3 - 6x^2 + 11x - 6$ og finn at $P(2) = 0$. Kva gir polynomdivisjonen $(x^3 - 6x^2 + 11x - 6) : (x - 2)$?",
+      "a84057fd2d006fe1": "$x^2 - 4x + 3$",
+      "3c71c93fbdbacd8c": "$x^2 - 8x + 3$",
+      "3baa8d11b59054df": "$x^2 + 4x - 3$",
+      "368ac1fd16f123bd": "$x^2 - 4x + 6$",
+      "143e3e288d89041e": "Runde 1: $x^3/x = x^2$. Gang: $x^2(x-2) = x^3 - 2x^2$. Rest: $-4x^2 + 11x - 6$. Runde 2: $-4x^2/x = -4x$. Gang: $-4x(x-2) = -4x^2 + 8x$. Rest: $3x - 6$. Runde 3: $3x/x = 3$. Gang: $3(x-2) = 3x - 6$. Rest: $0$. Kvotienten er $x^2 - 4x + 3 = (x-1)(x-3)$.",
+      "058005533831b7f6": "Lydfil som les opp teksten fram til neste quiz.",
+      "721075caa1051e57": "## Å finne nullpunkt -- divisorar av konstantleddet\n\nFaktorteoremet er fantastisk, men det krev at vi allereie *kjenner* eit nullpunkt. Korleis finn vi det? For polynom med heiltalkoeffisientar finst det ein smart strategi: **prøv divisorane av konstantleddet**.\n\nIdéen er denne: viss polynomet $P(x) = x^n + ... + c$ har heiltalkoeffisientar og ledande koeffisient $1$, må eventuelle heiltalsnullpunkt vere blant divisorane av konstantleddet $c$. Det betyr at vi kan prøve $\\pm 1, \\pm 2, \\pm 3, ...$ opp til $\\pm |c|$.\n\nLa oss ta eit døme: $P(x) = x^3 - 2x^2 - 5x + 6$. Konstantleddet er $6$, så vi prøver divisorane: $\\pm 1, \\pm 2, \\pm 3, \\pm 6$.\n\nVi startar med dei enklaste: $P(1) = 1 - 2 - 5 + 6 = 0$. Bingo! $x = 1$ er eit nullpunkt.\n\nNo veit vi at $(x - 1)$ er ein faktor. Vi utfører polynomdivisjon: $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Kvotienten $x^2 - x - 6$ er eit andregradspolynom, som vi kan faktorisere med kjende metodar: $x^2 - x - 6 = (x - 3)(x + 2)$.\n\nDermed er $P(x) = (x - 1)(x - 3)(x + 2)$. Vi har faktorisert tredjegradspolynomet fullstendig!\n\nEit anna døme: $P(x) = x^3 + 6x^2 + 11x + 6$. Konstantleddet er $6$. Vi prøver $P(-1) = -1 + 6 - 11 + 6 = 0$. So $(x + 1)$ er ein faktor. Divisjon gir $x^2 + 5x + 6 = (x + 2)(x + 3)$. Altso: $P(x) = (x + 1)(x + 2)(x + 3)$. Legg merke til at alle nullpunkta ($-1, -2, -3$) er divisorar av konstantleddet $6$.",
+      "5a7b911b5efab059": "Test deg sjølv på å finne nullpunkt med divisorar av konstantleddet:",
+      "5b48d78c8b8fbaf5": "Du skal finne nullpunkter for $P(x) = x^3 - 4x^2 + x + 6$. Kva verdiar bør du prøve først?",
+      "babd11c4105a8de2": "Alle desimaltal mellom $-10$ og $10$",
+      "8ed923f808cf1a18": "$x = 0, 1, 2, 3, 4, 5, 6$",
+      "59917aae173c7584": "$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$",
+      "0c9f901dde7c7144": "Berre positive tal",
+      "f7921cf068fe541f": "Vi prøver divisorane av konstantleddet. Konstantleddet er $6$, og divisorane er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi må prøve både positive og negative verdiar, fordi nullpunkt kan vere negative.",
+      "bd676efddefecd59": "For $P(x) = x^3 - 2x^2 - 5x + 6$, er $P(1) = 1 - 2 - 5 + 6 = 0$. Kva gjer vi no?",
+      "73d29efc04c9f116": "Vi er ferdige -- svaret er $x = 1$",
+      "4af108aed19066bb": "Vi deler $P(x)$ på $(x - 1)$ for å få ein andregradskvotient vi kan faktorisere vidare",
+      "52ecc2d6d6f8750e": "Vi prøver $x = 2$ som neste nullpunkt utan å dele først",
+      "dedae19f3d0030d6": "Vi bruker abc-formelen direkte på tredjegradspolynomet",
+      "7112649be0761071": "Når vi har funne eit nullpunkt i eit tredjegradspolynom, deler vi på den tilhøyrande faktoren. $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Denne andregradskvotienten kan vi faktorisere med kjende metodar: $(x - 3)(x + 2)$.",
+      "b3364dc96a519603": "Kva er den fullstendige faktoriseringa av $P(x) = x^3 + 6x^2 + 11x + 6$ når du veit at $P(-1) = 0$?",
+      "77b9f2a0931f4c4a": "$(x + 1)(x + 2)(x + 3)$",
+      "36e29331fa4fda78": "$(x - 1)(x + 2)(x + 3)$",
+      "426bfdecd8be6d33": "$(x + 1)(x + 6)(x + 1)$",
+      "4f21208d1043a642": "$(x + 1)(x^2 + 6)$",
+      "8fe5c6254c7e981c": "Sidan $P(-1) = 0$, er $(x + 1)$ ein faktor. Divisjon gir $(x^3 + 6x^2 + 11x + 6) : (x + 1) = x^2 + 5x + 6$. Vi faktoriserer kvotienten: to tal som gangar til $6$ og summerer til $5$ er $2$ og $3$. Altso: $x^2 + 5x + 6 = (x+2)(x+3)$. Komplett: $(x+1)(x+2)(x+3)$.",
+      "548e4b5377bb3fd7": "Konstantleddet i $P(x) = x^3 + 3x^2 - 4x - 12$ er $-12$. Kva av det følgjande er IKKJE ein divisor av $-12$ som vi bør prøve?",
+      "b8d921f3516666fe": "$x = 5$",
+      "0ae482c265a0e7fd": "$x = -2$",
+      "d14d177d812c2ded": "$x = 4$",
+      "50a348317f5a3c60": "$x = -6$",
+      "7d6c5f98d9176f11": "Divisorane av $-12$ er $\\pm 1, \\pm 2, \\pm 3, \\pm 4, \\pm 6, \\pm 12$. Talet $5$ er ikkje ein divisor av $12$ ($12 / 5 = 2{,}4$), så $x = 5$ treng vi ikkje prøve. Dei andre ($-2$, $4$, $-6$) er alle divisorar av $12$.",
+      "72f5a6f55fec7153": "## Resteoremet -- resten utan divisjon\n\nFaktorteoremten handlar om tilfellet der resten er null. Men kva når resten *ikkje* er null? Her kjem **resteoremet** inn:\n\n**Når polynomet $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$.**\n\nMatematisk: $P(x) = (x - a) \\cdot Q(x) + P(a)$\n\nDette er eit utruleg nyttig verktøy. I staden for å utføre heile lang divisjon for å finne resten, kan du berre **setje inn $a$ i polynomet**. Resten får du på sekund!\n\nLa oss sjå på eit døme. Kva er resten når $P(x) = x^3 + 2x^2 - x + 3$ blir delt på $(x - 2)$?\n\nIf følgje resteoremet er resten $P(2) = 2^3 + 2 \\cdot 2^2 - 2 + 3 = 8 + 8 - 2 + 3 = 17$.\n\nVi kunne ha utført lang divisjon og fått nøyaktig same svar, men resteoremet sparte oss for heile prosessen.\n\nEit anna døme: Finn resten når $(x^2 + 3x + 5)$ blir delt på $(x - 1)$. Resten er $P(1) = 1 + 3 + 5 = 9$.\n\nOg eitt til: Finn resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$. Husk at $(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$.\n\nLegg merke til korleis faktorteoremten eigentleg er eit spesialtilfelle av resteoremet: når resten $P(a) = 0$, går divisjonen opp, og $(x - a)$ er ein faktor. Dei to teoremane hengar altso tett saman.",
+      "0601fe6bca491ef0": "Test deg sjølv på resteoremet:",
+      "6fb232ce788b3f99": "Kva er resten når $P(x) = 2x^3 - 5x + 3$ blir delt på $(x + 2)$?",
+      "5d2c3afa283f1310": "Vi bruker resteoremet. Divisoren er $(x + 2) = (x - (-2))$, så $a = -2$. Resten er $P(-2) = 2(-2)^3 - 5(-2) + 3 = 2 \\cdot (-8) + 10 + 3 = -16 + 10 + 3 = -3$.",
+      "665787e9b69b73c0": "Kva seier resteoremet?",
+      "fe617bfcdb588e54": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(0)$",
+      "010be7239cc0e392": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(a)$",
+      "789a8f6d6e622d64": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $P(-a)$",
+      "8a384a36271c89cd": "Resten når $P(x)$ blir delt på $(x - a)$ er lik $a$",
+      "9449b6234f4e0804": "Resteoremet seier at når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Vi treng altso berre å setje inn $a$ i polynomet for å finne resten -- utan å utføre heile lang divisjon.",
+      "3c977931994a0e89": "Kva er resten når $P(x) = x^2 + 3x + 5$ blir delt på $(x - 1)$?",
+      "8f6c898b7d97aad4": "Resteoremet gir resten som $P(1) = 1^2 + 3 \\cdot 1 + 5 = 1 + 3 + 5 = 9$.",
+      "c409f9747ee76705": "Kva er resten når $(x^3 - 2x + 1)$ blir delt på $(x + 1)$?",
+      "d9a23ae308bf0dd2": "$(x + 1) = (x - (-1))$, så $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$. Husk at $(x + 1)$ betyr at vi set inn $-1$, ikkje $1$.",
+      "37ecba2fe1ee4c63": "Korleis hengar faktorteoremet saman med restteoremet?",
+      "0a5b164923471c20": "Dei er heilt uavhengige teoremer",
+      "a1d3302afbb6436c": "Restteoremet er eit spesialtilfelle av faktorteoremet",
+      "fc4d361ed0384403": "Faktorteoremet er spesialtilfellet av restteoremet der resten $P(a) = 0$",
+      "45efa8057133d23b": "Faktorteoremet gjeld berre for andregradspolynom",
+      "bcbd35671de3a0d4": "Faktorteoremet er eit spesialtilfelle av restteoremet. Restteoremet seier at resten er $P(a)$. Når $P(a) = 0$ (resten er null), går divisjonen opp, og $(x - a)$ er ein faktor. Det er nøyaktig det faktorteoremet seier.",
+      "3839761b47d02080": "## Fullstendig faktorisering -- strategi\n\nNo har vi alle verktøya vi treng for å faktorisere polynom fullstendig. Her er strategien, steg for steg:\n\n**1.** Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet.\n**2.** Divider polynomet på $(x - a)$ med lang divisjon.\n**3.** Faktoriser kvotienten vidare (om mogleg).\n**4.** Gjenta til du ikkje kan faktorisere meir.\n\nLa oss ta $P(x) = x^3 - 7x + 6$. Konstantleddet er $6$, så vi prøver: $P(1) = 1 - 7 + 6 = 0$. Flott, $x = 1$ er eit nullpunkt.\n\nVi deler: $(x^3 - 7x + 6) : (x - 1)$. Husk å skrive dividenden som $x^3 + 0x^2 - 7x + 6$ for å inkludere null-leddet. Divisjonen gir $x^2 + x - 6$.\n\nNo faktoriserer vi $x^2 + x - 6$. Vi leiter etter to tal som gangar til $-6$ og summerer til $1$. Det er $3$ og $-2$: $x^2 + x - 6 = (x + 3)(x - 2)$.\n\nEndanleg svar: $P(x) = (x - 1)(x + 3)(x - 2)$.\n\nLa oss ta eit vanskelegare døme: $P(x) = x^3 + 2x^2 - x - 2$. Prøv $P(1) = 1 + 2 - 1 - 2 = 0$. $(x - 1)$ er ein faktor. Divisjon gir $x^2 + 3x + 2 = (x + 1)(x + 2)$. Altso: $P(x) = (x - 1)(x + 1)(x + 2)$.\n\nNokon gonger finn du nullpunktet på andre forsøk. For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = -2 \\neq 0$, men $P(-1) = -1 - 4 - 1 + 6 = 0$. Så $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x - 2)(x - 3)$. Altso: $P(x) = (x + 1)(x - 2)(x - 3)$.",
+      "a8a1c89d7df53246": "Test deg sjølv på fullstendig faktorisering:",
+      "96630ea5ddf2b7f3": "$P(x) = x^3 - 6x^2 + 11x - 6$. Du finn at $P(1) = 0$. Kva er neste steg?",
+      "bde0025759e97aa6": "Faktoriser direkte til $(x-1)(x-2)(x-3)$ utan vidare rekning",
+      "49288a8c28978a19": "Prøv å finne fleire nullpunkt ved å setje inn $x = 2, 3, ...$",
+      "5885fdc3c91bdf70": "Del $P(x)$ på $(x - 1)$ og faktoriser kvotienten",
+      "af8cdfa74d84b715": "Bruk restteoremet til å finne resten",
+      "a981f3c4605b6734": "Når du har funne eit nullpunkt, er neste steg å utføre polynomdivisjon med den tilhøyrande faktoren. Del $P(x)$ på $(x - 1)$ for å få ein andregradskvotient, og faktoriser den vidare.",
+      "4b4a06f1d0beee80": "Kva er riktig strategi for å faktorisere eit tredjegradspolynom fullstendig?",
+      "f81cab3c9fa99554": "Bruk abc-formelen direkte på tredjegradspolynomet",
+      "4eecd9f6cf668b24": "Finn eitt nullpunkt, divider for å få andregradspolynom, faktoriser det",
+      "6e20f0dd9cf0a69f": "Prøv å gjette alle tre faktorane på ein gong",
+      "72d430292d1277b4": "Trekk ut største felles faktor -- det held alltid",
+      "282c9df5c68ff8b5": "Strategien er: (1) Finn eitt nullpunkt $a$ ved å prøve divisorar av konstantleddet. (2) Divider på $(x - a)$ for å få eit andregradspolynom. (3) Faktoriser andregradspolynomet med kjende metodar (inspeksjon eller abc-formelen).",
+      "127571af1161369e": "Faktoriser $P(x) = x^3 - 7x + 6$ fullstendig. (Hint: $P(1) = 0$.",
+      "c382f0274556d292": "$(x - 1)(x - 2)(x + 3)$",
+      "27315283892a901f": "$(x - 1)(x + 2)(x - 3)$",
+      "bcb54aaeb2b341d7": "$(x - 1)(x - 3)(x + 2)$",
+      "c58b1e68c457be57": "$(x - 1)(x + 3)(x - 2)$",
+      "484e6e16692ef9c0": "Siden $P(1) = 0$, deler vi: $(x^3 + 0x^2 - 7x + 6) : (x - 1) = x^2 + x - 6$. Vi faktoriserer: to tal som gangar til $-6$ og summerer til $1$ er $3$ og $-2$. Altso $x^2 + x - 6 = (x + 3)(x - 2)$. Komplett: $(x-1)(x+3)(x-2)$.",
+      "5d6c94ca85955e86": "For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = 4 \\neq 0$. Kva gjer du?",
+      "c1acc6f3eb6949b2": "Gir opp -- polynomet kan ikkje faktoriiserast",
+      "d69bac85cb7b53e1": "Prøver $P(-1)$, deretter $P(2)$, $P(-2)$, osv.",
+      "bd1a60413f3ffebc": "Bruker lang divisjon med $(x - 1)$ uansett",
+      "b0988a1b3a7d9693": "Endrar konstantleddet til $4$",
+      "fa9ec314c4028041": "Når første forsøk ikkje gir null, prøver vi neste divisor. $P(-1) = -1 - 4 - 1 + 6 = 0$. Bingo! $(x + 1)$ er ein faktor. Divisjon gir $x^2 - 5x + 6 = (x-2)(x-3)$. Fullstendig: $(x+1)(x-2)(x-3)$.",
+      "dccdc61c0421aafc": "## Spesialtilfelle -- kubar og fjerdepotenser\n\nNo skal vi sjå på nokre spesialtilfelle som dukkar opp overraskande ofte, særleg når polynom inneheld **perfekte potenser**.\n\nLa oss starta med $x^3 - 8$. Konstantleddet er $-8$. Vi prøver $P(2) = 8 - 8 = 0$. Så $(x - 2)$ er ein faktor. Husk å setje inn null-ledd: $(x^3 + 0x^2 + 0x - 8) : (x - 2)$. Divisjonen gir $x^2 + 2x + 4$. Altso: $x^3 - 8 = (x - 2)(x^2 + 2x + 4)$.\n\nDet vi nett har sett er eit døme på **tredjegrads konjugatsetning**: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Her er $a = x$ og $b = 2$.\n\nTilsvarande: $x^3 + 27 = x^3 + 3^3$. Vi prøver $P(-3) = -27 + 27 = 0$, så $(x + 3)$ er ein faktor. Divisjon gir $x^2 - 3x + 9$. Her ser vi den andre forma: $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.\n\nKva med fjerdepotenser? Ta $P(x) = x^4 - 5x^2 + 4$. Konstantleddet er $4$. Vi prøver $P(1) = 1 - 5 + 4 = 0$. $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 4x - 4$. Vi prøver $P(-1)$ på kvotienten: $-1 + 1 + 4 - 4 = 0$. $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 4 = (x-2)(x+2)$.\n\nKomplett faktorisering: $x^4 - 5x^2 + 4 = (x-1)(x+1)(x-2)(x+2)$.\n\nEit anna fjerdegradseksempel: $(x^4 - 16) : (x - 2)$. Prøv $P(2) = 16 - 16 = 0$. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Denne kan faktoriiserast vidare: $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x+2)$ er ein faktor. Divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Altso: $x^4 - 16 = (x-2)(x+2)(x^2 + 4)$.\n\nOg heilt til slutt: $(x^4 - 1) : (x - 1) = x^3 + x^2 + x + 1$. Denne kvotienten kan faktoriiserast vidare: $x^3 + x^2 + x + 1 = (x + 1)(x^2 + 1)$. Så $x^4 - 1 = (x-1)(x+1)(x^2+1)$.",
+      "8334f6de1782237d": "Test deg sjølv på spesialtilfelle med kubar og fjerdepotenser:",
+      "6b8bf73212c5a6dd": "Kva er den fullstendige faktoriseringa av $x^4 - 10x^2 + 9$?",
+      "58e32383637f1596": "$(x - 1)(x + 1)(x^2 - 9)$",
+      "804a2d60d0971dda": "$(x^2 - 1)(x^2 - 9)$",
+      "1bfad5f17b9c245d": "$(x - 1)(x + 1)(x - 3)(x + 3)$",
+      "09b0965e23335074": "$(x - 3)^2(x + 1)^2$",
+      "21083380ff6676d1": "Start med $P(1) = 1 - 10 + 9 = 0$, så $(x-1)$ er ein faktor. Divisjon gir $x^3 + x^2 - 9x - 9$. Prøv $P(-1) = -1 + 1 + 9 - 9 = 0$, så $(x+1)$ er ein faktor. Ny divisjon gir $x^2 - 9 = (x-3)(x+3)$. Fullstendig: $(x-1)(x+1)(x-3)(x+3)$.",
+      "7a7009badbed0b30": "Kva er faktoriseringa av $x^3 - 8$?",
+      "6f044da419106a76": "$(x - 2)(x^2 - 2x + 4)$",
+      "43bbae51dca8618e": "$(x - 2)(x^2 + 2x + 4)$",
+      "fbae95d77fe6a306": "$(x - 2)(x^2 + 4)$",
+      "8fb54ea46556e51e": "$(x - 2)^3$",
+      "f06d8c46d2402e7c": "$x^3 - 8 = x^3 - 2^3$. Vi brukar formelen $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ med $a = x$ og $b = 2$: $(x - 2)(x^2 + 2x + 4)$. Merk pluss-teikna i andregradsuttrykket -- det er lett å forveksle med $(a-b)^2$-formelen.",
+      "4dc18e0deedd6bfb": "Kva er faktoriseringa av $x^3 + 27$?",
+      "314b67f9d8b3ad15": "$(x + 3)(x^2 + 3x + 9)$",
+      "eee909a8f2cb2273": "$(x + 3)(x^2 + 9)$",
+      "0e9bc406adb653dd": "$(x + 3)(x^2 - 3x + 9)$",
+      "279b0065b9ed8ae0": "$(x + 3)^3$",
+      "b7dbf723a3a16553": "$x^3 + 27 = x^3 + 3^3$. Formelen $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ gir $(x + 3)(x^2 - 3x + 9)$. Merk at forteikna i andregradsuttrykket er motsett av tilfellet $a^3 - b^3$: her er det minus framfor $ab$-leddet.",
+      "0c3d4c1ff3cb4a82": "Kva er faktoriseringa av $x^4 - 16$?",
+      "435baadc081d17b2": "$(x - 2)(x + 2)(x - 2)(x + 2)$",
+      "766ede19d638d20d": "$(x^2 - 4)(x^2 + 4)$",
+      "68d44df19107f1c9": "$(x - 2)(x + 2)(x^2 + 4)$",
+      "e704b2960dfcc19f": "$(x - 4)(x + 4)$",
+      "8026aa3c5b5874f1": "Vi kan starte med $P(2) = 16 - 16 = 0$, så $(x - 2)$ er ein faktor. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Prøv $P(-2) = -8 + 8 - 8 + 8 = 0$, så $(x + 2)$ er ein faktor. Ny divisjon gir $x^2 + 4$, som ikkje har reelle nullpunkt. Alternativ b) er ufullstendig -- $(x^2 - 4)$ kan faktorirerast vidare til $(x-2)(x+2)$.",
+      "22ad5d7841c8e908": "Når vi faktoriserer $x^4 - 1$, får vi $(x - 1)(x + 1)(x^2 + 1)$. Kvifor stoppar vi her og faktoriserer ikkje $x^2 + 1$ vidare?",
+      "b7ba85f21c6a66f3": "Fordi $x^2 + 1$ er eit fyrstegraadspolynom",
+      "e4c66609a6cbe532": "Fordi vi allereie har fire faktorar",
+      "8b47c3ec2c96b95f": "Fordi $x^2 + 1$ ikkje har nokon reelle nullpunkt ($x^2 + 1 > 0$ for alle reelle $x$)",
+      "e3a81e290978391b": "Fordi $x^2 + 1 = (x + 1)^2$ og vi allereie har $(x + 1)$",
+      "7d660e5751f9e3d3": "$x^2 + 1 = 0$ gir $x^2 = -1$, som ikkje har noka reell løysing. Sidan $x^2 \\geq 0$ for alle reelle $x$, er $x^2 + 1 \\geq 1 > 0$ alltid. Polynomet har ingen reelle nullpunkt og kan ikkje faktorirerast vidare over dei reelle tala.",
+      "79eeeec37aef74be": "Lytt til oppsummeringa",
+      "b409d1128419f9c6": "Lydfil som les opp oppsummeringa.",
+      "1b0914c7ab1bfed6": "## Oppsummering\n\nI dette kapittelet har vi oppdaga den djupe samanhengen mellom nullpunkt og faktorar, og lært to kraftige teoremår.\n\n**Faktorteoremet** seier at viss $P(a) = 0$, er $(x - a)$ ein faktor i $P(x)$. Det betyr at kvart nullpunkt avslører ein faktor -- og omvendt. For å sjekke om $(x - a)$ er ein faktor, treng du berre å setje inn $a$ i polynomet.\n\n**Restteoremet** er den generelle versjonen: når $P(x)$ blir delt på $(x - a)$, er resten lik $P(a)$. Formelt: $P(x) = (x - a) \\cdot Q(x) + P(a)$. Faktorteoremet er spesialtilfellet der resten er null.\n\n**Strategien for å finne nullpunkt** i polynom med heiltallekoeffisientar er å prøve divisorane av konstantleddet: $\\pm 1, \\pm 2, ...$ opp til $\\pm |c|$.\n\n**Fullstendig faktorisering** fylgjer ein klar oppskrift: finn eit nullpunkt, del, faktoriser kvotienten vidare, og gjenta. For tredjegradaspolynom endar du med tre lineære faktorar (eller ein lineær og ein andregradsfaktor utan reelle nullpunkt). For fjerdegradspolynom kan du få opptil fire lineære faktorar.\n\n**Spesialtilfellea** $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$ og $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$ er nyttige å kjenne att. På same måten kan fjerdepotenser som $x^4 - 16$ og $x^4 - 1$ brytast ned systematisk med gjenteken bruk av faktorteoremet."
+    }
+  }
+}

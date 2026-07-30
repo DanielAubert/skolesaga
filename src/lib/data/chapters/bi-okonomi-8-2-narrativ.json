@@ -1,1 +1,423 @@
-{"id":"bi-okonomi-8-2-narrativ","courseId":"bi-okonomi","chapterNumber":"8.2","title":"Bestemt integral og fundamentalteoremet","subtitle":"Narrativ versjon","description":"En fortelling om hvordan en uendelig sum av smale rektangler blir til ett enkelt tall -- arealet under en graf -- og om teoremet som lar oss regne det ut med to innsettinger.","estimatedMinutes":36,"competenceGoals":[],"linkedChapterId":"bi-okonomi-8-2","content":[{"id":"bi-okonomi-8-2-n-intro","type":"text","content":"## Fra antiderivert til et konkret tall\n\nI forrige kapittel jaktet vi på antideriverte. Nå skal vi bruke dem til noe svært konkret. Tenk deg at en bedrift kjenner grensekostnaden $K'(x)$, og lederen spør: hvor mye øker totalkostnaden hvis vi går fra å produsere $100$ til $200$ enheter? Svaret er ikke en funksjon, men ett tall -- og det tallet finner vi med et **bestemt integral**.\n\nDet bestemte integralet har to ansikter. Geometrisk representerer det **arealet under en graf**. Økonomisk representerer det den **akkumulerte effekten** av en grensestørrelse over et intervall. At disse to tingene er samme sak, er noe av det mest elegante i hele matematikken, og det er kjernen i dette kapittelet.\n\nLa oss bygge ideen forsiktig. Vi vil finne arealet under grafen til en kontinuerlig funksjon $f(x) \\geq 0$ fra $x = a$ til $x = b$. Vi deler intervallet $[a, b]$ i $n$ like brede biter med bredde $\\Delta x = \\tfrac{b-a}{n}$, og tilnærmer arealet med en sum av rektangler: $S_n = \\sum_{i=1}^{n} f(x_i)\\,\\Delta x$. Jo flere og smalere rektangler, jo bedre passer de under kurven. Når $n \\to \\infty$, blir tilnærmingen perfekt, og grenseverdien kalles **Riemann-summen**."},{"id":"bi-okonomi-8-2-n-section1","type":"text","content":"## Definisjonen og teoremet som redder oss\n\nVi kan nå definere selve størrelsen. La $f$ være kontinuerlig på $[a, b]$. Det **bestemte integralet** av $f$ fra $a$ til $b$ er $$\\int_a^b f(x)\\,dx = \\lim_{n\\to\\infty} \\sum_{i=1}^{n} f(x_i)\\,\\Delta x,$$ der $a$ er **nedre grense** og $b$ er **øvre grense**. Hvis $f(x) \\geq 0$, er dette arealet avgrenset av grafen, x-aksen og linjene $x = a$ og $x = b$. Legg merke til en viktig forskjell: det ubestemte integralet er en **funksjon** (en familie), mens det bestemte integralet er et **tall**. Derfor trenger vi ikke $+C$ her -- konstanten kanselleres uansett.\n\nÅ regne grenseverdier av summer for hånd er tungvint. Heldigvis finnes en snarvei som knytter alt sammen: **fundamentalteoremet for kalkulus** (Newton-Leibniz). La $f$ være kontinuerlig på $[a, b]$ og $F$ en antiderivert til $f$. Da er $$\\int_a^b f(x)\\,dx = \\Bigl[F(x)\\Bigr]_a^b = F(b) - F(a).$$ Ingen uendelige summer, bare to innsettinger og en subtraksjon. Teoremet binder sammen derivasjon og integrasjon, og er grunnsteinen i hele integralregningen.\n\nLa oss prøve det. For $\\int_1^3 x^2\\,dx$ finner vi antiderivert $F(x) = \\tfrac{x^3}{3}$ og setter inn grensene: $\\tfrac{3^3}{3} - \\tfrac{1^3}{3} = \\tfrac{27}{3} - \\tfrac{1}{3} = \\tfrac{26}{3}$. Med et polynom går det like greit: $\\int_0^2 (3x^2 - 4x + 1)\\,dx = \\bigl[x^3 - 2x^2 + x\\bigr]_0^2 = (8 - 8 + 2) - 0 = 2$. Og eksponential og logaritme følger med: $\\int_0^2 e^x\\,dx = [e^x]_0^2 = e^2 - 1$, mens $\\int_1^e \\tfrac{1}{x}\\,dx = [\\ln x]_1^e = 1 - 0 = 1$."},{"id":"bi-okonomi-8-2-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-8-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på det bestemte integralet og fundamentalteoremet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-2-n-quiz1-q0","task":"Hva er hovedforskjellen mellom $\\int f(x)\\,dx$ og $\\int_a^b f(x)\\,dx$?","options":[{"id":"a","text":"Det første er et tall, det andre en funksjon","isCorrect":false},{"id":"b","text":"Det bestemte integralet trenger alltid $+C$","isCorrect":false},{"id":"c","text":"Det er ingen reell forskjell","isCorrect":false},{"id":"d","text":"Det første er en funksjon (familie), det andre et tall","isCorrect":true}],"solution":"Det ubestemte integralet er en familie av antideriverte (en funksjon $+C$), mens det bestemte integralet er ett tall. Derfor faller $+C$ bort i det bestemte tilfellet."},{"id":"bi-okonomi-8-2-n-quiz1-q1","task":"Hva sier fundamentalteoremet at $\\int_a^b f(x)\\,dx$ er lik?","options":[{"id":"a","text":"$F(b) - F(a)$","isCorrect":true},{"id":"b","text":"$F(a) - F(b)$","isCorrect":false},{"id":"c","text":"$f(b) - f(a)$","isCorrect":false},{"id":"d","text":"$F(b) + F(a) + C$","isCorrect":false}],"solution":"Med $F$ en antiderivert til $f$ er $\\int_a^b f(x)\\,dx = [F(x)]_a^b = F(b) - F(a)$ -- øvre grense minus nedre grense innsatt i antiderivert."},{"id":"bi-okonomi-8-2-n-quiz1-q2","task":"Regn ut $\\int_1^3 x^2\\,dx$.","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$\\tfrac{26}{3}$","isCorrect":true},{"id":"c","text":"$\\tfrac{27}{3}$","isCorrect":false},{"id":"d","text":"$\\tfrac{28}{3}$","isCorrect":false}],"solution":"Antiderivert $\\tfrac{x^3}{3}$ gir $\\tfrac{27}{3} - \\tfrac{1}{3} = \\tfrac{26}{3}$."},{"id":"bi-okonomi-8-2-n-quiz1-q3","task":"Regn ut $\\int_1^e \\tfrac{1}{x}\\,dx$.","options":[{"id":"a","text":"$e - 1$","isCorrect":false},{"id":"b","text":"$e$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":true},{"id":"d","text":"$\\ln e + \\ln 1$","isCorrect":false}],"solution":"Antiderivert er $\\ln x$, så $[\\ln x]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$."}]}},{"id":"bi-okonomi-8-2-n-section2","type":"text","content":"## Fortegn, egenskaper og areal mellom kurver\n\nNoen nyttige egenskaper sparer oss for arbeid. Et nullintervall gir null: $\\int_a^a f\\,dx = 0$. Bytter vi grensene, skifter fortegnet: $\\int_a^b f\\,dx = -\\int_b^a f\\,dx$. Vi kan dele opp et intervall: $\\int_a^c f\\,dx = \\int_a^b f\\,dx + \\int_b^c f\\,dx$. Og **linearitet** lar oss splitte og skalere: $\\int_a^b (k_1 f + k_2 g)\\,dx = k_1\\int_a^b f\\,dx + k_2\\int_a^b g\\,dx$. Disse brukes ofte direkte, uten å regne ut selve integralet -- vet du at $\\int_0^4 f = 12$ og $\\int_4^7 f = 5$, er $\\int_0^7 f = 17$.\n\nEn felle: hvis $f(x) < 0$ på et intervall, blir integralet **negativt**, fordi arealet ligger under x-aksen. Vil du ha det geometriske arealet når funksjonen veksler fortegn, må du dele opp og bruke absoluttverdi. Se på $\\int_0^3 (x^2 - 4)\\,dx$. Med $F(x) = \\tfrac{x^3}{3} - 4x$ blir verdien $(9 - 12) - 0 = -3$. Men funksjonen er negativ på $[0, 2]$ og positiv på $[2, 3]$. Det geometriske arealet blir $\\tfrac{16}{3} + \\tfrac{7}{3} = \\tfrac{23}{3}$ -- ikke det samme som integralverdien $-3$.\n\nDen vanligste anvendelsen er **areal mellom to kurver**. Hvis $f(x) \\geq g(x)$ på $[a, b]$, er arealet $A = \\int_a^b (f(x) - g(x))\\,dx$ -- alltid øvre minus nedre kurve. Ta $f(x) = 4 - x^2$ og $g(x) = x^2 - 2x$. Skjæringspunktene finner vi ved $f = g$: $4 - x^2 = x^2 - 2x$ gir $x^2 - x - 2 = 0$, altså $x = -1$ eller $x = 2$. Ved $x = 0$ er $f = 4 > g = 0$, så $f$ ligger øverst. Da er $A = \\int_{-1}^{2} (4 - 2x^2 + 2x)\\,dx = \\bigl[4x - \\tfrac{2x^3}{3} + x^2\\bigr]_{-1}^{2} = \\tfrac{20}{3} - (-\\tfrac{7}{3}) = \\tfrac{27}{3} = 9$."},{"id":"bi-okonomi-8-2-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-8-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på egenskaper, fortegn og areal mellom kurver:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-2-n-quiz2-q0","task":"Gitt $\\int_0^4 f\\,dx = 12$ og $\\int_4^7 f\\,dx = 5$. Hva er $\\int_0^7 f\\,dx$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$60$","isCorrect":false},{"id":"c","text":"$-7$","isCorrect":false},{"id":"d","text":"$17$","isCorrect":true}],"solution":"Additivitet: $\\int_0^7 f = \\int_0^4 f + \\int_4^7 f = 12 + 5 = 17$."},{"id":"bi-okonomi-8-2-n-quiz2-q1","task":"Hva forteller det oss at $\\int_a^b f(x)\\,dx$ er negativt?","options":[{"id":"a","text":"At grafen ligger under x-aksen på intervallet","isCorrect":true},{"id":"b","text":"At vi har regnet feil","isCorrect":false},{"id":"c","text":"At $a > b$ alltid","isCorrect":false},{"id":"d","text":"At funksjonen ikke er kontinuerlig","isCorrect":false}],"solution":"Et negativt bestemt integral betyr at $f(x) < 0$ på (deler av) intervallet, så det signerte arealet er negativt. For geometrisk areal må man da bruke absoluttverdi."},{"id":"bi-okonomi-8-2-n-quiz2-q2","task":"For areal mellom $f$ og $g$ med $f \\geq g$ på $[a,b]$, hva integrerer vi?","options":[{"id":"a","text":"$g(x) - f(x)$","isCorrect":false},{"id":"b","text":"$f(x) - g(x)$","isCorrect":true},{"id":"c","text":"$f(x) + g(x)$","isCorrect":false},{"id":"d","text":"$|f(x)| - |g(x)|$","isCorrect":false}],"solution":"Areal mellom kurver er $\\int_a^b (f(x) - g(x))\\,dx$ -- alltid øvre minus nedre kurve, som gir et positivt resultat når $f \\geq g$."},{"id":"bi-okonomi-8-2-n-quiz2-q3","task":"Arealet mellom $f(x) = 4 - x^2$ og $g(x) = x^2 - 2x$ (med skjæring i $x=-1$ og $x=2$) er:","options":[{"id":"a","text":"$\\tfrac{20}{3}$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$\\tfrac{27}{3}$, altså $9$","isCorrect":true},{"id":"d","text":"$\\tfrac{7}{3}$","isCorrect":false}],"solution":"$\\int_{-1}^{2}(4 - 2x^2 + 2x)\\,dx = [4x - \\tfrac{2x^3}{3} + x^2]_{-1}^{2} = \\tfrac{20}{3} - (-\\tfrac{7}{3}) = \\tfrac{27}{3} = 9$."}]}},{"id":"bi-okonomi-8-2-n-section3","type":"text","content":"## Akkumulering i økonomien\n\nNå kan vi svare bedriftslederen fra starten. Endringen i en totalstørrelse er det bestemte integralet av grensestørrelsen: $\\int_a^b K'(x)\\,dx = K(b) - K(a)$. Har bedriften grensekostnad $K'(x) = 3x^2 + 10$, og vil vite hvor mye totalkostnaden øker fra $5$ til $15$ enheter, regner vi $\\Delta K = \\int_5^{15} (3x^2 + 10)\\,dx = \\bigl[x^3 + 10x\\bigr]_5^{15} = (3375 + 150) - (125 + 50) = 3525 - 175 = 3350$ kroner. Legg merke til at vi aldri trengte å kjenne de faste kostnadene -- de kanselleres når vi tar differansen.\n\nSamme prinsipp gjelder inntekt: $\\int_a^b I'(x)\\,dx = I(b) - I(a)$. Og når $f(t)$ er en **rate** -- altså en mengde per tidsenhet -- gir $\\int_{t_1}^{t_2} f(t)\\,dt$ den akkumulerte mengden over tidsperioden. Dette er kraftfullt for kontinuerlige inntektsstrømmer.\n\nTa en bedrift som mottar inntekter med rate $r(t) = 50e^{0{,}04t}$ tusen kroner per år, der $t$ teller år fra i dag. Total akkumulert inntekt de neste $10$ årene er $\\int_0^{10} 50e^{0{,}04t}\\,dt = 50\\cdot\\tfrac{1}{0{,}04}\\bigl[e^{0{,}04t}\\bigr]_0^{10} = 1250(e^{0{,}4} - 1)$. Med $e^{0{,}4} \\approx 1{,}4918$ blir dette $1250\\cdot 0{,}4918 \\approx 614{,}8$ tusen kroner -- altså omtrent $614\\,800$ kroner over ti år. Mønsteret er gjennomgående: en grense- eller rate-funksjon integrert over et intervall gir den totale endringen eller akkumuleringen."},{"id":"bi-okonomi-8-2-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-8-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på akkumulering og økonomiske anvendelser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-2-n-quiz3-q0","task":"Hva representerer $\\int_a^b K'(x)\\,dx$ økonomisk?","options":[{"id":"a","text":"Gjennomsnittskostnaden mellom $a$ og $b$","isCorrect":false},{"id":"b","text":"Grensekostnaden ved $x = b$","isCorrect":false},{"id":"c","text":"De faste kostnadene","isCorrect":false},{"id":"d","text":"Økningen i totalkostnad når produksjonen går fra $a$ til $b$","isCorrect":true}],"solution":"$\\int_a^b K'(x)\\,dx = K(b) - K(a)$ er nettopp endringen i totalkostnad mellom produksjonsnivåene $a$ og $b$."},{"id":"bi-okonomi-8-2-n-quiz3-q1","task":"Med grensekostnad $K'(x) = 3x^2 + 10$, hvor mye øker totalkostnaden fra $x=5$ til $x=15$?","options":[{"id":"a","text":"$3350$ kroner","isCorrect":true},{"id":"b","text":"$3525$ kroner","isCorrect":false},{"id":"c","text":"$175$ kroner","isCorrect":false},{"id":"d","text":"$3700$ kroner","isCorrect":false}],"solution":"$[x^3 + 10x]_5^{15} = (3375 + 150) - (125 + 50) = 3525 - 175 = 3350$ kroner."},{"id":"bi-okonomi-8-2-n-quiz3-q2","task":"Når $r(t)$ er en inntektsrate (kr per år), hva gir $\\int_0^{10} r(t)\\,dt$?","options":[{"id":"a","text":"Inntektsraten ved $t = 10$","isCorrect":false},{"id":"b","text":"Den akkumulerte inntekten over de 10 årene","isCorrect":true},{"id":"c","text":"Gjennomsnittlig årsinntekt","isCorrect":false},{"id":"d","text":"Nåverdien av inntekten","isCorrect":false}],"solution":"Integralet av en rate over et tidsintervall gir den totale akkumulerte mengden -- her samlet inntekt over ti år."},{"id":"bi-okonomi-8-2-n-quiz3-q3","task":"Hva er $\\int_0^{10} 50e^{0{,}04t}\\,dt$ uttrykt eksakt?","options":[{"id":"a","text":"$50(e^{0{,}4} - 1)$","isCorrect":false},{"id":"b","text":"$2000(e^{0{,}4} - 1)$","isCorrect":false},{"id":"c","text":"$1250(e^{0{,}4} - 1)$","isCorrect":true},{"id":"d","text":"$1250\\,e^{0{,}4}$","isCorrect":false}],"solution":"$50\\cdot\\tfrac{1}{0{,}04} = 1250$, og $[e^{0{,}04t}]_0^{10} = e^{0{,}4} - 1$, så integralet er $1250(e^{0{,}4} - 1)$."}]}},{"id":"bi-okonomi-8-2-n-summary","type":"text","content":"## Oppsummering\n\nDet **bestemte integralet** $\\int_a^b f(x)\\,dx$ er grenseverdien av en Riemann-sum -- en uendelig sum av smale rektangler -- og er ett konkret tall, ikke en funksjon. Geometrisk er det arealet under grafen når $f \\geq 0$. **Fundamentalteoremet** gir oss snarveien: med $F$ en antiderivert til $f$ er $\\int_a^b f(x)\\,dx = F(b) - F(a)$.\n\nEgenskapene -- nullintervall, bytting av grenser, additivitet og linearitet -- lar oss manipulere integraler smidig. Når funksjonen er negativ, blir integralet negativt, så geometrisk areal krever oppdeling og absoluttverdi. **Areal mellom kurver** finner vi som $\\int_a^b (f(x) - g(x))\\,dx$ for $f \\geq g$, etter at vi har funnet skjæringspunktene og avgjort hvilken kurve som ligger øverst.\n\nØkonomisk er det bestemte integralet et mål på **akkumulering og endring**: $\\int_a^b K'(x)\\,dx$ gir kostnadsøkningen, $\\int_a^b I'(x)\\,dx$ inntektsøkningen, og integralet av en rate $r(t)$ gir den totale akkumulerte mengden over en tidsperiode. Det samme verktøyet -- antiderivert, sett inn grensene, trekk fra -- løser alt sammen."}],"exercises":[]}
+{
+  "id": "bi-okonomi-8-2-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "8.2",
+  "title": "Bestemt integral og fundamentalteoremet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan en uendelig sum av smale rektangler blir til ett enkelt tall -- arealet under en graf -- og om teoremet som lar oss regne det ut med to innsettinger.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-8-2",
+  "content": [
+    {
+      "id": "bi-okonomi-8-2-n-intro",
+      "type": "text",
+      "content": "## Fra antiderivert til et konkret tall\n\nI forrige kapittel jaktet vi på antideriverte. Nå skal vi bruke dem til noe svært konkret. Tenk deg at en bedrift kjenner grensekostnaden $K'(x)$, og lederen spør: hvor mye øker totalkostnaden hvis vi går fra å produsere $100$ til $200$ enheter? Svaret er ikke en funksjon, men ett tall -- og det tallet finner vi med et **bestemt integral**.\n\nDet bestemte integralet har to ansikter. Geometrisk representerer det **arealet under en graf**. Økonomisk representerer det den **akkumulerte effekten** av en grensestørrelse over et intervall. At disse to tingene er samme sak, er noe av det mest elegante i hele matematikken, og det er kjernen i dette kapittelet.\n\nLa oss bygge ideen forsiktig. Vi vil finne arealet under grafen til en kontinuerlig funksjon $f(x) \\geq 0$ fra $x = a$ til $x = b$. Vi deler intervallet $[a, b]$ i $n$ like brede biter med bredde $\\Delta x = \\tfrac{b-a}{n}$, og tilnærmer arealet med en sum av rektangler: $S_n = \\sum_{i=1}^{n} f(x_i)\\,\\Delta x$. Jo flere og smalere rektangler, jo bedre passer de under kurven. Når $n \\to \\infty$, blir tilnærmingen perfekt, og grenseverdien kalles **Riemann-summen**."
+    },
+    {
+      "id": "bi-okonomi-8-2-n-section1",
+      "type": "text",
+      "content": "## Definisjonen og teoremet som redder oss\n\nVi kan nå definere selve størrelsen. La $f$ være kontinuerlig på $[a, b]$. Det **bestemte integralet** av $f$ fra $a$ til $b$ er $$\\int_a^b f(x)\\,dx = \\lim_{n\\to\\infty} \\sum_{i=1}^{n} f(x_i)\\,\\Delta x,$$ der $a$ er **nedre grense** og $b$ er **øvre grense**. Hvis $f(x) \\geq 0$, er dette arealet avgrenset av grafen, x-aksen og linjene $x = a$ og $x = b$. Legg merke til en viktig forskjell: det ubestemte integralet er en **funksjon** (en familie), mens det bestemte integralet er et **tall**. Derfor trenger vi ikke $+C$ her -- konstanten kanselleres uansett.\n\nÅ regne grenseverdier av summer for hånd er tungvint. Heldigvis finnes en snarvei som knytter alt sammen: **fundamentalteoremet for kalkulus** (Newton-Leibniz). La $f$ være kontinuerlig på $[a, b]$ og $F$ en antiderivert til $f$. Da er $$\\int_a^b f(x)\\,dx = \\Bigl[F(x)\\Bigr]_a^b = F(b) - F(a).$$ Ingen uendelige summer, bare to innsettinger og en subtraksjon. Teoremet binder sammen derivasjon og integrasjon, og er grunnsteinen i hele integralregningen.\n\nLa oss prøve det. For $\\int_1^3 x^2\\,dx$ finner vi antiderivert $F(x) = \\tfrac{x^3}{3}$ og setter inn grensene: $\\tfrac{3^3}{3} - \\tfrac{1^3}{3} = \\tfrac{27}{3} - \\tfrac{1}{3} = \\tfrac{26}{3}$. Med et polynom går det like greit: $\\int_0^2 (3x^2 - 4x + 1)\\,dx = \\bigl[x^3 - 2x^2 + x\\bigr]_0^2 = (8 - 8 + 2) - 0 = 2$. Og eksponential og logaritme følger med: $\\int_0^2 e^x\\,dx = [e^x]_0^2 = e^2 - 1$, mens $\\int_1^e \\tfrac{1}{x}\\,dx = [\\ln x]_1^e = 1 - 0 = 1$."
+    },
+    {
+      "id": "bi-okonomi-8-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på det bestemte integralet og fundamentalteoremet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-2-n-quiz1-q0",
+            "task": "Hva er hovedforskjellen mellom $\\int f(x)\\,dx$ og $\\int_a^b f(x)\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det første er et tall, det andre en funksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det første er en funksjon (familie), det andre et tall",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det bestemte integralet trenger alltid $+C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er ingen reell forskjell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det ubestemte integralet er en familie av antideriverte (en funksjon $+C$), mens det bestemte integralet er ett tall. Derfor faller $+C$ bort i det bestemte tilfellet."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz1-q1",
+            "task": "Hva sier fundamentalteoremet at $\\int_a^b f(x)\\,dx$ er lik?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$F(a) - F(b)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(b) - f(a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$F(b) - F(a)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$F(b) + F(a) + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $F$ en antiderivert til $f$ er $\\int_a^b f(x)\\,dx = [F(x)]_a^b = F(b) - F(a)$ -- øvre grense minus nedre grense innsatt i antiderivert."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz1-q2",
+            "task": "Regn ut $\\int_1^3 x^2\\,dx$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\tfrac{27}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{28}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\tfrac{26}{3}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Antiderivert $\\tfrac{x^3}{3}$ gir $\\tfrac{27}{3} - \\tfrac{1}{3} = \\tfrac{26}{3}$."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz1-q3",
+            "task": "Regn ut $\\int_1^e \\tfrac{1}{x}\\,dx$.",
+            "options": [
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$e - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$e$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln e + \\ln 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Antiderivert er $\\ln x$, så $[\\ln x]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-2-n-section2",
+      "type": "text",
+      "content": "## Fortegn, egenskaper og areal mellom kurver\n\nNoen nyttige egenskaper sparer oss for arbeid. Et nullintervall gir null: $\\int_a^a f\\,dx = 0$. Bytter vi grensene, skifter fortegnet: $\\int_a^b f\\,dx = -\\int_b^a f\\,dx$. Vi kan dele opp et intervall: $\\int_a^c f\\,dx = \\int_a^b f\\,dx + \\int_b^c f\\,dx$. Og **linearitet** lar oss splitte og skalere: $\\int_a^b (k_1 f + k_2 g)\\,dx = k_1\\int_a^b f\\,dx + k_2\\int_a^b g\\,dx$. Disse brukes ofte direkte, uten å regne ut selve integralet -- vet du at $\\int_0^4 f = 12$ og $\\int_4^7 f = 5$, er $\\int_0^7 f = 17$.\n\nEn felle: hvis $f(x) < 0$ på et intervall, blir integralet **negativt**, fordi arealet ligger under x-aksen. Vil du ha det geometriske arealet når funksjonen veksler fortegn, må du dele opp og bruke absoluttverdi. Se på $\\int_0^3 (x^2 - 4)\\,dx$. Med $F(x) = \\tfrac{x^3}{3} - 4x$ blir verdien $(9 - 12) - 0 = -3$. Men funksjonen er negativ på $[0, 2]$ og positiv på $[2, 3]$. Det geometriske arealet blir $\\tfrac{16}{3} + \\tfrac{7}{3} = \\tfrac{23}{3}$ -- ikke det samme som integralverdien $-3$.\n\nDen vanligste anvendelsen er **areal mellom to kurver**. Hvis $f(x) \\geq g(x)$ på $[a, b]$, er arealet $A = \\int_a^b (f(x) - g(x))\\,dx$ -- alltid øvre minus nedre kurve. Ta $f(x) = 4 - x^2$ og $g(x) = x^2 - 2x$. Skjæringspunktene finner vi ved $f = g$: $4 - x^2 = x^2 - 2x$ gir $x^2 - x - 2 = 0$, altså $x = -1$ eller $x = 2$. Ved $x = 0$ er $f = 4 > g = 0$, så $f$ ligger øverst. Da er $A = \\int_{-1}^{2} (4 - 2x^2 + 2x)\\,dx = \\bigl[4x - \\tfrac{2x^3}{3} + x^2\\bigr]_{-1}^{2} = \\tfrac{20}{3} - (-\\tfrac{7}{3}) = \\tfrac{27}{3} = 9$."
+    },
+    {
+      "id": "bi-okonomi-8-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på egenskaper, fortegn og areal mellom kurver:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-2-n-quiz2-q0",
+            "task": "Gitt $\\int_0^4 f\\,dx = 12$ og $\\int_4^7 f\\,dx = 5$. Hva er $\\int_0^7 f\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$17$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$60$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Additivitet: $\\int_0^7 f = \\int_0^4 f + \\int_4^7 f = 12 + 5 = 17$."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz2-q1",
+            "task": "Hva forteller det oss at $\\int_a^b f(x)\\,dx$ er negativt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At vi har regnet feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At $a > b$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At grafen ligger under x-aksen på intervallet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At funksjonen ikke er kontinuerlig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et negativt bestemt integral betyr at $f(x) < 0$ på (deler av) intervallet, så det signerte arealet er negativt. For geometrisk areal må man da bruke absoluttverdi."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz2-q2",
+            "task": "For areal mellom $f$ og $g$ med $f \\geq g$ på $[a,b]$, hva integrerer vi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$g(x) - f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) + g(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$|f(x)| - |g(x)|$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) - g(x)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Areal mellom kurver er $\\int_a^b (f(x) - g(x))\\,dx$ -- alltid øvre minus nedre kurve, som gir et positivt resultat når $f \\geq g$."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz2-q3",
+            "task": "Arealet mellom $f(x) = 4 - x^2$ og $g(x) = x^2 - 2x$ (med skjæring i $x=-1$ og $x=2$) er:",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\tfrac{27}{3}$, altså $9$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\tfrac{20}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{7}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_{-1}^{2}(4 - 2x^2 + 2x)\\,dx = [4x - \\tfrac{2x^3}{3} + x^2]_{-1}^{2} = \\tfrac{20}{3} - (-\\tfrac{7}{3}) = \\tfrac{27}{3} = 9$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-2-n-section3",
+      "type": "text",
+      "content": "## Akkumulering i økonomien\n\nNå kan vi svare bedriftslederen fra starten. Endringen i en totalstørrelse er det bestemte integralet av grensestørrelsen: $\\int_a^b K'(x)\\,dx = K(b) - K(a)$. Har bedriften grensekostnad $K'(x) = 3x^2 + 10$, og vil vite hvor mye totalkostnaden øker fra $5$ til $15$ enheter, regner vi $\\Delta K = \\int_5^{15} (3x^2 + 10)\\,dx = \\bigl[x^3 + 10x\\bigr]_5^{15} = (3375 + 150) - (125 + 50) = 3525 - 175 = 3350$ kroner. Legg merke til at vi aldri trengte å kjenne de faste kostnadene -- de kanselleres når vi tar differansen.\n\nSamme prinsipp gjelder inntekt: $\\int_a^b I'(x)\\,dx = I(b) - I(a)$. Og når $f(t)$ er en **rate** -- altså en mengde per tidsenhet -- gir $\\int_{t_1}^{t_2} f(t)\\,dt$ den akkumulerte mengden over tidsperioden. Dette er kraftfullt for kontinuerlige inntektsstrømmer.\n\nTa en bedrift som mottar inntekter med rate $r(t) = 50e^{0{,}04t}$ tusen kroner per år, der $t$ teller år fra i dag. Total akkumulert inntekt de neste $10$ årene er $\\int_0^{10} 50e^{0{,}04t}\\,dt = 50\\cdot\\tfrac{1}{0{,}04}\\bigl[e^{0{,}04t}\\bigr]_0^{10} = 1250(e^{0{,}4} - 1)$. Med $e^{0{,}4} \\approx 1{,}4918$ blir dette $1250\\cdot 0{,}4918 \\approx 614{,}8$ tusen kroner -- altså omtrent $614\\,800$ kroner over ti år. Mønsteret er gjennomgående: en grense- eller rate-funksjon integrert over et intervall gir den totale endringen eller akkumuleringen."
+    },
+    {
+      "id": "bi-okonomi-8-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på akkumulering og økonomiske anvendelser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-2-n-quiz3-q0",
+            "task": "Hva representerer $\\int_a^b K'(x)\\,dx$ økonomisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjennomsnittskostnaden mellom $a$ og $b$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Økningen i totalkostnad når produksjonen går fra $a$ til $b$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Grensekostnaden ved $x = b$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De faste kostnadene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_a^b K'(x)\\,dx = K(b) - K(a)$ er nettopp endringen i totalkostnad mellom produksjonsnivåene $a$ og $b$."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz3-q1",
+            "task": "Med grensekostnad $K'(x) = 3x^2 + 10$, hvor mye øker totalkostnaden fra $x=5$ til $x=15$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3525$ kroner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$175$ kroner",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3350$ kroner",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$3700$ kroner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$[x^3 + 10x]_5^{15} = (3375 + 150) - (125 + 50) = 3525 - 175 = 3350$ kroner."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz3-q2",
+            "task": "Når $r(t)$ er en inntektsrate (kr per år), hva gir $\\int_0^{10} r(t)\\,dt$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Inntektsraten ved $t = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjennomsnittlig årsinntekt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nåverdien av inntekten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den akkumulerte inntekten over de 10 årene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Integralet av en rate over et tidsintervall gir den totale akkumulerte mengden -- her samlet inntekt over ti år."
+          },
+          {
+            "id": "bi-okonomi-8-2-n-quiz3-q3",
+            "task": "Hva er $\\int_0^{10} 50e^{0{,}04t}\\,dt$ uttrykt eksakt?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$1250(e^{0{,}4} - 1)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$50(e^{0{,}4} - 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2000(e^{0{,}4} - 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1250\\,e^{0{,}4}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$50\\cdot\\tfrac{1}{0{,}04} = 1250$, og $[e^{0{,}04t}]_0^{10} = e^{0{,}4} - 1$, så integralet er $1250(e^{0{,}4} - 1)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDet **bestemte integralet** $\\int_a^b f(x)\\,dx$ er grenseverdien av en Riemann-sum -- en uendelig sum av smale rektangler -- og er ett konkret tall, ikke en funksjon. Geometrisk er det arealet under grafen når $f \\geq 0$. **Fundamentalteoremet** gir oss snarveien: med $F$ en antiderivert til $f$ er $\\int_a^b f(x)\\,dx = F(b) - F(a)$.\n\nEgenskapene -- nullintervall, bytting av grenser, additivitet og linearitet -- lar oss manipulere integraler smidig. Når funksjonen er negativ, blir integralet negativt, så geometrisk areal krever oppdeling og absoluttverdi. **Areal mellom kurver** finner vi som $\\int_a^b (f(x) - g(x))\\,dx$ for $f \\geq g$, etter at vi har funnet skjæringspunktene og avgjort hvilken kurve som ligger øverst.\n\nØkonomisk er det bestemte integralet et mål på **akkumulering og endring**: $\\int_a^b K'(x)\\,dx$ gir kostnadsøkningen, $\\int_a^b I'(x)\\,dx$ inntektsøkningen, og integralet av en rate $r(t)$ gir den totale akkumulerte mengden over en tidsperiode. Det samme verktøyet -- antiderivert, sett inn grensene, trekk fra -- løser alt sammen."
+    }
+  ],
+  "exercises": []
+}

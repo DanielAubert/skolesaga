@@ -1,1 +1,428 @@
-{"id":"r1-8-1-narrativ","courseId":"r1","chapterNumber":"8.1","title":"Multiplikasjonsprinsippet og valgtre","subtitle":"Narrativ versjon","description":"En fortelling om kunsten å telle uten å telle – valgtre, multiplikasjonsprinsippet og addisjonsprinsippet som grunnmur for all sannsynlighet.","estimatedMinutes":30,"competenceGoals":["bruke valgtre til å visualisere og telle opp mulige utfall","anvende multiplikasjonsprinsippet på sammensatte valg","anvende addisjonsprinsippet når valg utelukker hverandre","kombinere prinsippene i praktiske telleproblemer"],"linkedChapterId":"r1-8-1","content":[{"id":"r1-8-1-n-intro","type":"text","content":"## Kunsten å telle uten å telle\n\nDu står foran menyen på en kafé: to hovedretter og tre desserter. Hvor mange forskjellige måltider kan du sette sammen? Du kunne ramset opp alle – burger med is, burger med kake, burger med frukt, pasta med is... – men det finnes en snarvei: $2 \\cdot 3 = 6$. Ferdig.\n\nDette er **kombinatorikk**: kunsten å telle antall muligheter *uten* å liste opp alle sammen. Det høres beskjedent ut, men det er selve grunnmuren under sannsynlighetsregningen du skal lære i resten av kapittel 8 – for å finne sannsynligheten for noe, må du nesten alltid telle hvor mange måter det kan skje på.\n\nI dette kapittelet lærer du de to grunnprinsippene som nesten all telling bygger på: **multiplikasjonsprinsippet** (for valg som gjøres etter hverandre) og **addisjonsprinsippet** (for valg som utelukker hverandre). Og du får et visuelt verktøy på kjøpet: valgtreet."},{"id":"r1-8-1-n-section1","type":"text","content":"## Valgtre og multiplikasjonsprinsippet\n\nEt **valgtre** er et kart over alle mulighetene. Hvert valg er en forgrening, og hver vei fra roten til et blad er ett komplett utfall. Si at du har 2 skjorter (hvit, blå) og 3 bukser (svart, grå, beige). Fra «hvit» går tre grener – hvit-svart, hvit-grå, hvit-beige – og fra «blå» går tre til. Seks blader, seks antrekk.\n\nTreet avslører mønsteret: hver av de 2 skjortene gir 3 buksevalg, altså $2 \\cdot 3 = 6$. Dette generaliserer til **multiplikasjonsprinsippet**: hvis et sammensatt valg består av $k$ delvalg som kan gjøres på henholdsvis $n_1, n_2, \\ldots, n_k$ måter, og valgene er uavhengige av hverandre, er totalt antall muligheter\n\n$$n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$$\n\nLa oss skalere opp. Et kodeord består av 3 bokstaver (norsk alfabet, 29 bokstaver) etterfulgt av 2 siffer. Med gjentakelse tillatt: $29 \\cdot 29 \\cdot 29 \\cdot 10 \\cdot 10 = 29^3 \\cdot 10^2 = 2\\,438\\,900$ kodeord. Eller bilskilt med 2 bokstaver (engelsk alfabet, 26) og 5 siffer: $26^2 \\cdot 10^5 = 67\\,600\\,000$ muligheter. Prøv å liste opp *det* i et valgtre – prinsippet gjør jobben på sekunder.\n\nValgtreet er likevel uvurderlig når antallet er lite, eller når betingelsene endrer seg underveis i valgsekvensen. Prinsippet er motoren; treet er kartet."},{"id":"r1-8-1-n-quiz1","type":"exercise","exercise":{"id":"r1-8-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på multiplikasjonsprinsippet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-1-n-quiz1-q0","task":"Du har 2 skjorter og 3 bukser. Hvor mange antrekk kan du lage?","options":[{"id":"a","text":"5","isCorrect":false},{"id":"b","text":"6","isCorrect":true},{"id":"c","text":"8","isCorrect":false},{"id":"d","text":"9","isCorrect":false}],"solution":"Multiplikasjonsprinsippet: $2 \\cdot 3 = 6$ antrekk – hver skjorte kan kombineres med hver bukse."},{"id":"r1-8-1-n-quiz1-q1","task":"Et kodeord har 3 bokstaver (29 mulige) og 2 siffer (10 mulige), med gjentakelse tillatt. Hvor mange kodeord finnes?","options":[{"id":"a","text":"$29 \\cdot 3 + 10 \\cdot 2$","isCorrect":false},{"id":"b","text":"$29^3 + 10^2$","isCorrect":false},{"id":"c","text":"$29^3 \\cdot 10^2$","isCorrect":true},{"id":"d","text":"$3^{29} \\cdot 2^{10}$","isCorrect":false}],"solution":"Fem delvalg etter hverandre: $29 \\cdot 29 \\cdot 29 \\cdot 10 \\cdot 10 = 29^3 \\cdot 10^2 = 2\\,438\\,900$."},{"id":"r1-8-1-n-quiz1-q2","task":"Hva representerer hvert blad (endepunkt) i et valgtre?","options":[{"id":"a","text":"Ett komplett utfall – én hel valgsekvens","isCorrect":true},{"id":"b","text":"Ett delvalg","isCorrect":false},{"id":"c","text":"Antall muligheter i neste steg","isCorrect":false},{"id":"d","text":"En umulig kombinasjon","isCorrect":false}],"solution":"Hver vei fra rot til blad svarer til én fullstendig sekvens av valg, altså ett utfall."},{"id":"r1-8-1-n-quiz1-q3","task":"Hvor mange bilskilt med 2 bokstaver (26 mulige) og 5 siffer finnes?","options":[{"id":"a","text":"$26 \\cdot 2 \\cdot 10 \\cdot 5 = 2600$","isCorrect":false},{"id":"b","text":"$26^2 \\cdot 5^{10}$","isCorrect":false},{"id":"c","text":"$2 \\cdot 26 + 5 \\cdot 10$","isCorrect":false},{"id":"d","text":"$26^2 \\cdot 10^5 = 67\\,600\\,000$","isCorrect":true}],"solution":"$26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 = 26^2 \\cdot 10^5 = 67\\,600\\,000$."}],"solution":""}},{"id":"r1-8-1-n-section2","type":"text","content":"## Når gjentakelse ikke er lov\n\nHva om kodeordet ikke får ha to like tegn? Da endres spillet litt – men multiplikasjonsprinsippet gjelder fortsatt. Forskjellen er at antall muligheter krymper for hvert steg: første bokstav kan velges på 29 måter, men den andre på bare 28 (én er brukt opp), og den tredje på 27. Dette kalles valg **uten tilbakelegging**.\n\nFor kodeordet med 3 ulike bokstaver og 2 ulike siffer blir regnestykket $29 \\cdot 28 \\cdot 27 \\cdot 10 \\cdot 9 = 1\\,973\\,160$ – betydelig færre enn de 2 438 900 vi fikk med gjentakelse, naturlig nok.\n\nMønsteret er verdt å merke seg: uten gjentakelse blir faktorene $n$, $n-1$, $n-2$ og så videre – en synkende trapp. Dette mønsteret kommer til å spille hovedrollen i neste kapittel, der det får navnet *permutasjon* og sin egen notasjon med fakultet.\n\nTenk alltid gjennom om situasjonen tillater gjentakelse eller ikke. En PIN-kode kan ha like siffer (gjentakelse), men et stafettlag kan ikke ha samme løper på to etapper (ikke gjentakelse). Selve prinsippet – multipliser antall muligheter for hvert delvalg – er det samme i begge tilfeller; det er bare tallene som endrer seg underveis."},{"id":"r1-8-1-n-quiz2","type":"exercise","exercise":{"id":"r1-8-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på valg uten gjentakelse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-1-n-quiz2-q0","task":"Tre ulike bokstaver skal velges fra 29, uten gjentakelse, i rekkefølge. Hvor mange måter?","options":[{"id":"a","text":"$29^3$","isCorrect":false},{"id":"b","text":"$29 \\cdot 28 \\cdot 27$","isCorrect":true},{"id":"c","text":"$29 + 28 + 27$","isCorrect":false},{"id":"d","text":"$\\frac{29^3}{3}$","isCorrect":false}],"solution":"Uten gjentakelse synker antall muligheter for hvert valg: $29 \\cdot 28 \\cdot 27$."},{"id":"r1-8-1-n-quiz2-q1","task":"Hvorfor blir det færre muligheter uten gjentakelse enn med?","options":[{"id":"a","text":"Fordi addisjonsprinsippet brukes i stedet","isCorrect":false},{"id":"b","text":"Fordi valgtreet får flere grener","isCorrect":false},{"id":"c","text":"Fordi hvert valg fjerner én mulighet for de neste valgene","isCorrect":true},{"id":"d","text":"Det blir ikke færre – antallet er det samme","isCorrect":false}],"solution":"Hvert brukte element er utelukket i senere delvalg, så faktorene synker: $n$, $n-1$, $n-2$, ..."},{"id":"r1-8-1-n-quiz2-q2","task":"Hvilken situasjon innebærer valg UTEN gjentakelse?","options":[{"id":"a","text":"Å kaste en terning fire ganger","isCorrect":false},{"id":"b","text":"Å velge en firesifret PIN-kode","isCorrect":false},{"id":"c","text":"Å svare på fem ja/nei-spørsmål","isCorrect":false},{"id":"d","text":"Å sette opp rekkefølgen på et stafettlag","isCorrect":true}],"solution":"Samme løper kan ikke gå to etapper – hvert valg fjerner en mulighet. Terningkast, PIN-koder og ja/nei-svar tillater gjentakelse."},{"id":"r1-8-1-n-quiz2-q3","task":"Et kodeord skal ha 2 ulike siffer. På hvor mange måter kan sifrene velges (rekkefølgen teller)?","options":[{"id":"a","text":"$90$","isCorrect":true},{"id":"b","text":"$100$","isCorrect":false},{"id":"c","text":"$45$","isCorrect":false},{"id":"d","text":"$81$","isCorrect":false}],"solution":"Første siffer: 10 muligheter, andre: 9 (må være ulikt). $10 \\cdot 9 = 90$."}],"solution":""}},{"id":"r1-8-1-n-section3","type":"text","content":"## Addisjonsprinsippet – og kunsten å kombinere\n\nMultiplikasjon håndterer valg som gjøres *etter hverandre*. Men noen ganger står valgene i stedet i et *enten-eller*-forhold. Skal klassen velge én representant blant 15 gutter og 12 jenter, er det ikke $15 \\cdot 12$ muligheter – du velger jo bare én person! Mulighetene er $15 + 12 = 27$. Dette er **addisjonsprinsippet**: når en oppgave kan løses på måte $A$ (med $n_A$ muligheter) *eller* måte $B$ (med $n_B$ muligheter), og de to ikke overlapper, er totalen $n_A + n_B$.\n\nHuskeregelen er språklig og forbløffende pålitelig: «**og**» betyr multiplikasjon, «**eller**» betyr addisjon. Skjorte *og* bukse: multipliser. Gutt *eller* jente: adder. Kravet for addisjon er at alternativene er gjensidig utelukkende – ingen utfall skal kunne telles to ganger.\n\nDe fleste virkelige problemer kombinerer begge prinsippene. Et passord skal bestå av *enten* 3 bokstaver og 2 siffer, *eller* 2 bokstaver og 3 siffer (engelsk alfabet, gjentakelse tillatt). Innenfor hver type bruker vi multiplikasjon: type 1 gir $26^3 \\cdot 10^2 = 1\\,757\\,600$, type 2 gir $26^2 \\cdot 10^3 = 676\\,000$. De to typene utelukker hverandre (et passord kan ikke ha begge strukturer samtidig), så vi adderer: $1\\,757\\,600 + 676\\,000 = 2\\,433\\,600$ passord.\n\nSer du arkitekturen? «Og» inni hver type, «eller» mellom typene. Lær deg å lese et telleproblem på denne måten, og selv kompliserte oppgaver faller fra hverandre i håndterlige biter."},{"id":"r1-8-1-n-quiz3","type":"exercise","exercise":{"id":"r1-8-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på addisjonsprinsippet og kombinasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-1-n-quiz3-q0","task":"Én representant skal velges blant 15 gutter og 12 jenter. Hvor mange muligheter?","options":[{"id":"a","text":"$15 \\cdot 12 = 180$","isCorrect":false},{"id":"b","text":"$15 + 12 = 27$","isCorrect":true},{"id":"c","text":"$15 \\cdot 12 \\cdot 2$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"Valgene utelukker hverandre – vi velger enten en gutt eller en jente. Addisjonsprinsippet gir $15 + 12 = 27$."},{"id":"r1-8-1-n-quiz3-q1","task":"Hvilken huskeregel knytter språk til regneoperasjon?","options":[{"id":"a","text":"«og» betyr addisjon, «eller» betyr multiplikasjon","isCorrect":false},{"id":"b","text":"«og» og «eller» betyr begge multiplikasjon","isCorrect":false},{"id":"c","text":"«og» betyr multiplikasjon, «eller» betyr addisjon","isCorrect":true},{"id":"d","text":"«eller» betyr subtraksjon","isCorrect":false}],"solution":"Valg som gjøres etter hverandre («og») multipliseres; alternativer som utelukker hverandre («eller») adderes."},{"id":"r1-8-1-n-quiz3-q2","task":"Hva er kravet for å kunne bruke addisjonsprinsippet?","options":[{"id":"a","text":"Alternativene må overlappe mest mulig","isCorrect":false},{"id":"b","text":"Alle delvalg må ha like mange muligheter","isCorrect":false},{"id":"c","text":"Valgene må være uavhengige","isCorrect":false},{"id":"d","text":"Alternativene må være gjensidig utelukkende","isCorrect":true}],"solution":"Ingen utfall skal kunne telles to ganger – alternativene må ikke ha felles utfall."},{"id":"r1-8-1-n-quiz3-q3","task":"Et passord er enten 3 bokstaver + 2 siffer eller 2 bokstaver + 3 siffer (26 bokstaver, gjentakelse OK). Hvor mange passord?","options":[{"id":"a","text":"$26^3 \\cdot 10^2 + 26^2 \\cdot 10^3 = 2\\,433\\,600$","isCorrect":true},{"id":"b","text":"$26^3 \\cdot 10^2 \\cdot 26^2 \\cdot 10^3$","isCorrect":false},{"id":"c","text":"$26^5 \\cdot 10^5$","isCorrect":false},{"id":"d","text":"$(26 + 10)^5$","isCorrect":false}],"solution":"Multiplikasjon innenfor hver type, addisjon mellom typene: $1\\,757\\,600 + 676\\,000 = 2\\,433\\,600$."}],"solution":""}},{"id":"r1-8-1-n-summary","type":"text","content":"## Oppsummering: og ganger, eller adderer\n\nFra kafémenyen til bilskiltregisteret har vi sett samme idé i arbeid: systematisk telling uten oppramsing. Valgtreet visualiserer mulighetene – hver forgrening et delvalg, hvert blad et komplett utfall – og avslører mønsteret bak **multiplikasjonsprinsippet**: $k$ delvalg etter hverandre med $n_1, n_2, \\ldots, n_k$ muligheter gir $n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$ utfall totalt.\n\nUten gjentakelse gjelder prinsippet fortsatt, men faktorene synker trinn for trinn: $n$, $n-1$, $n-2$, ... – et mønster som får navnet permutasjon i neste kapittel.\n\n**Addisjonsprinsippet** tar seg av alternativer som utelukker hverandre: da adderer vi mulighetene. Og språket leder deg riktig nesten hver gang: «og» betyr gange, «eller» betyr pluss. Sammensatte problemer – som passordet med to tillatte strukturer – løses ved å multiplisere innenfor hvert alternativ og addere mellom dem. Med disse to prinsippene i ryggraden er du klar for neste steg: permutasjoner, kombinasjoner og de store spørsmålene om rekkefølge."}],"exercises":[]}
+{
+  "id": "r1-8-1-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "8.1",
+  "title": "Multiplikasjonsprinsippet og valgtre",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kunsten å telle uten å telle – valgtre, multiplikasjonsprinsippet og addisjonsprinsippet som grunnmur for all sannsynlighet.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke valgtre til å visualisere og telle opp mulige utfall",
+    "anvende multiplikasjonsprinsippet på sammensatte valg",
+    "anvende addisjonsprinsippet når valg utelukker hverandre",
+    "kombinere prinsippene i praktiske telleproblemer"
+  ],
+  "linkedChapterId": "r1-8-1",
+  "content": [
+    {
+      "id": "r1-8-1-n-intro",
+      "type": "text",
+      "content": "## Kunsten å telle uten å telle\n\nDu står foran menyen på en kafé: to hovedretter og tre desserter. Hvor mange forskjellige måltider kan du sette sammen? Du kunne ramset opp alle – burger med is, burger med kake, burger med frukt, pasta med is... – men det finnes en snarvei: $2 \\cdot 3 = 6$. Ferdig.\n\nDette er **kombinatorikk**: kunsten å telle antall muligheter *uten* å liste opp alle sammen. Det høres beskjedent ut, men det er selve grunnmuren under sannsynlighetsregningen du skal lære i resten av kapittel 8 – for å finne sannsynligheten for noe, må du nesten alltid telle hvor mange måter det kan skje på.\n\nI dette kapittelet lærer du de to grunnprinsippene som nesten all telling bygger på: **multiplikasjonsprinsippet** (for valg som gjøres etter hverandre) og **addisjonsprinsippet** (for valg som utelukker hverandre). Og du får et visuelt verktøy på kjøpet: valgtreet."
+    },
+    {
+      "id": "r1-8-1-n-section1",
+      "type": "text",
+      "content": "## Valgtre og multiplikasjonsprinsippet\n\nEt **valgtre** er et kart over alle mulighetene. Hvert valg er en forgrening, og hver vei fra roten til et blad er ett komplett utfall. Si at du har 2 skjorter (hvit, blå) og 3 bukser (svart, grå, beige). Fra «hvit» går tre grener – hvit-svart, hvit-grå, hvit-beige – og fra «blå» går tre til. Seks blader, seks antrekk.\n\nTreet avslører mønsteret: hver av de 2 skjortene gir 3 buksevalg, altså $2 \\cdot 3 = 6$. Dette generaliserer til **multiplikasjonsprinsippet**: hvis et sammensatt valg består av $k$ delvalg som kan gjøres på henholdsvis $n_1, n_2, \\ldots, n_k$ måter, og valgene er uavhengige av hverandre, er totalt antall muligheter\n\n$$n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$$\n\nLa oss skalere opp. Et kodeord består av 3 bokstaver (norsk alfabet, 29 bokstaver) etterfulgt av 2 siffer. Med gjentakelse tillatt: $29 \\cdot 29 \\cdot 29 \\cdot 10 \\cdot 10 = 29^3 \\cdot 10^2 = 2\\,438\\,900$ kodeord. Eller bilskilt med 2 bokstaver (engelsk alfabet, 26) og 5 siffer: $26^2 \\cdot 10^5 = 67\\,600\\,000$ muligheter. Prøv å liste opp *det* i et valgtre – prinsippet gjør jobben på sekunder.\n\nValgtreet er likevel uvurderlig når antallet er lite, eller når betingelsene endrer seg underveis i valgsekvensen. Prinsippet er motoren; treet er kartet."
+    },
+    {
+      "id": "r1-8-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på multiplikasjonsprinsippet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-1-n-quiz1-q0",
+            "task": "Du har 2 skjorter og 3 bukser. Hvor mange antrekk kan du lage?",
+            "options": [
+              {
+                "id": "a",
+                "text": "5",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "6",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "8",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "9",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikasjonsprinsippet: $2 \\cdot 3 = 6$ antrekk – hver skjorte kan kombineres med hver bukse."
+          },
+          {
+            "id": "r1-8-1-n-quiz1-q1",
+            "task": "Et kodeord har 3 bokstaver (29 mulige) og 2 siffer (10 mulige), med gjentakelse tillatt. Hvor mange kodeord finnes?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$29^3 \\cdot 10^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$29 \\cdot 3 + 10 \\cdot 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$29^3 + 10^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3^{29} \\cdot 2^{10}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fem delvalg etter hverandre: $29 \\cdot 29 \\cdot 29 \\cdot 10 \\cdot 10 = 29^3 \\cdot 10^2 = 2\\,438\\,900$."
+          },
+          {
+            "id": "r1-8-1-n-quiz1-q2",
+            "task": "Hva representerer hvert blad (endepunkt) i et valgtre?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ett delvalg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall muligheter i neste steg",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ett komplett utfall – én hel valgsekvens",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "En umulig kombinasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hver vei fra rot til blad svarer til én fullstendig sekvens av valg, altså ett utfall."
+          },
+          {
+            "id": "r1-8-1-n-quiz1-q3",
+            "task": "Hvor mange bilskilt med 2 bokstaver (26 mulige) og 5 siffer finnes?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$26 \\cdot 2 \\cdot 10 \\cdot 5 = 2600$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$26^2 \\cdot 5^{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2 \\cdot 26 + 5 \\cdot 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$26^2 \\cdot 10^5 = 67\\,600\\,000$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 \\cdot 10 = 26^2 \\cdot 10^5 = 67\\,600\\,000$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-1-n-section2",
+      "type": "text",
+      "content": "## Når gjentakelse ikke er lov\n\nHva om kodeordet ikke får ha to like tegn? Da endres spillet litt – men multiplikasjonsprinsippet gjelder fortsatt. Forskjellen er at antall muligheter krymper for hvert steg: første bokstav kan velges på 29 måter, men den andre på bare 28 (én er brukt opp), og den tredje på 27. Dette kalles valg **uten tilbakelegging**.\n\nFor kodeordet med 3 ulike bokstaver og 2 ulike siffer blir regnestykket $29 \\cdot 28 \\cdot 27 \\cdot 10 \\cdot 9 = 1\\,973\\,160$ – betydelig færre enn de 2 438 900 vi fikk med gjentakelse, naturlig nok.\n\nMønsteret er verdt å merke seg: uten gjentakelse blir faktorene $n$, $n-1$, $n-2$ og så videre – en synkende trapp. Dette mønsteret kommer til å spille hovedrollen i neste kapittel, der det får navnet *permutasjon* og sin egen notasjon med fakultet.\n\nTenk alltid gjennom om situasjonen tillater gjentakelse eller ikke. En PIN-kode kan ha like siffer (gjentakelse), men et stafettlag kan ikke ha samme løper på to etapper (ikke gjentakelse). Selve prinsippet – multipliser antall muligheter for hvert delvalg – er det samme i begge tilfeller; det er bare tallene som endrer seg underveis."
+    },
+    {
+      "id": "r1-8-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på valg uten gjentakelse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-1-n-quiz2-q0",
+            "task": "Tre ulike bokstaver skal velges fra 29, uten gjentakelse, i rekkefølge. Hvor mange måter?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$29 \\cdot 28 \\cdot 27$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$29^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$29 + 28 + 27$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{29^3}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten gjentakelse synker antall muligheter for hvert valg: $29 \\cdot 28 \\cdot 27$."
+          },
+          {
+            "id": "r1-8-1-n-quiz2-q1",
+            "task": "Hvorfor blir det færre muligheter uten gjentakelse enn med?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi addisjonsprinsippet brukes i stedet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi hvert valg fjerner én mulighet for de neste valgene",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi valgtreet får flere grener",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det blir ikke færre – antallet er det samme",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hvert brukte element er utelukket i senere delvalg, så faktorene synker: $n$, $n-1$, $n-2$, ..."
+          },
+          {
+            "id": "r1-8-1-n-quiz2-q2",
+            "task": "Hvilken situasjon innebærer valg UTEN gjentakelse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å kaste en terning fire ganger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å velge en firesifret PIN-kode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sette opp rekkefølgen på et stafettlag",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å svare på fem ja/nei-spørsmål",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Samme løper kan ikke gå to etapper – hvert valg fjerner en mulighet. Terningkast, PIN-koder og ja/nei-svar tillater gjentakelse."
+          },
+          {
+            "id": "r1-8-1-n-quiz2-q3",
+            "task": "Et kodeord skal ha 2 ulike siffer. På hvor mange måter kan sifrene velges (rekkefølgen teller)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$45$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$81$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$90$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Første siffer: 10 muligheter, andre: 9 (må være ulikt). $10 \\cdot 9 = 90$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-1-n-section3",
+      "type": "text",
+      "content": "## Addisjonsprinsippet – og kunsten å kombinere\n\nMultiplikasjon håndterer valg som gjøres *etter hverandre*. Men noen ganger står valgene i stedet i et *enten-eller*-forhold. Skal klassen velge én representant blant 15 gutter og 12 jenter, er det ikke $15 \\cdot 12$ muligheter – du velger jo bare én person! Mulighetene er $15 + 12 = 27$. Dette er **addisjonsprinsippet**: når en oppgave kan løses på måte $A$ (med $n_A$ muligheter) *eller* måte $B$ (med $n_B$ muligheter), og de to ikke overlapper, er totalen $n_A + n_B$.\n\nHuskeregelen er språklig og forbløffende pålitelig: «**og**» betyr multiplikasjon, «**eller**» betyr addisjon. Skjorte *og* bukse: multipliser. Gutt *eller* jente: adder. Kravet for addisjon er at alternativene er gjensidig utelukkende – ingen utfall skal kunne telles to ganger.\n\nDe fleste virkelige problemer kombinerer begge prinsippene. Et passord skal bestå av *enten* 3 bokstaver og 2 siffer, *eller* 2 bokstaver og 3 siffer (engelsk alfabet, gjentakelse tillatt). Innenfor hver type bruker vi multiplikasjon: type 1 gir $26^3 \\cdot 10^2 = 1\\,757\\,600$, type 2 gir $26^2 \\cdot 10^3 = 676\\,000$. De to typene utelukker hverandre (et passord kan ikke ha begge strukturer samtidig), så vi adderer: $1\\,757\\,600 + 676\\,000 = 2\\,433\\,600$ passord.\n\nSer du arkitekturen? «Og» inni hver type, «eller» mellom typene. Lær deg å lese et telleproblem på denne måten, og selv kompliserte oppgaver faller fra hverandre i håndterlige biter."
+    },
+    {
+      "id": "r1-8-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på addisjonsprinsippet og kombinasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-1-n-quiz3-q0",
+            "task": "Én representant skal velges blant 15 gutter og 12 jenter. Hvor mange muligheter?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$15 + 12 = 27$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$15 \\cdot 12 = 180$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15 \\cdot 12 \\cdot 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Valgene utelukker hverandre – vi velger enten en gutt eller en jente. Addisjonsprinsippet gir $15 + 12 = 27$."
+          },
+          {
+            "id": "r1-8-1-n-quiz3-q1",
+            "task": "Hvilken huskeregel knytter språk til regneoperasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "«og» betyr addisjon, «eller» betyr multiplikasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "«og» betyr multiplikasjon, «eller» betyr addisjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "«og» og «eller» betyr begge multiplikasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "«eller» betyr subtraksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Valg som gjøres etter hverandre («og») multipliseres; alternativer som utelukker hverandre («eller») adderes."
+          },
+          {
+            "id": "r1-8-1-n-quiz3-q2",
+            "task": "Hva er kravet for å kunne bruke addisjonsprinsippet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alternativene må overlappe mest mulig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alle delvalg må ha like mange muligheter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alternativene må være gjensidig utelukkende",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Valgene må være uavhengige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ingen utfall skal kunne telles to ganger – alternativene må ikke ha felles utfall."
+          },
+          {
+            "id": "r1-8-1-n-quiz3-q3",
+            "task": "Et passord er enten 3 bokstaver + 2 siffer eller 2 bokstaver + 3 siffer (26 bokstaver, gjentakelse OK). Hvor mange passord?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$26^3 \\cdot 10^2 \\cdot 26^2 \\cdot 10^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$26^5 \\cdot 10^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(26 + 10)^5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$26^3 \\cdot 10^2 + 26^2 \\cdot 10^3 = 2\\,433\\,600$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Multiplikasjon innenfor hver type, addisjon mellom typene: $1\\,757\\,600 + 676\\,000 = 2\\,433\\,600$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: og ganger, eller adderer\n\nFra kafémenyen til bilskiltregisteret har vi sett samme idé i arbeid: systematisk telling uten oppramsing. Valgtreet visualiserer mulighetene – hver forgrening et delvalg, hvert blad et komplett utfall – og avslører mønsteret bak **multiplikasjonsprinsippet**: $k$ delvalg etter hverandre med $n_1, n_2, \\ldots, n_k$ muligheter gir $n_1 \\cdot n_2 \\cdot \\ldots \\cdot n_k$ utfall totalt.\n\nUten gjentakelse gjelder prinsippet fortsatt, men faktorene synker trinn for trinn: $n$, $n-1$, $n-2$, ... – et mønster som får navnet permutasjon i neste kapittel.\n\n**Addisjonsprinsippet** tar seg av alternativer som utelukker hverandre: da adderer vi mulighetene. Og språket leder deg riktig nesten hver gang: «og» betyr gange, «eller» betyr pluss. Sammensatte problemer – som passordet med to tillatte strukturer – løses ved å multiplisere innenfor hvert alternativ og addere mellom dem. Med disse to prinsippene i ryggraden er du klar for neste steg: permutasjoner, kombinasjoner og de store spørsmålene om rekkefølge."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,370 @@
-{"id":"fysikk2-1-5-narrativ","courseId":"fysikk2","chapterNumber":"1.5","title":"Numerisk modellering av bevegelse","subtitle":"Narrativ versjon","description":"En fortelling om hva vi gjør når formlene tar slutt — hvordan Eulers metode og Euler-Cromer lar oss simulere bevegelse steg for steg, fra fallskjermhoppere til planetbaner.","estimatedMinutes":30,"competenceGoals":["bruke numeriske metoder til å modellere bevegelse","forklare og anvende Eulers metode","vurdere nøyaktighet og feilkilder i numeriske beregninger"],"linkedChapterId":"fysikk2-1-5","content":[{"id":"fysikk2-1-5-n-intro","type":"text","content":"## Når formlene tar slutt\n\nHittil har vi løst bevegelse **analytisk** — vi har funnet eksakte formler som $v(t) = v_0 + at$ og $x(t) = x_0 + v_0 t + \\frac{1}{2}at^2$. Det fungerer fint så lenge akselerasjonen er konstant. Men virkeligheten er sjelden så snill. Luftmotstand vokser med farten, fjærkrefter avhenger av posisjon, gravitasjon endrer seg med avstand, og magnetiske krefter avhenger av både hvor og hvor fort. For slike problemer finnes det ofte **ingen formel** å løse — ingen eksakt analytisk løsning eksisterer.\n\nDa griper vi til **numeriske metoder**: algoritmer som regner ut tilnærmede verdier steg for steg. Vi deler tiden opp i små biter $\\Delta t$, beregner posisjon og hastighet trinnvis, og bygger oss fram gjennom bevegelsen. Det er nøyaktig slik datamaskiner simulerer satellittbaner, værmodeller, dataspill og molekyler. Grunnideen er forbløffende enkel: ny verdi = gammel verdi + endring."},{"id":"fysikk2-1-5-n-section1","type":"text","content":"## Eulers metode\n\nDen enkleste numeriske metoden er **Eulers metode**, oppkalt etter Leonhard Euler. Den bygger direkte på definisjonen av den deriverte. Husk at $f'(t) = \\lim_{\\Delta t\\to 0}\\frac{f(t+\\Delta t) - f(t)}{\\Delta t}$. Hvis vi *ikke* tar grensen, men bruker en liten, endelig $\\Delta t$, får vi en tilnærming som omskrevet gir **Euler-formelen**:\n\n$$f(t + \\Delta t) \\approx f(t) + f'(t)\\cdot\\Delta t$$\n\nGeometrisk betyr dette at vi følger tangenten et lite skritt om gangen, og erstatter den buede løsningskurven med en rekke rette linjestykker. For bevegelse i én dimensjon blir oppdateringene:\n\n$$v_{n+1} = v_n + a_n\\cdot\\Delta t \\qquad x_{n+1} = x_n + v_n\\cdot\\Delta t$$\n\nAlgoritmen er en enkel løkke: sett startverdier $x_0$, $v_0$, $t_0 = 0$ og et tidssteg $\\Delta t$; beregn så akselerasjonen $a_n = F_n/m$ fra kreftene, oppdater hastighet, så posisjon, så tid, og gjenta til du når sluttiden. Mindre $\\Delta t$ gir bedre nøyaktighet, men krever flere beregninger. Tommelregelen er at $\\Delta t$ skal være mye mindre enn systemets karakteristiske tidsskala — for fritt fall holder kanskje $0{,}01$–$0{,}1$ s, mens en pendel krever $0{,}001$–$0{,}01$ s.\n\nLa oss prøve på fritt fall fra $20$ m med $\\Delta t = 0{,}5$ s og $g = 10$ m/s². Start: $v = 0$, $y = 20$. Etter første steg: $v = 0 + (-10)\\cdot 0{,}5 = -5$ m/s, $y = 20 + 0\\cdot 0{,}5 = 20$ m. Andre steg ($t=1{,}0$ s): $v = -5 - 5 = -10$ m/s, $y = 20 + (-5)\\cdot 0{,}5 = 17{,}5$ m. Den analytiske fasiten er $y = 20 - \\frac{1}{2}\\cdot 10\\cdot 1 = 15$ m — Euler ligger litt etter, fordi vi brukte den *gamle* hastigheten."},{"id":"fysikk2-1-5-n-quiz1","type":"exercise","exercise":{"id":"fysikk2-1-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på Eulers metode:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-1-5-n-quiz1-q0","task":"Når trenger vi numeriske metoder?","options":[{"id":"a","text":"Alltid, de er enklest","isCorrect":false},{"id":"b","text":"Når det ikke finnes en analytisk løsning","isCorrect":true},{"id":"c","text":"Bare for konstant akselerasjon","isCorrect":false},{"id":"d","text":"Bare i matematikk","isCorrect":false}],"solution":"Numeriske metoder brukes når analytiske formler ikke finnes eller blir for kompliserte — for eksempel ved luftmotstand som varierer med farten."},{"id":"fysikk2-1-5-n-quiz1-q1","task":"Hva er Euler-oppdateringen for hastigheten?","options":[{"id":"a","text":"$v_{n+1} = v_n \\cdot a_n$","isCorrect":false},{"id":"b","text":"$v_{n+1} = a_n/\\Delta t$","isCorrect":false},{"id":"c","text":"$v_{n+1} = v_n + a_n\\Delta t$","isCorrect":true},{"id":"d","text":"$v_{n+1} = v_n - x_n$","isCorrect":false}],"solution":"Hastigheten oppdateres med $v_{n+1} = v_n + a_n\\Delta t$, der $a_n$ er akselerasjonen i steget."},{"id":"fysikk2-1-5-n-quiz1-q2","task":"Hva skjer med nøyaktigheten når vi reduserer $\\Delta t$?","options":[{"id":"a","text":"Den blir dårligere","isCorrect":false},{"id":"b","text":"Den endres ikke","isCorrect":false},{"id":"c","text":"Metoden bryter sammen","isCorrect":false},{"id":"d","text":"Den blir bedre, men krever flere beregninger","isCorrect":true}],"solution":"Mindre tidssteg gir bedre nøyaktighet fordi linjestykkene følger kurven tettere — men det krever flere iterasjoner."},{"id":"fysikk2-1-5-n-quiz1-q3","task":"Hva er den geometriske tolkningen av Eulers metode?","options":[{"id":"a","text":"Vi følger tangenten i små skritt","isCorrect":true},{"id":"b","text":"Vi integrerer eksakt","isCorrect":false},{"id":"c","text":"Vi tegner en sirkel","isCorrect":false},{"id":"d","text":"Vi gjetter tilfeldig","isCorrect":false}],"solution":"Euler følger tangentlinjen i hvert punkt og erstatter den buede kurven med rette linjestykker."}]}},{"id":"fysikk2-1-5-n-section2","type":"text","content":"## Feilkilder og en bedre metode\n\nEuler er enkel, men ikke perfekt. Den viktigste feilkilden er **diskretiseringsfeilen** (avkuttingsfeil): vi erstatter en glatt kurve med rette stykker. For Eulers metode er feilen per steg proporsjonal med $(\\Delta t)^2$, mens den totale feilen etter mange steg er proporsjonal med $\\Delta t$. Halverer du tidssteget, halverer du den totale feilen — derfor kalles Euler en **førsteordens metode**. I tillegg kan feilene **akkumulere**: feil i posisjon påvirker kraftberegningen, feil i hastighet påvirker posisjonen, og de kan forsterke hverandre. For noen systemer blir metoden til og med **ustabil**, slik at feilene vokser eksponentielt — typisk når tidssteget er for stort eller systemet svinger raskt.\n\nHeldigvis finnes en nesten gratis forbedring: **Euler-Cromer-metoden** (symplektisk Euler). Den eneste forskjellen er at vi bruker den *nye* hastigheten når vi oppdaterer posisjonen:\n\n$$v_{n+1} = v_n + a_n\\Delta t \\qquad x_{n+1} = x_n + v_{n+1}\\Delta t$$\n\nDenne lille endringen bevarer energien langt bedre i svingende systemer som pendler og fjærer, og er mye mer stabil — men like enkel å programmere. Anbefalingen er klar: bruk Euler-Cromer i stedet for vanlig Euler for de fleste fysikkproblemer. Enda mer nøyaktige metoder finnes, som midtpunktmetoden og Runge-Kutta, men de er mer komplekse."},{"id":"fysikk2-1-5-n-quiz2","type":"exercise","exercise":{"id":"fysikk2-1-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på feilkilder og Euler-Cromer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-1-5-n-quiz2-q0","task":"Hva er den viktigste feilkilden i Eulers metode?","options":[{"id":"a","text":"Avrundingsfeil i kalkulatoren","isCorrect":false},{"id":"b","text":"Diskretiseringsfeil","isCorrect":true},{"id":"c","text":"Målefeil","isCorrect":false},{"id":"d","text":"Feil i tyngdeakselerasjonen","isCorrect":false}],"solution":"Diskretiseringsfeilen oppstår fordi vi erstatter den glatte løsningskurven med rette linjestykker."},{"id":"fysikk2-1-5-n-quiz2-q1","task":"Hva er forskjellen på Euler-Cromer og vanlig Euler?","options":[{"id":"a","text":"Euler-Cromer bruker større tidssteg","isCorrect":false},{"id":"b","text":"Euler-Cromer er analytisk","isCorrect":false},{"id":"c","text":"Euler-Cromer bruker den nye hastigheten i posisjonsoppdateringen","isCorrect":true},{"id":"d","text":"Ingen forskjell","isCorrect":false}],"solution":"Euler-Cromer oppdaterer posisjonen med $v_{n+1}$ (den nye hastigheten) i stedet for $v_n$, noe som bevarer energien bedre."},{"id":"fysikk2-1-5-n-quiz2-q2","task":"Hvordan endres den totale feilen i Euler hvis du halverer $\\Delta t$?","options":[{"id":"a","text":"Den firedobles","isCorrect":false},{"id":"b","text":"Den blir uendret","isCorrect":false},{"id":"c","text":"Den dobles","isCorrect":false},{"id":"d","text":"Den halveres","isCorrect":true}],"solution":"Euler er en førsteordens metode: den totale feilen er proporsjonal med $\\Delta t$, så halvering av tidssteget halverer feilen."}]}},{"id":"fysikk2-1-5-n-section3","type":"text","content":"## Numerisk modellering i praksis\n\nDet er når kreftene blir kompliserte at numeriske metoder virkelig skinner. Ta en **fallskjermhopper** med masse $80$ kg og luftmotstand $F_L = -bv^2$ med $b = 0{,}25$ kg/m. Bevegelseslikningen blir $ma = mg - bv^2$. Når luftmotstanden balanserer tyngden, slutter hopperen å akselerere og når **terminalhastigheten**, der $mg = bv_t^2$, altså $v_t = \\sqrt{mg/b} = \\sqrt{80\\cdot 9{,}81/0{,}25} = 56$ m/s. Selve veien dit har ingen enkel formel — akselerasjonen avhenger av farten i kvadrat — så her løser vi numerisk og kan til og med sammenligne med den eksakte løsningen $v(t) = v_t\\tanh(gt/v_t)$ for å sjekke koden.\n\nEt annet klassisk eksempel er **pendelen**, der vinkelakselerasjonen er $\\alpha = -\\frac{g}{L}\\sin\\theta$. For små utslag ($\\theta < 15°$) kan vi tilnærme $\\sin\\theta \\approx \\theta$ og få en analytisk løsning, men for store utslag må vi simulere — og da er Euler-Cromer uvurderlig fordi den bevarer energien gjennom svingningene. De samme teknikkene driver simulering av **planetbaner** (der gravitasjonen $F = -GMm/r^2$ varierer med avstand), skrått kast med luftmotstand (asymmetrisk bane, optimal vinkel under $45°$), bremsesystemer, sportsanalyse med Magnus-effekt, og værmodeller. Numerisk modellering er rett og slett broen mellom fysikkens lover og den uryddige virkeligheten."},{"id":"fysikk2-1-5-n-quiz3","type":"exercise","exercise":{"id":"fysikk2-1-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på numerisk modellering i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-1-5-n-quiz3-q0","task":"En fallskjermhopper ($m=80$ kg) har luftmotstand $F_L = -bv^2$ med $b=0{,}25$. Hva er terminalhastigheten? ($g=9{,}81$)","options":[{"id":"a","text":"Ca. 56 m/s","isCorrect":true},{"id":"b","text":"Ca. 28 m/s","isCorrect":false},{"id":"c","text":"Ca. 320 m/s","isCorrect":false},{"id":"d","text":"Ca. 11 m/s","isCorrect":false}],"solution":"Ved terminalhastighet balanserer kreftene: $mg = bv_t^2$, så $v_t = \\sqrt{mg/b} = \\sqrt{80\\cdot 9{,}81/0{,}25} \\approx 56$ m/s."},{"id":"fysikk2-1-5-n-quiz3-q1","task":"Hvorfor egner pendelen med store utslag seg for numerisk løsning?","options":[{"id":"a","text":"Fordi pendelen ikke svinger","isCorrect":false},{"id":"b","text":"Fordi $\\sin\\theta \\approx \\theta$ ikke gjelder for store vinkler","isCorrect":true},{"id":"c","text":"Fordi gravitasjonen forsvinner","isCorrect":false},{"id":"d","text":"Den egner seg ikke","isCorrect":false}],"solution":"For store utslag kan vi ikke tilnærme $\\sin\\theta \\approx \\theta$, så det finnes ingen enkel analytisk løsning — vi må simulere."},{"id":"fysikk2-1-5-n-quiz3-q2","task":"Hvorfor anbefales Euler-Cromer for svingende systemer som pendler?","options":[{"id":"a","text":"Den er raskere","isCorrect":false},{"id":"b","text":"Den krever ingen tidssteg","isCorrect":false},{"id":"c","text":"Den bevarer energien bedre","isCorrect":true},{"id":"d","text":"Den er analytisk","isCorrect":false}],"solution":"Euler-Cromer (symplektisk Euler) bevarer energien langt bedre over mange svingninger og holder seg stabil."}]}},{"id":"fysikk2-1-5-n-summary","type":"text","content":"## Oppsummering\n\nNår akselerasjonen ikke er konstant — ved luftmotstand, varierende gravitasjon eller posisjonsavhengige krefter — finnes det ofte ingen analytisk løsning, og da bruker vi **numeriske metoder**. **Eulers metode** oppdaterer trinnvis: $v_{n+1} = v_n + a_n\\Delta t$ og $x_{n+1} = x_n + v_n\\Delta t$, ved å følge tangenten i små skritt. Den er en førsteordens metode der den totale feilen er proporsjonal med tidssteget $\\Delta t$, og feil kan akkumulere og gjøre metoden ustabil. **Euler-Cromer-metoden** bruker den nye hastigheten i posisjonsoppdateringen og bevarer energien mye bedre i svingende systemer. Med disse verktøyene kan vi simulere alt fra fallskjermhoppere med terminalhastighet $v_t = \\sqrt{mg/b}$ til pendler med store utslag og planetbaner — broen mellom fysikkens lover og den kompliserte virkeligheten."}],"exercises":[]}
+{
+  "id": "fysikk2-1-5-narrativ",
+  "courseId": "fysikk2",
+  "chapterNumber": "1.5",
+  "title": "Numerisk modellering av bevegelse",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hva vi gjør når formlene tar slutt — hvordan Eulers metode og Euler-Cromer lar oss simulere bevegelse steg for steg, fra fallskjermhoppere til planetbaner.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke numeriske metoder til å modellere bevegelse",
+    "forklare og anvende Eulers metode",
+    "vurdere nøyaktighet og feilkilder i numeriske beregninger"
+  ],
+  "linkedChapterId": "fysikk2-1-5",
+  "content": [
+    {
+      "id": "fysikk2-1-5-n-intro",
+      "type": "text",
+      "content": "## Når formlene tar slutt\n\nHittil har vi løst bevegelse **analytisk** — vi har funnet eksakte formler som $v(t) = v_0 + at$ og $x(t) = x_0 + v_0 t + \\frac{1}{2}at^2$. Det fungerer fint så lenge akselerasjonen er konstant. Men virkeligheten er sjelden så snill. Luftmotstand vokser med farten, fjærkrefter avhenger av posisjon, gravitasjon endrer seg med avstand, og magnetiske krefter avhenger av både hvor og hvor fort. For slike problemer finnes det ofte **ingen formel** å løse — ingen eksakt analytisk løsning eksisterer.\n\nDa griper vi til **numeriske metoder**: algoritmer som regner ut tilnærmede verdier steg for steg. Vi deler tiden opp i små biter $\\Delta t$, beregner posisjon og hastighet trinnvis, og bygger oss fram gjennom bevegelsen. Det er nøyaktig slik datamaskiner simulerer satellittbaner, værmodeller, dataspill og molekyler. Grunnideen er forbløffende enkel: ny verdi = gammel verdi + endring."
+    },
+    {
+      "id": "fysikk2-1-5-n-section1",
+      "type": "text",
+      "content": "## Eulers metode\n\nDen enkleste numeriske metoden er **Eulers metode**, oppkalt etter Leonhard Euler. Den bygger direkte på definisjonen av den deriverte. Husk at $f'(t) = \\lim_{\\Delta t\\to 0}\\frac{f(t+\\Delta t) - f(t)}{\\Delta t}$. Hvis vi *ikke* tar grensen, men bruker en liten, endelig $\\Delta t$, får vi en tilnærming som omskrevet gir **Euler-formelen**:\n\n$$f(t + \\Delta t) \\approx f(t) + f'(t)\\cdot\\Delta t$$\n\nGeometrisk betyr dette at vi følger tangenten et lite skritt om gangen, og erstatter den buede løsningskurven med en rekke rette linjestykker. For bevegelse i én dimensjon blir oppdateringene:\n\n$$v_{n+1} = v_n + a_n\\cdot\\Delta t \\qquad x_{n+1} = x_n + v_n\\cdot\\Delta t$$\n\nAlgoritmen er en enkel løkke: sett startverdier $x_0$, $v_0$, $t_0 = 0$ og et tidssteg $\\Delta t$; beregn så akselerasjonen $a_n = F_n/m$ fra kreftene, oppdater hastighet, så posisjon, så tid, og gjenta til du når sluttiden. Mindre $\\Delta t$ gir bedre nøyaktighet, men krever flere beregninger. Tommelregelen er at $\\Delta t$ skal være mye mindre enn systemets karakteristiske tidsskala — for fritt fall holder kanskje $0{,}01$–$0{,}1$ s, mens en pendel krever $0{,}001$–$0{,}01$ s.\n\nLa oss prøve på fritt fall fra $20$ m med $\\Delta t = 0{,}5$ s og $g = 10$ m/s². Start: $v = 0$, $y = 20$. Etter første steg: $v = 0 + (-10)\\cdot 0{,}5 = -5$ m/s, $y = 20 + 0\\cdot 0{,}5 = 20$ m. Andre steg ($t=1{,}0$ s): $v = -5 - 5 = -10$ m/s, $y = 20 + (-5)\\cdot 0{,}5 = 17{,}5$ m. Den analytiske fasiten er $y = 20 - \\frac{1}{2}\\cdot 10\\cdot 1 = 15$ m — Euler ligger litt etter, fordi vi brukte den *gamle* hastigheten."
+    },
+    {
+      "id": "fysikk2-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Eulers metode:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-1-5-n-quiz1-q0",
+            "task": "Når trenger vi numeriske metoder?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alltid, de er enklest",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bare for konstant akselerasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når det ikke finnes en analytisk løsning",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Bare i matematikk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Numeriske metoder brukes når analytiske formler ikke finnes eller blir for kompliserte — for eksempel ved luftmotstand som varierer med farten."
+          },
+          {
+            "id": "fysikk2-1-5-n-quiz1-q1",
+            "task": "Hva er Euler-oppdateringen for hastigheten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$v_{n+1} = v_n \\cdot a_n$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$v_{n+1} = a_n/\\Delta t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$v_{n+1} = v_n + a_n\\Delta t$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$v_{n+1} = v_n - x_n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hastigheten oppdateres med $v_{n+1} = v_n + a_n\\Delta t$, der $a_n$ er akselerasjonen i steget."
+          },
+          {
+            "id": "fysikk2-1-5-n-quiz1-q2",
+            "task": "Hva skjer med nøyaktigheten når vi reduserer $\\Delta t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den blir dårligere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den endres ikke",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Metoden bryter sammen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den blir bedre, men krever flere beregninger",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Mindre tidssteg gir bedre nøyaktighet fordi linjestykkene følger kurven tettere — men det krever flere iterasjoner."
+          },
+          {
+            "id": "fysikk2-1-5-n-quiz1-q3",
+            "task": "Hva er den geometriske tolkningen av Eulers metode?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vi følger tangenten i små skritt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Vi integrerer eksakt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi tegner en sirkel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi gjetter tilfeldig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Euler følger tangentlinjen i hvert punkt og erstatter den buede kurven med rette linjestykker."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-1-5-n-section2",
+      "type": "text",
+      "content": "## Feilkilder og en bedre metode\n\nEuler er enkel, men ikke perfekt. Den viktigste feilkilden er **diskretiseringsfeilen** (avkuttingsfeil): vi erstatter en glatt kurve med rette stykker. For Eulers metode er feilen per steg proporsjonal med $(\\Delta t)^2$, mens den totale feilen etter mange steg er proporsjonal med $\\Delta t$. Halverer du tidssteget, halverer du den totale feilen — derfor kalles Euler en **førsteordens metode**. I tillegg kan feilene **akkumulere**: feil i posisjon påvirker kraftberegningen, feil i hastighet påvirker posisjonen, og de kan forsterke hverandre. For noen systemer blir metoden til og med **ustabil**, slik at feilene vokser eksponentielt — typisk når tidssteget er for stort eller systemet svinger raskt.\n\nHeldigvis finnes en nesten gratis forbedring: **Euler-Cromer-metoden** (symplektisk Euler). Den eneste forskjellen er at vi bruker den *nye* hastigheten når vi oppdaterer posisjonen:\n\n$$v_{n+1} = v_n + a_n\\Delta t \\qquad x_{n+1} = x_n + v_{n+1}\\Delta t$$\n\nDenne lille endringen bevarer energien langt bedre i svingende systemer som pendler og fjærer, og er mye mer stabil — men like enkel å programmere. Anbefalingen er klar: bruk Euler-Cromer i stedet for vanlig Euler for de fleste fysikkproblemer. Enda mer nøyaktige metoder finnes, som midtpunktmetoden og Runge-Kutta, men de er mer komplekse."
+    },
+    {
+      "id": "fysikk2-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på feilkilder og Euler-Cromer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-1-5-n-quiz2-q0",
+            "task": "Hva er den viktigste feilkilden i Eulers metode?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avrundingsfeil i kalkulatoren",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Diskretiseringsfeil",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Målefeil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Feil i tyngdeakselerasjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Diskretiseringsfeilen oppstår fordi vi erstatter den glatte løsningskurven med rette linjestykker."
+          },
+          {
+            "id": "fysikk2-1-5-n-quiz2-q1",
+            "task": "Hva er forskjellen på Euler-Cromer og vanlig Euler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Euler-Cromer bruker større tidssteg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Euler-Cromer er analytisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen forskjell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Euler-Cromer bruker den nye hastigheten i posisjonsoppdateringen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Euler-Cromer oppdaterer posisjonen med $v_{n+1}$ (den nye hastigheten) i stedet for $v_n$, noe som bevarer energien bedre."
+          },
+          {
+            "id": "fysikk2-1-5-n-quiz2-q2",
+            "task": "Hvordan endres den totale feilen i Euler hvis du halverer $\\Delta t$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Den halveres",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den firedobles",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den blir uendret",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den dobles",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Euler er en førsteordens metode: den totale feilen er proporsjonal med $\\Delta t$, så halvering av tidssteget halverer feilen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-1-5-n-section3",
+      "type": "text",
+      "content": "## Numerisk modellering i praksis\n\nDet er når kreftene blir kompliserte at numeriske metoder virkelig skinner. Ta en **fallskjermhopper** med masse $80$ kg og luftmotstand $F_L = -bv^2$ med $b = 0{,}25$ kg/m. Bevegelseslikningen blir $ma = mg - bv^2$. Når luftmotstanden balanserer tyngden, slutter hopperen å akselerere og når **terminalhastigheten**, der $mg = bv_t^2$, altså $v_t = \\sqrt{mg/b} = \\sqrt{80\\cdot 9{,}81/0{,}25} = 56$ m/s. Selve veien dit har ingen enkel formel — akselerasjonen avhenger av farten i kvadrat — så her løser vi numerisk og kan til og med sammenligne med den eksakte løsningen $v(t) = v_t\\tanh(gt/v_t)$ for å sjekke koden.\n\nEt annet klassisk eksempel er **pendelen**, der vinkelakselerasjonen er $\\alpha = -\\frac{g}{L}\\sin\\theta$. For små utslag ($\\theta < 15°$) kan vi tilnærme $\\sin\\theta \\approx \\theta$ og få en analytisk løsning, men for store utslag må vi simulere — og da er Euler-Cromer uvurderlig fordi den bevarer energien gjennom svingningene. De samme teknikkene driver simulering av **planetbaner** (der gravitasjonen $F = -GMm/r^2$ varierer med avstand), skrått kast med luftmotstand (asymmetrisk bane, optimal vinkel under $45°$), bremsesystemer, sportsanalyse med Magnus-effekt, og værmodeller. Numerisk modellering er rett og slett broen mellom fysikkens lover og den uryddige virkeligheten."
+    },
+    {
+      "id": "fysikk2-1-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-1-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på numerisk modellering i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-1-5-n-quiz3-q0",
+            "task": "En fallskjermhopper ($m=80$ kg) har luftmotstand $F_L = -bv^2$ med $b=0{,}25$. Hva er terminalhastigheten? ($g=9{,}81$)",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 28 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. 56 m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 320 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 11 m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved terminalhastighet balanserer kreftene: $mg = bv_t^2$, så $v_t = \\sqrt{mg/b} = \\sqrt{80\\cdot 9{,}81/0{,}25} \\approx 56$ m/s."
+          },
+          {
+            "id": "fysikk2-1-5-n-quiz3-q1",
+            "task": "Hvorfor egner pendelen med store utslag seg for numerisk løsning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi pendelen ikke svinger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi gravitasjonen forsvinner",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $\\sin\\theta \\approx \\theta$ ikke gjelder for store vinkler",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den egner seg ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For store utslag kan vi ikke tilnærme $\\sin\\theta \\approx \\theta$, så det finnes ingen enkel analytisk løsning — vi må simulere."
+          },
+          {
+            "id": "fysikk2-1-5-n-quiz3-q2",
+            "task": "Hvorfor anbefales Euler-Cromer for svingende systemer som pendler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den er raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den krever ingen tidssteg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den er analytisk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den bevarer energien bedre",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Euler-Cromer (symplektisk Euler) bevarer energien langt bedre over mange svingninger og holder seg stabil."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-1-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår akselerasjonen ikke er konstant — ved luftmotstand, varierende gravitasjon eller posisjonsavhengige krefter — finnes det ofte ingen analytisk løsning, og da bruker vi **numeriske metoder**. **Eulers metode** oppdaterer trinnvis: $v_{n+1} = v_n + a_n\\Delta t$ og $x_{n+1} = x_n + v_n\\Delta t$, ved å følge tangenten i små skritt. Den er en førsteordens metode der den totale feilen er proporsjonal med tidssteget $\\Delta t$, og feil kan akkumulere og gjøre metoden ustabil. **Euler-Cromer-metoden** bruker den nye hastigheten i posisjonsoppdateringen og bevarer energien mye bedre i svingende systemer. Med disse verktøyene kan vi simulere alt fra fallskjermhoppere med terminalhastighet $v_t = \\sqrt{mg/b}$ til pendler med store utslag og planetbaner — broen mellom fysikkens lover og den kompliserte virkeligheten."
+    }
+  ],
+  "exercises": []
+}

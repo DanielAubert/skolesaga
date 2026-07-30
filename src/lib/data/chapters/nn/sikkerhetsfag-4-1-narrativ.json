@@ -1,1 +1,293 @@
-{"id":"sikkerhetsfag-4-1-narrativ","courseId":"sikkerhetsfag","chapterNumber":"4.1","title":"Adgangskontrollsystemer","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi styrer kven som slepp inn -- frå adgangskortet i lomma til fingeravtrykket på serverromsdøra, og soneinndelinga som bind det heile saman.","estimatedMinutes":13,"competenceGoals":["gjennomfore adgangskontroll og overvaking i trad med regelverk og virksomhetens rutiner"],"linkedChapterId":"sikkerhetsfag-4-1","content":[{"id":"sikkerhetsfag-4-1-n-intro","type":"text","content":"## Kven får komme inn?\n\nDu dreg adgangskortet ditt forbi ein lesar, det piper, og døra opnar seg. Eit lite augeblink du knapt tenkjer over -- men bak det ligg eit heilt fagfelt. **Adgangskontroll** handlar om å regulere kven som får tilgang til eit område, eit bygg eller ein informasjonsressurs, slik at berre autoriserte personar kjem inn der dei har rett til å vere.\n\nFor ein vektar er dette ei av dei viktigaste oppgåvene i kvardagen. God adgangskontroll vernar mot tjuveri og innbrot, varetek personleg tryggleik og gjev evakueringsoversikt, sikrar informasjon i serverrom og arkiv, og oppfyller lovkrav og forsikringskrav. I dette kapittelet skal vi sjå på dei ulike systema -- kort, kode og biometri -- og korleis soneinndeling og fleire faktorar blir kombinerte til solid tryggleik."},{"id":"sikkerhetsfag-4-1-n-section1","type":"text","content":"## Tre måtar å bevise kven du er\n\nDet finst fleire typar adgangskontrollsystem, og kvar har sine styrkar og veikskapar. Den vanlegaste er **kortlesar og adgangskort** med RFID-brikke eller magnetstripe. Det er enkelt å administrere, kort kan sperrast raskt, og systemet loggar kven som har vore kvar. Ulempa er at kort kan mistast eller stelast, og at kortet ikkje beviser kven som faktisk brukar det.\n\nEit **kodetastatur** med PIN-kode er eit alternativ -- ingen fysisk gjenstand å miste, låg kostnad. Men kodar kan gløymast, delast, eller bli fanga opp ved skuldersurf, der nokon ser over skuldra di medan du tastar. Mot dette skjermar du tastaturet med kroppen og byter kode jamleg. **Biometriske system** brukar unike kroppslege kjenneteikn -- fingeravtrykk er mest utbreidd og kostnadseffektivt, medan irisgjenkjenning gjev svært høg tryggleik. Føremonen er at biometri ikkje kan mistast eller gløymast og er vanskeleg å forfalske, men det kostar meir og reiser personvernomsyn.\n\nLegg merke til eit mønster her, for det leier til eit nøkkelomgrep. Desse metodane byggjer på tre kategoriar: noko du **har** (kort), noko du **veit** (kode), og noko du **er** (biometri). **Tofaktorautentisering** (2FA) kombinerer to ulike av desse, til dømes kort pluss PIN. Det gjev vesentleg høgare tryggleik enn éin faktor åleine, fordi ein tjuv som finn kortet ditt likevel ikkje kjenner koden."},{"id":"sikkerhetsfag-4-1-n-quiz1","type":"exercise","exercise":{"id":"sikkerhetsfag-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på adgangssystem og tofaktorautentisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"sikkerhetsfag-4-1-n-quiz1-q0","task":"Kva er meint med tofaktorautentisering?","options":[{"id":"a","text":"At ein brukar to ulike adgangskort","isCorrect":false},{"id":"b","text":"At ein identifiserer seg med to forskjellige typar faktorar, som kort og PIN","isCorrect":true},{"id":"c","text":"At to personar må godkjenne samtidig","isCorrect":false},{"id":"d","text":"At systemet har to serverar","isCorrect":false}],"solution":"Tofaktorautentisering kombinerer to ulike kategoriar: noko du har (kort), noko du veit (kode) eller noko du er (biometri). Det gjev mykje høgare tryggleik enn éin faktor."},{"id":"sikkerhetsfag-4-1-n-quiz1-q1","task":"Kva for ein biometrisk metode er mest utbreidd og kostnadseffektiv?","options":[{"id":"a","text":"Irisgjenkjenning","isCorrect":false},{"id":"b","text":"Stemmegjenkjenning","isCorrect":false},{"id":"c","text":"Fingeravtrykk","isCorrect":true},{"id":"d","text":"Handgeometri","isCorrect":false}],"solution":"Fingeravtrykk er den mest utbreidde og kostnadseffektive biometriske metoden, med godt utvikla og rimeleg teknologi."},{"id":"sikkerhetsfag-4-1-n-quiz1-q2","task":"Kva er skuldersurf?","options":[{"id":"a","text":"Ein biometrisk metode","isCorrect":false},{"id":"b","text":"Ein type adgangskort","isCorrect":false},{"id":"c","text":"Eit alarmsystem","isCorrect":false},{"id":"d","text":"At nokon ser over skuldra di medan du tastar inn ein kode","isCorrect":true}],"solution":"Skuldersurf er når nokon ser koden din medan du tastar. Du vernar deg ved å skjerme tastaturet, byte kode og kombinere med kort."}]}},{"id":"sikkerhetsfag-4-1-n-section2","type":"text","content":"## Soner som styrer kor langt du slepp inn\n\nDet held ikkje å kontrollere berre ytterdøra. Eit bygg blir difor delt inn i **soner** med ulike tryggleiksnivå, slik at krava blir stramma til di djupare inn du kjem. **Sone 1** er offentleg område -- lobby og resepsjon, opent for alle men overvaka. **Sone 2** er kontrollert område som kontorlandskap, der det krevst adgangskort. **Sone 3** er avgrensa område som serverrom og sensitivt arkiv, der tofaktorautentisering blir tilrådd. Og **sone 4** er høgtryggleiksområde som pengekvelv og forskingslaboratorium, med biometrisk kontroll, logging og personleg godkjenning.\n\nSkilnaden mellom til dømes sone 2 og sone 4 ligg i tryggleiksnivå, verdien på det som blir verna, og talet på autentiseringsfaktorar. Overgangane mellom soner blir markerte med fysiske barrierar -- dører, portar, sluser eller dreiesperrer.\n\nTa eit sjukehus som døme. Hovudinngang og kafeteria er sone 1, sengepost og administrasjonskontor er sone 2 med kortlesar, operasjonsstover og legemiddellager er sone 3 med tofaktor, og serverrom for pasientjournalar og lager med narkotiske stoff er sone 4. Tiltaka blir trappa opp: kort frå sone 1 til 2, kort pluss PIN frå 2 til 3, og kort pluss fingeravtrykk pluss PIN frå 3 til 4. Til slutt må systemet driftast -- dagleg kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar når roller endrar seg, handtering av tapte kort, og dokumentasjon av alle endringar. Eit adgangskontrollsystem er ikkje betre enn rutinane rundt det."},{"id":"sikkerhetsfag-4-1-n-quiz2","type":"exercise","exercise":{"id":"sikkerhetsfag-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på soneinndeling og drift:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"sikkerhetsfag-4-1-n-quiz2-q0","task":"Kva kjenneteiknar sone 4 (høgtryggleiksområde)?","options":[{"id":"a","text":"Strengaste tilgang med biometrisk kontroll og logging","isCorrect":true},{"id":"b","text":"Opent for alle besøkjande","isCorrect":false},{"id":"c","text":"Inga adgangskontroll","isCorrect":false},{"id":"d","text":"Berre behov for å registrere seg i ei bok","isCorrect":false}],"solution":"Sone 4 har strengaste tilgang, ofte med biometrisk kontroll, logging og personleg godkjenning -- til dømes pengekvelv og serverrom."},{"id":"sikkerhetsfag-4-1-n-quiz2-q1","task":"Kva markerer typisk overgangen mellom to soner?","options":[{"id":"a","text":"Eit skilt utan lås","isCorrect":false},{"id":"b","text":"Ein fysisk barriere som dør, port eller sluse","isCorrect":true},{"id":"c","text":"Eit teppe på golvet","isCorrect":false},{"id":"d","text":"Ingenting","isCorrect":false}],"solution":"Overgangen mellom soner blir markert med fysiske barrierar som dører, portar, sluser eller dreiesperrer, kombinert med adgangskontroll."},{"id":"sikkerhetsfag-4-1-n-quiz2-q2","task":"Kva er ei viktig administrasjonsoppgåve for eit adgangskontrollsystem?","options":[{"id":"a","text":"Å måle lesarane éin gong i året","isCorrect":false},{"id":"b","text":"Å la alle kort gjelde for alltid","isCorrect":false},{"id":"c","text":"Å oppdatere rettar når ein tilsett byter rolle og deaktivere tapte kort","isCorrect":true},{"id":"d","text":"Å dele kodar med besøkjande","isCorrect":false}],"solution":"Administrasjon inneber å opprette og deaktivere tilgangar, oppdatere rettar ved rolleendringar og handtere tapte eller stolne kort."}]}},{"id":"sikkerhetsfag-4-1-n-summary","type":"text","content":"## Oppsummering\n\n**Adgangskontroll** styrer kven som får tilgang. Dei vanlegaste systema er kortlesar, kodetastatur og biometri, som byggjer på tre kategoriar: noko du har, noko du veit og noko du er. **Tofaktorautentisering** kombinerer to av desse og gjev vesentleg høgare tryggleik.\n\n**Soneinndeling** trappar opp krava innover i eit bygg, frå sone 1 (offentleg) til sone 4 (høgtryggleik med biometri og logging), og overgangane blir markerte med fysiske barrierar. Sjukehus-dømet viste korleis tiltaka blir trappa opp sone for sone. Til slutt kjem tryggleiken an på god drift -- kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar og dokumentasjon."}],"exercises":[],"_meta":{"sourceHash":"154690cef7f5e0d7","translatedAt":"2026-06-21T09:38:48.038Z","model":"claude-code-agent","strings":48,"tm":{"5747cd2b86c7e3f8":"Adgangskontrollsystemer","b195b06d1ed59702":"Narrativ versjon","4ad8e3583aa0392c":"Ei forteljing om korleis vi styrer kven som slepp inn -- frå adgangskortet i lomma til fingeravtrykket på serverromsdøra, og soneinndelinga som bind det heile saman.","4c40137d1e286976":"gjennomfore adgangskontroll og overvaking i trad med regelverk og virksomhetens rutiner","9252b68fba97da10":"## Kven får komme inn?\n\nDu dreg adgangskortet ditt forbi ein lesar, det piper, og døra opnar seg. Eit lite augeblink du knapt tenkjer over -- men bak det ligg eit heilt fagfelt. **Adgangskontroll** handlar om å regulere kven som får tilgang til eit område, eit bygg eller ein informasjonsressurs, slik at berre autoriserte personar kjem inn der dei har rett til å vere.\n\nFor ein vektar er dette ei av dei viktigaste oppgåvene i kvardagen. God adgangskontroll vernar mot tjuveri og innbrot, varetek personleg tryggleik og gjev evakueringsoversikt, sikrar informasjon i serverrom og arkiv, og oppfyller lovkrav og forsikringskrav. I dette kapittelet skal vi sjå på dei ulike systema -- kort, kode og biometri -- og korleis soneinndeling og fleire faktorar blir kombinerte til solid tryggleik.","1e4814c1def95590":"## Tre måtar å bevise kven du er\n\nDet finst fleire typar adgangskontrollsystem, og kvar har sine styrkar og veikskapar. Den vanlegaste er **kortlesar og adgangskort** med RFID-brikke eller magnetstripe. Det er enkelt å administrere, kort kan sperrast raskt, og systemet loggar kven som har vore kvar. Ulempa er at kort kan mistast eller stelast, og at kortet ikkje beviser kven som faktisk brukar det.\n\nEit **kodetastatur** med PIN-kode er eit alternativ -- ingen fysisk gjenstand å miste, låg kostnad. Men kodar kan gløymast, delast, eller bli fanga opp ved skuldersurf, der nokon ser over skuldra di medan du tastar. Mot dette skjermar du tastaturet med kroppen og byter kode jamleg. **Biometriske system** brukar unike kroppslege kjenneteikn -- fingeravtrykk er mest utbreidd og kostnadseffektivt, medan irisgjenkjenning gjev svært høg tryggleik. Føremonen er at biometri ikkje kan mistast eller gløymast og er vanskeleg å forfalske, men det kostar meir og reiser personvernomsyn.\n\nLegg merke til eit mønster her, for det leier til eit nøkkelomgrep. Desse metodane byggjer på tre kategoriar: noko du **har** (kort), noko du **veit** (kode), og noko du **er** (biometri). **Tofaktorautentisering** (2FA) kombinerer to ulike av desse, til dømes kort pluss PIN. Det gjev vesentleg høgare tryggleik enn éin faktor åleine, fordi ein tjuv som finn kortet ditt likevel ikkje kjenner koden.","4d8a363b33ad9f0e":"Test deg sjølv på adgangssystem og tofaktorautentisering:","4097889236a2af26":"placeholder","5b29cb37fd956e08":"Kva er meint med tofaktorautentisering?","b9e6b57522eea5f4":"At ein brukar to ulike adgangskort","84c8f309a55de0a2":"At ein identifiserer seg med to forskjellige typar faktorar, som kort og PIN","806dc01b4bf7c23a":"At to personar må godkjenne samtidig","f007bca38e80dfe2":"At systemet har to serverar","117d115ade724fef":"Tofaktorautentisering kombinerer to ulike kategoriar: noko du har (kort), noko du veit (kode) eller noko du er (biometri). Det gjev mykje høgare tryggleik enn éin faktor.","dc28d30f2701979a":"Kva for ein biometrisk metode er mest utbreidd og kostnadseffektiv?","bc8a4b117935580b":"Irisgjenkjenning","28e0d870dfc814cd":"Stemmegjenkjenning","d6a748d29b50299e":"Fingeravtrykk","a96d03ab3c06561d":"Handgeometri","311cf87c0dacaa5c":"Fingeravtrykk er den mest utbreidde og kostnadseffektive biometriske metoden, med godt utvikla og rimeleg teknologi.","32ad6b687a312ee8":"Kva er skuldersurf?","10e0cd101158281f":"Ein biometrisk metode","3479169622f774ed":"Ein type adgangskort","bf273b39051ac581":"Eit alarmsystem","50182687b9c3c341":"At nokon ser over skuldra di medan du tastar inn ein kode","d652405a475c4463":"Skuldersurf er når nokon ser koden din medan du tastar. Du vernar deg ved å skjerme tastaturet, byte kode og kombinere med kort.","8fb92dae172ba788":"## Soner som styrer kor langt du slepp inn\n\nDet held ikkje å kontrollere berre ytterdøra. Eit bygg blir difor delt inn i **soner** med ulike tryggleiksnivå, slik at krava blir stramma til di djupare inn du kjem. **Sone 1** er offentleg område -- lobby og resepsjon, opent for alle men overvaka. **Sone 2** er kontrollert område som kontorlandskap, der det krevst adgangskort. **Sone 3** er avgrensa område som serverrom og sensitivt arkiv, der tofaktorautentisering blir tilrådd. Og **sone 4** er høgtryggleiksområde som pengekvelv og forskingslaboratorium, med biometrisk kontroll, logging og personleg godkjenning.\n\nSkilnaden mellom til dømes sone 2 og sone 4 ligg i tryggleiksnivå, verdien på det som blir verna, og talet på autentiseringsfaktorar. Overgangane mellom soner blir markerte med fysiske barrierar -- dører, portar, sluser eller dreiesperrer.\n\nTa eit sjukehus som døme. Hovudinngang og kafeteria er sone 1, sengepost og administrasjonskontor er sone 2 med kortlesar, operasjonsstover og legemiddellager er sone 3 med tofaktor, og serverrom for pasientjournalar og lager med narkotiske stoff er sone 4. Tiltaka blir trappa opp: kort frå sone 1 til 2, kort pluss PIN frå 2 til 3, og kort pluss fingeravtrykk pluss PIN frå 3 til 4. Til slutt må systemet driftast -- dagleg kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar når roller endrar seg, handtering av tapte kort, og dokumentasjon av alle endringar. Eit adgangskontrollsystem er ikkje betre enn rutinane rundt det.","f6333665583d4da0":"Test deg sjølv på soneinndeling og drift:","5f9726bde5a69a02":"Kva kjenneteiknar sone 4 (høgtryggleiksområde)?","1ba79694f35bd88f":"Strengaste tilgang med biometrisk kontroll og logging","4e5f52cff6311d73":"Opent for alle besøkjande","95ca7e4306b6c9f3":"Inga adgangskontroll","78142676855353b4":"Berre behov for å registrere seg i ei bok","22a3f02912cded05":"Sone 4 har strengaste tilgang, ofte med biometrisk kontroll, logging og personleg godkjenning -- til dømes pengekvelv og serverrom.","9b91d1d923f357a1":"Kva markerer typisk overgangen mellom to soner?","193f8d8ed354d933":"Eit skilt utan lås","acc5cdb85faff3ac":"Ein fysisk barriere som dør, port eller sluse","4401e74a5914f896":"Eit teppe på golvet","6ba933a4463d2c71":"Ingenting","d191e1e545c183f4":"Overgangen mellom soner blir markert med fysiske barrierar som dører, portar, sluser eller dreiesperrer, kombinert med adgangskontroll.","6768917b74f8512c":"Kva er ei viktig administrasjonsoppgåve for eit adgangskontrollsystem?","d7dc388a174d7eb2":"Å måle lesarane éin gong i året","550af12646acb665":"Å la alle kort gjelde for alltid","853b6b3b33fd1a6b":"Å oppdatere rettar når ein tilsett byter rolle og deaktivere tapte kort","42fcaccf89a67b03":"Å dele kodar med besøkjande","ad3dac55794731b9":"Administrasjon inneber å opprette og deaktivere tilgangar, oppdatere rettar ved rolleendringar og handtere tapte eller stolne kort.","4028165d33b7158d":"## Oppsummering\n\n**Adgangskontroll** styrer kven som får tilgang. Dei vanlegaste systema er kortlesar, kodetastatur og biometri, som byggjer på tre kategoriar: noko du har, noko du veit og noko du er. **Tofaktorautentisering** kombinerer to av desse og gjev vesentleg høgare tryggleik.\n\n**Soneinndeling** trappar opp krava innover i eit bygg, frå sone 1 (offentleg) til sone 4 (høgtryggleik med biometri og logging), og overgangane blir markerte med fysiske barrierar. Sjukehus-dømet viste korleis tiltaka blir trappa opp sone for sone. Til slutt kjem tryggleiken an på god drift -- kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar og dokumentasjon."}}}
+{
+  "id": "sikkerhetsfag-4-1-narrativ",
+  "courseId": "sikkerhetsfag",
+  "chapterNumber": "4.1",
+  "title": "Adgangskontrollsystemer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi styrer kven som slepp inn -- frå adgangskortet i lomma til fingeravtrykket på serverromsdøra, og soneinndelinga som bind det heile saman.",
+  "estimatedMinutes": 13,
+  "competenceGoals": [
+    "gjennomfore adgangskontroll og overvaking i trad med regelverk og virksomhetens rutiner"
+  ],
+  "linkedChapterId": "sikkerhetsfag-4-1",
+  "content": [
+    {
+      "id": "sikkerhetsfag-4-1-n-intro",
+      "type": "text",
+      "content": "## Kven får komme inn?\n\nDu dreg adgangskortet ditt forbi ein lesar, det piper, og døra opnar seg. Eit lite augeblink du knapt tenkjer over -- men bak det ligg eit heilt fagfelt. **Adgangskontroll** handlar om å regulere kven som får tilgang til eit område, eit bygg eller ein informasjonsressurs, slik at berre autoriserte personar kjem inn der dei har rett til å vere.\n\nFor ein vektar er dette ei av dei viktigaste oppgåvene i kvardagen. God adgangskontroll vernar mot tjuveri og innbrot, varetek personleg tryggleik og gjev evakueringsoversikt, sikrar informasjon i serverrom og arkiv, og oppfyller lovkrav og forsikringskrav. I dette kapittelet skal vi sjå på dei ulike systema -- kort, kode og biometri -- og korleis soneinndeling og fleire faktorar blir kombinerte til solid tryggleik."
+    },
+    {
+      "id": "sikkerhetsfag-4-1-n-section1",
+      "type": "text",
+      "content": "## Tre måtar å bevise kven du er\n\nDet finst fleire typar adgangskontrollsystem, og kvar har sine styrkar og veikskapar. Den vanlegaste er **kortlesar og adgangskort** med RFID-brikke eller magnetstripe. Det er enkelt å administrere, kort kan sperrast raskt, og systemet loggar kven som har vore kvar. Ulempa er at kort kan mistast eller stelast, og at kortet ikkje beviser kven som faktisk brukar det.\n\nEit **kodetastatur** med PIN-kode er eit alternativ -- ingen fysisk gjenstand å miste, låg kostnad. Men kodar kan gløymast, delast, eller bli fanga opp ved skuldersurf, der nokon ser over skuldra di medan du tastar. Mot dette skjermar du tastaturet med kroppen og byter kode jamleg. **Biometriske system** brukar unike kroppslege kjenneteikn -- fingeravtrykk er mest utbreidd og kostnadseffektivt, medan irisgjenkjenning gjev svært høg tryggleik. Føremonen er at biometri ikkje kan mistast eller gløymast og er vanskeleg å forfalske, men det kostar meir og reiser personvernomsyn.\n\nLegg merke til eit mønster her, for det leier til eit nøkkelomgrep. Desse metodane byggjer på tre kategoriar: noko du **har** (kort), noko du **veit** (kode), og noko du **er** (biometri). **Tofaktorautentisering** (2FA) kombinerer to ulike av desse, til dømes kort pluss PIN. Det gjev vesentleg høgare tryggleik enn éin faktor åleine, fordi ein tjuv som finn kortet ditt likevel ikkje kjenner koden."
+    },
+    {
+      "id": "sikkerhetsfag-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "sikkerhetsfag-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på adgangssystem og tofaktorautentisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "sikkerhetsfag-4-1-n-quiz1-q0",
+            "task": "Kva er meint med tofaktorautentisering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At ein identifiserer seg med to forskjellige typar faktorar, som kort og PIN",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At ein brukar to ulike adgangskort",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At to personar må godkjenne samtidig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At systemet har to serverar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tofaktorautentisering kombinerer to ulike kategoriar: noko du har (kort), noko du veit (kode) eller noko du er (biometri). Det gjev mykje høgare tryggleik enn éin faktor."
+          },
+          {
+            "id": "sikkerhetsfag-4-1-n-quiz1-q1",
+            "task": "Kva for ein biometrisk metode er mest utbreidd og kostnadseffektiv?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Irisgjenkjenning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fingeravtrykk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Stemmegjenkjenning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Handgeometri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fingeravtrykk er den mest utbreidde og kostnadseffektive biometriske metoden, med godt utvikla og rimeleg teknologi."
+          },
+          {
+            "id": "sikkerhetsfag-4-1-n-quiz1-q2",
+            "task": "Kva er skuldersurf?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein biometrisk metode",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein type adgangskort",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At nokon ser over skuldra di medan du tastar inn ein kode",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Eit alarmsystem",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skuldersurf er når nokon ser koden din medan du tastar. Du vernar deg ved å skjerme tastaturet, byte kode og kombinere med kort."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sikkerhetsfag-4-1-n-section2",
+      "type": "text",
+      "content": "## Soner som styrer kor langt du slepp inn\n\nDet held ikkje å kontrollere berre ytterdøra. Eit bygg blir difor delt inn i **soner** med ulike tryggleiksnivå, slik at krava blir stramma til di djupare inn du kjem. **Sone 1** er offentleg område -- lobby og resepsjon, opent for alle men overvaka. **Sone 2** er kontrollert område som kontorlandskap, der det krevst adgangskort. **Sone 3** er avgrensa område som serverrom og sensitivt arkiv, der tofaktorautentisering blir tilrådd. Og **sone 4** er høgtryggleiksområde som pengekvelv og forskingslaboratorium, med biometrisk kontroll, logging og personleg godkjenning.\n\nSkilnaden mellom til dømes sone 2 og sone 4 ligg i tryggleiksnivå, verdien på det som blir verna, og talet på autentiseringsfaktorar. Overgangane mellom soner blir markerte med fysiske barrierar -- dører, portar, sluser eller dreiesperrer.\n\nTa eit sjukehus som døme. Hovudinngang og kafeteria er sone 1, sengepost og administrasjonskontor er sone 2 med kortlesar, operasjonsstover og legemiddellager er sone 3 med tofaktor, og serverrom for pasientjournalar og lager med narkotiske stoff er sone 4. Tiltaka blir trappa opp: kort frå sone 1 til 2, kort pluss PIN frå 2 til 3, og kort pluss fingeravtrykk pluss PIN frå 3 til 4. Til slutt må systemet driftast -- dagleg kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar når roller endrar seg, handtering av tapte kort, og dokumentasjon av alle endringar. Eit adgangskontrollsystem er ikkje betre enn rutinane rundt det."
+    },
+    {
+      "id": "sikkerhetsfag-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "sikkerhetsfag-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på soneinndeling og drift:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "sikkerhetsfag-4-1-n-quiz2-q0",
+            "task": "Kva kjenneteiknar sone 4 (høgtryggleiksområde)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Opent for alle besøkjande",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Inga adgangskontroll",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre behov for å registrere seg i ei bok",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Strengaste tilgang med biometrisk kontroll og logging",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sone 4 har strengaste tilgang, ofte med biometrisk kontroll, logging og personleg godkjenning -- til dømes pengekvelv og serverrom."
+          },
+          {
+            "id": "sikkerhetsfag-4-1-n-quiz2-q1",
+            "task": "Kva markerer typisk overgangen mellom to soner?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein fysisk barriere som dør, port eller sluse",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eit skilt utan lås",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit teppe på golvet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overgangen mellom soner blir markert med fysiske barrierar som dører, portar, sluser eller dreiesperrer, kombinert med adgangskontroll."
+          },
+          {
+            "id": "sikkerhetsfag-4-1-n-quiz2-q2",
+            "task": "Kva er ei viktig administrasjonsoppgåve for eit adgangskontrollsystem?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å måle lesarane éin gong i året",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å oppdatere rettar når ein tilsett byter rolle og deaktivere tapte kort",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å la alle kort gjelde for alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å dele kodar med besøkjande",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Administrasjon inneber å opprette og deaktivere tilgangar, oppdatere rettar ved rolleendringar og handtere tapte eller stolne kort."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sikkerhetsfag-4-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Adgangskontroll** styrer kven som får tilgang. Dei vanlegaste systema er kortlesar, kodetastatur og biometri, som byggjer på tre kategoriar: noko du har, noko du veit og noko du er. **Tofaktorautentisering** kombinerer to av desse og gjev vesentleg høgare tryggleik.\n\n**Soneinndeling** trappar opp krava innover i eit bygg, frå sone 1 (offentleg) til sone 4 (høgtryggleik med biometri og logging), og overgangane blir markerte med fysiske barrierar. Sjukehus-dømet viste korleis tiltaka blir trappa opp sone for sone. Til slutt kjem tryggleiken an på god drift -- kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar og dokumentasjon."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "154690cef7f5e0d7",
+    "translatedAt": "2026-06-21T09:38:48.038Z",
+    "model": "claude-code-agent",
+    "strings": 48,
+    "tm": {
+      "5747cd2b86c7e3f8": "Adgangskontrollsystemer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "4ad8e3583aa0392c": "Ei forteljing om korleis vi styrer kven som slepp inn -- frå adgangskortet i lomma til fingeravtrykket på serverromsdøra, og soneinndelinga som bind det heile saman.",
+      "4c40137d1e286976": "gjennomfore adgangskontroll og overvaking i trad med regelverk og virksomhetens rutiner",
+      "9252b68fba97da10": "## Kven får komme inn?\n\nDu dreg adgangskortet ditt forbi ein lesar, det piper, og døra opnar seg. Eit lite augeblink du knapt tenkjer over -- men bak det ligg eit heilt fagfelt. **Adgangskontroll** handlar om å regulere kven som får tilgang til eit område, eit bygg eller ein informasjonsressurs, slik at berre autoriserte personar kjem inn der dei har rett til å vere.\n\nFor ein vektar er dette ei av dei viktigaste oppgåvene i kvardagen. God adgangskontroll vernar mot tjuveri og innbrot, varetek personleg tryggleik og gjev evakueringsoversikt, sikrar informasjon i serverrom og arkiv, og oppfyller lovkrav og forsikringskrav. I dette kapittelet skal vi sjå på dei ulike systema -- kort, kode og biometri -- og korleis soneinndeling og fleire faktorar blir kombinerte til solid tryggleik.",
+      "1e4814c1def95590": "## Tre måtar å bevise kven du er\n\nDet finst fleire typar adgangskontrollsystem, og kvar har sine styrkar og veikskapar. Den vanlegaste er **kortlesar og adgangskort** med RFID-brikke eller magnetstripe. Det er enkelt å administrere, kort kan sperrast raskt, og systemet loggar kven som har vore kvar. Ulempa er at kort kan mistast eller stelast, og at kortet ikkje beviser kven som faktisk brukar det.\n\nEit **kodetastatur** med PIN-kode er eit alternativ -- ingen fysisk gjenstand å miste, låg kostnad. Men kodar kan gløymast, delast, eller bli fanga opp ved skuldersurf, der nokon ser over skuldra di medan du tastar. Mot dette skjermar du tastaturet med kroppen og byter kode jamleg. **Biometriske system** brukar unike kroppslege kjenneteikn -- fingeravtrykk er mest utbreidd og kostnadseffektivt, medan irisgjenkjenning gjev svært høg tryggleik. Føremonen er at biometri ikkje kan mistast eller gløymast og er vanskeleg å forfalske, men det kostar meir og reiser personvernomsyn.\n\nLegg merke til eit mønster her, for det leier til eit nøkkelomgrep. Desse metodane byggjer på tre kategoriar: noko du **har** (kort), noko du **veit** (kode), og noko du **er** (biometri). **Tofaktorautentisering** (2FA) kombinerer to ulike av desse, til dømes kort pluss PIN. Det gjev vesentleg høgare tryggleik enn éin faktor åleine, fordi ein tjuv som finn kortet ditt likevel ikkje kjenner koden.",
+      "4d8a363b33ad9f0e": "Test deg sjølv på adgangssystem og tofaktorautentisering:",
+      "4097889236a2af26": "placeholder",
+      "5b29cb37fd956e08": "Kva er meint med tofaktorautentisering?",
+      "b9e6b57522eea5f4": "At ein brukar to ulike adgangskort",
+      "84c8f309a55de0a2": "At ein identifiserer seg med to forskjellige typar faktorar, som kort og PIN",
+      "806dc01b4bf7c23a": "At to personar må godkjenne samtidig",
+      "f007bca38e80dfe2": "At systemet har to serverar",
+      "117d115ade724fef": "Tofaktorautentisering kombinerer to ulike kategoriar: noko du har (kort), noko du veit (kode) eller noko du er (biometri). Det gjev mykje høgare tryggleik enn éin faktor.",
+      "dc28d30f2701979a": "Kva for ein biometrisk metode er mest utbreidd og kostnadseffektiv?",
+      "bc8a4b117935580b": "Irisgjenkjenning",
+      "28e0d870dfc814cd": "Stemmegjenkjenning",
+      "d6a748d29b50299e": "Fingeravtrykk",
+      "a96d03ab3c06561d": "Handgeometri",
+      "311cf87c0dacaa5c": "Fingeravtrykk er den mest utbreidde og kostnadseffektive biometriske metoden, med godt utvikla og rimeleg teknologi.",
+      "32ad6b687a312ee8": "Kva er skuldersurf?",
+      "10e0cd101158281f": "Ein biometrisk metode",
+      "3479169622f774ed": "Ein type adgangskort",
+      "bf273b39051ac581": "Eit alarmsystem",
+      "50182687b9c3c341": "At nokon ser over skuldra di medan du tastar inn ein kode",
+      "d652405a475c4463": "Skuldersurf er når nokon ser koden din medan du tastar. Du vernar deg ved å skjerme tastaturet, byte kode og kombinere med kort.",
+      "8fb92dae172ba788": "## Soner som styrer kor langt du slepp inn\n\nDet held ikkje å kontrollere berre ytterdøra. Eit bygg blir difor delt inn i **soner** med ulike tryggleiksnivå, slik at krava blir stramma til di djupare inn du kjem. **Sone 1** er offentleg område -- lobby og resepsjon, opent for alle men overvaka. **Sone 2** er kontrollert område som kontorlandskap, der det krevst adgangskort. **Sone 3** er avgrensa område som serverrom og sensitivt arkiv, der tofaktorautentisering blir tilrådd. Og **sone 4** er høgtryggleiksområde som pengekvelv og forskingslaboratorium, med biometrisk kontroll, logging og personleg godkjenning.\n\nSkilnaden mellom til dømes sone 2 og sone 4 ligg i tryggleiksnivå, verdien på det som blir verna, og talet på autentiseringsfaktorar. Overgangane mellom soner blir markerte med fysiske barrierar -- dører, portar, sluser eller dreiesperrer.\n\nTa eit sjukehus som døme. Hovudinngang og kafeteria er sone 1, sengepost og administrasjonskontor er sone 2 med kortlesar, operasjonsstover og legemiddellager er sone 3 med tofaktor, og serverrom for pasientjournalar og lager med narkotiske stoff er sone 4. Tiltaka blir trappa opp: kort frå sone 1 til 2, kort pluss PIN frå 2 til 3, og kort pluss fingeravtrykk pluss PIN frå 3 til 4. Til slutt må systemet driftast -- dagleg kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar når roller endrar seg, handtering av tapte kort, og dokumentasjon av alle endringar. Eit adgangskontrollsystem er ikkje betre enn rutinane rundt det.",
+      "f6333665583d4da0": "Test deg sjølv på soneinndeling og drift:",
+      "5f9726bde5a69a02": "Kva kjenneteiknar sone 4 (høgtryggleiksområde)?",
+      "1ba79694f35bd88f": "Strengaste tilgang med biometrisk kontroll og logging",
+      "4e5f52cff6311d73": "Opent for alle besøkjande",
+      "95ca7e4306b6c9f3": "Inga adgangskontroll",
+      "78142676855353b4": "Berre behov for å registrere seg i ei bok",
+      "22a3f02912cded05": "Sone 4 har strengaste tilgang, ofte med biometrisk kontroll, logging og personleg godkjenning -- til dømes pengekvelv og serverrom.",
+      "9b91d1d923f357a1": "Kva markerer typisk overgangen mellom to soner?",
+      "193f8d8ed354d933": "Eit skilt utan lås",
+      "acc5cdb85faff3ac": "Ein fysisk barriere som dør, port eller sluse",
+      "4401e74a5914f896": "Eit teppe på golvet",
+      "6ba933a4463d2c71": "Ingenting",
+      "d191e1e545c183f4": "Overgangen mellom soner blir markert med fysiske barrierar som dører, portar, sluser eller dreiesperrer, kombinert med adgangskontroll.",
+      "6768917b74f8512c": "Kva er ei viktig administrasjonsoppgåve for eit adgangskontrollsystem?",
+      "d7dc388a174d7eb2": "Å måle lesarane éin gong i året",
+      "550af12646acb665": "Å la alle kort gjelde for alltid",
+      "853b6b3b33fd1a6b": "Å oppdatere rettar når ein tilsett byter rolle og deaktivere tapte kort",
+      "42fcaccf89a67b03": "Å dele kodar med besøkjande",
+      "ad3dac55794731b9": "Administrasjon inneber å opprette og deaktivere tilgangar, oppdatere rettar ved rolleendringar og handtere tapte eller stolne kort.",
+      "4028165d33b7158d": "## Oppsummering\n\n**Adgangskontroll** styrer kven som får tilgang. Dei vanlegaste systema er kortlesar, kodetastatur og biometri, som byggjer på tre kategoriar: noko du har, noko du veit og noko du er. **Tofaktorautentisering** kombinerer to av desse og gjev vesentleg høgare tryggleik.\n\n**Soneinndeling** trappar opp krava innover i eit bygg, frå sone 1 (offentleg) til sone 4 (høgtryggleik med biometri og logging), og overgangane blir markerte med fysiske barrierar. Sjukehus-dømet viste korleis tiltaka blir trappa opp sone for sone. Til slutt kjem tryggleiken an på god drift -- kontroll av lesarar, oppfølging av loggar, administrasjon av tilgangar og dokumentasjon."
+    }
+  }
+}

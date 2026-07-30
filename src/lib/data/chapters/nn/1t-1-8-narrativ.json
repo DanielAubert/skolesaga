@@ -1,1 +1,872 @@
-{"id":"1t-1-8-narrativ","courseId":"1t","chapterNumber":"1.8","title":"Polynomdivisjon - introduksjon","subtitle":"Narrativ versjon","description":"Ein fortelling om korleis du deler polynomer på kvarandre -- frå enkle monodivisjonar til fullstendig lang divisjon med rest, forklart steg for steg som ein naturleg forlengelse av vanlleg divisjon med tal.","estimatedMinutes":40,"competenceGoals":["forklare polynomdivisjon","utføre enkel polynomdivisjon"],"linkedChapterId":"1t-1-8","content":[{"id":"1t-1-8-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-8-narrativ-del1.mp3","description":"Lydfil som les opp teksten fram til første quiz."},{"id":"1t-1-8-n-intro","type":"text","content":"## Divisjon med bokstavar\n\nTenk tilbake til då du lærde lang divisjon med tal. Du sette opp dividenden, plasserte divisoren til venstre, og jobba deg gjennom siffera eitt om gangen. Polynomdivisjon er nøyaktig det same -- berre med algebraiske uttrykk i staden for tal.\n\nNår vi deler eit polynom $P(x)$ på eit anna polynom $D(x)$, får vi eit resultat som følgjer ein velkjend struktur:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nHer er $P(x)$ **dividenden** -- det polynomet vi deler. $D(x)$ er **divisoren** -- det vi deler på. $Q(x)$ er **kvotienten** -- svaret vårt. Og $R(x)$ er **resten**, som kan vere null dersom divisjonen går opp.\n\nDenna samanhengen er heilt lik den du kjenner frå vanlege tal. Når du deler $17$ på $5$, får du kvotienten $3$ og resten $2$, fordi $17 = 5 \\cdot 3 + 2$. Med polynomer fungerer det på akkurat same måte -- vi berre byter ut tala med uttrykk som inneheld $x$. I dette kapitlet skal vi byggje opp ferdigheitene steg for steg, frå dei enklaste delingane til full lang divisjon."},{"id":"1t-1-8-n-section1","type":"text","content":"## Divisjon av monomar -- potensreglane i aksjon\n\nLa oss begynne med det aller enklaste: å dele eitt monom på eit anna. Eit **monom** er eit uttrykk med berre eitt ledd, til dømes $6x^3$ eller $2x$.\n\nNår du skal dele $\\frac{6x^3}{2x}$, gjer du to ting: du deler koeffisientane ($\\frac{6}{2} = 3$) og du bruker potensregelen for divisjon på variabeldelen ($x^{3-1} = x^2$). Resultatet er $3x^2$.\n\nKorfor fungerer dette? Fordi $x^3 = x \\cdot x \\cdot x$ og $x = x$. Når du deler, stryker du dei felles faktorane: $\\frac{x \\cdot x \\cdot x}{x} = x \\cdot x = x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er berre ein snarveg for denne prosessen.\n\nLa oss ta nokre fleire døme. $\\frac{8x^4}{2x} = 4x^3$ -- del koeffisientane ($8/2 = 4$) og trekk frå eksponentane ($4 - 1 = 3$). $\\frac{12x^5}{4x^2} = 3x^3$. $\\frac{15x^3}{5x^3} = 3$ -- når eksponentane er like, forsvinn $x$ heilt, og vi sit igjen med berre eit tal. Og $\\frac{-10x^6}{2x^2} = -5x^4$ -- hugs at fortegnreglane gjeld som vanlegt.\n\nDet finst òg eit spesialtilfelle som er verdt å merkje seg: $\\frac{x^n}{x^n} = x^0 = 1$. Kvar storleik delt på seg sjølv gir $1$. Denne enkle observasjonen er grunnlaget for alt som følgjer."},{"id":"1t-1-8-n-quiz1","type":"exercise","exercise":{"id":"1t-1-8-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på monodivisjon og potensregler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-8-n-quiz1-q0","task":"Kva blir $\\frac{12x^5}{4x^2}$?","options":[{"id":"a","text":"$3x^3$","isCorrect":true},{"id":"b","text":"$3x^7$","isCorrect":false},{"id":"c","text":"$8x^3$","isCorrect":false},{"id":"d","text":"$3x^{2{,}5}$","isCorrect":false}],"solution":"Vi deler koeffisientane: $12 / 4 = 3$. Deretter trekk vi frå eksponentane: $x^{5-2} = x^3$. Svaret er $3x^3$."},{"id":"1t-1-8-n-quiz1-q1","task":"Kva blir $\\frac{-10x^6}{2x^2}$?","options":[{"id":"a","text":"$-5x^3$","isCorrect":false},{"id":"b","text":"$5x^4$","isCorrect":false},{"id":"c","text":"$-5x^4$","isCorrect":true},{"id":"d","text":"$-8x^4$","isCorrect":false}],"solution":"Koeffisientane: $-10 / 2 = -5$. Eksponentane: $x^{6-2} = x^4$. Hugs at minus delt på pluss gir minus. Svaret er $-5x^4$."},{"id":"1t-1-8-n-quiz1-q2","task":"Kva blir $\\frac{15x^3}{5x^3}$?","options":[{"id":"a","text":"$3x$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$3$","isCorrect":true}],"solution":"Koeffisientane: $15 / 5 = 3$. Eksponentane: $x^{3-3} = x^0 = 1$. Når eksponentane er like, forsvinn $x$ heilt. Svaret er $3 \\cdot 1 = 3$."},{"id":"1t-1-8-n-quiz1-q3","task":"Kva potensregel brukar vi når vi deler $x^m$ på $x^n$?","options":[{"id":"a","text":"$x^m \\cdot x^n = x^{m+n}$","isCorrect":false},{"id":"b","text":"$\\frac{x^m}{x^n} = x^{m \\cdot n}$","isCorrect":false},{"id":"c","text":"$\\frac{x^m}{x^n} = x^{m-n}$","isCorrect":true},{"id":"d","text":"$\\frac{x^m}{x^n} = x^{n-m}$","isCorrect":false}],"solution":"Potensregelen for divisjon seier at $\\frac{x^m}{x^n} = x^{m-n}$. Vi trekk eksponenten i nemnaren frå eksponenten i tellaren. Til dømes: $\\frac{x^5}{x^2} = x^{5-2} = x^3$."}]}},{"id":"1t-1-8-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-8-narrativ-del2.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-8-n-section2","type":"text","content":"## Dele eit polynom på eit monom -- ledd for ledd\n\nNo som vi mestrar monodivisjon, er neste steget å dele eit heilt polynom på eit enkelt monom. Trikset er overraskande greitt: du deler **kvart ledd** i polynomet for seg.\n\nRegelen er:\n\n$$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$$\n\nDette er det same prinsippet som at $\\frac{10 + 5}{5} = \\frac{10}{5} + \\frac{5}{5} = 2 + 1 = 3$.\n\nLa oss prøve med $\\frac{6x^3 + 4x^2 - 2x}{2x}$. Vi deler kvar av dei tre ledda på $2x$:\n\n$$\\frac{6x^3}{2x} + \\frac{4x^2}{2x} - \\frac{2x}{2x} = 3x^2 + 2x - 1$$\n\nKvart ledd blir handsama som ein sjølvstendig monodivisjon. Første ledd: $6x^3 / 2x = 3x^2$. Andre ledd: $4x^2 / 2x = 2x$. Tredje ledd: $2x / 2x = 1$.\n\nHer er eit døme til: $\\frac{9x^3 - 6x^2 + 3x}{3x}$. Vi tek ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$.\n\nOg endå eitt: $\\frac{x^4 + x^3 + x^2}{x^2}$. Her er $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$.\n\nLegg merke til at denne metoden alltid fungerer når divisoren er eit monom. Men kva gjer vi når òg divisoren har fleire ledd, som til dømes $(x + 2)$? Då treng vi eit kraftigare verktøy: **lang divisjon**."},{"id":"1t-1-8-n-quiz2","type":"exercise","exercise":{"id":"1t-1-8-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på polynom delt på monom:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-8-n-quiz2-q0","task":"Kva blir $\\frac{8x^2 + 4x}{2x}$?","options":[{"id":"a","text":"$4x^2 + 2$","isCorrect":false},{"id":"b","text":"$4x + 2$","isCorrect":true},{"id":"c","text":"$6x$","isCorrect":false},{"id":"d","text":"$4x + 4$","isCorrect":false}],"solution":"Vi delar kvart ledd for seg: $\\frac{8x^2}{2x} = 4x$ og $\\frac{4x}{2x} = 2$. Svaret er $4x + 2$."},{"id":"1t-1-8-n-quiz2-q1","task":"Kva regel gjer at vi kan dela kvart ledd i tellaren for seg?","options":[{"id":"a","text":"$\\frac{a \\cdot b}{c} = \\frac{a}{c} \\cdot \\frac{b}{c}$","isCorrect":false},{"id":"b","text":"$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$","isCorrect":true},{"id":"c","text":"$\\frac{a}{b + c} = \\frac{a}{b} + \\frac{a}{c}$","isCorrect":false},{"id":"d","text":"$\\frac{a + b}{c} = \\frac{a + b}{c}$ (kan ikkje forenklas)","isCorrect":false}],"solution":"Regelen er $\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$. Vi kan dela kvart ledd i tellaren på nemnaren separat. Merk at dette IKKJE fungerer den andre vegen -- vi kan ikkje splitte nemnaren på same måte."},{"id":"1t-1-8-n-quiz2-q2","task":"Kva blir $\\frac{9x^3 - 6x^2 + 3x}{3x}$?","options":[{"id":"a","text":"$3x^2 - 2x + 1$","isCorrect":true},{"id":"b","text":"$3x^3 - 2x^2 + x$","isCorrect":false},{"id":"c","text":"$3x^2 - 6x + 3$","isCorrect":false},{"id":"d","text":"$3x^2 - 2x$","isCorrect":false}],"solution":"Vi delar ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$."},{"id":"1t-1-8-n-quiz2-q3","task":"Kva blir $\\frac{x^4 + x^3 + x^2}{x^2}$?","options":[{"id":"a","text":"$x^2 + x$","isCorrect":false},{"id":"b","text":"$x^6 + x^5 + x^4$","isCorrect":false},{"id":"c","text":"$x^2 + x + 1$","isCorrect":true},{"id":"d","text":"$x^2 + x + x^0$","isCorrect":false}],"solution":"Ledd for ledd: $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$. Merk at alternativ d) skriv $x^0$ i staden for $1$, men $x^0 = 1$ så dette er teknisk sett likt -- likevel skriv vi alltid $1$, ikkje $x^0$."}]}},{"id":"1t-1-8-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-8-narrativ-del3.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-8-n-section3","type":"text","content":"## Lang divisjon av polynomar -- steg for steg\n\nNå er vi klare for hovudteknikken: **polynomdivisjon med lang divisjon**. Metoden liknar på vanleg lang divisjon med tal, og ho fylgjer fire steg som gjentertast til vi er ferdige.\n\n**Framgangsmåten:**\n1. Del det første leddet i dividenden på det første leddet i divisoren.\n2. Gang svaret med heile divisoren.\n3. Trekk frå resultatet.\n4. Gjenta til graden av resten er lågare enn graden av divisoren.\n\nLa oss gå gjennom eit konkret døme: $(x^2 + 5x + 6) : (x + 2)$.\n\n**Steg 1:** Vi ser på det første leddet i dividenden, $x^2$, og delar det på det første leddet i divisoren, $x$. Vi får $\\frac{x^2}{x} = x$. Dette er det første leddet i kvotienten.\n\n**Steg 2:** Vi gangmultipliserer $x$ med heile divisoren $(x + 2)$: $x \\cdot (x + 2) = x^2 + 2x$.\n\n**Steg 3:** Vi trekk frå: $(x^2 + 5x + 6) - (x^2 + 2x) = 3x + 6$. Nå arbeider vi vidare med $3x + 6$.\n\n**Steg 4:** Vi delar $3x$ på $x$: $\\frac{3x}{x} = 3$. So gangmultipliserer vi $3$ med $(x + 2)$: $3x + 6$. Vi trekk frå: $(3x + 6) - (3x + 6) = 0$.\n\nResten er $0$, så divisjonen går opp! Svaret er $(x^2 + 5x + 6) : (x + 2) = x + 3$.\n\nVi kan kontrollera: $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$. Stemmer! Denne kontrollen er eit flott verktøy -- du kan alltid kontrollera svaret ditt ved å gangmultiplisera kvotienten med divisoren og leggja til eventuell rest."},{"id":"1t-1-8-n-quiz3","type":"exercise","exercise":{"id":"1t-1-8-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på lang divisjon av polynomar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-8-n-quiz3-q0","task":"Kva er det første steget når du utfører $(x^2 + 7x + 12) : (x + 3)$?","options":[{"id":"a","text":"Gang $x^2$ med $(x + 3)$","isCorrect":false},{"id":"b","text":"Trekk $3$ frå $12$","isCorrect":false},{"id":"c","text":"Del $x^2 + 7x$ på $x + 3$","isCorrect":false},{"id":"d","text":"Del $x^2$ på $x$ og få $x$","isCorrect":true}],"solution":"Det første steget i lang divisjon er alltid å dela det første leddet i dividenden ($x^2$) på det første leddet i divisoren ($x$). Det gir $x$, som blir det første leddet i kvotienten."},{"id":"1t-1-8-n-quiz3-q1","task":"Kva er kvotienten når $(x^2 + 5x + 6)$ delast på $(x + 2)$?","options":[{"id":"a","text":"$x + 2$","isCorrect":false},{"id":"b","text":"$x + 3$","isCorrect":true},{"id":"c","text":"$x + 6$","isCorrect":false},{"id":"d","text":"$x^2 + 3$","isCorrect":false}],"solution":"Steg 1: $x^2 / x = x$. Gang: $x(x+2) = x^2 + 2x$. Trekk frå: $(x^2+5x+6)-(x^2+2x) = 3x+6$. Steg 2: $3x / x = 3$. Gang: $3(x+2) = 3x+6$. Trekk frå: $0$. Kvotienten er $x + 3$."},{"id":"1t-1-8-n-quiz3-q2","task":"I lang divisjon av polynomar, når stoppar vi prosessen?","options":[{"id":"a","text":"Når resten er eit positivt tal","isCorrect":false},{"id":"b","text":"Når vi har gjort like mange rundar som graden av dividenden","isCorrect":false},{"id":"c","text":"Når graden av resten er lågare enn graden av divisoren","isCorrect":true},{"id":"d","text":"Når resten er $0$","isCorrect":false}],"solution":"Vi stoppar når graden av resten er lågare enn graden av divisoren. Resten $0$ er eit spesialtilfelle av dette (divisjonen går opp), men vi stoppar også ved ein rest som $2$ eller $3x+1$, så lenge den har lågare grad enn divisoren."},{"id":"1t-1-8-n-quiz3-q3","task":"Korleis kontrollerer du at svaret på ein polynomdivisjon er riktig?","options":[{"id":"a","text":"Set inn $x = 0$ i kvotienten","isCorrect":false},{"id":"b","text":"Gang kvotienten med divisoren og legg til resten -- du skal få dividenden","isCorrect":true},{"id":"c","text":"Divider dividenden på kvotienten -- du skal få divisoren","isCorrect":false},{"id":"d","text":"Sjekk at graden av kvotienten er $1$","isCorrect":false}],"solution":"Kontrollen byggjer på formelen $P(x) = D(x) \\cdot Q(x) + R(x)$. Gang kvotienten med divisoren og legg til resten. Viss du får tilbake dividenden, er svaret riktig."}]}},{"id":"1t-1-8-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-8-narrativ-del4.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-8-n-section4","type":"text","content":"## Når divisjonen ikkje går opp -- rest\n\nIkkje alle polynomdivisjonar går opp. Akkurat som $17 : 5 = 3$ med rest $2$, kan vi få ein rest også med polynom. Når resten ikkje er null, skriv vi svaret på forma:\n\n$$\\frac{P(x)}{D(x)} = Q(x) + \\frac{R(x)}{D(x)}$$\n\nLa oss sjå på $(x^2 + 5x + 8) : (x + 2)$.\n\nVi startar som for. $\\frac{x^2}{x} = x$. Gang: $x(x + 2) = x^2 + 2x$. Trekk frå: $(x^2 + 5x + 8) - (x^2 + 2x) = 3x + 8$.\n\nNeste runde: $\\frac{3x}{x} = 3$. Gang: $3(x + 2) = 3x + 6$. Trekk frå: $(3x + 8) - (3x + 6) = 2$.\n\nNo har vi ein rest på $2$. Sidan graden av resten ($0$, fordi $2$ er ein konstant) er lågare enn graden av divisoren ($1$, fordi $x + 2$ er førstegrads), stoppar vi her.\n\nSvaret skrivast: $(x^2 + 5x + 8) : (x + 2) = x + 3 + \\frac{2}{x + 2}$\n\nLa oss sjekke med formelen $P(x) = D(x) \\cdot Q(x) + R(x)$: $(x + 2)(x + 3) + 2 = x^2 + 5x + 6 + 2 = x^2 + 5x + 8$. Stemmer!\n\nHer er eit døme til: $(2x^2 + 5x + 1) : (x + 2)$. Første runde: $\\frac{2x^2}{x} = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $x + 1$. Andre runde: $\\frac{x}{x} = 1$. Gang: $1 \\cdot (x + 2) = x + 2$. Trekk frå: $(x + 1) - (x + 2) = -1$. Svaret er $2x + 1$ med rest $-1$."},{"id":"1t-1-8-n-quiz4","type":"exercise","exercise":{"id":"1t-1-8-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på polynomdivisjon med rest:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-8-n-quiz4-q0","task":"Kva er resten når $(x^2 + 4x + 5)$ blir delt på $(x + 1)$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$2$","isCorrect":true},{"id":"d","text":"$5$","isCorrect":false}],"solution":"Vi utfører lang divisjon. $x^2 / x = x$. Gang: $x(x+1) = x^2 + x$. Trekk frå: $3x + 5$. Neste: $3x / x = 3$. Gang: $3(x+1) = 3x + 3$. Trekk frå: $(3x+5)-(3x+3) = 2$. Resten er $2$."},{"id":"1t-1-8-n-quiz4-q1","task":"Korleis skrivast svaret når $(x^2 + 5x + 8)$ blir delt på $(x + 2)$ og resten ikkje er null?","options":[{"id":"a","text":"$x + 3$ rest $2$","isCorrect":false},{"id":"b","text":"$x + 3 + \\frac{2}{x + 2}$","isCorrect":true},{"id":"c","text":"$\\frac{x + 3}{x + 2} + 2$","isCorrect":false},{"id":"d","text":"$(x + 3)(x + 2) + 2$","isCorrect":false}],"solution":"Når divisjonen ikkje går opp, skriv vi svaret som $Q(x) + \\frac{R(x)}{D(x)}$. Her er kvotienten $x + 3$, resten $2$, og divisoren $(x + 2)$, så svaret er $x + 3 + \\frac{2}{x + 2}$."},{"id":"1t-1-8-n-quiz4-q2","task":"Kva er kvotienten og resten når $(2x^2 + 5x + 1)$ blir delt på $(x + 2)$?","options":[{"id":"a","text":"Kvotient $2x + 1$, rest $-1$","isCorrect":true},{"id":"b","text":"Kvotient $2x + 1$, rest $1$","isCorrect":false},{"id":"c","text":"Kvotient $2x + 9$, rest $0$","isCorrect":false},{"id":"d","text":"Kvotient $2x - 1$, rest $3$","isCorrect":false}],"solution":"Runde 1: $2x^2 / x = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $(2x^2+5x+1)-(2x^2+4x) = x + 1$. Runde 2: $x / x = 1$. Gang: $1(x+2) = x+2$. Trekk frå: $(x+1)-(x+2) = -1$. Kvotient $2x+1$, rest $-1$."},{"id":"1t-1-8-n-quiz4-q3","task":"Formelen $P(x) = D(x) \\cdot Q(x) + R(x)$ gir oss ein kontroll. Viss $P(x) = x^2 + 5x + 8$, $D(x) = x + 2$, $Q(x) = x + 3$ og $R(x) = 2$, kva bør $(x+2)(x+3) + 2$ bli?","options":[{"id":"a","text":"$x^2 + 5x + 6$","isCorrect":false},{"id":"b","text":"$x^2 + 5x + 8$","isCorrect":true},{"id":"c","text":"$x^2 + 5x + 10$","isCorrect":false},{"id":"d","text":"$x^2 + 7x + 8$","isCorrect":false}],"solution":"$(x+2)(x+3) + 2 = x^2 + 3x + 2x + 6 + 2 = x^2 + 5x + 8$. Dette er akkurat dividenden $P(x)$, så svaret stemmer. Kontrollen bekreftar at divisjonen er utført riktig."}]}},{"id":"1t-1-8-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-1-8-narrativ-del5.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-8-n-section5","type":"text","content":"## Divisjon med polynom av høgare grad\n\nDen same metoden fungerer også når dividenden er eit tredjegraads- eller fjerdegradspolynom. Vi får berre fleire rundar med divisjon, men kvart steg er identisk.\n\nLa oss ta $(x^3 - 6x^2 + 11x - 6) : (x - 1)$.\n\n**Runde 1:** $\\frac{x^3}{x} = x^2$. Gang: $x^2(x - 1) = x^3 - x^2$. Trekk frå: $(x^3 - 6x^2 + 11x - 6) - (x^3 - x^2) = -5x^2 + 11x - 6$.\n\n**Runde 2:** $\\frac{-5x^2}{x} = -5x$. Gang: $-5x(x - 1) = -5x^2 + 5x$. Trekk frå: $(-5x^2 + 11x - 6) - (-5x^2 + 5x) = 6x - 6$.\n\n**Runde 3:** $\\frac{6x}{x} = 6$. Gang: $6(x - 1) = 6x - 6$. Trekk frå: $(6x - 6) - (6x - 6) = 0$.\n\nSvaret er $x^2 - 5x + 6$. Vi kan faktorisere dette vidare til $(x - 2)(x - 3)$, så heile polynomet kan skrivast som $(x - 1)(x - 2)(x - 3)$.\n\nEin viktig tips: når dividenden manglar eit ledd, må du **setje inn null-ledd**. For døme, viss du skal dele $x^3 - 8$ på $(x - 2)$, bør du skrive dividenden som $x^3 + 0x^2 + 0x - 8$. Utan desse null-ledda er det lett å miste oversikten.\n\nHer er eit anna døme med tredjegradaspolynom: $(x^3 + 6x^2 + 11x + 6) : (x + 1)$. Runde 1: $x^2$, gang: $x^3 + x^2$, rest: $5x^2 + 11x + 6$. Runde 2: $5x$, gang: $5x^2 + 5x$, rest: $6x + 6$. Runde 3: $6$, gang: $6x + 6$, rest: $0$. Svaret er $x^2 + 5x + 6 = (x + 2)(x + 3)$."},{"id":"1t-1-8-n-quiz5","type":"exercise","exercise":{"id":"1t-1-8-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på divisjon med polynom av høgare grad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-8-n-quiz5-q0","task":"Når du skal dele $(x^3 - 8)$ på $(x - 2)$, korleis bør du skrive dividenden?","options":[{"id":"a","text":"$x^3 - 8$, akkurat som han er","isCorrect":false},{"id":"b","text":"$x^3 + 0x^2 + 0x - 8$","isCorrect":true},{"id":"c","text":"$(x - 2)(x^2 + 2x + 4)$","isCorrect":false},{"id":"d","text":"$x^3 - 2x^2 - 8$","isCorrect":false}],"solution":"Når dividenden manglar ledd (her manglar $x^2$- og $x$-ledda), må du setje inn null-koeffisientar så du beheld oversikten: $x^3 + 0x^2 + 0x - 8$. Da unngår du å miste ledd undervegs i lang divisjon."},{"id":"1t-1-8-n-quiz5-q1","task":"Kva er kvotienten når $(x^3 - 6x^2 + 11x - 6)$ delast på $(x - 1)$?","options":[{"id":"a","text":"$x^2 + 5x + 6$","isCorrect":false},{"id":"b","text":"$x^2 - 5x + 6$","isCorrect":true},{"id":"c","text":"$x^2 - 6x + 11$","isCorrect":false},{"id":"d","text":"$x^2 - 7x + 6$","isCorrect":false}],"solution":"Runde 1: $x^3 / x = x^2$. Gang: $x^2(x-1) = x^3 - x^2$. Rest: $-5x^2 + 11x - 6$. Runde 2: $-5x^2 / x = -5x$. Gang: $-5x(x-1) = -5x^2 + 5x$. Rest: $6x - 6$. Runde 3: $6x / x = 6$. Gang: $6(x-1) = 6x - 6$. Rest: $0$. Kvotienten er $x^2 - 5x + 6$."},{"id":"1t-1-8-n-quiz5-q2","task":"Kvotienten $x^2 - 5x + 6$ kan faktoriserast vidare. Kva blir resultatet?","options":[{"id":"a","text":"$(x - 1)(x - 6)$","isCorrect":false},{"id":"b","text":"$(x + 2)(x + 3)$","isCorrect":false},{"id":"c","text":"$(x - 2)(x - 3)$","isCorrect":true},{"id":"d","text":"$(x - 5)(x - 1)$","isCorrect":false}],"solution":"Vi leitast etter to tal som gangar til $6$ og summerar til $-5$. Det er $-2$ og $-3$: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Altså: $x^2 - 5x + 6 = (x - 2)(x - 3)$."},{"id":"1t-1-8-n-quiz5-q3","task":"Kor mange rundar med divisjon treng du når du deler eit tredjegradspolynom på eit førstegradspolynom (og divisjonen går opp)?","options":[{"id":"a","text":"$1$ runde","isCorrect":false},{"id":"b","text":"$2$ rundar","isCorrect":false},{"id":"c","text":"$3$ rundar","isCorrect":true},{"id":"d","text":"$4$ rundar","isCorrect":false}],"solution":"Eit tredjegradspolynom delt på eit førstegradspolynom gir ein andregradskotient. I første runde finn vi $x^2$-leddet, i andre runde $x$-leddet, og i tredje runde konstantleddet. Det er $3$ rundar -- generelt like mange rundar som graden av kvotienten pluss $1$."}]}},{"id":"1t-1-8-n-audio-6","type":"audio","title":"Lytt til oppsummeringa","src":"/audio/1t/1t-1-8-narrativ-del6.mp3","description":"Lydfil som les opp oppsummeringa."},{"id":"1t-1-8-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi lært å dele polynom på kvarandre, frå dei enklaste tilfella til full lang divisjon.\n\n**Monomdivisjon** er grunnsteinen. Du deler koeffisientane og trekkjer frå eksponentane: $\\frac{6x^3}{2x} = 3x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er nøkkelen.\n\n**Polynom delt på monom** blir gjort ledd for ledd. Kvart ledd i tellaren blir delt separat på nemnaren: $\\frac{6x^3 + 4x^2 - 2x}{2x} = 3x^2 + 2x - 1$.\n\n**Lang divisjon** blir brukt når divisoren har fleire ledd. Metoden fylgjer fire steg som blir gjentatt: del førsteleidet, gang med heile divisoren, trekk frå, og gjenta. Resultatet består av ein kvotient og eventuelt ein rest.\n\n**Resten** kan vere null (divisjonen går opp) eller eit polynom av lågare grad enn divisoren. Svaret blir då skrive som $Q(x) + \\frac{R(x)}{D(x)}$.\n\n**Kontrollformelen** $P(x) = D(x) \\cdot Q(x) + R(x)$ let deg alltid kontrollere svaret ditt. Gang kvotienten med divisoren og legg til resten -- du skal få tilbake dividenden. Hugs også å setje inn null-ledd når dividenden manglar potensar av $x$."}],"exercises":[],"_meta":{"sourceHash":"5c31c2222331b3f5","translatedAt":"2026-06-16T10:01:18.245Z","model":"claude-haiku-4-5-20251001","strings":147,"tm":{"a3470a60aec59410":"Polynomdivisjon - introduksjon","b195b06d1ed59702":"Narrativ versjon","59b2fccc9d5038c9":"Ein fortelling om korleis du deler polynomer på kvarandre -- frå enkle monodivisjonar til fullstendig lang divisjon med rest, forklart steg for steg som ein naturleg forlengelse av vanlleg divisjon med tal.","9971cc57616d7428":"forklare polynomdivisjon","ed14edc698d6c081":"utføre enkel polynomdivisjon","d2c9d9ef5d3f774f":"Lytt til denne delen","21954805f17795e8":"Lydfil som les opp teksten fram til første quiz.","3a16ddde86a65778":"## Divisjon med bokstavar\n\nTenk tilbake til då du lærde lang divisjon med tal. Du sette opp dividenden, plasserte divisoren til venstre, og jobba deg gjennom siffera eitt om gangen. Polynomdivisjon er nøyaktig det same -- berre med algebraiske uttrykk i staden for tal.\n\nNår vi deler eit polynom $P(x)$ på eit anna polynom $D(x)$, får vi eit resultat som følgjer ein velkjend struktur:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nHer er $P(x)$ **dividenden** -- det polynomet vi deler. $D(x)$ er **divisoren** -- det vi deler på. $Q(x)$ er **kvotienten** -- svaret vårt. Og $R(x)$ er **resten**, som kan vere null dersom divisjonen går opp.\n\nDenna samanhengen er heilt lik den du kjenner frå vanlege tal. Når du deler $17$ på $5$, får du kvotienten $3$ og resten $2$, fordi $17 = 5 \\cdot 3 + 2$. Med polynomer fungerer det på akkurat same måte -- vi berre byter ut tala med uttrykk som inneheld $x$. I dette kapitlet skal vi byggje opp ferdigheitene steg for steg, frå dei enklaste delingane til full lang divisjon.","a46f196fb967b9f0":"## Divisjon av monomar -- potensreglane i aksjon\n\nLa oss begynne med det aller enklaste: å dele eitt monom på eit anna. Eit **monom** er eit uttrykk med berre eitt ledd, til dømes $6x^3$ eller $2x$.\n\nNår du skal dele $\\frac{6x^3}{2x}$, gjer du to ting: du deler koeffisientane ($\\frac{6}{2} = 3$) og du bruker potensregelen for divisjon på variabeldelen ($x^{3-1} = x^2$). Resultatet er $3x^2$.\n\nKorfor fungerer dette? Fordi $x^3 = x \\cdot x \\cdot x$ og $x = x$. Når du deler, stryker du dei felles faktorane: $\\frac{x \\cdot x \\cdot x}{x} = x \\cdot x = x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er berre ein snarveg for denne prosessen.\n\nLa oss ta nokre fleire døme. $\\frac{8x^4}{2x} = 4x^3$ -- del koeffisientane ($8/2 = 4$) og trekk frå eksponentane ($4 - 1 = 3$). $\\frac{12x^5}{4x^2} = 3x^3$. $\\frac{15x^3}{5x^3} = 3$ -- når eksponentane er like, forsvinn $x$ heilt, og vi sit igjen med berre eit tal. Og $\\frac{-10x^6}{2x^2} = -5x^4$ -- hugs at fortegnreglane gjeld som vanlegt.\n\nDet finst òg eit spesialtilfelle som er verdt å merkje seg: $\\frac{x^n}{x^n} = x^0 = 1$. Kvar storleik delt på seg sjølv gir $1$. Denne enkle observasjonen er grunnlaget for alt som følgjer.","a05ad982987c642a":"Test deg sjølv på monodivisjon og potensregler:","4097889236a2af26":"placeholder","d6540fae0c07e41b":"Kva blir $\\frac{12x^5}{4x^2}$?","4ad62bc962da8919":"$3x^3$","490d67e14b22e40f":"$3x^7$","d70236b25671cb86":"$8x^3$","b6ed82c540fb967b":"$3x^{2{,}5}$","e56049345e03f7b9":"Vi deler koeffisientane: $12 / 4 = 3$. Deretter trekk vi frå eksponentane: $x^{5-2} = x^3$. Svaret er $3x^3$.","af34ad214b6f726a":"Kva blir $\\frac{-10x^6}{2x^2}$?","7f6a520563c27c7f":"$-5x^3$","dd7791d3946fcbb1":"$5x^4$","106bde882f05a1c7":"$-5x^4$","ba94ad392a701c5a":"$-8x^4$","067210a054c2cfd7":"Koeffisientane: $-10 / 2 = -5$. Eksponentane: $x^{6-2} = x^4$. Hugs at minus delt på pluss gir minus. Svaret er $-5x^4$.","92a5d18c967913c2":"Kva blir $\\frac{15x^3}{5x^3}$?","e2fe3bdcb9849f47":"$3x$","5cf6ae2d7db5d6ec":"Koeffisientane: $15 / 5 = 3$. Eksponentane: $x^{3-3} = x^0 = 1$. Når eksponentane er like, forsvinn $x$ heilt. Svaret er $3 \\cdot 1 = 3$.","97b898d0ceb004e4":"Kva potensregel brukar vi når vi deler $x^m$ på $x^n$?","a842e1db79724f3f":"$x^m \\cdot x^n = x^{m+n}$","cc1293ea9d8e8328":"$\\frac{x^m}{x^n} = x^{m \\cdot n}$","13755ed299d035a8":"$\\frac{x^m}{x^n} = x^{m-n}$","0362af8294e38620":"$\\frac{x^m}{x^n} = x^{n-m}$","a187b963d39b9bdf":"Potensregelen for divisjon seier at $\\frac{x^m}{x^n} = x^{m-n}$. Vi trekk eksponenten i nemnaren frå eksponenten i tellaren. Til dømes: $\\frac{x^5}{x^2} = x^{5-2} = x^3$.","058005533831b7f6":"Lydfil som les opp teksten fram til neste quiz.","84de16d9d6eabddf":"## Dele eit polynom på eit monom -- ledd for ledd\n\nNo som vi mestrar monodivisjon, er neste steget å dele eit heilt polynom på eit enkelt monom. Trikset er overraskande greitt: du deler **kvart ledd** i polynomet for seg.\n\nRegelen er:\n\n$$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$$\n\nDette er det same prinsippet som at $\\frac{10 + 5}{5} = \\frac{10}{5} + \\frac{5}{5} = 2 + 1 = 3$.\n\nLa oss prøve med $\\frac{6x^3 + 4x^2 - 2x}{2x}$. Vi deler kvar av dei tre ledda på $2x$:\n\n$$\\frac{6x^3}{2x} + \\frac{4x^2}{2x} - \\frac{2x}{2x} = 3x^2 + 2x - 1$$\n\nKvart ledd blir handsama som ein sjølvstendig monodivisjon. Første ledd: $6x^3 / 2x = 3x^2$. Andre ledd: $4x^2 / 2x = 2x$. Tredje ledd: $2x / 2x = 1$.\n\nHer er eit døme til: $\\frac{9x^3 - 6x^2 + 3x}{3x}$. Vi tek ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$.\n\nOg endå eitt: $\\frac{x^4 + x^3 + x^2}{x^2}$. Her er $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$.\n\nLegg merke til at denne metoden alltid fungerer når divisoren er eit monom. Men kva gjer vi når òg divisoren har fleire ledd, som til dømes $(x + 2)$? Då treng vi eit kraftigare verktøy: **lang divisjon**.","ed550144a9823da3":"Test deg sjølv på polynom delt på monom:","3e2c5a90daed27e6":"Kva blir $\\frac{8x^2 + 4x}{2x}$?","5d5ac42a03225189":"$4x^2 + 2$","5bba99ca1e37c407":"$4x + 2$","82f5f079ede25c0a":"$6x$","dddc3394fabc2c3b":"$4x + 4$","911ac0af27c8282a":"Vi delar kvart ledd for seg: $\\frac{8x^2}{2x} = 4x$ og $\\frac{4x}{2x} = 2$. Svaret er $4x + 2$.","98eab0c898ee2ee8":"Kva regel gjer at vi kan dela kvart ledd i tellaren for seg?","7416f8182b05e1b4":"$\\frac{a \\cdot b}{c} = \\frac{a}{c} \\cdot \\frac{b}{c}$","a3b771ac3b500b88":"$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$","c043d9601445aa06":"$\\frac{a}{b + c} = \\frac{a}{b} + \\frac{a}{c}$","9705d627f82a0fd0":"$\\frac{a + b}{c} = \\frac{a + b}{c}$ (kan ikkje forenklas)","158c0a9b2bf4cd82":"Regelen er $\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$. Vi kan dela kvart ledd i tellaren på nemnaren separat. Merk at dette IKKJE fungerer den andre vegen -- vi kan ikkje splitte nemnaren på same måte.","43307e5cb6b43012":"Kva blir $\\frac{9x^3 - 6x^2 + 3x}{3x}$?","875b73af383ef19f":"$3x^2 - 2x + 1$","4a58cad0e50d330f":"$3x^3 - 2x^2 + x$","1660ee12749eacfc":"$3x^2 - 6x + 3$","1e7954e8aeb4ccfc":"$3x^2 - 2x$","8ec9f38cb34e6916":"Vi delar ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$.","0c19acdbbb9b0230":"Kva blir $\\frac{x^4 + x^3 + x^2}{x^2}$?","101fe1bdddeb4d90":"$x^2 + x$","0c9ce70d7559be2e":"$x^6 + x^5 + x^4$","507b6c1397a3a23d":"$x^2 + x + 1$","64591c6c7d6c92f5":"$x^2 + x + x^0$","352a1eb56b0ef937":"Ledd for ledd: $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$. Merk at alternativ d) skriv $x^0$ i staden for $1$, men $x^0 = 1$ så dette er teknisk sett likt -- likevel skriv vi alltid $1$, ikkje $x^0$.","99d25223535bc383":"## Lang divisjon av polynomar -- steg for steg\n\nNå er vi klare for hovudteknikken: **polynomdivisjon med lang divisjon**. Metoden liknar på vanleg lang divisjon med tal, og ho fylgjer fire steg som gjentertast til vi er ferdige.\n\n**Framgangsmåten:**\n1. Del det første leddet i dividenden på det første leddet i divisoren.\n2. Gang svaret med heile divisoren.\n3. Trekk frå resultatet.\n4. Gjenta til graden av resten er lågare enn graden av divisoren.\n\nLa oss gå gjennom eit konkret døme: $(x^2 + 5x + 6) : (x + 2)$.\n\n**Steg 1:** Vi ser på det første leddet i dividenden, $x^2$, og delar det på det første leddet i divisoren, $x$. Vi får $\\frac{x^2}{x} = x$. Dette er det første leddet i kvotienten.\n\n**Steg 2:** Vi gangmultipliserer $x$ med heile divisoren $(x + 2)$: $x \\cdot (x + 2) = x^2 + 2x$.\n\n**Steg 3:** Vi trekk frå: $(x^2 + 5x + 6) - (x^2 + 2x) = 3x + 6$. Nå arbeider vi vidare med $3x + 6$.\n\n**Steg 4:** Vi delar $3x$ på $x$: $\\frac{3x}{x} = 3$. So gangmultipliserer vi $3$ med $(x + 2)$: $3x + 6$. Vi trekk frå: $(3x + 6) - (3x + 6) = 0$.\n\nResten er $0$, så divisjonen går opp! Svaret er $(x^2 + 5x + 6) : (x + 2) = x + 3$.\n\nVi kan kontrollera: $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$. Stemmer! Denne kontrollen er eit flott verktøy -- du kan alltid kontrollera svaret ditt ved å gangmultiplisera kvotienten med divisoren og leggja til eventuell rest.","82b8c8ca66eff7b1":"Test deg sjølv på lang divisjon av polynomar:","92c79d4b8b22e4c4":"Kva er det første steget når du utfører $(x^2 + 7x + 12) : (x + 3)$?","b9f787abad3bf34a":"Gang $x^2$ med $(x + 3)$","55af12feaa3747de":"Trekk $3$ frå $12$","bcd9e551db8f8541":"Del $x^2 + 7x$ på $x + 3$","141644438fb3847f":"Del $x^2$ på $x$ og få $x$","088eedd747c7708e":"Det første steget i lang divisjon er alltid å dela det første leddet i dividenden ($x^2$) på det første leddet i divisoren ($x$). Det gir $x$, som blir det første leddet i kvotienten.","2b1ed896f78b0745":"Kva er kvotienten når $(x^2 + 5x + 6)$ delast på $(x + 2)$?","5cc4d224d6051098":"$x + 2$","c3d62e3337ca6623":"$x + 3$","c0c153012269c087":"$x + 6$","1dc064e673d2c4c2":"$x^2 + 3$","6b16d492ca64c425":"Steg 1: $x^2 / x = x$. Gang: $x(x+2) = x^2 + 2x$. Trekk frå: $(x^2+5x+6)-(x^2+2x) = 3x+6$. Steg 2: $3x / x = 3$. Gang: $3(x+2) = 3x+6$. Trekk frå: $0$. Kvotienten er $x + 3$.","7ecb18e2fe453a9d":"I lang divisjon av polynomar, når stoppar vi prosessen?","c09a696aa708bb74":"Når resten er eit positivt tal","8e7aacdff099a5e9":"Når vi har gjort like mange rundar som graden av dividenden","4de046242f982e85":"Når graden av resten er lågare enn graden av divisoren","6f5850d30bb8f412":"Når resten er $0$","4fb11b90337a7a48":"Vi stoppar når graden av resten er lågare enn graden av divisoren. Resten $0$ er eit spesialtilfelle av dette (divisjonen går opp), men vi stoppar også ved ein rest som $2$ eller $3x+1$, så lenge den har lågare grad enn divisoren.","dae8e91ee53291b1":"Korleis kontrollerer du at svaret på ein polynomdivisjon er riktig?","b71ceca6af990ede":"Set inn $x = 0$ i kvotienten","4eb9fa1c279e7b02":"Gang kvotienten med divisoren og legg til resten -- du skal få dividenden","721147bb17893d72":"Divider dividenden på kvotienten -- du skal få divisoren","e9a8722ba8ac955e":"Sjekk at graden av kvotienten er $1$","5aa1381ff99702bd":"Kontrollen byggjer på formelen $P(x) = D(x) \\cdot Q(x) + R(x)$. Gang kvotienten med divisoren og legg til resten. Viss du får tilbake dividenden, er svaret riktig.","c2ae992f8fa59142":"## Når divisjonen ikkje går opp -- rest\n\nIkkje alle polynomdivisjonar går opp. Akkurat som $17 : 5 = 3$ med rest $2$, kan vi få ein rest også med polynom. Når resten ikkje er null, skriv vi svaret på forma:\n\n$$\\frac{P(x)}{D(x)} = Q(x) + \\frac{R(x)}{D(x)}$$\n\nLa oss sjå på $(x^2 + 5x + 8) : (x + 2)$.\n\nVi startar som for. $\\frac{x^2}{x} = x$. Gang: $x(x + 2) = x^2 + 2x$. Trekk frå: $(x^2 + 5x + 8) - (x^2 + 2x) = 3x + 8$.\n\nNeste runde: $\\frac{3x}{x} = 3$. Gang: $3(x + 2) = 3x + 6$. Trekk frå: $(3x + 8) - (3x + 6) = 2$.\n\nNo har vi ein rest på $2$. Sidan graden av resten ($0$, fordi $2$ er ein konstant) er lågare enn graden av divisoren ($1$, fordi $x + 2$ er førstegrads), stoppar vi her.\n\nSvaret skrivast: $(x^2 + 5x + 8) : (x + 2) = x + 3 + \\frac{2}{x + 2}$\n\nLa oss sjekke med formelen $P(x) = D(x) \\cdot Q(x) + R(x)$: $(x + 2)(x + 3) + 2 = x^2 + 5x + 6 + 2 = x^2 + 5x + 8$. Stemmer!\n\nHer er eit døme til: $(2x^2 + 5x + 1) : (x + 2)$. Første runde: $\\frac{2x^2}{x} = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $x + 1$. Andre runde: $\\frac{x}{x} = 1$. Gang: $1 \\cdot (x + 2) = x + 2$. Trekk frå: $(x + 1) - (x + 2) = -1$. Svaret er $2x + 1$ med rest $-1$.","c786f9c7119ac6c3":"Test deg sjølv på polynomdivisjon med rest:","e6d4a762041642fe":"Kva er resten når $(x^2 + 4x + 5)$ blir delt på $(x + 1)$?","da46c7322101b92b":"Vi utfører lang divisjon. $x^2 / x = x$. Gang: $x(x+1) = x^2 + x$. Trekk frå: $3x + 5$. Neste: $3x / x = 3$. Gang: $3(x+1) = 3x + 3$. Trekk frå: $(3x+5)-(3x+3) = 2$. Resten er $2$.","0fcf2cb358b0002e":"Korleis skrivast svaret når $(x^2 + 5x + 8)$ blir delt på $(x + 2)$ og resten ikkje er null?","f8c237db545d6131":"$x + 3$ rest $2$","49fb9d2dfb0aa39d":"$x + 3 + \\frac{2}{x + 2}$","4fc291f8979c87d9":"$\\frac{x + 3}{x + 2} + 2$","080e08d972f460a7":"$(x + 3)(x + 2) + 2$","1f7305be5657929b":"Når divisjonen ikkje går opp, skriv vi svaret som $Q(x) + \\frac{R(x)}{D(x)}$. Her er kvotienten $x + 3$, resten $2$, og divisoren $(x + 2)$, så svaret er $x + 3 + \\frac{2}{x + 2}$.","d4fe0585a5b5baac":"Kva er kvotienten og resten når $(2x^2 + 5x + 1)$ blir delt på $(x + 2)$?","d317d8a525f1f5ac":"Kvotient $2x + 1$, rest $-1$","2ba6745d63c12193":"Kvotient $2x + 1$, rest $1$","fbef06b980f09dc5":"Kvotient $2x + 9$, rest $0$","db2ec1e3c15e7836":"Kvotient $2x - 1$, rest $3$","853a8724a7e71cfe":"Runde 1: $2x^2 / x = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $(2x^2+5x+1)-(2x^2+4x) = x + 1$. Runde 2: $x / x = 1$. Gang: $1(x+2) = x+2$. Trekk frå: $(x+1)-(x+2) = -1$. Kvotient $2x+1$, rest $-1$.","f9197c70300e4830":"Formelen $P(x) = D(x) \\cdot Q(x) + R(x)$ gir oss ein kontroll. Viss $P(x) = x^2 + 5x + 8$, $D(x) = x + 2$, $Q(x) = x + 3$ og $R(x) = 2$, kva bør $(x+2)(x+3) + 2$ bli?","565fbf77812fd547":"$x^2 + 5x + 6$","7eac019b8e9fb51f":"$x^2 + 5x + 8$","52462a0b1a413d77":"$x^2 + 5x + 10$","bfd628176bce35e1":"$x^2 + 7x + 8$","21013014f8cb6002":"$(x+2)(x+3) + 2 = x^2 + 3x + 2x + 6 + 2 = x^2 + 5x + 8$. Dette er akkurat dividenden $P(x)$, så svaret stemmer. Kontrollen bekreftar at divisjonen er utført riktig.","c1b2b49e3620204d":"## Divisjon med polynom av høgare grad\n\nDen same metoden fungerer også når dividenden er eit tredjegraads- eller fjerdegradspolynom. Vi får berre fleire rundar med divisjon, men kvart steg er identisk.\n\nLa oss ta $(x^3 - 6x^2 + 11x - 6) : (x - 1)$.\n\n**Runde 1:** $\\frac{x^3}{x} = x^2$. Gang: $x^2(x - 1) = x^3 - x^2$. Trekk frå: $(x^3 - 6x^2 + 11x - 6) - (x^3 - x^2) = -5x^2 + 11x - 6$.\n\n**Runde 2:** $\\frac{-5x^2}{x} = -5x$. Gang: $-5x(x - 1) = -5x^2 + 5x$. Trekk frå: $(-5x^2 + 11x - 6) - (-5x^2 + 5x) = 6x - 6$.\n\n**Runde 3:** $\\frac{6x}{x} = 6$. Gang: $6(x - 1) = 6x - 6$. Trekk frå: $(6x - 6) - (6x - 6) = 0$.\n\nSvaret er $x^2 - 5x + 6$. Vi kan faktorisere dette vidare til $(x - 2)(x - 3)$, så heile polynomet kan skrivast som $(x - 1)(x - 2)(x - 3)$.\n\nEin viktig tips: når dividenden manglar eit ledd, må du **setje inn null-ledd**. For døme, viss du skal dele $x^3 - 8$ på $(x - 2)$, bør du skrive dividenden som $x^3 + 0x^2 + 0x - 8$. Utan desse null-ledda er det lett å miste oversikten.\n\nHer er eit anna døme med tredjegradaspolynom: $(x^3 + 6x^2 + 11x + 6) : (x + 1)$. Runde 1: $x^2$, gang: $x^3 + x^2$, rest: $5x^2 + 11x + 6$. Runde 2: $5x$, gang: $5x^2 + 5x$, rest: $6x + 6$. Runde 3: $6$, gang: $6x + 6$, rest: $0$. Svaret er $x^2 + 5x + 6 = (x + 2)(x + 3)$.","d54429ed1ae8e677":"Test deg sjølv på divisjon med polynom av høgare grad:","1bd487db7dd25e83":"Når du skal dele $(x^3 - 8)$ på $(x - 2)$, korleis bør du skrive dividenden?","8edf4d9ef5f84e4a":"$x^3 - 8$, akkurat som han er","cb3631c807b58f35":"$x^3 + 0x^2 + 0x - 8$","43bbae51dca8618e":"$(x - 2)(x^2 + 2x + 4)$","6980fbdaef4553df":"$x^3 - 2x^2 - 8$","572024fed6694bb9":"Når dividenden manglar ledd (her manglar $x^2$- og $x$-ledda), må du setje inn null-koeffisientar så du beheld oversikten: $x^3 + 0x^2 + 0x - 8$. Da unngår du å miste ledd undervegs i lang divisjon.","6ec8dd673d7343d4":"Kva er kvotienten når $(x^3 - 6x^2 + 11x - 6)$ delast på $(x - 1)$?","456c9273f6f3e77f":"$x^2 - 5x + 6$","82a8c6092abe5351":"$x^2 - 6x + 11$","b81d4426345b0b9e":"$x^2 - 7x + 6$","23acca58dadfeac3":"Runde 1: $x^3 / x = x^2$. Gang: $x^2(x-1) = x^3 - x^2$. Rest: $-5x^2 + 11x - 6$. Runde 2: $-5x^2 / x = -5x$. Gang: $-5x(x-1) = -5x^2 + 5x$. Rest: $6x - 6$. Runde 3: $6x / x = 6$. Gang: $6(x-1) = 6x - 6$. Rest: $0$. Kvotienten er $x^2 - 5x + 6$.","97551565adb560a9":"Kvotienten $x^2 - 5x + 6$ kan faktoriserast vidare. Kva blir resultatet?","e6ea340aaa501660":"$(x - 1)(x - 6)$","812e442289031ed2":"$(x + 2)(x + 3)$","f40827c51203679f":"$(x - 2)(x - 3)$","911ba3dd98363900":"$(x - 5)(x - 1)$","bc8fd51d80671301":"Vi leitast etter to tal som gangar til $6$ og summerar til $-5$. Det er $-2$ og $-3$: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Altså: $x^2 - 5x + 6 = (x - 2)(x - 3)$.","5b4e63dae4b1e657":"Kor mange rundar med divisjon treng du når du deler eit tredjegradspolynom på eit førstegradspolynom (og divisjonen går opp)?","dd162bd24eb2073b":"$1$ runde","a176ee587783f84f":"$2$ rundar","016d166d9cc2acbb":"$3$ rundar","3756d2baa16ed931":"$4$ rundar","d0d811d6210d63d9":"Eit tredjegradspolynom delt på eit førstegradspolynom gir ein andregradskotient. I første runde finn vi $x^2$-leddet, i andre runde $x$-leddet, og i tredje runde konstantleddet. Det er $3$ rundar -- generelt like mange rundar som graden av kvotienten pluss $1$.","79eeeec37aef74be":"Lytt til oppsummeringa","b409d1128419f9c6":"Lydfil som les opp oppsummeringa.","06d7490171fd5944":"## Oppsummering\n\nI dette kapittelet har vi lært å dele polynom på kvarandre, frå dei enklaste tilfella til full lang divisjon.\n\n**Monomdivisjon** er grunnsteinen. Du deler koeffisientane og trekkjer frå eksponentane: $\\frac{6x^3}{2x} = 3x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er nøkkelen.\n\n**Polynom delt på monom** blir gjort ledd for ledd. Kvart ledd i tellaren blir delt separat på nemnaren: $\\frac{6x^3 + 4x^2 - 2x}{2x} = 3x^2 + 2x - 1$.\n\n**Lang divisjon** blir brukt når divisoren har fleire ledd. Metoden fylgjer fire steg som blir gjentatt: del førsteleidet, gang med heile divisoren, trekk frå, og gjenta. Resultatet består av ein kvotient og eventuelt ein rest.\n\n**Resten** kan vere null (divisjonen går opp) eller eit polynom av lågare grad enn divisoren. Svaret blir då skrive som $Q(x) + \\frac{R(x)}{D(x)}$.\n\n**Kontrollformelen** $P(x) = D(x) \\cdot Q(x) + R(x)$ let deg alltid kontrollere svaret ditt. Gang kvotienten med divisoren og legg til resten -- du skal få tilbake dividenden. Hugs også å setje inn null-ledd når dividenden manglar potensar av $x$."}}}
+{
+  "id": "1t-1-8-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "1.8",
+  "title": "Polynomdivisjon - introduksjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein fortelling om korleis du deler polynomer på kvarandre -- frå enkle monodivisjonar til fullstendig lang divisjon med rest, forklart steg for steg som ein naturleg forlengelse av vanlleg divisjon med tal.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forklare polynomdivisjon",
+    "utføre enkel polynomdivisjon"
+  ],
+  "linkedChapterId": "1t-1-8",
+  "content": [
+    {
+      "id": "1t-1-8-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-8-narrativ-del1.mp3",
+      "description": "Lydfil som les opp teksten fram til første quiz."
+    },
+    {
+      "id": "1t-1-8-n-intro",
+      "type": "text",
+      "content": "## Divisjon med bokstavar\n\nTenk tilbake til då du lærde lang divisjon med tal. Du sette opp dividenden, plasserte divisoren til venstre, og jobba deg gjennom siffera eitt om gangen. Polynomdivisjon er nøyaktig det same -- berre med algebraiske uttrykk i staden for tal.\n\nNår vi deler eit polynom $P(x)$ på eit anna polynom $D(x)$, får vi eit resultat som følgjer ein velkjend struktur:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nHer er $P(x)$ **dividenden** -- det polynomet vi deler. $D(x)$ er **divisoren** -- det vi deler på. $Q(x)$ er **kvotienten** -- svaret vårt. Og $R(x)$ er **resten**, som kan vere null dersom divisjonen går opp.\n\nDenna samanhengen er heilt lik den du kjenner frå vanlege tal. Når du deler $17$ på $5$, får du kvotienten $3$ og resten $2$, fordi $17 = 5 \\cdot 3 + 2$. Med polynomer fungerer det på akkurat same måte -- vi berre byter ut tala med uttrykk som inneheld $x$. I dette kapitlet skal vi byggje opp ferdigheitene steg for steg, frå dei enklaste delingane til full lang divisjon."
+    },
+    {
+      "id": "1t-1-8-n-section1",
+      "type": "text",
+      "content": "## Divisjon av monomar -- potensreglane i aksjon\n\nLa oss begynne med det aller enklaste: å dele eitt monom på eit anna. Eit **monom** er eit uttrykk med berre eitt ledd, til dømes $6x^3$ eller $2x$.\n\nNår du skal dele $\\frac{6x^3}{2x}$, gjer du to ting: du deler koeffisientane ($\\frac{6}{2} = 3$) og du bruker potensregelen for divisjon på variabeldelen ($x^{3-1} = x^2$). Resultatet er $3x^2$.\n\nKorfor fungerer dette? Fordi $x^3 = x \\cdot x \\cdot x$ og $x = x$. Når du deler, stryker du dei felles faktorane: $\\frac{x \\cdot x \\cdot x}{x} = x \\cdot x = x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er berre ein snarveg for denne prosessen.\n\nLa oss ta nokre fleire døme. $\\frac{8x^4}{2x} = 4x^3$ -- del koeffisientane ($8/2 = 4$) og trekk frå eksponentane ($4 - 1 = 3$). $\\frac{12x^5}{4x^2} = 3x^3$. $\\frac{15x^3}{5x^3} = 3$ -- når eksponentane er like, forsvinn $x$ heilt, og vi sit igjen med berre eit tal. Og $\\frac{-10x^6}{2x^2} = -5x^4$ -- hugs at fortegnreglane gjeld som vanlegt.\n\nDet finst òg eit spesialtilfelle som er verdt å merkje seg: $\\frac{x^n}{x^n} = x^0 = 1$. Kvar storleik delt på seg sjølv gir $1$. Denne enkle observasjonen er grunnlaget for alt som følgjer."
+    },
+    {
+      "id": "1t-1-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på monodivisjon og potensregler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-8-n-quiz1-q0",
+            "task": "Kva blir $\\frac{12x^5}{4x^2}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3x^7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x^{2{,}5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3x^3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi deler koeffisientane: $12 / 4 = 3$. Deretter trekk vi frå eksponentane: $x^{5-2} = x^3$. Svaret er $3x^3$."
+          },
+          {
+            "id": "1t-1-8-n-quiz1-q1",
+            "task": "Kva blir $\\frac{-10x^6}{2x^2}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$-5x^4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-5x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5x^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-8x^4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Koeffisientane: $-10 / 2 = -5$. Eksponentane: $x^{6-2} = x^4$. Hugs at minus delt på pluss gir minus. Svaret er $-5x^4$."
+          },
+          {
+            "id": "1t-1-8-n-quiz1-q2",
+            "task": "Kva blir $\\frac{15x^3}{5x^3}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Koeffisientane: $15 / 5 = 3$. Eksponentane: $x^{3-3} = x^0 = 1$. Når eksponentane er like, forsvinn $x$ heilt. Svaret er $3 \\cdot 1 = 3$."
+          },
+          {
+            "id": "1t-1-8-n-quiz1-q3",
+            "task": "Kva potensregel brukar vi når vi deler $x^m$ på $x^n$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^m \\cdot x^n = x^{m+n}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{x^m}{x^n} = x^{m \\cdot n}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x^m}{x^n} = x^{m-n}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x^m}{x^n} = x^{n-m}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potensregelen for divisjon seier at $\\frac{x^m}{x^n} = x^{m-n}$. Vi trekk eksponenten i nemnaren frå eksponenten i tellaren. Til dømes: $\\frac{x^5}{x^2} = x^{5-2} = x^3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-8-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-8-narrativ-del2.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-8-n-section2",
+      "type": "text",
+      "content": "## Dele eit polynom på eit monom -- ledd for ledd\n\nNo som vi mestrar monodivisjon, er neste steget å dele eit heilt polynom på eit enkelt monom. Trikset er overraskande greitt: du deler **kvart ledd** i polynomet for seg.\n\nRegelen er:\n\n$$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$$\n\nDette er det same prinsippet som at $\\frac{10 + 5}{5} = \\frac{10}{5} + \\frac{5}{5} = 2 + 1 = 3$.\n\nLa oss prøve med $\\frac{6x^3 + 4x^2 - 2x}{2x}$. Vi deler kvar av dei tre ledda på $2x$:\n\n$$\\frac{6x^3}{2x} + \\frac{4x^2}{2x} - \\frac{2x}{2x} = 3x^2 + 2x - 1$$\n\nKvart ledd blir handsama som ein sjølvstendig monodivisjon. Første ledd: $6x^3 / 2x = 3x^2$. Andre ledd: $4x^2 / 2x = 2x$. Tredje ledd: $2x / 2x = 1$.\n\nHer er eit døme til: $\\frac{9x^3 - 6x^2 + 3x}{3x}$. Vi tek ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$.\n\nOg endå eitt: $\\frac{x^4 + x^3 + x^2}{x^2}$. Her er $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$.\n\nLegg merke til at denne metoden alltid fungerer når divisoren er eit monom. Men kva gjer vi når òg divisoren har fleire ledd, som til dømes $(x + 2)$? Då treng vi eit kraftigare verktøy: **lang divisjon**."
+    },
+    {
+      "id": "1t-1-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på polynom delt på monom:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-8-n-quiz2-q0",
+            "task": "Kva blir $\\frac{8x^2 + 4x}{2x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4x^2 + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4x + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4x + 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi delar kvart ledd for seg: $\\frac{8x^2}{2x} = 4x$ og $\\frac{4x}{2x} = 2$. Svaret er $4x + 2$."
+          },
+          {
+            "id": "1t-1-8-n-quiz2-q1",
+            "task": "Kva regel gjer at vi kan dela kvart ledd i tellaren for seg?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{a \\cdot b}{c} = \\frac{a}{c} \\cdot \\frac{b}{c}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{a}{b + c} = \\frac{a}{b} + \\frac{a}{c}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{a + b}{c} = \\frac{a + b}{c}$ (kan ikkje forenklas)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Regelen er $\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$. Vi kan dela kvart ledd i tellaren på nemnaren separat. Merk at dette IKKJE fungerer den andre vegen -- vi kan ikkje splitte nemnaren på same måte."
+          },
+          {
+            "id": "1t-1-8-n-quiz2-q2",
+            "task": "Kva blir $\\frac{9x^3 - 6x^2 + 3x}{3x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3x^3 - 2x^2 + x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3x^2 - 2x + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3x^2 - 6x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x^2 - 2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi delar ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$."
+          },
+          {
+            "id": "1t-1-8-n-quiz2-q3",
+            "task": "Kva blir $\\frac{x^4 + x^3 + x^2}{x^2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^2 + x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^6 + x^5 + x^4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 + x + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x^2 + x + x^0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledd for ledd: $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$. Merk at alternativ d) skriv $x^0$ i staden for $1$, men $x^0 = 1$ så dette er teknisk sett likt -- likevel skriv vi alltid $1$, ikkje $x^0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-8-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-8-narrativ-del3.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-8-n-section3",
+      "type": "text",
+      "content": "## Lang divisjon av polynomar -- steg for steg\n\nNå er vi klare for hovudteknikken: **polynomdivisjon med lang divisjon**. Metoden liknar på vanleg lang divisjon med tal, og ho fylgjer fire steg som gjentertast til vi er ferdige.\n\n**Framgangsmåten:**\n1. Del det første leddet i dividenden på det første leddet i divisoren.\n2. Gang svaret med heile divisoren.\n3. Trekk frå resultatet.\n4. Gjenta til graden av resten er lågare enn graden av divisoren.\n\nLa oss gå gjennom eit konkret døme: $(x^2 + 5x + 6) : (x + 2)$.\n\n**Steg 1:** Vi ser på det første leddet i dividenden, $x^2$, og delar det på det første leddet i divisoren, $x$. Vi får $\\frac{x^2}{x} = x$. Dette er det første leddet i kvotienten.\n\n**Steg 2:** Vi gangmultipliserer $x$ med heile divisoren $(x + 2)$: $x \\cdot (x + 2) = x^2 + 2x$.\n\n**Steg 3:** Vi trekk frå: $(x^2 + 5x + 6) - (x^2 + 2x) = 3x + 6$. Nå arbeider vi vidare med $3x + 6$.\n\n**Steg 4:** Vi delar $3x$ på $x$: $\\frac{3x}{x} = 3$. So gangmultipliserer vi $3$ med $(x + 2)$: $3x + 6$. Vi trekk frå: $(3x + 6) - (3x + 6) = 0$.\n\nResten er $0$, så divisjonen går opp! Svaret er $(x^2 + 5x + 6) : (x + 2) = x + 3$.\n\nVi kan kontrollera: $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$. Stemmer! Denne kontrollen er eit flott verktøy -- du kan alltid kontrollera svaret ditt ved å gangmultiplisera kvotienten med divisoren og leggja til eventuell rest."
+    },
+    {
+      "id": "1t-1-8-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-8-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lang divisjon av polynomar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-8-n-quiz3-q0",
+            "task": "Kva er det første steget når du utfører $(x^2 + 7x + 12) : (x + 3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gang $x^2$ med $(x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Trekk $3$ frå $12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Del $x^2 + 7x$ på $x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Del $x^2$ på $x$ og få $x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Det første steget i lang divisjon er alltid å dela det første leddet i dividenden ($x^2$) på det første leddet i divisoren ($x$). Det gir $x$, som blir det første leddet i kvotienten."
+          },
+          {
+            "id": "1t-1-8-n-quiz3-q1",
+            "task": "Kva er kvotienten når $(x^2 + 5x + 6)$ delast på $(x + 2)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x + 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2 + 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Steg 1: $x^2 / x = x$. Gang: $x(x+2) = x^2 + 2x$. Trekk frå: $(x^2+5x+6)-(x^2+2x) = 3x+6$. Steg 2: $3x / x = 3$. Gang: $3(x+2) = 3x+6$. Trekk frå: $0$. Kvotienten er $x + 3$."
+          },
+          {
+            "id": "1t-1-8-n-quiz3-q2",
+            "task": "I lang divisjon av polynomar, når stoppar vi prosessen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når resten er eit positivt tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når graden av resten er lågare enn graden av divisoren",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når vi har gjort like mange rundar som graden av dividenden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når resten er $0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi stoppar når graden av resten er lågare enn graden av divisoren. Resten $0$ er eit spesialtilfelle av dette (divisjonen går opp), men vi stoppar også ved ein rest som $2$ eller $3x+1$, så lenge den har lågare grad enn divisoren."
+          },
+          {
+            "id": "1t-1-8-n-quiz3-q3",
+            "task": "Korleis kontrollerer du at svaret på ein polynomdivisjon er riktig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Set inn $x = 0$ i kvotienten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Divider dividenden på kvotienten -- du skal få divisoren",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gang kvotienten med divisoren og legg til resten -- du skal få dividenden",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Sjekk at graden av kvotienten er $1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kontrollen byggjer på formelen $P(x) = D(x) \\cdot Q(x) + R(x)$. Gang kvotienten med divisoren og legg til resten. Viss du får tilbake dividenden, er svaret riktig."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-8-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-8-narrativ-del4.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-8-n-section4",
+      "type": "text",
+      "content": "## Når divisjonen ikkje går opp -- rest\n\nIkkje alle polynomdivisjonar går opp. Akkurat som $17 : 5 = 3$ med rest $2$, kan vi få ein rest også med polynom. Når resten ikkje er null, skriv vi svaret på forma:\n\n$$\\frac{P(x)}{D(x)} = Q(x) + \\frac{R(x)}{D(x)}$$\n\nLa oss sjå på $(x^2 + 5x + 8) : (x + 2)$.\n\nVi startar som for. $\\frac{x^2}{x} = x$. Gang: $x(x + 2) = x^2 + 2x$. Trekk frå: $(x^2 + 5x + 8) - (x^2 + 2x) = 3x + 8$.\n\nNeste runde: $\\frac{3x}{x} = 3$. Gang: $3(x + 2) = 3x + 6$. Trekk frå: $(3x + 8) - (3x + 6) = 2$.\n\nNo har vi ein rest på $2$. Sidan graden av resten ($0$, fordi $2$ er ein konstant) er lågare enn graden av divisoren ($1$, fordi $x + 2$ er førstegrads), stoppar vi her.\n\nSvaret skrivast: $(x^2 + 5x + 8) : (x + 2) = x + 3 + \\frac{2}{x + 2}$\n\nLa oss sjekke med formelen $P(x) = D(x) \\cdot Q(x) + R(x)$: $(x + 2)(x + 3) + 2 = x^2 + 5x + 6 + 2 = x^2 + 5x + 8$. Stemmer!\n\nHer er eit døme til: $(2x^2 + 5x + 1) : (x + 2)$. Første runde: $\\frac{2x^2}{x} = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $x + 1$. Andre runde: $\\frac{x}{x} = 1$. Gang: $1 \\cdot (x + 2) = x + 2$. Trekk frå: $(x + 1) - (x + 2) = -1$. Svaret er $2x + 1$ med rest $-1$."
+    },
+    {
+      "id": "1t-1-8-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-8-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på polynomdivisjon med rest:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-8-n-quiz4-q0",
+            "task": "Kva er resten når $(x^2 + 4x + 5)$ blir delt på $(x + 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi utfører lang divisjon. $x^2 / x = x$. Gang: $x(x+1) = x^2 + x$. Trekk frå: $3x + 5$. Neste: $3x / x = 3$. Gang: $3(x+1) = 3x + 3$. Trekk frå: $(3x+5)-(3x+3) = 2$. Resten er $2$."
+          },
+          {
+            "id": "1t-1-8-n-quiz4-q1",
+            "task": "Korleis skrivast svaret når $(x^2 + 5x + 8)$ blir delt på $(x + 2)$ og resten ikkje er null?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x + 3$ rest $2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x + 3}{x + 2} + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x + 3)(x + 2) + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x + 3 + \\frac{2}{x + 2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når divisjonen ikkje går opp, skriv vi svaret som $Q(x) + \\frac{R(x)}{D(x)}$. Her er kvotienten $x + 3$, resten $2$, og divisoren $(x + 2)$, så svaret er $x + 3 + \\frac{2}{x + 2}$."
+          },
+          {
+            "id": "1t-1-8-n-quiz4-q2",
+            "task": "Kva er kvotienten og resten når $(2x^2 + 5x + 1)$ blir delt på $(x + 2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kvotient $2x + 1$, rest $-1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Kvotient $2x + 1$, rest $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvotient $2x + 9$, rest $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kvotient $2x - 1$, rest $3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Runde 1: $2x^2 / x = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $(2x^2+5x+1)-(2x^2+4x) = x + 1$. Runde 2: $x / x = 1$. Gang: $1(x+2) = x+2$. Trekk frå: $(x+1)-(x+2) = -1$. Kvotient $2x+1$, rest $-1$."
+          },
+          {
+            "id": "1t-1-8-n-quiz4-q3",
+            "task": "Formelen $P(x) = D(x) \\cdot Q(x) + R(x)$ gir oss ein kontroll. Viss $P(x) = x^2 + 5x + 8$, $D(x) = x + 2$, $Q(x) = x + 3$ og $R(x) = 2$, kva bør $(x+2)(x+3) + 2$ bli?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^2 + 5x + 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^2 + 5x + 8$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x^2 + 5x + 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2 + 7x + 8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(x+2)(x+3) + 2 = x^2 + 3x + 2x + 6 + 2 = x^2 + 5x + 8$. Dette er akkurat dividenden $P(x)$, så svaret stemmer. Kontrollen bekreftar at divisjonen er utført riktig."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-8-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-1-8-narrativ-del5.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-8-n-section5",
+      "type": "text",
+      "content": "## Divisjon med polynom av høgare grad\n\nDen same metoden fungerer også når dividenden er eit tredjegraads- eller fjerdegradspolynom. Vi får berre fleire rundar med divisjon, men kvart steg er identisk.\n\nLa oss ta $(x^3 - 6x^2 + 11x - 6) : (x - 1)$.\n\n**Runde 1:** $\\frac{x^3}{x} = x^2$. Gang: $x^2(x - 1) = x^3 - x^2$. Trekk frå: $(x^3 - 6x^2 + 11x - 6) - (x^3 - x^2) = -5x^2 + 11x - 6$.\n\n**Runde 2:** $\\frac{-5x^2}{x} = -5x$. Gang: $-5x(x - 1) = -5x^2 + 5x$. Trekk frå: $(-5x^2 + 11x - 6) - (-5x^2 + 5x) = 6x - 6$.\n\n**Runde 3:** $\\frac{6x}{x} = 6$. Gang: $6(x - 1) = 6x - 6$. Trekk frå: $(6x - 6) - (6x - 6) = 0$.\n\nSvaret er $x^2 - 5x + 6$. Vi kan faktorisere dette vidare til $(x - 2)(x - 3)$, så heile polynomet kan skrivast som $(x - 1)(x - 2)(x - 3)$.\n\nEin viktig tips: når dividenden manglar eit ledd, må du **setje inn null-ledd**. For døme, viss du skal dele $x^3 - 8$ på $(x - 2)$, bør du skrive dividenden som $x^3 + 0x^2 + 0x - 8$. Utan desse null-ledda er det lett å miste oversikten.\n\nHer er eit anna døme med tredjegradaspolynom: $(x^3 + 6x^2 + 11x + 6) : (x + 1)$. Runde 1: $x^2$, gang: $x^3 + x^2$, rest: $5x^2 + 11x + 6$. Runde 2: $5x$, gang: $5x^2 + 5x$, rest: $6x + 6$. Runde 3: $6$, gang: $6x + 6$, rest: $0$. Svaret er $x^2 + 5x + 6 = (x + 2)(x + 3)$."
+    },
+    {
+      "id": "1t-1-8-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-8-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på divisjon med polynom av høgare grad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-8-n-quiz5-q0",
+            "task": "Når du skal dele $(x^3 - 8)$ på $(x - 2)$, korleis bør du skrive dividenden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^3 - 8$, akkurat som han er",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x - 2)(x^2 + 2x + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^3 - 2x^2 - 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^3 + 0x^2 + 0x - 8$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når dividenden manglar ledd (her manglar $x^2$- og $x$-ledda), må du setje inn null-koeffisientar så du beheld oversikten: $x^3 + 0x^2 + 0x - 8$. Da unngår du å miste ledd undervegs i lang divisjon."
+          },
+          {
+            "id": "1t-1-8-n-quiz5-q1",
+            "task": "Kva er kvotienten når $(x^3 - 6x^2 + 11x - 6)$ delast på $(x - 1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^2 - 5x + 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x^2 + 5x + 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 - 6x + 11$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2 - 7x + 6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Runde 1: $x^3 / x = x^2$. Gang: $x^2(x-1) = x^3 - x^2$. Rest: $-5x^2 + 11x - 6$. Runde 2: $-5x^2 / x = -5x$. Gang: $-5x(x-1) = -5x^2 + 5x$. Rest: $6x - 6$. Runde 3: $6x / x = 6$. Gang: $6(x-1) = 6x - 6$. Rest: $0$. Kvotienten er $x^2 - 5x + 6$."
+          },
+          {
+            "id": "1t-1-8-n-quiz5-q2",
+            "task": "Kvotienten $x^2 - 5x + 6$ kan faktoriserast vidare. Kva blir resultatet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x - 1)(x - 6)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x - 2)(x - 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(x + 2)(x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x - 5)(x - 1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi leitast etter to tal som gangar til $6$ og summerar til $-5$. Det er $-2$ og $-3$: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Altså: $x^2 - 5x + 6 = (x - 2)(x - 3)$."
+          },
+          {
+            "id": "1t-1-8-n-quiz5-q3",
+            "task": "Kor mange rundar med divisjon treng du når du deler eit tredjegradspolynom på eit førstegradspolynom (og divisjonen går opp)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$ runde",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$ rundar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$ rundar",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$4$ rundar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit tredjegradspolynom delt på eit førstegradspolynom gir ein andregradskotient. I første runde finn vi $x^2$-leddet, i andre runde $x$-leddet, og i tredje runde konstantleddet. Det er $3$ rundar -- generelt like mange rundar som graden av kvotienten pluss $1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-8-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringa",
+      "src": "/audio/1t/1t-1-8-narrativ-del6.mp3",
+      "description": "Lydfil som les opp oppsummeringa."
+    },
+    {
+      "id": "1t-1-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi lært å dele polynom på kvarandre, frå dei enklaste tilfella til full lang divisjon.\n\n**Monomdivisjon** er grunnsteinen. Du deler koeffisientane og trekkjer frå eksponentane: $\\frac{6x^3}{2x} = 3x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er nøkkelen.\n\n**Polynom delt på monom** blir gjort ledd for ledd. Kvart ledd i tellaren blir delt separat på nemnaren: $\\frac{6x^3 + 4x^2 - 2x}{2x} = 3x^2 + 2x - 1$.\n\n**Lang divisjon** blir brukt når divisoren har fleire ledd. Metoden fylgjer fire steg som blir gjentatt: del førsteleidet, gang med heile divisoren, trekk frå, og gjenta. Resultatet består av ein kvotient og eventuelt ein rest.\n\n**Resten** kan vere null (divisjonen går opp) eller eit polynom av lågare grad enn divisoren. Svaret blir då skrive som $Q(x) + \\frac{R(x)}{D(x)}$.\n\n**Kontrollformelen** $P(x) = D(x) \\cdot Q(x) + R(x)$ let deg alltid kontrollere svaret ditt. Gang kvotienten med divisoren og legg til resten -- du skal få tilbake dividenden. Hugs også å setje inn null-ledd når dividenden manglar potensar av $x$."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "5c31c2222331b3f5",
+    "translatedAt": "2026-06-16T10:01:18.245Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 147,
+    "tm": {
+      "a3470a60aec59410": "Polynomdivisjon - introduksjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "59b2fccc9d5038c9": "Ein fortelling om korleis du deler polynomer på kvarandre -- frå enkle monodivisjonar til fullstendig lang divisjon med rest, forklart steg for steg som ein naturleg forlengelse av vanlleg divisjon med tal.",
+      "9971cc57616d7428": "forklare polynomdivisjon",
+      "ed14edc698d6c081": "utføre enkel polynomdivisjon",
+      "d2c9d9ef5d3f774f": "Lytt til denne delen",
+      "21954805f17795e8": "Lydfil som les opp teksten fram til første quiz.",
+      "3a16ddde86a65778": "## Divisjon med bokstavar\n\nTenk tilbake til då du lærde lang divisjon med tal. Du sette opp dividenden, plasserte divisoren til venstre, og jobba deg gjennom siffera eitt om gangen. Polynomdivisjon er nøyaktig det same -- berre med algebraiske uttrykk i staden for tal.\n\nNår vi deler eit polynom $P(x)$ på eit anna polynom $D(x)$, får vi eit resultat som følgjer ein velkjend struktur:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\nHer er $P(x)$ **dividenden** -- det polynomet vi deler. $D(x)$ er **divisoren** -- det vi deler på. $Q(x)$ er **kvotienten** -- svaret vårt. Og $R(x)$ er **resten**, som kan vere null dersom divisjonen går opp.\n\nDenna samanhengen er heilt lik den du kjenner frå vanlege tal. Når du deler $17$ på $5$, får du kvotienten $3$ og resten $2$, fordi $17 = 5 \\cdot 3 + 2$. Med polynomer fungerer det på akkurat same måte -- vi berre byter ut tala med uttrykk som inneheld $x$. I dette kapitlet skal vi byggje opp ferdigheitene steg for steg, frå dei enklaste delingane til full lang divisjon.",
+      "a46f196fb967b9f0": "## Divisjon av monomar -- potensreglane i aksjon\n\nLa oss begynne med det aller enklaste: å dele eitt monom på eit anna. Eit **monom** er eit uttrykk med berre eitt ledd, til dømes $6x^3$ eller $2x$.\n\nNår du skal dele $\\frac{6x^3}{2x}$, gjer du to ting: du deler koeffisientane ($\\frac{6}{2} = 3$) og du bruker potensregelen for divisjon på variabeldelen ($x^{3-1} = x^2$). Resultatet er $3x^2$.\n\nKorfor fungerer dette? Fordi $x^3 = x \\cdot x \\cdot x$ og $x = x$. Når du deler, stryker du dei felles faktorane: $\\frac{x \\cdot x \\cdot x}{x} = x \\cdot x = x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er berre ein snarveg for denne prosessen.\n\nLa oss ta nokre fleire døme. $\\frac{8x^4}{2x} = 4x^3$ -- del koeffisientane ($8/2 = 4$) og trekk frå eksponentane ($4 - 1 = 3$). $\\frac{12x^5}{4x^2} = 3x^3$. $\\frac{15x^3}{5x^3} = 3$ -- når eksponentane er like, forsvinn $x$ heilt, og vi sit igjen med berre eit tal. Og $\\frac{-10x^6}{2x^2} = -5x^4$ -- hugs at fortegnreglane gjeld som vanlegt.\n\nDet finst òg eit spesialtilfelle som er verdt å merkje seg: $\\frac{x^n}{x^n} = x^0 = 1$. Kvar storleik delt på seg sjølv gir $1$. Denne enkle observasjonen er grunnlaget for alt som følgjer.",
+      "a05ad982987c642a": "Test deg sjølv på monodivisjon og potensregler:",
+      "4097889236a2af26": "placeholder",
+      "d6540fae0c07e41b": "Kva blir $\\frac{12x^5}{4x^2}$?",
+      "4ad62bc962da8919": "$3x^3$",
+      "490d67e14b22e40f": "$3x^7$",
+      "d70236b25671cb86": "$8x^3$",
+      "b6ed82c540fb967b": "$3x^{2{,}5}$",
+      "e56049345e03f7b9": "Vi deler koeffisientane: $12 / 4 = 3$. Deretter trekk vi frå eksponentane: $x^{5-2} = x^3$. Svaret er $3x^3$.",
+      "af34ad214b6f726a": "Kva blir $\\frac{-10x^6}{2x^2}$?",
+      "7f6a520563c27c7f": "$-5x^3$",
+      "dd7791d3946fcbb1": "$5x^4$",
+      "106bde882f05a1c7": "$-5x^4$",
+      "ba94ad392a701c5a": "$-8x^4$",
+      "067210a054c2cfd7": "Koeffisientane: $-10 / 2 = -5$. Eksponentane: $x^{6-2} = x^4$. Hugs at minus delt på pluss gir minus. Svaret er $-5x^4$.",
+      "92a5d18c967913c2": "Kva blir $\\frac{15x^3}{5x^3}$?",
+      "e2fe3bdcb9849f47": "$3x$",
+      "5cf6ae2d7db5d6ec": "Koeffisientane: $15 / 5 = 3$. Eksponentane: $x^{3-3} = x^0 = 1$. Når eksponentane er like, forsvinn $x$ heilt. Svaret er $3 \\cdot 1 = 3$.",
+      "97b898d0ceb004e4": "Kva potensregel brukar vi når vi deler $x^m$ på $x^n$?",
+      "a842e1db79724f3f": "$x^m \\cdot x^n = x^{m+n}$",
+      "cc1293ea9d8e8328": "$\\frac{x^m}{x^n} = x^{m \\cdot n}$",
+      "13755ed299d035a8": "$\\frac{x^m}{x^n} = x^{m-n}$",
+      "0362af8294e38620": "$\\frac{x^m}{x^n} = x^{n-m}$",
+      "a187b963d39b9bdf": "Potensregelen for divisjon seier at $\\frac{x^m}{x^n} = x^{m-n}$. Vi trekk eksponenten i nemnaren frå eksponenten i tellaren. Til dømes: $\\frac{x^5}{x^2} = x^{5-2} = x^3$.",
+      "058005533831b7f6": "Lydfil som les opp teksten fram til neste quiz.",
+      "84de16d9d6eabddf": "## Dele eit polynom på eit monom -- ledd for ledd\n\nNo som vi mestrar monodivisjon, er neste steget å dele eit heilt polynom på eit enkelt monom. Trikset er overraskande greitt: du deler **kvart ledd** i polynomet for seg.\n\nRegelen er:\n\n$$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$$\n\nDette er det same prinsippet som at $\\frac{10 + 5}{5} = \\frac{10}{5} + \\frac{5}{5} = 2 + 1 = 3$.\n\nLa oss prøve med $\\frac{6x^3 + 4x^2 - 2x}{2x}$. Vi deler kvar av dei tre ledda på $2x$:\n\n$$\\frac{6x^3}{2x} + \\frac{4x^2}{2x} - \\frac{2x}{2x} = 3x^2 + 2x - 1$$\n\nKvart ledd blir handsama som ein sjølvstendig monodivisjon. Første ledd: $6x^3 / 2x = 3x^2$. Andre ledd: $4x^2 / 2x = 2x$. Tredje ledd: $2x / 2x = 1$.\n\nHer er eit døme til: $\\frac{9x^3 - 6x^2 + 3x}{3x}$. Vi tek ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$.\n\nOg endå eitt: $\\frac{x^4 + x^3 + x^2}{x^2}$. Her er $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$.\n\nLegg merke til at denne metoden alltid fungerer når divisoren er eit monom. Men kva gjer vi når òg divisoren har fleire ledd, som til dømes $(x + 2)$? Då treng vi eit kraftigare verktøy: **lang divisjon**.",
+      "ed550144a9823da3": "Test deg sjølv på polynom delt på monom:",
+      "3e2c5a90daed27e6": "Kva blir $\\frac{8x^2 + 4x}{2x}$?",
+      "5d5ac42a03225189": "$4x^2 + 2$",
+      "5bba99ca1e37c407": "$4x + 2$",
+      "82f5f079ede25c0a": "$6x$",
+      "dddc3394fabc2c3b": "$4x + 4$",
+      "911ac0af27c8282a": "Vi delar kvart ledd for seg: $\\frac{8x^2}{2x} = 4x$ og $\\frac{4x}{2x} = 2$. Svaret er $4x + 2$.",
+      "98eab0c898ee2ee8": "Kva regel gjer at vi kan dela kvart ledd i tellaren for seg?",
+      "7416f8182b05e1b4": "$\\frac{a \\cdot b}{c} = \\frac{a}{c} \\cdot \\frac{b}{c}$",
+      "a3b771ac3b500b88": "$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$",
+      "c043d9601445aa06": "$\\frac{a}{b + c} = \\frac{a}{b} + \\frac{a}{c}$",
+      "9705d627f82a0fd0": "$\\frac{a + b}{c} = \\frac{a + b}{c}$ (kan ikkje forenklas)",
+      "158c0a9b2bf4cd82": "Regelen er $\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$. Vi kan dela kvart ledd i tellaren på nemnaren separat. Merk at dette IKKJE fungerer den andre vegen -- vi kan ikkje splitte nemnaren på same måte.",
+      "43307e5cb6b43012": "Kva blir $\\frac{9x^3 - 6x^2 + 3x}{3x}$?",
+      "875b73af383ef19f": "$3x^2 - 2x + 1$",
+      "4a58cad0e50d330f": "$3x^3 - 2x^2 + x$",
+      "1660ee12749eacfc": "$3x^2 - 6x + 3$",
+      "1e7954e8aeb4ccfc": "$3x^2 - 2x$",
+      "8ec9f38cb34e6916": "Vi delar ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$.",
+      "0c19acdbbb9b0230": "Kva blir $\\frac{x^4 + x^3 + x^2}{x^2}$?",
+      "101fe1bdddeb4d90": "$x^2 + x$",
+      "0c9ce70d7559be2e": "$x^6 + x^5 + x^4$",
+      "507b6c1397a3a23d": "$x^2 + x + 1$",
+      "64591c6c7d6c92f5": "$x^2 + x + x^0$",
+      "352a1eb56b0ef937": "Ledd for ledd: $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$. Merk at alternativ d) skriv $x^0$ i staden for $1$, men $x^0 = 1$ så dette er teknisk sett likt -- likevel skriv vi alltid $1$, ikkje $x^0$.",
+      "99d25223535bc383": "## Lang divisjon av polynomar -- steg for steg\n\nNå er vi klare for hovudteknikken: **polynomdivisjon med lang divisjon**. Metoden liknar på vanleg lang divisjon med tal, og ho fylgjer fire steg som gjentertast til vi er ferdige.\n\n**Framgangsmåten:**\n1. Del det første leddet i dividenden på det første leddet i divisoren.\n2. Gang svaret med heile divisoren.\n3. Trekk frå resultatet.\n4. Gjenta til graden av resten er lågare enn graden av divisoren.\n\nLa oss gå gjennom eit konkret døme: $(x^2 + 5x + 6) : (x + 2)$.\n\n**Steg 1:** Vi ser på det første leddet i dividenden, $x^2$, og delar det på det første leddet i divisoren, $x$. Vi får $\\frac{x^2}{x} = x$. Dette er det første leddet i kvotienten.\n\n**Steg 2:** Vi gangmultipliserer $x$ med heile divisoren $(x + 2)$: $x \\cdot (x + 2) = x^2 + 2x$.\n\n**Steg 3:** Vi trekk frå: $(x^2 + 5x + 6) - (x^2 + 2x) = 3x + 6$. Nå arbeider vi vidare med $3x + 6$.\n\n**Steg 4:** Vi delar $3x$ på $x$: $\\frac{3x}{x} = 3$. So gangmultipliserer vi $3$ med $(x + 2)$: $3x + 6$. Vi trekk frå: $(3x + 6) - (3x + 6) = 0$.\n\nResten er $0$, så divisjonen går opp! Svaret er $(x^2 + 5x + 6) : (x + 2) = x + 3$.\n\nVi kan kontrollera: $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$. Stemmer! Denne kontrollen er eit flott verktøy -- du kan alltid kontrollera svaret ditt ved å gangmultiplisera kvotienten med divisoren og leggja til eventuell rest.",
+      "82b8c8ca66eff7b1": "Test deg sjølv på lang divisjon av polynomar:",
+      "92c79d4b8b22e4c4": "Kva er det første steget når du utfører $(x^2 + 7x + 12) : (x + 3)$?",
+      "b9f787abad3bf34a": "Gang $x^2$ med $(x + 3)$",
+      "55af12feaa3747de": "Trekk $3$ frå $12$",
+      "bcd9e551db8f8541": "Del $x^2 + 7x$ på $x + 3$",
+      "141644438fb3847f": "Del $x^2$ på $x$ og få $x$",
+      "088eedd747c7708e": "Det første steget i lang divisjon er alltid å dela det første leddet i dividenden ($x^2$) på det første leddet i divisoren ($x$). Det gir $x$, som blir det første leddet i kvotienten.",
+      "2b1ed896f78b0745": "Kva er kvotienten når $(x^2 + 5x + 6)$ delast på $(x + 2)$?",
+      "5cc4d224d6051098": "$x + 2$",
+      "c3d62e3337ca6623": "$x + 3$",
+      "c0c153012269c087": "$x + 6$",
+      "1dc064e673d2c4c2": "$x^2 + 3$",
+      "6b16d492ca64c425": "Steg 1: $x^2 / x = x$. Gang: $x(x+2) = x^2 + 2x$. Trekk frå: $(x^2+5x+6)-(x^2+2x) = 3x+6$. Steg 2: $3x / x = 3$. Gang: $3(x+2) = 3x+6$. Trekk frå: $0$. Kvotienten er $x + 3$.",
+      "7ecb18e2fe453a9d": "I lang divisjon av polynomar, når stoppar vi prosessen?",
+      "c09a696aa708bb74": "Når resten er eit positivt tal",
+      "8e7aacdff099a5e9": "Når vi har gjort like mange rundar som graden av dividenden",
+      "4de046242f982e85": "Når graden av resten er lågare enn graden av divisoren",
+      "6f5850d30bb8f412": "Når resten er $0$",
+      "4fb11b90337a7a48": "Vi stoppar når graden av resten er lågare enn graden av divisoren. Resten $0$ er eit spesialtilfelle av dette (divisjonen går opp), men vi stoppar også ved ein rest som $2$ eller $3x+1$, så lenge den har lågare grad enn divisoren.",
+      "dae8e91ee53291b1": "Korleis kontrollerer du at svaret på ein polynomdivisjon er riktig?",
+      "b71ceca6af990ede": "Set inn $x = 0$ i kvotienten",
+      "4eb9fa1c279e7b02": "Gang kvotienten med divisoren og legg til resten -- du skal få dividenden",
+      "721147bb17893d72": "Divider dividenden på kvotienten -- du skal få divisoren",
+      "e9a8722ba8ac955e": "Sjekk at graden av kvotienten er $1$",
+      "5aa1381ff99702bd": "Kontrollen byggjer på formelen $P(x) = D(x) \\cdot Q(x) + R(x)$. Gang kvotienten med divisoren og legg til resten. Viss du får tilbake dividenden, er svaret riktig.",
+      "c2ae992f8fa59142": "## Når divisjonen ikkje går opp -- rest\n\nIkkje alle polynomdivisjonar går opp. Akkurat som $17 : 5 = 3$ med rest $2$, kan vi få ein rest også med polynom. Når resten ikkje er null, skriv vi svaret på forma:\n\n$$\\frac{P(x)}{D(x)} = Q(x) + \\frac{R(x)}{D(x)}$$\n\nLa oss sjå på $(x^2 + 5x + 8) : (x + 2)$.\n\nVi startar som for. $\\frac{x^2}{x} = x$. Gang: $x(x + 2) = x^2 + 2x$. Trekk frå: $(x^2 + 5x + 8) - (x^2 + 2x) = 3x + 8$.\n\nNeste runde: $\\frac{3x}{x} = 3$. Gang: $3(x + 2) = 3x + 6$. Trekk frå: $(3x + 8) - (3x + 6) = 2$.\n\nNo har vi ein rest på $2$. Sidan graden av resten ($0$, fordi $2$ er ein konstant) er lågare enn graden av divisoren ($1$, fordi $x + 2$ er førstegrads), stoppar vi her.\n\nSvaret skrivast: $(x^2 + 5x + 8) : (x + 2) = x + 3 + \\frac{2}{x + 2}$\n\nLa oss sjekke med formelen $P(x) = D(x) \\cdot Q(x) + R(x)$: $(x + 2)(x + 3) + 2 = x^2 + 5x + 6 + 2 = x^2 + 5x + 8$. Stemmer!\n\nHer er eit døme til: $(2x^2 + 5x + 1) : (x + 2)$. Første runde: $\\frac{2x^2}{x} = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $x + 1$. Andre runde: $\\frac{x}{x} = 1$. Gang: $1 \\cdot (x + 2) = x + 2$. Trekk frå: $(x + 1) - (x + 2) = -1$. Svaret er $2x + 1$ med rest $-1$.",
+      "c786f9c7119ac6c3": "Test deg sjølv på polynomdivisjon med rest:",
+      "e6d4a762041642fe": "Kva er resten når $(x^2 + 4x + 5)$ blir delt på $(x + 1)$?",
+      "da46c7322101b92b": "Vi utfører lang divisjon. $x^2 / x = x$. Gang: $x(x+1) = x^2 + x$. Trekk frå: $3x + 5$. Neste: $3x / x = 3$. Gang: $3(x+1) = 3x + 3$. Trekk frå: $(3x+5)-(3x+3) = 2$. Resten er $2$.",
+      "0fcf2cb358b0002e": "Korleis skrivast svaret når $(x^2 + 5x + 8)$ blir delt på $(x + 2)$ og resten ikkje er null?",
+      "f8c237db545d6131": "$x + 3$ rest $2$",
+      "49fb9d2dfb0aa39d": "$x + 3 + \\frac{2}{x + 2}$",
+      "4fc291f8979c87d9": "$\\frac{x + 3}{x + 2} + 2$",
+      "080e08d972f460a7": "$(x + 3)(x + 2) + 2$",
+      "1f7305be5657929b": "Når divisjonen ikkje går opp, skriv vi svaret som $Q(x) + \\frac{R(x)}{D(x)}$. Her er kvotienten $x + 3$, resten $2$, og divisoren $(x + 2)$, så svaret er $x + 3 + \\frac{2}{x + 2}$.",
+      "d4fe0585a5b5baac": "Kva er kvotienten og resten når $(2x^2 + 5x + 1)$ blir delt på $(x + 2)$?",
+      "d317d8a525f1f5ac": "Kvotient $2x + 1$, rest $-1$",
+      "2ba6745d63c12193": "Kvotient $2x + 1$, rest $1$",
+      "fbef06b980f09dc5": "Kvotient $2x + 9$, rest $0$",
+      "db2ec1e3c15e7836": "Kvotient $2x - 1$, rest $3$",
+      "853a8724a7e71cfe": "Runde 1: $2x^2 / x = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk frå: $(2x^2+5x+1)-(2x^2+4x) = x + 1$. Runde 2: $x / x = 1$. Gang: $1(x+2) = x+2$. Trekk frå: $(x+1)-(x+2) = -1$. Kvotient $2x+1$, rest $-1$.",
+      "f9197c70300e4830": "Formelen $P(x) = D(x) \\cdot Q(x) + R(x)$ gir oss ein kontroll. Viss $P(x) = x^2 + 5x + 8$, $D(x) = x + 2$, $Q(x) = x + 3$ og $R(x) = 2$, kva bør $(x+2)(x+3) + 2$ bli?",
+      "565fbf77812fd547": "$x^2 + 5x + 6$",
+      "7eac019b8e9fb51f": "$x^2 + 5x + 8$",
+      "52462a0b1a413d77": "$x^2 + 5x + 10$",
+      "bfd628176bce35e1": "$x^2 + 7x + 8$",
+      "21013014f8cb6002": "$(x+2)(x+3) + 2 = x^2 + 3x + 2x + 6 + 2 = x^2 + 5x + 8$. Dette er akkurat dividenden $P(x)$, så svaret stemmer. Kontrollen bekreftar at divisjonen er utført riktig.",
+      "c1b2b49e3620204d": "## Divisjon med polynom av høgare grad\n\nDen same metoden fungerer også når dividenden er eit tredjegraads- eller fjerdegradspolynom. Vi får berre fleire rundar med divisjon, men kvart steg er identisk.\n\nLa oss ta $(x^3 - 6x^2 + 11x - 6) : (x - 1)$.\n\n**Runde 1:** $\\frac{x^3}{x} = x^2$. Gang: $x^2(x - 1) = x^3 - x^2$. Trekk frå: $(x^3 - 6x^2 + 11x - 6) - (x^3 - x^2) = -5x^2 + 11x - 6$.\n\n**Runde 2:** $\\frac{-5x^2}{x} = -5x$. Gang: $-5x(x - 1) = -5x^2 + 5x$. Trekk frå: $(-5x^2 + 11x - 6) - (-5x^2 + 5x) = 6x - 6$.\n\n**Runde 3:** $\\frac{6x}{x} = 6$. Gang: $6(x - 1) = 6x - 6$. Trekk frå: $(6x - 6) - (6x - 6) = 0$.\n\nSvaret er $x^2 - 5x + 6$. Vi kan faktorisere dette vidare til $(x - 2)(x - 3)$, så heile polynomet kan skrivast som $(x - 1)(x - 2)(x - 3)$.\n\nEin viktig tips: når dividenden manglar eit ledd, må du **setje inn null-ledd**. For døme, viss du skal dele $x^3 - 8$ på $(x - 2)$, bør du skrive dividenden som $x^3 + 0x^2 + 0x - 8$. Utan desse null-ledda er det lett å miste oversikten.\n\nHer er eit anna døme med tredjegradaspolynom: $(x^3 + 6x^2 + 11x + 6) : (x + 1)$. Runde 1: $x^2$, gang: $x^3 + x^2$, rest: $5x^2 + 11x + 6$. Runde 2: $5x$, gang: $5x^2 + 5x$, rest: $6x + 6$. Runde 3: $6$, gang: $6x + 6$, rest: $0$. Svaret er $x^2 + 5x + 6 = (x + 2)(x + 3)$.",
+      "d54429ed1ae8e677": "Test deg sjølv på divisjon med polynom av høgare grad:",
+      "1bd487db7dd25e83": "Når du skal dele $(x^3 - 8)$ på $(x - 2)$, korleis bør du skrive dividenden?",
+      "8edf4d9ef5f84e4a": "$x^3 - 8$, akkurat som han er",
+      "cb3631c807b58f35": "$x^3 + 0x^2 + 0x - 8$",
+      "43bbae51dca8618e": "$(x - 2)(x^2 + 2x + 4)$",
+      "6980fbdaef4553df": "$x^3 - 2x^2 - 8$",
+      "572024fed6694bb9": "Når dividenden manglar ledd (her manglar $x^2$- og $x$-ledda), må du setje inn null-koeffisientar så du beheld oversikten: $x^3 + 0x^2 + 0x - 8$. Da unngår du å miste ledd undervegs i lang divisjon.",
+      "6ec8dd673d7343d4": "Kva er kvotienten når $(x^3 - 6x^2 + 11x - 6)$ delast på $(x - 1)$?",
+      "456c9273f6f3e77f": "$x^2 - 5x + 6$",
+      "82a8c6092abe5351": "$x^2 - 6x + 11$",
+      "b81d4426345b0b9e": "$x^2 - 7x + 6$",
+      "23acca58dadfeac3": "Runde 1: $x^3 / x = x^2$. Gang: $x^2(x-1) = x^3 - x^2$. Rest: $-5x^2 + 11x - 6$. Runde 2: $-5x^2 / x = -5x$. Gang: $-5x(x-1) = -5x^2 + 5x$. Rest: $6x - 6$. Runde 3: $6x / x = 6$. Gang: $6(x-1) = 6x - 6$. Rest: $0$. Kvotienten er $x^2 - 5x + 6$.",
+      "97551565adb560a9": "Kvotienten $x^2 - 5x + 6$ kan faktoriserast vidare. Kva blir resultatet?",
+      "e6ea340aaa501660": "$(x - 1)(x - 6)$",
+      "812e442289031ed2": "$(x + 2)(x + 3)$",
+      "f40827c51203679f": "$(x - 2)(x - 3)$",
+      "911ba3dd98363900": "$(x - 5)(x - 1)$",
+      "bc8fd51d80671301": "Vi leitast etter to tal som gangar til $6$ og summerar til $-5$. Det er $-2$ og $-3$: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Altså: $x^2 - 5x + 6 = (x - 2)(x - 3)$.",
+      "5b4e63dae4b1e657": "Kor mange rundar med divisjon treng du når du deler eit tredjegradspolynom på eit førstegradspolynom (og divisjonen går opp)?",
+      "dd162bd24eb2073b": "$1$ runde",
+      "a176ee587783f84f": "$2$ rundar",
+      "016d166d9cc2acbb": "$3$ rundar",
+      "3756d2baa16ed931": "$4$ rundar",
+      "d0d811d6210d63d9": "Eit tredjegradspolynom delt på eit førstegradspolynom gir ein andregradskotient. I første runde finn vi $x^2$-leddet, i andre runde $x$-leddet, og i tredje runde konstantleddet. Det er $3$ rundar -- generelt like mange rundar som graden av kvotienten pluss $1$.",
+      "79eeeec37aef74be": "Lytt til oppsummeringa",
+      "b409d1128419f9c6": "Lydfil som les opp oppsummeringa.",
+      "06d7490171fd5944": "## Oppsummering\n\nI dette kapittelet har vi lært å dele polynom på kvarandre, frå dei enklaste tilfella til full lang divisjon.\n\n**Monomdivisjon** er grunnsteinen. Du deler koeffisientane og trekkjer frå eksponentane: $\\frac{6x^3}{2x} = 3x^2$. Potensregelen $\\frac{x^m}{x^n} = x^{m-n}$ er nøkkelen.\n\n**Polynom delt på monom** blir gjort ledd for ledd. Kvart ledd i tellaren blir delt separat på nemnaren: $\\frac{6x^3 + 4x^2 - 2x}{2x} = 3x^2 + 2x - 1$.\n\n**Lang divisjon** blir brukt når divisoren har fleire ledd. Metoden fylgjer fire steg som blir gjentatt: del førsteleidet, gang med heile divisoren, trekk frå, og gjenta. Resultatet består av ein kvotient og eventuelt ein rest.\n\n**Resten** kan vere null (divisjonen går opp) eller eit polynom av lågare grad enn divisoren. Svaret blir då skrive som $Q(x) + \\frac{R(x)}{D(x)}$.\n\n**Kontrollformelen** $P(x) = D(x) \\cdot Q(x) + R(x)$ let deg alltid kontrollere svaret ditt. Gang kvotienten med divisoren og legg til resten -- du skal få tilbake dividenden. Hugs også å setje inn null-ledd når dividenden manglar potensar av $x$."
+    }
+  }
+}

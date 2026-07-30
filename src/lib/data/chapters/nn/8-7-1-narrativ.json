@@ -1,1 +1,404 @@
-{"id":"8-7-1-narrativ","courseId":"8","chapterNumber":"7.1","title":"Primtal og delelegheitsreglar","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av primtal -- tala sine «atom» som ikkje kan delast vidare -- der vi oppdagar delelegheitsreglar, Eratosthenes' sil og kvifor primtal er byggjesteinane i all matematikk.","estimatedMinutes":35,"competenceGoals":["bruke faktorisering og primtall i berekningar"],"linkedChapterId":"8-7-1","content":[{"id":"8-7-1-n-intro","type":"text","content":"## Tala sine atom\n\nI kjemien er alt bygd opp av atom. Vatn er hydrogen pluss oksygen. Salt er natrium pluss klor. Atoma er dei minste byggjesteinane -- dei kan ikkje brytast ned vidare.\n\nI matematikken har vi noko liknande: **primtal**. Dei er tala sine atom. Alle heiltal større enn $1$ kan byggjast opp ved å gonge primtal saman, og primtala sjølve kan ikkje delast vidare (utan å få $1$ eller seg sjølv).\n\nKva meiner vi med det? Ta talet $12$. Vi kan skrive $12 = 2 \\cdot 6 = 2 \\cdot 2 \\cdot 3$. Her er $2$ og $3$ primtal -- dei kan ikkje delast opp i mindre faktorar. Talet $12$ er altså «bygd» av to toarar og éin trear. Men kva med $7$? Den einaste måten å skrive $7$ som eit produkt er $1 \\cdot 7$. Det finst ingen andre heile tal som gonga saman gir $7$. Derfor er $7$ eit primtal.\n\n**Definisjon:** Eit **primtal** er eit naturleg tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Tal som ikkje er primtal (og er større enn $1$) blir kalla **samansette tal**."},{"id":"8-7-1-n-section1","type":"text","content":"## Dei første primtala\n\nLat oss sjå på dei minste naturlege tala og sortere dei:\n\n| Tal | Primtal? | Grunngjeving |\n|------|-----------|-------------|\n| $1$ | Nei | $1$ blir ikkje rekna som primtal (spesiell konvensjon) |\n| $2$ | Ja | Berre deleleg med $1$ og $2$ |\n| $3$ | Ja | Berre deleleg med $1$ og $3$ |\n| $4$ | Nei | $4 = 2 \\cdot 2$ |\n| $5$ | Ja | Berre deleleg med $1$ og $5$ |\n| $6$ | Nei | $6 = 2 \\cdot 3$ |\n| $7$ | Ja | Berre deleleg med $1$ og $7$ |\n| $8$ | Nei | $8 = 2 \\cdot 4$ |\n| $9$ | Nei | $9 = 3 \\cdot 3$ |\n| $10$ | Nei | $10 = 2 \\cdot 5$ |\n\nDei første primtala er altså: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\nLegg merke til noko spesielt: **$2$ er det einaste partals-primtalet**. Alle andre partal er delelege med $2$, så dei er samansette. Etter $2$ er alle primtal oddetal -- men ikkje alle oddetal er primtal ($9 = 3 \\cdot 3$, til dømes).\n\nEi anna viktig observasjon: primtala blir sjeldnare og sjeldnare jo høgare vi tel, men dei tek **aldri slutt**. Det finst uendeleg mange primtal -- noko den greske matematikaren Euklid prova for over 2300 år sidan!"},{"id":"8-7-1-n-quiz1","type":"exercise","exercise":{"id":"8-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på primtal:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-1-n-quiz1-q0","task":"Kva av desse tala er eit primtal?","options":[{"id":"a","text":"$15$","isCorrect":false},{"id":"b","text":"$21$","isCorrect":false},{"id":"c","text":"$23$","isCorrect":true},{"id":"d","text":"$27$","isCorrect":false}],"solution":"$15 = 3 \\cdot 5$, $21 = 3 \\cdot 7$, $27 = 3 \\cdot 9$. Alle desse er samansette. $23$ er berre deleleg med $1$ og $23$, så det er eit primtal."},{"id":"8-7-1-n-quiz1-q1","task":"Kvifor blir ikkje $1$ rekna som eit primtal?","options":[{"id":"a","text":"Fordi $1$ er for lite","isCorrect":false},{"id":"b","text":"Fordi det ville øydeleggje eintydig primtalsfaktorisering","isCorrect":true},{"id":"c","text":"Fordi $1$ er eit oddetal","isCorrect":false},{"id":"d","text":"Fordi $1$ er deleleg med $0$","isCorrect":false}],"solution":"Viss $1$ var primtal, kunne vi skrive $12 = 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 1 \\cdot 2 \\cdot 2 \\cdot 3$ osv. Då ville faktoriseringa ikkje vere eintydig."},{"id":"8-7-1-n-quiz1-q2","task":"Kor mange partals-primtal finst det?","options":[{"id":"a","text":"Ingen","isCorrect":false},{"id":"b","text":"Nøyaktig eitt ($2$)","isCorrect":true},{"id":"c","text":"Uendeleg mange","isCorrect":false},{"id":"d","text":"Ti stykk","isCorrect":false}],"solution":"$2$ er det einaste partals-primtalet. Alle andre partal er delelege med $2$ (i tillegg til $1$ og seg sjølv), så dei er samansette."}]}},{"id":"8-7-1-n-section2","type":"text","content":"## Delelegheitsreglar -- snarvegar for å sjekke deling\n\nÅ avgjere om eit tal er eit primtal krev at vi sjekkar om det er deleleg med mindre tal. Men å dele store tal kan ta tid. Heldigvis finst det **delelegheitsreglar** -- snarvegar som lèt deg avgjere delelegheit ved å sjå på sifra:\n\n**Deleleg med $2$:** Siste siffer er partal ($0, 2, 4, 6, 8$).\n- $374$: siste siffer er $4$ -- deleleg med $2$ ✓\n- $891$: siste siffer er $1$ -- ikkje deleleg med $2$ ✗\n\n**Deleleg med $3$:** Tverrsummen (summen av sifra) er deleleg med $3$.\n- $726$: tverrsum $= 7 + 2 + 6 = 15$. Er $15$ deleleg med $3$? Ja, $15 = 3 \\cdot 5$ ✓\n- $340$: tverrsum $= 3 + 4 + 0 = 7$. Er $7$ deleleg med $3$? Nei ✗\n\n**Deleleg med $5$:** Siste siffer er $0$ eller $5$.\n- $235$: siste siffer er $5$ ✓\n- $748$: siste siffer er $8$ ✗\n\n**Deleleg med $9$:** Tverrsummen er deleleg med $9$.\n- $738$: tverrsum $= 7 + 3 + 8 = 18 = 9 \\cdot 2$ ✓\n- $214$: tverrsum $= 2 + 1 + 4 = 7$ ✗\n\n**Deleleg med $10$:** Siste siffer er $0$.\n- $530$ ✓, $531$ ✗\n\nMerk at regelen for $3$ og $9$ begge bruker tverrsummen. Sidan $9 = 3 \\cdot 3$, er kvart tal som er deleleg med $9$ automatisk deleleg med $3$ -- men ikkje omvendt."},{"id":"8-7-1-n-quiz2","type":"exercise","exercise":{"id":"8-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på delelegheitsreglar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-1-n-quiz2-q0","task":"Er $4\\,563$ deleleg med $3$?","options":[{"id":"a","text":"Ja, fordi tverrsummen $4 + 5 + 6 + 3 = 18$ er deleleg med $3$","isCorrect":true},{"id":"b","text":"Nei, fordi siste siffer er $3$","isCorrect":false},{"id":"c","text":"Ja, fordi siste siffer er oddetal","isCorrect":false},{"id":"d","text":"Nei, fordi tverrsummen er $17$","isCorrect":false}],"solution":"Tverrsummen er $4 + 5 + 6 + 3 = 18$. Sidan $18$ er deleleg med $3$ ($18 = 3 \\cdot 6$), er $4\\,563$ deleleg med $3$."},{"id":"8-7-1-n-quiz2-q1","task":"Kva tal er deleleg med både $2$ og $5$?","options":[{"id":"a","text":"$125$","isCorrect":false},{"id":"b","text":"$234$","isCorrect":false},{"id":"c","text":"$370$","isCorrect":true},{"id":"d","text":"$345$","isCorrect":false}],"solution":"For å vere deleleg med både $2$ og $5$ må siste siffer vere $0$ (det einaste sifferet som er både partal og endar på $0$ eller $5$). $370$ endar på $0$."},{"id":"8-7-1-n-quiz2-q2","task":"Er $891$ deleleg med $9$?","options":[{"id":"a","text":"Ja, fordi tverrsummen er $18$","isCorrect":true},{"id":"b","text":"Nei, fordi siste siffer er $1$","isCorrect":false},{"id":"c","text":"Nei, fordi $891$ er eit oddetal","isCorrect":false},{"id":"d","text":"Ja, fordi $891$ endar på $91$","isCorrect":false}],"solution":"Tverrsummen er $8 + 9 + 1 = 18$. Sidan $18 = 9 \\cdot 2$, er $891$ deleleg med $9$. ($891 = 9 \\cdot 99$.)"}]}},{"id":"8-7-1-n-section3","type":"text","content":"## Eratosthenes' sil -- å finne alle primtal\n\nFor over 2200 år sidan fann den greske matematikaren Eratosthenes opp ein genial metode for å finne alle primtal opp til eit gitt tal. Metoden blir kalla **Eratosthenes' sil** (eller «sieve of Eratosthenes»), og han fungerer som eit filter:\n\n**Slik gjer du for å finne alle primtal opp til $50$:**\n\n1. Skriv opp alle tal frå $2$ til $50$.\n2. Start med det minste talet ($2$). Det er eit primtal. **Stryk alle multiplum av $2$**: $4, 6, 8, 10, 12, \\ldots$\n3. Neste ustrokne tal er $3$. Det er eit primtal. **Stryk alle multiplum av $3$**: $6, 9, 12, 15, \\ldots$ (nokre er allereie strokne).\n4. Neste ustrokne tal er $5$ (fordi $4$ blei stroke i steg 2). Det er eit primtal. **Stryk alle multiplum av $5$**: $10, 15, 20, 25, \\ldots$\n5. Neste ustrokne tal er $7$. Det er eit primtal. **Stryk alle multiplum av $7$**: $14, 21, 28, 35, 42, 49$.\n6. Neste ustrokne tal er $11$. Men $11^2 = 121 > 50$, så vi er ferdige!\n\nAlle ustrokne tal er primtal: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$.\n\n**Kvifor stoppar vi ved $\\sqrt{50} \\approx 7$?** Fordi viss eit samansett tal $n$ har ein faktor større enn $\\sqrt{n}$, må det òg ha ein faktor som er *mindre* enn $\\sqrt{n}$. Denne vesle faktoren er allereie fanga opp av silinga.\n\n**Praktisk tips:** For å sjekke om eit tal $n$ er primtal, treng du berre å teste om det er deleleg med primtal opp til $\\sqrt{n}$. For $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar primtala $2, 3, 5, 7$. Ingen av dei deler $97$, altså er $97$ eit primtal."},{"id":"8-7-1-n-quiz3","type":"exercise","exercise":{"id":"8-7-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på Eratosthenes' sil:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-1-n-quiz3-q0","task":"I Eratosthenes' sil: etter at du har stroke multipla av $2$, $3$, $5$ og $7$, er alle gjenverande tal under $50$ primtal. Kor mange primtal er det frå $2$ til $50$?","options":[{"id":"a","text":"$12$","isCorrect":false},{"id":"b","text":"$15$","isCorrect":true},{"id":"c","text":"$18$","isCorrect":false},{"id":"d","text":"$10$","isCorrect":false}],"solution":"Primtala frå $2$ til $50$: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$. Det er $15$ stykk."},{"id":"8-7-1-n-quiz3-q1","task":"For å sjekke om $53$ er eit primtal, kva primtal treng du å teste?","options":[{"id":"a","text":"Berre $2$ og $3$","isCorrect":false},{"id":"b","text":"$2, 3, 5$ og $7$","isCorrect":true},{"id":"c","text":"Alle primtal opp til $53$","isCorrect":false},{"id":"d","text":"Berre $2, 3$ og $5$","isCorrect":false}],"solution":"$\\sqrt{53} \\approx 7{,}3$. Vi testar primtala opp til $7$: $53 \\div 2 = 26{,}5$, $53 \\div 3 = 17{,}7$, $53 \\div 5 = 10{,}6$, $53 \\div 7 = 7{,}6$. Ingen gir heiltal, så $53$ er eit primtal."},{"id":"8-7-1-n-quiz3-q2","task":"Er $51$ eit primtal?","options":[{"id":"a","text":"Ja, det er eit primtal","isCorrect":false},{"id":"b","text":"Nei, $51 = 3 \\cdot 17$","isCorrect":true},{"id":"c","text":"Nei, $51 = 7 \\cdot 7 + 2$","isCorrect":false},{"id":"d","text":"Ja, fordi det er oddetal og ikkje endar på $5$","isCorrect":false}],"solution":"Tverrsum: $5 + 1 = 6$, som er deleleg med $3$. Altså er $51$ deleleg med $3$: $51 = 3 \\cdot 17$. Dermed er $51$ samansett."}]}},{"id":"8-7-1-n-summary","type":"text","content":"## Oppsummering\n\n**Primtal** er tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Dei er byggjesteinane som alle andre tal er sette saman av.\n\nDei første primtala: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\n**Delelegheitsreglar:**\n\n| Deler | Regel |\n|-------|-------|\n| $2$ | Siste siffer er partal |\n| $3$ | Tverrsummen er deleleg med $3$ |\n| $5$ | Siste siffer er $0$ eller $5$ |\n| $9$ | Tverrsummen er deleleg med $9$ |\n| $10$ | Siste siffer er $0$ |\n\n**Eratosthenes' sil:** Stryk systematisk multiplum av $2, 3, 5, 7, \\ldots$ for å finne primtal.\n\n**Primtalstest:** For å sjekke om $n$ er primtal, test delelegheit med alle primtal $\\leq \\sqrt{n}$."}],"exercises":[],"_meta":{"sourceHash":"c25a16682702fce7","translatedAt":"2026-06-17T01:55:36.481Z","model":"claude-code-agent","strings":57,"tm":{"0fd2b963befd51c7":"Primtal og delelegheitsreglar","b195b06d1ed59702":"Narrativ versjon","4bb5de5b7e5db0cf":"Ein forteljande gjennomgang av primtal -- tala sine «atom» som ikkje kan delast vidare -- der vi oppdagar delelegheitsreglar, Eratosthenes' sil og kvifor primtal er byggjesteinane i all matematikk.","a9a173982997b684":"bruke faktorisering og primtall i berekningar","8988fe30fa543624":"## Tala sine atom\n\nI kjemien er alt bygd opp av atom. Vatn er hydrogen pluss oksygen. Salt er natrium pluss klor. Atoma er dei minste byggjesteinane -- dei kan ikkje brytast ned vidare.\n\nI matematikken har vi noko liknande: **primtal**. Dei er tala sine atom. Alle heiltal større enn $1$ kan byggjast opp ved å gonge primtal saman, og primtala sjølve kan ikkje delast vidare (utan å få $1$ eller seg sjølv).\n\nKva meiner vi med det? Ta talet $12$. Vi kan skrive $12 = 2 \\cdot 6 = 2 \\cdot 2 \\cdot 3$. Her er $2$ og $3$ primtal -- dei kan ikkje delast opp i mindre faktorar. Talet $12$ er altså «bygd» av to toarar og éin trear. Men kva med $7$? Den einaste måten å skrive $7$ som eit produkt er $1 \\cdot 7$. Det finst ingen andre heile tal som gonga saman gir $7$. Derfor er $7$ eit primtal.\n\n**Definisjon:** Eit **primtal** er eit naturleg tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Tal som ikkje er primtal (og er større enn $1$) blir kalla **samansette tal**.","8dd88a3d7249350f":"## Dei første primtala\n\nLat oss sjå på dei minste naturlege tala og sortere dei:\n\n| Tal | Primtal? | Grunngjeving |\n|------|-----------|-------------|\n| $1$ | Nei | $1$ blir ikkje rekna som primtal (spesiell konvensjon) |\n| $2$ | Ja | Berre deleleg med $1$ og $2$ |\n| $3$ | Ja | Berre deleleg med $1$ og $3$ |\n| $4$ | Nei | $4 = 2 \\cdot 2$ |\n| $5$ | Ja | Berre deleleg med $1$ og $5$ |\n| $6$ | Nei | $6 = 2 \\cdot 3$ |\n| $7$ | Ja | Berre deleleg med $1$ og $7$ |\n| $8$ | Nei | $8 = 2 \\cdot 4$ |\n| $9$ | Nei | $9 = 3 \\cdot 3$ |\n| $10$ | Nei | $10 = 2 \\cdot 5$ |\n\nDei første primtala er altså: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\nLegg merke til noko spesielt: **$2$ er det einaste partals-primtalet**. Alle andre partal er delelege med $2$, så dei er samansette. Etter $2$ er alle primtal oddetal -- men ikkje alle oddetal er primtal ($9 = 3 \\cdot 3$, til dømes).\n\nEi anna viktig observasjon: primtala blir sjeldnare og sjeldnare jo høgare vi tel, men dei tek **aldri slutt**. Det finst uendeleg mange primtal -- noko den greske matematikaren Euklid prova for over 2300 år sidan!","bbdab4f1d72c2514":"Test deg sjølv på primtal:","4097889236a2af26":"placeholder","f2b908ab92829bda":"Kva av desse tala er eit primtal?","322dc9b01718f678":"$15 = 3 \\cdot 5$, $21 = 3 \\cdot 7$, $27 = 3 \\cdot 9$. Alle desse er samansette. $23$ er berre deleleg med $1$ og $23$, så det er eit primtal.","b341d8e51802d08c":"Kvifor blir ikkje $1$ rekna som eit primtal?","e41115f71b9194ad":"Fordi $1$ er for lite","44639e5628cd1abe":"Fordi det ville øydeleggje eintydig primtalsfaktorisering","9d199cc7a0ebc529":"Fordi $1$ er eit oddetal","9a32ca471cb7facc":"Fordi $1$ er deleleg med $0$","db715efdac136b5d":"Viss $1$ var primtal, kunne vi skrive $12 = 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 1 \\cdot 2 \\cdot 2 \\cdot 3$ osv. Då ville faktoriseringa ikkje vere eintydig.","1a3f24c7b06ef5c9":"Kor mange partals-primtal finst det?","4caa44f124d9c5e5":"Ingen","c0a3b3d3e6d34864":"Nøyaktig eitt ($2$)","6b5eccd31267a114":"Uendeleg mange","8184c7569df814ae":"Ti stykk","e065da3ed900ccef":"$2$ er det einaste partals-primtalet. Alle andre partal er delelege med $2$ (i tillegg til $1$ og seg sjølv), så dei er samansette.","9bf8d29d69110554":"## Delelegheitsreglar -- snarvegar for å sjekke deling\n\nÅ avgjere om eit tal er eit primtal krev at vi sjekkar om det er deleleg med mindre tal. Men å dele store tal kan ta tid. Heldigvis finst det **delelegheitsreglar** -- snarvegar som lèt deg avgjere delelegheit ved å sjå på sifra:\n\n**Deleleg med $2$:** Siste siffer er partal ($0, 2, 4, 6, 8$).\n- $374$: siste siffer er $4$ -- deleleg med $2$ ✓\n- $891$: siste siffer er $1$ -- ikkje deleleg med $2$ ✗\n\n**Deleleg med $3$:** Tverrsummen (summen av sifra) er deleleg med $3$.\n- $726$: tverrsum $= 7 + 2 + 6 = 15$. Er $15$ deleleg med $3$? Ja, $15 = 3 \\cdot 5$ ✓\n- $340$: tverrsum $= 3 + 4 + 0 = 7$. Er $7$ deleleg med $3$? Nei ✗\n\n**Deleleg med $5$:** Siste siffer er $0$ eller $5$.\n- $235$: siste siffer er $5$ ✓\n- $748$: siste siffer er $8$ ✗\n\n**Deleleg med $9$:** Tverrsummen er deleleg med $9$.\n- $738$: tverrsum $= 7 + 3 + 8 = 18 = 9 \\cdot 2$ ✓\n- $214$: tverrsum $= 2 + 1 + 4 = 7$ ✗\n\n**Deleleg med $10$:** Siste siffer er $0$.\n- $530$ ✓, $531$ ✗\n\nMerk at regelen for $3$ og $9$ begge bruker tverrsummen. Sidan $9 = 3 \\cdot 3$, er kvart tal som er deleleg med $9$ automatisk deleleg med $3$ -- men ikkje omvendt.","a278153477429ca2":"Test deg sjølv på delelegheitsreglar:","df22a389897dceb7":"Er $4\\,563$ deleleg med $3$?","31d6b39669c21f1d":"Ja, fordi tverrsummen $4 + 5 + 6 + 3 = 18$ er deleleg med $3$","cae820e03477129a":"Nei, fordi siste siffer er $3$","8d7f6ee0144ac650":"Ja, fordi siste siffer er oddetal","a8ea9b6ea7236fe8":"Nei, fordi tverrsummen er $17$","4f23f42b88c07ed3":"Tverrsummen er $4 + 5 + 6 + 3 = 18$. Sidan $18$ er deleleg med $3$ ($18 = 3 \\cdot 6$), er $4\\,563$ deleleg med $3$.","789f5787941cc37d":"Kva tal er deleleg med både $2$ og $5$?","33d7dbe2e55dd3a7":"For å vere deleleg med både $2$ og $5$ må siste siffer vere $0$ (det einaste sifferet som er både partal og endar på $0$ eller $5$). $370$ endar på $0$.","161da73f07893d77":"Er $891$ deleleg med $9$?","3988421d8872e653":"Ja, fordi tverrsummen er $18$","cdce6d9a48369409":"Nei, fordi siste siffer er $1$","a4474a3cd58350a2":"Nei, fordi $891$ er eit oddetal","28fb175c4c560f64":"Ja, fordi $891$ endar på $91$","84f25d40a070ae7f":"Tverrsummen er $8 + 9 + 1 = 18$. Sidan $18 = 9 \\cdot 2$, er $891$ deleleg med $9$. ($891 = 9 \\cdot 99$.)","6a45ebf561587590":"## Eratosthenes' sil -- å finne alle primtal\n\nFor over 2200 år sidan fann den greske matematikaren Eratosthenes opp ein genial metode for å finne alle primtal opp til eit gitt tal. Metoden blir kalla **Eratosthenes' sil** (eller «sieve of Eratosthenes»), og han fungerer som eit filter:\n\n**Slik gjer du for å finne alle primtal opp til $50$:**\n\n1. Skriv opp alle tal frå $2$ til $50$.\n2. Start med det minste talet ($2$). Det er eit primtal. **Stryk alle multiplum av $2$**: $4, 6, 8, 10, 12, \\ldots$\n3. Neste ustrokne tal er $3$. Det er eit primtal. **Stryk alle multiplum av $3$**: $6, 9, 12, 15, \\ldots$ (nokre er allereie strokne).\n4. Neste ustrokne tal er $5$ (fordi $4$ blei stroke i steg 2). Det er eit primtal. **Stryk alle multiplum av $5$**: $10, 15, 20, 25, \\ldots$\n5. Neste ustrokne tal er $7$. Det er eit primtal. **Stryk alle multiplum av $7$**: $14, 21, 28, 35, 42, 49$.\n6. Neste ustrokne tal er $11$. Men $11^2 = 121 > 50$, så vi er ferdige!\n\nAlle ustrokne tal er primtal: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$.\n\n**Kvifor stoppar vi ved $\\sqrt{50} \\approx 7$?** Fordi viss eit samansett tal $n$ har ein faktor større enn $\\sqrt{n}$, må det òg ha ein faktor som er *mindre* enn $\\sqrt{n}$. Denne vesle faktoren er allereie fanga opp av silinga.\n\n**Praktisk tips:** For å sjekke om eit tal $n$ er primtal, treng du berre å teste om det er deleleg med primtal opp til $\\sqrt{n}$. For $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar primtala $2, 3, 5, 7$. Ingen av dei deler $97$, altså er $97$ eit primtal.","1f712c810f026d72":"Test deg sjølv på Eratosthenes' sil:","189115d6abb6964d":"I Eratosthenes' sil: etter at du har stroke multipla av $2$, $3$, $5$ og $7$, er alle gjenverande tal under $50$ primtal. Kor mange primtal er det frå $2$ til $50$?","1743f1526d172b17":"Primtala frå $2$ til $50$: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$. Det er $15$ stykk.","b73da09813855ac9":"For å sjekke om $53$ er eit primtal, kva primtal treng du å teste?","90bc2266f8fdbfbc":"Berre $2$ og $3$","470c5392a8cc7bd2":"$2, 3, 5$ og $7$","e5d84d0feb4c7284":"Alle primtal opp til $53$","ced2e4f819403887":"Berre $2, 3$ og $5$","80f451176eecc5c8":"$\\sqrt{53} \\approx 7{,}3$. Vi testar primtala opp til $7$: $53 \\div 2 = 26{,}5$, $53 \\div 3 = 17{,}7$, $53 \\div 5 = 10{,}6$, $53 \\div 7 = 7{,}6$. Ingen gir heiltal, så $53$ er eit primtal.","b9568f511147639a":"Er $51$ eit primtal?","75e38d2c05ec5974":"Ja, det er eit primtal","04449d951a47dce4":"Nei, $51 = 3 \\cdot 17$","91aa5a907282cc0f":"Nei, $51 = 7 \\cdot 7 + 2$","c8ebdf479567c1b6":"Ja, fordi det er oddetal og ikkje endar på $5$","349ad2b213aa1dc4":"Tverrsum: $5 + 1 = 6$, som er deleleg med $3$. Altså er $51$ deleleg med $3$: $51 = 3 \\cdot 17$. Dermed er $51$ samansett.","201d143b9cf2809f":"## Oppsummering\n\n**Primtal** er tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Dei er byggjesteinane som alle andre tal er sette saman av.\n\nDei første primtala: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\n**Delelegheitsreglar:**\n\n| Deler | Regel |\n|-------|-------|\n| $2$ | Siste siffer er partal |\n| $3$ | Tverrsummen er deleleg med $3$ |\n| $5$ | Siste siffer er $0$ eller $5$ |\n| $9$ | Tverrsummen er deleleg med $9$ |\n| $10$ | Siste siffer er $0$ |\n\n**Eratosthenes' sil:** Stryk systematisk multiplum av $2, 3, 5, 7, \\ldots$ for å finne primtal.\n\n**Primtalstest:** For å sjekke om $n$ er primtal, test delelegheit med alle primtal $\\leq \\sqrt{n}$."}}}
+{
+  "id": "8-7-1-narrativ",
+  "courseId": "8",
+  "chapterNumber": "7.1",
+  "title": "Primtal og delelegheitsreglar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av primtal -- tala sine «atom» som ikkje kan delast vidare -- der vi oppdagar delelegheitsreglar, Eratosthenes' sil og kvifor primtal er byggjesteinane i all matematikk.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke faktorisering og primtall i berekningar"
+  ],
+  "linkedChapterId": "8-7-1",
+  "content": [
+    {
+      "id": "8-7-1-n-intro",
+      "type": "text",
+      "content": "## Tala sine atom\n\nI kjemien er alt bygd opp av atom. Vatn er hydrogen pluss oksygen. Salt er natrium pluss klor. Atoma er dei minste byggjesteinane -- dei kan ikkje brytast ned vidare.\n\nI matematikken har vi noko liknande: **primtal**. Dei er tala sine atom. Alle heiltal større enn $1$ kan byggjast opp ved å gonge primtal saman, og primtala sjølve kan ikkje delast vidare (utan å få $1$ eller seg sjølv).\n\nKva meiner vi med det? Ta talet $12$. Vi kan skrive $12 = 2 \\cdot 6 = 2 \\cdot 2 \\cdot 3$. Her er $2$ og $3$ primtal -- dei kan ikkje delast opp i mindre faktorar. Talet $12$ er altså «bygd» av to toarar og éin trear. Men kva med $7$? Den einaste måten å skrive $7$ som eit produkt er $1 \\cdot 7$. Det finst ingen andre heile tal som gonga saman gir $7$. Derfor er $7$ eit primtal.\n\n**Definisjon:** Eit **primtal** er eit naturleg tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Tal som ikkje er primtal (og er større enn $1$) blir kalla **samansette tal**."
+    },
+    {
+      "id": "8-7-1-n-section1",
+      "type": "text",
+      "content": "## Dei første primtala\n\nLat oss sjå på dei minste naturlege tala og sortere dei:\n\n| Tal | Primtal? | Grunngjeving |\n|------|-----------|-------------|\n| $1$ | Nei | $1$ blir ikkje rekna som primtal (spesiell konvensjon) |\n| $2$ | Ja | Berre deleleg med $1$ og $2$ |\n| $3$ | Ja | Berre deleleg med $1$ og $3$ |\n| $4$ | Nei | $4 = 2 \\cdot 2$ |\n| $5$ | Ja | Berre deleleg med $1$ og $5$ |\n| $6$ | Nei | $6 = 2 \\cdot 3$ |\n| $7$ | Ja | Berre deleleg med $1$ og $7$ |\n| $8$ | Nei | $8 = 2 \\cdot 4$ |\n| $9$ | Nei | $9 = 3 \\cdot 3$ |\n| $10$ | Nei | $10 = 2 \\cdot 5$ |\n\nDei første primtala er altså: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\nLegg merke til noko spesielt: **$2$ er det einaste partals-primtalet**. Alle andre partal er delelege med $2$, så dei er samansette. Etter $2$ er alle primtal oddetal -- men ikkje alle oddetal er primtal ($9 = 3 \\cdot 3$, til dømes).\n\nEi anna viktig observasjon: primtala blir sjeldnare og sjeldnare jo høgare vi tel, men dei tek **aldri slutt**. Det finst uendeleg mange primtal -- noko den greske matematikaren Euklid prova for over 2300 år sidan!"
+    },
+    {
+      "id": "8-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på primtal:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-1-n-quiz1-q0",
+            "task": "Kva av desse tala er eit primtal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$21$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$23$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$27$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$15 = 3 \\cdot 5$, $21 = 3 \\cdot 7$, $27 = 3 \\cdot 9$. Alle desse er samansette. $23$ er berre deleleg med $1$ og $23$, så det er eit primtal."
+          },
+          {
+            "id": "8-7-1-n-quiz1-q1",
+            "task": "Kvifor blir ikkje $1$ rekna som eit primtal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $1$ er for lite",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $1$ er eit oddetal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $1$ er deleleg med $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi det ville øydeleggje eintydig primtalsfaktorisering",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Viss $1$ var primtal, kunne vi skrive $12 = 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 1 \\cdot 2 \\cdot 2 \\cdot 3$ osv. Då ville faktoriseringa ikkje vere eintydig."
+          },
+          {
+            "id": "8-7-1-n-quiz1-q2",
+            "task": "Kor mange partals-primtal finst det?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nøyaktig eitt ($2$)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ingen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendeleg mange",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ti stykk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$2$ er det einaste partals-primtalet. Alle andre partal er delelege med $2$ (i tillegg til $1$ og seg sjølv), så dei er samansette."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-1-n-section2",
+      "type": "text",
+      "content": "## Delelegheitsreglar -- snarvegar for å sjekke deling\n\nÅ avgjere om eit tal er eit primtal krev at vi sjekkar om det er deleleg med mindre tal. Men å dele store tal kan ta tid. Heldigvis finst det **delelegheitsreglar** -- snarvegar som lèt deg avgjere delelegheit ved å sjå på sifra:\n\n**Deleleg med $2$:** Siste siffer er partal ($0, 2, 4, 6, 8$).\n- $374$: siste siffer er $4$ -- deleleg med $2$ ✓\n- $891$: siste siffer er $1$ -- ikkje deleleg med $2$ ✗\n\n**Deleleg med $3$:** Tverrsummen (summen av sifra) er deleleg med $3$.\n- $726$: tverrsum $= 7 + 2 + 6 = 15$. Er $15$ deleleg med $3$? Ja, $15 = 3 \\cdot 5$ ✓\n- $340$: tverrsum $= 3 + 4 + 0 = 7$. Er $7$ deleleg med $3$? Nei ✗\n\n**Deleleg med $5$:** Siste siffer er $0$ eller $5$.\n- $235$: siste siffer er $5$ ✓\n- $748$: siste siffer er $8$ ✗\n\n**Deleleg med $9$:** Tverrsummen er deleleg med $9$.\n- $738$: tverrsum $= 7 + 3 + 8 = 18 = 9 \\cdot 2$ ✓\n- $214$: tverrsum $= 2 + 1 + 4 = 7$ ✗\n\n**Deleleg med $10$:** Siste siffer er $0$.\n- $530$ ✓, $531$ ✗\n\nMerk at regelen for $3$ og $9$ begge bruker tverrsummen. Sidan $9 = 3 \\cdot 3$, er kvart tal som er deleleg med $9$ automatisk deleleg med $3$ -- men ikkje omvendt."
+    },
+    {
+      "id": "8-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på delelegheitsreglar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-1-n-quiz2-q0",
+            "task": "Er $4\\,563$ deleleg med $3$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nei, fordi siste siffer er $3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ja, fordi tverrsummen $4 + 5 + 6 + 3 = 18$ er deleleg med $3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ja, fordi siste siffer er oddetal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei, fordi tverrsummen er $17$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tverrsummen er $4 + 5 + 6 + 3 = 18$. Sidan $18$ er deleleg med $3$ ($18 = 3 \\cdot 6$), er $4\\,563$ deleleg med $3$."
+          },
+          {
+            "id": "8-7-1-n-quiz2-q1",
+            "task": "Kva tal er deleleg med både $2$ og $5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$125$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$234$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$345$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$370$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "For å vere deleleg med både $2$ og $5$ må siste siffer vere $0$ (det einaste sifferet som er både partal og endar på $0$ eller $5$). $370$ endar på $0$."
+          },
+          {
+            "id": "8-7-1-n-quiz2-q2",
+            "task": "Er $891$ deleleg med $9$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, fordi tverrsummen er $18$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Nei, fordi siste siffer er $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, fordi $891$ er eit oddetal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja, fordi $891$ endar på $91$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tverrsummen er $8 + 9 + 1 = 18$. Sidan $18 = 9 \\cdot 2$, er $891$ deleleg med $9$. ($891 = 9 \\cdot 99$.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-1-n-section3",
+      "type": "text",
+      "content": "## Eratosthenes' sil -- å finne alle primtal\n\nFor over 2200 år sidan fann den greske matematikaren Eratosthenes opp ein genial metode for å finne alle primtal opp til eit gitt tal. Metoden blir kalla **Eratosthenes' sil** (eller «sieve of Eratosthenes»), og han fungerer som eit filter:\n\n**Slik gjer du for å finne alle primtal opp til $50$:**\n\n1. Skriv opp alle tal frå $2$ til $50$.\n2. Start med det minste talet ($2$). Det er eit primtal. **Stryk alle multiplum av $2$**: $4, 6, 8, 10, 12, \\ldots$\n3. Neste ustrokne tal er $3$. Det er eit primtal. **Stryk alle multiplum av $3$**: $6, 9, 12, 15, \\ldots$ (nokre er allereie strokne).\n4. Neste ustrokne tal er $5$ (fordi $4$ blei stroke i steg 2). Det er eit primtal. **Stryk alle multiplum av $5$**: $10, 15, 20, 25, \\ldots$\n5. Neste ustrokne tal er $7$. Det er eit primtal. **Stryk alle multiplum av $7$**: $14, 21, 28, 35, 42, 49$.\n6. Neste ustrokne tal er $11$. Men $11^2 = 121 > 50$, så vi er ferdige!\n\nAlle ustrokne tal er primtal: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$.\n\n**Kvifor stoppar vi ved $\\sqrt{50} \\approx 7$?** Fordi viss eit samansett tal $n$ har ein faktor større enn $\\sqrt{n}$, må det òg ha ein faktor som er *mindre* enn $\\sqrt{n}$. Denne vesle faktoren er allereie fanga opp av silinga.\n\n**Praktisk tips:** For å sjekke om eit tal $n$ er primtal, treng du berre å teste om det er deleleg med primtal opp til $\\sqrt{n}$. For $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar primtala $2, 3, 5, 7$. Ingen av dei deler $97$, altså er $97$ eit primtal."
+    },
+    {
+      "id": "8-7-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Eratosthenes' sil:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-1-n-quiz3-q0",
+            "task": "I Eratosthenes' sil: etter at du har stroke multipla av $2$, $3$, $5$ og $7$, er alle gjenverande tal under $50$ primtal. Kor mange primtal er det frå $2$ til $50$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Primtala frå $2$ til $50$: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$. Det er $15$ stykk."
+          },
+          {
+            "id": "8-7-1-n-quiz3-q1",
+            "task": "For å sjekke om $53$ er eit primtal, kva primtal treng du å teste?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre $2$ og $3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alle primtal opp til $53$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2, 3, 5$ og $7$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Berre $2, 3$ og $5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{53} \\approx 7{,}3$. Vi testar primtala opp til $7$: $53 \\div 2 = 26{,}5$, $53 \\div 3 = 17{,}7$, $53 \\div 5 = 10{,}6$, $53 \\div 7 = 7{,}6$. Ingen gir heiltal, så $53$ er eit primtal."
+          },
+          {
+            "id": "8-7-1-n-quiz3-q2",
+            "task": "Er $51$ eit primtal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, det er eit primtal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, $51 = 7 \\cdot 7 + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja, fordi det er oddetal og ikkje endar på $5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nei, $51 = 3 \\cdot 17$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tverrsum: $5 + 1 = 6$, som er deleleg med $3$. Altså er $51$ deleleg med $3$: $51 = 3 \\cdot 17$. Dermed er $51$ samansett."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Primtal** er tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Dei er byggjesteinane som alle andre tal er sette saman av.\n\nDei første primtala: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\n**Delelegheitsreglar:**\n\n| Deler | Regel |\n|-------|-------|\n| $2$ | Siste siffer er partal |\n| $3$ | Tverrsummen er deleleg med $3$ |\n| $5$ | Siste siffer er $0$ eller $5$ |\n| $9$ | Tverrsummen er deleleg med $9$ |\n| $10$ | Siste siffer er $0$ |\n\n**Eratosthenes' sil:** Stryk systematisk multiplum av $2, 3, 5, 7, \\ldots$ for å finne primtal.\n\n**Primtalstest:** For å sjekke om $n$ er primtal, test delelegheit med alle primtal $\\leq \\sqrt{n}$."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c25a16682702fce7",
+    "translatedAt": "2026-06-17T01:55:36.481Z",
+    "model": "claude-code-agent",
+    "strings": 57,
+    "tm": {
+      "0fd2b963befd51c7": "Primtal og delelegheitsreglar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "4bb5de5b7e5db0cf": "Ein forteljande gjennomgang av primtal -- tala sine «atom» som ikkje kan delast vidare -- der vi oppdagar delelegheitsreglar, Eratosthenes' sil og kvifor primtal er byggjesteinane i all matematikk.",
+      "a9a173982997b684": "bruke faktorisering og primtall i berekningar",
+      "8988fe30fa543624": "## Tala sine atom\n\nI kjemien er alt bygd opp av atom. Vatn er hydrogen pluss oksygen. Salt er natrium pluss klor. Atoma er dei minste byggjesteinane -- dei kan ikkje brytast ned vidare.\n\nI matematikken har vi noko liknande: **primtal**. Dei er tala sine atom. Alle heiltal større enn $1$ kan byggjast opp ved å gonge primtal saman, og primtala sjølve kan ikkje delast vidare (utan å få $1$ eller seg sjølv).\n\nKva meiner vi med det? Ta talet $12$. Vi kan skrive $12 = 2 \\cdot 6 = 2 \\cdot 2 \\cdot 3$. Her er $2$ og $3$ primtal -- dei kan ikkje delast opp i mindre faktorar. Talet $12$ er altså «bygd» av to toarar og éin trear. Men kva med $7$? Den einaste måten å skrive $7$ som eit produkt er $1 \\cdot 7$. Det finst ingen andre heile tal som gonga saman gir $7$. Derfor er $7$ eit primtal.\n\n**Definisjon:** Eit **primtal** er eit naturleg tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Tal som ikkje er primtal (og er større enn $1$) blir kalla **samansette tal**.",
+      "8dd88a3d7249350f": "## Dei første primtala\n\nLat oss sjå på dei minste naturlege tala og sortere dei:\n\n| Tal | Primtal? | Grunngjeving |\n|------|-----------|-------------|\n| $1$ | Nei | $1$ blir ikkje rekna som primtal (spesiell konvensjon) |\n| $2$ | Ja | Berre deleleg med $1$ og $2$ |\n| $3$ | Ja | Berre deleleg med $1$ og $3$ |\n| $4$ | Nei | $4 = 2 \\cdot 2$ |\n| $5$ | Ja | Berre deleleg med $1$ og $5$ |\n| $6$ | Nei | $6 = 2 \\cdot 3$ |\n| $7$ | Ja | Berre deleleg med $1$ og $7$ |\n| $8$ | Nei | $8 = 2 \\cdot 4$ |\n| $9$ | Nei | $9 = 3 \\cdot 3$ |\n| $10$ | Nei | $10 = 2 \\cdot 5$ |\n\nDei første primtala er altså: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\nLegg merke til noko spesielt: **$2$ er det einaste partals-primtalet**. Alle andre partal er delelege med $2$, så dei er samansette. Etter $2$ er alle primtal oddetal -- men ikkje alle oddetal er primtal ($9 = 3 \\cdot 3$, til dømes).\n\nEi anna viktig observasjon: primtala blir sjeldnare og sjeldnare jo høgare vi tel, men dei tek **aldri slutt**. Det finst uendeleg mange primtal -- noko den greske matematikaren Euklid prova for over 2300 år sidan!",
+      "bbdab4f1d72c2514": "Test deg sjølv på primtal:",
+      "4097889236a2af26": "placeholder",
+      "f2b908ab92829bda": "Kva av desse tala er eit primtal?",
+      "322dc9b01718f678": "$15 = 3 \\cdot 5$, $21 = 3 \\cdot 7$, $27 = 3 \\cdot 9$. Alle desse er samansette. $23$ er berre deleleg med $1$ og $23$, så det er eit primtal.",
+      "b341d8e51802d08c": "Kvifor blir ikkje $1$ rekna som eit primtal?",
+      "e41115f71b9194ad": "Fordi $1$ er for lite",
+      "44639e5628cd1abe": "Fordi det ville øydeleggje eintydig primtalsfaktorisering",
+      "9d199cc7a0ebc529": "Fordi $1$ er eit oddetal",
+      "9a32ca471cb7facc": "Fordi $1$ er deleleg med $0$",
+      "db715efdac136b5d": "Viss $1$ var primtal, kunne vi skrive $12 = 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 2 \\cdot 2 \\cdot 3$ og $12 = 1 \\cdot 1 \\cdot 2 \\cdot 2 \\cdot 3$ osv. Då ville faktoriseringa ikkje vere eintydig.",
+      "1a3f24c7b06ef5c9": "Kor mange partals-primtal finst det?",
+      "4caa44f124d9c5e5": "Ingen",
+      "c0a3b3d3e6d34864": "Nøyaktig eitt ($2$)",
+      "6b5eccd31267a114": "Uendeleg mange",
+      "8184c7569df814ae": "Ti stykk",
+      "e065da3ed900ccef": "$2$ er det einaste partals-primtalet. Alle andre partal er delelege med $2$ (i tillegg til $1$ og seg sjølv), så dei er samansette.",
+      "9bf8d29d69110554": "## Delelegheitsreglar -- snarvegar for å sjekke deling\n\nÅ avgjere om eit tal er eit primtal krev at vi sjekkar om det er deleleg med mindre tal. Men å dele store tal kan ta tid. Heldigvis finst det **delelegheitsreglar** -- snarvegar som lèt deg avgjere delelegheit ved å sjå på sifra:\n\n**Deleleg med $2$:** Siste siffer er partal ($0, 2, 4, 6, 8$).\n- $374$: siste siffer er $4$ -- deleleg med $2$ ✓\n- $891$: siste siffer er $1$ -- ikkje deleleg med $2$ ✗\n\n**Deleleg med $3$:** Tverrsummen (summen av sifra) er deleleg med $3$.\n- $726$: tverrsum $= 7 + 2 + 6 = 15$. Er $15$ deleleg med $3$? Ja, $15 = 3 \\cdot 5$ ✓\n- $340$: tverrsum $= 3 + 4 + 0 = 7$. Er $7$ deleleg med $3$? Nei ✗\n\n**Deleleg med $5$:** Siste siffer er $0$ eller $5$.\n- $235$: siste siffer er $5$ ✓\n- $748$: siste siffer er $8$ ✗\n\n**Deleleg med $9$:** Tverrsummen er deleleg med $9$.\n- $738$: tverrsum $= 7 + 3 + 8 = 18 = 9 \\cdot 2$ ✓\n- $214$: tverrsum $= 2 + 1 + 4 = 7$ ✗\n\n**Deleleg med $10$:** Siste siffer er $0$.\n- $530$ ✓, $531$ ✗\n\nMerk at regelen for $3$ og $9$ begge bruker tverrsummen. Sidan $9 = 3 \\cdot 3$, er kvart tal som er deleleg med $9$ automatisk deleleg med $3$ -- men ikkje omvendt.",
+      "a278153477429ca2": "Test deg sjølv på delelegheitsreglar:",
+      "df22a389897dceb7": "Er $4\\,563$ deleleg med $3$?",
+      "31d6b39669c21f1d": "Ja, fordi tverrsummen $4 + 5 + 6 + 3 = 18$ er deleleg med $3$",
+      "cae820e03477129a": "Nei, fordi siste siffer er $3$",
+      "8d7f6ee0144ac650": "Ja, fordi siste siffer er oddetal",
+      "a8ea9b6ea7236fe8": "Nei, fordi tverrsummen er $17$",
+      "4f23f42b88c07ed3": "Tverrsummen er $4 + 5 + 6 + 3 = 18$. Sidan $18$ er deleleg med $3$ ($18 = 3 \\cdot 6$), er $4\\,563$ deleleg med $3$.",
+      "789f5787941cc37d": "Kva tal er deleleg med både $2$ og $5$?",
+      "33d7dbe2e55dd3a7": "For å vere deleleg med både $2$ og $5$ må siste siffer vere $0$ (det einaste sifferet som er både partal og endar på $0$ eller $5$). $370$ endar på $0$.",
+      "161da73f07893d77": "Er $891$ deleleg med $9$?",
+      "3988421d8872e653": "Ja, fordi tverrsummen er $18$",
+      "cdce6d9a48369409": "Nei, fordi siste siffer er $1$",
+      "a4474a3cd58350a2": "Nei, fordi $891$ er eit oddetal",
+      "28fb175c4c560f64": "Ja, fordi $891$ endar på $91$",
+      "84f25d40a070ae7f": "Tverrsummen er $8 + 9 + 1 = 18$. Sidan $18 = 9 \\cdot 2$, er $891$ deleleg med $9$. ($891 = 9 \\cdot 99$.)",
+      "6a45ebf561587590": "## Eratosthenes' sil -- å finne alle primtal\n\nFor over 2200 år sidan fann den greske matematikaren Eratosthenes opp ein genial metode for å finne alle primtal opp til eit gitt tal. Metoden blir kalla **Eratosthenes' sil** (eller «sieve of Eratosthenes»), og han fungerer som eit filter:\n\n**Slik gjer du for å finne alle primtal opp til $50$:**\n\n1. Skriv opp alle tal frå $2$ til $50$.\n2. Start med det minste talet ($2$). Det er eit primtal. **Stryk alle multiplum av $2$**: $4, 6, 8, 10, 12, \\ldots$\n3. Neste ustrokne tal er $3$. Det er eit primtal. **Stryk alle multiplum av $3$**: $6, 9, 12, 15, \\ldots$ (nokre er allereie strokne).\n4. Neste ustrokne tal er $5$ (fordi $4$ blei stroke i steg 2). Det er eit primtal. **Stryk alle multiplum av $5$**: $10, 15, 20, 25, \\ldots$\n5. Neste ustrokne tal er $7$. Det er eit primtal. **Stryk alle multiplum av $7$**: $14, 21, 28, 35, 42, 49$.\n6. Neste ustrokne tal er $11$. Men $11^2 = 121 > 50$, så vi er ferdige!\n\nAlle ustrokne tal er primtal: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$.\n\n**Kvifor stoppar vi ved $\\sqrt{50} \\approx 7$?** Fordi viss eit samansett tal $n$ har ein faktor større enn $\\sqrt{n}$, må det òg ha ein faktor som er *mindre* enn $\\sqrt{n}$. Denne vesle faktoren er allereie fanga opp av silinga.\n\n**Praktisk tips:** For å sjekke om eit tal $n$ er primtal, treng du berre å teste om det er deleleg med primtal opp til $\\sqrt{n}$. For $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar primtala $2, 3, 5, 7$. Ingen av dei deler $97$, altså er $97$ eit primtal.",
+      "1f712c810f026d72": "Test deg sjølv på Eratosthenes' sil:",
+      "189115d6abb6964d": "I Eratosthenes' sil: etter at du har stroke multipla av $2$, $3$, $5$ og $7$, er alle gjenverande tal under $50$ primtal. Kor mange primtal er det frå $2$ til $50$?",
+      "1743f1526d172b17": "Primtala frå $2$ til $50$: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$. Det er $15$ stykk.",
+      "b73da09813855ac9": "For å sjekke om $53$ er eit primtal, kva primtal treng du å teste?",
+      "90bc2266f8fdbfbc": "Berre $2$ og $3$",
+      "470c5392a8cc7bd2": "$2, 3, 5$ og $7$",
+      "e5d84d0feb4c7284": "Alle primtal opp til $53$",
+      "ced2e4f819403887": "Berre $2, 3$ og $5$",
+      "80f451176eecc5c8": "$\\sqrt{53} \\approx 7{,}3$. Vi testar primtala opp til $7$: $53 \\div 2 = 26{,}5$, $53 \\div 3 = 17{,}7$, $53 \\div 5 = 10{,}6$, $53 \\div 7 = 7{,}6$. Ingen gir heiltal, så $53$ er eit primtal.",
+      "b9568f511147639a": "Er $51$ eit primtal?",
+      "75e38d2c05ec5974": "Ja, det er eit primtal",
+      "04449d951a47dce4": "Nei, $51 = 3 \\cdot 17$",
+      "91aa5a907282cc0f": "Nei, $51 = 7 \\cdot 7 + 2$",
+      "c8ebdf479567c1b6": "Ja, fordi det er oddetal og ikkje endar på $5$",
+      "349ad2b213aa1dc4": "Tverrsum: $5 + 1 = 6$, som er deleleg med $3$. Altså er $51$ deleleg med $3$: $51 = 3 \\cdot 17$. Dermed er $51$ samansett.",
+      "201d143b9cf2809f": "## Oppsummering\n\n**Primtal** er tal større enn $1$ som berre er deleleg med $1$ og seg sjølv. Dei er byggjesteinane som alle andre tal er sette saman av.\n\nDei første primtala: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, \\ldots$\n\n**Delelegheitsreglar:**\n\n| Deler | Regel |\n|-------|-------|\n| $2$ | Siste siffer er partal |\n| $3$ | Tverrsummen er deleleg med $3$ |\n| $5$ | Siste siffer er $0$ eller $5$ |\n| $9$ | Tverrsummen er deleleg med $9$ |\n| $10$ | Siste siffer er $0$ |\n\n**Eratosthenes' sil:** Stryk systematisk multiplum av $2, 3, 5, 7, \\ldots$ for å finne primtal.\n\n**Primtalstest:** For å sjekke om $n$ er primtal, test delelegheit med alle primtal $\\leq \\sqrt{n}$."
+    }
+  }
+}

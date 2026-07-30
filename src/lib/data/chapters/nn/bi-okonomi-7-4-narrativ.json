@@ -1,1 +1,284 @@
-{"id":"bi-okonomi-7-4-narrativ","courseId":"bi-okonomi","chapterNumber":"7.4","title":"Lagranges multiplikatormetode","subtitle":"Narrativ versjon","description":"Ei forteljing om optimering når ressursane er knappe -- korleis Lagrange lèt oss maksimere nytte og produksjon under eit budsjett, og korleis multiplikatoren λ avslører skuggeprisen på det som avgrensar oss.","estimatedMinutes":40,"competenceGoals":[],"linkedChapterId":"bi-okonomi-7-4","content":[{"id":"bi-okonomi-7-4-n-intro","type":"text","content":"## Optimering når noko held oss tilbake\n\nI førre kapittel maksimerte vi fritt -- vi kunne velje $x$ og $y$ heilt som vi ville. Men røyndomen set grenser. Konsumenten har eit **budsjett**. Bedrifta har eit **produksjonsmål** eller ei knapp mengd innsatsfaktorar. Vi står overfor optimering med **bivilkår**: maksimer (eller minimer) ein **målfunksjon** $f(x,y)$ -- nytte, profitt, kostnad -- under eit **bivilkår** $g(x,y)=c$ som avgrensar oss.\n\nJoseph-Louis Lagrange fann på 1700-talet ei elegant løysing. Vi innfører ein hjelpevariabel $\\lambda$ og byggjer **Lagrange-funksjonen** $\\mathcal{L}(x,y,\\lambda)=f(x,y)-\\lambda(g(x,y)-c)$. Så finn vi stasjonære punkt for $\\mathcal{L}$ som funksjon av tre variablar. Det gir tre **førsteordens vilkår**: $\\mathcal{L}_x=f_x-\\lambda g_x=0$, $\\mathcal{L}_y=f_y-\\lambda g_y=0$, og $\\mathcal{L}_\\lambda=0$, som berre gir bivilkåret $g(x,y)=c$ tilbake.\n\nGeometrisk skjer noko pent: i optimum tangerer nivåkurvene til $f$ og $g$ kvarandre, slik at gradientane $\\nabla f$ og $\\nabla g$ peikar same veg. Den eine er $\\lambda$ gonger den andre. Det gir **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$, ofte den raskaste vegen til svaret."},{"id":"bi-okonomi-7-4-n-section1","type":"text","content":"## Nyttemaksimering med budsjett\n\nLat oss gjere det konkret. Ein konsument har nyttefunksjon $U(x,y)=xy$ og budsjettlinja $2x+3y=12$. Her er $f=xy$ og $g=2x+3y$ med $c=12$. Lagrange-funksjonen blir $\\mathcal{L}=xy-\\lambda(2x+3y-12)$. Førsteordens: $\\mathcal{L}_x=y-2\\lambda=0$ gir $\\lambda=y/2$, og $\\mathcal{L}_y=x-3\\lambda=0$ gir $\\lambda=x/3$. Set dei like: $y/2=x/3$, altså $3y=2x$, så $x=\\tfrac{3y}{2}$.\n\nNo bruker vi budsjettet: $2\\cdot\\tfrac{3y}{2}+3y=12\\Rightarrow 6y=12\\Rightarrow y=2$ og $x=3$. Den optimale kurven er $(3,2)$ med nytte $U=6$, og $\\lambda=y/2=1$. Legg merke til at hadde vi berre ønskt $(x,y)$, kunne vi hoppa rett til tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Men når oppgåva spør om tolkinga av $\\lambda$, må vi rekne han ut.\n\nMetoden taklar òg Cobb-Douglas. For $U(x,y)=x^{0{,}5}y^{0{,}5}$ med prisar $p_x=4$, $p_y=9$ og inntekt $100$ gir tilpassingsvilkåret $\\dfrac{U_x}{U_y}=\\dfrac{y}{x}=\\dfrac{4}{9}$, altså $y=\\tfrac{4x}{9}$. Inn i budsjettet $4x+9y=100$: $4x+4x=100\\Rightarrow x=12{,}5$ og $y=\\tfrac{50}{9}\\approx 5{,}56$. Maksimal nytte blir $\\sqrt{12{,}5\\cdot 50/9}=\\sqrt{625/9}=\\tfrac{25}{3}\\approx 8{,}33$."},{"id":"bi-okonomi-7-4-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-7-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på Lagrange-oppsett og nyttemaksimering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-7-4-n-quiz1-q0","task":"Kva er Lagrange-funksjonen for å maksimere $f(x,y)$ under $g(x,y)=c$?","options":[{"id":"a","text":"$\\mathcal{L}=f(x,y)+g(x,y)-c$","isCorrect":false},{"id":"b","text":"$\\mathcal{L}=f(x,y)\\cdot g(x,y)$","isCorrect":false},{"id":"c","text":"$\\mathcal{L}=\\lambda f(x,y)-g(x,y)$","isCorrect":false},{"id":"d","text":"$\\mathcal{L}=f(x,y)-\\lambda(g(x,y)-c)$","isCorrect":true}],"solution":"Vi trekkjer frå multiplikatoren ganga med bivilkåret flytta til null: $\\mathcal{L}=f-\\lambda(g-c)$."},{"id":"bi-okonomi-7-4-n-quiz1-q1","task":"For $U(x,y)=xy$ under $2x+3y=12$ gir tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Kva er optimal $(x,y)$?","options":[{"id":"a","text":"$(3,2)$","isCorrect":true},{"id":"b","text":"$(2,3)$","isCorrect":false},{"id":"c","text":"$(6,0)$","isCorrect":false},{"id":"d","text":"$(4,4/3)$","isCorrect":false}],"solution":"$y/x=2/3$ gir $x=\\tfrac{3y}{2}$. Inn i $2x+3y=12$: $6y=12\\Rightarrow y=2$, $x=3$. Punktet er $(3,2)$."},{"id":"bi-okonomi-7-4-n-quiz1-q2","task":"Kva er tilpassingsvilkåret som ofte gir raskaste vegen til løysinga?","options":[{"id":"a","text":"$f_x=f_y$","isCorrect":false},{"id":"b","text":"$\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$","isCorrect":true},{"id":"c","text":"$f_x+f_y=c$","isCorrect":false},{"id":"d","text":"$f_x\\cdot g_x=f_y\\cdot g_y$","isCorrect":false}],"solution":"I optimum er gradientane parallelle, og det gir $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ -- nivåkurvene tangerer kvarandre."}]}},{"id":"bi-okonomi-7-4-n-section2","type":"text","content":"## Skuggeprisen -- kva fortel eigentleg $\\lambda$?\n\nMultiplikatoren $\\lambda$ er ikkje berre eit rekneknep; han har ei kraftig økonomisk tolking. Lat $V(c)$ vere den maksimale verdien av målfunksjonen som funksjon av høgresida $c$ i bivilkåret. Då gjeld $\\dfrac{dV}{dc}=\\lambda^*$, der $\\lambda^*$ er verdien av multiplikatoren i optimum. Med andre ord: $\\lambda^*$ er **skuggeprisen** -- kor mykje den optimale verdien aukar når vi lausnar bivilkåret med éi eining.\n\nI eksempelet med $U=xy$ under $2x+3y=12$ fann vi $\\lambda^*=1$. Det tyder at dersom budsjettet blir auka frå $12$ til $13$, bør den maksimale nytten auke med om lag $1$. Lat oss sjekke: med $c=13$ gir same tilpassing $4x=13\\Rightarrow x=3{,}25$ og $y\\approx 2{,}17$, så $U=\\tfrac{13}{4}\\cdot\\tfrac{13}{6}=\\tfrac{169}{24}\\approx 7{,}04$. Differansen frå $6$ er $1{,}04\\approx\\lambda^*$. Det vesle avviket på $0{,}04$ kjem av at $\\lambda$ er ein marginal storleik, eksakt berre for små endringar.\n\nSkuggeprisen blir tolka ulikt etter samanheng. I konsumentteori er $\\lambda$ ekstra nytte per ekstra krone inntekt -- grensenytten av pengar. I produksjon er det ekstra produksjon per ekstra ressurseining. I kostnadsminimering er det ekstra kostnad per ekstra produsert eining. Eit eksempel på det siste: ei bedrift må produsere $Q=100$ med $Q=10\\sqrt{KL}$, der $r=4$ og $w=9$. Tilpassing gir $4/L=9/K$, altså $K=\\tfrac{9L}{4}$, og bivilkåret $KL=100$ gir $L=\\tfrac{20}{3}$, $K=15$. Kostnaden blir $C=60+60=120$, og $\\lambda=4/L=0{,}6$: å produsere éi eining til kostar ca. $0{,}6$ kr -- grensekostnaden."},{"id":"bi-okonomi-7-4-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-7-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på skuggepris og kostnadsminimering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-7-4-n-quiz2-q0","task":"Kva uttrykkjer Lagrange-multiplikatoren $\\lambda^*$ i optimum?","options":[{"id":"a","text":"Den optimale verdien av $x$","isCorrect":false},{"id":"b","text":"Totalkostnaden i optimum","isCorrect":false},{"id":"c","text":"Skuggeprisen: $\\dfrac{dV}{dc}=\\lambda^*$, endring i optimal verdi per eining $c$","isCorrect":true},{"id":"d","text":"Stigingstalet til budsjettlinja","isCorrect":false}],"solution":"$\\lambda^*=\\dfrac{dV}{dc}$ er skuggeprisen -- kor mykje den optimale verdien aukar når bivilkåret blir lausna med éi eining."},{"id":"bi-okonomi-7-4-n-quiz2-q1","task":"Ei bedrift minimerer $C=4K+9L$ under $KL=100$, med tilpassing $4/L=9/K$. Kva er optimal $(K,L)$?","options":[{"id":"a","text":"$(10,10)$","isCorrect":false},{"id":"b","text":"$(\\tfrac{20}{3},15)$","isCorrect":false},{"id":"c","text":"$(20,5)$","isCorrect":false},{"id":"d","text":"$(15,\\tfrac{20}{3})$","isCorrect":true}],"solution":"$4/L=9/K\\Rightarrow K=\\tfrac{9L}{4}$. Inn i $KL=100$: $\\tfrac{9L^2}{4}=100\\Rightarrow L=\\tfrac{20}{3}$, $K=15$."},{"id":"bi-okonomi-7-4-n-quiz2-q2","task":"I kostnadsminimeringa over er $\\lambda=0{,}6$. Kva tyder dette?","options":[{"id":"a","text":"Å auke produksjonsmålet med éi eining aukar kostnaden med ca. $0{,}6$ kr","isCorrect":true},{"id":"b","text":"Totalkostnaden er $0{,}6$ kr","isCorrect":false},{"id":"c","text":"Kvar krone aukar produksjonen med $0{,}6$ einingar","isCorrect":false},{"id":"d","text":"Kapital kostar $0{,}6$ kr per eining","isCorrect":false}],"solution":"I kostnadsminimering er $\\lambda$ grensekostnaden: ca. $0{,}6$ kr ekstra for å produsere éi eining til ved dette nivået."}]}},{"id":"bi-okonomi-7-4-n-summary","type":"text","content":"## Oppsummering\n\n**Lagranges multiplikatormetode** løyser optimering under eit bivilkår $g(x,y)=c$. Vi set opp Lagrange-funksjonen $\\mathcal{L}=f-\\lambda(g-c)$ og krev at alle dei partielle deriverte er null: $\\mathcal{L}_x=0$, $\\mathcal{L}_y=0$ og $\\mathcal{L}_\\lambda=0$, der den siste berre gir bivilkåret tilbake. Alternativt går vi rett på **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ og bruker bivilkåret til å finne $(x,y)$.\n\nDen verkelege krafta ligg i tolkinga av $\\lambda$. Multiplikatoren er ein **skuggepris**: $\\dfrac{dV}{dc}=\\lambda^*$ viser kor mykje den optimale verdien endrar seg når vi utvidar bivilkåret med éi eining. I konsumentteori er det grensenytten av pengar, i produksjon ekstra produksjon per ressurs, og i kostnadsminimering grensekostnaden. Metoden dekkjer nyttemaksimering med budsjett, kostnadsminimering med produksjonskrav og profittmaksimering med ressursavgrensing -- sjølve verktøykassa for mikroøkonomisk optimering."}],"exercises":[],"_meta":{"sourceHash":"cf5ab55f29752536","translatedAt":"2026-06-21T01:03:39.684Z","model":"claude-code-agent","strings":41,"tm":{"27678a571c80bab5":"Lagranges multiplikatormetode","b195b06d1ed59702":"Narrativ versjon","15b8d8219f0d96f1":"Ei forteljing om optimering når ressursane er knappe -- korleis Lagrange lèt oss maksimere nytte og produksjon under eit budsjett, og korleis multiplikatoren λ avslører skuggeprisen på det som avgrensar oss.","ec579b9ee2527f6a":"## Optimering når noko held oss tilbake\n\nI førre kapittel maksimerte vi fritt -- vi kunne velje $x$ og $y$ heilt som vi ville. Men røyndomen set grenser. Konsumenten har eit **budsjett**. Bedrifta har eit **produksjonsmål** eller ei knapp mengd innsatsfaktorar. Vi står overfor optimering med **bivilkår**: maksimer (eller minimer) ein **målfunksjon** $f(x,y)$ -- nytte, profitt, kostnad -- under eit **bivilkår** $g(x,y)=c$ som avgrensar oss.\n\nJoseph-Louis Lagrange fann på 1700-talet ei elegant løysing. Vi innfører ein hjelpevariabel $\\lambda$ og byggjer **Lagrange-funksjonen** $\\mathcal{L}(x,y,\\lambda)=f(x,y)-\\lambda(g(x,y)-c)$. Så finn vi stasjonære punkt for $\\mathcal{L}$ som funksjon av tre variablar. Det gir tre **førsteordens vilkår**: $\\mathcal{L}_x=f_x-\\lambda g_x=0$, $\\mathcal{L}_y=f_y-\\lambda g_y=0$, og $\\mathcal{L}_\\lambda=0$, som berre gir bivilkåret $g(x,y)=c$ tilbake.\n\nGeometrisk skjer noko pent: i optimum tangerer nivåkurvene til $f$ og $g$ kvarandre, slik at gradientane $\\nabla f$ og $\\nabla g$ peikar same veg. Den eine er $\\lambda$ gonger den andre. Det gir **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$, ofte den raskaste vegen til svaret.","969ab73e8c40ad04":"## Nyttemaksimering med budsjett\n\nLat oss gjere det konkret. Ein konsument har nyttefunksjon $U(x,y)=xy$ og budsjettlinja $2x+3y=12$. Her er $f=xy$ og $g=2x+3y$ med $c=12$. Lagrange-funksjonen blir $\\mathcal{L}=xy-\\lambda(2x+3y-12)$. Førsteordens: $\\mathcal{L}_x=y-2\\lambda=0$ gir $\\lambda=y/2$, og $\\mathcal{L}_y=x-3\\lambda=0$ gir $\\lambda=x/3$. Set dei like: $y/2=x/3$, altså $3y=2x$, så $x=\\tfrac{3y}{2}$.\n\nNo bruker vi budsjettet: $2\\cdot\\tfrac{3y}{2}+3y=12\\Rightarrow 6y=12\\Rightarrow y=2$ og $x=3$. Den optimale kurven er $(3,2)$ med nytte $U=6$, og $\\lambda=y/2=1$. Legg merke til at hadde vi berre ønskt $(x,y)$, kunne vi hoppa rett til tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Men når oppgåva spør om tolkinga av $\\lambda$, må vi rekne han ut.\n\nMetoden taklar òg Cobb-Douglas. For $U(x,y)=x^{0{,}5}y^{0{,}5}$ med prisar $p_x=4$, $p_y=9$ og inntekt $100$ gir tilpassingsvilkåret $\\dfrac{U_x}{U_y}=\\dfrac{y}{x}=\\dfrac{4}{9}$, altså $y=\\tfrac{4x}{9}$. Inn i budsjettet $4x+9y=100$: $4x+4x=100\\Rightarrow x=12{,}5$ og $y=\\tfrac{50}{9}\\approx 5{,}56$. Maksimal nytte blir $\\sqrt{12{,}5\\cdot 50/9}=\\sqrt{625/9}=\\tfrac{25}{3}\\approx 8{,}33$.","2a1276d7939f76bd":"Test deg sjølv på Lagrange-oppsett og nyttemaksimering:","4097889236a2af26":"placeholder","8a5dc008fd15fc1f":"Kva er Lagrange-funksjonen for å maksimere $f(x,y)$ under $g(x,y)=c$?","e4c1f312da46966d":"$\\mathcal{L}=f(x,y)+g(x,y)-c$","b298a81b3a9d4afc":"$\\mathcal{L}=f(x,y)\\cdot g(x,y)$","9f71ecc67ada1272":"$\\mathcal{L}=\\lambda f(x,y)-g(x,y)$","15f7b294e51b44da":"$\\mathcal{L}=f(x,y)-\\lambda(g(x,y)-c)$","04b367ef6c170458":"Vi trekkjer frå multiplikatoren ganga med bivilkåret flytta til null: $\\mathcal{L}=f-\\lambda(g-c)$.","8366a19b270b8c7d":"For $U(x,y)=xy$ under $2x+3y=12$ gir tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Kva er optimal $(x,y)$?","84b02fea080a3b5a":"$y/x=2/3$ gir $x=\\tfrac{3y}{2}$. Inn i $2x+3y=12$: $6y=12\\Rightarrow y=2$, $x=3$. Punktet er $(3,2)$.","e4fffe44a9caa83f":"Kva er tilpassingsvilkåret som ofte gir raskaste vegen til løysinga?","18a985bcabe08ce9":"$f_x=f_y$","293b8aa0c4b11229":"$\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$","ca7922baacc16d21":"$f_x+f_y=c$","672e1ae195b3b601":"$f_x\\cdot g_x=f_y\\cdot g_y$","f6695ca4d92e31ef":"I optimum er gradientane parallelle, og det gir $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ -- nivåkurvene tangerer kvarandre.","16e467c039cbec60":"## Skuggeprisen -- kva fortel eigentleg $\\lambda$?\n\nMultiplikatoren $\\lambda$ er ikkje berre eit rekneknep; han har ei kraftig økonomisk tolking. Lat $V(c)$ vere den maksimale verdien av målfunksjonen som funksjon av høgresida $c$ i bivilkåret. Då gjeld $\\dfrac{dV}{dc}=\\lambda^*$, der $\\lambda^*$ er verdien av multiplikatoren i optimum. Med andre ord: $\\lambda^*$ er **skuggeprisen** -- kor mykje den optimale verdien aukar når vi lausnar bivilkåret med éi eining.\n\nI eksempelet med $U=xy$ under $2x+3y=12$ fann vi $\\lambda^*=1$. Det tyder at dersom budsjettet blir auka frå $12$ til $13$, bør den maksimale nytten auke med om lag $1$. Lat oss sjekke: med $c=13$ gir same tilpassing $4x=13\\Rightarrow x=3{,}25$ og $y\\approx 2{,}17$, så $U=\\tfrac{13}{4}\\cdot\\tfrac{13}{6}=\\tfrac{169}{24}\\approx 7{,}04$. Differansen frå $6$ er $1{,}04\\approx\\lambda^*$. Det vesle avviket på $0{,}04$ kjem av at $\\lambda$ er ein marginal storleik, eksakt berre for små endringar.\n\nSkuggeprisen blir tolka ulikt etter samanheng. I konsumentteori er $\\lambda$ ekstra nytte per ekstra krone inntekt -- grensenytten av pengar. I produksjon er det ekstra produksjon per ekstra ressurseining. I kostnadsminimering er det ekstra kostnad per ekstra produsert eining. Eit eksempel på det siste: ei bedrift må produsere $Q=100$ med $Q=10\\sqrt{KL}$, der $r=4$ og $w=9$. Tilpassing gir $4/L=9/K$, altså $K=\\tfrac{9L}{4}$, og bivilkåret $KL=100$ gir $L=\\tfrac{20}{3}$, $K=15$. Kostnaden blir $C=60+60=120$, og $\\lambda=4/L=0{,}6$: å produsere éi eining til kostar ca. $0{,}6$ kr -- grensekostnaden.","1da76568b39588e1":"Test deg sjølv på skuggepris og kostnadsminimering:","5853bfd8a4d5b4bb":"Kva uttrykkjer Lagrange-multiplikatoren $\\lambda^*$ i optimum?","1f3a315f30607d7e":"Den optimale verdien av $x$","24a06a79be103454":"Totalkostnaden i optimum","90cfc8a5b74d6149":"Skuggeprisen: $\\dfrac{dV}{dc}=\\lambda^*$, endring i optimal verdi per eining $c$","1c2fecaa6d1087a8":"Stigingstalet til budsjettlinja","f8075b734fe1cbbf":"$\\lambda^*=\\dfrac{dV}{dc}$ er skuggeprisen -- kor mykje den optimale verdien aukar når bivilkåret blir lausna med éi eining.","b850337293be6a4a":"Ei bedrift minimerer $C=4K+9L$ under $KL=100$, med tilpassing $4/L=9/K$. Kva er optimal $(K,L)$?","6fb0ac03dc96fbb7":"$(\\tfrac{20}{3},15)$","fcb22b958d9d8f68":"$(15,\\tfrac{20}{3})$","14899be598f500f0":"$4/L=9/K\\Rightarrow K=\\tfrac{9L}{4}$. Inn i $KL=100$: $\\tfrac{9L^2}{4}=100\\Rightarrow L=\\tfrac{20}{3}$, $K=15$.","d55c1c000ade5103":"I kostnadsminimeringa over er $\\lambda=0{,}6$. Kva tyder dette?","4e6f022a3ed069c5":"Å auke produksjonsmålet med éi eining aukar kostnaden med ca. $0{,}6$ kr","3fda71cb9ba455d5":"Totalkostnaden er $0{,}6$ kr","08cb97b1b0873136":"Kvar krone aukar produksjonen med $0{,}6$ einingar","be288914bbb5c175":"Kapital kostar $0{,}6$ kr per eining","bdeb208b4771fe9f":"I kostnadsminimering er $\\lambda$ grensekostnaden: ca. $0{,}6$ kr ekstra for å produsere éi eining til ved dette nivået.","f2702a8c95789395":"## Oppsummering\n\n**Lagranges multiplikatormetode** løyser optimering under eit bivilkår $g(x,y)=c$. Vi set opp Lagrange-funksjonen $\\mathcal{L}=f-\\lambda(g-c)$ og krev at alle dei partielle deriverte er null: $\\mathcal{L}_x=0$, $\\mathcal{L}_y=0$ og $\\mathcal{L}_\\lambda=0$, der den siste berre gir bivilkåret tilbake. Alternativt går vi rett på **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ og bruker bivilkåret til å finne $(x,y)$.\n\nDen verkelege krafta ligg i tolkinga av $\\lambda$. Multiplikatoren er ein **skuggepris**: $\\dfrac{dV}{dc}=\\lambda^*$ viser kor mykje den optimale verdien endrar seg når vi utvidar bivilkåret med éi eining. I konsumentteori er det grensenytten av pengar, i produksjon ekstra produksjon per ressurs, og i kostnadsminimering grensekostnaden. Metoden dekkjer nyttemaksimering med budsjett, kostnadsminimering med produksjonskrav og profittmaksimering med ressursavgrensing -- sjølve verktøykassa for mikroøkonomisk optimering."}}}
+{
+  "id": "bi-okonomi-7-4-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "7.4",
+  "title": "Lagranges multiplikatormetode",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om optimering når ressursane er knappe -- korleis Lagrange lèt oss maksimere nytte og produksjon under eit budsjett, og korleis multiplikatoren λ avslører skuggeprisen på det som avgrensar oss.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-7-4",
+  "content": [
+    {
+      "id": "bi-okonomi-7-4-n-intro",
+      "type": "text",
+      "content": "## Optimering når noko held oss tilbake\n\nI førre kapittel maksimerte vi fritt -- vi kunne velje $x$ og $y$ heilt som vi ville. Men røyndomen set grenser. Konsumenten har eit **budsjett**. Bedrifta har eit **produksjonsmål** eller ei knapp mengd innsatsfaktorar. Vi står overfor optimering med **bivilkår**: maksimer (eller minimer) ein **målfunksjon** $f(x,y)$ -- nytte, profitt, kostnad -- under eit **bivilkår** $g(x,y)=c$ som avgrensar oss.\n\nJoseph-Louis Lagrange fann på 1700-talet ei elegant løysing. Vi innfører ein hjelpevariabel $\\lambda$ og byggjer **Lagrange-funksjonen** $\\mathcal{L}(x,y,\\lambda)=f(x,y)-\\lambda(g(x,y)-c)$. Så finn vi stasjonære punkt for $\\mathcal{L}$ som funksjon av tre variablar. Det gir tre **førsteordens vilkår**: $\\mathcal{L}_x=f_x-\\lambda g_x=0$, $\\mathcal{L}_y=f_y-\\lambda g_y=0$, og $\\mathcal{L}_\\lambda=0$, som berre gir bivilkåret $g(x,y)=c$ tilbake.\n\nGeometrisk skjer noko pent: i optimum tangerer nivåkurvene til $f$ og $g$ kvarandre, slik at gradientane $\\nabla f$ og $\\nabla g$ peikar same veg. Den eine er $\\lambda$ gonger den andre. Det gir **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$, ofte den raskaste vegen til svaret."
+    },
+    {
+      "id": "bi-okonomi-7-4-n-section1",
+      "type": "text",
+      "content": "## Nyttemaksimering med budsjett\n\nLat oss gjere det konkret. Ein konsument har nyttefunksjon $U(x,y)=xy$ og budsjettlinja $2x+3y=12$. Her er $f=xy$ og $g=2x+3y$ med $c=12$. Lagrange-funksjonen blir $\\mathcal{L}=xy-\\lambda(2x+3y-12)$. Førsteordens: $\\mathcal{L}_x=y-2\\lambda=0$ gir $\\lambda=y/2$, og $\\mathcal{L}_y=x-3\\lambda=0$ gir $\\lambda=x/3$. Set dei like: $y/2=x/3$, altså $3y=2x$, så $x=\\tfrac{3y}{2}$.\n\nNo bruker vi budsjettet: $2\\cdot\\tfrac{3y}{2}+3y=12\\Rightarrow 6y=12\\Rightarrow y=2$ og $x=3$. Den optimale kurven er $(3,2)$ med nytte $U=6$, og $\\lambda=y/2=1$. Legg merke til at hadde vi berre ønskt $(x,y)$, kunne vi hoppa rett til tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Men når oppgåva spør om tolkinga av $\\lambda$, må vi rekne han ut.\n\nMetoden taklar òg Cobb-Douglas. For $U(x,y)=x^{0{,}5}y^{0{,}5}$ med prisar $p_x=4$, $p_y=9$ og inntekt $100$ gir tilpassingsvilkåret $\\dfrac{U_x}{U_y}=\\dfrac{y}{x}=\\dfrac{4}{9}$, altså $y=\\tfrac{4x}{9}$. Inn i budsjettet $4x+9y=100$: $4x+4x=100\\Rightarrow x=12{,}5$ og $y=\\tfrac{50}{9}\\approx 5{,}56$. Maksimal nytte blir $\\sqrt{12{,}5\\cdot 50/9}=\\sqrt{625/9}=\\tfrac{25}{3}\\approx 8{,}33$."
+    },
+    {
+      "id": "bi-okonomi-7-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-7-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Lagrange-oppsett og nyttemaksimering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-7-4-n-quiz1-q0",
+            "task": "Kva er Lagrange-funksjonen for å maksimere $f(x,y)$ under $g(x,y)=c$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mathcal{L}=f(x,y)+g(x,y)-c$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mathcal{L}=f(x,y)-\\lambda(g(x,y)-c)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\mathcal{L}=f(x,y)\\cdot g(x,y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mathcal{L}=\\lambda f(x,y)-g(x,y)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi trekkjer frå multiplikatoren ganga med bivilkåret flytta til null: $\\mathcal{L}=f-\\lambda(g-c)$."
+          },
+          {
+            "id": "bi-okonomi-7-4-n-quiz1-q1",
+            "task": "For $U(x,y)=xy$ under $2x+3y=12$ gir tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Kva er optimal $(x,y)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(2,3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(6,0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(3,2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(4,4/3)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y/x=2/3$ gir $x=\\tfrac{3y}{2}$. Inn i $2x+3y=12$: $6y=12\\Rightarrow y=2$, $x=3$. Punktet er $(3,2)$."
+          },
+          {
+            "id": "bi-okonomi-7-4-n-quiz1-q2",
+            "task": "Kva er tilpassingsvilkåret som ofte gir raskaste vegen til løysinga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f_x=f_y$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f_x+f_y=c$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f_x\\cdot g_x=f_y\\cdot g_y$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I optimum er gradientane parallelle, og det gir $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ -- nivåkurvene tangerer kvarandre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-7-4-n-section2",
+      "type": "text",
+      "content": "## Skuggeprisen -- kva fortel eigentleg $\\lambda$?\n\nMultiplikatoren $\\lambda$ er ikkje berre eit rekneknep; han har ei kraftig økonomisk tolking. Lat $V(c)$ vere den maksimale verdien av målfunksjonen som funksjon av høgresida $c$ i bivilkåret. Då gjeld $\\dfrac{dV}{dc}=\\lambda^*$, der $\\lambda^*$ er verdien av multiplikatoren i optimum. Med andre ord: $\\lambda^*$ er **skuggeprisen** -- kor mykje den optimale verdien aukar når vi lausnar bivilkåret med éi eining.\n\nI eksempelet med $U=xy$ under $2x+3y=12$ fann vi $\\lambda^*=1$. Det tyder at dersom budsjettet blir auka frå $12$ til $13$, bør den maksimale nytten auke med om lag $1$. Lat oss sjekke: med $c=13$ gir same tilpassing $4x=13\\Rightarrow x=3{,}25$ og $y\\approx 2{,}17$, så $U=\\tfrac{13}{4}\\cdot\\tfrac{13}{6}=\\tfrac{169}{24}\\approx 7{,}04$. Differansen frå $6$ er $1{,}04\\approx\\lambda^*$. Det vesle avviket på $0{,}04$ kjem av at $\\lambda$ er ein marginal storleik, eksakt berre for små endringar.\n\nSkuggeprisen blir tolka ulikt etter samanheng. I konsumentteori er $\\lambda$ ekstra nytte per ekstra krone inntekt -- grensenytten av pengar. I produksjon er det ekstra produksjon per ekstra ressurseining. I kostnadsminimering er det ekstra kostnad per ekstra produsert eining. Eit eksempel på det siste: ei bedrift må produsere $Q=100$ med $Q=10\\sqrt{KL}$, der $r=4$ og $w=9$. Tilpassing gir $4/L=9/K$, altså $K=\\tfrac{9L}{4}$, og bivilkåret $KL=100$ gir $L=\\tfrac{20}{3}$, $K=15$. Kostnaden blir $C=60+60=120$, og $\\lambda=4/L=0{,}6$: å produsere éi eining til kostar ca. $0{,}6$ kr -- grensekostnaden."
+    },
+    {
+      "id": "bi-okonomi-7-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-7-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på skuggepris og kostnadsminimering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-7-4-n-quiz2-q0",
+            "task": "Kva uttrykkjer Lagrange-multiplikatoren $\\lambda^*$ i optimum?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Skuggeprisen: $\\dfrac{dV}{dc}=\\lambda^*$, endring i optimal verdi per eining $c$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den optimale verdien av $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Totalkostnaden i optimum",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stigingstalet til budsjettlinja",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\lambda^*=\\dfrac{dV}{dc}$ er skuggeprisen -- kor mykje den optimale verdien aukar når bivilkåret blir lausna med éi eining."
+          },
+          {
+            "id": "bi-okonomi-7-4-n-quiz2-q1",
+            "task": "Ei bedrift minimerer $C=4K+9L$ under $KL=100$, med tilpassing $4/L=9/K$. Kva er optimal $(K,L)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(10,10)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(15,\\tfrac{20}{3})$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(\\tfrac{20}{3},15)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(20,5)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4/L=9/K\\Rightarrow K=\\tfrac{9L}{4}$. Inn i $KL=100$: $\\tfrac{9L^2}{4}=100\\Rightarrow L=\\tfrac{20}{3}$, $K=15$."
+          },
+          {
+            "id": "bi-okonomi-7-4-n-quiz2-q2",
+            "task": "I kostnadsminimeringa over er $\\lambda=0{,}6$. Kva tyder dette?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Totalkostnaden er $0{,}6$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kvar krone aukar produksjonen med $0{,}6$ einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å auke produksjonsmålet med éi eining aukar kostnaden med ca. $0{,}6$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Kapital kostar $0{,}6$ kr per eining",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I kostnadsminimering er $\\lambda$ grensekostnaden: ca. $0{,}6$ kr ekstra for å produsere éi eining til ved dette nivået."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-7-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Lagranges multiplikatormetode** løyser optimering under eit bivilkår $g(x,y)=c$. Vi set opp Lagrange-funksjonen $\\mathcal{L}=f-\\lambda(g-c)$ og krev at alle dei partielle deriverte er null: $\\mathcal{L}_x=0$, $\\mathcal{L}_y=0$ og $\\mathcal{L}_\\lambda=0$, der den siste berre gir bivilkåret tilbake. Alternativt går vi rett på **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ og bruker bivilkåret til å finne $(x,y)$.\n\nDen verkelege krafta ligg i tolkinga av $\\lambda$. Multiplikatoren er ein **skuggepris**: $\\dfrac{dV}{dc}=\\lambda^*$ viser kor mykje den optimale verdien endrar seg når vi utvidar bivilkåret med éi eining. I konsumentteori er det grensenytten av pengar, i produksjon ekstra produksjon per ressurs, og i kostnadsminimering grensekostnaden. Metoden dekkjer nyttemaksimering med budsjett, kostnadsminimering med produksjonskrav og profittmaksimering med ressursavgrensing -- sjølve verktøykassa for mikroøkonomisk optimering."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "cf5ab55f29752536",
+    "translatedAt": "2026-06-21T01:03:39.684Z",
+    "model": "claude-code-agent",
+    "strings": 41,
+    "tm": {
+      "27678a571c80bab5": "Lagranges multiplikatormetode",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "15b8d8219f0d96f1": "Ei forteljing om optimering når ressursane er knappe -- korleis Lagrange lèt oss maksimere nytte og produksjon under eit budsjett, og korleis multiplikatoren λ avslører skuggeprisen på det som avgrensar oss.",
+      "ec579b9ee2527f6a": "## Optimering når noko held oss tilbake\n\nI førre kapittel maksimerte vi fritt -- vi kunne velje $x$ og $y$ heilt som vi ville. Men røyndomen set grenser. Konsumenten har eit **budsjett**. Bedrifta har eit **produksjonsmål** eller ei knapp mengd innsatsfaktorar. Vi står overfor optimering med **bivilkår**: maksimer (eller minimer) ein **målfunksjon** $f(x,y)$ -- nytte, profitt, kostnad -- under eit **bivilkår** $g(x,y)=c$ som avgrensar oss.\n\nJoseph-Louis Lagrange fann på 1700-talet ei elegant løysing. Vi innfører ein hjelpevariabel $\\lambda$ og byggjer **Lagrange-funksjonen** $\\mathcal{L}(x,y,\\lambda)=f(x,y)-\\lambda(g(x,y)-c)$. Så finn vi stasjonære punkt for $\\mathcal{L}$ som funksjon av tre variablar. Det gir tre **førsteordens vilkår**: $\\mathcal{L}_x=f_x-\\lambda g_x=0$, $\\mathcal{L}_y=f_y-\\lambda g_y=0$, og $\\mathcal{L}_\\lambda=0$, som berre gir bivilkåret $g(x,y)=c$ tilbake.\n\nGeometrisk skjer noko pent: i optimum tangerer nivåkurvene til $f$ og $g$ kvarandre, slik at gradientane $\\nabla f$ og $\\nabla g$ peikar same veg. Den eine er $\\lambda$ gonger den andre. Det gir **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$, ofte den raskaste vegen til svaret.",
+      "969ab73e8c40ad04": "## Nyttemaksimering med budsjett\n\nLat oss gjere det konkret. Ein konsument har nyttefunksjon $U(x,y)=xy$ og budsjettlinja $2x+3y=12$. Her er $f=xy$ og $g=2x+3y$ med $c=12$. Lagrange-funksjonen blir $\\mathcal{L}=xy-\\lambda(2x+3y-12)$. Førsteordens: $\\mathcal{L}_x=y-2\\lambda=0$ gir $\\lambda=y/2$, og $\\mathcal{L}_y=x-3\\lambda=0$ gir $\\lambda=x/3$. Set dei like: $y/2=x/3$, altså $3y=2x$, så $x=\\tfrac{3y}{2}$.\n\nNo bruker vi budsjettet: $2\\cdot\\tfrac{3y}{2}+3y=12\\Rightarrow 6y=12\\Rightarrow y=2$ og $x=3$. Den optimale kurven er $(3,2)$ med nytte $U=6$, og $\\lambda=y/2=1$. Legg merke til at hadde vi berre ønskt $(x,y)$, kunne vi hoppa rett til tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Men når oppgåva spør om tolkinga av $\\lambda$, må vi rekne han ut.\n\nMetoden taklar òg Cobb-Douglas. For $U(x,y)=x^{0{,}5}y^{0{,}5}$ med prisar $p_x=4$, $p_y=9$ og inntekt $100$ gir tilpassingsvilkåret $\\dfrac{U_x}{U_y}=\\dfrac{y}{x}=\\dfrac{4}{9}$, altså $y=\\tfrac{4x}{9}$. Inn i budsjettet $4x+9y=100$: $4x+4x=100\\Rightarrow x=12{,}5$ og $y=\\tfrac{50}{9}\\approx 5{,}56$. Maksimal nytte blir $\\sqrt{12{,}5\\cdot 50/9}=\\sqrt{625/9}=\\tfrac{25}{3}\\approx 8{,}33$.",
+      "2a1276d7939f76bd": "Test deg sjølv på Lagrange-oppsett og nyttemaksimering:",
+      "4097889236a2af26": "placeholder",
+      "8a5dc008fd15fc1f": "Kva er Lagrange-funksjonen for å maksimere $f(x,y)$ under $g(x,y)=c$?",
+      "e4c1f312da46966d": "$\\mathcal{L}=f(x,y)+g(x,y)-c$",
+      "b298a81b3a9d4afc": "$\\mathcal{L}=f(x,y)\\cdot g(x,y)$",
+      "9f71ecc67ada1272": "$\\mathcal{L}=\\lambda f(x,y)-g(x,y)$",
+      "15f7b294e51b44da": "$\\mathcal{L}=f(x,y)-\\lambda(g(x,y)-c)$",
+      "04b367ef6c170458": "Vi trekkjer frå multiplikatoren ganga med bivilkåret flytta til null: $\\mathcal{L}=f-\\lambda(g-c)$.",
+      "8366a19b270b8c7d": "For $U(x,y)=xy$ under $2x+3y=12$ gir tilpassingsvilkåret $\\tfrac{y}{x}=\\tfrac{2}{3}$. Kva er optimal $(x,y)$?",
+      "84b02fea080a3b5a": "$y/x=2/3$ gir $x=\\tfrac{3y}{2}$. Inn i $2x+3y=12$: $6y=12\\Rightarrow y=2$, $x=3$. Punktet er $(3,2)$.",
+      "e4fffe44a9caa83f": "Kva er tilpassingsvilkåret som ofte gir raskaste vegen til løysinga?",
+      "18a985bcabe08ce9": "$f_x=f_y$",
+      "293b8aa0c4b11229": "$\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$",
+      "ca7922baacc16d21": "$f_x+f_y=c$",
+      "672e1ae195b3b601": "$f_x\\cdot g_x=f_y\\cdot g_y$",
+      "f6695ca4d92e31ef": "I optimum er gradientane parallelle, og det gir $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ -- nivåkurvene tangerer kvarandre.",
+      "16e467c039cbec60": "## Skuggeprisen -- kva fortel eigentleg $\\lambda$?\n\nMultiplikatoren $\\lambda$ er ikkje berre eit rekneknep; han har ei kraftig økonomisk tolking. Lat $V(c)$ vere den maksimale verdien av målfunksjonen som funksjon av høgresida $c$ i bivilkåret. Då gjeld $\\dfrac{dV}{dc}=\\lambda^*$, der $\\lambda^*$ er verdien av multiplikatoren i optimum. Med andre ord: $\\lambda^*$ er **skuggeprisen** -- kor mykje den optimale verdien aukar når vi lausnar bivilkåret med éi eining.\n\nI eksempelet med $U=xy$ under $2x+3y=12$ fann vi $\\lambda^*=1$. Det tyder at dersom budsjettet blir auka frå $12$ til $13$, bør den maksimale nytten auke med om lag $1$. Lat oss sjekke: med $c=13$ gir same tilpassing $4x=13\\Rightarrow x=3{,}25$ og $y\\approx 2{,}17$, så $U=\\tfrac{13}{4}\\cdot\\tfrac{13}{6}=\\tfrac{169}{24}\\approx 7{,}04$. Differansen frå $6$ er $1{,}04\\approx\\lambda^*$. Det vesle avviket på $0{,}04$ kjem av at $\\lambda$ er ein marginal storleik, eksakt berre for små endringar.\n\nSkuggeprisen blir tolka ulikt etter samanheng. I konsumentteori er $\\lambda$ ekstra nytte per ekstra krone inntekt -- grensenytten av pengar. I produksjon er det ekstra produksjon per ekstra ressurseining. I kostnadsminimering er det ekstra kostnad per ekstra produsert eining. Eit eksempel på det siste: ei bedrift må produsere $Q=100$ med $Q=10\\sqrt{KL}$, der $r=4$ og $w=9$. Tilpassing gir $4/L=9/K$, altså $K=\\tfrac{9L}{4}$, og bivilkåret $KL=100$ gir $L=\\tfrac{20}{3}$, $K=15$. Kostnaden blir $C=60+60=120$, og $\\lambda=4/L=0{,}6$: å produsere éi eining til kostar ca. $0{,}6$ kr -- grensekostnaden.",
+      "1da76568b39588e1": "Test deg sjølv på skuggepris og kostnadsminimering:",
+      "5853bfd8a4d5b4bb": "Kva uttrykkjer Lagrange-multiplikatoren $\\lambda^*$ i optimum?",
+      "1f3a315f30607d7e": "Den optimale verdien av $x$",
+      "24a06a79be103454": "Totalkostnaden i optimum",
+      "90cfc8a5b74d6149": "Skuggeprisen: $\\dfrac{dV}{dc}=\\lambda^*$, endring i optimal verdi per eining $c$",
+      "1c2fecaa6d1087a8": "Stigingstalet til budsjettlinja",
+      "f8075b734fe1cbbf": "$\\lambda^*=\\dfrac{dV}{dc}$ er skuggeprisen -- kor mykje den optimale verdien aukar når bivilkåret blir lausna med éi eining.",
+      "b850337293be6a4a": "Ei bedrift minimerer $C=4K+9L$ under $KL=100$, med tilpassing $4/L=9/K$. Kva er optimal $(K,L)$?",
+      "6fb0ac03dc96fbb7": "$(\\tfrac{20}{3},15)$",
+      "fcb22b958d9d8f68": "$(15,\\tfrac{20}{3})$",
+      "14899be598f500f0": "$4/L=9/K\\Rightarrow K=\\tfrac{9L}{4}$. Inn i $KL=100$: $\\tfrac{9L^2}{4}=100\\Rightarrow L=\\tfrac{20}{3}$, $K=15$.",
+      "d55c1c000ade5103": "I kostnadsminimeringa over er $\\lambda=0{,}6$. Kva tyder dette?",
+      "4e6f022a3ed069c5": "Å auke produksjonsmålet med éi eining aukar kostnaden med ca. $0{,}6$ kr",
+      "3fda71cb9ba455d5": "Totalkostnaden er $0{,}6$ kr",
+      "08cb97b1b0873136": "Kvar krone aukar produksjonen med $0{,}6$ einingar",
+      "be288914bbb5c175": "Kapital kostar $0{,}6$ kr per eining",
+      "bdeb208b4771fe9f": "I kostnadsminimering er $\\lambda$ grensekostnaden: ca. $0{,}6$ kr ekstra for å produsere éi eining til ved dette nivået.",
+      "f2702a8c95789395": "## Oppsummering\n\n**Lagranges multiplikatormetode** løyser optimering under eit bivilkår $g(x,y)=c$. Vi set opp Lagrange-funksjonen $\\mathcal{L}=f-\\lambda(g-c)$ og krev at alle dei partielle deriverte er null: $\\mathcal{L}_x=0$, $\\mathcal{L}_y=0$ og $\\mathcal{L}_\\lambda=0$, der den siste berre gir bivilkåret tilbake. Alternativt går vi rett på **tilpassingsvilkåret** $\\dfrac{f_x}{f_y}=\\dfrac{g_x}{g_y}$ og bruker bivilkåret til å finne $(x,y)$.\n\nDen verkelege krafta ligg i tolkinga av $\\lambda$. Multiplikatoren er ein **skuggepris**: $\\dfrac{dV}{dc}=\\lambda^*$ viser kor mykje den optimale verdien endrar seg når vi utvidar bivilkåret med éi eining. I konsumentteori er det grensenytten av pengar, i produksjon ekstra produksjon per ressurs, og i kostnadsminimering grensekostnaden. Metoden dekkjer nyttemaksimering med budsjett, kostnadsminimering med produksjonskrav og profittmaksimering med ressursavgrensing -- sjølve verktøykassa for mikroøkonomisk optimering."
+    }
+  }
+}

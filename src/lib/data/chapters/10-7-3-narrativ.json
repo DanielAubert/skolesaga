@@ -1,1 +1,268 @@
-{"id":"10-7-3-narrativ","courseId":"10","chapterNumber":"7.3","title":"Primtall og primtallsfaktorisering","subtitle":"Narrativ versjon","description":"En fortellende utforskning av primtall -- tallenes byggesteiner -- der vi oppdager Eratosthenes' sil, primtallsfaktorisering, og de praktiske verktøyene SFF og MFF.","estimatedMinutes":35,"competenceGoals":["utforske matematiske eigenskapar og samanhengar ved å bruke programmering"],"linkedChapterId":"10-7-3","content":[{"id":"10-7-3-n-intro","type":"text","content":"## Tallenes byggesteiner\n\nTenk på LEGO. Med bare noen grunnklosser kan du bygge nesten hva som helst -- hus, biler, romskip. I matematikken har vi noe lignende: **primtall**. De er de grunnleggende byggesteinene som alle andre tall er satt sammen av.\n\nTallet $12$ kan for eksempel deles opp i $2 \\times 2 \\times 3$. Verken $2$ eller $3$ kan deles videre -- de er «udelelige». Nettopp dette er det som gjør dem til primtall."},{"id":"10-7-3-n-section1","type":"text","content":"## Hva er et primtall?\n\nEt **primtall** er et naturlig tall større enn $1$ som bare er delelig med $1$ og seg selv. De første primtallene er:\n\n$$2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, \\ldots$$\n\nEt tall større enn $1$ som *ikke* er et primtall, kalles et **sammensatt tall** -- det betyr at det har flere enn to faktorer. For eksempel er $12$ sammensatt fordi det har faktorene $1, 2, 3, 4, 6, 12$.\n\nNoen viktige spesialtilfeller: Tallet $1$ er verken primtall eller sammensatt -- det er en egen kategori. Og $2$ er det eneste partalls-primtallet. Alle andre partall er delelige med $2$ og dermed sammensatte.\n\nHvordan sjekker du om et tall er primtall? Du trenger bare å teste deling med primtall opp til **kvadratroten** av tallet. For å sjekke $67$, beregner vi $\\sqrt{67} \\approx 8{,}2$ og sjekker deling med $2, 3, 5$ og $7$. Ingen av dem går opp, så $67$ er et primtall. Men for $51$ finner vi at $51 \\div 3 = 17$, så $51 = 3 \\times 17$ er sammensatt.\n\nDet finnes uendelig mange primtall -- dette beviste den greske matematikeren Euklid for over $2300$ ar siden!"},{"id":"10-7-3-n-quiz1","type":"exercise","exercise":{"id":"10-7-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på primtall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-7-3-n-quiz1-q0","task":"Hvilket av disse tallene er et primtall?","options":[{"id":"a","text":"$49$","isCorrect":false},{"id":"b","text":"$51$","isCorrect":false},{"id":"c","text":"$83$","isCorrect":true},{"id":"d","text":"$91$","isCorrect":false}],"solution":"$83$ er et primtall. $\\sqrt{83} \\approx 9{,}1$, og verken $2, 3, 5$ eller $7$ går opp. $49 = 7 \\times 7$, $51 = 3 \\times 17$ og $91 = 7 \\times 13$."},{"id":"10-7-3-n-quiz1-q1","task":"For å sjekke om $67$ er et primtall, hva er det høyeste primtallet du trenger å teste deling med?","options":[{"id":"a","text":"$67$","isCorrect":false},{"id":"b","text":"$33$","isCorrect":false},{"id":"c","text":"$7$","isCorrect":true},{"id":"d","text":"$11$","isCorrect":false}],"solution":"$\\sqrt{67} \\approx 8{,}2$, så vi trenger bare å teste med primtall opp til $8{,}2$: det er $2, 3, 5$ og $7$. Det neste primtallet, $11$, er allerede for stort."},{"id":"10-7-3-n-quiz1-q2","task":"Hvilken påstand om tallet $1$ er riktig?","options":[{"id":"a","text":"$1$ er det minste primtallet","isCorrect":false},{"id":"b","text":"$1$ er et sammensatt tall","isCorrect":false},{"id":"c","text":"$1$ er verken primtall eller sammensatt tall","isCorrect":true},{"id":"d","text":"$1$ er både primtall og sammensatt tall","isCorrect":false}],"solution":"$1$ er et spesialtilfelle: det er verken primtall eller sammensatt tall. Definisjonen av primtall krever at tallet er større enn $1$."}]}},{"id":"10-7-3-n-section2","type":"text","content":"## Eratosthenes' sil og primtallsfaktorisering\n\nDen greske matematikeren Eratosthenes (276--194 f.Kr.) fant en elegant metode for å finne alle primtall opp til et gitt tall. Skriv opp alle tall fra $2$ og oppover. Begynn med $2$ (det første primtallet) og stryk alle multipler av $2$: $4, 6, 8, 10, \\ldots$ Neste tall som ikke er streket ut er $3$ -- stryk alle multipler av $3$. Fortsett med $5$, $7$, og så videre. Når du har kommet til $\\sqrt{n}$ (der $n$ er det største tallet på listen), er alle tall som ikke er streket ut, primtall. For tall opp til $50$ gir dette $15$ primtall: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$.\n\nNå til det virkelig kraftige verktyet: **primtallsfaktorisering**. Aritmetikkens fundamentalteorem sier at hvert naturlig tall større enn $1$ kan skrives som et produkt av primtall på nøyaktig en måte (bortsett fra rekkefølgen). For å finne faktoriseringen bruker vi et **faktortre**: del på det minste primtallet som går opp, del kvotienten på nytt, og fortsett til du står igjen med $1$.\n\nFor eksempel: $180 \\div 2 = 90$, $90 \\div 2 = 45$, $45 \\div 3 = 15$, $15 \\div 3 = 5$, $5 \\div 5 = 1$. Altså er $180 = 2^2 \\times 3^2 \\times 5$."},{"id":"10-7-3-n-section3","type":"text","content":"## SFF og MFF -- nyttige verktøy\n\nPrimtallsfaktorisering gir oss to kraftige verktøy: **Største felles faktor (SFF)** og **Minste felles multiplum (MFF)**.\n\n**SFF** er det største tallet som går opp i både $a$ og $b$. For å finne den: velg den **laveste** potensen av hvert **felles** primtall. **MFF** er det minste tallet som både $a$ og $b$ går opp i. For å finne det: velg den **høyeste** potensen av **alle** primtall som forekommer.\n\nLa oss finne SFF og MFF av $60$ og $84$:\n- $60 = 2^2 \\times 3 \\times 5$\n- $84 = 2^2 \\times 3 \\times 7$\n\nSFF: Felles primtall er $2$ og $3$, med laveste potenser: $2^2 \\times 3 = 12$.\nMFF: Alle primtall med høyeste potenser: $2^2 \\times 3 \\times 5 \\times 7 = 420$.\n\nEn nyttig kontroll: $\\text{SFF} \\times \\text{MFF} = 12 \\times 420 = 5040 = 60 \\times 84$.\n\nDisse verktøyene er overraskende praktiske. Tenk deg at du har $24$ rode roser og $36$ hvite roser og vil lage buketter der alle har like mange av hver farge uten at noen roser blir til overs. Antall buketter er SFF av $24$ og $36$, altså $12$. Eller tenk på to busser som er på holdeplassen samtidig klokka $08{:}00$ -- buss A går hvert $12$. minutt og buss B hvert $18$. minutt. De er på holdeplassen samtidig igjen etter MFF av $12$ og $18$ minutter, altså $36$ minutter -- klokka $08{:}36$."},{"id":"10-7-3-n-quiz2","type":"exercise","exercise":{"id":"10-7-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på primtallsfaktorisering, SFF og MFF:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-7-3-n-quiz2-q0","task":"Hva er primtallsfaktoriseringen av $72$?","options":[{"id":"a","text":"$2^3 \\times 3^2$","isCorrect":true},{"id":"b","text":"$2^2 \\times 3^3$","isCorrect":false},{"id":"c","text":"$8 \\times 9$","isCorrect":false},{"id":"d","text":"$2 \\times 36$","isCorrect":false}],"solution":"$72 = 2 \\times 36 = 2 \\times 2 \\times 18 = 2 \\times 2 \\times 2 \\times 9 = 2^3 \\times 3^2$. Alternativene c) og d) er ikke primtallsfaktoriseringer."},{"id":"10-7-3-n-quiz2-q1","task":"Hva er SFF (største felles faktor) av $24$ og $36$?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$72$","isCorrect":false}],"solution":"$24 = 2^3 \\times 3$ og $36 = 2^2 \\times 3^2$. SFF = laveste potens av felles primtall: $2^2 \\times 3 = 12$. Alternativ d) er MFF, ikke SFF."},{"id":"10-7-3-n-quiz2-q2","task":"Buss A går hvert 15. minutt og buss B hvert 20. minutt. Når er neste gang de er på holdeplassen samtidig?","options":[{"id":"a","text":"Etter $5$ minutter","isCorrect":false},{"id":"b","text":"Etter $35$ minutter","isCorrect":false},{"id":"c","text":"Etter $300$ minutter","isCorrect":false},{"id":"d","text":"Etter $60$ minutter","isCorrect":true}],"solution":"Vi trenger MFF av $15$ og $20$. $15 = 3 \\times 5$ og $20 = 2^2 \\times 5$. MFF $= 2^2 \\times 3 \\times 5 = 60$ minutter."},{"id":"10-7-3-n-quiz2-q3","task":"Hvilket tall er IKKE et primtall?","options":[{"id":"a","text":"$29$","isCorrect":false},{"id":"b","text":"$37$","isCorrect":false},{"id":"c","text":"$91$","isCorrect":true},{"id":"d","text":"$67$","isCorrect":false}],"solution":"$91 = 7 \\times 13$ er et sammensatt tall. De andre er alle primtall."}]}},{"id":"10-7-3-n-summary","type":"text","content":"## Oppsummering\n\nPrimtall er tallenes byggesteiner -- naturlige tall større enn $1$ som bare er delelige med $1$ og seg selv. $2$ er det minste (og eneste partalls-) primtallet, og $1$ er verken primtall eller sammensatt. Eratosthenes' sil lar oss finne alle primtall opp til et gitt tall.\n\nPrimtallsfaktorisering betyr å skrive et tall som et produkt av bare primtall, og dette kan gjores på nøyaktig en måte. Med primtallsfaktorisering finner vi enkelt SFF (velg laveste potens av felles primtall) og MFF (velg høyeste potens av alle primtall). En nyttig sjekk: $\\text{SFF}(a,b) \\times \\text{MFF}(a,b) = a \\times b$."}],"exercises":[]}
+{
+  "id": "10-7-3-narrativ",
+  "courseId": "10",
+  "chapterNumber": "7.3",
+  "title": "Primtall og primtallsfaktorisering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende utforskning av primtall -- tallenes byggesteiner -- der vi oppdager Eratosthenes' sil, primtallsfaktorisering, og de praktiske verktøyene SFF og MFF.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske matematiske eigenskapar og samanhengar ved å bruke programmering"
+  ],
+  "linkedChapterId": "10-7-3",
+  "content": [
+    {
+      "id": "10-7-3-n-intro",
+      "type": "text",
+      "content": "## Tallenes byggesteiner\n\nTenk på LEGO. Med bare noen grunnklosser kan du bygge nesten hva som helst -- hus, biler, romskip. I matematikken har vi noe lignende: **primtall**. De er de grunnleggende byggesteinene som alle andre tall er satt sammen av.\n\nTallet $12$ kan for eksempel deles opp i $2 \\times 2 \\times 3$. Verken $2$ eller $3$ kan deles videre -- de er «udelelige». Nettopp dette er det som gjør dem til primtall."
+    },
+    {
+      "id": "10-7-3-n-section1",
+      "type": "text",
+      "content": "## Hva er et primtall?\n\nEt **primtall** er et naturlig tall større enn $1$ som bare er delelig med $1$ og seg selv. De første primtallene er:\n\n$$2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, \\ldots$$\n\nEt tall større enn $1$ som *ikke* er et primtall, kalles et **sammensatt tall** -- det betyr at det har flere enn to faktorer. For eksempel er $12$ sammensatt fordi det har faktorene $1, 2, 3, 4, 6, 12$.\n\nNoen viktige spesialtilfeller: Tallet $1$ er verken primtall eller sammensatt -- det er en egen kategori. Og $2$ er det eneste partalls-primtallet. Alle andre partall er delelige med $2$ og dermed sammensatte.\n\nHvordan sjekker du om et tall er primtall? Du trenger bare å teste deling med primtall opp til **kvadratroten** av tallet. For å sjekke $67$, beregner vi $\\sqrt{67} \\approx 8{,}2$ og sjekker deling med $2, 3, 5$ og $7$. Ingen av dem går opp, så $67$ er et primtall. Men for $51$ finner vi at $51 \\div 3 = 17$, så $51 = 3 \\times 17$ er sammensatt.\n\nDet finnes uendelig mange primtall -- dette beviste den greske matematikeren Euklid for over $2300$ ar siden!"
+    },
+    {
+      "id": "10-7-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-7-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på primtall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-7-3-n-quiz1-q0",
+            "task": "Hvilket av disse tallene er et primtall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$49$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$51$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$83$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$91$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$83$ er et primtall. $\\sqrt{83} \\approx 9{,}1$, og verken $2, 3, 5$ eller $7$ går opp. $49 = 7 \\times 7$, $51 = 3 \\times 17$ og $91 = 7 \\times 13$."
+          },
+          {
+            "id": "10-7-3-n-quiz1-q1",
+            "task": "For å sjekke om $67$ er et primtall, hva er det høyeste primtallet du trenger å teste deling med?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$67$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$33$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$11$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{67} \\approx 8{,}2$, så vi trenger bare å teste med primtall opp til $8{,}2$: det er $2, 3, 5$ og $7$. Det neste primtallet, $11$, er allerede for stort."
+          },
+          {
+            "id": "10-7-3-n-quiz1-q2",
+            "task": "Hvilken påstand om tallet $1$ er riktig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$ er det minste primtallet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1$ er et sammensatt tall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$ er verken primtall eller sammensatt tall",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1$ er både primtall og sammensatt tall",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$1$ er et spesialtilfelle: det er verken primtall eller sammensatt tall. Definisjonen av primtall krever at tallet er større enn $1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-7-3-n-section2",
+      "type": "text",
+      "content": "## Eratosthenes' sil og primtallsfaktorisering\n\nDen greske matematikeren Eratosthenes (276--194 f.Kr.) fant en elegant metode for å finne alle primtall opp til et gitt tall. Skriv opp alle tall fra $2$ og oppover. Begynn med $2$ (det første primtallet) og stryk alle multipler av $2$: $4, 6, 8, 10, \\ldots$ Neste tall som ikke er streket ut er $3$ -- stryk alle multipler av $3$. Fortsett med $5$, $7$, og så videre. Når du har kommet til $\\sqrt{n}$ (der $n$ er det største tallet på listen), er alle tall som ikke er streket ut, primtall. For tall opp til $50$ gir dette $15$ primtall: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$.\n\nNå til det virkelig kraftige verktyet: **primtallsfaktorisering**. Aritmetikkens fundamentalteorem sier at hvert naturlig tall større enn $1$ kan skrives som et produkt av primtall på nøyaktig en måte (bortsett fra rekkefølgen). For å finne faktoriseringen bruker vi et **faktortre**: del på det minste primtallet som går opp, del kvotienten på nytt, og fortsett til du står igjen med $1$.\n\nFor eksempel: $180 \\div 2 = 90$, $90 \\div 2 = 45$, $45 \\div 3 = 15$, $15 \\div 3 = 5$, $5 \\div 5 = 1$. Altså er $180 = 2^2 \\times 3^2 \\times 5$."
+    },
+    {
+      "id": "10-7-3-n-section3",
+      "type": "text",
+      "content": "## SFF og MFF -- nyttige verktøy\n\nPrimtallsfaktorisering gir oss to kraftige verktøy: **Største felles faktor (SFF)** og **Minste felles multiplum (MFF)**.\n\n**SFF** er det største tallet som går opp i både $a$ og $b$. For å finne den: velg den **laveste** potensen av hvert **felles** primtall. **MFF** er det minste tallet som både $a$ og $b$ går opp i. For å finne det: velg den **høyeste** potensen av **alle** primtall som forekommer.\n\nLa oss finne SFF og MFF av $60$ og $84$:\n- $60 = 2^2 \\times 3 \\times 5$\n- $84 = 2^2 \\times 3 \\times 7$\n\nSFF: Felles primtall er $2$ og $3$, med laveste potenser: $2^2 \\times 3 = 12$.\nMFF: Alle primtall med høyeste potenser: $2^2 \\times 3 \\times 5 \\times 7 = 420$.\n\nEn nyttig kontroll: $\\text{SFF} \\times \\text{MFF} = 12 \\times 420 = 5040 = 60 \\times 84$.\n\nDisse verktøyene er overraskende praktiske. Tenk deg at du har $24$ rode roser og $36$ hvite roser og vil lage buketter der alle har like mange av hver farge uten at noen roser blir til overs. Antall buketter er SFF av $24$ og $36$, altså $12$. Eller tenk på to busser som er på holdeplassen samtidig klokka $08{:}00$ -- buss A går hvert $12$. minutt og buss B hvert $18$. minutt. De er på holdeplassen samtidig igjen etter MFF av $12$ og $18$ minutter, altså $36$ minutter -- klokka $08{:}36$."
+    },
+    {
+      "id": "10-7-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-7-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på primtallsfaktorisering, SFF og MFF:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-7-3-n-quiz2-q0",
+            "task": "Hva er primtallsfaktoriseringen av $72$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2^2 \\times 3^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2^3 \\times 3^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$8 \\times 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2 \\times 36$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$72 = 2 \\times 36 = 2 \\times 2 \\times 18 = 2 \\times 2 \\times 2 \\times 9 = 2^3 \\times 3^2$. Alternativene c) og d) er ikke primtallsfaktoriseringer."
+          },
+          {
+            "id": "10-7-3-n-quiz2-q1",
+            "task": "Hva er SFF (største felles faktor) av $24$ og $36$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$72$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$24 = 2^3 \\times 3$ og $36 = 2^2 \\times 3^2$. SFF = laveste potens av felles primtall: $2^2 \\times 3 = 12$. Alternativ d) er MFF, ikke SFF."
+          },
+          {
+            "id": "10-7-3-n-quiz2-q2",
+            "task": "Buss A går hvert 15. minutt og buss B hvert 20. minutt. Når er neste gang de er på holdeplassen samtidig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Etter $5$ minutter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Etter $35$ minutter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etter $300$ minutter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etter $60$ minutter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi trenger MFF av $15$ og $20$. $15 = 3 \\times 5$ og $20 = 2^2 \\times 5$. MFF $= 2^2 \\times 3 \\times 5 = 60$ minutter."
+          },
+          {
+            "id": "10-7-3-n-quiz2-q3",
+            "task": "Hvilket tall er IKKE et primtall?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$91$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$29$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$37$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$67$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$91 = 7 \\times 13$ er et sammensatt tall. De andre er alle primtall."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-7-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nPrimtall er tallenes byggesteiner -- naturlige tall større enn $1$ som bare er delelige med $1$ og seg selv. $2$ er det minste (og eneste partalls-) primtallet, og $1$ er verken primtall eller sammensatt. Eratosthenes' sil lar oss finne alle primtall opp til et gitt tall.\n\nPrimtallsfaktorisering betyr å skrive et tall som et produkt av bare primtall, og dette kan gjores på nøyaktig en måte. Med primtallsfaktorisering finner vi enkelt SFF (velg laveste potens av felles primtall) og MFF (velg høyeste potens av alle primtall). En nyttig sjekk: $\\text{SFF}(a,b) \\times \\text{MFF}(a,b) = a \\times b$."
+    }
+  ],
+  "exercises": []
+}

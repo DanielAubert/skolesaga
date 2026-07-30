@@ -1,1 +1,487 @@
-{"id":"fys1-6-2-narrativ","courseId":"fys1","chapterNumber":"6.2","title":"Elektriske kretser","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis straum, spenning og motstand heng saman -- frå Ohms lov til serie- og parallellkoplingar og Kirchhoffs urokkelege rekneskap.","estimatedMinutes":44,"competenceGoals":["forklare elektrisk strøm og spenning","bruke Ohms lov til beregninger","analysere serie- og parallellkoblinger","anvende Kirchhoffs lover"],"linkedChapterId":"fys1-6-2","content":[{"id":"fys1-6-2-n-intro","type":"text","content":"## Den lukka banen ladninga kan springe i\n\nFor at ei lommelykt skal lyse, må straumen ha ei komplett, lukka bane å springe i -- frå batteriet, gjennom pæra, og tilbake. Det er ein **elektrisk krins**, og han er grunnlaget for absolutt all moderne elektronikk.\n\nTre storleikar styrer det heile, og ein vassanalogi hjelper å forstå dei. **Elektrisk straum** $I$ er kor mykje ladning som passerer per tid: $I = \\frac{Q}{t}$, målt i ampere (A), der 1 A = 1 C/s. Det er som vassmengda som strøymer gjennom eit røyr. **Spenning** $U$ er «trykket» som driv ladningane -- som høgdeskilnaden som får vatnet til å renne. Og **resistans** $R$ er motstanden mot straumen -- som friksjonen i eit trongt røyr.\n\nLegg ein 10 C ladning forbi eit punkt på 2 sekund, er straumen $I = \\frac{10}{2} = 5$ A. Ei lita åtvaring om retning: den *konvensjonelle* straumen går frå pluss til minus (ein historisk konvensjon vi held fast ved), medan elektrona eigentleg rører seg motsett veg. I dette kapittelet skal vi binde dei tre storleikane saman med Ohms lov, lære å kople komponentar i serie og parallell, og møte dei to lovene til Kirchhoff -- rekneskapet som alltid stemmer."},{"id":"fys1-6-2-n-section1","type":"text","content":"## Resistans og Ohms lov\n\nLat oss sjå nærmare på motstanden. **Resistansen** $R$ til ein leiar kjem an på tre ting, samla i formelen $R = \\rho\\frac{L}{A}$: lengda $L$ (lang tråd gjev høg motstand), tverrsnittet $A$ (tjukk tråd gjev låg motstand), og **resistiviteten** til materialet $\\rho$. Resistiviteten varierer enormt: sølv og kopar er gode leiarar (rundt $1{,}7 \\times 10^{-8}$ Ω·m), medan gummi er ein isolator ($\\sim 10^{13}$ Ω·m). Resistans blir målt i ohm (Ω). Analogien held: eit langt, trongt røyr gjev mest friksjon for vatnet.\n\nNo kjem den viktigaste samanhengen i krinslæra, **Ohms lov**, oppdaga av tyskaren Georg Ohm i 1827: $U = RI$. Spenninga er resistans gonger straum. Ho kan snuast til $I = \\frac{U}{R}$ eller $R = \\frac{U}{I}$ alt etter kva du leitar etter. Logikken er intuitiv: høgare spenning gjev meir straum (ved fast $R$), medan høgare motstand gjev mindre straum (ved fast $U$).\n\nKomponentar som følgjer Ohms lov pent -- der spenning og straum er proporsjonale -- blir kalla *ohmske*, som resistorar og leidningar. Andre, som diodar og glødelamper, er ikkje-ohmske (resistansen til glødelampa aukar med temperaturen).\n\nLat oss rekne eit enkelt døme. Ein resistor på 220 Ω blir kopla til eit 12 V batteri. Straumen blir $I = \\frac{U}{R} = \\frac{12}{220} \\approx 0{,}055$ A, altså 55 mA. Tre tal, éi lov -- og du kan finne det tredje når du kjenner to."},{"id":"fys1-6-2-n-quiz1","type":"exercise","exercise":{"id":"fys1-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på straum, resistans og Ohms lov:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-6-2-n-quiz1-q0","task":"Kva er elektrisk straum?","options":[{"id":"a","text":"Spenning gonger resistans","isCorrect":false},{"id":"b","text":"Energi per ladning","isCorrect":false},{"id":"c","text":"Motstand mot ladning","isCorrect":false},{"id":"d","text":"Ladning per tidseining, $I = \\frac{Q}{t}$","isCorrect":true}],"solution":"Straum er ladning per tid, $I=\\frac{Q}{t}$, målt i ampere (1 A = 1 C/s)."},{"id":"fys1-6-2-n-quiz1-q1","task":"Kva seier Ohms lov?","options":[{"id":"a","text":"$U = RI$","isCorrect":true},{"id":"b","text":"$U = \\frac{R}{I}$","isCorrect":false},{"id":"c","text":"$U = R + I$","isCorrect":false},{"id":"d","text":"$U = R - I$","isCorrect":false}],"solution":"Ohms lov: $U=RI$ -- spenning er resistans gonger straum. Ho kan snuast til $I=U/R$ og $R=U/I$."},{"id":"fys1-6-2-n-quiz1-q2","task":"Ein resistor på 220 Ω blir kopla til 12 V. Kva er straumen?","options":[{"id":"a","text":"2640 A","isCorrect":false},{"id":"b","text":"55 mA","isCorrect":true},{"id":"c","text":"18 A","isCorrect":false},{"id":"d","text":"0,5 A","isCorrect":false}],"solution":"$I=\\frac{U}{R}=\\frac{12}{220}\\approx 0{,}055$ A $=55$ mA."},{"id":"fys1-6-2-n-quiz1-q3","task":"Kva gjev ein tråd høg resistans?","options":[{"id":"a","text":"Kort og tjukk tråd","isCorrect":false},{"id":"b","text":"Kort tråd av kopar","isCorrect":false},{"id":"c","text":"Lang og tynn tråd av eit materiale med høg resistivitet","isCorrect":true},{"id":"d","text":"Tjukk tråd av sølv","isCorrect":false}],"solution":"$R=\\rho\\frac{L}{A}$: lang tråd ($L$ stor), tynn tråd ($A$ liten) og høg resistivitet $\\rho$ gjev alle høg resistans."}]}},{"id":"fys1-6-2-n-section2","type":"text","content":"## Serie og parallell -- to måtar å kople på\n\nNår vi set saman fleire komponentar, finst det to grunnleggjande måtar, med heilt ulik åtferd.\n\nI ei **seriekopling** står komponentane etter kvarandre, som perler på ei snor, slik at *same straum* går gjennom alle: $I_{total} = I_1 = I_2 = \\ldots$ Spenningane legg seg saman, $U_{total} = U_1 + U_2 + \\ldots$, og det same gjer resistansane: $R_{total} = R_1 + R_2 + R_3 + \\ldots$ Tre resistorar på 10, 20 og 30 Ω i serie gjev $R_{total} = 60$ Ω. Tenk på det som ein kø der same straum av menneske passerer kvar person. Ulempa: sviktar éin komponent (ei pære brenn ut), blir heile krinsen broten -- som i gamle juletrelysrekkjer.\n\nI ei **parallellkopling** står komponentane side om side, slik at *same spenning* ligg over alle: $U_{total} = U_1 = U_2 = \\ldots$ No er det straumane som legg seg saman, $I_{total} = I_1 + I_2 + \\ldots$, medan resistansane blir kombinerte invers: $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\ldots$ For to resistorar kan vi bruke $R_{total} = \\frac{R_1 R_2}{R_1 + R_2}$. To resistorar på 6 og 3 Ω i parallell gjev $\\frac{1}{R_{total}} = \\frac{1}{6} + \\frac{2}{6} = \\frac{3}{6}$, altså $R_{total} = 2$ Ω. Eit viktig poeng: total resistans i parallell er alltid *mindre* enn den minste enkeltresistansen, fordi straumen får fleire vegar å fordele seg på. Fordelen er robustleik -- sviktar éi grein, fungerer resten.\n\nVerkelege krinsar blandar ofte begge. Sei at $R_1 = 30$ Ω og $R_2 = 20$ Ω står i parallell, og denne kombinasjonen i serie med $R_3 = 10$ Ω, kopla til 24 V. Først parallellen: $R_{12} = \\frac{30 \\cdot 20}{50} = 12$ Ω. Så serien: $R_{total} = 12 + 10 = 22$ Ω. Totalstraumen er $I = \\frac{24}{22} \\approx 1{,}09$ A. Spenninga over $R_3$ blir $U_3 = 1{,}09 \\cdot 10 \\approx 10{,}9$ V, så parallelldelen får $24 - 10{,}9 = 13{,}1$ V, og straumen gjennom $R_1$ blir $I_1 = \\frac{13{,}1}{30} \\approx 0{,}44$ A."},{"id":"fys1-6-2-n-quiz2","type":"exercise","exercise":{"id":"fys1-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på serie- og parallellkoplingar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-6-2-n-quiz2-q0","task":"Kva er felles for komponentar i seriekopling?","options":[{"id":"a","text":"Same spenning over alle","isCorrect":false},{"id":"b","text":"Resistansane blir kombinerte invers","isCorrect":false},{"id":"c","text":"Dei er uavhengige","isCorrect":false},{"id":"d","text":"Same straum gjennom alle","isCorrect":true}],"solution":"I serie går same straum gjennom alle komponentar, spenningane blir lagde saman, og resistansane blir lagde saman: $R_{total}=R_1+R_2+\\ldots$"},{"id":"fys1-6-2-n-quiz2-q1","task":"To resistorar, 6 Ω og 3 Ω, blir kopla i parallell. Kva er total resistans?","options":[{"id":"a","text":"2 Ω","isCorrect":true},{"id":"b","text":"9 Ω","isCorrect":false},{"id":"c","text":"4,5 Ω","isCorrect":false},{"id":"d","text":"18 Ω","isCorrect":false}],"solution":"$\\frac{1}{R}=\\frac{1}{6}+\\frac{1}{3}=\\frac{3}{6}$, så $R=2$ Ω. Parallellresistansen er alltid mindre enn den minste enkeltverdien."},{"id":"fys1-6-2-n-quiz2-q2","task":"Ei pære brenn ut i ei seriekopling med fleire pærer. Kva skjer?","options":[{"id":"a","text":"Dei andre lyser framleis","isCorrect":false},{"id":"b","text":"Heile krinsen blir broten, alle sloknar","isCorrect":true},{"id":"c","text":"Dei andre lyser sterkare","isCorrect":false},{"id":"d","text":"Ingenting endrar seg","isCorrect":false}],"solution":"I serie deler alle same bane. Blir ho broten éin stad, stoppar straumen overalt. I parallell ville dei andre framleis ha lyst."},{"id":"fys1-6-2-n-quiz2-q3","task":"Kvifor er total resistans i parallell mindre enn den minste enkeltresistansen?","options":[{"id":"a","text":"Fordi spenninga søkk","isCorrect":false},{"id":"b","text":"Fordi resistansane blir lagde saman","isCorrect":false},{"id":"c","text":"Fordi straumen får fleire vegar å fordele seg på","isCorrect":true},{"id":"d","text":"Det stemmer ikkje","isCorrect":false}],"solution":"Med fleire parallelle vegar kjem det meir total straum gjennom for same spenning, noko som svarar til lågare samla resistans."}]}},{"id":"fys1-6-2-n-section3","type":"text","content":"## Kirchhoffs lover -- rekneskapet som alltid stemmer\n\nFor meir innflokne krinsar treng vi to grunnlover som tyskaren Gustav Kirchhoff formulerte, og dei byggjer på to av dei djupaste prinsippa i fysikken.\n\n**Kirchhoffs straumlov** (1. lov) seier: summen av straumar inn i eit knutepunkt er lik summen ut, $\\sum I_{inn} = \\sum I_{ut}$. Grunnen er enkel -- ladning kan ikkje hope seg opp i eit punkt, like mykje må ut som inn. Møtest tre leidningar med 2 A og 3 A inn, må det gå $2 + 3 = 5$ A ut. Dette er rett og slett ladningsbevaring i praksis.\n\n**Kirchhoffs spenningslov** (2. lov) seier: summen av alle spenningar rundt ei lukka sløyfe er null, $\\sum U = 0$. Konvensjonen er at spenninga over eit batteri (i straumretninga) blir rekna positiv, og over ein resistor negativ. Bak dette ligg energibevaring -- energien batteriet tilfører, blir brukt opp i resistorane før du er tilbake der du starta.\n\nLat oss verifisere med eit døme. Eit 18 V batteri driv tre resistorar i serie: 10, 20 og 15 Ω. Total resistans er $45$ Ω, så straumen er $I = \\frac{18}{45} = 0{,}4$ A. Spenningane blir $U_1 = 0{,}4 \\cdot 10 = 4$ V, $U_2 = 0{,}4 \\cdot 20 = 8$ V, $U_3 = 0{,}4 \\cdot 15 = 6$ V. Sjekkar vi spenningslova rundt sløyfa: $18 - 4 - 8 - 6 = 0$. Det stemmer -- dei 18 V frå batteriet blir fordelte nøyaktig på dei tre resistorane.\n\nEin liten historisk parentes: på slutten av 1800-talet rasa «straumkrigen» mellom likestraumen (DC) til Edison og vekselstraumen (AC) til Tesla. Tesla vann, fordi vekselstraum lett kan transformerast opp til høg spenning for tapsfri overføring over lange avstandar -- og difor er det vekselstraum i straumnettet ditt i dag."},{"id":"fys1-6-2-n-quiz3","type":"exercise","exercise":{"id":"fys1-6-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på Kirchhoffs lover:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-6-2-n-quiz3-q0","task":"Kva seier Kirchhoffs straumlov?","options":[{"id":"a","text":"Sum av spenningar i ei sløyfe er null","isCorrect":false},{"id":"b","text":"Straum er alltid konstant","isCorrect":false},{"id":"c","text":"Ladning kan hope seg opp i eit punkt","isCorrect":false},{"id":"d","text":"Sum av straumar inn i eit knutepunkt = sum ut","isCorrect":true}],"solution":"Straumlova uttrykkjer ladningsbevaring: $\\sum I_{inn}=\\sum I_{ut}$, fordi ladning ikkje kan akkumulere i eit knutepunkt."},{"id":"fys1-6-2-n-quiz3-q1","task":"Kva prinsipp ligg bak Kirchhoffs spenningslov ($\\sum U = 0$)?","options":[{"id":"a","text":"Energibevaring","isCorrect":true},{"id":"b","text":"Ladningsbevaring","isCorrect":false},{"id":"c","text":"Rørslemengdbevaring","isCorrect":false},{"id":"d","text":"Massebevaring","isCorrect":false}],"solution":"Spenningslova byggjer på energibevaring: energien batteriet tilfører blir brukt opp i resistorane rundt ei lukka sløyfe."},{"id":"fys1-6-2-n-quiz3-q2","task":"Eit 18 V batteri driv tre resistorar i serie med spenningsfall 4 V, 8 V og 6 V. Stemmer spenningslova?","options":[{"id":"a","text":"Nei, summen blir 36 V","isCorrect":false},{"id":"b","text":"Ja, $18-4-8-6=0$","isCorrect":true},{"id":"c","text":"Nei, batteriet skulle ha vore 12 V","isCorrect":false},{"id":"d","text":"Det kan ikkje avgjerast","isCorrect":false}],"solution":"$18-4-8-6=0$ -- spenninga frå batteriet blir fordelt nøyaktig på resistorane, slik Kirchhoffs spenningslov krev."}]}},{"id":"fys1-6-2-n-summary","type":"text","content":"## Oppsummering\n\nEin **elektrisk krins** er den lukka banen ladninga spring i. Tre storleikar styrer han: **straum** $I = \\frac{Q}{t}$ (ampere), **spenning** $U$ (volt, «trykket»), og **resistans** $R = \\rho\\frac{L}{A}$ (ohm). Dei blir bundne saman av **Ohms lov** $U = RI$, den mest brukte samanhengen i krinslæra.\n\nKomponentar blir kopla på to måtar. I **serie** går same straum gjennom alle, spenningar og resistansar blir lagde saman ($R_{total} = R_1 + R_2 + \\ldots$), men éin svikt bryt alt. I **parallell** ligg same spenning over alle, straumar blir lagde saman, resistansane blir kombinerte invers ($\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\ldots$), og total resistans blir alltid mindre enn den minste -- og krinsen er robust.\n\nFor samansette krinsar bruker vi **Kirchhoffs lover**: straumlova ($\\sum I_{inn} = \\sum I_{ut}$, ladningsbevaring) og spenningslova ($\\sum U = 0$, energibevaring). Saman let desse oss analysere kvar einaste krins. No som vi veit korleis straum flyt, er vi klare til å sjå kor mykje energi han faktisk set om -- temaet for neste kapittel."}],"exercises":[],"_meta":{"sourceHash":"62bd9cdc8665e20b","translatedAt":"2026-06-20T22:47:50.317Z","model":"claude-code-agent","strings":80,"tm":{"b05b73f050cd5b26":"Elektriske kretser","b195b06d1ed59702":"Narrativ versjon","6f0e5cef7a23e7e6":"Ei forteljing om korleis straum, spenning og motstand heng saman -- frå Ohms lov til serie- og parallellkoplingar og Kirchhoffs urokkelege rekneskap.","fdd35e5c20337e99":"forklare elektrisk strøm og spenning","bec4db318dd1b31d":"bruke Ohms lov til beregninger","699ee381e39fb60d":"analysere serie- og parallellkoblinger","39daba8bb8ce46d0":"anvende Kirchhoffs lover","1d528971a526f9d9":"## Den lukka banen ladninga kan springe i\n\nFor at ei lommelykt skal lyse, må straumen ha ei komplett, lukka bane å springe i -- frå batteriet, gjennom pæra, og tilbake. Det er ein **elektrisk krins**, og han er grunnlaget for absolutt all moderne elektronikk.\n\nTre storleikar styrer det heile, og ein vassanalogi hjelper å forstå dei. **Elektrisk straum** $I$ er kor mykje ladning som passerer per tid: $I = \\frac{Q}{t}$, målt i ampere (A), der 1 A = 1 C/s. Det er som vassmengda som strøymer gjennom eit røyr. **Spenning** $U$ er «trykket» som driv ladningane -- som høgdeskilnaden som får vatnet til å renne. Og **resistans** $R$ er motstanden mot straumen -- som friksjonen i eit trongt røyr.\n\nLegg ein 10 C ladning forbi eit punkt på 2 sekund, er straumen $I = \\frac{10}{2} = 5$ A. Ei lita åtvaring om retning: den *konvensjonelle* straumen går frå pluss til minus (ein historisk konvensjon vi held fast ved), medan elektrona eigentleg rører seg motsett veg. I dette kapittelet skal vi binde dei tre storleikane saman med Ohms lov, lære å kople komponentar i serie og parallell, og møte dei to lovene til Kirchhoff -- rekneskapet som alltid stemmer.","4426d7da635ed71d":"## Resistans og Ohms lov\n\nLat oss sjå nærmare på motstanden. **Resistansen** $R$ til ein leiar kjem an på tre ting, samla i formelen $R = \\rho\\frac{L}{A}$: lengda $L$ (lang tråd gjev høg motstand), tverrsnittet $A$ (tjukk tråd gjev låg motstand), og **resistiviteten** til materialet $\\rho$. Resistiviteten varierer enormt: sølv og kopar er gode leiarar (rundt $1{,}7 \\times 10^{-8}$ Ω·m), medan gummi er ein isolator ($\\sim 10^{13}$ Ω·m). Resistans blir målt i ohm (Ω). Analogien held: eit langt, trongt røyr gjev mest friksjon for vatnet.\n\nNo kjem den viktigaste samanhengen i krinslæra, **Ohms lov**, oppdaga av tyskaren Georg Ohm i 1827: $U = RI$. Spenninga er resistans gonger straum. Ho kan snuast til $I = \\frac{U}{R}$ eller $R = \\frac{U}{I}$ alt etter kva du leitar etter. Logikken er intuitiv: høgare spenning gjev meir straum (ved fast $R$), medan høgare motstand gjev mindre straum (ved fast $U$).\n\nKomponentar som følgjer Ohms lov pent -- der spenning og straum er proporsjonale -- blir kalla *ohmske*, som resistorar og leidningar. Andre, som diodar og glødelamper, er ikkje-ohmske (resistansen til glødelampa aukar med temperaturen).\n\nLat oss rekne eit enkelt døme. Ein resistor på 220 Ω blir kopla til eit 12 V batteri. Straumen blir $I = \\frac{U}{R} = \\frac{12}{220} \\approx 0{,}055$ A, altså 55 mA. Tre tal, éi lov -- og du kan finne det tredje når du kjenner to.","918fda6260948342":"Test deg sjølv på straum, resistans og Ohms lov:","4097889236a2af26":"placeholder","dea0cdeacd2c12d1":"Kva er elektrisk straum?","8bbef79626d84e0c":"Spenning gonger resistans","0840cd34d41068f2":"Energi per ladning","bb8f6bc81234e44b":"Motstand mot ladning","872491210ee21fa8":"Ladning per tidseining, $I = \\frac{Q}{t}$","1051686e04501053":"Straum er ladning per tid, $I=\\frac{Q}{t}$, målt i ampere (1 A = 1 C/s).","1aa741b38eca7054":"Kva seier Ohms lov?","2198aeb75a4f59cb":"$U = RI$","dfad268000831541":"$U = \\frac{R}{I}$","b03bbeffec57416c":"$U = R + I$","8bbcea103675285c":"$U = R - I$","2866069e8de7758b":"Ohms lov: $U=RI$ -- spenning er resistans gonger straum. Ho kan snuast til $I=U/R$ og $R=U/I$.","5eae6c1689358ac9":"Ein resistor på 220 Ω blir kopla til 12 V. Kva er straumen?","ea485ede949c2854":"2640 A","2c74060d9e4fcf9a":"55 mA","b601fc8d91647ccb":"18 A","7d9e74929a5a3006":"0,5 A","475cd30f56d832d4":"$I=\\frac{U}{R}=\\frac{12}{220}\\approx 0{,}055$ A $=55$ mA.","e8ec0dbe2210e9fa":"Kva gjev ein tråd høg resistans?","3b67dc9fed685332":"Kort og tjukk tråd","2bb9241ad4f499e9":"Kort tråd av kopar","af44970fd5341643":"Lang og tynn tråd av eit materiale med høg resistivitet","c75b5d09f2fe3d03":"Tjukk tråd av sølv","ee069e4cb97d8d66":"$R=\\rho\\frac{L}{A}$: lang tråd ($L$ stor), tynn tråd ($A$ liten) og høg resistivitet $\\rho$ gjev alle høg resistans.","c223df5c30603d36":"## Serie og parallell -- to måtar å kople på\n\nNår vi set saman fleire komponentar, finst det to grunnleggjande måtar, med heilt ulik åtferd.\n\nI ei **seriekopling** står komponentane etter kvarandre, som perler på ei snor, slik at *same straum* går gjennom alle: $I_{total} = I_1 = I_2 = \\ldots$ Spenningane legg seg saman, $U_{total} = U_1 + U_2 + \\ldots$, og det same gjer resistansane: $R_{total} = R_1 + R_2 + R_3 + \\ldots$ Tre resistorar på 10, 20 og 30 Ω i serie gjev $R_{total} = 60$ Ω. Tenk på det som ein kø der same straum av menneske passerer kvar person. Ulempa: sviktar éin komponent (ei pære brenn ut), blir heile krinsen broten -- som i gamle juletrelysrekkjer.\n\nI ei **parallellkopling** står komponentane side om side, slik at *same spenning* ligg over alle: $U_{total} = U_1 = U_2 = \\ldots$ No er det straumane som legg seg saman, $I_{total} = I_1 + I_2 + \\ldots$, medan resistansane blir kombinerte invers: $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\ldots$ For to resistorar kan vi bruke $R_{total} = \\frac{R_1 R_2}{R_1 + R_2}$. To resistorar på 6 og 3 Ω i parallell gjev $\\frac{1}{R_{total}} = \\frac{1}{6} + \\frac{2}{6} = \\frac{3}{6}$, altså $R_{total} = 2$ Ω. Eit viktig poeng: total resistans i parallell er alltid *mindre* enn den minste enkeltresistansen, fordi straumen får fleire vegar å fordele seg på. Fordelen er robustleik -- sviktar éi grein, fungerer resten.\n\nVerkelege krinsar blandar ofte begge. Sei at $R_1 = 30$ Ω og $R_2 = 20$ Ω står i parallell, og denne kombinasjonen i serie med $R_3 = 10$ Ω, kopla til 24 V. Først parallellen: $R_{12} = \\frac{30 \\cdot 20}{50} = 12$ Ω. Så serien: $R_{total} = 12 + 10 = 22$ Ω. Totalstraumen er $I = \\frac{24}{22} \\approx 1{,}09$ A. Spenninga over $R_3$ blir $U_3 = 1{,}09 \\cdot 10 \\approx 10{,}9$ V, så parallelldelen får $24 - 10{,}9 = 13{,}1$ V, og straumen gjennom $R_1$ blir $I_1 = \\frac{13{,}1}{30} \\approx 0{,}44$ A.","cf87eb18419e6cca":"Test deg sjølv på serie- og parallellkoplingar:","26ff1d47a22b8c3b":"Kva er felles for komponentar i seriekopling?","7023e4b0998261a7":"Same spenning over alle","3005091ff8472100":"Resistansane blir kombinerte invers","3f347f27919a0576":"Dei er uavhengige","7119a3d7e3f10a1e":"Same straum gjennom alle","fd1760f0bd4d2012":"I serie går same straum gjennom alle komponentar, spenningane blir lagde saman, og resistansane blir lagde saman: $R_{total}=R_1+R_2+\\ldots$","61e3da274dbc786b":"To resistorar, 6 Ω og 3 Ω, blir kopla i parallell. Kva er total resistans?","b6402f3df46a395a":"$\\frac{1}{R}=\\frac{1}{6}+\\frac{1}{3}=\\frac{3}{6}$, så $R=2$ Ω. Parallellresistansen er alltid mindre enn den minste enkeltverdien.","b5e96203956eb2c5":"Ei pære brenn ut i ei seriekopling med fleire pærer. Kva skjer?","2ea3852a2427194f":"Dei andre lyser framleis","6001d20ffaed3f7c":"Heile krinsen blir broten, alle sloknar","f7ff47b8fb40b593":"Dei andre lyser sterkare","3c02c1ee1d8fee4e":"Ingenting endrar seg","b3e288bb5ebdab2c":"I serie deler alle same bane. Blir ho broten éin stad, stoppar straumen overalt. I parallell ville dei andre framleis ha lyst.","879d1075654f3eb3":"Kvifor er total resistans i parallell mindre enn den minste enkeltresistansen?","45d358388dab257b":"Fordi spenninga søkk","a1cddfd49f430136":"Fordi resistansane blir lagde saman","3fc6124e51fbfbd8":"Fordi straumen får fleire vegar å fordele seg på","20cf46ace4fd4e12":"Det stemmer ikkje","45bbf077c038fac6":"Med fleire parallelle vegar kjem det meir total straum gjennom for same spenning, noko som svarar til lågare samla resistans.","0b39bea3399a5778":"## Kirchhoffs lover -- rekneskapet som alltid stemmer\n\nFor meir innflokne krinsar treng vi to grunnlover som tyskaren Gustav Kirchhoff formulerte, og dei byggjer på to av dei djupaste prinsippa i fysikken.\n\n**Kirchhoffs straumlov** (1. lov) seier: summen av straumar inn i eit knutepunkt er lik summen ut, $\\sum I_{inn} = \\sum I_{ut}$. Grunnen er enkel -- ladning kan ikkje hope seg opp i eit punkt, like mykje må ut som inn. Møtest tre leidningar med 2 A og 3 A inn, må det gå $2 + 3 = 5$ A ut. Dette er rett og slett ladningsbevaring i praksis.\n\n**Kirchhoffs spenningslov** (2. lov) seier: summen av alle spenningar rundt ei lukka sløyfe er null, $\\sum U = 0$. Konvensjonen er at spenninga over eit batteri (i straumretninga) blir rekna positiv, og over ein resistor negativ. Bak dette ligg energibevaring -- energien batteriet tilfører, blir brukt opp i resistorane før du er tilbake der du starta.\n\nLat oss verifisere med eit døme. Eit 18 V batteri driv tre resistorar i serie: 10, 20 og 15 Ω. Total resistans er $45$ Ω, så straumen er $I = \\frac{18}{45} = 0{,}4$ A. Spenningane blir $U_1 = 0{,}4 \\cdot 10 = 4$ V, $U_2 = 0{,}4 \\cdot 20 = 8$ V, $U_3 = 0{,}4 \\cdot 15 = 6$ V. Sjekkar vi spenningslova rundt sløyfa: $18 - 4 - 8 - 6 = 0$. Det stemmer -- dei 18 V frå batteriet blir fordelte nøyaktig på dei tre resistorane.\n\nEin liten historisk parentes: på slutten av 1800-talet rasa «straumkrigen» mellom likestraumen (DC) til Edison og vekselstraumen (AC) til Tesla. Tesla vann, fordi vekselstraum lett kan transformerast opp til høg spenning for tapsfri overføring over lange avstandar -- og difor er det vekselstraum i straumnettet ditt i dag.","f0b441f358c9b7c2":"Test deg sjølv på Kirchhoffs lover:","301a9c88b73fd074":"Kva seier Kirchhoffs straumlov?","cf834e25861e19b9":"Sum av spenningar i ei sløyfe er null","93d266816e05c21b":"Straum er alltid konstant","df92451dd2ecf72e":"Ladning kan hope seg opp i eit punkt","451b4e7e6290316b":"Sum av straumar inn i eit knutepunkt = sum ut","8d712754b04850fc":"Straumlova uttrykkjer ladningsbevaring: $\\sum I_{inn}=\\sum I_{ut}$, fordi ladning ikkje kan akkumulere i eit knutepunkt.","b4edaf4b6c5521ec":"Kva prinsipp ligg bak Kirchhoffs spenningslov ($\\sum U = 0$)?","9375b0d1681e44d7":"Energibevaring","ef19a8b659b1cf4e":"Ladningsbevaring","a67b017cee1c1ddf":"Rørslemengdbevaring","0c060b7ad51ebf76":"Massebevaring","8709b0453df6b045":"Spenningslova byggjer på energibevaring: energien batteriet tilfører blir brukt opp i resistorane rundt ei lukka sløyfe.","eaa02b0ba1e0437d":"Eit 18 V batteri driv tre resistorar i serie med spenningsfall 4 V, 8 V og 6 V. Stemmer spenningslova?","dca4de060a4d44e5":"Nei, summen blir 36 V","f62d795eb8a64af5":"Ja, $18-4-8-6=0$","03ecec044a8b627c":"Nei, batteriet skulle ha vore 12 V","963d9a054b8deade":"Det kan ikkje avgjerast","165e2aefa1b6fd38":"$18-4-8-6=0$ -- spenninga frå batteriet blir fordelt nøyaktig på resistorane, slik Kirchhoffs spenningslov krev.","b0c8bf45bb46b5bd":"## Oppsummering\n\nEin **elektrisk krins** er den lukka banen ladninga spring i. Tre storleikar styrer han: **straum** $I = \\frac{Q}{t}$ (ampere), **spenning** $U$ (volt, «trykket»), og **resistans** $R = \\rho\\frac{L}{A}$ (ohm). Dei blir bundne saman av **Ohms lov** $U = RI$, den mest brukte samanhengen i krinslæra.\n\nKomponentar blir kopla på to måtar. I **serie** går same straum gjennom alle, spenningar og resistansar blir lagde saman ($R_{total} = R_1 + R_2 + \\ldots$), men éin svikt bryt alt. I **parallell** ligg same spenning over alle, straumar blir lagde saman, resistansane blir kombinerte invers ($\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\ldots$), og total resistans blir alltid mindre enn den minste -- og krinsen er robust.\n\nFor samansette krinsar bruker vi **Kirchhoffs lover**: straumlova ($\\sum I_{inn} = \\sum I_{ut}$, ladningsbevaring) og spenningslova ($\\sum U = 0$, energibevaring). Saman let desse oss analysere kvar einaste krins. No som vi veit korleis straum flyt, er vi klare til å sjå kor mykje energi han faktisk set om -- temaet for neste kapittel."}}}
+{
+  "id": "fys1-6-2-narrativ",
+  "courseId": "fys1",
+  "chapterNumber": "6.2",
+  "title": "Elektriske kretser",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis straum, spenning og motstand heng saman -- frå Ohms lov til serie- og parallellkoplingar og Kirchhoffs urokkelege rekneskap.",
+  "estimatedMinutes": 44,
+  "competenceGoals": [
+    "forklare elektrisk strøm og spenning",
+    "bruke Ohms lov til beregninger",
+    "analysere serie- og parallellkoblinger",
+    "anvende Kirchhoffs lover"
+  ],
+  "linkedChapterId": "fys1-6-2",
+  "content": [
+    {
+      "id": "fys1-6-2-n-intro",
+      "type": "text",
+      "content": "## Den lukka banen ladninga kan springe i\n\nFor at ei lommelykt skal lyse, må straumen ha ei komplett, lukka bane å springe i -- frå batteriet, gjennom pæra, og tilbake. Det er ein **elektrisk krins**, og han er grunnlaget for absolutt all moderne elektronikk.\n\nTre storleikar styrer det heile, og ein vassanalogi hjelper å forstå dei. **Elektrisk straum** $I$ er kor mykje ladning som passerer per tid: $I = \\frac{Q}{t}$, målt i ampere (A), der 1 A = 1 C/s. Det er som vassmengda som strøymer gjennom eit røyr. **Spenning** $U$ er «trykket» som driv ladningane -- som høgdeskilnaden som får vatnet til å renne. Og **resistans** $R$ er motstanden mot straumen -- som friksjonen i eit trongt røyr.\n\nLegg ein 10 C ladning forbi eit punkt på 2 sekund, er straumen $I = \\frac{10}{2} = 5$ A. Ei lita åtvaring om retning: den *konvensjonelle* straumen går frå pluss til minus (ein historisk konvensjon vi held fast ved), medan elektrona eigentleg rører seg motsett veg. I dette kapittelet skal vi binde dei tre storleikane saman med Ohms lov, lære å kople komponentar i serie og parallell, og møte dei to lovene til Kirchhoff -- rekneskapet som alltid stemmer."
+    },
+    {
+      "id": "fys1-6-2-n-section1",
+      "type": "text",
+      "content": "## Resistans og Ohms lov\n\nLat oss sjå nærmare på motstanden. **Resistansen** $R$ til ein leiar kjem an på tre ting, samla i formelen $R = \\rho\\frac{L}{A}$: lengda $L$ (lang tråd gjev høg motstand), tverrsnittet $A$ (tjukk tråd gjev låg motstand), og **resistiviteten** til materialet $\\rho$. Resistiviteten varierer enormt: sølv og kopar er gode leiarar (rundt $1{,}7 \\times 10^{-8}$ Ω·m), medan gummi er ein isolator ($\\sim 10^{13}$ Ω·m). Resistans blir målt i ohm (Ω). Analogien held: eit langt, trongt røyr gjev mest friksjon for vatnet.\n\nNo kjem den viktigaste samanhengen i krinslæra, **Ohms lov**, oppdaga av tyskaren Georg Ohm i 1827: $U = RI$. Spenninga er resistans gonger straum. Ho kan snuast til $I = \\frac{U}{R}$ eller $R = \\frac{U}{I}$ alt etter kva du leitar etter. Logikken er intuitiv: høgare spenning gjev meir straum (ved fast $R$), medan høgare motstand gjev mindre straum (ved fast $U$).\n\nKomponentar som følgjer Ohms lov pent -- der spenning og straum er proporsjonale -- blir kalla *ohmske*, som resistorar og leidningar. Andre, som diodar og glødelamper, er ikkje-ohmske (resistansen til glødelampa aukar med temperaturen).\n\nLat oss rekne eit enkelt døme. Ein resistor på 220 Ω blir kopla til eit 12 V batteri. Straumen blir $I = \\frac{U}{R} = \\frac{12}{220} \\approx 0{,}055$ A, altså 55 mA. Tre tal, éi lov -- og du kan finne det tredje når du kjenner to."
+    },
+    {
+      "id": "fys1-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på straum, resistans og Ohms lov:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-6-2-n-quiz1-q0",
+            "task": "Kva er elektrisk straum?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Spenning gonger resistans",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Energi per ladning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ladning per tidseining, $I = \\frac{Q}{t}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Motstand mot ladning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Straum er ladning per tid, $I=\\frac{Q}{t}$, målt i ampere (1 A = 1 C/s)."
+          },
+          {
+            "id": "fys1-6-2-n-quiz1-q1",
+            "task": "Kva seier Ohms lov?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$U = \\frac{R}{I}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$U = R + I$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$U = R - I$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$U = RI$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ohms lov: $U=RI$ -- spenning er resistans gonger straum. Ho kan snuast til $I=U/R$ og $R=U/I$."
+          },
+          {
+            "id": "fys1-6-2-n-quiz1-q2",
+            "task": "Ein resistor på 220 Ω blir kopla til 12 V. Kva er straumen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2640 A",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "55 mA",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "18 A",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0,5 A",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I=\\frac{U}{R}=\\frac{12}{220}\\approx 0{,}055$ A $=55$ mA."
+          },
+          {
+            "id": "fys1-6-2-n-quiz1-q3",
+            "task": "Kva gjev ein tråd høg resistans?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Lang og tynn tråd av eit materiale med høg resistivitet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Kort og tjukk tråd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kort tråd av kopar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tjukk tråd av sølv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R=\\rho\\frac{L}{A}$: lang tråd ($L$ stor), tynn tråd ($A$ liten) og høg resistivitet $\\rho$ gjev alle høg resistans."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-6-2-n-section2",
+      "type": "text",
+      "content": "## Serie og parallell -- to måtar å kople på\n\nNår vi set saman fleire komponentar, finst det to grunnleggjande måtar, med heilt ulik åtferd.\n\nI ei **seriekopling** står komponentane etter kvarandre, som perler på ei snor, slik at *same straum* går gjennom alle: $I_{total} = I_1 = I_2 = \\ldots$ Spenningane legg seg saman, $U_{total} = U_1 + U_2 + \\ldots$, og det same gjer resistansane: $R_{total} = R_1 + R_2 + R_3 + \\ldots$ Tre resistorar på 10, 20 og 30 Ω i serie gjev $R_{total} = 60$ Ω. Tenk på det som ein kø der same straum av menneske passerer kvar person. Ulempa: sviktar éin komponent (ei pære brenn ut), blir heile krinsen broten -- som i gamle juletrelysrekkjer.\n\nI ei **parallellkopling** står komponentane side om side, slik at *same spenning* ligg over alle: $U_{total} = U_1 = U_2 = \\ldots$ No er det straumane som legg seg saman, $I_{total} = I_1 + I_2 + \\ldots$, medan resistansane blir kombinerte invers: $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\ldots$ For to resistorar kan vi bruke $R_{total} = \\frac{R_1 R_2}{R_1 + R_2}$. To resistorar på 6 og 3 Ω i parallell gjev $\\frac{1}{R_{total}} = \\frac{1}{6} + \\frac{2}{6} = \\frac{3}{6}$, altså $R_{total} = 2$ Ω. Eit viktig poeng: total resistans i parallell er alltid *mindre* enn den minste enkeltresistansen, fordi straumen får fleire vegar å fordele seg på. Fordelen er robustleik -- sviktar éi grein, fungerer resten.\n\nVerkelege krinsar blandar ofte begge. Sei at $R_1 = 30$ Ω og $R_2 = 20$ Ω står i parallell, og denne kombinasjonen i serie med $R_3 = 10$ Ω, kopla til 24 V. Først parallellen: $R_{12} = \\frac{30 \\cdot 20}{50} = 12$ Ω. Så serien: $R_{total} = 12 + 10 = 22$ Ω. Totalstraumen er $I = \\frac{24}{22} \\approx 1{,}09$ A. Spenninga over $R_3$ blir $U_3 = 1{,}09 \\cdot 10 \\approx 10{,}9$ V, så parallelldelen får $24 - 10{,}9 = 13{,}1$ V, og straumen gjennom $R_1$ blir $I_1 = \\frac{13{,}1}{30} \\approx 0{,}44$ A."
+    },
+    {
+      "id": "fys1-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på serie- og parallellkoplingar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-6-2-n-quiz2-q0",
+            "task": "Kva er felles for komponentar i seriekopling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Same spenning over alle",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Resistansane blir kombinerte invers",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Same straum gjennom alle",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Dei er uavhengige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I serie går same straum gjennom alle komponentar, spenningane blir lagde saman, og resistansane blir lagde saman: $R_{total}=R_1+R_2+\\ldots$"
+          },
+          {
+            "id": "fys1-6-2-n-quiz2-q1",
+            "task": "To resistorar, 6 Ω og 3 Ω, blir kopla i parallell. Kva er total resistans?",
+            "options": [
+              {
+                "id": "b",
+                "text": "9 Ω",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "4,5 Ω",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "18 Ω",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "2 Ω",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{1}{R}=\\frac{1}{6}+\\frac{1}{3}=\\frac{3}{6}$, så $R=2$ Ω. Parallellresistansen er alltid mindre enn den minste enkeltverdien."
+          },
+          {
+            "id": "fys1-6-2-n-quiz2-q2",
+            "task": "Ei pære brenn ut i ei seriekopling med fleire pærer. Kva skjer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Heile krinsen blir broten, alle sloknar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Dei andre lyser framleis",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei andre lyser sterkare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting endrar seg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I serie deler alle same bane. Blir ho broten éin stad, stoppar straumen overalt. I parallell ville dei andre framleis ha lyst."
+          },
+          {
+            "id": "fys1-6-2-n-quiz2-q3",
+            "task": "Kvifor er total resistans i parallell mindre enn den minste enkeltresistansen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi spenninga søkk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi straumen får fleire vegar å fordele seg på",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi resistansane blir lagde saman",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det stemmer ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med fleire parallelle vegar kjem det meir total straum gjennom for same spenning, noko som svarar til lågare samla resistans."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-6-2-n-section3",
+      "type": "text",
+      "content": "## Kirchhoffs lover -- rekneskapet som alltid stemmer\n\nFor meir innflokne krinsar treng vi to grunnlover som tyskaren Gustav Kirchhoff formulerte, og dei byggjer på to av dei djupaste prinsippa i fysikken.\n\n**Kirchhoffs straumlov** (1. lov) seier: summen av straumar inn i eit knutepunkt er lik summen ut, $\\sum I_{inn} = \\sum I_{ut}$. Grunnen er enkel -- ladning kan ikkje hope seg opp i eit punkt, like mykje må ut som inn. Møtest tre leidningar med 2 A og 3 A inn, må det gå $2 + 3 = 5$ A ut. Dette er rett og slett ladningsbevaring i praksis.\n\n**Kirchhoffs spenningslov** (2. lov) seier: summen av alle spenningar rundt ei lukka sløyfe er null, $\\sum U = 0$. Konvensjonen er at spenninga over eit batteri (i straumretninga) blir rekna positiv, og over ein resistor negativ. Bak dette ligg energibevaring -- energien batteriet tilfører, blir brukt opp i resistorane før du er tilbake der du starta.\n\nLat oss verifisere med eit døme. Eit 18 V batteri driv tre resistorar i serie: 10, 20 og 15 Ω. Total resistans er $45$ Ω, så straumen er $I = \\frac{18}{45} = 0{,}4$ A. Spenningane blir $U_1 = 0{,}4 \\cdot 10 = 4$ V, $U_2 = 0{,}4 \\cdot 20 = 8$ V, $U_3 = 0{,}4 \\cdot 15 = 6$ V. Sjekkar vi spenningslova rundt sløyfa: $18 - 4 - 8 - 6 = 0$. Det stemmer -- dei 18 V frå batteriet blir fordelte nøyaktig på dei tre resistorane.\n\nEin liten historisk parentes: på slutten av 1800-talet rasa «straumkrigen» mellom likestraumen (DC) til Edison og vekselstraumen (AC) til Tesla. Tesla vann, fordi vekselstraum lett kan transformerast opp til høg spenning for tapsfri overføring over lange avstandar -- og difor er det vekselstraum i straumnettet ditt i dag."
+    },
+    {
+      "id": "fys1-6-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-6-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Kirchhoffs lover:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-6-2-n-quiz3-q0",
+            "task": "Kva seier Kirchhoffs straumlov?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sum av spenningar i ei sløyfe er null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Straum er alltid konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sum av straumar inn i eit knutepunkt = sum ut",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ladning kan hope seg opp i eit punkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Straumlova uttrykkjer ladningsbevaring: $\\sum I_{inn}=\\sum I_{ut}$, fordi ladning ikkje kan akkumulere i eit knutepunkt."
+          },
+          {
+            "id": "fys1-6-2-n-quiz3-q1",
+            "task": "Kva prinsipp ligg bak Kirchhoffs spenningslov ($\\sum U = 0$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ladningsbevaring",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rørslemengdbevaring",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Massebevaring",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Energibevaring",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Spenningslova byggjer på energibevaring: energien batteriet tilfører blir brukt opp i resistorane rundt ei lukka sløyfe."
+          },
+          {
+            "id": "fys1-6-2-n-quiz3-q2",
+            "task": "Eit 18 V batteri driv tre resistorar i serie med spenningsfall 4 V, 8 V og 6 V. Stemmer spenningslova?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ja, $18-4-8-6=0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nei, summen blir 36 V",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, batteriet skulle ha vore 12 V",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kan ikkje avgjerast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$18-4-8-6=0$ -- spenninga frå batteriet blir fordelt nøyaktig på resistorane, slik Kirchhoffs spenningslov krev."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEin **elektrisk krins** er den lukka banen ladninga spring i. Tre storleikar styrer han: **straum** $I = \\frac{Q}{t}$ (ampere), **spenning** $U$ (volt, «trykket»), og **resistans** $R = \\rho\\frac{L}{A}$ (ohm). Dei blir bundne saman av **Ohms lov** $U = RI$, den mest brukte samanhengen i krinslæra.\n\nKomponentar blir kopla på to måtar. I **serie** går same straum gjennom alle, spenningar og resistansar blir lagde saman ($R_{total} = R_1 + R_2 + \\ldots$), men éin svikt bryt alt. I **parallell** ligg same spenning over alle, straumar blir lagde saman, resistansane blir kombinerte invers ($\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\ldots$), og total resistans blir alltid mindre enn den minste -- og krinsen er robust.\n\nFor samansette krinsar bruker vi **Kirchhoffs lover**: straumlova ($\\sum I_{inn} = \\sum I_{ut}$, ladningsbevaring) og spenningslova ($\\sum U = 0$, energibevaring). Saman let desse oss analysere kvar einaste krins. No som vi veit korleis straum flyt, er vi klare til å sjå kor mykje energi han faktisk set om -- temaet for neste kapittel."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "62bd9cdc8665e20b",
+    "translatedAt": "2026-06-20T22:47:50.317Z",
+    "model": "claude-code-agent",
+    "strings": 80,
+    "tm": {
+      "b05b73f050cd5b26": "Elektriske kretser",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6f0e5cef7a23e7e6": "Ei forteljing om korleis straum, spenning og motstand heng saman -- frå Ohms lov til serie- og parallellkoplingar og Kirchhoffs urokkelege rekneskap.",
+      "fdd35e5c20337e99": "forklare elektrisk strøm og spenning",
+      "bec4db318dd1b31d": "bruke Ohms lov til beregninger",
+      "699ee381e39fb60d": "analysere serie- og parallellkoblinger",
+      "39daba8bb8ce46d0": "anvende Kirchhoffs lover",
+      "1d528971a526f9d9": "## Den lukka banen ladninga kan springe i\n\nFor at ei lommelykt skal lyse, må straumen ha ei komplett, lukka bane å springe i -- frå batteriet, gjennom pæra, og tilbake. Det er ein **elektrisk krins**, og han er grunnlaget for absolutt all moderne elektronikk.\n\nTre storleikar styrer det heile, og ein vassanalogi hjelper å forstå dei. **Elektrisk straum** $I$ er kor mykje ladning som passerer per tid: $I = \\frac{Q}{t}$, målt i ampere (A), der 1 A = 1 C/s. Det er som vassmengda som strøymer gjennom eit røyr. **Spenning** $U$ er «trykket» som driv ladningane -- som høgdeskilnaden som får vatnet til å renne. Og **resistans** $R$ er motstanden mot straumen -- som friksjonen i eit trongt røyr.\n\nLegg ein 10 C ladning forbi eit punkt på 2 sekund, er straumen $I = \\frac{10}{2} = 5$ A. Ei lita åtvaring om retning: den *konvensjonelle* straumen går frå pluss til minus (ein historisk konvensjon vi held fast ved), medan elektrona eigentleg rører seg motsett veg. I dette kapittelet skal vi binde dei tre storleikane saman med Ohms lov, lære å kople komponentar i serie og parallell, og møte dei to lovene til Kirchhoff -- rekneskapet som alltid stemmer.",
+      "4426d7da635ed71d": "## Resistans og Ohms lov\n\nLat oss sjå nærmare på motstanden. **Resistansen** $R$ til ein leiar kjem an på tre ting, samla i formelen $R = \\rho\\frac{L}{A}$: lengda $L$ (lang tråd gjev høg motstand), tverrsnittet $A$ (tjukk tråd gjev låg motstand), og **resistiviteten** til materialet $\\rho$. Resistiviteten varierer enormt: sølv og kopar er gode leiarar (rundt $1{,}7 \\times 10^{-8}$ Ω·m), medan gummi er ein isolator ($\\sim 10^{13}$ Ω·m). Resistans blir målt i ohm (Ω). Analogien held: eit langt, trongt røyr gjev mest friksjon for vatnet.\n\nNo kjem den viktigaste samanhengen i krinslæra, **Ohms lov**, oppdaga av tyskaren Georg Ohm i 1827: $U = RI$. Spenninga er resistans gonger straum. Ho kan snuast til $I = \\frac{U}{R}$ eller $R = \\frac{U}{I}$ alt etter kva du leitar etter. Logikken er intuitiv: høgare spenning gjev meir straum (ved fast $R$), medan høgare motstand gjev mindre straum (ved fast $U$).\n\nKomponentar som følgjer Ohms lov pent -- der spenning og straum er proporsjonale -- blir kalla *ohmske*, som resistorar og leidningar. Andre, som diodar og glødelamper, er ikkje-ohmske (resistansen til glødelampa aukar med temperaturen).\n\nLat oss rekne eit enkelt døme. Ein resistor på 220 Ω blir kopla til eit 12 V batteri. Straumen blir $I = \\frac{U}{R} = \\frac{12}{220} \\approx 0{,}055$ A, altså 55 mA. Tre tal, éi lov -- og du kan finne det tredje når du kjenner to.",
+      "918fda6260948342": "Test deg sjølv på straum, resistans og Ohms lov:",
+      "4097889236a2af26": "placeholder",
+      "dea0cdeacd2c12d1": "Kva er elektrisk straum?",
+      "8bbef79626d84e0c": "Spenning gonger resistans",
+      "0840cd34d41068f2": "Energi per ladning",
+      "bb8f6bc81234e44b": "Motstand mot ladning",
+      "872491210ee21fa8": "Ladning per tidseining, $I = \\frac{Q}{t}$",
+      "1051686e04501053": "Straum er ladning per tid, $I=\\frac{Q}{t}$, målt i ampere (1 A = 1 C/s).",
+      "1aa741b38eca7054": "Kva seier Ohms lov?",
+      "2198aeb75a4f59cb": "$U = RI$",
+      "dfad268000831541": "$U = \\frac{R}{I}$",
+      "b03bbeffec57416c": "$U = R + I$",
+      "8bbcea103675285c": "$U = R - I$",
+      "2866069e8de7758b": "Ohms lov: $U=RI$ -- spenning er resistans gonger straum. Ho kan snuast til $I=U/R$ og $R=U/I$.",
+      "5eae6c1689358ac9": "Ein resistor på 220 Ω blir kopla til 12 V. Kva er straumen?",
+      "ea485ede949c2854": "2640 A",
+      "2c74060d9e4fcf9a": "55 mA",
+      "b601fc8d91647ccb": "18 A",
+      "7d9e74929a5a3006": "0,5 A",
+      "475cd30f56d832d4": "$I=\\frac{U}{R}=\\frac{12}{220}\\approx 0{,}055$ A $=55$ mA.",
+      "e8ec0dbe2210e9fa": "Kva gjev ein tråd høg resistans?",
+      "3b67dc9fed685332": "Kort og tjukk tråd",
+      "2bb9241ad4f499e9": "Kort tråd av kopar",
+      "af44970fd5341643": "Lang og tynn tråd av eit materiale med høg resistivitet",
+      "c75b5d09f2fe3d03": "Tjukk tråd av sølv",
+      "ee069e4cb97d8d66": "$R=\\rho\\frac{L}{A}$: lang tråd ($L$ stor), tynn tråd ($A$ liten) og høg resistivitet $\\rho$ gjev alle høg resistans.",
+      "c223df5c30603d36": "## Serie og parallell -- to måtar å kople på\n\nNår vi set saman fleire komponentar, finst det to grunnleggjande måtar, med heilt ulik åtferd.\n\nI ei **seriekopling** står komponentane etter kvarandre, som perler på ei snor, slik at *same straum* går gjennom alle: $I_{total} = I_1 = I_2 = \\ldots$ Spenningane legg seg saman, $U_{total} = U_1 + U_2 + \\ldots$, og det same gjer resistansane: $R_{total} = R_1 + R_2 + R_3 + \\ldots$ Tre resistorar på 10, 20 og 30 Ω i serie gjev $R_{total} = 60$ Ω. Tenk på det som ein kø der same straum av menneske passerer kvar person. Ulempa: sviktar éin komponent (ei pære brenn ut), blir heile krinsen broten -- som i gamle juletrelysrekkjer.\n\nI ei **parallellkopling** står komponentane side om side, slik at *same spenning* ligg over alle: $U_{total} = U_1 = U_2 = \\ldots$ No er det straumane som legg seg saman, $I_{total} = I_1 + I_2 + \\ldots$, medan resistansane blir kombinerte invers: $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\ldots$ For to resistorar kan vi bruke $R_{total} = \\frac{R_1 R_2}{R_1 + R_2}$. To resistorar på 6 og 3 Ω i parallell gjev $\\frac{1}{R_{total}} = \\frac{1}{6} + \\frac{2}{6} = \\frac{3}{6}$, altså $R_{total} = 2$ Ω. Eit viktig poeng: total resistans i parallell er alltid *mindre* enn den minste enkeltresistansen, fordi straumen får fleire vegar å fordele seg på. Fordelen er robustleik -- sviktar éi grein, fungerer resten.\n\nVerkelege krinsar blandar ofte begge. Sei at $R_1 = 30$ Ω og $R_2 = 20$ Ω står i parallell, og denne kombinasjonen i serie med $R_3 = 10$ Ω, kopla til 24 V. Først parallellen: $R_{12} = \\frac{30 \\cdot 20}{50} = 12$ Ω. Så serien: $R_{total} = 12 + 10 = 22$ Ω. Totalstraumen er $I = \\frac{24}{22} \\approx 1{,}09$ A. Spenninga over $R_3$ blir $U_3 = 1{,}09 \\cdot 10 \\approx 10{,}9$ V, så parallelldelen får $24 - 10{,}9 = 13{,}1$ V, og straumen gjennom $R_1$ blir $I_1 = \\frac{13{,}1}{30} \\approx 0{,}44$ A.",
+      "cf87eb18419e6cca": "Test deg sjølv på serie- og parallellkoplingar:",
+      "26ff1d47a22b8c3b": "Kva er felles for komponentar i seriekopling?",
+      "7023e4b0998261a7": "Same spenning over alle",
+      "3005091ff8472100": "Resistansane blir kombinerte invers",
+      "3f347f27919a0576": "Dei er uavhengige",
+      "7119a3d7e3f10a1e": "Same straum gjennom alle",
+      "fd1760f0bd4d2012": "I serie går same straum gjennom alle komponentar, spenningane blir lagde saman, og resistansane blir lagde saman: $R_{total}=R_1+R_2+\\ldots$",
+      "61e3da274dbc786b": "To resistorar, 6 Ω og 3 Ω, blir kopla i parallell. Kva er total resistans?",
+      "b6402f3df46a395a": "$\\frac{1}{R}=\\frac{1}{6}+\\frac{1}{3}=\\frac{3}{6}$, så $R=2$ Ω. Parallellresistansen er alltid mindre enn den minste enkeltverdien.",
+      "b5e96203956eb2c5": "Ei pære brenn ut i ei seriekopling med fleire pærer. Kva skjer?",
+      "2ea3852a2427194f": "Dei andre lyser framleis",
+      "6001d20ffaed3f7c": "Heile krinsen blir broten, alle sloknar",
+      "f7ff47b8fb40b593": "Dei andre lyser sterkare",
+      "3c02c1ee1d8fee4e": "Ingenting endrar seg",
+      "b3e288bb5ebdab2c": "I serie deler alle same bane. Blir ho broten éin stad, stoppar straumen overalt. I parallell ville dei andre framleis ha lyst.",
+      "879d1075654f3eb3": "Kvifor er total resistans i parallell mindre enn den minste enkeltresistansen?",
+      "45d358388dab257b": "Fordi spenninga søkk",
+      "a1cddfd49f430136": "Fordi resistansane blir lagde saman",
+      "3fc6124e51fbfbd8": "Fordi straumen får fleire vegar å fordele seg på",
+      "20cf46ace4fd4e12": "Det stemmer ikkje",
+      "45bbf077c038fac6": "Med fleire parallelle vegar kjem det meir total straum gjennom for same spenning, noko som svarar til lågare samla resistans.",
+      "0b39bea3399a5778": "## Kirchhoffs lover -- rekneskapet som alltid stemmer\n\nFor meir innflokne krinsar treng vi to grunnlover som tyskaren Gustav Kirchhoff formulerte, og dei byggjer på to av dei djupaste prinsippa i fysikken.\n\n**Kirchhoffs straumlov** (1. lov) seier: summen av straumar inn i eit knutepunkt er lik summen ut, $\\sum I_{inn} = \\sum I_{ut}$. Grunnen er enkel -- ladning kan ikkje hope seg opp i eit punkt, like mykje må ut som inn. Møtest tre leidningar med 2 A og 3 A inn, må det gå $2 + 3 = 5$ A ut. Dette er rett og slett ladningsbevaring i praksis.\n\n**Kirchhoffs spenningslov** (2. lov) seier: summen av alle spenningar rundt ei lukka sløyfe er null, $\\sum U = 0$. Konvensjonen er at spenninga over eit batteri (i straumretninga) blir rekna positiv, og over ein resistor negativ. Bak dette ligg energibevaring -- energien batteriet tilfører, blir brukt opp i resistorane før du er tilbake der du starta.\n\nLat oss verifisere med eit døme. Eit 18 V batteri driv tre resistorar i serie: 10, 20 og 15 Ω. Total resistans er $45$ Ω, så straumen er $I = \\frac{18}{45} = 0{,}4$ A. Spenningane blir $U_1 = 0{,}4 \\cdot 10 = 4$ V, $U_2 = 0{,}4 \\cdot 20 = 8$ V, $U_3 = 0{,}4 \\cdot 15 = 6$ V. Sjekkar vi spenningslova rundt sløyfa: $18 - 4 - 8 - 6 = 0$. Det stemmer -- dei 18 V frå batteriet blir fordelte nøyaktig på dei tre resistorane.\n\nEin liten historisk parentes: på slutten av 1800-talet rasa «straumkrigen» mellom likestraumen (DC) til Edison og vekselstraumen (AC) til Tesla. Tesla vann, fordi vekselstraum lett kan transformerast opp til høg spenning for tapsfri overføring over lange avstandar -- og difor er det vekselstraum i straumnettet ditt i dag.",
+      "f0b441f358c9b7c2": "Test deg sjølv på Kirchhoffs lover:",
+      "301a9c88b73fd074": "Kva seier Kirchhoffs straumlov?",
+      "cf834e25861e19b9": "Sum av spenningar i ei sløyfe er null",
+      "93d266816e05c21b": "Straum er alltid konstant",
+      "df92451dd2ecf72e": "Ladning kan hope seg opp i eit punkt",
+      "451b4e7e6290316b": "Sum av straumar inn i eit knutepunkt = sum ut",
+      "8d712754b04850fc": "Straumlova uttrykkjer ladningsbevaring: $\\sum I_{inn}=\\sum I_{ut}$, fordi ladning ikkje kan akkumulere i eit knutepunkt.",
+      "b4edaf4b6c5521ec": "Kva prinsipp ligg bak Kirchhoffs spenningslov ($\\sum U = 0$)?",
+      "9375b0d1681e44d7": "Energibevaring",
+      "ef19a8b659b1cf4e": "Ladningsbevaring",
+      "a67b017cee1c1ddf": "Rørslemengdbevaring",
+      "0c060b7ad51ebf76": "Massebevaring",
+      "8709b0453df6b045": "Spenningslova byggjer på energibevaring: energien batteriet tilfører blir brukt opp i resistorane rundt ei lukka sløyfe.",
+      "eaa02b0ba1e0437d": "Eit 18 V batteri driv tre resistorar i serie med spenningsfall 4 V, 8 V og 6 V. Stemmer spenningslova?",
+      "dca4de060a4d44e5": "Nei, summen blir 36 V",
+      "f62d795eb8a64af5": "Ja, $18-4-8-6=0$",
+      "03ecec044a8b627c": "Nei, batteriet skulle ha vore 12 V",
+      "963d9a054b8deade": "Det kan ikkje avgjerast",
+      "165e2aefa1b6fd38": "$18-4-8-6=0$ -- spenninga frå batteriet blir fordelt nøyaktig på resistorane, slik Kirchhoffs spenningslov krev.",
+      "b0c8bf45bb46b5bd": "## Oppsummering\n\nEin **elektrisk krins** er den lukka banen ladninga spring i. Tre storleikar styrer han: **straum** $I = \\frac{Q}{t}$ (ampere), **spenning** $U$ (volt, «trykket»), og **resistans** $R = \\rho\\frac{L}{A}$ (ohm). Dei blir bundne saman av **Ohms lov** $U = RI$, den mest brukte samanhengen i krinslæra.\n\nKomponentar blir kopla på to måtar. I **serie** går same straum gjennom alle, spenningar og resistansar blir lagde saman ($R_{total} = R_1 + R_2 + \\ldots$), men éin svikt bryt alt. I **parallell** ligg same spenning over alle, straumar blir lagde saman, resistansane blir kombinerte invers ($\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\ldots$), og total resistans blir alltid mindre enn den minste -- og krinsen er robust.\n\nFor samansette krinsar bruker vi **Kirchhoffs lover**: straumlova ($\\sum I_{inn} = \\sum I_{ut}$, ladningsbevaring) og spenningslova ($\\sum U = 0$, energibevaring). Saman let desse oss analysere kvar einaste krins. No som vi veit korleis straum flyt, er vi klare til å sjå kor mykje energi han faktisk set om -- temaet for neste kapittel."
+    }
+  }
+}

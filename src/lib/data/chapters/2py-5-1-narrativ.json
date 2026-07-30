@@ -1,1 +1,291 @@
-{"id":"2py-5-1-narrativ","courseId":"2py","chapterNumber":"5.1","title":"Sannsynlighet i praksis","subtitle":"Narrativ versjon","description":"En fortelling om feilrater og forventninger – hvordan kvalitetskontrolløren regner på defekte skruer, EU-kontroller og strømbrytere som skal vare i ti år.","estimatedMinutes":32,"competenceGoals":["forstå grunnleggende sannsynlighetsbegreper","beregne sannsynligheter for enkle hendelser"],"linkedChapterId":"2py-5-1","content":[{"id":"2py-5-1-n-intro","type":"text","content":"## Tre av hundre\n\nAmir jobber i kvalitetskontrollen på en skruefabrikk. Erfaringen er klar: i gjennomsnitt har 3 av 100 skruer en feil. I dag skal fabrikken sende ut et parti på 500 skruer til en byggevarekjede, og sjefen spør: «Hvor mange defekte må vi regne med?» Amir trenger ikke åpne en eneste eske for å svare – han trenger sannsynlighetsregning.\n\n**Sannsynlighet** beskriver hvor trolig det er at noe skjer, målt på en skala fra 0 til 1 – eller 0 % til 100 %. Verdien 0 betyr umulig, 1 betyr helt sikkert, og 0,5 betyr at det er like sannsynlig som usannsynlig. En skrue fra Amirs fabrikk har sannsynlighet $0{,}03$ for å være defekt – ikke umulig, men heldigvis langt fra sikkert.\n\nSannsynlighet er et arbeidsverktøy i mange yrker: kvalitetskontroll og feilrater i produksjon, forsikring og risikovurdering, HMS og ulykkesforebygging, og planlegging av vedlikehold. I denne fortellingen lærer du de to måtene å fastsette en sannsynlighet på, det praktiske trikset som heter komplement – og hvordan du går fra sannsynlighet til **forventet antall**, slik Amir gjør når han svarer sjefen."},{"id":"2py-5-1-n-section1","type":"text","content":"## To veier til en sannsynlighet\n\nHvordan finner vi tallet $P$? Det finnes to hovedveier.\n\nDen første er **klassisk sannsynlighet**, som gjelder når alle utfall er like sannsynlige: $P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$. Kaster du en terning, er sannsynligheten for en sekser $\\frac{1}{6}$, fordi terningen har seks like sannsynlige sider og bare én av dem er gunstig.\n\nMen ingen vet på forhånd hvor sannsynlig det er at en skrue er defekt – det står ikke på terningen. Da bruker vi den andre veien: **relativ frekvens**, sannsynlighet basert på observasjoner og erfaringstall. $P(A) \\approx \\frac{\\text{antall ganger A skjer}}{\\text{totalt antall forsøk}}$. Amirs fabrikk har lang erfaring: 3 defekte per 100 skruer gir $P(\\text{feil}) = \\frac{3}{100} = 0{,}03 = 3\\,\\%$. Dette kalles også empirisk sannsynlighet, og det er slik feilrater, sykefravær og ulykkesstatistikk blir til sannsynligheter i arbeidslivet.\n\nSå et lite triks som sparer mye regning: **komplementet**. Sannsynligheten for at noe *ikke* skjer, er én minus sannsynligheten for at det skjer: $P(\\text{ikke A}) = 1 - P(A)$. Sannsynligheten for at en skrue er feilfri, er $1 - 0{,}03 = 0{,}97 = 97\\,\\%$. På bilverkstedet, der 8 av 50 biler får anmerkninger på EU-kontrollen, er $P(\\text{anmerkning}) = \\frac{8}{50} = 0{,}16$, og dermed $P(\\text{godkjent uten anmerkning}) = 1 - 0{,}16 = 0{,}84$. Summen av en hendelse og komplementet er alltid 1 – noe skjer, eller så skjer det ikke."},{"id":"2py-5-1-n-quiz1","type":"exercise","exercise":{"id":"2py-5-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på sannsynlighetsbegrepene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-5-1-n-quiz1-q0","task":"Hva betyr det at en hendelse har sannsynlighet 0?","options":[{"id":"a","text":"Hendelsen er umulig","isCorrect":true},{"id":"b","text":"Hendelsen er helt sikker","isCorrect":false},{"id":"c","text":"Hendelsen skjer halvparten av gangene","isCorrect":false},{"id":"d","text":"Sannsynligheten er ukjent","isCorrect":false}],"solution":"Skalaen går fra 0 (umulig) via 0,5 (like sannsynlig som usannsynlig) til 1 (helt sikkert)."},{"id":"2py-5-1-n-quiz1-q1","task":"3 av 100 skruer har i gjennomsnitt feil. Hva er sannsynligheten for at en tilfeldig skrue er feilfri?","options":[{"id":"a","text":"0,03","isCorrect":false},{"id":"b","text":"0,97","isCorrect":true},{"id":"c","text":"0,3","isCorrect":false},{"id":"d","text":"0,7","isCorrect":false}],"solution":"Komplementet: $P(\\text{ok}) = 1 - P(\\text{feil}) = 1 - 0{,}03 = 0{,}97 = 97\\,\\%$."},{"id":"2py-5-1-n-quiz1-q2","task":"8 av 50 biler får anmerkninger på EU-kontrollen. Hva er sannsynligheten for at en tilfeldig bil får anmerkning?","options":[{"id":"a","text":"8 %","isCorrect":false},{"id":"b","text":"0,84","isCorrect":false},{"id":"c","text":"0,16","isCorrect":true},{"id":"d","text":"0,5","isCorrect":false}],"solution":"Empirisk sannsynlighet: $P = \\frac{8}{50} = 0{,}16 = 16\\,\\%$. Sannsynligheten for å passere uten anmerkning er $0{,}84$."},{"id":"2py-5-1-n-quiz1-q3","task":"Hva kjennetegner empirisk sannsynlighet (relativ frekvens)?","options":[{"id":"a","text":"Den beregnes fra observasjoner og erfaringstall","isCorrect":true},{"id":"b","text":"Den krever at alle utfall er like sannsynlige","isCorrect":false},{"id":"c","text":"Den er alltid nøyaktig 0,5","isCorrect":false},{"id":"d","text":"Den kan bare brukes på terninger og mynter","isCorrect":false}],"solution":"Empirisk sannsynlighet bygger på data: $P \\approx \\frac{\\text{antall ganger A skjer}}{\\text{antall forsøk}}$. Klassisk sannsynlighet krever like sannsynlige utfall."}]}},{"id":"2py-5-1-n-section2","type":"text","content":"## Forventet antall – fra prosent til prognose\n\nNå kan Amir svare sjefen. Når hver skrue har sannsynlighet 0,03 for å være defekt, og partiet inneholder 500 skruer, blir det **forventede antallet** defekte: $500 \\cdot 0{,}03 = 15$ skruer. Formelen er enkel: forventet antall $=$ sannsynlighet $\\cdot$ antall forsøk, altså $P \\cdot n$. Det betyr ikke at det blir *nøyaktig* 15 – men det er det beste anslaget, og det fabrikken bør planlegge etter.\n\nSamme regnestykke dukker opp overalt. En bedrift med 25 ansatte vet at sannsynligheten for sykefravær er 12 % på mandager og 6 % midt i uken: forventet fravær blir $25 \\cdot 0{,}12 = 3$ ansatte på mandag, men bare $25 \\cdot 0{,}06 = 1{,}5$ – altså én til to – på onsdag. Bilverkstedet som venter 200 biler til EU-kontroll med anmerkningsrate 0,16, bør rigge for $200 \\cdot 0{,}16 = 32$ ekstrarunder.\n\nTil slutt en situasjon som krever litt mer: En elektriker vet av erfaring at 95 % av alle strømbrytere fungerer feilfritt i minst ti år. I et nybygg monteres 40 brytere. Forventet antall som svikter innen ti år: $40 \\cdot 0{,}05 = 2$ brytere. Men hva er sannsynligheten for at *alle* 40 holder? Da må hver eneste bryter klare seg, og når hendelsene er uavhengige, ganger vi sannsynlighetene sammen: $P(\\text{alle ok}) = 0{,}95^{40} \\approx 0{,}13$. Bare 13 %! Selv om hver enkelt bryter nesten helt sikkert holder, er det overraskende usannsynlig at samtlige gjør det. Dette er multiplikasjonsprinsippet for sannsynligheter – og en påminnelse om at «nesten sikkert» ganget med seg selv mange nok ganger blir ganske usikkert."},{"id":"2py-5-1-n-quiz2","type":"exercise","exercise":{"id":"2py-5-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på forventet antall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-5-1-n-quiz2-q0","task":"Hver skrue har sannsynlighet 0,03 for feil. Hvor mange defekte forventes i et parti på 500?","options":[{"id":"a","text":"3","isCorrect":false},{"id":"b","text":"15","isCorrect":true},{"id":"c","text":"30","isCorrect":false},{"id":"d","text":"50","isCorrect":false}],"solution":"Forventet antall $= P \\cdot n = 0{,}03 \\cdot 500 = 15$ skruer."},{"id":"2py-5-1-n-quiz2-q1","task":"En bedrift har 25 ansatte, og sannsynligheten for sykefravær en mandag er 12 %. Hvor mange forventes å være syke?","options":[{"id":"a","text":"12","isCorrect":false},{"id":"b","text":"1–2","isCorrect":false},{"id":"c","text":"5","isCorrect":false},{"id":"d","text":"3","isCorrect":true}],"solution":"$25 \\cdot 0{,}12 = 3$ ansatte. På en onsdag med 6 %: $25 \\cdot 0{,}06 = 1{,}5$."},{"id":"2py-5-1-n-quiz2-q2","task":"95 % av strømbrytere holder i 10 år. Hva er sannsynligheten for at alle 40 brytere i et bygg holder?","options":[{"id":"a","text":"$0{,}95^{40} \\approx 0{,}13$","isCorrect":true},{"id":"b","text":"$0{,}95 \\cdot 40 = 38$","isCorrect":false},{"id":"c","text":"$0{,}95$","isCorrect":false},{"id":"d","text":"$1 - 0{,}95^{40} \\approx 0{,}87$","isCorrect":false}],"solution":"Alle 40 må holde, så vi ganger: $0{,}95^{40} \\approx 0{,}13 = 13\\,\\%$. Forventet antall som svikter er $40 \\cdot 0{,}05 = 2$."},{"id":"2py-5-1-n-quiz2-q3","task":"Forventet antall defekte i et parti er 15. Hva betyr det?","options":[{"id":"a","text":"Det blir nøyaktig 15 defekte","isCorrect":false},{"id":"b","text":"15 er det beste anslaget å planlegge etter, men det faktiske antallet varierer","isCorrect":true},{"id":"c","text":"Det blir høyst 15 defekte","isCorrect":false},{"id":"d","text":"Det blir minst 15 defekte","isCorrect":false}],"solution":"Forventet antall er et gjennomsnittsanslag – det faktiske antallet vil variere rundt 15, men 15 er riktig planleggingstall."}]}},{"id":"2py-5-1-n-summary","type":"text","content":"## Tall å planlegge etter\n\nAmir svarte sjefen uten å åpne en eske: «Regn med 15 defekte av 500.» Verktøyene bak svaret er nå dine. **Sannsynlighet** er et tall mellom 0 og 1 som angir hvor trolig noe er – beregnet klassisk som $\\frac{\\text{gunstige}}{\\text{mulige}}$ når utfallene er like sannsynlige, eller empirisk fra erfaringstall som relativ frekvens, slik feilrater, EU-kontroller og sykefravær blir til sannsynligheter i arbeidslivet.\n\n**Komplementet** $P(\\text{ikke A}) = 1 - P(A)$ gir deg gratis den andre siden av enhver sannsynlighet – 3 % feil betyr 97 % feilfritt. Og **forventet antall** $= P \\cdot n$ oversetter prosenter til planleggingstall: 15 defekte skruer, 3 syke på mandag, 32 biler med anmerkning. Husk samtidig multiplikasjonen for uavhengige hendelser: at *alle* 40 brytere holder i ti år, krever $0{,}95^{40} \\approx 13\\,\\%$ – «nesten sikkert» mange ganger på rad er slett ikke sikkert.\n\nDette er sannsynlighetsregningens hverdagsnytte: ikke å spå enkeltutfall, men å gi tall å dimensjonere etter – hvor mange reserveskuer som bør ligge på lager, hvor mange vikarer som trengs på mandag, hvor stor buffer prosjektet tåler. Den som regner på forventninger, blir sjelden overrasket av dem."}],"exercises":[]}
+{
+  "id": "2py-5-1-narrativ",
+  "courseId": "2py",
+  "chapterNumber": "5.1",
+  "title": "Sannsynlighet i praksis",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om feilrater og forventninger – hvordan kvalitetskontrolløren regner på defekte skruer, EU-kontroller og strømbrytere som skal vare i ti år.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "forstå grunnleggende sannsynlighetsbegreper",
+    "beregne sannsynligheter for enkle hendelser"
+  ],
+  "linkedChapterId": "2py-5-1",
+  "content": [
+    {
+      "id": "2py-5-1-n-intro",
+      "type": "text",
+      "content": "## Tre av hundre\n\nAmir jobber i kvalitetskontrollen på en skruefabrikk. Erfaringen er klar: i gjennomsnitt har 3 av 100 skruer en feil. I dag skal fabrikken sende ut et parti på 500 skruer til en byggevarekjede, og sjefen spør: «Hvor mange defekte må vi regne med?» Amir trenger ikke åpne en eneste eske for å svare – han trenger sannsynlighetsregning.\n\n**Sannsynlighet** beskriver hvor trolig det er at noe skjer, målt på en skala fra 0 til 1 – eller 0 % til 100 %. Verdien 0 betyr umulig, 1 betyr helt sikkert, og 0,5 betyr at det er like sannsynlig som usannsynlig. En skrue fra Amirs fabrikk har sannsynlighet $0{,}03$ for å være defekt – ikke umulig, men heldigvis langt fra sikkert.\n\nSannsynlighet er et arbeidsverktøy i mange yrker: kvalitetskontroll og feilrater i produksjon, forsikring og risikovurdering, HMS og ulykkesforebygging, og planlegging av vedlikehold. I denne fortellingen lærer du de to måtene å fastsette en sannsynlighet på, det praktiske trikset som heter komplement – og hvordan du går fra sannsynlighet til **forventet antall**, slik Amir gjør når han svarer sjefen."
+    },
+    {
+      "id": "2py-5-1-n-section1",
+      "type": "text",
+      "content": "## To veier til en sannsynlighet\n\nHvordan finner vi tallet $P$? Det finnes to hovedveier.\n\nDen første er **klassisk sannsynlighet**, som gjelder når alle utfall er like sannsynlige: $P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$. Kaster du en terning, er sannsynligheten for en sekser $\\frac{1}{6}$, fordi terningen har seks like sannsynlige sider og bare én av dem er gunstig.\n\nMen ingen vet på forhånd hvor sannsynlig det er at en skrue er defekt – det står ikke på terningen. Da bruker vi den andre veien: **relativ frekvens**, sannsynlighet basert på observasjoner og erfaringstall. $P(A) \\approx \\frac{\\text{antall ganger A skjer}}{\\text{totalt antall forsøk}}$. Amirs fabrikk har lang erfaring: 3 defekte per 100 skruer gir $P(\\text{feil}) = \\frac{3}{100} = 0{,}03 = 3\\,\\%$. Dette kalles også empirisk sannsynlighet, og det er slik feilrater, sykefravær og ulykkesstatistikk blir til sannsynligheter i arbeidslivet.\n\nSå et lite triks som sparer mye regning: **komplementet**. Sannsynligheten for at noe *ikke* skjer, er én minus sannsynligheten for at det skjer: $P(\\text{ikke A}) = 1 - P(A)$. Sannsynligheten for at en skrue er feilfri, er $1 - 0{,}03 = 0{,}97 = 97\\,\\%$. På bilverkstedet, der 8 av 50 biler får anmerkninger på EU-kontrollen, er $P(\\text{anmerkning}) = \\frac{8}{50} = 0{,}16$, og dermed $P(\\text{godkjent uten anmerkning}) = 1 - 0{,}16 = 0{,}84$. Summen av en hendelse og komplementet er alltid 1 – noe skjer, eller så skjer det ikke."
+    },
+    {
+      "id": "2py-5-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-5-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sannsynlighetsbegrepene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-5-1-n-quiz1-q0",
+            "task": "Hva betyr det at en hendelse har sannsynlighet 0?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hendelsen er umulig",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Hendelsen er helt sikker",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hendelsen skjer halvparten av gangene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sannsynligheten er ukjent",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skalaen går fra 0 (umulig) via 0,5 (like sannsynlig som usannsynlig) til 1 (helt sikkert)."
+          },
+          {
+            "id": "2py-5-1-n-quiz1-q1",
+            "task": "3 av 100 skruer har i gjennomsnitt feil. Hva er sannsynligheten for at en tilfeldig skrue er feilfri?",
+            "options": [
+              {
+                "id": "a",
+                "text": "0,03",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0,97",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "0,3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0,7",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Komplementet: $P(\\text{ok}) = 1 - P(\\text{feil}) = 1 - 0{,}03 = 0{,}97 = 97\\,\\%$."
+          },
+          {
+            "id": "2py-5-1-n-quiz1-q2",
+            "task": "8 av 50 biler får anmerkninger på EU-kontrollen. Hva er sannsynligheten for at en tilfeldig bil får anmerkning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "8 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0,84",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,16",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "0,5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Empirisk sannsynlighet: $P = \\frac{8}{50} = 0{,}16 = 16\\,\\%$. Sannsynligheten for å passere uten anmerkning er $0{,}84$."
+          },
+          {
+            "id": "2py-5-1-n-quiz1-q3",
+            "task": "Hva kjennetegner empirisk sannsynlighet (relativ frekvens)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den krever at alle utfall er like sannsynlige",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den er alltid nøyaktig 0,5",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den kan bare brukes på terninger og mynter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den beregnes fra observasjoner og erfaringstall",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Empirisk sannsynlighet bygger på data: $P \\approx \\frac{\\text{antall ganger A skjer}}{\\text{antall forsøk}}$. Klassisk sannsynlighet krever like sannsynlige utfall."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-5-1-n-section2",
+      "type": "text",
+      "content": "## Forventet antall – fra prosent til prognose\n\nNå kan Amir svare sjefen. Når hver skrue har sannsynlighet 0,03 for å være defekt, og partiet inneholder 500 skruer, blir det **forventede antallet** defekte: $500 \\cdot 0{,}03 = 15$ skruer. Formelen er enkel: forventet antall $=$ sannsynlighet $\\cdot$ antall forsøk, altså $P \\cdot n$. Det betyr ikke at det blir *nøyaktig* 15 – men det er det beste anslaget, og det fabrikken bør planlegge etter.\n\nSamme regnestykke dukker opp overalt. En bedrift med 25 ansatte vet at sannsynligheten for sykefravær er 12 % på mandager og 6 % midt i uken: forventet fravær blir $25 \\cdot 0{,}12 = 3$ ansatte på mandag, men bare $25 \\cdot 0{,}06 = 1{,}5$ – altså én til to – på onsdag. Bilverkstedet som venter 200 biler til EU-kontroll med anmerkningsrate 0,16, bør rigge for $200 \\cdot 0{,}16 = 32$ ekstrarunder.\n\nTil slutt en situasjon som krever litt mer: En elektriker vet av erfaring at 95 % av alle strømbrytere fungerer feilfritt i minst ti år. I et nybygg monteres 40 brytere. Forventet antall som svikter innen ti år: $40 \\cdot 0{,}05 = 2$ brytere. Men hva er sannsynligheten for at *alle* 40 holder? Da må hver eneste bryter klare seg, og når hendelsene er uavhengige, ganger vi sannsynlighetene sammen: $P(\\text{alle ok}) = 0{,}95^{40} \\approx 0{,}13$. Bare 13 %! Selv om hver enkelt bryter nesten helt sikkert holder, er det overraskende usannsynlig at samtlige gjør det. Dette er multiplikasjonsprinsippet for sannsynligheter – og en påminnelse om at «nesten sikkert» ganget med seg selv mange nok ganger blir ganske usikkert."
+    },
+    {
+      "id": "2py-5-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-5-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på forventet antall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-5-1-n-quiz2-q0",
+            "task": "Hver skrue har sannsynlighet 0,03 for feil. Hvor mange defekte forventes i et parti på 500?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "15",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "30",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "50",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forventet antall $= P \\cdot n = 0{,}03 \\cdot 500 = 15$ skruer."
+          },
+          {
+            "id": "2py-5-1-n-quiz2-q1",
+            "task": "En bedrift har 25 ansatte, og sannsynligheten for sykefravær en mandag er 12 %. Hvor mange forventes å være syke?",
+            "options": [
+              {
+                "id": "d",
+                "text": "3",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "12",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "1–2",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$25 \\cdot 0{,}12 = 3$ ansatte. På en onsdag med 6 %: $25 \\cdot 0{,}06 = 1{,}5$."
+          },
+          {
+            "id": "2py-5-1-n-quiz2-q2",
+            "task": "95 % av strømbrytere holder i 10 år. Hva er sannsynligheten for at alle 40 brytere i et bygg holder?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}95 \\cdot 40 = 38$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}95$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0{,}95^{40} \\approx 0{,}13$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1 - 0{,}95^{40} \\approx 0{,}87$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle 40 må holde, så vi ganger: $0{,}95^{40} \\approx 0{,}13 = 13\\,\\%$. Forventet antall som svikter er $40 \\cdot 0{,}05 = 2$."
+          },
+          {
+            "id": "2py-5-1-n-quiz2-q3",
+            "task": "Forventet antall defekte i et parti er 15. Hva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det blir nøyaktig 15 defekte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "15 er det beste anslaget å planlegge etter, men det faktiske antallet varierer",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det blir høyst 15 defekte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det blir minst 15 defekte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forventet antall er et gjennomsnittsanslag – det faktiske antallet vil variere rundt 15, men 15 er riktig planleggingstall."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-5-1-n-summary",
+      "type": "text",
+      "content": "## Tall å planlegge etter\n\nAmir svarte sjefen uten å åpne en eske: «Regn med 15 defekte av 500.» Verktøyene bak svaret er nå dine. **Sannsynlighet** er et tall mellom 0 og 1 som angir hvor trolig noe er – beregnet klassisk som $\\frac{\\text{gunstige}}{\\text{mulige}}$ når utfallene er like sannsynlige, eller empirisk fra erfaringstall som relativ frekvens, slik feilrater, EU-kontroller og sykefravær blir til sannsynligheter i arbeidslivet.\n\n**Komplementet** $P(\\text{ikke A}) = 1 - P(A)$ gir deg gratis den andre siden av enhver sannsynlighet – 3 % feil betyr 97 % feilfritt. Og **forventet antall** $= P \\cdot n$ oversetter prosenter til planleggingstall: 15 defekte skruer, 3 syke på mandag, 32 biler med anmerkning. Husk samtidig multiplikasjonen for uavhengige hendelser: at *alle* 40 brytere holder i ti år, krever $0{,}95^{40} \\approx 13\\,\\%$ – «nesten sikkert» mange ganger på rad er slett ikke sikkert.\n\nDette er sannsynlighetsregningens hverdagsnytte: ikke å spå enkeltutfall, men å gi tall å dimensjonere etter – hvor mange reserveskuer som bør ligge på lager, hvor mange vikarer som trengs på mandag, hvor stor buffer prosjektet tåler. Den som regner på forventninger, blir sjelden overrasket av dem."
+    }
+  ],
+  "exercises": []
+}

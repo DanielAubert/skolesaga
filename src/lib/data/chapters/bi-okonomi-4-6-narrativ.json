@@ -1,1 +1,369 @@
-{"id":"bi-okonomi-4-6-narrativ","courseId":"bi-okonomi","chapterNumber":"4.6","title":"Kontinuerlig forrentning","subtitle":"Narrativ versjon","description":"En fortelling om hva som skjer når renten beregnes uendelig ofte -- og om hvordan Eulers tall $e$ dukker opp og gir formelen $K_t = K_0 e^{rt}$ som hele moderne finansteori bygger på.","estimatedMinutes":32,"competenceGoals":[],"linkedChapterId":"bi-okonomi-4-6","content":[{"id":"bi-okonomi-4-6-n-intro","type":"text","content":"## Hva om renten beregnes hvert sekund?\n\nI kapittel 4.1 lærte vi at sluttverdien med $m$ renteperioder per år er $K_t = K_0\\left(1 + \\frac{r}{m}\\right)^{mt}$. Og vi så at jo oftere renten beregnes -- månedlig, daglig, hvert sekund -- desto mer vokser pengene. Men her kommer et overraskende spørsmål: hvis vi forrenter uendelig ofte, vokser da kapitalen i det uendelige?\n\nSvaret er nei. Beløpet vokser, men det nærmer seg en bestemt **grenseverdi** når $m \\to \\infty$. Denne grensen kaller vi **kontinuerlig forrentning**, og den er ikke bare en kuriositet -- den er standardformen i hele moderne finansteori. Den brukes i opsjonsprising (Black–Scholes-modellen), i prising av obligasjoner, og i akademiske artikler.\n\nLa oss finne grensen. Vi bruker et lite triks: sett $n = m/r$, slik at $\\frac{r}{m} = \\frac{1}{n}$ og $mt = rnt$. Da blir $\\left(1 + \\frac{r}{m}\\right)^{mt} = \\left[\\left(1 + \\frac{1}{n}\\right)^n\\right]^{rt}$. Og her møter vi en klassisk grenseverdi: $\\lim_{n\\to\\infty}\\left(1 + \\frac{1}{n}\\right)^n = e \\approx 2{,}71828$. Dette tallet kalles **Eulers tall**, og det dukker opp overalt i matematikk og naturvitenskap. Setter vi det inn, får vi $\\lim_{m\\to\\infty}\\left(1 + \\frac{r}{m}\\right)^{mt} = e^{rt}$."},{"id":"bi-okonomi-4-6-n-section1","type":"text","content":"## Formelen og hvor raskt den slår inn\n\nVi har nå utledet hovedformelen. Når kapitalen $K_0$ forrentes **kontinuerlig** med årlig rente $r$, er sluttverdien etter $t$ år $K_t = K_0\\,e^{rt}$, der $e \\approx 2{,}71828$, $r$ er renten som desimaltall og $t$ er tiden i år (gjerne et brøktall). Dette er rett og slett grensetilfellet av periodisk forrentning når antall perioder går mot uendelig.\n\nHvor mye gjør egentlig kontinuerlig forrentning av forskjell? Ta én krone i ett år med $5\\%$ rente. Årlig forrentning gir $1{,}050000$, halvårlig $1{,}050625$, månedlig $1{,}051162$, daglig $1{,}051267$ -- og kontinuerlig $e^{0{,}05} = 1{,}051271$. Forskjellen mellom daglig og kontinuerlig er under $0{,}0001$ prosentpoeng. For en moderat rente er kontinuerlig forrentning i praksis det samme som daglig.\n\nLa oss prøve formelen over lengre tid. Du setter $100\\,000$ kr inn til $4\\%$ kontinuerlig rente i $10$ år: $K_{10} = 100\\,000\\cdot e^{0{,}04\\cdot 10} = 100\\,000\\cdot e^{0{,}4} \\approx 100\\,000\\cdot 1{,}49182 = 149\\,182$ kr. Med vanlig årlig forrentning ville du fått $100\\,000\\cdot(1{,}04)^{10} = 148\\,024$ kr. Kontinuerlig forrentning ga deg altså $1\\,158$ kr mer over $10$ år -- en merkbar, men ikke dramatisk forskjell."},{"id":"bi-okonomi-4-6-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kontinuerlig forrentning og sluttverdi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-6-n-quiz1-q0","task":"Hvilket tall oppstår som grenseverdien $\\lim_{n\\to\\infty}\\left(1 + \\frac{1}{n}\\right)^n$?","options":[{"id":"a","text":"$e \\approx 2{,}71828$ (Eulers tall)","isCorrect":true},{"id":"b","text":"$\\pi \\approx 3{,}14159$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"Uendelig","isCorrect":false}],"solution":"Grensen er Eulers tall $e \\approx 2{,}71828$, og det er nettopp dette som gir oss formelen $K_t = K_0 e^{rt}$."},{"id":"bi-okonomi-4-6-n-quiz1-q1","task":"Hva er formelen for sluttverdi ved kontinuerlig forrentning?","options":[{"id":"a","text":"$K_t = K_0\\,(1+r)^t$","isCorrect":false},{"id":"b","text":"$K_t = K_0\\,e^{rt}$","isCorrect":true},{"id":"c","text":"$K_t = K_0\\,(1 + r\\cdot t)$","isCorrect":false},{"id":"d","text":"$K_t = K_0\\,e^{-rt}$","isCorrect":false}],"solution":"$K_t = K_0\\,e^{rt}$ er grensetilfellet av periodisk forrentning når antall perioder går mot uendelig."},{"id":"bi-okonomi-4-6-n-quiz1-q2","task":"Du setter $100\\,000$ kr inn til $4\\%$ kontinuerlig rente i $10$ år. Hvor mye har du?","options":[{"id":"a","text":"$140\\,000$ kr","isCorrect":false},{"id":"b","text":"$148\\,024$ kr","isCorrect":false},{"id":"c","text":"$149\\,182$ kr","isCorrect":true},{"id":"d","text":"$160\\,000$ kr","isCorrect":false}],"solution":"$K_{10} = 100\\,000\\cdot e^{0{,}4} \\approx 100\\,000\\cdot 1{,}49182 = 149\\,182$ kr -- ca. $1\\,158$ kr mer enn ved årlig forrentning."}]}},{"id":"bi-okonomi-4-6-n-section2","type":"text","content":"## Nåverdi og effektiv rente\n\nSnur vi formelen, kan vi spørre: hvor mye må vi sette inn i dag for å ha $K_t$ kroner om $t$ år? Vi løser $K_t = K_0\\,e^{rt}$ for $K_0$ og får $\\text{NV} = K_t\\,e^{-rt}$. Faktoren $e^{-rt}$ er **diskonteringsfaktoren** med kontinuerlig rente. Blir du lovet $500\\,000$ kr om $6$ år, med $3\\%$ kontinuerlig diskonteringsrente, er nåverdien $\\text{NV} = 500\\,000\\cdot e^{-0{,}03\\cdot 6} = 500\\,000\\cdot e^{-0{,}18} \\approx 500\\,000\\cdot 0{,}83527 = 417\\,635$ kr. Du burde altså være likegyldig mellom $417\\,635$ kr i dag og $500\\,000$ kr om $6$ år.\n\nMen den kontinuerlige renten $r$ er **nominell** -- den forteller ikke direkte hvor mye kapitalen faktisk vokser på et år. Den ekte årlige veksten er den **effektive renten**, som vi finner ved å sammenligne sluttverdien etter ett år med starten: $1 + r_{eff} = e^r$, altså $r_{eff} = e^r - 1$. Tilbyr en bank $5\\%$ kontinuerlig rente, blir $r_{eff} = e^{0{,}05} - 1 \\approx 0{,}05127 = 5{,}127\\%$ -- litt mer enn de $5\\%$. Til sammenligning gir $5\\%$ med daglig forrentning $(1 + 0{,}05/365)^{365} - 1 \\approx 5{,}127\\%$, altså praktisk talt identisk.\n\nVil du gå motsatt vei, fra en kjent effektiv rente til den tilsvarende kontinuerlige, snur du formelen: $r = \\ln(1 + r_{eff})$. Er effektiv rente $6\\%$, blir den kontinuerlige $r = \\ln(1{,}06) \\approx 0{,}05827 = 5{,}827\\%$. Legg merke til at den kontinuerlige renten alltid er litt **lavere** enn den effektive. Og en advarsel verdt å ta med seg: nominell rente må alltid kombineres med en frekvens $m$ (eller $\\infty$), mens effektiv rente allerede er den årlige veksten og skal ikke kombineres med noen frekvens. Sjekk alltid hvilken type rente du er oppgitt før du regner."},{"id":"bi-okonomi-4-6-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på nåverdi og effektiv rente:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-6-n-quiz2-q0","task":"Hvilken faktor diskonterer en framtidig verdi til i dag ved kontinuerlig rente?","options":[{"id":"a","text":"$e^{rt}$","isCorrect":false},{"id":"b","text":"$(1+r)^{-t}$","isCorrect":false},{"id":"c","text":"$1 - rt$","isCorrect":false},{"id":"d","text":"$e^{-rt}$","isCorrect":true}],"solution":"Vi løser $K_t = K_0 e^{rt}$ for $K_0$ og får $\\text{NV} = K_t\\,e^{-rt}$. Diskonteringsfaktoren er $e^{-rt}$."},{"id":"bi-okonomi-4-6-n-quiz2-q1","task":"Du blir lovet $500\\,000$ kr om $6$ år, med $3\\%$ kontinuerlig diskonteringsrente. Hva er nåverdien?","options":[{"id":"a","text":"$417\\,635$ kr","isCorrect":true},{"id":"b","text":"$485\\,000$ kr","isCorrect":false},{"id":"c","text":"$455\\,000$ kr","isCorrect":false},{"id":"d","text":"$598\\,612$ kr","isCorrect":false}],"solution":"$\\text{NV} = 500\\,000\\cdot e^{-0{,}18} \\approx 500\\,000\\cdot 0{,}83527 = 417\\,635$ kr."},{"id":"bi-okonomi-4-6-n-quiz2-q2","task":"En bank tilbyr $5\\%$ nominell kontinuerlig rente. Hva er den effektive årlige renten?","options":[{"id":"a","text":"$5{,}000\\%$","isCorrect":false},{"id":"b","text":"$5{,}127\\%$","isCorrect":true},{"id":"c","text":"$4{,}877\\%$","isCorrect":false},{"id":"d","text":"$6{,}000\\%$","isCorrect":false}],"solution":"$r_{eff} = e^{0{,}05} - 1 \\approx 0{,}05127 = 5{,}127\\%$ -- alltid litt høyere enn den nominelle kontinuerlige renten."},{"id":"bi-okonomi-4-6-n-quiz2-q3","task":"Effektiv rente er $6\\%$. Hva er den tilsvarende kontinuerlige renten?","options":[{"id":"a","text":"$6{,}180\\%$","isCorrect":false},{"id":"b","text":"$6{,}000\\%$","isCorrect":false},{"id":"c","text":"$5{,}827\\%$","isCorrect":true},{"id":"d","text":"$5{,}000\\%$","isCorrect":false}],"solution":"$r = \\ln(1 + r_{eff}) = \\ln(1{,}06) \\approx 0{,}05827 = 5{,}827\\%$. Den kontinuerlige renten er alltid litt lavere enn den effektive."}]}},{"id":"bi-okonomi-4-6-n-section3","type":"text","content":"## Når dobles kapitalen? 70-regelen\n\nEt naturlig spørsmål: hvor lang tid tar det å doble pengene ved kontinuerlig forrentning? Vi setter $K_t = 2K_0$ og løser: $2K_0 = K_0\\,e^{rt}$, altså $e^{rt} = 2$. Tar vi naturlig logaritme på begge sider, får vi $rt = \\ln 2$, og dermed $t_{dobling} = \\frac{\\ln 2}{r}$. Med $6\\%$ kontinuerlig rente blir doblingstiden $\\frac{\\ln 2}{0{,}06} = \\frac{0{,}6931}{0{,}06} \\approx 11{,}55$ år.\n\nDette gir en pen tommelfingerregel. Siden $\\ln 2 \\approx 0{,}693 \\approx 0{,}70$, kan vi anslå doblingstiden som $t_{dobling} \\approx \\frac{70}{r\\cdot 100}$. Dette er **70-regelen**, og den er den naturlige tilnærmingen nettopp for kontinuerlig forrentning. For vanlig diskret (årlig) forrentning passer **72-regelen** litt bedre -- og $72$ har dessuten flere divisorer ($2, 3, 4, 6, 8, 9, 12$), som gjør hoderegningen enklere.\n\nMed dette har vi hele verktøykassen for kontinuerlig forrentning: sluttverdi $K_t = K_0\\,e^{rt}$, nåverdi $\\text{NV} = K_t\\,e^{-rt}$, effektiv rente $r_{eff} = e^r - 1$, konvertering $r = \\ln(1 + r_{eff})$ og doblingstid $\\frac{\\ln 2}{r}$. To ting er verdt å huske til slutt: forskjellen mellom daglig og kontinuerlig forrentning er ubetydelig i praksis, og likevel er det den kontinuerlige formelen $e^{rt}$ som er standard i finansteori -- rett og slett fordi den er enklest å regne med, samtidig som svaret blir praktisk talt det samme."},{"id":"bi-okonomi-4-6-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-4-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på doblingstid og tommelfingerregler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-6-n-quiz3-q0","task":"Hva er formelen for doblingstid ved kontinuerlig rente $r$?","options":[{"id":"a","text":"$t = \\frac{r}{\\ln 2}$","isCorrect":false},{"id":"b","text":"$t = 2r$","isCorrect":false},{"id":"c","text":"$t = \\frac{2}{r}$","isCorrect":false},{"id":"d","text":"$t = \\frac{\\ln 2}{r}$","isCorrect":true}],"solution":"Fra $e^{rt} = 2$ får vi $rt = \\ln 2$, altså $t = \\frac{\\ln 2}{r}$."},{"id":"bi-okonomi-4-6-n-quiz3-q1","task":"Hvor lang tid tar det å doble en investering med $6\\%$ kontinuerlig rente?","options":[{"id":"a","text":"$11{,}55$ år","isCorrect":true},{"id":"b","text":"$6{,}00$ år","isCorrect":false},{"id":"c","text":"$16{,}67$ år","isCorrect":false},{"id":"d","text":"$8{,}66$ år","isCorrect":false}],"solution":"$t = \\frac{\\ln 2}{0{,}06} = \\frac{0{,}6931}{0{,}06} \\approx 11{,}55$ år."},{"id":"bi-okonomi-4-6-n-quiz3-q2","task":"Hvilken tommelfingerregel passer best for kontinuerlig forrentning, og hvorfor?","options":[{"id":"a","text":"72-regelen, fordi $\\ln 2 \\approx 0{,}72$","isCorrect":false},{"id":"b","text":"70-regelen, fordi $\\ln 2 \\approx 0{,}693 \\approx 0{,}70$","isCorrect":true},{"id":"c","text":"100-regelen, fordi renten er i prosent","isCorrect":false},{"id":"d","text":"50-regelen, fordi kapitalen dobles","isCorrect":false}],"solution":"Siden $\\ln 2 \\approx 0{,}693$ ligger nær $0{,}70$, gir $\\frac{70}{r\\cdot 100}$ den naturlige tilnærmingen for kontinuerlig forrentning. 72-regelen passer best for diskret forrentning."}]}},{"id":"bi-okonomi-4-6-n-summary","type":"text","content":"## Oppsummering\n\n**Kontinuerlig forrentning** er grensetilfellet når antall renteperioder per år går mot uendelig. Da dukker **Eulers tall** $e \\approx 2{,}71828$ opp gjennom grenseverdien $\\lim_{m\\to\\infty}\\left(1 + \\frac{r}{m}\\right)^{mt} = e^{rt}$, og vi får sluttverdien $K_t = K_0\\,e^{rt}$.\n\nSnur vi formelen, diskonterer vi en framtidig verdi til i dag med $\\text{NV} = K_t\\,e^{-rt}$. Den faktiske årlige veksten er den **effektive renten** $r_{eff} = e^r - 1$, alltid litt høyere enn den nominelle kontinuerlige renten, og vi går motsatt vei med $r = \\ln(1 + r_{eff})$. Doblingstiden er $\\frac{\\ln 2}{r}$, som gir den naturlige **70-regelen**. I praksis er kontinuerlig forrentning nesten identisk med daglig forrentning -- men fordi formelen $e^{rt}$ er enklere å regne med, er den standard i finansteori som Black–Scholes og obligasjonsprising."}],"exercises":[]}
+{
+  "id": "bi-okonomi-4-6-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "4.6",
+  "title": "Kontinuerlig forrentning",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hva som skjer når renten beregnes uendelig ofte -- og om hvordan Eulers tall $e$ dukker opp og gir formelen $K_t = K_0 e^{rt}$ som hele moderne finansteori bygger på.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-4-6",
+  "content": [
+    {
+      "id": "bi-okonomi-4-6-n-intro",
+      "type": "text",
+      "content": "## Hva om renten beregnes hvert sekund?\n\nI kapittel 4.1 lærte vi at sluttverdien med $m$ renteperioder per år er $K_t = K_0\\left(1 + \\frac{r}{m}\\right)^{mt}$. Og vi så at jo oftere renten beregnes -- månedlig, daglig, hvert sekund -- desto mer vokser pengene. Men her kommer et overraskende spørsmål: hvis vi forrenter uendelig ofte, vokser da kapitalen i det uendelige?\n\nSvaret er nei. Beløpet vokser, men det nærmer seg en bestemt **grenseverdi** når $m \\to \\infty$. Denne grensen kaller vi **kontinuerlig forrentning**, og den er ikke bare en kuriositet -- den er standardformen i hele moderne finansteori. Den brukes i opsjonsprising (Black–Scholes-modellen), i prising av obligasjoner, og i akademiske artikler.\n\nLa oss finne grensen. Vi bruker et lite triks: sett $n = m/r$, slik at $\\frac{r}{m} = \\frac{1}{n}$ og $mt = rnt$. Da blir $\\left(1 + \\frac{r}{m}\\right)^{mt} = \\left[\\left(1 + \\frac{1}{n}\\right)^n\\right]^{rt}$. Og her møter vi en klassisk grenseverdi: $\\lim_{n\\to\\infty}\\left(1 + \\frac{1}{n}\\right)^n = e \\approx 2{,}71828$. Dette tallet kalles **Eulers tall**, og det dukker opp overalt i matematikk og naturvitenskap. Setter vi det inn, får vi $\\lim_{m\\to\\infty}\\left(1 + \\frac{r}{m}\\right)^{mt} = e^{rt}$."
+    },
+    {
+      "id": "bi-okonomi-4-6-n-section1",
+      "type": "text",
+      "content": "## Formelen og hvor raskt den slår inn\n\nVi har nå utledet hovedformelen. Når kapitalen $K_0$ forrentes **kontinuerlig** med årlig rente $r$, er sluttverdien etter $t$ år $K_t = K_0\\,e^{rt}$, der $e \\approx 2{,}71828$, $r$ er renten som desimaltall og $t$ er tiden i år (gjerne et brøktall). Dette er rett og slett grensetilfellet av periodisk forrentning når antall perioder går mot uendelig.\n\nHvor mye gjør egentlig kontinuerlig forrentning av forskjell? Ta én krone i ett år med $5\\%$ rente. Årlig forrentning gir $1{,}050000$, halvårlig $1{,}050625$, månedlig $1{,}051162$, daglig $1{,}051267$ -- og kontinuerlig $e^{0{,}05} = 1{,}051271$. Forskjellen mellom daglig og kontinuerlig er under $0{,}0001$ prosentpoeng. For en moderat rente er kontinuerlig forrentning i praksis det samme som daglig.\n\nLa oss prøve formelen over lengre tid. Du setter $100\\,000$ kr inn til $4\\%$ kontinuerlig rente i $10$ år: $K_{10} = 100\\,000\\cdot e^{0{,}04\\cdot 10} = 100\\,000\\cdot e^{0{,}4} \\approx 100\\,000\\cdot 1{,}49182 = 149\\,182$ kr. Med vanlig årlig forrentning ville du fått $100\\,000\\cdot(1{,}04)^{10} = 148\\,024$ kr. Kontinuerlig forrentning ga deg altså $1\\,158$ kr mer over $10$ år -- en merkbar, men ikke dramatisk forskjell."
+    },
+    {
+      "id": "bi-okonomi-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kontinuerlig forrentning og sluttverdi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-6-n-quiz1-q0",
+            "task": "Hvilket tall oppstår som grenseverdien $\\lim_{n\\to\\infty}\\left(1 + \\frac{1}{n}\\right)^n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\pi \\approx 3{,}14159$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$e \\approx 2{,}71828$ (Eulers tall)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Uendelig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grensen er Eulers tall $e \\approx 2{,}71828$, og det er nettopp dette som gir oss formelen $K_t = K_0 e^{rt}$."
+          },
+          {
+            "id": "bi-okonomi-4-6-n-quiz1-q1",
+            "task": "Hva er formelen for sluttverdi ved kontinuerlig forrentning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$K_t = K_0\\,(1+r)^t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$K_t = K_0\\,(1 + r\\cdot t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$K_t = K_0\\,e^{-rt}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$K_t = K_0\\,e^{rt}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$K_t = K_0\\,e^{rt}$ er grensetilfellet av periodisk forrentning når antall perioder går mot uendelig."
+          },
+          {
+            "id": "bi-okonomi-4-6-n-quiz1-q2",
+            "task": "Du setter $100\\,000$ kr inn til $4\\%$ kontinuerlig rente i $10$ år. Hvor mye har du?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$149\\,182$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$140\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$148\\,024$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$160\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K_{10} = 100\\,000\\cdot e^{0{,}4} \\approx 100\\,000\\cdot 1{,}49182 = 149\\,182$ kr -- ca. $1\\,158$ kr mer enn ved årlig forrentning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-6-n-section2",
+      "type": "text",
+      "content": "## Nåverdi og effektiv rente\n\nSnur vi formelen, kan vi spørre: hvor mye må vi sette inn i dag for å ha $K_t$ kroner om $t$ år? Vi løser $K_t = K_0\\,e^{rt}$ for $K_0$ og får $\\text{NV} = K_t\\,e^{-rt}$. Faktoren $e^{-rt}$ er **diskonteringsfaktoren** med kontinuerlig rente. Blir du lovet $500\\,000$ kr om $6$ år, med $3\\%$ kontinuerlig diskonteringsrente, er nåverdien $\\text{NV} = 500\\,000\\cdot e^{-0{,}03\\cdot 6} = 500\\,000\\cdot e^{-0{,}18} \\approx 500\\,000\\cdot 0{,}83527 = 417\\,635$ kr. Du burde altså være likegyldig mellom $417\\,635$ kr i dag og $500\\,000$ kr om $6$ år.\n\nMen den kontinuerlige renten $r$ er **nominell** -- den forteller ikke direkte hvor mye kapitalen faktisk vokser på et år. Den ekte årlige veksten er den **effektive renten**, som vi finner ved å sammenligne sluttverdien etter ett år med starten: $1 + r_{eff} = e^r$, altså $r_{eff} = e^r - 1$. Tilbyr en bank $5\\%$ kontinuerlig rente, blir $r_{eff} = e^{0{,}05} - 1 \\approx 0{,}05127 = 5{,}127\\%$ -- litt mer enn de $5\\%$. Til sammenligning gir $5\\%$ med daglig forrentning $(1 + 0{,}05/365)^{365} - 1 \\approx 5{,}127\\%$, altså praktisk talt identisk.\n\nVil du gå motsatt vei, fra en kjent effektiv rente til den tilsvarende kontinuerlige, snur du formelen: $r = \\ln(1 + r_{eff})$. Er effektiv rente $6\\%$, blir den kontinuerlige $r = \\ln(1{,}06) \\approx 0{,}05827 = 5{,}827\\%$. Legg merke til at den kontinuerlige renten alltid er litt **lavere** enn den effektive. Og en advarsel verdt å ta med seg: nominell rente må alltid kombineres med en frekvens $m$ (eller $\\infty$), mens effektiv rente allerede er den årlige veksten og skal ikke kombineres med noen frekvens. Sjekk alltid hvilken type rente du er oppgitt før du regner."
+    },
+    {
+      "id": "bi-okonomi-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på nåverdi og effektiv rente:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-6-n-quiz2-q0",
+            "task": "Hvilken faktor diskonterer en framtidig verdi til i dag ved kontinuerlig rente?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{rt}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^{-rt}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$(1+r)^{-t}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1 - rt$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi løser $K_t = K_0 e^{rt}$ for $K_0$ og får $\\text{NV} = K_t\\,e^{-rt}$. Diskonteringsfaktoren er $e^{-rt}$."
+          },
+          {
+            "id": "bi-okonomi-4-6-n-quiz2-q1",
+            "task": "Du blir lovet $500\\,000$ kr om $6$ år, med $3\\%$ kontinuerlig diskonteringsrente. Hva er nåverdien?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$485\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$455\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$417\\,635$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$598\\,612$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{NV} = 500\\,000\\cdot e^{-0{,}18} \\approx 500\\,000\\cdot 0{,}83527 = 417\\,635$ kr."
+          },
+          {
+            "id": "bi-okonomi-4-6-n-quiz2-q2",
+            "task": "En bank tilbyr $5\\%$ nominell kontinuerlig rente. Hva er den effektive årlige renten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5{,}000\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4{,}877\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6{,}000\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5{,}127\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$r_{eff} = e^{0{,}05} - 1 \\approx 0{,}05127 = 5{,}127\\%$ -- alltid litt høyere enn den nominelle kontinuerlige renten."
+          },
+          {
+            "id": "bi-okonomi-4-6-n-quiz2-q3",
+            "task": "Effektiv rente er $6\\%$. Hva er den tilsvarende kontinuerlige renten?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$5{,}827\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$6{,}180\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6{,}000\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5{,}000\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$r = \\ln(1 + r_{eff}) = \\ln(1{,}06) \\approx 0{,}05827 = 5{,}827\\%$. Den kontinuerlige renten er alltid litt lavere enn den effektive."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-6-n-section3",
+      "type": "text",
+      "content": "## Når dobles kapitalen? 70-regelen\n\nEt naturlig spørsmål: hvor lang tid tar det å doble pengene ved kontinuerlig forrentning? Vi setter $K_t = 2K_0$ og løser: $2K_0 = K_0\\,e^{rt}$, altså $e^{rt} = 2$. Tar vi naturlig logaritme på begge sider, får vi $rt = \\ln 2$, og dermed $t_{dobling} = \\frac{\\ln 2}{r}$. Med $6\\%$ kontinuerlig rente blir doblingstiden $\\frac{\\ln 2}{0{,}06} = \\frac{0{,}6931}{0{,}06} \\approx 11{,}55$ år.\n\nDette gir en pen tommelfingerregel. Siden $\\ln 2 \\approx 0{,}693 \\approx 0{,}70$, kan vi anslå doblingstiden som $t_{dobling} \\approx \\frac{70}{r\\cdot 100}$. Dette er **70-regelen**, og den er den naturlige tilnærmingen nettopp for kontinuerlig forrentning. For vanlig diskret (årlig) forrentning passer **72-regelen** litt bedre -- og $72$ har dessuten flere divisorer ($2, 3, 4, 6, 8, 9, 12$), som gjør hoderegningen enklere.\n\nMed dette har vi hele verktøykassen for kontinuerlig forrentning: sluttverdi $K_t = K_0\\,e^{rt}$, nåverdi $\\text{NV} = K_t\\,e^{-rt}$, effektiv rente $r_{eff} = e^r - 1$, konvertering $r = \\ln(1 + r_{eff})$ og doblingstid $\\frac{\\ln 2}{r}$. To ting er verdt å huske til slutt: forskjellen mellom daglig og kontinuerlig forrentning er ubetydelig i praksis, og likevel er det den kontinuerlige formelen $e^{rt}$ som er standard i finansteori -- rett og slett fordi den er enklest å regne med, samtidig som svaret blir praktisk talt det samme."
+    },
+    {
+      "id": "bi-okonomi-4-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på doblingstid og tommelfingerregler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-6-n-quiz3-q0",
+            "task": "Hva er formelen for doblingstid ved kontinuerlig rente $r$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$t = \\frac{r}{\\ln 2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$t = 2r$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$t = \\frac{2}{r}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$t = \\frac{\\ln 2}{r}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fra $e^{rt} = 2$ får vi $rt = \\ln 2$, altså $t = \\frac{\\ln 2}{r}$."
+          },
+          {
+            "id": "bi-okonomi-4-6-n-quiz3-q1",
+            "task": "Hvor lang tid tar det å doble en investering med $6\\%$ kontinuerlig rente?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$6{,}00$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$11{,}55$ år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$16{,}67$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8{,}66$ år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$t = \\frac{\\ln 2}{0{,}06} = \\frac{0{,}6931}{0{,}06} \\approx 11{,}55$ år."
+          },
+          {
+            "id": "bi-okonomi-4-6-n-quiz3-q2",
+            "task": "Hvilken tommelfingerregel passer best for kontinuerlig forrentning, og hvorfor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "72-regelen, fordi $\\ln 2 \\approx 0{,}72$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "100-regelen, fordi renten er i prosent",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "70-regelen, fordi $\\ln 2 \\approx 0{,}693 \\approx 0{,}70$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "50-regelen, fordi kapitalen dobles",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $\\ln 2 \\approx 0{,}693$ ligger nær $0{,}70$, gir $\\frac{70}{r\\cdot 100}$ den naturlige tilnærmingen for kontinuerlig forrentning. 72-regelen passer best for diskret forrentning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Kontinuerlig forrentning** er grensetilfellet når antall renteperioder per år går mot uendelig. Da dukker **Eulers tall** $e \\approx 2{,}71828$ opp gjennom grenseverdien $\\lim_{m\\to\\infty}\\left(1 + \\frac{r}{m}\\right)^{mt} = e^{rt}$, og vi får sluttverdien $K_t = K_0\\,e^{rt}$.\n\nSnur vi formelen, diskonterer vi en framtidig verdi til i dag med $\\text{NV} = K_t\\,e^{-rt}$. Den faktiske årlige veksten er den **effektive renten** $r_{eff} = e^r - 1$, alltid litt høyere enn den nominelle kontinuerlige renten, og vi går motsatt vei med $r = \\ln(1 + r_{eff})$. Doblingstiden er $\\frac{\\ln 2}{r}$, som gir den naturlige **70-regelen**. I praksis er kontinuerlig forrentning nesten identisk med daglig forrentning -- men fordi formelen $e^{rt}$ er enklere å regne med, er den standard i finansteori som Black–Scholes og obligasjonsprising."
+    }
+  ],
+  "exercises": []
+}

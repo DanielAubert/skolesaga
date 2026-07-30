@@ -1,1 +1,240 @@
-{"id":"naturfag-10-6-3-narrativ","courseId":"naturfag-10","chapterNumber":"6.3","title":"Programmering i naturfag","subtitle":"Narrativ versjon","description":"Lær hvordan programmering med Python gjør naturfag kraftigere, fra å automatisere beregninger og analysere store datasett til å visualisere resultater og simulere naturprosesser.","estimatedMinutes":45,"competenceGoals":["bruke digitale verktøy til datainnsamling, databehandling og presentasjon","utforske og teste teknologiske systemer","forstå grunnleggende programmeringskonsepter som variabler, løkker og funksjoner"],"linkedChapterId":"naturfag-10-6-3","content":[{"id":"naturfag-10-6-3-n-intro","type":"text","content":"## Når koden møter naturen\n\nTenk deg at du har målt temperaturen i klasserommet ditt hver time i en uke. Det er 168 målinger. Skal du sitte og regne ut gjennomsnittet for hånd? Eller lage en graf med alle datapunktene manuelt? Det ville tatt timer.\n\nMed programmering tar det sekunder. Du skriver noen få linjer med kode, og datamaskinen gjør resten. Den finner gjennomsnittet, den laveste og høyeste verdien, lager en vakker graf, og kan til og med fortelle deg på hvilken tid det var varmest i rommet. Programmering er ikke bare for spillutviklere og hackere. Det er et kraftig verktøy for alle som jobber med data, og i naturfag jobber vi med data hele tiden.\n\nI dette kapittelet lærer du de grunnleggende byggeklossene i programmering, hvordan Python brukes til å analysere og visualisere naturfagsdata, og hvordan du kan lage enkle simuleringer av naturprosesser."},{"id":"naturfag-10-6-3-n-section1","type":"text","content":"## Algoritmer og de fire grunnsteinene\n\nFør vi begynner å kode, må vi forstå hva en algoritme er. En algoritme er ganske enkelt en steg-for-steg-oppskrift som beskriver nøyaktig hvordan en oppgave skal løses. En bakeoppskrift er en algoritme. Du har ingredienser (input), følger steg i rekkefølge (prosess), og ender opp med en kake (output). I programmering skriver vi algoritmene som kode datamaskinen kan utføre.\n\nDen første grunnsteinen er variabler. En variabel er som en merket boks der du lagrer informasjon. Du kan lagre tall, tekst eller sann-usann-verdier. For eksempel kan du skrive temperatur er lik 20, og da har du lagret tallet 20 i variabelen som heter temperatur. Verdien kan endres underveis i programmet.\n\nDen andre grunnsteinen er løkker. En løkke gjentar en handling flere ganger. En for-løkke brukes når du vet hvor mange ganger koden skal gjentas, for eksempel «for hver temperatur i listen, skriv ut verdien». En while-løkke gjentar koden så lenge en betingelse er sann, for eksempel «så lenge tallet er større enn null, trekk fra 1». Løkker er essensielle når du har store datasett.\n\nDen tredje grunnsteinen er betingelser, altså if-else-strukturer. De lar programmet ta beslutninger. Hvis temperaturen er over 30 grader, skriv «Veldig varmt!». Ellers, hvis den er over 20, skriv «Behagelig». Ellers, skriv «Kaldt».\n\nDen fjerde grunnsteinen er funksjoner. En funksjon er en gjenbrukbar blokk med kode som utfører en bestemt oppgave. Du definerer den én gang og kan bruke den mange ganger. For eksempel kan en funksjon som heter celsius-til-fahrenheit ta inn en temperatur i Celsius og returnere verdien i Fahrenheit. Du skriver koden bare én gang, men kan bruke den tusenvis av ganger."},{"id":"naturfag-10-6-3-n-quiz1","type":"exercise","exercise":{"id":"naturfag-10-6-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på grunnleggende programmering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"naturfag-10-6-3-n-quiz1-q0","task":"Hva er en algoritme?","options":[{"id":"a","text":"Et programmeringsspråk","isCorrect":false},{"id":"b","text":"En steg-for-steg-oppskrift for å løse en oppgave","isCorrect":true},{"id":"c","text":"En type datamaskin","isCorrect":false},{"id":"d","text":"Et matematisk symbol","isCorrect":false}],"solution":"En algoritme er en steg-for-steg-oppskrift som beskriver nøyaktig hvordan en oppgave skal løses. Algoritmer er grunnlaget for all programmering. Et hverdagseksempel er en bakeoppskrift."},{"id":"naturfag-10-6-3-n-quiz1-q1","task":"Hva brukes en for-løkke til?","options":[{"id":"a","text":"Å lagre en verdi","isCorrect":false},{"id":"b","text":"Å gjenta kode et bestemt antall ganger","isCorrect":true},{"id":"c","text":"Å slette variabler","isCorrect":false},{"id":"d","text":"Å skrive ut tekst én gang","isCorrect":false}],"solution":"En for-løkke brukes når du vet hvor mange ganger koden skal gjentas. For eksempel kan du gå gjennom alle temperaturmålingene i en liste og gjøre noe med hver eneste verdi automatisk."},{"id":"naturfag-10-6-3-n-quiz1-q2","task":"Hva er fordelen med å bruke funksjoner i et program?","options":[{"id":"a","text":"Programmet kjører raskere","isCorrect":false},{"id":"b","text":"Du kan gjenbruke kode uten å skrive den på nytt","isCorrect":true},{"id":"c","text":"Funksjoner er obligatoriske i Python","isCorrect":false},{"id":"d","text":"De gjør programmet kortere, men vanskeligere å forstå","isCorrect":false}],"solution":"Funksjoner lar deg definere en blokk med kode én gang og deretter kalle den så mange ganger du vil. Du slipper å skrive samme kode om igjen, og programmet blir lettere å lese og vedlikeholde."}]}},{"id":"naturfag-10-6-3-n-section2","type":"text","content":"## Python i naturfag: Fra data til innsikt\n\nPython er et populært programmeringsspråk som er lett å lære og kraftig nok til profesjonell forskning. Det er gratis, brukes av forskere over hele verden, og har kraftige biblioteker. Et bibliotek er en samling ferdigskrevet kode som du kan bruke i egne programmer, som å bruke ferdige byggesteiner i stedet for å lage alt selv. NumPy brukes for beregninger, Matplotlib for grafer, og Pandas for dataanalyse.\n\nAutomatisering er den første styrken. I stedet for å gjøre samme beregning tusen ganger, lar du datamaskinen gjøre det. Med noen få linjer Python-kode kan du finne gjennomsnittet, høyeste og laveste verdi, og sortere et helt datasett.\n\nDataanalyse er den andre styrken. Moderne naturfag handler om å samle og analysere data. Python lar deg lese data fra filer, finne mønstre, og trekke konklusjoner basert på statistikk. Du kan for eksempel analysere klimadata og se temperaturutviklingen over tid.\n\nVisualisering er den tredje styrken. Grafer og diagrammer gjør data lettere å forstå. Med Matplotlib kan du lage linjediagrammer som viser temperaturendring, søylediagrammer som sammenligner verdier, og spredningsplott som viser sammenhenger mellom variabler.\n\nSimulering er den fjerde styrken, og kanskje den mest spennende. Noen eksperimenter er for farlige, for dyre, eller tar for lang tid. Med simulering kan du modellere kjemiske reaksjoner, simulere bevegelse av planeter, eller teste hvordan en populasjon av dyr utvikler seg over generasjoner, alt fra en datamaskin."},{"id":"naturfag-10-6-3-n-quiz2","type":"exercise","exercise":{"id":"naturfag-10-6-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på Python i naturfag:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"naturfag-10-6-3-n-quiz2-q0","task":"Hva er et bibliotek i programmering?","options":[{"id":"a","text":"Et sted der du låner bøker om programmering","isCorrect":false},{"id":"b","text":"En samling ferdigskrevet kode du kan bruke i egne programmer","isCorrect":true},{"id":"c","text":"En type variabel","isCorrect":false},{"id":"d","text":"Et programmeringsspråk","isCorrect":false}],"solution":"Et bibliotek (library) er en samling ferdigskrevet kode som du kan importere og bruke i dine egne programmer. I stedet for å skrive alt fra bunnen av, bruker du biblioteket som ferdige byggesteiner. Matplotlib for grafer og NumPy for beregninger er eksempler."},{"id":"naturfag-10-6-3-n-quiz2-q1","task":"Hvorfor er Python populært i naturfag?","options":[{"id":"a","text":"Fordi det er det eneste programmeringsspråket som finnes","isCorrect":false},{"id":"b","text":"Fordi det er lett å lære, har kraftige biblioteker og er mye brukt i forskning","isCorrect":true},{"id":"c","text":"Fordi det er det raskeste språket","isCorrect":false},{"id":"d","text":"Fordi det bare kan brukes til naturfag","isCorrect":false}],"solution":"Python er populært i naturfag fordi det er lett å lese og skrive, har mange kraftige biblioteker for beregning, dataanalyse og visualisering, er gratis og åpen kildekode, og brukes av forskere over hele verden."},{"id":"naturfag-10-6-3-n-quiz2-q2","task":"Hvilken av disse er IKKE en typisk bruk av programmering i naturfag?","options":[{"id":"a","text":"Beregne gjennomsnittstemperatur fra målinger","isCorrect":false},{"id":"b","text":"Lage grafer av eksperimentdata","isCorrect":false},{"id":"c","text":"Skrive noveller om naturfenomener","isCorrect":true},{"id":"d","text":"Simulere populasjonsvekst over tid","isCorrect":false}],"solution":"Programmering i naturfag brukes til automatisering av beregninger, dataanalyse, visualisering med grafer, og simulering av naturprosesser. Å skrive noveller er en kreativ oppgave som ikke er typisk for programmering i naturfag."}]}},{"id":"naturfag-10-6-3-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi sett hvordan programmering gjør naturfag kraftigere og mer effektivt. Vi har lært at en algoritme er en steg-for-steg-oppskrift, og at de fire grunnsteinene i programmering er variabler for å lagre verdier, løkker for å gjenta handlinger, betingelser for å ta beslutninger, og funksjoner for å gjenbruke kode.\n\nVi har blitt kjent med Python som et populært og tilgjengelig programmeringsspråk med kraftige biblioteker som NumPy for beregninger, Matplotlib for grafer og Pandas for dataanalyse. Programmering brukes i naturfag til å automatisere beregninger, analysere store datasett, visualisere resultater som grafer, og simulere naturprosesser som ville vært for farlige, dyre eller tidkrevende å utføre i virkeligheten."}],"exercises":[]}
+{
+  "id": "naturfag-10-6-3-narrativ",
+  "courseId": "naturfag-10",
+  "chapterNumber": "6.3",
+  "title": "Programmering i naturfag",
+  "subtitle": "Narrativ versjon",
+  "description": "Lær hvordan programmering med Python gjør naturfag kraftigere, fra å automatisere beregninger og analysere store datasett til å visualisere resultater og simulere naturprosesser.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke digitale verktøy til datainnsamling, databehandling og presentasjon",
+    "utforske og teste teknologiske systemer",
+    "forstå grunnleggende programmeringskonsepter som variabler, løkker og funksjoner"
+  ],
+  "linkedChapterId": "naturfag-10-6-3",
+  "content": [
+    {
+      "id": "naturfag-10-6-3-n-intro",
+      "type": "text",
+      "content": "## Når koden møter naturen\n\nTenk deg at du har målt temperaturen i klasserommet ditt hver time i en uke. Det er 168 målinger. Skal du sitte og regne ut gjennomsnittet for hånd? Eller lage en graf med alle datapunktene manuelt? Det ville tatt timer.\n\nMed programmering tar det sekunder. Du skriver noen få linjer med kode, og datamaskinen gjør resten. Den finner gjennomsnittet, den laveste og høyeste verdien, lager en vakker graf, og kan til og med fortelle deg på hvilken tid det var varmest i rommet. Programmering er ikke bare for spillutviklere og hackere. Det er et kraftig verktøy for alle som jobber med data, og i naturfag jobber vi med data hele tiden.\n\nI dette kapittelet lærer du de grunnleggende byggeklossene i programmering, hvordan Python brukes til å analysere og visualisere naturfagsdata, og hvordan du kan lage enkle simuleringer av naturprosesser."
+    },
+    {
+      "id": "naturfag-10-6-3-n-section1",
+      "type": "text",
+      "content": "## Algoritmer og de fire grunnsteinene\n\nFør vi begynner å kode, må vi forstå hva en algoritme er. En algoritme er ganske enkelt en steg-for-steg-oppskrift som beskriver nøyaktig hvordan en oppgave skal løses. En bakeoppskrift er en algoritme. Du har ingredienser (input), følger steg i rekkefølge (prosess), og ender opp med en kake (output). I programmering skriver vi algoritmene som kode datamaskinen kan utføre.\n\nDen første grunnsteinen er variabler. En variabel er som en merket boks der du lagrer informasjon. Du kan lagre tall, tekst eller sann-usann-verdier. For eksempel kan du skrive temperatur er lik 20, og da har du lagret tallet 20 i variabelen som heter temperatur. Verdien kan endres underveis i programmet.\n\nDen andre grunnsteinen er løkker. En løkke gjentar en handling flere ganger. En for-løkke brukes når du vet hvor mange ganger koden skal gjentas, for eksempel «for hver temperatur i listen, skriv ut verdien». En while-løkke gjentar koden så lenge en betingelse er sann, for eksempel «så lenge tallet er større enn null, trekk fra 1». Løkker er essensielle når du har store datasett.\n\nDen tredje grunnsteinen er betingelser, altså if-else-strukturer. De lar programmet ta beslutninger. Hvis temperaturen er over 30 grader, skriv «Veldig varmt!». Ellers, hvis den er over 20, skriv «Behagelig». Ellers, skriv «Kaldt».\n\nDen fjerde grunnsteinen er funksjoner. En funksjon er en gjenbrukbar blokk med kode som utfører en bestemt oppgave. Du definerer den én gang og kan bruke den mange ganger. For eksempel kan en funksjon som heter celsius-til-fahrenheit ta inn en temperatur i Celsius og returnere verdien i Fahrenheit. Du skriver koden bare én gang, men kan bruke den tusenvis av ganger."
+    },
+    {
+      "id": "naturfag-10-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "naturfag-10-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grunnleggende programmering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "naturfag-10-6-3-n-quiz1-q0",
+            "task": "Hva er en algoritme?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Et programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En type datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et matematisk symbol",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En steg-for-steg-oppskrift for å løse en oppgave",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En algoritme er en steg-for-steg-oppskrift som beskriver nøyaktig hvordan en oppgave skal løses. Algoritmer er grunnlaget for all programmering. Et hverdagseksempel er en bakeoppskrift."
+          },
+          {
+            "id": "naturfag-10-6-3-n-quiz1-q1",
+            "task": "Hva brukes en for-løkke til?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å gjenta kode et bestemt antall ganger",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å lagre en verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å slette variabler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å skrive ut tekst én gang",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En for-løkke brukes når du vet hvor mange ganger koden skal gjentas. For eksempel kan du gå gjennom alle temperaturmålingene i en liste og gjøre noe med hver eneste verdi automatisk."
+          },
+          {
+            "id": "naturfag-10-6-3-n-quiz1-q2",
+            "task": "Hva er fordelen med å bruke funksjoner i et program?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Programmet kjører raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Du kan gjenbruke kode uten å skrive den på nytt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Funksjoner er obligatoriske i Python",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De gjør programmet kortere, men vanskeligere å forstå",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjoner lar deg definere en blokk med kode én gang og deretter kalle den så mange ganger du vil. Du slipper å skrive samme kode om igjen, og programmet blir lettere å lese og vedlikeholde."
+          }
+        ]
+      }
+    },
+    {
+      "id": "naturfag-10-6-3-n-section2",
+      "type": "text",
+      "content": "## Python i naturfag: Fra data til innsikt\n\nPython er et populært programmeringsspråk som er lett å lære og kraftig nok til profesjonell forskning. Det er gratis, brukes av forskere over hele verden, og har kraftige biblioteker. Et bibliotek er en samling ferdigskrevet kode som du kan bruke i egne programmer, som å bruke ferdige byggesteiner i stedet for å lage alt selv. NumPy brukes for beregninger, Matplotlib for grafer, og Pandas for dataanalyse.\n\nAutomatisering er den første styrken. I stedet for å gjøre samme beregning tusen ganger, lar du datamaskinen gjøre det. Med noen få linjer Python-kode kan du finne gjennomsnittet, høyeste og laveste verdi, og sortere et helt datasett.\n\nDataanalyse er den andre styrken. Moderne naturfag handler om å samle og analysere data. Python lar deg lese data fra filer, finne mønstre, og trekke konklusjoner basert på statistikk. Du kan for eksempel analysere klimadata og se temperaturutviklingen over tid.\n\nVisualisering er den tredje styrken. Grafer og diagrammer gjør data lettere å forstå. Med Matplotlib kan du lage linjediagrammer som viser temperaturendring, søylediagrammer som sammenligner verdier, og spredningsplott som viser sammenhenger mellom variabler.\n\nSimulering er den fjerde styrken, og kanskje den mest spennende. Noen eksperimenter er for farlige, for dyre, eller tar for lang tid. Med simulering kan du modellere kjemiske reaksjoner, simulere bevegelse av planeter, eller teste hvordan en populasjon av dyr utvikler seg over generasjoner, alt fra en datamaskin."
+    },
+    {
+      "id": "naturfag-10-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "naturfag-10-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Python i naturfag:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "naturfag-10-6-3-n-quiz2-q0",
+            "task": "Hva er et bibliotek i programmering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Et sted der du låner bøker om programmering",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En type variabel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En samling ferdigskrevet kode du kan bruke i egne programmer",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Et programmeringsspråk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et bibliotek (library) er en samling ferdigskrevet kode som du kan importere og bruke i dine egne programmer. I stedet for å skrive alt fra bunnen av, bruker du biblioteket som ferdige byggesteiner. Matplotlib for grafer og NumPy for beregninger er eksempler."
+          },
+          {
+            "id": "naturfag-10-6-3-n-quiz2-q1",
+            "task": "Hvorfor er Python populært i naturfag?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det er det eneste programmeringsspråket som finnes",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det er det raskeste språket",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det bare kan brukes til naturfag",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi det er lett å lære, har kraftige biblioteker og er mye brukt i forskning",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Python er populært i naturfag fordi det er lett å lese og skrive, har mange kraftige biblioteker for beregning, dataanalyse og visualisering, er gratis og åpen kildekode, og brukes av forskere over hele verden."
+          },
+          {
+            "id": "naturfag-10-6-3-n-quiz2-q2",
+            "task": "Hvilken av disse er IKKE en typisk bruk av programmering i naturfag?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Skrive noveller om naturfenomener",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Beregne gjennomsnittstemperatur fra målinger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lage grafer av eksperimentdata",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Simulere populasjonsvekst over tid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Programmering i naturfag brukes til automatisering av beregninger, dataanalyse, visualisering med grafer, og simulering av naturprosesser. Å skrive noveller er en kreativ oppgave som ikke er typisk for programmering i naturfag."
+          }
+        ]
+      }
+    },
+    {
+      "id": "naturfag-10-6-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi sett hvordan programmering gjør naturfag kraftigere og mer effektivt. Vi har lært at en algoritme er en steg-for-steg-oppskrift, og at de fire grunnsteinene i programmering er variabler for å lagre verdier, løkker for å gjenta handlinger, betingelser for å ta beslutninger, og funksjoner for å gjenbruke kode.\n\nVi har blitt kjent med Python som et populært og tilgjengelig programmeringsspråk med kraftige biblioteker som NumPy for beregninger, Matplotlib for grafer og Pandas for dataanalyse. Programmering brukes i naturfag til å automatisere beregninger, analysere store datasett, visualisere resultater som grafer, og simulere naturprosesser som ville vært for farlige, dyre eller tidkrevende å utføre i virkeligheten."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,871 @@
-{"id":"1t-3-5-narrativ","courseId":"1t","chapterNumber":"3.5","title":"Nullpunkt og forteikn","subtitle":"Narrativ versjon","description":"Ei forteljing om der parabelen møter x-aksen – abc-formelen, faktorisering og korleis du les forteiknet til ein andregradsfunksjon.","estimatedMinutes":35,"competenceGoals":["finne nullpunkt til andregradsfunksjonar"],"linkedChapterId":"1t-3-5","content":[{"id":"1t-3-5-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-5-narrativ-del1.mp3","description":"Lydfil som les opp teksten fram til første quiz."},{"id":"1t-3-5-n-intro","type":"text","content":"## Der parabelen kryssar x-aksen\n\nI førre kapittel lærte du å finne topp- og botnpunkt til parablar. Men det er eitt spørsmål vi ikkje har svart på: kvar kryssar parabelen $x$-aksen? Desse kryssingspunkta blir kalla **nullpunkt**, fordi det er der $f(x) = 0$. Å finne nullpunkta er ein av dei viktigaste ferdigheitene i heile matematikken – det handlar om å løyse andregradslikninga $ax^2 + bx + c = 0$.\n\nI dette kapittelet skal vi lære to kraftige metodar for å finne nullpunkt: **faktorisering** og **abc-formelen**. Vi skal òg lære å skrive funksjonen på **faktorisert form** og å analysere **forteiknet** til funksjonen, altså å finne ut kvar $f(x)$ er positiv og kvar ho er negativ."},{"id":"1t-3-5-n-section1","type":"text","content":"## Faktorisering – den elegante vegen\n\nDen enklaste måten å finne nullpunkt på er ved **faktorisering**. Ideen er å skrive uttrykket $ax^2 + bx + c$ som eit produkt av to faktorar. Når eit produkt er null, må minst éin av faktorane vere null – det er nullregelen.\n\nLat oss ta $f(x) = x^2 - 5x + 6$. Vi leitar etter to tal som ganga gir $6$ (konstantleddet) og adderte gir $-5$ (koeffisienten framfor $x$). Kva med $-2$ og $-3$? Sjekk: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Perfekt! Då kan vi skrive $f(x) = (x - 2)(x - 3)$.\n\nNo set vi $f(x) = 0$: $(x - 2)(x - 3) = 0$. Nullregelen seier at anten er $x - 2 = 0$ eller $x - 3 = 0$, altså $x = 2$ eller $x = 3$. Det er nullpunkta.\n\nLat oss prøve med $g(x) = x^2 + 2x - 15$. Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Kva med $5$ og $-3$? Sjekk: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Ja! Då er $g(x) = (x + 5)(x - 3)$, og nullpunkta er $x = -5$ og $x = 3$.\n\nEit spesielt tilfelle er konjugatsetninga: $x^2 - 9 = (x - 3)(x + 3)$, som gir nullpunkta $x = \\pm 3$. Generelt er $x^2 - k^2 = (x - k)(x + k)$.\n\nFaktorisering er elegant og rask, men ho fungerer berre når tala «går pent opp». Heldigvis finst det ein metode som alltid fungerer."},{"id":"1t-3-5-n-quiz1","type":"exercise","exercise":{"id":"1t-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på faktorisering og nullpunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-5-n-quiz1-q0","task":"Kva er nullpunkta til $f(x) = x^2 - 7x + 12$?","options":[{"id":"a","text":"$x = -3$ og $x = -4$","isCorrect":false},{"id":"b","text":"$x = 2$ og $x = 6$","isCorrect":false},{"id":"c","text":"$x = 3$ og $x = 4$","isCorrect":true},{"id":"d","text":"$x = -3$ og $x = 4$","isCorrect":false}],"solution":"Vi treng to tal som ganga gir $12$ og adderte gir $-7$. Det er $-3$ og $-4$: $(-3) \\cdot (-4) = 12$ og $(-3) + (-4) = -7$. Så $f(x) = (x - 3)(x - 4)$ og nullpunkta er $x = 3$ og $x = 4$."},{"id":"1t-3-5-n-quiz1-q1","task":"Kva er den faktoriserte forma til $g(x) = x^2 + 2x - 15$?","options":[{"id":"a","text":"$(x + 3)(x - 5)$","isCorrect":false},{"id":"b","text":"$(x - 3)(x + 5)$","isCorrect":false},{"id":"c","text":"$(x + 5)(x - 3)$","isCorrect":true},{"id":"d","text":"$(x - 5)(x - 3)$","isCorrect":false}],"solution":"Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Det er $5$ og $-3$: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Dermed $g(x) = (x + 5)(x - 3)$."},{"id":"1t-3-5-n-quiz1-q2","task":"Kva er nullpunkta til $h(x) = x^2 - 16$?","options":[{"id":"a","text":"$x = 8$ og $x = -8$","isCorrect":false},{"id":"b","text":"$x = 4$ og $x = -4$","isCorrect":true},{"id":"c","text":"$x = 16$ og $x = -16$","isCorrect":false},{"id":"d","text":"$x = 2$ og $x = -2$","isCorrect":false}],"solution":"Vi brukar konjugatsetninga: $x^2 - 16 = x^2 - 4^2 = (x - 4)(x + 4)$. Nullpunkta er $x = 4$ og $x = -4$."},{"id":"1t-3-5-n-quiz1-q3","task":"Kva seier nullregelen?","options":[{"id":"a","text":"Summen av to tal er null berre viss begge er null","isCorrect":false},{"id":"b","text":"Produktet av to tal er null berre viss minst éin faktor er null","isCorrect":true},{"id":"c","text":"Eit tal gonger null er alltid positivt","isCorrect":false},{"id":"d","text":"Null delt på eit tal er alltid udefinert","isCorrect":false}],"solution":"Nullregelen seier at eit produkt er null viss og berre viss minst éin av faktorane er null. Derfor kan vi finne nullpunkta ved å setje kvar faktor lik null separat."}]}},{"id":"1t-3-5-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-5-narrativ-del2.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-3-5-n-section2","type":"text","content":"## Abc-formelen – det universelle verktøyet\n\nNår faktorisering ikkje lukkast, dreg vi fram det kraftigaste verktøyet vi har: **abc-formelen**. Han løyser kvar andregradslikning $ax^2 + bx + c = 0$:\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nDet vesle symbolet $\\pm$ tyder at du får to svar: eitt med pluss og eitt med minus. Uttrykket under rotteiknet, $D = b^2 - 4ac$, blir kalla **diskriminanten**, og han fortel deg alt om kor mange nullpunkt funksjonen har.\n\nViss $D > 0$, finst det to ulike nullpunkt – parabelen kryssar $x$-aksen to gonger. Viss $D = 0$, er det nøyaktig eitt nullpunkt, ein **dobbeltrot** – parabelen rører ved $x$-aksen i eitt punkt. Og viss $D < 0$, finst det ingen nullpunkt – parabelen kryssar aldri $x$-aksen.\n\nLat oss bruke formelen på $f(x) = 2x^2 + 4x - 6$. Her er $a = 2$, $b = 4$, $c = -6$. Diskriminanten er $D = 16 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har vi to nullpunkt. Vi reknar vidare: $x = \\frac{-4 \\pm \\sqrt{64}}{4} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$. Nullpunkta er $x = 1$ og $x = -3$.\n\nAbc-formelen fungerer alltid, uansett om tala er «pene» eller ikkje. Til dømes gir $f(x) = x^2 - 4x + 1$ diskriminanten $D = 16 - 4 = 12$, og nullpunkta $x = \\frac{4 \\pm \\sqrt{12}}{2} = 2 \\pm \\sqrt{3}$. Svaret inneheld ei rot, men det er heilt legitimt."},{"id":"1t-3-5-n-quiz2","type":"exercise","exercise":{"id":"1t-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på abc-formelen og diskriminanten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-5-n-quiz2-q0","task":"Kva er diskriminanten til $f(x) = x^2 + 6x + 9$, og kva tyder han?","options":[{"id":"a","text":"$D = 0$, funksjonen har éin dobbeltrot","isCorrect":true},{"id":"b","text":"$D = 36$, funksjonen har to nullpunkt","isCorrect":false},{"id":"c","text":"$D = -36$, funksjonen har ingen nullpunkt","isCorrect":false},{"id":"d","text":"$D = 72$, funksjonen har to nullpunkt","isCorrect":false}],"solution":"$D = b^2 - 4ac = 36 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0$. Når $D = 0$, har funksjonen nøyaktig eitt nullpunkt (dobbeltrot). Her er $x = \\frac{-6}{2} = -3$, og $f(x) = (x + 3)^2$."},{"id":"1t-3-5-n-quiz2-q1","task":"Kva er abc-formelen for $ax^2 + bx + c = 0$?","options":[{"id":"a","text":"$x = \\frac{b \\pm \\sqrt{b^2 - 4ac}}{2a}$","isCorrect":false},{"id":"b","text":"$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$","isCorrect":true},{"id":"c","text":"$x = \\frac{-b \\pm \\sqrt{b^2 + 4ac}}{2a}$","isCorrect":false},{"id":"d","text":"$x = \\frac{-b \\pm \\sqrt{b - 4ac}}{2a}$","isCorrect":false}],"solution":"Abc-formelen er $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. Pass på minusteiknet framfor $b$ og at det er $b^2 - 4ac$ under rotteiknet."},{"id":"1t-3-5-n-quiz2-q2","task":"Kva er diskriminanten til $f(x) = 2x^2 + 4x - 6$?","options":[{"id":"a","text":"$D = -32$","isCorrect":false},{"id":"b","text":"$D = 64$","isCorrect":true},{"id":"c","text":"$D = 16$","isCorrect":false},{"id":"d","text":"$D = 40$","isCorrect":false}],"solution":"$D = b^2 - 4ac = 4^2 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har funksjonen to ulike nullpunkt."},{"id":"1t-3-5-n-quiz2-q3","task":"Funksjonen $f(x) = x^2 + 2x + 5$ har $D = 4 - 20 = -16$. Kva tyder det?","options":[{"id":"a","text":"Funksjonen har to nullpunkt","isCorrect":false},{"id":"b","text":"Funksjonen har éin dobbeltrot","isCorrect":false},{"id":"c","text":"Funksjonen har ingen nullpunkt","isCorrect":true},{"id":"d","text":"Funksjonen har uendeleg mange nullpunkt","isCorrect":false}],"solution":"Når $D < 0$, kan vi ikkje ta kvadratrota av eit negativt tal (i dei reelle tala). Parabelen kryssar aldri $x$-aksen, og funksjonen har ingen nullpunkt."},{"id":"1t-3-5-n-quiz2-q4","task":"Kva er nullpunkta til $f(x) = 2x^2 + 4x - 6$?","options":[{"id":"a","text":"$x = 2$ og $x = -3$","isCorrect":false},{"id":"b","text":"$x = -1$ og $x = 3$","isCorrect":false},{"id":"c","text":"$x = 1$ og $x = -3$","isCorrect":true},{"id":"d","text":"$x = 3$ og $x = -1$","isCorrect":false}],"solution":"Med $D = 64$: $x = \\frac{-4 \\pm \\sqrt{64}}{2 \\cdot 2} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$."}]}},{"id":"1t-3-5-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-5-narrativ-del3.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-3-5-n-section3","type":"text","content":"## Faktorisert form – nullpunkta i front\n\nNår du har funne nullpunkta $x_1$ og $x_2$ til ein andregradsfunksjon, kan du skrive han på **faktorisert form**:\n\n$$f(x) = a(x - x_1)(x - x_2)$$\n\nHer er $a$ den leiande koeffisienten, og nullpunkta blir lesne direkte frå uttrykket. Denne forma er utruleg nyttig fordi ho gir deg nullpunkta med eit blikk.\n\nLat oss skrive $f(x) = 2x^2 - 8x + 6$ på faktorisert form. Først finn vi nullpunkta med abc-formelen: $a = 2$, $b = -8$, $c = 6$. Diskriminanten er $D = 64 - 48 = 16$. Nullpunkta er $x = \\frac{8 \\pm 4}{4}$, altså $x = 3$ eller $x = 1$. Faktorisert form: $f(x) = 2(x - 1)(x - 3)$.\n\nVi kan kontrollere ved å gange ut: $2(x - 1)(x - 3) = 2(x^2 - 4x + 3) = 2x^2 - 8x + 6$. Stemmer!\n\nEit anna døme: $g(x) = -x^2 + 4x + 5$. Her er $a = -1$, $b = 4$, $c = 5$. Diskriminanten: $D = 16 + 20 = 36$. Nullpunkta: $x = \\frac{-4 \\pm 6}{-2}$. Det gir $x = \\frac{-4 + 6}{-2} = -1$ eller $x = \\frac{-4 - 6}{-2} = 5$. Faktorisert form: $g(x) = -(x + 1)(x - 5)$.\n\nLegg merke til minusteiknet framfor – det er den leiande koeffisienten $a = -1$. Kontrollen: $-(x + 1)(x - 5) = -(x^2 - 4x - 5) = -x^2 + 4x + 5$. Perfekt!"},{"id":"1t-3-5-n-quiz3","type":"exercise","exercise":{"id":"1t-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på faktorisert form:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-5-n-quiz3-q0","task":"Kva er faktorisert form for $f(x) = x^2 - 6x + 8$?","options":[{"id":"a","text":"$f(x) = (x + 2)(x + 4)$","isCorrect":false},{"id":"b","text":"$f(x) = (x - 2)(x - 4)$","isCorrect":true},{"id":"c","text":"$f(x) = (x - 2)(x + 4)$","isCorrect":false},{"id":"d","text":"$f(x) = (x + 2)(x - 4)$","isCorrect":false}],"solution":"Vi treng to tal som ganga gir $8$ og adderte gir $-6$. Det er $-2$ og $-4$. Altså $f(x) = (x - 2)(x - 4)$. Kontroll: $(x - 2)(x - 4) = x^2 - 6x + 8$."},{"id":"1t-3-5-n-quiz3-q1","task":"Funksjonen $f(x) = 2x^2 - 8x + 6$ har nullpunkt $x = 1$ og $x = 3$. Kva er faktorisert form?","options":[{"id":"a","text":"$f(x) = (x - 1)(x - 3)$","isCorrect":false},{"id":"b","text":"$f(x) = 2(x - 1)(x - 3)$","isCorrect":true},{"id":"c","text":"$f(x) = 2(x + 1)(x + 3)$","isCorrect":false},{"id":"d","text":"$f(x) = -2(x - 1)(x - 3)$","isCorrect":false}],"solution":"Faktorisert form er $f(x) = a(x - x_1)(x - x_2)$. Her er $a = 2$, $x_1 = 1$, $x_2 = 3$. Dermed $f(x) = 2(x - 1)(x - 3)$. Vi må hugse den leiande koeffisienten $a$!"},{"id":"1t-3-5-n-quiz3-q2","task":"Kva er faktorisert form for $g(x) = -x^2 + 4x + 5$ med nullpunkt $x = -1$ og $x = 5$?","options":[{"id":"a","text":"$g(x) = (x + 1)(x - 5)$","isCorrect":false},{"id":"b","text":"$g(x) = -(x - 1)(x + 5)$","isCorrect":false},{"id":"c","text":"$g(x) = -(x + 1)(x - 5)$","isCorrect":true},{"id":"d","text":"$g(x) = -x(x + 1)(x - 5)$","isCorrect":false}],"solution":"Faktorisert form: $g(x) = a(x - x_1)(x - x_2) = -1 \\cdot (x - (-1))(x - 5) = -(x + 1)(x - 5)$. Minusteiknet framfor er den leiande koeffisienten $a = -1$."}]}},{"id":"1t-3-5-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-5-narrativ-del4.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-3-5-n-section4","type":"text","content":"## Forteiknsanalyse – over eller under x-aksen?\n\nNo som vi kan finne nullpunkta, opnar det seg eit nytt spørsmål: i kva intervall er $f(x)$ positiv, og i kva er ho negativ? Å svare på dette blir kalla **forteiknsanalyse**, og resultatet viser vi gjerne i ei **forteiknslinje**.\n\nMetoden er enkel. Først finn du nullpunkta – dei deler tallinja i intervall. Deretter testar du éin $x$-verdi i kvart intervall for å sjå om $f(x)$ er positiv eller negativ.\n\nLat oss gjere dette for $f(x) = x^2 - 4$. Nullpunkta er $x = -2$ og $x = 2$ (konjugatsetninga: $x^2 - 4 = (x - 2)(x + 2)$). Tallinja blir delt i tre intervall: $x < -2$, $-2 < x < 2$, og $x > 2$.\n\nVi testar: for $x = -3$ får vi $f(-3) = 9 - 4 = 5 > 0$. For $x = 0$ får vi $f(0) = -4 < 0$. For $x = 3$ får vi $f(3) = 9 - 4 = 5 > 0$. Forteiknslinja viser altså pluss, null, minus, null, pluss.\n\nDet finst ein hugseregel som sparer deg for mykje rekning. Når $a > 0$ (parabelen opnar oppover), er $f(x) > 0$ *utanfor* nullpunkta og $f(x) < 0$ *mellom* dei. Når $a < 0$ (parabelen opnar nedover), er det omvendt: $f(x) > 0$ *mellom* nullpunkta og $f(x) < 0$ *utanfor* dei.\n\nTenk på det visuelt: ein «smilande» parabel ($a > 0$) er over $x$-aksen på utsidene og under mellom nullpunkta. Ein «sur» parabel ($a < 0$) er over $x$-aksen mellom nullpunkta og under på utsidene."},{"id":"1t-3-5-n-quiz4","type":"exercise","exercise":{"id":"1t-3-5-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på forteiknsanalyse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-5-n-quiz4-q0","task":"For $g(x) = -x^2 + 4x - 3$ med nullpunkt $x = 1$ og $x = 3$: kvar er $g(x) > 0$?","options":[{"id":"a","text":"$x < 1$ eller $x > 3$","isCorrect":false},{"id":"b","text":"For alle $x$","isCorrect":false},{"id":"c","text":"$1 < x < 3$","isCorrect":true},{"id":"d","text":"Aldri","isCorrect":false}],"solution":"Sidan $a = -1 < 0$, opnar parabelen nedover. Då er $g(x) > 0$ *mellom* nullpunkta, altså for $1 < x < 3$."},{"id":"1t-3-5-n-quiz4-q1","task":"For $f(x) = x^2 - 4$ med nullpunkt $x = -2$ og $x = 2$: kvar er $f(x) < 0$?","options":[{"id":"a","text":"$x < -2$ eller $x > 2$","isCorrect":false},{"id":"b","text":"$-2 < x < 2$","isCorrect":true},{"id":"c","text":"For alle $x$","isCorrect":false},{"id":"d","text":"Aldri","isCorrect":false}],"solution":"Sidan $a = 1 > 0$, opnar parabelen oppover. Då er $f(x) < 0$ *mellom* nullpunkta, altså for $-2 < x < 2$."},{"id":"1t-3-5-n-quiz4-q2","task":"Parabelen $f(x) = 2x^2 - 10x + 12$ har $a > 0$ og nullpunkt $x = 2$ og $x = 3$. Kvar er $f(x) > 0$?","options":[{"id":"a","text":"$2 < x < 3$","isCorrect":false},{"id":"b","text":"Berre for $x > 3$","isCorrect":false},{"id":"c","text":"$x < 2$ eller $x > 3$","isCorrect":true},{"id":"d","text":"For alle $x$","isCorrect":false}],"solution":"Med $a > 0$ opnar parabelen oppover. Funksjonen er positiv *utanfor* nullpunkta: $x < 2$ eller $x > 3$. Mellom nullpunkta ($2 < x < 3$) er han negativ."},{"id":"1t-3-5-n-quiz4-q3","task":"Kva er verdien av $f(0)$ for $f(x) = x^2 - 4$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$-4$","isCorrect":true},{"id":"d","text":"$-2$","isCorrect":false}],"solution":"$f(0) = 0^2 - 4 = -4$. Denne negative verdien stadfestar at funksjonen er negativ mellom nullpunkta ($x = 0$ ligg mellom $-2$ og $2$)."}]}},{"id":"1t-3-5-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-5-narrativ-del5.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-3-5-n-section5","type":"text","content":"## Andregradsulikskapar – når er funksjonen positiv eller negativ?\n\nForteiknsanalyse er ikkje berre teori – ho lèt oss løyse **ulikskapar** med andregradsfunksjonar. Spørsmål som «for kva $x$ er $x^2 - 3x - 10 > 0$?» blir svart på ved å finne nullpunkta og bruke forteiknsanalyse.\n\nLat oss løyse $x^2 - 3x - 10 > 0$. Først faktoriserer vi: vi treng to tal som ganga gir $-10$ og adderte gir $-3$. Det er $-5$ og $2$: $(x - 5)(x + 2) = 0$ gir nullpunkta $x = 5$ og $x = -2$. Sidan $a = 1 > 0$, er parabelen positiv utanfor nullpunkta. Løysinga er $x < -2$ eller $x > 5$.\n\nKva med ein ulikskap der vi ser etter den negative delen? Lat oss løyse $x^2 - 6x + 8 \\leq 0$. Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ mellom nullpunkta (inkludert nullpunkta sjølve, fordi vi har $\\leq$). Løysinga er $2 \\leq x \\leq 4$.\n\nOg med negativ leiande koeffisient? Lat oss løyse $-x^2 + 2x + 3 > 0$. Nullpunkt: $x^2 - 2x - 3 = 0$ gir $(x - 3)(x + 1) = 0$, altså $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta. Løysinga er $-1 < x < 3$.\n\nEit siste spennande spørsmål: for kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt? Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $k < 4$. Her bestemmer diskriminanten ikkje berre *om* det finst nullpunkt, men *vilkåret* for at dei skal eksistere."},{"id":"1t-3-5-n-quiz5","type":"exercise","exercise":{"id":"1t-3-5-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på andregradsulikskapar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-5-n-quiz5-q0","task":"Kva er løysinga til ulikskapen $x^2 - 4x - 5 > 0$?","options":[{"id":"a","text":"$-1 < x < 5$","isCorrect":false},{"id":"b","text":"$x < -5$ eller $x > 1$","isCorrect":false},{"id":"c","text":"$x \\leq -1$ eller $x \\geq 5$","isCorrect":false},{"id":"d","text":"$x < -1$ eller $x > 5$","isCorrect":true}],"solution":"Faktorisering: $(x - 5)(x + 1) = 0$ gir nullpunkt $x = 5$ og $x = -1$. Sidan $a = 1 > 0$, er funksjonen positiv *utanfor* nullpunkta: $x < -1$ eller $x > 5$."},{"id":"1t-3-5-n-quiz5-q1","task":"Kva er løysinga til $x^2 - 6x + 8 \\leq 0$?","options":[{"id":"a","text":"$x < 2$ eller $x > 4$","isCorrect":false},{"id":"b","text":"$2 \\leq x \\leq 4$","isCorrect":true},{"id":"c","text":"$2 < x < 4$","isCorrect":false},{"id":"d","text":"$x \\leq 2$ eller $x \\geq 4$","isCorrect":false}],"solution":"Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ *mellom* nullpunkta. Med $\\leq$ blir nullpunkta inkluderte: $2 \\leq x \\leq 4$."},{"id":"1t-3-5-n-quiz5-q2","task":"Kva er løysinga til $-x^2 + 2x + 3 > 0$?","options":[{"id":"a","text":"$x < -1$ eller $x > 3$","isCorrect":false},{"id":"b","text":"$-1 < x < 3$","isCorrect":true},{"id":"c","text":"$-3 < x < 1$","isCorrect":false},{"id":"d","text":"Ingen løysing","isCorrect":false}],"solution":"Nullpunkt for $x^2 - 2x - 3 = 0$: $(x - 3)(x + 1) = 0$ gir $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta: $-1 < x < 3$."},{"id":"1t-3-5-n-quiz5-q3","task":"For kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt?","options":[{"id":"a","text":"$k > 4$","isCorrect":false},{"id":"b","text":"$k = 4$","isCorrect":false},{"id":"c","text":"$k < 4$","isCorrect":true},{"id":"d","text":"$k < 0$","isCorrect":false}],"solution":"Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $4k < 16$, altså $k < 4$."}]}},{"id":"1t-3-5-n-audio-6","type":"audio","title":"Lytt til oppsummeringa","src":"/audio/1t/1t-3-5-narrativ-del6.mp3","description":"Lydfil som les opp oppsummeringa."},{"id":"1t-3-5-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi lært å finne **nullpunkta** til andregradsfunksjonar – punkta der $f(x) = 0$.\n\n**Faktorisering** er den raskaste metoden: finn to tal som ganga gir $a \\cdot c$ og adderte gir $b$, og skriv uttrykket som eit produkt. Hugs spesialtilfellet $x^2 - k^2 = (x - k)(x + k)$.\n\n**Abc-formelen** $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ fungerer alltid. **Diskriminanten** $D = b^2 - 4ac$ fortel deg talet på nullpunkt: $D > 0$ gir to, $D = 0$ gir eitt (dobbeltrot), $D < 0$ gir ingen.\n\nNår du kjenner nullpunkta $x_1$ og $x_2$, kan du skrive funksjonen på **faktorisert form**: $f(x) = a(x - x_1)(x - x_2)$.\n\n**Forteiknsanalyse** viser kvar $f(x)$ er positiv og negativ. For $a > 0$ er funksjonen positiv utanfor nullpunkta, for $a < 0$ er han positiv mellom dei. Denne kunnskapen lèt deg løyse **andregradsulikskapar**."}],"exercises":[],"_meta":{"sourceHash":"2a63a28abd4a926e","translatedAt":"2026-06-16T23:35:47.257Z","model":"claude-code-agent","strings":149,"tm":{"bee18a90b22e410b":"Nullpunkt og forteikn","b195b06d1ed59702":"Narrativ versjon","d12e1497c8ca5e38":"Ei forteljing om der parabelen møter x-aksen – abc-formelen, faktorisering og korleis du les forteiknet til ein andregradsfunksjon.","828ebc54b260edd3":"finne nullpunkt til andregradsfunksjonar","d2c9d9ef5d3f774f":"Lytt til denne delen","21954805f17795e8":"Lydfil som les opp teksten fram til første quiz.","e0ff64b4881ad9e1":"## Der parabelen kryssar x-aksen\n\nI førre kapittel lærte du å finne topp- og botnpunkt til parablar. Men det er eitt spørsmål vi ikkje har svart på: kvar kryssar parabelen $x$-aksen? Desse kryssingspunkta blir kalla **nullpunkt**, fordi det er der $f(x) = 0$. Å finne nullpunkta er ein av dei viktigaste ferdigheitene i heile matematikken – det handlar om å løyse andregradslikninga $ax^2 + bx + c = 0$.\n\nI dette kapittelet skal vi lære to kraftige metodar for å finne nullpunkt: **faktorisering** og **abc-formelen**. Vi skal òg lære å skrive funksjonen på **faktorisert form** og å analysere **forteiknet** til funksjonen, altså å finne ut kvar $f(x)$ er positiv og kvar ho er negativ.","c773eccbd3c2bf59":"## Faktorisering – den elegante vegen\n\nDen enklaste måten å finne nullpunkt på er ved **faktorisering**. Ideen er å skrive uttrykket $ax^2 + bx + c$ som eit produkt av to faktorar. Når eit produkt er null, må minst éin av faktorane vere null – det er nullregelen.\n\nLat oss ta $f(x) = x^2 - 5x + 6$. Vi leitar etter to tal som ganga gir $6$ (konstantleddet) og adderte gir $-5$ (koeffisienten framfor $x$). Kva med $-2$ og $-3$? Sjekk: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Perfekt! Då kan vi skrive $f(x) = (x - 2)(x - 3)$.\n\nNo set vi $f(x) = 0$: $(x - 2)(x - 3) = 0$. Nullregelen seier at anten er $x - 2 = 0$ eller $x - 3 = 0$, altså $x = 2$ eller $x = 3$. Det er nullpunkta.\n\nLat oss prøve med $g(x) = x^2 + 2x - 15$. Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Kva med $5$ og $-3$? Sjekk: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Ja! Då er $g(x) = (x + 5)(x - 3)$, og nullpunkta er $x = -5$ og $x = 3$.\n\nEit spesielt tilfelle er konjugatsetninga: $x^2 - 9 = (x - 3)(x + 3)$, som gir nullpunkta $x = \\pm 3$. Generelt er $x^2 - k^2 = (x - k)(x + k)$.\n\nFaktorisering er elegant og rask, men ho fungerer berre når tala «går pent opp». Heldigvis finst det ein metode som alltid fungerer.","18fac1dfae2a414d":"Test deg sjølv på faktorisering og nullpunkt:","4097889236a2af26":"placeholder","0f872c11eca61116":"Kva er nullpunkta til $f(x) = x^2 - 7x + 12$?","8e3af7e5229b8586":"$x = -3$ og $x = -4$","36674425ecffb168":"$x = 2$ og $x = 6$","2d6dcf385d849cb7":"$x = 3$ og $x = 4$","9d75db27acda1484":"$x = -3$ og $x = 4$","8efe143615bd6ad0":"Vi treng to tal som ganga gir $12$ og adderte gir $-7$. Det er $-3$ og $-4$: $(-3) \\cdot (-4) = 12$ og $(-3) + (-4) = -7$. Så $f(x) = (x - 3)(x - 4)$ og nullpunkta er $x = 3$ og $x = 4$.","de391a0ae6c2e3b7":"Kva er den faktoriserte forma til $g(x) = x^2 + 2x - 15$?","5af86c2169882e1d":"$(x + 3)(x - 5)$","e2f05274185ba1ed":"$(x - 3)(x + 5)$","8e9ddfbd10dffccb":"$(x + 5)(x - 3)$","095efdf484f89749":"$(x - 5)(x - 3)$","35dfb0782f0bc3b7":"Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Det er $5$ og $-3$: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Dermed $g(x) = (x + 5)(x - 3)$.","7633e3991ca6e16b":"Kva er nullpunkta til $h(x) = x^2 - 16$?","2f29d1b2f8c398ef":"$x = 8$ og $x = -8$","a1830872e2aa819f":"$x = 4$ og $x = -4$","072ccfdfe69106ab":"$x = 16$ og $x = -16$","16478990d21d8d25":"$x = 2$ og $x = -2$","16a8970d7de02090":"Vi brukar konjugatsetninga: $x^2 - 16 = x^2 - 4^2 = (x - 4)(x + 4)$. Nullpunkta er $x = 4$ og $x = -4$.","d1c34d3b54275897":"Kva seier nullregelen?","b2d6a94c9053dd33":"Summen av to tal er null berre viss begge er null","61c2ba84b719888c":"Produktet av to tal er null berre viss minst éin faktor er null","f28b7899a1b49317":"Eit tal gonger null er alltid positivt","be437343abd9fbda":"Null delt på eit tal er alltid udefinert","8727cc8898eef6f4":"Nullregelen seier at eit produkt er null viss og berre viss minst éin av faktorane er null. Derfor kan vi finne nullpunkta ved å setje kvar faktor lik null separat.","058005533831b7f6":"Lydfil som les opp teksten fram til neste quiz.","349cf7bfdcd84dde":"## Abc-formelen – det universelle verktøyet\n\nNår faktorisering ikkje lukkast, dreg vi fram det kraftigaste verktøyet vi har: **abc-formelen**. Han løyser kvar andregradslikning $ax^2 + bx + c = 0$:\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nDet vesle symbolet $\\pm$ tyder at du får to svar: eitt med pluss og eitt med minus. Uttrykket under rotteiknet, $D = b^2 - 4ac$, blir kalla **diskriminanten**, og han fortel deg alt om kor mange nullpunkt funksjonen har.\n\nViss $D > 0$, finst det to ulike nullpunkt – parabelen kryssar $x$-aksen to gonger. Viss $D = 0$, er det nøyaktig eitt nullpunkt, ein **dobbeltrot** – parabelen rører ved $x$-aksen i eitt punkt. Og viss $D < 0$, finst det ingen nullpunkt – parabelen kryssar aldri $x$-aksen.\n\nLat oss bruke formelen på $f(x) = 2x^2 + 4x - 6$. Her er $a = 2$, $b = 4$, $c = -6$. Diskriminanten er $D = 16 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har vi to nullpunkt. Vi reknar vidare: $x = \\frac{-4 \\pm \\sqrt{64}}{4} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$. Nullpunkta er $x = 1$ og $x = -3$.\n\nAbc-formelen fungerer alltid, uansett om tala er «pene» eller ikkje. Til dømes gir $f(x) = x^2 - 4x + 1$ diskriminanten $D = 16 - 4 = 12$, og nullpunkta $x = \\frac{4 \\pm \\sqrt{12}}{2} = 2 \\pm \\sqrt{3}$. Svaret inneheld ei rot, men det er heilt legitimt.","e1684f918d2d0fcb":"Test deg sjølv på abc-formelen og diskriminanten:","5d6081c1c64c73c2":"Kva er diskriminanten til $f(x) = x^2 + 6x + 9$, og kva tyder han?","07d20c8579a20908":"$D = 0$, funksjonen har éin dobbeltrot","6cd869f94a2a36df":"$D = 36$, funksjonen har to nullpunkt","d3c331821139f3c2":"$D = -36$, funksjonen har ingen nullpunkt","05f4e356b2241ac3":"$D = 72$, funksjonen har to nullpunkt","220c36b0765217a8":"$D = b^2 - 4ac = 36 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0$. Når $D = 0$, har funksjonen nøyaktig eitt nullpunkt (dobbeltrot). Her er $x = \\frac{-6}{2} = -3$, og $f(x) = (x + 3)^2$.","70911421897ff7a4":"Kva er abc-formelen for $ax^2 + bx + c = 0$?","b3767f0173daab49":"$x = \\frac{b \\pm \\sqrt{b^2 - 4ac}}{2a}$","1732b3bd2108634f":"$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$","755812f660181b4f":"$x = \\frac{-b \\pm \\sqrt{b^2 + 4ac}}{2a}$","47395939f292fac5":"$x = \\frac{-b \\pm \\sqrt{b - 4ac}}{2a}$","9290d07663ce41e0":"Abc-formelen er $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. Pass på minusteiknet framfor $b$ og at det er $b^2 - 4ac$ under rotteiknet.","3f80c8fb5e540873":"Kva er diskriminanten til $f(x) = 2x^2 + 4x - 6$?","4447878f9cef2fcd":"$D = -32$","fc89a1be788c847e":"$D = 64$","8f90c0d227545399":"$D = 16$","05b8379107e11daa":"$D = 40$","fb0fa9dbd309dee9":"$D = b^2 - 4ac = 4^2 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har funksjonen to ulike nullpunkt.","43df33c474edce7d":"Funksjonen $f(x) = x^2 + 2x + 5$ har $D = 4 - 20 = -16$. Kva tyder det?","e924441618d90fd7":"Funksjonen har to nullpunkt","068c368aa6cebde3":"Funksjonen har éin dobbeltrot","e72fdec7897f5f0e":"Funksjonen har ingen nullpunkt","7c1555c795af437c":"Funksjonen har uendeleg mange nullpunkt","28b6c7bd1b328cfd":"Når $D < 0$, kan vi ikkje ta kvadratrota av eit negativt tal (i dei reelle tala). Parabelen kryssar aldri $x$-aksen, og funksjonen har ingen nullpunkt.","d37cc37d05e51e43":"Kva er nullpunkta til $f(x) = 2x^2 + 4x - 6$?","55268cd3bb548a5a":"$x = 2$ og $x = -3$","e5deb63cea59a7ed":"$x = -1$ og $x = 3$","86ad173b91d5be5b":"$x = 1$ og $x = -3$","126557bc50da296e":"$x = 3$ og $x = -1$","1e047a841688ecb2":"Med $D = 64$: $x = \\frac{-4 \\pm \\sqrt{64}}{2 \\cdot 2} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$.","fa93eea28ea8b173":"## Faktorisert form – nullpunkta i front\n\nNår du har funne nullpunkta $x_1$ og $x_2$ til ein andregradsfunksjon, kan du skrive han på **faktorisert form**:\n\n$$f(x) = a(x - x_1)(x - x_2)$$\n\nHer er $a$ den leiande koeffisienten, og nullpunkta blir lesne direkte frå uttrykket. Denne forma er utruleg nyttig fordi ho gir deg nullpunkta med eit blikk.\n\nLat oss skrive $f(x) = 2x^2 - 8x + 6$ på faktorisert form. Først finn vi nullpunkta med abc-formelen: $a = 2$, $b = -8$, $c = 6$. Diskriminanten er $D = 64 - 48 = 16$. Nullpunkta er $x = \\frac{8 \\pm 4}{4}$, altså $x = 3$ eller $x = 1$. Faktorisert form: $f(x) = 2(x - 1)(x - 3)$.\n\nVi kan kontrollere ved å gange ut: $2(x - 1)(x - 3) = 2(x^2 - 4x + 3) = 2x^2 - 8x + 6$. Stemmer!\n\nEit anna døme: $g(x) = -x^2 + 4x + 5$. Her er $a = -1$, $b = 4$, $c = 5$. Diskriminanten: $D = 16 + 20 = 36$. Nullpunkta: $x = \\frac{-4 \\pm 6}{-2}$. Det gir $x = \\frac{-4 + 6}{-2} = -1$ eller $x = \\frac{-4 - 6}{-2} = 5$. Faktorisert form: $g(x) = -(x + 1)(x - 5)$.\n\nLegg merke til minusteiknet framfor – det er den leiande koeffisienten $a = -1$. Kontrollen: $-(x + 1)(x - 5) = -(x^2 - 4x - 5) = -x^2 + 4x + 5$. Perfekt!","1aef7545bb97228d":"Test deg sjølv på faktorisert form:","224009ec5961291a":"Kva er faktorisert form for $f(x) = x^2 - 6x + 8$?","52c9a7615e0002f3":"$f(x) = (x + 2)(x + 4)$","0b359d4d9ebb912c":"$f(x) = (x - 2)(x - 4)$","4a3973c075d74f21":"$f(x) = (x - 2)(x + 4)$","0ea0322b4f0b2ee9":"$f(x) = (x + 2)(x - 4)$","364570432d2eaa9b":"Vi treng to tal som ganga gir $8$ og adderte gir $-6$. Det er $-2$ og $-4$. Altså $f(x) = (x - 2)(x - 4)$. Kontroll: $(x - 2)(x - 4) = x^2 - 6x + 8$.","6a48ea0501fa36d2":"Funksjonen $f(x) = 2x^2 - 8x + 6$ har nullpunkt $x = 1$ og $x = 3$. Kva er faktorisert form?","d7e0958ff11f0dc9":"$f(x) = (x - 1)(x - 3)$","c8f78cb2914d2830":"$f(x) = 2(x - 1)(x - 3)$","5e153e4dd87d1254":"$f(x) = 2(x + 1)(x + 3)$","7ca86607e8f26edd":"$f(x) = -2(x - 1)(x - 3)$","72212261b7519387":"Faktorisert form er $f(x) = a(x - x_1)(x - x_2)$. Her er $a = 2$, $x_1 = 1$, $x_2 = 3$. Dermed $f(x) = 2(x - 1)(x - 3)$. Vi må hugse den leiande koeffisienten $a$!","a7f4f75ac8a20c51":"Kva er faktorisert form for $g(x) = -x^2 + 4x + 5$ med nullpunkt $x = -1$ og $x = 5$?","fa8ad474b29c9471":"$g(x) = (x + 1)(x - 5)$","ccac8d18a986232c":"$g(x) = -(x - 1)(x + 5)$","d066bfa975c7ce0f":"$g(x) = -(x + 1)(x - 5)$","7fd28ff129796a2b":"$g(x) = -x(x + 1)(x - 5)$","6fb54b0d81c1a4b0":"Faktorisert form: $g(x) = a(x - x_1)(x - x_2) = -1 \\cdot (x - (-1))(x - 5) = -(x + 1)(x - 5)$. Minusteiknet framfor er den leiande koeffisienten $a = -1$.","b94affcd420d4968":"## Forteiknsanalyse – over eller under x-aksen?\n\nNo som vi kan finne nullpunkta, opnar det seg eit nytt spørsmål: i kva intervall er $f(x)$ positiv, og i kva er ho negativ? Å svare på dette blir kalla **forteiknsanalyse**, og resultatet viser vi gjerne i ei **forteiknslinje**.\n\nMetoden er enkel. Først finn du nullpunkta – dei deler tallinja i intervall. Deretter testar du éin $x$-verdi i kvart intervall for å sjå om $f(x)$ er positiv eller negativ.\n\nLat oss gjere dette for $f(x) = x^2 - 4$. Nullpunkta er $x = -2$ og $x = 2$ (konjugatsetninga: $x^2 - 4 = (x - 2)(x + 2)$). Tallinja blir delt i tre intervall: $x < -2$, $-2 < x < 2$, og $x > 2$.\n\nVi testar: for $x = -3$ får vi $f(-3) = 9 - 4 = 5 > 0$. For $x = 0$ får vi $f(0) = -4 < 0$. For $x = 3$ får vi $f(3) = 9 - 4 = 5 > 0$. Forteiknslinja viser altså pluss, null, minus, null, pluss.\n\nDet finst ein hugseregel som sparer deg for mykje rekning. Når $a > 0$ (parabelen opnar oppover), er $f(x) > 0$ *utanfor* nullpunkta og $f(x) < 0$ *mellom* dei. Når $a < 0$ (parabelen opnar nedover), er det omvendt: $f(x) > 0$ *mellom* nullpunkta og $f(x) < 0$ *utanfor* dei.\n\nTenk på det visuelt: ein «smilande» parabel ($a > 0$) er over $x$-aksen på utsidene og under mellom nullpunkta. Ein «sur» parabel ($a < 0$) er over $x$-aksen mellom nullpunkta og under på utsidene.","5dff44309a5c3285":"Test deg sjølv på forteiknsanalyse:","7a5955e03af6abda":"For $g(x) = -x^2 + 4x - 3$ med nullpunkt $x = 1$ og $x = 3$: kvar er $g(x) > 0$?","7bb28a31032676fd":"$x < 1$ eller $x > 3$","a4cd157d5388ea5a":"For alle $x$","8383ae1bc9e1592d":"$1 < x < 3$","72816c36bd404a80":"Aldri","7e1b3216130aa5ce":"Sidan $a = -1 < 0$, opnar parabelen nedover. Då er $g(x) > 0$ *mellom* nullpunkta, altså for $1 < x < 3$.","03fea1ba63177d01":"For $f(x) = x^2 - 4$ med nullpunkt $x = -2$ og $x = 2$: kvar er $f(x) < 0$?","5b1d790a980e051d":"$x < -2$ eller $x > 2$","4a199153466c114e":"$-2 < x < 2$","454646ab6fabf02d":"Sidan $a = 1 > 0$, opnar parabelen oppover. Då er $f(x) < 0$ *mellom* nullpunkta, altså for $-2 < x < 2$.","9552650785993084":"Parabelen $f(x) = 2x^2 - 10x + 12$ har $a > 0$ og nullpunkt $x = 2$ og $x = 3$. Kvar er $f(x) > 0$?","52b5b71df60814ff":"$2 < x < 3$","e77416ffc1aae519":"Berre for $x > 3$","802242c51a40c9b4":"$x < 2$ eller $x > 3$","09fc7177e8d98d6a":"Med $a > 0$ opnar parabelen oppover. Funksjonen er positiv *utanfor* nullpunkta: $x < 2$ eller $x > 3$. Mellom nullpunkta ($2 < x < 3$) er han negativ.","537c09913cbbcbc2":"Kva er verdien av $f(0)$ for $f(x) = x^2 - 4$?","98a7b5663bb87499":"$f(0) = 0^2 - 4 = -4$. Denne negative verdien stadfestar at funksjonen er negativ mellom nullpunkta ($x = 0$ ligg mellom $-2$ og $2$).","8da019ee085582d4":"## Andregradsulikskapar – når er funksjonen positiv eller negativ?\n\nForteiknsanalyse er ikkje berre teori – ho lèt oss løyse **ulikskapar** med andregradsfunksjonar. Spørsmål som «for kva $x$ er $x^2 - 3x - 10 > 0$?» blir svart på ved å finne nullpunkta og bruke forteiknsanalyse.\n\nLat oss løyse $x^2 - 3x - 10 > 0$. Først faktoriserer vi: vi treng to tal som ganga gir $-10$ og adderte gir $-3$. Det er $-5$ og $2$: $(x - 5)(x + 2) = 0$ gir nullpunkta $x = 5$ og $x = -2$. Sidan $a = 1 > 0$, er parabelen positiv utanfor nullpunkta. Løysinga er $x < -2$ eller $x > 5$.\n\nKva med ein ulikskap der vi ser etter den negative delen? Lat oss løyse $x^2 - 6x + 8 \\leq 0$. Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ mellom nullpunkta (inkludert nullpunkta sjølve, fordi vi har $\\leq$). Løysinga er $2 \\leq x \\leq 4$.\n\nOg med negativ leiande koeffisient? Lat oss løyse $-x^2 + 2x + 3 > 0$. Nullpunkt: $x^2 - 2x - 3 = 0$ gir $(x - 3)(x + 1) = 0$, altså $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta. Løysinga er $-1 < x < 3$.\n\nEit siste spennande spørsmål: for kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt? Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $k < 4$. Her bestemmer diskriminanten ikkje berre *om* det finst nullpunkt, men *vilkåret* for at dei skal eksistere.","5697dc599e3944c1":"Test deg sjølv på andregradsulikskapar:","924bf78696bdaf5a":"Kva er løysinga til ulikskapen $x^2 - 4x - 5 > 0$?","7ed8fc06613ffd76":"$-1 < x < 5$","0d9e4d7ac9ca06fc":"$x < -5$ eller $x > 1$","ccf2d3cc6528af55":"$x \\leq -1$ eller $x \\geq 5$","38fbd4225465d997":"$x < -1$ eller $x > 5$","c867599f82e02971":"Faktorisering: $(x - 5)(x + 1) = 0$ gir nullpunkt $x = 5$ og $x = -1$. Sidan $a = 1 > 0$, er funksjonen positiv *utanfor* nullpunkta: $x < -1$ eller $x > 5$.","f5f42c49f72bbf46":"Kva er løysinga til $x^2 - 6x + 8 \\leq 0$?","59edabfbc4a3de67":"$x < 2$ eller $x > 4$","85df47c14222ad52":"$2 \\leq x \\leq 4$","27ee579e3effa330":"$2 < x < 4$","ddf4fa70f585d8f5":"$x \\leq 2$ eller $x \\geq 4$","d17c09f1488e1961":"Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ *mellom* nullpunkta. Med $\\leq$ blir nullpunkta inkluderte: $2 \\leq x \\leq 4$.","f7cc14359624f76d":"Kva er løysinga til $-x^2 + 2x + 3 > 0$?","db9fa2484b5e962e":"$x < -1$ eller $x > 3$","cd59fd4d1a969e74":"$-1 < x < 3$","51045c77c07d9461":"$-3 < x < 1$","e971110a3c79cbbb":"Ingen løysing","38f64d388b0a6b1d":"Nullpunkt for $x^2 - 2x - 3 = 0$: $(x - 3)(x + 1) = 0$ gir $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta: $-1 < x < 3$.","c2651fd5d1a1d85c":"For kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt?","819cdd35940ac1ee":"$k > 4$","380548b8a1f0e5d8":"$k = 4$","8067365d2d70d14a":"$k < 4$","e69d86eca80e0428":"$k < 0$","e77cd7b77d414159":"Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $4k < 16$, altså $k < 4$.","79eeeec37aef74be":"Lytt til oppsummeringa","b409d1128419f9c6":"Lydfil som les opp oppsummeringa.","9733b059590c938a":"## Oppsummering\n\nI dette kapittelet har vi lært å finne **nullpunkta** til andregradsfunksjonar – punkta der $f(x) = 0$.\n\n**Faktorisering** er den raskaste metoden: finn to tal som ganga gir $a \\cdot c$ og adderte gir $b$, og skriv uttrykket som eit produkt. Hugs spesialtilfellet $x^2 - k^2 = (x - k)(x + k)$.\n\n**Abc-formelen** $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ fungerer alltid. **Diskriminanten** $D = b^2 - 4ac$ fortel deg talet på nullpunkt: $D > 0$ gir to, $D = 0$ gir eitt (dobbeltrot), $D < 0$ gir ingen.\n\nNår du kjenner nullpunkta $x_1$ og $x_2$, kan du skrive funksjonen på **faktorisert form**: $f(x) = a(x - x_1)(x - x_2)$.\n\n**Forteiknsanalyse** viser kvar $f(x)$ er positiv og negativ. For $a > 0$ er funksjonen positiv utanfor nullpunkta, for $a < 0$ er han positiv mellom dei. Denne kunnskapen lèt deg løyse **andregradsulikskapar**."}}}
+{
+  "id": "1t-3-5-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "3.5",
+  "title": "Nullpunkt og forteikn",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om der parabelen møter x-aksen – abc-formelen, faktorisering og korleis du les forteiknet til ein andregradsfunksjon.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "finne nullpunkt til andregradsfunksjonar"
+  ],
+  "linkedChapterId": "1t-3-5",
+  "content": [
+    {
+      "id": "1t-3-5-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-5-narrativ-del1.mp3",
+      "description": "Lydfil som les opp teksten fram til første quiz."
+    },
+    {
+      "id": "1t-3-5-n-intro",
+      "type": "text",
+      "content": "## Der parabelen kryssar x-aksen\n\nI førre kapittel lærte du å finne topp- og botnpunkt til parablar. Men det er eitt spørsmål vi ikkje har svart på: kvar kryssar parabelen $x$-aksen? Desse kryssingspunkta blir kalla **nullpunkt**, fordi det er der $f(x) = 0$. Å finne nullpunkta er ein av dei viktigaste ferdigheitene i heile matematikken – det handlar om å løyse andregradslikninga $ax^2 + bx + c = 0$.\n\nI dette kapittelet skal vi lære to kraftige metodar for å finne nullpunkt: **faktorisering** og **abc-formelen**. Vi skal òg lære å skrive funksjonen på **faktorisert form** og å analysere **forteiknet** til funksjonen, altså å finne ut kvar $f(x)$ er positiv og kvar ho er negativ."
+    },
+    {
+      "id": "1t-3-5-n-section1",
+      "type": "text",
+      "content": "## Faktorisering – den elegante vegen\n\nDen enklaste måten å finne nullpunkt på er ved **faktorisering**. Ideen er å skrive uttrykket $ax^2 + bx + c$ som eit produkt av to faktorar. Når eit produkt er null, må minst éin av faktorane vere null – det er nullregelen.\n\nLat oss ta $f(x) = x^2 - 5x + 6$. Vi leitar etter to tal som ganga gir $6$ (konstantleddet) og adderte gir $-5$ (koeffisienten framfor $x$). Kva med $-2$ og $-3$? Sjekk: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Perfekt! Då kan vi skrive $f(x) = (x - 2)(x - 3)$.\n\nNo set vi $f(x) = 0$: $(x - 2)(x - 3) = 0$. Nullregelen seier at anten er $x - 2 = 0$ eller $x - 3 = 0$, altså $x = 2$ eller $x = 3$. Det er nullpunkta.\n\nLat oss prøve med $g(x) = x^2 + 2x - 15$. Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Kva med $5$ og $-3$? Sjekk: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Ja! Då er $g(x) = (x + 5)(x - 3)$, og nullpunkta er $x = -5$ og $x = 3$.\n\nEit spesielt tilfelle er konjugatsetninga: $x^2 - 9 = (x - 3)(x + 3)$, som gir nullpunkta $x = \\pm 3$. Generelt er $x^2 - k^2 = (x - k)(x + k)$.\n\nFaktorisering er elegant og rask, men ho fungerer berre når tala «går pent opp». Heldigvis finst det ein metode som alltid fungerer."
+    },
+    {
+      "id": "1t-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisering og nullpunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-5-n-quiz1-q0",
+            "task": "Kva er nullpunkta til $f(x) = x^2 - 7x + 12$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = -3$ og $x = -4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 3$ og $x = 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 2$ og $x = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = -3$ og $x = 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng to tal som ganga gir $12$ og adderte gir $-7$. Det er $-3$ og $-4$: $(-3) \\cdot (-4) = 12$ og $(-3) + (-4) = -7$. Så $f(x) = (x - 3)(x - 4)$ og nullpunkta er $x = 3$ og $x = 4$."
+          },
+          {
+            "id": "1t-3-5-n-quiz1-q1",
+            "task": "Kva er den faktoriserte forma til $g(x) = x^2 + 2x - 15$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x + 3)(x - 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x - 3)(x + 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x + 5)(x - 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(x - 5)(x - 3)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Det er $5$ og $-3$: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Dermed $g(x) = (x + 5)(x - 3)$."
+          },
+          {
+            "id": "1t-3-5-n-quiz1-q2",
+            "task": "Kva er nullpunkta til $h(x) = x^2 - 16$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 8$ og $x = -8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 16$ og $x = -16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 2$ og $x = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 4$ og $x = -4$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi brukar konjugatsetninga: $x^2 - 16 = x^2 - 4^2 = (x - 4)(x + 4)$. Nullpunkta er $x = 4$ og $x = -4$."
+          },
+          {
+            "id": "1t-3-5-n-quiz1-q3",
+            "task": "Kva seier nullregelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Produktet av to tal er null berre viss minst éin faktor er null",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Summen av to tal er null berre viss begge er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit tal gonger null er alltid positivt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Null delt på eit tal er alltid udefinert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nullregelen seier at eit produkt er null viss og berre viss minst éin av faktorane er null. Derfor kan vi finne nullpunkta ved å setje kvar faktor lik null separat."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-3-5-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-5-narrativ-del2.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-3-5-n-section2",
+      "type": "text",
+      "content": "## Abc-formelen – det universelle verktøyet\n\nNår faktorisering ikkje lukkast, dreg vi fram det kraftigaste verktøyet vi har: **abc-formelen**. Han løyser kvar andregradslikning $ax^2 + bx + c = 0$:\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nDet vesle symbolet $\\pm$ tyder at du får to svar: eitt med pluss og eitt med minus. Uttrykket under rotteiknet, $D = b^2 - 4ac$, blir kalla **diskriminanten**, og han fortel deg alt om kor mange nullpunkt funksjonen har.\n\nViss $D > 0$, finst det to ulike nullpunkt – parabelen kryssar $x$-aksen to gonger. Viss $D = 0$, er det nøyaktig eitt nullpunkt, ein **dobbeltrot** – parabelen rører ved $x$-aksen i eitt punkt. Og viss $D < 0$, finst det ingen nullpunkt – parabelen kryssar aldri $x$-aksen.\n\nLat oss bruke formelen på $f(x) = 2x^2 + 4x - 6$. Her er $a = 2$, $b = 4$, $c = -6$. Diskriminanten er $D = 16 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har vi to nullpunkt. Vi reknar vidare: $x = \\frac{-4 \\pm \\sqrt{64}}{4} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$. Nullpunkta er $x = 1$ og $x = -3$.\n\nAbc-formelen fungerer alltid, uansett om tala er «pene» eller ikkje. Til dømes gir $f(x) = x^2 - 4x + 1$ diskriminanten $D = 16 - 4 = 12$, og nullpunkta $x = \\frac{4 \\pm \\sqrt{12}}{2} = 2 \\pm \\sqrt{3}$. Svaret inneheld ei rot, men det er heilt legitimt."
+    },
+    {
+      "id": "1t-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på abc-formelen og diskriminanten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-5-n-quiz2-q0",
+            "task": "Kva er diskriminanten til $f(x) = x^2 + 6x + 9$, og kva tyder han?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$D = 36$, funksjonen har to nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$D = 0$, funksjonen har éin dobbeltrot",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$D = -36$, funksjonen har ingen nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$D = 72$, funksjonen har to nullpunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D = b^2 - 4ac = 36 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0$. Når $D = 0$, har funksjonen nøyaktig eitt nullpunkt (dobbeltrot). Her er $x = \\frac{-6}{2} = -3$, og $f(x) = (x + 3)^2$."
+          },
+          {
+            "id": "1t-3-5-n-quiz2-q1",
+            "task": "Kva er abc-formelen for $ax^2 + bx + c = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = \\frac{b \\pm \\sqrt{b^2 - 4ac}}{2a}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{-b \\pm \\sqrt{b^2 + 4ac}}{2a}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{-b \\pm \\sqrt{b - 4ac}}{2a}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Abc-formelen er $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. Pass på minusteiknet framfor $b$ og at det er $b^2 - 4ac$ under rotteiknet."
+          },
+          {
+            "id": "1t-3-5-n-quiz2-q2",
+            "task": "Kva er diskriminanten til $f(x) = 2x^2 + 4x - 6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$D = -32$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$D = 16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$D = 40$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$D = 64$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$D = b^2 - 4ac = 4^2 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har funksjonen to ulike nullpunkt."
+          },
+          {
+            "id": "1t-3-5-n-quiz2-q3",
+            "task": "Funksjonen $f(x) = x^2 + 2x + 5$ har $D = 4 - 20 = -16$. Kva tyder det?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Funksjonen har ingen nullpunkt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Funksjonen har to nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Funksjonen har éin dobbeltrot",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonen har uendeleg mange nullpunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $D < 0$, kan vi ikkje ta kvadratrota av eit negativt tal (i dei reelle tala). Parabelen kryssar aldri $x$-aksen, og funksjonen har ingen nullpunkt."
+          },
+          {
+            "id": "1t-3-5-n-quiz2-q4",
+            "task": "Kva er nullpunkta til $f(x) = 2x^2 + 4x - 6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 2$ og $x = -3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 1$ og $x = -3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = -1$ og $x = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 3$ og $x = -1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $D = 64$: $x = \\frac{-4 \\pm \\sqrt{64}}{2 \\cdot 2} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-3-5-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-5-narrativ-del3.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-3-5-n-section3",
+      "type": "text",
+      "content": "## Faktorisert form – nullpunkta i front\n\nNår du har funne nullpunkta $x_1$ og $x_2$ til ein andregradsfunksjon, kan du skrive han på **faktorisert form**:\n\n$$f(x) = a(x - x_1)(x - x_2)$$\n\nHer er $a$ den leiande koeffisienten, og nullpunkta blir lesne direkte frå uttrykket. Denne forma er utruleg nyttig fordi ho gir deg nullpunkta med eit blikk.\n\nLat oss skrive $f(x) = 2x^2 - 8x + 6$ på faktorisert form. Først finn vi nullpunkta med abc-formelen: $a = 2$, $b = -8$, $c = 6$. Diskriminanten er $D = 64 - 48 = 16$. Nullpunkta er $x = \\frac{8 \\pm 4}{4}$, altså $x = 3$ eller $x = 1$. Faktorisert form: $f(x) = 2(x - 1)(x - 3)$.\n\nVi kan kontrollere ved å gange ut: $2(x - 1)(x - 3) = 2(x^2 - 4x + 3) = 2x^2 - 8x + 6$. Stemmer!\n\nEit anna døme: $g(x) = -x^2 + 4x + 5$. Her er $a = -1$, $b = 4$, $c = 5$. Diskriminanten: $D = 16 + 20 = 36$. Nullpunkta: $x = \\frac{-4 \\pm 6}{-2}$. Det gir $x = \\frac{-4 + 6}{-2} = -1$ eller $x = \\frac{-4 - 6}{-2} = 5$. Faktorisert form: $g(x) = -(x + 1)(x - 5)$.\n\nLegg merke til minusteiknet framfor – det er den leiande koeffisienten $a = -1$. Kontrollen: $-(x + 1)(x - 5) = -(x^2 - 4x - 5) = -x^2 + 4x + 5$. Perfekt!"
+    },
+    {
+      "id": "1t-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på faktorisert form:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-5-n-quiz3-q0",
+            "task": "Kva er faktorisert form for $f(x) = x^2 - 6x + 8$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) = (x + 2)(x + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = (x - 2)(x + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = (x - 2)(x - 4)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f(x) = (x + 2)(x - 4)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng to tal som ganga gir $8$ og adderte gir $-6$. Det er $-2$ og $-4$. Altså $f(x) = (x - 2)(x - 4)$. Kontroll: $(x - 2)(x - 4) = x^2 - 6x + 8$."
+          },
+          {
+            "id": "1t-3-5-n-quiz3-q1",
+            "task": "Funksjonen $f(x) = 2x^2 - 8x + 6$ har nullpunkt $x = 1$ og $x = 3$. Kva er faktorisert form?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) = (x - 1)(x - 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = 2(x + 1)(x + 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) = -2(x - 1)(x - 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = 2(x - 1)(x - 3)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Faktorisert form er $f(x) = a(x - x_1)(x - x_2)$. Her er $a = 2$, $x_1 = 1$, $x_2 = 3$. Dermed $f(x) = 2(x - 1)(x - 3)$. Vi må hugse den leiande koeffisienten $a$!"
+          },
+          {
+            "id": "1t-3-5-n-quiz3-q2",
+            "task": "Kva er faktorisert form for $g(x) = -x^2 + 4x + 5$ med nullpunkt $x = -1$ og $x = 5$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$g(x) = -(x + 1)(x - 5)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$g(x) = (x + 1)(x - 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$g(x) = -(x - 1)(x + 5)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$g(x) = -x(x + 1)(x - 5)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorisert form: $g(x) = a(x - x_1)(x - x_2) = -1 \\cdot (x - (-1))(x - 5) = -(x + 1)(x - 5)$. Minusteiknet framfor er den leiande koeffisienten $a = -1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-3-5-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-5-narrativ-del4.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-3-5-n-section4",
+      "type": "text",
+      "content": "## Forteiknsanalyse – over eller under x-aksen?\n\nNo som vi kan finne nullpunkta, opnar det seg eit nytt spørsmål: i kva intervall er $f(x)$ positiv, og i kva er ho negativ? Å svare på dette blir kalla **forteiknsanalyse**, og resultatet viser vi gjerne i ei **forteiknslinje**.\n\nMetoden er enkel. Først finn du nullpunkta – dei deler tallinja i intervall. Deretter testar du éin $x$-verdi i kvart intervall for å sjå om $f(x)$ er positiv eller negativ.\n\nLat oss gjere dette for $f(x) = x^2 - 4$. Nullpunkta er $x = -2$ og $x = 2$ (konjugatsetninga: $x^2 - 4 = (x - 2)(x + 2)$). Tallinja blir delt i tre intervall: $x < -2$, $-2 < x < 2$, og $x > 2$.\n\nVi testar: for $x = -3$ får vi $f(-3) = 9 - 4 = 5 > 0$. For $x = 0$ får vi $f(0) = -4 < 0$. For $x = 3$ får vi $f(3) = 9 - 4 = 5 > 0$. Forteiknslinja viser altså pluss, null, minus, null, pluss.\n\nDet finst ein hugseregel som sparer deg for mykje rekning. Når $a > 0$ (parabelen opnar oppover), er $f(x) > 0$ *utanfor* nullpunkta og $f(x) < 0$ *mellom* dei. Når $a < 0$ (parabelen opnar nedover), er det omvendt: $f(x) > 0$ *mellom* nullpunkta og $f(x) < 0$ *utanfor* dei.\n\nTenk på det visuelt: ein «smilande» parabel ($a > 0$) er over $x$-aksen på utsidene og under mellom nullpunkta. Ein «sur» parabel ($a < 0$) er over $x$-aksen mellom nullpunkta og under på utsidene."
+    },
+    {
+      "id": "1t-3-5-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-5-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på forteiknsanalyse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-5-n-quiz4-q0",
+            "task": "For $g(x) = -x^2 + 4x - 3$ med nullpunkt $x = 1$ og $x = 3$: kvar er $g(x) > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x < 1$ eller $x > 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1 < x < 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "For alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aldri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $a = -1 < 0$, opnar parabelen nedover. Då er $g(x) > 0$ *mellom* nullpunkta, altså for $1 < x < 3$."
+          },
+          {
+            "id": "1t-3-5-n-quiz4-q1",
+            "task": "For $f(x) = x^2 - 4$ med nullpunkt $x = -2$ og $x = 2$: kvar er $f(x) < 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x < -2$ eller $x > 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-2 < x < 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Aldri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $a = 1 > 0$, opnar parabelen oppover. Då er $f(x) < 0$ *mellom* nullpunkta, altså for $-2 < x < 2$."
+          },
+          {
+            "id": "1t-3-5-n-quiz4-q2",
+            "task": "Parabelen $f(x) = 2x^2 - 10x + 12$ har $a > 0$ og nullpunkt $x = 2$ og $x = 3$. Kvar er $f(x) > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2 < x < 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre for $x > 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x < 2$ eller $x > 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $a > 0$ opnar parabelen oppover. Funksjonen er positiv *utanfor* nullpunkta: $x < 2$ eller $x > 3$. Mellom nullpunkta ($2 < x < 3$) er han negativ."
+          },
+          {
+            "id": "1t-3-5-n-quiz4-q3",
+            "task": "Kva er verdien av $f(0)$ for $f(x) = x^2 - 4$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$-4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(0) = 0^2 - 4 = -4$. Denne negative verdien stadfestar at funksjonen er negativ mellom nullpunkta ($x = 0$ ligg mellom $-2$ og $2$)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-3-5-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-5-narrativ-del5.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-3-5-n-section5",
+      "type": "text",
+      "content": "## Andregradsulikskapar – når er funksjonen positiv eller negativ?\n\nForteiknsanalyse er ikkje berre teori – ho lèt oss løyse **ulikskapar** med andregradsfunksjonar. Spørsmål som «for kva $x$ er $x^2 - 3x - 10 > 0$?» blir svart på ved å finne nullpunkta og bruke forteiknsanalyse.\n\nLat oss løyse $x^2 - 3x - 10 > 0$. Først faktoriserer vi: vi treng to tal som ganga gir $-10$ og adderte gir $-3$. Det er $-5$ og $2$: $(x - 5)(x + 2) = 0$ gir nullpunkta $x = 5$ og $x = -2$. Sidan $a = 1 > 0$, er parabelen positiv utanfor nullpunkta. Løysinga er $x < -2$ eller $x > 5$.\n\nKva med ein ulikskap der vi ser etter den negative delen? Lat oss løyse $x^2 - 6x + 8 \\leq 0$. Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ mellom nullpunkta (inkludert nullpunkta sjølve, fordi vi har $\\leq$). Løysinga er $2 \\leq x \\leq 4$.\n\nOg med negativ leiande koeffisient? Lat oss løyse $-x^2 + 2x + 3 > 0$. Nullpunkt: $x^2 - 2x - 3 = 0$ gir $(x - 3)(x + 1) = 0$, altså $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta. Løysinga er $-1 < x < 3$.\n\nEit siste spennande spørsmål: for kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt? Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $k < 4$. Her bestemmer diskriminanten ikkje berre *om* det finst nullpunkt, men *vilkåret* for at dei skal eksistere."
+    },
+    {
+      "id": "1t-3-5-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-5-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på andregradsulikskapar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-5-n-quiz5-q0",
+            "task": "Kva er løysinga til ulikskapen $x^2 - 4x - 5 > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-1 < x < 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x < -1$ eller $x > 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x < -5$ eller $x > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x \\leq -1$ eller $x \\geq 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorisering: $(x - 5)(x + 1) = 0$ gir nullpunkt $x = 5$ og $x = -1$. Sidan $a = 1 > 0$, er funksjonen positiv *utanfor* nullpunkta: $x < -1$ eller $x > 5$."
+          },
+          {
+            "id": "1t-3-5-n-quiz5-q1",
+            "task": "Kva er løysinga til $x^2 - 6x + 8 \\leq 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x < 2$ eller $x > 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2 < x < 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2 \\leq x \\leq 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x \\leq 2$ eller $x \\geq 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ *mellom* nullpunkta. Med $\\leq$ blir nullpunkta inkluderte: $2 \\leq x \\leq 4$."
+          },
+          {
+            "id": "1t-3-5-n-quiz5-q2",
+            "task": "Kva er løysinga til $-x^2 + 2x + 3 > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x < -1$ eller $x > 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-3 < x < 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen løysing",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-1 < x < 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Nullpunkt for $x^2 - 2x - 3 = 0$: $(x - 3)(x + 1) = 0$ gir $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta: $-1 < x < 3$."
+          },
+          {
+            "id": "1t-3-5-n-quiz5-q3",
+            "task": "For kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$k > 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$k = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$k < 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$k < 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $4k < 16$, altså $k < 4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-3-5-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringa",
+      "src": "/audio/1t/1t-3-5-narrativ-del6.mp3",
+      "description": "Lydfil som les opp oppsummeringa."
+    },
+    {
+      "id": "1t-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi lært å finne **nullpunkta** til andregradsfunksjonar – punkta der $f(x) = 0$.\n\n**Faktorisering** er den raskaste metoden: finn to tal som ganga gir $a \\cdot c$ og adderte gir $b$, og skriv uttrykket som eit produkt. Hugs spesialtilfellet $x^2 - k^2 = (x - k)(x + k)$.\n\n**Abc-formelen** $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ fungerer alltid. **Diskriminanten** $D = b^2 - 4ac$ fortel deg talet på nullpunkt: $D > 0$ gir to, $D = 0$ gir eitt (dobbeltrot), $D < 0$ gir ingen.\n\nNår du kjenner nullpunkta $x_1$ og $x_2$, kan du skrive funksjonen på **faktorisert form**: $f(x) = a(x - x_1)(x - x_2)$.\n\n**Forteiknsanalyse** viser kvar $f(x)$ er positiv og negativ. For $a > 0$ er funksjonen positiv utanfor nullpunkta, for $a < 0$ er han positiv mellom dei. Denne kunnskapen lèt deg løyse **andregradsulikskapar**."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "2a63a28abd4a926e",
+    "translatedAt": "2026-06-16T23:35:47.257Z",
+    "model": "claude-code-agent",
+    "strings": 149,
+    "tm": {
+      "bee18a90b22e410b": "Nullpunkt og forteikn",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "d12e1497c8ca5e38": "Ei forteljing om der parabelen møter x-aksen – abc-formelen, faktorisering og korleis du les forteiknet til ein andregradsfunksjon.",
+      "828ebc54b260edd3": "finne nullpunkt til andregradsfunksjonar",
+      "d2c9d9ef5d3f774f": "Lytt til denne delen",
+      "21954805f17795e8": "Lydfil som les opp teksten fram til første quiz.",
+      "e0ff64b4881ad9e1": "## Der parabelen kryssar x-aksen\n\nI førre kapittel lærte du å finne topp- og botnpunkt til parablar. Men det er eitt spørsmål vi ikkje har svart på: kvar kryssar parabelen $x$-aksen? Desse kryssingspunkta blir kalla **nullpunkt**, fordi det er der $f(x) = 0$. Å finne nullpunkta er ein av dei viktigaste ferdigheitene i heile matematikken – det handlar om å løyse andregradslikninga $ax^2 + bx + c = 0$.\n\nI dette kapittelet skal vi lære to kraftige metodar for å finne nullpunkt: **faktorisering** og **abc-formelen**. Vi skal òg lære å skrive funksjonen på **faktorisert form** og å analysere **forteiknet** til funksjonen, altså å finne ut kvar $f(x)$ er positiv og kvar ho er negativ.",
+      "c773eccbd3c2bf59": "## Faktorisering – den elegante vegen\n\nDen enklaste måten å finne nullpunkt på er ved **faktorisering**. Ideen er å skrive uttrykket $ax^2 + bx + c$ som eit produkt av to faktorar. Når eit produkt er null, må minst éin av faktorane vere null – det er nullregelen.\n\nLat oss ta $f(x) = x^2 - 5x + 6$. Vi leitar etter to tal som ganga gir $6$ (konstantleddet) og adderte gir $-5$ (koeffisienten framfor $x$). Kva med $-2$ og $-3$? Sjekk: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Perfekt! Då kan vi skrive $f(x) = (x - 2)(x - 3)$.\n\nNo set vi $f(x) = 0$: $(x - 2)(x - 3) = 0$. Nullregelen seier at anten er $x - 2 = 0$ eller $x - 3 = 0$, altså $x = 2$ eller $x = 3$. Det er nullpunkta.\n\nLat oss prøve med $g(x) = x^2 + 2x - 15$. Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Kva med $5$ og $-3$? Sjekk: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Ja! Då er $g(x) = (x + 5)(x - 3)$, og nullpunkta er $x = -5$ og $x = 3$.\n\nEit spesielt tilfelle er konjugatsetninga: $x^2 - 9 = (x - 3)(x + 3)$, som gir nullpunkta $x = \\pm 3$. Generelt er $x^2 - k^2 = (x - k)(x + k)$.\n\nFaktorisering er elegant og rask, men ho fungerer berre når tala «går pent opp». Heldigvis finst det ein metode som alltid fungerer.",
+      "18fac1dfae2a414d": "Test deg sjølv på faktorisering og nullpunkt:",
+      "4097889236a2af26": "placeholder",
+      "0f872c11eca61116": "Kva er nullpunkta til $f(x) = x^2 - 7x + 12$?",
+      "8e3af7e5229b8586": "$x = -3$ og $x = -4$",
+      "36674425ecffb168": "$x = 2$ og $x = 6$",
+      "2d6dcf385d849cb7": "$x = 3$ og $x = 4$",
+      "9d75db27acda1484": "$x = -3$ og $x = 4$",
+      "8efe143615bd6ad0": "Vi treng to tal som ganga gir $12$ og adderte gir $-7$. Det er $-3$ og $-4$: $(-3) \\cdot (-4) = 12$ og $(-3) + (-4) = -7$. Så $f(x) = (x - 3)(x - 4)$ og nullpunkta er $x = 3$ og $x = 4$.",
+      "de391a0ae6c2e3b7": "Kva er den faktoriserte forma til $g(x) = x^2 + 2x - 15$?",
+      "5af86c2169882e1d": "$(x + 3)(x - 5)$",
+      "e2f05274185ba1ed": "$(x - 3)(x + 5)$",
+      "8e9ddfbd10dffccb": "$(x + 5)(x - 3)$",
+      "095efdf484f89749": "$(x - 5)(x - 3)$",
+      "35dfb0782f0bc3b7": "Vi treng to tal som ganga gir $-15$ og adderte gir $2$. Det er $5$ og $-3$: $5 \\cdot (-3) = -15$ og $5 + (-3) = 2$. Dermed $g(x) = (x + 5)(x - 3)$.",
+      "7633e3991ca6e16b": "Kva er nullpunkta til $h(x) = x^2 - 16$?",
+      "2f29d1b2f8c398ef": "$x = 8$ og $x = -8$",
+      "a1830872e2aa819f": "$x = 4$ og $x = -4$",
+      "072ccfdfe69106ab": "$x = 16$ og $x = -16$",
+      "16478990d21d8d25": "$x = 2$ og $x = -2$",
+      "16a8970d7de02090": "Vi brukar konjugatsetninga: $x^2 - 16 = x^2 - 4^2 = (x - 4)(x + 4)$. Nullpunkta er $x = 4$ og $x = -4$.",
+      "d1c34d3b54275897": "Kva seier nullregelen?",
+      "b2d6a94c9053dd33": "Summen av to tal er null berre viss begge er null",
+      "61c2ba84b719888c": "Produktet av to tal er null berre viss minst éin faktor er null",
+      "f28b7899a1b49317": "Eit tal gonger null er alltid positivt",
+      "be437343abd9fbda": "Null delt på eit tal er alltid udefinert",
+      "8727cc8898eef6f4": "Nullregelen seier at eit produkt er null viss og berre viss minst éin av faktorane er null. Derfor kan vi finne nullpunkta ved å setje kvar faktor lik null separat.",
+      "058005533831b7f6": "Lydfil som les opp teksten fram til neste quiz.",
+      "349cf7bfdcd84dde": "## Abc-formelen – det universelle verktøyet\n\nNår faktorisering ikkje lukkast, dreg vi fram det kraftigaste verktøyet vi har: **abc-formelen**. Han løyser kvar andregradslikning $ax^2 + bx + c = 0$:\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nDet vesle symbolet $\\pm$ tyder at du får to svar: eitt med pluss og eitt med minus. Uttrykket under rotteiknet, $D = b^2 - 4ac$, blir kalla **diskriminanten**, og han fortel deg alt om kor mange nullpunkt funksjonen har.\n\nViss $D > 0$, finst det to ulike nullpunkt – parabelen kryssar $x$-aksen to gonger. Viss $D = 0$, er det nøyaktig eitt nullpunkt, ein **dobbeltrot** – parabelen rører ved $x$-aksen i eitt punkt. Og viss $D < 0$, finst det ingen nullpunkt – parabelen kryssar aldri $x$-aksen.\n\nLat oss bruke formelen på $f(x) = 2x^2 + 4x - 6$. Her er $a = 2$, $b = 4$, $c = -6$. Diskriminanten er $D = 16 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har vi to nullpunkt. Vi reknar vidare: $x = \\frac{-4 \\pm \\sqrt{64}}{4} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$. Nullpunkta er $x = 1$ og $x = -3$.\n\nAbc-formelen fungerer alltid, uansett om tala er «pene» eller ikkje. Til dømes gir $f(x) = x^2 - 4x + 1$ diskriminanten $D = 16 - 4 = 12$, og nullpunkta $x = \\frac{4 \\pm \\sqrt{12}}{2} = 2 \\pm \\sqrt{3}$. Svaret inneheld ei rot, men det er heilt legitimt.",
+      "e1684f918d2d0fcb": "Test deg sjølv på abc-formelen og diskriminanten:",
+      "5d6081c1c64c73c2": "Kva er diskriminanten til $f(x) = x^2 + 6x + 9$, og kva tyder han?",
+      "07d20c8579a20908": "$D = 0$, funksjonen har éin dobbeltrot",
+      "6cd869f94a2a36df": "$D = 36$, funksjonen har to nullpunkt",
+      "d3c331821139f3c2": "$D = -36$, funksjonen har ingen nullpunkt",
+      "05f4e356b2241ac3": "$D = 72$, funksjonen har to nullpunkt",
+      "220c36b0765217a8": "$D = b^2 - 4ac = 36 - 4 \\cdot 1 \\cdot 9 = 36 - 36 = 0$. Når $D = 0$, har funksjonen nøyaktig eitt nullpunkt (dobbeltrot). Her er $x = \\frac{-6}{2} = -3$, og $f(x) = (x + 3)^2$.",
+      "70911421897ff7a4": "Kva er abc-formelen for $ax^2 + bx + c = 0$?",
+      "b3767f0173daab49": "$x = \\frac{b \\pm \\sqrt{b^2 - 4ac}}{2a}$",
+      "1732b3bd2108634f": "$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$",
+      "755812f660181b4f": "$x = \\frac{-b \\pm \\sqrt{b^2 + 4ac}}{2a}$",
+      "47395939f292fac5": "$x = \\frac{-b \\pm \\sqrt{b - 4ac}}{2a}$",
+      "9290d07663ce41e0": "Abc-formelen er $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. Pass på minusteiknet framfor $b$ og at det er $b^2 - 4ac$ under rotteiknet.",
+      "3f80c8fb5e540873": "Kva er diskriminanten til $f(x) = 2x^2 + 4x - 6$?",
+      "4447878f9cef2fcd": "$D = -32$",
+      "fc89a1be788c847e": "$D = 64$",
+      "8f90c0d227545399": "$D = 16$",
+      "05b8379107e11daa": "$D = 40$",
+      "fb0fa9dbd309dee9": "$D = b^2 - 4ac = 4^2 - 4 \\cdot 2 \\cdot (-6) = 16 + 48 = 64$. Sidan $D = 64 > 0$, har funksjonen to ulike nullpunkt.",
+      "43df33c474edce7d": "Funksjonen $f(x) = x^2 + 2x + 5$ har $D = 4 - 20 = -16$. Kva tyder det?",
+      "e924441618d90fd7": "Funksjonen har to nullpunkt",
+      "068c368aa6cebde3": "Funksjonen har éin dobbeltrot",
+      "e72fdec7897f5f0e": "Funksjonen har ingen nullpunkt",
+      "7c1555c795af437c": "Funksjonen har uendeleg mange nullpunkt",
+      "28b6c7bd1b328cfd": "Når $D < 0$, kan vi ikkje ta kvadratrota av eit negativt tal (i dei reelle tala). Parabelen kryssar aldri $x$-aksen, og funksjonen har ingen nullpunkt.",
+      "d37cc37d05e51e43": "Kva er nullpunkta til $f(x) = 2x^2 + 4x - 6$?",
+      "55268cd3bb548a5a": "$x = 2$ og $x = -3$",
+      "e5deb63cea59a7ed": "$x = -1$ og $x = 3$",
+      "86ad173b91d5be5b": "$x = 1$ og $x = -3$",
+      "126557bc50da296e": "$x = 3$ og $x = -1$",
+      "1e047a841688ecb2": "Med $D = 64$: $x = \\frac{-4 \\pm \\sqrt{64}}{2 \\cdot 2} = \\frac{-4 \\pm 8}{4}$. Det gir $x = \\frac{4}{4} = 1$ eller $x = \\frac{-12}{4} = -3$.",
+      "fa93eea28ea8b173": "## Faktorisert form – nullpunkta i front\n\nNår du har funne nullpunkta $x_1$ og $x_2$ til ein andregradsfunksjon, kan du skrive han på **faktorisert form**:\n\n$$f(x) = a(x - x_1)(x - x_2)$$\n\nHer er $a$ den leiande koeffisienten, og nullpunkta blir lesne direkte frå uttrykket. Denne forma er utruleg nyttig fordi ho gir deg nullpunkta med eit blikk.\n\nLat oss skrive $f(x) = 2x^2 - 8x + 6$ på faktorisert form. Først finn vi nullpunkta med abc-formelen: $a = 2$, $b = -8$, $c = 6$. Diskriminanten er $D = 64 - 48 = 16$. Nullpunkta er $x = \\frac{8 \\pm 4}{4}$, altså $x = 3$ eller $x = 1$. Faktorisert form: $f(x) = 2(x - 1)(x - 3)$.\n\nVi kan kontrollere ved å gange ut: $2(x - 1)(x - 3) = 2(x^2 - 4x + 3) = 2x^2 - 8x + 6$. Stemmer!\n\nEit anna døme: $g(x) = -x^2 + 4x + 5$. Her er $a = -1$, $b = 4$, $c = 5$. Diskriminanten: $D = 16 + 20 = 36$. Nullpunkta: $x = \\frac{-4 \\pm 6}{-2}$. Det gir $x = \\frac{-4 + 6}{-2} = -1$ eller $x = \\frac{-4 - 6}{-2} = 5$. Faktorisert form: $g(x) = -(x + 1)(x - 5)$.\n\nLegg merke til minusteiknet framfor – det er den leiande koeffisienten $a = -1$. Kontrollen: $-(x + 1)(x - 5) = -(x^2 - 4x - 5) = -x^2 + 4x + 5$. Perfekt!",
+      "1aef7545bb97228d": "Test deg sjølv på faktorisert form:",
+      "224009ec5961291a": "Kva er faktorisert form for $f(x) = x^2 - 6x + 8$?",
+      "52c9a7615e0002f3": "$f(x) = (x + 2)(x + 4)$",
+      "0b359d4d9ebb912c": "$f(x) = (x - 2)(x - 4)$",
+      "4a3973c075d74f21": "$f(x) = (x - 2)(x + 4)$",
+      "0ea0322b4f0b2ee9": "$f(x) = (x + 2)(x - 4)$",
+      "364570432d2eaa9b": "Vi treng to tal som ganga gir $8$ og adderte gir $-6$. Det er $-2$ og $-4$. Altså $f(x) = (x - 2)(x - 4)$. Kontroll: $(x - 2)(x - 4) = x^2 - 6x + 8$.",
+      "6a48ea0501fa36d2": "Funksjonen $f(x) = 2x^2 - 8x + 6$ har nullpunkt $x = 1$ og $x = 3$. Kva er faktorisert form?",
+      "d7e0958ff11f0dc9": "$f(x) = (x - 1)(x - 3)$",
+      "c8f78cb2914d2830": "$f(x) = 2(x - 1)(x - 3)$",
+      "5e153e4dd87d1254": "$f(x) = 2(x + 1)(x + 3)$",
+      "7ca86607e8f26edd": "$f(x) = -2(x - 1)(x - 3)$",
+      "72212261b7519387": "Faktorisert form er $f(x) = a(x - x_1)(x - x_2)$. Her er $a = 2$, $x_1 = 1$, $x_2 = 3$. Dermed $f(x) = 2(x - 1)(x - 3)$. Vi må hugse den leiande koeffisienten $a$!",
+      "a7f4f75ac8a20c51": "Kva er faktorisert form for $g(x) = -x^2 + 4x + 5$ med nullpunkt $x = -1$ og $x = 5$?",
+      "fa8ad474b29c9471": "$g(x) = (x + 1)(x - 5)$",
+      "ccac8d18a986232c": "$g(x) = -(x - 1)(x + 5)$",
+      "d066bfa975c7ce0f": "$g(x) = -(x + 1)(x - 5)$",
+      "7fd28ff129796a2b": "$g(x) = -x(x + 1)(x - 5)$",
+      "6fb54b0d81c1a4b0": "Faktorisert form: $g(x) = a(x - x_1)(x - x_2) = -1 \\cdot (x - (-1))(x - 5) = -(x + 1)(x - 5)$. Minusteiknet framfor er den leiande koeffisienten $a = -1$.",
+      "b94affcd420d4968": "## Forteiknsanalyse – over eller under x-aksen?\n\nNo som vi kan finne nullpunkta, opnar det seg eit nytt spørsmål: i kva intervall er $f(x)$ positiv, og i kva er ho negativ? Å svare på dette blir kalla **forteiknsanalyse**, og resultatet viser vi gjerne i ei **forteiknslinje**.\n\nMetoden er enkel. Først finn du nullpunkta – dei deler tallinja i intervall. Deretter testar du éin $x$-verdi i kvart intervall for å sjå om $f(x)$ er positiv eller negativ.\n\nLat oss gjere dette for $f(x) = x^2 - 4$. Nullpunkta er $x = -2$ og $x = 2$ (konjugatsetninga: $x^2 - 4 = (x - 2)(x + 2)$). Tallinja blir delt i tre intervall: $x < -2$, $-2 < x < 2$, og $x > 2$.\n\nVi testar: for $x = -3$ får vi $f(-3) = 9 - 4 = 5 > 0$. For $x = 0$ får vi $f(0) = -4 < 0$. For $x = 3$ får vi $f(3) = 9 - 4 = 5 > 0$. Forteiknslinja viser altså pluss, null, minus, null, pluss.\n\nDet finst ein hugseregel som sparer deg for mykje rekning. Når $a > 0$ (parabelen opnar oppover), er $f(x) > 0$ *utanfor* nullpunkta og $f(x) < 0$ *mellom* dei. Når $a < 0$ (parabelen opnar nedover), er det omvendt: $f(x) > 0$ *mellom* nullpunkta og $f(x) < 0$ *utanfor* dei.\n\nTenk på det visuelt: ein «smilande» parabel ($a > 0$) er over $x$-aksen på utsidene og under mellom nullpunkta. Ein «sur» parabel ($a < 0$) er over $x$-aksen mellom nullpunkta og under på utsidene.",
+      "5dff44309a5c3285": "Test deg sjølv på forteiknsanalyse:",
+      "7a5955e03af6abda": "For $g(x) = -x^2 + 4x - 3$ med nullpunkt $x = 1$ og $x = 3$: kvar er $g(x) > 0$?",
+      "7bb28a31032676fd": "$x < 1$ eller $x > 3$",
+      "a4cd157d5388ea5a": "For alle $x$",
+      "8383ae1bc9e1592d": "$1 < x < 3$",
+      "72816c36bd404a80": "Aldri",
+      "7e1b3216130aa5ce": "Sidan $a = -1 < 0$, opnar parabelen nedover. Då er $g(x) > 0$ *mellom* nullpunkta, altså for $1 < x < 3$.",
+      "03fea1ba63177d01": "For $f(x) = x^2 - 4$ med nullpunkt $x = -2$ og $x = 2$: kvar er $f(x) < 0$?",
+      "5b1d790a980e051d": "$x < -2$ eller $x > 2$",
+      "4a199153466c114e": "$-2 < x < 2$",
+      "454646ab6fabf02d": "Sidan $a = 1 > 0$, opnar parabelen oppover. Då er $f(x) < 0$ *mellom* nullpunkta, altså for $-2 < x < 2$.",
+      "9552650785993084": "Parabelen $f(x) = 2x^2 - 10x + 12$ har $a > 0$ og nullpunkt $x = 2$ og $x = 3$. Kvar er $f(x) > 0$?",
+      "52b5b71df60814ff": "$2 < x < 3$",
+      "e77416ffc1aae519": "Berre for $x > 3$",
+      "802242c51a40c9b4": "$x < 2$ eller $x > 3$",
+      "09fc7177e8d98d6a": "Med $a > 0$ opnar parabelen oppover. Funksjonen er positiv *utanfor* nullpunkta: $x < 2$ eller $x > 3$. Mellom nullpunkta ($2 < x < 3$) er han negativ.",
+      "537c09913cbbcbc2": "Kva er verdien av $f(0)$ for $f(x) = x^2 - 4$?",
+      "98a7b5663bb87499": "$f(0) = 0^2 - 4 = -4$. Denne negative verdien stadfestar at funksjonen er negativ mellom nullpunkta ($x = 0$ ligg mellom $-2$ og $2$).",
+      "8da019ee085582d4": "## Andregradsulikskapar – når er funksjonen positiv eller negativ?\n\nForteiknsanalyse er ikkje berre teori – ho lèt oss løyse **ulikskapar** med andregradsfunksjonar. Spørsmål som «for kva $x$ er $x^2 - 3x - 10 > 0$?» blir svart på ved å finne nullpunkta og bruke forteiknsanalyse.\n\nLat oss løyse $x^2 - 3x - 10 > 0$. Først faktoriserer vi: vi treng to tal som ganga gir $-10$ og adderte gir $-3$. Det er $-5$ og $2$: $(x - 5)(x + 2) = 0$ gir nullpunkta $x = 5$ og $x = -2$. Sidan $a = 1 > 0$, er parabelen positiv utanfor nullpunkta. Løysinga er $x < -2$ eller $x > 5$.\n\nKva med ein ulikskap der vi ser etter den negative delen? Lat oss løyse $x^2 - 6x + 8 \\leq 0$. Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ mellom nullpunkta (inkludert nullpunkta sjølve, fordi vi har $\\leq$). Løysinga er $2 \\leq x \\leq 4$.\n\nOg med negativ leiande koeffisient? Lat oss løyse $-x^2 + 2x + 3 > 0$. Nullpunkt: $x^2 - 2x - 3 = 0$ gir $(x - 3)(x + 1) = 0$, altså $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta. Løysinga er $-1 < x < 3$.\n\nEit siste spennande spørsmål: for kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt? Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $k < 4$. Her bestemmer diskriminanten ikkje berre *om* det finst nullpunkt, men *vilkåret* for at dei skal eksistere.",
+      "5697dc599e3944c1": "Test deg sjølv på andregradsulikskapar:",
+      "924bf78696bdaf5a": "Kva er løysinga til ulikskapen $x^2 - 4x - 5 > 0$?",
+      "7ed8fc06613ffd76": "$-1 < x < 5$",
+      "0d9e4d7ac9ca06fc": "$x < -5$ eller $x > 1$",
+      "ccf2d3cc6528af55": "$x \\leq -1$ eller $x \\geq 5$",
+      "38fbd4225465d997": "$x < -1$ eller $x > 5$",
+      "c867599f82e02971": "Faktorisering: $(x - 5)(x + 1) = 0$ gir nullpunkt $x = 5$ og $x = -1$. Sidan $a = 1 > 0$, er funksjonen positiv *utanfor* nullpunkta: $x < -1$ eller $x > 5$.",
+      "f5f42c49f72bbf46": "Kva er løysinga til $x^2 - 6x + 8 \\leq 0$?",
+      "59edabfbc4a3de67": "$x < 2$ eller $x > 4$",
+      "85df47c14222ad52": "$2 \\leq x \\leq 4$",
+      "27ee579e3effa330": "$2 < x < 4$",
+      "ddf4fa70f585d8f5": "$x \\leq 2$ eller $x \\geq 4$",
+      "d17c09f1488e1961": "Faktorisering: $(x - 2)(x - 4) = 0$ gir $x = 2$ og $x = 4$. Sidan $a = 1 > 0$, er $f(x) \\leq 0$ *mellom* nullpunkta. Med $\\leq$ blir nullpunkta inkluderte: $2 \\leq x \\leq 4$.",
+      "f7cc14359624f76d": "Kva er løysinga til $-x^2 + 2x + 3 > 0$?",
+      "db9fa2484b5e962e": "$x < -1$ eller $x > 3$",
+      "cd59fd4d1a969e74": "$-1 < x < 3$",
+      "51045c77c07d9461": "$-3 < x < 1$",
+      "e971110a3c79cbbb": "Ingen løysing",
+      "38f64d388b0a6b1d": "Nullpunkt for $x^2 - 2x - 3 = 0$: $(x - 3)(x + 1) = 0$ gir $x = 3$ og $x = -1$. Sidan $a = -1 < 0$, er funksjonen positiv *mellom* nullpunkta: $-1 < x < 3$.",
+      "c2651fd5d1a1d85c": "For kva verdiar av $k$ har $f(x) = x^2 - 4x + k$ to ulike nullpunkt?",
+      "819cdd35940ac1ee": "$k > 4$",
+      "380548b8a1f0e5d8": "$k = 4$",
+      "8067365d2d70d14a": "$k < 4$",
+      "e69d86eca80e0428": "$k < 0$",
+      "e77cd7b77d414159": "Vi treng $D > 0$: $(-4)^2 - 4 \\cdot 1 \\cdot k > 0$, altså $16 - 4k > 0$, som gir $4k < 16$, altså $k < 4$.",
+      "79eeeec37aef74be": "Lytt til oppsummeringa",
+      "b409d1128419f9c6": "Lydfil som les opp oppsummeringa.",
+      "9733b059590c938a": "## Oppsummering\n\nI dette kapittelet har vi lært å finne **nullpunkta** til andregradsfunksjonar – punkta der $f(x) = 0$.\n\n**Faktorisering** er den raskaste metoden: finn to tal som ganga gir $a \\cdot c$ og adderte gir $b$, og skriv uttrykket som eit produkt. Hugs spesialtilfellet $x^2 - k^2 = (x - k)(x + k)$.\n\n**Abc-formelen** $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ fungerer alltid. **Diskriminanten** $D = b^2 - 4ac$ fortel deg talet på nullpunkt: $D > 0$ gir to, $D = 0$ gir eitt (dobbeltrot), $D < 0$ gir ingen.\n\nNår du kjenner nullpunkta $x_1$ og $x_2$, kan du skrive funksjonen på **faktorisert form**: $f(x) = a(x - x_1)(x - x_2)$.\n\n**Forteiknsanalyse** viser kvar $f(x)$ er positiv og negativ. For $a > 0$ er funksjonen positiv utanfor nullpunkta, for $a < 0$ er han positiv mellom dei. Denne kunnskapen lèt deg løyse **andregradsulikskapar**."
+    }
+  }
+}

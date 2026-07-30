@@ -1,1 +1,486 @@
-{"id":"2p-4-1-narrativ","courseId":"2p","chapterNumber":"4.1","title":"Sannsynsrekning","subtitle":"Narrativ versjon","description":"Bli med inn i sannsynet si verd -- frå terningkast og kortstokkar til valtre og systematisk oppteljing. Ei forteljing om korleis vi kan setje tal på tilfeldigheiter.","estimatedMinutes":35,"competenceGoals":["forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"],"linkedChapterId":"2p-4-1","content":[{"id":"2p-4-1-n-intro","type":"text","content":"## Kan vi setje tal på tilfeldigheiter?\n\nTenk deg at du står i ein kiosk og vurderer å kjøpe eit lodd i eit lotteri. Du lurer på: *Kor sannsynleg er det eigentleg at eg vinn?* Eller kanskje du sjekkar vêrmeldinga og les at det er 70 prosent sjanse for regn. Kva tyder eigentleg det? Og når venen din hevdar at han \"alltid\" slår seksar på terningen -- stemmer det, eller er han berre heldig?\n\nSannsyn handlar om å setje tal på tilfeldigheiter. Det er eit matematisk verktøy som lèt oss seie noko fornuftig om ting vi ikkje kan føresjå med visse. Vi kan ikkje vite *nøyaktig* kva som skjer neste gong vi kastar ein terning, men vi kan seie noko presist om kva som er *sannsynleg*. Og det viser seg at desse utrekningane har enorm praktisk verdi -- frå forsikringsmatematikk og medisinsk forsking til poker og Lotto.\n\nI dette kapittelet skal vi starte heilt frå byrjinga: Kva er eigentleg eit utfallsrom? Kva meiner vi med ei hending? Og korleis reknar vi ut sannsynet for at noko bestemt skjer? Vi skal òg lære nokre kraftige verktøy: komplementsetninga, addisjonssetninga og valtre."},{"id":"2p-4-1-n-section1","type":"text","content":"## Utfallsrom, hendingar og den grunnleggjande formelen\n\nLat oss starte med det aller mest grunnleggjande. Når vi gjer eit forsøk der utfallet er tilfeldig -- til dømes kastar ein terning -- kallar vi mengda av *alle* moglege utfall for **utfallsrommet**. Vi bruker symbolet $\\Omega$ (den greske bokstaven omega) for dette. Kastar du ein vanleg terning, er utfallsrommet $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Seks moglege utfall, ikkje noko meir, ikkje noko mindre.\n\nEi **hending** er det vi er interesserte i å finne sannsynet for. Det kan vere eitt enkelt utfall, som \"å få 4\", eller ei samling av utfall, som \"å få eit partal\". Matematisk seier vi at ei hending $A$ er ei *delmengd* av utfallsrommet. Hendinga \"partal\" inneheld utfalla $\\{2, 4, 6\\}$ -- tre av dei seks moglege.\n\nOg no kjem sjølve nøkkelen: Sannsynet for ei hending $A$ er gitt ved formelen $P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$. Denne formelen føreset at alle utfall er like sannsynlege -- noko som gjeld for ein rettferdig terning, ein godt blanda kortstokk og mange andre situasjonar. Sannsynet er alltid eit tal mellom 0 og 1, der $P(A) = 0$ tyder at hendinga er umogleg, og $P(A) = 1$ tyder at ho er sikker.\n\nLat oss teste formelen med terningen. Sannsynet for å få nøyaktig 4 er $P(\\text{fire}) = \\frac{1}{6}$, fordi det er 1 gunstig utfall av 6 moglege. Sannsynet for eit partal er $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2}$, fordi det er 3 partal blant dei 6 moglege. Og sannsynet for eit tal større enn 4 er $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$, fordi berre 5 og 6 oppfyller kravet.\n\nKva med ein kortstokk? Ein standard kortstokk har 52 kort, og det finst 4 ess. Sannsynet for å trekkje eit ess tilfeldig er altså $P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13}$."},{"id":"2p-4-1-n-quiz1","type":"exercise","exercise":{"id":"2p-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grunnleggjande sannsyn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-1-n-quiz1-q0","task":"I ein pose ligg 5 raude, 3 blå og 2 grøne kuler. Du trekkjer éi kule tilfeldig. Kva er sannsynet for å trekkje ei raud kule?","options":[{"id":"a","text":"$\\frac{1}{5}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":true},{"id":"c","text":"$\\frac{5}{8}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{3}$","isCorrect":false}],"solution":"Totalt er det $5 + 3 + 2 = 10$ kuler. Av desse er 5 raude. $P(\\text{rød}) = \\frac{5}{10} = \\frac{1}{2}$."},{"id":"2p-4-1-n-quiz1-q1","task":"Du kastar ein vanleg terning. Kva er sannsynet for å få eit tal større enn 4?","options":[{"id":"a","text":"$\\frac{4}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"c","text":"$\\frac{2}{6} = \\frac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\frac{3}{6} = \\frac{1}{2}$","isCorrect":false}],"solution":"Tala større enn 4 er 5 og 6 -- altså 2 gunstige av 6 moglege utfall. $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$."}],"solution":""}},{"id":"2p-4-1-n-section2","type":"text","content":"## Komplementsetninga -- å tenkje baklengs\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko *ikkje* skjer, enn for at det skjer. Og det er her **komplementsetninga** kjem inn som eit elegant triks.\n\nKomplementhendinga til $A$, skrive $A'$, er rett og slett hendinga \"A skjer ikkje\". Og fordi noko anten skjer eller ikkje skjer, veit vi at $P(A) + P(A') = 1$. Snur vi om på dette, får vi komplementsetninga: $P(A') = 1 - P(A)$.\n\nLat oss ta eit kvardagsleg eksempel. Vêrmeldinga seier at det er 35 prosent sjanse for regn i morgon. Kva er sjansen for at det *ikkje* regnar? Vi set opp: $P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}35 = 0{,}65$. Altså 65 prosent sjanse for tørt vêr. Enkelt og greitt.\n\nMen komplementsetninga er meir enn berre ein snarveg for enkle problem. Ho er spesielt nyttig i situasjonar der det er vanskeleg å telje dei gunstige utfalla direkte, men lett å telje dei *ugunstige*. Tenk til dømes på spørsmålet: \"Kva er sannsynet for å få *minst éin* seksar på tre terningkast?\" Å telje alle måtar du kan få minst éin seksar på er litt rotete -- det kan vere éin, to eller tre seksarar. Men å rekne ut sannsynet for *ingen* seksarar er enkelt: $P(\\text{ingen sekser}) = \\frac{5}{6} \\cdot \\frac{5}{6} \\cdot \\frac{5}{6} = \\frac{125}{216}$. Dermed er $P(\\text{minst én sekser}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$.\n\nHer er eit anna eksempel å tenkje på: Sannsynet for at ein tilfeldig vald elev har bursdag i januar er $\\frac{31}{365}$ (31 dagar i januar av 365 dagar totalt). Då er sannsynet for at eleven *ikkje* har bursdag i januar $1 - \\frac{31}{365} = \\frac{334}{365}$."},{"id":"2p-4-1-n-quiz2","type":"exercise","exercise":{"id":"2p-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på komplementsetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-1-n-quiz2-q0","task":"Sannsynet for å bestå ein eksamen er $0{,}78$. Kva er sannsynet for å ikkje bestå?","options":[{"id":"a","text":"$0{,}78$","isCorrect":false},{"id":"b","text":"$0{,}12$","isCorrect":false},{"id":"c","text":"$0{,}22$","isCorrect":true},{"id":"d","text":"$1{,}78$","isCorrect":false}],"solution":"$P(\\text{ikke bestå}) = 1 - P(\\text{bestå}) = 1 - 0{,}78 = 0{,}22$."},{"id":"2p-4-1-n-quiz2-q1","task":"Kva er sannsynet for å få *minst éin* seksar på tre terningkast?","options":[{"id":"a","text":"$\\frac{3}{6} = \\frac{1}{2}$","isCorrect":false},{"id":"b","text":"$1 - \\left(\\frac{5}{6}\\right)^3 = 1 - \\frac{125}{216} \\approx 0{,}42$","isCorrect":true},{"id":"c","text":"$\\left(\\frac{1}{6}\\right)^3 \\approx 0{,}005$","isCorrect":false},{"id":"d","text":"$3 \\cdot \\frac{1}{6} = 0{,}5$","isCorrect":false}],"solution":"Vi bruker komplementet: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. $P(\\text{ingen sekser}) = (\\frac{5}{6})^3 = \\frac{125}{216}$. Altså $P(\\text{minst én}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$."}],"solution":""}},{"id":"2p-4-1-n-section3","type":"text","content":"## Addisjonssetninga -- når vi spør \"det eine eller det andre\"\n\nKva om du trekkjer eit kort frå ein kortstokk og lurer på: \"Kva er sjansen for å trekkje eit ess *eller* eit hjarterkort?\" Her er det freistande å berre leggje saman sannsyna, men då må vi passe på litt. Nokre hendingar kan nemleg skje *samtidig*, og då tel vi noko dobbelt dersom vi berre adderer.\n\nVi skil mellom to typar hendingar. **Uforeinlege hendingar** er hendingar som *ikkje* kan skje samtidig. Kastar du ein terning, kan du ikkje få både 3 og 5 i same kast. For uforeinlege hendingar $A$ og $B$ er regelen enkel: $P(A \\cup B) = P(A) + P(B)$. Unionen $A \\cup B$ tyder \"A eller B (eller begge)\".\n\nMen mange hendingar er **foreinlege** -- dei *kan* skje samtidig. Å trekkje eit ess og å trekkje eit hjarterkort er foreinlege hendingar, fordi hjarter-ess er begge delar. Dersom vi berre legg saman $P(\\text{ess}) + P(\\text{hjerter})$, tel vi hjarter-ess dobbelt. Difor treng vi den generelle addisjonssetninga: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$, der $P(A \\cap B)$ er sannsynet for at *begge* skjer.\n\nLat oss rekne ut kortstokk-eksempelet. Det er 4 ess i kortstokken, så $P(\\text{ess}) = \\frac{4}{52}$. Det er 13 hjarterkort, så $P(\\text{hjerter}) = \\frac{13}{52}$. Og det er 1 hjarter-ess, så $P(\\text{ess} \\cap \\text{hjerter}) = \\frac{1}{52}$. Dermed: $P(\\text{ess} \\cup \\text{hjerter}) = \\frac{4}{52} + \\frac{13}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13} \\approx 0{,}31$.\n\nHer er eit eksempel med ein skuleklasse. I ein klasse med 30 elevar spelar 18 fotball, 12 handball, og 5 spelar begge delar. Hendingane \"spelar fotball\" og \"spelar handball\" er foreinlege fordi 5 elevar gjer begge delar. Sannsynet for at ein tilfeldig elev spelar fotball eller handball er $P(F \\cup H) = \\frac{18}{30} + \\frac{12}{30} - \\frac{5}{30} = \\frac{25}{30} = \\frac{5}{6}$."},{"id":"2p-4-1-n-quiz3","type":"exercise","exercise":{"id":"2p-4-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på addisjonssetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-1-n-quiz3-q0","task":"I ein klasse med 40 elevar les 20 krim, 15 les fantasy, og 8 les begge sjangrar. Kva er sannsynet for at ein tilfeldig vald elev les krim eller fantasy?","options":[{"id":"a","text":"$\\frac{35}{40} = \\frac{7}{8}$","isCorrect":false},{"id":"b","text":"$\\frac{27}{40}$","isCorrect":true},{"id":"c","text":"$\\frac{43}{40}$","isCorrect":false},{"id":"d","text":"$\\frac{8}{40} = \\frac{1}{5}$","isCorrect":false}],"solution":"Hendingane er foreinlege (8 les begge). $P(K \\cup F) = \\frac{20}{40} + \\frac{15}{40} - \\frac{8}{40} = \\frac{27}{40}$. Vi trekkjer frå dei 8 som vert talde dobbelt."},{"id":"2p-4-1-n-quiz3-q1","task":"Du kastar ein terning. Kva er sannsynet for å få 3 eller 5?","options":[{"id":"a","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{2}{6} = \\frac{1}{3}$","isCorrect":true},{"id":"c","text":"$\\frac{1}{36}$","isCorrect":false},{"id":"d","text":"$\\frac{3}{6} = \\frac{1}{2}$","isCorrect":false}],"solution":"Hendingane «3» og «5» er uforeinlege (du kan ikkje få begge i same kast). Då er $P(3 \\cup 5) = P(3) + P(5) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$."}],"solution":""}},{"id":"2p-4-1-n-section4","type":"text","content":"## Valtre -- å sjå alle moglegheitene\n\nNår eit forsøk har fleire trinn -- til dømes to myntkast etter kvarandre -- kan det bli uoversiktleg å halde styr på alle moglege utfall. Då er eit **valtre** (òg kalla treediagram) eit fantastisk verktøy. Det lèt deg *sjå* alle stiane gjennom forsøket, og det gjer det enkelt å rekne ut sannsyn.\n\nSlik fungerer det: Kvart forgreiningspunkt i treet representerer eitt trinn i forsøket, og greinene viser dei moglege utfalla. Langs kvar grein skriv vi sannsynet for det utfallet. For å finne sannsynet for ein bestemt *sti* gjennom treet -- altså ein bestemt kombinasjon av utfall -- multipliserer vi sannsyna langs stien. Dette er **multiplikasjonsregelen**. Og for å finne sannsynet for ei *hending* som kan skje på fleire måtar, legg vi saman sannsyna for alle stiar som gir hendinga. Det er **addisjonsregelen**.\n\nLat oss sjå på eit konkret eksempel. Du kastar ein mynt to gonger. Valtreet har fire stiar: Krone-Krone (KK), Krone-Mynt (KM), Mynt-Krone (MK) og Mynt-Mynt (MM). Kvar sti har sannsyn $\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$. Kva er sannsynet for minst éi krone? Det er stiane KK, KM og MK, altså $P = \\frac{1}{4} + \\frac{1}{4} + \\frac{1}{4} = \\frac{3}{4}$.\n\nValtre er spesielt nyttige når sannsyna *endrar seg* mellom trinna. Tenk deg ein pose med 3 raude og 2 blå kuler. Du trekkjer to kuler *utan tilbakelegging*. Sannsynet for raud på første trekk er $\\frac{3}{5}$. Men dersom den første var raud, er det no berre 2 raude og 2 blå att -- 4 kuler totalt. Så sannsynet for raud på andre trekk *gitt* at den første var raud, er $\\frac{2}{4} = \\frac{1}{2}$. Sannsynet for to raude kuler er $\\frac{3}{5} \\cdot \\frac{1}{2} = \\frac{3}{10}$.\n\nEin viktig kontroll: Summen av sannsyna i alle endepunkt i eit valtre skal alltid bli 1. Dersom han ikkje gjer det, har du gjort ein feil undervegs."},{"id":"2p-4-1-n-quiz4","type":"exercise","exercise":{"id":"2p-4-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på valtre:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-1-n-quiz4-q0","task":"Du kastar ein mynt tre gonger. Kor mange moglege utfall (stiar) finst i valtreet?","options":[{"id":"a","text":"3","isCorrect":false},{"id":"b","text":"6","isCorrect":false},{"id":"c","text":"9","isCorrect":false},{"id":"d","text":"8","isCorrect":true}],"solution":"Kvart kast har 2 moglege utfall. Med multiplikasjonsprinsippet: $2 \\cdot 2 \\cdot 2 = 8$ moglege stiar (KKK, KKM, KMK, KMM, MKK, MKM, MMK, MMM)."},{"id":"2p-4-1-n-quiz4-q1","task":"I ein pose er 3 raude og 2 blå kuler. Du trekkjer to kuler utan tilbakelegging. Kva er sannsynet for to raude?","options":[{"id":"a","text":"$\\frac{3}{5} \\cdot \\frac{3}{5} = \\frac{9}{25}$","isCorrect":false},{"id":"b","text":"$\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10}$","isCorrect":true},{"id":"c","text":"$\\frac{3}{5} + \\frac{2}{4} = \\frac{11}{10}$","isCorrect":false},{"id":"d","text":"$\\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{2}{20}$","isCorrect":false}],"solution":"Utan tilbakelegging endrar sannsyna seg. Første trekk: $\\frac{3}{5}$ (3 raude av 5). Andre trekk: $\\frac{2}{4}$ (2 raude att av 4 totalt). Multipliserer langs stien: $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{3}{10}$."}],"solution":""}},{"id":"2p-4-1-n-section5","type":"text","content":"## Systematisk oppteljing og multiplikasjonsprinsippet\n\nNokre gonger treng vi ikkje å teikne heile valtreet -- vi treng berre å vite *kor mange* moglege utfall det finst. Og då har vi eit kraftig prinsipp: **multiplikasjonsprinsippet**. Det seier at dersom val 1 kan gjerast på $m$ måtar og val 2 kan gjerast på $n$ måtar, så kan begge vala gjerast på $m \\cdot n$ måtar.\n\nTenk på ein pizzarestaurant med 3 typar botn og 5 typar fyll. Kor mange ulike pizzakombinasjonar kan du lage? Med multiplikasjonsprinsippet: $3 \\cdot 5 = 15$ kombinasjonar. Du treng ikkje å liste opp alle femten -- prinsippet gir deg svaret direkte.\n\nPrinsippet vert utvida naturleg til fleire val. Ein PIN-kode består av 4 siffer, og kvart siffer kan vere 0 til 9 -- altså 10 moglegheiter. Tal moglege PIN-kodar er $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Sannsynet for å gjette rett PIN på første forsøk er dermed $P = \\frac{1}{10\\,000} = 0{,}0001 = 0{,}01\\%$. Ikkje akkurat oppmuntrande for ein tjuv.\n\nKva med eit passord som består av 2 bokstavar (A--Z, 26 moglegheiter per posisjon) etterfølgt av 3 siffer (0--9)? Då er tal moglege passord $26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 = 676\\,000$. Legg merke til at vi multipliserer talet på moglegheiter for *kvar posisjon* -- vi adderer dei ikkje. Dette er ein vanleg feil: å skrive $26 + 26 + 10 + 10 + 10 = 82$ i staden for å multiplisere. Addering gir talet på val per posisjon summert, men multiplikasjon gir talet på *kombinasjonar*.\n\nSystematisk oppteljing med multiplikasjonsprinsippet er grunnlaget for mykje av sannsynsrekninga. Når du har funne talet på moglege utfall, kan du setje det rett inn i formelen $P(A) = \\frac{\\text{gunstige}}{\\text{mulige}}$ og finne sannsynet."},{"id":"2p-4-1-n-quiz5","type":"exercise","exercise":{"id":"2p-4-1-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på multiplikasjonsprinsippet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-1-n-quiz5-q0","task":"Ein iskrembar tilbyr 4 smakar og 3 typar topping. Kor mange ulike kombinasjonar av smak og topping kan du velje?","options":[{"id":"a","text":"7","isCorrect":false},{"id":"b","text":"12","isCorrect":true},{"id":"c","text":"24","isCorrect":false},{"id":"d","text":"43","isCorrect":false}],"solution":"Multiplikasjonsprinsippet: $4 \\cdot 3 = 12$ kombinasjonar. Vi multipliserer fordi kvart smaksval kan kombinerast med kvar topping."},{"id":"2p-4-1-n-quiz5-q1","task":"Ein PIN-kode har 4 siffer (0--9). Kor mange moglege PIN-kodar finst?","options":[{"id":"a","text":"$40$","isCorrect":false},{"id":"b","text":"$10\\,000$","isCorrect":true},{"id":"c","text":"$1\\,000$","isCorrect":false},{"id":"d","text":"$10\\,024$","isCorrect":false}],"solution":"$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Kvart siffer har 10 moglegheiter (0--9), og vi multipliserer for kvar posisjon."}],"solution":""}},{"id":"2p-4-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har no vore gjennom dei grunnleggjande byggjeklossane i sannsynsrekninga, og du har fått eit solid fundament å byggje vidare på.\n\n**Nøkkelomgrep du no kjenner:**\n- **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall i eit forsøk\n- **Ei hending** $A$ er ei delmengd av utfallsrommet -- dei utfalla vi er interesserte i\n- **Sannsynet** for ei hending er $P(A) = \\frac{\\text{gunstige utfall}}{\\text{mulige utfall}}$, alltid mellom 0 og 1\n- **Komplementsetninga**: $P(A') = 1 - P(A)$ -- sannsynet for at A *ikkje* skjer\n- **Addisjonssetninga for uforeinlege hendingar**: $P(A \\cup B) = P(A) + P(B)$\n- **Addisjonssetninga for foreinlege hendingar**: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\n- **Valtre**: Multipliser sannsyn langs stiar, adder mellom stiar\n- **Multiplikasjonsprinsippet**: $m \\cdot n$ kombinasjonar for uavhengige val\n\n**Det viktigaste du tek med deg:**\nSannsynsrekning handlar om å tenkje systematisk om tilfeldigheiter. Med utfallsrom, hendingar og nokre få reknereglar kan du rekne ut sjansen for nesten kva som helst -- frå terningkast til PIN-kodar. Og når det blir uoversiktleg, er valtreet din beste ven."}],"exercises":[],"_meta":{"sourceHash":"729e89a6b0f534d1","translatedAt":"2026-06-17T00:22:41.685Z","model":"claude-code-agent","strings":65,"tm":{"578c93f605e24a9a":"Sannsynsrekning","b195b06d1ed59702":"Narrativ versjon","63c84fdc4be13db9":"Bli med inn i sannsynet si verd -- frå terningkast og kortstokkar til valtre og systematisk oppteljing. Ei forteljing om korleis vi kan setje tal på tilfeldigheiter.","f4c063f77cf50e3f":"forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy","8f89d0a6b2fb1e02":"## Kan vi setje tal på tilfeldigheiter?\n\nTenk deg at du står i ein kiosk og vurderer å kjøpe eit lodd i eit lotteri. Du lurer på: *Kor sannsynleg er det eigentleg at eg vinn?* Eller kanskje du sjekkar vêrmeldinga og les at det er 70 prosent sjanse for regn. Kva tyder eigentleg det? Og når venen din hevdar at han \"alltid\" slår seksar på terningen -- stemmer det, eller er han berre heldig?\n\nSannsyn handlar om å setje tal på tilfeldigheiter. Det er eit matematisk verktøy som lèt oss seie noko fornuftig om ting vi ikkje kan føresjå med visse. Vi kan ikkje vite *nøyaktig* kva som skjer neste gong vi kastar ein terning, men vi kan seie noko presist om kva som er *sannsynleg*. Og det viser seg at desse utrekningane har enorm praktisk verdi -- frå forsikringsmatematikk og medisinsk forsking til poker og Lotto.\n\nI dette kapittelet skal vi starte heilt frå byrjinga: Kva er eigentleg eit utfallsrom? Kva meiner vi med ei hending? Og korleis reknar vi ut sannsynet for at noko bestemt skjer? Vi skal òg lære nokre kraftige verktøy: komplementsetninga, addisjonssetninga og valtre.","53dbd035421f567b":"## Utfallsrom, hendingar og den grunnleggjande formelen\n\nLat oss starte med det aller mest grunnleggjande. Når vi gjer eit forsøk der utfallet er tilfeldig -- til dømes kastar ein terning -- kallar vi mengda av *alle* moglege utfall for **utfallsrommet**. Vi bruker symbolet $\\Omega$ (den greske bokstaven omega) for dette. Kastar du ein vanleg terning, er utfallsrommet $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Seks moglege utfall, ikkje noko meir, ikkje noko mindre.\n\nEi **hending** er det vi er interesserte i å finne sannsynet for. Det kan vere eitt enkelt utfall, som \"å få 4\", eller ei samling av utfall, som \"å få eit partal\". Matematisk seier vi at ei hending $A$ er ei *delmengd* av utfallsrommet. Hendinga \"partal\" inneheld utfalla $\\{2, 4, 6\\}$ -- tre av dei seks moglege.\n\nOg no kjem sjølve nøkkelen: Sannsynet for ei hending $A$ er gitt ved formelen $P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$. Denne formelen føreset at alle utfall er like sannsynlege -- noko som gjeld for ein rettferdig terning, ein godt blanda kortstokk og mange andre situasjonar. Sannsynet er alltid eit tal mellom 0 og 1, der $P(A) = 0$ tyder at hendinga er umogleg, og $P(A) = 1$ tyder at ho er sikker.\n\nLat oss teste formelen med terningen. Sannsynet for å få nøyaktig 4 er $P(\\text{fire}) = \\frac{1}{6}$, fordi det er 1 gunstig utfall av 6 moglege. Sannsynet for eit partal er $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2}$, fordi det er 3 partal blant dei 6 moglege. Og sannsynet for eit tal større enn 4 er $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$, fordi berre 5 og 6 oppfyller kravet.\n\nKva med ein kortstokk? Ein standard kortstokk har 52 kort, og det finst 4 ess. Sannsynet for å trekkje eit ess tilfeldig er altså $P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13}$.","d241e5e7023876cc":"Test deg sjølv på grunnleggjande sannsyn:","4097889236a2af26":"placeholder","c5cfe89463fcad3d":"I ein pose ligg 5 raude, 3 blå og 2 grøne kuler. Du trekkjer éi kule tilfeldig. Kva er sannsynet for å trekkje ei raud kule?","7e6026b35a80b9fb":"$\\frac{1}{5}$","b61def0872c567fe":"$\\frac{1}{2}$","5257a310e0070b54":"$\\frac{5}{8}$","b87bda455923b2a6":"$\\frac{1}{3}$","a33be60d0115fe83":"Totalt er det $5 + 3 + 2 = 10$ kuler. Av desse er 5 raude. $P(\\text{rød}) = \\frac{5}{10} = \\frac{1}{2}$.","3605201f4775028c":"Du kastar ein vanleg terning. Kva er sannsynet for å få eit tal større enn 4?","b51d92817d932fe4":"$\\frac{4}{6}$","ed2f0dca805db9c6":"$\\frac{1}{6}$","5bbbc74a721fdbe3":"$\\frac{2}{6} = \\frac{1}{3}$","328e6ff00fd3b23a":"$\\frac{3}{6} = \\frac{1}{2}$","a8b03960f68a8e56":"Tala større enn 4 er 5 og 6 -- altså 2 gunstige av 6 moglege utfall. $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$.","2d2b258f90a43c27":"## Komplementsetninga -- å tenkje baklengs\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko *ikkje* skjer, enn for at det skjer. Og det er her **komplementsetninga** kjem inn som eit elegant triks.\n\nKomplementhendinga til $A$, skrive $A'$, er rett og slett hendinga \"A skjer ikkje\". Og fordi noko anten skjer eller ikkje skjer, veit vi at $P(A) + P(A') = 1$. Snur vi om på dette, får vi komplementsetninga: $P(A') = 1 - P(A)$.\n\nLat oss ta eit kvardagsleg eksempel. Vêrmeldinga seier at det er 35 prosent sjanse for regn i morgon. Kva er sjansen for at det *ikkje* regnar? Vi set opp: $P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}35 = 0{,}65$. Altså 65 prosent sjanse for tørt vêr. Enkelt og greitt.\n\nMen komplementsetninga er meir enn berre ein snarveg for enkle problem. Ho er spesielt nyttig i situasjonar der det er vanskeleg å telje dei gunstige utfalla direkte, men lett å telje dei *ugunstige*. Tenk til dømes på spørsmålet: \"Kva er sannsynet for å få *minst éin* seksar på tre terningkast?\" Å telje alle måtar du kan få minst éin seksar på er litt rotete -- det kan vere éin, to eller tre seksarar. Men å rekne ut sannsynet for *ingen* seksarar er enkelt: $P(\\text{ingen sekser}) = \\frac{5}{6} \\cdot \\frac{5}{6} \\cdot \\frac{5}{6} = \\frac{125}{216}$. Dermed er $P(\\text{minst én sekser}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$.\n\nHer er eit anna eksempel å tenkje på: Sannsynet for at ein tilfeldig vald elev har bursdag i januar er $\\frac{31}{365}$ (31 dagar i januar av 365 dagar totalt). Då er sannsynet for at eleven *ikkje* har bursdag i januar $1 - \\frac{31}{365} = \\frac{334}{365}$.","582ff2d873768beb":"Test deg sjølv på komplementsetninga:","72a74e118e6f5757":"Sannsynet for å bestå ein eksamen er $0{,}78$. Kva er sannsynet for å ikkje bestå?","20fa7187be70a623":"$P(\\text{ikke bestå}) = 1 - P(\\text{bestå}) = 1 - 0{,}78 = 0{,}22$.","e5fed8c58ce40137":"Kva er sannsynet for å få *minst éin* seksar på tre terningkast?","97c2fa5c0d07b922":"$1 - \\left(\\frac{5}{6}\\right)^3 = 1 - \\frac{125}{216} \\approx 0{,}42$","dfb88baa4f314ec4":"$\\left(\\frac{1}{6}\\right)^3 \\approx 0{,}005$","851c4c4e4c90fb79":"$3 \\cdot \\frac{1}{6} = 0{,}5$","b8af4410b6f1ef5d":"Vi bruker komplementet: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. $P(\\text{ingen sekser}) = (\\frac{5}{6})^3 = \\frac{125}{216}$. Altså $P(\\text{minst én}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$.","779e6123b75b7ee4":"## Addisjonssetninga -- når vi spør \"det eine eller det andre\"\n\nKva om du trekkjer eit kort frå ein kortstokk og lurer på: \"Kva er sjansen for å trekkje eit ess *eller* eit hjarterkort?\" Her er det freistande å berre leggje saman sannsyna, men då må vi passe på litt. Nokre hendingar kan nemleg skje *samtidig*, og då tel vi noko dobbelt dersom vi berre adderer.\n\nVi skil mellom to typar hendingar. **Uforeinlege hendingar** er hendingar som *ikkje* kan skje samtidig. Kastar du ein terning, kan du ikkje få både 3 og 5 i same kast. For uforeinlege hendingar $A$ og $B$ er regelen enkel: $P(A \\cup B) = P(A) + P(B)$. Unionen $A \\cup B$ tyder \"A eller B (eller begge)\".\n\nMen mange hendingar er **foreinlege** -- dei *kan* skje samtidig. Å trekkje eit ess og å trekkje eit hjarterkort er foreinlege hendingar, fordi hjarter-ess er begge delar. Dersom vi berre legg saman $P(\\text{ess}) + P(\\text{hjerter})$, tel vi hjarter-ess dobbelt. Difor treng vi den generelle addisjonssetninga: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$, der $P(A \\cap B)$ er sannsynet for at *begge* skjer.\n\nLat oss rekne ut kortstokk-eksempelet. Det er 4 ess i kortstokken, så $P(\\text{ess}) = \\frac{4}{52}$. Det er 13 hjarterkort, så $P(\\text{hjerter}) = \\frac{13}{52}$. Og det er 1 hjarter-ess, så $P(\\text{ess} \\cap \\text{hjerter}) = \\frac{1}{52}$. Dermed: $P(\\text{ess} \\cup \\text{hjerter}) = \\frac{4}{52} + \\frac{13}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13} \\approx 0{,}31$.\n\nHer er eit eksempel med ein skuleklasse. I ein klasse med 30 elevar spelar 18 fotball, 12 handball, og 5 spelar begge delar. Hendingane \"spelar fotball\" og \"spelar handball\" er foreinlege fordi 5 elevar gjer begge delar. Sannsynet for at ein tilfeldig elev spelar fotball eller handball er $P(F \\cup H) = \\frac{18}{30} + \\frac{12}{30} - \\frac{5}{30} = \\frac{25}{30} = \\frac{5}{6}$.","6565090447951ac8":"Test deg sjølv på addisjonssetninga:","85677e4d6e44d233":"I ein klasse med 40 elevar les 20 krim, 15 les fantasy, og 8 les begge sjangrar. Kva er sannsynet for at ein tilfeldig vald elev les krim eller fantasy?","00907c56b846abe7":"$\\frac{35}{40} = \\frac{7}{8}$","6ca6b4526984f2e5":"$\\frac{27}{40}$","5d87ee22b1561813":"$\\frac{43}{40}$","6d33b2e343aab5a9":"$\\frac{8}{40} = \\frac{1}{5}$","7f9ed7ca0dbbd2a1":"Hendingane er foreinlege (8 les begge). $P(K \\cup F) = \\frac{20}{40} + \\frac{15}{40} - \\frac{8}{40} = \\frac{27}{40}$. Vi trekkjer frå dei 8 som vert talde dobbelt.","ffb18ec79e30fe0b":"Du kastar ein terning. Kva er sannsynet for å få 3 eller 5?","e9b45e7e8723df8e":"$\\frac{1}{36}$","84f9c0d2411c8d0f":"Hendingane «3» og «5» er uforeinlege (du kan ikkje få begge i same kast). Då er $P(3 \\cup 5) = P(3) + P(5) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$.","0a714bca8536859c":"## Valtre -- å sjå alle moglegheitene\n\nNår eit forsøk har fleire trinn -- til dømes to myntkast etter kvarandre -- kan det bli uoversiktleg å halde styr på alle moglege utfall. Då er eit **valtre** (òg kalla treediagram) eit fantastisk verktøy. Det lèt deg *sjå* alle stiane gjennom forsøket, og det gjer det enkelt å rekne ut sannsyn.\n\nSlik fungerer det: Kvart forgreiningspunkt i treet representerer eitt trinn i forsøket, og greinene viser dei moglege utfalla. Langs kvar grein skriv vi sannsynet for det utfallet. For å finne sannsynet for ein bestemt *sti* gjennom treet -- altså ein bestemt kombinasjon av utfall -- multipliserer vi sannsyna langs stien. Dette er **multiplikasjonsregelen**. Og for å finne sannsynet for ei *hending* som kan skje på fleire måtar, legg vi saman sannsyna for alle stiar som gir hendinga. Det er **addisjonsregelen**.\n\nLat oss sjå på eit konkret eksempel. Du kastar ein mynt to gonger. Valtreet har fire stiar: Krone-Krone (KK), Krone-Mynt (KM), Mynt-Krone (MK) og Mynt-Mynt (MM). Kvar sti har sannsyn $\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$. Kva er sannsynet for minst éi krone? Det er stiane KK, KM og MK, altså $P = \\frac{1}{4} + \\frac{1}{4} + \\frac{1}{4} = \\frac{3}{4}$.\n\nValtre er spesielt nyttige når sannsyna *endrar seg* mellom trinna. Tenk deg ein pose med 3 raude og 2 blå kuler. Du trekkjer to kuler *utan tilbakelegging*. Sannsynet for raud på første trekk er $\\frac{3}{5}$. Men dersom den første var raud, er det no berre 2 raude og 2 blå att -- 4 kuler totalt. Så sannsynet for raud på andre trekk *gitt* at den første var raud, er $\\frac{2}{4} = \\frac{1}{2}$. Sannsynet for to raude kuler er $\\frac{3}{5} \\cdot \\frac{1}{2} = \\frac{3}{10}$.\n\nEin viktig kontroll: Summen av sannsyna i alle endepunkt i eit valtre skal alltid bli 1. Dersom han ikkje gjer det, har du gjort ein feil undervegs.","0092acf359bbf8f2":"Test deg sjølv på valtre:","5c9a7aac4f8d5ac4":"Du kastar ein mynt tre gonger. Kor mange moglege utfall (stiar) finst i valtreet?","81041b1b7902df13":"Kvart kast har 2 moglege utfall. Med multiplikasjonsprinsippet: $2 \\cdot 2 \\cdot 2 = 8$ moglege stiar (KKK, KKM, KMK, KMM, MKK, MKM, MMK, MMM).","7edd5aee6ae6bbd7":"I ein pose er 3 raude og 2 blå kuler. Du trekkjer to kuler utan tilbakelegging. Kva er sannsynet for to raude?","fa853195710ce9ff":"$\\frac{3}{5} \\cdot \\frac{3}{5} = \\frac{9}{25}$","fcd97fae498425db":"$\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10}$","f665ae92dd8f2b28":"$\\frac{3}{5} + \\frac{2}{4} = \\frac{11}{10}$","cce6d7ae5ca71a87":"$\\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{2}{20}$","aeac3c647ef57dc9":"Utan tilbakelegging endrar sannsyna seg. Første trekk: $\\frac{3}{5}$ (3 raude av 5). Andre trekk: $\\frac{2}{4}$ (2 raude att av 4 totalt). Multipliserer langs stien: $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{3}{10}$.","769bbf2a586934f2":"## Systematisk oppteljing og multiplikasjonsprinsippet\n\nNokre gonger treng vi ikkje å teikne heile valtreet -- vi treng berre å vite *kor mange* moglege utfall det finst. Og då har vi eit kraftig prinsipp: **multiplikasjonsprinsippet**. Det seier at dersom val 1 kan gjerast på $m$ måtar og val 2 kan gjerast på $n$ måtar, så kan begge vala gjerast på $m \\cdot n$ måtar.\n\nTenk på ein pizzarestaurant med 3 typar botn og 5 typar fyll. Kor mange ulike pizzakombinasjonar kan du lage? Med multiplikasjonsprinsippet: $3 \\cdot 5 = 15$ kombinasjonar. Du treng ikkje å liste opp alle femten -- prinsippet gir deg svaret direkte.\n\nPrinsippet vert utvida naturleg til fleire val. Ein PIN-kode består av 4 siffer, og kvart siffer kan vere 0 til 9 -- altså 10 moglegheiter. Tal moglege PIN-kodar er $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Sannsynet for å gjette rett PIN på første forsøk er dermed $P = \\frac{1}{10\\,000} = 0{,}0001 = 0{,}01\\%$. Ikkje akkurat oppmuntrande for ein tjuv.\n\nKva med eit passord som består av 2 bokstavar (A--Z, 26 moglegheiter per posisjon) etterfølgt av 3 siffer (0--9)? Då er tal moglege passord $26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 = 676\\,000$. Legg merke til at vi multipliserer talet på moglegheiter for *kvar posisjon* -- vi adderer dei ikkje. Dette er ein vanleg feil: å skrive $26 + 26 + 10 + 10 + 10 = 82$ i staden for å multiplisere. Addering gir talet på val per posisjon summert, men multiplikasjon gir talet på *kombinasjonar*.\n\nSystematisk oppteljing med multiplikasjonsprinsippet er grunnlaget for mykje av sannsynsrekninga. Når du har funne talet på moglege utfall, kan du setje det rett inn i formelen $P(A) = \\frac{\\text{gunstige}}{\\text{mulige}}$ og finne sannsynet.","a75f80d8204ada31":"Test deg sjølv på multiplikasjonsprinsippet:","cc0a8fb015f6e072":"Ein iskrembar tilbyr 4 smakar og 3 typar topping. Kor mange ulike kombinasjonar av smak og topping kan du velje?","9cb2a3e569032c13":"Multiplikasjonsprinsippet: $4 \\cdot 3 = 12$ kombinasjonar. Vi multipliserer fordi kvart smaksval kan kombinerast med kvar topping.","bdf61e285539151e":"Ein PIN-kode har 4 siffer (0--9). Kor mange moglege PIN-kodar finst?","5bb04caa1bec162a":"$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Kvart siffer har 10 moglegheiter (0--9), og vi multipliserer for kvar posisjon.","59c1828b286812bc":"## Oppsummering\n\nVi har no vore gjennom dei grunnleggjande byggjeklossane i sannsynsrekninga, og du har fått eit solid fundament å byggje vidare på.\n\n**Nøkkelomgrep du no kjenner:**\n- **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall i eit forsøk\n- **Ei hending** $A$ er ei delmengd av utfallsrommet -- dei utfalla vi er interesserte i\n- **Sannsynet** for ei hending er $P(A) = \\frac{\\text{gunstige utfall}}{\\text{mulige utfall}}$, alltid mellom 0 og 1\n- **Komplementsetninga**: $P(A') = 1 - P(A)$ -- sannsynet for at A *ikkje* skjer\n- **Addisjonssetninga for uforeinlege hendingar**: $P(A \\cup B) = P(A) + P(B)$\n- **Addisjonssetninga for foreinlege hendingar**: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\n- **Valtre**: Multipliser sannsyn langs stiar, adder mellom stiar\n- **Multiplikasjonsprinsippet**: $m \\cdot n$ kombinasjonar for uavhengige val\n\n**Det viktigaste du tek med deg:**\nSannsynsrekning handlar om å tenkje systematisk om tilfeldigheiter. Med utfallsrom, hendingar og nokre få reknereglar kan du rekne ut sjansen for nesten kva som helst -- frå terningkast til PIN-kodar. Og når det blir uoversiktleg, er valtreet din beste ven."}}}
+{
+  "id": "2p-4-1-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "4.1",
+  "title": "Sannsynsrekning",
+  "subtitle": "Narrativ versjon",
+  "description": "Bli med inn i sannsynet si verd -- frå terningkast og kortstokkar til valtre og systematisk oppteljing. Ei forteljing om korleis vi kan setje tal på tilfeldigheiter.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"
+  ],
+  "linkedChapterId": "2p-4-1",
+  "content": [
+    {
+      "id": "2p-4-1-n-intro",
+      "type": "text",
+      "content": "## Kan vi setje tal på tilfeldigheiter?\n\nTenk deg at du står i ein kiosk og vurderer å kjøpe eit lodd i eit lotteri. Du lurer på: *Kor sannsynleg er det eigentleg at eg vinn?* Eller kanskje du sjekkar vêrmeldinga og les at det er 70 prosent sjanse for regn. Kva tyder eigentleg det? Og når venen din hevdar at han \"alltid\" slår seksar på terningen -- stemmer det, eller er han berre heldig?\n\nSannsyn handlar om å setje tal på tilfeldigheiter. Det er eit matematisk verktøy som lèt oss seie noko fornuftig om ting vi ikkje kan føresjå med visse. Vi kan ikkje vite *nøyaktig* kva som skjer neste gong vi kastar ein terning, men vi kan seie noko presist om kva som er *sannsynleg*. Og det viser seg at desse utrekningane har enorm praktisk verdi -- frå forsikringsmatematikk og medisinsk forsking til poker og Lotto.\n\nI dette kapittelet skal vi starte heilt frå byrjinga: Kva er eigentleg eit utfallsrom? Kva meiner vi med ei hending? Og korleis reknar vi ut sannsynet for at noko bestemt skjer? Vi skal òg lære nokre kraftige verktøy: komplementsetninga, addisjonssetninga og valtre."
+    },
+    {
+      "id": "2p-4-1-n-section1",
+      "type": "text",
+      "content": "## Utfallsrom, hendingar og den grunnleggjande formelen\n\nLat oss starte med det aller mest grunnleggjande. Når vi gjer eit forsøk der utfallet er tilfeldig -- til dømes kastar ein terning -- kallar vi mengda av *alle* moglege utfall for **utfallsrommet**. Vi bruker symbolet $\\Omega$ (den greske bokstaven omega) for dette. Kastar du ein vanleg terning, er utfallsrommet $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Seks moglege utfall, ikkje noko meir, ikkje noko mindre.\n\nEi **hending** er det vi er interesserte i å finne sannsynet for. Det kan vere eitt enkelt utfall, som \"å få 4\", eller ei samling av utfall, som \"å få eit partal\". Matematisk seier vi at ei hending $A$ er ei *delmengd* av utfallsrommet. Hendinga \"partal\" inneheld utfalla $\\{2, 4, 6\\}$ -- tre av dei seks moglege.\n\nOg no kjem sjølve nøkkelen: Sannsynet for ei hending $A$ er gitt ved formelen $P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$. Denne formelen føreset at alle utfall er like sannsynlege -- noko som gjeld for ein rettferdig terning, ein godt blanda kortstokk og mange andre situasjonar. Sannsynet er alltid eit tal mellom 0 og 1, der $P(A) = 0$ tyder at hendinga er umogleg, og $P(A) = 1$ tyder at ho er sikker.\n\nLat oss teste formelen med terningen. Sannsynet for å få nøyaktig 4 er $P(\\text{fire}) = \\frac{1}{6}$, fordi det er 1 gunstig utfall av 6 moglege. Sannsynet for eit partal er $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2}$, fordi det er 3 partal blant dei 6 moglege. Og sannsynet for eit tal større enn 4 er $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$, fordi berre 5 og 6 oppfyller kravet.\n\nKva med ein kortstokk? Ein standard kortstokk har 52 kort, og det finst 4 ess. Sannsynet for å trekkje eit ess tilfeldig er altså $P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13}$."
+    },
+    {
+      "id": "2p-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grunnleggjande sannsyn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-1-n-quiz1-q0",
+            "task": "I ein pose ligg 5 raude, 3 blå og 2 grøne kuler. Du trekkjer éi kule tilfeldig. Kva er sannsynet for å trekkje ei raud kule?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{5}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Totalt er det $5 + 3 + 2 = 10$ kuler. Av desse er 5 raude. $P(\\text{rød}) = \\frac{5}{10} = \\frac{1}{2}$."
+          },
+          {
+            "id": "2p-4-1-n-quiz1-q1",
+            "task": "Du kastar ein vanleg terning. Kva er sannsynet for å få eit tal større enn 4?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{4}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{6} = \\frac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{6} = \\frac{1}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tala større enn 4 er 5 og 6 -- altså 2 gunstige av 6 moglege utfall. $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-1-n-section2",
+      "type": "text",
+      "content": "## Komplementsetninga -- å tenkje baklengs\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko *ikkje* skjer, enn for at det skjer. Og det er her **komplementsetninga** kjem inn som eit elegant triks.\n\nKomplementhendinga til $A$, skrive $A'$, er rett og slett hendinga \"A skjer ikkje\". Og fordi noko anten skjer eller ikkje skjer, veit vi at $P(A) + P(A') = 1$. Snur vi om på dette, får vi komplementsetninga: $P(A') = 1 - P(A)$.\n\nLat oss ta eit kvardagsleg eksempel. Vêrmeldinga seier at det er 35 prosent sjanse for regn i morgon. Kva er sjansen for at det *ikkje* regnar? Vi set opp: $P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}35 = 0{,}65$. Altså 65 prosent sjanse for tørt vêr. Enkelt og greitt.\n\nMen komplementsetninga er meir enn berre ein snarveg for enkle problem. Ho er spesielt nyttig i situasjonar der det er vanskeleg å telje dei gunstige utfalla direkte, men lett å telje dei *ugunstige*. Tenk til dømes på spørsmålet: \"Kva er sannsynet for å få *minst éin* seksar på tre terningkast?\" Å telje alle måtar du kan få minst éin seksar på er litt rotete -- det kan vere éin, to eller tre seksarar. Men å rekne ut sannsynet for *ingen* seksarar er enkelt: $P(\\text{ingen sekser}) = \\frac{5}{6} \\cdot \\frac{5}{6} \\cdot \\frac{5}{6} = \\frac{125}{216}$. Dermed er $P(\\text{minst én sekser}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$.\n\nHer er eit anna eksempel å tenkje på: Sannsynet for at ein tilfeldig vald elev har bursdag i januar er $\\frac{31}{365}$ (31 dagar i januar av 365 dagar totalt). Då er sannsynet for at eleven *ikkje* har bursdag i januar $1 - \\frac{31}{365} = \\frac{334}{365}$."
+    },
+    {
+      "id": "2p-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på komplementsetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-1-n-quiz2-q0",
+            "task": "Sannsynet for å bestå ein eksamen er $0{,}78$. Kva er sannsynet for å ikkje bestå?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}78$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}22$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1{,}78$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{ikke bestå}) = 1 - P(\\text{bestå}) = 1 - 0{,}78 = 0{,}22$."
+          },
+          {
+            "id": "2p-4-1-n-quiz2-q1",
+            "task": "Kva er sannsynet for å få *minst éin* seksar på tre terningkast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{3}{6} = \\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\left(\\frac{1}{6}\\right)^3 \\approx 0{,}005$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3 \\cdot \\frac{1}{6} = 0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1 - \\left(\\frac{5}{6}\\right)^3 = 1 - \\frac{125}{216} \\approx 0{,}42$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi bruker komplementet: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. $P(\\text{ingen sekser}) = (\\frac{5}{6})^3 = \\frac{125}{216}$. Altså $P(\\text{minst én}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-1-n-section3",
+      "type": "text",
+      "content": "## Addisjonssetninga -- når vi spør \"det eine eller det andre\"\n\nKva om du trekkjer eit kort frå ein kortstokk og lurer på: \"Kva er sjansen for å trekkje eit ess *eller* eit hjarterkort?\" Her er det freistande å berre leggje saman sannsyna, men då må vi passe på litt. Nokre hendingar kan nemleg skje *samtidig*, og då tel vi noko dobbelt dersom vi berre adderer.\n\nVi skil mellom to typar hendingar. **Uforeinlege hendingar** er hendingar som *ikkje* kan skje samtidig. Kastar du ein terning, kan du ikkje få både 3 og 5 i same kast. For uforeinlege hendingar $A$ og $B$ er regelen enkel: $P(A \\cup B) = P(A) + P(B)$. Unionen $A \\cup B$ tyder \"A eller B (eller begge)\".\n\nMen mange hendingar er **foreinlege** -- dei *kan* skje samtidig. Å trekkje eit ess og å trekkje eit hjarterkort er foreinlege hendingar, fordi hjarter-ess er begge delar. Dersom vi berre legg saman $P(\\text{ess}) + P(\\text{hjerter})$, tel vi hjarter-ess dobbelt. Difor treng vi den generelle addisjonssetninga: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$, der $P(A \\cap B)$ er sannsynet for at *begge* skjer.\n\nLat oss rekne ut kortstokk-eksempelet. Det er 4 ess i kortstokken, så $P(\\text{ess}) = \\frac{4}{52}$. Det er 13 hjarterkort, så $P(\\text{hjerter}) = \\frac{13}{52}$. Og det er 1 hjarter-ess, så $P(\\text{ess} \\cap \\text{hjerter}) = \\frac{1}{52}$. Dermed: $P(\\text{ess} \\cup \\text{hjerter}) = \\frac{4}{52} + \\frac{13}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13} \\approx 0{,}31$.\n\nHer er eit eksempel med ein skuleklasse. I ein klasse med 30 elevar spelar 18 fotball, 12 handball, og 5 spelar begge delar. Hendingane \"spelar fotball\" og \"spelar handball\" er foreinlege fordi 5 elevar gjer begge delar. Sannsynet for at ein tilfeldig elev spelar fotball eller handball er $P(F \\cup H) = \\frac{18}{30} + \\frac{12}{30} - \\frac{5}{30} = \\frac{25}{30} = \\frac{5}{6}$."
+    },
+    {
+      "id": "2p-4-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på addisjonssetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-1-n-quiz3-q0",
+            "task": "I ein klasse med 40 elevar les 20 krim, 15 les fantasy, og 8 les begge sjangrar. Kva er sannsynet for at ein tilfeldig vald elev les krim eller fantasy?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{27}{40}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{35}{40} = \\frac{7}{8}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{43}{40}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{8}{40} = \\frac{1}{5}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hendingane er foreinlege (8 les begge). $P(K \\cup F) = \\frac{20}{40} + \\frac{15}{40} - \\frac{8}{40} = \\frac{27}{40}$. Vi trekkjer frå dei 8 som vert talde dobbelt."
+          },
+          {
+            "id": "2p-4-1-n-quiz3-q1",
+            "task": "Du kastar ein terning. Kva er sannsynet for å få 3 eller 5?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2}{6} = \\frac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{36}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{6} = \\frac{1}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hendingane «3» og «5» er uforeinlege (du kan ikkje få begge i same kast). Då er $P(3 \\cup 5) = P(3) + P(5) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-1-n-section4",
+      "type": "text",
+      "content": "## Valtre -- å sjå alle moglegheitene\n\nNår eit forsøk har fleire trinn -- til dømes to myntkast etter kvarandre -- kan det bli uoversiktleg å halde styr på alle moglege utfall. Då er eit **valtre** (òg kalla treediagram) eit fantastisk verktøy. Det lèt deg *sjå* alle stiane gjennom forsøket, og det gjer det enkelt å rekne ut sannsyn.\n\nSlik fungerer det: Kvart forgreiningspunkt i treet representerer eitt trinn i forsøket, og greinene viser dei moglege utfalla. Langs kvar grein skriv vi sannsynet for det utfallet. For å finne sannsynet for ein bestemt *sti* gjennom treet -- altså ein bestemt kombinasjon av utfall -- multipliserer vi sannsyna langs stien. Dette er **multiplikasjonsregelen**. Og for å finne sannsynet for ei *hending* som kan skje på fleire måtar, legg vi saman sannsyna for alle stiar som gir hendinga. Det er **addisjonsregelen**.\n\nLat oss sjå på eit konkret eksempel. Du kastar ein mynt to gonger. Valtreet har fire stiar: Krone-Krone (KK), Krone-Mynt (KM), Mynt-Krone (MK) og Mynt-Mynt (MM). Kvar sti har sannsyn $\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$. Kva er sannsynet for minst éi krone? Det er stiane KK, KM og MK, altså $P = \\frac{1}{4} + \\frac{1}{4} + \\frac{1}{4} = \\frac{3}{4}$.\n\nValtre er spesielt nyttige når sannsyna *endrar seg* mellom trinna. Tenk deg ein pose med 3 raude og 2 blå kuler. Du trekkjer to kuler *utan tilbakelegging*. Sannsynet for raud på første trekk er $\\frac{3}{5}$. Men dersom den første var raud, er det no berre 2 raude og 2 blå att -- 4 kuler totalt. Så sannsynet for raud på andre trekk *gitt* at den første var raud, er $\\frac{2}{4} = \\frac{1}{2}$. Sannsynet for to raude kuler er $\\frac{3}{5} \\cdot \\frac{1}{2} = \\frac{3}{10}$.\n\nEin viktig kontroll: Summen av sannsyna i alle endepunkt i eit valtre skal alltid bli 1. Dersom han ikkje gjer det, har du gjort ein feil undervegs."
+    },
+    {
+      "id": "2p-4-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på valtre:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-1-n-quiz4-q0",
+            "task": "Du kastar ein mynt tre gonger. Kor mange moglege utfall (stiar) finst i valtreet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "6",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "8",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "9",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvart kast har 2 moglege utfall. Med multiplikasjonsprinsippet: $2 \\cdot 2 \\cdot 2 = 8$ moglege stiar (KKK, KKM, KMK, KMM, MKK, MKM, MMK, MMM)."
+          },
+          {
+            "id": "2p-4-1-n-quiz4-q1",
+            "task": "I ein pose er 3 raude og 2 blå kuler. Du trekkjer to kuler utan tilbakelegging. Kva er sannsynet for to raude?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{3}{5} \\cdot \\frac{3}{5} = \\frac{9}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3}{5} + \\frac{2}{4} = \\frac{11}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{2}{20}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan tilbakelegging endrar sannsyna seg. Første trekk: $\\frac{3}{5}$ (3 raude av 5). Andre trekk: $\\frac{2}{4}$ (2 raude att av 4 totalt). Multipliserer langs stien: $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{3}{10}$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-1-n-section5",
+      "type": "text",
+      "content": "## Systematisk oppteljing og multiplikasjonsprinsippet\n\nNokre gonger treng vi ikkje å teikne heile valtreet -- vi treng berre å vite *kor mange* moglege utfall det finst. Og då har vi eit kraftig prinsipp: **multiplikasjonsprinsippet**. Det seier at dersom val 1 kan gjerast på $m$ måtar og val 2 kan gjerast på $n$ måtar, så kan begge vala gjerast på $m \\cdot n$ måtar.\n\nTenk på ein pizzarestaurant med 3 typar botn og 5 typar fyll. Kor mange ulike pizzakombinasjonar kan du lage? Med multiplikasjonsprinsippet: $3 \\cdot 5 = 15$ kombinasjonar. Du treng ikkje å liste opp alle femten -- prinsippet gir deg svaret direkte.\n\nPrinsippet vert utvida naturleg til fleire val. Ein PIN-kode består av 4 siffer, og kvart siffer kan vere 0 til 9 -- altså 10 moglegheiter. Tal moglege PIN-kodar er $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Sannsynet for å gjette rett PIN på første forsøk er dermed $P = \\frac{1}{10\\,000} = 0{,}0001 = 0{,}01\\%$. Ikkje akkurat oppmuntrande for ein tjuv.\n\nKva med eit passord som består av 2 bokstavar (A--Z, 26 moglegheiter per posisjon) etterfølgt av 3 siffer (0--9)? Då er tal moglege passord $26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 = 676\\,000$. Legg merke til at vi multipliserer talet på moglegheiter for *kvar posisjon* -- vi adderer dei ikkje. Dette er ein vanleg feil: å skrive $26 + 26 + 10 + 10 + 10 = 82$ i staden for å multiplisere. Addering gir talet på val per posisjon summert, men multiplikasjon gir talet på *kombinasjonar*.\n\nSystematisk oppteljing med multiplikasjonsprinsippet er grunnlaget for mykje av sannsynsrekninga. Når du har funne talet på moglege utfall, kan du setje det rett inn i formelen $P(A) = \\frac{\\text{gunstige}}{\\text{mulige}}$ og finne sannsynet."
+    },
+    {
+      "id": "2p-4-1-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-1-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på multiplikasjonsprinsippet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-1-n-quiz5-q0",
+            "task": "Ein iskrembar tilbyr 4 smakar og 3 typar topping. Kor mange ulike kombinasjonar av smak og topping kan du velje?",
+            "options": [
+              {
+                "id": "a",
+                "text": "7",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "12",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "24",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "43",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Multiplikasjonsprinsippet: $4 \\cdot 3 = 12$ kombinasjonar. Vi multipliserer fordi kvart smaksval kan kombinerast med kvar topping."
+          },
+          {
+            "id": "2p-4-1-n-quiz5-q1",
+            "task": "Ein PIN-kode har 4 siffer (0--9). Kor mange moglege PIN-kodar finst?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$10\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$40$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10\\,024$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Kvart siffer har 10 moglegheiter (0--9), og vi multipliserer for kvar posisjon."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har no vore gjennom dei grunnleggjande byggjeklossane i sannsynsrekninga, og du har fått eit solid fundament å byggje vidare på.\n\n**Nøkkelomgrep du no kjenner:**\n- **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall i eit forsøk\n- **Ei hending** $A$ er ei delmengd av utfallsrommet -- dei utfalla vi er interesserte i\n- **Sannsynet** for ei hending er $P(A) = \\frac{\\text{gunstige utfall}}{\\text{mulige utfall}}$, alltid mellom 0 og 1\n- **Komplementsetninga**: $P(A') = 1 - P(A)$ -- sannsynet for at A *ikkje* skjer\n- **Addisjonssetninga for uforeinlege hendingar**: $P(A \\cup B) = P(A) + P(B)$\n- **Addisjonssetninga for foreinlege hendingar**: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\n- **Valtre**: Multipliser sannsyn langs stiar, adder mellom stiar\n- **Multiplikasjonsprinsippet**: $m \\cdot n$ kombinasjonar for uavhengige val\n\n**Det viktigaste du tek med deg:**\nSannsynsrekning handlar om å tenkje systematisk om tilfeldigheiter. Med utfallsrom, hendingar og nokre få reknereglar kan du rekne ut sjansen for nesten kva som helst -- frå terningkast til PIN-kodar. Og når det blir uoversiktleg, er valtreet din beste ven."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "729e89a6b0f534d1",
+    "translatedAt": "2026-06-17T00:22:41.685Z",
+    "model": "claude-code-agent",
+    "strings": 65,
+    "tm": {
+      "578c93f605e24a9a": "Sannsynsrekning",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "63c84fdc4be13db9": "Bli med inn i sannsynet si verd -- frå terningkast og kortstokkar til valtre og systematisk oppteljing. Ei forteljing om korleis vi kan setje tal på tilfeldigheiter.",
+      "f4c063f77cf50e3f": "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy",
+      "8f89d0a6b2fb1e02": "## Kan vi setje tal på tilfeldigheiter?\n\nTenk deg at du står i ein kiosk og vurderer å kjøpe eit lodd i eit lotteri. Du lurer på: *Kor sannsynleg er det eigentleg at eg vinn?* Eller kanskje du sjekkar vêrmeldinga og les at det er 70 prosent sjanse for regn. Kva tyder eigentleg det? Og når venen din hevdar at han \"alltid\" slår seksar på terningen -- stemmer det, eller er han berre heldig?\n\nSannsyn handlar om å setje tal på tilfeldigheiter. Det er eit matematisk verktøy som lèt oss seie noko fornuftig om ting vi ikkje kan føresjå med visse. Vi kan ikkje vite *nøyaktig* kva som skjer neste gong vi kastar ein terning, men vi kan seie noko presist om kva som er *sannsynleg*. Og det viser seg at desse utrekningane har enorm praktisk verdi -- frå forsikringsmatematikk og medisinsk forsking til poker og Lotto.\n\nI dette kapittelet skal vi starte heilt frå byrjinga: Kva er eigentleg eit utfallsrom? Kva meiner vi med ei hending? Og korleis reknar vi ut sannsynet for at noko bestemt skjer? Vi skal òg lære nokre kraftige verktøy: komplementsetninga, addisjonssetninga og valtre.",
+      "53dbd035421f567b": "## Utfallsrom, hendingar og den grunnleggjande formelen\n\nLat oss starte med det aller mest grunnleggjande. Når vi gjer eit forsøk der utfallet er tilfeldig -- til dømes kastar ein terning -- kallar vi mengda av *alle* moglege utfall for **utfallsrommet**. Vi bruker symbolet $\\Omega$ (den greske bokstaven omega) for dette. Kastar du ein vanleg terning, er utfallsrommet $\\Omega = \\{1, 2, 3, 4, 5, 6\\}$. Seks moglege utfall, ikkje noko meir, ikkje noko mindre.\n\nEi **hending** er det vi er interesserte i å finne sannsynet for. Det kan vere eitt enkelt utfall, som \"å få 4\", eller ei samling av utfall, som \"å få eit partal\". Matematisk seier vi at ei hending $A$ er ei *delmengd* av utfallsrommet. Hendinga \"partal\" inneheld utfalla $\\{2, 4, 6\\}$ -- tre av dei seks moglege.\n\nOg no kjem sjølve nøkkelen: Sannsynet for ei hending $A$ er gitt ved formelen $P(A) = \\frac{\\text{antall gunstige utfall}}{\\text{antall mulige utfall}}$. Denne formelen føreset at alle utfall er like sannsynlege -- noko som gjeld for ein rettferdig terning, ein godt blanda kortstokk og mange andre situasjonar. Sannsynet er alltid eit tal mellom 0 og 1, der $P(A) = 0$ tyder at hendinga er umogleg, og $P(A) = 1$ tyder at ho er sikker.\n\nLat oss teste formelen med terningen. Sannsynet for å få nøyaktig 4 er $P(\\text{fire}) = \\frac{1}{6}$, fordi det er 1 gunstig utfall av 6 moglege. Sannsynet for eit partal er $P(\\text{partall}) = \\frac{3}{6} = \\frac{1}{2}$, fordi det er 3 partal blant dei 6 moglege. Og sannsynet for eit tal større enn 4 er $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$, fordi berre 5 og 6 oppfyller kravet.\n\nKva med ein kortstokk? Ein standard kortstokk har 52 kort, og det finst 4 ess. Sannsynet for å trekkje eit ess tilfeldig er altså $P(\\text{ess}) = \\frac{4}{52} = \\frac{1}{13}$.",
+      "d241e5e7023876cc": "Test deg sjølv på grunnleggjande sannsyn:",
+      "4097889236a2af26": "placeholder",
+      "c5cfe89463fcad3d": "I ein pose ligg 5 raude, 3 blå og 2 grøne kuler. Du trekkjer éi kule tilfeldig. Kva er sannsynet for å trekkje ei raud kule?",
+      "7e6026b35a80b9fb": "$\\frac{1}{5}$",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "5257a310e0070b54": "$\\frac{5}{8}$",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "a33be60d0115fe83": "Totalt er det $5 + 3 + 2 = 10$ kuler. Av desse er 5 raude. $P(\\text{rød}) = \\frac{5}{10} = \\frac{1}{2}$.",
+      "3605201f4775028c": "Du kastar ein vanleg terning. Kva er sannsynet for å få eit tal større enn 4?",
+      "b51d92817d932fe4": "$\\frac{4}{6}$",
+      "ed2f0dca805db9c6": "$\\frac{1}{6}$",
+      "5bbbc74a721fdbe3": "$\\frac{2}{6} = \\frac{1}{3}$",
+      "328e6ff00fd3b23a": "$\\frac{3}{6} = \\frac{1}{2}$",
+      "a8b03960f68a8e56": "Tala større enn 4 er 5 og 6 -- altså 2 gunstige av 6 moglege utfall. $P(\\text{tall} > 4) = \\frac{2}{6} = \\frac{1}{3}$.",
+      "2d2b258f90a43c27": "## Komplementsetninga -- å tenkje baklengs\n\nNokre gonger er det lettare å rekne ut sannsynet for at noko *ikkje* skjer, enn for at det skjer. Og det er her **komplementsetninga** kjem inn som eit elegant triks.\n\nKomplementhendinga til $A$, skrive $A'$, er rett og slett hendinga \"A skjer ikkje\". Og fordi noko anten skjer eller ikkje skjer, veit vi at $P(A) + P(A') = 1$. Snur vi om på dette, får vi komplementsetninga: $P(A') = 1 - P(A)$.\n\nLat oss ta eit kvardagsleg eksempel. Vêrmeldinga seier at det er 35 prosent sjanse for regn i morgon. Kva er sjansen for at det *ikkje* regnar? Vi set opp: $P(\\text{ikke regn}) = 1 - P(\\text{regn}) = 1 - 0{,}35 = 0{,}65$. Altså 65 prosent sjanse for tørt vêr. Enkelt og greitt.\n\nMen komplementsetninga er meir enn berre ein snarveg for enkle problem. Ho er spesielt nyttig i situasjonar der det er vanskeleg å telje dei gunstige utfalla direkte, men lett å telje dei *ugunstige*. Tenk til dømes på spørsmålet: \"Kva er sannsynet for å få *minst éin* seksar på tre terningkast?\" Å telje alle måtar du kan få minst éin seksar på er litt rotete -- det kan vere éin, to eller tre seksarar. Men å rekne ut sannsynet for *ingen* seksarar er enkelt: $P(\\text{ingen sekser}) = \\frac{5}{6} \\cdot \\frac{5}{6} \\cdot \\frac{5}{6} = \\frac{125}{216}$. Dermed er $P(\\text{minst én sekser}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$.\n\nHer er eit anna eksempel å tenkje på: Sannsynet for at ein tilfeldig vald elev har bursdag i januar er $\\frac{31}{365}$ (31 dagar i januar av 365 dagar totalt). Då er sannsynet for at eleven *ikkje* har bursdag i januar $1 - \\frac{31}{365} = \\frac{334}{365}$.",
+      "582ff2d873768beb": "Test deg sjølv på komplementsetninga:",
+      "72a74e118e6f5757": "Sannsynet for å bestå ein eksamen er $0{,}78$. Kva er sannsynet for å ikkje bestå?",
+      "20fa7187be70a623": "$P(\\text{ikke bestå}) = 1 - P(\\text{bestå}) = 1 - 0{,}78 = 0{,}22$.",
+      "e5fed8c58ce40137": "Kva er sannsynet for å få *minst éin* seksar på tre terningkast?",
+      "97c2fa5c0d07b922": "$1 - \\left(\\frac{5}{6}\\right)^3 = 1 - \\frac{125}{216} \\approx 0{,}42$",
+      "dfb88baa4f314ec4": "$\\left(\\frac{1}{6}\\right)^3 \\approx 0{,}005$",
+      "851c4c4e4c90fb79": "$3 \\cdot \\frac{1}{6} = 0{,}5$",
+      "b8af4410b6f1ef5d": "Vi bruker komplementet: $P(\\text{minst én}) = 1 - P(\\text{ingen})$. $P(\\text{ingen sekser}) = (\\frac{5}{6})^3 = \\frac{125}{216}$. Altså $P(\\text{minst én}) = 1 - \\frac{125}{216} = \\frac{91}{216} \\approx 0{,}42$.",
+      "779e6123b75b7ee4": "## Addisjonssetninga -- når vi spør \"det eine eller det andre\"\n\nKva om du trekkjer eit kort frå ein kortstokk og lurer på: \"Kva er sjansen for å trekkje eit ess *eller* eit hjarterkort?\" Her er det freistande å berre leggje saman sannsyna, men då må vi passe på litt. Nokre hendingar kan nemleg skje *samtidig*, og då tel vi noko dobbelt dersom vi berre adderer.\n\nVi skil mellom to typar hendingar. **Uforeinlege hendingar** er hendingar som *ikkje* kan skje samtidig. Kastar du ein terning, kan du ikkje få både 3 og 5 i same kast. For uforeinlege hendingar $A$ og $B$ er regelen enkel: $P(A \\cup B) = P(A) + P(B)$. Unionen $A \\cup B$ tyder \"A eller B (eller begge)\".\n\nMen mange hendingar er **foreinlege** -- dei *kan* skje samtidig. Å trekkje eit ess og å trekkje eit hjarterkort er foreinlege hendingar, fordi hjarter-ess er begge delar. Dersom vi berre legg saman $P(\\text{ess}) + P(\\text{hjerter})$, tel vi hjarter-ess dobbelt. Difor treng vi den generelle addisjonssetninga: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$, der $P(A \\cap B)$ er sannsynet for at *begge* skjer.\n\nLat oss rekne ut kortstokk-eksempelet. Det er 4 ess i kortstokken, så $P(\\text{ess}) = \\frac{4}{52}$. Det er 13 hjarterkort, så $P(\\text{hjerter}) = \\frac{13}{52}$. Og det er 1 hjarter-ess, så $P(\\text{ess} \\cap \\text{hjerter}) = \\frac{1}{52}$. Dermed: $P(\\text{ess} \\cup \\text{hjerter}) = \\frac{4}{52} + \\frac{13}{52} - \\frac{1}{52} = \\frac{16}{52} = \\frac{4}{13} \\approx 0{,}31$.\n\nHer er eit eksempel med ein skuleklasse. I ein klasse med 30 elevar spelar 18 fotball, 12 handball, og 5 spelar begge delar. Hendingane \"spelar fotball\" og \"spelar handball\" er foreinlege fordi 5 elevar gjer begge delar. Sannsynet for at ein tilfeldig elev spelar fotball eller handball er $P(F \\cup H) = \\frac{18}{30} + \\frac{12}{30} - \\frac{5}{30} = \\frac{25}{30} = \\frac{5}{6}$.",
+      "6565090447951ac8": "Test deg sjølv på addisjonssetninga:",
+      "85677e4d6e44d233": "I ein klasse med 40 elevar les 20 krim, 15 les fantasy, og 8 les begge sjangrar. Kva er sannsynet for at ein tilfeldig vald elev les krim eller fantasy?",
+      "00907c56b846abe7": "$\\frac{35}{40} = \\frac{7}{8}$",
+      "6ca6b4526984f2e5": "$\\frac{27}{40}$",
+      "5d87ee22b1561813": "$\\frac{43}{40}$",
+      "6d33b2e343aab5a9": "$\\frac{8}{40} = \\frac{1}{5}$",
+      "7f9ed7ca0dbbd2a1": "Hendingane er foreinlege (8 les begge). $P(K \\cup F) = \\frac{20}{40} + \\frac{15}{40} - \\frac{8}{40} = \\frac{27}{40}$. Vi trekkjer frå dei 8 som vert talde dobbelt.",
+      "ffb18ec79e30fe0b": "Du kastar ein terning. Kva er sannsynet for å få 3 eller 5?",
+      "e9b45e7e8723df8e": "$\\frac{1}{36}$",
+      "84f9c0d2411c8d0f": "Hendingane «3» og «5» er uforeinlege (du kan ikkje få begge i same kast). Då er $P(3 \\cup 5) = P(3) + P(5) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$.",
+      "0a714bca8536859c": "## Valtre -- å sjå alle moglegheitene\n\nNår eit forsøk har fleire trinn -- til dømes to myntkast etter kvarandre -- kan det bli uoversiktleg å halde styr på alle moglege utfall. Då er eit **valtre** (òg kalla treediagram) eit fantastisk verktøy. Det lèt deg *sjå* alle stiane gjennom forsøket, og det gjer det enkelt å rekne ut sannsyn.\n\nSlik fungerer det: Kvart forgreiningspunkt i treet representerer eitt trinn i forsøket, og greinene viser dei moglege utfalla. Langs kvar grein skriv vi sannsynet for det utfallet. For å finne sannsynet for ein bestemt *sti* gjennom treet -- altså ein bestemt kombinasjon av utfall -- multipliserer vi sannsyna langs stien. Dette er **multiplikasjonsregelen**. Og for å finne sannsynet for ei *hending* som kan skje på fleire måtar, legg vi saman sannsyna for alle stiar som gir hendinga. Det er **addisjonsregelen**.\n\nLat oss sjå på eit konkret eksempel. Du kastar ein mynt to gonger. Valtreet har fire stiar: Krone-Krone (KK), Krone-Mynt (KM), Mynt-Krone (MK) og Mynt-Mynt (MM). Kvar sti har sannsyn $\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$. Kva er sannsynet for minst éi krone? Det er stiane KK, KM og MK, altså $P = \\frac{1}{4} + \\frac{1}{4} + \\frac{1}{4} = \\frac{3}{4}$.\n\nValtre er spesielt nyttige når sannsyna *endrar seg* mellom trinna. Tenk deg ein pose med 3 raude og 2 blå kuler. Du trekkjer to kuler *utan tilbakelegging*. Sannsynet for raud på første trekk er $\\frac{3}{5}$. Men dersom den første var raud, er det no berre 2 raude og 2 blå att -- 4 kuler totalt. Så sannsynet for raud på andre trekk *gitt* at den første var raud, er $\\frac{2}{4} = \\frac{1}{2}$. Sannsynet for to raude kuler er $\\frac{3}{5} \\cdot \\frac{1}{2} = \\frac{3}{10}$.\n\nEin viktig kontroll: Summen av sannsyna i alle endepunkt i eit valtre skal alltid bli 1. Dersom han ikkje gjer det, har du gjort ein feil undervegs.",
+      "0092acf359bbf8f2": "Test deg sjølv på valtre:",
+      "5c9a7aac4f8d5ac4": "Du kastar ein mynt tre gonger. Kor mange moglege utfall (stiar) finst i valtreet?",
+      "81041b1b7902df13": "Kvart kast har 2 moglege utfall. Med multiplikasjonsprinsippet: $2 \\cdot 2 \\cdot 2 = 8$ moglege stiar (KKK, KKM, KMK, KMM, MKK, MKM, MMK, MMM).",
+      "7edd5aee6ae6bbd7": "I ein pose er 3 raude og 2 blå kuler. Du trekkjer to kuler utan tilbakelegging. Kva er sannsynet for to raude?",
+      "fa853195710ce9ff": "$\\frac{3}{5} \\cdot \\frac{3}{5} = \\frac{9}{25}$",
+      "fcd97fae498425db": "$\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10}$",
+      "f665ae92dd8f2b28": "$\\frac{3}{5} + \\frac{2}{4} = \\frac{11}{10}$",
+      "cce6d7ae5ca71a87": "$\\frac{2}{5} \\cdot \\frac{1}{4} = \\frac{2}{20}$",
+      "aeac3c647ef57dc9": "Utan tilbakelegging endrar sannsyna seg. Første trekk: $\\frac{3}{5}$ (3 raude av 5). Andre trekk: $\\frac{2}{4}$ (2 raude att av 4 totalt). Multipliserer langs stien: $\\frac{3}{5} \\cdot \\frac{2}{4} = \\frac{3}{10}$.",
+      "769bbf2a586934f2": "## Systematisk oppteljing og multiplikasjonsprinsippet\n\nNokre gonger treng vi ikkje å teikne heile valtreet -- vi treng berre å vite *kor mange* moglege utfall det finst. Og då har vi eit kraftig prinsipp: **multiplikasjonsprinsippet**. Det seier at dersom val 1 kan gjerast på $m$ måtar og val 2 kan gjerast på $n$ måtar, så kan begge vala gjerast på $m \\cdot n$ måtar.\n\nTenk på ein pizzarestaurant med 3 typar botn og 5 typar fyll. Kor mange ulike pizzakombinasjonar kan du lage? Med multiplikasjonsprinsippet: $3 \\cdot 5 = 15$ kombinasjonar. Du treng ikkje å liste opp alle femten -- prinsippet gir deg svaret direkte.\n\nPrinsippet vert utvida naturleg til fleire val. Ein PIN-kode består av 4 siffer, og kvart siffer kan vere 0 til 9 -- altså 10 moglegheiter. Tal moglege PIN-kodar er $10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Sannsynet for å gjette rett PIN på første forsøk er dermed $P = \\frac{1}{10\\,000} = 0{,}0001 = 0{,}01\\%$. Ikkje akkurat oppmuntrande for ein tjuv.\n\nKva med eit passord som består av 2 bokstavar (A--Z, 26 moglegheiter per posisjon) etterfølgt av 3 siffer (0--9)? Då er tal moglege passord $26 \\cdot 26 \\cdot 10 \\cdot 10 \\cdot 10 = 676\\,000$. Legg merke til at vi multipliserer talet på moglegheiter for *kvar posisjon* -- vi adderer dei ikkje. Dette er ein vanleg feil: å skrive $26 + 26 + 10 + 10 + 10 = 82$ i staden for å multiplisere. Addering gir talet på val per posisjon summert, men multiplikasjon gir talet på *kombinasjonar*.\n\nSystematisk oppteljing med multiplikasjonsprinsippet er grunnlaget for mykje av sannsynsrekninga. Når du har funne talet på moglege utfall, kan du setje det rett inn i formelen $P(A) = \\frac{\\text{gunstige}}{\\text{mulige}}$ og finne sannsynet.",
+      "a75f80d8204ada31": "Test deg sjølv på multiplikasjonsprinsippet:",
+      "cc0a8fb015f6e072": "Ein iskrembar tilbyr 4 smakar og 3 typar topping. Kor mange ulike kombinasjonar av smak og topping kan du velje?",
+      "9cb2a3e569032c13": "Multiplikasjonsprinsippet: $4 \\cdot 3 = 12$ kombinasjonar. Vi multipliserer fordi kvart smaksval kan kombinerast med kvar topping.",
+      "bdf61e285539151e": "Ein PIN-kode har 4 siffer (0--9). Kor mange moglege PIN-kodar finst?",
+      "5bb04caa1bec162a": "$10 \\cdot 10 \\cdot 10 \\cdot 10 = 10^4 = 10\\,000$. Kvart siffer har 10 moglegheiter (0--9), og vi multipliserer for kvar posisjon.",
+      "59c1828b286812bc": "## Oppsummering\n\nVi har no vore gjennom dei grunnleggjande byggjeklossane i sannsynsrekninga, og du har fått eit solid fundament å byggje vidare på.\n\n**Nøkkelomgrep du no kjenner:**\n- **Utfallsrommet** $\\Omega$ er mengda av alle moglege utfall i eit forsøk\n- **Ei hending** $A$ er ei delmengd av utfallsrommet -- dei utfalla vi er interesserte i\n- **Sannsynet** for ei hending er $P(A) = \\frac{\\text{gunstige utfall}}{\\text{mulige utfall}}$, alltid mellom 0 og 1\n- **Komplementsetninga**: $P(A') = 1 - P(A)$ -- sannsynet for at A *ikkje* skjer\n- **Addisjonssetninga for uforeinlege hendingar**: $P(A \\cup B) = P(A) + P(B)$\n- **Addisjonssetninga for foreinlege hendingar**: $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\n- **Valtre**: Multipliser sannsyn langs stiar, adder mellom stiar\n- **Multiplikasjonsprinsippet**: $m \\cdot n$ kombinasjonar for uavhengige val\n\n**Det viktigaste du tek med deg:**\nSannsynsrekning handlar om å tenkje systematisk om tilfeldigheiter. Med utfallsrom, hendingar og nokre få reknereglar kan du rekne ut sjansen for nesten kva som helst -- frå terningkast til PIN-kodar. Og når det blir uoversiktleg, er valtreet din beste ven."
+    }
+  }
+}

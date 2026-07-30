@@ -1,1 +1,598 @@
-{"id":"1t-3-8-narrativ","courseId":"1t","chapterNumber":"3.8","title":"Eksponentialfunksjoner","subtitle":"Narrativ versjon","description":"En fortelling om tall som vokser lynraskt eller krymper sakte – fra bakterier som dobler seg til radioaktive stoffer som halveres.","estimatedMinutes":35,"competenceGoals":["forstå eksponentialfunksjoner"],"linkedChapterId":"1t-3-8","content":[{"id":"1t-3-8-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-8-narrativ-del1.mp3","description":"Lydfil som leser opp teksten frem til første quiz."},{"id":"1t-3-8-n-intro","type":"text","content":"## Når veksten tar av\n\nForestill deg at du legger et riskorn på det første feltet av et sjakkbrett, to på det neste, fire på det tredje, og fortsetter å doble for hvert felt. Hvor mye ris ender du opp med? Svaret er svimlende: mer ris enn hele verdens årlige produksjon. Det er kraften i eksponentiell vekst – den starter sakte, men tar fullstendig av.\n\nEn **eksponentialfunksjon** er en funksjon der variabelen står i eksponenten. Den generelle formen er $f(x) = a \\cdot b^x$, der $a \\neq 0$, $b > 0$ og $b \\neq 1$. Her er $a$ **startverdien** (verdien når $x = 0$, fordi $f(0) = a \\cdot b^0 = a$), og $b$ er **vekstfaktoren** som bestemmer hvor raskt funksjonen vokser eller avtar.\n\nEksponentialfunksjoner dukker opp overalt: i befolkningsvekst, renteberegninger, radioaktiv nedbrytning, spredning av virus, og verditap på biler. I dette kapittelet skal vi forstå hvordan disse funksjonene fungerer, hvordan vi setter dem opp fra praktiske situasjoner, og hvordan vi leser grafene deres."},{"id":"1t-3-8-n-section1","type":"text","content":"## Eksponentiell vekst – når ting bare blir mer og mer\n\nLa oss starte med vekst. Når **vekstfaktoren** $b$ er større enn $1$, har vi **eksponentiell vekst**. Det betyr at funksjonsverdien øker for hver enhet $x$ vokser.\n\nTenk deg en bakteriekultur som starter med 1000 bakterier og dobler seg hver time. Etter én time har du $1000 \\cdot 2 = 2000$. Etter to timer: $1000 \\cdot 2 \\cdot 2 = 4000$. Etter tre timer: $1000 \\cdot 2^3 = 8000$. Ser du mønsteret? Etter $t$ timer er antallet $N(t) = 1000 \\cdot 2^t$. Her er startverdien $a = 1000$ og vekstfaktoren $b = 2$.\n\nMen vekstfaktoren trenger ikke være et helt tall. I mange situasjoner er den knyttet til en prosentvis endring. Hvis noe øker med $p\\%$ per tidsenhet, er vekstfaktoren $b = 1 + \\frac{p}{100}$. For eksempel: en populasjon på 500 individer som vokser med $8\\%$ per år har vekstfaktoren $b = 1 + 0{,}08 = 1{,}08$. Funksjonen blir $P(t) = 500 \\cdot 1{,}08^t$. Etter 10 år: $P(10) = 500 \\cdot 1{,}08^{10} \\approx 1080$ individer.\n\nNøkkelen er at eksponentiell vekst ikke legger til et fast beløp hver gang (det ville vært lineær vekst), men *multipliserer* med en fast faktor. Det gjør at veksten akselererer over tid – i starten virker den beskjeden, men etter hvert blir den eksplosiv."},{"id":"1t-3-8-n-quiz1","type":"exercise","exercise":{"id":"1t-3-8-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på eksponentiell vekst:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-8-n-quiz1-q0","task":"En investering på 20 000 kr vokser med 6% per år. Hvilken funksjon beskriver verdien etter $t$ år?","options":[{"id":"a","text":"$V(t) = 20\\,000 + 0{,}06t$","isCorrect":false},{"id":"b","text":"$V(t) = 20\\,000 \\cdot 0{,}06^t$","isCorrect":false},{"id":"c","text":"$V(t) = 20\\,000 \\cdot 1{,}06^t$","isCorrect":true},{"id":"d","text":"$V(t) = 20\\,000 \\cdot 6^t$","isCorrect":false}],"solution":"Startverdien er $a = 20\\,000$ og vekstfaktoren er $b = 1 + 0{,}06 = 1{,}06$. Funksjonen blir $V(t) = 20\\,000 \\cdot 1{,}06^t$."},{"id":"1t-3-8-n-quiz1-q1","task":"Hva er vekstfaktoren $b$ når noe øker med $p\\%$ per tidsenhet?","options":[{"id":"a","text":"$b = p$","isCorrect":false},{"id":"b","text":"$b = 1 + \\frac{p}{100}$","isCorrect":true},{"id":"c","text":"$b = \\frac{p}{100}$","isCorrect":false},{"id":"d","text":"$b = 1 - \\frac{p}{100}$","isCorrect":false}],"solution":"Vekstfaktoren ved $p\\%$ økning er $b = 1 + \\frac{p}{100}$. For eksempel gir $8\\%$ økning $b = 1{,}08$."},{"id":"1t-3-8-n-quiz1-q2","task":"Hva er forskjellen mellom lineær og eksponentiell vekst?","options":[{"id":"a","text":"Lineær vekst legger til et fast beløp, eksponentiell multipliserer med en fast faktor","isCorrect":true},{"id":"b","text":"De er det samme, bare skrevet forskjellig","isCorrect":false},{"id":"c","text":"Eksponentiell vekst er alltid raskere","isCorrect":false},{"id":"d","text":"Lineær vekst har alltid høyere startverdi","isCorrect":false}],"solution":"Lineær vekst legger til et fast beløp hvert steg (f.eks. $+100$ per år), mens eksponentiell vekst multipliserer med en fast faktor (f.eks. $\\cdot 1{,}08$ per år). Eksponentiell vekst akselererer over tid."}],"solution":""}},{"id":"1t-3-8-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-8-narrativ-del2.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-3-8-n-section2","type":"text","content":"## Eksponentiell nedgang – når ting krymper\n\nHva skjer når vekstfaktoren er mellom 0 og 1? Da har vi **eksponentiell nedgang** – funksjonen synker for hver tidsenhet. Verdien blir stadig mindre, men når aldri helt null.\n\nEt klassisk eksempel er verditap på en bil. Tenk deg en ny bil som koster 400 000 kr og mister $15\\%$ av verdien hvert år. Vekstfaktoren blir $b = 1 - 0{,}15 = 0{,}85$. Legg merke til at vi trekker prosenten fra 1, fordi verdien *avtar*. Funksjonen er $V(t) = 400\\,000 \\cdot 0{,}85^t$. Etter 5 år: $V(5) = 400\\,000 \\cdot 0{,}85^5 \\approx 177\\,000$ kr. Bilen har altså mistet mer enn halvparten av verdien.\n\nGenerelt: hvis noe avtar med $p\\%$ per tidsenhet, er vekstfaktoren $b = 1 - \\frac{p}{100}$. En maskin som koster 200 000 kr og mister $25\\%$ per år har $b = 0{,}75$, og funksjonen $V(t) = 200\\,000 \\cdot 0{,}75^t$. Etter 4 år er verdien $V(4) = 200\\,000 \\cdot 0{,}75^4 \\approx 63\\,281$ kr.\n\nDet som er spesielt med eksponentiell nedgang er at verdien aldri når null. Den krymper og krymper, men det er alltid litt igjen. Matematisk betyr dette at grafen har en **horisontal asymptote** i $y = 0$. Merk deg forskjellen: vekstfaktor $b > 1$ gir vekst, og $0 < b < 1$ gir nedgang. Grensen ved $b = 1$ gir en konstant funksjon."},{"id":"1t-3-8-n-quiz2","type":"exercise","exercise":{"id":"1t-3-8-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på eksponentiell nedgang:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-8-n-quiz2-q0","task":"En datamaskin koster 12 000 kr og mister 30% av verdien per år. Hva er verdien etter 3 år?","options":[{"id":"a","text":"Ca. 1 200 kr","isCorrect":false},{"id":"b","text":"Ca. 4 116 kr","isCorrect":true},{"id":"c","text":"Ca. 8 400 kr","isCorrect":false},{"id":"d","text":"Ca. 2 520 kr","isCorrect":false}],"solution":"Vekstfaktoren er $b = 1 - 0{,}30 = 0{,}70$. Etter 3 år: $V(3) = 12\\,000 \\cdot 0{,}70^3 = 12\\,000 \\cdot 0{,}343 = 4\\,116$ kr."},{"id":"1t-3-8-n-quiz2-q1","task":"Hva er vekstfaktoren når noe mister $15\\%$ per år?","options":[{"id":"a","text":"$b = 1{,}15$","isCorrect":false},{"id":"b","text":"$b = 0{,}15$","isCorrect":false},{"id":"c","text":"$b = 0{,}85$","isCorrect":true},{"id":"d","text":"$b = -0{,}15$","isCorrect":false}],"solution":"Ved $15\\%$ nedgang: $b = 1 - \\frac{15}{100} = 1 - 0{,}15 = 0{,}85$. Vi trekker prosenten fra 1 fordi verdien avtar."},{"id":"1t-3-8-n-quiz2-q2","task":"Når har vi eksponentiell nedgang?","options":[{"id":"a","text":"Når $b > 1$","isCorrect":false},{"id":"b","text":"Når $b = 1$","isCorrect":false},{"id":"c","text":"Når $0 < b < 1$","isCorrect":true},{"id":"d","text":"Når $b < 0$","isCorrect":false}],"solution":"Eksponentiell nedgang skjer når vekstfaktoren $b$ er mellom 0 og 1. Da krymper verdien for hvert steg, men når aldri helt null."}],"solution":""}},{"id":"1t-3-8-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-8-narrativ-del3.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-3-8-n-section3","type":"text","content":"## Grafens egenskaper – hva eksponentialfunksjoner ser ut som\n\nNå som vi forstår vekst og nedgang, la oss se på hva grafene faktisk forteller oss. Alle eksponentialfunksjoner på formen $f(x) = a \\cdot b^x$ med $a > 0$ deler noen viktige egenskaper.\n\nFor det første: $y$-skjæringen er alltid $(0, a)$, fordi $f(0) = a \\cdot b^0 = a \\cdot 1 = a$. For det andre: funksjonsverdien er *alltid positiv*. Siden $b > 0$, er $b^x > 0$ for alle $x$, og dermed er $a \\cdot b^x > 0$ når $a > 0$. Det betyr at grafen aldri krysser $x$-aksen – funksjonen har ingen nullpunkter. Linjen $y = 0$ er en **horisontal asymptote**.\n\nNår $b > 1$, stiger grafen fra venstre mot høyre. For små $x$-verdier er den ganske flat, men for store $x$-verdier stiger den bratt. Når $0 < b < 1$, synker grafen: den er høy til venstre og krymper mot $y = 0$ til høyre.\n\nEt fint eksempel er å sammenligne $f(x) = 2^x$ og $g(x) = \\left(\\frac{1}{2}\\right)^x$. Begge har $y$-skjæring i $(0, 1)$, men $f$ stiger mens $g$ synker. Faktisk er $\\left(\\frac{1}{2}\\right)^x = 2^{-x}$, så $g$ er bare en speiling av $f$ om $y$-aksen. Funksjonen $h(x) = 50 \\cdot 2^{-x}$ er også nedgang fordi $2^{-x} = \\left(\\frac{1}{2}\\right)^x$, altså har vi egentlig $b = 0{,}5 < 1$."},{"id":"1t-3-8-n-quiz3","type":"exercise","exercise":{"id":"1t-3-8-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på grafens egenskaper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-8-n-quiz3-q0","task":"Hvilken av disse funksjonene viser eksponentiell nedgang?","options":[{"id":"a","text":"$f(x) = 3 \\cdot 1{,}5^x$","isCorrect":false},{"id":"b","text":"$g(x) = 100 \\cdot 0{,}9^x$","isCorrect":true},{"id":"c","text":"$h(x) = 5 \\cdot 3^x$","isCorrect":false},{"id":"d","text":"$k(x) = 2x + 10$","isCorrect":false}],"solution":"Eksponentiell nedgang har vekstfaktor $0 < b < 1$. Funksjonen $g(x) = 100 \\cdot 0{,}9^x$ har $b = 0{,}9 < 1$, altså nedgang."},{"id":"1t-3-8-n-quiz3-q1","task":"Hva er $y$-skjæringen til $f(x) = 7 \\cdot 2^x$?","options":[{"id":"a","text":"$(0, 2)$","isCorrect":false},{"id":"b","text":"$(0, 14)$","isCorrect":false},{"id":"c","text":"$(0, 7)$","isCorrect":true},{"id":"d","text":"$(7, 0)$","isCorrect":false}],"solution":"$f(0) = 7 \\cdot 2^0 = 7 \\cdot 1 = 7$. $y$-skjæringen er $(0, 7)$, altså startverdien $a$."},{"id":"1t-3-8-n-quiz3-q2","task":"Har eksponentialfunksjonen $f(x) = 4 \\cdot 3^x$ noen nullpunkter?","options":[{"id":"a","text":"Ja, i $x = 0$","isCorrect":false},{"id":"b","text":"Ja, i $x = -4$","isCorrect":false},{"id":"c","text":"Nei, funksjonen er alltid positiv","isCorrect":true},{"id":"d","text":"Ja, i $x = -\\infty$","isCorrect":false}],"solution":"Siden $3^x > 0$ for alle $x$, og $4 > 0$, er $f(x) = 4 \\cdot 3^x > 0$ for alle $x$. Grafen krysser aldri $x$-aksen, og $y = 0$ er en horisontal asymptote."}],"solution":""}},{"id":"1t-3-8-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-8-narrativ-del4.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-3-8-n-section4","type":"text","content":"## Doblingstid, halveringstid og praktiske anvendelser\n\nTo begreper som dukker opp igjen og igjen i forbindelse med eksponentialfunksjoner er **doblingstid** og **halveringstid**.\n\n**Doblingstid** er tiden det tar før verdien er dobbelt så stor. Hvis en bakteriekoloni dobler seg hvert tredje døgn, er doblingstiden $T = 3$ døgn, og vi kan skrive funksjonen som $N(t) = N_0 \\cdot 2^{t/3}$, der $N_0$ er startverdien.\n\n**Halveringstid** er tiden det tar før verdien er halvert. Hvis et radioaktivt stoff har halveringstid 5 år og vi starter med 200 gram, skriver vi $N(t) = 200 \\cdot 0{,}5^{t/5}$. Etter 15 år: $N(15) = 200 \\cdot 0{,}5^{15/5} = 200 \\cdot 0{,}5^3 = 200 \\cdot 0{,}125 = 25$ gram.\n\nLa oss også se på et renteeksempel. Du setter 10 000 kr i banken med $3\\%$ årlig rente. Vekstfaktoren er $b = 1{,}03$, og funksjonen er $K(t) = 10\\,000 \\cdot 1{,}03^t$. Etter 20 år: $K(20) = 10\\,000 \\cdot 1{,}03^{20} \\approx 18\\,061$ kr. Du har tjent ca. 8061 kr i renter – rentes rente i praksis.\n\nUansett om det handler om bakterier, penger, radioaktivitet eller bilverdi – modellen er den samme: $f(x) = a \\cdot b^x$. Du trenger bare å identifisere startverdien og vekstfaktoren."},{"id":"1t-3-8-n-quiz4","type":"exercise","exercise":{"id":"1t-3-8-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på doblingstid og halveringstid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-8-n-quiz4-q0","task":"Et radioaktivt stoff har halveringstid 8 år. Du starter med 160 gram. Hvor mye er igjen etter 24 år?","options":[{"id":"a","text":"80 gram","isCorrect":false},{"id":"b","text":"40 gram","isCorrect":false},{"id":"c","text":"20 gram","isCorrect":true},{"id":"d","text":"10 gram","isCorrect":false}],"solution":"$N(24) = 160 \\cdot 0{,}5^{24/8} = 160 \\cdot 0{,}5^3 = 160 \\cdot 0{,}125 = 20$ gram. Etter 24 år har stoffet halvert seg 3 ganger."},{"id":"1t-3-8-n-quiz4-q1","task":"En bakteriekoloni dobler seg hvert 4. døgn, og starter med 500 bakterier. Hvor mange er det etter 12 døgn?","options":[{"id":"a","text":"1 500","isCorrect":false},{"id":"b","text":"2 000","isCorrect":false},{"id":"c","text":"4 000","isCorrect":true},{"id":"d","text":"6 000","isCorrect":false}],"solution":"$N(12) = 500 \\cdot 2^{12/4} = 500 \\cdot 2^3 = 500 \\cdot 8 = 4\\,000$ bakterier. Etter 12 døgn har kolonien doblet seg 3 ganger."},{"id":"1t-3-8-n-quiz4-q2","task":"Hva er halveringstid?","options":[{"id":"a","text":"Tiden det tar før verdien er null","isCorrect":false},{"id":"b","text":"Tiden det tar før verdien er halvert","isCorrect":true},{"id":"c","text":"Halvparten av doblingstiden","isCorrect":false},{"id":"d","text":"Tiden det tar før vekstfaktoren halveres","isCorrect":false}],"solution":"Halveringstid er tiden det tar før verdien er halvparten av hva den var. Med halveringstid $T$ er funksjonen $N(t) = N_0 \\cdot 0{,}5^{t/T}$. Verdien når aldri helt null."}],"solution":""}},{"id":"1t-3-8-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-3-8-narrativ-del5.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-3-8-n-section5","type":"text","content":"## Finne $a$ og $b$ fra opplysninger\n\nNoen ganger får du ikke oppgitt startverdien og vekstfaktoren direkte – i stedet får du to punkter som grafen går gjennom, og må finne $a$ og $b$ selv.\n\nAnta at grafen til $f(x) = a \\cdot b^x$ går gjennom punktene $(0, 4)$ og $(2, 36)$. Fra det første punktet vet vi at $f(0) = a \\cdot b^0 = a = 4$. Nå bruker vi det andre punktet: $f(2) = 4 \\cdot b^2 = 36$. Vi løser for $b$: $b^2 = \\frac{36}{4} = 9$, som gir $b = 3$. Funksjonen er $f(x) = 4 \\cdot 3^x$.\n\nHvis begge punktene har $x \\neq 0$, må vi sette opp et likningssystem. For eksempel, hvis $f(1) = 6$ og $f(3) = 54$, får vi $a \\cdot b = 6$ og $a \\cdot b^3 = 54$. Vi deler: $\\frac{a \\cdot b^3}{a \\cdot b} = \\frac{54}{6}$, som gir $b^2 = 9$, altså $b = 3$. Deretter: $a \\cdot 3 = 6$, altså $a = 2$. Funksjonen er $f(x) = 2 \\cdot 3^x$.\n\nHuskeregelen for vekstfaktorer: $p\\%$ økning gir $b = 1 + \\frac{p}{100}$, $p\\%$ nedgang gir $b = 1 - \\frac{p}{100}$, dobling gir $b = 2$, tredobling gir $b = 3$, og halvering gir $b = 0{,}5$."},{"id":"1t-3-8-n-quiz5","type":"exercise","exercise":{"id":"1t-3-8-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på å finne $a$ og $b$:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-3-8-n-quiz5-q0","task":"Grafen til $f(x) = a \\cdot b^x$ går gjennom $(0, 5)$ og $(2, 45)$. Hva er funksjonsuttrykket?","options":[{"id":"a","text":"$f(x) = 5 \\cdot 9^x$","isCorrect":false},{"id":"b","text":"$f(x) = 45 \\cdot 3^x$","isCorrect":false},{"id":"c","text":"$f(x) = 5 \\cdot 3^x$","isCorrect":true},{"id":"d","text":"$f(x) = 5 \\cdot 45^x$","isCorrect":false}],"solution":"Fra $(0, 5)$: $a = 5$. Fra $(2, 45)$: $5 \\cdot b^2 = 45$, altså $b^2 = 9$ og $b = 3$. Funksjonen er $f(x) = 5 \\cdot 3^x$."},{"id":"1t-3-8-n-quiz5-q1","task":"Hvis $f(0) = a \\cdot b^0$, hva er $f(0)$?","options":[{"id":"a","text":"$f(0) = 0$","isCorrect":false},{"id":"b","text":"$f(0) = b$","isCorrect":false},{"id":"c","text":"$f(0) = a$","isCorrect":true},{"id":"d","text":"$f(0) = ab$","isCorrect":false}],"solution":"Siden $b^0 = 1$ for alle $b > 0$, blir $f(0) = a \\cdot 1 = a$. Startverdien $a$ kan alltid leses direkte av $y$-skjæringen."},{"id":"1t-3-8-n-quiz5-q2","task":"Grafen til $f(x) = a \\cdot b^x$ går gjennom $(1, 6)$ og $(3, 54)$. Hva er $b$?","options":[{"id":"a","text":"$b = 9$","isCorrect":false},{"id":"b","text":"$b = 3$","isCorrect":true},{"id":"c","text":"$b = 6$","isCorrect":false},{"id":"d","text":"$b = 54$","isCorrect":false}],"solution":"Vi har $ab = 6$ og $ab^3 = 54$. Vi deler: $\\frac{ab^3}{ab} = \\frac{54}{6}$, altså $b^2 = 9$ og $b = 3$."}],"solution":""}},{"id":"1t-3-8-n-audio-6","type":"audio","title":"Lytt til oppsummeringen","src":"/audio/1t/1t-3-8-narrativ-del6.mp3","description":"Lydfil som leser opp oppsummeringen."},{"id":"1t-3-8-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi utforsket eksponentialfunksjoner – funksjoner på formen $f(x) = a \\cdot b^x$ der $a$ er startverdien og $b$ er vekstfaktoren.\n\n**Eksponentiell vekst** skjer når $b > 1$. Funksjonen øker for hver tidsenhet, og veksten akselererer over tid. Prosentvis økning med $p\\%$ gir vekstfaktor $b = 1 + \\frac{p}{100}$. En bakteriekultur som dobler seg har $b = 2$, en investering med $3\\%$ rente har $b = 1{,}03$.\n\n**Eksponentiell nedgang** skjer når $0 < b < 1$. Verdien synker, men når aldri null. Prosentvis nedgang med $p\\%$ gir vekstfaktor $b = 1 - \\frac{p}{100}$. En bil som mister $15\\%$ årlig har $b = 0{,}85$.\n\n**Grafens egenskaper** er at $y$-skjæringen er $(0, a)$, funksjonen er alltid positiv, den har ingen nullpunkter, og $y = 0$ er en horisontal asymptote. Grafen stiger for $b > 1$ og synker for $0 < b < 1$.\n\n**Doblingstid** og **halveringstid** beskriver hvor lang tid det tar før verdien henholdsvis dobles eller halveres. Et stoff med halveringstid $T$ følger $N(t) = N_0 \\cdot 0{,}5^{t/T}$.\n\nFor å finne $a$ og $b$ fra to punkter bruker du $f(0) = a$ (hvis mulig) og løser for $b$ med det andre punktet. Har du to punkter med $x \\neq 0$, setter du opp et likningssystem og deler likningene på hverandre for å eliminere $a$."}],"exercises":[]}
+{
+  "id": "1t-3-8-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "3.8",
+  "title": "Eksponentialfunksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om tall som vokser lynraskt eller krymper sakte – fra bakterier som dobler seg til radioaktive stoffer som halveres.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå eksponentialfunksjoner"
+  ],
+  "linkedChapterId": "1t-3-8",
+  "content": [
+    {
+      "id": "1t-3-8-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-8-narrativ-del1.mp3",
+      "description": "Lydfil som leser opp teksten frem til første quiz."
+    },
+    {
+      "id": "1t-3-8-n-intro",
+      "type": "text",
+      "content": "## Når veksten tar av\n\nForestill deg at du legger et riskorn på det første feltet av et sjakkbrett, to på det neste, fire på det tredje, og fortsetter å doble for hvert felt. Hvor mye ris ender du opp med? Svaret er svimlende: mer ris enn hele verdens årlige produksjon. Det er kraften i eksponentiell vekst – den starter sakte, men tar fullstendig av.\n\nEn **eksponentialfunksjon** er en funksjon der variabelen står i eksponenten. Den generelle formen er $f(x) = a \\cdot b^x$, der $a \\neq 0$, $b > 0$ og $b \\neq 1$. Her er $a$ **startverdien** (verdien når $x = 0$, fordi $f(0) = a \\cdot b^0 = a$), og $b$ er **vekstfaktoren** som bestemmer hvor raskt funksjonen vokser eller avtar.\n\nEksponentialfunksjoner dukker opp overalt: i befolkningsvekst, renteberegninger, radioaktiv nedbrytning, spredning av virus, og verditap på biler. I dette kapittelet skal vi forstå hvordan disse funksjonene fungerer, hvordan vi setter dem opp fra praktiske situasjoner, og hvordan vi leser grafene deres."
+    },
+    {
+      "id": "1t-3-8-n-section1",
+      "type": "text",
+      "content": "## Eksponentiell vekst – når ting bare blir mer og mer\n\nLa oss starte med vekst. Når **vekstfaktoren** $b$ er større enn $1$, har vi **eksponentiell vekst**. Det betyr at funksjonsverdien øker for hver enhet $x$ vokser.\n\nTenk deg en bakteriekultur som starter med 1000 bakterier og dobler seg hver time. Etter én time har du $1000 \\cdot 2 = 2000$. Etter to timer: $1000 \\cdot 2 \\cdot 2 = 4000$. Etter tre timer: $1000 \\cdot 2^3 = 8000$. Ser du mønsteret? Etter $t$ timer er antallet $N(t) = 1000 \\cdot 2^t$. Her er startverdien $a = 1000$ og vekstfaktoren $b = 2$.\n\nMen vekstfaktoren trenger ikke være et helt tall. I mange situasjoner er den knyttet til en prosentvis endring. Hvis noe øker med $p\\%$ per tidsenhet, er vekstfaktoren $b = 1 + \\frac{p}{100}$. For eksempel: en populasjon på 500 individer som vokser med $8\\%$ per år har vekstfaktoren $b = 1 + 0{,}08 = 1{,}08$. Funksjonen blir $P(t) = 500 \\cdot 1{,}08^t$. Etter 10 år: $P(10) = 500 \\cdot 1{,}08^{10} \\approx 1080$ individer.\n\nNøkkelen er at eksponentiell vekst ikke legger til et fast beløp hver gang (det ville vært lineær vekst), men *multipliserer* med en fast faktor. Det gjør at veksten akselererer over tid – i starten virker den beskjeden, men etter hvert blir den eksplosiv."
+    },
+    {
+      "id": "1t-3-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentiell vekst:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-8-n-quiz1-q0",
+            "task": "En investering på 20 000 kr vokser med 6% per år. Hvilken funksjon beskriver verdien etter $t$ år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$V(t) = 20\\,000 + 0{,}06t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$V(t) = 20\\,000 \\cdot 1{,}06^t$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$V(t) = 20\\,000 \\cdot 0{,}06^t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$V(t) = 20\\,000 \\cdot 6^t$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Startverdien er $a = 20\\,000$ og vekstfaktoren er $b = 1 + 0{,}06 = 1{,}06$. Funksjonen blir $V(t) = 20\\,000 \\cdot 1{,}06^t$."
+          },
+          {
+            "id": "1t-3-8-n-quiz1-q1",
+            "task": "Hva er vekstfaktoren $b$ når noe øker med $p\\%$ per tidsenhet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b = p$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = \\frac{p}{100}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$b = 1 + \\frac{p}{100}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$b = 1 - \\frac{p}{100}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktoren ved $p\\%$ økning er $b = 1 + \\frac{p}{100}$. For eksempel gir $8\\%$ økning $b = 1{,}08$."
+          },
+          {
+            "id": "1t-3-8-n-quiz1-q2",
+            "task": "Hva er forskjellen mellom lineær og eksponentiell vekst?",
+            "options": [
+              {
+                "id": "b",
+                "text": "De er det samme, bare skrevet forskjellig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eksponentiell vekst er alltid raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lineær vekst har alltid høyere startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Lineær vekst legger til et fast beløp, eksponentiell multipliserer med en fast faktor",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Lineær vekst legger til et fast beløp hvert steg (f.eks. $+100$ per år), mens eksponentiell vekst multipliserer med en fast faktor (f.eks. $\\cdot 1{,}08$ per år). Eksponentiell vekst akselererer over tid."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-3-8-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-8-narrativ-del2.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-3-8-n-section2",
+      "type": "text",
+      "content": "## Eksponentiell nedgang – når ting krymper\n\nHva skjer når vekstfaktoren er mellom 0 og 1? Da har vi **eksponentiell nedgang** – funksjonen synker for hver tidsenhet. Verdien blir stadig mindre, men når aldri helt null.\n\nEt klassisk eksempel er verditap på en bil. Tenk deg en ny bil som koster 400 000 kr og mister $15\\%$ av verdien hvert år. Vekstfaktoren blir $b = 1 - 0{,}15 = 0{,}85$. Legg merke til at vi trekker prosenten fra 1, fordi verdien *avtar*. Funksjonen er $V(t) = 400\\,000 \\cdot 0{,}85^t$. Etter 5 år: $V(5) = 400\\,000 \\cdot 0{,}85^5 \\approx 177\\,000$ kr. Bilen har altså mistet mer enn halvparten av verdien.\n\nGenerelt: hvis noe avtar med $p\\%$ per tidsenhet, er vekstfaktoren $b = 1 - \\frac{p}{100}$. En maskin som koster 200 000 kr og mister $25\\%$ per år har $b = 0{,}75$, og funksjonen $V(t) = 200\\,000 \\cdot 0{,}75^t$. Etter 4 år er verdien $V(4) = 200\\,000 \\cdot 0{,}75^4 \\approx 63\\,281$ kr.\n\nDet som er spesielt med eksponentiell nedgang er at verdien aldri når null. Den krymper og krymper, men det er alltid litt igjen. Matematisk betyr dette at grafen har en **horisontal asymptote** i $y = 0$. Merk deg forskjellen: vekstfaktor $b > 1$ gir vekst, og $0 < b < 1$ gir nedgang. Grensen ved $b = 1$ gir en konstant funksjon."
+    },
+    {
+      "id": "1t-3-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentiell nedgang:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-8-n-quiz2-q0",
+            "task": "En datamaskin koster 12 000 kr og mister 30% av verdien per år. Hva er verdien etter 3 år?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 4 116 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. 1 200 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 8 400 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 2 520 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktoren er $b = 1 - 0{,}30 = 0{,}70$. Etter 3 år: $V(3) = 12\\,000 \\cdot 0{,}70^3 = 12\\,000 \\cdot 0{,}343 = 4\\,116$ kr."
+          },
+          {
+            "id": "1t-3-8-n-quiz2-q1",
+            "task": "Hva er vekstfaktoren når noe mister $15\\%$ per år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b = 1{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = 0{,}85$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$b = 0{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$b = -0{,}15$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved $15\\%$ nedgang: $b = 1 - \\frac{15}{100} = 1 - 0{,}15 = 0{,}85$. Vi trekker prosenten fra 1 fordi verdien avtar."
+          },
+          {
+            "id": "1t-3-8-n-quiz2-q2",
+            "task": "Når har vi eksponentiell nedgang?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $b > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $b = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $0 < b < 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når $b < 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentiell nedgang skjer når vekstfaktoren $b$ er mellom 0 og 1. Da krymper verdien for hvert steg, men når aldri helt null."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-3-8-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-8-narrativ-del3.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-3-8-n-section3",
+      "type": "text",
+      "content": "## Grafens egenskaper – hva eksponentialfunksjoner ser ut som\n\nNå som vi forstår vekst og nedgang, la oss se på hva grafene faktisk forteller oss. Alle eksponentialfunksjoner på formen $f(x) = a \\cdot b^x$ med $a > 0$ deler noen viktige egenskaper.\n\nFor det første: $y$-skjæringen er alltid $(0, a)$, fordi $f(0) = a \\cdot b^0 = a \\cdot 1 = a$. For det andre: funksjonsverdien er *alltid positiv*. Siden $b > 0$, er $b^x > 0$ for alle $x$, og dermed er $a \\cdot b^x > 0$ når $a > 0$. Det betyr at grafen aldri krysser $x$-aksen – funksjonen har ingen nullpunkter. Linjen $y = 0$ er en **horisontal asymptote**.\n\nNår $b > 1$, stiger grafen fra venstre mot høyre. For små $x$-verdier er den ganske flat, men for store $x$-verdier stiger den bratt. Når $0 < b < 1$, synker grafen: den er høy til venstre og krymper mot $y = 0$ til høyre.\n\nEt fint eksempel er å sammenligne $f(x) = 2^x$ og $g(x) = \\left(\\frac{1}{2}\\right)^x$. Begge har $y$-skjæring i $(0, 1)$, men $f$ stiger mens $g$ synker. Faktisk er $\\left(\\frac{1}{2}\\right)^x = 2^{-x}$, så $g$ er bare en speiling av $f$ om $y$-aksen. Funksjonen $h(x) = 50 \\cdot 2^{-x}$ er også nedgang fordi $2^{-x} = \\left(\\frac{1}{2}\\right)^x$, altså har vi egentlig $b = 0{,}5 < 1$."
+    },
+    {
+      "id": "1t-3-8-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-8-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grafens egenskaper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-8-n-quiz3-q0",
+            "task": "Hvilken av disse funksjonene viser eksponentiell nedgang?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) = 3 \\cdot 1{,}5^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$h(x) = 5 \\cdot 3^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$k(x) = 2x + 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$g(x) = 100 \\cdot 0{,}9^x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eksponentiell nedgang har vekstfaktor $0 < b < 1$. Funksjonen $g(x) = 100 \\cdot 0{,}9^x$ har $b = 0{,}9 < 1$, altså nedgang."
+          },
+          {
+            "id": "1t-3-8-n-quiz3-q1",
+            "task": "Hva er $y$-skjæringen til $f(x) = 7 \\cdot 2^x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$(0, 7)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(0, 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(0, 14)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(7, 0)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(0) = 7 \\cdot 2^0 = 7 \\cdot 1 = 7$. $y$-skjæringen er $(0, 7)$, altså startverdien $a$."
+          },
+          {
+            "id": "1t-3-8-n-quiz3-q2",
+            "task": "Har eksponentialfunksjonen $f(x) = 4 \\cdot 3^x$ noen nullpunkter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, i $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, funksjonen er alltid positiv",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ja, i $x = -4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja, i $x = -\\infty$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $3^x > 0$ for alle $x$, og $4 > 0$, er $f(x) = 4 \\cdot 3^x > 0$ for alle $x$. Grafen krysser aldri $x$-aksen, og $y = 0$ er en horisontal asymptote."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-3-8-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-8-narrativ-del4.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-3-8-n-section4",
+      "type": "text",
+      "content": "## Doblingstid, halveringstid og praktiske anvendelser\n\nTo begreper som dukker opp igjen og igjen i forbindelse med eksponentialfunksjoner er **doblingstid** og **halveringstid**.\n\n**Doblingstid** er tiden det tar før verdien er dobbelt så stor. Hvis en bakteriekoloni dobler seg hvert tredje døgn, er doblingstiden $T = 3$ døgn, og vi kan skrive funksjonen som $N(t) = N_0 \\cdot 2^{t/3}$, der $N_0$ er startverdien.\n\n**Halveringstid** er tiden det tar før verdien er halvert. Hvis et radioaktivt stoff har halveringstid 5 år og vi starter med 200 gram, skriver vi $N(t) = 200 \\cdot 0{,}5^{t/5}$. Etter 15 år: $N(15) = 200 \\cdot 0{,}5^{15/5} = 200 \\cdot 0{,}5^3 = 200 \\cdot 0{,}125 = 25$ gram.\n\nLa oss også se på et renteeksempel. Du setter 10 000 kr i banken med $3\\%$ årlig rente. Vekstfaktoren er $b = 1{,}03$, og funksjonen er $K(t) = 10\\,000 \\cdot 1{,}03^t$. Etter 20 år: $K(20) = 10\\,000 \\cdot 1{,}03^{20} \\approx 18\\,061$ kr. Du har tjent ca. 8061 kr i renter – rentes rente i praksis.\n\nUansett om det handler om bakterier, penger, radioaktivitet eller bilverdi – modellen er den samme: $f(x) = a \\cdot b^x$. Du trenger bare å identifisere startverdien og vekstfaktoren."
+    },
+    {
+      "id": "1t-3-8-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-8-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på doblingstid og halveringstid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-8-n-quiz4-q0",
+            "task": "Et radioaktivt stoff har halveringstid 8 år. Du starter med 160 gram. Hvor mye er igjen etter 24 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "80 gram",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "40 gram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "20 gram",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "10 gram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N(24) = 160 \\cdot 0{,}5^{24/8} = 160 \\cdot 0{,}5^3 = 160 \\cdot 0{,}125 = 20$ gram. Etter 24 år har stoffet halvert seg 3 ganger."
+          },
+          {
+            "id": "1t-3-8-n-quiz4-q1",
+            "task": "En bakteriekoloni dobler seg hvert 4. døgn, og starter med 500 bakterier. Hvor mange er det etter 12 døgn?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1 500",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "2 000",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "6 000",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "4 000",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$N(12) = 500 \\cdot 2^{12/4} = 500 \\cdot 2^3 = 500 \\cdot 8 = 4\\,000$ bakterier. Etter 12 døgn har kolonien doblet seg 3 ganger."
+          },
+          {
+            "id": "1t-3-8-n-quiz4-q2",
+            "task": "Hva er halveringstid?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Tiden det tar før verdien er halvert",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Tiden det tar før verdien er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Halvparten av doblingstiden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tiden det tar før vekstfaktoren halveres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Halveringstid er tiden det tar før verdien er halvparten av hva den var. Med halveringstid $T$ er funksjonen $N(t) = N_0 \\cdot 0{,}5^{t/T}$. Verdien når aldri helt null."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-3-8-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-3-8-narrativ-del5.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-3-8-n-section5",
+      "type": "text",
+      "content": "## Finne $a$ og $b$ fra opplysninger\n\nNoen ganger får du ikke oppgitt startverdien og vekstfaktoren direkte – i stedet får du to punkter som grafen går gjennom, og må finne $a$ og $b$ selv.\n\nAnta at grafen til $f(x) = a \\cdot b^x$ går gjennom punktene $(0, 4)$ og $(2, 36)$. Fra det første punktet vet vi at $f(0) = a \\cdot b^0 = a = 4$. Nå bruker vi det andre punktet: $f(2) = 4 \\cdot b^2 = 36$. Vi løser for $b$: $b^2 = \\frac{36}{4} = 9$, som gir $b = 3$. Funksjonen er $f(x) = 4 \\cdot 3^x$.\n\nHvis begge punktene har $x \\neq 0$, må vi sette opp et likningssystem. For eksempel, hvis $f(1) = 6$ og $f(3) = 54$, får vi $a \\cdot b = 6$ og $a \\cdot b^3 = 54$. Vi deler: $\\frac{a \\cdot b^3}{a \\cdot b} = \\frac{54}{6}$, som gir $b^2 = 9$, altså $b = 3$. Deretter: $a \\cdot 3 = 6$, altså $a = 2$. Funksjonen er $f(x) = 2 \\cdot 3^x$.\n\nHuskeregelen for vekstfaktorer: $p\\%$ økning gir $b = 1 + \\frac{p}{100}$, $p\\%$ nedgang gir $b = 1 - \\frac{p}{100}$, dobling gir $b = 2$, tredobling gir $b = 3$, og halvering gir $b = 0{,}5$."
+    },
+    {
+      "id": "1t-3-8-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-3-8-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å finne $a$ og $b$:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-3-8-n-quiz5-q0",
+            "task": "Grafen til $f(x) = a \\cdot b^x$ går gjennom $(0, 5)$ og $(2, 45)$. Hva er funksjonsuttrykket?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) = 5 \\cdot 9^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = 5 \\cdot 3^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = 45 \\cdot 3^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) = 5 \\cdot 45^x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fra $(0, 5)$: $a = 5$. Fra $(2, 45)$: $5 \\cdot b^2 = 45$, altså $b^2 = 9$ og $b = 3$. Funksjonen er $f(x) = 5 \\cdot 3^x$."
+          },
+          {
+            "id": "1t-3-8-n-quiz5-q1",
+            "task": "Hvis $f(0) = a \\cdot b^0$, hva er $f(0)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(0) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(0) = b$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(0) = a$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f(0) = ab$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Siden $b^0 = 1$ for alle $b > 0$, blir $f(0) = a \\cdot 1 = a$. Startverdien $a$ kan alltid leses direkte av $y$-skjæringen."
+          },
+          {
+            "id": "1t-3-8-n-quiz5-q2",
+            "task": "Grafen til $f(x) = a \\cdot b^x$ går gjennom $(1, 6)$ og $(3, 54)$. Hva er $b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b = 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$b = 54$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$b = 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi har $ab = 6$ og $ab^3 = 54$. Vi deler: $\\frac{ab^3}{ab} = \\frac{54}{6}$, altså $b^2 = 9$ og $b = 3$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-3-8-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringen",
+      "src": "/audio/1t/1t-3-8-narrativ-del6.mp3",
+      "description": "Lydfil som leser opp oppsummeringen."
+    },
+    {
+      "id": "1t-3-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi utforsket eksponentialfunksjoner – funksjoner på formen $f(x) = a \\cdot b^x$ der $a$ er startverdien og $b$ er vekstfaktoren.\n\n**Eksponentiell vekst** skjer når $b > 1$. Funksjonen øker for hver tidsenhet, og veksten akselererer over tid. Prosentvis økning med $p\\%$ gir vekstfaktor $b = 1 + \\frac{p}{100}$. En bakteriekultur som dobler seg har $b = 2$, en investering med $3\\%$ rente har $b = 1{,}03$.\n\n**Eksponentiell nedgang** skjer når $0 < b < 1$. Verdien synker, men når aldri null. Prosentvis nedgang med $p\\%$ gir vekstfaktor $b = 1 - \\frac{p}{100}$. En bil som mister $15\\%$ årlig har $b = 0{,}85$.\n\n**Grafens egenskaper** er at $y$-skjæringen er $(0, a)$, funksjonen er alltid positiv, den har ingen nullpunkter, og $y = 0$ er en horisontal asymptote. Grafen stiger for $b > 1$ og synker for $0 < b < 1$.\n\n**Doblingstid** og **halveringstid** beskriver hvor lang tid det tar før verdien henholdsvis dobles eller halveres. Et stoff med halveringstid $T$ følger $N(t) = N_0 \\cdot 0{,}5^{t/T}$.\n\nFor å finne $a$ og $b$ fra to punkter bruker du $f(0) = a$ (hvis mulig) og løser for $b$ med det andre punktet. Har du to punkter med $x \\neq 0$, setter du opp et likningssystem og deler likningene på hverandre for å eliminere $a$."
+    }
+  ],
+  "exercises": []
+}

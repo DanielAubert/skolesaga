@@ -1,1 +1,259 @@
-{"id":"s1-7-3-narrativ","courseId":"s1","chapterNumber":"7.3","title":"Ikke-lineær regresjon","subtitle":"Narrativ versjon","description":"En fortelling om bakteriene som nektet å følge linjen — eksponentiell og potensregresjon via logaritmisk transformasjon.","estimatedMinutes":31,"competenceGoals":["planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn","anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"],"linkedChapterId":"s1-7-3","content":[{"id":"s1-7-3-n-intro","type":"text","content":"## Bakteriene som nekter å følge linjen\n\nPå laboratoriet teller en bioingeniør bakterier hver tredje time, og tallene vokser: 100, 210, 420, 870, 1750. Hun prøver lineær regresjon, men linjen passer elendig — punktene krummer oppover som en hockeykølle. Problemet er ikke metoden, men modellen: ikke alle sammenhenger er lineære.\n\nTre familier av ikke-lineære mønstre går igjen i natur og samfunn. **Eksponentiell vekst** — bakterier, rentes rente, smittespredning — der noe vokser med fast prosent. **Potenssammenhenger** — bremselengde mot fart, areal mot sidelengde — der dobling av $x$ ganger $y$ med en fast faktor. Og **logaritmisk vekst** — desibelskalaen, Richterskalaen — der veksten flater ut. Viser spredningsplottet eller residualplottet at linjen ikke strekker til, prøver vi en av disse.\n\nDen **eksponentielle modellen** skrives $y = a \\cdot b^x$ (eller $y = a \\cdot e^{kx}$), der $a > 0$ er startverdien og $b$ vekstfaktoren. Kjennetegnet i plottet er en J-formet kurve som stiger stadig raskere (for $b > 1$) eller en fallende kurve som flater ut (for $0 < b < 1$).\n\nMen hvordan *tilpasser* vi en slik kurve? Trikset er like genialt som det er enkelt: ta logaritmen. Av $y = a \\cdot b^x$ følger\n\n$$\\ln y = \\ln a + x \\cdot \\ln b$$\n\nSetter vi $Y = \\ln y$, er dette en **rett linje** i $x$ — med stigningstall $\\ln b$ og konstantledd $\\ln a$. Den krumme kurven blir lineær i forkledning, og hele verktøykassen fra 7.1 kan gjenbrukes. Logaritmen fra kapittel 2.4 viser seg dermed å være regresjonsanalysens hemmelige våpen."},{"id":"s1-7-3-n-quiz1","type":"exercise","exercise":{"id":"s1-7-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på ikke-lineære modeller:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-7-3-n-quiz1-q0","task":"Hvilken modelltype passer for noe som vokser med fast prosent per tidsenhet?","options":[{"id":"a","text":"Lineær modell $y = ax + b$","isCorrect":false},{"id":"b","text":"Eksponentiell modell $y = a \\cdot b^x$","isCorrect":true},{"id":"c","text":"Logaritmisk modell","isCorrect":false},{"id":"d","text":"Konstant modell","isCorrect":false}],"solution":"Fast prosentvis vekst er kjennetegnet på eksponentialfunksjoner."},{"id":"s1-7-3-n-quiz1-q1","task":"Hva skjer med $y = a \\cdot b^x$ når vi tar $\\ln$ på begge sider?","options":[{"id":"a","text":"Vi får $\\ln y = \\ln a + x \\ln b$ — en lineær sammenheng mellom $x$ og $\\ln y$","isCorrect":true},{"id":"b","text":"Uttrykket blir en parabel","isCorrect":false},{"id":"c","text":"Vi får $\\ln y = a + b x^2$","isCorrect":false},{"id":"d","text":"Logaritmen kan ikke brukes på eksponentialfunksjoner","isCorrect":false}],"solution":"Logaritmen forvandler den eksponentielle modellen til en rett linje i $(x, \\ln y)$ — det er nøkkelen til eksponentiell regresjon."},{"id":"s1-7-3-n-quiz1-q2","task":"Hvordan ser eksponentiell vekst ut i et spredningsplott?","options":[{"id":"a","text":"Punktene følger en rett linje","isCorrect":false},{"id":"b","text":"Punktene svinger periodisk","isCorrect":false},{"id":"c","text":"Kurven stiger stadig raskere — en J-form","isCorrect":true},{"id":"d","text":"Punktene ligger på en horisontal linje","isCorrect":false}],"solution":"Eksponentiell vekst med $b > 1$ krummer oppover og stiger raskere og raskere."}]}},{"id":"s1-7-3-n-section1","type":"text","content":"## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriene. Målingene ved $x = 0, 3, 6, 9, 12$ timer transformeres: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og disse ligger pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}237x + 4{,}610$$\n\nTilbaketransformasjonen henter ut modellen: $a = e^{4{,}610} \\approx 100$ og $b = e^{0{,}237} \\approx 1{,}267$, altså\n\n$$y = 100 \\cdot 1{,}267^x$$\n\nTolkning: startbestanden er cirka 100 bakterier, og antallet vokser cirka 26,7 % per time. Kontroll: $y(3) = 100 \\cdot 1{,}267^3 \\approx 203$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ håndteres med samme triks, men nå logaritmeres *begge* variablene: $\\ln y = \\ln a + b \\ln x$, en rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigningstall. Et trafikkeksempel: bremselengder ved ulike farter gir regresjonen $\\ln y = 1{,}97 \\ln x - 4{,}92$, altså $b \\approx 2$ og $a = e^{-4{,}92} \\approx 0{,}0073$:\n\n$$y \\approx 0{,}0073 \\cdot x^2$$\n\nBremselengden er tilnærmet proporsjonal med *kvadratet* av farten — dobler du farten, firedobles bremselengden. Det er fysikkpensum gjenoppdaget i et datasett.\n\nNår flere modeller konkurrerer, brukes fire kriterier: **$R^2$** (høyere er bedre, men pass på overtilpasning), **residualplottet** (den beste modellen har mønsterfrie residualer), **faglig rimelighet** (gir modellformen mening i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdier, også litt utenfor dataområdet?). I GeoGebra gjør kommandoene RegLin, RegExp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets velger du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalget er og blir ditt ansvar."},{"id":"s1-7-3-n-quiz2","type":"exercise","exercise":{"id":"s1-7-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på regresjon i praksis og modellvalg:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-7-3-n-quiz2-q0","task":"Bakteriedataene ga $\\ln y = 0{,}237x + 4{,}610$. Hva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?","options":[{"id":"a","text":"$b = 0{,}237$","isCorrect":false},{"id":"b","text":"$b = 4{,}610$","isCorrect":false},{"id":"c","text":"$b = \\ln 0{,}237$","isCorrect":false},{"id":"d","text":"$b = e^{0{,}237} \\approx 1{,}267$","isCorrect":true}],"solution":"Stigningstallet er $\\ln b$, så $b = e^{0{,}237} \\approx 1{,}267$ — cirka 26,7 % vekst per time."},{"id":"s1-7-3-n-quiz2-q1","task":"Hvordan lineariseres potensmodellen $y = a \\cdot x^b$?","options":[{"id":"a","text":"Ta logaritmen av begge variablene: $\\ln y$ mot $\\ln x$","isCorrect":true},{"id":"b","text":"Ta logaritmen bare av $y$","isCorrect":false},{"id":"c","text":"Kvadrer begge variablene","isCorrect":false},{"id":"d","text":"Bytt om $x$ og $y$","isCorrect":false}],"solution":"$\\ln y = \\ln a + b \\ln x$ — en rett linje i $(\\ln x, \\ln y)$, der stigningstallet er eksponenten $b$."},{"id":"s1-7-3-n-quiz2-q2","task":"Bremselengdemodellen ble $y \\approx 0{,}0073 \\cdot x^2$. Hva skjer med bremselengden når farten dobles?","options":[{"id":"a","text":"Den dobles","isCorrect":false},{"id":"b","text":"Den firedobles","isCorrect":true},{"id":"c","text":"Den halveres","isCorrect":false},{"id":"d","text":"Den åttedobles","isCorrect":false}],"solution":"$y(2x) = 0{,}0073 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk sammenheng gir firedobling."},{"id":"s1-7-3-n-quiz2-q3","task":"Hvilket kriterium er IKKE relevant når du velger beste modell?","options":[{"id":"a","text":"$R^2$-verdien","isCorrect":false},{"id":"b","text":"Residualplottet","isCorrect":false},{"id":"c","text":"At modellen gir det resultatet du håpet på","isCorrect":true},{"id":"d","text":"Faglig rimelighet i konteksten","isCorrect":false}],"solution":"Modellen skal velges etter tilpasning, residualer og faglig mening — aldri etter ønsket konklusjon."}]}},{"id":"s1-7-3-n-summary","type":"text","content":"## Oppsummering: logaritmen som retter ut kurvene\n\nBakteriene som nektet å følge linjen, føyde seg så snart aksene ble transformert. Kapittelets store idé er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir en rett linje når $\\ln y$ plottes mot $x$ (stigningstall $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ brukes (stigningstallet er selve eksponenten $b$). Dermed gjenbrukes hele verktøykassen fra lineær regresjon på krumme sammenhenger.\n\nTolkningene er konkrete: bakteriemodellen $y = 100 \\cdot 1{,}267^x$ leste vi som startverdi 100 og 26,7 % vekst per time; bremselengdemodellen $y \\approx 0{,}0073x^2$ avslørte at bremselengde vokser med kvadratet av farten. Eksponentiell modell passer ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flater ut.\n\n**Modellvalget** hviler på fire bein: $R^2$, residualplott uten mønster, faglig rimelighet og fornuftige prediksjoner. Digitale verktøy — GeoGebras RegExp og RegPot, regnearkets trendlinjer — gjør regnearbeidet, men valget og tolkningen er ditt. Og nettopp residualene, som her kun var ett av kriteriene, får hele rampelyset i neste kapittel: de ser det $R^2$ ikke ser."}],"exercises":[]}
+{
+  "id": "s1-7-3-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "7.3",
+  "title": "Ikke-lineær regresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om bakteriene som nektet å følge linjen — eksponentiell og potensregresjon via logaritmisk transformasjon.",
+  "estimatedMinutes": 31,
+  "competenceGoals": [
+    "planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn",
+    "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett"
+  ],
+  "linkedChapterId": "s1-7-3",
+  "content": [
+    {
+      "id": "s1-7-3-n-intro",
+      "type": "text",
+      "content": "## Bakteriene som nekter å følge linjen\n\nPå laboratoriet teller en bioingeniør bakterier hver tredje time, og tallene vokser: 100, 210, 420, 870, 1750. Hun prøver lineær regresjon, men linjen passer elendig — punktene krummer oppover som en hockeykølle. Problemet er ikke metoden, men modellen: ikke alle sammenhenger er lineære.\n\nTre familier av ikke-lineære mønstre går igjen i natur og samfunn. **Eksponentiell vekst** — bakterier, rentes rente, smittespredning — der noe vokser med fast prosent. **Potenssammenhenger** — bremselengde mot fart, areal mot sidelengde — der dobling av $x$ ganger $y$ med en fast faktor. Og **logaritmisk vekst** — desibelskalaen, Richterskalaen — der veksten flater ut. Viser spredningsplottet eller residualplottet at linjen ikke strekker til, prøver vi en av disse.\n\nDen **eksponentielle modellen** skrives $y = a \\cdot b^x$ (eller $y = a \\cdot e^{kx}$), der $a > 0$ er startverdien og $b$ vekstfaktoren. Kjennetegnet i plottet er en J-formet kurve som stiger stadig raskere (for $b > 1$) eller en fallende kurve som flater ut (for $0 < b < 1$).\n\nMen hvordan *tilpasser* vi en slik kurve? Trikset er like genialt som det er enkelt: ta logaritmen. Av $y = a \\cdot b^x$ følger\n\n$$\\ln y = \\ln a + x \\cdot \\ln b$$\n\nSetter vi $Y = \\ln y$, er dette en **rett linje** i $x$ — med stigningstall $\\ln b$ og konstantledd $\\ln a$. Den krumme kurven blir lineær i forkledning, og hele verktøykassen fra 7.1 kan gjenbrukes. Logaritmen fra kapittel 2.4 viser seg dermed å være regresjonsanalysens hemmelige våpen."
+    },
+    {
+      "id": "s1-7-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-7-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ikke-lineære modeller:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-7-3-n-quiz1-q0",
+            "task": "Hvilken modelltype passer for noe som vokser med fast prosent per tidsenhet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lineær modell $y = ax + b$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksponentiell modell $y = a \\cdot b^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Logaritmisk modell",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Konstant modell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fast prosentvis vekst er kjennetegnet på eksponentialfunksjoner."
+          },
+          {
+            "id": "s1-7-3-n-quiz1-q1",
+            "task": "Hva skjer med $y = a \\cdot b^x$ når vi tar $\\ln$ på begge sider?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Uttrykket blir en parabel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi får $\\ln y = a + b x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Vi får $\\ln y = \\ln a + x \\ln b$ — en lineær sammenheng mellom $x$ og $\\ln y$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Logaritmen kan ikke brukes på eksponentialfunksjoner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logaritmen forvandler den eksponentielle modellen til en rett linje i $(x, \\ln y)$ — det er nøkkelen til eksponentiell regresjon."
+          },
+          {
+            "id": "s1-7-3-n-quiz1-q2",
+            "task": "Hvordan ser eksponentiell vekst ut i et spredningsplott?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Punktene følger en rett linje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Punktene svinger periodisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Punktene ligger på en horisontal linje",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kurven stiger stadig raskere — en J-form",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eksponentiell vekst med $b > 1$ krummer oppover og stiger raskere og raskere."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-7-3-n-section1",
+      "type": "text",
+      "content": "## Eksponentiell og potensregresjon i praksis\n\nTilbake til bakteriene. Målingene ved $x = 0, 3, 6, 9, 12$ timer transformeres: $\\ln y$ blir 4,605; 5,347; 6,040; 6,768; 7,467 — og disse ligger pent på linje! Lineær regresjon på $(x, \\ln y)$ gir\n\n$$\\ln y = 0{,}237x + 4{,}610$$\n\nTilbaketransformasjonen henter ut modellen: $a = e^{4{,}610} \\approx 100$ og $b = e^{0{,}237} \\approx 1{,}267$, altså\n\n$$y = 100 \\cdot 1{,}267^x$$\n\nTolkning: startbestanden er cirka 100 bakterier, og antallet vokser cirka 26,7 % per time. Kontroll: $y(3) = 100 \\cdot 1{,}267^3 \\approx 203$, nær det observerte 210.\n\n**Potensmodellen** $y = a \\cdot x^b$ håndteres med samme triks, men nå logaritmeres *begge* variablene: $\\ln y = \\ln a + b \\ln x$, en rett linje i $(\\ln x, \\ln y)$ med eksponenten $b$ som stigningstall. Et trafikkeksempel: bremselengder ved ulike farter gir regresjonen $\\ln y = 1{,}97 \\ln x - 4{,}92$, altså $b \\approx 2$ og $a = e^{-4{,}92} \\approx 0{,}0073$:\n\n$$y \\approx 0{,}0073 \\cdot x^2$$\n\nBremselengden er tilnærmet proporsjonal med *kvadratet* av farten — dobler du farten, firedobles bremselengden. Det er fysikkpensum gjenoppdaget i et datasett.\n\nNår flere modeller konkurrerer, brukes fire kriterier: **$R^2$** (høyere er bedre, men pass på overtilpasning), **residualplottet** (den beste modellen har mønsterfrie residualer), **faglig rimelighet** (gir modellformen mening i konteksten?) og **prediksjonskontroll** (gir modellen fornuftige verdier, også litt utenfor dataområdet?). I GeoGebra gjør kommandoene RegLin, RegExp, RegPot, RegLog og RegPoly jobben, og i Excel/Google Sheets velger du trendlinje med «Vis likning» og «Vis $R^2$» — men modellvalget er og blir ditt ansvar."
+    },
+    {
+      "id": "s1-7-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-7-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regresjon i praksis og modellvalg:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-7-3-n-quiz2-q0",
+            "task": "Bakteriedataene ga $\\ln y = 0{,}237x + 4{,}610$. Hva er vekstfaktoren $b$ i modellen $y = a \\cdot b^x$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$b = e^{0{,}237} \\approx 1{,}267$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$b = 0{,}237$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$b = 4{,}610$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = \\ln 0{,}237$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigningstallet er $\\ln b$, så $b = e^{0{,}237} \\approx 1{,}267$ — cirka 26,7 % vekst per time."
+          },
+          {
+            "id": "s1-7-3-n-quiz2-q1",
+            "task": "Hvordan lineariseres potensmodellen $y = a \\cdot x^b$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ta logaritmen bare av $y$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ta logaritmen av begge variablene: $\\ln y$ mot $\\ln x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kvadrer begge variablene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bytt om $x$ og $y$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\ln y = \\ln a + b \\ln x$ — en rett linje i $(\\ln x, \\ln y)$, der stigningstallet er eksponenten $b$."
+          },
+          {
+            "id": "s1-7-3-n-quiz2-q2",
+            "task": "Bremselengdemodellen ble $y \\approx 0{,}0073 \\cdot x^2$. Hva skjer med bremselengden når farten dobles?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den dobles",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den halveres",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den firedobles",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den åttedobles",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$y(2x) = 0{,}0073 \\cdot (2x)^2 = 4 \\cdot y(x)$ — kvadratisk sammenheng gir firedobling."
+          },
+          {
+            "id": "s1-7-3-n-quiz2-q3",
+            "task": "Hvilket kriterium er IKKE relevant når du velger beste modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$R^2$-verdien",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Residualplottet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Faglig rimelighet i konteksten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At modellen gir det resultatet du håpet på",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Modellen skal velges etter tilpasning, residualer og faglig mening — aldri etter ønsket konklusjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-7-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: logaritmen som retter ut kurvene\n\nBakteriene som nektet å følge linjen, føyde seg så snart aksene ble transformert. Kapittelets store idé er **linearisering**: den **eksponentielle modellen** $y = a \\cdot b^x$ blir en rett linje når $\\ln y$ plottes mot $x$ (stigningstall $\\ln b$, konstantledd $\\ln a$), og **potensmodellen** $y = a \\cdot x^b$ blir lineær når både $\\ln y$ og $\\ln x$ brukes (stigningstallet er selve eksponenten $b$). Dermed gjenbrukes hele verktøykassen fra lineær regresjon på krumme sammenhenger.\n\nTolkningene er konkrete: bakteriemodellen $y = 100 \\cdot 1{,}267^x$ leste vi som startverdi 100 og 26,7 % vekst per time; bremselengdemodellen $y \\approx 0{,}0073x^2$ avslørte at bremselengde vokser med kvadratet av farten. Eksponentiell modell passer ved fast *prosentvis* endring, potensmodell ved skalaforhold, logaritmisk modell ved vekst som flater ut.\n\n**Modellvalget** hviler på fire bein: $R^2$, residualplott uten mønster, faglig rimelighet og fornuftige prediksjoner. Digitale verktøy — GeoGebras RegExp og RegPot, regnearkets trendlinjer — gjør regnearbeidet, men valget og tolkningen er ditt. Og nettopp residualene, som her kun var ett av kriteriene, får hele rampelyset i neste kapittel: de ser det $R^2$ ikke ser."
+    }
+  ],
+  "exercises": []
+}

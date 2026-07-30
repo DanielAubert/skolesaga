@@ -1,1 +1,291 @@
-{"id":"s2-2-2-narrativ","courseId":"s2","chapterNumber":"2.2","title":"Separable differensiallikninger","subtitle":"Narrativ versjon","description":"En fortelling om kunsten å sortere variabler: fire trinn som utleder eksponentiell vekst, doblingstider og Newtons avkjølingslov — fra sparekonto til kaffekopp.","estimatedMinutes":35,"competenceGoals":["løse differensiallikninger med separable variabler","bruke differensiallikninger til å modellere praktiske situasjoner"],"linkedChapterId":"s2-2-2","content":[{"id":"s2-2-2-n-intro","type":"text","content":"## Sorter variablene, så løser likningen seg\n\nI forrige kapittel endte vi med et ubesvart spørsmål. Vi *visste* at $y = Ce^{kx}$ løser vekstlikningen $y' = ky$ — vi kunne verifisere det ved innsetting — men vi hadde ingen metode for å *finne* løsningen fra bunnen av. Det er som å kjenne fasiten uten å kunne utregningen, og det holder ikke når neste likning ser annerledes ut.\n\nI dette kapittelet får du metoden. Den gjelder en stor og praktisk viktig klasse av likninger: en differensiallikning kalles **separabel** hvis den kan skrives på formen\n\n$$\\frac{dy}{dx} = f(x) \\cdot g(y)$$\n\naltså som et *produkt* av én faktor som bare inneholder $x$, og én som bare inneholder $y$. Vekstlikningen $y' = ky$ er separabel (med $f(x) = k$ og $g(y) = y$), og det samme er for eksempel $y' = xy$ og Newtons avkjølingslov.\n\nNavnet røper strategien: vi **separerer** variablene. Alt som har med $y$ å gjøre, flyttes over til venstre side sammen med $dy$; alt som har med $x$ å gjøre, blir stående til høyre med $dx$. Da står det et integral på hver side — og integrere, det kan du nå.\n\nTenk på det som å sortere før du regner: så lenge $x$ og $y$ er blandet sammen i samme uttrykk, kommer du ingen vei, men i det øyeblikket hver variabel står på sin egen side av likhetstegnet, tar integralregningen over og gjør resten av jobben. La oss gjøre metoden presis og bruke den på likningene som styrer alt fra sparekontoer til kaffekopper."},{"id":"s2-2-2-n-section1","type":"text","content":"## Separasjonsmetoden\n\nOppskriften for å løse $\\frac{dy}{dx} = f(x) \\cdot g(y)$ har fire trinn. **Trinn 1 — separer:** del på $g(y)$ og multipliser med $dx$, slik at $\\frac{dy}{g(y)} = f(x)\\,dx$. **Trinn 2 — integrer** begge sider: $\\int \\frac{1}{g(y)}\\,dy = \\int f(x)\\,dx$. **Trinn 3 — løs for $y$** hvis mulig. **Trinn 4 — finn den partikulære løsningen** ved å bruke initialbetingelsen.\n\nLa oss kjøre metoden på selve hovedlikningen: $\\frac{dy}{dx} = ky$ med $y(0) = y_0$ — sparekontoen med kontinuerlig rente, bakteriekulturen, befolkningen.\n\n**Separer:** $\\frac{dy}{y} = k\\,dx$.\n\n**Integrer:** $\\int \\frac{1}{y}\\,dy = \\int k\\,dx$ gir $\\ln|y| = kx + C_1$.\n\n**Løs for $y$:** ta eksponentialfunksjonen på begge sider: $|y| = e^{kx + C_1} = e^{C_1}e^{kx}$. Tallet $e^{C_1}$ er bare en positiv konstant, og når vi slipper absoluttverdien, kan fortegnet bakes inn: $y = Ce^{kx}$, der $C = \\pm e^{C_1}$.\n\n**Initialbetingelse:** $y(0) = C e^0 = C = y_0$, altså\n\n$$y = y_0 e^{kx}$$\n\nDer er den — formelen vi bare kunne gjette i forrige kapittel, nå *utledet* i fire ryddige trinn. Legg spesielt merke til håndgrepet i trinn 3: fra $\\ln|y|$ til $Ce^{kx}$ via eksponentialfunksjonen. Den manøveren går igjen i nesten alle separable likninger, og det er den som forklarer hvorfor eksponentialfunksjoner dominerer vekstmodellene i økonomi og naturvitenskap."},{"id":"s2-2-2-n-quiz1","type":"exercise","exercise":{"id":"s2-2-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på separasjonsmetoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-2-n-quiz1-q0","task":"Når er en differensiallikning separabel?","options":[{"id":"a","text":"Når den kan skrives som $\\frac{dy}{dx} = f(x) \\cdot g(y)$","isCorrect":true},{"id":"b","text":"Når den inneholder både $y'$ og $y''$","isCorrect":false},{"id":"c","text":"Når høyresiden er et polynom","isCorrect":false},{"id":"d","text":"Når den ikke har noen løsning","isCorrect":false}],"solution":"Separabel betyr at høyresiden kan faktoriseres i én ren $x$-faktor og én ren $y$-faktor. Da kan variablene skilles på hver sin side av likhetstegnet."},{"id":"s2-2-2-n-quiz1-q1","task":"Hva er første trinn i separasjonsmetoden for $\\frac{dy}{dx} = f(x)g(y)$?","options":[{"id":"a","text":"Integrere begge sider med hensyn på $x$ direkte","isCorrect":false},{"id":"b","text":"Samle $y$-leddene på én side og $x$-leddene på den andre: $\\frac{dy}{g(y)} = f(x)\\,dx$","isCorrect":true},{"id":"c","text":"Derivere begge sider","isCorrect":false},{"id":"d","text":"Sette inn initialbetingelsen","isCorrect":false}],"solution":"Først separeres variablene: $\\frac{dy}{g(y)} = f(x)\\,dx$. Deretter integreres hver side, så løses det for $y$, og til slutt brukes initialbetingelsen."},{"id":"s2-2-2-n-quiz1-q2","task":"Hva er $\\int \\frac{1}{y}\\,dy$?","options":[{"id":"a","text":"$-\\frac{1}{y^2} + C$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2y^2} + C$","isCorrect":false},{"id":"c","text":"$e^y + C$","isCorrect":false},{"id":"d","text":"$\\ln|y| + C$","isCorrect":true}],"solution":"Dette er spesialtilfellet av potensregelen: $\\int \\frac{1}{y}\\,dy = \\ln|y| + C$. Det er dette integralet som gjør at løsningene blir eksponentialfunksjoner."},{"id":"s2-2-2-n-quiz1-q3","task":"Hva er løsningen av $\\frac{dy}{dx} = ky$ med $y(0) = y_0$?","options":[{"id":"a","text":"$y = y_0 + kx$","isCorrect":false},{"id":"b","text":"$y = y_0 e^{kx}$","isCorrect":true},{"id":"c","text":"$y = ky_0 x$","isCorrect":false},{"id":"d","text":"$y = e^{ky_0 x}$","isCorrect":false}],"solution":"Separasjon gir $\\ln|y| = kx + C_1$, altså $y = Ce^{kx}$, og initialbetingelsen gir $C = y_0$: eksponentiell vekst $y = y_0e^{kx}$."}]}},{"id":"s2-2-2-n-section2","type":"text","content":"## Flere modeller: vekst, halveringstid og kald kaffe\n\nMetoden tåler mer enn konstant vekstfaktor. Ta $\\frac{dy}{dx} = xy$ med $y(0) = 2$ — her øker vekstraten med $x$. Separasjon gir $\\frac{dy}{y} = x\\,dx$, integrasjon gir $\\ln|y| = \\frac{x^2}{2} + C_1$, og eksponentialmanøveren gir $y = Ce^{x^2/2}$. Initialbetingelsen fastlegger $C$: $y(0) = C = 2$, så løsningen er\n\n$$y = 2e^{x^2/2}$$\n\n— en funksjon som vokser langt voldsommere enn vanlig eksponentiell vekst.\n\nTilbake til samfunnsmodellene. I løsningen $y = y_0e^{kx}$ har konstanten $k$ en tvilling som er lettere å kommunisere: tiden det tar å doble eller halvere mengden. Setter vi $y_0e^{kT} = 2y_0$, får vi $e^{kT} = 2$, altså $kT = \\ln 2$. **Doblingstiden** (for $k > 0$) og **halveringstiden** (for $k < 0$) er dermed\n\n$$T = \\frac{\\ln 2}{|k|}$$\n\nEt oljefond eller en befolkning med 2 % årlig kontinuerlig vekst ($k = 0{,}02$) dobler seg på $\\frac{\\ln 2}{0{,}02} \\approx 35$ år; et radioaktivt stoff med $k = -0{,}1$ halveres på $\\frac{\\ln 2}{0{,}1} \\approx 6{,}9$ år. Merk det bemerkelsesverdige: tiden er den samme uansett hvor mye du starter med.\n\nTil slutt en klassiker: **Newtons avkjølingslov**. En kaffekopp kjølner med en rate proporsjonal med temperaturforskjellen til omgivelsene: $\\frac{dT}{dt} = -k(T - T_s)$, der $T_s$ er romtemperaturen. Også denne er separabel — separer med $\\frac{dT}{T - T_s} = -k\\,dt$ og integrer — og løsningen blir\n\n$$T(t) = T_s + (T_0 - T_s)e^{-kt}$$\n\nTemperaturen faller eksponentielt mot $T_s$, men når den aldri helt: kurven flater ut mot romtemperaturen som en grenseverdi. Samme likning beskriver forresten hvordan en pris justerer seg mot markedslikevekt — matematikken bryr seg ikke om det er kaffe eller kroner."},{"id":"s2-2-2-n-quiz2","type":"exercise","exercise":{"id":"s2-2-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på separable modeller i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-2-n-quiz2-q0","task":"Hvordan separeres likningen $\\frac{dy}{dx} = xy$?","options":[{"id":"a","text":"$\\frac{dy}{y} = x\\,dx$","isCorrect":true},{"id":"b","text":"$\\frac{dy}{x} = y\\,dx$","isCorrect":false},{"id":"c","text":"$y\\,dy = x\\,dx$","isCorrect":false},{"id":"d","text":"$\\frac{dy}{xy} = dx \\cdot dy$","isCorrect":false}],"solution":"Vi deler på $y$ og multipliserer med $dx$: $\\frac{dy}{y} = x\\,dx$. Alle $y$-ledd til venstre, alle $x$-ledd til høyre."},{"id":"s2-2-2-n-quiz2-q1","task":"Hva er løsningen av $\\frac{dy}{dx} = xy$ med $y(0) = 2$?","options":[{"id":"a","text":"$y = 2e^{x}$","isCorrect":false},{"id":"b","text":"$y = e^{x^2}$","isCorrect":false},{"id":"c","text":"$y = 2e^{x^2/2}$","isCorrect":true},{"id":"d","text":"$y = 2 + \\frac{x^2}{2}$","isCorrect":false}],"solution":"Integrasjon av $\\frac{dy}{y} = x\\,dx$ gir $\\ln|y| = \\frac{x^2}{2} + C_1$, altså $y = Ce^{x^2/2}$, og $y(0) = 2$ gir $C = 2$."},{"id":"s2-2-2-n-quiz2-q2","task":"Et fond vokser kontinuerlig med $k = 0{,}02$ per år. Hva er doblingstiden?","options":[{"id":"a","text":"$50$ år","isCorrect":false},{"id":"b","text":"$\\frac{\\ln 2}{0{,}02} \\approx 35$ år","isCorrect":true},{"id":"c","text":"$2$ år","isCorrect":false},{"id":"d","text":"$\\frac{0{,}02}{\\ln 2} \\approx 0{,}03$ år","isCorrect":false}],"solution":"Doblingstiden er $T = \\frac{\\ln 2}{k} = \\frac{0{,}6931}{0{,}02} \\approx 34{,}7$ år — uavhengig av hvor stort fondet er i dag."},{"id":"s2-2-2-n-quiz2-q3","task":"Hva skjer med temperaturen i Newtons avkjølingslov $T(t) = T_s + (T_0 - T_s)e^{-kt}$ når $t \\to \\infty$?","options":[{"id":"a","text":"Den synker mot null grader","isCorrect":false},{"id":"b","text":"Den nærmer seg omgivelsestemperaturen $T_s$","isCorrect":true},{"id":"c","text":"Den vokser mot uendelig","isCorrect":false},{"id":"d","text":"Den svinger rundt $T_0$","isCorrect":false}],"solution":"Leddet $(T_0 - T_s)e^{-kt}$ dør ut når $t$ vokser, så $T(t) \\to T_s$. Kaffen ender på romtemperatur — differansen til omgivelsene avtar eksponentielt."}]}},{"id":"s2-2-2-n-summary","type":"text","content":"## Metoden bak eksponentialfunksjonene\n\nGåten fra forrige kapittel er løst — og med system, ikke gjetting. En separabel differensiallikning $\\frac{dy}{dx} = f(x)g(y)$ løses i fire trinn: separer variablene til $\\frac{dy}{g(y)} = f(x)\\,dx$, integrer begge sider, løs for $y$, og bruk initialbetingelsen. Nøkkelhåndgrepet er overgangen fra $\\ln|y| = kx + C_1$ til $y = Ce^{kx}$ via eksponentialfunksjonen — det er den manøveren som gjør eksponentialfunksjoner til vekstmodellenes morsmål.\n\nHovedresultatene er verdt å kunne utenat. Vekstlikningen $y' = ky$ har løsningen $y = y_0e^{kx}$ — vekst for $k > 0$, forfall for $k < 0$ — og doblings- eller halveringstiden er $T = \\frac{\\ln 2}{|k|}$, uavhengig av startmengden. Likningen $y' = xy$ viste at metoden også takler variabel vekstfaktor, med løsninger som $2e^{x^2/2}$. Og Newtons avkjølingslov $\\frac{dT}{dt} = -k(T - T_s)$ ga $T(t) = T_s + (T_0 - T_s)e^{-kt}$: eksponentiell tilnærming til omgivelsene, enten det gjelder kaffetemperatur eller priser på vei mot likevekt.\n\nMen ikke alle likninger lar seg separere. Hva med en sparekonto der det både løper rente *og* settes inn et fast beløp hver måned — $y' = ry + b$? Prøv å separere... det går, men det finnes en mer generell teknikk som også tar likninger der separasjon er umulig. Den heter integrerende faktor og venter i neste kapittel om lineære differensiallikninger."}],"exercises":[]}
+{
+  "id": "s2-2-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "2.2",
+  "title": "Separable differensiallikninger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kunsten å sortere variabler: fire trinn som utleder eksponentiell vekst, doblingstider og Newtons avkjølingslov — fra sparekonto til kaffekopp.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "løse differensiallikninger med separable variabler",
+    "bruke differensiallikninger til å modellere praktiske situasjoner"
+  ],
+  "linkedChapterId": "s2-2-2",
+  "content": [
+    {
+      "id": "s2-2-2-n-intro",
+      "type": "text",
+      "content": "## Sorter variablene, så løser likningen seg\n\nI forrige kapittel endte vi med et ubesvart spørsmål. Vi *visste* at $y = Ce^{kx}$ løser vekstlikningen $y' = ky$ — vi kunne verifisere det ved innsetting — men vi hadde ingen metode for å *finne* løsningen fra bunnen av. Det er som å kjenne fasiten uten å kunne utregningen, og det holder ikke når neste likning ser annerledes ut.\n\nI dette kapittelet får du metoden. Den gjelder en stor og praktisk viktig klasse av likninger: en differensiallikning kalles **separabel** hvis den kan skrives på formen\n\n$$\\frac{dy}{dx} = f(x) \\cdot g(y)$$\n\naltså som et *produkt* av én faktor som bare inneholder $x$, og én som bare inneholder $y$. Vekstlikningen $y' = ky$ er separabel (med $f(x) = k$ og $g(y) = y$), og det samme er for eksempel $y' = xy$ og Newtons avkjølingslov.\n\nNavnet røper strategien: vi **separerer** variablene. Alt som har med $y$ å gjøre, flyttes over til venstre side sammen med $dy$; alt som har med $x$ å gjøre, blir stående til høyre med $dx$. Da står det et integral på hver side — og integrere, det kan du nå.\n\nTenk på det som å sortere før du regner: så lenge $x$ og $y$ er blandet sammen i samme uttrykk, kommer du ingen vei, men i det øyeblikket hver variabel står på sin egen side av likhetstegnet, tar integralregningen over og gjør resten av jobben. La oss gjøre metoden presis og bruke den på likningene som styrer alt fra sparekontoer til kaffekopper."
+    },
+    {
+      "id": "s2-2-2-n-section1",
+      "type": "text",
+      "content": "## Separasjonsmetoden\n\nOppskriften for å løse $\\frac{dy}{dx} = f(x) \\cdot g(y)$ har fire trinn. **Trinn 1 — separer:** del på $g(y)$ og multipliser med $dx$, slik at $\\frac{dy}{g(y)} = f(x)\\,dx$. **Trinn 2 — integrer** begge sider: $\\int \\frac{1}{g(y)}\\,dy = \\int f(x)\\,dx$. **Trinn 3 — løs for $y$** hvis mulig. **Trinn 4 — finn den partikulære løsningen** ved å bruke initialbetingelsen.\n\nLa oss kjøre metoden på selve hovedlikningen: $\\frac{dy}{dx} = ky$ med $y(0) = y_0$ — sparekontoen med kontinuerlig rente, bakteriekulturen, befolkningen.\n\n**Separer:** $\\frac{dy}{y} = k\\,dx$.\n\n**Integrer:** $\\int \\frac{1}{y}\\,dy = \\int k\\,dx$ gir $\\ln|y| = kx + C_1$.\n\n**Løs for $y$:** ta eksponentialfunksjonen på begge sider: $|y| = e^{kx + C_1} = e^{C_1}e^{kx}$. Tallet $e^{C_1}$ er bare en positiv konstant, og når vi slipper absoluttverdien, kan fortegnet bakes inn: $y = Ce^{kx}$, der $C = \\pm e^{C_1}$.\n\n**Initialbetingelse:** $y(0) = C e^0 = C = y_0$, altså\n\n$$y = y_0 e^{kx}$$\n\nDer er den — formelen vi bare kunne gjette i forrige kapittel, nå *utledet* i fire ryddige trinn. Legg spesielt merke til håndgrepet i trinn 3: fra $\\ln|y|$ til $Ce^{kx}$ via eksponentialfunksjonen. Den manøveren går igjen i nesten alle separable likninger, og det er den som forklarer hvorfor eksponentialfunksjoner dominerer vekstmodellene i økonomi og naturvitenskap."
+    },
+    {
+      "id": "s2-2-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på separasjonsmetoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-2-n-quiz1-q0",
+            "task": "Når er en differensiallikning separabel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når den kan skrives som $\\frac{dy}{dx} = f(x) \\cdot g(y)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Når den inneholder både $y'$ og $y''$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når høyresiden er et polynom",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når den ikke har noen løsning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Separabel betyr at høyresiden kan faktoriseres i én ren $x$-faktor og én ren $y$-faktor. Da kan variablene skilles på hver sin side av likhetstegnet."
+          },
+          {
+            "id": "s2-2-2-n-quiz1-q1",
+            "task": "Hva er første trinn i separasjonsmetoden for $\\frac{dy}{dx} = f(x)g(y)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Integrere begge sider med hensyn på $x$ direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Samle $y$-leddene på én side og $x$-leddene på den andre: $\\frac{dy}{g(y)} = f(x)\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Derivere begge sider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sette inn initialbetingelsen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først separeres variablene: $\\frac{dy}{g(y)} = f(x)\\,dx$. Deretter integreres hver side, så løses det for $y$, og til slutt brukes initialbetingelsen."
+          },
+          {
+            "id": "s2-2-2-n-quiz1-q2",
+            "task": "Hva er $\\int \\frac{1}{y}\\,dy$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-\\frac{1}{y^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2y^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln|y| + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$e^y + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dette er spesialtilfellet av potensregelen: $\\int \\frac{1}{y}\\,dy = \\ln|y| + C$. Det er dette integralet som gjør at løsningene blir eksponentialfunksjoner."
+          },
+          {
+            "id": "s2-2-2-n-quiz1-q3",
+            "task": "Hva er løsningen av $\\frac{dy}{dx} = ky$ med $y(0) = y_0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = y_0 + kx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = y_0 e^{kx}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$y = ky_0 x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = e^{ky_0 x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Separasjon gir $\\ln|y| = kx + C_1$, altså $y = Ce^{kx}$, og initialbetingelsen gir $C = y_0$: eksponentiell vekst $y = y_0e^{kx}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-2-n-section2",
+      "type": "text",
+      "content": "## Flere modeller: vekst, halveringstid og kald kaffe\n\nMetoden tåler mer enn konstant vekstfaktor. Ta $\\frac{dy}{dx} = xy$ med $y(0) = 2$ — her øker vekstraten med $x$. Separasjon gir $\\frac{dy}{y} = x\\,dx$, integrasjon gir $\\ln|y| = \\frac{x^2}{2} + C_1$, og eksponentialmanøveren gir $y = Ce^{x^2/2}$. Initialbetingelsen fastlegger $C$: $y(0) = C = 2$, så løsningen er\n\n$$y = 2e^{x^2/2}$$\n\n— en funksjon som vokser langt voldsommere enn vanlig eksponentiell vekst.\n\nTilbake til samfunnsmodellene. I løsningen $y = y_0e^{kx}$ har konstanten $k$ en tvilling som er lettere å kommunisere: tiden det tar å doble eller halvere mengden. Setter vi $y_0e^{kT} = 2y_0$, får vi $e^{kT} = 2$, altså $kT = \\ln 2$. **Doblingstiden** (for $k > 0$) og **halveringstiden** (for $k < 0$) er dermed\n\n$$T = \\frac{\\ln 2}{|k|}$$\n\nEt oljefond eller en befolkning med 2 % årlig kontinuerlig vekst ($k = 0{,}02$) dobler seg på $\\frac{\\ln 2}{0{,}02} \\approx 35$ år; et radioaktivt stoff med $k = -0{,}1$ halveres på $\\frac{\\ln 2}{0{,}1} \\approx 6{,}9$ år. Merk det bemerkelsesverdige: tiden er den samme uansett hvor mye du starter med.\n\nTil slutt en klassiker: **Newtons avkjølingslov**. En kaffekopp kjølner med en rate proporsjonal med temperaturforskjellen til omgivelsene: $\\frac{dT}{dt} = -k(T - T_s)$, der $T_s$ er romtemperaturen. Også denne er separabel — separer med $\\frac{dT}{T - T_s} = -k\\,dt$ og integrer — og løsningen blir\n\n$$T(t) = T_s + (T_0 - T_s)e^{-kt}$$\n\nTemperaturen faller eksponentielt mot $T_s$, men når den aldri helt: kurven flater ut mot romtemperaturen som en grenseverdi. Samme likning beskriver forresten hvordan en pris justerer seg mot markedslikevekt — matematikken bryr seg ikke om det er kaffe eller kroner."
+    },
+    {
+      "id": "s2-2-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på separable modeller i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-2-n-quiz2-q0",
+            "task": "Hvordan separeres likningen $\\frac{dy}{dx} = xy$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{dy}{x} = y\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y\\,dy = x\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{dy}{xy} = dx \\cdot dy$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{dy}{y} = x\\,dx$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi deler på $y$ og multipliserer med $dx$: $\\frac{dy}{y} = x\\,dx$. Alle $y$-ledd til venstre, alle $x$-ledd til høyre."
+          },
+          {
+            "id": "s2-2-2-n-quiz2-q1",
+            "task": "Hva er løsningen av $\\frac{dy}{dx} = xy$ med $y(0) = 2$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$y = 2e^{x^2/2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$y = 2e^{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = e^{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = 2 + \\frac{x^2}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Integrasjon av $\\frac{dy}{y} = x\\,dx$ gir $\\ln|y| = \\frac{x^2}{2} + C_1$, altså $y = Ce^{x^2/2}$, og $y(0) = 2$ gir $C = 2$."
+          },
+          {
+            "id": "s2-2-2-n-quiz2-q2",
+            "task": "Et fond vokser kontinuerlig med $k = 0{,}02$ per år. Hva er doblingstiden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$50$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\ln 2}{0{,}02} \\approx 35$ år",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{0{,}02}{\\ln 2} \\approx 0{,}03$ år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Doblingstiden er $T = \\frac{\\ln 2}{k} = \\frac{0{,}6931}{0{,}02} \\approx 34{,}7$ år — uavhengig av hvor stort fondet er i dag."
+          },
+          {
+            "id": "s2-2-2-n-quiz2-q3",
+            "task": "Hva skjer med temperaturen i Newtons avkjølingslov $T(t) = T_s + (T_0 - T_s)e^{-kt}$ når $t \\to \\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den synker mot null grader",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den vokser mot uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den svinger rundt $T_0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den nærmer seg omgivelsestemperaturen $T_s$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Leddet $(T_0 - T_s)e^{-kt}$ dør ut når $t$ vokser, så $T(t) \\to T_s$. Kaffen ender på romtemperatur — differansen til omgivelsene avtar eksponentielt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-2-n-summary",
+      "type": "text",
+      "content": "## Metoden bak eksponentialfunksjonene\n\nGåten fra forrige kapittel er løst — og med system, ikke gjetting. En separabel differensiallikning $\\frac{dy}{dx} = f(x)g(y)$ løses i fire trinn: separer variablene til $\\frac{dy}{g(y)} = f(x)\\,dx$, integrer begge sider, løs for $y$, og bruk initialbetingelsen. Nøkkelhåndgrepet er overgangen fra $\\ln|y| = kx + C_1$ til $y = Ce^{kx}$ via eksponentialfunksjonen — det er den manøveren som gjør eksponentialfunksjoner til vekstmodellenes morsmål.\n\nHovedresultatene er verdt å kunne utenat. Vekstlikningen $y' = ky$ har løsningen $y = y_0e^{kx}$ — vekst for $k > 0$, forfall for $k < 0$ — og doblings- eller halveringstiden er $T = \\frac{\\ln 2}{|k|}$, uavhengig av startmengden. Likningen $y' = xy$ viste at metoden også takler variabel vekstfaktor, med løsninger som $2e^{x^2/2}$. Og Newtons avkjølingslov $\\frac{dT}{dt} = -k(T - T_s)$ ga $T(t) = T_s + (T_0 - T_s)e^{-kt}$: eksponentiell tilnærming til omgivelsene, enten det gjelder kaffetemperatur eller priser på vei mot likevekt.\n\nMen ikke alle likninger lar seg separere. Hva med en sparekonto der det både løper rente *og* settes inn et fast beløp hver måned — $y' = ry + b$? Prøv å separere... det går, men det finnes en mer generell teknikk som også tar likninger der separasjon er umulig. Den heter integrerende faktor og venter i neste kapittel om lineære differensiallikninger."
+    }
+  ],
+  "exercises": []
+}

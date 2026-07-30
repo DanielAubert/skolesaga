@@ -1,1 +1,423 @@
-{"id":"it-2-1-5-narrativ","courseId":"it-2","chapterNumber":"5","title":"Polymorfisme og abstraksjon","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis éin og same knapp kan styre alt – frå polymorfisme og duck typing til abstrakte klassar, protokollar og prinsippet om kode som er open for utviding.","estimatedMinutes":38,"competenceGoals":["Forstå polymorfisme og duck typing","Bruke abstrakte klassar og protokollar","Forstå åpen/lukket-prinsippet og dunder-metodar"],"linkedChapterId":"it-2-1-5","content":[{"id":"it-2-1-5-n-intro","type":"text","content":"## Éin knapp, mange resultat\n\nTenk på ein universalfjernkontroll. Han har éin «spel av»-knapp som fungerer anten du peikar på TV-en, DVD-spelaren eller spelkonsollen. Knappen er den same, men resultatet er forskjellig. Det er nettopp dette **polymorfisme** handlar om. Ordet betyr bokstaveleg «mange former» (gresk *poly* = mange, *morph* = form), og i programmering vil det seie at objekt av ulike klassar kan handsamast likt – til dømes ved at vi kallar same metode – men oppføre seg forskjellig.\n\nSaman med polymorfisme kjem **abstraksjon**, som handlar om å definere *kva* noko skal gjere utan å bestemme *korleis*. Det er som ei stillingsskildring: ho seier kva jobben inneber, men ikkje nøyaktig korleis kvar tilsett løyser oppgåvene.\n\nDet klassiske dømet er geometriske former. Vi kan lage ein `Sirkel`, eit `Rektangel` og ein `Trekant`, der kvar klasse har sin eigen `areal`-metode. Ein sirkel reknar `math.pi * radius ** 2`, eit rektangel `lengde * bredde`, ein trekant `0.5 * grunnlinje * høyde`. Det fine kjem når vi samlar dei i ei liste og handsamar dei likt:\n\n```python\nformer = [Sirkel(5), Rektangel(4, 6), Trekant(3, 8)]\nfor form in former:\n    print(f\"{form.beskrivelse()}: areal = {form.areal():.2f}\")\n```\n\nVi kallar `areal()` utan å bry oss om kva klasse objektet høyrer til. Grensesnittet er det same, men oppførselen er forskjellig."},{"id":"it-2-1-5-n-section1","type":"text","content":"## Duck typing – om det kvakkar som ei and\n\nPython er **dynamisk typa**. Det betyr at Python ikkje sjekkar kva klasse eit objekt høyrer til – han sjekkar berre om objektet har metoden vi prøver å kalle. Dette blir kalla **duck typing**, etter uttrykket «viss det går som ei and, sym som ei and og kvakkar som ei and, er det sannsynlegvis ei and». I praksis betyr det at du ikkje treng arv for å få polymorfisme i Python. Så lenge objekta har dei rette metodane, fungerer det.\n\nTre klassar `Hund`, `Katt` og `Ku` utan nokon felles superklasse kan alle ha ein `lyd()`-metode. Ein funksjon som går gjennom ei liste og kallar `lyd()` på kvart dyr, spør eigentleg berre: «Har du ein lyd-metode?» Har han det, fungerer det. Men her ligg òg risikoen: sender du inn eit objekt som *ikkje* har metoden, får du ein `AttributeError`. Feilen blir oppdaga først ved køyring, ikkje før. Det er prisen for fleksibiliteten i duck typing.\n\nDet finst altså to hovudformer for polymorfisme i Python: **duck typing**, der rett metode er nok uavhengig av klasse, og **metode-overstyring** (override), der subklassar definerer sin eigen versjon av ein metode frå superklassen."},{"id":"it-2-1-5-n-quiz1","type":"exercise","exercise":{"id":"it-2-1-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på polymorfisme og duck typing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-5-n-quiz1-q0","task":"Kva er polymorfisme?","options":[{"id":"a","text":"At ulike objekt kan handsamast likt, men oppføre seg forskjellig","isCorrect":true},{"id":"b","text":"At ein klasse kan ha fleire konstruktørar","isCorrect":false},{"id":"c","text":"At ein klasse arvar frå fleire superklassar","isCorrect":false},{"id":"d","text":"At metodar kan ha same namn men ulike parametrar","isCorrect":false}],"solution":"Polymorfisme betyr at vi kan kalle same metode på ulike objekt, og kvart objekt svarar på sin eigen måte."},{"id":"it-2-1-5-n-quiz1-q1","task":"Kva sjekkar Python når du kallar ein metode på eit objekt (duck typing)?","options":[{"id":"a","text":"Om objektet arvar frå ein bestemt klasse","isCorrect":false},{"id":"b","text":"Om objektet har den metoden, uavhengig av klasse","isCorrect":true},{"id":"c","text":"Om objektet er deklarert med ein type","isCorrect":false},{"id":"d","text":"Om objektet ligg i same fil","isCorrect":false}],"solution":"Med duck typing bryr Python seg berre om at metoden finst på objektet, ikkje kva klasse det høyrer til."},{"id":"it-2-1-5-n-quiz1-q2","task":"Kva er risikoen med duck typing?","options":[{"id":"a","text":"Koden blir alltid tregare","isCorrect":false},{"id":"b","text":"Ein kan ikkje bruke lister","isCorrect":false},{"id":"c","text":"Manglar objektet metoden, blir feilen oppdaga først ved køyring (AttributeError)","isCorrect":true},{"id":"d","text":"Klassar kan ikkje arve","isCorrect":false}],"solution":"Sidan typen ikkje blir sjekka på førehand, dukkar ein AttributeError først opp under køyring viss metoden manglar."}]}},{"id":"it-2-1-5-n-section2","type":"text","content":"## Abstrakte klassar og protokollar\n\nNokre gonger vil vi lage ein superklasse som aldri skal instansierast direkte. Ein generisk `Form` gjev ikkje meining åleine – kva slags form er det? Han finst berre for å definere eit felles grensesnitt subklassane *må* implementere. Til dette har Python modulen `abc` (Abstract Base Classes). Ein **abstrakt klasse** kan ikkje instansierast, og ein **abstrakt metode**, markert med `@abstractmethod`, har ingen implementasjon – subklassar må overstyre han:\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass Form(ABC):\n    @abstractmethod\n    def areal(self):\n        pass\n\n    def vis_info(self):  # vanlig metode, arves\n        print(f\"Areal: {self.areal():.2f}\")\n```\n\nViss ein subklasse gløymer å implementere ein abstrakt metode, kan du ikkje lage objekt av han – Python gjev `TypeError`. Det er ei kraftig tryggleik: han garanterer at alle subklassar har funksjonaliteten vi forventar. Prøver du å lage `Form()` direkte, får du òg `TypeError`.\n\nI språk som Java og C# finst eigne **grensesnitt** (interfaces). Python har ikkje eit `interface`-nøkkelord, men to alternativ: abstrakte klassar, som vi nettopp såg, og **protokollar** (`Protocol` frå `typing`). Ein protokoll definerer kva metodar eit objekt må ha, utan å krevje arv – det er ei formalisering av duck typing. Skilnaden er viktig: abstrakte klassar krev arv og gjev feil ved køyring, medan protokollar ikkje krev arv og primært blir sjekka av typesjekkarar som mypy."},{"id":"it-2-1-5-n-quiz2","type":"exercise","exercise":{"id":"it-2-1-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på abstrakte klassar og protokollar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-5-n-quiz2-q0","task":"Kva skjer viss ein subklasse ikkje implementerer ein abstrakt metode?","options":[{"id":"a","text":"Han køyrer, men metoden gjer ingenting","isCorrect":false},{"id":"b","text":"Den abstrakte metoden blir sletta","isCorrect":false},{"id":"c","text":"Det gjev ein SyntaxError","isCorrect":false},{"id":"d","text":"Du får TypeError og kan ikkje lage objekt av subklassen","isCorrect":true}],"solution":"Python tvingar fram implementasjon av alle abstrakte metodar. Manglar éin, gjev det TypeError ved instansiering."},{"id":"it-2-1-5-n-quiz2-q1","task":"Kva markerer ein metode som abstrakt i Python?","options":[{"id":"a","text":"Dekoratoren @abstractmethod frå abc-modulen","isCorrect":true},{"id":"b","text":"Nøkkelordet abstract","isCorrect":false},{"id":"c","text":"@property","isCorrect":false},{"id":"d","text":"To understrekar i namnet","isCorrect":false}],"solution":"@abstractmethod frå abc-modulen markerer ein metode som abstrakt, slik at subklassar må implementere han."},{"id":"it-2-1-5-n-quiz2-q2","task":"Kva er ein hovudskilnad mellom ein abstrakt klasse (ABC) og ein protokoll (Protocol)?","options":[{"id":"a","text":"Dei er identiske","isCorrect":false},{"id":"b","text":"ABC krev arv og gjev køyretidsfeil; Protocol krev ikkje arv og blir sjekka av typesjekkarar","isCorrect":true},{"id":"c","text":"Protocol krev arv, men ABC gjer ikkje","isCorrect":false},{"id":"d","text":"ABC køyrer raskare","isCorrect":false}],"solution":"Abstrakte klassar krev at ein arvar og gjev TypeError ved køyring. Protokollar krev ingen arv og blir kontrollerte primært av typesjekkarar som mypy."}]}},{"id":"it-2-1-5-n-section3","type":"text","content":"## Open for utviding, lukka for endring\n\nPolymorfisme og abstraksjon gjer det mogleg å følgje eit viktig designprinsipp: **åpen/lukket-prinsippet**. Det seier at programvare skal vere open for utviding, men lukka for endring. Med andre ord: vi skal kunne leggje til ny funksjonalitet utan å rote i eksisterande kode.\n\nTenk på eit betalingssystem. Ei dårleg løysing er ei lang `if/elif`-kjede som sjekkar betalingstype – «kort», «vipps», «kontant». Problemet er at kvar gong du legg til ein ny betalingsmåte, må du endre den eksisterande funksjonen. Ei `if/elif`-kjede som sjekkar typar er ofte eit varselteikn på nettopp dette. Ei god løysing bruker ein abstrakt `Betaling`-klasse med ein `betal`-metode, og éin subklasse per betalingsmåte. Vil du leggje til kryptovaluta, lagar du berre ein ny `KryptoBetaling`-klasse – ingen eksisterande kode blir rørt.\n\nPolymorfisme er heller ikkje noko vi berre lagar sjølve; det er innebygd i Python via **dunder-metodar** (dobbel understrek). `len()` bruker `__len__()`, `print()` bruker `__str__()`, og `in` bruker `__contains__()`. Implementerer du desse i dine eigne klassar, blir objekta kompatible med Pythons innebygde funksjonar. Ein `Handlekurv` med `__len__`, `__str__` og `__contains__` lèt deg skrive `len(kurv)`, `print(kurv)` og `\"Melk\" in kurv` – rein polymorfisme i praksis."},{"id":"it-2-1-5-n-quiz3","type":"exercise","exercise":{"id":"it-2-1-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på åpen/lukket og dunder-metodar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-1-5-n-quiz3-q0","task":"Kva seier åpen/lukket-prinsippet?","options":[{"id":"a","text":"All kode skal vere offentleg","isCorrect":false},{"id":"b","text":"Klassar skal aldri arve","isCorrect":false},{"id":"c","text":"Kode skal vere open for utviding, men lukka for endring","isCorrect":true},{"id":"d","text":"Kode skal alltid endrast","isCorrect":false}],"solution":"Prinsippet seier at ein skal kunne leggje til ny funksjonalitet (nye klassar) utan å endre eksisterande, fungerande kode."},{"id":"it-2-1-5-n-quiz3-q1","task":"Kvifor er ei lang if/elif-kjede for typar ofte dårleg OOP-design?","options":[{"id":"a","text":"Fordi if/elif er tregare","isCorrect":false},{"id":"b","text":"Fordi if/elif ikkje verkar i Python","isCorrect":false},{"id":"c","text":"Fordi ho ikkje kan ha meir enn fem greiner","isCorrect":false},{"id":"d","text":"Fordi du må endre eksisterande kode kvar gong du legg til ein ny type","isCorrect":true}],"solution":"Ei if/elif-kjede bryt åpen/lukket-prinsippet: kvar ny type krev endring i eksisterande kode. Med polymorfisme legg du berre til ein ny klasse."},{"id":"it-2-1-5-n-quiz3-q2","task":"Kva dunder-metode gjer at `len(objekt)` fungerer på din eigen klasse?","options":[{"id":"a","text":"__len__","isCorrect":true},{"id":"b","text":"__str__","isCorrect":false},{"id":"c","text":"__contains__","isCorrect":false},{"id":"d","text":"__add__","isCorrect":false}],"solution":"len() bruker __len__(). __str__ styrer print(), __contains__ styrer in, og __add__ styrer +."}]}},{"id":"it-2-1-5-n-summary","type":"text","content":"## Oppsummering\n\nVi byrja med éin knapp som styrer mange apparat, og det er kjernen i **polymorfisme**: ulike objekt blir handsama likt, men oppfører seg forskjellig basert på klassen sin. I Python får vi dette gratis gjennom **duck typing** – Python sjekkar ikkje klasse, berre om objektet har rett metode – og gjennom metode-overstyring.\n\n**Abstrakte klassar** (via `abc`) kan ikkje instansierast og tvingar subklassar til å implementere bestemte metodar, markert med `@abstractmethod`. **Protokollar** er eit meir moderne alternativ som definerer grensesnitt utan arv, primært for typesjekkarar. Alt dette gjer at vi kan følgje **åpen/lukket-prinsippet**: kode skal vere open for utviding, men lukka for endring – nye klassar i staden for endra if/elif-kjeder. Til slutt såg vi at **dunder-metodar** som `__len__`, `__str__` og `__contains__` lèt våre eigne objekt spele på lag med Pythons innebygde funksjonar. Med dette har du fullført grunnlaget i objektorientert programmering."}],"exercises":[],"_meta":{"sourceHash":"f7934adbab4a4016","translatedAt":"2026-06-20T23:59:44.538Z","model":"claude-code-agent","strings":71,"tm":{"315f042c9479af5b":"Polymorfisme og abstraksjon","b195b06d1ed59702":"Narrativ versjon","f93ef1cab9dbd456":"Ei forteljing om korleis éin og same knapp kan styre alt – frå polymorfisme og duck typing til abstrakte klassar, protokollar og prinsippet om kode som er open for utviding.","b9a2065ac542c461":"Forstå polymorfisme og duck typing","b98c7a37b666fd3c":"Bruke abstrakte klassar og protokollar","ba3c8f20a4344bb4":"Forstå åpen/lukket-prinsippet og dunder-metodar","33bba086f09a3f6e":"## Éin knapp, mange resultat\n\nTenk på ein universalfjernkontroll. Han har éin «spel av»-knapp som fungerer anten du peikar på TV-en, DVD-spelaren eller spelkonsollen. Knappen er den same, men resultatet er forskjellig. Det er nettopp dette **polymorfisme** handlar om. Ordet betyr bokstaveleg «mange former» (gresk *poly* = mange, *morph* = form), og i programmering vil det seie at objekt av ulike klassar kan handsamast likt – til dømes ved at vi kallar same metode – men oppføre seg forskjellig.\n\nSaman med polymorfisme kjem **abstraksjon**, som handlar om å definere *kva* noko skal gjere utan å bestemme *korleis*. Det er som ei stillingsskildring: ho seier kva jobben inneber, men ikkje nøyaktig korleis kvar tilsett løyser oppgåvene.\n\nDet klassiske dømet er geometriske former. Vi kan lage ein `Sirkel`, eit `Rektangel` og ein `Trekant`, der kvar klasse har sin eigen `areal`-metode. Ein sirkel reknar `math.pi * radius ** 2`, eit rektangel `lengde * bredde`, ein trekant `0.5 * grunnlinje * høyde`. Det fine kjem når vi samlar dei i ei liste og handsamar dei likt:\n\n```python\nformer = [Sirkel(5), Rektangel(4, 6), Trekant(3, 8)]\nfor form in former:\n    print(f\"{form.beskrivelse()}: areal = {form.areal():.2f}\")\n```\n\nVi kallar `areal()` utan å bry oss om kva klasse objektet høyrer til. Grensesnittet er det same, men oppførselen er forskjellig.","a78e870f326a0b8e":"## Duck typing – om det kvakkar som ei and\n\nPython er **dynamisk typa**. Det betyr at Python ikkje sjekkar kva klasse eit objekt høyrer til – han sjekkar berre om objektet har metoden vi prøver å kalle. Dette blir kalla **duck typing**, etter uttrykket «viss det går som ei and, sym som ei and og kvakkar som ei and, er det sannsynlegvis ei and». I praksis betyr det at du ikkje treng arv for å få polymorfisme i Python. Så lenge objekta har dei rette metodane, fungerer det.\n\nTre klassar `Hund`, `Katt` og `Ku` utan nokon felles superklasse kan alle ha ein `lyd()`-metode. Ein funksjon som går gjennom ei liste og kallar `lyd()` på kvart dyr, spør eigentleg berre: «Har du ein lyd-metode?» Har han det, fungerer det. Men her ligg òg risikoen: sender du inn eit objekt som *ikkje* har metoden, får du ein `AttributeError`. Feilen blir oppdaga først ved køyring, ikkje før. Det er prisen for fleksibiliteten i duck typing.\n\nDet finst altså to hovudformer for polymorfisme i Python: **duck typing**, der rett metode er nok uavhengig av klasse, og **metode-overstyring** (override), der subklassar definerer sin eigen versjon av ein metode frå superklassen.","731507a7879ad250":"Test deg sjølv på polymorfisme og duck typing:","4097889236a2af26":"placeholder","2f17c2cfa1b2c4af":"Kva er polymorfisme?","3a8e21fa5f39bfff":"At ulike objekt kan handsamast likt, men oppføre seg forskjellig","8470aeb4af93569f":"At ein klasse kan ha fleire konstruktørar","b7ab633977f61559":"At ein klasse arvar frå fleire superklassar","a209352a06292365":"At metodar kan ha same namn men ulike parametrar","44e83d3b5b6dcd78":"Polymorfisme betyr at vi kan kalle same metode på ulike objekt, og kvart objekt svarar på sin eigen måte.","0ac89d752289d18f":"Kva sjekkar Python når du kallar ein metode på eit objekt (duck typing)?","890c2bb98a973ecc":"Om objektet arvar frå ein bestemt klasse","9a97c9d554252174":"Om objektet har den metoden, uavhengig av klasse","8bc7f69d0030f243":"Om objektet er deklarert med ein type","3939df0f31b6e93f":"Om objektet ligg i same fil","d37320fcf28c71aa":"Med duck typing bryr Python seg berre om at metoden finst på objektet, ikkje kva klasse det høyrer til.","2bd47c0cf839298a":"Kva er risikoen med duck typing?","8b9adf187c7476f4":"Koden blir alltid tregare","5a0305f360315365":"Ein kan ikkje bruke lister","c94abcb8d51e6b1d":"Manglar objektet metoden, blir feilen oppdaga først ved køyring (AttributeError)","b9149a6eb53c466b":"Klassar kan ikkje arve","ea1fd1f4c413f8a2":"Sidan typen ikkje blir sjekka på førehand, dukkar ein AttributeError først opp under køyring viss metoden manglar.","638577bbf7fa06a3":"## Abstrakte klassar og protokollar\n\nNokre gonger vil vi lage ein superklasse som aldri skal instansierast direkte. Ein generisk `Form` gjev ikkje meining åleine – kva slags form er det? Han finst berre for å definere eit felles grensesnitt subklassane *må* implementere. Til dette har Python modulen `abc` (Abstract Base Classes). Ein **abstrakt klasse** kan ikkje instansierast, og ein **abstrakt metode**, markert med `@abstractmethod`, har ingen implementasjon – subklassar må overstyre han:\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass Form(ABC):\n    @abstractmethod\n    def areal(self):\n        pass\n\n    def vis_info(self):  # vanlig metode, arves\n        print(f\"Areal: {self.areal():.2f}\")\n```\n\nViss ein subklasse gløymer å implementere ein abstrakt metode, kan du ikkje lage objekt av han – Python gjev `TypeError`. Det er ei kraftig tryggleik: han garanterer at alle subklassar har funksjonaliteten vi forventar. Prøver du å lage `Form()` direkte, får du òg `TypeError`.\n\nI språk som Java og C# finst eigne **grensesnitt** (interfaces). Python har ikkje eit `interface`-nøkkelord, men to alternativ: abstrakte klassar, som vi nettopp såg, og **protokollar** (`Protocol` frå `typing`). Ein protokoll definerer kva metodar eit objekt må ha, utan å krevje arv – det er ei formalisering av duck typing. Skilnaden er viktig: abstrakte klassar krev arv og gjev feil ved køyring, medan protokollar ikkje krev arv og primært blir sjekka av typesjekkarar som mypy.","f042d98a5471011e":"Test deg sjølv på abstrakte klassar og protokollar:","b11cd902c25976a5":"Kva skjer viss ein subklasse ikkje implementerer ein abstrakt metode?","8adc339704263104":"Han køyrer, men metoden gjer ingenting","12fd7280a958ad43":"Den abstrakte metoden blir sletta","4193823be6ffd0e4":"Det gjev ein SyntaxError","27c567114f66e513":"Du får TypeError og kan ikkje lage objekt av subklassen","d39c1611da870bca":"Python tvingar fram implementasjon av alle abstrakte metodar. Manglar éin, gjev det TypeError ved instansiering.","f8a72892a4617fba":"Kva markerer ein metode som abstrakt i Python?","cbf2ad65648b15aa":"Dekoratoren @abstractmethod frå abc-modulen","230dd24b422c84ed":"Nøkkelordet abstract","ec9ed03568670a9c":"@property","4fe07854fd07fe05":"To understrekar i namnet","669c90265e673e73":"@abstractmethod frå abc-modulen markerer ein metode som abstrakt, slik at subklassar må implementere han.","2277dd04199ce4bc":"Kva er ein hovudskilnad mellom ein abstrakt klasse (ABC) og ein protokoll (Protocol)?","3b3baa10a15618d0":"Dei er identiske","d3e70c09c4cbb8c0":"ABC krev arv og gjev køyretidsfeil; Protocol krev ikkje arv og blir sjekka av typesjekkarar","7024defc90629f3c":"Protocol krev arv, men ABC gjer ikkje","55bbd4b6b5b37137":"ABC køyrer raskare","72bfc6974a338a56":"Abstrakte klassar krev at ein arvar og gjev TypeError ved køyring. Protokollar krev ingen arv og blir kontrollerte primært av typesjekkarar som mypy.","965564b41ed05197":"## Open for utviding, lukka for endring\n\nPolymorfisme og abstraksjon gjer det mogleg å følgje eit viktig designprinsipp: **åpen/lukket-prinsippet**. Det seier at programvare skal vere open for utviding, men lukka for endring. Med andre ord: vi skal kunne leggje til ny funksjonalitet utan å rote i eksisterande kode.\n\nTenk på eit betalingssystem. Ei dårleg løysing er ei lang `if/elif`-kjede som sjekkar betalingstype – «kort», «vipps», «kontant». Problemet er at kvar gong du legg til ein ny betalingsmåte, må du endre den eksisterande funksjonen. Ei `if/elif`-kjede som sjekkar typar er ofte eit varselteikn på nettopp dette. Ei god løysing bruker ein abstrakt `Betaling`-klasse med ein `betal`-metode, og éin subklasse per betalingsmåte. Vil du leggje til kryptovaluta, lagar du berre ein ny `KryptoBetaling`-klasse – ingen eksisterande kode blir rørt.\n\nPolymorfisme er heller ikkje noko vi berre lagar sjølve; det er innebygd i Python via **dunder-metodar** (dobbel understrek). `len()` bruker `__len__()`, `print()` bruker `__str__()`, og `in` bruker `__contains__()`. Implementerer du desse i dine eigne klassar, blir objekta kompatible med Pythons innebygde funksjonar. Ein `Handlekurv` med `__len__`, `__str__` og `__contains__` lèt deg skrive `len(kurv)`, `print(kurv)` og `\"Melk\" in kurv` – rein polymorfisme i praksis.","0e505549826931f9":"Test deg sjølv på åpen/lukket og dunder-metodar:","5f55701a2a2896c5":"Kva seier åpen/lukket-prinsippet?","35ee84dc1235e04e":"All kode skal vere offentleg","6207744c0326dc3d":"Klassar skal aldri arve","6e76de530a8cc9e5":"Kode skal vere open for utviding, men lukka for endring","edcaced43da3b985":"Kode skal alltid endrast","7932bf5f95baaf18":"Prinsippet seier at ein skal kunne leggje til ny funksjonalitet (nye klassar) utan å endre eksisterande, fungerande kode.","dc5b83b0880b743d":"Kvifor er ei lang if/elif-kjede for typar ofte dårleg OOP-design?","0376151d52d8d0c1":"Fordi if/elif er tregare","a3b7491ab7311058":"Fordi if/elif ikkje verkar i Python","a0db38f2209a3ba3":"Fordi ho ikkje kan ha meir enn fem greiner","9c4846924805c84a":"Fordi du må endre eksisterande kode kvar gong du legg til ein ny type","f365ef28fbc3f06b":"Ei if/elif-kjede bryt åpen/lukket-prinsippet: kvar ny type krev endring i eksisterande kode. Med polymorfisme legg du berre til ein ny klasse.","3a824276e112d7fb":"Kva dunder-metode gjer at `len(objekt)` fungerer på din eigen klasse?","aeb906615e78a0cd":"__len__","0d67fb79d6915b4f":"__str__","134074370af281c3":"__contains__","0b7c2f2a51a93a13":"__add__","31e9e9ee4a093963":"len() bruker __len__(). __str__ styrer print(), __contains__ styrer in, og __add__ styrer +.","5e13adec4a8b9438":"## Oppsummering\n\nVi byrja med éin knapp som styrer mange apparat, og det er kjernen i **polymorfisme**: ulike objekt blir handsama likt, men oppfører seg forskjellig basert på klassen sin. I Python får vi dette gratis gjennom **duck typing** – Python sjekkar ikkje klasse, berre om objektet har rett metode – og gjennom metode-overstyring.\n\n**Abstrakte klassar** (via `abc`) kan ikkje instansierast og tvingar subklassar til å implementere bestemte metodar, markert med `@abstractmethod`. **Protokollar** er eit meir moderne alternativ som definerer grensesnitt utan arv, primært for typesjekkarar. Alt dette gjer at vi kan følgje **åpen/lukket-prinsippet**: kode skal vere open for utviding, men lukka for endring – nye klassar i staden for endra if/elif-kjeder. Til slutt såg vi at **dunder-metodar** som `__len__`, `__str__` og `__contains__` lèt våre eigne objekt spele på lag med Pythons innebygde funksjonar. Med dette har du fullført grunnlaget i objektorientert programmering."}}}
+{
+  "id": "it-2-1-5-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "5",
+  "title": "Polymorfisme og abstraksjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis éin og same knapp kan styre alt – frå polymorfisme og duck typing til abstrakte klassar, protokollar og prinsippet om kode som er open for utviding.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "Forstå polymorfisme og duck typing",
+    "Bruke abstrakte klassar og protokollar",
+    "Forstå åpen/lukket-prinsippet og dunder-metodar"
+  ],
+  "linkedChapterId": "it-2-1-5",
+  "content": [
+    {
+      "id": "it-2-1-5-n-intro",
+      "type": "text",
+      "content": "## Éin knapp, mange resultat\n\nTenk på ein universalfjernkontroll. Han har éin «spel av»-knapp som fungerer anten du peikar på TV-en, DVD-spelaren eller spelkonsollen. Knappen er den same, men resultatet er forskjellig. Det er nettopp dette **polymorfisme** handlar om. Ordet betyr bokstaveleg «mange former» (gresk *poly* = mange, *morph* = form), og i programmering vil det seie at objekt av ulike klassar kan handsamast likt – til dømes ved at vi kallar same metode – men oppføre seg forskjellig.\n\nSaman med polymorfisme kjem **abstraksjon**, som handlar om å definere *kva* noko skal gjere utan å bestemme *korleis*. Det er som ei stillingsskildring: ho seier kva jobben inneber, men ikkje nøyaktig korleis kvar tilsett løyser oppgåvene.\n\nDet klassiske dømet er geometriske former. Vi kan lage ein `Sirkel`, eit `Rektangel` og ein `Trekant`, der kvar klasse har sin eigen `areal`-metode. Ein sirkel reknar `math.pi * radius ** 2`, eit rektangel `lengde * bredde`, ein trekant `0.5 * grunnlinje * høyde`. Det fine kjem når vi samlar dei i ei liste og handsamar dei likt:\n\n```python\nformer = [Sirkel(5), Rektangel(4, 6), Trekant(3, 8)]\nfor form in former:\n    print(f\"{form.beskrivelse()}: areal = {form.areal():.2f}\")\n```\n\nVi kallar `areal()` utan å bry oss om kva klasse objektet høyrer til. Grensesnittet er det same, men oppførselen er forskjellig."
+    },
+    {
+      "id": "it-2-1-5-n-section1",
+      "type": "text",
+      "content": "## Duck typing – om det kvakkar som ei and\n\nPython er **dynamisk typa**. Det betyr at Python ikkje sjekkar kva klasse eit objekt høyrer til – han sjekkar berre om objektet har metoden vi prøver å kalle. Dette blir kalla **duck typing**, etter uttrykket «viss det går som ei and, sym som ei and og kvakkar som ei and, er det sannsynlegvis ei and». I praksis betyr det at du ikkje treng arv for å få polymorfisme i Python. Så lenge objekta har dei rette metodane, fungerer det.\n\nTre klassar `Hund`, `Katt` og `Ku` utan nokon felles superklasse kan alle ha ein `lyd()`-metode. Ein funksjon som går gjennom ei liste og kallar `lyd()` på kvart dyr, spør eigentleg berre: «Har du ein lyd-metode?» Har han det, fungerer det. Men her ligg òg risikoen: sender du inn eit objekt som *ikkje* har metoden, får du ein `AttributeError`. Feilen blir oppdaga først ved køyring, ikkje før. Det er prisen for fleksibiliteten i duck typing.\n\nDet finst altså to hovudformer for polymorfisme i Python: **duck typing**, der rett metode er nok uavhengig av klasse, og **metode-overstyring** (override), der subklassar definerer sin eigen versjon av ein metode frå superklassen."
+    },
+    {
+      "id": "it-2-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på polymorfisme og duck typing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-5-n-quiz1-q0",
+            "task": "Kva er polymorfisme?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At ein klasse kan ha fleire konstruktørar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At ein klasse arvar frå fleire superklassar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At metodar kan ha same namn men ulike parametrar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At ulike objekt kan handsamast likt, men oppføre seg forskjellig",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Polymorfisme betyr at vi kan kalle same metode på ulike objekt, og kvart objekt svarar på sin eigen måte."
+          },
+          {
+            "id": "it-2-1-5-n-quiz1-q1",
+            "task": "Kva sjekkar Python når du kallar ein metode på eit objekt (duck typing)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Om objektet har den metoden, uavhengig av klasse",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Om objektet arvar frå ein bestemt klasse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Om objektet er deklarert med ein type",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Om objektet ligg i same fil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med duck typing bryr Python seg berre om at metoden finst på objektet, ikkje kva klasse det høyrer til."
+          },
+          {
+            "id": "it-2-1-5-n-quiz1-q2",
+            "task": "Kva er risikoen med duck typing?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Koden blir alltid tregare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Manglar objektet metoden, blir feilen oppdaga først ved køyring (AttributeError)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein kan ikkje bruke lister",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Klassar kan ikkje arve",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan typen ikkje blir sjekka på førehand, dukkar ein AttributeError først opp under køyring viss metoden manglar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-5-n-section2",
+      "type": "text",
+      "content": "## Abstrakte klassar og protokollar\n\nNokre gonger vil vi lage ein superklasse som aldri skal instansierast direkte. Ein generisk `Form` gjev ikkje meining åleine – kva slags form er det? Han finst berre for å definere eit felles grensesnitt subklassane *må* implementere. Til dette har Python modulen `abc` (Abstract Base Classes). Ein **abstrakt klasse** kan ikkje instansierast, og ein **abstrakt metode**, markert med `@abstractmethod`, har ingen implementasjon – subklassar må overstyre han:\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass Form(ABC):\n    @abstractmethod\n    def areal(self):\n        pass\n\n    def vis_info(self):  # vanlig metode, arves\n        print(f\"Areal: {self.areal():.2f}\")\n```\n\nViss ein subklasse gløymer å implementere ein abstrakt metode, kan du ikkje lage objekt av han – Python gjev `TypeError`. Det er ei kraftig tryggleik: han garanterer at alle subklassar har funksjonaliteten vi forventar. Prøver du å lage `Form()` direkte, får du òg `TypeError`.\n\nI språk som Java og C# finst eigne **grensesnitt** (interfaces). Python har ikkje eit `interface`-nøkkelord, men to alternativ: abstrakte klassar, som vi nettopp såg, og **protokollar** (`Protocol` frå `typing`). Ein protokoll definerer kva metodar eit objekt må ha, utan å krevje arv – det er ei formalisering av duck typing. Skilnaden er viktig: abstrakte klassar krev arv og gjev feil ved køyring, medan protokollar ikkje krev arv og primært blir sjekka av typesjekkarar som mypy."
+    },
+    {
+      "id": "it-2-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på abstrakte klassar og protokollar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-5-n-quiz2-q0",
+            "task": "Kva skjer viss ein subklasse ikkje implementerer ein abstrakt metode?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han køyrer, men metoden gjer ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den abstrakte metoden blir sletta",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Du får TypeError og kan ikkje lage objekt av subklassen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det gjev ein SyntaxError",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Python tvingar fram implementasjon av alle abstrakte metodar. Manglar éin, gjev det TypeError ved instansiering."
+          },
+          {
+            "id": "it-2-1-5-n-quiz2-q1",
+            "task": "Kva markerer ein metode som abstrakt i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nøkkelordet abstract",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "@property",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "To understrekar i namnet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Dekoratoren @abstractmethod frå abc-modulen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "@abstractmethod frå abc-modulen markerer ein metode som abstrakt, slik at subklassar må implementere han."
+          },
+          {
+            "id": "it-2-1-5-n-quiz2-q2",
+            "task": "Kva er ein hovudskilnad mellom ein abstrakt klasse (ABC) og ein protokoll (Protocol)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "ABC krev arv og gjev køyretidsfeil; Protocol krev ikkje arv og blir sjekka av typesjekkarar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Dei er identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Protocol krev arv, men ABC gjer ikkje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "ABC køyrer raskare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Abstrakte klassar krev at ein arvar og gjev TypeError ved køyring. Protokollar krev ingen arv og blir kontrollerte primært av typesjekkarar som mypy."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-5-n-section3",
+      "type": "text",
+      "content": "## Open for utviding, lukka for endring\n\nPolymorfisme og abstraksjon gjer det mogleg å følgje eit viktig designprinsipp: **åpen/lukket-prinsippet**. Det seier at programvare skal vere open for utviding, men lukka for endring. Med andre ord: vi skal kunne leggje til ny funksjonalitet utan å rote i eksisterande kode.\n\nTenk på eit betalingssystem. Ei dårleg løysing er ei lang `if/elif`-kjede som sjekkar betalingstype – «kort», «vipps», «kontant». Problemet er at kvar gong du legg til ein ny betalingsmåte, må du endre den eksisterande funksjonen. Ei `if/elif`-kjede som sjekkar typar er ofte eit varselteikn på nettopp dette. Ei god løysing bruker ein abstrakt `Betaling`-klasse med ein `betal`-metode, og éin subklasse per betalingsmåte. Vil du leggje til kryptovaluta, lagar du berre ein ny `KryptoBetaling`-klasse – ingen eksisterande kode blir rørt.\n\nPolymorfisme er heller ikkje noko vi berre lagar sjølve; det er innebygd i Python via **dunder-metodar** (dobbel understrek). `len()` bruker `__len__()`, `print()` bruker `__str__()`, og `in` bruker `__contains__()`. Implementerer du desse i dine eigne klassar, blir objekta kompatible med Pythons innebygde funksjonar. Ein `Handlekurv` med `__len__`, `__str__` og `__contains__` lèt deg skrive `len(kurv)`, `print(kurv)` og `\"Melk\" in kurv` – rein polymorfisme i praksis."
+    },
+    {
+      "id": "it-2-1-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-1-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på åpen/lukket og dunder-metodar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-1-5-n-quiz3-q0",
+            "task": "Kva seier åpen/lukket-prinsippet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "All kode skal vere offentleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kode skal vere open for utviding, men lukka for endring",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Klassar skal aldri arve",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kode skal alltid endrast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Prinsippet seier at ein skal kunne leggje til ny funksjonalitet (nye klassar) utan å endre eksisterande, fungerande kode."
+          },
+          {
+            "id": "it-2-1-5-n-quiz3-q1",
+            "task": "Kvifor er ei lang if/elif-kjede for typar ofte dårleg OOP-design?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi if/elif er tregare",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi if/elif ikkje verkar i Python",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi du må endre eksisterande kode kvar gong du legg til ein ny type",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi ho ikkje kan ha meir enn fem greiner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei if/elif-kjede bryt åpen/lukket-prinsippet: kvar ny type krev endring i eksisterande kode. Med polymorfisme legg du berre til ein ny klasse."
+          },
+          {
+            "id": "it-2-1-5-n-quiz3-q2",
+            "task": "Kva dunder-metode gjer at `len(objekt)` fungerer på din eigen klasse?",
+            "options": [
+              {
+                "id": "b",
+                "text": "__str__",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "__contains__",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "__add__",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "__len__",
+                "isCorrect": true
+              }
+            ],
+            "solution": "len() bruker __len__(). __str__ styrer print(), __contains__ styrer in, og __add__ styrer +."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-1-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi byrja med éin knapp som styrer mange apparat, og det er kjernen i **polymorfisme**: ulike objekt blir handsama likt, men oppfører seg forskjellig basert på klassen sin. I Python får vi dette gratis gjennom **duck typing** – Python sjekkar ikkje klasse, berre om objektet har rett metode – og gjennom metode-overstyring.\n\n**Abstrakte klassar** (via `abc`) kan ikkje instansierast og tvingar subklassar til å implementere bestemte metodar, markert med `@abstractmethod`. **Protokollar** er eit meir moderne alternativ som definerer grensesnitt utan arv, primært for typesjekkarar. Alt dette gjer at vi kan følgje **åpen/lukket-prinsippet**: kode skal vere open for utviding, men lukka for endring – nye klassar i staden for endra if/elif-kjeder. Til slutt såg vi at **dunder-metodar** som `__len__`, `__str__` og `__contains__` lèt våre eigne objekt spele på lag med Pythons innebygde funksjonar. Med dette har du fullført grunnlaget i objektorientert programmering."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f7934adbab4a4016",
+    "translatedAt": "2026-06-20T23:59:44.538Z",
+    "model": "claude-code-agent",
+    "strings": 71,
+    "tm": {
+      "315f042c9479af5b": "Polymorfisme og abstraksjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "f93ef1cab9dbd456": "Ei forteljing om korleis éin og same knapp kan styre alt – frå polymorfisme og duck typing til abstrakte klassar, protokollar og prinsippet om kode som er open for utviding.",
+      "b9a2065ac542c461": "Forstå polymorfisme og duck typing",
+      "b98c7a37b666fd3c": "Bruke abstrakte klassar og protokollar",
+      "ba3c8f20a4344bb4": "Forstå åpen/lukket-prinsippet og dunder-metodar",
+      "33bba086f09a3f6e": "## Éin knapp, mange resultat\n\nTenk på ein universalfjernkontroll. Han har éin «spel av»-knapp som fungerer anten du peikar på TV-en, DVD-spelaren eller spelkonsollen. Knappen er den same, men resultatet er forskjellig. Det er nettopp dette **polymorfisme** handlar om. Ordet betyr bokstaveleg «mange former» (gresk *poly* = mange, *morph* = form), og i programmering vil det seie at objekt av ulike klassar kan handsamast likt – til dømes ved at vi kallar same metode – men oppføre seg forskjellig.\n\nSaman med polymorfisme kjem **abstraksjon**, som handlar om å definere *kva* noko skal gjere utan å bestemme *korleis*. Det er som ei stillingsskildring: ho seier kva jobben inneber, men ikkje nøyaktig korleis kvar tilsett løyser oppgåvene.\n\nDet klassiske dømet er geometriske former. Vi kan lage ein `Sirkel`, eit `Rektangel` og ein `Trekant`, der kvar klasse har sin eigen `areal`-metode. Ein sirkel reknar `math.pi * radius ** 2`, eit rektangel `lengde * bredde`, ein trekant `0.5 * grunnlinje * høyde`. Det fine kjem når vi samlar dei i ei liste og handsamar dei likt:\n\n```python\nformer = [Sirkel(5), Rektangel(4, 6), Trekant(3, 8)]\nfor form in former:\n    print(f\"{form.beskrivelse()}: areal = {form.areal():.2f}\")\n```\n\nVi kallar `areal()` utan å bry oss om kva klasse objektet høyrer til. Grensesnittet er det same, men oppførselen er forskjellig.",
+      "a78e870f326a0b8e": "## Duck typing – om det kvakkar som ei and\n\nPython er **dynamisk typa**. Det betyr at Python ikkje sjekkar kva klasse eit objekt høyrer til – han sjekkar berre om objektet har metoden vi prøver å kalle. Dette blir kalla **duck typing**, etter uttrykket «viss det går som ei and, sym som ei and og kvakkar som ei and, er det sannsynlegvis ei and». I praksis betyr det at du ikkje treng arv for å få polymorfisme i Python. Så lenge objekta har dei rette metodane, fungerer det.\n\nTre klassar `Hund`, `Katt` og `Ku` utan nokon felles superklasse kan alle ha ein `lyd()`-metode. Ein funksjon som går gjennom ei liste og kallar `lyd()` på kvart dyr, spør eigentleg berre: «Har du ein lyd-metode?» Har han det, fungerer det. Men her ligg òg risikoen: sender du inn eit objekt som *ikkje* har metoden, får du ein `AttributeError`. Feilen blir oppdaga først ved køyring, ikkje før. Det er prisen for fleksibiliteten i duck typing.\n\nDet finst altså to hovudformer for polymorfisme i Python: **duck typing**, der rett metode er nok uavhengig av klasse, og **metode-overstyring** (override), der subklassar definerer sin eigen versjon av ein metode frå superklassen.",
+      "731507a7879ad250": "Test deg sjølv på polymorfisme og duck typing:",
+      "4097889236a2af26": "placeholder",
+      "2f17c2cfa1b2c4af": "Kva er polymorfisme?",
+      "3a8e21fa5f39bfff": "At ulike objekt kan handsamast likt, men oppføre seg forskjellig",
+      "8470aeb4af93569f": "At ein klasse kan ha fleire konstruktørar",
+      "b7ab633977f61559": "At ein klasse arvar frå fleire superklassar",
+      "a209352a06292365": "At metodar kan ha same namn men ulike parametrar",
+      "44e83d3b5b6dcd78": "Polymorfisme betyr at vi kan kalle same metode på ulike objekt, og kvart objekt svarar på sin eigen måte.",
+      "0ac89d752289d18f": "Kva sjekkar Python når du kallar ein metode på eit objekt (duck typing)?",
+      "890c2bb98a973ecc": "Om objektet arvar frå ein bestemt klasse",
+      "9a97c9d554252174": "Om objektet har den metoden, uavhengig av klasse",
+      "8bc7f69d0030f243": "Om objektet er deklarert med ein type",
+      "3939df0f31b6e93f": "Om objektet ligg i same fil",
+      "d37320fcf28c71aa": "Med duck typing bryr Python seg berre om at metoden finst på objektet, ikkje kva klasse det høyrer til.",
+      "2bd47c0cf839298a": "Kva er risikoen med duck typing?",
+      "8b9adf187c7476f4": "Koden blir alltid tregare",
+      "5a0305f360315365": "Ein kan ikkje bruke lister",
+      "c94abcb8d51e6b1d": "Manglar objektet metoden, blir feilen oppdaga først ved køyring (AttributeError)",
+      "b9149a6eb53c466b": "Klassar kan ikkje arve",
+      "ea1fd1f4c413f8a2": "Sidan typen ikkje blir sjekka på førehand, dukkar ein AttributeError først opp under køyring viss metoden manglar.",
+      "638577bbf7fa06a3": "## Abstrakte klassar og protokollar\n\nNokre gonger vil vi lage ein superklasse som aldri skal instansierast direkte. Ein generisk `Form` gjev ikkje meining åleine – kva slags form er det? Han finst berre for å definere eit felles grensesnitt subklassane *må* implementere. Til dette har Python modulen `abc` (Abstract Base Classes). Ein **abstrakt klasse** kan ikkje instansierast, og ein **abstrakt metode**, markert med `@abstractmethod`, har ingen implementasjon – subklassar må overstyre han:\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass Form(ABC):\n    @abstractmethod\n    def areal(self):\n        pass\n\n    def vis_info(self):  # vanlig metode, arves\n        print(f\"Areal: {self.areal():.2f}\")\n```\n\nViss ein subklasse gløymer å implementere ein abstrakt metode, kan du ikkje lage objekt av han – Python gjev `TypeError`. Det er ei kraftig tryggleik: han garanterer at alle subklassar har funksjonaliteten vi forventar. Prøver du å lage `Form()` direkte, får du òg `TypeError`.\n\nI språk som Java og C# finst eigne **grensesnitt** (interfaces). Python har ikkje eit `interface`-nøkkelord, men to alternativ: abstrakte klassar, som vi nettopp såg, og **protokollar** (`Protocol` frå `typing`). Ein protokoll definerer kva metodar eit objekt må ha, utan å krevje arv – det er ei formalisering av duck typing. Skilnaden er viktig: abstrakte klassar krev arv og gjev feil ved køyring, medan protokollar ikkje krev arv og primært blir sjekka av typesjekkarar som mypy.",
+      "f042d98a5471011e": "Test deg sjølv på abstrakte klassar og protokollar:",
+      "b11cd902c25976a5": "Kva skjer viss ein subklasse ikkje implementerer ein abstrakt metode?",
+      "8adc339704263104": "Han køyrer, men metoden gjer ingenting",
+      "12fd7280a958ad43": "Den abstrakte metoden blir sletta",
+      "4193823be6ffd0e4": "Det gjev ein SyntaxError",
+      "27c567114f66e513": "Du får TypeError og kan ikkje lage objekt av subklassen",
+      "d39c1611da870bca": "Python tvingar fram implementasjon av alle abstrakte metodar. Manglar éin, gjev det TypeError ved instansiering.",
+      "f8a72892a4617fba": "Kva markerer ein metode som abstrakt i Python?",
+      "cbf2ad65648b15aa": "Dekoratoren @abstractmethod frå abc-modulen",
+      "230dd24b422c84ed": "Nøkkelordet abstract",
+      "ec9ed03568670a9c": "@property",
+      "4fe07854fd07fe05": "To understrekar i namnet",
+      "669c90265e673e73": "@abstractmethod frå abc-modulen markerer ein metode som abstrakt, slik at subklassar må implementere han.",
+      "2277dd04199ce4bc": "Kva er ein hovudskilnad mellom ein abstrakt klasse (ABC) og ein protokoll (Protocol)?",
+      "3b3baa10a15618d0": "Dei er identiske",
+      "d3e70c09c4cbb8c0": "ABC krev arv og gjev køyretidsfeil; Protocol krev ikkje arv og blir sjekka av typesjekkarar",
+      "7024defc90629f3c": "Protocol krev arv, men ABC gjer ikkje",
+      "55bbd4b6b5b37137": "ABC køyrer raskare",
+      "72bfc6974a338a56": "Abstrakte klassar krev at ein arvar og gjev TypeError ved køyring. Protokollar krev ingen arv og blir kontrollerte primært av typesjekkarar som mypy.",
+      "965564b41ed05197": "## Open for utviding, lukka for endring\n\nPolymorfisme og abstraksjon gjer det mogleg å følgje eit viktig designprinsipp: **åpen/lukket-prinsippet**. Det seier at programvare skal vere open for utviding, men lukka for endring. Med andre ord: vi skal kunne leggje til ny funksjonalitet utan å rote i eksisterande kode.\n\nTenk på eit betalingssystem. Ei dårleg løysing er ei lang `if/elif`-kjede som sjekkar betalingstype – «kort», «vipps», «kontant». Problemet er at kvar gong du legg til ein ny betalingsmåte, må du endre den eksisterande funksjonen. Ei `if/elif`-kjede som sjekkar typar er ofte eit varselteikn på nettopp dette. Ei god løysing bruker ein abstrakt `Betaling`-klasse med ein `betal`-metode, og éin subklasse per betalingsmåte. Vil du leggje til kryptovaluta, lagar du berre ein ny `KryptoBetaling`-klasse – ingen eksisterande kode blir rørt.\n\nPolymorfisme er heller ikkje noko vi berre lagar sjølve; det er innebygd i Python via **dunder-metodar** (dobbel understrek). `len()` bruker `__len__()`, `print()` bruker `__str__()`, og `in` bruker `__contains__()`. Implementerer du desse i dine eigne klassar, blir objekta kompatible med Pythons innebygde funksjonar. Ein `Handlekurv` med `__len__`, `__str__` og `__contains__` lèt deg skrive `len(kurv)`, `print(kurv)` og `\"Melk\" in kurv` – rein polymorfisme i praksis.",
+      "0e505549826931f9": "Test deg sjølv på åpen/lukket og dunder-metodar:",
+      "5f55701a2a2896c5": "Kva seier åpen/lukket-prinsippet?",
+      "35ee84dc1235e04e": "All kode skal vere offentleg",
+      "6207744c0326dc3d": "Klassar skal aldri arve",
+      "6e76de530a8cc9e5": "Kode skal vere open for utviding, men lukka for endring",
+      "edcaced43da3b985": "Kode skal alltid endrast",
+      "7932bf5f95baaf18": "Prinsippet seier at ein skal kunne leggje til ny funksjonalitet (nye klassar) utan å endre eksisterande, fungerande kode.",
+      "dc5b83b0880b743d": "Kvifor er ei lang if/elif-kjede for typar ofte dårleg OOP-design?",
+      "0376151d52d8d0c1": "Fordi if/elif er tregare",
+      "a3b7491ab7311058": "Fordi if/elif ikkje verkar i Python",
+      "a0db38f2209a3ba3": "Fordi ho ikkje kan ha meir enn fem greiner",
+      "9c4846924805c84a": "Fordi du må endre eksisterande kode kvar gong du legg til ein ny type",
+      "f365ef28fbc3f06b": "Ei if/elif-kjede bryt åpen/lukket-prinsippet: kvar ny type krev endring i eksisterande kode. Med polymorfisme legg du berre til ein ny klasse.",
+      "3a824276e112d7fb": "Kva dunder-metode gjer at `len(objekt)` fungerer på din eigen klasse?",
+      "aeb906615e78a0cd": "__len__",
+      "0d67fb79d6915b4f": "__str__",
+      "134074370af281c3": "__contains__",
+      "0b7c2f2a51a93a13": "__add__",
+      "31e9e9ee4a093963": "len() bruker __len__(). __str__ styrer print(), __contains__ styrer in, og __add__ styrer +.",
+      "5e13adec4a8b9438": "## Oppsummering\n\nVi byrja med éin knapp som styrer mange apparat, og det er kjernen i **polymorfisme**: ulike objekt blir handsama likt, men oppfører seg forskjellig basert på klassen sin. I Python får vi dette gratis gjennom **duck typing** – Python sjekkar ikkje klasse, berre om objektet har rett metode – og gjennom metode-overstyring.\n\n**Abstrakte klassar** (via `abc`) kan ikkje instansierast og tvingar subklassar til å implementere bestemte metodar, markert med `@abstractmethod`. **Protokollar** er eit meir moderne alternativ som definerer grensesnitt utan arv, primært for typesjekkarar. Alt dette gjer at vi kan følgje **åpen/lukket-prinsippet**: kode skal vere open for utviding, men lukka for endring – nye klassar i staden for endra if/elif-kjeder. Til slutt såg vi at **dunder-metodar** som `__len__`, `__str__` og `__contains__` lèt våre eigne objekt spele på lag med Pythons innebygde funksjonar. Med dette har du fullført grunnlaget i objektorientert programmering."
+    }
+  }
+}

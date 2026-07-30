@@ -1,1 +1,525 @@
-{"id":"2p-3-1-narrativ","courseId":"2p","chapterNumber":"3.1","title":"Beskrivande statistikk","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi kan oppsummere ei heil verd av tal med nokre få nøkkelomgrep -- frå gjennomsnitt og median til boksplott og frekvenstabellar.","estimatedMinutes":35,"competenceGoals":["bruke og vurdere val av formålstenlege sentralmål og spreiingsmål for statistisk datamateriale","analysere og presentere funn i datasett frå lokalsamfunn og media"],"linkedChapterId":"2p-3-1","content":[{"id":"2p-3-1-n-intro","type":"text","content":"## Tala som fortel historier\n\nFørestill deg at du er rektor på ein skule, og nokon spør deg: «Korleis gjekk det med elevane på matteprøva?» Du har ei liste med 200 resultat framfor deg. Du kan ikkje lese opp alle 200 tala -- det ville ingen orka å høyre på. I staden treng du nokre få nøkkeltal som oppsummerer det viktigaste. Nettopp dette er kjernen i **beskrivande statistikk**: å ta eit stort, uoversiktleg datasett og destillere det ned til nokre få tal og figurar som fortel oss kva dataene eigentleg seier.\n\nStatistikk omgir oss overalt. Når du les at «gjennomsnittstemperaturen i Oslo var 7,3 grader i fjor», eller at «medianløna i Noreg er 550 000 kroner», så møter du beskrivande statistikk i aksjon. Spørsmålet er berre: kva tyder desse tala eigentleg, og korleis vel vi dei rette?\n\nI dette kapittelet skal vi utforske tre store tema. Først ser vi på **sentralmål** -- tal som beskriv sentrum i eit datasett. Så går vi vidare til **spreiingsmål** som fortel kor spreidde dataene er. Og til slutt ser vi på korleis vi kan **framstille data grafisk** med stolpediagram, histogram og boksplott. Undervegs lærer vi òg om frekvenstabellar og kumulativ frekvens. La oss byrje."},{"id":"2p-3-1-n-section1","type":"text","content":"## Sentralmål -- å finne sentrum\n\nTenk deg at ni elevar fekk følgjande karakterar i matematikk: 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er ein «typisk» karakter i denne gruppa? Det finst tre ulike måtar å svare på det spørsmålet, og kvar gir eit litt anna perspektiv.\n\nDen første og mest kjende metoden er **gjennomsnittet**, òg kalla middelverdien. Du reknar det ut ved å leggje saman alle verdiane og dele på talet på observasjonar: $\\bar{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{\\sum x_i}{n}$. For karakterane våre blir det $\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$. Gjennomsnittet er altså 4,0 -- eit tal som gir eit fint bilete av gruppa, *så lenge dataene er nokolunde symmetriske*.\n\nDen andre metoden er **medianen**, som er den midtarste verdien når du sorterer alle tala frå minst til størst. Med ni verdiar er det verdi nummer fem, altså 4. Medianen bryr seg ikkje om kor ekstreme ytterverdiane er -- han sit trygt i midten.\n\nDen tredje metoden er **typetalet** (eller modus), som rett og slett er den verdien som førekjem oftast. Her er det 4, fordi han dukkar opp tre gonger. Typetalet er spesielt nyttig for kategoriske data, til dømes favorittfarge, der gjennomsnitt ikkje gir meining.\n\nMen her er det viktige spørsmålet: *når bruker du kva?* Gjennomsnittet fungerer fint for symmetriske data utan ekstreme verdiar. Men tenk deg ei bedrift med fem tilsette som tener 30 000, 32 000, 34 000, 35 000 og 120 000 kroner. Gjennomsnittet blir 50 200 kroner, men fire av fem tilsette tener langt under det. Den eine svært høge løna -- ein **uteliggjar** -- dreg gjennomsnittet opp. I slike tilfelle gir medianen (34 000 kr) eit mykje betre bilete av ei typisk løn. Tommelfingerregelen er enkel: bruk gjennomsnitt for symmetriske data, median for skeive data eller data med uteliggjarar, og typetal for kategoriske data."},{"id":"2p-3-1-n-quiz1","type":"exercise","exercise":{"id":"2p-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på sentralmål:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-3-1-n-quiz1-q0","task":"Ei bedrift har fem tilsette med månadslønner: 30 000, 32 000, 34 000, 35 000 og 120 000 kr. Kva sentralmål gir best bilete av ei «typisk» løn?","options":[{"id":"a","text":"Gjennomsnittet (50 200 kr)","isCorrect":false},{"id":"b","text":"Medianen (34 000 kr)","isCorrect":true},{"id":"c","text":"Typetalet","isCorrect":false},{"id":"d","text":"Alle tre gir likt resultat","isCorrect":false}],"solution":"Gjennomsnittet (50 200 kr) blir trekt opp av den eine svært høge løna (120 000 kr), som er ein uteliggjar. Medianen (34 000 kr) gir eit mykje betre bilete av ei typisk løn."},{"id":"2p-3-1-n-quiz1-q1","task":"Ni elevar fekk karakterane 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er typetalet?","options":[{"id":"a","text":"3","isCorrect":false},{"id":"b","text":"4,0 (gjennomsnittet)","isCorrect":false},{"id":"c","text":"4 (førekjem flest gonger)","isCorrect":true},{"id":"d","text":"5","isCorrect":false}],"solution":"Typetalet er verdien som førekjem oftast. Karakteren 4 dukkar opp tre gonger -- meir enn nokon annan verdi. Gjennomsnittet er òg 4,0, men det er eit anna mål."},{"id":"2p-3-1-n-quiz1-q2","task":"Kva er gjennomsnittet av tala 2, 3, 3, 4, 4, 4, 5, 5, 6?","options":[{"id":"a","text":"$3{,}5$","isCorrect":false},{"id":"b","text":"$4{,}5$","isCorrect":false},{"id":"c","text":"$4{,}0$","isCorrect":true},{"id":"d","text":"$3{,}8$","isCorrect":false}],"solution":"$\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$."}],"solution":""}},{"id":"2p-3-1-n-section2","type":"text","content":"## Spreiingsmål -- kor spreidde er dataene?\n\nÅ kjenne sentrum er berre halve historia. Tenk deg to klassar som begge har gjennomsnitt 15 på ei prøve. I den eine klassen fekk alle mellom 13 og 17 poeng -- veldig jamt. I den andre fekk nokon 5 og andre 25 -- enorm variasjon. Gjennomsnittet er likt, men klassane er vidt forskjellige. For å fange opp denne skilnaden treng vi **spreiingsmål**.\n\nDet enklaste spreiingsmålet er **variasjonsbreidda**, som er differansen mellom den største og den minste verdien: $R = x_{\\text{maks}} - x_{\\text{min}}$. For datasettet 3, 5, 7, 8, 10, 12, 14 blir variasjonsbreidda $14 - 3 = 11$. Problemet med variasjonsbreidda er at ho berre ser på dei to ytste verdiane og ignorerer alt imellom.\n\nEi meir nyansert tilnærming er å bruke **kvartilar**. Kvartilane deler dei sorterte dataene i fire like store delar. $Q_1$ (nedre kvartil) er medianen av den nedre halvdelen, $Q_2$ er sjølve medianen, og $Q_3$ (øvre kvartil) er medianen av den øvre halvdelen. For datasettet vårt (3, 5, 7, 8, 10, 12, 14) er medianen 8, $Q_1 = 5$ og $Q_3 = 12$. **Interkvartilbreidda** (IQR) er skilnaden mellom øvre og nedre kvartil: $\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel oss spreiinga i dei midtarste 50 prosenta av dataene, og er mykje meir robust mot uteliggjarar enn variasjonsbreidda.\n\nTil slutt har vi **standardavviket** ($s$), som måler den gjennomsnittlege avstanden frå gjennomsnittet: $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$. For datasettet vårt er gjennomsnittet $\\bar{x} \\approx 8{,}43$, og standardavviket blir $s \\approx 3{,}85$. Eit lågt standardavvik tyder at verdiane ligg tett rundt gjennomsnittet, medan eit høgt standardavvik tyder stor spreiing. Standardavviket er det mest brukte spreiingsmålet i praksis fordi det tek omsyn til *alle* verdiane i datasettet."},{"id":"2p-3-1-n-quiz2","type":"exercise","exercise":{"id":"2p-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på spreiingsmål:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-3-1-n-quiz2-q0","task":"To klassar fekk følgjande resultat på ei prøve. Klasse A: standardavvik 2,8. Klasse B: standardavvik 5,9. Begge har omtrent likt gjennomsnitt. Kva kan vi seie?","options":[{"id":"a","text":"Klasse A har betre resultat enn klasse B","isCorrect":false},{"id":"b","text":"Klasse B har betre resultat enn klasse A","isCorrect":false},{"id":"c","text":"Klasse A har jamnare resultat, klasse B har større spreiing","isCorrect":true},{"id":"d","text":"Standardavviket seier ingenting om spreiing","isCorrect":false}],"solution":"Standardavviket måler spreiinga i dataene. Klasse A ($s \\approx 2{,}8$) har mykje jamnare resultat enn klasse B ($s \\approx 5{,}9$). Med likt gjennomsnitt tyder dette at klasse B har nokon som gjer det veldig bra og nokon som gjer det svakt."},{"id":"2p-3-1-n-quiz2-q1","task":"For datasettet 3, 5, 7, 8, 10, 12, 14 er $Q_1 = 5$ og $Q_3 = 12$. Kva er interkvartilbreidda (IQR)?","options":[{"id":"a","text":"$11$","isCorrect":false},{"id":"b","text":"$7$","isCorrect":true},{"id":"c","text":"$8{,}5$","isCorrect":false},{"id":"d","text":"$3{,}5$","isCorrect":false}],"solution":"$\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel spreiinga i dei midtarste 50 prosenta av dataene."}],"solution":""}},{"id":"2p-3-1-n-section3","type":"text","content":"## Boksplott -- heile fordelinga i éin figur\n\nNo som vi kan rekne ut sentralmål og spreiingsmål, la oss sjå på ein av dei mest elegante måtane å framstille data på: **boksplottet** (òg kalla box-and-whisker-diagram). Eit boksplott viser fordelinga av eit heilt datasett med berre fem nøkkeltal: minimum, $Q_1$, median, $Q_3$ og maksimum.\n\nLa oss ta eit eksempel. Gitt datasettet 2, 4, 5, 7, 8, 9, 10, 12, 15 finn vi dei fem nøkkeltala slik: Minimum er 2, $Q_1$ er medianen av den nedre halvdelen (2, 4, 5, 7), altså $(4+5)/2 = 4{,}5$. Medianen er 8 (den midtarste verdien). $Q_3$ er medianen av den øvre halvdelen (9, 10, 12, 15), altså $(10+12)/2 = 11$. Og maksimum er 15. I eit boksplott teiknar vi ein boks frå $Q_1$ til $Q_3$ -- denne boksen representerer dei midtarste 50 prosenta av dataene, altså IQR. Ein strek inne i boksen markerer medianen. Og to «whiskers» (strekar) strekkjer seg ut frå boksen til minimum og maksimum.\n\nMen boksplottet har ein ekstra finesse: det kan avsløre **uteliggjarar**. Ein uteliggjar er ein observasjon som ligg meir enn $1{,}5 \\cdot \\text{IQR}$ under $Q_1$ eller over $Q_3$. I eksempelet vårt er IQR $= 11 - 4{,}5 = 6{,}5$. Den nedre grensa for uteliggjarar er $4{,}5 - 1{,}5 \\cdot 6{,}5 = -5{,}25$, og den øvre grensa er $11 + 1{,}5 \\cdot 6{,}5 = 20{,}75$. Alle verdiane i datasettet ligg innanfor desse grensene, så det er ingen uteliggjarar her.\n\nI tillegg til boksplott bruker vi **stolpediagram** for kategoriske data eller diskrete verdiar (stolpane har mellomrom mellom seg), og **histogram** for kontinuerlege data grupperte i klassar (stolpane står inntil kvarandre, og arealet representerer frekvensen). Valet av diagramtype er altså avhengig av kva slags data du har."},{"id":"2p-3-1-n-quiz3","type":"exercise","exercise":{"id":"2p-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på boksplott og uteliggjarar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-3-1-n-quiz3-q0","task":"Eit datasett har $Q_1 = 20$, $Q_3 = 40$ og IQR = 20. Kva verdi er ein uteliggjar?","options":[{"id":"a","text":"55","isCorrect":false},{"id":"b","text":"42","isCorrect":false},{"id":"c","text":"15","isCorrect":false},{"id":"d","text":"72","isCorrect":true}],"solution":"Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR} = 40 + 30 = 70$. Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR} = 20 - 30 = -10$. Verdien 72 > 70, altså er 72 ein uteliggjar."},{"id":"2p-3-1-n-quiz3-q1","task":"Kva viser boksen i eit boksplott?","options":[{"id":"a","text":"Alle verdiane i datasettet","isCorrect":false},{"id":"b","text":"Dei midtarste 50 % av dataene (frå $Q_1$ til $Q_3$)","isCorrect":true},{"id":"c","text":"Gjennomsnittet pluss/minus standardavviket","isCorrect":false},{"id":"d","text":"Minimum og maksimum","isCorrect":false}],"solution":"Boksen i eit boksplott strekkjer seg frå $Q_1$ til $Q_3$ og representerer dei midtarste 50 prosenta av dataene (interkvartilbreidda). Streken inni boksen viser medianen."}],"solution":""}},{"id":"2p-3-1-n-section4","type":"text","content":"## Frekvenstabellar -- når vi grupperer data\n\nNår vi har mange observasjonar, er det upraktisk å jobbe med kvart einskild tal. I staden grupperer vi dataene i ein **frekvenstabell**. La oss sjå på eit eksempel: 30 elevar blei spurde om kor mange timar dei trenar per veke. Resultata blei grupperte i klassar: 0--2 timar (8 elevar), 3--5 timar (12 elevar), 6--8 timar (7 elevar) og 9--11 timar (3 elevar).\n\n**Frekvensen** er rett og slett talet på observasjonar i kvar klasse. Men vi kan få meir informasjon ved å rekne ut **relativ frekvens**, som er delen av totalen: $\\text{relativ frekvens} = \\frac{\\text{frekvens}}{\\text{totalt tal}}$. For klassen 0--2 timar er den relative frekvensen $8/30 \\approx 0{,}27$, altså 27 prosent. For klassen 3--5 timar er han $12/30 = 0{,}40$, altså 40 prosent.\n\nEnda meir nyttig er **kumulativ frekvens**, som viser summen av frekvensane opp til og med ein bestemt klasse. For dei fire klassane våre blir den kumulative frekvensen 8, 20, 27 og 30. Og den **kumulative relative frekvensen** blir 0,27, 0,67, 0,90 og 1,00. Kva tyder dette? Jo, til dømes kan vi lese av at 67 prosent av elevane trenar 5 timar eller mindre per veke.\n\nDen kumulative frekvensen er spesielt nyttig for å finne **medianen** i grupperte data. Medianen ligg der den kumulative relative frekvensen passerer 0,50. I vårt eksempel passerer han 0,50 i klassen 3--5 timar (frå 0,27 til 0,67), så vi veit at medianen ligg i denne klassen. Vi kan òg finne **typetalsklassen**, som er klassen med høgast frekvens -- her er det 3--5 timar med 12 observasjonar. Frekvenstabellar gir oss eit kraftig verktøy for å organisere og forstå store datasett."},{"id":"2p-3-1-n-quiz4","type":"exercise","exercise":{"id":"2p-3-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på frekvenstabellar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-3-1-n-quiz4-q0","task":"I ei undersøking blant 40 elevar er den kumulative relative frekvensen for klassen 0–3 timar skjermtid 0,325, og for klassen 4–5 timar er han 0,70. I kva klasse ligg medianen?","options":[{"id":"a","text":"0–3 timar","isCorrect":false},{"id":"b","text":"6–7 timar","isCorrect":false},{"id":"c","text":"4–5 timar","isCorrect":true},{"id":"d","text":"8+ timar","isCorrect":false}],"solution":"Medianen ligg der den kumulative relative frekvensen passerer 0,50. Han går frå 0,325 (etter 0–3 timar) til 0,70 (etter 4–5 timar). Sidan 0,50 ligg mellom desse, er medianen i klassen 4–5 timar."},{"id":"2p-3-1-n-quiz4-q1","task":"I ein frekvenstabell har klassen 0–2 timar 8 elevar av totalt 30. Kva er den relative frekvensen for denne klassen?","options":[{"id":"a","text":"$\\frac{8}{30} \\approx 0{,}27$","isCorrect":true},{"id":"b","text":"$\\frac{30}{8} = 3{,}75$","isCorrect":false},{"id":"c","text":"$8 \\%$","isCorrect":false},{"id":"d","text":"$0{,}08$","isCorrect":false}],"solution":"Relativ frekvens = frekvens / totalt tal = $8/30 \\approx 0{,}27$, altså 27 %. Det viser at 27 % av elevane trenar 0–2 timar per veke."}],"solution":""}},{"id":"2p-3-1-n-section5","type":"text","content":"## Å velje rett verktøy\n\nVi har no ein heil verktøykasse med statistiske omgrep. Men det store spørsmålet i praksis er alltid: *kva verktøy skal eg bruke?* La oss gå gjennom nokre typiske situasjonar.\n\nTenk deg at ei bedrift har 12 tilsette med følgjande månadslønner (i tusen kroner): 28, 30, 30, 32, 33, 35, 36, 38, 40, 42, 45 og 85. Gjennomsnittet er 39 500 kroner, men medianen er berre 35 500 kroner. Typetalet er 30 000 kroner. Kva er «rett»? Gjennomsnittet blir trekt opp av den eine personen som tener 85 000 kroner. Medianen gir eit betre bilete av kva ein typisk tilsett tener. Dersom leiaren i bedrifta seier at «gjennomsnittsløna er 39 500 kroner», er det teknisk korrekt, men misvisande. Spreiingsmåla avslører kva som går føre seg: $Q_1 = 31$, $Q_3 = 41$, IQR $= 10$. Den øvre grensa for uteliggjarar er $41 + 1{,}5 \\cdot 10 = 56$. Verdien 85 er godt over denne grensa, altså er det ein tydeleg uteliggjar.\n\nDenne situasjonen er ikkje uvanleg. Inntektsdata er nesten alltid skeivfordelte -- nokre få tener veldig mykje, medan dei fleste tener moderat. Difor rapporterer Statistisk sentralbyrå *medianen* som mål på typisk inntekt i Noreg, ikkje gjennomsnittet.\n\nKva med grafisk framstilling? Når du har kontinuerlege data som tid, lengd eller vekt, er histogrammet det beste valet. For kategoriske data som favorittfag eller kommune bruker du stolpediagram. Og når du vil samanlikne fordelinga mellom grupper -- til dømes gutar og jenter på ein sprinttest -- er boksplottet uslåeleg. Det viser med eitt blikk både sentrum, spreiing og eventuelle uteliggjarar.\n\nBeskrivande statistikk handlar i bunn og grunn om å vere ein god forteljar: du vel dei tala og figurane som gir det mest ærlege og fullstendige biletet av dataene dine."},{"id":"2p-3-1-n-quiz5","type":"exercise","exercise":{"id":"2p-3-1-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på val av statistisk verktøy:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-3-1-n-quiz5-q0","task":"Kvifor rapporterer Statistisk sentralbyrå medianen som mål på typisk inntekt i Noreg, i staden for gjennomsnittet?","options":[{"id":"a","text":"Fordi medianen alltid er høgare enn gjennomsnittet","isCorrect":false},{"id":"b","text":"Fordi medianen er enklare å rekne ut","isCorrect":false},{"id":"c","text":"Fordi det er ei lov som krev det","isCorrect":false},{"id":"d","text":"Fordi inntektsdata er skeivfordelte med nokre svært høge inntekter, og medianen er meir robust mot uteliggjarar","isCorrect":true}],"solution":"Inntektsdata er typisk skeivfordelte -- nokre få tener svært mykje, noko som dreg gjennomsnittet opp. Medianen blir ikkje påverka av uteliggjarar og gir eit betre bilete av kva ein typisk person tener."},{"id":"2p-3-1-n-quiz5-q1","task":"Du skal samanlikne fordelinga av tid brukt på lekser mellom gutar og jenter. Kva grafisk framstilling er best?","options":[{"id":"a","text":"Sektordiagram","isCorrect":false},{"id":"b","text":"Boksplott (eitt for gutar, eitt for jenter)","isCorrect":true},{"id":"c","text":"Stolpediagram","isCorrect":false},{"id":"d","text":"Linjediagram","isCorrect":false}],"solution":"Boksplott er ideelt for å samanlikne fordelingar mellom grupper. Det viser sentrum (median), spreiing (IQR) og eventuelle uteliggjarar med eitt blikk for begge gruppene."}],"solution":""}},{"id":"2p-3-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har no reist gjennom dei viktigaste verktøya i beskrivande statistikk. La oss oppsummere det viktigaste du har lært.\n\n**Sentralmål** beskriv sentrum i eit datasett. **Gjennomsnittet** $\\bar{x} = \\frac{\\sum x_i}{n}$ fungerer best for symmetriske data, men blir påverka av uteliggjarar. **Medianen** er den midtarste verdien i sorterte data og er robust mot ekstreme verdiar -- bruk han når data er skeive. **Typetalet** er verdien som førekjem oftast, og er spesielt nyttig for kategoriske data.\n\n**Spreiingsmål** beskriv kor spreidde dataene er. **Variasjonsbreidda** $R = x_{\\text{maks}} - x_{\\text{min}}$ er enkel, men sårbar for uteliggjarar. **Kvartilane** $Q_1$, $Q_2$ og $Q_3$ deler dataene i fire like delar. **Interkvartilbreidda** $\\text{IQR} = Q_3 - Q_1$ viser spreiinga i dei midtarste 50 prosenta. **Standardavviket** $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n-1}}$ er den gjennomsnittlege avstanden frå gjennomsnittet og tek omsyn til alle verdiar.\n\n**Grafisk framstilling** gjer data visuelt: stolpediagram for kategoriske data, histogram for kontinuerlege data, og **boksplott** for å vise fordelinga med fem nøkkeltal (min, $Q_1$, median, $Q_3$, maks). Ein **uteliggjar** er ein verdi meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor kvartilane.\n\n**Frekvenstabellar** organiserer data med frekvens, relativ frekvens og **kumulativ frekvens**, som blir brukt til å finne median og kvartilar i grupperte data."}],"exercises":[],"_meta":{"sourceHash":"b143ab0b60b0ef13","translatedAt":"2026-06-17T00:25:57.700Z","model":"claude-code-agent","strings":72,"tm":{"70e8a22024a0eac6":"Beskrivande statistikk","b195b06d1ed59702":"Narrativ versjon","cd9f301277e7095b":"Ei forteljing om korleis vi kan oppsummere ei heil verd av tal med nokre få nøkkelomgrep -- frå gjennomsnitt og median til boksplott og frekvenstabellar.","cdb62d90c9c63cc3":"bruke og vurdere val av formålstenlege sentralmål og spreiingsmål for statistisk datamateriale","b32273a2297199df":"analysere og presentere funn i datasett frå lokalsamfunn og media","efe398c8c89ba771":"## Tala som fortel historier\n\nFørestill deg at du er rektor på ein skule, og nokon spør deg: «Korleis gjekk det med elevane på matteprøva?» Du har ei liste med 200 resultat framfor deg. Du kan ikkje lese opp alle 200 tala -- det ville ingen orka å høyre på. I staden treng du nokre få nøkkeltal som oppsummerer det viktigaste. Nettopp dette er kjernen i **beskrivande statistikk**: å ta eit stort, uoversiktleg datasett og destillere det ned til nokre få tal og figurar som fortel oss kva dataene eigentleg seier.\n\nStatistikk omgir oss overalt. Når du les at «gjennomsnittstemperaturen i Oslo var 7,3 grader i fjor», eller at «medianløna i Noreg er 550 000 kroner», så møter du beskrivande statistikk i aksjon. Spørsmålet er berre: kva tyder desse tala eigentleg, og korleis vel vi dei rette?\n\nI dette kapittelet skal vi utforske tre store tema. Først ser vi på **sentralmål** -- tal som beskriv sentrum i eit datasett. Så går vi vidare til **spreiingsmål** som fortel kor spreidde dataene er. Og til slutt ser vi på korleis vi kan **framstille data grafisk** med stolpediagram, histogram og boksplott. Undervegs lærer vi òg om frekvenstabellar og kumulativ frekvens. La oss byrje.","6ceee47b29155210":"## Sentralmål -- å finne sentrum\n\nTenk deg at ni elevar fekk følgjande karakterar i matematikk: 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er ein «typisk» karakter i denne gruppa? Det finst tre ulike måtar å svare på det spørsmålet, og kvar gir eit litt anna perspektiv.\n\nDen første og mest kjende metoden er **gjennomsnittet**, òg kalla middelverdien. Du reknar det ut ved å leggje saman alle verdiane og dele på talet på observasjonar: $\\bar{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{\\sum x_i}{n}$. For karakterane våre blir det $\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$. Gjennomsnittet er altså 4,0 -- eit tal som gir eit fint bilete av gruppa, *så lenge dataene er nokolunde symmetriske*.\n\nDen andre metoden er **medianen**, som er den midtarste verdien når du sorterer alle tala frå minst til størst. Med ni verdiar er det verdi nummer fem, altså 4. Medianen bryr seg ikkje om kor ekstreme ytterverdiane er -- han sit trygt i midten.\n\nDen tredje metoden er **typetalet** (eller modus), som rett og slett er den verdien som førekjem oftast. Her er det 4, fordi han dukkar opp tre gonger. Typetalet er spesielt nyttig for kategoriske data, til dømes favorittfarge, der gjennomsnitt ikkje gir meining.\n\nMen her er det viktige spørsmålet: *når bruker du kva?* Gjennomsnittet fungerer fint for symmetriske data utan ekstreme verdiar. Men tenk deg ei bedrift med fem tilsette som tener 30 000, 32 000, 34 000, 35 000 og 120 000 kroner. Gjennomsnittet blir 50 200 kroner, men fire av fem tilsette tener langt under det. Den eine svært høge løna -- ein **uteliggjar** -- dreg gjennomsnittet opp. I slike tilfelle gir medianen (34 000 kr) eit mykje betre bilete av ei typisk løn. Tommelfingerregelen er enkel: bruk gjennomsnitt for symmetriske data, median for skeive data eller data med uteliggjarar, og typetal for kategoriske data.","23c50d5827d2fe15":"Test deg sjølv på sentralmål:","4097889236a2af26":"placeholder","54d95bfe7873a012":"Ei bedrift har fem tilsette med månadslønner: 30 000, 32 000, 34 000, 35 000 og 120 000 kr. Kva sentralmål gir best bilete av ei «typisk» løn?","05e1d462202dd7e5":"Gjennomsnittet (50 200 kr)","4741df003f17c764":"Medianen (34 000 kr)","1da0a8e83b9b7d47":"Typetalet","c5905fccf85724b3":"Alle tre gir likt resultat","a5dd632278bc1dbc":"Gjennomsnittet (50 200 kr) blir trekt opp av den eine svært høge løna (120 000 kr), som er ein uteliggjar. Medianen (34 000 kr) gir eit mykje betre bilete av ei typisk løn.","90934e924d01d50b":"Ni elevar fekk karakterane 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er typetalet?","5a28cbf483e47d31":"4,0 (gjennomsnittet)","0fe473352d4ae494":"4 (førekjem flest gonger)","1767b89187dde616":"Typetalet er verdien som førekjem oftast. Karakteren 4 dukkar opp tre gonger -- meir enn nokon annan verdi. Gjennomsnittet er òg 4,0, men det er eit anna mål.","b481fb208edefc48":"Kva er gjennomsnittet av tala 2, 3, 3, 4, 4, 4, 5, 5, 6?","d9591dcd605db5b1":"$\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$.","1f665906c6bb94e6":"## Spreiingsmål -- kor spreidde er dataene?\n\nÅ kjenne sentrum er berre halve historia. Tenk deg to klassar som begge har gjennomsnitt 15 på ei prøve. I den eine klassen fekk alle mellom 13 og 17 poeng -- veldig jamt. I den andre fekk nokon 5 og andre 25 -- enorm variasjon. Gjennomsnittet er likt, men klassane er vidt forskjellige. For å fange opp denne skilnaden treng vi **spreiingsmål**.\n\nDet enklaste spreiingsmålet er **variasjonsbreidda**, som er differansen mellom den største og den minste verdien: $R = x_{\\text{maks}} - x_{\\text{min}}$. For datasettet 3, 5, 7, 8, 10, 12, 14 blir variasjonsbreidda $14 - 3 = 11$. Problemet med variasjonsbreidda er at ho berre ser på dei to ytste verdiane og ignorerer alt imellom.\n\nEi meir nyansert tilnærming er å bruke **kvartilar**. Kvartilane deler dei sorterte dataene i fire like store delar. $Q_1$ (nedre kvartil) er medianen av den nedre halvdelen, $Q_2$ er sjølve medianen, og $Q_3$ (øvre kvartil) er medianen av den øvre halvdelen. For datasettet vårt (3, 5, 7, 8, 10, 12, 14) er medianen 8, $Q_1 = 5$ og $Q_3 = 12$. **Interkvartilbreidda** (IQR) er skilnaden mellom øvre og nedre kvartil: $\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel oss spreiinga i dei midtarste 50 prosenta av dataene, og er mykje meir robust mot uteliggjarar enn variasjonsbreidda.\n\nTil slutt har vi **standardavviket** ($s$), som måler den gjennomsnittlege avstanden frå gjennomsnittet: $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$. For datasettet vårt er gjennomsnittet $\\bar{x} \\approx 8{,}43$, og standardavviket blir $s \\approx 3{,}85$. Eit lågt standardavvik tyder at verdiane ligg tett rundt gjennomsnittet, medan eit høgt standardavvik tyder stor spreiing. Standardavviket er det mest brukte spreiingsmålet i praksis fordi det tek omsyn til *alle* verdiane i datasettet.","da4b6e5fce07161e":"Test deg sjølv på spreiingsmål:","f74083026c4868d7":"To klassar fekk følgjande resultat på ei prøve. Klasse A: standardavvik 2,8. Klasse B: standardavvik 5,9. Begge har omtrent likt gjennomsnitt. Kva kan vi seie?","de5e7101bc380e36":"Klasse A har betre resultat enn klasse B","c37e0922507f0afd":"Klasse B har betre resultat enn klasse A","2be66f33163f8e0a":"Klasse A har jamnare resultat, klasse B har større spreiing","3ba8d1bf3c24d074":"Standardavviket seier ingenting om spreiing","0d9768067435dc8d":"Standardavviket måler spreiinga i dataene. Klasse A ($s \\approx 2{,}8$) har mykje jamnare resultat enn klasse B ($s \\approx 5{,}9$). Med likt gjennomsnitt tyder dette at klasse B har nokon som gjer det veldig bra og nokon som gjer det svakt.","fcfdb4e423cd7b23":"For datasettet 3, 5, 7, 8, 10, 12, 14 er $Q_1 = 5$ og $Q_3 = 12$. Kva er interkvartilbreidda (IQR)?","6f5c1873e7a073c5":"$\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel spreiinga i dei midtarste 50 prosenta av dataene.","222d1c2948670b2a":"## Boksplott -- heile fordelinga i éin figur\n\nNo som vi kan rekne ut sentralmål og spreiingsmål, la oss sjå på ein av dei mest elegante måtane å framstille data på: **boksplottet** (òg kalla box-and-whisker-diagram). Eit boksplott viser fordelinga av eit heilt datasett med berre fem nøkkeltal: minimum, $Q_1$, median, $Q_3$ og maksimum.\n\nLa oss ta eit eksempel. Gitt datasettet 2, 4, 5, 7, 8, 9, 10, 12, 15 finn vi dei fem nøkkeltala slik: Minimum er 2, $Q_1$ er medianen av den nedre halvdelen (2, 4, 5, 7), altså $(4+5)/2 = 4{,}5$. Medianen er 8 (den midtarste verdien). $Q_3$ er medianen av den øvre halvdelen (9, 10, 12, 15), altså $(10+12)/2 = 11$. Og maksimum er 15. I eit boksplott teiknar vi ein boks frå $Q_1$ til $Q_3$ -- denne boksen representerer dei midtarste 50 prosenta av dataene, altså IQR. Ein strek inne i boksen markerer medianen. Og to «whiskers» (strekar) strekkjer seg ut frå boksen til minimum og maksimum.\n\nMen boksplottet har ein ekstra finesse: det kan avsløre **uteliggjarar**. Ein uteliggjar er ein observasjon som ligg meir enn $1{,}5 \\cdot \\text{IQR}$ under $Q_1$ eller over $Q_3$. I eksempelet vårt er IQR $= 11 - 4{,}5 = 6{,}5$. Den nedre grensa for uteliggjarar er $4{,}5 - 1{,}5 \\cdot 6{,}5 = -5{,}25$, og den øvre grensa er $11 + 1{,}5 \\cdot 6{,}5 = 20{,}75$. Alle verdiane i datasettet ligg innanfor desse grensene, så det er ingen uteliggjarar her.\n\nI tillegg til boksplott bruker vi **stolpediagram** for kategoriske data eller diskrete verdiar (stolpane har mellomrom mellom seg), og **histogram** for kontinuerlege data grupperte i klassar (stolpane står inntil kvarandre, og arealet representerer frekvensen). Valet av diagramtype er altså avhengig av kva slags data du har.","ddcd6b59c70092be":"Test deg sjølv på boksplott og uteliggjarar:","d5fdfc28131cf822":"Eit datasett har $Q_1 = 20$, $Q_3 = 40$ og IQR = 20. Kva verdi er ein uteliggjar?","a887a56546b089af":"Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR} = 40 + 30 = 70$. Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR} = 20 - 30 = -10$. Verdien 72 > 70, altså er 72 ein uteliggjar.","3503fe1aaa022e14":"Kva viser boksen i eit boksplott?","c28b736a0556e2c7":"Alle verdiane i datasettet","f3e9d9bdc6f6ce85":"Dei midtarste 50 % av dataene (frå $Q_1$ til $Q_3$)","3e07c64cf51590a3":"Gjennomsnittet pluss/minus standardavviket","9324d6ef81325819":"Minimum og maksimum","c7dc8ca423a133b7":"Boksen i eit boksplott strekkjer seg frå $Q_1$ til $Q_3$ og representerer dei midtarste 50 prosenta av dataene (interkvartilbreidda). Streken inni boksen viser medianen.","77be3117c172cebf":"## Frekvenstabellar -- når vi grupperer data\n\nNår vi har mange observasjonar, er det upraktisk å jobbe med kvart einskild tal. I staden grupperer vi dataene i ein **frekvenstabell**. La oss sjå på eit eksempel: 30 elevar blei spurde om kor mange timar dei trenar per veke. Resultata blei grupperte i klassar: 0--2 timar (8 elevar), 3--5 timar (12 elevar), 6--8 timar (7 elevar) og 9--11 timar (3 elevar).\n\n**Frekvensen** er rett og slett talet på observasjonar i kvar klasse. Men vi kan få meir informasjon ved å rekne ut **relativ frekvens**, som er delen av totalen: $\\text{relativ frekvens} = \\frac{\\text{frekvens}}{\\text{totalt tal}}$. For klassen 0--2 timar er den relative frekvensen $8/30 \\approx 0{,}27$, altså 27 prosent. For klassen 3--5 timar er han $12/30 = 0{,}40$, altså 40 prosent.\n\nEnda meir nyttig er **kumulativ frekvens**, som viser summen av frekvensane opp til og med ein bestemt klasse. For dei fire klassane våre blir den kumulative frekvensen 8, 20, 27 og 30. Og den **kumulative relative frekvensen** blir 0,27, 0,67, 0,90 og 1,00. Kva tyder dette? Jo, til dømes kan vi lese av at 67 prosent av elevane trenar 5 timar eller mindre per veke.\n\nDen kumulative frekvensen er spesielt nyttig for å finne **medianen** i grupperte data. Medianen ligg der den kumulative relative frekvensen passerer 0,50. I vårt eksempel passerer han 0,50 i klassen 3--5 timar (frå 0,27 til 0,67), så vi veit at medianen ligg i denne klassen. Vi kan òg finne **typetalsklassen**, som er klassen med høgast frekvens -- her er det 3--5 timar med 12 observasjonar. Frekvenstabellar gir oss eit kraftig verktøy for å organisere og forstå store datasett.","cacdc56f4e8a239b":"Test deg sjølv på frekvenstabellar:","8f8899aad41eae8e":"I ei undersøking blant 40 elevar er den kumulative relative frekvensen for klassen 0–3 timar skjermtid 0,325, og for klassen 4–5 timar er han 0,70. I kva klasse ligg medianen?","73d8feb142243187":"0–3 timar","8f1075108c248ded":"6–7 timar","156959a405e8bc7d":"4–5 timar","c82baa654c733d98":"8+ timar","60d95efec7b5d57b":"Medianen ligg der den kumulative relative frekvensen passerer 0,50. Han går frå 0,325 (etter 0–3 timar) til 0,70 (etter 4–5 timar). Sidan 0,50 ligg mellom desse, er medianen i klassen 4–5 timar.","b100079d336b1a24":"I ein frekvenstabell har klassen 0–2 timar 8 elevar av totalt 30. Kva er den relative frekvensen for denne klassen?","d5bab70a39afcd46":"$\\frac{8}{30} \\approx 0{,}27$","1cb5a0de8c69f7aa":"$\\frac{30}{8} = 3{,}75$","60387fbe37c6759e":"Relativ frekvens = frekvens / totalt tal = $8/30 \\approx 0{,}27$, altså 27 %. Det viser at 27 % av elevane trenar 0–2 timar per veke.","14ee9fc5afd81c91":"## Å velje rett verktøy\n\nVi har no ein heil verktøykasse med statistiske omgrep. Men det store spørsmålet i praksis er alltid: *kva verktøy skal eg bruke?* La oss gå gjennom nokre typiske situasjonar.\n\nTenk deg at ei bedrift har 12 tilsette med følgjande månadslønner (i tusen kroner): 28, 30, 30, 32, 33, 35, 36, 38, 40, 42, 45 og 85. Gjennomsnittet er 39 500 kroner, men medianen er berre 35 500 kroner. Typetalet er 30 000 kroner. Kva er «rett»? Gjennomsnittet blir trekt opp av den eine personen som tener 85 000 kroner. Medianen gir eit betre bilete av kva ein typisk tilsett tener. Dersom leiaren i bedrifta seier at «gjennomsnittsløna er 39 500 kroner», er det teknisk korrekt, men misvisande. Spreiingsmåla avslører kva som går føre seg: $Q_1 = 31$, $Q_3 = 41$, IQR $= 10$. Den øvre grensa for uteliggjarar er $41 + 1{,}5 \\cdot 10 = 56$. Verdien 85 er godt over denne grensa, altså er det ein tydeleg uteliggjar.\n\nDenne situasjonen er ikkje uvanleg. Inntektsdata er nesten alltid skeivfordelte -- nokre få tener veldig mykje, medan dei fleste tener moderat. Difor rapporterer Statistisk sentralbyrå *medianen* som mål på typisk inntekt i Noreg, ikkje gjennomsnittet.\n\nKva med grafisk framstilling? Når du har kontinuerlege data som tid, lengd eller vekt, er histogrammet det beste valet. For kategoriske data som favorittfag eller kommune bruker du stolpediagram. Og når du vil samanlikne fordelinga mellom grupper -- til dømes gutar og jenter på ein sprinttest -- er boksplottet uslåeleg. Det viser med eitt blikk både sentrum, spreiing og eventuelle uteliggjarar.\n\nBeskrivande statistikk handlar i bunn og grunn om å vere ein god forteljar: du vel dei tala og figurane som gir det mest ærlege og fullstendige biletet av dataene dine.","314374d77544921b":"Test deg sjølv på val av statistisk verktøy:","9df86b02d11370bf":"Kvifor rapporterer Statistisk sentralbyrå medianen som mål på typisk inntekt i Noreg, i staden for gjennomsnittet?","1d3947c0b8243436":"Fordi medianen alltid er høgare enn gjennomsnittet","ddad6a6e415712dc":"Fordi medianen er enklare å rekne ut","539494da11c1150e":"Fordi det er ei lov som krev det","d502ff7b3c586bd2":"Fordi inntektsdata er skeivfordelte med nokre svært høge inntekter, og medianen er meir robust mot uteliggjarar","75c47ae74ec04abd":"Inntektsdata er typisk skeivfordelte -- nokre få tener svært mykje, noko som dreg gjennomsnittet opp. Medianen blir ikkje påverka av uteliggjarar og gir eit betre bilete av kva ein typisk person tener.","877f819f004f7251":"Du skal samanlikne fordelinga av tid brukt på lekser mellom gutar og jenter. Kva grafisk framstilling er best?","cdf87bb74edd8681":"Sektordiagram","ef1e38f73ee16555":"Boksplott (eitt for gutar, eitt for jenter)","6720e243615ffc50":"Stolpediagram","aaa899b40e0da3ae":"Linjediagram","d38fa5abcb79f2e8":"Boksplott er ideelt for å samanlikne fordelingar mellom grupper. Det viser sentrum (median), spreiing (IQR) og eventuelle uteliggjarar med eitt blikk for begge gruppene.","811818393dd83802":"## Oppsummering\n\nVi har no reist gjennom dei viktigaste verktøya i beskrivande statistikk. La oss oppsummere det viktigaste du har lært.\n\n**Sentralmål** beskriv sentrum i eit datasett. **Gjennomsnittet** $\\bar{x} = \\frac{\\sum x_i}{n}$ fungerer best for symmetriske data, men blir påverka av uteliggjarar. **Medianen** er den midtarste verdien i sorterte data og er robust mot ekstreme verdiar -- bruk han når data er skeive. **Typetalet** er verdien som førekjem oftast, og er spesielt nyttig for kategoriske data.\n\n**Spreiingsmål** beskriv kor spreidde dataene er. **Variasjonsbreidda** $R = x_{\\text{maks}} - x_{\\text{min}}$ er enkel, men sårbar for uteliggjarar. **Kvartilane** $Q_1$, $Q_2$ og $Q_3$ deler dataene i fire like delar. **Interkvartilbreidda** $\\text{IQR} = Q_3 - Q_1$ viser spreiinga i dei midtarste 50 prosenta. **Standardavviket** $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n-1}}$ er den gjennomsnittlege avstanden frå gjennomsnittet og tek omsyn til alle verdiar.\n\n**Grafisk framstilling** gjer data visuelt: stolpediagram for kategoriske data, histogram for kontinuerlege data, og **boksplott** for å vise fordelinga med fem nøkkeltal (min, $Q_1$, median, $Q_3$, maks). Ein **uteliggjar** er ein verdi meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor kvartilane.\n\n**Frekvenstabellar** organiserer data med frekvens, relativ frekvens og **kumulativ frekvens**, som blir brukt til å finne median og kvartilar i grupperte data."}}}
+{
+  "id": "2p-3-1-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "3.1",
+  "title": "Beskrivande statistikk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi kan oppsummere ei heil verd av tal med nokre få nøkkelomgrep -- frå gjennomsnitt og median til boksplott og frekvenstabellar.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke og vurdere val av formålstenlege sentralmål og spreiingsmål for statistisk datamateriale",
+    "analysere og presentere funn i datasett frå lokalsamfunn og media"
+  ],
+  "linkedChapterId": "2p-3-1",
+  "content": [
+    {
+      "id": "2p-3-1-n-intro",
+      "type": "text",
+      "content": "## Tala som fortel historier\n\nFørestill deg at du er rektor på ein skule, og nokon spør deg: «Korleis gjekk det med elevane på matteprøva?» Du har ei liste med 200 resultat framfor deg. Du kan ikkje lese opp alle 200 tala -- det ville ingen orka å høyre på. I staden treng du nokre få nøkkeltal som oppsummerer det viktigaste. Nettopp dette er kjernen i **beskrivande statistikk**: å ta eit stort, uoversiktleg datasett og destillere det ned til nokre få tal og figurar som fortel oss kva dataene eigentleg seier.\n\nStatistikk omgir oss overalt. Når du les at «gjennomsnittstemperaturen i Oslo var 7,3 grader i fjor», eller at «medianløna i Noreg er 550 000 kroner», så møter du beskrivande statistikk i aksjon. Spørsmålet er berre: kva tyder desse tala eigentleg, og korleis vel vi dei rette?\n\nI dette kapittelet skal vi utforske tre store tema. Først ser vi på **sentralmål** -- tal som beskriv sentrum i eit datasett. Så går vi vidare til **spreiingsmål** som fortel kor spreidde dataene er. Og til slutt ser vi på korleis vi kan **framstille data grafisk** med stolpediagram, histogram og boksplott. Undervegs lærer vi òg om frekvenstabellar og kumulativ frekvens. La oss byrje."
+    },
+    {
+      "id": "2p-3-1-n-section1",
+      "type": "text",
+      "content": "## Sentralmål -- å finne sentrum\n\nTenk deg at ni elevar fekk følgjande karakterar i matematikk: 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er ein «typisk» karakter i denne gruppa? Det finst tre ulike måtar å svare på det spørsmålet, og kvar gir eit litt anna perspektiv.\n\nDen første og mest kjende metoden er **gjennomsnittet**, òg kalla middelverdien. Du reknar det ut ved å leggje saman alle verdiane og dele på talet på observasjonar: $\\bar{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{\\sum x_i}{n}$. For karakterane våre blir det $\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$. Gjennomsnittet er altså 4,0 -- eit tal som gir eit fint bilete av gruppa, *så lenge dataene er nokolunde symmetriske*.\n\nDen andre metoden er **medianen**, som er den midtarste verdien når du sorterer alle tala frå minst til størst. Med ni verdiar er det verdi nummer fem, altså 4. Medianen bryr seg ikkje om kor ekstreme ytterverdiane er -- han sit trygt i midten.\n\nDen tredje metoden er **typetalet** (eller modus), som rett og slett er den verdien som førekjem oftast. Her er det 4, fordi han dukkar opp tre gonger. Typetalet er spesielt nyttig for kategoriske data, til dømes favorittfarge, der gjennomsnitt ikkje gir meining.\n\nMen her er det viktige spørsmålet: *når bruker du kva?* Gjennomsnittet fungerer fint for symmetriske data utan ekstreme verdiar. Men tenk deg ei bedrift med fem tilsette som tener 30 000, 32 000, 34 000, 35 000 og 120 000 kroner. Gjennomsnittet blir 50 200 kroner, men fire av fem tilsette tener langt under det. Den eine svært høge løna -- ein **uteliggjar** -- dreg gjennomsnittet opp. I slike tilfelle gir medianen (34 000 kr) eit mykje betre bilete av ei typisk løn. Tommelfingerregelen er enkel: bruk gjennomsnitt for symmetriske data, median for skeive data eller data med uteliggjarar, og typetal for kategoriske data."
+    },
+    {
+      "id": "2p-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sentralmål:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-3-1-n-quiz1-q0",
+            "task": "Ei bedrift har fem tilsette med månadslønner: 30 000, 32 000, 34 000, 35 000 og 120 000 kr. Kva sentralmål gir best bilete av ei «typisk» løn?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjennomsnittet (50 200 kr)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Typetalet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle tre gir likt resultat",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Medianen (34 000 kr)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Gjennomsnittet (50 200 kr) blir trekt opp av den eine svært høge løna (120 000 kr), som er ein uteliggjar. Medianen (34 000 kr) gir eit mykje betre bilete av ei typisk løn."
+          },
+          {
+            "id": "2p-3-1-n-quiz1-q1",
+            "task": "Ni elevar fekk karakterane 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er typetalet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "4,0 (gjennomsnittet)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "4 (førekjem flest gonger)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Typetalet er verdien som førekjem oftast. Karakteren 4 dukkar opp tre gonger -- meir enn nokon annan verdi. Gjennomsnittet er òg 4,0, men det er eit anna mål."
+          },
+          {
+            "id": "2p-3-1-n-quiz1-q2",
+            "task": "Kva er gjennomsnittet av tala 2, 3, 3, 4, 4, 4, 5, 5, 6?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$4{,}0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$3{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-3-1-n-section2",
+      "type": "text",
+      "content": "## Spreiingsmål -- kor spreidde er dataene?\n\nÅ kjenne sentrum er berre halve historia. Tenk deg to klassar som begge har gjennomsnitt 15 på ei prøve. I den eine klassen fekk alle mellom 13 og 17 poeng -- veldig jamt. I den andre fekk nokon 5 og andre 25 -- enorm variasjon. Gjennomsnittet er likt, men klassane er vidt forskjellige. For å fange opp denne skilnaden treng vi **spreiingsmål**.\n\nDet enklaste spreiingsmålet er **variasjonsbreidda**, som er differansen mellom den største og den minste verdien: $R = x_{\\text{maks}} - x_{\\text{min}}$. For datasettet 3, 5, 7, 8, 10, 12, 14 blir variasjonsbreidda $14 - 3 = 11$. Problemet med variasjonsbreidda er at ho berre ser på dei to ytste verdiane og ignorerer alt imellom.\n\nEi meir nyansert tilnærming er å bruke **kvartilar**. Kvartilane deler dei sorterte dataene i fire like store delar. $Q_1$ (nedre kvartil) er medianen av den nedre halvdelen, $Q_2$ er sjølve medianen, og $Q_3$ (øvre kvartil) er medianen av den øvre halvdelen. For datasettet vårt (3, 5, 7, 8, 10, 12, 14) er medianen 8, $Q_1 = 5$ og $Q_3 = 12$. **Interkvartilbreidda** (IQR) er skilnaden mellom øvre og nedre kvartil: $\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel oss spreiinga i dei midtarste 50 prosenta av dataene, og er mykje meir robust mot uteliggjarar enn variasjonsbreidda.\n\nTil slutt har vi **standardavviket** ($s$), som måler den gjennomsnittlege avstanden frå gjennomsnittet: $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$. For datasettet vårt er gjennomsnittet $\\bar{x} \\approx 8{,}43$, og standardavviket blir $s \\approx 3{,}85$. Eit lågt standardavvik tyder at verdiane ligg tett rundt gjennomsnittet, medan eit høgt standardavvik tyder stor spreiing. Standardavviket er det mest brukte spreiingsmålet i praksis fordi det tek omsyn til *alle* verdiane i datasettet."
+    },
+    {
+      "id": "2p-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på spreiingsmål:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-3-1-n-quiz2-q0",
+            "task": "To klassar fekk følgjande resultat på ei prøve. Klasse A: standardavvik 2,8. Klasse B: standardavvik 5,9. Begge har omtrent likt gjennomsnitt. Kva kan vi seie?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Klasse A har betre resultat enn klasse B",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Klasse B har betre resultat enn klasse A",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Standardavviket seier ingenting om spreiing",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Klasse A har jamnare resultat, klasse B har større spreiing",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Standardavviket måler spreiinga i dataene. Klasse A ($s \\approx 2{,}8$) har mykje jamnare resultat enn klasse B ($s \\approx 5{,}9$). Med likt gjennomsnitt tyder dette at klasse B har nokon som gjer det veldig bra og nokon som gjer det svakt."
+          },
+          {
+            "id": "2p-3-1-n-quiz2-q1",
+            "task": "For datasettet 3, 5, 7, 8, 10, 12, 14 er $Q_1 = 5$ og $Q_3 = 12$. Kva er interkvartilbreidda (IQR)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$11$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel spreiinga i dei midtarste 50 prosenta av dataene."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-3-1-n-section3",
+      "type": "text",
+      "content": "## Boksplott -- heile fordelinga i éin figur\n\nNo som vi kan rekne ut sentralmål og spreiingsmål, la oss sjå på ein av dei mest elegante måtane å framstille data på: **boksplottet** (òg kalla box-and-whisker-diagram). Eit boksplott viser fordelinga av eit heilt datasett med berre fem nøkkeltal: minimum, $Q_1$, median, $Q_3$ og maksimum.\n\nLa oss ta eit eksempel. Gitt datasettet 2, 4, 5, 7, 8, 9, 10, 12, 15 finn vi dei fem nøkkeltala slik: Minimum er 2, $Q_1$ er medianen av den nedre halvdelen (2, 4, 5, 7), altså $(4+5)/2 = 4{,}5$. Medianen er 8 (den midtarste verdien). $Q_3$ er medianen av den øvre halvdelen (9, 10, 12, 15), altså $(10+12)/2 = 11$. Og maksimum er 15. I eit boksplott teiknar vi ein boks frå $Q_1$ til $Q_3$ -- denne boksen representerer dei midtarste 50 prosenta av dataene, altså IQR. Ein strek inne i boksen markerer medianen. Og to «whiskers» (strekar) strekkjer seg ut frå boksen til minimum og maksimum.\n\nMen boksplottet har ein ekstra finesse: det kan avsløre **uteliggjarar**. Ein uteliggjar er ein observasjon som ligg meir enn $1{,}5 \\cdot \\text{IQR}$ under $Q_1$ eller over $Q_3$. I eksempelet vårt er IQR $= 11 - 4{,}5 = 6{,}5$. Den nedre grensa for uteliggjarar er $4{,}5 - 1{,}5 \\cdot 6{,}5 = -5{,}25$, og den øvre grensa er $11 + 1{,}5 \\cdot 6{,}5 = 20{,}75$. Alle verdiane i datasettet ligg innanfor desse grensene, så det er ingen uteliggjarar her.\n\nI tillegg til boksplott bruker vi **stolpediagram** for kategoriske data eller diskrete verdiar (stolpane har mellomrom mellom seg), og **histogram** for kontinuerlege data grupperte i klassar (stolpane står inntil kvarandre, og arealet representerer frekvensen). Valet av diagramtype er altså avhengig av kva slags data du har."
+    },
+    {
+      "id": "2p-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på boksplott og uteliggjarar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-3-1-n-quiz3-q0",
+            "task": "Eit datasett har $Q_1 = 20$, $Q_3 = 40$ og IQR = 20. Kva verdi er ein uteliggjar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "55",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "72",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "42",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "15",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR} = 40 + 30 = 70$. Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR} = 20 - 30 = -10$. Verdien 72 > 70, altså er 72 ein uteliggjar."
+          },
+          {
+            "id": "2p-3-1-n-quiz3-q1",
+            "task": "Kva viser boksen i eit boksplott?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle verdiane i datasettet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjennomsnittet pluss/minus standardavviket",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei midtarste 50 % av dataene (frå $Q_1$ til $Q_3$)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Minimum og maksimum",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Boksen i eit boksplott strekkjer seg frå $Q_1$ til $Q_3$ og representerer dei midtarste 50 prosenta av dataene (interkvartilbreidda). Streken inni boksen viser medianen."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-3-1-n-section4",
+      "type": "text",
+      "content": "## Frekvenstabellar -- når vi grupperer data\n\nNår vi har mange observasjonar, er det upraktisk å jobbe med kvart einskild tal. I staden grupperer vi dataene i ein **frekvenstabell**. La oss sjå på eit eksempel: 30 elevar blei spurde om kor mange timar dei trenar per veke. Resultata blei grupperte i klassar: 0--2 timar (8 elevar), 3--5 timar (12 elevar), 6--8 timar (7 elevar) og 9--11 timar (3 elevar).\n\n**Frekvensen** er rett og slett talet på observasjonar i kvar klasse. Men vi kan få meir informasjon ved å rekne ut **relativ frekvens**, som er delen av totalen: $\\text{relativ frekvens} = \\frac{\\text{frekvens}}{\\text{totalt tal}}$. For klassen 0--2 timar er den relative frekvensen $8/30 \\approx 0{,}27$, altså 27 prosent. For klassen 3--5 timar er han $12/30 = 0{,}40$, altså 40 prosent.\n\nEnda meir nyttig er **kumulativ frekvens**, som viser summen av frekvensane opp til og med ein bestemt klasse. For dei fire klassane våre blir den kumulative frekvensen 8, 20, 27 og 30. Og den **kumulative relative frekvensen** blir 0,27, 0,67, 0,90 og 1,00. Kva tyder dette? Jo, til dømes kan vi lese av at 67 prosent av elevane trenar 5 timar eller mindre per veke.\n\nDen kumulative frekvensen er spesielt nyttig for å finne **medianen** i grupperte data. Medianen ligg der den kumulative relative frekvensen passerer 0,50. I vårt eksempel passerer han 0,50 i klassen 3--5 timar (frå 0,27 til 0,67), så vi veit at medianen ligg i denne klassen. Vi kan òg finne **typetalsklassen**, som er klassen med høgast frekvens -- her er det 3--5 timar med 12 observasjonar. Frekvenstabellar gir oss eit kraftig verktøy for å organisere og forstå store datasett."
+    },
+    {
+      "id": "2p-3-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-3-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på frekvenstabellar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-3-1-n-quiz4-q0",
+            "task": "I ei undersøking blant 40 elevar er den kumulative relative frekvensen for klassen 0–3 timar skjermtid 0,325, og for klassen 4–5 timar er han 0,70. I kva klasse ligg medianen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "0–3 timar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "6–7 timar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "8+ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "4–5 timar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Medianen ligg der den kumulative relative frekvensen passerer 0,50. Han går frå 0,325 (etter 0–3 timar) til 0,70 (etter 4–5 timar). Sidan 0,50 ligg mellom desse, er medianen i klassen 4–5 timar."
+          },
+          {
+            "id": "2p-3-1-n-quiz4-q1",
+            "task": "I ein frekvenstabell har klassen 0–2 timar 8 elevar av totalt 30. Kva er den relative frekvensen for denne klassen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{8}{30} \\approx 0{,}27$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{30}{8} = 3{,}75$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8 \\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}08$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Relativ frekvens = frekvens / totalt tal = $8/30 \\approx 0{,}27$, altså 27 %. Det viser at 27 % av elevane trenar 0–2 timar per veke."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-3-1-n-section5",
+      "type": "text",
+      "content": "## Å velje rett verktøy\n\nVi har no ein heil verktøykasse med statistiske omgrep. Men det store spørsmålet i praksis er alltid: *kva verktøy skal eg bruke?* La oss gå gjennom nokre typiske situasjonar.\n\nTenk deg at ei bedrift har 12 tilsette med følgjande månadslønner (i tusen kroner): 28, 30, 30, 32, 33, 35, 36, 38, 40, 42, 45 og 85. Gjennomsnittet er 39 500 kroner, men medianen er berre 35 500 kroner. Typetalet er 30 000 kroner. Kva er «rett»? Gjennomsnittet blir trekt opp av den eine personen som tener 85 000 kroner. Medianen gir eit betre bilete av kva ein typisk tilsett tener. Dersom leiaren i bedrifta seier at «gjennomsnittsløna er 39 500 kroner», er det teknisk korrekt, men misvisande. Spreiingsmåla avslører kva som går føre seg: $Q_1 = 31$, $Q_3 = 41$, IQR $= 10$. Den øvre grensa for uteliggjarar er $41 + 1{,}5 \\cdot 10 = 56$. Verdien 85 er godt over denne grensa, altså er det ein tydeleg uteliggjar.\n\nDenne situasjonen er ikkje uvanleg. Inntektsdata er nesten alltid skeivfordelte -- nokre få tener veldig mykje, medan dei fleste tener moderat. Difor rapporterer Statistisk sentralbyrå *medianen* som mål på typisk inntekt i Noreg, ikkje gjennomsnittet.\n\nKva med grafisk framstilling? Når du har kontinuerlege data som tid, lengd eller vekt, er histogrammet det beste valet. For kategoriske data som favorittfag eller kommune bruker du stolpediagram. Og når du vil samanlikne fordelinga mellom grupper -- til dømes gutar og jenter på ein sprinttest -- er boksplottet uslåeleg. Det viser med eitt blikk både sentrum, spreiing og eventuelle uteliggjarar.\n\nBeskrivande statistikk handlar i bunn og grunn om å vere ein god forteljar: du vel dei tala og figurane som gir det mest ærlege og fullstendige biletet av dataene dine."
+    },
+    {
+      "id": "2p-3-1-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-3-1-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på val av statistisk verktøy:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-3-1-n-quiz5-q0",
+            "task": "Kvifor rapporterer Statistisk sentralbyrå medianen som mål på typisk inntekt i Noreg, i staden for gjennomsnittet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi medianen alltid er høgare enn gjennomsnittet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi inntektsdata er skeivfordelte med nokre svært høge inntekter, og medianen er meir robust mot uteliggjarar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi medianen er enklare å rekne ut",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det er ei lov som krev det",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Inntektsdata er typisk skeivfordelte -- nokre få tener svært mykje, noko som dreg gjennomsnittet opp. Medianen blir ikkje påverka av uteliggjarar og gir eit betre bilete av kva ein typisk person tener."
+          },
+          {
+            "id": "2p-3-1-n-quiz5-q1",
+            "task": "Du skal samanlikne fordelinga av tid brukt på lekser mellom gutar og jenter. Kva grafisk framstilling er best?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sektordiagram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stolpediagram",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Boksplott (eitt for gutar, eitt for jenter)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Linjediagram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Boksplott er ideelt for å samanlikne fordelingar mellom grupper. Det viser sentrum (median), spreiing (IQR) og eventuelle uteliggjarar med eitt blikk for begge gruppene."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-3-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har no reist gjennom dei viktigaste verktøya i beskrivande statistikk. La oss oppsummere det viktigaste du har lært.\n\n**Sentralmål** beskriv sentrum i eit datasett. **Gjennomsnittet** $\\bar{x} = \\frac{\\sum x_i}{n}$ fungerer best for symmetriske data, men blir påverka av uteliggjarar. **Medianen** er den midtarste verdien i sorterte data og er robust mot ekstreme verdiar -- bruk han når data er skeive. **Typetalet** er verdien som førekjem oftast, og er spesielt nyttig for kategoriske data.\n\n**Spreiingsmål** beskriv kor spreidde dataene er. **Variasjonsbreidda** $R = x_{\\text{maks}} - x_{\\text{min}}$ er enkel, men sårbar for uteliggjarar. **Kvartilane** $Q_1$, $Q_2$ og $Q_3$ deler dataene i fire like delar. **Interkvartilbreidda** $\\text{IQR} = Q_3 - Q_1$ viser spreiinga i dei midtarste 50 prosenta. **Standardavviket** $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n-1}}$ er den gjennomsnittlege avstanden frå gjennomsnittet og tek omsyn til alle verdiar.\n\n**Grafisk framstilling** gjer data visuelt: stolpediagram for kategoriske data, histogram for kontinuerlege data, og **boksplott** for å vise fordelinga med fem nøkkeltal (min, $Q_1$, median, $Q_3$, maks). Ein **uteliggjar** er ein verdi meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor kvartilane.\n\n**Frekvenstabellar** organiserer data med frekvens, relativ frekvens og **kumulativ frekvens**, som blir brukt til å finne median og kvartilar i grupperte data."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "b143ab0b60b0ef13",
+    "translatedAt": "2026-06-17T00:25:57.700Z",
+    "model": "claude-code-agent",
+    "strings": 72,
+    "tm": {
+      "70e8a22024a0eac6": "Beskrivande statistikk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "cd9f301277e7095b": "Ei forteljing om korleis vi kan oppsummere ei heil verd av tal med nokre få nøkkelomgrep -- frå gjennomsnitt og median til boksplott og frekvenstabellar.",
+      "cdb62d90c9c63cc3": "bruke og vurdere val av formålstenlege sentralmål og spreiingsmål for statistisk datamateriale",
+      "b32273a2297199df": "analysere og presentere funn i datasett frå lokalsamfunn og media",
+      "efe398c8c89ba771": "## Tala som fortel historier\n\nFørestill deg at du er rektor på ein skule, og nokon spør deg: «Korleis gjekk det med elevane på matteprøva?» Du har ei liste med 200 resultat framfor deg. Du kan ikkje lese opp alle 200 tala -- det ville ingen orka å høyre på. I staden treng du nokre få nøkkeltal som oppsummerer det viktigaste. Nettopp dette er kjernen i **beskrivande statistikk**: å ta eit stort, uoversiktleg datasett og destillere det ned til nokre få tal og figurar som fortel oss kva dataene eigentleg seier.\n\nStatistikk omgir oss overalt. Når du les at «gjennomsnittstemperaturen i Oslo var 7,3 grader i fjor», eller at «medianløna i Noreg er 550 000 kroner», så møter du beskrivande statistikk i aksjon. Spørsmålet er berre: kva tyder desse tala eigentleg, og korleis vel vi dei rette?\n\nI dette kapittelet skal vi utforske tre store tema. Først ser vi på **sentralmål** -- tal som beskriv sentrum i eit datasett. Så går vi vidare til **spreiingsmål** som fortel kor spreidde dataene er. Og til slutt ser vi på korleis vi kan **framstille data grafisk** med stolpediagram, histogram og boksplott. Undervegs lærer vi òg om frekvenstabellar og kumulativ frekvens. La oss byrje.",
+      "6ceee47b29155210": "## Sentralmål -- å finne sentrum\n\nTenk deg at ni elevar fekk følgjande karakterar i matematikk: 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er ein «typisk» karakter i denne gruppa? Det finst tre ulike måtar å svare på det spørsmålet, og kvar gir eit litt anna perspektiv.\n\nDen første og mest kjende metoden er **gjennomsnittet**, òg kalla middelverdien. Du reknar det ut ved å leggje saman alle verdiane og dele på talet på observasjonar: $\\bar{x} = \\frac{x_1 + x_2 + \\cdots + x_n}{n} = \\frac{\\sum x_i}{n}$. For karakterane våre blir det $\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$. Gjennomsnittet er altså 4,0 -- eit tal som gir eit fint bilete av gruppa, *så lenge dataene er nokolunde symmetriske*.\n\nDen andre metoden er **medianen**, som er den midtarste verdien når du sorterer alle tala frå minst til størst. Med ni verdiar er det verdi nummer fem, altså 4. Medianen bryr seg ikkje om kor ekstreme ytterverdiane er -- han sit trygt i midten.\n\nDen tredje metoden er **typetalet** (eller modus), som rett og slett er den verdien som førekjem oftast. Her er det 4, fordi han dukkar opp tre gonger. Typetalet er spesielt nyttig for kategoriske data, til dømes favorittfarge, der gjennomsnitt ikkje gir meining.\n\nMen her er det viktige spørsmålet: *når bruker du kva?* Gjennomsnittet fungerer fint for symmetriske data utan ekstreme verdiar. Men tenk deg ei bedrift med fem tilsette som tener 30 000, 32 000, 34 000, 35 000 og 120 000 kroner. Gjennomsnittet blir 50 200 kroner, men fire av fem tilsette tener langt under det. Den eine svært høge løna -- ein **uteliggjar** -- dreg gjennomsnittet opp. I slike tilfelle gir medianen (34 000 kr) eit mykje betre bilete av ei typisk løn. Tommelfingerregelen er enkel: bruk gjennomsnitt for symmetriske data, median for skeive data eller data med uteliggjarar, og typetal for kategoriske data.",
+      "23c50d5827d2fe15": "Test deg sjølv på sentralmål:",
+      "4097889236a2af26": "placeholder",
+      "54d95bfe7873a012": "Ei bedrift har fem tilsette med månadslønner: 30 000, 32 000, 34 000, 35 000 og 120 000 kr. Kva sentralmål gir best bilete av ei «typisk» løn?",
+      "05e1d462202dd7e5": "Gjennomsnittet (50 200 kr)",
+      "4741df003f17c764": "Medianen (34 000 kr)",
+      "1da0a8e83b9b7d47": "Typetalet",
+      "c5905fccf85724b3": "Alle tre gir likt resultat",
+      "a5dd632278bc1dbc": "Gjennomsnittet (50 200 kr) blir trekt opp av den eine svært høge løna (120 000 kr), som er ein uteliggjar. Medianen (34 000 kr) gir eit mykje betre bilete av ei typisk løn.",
+      "90934e924d01d50b": "Ni elevar fekk karakterane 2, 3, 3, 4, 4, 4, 5, 5, 6. Kva er typetalet?",
+      "5a28cbf483e47d31": "4,0 (gjennomsnittet)",
+      "0fe473352d4ae494": "4 (førekjem flest gonger)",
+      "1767b89187dde616": "Typetalet er verdien som førekjem oftast. Karakteren 4 dukkar opp tre gonger -- meir enn nokon annan verdi. Gjennomsnittet er òg 4,0, men det er eit anna mål.",
+      "b481fb208edefc48": "Kva er gjennomsnittet av tala 2, 3, 3, 4, 4, 4, 5, 5, 6?",
+      "d9591dcd605db5b1": "$\\bar{x} = \\frac{2 + 3 + 3 + 4 + 4 + 4 + 5 + 5 + 6}{9} = \\frac{36}{9} = 4{,}0$.",
+      "1f665906c6bb94e6": "## Spreiingsmål -- kor spreidde er dataene?\n\nÅ kjenne sentrum er berre halve historia. Tenk deg to klassar som begge har gjennomsnitt 15 på ei prøve. I den eine klassen fekk alle mellom 13 og 17 poeng -- veldig jamt. I den andre fekk nokon 5 og andre 25 -- enorm variasjon. Gjennomsnittet er likt, men klassane er vidt forskjellige. For å fange opp denne skilnaden treng vi **spreiingsmål**.\n\nDet enklaste spreiingsmålet er **variasjonsbreidda**, som er differansen mellom den største og den minste verdien: $R = x_{\\text{maks}} - x_{\\text{min}}$. For datasettet 3, 5, 7, 8, 10, 12, 14 blir variasjonsbreidda $14 - 3 = 11$. Problemet med variasjonsbreidda er at ho berre ser på dei to ytste verdiane og ignorerer alt imellom.\n\nEi meir nyansert tilnærming er å bruke **kvartilar**. Kvartilane deler dei sorterte dataene i fire like store delar. $Q_1$ (nedre kvartil) er medianen av den nedre halvdelen, $Q_2$ er sjølve medianen, og $Q_3$ (øvre kvartil) er medianen av den øvre halvdelen. For datasettet vårt (3, 5, 7, 8, 10, 12, 14) er medianen 8, $Q_1 = 5$ og $Q_3 = 12$. **Interkvartilbreidda** (IQR) er skilnaden mellom øvre og nedre kvartil: $\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel oss spreiinga i dei midtarste 50 prosenta av dataene, og er mykje meir robust mot uteliggjarar enn variasjonsbreidda.\n\nTil slutt har vi **standardavviket** ($s$), som måler den gjennomsnittlege avstanden frå gjennomsnittet: $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n - 1}}$. For datasettet vårt er gjennomsnittet $\\bar{x} \\approx 8{,}43$, og standardavviket blir $s \\approx 3{,}85$. Eit lågt standardavvik tyder at verdiane ligg tett rundt gjennomsnittet, medan eit høgt standardavvik tyder stor spreiing. Standardavviket er det mest brukte spreiingsmålet i praksis fordi det tek omsyn til *alle* verdiane i datasettet.",
+      "da4b6e5fce07161e": "Test deg sjølv på spreiingsmål:",
+      "f74083026c4868d7": "To klassar fekk følgjande resultat på ei prøve. Klasse A: standardavvik 2,8. Klasse B: standardavvik 5,9. Begge har omtrent likt gjennomsnitt. Kva kan vi seie?",
+      "de5e7101bc380e36": "Klasse A har betre resultat enn klasse B",
+      "c37e0922507f0afd": "Klasse B har betre resultat enn klasse A",
+      "2be66f33163f8e0a": "Klasse A har jamnare resultat, klasse B har større spreiing",
+      "3ba8d1bf3c24d074": "Standardavviket seier ingenting om spreiing",
+      "0d9768067435dc8d": "Standardavviket måler spreiinga i dataene. Klasse A ($s \\approx 2{,}8$) har mykje jamnare resultat enn klasse B ($s \\approx 5{,}9$). Med likt gjennomsnitt tyder dette at klasse B har nokon som gjer det veldig bra og nokon som gjer det svakt.",
+      "fcfdb4e423cd7b23": "For datasettet 3, 5, 7, 8, 10, 12, 14 er $Q_1 = 5$ og $Q_3 = 12$. Kva er interkvartilbreidda (IQR)?",
+      "6f5c1873e7a073c5": "$\\text{IQR} = Q_3 - Q_1 = 12 - 5 = 7$. IQR fortel spreiinga i dei midtarste 50 prosenta av dataene.",
+      "222d1c2948670b2a": "## Boksplott -- heile fordelinga i éin figur\n\nNo som vi kan rekne ut sentralmål og spreiingsmål, la oss sjå på ein av dei mest elegante måtane å framstille data på: **boksplottet** (òg kalla box-and-whisker-diagram). Eit boksplott viser fordelinga av eit heilt datasett med berre fem nøkkeltal: minimum, $Q_1$, median, $Q_3$ og maksimum.\n\nLa oss ta eit eksempel. Gitt datasettet 2, 4, 5, 7, 8, 9, 10, 12, 15 finn vi dei fem nøkkeltala slik: Minimum er 2, $Q_1$ er medianen av den nedre halvdelen (2, 4, 5, 7), altså $(4+5)/2 = 4{,}5$. Medianen er 8 (den midtarste verdien). $Q_3$ er medianen av den øvre halvdelen (9, 10, 12, 15), altså $(10+12)/2 = 11$. Og maksimum er 15. I eit boksplott teiknar vi ein boks frå $Q_1$ til $Q_3$ -- denne boksen representerer dei midtarste 50 prosenta av dataene, altså IQR. Ein strek inne i boksen markerer medianen. Og to «whiskers» (strekar) strekkjer seg ut frå boksen til minimum og maksimum.\n\nMen boksplottet har ein ekstra finesse: det kan avsløre **uteliggjarar**. Ein uteliggjar er ein observasjon som ligg meir enn $1{,}5 \\cdot \\text{IQR}$ under $Q_1$ eller over $Q_3$. I eksempelet vårt er IQR $= 11 - 4{,}5 = 6{,}5$. Den nedre grensa for uteliggjarar er $4{,}5 - 1{,}5 \\cdot 6{,}5 = -5{,}25$, og den øvre grensa er $11 + 1{,}5 \\cdot 6{,}5 = 20{,}75$. Alle verdiane i datasettet ligg innanfor desse grensene, så det er ingen uteliggjarar her.\n\nI tillegg til boksplott bruker vi **stolpediagram** for kategoriske data eller diskrete verdiar (stolpane har mellomrom mellom seg), og **histogram** for kontinuerlege data grupperte i klassar (stolpane står inntil kvarandre, og arealet representerer frekvensen). Valet av diagramtype er altså avhengig av kva slags data du har.",
+      "ddcd6b59c70092be": "Test deg sjølv på boksplott og uteliggjarar:",
+      "d5fdfc28131cf822": "Eit datasett har $Q_1 = 20$, $Q_3 = 40$ og IQR = 20. Kva verdi er ein uteliggjar?",
+      "a887a56546b089af": "Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR} = 40 + 30 = 70$. Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR} = 20 - 30 = -10$. Verdien 72 > 70, altså er 72 ein uteliggjar.",
+      "3503fe1aaa022e14": "Kva viser boksen i eit boksplott?",
+      "c28b736a0556e2c7": "Alle verdiane i datasettet",
+      "f3e9d9bdc6f6ce85": "Dei midtarste 50 % av dataene (frå $Q_1$ til $Q_3$)",
+      "3e07c64cf51590a3": "Gjennomsnittet pluss/minus standardavviket",
+      "9324d6ef81325819": "Minimum og maksimum",
+      "c7dc8ca423a133b7": "Boksen i eit boksplott strekkjer seg frå $Q_1$ til $Q_3$ og representerer dei midtarste 50 prosenta av dataene (interkvartilbreidda). Streken inni boksen viser medianen.",
+      "77be3117c172cebf": "## Frekvenstabellar -- når vi grupperer data\n\nNår vi har mange observasjonar, er det upraktisk å jobbe med kvart einskild tal. I staden grupperer vi dataene i ein **frekvenstabell**. La oss sjå på eit eksempel: 30 elevar blei spurde om kor mange timar dei trenar per veke. Resultata blei grupperte i klassar: 0--2 timar (8 elevar), 3--5 timar (12 elevar), 6--8 timar (7 elevar) og 9--11 timar (3 elevar).\n\n**Frekvensen** er rett og slett talet på observasjonar i kvar klasse. Men vi kan få meir informasjon ved å rekne ut **relativ frekvens**, som er delen av totalen: $\\text{relativ frekvens} = \\frac{\\text{frekvens}}{\\text{totalt tal}}$. For klassen 0--2 timar er den relative frekvensen $8/30 \\approx 0{,}27$, altså 27 prosent. For klassen 3--5 timar er han $12/30 = 0{,}40$, altså 40 prosent.\n\nEnda meir nyttig er **kumulativ frekvens**, som viser summen av frekvensane opp til og med ein bestemt klasse. For dei fire klassane våre blir den kumulative frekvensen 8, 20, 27 og 30. Og den **kumulative relative frekvensen** blir 0,27, 0,67, 0,90 og 1,00. Kva tyder dette? Jo, til dømes kan vi lese av at 67 prosent av elevane trenar 5 timar eller mindre per veke.\n\nDen kumulative frekvensen er spesielt nyttig for å finne **medianen** i grupperte data. Medianen ligg der den kumulative relative frekvensen passerer 0,50. I vårt eksempel passerer han 0,50 i klassen 3--5 timar (frå 0,27 til 0,67), så vi veit at medianen ligg i denne klassen. Vi kan òg finne **typetalsklassen**, som er klassen med høgast frekvens -- her er det 3--5 timar med 12 observasjonar. Frekvenstabellar gir oss eit kraftig verktøy for å organisere og forstå store datasett.",
+      "cacdc56f4e8a239b": "Test deg sjølv på frekvenstabellar:",
+      "8f8899aad41eae8e": "I ei undersøking blant 40 elevar er den kumulative relative frekvensen for klassen 0–3 timar skjermtid 0,325, og for klassen 4–5 timar er han 0,70. I kva klasse ligg medianen?",
+      "73d8feb142243187": "0–3 timar",
+      "8f1075108c248ded": "6–7 timar",
+      "156959a405e8bc7d": "4–5 timar",
+      "c82baa654c733d98": "8+ timar",
+      "60d95efec7b5d57b": "Medianen ligg der den kumulative relative frekvensen passerer 0,50. Han går frå 0,325 (etter 0–3 timar) til 0,70 (etter 4–5 timar). Sidan 0,50 ligg mellom desse, er medianen i klassen 4–5 timar.",
+      "b100079d336b1a24": "I ein frekvenstabell har klassen 0–2 timar 8 elevar av totalt 30. Kva er den relative frekvensen for denne klassen?",
+      "d5bab70a39afcd46": "$\\frac{8}{30} \\approx 0{,}27$",
+      "1cb5a0de8c69f7aa": "$\\frac{30}{8} = 3{,}75$",
+      "60387fbe37c6759e": "Relativ frekvens = frekvens / totalt tal = $8/30 \\approx 0{,}27$, altså 27 %. Det viser at 27 % av elevane trenar 0–2 timar per veke.",
+      "14ee9fc5afd81c91": "## Å velje rett verktøy\n\nVi har no ein heil verktøykasse med statistiske omgrep. Men det store spørsmålet i praksis er alltid: *kva verktøy skal eg bruke?* La oss gå gjennom nokre typiske situasjonar.\n\nTenk deg at ei bedrift har 12 tilsette med følgjande månadslønner (i tusen kroner): 28, 30, 30, 32, 33, 35, 36, 38, 40, 42, 45 og 85. Gjennomsnittet er 39 500 kroner, men medianen er berre 35 500 kroner. Typetalet er 30 000 kroner. Kva er «rett»? Gjennomsnittet blir trekt opp av den eine personen som tener 85 000 kroner. Medianen gir eit betre bilete av kva ein typisk tilsett tener. Dersom leiaren i bedrifta seier at «gjennomsnittsløna er 39 500 kroner», er det teknisk korrekt, men misvisande. Spreiingsmåla avslører kva som går føre seg: $Q_1 = 31$, $Q_3 = 41$, IQR $= 10$. Den øvre grensa for uteliggjarar er $41 + 1{,}5 \\cdot 10 = 56$. Verdien 85 er godt over denne grensa, altså er det ein tydeleg uteliggjar.\n\nDenne situasjonen er ikkje uvanleg. Inntektsdata er nesten alltid skeivfordelte -- nokre få tener veldig mykje, medan dei fleste tener moderat. Difor rapporterer Statistisk sentralbyrå *medianen* som mål på typisk inntekt i Noreg, ikkje gjennomsnittet.\n\nKva med grafisk framstilling? Når du har kontinuerlege data som tid, lengd eller vekt, er histogrammet det beste valet. For kategoriske data som favorittfag eller kommune bruker du stolpediagram. Og når du vil samanlikne fordelinga mellom grupper -- til dømes gutar og jenter på ein sprinttest -- er boksplottet uslåeleg. Det viser med eitt blikk både sentrum, spreiing og eventuelle uteliggjarar.\n\nBeskrivande statistikk handlar i bunn og grunn om å vere ein god forteljar: du vel dei tala og figurane som gir det mest ærlege og fullstendige biletet av dataene dine.",
+      "314374d77544921b": "Test deg sjølv på val av statistisk verktøy:",
+      "9df86b02d11370bf": "Kvifor rapporterer Statistisk sentralbyrå medianen som mål på typisk inntekt i Noreg, i staden for gjennomsnittet?",
+      "1d3947c0b8243436": "Fordi medianen alltid er høgare enn gjennomsnittet",
+      "ddad6a6e415712dc": "Fordi medianen er enklare å rekne ut",
+      "539494da11c1150e": "Fordi det er ei lov som krev det",
+      "d502ff7b3c586bd2": "Fordi inntektsdata er skeivfordelte med nokre svært høge inntekter, og medianen er meir robust mot uteliggjarar",
+      "75c47ae74ec04abd": "Inntektsdata er typisk skeivfordelte -- nokre få tener svært mykje, noko som dreg gjennomsnittet opp. Medianen blir ikkje påverka av uteliggjarar og gir eit betre bilete av kva ein typisk person tener.",
+      "877f819f004f7251": "Du skal samanlikne fordelinga av tid brukt på lekser mellom gutar og jenter. Kva grafisk framstilling er best?",
+      "cdf87bb74edd8681": "Sektordiagram",
+      "ef1e38f73ee16555": "Boksplott (eitt for gutar, eitt for jenter)",
+      "6720e243615ffc50": "Stolpediagram",
+      "aaa899b40e0da3ae": "Linjediagram",
+      "d38fa5abcb79f2e8": "Boksplott er ideelt for å samanlikne fordelingar mellom grupper. Det viser sentrum (median), spreiing (IQR) og eventuelle uteliggjarar med eitt blikk for begge gruppene.",
+      "811818393dd83802": "## Oppsummering\n\nVi har no reist gjennom dei viktigaste verktøya i beskrivande statistikk. La oss oppsummere det viktigaste du har lært.\n\n**Sentralmål** beskriv sentrum i eit datasett. **Gjennomsnittet** $\\bar{x} = \\frac{\\sum x_i}{n}$ fungerer best for symmetriske data, men blir påverka av uteliggjarar. **Medianen** er den midtarste verdien i sorterte data og er robust mot ekstreme verdiar -- bruk han når data er skeive. **Typetalet** er verdien som førekjem oftast, og er spesielt nyttig for kategoriske data.\n\n**Spreiingsmål** beskriv kor spreidde dataene er. **Variasjonsbreidda** $R = x_{\\text{maks}} - x_{\\text{min}}$ er enkel, men sårbar for uteliggjarar. **Kvartilane** $Q_1$, $Q_2$ og $Q_3$ deler dataene i fire like delar. **Interkvartilbreidda** $\\text{IQR} = Q_3 - Q_1$ viser spreiinga i dei midtarste 50 prosenta. **Standardavviket** $s = \\sqrt{\\frac{\\sum (x_i - \\bar{x})^2}{n-1}}$ er den gjennomsnittlege avstanden frå gjennomsnittet og tek omsyn til alle verdiar.\n\n**Grafisk framstilling** gjer data visuelt: stolpediagram for kategoriske data, histogram for kontinuerlege data, og **boksplott** for å vise fordelinga med fem nøkkeltal (min, $Q_1$, median, $Q_3$, maks). Ein **uteliggjar** er ein verdi meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor kvartilane.\n\n**Frekvenstabellar** organiserer data med frekvens, relativ frekvens og **kumulativ frekvens**, som blir brukt til å finne median og kvartilar i grupperte data."
+    }
+  }
+}

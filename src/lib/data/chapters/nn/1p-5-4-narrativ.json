@@ -1,1 +1,514 @@
-{"id":"1p-5-4-narrativ","courseId":"1p","chapterNumber":"5.4","title":"Kritisk analyse av statistikk","subtitle":"Narrativ versjon","description":"Ein forteljing om tal som lygjer -- om kutte aksar, skjeve utval og strategisk valde gjennomsnitt, og om korleis du avslører dei.","estimatedMinutes":30,"competenceGoals":["lese, hente ut og vurdere matematikk i relevante tekstar","vurdere statistiske framstillingar kritisk"],"linkedChapterId":"1p-5-4","content":[{"id":"1p-5-4-n-intro","type":"text","content":"## Kan tal lyge?\n\nDu scrollar gjennom feeden og stoppar ved eit innlegg: «Salet EKSPLODERER -- sjå diagrammet!» Grafen viser ein søyle som rasar fire gonger høgare enn naboen. Lengre ned i feeden: «75 % av norskjarar trenar minst tre gonger i veka.» Og ei annonse lokkar: «Gjennomsnittslønna ca. 500 000 kr!»\n\nTal og diagram verkar objektive -- dei ser ut som ren fakta. Men måten dei blir framstilte på, kan villede. Aviser, reklame og sosiale medium brukar statistikk for å overbevise, og nokre gonger er framstillinga villeiande, med eller utan hensikt. Ingen av dei tre påstandane over er rekna feil. Likevel lygjer dei alle, på kvar sin måte.\n\nI dette kapitlet skal du lære å avslØre villeiande diagram, vurdere om eit utval er representativt, og gjennomskoda villeiande bruk av gjennomsnitt og median. Kort sagt: du skal bli ein statistikk-detektiv."},{"id":"1p-5-4-n-section1","type":"text","content":"## Diagrammet som overdrivar\n\nLa oss undersøke det «eksploderande» salet. Diagrammet samanliknar to butikkar: A selde for $92\\,000$ kr og B for $98\\,000$ kr. Men andreaksen i diagrammet startar ikkje på null -- ho startar på $90\\,000$ kr.\n\nKva gjer det med søylene? Over aksestart stikk A opp $92\\,000 - 90\\,000 = 2\\,000$, medan B stikk opp $98\\,000 - 90\\,000 = 8\\,000$. Søylen til B *ser* dermed $\\frac{8\\,000}{2\\,000} = 4$ gonger så høg ut som søylen til A!\n\nDen reelle skilnaden? $\\frac{98\\,000 - 92\\,000}{92\\,000} = \\frac{6\\,000}{92\\,000} \\approx 6{,}5\\,\\%$. Ein skilnad på seks og ein halv prosent er forkledd som ein firedobling -- berre ved å kutte aksen.\n\nEit diagram er **villeiande** når det visuelle inntrykket ikkje stemmer med tala. Den **kutte andreaksen** er det vanlegaste trikset, men det finst fleire: **manipulert skala** med ujamne intervall langs aksane, og **feil figurbruk** der areal eller 3D-effektar overdrivar skilnader -- doblar du både høgda og breidda på ein figur, blir arealet fire gonger så stort, sjøl om verdien berre er dobla.\n\nDetektivregel nummer ein: *sjå alltid på kor aksane startar, før du ser på søylene.*"},{"id":"1p-5-4-n-quiz1","type":"exercise","exercise":{"id":"1p-5-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på villeiande diagram:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-5-4-n-quiz1-q0","task":"Kva er det vanlegaste trikset i villeiande diagram?","options":[{"id":"a","text":"Feil fargar på søylene","isCorrect":false},{"id":"b","text":"Andreakse som ikkje startar på null","isCorrect":true},{"id":"c","text":"For mange kategoriar","isCorrect":false},{"id":"d","text":"Manglande overskrift","isCorrect":false}],"solution":"Ein kuttet andreakse viser berre toppen av søylene, slik at små skilnader ser dramatiske ut."},{"id":"1p-5-4-n-quiz1-q1","task":"To søyler viser $92\\,000$ og $98\\,000$, og aksen startar på $90\\,000$. Kor mange gonger høgare ser den største søylen ut?","options":[{"id":"a","text":"$2$ gonger","isCorrect":false},{"id":"b","text":"$3$ gonger","isCorrect":false},{"id":"c","text":"$4$ gonger","isCorrect":true},{"id":"d","text":"$6{,}5$ gonger","isCorrect":false}],"solution":"Synlege høgder over aksestart: $2\\,000$ og $8\\,000$. $\\frac{8\\,000}{2\\,000} = 4$ -- ho ser fire gonger så høg ut, sjøl om reell skilnad berre er ca. $6{,}5\\,\\%$."},{"id":"1p-5-4-n-quiz1-q2","task":"Verdien blir dobla, og i diagrammet blir både høgda og breidda på figuren dobla. Kor mange gonger større blir arealet?","options":[{"id":"a","text":"$2$ gonger","isCorrect":false},{"id":"b","text":"$3$ gonger","isCorrect":false},{"id":"c","text":"$8$ gonger","isCorrect":false},{"id":"d","text":"$4$ gonger","isCorrect":true}],"solution":"Areal er høgde gonger breidd, så $2 \\cdot 2 = 4$ gonger større areal -- auget oppfattar ein firedobling der verdien berre er dobla."},{"id":"1p-5-4-n-quiz1-q3","task":"Kva bør du sjekke først når du ser eit søylediagram i ei reklame?","options":[{"id":"a","text":"Kva farge søylene har","isCorrect":false},{"id":"b","text":"Kor aksane startar og om skalaen er jamn","isCorrect":true},{"id":"c","text":"Om diagrammet er i 3D","isCorrect":false},{"id":"d","text":"Kor mange søyler det er","isCorrect":false}],"solution":"Aksestart og skala avgjer om det visuelle inntrykket stemmer med tala. Det er detektivregel nummer ein."}]}},{"id":"1p-5-4-n-section2","type":"text","content":"## Kven har dei eigentleg spurt?\n\nNeste sak: «75 % av norskjarar trenar minst tre gonger i veka.» Talet kjem frå ein treningsblogg som spurte lesarane sine, og $1\\,800$ av $2\\,400$ svarte ja. Reknestykkjet stemmer: $\\frac{1\\,800}{2\\,400} = 75\\,\\%$. So kva er problemet?\n\nProblemet er *kven* som vart spurt. Ein undersøking er berre pålitelig viss utvalet er **representativt** for gruppa ein vil seie noko om -- utvalet må likne på heile gruppa. Dei som les ein treningsblogg, trenar åpenbart langt meir enn gjennomsnittsnorskjaren. Utvalet er **skjevet**.\n\nOg det stoppar ikkje der. Kven giddar å svare på ei spørjeundersøking om trening? Mest dei som er engasjerte i trening. Dette kallast **sjølvval**: berre dei mest ivrige deltek, og resultatet skjevvridast enno meir. Konklusjonen «75 % av norskjarar» er ugyldig -- talet gjeld i beste fall bloggen sine mest engasjerte lesarar.\n\nDet finst fleire feilkjelder å sjå opp for. **For lite utval**: spør du berre ti personar, får tilfeldigheter enormt tyngd -- ein person utgjer $10$ prosentpoeng! Og **leiande spørsmål**: «Er du samd i at skulen bør slutte seinare, slik at ungdom får nok søvn?» dytjar svararen mot ja.\n\nDetektivregel nummer to: *spør alltid kven som er spurt, kor mange -- og korleis spørsmålet vart stilt.*"},{"id":"1p-5-4-n-quiz2","type":"exercise","exercise":{"id":"1p-5-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på utval og representativitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-5-4-n-quiz2-q0","task":"Kva betyr det at eit utval er representativt?","options":[{"id":"a","text":"At det er stort","isCorrect":false},{"id":"b","text":"At det liknar på heile gruppa ein vil seie noko om","isCorrect":true},{"id":"c","text":"At alle har svart på alle spørsmål","isCorrect":false},{"id":"d","text":"At det er valt av forskarar","isCorrect":false}],"solution":"Eit representativt utval spegler heile gruppa, slik at resultata kan generaliserast."},{"id":"1p-5-4-n-quiz2-q1","task":"En gamingkanal spør sjåarane sine: «Spelar du meir enn to timar dagleg?» 80 % svarar ja, og kanalen konkluderer: «80 % av ungdom spelar over to timar dagleg.» Kva er hovudfelen?","options":[{"id":"a","text":"Reknefeil i prosenten","isCorrect":false},{"id":"b","text":"Utvalget er skjevt -- sjåarane av ein gamingkanal spelar meir enn ungdom flest","isCorrect":true},{"id":"c","text":"Spørsmålet er for kort","isCorrect":false},{"id":"d","text":"For mange svarte","isCorrect":false}],"solution":"Dei som fylgjer ein gamingkanal, er ikkje representative for all ungdom. I tillegg kjem sjølvseleksjon: dei ivraste svarar oftast."},{"id":"1p-5-4-n-quiz2-q2","task":"Kva er sjølvseleksjon?","options":[{"id":"a","text":"At forskaren vel ut deltakarane sjølv","isCorrect":false},{"id":"b","text":"At utvalget blir trekt tilfeldig","isCorrect":false},{"id":"c","text":"At berre dei mest engasjerte vel å delta","isCorrect":true},{"id":"d","text":"At ein spør dei same personane to gonger","isCorrect":false}],"solution":"Ved sjølvseleksjon bestemmer folk sjølv om dei vil svara -- og dei med sterke meiningar eller stor interesse deltek oftast, noko som skjevvrir resultatet."},{"id":"1p-5-4-n-quiz2-q3","task":"Kvifor er eit utval på $10$ personar problematisk?","options":[{"id":"a","text":"Tilfeldigheiter får for stor betydning -- éin person utgjer 10 prosentpoeng","isCorrect":true},{"id":"b","text":"Det er ulovleg å spørja så få","isCorrect":false},{"id":"c","text":"Prosentrekning fungerer ikkje for små tal","isCorrect":false},{"id":"d","text":"Små utval er alltid skjeve","isCorrect":false}],"solution":"Med berre ti spurte kan eitt enkelt svar flytta resultatet med $10$ prosentpoeng. Tilfeldige utslag drunnar det reelle mønsteret."}]}},{"id":"1p-5-4-n-section3","type":"text","content":"## Talet som er sant, men likevel lurар deg\n\nSiste sak: stillingskunngjøringa med «Gjennomsnittslønnen ca. 500 000 kr». I bedrifta jobbar det ti personar: ni ansatte tener $420\\,000$ kr kvar, og leiaaren tener $1\\,200\\,000$ kr. La oss kontrollrekna:\n\n$$\\bar{x} = \\frac{9 \\cdot 420\\,000 + 1\\,200\\,000}{10} = \\frac{4\\,980\\,000}{10} = 498\\,000 \\text{ kr}$$\n\nTalet stemmer altså. Men kva kan ein ny ansatt faktisk venta? **Medianen** -- den midterste verdien -- er $420\\,000$ kr, og det er det $9$ av $10$ ansatte som tener. Leiarlønna er ein ekstremverdi som drar gjennomsnittet opp med nesten $80\\,000$ kr. Kunnjøringa er teknisk korrekt, men gjev eit vileiande inntrykk. Medianen ville vore honnørar.\n\nDette er eit generelt mønster: den som presenterer tal, kan *velja* det sentralmålet som passar bodskapen best. Gjennomsnittet blir dregne opp av nokre få høge verdiar; medianen viser den «typiske» verdien. Spør alltid: *kvar sentralmål er brukt -- og kvifor akkurat det?*\n\nTil slutt, den kanskje viktigaste feilen av alle: **korrelasjon er ikkje årsak**. At to storleikar fylgjer kvarandre, betyr ikkje at den eine forårsaker den andre. Klassikaren: iskremsal og druningsulykker stig samstundes kvar sommar. Fører iskrem til druning? Sjølvsagt ikkje -- begge skuldast ein tredje, **bakenforliggjande faktor**: sommarvarmen. Når du ser påstanden «X fører til Y», spør alltid: kan det finnast ein bakenforliggjande årsak som forklarar begge?"},{"id":"1p-5-4-n-quiz3","type":"exercise","exercise":{"id":"1p-5-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på sentralmål og korrelasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-5-4-n-quiz3-q0","task":"Ni ansatte tener $420\\,000$ kr og leiaaren $1\\,200\\,000$ kr. Kva er medianlønnen?","options":[{"id":"a","text":"$498\\,000$ kr","isCorrect":false},{"id":"b","text":"$420\\,000$ kr","isCorrect":true},{"id":"c","text":"$810\\,000$ kr","isCorrect":false},{"id":"d","text":"$500\\,000$ kr","isCorrect":false}],"solution":"Sortert er lønningane $420\\,000$ kr på dei ni første stadene. Medianen (gjennomsnittet av 5. og 6. verdi) er $420\\,000$ kr -- det dei aller fleste faktisk tener."},{"id":"1p-5-4-n-quiz3-q1","task":"Kvifor kan ein bedrift foretrekka å oppgje gjennomsnittslønnen framfor medianlønnen i ein kunnjøring?","options":[{"id":"a","text":"Gjennomsnittet er alltid lågare","isCorrect":false},{"id":"b","text":"Medianen er vanskeleg å rekna ut","isCorrect":false},{"id":"c","text":"Nokre få høge lønningar drar gjennomsnittet opp, slik at bedrifta ser rausare ut","isCorrect":true},{"id":"d","text":"Gjennomsnittet er det einaste lovlege målet","isCorrect":false}],"solution":"Ekstremverdiar som leiarlønna drar gjennomsnittet opp. Medianen viser kva den typiske ansatte tener -- og er ofte honnørar."},{"id":"1p-5-4-n-quiz3-q2","task":"Iskremsal og drununsulykker stig samstundes om sommaren. Kva er den beste forklaringa?","options":[{"id":"a","text":"Iskrem forårsaker druning","isCorrect":false},{"id":"b","text":"Druning aukar iskremsal","isCorrect":false},{"id":"c","text":"Ren tilfeldigheit utan mønster","isCorrect":false},{"id":"d","text":"Ein bakenforliggjande faktor -- sommarvarmen -- påverkar begge","isCorrect":true}],"solution":"Korrelasjon er ikkje årsak. Varmt vêr får fleire til både å kjøpe is og å bade -- ein tredje faktor forklarer samvariasjonen."},{"id":"1p-5-4-n-quiz3-q3","task":"Du les: «Elevar med nyare mobil får betre karakterar -- ny mobil gir betre læring!» Kva bør statistikk-detektiven spørje om?","options":[{"id":"a","text":"Kva mobilmerke som er best","isCorrect":false},{"id":"b","text":"Om ein bakenforliggande faktor, som familiens økonomi, kan forklare begge delar","isCorrect":true},{"id":"c","text":"Kor mange pikslar kameraet har","isCorrect":false},{"id":"d","text":"Om karakterane er rekna med gjennomsnitt","isCorrect":false}],"solution":"Samvariasjon beviser ikkje årsak. Ein tredje faktor -- til dømes familiens ressursar -- kan påverke både mobilkjøp og skuleresultat."}]}},{"id":"1p-5-4-n-summary","type":"text","content":"## Oppsummering\n\nTre påstandar frå feeden -- alle med korrekte tal, alle villedande. No har du verktøya til å avslørje dei.\n\nDet «eksploderande» salet var eit **misvislande diagram**: ein skoren andreakse fekk ein forskjell på $6{,}5\\,\\%$ til å sjå ut som ein firedubbling. Sjekk alltid kor aksane startar, om skalaen er jevn, og om figurar og 3D-effektar overdrifte.\n\nTreningstalet bygde på eit **skjevt utval** med **sjølvseleksjon**: bloggen sin ivrigaste lesarar kan ikkje representere «norsmenn». Ein undersøking er berre gyldig når utval er **representativt** -- og stort nok, med nøytralt formulerte spørsmål.\n\nLønnsannonsen valde sentralmål strategisk: leiar sin ekstremverdi drog **gjennomsnittet** opp til $498\\,000$ kr, medan **medianen** på $420\\,000$ kr viste den typiske lønna. Spør alltid kva mål som er brukt, og kvifor.\n\nOg hugs detektiven sin gylne regel: **korrelasjon er ikkje årsak** -- bak ein samvariasjon kan det gjøyme seg ein bakenforliggande faktor, slik sommarvarmen forklarte både iskremsal og drunkningsulykker.\n\nSjekklista di: Kor startar aksane? Kven er spurt, og kor mange? Kva sentralmål er brukt? Kan samanhengen ha ein annan forklaring? Med dei fire spørsmåla i lomma er du langt vanskelegare å lure."}],"exercises":[],"_meta":{"sourceHash":"76249366b07d5afa","translatedAt":"2026-06-16T09:54:31.536Z","model":"claude-haiku-4-5-20251001","strings":88,"tm":{"9a26ac31c7cf36f3":"Kritisk analyse av statistikk","b195b06d1ed59702":"Narrativ versjon","77026ad72d3ab453":"Ein forteljing om tal som lygjer -- om kutte aksar, skjeve utval og strategisk valde gjennomsnitt, og om korleis du avslører dei.","96d4dc80d419876a":"lese, hente ut og vurdere matematikk i relevante tekstar","97d709e342e77f87":"vurdere statistiske framstillingar kritisk","90cbbf50b8e6eedb":"## Kan tal lyge?\n\nDu scrollar gjennom feeden og stoppar ved eit innlegg: «Salet EKSPLODERER -- sjå diagrammet!» Grafen viser ein søyle som rasar fire gonger høgare enn naboen. Lengre ned i feeden: «75 % av norskjarar trenar minst tre gonger i veka.» Og ei annonse lokkar: «Gjennomsnittslønna ca. 500 000 kr!»\n\nTal og diagram verkar objektive -- dei ser ut som ren fakta. Men måten dei blir framstilte på, kan villede. Aviser, reklame og sosiale medium brukar statistikk for å overbevise, og nokre gonger er framstillinga villeiande, med eller utan hensikt. Ingen av dei tre påstandane over er rekna feil. Likevel lygjer dei alle, på kvar sin måte.\n\nI dette kapitlet skal du lære å avslØre villeiande diagram, vurdere om eit utval er representativt, og gjennomskoda villeiande bruk av gjennomsnitt og median. Kort sagt: du skal bli ein statistikk-detektiv.","e1fb5abfaf1ff324":"## Diagrammet som overdrivar\n\nLa oss undersøke det «eksploderande» salet. Diagrammet samanliknar to butikkar: A selde for $92\\,000$ kr og B for $98\\,000$ kr. Men andreaksen i diagrammet startar ikkje på null -- ho startar på $90\\,000$ kr.\n\nKva gjer det med søylene? Over aksestart stikk A opp $92\\,000 - 90\\,000 = 2\\,000$, medan B stikk opp $98\\,000 - 90\\,000 = 8\\,000$. Søylen til B *ser* dermed $\\frac{8\\,000}{2\\,000} = 4$ gonger så høg ut som søylen til A!\n\nDen reelle skilnaden? $\\frac{98\\,000 - 92\\,000}{92\\,000} = \\frac{6\\,000}{92\\,000} \\approx 6{,}5\\,\\%$. Ein skilnad på seks og ein halv prosent er forkledd som ein firedobling -- berre ved å kutte aksen.\n\nEit diagram er **villeiande** når det visuelle inntrykket ikkje stemmer med tala. Den **kutte andreaksen** er det vanlegaste trikset, men det finst fleire: **manipulert skala** med ujamne intervall langs aksane, og **feil figurbruk** der areal eller 3D-effektar overdrivar skilnader -- doblar du både høgda og breidda på ein figur, blir arealet fire gonger så stort, sjøl om verdien berre er dobla.\n\nDetektivregel nummer ein: *sjå alltid på kor aksane startar, før du ser på søylene.*","40eb036f591c0e2d":"Test deg sjølv på villeiande diagram:","4097889236a2af26":"placeholder","22a6354dc1225b23":"Kva er det vanlegaste trikset i villeiande diagram?","2baa3f15b68d2672":"Feil fargar på søylene","707912d119a2a02e":"Andreakse som ikkje startar på null","fa9fb039dee3202a":"For mange kategoriar","a516162bee825845":"Manglande overskrift","4536d14268cd7ed6":"Ein kuttet andreakse viser berre toppen av søylene, slik at små skilnader ser dramatiske ut.","bf9a678313325aba":"To søyler viser $92\\,000$ og $98\\,000$, og aksen startar på $90\\,000$. Kor mange gonger høgare ser den største søylen ut?","c46e1e3dc6b9273b":"$2$ gonger","e8e7e66ba33d3d71":"$3$ gonger","7e55af49614dc613":"$4$ gonger","420c7b3b2acd8949":"$6{,}5$ gonger","6e4a112b98bb0dbd":"Synlege høgder over aksestart: $2\\,000$ og $8\\,000$. $\\frac{8\\,000}{2\\,000} = 4$ -- ho ser fire gonger så høg ut, sjøl om reell skilnad berre er ca. $6{,}5\\,\\%$.","64dadeaf1ee8ed1a":"Verdien blir dobla, og i diagrammet blir både høgda og breidda på figuren dobla. Kor mange gonger større blir arealet?","6e1367ffc721826e":"$8$ gonger","f4f5c4c58d3a1620":"Areal er høgde gonger breidd, så $2 \\cdot 2 = 4$ gonger større areal -- auget oppfattar ein firedobling der verdien berre er dobla.","d73af72223254a58":"Kva bør du sjekke først når du ser eit søylediagram i ei reklame?","2a2b0db4f05b42d5":"Kva farge søylene har","18625044ec45cd80":"Kor aksane startar og om skalaen er jamn","283642805522ba37":"Om diagrammet er i 3D","9e3a47abc0acb71b":"Kor mange søyler det er","32f3ec82f6eb857f":"Aksestart og skala avgjer om det visuelle inntrykket stemmer med tala. Det er detektivregel nummer ein.","9667c4229c94aedd":"## Kven har dei eigentleg spurt?\n\nNeste sak: «75 % av norskjarar trenar minst tre gonger i veka.» Talet kjem frå ein treningsblogg som spurte lesarane sine, og $1\\,800$ av $2\\,400$ svarte ja. Reknestykkjet stemmer: $\\frac{1\\,800}{2\\,400} = 75\\,\\%$. So kva er problemet?\n\nProblemet er *kven* som vart spurt. Ein undersøking er berre pålitelig viss utvalet er **representativt** for gruppa ein vil seie noko om -- utvalet må likne på heile gruppa. Dei som les ein treningsblogg, trenar åpenbart langt meir enn gjennomsnittsnorskjaren. Utvalet er **skjevet**.\n\nOg det stoppar ikkje der. Kven giddar å svare på ei spørjeundersøking om trening? Mest dei som er engasjerte i trening. Dette kallast **sjølvval**: berre dei mest ivrige deltek, og resultatet skjevvridast enno meir. Konklusjonen «75 % av norskjarar» er ugyldig -- talet gjeld i beste fall bloggen sine mest engasjerte lesarar.\n\nDet finst fleire feilkjelder å sjå opp for. **For lite utval**: spør du berre ti personar, får tilfeldigheter enormt tyngd -- ein person utgjer $10$ prosentpoeng! Og **leiande spørsmål**: «Er du samd i at skulen bør slutte seinare, slik at ungdom får nok søvn?» dytjar svararen mot ja.\n\nDetektivregel nummer to: *spør alltid kven som er spurt, kor mange -- og korleis spørsmålet vart stilt.*","cfccb45d702d491e":"Test deg sjølv på utval og representativitet:","646cc03290c6a862":"Kva betyr det at eit utval er representativt?","5889e3c8f263a220":"At det er stort","732baccea7113a09":"At det liknar på heile gruppa ein vil seie noko om","688f856740d03a1d":"At alle har svart på alle spørsmål","ae110d05b574cbbc":"At det er valt av forskarar","44fae770420631dd":"Eit representativt utval spegler heile gruppa, slik at resultata kan generaliserast.","1384b4bb8ba943ff":"En gamingkanal spør sjåarane sine: «Spelar du meir enn to timar dagleg?» 80 % svarar ja, og kanalen konkluderer: «80 % av ungdom spelar over to timar dagleg.» Kva er hovudfelen?","168c6185a324020c":"Reknefeil i prosenten","4b1cd125802ebeea":"Utvalget er skjevt -- sjåarane av ein gamingkanal spelar meir enn ungdom flest","c1198d30ea7fccf7":"Spørsmålet er for kort","c50733fe7b923ba1":"For mange svarte","3d80eaa1e7d106f0":"Dei som fylgjer ein gamingkanal, er ikkje representative for all ungdom. I tillegg kjem sjølvseleksjon: dei ivraste svarar oftast.","ee4952651bef056e":"Kva er sjølvseleksjon?","8631a3c54d13e893":"At forskaren vel ut deltakarane sjølv","2069b93b3ac89048":"At utvalget blir trekt tilfeldig","2990096fee039601":"At berre dei mest engasjerte vel å delta","872408a5c34773d3":"At ein spør dei same personane to gonger","346e3d12482fd5d6":"Ved sjølvseleksjon bestemmer folk sjølv om dei vil svara -- og dei med sterke meiningar eller stor interesse deltek oftast, noko som skjevvrir resultatet.","a38b06a9f0c6082f":"Kvifor er eit utval på $10$ personar problematisk?","055ae34663c23f81":"Tilfeldigheiter får for stor betydning -- éin person utgjer 10 prosentpoeng","8d97e5da4dcb9b16":"Det er ulovleg å spørja så få","3165efa3b8d82be5":"Prosentrekning fungerer ikkje for små tal","cebb65d5089c09bd":"Små utval er alltid skjeve","5de1e5a0494321b8":"Med berre ti spurte kan eitt enkelt svar flytta resultatet med $10$ prosentpoeng. Tilfeldige utslag drunnar det reelle mønsteret.","92c92c835aabacbb":"## Talet som er sant, men likevel lurар deg\n\nSiste sak: stillingskunngjøringa med «Gjennomsnittslønnen ca. 500 000 kr». I bedrifta jobbar det ti personar: ni ansatte tener $420\\,000$ kr kvar, og leiaaren tener $1\\,200\\,000$ kr. La oss kontrollrekna:\n\n$$\\bar{x} = \\frac{9 \\cdot 420\\,000 + 1\\,200\\,000}{10} = \\frac{4\\,980\\,000}{10} = 498\\,000 \\text{ kr}$$\n\nTalet stemmer altså. Men kva kan ein ny ansatt faktisk venta? **Medianen** -- den midterste verdien -- er $420\\,000$ kr, og det er det $9$ av $10$ ansatte som tener. Leiarlønna er ein ekstremverdi som drar gjennomsnittet opp med nesten $80\\,000$ kr. Kunnjøringa er teknisk korrekt, men gjev eit vileiande inntrykk. Medianen ville vore honnørar.\n\nDette er eit generelt mønster: den som presenterer tal, kan *velja* det sentralmålet som passar bodskapen best. Gjennomsnittet blir dregne opp av nokre få høge verdiar; medianen viser den «typiske» verdien. Spør alltid: *kvar sentralmål er brukt -- og kvifor akkurat det?*\n\nTil slutt, den kanskje viktigaste feilen av alle: **korrelasjon er ikkje årsak**. At to storleikar fylgjer kvarandre, betyr ikkje at den eine forårsaker den andre. Klassikaren: iskremsal og druningsulykker stig samstundes kvar sommar. Fører iskrem til druning? Sjølvsagt ikkje -- begge skuldast ein tredje, **bakenforliggjande faktor**: sommarvarmen. Når du ser påstanden «X fører til Y», spør alltid: kan det finnast ein bakenforliggjande årsak som forklarar begge?","f43d9e8b4fe10a90":"Test deg sjølv på sentralmål og korrelasjon:","bce7f4cc57cc4141":"Ni ansatte tener $420\\,000$ kr og leiaaren $1\\,200\\,000$ kr. Kva er medianlønnen?","aa160c6375c2885a":"$498\\,000$ kr","fd93a5752aa134de":"$420\\,000$ kr","c092fc175713f882":"$810\\,000$ kr","e398e6206b8bf1e6":"$500\\,000$ kr","81176d4714fc1a6c":"Sortert er lønningane $420\\,000$ kr på dei ni første stadene. Medianen (gjennomsnittet av 5. og 6. verdi) er $420\\,000$ kr -- det dei aller fleste faktisk tener.","41d41b7d039e1ab0":"Kvifor kan ein bedrift foretrekka å oppgje gjennomsnittslønnen framfor medianlønnen i ein kunnjøring?","50fa5f12da690d8c":"Gjennomsnittet er alltid lågare","e112a379b651daea":"Medianen er vanskeleg å rekna ut","d528ecee0d6e25ab":"Nokre få høge lønningar drar gjennomsnittet opp, slik at bedrifta ser rausare ut","07ef42b0286f4862":"Gjennomsnittet er det einaste lovlege målet","8c65fe96a2a1731f":"Ekstremverdiar som leiarlønna drar gjennomsnittet opp. Medianen viser kva den typiske ansatte tener -- og er ofte honnørar.","47d40fd4d2fbbaa9":"Iskremsal og drununsulykker stig samstundes om sommaren. Kva er den beste forklaringa?","9325911b55eb5c4a":"Iskrem forårsaker druning","0bf54b9b097792a0":"Druning aukar iskremsal","fcc000ac8e1f4c75":"Ren tilfeldigheit utan mønster","bfcd88f26f471186":"Ein bakenforliggjande faktor -- sommarvarmen -- påverkar begge","e2201a82d46be48d":"Korrelasjon er ikkje årsak. Varmt vêr får fleire til både å kjøpe is og å bade -- ein tredje faktor forklarer samvariasjonen.","8cdd3f753693e990":"Du les: «Elevar med nyare mobil får betre karakterar -- ny mobil gir betre læring!» Kva bør statistikk-detektiven spørje om?","8a024d1ffa6fd445":"Kva mobilmerke som er best","75ef45fb14b07d58":"Om ein bakenforliggande faktor, som familiens økonomi, kan forklare begge delar","612fd435f091b2c2":"Kor mange pikslar kameraet har","6cddd8d2e7094c6c":"Om karakterane er rekna med gjennomsnitt","f1e6e43494c10bbe":"Samvariasjon beviser ikkje årsak. Ein tredje faktor -- til dømes familiens ressursar -- kan påverke både mobilkjøp og skuleresultat.","4d77033e21afbc68":"## Oppsummering\n\nTre påstandar frå feeden -- alle med korrekte tal, alle villedande. No har du verktøya til å avslørje dei.\n\nDet «eksploderande» salet var eit **misvislande diagram**: ein skoren andreakse fekk ein forskjell på $6{,}5\\,\\%$ til å sjå ut som ein firedubbling. Sjekk alltid kor aksane startar, om skalaen er jevn, og om figurar og 3D-effektar overdrifte.\n\nTreningstalet bygde på eit **skjevt utval** med **sjølvseleksjon**: bloggen sin ivrigaste lesarar kan ikkje representere «norsmenn». Ein undersøking er berre gyldig når utval er **representativt** -- og stort nok, med nøytralt formulerte spørsmål.\n\nLønnsannonsen valde sentralmål strategisk: leiar sin ekstremverdi drog **gjennomsnittet** opp til $498\\,000$ kr, medan **medianen** på $420\\,000$ kr viste den typiske lønna. Spør alltid kva mål som er brukt, og kvifor.\n\nOg hugs detektiven sin gylne regel: **korrelasjon er ikkje årsak** -- bak ein samvariasjon kan det gjøyme seg ein bakenforliggande faktor, slik sommarvarmen forklarte både iskremsal og drunkningsulykker.\n\nSjekklista di: Kor startar aksane? Kven er spurt, og kor mange? Kva sentralmål er brukt? Kan samanhengen ha ein annan forklaring? Med dei fire spørsmåla i lomma er du langt vanskelegare å lure."}}}
+{
+  "id": "1p-5-4-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "5.4",
+  "title": "Kritisk analyse av statistikk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljing om tal som lygjer -- om kutte aksar, skjeve utval og strategisk valde gjennomsnitt, og om korleis du avslører dei.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "lese, hente ut og vurdere matematikk i relevante tekstar",
+    "vurdere statistiske framstillingar kritisk"
+  ],
+  "linkedChapterId": "1p-5-4",
+  "content": [
+    {
+      "id": "1p-5-4-n-intro",
+      "type": "text",
+      "content": "## Kan tal lyge?\n\nDu scrollar gjennom feeden og stoppar ved eit innlegg: «Salet EKSPLODERER -- sjå diagrammet!» Grafen viser ein søyle som rasar fire gonger høgare enn naboen. Lengre ned i feeden: «75 % av norskjarar trenar minst tre gonger i veka.» Og ei annonse lokkar: «Gjennomsnittslønna ca. 500 000 kr!»\n\nTal og diagram verkar objektive -- dei ser ut som ren fakta. Men måten dei blir framstilte på, kan villede. Aviser, reklame og sosiale medium brukar statistikk for å overbevise, og nokre gonger er framstillinga villeiande, med eller utan hensikt. Ingen av dei tre påstandane over er rekna feil. Likevel lygjer dei alle, på kvar sin måte.\n\nI dette kapitlet skal du lære å avslØre villeiande diagram, vurdere om eit utval er representativt, og gjennomskoda villeiande bruk av gjennomsnitt og median. Kort sagt: du skal bli ein statistikk-detektiv."
+    },
+    {
+      "id": "1p-5-4-n-section1",
+      "type": "text",
+      "content": "## Diagrammet som overdrivar\n\nLa oss undersøke det «eksploderande» salet. Diagrammet samanliknar to butikkar: A selde for $92\\,000$ kr og B for $98\\,000$ kr. Men andreaksen i diagrammet startar ikkje på null -- ho startar på $90\\,000$ kr.\n\nKva gjer det med søylene? Over aksestart stikk A opp $92\\,000 - 90\\,000 = 2\\,000$, medan B stikk opp $98\\,000 - 90\\,000 = 8\\,000$. Søylen til B *ser* dermed $\\frac{8\\,000}{2\\,000} = 4$ gonger så høg ut som søylen til A!\n\nDen reelle skilnaden? $\\frac{98\\,000 - 92\\,000}{92\\,000} = \\frac{6\\,000}{92\\,000} \\approx 6{,}5\\,\\%$. Ein skilnad på seks og ein halv prosent er forkledd som ein firedobling -- berre ved å kutte aksen.\n\nEit diagram er **villeiande** når det visuelle inntrykket ikkje stemmer med tala. Den **kutte andreaksen** er det vanlegaste trikset, men det finst fleire: **manipulert skala** med ujamne intervall langs aksane, og **feil figurbruk** der areal eller 3D-effektar overdrivar skilnader -- doblar du både høgda og breidda på ein figur, blir arealet fire gonger så stort, sjøl om verdien berre er dobla.\n\nDetektivregel nummer ein: *sjå alltid på kor aksane startar, før du ser på søylene.*"
+    },
+    {
+      "id": "1p-5-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-5-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på villeiande diagram:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-5-4-n-quiz1-q0",
+            "task": "Kva er det vanlegaste trikset i villeiande diagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Feil fargar på søylene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Andreakse som ikkje startar på null",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "For mange kategoriar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Manglande overskrift",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein kuttet andreakse viser berre toppen av søylene, slik at små skilnader ser dramatiske ut."
+          },
+          {
+            "id": "1p-5-4-n-quiz1-q1",
+            "task": "To søyler viser $92\\,000$ og $98\\,000$, og aksen startar på $90\\,000$. Kor mange gonger høgare ser den største søylen ut?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$ gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$ gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$ gonger",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$6{,}5$ gonger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Synlege høgder over aksestart: $2\\,000$ og $8\\,000$. $\\frac{8\\,000}{2\\,000} = 4$ -- ho ser fire gonger så høg ut, sjøl om reell skilnad berre er ca. $6{,}5\\,\\%$."
+          },
+          {
+            "id": "1p-5-4-n-quiz1-q2",
+            "task": "Verdien blir dobla, og i diagrammet blir både høgda og breidda på figuren dobla. Kor mange gonger større blir arealet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$ gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$ gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8$ gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4$ gonger",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Areal er høgde gonger breidd, så $2 \\cdot 2 = 4$ gonger større areal -- auget oppfattar ein firedobling der verdien berre er dobla."
+          },
+          {
+            "id": "1p-5-4-n-quiz1-q3",
+            "task": "Kva bør du sjekke først når du ser eit søylediagram i ei reklame?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kor aksane startar og om skalaen er jamn",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Kva farge søylene har",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Om diagrammet er i 3D",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kor mange søyler det er",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Aksestart og skala avgjer om det visuelle inntrykket stemmer med tala. Det er detektivregel nummer ein."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-5-4-n-section2",
+      "type": "text",
+      "content": "## Kven har dei eigentleg spurt?\n\nNeste sak: «75 % av norskjarar trenar minst tre gonger i veka.» Talet kjem frå ein treningsblogg som spurte lesarane sine, og $1\\,800$ av $2\\,400$ svarte ja. Reknestykkjet stemmer: $\\frac{1\\,800}{2\\,400} = 75\\,\\%$. So kva er problemet?\n\nProblemet er *kven* som vart spurt. Ein undersøking er berre pålitelig viss utvalet er **representativt** for gruppa ein vil seie noko om -- utvalet må likne på heile gruppa. Dei som les ein treningsblogg, trenar åpenbart langt meir enn gjennomsnittsnorskjaren. Utvalet er **skjevet**.\n\nOg det stoppar ikkje der. Kven giddar å svare på ei spørjeundersøking om trening? Mest dei som er engasjerte i trening. Dette kallast **sjølvval**: berre dei mest ivrige deltek, og resultatet skjevvridast enno meir. Konklusjonen «75 % av norskjarar» er ugyldig -- talet gjeld i beste fall bloggen sine mest engasjerte lesarar.\n\nDet finst fleire feilkjelder å sjå opp for. **For lite utval**: spør du berre ti personar, får tilfeldigheter enormt tyngd -- ein person utgjer $10$ prosentpoeng! Og **leiande spørsmål**: «Er du samd i at skulen bør slutte seinare, slik at ungdom får nok søvn?» dytjar svararen mot ja.\n\nDetektivregel nummer to: *spør alltid kven som er spurt, kor mange -- og korleis spørsmålet vart stilt.*"
+    },
+    {
+      "id": "1p-5-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-5-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på utval og representativitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-5-4-n-quiz2-q0",
+            "task": "Kva betyr det at eit utval er representativt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At det er stort",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At det liknar på heile gruppa ein vil seie noko om",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "At alle har svart på alle spørsmål",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At det er valt av forskarar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit representativt utval spegler heile gruppa, slik at resultata kan generaliserast."
+          },
+          {
+            "id": "1p-5-4-n-quiz2-q1",
+            "task": "En gamingkanal spør sjåarane sine: «Spelar du meir enn to timar dagleg?» 80 % svarar ja, og kanalen konkluderer: «80 % av ungdom spelar over to timar dagleg.» Kva er hovudfelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Reknefeil i prosenten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spørsmålet er for kort",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Utvalget er skjevt -- sjåarane av ein gamingkanal spelar meir enn ungdom flest",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "For mange svarte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dei som fylgjer ein gamingkanal, er ikkje representative for all ungdom. I tillegg kjem sjølvseleksjon: dei ivraste svarar oftast."
+          },
+          {
+            "id": "1p-5-4-n-quiz2-q2",
+            "task": "Kva er sjølvseleksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At forskaren vel ut deltakarane sjølv",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At utvalget blir trekt tilfeldig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At ein spør dei same personane to gonger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At berre dei mest engasjerte vel å delta",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ved sjølvseleksjon bestemmer folk sjølv om dei vil svara -- og dei med sterke meiningar eller stor interesse deltek oftast, noko som skjevvrir resultatet."
+          },
+          {
+            "id": "1p-5-4-n-quiz2-q3",
+            "task": "Kvifor er eit utval på $10$ personar problematisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tilfeldigheiter får for stor betydning -- éin person utgjer 10 prosentpoeng",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det er ulovleg å spørja så få",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Prosentrekning fungerer ikkje for små tal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Små utval er alltid skjeve",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med berre ti spurte kan eitt enkelt svar flytta resultatet med $10$ prosentpoeng. Tilfeldige utslag drunnar det reelle mønsteret."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-5-4-n-section3",
+      "type": "text",
+      "content": "## Talet som er sant, men likevel lurар deg\n\nSiste sak: stillingskunngjøringa med «Gjennomsnittslønnen ca. 500 000 kr». I bedrifta jobbar det ti personar: ni ansatte tener $420\\,000$ kr kvar, og leiaaren tener $1\\,200\\,000$ kr. La oss kontrollrekna:\n\n$$\\bar{x} = \\frac{9 \\cdot 420\\,000 + 1\\,200\\,000}{10} = \\frac{4\\,980\\,000}{10} = 498\\,000 \\text{ kr}$$\n\nTalet stemmer altså. Men kva kan ein ny ansatt faktisk venta? **Medianen** -- den midterste verdien -- er $420\\,000$ kr, og det er det $9$ av $10$ ansatte som tener. Leiarlønna er ein ekstremverdi som drar gjennomsnittet opp med nesten $80\\,000$ kr. Kunnjøringa er teknisk korrekt, men gjev eit vileiande inntrykk. Medianen ville vore honnørar.\n\nDette er eit generelt mønster: den som presenterer tal, kan *velja* det sentralmålet som passar bodskapen best. Gjennomsnittet blir dregne opp av nokre få høge verdiar; medianen viser den «typiske» verdien. Spør alltid: *kvar sentralmål er brukt -- og kvifor akkurat det?*\n\nTil slutt, den kanskje viktigaste feilen av alle: **korrelasjon er ikkje årsak**. At to storleikar fylgjer kvarandre, betyr ikkje at den eine forårsaker den andre. Klassikaren: iskremsal og druningsulykker stig samstundes kvar sommar. Fører iskrem til druning? Sjølvsagt ikkje -- begge skuldast ein tredje, **bakenforliggjande faktor**: sommarvarmen. Når du ser påstanden «X fører til Y», spør alltid: kan det finnast ein bakenforliggjande årsak som forklarar begge?"
+    },
+    {
+      "id": "1p-5-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-5-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sentralmål og korrelasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-5-4-n-quiz3-q0",
+            "task": "Ni ansatte tener $420\\,000$ kr og leiaaren $1\\,200\\,000$ kr. Kva er medianlønnen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$498\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$420\\,000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$810\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$500\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sortert er lønningane $420\\,000$ kr på dei ni første stadene. Medianen (gjennomsnittet av 5. og 6. verdi) er $420\\,000$ kr -- det dei aller fleste faktisk tener."
+          },
+          {
+            "id": "1p-5-4-n-quiz3-q1",
+            "task": "Kvifor kan ein bedrift foretrekka å oppgje gjennomsnittslønnen framfor medianlønnen i ein kunnjøring?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjennomsnittet er alltid lågare",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Medianen er vanskeleg å rekna ut",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nokre få høge lønningar drar gjennomsnittet opp, slik at bedrifta ser rausare ut",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Gjennomsnittet er det einaste lovlege målet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ekstremverdiar som leiarlønna drar gjennomsnittet opp. Medianen viser kva den typiske ansatte tener -- og er ofte honnørar."
+          },
+          {
+            "id": "1p-5-4-n-quiz3-q2",
+            "task": "Iskremsal og drununsulykker stig samstundes om sommaren. Kva er den beste forklaringa?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Iskrem forårsaker druning",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Druning aukar iskremsal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ren tilfeldigheit utan mønster",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein bakenforliggjande faktor -- sommarvarmen -- påverkar begge",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Korrelasjon er ikkje årsak. Varmt vêr får fleire til både å kjøpe is og å bade -- ein tredje faktor forklarer samvariasjonen."
+          },
+          {
+            "id": "1p-5-4-n-quiz3-q3",
+            "task": "Du les: «Elevar med nyare mobil får betre karakterar -- ny mobil gir betre læring!» Kva bør statistikk-detektiven spørje om?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Om ein bakenforliggande faktor, som familiens økonomi, kan forklare begge delar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Kva mobilmerke som er best",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kor mange pikslar kameraet har",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Om karakterane er rekna med gjennomsnitt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Samvariasjon beviser ikkje årsak. Ein tredje faktor -- til dømes familiens ressursar -- kan påverke både mobilkjøp og skuleresultat."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-5-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nTre påstandar frå feeden -- alle med korrekte tal, alle villedande. No har du verktøya til å avslørje dei.\n\nDet «eksploderande» salet var eit **misvislande diagram**: ein skoren andreakse fekk ein forskjell på $6{,}5\\,\\%$ til å sjå ut som ein firedubbling. Sjekk alltid kor aksane startar, om skalaen er jevn, og om figurar og 3D-effektar overdrifte.\n\nTreningstalet bygde på eit **skjevt utval** med **sjølvseleksjon**: bloggen sin ivrigaste lesarar kan ikkje representere «norsmenn». Ein undersøking er berre gyldig når utval er **representativt** -- og stort nok, med nøytralt formulerte spørsmål.\n\nLønnsannonsen valde sentralmål strategisk: leiar sin ekstremverdi drog **gjennomsnittet** opp til $498\\,000$ kr, medan **medianen** på $420\\,000$ kr viste den typiske lønna. Spør alltid kva mål som er brukt, og kvifor.\n\nOg hugs detektiven sin gylne regel: **korrelasjon er ikkje årsak** -- bak ein samvariasjon kan det gjøyme seg ein bakenforliggande faktor, slik sommarvarmen forklarte både iskremsal og drunkningsulykker.\n\nSjekklista di: Kor startar aksane? Kven er spurt, og kor mange? Kva sentralmål er brukt? Kan samanhengen ha ein annan forklaring? Med dei fire spørsmåla i lomma er du langt vanskelegare å lure."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "76249366b07d5afa",
+    "translatedAt": "2026-06-16T09:54:31.536Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 88,
+    "tm": {
+      "9a26ac31c7cf36f3": "Kritisk analyse av statistikk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "77026ad72d3ab453": "Ein forteljing om tal som lygjer -- om kutte aksar, skjeve utval og strategisk valde gjennomsnitt, og om korleis du avslører dei.",
+      "96d4dc80d419876a": "lese, hente ut og vurdere matematikk i relevante tekstar",
+      "97d709e342e77f87": "vurdere statistiske framstillingar kritisk",
+      "90cbbf50b8e6eedb": "## Kan tal lyge?\n\nDu scrollar gjennom feeden og stoppar ved eit innlegg: «Salet EKSPLODERER -- sjå diagrammet!» Grafen viser ein søyle som rasar fire gonger høgare enn naboen. Lengre ned i feeden: «75 % av norskjarar trenar minst tre gonger i veka.» Og ei annonse lokkar: «Gjennomsnittslønna ca. 500 000 kr!»\n\nTal og diagram verkar objektive -- dei ser ut som ren fakta. Men måten dei blir framstilte på, kan villede. Aviser, reklame og sosiale medium brukar statistikk for å overbevise, og nokre gonger er framstillinga villeiande, med eller utan hensikt. Ingen av dei tre påstandane over er rekna feil. Likevel lygjer dei alle, på kvar sin måte.\n\nI dette kapitlet skal du lære å avslØre villeiande diagram, vurdere om eit utval er representativt, og gjennomskoda villeiande bruk av gjennomsnitt og median. Kort sagt: du skal bli ein statistikk-detektiv.",
+      "e1fb5abfaf1ff324": "## Diagrammet som overdrivar\n\nLa oss undersøke det «eksploderande» salet. Diagrammet samanliknar to butikkar: A selde for $92\\,000$ kr og B for $98\\,000$ kr. Men andreaksen i diagrammet startar ikkje på null -- ho startar på $90\\,000$ kr.\n\nKva gjer det med søylene? Over aksestart stikk A opp $92\\,000 - 90\\,000 = 2\\,000$, medan B stikk opp $98\\,000 - 90\\,000 = 8\\,000$. Søylen til B *ser* dermed $\\frac{8\\,000}{2\\,000} = 4$ gonger så høg ut som søylen til A!\n\nDen reelle skilnaden? $\\frac{98\\,000 - 92\\,000}{92\\,000} = \\frac{6\\,000}{92\\,000} \\approx 6{,}5\\,\\%$. Ein skilnad på seks og ein halv prosent er forkledd som ein firedobling -- berre ved å kutte aksen.\n\nEit diagram er **villeiande** når det visuelle inntrykket ikkje stemmer med tala. Den **kutte andreaksen** er det vanlegaste trikset, men det finst fleire: **manipulert skala** med ujamne intervall langs aksane, og **feil figurbruk** der areal eller 3D-effektar overdrivar skilnader -- doblar du både høgda og breidda på ein figur, blir arealet fire gonger så stort, sjøl om verdien berre er dobla.\n\nDetektivregel nummer ein: *sjå alltid på kor aksane startar, før du ser på søylene.*",
+      "40eb036f591c0e2d": "Test deg sjølv på villeiande diagram:",
+      "4097889236a2af26": "placeholder",
+      "22a6354dc1225b23": "Kva er det vanlegaste trikset i villeiande diagram?",
+      "2baa3f15b68d2672": "Feil fargar på søylene",
+      "707912d119a2a02e": "Andreakse som ikkje startar på null",
+      "fa9fb039dee3202a": "For mange kategoriar",
+      "a516162bee825845": "Manglande overskrift",
+      "4536d14268cd7ed6": "Ein kuttet andreakse viser berre toppen av søylene, slik at små skilnader ser dramatiske ut.",
+      "bf9a678313325aba": "To søyler viser $92\\,000$ og $98\\,000$, og aksen startar på $90\\,000$. Kor mange gonger høgare ser den største søylen ut?",
+      "c46e1e3dc6b9273b": "$2$ gonger",
+      "e8e7e66ba33d3d71": "$3$ gonger",
+      "7e55af49614dc613": "$4$ gonger",
+      "420c7b3b2acd8949": "$6{,}5$ gonger",
+      "6e4a112b98bb0dbd": "Synlege høgder over aksestart: $2\\,000$ og $8\\,000$. $\\frac{8\\,000}{2\\,000} = 4$ -- ho ser fire gonger så høg ut, sjøl om reell skilnad berre er ca. $6{,}5\\,\\%$.",
+      "64dadeaf1ee8ed1a": "Verdien blir dobla, og i diagrammet blir både høgda og breidda på figuren dobla. Kor mange gonger større blir arealet?",
+      "6e1367ffc721826e": "$8$ gonger",
+      "f4f5c4c58d3a1620": "Areal er høgde gonger breidd, så $2 \\cdot 2 = 4$ gonger større areal -- auget oppfattar ein firedobling der verdien berre er dobla.",
+      "d73af72223254a58": "Kva bør du sjekke først når du ser eit søylediagram i ei reklame?",
+      "2a2b0db4f05b42d5": "Kva farge søylene har",
+      "18625044ec45cd80": "Kor aksane startar og om skalaen er jamn",
+      "283642805522ba37": "Om diagrammet er i 3D",
+      "9e3a47abc0acb71b": "Kor mange søyler det er",
+      "32f3ec82f6eb857f": "Aksestart og skala avgjer om det visuelle inntrykket stemmer med tala. Det er detektivregel nummer ein.",
+      "9667c4229c94aedd": "## Kven har dei eigentleg spurt?\n\nNeste sak: «75 % av norskjarar trenar minst tre gonger i veka.» Talet kjem frå ein treningsblogg som spurte lesarane sine, og $1\\,800$ av $2\\,400$ svarte ja. Reknestykkjet stemmer: $\\frac{1\\,800}{2\\,400} = 75\\,\\%$. So kva er problemet?\n\nProblemet er *kven* som vart spurt. Ein undersøking er berre pålitelig viss utvalet er **representativt** for gruppa ein vil seie noko om -- utvalet må likne på heile gruppa. Dei som les ein treningsblogg, trenar åpenbart langt meir enn gjennomsnittsnorskjaren. Utvalet er **skjevet**.\n\nOg det stoppar ikkje der. Kven giddar å svare på ei spørjeundersøking om trening? Mest dei som er engasjerte i trening. Dette kallast **sjølvval**: berre dei mest ivrige deltek, og resultatet skjevvridast enno meir. Konklusjonen «75 % av norskjarar» er ugyldig -- talet gjeld i beste fall bloggen sine mest engasjerte lesarar.\n\nDet finst fleire feilkjelder å sjå opp for. **For lite utval**: spør du berre ti personar, får tilfeldigheter enormt tyngd -- ein person utgjer $10$ prosentpoeng! Og **leiande spørsmål**: «Er du samd i at skulen bør slutte seinare, slik at ungdom får nok søvn?» dytjar svararen mot ja.\n\nDetektivregel nummer to: *spør alltid kven som er spurt, kor mange -- og korleis spørsmålet vart stilt.*",
+      "cfccb45d702d491e": "Test deg sjølv på utval og representativitet:",
+      "646cc03290c6a862": "Kva betyr det at eit utval er representativt?",
+      "5889e3c8f263a220": "At det er stort",
+      "732baccea7113a09": "At det liknar på heile gruppa ein vil seie noko om",
+      "688f856740d03a1d": "At alle har svart på alle spørsmål",
+      "ae110d05b574cbbc": "At det er valt av forskarar",
+      "44fae770420631dd": "Eit representativt utval spegler heile gruppa, slik at resultata kan generaliserast.",
+      "1384b4bb8ba943ff": "En gamingkanal spør sjåarane sine: «Spelar du meir enn to timar dagleg?» 80 % svarar ja, og kanalen konkluderer: «80 % av ungdom spelar over to timar dagleg.» Kva er hovudfelen?",
+      "168c6185a324020c": "Reknefeil i prosenten",
+      "4b1cd125802ebeea": "Utvalget er skjevt -- sjåarane av ein gamingkanal spelar meir enn ungdom flest",
+      "c1198d30ea7fccf7": "Spørsmålet er for kort",
+      "c50733fe7b923ba1": "For mange svarte",
+      "3d80eaa1e7d106f0": "Dei som fylgjer ein gamingkanal, er ikkje representative for all ungdom. I tillegg kjem sjølvseleksjon: dei ivraste svarar oftast.",
+      "ee4952651bef056e": "Kva er sjølvseleksjon?",
+      "8631a3c54d13e893": "At forskaren vel ut deltakarane sjølv",
+      "2069b93b3ac89048": "At utvalget blir trekt tilfeldig",
+      "2990096fee039601": "At berre dei mest engasjerte vel å delta",
+      "872408a5c34773d3": "At ein spør dei same personane to gonger",
+      "346e3d12482fd5d6": "Ved sjølvseleksjon bestemmer folk sjølv om dei vil svara -- og dei med sterke meiningar eller stor interesse deltek oftast, noko som skjevvrir resultatet.",
+      "a38b06a9f0c6082f": "Kvifor er eit utval på $10$ personar problematisk?",
+      "055ae34663c23f81": "Tilfeldigheiter får for stor betydning -- éin person utgjer 10 prosentpoeng",
+      "8d97e5da4dcb9b16": "Det er ulovleg å spørja så få",
+      "3165efa3b8d82be5": "Prosentrekning fungerer ikkje for små tal",
+      "cebb65d5089c09bd": "Små utval er alltid skjeve",
+      "5de1e5a0494321b8": "Med berre ti spurte kan eitt enkelt svar flytta resultatet med $10$ prosentpoeng. Tilfeldige utslag drunnar det reelle mønsteret.",
+      "92c92c835aabacbb": "## Talet som er sant, men likevel lurар deg\n\nSiste sak: stillingskunngjøringa med «Gjennomsnittslønnen ca. 500 000 kr». I bedrifta jobbar det ti personar: ni ansatte tener $420\\,000$ kr kvar, og leiaaren tener $1\\,200\\,000$ kr. La oss kontrollrekna:\n\n$$\\bar{x} = \\frac{9 \\cdot 420\\,000 + 1\\,200\\,000}{10} = \\frac{4\\,980\\,000}{10} = 498\\,000 \\text{ kr}$$\n\nTalet stemmer altså. Men kva kan ein ny ansatt faktisk venta? **Medianen** -- den midterste verdien -- er $420\\,000$ kr, og det er det $9$ av $10$ ansatte som tener. Leiarlønna er ein ekstremverdi som drar gjennomsnittet opp med nesten $80\\,000$ kr. Kunnjøringa er teknisk korrekt, men gjev eit vileiande inntrykk. Medianen ville vore honnørar.\n\nDette er eit generelt mønster: den som presenterer tal, kan *velja* det sentralmålet som passar bodskapen best. Gjennomsnittet blir dregne opp av nokre få høge verdiar; medianen viser den «typiske» verdien. Spør alltid: *kvar sentralmål er brukt -- og kvifor akkurat det?*\n\nTil slutt, den kanskje viktigaste feilen av alle: **korrelasjon er ikkje årsak**. At to storleikar fylgjer kvarandre, betyr ikkje at den eine forårsaker den andre. Klassikaren: iskremsal og druningsulykker stig samstundes kvar sommar. Fører iskrem til druning? Sjølvsagt ikkje -- begge skuldast ein tredje, **bakenforliggjande faktor**: sommarvarmen. Når du ser påstanden «X fører til Y», spør alltid: kan det finnast ein bakenforliggjande årsak som forklarar begge?",
+      "f43d9e8b4fe10a90": "Test deg sjølv på sentralmål og korrelasjon:",
+      "bce7f4cc57cc4141": "Ni ansatte tener $420\\,000$ kr og leiaaren $1\\,200\\,000$ kr. Kva er medianlønnen?",
+      "aa160c6375c2885a": "$498\\,000$ kr",
+      "fd93a5752aa134de": "$420\\,000$ kr",
+      "c092fc175713f882": "$810\\,000$ kr",
+      "e398e6206b8bf1e6": "$500\\,000$ kr",
+      "81176d4714fc1a6c": "Sortert er lønningane $420\\,000$ kr på dei ni første stadene. Medianen (gjennomsnittet av 5. og 6. verdi) er $420\\,000$ kr -- det dei aller fleste faktisk tener.",
+      "41d41b7d039e1ab0": "Kvifor kan ein bedrift foretrekka å oppgje gjennomsnittslønnen framfor medianlønnen i ein kunnjøring?",
+      "50fa5f12da690d8c": "Gjennomsnittet er alltid lågare",
+      "e112a379b651daea": "Medianen er vanskeleg å rekna ut",
+      "d528ecee0d6e25ab": "Nokre få høge lønningar drar gjennomsnittet opp, slik at bedrifta ser rausare ut",
+      "07ef42b0286f4862": "Gjennomsnittet er det einaste lovlege målet",
+      "8c65fe96a2a1731f": "Ekstremverdiar som leiarlønna drar gjennomsnittet opp. Medianen viser kva den typiske ansatte tener -- og er ofte honnørar.",
+      "47d40fd4d2fbbaa9": "Iskremsal og drununsulykker stig samstundes om sommaren. Kva er den beste forklaringa?",
+      "9325911b55eb5c4a": "Iskrem forårsaker druning",
+      "0bf54b9b097792a0": "Druning aukar iskremsal",
+      "fcc000ac8e1f4c75": "Ren tilfeldigheit utan mønster",
+      "bfcd88f26f471186": "Ein bakenforliggjande faktor -- sommarvarmen -- påverkar begge",
+      "e2201a82d46be48d": "Korrelasjon er ikkje årsak. Varmt vêr får fleire til både å kjøpe is og å bade -- ein tredje faktor forklarer samvariasjonen.",
+      "8cdd3f753693e990": "Du les: «Elevar med nyare mobil får betre karakterar -- ny mobil gir betre læring!» Kva bør statistikk-detektiven spørje om?",
+      "8a024d1ffa6fd445": "Kva mobilmerke som er best",
+      "75ef45fb14b07d58": "Om ein bakenforliggande faktor, som familiens økonomi, kan forklare begge delar",
+      "612fd435f091b2c2": "Kor mange pikslar kameraet har",
+      "6cddd8d2e7094c6c": "Om karakterane er rekna med gjennomsnitt",
+      "f1e6e43494c10bbe": "Samvariasjon beviser ikkje årsak. Ein tredje faktor -- til dømes familiens ressursar -- kan påverke både mobilkjøp og skuleresultat.",
+      "4d77033e21afbc68": "## Oppsummering\n\nTre påstandar frå feeden -- alle med korrekte tal, alle villedande. No har du verktøya til å avslørje dei.\n\nDet «eksploderande» salet var eit **misvislande diagram**: ein skoren andreakse fekk ein forskjell på $6{,}5\\,\\%$ til å sjå ut som ein firedubbling. Sjekk alltid kor aksane startar, om skalaen er jevn, og om figurar og 3D-effektar overdrifte.\n\nTreningstalet bygde på eit **skjevt utval** med **sjølvseleksjon**: bloggen sin ivrigaste lesarar kan ikkje representere «norsmenn». Ein undersøking er berre gyldig når utval er **representativt** -- og stort nok, med nøytralt formulerte spørsmål.\n\nLønnsannonsen valde sentralmål strategisk: leiar sin ekstremverdi drog **gjennomsnittet** opp til $498\\,000$ kr, medan **medianen** på $420\\,000$ kr viste den typiske lønna. Spør alltid kva mål som er brukt, og kvifor.\n\nOg hugs detektiven sin gylne regel: **korrelasjon er ikkje årsak** -- bak ein samvariasjon kan det gjøyme seg ein bakenforliggande faktor, slik sommarvarmen forklarte både iskremsal og drunkningsulykker.\n\nSjekklista di: Kor startar aksane? Kven er spurt, og kor mange? Kva sentralmål er brukt? Kan samanhengen ha ein annan forklaring? Med dei fire spørsmåla i lomma er du langt vanskelegare å lure."
+    }
+  }
+}

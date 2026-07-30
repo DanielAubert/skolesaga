@@ -1,1 +1,449 @@
-{"id":"2p-2-1-narrativ","courseId":"2p","chapterNumber":"2.1","title":"Lineære modeller","subtitle":"Narrativ versjon","description":"Opplev hvordan rette linjer kan beskrive alt fra mobilabonnementer til treningssenter-priser. En fortelling om stigningstall, konstantledd og skjæringspunkter -- matematikk du bruker hver dag uten å tenke over det.","estimatedMinutes":35,"competenceGoals":["forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy","utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tankemåtene sine"],"linkedChapterId":"2p-2-1","content":[{"id":"2p-2-1-n-intro","type":"text","content":"## Lineære modeller -- rette linjer som beskriver virkeligheten\n\nTenk deg at du skal kjøpe nytt mobilabonnement. Tilbudet sier 149 kroner i måneden, pluss 49 kroner per gigabyte data. Du lurer på hva regningen blir hvis du bruker 3 gigabyte -- eller 10. Du trenger egentlig ikke matematikk for å svare, du kan bare multiplisere og legge sammen. Men det er nettopp det som *er* matematikken: å sette opp en regel som fungerer for *alle* mulige verdier.\n\nI dette kapittelet skal vi se at overraskende mange sammenhenger i hverdagen kan beskrives av den enkleste funksjonstypen som finnes: den lineære funksjonen. Fra taxiturer og leiebiler til bedrifters produksjonskostnader og spareavtaler -- mønsteret er det samme: en fast grunnpris pluss en kostnad som vokser jevnt."},{"id":"2p-2-1-n-section1","type":"text","content":"## Den lineære funksjonen -- hva er det egentlig?\n\nEn lineær funksjon har alltid formen $f(x) = ax + b$. Det er bare to tall som bestemmer alt: $a$ og $b$. La oss forstå hva de betyr.\n\n**Stigningstallet $a$** forteller hvor mye $y$ endres når $x$ øker med 1. Tenk på det som prisen per enhet. I mobilabonnement-eksempelet er $a = 49$ -- kostnaden øker med 49 kroner for hver ekstra gigabyte. Hvis $a$ er positivt, stiger grafen. Hvis $a$ er negativt, synker den. Og jo større $|a|$ er, desto brattere er linjen.\n\n**Konstantleddet $b$** er verdien av funksjonen når $x = 0$. Det er grunnprisen -- det du betaler uansett, før du har brukt en eneste gigabyte. I vårt eksempel er $b = 149$ kroner.\n\nSett sammen blir modellen: $f(x) = 49x + 149$. Vil du vite hva 5 gigabyte koster? Sett inn: $f(5) = 49 \\cdot 5 + 149 = 245 + 149 = 394$ kroner.\n\nHvis du kjenner to punkter på grafen, kan du finne stigningstallet med formelen $a = \\frac{y_2 - y_1}{x_2 - x_1}$. Det er rett og slett endringen i $y$ delt på endringen i $x$ -- hvor mye funksjonen stiger per skritt i $x$-retningen. Tenk på en taxi: startprisen er 60 kroner, og det koster 15 kroner per kilometer. Da er $f(x) = 15x + 60$. En tur på 12 kilometer koster $f(12) = 15 \\cdot 12 + 60 = 180 + 60 = 240$ kroner."},{"id":"2p-2-1-n-quiz1","type":"exercise","exercise":{"id":"2p-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på lineære funksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-1-n-quiz1-q0","task":"Et leiebilselskap tar 500 kr per dag pluss 3,50 kr per km. Du kjører 200 km på én dag. Hva blir totalkostnaden?","options":[{"id":"a","text":"700 kr","isCorrect":false},{"id":"b","text":"1 000 kr","isCorrect":false},{"id":"c","text":"1 200 kr","isCorrect":true},{"id":"d","text":"850 kr","isCorrect":false}],"solution":"$f(200) = 3{,}50 \\cdot 200 + 500 = 700 + 500 = 1\\,200$ kr."},{"id":"2p-2-1-n-quiz1-q1","task":"I funksjonen $f(x) = 49x + 149$ for et mobilabonnement, hva representerer tallet 149?","options":[{"id":"a","text":"Prisen per gigabyte","isCorrect":false},{"id":"b","text":"Den faste månedsprisen (konstantleddet)","isCorrect":true},{"id":"c","text":"Antall gigabyte inkludert","isCorrect":false},{"id":"d","text":"Stigningstallet","isCorrect":false}],"solution":"Konstantleddet $b = 149$ er verdien av funksjonen når $x = 0$, altså grunnprisen du betaler uansett -- den faste månedskostnaden."},{"id":"2p-2-1-n-quiz1-q2","task":"En taxi har startpris 60 kr og koster 15 kr per km. Hva koster en tur på 12 km?","options":[{"id":"a","text":"180 kr","isCorrect":false},{"id":"b","text":"240 kr","isCorrect":true},{"id":"c","text":"195 kr","isCorrect":false},{"id":"d","text":"120 kr","isCorrect":false}],"solution":"$f(12) = 15 \\cdot 12 + 60 = 180 + 60 = 240$ kr."}],"solution":""}},{"id":"2p-2-1-n-section2","type":"text","content":"## Finne funksjonsuttrykk fra to punkter\n\nOfte kjenner vi ikke formelen direkte -- vi har bare noen tallverdier. En svømmehall forteller deg at 5 besøk koster 350 kroner og 12 besøk koster 630 kroner. Kan vi finne en formel?\n\nJa! Vi har to punkter: $(5, 350)$ og $(12, 630)$. Først finner vi stigningstallet: $a = \\frac{630 - 350}{12 - 5} = \\frac{280}{7} = 40$. Det koster altså 40 kroner per besøk.\n\nDeretter finner vi konstantleddet. Vi setter inn ett av punktene i $y = 40x + b$: $350 = 40 \\cdot 5 + b$, som gir $b = 350 - 200 = 150$. Modellen blir $f(x) = 40x + 150$.\n\nHva betyr det at $b = 150$? Det er kostnaden selv om du ikke har besøkt svømmehallen -- kanskje en årskortavgift. Og 40 kroner per besøk er det du betaler i tillegg hver gang du dukker opp.\n\nLa oss prøve et lignende eksempel med strøm. En leverandør tar 850 kroner for 100 kWh og 1 450 kroner for 300 kWh. Stigningstallet: $a = \\frac{1\\,450 - 850}{300 - 100} = \\frac{600}{200} = 3$ kroner per kWh. Konstantleddet: $850 = 3 \\cdot 100 + b$, altså $b = 550$. Modellen er $f(x) = 3x + 550$. Den faste månedsprisen er 550 kroner, og strømmen koster 3 kroner per kilowattime."},{"id":"2p-2-1-n-quiz2","type":"exercise","exercise":{"id":"2p-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på funksjonsuttrykk fra to punkter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-1-n-quiz2-q0","task":"Du vet at $f(2) = 100$ og $f(8) = 280$ for en lineær funksjon $f(x) = ax + b$. Hva er stigningstallet $a$?","options":[{"id":"a","text":"$a = 40$","isCorrect":false},{"id":"b","text":"$a = 30$","isCorrect":true},{"id":"c","text":"$a = 25$","isCorrect":false},{"id":"d","text":"$a = 45$","isCorrect":false}],"solution":"$a = (280 - 100) / (8 - 2) = 180 / 6 = 30$. Stigningstallet er endringen i $y$ delt på endringen i $x$."},{"id":"2p-2-1-n-quiz2-q1","task":"Med $a = 30$ og punktet $(2, 100)$, hva er konstantleddet $b$?","options":[{"id":"a","text":"$b = 40$","isCorrect":true},{"id":"b","text":"$b = 70$","isCorrect":false},{"id":"c","text":"$b = 100$","isCorrect":false},{"id":"d","text":"$b = 160$","isCorrect":false}],"solution":"Vi setter inn i $y = ax + b$: $100 = 30 \\cdot 2 + b$, altså $b = 100 - 60 = 40$."}],"solution":""}},{"id":"2p-2-1-n-section3","type":"text","content":"## Skjæringspunkter -- når to linjer møtes\n\nKanskje det mest nyttige med lineære modeller er at vi kan *sammenligne* to alternativer. Tenk deg at du vurderer to mobilabonnementer: Abonnement A koster 199 kroner i måneden pluss 9 kroner per gigabyte. Abonnement B koster 349 kroner flat, med fri data.\n\nVi setter opp modellene: $A(x) = 9x + 199$ og $B(x) = 349$. Når er de like dyre? Vi løser $9x + 199 = 349$, som gir $9x = 150$ og $x \\approx 16{,}7$ gigabyte.\n\nBruker du under 17 GB i måneden, er A billigst. Bruker du mer, lønner B seg. *Det* er skjæringspunktet -- der de to grafene krysser hverandre, og der beslutningen tipper.\n\nSamme prinsipp gjelder for treningssentre. Senter X tar 299 kroner per måned uten binding. Senter Y krever 3 000 kroner i innmeldingsavgift, men bare 199 kroner per måned etterpå. Modellene for *total* kostnad etter $x$ måneder: $X(x) = 299x$ og $Y(x) = 199x + 3\\,000$.\n\nSkjæringspunktet: $299x = 199x + 3\\,000$, altså $100x = 3\\,000$ og $x = 30$ måneder. Først etter 2,5 år har Y blitt billigere enn X. Etter bare 12 måneder er X (3 588 kr) langt billigere enn Y (5 388 kr).\n\nOg **nullpunktet** -- der en funksjon krysser $x$-aksen -- finner vi ved å sette $f(x) = 0$. For $f(x) = -3x + 12$: $-3x + 12 = 0$ gir $x = 4$. Det er den $x$-verdien der funksjonen skifter fortegn."},{"id":"2p-2-1-n-quiz3","type":"exercise","exercise":{"id":"2p-2-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på skjæringspunkter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-1-n-quiz3-q0","task":"Senter X koster 299 kr/mnd og senter Y koster 199 kr/mnd + 3 000 kr innmelding. Etter hvor mange måneder er Y billigere?","options":[{"id":"a","text":"10 måneder","isCorrect":false},{"id":"b","text":"20 måneder","isCorrect":false},{"id":"c","text":"30 måneder","isCorrect":true},{"id":"d","text":"15 måneder","isCorrect":false}],"solution":"$299x = 199x + 3\\,000 \\Rightarrow 100x = 3\\,000 \\Rightarrow x = 30$ måneder."},{"id":"2p-2-1-n-quiz3-q1","task":"Hva finner du i skjæringspunktet mellom to lineære funksjoner?","options":[{"id":"a","text":"Der den ene funksjonen er dobbelt så stor som den andre","isCorrect":false},{"id":"b","text":"Der begge funksjonene krysser $x$-aksen","isCorrect":false},{"id":"c","text":"Der de to funksjonene har lik verdi -- altså der alternativene koster like mye","isCorrect":true},{"id":"d","text":"Der begge funksjonene er null","isCorrect":false}],"solution":"Skjæringspunktet er der de to grafene møtes, altså der funksjonsverdiene er like: $f(x) = g(x)$. I praksis er det punktet der to alternativer koster nøyaktig like mye."}],"solution":""}},{"id":"2p-2-1-n-section4","type":"text","content":"## Likningssett -- to ukjente, to likninger\n\nNoen ganger har vi to ukjente størrelser. På en kantine koster en baguett og en juice til sammen 95 kroner. To baguetter og en juice koster 145 kroner. Hva koster hver?\n\nVi kaller baguettprisen $b$ og juiceprisen $j$, og setter opp to likninger:\n- $b + j = 95$ ... (1)\n- $2b + j = 145$ ... (2)\n\n**Addisjonsmetoden** er elegant her. Trekk likning (1) fra likning (2): $(2b + j) - (b + j) = 145 - 95$, som gir $b = 50$. Sett inn i (1): $50 + j = 95$, altså $j = 45$. En baguett koster 50 kroner og en juice 45 kroner.\n\n**Innsettingsmetoden** fungerer også. Fra (1): $j = 95 - b$. Sett inn i (2): $2b + (95 - b) = 145$, som gir $b + 95 = 145$ og $b = 50$. Samme svar.\n\nEt kinobillett-eksempel: voksen pluss barn koster 180 kroner. Tre voksne og to barn koster 470 kroner. Likningene: $v + b = 180$ og $3v + 2b = 470$. Fra den første: $b = 180 - v$. Sett inn: $3v + 2(180 - v) = 470$, altså $3v + 360 - 2v = 470$, som gir $v = 110$ og $b = 70$. Voksenbillett: 110 kroner, barnebillett: 70 kroner.\n\nDu kan også løse likningssett **grafisk** -- tegn begge linjene og les av skjæringspunktet. Det gir samme svar, men er ofte mindre presist enn algebraisk løsning."},{"id":"2p-2-1-n-quiz4","type":"exercise","exercise":{"id":"2p-2-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på likningssett:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-1-n-quiz4-q0","task":"Et likningssett: $x + y = 10$ og $3x + y = 22$. Hva er verdien av $x$?","options":[{"id":"a","text":"$x = 4$","isCorrect":false},{"id":"b","text":"$x = 6$","isCorrect":true},{"id":"c","text":"$x = 8$","isCorrect":false},{"id":"d","text":"$x = 5$","isCorrect":false}],"solution":"Trekk likning 1 fra likning 2: $(3x + y) - (x + y) = 22 - 10$, altså $2x = 12$ og $x = 6$."},{"id":"2p-2-1-n-quiz4-q1","task":"Med $x = 6$ i likningene over, hva er verdien av $y$?","options":[{"id":"a","text":"$y = 4$","isCorrect":true},{"id":"b","text":"$y = 6$","isCorrect":false},{"id":"c","text":"$y = 16$","isCorrect":false},{"id":"d","text":"$y = 10$","isCorrect":false}],"solution":"Sett inn $x = 6$ i likning 1: $6 + y = 10$, altså $y = 4$."}],"solution":""}},{"id":"2p-2-1-n-section5","type":"text","content":"## Lineære modeller i næringslivet\n\nLa oss avslutte med å se hvordan bedrifter bruker lineære modeller. En bedrift produserer lamper med faste kostnader på 60 000 kroner per måned (leie, lønn, utstyr) og variable kostnader på 120 kroner per lampe (materialer). Salgsprisen er 250 kroner per lampe.\n\nVi setter opp modellene: Inntekten er $I(x) = 250x$ og totalkostnaden er $TK(x) = 120x + 60\\,000$.\n\n**Nullpunktomsetningen** -- der inntekten akkurat dekker kostnadene -- finner vi ved å sette $I(x) = TK(x)$: $250x = 120x + 60\\,000$, som gir $130x = 60\\,000$ og $x \\approx 462$ lamper. Produserer bedriften færre enn 462 lamper, går den med tap. Produserer den flere, tjener den penger.\n\nOverskuddet ved 600 lamper: $R(600) = I(600) - TK(600) = 150\\,000 - (72\\,000 + 60\\,000) = 150\\,000 - 132\\,000 = 18\\,000$ kroner.\n\nEller tenk på valget mellom elbil og bensinbil. Elbil: 350 000 kroner i kjøpspris, 0,30 kr per km. Bensinbil: 250 000 kroner, 1,10 kr per km. $E(x) = 0{,}30x + 350\\,000$ og $B(x) = 1{,}10x + 250\\,000$. Skjæringspunkt: $0{,}30x + 350\\,000 = 1{,}10x + 250\\,000$, som gir $0{,}80x = 100\\,000$ og $x = 125\\,000$ km. Kjører du 15 000 km i året, tar det $125\\,000 / 15\\,000 \\approx 8{,}3$ år før elbilen er billigere totalt sett.\n\nLineære modeller er kanskje enkle, men de er overraskende kraftige. Neste gang du sammenligner to tilbud -- et abonnement, en forsikring, en strømleverandør -- prøv å sette opp lineære modeller og finn skjæringspunktet. Det kan spare deg for mye penger."},{"id":"2p-2-1-n-quiz5","type":"exercise","exercise":{"id":"2p-2-1-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på lineære modeller i næringslivet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-2-1-n-quiz5-q0","task":"En bedrift har inntekt $I(x) = 300x$ og kostnad $TK(x) = 180x + 48\\,000$. Hvor mange enheter må de selge for å gå i null?","options":[{"id":"a","text":"200 enheter","isCorrect":false},{"id":"b","text":"400 enheter","isCorrect":true},{"id":"c","text":"160 enheter","isCorrect":false},{"id":"d","text":"267 enheter","isCorrect":false}],"solution":"$300x = 180x + 48\\,000 \\Rightarrow 120x = 48\\,000 \\Rightarrow x = 400$ enheter."},{"id":"2p-2-1-n-quiz5-q1","task":"Hva er overskuddet ved salg av 600 lamper med $I(x) = 250x$ og $TK(x) = 120x + 60\\,000$?","options":[{"id":"a","text":"18 000 kr","isCorrect":true},{"id":"b","text":"78 000 kr","isCorrect":false},{"id":"c","text":"30 000 kr","isCorrect":false},{"id":"d","text":"150 000 kr","isCorrect":false}],"solution":"$I(600) = 250 \\cdot 600 = 150\\,000$ kr. $TK(600) = 120 \\cdot 600 + 60\\,000 = 132\\,000$ kr. Overskudd $= 150\\,000 - 132\\,000 = 18\\,000$ kr."}],"solution":""}},{"id":"2p-2-1-n-summary","type":"text","content":"## Oppsummering\n\nLineære modeller er en av de mest praktiske verktøyene i hverdagsmatematikken. Med bare to tall -- stigningstall og konstantledd -- kan du beskrive en overraskende mengde situasjoner.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Lineær funksjon**: $f(x) = ax + b$ -- en rett linje i koordinatsystemet\n- **Stigningstall $a$**: Hvor mye $y$ endres når $x$ øker med 1 -- prisen per enhet\n- **Konstantledd $b$**: Verdien av funksjonen når $x = 0$ -- grunnprisen\n- **Stigningstall fra to punkter**: $a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$\n- **Nullpunkt**: $x$-verdien der $f(x) = 0$\n- **Skjæringspunkt**: Der to lineære funksjoner er like -- løs $f(x) = g(x)$\n- **Likningssett**: To likninger med to ukjente, løses med innsetting eller addisjon\n\n**Det viktigste du tar med deg:**\nLineære modeller handler om å finne mønstre i tall og bruke dem til å ta bedre beslutninger. Neste gang du sammenligner to priser, abonnementer eller tilbud -- husk at matematikken kan gi deg et klart svar på når det ene alternativet slår det andre."}],"exercises":[]}
+{
+  "id": "2p-2-1-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "2.1",
+  "title": "Lineære modeller",
+  "subtitle": "Narrativ versjon",
+  "description": "Opplev hvordan rette linjer kan beskrive alt fra mobilabonnementer til treningssenter-priser. En fortelling om stigningstall, konstantledd og skjæringspunkter -- matematikk du bruker hver dag uten å tenke over det.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy",
+    "utforske strategier for å løse ligninger, ligningssystemer og ulikheter og argumentere for tankemåtene sine"
+  ],
+  "linkedChapterId": "2p-2-1",
+  "content": [
+    {
+      "id": "2p-2-1-n-intro",
+      "type": "text",
+      "content": "## Lineære modeller -- rette linjer som beskriver virkeligheten\n\nTenk deg at du skal kjøpe nytt mobilabonnement. Tilbudet sier 149 kroner i måneden, pluss 49 kroner per gigabyte data. Du lurer på hva regningen blir hvis du bruker 3 gigabyte -- eller 10. Du trenger egentlig ikke matematikk for å svare, du kan bare multiplisere og legge sammen. Men det er nettopp det som *er* matematikken: å sette opp en regel som fungerer for *alle* mulige verdier.\n\nI dette kapittelet skal vi se at overraskende mange sammenhenger i hverdagen kan beskrives av den enkleste funksjonstypen som finnes: den lineære funksjonen. Fra taxiturer og leiebiler til bedrifters produksjonskostnader og spareavtaler -- mønsteret er det samme: en fast grunnpris pluss en kostnad som vokser jevnt."
+    },
+    {
+      "id": "2p-2-1-n-section1",
+      "type": "text",
+      "content": "## Den lineære funksjonen -- hva er det egentlig?\n\nEn lineær funksjon har alltid formen $f(x) = ax + b$. Det er bare to tall som bestemmer alt: $a$ og $b$. La oss forstå hva de betyr.\n\n**Stigningstallet $a$** forteller hvor mye $y$ endres når $x$ øker med 1. Tenk på det som prisen per enhet. I mobilabonnement-eksempelet er $a = 49$ -- kostnaden øker med 49 kroner for hver ekstra gigabyte. Hvis $a$ er positivt, stiger grafen. Hvis $a$ er negativt, synker den. Og jo større $|a|$ er, desto brattere er linjen.\n\n**Konstantleddet $b$** er verdien av funksjonen når $x = 0$. Det er grunnprisen -- det du betaler uansett, før du har brukt en eneste gigabyte. I vårt eksempel er $b = 149$ kroner.\n\nSett sammen blir modellen: $f(x) = 49x + 149$. Vil du vite hva 5 gigabyte koster? Sett inn: $f(5) = 49 \\cdot 5 + 149 = 245 + 149 = 394$ kroner.\n\nHvis du kjenner to punkter på grafen, kan du finne stigningstallet med formelen $a = \\frac{y_2 - y_1}{x_2 - x_1}$. Det er rett og slett endringen i $y$ delt på endringen i $x$ -- hvor mye funksjonen stiger per skritt i $x$-retningen. Tenk på en taxi: startprisen er 60 kroner, og det koster 15 kroner per kilometer. Da er $f(x) = 15x + 60$. En tur på 12 kilometer koster $f(12) = 15 \\cdot 12 + 60 = 180 + 60 = 240$ kroner."
+    },
+    {
+      "id": "2p-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lineære funksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-1-n-quiz1-q0",
+            "task": "Et leiebilselskap tar 500 kr per dag pluss 3,50 kr per km. Du kjører 200 km på én dag. Hva blir totalkostnaden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "700 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "1 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "1 200 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "850 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(200) = 3{,}50 \\cdot 200 + 500 = 700 + 500 = 1\\,200$ kr."
+          },
+          {
+            "id": "2p-2-1-n-quiz1-q1",
+            "task": "I funksjonen $f(x) = 49x + 149$ for et mobilabonnement, hva representerer tallet 149?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Prisen per gigabyte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall gigabyte inkludert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stigningstallet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den faste månedsprisen (konstantleddet)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Konstantleddet $b = 149$ er verdien av funksjonen når $x = 0$, altså grunnprisen du betaler uansett -- den faste månedskostnaden."
+          },
+          {
+            "id": "2p-2-1-n-quiz1-q2",
+            "task": "En taxi har startpris 60 kr og koster 15 kr per km. Hva koster en tur på 12 km?",
+            "options": [
+              {
+                "id": "b",
+                "text": "240 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "180 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "195 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "120 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(12) = 15 \\cdot 12 + 60 = 180 + 60 = 240$ kr."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-1-n-section2",
+      "type": "text",
+      "content": "## Finne funksjonsuttrykk fra to punkter\n\nOfte kjenner vi ikke formelen direkte -- vi har bare noen tallverdier. En svømmehall forteller deg at 5 besøk koster 350 kroner og 12 besøk koster 630 kroner. Kan vi finne en formel?\n\nJa! Vi har to punkter: $(5, 350)$ og $(12, 630)$. Først finner vi stigningstallet: $a = \\frac{630 - 350}{12 - 5} = \\frac{280}{7} = 40$. Det koster altså 40 kroner per besøk.\n\nDeretter finner vi konstantleddet. Vi setter inn ett av punktene i $y = 40x + b$: $350 = 40 \\cdot 5 + b$, som gir $b = 350 - 200 = 150$. Modellen blir $f(x) = 40x + 150$.\n\nHva betyr det at $b = 150$? Det er kostnaden selv om du ikke har besøkt svømmehallen -- kanskje en årskortavgift. Og 40 kroner per besøk er det du betaler i tillegg hver gang du dukker opp.\n\nLa oss prøve et lignende eksempel med strøm. En leverandør tar 850 kroner for 100 kWh og 1 450 kroner for 300 kWh. Stigningstallet: $a = \\frac{1\\,450 - 850}{300 - 100} = \\frac{600}{200} = 3$ kroner per kWh. Konstantleddet: $850 = 3 \\cdot 100 + b$, altså $b = 550$. Modellen er $f(x) = 3x + 550$. Den faste månedsprisen er 550 kroner, og strømmen koster 3 kroner per kilowattime."
+    },
+    {
+      "id": "2p-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på funksjonsuttrykk fra to punkter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-1-n-quiz2-q0",
+            "task": "Du vet at $f(2) = 100$ og $f(8) = 280$ for en lineær funksjon $f(x) = ax + b$. Hva er stigningstallet $a$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a = 40$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a = 30$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$a = 25$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a = 45$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a = (280 - 100) / (8 - 2) = 180 / 6 = 30$. Stigningstallet er endringen i $y$ delt på endringen i $x$."
+          },
+          {
+            "id": "2p-2-1-n-quiz2-q1",
+            "task": "Med $a = 30$ og punktet $(2, 100)$, hva er konstantleddet $b$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b = 40$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$b = 70$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$b = 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$b = 160$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi setter inn i $y = ax + b$: $100 = 30 \\cdot 2 + b$, altså $b = 100 - 60 = 40$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-1-n-section3",
+      "type": "text",
+      "content": "## Skjæringspunkter -- når to linjer møtes\n\nKanskje det mest nyttige med lineære modeller er at vi kan *sammenligne* to alternativer. Tenk deg at du vurderer to mobilabonnementer: Abonnement A koster 199 kroner i måneden pluss 9 kroner per gigabyte. Abonnement B koster 349 kroner flat, med fri data.\n\nVi setter opp modellene: $A(x) = 9x + 199$ og $B(x) = 349$. Når er de like dyre? Vi løser $9x + 199 = 349$, som gir $9x = 150$ og $x \\approx 16{,}7$ gigabyte.\n\nBruker du under 17 GB i måneden, er A billigst. Bruker du mer, lønner B seg. *Det* er skjæringspunktet -- der de to grafene krysser hverandre, og der beslutningen tipper.\n\nSamme prinsipp gjelder for treningssentre. Senter X tar 299 kroner per måned uten binding. Senter Y krever 3 000 kroner i innmeldingsavgift, men bare 199 kroner per måned etterpå. Modellene for *total* kostnad etter $x$ måneder: $X(x) = 299x$ og $Y(x) = 199x + 3\\,000$.\n\nSkjæringspunktet: $299x = 199x + 3\\,000$, altså $100x = 3\\,000$ og $x = 30$ måneder. Først etter 2,5 år har Y blitt billigere enn X. Etter bare 12 måneder er X (3 588 kr) langt billigere enn Y (5 388 kr).\n\nOg **nullpunktet** -- der en funksjon krysser $x$-aksen -- finner vi ved å sette $f(x) = 0$. For $f(x) = -3x + 12$: $-3x + 12 = 0$ gir $x = 4$. Det er den $x$-verdien der funksjonen skifter fortegn."
+    },
+    {
+      "id": "2p-2-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på skjæringspunkter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-1-n-quiz3-q0",
+            "task": "Senter X koster 299 kr/mnd og senter Y koster 199 kr/mnd + 3 000 kr innmelding. Etter hvor mange måneder er Y billigere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "10 måneder",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "20 måneder",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "30 måneder",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "15 måneder",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$299x = 199x + 3\\,000 \\Rightarrow 100x = 3\\,000 \\Rightarrow x = 30$ måneder."
+          },
+          {
+            "id": "2p-2-1-n-quiz3-q1",
+            "task": "Hva finner du i skjæringspunktet mellom to lineære funksjoner?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Der den ene funksjonen er dobbelt så stor som den andre",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Der begge funksjonene krysser $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Der begge funksjonene er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Der de to funksjonene har lik verdi -- altså der alternativene koster like mye",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Skjæringspunktet er der de to grafene møtes, altså der funksjonsverdiene er like: $f(x) = g(x)$. I praksis er det punktet der to alternativer koster nøyaktig like mye."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-1-n-section4",
+      "type": "text",
+      "content": "## Likningssett -- to ukjente, to likninger\n\nNoen ganger har vi to ukjente størrelser. På en kantine koster en baguett og en juice til sammen 95 kroner. To baguetter og en juice koster 145 kroner. Hva koster hver?\n\nVi kaller baguettprisen $b$ og juiceprisen $j$, og setter opp to likninger:\n- $b + j = 95$ ... (1)\n- $2b + j = 145$ ... (2)\n\n**Addisjonsmetoden** er elegant her. Trekk likning (1) fra likning (2): $(2b + j) - (b + j) = 145 - 95$, som gir $b = 50$. Sett inn i (1): $50 + j = 95$, altså $j = 45$. En baguett koster 50 kroner og en juice 45 kroner.\n\n**Innsettingsmetoden** fungerer også. Fra (1): $j = 95 - b$. Sett inn i (2): $2b + (95 - b) = 145$, som gir $b + 95 = 145$ og $b = 50$. Samme svar.\n\nEt kinobillett-eksempel: voksen pluss barn koster 180 kroner. Tre voksne og to barn koster 470 kroner. Likningene: $v + b = 180$ og $3v + 2b = 470$. Fra den første: $b = 180 - v$. Sett inn: $3v + 2(180 - v) = 470$, altså $3v + 360 - 2v = 470$, som gir $v = 110$ og $b = 70$. Voksenbillett: 110 kroner, barnebillett: 70 kroner.\n\nDu kan også løse likningssett **grafisk** -- tegn begge linjene og les av skjæringspunktet. Det gir samme svar, men er ofte mindre presist enn algebraisk løsning."
+    },
+    {
+      "id": "2p-2-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på likningssett:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-1-n-quiz4-q0",
+            "task": "Et likningssett: $x + y = 10$ og $3x + y = 22$. Hva er verdien av $x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trekk likning 1 fra likning 2: $(3x + y) - (x + y) = 22 - 10$, altså $2x = 12$ og $x = 6$."
+          },
+          {
+            "id": "2p-2-1-n-quiz4-q1",
+            "task": "Med $x = 6$ i likningene over, hva er verdien av $y$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 16$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = 10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sett inn $x = 6$ i likning 1: $6 + y = 10$, altså $y = 4$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-1-n-section5",
+      "type": "text",
+      "content": "## Lineære modeller i næringslivet\n\nLa oss avslutte med å se hvordan bedrifter bruker lineære modeller. En bedrift produserer lamper med faste kostnader på 60 000 kroner per måned (leie, lønn, utstyr) og variable kostnader på 120 kroner per lampe (materialer). Salgsprisen er 250 kroner per lampe.\n\nVi setter opp modellene: Inntekten er $I(x) = 250x$ og totalkostnaden er $TK(x) = 120x + 60\\,000$.\n\n**Nullpunktomsetningen** -- der inntekten akkurat dekker kostnadene -- finner vi ved å sette $I(x) = TK(x)$: $250x = 120x + 60\\,000$, som gir $130x = 60\\,000$ og $x \\approx 462$ lamper. Produserer bedriften færre enn 462 lamper, går den med tap. Produserer den flere, tjener den penger.\n\nOverskuddet ved 600 lamper: $R(600) = I(600) - TK(600) = 150\\,000 - (72\\,000 + 60\\,000) = 150\\,000 - 132\\,000 = 18\\,000$ kroner.\n\nEller tenk på valget mellom elbil og bensinbil. Elbil: 350 000 kroner i kjøpspris, 0,30 kr per km. Bensinbil: 250 000 kroner, 1,10 kr per km. $E(x) = 0{,}30x + 350\\,000$ og $B(x) = 1{,}10x + 250\\,000$. Skjæringspunkt: $0{,}30x + 350\\,000 = 1{,}10x + 250\\,000$, som gir $0{,}80x = 100\\,000$ og $x = 125\\,000$ km. Kjører du 15 000 km i året, tar det $125\\,000 / 15\\,000 \\approx 8{,}3$ år før elbilen er billigere totalt sett.\n\nLineære modeller er kanskje enkle, men de er overraskende kraftige. Neste gang du sammenligner to tilbud -- et abonnement, en forsikring, en strømleverandør -- prøv å sette opp lineære modeller og finn skjæringspunktet. Det kan spare deg for mye penger."
+    },
+    {
+      "id": "2p-2-1-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-2-1-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lineære modeller i næringslivet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-2-1-n-quiz5-q0",
+            "task": "En bedrift har inntekt $I(x) = 300x$ og kostnad $TK(x) = 180x + 48\\,000$. Hvor mange enheter må de selge for å gå i null?",
+            "options": [
+              {
+                "id": "a",
+                "text": "200 enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "160 enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "267 enheter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "400 enheter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$300x = 180x + 48\\,000 \\Rightarrow 120x = 48\\,000 \\Rightarrow x = 400$ enheter."
+          },
+          {
+            "id": "2p-2-1-n-quiz5-q1",
+            "task": "Hva er overskuddet ved salg av 600 lamper med $I(x) = 250x$ og $TK(x) = 120x + 60\\,000$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "18 000 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "78 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "30 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "150 000 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I(600) = 250 \\cdot 600 = 150\\,000$ kr. $TK(600) = 120 \\cdot 600 + 60\\,000 = 132\\,000$ kr. Overskudd $= 150\\,000 - 132\\,000 = 18\\,000$ kr."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nLineære modeller er en av de mest praktiske verktøyene i hverdagsmatematikken. Med bare to tall -- stigningstall og konstantledd -- kan du beskrive en overraskende mengde situasjoner.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Lineær funksjon**: $f(x) = ax + b$ -- en rett linje i koordinatsystemet\n- **Stigningstall $a$**: Hvor mye $y$ endres når $x$ øker med 1 -- prisen per enhet\n- **Konstantledd $b$**: Verdien av funksjonen når $x = 0$ -- grunnprisen\n- **Stigningstall fra to punkter**: $a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$\n- **Nullpunkt**: $x$-verdien der $f(x) = 0$\n- **Skjæringspunkt**: Der to lineære funksjoner er like -- løs $f(x) = g(x)$\n- **Likningssett**: To likninger med to ukjente, løses med innsetting eller addisjon\n\n**Det viktigste du tar med deg:**\nLineære modeller handler om å finne mønstre i tall og bruke dem til å ta bedre beslutninger. Neste gang du sammenligner to priser, abonnementer eller tilbud -- husk at matematikken kan gi deg et klart svar på når det ene alternativet slår det andre."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,297 @@
-{"id":"it-1-2-1-narrativ","courseId":"it-1","chapterNumber":"2.1","title":"Kva er programmering?","subtitle":"Narrativ versjon","description":"Ei forteljing om kunsten å gi ein datamaskin presise instruksjonar – frå kompilerte og tolka språk og val av IDE til ditt aller første Python-program.","estimatedMinutes":30,"competenceGoals":["forklare hva programmering er og hvorfor det er nyttig","beskrive forskjellen mellom kompilerte og tolkede programmeringsspråk","sette opp et utviklingsmiljø og skrive enkle programmer"],"linkedChapterId":"it-1-2-1","content":[{"id":"it-1-2-1-n-intro","type":"text","content":"## Å forklare noko til ein som tek alt bokstaveleg\n\nTenk deg at du skal forklare ei oppgåve til nokon som tek alt heilt bokstaveleg. Du kan ikkje berre seie «rydd rommet». Du må gi eksakte steg: «Plukk opp sokkane frå golvet. Legg dei i skittentøykorga. Ta bøkene frå senga. Set dei i bokhylla.» **Programmering** fungerer på akkurat same måten – du skriv presise, steg-for-steg-instruksjonar som datamaskinen følgjer slavisk.\n\nMeir presist er programmering å skrive instruksjonar, kalla kode, som ein datamaskin kan forstå og utføre. Koden blir skriven i eit programmeringsspråk og utgjer til saman eit program. Prosessen er å analysere eit problem, designe ei løysing, skrive henne i kode og teste at ho verkar. Men programmering er òg ein måte å tenkje på: du lærer å bryte komplekse problem ned i handterlege delar og formulere løysingar logisk. Denne **algoritmiske tenkinga** er nyttig langt utover koden.\n\nVi bruker språket **Python**, eitt av dei mest populære og nybyrjarvenlege språka i verda, med ein syntaks som liknar naturleg engelsk. Eit programmeringsspråk er nemleg eit formelt språk: akkurat som norsk har det reglar for *syntaks* (korleis koden blir skriven) og *semantikk* (kva koden tyder). Det finst hundrevis av språk for ulike føremål – JavaScript lagar interaktive nettsider, Java blir brukt i store system og Android-appar, C++ der ytelse er kritisk, C# i spelutvikling, og Swift til Apples einingar. Valet kjem an på kva du skal lage og kva for plattform du siktar mot."},{"id":"it-1-2-1-n-section1","type":"text","content":"## Korleis koden blir til noko maskinen forstår\n\nDatamaskinar forstår eigentleg berre maskinkode – binære nullar og einarar. Difor må koden vi skriv omsetjast. Det finst to hovudmetodar. Ved **kompilering** blir heile programmet omsett til maskinkode på ein gong, og resultatet blir lagra som ei køyrbar fil. Ved **tolking** les eit tolkeprogram (interpreter) koden linje for linje og køyrer han med ein gong.\n\nForskjellen merkar du i praksis. Kompilerte språk som C++, Go og Rust gir raske program fordi maskinkoden er optimalisert, men du må kompilere på nytt kvar gong du endrar noko, og den ferdige fila verkar berre på den plattforma ho vart laga for. Tolka språk som Python, JavaScript og Ruby køyrer litt tregare, men du slepp kompileringssteget og ser resultatet med ein gong. Python er tolka, og nettopp denne umiddelbare tilbakemeldinga gjer det framifrå å lære med.\n\nFor å skrive kode treng du eit verktøy. Du *kan* bruke Notisblokk, men det er som å byggje hus med berre ein hammar. Eit **integrert utviklingsmiljø (IDE)** samlar alt: ein kodeeditor med syntaksfarging, autofullføring som føreslår kode, feilmarkering som understrekar feil før du køyrer, eit køyremiljø og ein debugger. For Python er **VS Code** frå Microsoft eit populært og gratis val, **Thonny** er laga for nybyrjarar, **PyCharm** er avansert, og **Replit** køyrer rett i nettlesaren utan installasjon."},{"id":"it-1-2-1-n-quiz1","type":"exercise","exercise":{"id":"it-1-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på språk, kompilering og IDE:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-1-n-quiz1-q0","task":"Kva er hovudforskjellen mellom kompilering og tolking?","options":[{"id":"a","text":"Kompilering er for nettsider, tolking for appar","isCorrect":false},{"id":"b","text":"Tolking gir alltid raskare program","isCorrect":false},{"id":"c","text":"Kompilering omset heile programmet på ein gong, medan tolking køyrer koden linje for linje","isCorrect":true},{"id":"d","text":"Det er ingen forskjell","isCorrect":false}],"solution":"Ved kompilering blir heile programmet omsett til maskinkode på førehand, medan ein interpreter ved tolking les og køyrer koden linje for linje."},{"id":"it-1-2-1-n-quiz1-q1","task":"Er Python eit kompilert eller tolka språk?","options":[{"id":"a","text":"Kompilert","isCorrect":false},{"id":"b","text":"Verken eller","isCorrect":false},{"id":"c","text":"Maskinkode","isCorrect":false},{"id":"d","text":"Tolka","isCorrect":true}],"solution":"Python er eit tolka språk, noko som gjer at du ser resultatet med ein gong – fint for læring."},{"id":"it-1-2-1-n-quiz1-q2","task":"Kva er hovudfordelen med å bruke ein IDE framfor ein enkel teksteditor?","options":[{"id":"a","text":"Ein IDE samlar verktøy som syntaksfarging, autofullføring, feilmarkering og debugger","isCorrect":true},{"id":"b","text":"Ein IDE gjer internett raskare","isCorrect":false},{"id":"c","text":"Ein IDE kan berre brukast til Python","isCorrect":false},{"id":"d","text":"Ein IDE skriv koden for deg automatisk","isCorrect":false}],"solution":"Ein IDE samlar kodeeditor, autofullføring, feilmarkering, køyremiljø og debugger på éin stad, slik at utviklinga blir enklare."}]}},{"id":"it-1-2-1-n-section2","type":"text","content":"## Ditt første program – og tanken bak\n\nDet er ein tradisjon at det første programmet du skriv berre viser teksten «Hei, verda!». Lat oss følgje han. Lag ei fil `hei.py` og skriv:\n\n```python\nprint(\"Hei, verden!\")\n```\n\nNår du køyrer dette, dukkar `Hei, verden!` opp på skjermen. Her er `print` ein innebygd funksjon som skriv ut tekst, parentesane fortel Python at vi kallar funksjonen, og teksten i hermeteikn er ein *tekststreng* vi sender inn. Skriv du fleire `print`-setningar, blir dei køyrde frå topp til botn, éi linje om gongen, kvar på si eiga linje.\n\nDu bør òg lære deg **kommentarar**. Det er tekst Python ignorerer fullstendig – skriven for menneske, ikkje maskinen. I Python lagar du ein kommentar med `#`:\n\n```python\n# Beregn arealet av en sirkel\nradius = 5\nareal = 3.14 * radius * radius\nprint(areal)  # Skriver ut 78.5\n```\n\nGod vane er å kommentere *kvifor* du gjer noko, ikkje det openberre. Men før du skriv kode, bør du tenkje på **algoritmen** – ei presis, trinnvis skildring av korleis problemet blir løyst, som ei oppskrift. Skal du til dømes berekne gjennomsnittet av tre tal, lagar du først algoritmen i ord: legg tala saman, del summen på 3, vis resultatet. Deretter omset du kvart steg til kode:\n\n```python\ntall1 = 8\ntall2 = 15\ntall3 = 4\nsummen = tall1 + tall2 + tall3\ngjennomsnitt = summen / 3\nprint(\"Gjennomsnittet er:\", gjennomsnitt)\n```\n\nDette skriv ut `9.0`. At resultatet får desimal, skuldast at Python bruker desimaldivisjon som standard. Alle program er i bunn og grunn implementasjonar av algoritmar."},{"id":"it-1-2-1-n-quiz2","type":"exercise","exercise":{"id":"it-1-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på Python-grunnlag og algoritmar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-1-n-quiz2-q0","task":"Kva gjer funksjonen print() i Python?","options":[{"id":"a","text":"Han skriv ut koden på papir","isCorrect":false},{"id":"b","text":"Han skriv ut tekst eller verdiar på skjermen","isCorrect":true},{"id":"c","text":"Han lagrar ei fil","isCorrect":false},{"id":"d","text":"Han slettar ein variabel","isCorrect":false}],"solution":"print() er ein innebygd funksjon som skriv ut tekst eller verdiar på skjermen."},{"id":"it-1-2-1-n-quiz2-q1","task":"Kva skjer med ei linje som startar med # i Python?","options":[{"id":"a","text":"Ho blir køyrd ekstra raskt","isCorrect":false},{"id":"b","text":"Ho gir ei feilmelding","isCorrect":false},{"id":"c","text":"Ho blir ignorert av Python fordi det er ein kommentar","isCorrect":true},{"id":"d","text":"Ho blir skriven ut med farge","isCorrect":false}],"solution":"Ei linje som startar med # er ein kommentar og blir ignorert av Python – ho er skriven for menneske."},{"id":"it-1-2-1-n-quiz2-q2","task":"Kva er ein algoritme?","options":[{"id":"a","text":"Eit programmeringsspråk","isCorrect":false},{"id":"b","text":"Ein type datamaskin","isCorrect":false},{"id":"c","text":"Ei feilmelding","isCorrect":false},{"id":"d","text":"Ei presis, trinnvis skildring av korleis eit problem skal løysast","isCorrect":true}],"solution":"Ein algoritme er ei presis, trinnvis skildring av ei løysing – som ei oppskrift. Alle program er implementasjonar av algoritmar."}]}},{"id":"it-1-2-1-n-summary","type":"text","content":"## Oppsummering\n\nProgrammering er å gi datamaskinen presise instruksjonar, akkurat som du måtte forklare ryddinga steg for steg. Koden vår blir omsett til maskinkode anten ved **kompilering** (heile programmet på førehand, raskt) eller **tolking** (linje for linje, med ein gong) – og Python er tolka. Ein **IDE** som VS Code eller Thonny samlar verktøya du treng.\n\nDitt første program brukte `print()` til å skrive ut tekst, og du lærte at kommentarar med `#` er for menneske. Viktigast av alt: før du kodar, tenkjer du gjennom **algoritmen** – den trinnvise oppskrifta – og omset kvart steg til kode. Det er grunnmuren for alt du skal byggje vidare."}],"exercises":[],"_meta":{"sourceHash":"410a1877c87c38b3","translatedAt":"2026-06-20T23:44:55.458Z","model":"claude-code-agent","strings":50,"tm":{"8613faa0b8ceb281":"Kva er programmering?","b195b06d1ed59702":"Narrativ versjon","bb9ff7fcbbf857bc":"Ei forteljing om kunsten å gi ein datamaskin presise instruksjonar – frå kompilerte og tolka språk og val av IDE til ditt aller første Python-program.","bbcf0fb17f02d57f":"forklare hva programmering er og hvorfor det er nyttig","07ba879276600a84":"beskrive forskjellen mellom kompilerte og tolkede programmeringsspråk","9560312e26590090":"sette opp et utviklingsmiljø og skrive enkle programmer","5b8aac302c91d5b5":"## Å forklare noko til ein som tek alt bokstaveleg\n\nTenk deg at du skal forklare ei oppgåve til nokon som tek alt heilt bokstaveleg. Du kan ikkje berre seie «rydd rommet». Du må gi eksakte steg: «Plukk opp sokkane frå golvet. Legg dei i skittentøykorga. Ta bøkene frå senga. Set dei i bokhylla.» **Programmering** fungerer på akkurat same måten – du skriv presise, steg-for-steg-instruksjonar som datamaskinen følgjer slavisk.\n\nMeir presist er programmering å skrive instruksjonar, kalla kode, som ein datamaskin kan forstå og utføre. Koden blir skriven i eit programmeringsspråk og utgjer til saman eit program. Prosessen er å analysere eit problem, designe ei løysing, skrive henne i kode og teste at ho verkar. Men programmering er òg ein måte å tenkje på: du lærer å bryte komplekse problem ned i handterlege delar og formulere løysingar logisk. Denne **algoritmiske tenkinga** er nyttig langt utover koden.\n\nVi bruker språket **Python**, eitt av dei mest populære og nybyrjarvenlege språka i verda, med ein syntaks som liknar naturleg engelsk. Eit programmeringsspråk er nemleg eit formelt språk: akkurat som norsk har det reglar for *syntaks* (korleis koden blir skriven) og *semantikk* (kva koden tyder). Det finst hundrevis av språk for ulike føremål – JavaScript lagar interaktive nettsider, Java blir brukt i store system og Android-appar, C++ der ytelse er kritisk, C# i spelutvikling, og Swift til Apples einingar. Valet kjem an på kva du skal lage og kva for plattform du siktar mot.","654a27410611f921":"## Korleis koden blir til noko maskinen forstår\n\nDatamaskinar forstår eigentleg berre maskinkode – binære nullar og einarar. Difor må koden vi skriv omsetjast. Det finst to hovudmetodar. Ved **kompilering** blir heile programmet omsett til maskinkode på ein gong, og resultatet blir lagra som ei køyrbar fil. Ved **tolking** les eit tolkeprogram (interpreter) koden linje for linje og køyrer han med ein gong.\n\nForskjellen merkar du i praksis. Kompilerte språk som C++, Go og Rust gir raske program fordi maskinkoden er optimalisert, men du må kompilere på nytt kvar gong du endrar noko, og den ferdige fila verkar berre på den plattforma ho vart laga for. Tolka språk som Python, JavaScript og Ruby køyrer litt tregare, men du slepp kompileringssteget og ser resultatet med ein gong. Python er tolka, og nettopp denne umiddelbare tilbakemeldinga gjer det framifrå å lære med.\n\nFor å skrive kode treng du eit verktøy. Du *kan* bruke Notisblokk, men det er som å byggje hus med berre ein hammar. Eit **integrert utviklingsmiljø (IDE)** samlar alt: ein kodeeditor med syntaksfarging, autofullføring som føreslår kode, feilmarkering som understrekar feil før du køyrer, eit køyremiljø og ein debugger. For Python er **VS Code** frå Microsoft eit populært og gratis val, **Thonny** er laga for nybyrjarar, **PyCharm** er avansert, og **Replit** køyrer rett i nettlesaren utan installasjon.","8791fdf97f38d16f":"Test deg sjølv på språk, kompilering og IDE:","4097889236a2af26":"placeholder","0d75b9413e125701":"Kva er hovudforskjellen mellom kompilering og tolking?","2ba59fa1ddcc6e31":"Kompilering er for nettsider, tolking for appar","5840620b78f804f2":"Tolking gir alltid raskare program","7530f2c6276dc944":"Kompilering omset heile programmet på ein gong, medan tolking køyrer koden linje for linje","290d93c2e3522153":"Det er ingen forskjell","8246b011d562a08d":"Ved kompilering blir heile programmet omsett til maskinkode på førehand, medan ein interpreter ved tolking les og køyrer koden linje for linje.","a900b65df220e272":"Er Python eit kompilert eller tolka språk?","609af547bbdb6211":"Kompilert","5a0fb69be445025a":"Verken eller","e1d3775187f45fb7":"Maskinkode","e42de1dfb945267f":"Tolka","ebda0dd5ac89923b":"Python er eit tolka språk, noko som gjer at du ser resultatet med ein gong – fint for læring.","057899cbbd0a2182":"Kva er hovudfordelen med å bruke ein IDE framfor ein enkel teksteditor?","0d482a2ee526d256":"Ein IDE samlar verktøy som syntaksfarging, autofullføring, feilmarkering og debugger","8e68a674c1d9ce86":"Ein IDE gjer internett raskare","ca18397d3701519a":"Ein IDE kan berre brukast til Python","83dcade07db95671":"Ein IDE skriv koden for deg automatisk","654eef0f57ff6dd2":"Ein IDE samlar kodeeditor, autofullføring, feilmarkering, køyremiljø og debugger på éin stad, slik at utviklinga blir enklare.","a1abd206cbecf151":"## Ditt første program – og tanken bak\n\nDet er ein tradisjon at det første programmet du skriv berre viser teksten «Hei, verda!». Lat oss følgje han. Lag ei fil `hei.py` og skriv:\n\n```python\nprint(\"Hei, verden!\")\n```\n\nNår du køyrer dette, dukkar `Hei, verden!` opp på skjermen. Her er `print` ein innebygd funksjon som skriv ut tekst, parentesane fortel Python at vi kallar funksjonen, og teksten i hermeteikn er ein *tekststreng* vi sender inn. Skriv du fleire `print`-setningar, blir dei køyrde frå topp til botn, éi linje om gongen, kvar på si eiga linje.\n\nDu bør òg lære deg **kommentarar**. Det er tekst Python ignorerer fullstendig – skriven for menneske, ikkje maskinen. I Python lagar du ein kommentar med `#`:\n\n```python\n# Beregn arealet av en sirkel\nradius = 5\nareal = 3.14 * radius * radius\nprint(areal)  # Skriver ut 78.5\n```\n\nGod vane er å kommentere *kvifor* du gjer noko, ikkje det openberre. Men før du skriv kode, bør du tenkje på **algoritmen** – ei presis, trinnvis skildring av korleis problemet blir løyst, som ei oppskrift. Skal du til dømes berekne gjennomsnittet av tre tal, lagar du først algoritmen i ord: legg tala saman, del summen på 3, vis resultatet. Deretter omset du kvart steg til kode:\n\n```python\ntall1 = 8\ntall2 = 15\ntall3 = 4\nsummen = tall1 + tall2 + tall3\ngjennomsnitt = summen / 3\nprint(\"Gjennomsnittet er:\", gjennomsnitt)\n```\n\nDette skriv ut `9.0`. At resultatet får desimal, skuldast at Python bruker desimaldivisjon som standard. Alle program er i bunn og grunn implementasjonar av algoritmar.","0bffafc179b26149":"Test deg sjølv på Python-grunnlag og algoritmar:","4c5aca653ddd5926":"Kva gjer funksjonen print() i Python?","c601097298a0959b":"Han skriv ut koden på papir","cee24aea1b371d19":"Han skriv ut tekst eller verdiar på skjermen","3a1bdbe29fc1848d":"Han lagrar ei fil","64ced02e54549514":"Han slettar ein variabel","39c67686488ff096":"print() er ein innebygd funksjon som skriv ut tekst eller verdiar på skjermen.","b378599ebb43b7ba":"Kva skjer med ei linje som startar med # i Python?","4e5dd1148c97c82b":"Ho blir køyrd ekstra raskt","5a02283efa558b49":"Ho gir ei feilmelding","40173ee24781a25b":"Ho blir ignorert av Python fordi det er ein kommentar","9bd10cf3e5b0f16a":"Ho blir skriven ut med farge","0970e669c6480854":"Ei linje som startar med # er ein kommentar og blir ignorert av Python – ho er skriven for menneske.","83d20e7f3a645fcf":"Kva er ein algoritme?","65c2cff9f3ea5605":"Eit programmeringsspråk","c98a26207f13749b":"Ein type datamaskin","6b16392622e7b20a":"Ei feilmelding","90f210fe5c734753":"Ei presis, trinnvis skildring av korleis eit problem skal løysast","cb0198e664c3d3d6":"Ein algoritme er ei presis, trinnvis skildring av ei løysing – som ei oppskrift. Alle program er implementasjonar av algoritmar.","5794efa36a99e301":"## Oppsummering\n\nProgrammering er å gi datamaskinen presise instruksjonar, akkurat som du måtte forklare ryddinga steg for steg. Koden vår blir omsett til maskinkode anten ved **kompilering** (heile programmet på førehand, raskt) eller **tolking** (linje for linje, med ein gong) – og Python er tolka. Ein **IDE** som VS Code eller Thonny samlar verktøya du treng.\n\nDitt første program brukte `print()` til å skrive ut tekst, og du lærte at kommentarar med `#` er for menneske. Viktigast av alt: før du kodar, tenkjer du gjennom **algoritmen** – den trinnvise oppskrifta – og omset kvart steg til kode. Det er grunnmuren for alt du skal byggje vidare."}}}
+{
+  "id": "it-1-2-1-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "2.1",
+  "title": "Kva er programmering?",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kunsten å gi ein datamaskin presise instruksjonar – frå kompilerte og tolka språk og val av IDE til ditt aller første Python-program.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "forklare hva programmering er og hvorfor det er nyttig",
+    "beskrive forskjellen mellom kompilerte og tolkede programmeringsspråk",
+    "sette opp et utviklingsmiljø og skrive enkle programmer"
+  ],
+  "linkedChapterId": "it-1-2-1",
+  "content": [
+    {
+      "id": "it-1-2-1-n-intro",
+      "type": "text",
+      "content": "## Å forklare noko til ein som tek alt bokstaveleg\n\nTenk deg at du skal forklare ei oppgåve til nokon som tek alt heilt bokstaveleg. Du kan ikkje berre seie «rydd rommet». Du må gi eksakte steg: «Plukk opp sokkane frå golvet. Legg dei i skittentøykorga. Ta bøkene frå senga. Set dei i bokhylla.» **Programmering** fungerer på akkurat same måten – du skriv presise, steg-for-steg-instruksjonar som datamaskinen følgjer slavisk.\n\nMeir presist er programmering å skrive instruksjonar, kalla kode, som ein datamaskin kan forstå og utføre. Koden blir skriven i eit programmeringsspråk og utgjer til saman eit program. Prosessen er å analysere eit problem, designe ei løysing, skrive henne i kode og teste at ho verkar. Men programmering er òg ein måte å tenkje på: du lærer å bryte komplekse problem ned i handterlege delar og formulere løysingar logisk. Denne **algoritmiske tenkinga** er nyttig langt utover koden.\n\nVi bruker språket **Python**, eitt av dei mest populære og nybyrjarvenlege språka i verda, med ein syntaks som liknar naturleg engelsk. Eit programmeringsspråk er nemleg eit formelt språk: akkurat som norsk har det reglar for *syntaks* (korleis koden blir skriven) og *semantikk* (kva koden tyder). Det finst hundrevis av språk for ulike føremål – JavaScript lagar interaktive nettsider, Java blir brukt i store system og Android-appar, C++ der ytelse er kritisk, C# i spelutvikling, og Swift til Apples einingar. Valet kjem an på kva du skal lage og kva for plattform du siktar mot."
+    },
+    {
+      "id": "it-1-2-1-n-section1",
+      "type": "text",
+      "content": "## Korleis koden blir til noko maskinen forstår\n\nDatamaskinar forstår eigentleg berre maskinkode – binære nullar og einarar. Difor må koden vi skriv omsetjast. Det finst to hovudmetodar. Ved **kompilering** blir heile programmet omsett til maskinkode på ein gong, og resultatet blir lagra som ei køyrbar fil. Ved **tolking** les eit tolkeprogram (interpreter) koden linje for linje og køyrer han med ein gong.\n\nForskjellen merkar du i praksis. Kompilerte språk som C++, Go og Rust gir raske program fordi maskinkoden er optimalisert, men du må kompilere på nytt kvar gong du endrar noko, og den ferdige fila verkar berre på den plattforma ho vart laga for. Tolka språk som Python, JavaScript og Ruby køyrer litt tregare, men du slepp kompileringssteget og ser resultatet med ein gong. Python er tolka, og nettopp denne umiddelbare tilbakemeldinga gjer det framifrå å lære med.\n\nFor å skrive kode treng du eit verktøy. Du *kan* bruke Notisblokk, men det er som å byggje hus med berre ein hammar. Eit **integrert utviklingsmiljø (IDE)** samlar alt: ein kodeeditor med syntaksfarging, autofullføring som føreslår kode, feilmarkering som understrekar feil før du køyrer, eit køyremiljø og ein debugger. For Python er **VS Code** frå Microsoft eit populært og gratis val, **Thonny** er laga for nybyrjarar, **PyCharm** er avansert, og **Replit** køyrer rett i nettlesaren utan installasjon."
+    },
+    {
+      "id": "it-1-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på språk, kompilering og IDE:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-1-n-quiz1-q0",
+            "task": "Kva er hovudforskjellen mellom kompilering og tolking?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kompilering er for nettsider, tolking for appar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kompilering omset heile programmet på ein gong, medan tolking køyrer koden linje for linje",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Tolking gir alltid raskare program",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen forskjell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved kompilering blir heile programmet omsett til maskinkode på førehand, medan ein interpreter ved tolking les og køyrer koden linje for linje."
+          },
+          {
+            "id": "it-1-2-1-n-quiz1-q1",
+            "task": "Er Python eit kompilert eller tolka språk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kompilert",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Verken eller",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tolka",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Maskinkode",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Python er eit tolka språk, noko som gjer at du ser resultatet med ein gong – fint for læring."
+          },
+          {
+            "id": "it-1-2-1-n-quiz1-q2",
+            "task": "Kva er hovudfordelen med å bruke ein IDE framfor ein enkel teksteditor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein IDE gjer internett raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein IDE kan berre brukast til Python",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein IDE skriv koden for deg automatisk",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein IDE samlar verktøy som syntaksfarging, autofullføring, feilmarkering og debugger",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein IDE samlar kodeeditor, autofullføring, feilmarkering, køyremiljø og debugger på éin stad, slik at utviklinga blir enklare."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-1-n-section2",
+      "type": "text",
+      "content": "## Ditt første program – og tanken bak\n\nDet er ein tradisjon at det første programmet du skriv berre viser teksten «Hei, verda!». Lat oss følgje han. Lag ei fil `hei.py` og skriv:\n\n```python\nprint(\"Hei, verden!\")\n```\n\nNår du køyrer dette, dukkar `Hei, verden!` opp på skjermen. Her er `print` ein innebygd funksjon som skriv ut tekst, parentesane fortel Python at vi kallar funksjonen, og teksten i hermeteikn er ein *tekststreng* vi sender inn. Skriv du fleire `print`-setningar, blir dei køyrde frå topp til botn, éi linje om gongen, kvar på si eiga linje.\n\nDu bør òg lære deg **kommentarar**. Det er tekst Python ignorerer fullstendig – skriven for menneske, ikkje maskinen. I Python lagar du ein kommentar med `#`:\n\n```python\n# Beregn arealet av en sirkel\nradius = 5\nareal = 3.14 * radius * radius\nprint(areal)  # Skriver ut 78.5\n```\n\nGod vane er å kommentere *kvifor* du gjer noko, ikkje det openberre. Men før du skriv kode, bør du tenkje på **algoritmen** – ei presis, trinnvis skildring av korleis problemet blir løyst, som ei oppskrift. Skal du til dømes berekne gjennomsnittet av tre tal, lagar du først algoritmen i ord: legg tala saman, del summen på 3, vis resultatet. Deretter omset du kvart steg til kode:\n\n```python\ntall1 = 8\ntall2 = 15\ntall3 = 4\nsummen = tall1 + tall2 + tall3\ngjennomsnitt = summen / 3\nprint(\"Gjennomsnittet er:\", gjennomsnitt)\n```\n\nDette skriv ut `9.0`. At resultatet får desimal, skuldast at Python bruker desimaldivisjon som standard. Alle program er i bunn og grunn implementasjonar av algoritmar."
+    },
+    {
+      "id": "it-1-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Python-grunnlag og algoritmar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-1-n-quiz2-q0",
+            "task": "Kva gjer funksjonen print() i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han skriv ut tekst eller verdiar på skjermen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Han skriv ut koden på papir",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han lagrar ei fil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han slettar ein variabel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "print() er ein innebygd funksjon som skriv ut tekst eller verdiar på skjermen."
+          },
+          {
+            "id": "it-1-2-1-n-quiz2-q1",
+            "task": "Kva skjer med ei linje som startar med # i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ho blir køyrd ekstra raskt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho blir ignorert av Python fordi det er ein kommentar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ho gir ei feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ho blir skriven ut med farge",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei linje som startar med # er ein kommentar og blir ignorert av Python – ho er skriven for menneske."
+          },
+          {
+            "id": "it-1-2-1-n-quiz2-q2",
+            "task": "Kva er ein algoritme?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eit programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein type datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei presis, trinnvis skildring av korleis eit problem skal løysast",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein algoritme er ei presis, trinnvis skildring av ei løysing – som ei oppskrift. Alle program er implementasjonar av algoritmar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nProgrammering er å gi datamaskinen presise instruksjonar, akkurat som du måtte forklare ryddinga steg for steg. Koden vår blir omsett til maskinkode anten ved **kompilering** (heile programmet på førehand, raskt) eller **tolking** (linje for linje, med ein gong) – og Python er tolka. Ein **IDE** som VS Code eller Thonny samlar verktøya du treng.\n\nDitt første program brukte `print()` til å skrive ut tekst, og du lærte at kommentarar med `#` er for menneske. Viktigast av alt: før du kodar, tenkjer du gjennom **algoritmen** – den trinnvise oppskrifta – og omset kvart steg til kode. Det er grunnmuren for alt du skal byggje vidare."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "410a1877c87c38b3",
+    "translatedAt": "2026-06-20T23:44:55.458Z",
+    "model": "claude-code-agent",
+    "strings": 50,
+    "tm": {
+      "8613faa0b8ceb281": "Kva er programmering?",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "bb9ff7fcbbf857bc": "Ei forteljing om kunsten å gi ein datamaskin presise instruksjonar – frå kompilerte og tolka språk og val av IDE til ditt aller første Python-program.",
+      "bbcf0fb17f02d57f": "forklare hva programmering er og hvorfor det er nyttig",
+      "07ba879276600a84": "beskrive forskjellen mellom kompilerte og tolkede programmeringsspråk",
+      "9560312e26590090": "sette opp et utviklingsmiljø og skrive enkle programmer",
+      "5b8aac302c91d5b5": "## Å forklare noko til ein som tek alt bokstaveleg\n\nTenk deg at du skal forklare ei oppgåve til nokon som tek alt heilt bokstaveleg. Du kan ikkje berre seie «rydd rommet». Du må gi eksakte steg: «Plukk opp sokkane frå golvet. Legg dei i skittentøykorga. Ta bøkene frå senga. Set dei i bokhylla.» **Programmering** fungerer på akkurat same måten – du skriv presise, steg-for-steg-instruksjonar som datamaskinen følgjer slavisk.\n\nMeir presist er programmering å skrive instruksjonar, kalla kode, som ein datamaskin kan forstå og utføre. Koden blir skriven i eit programmeringsspråk og utgjer til saman eit program. Prosessen er å analysere eit problem, designe ei løysing, skrive henne i kode og teste at ho verkar. Men programmering er òg ein måte å tenkje på: du lærer å bryte komplekse problem ned i handterlege delar og formulere løysingar logisk. Denne **algoritmiske tenkinga** er nyttig langt utover koden.\n\nVi bruker språket **Python**, eitt av dei mest populære og nybyrjarvenlege språka i verda, med ein syntaks som liknar naturleg engelsk. Eit programmeringsspråk er nemleg eit formelt språk: akkurat som norsk har det reglar for *syntaks* (korleis koden blir skriven) og *semantikk* (kva koden tyder). Det finst hundrevis av språk for ulike føremål – JavaScript lagar interaktive nettsider, Java blir brukt i store system og Android-appar, C++ der ytelse er kritisk, C# i spelutvikling, og Swift til Apples einingar. Valet kjem an på kva du skal lage og kva for plattform du siktar mot.",
+      "654a27410611f921": "## Korleis koden blir til noko maskinen forstår\n\nDatamaskinar forstår eigentleg berre maskinkode – binære nullar og einarar. Difor må koden vi skriv omsetjast. Det finst to hovudmetodar. Ved **kompilering** blir heile programmet omsett til maskinkode på ein gong, og resultatet blir lagra som ei køyrbar fil. Ved **tolking** les eit tolkeprogram (interpreter) koden linje for linje og køyrer han med ein gong.\n\nForskjellen merkar du i praksis. Kompilerte språk som C++, Go og Rust gir raske program fordi maskinkoden er optimalisert, men du må kompilere på nytt kvar gong du endrar noko, og den ferdige fila verkar berre på den plattforma ho vart laga for. Tolka språk som Python, JavaScript og Ruby køyrer litt tregare, men du slepp kompileringssteget og ser resultatet med ein gong. Python er tolka, og nettopp denne umiddelbare tilbakemeldinga gjer det framifrå å lære med.\n\nFor å skrive kode treng du eit verktøy. Du *kan* bruke Notisblokk, men det er som å byggje hus med berre ein hammar. Eit **integrert utviklingsmiljø (IDE)** samlar alt: ein kodeeditor med syntaksfarging, autofullføring som føreslår kode, feilmarkering som understrekar feil før du køyrer, eit køyremiljø og ein debugger. For Python er **VS Code** frå Microsoft eit populært og gratis val, **Thonny** er laga for nybyrjarar, **PyCharm** er avansert, og **Replit** køyrer rett i nettlesaren utan installasjon.",
+      "8791fdf97f38d16f": "Test deg sjølv på språk, kompilering og IDE:",
+      "4097889236a2af26": "placeholder",
+      "0d75b9413e125701": "Kva er hovudforskjellen mellom kompilering og tolking?",
+      "2ba59fa1ddcc6e31": "Kompilering er for nettsider, tolking for appar",
+      "5840620b78f804f2": "Tolking gir alltid raskare program",
+      "7530f2c6276dc944": "Kompilering omset heile programmet på ein gong, medan tolking køyrer koden linje for linje",
+      "290d93c2e3522153": "Det er ingen forskjell",
+      "8246b011d562a08d": "Ved kompilering blir heile programmet omsett til maskinkode på førehand, medan ein interpreter ved tolking les og køyrer koden linje for linje.",
+      "a900b65df220e272": "Er Python eit kompilert eller tolka språk?",
+      "609af547bbdb6211": "Kompilert",
+      "5a0fb69be445025a": "Verken eller",
+      "e1d3775187f45fb7": "Maskinkode",
+      "e42de1dfb945267f": "Tolka",
+      "ebda0dd5ac89923b": "Python er eit tolka språk, noko som gjer at du ser resultatet med ein gong – fint for læring.",
+      "057899cbbd0a2182": "Kva er hovudfordelen med å bruke ein IDE framfor ein enkel teksteditor?",
+      "0d482a2ee526d256": "Ein IDE samlar verktøy som syntaksfarging, autofullføring, feilmarkering og debugger",
+      "8e68a674c1d9ce86": "Ein IDE gjer internett raskare",
+      "ca18397d3701519a": "Ein IDE kan berre brukast til Python",
+      "83dcade07db95671": "Ein IDE skriv koden for deg automatisk",
+      "654eef0f57ff6dd2": "Ein IDE samlar kodeeditor, autofullføring, feilmarkering, køyremiljø og debugger på éin stad, slik at utviklinga blir enklare.",
+      "a1abd206cbecf151": "## Ditt første program – og tanken bak\n\nDet er ein tradisjon at det første programmet du skriv berre viser teksten «Hei, verda!». Lat oss følgje han. Lag ei fil `hei.py` og skriv:\n\n```python\nprint(\"Hei, verden!\")\n```\n\nNår du køyrer dette, dukkar `Hei, verden!` opp på skjermen. Her er `print` ein innebygd funksjon som skriv ut tekst, parentesane fortel Python at vi kallar funksjonen, og teksten i hermeteikn er ein *tekststreng* vi sender inn. Skriv du fleire `print`-setningar, blir dei køyrde frå topp til botn, éi linje om gongen, kvar på si eiga linje.\n\nDu bør òg lære deg **kommentarar**. Det er tekst Python ignorerer fullstendig – skriven for menneske, ikkje maskinen. I Python lagar du ein kommentar med `#`:\n\n```python\n# Beregn arealet av en sirkel\nradius = 5\nareal = 3.14 * radius * radius\nprint(areal)  # Skriver ut 78.5\n```\n\nGod vane er å kommentere *kvifor* du gjer noko, ikkje det openberre. Men før du skriv kode, bør du tenkje på **algoritmen** – ei presis, trinnvis skildring av korleis problemet blir løyst, som ei oppskrift. Skal du til dømes berekne gjennomsnittet av tre tal, lagar du først algoritmen i ord: legg tala saman, del summen på 3, vis resultatet. Deretter omset du kvart steg til kode:\n\n```python\ntall1 = 8\ntall2 = 15\ntall3 = 4\nsummen = tall1 + tall2 + tall3\ngjennomsnitt = summen / 3\nprint(\"Gjennomsnittet er:\", gjennomsnitt)\n```\n\nDette skriv ut `9.0`. At resultatet får desimal, skuldast at Python bruker desimaldivisjon som standard. Alle program er i bunn og grunn implementasjonar av algoritmar.",
+      "0bffafc179b26149": "Test deg sjølv på Python-grunnlag og algoritmar:",
+      "4c5aca653ddd5926": "Kva gjer funksjonen print() i Python?",
+      "c601097298a0959b": "Han skriv ut koden på papir",
+      "cee24aea1b371d19": "Han skriv ut tekst eller verdiar på skjermen",
+      "3a1bdbe29fc1848d": "Han lagrar ei fil",
+      "64ced02e54549514": "Han slettar ein variabel",
+      "39c67686488ff096": "print() er ein innebygd funksjon som skriv ut tekst eller verdiar på skjermen.",
+      "b378599ebb43b7ba": "Kva skjer med ei linje som startar med # i Python?",
+      "4e5dd1148c97c82b": "Ho blir køyrd ekstra raskt",
+      "5a02283efa558b49": "Ho gir ei feilmelding",
+      "40173ee24781a25b": "Ho blir ignorert av Python fordi det er ein kommentar",
+      "9bd10cf3e5b0f16a": "Ho blir skriven ut med farge",
+      "0970e669c6480854": "Ei linje som startar med # er ein kommentar og blir ignorert av Python – ho er skriven for menneske.",
+      "83d20e7f3a645fcf": "Kva er ein algoritme?",
+      "65c2cff9f3ea5605": "Eit programmeringsspråk",
+      "c98a26207f13749b": "Ein type datamaskin",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "90f210fe5c734753": "Ei presis, trinnvis skildring av korleis eit problem skal løysast",
+      "cb0198e664c3d3d6": "Ein algoritme er ei presis, trinnvis skildring av ei løysing – som ei oppskrift. Alle program er implementasjonar av algoritmar.",
+      "5794efa36a99e301": "## Oppsummering\n\nProgrammering er å gi datamaskinen presise instruksjonar, akkurat som du måtte forklare ryddinga steg for steg. Koden vår blir omsett til maskinkode anten ved **kompilering** (heile programmet på førehand, raskt) eller **tolking** (linje for linje, med ein gong) – og Python er tolka. Ein **IDE** som VS Code eller Thonny samlar verktøya du treng.\n\nDitt første program brukte `print()` til å skrive ut tekst, og du lærte at kommentarar med `#` er for menneske. Viktigast av alt: før du kodar, tenkjer du gjennom **algoritmen** – den trinnvise oppskrifta – og omset kvart steg til kode. Det er grunnmuren for alt du skal byggje vidare."
+    }
+  }
+}

@@ -1,1 +1,424 @@
-{"id":"s2-9-1-narrativ","courseId":"s2","chapterNumber":"9.1","title":"Følger og tallmønstre","subtitle":"Narrativ versjon","description":"En fortelling om medisinen i blodet og tallene som vet hva som kommer — om aritmetiske og geometriske følger, rekursive og eksplisitte formler, konvergens og de tre store sumformlene.","estimatedMinutes":35,"competenceGoals":["utforske rekursive sammenhenger og presentere egne framgangsmåter","gjøre rede for begrepene følge, rekke, konvergens og divergens, og bruke dette i problemløsning","modellere og analysere situasjoner ved hjelp av følger og rekker"],"linkedChapterId":"s2-9-1","content":[{"id":"s2-9-1-n-intro","type":"text","content":"## Tallene som vet hva som kommer\n\nEn pasient får 400 mg av et medikament, og kroppen bryter ned 25 % per døgn. Legen trenger å vite: hvor mye er igjen om en uke? Når er nivået under 10 mg? Spørsmålene handler om en liste med tall som følger et mønster — og slike lister er blant matematikkens mest anvendelige objekter.\n\nEn **følge** er en ordnet liste med tall etter et bestemt mønster. Vi skriver leddene $a_1, a_2, a_3, \\ldots$ der $a_n$ er det $n$-te leddet. Følger modellerer alt fra rentevekst og medikamentkonsentrasjoner til befolkningsdynamikk. Det finnes to måter å beskrive dem på: en **eksplisitt formel** gir $a_n$ direkte som funksjon av $n$ (som $a_n = 3n + 1$ — du kan hoppe rett til et vilkårlig ledd), mens en **rekursiv formel** gir $a_n$ ut fra de foregående leddene (som $a_{n+1} = 2a_n - 1$ med $a_1 = 5$ — du må starte fra begynnelsen).\n\nI denne fortellingen studerer vi de to viktigste følgeklassene — **aritmetiske** og **geometriske** — og det store spørsmålet om **konvergens**: nærmer følgen seg en endelig grenseverdi, eller vokser den uten grense? Medisinen i blodet, summene på sparekontoen og grenseverdiene møtes alle i samme teori."},{"id":"s2-9-1-n-section1","type":"text","content":"## De to følgefamiliene\n\nDen **aritmetiske følgen** har konstant *differanse* $d$ mellom påfølgende ledd. Rekursivt: $a_{n+1} = a_n + d$; eksplisitt: $a_n = a_1 + (n-1)d$. Følgen $3, 7, 11, 15, 19, \\ldots$ har $a_1 = 3$ og $d = 4$, med eksplisitt formel $a_n = 3 + (n-1) \\cdot 4 = 4n - 1$. Kontroll: $a_1 = 3$ og $a_5 = 19$. ✓\n\nDen **geometriske følgen** har konstant *forhold* (kvotient) $k$ mellom påfølgende ledd. Rekursivt: $a_{n+1} = a_n \\cdot k$; eksplisitt: $a_n = a_1 \\cdot k^{n-1}$. Følgen $2, 6, 18, 54, 162, \\ldots$ har $k = 3$ og formelen $a_n = 2 \\cdot 3^{n-1}$. Og følgen $800, 400, 200, 100, 50, \\ldots$ har $k = \\frac{1}{2}$ — leddene nærmer seg null fordi $|k| < 1$.\n\nMedisinen fra innledningen er nettopp geometrisk: etter hvert døgn er 75 % igjen, så med $a_0 = 400$ er $a_{n+1} = 0{,}75 \\cdot a_n$, eksplisitt $a_n = 400 \\cdot 0{,}75^n$. Når er nivået under 10 mg? Vi løser $400 \\cdot 0{,}75^n < 10$, altså $0{,}75^n < 0{,}025$. Logaritmen på begge sider (husk: $\\ln 0{,}75$ er negativ, så ulikheten snur):\n\n$$n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx \\frac{-3{,}689}{-0{,}288} \\approx 12{,}8$$\n\nEtter 13 døgn er konsentrasjonen under 10 mg. Slik gjenkjenner du følgetypen i praksis: beregn differansene — er de konstante, er følgen aritmetisk; beregn forholdene — er de konstante, er den geometrisk."},{"id":"s2-9-1-n-quiz1","type":"exercise","exercise":{"id":"s2-9-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på aritmetiske og geometriske følger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-1-n-quiz1-q0","task":"Følgen $3, 7, 11, 15, \\ldots$ har eksplisitt formel …","options":[{"id":"a","text":"$a_n = 4n - 1$","isCorrect":true},{"id":"b","text":"$a_n = 3 \\cdot 4^{n-1}$","isCorrect":false},{"id":"c","text":"$a_n = 3n + 4$","isCorrect":false},{"id":"d","text":"$a_n = 4n + 3$","isCorrect":false}],"solution":"Aritmetisk med $a_1 = 3$, $d = 4$: $a_n = 3 + (n-1)4 = 4n - 1$. Sjekk: $a_1 = 3$, $a_2 = 7$. ✓"},{"id":"s2-9-1-n-quiz1-q1","task":"Hva skiller en rekursiv formel fra en eksplisitt?","options":[{"id":"a","text":"Rekursive formler gjelder bare geometriske følger","isCorrect":false},{"id":"b","text":"Eksplisitte formler krever startverdi","isCorrect":false},{"id":"c","text":"Rekursiv gir $a_{n+1}$ fra foregående ledd; eksplisitt gir $a_n$ direkte som funksjon av $n$","isCorrect":true},{"id":"d","text":"De er alltid identiske","isCorrect":false}],"solution":"Med eksplisitt formel hopper du rett til ledd nr. $n$; med rekursiv må du regne deg frem ledd for ledd fra startverdien."},{"id":"s2-9-1-n-quiz1-q2","task":"Medikamentmengden følger $a_n = 400 \\cdot 0{,}75^n$. Hva slags følge er dette?","options":[{"id":"a","text":"Aritmetisk med $d = -100$","isCorrect":false},{"id":"b","text":"Geometrisk med $k = 0{,}75$","isCorrect":true},{"id":"c","text":"Aritmetisk med $d = 0{,}75$","isCorrect":false},{"id":"d","text":"Verken aritmetisk eller geometrisk","isCorrect":false}],"solution":"Hvert ledd er 75 % av forrige — konstant forhold $k = 0{,}75$, altså geometrisk."},{"id":"s2-9-1-n-quiz1-q3","task":"Etter hvor mange døgn er medikamentmengden under 10 mg?","options":[{"id":"a","text":"$8$ døgn","isCorrect":false},{"id":"b","text":"$40$ døgn","isCorrect":false},{"id":"c","text":"$25$ døgn","isCorrect":false},{"id":"d","text":"$13$ døgn","isCorrect":true}],"solution":"$400 \\cdot 0{,}75^n < 10 \\Rightarrow n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx 12{,}8$, altså etter 13 døgn."}]}},{"id":"s2-9-1-n-section2","type":"text","content":"## Konvergens — hvor er følgen på vei?\n\nEn følge $\\{a_n\\}$ **konvergerer** mot $L$ dersom leddene kommer vilkårlig nær $L$ når $n$ vokser uten grense; vi skriver $\\lim_{n \\to \\infty} a_n = L$. En følge uten slik grenseverdi **divergerer**.\n\nFor de to familiene er svaret ryddig. En aritmetisk følge konvergerer bare i det trivielle tilfellet $d = 0$ (konstant følge) — ethvert annet $d$ sender leddene mot $\\pm\\infty$. En geometrisk følge konvergerer mot $0$ når $|k| < 1$; den divergerer når $|k| > 1$; den er konstant når $k = 1$; og når $k = -1$ alternerer den mellom $a_1$ og $-a_1$ uten å konvergere. Vær obs på oscillasjon: følgen $(-1)^n$ er begrenset, men konvergerer ikke.\n\nFor følger gitt som brøkuttrykk i $n$ finnes en standardteknikk: del teller og nevner på den høyeste potensen av $n$. For eksempel $\\frac{3n^2 + n}{2n^2 + 5} = \\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.\n\nOgså rekursive følger kan ha grenseverdier. Se på $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$: leddene blir $10, 8, 7, 6{,}5, 6{,}25, \\ldots$ — de nærmer seg noe. Hva? Hvis følgen konvergerer mot $L$, må grensen tilfredsstille $L = \\frac{L + 6}{2}$, som gir $2L = L + 6$, altså $L = 6$. Og vi kan *bevise* konvergensen med et nydelig triks: la $b_n = a_n - 6$ være avviket fra grensen. Da er\n\n$$b_{n+1} = a_{n+1} - 6 = \\frac{a_n + 6}{2} - 6 = \\frac{a_n - 6}{2} = \\frac{b_n}{2}$$\n\nAvviksfølgen er geometrisk med $k = \\frac{1}{2}$ og $b_1 = 4$, så $b_n = 4 \\cdot (\\frac{1}{2})^{n-1} \\to 0$ — og dermed $a_n = b_n + 6 \\to 6$. Generelt har rekursjonen $a_{n+1} = pa_n + q$ likevekten $L = \\frac{q}{1-p}$ og konvergerer mot den når $|p| < 1$."},{"id":"s2-9-1-n-quiz2","type":"exercise","exercise":{"id":"s2-9-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på konvergens og divergens:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-1-n-quiz2-q0","task":"Når konvergerer den geometriske følgen $a_n = a_1 k^{n-1}$ mot 0?","options":[{"id":"a","text":"Når $k > 1$","isCorrect":false},{"id":"b","text":"Når $|k| < 1$","isCorrect":true},{"id":"c","text":"Alltid","isCorrect":false},{"id":"d","text":"Når $k = -1$","isCorrect":false}],"solution":"For $|k| < 1$ krymper $|k|^{n-1}$ mot null. For $|k| > 1$ divergerer følgen, og $k = -1$ gir oscillasjon."},{"id":"s2-9-1-n-quiz2-q1","task":"Hva er $\\lim_{n \\to \\infty} \\frac{3n^2 + n}{2n^2 + 5}$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$\\infty$","isCorrect":false},{"id":"c","text":"$\\frac{3}{2}$","isCorrect":true},{"id":"d","text":"$\\frac{1}{5}$","isCorrect":false}],"solution":"Del teller og nevner på $n^2$: $\\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$."},{"id":"s2-9-1-n-quiz2-q2","task":"Følgen $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$ konvergerer mot …","options":[{"id":"a","text":"$L = 6$","isCorrect":true},{"id":"b","text":"$L = 8$","isCorrect":false},{"id":"c","text":"$L = 10$","isCorrect":false},{"id":"d","text":"Den divergerer","isCorrect":false}],"solution":"Grensen oppfyller $L = \\frac{L+6}{2} \\Rightarrow L = 6$, og avviket $b_n = a_n - 6$ halveres hvert steg, så det dør ut."},{"id":"s2-9-1-n-quiz2-q3","task":"Hvorfor konvergerer ikke følgen $(-1)^n$?","options":[{"id":"a","text":"Fordi leddene vokser mot uendelig","isCorrect":false},{"id":"b","text":"Fordi den ikke har startverdi","isCorrect":false},{"id":"c","text":"Fordi den er aritmetisk","isCorrect":false},{"id":"d","text":"Fordi den oscillerer mellom $-1$ og $1$ uten å nærme seg én bestemt verdi","isCorrect":true}],"solution":"Konvergens krever én grenseverdi. $(-1)^n$ er begrenset, men hopper evig mellom to verdier — den divergerer."}]}},{"id":"s2-9-1-n-section3","type":"text","content":"## Summene — rekkene tar over\n\nFra følger til **rekker**: summen av leddene. De tre sumformlene du trenger i S2, kjenner du nå igjen som gamle venner.\n\nFor en *aritmetisk rekke* er summen av de $n$ første leddene $S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n}{2}(2a_1 + (n-1)d)$. For en *endelig geometrisk rekke* (med $k \\neq 1$) er $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$. Og for en *uendelig geometrisk rekke* med $|k| < 1$ konvergerer summen mot $S = \\frac{a_1}{1 - k}$ — mens den divergerer for $|k| \\geq 1$.\n\nTre raske anvendelser. En bedrift produserer 500 enheter første kvartal og øker med 80 per kvartal; etter 12 kvartaler er totalproduksjonen $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6 \\cdot 1880 = 11\\,280$ enheter — aritmetisk rekke. En uendelig geometrisk rekke med $a_1 = 300$ og $k = 0{,}6$ har sum $S = \\frac{300}{0{,}4} = 750$. Og den klassiske $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots$ summerer til $\\frac{1}{1 - 1/3} = \\frac{3}{2}$.\n\nDermed har du diagnoseverktøyet komplett: Se på følgen. Konstante differanser? Aritmetisk — lineær vekst, sum med $\\frac{n}{2}(a_1 + a_n)$. Konstante forhold? Geometrisk — eksponentiell endring, sum med $\\frac{k^n - 1}{k-1}$, og uendelig sum $\\frac{a_1}{1-k}$ hvis $|k| < 1$. Rekursjon på formen $a_{n+1} = pa_n + q$? Likevekt i $\\frac{q}{1-p}$, stabil når $|p| < 1$. Med dette i verktøykassen er du rustet både for figurtallene i neste kapittel og for programmeringen i det siste."},{"id":"s2-9-1-n-quiz3","type":"exercise","exercise":{"id":"s2-9-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sumformlene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-1-n-quiz3-q0","task":"En bedrift produserer 500 enheter første kvartal og øker med 80 per kvartal. Total produksjon etter 12 kvartaler?","options":[{"id":"a","text":"$6000$","isCorrect":false},{"id":"b","text":"$11\\,280$","isCorrect":true},{"id":"c","text":"$1380$","isCorrect":false},{"id":"d","text":"$22\\,560$","isCorrect":false}],"solution":"Aritmetisk rekke: $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6(1000 + 880) = 11\\,280$ enheter."},{"id":"s2-9-1-n-quiz3-q1","task":"Hva er summen av den uendelige rekken med $a_1 = 300$ og $k = 0{,}6$?","options":[{"id":"a","text":"$500$","isCorrect":false},{"id":"b","text":"$300$","isCorrect":false},{"id":"c","text":"$750$","isCorrect":true},{"id":"d","text":"Den divergerer","isCorrect":false}],"solution":"$|k| < 1$, så $S = \\frac{a_1}{1-k} = \\frac{300}{0{,}4} = 750$."},{"id":"s2-9-1-n-quiz3-q2","task":"$1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots = \\,?$","options":[{"id":"a","text":"$\\frac{4}{3}$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$\\frac{3}{2}$","isCorrect":true}],"solution":"Geometrisk med $a_1 = 1$, $k = \\frac{1}{3}$: $S = \\frac{1}{1 - 1/3} = \\frac{3}{2}$."},{"id":"s2-9-1-n-quiz3-q3","task":"Hvilken sum divergerer?","options":[{"id":"a","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot 1{,}2^n$","isCorrect":true},{"id":"b","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}8^n$","isCorrect":false},{"id":"c","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot (-0{,}5)^n$","isCorrect":false},{"id":"d","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}99^n$","isCorrect":false}],"solution":"Kvotienten $1{,}2$ har $|k| > 1$ — leddene vokser, og rekken divergerer. De tre andre har $|k| < 1$ og konvergerer."}]}},{"id":"s2-9-1-n-summary","type":"text","content":"## Oppsummering: mønstre, grenser og summer\n\nLegens medisinregnskap åpnet døren til hele følgeteorien. **Aritmetiske følger** har konstant differanse $d$ og eksplisitt formel $a_n = a_1 + (n-1)d$; **geometriske følger** har konstant kvotient $k$ og formel $a_n = a_1 k^{n-1}$. Begge kan beskrives **rekursivt** (steg for steg fra startverdi) eller **eksplisitt** (direkte hopp til ledd $n$) — og medikamentet $a_n = 400 \\cdot 0{,}75^n$ viste hvordan logaritmer besvarer «når er nivået under …?»-spørsmål.\n\n**Konvergens** betyr at leddene nærmer seg en grenseverdi $L$: geometriske følger konvergerer mot 0 når $|k| < 1$, brøkfølger temmes ved å dele på høyeste potens av $n$, og rekursjoner $a_{n+1} = pa_n + q$ har likevekt $L = \\frac{q}{1-p}$, stabil når $|p| < 1$ — bevist elegant ved at avviksfølgen $b_n = a_n - L$ er geometrisk. Husk fellene: oscillerende følger som $(-1)^n$ divergerer selv om de er begrenset.\n\nOg **sumformlene**: aritmetisk $S_n = \\frac{n}{2}(a_1 + a_n)$, geometrisk $S_n = a_1\\frac{k^n - 1}{k - 1}$, og den uendelige $S = \\frac{a_1}{1-k}$ for $|k| < 1$. Tre formler, to følgefamilier, ett spørsmål — hva er konstant, differansen eller forholdet? — og du kan modellere produksjon, medisin og sparing. Neste kapittel gjør tallene synlige: figurtall, der følgene blir geometri."}],"exercises":[]}
+{
+  "id": "s2-9-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "9.1",
+  "title": "Følger og tallmønstre",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om medisinen i blodet og tallene som vet hva som kommer — om aritmetiske og geometriske følger, rekursive og eksplisitte formler, konvergens og de tre store sumformlene.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske rekursive sammenhenger og presentere egne framgangsmåter",
+    "gjøre rede for begrepene følge, rekke, konvergens og divergens, og bruke dette i problemløsning",
+    "modellere og analysere situasjoner ved hjelp av følger og rekker"
+  ],
+  "linkedChapterId": "s2-9-1",
+  "content": [
+    {
+      "id": "s2-9-1-n-intro",
+      "type": "text",
+      "content": "## Tallene som vet hva som kommer\n\nEn pasient får 400 mg av et medikament, og kroppen bryter ned 25 % per døgn. Legen trenger å vite: hvor mye er igjen om en uke? Når er nivået under 10 mg? Spørsmålene handler om en liste med tall som følger et mønster — og slike lister er blant matematikkens mest anvendelige objekter.\n\nEn **følge** er en ordnet liste med tall etter et bestemt mønster. Vi skriver leddene $a_1, a_2, a_3, \\ldots$ der $a_n$ er det $n$-te leddet. Følger modellerer alt fra rentevekst og medikamentkonsentrasjoner til befolkningsdynamikk. Det finnes to måter å beskrive dem på: en **eksplisitt formel** gir $a_n$ direkte som funksjon av $n$ (som $a_n = 3n + 1$ — du kan hoppe rett til et vilkårlig ledd), mens en **rekursiv formel** gir $a_n$ ut fra de foregående leddene (som $a_{n+1} = 2a_n - 1$ med $a_1 = 5$ — du må starte fra begynnelsen).\n\nI denne fortellingen studerer vi de to viktigste følgeklassene — **aritmetiske** og **geometriske** — og det store spørsmålet om **konvergens**: nærmer følgen seg en endelig grenseverdi, eller vokser den uten grense? Medisinen i blodet, summene på sparekontoen og grenseverdiene møtes alle i samme teori."
+    },
+    {
+      "id": "s2-9-1-n-section1",
+      "type": "text",
+      "content": "## De to følgefamiliene\n\nDen **aritmetiske følgen** har konstant *differanse* $d$ mellom påfølgende ledd. Rekursivt: $a_{n+1} = a_n + d$; eksplisitt: $a_n = a_1 + (n-1)d$. Følgen $3, 7, 11, 15, 19, \\ldots$ har $a_1 = 3$ og $d = 4$, med eksplisitt formel $a_n = 3 + (n-1) \\cdot 4 = 4n - 1$. Kontroll: $a_1 = 3$ og $a_5 = 19$. ✓\n\nDen **geometriske følgen** har konstant *forhold* (kvotient) $k$ mellom påfølgende ledd. Rekursivt: $a_{n+1} = a_n \\cdot k$; eksplisitt: $a_n = a_1 \\cdot k^{n-1}$. Følgen $2, 6, 18, 54, 162, \\ldots$ har $k = 3$ og formelen $a_n = 2 \\cdot 3^{n-1}$. Og følgen $800, 400, 200, 100, 50, \\ldots$ har $k = \\frac{1}{2}$ — leddene nærmer seg null fordi $|k| < 1$.\n\nMedisinen fra innledningen er nettopp geometrisk: etter hvert døgn er 75 % igjen, så med $a_0 = 400$ er $a_{n+1} = 0{,}75 \\cdot a_n$, eksplisitt $a_n = 400 \\cdot 0{,}75^n$. Når er nivået under 10 mg? Vi løser $400 \\cdot 0{,}75^n < 10$, altså $0{,}75^n < 0{,}025$. Logaritmen på begge sider (husk: $\\ln 0{,}75$ er negativ, så ulikheten snur):\n\n$$n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx \\frac{-3{,}689}{-0{,}288} \\approx 12{,}8$$\n\nEtter 13 døgn er konsentrasjonen under 10 mg. Slik gjenkjenner du følgetypen i praksis: beregn differansene — er de konstante, er følgen aritmetisk; beregn forholdene — er de konstante, er den geometrisk."
+    },
+    {
+      "id": "s2-9-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på aritmetiske og geometriske følger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-1-n-quiz1-q0",
+            "task": "Følgen $3, 7, 11, 15, \\ldots$ har eksplisitt formel …",
+            "options": [
+              {
+                "id": "b",
+                "text": "$a_n = 3 \\cdot 4^{n-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = 3n + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$a_n = 4n - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 4n + 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Aritmetisk med $a_1 = 3$, $d = 4$: $a_n = 3 + (n-1)4 = 4n - 1$. Sjekk: $a_1 = 3$, $a_2 = 7$. ✓"
+          },
+          {
+            "id": "s2-9-1-n-quiz1-q1",
+            "task": "Hva skiller en rekursiv formel fra en eksplisitt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Rekursive formler gjelder bare geometriske følger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksplisitte formler krever startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De er alltid identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rekursiv gir $a_{n+1}$ fra foregående ledd; eksplisitt gir $a_n$ direkte som funksjon av $n$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med eksplisitt formel hopper du rett til ledd nr. $n$; med rekursiv må du regne deg frem ledd for ledd fra startverdien."
+          },
+          {
+            "id": "s2-9-1-n-quiz1-q2",
+            "task": "Medikamentmengden følger $a_n = 400 \\cdot 0{,}75^n$. Hva slags følge er dette?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Geometrisk med $k = 0{,}75$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Aritmetisk med $d = -100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aritmetisk med $d = 0{,}75$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verken aritmetisk eller geometrisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hvert ledd er 75 % av forrige — konstant forhold $k = 0{,}75$, altså geometrisk."
+          },
+          {
+            "id": "s2-9-1-n-quiz1-q3",
+            "task": "Etter hvor mange døgn er medikamentmengden under 10 mg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$ døgn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$13$ døgn",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$40$ døgn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$25$ døgn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$400 \\cdot 0{,}75^n < 10 \\Rightarrow n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx 12{,}8$, altså etter 13 døgn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-1-n-section2",
+      "type": "text",
+      "content": "## Konvergens — hvor er følgen på vei?\n\nEn følge $\\{a_n\\}$ **konvergerer** mot $L$ dersom leddene kommer vilkårlig nær $L$ når $n$ vokser uten grense; vi skriver $\\lim_{n \\to \\infty} a_n = L$. En følge uten slik grenseverdi **divergerer**.\n\nFor de to familiene er svaret ryddig. En aritmetisk følge konvergerer bare i det trivielle tilfellet $d = 0$ (konstant følge) — ethvert annet $d$ sender leddene mot $\\pm\\infty$. En geometrisk følge konvergerer mot $0$ når $|k| < 1$; den divergerer når $|k| > 1$; den er konstant når $k = 1$; og når $k = -1$ alternerer den mellom $a_1$ og $-a_1$ uten å konvergere. Vær obs på oscillasjon: følgen $(-1)^n$ er begrenset, men konvergerer ikke.\n\nFor følger gitt som brøkuttrykk i $n$ finnes en standardteknikk: del teller og nevner på den høyeste potensen av $n$. For eksempel $\\frac{3n^2 + n}{2n^2 + 5} = \\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.\n\nOgså rekursive følger kan ha grenseverdier. Se på $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$: leddene blir $10, 8, 7, 6{,}5, 6{,}25, \\ldots$ — de nærmer seg noe. Hva? Hvis følgen konvergerer mot $L$, må grensen tilfredsstille $L = \\frac{L + 6}{2}$, som gir $2L = L + 6$, altså $L = 6$. Og vi kan *bevise* konvergensen med et nydelig triks: la $b_n = a_n - 6$ være avviket fra grensen. Da er\n\n$$b_{n+1} = a_{n+1} - 6 = \\frac{a_n + 6}{2} - 6 = \\frac{a_n - 6}{2} = \\frac{b_n}{2}$$\n\nAvviksfølgen er geometrisk med $k = \\frac{1}{2}$ og $b_1 = 4$, så $b_n = 4 \\cdot (\\frac{1}{2})^{n-1} \\to 0$ — og dermed $a_n = b_n + 6 \\to 6$. Generelt har rekursjonen $a_{n+1} = pa_n + q$ likevekten $L = \\frac{q}{1-p}$ og konvergerer mot den når $|p| < 1$."
+    },
+    {
+      "id": "s2-9-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på konvergens og divergens:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-1-n-quiz2-q0",
+            "task": "Når konvergerer den geometriske følgen $a_n = a_1 k^{n-1}$ mot 0?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $k > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $|k| < 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når $k = -1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $|k| < 1$ krymper $|k|^{n-1}$ mot null. For $|k| > 1$ divergerer følgen, og $k = -1$ gir oscillasjon."
+          },
+          {
+            "id": "s2-9-1-n-quiz2-q1",
+            "task": "Hva er $\\lim_{n \\to \\infty} \\frac{3n^2 + n}{2n^2 + 5}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Del teller og nevner på $n^2$: $\\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$."
+          },
+          {
+            "id": "s2-9-1-n-quiz2-q2",
+            "task": "Følgen $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$ konvergerer mot …",
+            "options": [
+              {
+                "id": "a",
+                "text": "$L = 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$L = 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$L = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den divergerer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grensen oppfyller $L = \\frac{L+6}{2} \\Rightarrow L = 6$, og avviket $b_n = a_n - 6$ halveres hvert steg, så det dør ut."
+          },
+          {
+            "id": "s2-9-1-n-quiz2-q3",
+            "task": "Hvorfor konvergerer ikke følgen $(-1)^n$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi leddene vokser mot uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi den oscillerer mellom $-1$ og $1$ uten å nærme seg én bestemt verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi den ikke har startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi den er aritmetisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konvergens krever én grenseverdi. $(-1)^n$ er begrenset, men hopper evig mellom to verdier — den divergerer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-1-n-section3",
+      "type": "text",
+      "content": "## Summene — rekkene tar over\n\nFra følger til **rekker**: summen av leddene. De tre sumformlene du trenger i S2, kjenner du nå igjen som gamle venner.\n\nFor en *aritmetisk rekke* er summen av de $n$ første leddene $S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n}{2}(2a_1 + (n-1)d)$. For en *endelig geometrisk rekke* (med $k \\neq 1$) er $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$. Og for en *uendelig geometrisk rekke* med $|k| < 1$ konvergerer summen mot $S = \\frac{a_1}{1 - k}$ — mens den divergerer for $|k| \\geq 1$.\n\nTre raske anvendelser. En bedrift produserer 500 enheter første kvartal og øker med 80 per kvartal; etter 12 kvartaler er totalproduksjonen $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6 \\cdot 1880 = 11\\,280$ enheter — aritmetisk rekke. En uendelig geometrisk rekke med $a_1 = 300$ og $k = 0{,}6$ har sum $S = \\frac{300}{0{,}4} = 750$. Og den klassiske $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots$ summerer til $\\frac{1}{1 - 1/3} = \\frac{3}{2}$.\n\nDermed har du diagnoseverktøyet komplett: Se på følgen. Konstante differanser? Aritmetisk — lineær vekst, sum med $\\frac{n}{2}(a_1 + a_n)$. Konstante forhold? Geometrisk — eksponentiell endring, sum med $\\frac{k^n - 1}{k-1}$, og uendelig sum $\\frac{a_1}{1-k}$ hvis $|k| < 1$. Rekursjon på formen $a_{n+1} = pa_n + q$? Likevekt i $\\frac{q}{1-p}$, stabil når $|p| < 1$. Med dette i verktøykassen er du rustet både for figurtallene i neste kapittel og for programmeringen i det siste."
+    },
+    {
+      "id": "s2-9-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sumformlene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-1-n-quiz3-q0",
+            "task": "En bedrift produserer 500 enheter første kvartal og øker med 80 per kvartal. Total produksjon etter 12 kvartaler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1380$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$11\\,280$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$22\\,560$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Aritmetisk rekke: $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6(1000 + 880) = 11\\,280$ enheter."
+          },
+          {
+            "id": "s2-9-1-n-quiz3-q1",
+            "task": "Hva er summen av den uendelige rekken med $a_1 = 300$ og $k = 0{,}6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$500$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$300$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den divergerer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$750$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|k| < 1$, så $S = \\frac{a_1}{1-k} = \\frac{300}{0{,}4} = 750$."
+          },
+          {
+            "id": "s2-9-1-n-quiz3-q2",
+            "task": "$1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots = \\,?$",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{4}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometrisk med $a_1 = 1$, $k = \\frac{1}{3}$: $S = \\frac{1}{1 - 1/3} = \\frac{3}{2}$."
+          },
+          {
+            "id": "s2-9-1-n-quiz3-q3",
+            "task": "Hvilken sum divergerer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}8^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot 1{,}2^n$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot (-0{,}5)^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}99^n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvotienten $1{,}2$ har $|k| > 1$ — leddene vokser, og rekken divergerer. De tre andre har $|k| < 1$ og konvergerer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: mønstre, grenser og summer\n\nLegens medisinregnskap åpnet døren til hele følgeteorien. **Aritmetiske følger** har konstant differanse $d$ og eksplisitt formel $a_n = a_1 + (n-1)d$; **geometriske følger** har konstant kvotient $k$ og formel $a_n = a_1 k^{n-1}$. Begge kan beskrives **rekursivt** (steg for steg fra startverdi) eller **eksplisitt** (direkte hopp til ledd $n$) — og medikamentet $a_n = 400 \\cdot 0{,}75^n$ viste hvordan logaritmer besvarer «når er nivået under …?»-spørsmål.\n\n**Konvergens** betyr at leddene nærmer seg en grenseverdi $L$: geometriske følger konvergerer mot 0 når $|k| < 1$, brøkfølger temmes ved å dele på høyeste potens av $n$, og rekursjoner $a_{n+1} = pa_n + q$ har likevekt $L = \\frac{q}{1-p}$, stabil når $|p| < 1$ — bevist elegant ved at avviksfølgen $b_n = a_n - L$ er geometrisk. Husk fellene: oscillerende følger som $(-1)^n$ divergerer selv om de er begrenset.\n\nOg **sumformlene**: aritmetisk $S_n = \\frac{n}{2}(a_1 + a_n)$, geometrisk $S_n = a_1\\frac{k^n - 1}{k - 1}$, og den uendelige $S = \\frac{a_1}{1-k}$ for $|k| < 1$. Tre formler, to følgefamilier, ett spørsmål — hva er konstant, differansen eller forholdet? — og du kan modellere produksjon, medisin og sparing. Neste kapittel gjør tallene synlige: figurtall, der følgene blir geometri."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,344 @@
-{"id":"r2-5-6-narrativ","courseId":"r2","chapterNumber":"5.6","title":"Ligninger for plan","subtitle":"Narrativ versjon","description":"En fortelling om å fange en flate i en ligning — parameterframstilling med to retningsvektorer, normalvektor via kryssproduktet, standardformen ax + by + cz = d og punkttesten.","estimatedMinutes":36,"competenceGoals":["Kunne sette opp parameterframstilling for et plan","Kunne finne normalvektoren til et plan","Kunne skrive planligninger på normalform","Kunne avgjøre om punkter ligger i et plan"],"linkedChapterId":"r2-5-6","content":[{"id":"r2-5-6-n-intro","type":"text","content":"## Å beskrive en flate med en ligning\n\nEn drone skal lande på et skrått solcelletak. Styringssystemet trenger en presis matematisk beskrivelse av takflaten: hvilke punkter $(x, y, z)$ hører til taket, og hvilke gjør det ikke? I planet kunne en linje beskrives med én ligning som $y = 2x + 1$. Men hvordan beskriver man en hel *flate* som svever skjevt i rommet?\n\nDet finnes flere gode svar, og i dette kapitlet lærer du tre. Det første er **parameterframstillingen**: stå i et kjent punkt på taket, og beskriv alle andre punkter ved å gå passe langt i to retninger som ligger i flaten — som å rute opp taket med to sett parallelle linjer. Det andre er **normalvektorformen**: i stedet for å si hvilke retninger som ligger *i* planet, oppgir du den ene retningen som står vinkelrett *på* det. Det viser seg å gi en enkel, lineær ligning $ax + by + cz = d$, der koeffisientene rett og slett er normalvektorens komponenter. Det tredje er **determinantformen**, som lager planligningen direkte fra tre punkter.\n\nKryssproduktet fra tidligere kapitler blir limet mellom beskrivelsene: det forvandler to retningsvektorer i planet til normalvektoren, og dermed parameterframstillingen til ligning. Underveis lærer vi også å avlese normalvektorer direkte, avgjøre når to plan er parallelle, og teste om et punkt ligger i et plan — alt dronen trenger for å treffe taket, og alt du trenger for kapitlene om linjer og avstander som følger."},{"id":"r2-5-6-n-section1","type":"text","content":"## Parameterframstilling: et punkt og to retninger\n\nTenk deg at du står på ett kjent punkt på taket, $P_0 = (x_0, y_0, z_0)$, og kjenner to retninger du kan bevege deg i uten å forlate flaten: $\\vec{u}$ og $\\vec{v}$ (de må ikke være parallelle, ellers spenner de bare ut en linje). Da kan du nå **ethvert** punkt på taket ved å gå $s$ skritt langs $\\vec{u}$ og $t$ skritt langs $\\vec{v}$:\n\n$$\\vec{r} = \\vec{r}_0 + s\\vec{u} + t\\vec{v}$$\n\nDette er planets **parameterframstilling**, med to frie parametre $s$ og $t$ — ett parameter for hver dimensjon flaten har. På koordinatform blir det tre likninger: $x = x_0 + su_1 + tv_1$, $y = y_0 + su_2 + tv_2$ og $z = z_0 + su_3 + tv_3$.\n\nHvordan finner du framstillingen fra tre oppmålte punkter? Si at taket går gjennom $A = (1, 2, 3)$, $B = (4, 2, 1)$ og $C = (2, 5, 0)$. Velg $A$ som basispunkt, og bruk de to andre til å lage retningsvektorer i flaten: $\\vec{u} = \\overrightarrow{AB} = [3, 0, -2]$ og $\\vec{v} = \\overrightarrow{AC} = [1, 3, -3]$. Dermed:\n\n$$\\vec{r} = [1, 2, 3] + s[3, 0, -2] + t[1, 3, -3]$$\n\neller utskrevet: $x = 1 + 3s + t$, $y = 2 + 3t$, $z = 3 - 2s - 3t$. Setter du $s = t = 0$ står du i $A$; $s = 1, t = 0$ gir $B$; $s = 0, t = 1$ gir $C$ — og alle andre verdier fyller ut resten av flaten.\n\nMerk at framstillingen ikke er entydig: et annet basispunkt eller andre (ikke-parallelle) retningsvektorer i samme plan gir en annen, men likeverdig beskrivelse."},{"id":"r2-5-6-n-quiz1","type":"exercise","exercise":{"id":"r2-5-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på parameterframstilling for plan:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-6-n-quiz1-q0","task":"Hvor mange frie parametre har parameterframstillingen til et plan?","options":[{"id":"a","text":"Én","isCorrect":false},{"id":"b","text":"To","isCorrect":true},{"id":"c","text":"Tre","isCorrect":false},{"id":"d","text":"Ingen","isCorrect":false}],"solution":"Et plan er todimensjonalt: $\\vec{r} = \\vec{r}_0 + s\\vec{u} + t\\vec{v}$ har de to parametrene $s$ og $t$."},{"id":"r2-5-6-n-quiz1-q1","task":"Planet går gjennom $A = (1,2,3)$, $B = (4,2,1)$ og $C = (2,5,0)$. Hvilke retningsvektorer kan brukes med basispunkt $A$?","options":[{"id":"a","text":"$\\overrightarrow{AB} = [3, 0, -2]$ og $\\overrightarrow{AC} = [1, 3, -3]$","isCorrect":true},{"id":"b","text":"$[1, 2, 3]$ og $[4, 2, 1]$","isCorrect":false},{"id":"c","text":"$\\overrightarrow{AB} = [5, 4, 4]$ og $\\overrightarrow{AC} = [3, 7, 3]$","isCorrect":false},{"id":"d","text":"$[3, 0, -2]$ og $[6, 0, -4]$","isCorrect":false}],"solution":"Retningsvektorene er differanser mellom punktene: $\\overrightarrow{AB} = [3,0,-2]$ og $\\overrightarrow{AC} = [1,3,-3]$. (Alternativ d har to parallelle vektorer.)"},{"id":"r2-5-6-n-quiz1-q2","task":"Hva kreves av retningsvektorene $\\vec{u}$ og $\\vec{v}$ i en parameterframstilling for et plan?","options":[{"id":"a","text":"De må stå vinkelrett på hverandre","isCorrect":false},{"id":"b","text":"De må ha lengde 1","isCorrect":false},{"id":"c","text":"De må ikke være parallelle","isCorrect":true},{"id":"d","text":"De må starte i origo","isCorrect":false}],"solution":"To parallelle vektorer spenner bare ut en linje. Vinkelrette eller normerte trenger de derimot ikke være."}]}},{"id":"r2-5-6-n-section2","type":"text","content":"## Normalvektoren — flatens vinkelrette signatur\n\nParameterframstillingen er konstruktiv, men tungvint når du skal *sjekke* om et punkt ligger i planet. Da er det bedre å snu perspektivet: i stedet for to retninger *i* flaten, oppgi den ene retningen vinkelrett *på* den — **normalvektoren** $\\vec{n}$. Og den har vi allerede verktøyet for: er $\\vec{u}$ og $\\vec{v}$ retningsvektorer i planet, gir kryssproduktet\n\n$$\\vec{n} = \\vec{u} \\times \\vec{v}$$\n\nNå kommer den avgjørende observasjonen. Et punkt $P = (x, y, z)$ ligger i planet nøyaktig når vektoren fra $P_0$ til $P$ ligger i flaten — altså står vinkelrett på $\\vec{n}$. Med skalarproduktet: $\\vec{n} \\cdot \\overrightarrow{P_0P} = 0$, som utskrevet med $\\vec{n} = [a, b, c]$ gir **normalformen**\n\n$$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$$\n\nGanger du ut og samler konstantene, får du **standardformen** $ax + by + cz = d$, der $d = ax_0 + by_0 + cz_0$.\n\nTilbake til taket gjennom $A = (1,2,3)$, $B$ og $C$: med $\\vec{u} = [3, 0, -2]$ og $\\vec{v} = [1, 3, -3]$ gir kryssproduktet $\\vec{n} = [0 \\cdot (-3) - (-2) \\cdot 3, \\; (-2) \\cdot 1 - 3 \\cdot (-3), \\; 3 \\cdot 3 - 0 \\cdot 1] = [6, 7, 9]$. Normalformen med punktet $A$ blir $6(x-1) + 7(y-2) + 9(z-3) = 0$, som ryddet gir $6x + 7y + 9z = 47$ — hele takflaten fanget i én lineær ligning.\n\nHar du normalvektor og punkt direkte, går det enda fortere: planet gjennom $P = (2, -1, 4)$ med $\\vec{n} = [3, 1, -2]$ er $3(x-2) + (y+1) - 2(z-4) = 0$, altså $3x + y - 2z = -3$."},{"id":"r2-5-6-n-quiz2","type":"exercise","exercise":{"id":"r2-5-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på normalvektor og planligning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-6-n-quiz2-q0","task":"Hvordan finner du en normalvektor til et plan med retningsvektorer $\\vec{u}$ og $\\vec{v}$?","options":[{"id":"a","text":"$\\vec{n} = \\vec{u} + \\vec{v}$","isCorrect":false},{"id":"b","text":"$\\vec{n} = \\vec{u} \\cdot \\vec{v}$","isCorrect":false},{"id":"c","text":"$\\vec{n} = \\vec{u} - \\vec{v}$","isCorrect":false},{"id":"d","text":"$\\vec{n} = \\vec{u} \\times \\vec{v}$","isCorrect":true}],"solution":"Kryssproduktet står vinkelrett på begge retningsvektorene, og dermed på hele planet."},{"id":"r2-5-6-n-quiz2-q1","task":"Hva er ligningen for planet gjennom $P = (2, -1, 4)$ med normalvektor $\\vec{n} = [3, 1, -2]$?","options":[{"id":"a","text":"$3x + y - 2z = -3$","isCorrect":true},{"id":"b","text":"$3x + y - 2z = 3$","isCorrect":false},{"id":"c","text":"$2x - y + 4z = 3$","isCorrect":false},{"id":"d","text":"$3x - y - 2z = 13$","isCorrect":false}],"solution":"$3(x-2) + 1(y+1) - 2(z-4) = 0$ gir $3x + y - 2z - 6 + 1 + 8 = 0$, altså $3x + y - 2z = -3$."},{"id":"r2-5-6-n-quiz2-q2","task":"Hva er en normalvektor til planet $6x + 7y + 9z = 47$?","options":[{"id":"a","text":"$[47, 47, 47]$","isCorrect":false},{"id":"b","text":"$[6, 7, 9]$","isCorrect":true},{"id":"c","text":"$[7, 6, 9]$","isCorrect":false},{"id":"d","text":"$[1, 1, 1]$","isCorrect":false}],"solution":"Koeffisientene foran $x$, $y$ og $z$ i standardformen er normalvektorens komponenter: $\\vec{n} = [6, 7, 9]$."}]}},{"id":"r2-5-6-n-section3","type":"text","content":"## Avlesning, parallelle plan og punkttesten\n\nStandardformen $ax + by + cz = d$ er en gullgruve av informasjon, og det viktigste kan leses rett ut: **koeffisientene er normalvektoren**, $\\vec{n} = [a, b, c]$. Ingen regning nødvendig — ligningen bærer sin egen geometri.\n\nDet gir en lynrask test for parallelle plan: to plan er parallelle nøyaktig når normalvektorene deres er parallelle. Ta $\\alpha: 2x - 4y + 6z = 12$ og $\\beta: x - 2y + 3z = 5$. Normalvektorene er $[2, -4, 6]$ og $[1, -2, 3]$, og den første er nøyaktig $2$ ganger den andre — planene er parallelle. Men er de *samme* plan? Sjekk med et punkt: $(0, 0, 2)$ ligger i $\\alpha$ (siden $6 \\cdot 2 = 12$), men innsatt i $\\beta$ gir det $6 \\neq 5$. Altså parallelle, men ikke sammenfallende — to etasjer i samme skrå retning.\n\nPunkttesten generelt er like enkel: punktet $(x_0, y_0, z_0)$ ligger i planet $ax + by + cz = d$ hvis og bare hvis innsetting gir likhet, $ax_0 + by_0 + cz_0 = d$. Ligger $Q = (3, 5, 1)$ i planet $2x - y + 3z = 4$? Innsetting: $6 - 5 + 3 = 4$ — ja, punktet ligger i planet. Dette er hele styrken ved ligningsformen: medlemskap i flaten avgjøres med ett regnestykke.\n\nFor ordens skyld finnes også en tredje vei, **determinantformen**: planet gjennom tre punkter $P_1$, $P_2$, $P_3$ kan skrives som en $3 \\times 3$-determinant satt lik null, med radene $[x - x_1, y - y_1, z - z_1]$, $\\overrightarrow{P_1P_2}$ og $\\overrightarrow{P_1P_3}$. Utvidet gir den samme lineære ligning som veien om kryssproduktet — tre punkter inn, planligning ut, i én operasjon."},{"id":"r2-5-6-n-quiz3","type":"exercise","exercise":{"id":"r2-5-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på parallelle plan og punkttest:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-6-n-quiz3-q0","task":"Er planene $\\alpha: 2x - 4y + 6z = 12$ og $\\beta: x - 2y + 3z = 5$ parallelle?","options":[{"id":"a","text":"Nei, normalvektorene spriker","isCorrect":false},{"id":"b","text":"Ja, og de er samme plan","isCorrect":false},{"id":"c","text":"Ja — normalvektorene er parallelle, men planene er ikke sammenfallende","isCorrect":true},{"id":"d","text":"Bare hvis $z = 0$","isCorrect":false}],"solution":"$[2, -4, 6] = 2 \\cdot [1, -2, 3]$, så planene er parallelle. Punktet $(0,0,2)$ ligger i $\\alpha$ men ikke i $\\beta$, så de er ikke identiske."},{"id":"r2-5-6-n-quiz3-q1","task":"Ligger punktet $Q = (3, 5, 1)$ i planet $2x - y + 3z = 4$?","options":[{"id":"a","text":"Ja, fordi $2 \\cdot 3 - 5 + 3 \\cdot 1 = 4$","isCorrect":true},{"id":"b","text":"Nei, fordi $2 \\cdot 3 - 5 + 3 \\cdot 1 = 2$","isCorrect":false},{"id":"c","text":"Nei, fordi punktet har positiv $z$-koordinat","isCorrect":false},{"id":"d","text":"Det kan ikke avgjøres uten parameterframstillingen","isCorrect":false}],"solution":"Innsetting gir $6 - 5 + 3 = 4$, som stemmer med høyresiden — punktet ligger i planet."},{"id":"r2-5-6-n-quiz3-q2","task":"Hvordan avgjør du raskest om to plan på standardform er parallelle?","options":[{"id":"a","text":"Sammenlign konstantleddene $d$","isCorrect":false},{"id":"b","text":"Finn skjæringslinjen","isCorrect":false},{"id":"c","text":"Sett ligningene lik hverandre","isCorrect":false},{"id":"d","text":"Sjekk om normalvektorene $[a, b, c]$ er parallelle","isCorrect":true}],"solution":"Planene er parallelle nøyaktig når normalvektorene er skalarmultipler av hverandre. Konstantleddet avgjør så om de er sammenfallende."}]}},{"id":"r2-5-6-n-summary","type":"text","content":"## Oppsummering\n\nDronen trengte en presis beskrivelse av det skrå solcelletaket, og vi fant tre. **Parameterframstillingen** $\\vec{r} = \\vec{r}_0 + s\\vec{u} + t\\vec{v}$ beskriver flaten konstruktivt: stå i et kjent punkt, og nå alle andre med to parametre langs to ikke-parallelle retningsvektorer — som vi hentet fra tre oppmålte punkter via «slutt minus start».\n\n**Normalvektorformen** snudde perspektivet: kryssproduktet $\\vec{n} = \\vec{u} \\times \\vec{v}$ ga retningen vinkelrett på flaten, og kravet $\\vec{n} \\cdot \\overrightarrow{P_0P} = 0$ ble til ligningen $a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$, som ryddet gir **standardformen** $ax + by + cz = d$. Slik ble taket vårt til $6x + 7y + 9z = 47$. Nøkkelinnsikten går begge veier: koeffisientene i standardformen *er* normalvektoren, klar til avlesning.\n\nDet ga raske svar på praktiske spørsmål: to plan er parallelle når normalvektorene er parallelle (og sammenfallende bare hvis de også deler et punkt), og et punkt ligger i planet hvis innsetting gir likhet — slik $Q = (3,5,1)$ besto testen $6 - 5 + 3 = 4$. **Determinantformen** ga som bonus planligningen direkte fra tre punkter.\n\nTre beskrivelser, ett plan — og fri omveksling mellom dem via kryssproduktet. I neste kapittel får planene selskap av linjer i rommet, og så kan vi begynne å spørre hvor ting skjærer hverandre, og hvor langt det er imellom."}],"exercises":[]}
+{
+  "id": "r2-5-6-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "5.6",
+  "title": "Ligninger for plan",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å fange en flate i en ligning — parameterframstilling med to retningsvektorer, normalvektor via kryssproduktet, standardformen ax + by + cz = d og punkttesten.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "Kunne sette opp parameterframstilling for et plan",
+    "Kunne finne normalvektoren til et plan",
+    "Kunne skrive planligninger på normalform",
+    "Kunne avgjøre om punkter ligger i et plan"
+  ],
+  "linkedChapterId": "r2-5-6",
+  "content": [
+    {
+      "id": "r2-5-6-n-intro",
+      "type": "text",
+      "content": "## Å beskrive en flate med en ligning\n\nEn drone skal lande på et skrått solcelletak. Styringssystemet trenger en presis matematisk beskrivelse av takflaten: hvilke punkter $(x, y, z)$ hører til taket, og hvilke gjør det ikke? I planet kunne en linje beskrives med én ligning som $y = 2x + 1$. Men hvordan beskriver man en hel *flate* som svever skjevt i rommet?\n\nDet finnes flere gode svar, og i dette kapitlet lærer du tre. Det første er **parameterframstillingen**: stå i et kjent punkt på taket, og beskriv alle andre punkter ved å gå passe langt i to retninger som ligger i flaten — som å rute opp taket med to sett parallelle linjer. Det andre er **normalvektorformen**: i stedet for å si hvilke retninger som ligger *i* planet, oppgir du den ene retningen som står vinkelrett *på* det. Det viser seg å gi en enkel, lineær ligning $ax + by + cz = d$, der koeffisientene rett og slett er normalvektorens komponenter. Det tredje er **determinantformen**, som lager planligningen direkte fra tre punkter.\n\nKryssproduktet fra tidligere kapitler blir limet mellom beskrivelsene: det forvandler to retningsvektorer i planet til normalvektoren, og dermed parameterframstillingen til ligning. Underveis lærer vi også å avlese normalvektorer direkte, avgjøre når to plan er parallelle, og teste om et punkt ligger i et plan — alt dronen trenger for å treffe taket, og alt du trenger for kapitlene om linjer og avstander som følger."
+    },
+    {
+      "id": "r2-5-6-n-section1",
+      "type": "text",
+      "content": "## Parameterframstilling: et punkt og to retninger\n\nTenk deg at du står på ett kjent punkt på taket, $P_0 = (x_0, y_0, z_0)$, og kjenner to retninger du kan bevege deg i uten å forlate flaten: $\\vec{u}$ og $\\vec{v}$ (de må ikke være parallelle, ellers spenner de bare ut en linje). Da kan du nå **ethvert** punkt på taket ved å gå $s$ skritt langs $\\vec{u}$ og $t$ skritt langs $\\vec{v}$:\n\n$$\\vec{r} = \\vec{r}_0 + s\\vec{u} + t\\vec{v}$$\n\nDette er planets **parameterframstilling**, med to frie parametre $s$ og $t$ — ett parameter for hver dimensjon flaten har. På koordinatform blir det tre likninger: $x = x_0 + su_1 + tv_1$, $y = y_0 + su_2 + tv_2$ og $z = z_0 + su_3 + tv_3$.\n\nHvordan finner du framstillingen fra tre oppmålte punkter? Si at taket går gjennom $A = (1, 2, 3)$, $B = (4, 2, 1)$ og $C = (2, 5, 0)$. Velg $A$ som basispunkt, og bruk de to andre til å lage retningsvektorer i flaten: $\\vec{u} = \\overrightarrow{AB} = [3, 0, -2]$ og $\\vec{v} = \\overrightarrow{AC} = [1, 3, -3]$. Dermed:\n\n$$\\vec{r} = [1, 2, 3] + s[3, 0, -2] + t[1, 3, -3]$$\n\neller utskrevet: $x = 1 + 3s + t$, $y = 2 + 3t$, $z = 3 - 2s - 3t$. Setter du $s = t = 0$ står du i $A$; $s = 1, t = 0$ gir $B$; $s = 0, t = 1$ gir $C$ — og alle andre verdier fyller ut resten av flaten.\n\nMerk at framstillingen ikke er entydig: et annet basispunkt eller andre (ikke-parallelle) retningsvektorer i samme plan gir en annen, men likeverdig beskrivelse."
+    },
+    {
+      "id": "r2-5-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på parameterframstilling for plan:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-6-n-quiz1-q0",
+            "task": "Hvor mange frie parametre har parameterframstillingen til et plan?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Én",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tre",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et plan er todimensjonalt: $\\vec{r} = \\vec{r}_0 + s\\vec{u} + t\\vec{v}$ har de to parametrene $s$ og $t$."
+          },
+          {
+            "id": "r2-5-6-n-quiz1-q1",
+            "task": "Planet går gjennom $A = (1,2,3)$, $B = (4,2,1)$ og $C = (2,5,0)$. Hvilke retningsvektorer kan brukes med basispunkt $A$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\overrightarrow{AB} = [3, 0, -2]$ og $\\overrightarrow{AC} = [1, 3, -3]$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$[1, 2, 3]$ og $[4, 2, 1]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\overrightarrow{AB} = [5, 4, 4]$ og $\\overrightarrow{AC} = [3, 7, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[3, 0, -2]$ og $[6, 0, -4]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Retningsvektorene er differanser mellom punktene: $\\overrightarrow{AB} = [3,0,-2]$ og $\\overrightarrow{AC} = [1,3,-3]$. (Alternativ d har to parallelle vektorer.)"
+          },
+          {
+            "id": "r2-5-6-n-quiz1-q2",
+            "task": "Hva kreves av retningsvektorene $\\vec{u}$ og $\\vec{v}$ i en parameterframstilling for et plan?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De må stå vinkelrett på hverandre",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De må ha lengde 1",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De må starte i origo",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De må ikke være parallelle",
+                "isCorrect": true
+              }
+            ],
+            "solution": "To parallelle vektorer spenner bare ut en linje. Vinkelrette eller normerte trenger de derimot ikke være."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-6-n-section2",
+      "type": "text",
+      "content": "## Normalvektoren — flatens vinkelrette signatur\n\nParameterframstillingen er konstruktiv, men tungvint når du skal *sjekke* om et punkt ligger i planet. Da er det bedre å snu perspektivet: i stedet for to retninger *i* flaten, oppgi den ene retningen vinkelrett *på* den — **normalvektoren** $\\vec{n}$. Og den har vi allerede verktøyet for: er $\\vec{u}$ og $\\vec{v}$ retningsvektorer i planet, gir kryssproduktet\n\n$$\\vec{n} = \\vec{u} \\times \\vec{v}$$\n\nNå kommer den avgjørende observasjonen. Et punkt $P = (x, y, z)$ ligger i planet nøyaktig når vektoren fra $P_0$ til $P$ ligger i flaten — altså står vinkelrett på $\\vec{n}$. Med skalarproduktet: $\\vec{n} \\cdot \\overrightarrow{P_0P} = 0$, som utskrevet med $\\vec{n} = [a, b, c]$ gir **normalformen**\n\n$$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$$\n\nGanger du ut og samler konstantene, får du **standardformen** $ax + by + cz = d$, der $d = ax_0 + by_0 + cz_0$.\n\nTilbake til taket gjennom $A = (1,2,3)$, $B$ og $C$: med $\\vec{u} = [3, 0, -2]$ og $\\vec{v} = [1, 3, -3]$ gir kryssproduktet $\\vec{n} = [0 \\cdot (-3) - (-2) \\cdot 3, \\; (-2) \\cdot 1 - 3 \\cdot (-3), \\; 3 \\cdot 3 - 0 \\cdot 1] = [6, 7, 9]$. Normalformen med punktet $A$ blir $6(x-1) + 7(y-2) + 9(z-3) = 0$, som ryddet gir $6x + 7y + 9z = 47$ — hele takflaten fanget i én lineær ligning.\n\nHar du normalvektor og punkt direkte, går det enda fortere: planet gjennom $P = (2, -1, 4)$ med $\\vec{n} = [3, 1, -2]$ er $3(x-2) + (y+1) - 2(z-4) = 0$, altså $3x + y - 2z = -3$."
+    },
+    {
+      "id": "r2-5-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på normalvektor og planligning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-6-n-quiz2-q0",
+            "task": "Hvordan finner du en normalvektor til et plan med retningsvektorer $\\vec{u}$ og $\\vec{v}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\vec{n} = \\vec{u} + \\vec{v}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\vec{n} = \\vec{u} \\times \\vec{v}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\vec{n} = \\vec{u} \\cdot \\vec{v}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\vec{n} = \\vec{u} - \\vec{v}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kryssproduktet står vinkelrett på begge retningsvektorene, og dermed på hele planet."
+          },
+          {
+            "id": "r2-5-6-n-quiz2-q1",
+            "task": "Hva er ligningen for planet gjennom $P = (2, -1, 4)$ med normalvektor $\\vec{n} = [3, 1, -2]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3x + y - 2z = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x - y + 4z = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3x + y - 2z = -3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$3x - y - 2z = 13$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3(x-2) + 1(y+1) - 2(z-4) = 0$ gir $3x + y - 2z - 6 + 1 + 8 = 0$, altså $3x + y - 2z = -3$."
+          },
+          {
+            "id": "r2-5-6-n-quiz2-q2",
+            "task": "Hva er en normalvektor til planet $6x + 7y + 9z = 47$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[47, 47, 47]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[7, 6, 9]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[1, 1, 1]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[6, 7, 9]$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Koeffisientene foran $x$, $y$ og $z$ i standardformen er normalvektorens komponenter: $\\vec{n} = [6, 7, 9]$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-6-n-section3",
+      "type": "text",
+      "content": "## Avlesning, parallelle plan og punkttesten\n\nStandardformen $ax + by + cz = d$ er en gullgruve av informasjon, og det viktigste kan leses rett ut: **koeffisientene er normalvektoren**, $\\vec{n} = [a, b, c]$. Ingen regning nødvendig — ligningen bærer sin egen geometri.\n\nDet gir en lynrask test for parallelle plan: to plan er parallelle nøyaktig når normalvektorene deres er parallelle. Ta $\\alpha: 2x - 4y + 6z = 12$ og $\\beta: x - 2y + 3z = 5$. Normalvektorene er $[2, -4, 6]$ og $[1, -2, 3]$, og den første er nøyaktig $2$ ganger den andre — planene er parallelle. Men er de *samme* plan? Sjekk med et punkt: $(0, 0, 2)$ ligger i $\\alpha$ (siden $6 \\cdot 2 = 12$), men innsatt i $\\beta$ gir det $6 \\neq 5$. Altså parallelle, men ikke sammenfallende — to etasjer i samme skrå retning.\n\nPunkttesten generelt er like enkel: punktet $(x_0, y_0, z_0)$ ligger i planet $ax + by + cz = d$ hvis og bare hvis innsetting gir likhet, $ax_0 + by_0 + cz_0 = d$. Ligger $Q = (3, 5, 1)$ i planet $2x - y + 3z = 4$? Innsetting: $6 - 5 + 3 = 4$ — ja, punktet ligger i planet. Dette er hele styrken ved ligningsformen: medlemskap i flaten avgjøres med ett regnestykke.\n\nFor ordens skyld finnes også en tredje vei, **determinantformen**: planet gjennom tre punkter $P_1$, $P_2$, $P_3$ kan skrives som en $3 \\times 3$-determinant satt lik null, med radene $[x - x_1, y - y_1, z - z_1]$, $\\overrightarrow{P_1P_2}$ og $\\overrightarrow{P_1P_3}$. Utvidet gir den samme lineære ligning som veien om kryssproduktet — tre punkter inn, planligning ut, i én operasjon."
+    },
+    {
+      "id": "r2-5-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på parallelle plan og punkttest:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-6-n-quiz3-q0",
+            "task": "Er planene $\\alpha: 2x - 4y + 6z = 12$ og $\\beta: x - 2y + 3z = 5$ parallelle?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Ja — normalvektorene er parallelle, men planene er ikke sammenfallende",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nei, normalvektorene spriker",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ja, og de er samme plan",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare hvis $z = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$[2, -4, 6] = 2 \\cdot [1, -2, 3]$, så planene er parallelle. Punktet $(0,0,2)$ ligger i $\\alpha$ men ikke i $\\beta$, så de er ikke identiske."
+          },
+          {
+            "id": "r2-5-6-n-quiz3-q1",
+            "task": "Ligger punktet $Q = (3, 5, 1)$ i planet $2x - y + 3z = 4$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Nei, fordi $2 \\cdot 3 - 5 + 3 \\cdot 1 = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ja, fordi $2 \\cdot 3 - 5 + 3 \\cdot 1 = 4$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Nei, fordi punktet har positiv $z$-koordinat",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kan ikke avgjøres uten parameterframstillingen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Innsetting gir $6 - 5 + 3 = 4$, som stemmer med høyresiden — punktet ligger i planet."
+          },
+          {
+            "id": "r2-5-6-n-quiz3-q2",
+            "task": "Hvordan avgjør du raskest om to plan på standardform er parallelle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sammenlign konstantleddene $d$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Finn skjæringslinjen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sjekk om normalvektorene $[a, b, c]$ er parallelle",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Sett ligningene lik hverandre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Planene er parallelle nøyaktig når normalvektorene er skalarmultipler av hverandre. Konstantleddet avgjør så om de er sammenfallende."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDronen trengte en presis beskrivelse av det skrå solcelletaket, og vi fant tre. **Parameterframstillingen** $\\vec{r} = \\vec{r}_0 + s\\vec{u} + t\\vec{v}$ beskriver flaten konstruktivt: stå i et kjent punkt, og nå alle andre med to parametre langs to ikke-parallelle retningsvektorer — som vi hentet fra tre oppmålte punkter via «slutt minus start».\n\n**Normalvektorformen** snudde perspektivet: kryssproduktet $\\vec{n} = \\vec{u} \\times \\vec{v}$ ga retningen vinkelrett på flaten, og kravet $\\vec{n} \\cdot \\overrightarrow{P_0P} = 0$ ble til ligningen $a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$, som ryddet gir **standardformen** $ax + by + cz = d$. Slik ble taket vårt til $6x + 7y + 9z = 47$. Nøkkelinnsikten går begge veier: koeffisientene i standardformen *er* normalvektoren, klar til avlesning.\n\nDet ga raske svar på praktiske spørsmål: to plan er parallelle når normalvektorene er parallelle (og sammenfallende bare hvis de også deler et punkt), og et punkt ligger i planet hvis innsetting gir likhet — slik $Q = (3,5,1)$ besto testen $6 - 5 + 3 = 4$. **Determinantformen** ga som bonus planligningen direkte fra tre punkter.\n\nTre beskrivelser, ett plan — og fri omveksling mellom dem via kryssproduktet. I neste kapittel får planene selskap av linjer i rommet, og så kan vi begynne å spørre hvor ting skjærer hverandre, og hvor langt det er imellom."
+    }
+  ],
+  "exercises": []
+}

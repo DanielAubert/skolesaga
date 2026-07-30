@@ -1,1 +1,315 @@
-{"id":"it-1-6-4-narrativ","courseId":"it-1","chapterNumber":"6.4","title":"SQL – avanserte spørringer og sammenkoblinger (JOIN, GROUP BY, HAVING, subqueries)","subtitle":"Narrativ versjon","description":"En fortelling om SQL som analyseverktøy – JOIN som kobler tabeller, aggregeringsfunksjoner, GROUP BY og HAVING, og underspørringer som svarer på komplekse spørsmål.","estimatedMinutes":44,"competenceGoals":["bruke JOIN for å koble sammen data fra flere tabeller","bruke aggregeringsfunksjoner som COUNT, SUM, AVG, MIN og MAX","gruppere data med GROUP BY og filtrere grupper med HAVING","skrive underspørringer (subqueries) for komplekse dataspørsmål"],"linkedChapterId":"it-1-6-4","content":[{"id":"it-1-6-4-n-intro","type":"text","content":"## Den virkelige kraften: å koble sammen\n\nSå langt har vi jobbet med én tabell om gangen. Men den virkelige kraften i relasjonsdatabaser ligger i å *koble sammen data fra flere tabeller*. Vil du se elevnavn sammen med fagnavn og karakterer, ligger informasjonen spredt over tre tabeller. For å sette den sammen trenger du **JOIN**.\n\nEn JOIN kobler rader fra to tabeller basert på en felles kolonne. Den vanligste er **INNER JOIN**, som returnerer bare rader der det finnes en match i begge tabellene. I stedet for å se en `klasse_id` som et tall, kan du hente klassenavnet:\n\n```sql\nSELECT elever.fornavn, klasser.klassenavn\nFROM elever\nINNER JOIN klasser ON elever.klasse_id = klasser.klasse_id;\n```\n\nDelen etter `ON` forteller hvilke kolonner som skal matches. For å slippe lange tabellnavn bruker man ofte **aliaser**: `FROM elever e INNER JOIN klasser k ON e.klasse_id = k.klasse_id`, der `e` og `k` er kortnavn.\n\nDet finnes flere JOIN-typer. **INNER JOIN** tar bare med rader som har match i begge tabellene. **LEFT JOIN** tar med *alle* rader fra venstre tabell, og fyller med NULL der det ikke finnes match til høyre. Har du 8 elever, men bare 6 har karakterer, gir en INNER JOIN mellom elever og karakterer 6 rader (bare de med karakter), mens en LEFT JOIN gir minst 8 (alle elever, også de uten karakter). **RIGHT JOIN** og **FULL OUTER JOIN** finnes også, men støttes ikke direkte i SQLite."},{"id":"it-1-6-4-n-quiz1","type":"exercise","exercise":{"id":"it-1-6-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på JOIN:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-4-n-quiz1-q0","task":"Hva gjør en INNER JOIN?","options":[{"id":"a","text":"Setter inn data i to tabeller samtidig","isCorrect":false},{"id":"b","text":"Returnerer bare rader der det finnes match i begge tabellene","isCorrect":true},{"id":"c","text":"Sletter rader som finnes i begge","isCorrect":false},{"id":"d","text":"Kopierer data fra én tabell til en annen","isCorrect":false}],"solution":"INNER JOIN returnerer bare de radene som har en match i begge tabellene."},{"id":"it-1-6-4-n-quiz1-q1","task":"Du har 8 elever, men bare 6 har karakterer. Hva er forskjellen mellom INNER JOIN og LEFT JOIN mellom elever og karakterer?","options":[{"id":"a","text":"Begge returnerer 8 rader","isCorrect":false},{"id":"b","text":"INNER JOIN returnerer 8, LEFT JOIN returnerer 6","isCorrect":false},{"id":"c","text":"INNER JOIN returnerer 6 (bare med karakter), LEFT JOIN returnerer minst 8 (alle elever)","isCorrect":true},{"id":"d","text":"Begge returnerer 6","isCorrect":false}],"solution":"INNER JOIN tar bare med elever som har karakter (6), mens LEFT JOIN tar med alle elever (minst 8), med NULL der det mangler karakter."},{"id":"it-1-6-4-n-quiz1-q2","task":"Hva er hensikten med et tabellalias som «e» for «elever»?","options":[{"id":"a","text":"Å kryptere tabellnavnet","isCorrect":false},{"id":"b","text":"Å slette tabellen","isCorrect":false},{"id":"c","text":"Å lage en ny tabell","isCorrect":false},{"id":"d","text":"Å gjøre spørringen kortere og mer lesbar","isCorrect":true}],"solution":"Et alias er et kortnavn for en tabell, som gjør spørringen kortere og lettere å lese, særlig ved JOIN."}]}},{"id":"it-1-6-4-n-section1","type":"text","content":"## Å regne og gruppere\n\nNå kan vi begynne å analysere. **Aggregeringsfunksjoner** beregner én verdi ut fra mange rader. `COUNT()` teller rader, `SUM()` summerer, `AVG()` regner gjennomsnitt, og `MIN()`/`MAX()` finner laveste og høyeste verdi. For eksempel gir `SELECT COUNT(*) FROM elever` antall elever, og `SELECT AVG(karakter) FROM karakterer` gjennomsnittet. Bruk `AS` for å gi resultatkolonnen et forståelig navn (alias): `SELECT AVG(karakter) AS gjennomsnitt`.\n\nDet virkelig nyttige skjer når du kombinerer aggregering med **GROUP BY**, som grupperer rader med like verdier slik at funksjonen beregnes *per gruppe*. Vil du telle elever per klasse:\n\n```sql\nSELECT klasse_id, COUNT(*) AS antall_elever\nFROM elever\nGROUP BY klasse_id;\n```\n\nDette gir én rad per klasse med antallet. På samme måte kan du finne gjennomsnittskarakter per fag ved å JOIN-e karakterer med fag og gruppere på fagnavn.\n\nMen hva om du bare vil se gruppene som oppfyller en betingelse? Da bruker du **HAVING**. Her er en viktig forskjell: `WHERE` filtrerer individuelle rader *før* grupperingen, mens `HAVING` filtrerer hele grupper *etter* grupperingen. Vil du finne fag med snitt over 4, bruker du `GROUP BY f.fagnavn HAVING AVG(k.karakter) > 4`. Du kan til og med kombinere dem: WHERE filtrerer for eksempel ut bare H2024-karakterer først, så grupperer GROUP BY etter fag, og til slutt fjerner HAVING grupper med for lavt snitt."},{"id":"it-1-6-4-n-quiz2","type":"exercise","exercise":{"id":"it-1-6-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på aggregering, GROUP BY og HAVING:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-4-n-quiz2-q0","task":"Hvilken funksjon beregner gjennomsnittet av en kolonne?","options":[{"id":"a","text":"AVG()","isCorrect":true},{"id":"b","text":"COUNT()","isCorrect":false},{"id":"c","text":"SUM()","isCorrect":false},{"id":"d","text":"MEAN()","isCorrect":false}],"solution":"AVG() beregner gjennomsnittet. COUNT teller, SUM summerer, og MEAN finnes ikke i SQL."},{"id":"it-1-6-4-n-quiz2-q1","task":"Hva er forskjellen mellom WHERE og HAVING?","options":[{"id":"a","text":"De gjør det samme","isCorrect":false},{"id":"b","text":"WHERE filtrerer individuelle rader før gruppering, HAVING filtrerer grupper etter gruppering","isCorrect":true},{"id":"c","text":"WHERE brukes med SELECT, HAVING med INSERT","isCorrect":false},{"id":"d","text":"HAVING er raskere enn WHERE","isCorrect":false}],"solution":"WHERE filtrerer rader før gruppering, mens HAVING filtrerer ferdige grupper etter GROUP BY."},{"id":"it-1-6-4-n-quiz2-q2","task":"Hva returnerer: ... GROUP BY f.fagnavn HAVING COUNT(*) > 5?","options":[{"id":"a","text":"Alle fag med færre enn 5 karakterer","isCorrect":false},{"id":"b","text":"De 5 fagene med flest karakterer","isCorrect":false},{"id":"c","text":"Fagnavn og antall for fag med mer enn 5 registrerte karakterer","isCorrect":true},{"id":"d","text":"Alle karakterer høyere enn 5","isCorrect":false}],"solution":"HAVING COUNT(*) > 5 beholder bare gruppene (fagene) som har mer enn 5 registrerte karakterer."}]}},{"id":"it-1-6-4-n-section2","type":"text","content":"## Spørringer inne i spørringer\n\nNoen ganger trenger du svaret fra én spørring for å stille en annen. Da bruker du en **subquery** (underspørring) – en SELECT-setning nestet inne i en annen. Underspørringen kjøres først, og resultatet brukes av den ytre.\n\nDen vanligste plasseringen er i WHERE. Vil du finne alle karakterer over gjennomsnittet, regner underspørringen ut snittet, og den ytre spørringen filtrerer mot det:\n\n```sql\nSELECT e.fornavn, k.karakter\nFROM karakterer k\nINNER JOIN elever e ON k.elev_id = e.elev_id\nWHERE k.karakter > (SELECT AVG(karakter) FROM karakterer);\n```\n\nDu kan også bruke subquery med `IN`. For å finne alle elever som har karakter 6 i et eller annet fag, finner underspørringen alle elev_id-er med karakter 6, og den ytre henter navnene: `WHERE elev_id IN (SELECT elev_id FROM karakterer WHERE karakter = 6)`.\n\nEn tredje variant er subquery i FROM, der underspørringen lager en midlertidig tabell (en avledet tabell). Du kan for eksempel lage en tabell med gjennomsnitt per elev, gi den et alias, og så filtrere på snittet i den ytre spørringen. Med JOIN, aggregering, gruppering og underspørringer er SQL ikke lenger bare et lagringsspråk, men et fullverdig analyseverktøy som kan svare på spørsmål som «hvilken klasse har flest elever med toppkarakter?»."},{"id":"it-1-6-4-n-quiz3","type":"exercise","exercise":{"id":"it-1-6-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på subqueries:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-4-n-quiz3-q0","task":"Hva er en subquery (underspørring)?","options":[{"id":"a","text":"En spørring som alltid feiler","isCorrect":false},{"id":"b","text":"En type JOIN","isCorrect":false},{"id":"c","text":"En kommentar i SQL","isCorrect":false},{"id":"d","text":"En SELECT-setning nestet inne i en annen spørring","isCorrect":true}],"solution":"En subquery er en SELECT-setning inne i en annen spørring; den kjøres først, og resultatet brukes av den ytre spørringen."},{"id":"it-1-6-4-n-quiz3-q1","task":"Hva gjør: WHERE k.karakter > (SELECT AVG(karakter) FROM karakterer)?","options":[{"id":"a","text":"Henter bare karakterer som er høyere enn gjennomsnittet","isCorrect":true},{"id":"b","text":"Henter alle karakterer","isCorrect":false},{"id":"c","text":"Sletter karakterene under snittet","isCorrect":false},{"id":"d","text":"Setter alle karakterer til snittet","isCorrect":false}],"solution":"Underspørringen regner ut gjennomsnittet, og den ytre spørringen beholder bare karakterene som er høyere enn det."}]}},{"id":"it-1-6-4-n-summary","type":"text","content":"## Oppsummering\n\nDette kapittelet gjorde SQL til et analyseverktøy. **JOIN** kobler tabeller på en felles kolonne – INNER JOIN tar bare med rader som matcher i begge, mens LEFT JOIN tar med alle fra venstre tabell. **Aggregeringsfunksjoner** (COUNT, SUM, AVG, MIN, MAX) beregner én verdi av mange rader, og blir kraftige sammen med **GROUP BY**, som regner per gruppe.\n\nForskjellen mellom **WHERE** (filtrerer rader før gruppering) og **HAVING** (filtrerer grupper etterpå) er sentral. Og **subqueries** – spørringer inne i spørringer – lar deg svare på sammensatte spørsmål, som å finne alle karakterer over gjennomsnittet. Med disse verktøyene kan du trekke ut innsikt fra data spredt over mange tabeller."}],"exercises":[]}
+{
+  "id": "it-1-6-4-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "6.4",
+  "title": "SQL – avanserte spørringer og sammenkoblinger (JOIN, GROUP BY, HAVING, subqueries)",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om SQL som analyseverktøy – JOIN som kobler tabeller, aggregeringsfunksjoner, GROUP BY og HAVING, og underspørringer som svarer på komplekse spørsmål.",
+  "estimatedMinutes": 44,
+  "competenceGoals": [
+    "bruke JOIN for å koble sammen data fra flere tabeller",
+    "bruke aggregeringsfunksjoner som COUNT, SUM, AVG, MIN og MAX",
+    "gruppere data med GROUP BY og filtrere grupper med HAVING",
+    "skrive underspørringer (subqueries) for komplekse dataspørsmål"
+  ],
+  "linkedChapterId": "it-1-6-4",
+  "content": [
+    {
+      "id": "it-1-6-4-n-intro",
+      "type": "text",
+      "content": "## Den virkelige kraften: å koble sammen\n\nSå langt har vi jobbet med én tabell om gangen. Men den virkelige kraften i relasjonsdatabaser ligger i å *koble sammen data fra flere tabeller*. Vil du se elevnavn sammen med fagnavn og karakterer, ligger informasjonen spredt over tre tabeller. For å sette den sammen trenger du **JOIN**.\n\nEn JOIN kobler rader fra to tabeller basert på en felles kolonne. Den vanligste er **INNER JOIN**, som returnerer bare rader der det finnes en match i begge tabellene. I stedet for å se en `klasse_id` som et tall, kan du hente klassenavnet:\n\n```sql\nSELECT elever.fornavn, klasser.klassenavn\nFROM elever\nINNER JOIN klasser ON elever.klasse_id = klasser.klasse_id;\n```\n\nDelen etter `ON` forteller hvilke kolonner som skal matches. For å slippe lange tabellnavn bruker man ofte **aliaser**: `FROM elever e INNER JOIN klasser k ON e.klasse_id = k.klasse_id`, der `e` og `k` er kortnavn.\n\nDet finnes flere JOIN-typer. **INNER JOIN** tar bare med rader som har match i begge tabellene. **LEFT JOIN** tar med *alle* rader fra venstre tabell, og fyller med NULL der det ikke finnes match til høyre. Har du 8 elever, men bare 6 har karakterer, gir en INNER JOIN mellom elever og karakterer 6 rader (bare de med karakter), mens en LEFT JOIN gir minst 8 (alle elever, også de uten karakter). **RIGHT JOIN** og **FULL OUTER JOIN** finnes også, men støttes ikke direkte i SQLite."
+    },
+    {
+      "id": "it-1-6-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på JOIN:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-4-n-quiz1-q0",
+            "task": "Hva gjør en INNER JOIN?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Returnerer bare rader der det finnes match i begge tabellene",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Setter inn data i to tabeller samtidig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sletter rader som finnes i begge",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kopierer data fra én tabell til en annen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "INNER JOIN returnerer bare de radene som har en match i begge tabellene."
+          },
+          {
+            "id": "it-1-6-4-n-quiz1-q1",
+            "task": "Du har 8 elever, men bare 6 har karakterer. Hva er forskjellen mellom INNER JOIN og LEFT JOIN mellom elever og karakterer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Begge returnerer 8 rader",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "INNER JOIN returnerer 6 (bare med karakter), LEFT JOIN returnerer minst 8 (alle elever)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "INNER JOIN returnerer 8, LEFT JOIN returnerer 6",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge returnerer 6",
+                "isCorrect": false
+              }
+            ],
+            "solution": "INNER JOIN tar bare med elever som har karakter (6), mens LEFT JOIN tar med alle elever (minst 8), med NULL der det mangler karakter."
+          },
+          {
+            "id": "it-1-6-4-n-quiz1-q2",
+            "task": "Hva er hensikten med et tabellalias som «e» for «elever»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å kryptere tabellnavnet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å slette tabellen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å gjøre spørringen kortere og mer lesbar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å lage en ny tabell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et alias er et kortnavn for en tabell, som gjør spørringen kortere og lettere å lese, særlig ved JOIN."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-4-n-section1",
+      "type": "text",
+      "content": "## Å regne og gruppere\n\nNå kan vi begynne å analysere. **Aggregeringsfunksjoner** beregner én verdi ut fra mange rader. `COUNT()` teller rader, `SUM()` summerer, `AVG()` regner gjennomsnitt, og `MIN()`/`MAX()` finner laveste og høyeste verdi. For eksempel gir `SELECT COUNT(*) FROM elever` antall elever, og `SELECT AVG(karakter) FROM karakterer` gjennomsnittet. Bruk `AS` for å gi resultatkolonnen et forståelig navn (alias): `SELECT AVG(karakter) AS gjennomsnitt`.\n\nDet virkelig nyttige skjer når du kombinerer aggregering med **GROUP BY**, som grupperer rader med like verdier slik at funksjonen beregnes *per gruppe*. Vil du telle elever per klasse:\n\n```sql\nSELECT klasse_id, COUNT(*) AS antall_elever\nFROM elever\nGROUP BY klasse_id;\n```\n\nDette gir én rad per klasse med antallet. På samme måte kan du finne gjennomsnittskarakter per fag ved å JOIN-e karakterer med fag og gruppere på fagnavn.\n\nMen hva om du bare vil se gruppene som oppfyller en betingelse? Da bruker du **HAVING**. Her er en viktig forskjell: `WHERE` filtrerer individuelle rader *før* grupperingen, mens `HAVING` filtrerer hele grupper *etter* grupperingen. Vil du finne fag med snitt over 4, bruker du `GROUP BY f.fagnavn HAVING AVG(k.karakter) > 4`. Du kan til og med kombinere dem: WHERE filtrerer for eksempel ut bare H2024-karakterer først, så grupperer GROUP BY etter fag, og til slutt fjerner HAVING grupper med for lavt snitt."
+    },
+    {
+      "id": "it-1-6-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på aggregering, GROUP BY og HAVING:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-4-n-quiz2-q0",
+            "task": "Hvilken funksjon beregner gjennomsnittet av en kolonne?",
+            "options": [
+              {
+                "id": "b",
+                "text": "COUNT()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "SUM()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "MEAN()",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "AVG()",
+                "isCorrect": true
+              }
+            ],
+            "solution": "AVG() beregner gjennomsnittet. COUNT teller, SUM summerer, og MEAN finnes ikke i SQL."
+          },
+          {
+            "id": "it-1-6-4-n-quiz2-q1",
+            "task": "Hva er forskjellen mellom WHERE og HAVING?",
+            "options": [
+              {
+                "id": "b",
+                "text": "WHERE filtrerer individuelle rader før gruppering, HAVING filtrerer grupper etter gruppering",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "De gjør det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "WHERE brukes med SELECT, HAVING med INSERT",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "HAVING er raskere enn WHERE",
+                "isCorrect": false
+              }
+            ],
+            "solution": "WHERE filtrerer rader før gruppering, mens HAVING filtrerer ferdige grupper etter GROUP BY."
+          },
+          {
+            "id": "it-1-6-4-n-quiz2-q2",
+            "task": "Hva returnerer: ... GROUP BY f.fagnavn HAVING COUNT(*) > 5?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle fag med færre enn 5 karakterer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De 5 fagene med flest karakterer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fagnavn og antall for fag med mer enn 5 registrerte karakterer",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Alle karakterer høyere enn 5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HAVING COUNT(*) > 5 beholder bare gruppene (fagene) som har mer enn 5 registrerte karakterer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-4-n-section2",
+      "type": "text",
+      "content": "## Spørringer inne i spørringer\n\nNoen ganger trenger du svaret fra én spørring for å stille en annen. Da bruker du en **subquery** (underspørring) – en SELECT-setning nestet inne i en annen. Underspørringen kjøres først, og resultatet brukes av den ytre.\n\nDen vanligste plasseringen er i WHERE. Vil du finne alle karakterer over gjennomsnittet, regner underspørringen ut snittet, og den ytre spørringen filtrerer mot det:\n\n```sql\nSELECT e.fornavn, k.karakter\nFROM karakterer k\nINNER JOIN elever e ON k.elev_id = e.elev_id\nWHERE k.karakter > (SELECT AVG(karakter) FROM karakterer);\n```\n\nDu kan også bruke subquery med `IN`. For å finne alle elever som har karakter 6 i et eller annet fag, finner underspørringen alle elev_id-er med karakter 6, og den ytre henter navnene: `WHERE elev_id IN (SELECT elev_id FROM karakterer WHERE karakter = 6)`.\n\nEn tredje variant er subquery i FROM, der underspørringen lager en midlertidig tabell (en avledet tabell). Du kan for eksempel lage en tabell med gjennomsnitt per elev, gi den et alias, og så filtrere på snittet i den ytre spørringen. Med JOIN, aggregering, gruppering og underspørringer er SQL ikke lenger bare et lagringsspråk, men et fullverdig analyseverktøy som kan svare på spørsmål som «hvilken klasse har flest elever med toppkarakter?»."
+    },
+    {
+      "id": "it-1-6-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på subqueries:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-4-n-quiz3-q0",
+            "task": "Hva er en subquery (underspørring)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En spørring som alltid feiler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En SELECT-setning nestet inne i en annen spørring",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "En type JOIN",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En kommentar i SQL",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En subquery er en SELECT-setning inne i en annen spørring; den kjøres først, og resultatet brukes av den ytre spørringen."
+          },
+          {
+            "id": "it-1-6-4-n-quiz3-q1",
+            "task": "Hva gjør: WHERE k.karakter > (SELECT AVG(karakter) FROM karakterer)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Henter alle karakterer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sletter karakterene under snittet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Setter alle karakterer til snittet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Henter bare karakterer som er høyere enn gjennomsnittet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Underspørringen regner ut gjennomsnittet, og den ytre spørringen beholder bare karakterene som er høyere enn det."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDette kapittelet gjorde SQL til et analyseverktøy. **JOIN** kobler tabeller på en felles kolonne – INNER JOIN tar bare med rader som matcher i begge, mens LEFT JOIN tar med alle fra venstre tabell. **Aggregeringsfunksjoner** (COUNT, SUM, AVG, MIN, MAX) beregner én verdi av mange rader, og blir kraftige sammen med **GROUP BY**, som regner per gruppe.\n\nForskjellen mellom **WHERE** (filtrerer rader før gruppering) og **HAVING** (filtrerer grupper etterpå) er sentral. Og **subqueries** – spørringer inne i spørringer – lar deg svare på sammensatte spørsmål, som å finne alle karakterer over gjennomsnittet. Med disse verktøyene kan du trekke ut innsikt fra data spredt over mange tabeller."
+    }
+  ],
+  "exercises": []
+}

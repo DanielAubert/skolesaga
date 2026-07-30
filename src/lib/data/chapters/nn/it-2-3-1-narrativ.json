@@ -1,1 +1,499 @@
-{"id":"it-2-3-1-narrativ","courseId":"it-2","chapterNumber":"1","title":"Algoritmisk tenking og effektivitet","subtitle":"Narrativ versjon","description":"Ei forteljing om kvifor to program som gjev same svar kan vere tusenvis av gonger frå kvarandre i fart – frå Big O-notasjon og tidskompleksitet til kunsten å vite når du faktisk bør optimalisere.","estimatedMinutes":42,"competenceGoals":["Tenkje algoritmisk og analysere effektivitet","Forstå Big O-notasjon, tids- og plasskompleksitet","Vite når og korleis kode bør optimaliserast"],"linkedChapterId":"it-2-3-1","content":[{"id":"it-2-3-1-n-intro","type":"text","content":"## Same svar, heilt ulik fart\n\nNår du programmerer, finst det ofte mange måtar å løyse same problem på. Men ikkje alle løysingar er like gode. Nokre program køyrer raskt sjølv med enorme datamengder, medan andre heng seg fullstendig opp når dataa veks. Skilnaden ligg i **algoritmen** – steg-for-steg-oppskrifta for å løyse eit problem.\n\nEin god algoritme har nokre kjenneteikn. Han har definert input, så vi veit kva som går inn. Han har definert output, så vi veit kva som skal ut. Han er utvetydig, så kvart steg er klart. Han er endeleg, så han stoppar. Og han er effektiv, så han løyser problemet på ein fornuftig måte.\n\nLat oss sjå skilnaden i praksis. Du skal sjekke om ei liste inneheld duplikat. Éi løysing samanliknar kvart element med alle andre, i to nøsta løkker. Ei anna gjer heile jobben på éi linje ved å lage ei mengd og samanlikne lengder: `len(liste) != len(set(liste))`. Begge gjev rett svar. Men når lista blir stor, er den andre *enormt* mykje raskare. Kvifor? Det handlar om kor mange operasjonar som faktisk må utførast – og det er det vi no skal lære å måle."},{"id":"it-2-3-1-n-quiz1","type":"exercise","exercise":{"id":"it-2-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på algoritmar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-1-n-quiz1-q0","task":"Kva er ein algoritme?","options":[{"id":"a","text":"Ein type datamaskin","isCorrect":false},{"id":"b","text":"Ei feilmelding","isCorrect":false},{"id":"c","text":"Ei steg-for-steg-oppskrift for å løyse eit problem","isCorrect":true},{"id":"d","text":"Eit programmeringsspråk","isCorrect":false}],"solution":"Ein algoritme er ein presis, steg-for-steg-prosedyre som løyser eit problem eller utfører ei oppgåve."},{"id":"it-2-3-1-n-quiz1-q1","task":"Kva kjenneteikn har IKKJE ein god algoritme?","options":[{"id":"a","text":"Definert input og output","isCorrect":false},{"id":"b","text":"Kvart steg er utvetydig","isCorrect":false},{"id":"c","text":"Han er effektiv","isCorrect":false},{"id":"d","text":"Han køyrer i det uendelege utan å stoppe","isCorrect":true}],"solution":"Ein god algoritme må vere endeleg – han skal stoppe etter eit visst tal steg, ikkje køyre i det uendelege."}]}},{"id":"it-2-3-1-n-section1","type":"text","content":"## Big O og tidskompleksitet\n\nFor å samanlikne algoritmar treng vi eit språk. **Tidskompleksitet** er eit mål på kor mange operasjonar ein algoritme må utføre, sett som ein funksjon av input-storleiken, som vi kallar n. Vi skildrar han med **Big O-notasjon**, som fokuserer på korleis køyretida veks når n blir stor – vi ser på den dominerande faktoren og ignorerer konstantar.\n\nNokre kompleksitetar går igjen, frå best til verst. **O(1)** er konstant tid, like raskt uansett storleik, som å hente eit listeelement med indeks. **O(log n)** er logaritmisk, der søkjeområdet blir halvert kvar gong, som i binærsøk. **O(n)** er lineær, proporsjonal med storleiken, som å gå gjennom ei liste éin gong. **O(n log n)** kjenneteiknar effektive sorteringsalgoritmar. **O(n²)** er kvadratisk, typisk for nøsta løkker over same data. Og heilt i den dyre enden ligg **O(2ⁿ)**, eksponentiell, og **O(n!)**, faktoriell.\n\nNo skjønar vi duplikat-dømet. Den nøsta løkka er O(n²): ei ytre løkke på n og ei indre på opptil n gjev omtrent n × n samanlikningar. Set-løysinga er O(n): ho går gjennom lista berre éin gong. Skilnaden er svimlande. Med 10 000 element betyr O(n²) hundre millionar operasjonar, medan O(n) berre betyr ti tusen. Big O skildrar dessutan alltid **worst case** – verste tenkjelege tilfelle – så vi får ein garanti for at algoritmen aldri blir tregare enn det."},{"id":"it-2-3-1-n-quiz2","type":"exercise","exercise":{"id":"it-2-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på Big O:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-1-n-quiz2-q0","task":"Kva er tidskompleksiteten til ein funksjon som summerer ei liste i éi løkke?","options":[{"id":"a","text":"O(n)","isCorrect":true},{"id":"b","text":"O(1)","isCorrect":false},{"id":"c","text":"O(n²)","isCorrect":false},{"id":"d","text":"O(log n)","isCorrect":false}],"solution":"Funksjonen går gjennom lista nøyaktig éin gong med konstant arbeid per element, altså lineær tid O(n)."},{"id":"it-2-3-1-n-quiz2-q1","task":"Eit lineært søk er O(n). Kva er binærsøk på ei sortert liste?","options":[{"id":"a","text":"O(n²)","isCorrect":false},{"id":"b","text":"O(log n)","isCorrect":true},{"id":"c","text":"O(n)","isCorrect":false},{"id":"d","text":"O(1)","isCorrect":false}],"solution":"Binærsøk halverer søkjeområdet kvar gong, så det er O(log n) – men det krev at lista er sortert."},{"id":"it-2-3-1-n-quiz2-q2","task":"Kva skildrar Big O vanlegvis?","options":[{"id":"a","text":"Beste tenkjelege tilfelle","isCorrect":false},{"id":"b","text":"Eit tilfeldig tilfelle","isCorrect":false},{"id":"c","text":"Verste tenkjelege tilfelle (worst case)","isCorrect":true},{"id":"d","text":"Den eksakte køyretida i sekund","isCorrect":false}],"solution":"Big O skildrar normalt worst case, slik at vi får ein øvre garanti for kor treg algoritmen kan bli."}]}},{"id":"it-2-3-1-n-section2","type":"text","content":"## Plass, tid og Fibonacci\n\nTid er ikkje det einaste vi bryr oss om. **Plasskompleksitet** måler kor mykje minne ein algoritme bruker, òg uttrykt med Big O. Ein sumfunksjon som berre held éin totalvariabel bruker O(1) plass – konstant, uansett listestorleik. Ein funksjon som lagar ei ny liste like stor som input, bruker O(n) plass. Ofte må vi velje mellom tid og plass: vi kan bruke meir minne for å oppnå raskare køyretid, og motsett.\n\nFibonacci-tala viser dette vakkert. Ein naiv rekursiv versjon, `fib(n-1) + fib(n-2)`, er katastrofalt treg – O(2ⁿ) – fordi han reknar ut dei same tala om og om igjen. Med **memoisering**, der vi lagrar allereie berekna svar i ein cache, fell tida til O(n), men vi bruker O(n) ekstra minne på cachen. Den iterative versjonen, som berre held dei to siste tala og løkkar oppover, er like rask – O(n) tid – men bruker berre O(1) plass:\n\n```python\ndef fibonacci(n):\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```\n\nDette er den beste løysinga: rask og minnegjerrig. Memoisering er eit døme på ein **trade-off** der vi ofrar minne for fart, medan den iterative versjonen unngår å betale den prisen i det heile teke."},{"id":"it-2-3-1-n-quiz3","type":"exercise","exercise":{"id":"it-2-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på plass og Fibonacci:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-1-n-quiz3-q0","task":"Kva er plasskompleksiteten til ein funksjon som lagar ei ny, like stor liste?","options":[{"id":"a","text":"O(1)","isCorrect":false},{"id":"b","text":"O(log n)","isCorrect":false},{"id":"c","text":"O(n²)","isCorrect":false},{"id":"d","text":"O(n)","isCorrect":true}],"solution":"Ei ny liste på storleik med input bruker minne proporsjonalt med n, altså O(n) plass."},{"id":"it-2-3-1-n-quiz3-q1","task":"Kvifor er naiv rekursiv Fibonacci O(2ⁿ)?","options":[{"id":"a","text":"Fordi han reknar ut dei same delproblema om og om igjen","isCorrect":true},{"id":"b","text":"Fordi han lagrar alle svar","isCorrect":false},{"id":"c","text":"Fordi han bruker ei løkke","isCorrect":false},{"id":"d","text":"Fordi han bruker ein database","isCorrect":false}],"solution":"Utan cache blir dei same fibonacci-verdiane berekna gjentekne gonger, noko som gjev eksponentiell vekst."},{"id":"it-2-3-1-n-quiz3-q2","task":"Kva er memoisering eit døme på?","options":[{"id":"a","text":"Ein måte å spare minne på","isCorrect":false},{"id":"b","text":"Ein trade-off der vi bruker meir minne for å spare tid","isCorrect":true},{"id":"c","text":"Ein sorteringsalgoritme","isCorrect":false},{"id":"d","text":"Ein type løkke","isCorrect":false}],"solution":"Memoisering lagrar svar i ein cache (meir minne) for å unngå gjenteken berekning (mindre tid) – ei klassisk tid/plass-avveging."}]}},{"id":"it-2-3-1-n-section3","type":"text","content":"## Når – og når ikkje – å optimalisere\n\nDet er freistande å jage fart heile tida, men her er ei åtvaring. Donald Knuth sa berømt at «premature optimization is the root of all evil». **Prematur optimalisering** er å bruke for mykje tid på å finpusse ytinga før det er nødvendig. Den fornuftige rekkjefølgja er: få det til å verke først, *mål* ytinga for å finne dei verkelege flaskehalsane, optimaliser berre der det trengst, og test at koden framleis verkar etterpå.\n\nPython har innebygd måling i modulen `timeit`. Køyrer du duplikat-funksjonane på 10 000 element, kan O(n²)-versjonen ta fleire sekund medan O(n)-versjonen er ferdig på eit blunk – tusenvis av gonger raskare. Slik kan du dokumentere forbetringa i staden for å gjette.\n\nNår bør du tenkje på effektivitet? Når du jobbar med store datasett, i funksjonar som blir kalla svært mange gonger, eller når brukarane opplever treg respons. Når betyr det mindre? For små datasett under hundre element, for kode som berre blir køyrd éin gong, og når leselegheit er viktigare enn fart. To praktiske grep løyser dei fleste problem: unngå nøsta løkker over same data, og bruk ordbøker og mengder for raske oppslag. Hugs òg at same algoritme kan ha ulik **best case** og **worst case** – ein funksjon som sjekkar om ei liste er sortert, returnerer kjapt viss dei to første elementa er feil (O(1)), men må gå gjennom heile lista viss ho faktisk er sortert (O(n))."},{"id":"it-2-3-1-n-quiz4","type":"exercise","exercise":{"id":"it-2-3-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på optimalisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-3-1-n-quiz4-q0","task":"Kva er den anbefalte rekkjefølgja ved optimalisering?","options":[{"id":"a","text":"Optimaliser alt før du skriv noko","isCorrect":false},{"id":"b","text":"Gjett kva som er tregt og endre det","isCorrect":false},{"id":"c","text":"Få det til å verke, mål ytinga, optimaliser flaskehalsar, test på nytt","isCorrect":true},{"id":"d","text":"Bruk alltid rekursjon","isCorrect":false}],"solution":"Skriv korrekt kode først, mål for å finne dei verkelege flaskehalsane, optimaliser der det trengst, og verifiser at koden framleis verkar."},{"id":"it-2-3-1-n-quiz4-q1","task":"Kva modul måler køyretid i Python?","options":[{"id":"a","text":"random","isCorrect":false},{"id":"b","text":"os","isCorrect":false},{"id":"c","text":"json","isCorrect":false},{"id":"d","text":"timeit","isCorrect":true}],"solution":"timeit-modulen lèt deg måle kor lang tid kodebitar tek, så du kan samanlikne løysingar konkret."},{"id":"it-2-3-1-n-quiz4-q2","task":"Ein funksjon sjekkar om ei liste er sortert. Kva er best case?","options":[{"id":"a","text":"O(1) – dei to første elementa er i feil rekkjefølgje","isCorrect":true},{"id":"b","text":"O(n²)","isCorrect":false},{"id":"c","text":"O(n)","isCorrect":false},{"id":"d","text":"O(log n)","isCorrect":false}],"solution":"Viss dei to første elementa er feil, returnerer funksjonen umiddelbart – konstant tid O(1). Worst case (sortert liste) er O(n)."}]}},{"id":"it-2-3-1-n-summary","type":"text","content":"## Oppsummering\n\nVi såg at to program kan gje same svar, men vere tusenvis av gonger frå kvarandre i fart. Ein **algoritme** er ei presis, endeleg oppskrift, og **Big O-notasjon** lèt oss skildre korleis køyretida veks med input-storleiken n: frå det raske O(1), O(log n) og O(n), via O(n log n), til det dyre O(n²) og eksponentielle O(2ⁿ). **Tidskompleksitet** måler operasjonar og fokuserer på worst case, medan **plasskompleksitet** måler minnebruk.\n\nFibonacci viste tid/plass-avveginga: naiv rekursjon er O(2ⁿ), memoisering byter minne mot fart, og den iterative versjonen er både rask og minnegjerrig. Til slutt lærte vi disiplinen: ikkje optimaliser prematurt. Få koden til å verke, mål med `timeit`, og forbetre berre der det faktisk trengst – gjerne ved å unngå nøsta løkker og bruke ordbøker og mengder. I neste kapittel går vi djupare inn i søkje- og sorteringsalgoritmar."}],"exercises":[],"_meta":{"sourceHash":"906c79c29d7f1314","translatedAt":"2026-06-20T23:59:44.543Z","model":"claude-code-agent","strings":85,"tm":{"ead7d3c3c26b1cef":"Algoritmisk tenking og effektivitet","b195b06d1ed59702":"Narrativ versjon","0e09209a5756b3f8":"Ei forteljing om kvifor to program som gjev same svar kan vere tusenvis av gonger frå kvarandre i fart – frå Big O-notasjon og tidskompleksitet til kunsten å vite når du faktisk bør optimalisere.","1da52f4c97a0e19f":"Tenkje algoritmisk og analysere effektivitet","eead2efed8174179":"Forstå Big O-notasjon, tids- og plasskompleksitet","3ab18c69c8530265":"Vite når og korleis kode bør optimaliserast","83f52c331e253aa4":"## Same svar, heilt ulik fart\n\nNår du programmerer, finst det ofte mange måtar å løyse same problem på. Men ikkje alle løysingar er like gode. Nokre program køyrer raskt sjølv med enorme datamengder, medan andre heng seg fullstendig opp når dataa veks. Skilnaden ligg i **algoritmen** – steg-for-steg-oppskrifta for å løyse eit problem.\n\nEin god algoritme har nokre kjenneteikn. Han har definert input, så vi veit kva som går inn. Han har definert output, så vi veit kva som skal ut. Han er utvetydig, så kvart steg er klart. Han er endeleg, så han stoppar. Og han er effektiv, så han løyser problemet på ein fornuftig måte.\n\nLat oss sjå skilnaden i praksis. Du skal sjekke om ei liste inneheld duplikat. Éi løysing samanliknar kvart element med alle andre, i to nøsta løkker. Ei anna gjer heile jobben på éi linje ved å lage ei mengd og samanlikne lengder: `len(liste) != len(set(liste))`. Begge gjev rett svar. Men når lista blir stor, er den andre *enormt* mykje raskare. Kvifor? Det handlar om kor mange operasjonar som faktisk må utførast – og det er det vi no skal lære å måle.","76b8e3a668d8f7d7":"Test deg sjølv på algoritmar:","4097889236a2af26":"placeholder","83d20e7f3a645fcf":"Kva er ein algoritme?","c98a26207f13749b":"Ein type datamaskin","6b16392622e7b20a":"Ei feilmelding","a754b5266692f6a1":"Ei steg-for-steg-oppskrift for å løyse eit problem","65c2cff9f3ea5605":"Eit programmeringsspråk","6b0de7ee93085f37":"Ein algoritme er ein presis, steg-for-steg-prosedyre som løyser eit problem eller utfører ei oppgåve.","2d2cb879574361a9":"Kva kjenneteikn har IKKJE ein god algoritme?","3420840ea54212ce":"Definert input og output","6a513d32f636405e":"Kvart steg er utvetydig","eb876792429a9b8d":"Han er effektiv","50c36c802fcfdd6b":"Han køyrer i det uendelege utan å stoppe","66e6c669507001df":"Ein god algoritme må vere endeleg – han skal stoppe etter eit visst tal steg, ikkje køyre i det uendelege.","76801c2f518a0f6e":"## Big O og tidskompleksitet\n\nFor å samanlikne algoritmar treng vi eit språk. **Tidskompleksitet** er eit mål på kor mange operasjonar ein algoritme må utføre, sett som ein funksjon av input-storleiken, som vi kallar n. Vi skildrar han med **Big O-notasjon**, som fokuserer på korleis køyretida veks når n blir stor – vi ser på den dominerande faktoren og ignorerer konstantar.\n\nNokre kompleksitetar går igjen, frå best til verst. **O(1)** er konstant tid, like raskt uansett storleik, som å hente eit listeelement med indeks. **O(log n)** er logaritmisk, der søkjeområdet blir halvert kvar gong, som i binærsøk. **O(n)** er lineær, proporsjonal med storleiken, som å gå gjennom ei liste éin gong. **O(n log n)** kjenneteiknar effektive sorteringsalgoritmar. **O(n²)** er kvadratisk, typisk for nøsta løkker over same data. Og heilt i den dyre enden ligg **O(2ⁿ)**, eksponentiell, og **O(n!)**, faktoriell.\n\nNo skjønar vi duplikat-dømet. Den nøsta løkka er O(n²): ei ytre løkke på n og ei indre på opptil n gjev omtrent n × n samanlikningar. Set-løysinga er O(n): ho går gjennom lista berre éin gong. Skilnaden er svimlande. Med 10 000 element betyr O(n²) hundre millionar operasjonar, medan O(n) berre betyr ti tusen. Big O skildrar dessutan alltid **worst case** – verste tenkjelege tilfelle – så vi får ein garanti for at algoritmen aldri blir tregare enn det.","0c0b6946a453e456":"Test deg sjølv på Big O:","592413851ae393c6":"Kva er tidskompleksiteten til ein funksjon som summerer ei liste i éi løkke?","387008096a415eb2":"O(n)","4a137b861e8d266f":"O(1)","ba64b525fd6cdf4c":"O(n²)","82da2851d2e34fc1":"O(log n)","58e735c907804909":"Funksjonen går gjennom lista nøyaktig éin gong med konstant arbeid per element, altså lineær tid O(n).","84a839f62cbc368d":"Eit lineært søk er O(n). Kva er binærsøk på ei sortert liste?","2d8ff58b30f1c0bd":"Binærsøk halverer søkjeområdet kvar gong, så det er O(log n) – men det krev at lista er sortert.","bb69733643cb1194":"Kva skildrar Big O vanlegvis?","6607542bc06cf8f1":"Beste tenkjelege tilfelle","5bb45f920da26334":"Eit tilfeldig tilfelle","94c9ad3d94f29538":"Verste tenkjelege tilfelle (worst case)","5fd66e7b2e7165e0":"Den eksakte køyretida i sekund","6e5a3bde41fec2bb":"Big O skildrar normalt worst case, slik at vi får ein øvre garanti for kor treg algoritmen kan bli.","24cf108f33302978":"## Plass, tid og Fibonacci\n\nTid er ikkje det einaste vi bryr oss om. **Plasskompleksitet** måler kor mykje minne ein algoritme bruker, òg uttrykt med Big O. Ein sumfunksjon som berre held éin totalvariabel bruker O(1) plass – konstant, uansett listestorleik. Ein funksjon som lagar ei ny liste like stor som input, bruker O(n) plass. Ofte må vi velje mellom tid og plass: vi kan bruke meir minne for å oppnå raskare køyretid, og motsett.\n\nFibonacci-tala viser dette vakkert. Ein naiv rekursiv versjon, `fib(n-1) + fib(n-2)`, er katastrofalt treg – O(2ⁿ) – fordi han reknar ut dei same tala om og om igjen. Med **memoisering**, der vi lagrar allereie berekna svar i ein cache, fell tida til O(n), men vi bruker O(n) ekstra minne på cachen. Den iterative versjonen, som berre held dei to siste tala og løkkar oppover, er like rask – O(n) tid – men bruker berre O(1) plass:\n\n```python\ndef fibonacci(n):\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```\n\nDette er den beste løysinga: rask og minnegjerrig. Memoisering er eit døme på ein **trade-off** der vi ofrar minne for fart, medan den iterative versjonen unngår å betale den prisen i det heile teke.","9b597d796204d35f":"Test deg sjølv på plass og Fibonacci:","2dc2beae7702d821":"Kva er plasskompleksiteten til ein funksjon som lagar ei ny, like stor liste?","980f08f5b4071d45":"Ei ny liste på storleik med input bruker minne proporsjonalt med n, altså O(n) plass.","526076f4350df4b7":"Kvifor er naiv rekursiv Fibonacci O(2ⁿ)?","50515b58ce4681eb":"Fordi han reknar ut dei same delproblema om og om igjen","88107957426d882f":"Fordi han lagrar alle svar","ac67a02ecbd98db1":"Fordi han bruker ei løkke","0ede3210e0fb2bb2":"Fordi han bruker ein database","9cbe402c585f6990":"Utan cache blir dei same fibonacci-verdiane berekna gjentekne gonger, noko som gjev eksponentiell vekst.","8a2608710415a73b":"Kva er memoisering eit døme på?","a075eaf42f1e2fc3":"Ein måte å spare minne på","32f67969c1520d01":"Ein trade-off der vi bruker meir minne for å spare tid","3a38beac6a566a20":"Ein sorteringsalgoritme","4ca369627b439380":"Ein type løkke","23a19e9171e4c5e0":"Memoisering lagrar svar i ein cache (meir minne) for å unngå gjenteken berekning (mindre tid) – ei klassisk tid/plass-avveging.","8582006576f231a8":"## Når – og når ikkje – å optimalisere\n\nDet er freistande å jage fart heile tida, men her er ei åtvaring. Donald Knuth sa berømt at «premature optimization is the root of all evil». **Prematur optimalisering** er å bruke for mykje tid på å finpusse ytinga før det er nødvendig. Den fornuftige rekkjefølgja er: få det til å verke først, *mål* ytinga for å finne dei verkelege flaskehalsane, optimaliser berre der det trengst, og test at koden framleis verkar etterpå.\n\nPython har innebygd måling i modulen `timeit`. Køyrer du duplikat-funksjonane på 10 000 element, kan O(n²)-versjonen ta fleire sekund medan O(n)-versjonen er ferdig på eit blunk – tusenvis av gonger raskare. Slik kan du dokumentere forbetringa i staden for å gjette.\n\nNår bør du tenkje på effektivitet? Når du jobbar med store datasett, i funksjonar som blir kalla svært mange gonger, eller når brukarane opplever treg respons. Når betyr det mindre? For små datasett under hundre element, for kode som berre blir køyrd éin gong, og når leselegheit er viktigare enn fart. To praktiske grep løyser dei fleste problem: unngå nøsta løkker over same data, og bruk ordbøker og mengder for raske oppslag. Hugs òg at same algoritme kan ha ulik **best case** og **worst case** – ein funksjon som sjekkar om ei liste er sortert, returnerer kjapt viss dei to første elementa er feil (O(1)), men må gå gjennom heile lista viss ho faktisk er sortert (O(n)).","737797721f3ea214":"Test deg sjølv på optimalisering:","348cfa0a9ef98d84":"Kva er den anbefalte rekkjefølgja ved optimalisering?","3e9dc5c0bc72388b":"Optimaliser alt før du skriv noko","d35a33988235bc2d":"Gjett kva som er tregt og endre det","8708abaf6c8a0b0e":"Få det til å verke, mål ytinga, optimaliser flaskehalsar, test på nytt","8ac4648ac0a70ed9":"Bruk alltid rekursjon","0343ab5ed9704b45":"Skriv korrekt kode først, mål for å finne dei verkelege flaskehalsane, optimaliser der det trengst, og verifiser at koden framleis verkar.","a13e4560af06a09a":"Kva modul måler køyretid i Python?","a441b15fe9a3cf56":"random","840a8dcfeae95966":"os","02bd175f32972037":"json","c083d290fcfeeff8":"timeit","c457c49dfcde9174":"timeit-modulen lèt deg måle kor lang tid kodebitar tek, så du kan samanlikne løysingar konkret.","d557f06ec9c1f581":"Ein funksjon sjekkar om ei liste er sortert. Kva er best case?","2d47072ec60a9672":"O(1) – dei to første elementa er i feil rekkjefølgje","ab62507a0fc665e5":"Viss dei to første elementa er feil, returnerer funksjonen umiddelbart – konstant tid O(1). Worst case (sortert liste) er O(n).","6b7958510e374af7":"## Oppsummering\n\nVi såg at to program kan gje same svar, men vere tusenvis av gonger frå kvarandre i fart. Ein **algoritme** er ei presis, endeleg oppskrift, og **Big O-notasjon** lèt oss skildre korleis køyretida veks med input-storleiken n: frå det raske O(1), O(log n) og O(n), via O(n log n), til det dyre O(n²) og eksponentielle O(2ⁿ). **Tidskompleksitet** måler operasjonar og fokuserer på worst case, medan **plasskompleksitet** måler minnebruk.\n\nFibonacci viste tid/plass-avveginga: naiv rekursjon er O(2ⁿ), memoisering byter minne mot fart, og den iterative versjonen er både rask og minnegjerrig. Til slutt lærte vi disiplinen: ikkje optimaliser prematurt. Få koden til å verke, mål med `timeit`, og forbetre berre der det faktisk trengst – gjerne ved å unngå nøsta løkker og bruke ordbøker og mengder. I neste kapittel går vi djupare inn i søkje- og sorteringsalgoritmar."}}}
+{
+  "id": "it-2-3-1-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "1",
+  "title": "Algoritmisk tenking og effektivitet",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kvifor to program som gjev same svar kan vere tusenvis av gonger frå kvarandre i fart – frå Big O-notasjon og tidskompleksitet til kunsten å vite når du faktisk bør optimalisere.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "Tenkje algoritmisk og analysere effektivitet",
+    "Forstå Big O-notasjon, tids- og plasskompleksitet",
+    "Vite når og korleis kode bør optimaliserast"
+  ],
+  "linkedChapterId": "it-2-3-1",
+  "content": [
+    {
+      "id": "it-2-3-1-n-intro",
+      "type": "text",
+      "content": "## Same svar, heilt ulik fart\n\nNår du programmerer, finst det ofte mange måtar å løyse same problem på. Men ikkje alle løysingar er like gode. Nokre program køyrer raskt sjølv med enorme datamengder, medan andre heng seg fullstendig opp når dataa veks. Skilnaden ligg i **algoritmen** – steg-for-steg-oppskrifta for å løyse eit problem.\n\nEin god algoritme har nokre kjenneteikn. Han har definert input, så vi veit kva som går inn. Han har definert output, så vi veit kva som skal ut. Han er utvetydig, så kvart steg er klart. Han er endeleg, så han stoppar. Og han er effektiv, så han løyser problemet på ein fornuftig måte.\n\nLat oss sjå skilnaden i praksis. Du skal sjekke om ei liste inneheld duplikat. Éi løysing samanliknar kvart element med alle andre, i to nøsta løkker. Ei anna gjer heile jobben på éi linje ved å lage ei mengd og samanlikne lengder: `len(liste) != len(set(liste))`. Begge gjev rett svar. Men når lista blir stor, er den andre *enormt* mykje raskare. Kvifor? Det handlar om kor mange operasjonar som faktisk må utførast – og det er det vi no skal lære å måle."
+    },
+    {
+      "id": "it-2-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på algoritmar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-1-n-quiz1-q0",
+            "task": "Kva er ein algoritme?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein type datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei steg-for-steg-oppskrift for å løyse eit problem",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit programmeringsspråk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein algoritme er ein presis, steg-for-steg-prosedyre som løyser eit problem eller utfører ei oppgåve."
+          },
+          {
+            "id": "it-2-3-1-n-quiz1-q1",
+            "task": "Kva kjenneteikn har IKKJE ein god algoritme?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Definert input og output",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kvart steg er utvetydig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han køyrer i det uendelege utan å stoppe",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han er effektiv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein god algoritme må vere endeleg – han skal stoppe etter eit visst tal steg, ikkje køyre i det uendelege."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-1-n-section1",
+      "type": "text",
+      "content": "## Big O og tidskompleksitet\n\nFor å samanlikne algoritmar treng vi eit språk. **Tidskompleksitet** er eit mål på kor mange operasjonar ein algoritme må utføre, sett som ein funksjon av input-storleiken, som vi kallar n. Vi skildrar han med **Big O-notasjon**, som fokuserer på korleis køyretida veks når n blir stor – vi ser på den dominerande faktoren og ignorerer konstantar.\n\nNokre kompleksitetar går igjen, frå best til verst. **O(1)** er konstant tid, like raskt uansett storleik, som å hente eit listeelement med indeks. **O(log n)** er logaritmisk, der søkjeområdet blir halvert kvar gong, som i binærsøk. **O(n)** er lineær, proporsjonal med storleiken, som å gå gjennom ei liste éin gong. **O(n log n)** kjenneteiknar effektive sorteringsalgoritmar. **O(n²)** er kvadratisk, typisk for nøsta løkker over same data. Og heilt i den dyre enden ligg **O(2ⁿ)**, eksponentiell, og **O(n!)**, faktoriell.\n\nNo skjønar vi duplikat-dømet. Den nøsta løkka er O(n²): ei ytre løkke på n og ei indre på opptil n gjev omtrent n × n samanlikningar. Set-løysinga er O(n): ho går gjennom lista berre éin gong. Skilnaden er svimlande. Med 10 000 element betyr O(n²) hundre millionar operasjonar, medan O(n) berre betyr ti tusen. Big O skildrar dessutan alltid **worst case** – verste tenkjelege tilfelle – så vi får ein garanti for at algoritmen aldri blir tregare enn det."
+    },
+    {
+      "id": "it-2-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Big O:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-1-n-quiz2-q0",
+            "task": "Kva er tidskompleksiteten til ein funksjon som summerer ei liste i éi løkke?",
+            "options": [
+              {
+                "id": "b",
+                "text": "O(1)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "O(n²)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(log n)",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "O(n)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Funksjonen går gjennom lista nøyaktig éin gong med konstant arbeid per element, altså lineær tid O(n)."
+          },
+          {
+            "id": "it-2-3-1-n-quiz2-q1",
+            "task": "Eit lineært søk er O(n). Kva er binærsøk på ei sortert liste?",
+            "options": [
+              {
+                "id": "b",
+                "text": "O(log n)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "O(n²)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "O(n)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(1)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Binærsøk halverer søkjeområdet kvar gong, så det er O(log n) – men det krev at lista er sortert."
+          },
+          {
+            "id": "it-2-3-1-n-quiz2-q2",
+            "task": "Kva skildrar Big O vanlegvis?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Beste tenkjelege tilfelle",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Verste tenkjelege tilfelle (worst case)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Eit tilfeldig tilfelle",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den eksakte køyretida i sekund",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Big O skildrar normalt worst case, slik at vi får ein øvre garanti for kor treg algoritmen kan bli."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-1-n-section2",
+      "type": "text",
+      "content": "## Plass, tid og Fibonacci\n\nTid er ikkje det einaste vi bryr oss om. **Plasskompleksitet** måler kor mykje minne ein algoritme bruker, òg uttrykt med Big O. Ein sumfunksjon som berre held éin totalvariabel bruker O(1) plass – konstant, uansett listestorleik. Ein funksjon som lagar ei ny liste like stor som input, bruker O(n) plass. Ofte må vi velje mellom tid og plass: vi kan bruke meir minne for å oppnå raskare køyretid, og motsett.\n\nFibonacci-tala viser dette vakkert. Ein naiv rekursiv versjon, `fib(n-1) + fib(n-2)`, er katastrofalt treg – O(2ⁿ) – fordi han reknar ut dei same tala om og om igjen. Med **memoisering**, der vi lagrar allereie berekna svar i ein cache, fell tida til O(n), men vi bruker O(n) ekstra minne på cachen. Den iterative versjonen, som berre held dei to siste tala og løkkar oppover, er like rask – O(n) tid – men bruker berre O(1) plass:\n\n```python\ndef fibonacci(n):\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```\n\nDette er den beste løysinga: rask og minnegjerrig. Memoisering er eit døme på ein **trade-off** der vi ofrar minne for fart, medan den iterative versjonen unngår å betale den prisen i det heile teke."
+    },
+    {
+      "id": "it-2-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på plass og Fibonacci:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-1-n-quiz3-q0",
+            "task": "Kva er plasskompleksiteten til ein funksjon som lagar ei ny, like stor liste?",
+            "options": [
+              {
+                "id": "a",
+                "text": "O(1)",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "O(log n)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(n)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "O(n²)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei ny liste på storleik med input bruker minne proporsjonalt med n, altså O(n) plass."
+          },
+          {
+            "id": "it-2-3-1-n-quiz3-q1",
+            "task": "Kvifor er naiv rekursiv Fibonacci O(2ⁿ)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi han lagrar alle svar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi han bruker ei løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi han bruker ein database",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi han reknar ut dei same delproblema om og om igjen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan cache blir dei same fibonacci-verdiane berekna gjentekne gonger, noko som gjev eksponentiell vekst."
+          },
+          {
+            "id": "it-2-3-1-n-quiz3-q2",
+            "task": "Kva er memoisering eit døme på?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein trade-off der vi bruker meir minne for å spare tid",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein måte å spare minne på",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein sorteringsalgoritme",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein type løkke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Memoisering lagrar svar i ein cache (meir minne) for å unngå gjenteken berekning (mindre tid) – ei klassisk tid/plass-avveging."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-1-n-section3",
+      "type": "text",
+      "content": "## Når – og når ikkje – å optimalisere\n\nDet er freistande å jage fart heile tida, men her er ei åtvaring. Donald Knuth sa berømt at «premature optimization is the root of all evil». **Prematur optimalisering** er å bruke for mykje tid på å finpusse ytinga før det er nødvendig. Den fornuftige rekkjefølgja er: få det til å verke først, *mål* ytinga for å finne dei verkelege flaskehalsane, optimaliser berre der det trengst, og test at koden framleis verkar etterpå.\n\nPython har innebygd måling i modulen `timeit`. Køyrer du duplikat-funksjonane på 10 000 element, kan O(n²)-versjonen ta fleire sekund medan O(n)-versjonen er ferdig på eit blunk – tusenvis av gonger raskare. Slik kan du dokumentere forbetringa i staden for å gjette.\n\nNår bør du tenkje på effektivitet? Når du jobbar med store datasett, i funksjonar som blir kalla svært mange gonger, eller når brukarane opplever treg respons. Når betyr det mindre? For små datasett under hundre element, for kode som berre blir køyrd éin gong, og når leselegheit er viktigare enn fart. To praktiske grep løyser dei fleste problem: unngå nøsta løkker over same data, og bruk ordbøker og mengder for raske oppslag. Hugs òg at same algoritme kan ha ulik **best case** og **worst case** – ein funksjon som sjekkar om ei liste er sortert, returnerer kjapt viss dei to første elementa er feil (O(1)), men må gå gjennom heile lista viss ho faktisk er sortert (O(n))."
+    },
+    {
+      "id": "it-2-3-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-3-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på optimalisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-3-1-n-quiz4-q0",
+            "task": "Kva er den anbefalte rekkjefølgja ved optimalisering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Optimaliser alt før du skriv noko",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Få det til å verke, mål ytinga, optimaliser flaskehalsar, test på nytt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Gjett kva som er tregt og endre det",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bruk alltid rekursjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skriv korrekt kode først, mål for å finne dei verkelege flaskehalsane, optimaliser der det trengst, og verifiser at koden framleis verkar."
+          },
+          {
+            "id": "it-2-3-1-n-quiz4-q1",
+            "task": "Kva modul måler køyretid i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "random",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "os",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "timeit",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "json",
+                "isCorrect": false
+              }
+            ],
+            "solution": "timeit-modulen lèt deg måle kor lang tid kodebitar tek, så du kan samanlikne løysingar konkret."
+          },
+          {
+            "id": "it-2-3-1-n-quiz4-q2",
+            "task": "Ein funksjon sjekkar om ei liste er sortert. Kva er best case?",
+            "options": [
+              {
+                "id": "b",
+                "text": "O(n²)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "O(n)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(log n)",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "O(1) – dei to første elementa er i feil rekkjefølgje",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Viss dei to første elementa er feil, returnerer funksjonen umiddelbart – konstant tid O(1). Worst case (sortert liste) er O(n)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-3-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi såg at to program kan gje same svar, men vere tusenvis av gonger frå kvarandre i fart. Ein **algoritme** er ei presis, endeleg oppskrift, og **Big O-notasjon** lèt oss skildre korleis køyretida veks med input-storleiken n: frå det raske O(1), O(log n) og O(n), via O(n log n), til det dyre O(n²) og eksponentielle O(2ⁿ). **Tidskompleksitet** måler operasjonar og fokuserer på worst case, medan **plasskompleksitet** måler minnebruk.\n\nFibonacci viste tid/plass-avveginga: naiv rekursjon er O(2ⁿ), memoisering byter minne mot fart, og den iterative versjonen er både rask og minnegjerrig. Til slutt lærte vi disiplinen: ikkje optimaliser prematurt. Få koden til å verke, mål med `timeit`, og forbetre berre der det faktisk trengst – gjerne ved å unngå nøsta løkker og bruke ordbøker og mengder. I neste kapittel går vi djupare inn i søkje- og sorteringsalgoritmar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "906c79c29d7f1314",
+    "translatedAt": "2026-06-20T23:59:44.543Z",
+    "model": "claude-code-agent",
+    "strings": 85,
+    "tm": {
+      "ead7d3c3c26b1cef": "Algoritmisk tenking og effektivitet",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "0e09209a5756b3f8": "Ei forteljing om kvifor to program som gjev same svar kan vere tusenvis av gonger frå kvarandre i fart – frå Big O-notasjon og tidskompleksitet til kunsten å vite når du faktisk bør optimalisere.",
+      "1da52f4c97a0e19f": "Tenkje algoritmisk og analysere effektivitet",
+      "eead2efed8174179": "Forstå Big O-notasjon, tids- og plasskompleksitet",
+      "3ab18c69c8530265": "Vite når og korleis kode bør optimaliserast",
+      "83f52c331e253aa4": "## Same svar, heilt ulik fart\n\nNår du programmerer, finst det ofte mange måtar å løyse same problem på. Men ikkje alle løysingar er like gode. Nokre program køyrer raskt sjølv med enorme datamengder, medan andre heng seg fullstendig opp når dataa veks. Skilnaden ligg i **algoritmen** – steg-for-steg-oppskrifta for å løyse eit problem.\n\nEin god algoritme har nokre kjenneteikn. Han har definert input, så vi veit kva som går inn. Han har definert output, så vi veit kva som skal ut. Han er utvetydig, så kvart steg er klart. Han er endeleg, så han stoppar. Og han er effektiv, så han løyser problemet på ein fornuftig måte.\n\nLat oss sjå skilnaden i praksis. Du skal sjekke om ei liste inneheld duplikat. Éi løysing samanliknar kvart element med alle andre, i to nøsta løkker. Ei anna gjer heile jobben på éi linje ved å lage ei mengd og samanlikne lengder: `len(liste) != len(set(liste))`. Begge gjev rett svar. Men når lista blir stor, er den andre *enormt* mykje raskare. Kvifor? Det handlar om kor mange operasjonar som faktisk må utførast – og det er det vi no skal lære å måle.",
+      "76b8e3a668d8f7d7": "Test deg sjølv på algoritmar:",
+      "4097889236a2af26": "placeholder",
+      "83d20e7f3a645fcf": "Kva er ein algoritme?",
+      "c98a26207f13749b": "Ein type datamaskin",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "a754b5266692f6a1": "Ei steg-for-steg-oppskrift for å løyse eit problem",
+      "65c2cff9f3ea5605": "Eit programmeringsspråk",
+      "6b0de7ee93085f37": "Ein algoritme er ein presis, steg-for-steg-prosedyre som løyser eit problem eller utfører ei oppgåve.",
+      "2d2cb879574361a9": "Kva kjenneteikn har IKKJE ein god algoritme?",
+      "3420840ea54212ce": "Definert input og output",
+      "6a513d32f636405e": "Kvart steg er utvetydig",
+      "eb876792429a9b8d": "Han er effektiv",
+      "50c36c802fcfdd6b": "Han køyrer i det uendelege utan å stoppe",
+      "66e6c669507001df": "Ein god algoritme må vere endeleg – han skal stoppe etter eit visst tal steg, ikkje køyre i det uendelege.",
+      "76801c2f518a0f6e": "## Big O og tidskompleksitet\n\nFor å samanlikne algoritmar treng vi eit språk. **Tidskompleksitet** er eit mål på kor mange operasjonar ein algoritme må utføre, sett som ein funksjon av input-storleiken, som vi kallar n. Vi skildrar han med **Big O-notasjon**, som fokuserer på korleis køyretida veks når n blir stor – vi ser på den dominerande faktoren og ignorerer konstantar.\n\nNokre kompleksitetar går igjen, frå best til verst. **O(1)** er konstant tid, like raskt uansett storleik, som å hente eit listeelement med indeks. **O(log n)** er logaritmisk, der søkjeområdet blir halvert kvar gong, som i binærsøk. **O(n)** er lineær, proporsjonal med storleiken, som å gå gjennom ei liste éin gong. **O(n log n)** kjenneteiknar effektive sorteringsalgoritmar. **O(n²)** er kvadratisk, typisk for nøsta løkker over same data. Og heilt i den dyre enden ligg **O(2ⁿ)**, eksponentiell, og **O(n!)**, faktoriell.\n\nNo skjønar vi duplikat-dømet. Den nøsta løkka er O(n²): ei ytre løkke på n og ei indre på opptil n gjev omtrent n × n samanlikningar. Set-løysinga er O(n): ho går gjennom lista berre éin gong. Skilnaden er svimlande. Med 10 000 element betyr O(n²) hundre millionar operasjonar, medan O(n) berre betyr ti tusen. Big O skildrar dessutan alltid **worst case** – verste tenkjelege tilfelle – så vi får ein garanti for at algoritmen aldri blir tregare enn det.",
+      "0c0b6946a453e456": "Test deg sjølv på Big O:",
+      "592413851ae393c6": "Kva er tidskompleksiteten til ein funksjon som summerer ei liste i éi løkke?",
+      "387008096a415eb2": "O(n)",
+      "4a137b861e8d266f": "O(1)",
+      "ba64b525fd6cdf4c": "O(n²)",
+      "82da2851d2e34fc1": "O(log n)",
+      "58e735c907804909": "Funksjonen går gjennom lista nøyaktig éin gong med konstant arbeid per element, altså lineær tid O(n).",
+      "84a839f62cbc368d": "Eit lineært søk er O(n). Kva er binærsøk på ei sortert liste?",
+      "2d8ff58b30f1c0bd": "Binærsøk halverer søkjeområdet kvar gong, så det er O(log n) – men det krev at lista er sortert.",
+      "bb69733643cb1194": "Kva skildrar Big O vanlegvis?",
+      "6607542bc06cf8f1": "Beste tenkjelege tilfelle",
+      "5bb45f920da26334": "Eit tilfeldig tilfelle",
+      "94c9ad3d94f29538": "Verste tenkjelege tilfelle (worst case)",
+      "5fd66e7b2e7165e0": "Den eksakte køyretida i sekund",
+      "6e5a3bde41fec2bb": "Big O skildrar normalt worst case, slik at vi får ein øvre garanti for kor treg algoritmen kan bli.",
+      "24cf108f33302978": "## Plass, tid og Fibonacci\n\nTid er ikkje det einaste vi bryr oss om. **Plasskompleksitet** måler kor mykje minne ein algoritme bruker, òg uttrykt med Big O. Ein sumfunksjon som berre held éin totalvariabel bruker O(1) plass – konstant, uansett listestorleik. Ein funksjon som lagar ei ny liste like stor som input, bruker O(n) plass. Ofte må vi velje mellom tid og plass: vi kan bruke meir minne for å oppnå raskare køyretid, og motsett.\n\nFibonacci-tala viser dette vakkert. Ein naiv rekursiv versjon, `fib(n-1) + fib(n-2)`, er katastrofalt treg – O(2ⁿ) – fordi han reknar ut dei same tala om og om igjen. Med **memoisering**, der vi lagrar allereie berekna svar i ein cache, fell tida til O(n), men vi bruker O(n) ekstra minne på cachen. Den iterative versjonen, som berre held dei to siste tala og løkkar oppover, er like rask – O(n) tid – men bruker berre O(1) plass:\n\n```python\ndef fibonacci(n):\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```\n\nDette er den beste løysinga: rask og minnegjerrig. Memoisering er eit døme på ein **trade-off** der vi ofrar minne for fart, medan den iterative versjonen unngår å betale den prisen i det heile teke.",
+      "9b597d796204d35f": "Test deg sjølv på plass og Fibonacci:",
+      "2dc2beae7702d821": "Kva er plasskompleksiteten til ein funksjon som lagar ei ny, like stor liste?",
+      "980f08f5b4071d45": "Ei ny liste på storleik med input bruker minne proporsjonalt med n, altså O(n) plass.",
+      "526076f4350df4b7": "Kvifor er naiv rekursiv Fibonacci O(2ⁿ)?",
+      "50515b58ce4681eb": "Fordi han reknar ut dei same delproblema om og om igjen",
+      "88107957426d882f": "Fordi han lagrar alle svar",
+      "ac67a02ecbd98db1": "Fordi han bruker ei løkke",
+      "0ede3210e0fb2bb2": "Fordi han bruker ein database",
+      "9cbe402c585f6990": "Utan cache blir dei same fibonacci-verdiane berekna gjentekne gonger, noko som gjev eksponentiell vekst.",
+      "8a2608710415a73b": "Kva er memoisering eit døme på?",
+      "a075eaf42f1e2fc3": "Ein måte å spare minne på",
+      "32f67969c1520d01": "Ein trade-off der vi bruker meir minne for å spare tid",
+      "3a38beac6a566a20": "Ein sorteringsalgoritme",
+      "4ca369627b439380": "Ein type løkke",
+      "23a19e9171e4c5e0": "Memoisering lagrar svar i ein cache (meir minne) for å unngå gjenteken berekning (mindre tid) – ei klassisk tid/plass-avveging.",
+      "8582006576f231a8": "## Når – og når ikkje – å optimalisere\n\nDet er freistande å jage fart heile tida, men her er ei åtvaring. Donald Knuth sa berømt at «premature optimization is the root of all evil». **Prematur optimalisering** er å bruke for mykje tid på å finpusse ytinga før det er nødvendig. Den fornuftige rekkjefølgja er: få det til å verke først, *mål* ytinga for å finne dei verkelege flaskehalsane, optimaliser berre der det trengst, og test at koden framleis verkar etterpå.\n\nPython har innebygd måling i modulen `timeit`. Køyrer du duplikat-funksjonane på 10 000 element, kan O(n²)-versjonen ta fleire sekund medan O(n)-versjonen er ferdig på eit blunk – tusenvis av gonger raskare. Slik kan du dokumentere forbetringa i staden for å gjette.\n\nNår bør du tenkje på effektivitet? Når du jobbar med store datasett, i funksjonar som blir kalla svært mange gonger, eller når brukarane opplever treg respons. Når betyr det mindre? For små datasett under hundre element, for kode som berre blir køyrd éin gong, og når leselegheit er viktigare enn fart. To praktiske grep løyser dei fleste problem: unngå nøsta løkker over same data, og bruk ordbøker og mengder for raske oppslag. Hugs òg at same algoritme kan ha ulik **best case** og **worst case** – ein funksjon som sjekkar om ei liste er sortert, returnerer kjapt viss dei to første elementa er feil (O(1)), men må gå gjennom heile lista viss ho faktisk er sortert (O(n)).",
+      "737797721f3ea214": "Test deg sjølv på optimalisering:",
+      "348cfa0a9ef98d84": "Kva er den anbefalte rekkjefølgja ved optimalisering?",
+      "3e9dc5c0bc72388b": "Optimaliser alt før du skriv noko",
+      "d35a33988235bc2d": "Gjett kva som er tregt og endre det",
+      "8708abaf6c8a0b0e": "Få det til å verke, mål ytinga, optimaliser flaskehalsar, test på nytt",
+      "8ac4648ac0a70ed9": "Bruk alltid rekursjon",
+      "0343ab5ed9704b45": "Skriv korrekt kode først, mål for å finne dei verkelege flaskehalsane, optimaliser der det trengst, og verifiser at koden framleis verkar.",
+      "a13e4560af06a09a": "Kva modul måler køyretid i Python?",
+      "a441b15fe9a3cf56": "random",
+      "840a8dcfeae95966": "os",
+      "02bd175f32972037": "json",
+      "c083d290fcfeeff8": "timeit",
+      "c457c49dfcde9174": "timeit-modulen lèt deg måle kor lang tid kodebitar tek, så du kan samanlikne løysingar konkret.",
+      "d557f06ec9c1f581": "Ein funksjon sjekkar om ei liste er sortert. Kva er best case?",
+      "2d47072ec60a9672": "O(1) – dei to første elementa er i feil rekkjefølgje",
+      "ab62507a0fc665e5": "Viss dei to første elementa er feil, returnerer funksjonen umiddelbart – konstant tid O(1). Worst case (sortert liste) er O(n).",
+      "6b7958510e374af7": "## Oppsummering\n\nVi såg at to program kan gje same svar, men vere tusenvis av gonger frå kvarandre i fart. Ein **algoritme** er ei presis, endeleg oppskrift, og **Big O-notasjon** lèt oss skildre korleis køyretida veks med input-storleiken n: frå det raske O(1), O(log n) og O(n), via O(n log n), til det dyre O(n²) og eksponentielle O(2ⁿ). **Tidskompleksitet** måler operasjonar og fokuserer på worst case, medan **plasskompleksitet** måler minnebruk.\n\nFibonacci viste tid/plass-avveginga: naiv rekursjon er O(2ⁿ), memoisering byter minne mot fart, og den iterative versjonen er både rask og minnegjerrig. Til slutt lærte vi disiplinen: ikkje optimaliser prematurt. Få koden til å verke, mål med `timeit`, og forbetre berre der det faktisk trengst – gjerne ved å unngå nøsta løkker og bruke ordbøker og mengder. I neste kapittel går vi djupare inn i søkje- og sorteringsalgoritmar."
+    }
+  }
+}

@@ -1,1 +1,396 @@
-{"id":"9-8-3-narrativ","courseId":"9","chapterNumber":"8.3","title":"Trekantulikskapen og mediansetningar","subtitle":"Narrativ versjon","description":"Ei forteljande utforsking av trekantulikskapen, medianar og midtpunktssetninga -- grunnleggjande verktøy i geometrien som avslører løynde eigenskapar ved trekantar.","estimatedMinutes":35,"competenceGoals":["utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar"],"linkedChapterId":"9-8-3","content":[{"id":"9-8-3-n-intro","type":"text","content":"## Kan alle sidelengder danne ein trekant?\n\nTenk deg at du har tre pinnar. Den eine er 3 cm, den andre er 4 cm, og den tredje er 10 cm. Kan du lage ein trekant av dei? Prøv å sjå det for deg: dei to korte pinnane til saman er $3 + 4 = 7$ cm -- men den lange pinnen er 10 cm. Dei korte pinnane «rekk ikkje rundt». Det er umogleg å lukke figuren.\n\nDette er **trekantulikskapen** i praksis -- ei grunnleggjande lov som bestemmer kva for trekantar som kan eksistere. Ho seier: summen av to sider i ein trekant er alltid større enn den tredje. Bryt du denne regelen, kollapsar trekanten.\n\nI tillegg skal vi i dette kapittelet utforske **medianar** (linjer til midtpunktet på motsett side) og den elegante **midtpunktssetninga**."},{"id":"9-8-3-n-section1","type":"text","content":"## Trekantulikskapen\n\n**Trekantulikskapen** seier at for kvar trekant med sider $a$, $b$ og $c$ gjeld:\n\n$$a + b > c, \\quad a + c > b, \\quad b + c > a$$\n\nIntuitivt: den kortaste vegen mellom to punkt er ei rett linje. Å gå via det tredje hjørnet er alltid ein omveg, så omvegen (to sider) er alltid lengre enn den direkte vegen (den tredje sida).\n\nI praksis treng du berre å sjekke éin ting: **er summen av dei to kortaste sidene større enn den lengste?** Viss ja, kan du lage ein trekant. Viss nei, er det umogleg.\n\nLat oss teste nokre døme:\n- $3, 5, 7$: Dei to kortaste er $3 + 5 = 8 > 7$. Ja, dette er ein trekant.\n- $2, 3, 8$: Dei to kortaste er $2 + 3 = 5 < 8$. Nei, umogleg.\n- $5, 5, 5$: $5 + 5 = 10 > 5$. Ja, ein likesida trekant.\n- $3, 4, 7$: $3 + 4 = 7 = 7$. Nei! Vi treng *streng* ulikskap ($>$, ikkje $=$). Her ville «trekanten» kollapsa til ei rett linje.\n\nEin nyttig konsekvens: Viss to sider i ein trekant er $a$ og $b$, må den tredje sida $c$ oppfylle:\n\n$$|a - b| < c < a + b$$\n\nAltså ligg $c$ mellom differansen og summen av dei to andre sidene."},{"id":"9-8-3-n-quiz1","type":"exercise","exercise":{"id":"9-8-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på trekantulikskapen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-8-3-n-quiz1-q0","task":"Kva for sidelengder kan IKKJE danne ein trekant?","options":[{"id":"a","text":"$4, 6, 9$","isCorrect":false},{"id":"b","text":"$1, 2, 5$","isCorrect":true},{"id":"c","text":"$7, 7, 7$","isCorrect":false},{"id":"d","text":"$3, 4, 5$","isCorrect":false}],"solution":"$1 + 2 = 3 < 5$. Summen av dei to kortaste sidene er IKKJE større enn den lengste, så dette kan ikkje danne ein trekant."},{"id":"9-8-3-n-quiz1-q1","task":"To sider i ein trekant er $5$ cm og $8$ cm. Kva er det største heiltalet den tredje sida kan ha?","options":[{"id":"a","text":"$13$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$11$","isCorrect":false},{"id":"d","text":"$14$","isCorrect":false}],"solution":"Den tredje sida $c$ må oppfylle $|5 - 8| < c < 5 + 8$, altså $3 < c < 13$. Det største heiltalet er $12$."},{"id":"9-8-3-n-quiz1-q2","task":"Kan sidene $3, 4, 7$ danne ein trekant?","options":[{"id":"a","text":"Ja, det er ein vanleg trekant","isCorrect":false},{"id":"b","text":"Nei, fordi $3 + 4 = 7$ (ikkje strengt større)","isCorrect":true},{"id":"c","text":"Ja, det er ein rettvinkla trekant","isCorrect":false},{"id":"d","text":"Nei, fordi $7 > 4$","isCorrect":false}],"solution":"Vi treng $a + b > c$ (strengt større). Her er $3 + 4 = 7$, men vi treng $> 7$. Punkta ville lege på ei rett linje."}]}},{"id":"9-8-3-n-section2","type":"text","content":"## Medianar og tyngdepunktet\n\nEin **median** i ein trekant er eit linjestykke frå eit hjørne til midtpunktet på den motståande sida. Kvar trekant har tre medianar.\n\nDet fascinerande er at alle tre medianane alltid møtest i eitt punkt -- **tyngdepunktet** (også kalla sentroiden). Tyngdepunktet har ein spesiell eigenskap: det deler kvar median i forholdet $2:1$ frå hjørnet. Altså er avstanden frå hjørnet til tyngdepunktet dobbelt så lang som avstanden frå tyngdepunktet til midtpunktet.\n\nViss medianen frå $A$ til midtpunktet $M$ på $BC$ har lengd $15$ cm, og tyngdepunktet er $G$, då er:\n\n$$AG = \\frac{2}{3} \\cdot AM = \\frac{2}{3} \\cdot 15 = 10 \\text{ cm}$$\n$$GM = \\frac{1}{3} \\cdot AM = \\frac{1}{3} \\cdot 15 = 5 \\text{ cm}$$\n\nTyngdepunktet har eit fint namn -- det er **balansepunktet** til trekanten. Skjer du ut trekanten i kartong og legg han på ein blyantspiss i tyngdepunktet, balanserer han perfekt.\n\nKoordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna:\n\n$$G = \\left(\\frac{x_A + x_B + x_C}{3},\\, \\frac{y_A + y_B + y_C}{3}\\right)$$"},{"id":"9-8-3-n-quiz2","type":"exercise","exercise":{"id":"9-8-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på medianar og tyngdepunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-8-3-n-quiz2-q0","task":"Trekant $ABC$ har hjørna $A = (3, 0)$, $B = (0, 6)$, $C = (9, 3)$. Kva er tyngdepunktet?","options":[{"id":"a","text":"$(3, 3)$","isCorrect":false},{"id":"b","text":"$(4, 3)$","isCorrect":true},{"id":"c","text":"$(6, 3)$","isCorrect":false},{"id":"d","text":"$(4, 4)$","isCorrect":false}],"solution":"$G = \\left(\\frac{3+0+9}{3}, \\frac{0+6+3}{3}\\right) = \\left(\\frac{12}{3}, \\frac{9}{3}\\right) = (4, 3)$."},{"id":"9-8-3-n-quiz2-q1","task":"Ein median har lengd $18$ cm. Kor lang er avstanden frå hjørnet til tyngdepunktet?","options":[{"id":"a","text":"$6$ cm","isCorrect":false},{"id":"b","text":"$12$ cm","isCorrect":true},{"id":"c","text":"$9$ cm","isCorrect":false},{"id":"d","text":"$15$ cm","isCorrect":false}],"solution":"Tyngdepunktet deler medianen i forholdet $2:1$ frå hjørnet: $\\frac{2}{3} \\cdot 18 = 12$ cm."},{"id":"9-8-3-n-quiz2-q2","task":"Kva er spesielt med tyngdepunktet i ein trekant?","options":[{"id":"a","text":"Det er der høgdene møtest","isCorrect":false},{"id":"b","text":"Det er balansepunktet til trekanten der alle tre medianane møtest","isCorrect":true},{"id":"c","text":"Det ligg alltid i sentrum av omskriven sirkel","isCorrect":false},{"id":"d","text":"Det er det punktet som er lengst frå alle sider","isCorrect":false}],"solution":"Tyngdepunktet (sentroiden) er der dei tre medianane møtest, og det er balansepunktet til trekanten."}]}},{"id":"9-8-3-n-section3","type":"text","content":"## Midtpunktssetninga\n\n**Midtpunktssetninga** er eit av dei mest elegante resultata i geometrien. Ho seier:\n\n> Linjestykket som bind saman midtpunkta av to sider i ein trekant, er **parallelt** med den tredje sida og **halvparten** så langt.\n\nFormelt: Viss $M$ er midtpunktet på $AB$ og $N$ er midtpunktet på $AC$ i $\\triangle ABC$, då er:\n\n1. $MN \\parallel BC$\n2. $MN = \\frac{1}{2} \\cdot BC$\n\nDenne setninga har mange konsekvensar. Til dømes: Viss $BC = 12$ cm, er $MN = 6$ cm. Og sidan $MN \\parallel BC$, er samsvarande vinklar like: $\\angle AMN = \\angle B$.\n\nEi vakker bruksbruk: Bind saman midtpunkta av alle tre sidene i ein trekant. Då får du ein ny, liten trekant inne i den opphavlege. Midtpunktssetninga viser at denne indre trekanten har sider som er halvparten av dei opphavlege. Faktisk deler han den opphavlege trekanten i fire kongruente trekantar -- alle like store! Dette kan bevisast ved å bruke midtpunktssetninga tre gonger og deretter SSS-kongruens."},{"id":"9-8-3-n-quiz3","type":"exercise","exercise":{"id":"9-8-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på midtpunktssetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-8-3-n-quiz3-q0","task":"$M$ og $N$ er midtpunkta på høvesvis $AB$ og $AC$ i $\\triangle ABC$, og $BC = 14$ cm. Kva er $MN$?","options":[{"id":"a","text":"$28$ cm","isCorrect":false},{"id":"b","text":"$7$ cm","isCorrect":true},{"id":"c","text":"$14$ cm","isCorrect":false},{"id":"d","text":"$10$ cm","isCorrect":false}],"solution":"Etter midtpunktssetninga: $MN = \\frac{1}{2} \\cdot BC = \\frac{1}{2} \\cdot 14 = 7$ cm."},{"id":"9-8-3-n-quiz3-q1","task":"I $\\triangle ABC$ er $\\angle B = 70°$. $M$ er midtpunkt på $AB$ og $N$ er midtpunkt på $AC$. Kva er $\\angle AMN$?","options":[{"id":"a","text":"$70°$","isCorrect":true},{"id":"b","text":"$110°$","isCorrect":false},{"id":"c","text":"$35°$","isCorrect":false},{"id":"d","text":"$90°$","isCorrect":false}],"solution":"Sidan $MN \\parallel BC$ (midtpunktssetninga), er $\\angle AMN = \\angle B = 70°$ (samsvarande vinklar)."},{"id":"9-8-3-n-quiz3-q2","task":"Midtpunkta av sidene i ein trekant blir bundne saman. Kor mange kongruente trekantar deler dette den opphavlege trekanten i?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$4$","isCorrect":true},{"id":"d","text":"$6$","isCorrect":false}],"solution":"Midtpunktstrekanten deler den opphavlege trekanten i nøyaktig $4$ kongruente trekantar, alle med sider halvparten av dei opphavlege."}]}},{"id":"9-8-3-n-summary","type":"text","content":"## Oppsummering\n\n**Trekantulikskapen:** I kvar trekant er summen av to sider alltid større enn den tredje. Sjekk: er summen av dei to kortaste sidene strengt større enn den lengste? Den tredje sida $c$ må liggje i intervallet $|a - b| < c < a + b$.\n\n**Medianar og tyngdepunkt:** Ein median går frå eit hjørne til midtpunktet av den motståande sida. Dei tre medianane møtest i tyngdepunktet $G$, som deler kvar median i forholdet $2:1$. Koordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna.\n\n**Midtpunktssetninga:** Linjestykket mellom midtpunkta av to sider i ein trekant er parallelt med den tredje sida og halvparten så langt:\n- $MN \\parallel BC$\n- $MN = \\frac{1}{2} \\cdot BC$"}],"exercises":[],"_meta":{"sourceHash":"9ac091d8f977c3bd","translatedAt":"2026-06-17T09:24:21.523Z","model":"claude-code-agent","strings":49,"tm":{"55df206cd156827e":"Trekantulikskapen og mediansetningar","b195b06d1ed59702":"Narrativ versjon","d8e5058dc5e9cb40":"Ei forteljande utforsking av trekantulikskapen, medianar og midtpunktssetninga -- grunnleggjande verktøy i geometrien som avslører løynde eigenskapar ved trekantar.","6af8feda013eb1cf":"utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar","7988a2fbc2c4cc41":"## Kan alle sidelengder danne ein trekant?\n\nTenk deg at du har tre pinnar. Den eine er 3 cm, den andre er 4 cm, og den tredje er 10 cm. Kan du lage ein trekant av dei? Prøv å sjå det for deg: dei to korte pinnane til saman er $3 + 4 = 7$ cm -- men den lange pinnen er 10 cm. Dei korte pinnane «rekk ikkje rundt». Det er umogleg å lukke figuren.\n\nDette er **trekantulikskapen** i praksis -- ei grunnleggjande lov som bestemmer kva for trekantar som kan eksistere. Ho seier: summen av to sider i ein trekant er alltid større enn den tredje. Bryt du denne regelen, kollapsar trekanten.\n\nI tillegg skal vi i dette kapittelet utforske **medianar** (linjer til midtpunktet på motsett side) og den elegante **midtpunktssetninga**.","996c07dc709009be":"## Trekantulikskapen\n\n**Trekantulikskapen** seier at for kvar trekant med sider $a$, $b$ og $c$ gjeld:\n\n$$a + b > c, \\quad a + c > b, \\quad b + c > a$$\n\nIntuitivt: den kortaste vegen mellom to punkt er ei rett linje. Å gå via det tredje hjørnet er alltid ein omveg, så omvegen (to sider) er alltid lengre enn den direkte vegen (den tredje sida).\n\nI praksis treng du berre å sjekke éin ting: **er summen av dei to kortaste sidene større enn den lengste?** Viss ja, kan du lage ein trekant. Viss nei, er det umogleg.\n\nLat oss teste nokre døme:\n- $3, 5, 7$: Dei to kortaste er $3 + 5 = 8 > 7$. Ja, dette er ein trekant.\n- $2, 3, 8$: Dei to kortaste er $2 + 3 = 5 < 8$. Nei, umogleg.\n- $5, 5, 5$: $5 + 5 = 10 > 5$. Ja, ein likesida trekant.\n- $3, 4, 7$: $3 + 4 = 7 = 7$. Nei! Vi treng *streng* ulikskap ($>$, ikkje $=$). Her ville «trekanten» kollapsa til ei rett linje.\n\nEin nyttig konsekvens: Viss to sider i ein trekant er $a$ og $b$, må den tredje sida $c$ oppfylle:\n\n$$|a - b| < c < a + b$$\n\nAltså ligg $c$ mellom differansen og summen av dei to andre sidene.","883b02c0506395e7":"Test deg sjølv på trekantulikskapen:","4097889236a2af26":"placeholder","9c632e5fadb0effa":"Kva for sidelengder kan IKKJE danne ein trekant?","1f8654b231d22f43":"$1 + 2 = 3 < 5$. Summen av dei to kortaste sidene er IKKJE større enn den lengste, så dette kan ikkje danne ein trekant.","43ad14089b03e28d":"To sider i ein trekant er $5$ cm og $8$ cm. Kva er det største heiltalet den tredje sida kan ha?","6a2b8363687dad58":"Den tredje sida $c$ må oppfylle $|5 - 8| < c < 5 + 8$, altså $3 < c < 13$. Det største heiltalet er $12$.","0ec7d7848420021e":"Kan sidene $3, 4, 7$ danne ein trekant?","f5f6006e83457d91":"Ja, det er ein vanleg trekant","1f7dd4cb9229dfef":"Nei, fordi $3 + 4 = 7$ (ikkje strengt større)","9d13988ea73bbf9b":"Ja, det er ein rettvinkla trekant","b5c1946fa6bf91a3":"Nei, fordi $7 > 4$","afed6c59eeeab7a1":"Vi treng $a + b > c$ (strengt større). Her er $3 + 4 = 7$, men vi treng $> 7$. Punkta ville lege på ei rett linje.","4e01d3c971c991fd":"## Medianar og tyngdepunktet\n\nEin **median** i ein trekant er eit linjestykke frå eit hjørne til midtpunktet på den motståande sida. Kvar trekant har tre medianar.\n\nDet fascinerande er at alle tre medianane alltid møtest i eitt punkt -- **tyngdepunktet** (også kalla sentroiden). Tyngdepunktet har ein spesiell eigenskap: det deler kvar median i forholdet $2:1$ frå hjørnet. Altså er avstanden frå hjørnet til tyngdepunktet dobbelt så lang som avstanden frå tyngdepunktet til midtpunktet.\n\nViss medianen frå $A$ til midtpunktet $M$ på $BC$ har lengd $15$ cm, og tyngdepunktet er $G$, då er:\n\n$$AG = \\frac{2}{3} \\cdot AM = \\frac{2}{3} \\cdot 15 = 10 \\text{ cm}$$\n$$GM = \\frac{1}{3} \\cdot AM = \\frac{1}{3} \\cdot 15 = 5 \\text{ cm}$$\n\nTyngdepunktet har eit fint namn -- det er **balansepunktet** til trekanten. Skjer du ut trekanten i kartong og legg han på ein blyantspiss i tyngdepunktet, balanserer han perfekt.\n\nKoordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna:\n\n$$G = \\left(\\frac{x_A + x_B + x_C}{3},\\, \\frac{y_A + y_B + y_C}{3}\\right)$$","7819a8d9fbda1815":"Test deg sjølv på medianar og tyngdepunkt:","cc216029ac78d464":"Trekant $ABC$ har hjørna $A = (3, 0)$, $B = (0, 6)$, $C = (9, 3)$. Kva er tyngdepunktet?","2c6b73403256aea3":"$G = \\left(\\frac{3+0+9}{3}, \\frac{0+6+3}{3}\\right) = \\left(\\frac{12}{3}, \\frac{9}{3}\\right) = (4, 3)$.","5b1b5bea72f255c7":"Ein median har lengd $18$ cm. Kor lang er avstanden frå hjørnet til tyngdepunktet?","dab79e546854de9d":"$6$ cm","fb859250fe99edfe":"$12$ cm","2b4e7db831fa5a8f":"$9$ cm","bdeb7afdf71a1ddc":"$15$ cm","15e31df3614c36b9":"Tyngdepunktet deler medianen i forholdet $2:1$ frå hjørnet: $\\frac{2}{3} \\cdot 18 = 12$ cm.","52bbdd2164499c05":"Kva er spesielt med tyngdepunktet i ein trekant?","7b1d753d2033fb33":"Det er der høgdene møtest","68c8e3a823496846":"Det er balansepunktet til trekanten der alle tre medianane møtest","4dd3d53731357956":"Det ligg alltid i sentrum av omskriven sirkel","485cd2ce0a4cdd82":"Det er det punktet som er lengst frå alle sider","744d0492f71bd77a":"Tyngdepunktet (sentroiden) er der dei tre medianane møtest, og det er balansepunktet til trekanten.","3e2d98c74afc397f":"## Midtpunktssetninga\n\n**Midtpunktssetninga** er eit av dei mest elegante resultata i geometrien. Ho seier:\n\n> Linjestykket som bind saman midtpunkta av to sider i ein trekant, er **parallelt** med den tredje sida og **halvparten** så langt.\n\nFormelt: Viss $M$ er midtpunktet på $AB$ og $N$ er midtpunktet på $AC$ i $\\triangle ABC$, då er:\n\n1. $MN \\parallel BC$\n2. $MN = \\frac{1}{2} \\cdot BC$\n\nDenne setninga har mange konsekvensar. Til dømes: Viss $BC = 12$ cm, er $MN = 6$ cm. Og sidan $MN \\parallel BC$, er samsvarande vinklar like: $\\angle AMN = \\angle B$.\n\nEi vakker bruksbruk: Bind saman midtpunkta av alle tre sidene i ein trekant. Då får du ein ny, liten trekant inne i den opphavlege. Midtpunktssetninga viser at denne indre trekanten har sider som er halvparten av dei opphavlege. Faktisk deler han den opphavlege trekanten i fire kongruente trekantar -- alle like store! Dette kan bevisast ved å bruke midtpunktssetninga tre gonger og deretter SSS-kongruens.","801897877720a067":"Test deg sjølv på midtpunktssetninga:","3c0b023aa5fa2546":"$M$ og $N$ er midtpunkta på høvesvis $AB$ og $AC$ i $\\triangle ABC$, og $BC = 14$ cm. Kva er $MN$?","70d964eb3cd69220":"$28$ cm","63c866b05bc70ef3":"$7$ cm","0fd69403a58036ac":"$14$ cm","25ee68ae3e31cc54":"$10$ cm","4a9b5393e1c47fdb":"Etter midtpunktssetninga: $MN = \\frac{1}{2} \\cdot BC = \\frac{1}{2} \\cdot 14 = 7$ cm.","fa71eeb175408f3e":"I $\\triangle ABC$ er $\\angle B = 70°$. $M$ er midtpunkt på $AB$ og $N$ er midtpunkt på $AC$. Kva er $\\angle AMN$?","736c86080d16889b":"Sidan $MN \\parallel BC$ (midtpunktssetninga), er $\\angle AMN = \\angle B = 70°$ (samsvarande vinklar).","a4b5f196cb170fdd":"Midtpunkta av sidene i ein trekant blir bundne saman. Kor mange kongruente trekantar deler dette den opphavlege trekanten i?","123bc3bcfb2f3008":"Midtpunktstrekanten deler den opphavlege trekanten i nøyaktig $4$ kongruente trekantar, alle med sider halvparten av dei opphavlege.","19921c12e589cde3":"## Oppsummering\n\n**Trekantulikskapen:** I kvar trekant er summen av to sider alltid større enn den tredje. Sjekk: er summen av dei to kortaste sidene strengt større enn den lengste? Den tredje sida $c$ må liggje i intervallet $|a - b| < c < a + b$.\n\n**Medianar og tyngdepunkt:** Ein median går frå eit hjørne til midtpunktet av den motståande sida. Dei tre medianane møtest i tyngdepunktet $G$, som deler kvar median i forholdet $2:1$. Koordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna.\n\n**Midtpunktssetninga:** Linjestykket mellom midtpunkta av to sider i ein trekant er parallelt med den tredje sida og halvparten så langt:\n- $MN \\parallel BC$\n- $MN = \\frac{1}{2} \\cdot BC$"}}}
+{
+  "id": "9-8-3-narrativ",
+  "courseId": "9",
+  "chapterNumber": "8.3",
+  "title": "Trekantulikskapen og mediansetningar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljande utforsking av trekantulikskapen, medianar og midtpunktssetninga -- grunnleggjande verktøy i geometrien som avslører løynde eigenskapar ved trekantar.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar"
+  ],
+  "linkedChapterId": "9-8-3",
+  "content": [
+    {
+      "id": "9-8-3-n-intro",
+      "type": "text",
+      "content": "## Kan alle sidelengder danne ein trekant?\n\nTenk deg at du har tre pinnar. Den eine er 3 cm, den andre er 4 cm, og den tredje er 10 cm. Kan du lage ein trekant av dei? Prøv å sjå det for deg: dei to korte pinnane til saman er $3 + 4 = 7$ cm -- men den lange pinnen er 10 cm. Dei korte pinnane «rekk ikkje rundt». Det er umogleg å lukke figuren.\n\nDette er **trekantulikskapen** i praksis -- ei grunnleggjande lov som bestemmer kva for trekantar som kan eksistere. Ho seier: summen av to sider i ein trekant er alltid større enn den tredje. Bryt du denne regelen, kollapsar trekanten.\n\nI tillegg skal vi i dette kapittelet utforske **medianar** (linjer til midtpunktet på motsett side) og den elegante **midtpunktssetninga**."
+    },
+    {
+      "id": "9-8-3-n-section1",
+      "type": "text",
+      "content": "## Trekantulikskapen\n\n**Trekantulikskapen** seier at for kvar trekant med sider $a$, $b$ og $c$ gjeld:\n\n$$a + b > c, \\quad a + c > b, \\quad b + c > a$$\n\nIntuitivt: den kortaste vegen mellom to punkt er ei rett linje. Å gå via det tredje hjørnet er alltid ein omveg, så omvegen (to sider) er alltid lengre enn den direkte vegen (den tredje sida).\n\nI praksis treng du berre å sjekke éin ting: **er summen av dei to kortaste sidene større enn den lengste?** Viss ja, kan du lage ein trekant. Viss nei, er det umogleg.\n\nLat oss teste nokre døme:\n- $3, 5, 7$: Dei to kortaste er $3 + 5 = 8 > 7$. Ja, dette er ein trekant.\n- $2, 3, 8$: Dei to kortaste er $2 + 3 = 5 < 8$. Nei, umogleg.\n- $5, 5, 5$: $5 + 5 = 10 > 5$. Ja, ein likesida trekant.\n- $3, 4, 7$: $3 + 4 = 7 = 7$. Nei! Vi treng *streng* ulikskap ($>$, ikkje $=$). Her ville «trekanten» kollapsa til ei rett linje.\n\nEin nyttig konsekvens: Viss to sider i ein trekant er $a$ og $b$, må den tredje sida $c$ oppfylle:\n\n$$|a - b| < c < a + b$$\n\nAltså ligg $c$ mellom differansen og summen av dei to andre sidene."
+    },
+    {
+      "id": "9-8-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-8-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på trekantulikskapen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-8-3-n-quiz1-q0",
+            "task": "Kva for sidelengder kan IKKJE danne ein trekant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4, 6, 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7, 7, 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3, 4, 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1, 2, 5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$1 + 2 = 3 < 5$. Summen av dei to kortaste sidene er IKKJE større enn den lengste, så dette kan ikkje danne ein trekant."
+          },
+          {
+            "id": "9-8-3-n-quiz1-q1",
+            "task": "To sider i ein trekant er $5$ cm og $8$ cm. Kva er det største heiltalet den tredje sida kan ha?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$13$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$11$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$14$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den tredje sida $c$ må oppfylle $|5 - 8| < c < 5 + 8$, altså $3 < c < 13$. Det største heiltalet er $12$."
+          },
+          {
+            "id": "9-8-3-n-quiz1-q2",
+            "task": "Kan sidene $3, 4, 7$ danne ein trekant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, det er ein vanleg trekant",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nei, fordi $3 + 4 = 7$ (ikkje strengt større)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ja, det er ein rettvinkla trekant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei, fordi $7 > 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi treng $a + b > c$ (strengt større). Her er $3 + 4 = 7$, men vi treng $> 7$. Punkta ville lege på ei rett linje."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-8-3-n-section2",
+      "type": "text",
+      "content": "## Medianar og tyngdepunktet\n\nEin **median** i ein trekant er eit linjestykke frå eit hjørne til midtpunktet på den motståande sida. Kvar trekant har tre medianar.\n\nDet fascinerande er at alle tre medianane alltid møtest i eitt punkt -- **tyngdepunktet** (også kalla sentroiden). Tyngdepunktet har ein spesiell eigenskap: det deler kvar median i forholdet $2:1$ frå hjørnet. Altså er avstanden frå hjørnet til tyngdepunktet dobbelt så lang som avstanden frå tyngdepunktet til midtpunktet.\n\nViss medianen frå $A$ til midtpunktet $M$ på $BC$ har lengd $15$ cm, og tyngdepunktet er $G$, då er:\n\n$$AG = \\frac{2}{3} \\cdot AM = \\frac{2}{3} \\cdot 15 = 10 \\text{ cm}$$\n$$GM = \\frac{1}{3} \\cdot AM = \\frac{1}{3} \\cdot 15 = 5 \\text{ cm}$$\n\nTyngdepunktet har eit fint namn -- det er **balansepunktet** til trekanten. Skjer du ut trekanten i kartong og legg han på ein blyantspiss i tyngdepunktet, balanserer han perfekt.\n\nKoordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna:\n\n$$G = \\left(\\frac{x_A + x_B + x_C}{3},\\, \\frac{y_A + y_B + y_C}{3}\\right)$$"
+    },
+    {
+      "id": "9-8-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-8-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på medianar og tyngdepunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-8-3-n-quiz2-q0",
+            "task": "Trekant $ABC$ har hjørna $A = (3, 0)$, $B = (0, 6)$, $C = (9, 3)$. Kva er tyngdepunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(3, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(6, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(4, 3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(4, 4)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$G = \\left(\\frac{3+0+9}{3}, \\frac{0+6+3}{3}\\right) = \\left(\\frac{12}{3}, \\frac{9}{3}\\right) = (4, 3)$."
+          },
+          {
+            "id": "9-8-3-n-quiz2-q1",
+            "task": "Ein median har lengd $18$ cm. Kor lang er avstanden frå hjørnet til tyngdepunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$9$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$15$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$ cm",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tyngdepunktet deler medianen i forholdet $2:1$ frå hjørnet: $\\frac{2}{3} \\cdot 18 = 12$ cm."
+          },
+          {
+            "id": "9-8-3-n-quiz2-q2",
+            "task": "Kva er spesielt med tyngdepunktet i ein trekant?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det er balansepunktet til trekanten der alle tre medianane møtest",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det er der høgdene møtest",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det ligg alltid i sentrum av omskriven sirkel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er det punktet som er lengst frå alle sider",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tyngdepunktet (sentroiden) er der dei tre medianane møtest, og det er balansepunktet til trekanten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-8-3-n-section3",
+      "type": "text",
+      "content": "## Midtpunktssetninga\n\n**Midtpunktssetninga** er eit av dei mest elegante resultata i geometrien. Ho seier:\n\n> Linjestykket som bind saman midtpunkta av to sider i ein trekant, er **parallelt** med den tredje sida og **halvparten** så langt.\n\nFormelt: Viss $M$ er midtpunktet på $AB$ og $N$ er midtpunktet på $AC$ i $\\triangle ABC$, då er:\n\n1. $MN \\parallel BC$\n2. $MN = \\frac{1}{2} \\cdot BC$\n\nDenne setninga har mange konsekvensar. Til dømes: Viss $BC = 12$ cm, er $MN = 6$ cm. Og sidan $MN \\parallel BC$, er samsvarande vinklar like: $\\angle AMN = \\angle B$.\n\nEi vakker bruksbruk: Bind saman midtpunkta av alle tre sidene i ein trekant. Då får du ein ny, liten trekant inne i den opphavlege. Midtpunktssetninga viser at denne indre trekanten har sider som er halvparten av dei opphavlege. Faktisk deler han den opphavlege trekanten i fire kongruente trekantar -- alle like store! Dette kan bevisast ved å bruke midtpunktssetninga tre gonger og deretter SSS-kongruens."
+    },
+    {
+      "id": "9-8-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-8-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på midtpunktssetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-8-3-n-quiz3-q0",
+            "task": "$M$ og $N$ er midtpunkta på høvesvis $AB$ og $AC$ i $\\triangle ABC$, og $BC = 14$ cm. Kva er $MN$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$28$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7$ cm",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$14$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$ cm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter midtpunktssetninga: $MN = \\frac{1}{2} \\cdot BC = \\frac{1}{2} \\cdot 14 = 7$ cm."
+          },
+          {
+            "id": "9-8-3-n-quiz3-q1",
+            "task": "I $\\triangle ABC$ er $\\angle B = 70°$. $M$ er midtpunkt på $AB$ og $N$ er midtpunkt på $AC$. Kva er $\\angle AMN$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$110°$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$35°$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$70°$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$90°$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $MN \\parallel BC$ (midtpunktssetninga), er $\\angle AMN = \\angle B = 70°$ (samsvarande vinklar)."
+          },
+          {
+            "id": "9-8-3-n-quiz3-q2",
+            "task": "Midtpunkta av sidene i ein trekant blir bundne saman. Kor mange kongruente trekantar deler dette den opphavlege trekanten i?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Midtpunktstrekanten deler den opphavlege trekanten i nøyaktig $4$ kongruente trekantar, alle med sider halvparten av dei opphavlege."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-8-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Trekantulikskapen:** I kvar trekant er summen av to sider alltid større enn den tredje. Sjekk: er summen av dei to kortaste sidene strengt større enn den lengste? Den tredje sida $c$ må liggje i intervallet $|a - b| < c < a + b$.\n\n**Medianar og tyngdepunkt:** Ein median går frå eit hjørne til midtpunktet av den motståande sida. Dei tre medianane møtest i tyngdepunktet $G$, som deler kvar median i forholdet $2:1$. Koordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna.\n\n**Midtpunktssetninga:** Linjestykket mellom midtpunkta av to sider i ein trekant er parallelt med den tredje sida og halvparten så langt:\n- $MN \\parallel BC$\n- $MN = \\frac{1}{2} \\cdot BC$"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "9ac091d8f977c3bd",
+    "translatedAt": "2026-06-17T09:24:21.523Z",
+    "model": "claude-code-agent",
+    "strings": 49,
+    "tm": {
+      "55df206cd156827e": "Trekantulikskapen og mediansetningar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "d8e5058dc5e9cb40": "Ei forteljande utforsking av trekantulikskapen, medianar og midtpunktssetninga -- grunnleggjande verktøy i geometrien som avslører løynde eigenskapar ved trekantar.",
+      "6af8feda013eb1cf": "utforske og argumentere for eigenskapar ved to- og tredimensjonale figurar",
+      "7988a2fbc2c4cc41": "## Kan alle sidelengder danne ein trekant?\n\nTenk deg at du har tre pinnar. Den eine er 3 cm, den andre er 4 cm, og den tredje er 10 cm. Kan du lage ein trekant av dei? Prøv å sjå det for deg: dei to korte pinnane til saman er $3 + 4 = 7$ cm -- men den lange pinnen er 10 cm. Dei korte pinnane «rekk ikkje rundt». Det er umogleg å lukke figuren.\n\nDette er **trekantulikskapen** i praksis -- ei grunnleggjande lov som bestemmer kva for trekantar som kan eksistere. Ho seier: summen av to sider i ein trekant er alltid større enn den tredje. Bryt du denne regelen, kollapsar trekanten.\n\nI tillegg skal vi i dette kapittelet utforske **medianar** (linjer til midtpunktet på motsett side) og den elegante **midtpunktssetninga**.",
+      "996c07dc709009be": "## Trekantulikskapen\n\n**Trekantulikskapen** seier at for kvar trekant med sider $a$, $b$ og $c$ gjeld:\n\n$$a + b > c, \\quad a + c > b, \\quad b + c > a$$\n\nIntuitivt: den kortaste vegen mellom to punkt er ei rett linje. Å gå via det tredje hjørnet er alltid ein omveg, så omvegen (to sider) er alltid lengre enn den direkte vegen (den tredje sida).\n\nI praksis treng du berre å sjekke éin ting: **er summen av dei to kortaste sidene større enn den lengste?** Viss ja, kan du lage ein trekant. Viss nei, er det umogleg.\n\nLat oss teste nokre døme:\n- $3, 5, 7$: Dei to kortaste er $3 + 5 = 8 > 7$. Ja, dette er ein trekant.\n- $2, 3, 8$: Dei to kortaste er $2 + 3 = 5 < 8$. Nei, umogleg.\n- $5, 5, 5$: $5 + 5 = 10 > 5$. Ja, ein likesida trekant.\n- $3, 4, 7$: $3 + 4 = 7 = 7$. Nei! Vi treng *streng* ulikskap ($>$, ikkje $=$). Her ville «trekanten» kollapsa til ei rett linje.\n\nEin nyttig konsekvens: Viss to sider i ein trekant er $a$ og $b$, må den tredje sida $c$ oppfylle:\n\n$$|a - b| < c < a + b$$\n\nAltså ligg $c$ mellom differansen og summen av dei to andre sidene.",
+      "883b02c0506395e7": "Test deg sjølv på trekantulikskapen:",
+      "4097889236a2af26": "placeholder",
+      "9c632e5fadb0effa": "Kva for sidelengder kan IKKJE danne ein trekant?",
+      "1f8654b231d22f43": "$1 + 2 = 3 < 5$. Summen av dei to kortaste sidene er IKKJE større enn den lengste, så dette kan ikkje danne ein trekant.",
+      "43ad14089b03e28d": "To sider i ein trekant er $5$ cm og $8$ cm. Kva er det største heiltalet den tredje sida kan ha?",
+      "6a2b8363687dad58": "Den tredje sida $c$ må oppfylle $|5 - 8| < c < 5 + 8$, altså $3 < c < 13$. Det største heiltalet er $12$.",
+      "0ec7d7848420021e": "Kan sidene $3, 4, 7$ danne ein trekant?",
+      "f5f6006e83457d91": "Ja, det er ein vanleg trekant",
+      "1f7dd4cb9229dfef": "Nei, fordi $3 + 4 = 7$ (ikkje strengt større)",
+      "9d13988ea73bbf9b": "Ja, det er ein rettvinkla trekant",
+      "b5c1946fa6bf91a3": "Nei, fordi $7 > 4$",
+      "afed6c59eeeab7a1": "Vi treng $a + b > c$ (strengt større). Her er $3 + 4 = 7$, men vi treng $> 7$. Punkta ville lege på ei rett linje.",
+      "4e01d3c971c991fd": "## Medianar og tyngdepunktet\n\nEin **median** i ein trekant er eit linjestykke frå eit hjørne til midtpunktet på den motståande sida. Kvar trekant har tre medianar.\n\nDet fascinerande er at alle tre medianane alltid møtest i eitt punkt -- **tyngdepunktet** (også kalla sentroiden). Tyngdepunktet har ein spesiell eigenskap: det deler kvar median i forholdet $2:1$ frå hjørnet. Altså er avstanden frå hjørnet til tyngdepunktet dobbelt så lang som avstanden frå tyngdepunktet til midtpunktet.\n\nViss medianen frå $A$ til midtpunktet $M$ på $BC$ har lengd $15$ cm, og tyngdepunktet er $G$, då er:\n\n$$AG = \\frac{2}{3} \\cdot AM = \\frac{2}{3} \\cdot 15 = 10 \\text{ cm}$$\n$$GM = \\frac{1}{3} \\cdot AM = \\frac{1}{3} \\cdot 15 = 5 \\text{ cm}$$\n\nTyngdepunktet har eit fint namn -- det er **balansepunktet** til trekanten. Skjer du ut trekanten i kartong og legg han på ein blyantspiss i tyngdepunktet, balanserer han perfekt.\n\nKoordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna:\n\n$$G = \\left(\\frac{x_A + x_B + x_C}{3},\\, \\frac{y_A + y_B + y_C}{3}\\right)$$",
+      "7819a8d9fbda1815": "Test deg sjølv på medianar og tyngdepunkt:",
+      "cc216029ac78d464": "Trekant $ABC$ har hjørna $A = (3, 0)$, $B = (0, 6)$, $C = (9, 3)$. Kva er tyngdepunktet?",
+      "2c6b73403256aea3": "$G = \\left(\\frac{3+0+9}{3}, \\frac{0+6+3}{3}\\right) = \\left(\\frac{12}{3}, \\frac{9}{3}\\right) = (4, 3)$.",
+      "5b1b5bea72f255c7": "Ein median har lengd $18$ cm. Kor lang er avstanden frå hjørnet til tyngdepunktet?",
+      "dab79e546854de9d": "$6$ cm",
+      "fb859250fe99edfe": "$12$ cm",
+      "2b4e7db831fa5a8f": "$9$ cm",
+      "bdeb7afdf71a1ddc": "$15$ cm",
+      "15e31df3614c36b9": "Tyngdepunktet deler medianen i forholdet $2:1$ frå hjørnet: $\\frac{2}{3} \\cdot 18 = 12$ cm.",
+      "52bbdd2164499c05": "Kva er spesielt med tyngdepunktet i ein trekant?",
+      "7b1d753d2033fb33": "Det er der høgdene møtest",
+      "68c8e3a823496846": "Det er balansepunktet til trekanten der alle tre medianane møtest",
+      "4dd3d53731357956": "Det ligg alltid i sentrum av omskriven sirkel",
+      "485cd2ce0a4cdd82": "Det er det punktet som er lengst frå alle sider",
+      "744d0492f71bd77a": "Tyngdepunktet (sentroiden) er der dei tre medianane møtest, og det er balansepunktet til trekanten.",
+      "3e2d98c74afc397f": "## Midtpunktssetninga\n\n**Midtpunktssetninga** er eit av dei mest elegante resultata i geometrien. Ho seier:\n\n> Linjestykket som bind saman midtpunkta av to sider i ein trekant, er **parallelt** med den tredje sida og **halvparten** så langt.\n\nFormelt: Viss $M$ er midtpunktet på $AB$ og $N$ er midtpunktet på $AC$ i $\\triangle ABC$, då er:\n\n1. $MN \\parallel BC$\n2. $MN = \\frac{1}{2} \\cdot BC$\n\nDenne setninga har mange konsekvensar. Til dømes: Viss $BC = 12$ cm, er $MN = 6$ cm. Og sidan $MN \\parallel BC$, er samsvarande vinklar like: $\\angle AMN = \\angle B$.\n\nEi vakker bruksbruk: Bind saman midtpunkta av alle tre sidene i ein trekant. Då får du ein ny, liten trekant inne i den opphavlege. Midtpunktssetninga viser at denne indre trekanten har sider som er halvparten av dei opphavlege. Faktisk deler han den opphavlege trekanten i fire kongruente trekantar -- alle like store! Dette kan bevisast ved å bruke midtpunktssetninga tre gonger og deretter SSS-kongruens.",
+      "801897877720a067": "Test deg sjølv på midtpunktssetninga:",
+      "3c0b023aa5fa2546": "$M$ og $N$ er midtpunkta på høvesvis $AB$ og $AC$ i $\\triangle ABC$, og $BC = 14$ cm. Kva er $MN$?",
+      "70d964eb3cd69220": "$28$ cm",
+      "63c866b05bc70ef3": "$7$ cm",
+      "0fd69403a58036ac": "$14$ cm",
+      "25ee68ae3e31cc54": "$10$ cm",
+      "4a9b5393e1c47fdb": "Etter midtpunktssetninga: $MN = \\frac{1}{2} \\cdot BC = \\frac{1}{2} \\cdot 14 = 7$ cm.",
+      "fa71eeb175408f3e": "I $\\triangle ABC$ er $\\angle B = 70°$. $M$ er midtpunkt på $AB$ og $N$ er midtpunkt på $AC$. Kva er $\\angle AMN$?",
+      "736c86080d16889b": "Sidan $MN \\parallel BC$ (midtpunktssetninga), er $\\angle AMN = \\angle B = 70°$ (samsvarande vinklar).",
+      "a4b5f196cb170fdd": "Midtpunkta av sidene i ein trekant blir bundne saman. Kor mange kongruente trekantar deler dette den opphavlege trekanten i?",
+      "123bc3bcfb2f3008": "Midtpunktstrekanten deler den opphavlege trekanten i nøyaktig $4$ kongruente trekantar, alle med sider halvparten av dei opphavlege.",
+      "19921c12e589cde3": "## Oppsummering\n\n**Trekantulikskapen:** I kvar trekant er summen av to sider alltid større enn den tredje. Sjekk: er summen av dei to kortaste sidene strengt større enn den lengste? Den tredje sida $c$ må liggje i intervallet $|a - b| < c < a + b$.\n\n**Medianar og tyngdepunkt:** Ein median går frå eit hjørne til midtpunktet av den motståande sida. Dei tre medianane møtest i tyngdepunktet $G$, som deler kvar median i forholdet $2:1$. Koordinatane til tyngdepunktet er gjennomsnittet av koordinatane til hjørna.\n\n**Midtpunktssetninga:** Linjestykket mellom midtpunkta av to sider i ein trekant er parallelt med den tredje sida og halvparten så langt:\n- $MN \\parallel BC$\n- $MN = \\frac{1}{2} \\cdot BC$"
+    }
+  }
+}

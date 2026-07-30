@@ -1,1 +1,263 @@
-{"id":"r2-1-7-narrativ","courseId":"r2","chapterNumber":"1.7","title":"Rekursive sammenhenger og programmering","subtitle":"Narrativ versjon","description":"En fortelling om rekursjon og programmering — hvordan løkker og funksjoner som kaller seg selv gjør datamaskinen til et kraftig verktøy for å utforske følger, Fibonacci-tall og fakulteter.","estimatedMinutes":35,"competenceGoals":["utforske rekursive samanhengar ved a bruke programmering"],"linkedChapterId":"r2-1-7","content":[{"id":"r2-1-7-n-intro","type":"text","content":"## Når datamaskinen tar trappen\n\nHusker du skillet mellom heisen og trappen fra kapittel 1.1 — eksplisitte formler som tar oss rett til svaret, og rekursive som går steg for steg? For en menneskehjerne er trappen slitsom: å regne ut Fibonacci-tall nummer femti for hånd er en hel ettermiddags arbeid. For en datamaskin er det mikrosekunder.\n\nProgrammering og rekursjon er som skapt for hverandre. En **rekursiv definisjon** sier «neste verdi lages av de forrige» — og det er nøyaktig det en løkke i Python gjør, runde etter runde. Enda mer slående: et program kan inneholde en funksjon som *kaller seg selv*, en slags matematisk speilkabinett som likevel gir presise svar. I dette kapittelet bruker vi Python til å generere følger, beregne Fibonacci-tall og fakulteter, og simulere sprettballen fra kapittel 1.5 — og du vil se at noen få linjer kode kan erstatte timevis med håndregning."},{"id":"r2-1-7-n-section1","type":"text","content":"## Følger som løkker\n\nEn rekursiv definisjon består av to deler: **startverdier** (basistilfellet) og en regel $a_n = f(a_{n-1}, a_{n-2}, \\ldots)$ som lager nye ledd av gamle. I Python blir dette en variabel som oppdateres i en løkke.\n\nTa den aritmetiske følgen $a_n = 3 + 5(n-1)$, som rekursivt er $a_1 = 3$ og $a_{n+1} = a_n + 5$:\n\n```python\na = 3  # startverdi\nfor n in range(1, 11):\n    print(f\"a_{n} = {a}\")\n    a = a + 5  # regelen: neste ledd = forrige + 5\n```\n\nProgrammet skriver ut $a_1 = 3$, $a_2 = 8$, $a_3 = 13$ og videre til $a_{10} = 48$. Linjen `a = a + 5` *er* den rekursive regelen, oversatt til kode.\n\nFibonacci-følgen trenger to startverdier, og da er en liste praktisk:\n\n```python\nfib = [1, 1]\nfor i in range(2, 20):\n    fib.append(fib[i-1] + fib[i-2])\n```\n\nHer bygger `fib[i-1] + fib[i-2]` neste tall av de to forrige — nøyaktig $F_n = F_{n-1} + F_{n-2}$ — og etter løkken vet vi at $F_{20} = 6765$. Det som tok middelalderens regnemestere dager, tar maskinen et øyeblikk."},{"id":"r2-1-7-n-quiz1","type":"exercise","exercise":{"id":"r2-1-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på følger i Python:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-7-n-quiz1-q0","task":"Programmet starter med a = 3 og kjører a = a + 5 i en løkke. Hvilken rekursiv sammenheng implementerer dette?","options":[{"id":"a","text":"$a_{n+1} = 5a_n + 3$","isCorrect":false},{"id":"b","text":"$a_{n+1} = a_n + 5$ med $a_1 = 3$","isCorrect":true},{"id":"c","text":"$a_n = 3n + 5$","isCorrect":false},{"id":"d","text":"$a_{n+1} = 3a_n$ med $a_1 = 5$","isCorrect":false}],"solution":"Variabelen starter på $3$ (startverdien $a_1$) og økes med $5$ for hver runde — regelen $a_{n+1} = a_n + 5$."},{"id":"r2-1-7-n-quiz1-q1","task":"I Fibonacci-programmet brukes fib.append(fib[i-1] + fib[i-2]). Hvilken matematisk regel tilsvarer dette?","options":[{"id":"a","text":"$F_n = F_{n-1} \\cdot F_{n-2}$","isCorrect":false},{"id":"b","text":"$F_n = 2F_{n-1}$","isCorrect":false},{"id":"c","text":"$F_n = F_{n-1} + F_{n-2}$","isCorrect":true},{"id":"d","text":"$F_n = F_1 + F_2$","isCorrect":false}],"solution":"Det nye listeelementet er summen av de to siste — nøyaktig Fibonacci-regelen $F_n = F_{n-1} + F_{n-2}$."},{"id":"r2-1-7-n-quiz1-q2","task":"Hva må en rekursiv definisjon alltid inneholde i tillegg til regelen for neste ledd?","options":[{"id":"a","text":"Startverdier (basistilfelle)","isCorrect":true},{"id":"b","text":"En eksplisitt formel","isCorrect":false},{"id":"c","text":"En øvre grense","isCorrect":false},{"id":"d","text":"En geometrisk kvotient","isCorrect":false}],"solution":"Uten startverdier har regelen ingenting å bygge på. Fibonacci trenger for eksempel både $F_1 = 1$ og $F_2 = 1$."}]}},{"id":"r2-1-7-n-section2","type":"text","content":"## Funksjoner som kaller seg selv\n\nLøkker er én måte å programmere rekursjon på. Den andre er mer forbløffende: en **rekursiv funksjon** kaller seg selv. Ta fakultet, definert ved $n! = n \\cdot (n-1)!$ med $0! = 1! = 1$:\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n```\n\nKaller du `fakultet(4)`, regner funksjonen $4 \\cdot \\texttt{fakultet}(3)$, som regner $3 \\cdot \\texttt{fakultet}(2)$, som regner $2 \\cdot \\texttt{fakultet}(1)$ — og der stopper det, for **basistilfellet** `if n <= 1: return 1` slår inn. Svarene ruller så tilbake: $2 \\cdot 1 = 2$, $3 \\cdot 2 = 6$, $4 \\cdot 6 = 24$. Uten basistilfellet ville funksjonen kalt seg selv i evighet — rekursjonens svar på en dominorekke uten ende.\n\nRekursjon i kode er også et utforskningsverktøy. Husker du sprettballen som spratt til $80\\,\\%$ av forrige høyde? Vi kan simulere den:\n\n```python\nh = 10\ntotal = h\nwhile h > 0.001:\n    h = h * 0.8\n    total += 2 * h\nprint(f\"Total strekning: {total:.2f} m\")\n```\n\nProgrammet svarer $90{,}00$ meter — og formelen for uendelige geometriske rekker gir $10 + 2 \\cdot \\frac{8}{1 - 0{,}8} = 90$ meter eksakt. Simulering og teori bekrefter hverandre. Slik bruker matematikere programmering i praksis: koden gir hypoteser og kontrollregning, teorien gir visshet."},{"id":"r2-1-7-n-quiz2","type":"exercise","exercise":{"id":"r2-1-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på rekursive funksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-7-n-quiz2-q0","task":"Hva skjer hvis en rekursiv funksjon mangler basistilfelle?","options":[{"id":"a","text":"Den returnerer alltid null","isCorrect":false},{"id":"b","text":"Den bruker en eksplisitt formel i stedet","isCorrect":false},{"id":"c","text":"Den gir riktig svar, men langsommere","isCorrect":false},{"id":"d","text":"Den kaller seg selv uten stans og krasjer","isCorrect":true}],"solution":"Basistilfellet er stoppbetingelsen. Uten det fortsetter funksjonen å kalle seg selv til programmet går tom for minne (i Python: RecursionError)."},{"id":"r2-1-7-n-quiz2-q1","task":"Hva returnerer fakultet(4) med definisjonen over?","options":[{"id":"a","text":"$24$","isCorrect":true},{"id":"b","text":"$10$","isCorrect":false},{"id":"c","text":"$12$","isCorrect":false},{"id":"d","text":"$4$","isCorrect":false}],"solution":"$4! = 4 \\cdot 3 \\cdot 2 \\cdot 1 = 24$. Rekursjonen utfolder seg som $4 \\cdot \\texttt{fakultet}(3) = 4 \\cdot 6 = 24$."},{"id":"r2-1-7-n-quiz2-q2","task":"Sprettball-simuleringen ga $90{,}00$ m for en ball som slippes fra $10$ m og spretter til $80\\,\\%$. Hvilket teoretisk uttrykk bekrefter dette?","options":[{"id":"a","text":"$10 \\cdot \\frac{1}{1-0{,}8} = 50$","isCorrect":false},{"id":"b","text":"$10 + 2 \\cdot \\frac{8}{1-0{,}8} = 90$","isCorrect":true},{"id":"c","text":"$10 \\cdot 0{,}8 \\cdot 10 = 80$","isCorrect":false},{"id":"d","text":"$2 \\cdot \\frac{10}{1-0{,}8} = 100$","isCorrect":false}],"solution":"Første fall er $10$ m; deretter en uendelig geometrisk rekke av sprett opp og ned: $2 \\cdot \\frac{8}{0{,}2} = 80$. Totalt $90$ m."},{"id":"r2-1-7-n-quiz2-q3","task":"Hvilken rekursiv formel passer til en geometrisk følge?","options":[{"id":"a","text":"$a_n = a_{n-1} + d$","isCorrect":false},{"id":"b","text":"$a_n = a_{n-1} + a_{n-2}$","isCorrect":false},{"id":"c","text":"$a_n = k \\cdot a_{n-1}$","isCorrect":true},{"id":"d","text":"$a_n = n \\cdot a_{n-1}$","isCorrect":false}],"solution":"I en geometrisk følge multipliseres forrige ledd med kvotienten $k$. ($a_{n-1} + d$ er aritmetisk, $a_{n-1} + a_{n-2}$ er Fibonacci, og $n \\cdot a_{n-1}$ gir fakultetene.)"}]}},{"id":"r2-1-7-n-summary","type":"text","content":"## Oppsummering: matematikk som kjører\n\nI dette kapittelet møttes to verdener: følgenes rekursive definisjoner og programmeringens løkker og funksjoner. En rekursiv sammenheng — startverdier pluss en regel som lager neste ledd av de forrige — oversettes direkte til kode, enten som en løkke der en variabel oppdateres (`a = a + 5` for aritmetiske følger, `fib[i-1] + fib[i-2]` for Fibonacci) eller som en **rekursiv funksjon** som kaller seg selv, slik `fakultet(n)` beregner $n! = n \\cdot (n-1)!$. Den ufravikelige regelen er basistilfellet: hver rekursjon trenger en stoppbetingelse, akkurat som hvert induksjonsbevis trenger et basissteg.\n\nMønstrene du nå kan programmere, er kapittelets fire gjengangere: aritmetisk $a_n = a_{n-1} + d$, geometrisk $a_n = k \\cdot a_{n-1}$, Fibonacci $F_n = F_{n-1} + F_{n-2}$ og fakultet $n! = n \\cdot (n-1)!$. Og sprettball-simuleringen viste arbeidsdelingen mellom kode og teori: programmet ga $90{,}00$ meter, rekkeformelen ga $90$ eksakt. Med følger, rekker, konvergens, induksjon og programmering i verktøykassa er du klar for neste store tema i R2 — integralregningen."}],"exercises":[]}
+{
+  "id": "r2-1-7-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "1.7",
+  "title": "Rekursive sammenhenger og programmering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om rekursjon og programmering — hvordan løkker og funksjoner som kaller seg selv gjør datamaskinen til et kraftig verktøy for å utforske følger, Fibonacci-tall og fakulteter.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske rekursive samanhengar ved a bruke programmering"
+  ],
+  "linkedChapterId": "r2-1-7",
+  "content": [
+    {
+      "id": "r2-1-7-n-intro",
+      "type": "text",
+      "content": "## Når datamaskinen tar trappen\n\nHusker du skillet mellom heisen og trappen fra kapittel 1.1 — eksplisitte formler som tar oss rett til svaret, og rekursive som går steg for steg? For en menneskehjerne er trappen slitsom: å regne ut Fibonacci-tall nummer femti for hånd er en hel ettermiddags arbeid. For en datamaskin er det mikrosekunder.\n\nProgrammering og rekursjon er som skapt for hverandre. En **rekursiv definisjon** sier «neste verdi lages av de forrige» — og det er nøyaktig det en løkke i Python gjør, runde etter runde. Enda mer slående: et program kan inneholde en funksjon som *kaller seg selv*, en slags matematisk speilkabinett som likevel gir presise svar. I dette kapittelet bruker vi Python til å generere følger, beregne Fibonacci-tall og fakulteter, og simulere sprettballen fra kapittel 1.5 — og du vil se at noen få linjer kode kan erstatte timevis med håndregning."
+    },
+    {
+      "id": "r2-1-7-n-section1",
+      "type": "text",
+      "content": "## Følger som løkker\n\nEn rekursiv definisjon består av to deler: **startverdier** (basistilfellet) og en regel $a_n = f(a_{n-1}, a_{n-2}, \\ldots)$ som lager nye ledd av gamle. I Python blir dette en variabel som oppdateres i en løkke.\n\nTa den aritmetiske følgen $a_n = 3 + 5(n-1)$, som rekursivt er $a_1 = 3$ og $a_{n+1} = a_n + 5$:\n\n```python\na = 3  # startverdi\nfor n in range(1, 11):\n    print(f\"a_{n} = {a}\")\n    a = a + 5  # regelen: neste ledd = forrige + 5\n```\n\nProgrammet skriver ut $a_1 = 3$, $a_2 = 8$, $a_3 = 13$ og videre til $a_{10} = 48$. Linjen `a = a + 5` *er* den rekursive regelen, oversatt til kode.\n\nFibonacci-følgen trenger to startverdier, og da er en liste praktisk:\n\n```python\nfib = [1, 1]\nfor i in range(2, 20):\n    fib.append(fib[i-1] + fib[i-2])\n```\n\nHer bygger `fib[i-1] + fib[i-2]` neste tall av de to forrige — nøyaktig $F_n = F_{n-1} + F_{n-2}$ — og etter løkken vet vi at $F_{20} = 6765$. Det som tok middelalderens regnemestere dager, tar maskinen et øyeblikk."
+    },
+    {
+      "id": "r2-1-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på følger i Python:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-7-n-quiz1-q0",
+            "task": "Programmet starter med a = 3 og kjører a = a + 5 i en løkke. Hvilken rekursiv sammenheng implementerer dette?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_{n+1} = 5a_n + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = 3n + 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_{n+1} = 3a_n$ med $a_1 = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_{n+1} = a_n + 5$ med $a_1 = 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Variabelen starter på $3$ (startverdien $a_1$) og økes med $5$ for hver runde — regelen $a_{n+1} = a_n + 5$."
+          },
+          {
+            "id": "r2-1-7-n-quiz1-q1",
+            "task": "I Fibonacci-programmet brukes fib.append(fib[i-1] + fib[i-2]). Hvilken matematisk regel tilsvarer dette?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$F_n = F_{n-1} + F_{n-2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$F_n = F_{n-1} \\cdot F_{n-2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$F_n = 2F_{n-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$F_n = F_1 + F_2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det nye listeelementet er summen av de to siste — nøyaktig Fibonacci-regelen $F_n = F_{n-1} + F_{n-2}$."
+          },
+          {
+            "id": "r2-1-7-n-quiz1-q2",
+            "task": "Hva må en rekursiv definisjon alltid inneholde i tillegg til regelen for neste ledd?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En eksplisitt formel",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Startverdier (basistilfelle)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "En øvre grense",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En geometrisk kvotient",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten startverdier har regelen ingenting å bygge på. Fibonacci trenger for eksempel både $F_1 = 1$ og $F_2 = 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-7-n-section2",
+      "type": "text",
+      "content": "## Funksjoner som kaller seg selv\n\nLøkker er én måte å programmere rekursjon på. Den andre er mer forbløffende: en **rekursiv funksjon** kaller seg selv. Ta fakultet, definert ved $n! = n \\cdot (n-1)!$ med $0! = 1! = 1$:\n\n```python\ndef fakultet(n):\n    if n <= 1:\n        return 1\n    return n * fakultet(n - 1)\n```\n\nKaller du `fakultet(4)`, regner funksjonen $4 \\cdot \\texttt{fakultet}(3)$, som regner $3 \\cdot \\texttt{fakultet}(2)$, som regner $2 \\cdot \\texttt{fakultet}(1)$ — og der stopper det, for **basistilfellet** `if n <= 1: return 1` slår inn. Svarene ruller så tilbake: $2 \\cdot 1 = 2$, $3 \\cdot 2 = 6$, $4 \\cdot 6 = 24$. Uten basistilfellet ville funksjonen kalt seg selv i evighet — rekursjonens svar på en dominorekke uten ende.\n\nRekursjon i kode er også et utforskningsverktøy. Husker du sprettballen som spratt til $80\\,\\%$ av forrige høyde? Vi kan simulere den:\n\n```python\nh = 10\ntotal = h\nwhile h > 0.001:\n    h = h * 0.8\n    total += 2 * h\nprint(f\"Total strekning: {total:.2f} m\")\n```\n\nProgrammet svarer $90{,}00$ meter — og formelen for uendelige geometriske rekker gir $10 + 2 \\cdot \\frac{8}{1 - 0{,}8} = 90$ meter eksakt. Simulering og teori bekrefter hverandre. Slik bruker matematikere programmering i praksis: koden gir hypoteser og kontrollregning, teorien gir visshet."
+    },
+    {
+      "id": "r2-1-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rekursive funksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-7-n-quiz2-q0",
+            "task": "Hva skjer hvis en rekursiv funksjon mangler basistilfelle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den returnerer alltid null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den bruker en eksplisitt formel i stedet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den kaller seg selv uten stans og krasjer",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den gir riktig svar, men langsommere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Basistilfellet er stoppbetingelsen. Uten det fortsetter funksjonen å kalle seg selv til programmet går tom for minne (i Python: RecursionError)."
+          },
+          {
+            "id": "r2-1-7-n-quiz2-q1",
+            "task": "Hva returnerer fakultet(4) med definisjonen over?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$24$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$4! = 4 \\cdot 3 \\cdot 2 \\cdot 1 = 24$. Rekursjonen utfolder seg som $4 \\cdot \\texttt{fakultet}(3) = 4 \\cdot 6 = 24$."
+          },
+          {
+            "id": "r2-1-7-n-quiz2-q2",
+            "task": "Sprettball-simuleringen ga $90{,}00$ m for en ball som slippes fra $10$ m og spretter til $80\\,\\%$. Hvilket teoretisk uttrykk bekrefter dette?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$10 + 2 \\cdot \\frac{8}{1-0{,}8} = 90$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$10 \\cdot \\frac{1}{1-0{,}8} = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10 \\cdot 0{,}8 \\cdot 10 = 80$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2 \\cdot \\frac{10}{1-0{,}8} = 100$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Første fall er $10$ m; deretter en uendelig geometrisk rekke av sprett opp og ned: $2 \\cdot \\frac{8}{0{,}2} = 80$. Totalt $90$ m."
+          },
+          {
+            "id": "r2-1-7-n-quiz2-q3",
+            "task": "Hvilken rekursiv formel passer til en geometrisk følge?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = a_{n-1} + d$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = k \\cdot a_{n-1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$a_n = a_{n-1} + a_{n-2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = n \\cdot a_{n-1}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I en geometrisk følge multipliseres forrige ledd med kvotienten $k$. ($a_{n-1} + d$ er aritmetisk, $a_{n-1} + a_{n-2}$ er Fibonacci, og $n \\cdot a_{n-1}$ gir fakultetene.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: matematikk som kjører\n\nI dette kapittelet møttes to verdener: følgenes rekursive definisjoner og programmeringens løkker og funksjoner. En rekursiv sammenheng — startverdier pluss en regel som lager neste ledd av de forrige — oversettes direkte til kode, enten som en løkke der en variabel oppdateres (`a = a + 5` for aritmetiske følger, `fib[i-1] + fib[i-2]` for Fibonacci) eller som en **rekursiv funksjon** som kaller seg selv, slik `fakultet(n)` beregner $n! = n \\cdot (n-1)!$. Den ufravikelige regelen er basistilfellet: hver rekursjon trenger en stoppbetingelse, akkurat som hvert induksjonsbevis trenger et basissteg.\n\nMønstrene du nå kan programmere, er kapittelets fire gjengangere: aritmetisk $a_n = a_{n-1} + d$, geometrisk $a_n = k \\cdot a_{n-1}$, Fibonacci $F_n = F_{n-1} + F_{n-2}$ og fakultet $n! = n \\cdot (n-1)!$. Og sprettball-simuleringen viste arbeidsdelingen mellom kode og teori: programmet ga $90{,}00$ meter, rekkeformelen ga $90$ eksakt. Med følger, rekker, konvergens, induksjon og programmering i verktøykassa er du klar for neste store tema i R2 — integralregningen."
+    }
+  ],
+  "exercises": []
+}

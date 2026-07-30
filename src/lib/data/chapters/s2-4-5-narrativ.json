@@ -1,1 +1,292 @@
-{"id":"s2-4-5-narrativ","courseId":"s2","chapterNumber":"4.5","title":"Simulering og stokastiske eksperimenter","subtitle":"Narrativ versjon","description":"En fortelling om å la datamaskinen kaste terningene — Monte Carlo-metoden, store talls lov og kunsten å estimere det uberegnelige.","estimatedMinutes":33,"competenceGoals":["bruke digitale verktøy til å simulere stokastiske forsøk","forklare store talls lov og dens betydning","estimere sannsynligheter og forventningsverdier ved simulering"],"linkedChapterId":"s2-4-5","content":[{"id":"s2-4-5-n-intro","type":"text","content":"## Kasinoet som ble metode\n\nUnder andre verdenskrig satt fysikere og strevde med sannsynlighetsberegninger som var altfor kompliserte å løse med penn og papir. Løsningen deres var like enkel som den var radikal: ikke regn ut svaret — **spill spillet tusenvis av ganger og tell**. Metoden fikk navn etter kasinoet i Monte Carlo, fordi den bygger på tilfeldighet, akkurat som rulett.\n\n**Monte Carlo-simulering** følger fire steg: definer en modell for det stokastiske forsøket, generer tilfeldige tall som simulerer forsøket, gjenta et stort antall ganger $N$, og bruk de observerte frekvensene som estimat for sannsynlighetene: $P(A) \\approx \\frac{\\text{antall ganger } A \\text{ inntreffer}}{N}$.\n\nHvorfor simulere? Noen problemer er for kompliserte til å løse eksakt. Simulering gir dessuten en intuitiv forståelse av sannsynlighet, digitale verktøy gjør det trivielt å kjøre tusenvis av forsøk, og resultatene kan brukes til å kontrollere analytiske beregninger.\n\nRåvaren er **tilfeldige tall**. I praksis bruker datamaskiner **pseudotilfeldige tallgeneratorer** (PRNG): algoritmer som produserer tallsekvenser som ser tilfeldige ut, men egentlig er deterministiske, bestemt av en startverdi kalt «seed». I Python gir `random.random()` et uniformt tall i $[0, 1)$, `random.randint(a, b)` et tilfeldig heltall mellom $a$ og $b$, og `random.choice(liste)` et tilfeldig element; med `random.seed(42)` blir kjøringen reproduserbar. I GeoGebra heter verktøyene `Tilfeldig()` og `TilfeldigMellom(a, b)`. Med disse byggeklossene kan vi simulere alt fra terningkast til kompliserte køsystemer — og til og med beregne $\\pi$."},{"id":"s2-4-5-n-section1","type":"text","content":"## Å treffe pi med dartpiler\n\nDet klassiske eksempelet på Monte Carlo er nesten poetisk: vi estimerer $\\pi$ ved å kaste tilfeldige punkter. Tenk deg et kvadrat $[-1, 1] \\times [-1, 1]$ med en innskrevet sirkel med radius 1. Et tilfeldig punkt $(x, y)$ i kvadratet ligger innenfor sirkelen hvis $x^2 + y^2 \\leq 1$, og sannsynligheten for det er forholdet mellom arealene: $$P(\\text{punkt i sirkel}) = \\frac{\\pi \\cdot 1^2}{2^2} = \\frac{\\pi}{4}$$ Dermed er $\\pi \\approx 4\\hat{p}$, der $\\hat{p}$ er andelen treff i simuleringen.\n\nI Python er hele eksperimentet noen få linjer: en løkke som genererer $N$ punkter med `random.uniform(-1, 1)` for både $x$ og $y$, teller hvor mange som oppfyller `x**2 + y**2 <= 1`, og skriver ut `4 * innenfor / N`. Med $N = 1\\,000\\,000$ ga en kjøring $\\hat{\\pi} \\approx 3{,}14152$ — riktig på fire desimaler.\n\nMen hvor nøyaktig kan vi vente at estimatet er? Her trengs et mål på presisjon: **standardfeilen** til et simuleringsestimat er omtrent $\\text{SE}(\\hat{p}) \\approx \\frac{1}{\\sqrt{N}}$. For $N = 10\\,000$ er den rundt $0{,}01$; for $N = 1\\,000\\,000$ rundt $0{,}001$ — som stemmer pent med avviket vi faktisk så. Legg merke til kvadratrotens tyranni: for å få én desimal mer presisjon (ti ganger mindre feil) må du kjøre **hundre** ganger flere forsøk. Det er derfor man typisk bruker $N \\geq 10\\,000$ for god presisjon, og heller millioner når maskinen har tid.\n\nDette mønsteret — at estimater blir jevnt bedre med flere forsøk — er ikke en tilfeldighet. Det er en matematisk lov, og den har et navn."},{"id":"s2-4-5-n-quiz1","type":"exercise","exercise":{"id":"s2-4-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på Monte Carlo-simulering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-5-n-quiz1-q0","task":"Hva er grunnideen i Monte Carlo-simulering?","options":[{"id":"a","text":"Å gjenta et tilfeldig forsøk mange ganger og bruke frekvensene som estimat for sannsynligheter","isCorrect":true},{"id":"b","text":"Å løse sannsynlighetsproblemer eksakt med integrasjon","isCorrect":false},{"id":"c","text":"Å gjette på svaret og kontrollere etterpå","isCorrect":false},{"id":"d","text":"Å bruke normalfordelingen på alle problemer","isCorrect":false}],"solution":"Monte Carlo-metoden estimerer $P(A) \\approx \\frac{\\text{antall treff}}{N}$ ved å simulere forsøket et stort antall ganger med tilfeldige tall."},{"id":"s2-4-5-n-quiz1-q1","task":"Hvorfor er $\\pi \\approx 4 \\cdot \\hat{p}$ i sirkeleksperimentet?","options":[{"id":"a","text":"Fordi sirkelen har fire kvadranter","isCorrect":false},{"id":"b","text":"Fordi $P(\\text{treff}) = \\frac{\\text{sirkelareal}}{\\text{kvadratareal}} = \\frac{\\pi}{4}$","isCorrect":true},{"id":"c","text":"Fordi tilfeldige tall alltid er mindre enn 4","isCorrect":false},{"id":"d","text":"Fordi $\\pi \\approx 4$","isCorrect":false}],"solution":"Sannsynligheten for at et uniformt punkt i kvadratet (areal 4) treffer sirkelen (areal $\\pi$) er $\\frac{\\pi}{4}$. Da er $\\pi = 4p \\approx 4\\hat{p}$."},{"id":"s2-4-5-n-quiz1-q2","task":"Hva er et pseudotilfeldig tall?","options":[{"id":"a","text":"Et tall som er delvis tilfeldig","isCorrect":false},{"id":"b","text":"Et tall trukket fra normalfordelingen","isCorrect":false},{"id":"c","text":"Et tall fra en deterministisk algoritme som ser tilfeldig ut, bestemt av en seed","isCorrect":true},{"id":"d","text":"Et tall generert av fysisk støy","isCorrect":false}],"solution":"Datamaskiner bruker pseudotilfeldige tallgeneratorer (PRNG): deterministiske algoritmer der samme seed gir samme sekvens — derfor kan simuleringer reproduseres med f.eks. random.seed(42)."},{"id":"s2-4-5-n-quiz1-q3","task":"Hvor mange flere forsøk trengs for å gjøre standardfeilen ti ganger mindre?","options":[{"id":"a","text":"10 ganger flere","isCorrect":false},{"id":"b","text":"1000 ganger flere","isCorrect":false},{"id":"c","text":"Dobbelt så mange","isCorrect":false},{"id":"d","text":"100 ganger flere","isCorrect":true}],"solution":"Standardfeilen er $\\approx \\frac{1}{\\sqrt{N}}$. Skal den deles på 10, må $\\sqrt{N}$ ganges med 10, altså $N$ med 100."}]}},{"id":"s2-4-5-n-section2","type":"text","content":"## Loven bak det hele\n\nSimuler 5000 myntkast og plot andelen kron underveis. Grafen forteller en historie: i starten svinger andelen vilt — etter ti kast kan den fint være 0,7 — men etter hvert som kastene hoper seg opp, roer kurven seg og legger seg tettere og tettere rundt 0,5. Svingningene avtar i takt med $\\frac{1}{\\sqrt{n}}$.\n\nDette er **store talls lov** i praksis. Formelt: la $X_1, X_2, \\ldots, X_n$ være uavhengige stokastiske variabler med samme fordeling og forventningsverdi $\\mu$. Da gjelder $$\\bar{X}_n = \\frac{X_1 + X_2 + \\cdots + X_n}{n} \\to \\mu \\quad \\text{når } n \\to \\infty$$ Gjennomsnittet av observasjonene nærmer seg forventningsverdien når antall forsøk øker. Loven gjelder for alle fordelinger med endelig forventningsverdi.\n\nKonsekvensene er store. Den relative frekvensen av en hendelse nærmer seg den teoretiske sannsynligheten — det er derfor Monte Carlo-metoden i det hele tatt fungerer. Gjennomsnittlig gevinst i et spill nærmer seg forventningsverdien — det er derfor kasinoet alltid vinner til slutt, og derfor forsikringsselskaper kan prise polisene sine. Og estimater fra simulering blir bedre med større $N$, med standardfeil $\\approx \\frac{1}{\\sqrt{N}}$.\n\nMen loven misforstås ofte, og misforståelsen har et navn: **gamblerfeilslutningen**. Store talls lov sier *ikke* at det «jevner seg ut» på kort sikt. Har mynten gitt fem kron på rad, er sannsynligheten for kron i neste kast fortsatt nøyaktig 0,5 — mynten har ingen hukommelse og skylder ingen mynt-utfall. Utjevningen skjer ikke ved at fortiden kompenseres, men ved at den druknes: fem ekstra kron betyr ingenting i et gjennomsnitt over hundre tusen kast. Hvert enkelt forsøk er og blir helt tilfeldig; det er bare gjennomsnittene som er forutsigbare."},{"id":"s2-4-5-n-quiz2","type":"exercise","exercise":{"id":"s2-4-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på store talls lov:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-5-n-quiz2-q0","task":"Hva sier store talls lov?","options":[{"id":"a","text":"Gjennomsnittet $\\bar{X}_n$ nærmer seg forventningsverdien $\\mu$ når $n \\to \\infty$","isCorrect":true},{"id":"b","text":"Alle store tall er tilnærmet normalfordelte","isCorrect":false},{"id":"c","text":"Sannsynligheten øker med antall forsøk","isCorrect":false},{"id":"d","text":"Etter mange kron må det komme mynt","isCorrect":false}],"solution":"Store talls lov: gjennomsnittet av mange uavhengige observasjoner med samme fordeling konvergerer mot forventningsverdien."},{"id":"s2-4-5-n-quiz2-q1","task":"En mynt har gitt fem kron på rad. Hva er sannsynligheten for kron i neste kast?","options":[{"id":"a","text":"Mindre enn 0,5 — mynt er «på overtid»","isCorrect":false},{"id":"b","text":"Nøyaktig 0,5 — mynten har ingen hukommelse","isCorrect":true},{"id":"c","text":"Mer enn 0,5 — mynten er i kron-modus","isCorrect":false},{"id":"d","text":"Det avhenger av antall kast som gjenstår","isCorrect":false}],"solution":"Å tro noe annet er gamblerfeilslutningen. Store talls lov handler om gjennomsnitt på lang sikt, ikke om at enkeltutfall kompenserer hverandre."},{"id":"s2-4-5-n-quiz2-q2","task":"I myntkast-simuleringen svinger andelen kron mye i starten og stabiliserer seg etter hvert. Hvordan avtar svingningene?","options":[{"id":"a","text":"Som $\\frac{1}{n}$","isCorrect":false},{"id":"b","text":"Lineært med tiden","isCorrect":false},{"id":"c","text":"Som $\\frac{1}{\\sqrt{n}}$","isCorrect":true},{"id":"d","text":"De avtar ikke","isCorrect":false}],"solution":"Standardfeilen til et estimat avtar som $\\frac{1}{\\sqrt{n}}$ — det er derfor kurven roer seg gradvis og firedobling av forsøk bare halverer usikkerheten."},{"id":"s2-4-5-n-quiz2-q3","task":"Hvorfor kan forsikringsselskaper og kasinoer stole på inntektene sine, tross tilfeldige enkelthendelser?","options":[{"id":"a","text":"Fordi de jukser med sannsynlighetene","isCorrect":false},{"id":"b","text":"Fordi gjennomsnittet over svært mange kunder/spill nærmer seg forventningsverdien","isCorrect":true},{"id":"c","text":"Fordi hver enkelt kunde er forutsigbar","isCorrect":false},{"id":"d","text":"Fordi de bruker pseudotilfeldige tall","isCorrect":false}],"solution":"Store talls lov: enkeltutfall er tilfeldige, men gjennomsnittet over tusenvis av uavhengige tilfeller er svært forutsigbart og ligger nær forventningen."}]}},{"id":"s2-4-5-n-summary","type":"text","content":"## Oppsummering: tell deg til svaret\n\nMonte Carlo-metoden snur sannsynlighetsregningen på hodet: i stedet for å regne ut svaret, simulerer vi forsøket mange ganger og teller. Oppskriften er fast — modeller forsøket, generer tilfeldige tall, gjenta $N$ ganger, og bruk frekvensen som estimat: $P(A) \\approx \\frac{\\text{antall treff}}{N}$. Verktøyene er pseudotilfeldige tallgeneratorer: `random.random()`, `random.randint()` og `random.choice()` i Python (med `random.seed()` for reproduserbarhet), og `Tilfeldig()` og `TilfeldigMellom()` i GeoGebra. Slik kastet vi en million dartpiler mot et kvadrat og fikk $\\pi$ riktig på fire desimaler.\n\nPresisjonen styres av standardfeilen $\\text{SE} \\approx \\frac{1}{\\sqrt{N}}$: $N = 10\\,000$ gir feil rundt 0,01, og hver tidobling av nøyaktigheten koster hundre ganger flere forsøk.\n\nFundamentet under det hele er **store talls lov**: $\\bar{X}_n \\to \\mu$ når $n \\to \\infty$ for alle fordelinger med endelig forventningsverdi. Den forklarer hvorfor relative frekvenser nærmer seg teoretiske sannsynligheter, hvorfor simulering fungerer, og hvorfor aktører som ser millioner av uavhengige utfall — kasinoer, forsikringsselskaper — kan stole på gjennomsnittene sine. Men husk hva loven *ikke* sier: den lover ingen utjevning på kort sikt. Mynten husker ingenting, og fem kron på rad endrer ikke neste kast. Tilfeldigheten regjerer i hvert enkelt forsøk — det er bare i det lange løp den blir tellbar, forutsigbar og, med en datamaskin til hjelp, et av de mest praktiske verktøyene i moderne statistikk."}],"exercises":[]}
+{
+  "id": "s2-4-5-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "4.5",
+  "title": "Simulering og stokastiske eksperimenter",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å la datamaskinen kaste terningene — Monte Carlo-metoden, store talls lov og kunsten å estimere det uberegnelige.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "bruke digitale verktøy til å simulere stokastiske forsøk",
+    "forklare store talls lov og dens betydning",
+    "estimere sannsynligheter og forventningsverdier ved simulering"
+  ],
+  "linkedChapterId": "s2-4-5",
+  "content": [
+    {
+      "id": "s2-4-5-n-intro",
+      "type": "text",
+      "content": "## Kasinoet som ble metode\n\nUnder andre verdenskrig satt fysikere og strevde med sannsynlighetsberegninger som var altfor kompliserte å løse med penn og papir. Løsningen deres var like enkel som den var radikal: ikke regn ut svaret — **spill spillet tusenvis av ganger og tell**. Metoden fikk navn etter kasinoet i Monte Carlo, fordi den bygger på tilfeldighet, akkurat som rulett.\n\n**Monte Carlo-simulering** følger fire steg: definer en modell for det stokastiske forsøket, generer tilfeldige tall som simulerer forsøket, gjenta et stort antall ganger $N$, og bruk de observerte frekvensene som estimat for sannsynlighetene: $P(A) \\approx \\frac{\\text{antall ganger } A \\text{ inntreffer}}{N}$.\n\nHvorfor simulere? Noen problemer er for kompliserte til å løse eksakt. Simulering gir dessuten en intuitiv forståelse av sannsynlighet, digitale verktøy gjør det trivielt å kjøre tusenvis av forsøk, og resultatene kan brukes til å kontrollere analytiske beregninger.\n\nRåvaren er **tilfeldige tall**. I praksis bruker datamaskiner **pseudotilfeldige tallgeneratorer** (PRNG): algoritmer som produserer tallsekvenser som ser tilfeldige ut, men egentlig er deterministiske, bestemt av en startverdi kalt «seed». I Python gir `random.random()` et uniformt tall i $[0, 1)$, `random.randint(a, b)` et tilfeldig heltall mellom $a$ og $b$, og `random.choice(liste)` et tilfeldig element; med `random.seed(42)` blir kjøringen reproduserbar. I GeoGebra heter verktøyene `Tilfeldig()` og `TilfeldigMellom(a, b)`. Med disse byggeklossene kan vi simulere alt fra terningkast til kompliserte køsystemer — og til og med beregne $\\pi$."
+    },
+    {
+      "id": "s2-4-5-n-section1",
+      "type": "text",
+      "content": "## Å treffe pi med dartpiler\n\nDet klassiske eksempelet på Monte Carlo er nesten poetisk: vi estimerer $\\pi$ ved å kaste tilfeldige punkter. Tenk deg et kvadrat $[-1, 1] \\times [-1, 1]$ med en innskrevet sirkel med radius 1. Et tilfeldig punkt $(x, y)$ i kvadratet ligger innenfor sirkelen hvis $x^2 + y^2 \\leq 1$, og sannsynligheten for det er forholdet mellom arealene: $$P(\\text{punkt i sirkel}) = \\frac{\\pi \\cdot 1^2}{2^2} = \\frac{\\pi}{4}$$ Dermed er $\\pi \\approx 4\\hat{p}$, der $\\hat{p}$ er andelen treff i simuleringen.\n\nI Python er hele eksperimentet noen få linjer: en løkke som genererer $N$ punkter med `random.uniform(-1, 1)` for både $x$ og $y$, teller hvor mange som oppfyller `x**2 + y**2 <= 1`, og skriver ut `4 * innenfor / N`. Med $N = 1\\,000\\,000$ ga en kjøring $\\hat{\\pi} \\approx 3{,}14152$ — riktig på fire desimaler.\n\nMen hvor nøyaktig kan vi vente at estimatet er? Her trengs et mål på presisjon: **standardfeilen** til et simuleringsestimat er omtrent $\\text{SE}(\\hat{p}) \\approx \\frac{1}{\\sqrt{N}}$. For $N = 10\\,000$ er den rundt $0{,}01$; for $N = 1\\,000\\,000$ rundt $0{,}001$ — som stemmer pent med avviket vi faktisk så. Legg merke til kvadratrotens tyranni: for å få én desimal mer presisjon (ti ganger mindre feil) må du kjøre **hundre** ganger flere forsøk. Det er derfor man typisk bruker $N \\geq 10\\,000$ for god presisjon, og heller millioner når maskinen har tid.\n\nDette mønsteret — at estimater blir jevnt bedre med flere forsøk — er ikke en tilfeldighet. Det er en matematisk lov, og den har et navn."
+    },
+    {
+      "id": "s2-4-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Monte Carlo-simulering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-5-n-quiz1-q0",
+            "task": "Hva er grunnideen i Monte Carlo-simulering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gjenta et tilfeldig forsøk mange ganger og bruke frekvensene som estimat for sannsynligheter",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å løse sannsynlighetsproblemer eksakt med integrasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å gjette på svaret og kontrollere etterpå",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å bruke normalfordelingen på alle problemer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Monte Carlo-metoden estimerer $P(A) \\approx \\frac{\\text{antall treff}}{N}$ ved å simulere forsøket et stort antall ganger med tilfeldige tall."
+          },
+          {
+            "id": "s2-4-5-n-quiz1-q1",
+            "task": "Hvorfor er $\\pi \\approx 4 \\cdot \\hat{p}$ i sirkeleksperimentet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi sirkelen har fire kvadranter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $P(\\text{treff}) = \\frac{\\text{sirkelareal}}{\\text{kvadratareal}} = \\frac{\\pi}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi tilfeldige tall alltid er mindre enn 4",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $\\pi \\approx 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sannsynligheten for at et uniformt punkt i kvadratet (areal 4) treffer sirkelen (areal $\\pi$) er $\\frac{\\pi}{4}$. Da er $\\pi = 4p \\approx 4\\hat{p}$."
+          },
+          {
+            "id": "s2-4-5-n-quiz1-q2",
+            "task": "Hva er et pseudotilfeldig tall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Et tall som er delvis tilfeldig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Et tall trukket fra normalfordelingen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et tall fra en deterministisk algoritme som ser tilfeldig ut, bestemt av en seed",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Et tall generert av fysisk støy",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Datamaskiner bruker pseudotilfeldige tallgeneratorer (PRNG): deterministiske algoritmer der samme seed gir samme sekvens — derfor kan simuleringer reproduseres med f.eks. random.seed(42)."
+          },
+          {
+            "id": "s2-4-5-n-quiz1-q3",
+            "task": "Hvor mange flere forsøk trengs for å gjøre standardfeilen ti ganger mindre?",
+            "options": [
+              {
+                "id": "a",
+                "text": "10 ganger flere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "1000 ganger flere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dobbelt så mange",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "100 ganger flere",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Standardfeilen er $\\approx \\frac{1}{\\sqrt{N}}$. Skal den deles på 10, må $\\sqrt{N}$ ganges med 10, altså $N$ med 100."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-5-n-section2",
+      "type": "text",
+      "content": "## Loven bak det hele\n\nSimuler 5000 myntkast og plot andelen kron underveis. Grafen forteller en historie: i starten svinger andelen vilt — etter ti kast kan den fint være 0,7 — men etter hvert som kastene hoper seg opp, roer kurven seg og legger seg tettere og tettere rundt 0,5. Svingningene avtar i takt med $\\frac{1}{\\sqrt{n}}$.\n\nDette er **store talls lov** i praksis. Formelt: la $X_1, X_2, \\ldots, X_n$ være uavhengige stokastiske variabler med samme fordeling og forventningsverdi $\\mu$. Da gjelder $$\\bar{X}_n = \\frac{X_1 + X_2 + \\cdots + X_n}{n} \\to \\mu \\quad \\text{når } n \\to \\infty$$ Gjennomsnittet av observasjonene nærmer seg forventningsverdien når antall forsøk øker. Loven gjelder for alle fordelinger med endelig forventningsverdi.\n\nKonsekvensene er store. Den relative frekvensen av en hendelse nærmer seg den teoretiske sannsynligheten — det er derfor Monte Carlo-metoden i det hele tatt fungerer. Gjennomsnittlig gevinst i et spill nærmer seg forventningsverdien — det er derfor kasinoet alltid vinner til slutt, og derfor forsikringsselskaper kan prise polisene sine. Og estimater fra simulering blir bedre med større $N$, med standardfeil $\\approx \\frac{1}{\\sqrt{N}}$.\n\nMen loven misforstås ofte, og misforståelsen har et navn: **gamblerfeilslutningen**. Store talls lov sier *ikke* at det «jevner seg ut» på kort sikt. Har mynten gitt fem kron på rad, er sannsynligheten for kron i neste kast fortsatt nøyaktig 0,5 — mynten har ingen hukommelse og skylder ingen mynt-utfall. Utjevningen skjer ikke ved at fortiden kompenseres, men ved at den druknes: fem ekstra kron betyr ingenting i et gjennomsnitt over hundre tusen kast. Hvert enkelt forsøk er og blir helt tilfeldig; det er bare gjennomsnittene som er forutsigbare."
+    },
+    {
+      "id": "s2-4-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på store talls lov:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-5-n-quiz2-q0",
+            "task": "Hva sier store talls lov?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gjennomsnittet $\\bar{X}_n$ nærmer seg forventningsverdien $\\mu$ når $n \\to \\infty$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Alle store tall er tilnærmet normalfordelte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sannsynligheten øker med antall forsøk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etter mange kron må det komme mynt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Store talls lov: gjennomsnittet av mange uavhengige observasjoner med samme fordeling konvergerer mot forventningsverdien."
+          },
+          {
+            "id": "s2-4-5-n-quiz2-q1",
+            "task": "En mynt har gitt fem kron på rad. Hva er sannsynligheten for kron i neste kast?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Mindre enn 0,5 — mynt er «på overtid»",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nøyaktig 0,5 — mynten har ingen hukommelse",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Mer enn 0,5 — mynten er i kron-modus",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det avhenger av antall kast som gjenstår",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å tro noe annet er gamblerfeilslutningen. Store talls lov handler om gjennomsnitt på lang sikt, ikke om at enkeltutfall kompenserer hverandre."
+          },
+          {
+            "id": "s2-4-5-n-quiz2-q2",
+            "task": "I myntkast-simuleringen svinger andelen kron mye i starten og stabiliserer seg etter hvert. Hvordan avtar svingningene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Som $\\frac{1}{n}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lineært med tiden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Som $\\frac{1}{\\sqrt{n}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "De avtar ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Standardfeilen til et estimat avtar som $\\frac{1}{\\sqrt{n}}$ — det er derfor kurven roer seg gradvis og firedobling av forsøk bare halverer usikkerheten."
+          },
+          {
+            "id": "s2-4-5-n-quiz2-q3",
+            "task": "Hvorfor kan forsikringsselskaper og kasinoer stole på inntektene sine, tross tilfeldige enkelthendelser?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi de jukser med sannsynlighetene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi hver enkelt kunde er forutsigbar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi de bruker pseudotilfeldige tall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi gjennomsnittet over svært mange kunder/spill nærmer seg forventningsverdien",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Store talls lov: enkeltutfall er tilfeldige, men gjennomsnittet over tusenvis av uavhengige tilfeller er svært forutsigbart og ligger nær forventningen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: tell deg til svaret\n\nMonte Carlo-metoden snur sannsynlighetsregningen på hodet: i stedet for å regne ut svaret, simulerer vi forsøket mange ganger og teller. Oppskriften er fast — modeller forsøket, generer tilfeldige tall, gjenta $N$ ganger, og bruk frekvensen som estimat: $P(A) \\approx \\frac{\\text{antall treff}}{N}$. Verktøyene er pseudotilfeldige tallgeneratorer: `random.random()`, `random.randint()` og `random.choice()` i Python (med `random.seed()` for reproduserbarhet), og `Tilfeldig()` og `TilfeldigMellom()` i GeoGebra. Slik kastet vi en million dartpiler mot et kvadrat og fikk $\\pi$ riktig på fire desimaler.\n\nPresisjonen styres av standardfeilen $\\text{SE} \\approx \\frac{1}{\\sqrt{N}}$: $N = 10\\,000$ gir feil rundt 0,01, og hver tidobling av nøyaktigheten koster hundre ganger flere forsøk.\n\nFundamentet under det hele er **store talls lov**: $\\bar{X}_n \\to \\mu$ når $n \\to \\infty$ for alle fordelinger med endelig forventningsverdi. Den forklarer hvorfor relative frekvenser nærmer seg teoretiske sannsynligheter, hvorfor simulering fungerer, og hvorfor aktører som ser millioner av uavhengige utfall — kasinoer, forsikringsselskaper — kan stole på gjennomsnittene sine. Men husk hva loven *ikke* sier: den lover ingen utjevning på kort sikt. Mynten husker ingenting, og fem kron på rad endrer ikke neste kast. Tilfeldigheten regjerer i hvert enkelt forsøk — det er bare i det lange løp den blir tellbar, forutsigbar og, med en datamaskin til hjelp, et av de mest praktiske verktøyene i moderne statistikk."
+    }
+  ],
+  "exercises": []
+}

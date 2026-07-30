@@ -1,1 +1,341 @@
-{"id":"it-2-8-4-narrativ","courseId":"it-2","chapterNumber":"4","title":"Dokumentasjon og vedlikehold","subtitle":"Narrativ versjon","description":"En fortelling om at kode leses oftere enn den skrives – fra kommentarer og docstrings til kampen mot teknisk gjeld gjennom refaktorering.","estimatedMinutes":34,"competenceGoals":["Skrive gode kommentarer og docstrings","Forstå teknisk gjeld og code smells","Refaktorere kompleks kode"],"linkedChapterId":"it-2-8-4","content":[{"id":"it-2-8-4-n-intro","type":"text","content":"## Kode leses oftere enn den skrives\n\nGod dokumentasjon er nøkkelen til langsiktig vedlikehold. Kode leses langt oftere enn den skrives, og godt dokumentert kode gjør det enklere for andre – og for deg selv om seks måneder – å forstå hva som skjer. Det finnes flere nivåer av dokumentasjon.\n\nDet første er **kodekommentarer**. Den viktigste regelen er at gode kommentarer forklarer *hvorfor*, ikke *hva*. En kommentar som `x = x + 1  # Øk x med 1` er verdiløs, fordi den bare gjentar det åpenbare. En god kommentar forklarer hensikten: `x = x + 1  # Kompenserer for null-indekserte arrays`. Bruk kommentarer til kompleks logikk, midlertidige løsninger for kjente bugs, forklaring av forretningslogikk, og TODO-er. Bruk dem *ikke* som erstatning for god navngiving, til å forklare selvforklarende kode, eller til å beholde gammel, utdatert kode – den bør du heller slette.\n\nDet andre nivået er **docstrings**, som dokumenterer funksjoner, klasser og moduler. I Python skrives de i trippel-anførselstegn rett under definisjonen, og bør beskrive hva funksjonen gjør, hvilke argumenter den tar, hva den returnerer, og gjerne et eksempel. En `calculate_discount`-funksjon kan ha en docstring som lister `price`, `discount_percent` og `customer_tier` med typer og forklaringer. Forskjellen er at kommentarer forklarer detaljer *inni* koden, mens docstrings beskriver grensesnittet *utad* – hvordan funksjonen skal brukes, uten at man trenger å lese implementasjonen."},{"id":"it-2-8-4-n-quiz1","type":"exercise","exercise":{"id":"it-2-8-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på dokumentasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-4-n-quiz1-q0","task":"Hva bør en god kommentar forklare?","options":[{"id":"a","text":"Hver eneste linje i detalj","isCorrect":false},{"id":"b","text":"Hvorfor koden gjør noe, ikke hva den åpenbart gjør","isCorrect":true},{"id":"c","text":"Hvor lenge koden tar å kjøre","isCorrect":false},{"id":"d","text":"Forfatterens navn","isCorrect":false}],"solution":"Gode kommentarer forklarer hensikten (hvorfor), ikke det åpenbare (hva), som koden allerede viser."},{"id":"it-2-8-4-n-quiz1-q1","task":"Hva er hovedformålet med docstrings?","options":[{"id":"a","text":"Å forklare hver eneste linje","isCorrect":false},{"id":"b","text":"Å gjøre koden lengre","isCorrect":false},{"id":"c","text":"Å dokumentere hva funksjoner, klasser og moduler gjør","isCorrect":true},{"id":"d","text":"Å erstatte variabelnavn","isCorrect":false}],"solution":"Docstrings beskriver grensesnittet til funksjoner, klasser og moduler – hva de gjør, tar inn og returnerer."},{"id":"it-2-8-4-n-quiz1-q2","task":"Når bør du IKKE bruke en kommentar?","options":[{"id":"a","text":"For å forklare kompleks forretningslogikk","isCorrect":false},{"id":"b","text":"For å markere en TODO","isCorrect":false},{"id":"c","text":"For å forklare en workaround for en kjent bug","isCorrect":false},{"id":"d","text":"Som erstatning for god navngiving av variabler og funksjoner","isCorrect":true}],"solution":"Tydelige navn er bedre enn kommentarer som kompenserer for dårlig navngiving. Komplekse ting og workarounds bør derimot kommenteres."}]}},{"id":"it-2-8-4-n-section1","type":"text","content":"## God dokumentasjon i praksis\n\nLa oss se forskjellen på dårlig og god dokumentasjon side om side. En dårlig versjon kan se slik ut: `def calc(a, b, c):` med kommentaren «beregner noe», som ganger `a * b` og noen ganger multipliserer med 1.25. Problemene hoper seg opp: parameternavnene `a`, `b`, `c` sier ingenting, kommentaren er intetsigende, det finnes ingen docstring, og 1.25 er et «magisk tall» uten forklaring.\n\nDen gode versjonen retter alt dette:\n\n```python\nTAX_RATE = 1.25  # Moms 25%\n\ndef calculate_price(quantity, unit_price, include_tax):\n    \"\"\"\n    Beregner totalpris for en bestilling.\n\n    Args:\n        quantity (int): Antall varer\n        unit_price (float): Pris per vare i NOK\n        include_tax (bool): Om moms skal inkluderes\n\n    Returns:\n        float: Totalpris i NOK\n    \"\"\"\n    subtotal = quantity * unit_price\n    if include_tax:\n        return subtotal * TAX_RATE\n    return subtotal\n```\n\nLegg merke til grepene. Funksjonsnavnet `calculate_price` er beskrivende. Parameternavnene forteller hva de er. Det magiske tallet 1.25 er gitt et navn, `TAX_RATE`, med en kommentar. Og en fyldig docstring beskriver argumenter og returverdi. Et tredje dokumentasjonsnivå er **README-filer** og teknisk dokumentasjon, som beskriver hele prosjektet: hva det gjør, hvordan man installerer og kjører det, og hvordan man bidrar. God dokumentasjon på alle disse nivåene er det som gjør et prosjekt mulig å vedlikeholde over tid – også for folk som aldri var med på å bygge det."},{"id":"it-2-8-4-n-quiz2","type":"exercise","exercise":{"id":"it-2-8-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på god dokumentasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-4-n-quiz2-q0","task":"Hva er et «magisk tall» i kode?","options":[{"id":"a","text":"En uforklart tallverdi uten navn, som 1.25 midt i koden","isCorrect":true},{"id":"b","text":"Et tall som gjør koden raskere","isCorrect":false},{"id":"c","text":"Et tilfeldig generert tall","isCorrect":false},{"id":"d","text":"Et negativt tall","isCorrect":false}],"solution":"Et magisk tall er en uforklart verdi i koden. Den bør gis et navn (konstant) med forklaring, som TAX_RATE."},{"id":"it-2-8-4-n-quiz2-q1","task":"Hva bør en god README-fil inneholde?","options":[{"id":"a","text":"Bare forfatterens navn","isCorrect":false},{"id":"b","text":"Hva prosjektet gjør, hvordan man installerer og kjører det","isCorrect":true},{"id":"c","text":"Ingenting","isCorrect":false},{"id":"d","text":"Kun en liste over bugs","isCorrect":false}],"solution":"En README beskriver prosjektet, hvordan man setter det opp og kjører det, og gjerne hvordan man bidrar."},{"id":"it-2-8-4-n-quiz2-q2","task":"Hvilket grep forbedrer lesbarheten mest i et dårlig dokumentert eksempel?","options":[{"id":"a","text":"Å fjerne alle mellomrom","isCorrect":false},{"id":"b","text":"Å gjøre variabelnavnene kortere","isCorrect":false},{"id":"c","text":"Beskrivende navn på funksjon og parametere","isCorrect":true},{"id":"d","text":"Å slette docstringen","isCorrect":false}],"solution":"Beskrivende navn gjør koden selvforklarende og reduserer behovet for forklarende kommentarer."}]}},{"id":"it-2-8-4-n-section2","type":"text","content":"## Teknisk gjeld og refaktorering\n\nNår man tar snarveier for å rekke en frist – «vi rydder senere» – bygger man opp **teknisk gjeld**. Det er kompromisser i koden som gjør fremtidig utvikling vanskeligere, akkurat som økonomisk gjeld med renter: jo lenger du venter, jo dyrere blir det å betale tilbake. Teknisk gjeld viser seg gjerne som **code smells** – tegn på dårlig kode. Vanlige eksempler er altfor lange funksjoner som gjør for mye, duplisert kode som gjentas mange steder, dårlige navn, og dyp nesting av if-setninger.\n\nMotgiften er **refaktorering**: å forbedre kodens struktur uten å endre hva den gjør. Tenk på en lang `process_order`-funksjon som validerer ordren, regner ut totalen, sjekker lageret og gir rabatt – alt i én klump på tjue linjer. Den er vanskelig å lese og teste. Ved refaktorering deler du den opp i mindre funksjoner med klare navn: `valider_ordre`, `beregn_total`, `sjekk_lager`, `beregn_rabatt`. Hver funksjon gjør én ting, blir lett å teste, og kan gjenbrukes. Resultatet er nøyaktig den samme oppførselen, men langt enklere å vedlikeholde.\n\nTo prinsipper hjelper deg å holde gjelden nede. **«Boy Scout Rule»** sier: forlat koden litt renere enn du fant den – rydd litt hver gang du er innom. Og husk at refaktorering er trygt nettopp når du har tester (fra forrige kapittel), fordi de fanger opp hvis du ved et uhell endrer oppførselen. Dokumentasjon, tester og refaktorering henger sammen: de er alle investeringer i at koden skal leve videre, lenge etter at den ble skrevet."},{"id":"it-2-8-4-n-quiz3","type":"exercise","exercise":{"id":"it-2-8-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på teknisk gjeld:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-8-4-n-quiz3-q0","task":"Hva er teknisk gjeld?","options":[{"id":"a","text":"Penger man skylder utviklere","isCorrect":false},{"id":"b","text":"Antall linjer kode","isCorrect":false},{"id":"c","text":"Tid brukt på møter","isCorrect":false},{"id":"d","text":"Kompromisser i koden som gjør fremtidig utvikling vanskeligere","isCorrect":true}],"solution":"Teknisk gjeld er snarveier og kompromisser som koster mer jo lenger man venter med å rydde opp."},{"id":"it-2-8-4-n-quiz3-q1","task":"Hva er refaktorering?","options":[{"id":"a","text":"Å forbedre kodens struktur uten å endre hva den gjør","isCorrect":true},{"id":"b","text":"Å legge til nye funksjoner","isCorrect":false},{"id":"c","text":"Å slette all dokumentasjon","isCorrect":false},{"id":"d","text":"Å bytte programmeringsspråk","isCorrect":false}],"solution":"Refaktorering forbedrer struktur og lesbarhet mens oppførselen forblir den samme."},{"id":"it-2-8-4-n-quiz3-q2","task":"Hva sier «Boy Scout Rule» i programmering?","options":[{"id":"a","text":"Skriv aldri tester","isCorrect":false},{"id":"b","text":"Forlat koden litt renere enn du fant den","isCorrect":true},{"id":"c","text":"Bruk alltid lange funksjoner","isCorrect":false},{"id":"d","text":"Unngå all dokumentasjon","isCorrect":false}],"solution":"Boy Scout Rule oppfordrer til å rydde litt hver gang man er innom koden, så kvaliteten gradvis blir bedre."}]}},{"id":"it-2-8-4-n-summary","type":"text","content":"## Oppsummering\n\nKode leses oftere enn den skrives, og dokumentasjon er nøkkelen til vedlikehold. **Kommentarer** skal forklare *hvorfor*, ikke *hva*, og **docstrings** beskriver grensesnittet til funksjoner, klasser og moduler. God kode bruker beskrivende navn, navngir magiske tall, og har en README som forklarer hele prosjektet.\n\nSnarveier skaper **teknisk gjeld**, som viser seg som **code smells** – lange funksjoner, duplisering og dyp nesting. Motgiften er **refaktorering**: å forbedre strukturen uten å endre oppførselen, trygt fordi man har tester. Med «Boy Scout Rule» rydder man litt hver gang. I siste kapittel samler vi alt i et avsluttende prosjekt."}],"exercises":[]}
+{
+  "id": "it-2-8-4-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "4",
+  "title": "Dokumentasjon og vedlikehold",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om at kode leses oftere enn den skrives – fra kommentarer og docstrings til kampen mot teknisk gjeld gjennom refaktorering.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "Skrive gode kommentarer og docstrings",
+    "Forstå teknisk gjeld og code smells",
+    "Refaktorere kompleks kode"
+  ],
+  "linkedChapterId": "it-2-8-4",
+  "content": [
+    {
+      "id": "it-2-8-4-n-intro",
+      "type": "text",
+      "content": "## Kode leses oftere enn den skrives\n\nGod dokumentasjon er nøkkelen til langsiktig vedlikehold. Kode leses langt oftere enn den skrives, og godt dokumentert kode gjør det enklere for andre – og for deg selv om seks måneder – å forstå hva som skjer. Det finnes flere nivåer av dokumentasjon.\n\nDet første er **kodekommentarer**. Den viktigste regelen er at gode kommentarer forklarer *hvorfor*, ikke *hva*. En kommentar som `x = x + 1  # Øk x med 1` er verdiløs, fordi den bare gjentar det åpenbare. En god kommentar forklarer hensikten: `x = x + 1  # Kompenserer for null-indekserte arrays`. Bruk kommentarer til kompleks logikk, midlertidige løsninger for kjente bugs, forklaring av forretningslogikk, og TODO-er. Bruk dem *ikke* som erstatning for god navngiving, til å forklare selvforklarende kode, eller til å beholde gammel, utdatert kode – den bør du heller slette.\n\nDet andre nivået er **docstrings**, som dokumenterer funksjoner, klasser og moduler. I Python skrives de i trippel-anførselstegn rett under definisjonen, og bør beskrive hva funksjonen gjør, hvilke argumenter den tar, hva den returnerer, og gjerne et eksempel. En `calculate_discount`-funksjon kan ha en docstring som lister `price`, `discount_percent` og `customer_tier` med typer og forklaringer. Forskjellen er at kommentarer forklarer detaljer *inni* koden, mens docstrings beskriver grensesnittet *utad* – hvordan funksjonen skal brukes, uten at man trenger å lese implementasjonen."
+    },
+    {
+      "id": "it-2-8-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på dokumentasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-4-n-quiz1-q0",
+            "task": "Hva bør en god kommentar forklare?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Hvorfor koden gjør noe, ikke hva den åpenbart gjør",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Hver eneste linje i detalj",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hvor lenge koden tar å kjøre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forfatterens navn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gode kommentarer forklarer hensikten (hvorfor), ikke det åpenbare (hva), som koden allerede viser."
+          },
+          {
+            "id": "it-2-8-4-n-quiz1-q1",
+            "task": "Hva er hovedformålet med docstrings?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å forklare hver eneste linje",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å dokumentere hva funksjoner, klasser og moduler gjør",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å gjøre koden lengre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å erstatte variabelnavn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Docstrings beskriver grensesnittet til funksjoner, klasser og moduler – hva de gjør, tar inn og returnerer."
+          },
+          {
+            "id": "it-2-8-4-n-quiz1-q2",
+            "task": "Når bør du IKKE bruke en kommentar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å forklare kompleks forretningslogikk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For å markere en TODO",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Som erstatning for god navngiving av variabler og funksjoner",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "For å forklare en workaround for en kjent bug",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tydelige navn er bedre enn kommentarer som kompenserer for dårlig navngiving. Komplekse ting og workarounds bør derimot kommenteres."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-4-n-section1",
+      "type": "text",
+      "content": "## God dokumentasjon i praksis\n\nLa oss se forskjellen på dårlig og god dokumentasjon side om side. En dårlig versjon kan se slik ut: `def calc(a, b, c):` med kommentaren «beregner noe», som ganger `a * b` og noen ganger multipliserer med 1.25. Problemene hoper seg opp: parameternavnene `a`, `b`, `c` sier ingenting, kommentaren er intetsigende, det finnes ingen docstring, og 1.25 er et «magisk tall» uten forklaring.\n\nDen gode versjonen retter alt dette:\n\n```python\nTAX_RATE = 1.25  # Moms 25%\n\ndef calculate_price(quantity, unit_price, include_tax):\n    \"\"\"\n    Beregner totalpris for en bestilling.\n\n    Args:\n        quantity (int): Antall varer\n        unit_price (float): Pris per vare i NOK\n        include_tax (bool): Om moms skal inkluderes\n\n    Returns:\n        float: Totalpris i NOK\n    \"\"\"\n    subtotal = quantity * unit_price\n    if include_tax:\n        return subtotal * TAX_RATE\n    return subtotal\n```\n\nLegg merke til grepene. Funksjonsnavnet `calculate_price` er beskrivende. Parameternavnene forteller hva de er. Det magiske tallet 1.25 er gitt et navn, `TAX_RATE`, med en kommentar. Og en fyldig docstring beskriver argumenter og returverdi. Et tredje dokumentasjonsnivå er **README-filer** og teknisk dokumentasjon, som beskriver hele prosjektet: hva det gjør, hvordan man installerer og kjører det, og hvordan man bidrar. God dokumentasjon på alle disse nivåene er det som gjør et prosjekt mulig å vedlikeholde over tid – også for folk som aldri var med på å bygge det."
+    },
+    {
+      "id": "it-2-8-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på god dokumentasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-4-n-quiz2-q0",
+            "task": "Hva er et «magisk tall» i kode?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Et tall som gjør koden raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et tilfeldig generert tall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et negativt tall",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En uforklart tallverdi uten navn, som 1.25 midt i koden",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Et magisk tall er en uforklart verdi i koden. Den bør gis et navn (konstant) med forklaring, som TAX_RATE."
+          },
+          {
+            "id": "it-2-8-4-n-quiz2-q1",
+            "task": "Hva bør en god README-fil inneholde?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Hva prosjektet gjør, hvordan man installerer og kjører det",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bare forfatterens navn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kun en liste over bugs",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En README beskriver prosjektet, hvordan man setter det opp og kjører det, og gjerne hvordan man bidrar."
+          },
+          {
+            "id": "it-2-8-4-n-quiz2-q2",
+            "task": "Hvilket grep forbedrer lesbarheten mest i et dårlig dokumentert eksempel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å fjerne alle mellomrom",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Beskrivende navn på funksjon og parametere",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å gjøre variabelnavnene kortere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å slette docstringen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Beskrivende navn gjør koden selvforklarende og reduserer behovet for forklarende kommentarer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-4-n-section2",
+      "type": "text",
+      "content": "## Teknisk gjeld og refaktorering\n\nNår man tar snarveier for å rekke en frist – «vi rydder senere» – bygger man opp **teknisk gjeld**. Det er kompromisser i koden som gjør fremtidig utvikling vanskeligere, akkurat som økonomisk gjeld med renter: jo lenger du venter, jo dyrere blir det å betale tilbake. Teknisk gjeld viser seg gjerne som **code smells** – tegn på dårlig kode. Vanlige eksempler er altfor lange funksjoner som gjør for mye, duplisert kode som gjentas mange steder, dårlige navn, og dyp nesting av if-setninger.\n\nMotgiften er **refaktorering**: å forbedre kodens struktur uten å endre hva den gjør. Tenk på en lang `process_order`-funksjon som validerer ordren, regner ut totalen, sjekker lageret og gir rabatt – alt i én klump på tjue linjer. Den er vanskelig å lese og teste. Ved refaktorering deler du den opp i mindre funksjoner med klare navn: `valider_ordre`, `beregn_total`, `sjekk_lager`, `beregn_rabatt`. Hver funksjon gjør én ting, blir lett å teste, og kan gjenbrukes. Resultatet er nøyaktig den samme oppførselen, men langt enklere å vedlikeholde.\n\nTo prinsipper hjelper deg å holde gjelden nede. **«Boy Scout Rule»** sier: forlat koden litt renere enn du fant den – rydd litt hver gang du er innom. Og husk at refaktorering er trygt nettopp når du har tester (fra forrige kapittel), fordi de fanger opp hvis du ved et uhell endrer oppførselen. Dokumentasjon, tester og refaktorering henger sammen: de er alle investeringer i at koden skal leve videre, lenge etter at den ble skrevet."
+    },
+    {
+      "id": "it-2-8-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-8-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på teknisk gjeld:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-8-4-n-quiz3-q0",
+            "task": "Hva er teknisk gjeld?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Penger man skylder utviklere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Antall linjer kode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kompromisser i koden som gjør fremtidig utvikling vanskeligere",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Tid brukt på møter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Teknisk gjeld er snarveier og kompromisser som koster mer jo lenger man venter med å rydde opp."
+          },
+          {
+            "id": "it-2-8-4-n-quiz3-q1",
+            "task": "Hva er refaktorering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å legge til nye funksjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å slette all dokumentasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å bytte programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å forbedre kodens struktur uten å endre hva den gjør",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Refaktorering forbedrer struktur og lesbarhet mens oppførselen forblir den samme."
+          },
+          {
+            "id": "it-2-8-4-n-quiz3-q2",
+            "task": "Hva sier «Boy Scout Rule» i programmering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Forlat koden litt renere enn du fant den",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Skriv aldri tester",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bruk alltid lange funksjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Unngå all dokumentasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Boy Scout Rule oppfordrer til å rydde litt hver gang man er innom koden, så kvaliteten gradvis blir bedre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-8-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nKode leses oftere enn den skrives, og dokumentasjon er nøkkelen til vedlikehold. **Kommentarer** skal forklare *hvorfor*, ikke *hva*, og **docstrings** beskriver grensesnittet til funksjoner, klasser og moduler. God kode bruker beskrivende navn, navngir magiske tall, og har en README som forklarer hele prosjektet.\n\nSnarveier skaper **teknisk gjeld**, som viser seg som **code smells** – lange funksjoner, duplisering og dyp nesting. Motgiften er **refaktorering**: å forbedre strukturen uten å endre oppførselen, trygt fordi man har tester. Med «Boy Scout Rule» rydder man litt hver gang. I siste kapittel samler vi alt i et avsluttende prosjekt."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,478 @@
-{"id":"s1-7-1-narrativ","courseId":"s1","chapterNumber":"7.1","title":"Lineær regresjon","subtitle":"Narrativ versjon","description":"Ei forteljing om klassen som testa om lesing lønner seg — spreiingsplott, minste kvadraters metode, residual og R².","estimatedMinutes":34,"competenceGoals":["planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn","bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett"],"linkedChapterId":"s1-7-1","content":[{"id":"s1-7-1-n-intro","type":"text","content":"## Lønner det seg å lese meir?\n\nEin klasse vil teste ein gammal påstand: hjelper det eigentleg å studere fleire timar før prøven? Seks elevar noterer studietimane sine og poengsummen dei fekk, og datapara $(x_i, y_i)$ blir plotta i eit koordinatsystem. Resultatet blir kalla eit **spreiingsplott** (punktdiagram), og det er alltid det første steget når vi undersøkjer ein samanheng mellom to variablar.\n\nI plottet er $x$ — studietimane — **forklaringsvariabelen** (uavhengig variabel), og $y$ — poengsummen — **responsvariabelen** (avhengig variabel). Frå plottet vurderer vi fire ting: **retninga** (positiv, negativ eller ingen samanheng), **forma** (lineær eller krumma), **styrken** (kor tett punkta følgjer eit mønster) og **uteliggjarar** (punkt som skil seg markant frå resten).\n\nPlottet til klassen viser punkt som stig pent mot høgre — fleire timar ser ut til å gi fleire poeng, og mønsteret verkar lineært. Då melder neste spørsmål seg: kva for ei rett linje skildrar dataene *best*? Vi kunne lagt ein linjal på augemål, men to elevar ville lagt han ulikt. Vi treng ein objektiv definisjon av «best».\n\nIdeen er å sjå på avstandane mellom dei observerte $y$-verdiane og verdiane til linja — dei såkalla **residuala** — og velje linja som gjer dei kvadrerte avstandane minst mogleg til saman. Metoden blir kalla **minste kvadraters metode**, og linja han peikar ut, blir kalla **regresjonslinja**. Ho er det viktigaste verktøyet i kurset for å trekkje kunnskap ut av ekte datasett — og resten av kapittelet handlar om å finne henne, bruke henne og døme henne."},{"id":"s1-7-1-n-quiz1","type":"exercise","exercise":{"id":"s1-7-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på spreiingsplott og variablar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-7-1-n-quiz1-q0","task":"I undersøkinga av studietimar og poengsum — kva blir studietimane kalla?","options":[{"id":"a","text":"Forklaringsvariabelen (uavhengig variabel)","isCorrect":true},{"id":"b","text":"Responsvariabelen","isCorrect":false},{"id":"c","text":"Residualet","isCorrect":false},{"id":"d","text":"Regresjonskoeffisienten","isCorrect":false}],"solution":"Variabelen vi trur påverkar ($x$) er forklaringsvariabelen; den som responderer ($y$) er responsvariabelen."},{"id":"s1-7-1-n-quiz1-q1","task":"Kva er det første du bør gjere når du undersøkjer samanhengen mellom to variablar?","options":[{"id":"a","text":"Rekne ut gjennomsnittet av $y$","isCorrect":false},{"id":"b","text":"Lage eit spreiingsplott","isCorrect":true},{"id":"c","text":"Rekne ut $R^2$","isCorrect":false},{"id":"d","text":"Fjerne uteliggjarar","isCorrect":false}],"solution":"Spreiingsplottet viser retning, form, styrke og uteliggjarar — grunnlaget for alle vidare val."},{"id":"s1-7-1-n-quiz1-q2","task":"Kva for fire eigenskapar vurderer vi i eit spreiingsplott?","options":[{"id":"a","text":"Gjennomsnitt, median, typetal og variasjonsbreidd","isCorrect":false},{"id":"b","text":"Pris, mengd, inntekt og kostnad","isCorrect":false},{"id":"c","text":"Retning, form, styrke og uteliggjarar","isCorrect":true},{"id":"d","text":"Stiging, konstantledd, nullpunkt og asymptote","isCorrect":false}],"solution":"Vi ser etter retninga, forma (lineær/krum), styrken og om det finst avvikande punkt."}]}},{"id":"s1-7-1-n-section1","type":"text","content":"## Minste kvadraters metode i praksis\n\n**Regresjonslinja** er den linja $\\hat{y} = ax + b$ som minimerer summen av kvadrerte residual:\n\n$$S = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 = \\sum_{i=1}^{n}(y_i - ax_i - b)^2$$\n\nMinste kvadraters metode gir eksplisitte formlar for koeffisientane:\n\n$$a = \\frac{n\\sum x_i y_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2} \\qquad b = \\bar{y} - a\\bar{x}$$\n\nder $\\bar{x}$ og $\\bar{y}$ er gjennomsnitta. Ein elegant konsekvens av den siste formelen: regresjonslinja går **alltid gjennom punktet $(\\bar{x}, \\bar{y})$** — tyngdepunktet i datasettet. I praksis lèt vi kalkulator eller rekneark gjere rekninga, men det er verdt å sjå henne éin gong for hand.\n\nDei seks datapunkta til klassen gir $n = 6$, $\\sum x_i = 34$, $\\sum y_i = 400$, $\\sum x_i^2 = 238$ og $\\sum x_i y_i = 2511$. Då blir\n\n$$a = \\frac{6 \\cdot 2511 - 34 \\cdot 400}{6 \\cdot 238 - 34^2} = \\frac{1466}{272} \\approx 5{,}39$$\n\nog $b = 66{,}67 - 5{,}39 \\cdot 5{,}67 \\approx 36{,}12$. Regresjonslinja er altså\n\n$$\\hat{y} = 5{,}39x + 36{,}12$$\n\nOg no kjem det viktigaste: **tolkinga**. Stigingstalet tyder at kvar ekstra studietime i gjennomsnitt gir cirka 5,4 poeng meir. Konstantleddet tyder at ein elev som ikkje studerer i det heile, kan vente rundt 36 poeng. Linja kan òg brukast til **prediksjon** — kva kan ein elev som les 7 timar vente? $\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng. Regresjonslinja forvandlar seks lause observasjonar til eit verktøy."},{"id":"s1-7-1-n-quiz2","type":"exercise","exercise":{"id":"s1-7-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på regresjonslinja:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-7-1-n-quiz2-q0","task":"Kva minimerer regresjonslinja?","options":[{"id":"a","text":"Summen av residuala","isCorrect":false},{"id":"b","text":"Talet på uteliggjarar","isCorrect":false},{"id":"c","text":"Avstanden til origo","isCorrect":false},{"id":"d","text":"Summen av dei kvadrerte residuala","isCorrect":true}],"solution":"Minste kvadraters metode vel linja som minimerer $\\sum (y_i - \\hat{y}_i)^2$."},{"id":"s1-7-1-n-quiz2-q1","task":"Regresjonslinja for studiedataene er $\\hat{y} = 5{,}39x + 36{,}12$. Korleis blir stigingstalet tolka?","options":[{"id":"a","text":"Kvar ekstra studietime gir i gjennomsnitt ca. $5{,}4$ poeng meir","isCorrect":true},{"id":"b","text":"Maksimal poengsum er $5{,}39$","isCorrect":false},{"id":"c","text":"Ein elev som ikkje les får $5{,}39$ poeng","isCorrect":false},{"id":"d","text":"Poengsummen blir dobla per time","isCorrect":false}],"solution":"Stigingstalet $a$ angir gjennomsnittleg endring i $y$ per einings auke i $x$."},{"id":"s1-7-1-n-quiz2-q2","task":"Kva for eit punkt går regresjonslinja alltid gjennom?","options":[{"id":"a","text":"Origo $(0, 0)$","isCorrect":false},{"id":"b","text":"Det første datapunktet","isCorrect":false},{"id":"c","text":"Gjennomsnittspunktet $(\\bar{x}, \\bar{y})$","isCorrect":true},{"id":"d","text":"Punktet med størst residual","isCorrect":false}],"solution":"Av $b = \\bar{y} - a\\bar{x}$ følgjer at linja alltid går gjennom $(\\bar{x}, \\bar{y})$."},{"id":"s1-7-1-n-quiz2-q3","task":"Kva er den predikerte poengsummen for ein elev som les $7$ timar ($\\hat{y} = 5{,}39x + 36{,}12$)?","options":[{"id":"a","text":"Ca. $42$ poeng","isCorrect":false},{"id":"b","text":"Ca. $74$ poeng","isCorrect":true},{"id":"c","text":"Ca. $66$ poeng","isCorrect":false},{"id":"d","text":"Ca. $86$ poeng","isCorrect":false}],"solution":"$\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng."}]}},{"id":"s1-7-1-n-section2","type":"text","content":"## Residual og $R^2$ — kor god er linja?\n\nLinja er funnen, men kor godt passar ho eigentleg? Første verktøy er **residuala**. Residualet for datapunkt $i$ er\n\n$$e_i = y_i - \\hat{y}_i$$\n\n— differansen mellom observert og predikert verdi. Er $e_i > 0$, ligg punktet over linja; er $e_i < 0$, ligg det under; og for regresjonslinja er alltid $\\sum e_i = 0$ — overskot og underskot utliknar kvarandre. Plottar vi residuala mot $x$ (eit **residualplott**), bør ein god lineær modell vise tilfeldig spreiing utan mønster.\n\nFor dataene til klassen blir residuala $-1{,}90$; $2{,}71$; $-3{,}07$; $3{,}54$; $-1{,}24$; $-0{,}02$ — små, utan system, og med sum tilnærma null. Lovande.\n\nAndre verktøy er **determinasjonskoeffisienten** $R^2$:\n\n$$R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$$\n\nHer er $\\text{SS}_{\\text{res}}$ den **uforklarte** variasjonen (residualkvadratsummen) og $\\text{SS}_{\\text{tot}}$ den **totale** variasjonen i $y$. Dermed angir $R^2$ delen av variasjonen i $y$ som modellen **forklarer**. Han ligg alltid mellom 0 og 1: $R^2 = 1$ tyder at alle punkta ligg eksakt på linja, $R^2 = 0$ at modellen ikkje forklarer noko, og $R^2 = 0{,}85$ at 85 % av variasjonen i $y$ blir forklart av $x$.\n\nFor studiedataene: $\\text{SS}_{\\text{res}} \\approx 32{,}4$ og $\\text{SS}_{\\text{tot}} \\approx 1333{,}3$ gir\n\n$$R^2 = 1 - \\frac{32{,}4}{1333{,}3} \\approx 0{,}976$$\n\nStudietimane forklarer altså cirka **97,6 %** av variasjonen i poengsum — ei svært god tilpassing. Klassen har svaret sitt: ja, det lønner seg å lese. Men hugs allereie no: ein høg $R^2$ er ikkje heile historia — det skal kapittel 7.4 vise."},{"id":"s1-7-1-n-quiz3","type":"exercise","exercise":{"id":"s1-7-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på residual og determinasjonskoeffisienten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-7-1-n-quiz3-q0","task":"Kva er residualet $e_i$?","options":[{"id":"a","text":"$y_i - \\hat{y}_i$ — observert minus predikert verdi","isCorrect":true},{"id":"b","text":"$\\hat{y}_i - \\bar{y}$","isCorrect":false},{"id":"c","text":"Avstanden frå punktet til $x$-aksen","isCorrect":false},{"id":"d","text":"$x_i - \\bar{x}$","isCorrect":false}],"solution":"Residualet er avviket mellom observasjonen og prediksjonen til modellen: $e_i = y_i - \\hat{y}_i$."},{"id":"s1-7-1-n-quiz3-q1","task":"Kva er summen av residuala for ei regresjonslinje?","options":[{"id":"a","text":"Alltid positiv","isCorrect":false},{"id":"b","text":"Lik $R^2$","isCorrect":false},{"id":"c","text":"Lik talet på datapunkt","isCorrect":false},{"id":"d","text":"Alltid null","isCorrect":true}],"solution":"For minste kvadraters regresjonslinje er $\\sum e_i = 0$ — avvika over og under linja utliknar kvarandre."},{"id":"s1-7-1-n-quiz3-q2","task":"$R^2 = 0{,}976$ for studiedataene. Kva tyder det?","options":[{"id":"a","text":"$97{,}6\\,\\%$ av elevane fekk betre karakter","isCorrect":false},{"id":"b","text":"Ca. $97{,}6\\,\\%$ av variasjonen i poengsum blir forklart av studietimane","isCorrect":true},{"id":"c","text":"Stigingstalet er $0{,}976$","isCorrect":false},{"id":"d","text":"$2{,}4\\,\\%$ av punkta er uteliggjarar","isCorrect":false}],"solution":"$R^2$ angir delen av variasjonen i $y$ som modellen forklarer."},{"id":"s1-7-1-n-quiz3-q3","task":"Kva tyder $R^2 = 1$?","options":[{"id":"a","text":"Modellen forklarer ingenting","isCorrect":false},{"id":"b","text":"Linja går gjennom origo","isCorrect":false},{"id":"c","text":"Alle punkta ligg eksakt på regresjonslinja","isCorrect":true},{"id":"d","text":"Det finst nøyaktig éin uteliggjar","isCorrect":false}],"solution":"$R^2 = 1$ tyder perfekt tilpassing: $\\text{SS}_{\\text{res}} = 0$, alle punkt ligg på linja."}]}},{"id":"s1-7-1-n-summary","type":"text","content":"## Oppsummering: linja gjennom datapunkta\n\nSpørsmålet til klassen — lønner det seg å lese? — vart svara med ein komplett statistisk arbeidsgang. **Spreiingsplottet** kom først og viste retning, form, styrke og eventuelle uteliggjarar; deretter valde vi **regresjonslinja** $\\hat{y} = ax + b$, definert som linja som minimerer summen av kvadrerte residual. **Minste kvadraters metode** gir formlane for $a$ og $b$, og linja går alltid gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$ — i praksis gjer kalkulatoren rekninga, men tolkinga er din jobb: stigingstalet 5,39 tydde «5,4 poeng per studietime», og konstantleddet angav venta resultat utan lesing.\n\n**Residuala** $e_i = y_i - \\hat{y}_i$ måler avviket til kvart punkt frå modellen — positive over linja, negative under, og alltid med sum null. **Determinasjonskoeffisienten** $R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}}$ oppsummerer tilpassinga i eitt tal: delen av variasjonen i $y$ som modellen forklarer, frå 0 (ingenting) til 1 (perfekt). For studiedataene gav $R^2 \\approx 0{,}976$ ein sjeldan sterk samanheng.\n\nMen to åtvaringar følgjer med inn i dei neste kapitla: ei sterk samvariasjon beviser ingen årsakssamanheng — det er temaet i 7.2 — og ein høg $R^2$ kan skjule at modellforma er feil, som residualanalysen i 7.4 vil avsløre. Regresjonslinja er eit kraftig verktøy, men det er tolkaren som gjer henne til kunnskap."}],"exercises":[],"_meta":{"sourceHash":"36ee823cf0f7fcde","translatedAt":"2026-06-20T08:35:01.900Z","model":"claude-code-agent","strings":81,"tm":{"4fad81a008c97815":"Lineær regresjon","b195b06d1ed59702":"Narrativ versjon","63a842d577dad6af":"Ei forteljing om klassen som testa om lesing lønner seg — spreiingsplott, minste kvadraters metode, residual og R².","f19afc4d3d0e5171":"planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn","6c8c1b0ca1a567ea":"bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett","43bd7f4023de53c7":"## Lønner det seg å lese meir?\n\nEin klasse vil teste ein gammal påstand: hjelper det eigentleg å studere fleire timar før prøven? Seks elevar noterer studietimane sine og poengsummen dei fekk, og datapara $(x_i, y_i)$ blir plotta i eit koordinatsystem. Resultatet blir kalla eit **spreiingsplott** (punktdiagram), og det er alltid det første steget når vi undersøkjer ein samanheng mellom to variablar.\n\nI plottet er $x$ — studietimane — **forklaringsvariabelen** (uavhengig variabel), og $y$ — poengsummen — **responsvariabelen** (avhengig variabel). Frå plottet vurderer vi fire ting: **retninga** (positiv, negativ eller ingen samanheng), **forma** (lineær eller krumma), **styrken** (kor tett punkta følgjer eit mønster) og **uteliggjarar** (punkt som skil seg markant frå resten).\n\nPlottet til klassen viser punkt som stig pent mot høgre — fleire timar ser ut til å gi fleire poeng, og mønsteret verkar lineært. Då melder neste spørsmål seg: kva for ei rett linje skildrar dataene *best*? Vi kunne lagt ein linjal på augemål, men to elevar ville lagt han ulikt. Vi treng ein objektiv definisjon av «best».\n\nIdeen er å sjå på avstandane mellom dei observerte $y$-verdiane og verdiane til linja — dei såkalla **residuala** — og velje linja som gjer dei kvadrerte avstandane minst mogleg til saman. Metoden blir kalla **minste kvadraters metode**, og linja han peikar ut, blir kalla **regresjonslinja**. Ho er det viktigaste verktøyet i kurset for å trekkje kunnskap ut av ekte datasett — og resten av kapittelet handlar om å finne henne, bruke henne og døme henne.","b5510a19fe7999d9":"Test deg sjølv på spreiingsplott og variablar:","4097889236a2af26":"placeholder","0cd4b076b9ddc040":"I undersøkinga av studietimar og poengsum — kva blir studietimane kalla?","c520e0959d46fb83":"Forklaringsvariabelen (uavhengig variabel)","46de939fe833eb94":"Responsvariabelen","e9f82c246e2b75fe":"Residualet","8aa78d365f783929":"Regresjonskoeffisienten","380fdd57d7f7968e":"Variabelen vi trur påverkar ($x$) er forklaringsvariabelen; den som responderer ($y$) er responsvariabelen.","dd58cab2367ece8b":"Kva er det første du bør gjere når du undersøkjer samanhengen mellom to variablar?","3b8204a6d1f88b93":"Rekne ut gjennomsnittet av $y$","b852686fca2d3a36":"Lage eit spreiingsplott","22ee6b695aa1803f":"Rekne ut $R^2$","fe775696a4b468ed":"Fjerne uteliggjarar","b91638d78272a15a":"Spreiingsplottet viser retning, form, styrke og uteliggjarar — grunnlaget for alle vidare val.","1b21b295f9f89082":"Kva for fire eigenskapar vurderer vi i eit spreiingsplott?","b3d8bd147d4979fe":"Gjennomsnitt, median, typetal og variasjonsbreidd","1c016da2f4df2c42":"Pris, mengd, inntekt og kostnad","4207365f0873d618":"Retning, form, styrke og uteliggjarar","59f1ef2561aca2de":"Stiging, konstantledd, nullpunkt og asymptote","db090b969c085560":"Vi ser etter retninga, forma (lineær/krum), styrken og om det finst avvikande punkt.","5f3a20f98bc974d0":"## Minste kvadraters metode i praksis\n\n**Regresjonslinja** er den linja $\\hat{y} = ax + b$ som minimerer summen av kvadrerte residual:\n\n$$S = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 = \\sum_{i=1}^{n}(y_i - ax_i - b)^2$$\n\nMinste kvadraters metode gir eksplisitte formlar for koeffisientane:\n\n$$a = \\frac{n\\sum x_i y_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2} \\qquad b = \\bar{y} - a\\bar{x}$$\n\nder $\\bar{x}$ og $\\bar{y}$ er gjennomsnitta. Ein elegant konsekvens av den siste formelen: regresjonslinja går **alltid gjennom punktet $(\\bar{x}, \\bar{y})$** — tyngdepunktet i datasettet. I praksis lèt vi kalkulator eller rekneark gjere rekninga, men det er verdt å sjå henne éin gong for hand.\n\nDei seks datapunkta til klassen gir $n = 6$, $\\sum x_i = 34$, $\\sum y_i = 400$, $\\sum x_i^2 = 238$ og $\\sum x_i y_i = 2511$. Då blir\n\n$$a = \\frac{6 \\cdot 2511 - 34 \\cdot 400}{6 \\cdot 238 - 34^2} = \\frac{1466}{272} \\approx 5{,}39$$\n\nog $b = 66{,}67 - 5{,}39 \\cdot 5{,}67 \\approx 36{,}12$. Regresjonslinja er altså\n\n$$\\hat{y} = 5{,}39x + 36{,}12$$\n\nOg no kjem det viktigaste: **tolkinga**. Stigingstalet tyder at kvar ekstra studietime i gjennomsnitt gir cirka 5,4 poeng meir. Konstantleddet tyder at ein elev som ikkje studerer i det heile, kan vente rundt 36 poeng. Linja kan òg brukast til **prediksjon** — kva kan ein elev som les 7 timar vente? $\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng. Regresjonslinja forvandlar seks lause observasjonar til eit verktøy.","b76a591da513e32e":"Test deg sjølv på regresjonslinja:","ac771339634aec3f":"Kva minimerer regresjonslinja?","d78964f51dd744c0":"Summen av residuala","cd72238e83ecc2ef":"Talet på uteliggjarar","6295433814375c47":"Avstanden til origo","c43ec53be9c10d12":"Summen av dei kvadrerte residuala","38c295104d1d2460":"Minste kvadraters metode vel linja som minimerer $\\sum (y_i - \\hat{y}_i)^2$.","b102a013ffee0fb6":"Regresjonslinja for studiedataene er $\\hat{y} = 5{,}39x + 36{,}12$. Korleis blir stigingstalet tolka?","c2c7cb00367feca8":"Kvar ekstra studietime gir i gjennomsnitt ca. $5{,}4$ poeng meir","c28947b9537c3b9a":"Maksimal poengsum er $5{,}39$","b217cb0822753826":"Ein elev som ikkje les får $5{,}39$ poeng","006ea5a1ad87aedd":"Poengsummen blir dobla per time","a4eb975935b13250":"Stigingstalet $a$ angir gjennomsnittleg endring i $y$ per einings auke i $x$.","62138485d1ab4c4f":"Kva for eit punkt går regresjonslinja alltid gjennom?","768223f5fc450c18":"Origo $(0, 0)$","2585e828e18af3ee":"Det første datapunktet","2c0da705dd94545a":"Gjennomsnittspunktet $(\\bar{x}, \\bar{y})$","7c87401f35a5a5c0":"Punktet med størst residual","e3749142756f4363":"Av $b = \\bar{y} - a\\bar{x}$ følgjer at linja alltid går gjennom $(\\bar{x}, \\bar{y})$.","87176769bcdae988":"Kva er den predikerte poengsummen for ein elev som les $7$ timar ($\\hat{y} = 5{,}39x + 36{,}12$)?","9b18a411b48aa0db":"Ca. $42$ poeng","8233d964f73a6213":"Ca. $74$ poeng","c350368714b3f631":"Ca. $66$ poeng","2a74512e85552b0b":"Ca. $86$ poeng","f4b9c39e1be883cc":"$\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng.","6f7a0d0961848be4":"## Residual og $R^2$ — kor god er linja?\n\nLinja er funnen, men kor godt passar ho eigentleg? Første verktøy er **residuala**. Residualet for datapunkt $i$ er\n\n$$e_i = y_i - \\hat{y}_i$$\n\n— differansen mellom observert og predikert verdi. Er $e_i > 0$, ligg punktet over linja; er $e_i < 0$, ligg det under; og for regresjonslinja er alltid $\\sum e_i = 0$ — overskot og underskot utliknar kvarandre. Plottar vi residuala mot $x$ (eit **residualplott**), bør ein god lineær modell vise tilfeldig spreiing utan mønster.\n\nFor dataene til klassen blir residuala $-1{,}90$; $2{,}71$; $-3{,}07$; $3{,}54$; $-1{,}24$; $-0{,}02$ — små, utan system, og med sum tilnærma null. Lovande.\n\nAndre verktøy er **determinasjonskoeffisienten** $R^2$:\n\n$$R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$$\n\nHer er $\\text{SS}_{\\text{res}}$ den **uforklarte** variasjonen (residualkvadratsummen) og $\\text{SS}_{\\text{tot}}$ den **totale** variasjonen i $y$. Dermed angir $R^2$ delen av variasjonen i $y$ som modellen **forklarer**. Han ligg alltid mellom 0 og 1: $R^2 = 1$ tyder at alle punkta ligg eksakt på linja, $R^2 = 0$ at modellen ikkje forklarer noko, og $R^2 = 0{,}85$ at 85 % av variasjonen i $y$ blir forklart av $x$.\n\nFor studiedataene: $\\text{SS}_{\\text{res}} \\approx 32{,}4$ og $\\text{SS}_{\\text{tot}} \\approx 1333{,}3$ gir\n\n$$R^2 = 1 - \\frac{32{,}4}{1333{,}3} \\approx 0{,}976$$\n\nStudietimane forklarer altså cirka **97,6 %** av variasjonen i poengsum — ei svært god tilpassing. Klassen har svaret sitt: ja, det lønner seg å lese. Men hugs allereie no: ein høg $R^2$ er ikkje heile historia — det skal kapittel 7.4 vise.","93d7ade1c301805e":"Test deg sjølv på residual og determinasjonskoeffisienten:","f76c719cbff019a2":"Kva er residualet $e_i$?","fedbac4dd9923860":"$y_i - \\hat{y}_i$ — observert minus predikert verdi","a1cdc4a1faea3f4e":"$\\hat{y}_i - \\bar{y}$","d3286300e089ec52":"Avstanden frå punktet til $x$-aksen","0505712c49fd3df3":"$x_i - \\bar{x}$","00dfa0c0e3039aa7":"Residualet er avviket mellom observasjonen og prediksjonen til modellen: $e_i = y_i - \\hat{y}_i$.","cf2e8f22afc7ff30":"Kva er summen av residuala for ei regresjonslinje?","8be83b0c480cec6b":"Alltid positiv","5557c07a3c6dcad3":"Lik $R^2$","0312f64bb2ea55b4":"Lik talet på datapunkt","9eddab9fc63adc60":"Alltid null","c3c07f6af50df4b3":"For minste kvadraters regresjonslinje er $\\sum e_i = 0$ — avvika over og under linja utliknar kvarandre.","39f8ccac240f3887":"$R^2 = 0{,}976$ for studiedataene. Kva tyder det?","c0d01a50e039af99":"$97{,}6\\,\\%$ av elevane fekk betre karakter","664d3a453f7bb4a3":"Ca. $97{,}6\\,\\%$ av variasjonen i poengsum blir forklart av studietimane","488e48e425a27ea5":"Stigingstalet er $0{,}976$","948e56311f8281bc":"$2{,}4\\,\\%$ av punkta er uteliggjarar","5696759ec4b89be2":"$R^2$ angir delen av variasjonen i $y$ som modellen forklarer.","890394106ef0755a":"Kva tyder $R^2 = 1$?","d5a7fbff3ed1cc27":"Modellen forklarer ingenting","8cd8a81d8962f392":"Linja går gjennom origo","85839b9bd8ee6449":"Alle punkta ligg eksakt på regresjonslinja","cf632fabbb80bb76":"Det finst nøyaktig éin uteliggjar","91c3f1fb5469f186":"$R^2 = 1$ tyder perfekt tilpassing: $\\text{SS}_{\\text{res}} = 0$, alle punkt ligg på linja.","89681b4daf9d9bcd":"## Oppsummering: linja gjennom datapunkta\n\nSpørsmålet til klassen — lønner det seg å lese? — vart svara med ein komplett statistisk arbeidsgang. **Spreiingsplottet** kom først og viste retning, form, styrke og eventuelle uteliggjarar; deretter valde vi **regresjonslinja** $\\hat{y} = ax + b$, definert som linja som minimerer summen av kvadrerte residual. **Minste kvadraters metode** gir formlane for $a$ og $b$, og linja går alltid gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$ — i praksis gjer kalkulatoren rekninga, men tolkinga er din jobb: stigingstalet 5,39 tydde «5,4 poeng per studietime», og konstantleddet angav venta resultat utan lesing.\n\n**Residuala** $e_i = y_i - \\hat{y}_i$ måler avviket til kvart punkt frå modellen — positive over linja, negative under, og alltid med sum null. **Determinasjonskoeffisienten** $R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}}$ oppsummerer tilpassinga i eitt tal: delen av variasjonen i $y$ som modellen forklarer, frå 0 (ingenting) til 1 (perfekt). For studiedataene gav $R^2 \\approx 0{,}976$ ein sjeldan sterk samanheng.\n\nMen to åtvaringar følgjer med inn i dei neste kapitla: ei sterk samvariasjon beviser ingen årsakssamanheng — det er temaet i 7.2 — og ein høg $R^2$ kan skjule at modellforma er feil, som residualanalysen i 7.4 vil avsløre. Regresjonslinja er eit kraftig verktøy, men det er tolkaren som gjer henne til kunnskap."}}}
+{
+  "id": "s1-7-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "7.1",
+  "title": "Lineær regresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om klassen som testa om lesing lønner seg — spreiingsplott, minste kvadraters metode, residual og R².",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn",
+    "bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett"
+  ],
+  "linkedChapterId": "s1-7-1",
+  "content": [
+    {
+      "id": "s1-7-1-n-intro",
+      "type": "text",
+      "content": "## Lønner det seg å lese meir?\n\nEin klasse vil teste ein gammal påstand: hjelper det eigentleg å studere fleire timar før prøven? Seks elevar noterer studietimane sine og poengsummen dei fekk, og datapara $(x_i, y_i)$ blir plotta i eit koordinatsystem. Resultatet blir kalla eit **spreiingsplott** (punktdiagram), og det er alltid det første steget når vi undersøkjer ein samanheng mellom to variablar.\n\nI plottet er $x$ — studietimane — **forklaringsvariabelen** (uavhengig variabel), og $y$ — poengsummen — **responsvariabelen** (avhengig variabel). Frå plottet vurderer vi fire ting: **retninga** (positiv, negativ eller ingen samanheng), **forma** (lineær eller krumma), **styrken** (kor tett punkta følgjer eit mønster) og **uteliggjarar** (punkt som skil seg markant frå resten).\n\nPlottet til klassen viser punkt som stig pent mot høgre — fleire timar ser ut til å gi fleire poeng, og mønsteret verkar lineært. Då melder neste spørsmål seg: kva for ei rett linje skildrar dataene *best*? Vi kunne lagt ein linjal på augemål, men to elevar ville lagt han ulikt. Vi treng ein objektiv definisjon av «best».\n\nIdeen er å sjå på avstandane mellom dei observerte $y$-verdiane og verdiane til linja — dei såkalla **residuala** — og velje linja som gjer dei kvadrerte avstandane minst mogleg til saman. Metoden blir kalla **minste kvadraters metode**, og linja han peikar ut, blir kalla **regresjonslinja**. Ho er det viktigaste verktøyet i kurset for å trekkje kunnskap ut av ekte datasett — og resten av kapittelet handlar om å finne henne, bruke henne og døme henne."
+    },
+    {
+      "id": "s1-7-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-7-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på spreiingsplott og variablar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-7-1-n-quiz1-q0",
+            "task": "I undersøkinga av studietimar og poengsum — kva blir studietimane kalla?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Responsvariabelen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Residualet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Forklaringsvariabelen (uavhengig variabel)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Regresjonskoeffisienten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variabelen vi trur påverkar ($x$) er forklaringsvariabelen; den som responderer ($y$) er responsvariabelen."
+          },
+          {
+            "id": "s1-7-1-n-quiz1-q1",
+            "task": "Kva er det første du bør gjere når du undersøkjer samanhengen mellom to variablar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Rekne ut gjennomsnittet av $y$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rekne ut $R^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fjerne uteliggjarar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lage eit spreiingsplott",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Spreiingsplottet viser retning, form, styrke og uteliggjarar — grunnlaget for alle vidare val."
+          },
+          {
+            "id": "s1-7-1-n-quiz1-q2",
+            "task": "Kva for fire eigenskapar vurderer vi i eit spreiingsplott?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Retning, form, styrke og uteliggjarar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Gjennomsnitt, median, typetal og variasjonsbreidd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Pris, mengd, inntekt og kostnad",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stiging, konstantledd, nullpunkt og asymptote",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi ser etter retninga, forma (lineær/krum), styrken og om det finst avvikande punkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-7-1-n-section1",
+      "type": "text",
+      "content": "## Minste kvadraters metode i praksis\n\n**Regresjonslinja** er den linja $\\hat{y} = ax + b$ som minimerer summen av kvadrerte residual:\n\n$$S = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 = \\sum_{i=1}^{n}(y_i - ax_i - b)^2$$\n\nMinste kvadraters metode gir eksplisitte formlar for koeffisientane:\n\n$$a = \\frac{n\\sum x_i y_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2} \\qquad b = \\bar{y} - a\\bar{x}$$\n\nder $\\bar{x}$ og $\\bar{y}$ er gjennomsnitta. Ein elegant konsekvens av den siste formelen: regresjonslinja går **alltid gjennom punktet $(\\bar{x}, \\bar{y})$** — tyngdepunktet i datasettet. I praksis lèt vi kalkulator eller rekneark gjere rekninga, men det er verdt å sjå henne éin gong for hand.\n\nDei seks datapunkta til klassen gir $n = 6$, $\\sum x_i = 34$, $\\sum y_i = 400$, $\\sum x_i^2 = 238$ og $\\sum x_i y_i = 2511$. Då blir\n\n$$a = \\frac{6 \\cdot 2511 - 34 \\cdot 400}{6 \\cdot 238 - 34^2} = \\frac{1466}{272} \\approx 5{,}39$$\n\nog $b = 66{,}67 - 5{,}39 \\cdot 5{,}67 \\approx 36{,}12$. Regresjonslinja er altså\n\n$$\\hat{y} = 5{,}39x + 36{,}12$$\n\nOg no kjem det viktigaste: **tolkinga**. Stigingstalet tyder at kvar ekstra studietime i gjennomsnitt gir cirka 5,4 poeng meir. Konstantleddet tyder at ein elev som ikkje studerer i det heile, kan vente rundt 36 poeng. Linja kan òg brukast til **prediksjon** — kva kan ein elev som les 7 timar vente? $\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng. Regresjonslinja forvandlar seks lause observasjonar til eit verktøy."
+    },
+    {
+      "id": "s1-7-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-7-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på regresjonslinja:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-7-1-n-quiz2-q0",
+            "task": "Kva minimerer regresjonslinja?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Summen av residuala",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Summen av dei kvadrerte residuala",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Talet på uteliggjarar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Avstanden til origo",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Minste kvadraters metode vel linja som minimerer $\\sum (y_i - \\hat{y}_i)^2$."
+          },
+          {
+            "id": "s1-7-1-n-quiz2-q1",
+            "task": "Regresjonslinja for studiedataene er $\\hat{y} = 5{,}39x + 36{,}12$. Korleis blir stigingstalet tolka?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Maksimal poengsum er $5{,}39$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein elev som ikkje les får $5{,}39$ poeng",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Kvar ekstra studietime gir i gjennomsnitt ca. $5{,}4$ poeng meir",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Poengsummen blir dobla per time",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigingstalet $a$ angir gjennomsnittleg endring i $y$ per einings auke i $x$."
+          },
+          {
+            "id": "s1-7-1-n-quiz2-q2",
+            "task": "Kva for eit punkt går regresjonslinja alltid gjennom?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Origo $(0, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det første datapunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Punktet med størst residual",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gjennomsnittspunktet $(\\bar{x}, \\bar{y})$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Av $b = \\bar{y} - a\\bar{x}$ følgjer at linja alltid går gjennom $(\\bar{x}, \\bar{y})$."
+          },
+          {
+            "id": "s1-7-1-n-quiz2-q3",
+            "task": "Kva er den predikerte poengsummen for ein elev som les $7$ timar ($\\hat{y} = 5{,}39x + 36{,}12$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. $74$ poeng",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. $42$ poeng",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $66$ poeng",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $86$ poeng",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-7-1-n-section2",
+      "type": "text",
+      "content": "## Residual og $R^2$ — kor god er linja?\n\nLinja er funnen, men kor godt passar ho eigentleg? Første verktøy er **residuala**. Residualet for datapunkt $i$ er\n\n$$e_i = y_i - \\hat{y}_i$$\n\n— differansen mellom observert og predikert verdi. Er $e_i > 0$, ligg punktet over linja; er $e_i < 0$, ligg det under; og for regresjonslinja er alltid $\\sum e_i = 0$ — overskot og underskot utliknar kvarandre. Plottar vi residuala mot $x$ (eit **residualplott**), bør ein god lineær modell vise tilfeldig spreiing utan mønster.\n\nFor dataene til klassen blir residuala $-1{,}90$; $2{,}71$; $-3{,}07$; $3{,}54$; $-1{,}24$; $-0{,}02$ — små, utan system, og med sum tilnærma null. Lovande.\n\nAndre verktøy er **determinasjonskoeffisienten** $R^2$:\n\n$$R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$$\n\nHer er $\\text{SS}_{\\text{res}}$ den **uforklarte** variasjonen (residualkvadratsummen) og $\\text{SS}_{\\text{tot}}$ den **totale** variasjonen i $y$. Dermed angir $R^2$ delen av variasjonen i $y$ som modellen **forklarer**. Han ligg alltid mellom 0 og 1: $R^2 = 1$ tyder at alle punkta ligg eksakt på linja, $R^2 = 0$ at modellen ikkje forklarer noko, og $R^2 = 0{,}85$ at 85 % av variasjonen i $y$ blir forklart av $x$.\n\nFor studiedataene: $\\text{SS}_{\\text{res}} \\approx 32{,}4$ og $\\text{SS}_{\\text{tot}} \\approx 1333{,}3$ gir\n\n$$R^2 = 1 - \\frac{32{,}4}{1333{,}3} \\approx 0{,}976$$\n\nStudietimane forklarer altså cirka **97,6 %** av variasjonen i poengsum — ei svært god tilpassing. Klassen har svaret sitt: ja, det lønner seg å lese. Men hugs allereie no: ein høg $R^2$ er ikkje heile historia — det skal kapittel 7.4 vise."
+    },
+    {
+      "id": "s1-7-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-7-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på residual og determinasjonskoeffisienten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-7-1-n-quiz3-q0",
+            "task": "Kva er residualet $e_i$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\hat{y}_i - \\bar{y}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y_i - \\hat{y}_i$ — observert minus predikert verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Avstanden frå punktet til $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x_i - \\bar{x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Residualet er avviket mellom observasjonen og prediksjonen til modellen: $e_i = y_i - \\hat{y}_i$."
+          },
+          {
+            "id": "s1-7-1-n-quiz3-q1",
+            "task": "Kva er summen av residuala for ei regresjonslinje?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alltid positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lik $R^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid null",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Lik talet på datapunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For minste kvadraters regresjonslinje er $\\sum e_i = 0$ — avvika over og under linja utliknar kvarandre."
+          },
+          {
+            "id": "s1-7-1-n-quiz3-q2",
+            "task": "$R^2 = 0{,}976$ for studiedataene. Kva tyder det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$97{,}6\\,\\%$ av elevane fekk betre karakter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Stigingstalet er $0{,}976$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2{,}4\\,\\%$ av punkta er uteliggjarar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. $97{,}6\\,\\%$ av variasjonen i poengsum blir forklart av studietimane",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$R^2$ angir delen av variasjonen i $y$ som modellen forklarer."
+          },
+          {
+            "id": "s1-7-1-n-quiz3-q3",
+            "task": "Kva tyder $R^2 = 1$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Alle punkta ligg eksakt på regresjonslinja",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Modellen forklarer ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Linja går gjennom origo",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det finst nøyaktig éin uteliggjar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2 = 1$ tyder perfekt tilpassing: $\\text{SS}_{\\text{res}} = 0$, alle punkt ligg på linja."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-7-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: linja gjennom datapunkta\n\nSpørsmålet til klassen — lønner det seg å lese? — vart svara med ein komplett statistisk arbeidsgang. **Spreiingsplottet** kom først og viste retning, form, styrke og eventuelle uteliggjarar; deretter valde vi **regresjonslinja** $\\hat{y} = ax + b$, definert som linja som minimerer summen av kvadrerte residual. **Minste kvadraters metode** gir formlane for $a$ og $b$, og linja går alltid gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$ — i praksis gjer kalkulatoren rekninga, men tolkinga er din jobb: stigingstalet 5,39 tydde «5,4 poeng per studietime», og konstantleddet angav venta resultat utan lesing.\n\n**Residuala** $e_i = y_i - \\hat{y}_i$ måler avviket til kvart punkt frå modellen — positive over linja, negative under, og alltid med sum null. **Determinasjonskoeffisienten** $R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}}$ oppsummerer tilpassinga i eitt tal: delen av variasjonen i $y$ som modellen forklarer, frå 0 (ingenting) til 1 (perfekt). For studiedataene gav $R^2 \\approx 0{,}976$ ein sjeldan sterk samanheng.\n\nMen to åtvaringar følgjer med inn i dei neste kapitla: ei sterk samvariasjon beviser ingen årsakssamanheng — det er temaet i 7.2 — og ein høg $R^2$ kan skjule at modellforma er feil, som residualanalysen i 7.4 vil avsløre. Regresjonslinja er eit kraftig verktøy, men det er tolkaren som gjer henne til kunnskap."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "36ee823cf0f7fcde",
+    "translatedAt": "2026-06-20T08:35:01.900Z",
+    "model": "claude-code-agent",
+    "strings": 81,
+    "tm": {
+      "4fad81a008c97815": "Lineær regresjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "63a842d577dad6af": "Ei forteljing om klassen som testa om lesing lønner seg — spreiingsplott, minste kvadraters metode, residual og R².",
+      "f19afc4d3d0e5171": "planlegge og gjennomføre eit sjølvstendig arbeid med reelle datasett knytte til samfunnsøkonomiske tema og forhold, og analysere og presentere funn",
+      "6c8c1b0ca1a567ea": "bruke derivasjon til å analysere og tolke eigne matematiske modellar av reelle datasett",
+      "43bd7f4023de53c7": "## Lønner det seg å lese meir?\n\nEin klasse vil teste ein gammal påstand: hjelper det eigentleg å studere fleire timar før prøven? Seks elevar noterer studietimane sine og poengsummen dei fekk, og datapara $(x_i, y_i)$ blir plotta i eit koordinatsystem. Resultatet blir kalla eit **spreiingsplott** (punktdiagram), og det er alltid det første steget når vi undersøkjer ein samanheng mellom to variablar.\n\nI plottet er $x$ — studietimane — **forklaringsvariabelen** (uavhengig variabel), og $y$ — poengsummen — **responsvariabelen** (avhengig variabel). Frå plottet vurderer vi fire ting: **retninga** (positiv, negativ eller ingen samanheng), **forma** (lineær eller krumma), **styrken** (kor tett punkta følgjer eit mønster) og **uteliggjarar** (punkt som skil seg markant frå resten).\n\nPlottet til klassen viser punkt som stig pent mot høgre — fleire timar ser ut til å gi fleire poeng, og mønsteret verkar lineært. Då melder neste spørsmål seg: kva for ei rett linje skildrar dataene *best*? Vi kunne lagt ein linjal på augemål, men to elevar ville lagt han ulikt. Vi treng ein objektiv definisjon av «best».\n\nIdeen er å sjå på avstandane mellom dei observerte $y$-verdiane og verdiane til linja — dei såkalla **residuala** — og velje linja som gjer dei kvadrerte avstandane minst mogleg til saman. Metoden blir kalla **minste kvadraters metode**, og linja han peikar ut, blir kalla **regresjonslinja**. Ho er det viktigaste verktøyet i kurset for å trekkje kunnskap ut av ekte datasett — og resten av kapittelet handlar om å finne henne, bruke henne og døme henne.",
+      "b5510a19fe7999d9": "Test deg sjølv på spreiingsplott og variablar:",
+      "4097889236a2af26": "placeholder",
+      "0cd4b076b9ddc040": "I undersøkinga av studietimar og poengsum — kva blir studietimane kalla?",
+      "c520e0959d46fb83": "Forklaringsvariabelen (uavhengig variabel)",
+      "46de939fe833eb94": "Responsvariabelen",
+      "e9f82c246e2b75fe": "Residualet",
+      "8aa78d365f783929": "Regresjonskoeffisienten",
+      "380fdd57d7f7968e": "Variabelen vi trur påverkar ($x$) er forklaringsvariabelen; den som responderer ($y$) er responsvariabelen.",
+      "dd58cab2367ece8b": "Kva er det første du bør gjere når du undersøkjer samanhengen mellom to variablar?",
+      "3b8204a6d1f88b93": "Rekne ut gjennomsnittet av $y$",
+      "b852686fca2d3a36": "Lage eit spreiingsplott",
+      "22ee6b695aa1803f": "Rekne ut $R^2$",
+      "fe775696a4b468ed": "Fjerne uteliggjarar",
+      "b91638d78272a15a": "Spreiingsplottet viser retning, form, styrke og uteliggjarar — grunnlaget for alle vidare val.",
+      "1b21b295f9f89082": "Kva for fire eigenskapar vurderer vi i eit spreiingsplott?",
+      "b3d8bd147d4979fe": "Gjennomsnitt, median, typetal og variasjonsbreidd",
+      "1c016da2f4df2c42": "Pris, mengd, inntekt og kostnad",
+      "4207365f0873d618": "Retning, form, styrke og uteliggjarar",
+      "59f1ef2561aca2de": "Stiging, konstantledd, nullpunkt og asymptote",
+      "db090b969c085560": "Vi ser etter retninga, forma (lineær/krum), styrken og om det finst avvikande punkt.",
+      "5f3a20f98bc974d0": "## Minste kvadraters metode i praksis\n\n**Regresjonslinja** er den linja $\\hat{y} = ax + b$ som minimerer summen av kvadrerte residual:\n\n$$S = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 = \\sum_{i=1}^{n}(y_i - ax_i - b)^2$$\n\nMinste kvadraters metode gir eksplisitte formlar for koeffisientane:\n\n$$a = \\frac{n\\sum x_i y_i - \\sum x_i \\sum y_i}{n\\sum x_i^2 - (\\sum x_i)^2} \\qquad b = \\bar{y} - a\\bar{x}$$\n\nder $\\bar{x}$ og $\\bar{y}$ er gjennomsnitta. Ein elegant konsekvens av den siste formelen: regresjonslinja går **alltid gjennom punktet $(\\bar{x}, \\bar{y})$** — tyngdepunktet i datasettet. I praksis lèt vi kalkulator eller rekneark gjere rekninga, men det er verdt å sjå henne éin gong for hand.\n\nDei seks datapunkta til klassen gir $n = 6$, $\\sum x_i = 34$, $\\sum y_i = 400$, $\\sum x_i^2 = 238$ og $\\sum x_i y_i = 2511$. Då blir\n\n$$a = \\frac{6 \\cdot 2511 - 34 \\cdot 400}{6 \\cdot 238 - 34^2} = \\frac{1466}{272} \\approx 5{,}39$$\n\nog $b = 66{,}67 - 5{,}39 \\cdot 5{,}67 \\approx 36{,}12$. Regresjonslinja er altså\n\n$$\\hat{y} = 5{,}39x + 36{,}12$$\n\nOg no kjem det viktigaste: **tolkinga**. Stigingstalet tyder at kvar ekstra studietime i gjennomsnitt gir cirka 5,4 poeng meir. Konstantleddet tyder at ein elev som ikkje studerer i det heile, kan vente rundt 36 poeng. Linja kan òg brukast til **prediksjon** — kva kan ein elev som les 7 timar vente? $\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng. Regresjonslinja forvandlar seks lause observasjonar til eit verktøy.",
+      "b76a591da513e32e": "Test deg sjølv på regresjonslinja:",
+      "ac771339634aec3f": "Kva minimerer regresjonslinja?",
+      "d78964f51dd744c0": "Summen av residuala",
+      "cd72238e83ecc2ef": "Talet på uteliggjarar",
+      "6295433814375c47": "Avstanden til origo",
+      "c43ec53be9c10d12": "Summen av dei kvadrerte residuala",
+      "38c295104d1d2460": "Minste kvadraters metode vel linja som minimerer $\\sum (y_i - \\hat{y}_i)^2$.",
+      "b102a013ffee0fb6": "Regresjonslinja for studiedataene er $\\hat{y} = 5{,}39x + 36{,}12$. Korleis blir stigingstalet tolka?",
+      "c2c7cb00367feca8": "Kvar ekstra studietime gir i gjennomsnitt ca. $5{,}4$ poeng meir",
+      "c28947b9537c3b9a": "Maksimal poengsum er $5{,}39$",
+      "b217cb0822753826": "Ein elev som ikkje les får $5{,}39$ poeng",
+      "006ea5a1ad87aedd": "Poengsummen blir dobla per time",
+      "a4eb975935b13250": "Stigingstalet $a$ angir gjennomsnittleg endring i $y$ per einings auke i $x$.",
+      "62138485d1ab4c4f": "Kva for eit punkt går regresjonslinja alltid gjennom?",
+      "768223f5fc450c18": "Origo $(0, 0)$",
+      "2585e828e18af3ee": "Det første datapunktet",
+      "2c0da705dd94545a": "Gjennomsnittspunktet $(\\bar{x}, \\bar{y})$",
+      "7c87401f35a5a5c0": "Punktet med størst residual",
+      "e3749142756f4363": "Av $b = \\bar{y} - a\\bar{x}$ følgjer at linja alltid går gjennom $(\\bar{x}, \\bar{y})$.",
+      "87176769bcdae988": "Kva er den predikerte poengsummen for ein elev som les $7$ timar ($\\hat{y} = 5{,}39x + 36{,}12$)?",
+      "9b18a411b48aa0db": "Ca. $42$ poeng",
+      "8233d964f73a6213": "Ca. $74$ poeng",
+      "c350368714b3f631": "Ca. $66$ poeng",
+      "2a74512e85552b0b": "Ca. $86$ poeng",
+      "f4b9c39e1be883cc": "$\\hat{y} = 5{,}39 \\cdot 7 + 36{,}12 \\approx 73{,}8$ poeng.",
+      "6f7a0d0961848be4": "## Residual og $R^2$ — kor god er linja?\n\nLinja er funnen, men kor godt passar ho eigentleg? Første verktøy er **residuala**. Residualet for datapunkt $i$ er\n\n$$e_i = y_i - \\hat{y}_i$$\n\n— differansen mellom observert og predikert verdi. Er $e_i > 0$, ligg punktet over linja; er $e_i < 0$, ligg det under; og for regresjonslinja er alltid $\\sum e_i = 0$ — overskot og underskot utliknar kvarandre. Plottar vi residuala mot $x$ (eit **residualplott**), bør ein god lineær modell vise tilfeldig spreiing utan mønster.\n\nFor dataene til klassen blir residuala $-1{,}90$; $2{,}71$; $-3{,}07$; $3{,}54$; $-1{,}24$; $-0{,}02$ — små, utan system, og med sum tilnærma null. Lovande.\n\nAndre verktøy er **determinasjonskoeffisienten** $R^2$:\n\n$$R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}$$\n\nHer er $\\text{SS}_{\\text{res}}$ den **uforklarte** variasjonen (residualkvadratsummen) og $\\text{SS}_{\\text{tot}}$ den **totale** variasjonen i $y$. Dermed angir $R^2$ delen av variasjonen i $y$ som modellen **forklarer**. Han ligg alltid mellom 0 og 1: $R^2 = 1$ tyder at alle punkta ligg eksakt på linja, $R^2 = 0$ at modellen ikkje forklarer noko, og $R^2 = 0{,}85$ at 85 % av variasjonen i $y$ blir forklart av $x$.\n\nFor studiedataene: $\\text{SS}_{\\text{res}} \\approx 32{,}4$ og $\\text{SS}_{\\text{tot}} \\approx 1333{,}3$ gir\n\n$$R^2 = 1 - \\frac{32{,}4}{1333{,}3} \\approx 0{,}976$$\n\nStudietimane forklarer altså cirka **97,6 %** av variasjonen i poengsum — ei svært god tilpassing. Klassen har svaret sitt: ja, det lønner seg å lese. Men hugs allereie no: ein høg $R^2$ er ikkje heile historia — det skal kapittel 7.4 vise.",
+      "93d7ade1c301805e": "Test deg sjølv på residual og determinasjonskoeffisienten:",
+      "f76c719cbff019a2": "Kva er residualet $e_i$?",
+      "fedbac4dd9923860": "$y_i - \\hat{y}_i$ — observert minus predikert verdi",
+      "a1cdc4a1faea3f4e": "$\\hat{y}_i - \\bar{y}$",
+      "d3286300e089ec52": "Avstanden frå punktet til $x$-aksen",
+      "0505712c49fd3df3": "$x_i - \\bar{x}$",
+      "00dfa0c0e3039aa7": "Residualet er avviket mellom observasjonen og prediksjonen til modellen: $e_i = y_i - \\hat{y}_i$.",
+      "cf2e8f22afc7ff30": "Kva er summen av residuala for ei regresjonslinje?",
+      "8be83b0c480cec6b": "Alltid positiv",
+      "5557c07a3c6dcad3": "Lik $R^2$",
+      "0312f64bb2ea55b4": "Lik talet på datapunkt",
+      "9eddab9fc63adc60": "Alltid null",
+      "c3c07f6af50df4b3": "For minste kvadraters regresjonslinje er $\\sum e_i = 0$ — avvika over og under linja utliknar kvarandre.",
+      "39f8ccac240f3887": "$R^2 = 0{,}976$ for studiedataene. Kva tyder det?",
+      "c0d01a50e039af99": "$97{,}6\\,\\%$ av elevane fekk betre karakter",
+      "664d3a453f7bb4a3": "Ca. $97{,}6\\,\\%$ av variasjonen i poengsum blir forklart av studietimane",
+      "488e48e425a27ea5": "Stigingstalet er $0{,}976$",
+      "948e56311f8281bc": "$2{,}4\\,\\%$ av punkta er uteliggjarar",
+      "5696759ec4b89be2": "$R^2$ angir delen av variasjonen i $y$ som modellen forklarer.",
+      "890394106ef0755a": "Kva tyder $R^2 = 1$?",
+      "d5a7fbff3ed1cc27": "Modellen forklarer ingenting",
+      "8cd8a81d8962f392": "Linja går gjennom origo",
+      "85839b9bd8ee6449": "Alle punkta ligg eksakt på regresjonslinja",
+      "cf632fabbb80bb76": "Det finst nøyaktig éin uteliggjar",
+      "91c3f1fb5469f186": "$R^2 = 1$ tyder perfekt tilpassing: $\\text{SS}_{\\text{res}} = 0$, alle punkt ligg på linja.",
+      "89681b4daf9d9bcd": "## Oppsummering: linja gjennom datapunkta\n\nSpørsmålet til klassen — lønner det seg å lese? — vart svara med ein komplett statistisk arbeidsgang. **Spreiingsplottet** kom først og viste retning, form, styrke og eventuelle uteliggjarar; deretter valde vi **regresjonslinja** $\\hat{y} = ax + b$, definert som linja som minimerer summen av kvadrerte residual. **Minste kvadraters metode** gir formlane for $a$ og $b$, og linja går alltid gjennom tyngdepunktet $(\\bar{x}, \\bar{y})$ — i praksis gjer kalkulatoren rekninga, men tolkinga er din jobb: stigingstalet 5,39 tydde «5,4 poeng per studietime», og konstantleddet angav venta resultat utan lesing.\n\n**Residuala** $e_i = y_i - \\hat{y}_i$ måler avviket til kvart punkt frå modellen — positive over linja, negative under, og alltid med sum null. **Determinasjonskoeffisienten** $R^2 = 1 - \\frac{\\text{SS}_{\\text{res}}}{\\text{SS}_{\\text{tot}}}$ oppsummerer tilpassinga i eitt tal: delen av variasjonen i $y$ som modellen forklarer, frå 0 (ingenting) til 1 (perfekt). For studiedataene gav $R^2 \\approx 0{,}976$ ein sjeldan sterk samanheng.\n\nMen to åtvaringar følgjer med inn i dei neste kapitla: ei sterk samvariasjon beviser ingen årsakssamanheng — det er temaet i 7.2 — og ein høg $R^2$ kan skjule at modellforma er feil, som residualanalysen i 7.4 vil avsløre. Regresjonslinja er eit kraftig verktøy, men det er tolkaren som gjer henne til kunnskap."
+    }
+  }
+}

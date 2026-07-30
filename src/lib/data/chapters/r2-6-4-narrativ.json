@@ -1,1 +1,556 @@
-{"id":"r2-6-4-narrativ","courseId":"r2","chapterNumber":"6.4","title":"Matematisk modellering","subtitle":"Narrativ versjon","description":"En fortelling om modellbyggerens verksted — kunsten å velge riktig funksjon for virkeligheten, bestemme parametrene, og vite nøyaktig hvor modellen slutter å gjelde.","estimatedMinutes":35,"competenceGoals":["gi døme på ulike situasjonar som kan modellerast med ulike matematiske funksjonar","tolke og validere matematiske modellar","vurdere begrensningar ved matematiske modellar"],"linkedChapterId":"r2-6-4","content":[{"id":"r2-6-4-n-intro","type":"text","content":"## Modellbyggerens verksted\n\nTenk deg at du driver et lite konsulentkontor for matematiske modeller, og at klientene står i kø utenfor døra. Et taxiselskap vil ha en prisformel. En mikrobiolog lurer på når bakteriekulturen passerer millionen. Havnekontoret må vite når en dyptgående båt kan seile inn. En arkeolog har et fossilt bein og et spørsmål: hvor gammelt? Fire vidt forskjellige problemer — men jobben din er den samme hver gang: finn en **matematisk modell**, en forenklet representasjon av virkeligheten uttrykt som en funksjon.\n\nOrdet *forenklet* er ikke en svakhet, det er selve poenget. Virkeligheten er uoverskuelig; modellen beholder det som betyr noe og kaster resten. Og arbeidet følger alltid den samme prosessen i fem steg: **identifiser problemet** (hvilke variabler, hvilke sammenhenger?), **velg modelltype** (hvilken funksjonsfamilie passer måten ting endrer seg på?), **bestem parametrene** (bruk data til å finne konstantene), **valider** (gir modellen fornuftige svar mot kjente data?) og **tolk og anvend** — med et våkent øye for begrensningene.\n\nDet springende punktet er steg to. Verkstedet ditt har seks hovedverktøy i hylla: den *lineære* modellen, *polynomene*, *potensmodellen*, den *eksponentielle*, den *trigonometriske* og den *logistiske*. Hver av dem har et kjennemerke — en bestemt måte å endre seg på — og kunsten du skal lære i dette kapittelet, er å gjenkjenne kjennemerket i klientens problem. Velger du riktig funksjon, løser resten seg nesten selv. Velger du feil, kan modellen forutsi at kaffen blir kaldere enn isvann. Vi tar imot klientene én familie om gangen."},{"id":"r2-6-4-n-section1","type":"text","content":"## Jevn endring og kvadratiske lover: lineær, polynom, potens\n\nFørste klient: taxiselskapet. Prisen består av et startgebyr på $50$ kr pluss $15$ kr per kilometer — en fast del og en del som vokser *jevnt*. Det er den **lineære modellens** kjennemerke: konstant endringsrate. Modellen $K(x) = 50 + 15x$ gir $K(8) = 170$ kr for en åttekilometerstur, og spørsmålet «hvor langt for $200$ kr?» løses baklengs: $15x = 150$, ti kilometer. Konstant fart, fast timepris, jevn vekst — alt sammen lineært.\n\nMen ikke alt endrer seg jevnt. En ball kastet rett opp med $20$ m/s følger $h(t) = 20t - 4{,}9t^2$ — et **andregradspolynom**, fysikkens egen signatur for konstant akselerasjon. Derivasjon finner toppen: $h'(t) = 20 - 9{,}8t = 0$ gir $t \\approx 2{,}04$ s og maksimalhøyde $\\approx 20{,}4$ m, og landingen ved $h(t) = 0$ kommer ved $t \\approx 4{,}08$ s. Polynomer er også verkstedets universaltang for buktende sammenhenger med topper og bunner.\n\nTredje klient, trafikksikkerhetskontoret, illustrerer **potensmodellen** $f(x) = ax^n$: bremselengden er proporsjonal med *kvadratet* av farten, $s(v) = kv^2$. Ett datapunkt kalibrerer: $12$ m ved $50$ km/t gir $k = \\frac{12}{2500} = 0{,}0048$. Så leverer modellen: ved $80$ km/t er bremselengden $0{,}0048 \\cdot 6400 \\approx 31$ m — over dobbelt så lang, for $60\\%$ høyere fart. Potenslover styrer geometri (areal $\\sim r^2$, volum $\\sim r^3$) og fysikk; selv himmelmekanikken: Keplers tredje lov $T^2 \\propto r^3$ gir $T = r^{3/2}$ med jordens data som kalibrering, og Mars med $r = 1{,}52$ AU får omløpstid $1{,}52^{3/2} \\approx 1{,}87$ år — fasit fra astronomene: $1{,}88$. Modellen treffer."},{"id":"r2-6-4-n-quiz1","type":"exercise","exercise":{"id":"r2-6-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på lineære modeller, polynomer og potensmodeller:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-4-n-quiz1-q0","task":"Taxituren koster $K(x) = 50 + 15x$ kr for $x$ km. Hva koster $8$ km?","options":[{"id":"a","text":"$120$ kr","isCorrect":false},{"id":"b","text":"$170$ kr","isCorrect":true},{"id":"c","text":"$185$ kr","isCorrect":false},{"id":"d","text":"$200$ kr","isCorrect":false}],"solution":"$K(8) = 50 + 15 \\cdot 8 = 50 + 120 = 170$ kr."},{"id":"r2-6-4-n-quiz1-q1","task":"Hva er kjennemerket som tilsier en lineær modell?","options":[{"id":"a","text":"Konstant prosentvis vekst","isCorrect":false},{"id":"b","text":"Periodisk variasjon","isCorrect":false},{"id":"c","text":"Konstant endringsrate — like store tillegg per enhet","isCorrect":true},{"id":"d","text":"Vekst som flater ut mot et tak","isCorrect":false}],"solution":"Lineære modeller $f(x) = ax + b$ passer når hver enhet gir samme absolutte endring, som kr per km."},{"id":"r2-6-4-n-quiz1-q2","task":"Bremselengden følger $s(v) = 0{,}0048v^2$. Hva er bremselengden ved $80$ km/t?","options":[{"id":"a","text":"ca. $31$ m","isCorrect":true},{"id":"b","text":"ca. $19$ m","isCorrect":false},{"id":"c","text":"ca. $12$ m","isCorrect":false},{"id":"d","text":"ca. $61$ m","isCorrect":false}],"solution":"$s(80) = 0{,}0048 \\cdot 6400 \\approx 30{,}7$ m — kvadratisk vekst gjør høy fart uforholdsmessig farlig."},{"id":"r2-6-4-n-quiz1-q3","task":"Keplers tredje lov gir $T = r^{3/2}$. Hva er omløpstiden til Mars med $r = 1{,}52$ AU?","options":[{"id":"a","text":"$1{,}52$ år","isCorrect":false},{"id":"b","text":"$2{,}28$ år","isCorrect":false},{"id":"c","text":"$3{,}51$ år","isCorrect":false},{"id":"d","text":"ca. $1{,}87$ år","isCorrect":true}],"solution":"$T = 1{,}52^{3/2} = \\sqrt{1{,}52^3} \\approx 1{,}87$ år — tett på den virkelige verdien $1{,}88$ år."}]}},{"id":"r2-6-4-n-section2","type":"text","content":"## Prosentvis endring: eksponentiell og logistisk\n\nMikrobiologen kommer inn med en kultur som *dobler seg* hver tredje time. Dobling er ikke jevn vekst — det er **prosentvis** vekst, samme faktor per tidsenhet, og det er den eksponentielle modellens kjennemerke: $f(t) = a \\cdot b^t$, eller på $e$-form $a \\cdot e^{kt}$. Kjennetegnet i analysens språk: $f'(t) = k \\cdot f(t)$ — veksten er proporsjonal med bestanden selv. Med $1000$ bakterier ved start blir modellen $N(t) = 1000 \\cdot 2^{t/3}$, som etter et halvt døgn gir $1000 \\cdot 2^4 = 16\\,000$, og millionspørsmålet løses med logaritmer: $2^{t/3} = 1000$ gir $t = 3\\log_2 1000 \\approx 30$ timer.\n\nSamme matematikk baklengs daterer arkeologens bein. Karbon-14 *halveres* hvert $5730$. år, og beinet har $25\\%$ igjen — det er $\\frac{1}{4} = \\left(\\frac{1}{2}\\right)^2$, altså nøyaktig to halveringstider: $11\\,460$ år.\n\nEksponentiell tilnærming mot en likevekt møter du i Newtons avkjølingslov $T(t) = T_\\infty + (T_0 - T_\\infty)e^{-kt}$: kaffen på $90°$C i et rom på $20°$C følger $T(t) = 20 + 70e^{-kt}$, og målingen $T(10) = 70$ kalibrerer $k \\approx 0{,}034$. Modellen melder $45{,}5°$C etter en halvtime — og temperaturen kryper asymptotisk mot romtemperaturen, aldri under.\n\nMen her må modellbyggeren være ærlig: ekte eksponentiell vekst er alltid midlertidig. Bakteriene går tom for næring; ingenting dobler seg evig. Da trengs hyllas sjette verktøy, den **logistiske modellen** $f(t) = \\frac{K}{1 + Ce^{-rt}}$, der veksten starter eksponentielt, men flater ut mot **bæreevnen** $K$. Epidemimodellen $I(t) = \\frac{50\\,000}{1 + 999e^{-0{,}3t}}$ viser forløpet: $50$ smittede ved start, rask vekst i midtfasen, og halve byen nådd etter $t = \\frac{\\ln 999}{0{,}3} \\approx 23$ dager — på vei mot metning, ikke uendelighet."},{"id":"r2-6-4-n-quiz2","type":"exercise","exercise":{"id":"r2-6-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på eksponentielle og logistiske modeller:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-4-n-quiz2-q0","task":"Bakteriekulturen $N(t) = 1000 \\cdot 2^{t/3}$ ($t$ i timer): hvor mange bakterier etter $12$ timer?","options":[{"id":"a","text":"$4000$","isCorrect":false},{"id":"b","text":"$8000$","isCorrect":false},{"id":"c","text":"$16\\,000$","isCorrect":true},{"id":"d","text":"$12\\,000$","isCorrect":false}],"solution":"$N(12) = 1000 \\cdot 2^{12/3} = 1000 \\cdot 2^4 = 16\\,000$ — fire doblinger."},{"id":"r2-6-4-n-quiz2-q1","task":"Et fossil har $25\\%$ av opprinnelig C-14 (halveringstid $5730$ år). Hvor gammelt er det?","options":[{"id":"a","text":"ca. $5730$ år","isCorrect":false},{"id":"b","text":"ca. $11\\,460$ år","isCorrect":true},{"id":"c","text":"ca. $2865$ år","isCorrect":false},{"id":"d","text":"ca. $22\\,920$ år","isCorrect":false}],"solution":"$25\\% = \\left(\\frac{1}{2}\\right)^2$: to halveringstider, altså $2 \\cdot 5730 = 11\\,460$ år."},{"id":"r2-6-4-n-quiz2-q2","task":"Hva skjer med kaffetemperaturen $T(t) = 20 + 70e^{-kt}$ når $t \\to \\infty$?","options":[{"id":"a","text":"Den synker mot $0°$C","isCorrect":false},{"id":"b","text":"Den stabiliserer seg på $70°$C","isCorrect":false},{"id":"c","text":"Den synker uten grense","isCorrect":false},{"id":"d","text":"Den nærmer seg romtemperaturen $20°$C asymptotisk","isCorrect":true}],"solution":"Leddet $70e^{-kt}$ dør ut, og $T \\to 20$: kaffen blir aldri kaldere enn rommet — en fysisk fornuftig asymptote."},{"id":"r2-6-4-n-quiz2-q3","task":"Hva representerer $K$ i den logistiske modellen $f(t) = \\frac{K}{1 + Ce^{-rt}}$?","options":[{"id":"a","text":"Bæreevnen — den øvre grensen veksten flater ut mot","isCorrect":true},{"id":"b","text":"Startverdien","isCorrect":false},{"id":"c","text":"Vekstraten i starten","isCorrect":false},{"id":"d","text":"Tidspunktet for raskest vekst","isCorrect":false}],"solution":"Når $t \\to \\infty$ går $f(t) \\to K$: logistisk vekst starter eksponentielt, men metter mot bæreevnen."}]}},{"id":"r2-6-4-n-section3","type":"text","content":"## Det som svinger: trigonometriske modeller\n\nHavnekontoret og meteorologen har samme matematiske problem: fenomener som går i ring. Temperaturen gjennom året, tidevannet gjennom døgnet, vekselstrøm, gangen i en svingende fjær — alt **periodisk** hører hjemme i den trigonometriske modellen\n\n$$f(t) = A\\sin(\\omega t + \\varphi) + D$$\n\nDe fire parametrene leses nesten rett ut av virkeligheten. Midtlinjen $D$ er gjennomsnittet av maksimum og minimum; **amplituden** $A$ er halve avstanden mellom dem; $\\omega = \\frac{2\\pi}{T}$ kodes av perioden $T$; og **faseforskyvningen** $\\varphi$ skyver kurven sideveis så toppene treffer riktig tidspunkt.\n\nByen med januarkulde på $-5°$C og julivarme på $+15°$C får dermed $D = \\frac{-5 + 15}{2} = 5$, $A = \\frac{15 - (-5)}{2} = 10$, og med periode $12$ måneder $\\omega = \\frac{\\pi}{6}$. Minimum i januar ($t = 1$) bestemmer fasen: $\\frac{\\pi}{6} + \\varphi = -\\frac{\\pi}{2}$ gir $\\varphi = -\\frac{2\\pi}{3}$, og modellen $T(t) = 10\\sin\\left(\\frac{\\pi t}{6} - \\frac{2\\pi}{3}\\right) + 5$ melder $5°$C i april — midt mellom ytterpunktene, som seg hør og bør om våren.\n\nHavnekontorets tidevann svinger mellom $0{,}5$ og $3{,}5$ m med periode $12{,}4$ timer og høyvann kl. 03: $h(t) = 1{,}5\\cos(0{,}507(t - 3)) + 2$. Nå kan kontoret svare på alt: lavvann en halv periode etter høyvann, ca. kl. 09:12, og båten som trenger $2$ m dybde — altså $h(t) \\geq 2$, som betyr $\\cos \\geq 0$ — kan seile inn fra midnatt til ca. kl. 06.\n\nOg noen klienter trenger flere verktøy samtidig. CO$_2$-målingene fra Mauna Loa viser både jevn stigning *og* årstidssvingning — modellen blir en sum: en trend pluss et cosinusledd, $C(t) = 317 + 1{,}62t + 3\\cos(2\\pi(t - \\frac{1}{3}))$. Virkeligheten bryr seg ikke om kapittelinndelinger; gode modeller kombinerer."},{"id":"r2-6-4-n-quiz3","type":"exercise","exercise":{"id":"r2-6-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på trigonometriske modeller:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-4-n-quiz3-q0","task":"Temperaturen varierer mellom $-5°$C og $+15°$C. Hva er amplituden $A$ og midtverdien $D$?","options":[{"id":"a","text":"$A = 20$, $D = 10$","isCorrect":false},{"id":"b","text":"$A = 15$, $D = -5$","isCorrect":false},{"id":"c","text":"$A = 10$, $D = 5$","isCorrect":true},{"id":"d","text":"$A = 5$, $D = 10$","isCorrect":false}],"solution":"$A = \\frac{15 - (-5)}{2} = 10$ og $D = \\frac{-5 + 15}{2} = 5$."},{"id":"r2-6-4-n-quiz3-q1","task":"En svingning har periode $T = 12$ måneder. Hva er $\\omega$ i $A\\sin(\\omega t + \\varphi) + D$?","options":[{"id":"a","text":"$\\omega = \\frac{\\pi}{6}$","isCorrect":true},{"id":"b","text":"$\\omega = 12$","isCorrect":false},{"id":"c","text":"$\\omega = \\frac{\\pi}{12}$","isCorrect":false},{"id":"d","text":"$\\omega = 2\\pi$","isCorrect":false}],"solution":"$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$."},{"id":"r2-6-4-n-quiz3-q2","task":"Tidevannet $h(t) = 1{,}5\\cos(0{,}507(t-3)) + 2$ har høyvann kl. 03. Når er det lavvann?","options":[{"id":"a","text":"Kl. 06","isCorrect":false},{"id":"b","text":"Kl. 15","isCorrect":false},{"id":"c","text":"Kl. 12","isCorrect":false},{"id":"d","text":"Ca. kl. 09:12 — en halv periode senere","isCorrect":true}],"solution":"Lavvann inntreffer en halv periode ($\\approx 6{,}2$ timer) etter høyvann: $3 + 6{,}2 \\approx 9{,}2$, dvs. ca. kl. 09:12."},{"id":"r2-6-4-n-quiz3-q3","task":"Når trengs en kombinert modell som $C(t) = 317 + 1{,}62t + 3\\cos(2\\pi(t - \\frac{1}{3}))$?","options":[{"id":"a","text":"Når dataene er helt lineære","isCorrect":false},{"id":"b","text":"Når fenomenet har både en langsiktig trend og en periodisk svingning","isCorrect":true},{"id":"c","text":"Når perioden er ukjent","isCorrect":false},{"id":"d","text":"Aldri — én modelltype holder alltid","isCorrect":false}],"solution":"CO$_2$-dataene stiger jevnt og svinger med årstidene: summen av en trend og et cosinusledd fanger begge deler."}]}},{"id":"r2-6-4-n-section4","type":"text","content":"## Den ærlige modellbyggeren: validering og begrensninger\n\nModellen er valgt og parametrene bestemt — fra data, slik biologen gjorde det: plantetellinger ga $N_0 = 100$ ved start, og punktet $(4, 320)$ kalibrerte vekstraten via $e^{4k} = 3{,}2$, altså $k \\approx 0{,}29$. Men er modellen *god*? Det er femte steg, og det skiller håndverkeren fra amatøren.\n\n**Validering** betyr å konfrontere modellen med virkeligheten. Beregn modellverdier for kjente datapunkter og se på avvikene — *residualene*. Biologens modell melder $N(6) \\approx 570$ mot målt $580$: godkjent. Tegn gjerne modell og data i samme diagram og se etter *systematiske* avvik — tilfeldig spredning er greit, et mønster i feilene er et varsku. Tallfest gjerne kvaliteten med $R^2$, andelen av variasjonen modellen forklarer: en lineær modell med $R^2 = 0{,}96$ forklarer $96\\%$ av variasjonen i dataene. Og sjekk grenseverdiene: gir modellen mening når $x \\to 0$ og $x \\to \\infty$?\n\nLike viktig er det å kjenne **begrensningene**. Hver modell har et *gyldighetsområde* — og synden over alle synder er ukritisk **ekstrapolering**, å bruke modellen langt utenfor dataene den ble bygget på. Bakteriemodellen $N(t) = 1000e^{0{,}1t}$ er utmerket de første timene, men ved $t = 200$ melder den $485$ *milliarder* bakterier — næringen, plassen og fysikken sier nei for lengst, og en logistisk modell med bæreevne må overta. Husk også forenklingene (luftmotstanden vi droppet, friksjonen vi glemte), antakelsene (eksponentiell vekst forutsetter ubegrensede ressurser), måleusikkerheten i dataene — og at verden endrer seg, så modellen må vedlikeholdes.\n\nEn modell er aldri *sann*. Den er *nyttig* — innenfor sitt område, til sitt formål, med sine forbehold oppgitt. Det er den ærlige modellbyggerens leveregel."},{"id":"r2-6-4-n-quiz4","type":"exercise","exercise":{"id":"r2-6-4-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på validering og begrensninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-6-4-n-quiz4-q0","task":"En modell har $R^2 = 0{,}96$. Hva betyr det?","options":[{"id":"a","text":"Modellen tar feil i $96\\%$ av tilfellene","isCorrect":false},{"id":"b","text":"Modellen er gyldig i $96$ år","isCorrect":false},{"id":"c","text":"Modellen forklarer $96\\%$ av variasjonen i dataene","isCorrect":true},{"id":"d","text":"Residualene er $0{,}96$ i snitt","isCorrect":false}],"solution":"$R^2$ angir andelen av variasjonen i dataene som modellen forklarer; $0{,}96$ er en meget god tilpasning."},{"id":"r2-6-4-n-quiz4-q1","task":"Hva er ekstrapolering?","options":[{"id":"a","text":"Å bruke modellen til å anslå verdier utenfor dataområdet den ble bygget på","isCorrect":true},{"id":"b","text":"Å fjerne avvikende datapunkter","isCorrect":false},{"id":"c","text":"Å derivere modellen","isCorrect":false},{"id":"d","text":"Å øke antall parametre","isCorrect":false}],"solution":"Ekstrapolering er prediksjon utenfor måleområdet — mulig, men stadig mer usikkert jo lenger ut man går."},{"id":"r2-6-4-n-quiz4-q2","task":"Hvorfor svikter $N(t) = 1000e^{0{,}1t}$ for store $t$?","options":[{"id":"a","text":"Eksponentialfunksjoner kan ikke beregnes for store $t$","isCorrect":false},{"id":"b","text":"Modellen forutsetter ubegrensede ressurser — virkeligheten har et tak (bæreevne)","isCorrect":true},{"id":"c","text":"Vekstraten $0{,}1$ er for liten","isCorrect":false},{"id":"d","text":"Bakterier vokser lineært","isCorrect":false}],"solution":"Ved $t = 200$ melder modellen $485$ milliarder bakterier. Næring og plass er endelige; en logistisk modell med bæreevne er realistisk på lang sikt."},{"id":"r2-6-4-n-quiz4-q3","task":"Hva kjennetegner et systematisk avvik mellom modell og data?","options":[{"id":"a","text":"Avvikene er små","isCorrect":false},{"id":"b","text":"Avvikene er tilfeldig fordelt rundt null","isCorrect":false},{"id":"c","text":"Det finnes ingen avvik","isCorrect":false},{"id":"d","text":"Residualene følger et mønster — et tegn på at feil modelltype er valgt","isCorrect":true}],"solution":"Tilfeldige residualer er normalt; et mønster (for eksempel en kurve) avslører at modellen mangler noe strukturelt."}]}},{"id":"r2-6-4-n-summary","type":"text","content":"## Oppsummering\n\nVerkstedet stengte med alle klientene betjent — og oppskriften de fikk, var alltid den samme femstegsprosessen: identifiser problemet, velg modelltype, bestem parametrene fra data, valider, og anvend med forbehold.\n\nValget av funksjonsfamilie styres av endringens kjennemerke. Konstant endringsrate ga den **lineære** modellen $ax + b$ — taxien til $170$ kr. Konstant akselerasjon og buede sammenhenger ga **polynomene** — ballens $20t - 4{,}9t^2$ med topp på $20{,}4$ m. Skaleringslover ga **potensmodellen** $ax^n$ — bremselengdens $kv^2$ og Keplers $T = r^{3/2}$. Prosentvis endring ga den **eksponentielle** $a \\cdot e^{kt}$ — bakterienes dobling, C-14-dateringens $11\\,460$ år, kaffens sig mot romtemperaturen. Vekst mot et tak ga den **logistiske** $\\frac{K}{1 + Ce^{-rt}}$ med bæreevnen $K$. Og alt som svinger, ga den **trigonometriske** $A\\sin(\\omega t + \\varphi) + D$, der $D$ er midtverdien, $A$ halve svingebredden, $\\omega = \\frac{2\\pi}{T}$ og fasen plasserer toppene — temperaturåret og tidevannet i havna. Sammensatte fenomener fikk sammensatte modeller, som CO$_2$-kurvens trend pluss svingning.\n\nOg så ærligheten: validér mot data med residualer og $R^2$, sjekk grenseverdier, oppgi gyldighetsområdet — og ekstrapolér med ytterste varsomhet. En modell er en forenkling med formål, aldri en fasit.\n\nI neste kapittel slipper vi teorien løs på *ekte, rotete måledata* — der regresjon, residualanalyse og dømmekraft må samarbeide."}],"exercises":[]}
+{
+  "id": "r2-6-4-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "6.4",
+  "title": "Matematisk modellering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om modellbyggerens verksted — kunsten å velge riktig funksjon for virkeligheten, bestemme parametrene, og vite nøyaktig hvor modellen slutter å gjelde.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "gi døme på ulike situasjonar som kan modellerast med ulike matematiske funksjonar",
+    "tolke og validere matematiske modellar",
+    "vurdere begrensningar ved matematiske modellar"
+  ],
+  "linkedChapterId": "r2-6-4",
+  "content": [
+    {
+      "id": "r2-6-4-n-intro",
+      "type": "text",
+      "content": "## Modellbyggerens verksted\n\nTenk deg at du driver et lite konsulentkontor for matematiske modeller, og at klientene står i kø utenfor døra. Et taxiselskap vil ha en prisformel. En mikrobiolog lurer på når bakteriekulturen passerer millionen. Havnekontoret må vite når en dyptgående båt kan seile inn. En arkeolog har et fossilt bein og et spørsmål: hvor gammelt? Fire vidt forskjellige problemer — men jobben din er den samme hver gang: finn en **matematisk modell**, en forenklet representasjon av virkeligheten uttrykt som en funksjon.\n\nOrdet *forenklet* er ikke en svakhet, det er selve poenget. Virkeligheten er uoverskuelig; modellen beholder det som betyr noe og kaster resten. Og arbeidet følger alltid den samme prosessen i fem steg: **identifiser problemet** (hvilke variabler, hvilke sammenhenger?), **velg modelltype** (hvilken funksjonsfamilie passer måten ting endrer seg på?), **bestem parametrene** (bruk data til å finne konstantene), **valider** (gir modellen fornuftige svar mot kjente data?) og **tolk og anvend** — med et våkent øye for begrensningene.\n\nDet springende punktet er steg to. Verkstedet ditt har seks hovedverktøy i hylla: den *lineære* modellen, *polynomene*, *potensmodellen*, den *eksponentielle*, den *trigonometriske* og den *logistiske*. Hver av dem har et kjennemerke — en bestemt måte å endre seg på — og kunsten du skal lære i dette kapittelet, er å gjenkjenne kjennemerket i klientens problem. Velger du riktig funksjon, løser resten seg nesten selv. Velger du feil, kan modellen forutsi at kaffen blir kaldere enn isvann. Vi tar imot klientene én familie om gangen."
+    },
+    {
+      "id": "r2-6-4-n-section1",
+      "type": "text",
+      "content": "## Jevn endring og kvadratiske lover: lineær, polynom, potens\n\nFørste klient: taxiselskapet. Prisen består av et startgebyr på $50$ kr pluss $15$ kr per kilometer — en fast del og en del som vokser *jevnt*. Det er den **lineære modellens** kjennemerke: konstant endringsrate. Modellen $K(x) = 50 + 15x$ gir $K(8) = 170$ kr for en åttekilometerstur, og spørsmålet «hvor langt for $200$ kr?» løses baklengs: $15x = 150$, ti kilometer. Konstant fart, fast timepris, jevn vekst — alt sammen lineært.\n\nMen ikke alt endrer seg jevnt. En ball kastet rett opp med $20$ m/s følger $h(t) = 20t - 4{,}9t^2$ — et **andregradspolynom**, fysikkens egen signatur for konstant akselerasjon. Derivasjon finner toppen: $h'(t) = 20 - 9{,}8t = 0$ gir $t \\approx 2{,}04$ s og maksimalhøyde $\\approx 20{,}4$ m, og landingen ved $h(t) = 0$ kommer ved $t \\approx 4{,}08$ s. Polynomer er også verkstedets universaltang for buktende sammenhenger med topper og bunner.\n\nTredje klient, trafikksikkerhetskontoret, illustrerer **potensmodellen** $f(x) = ax^n$: bremselengden er proporsjonal med *kvadratet* av farten, $s(v) = kv^2$. Ett datapunkt kalibrerer: $12$ m ved $50$ km/t gir $k = \\frac{12}{2500} = 0{,}0048$. Så leverer modellen: ved $80$ km/t er bremselengden $0{,}0048 \\cdot 6400 \\approx 31$ m — over dobbelt så lang, for $60\\%$ høyere fart. Potenslover styrer geometri (areal $\\sim r^2$, volum $\\sim r^3$) og fysikk; selv himmelmekanikken: Keplers tredje lov $T^2 \\propto r^3$ gir $T = r^{3/2}$ med jordens data som kalibrering, og Mars med $r = 1{,}52$ AU får omløpstid $1{,}52^{3/2} \\approx 1{,}87$ år — fasit fra astronomene: $1{,}88$. Modellen treffer."
+    },
+    {
+      "id": "r2-6-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lineære modeller, polynomer og potensmodeller:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-4-n-quiz1-q0",
+            "task": "Taxituren koster $K(x) = 50 + 15x$ kr for $x$ km. Hva koster $8$ km?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$120$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$170$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$185$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$200$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K(8) = 50 + 15 \\cdot 8 = 50 + 120 = 170$ kr."
+          },
+          {
+            "id": "r2-6-4-n-quiz1-q1",
+            "task": "Hva er kjennemerket som tilsier en lineær modell?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Konstant endringsrate — like store tillegg per enhet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Konstant prosentvis vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Periodisk variasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vekst som flater ut mot et tak",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lineære modeller $f(x) = ax + b$ passer når hver enhet gir samme absolutte endring, som kr per km."
+          },
+          {
+            "id": "r2-6-4-n-quiz1-q2",
+            "task": "Bremselengden følger $s(v) = 0{,}0048v^2$. Hva er bremselengden ved $80$ km/t?",
+            "options": [
+              {
+                "id": "b",
+                "text": "ca. $19$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "ca. $12$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "ca. $31$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "ca. $61$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$s(80) = 0{,}0048 \\cdot 6400 \\approx 30{,}7$ m — kvadratisk vekst gjør høy fart uforholdsmessig farlig."
+          },
+          {
+            "id": "r2-6-4-n-quiz1-q3",
+            "task": "Keplers tredje lov gir $T = r^{3/2}$. Hva er omløpstiden til Mars med $r = 1{,}52$ AU?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}52$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2{,}28$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3{,}51$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "ca. $1{,}87$ år",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$T = 1{,}52^{3/2} = \\sqrt{1{,}52^3} \\approx 1{,}87$ år — tett på den virkelige verdien $1{,}88$ år."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-4-n-section2",
+      "type": "text",
+      "content": "## Prosentvis endring: eksponentiell og logistisk\n\nMikrobiologen kommer inn med en kultur som *dobler seg* hver tredje time. Dobling er ikke jevn vekst — det er **prosentvis** vekst, samme faktor per tidsenhet, og det er den eksponentielle modellens kjennemerke: $f(t) = a \\cdot b^t$, eller på $e$-form $a \\cdot e^{kt}$. Kjennetegnet i analysens språk: $f'(t) = k \\cdot f(t)$ — veksten er proporsjonal med bestanden selv. Med $1000$ bakterier ved start blir modellen $N(t) = 1000 \\cdot 2^{t/3}$, som etter et halvt døgn gir $1000 \\cdot 2^4 = 16\\,000$, og millionspørsmålet løses med logaritmer: $2^{t/3} = 1000$ gir $t = 3\\log_2 1000 \\approx 30$ timer.\n\nSamme matematikk baklengs daterer arkeologens bein. Karbon-14 *halveres* hvert $5730$. år, og beinet har $25\\%$ igjen — det er $\\frac{1}{4} = \\left(\\frac{1}{2}\\right)^2$, altså nøyaktig to halveringstider: $11\\,460$ år.\n\nEksponentiell tilnærming mot en likevekt møter du i Newtons avkjølingslov $T(t) = T_\\infty + (T_0 - T_\\infty)e^{-kt}$: kaffen på $90°$C i et rom på $20°$C følger $T(t) = 20 + 70e^{-kt}$, og målingen $T(10) = 70$ kalibrerer $k \\approx 0{,}034$. Modellen melder $45{,}5°$C etter en halvtime — og temperaturen kryper asymptotisk mot romtemperaturen, aldri under.\n\nMen her må modellbyggeren være ærlig: ekte eksponentiell vekst er alltid midlertidig. Bakteriene går tom for næring; ingenting dobler seg evig. Da trengs hyllas sjette verktøy, den **logistiske modellen** $f(t) = \\frac{K}{1 + Ce^{-rt}}$, der veksten starter eksponentielt, men flater ut mot **bæreevnen** $K$. Epidemimodellen $I(t) = \\frac{50\\,000}{1 + 999e^{-0{,}3t}}$ viser forløpet: $50$ smittede ved start, rask vekst i midtfasen, og halve byen nådd etter $t = \\frac{\\ln 999}{0{,}3} \\approx 23$ dager — på vei mot metning, ikke uendelighet."
+    },
+    {
+      "id": "r2-6-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentielle og logistiske modeller:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-4-n-quiz2-q0",
+            "task": "Bakteriekulturen $N(t) = 1000 \\cdot 2^{t/3}$ ($t$ i timer): hvor mange bakterier etter $12$ timer?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$16\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4000$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N(12) = 1000 \\cdot 2^{12/3} = 1000 \\cdot 2^4 = 16\\,000$ — fire doblinger."
+          },
+          {
+            "id": "r2-6-4-n-quiz2-q1",
+            "task": "Et fossil har $25\\%$ av opprinnelig C-14 (halveringstid $5730$ år). Hvor gammelt er det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "ca. $5730$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "ca. $11\\,460$ år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "ca. $2865$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "ca. $22\\,920$ år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$25\\% = \\left(\\frac{1}{2}\\right)^2$: to halveringstider, altså $2 \\cdot 5730 = 11\\,460$ år."
+          },
+          {
+            "id": "r2-6-4-n-quiz2-q2",
+            "task": "Hva skjer med kaffetemperaturen $T(t) = 20 + 70e^{-kt}$ når $t \\to \\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den synker mot $0°$C",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den stabiliserer seg på $70°$C",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den nærmer seg romtemperaturen $20°$C asymptotisk",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den synker uten grense",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Leddet $70e^{-kt}$ dør ut, og $T \\to 20$: kaffen blir aldri kaldere enn rommet — en fysisk fornuftig asymptote."
+          },
+          {
+            "id": "r2-6-4-n-quiz2-q3",
+            "task": "Hva representerer $K$ i den logistiske modellen $f(t) = \\frac{K}{1 + Ce^{-rt}}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Startverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vekstraten i starten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tidspunktet for raskest vekst",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Bæreevnen — den øvre grensen veksten flater ut mot",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når $t \\to \\infty$ går $f(t) \\to K$: logistisk vekst starter eksponentielt, men metter mot bæreevnen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-4-n-section3",
+      "type": "text",
+      "content": "## Det som svinger: trigonometriske modeller\n\nHavnekontoret og meteorologen har samme matematiske problem: fenomener som går i ring. Temperaturen gjennom året, tidevannet gjennom døgnet, vekselstrøm, gangen i en svingende fjær — alt **periodisk** hører hjemme i den trigonometriske modellen\n\n$$f(t) = A\\sin(\\omega t + \\varphi) + D$$\n\nDe fire parametrene leses nesten rett ut av virkeligheten. Midtlinjen $D$ er gjennomsnittet av maksimum og minimum; **amplituden** $A$ er halve avstanden mellom dem; $\\omega = \\frac{2\\pi}{T}$ kodes av perioden $T$; og **faseforskyvningen** $\\varphi$ skyver kurven sideveis så toppene treffer riktig tidspunkt.\n\nByen med januarkulde på $-5°$C og julivarme på $+15°$C får dermed $D = \\frac{-5 + 15}{2} = 5$, $A = \\frac{15 - (-5)}{2} = 10$, og med periode $12$ måneder $\\omega = \\frac{\\pi}{6}$. Minimum i januar ($t = 1$) bestemmer fasen: $\\frac{\\pi}{6} + \\varphi = -\\frac{\\pi}{2}$ gir $\\varphi = -\\frac{2\\pi}{3}$, og modellen $T(t) = 10\\sin\\left(\\frac{\\pi t}{6} - \\frac{2\\pi}{3}\\right) + 5$ melder $5°$C i april — midt mellom ytterpunktene, som seg hør og bør om våren.\n\nHavnekontorets tidevann svinger mellom $0{,}5$ og $3{,}5$ m med periode $12{,}4$ timer og høyvann kl. 03: $h(t) = 1{,}5\\cos(0{,}507(t - 3)) + 2$. Nå kan kontoret svare på alt: lavvann en halv periode etter høyvann, ca. kl. 09:12, og båten som trenger $2$ m dybde — altså $h(t) \\geq 2$, som betyr $\\cos \\geq 0$ — kan seile inn fra midnatt til ca. kl. 06.\n\nOg noen klienter trenger flere verktøy samtidig. CO$_2$-målingene fra Mauna Loa viser både jevn stigning *og* årstidssvingning — modellen blir en sum: en trend pluss et cosinusledd, $C(t) = 317 + 1{,}62t + 3\\cos(2\\pi(t - \\frac{1}{3}))$. Virkeligheten bryr seg ikke om kapittelinndelinger; gode modeller kombinerer."
+    },
+    {
+      "id": "r2-6-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på trigonometriske modeller:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-4-n-quiz3-q0",
+            "task": "Temperaturen varierer mellom $-5°$C og $+15°$C. Hva er amplituden $A$ og midtverdien $D$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$A = 10$, $D = 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$A = 20$, $D = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$A = 15$, $D = -5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$A = 5$, $D = 10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$A = \\frac{15 - (-5)}{2} = 10$ og $D = \\frac{-5 + 15}{2} = 5$."
+          },
+          {
+            "id": "r2-6-4-n-quiz3-q1",
+            "task": "En svingning har periode $T = 12$ måneder. Hva er $\\omega$ i $A\\sin(\\omega t + \\varphi) + D$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\omega = 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\omega = \\frac{\\pi}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\omega = \\frac{\\pi}{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\omega = 2\\pi$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$."
+          },
+          {
+            "id": "r2-6-4-n-quiz3-q2",
+            "task": "Tidevannet $h(t) = 1{,}5\\cos(0{,}507(t-3)) + 2$ har høyvann kl. 03. Når er det lavvann?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kl. 06",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kl. 15",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. kl. 09:12 — en halv periode senere",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kl. 12",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lavvann inntreffer en halv periode ($\\approx 6{,}2$ timer) etter høyvann: $3 + 6{,}2 \\approx 9{,}2$, dvs. ca. kl. 09:12."
+          },
+          {
+            "id": "r2-6-4-n-quiz3-q3",
+            "task": "Når trengs en kombinert modell som $C(t) = 317 + 1{,}62t + 3\\cos(2\\pi(t - \\frac{1}{3}))$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når dataene er helt lineære",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når perioden er ukjent",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aldri — én modelltype holder alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når fenomenet har både en langsiktig trend og en periodisk svingning",
+                "isCorrect": true
+              }
+            ],
+            "solution": "CO$_2$-dataene stiger jevnt og svinger med årstidene: summen av en trend og et cosinusledd fanger begge deler."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-4-n-section4",
+      "type": "text",
+      "content": "## Den ærlige modellbyggeren: validering og begrensninger\n\nModellen er valgt og parametrene bestemt — fra data, slik biologen gjorde det: plantetellinger ga $N_0 = 100$ ved start, og punktet $(4, 320)$ kalibrerte vekstraten via $e^{4k} = 3{,}2$, altså $k \\approx 0{,}29$. Men er modellen *god*? Det er femte steg, og det skiller håndverkeren fra amatøren.\n\n**Validering** betyr å konfrontere modellen med virkeligheten. Beregn modellverdier for kjente datapunkter og se på avvikene — *residualene*. Biologens modell melder $N(6) \\approx 570$ mot målt $580$: godkjent. Tegn gjerne modell og data i samme diagram og se etter *systematiske* avvik — tilfeldig spredning er greit, et mønster i feilene er et varsku. Tallfest gjerne kvaliteten med $R^2$, andelen av variasjonen modellen forklarer: en lineær modell med $R^2 = 0{,}96$ forklarer $96\\%$ av variasjonen i dataene. Og sjekk grenseverdiene: gir modellen mening når $x \\to 0$ og $x \\to \\infty$?\n\nLike viktig er det å kjenne **begrensningene**. Hver modell har et *gyldighetsområde* — og synden over alle synder er ukritisk **ekstrapolering**, å bruke modellen langt utenfor dataene den ble bygget på. Bakteriemodellen $N(t) = 1000e^{0{,}1t}$ er utmerket de første timene, men ved $t = 200$ melder den $485$ *milliarder* bakterier — næringen, plassen og fysikken sier nei for lengst, og en logistisk modell med bæreevne må overta. Husk også forenklingene (luftmotstanden vi droppet, friksjonen vi glemte), antakelsene (eksponentiell vekst forutsetter ubegrensede ressurser), måleusikkerheten i dataene — og at verden endrer seg, så modellen må vedlikeholdes.\n\nEn modell er aldri *sann*. Den er *nyttig* — innenfor sitt område, til sitt formål, med sine forbehold oppgitt. Det er den ærlige modellbyggerens leveregel."
+    },
+    {
+      "id": "r2-6-4-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-6-4-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på validering og begrensninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-6-4-n-quiz4-q0",
+            "task": "En modell har $R^2 = 0{,}96$. Hva betyr det?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Modellen forklarer $96\\%$ av variasjonen i dataene",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Modellen tar feil i $96\\%$ av tilfellene",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Modellen er gyldig i $96$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Residualene er $0{,}96$ i snitt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R^2$ angir andelen av variasjonen i dataene som modellen forklarer; $0{,}96$ er en meget god tilpasning."
+          },
+          {
+            "id": "r2-6-4-n-quiz4-q1",
+            "task": "Hva er ekstrapolering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å fjerne avvikende datapunkter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å bruke modellen til å anslå verdier utenfor dataområdet den ble bygget på",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å derivere modellen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å øke antall parametre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ekstrapolering er prediksjon utenfor måleområdet — mulig, men stadig mer usikkert jo lenger ut man går."
+          },
+          {
+            "id": "r2-6-4-n-quiz4-q2",
+            "task": "Hvorfor svikter $N(t) = 1000e^{0{,}1t}$ for store $t$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eksponentialfunksjoner kan ikke beregnes for store $t$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vekstraten $0{,}1$ er for liten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Modellen forutsetter ubegrensede ressurser — virkeligheten har et tak (bæreevne)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Bakterier vokser lineært",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved $t = 200$ melder modellen $485$ milliarder bakterier. Næring og plass er endelige; en logistisk modell med bæreevne er realistisk på lang sikt."
+          },
+          {
+            "id": "r2-6-4-n-quiz4-q3",
+            "task": "Hva kjennetegner et systematisk avvik mellom modell og data?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avvikene er små",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Avvikene er tilfeldig fordelt rundt null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det finnes ingen avvik",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Residualene følger et mønster — et tegn på at feil modelltype er valgt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tilfeldige residualer er normalt; et mønster (for eksempel en kurve) avslører at modellen mangler noe strukturelt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-6-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVerkstedet stengte med alle klientene betjent — og oppskriften de fikk, var alltid den samme femstegsprosessen: identifiser problemet, velg modelltype, bestem parametrene fra data, valider, og anvend med forbehold.\n\nValget av funksjonsfamilie styres av endringens kjennemerke. Konstant endringsrate ga den **lineære** modellen $ax + b$ — taxien til $170$ kr. Konstant akselerasjon og buede sammenhenger ga **polynomene** — ballens $20t - 4{,}9t^2$ med topp på $20{,}4$ m. Skaleringslover ga **potensmodellen** $ax^n$ — bremselengdens $kv^2$ og Keplers $T = r^{3/2}$. Prosentvis endring ga den **eksponentielle** $a \\cdot e^{kt}$ — bakterienes dobling, C-14-dateringens $11\\,460$ år, kaffens sig mot romtemperaturen. Vekst mot et tak ga den **logistiske** $\\frac{K}{1 + Ce^{-rt}}$ med bæreevnen $K$. Og alt som svinger, ga den **trigonometriske** $A\\sin(\\omega t + \\varphi) + D$, der $D$ er midtverdien, $A$ halve svingebredden, $\\omega = \\frac{2\\pi}{T}$ og fasen plasserer toppene — temperaturåret og tidevannet i havna. Sammensatte fenomener fikk sammensatte modeller, som CO$_2$-kurvens trend pluss svingning.\n\nOg så ærligheten: validér mot data med residualer og $R^2$, sjekk grenseverdier, oppgi gyldighetsområdet — og ekstrapolér med ytterste varsomhet. En modell er en forenkling med formål, aldri en fasit.\n\nI neste kapittel slipper vi teorien løs på *ekte, rotete måledata* — der regresjon, residualanalyse og dømmekraft må samarbeide."
+    }
+  ],
+  "exercises": []
+}

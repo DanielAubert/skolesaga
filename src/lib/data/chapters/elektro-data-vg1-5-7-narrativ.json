@@ -1,1 +1,341 @@
-{"id":"elektro-data-vg1-5-7-narrativ","courseId":"elektro-data-vg1","chapterNumber":"5.7","title":"Motorer og transformatorer","subtitle":"Narrativ versjon","description":"En fortelling om maskinene som beveger verden – fra DC-motorens kommutator til det roterende magnetfeltet i en AC-motor, transformatoren og frekvensomformeren.","estimatedMinutes":37,"competenceGoals":["forklare virkemåten til elektriske motorer og transformatorer"],"linkedChapterId":"elektro-data-vg1-5-7","content":[{"id":"elektro-data-vg1-5-7-n-intro","type":"text","content":"## Maskinene som beveger verden\n\nStans og tenk over hvor mange ting rundt deg som beveger seg ved hjelp av strøm. Vifta i taket, pumpa i kjøleskapet, vinduvisken i bilen, hjulene i en elbil, heisen på kjøpesenteret. Bak hver eneste bevegelse står en **elektrisk motor** som gjør om strøm til mekanisk kraft. Og for at strømmen i det hele tatt skal nå fram til motoren – effektivt og trygt – trengs ofte en **transformator** som flytter energien mellom ulike spenningsnivåer.\n\nDisse to maskinene er blant grunnpilarene i det moderne samfunnet. I dette kapittelet skal vi åpne dem og se hvordan de virker. Hvordan klarer en motor å holde seg i gang og ikke bare rykke en halv runde for så å stoppe? Hvorfor må en AC-motor alltid rotere litt saktere enn magnetfeltet sitt? Og hvordan kan en frekvensomformer spare en fabrikk for store summer bare ved å skru ned hastigheten litt? La oss finne det ut."},{"id":"elektro-data-vg1-5-7-n-section1","type":"text","content":"## DC-motoren og kommutatorens triks\n\nLa oss starte med den enkleste, **DC-motoren**, som drives av likestrøm. Grunnprinsippet er en av fysikkens vakreste: når strøm går gjennom en leder som ligger i et magnetfelt, oppstår det en kraft, kalt Lorentz-kraften. Det er denne kraften som dytter rotoren rundt. Motoren har en **stator** som lager et fast magnetfelt, en **rotor** med spoler som roterer i feltet, og strøm som overføres til rotoren via **børster** av karbon.\n\nMen her oppstår et problem. Når rotoren har snurret en halv runde, ville kraften ha snudd retning og prøvd å dytte rotoren tilbake – motoren ville rykket fram og stoppet. Løsningen er en genial liten mekanisk bryter kalt **kommutatoren**. For hvert halve omdreiningsintervall snur den strømretningen i rotorspolene, slik at kraften alltid peker samme vei og rotasjonen fortsetter jevnt rundt. Uten kommutatoren, ingen rotasjon.\n\nDC-motoren er enkel å regulere: vil du senke farten, senker du spenningen. Den smarteste måten å gjøre dette på heter **PWM**, pulsbreddemodulasjon. I stedet for å bruke en motstand som sløser bort energi som varme, slår man spenningen lynraskt av og på. Andelen tid den er \"på\" kalles duty cycle, og gjennomsnittsspenningen bestemmer farten. Si at en motor får 12 V med 75 % duty cycle: gjennomsnittsspenningen blir $U_{snitt} = 12 \\cdot 0{,}75 = 9$ V, og siden farten omtrent følger spenningen, kjører motoren på rundt 75 % av makshastighet. Det fine er at transistoren som styrer den, enten er helt av eller helt på, så den taper nesten ingen energi som varme. Ulempen med DC-motoren er børstene og kommutatoren: de gnistrer, slites og krever vedlikehold."},{"id":"elektro-data-vg1-5-7-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-5-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på DC-motoren:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-5-7-n-quiz1-q0","task":"Hva er kommutatorens oppgave i en DC-motor?","options":[{"id":"a","text":"Å øke spenningen til rotoren","isCorrect":false},{"id":"b","text":"Å snu strømretningen i rotorspolene så rotasjonen fortsetter samme vei","isCorrect":true},{"id":"c","text":"Å bremse motoren","isCorrect":false},{"id":"d","text":"Å beskytte mot overbelastning","isCorrect":false}],"solution":"Kommutatoren snur strømretningen i rotorspolene for hvert halve omdreiningsintervall. Uten den ville rotoren stoppet etter en halv runde fordi kraften ville snudd."},{"id":"elektro-data-vg1-5-7-n-quiz1-q1","task":"En DC-motor får 12 V med PWM og duty cycle 75 %. Hva er gjennomsnittsspenningen?","options":[{"id":"a","text":"3 V","isCorrect":false},{"id":"b","text":"6 V","isCorrect":false},{"id":"c","text":"9 V","isCorrect":true},{"id":"d","text":"12 V","isCorrect":false}],"solution":"$U_{snitt} = U \\cdot \\text{duty cycle} = 12 \\cdot 0{,}75 = 9$ V. Farten blir da omtrent 75 % av makshastighet."},{"id":"elektro-data-vg1-5-7-n-quiz1-q2","task":"Hva er den viktigste ulempen med DC-motorer?","options":[{"id":"a","text":"De kan ikke reverseres","isCorrect":false},{"id":"b","text":"De har lavt startmoment","isCorrect":false},{"id":"c","text":"De virker bare på vekselstrøm","isCorrect":false},{"id":"d","text":"Børster og kommutator slites og krever vedlikehold","isCorrect":true}],"solution":"Børstene og kommutatoren gnistrer, slites og krever regelmessig vedlikehold. Dette er DC-motorens viktigste svakhet sammenlignet med AC-motorer."}]}},{"id":"elektro-data-vg1-5-7-n-section2","type":"text","content":"## AC-motoren og det roterende magnetfeltet\n\nNå til verdens vanligste motor, **AC-asynkronmotoren**, også kalt induksjonsmotoren. Den løser DC-motorens problem på en helt annen måte – den har nemlig *ingen* børster i det hele tatt. Trikset er **trefasestrøm**: når de tre fasene, forskjøvet 120 grader, sendes inn i statorviklingene, skaper de til sammen et **roterende magnetfelt** som snurrer rundt inni motoren helt av seg selv.\n\nSå skjer noe elegant. Det roterende feltet induserer strøm i rotoren, omtrent som i en transformator, og denne induserte strømmen i magnetfeltet gir en kraft som drar rotoren med rundt. Rotoren er rett og slett et \"ekornbur\" av kortsluttede metallstaver – ingen ledninger kobles til den. Men her er den fascinerende detaljen: rotoren kan *aldri* helt ta igjen magnetfeltet. Forskjellen kalles **slip**, gitt ved $s = \\frac{n_s - n}{n_s} \\cdot 100\\%$, der $n_s$ er feltets synkronhastighet og $n$ er rotorens turtall. Hvorfor er slip nødvendig? Fordi hvis rotoren fulgte feltet helt nøyaktig, ville det ikke vært noen relativ bevegelse mellom dem, ingen indusert strøm, og dermed ingen kraft. Litt slip, typisk 2 til 5 %, må til.\n\nLa oss regne på en 4-pols motor på 50 Hz-nettet, der rotoren snurrer på 1440 rpm. En 4-pols motor har 2 polpar, så synkronhastigheten blir $n_s = \\frac{60 \\cdot f}{p} = \\frac{60 \\cdot 50}{2} = 1500$ rpm. Slippet blir da $s = \\frac{1500 - 1440}{1500} \\cdot 100\\% = \\frac{60}{1500} \\cdot 100\\% = 4\\%$. Helt typisk for en belastet motor. Det finnes også **synkronmotorer**, der rotoren har egne magneter og følger feltet helt presist uten slip – de brukes der nøyaktig turtall er kritisk. AC-motorene er robuste, billige, vedlikeholdsfrie og har høy virkningsgrad på 85 til 95 %."},{"id":"elektro-data-vg1-5-7-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-5-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på AC-motorer og slip:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-5-7-n-quiz2-q0","task":"Hva er synkronhastigheten til en 4-pols asynkronmotor på 50 Hz?","options":[{"id":"a","text":"1500 rpm","isCorrect":true},{"id":"b","text":"3000 rpm","isCorrect":false},{"id":"c","text":"1440 rpm","isCorrect":false},{"id":"d","text":"750 rpm","isCorrect":false}],"solution":"En 4-pols motor har 2 polpar, så $n_s = \\frac{60 \\cdot 50}{2} = 1500$ rpm."},{"id":"elektro-data-vg1-5-7-n-quiz2-q1","task":"En motor har synkronhastighet 1500 rpm og roterer på 1440 rpm. Hva er slippet?","options":[{"id":"a","text":"6 %","isCorrect":false},{"id":"b","text":"4 %","isCorrect":true},{"id":"c","text":"10 %","isCorrect":false},{"id":"d","text":"0 %","isCorrect":false}],"solution":"$s = \\frac{n_s - n}{n_s} \\cdot 100\\% = \\frac{1500 - 1440}{1500} \\cdot 100\\% = \\frac{60}{1500} \\cdot 100\\% = 4\\%$."},{"id":"elektro-data-vg1-5-7-n-quiz2-q2","task":"Hvorfor kan ikke en asynkronmotor rotere med nøyaktig synkronhastighet?","options":[{"id":"a","text":"Fordi børstene bremser den","isCorrect":false},{"id":"b","text":"Fordi spenningen er for lav","isCorrect":false},{"id":"c","text":"Uten slip blir det ingen relativ bevegelse, ingen indusert strøm og ingen kraft","isCorrect":true},{"id":"d","text":"Fordi frekvensen alltid synker","isCorrect":false}],"solution":"Slip er nødvendig: hvis rotoren fulgte feltet nøyaktig, ville det ikke vært relativ bevegelse mellom felt og rotor, dermed ingen indusert strøm og ingen kraft."}]}},{"id":"elektro-data-vg1-5-7-n-section3","type":"text","content":"## Transformatoren og den smarte frekvensomformeren\n\nFor at strømmen skal kunne flyttes mellom spenningsnivåer, trenger vi **transformatoren**. Den overfører energi mellom to kretser via elektromagnetisk induksjon, og virker bare med vekselstrøm. To viklinger sitter på en felles jernkjerne: primærviklingen med $N_1$ vindinger kobles til kilden, og sekundærviklingen med $N_2$ vindinger leverer til lasten. Den grunnleggende sammenhengen er $\\frac{U_1}{U_2} = \\frac{N_1}{N_2} = \\frac{I_2}{I_1}$. Har sekundærsiden flest vindinger, øker spenningen – en opptrafo; har den færrest, synker den – en nedtrafo.\n\nLa oss regne på en transformator med 500 vindinger primært og 25 sekundært, 230 V inn og 92 % virkningsgrad, som leverer 8 A. Sekundærspenningen blir $U_2 = U_1 \\cdot \\frac{N_2}{N_1} = 230 \\cdot \\frac{25}{500} = 11{,}5$ V. Effekten ut er $P_{ut} = U_2 \\cdot I_2 = 11{,}5 \\cdot 8 = 92$ W. Og siden $\\eta = \\frac{P_{ut}}{P_{inn}}$, blir effekten inn $P_{inn} = \\frac{92}{0{,}92} = 100$ W. Tapet er dermed $100 - 92 = 8$ W, som forsvinner som varme i kobbertap i viklingene og jerntap i kjernen.\n\nTil slutt det smarteste verktøyet av alle: **frekvensomformeren**, eller VFD. Den styrer farten til en AC-motor ved å endre frekvensen, i tre trinn – først likeretter den AC til DC, glatter ut DC-en, og lager så ny AC med valgfri frekvens. Siden $n_s = \\frac{60 \\cdot f}{p}$, gir lavere frekvens lavere fart. Og her ligger den enorme gevinsten: for pumper og vifter er effektforbruket proporsjonalt med farten i *tredje* potens. Tenk på en viftemotor som bruker 5 kW på full fart, men som egentlig bare trenger å gå på 70 %. Med frekvensomformer blir nytt forbruk $P_{ny} = 5 \\cdot 0{,}70^3 = 5 \\cdot 0{,}343 = 1{,}715$ kW. En reduksjon på bare 30 % i fart gir hele 65,7 % lavere effekt! Det var nettopp frekvensomformeren som gjorde at robuste, billige AC-motorer kunne overta for DC-motorer i industrien – nå fikk man enkel hastighetsstyring uten børster."},{"id":"elektro-data-vg1-5-7-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-5-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på transformatorer og frekvensomformere:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-5-7-n-quiz3-q0","task":"En transformator har 200 vindinger primært og 1000 sekundært, med 230 V inn. Hva er sekundærspenningen?","options":[{"id":"a","text":"46 V","isCorrect":false},{"id":"b","text":"230 V","isCorrect":false},{"id":"c","text":"2300 V","isCorrect":false},{"id":"d","text":"1150 V","isCorrect":true}],"solution":"$U_2 = U_1 \\cdot \\frac{N_2}{N_1} = 230 \\cdot \\frac{1000}{200} = 230 \\cdot 5 = 1150$ V. Flere vindinger sekundært gir en opptrafo som øker spenningen."},{"id":"elektro-data-vg1-5-7-n-quiz3-q1","task":"En viftemotor bruker 5 kW på full fart. Hva blir forbruket på 70 % fart (effekt proporsjonal med n³)?","options":[{"id":"a","text":"Ca. 1,7 kW","isCorrect":true},{"id":"b","text":"Ca. 3,5 kW","isCorrect":false},{"id":"c","text":"Ca. 2,5 kW","isCorrect":false},{"id":"d","text":"Ca. 0,7 kW","isCorrect":false}],"solution":"$P_{ny} = 5 \\cdot 0{,}70^3 = 5 \\cdot 0{,}343 \\approx 1{,}7$ kW. En reduksjon på 30 % i fart gir hele 65,7 % lavere effektforbruk."},{"id":"elektro-data-vg1-5-7-n-quiz3-q2","task":"Hva gjorde at robuste AC-motorer kunne overta for DC-motorer i industrien?","options":[{"id":"a","text":"Bedre børster","isCorrect":false},{"id":"b","text":"Frekvensomformeren, som ga enkel hastighetsstyring uten børster","isCorrect":true},{"id":"c","text":"Høyere spenning i nettet","isCorrect":false},{"id":"d","text":"Permanentmagneter i statoren","isCorrect":false}],"solution":"Før frekvensomformeren var DC-motorer overlegne på hastighetsstyring. Frekvensomformeren ga AC-motorer like god styring, og da vant AC-motorens robusthet og vedlikeholdsfrihet."}]}},{"id":"elektro-data-vg1-5-7-n-summary","type":"text","content":"## Oppsummering\n\nVi har åpnet maskinene som beveger verden. **DC-motoren** bruker en kommutator og børster til å holde rotasjonen i gang, og styres enkelt med PWM, men børstene slites. **AC-asynkronmotoren** lager et roterende magnetfelt fra trefasestrøm og slipper børster helt, men trenger litt **slip**, $s = \\frac{n_s - n}{n_s}$, for at det skal induseres strøm og oppstå kraft. Synkronmotoren følger derimot feltet nøyaktig.\n\n**Transformatoren** flytter energi mellom spenningsnivåer via induksjon, etter $\\frac{U_1}{U_2} = \\frac{N_1}{N_2}$, med kobbertap og jerntap som de viktigste tapene. Og **frekvensomformeren** styrer AC-motorens fart ved å endre frekvensen – med en spektakulær energigevinst for pumper og vifter, der effekten følger farten i tredje potens. Det var denne oppfinnelsen som lot de robuste, billige AC-motorene overta for DC-motorene i industrien."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-5-7-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "5.7",
+  "title": "Motorer og transformatorer",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om maskinene som beveger verden – fra DC-motorens kommutator til det roterende magnetfeltet i en AC-motor, transformatoren og frekvensomformeren.",
+  "estimatedMinutes": 37,
+  "competenceGoals": [
+    "forklare virkemåten til elektriske motorer og transformatorer"
+  ],
+  "linkedChapterId": "elektro-data-vg1-5-7",
+  "content": [
+    {
+      "id": "elektro-data-vg1-5-7-n-intro",
+      "type": "text",
+      "content": "## Maskinene som beveger verden\n\nStans og tenk over hvor mange ting rundt deg som beveger seg ved hjelp av strøm. Vifta i taket, pumpa i kjøleskapet, vinduvisken i bilen, hjulene i en elbil, heisen på kjøpesenteret. Bak hver eneste bevegelse står en **elektrisk motor** som gjør om strøm til mekanisk kraft. Og for at strømmen i det hele tatt skal nå fram til motoren – effektivt og trygt – trengs ofte en **transformator** som flytter energien mellom ulike spenningsnivåer.\n\nDisse to maskinene er blant grunnpilarene i det moderne samfunnet. I dette kapittelet skal vi åpne dem og se hvordan de virker. Hvordan klarer en motor å holde seg i gang og ikke bare rykke en halv runde for så å stoppe? Hvorfor må en AC-motor alltid rotere litt saktere enn magnetfeltet sitt? Og hvordan kan en frekvensomformer spare en fabrikk for store summer bare ved å skru ned hastigheten litt? La oss finne det ut."
+    },
+    {
+      "id": "elektro-data-vg1-5-7-n-section1",
+      "type": "text",
+      "content": "## DC-motoren og kommutatorens triks\n\nLa oss starte med den enkleste, **DC-motoren**, som drives av likestrøm. Grunnprinsippet er en av fysikkens vakreste: når strøm går gjennom en leder som ligger i et magnetfelt, oppstår det en kraft, kalt Lorentz-kraften. Det er denne kraften som dytter rotoren rundt. Motoren har en **stator** som lager et fast magnetfelt, en **rotor** med spoler som roterer i feltet, og strøm som overføres til rotoren via **børster** av karbon.\n\nMen her oppstår et problem. Når rotoren har snurret en halv runde, ville kraften ha snudd retning og prøvd å dytte rotoren tilbake – motoren ville rykket fram og stoppet. Løsningen er en genial liten mekanisk bryter kalt **kommutatoren**. For hvert halve omdreiningsintervall snur den strømretningen i rotorspolene, slik at kraften alltid peker samme vei og rotasjonen fortsetter jevnt rundt. Uten kommutatoren, ingen rotasjon.\n\nDC-motoren er enkel å regulere: vil du senke farten, senker du spenningen. Den smarteste måten å gjøre dette på heter **PWM**, pulsbreddemodulasjon. I stedet for å bruke en motstand som sløser bort energi som varme, slår man spenningen lynraskt av og på. Andelen tid den er \"på\" kalles duty cycle, og gjennomsnittsspenningen bestemmer farten. Si at en motor får 12 V med 75 % duty cycle: gjennomsnittsspenningen blir $U_{snitt} = 12 \\cdot 0{,}75 = 9$ V, og siden farten omtrent følger spenningen, kjører motoren på rundt 75 % av makshastighet. Det fine er at transistoren som styrer den, enten er helt av eller helt på, så den taper nesten ingen energi som varme. Ulempen med DC-motoren er børstene og kommutatoren: de gnistrer, slites og krever vedlikehold."
+    },
+    {
+      "id": "elektro-data-vg1-5-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-5-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på DC-motoren:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz1-q0",
+            "task": "Hva er kommutatorens oppgave i en DC-motor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å snu strømretningen i rotorspolene så rotasjonen fortsetter samme vei",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å øke spenningen til rotoren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bremse motoren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å beskytte mot overbelastning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kommutatoren snur strømretningen i rotorspolene for hvert halve omdreiningsintervall. Uten den ville rotoren stoppet etter en halv runde fordi kraften ville snudd."
+          },
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz1-q1",
+            "task": "En DC-motor får 12 V med PWM og duty cycle 75 %. Hva er gjennomsnittsspenningen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3 V",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "6 V",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "9 V",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "12 V",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$U_{snitt} = U \\cdot \\text{duty cycle} = 12 \\cdot 0{,}75 = 9$ V. Farten blir da omtrent 75 % av makshastighet."
+          },
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz1-q2",
+            "task": "Hva er den viktigste ulempen med DC-motorer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De kan ikke reverseres",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Børster og kommutator slites og krever vedlikehold",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "De har lavt startmoment",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De virker bare på vekselstrøm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Børstene og kommutatoren gnistrer, slites og krever regelmessig vedlikehold. Dette er DC-motorens viktigste svakhet sammenlignet med AC-motorer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-5-7-n-section2",
+      "type": "text",
+      "content": "## AC-motoren og det roterende magnetfeltet\n\nNå til verdens vanligste motor, **AC-asynkronmotoren**, også kalt induksjonsmotoren. Den løser DC-motorens problem på en helt annen måte – den har nemlig *ingen* børster i det hele tatt. Trikset er **trefasestrøm**: når de tre fasene, forskjøvet 120 grader, sendes inn i statorviklingene, skaper de til sammen et **roterende magnetfelt** som snurrer rundt inni motoren helt av seg selv.\n\nSå skjer noe elegant. Det roterende feltet induserer strøm i rotoren, omtrent som i en transformator, og denne induserte strømmen i magnetfeltet gir en kraft som drar rotoren med rundt. Rotoren er rett og slett et \"ekornbur\" av kortsluttede metallstaver – ingen ledninger kobles til den. Men her er den fascinerende detaljen: rotoren kan *aldri* helt ta igjen magnetfeltet. Forskjellen kalles **slip**, gitt ved $s = \\frac{n_s - n}{n_s} \\cdot 100\\%$, der $n_s$ er feltets synkronhastighet og $n$ er rotorens turtall. Hvorfor er slip nødvendig? Fordi hvis rotoren fulgte feltet helt nøyaktig, ville det ikke vært noen relativ bevegelse mellom dem, ingen indusert strøm, og dermed ingen kraft. Litt slip, typisk 2 til 5 %, må til.\n\nLa oss regne på en 4-pols motor på 50 Hz-nettet, der rotoren snurrer på 1440 rpm. En 4-pols motor har 2 polpar, så synkronhastigheten blir $n_s = \\frac{60 \\cdot f}{p} = \\frac{60 \\cdot 50}{2} = 1500$ rpm. Slippet blir da $s = \\frac{1500 - 1440}{1500} \\cdot 100\\% = \\frac{60}{1500} \\cdot 100\\% = 4\\%$. Helt typisk for en belastet motor. Det finnes også **synkronmotorer**, der rotoren har egne magneter og følger feltet helt presist uten slip – de brukes der nøyaktig turtall er kritisk. AC-motorene er robuste, billige, vedlikeholdsfrie og har høy virkningsgrad på 85 til 95 %."
+    },
+    {
+      "id": "elektro-data-vg1-5-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-5-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på AC-motorer og slip:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz2-q0",
+            "task": "Hva er synkronhastigheten til en 4-pols asynkronmotor på 50 Hz?",
+            "options": [
+              {
+                "id": "b",
+                "text": "3000 rpm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "1440 rpm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "750 rpm",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "1500 rpm",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En 4-pols motor har 2 polpar, så $n_s = \\frac{60 \\cdot 50}{2} = 1500$ rpm."
+          },
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz2-q1",
+            "task": "En motor har synkronhastighet 1500 rpm og roterer på 1440 rpm. Hva er slippet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "4 %",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "6 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "10 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$s = \\frac{n_s - n}{n_s} \\cdot 100\\% = \\frac{1500 - 1440}{1500} \\cdot 100\\% = \\frac{60}{1500} \\cdot 100\\% = 4\\%$."
+          },
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz2-q2",
+            "task": "Hvorfor kan ikke en asynkronmotor rotere med nøyaktig synkronhastighet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi børstene bremser den",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uten slip blir det ingen relativ bevegelse, ingen indusert strøm og ingen kraft",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi spenningen er for lav",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi frekvensen alltid synker",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Slip er nødvendig: hvis rotoren fulgte feltet nøyaktig, ville det ikke vært relativ bevegelse mellom felt og rotor, dermed ingen indusert strøm og ingen kraft."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-5-7-n-section3",
+      "type": "text",
+      "content": "## Transformatoren og den smarte frekvensomformeren\n\nFor at strømmen skal kunne flyttes mellom spenningsnivåer, trenger vi **transformatoren**. Den overfører energi mellom to kretser via elektromagnetisk induksjon, og virker bare med vekselstrøm. To viklinger sitter på en felles jernkjerne: primærviklingen med $N_1$ vindinger kobles til kilden, og sekundærviklingen med $N_2$ vindinger leverer til lasten. Den grunnleggende sammenhengen er $\\frac{U_1}{U_2} = \\frac{N_1}{N_2} = \\frac{I_2}{I_1}$. Har sekundærsiden flest vindinger, øker spenningen – en opptrafo; har den færrest, synker den – en nedtrafo.\n\nLa oss regne på en transformator med 500 vindinger primært og 25 sekundært, 230 V inn og 92 % virkningsgrad, som leverer 8 A. Sekundærspenningen blir $U_2 = U_1 \\cdot \\frac{N_2}{N_1} = 230 \\cdot \\frac{25}{500} = 11{,}5$ V. Effekten ut er $P_{ut} = U_2 \\cdot I_2 = 11{,}5 \\cdot 8 = 92$ W. Og siden $\\eta = \\frac{P_{ut}}{P_{inn}}$, blir effekten inn $P_{inn} = \\frac{92}{0{,}92} = 100$ W. Tapet er dermed $100 - 92 = 8$ W, som forsvinner som varme i kobbertap i viklingene og jerntap i kjernen.\n\nTil slutt det smarteste verktøyet av alle: **frekvensomformeren**, eller VFD. Den styrer farten til en AC-motor ved å endre frekvensen, i tre trinn – først likeretter den AC til DC, glatter ut DC-en, og lager så ny AC med valgfri frekvens. Siden $n_s = \\frac{60 \\cdot f}{p}$, gir lavere frekvens lavere fart. Og her ligger den enorme gevinsten: for pumper og vifter er effektforbruket proporsjonalt med farten i *tredje* potens. Tenk på en viftemotor som bruker 5 kW på full fart, men som egentlig bare trenger å gå på 70 %. Med frekvensomformer blir nytt forbruk $P_{ny} = 5 \\cdot 0{,}70^3 = 5 \\cdot 0{,}343 = 1{,}715$ kW. En reduksjon på bare 30 % i fart gir hele 65,7 % lavere effekt! Det var nettopp frekvensomformeren som gjorde at robuste, billige AC-motorer kunne overta for DC-motorer i industrien – nå fikk man enkel hastighetsstyring uten børster."
+    },
+    {
+      "id": "elektro-data-vg1-5-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-5-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på transformatorer og frekvensomformere:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz3-q0",
+            "task": "En transformator har 200 vindinger primært og 1000 sekundært, med 230 V inn. Hva er sekundærspenningen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "46 V",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "230 V",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1150 V",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "2300 V",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$U_2 = U_1 \\cdot \\frac{N_2}{N_1} = 230 \\cdot \\frac{1000}{200} = 230 \\cdot 5 = 1150$ V. Flere vindinger sekundært gir en opptrafo som øker spenningen."
+          },
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz3-q1",
+            "task": "En viftemotor bruker 5 kW på full fart. Hva blir forbruket på 70 % fart (effekt proporsjonal med n³)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 3,5 kW",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 2,5 kW",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 0,7 kW",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. 1,7 kW",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P_{ny} = 5 \\cdot 0{,}70^3 = 5 \\cdot 0{,}343 \\approx 1{,}7$ kW. En reduksjon på 30 % i fart gir hele 65,7 % lavere effektforbruk."
+          },
+          {
+            "id": "elektro-data-vg1-5-7-n-quiz3-q2",
+            "task": "Hva gjorde at robuste AC-motorer kunne overta for DC-motorer i industrien?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Frekvensomformeren, som ga enkel hastighetsstyring uten børster",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bedre børster",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Høyere spenning i nettet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Permanentmagneter i statoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Før frekvensomformeren var DC-motorer overlegne på hastighetsstyring. Frekvensomformeren ga AC-motorer like god styring, og da vant AC-motorens robusthet og vedlikeholdsfrihet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-5-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har åpnet maskinene som beveger verden. **DC-motoren** bruker en kommutator og børster til å holde rotasjonen i gang, og styres enkelt med PWM, men børstene slites. **AC-asynkronmotoren** lager et roterende magnetfelt fra trefasestrøm og slipper børster helt, men trenger litt **slip**, $s = \\frac{n_s - n}{n_s}$, for at det skal induseres strøm og oppstå kraft. Synkronmotoren følger derimot feltet nøyaktig.\n\n**Transformatoren** flytter energi mellom spenningsnivåer via induksjon, etter $\\frac{U_1}{U_2} = \\frac{N_1}{N_2}$, med kobbertap og jerntap som de viktigste tapene. Og **frekvensomformeren** styrer AC-motorens fart ved å endre frekvensen – med en spektakulær energigevinst for pumper og vifter, der effekten følger farten i tredje potens. Det var denne oppfinnelsen som lot de robuste, billige AC-motorene overta for DC-motorene i industrien."
+    }
+  ],
+  "exercises": []
+}

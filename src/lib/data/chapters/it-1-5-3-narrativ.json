@@ -1,1 +1,313 @@
-{"id":"it-1-5-3-narrativ","courseId":"it-1","chapterNumber":"5.3","title":"DOM-manipulering","subtitle":"Narrativ versjon","description":"En fortelling om hvordan JavaScript griper tak i selve nettsiden – DOM-treet, å finne elementer med querySelector, og å endre, opprette og fjerne innhold dynamisk.","estimatedMinutes":40,"competenceGoals":["bruke JavaScript til å manipulere HTML-dokumenter via DOM-en","utvikle dynamiske nettsider der innholdet endres med JavaScript"],"linkedChapterId":"it-1-5-3","content":[{"id":"it-1-5-3-n-intro","type":"text","content":"## Når koden griper tak i siden\n\nNå skal vi koble JavaScript til selve nettsiden. **DOM-manipulering** handler om å finne HTML-elementer og endre dem – endre tekst, stil, legge til nye elementer eller fjerne gamle. Dette er kjernen i interaktiv webutvikling.\n\nNår nettleseren laster en HTML-side, bygger den en **Document Object Model (DOM)** – en trestruktur der hvert HTML-element er et objekt, med `document` som rotnode. JavaScript kan navigere i dette treet, lese elementenes innhold og endre dem. Endringer reflekteres umiddelbart på skjermen, uten at siden lastes på nytt.\n\nFør du kan endre et element, må du finne det. Den mest fleksible metoden er `querySelector()`, som bruker CSS-selektorer:\n\n```javascript\nconst tittel = document.querySelector(\"#tittel\");      // id\nconst info = document.querySelector(\".info\");          // klasse\nconst avsnitt = document.querySelector(\"p\");           // element\n```\n\n`querySelector` finner det *første* elementet som matcher. Vil du ha *alle*, bruker du `querySelectorAll(\".kort\")`, som gir en liste du kan gå gjennom med `forEach`. Det finnes også `getElementById(\"minId\")`. Med en liste på tre `<li>`-elementer vil for eksempel `document.querySelectorAll(\"#liste li\").length` gi 3."},{"id":"it-1-5-3-n-quiz1","type":"exercise","exercise":{"id":"it-1-5-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på DOM og å finne elementer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-3-n-quiz1-q0","task":"Hva er DOM-en?","options":[{"id":"a","text":"En CSS-standard for layout","isCorrect":false},{"id":"b","text":"En nettleser-plugin","isCorrect":false},{"id":"c","text":"Et JavaScript-bibliotek for animasjoner","isCorrect":false},{"id":"d","text":"En trestruktur som representerer HTML-dokumentet og lar JavaScript endre nettsiden","isCorrect":true}],"solution":"DOM-en er en trestruktur av objekter som representerer HTML-dokumentet, og som JavaScript kan lese og endre."},{"id":"it-1-5-3-n-quiz1-q1","task":"Hvilken metode finner det første elementet med klassen «info»?","options":[{"id":"a","text":"document.querySelector(\".info\")","isCorrect":true},{"id":"b","text":"document.querySelector(\"#info\")","isCorrect":false},{"id":"c","text":"document.getElement(\".info\")","isCorrect":false},{"id":"d","text":"document.querySelector(\"info\")","isCorrect":false}],"solution":"querySelector(\".info\") bruker CSS-selektoren for klasse (punktum) og finner det første elementet med klassen info."},{"id":"it-1-5-3-n-quiz1-q2","task":"Hva er resultatet av document.querySelectorAll(\"#liste li\").length for en liste med tre <li>?","options":[{"id":"a","text":"1","isCorrect":false},{"id":"b","text":"3","isCorrect":true},{"id":"c","text":"2","isCorrect":false},{"id":"d","text":"0","isCorrect":false}],"solution":"querySelectorAll finner alle tre li-elementene, så length er 3."}]}},{"id":"it-1-5-3-n-section1","type":"text","content":"## Å endre det du har funnet\n\nNår du har fått tak i et element, kan du endre det. For tekst bruker du `textContent`: `overskrift.textContent = \"Ny overskrift!\"`. Vil du sette inn HTML-tagger, bruker du `innerHTML`, som tolker taggene. Her er en viktig forskjell: `textContent` behandler alt som ren tekst, mens `innerHTML` faktisk tolker HTML. Det betyr også en sikkerhetsadvarsel – du bør aldri sette inn *brukerdata* med `innerHTML`, fordi det kan føre til **XSS-angrep** (cross-site scripting), der ondsinnet kode kjøres på siden. Bruk `textContent` for brukerinput.\n\nDu kan også endre attributter direkte: `bilde.src = \"nytt.jpg\"`, `lenke.href = \"...\"` og `lenke.target = \"_blank\"`. Og du kan endre stiler via `style`-objektet, men med en vri: CSS-egenskaper med bindestrek skrives i camelCase. Altså `element.style.backgroundColor = \"lightblue\"`, ikke `background-color`.\n\nDen mest elegante måten å endre utseendet på er likevel via CSS-klasser med `classList`. I stedet for å sette mange stiler direkte, definerer du klasser i stilarket og slår dem av og på med JavaScript. `boks.classList.add(\"uthevet\")` legger til en klasse, `.remove(\"skjult\")` fjerner, `.toggle(\"synlig\")` veksler (legger til hvis den mangler, fjerner hvis den finnes), og `.contains(\"feilmelding\")` sjekker om den finnes. Dette er bedre enn å endre `style` direkte, fordi CSS-en holdes der den hører hjemme, du kan bruke animasjoner og overganger, og koden blir lettere å vedlikeholde."},{"id":"it-1-5-3-n-quiz2","type":"exercise","exercise":{"id":"it-1-5-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på å endre elementer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-3-n-quiz2-q0","task":"Hva er forskjellen mellom textContent og innerHTML?","options":[{"id":"a","text":"Det er ingen forskjell","isCorrect":false},{"id":"b","text":"innerHTML er raskere","isCorrect":false},{"id":"c","text":"textContent behandler alt som ren tekst, innerHTML tolker HTML-tagger","isCorrect":true},{"id":"d","text":"textContent virker bare på <p>","isCorrect":false}],"solution":"textContent setter inn ren tekst, mens innerHTML tolker HTML-tagger i strengen."},{"id":"it-1-5-3-n-quiz2-q1","task":"Hvorfor bør du unngå å sette inn brukerdata med innerHTML?","options":[{"id":"a","text":"Fordi det er tregere","isCorrect":false},{"id":"b","text":"Fordi det ikke støttes i alle nettlesere","isCorrect":false},{"id":"c","text":"Fordi det bare virker med <div>","isCorrect":false},{"id":"d","text":"Fordi det kan føre til XSS-angrep der ondsinnet kode kjøres på siden","isCorrect":true}],"solution":"innerHTML tolker HTML, så brukerdata kan inneholde skadelig kode og føre til XSS-angrep. Bruk textContent for brukerinput."},{"id":"it-1-5-3-n-quiz2-q2","task":"Hvordan skrives CSS-egenskapen background-color i JavaScripts style-objekt?","options":[{"id":"a","text":"backgroundColor","isCorrect":true},{"id":"b","text":"background-color","isCorrect":false},{"id":"c","text":"BackgroundColor","isCorrect":false},{"id":"d","text":"background_color","isCorrect":false}],"solution":"CSS-egenskaper med bindestrek skrives i camelCase i JavaScript, så background-color blir backgroundColor."}]}},{"id":"it-1-5-3-n-section2","type":"text","content":"## Å bygge og rive\n\nJavaScript kan også lage helt nye HTML-elementer og legge dem til på siden. Du oppretter et element med `createElement`, fyller det med innhold, og fester det til siden med `appendChild`:\n\n```javascript\nconst nyttPunkt = document.createElement(\"li\");\nnyttPunkt.textContent = \"Nytt listepunkt\";\nnyttPunkt.classList.add(\"punkt\");\ndocument.querySelector(\"ul\").appendChild(nyttPunkt);\n```\n\nFor mer komplekse strukturer bygger du elementene hver for seg og setter dem sammen. Vil du lage et helt kort, oppretter du en `div`, en `h3` for tittel, en `p` for tekst og en `button`, legger barna inn i kortet med `appendChild`, og fester til slutt hele kortet til en container. På denne måten kan du bygge dynamisk innhold ut fra data – for eksempel en oppgaveliste som vokser når brukeren legger til oppgaver.\n\nDu kan også fjerne elementer. Det enkleste er `element.remove()`, som fjerner elementet selv. Alternativt bruker du `liste.removeChild(barn)` fra forelderen. Og vil du bytte ut et element, bruker du `gammelElement.replaceWith(nyttElement)`. Med disse verktøyene – finne, endre, opprette og fjerne – kan du bygge nettsider som reagerer på alt brukeren gjør."},{"id":"it-1-5-3-n-quiz3","type":"exercise","exercise":{"id":"it-1-5-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på å opprette og fjerne elementer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-3-n-quiz3-q0","task":"Hvilken metode oppretter et nytt HTML-element?","options":[{"id":"a","text":"document.querySelector(\"li\")","isCorrect":false},{"id":"b","text":"document.createElement(\"li\")","isCorrect":true},{"id":"c","text":"document.newElement(\"li\")","isCorrect":false},{"id":"d","text":"document.add(\"li\")","isCorrect":false}],"solution":"document.createElement(\"li\") lager et nytt li-element, som du så kan feste til siden med appendChild."},{"id":"it-1-5-3-n-quiz3-q1","task":"Hvilken metode legger et nytt element inn som barn av et annet?","options":[{"id":"a","text":"remove()","isCorrect":false},{"id":"b","text":"querySelector()","isCorrect":false},{"id":"c","text":"appendChild()","isCorrect":true},{"id":"d","text":"classList.add()","isCorrect":false}],"solution":"appendChild() fester et element som siste barn av et foreldreelement, slik at det vises på siden."}]}},{"id":"it-1-5-3-n-summary","type":"text","content":"## Oppsummering\n\nDOM-manipulering er der JavaScript griper tak i nettsiden. **DOM-en** er en trestruktur av objekter som speiler HTML-dokumentet, og du finner elementer med `querySelector` (første treff), `querySelectorAll` (alle) og `getElementById`.\n\nNår du har funnet et element, endrer du tekst med `textContent`, HTML med `innerHTML` (men aldri brukerdata, på grunn av XSS-fare), attributter direkte, og stiler enten via `style` (camelCase) eller mest elegant via `classList`. Du kan også bygge nytt innhold med `createElement` og `appendChild`, og rive ned med `remove`. Med disse verktøyene blir nettsiden levende og reagerer på alt brukeren foretar seg – grunnlaget for hendelseshåndteringen i neste kapittel."}],"exercises":[]}
+{
+  "id": "it-1-5-3-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "5.3",
+  "title": "DOM-manipulering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan JavaScript griper tak i selve nettsiden – DOM-treet, å finne elementer med querySelector, og å endre, opprette og fjerne innhold dynamisk.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bruke JavaScript til å manipulere HTML-dokumenter via DOM-en",
+    "utvikle dynamiske nettsider der innholdet endres med JavaScript"
+  ],
+  "linkedChapterId": "it-1-5-3",
+  "content": [
+    {
+      "id": "it-1-5-3-n-intro",
+      "type": "text",
+      "content": "## Når koden griper tak i siden\n\nNå skal vi koble JavaScript til selve nettsiden. **DOM-manipulering** handler om å finne HTML-elementer og endre dem – endre tekst, stil, legge til nye elementer eller fjerne gamle. Dette er kjernen i interaktiv webutvikling.\n\nNår nettleseren laster en HTML-side, bygger den en **Document Object Model (DOM)** – en trestruktur der hvert HTML-element er et objekt, med `document` som rotnode. JavaScript kan navigere i dette treet, lese elementenes innhold og endre dem. Endringer reflekteres umiddelbart på skjermen, uten at siden lastes på nytt.\n\nFør du kan endre et element, må du finne det. Den mest fleksible metoden er `querySelector()`, som bruker CSS-selektorer:\n\n```javascript\nconst tittel = document.querySelector(\"#tittel\");      // id\nconst info = document.querySelector(\".info\");          // klasse\nconst avsnitt = document.querySelector(\"p\");           // element\n```\n\n`querySelector` finner det *første* elementet som matcher. Vil du ha *alle*, bruker du `querySelectorAll(\".kort\")`, som gir en liste du kan gå gjennom med `forEach`. Det finnes også `getElementById(\"minId\")`. Med en liste på tre `<li>`-elementer vil for eksempel `document.querySelectorAll(\"#liste li\").length` gi 3."
+    },
+    {
+      "id": "it-1-5-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på DOM og å finne elementer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-3-n-quiz1-q0",
+            "task": "Hva er DOM-en?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En CSS-standard for layout",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En nettleser-plugin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En trestruktur som representerer HTML-dokumentet og lar JavaScript endre nettsiden",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Et JavaScript-bibliotek for animasjoner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "DOM-en er en trestruktur av objekter som representerer HTML-dokumentet, og som JavaScript kan lese og endre."
+          },
+          {
+            "id": "it-1-5-3-n-quiz1-q1",
+            "task": "Hvilken metode finner det første elementet med klassen «info»?",
+            "options": [
+              {
+                "id": "b",
+                "text": "document.querySelector(\"#info\")",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "document.getElement(\".info\")",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "document.querySelector(\"info\")",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "document.querySelector(\".info\")",
+                "isCorrect": true
+              }
+            ],
+            "solution": "querySelector(\".info\") bruker CSS-selektoren for klasse (punktum) og finner det første elementet med klassen info."
+          },
+          {
+            "id": "it-1-5-3-n-quiz1-q2",
+            "task": "Hva er resultatet av document.querySelectorAll(\"#liste li\").length for en liste med tre <li>?",
+            "options": [
+              {
+                "id": "b",
+                "text": "3",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "querySelectorAll finner alle tre li-elementene, så length er 3."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-3-n-section1",
+      "type": "text",
+      "content": "## Å endre det du har funnet\n\nNår du har fått tak i et element, kan du endre det. For tekst bruker du `textContent`: `overskrift.textContent = \"Ny overskrift!\"`. Vil du sette inn HTML-tagger, bruker du `innerHTML`, som tolker taggene. Her er en viktig forskjell: `textContent` behandler alt som ren tekst, mens `innerHTML` faktisk tolker HTML. Det betyr også en sikkerhetsadvarsel – du bør aldri sette inn *brukerdata* med `innerHTML`, fordi det kan føre til **XSS-angrep** (cross-site scripting), der ondsinnet kode kjøres på siden. Bruk `textContent` for brukerinput.\n\nDu kan også endre attributter direkte: `bilde.src = \"nytt.jpg\"`, `lenke.href = \"...\"` og `lenke.target = \"_blank\"`. Og du kan endre stiler via `style`-objektet, men med en vri: CSS-egenskaper med bindestrek skrives i camelCase. Altså `element.style.backgroundColor = \"lightblue\"`, ikke `background-color`.\n\nDen mest elegante måten å endre utseendet på er likevel via CSS-klasser med `classList`. I stedet for å sette mange stiler direkte, definerer du klasser i stilarket og slår dem av og på med JavaScript. `boks.classList.add(\"uthevet\")` legger til en klasse, `.remove(\"skjult\")` fjerner, `.toggle(\"synlig\")` veksler (legger til hvis den mangler, fjerner hvis den finnes), og `.contains(\"feilmelding\")` sjekker om den finnes. Dette er bedre enn å endre `style` direkte, fordi CSS-en holdes der den hører hjemme, du kan bruke animasjoner og overganger, og koden blir lettere å vedlikeholde."
+    },
+    {
+      "id": "it-1-5-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å endre elementer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-3-n-quiz2-q0",
+            "task": "Hva er forskjellen mellom textContent og innerHTML?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er ingen forskjell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "textContent behandler alt som ren tekst, innerHTML tolker HTML-tagger",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "innerHTML er raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "textContent virker bare på <p>",
+                "isCorrect": false
+              }
+            ],
+            "solution": "textContent setter inn ren tekst, mens innerHTML tolker HTML-tagger i strengen."
+          },
+          {
+            "id": "it-1-5-3-n-quiz2-q1",
+            "task": "Hvorfor bør du unngå å sette inn brukerdata med innerHTML?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det er tregere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi det ikke støttes i alle nettlesere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det kan føre til XSS-angrep der ondsinnet kode kjøres på siden",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi det bare virker med <div>",
+                "isCorrect": false
+              }
+            ],
+            "solution": "innerHTML tolker HTML, så brukerdata kan inneholde skadelig kode og føre til XSS-angrep. Bruk textContent for brukerinput."
+          },
+          {
+            "id": "it-1-5-3-n-quiz2-q2",
+            "task": "Hvordan skrives CSS-egenskapen background-color i JavaScripts style-objekt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "background-color",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "BackgroundColor",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "background_color",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "backgroundColor",
+                "isCorrect": true
+              }
+            ],
+            "solution": "CSS-egenskaper med bindestrek skrives i camelCase i JavaScript, så background-color blir backgroundColor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-3-n-section2",
+      "type": "text",
+      "content": "## Å bygge og rive\n\nJavaScript kan også lage helt nye HTML-elementer og legge dem til på siden. Du oppretter et element med `createElement`, fyller det med innhold, og fester det til siden med `appendChild`:\n\n```javascript\nconst nyttPunkt = document.createElement(\"li\");\nnyttPunkt.textContent = \"Nytt listepunkt\";\nnyttPunkt.classList.add(\"punkt\");\ndocument.querySelector(\"ul\").appendChild(nyttPunkt);\n```\n\nFor mer komplekse strukturer bygger du elementene hver for seg og setter dem sammen. Vil du lage et helt kort, oppretter du en `div`, en `h3` for tittel, en `p` for tekst og en `button`, legger barna inn i kortet med `appendChild`, og fester til slutt hele kortet til en container. På denne måten kan du bygge dynamisk innhold ut fra data – for eksempel en oppgaveliste som vokser når brukeren legger til oppgaver.\n\nDu kan også fjerne elementer. Det enkleste er `element.remove()`, som fjerner elementet selv. Alternativt bruker du `liste.removeChild(barn)` fra forelderen. Og vil du bytte ut et element, bruker du `gammelElement.replaceWith(nyttElement)`. Med disse verktøyene – finne, endre, opprette og fjerne – kan du bygge nettsider som reagerer på alt brukeren gjør."
+    },
+    {
+      "id": "it-1-5-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å opprette og fjerne elementer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-3-n-quiz3-q0",
+            "task": "Hvilken metode oppretter et nytt HTML-element?",
+            "options": [
+              {
+                "id": "b",
+                "text": "document.createElement(\"li\")",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "document.querySelector(\"li\")",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "document.newElement(\"li\")",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "document.add(\"li\")",
+                "isCorrect": false
+              }
+            ],
+            "solution": "document.createElement(\"li\") lager et nytt li-element, som du så kan feste til siden med appendChild."
+          },
+          {
+            "id": "it-1-5-3-n-quiz3-q1",
+            "task": "Hvilken metode legger et nytt element inn som barn av et annet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "remove()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "appendChild()",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "querySelector()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "classList.add()",
+                "isCorrect": false
+              }
+            ],
+            "solution": "appendChild() fester et element som siste barn av et foreldreelement, slik at det vises på siden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDOM-manipulering er der JavaScript griper tak i nettsiden. **DOM-en** er en trestruktur av objekter som speiler HTML-dokumentet, og du finner elementer med `querySelector` (første treff), `querySelectorAll` (alle) og `getElementById`.\n\nNår du har funnet et element, endrer du tekst med `textContent`, HTML med `innerHTML` (men aldri brukerdata, på grunn av XSS-fare), attributter direkte, og stiler enten via `style` (camelCase) eller mest elegant via `classList`. Du kan også bygge nytt innhold med `createElement` og `appendChild`, og rive ned med `remove`. Med disse verktøyene blir nettsiden levende og reagerer på alt brukeren foretar seg – grunnlaget for hendelseshåndteringen i neste kapittel."
+    }
+  ],
+  "exercises": []
+}

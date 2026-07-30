@@ -1,1 +1,426 @@
-{"id":"r1-5-2-narrativ","courseId":"r1","chapterNumber":"5.2","title":"Logistisk vekst","subtitle":"Narrativ versjon","description":"En fortelling om logistisk vekst -- om fiskedammen som ble full, S-kurven med bærekapasitet, vendepunktet der veksten er på sitt raskeste, og bremsefaktoren som forklarer det hele.","estimatedMinutes":42,"competenceGoals":["forstå begrensninger i eksponentiell vekst","bruke logistisk modell med bærekapasitet","finne og tolke vendepunktet","derivere logistisk funksjon","anvende modellen på praktiske problemer"],"linkedChapterId":"r1-5-2","content":[{"id":"r1-5-2-n-intro","type":"text","content":"## Dammen som ble full\n\nI forrige kapittel lærte du at eksponentiell vekst dobler seg igjen og igjen med fast mellomrom. Men tenk etter: kan noe som helst i virkeligheten vokse slik for alltid? En bakteriekoloni som doblet seg hver time uten stans, ville veid mer enn jordkloden i løpet av noen døgn. Et eller annet sted må veksten møte veggen.\n\nTenk deg en fiskeoppdretter som setter ut 500 fisk i en dam som maksimalt kan romme 10 000. I starten er det mat og plass i overflod, og bestanden vokser nesten eksponentielt. Men etter hvert som dammen fylles opp, blir maten knappere, konkurransen hardere og veksten tregere. Til slutt flater bestanden ut like under taket på 10 000. Det samme mønsteret dukker opp overalt der vekst møter begrensninger: populasjoner som møter mat- og plassmangel, sykdommer som sprer seg i en befolkning av begrenset størrelse, og produkter som metter et marked.\n\nResultatet er en kurve som ser ut som en strukket S: først bratt stigende som eksponentiell vekst, så bremsende, og til slutt nesten flat mot en øvre grense. Denne grensen kalles **bærekapasiteten**, og modellen som beskriver hele forløpet, kalles **logistisk vekst**. I dette kapittelet skal vi bygge modellen, finne punktet der veksten er på sitt aller raskeste, og se hvordan den deriverte forklarer hvorfor kurven oppfører seg som den gjør."},{"id":"r1-5-2-n-section1","type":"text","content":"## S-kurven og bærekapasiteten\n\nDen logistiske vekstkurven har tre faser. I den *tidlige fasen* ligner veksten eksponentiell – det er få begrensninger, og bestanden skyter fart. I *midtfasen* begynner ressursene å bli knappe, og veksten bremser. I den *sene fasen* flater kurven ut mot en øvre grense. Matematisk fanges hele forløpet av den logistiske modellen $$N(t) = \\frac{K}{1 + Ce^{-rt}}$$ Her er $K$ **bærekapasiteten** – den øvre grensen som $N(t)$ aldri overstiger i lengden. Tallet $r > 0$ er vekstraten, som bestemmer hvor bratt S-en er. Og konstanten $C$ bestemmes av startverdien: $C = \\frac{K - N_0}{N_0}$. Starter vi langt under taket, blir $C$ stor; starter vi nær taket, blir $C$ liten.\n\nSjekk gjerne at modellen oppfører seg som lovet. Ved $t = 0$ er $e^0 = 1$, så $N(0) = \\frac{K}{1 + C} = N_0$ – vi starter der vi skal. Og når $t \\to \\infty$, går $e^{-rt}$ mot null, så $N(t) \\to K$ – kurven nærmer seg bærekapasiteten uten å passere den.\n\nLa oss tallfeste fiskedammen: $K = 10\\,000$, $N_0 = 500$ og $r = 0{,}5$ per år. Da er $C = \\frac{10\\,000 - 500}{500} = 19$, og modellen blir $N(t) = \\frac{10\\,000}{1 + 19e^{-0{,}5t}}$. Etter 5 år gir den $N(5) \\approx 3\\,900$ fisk, etter 10 år $N(10) \\approx 8\\,900$, og etter 20 år $N(20) \\approx 9\\,990$ – så godt som fullt. Legg merke til rytmen: først rask vekst, så oppbremsing, så utflating. Akkurat den S-formen vi lovet."},{"id":"r1-5-2-n-quiz1","type":"exercise","exercise":{"id":"r1-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på den logistiske modellen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-2-n-quiz1-q0","task":"Hva er bærekapasiteten $K$ i en logistisk modell?","options":[{"id":"a","text":"Startverdien til populasjonen","isCorrect":false},{"id":"b","text":"Den øvre grensen som $N(t)$ nærmer seg","isCorrect":true},{"id":"c","text":"Tidspunktet der veksten er størst","isCorrect":false},{"id":"d","text":"Vekstraten i den tidlige fasen","isCorrect":false}],"solution":"Bærekapasiteten $K$ er den maksimale bærekraftige størrelsen. Når $t \\to \\infty$, går $N(t) \\to K$."},{"id":"r1-5-2-n-quiz1-q1","task":"En dam har $K = 10\\,000$ og vi setter ut $N_0 = 500$ fisk. Hva er konstanten $C$?","options":[{"id":"a","text":"$20$","isCorrect":false},{"id":"b","text":"$0{,}05$","isCorrect":false},{"id":"c","text":"$9\\,500$","isCorrect":false},{"id":"d","text":"$19$","isCorrect":true}],"solution":"$C = \\frac{K - N_0}{N_0} = \\frac{10\\,000 - 500}{500} = \\frac{9\\,500}{500} = 19$."},{"id":"r1-5-2-n-quiz1-q2","task":"Hva skjer med $N(t) = \\frac{K}{1 + Ce^{-rt}}$ når $t \\to \\infty$?","options":[{"id":"a","text":"$N(t) \\to K$","isCorrect":true},{"id":"b","text":"$N(t) \\to 0$","isCorrect":false},{"id":"c","text":"$N(t) \\to C$","isCorrect":false},{"id":"d","text":"$N(t)$ vokser uten grense","isCorrect":false}],"solution":"Når $t \\to \\infty$, går $e^{-rt} \\to 0$, så nevneren går mot 1 og $N(t) \\to K$."},{"id":"r1-5-2-n-quiz1-q3","task":"Hvordan oppfører logistisk vekst seg i den tidlige fasen, når $N$ er liten i forhold til $K$?","options":[{"id":"a","text":"Den er tilnærmet lineær","isCorrect":false},{"id":"b","text":"Den er tilnærmet konstant","isCorrect":false},{"id":"c","text":"Den ligner eksponentiell vekst","isCorrect":true},{"id":"d","text":"Den avtar mot null","isCorrect":false}],"solution":"Tidlig er det få begrensninger, og veksten ligner eksponentiell. Først når $N$ nærmer seg $K$, bremser veksten."}]}},{"id":"r1-5-2-n-section2","type":"text","content":"## Vendepunktet – der veksten snur\n\nSe for deg veksthastigheten gjennom fiskedammens historie. I starten er bestanden liten, så selv om hver fisk formerer seg friskt, blir det få nye fisk totalt. Mot slutten er dammen nesten full, og veksten kveles av trengsel. Et sted midt imellom må veksten være på sitt aller raskeste. Dette punktet kalles **vendepunktet** – punktet der kurven slutter å krumme oppover og begynner å krumme nedover.\n\nOg her kommer et resultat med nesten poetisk symmetri: vendepunktet inntreffer nøyaktig når $$N = \\frac{K}{2}$$ – når dammen er *halvfull*. Tidspunktet finner vi med formelen $t_v = \\frac{\\ln C}{r}$, og den maksimale veksthastigheten i selve vendepunktet er $N'(t_v) = \\frac{rK}{4}$.\n\nLa oss regne på fiskedammen med $C = 19$ og $r = 0{,}5$. Vendepunktet kommer ved $t_v = \\frac{\\ln 19}{0{,}5} \\approx \\frac{2{,}944}{0{,}5} \\approx 5{,}9$ år, da bestanden er $\\frac{K}{2} = 5\\,000$ fisk, og veksten er på topp med $N'(t_v) = \\frac{0{,}5 \\cdot 10\\,000}{4} = 1\\,250$ fisk per år. Rundt år seks myldrer det altså av yngel som aldri før – og fra da av går det bare saktere.\n\nVendepunktet er ikke bare en kuriositet; det er ofte det viktigste punktet i hele modellen. For en epidemi er det øyeblikket smitten sprer seg raskest – og tegnet på at toppen av bølgen er nær. For et produkt i markedet er det øyeblikket salget vokser fortest – og hintet om at metningen nærmer seg. Den som kan lese vendepunktet, kan se hvor historien er på vei lenge før kurven flater ut."},{"id":"r1-5-2-n-quiz2","type":"exercise","exercise":{"id":"r1-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på vendepunktet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-2-n-quiz2-q0","task":"Hvor stor er populasjonen i vendepunktet til en logistisk modell?","options":[{"id":"a","text":"$N = K$","isCorrect":false},{"id":"b","text":"$N = \\frac{K}{4}$","isCorrect":false},{"id":"c","text":"$N = \\frac{K}{2}$","isCorrect":true},{"id":"d","text":"$N = N_0$","isCorrect":false}],"solution":"Vendepunktet inntreffer alltid når populasjonen er halvparten av bærekapasiteten: $N = \\frac{K}{2}$."},{"id":"r1-5-2-n-quiz2-q1","task":"For fiskedammen er $C = 19$ og $r = 0{,}5$. Når inntreffer vendepunktet?","options":[{"id":"a","text":"Etter ca. 5,9 år","isCorrect":true},{"id":"b","text":"Etter ca. 9,5 år","isCorrect":false},{"id":"c","text":"Etter ca. 2,9 år","isCorrect":false},{"id":"d","text":"Etter ca. 19 år","isCorrect":false}],"solution":"$t_v = \\frac{\\ln C}{r} = \\frac{\\ln 19}{0{,}5} \\approx \\frac{2{,}944}{0{,}5} \\approx 5{,}9$ år."},{"id":"r1-5-2-n-quiz2-q2","task":"Hva er den maksimale veksthastigheten når $K = 10\\,000$ og $r = 0{,}5$?","options":[{"id":"a","text":"$5\\,000$ fisk per år","isCorrect":false},{"id":"b","text":"$1\\,250$ fisk per år","isCorrect":true},{"id":"c","text":"$2\\,500$ fisk per år","isCorrect":false},{"id":"d","text":"$625$ fisk per år","isCorrect":false}],"solution":"Maksimal veksthastighet er $N'(t_v) = \\frac{rK}{4} = \\frac{0{,}5 \\cdot 10\\,000}{4} = 1\\,250$ fisk per år."},{"id":"r1-5-2-n-quiz2-q3","task":"Hva skjer med veksthastigheten $N'(t)$ etter vendepunktet?","options":[{"id":"a","text":"Den fortsetter å øke","isCorrect":false},{"id":"b","text":"Den er konstant","isCorrect":false},{"id":"c","text":"Den blir negativ","isCorrect":false},{"id":"d","text":"Den avtar mot null","isCorrect":true}],"solution":"Etter vendepunktet bremser veksten: $N'(t)$ avtar og går mot null når $N(t)$ nærmer seg $K$. Populasjonen synker ikke – den slutter bare å vokse."}]}},{"id":"r1-5-2-n-section3","type":"text","content":"## Den deriverte og bremsefaktoren\n\nHvorfor oppfører den logistiske kurven seg akkurat slik? Svaret ligger i den deriverte. Med litt regning (eller kjerneregel og brøkregel) kan man vise at $N(t) = \\frac{K}{1 + Ce^{-rt}}$ har den deriverte $N'(t) = \\frac{rKCe^{-rt}}{(1 + Ce^{-rt})^2}$ – men det er den *omskrevne* formen som forteller historien: $$N'(t) = rN(t)\\left(1 - \\frac{N(t)}{K}\\right)$$ Les den som en fortelling i to deler. Faktoren $rN$ er ren eksponentiell vekst – jo flere fisk, desto flere yngel. Men så ganges alt med **bremsefaktoren** $\\left(1 - \\frac{N}{K}\\right)$, som måler hvor mye ledig kapasitet som er igjen. Er dammen nesten tom, er bremsefaktoren nær 1 og veksten uhemmet. Er dammen nesten full, er den nær 0 og veksten kveles. Denne sammenhengen, $\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$, kalles den logistiske differensiallikningen, og det er den hele modellen springer ut av.\n\nPrøv den på modellen $N(t) = \\frac{1000}{1 + 9e^{-0{,}2t}}$: ved $N = 200$ er $N' = 0{,}2 \\cdot 200 \\cdot 0{,}8 = 32$, ved $N = 500$ er $N' = 0{,}2 \\cdot 500 \\cdot 0{,}5 = 50$, og ved $N = 800$ er $N' = 0{,}2 \\cdot 800 \\cdot 0{,}2 = 32$. Symmetrisk rundt toppen ved $N = \\frac{K}{2}$, akkurat som vendepunktsteorien lovet.\n\nModellen brukes på fullt alvor. Under en epidemi i en by med 100 000 innbyggere, der 100 er smittet ved start og $r = 0{,}3$ per dag, blir $C = 999$ og $N(t) = \\frac{100\\,000}{1 + 999e^{-0{,}3t}}$. Etter 20 dager er rundt 28 800 smittet, vendepunktet kommer ved $t_v = \\frac{\\ln 999}{0{,}3} \\approx 23$ dager – da halve byen er smittet og spredningen er på sitt verste med $\\frac{rK}{4} = 7\\,500$ nye tilfeller per dag. Og lanserer et selskap en strømmetjeneste, kan man gå motsatt vei: måle abonnenttall underveis, løse ut $r$ fra et datapunkt med logaritmer, og forutsi når markedet er halvmettet. Samme S-kurve, helt forskjellige fortellinger."},{"id":"r1-5-2-n-quiz3","type":"exercise","exercise":{"id":"r1-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på den deriverte av logistisk funksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-5-2-n-quiz3-q0","task":"Hva er $N'(t)$ for logistisk vekst, skrevet på den mest fortellende formen?","options":[{"id":"a","text":"$N' = rN$","isCorrect":false},{"id":"b","text":"$N' = rN\\left(1 - \\frac{N}{K}\\right)$","isCorrect":true},{"id":"c","text":"$N' = rK$","isCorrect":false},{"id":"d","text":"$N' = r\\left(1 - \\frac{N}{K}\\right)$","isCorrect":false}],"solution":"$N' = rN\\left(1 - \\frac{N}{K}\\right)$: eksponentiell vekst $rN$ ganget med bremsefaktoren $\\left(1 - \\frac{N}{K}\\right)$."},{"id":"r1-5-2-n-quiz3-q1","task":"Hva skjer med veksthastigheten når $N$ nærmer seg $K$?","options":[{"id":"a","text":"Bremsefaktoren $1 - \\frac{N}{K}$ går mot null, så veksten stopper","isCorrect":true},{"id":"b","text":"Veksten blir eksponentiell","isCorrect":false},{"id":"c","text":"Veksthastigheten blir lik $rK$","isCorrect":false},{"id":"d","text":"Veksthastigheten blir negativ","isCorrect":false}],"solution":"Når $N \\to K$, går bremsefaktoren $\\left(1 - \\frac{N}{K}\\right) \\to 0$, og dermed $N' \\to 0$. Populasjonen flater ut ved bærekapasiteten."},{"id":"r1-5-2-n-quiz3-q2","task":"For modellen med $K = 1000$ og $r = 0{,}2$: hva er veksthastigheten når $N = 500$?","options":[{"id":"a","text":"$100$","isCorrect":false},{"id":"b","text":"$25$","isCorrect":false},{"id":"c","text":"$32$","isCorrect":false},{"id":"d","text":"$50$","isCorrect":true}],"solution":"$N' = 0{,}2 \\cdot 500 \\cdot \\left(1 - \\frac{500}{1000}\\right) = 100 \\cdot 0{,}5 = 50$. Dette er maksimal veksthastighet, siden $N = \\frac{K}{2}$."},{"id":"r1-5-2-n-quiz3-q3","task":"En epidemi i en by med $K = 100\\,000$ følger logistisk vekst med $r = 0{,}3$ per dag. Hva er maksimal smittehastighet?","options":[{"id":"a","text":"$30\\,000$ per dag","isCorrect":false},{"id":"b","text":"$3\\,000$ per dag","isCorrect":false},{"id":"c","text":"$7\\,500$ per dag","isCorrect":true},{"id":"d","text":"$15\\,000$ per dag","isCorrect":false}],"solution":"Maksimal veksthastighet er $\\frac{rK}{4} = \\frac{0{,}3 \\cdot 100\\,000}{4} = 7\\,500$ smittede per dag, og den inntreffer i vendepunktet."}]}},{"id":"r1-5-2-n-summary","type":"text","content":"## Fortellingen om veksten som møtte veggen\n\nFiskedammen vår ble aldri overfylt – og nå vet du hvorfor. Logistisk vekst $N(t) = \\frac{K}{1 + Ce^{-rt}}$ beskriver det som skjer når eksponentiell vekst møter begrensninger: en S-formet kurve som starter nesten eksponentielt, bremser i midten og flater ut mot **bærekapasiteten** $K$. Konstanten $C = \\frac{K - N_0}{N_0}$ sørger for at kurven starter på riktig sted, og vekstraten $r$ bestemmer hvor bratt S-en er.\n\nMidt i forløpet ligger **vendepunktet**, ved $t_v = \\frac{\\ln C}{r}$, der populasjonen er nøyaktig halvparten av bærekapasiteten og veksten er på sitt raskeste med $N'(t_v) = \\frac{rK}{4}$. For fiskedammen betydde det 1 250 nye fisk i året rundt år seks; for en epidemi betyr det dagen smitten herjer verst – og samtidig det første tegnet på at bølgen snart snur.\n\nNøkkelen til det hele er den deriverte på formen $N' = rN\\left(1 - \\frac{N}{K}\\right)$: eksponentiell drivkraft $rN$ ganget med en bremsefaktor som måler ledig kapasitet. Nesten tom dam gir fri vekst; nesten full dam kveler den. Sammenlign med forrige kapittel: eksponentiell vekst har $N' = kN$ og vokser uten grenser, logistisk vekst har bremsen innebygd. Men begge er fortsatt *teoretiske* modeller. I neste kapittel slipper vi dem løs på ekte, rotete data – og lærer å vurdere når modellene holder, og når de leder oss vill."}],"exercises":[]}
+{
+  "id": "r1-5-2-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "5.2",
+  "title": "Logistisk vekst",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om logistisk vekst -- om fiskedammen som ble full, S-kurven med bærekapasitet, vendepunktet der veksten er på sitt raskeste, og bremsefaktoren som forklarer det hele.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "forstå begrensninger i eksponentiell vekst",
+    "bruke logistisk modell med bærekapasitet",
+    "finne og tolke vendepunktet",
+    "derivere logistisk funksjon",
+    "anvende modellen på praktiske problemer"
+  ],
+  "linkedChapterId": "r1-5-2",
+  "content": [
+    {
+      "id": "r1-5-2-n-intro",
+      "type": "text",
+      "content": "## Dammen som ble full\n\nI forrige kapittel lærte du at eksponentiell vekst dobler seg igjen og igjen med fast mellomrom. Men tenk etter: kan noe som helst i virkeligheten vokse slik for alltid? En bakteriekoloni som doblet seg hver time uten stans, ville veid mer enn jordkloden i løpet av noen døgn. Et eller annet sted må veksten møte veggen.\n\nTenk deg en fiskeoppdretter som setter ut 500 fisk i en dam som maksimalt kan romme 10 000. I starten er det mat og plass i overflod, og bestanden vokser nesten eksponentielt. Men etter hvert som dammen fylles opp, blir maten knappere, konkurransen hardere og veksten tregere. Til slutt flater bestanden ut like under taket på 10 000. Det samme mønsteret dukker opp overalt der vekst møter begrensninger: populasjoner som møter mat- og plassmangel, sykdommer som sprer seg i en befolkning av begrenset størrelse, og produkter som metter et marked.\n\nResultatet er en kurve som ser ut som en strukket S: først bratt stigende som eksponentiell vekst, så bremsende, og til slutt nesten flat mot en øvre grense. Denne grensen kalles **bærekapasiteten**, og modellen som beskriver hele forløpet, kalles **logistisk vekst**. I dette kapittelet skal vi bygge modellen, finne punktet der veksten er på sitt aller raskeste, og se hvordan den deriverte forklarer hvorfor kurven oppfører seg som den gjør."
+    },
+    {
+      "id": "r1-5-2-n-section1",
+      "type": "text",
+      "content": "## S-kurven og bærekapasiteten\n\nDen logistiske vekstkurven har tre faser. I den *tidlige fasen* ligner veksten eksponentiell – det er få begrensninger, og bestanden skyter fart. I *midtfasen* begynner ressursene å bli knappe, og veksten bremser. I den *sene fasen* flater kurven ut mot en øvre grense. Matematisk fanges hele forløpet av den logistiske modellen $$N(t) = \\frac{K}{1 + Ce^{-rt}}$$ Her er $K$ **bærekapasiteten** – den øvre grensen som $N(t)$ aldri overstiger i lengden. Tallet $r > 0$ er vekstraten, som bestemmer hvor bratt S-en er. Og konstanten $C$ bestemmes av startverdien: $C = \\frac{K - N_0}{N_0}$. Starter vi langt under taket, blir $C$ stor; starter vi nær taket, blir $C$ liten.\n\nSjekk gjerne at modellen oppfører seg som lovet. Ved $t = 0$ er $e^0 = 1$, så $N(0) = \\frac{K}{1 + C} = N_0$ – vi starter der vi skal. Og når $t \\to \\infty$, går $e^{-rt}$ mot null, så $N(t) \\to K$ – kurven nærmer seg bærekapasiteten uten å passere den.\n\nLa oss tallfeste fiskedammen: $K = 10\\,000$, $N_0 = 500$ og $r = 0{,}5$ per år. Da er $C = \\frac{10\\,000 - 500}{500} = 19$, og modellen blir $N(t) = \\frac{10\\,000}{1 + 19e^{-0{,}5t}}$. Etter 5 år gir den $N(5) \\approx 3\\,900$ fisk, etter 10 år $N(10) \\approx 8\\,900$, og etter 20 år $N(20) \\approx 9\\,990$ – så godt som fullt. Legg merke til rytmen: først rask vekst, så oppbremsing, så utflating. Akkurat den S-formen vi lovet."
+    },
+    {
+      "id": "r1-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på den logistiske modellen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-2-n-quiz1-q0",
+            "task": "Hva er bærekapasiteten $K$ i en logistisk modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Startverdien til populasjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tidspunktet der veksten er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den øvre grensen som $N(t)$ nærmer seg",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Vekstraten i den tidlige fasen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bærekapasiteten $K$ er den maksimale bærekraftige størrelsen. Når $t \\to \\infty$, går $N(t) \\to K$."
+          },
+          {
+            "id": "r1-5-2-n-quiz1-q1",
+            "task": "En dam har $K = 10\\,000$ og vi setter ut $N_0 = 500$ fisk. Hva er konstanten $C$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}05$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$9\\,500$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$19$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$C = \\frac{K - N_0}{N_0} = \\frac{10\\,000 - 500}{500} = \\frac{9\\,500}{500} = 19$."
+          },
+          {
+            "id": "r1-5-2-n-quiz1-q2",
+            "task": "Hva skjer med $N(t) = \\frac{K}{1 + Ce^{-rt}}$ når $t \\to \\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$N(t) \\to K$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$N(t) \\to 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$N(t) \\to C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$N(t)$ vokser uten grense",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $t \\to \\infty$, går $e^{-rt} \\to 0$, så nevneren går mot 1 og $N(t) \\to K$."
+          },
+          {
+            "id": "r1-5-2-n-quiz1-q3",
+            "task": "Hvordan oppfører logistisk vekst seg i den tidlige fasen, når $N$ er liten i forhold til $K$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den er tilnærmet lineær",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den ligner eksponentiell vekst",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den er tilnærmet konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den avtar mot null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tidlig er det få begrensninger, og veksten ligner eksponentiell. Først når $N$ nærmer seg $K$, bremser veksten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-2-n-section2",
+      "type": "text",
+      "content": "## Vendepunktet – der veksten snur\n\nSe for deg veksthastigheten gjennom fiskedammens historie. I starten er bestanden liten, så selv om hver fisk formerer seg friskt, blir det få nye fisk totalt. Mot slutten er dammen nesten full, og veksten kveles av trengsel. Et sted midt imellom må veksten være på sitt aller raskeste. Dette punktet kalles **vendepunktet** – punktet der kurven slutter å krumme oppover og begynner å krumme nedover.\n\nOg her kommer et resultat med nesten poetisk symmetri: vendepunktet inntreffer nøyaktig når $$N = \\frac{K}{2}$$ – når dammen er *halvfull*. Tidspunktet finner vi med formelen $t_v = \\frac{\\ln C}{r}$, og den maksimale veksthastigheten i selve vendepunktet er $N'(t_v) = \\frac{rK}{4}$.\n\nLa oss regne på fiskedammen med $C = 19$ og $r = 0{,}5$. Vendepunktet kommer ved $t_v = \\frac{\\ln 19}{0{,}5} \\approx \\frac{2{,}944}{0{,}5} \\approx 5{,}9$ år, da bestanden er $\\frac{K}{2} = 5\\,000$ fisk, og veksten er på topp med $N'(t_v) = \\frac{0{,}5 \\cdot 10\\,000}{4} = 1\\,250$ fisk per år. Rundt år seks myldrer det altså av yngel som aldri før – og fra da av går det bare saktere.\n\nVendepunktet er ikke bare en kuriositet; det er ofte det viktigste punktet i hele modellen. For en epidemi er det øyeblikket smitten sprer seg raskest – og tegnet på at toppen av bølgen er nær. For et produkt i markedet er det øyeblikket salget vokser fortest – og hintet om at metningen nærmer seg. Den som kan lese vendepunktet, kan se hvor historien er på vei lenge før kurven flater ut."
+    },
+    {
+      "id": "r1-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vendepunktet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-2-n-quiz2-q0",
+            "task": "Hvor stor er populasjonen i vendepunktet til en logistisk modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$N = K$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$N = \\frac{K}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$N = \\frac{K}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$N = N_0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vendepunktet inntreffer alltid når populasjonen er halvparten av bærekapasiteten: $N = \\frac{K}{2}$."
+          },
+          {
+            "id": "r1-5-2-n-quiz2-q1",
+            "task": "For fiskedammen er $C = 19$ og $r = 0{,}5$. Når inntreffer vendepunktet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Etter ca. 9,5 år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etter ca. 2,9 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Etter ca. 19 år",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Etter ca. 5,9 år",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$t_v = \\frac{\\ln C}{r} = \\frac{\\ln 19}{0{,}5} \\approx \\frac{2{,}944}{0{,}5} \\approx 5{,}9$ år."
+          },
+          {
+            "id": "r1-5-2-n-quiz2-q2",
+            "task": "Hva er den maksimale veksthastigheten når $K = 10\\,000$ og $r = 0{,}5$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1\\,250$ fisk per år",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$5\\,000$ fisk per år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2\\,500$ fisk per år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$625$ fisk per år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Maksimal veksthastighet er $N'(t_v) = \\frac{rK}{4} = \\frac{0{,}5 \\cdot 10\\,000}{4} = 1\\,250$ fisk per år."
+          },
+          {
+            "id": "r1-5-2-n-quiz2-q3",
+            "task": "Hva skjer med veksthastigheten $N'(t)$ etter vendepunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den fortsetter å øke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den avtar mot null",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den blir negativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter vendepunktet bremser veksten: $N'(t)$ avtar og går mot null når $N(t)$ nærmer seg $K$. Populasjonen synker ikke – den slutter bare å vokse."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-2-n-section3",
+      "type": "text",
+      "content": "## Den deriverte og bremsefaktoren\n\nHvorfor oppfører den logistiske kurven seg akkurat slik? Svaret ligger i den deriverte. Med litt regning (eller kjerneregel og brøkregel) kan man vise at $N(t) = \\frac{K}{1 + Ce^{-rt}}$ har den deriverte $N'(t) = \\frac{rKCe^{-rt}}{(1 + Ce^{-rt})^2}$ – men det er den *omskrevne* formen som forteller historien: $$N'(t) = rN(t)\\left(1 - \\frac{N(t)}{K}\\right)$$ Les den som en fortelling i to deler. Faktoren $rN$ er ren eksponentiell vekst – jo flere fisk, desto flere yngel. Men så ganges alt med **bremsefaktoren** $\\left(1 - \\frac{N}{K}\\right)$, som måler hvor mye ledig kapasitet som er igjen. Er dammen nesten tom, er bremsefaktoren nær 1 og veksten uhemmet. Er dammen nesten full, er den nær 0 og veksten kveles. Denne sammenhengen, $\\frac{dN}{dt} = rN\\left(1 - \\frac{N}{K}\\right)$, kalles den logistiske differensiallikningen, og det er den hele modellen springer ut av.\n\nPrøv den på modellen $N(t) = \\frac{1000}{1 + 9e^{-0{,}2t}}$: ved $N = 200$ er $N' = 0{,}2 \\cdot 200 \\cdot 0{,}8 = 32$, ved $N = 500$ er $N' = 0{,}2 \\cdot 500 \\cdot 0{,}5 = 50$, og ved $N = 800$ er $N' = 0{,}2 \\cdot 800 \\cdot 0{,}2 = 32$. Symmetrisk rundt toppen ved $N = \\frac{K}{2}$, akkurat som vendepunktsteorien lovet.\n\nModellen brukes på fullt alvor. Under en epidemi i en by med 100 000 innbyggere, der 100 er smittet ved start og $r = 0{,}3$ per dag, blir $C = 999$ og $N(t) = \\frac{100\\,000}{1 + 999e^{-0{,}3t}}$. Etter 20 dager er rundt 28 800 smittet, vendepunktet kommer ved $t_v = \\frac{\\ln 999}{0{,}3} \\approx 23$ dager – da halve byen er smittet og spredningen er på sitt verste med $\\frac{rK}{4} = 7\\,500$ nye tilfeller per dag. Og lanserer et selskap en strømmetjeneste, kan man gå motsatt vei: måle abonnenttall underveis, løse ut $r$ fra et datapunkt med logaritmer, og forutsi når markedet er halvmettet. Samme S-kurve, helt forskjellige fortellinger."
+    },
+    {
+      "id": "r1-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på den deriverte av logistisk funksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-5-2-n-quiz3-q0",
+            "task": "Hva er $N'(t)$ for logistisk vekst, skrevet på den mest fortellende formen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$N' = rN$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$N' = rK$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$N' = rN\\left(1 - \\frac{N}{K}\\right)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$N' = r\\left(1 - \\frac{N}{K}\\right)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N' = rN\\left(1 - \\frac{N}{K}\\right)$: eksponentiell vekst $rN$ ganget med bremsefaktoren $\\left(1 - \\frac{N}{K}\\right)$."
+          },
+          {
+            "id": "r1-5-2-n-quiz3-q1",
+            "task": "Hva skjer med veksthastigheten når $N$ nærmer seg $K$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Veksten blir eksponentiell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Veksthastigheten blir lik $rK$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Veksthastigheten blir negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Bremsefaktoren $1 - \\frac{N}{K}$ går mot null, så veksten stopper",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når $N \\to K$, går bremsefaktoren $\\left(1 - \\frac{N}{K}\\right) \\to 0$, og dermed $N' \\to 0$. Populasjonen flater ut ved bærekapasiteten."
+          },
+          {
+            "id": "r1-5-2-n-quiz3-q2",
+            "task": "For modellen med $K = 1000$ og $r = 0{,}2$: hva er veksthastigheten når $N = 500$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$50$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$32$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N' = 0{,}2 \\cdot 500 \\cdot \\left(1 - \\frac{500}{1000}\\right) = 100 \\cdot 0{,}5 = 50$. Dette er maksimal veksthastighet, siden $N = \\frac{K}{2}$."
+          },
+          {
+            "id": "r1-5-2-n-quiz3-q3",
+            "task": "En epidemi i en by med $K = 100\\,000$ følger logistisk vekst med $r = 0{,}3$ per dag. Hva er maksimal smittehastighet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$30\\,000$ per dag",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7\\,500$ per dag",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3\\,000$ per dag",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$15\\,000$ per dag",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Maksimal veksthastighet er $\\frac{rK}{4} = \\frac{0{,}3 \\cdot 100\\,000}{4} = 7\\,500$ smittede per dag, og den inntreffer i vendepunktet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-5-2-n-summary",
+      "type": "text",
+      "content": "## Fortellingen om veksten som møtte veggen\n\nFiskedammen vår ble aldri overfylt – og nå vet du hvorfor. Logistisk vekst $N(t) = \\frac{K}{1 + Ce^{-rt}}$ beskriver det som skjer når eksponentiell vekst møter begrensninger: en S-formet kurve som starter nesten eksponentielt, bremser i midten og flater ut mot **bærekapasiteten** $K$. Konstanten $C = \\frac{K - N_0}{N_0}$ sørger for at kurven starter på riktig sted, og vekstraten $r$ bestemmer hvor bratt S-en er.\n\nMidt i forløpet ligger **vendepunktet**, ved $t_v = \\frac{\\ln C}{r}$, der populasjonen er nøyaktig halvparten av bærekapasiteten og veksten er på sitt raskeste med $N'(t_v) = \\frac{rK}{4}$. For fiskedammen betydde det 1 250 nye fisk i året rundt år seks; for en epidemi betyr det dagen smitten herjer verst – og samtidig det første tegnet på at bølgen snart snur.\n\nNøkkelen til det hele er den deriverte på formen $N' = rN\\left(1 - \\frac{N}{K}\\right)$: eksponentiell drivkraft $rN$ ganget med en bremsefaktor som måler ledig kapasitet. Nesten tom dam gir fri vekst; nesten full dam kveler den. Sammenlign med forrige kapittel: eksponentiell vekst har $N' = kN$ og vokser uten grenser, logistisk vekst har bremsen innebygd. Men begge er fortsatt *teoretiske* modeller. I neste kapittel slipper vi dem løs på ekte, rotete data – og lærer å vurdere når modellene holder, og når de leder oss vill."
+    }
+  ],
+  "exercises": []
+}

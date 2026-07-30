@@ -1,1 +1,386 @@
-{"id":"elektro-data-vg1-6-7-narrativ","courseId":"elektro-data-vg1","chapterNumber":"6.7","title":"Smarthus og bygningsautomasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om huset som tenkjer sjølv -- frå sensorar og smarte protokollar som KNX, Z-Wave og Zigbee til store bygningssystem som sparer hundretusenvis av kroner i straum.","estimatedMinutes":30,"competenceGoals":["forklare prinsipper og teknologier for smarthus og bygningsautomasjon"],"linkedChapterId":"elektro-data-vg1-6-7","content":[{"id":"elektro-data-vg1-6-7-n-intro","type":"text","content":"## Huset som veit at du er heime\n\nTenk deg at du kjem heim ein mørk vinterkveld. Idet du går inn døra, blir lyset tent av seg sjølv, varmen har allereie skrudd seg opp frå nattsenkinga sine 18 grader til behagelege 22, og persiennene har trekt seg ned for å halde på varmen. Ingen har trykt på ein brytar. Huset gjorde det sjølv.\n\nDette er eit **smarthus** -- ein bustad der sensorar, aktuatorar og kommunikasjonsnettverk samarbeider om å automatisere belysning, oppvarming, tryggleik og energistyring. Det same prinsippet finn du igjen i dei store næringsbygga, berre i langt større skala. Og dette er ikkje framtidsmusikk: bygningsautomasjon er eit av dei raskast veksande fagfelta i Noreg, drive av strenge krav til energieffektivitet, komfort og tryggleik.\n\nSom elektrofagarbeidar kjem du nesten garantert til å jobbe med denne teknologien. I dette kapittelet skal vi sjå korleis eit smarthus er bygd opp, kva protokollar som lèt einingane snakke saman, korleis lys og varme blir styrte automatisk, og kor mykje energi -- og pengar -- automasjon faktisk sparer."},{"id":"elektro-data-vg1-6-7-n-section1","type":"text","content":"## Sansane, hjernen og musklane\n\nEit smarthus er eigentleg bygd opp som ein kropp. Det har **sensorar** som er sansane: dei måler temperatur, rørsle, lys, fukt og om dører og vindauge er opne. Det har **aktuatorar** som er musklane: dimmarar, relé, motoriserte ventilar og persiennemotorar som faktisk utfører noko. Og det har ei **sentraleining** -- ein hub eller gateway -- som er hjernen, og som koordinerer kommunikasjonen mellom alt. Til slutt styrer du det heile gjennom eit brukargrensesnitt, anten det er ein app, eit veggpanel eller ein stemmeassistent.\n\nMen for at alle desse einingane skal kunne snakke saman, treng dei eit felles språk -- ein **kommunikasjonsprotokoll**. Her finst det tre store du må kjenne. **KNX** er den kabelbaserte standarden, ein internasjonal ISO-standard som bruker ein eigen grøn busskabel med to leiarar ved sida av straumkablane. KNX er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og han er desentralisert -- einingane snakkar direkte med kvarandre utan ein sentral server. Han blir brukt i næringsbygg og dyrare bustader, men krev sertifisert installatør.\n\nDei to andre er trådlause. **Z-Wave** sender på 868 MHz og byggjer eit mesh-nettverk der einingane vidaresender signal til kvarandre, med rundt 30 meter rekkjevidd per hopp og maks 232 einingar. **Zigbee** sender på 2,4 GHz -- same frekvens som Wi-Fi -- og kan handtere opptil 65 000 einingar med svært lågt straumforbruk, slik at batteridrivne sensorar varer i årevis. Du finn Zigbee i Philips Hue og IKEA-produkt, men sidan han deler frekvens med Wi-Fi, kan han få interferens. Eit **mesh-nettverk** tyder nettopp at einingane fungerer som repeatarar som sender signalet vidare, slik at rekkjevidda blir utvida og signalet finn alternative ruter viss éi eining sviktar."},{"id":"elektro-data-vg1-6-7-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-6-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på smarthus og protokollar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-6-7-n-quiz1-q0","task":"Kva protokoll er kabelbasert og ein internasjonal standard for bygningsautomasjon?","options":[{"id":"a","text":"Z-Wave","isCorrect":false},{"id":"b","text":"Zigbee","isCorrect":false},{"id":"c","text":"Bluetooth","isCorrect":false},{"id":"d","text":"KNX","isCorrect":true}],"solution":"KNX er ein internasjonal kabelbasert standard (ISO 14543) som bruker ein eigen grøn busskabel. Han er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og blir mykje brukt i næringsbygg."},{"id":"elektro-data-vg1-6-7-n-quiz1-q1","task":"Kva er eit mesh-nettverk i Z-Wave og Zigbee?","options":[{"id":"a","text":"At einingar vidaresender signal til kvarandre slik at rekkjevidda blir utvida","isCorrect":true},{"id":"b","text":"At alle einingar er kopla med kabel til ein sentral hub","isCorrect":false},{"id":"c","text":"At berre éi eining kan kommunisere om gongen","isCorrect":false},{"id":"d","text":"At einingane bruker mobilnettet","isCorrect":false}],"solution":"I eit mesh-nettverk fungerer einingane som repeatarar som sender signalet vidare. Det utvidar rekkjevidda og gjer nettverket meir påliteleg, fordi signalet kan finne ei alternativ rute viss ei eining sviktar."},{"id":"elektro-data-vg1-6-7-n-quiz1-q2","task":"Ein familie vil gjere eit 15 år gammalt hus utan smarthus-kablar smartare, med avgrensa budsjett. Kva passar best?","options":[{"id":"a","text":"KNX, fordi det er mest påliteleg","isCorrect":false},{"id":"b","text":"Ei trådlaus løysing som Z-Wave eller Zigbee","isCorrect":true},{"id":"c","text":"Ny KNX-busskabel i alle rom","isCorrect":false},{"id":"d","text":"Ingen automasjon er mogleg","isCorrect":false}],"solution":"I eit eksisterande hus utan kablar er det dyrt og upraktisk å leggje KNX-buss. Trådlause løysingar som Z-Wave eller Zigbee kan etterinstallerast utan å bryte opp veggar, og er rimelegare -- perfekt for avgrensa budsjett."}]}},{"id":"elektro-data-vg1-6-7-n-section2","type":"text","content":"## Lys og varme som styrer seg sjølve\n\nLat oss sjå nærare på kva huset faktisk gjer. **Automatisk lysstyring** kan skje på mange måtar. Rørslesensorar tenner lyset når du kjem og sløkkjer det når rommet er tomt. Dagslyskompensering dimmar det kunstige lyset ned når det er mykje dagslys og opp når det blir mørkt ute, slik at lysnivået blir halde jamt. Tidsstyring lèt lyset følgje klokka eller soloppgangen, og scenekontroll lagrar ferdige innstillingar som «Middag», «Film» og «Natt». I profesjonelle anlegg blir DALI ofte brukt, ein industristandard som lèt deg adressere kvar einskild armatur individuelt.\n\n**Automatisk varmestyring** er like smart. Kvart rom kan ha si eiga sone med eige settpunkt, slik at soverommet er kjøligare enn stova. Nattsenking senkar temperaturen automatisk om natta, til dømes frå 22 til 18 grader. Fråværsmodus skrur ned varmen når ingen er heime, basert på rørsle, GPS eller kalender. Og ein vindaugssensor slår av varmen straks eit vindauge blir opna -- ingen vits i å varme opp uteluft.\n\nGevinsten er ikkje liten. Smart lysstyring kan kutte 30 til 50 prosent av lysenergien, og smart varmestyring 15 til 30 prosent av varmeenergien. Det er energi -- og pengar -- som elles ville rent rett ut av huset utan at nokon merka det."},{"id":"elektro-data-vg1-6-7-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-6-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på lys- og varmestyring:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-6-7-n-quiz2-q0","task":"Kva er dagslyskompensering?","options":[{"id":"a","text":"At lyset alltid står på full styrke","isCorrect":false},{"id":"b","text":"At lyset berre blir brukt på dagtid","isCorrect":false},{"id":"c","text":"At kunstig lys blir dimma ned ved mykje dagslys og opp når det blir mørkt","isCorrect":true},{"id":"d","text":"At lyset skiftar farge etter klokka","isCorrect":false}],"solution":"Dagslyskompensering måler innkomande dagslys med ein lyssensor og justerer det kunstige lyset deretter. Mykje dagslys gjev dimming, mørke ute gjev meir lys. Det sparer energi og gjev jamt lysnivå."},{"id":"elektro-data-vg1-6-7-n-quiz2-q1","task":"Kva gjer ein vindaugssensor i eit varmestyringssystem?","options":[{"id":"a","text":"Aukar varmen når eit vindauge blir opna","isCorrect":false},{"id":"b","text":"Måler dagslyset gjennom vindauget","isCorrect":false},{"id":"c","text":"Styrer persiennene etter solposisjon","isCorrect":false},{"id":"d","text":"Slår av varmen automatisk når eit vindauge blir opna","isCorrect":true}],"solution":"Vindaugssensoren slår av varmen straks eit vindauge blir opna, slik at ein ikkje varmar opp uteluft. Det er eit enkelt, men effektivt energisparande tiltak."}]}},{"id":"elektro-data-vg1-6-7-n-section3","type":"text","content":"## Når heile bygget blir styrt frå éin stad\n\nI store næringsbygg blir alt dette løfta opp eit nivå med eit **BMS** -- Building Management System. Dette er det sentrale styresystemet som har oversikt over alle dei tekniske installasjonane samstundes: ventilasjon og klimaanlegg, belysning, oppvarming og kjøling, adgangskontroll, brannalarm, heisar og energimåling. Alt blir samla i eitt system.\n\nDet er her dei verkeleg store innsparingane ligg. **Behovsstyrt ventilasjon** ventilerer berre rom som faktisk er i bruk, målt på CO2-nivå eller rørsle -- eit tomt møterom treng ikkje same luftmengd som eit fullt. **Optimal start og stopp** syter for at varmen og ventilasjonen startar akkurat tidsnok til at bygget er klart når arbeidsdagen byrjar, ikkje eit minutt for tidleg. **Lastbalansering** unngår at alle energikrevjande system går samstundes og lagar dyre effekttoppar, og **frikjøling** bruker kald uteluft til kjøling i staden for kompressor når det er kjøleg nok ute.\n\nLat oss rekne på det. Eit kontorbygg bruker $500\\,000$ kWh i året på oppvarming, ventilasjon og belysning. Installerer du eit BMS med behovsstyrt ventilasjon, dagslyskompensering og optimal start og stopp, blir innsparinga anslått til 30 prosent. Det gjev $500\\,000 \\times 0{,}30 = 150\\,000$ kWh spart. Med ein straumpris på 1,20 kr/kWh blir det $150\\,000 \\times 1{,}20 = 180\\,000$ kr spart kvart einaste år -- altså 1,8 millionar kroner over ti år. Eit typisk BMS gjev 20 til 40 prosent energiinnsparing samanlikna med manuelt styrte bygg."},{"id":"elektro-data-vg1-6-7-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-6-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på BMS og energisparing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-6-7-n-quiz3-q0","task":"Kva er eit BMS?","options":[{"id":"a","text":"Eit sentralt styresystem for alle tekniske installasjonar i eit bygg","isCorrect":true},{"id":"b","text":"Ein type trådlaus protokoll","isCorrect":false},{"id":"c","text":"Ein rørslesensor for belysning","isCorrect":false},{"id":"d","text":"Eit batteri i ein sensor","isCorrect":false}],"solution":"BMS står for Building Management System -- eit sentralt styresystem som koordinerer ventilasjon, belysning, oppvarming, tryggleik og energimåling i eit næringsbygg."},{"id":"elektro-data-vg1-6-7-n-quiz3-q1","task":"Eit kontorbygg bruker 400 000 kWh i året. Eit BMS gjev 25 % innsparing. Kor mykje blir spart?","options":[{"id":"a","text":"40 000 kWh","isCorrect":false},{"id":"b","text":"100 000 kWh","isCorrect":true},{"id":"c","text":"75 000 kWh","isCorrect":false},{"id":"d","text":"125 000 kWh","isCorrect":false}],"solution":"$400\\,000 \\times 0{,}25 = 100\\,000$ kWh. Eit BMS gjev typisk 20-40 % innsparing, så 25 % er eit realistisk anslag."},{"id":"elektro-data-vg1-6-7-n-quiz3-q2","task":"Kvifor sparer behovsstyrt ventilasjon energi?","options":[{"id":"a","text":"Han køyrer alltid på full effekt","isCorrect":false},{"id":"b","text":"Han slår av all ventilasjon heile dagen","isCorrect":false},{"id":"c","text":"Han ventilerer berre rom som er i bruk, justert etter talet på personar","isCorrect":true},{"id":"d","text":"Han bruker berre kald uteluft","isCorrect":false}],"solution":"Behovsstyrt ventilasjon bruker CO2- eller rørslesensorar til å ventilere berre rom som er i bruk, og justerer mengda etter talet på personar. Sidan berre 40-60 % av romma ofte blir brukte samstundes, er innsparinga stor."}]}},{"id":"elektro-data-vg1-6-7-n-summary","type":"text","content":"## Oppsummering\n\nVi starta med eit hus som tente lyset og skrudde opp varmen heilt av seg sjølv, og vi har sett korleis det faktisk heng saman. Eit **smarthus** koplar saman sensorar, aktuatorar og ei sentraleining for automatisk styring av lys, varme og tryggleik. Einingane snakkar saman via protokollar: **KNX** er kabelbasert og svært påliteleg for næringsbygg og nybygg, medan **Z-Wave** (868 MHz) og **Zigbee** (2,4 GHz) er trådlause mesh-protokollar som passar godt til ettermontering.\n\nSmart **lysstyring** med rørslesensorar og dagslyskompensering sparer 30 til 50 prosent lysenergi, og **varmestyring** med soner, nattsenking og fråværsmodus sparer 15 til 30 prosent varmeenergi. I store bygg samlar eit **BMS** alle tekniske system og gjev typisk 20 til 40 prosent energiinnsparing -- som i rekneeksempelet vårt blei 180 000 kroner i året. Huset som tenkjer sjølv, er altså ikkje berre behageleg, men òg god økonomi og godt for miljøet."}],"exercises":[],"_meta":{"sourceHash":"6f3ee1142fcef8bb","translatedAt":"2026-06-21T10:30:36.477Z","model":"claude-code-agent","strings":63,"tm":{"b3204a6fda610c66":"Smarthus og bygningsautomasjon","b195b06d1ed59702":"Narrativ versjon","943a27b7972cefcc":"Ei forteljing om huset som tenkjer sjølv -- frå sensorar og smarte protokollar som KNX, Z-Wave og Zigbee til store bygningssystem som sparer hundretusenvis av kroner i straum.","50f5f3cda28965c1":"forklare prinsipper og teknologier for smarthus og bygningsautomasjon","bd36d215c504eaf6":"## Huset som veit at du er heime\n\nTenk deg at du kjem heim ein mørk vinterkveld. Idet du går inn døra, blir lyset tent av seg sjølv, varmen har allereie skrudd seg opp frå nattsenkinga sine 18 grader til behagelege 22, og persiennene har trekt seg ned for å halde på varmen. Ingen har trykt på ein brytar. Huset gjorde det sjølv.\n\nDette er eit **smarthus** -- ein bustad der sensorar, aktuatorar og kommunikasjonsnettverk samarbeider om å automatisere belysning, oppvarming, tryggleik og energistyring. Det same prinsippet finn du igjen i dei store næringsbygga, berre i langt større skala. Og dette er ikkje framtidsmusikk: bygningsautomasjon er eit av dei raskast veksande fagfelta i Noreg, drive av strenge krav til energieffektivitet, komfort og tryggleik.\n\nSom elektrofagarbeidar kjem du nesten garantert til å jobbe med denne teknologien. I dette kapittelet skal vi sjå korleis eit smarthus er bygd opp, kva protokollar som lèt einingane snakke saman, korleis lys og varme blir styrte automatisk, og kor mykje energi -- og pengar -- automasjon faktisk sparer.","8bbce26ff68ecf4d":"## Sansane, hjernen og musklane\n\nEit smarthus er eigentleg bygd opp som ein kropp. Det har **sensorar** som er sansane: dei måler temperatur, rørsle, lys, fukt og om dører og vindauge er opne. Det har **aktuatorar** som er musklane: dimmarar, relé, motoriserte ventilar og persiennemotorar som faktisk utfører noko. Og det har ei **sentraleining** -- ein hub eller gateway -- som er hjernen, og som koordinerer kommunikasjonen mellom alt. Til slutt styrer du det heile gjennom eit brukargrensesnitt, anten det er ein app, eit veggpanel eller ein stemmeassistent.\n\nMen for at alle desse einingane skal kunne snakke saman, treng dei eit felles språk -- ein **kommunikasjonsprotokoll**. Her finst det tre store du må kjenne. **KNX** er den kabelbaserte standarden, ein internasjonal ISO-standard som bruker ein eigen grøn busskabel med to leiarar ved sida av straumkablane. KNX er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og han er desentralisert -- einingane snakkar direkte med kvarandre utan ein sentral server. Han blir brukt i næringsbygg og dyrare bustader, men krev sertifisert installatør.\n\nDei to andre er trådlause. **Z-Wave** sender på 868 MHz og byggjer eit mesh-nettverk der einingane vidaresender signal til kvarandre, med rundt 30 meter rekkjevidd per hopp og maks 232 einingar. **Zigbee** sender på 2,4 GHz -- same frekvens som Wi-Fi -- og kan handtere opptil 65 000 einingar med svært lågt straumforbruk, slik at batteridrivne sensorar varer i årevis. Du finn Zigbee i Philips Hue og IKEA-produkt, men sidan han deler frekvens med Wi-Fi, kan han få interferens. Eit **mesh-nettverk** tyder nettopp at einingane fungerer som repeatarar som sender signalet vidare, slik at rekkjevidda blir utvida og signalet finn alternative ruter viss éi eining sviktar.","c8e9f7ae793401b4":"Test deg sjølv på smarthus og protokollar:","4097889236a2af26":"placeholder","3dbf65d75dc2a5a1":"Kva protokoll er kabelbasert og ein internasjonal standard for bygningsautomasjon?","b8e9999c349c9b2d":"Z-Wave","b63c865af73d1f1a":"Zigbee","8bb29098b369bfcd":"Bluetooth","c636283b2494b2a9":"KNX","ca14812517630484":"KNX er ein internasjonal kabelbasert standard (ISO 14543) som bruker ein eigen grøn busskabel. Han er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og blir mykje brukt i næringsbygg.","7efb515161ace180":"Kva er eit mesh-nettverk i Z-Wave og Zigbee?","ce289f3e73cac53e":"At einingar vidaresender signal til kvarandre slik at rekkjevidda blir utvida","5b45078f2928aa49":"At alle einingar er kopla med kabel til ein sentral hub","4422d9d6cce36e73":"At berre éi eining kan kommunisere om gongen","f86cecfae735e783":"At einingane bruker mobilnettet","5590ccae820c9166":"I eit mesh-nettverk fungerer einingane som repeatarar som sender signalet vidare. Det utvidar rekkjevidda og gjer nettverket meir påliteleg, fordi signalet kan finne ei alternativ rute viss ei eining sviktar.","8fedc2c3ff97ea25":"Ein familie vil gjere eit 15 år gammalt hus utan smarthus-kablar smartare, med avgrensa budsjett. Kva passar best?","7739ff1048caa16c":"KNX, fordi det er mest påliteleg","517c5149a2e44d71":"Ei trådlaus løysing som Z-Wave eller Zigbee","e53900d237014ca8":"Ny KNX-busskabel i alle rom","7e8534ddf98d5b6a":"Ingen automasjon er mogleg","988a5013219e2390":"I eit eksisterande hus utan kablar er det dyrt og upraktisk å leggje KNX-buss. Trådlause løysingar som Z-Wave eller Zigbee kan etterinstallerast utan å bryte opp veggar, og er rimelegare -- perfekt for avgrensa budsjett.","47e787be9ee0ae2d":"## Lys og varme som styrer seg sjølve\n\nLat oss sjå nærare på kva huset faktisk gjer. **Automatisk lysstyring** kan skje på mange måtar. Rørslesensorar tenner lyset når du kjem og sløkkjer det når rommet er tomt. Dagslyskompensering dimmar det kunstige lyset ned når det er mykje dagslys og opp når det blir mørkt ute, slik at lysnivået blir halde jamt. Tidsstyring lèt lyset følgje klokka eller soloppgangen, og scenekontroll lagrar ferdige innstillingar som «Middag», «Film» og «Natt». I profesjonelle anlegg blir DALI ofte brukt, ein industristandard som lèt deg adressere kvar einskild armatur individuelt.\n\n**Automatisk varmestyring** er like smart. Kvart rom kan ha si eiga sone med eige settpunkt, slik at soverommet er kjøligare enn stova. Nattsenking senkar temperaturen automatisk om natta, til dømes frå 22 til 18 grader. Fråværsmodus skrur ned varmen når ingen er heime, basert på rørsle, GPS eller kalender. Og ein vindaugssensor slår av varmen straks eit vindauge blir opna -- ingen vits i å varme opp uteluft.\n\nGevinsten er ikkje liten. Smart lysstyring kan kutte 30 til 50 prosent av lysenergien, og smart varmestyring 15 til 30 prosent av varmeenergien. Det er energi -- og pengar -- som elles ville rent rett ut av huset utan at nokon merka det.","095bf0c3ffd215f8":"Test deg sjølv på lys- og varmestyring:","bd55c8e1646fd9d0":"Kva er dagslyskompensering?","05454d0d310cb6eb":"At lyset alltid står på full styrke","ee2880447cad7939":"At lyset berre blir brukt på dagtid","21fb5cf8d7761873":"At kunstig lys blir dimma ned ved mykje dagslys og opp når det blir mørkt","ba8ddca65ae01cf5":"At lyset skiftar farge etter klokka","98ba6eaa74ed3d75":"Dagslyskompensering måler innkomande dagslys med ein lyssensor og justerer det kunstige lyset deretter. Mykje dagslys gjev dimming, mørke ute gjev meir lys. Det sparer energi og gjev jamt lysnivå.","5d8d9f779952d261":"Kva gjer ein vindaugssensor i eit varmestyringssystem?","bb3062ae153206ea":"Aukar varmen når eit vindauge blir opna","72fc717d32030209":"Måler dagslyset gjennom vindauget","2dcb4e86e374510e":"Styrer persiennene etter solposisjon","6a51c1c53468e3d2":"Slår av varmen automatisk når eit vindauge blir opna","c2fc6273763ad70c":"Vindaugssensoren slår av varmen straks eit vindauge blir opna, slik at ein ikkje varmar opp uteluft. Det er eit enkelt, men effektivt energisparande tiltak.","6ef25b8b4142ce7e":"## Når heile bygget blir styrt frå éin stad\n\nI store næringsbygg blir alt dette løfta opp eit nivå med eit **BMS** -- Building Management System. Dette er det sentrale styresystemet som har oversikt over alle dei tekniske installasjonane samstundes: ventilasjon og klimaanlegg, belysning, oppvarming og kjøling, adgangskontroll, brannalarm, heisar og energimåling. Alt blir samla i eitt system.\n\nDet er her dei verkeleg store innsparingane ligg. **Behovsstyrt ventilasjon** ventilerer berre rom som faktisk er i bruk, målt på CO2-nivå eller rørsle -- eit tomt møterom treng ikkje same luftmengd som eit fullt. **Optimal start og stopp** syter for at varmen og ventilasjonen startar akkurat tidsnok til at bygget er klart når arbeidsdagen byrjar, ikkje eit minutt for tidleg. **Lastbalansering** unngår at alle energikrevjande system går samstundes og lagar dyre effekttoppar, og **frikjøling** bruker kald uteluft til kjøling i staden for kompressor når det er kjøleg nok ute.\n\nLat oss rekne på det. Eit kontorbygg bruker $500\\,000$ kWh i året på oppvarming, ventilasjon og belysning. Installerer du eit BMS med behovsstyrt ventilasjon, dagslyskompensering og optimal start og stopp, blir innsparinga anslått til 30 prosent. Det gjev $500\\,000 \\times 0{,}30 = 150\\,000$ kWh spart. Med ein straumpris på 1,20 kr/kWh blir det $150\\,000 \\times 1{,}20 = 180\\,000$ kr spart kvart einaste år -- altså 1,8 millionar kroner over ti år. Eit typisk BMS gjev 20 til 40 prosent energiinnsparing samanlikna med manuelt styrte bygg.","3600cd8c7dafada7":"Test deg sjølv på BMS og energisparing:","fb4bfad90b977f25":"Kva er eit BMS?","186618033a6c1d97":"Eit sentralt styresystem for alle tekniske installasjonar i eit bygg","3fa8e1bfebbe313e":"Ein type trådlaus protokoll","3f5dd748ea762e82":"Ein rørslesensor for belysning","17b06dbcec5740c8":"Eit batteri i ein sensor","16c71fbd6c3b9643":"BMS står for Building Management System -- eit sentralt styresystem som koordinerer ventilasjon, belysning, oppvarming, tryggleik og energimåling i eit næringsbygg.","27a7ad58497ba69e":"Eit kontorbygg bruker 400 000 kWh i året. Eit BMS gjev 25 % innsparing. Kor mykje blir spart?","ae2513eca0527fb5":"40 000 kWh","6053b87797ccaffb":"100 000 kWh","822c939b25544911":"75 000 kWh","e1d5da3d7bea15a9":"125 000 kWh","dc5e21d1f7ce0115":"$400\\,000 \\times 0{,}25 = 100\\,000$ kWh. Eit BMS gjev typisk 20-40 % innsparing, så 25 % er eit realistisk anslag.","5dea891fcfd4caf4":"Kvifor sparer behovsstyrt ventilasjon energi?","962b9c6925828ea3":"Han køyrer alltid på full effekt","67a1af096ef8009a":"Han slår av all ventilasjon heile dagen","f54bacb8915d6459":"Han ventilerer berre rom som er i bruk, justert etter talet på personar","ae05341367d0f9a9":"Han bruker berre kald uteluft","ee8fe8f3f3eaccd0":"Behovsstyrt ventilasjon bruker CO2- eller rørslesensorar til å ventilere berre rom som er i bruk, og justerer mengda etter talet på personar. Sidan berre 40-60 % av romma ofte blir brukte samstundes, er innsparinga stor.","74b7a9641c257fb5":"## Oppsummering\n\nVi starta med eit hus som tente lyset og skrudde opp varmen heilt av seg sjølv, og vi har sett korleis det faktisk heng saman. Eit **smarthus** koplar saman sensorar, aktuatorar og ei sentraleining for automatisk styring av lys, varme og tryggleik. Einingane snakkar saman via protokollar: **KNX** er kabelbasert og svært påliteleg for næringsbygg og nybygg, medan **Z-Wave** (868 MHz) og **Zigbee** (2,4 GHz) er trådlause mesh-protokollar som passar godt til ettermontering.\n\nSmart **lysstyring** med rørslesensorar og dagslyskompensering sparer 30 til 50 prosent lysenergi, og **varmestyring** med soner, nattsenking og fråværsmodus sparer 15 til 30 prosent varmeenergi. I store bygg samlar eit **BMS** alle tekniske system og gjev typisk 20 til 40 prosent energiinnsparing -- som i rekneeksempelet vårt blei 180 000 kroner i året. Huset som tenkjer sjølv, er altså ikkje berre behageleg, men òg god økonomi og godt for miljøet."}}}
+{
+  "id": "elektro-data-vg1-6-7-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "6.7",
+  "title": "Smarthus og bygningsautomasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om huset som tenkjer sjølv -- frå sensorar og smarte protokollar som KNX, Z-Wave og Zigbee til store bygningssystem som sparer hundretusenvis av kroner i straum.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "forklare prinsipper og teknologier for smarthus og bygningsautomasjon"
+  ],
+  "linkedChapterId": "elektro-data-vg1-6-7",
+  "content": [
+    {
+      "id": "elektro-data-vg1-6-7-n-intro",
+      "type": "text",
+      "content": "## Huset som veit at du er heime\n\nTenk deg at du kjem heim ein mørk vinterkveld. Idet du går inn døra, blir lyset tent av seg sjølv, varmen har allereie skrudd seg opp frå nattsenkinga sine 18 grader til behagelege 22, og persiennene har trekt seg ned for å halde på varmen. Ingen har trykt på ein brytar. Huset gjorde det sjølv.\n\nDette er eit **smarthus** -- ein bustad der sensorar, aktuatorar og kommunikasjonsnettverk samarbeider om å automatisere belysning, oppvarming, tryggleik og energistyring. Det same prinsippet finn du igjen i dei store næringsbygga, berre i langt større skala. Og dette er ikkje framtidsmusikk: bygningsautomasjon er eit av dei raskast veksande fagfelta i Noreg, drive av strenge krav til energieffektivitet, komfort og tryggleik.\n\nSom elektrofagarbeidar kjem du nesten garantert til å jobbe med denne teknologien. I dette kapittelet skal vi sjå korleis eit smarthus er bygd opp, kva protokollar som lèt einingane snakke saman, korleis lys og varme blir styrte automatisk, og kor mykje energi -- og pengar -- automasjon faktisk sparer."
+    },
+    {
+      "id": "elektro-data-vg1-6-7-n-section1",
+      "type": "text",
+      "content": "## Sansane, hjernen og musklane\n\nEit smarthus er eigentleg bygd opp som ein kropp. Det har **sensorar** som er sansane: dei måler temperatur, rørsle, lys, fukt og om dører og vindauge er opne. Det har **aktuatorar** som er musklane: dimmarar, relé, motoriserte ventilar og persiennemotorar som faktisk utfører noko. Og det har ei **sentraleining** -- ein hub eller gateway -- som er hjernen, og som koordinerer kommunikasjonen mellom alt. Til slutt styrer du det heile gjennom eit brukargrensesnitt, anten det er ein app, eit veggpanel eller ein stemmeassistent.\n\nMen for at alle desse einingane skal kunne snakke saman, treng dei eit felles språk -- ein **kommunikasjonsprotokoll**. Her finst det tre store du må kjenne. **KNX** er den kabelbaserte standarden, ein internasjonal ISO-standard som bruker ein eigen grøn busskabel med to leiarar ved sida av straumkablane. KNX er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og han er desentralisert -- einingane snakkar direkte med kvarandre utan ein sentral server. Han blir brukt i næringsbygg og dyrare bustader, men krev sertifisert installatør.\n\nDei to andre er trådlause. **Z-Wave** sender på 868 MHz og byggjer eit mesh-nettverk der einingane vidaresender signal til kvarandre, med rundt 30 meter rekkjevidd per hopp og maks 232 einingar. **Zigbee** sender på 2,4 GHz -- same frekvens som Wi-Fi -- og kan handtere opptil 65 000 einingar med svært lågt straumforbruk, slik at batteridrivne sensorar varer i årevis. Du finn Zigbee i Philips Hue og IKEA-produkt, men sidan han deler frekvens med Wi-Fi, kan han få interferens. Eit **mesh-nettverk** tyder nettopp at einingane fungerer som repeatarar som sender signalet vidare, slik at rekkjevidda blir utvida og signalet finn alternative ruter viss éi eining sviktar."
+    },
+    {
+      "id": "elektro-data-vg1-6-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på smarthus og protokollar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz1-q0",
+            "task": "Kva protokoll er kabelbasert og ein internasjonal standard for bygningsautomasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Z-Wave",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Zigbee",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "KNX",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bluetooth",
+                "isCorrect": false
+              }
+            ],
+            "solution": "KNX er ein internasjonal kabelbasert standard (ISO 14543) som bruker ein eigen grøn busskabel. Han er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og blir mykje brukt i næringsbygg."
+          },
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz1-q1",
+            "task": "Kva er eit mesh-nettverk i Z-Wave og Zigbee?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At alle einingar er kopla med kabel til ein sentral hub",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At berre éi eining kan kommunisere om gongen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At einingane bruker mobilnettet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At einingar vidaresender signal til kvarandre slik at rekkjevidda blir utvida",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I eit mesh-nettverk fungerer einingane som repeatarar som sender signalet vidare. Det utvidar rekkjevidda og gjer nettverket meir påliteleg, fordi signalet kan finne ei alternativ rute viss ei eining sviktar."
+          },
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz1-q2",
+            "task": "Ein familie vil gjere eit 15 år gammalt hus utan smarthus-kablar smartare, med avgrensa budsjett. Kva passar best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei trådlaus løysing som Z-Wave eller Zigbee",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "KNX, fordi det er mest påliteleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ny KNX-busskabel i alle rom",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen automasjon er mogleg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I eit eksisterande hus utan kablar er det dyrt og upraktisk å leggje KNX-buss. Trådlause løysingar som Z-Wave eller Zigbee kan etterinstallerast utan å bryte opp veggar, og er rimelegare -- perfekt for avgrensa budsjett."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-7-n-section2",
+      "type": "text",
+      "content": "## Lys og varme som styrer seg sjølve\n\nLat oss sjå nærare på kva huset faktisk gjer. **Automatisk lysstyring** kan skje på mange måtar. Rørslesensorar tenner lyset når du kjem og sløkkjer det når rommet er tomt. Dagslyskompensering dimmar det kunstige lyset ned når det er mykje dagslys og opp når det blir mørkt ute, slik at lysnivået blir halde jamt. Tidsstyring lèt lyset følgje klokka eller soloppgangen, og scenekontroll lagrar ferdige innstillingar som «Middag», «Film» og «Natt». I profesjonelle anlegg blir DALI ofte brukt, ein industristandard som lèt deg adressere kvar einskild armatur individuelt.\n\n**Automatisk varmestyring** er like smart. Kvart rom kan ha si eiga sone med eige settpunkt, slik at soverommet er kjøligare enn stova. Nattsenking senkar temperaturen automatisk om natta, til dømes frå 22 til 18 grader. Fråværsmodus skrur ned varmen når ingen er heime, basert på rørsle, GPS eller kalender. Og ein vindaugssensor slår av varmen straks eit vindauge blir opna -- ingen vits i å varme opp uteluft.\n\nGevinsten er ikkje liten. Smart lysstyring kan kutte 30 til 50 prosent av lysenergien, og smart varmestyring 15 til 30 prosent av varmeenergien. Det er energi -- og pengar -- som elles ville rent rett ut av huset utan at nokon merka det."
+    },
+    {
+      "id": "elektro-data-vg1-6-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lys- og varmestyring:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz2-q0",
+            "task": "Kva er dagslyskompensering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At lyset alltid står på full styrke",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At kunstig lys blir dimma ned ved mykje dagslys og opp når det blir mørkt",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At lyset berre blir brukt på dagtid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At lyset skiftar farge etter klokka",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dagslyskompensering måler innkomande dagslys med ein lyssensor og justerer det kunstige lyset deretter. Mykje dagslys gjev dimming, mørke ute gjev meir lys. Det sparer energi og gjev jamt lysnivå."
+          },
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz2-q1",
+            "task": "Kva gjer ein vindaugssensor i eit varmestyringssystem?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Aukar varmen når eit vindauge blir opna",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Måler dagslyset gjennom vindauget",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Slår av varmen automatisk når eit vindauge blir opna",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Styrer persiennene etter solposisjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vindaugssensoren slår av varmen straks eit vindauge blir opna, slik at ein ikkje varmar opp uteluft. Det er eit enkelt, men effektivt energisparande tiltak."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-7-n-section3",
+      "type": "text",
+      "content": "## Når heile bygget blir styrt frå éin stad\n\nI store næringsbygg blir alt dette løfta opp eit nivå med eit **BMS** -- Building Management System. Dette er det sentrale styresystemet som har oversikt over alle dei tekniske installasjonane samstundes: ventilasjon og klimaanlegg, belysning, oppvarming og kjøling, adgangskontroll, brannalarm, heisar og energimåling. Alt blir samla i eitt system.\n\nDet er her dei verkeleg store innsparingane ligg. **Behovsstyrt ventilasjon** ventilerer berre rom som faktisk er i bruk, målt på CO2-nivå eller rørsle -- eit tomt møterom treng ikkje same luftmengd som eit fullt. **Optimal start og stopp** syter for at varmen og ventilasjonen startar akkurat tidsnok til at bygget er klart når arbeidsdagen byrjar, ikkje eit minutt for tidleg. **Lastbalansering** unngår at alle energikrevjande system går samstundes og lagar dyre effekttoppar, og **frikjøling** bruker kald uteluft til kjøling i staden for kompressor når det er kjøleg nok ute.\n\nLat oss rekne på det. Eit kontorbygg bruker $500\\,000$ kWh i året på oppvarming, ventilasjon og belysning. Installerer du eit BMS med behovsstyrt ventilasjon, dagslyskompensering og optimal start og stopp, blir innsparinga anslått til 30 prosent. Det gjev $500\\,000 \\times 0{,}30 = 150\\,000$ kWh spart. Med ein straumpris på 1,20 kr/kWh blir det $150\\,000 \\times 1{,}20 = 180\\,000$ kr spart kvart einaste år -- altså 1,8 millionar kroner over ti år. Eit typisk BMS gjev 20 til 40 prosent energiinnsparing samanlikna med manuelt styrte bygg."
+    },
+    {
+      "id": "elektro-data-vg1-6-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på BMS og energisparing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz3-q0",
+            "task": "Kva er eit BMS?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein type trådlaus protokoll",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein rørslesensor for belysning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit batteri i ein sensor",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Eit sentralt styresystem for alle tekniske installasjonar i eit bygg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "BMS står for Building Management System -- eit sentralt styresystem som koordinerer ventilasjon, belysning, oppvarming, tryggleik og energimåling i eit næringsbygg."
+          },
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz3-q1",
+            "task": "Eit kontorbygg bruker 400 000 kWh i året. Eit BMS gjev 25 % innsparing. Kor mykje blir spart?",
+            "options": [
+              {
+                "id": "b",
+                "text": "100 000 kWh",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "40 000 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "75 000 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "125 000 kWh",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$400\\,000 \\times 0{,}25 = 100\\,000$ kWh. Eit BMS gjev typisk 20-40 % innsparing, så 25 % er eit realistisk anslag."
+          },
+          {
+            "id": "elektro-data-vg1-6-7-n-quiz3-q2",
+            "task": "Kvifor sparer behovsstyrt ventilasjon energi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han køyrer alltid på full effekt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han ventilerer berre rom som er i bruk, justert etter talet på personar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han slår av all ventilasjon heile dagen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han bruker berre kald uteluft",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Behovsstyrt ventilasjon bruker CO2- eller rørslesensorar til å ventilere berre rom som er i bruk, og justerer mengda etter talet på personar. Sidan berre 40-60 % av romma ofte blir brukte samstundes, er innsparinga stor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi starta med eit hus som tente lyset og skrudde opp varmen heilt av seg sjølv, og vi har sett korleis det faktisk heng saman. Eit **smarthus** koplar saman sensorar, aktuatorar og ei sentraleining for automatisk styring av lys, varme og tryggleik. Einingane snakkar saman via protokollar: **KNX** er kabelbasert og svært påliteleg for næringsbygg og nybygg, medan **Z-Wave** (868 MHz) og **Zigbee** (2,4 GHz) er trådlause mesh-protokollar som passar godt til ettermontering.\n\nSmart **lysstyring** med rørslesensorar og dagslyskompensering sparer 30 til 50 prosent lysenergi, og **varmestyring** med soner, nattsenking og fråværsmodus sparer 15 til 30 prosent varmeenergi. I store bygg samlar eit **BMS** alle tekniske system og gjev typisk 20 til 40 prosent energiinnsparing -- som i rekneeksempelet vårt blei 180 000 kroner i året. Huset som tenkjer sjølv, er altså ikkje berre behageleg, men òg god økonomi og godt for miljøet."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6f3ee1142fcef8bb",
+    "translatedAt": "2026-06-21T10:30:36.477Z",
+    "model": "claude-code-agent",
+    "strings": 63,
+    "tm": {
+      "b3204a6fda610c66": "Smarthus og bygningsautomasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "943a27b7972cefcc": "Ei forteljing om huset som tenkjer sjølv -- frå sensorar og smarte protokollar som KNX, Z-Wave og Zigbee til store bygningssystem som sparer hundretusenvis av kroner i straum.",
+      "50f5f3cda28965c1": "forklare prinsipper og teknologier for smarthus og bygningsautomasjon",
+      "bd36d215c504eaf6": "## Huset som veit at du er heime\n\nTenk deg at du kjem heim ein mørk vinterkveld. Idet du går inn døra, blir lyset tent av seg sjølv, varmen har allereie skrudd seg opp frå nattsenkinga sine 18 grader til behagelege 22, og persiennene har trekt seg ned for å halde på varmen. Ingen har trykt på ein brytar. Huset gjorde det sjølv.\n\nDette er eit **smarthus** -- ein bustad der sensorar, aktuatorar og kommunikasjonsnettverk samarbeider om å automatisere belysning, oppvarming, tryggleik og energistyring. Det same prinsippet finn du igjen i dei store næringsbygga, berre i langt større skala. Og dette er ikkje framtidsmusikk: bygningsautomasjon er eit av dei raskast veksande fagfelta i Noreg, drive av strenge krav til energieffektivitet, komfort og tryggleik.\n\nSom elektrofagarbeidar kjem du nesten garantert til å jobbe med denne teknologien. I dette kapittelet skal vi sjå korleis eit smarthus er bygd opp, kva protokollar som lèt einingane snakke saman, korleis lys og varme blir styrte automatisk, og kor mykje energi -- og pengar -- automasjon faktisk sparer.",
+      "8bbce26ff68ecf4d": "## Sansane, hjernen og musklane\n\nEit smarthus er eigentleg bygd opp som ein kropp. Det har **sensorar** som er sansane: dei måler temperatur, rørsle, lys, fukt og om dører og vindauge er opne. Det har **aktuatorar** som er musklane: dimmarar, relé, motoriserte ventilar og persiennemotorar som faktisk utfører noko. Og det har ei **sentraleining** -- ein hub eller gateway -- som er hjernen, og som koordinerer kommunikasjonen mellom alt. Til slutt styrer du det heile gjennom eit brukargrensesnitt, anten det er ein app, eit veggpanel eller ein stemmeassistent.\n\nMen for at alle desse einingane skal kunne snakke saman, treng dei eit felles språk -- ein **kommunikasjonsprotokoll**. Her finst det tre store du må kjenne. **KNX** er den kabelbaserte standarden, ein internasjonal ISO-standard som bruker ein eigen grøn busskabel med to leiarar ved sida av straumkablane. KNX er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og han er desentralisert -- einingane snakkar direkte med kvarandre utan ein sentral server. Han blir brukt i næringsbygg og dyrare bustader, men krev sertifisert installatør.\n\nDei to andre er trådlause. **Z-Wave** sender på 868 MHz og byggjer eit mesh-nettverk der einingane vidaresender signal til kvarandre, med rundt 30 meter rekkjevidd per hopp og maks 232 einingar. **Zigbee** sender på 2,4 GHz -- same frekvens som Wi-Fi -- og kan handtere opptil 65 000 einingar med svært lågt straumforbruk, slik at batteridrivne sensorar varer i årevis. Du finn Zigbee i Philips Hue og IKEA-produkt, men sidan han deler frekvens med Wi-Fi, kan han få interferens. Eit **mesh-nettverk** tyder nettopp at einingane fungerer som repeatarar som sender signalet vidare, slik at rekkjevidda blir utvida og signalet finn alternative ruter viss éi eining sviktar.",
+      "c8e9f7ae793401b4": "Test deg sjølv på smarthus og protokollar:",
+      "4097889236a2af26": "placeholder",
+      "3dbf65d75dc2a5a1": "Kva protokoll er kabelbasert og ein internasjonal standard for bygningsautomasjon?",
+      "b8e9999c349c9b2d": "Z-Wave",
+      "b63c865af73d1f1a": "Zigbee",
+      "8bb29098b369bfcd": "Bluetooth",
+      "c636283b2494b2a9": "KNX",
+      "ca14812517630484": "KNX er ein internasjonal kabelbasert standard (ISO 14543) som bruker ein eigen grøn busskabel. Han er svært påliteleg fordi han ikkje blir påverka av trådlaus interferens, og blir mykje brukt i næringsbygg.",
+      "7efb515161ace180": "Kva er eit mesh-nettverk i Z-Wave og Zigbee?",
+      "ce289f3e73cac53e": "At einingar vidaresender signal til kvarandre slik at rekkjevidda blir utvida",
+      "5b45078f2928aa49": "At alle einingar er kopla med kabel til ein sentral hub",
+      "4422d9d6cce36e73": "At berre éi eining kan kommunisere om gongen",
+      "f86cecfae735e783": "At einingane bruker mobilnettet",
+      "5590ccae820c9166": "I eit mesh-nettverk fungerer einingane som repeatarar som sender signalet vidare. Det utvidar rekkjevidda og gjer nettverket meir påliteleg, fordi signalet kan finne ei alternativ rute viss ei eining sviktar.",
+      "8fedc2c3ff97ea25": "Ein familie vil gjere eit 15 år gammalt hus utan smarthus-kablar smartare, med avgrensa budsjett. Kva passar best?",
+      "7739ff1048caa16c": "KNX, fordi det er mest påliteleg",
+      "517c5149a2e44d71": "Ei trådlaus løysing som Z-Wave eller Zigbee",
+      "e53900d237014ca8": "Ny KNX-busskabel i alle rom",
+      "7e8534ddf98d5b6a": "Ingen automasjon er mogleg",
+      "988a5013219e2390": "I eit eksisterande hus utan kablar er det dyrt og upraktisk å leggje KNX-buss. Trådlause løysingar som Z-Wave eller Zigbee kan etterinstallerast utan å bryte opp veggar, og er rimelegare -- perfekt for avgrensa budsjett.",
+      "47e787be9ee0ae2d": "## Lys og varme som styrer seg sjølve\n\nLat oss sjå nærare på kva huset faktisk gjer. **Automatisk lysstyring** kan skje på mange måtar. Rørslesensorar tenner lyset når du kjem og sløkkjer det når rommet er tomt. Dagslyskompensering dimmar det kunstige lyset ned når det er mykje dagslys og opp når det blir mørkt ute, slik at lysnivået blir halde jamt. Tidsstyring lèt lyset følgje klokka eller soloppgangen, og scenekontroll lagrar ferdige innstillingar som «Middag», «Film» og «Natt». I profesjonelle anlegg blir DALI ofte brukt, ein industristandard som lèt deg adressere kvar einskild armatur individuelt.\n\n**Automatisk varmestyring** er like smart. Kvart rom kan ha si eiga sone med eige settpunkt, slik at soverommet er kjøligare enn stova. Nattsenking senkar temperaturen automatisk om natta, til dømes frå 22 til 18 grader. Fråværsmodus skrur ned varmen når ingen er heime, basert på rørsle, GPS eller kalender. Og ein vindaugssensor slår av varmen straks eit vindauge blir opna -- ingen vits i å varme opp uteluft.\n\nGevinsten er ikkje liten. Smart lysstyring kan kutte 30 til 50 prosent av lysenergien, og smart varmestyring 15 til 30 prosent av varmeenergien. Det er energi -- og pengar -- som elles ville rent rett ut av huset utan at nokon merka det.",
+      "095bf0c3ffd215f8": "Test deg sjølv på lys- og varmestyring:",
+      "bd55c8e1646fd9d0": "Kva er dagslyskompensering?",
+      "05454d0d310cb6eb": "At lyset alltid står på full styrke",
+      "ee2880447cad7939": "At lyset berre blir brukt på dagtid",
+      "21fb5cf8d7761873": "At kunstig lys blir dimma ned ved mykje dagslys og opp når det blir mørkt",
+      "ba8ddca65ae01cf5": "At lyset skiftar farge etter klokka",
+      "98ba6eaa74ed3d75": "Dagslyskompensering måler innkomande dagslys med ein lyssensor og justerer det kunstige lyset deretter. Mykje dagslys gjev dimming, mørke ute gjev meir lys. Det sparer energi og gjev jamt lysnivå.",
+      "5d8d9f779952d261": "Kva gjer ein vindaugssensor i eit varmestyringssystem?",
+      "bb3062ae153206ea": "Aukar varmen når eit vindauge blir opna",
+      "72fc717d32030209": "Måler dagslyset gjennom vindauget",
+      "2dcb4e86e374510e": "Styrer persiennene etter solposisjon",
+      "6a51c1c53468e3d2": "Slår av varmen automatisk når eit vindauge blir opna",
+      "c2fc6273763ad70c": "Vindaugssensoren slår av varmen straks eit vindauge blir opna, slik at ein ikkje varmar opp uteluft. Det er eit enkelt, men effektivt energisparande tiltak.",
+      "6ef25b8b4142ce7e": "## Når heile bygget blir styrt frå éin stad\n\nI store næringsbygg blir alt dette løfta opp eit nivå med eit **BMS** -- Building Management System. Dette er det sentrale styresystemet som har oversikt over alle dei tekniske installasjonane samstundes: ventilasjon og klimaanlegg, belysning, oppvarming og kjøling, adgangskontroll, brannalarm, heisar og energimåling. Alt blir samla i eitt system.\n\nDet er her dei verkeleg store innsparingane ligg. **Behovsstyrt ventilasjon** ventilerer berre rom som faktisk er i bruk, målt på CO2-nivå eller rørsle -- eit tomt møterom treng ikkje same luftmengd som eit fullt. **Optimal start og stopp** syter for at varmen og ventilasjonen startar akkurat tidsnok til at bygget er klart når arbeidsdagen byrjar, ikkje eit minutt for tidleg. **Lastbalansering** unngår at alle energikrevjande system går samstundes og lagar dyre effekttoppar, og **frikjøling** bruker kald uteluft til kjøling i staden for kompressor når det er kjøleg nok ute.\n\nLat oss rekne på det. Eit kontorbygg bruker $500\\,000$ kWh i året på oppvarming, ventilasjon og belysning. Installerer du eit BMS med behovsstyrt ventilasjon, dagslyskompensering og optimal start og stopp, blir innsparinga anslått til 30 prosent. Det gjev $500\\,000 \\times 0{,}30 = 150\\,000$ kWh spart. Med ein straumpris på 1,20 kr/kWh blir det $150\\,000 \\times 1{,}20 = 180\\,000$ kr spart kvart einaste år -- altså 1,8 millionar kroner over ti år. Eit typisk BMS gjev 20 til 40 prosent energiinnsparing samanlikna med manuelt styrte bygg.",
+      "3600cd8c7dafada7": "Test deg sjølv på BMS og energisparing:",
+      "fb4bfad90b977f25": "Kva er eit BMS?",
+      "186618033a6c1d97": "Eit sentralt styresystem for alle tekniske installasjonar i eit bygg",
+      "3fa8e1bfebbe313e": "Ein type trådlaus protokoll",
+      "3f5dd748ea762e82": "Ein rørslesensor for belysning",
+      "17b06dbcec5740c8": "Eit batteri i ein sensor",
+      "16c71fbd6c3b9643": "BMS står for Building Management System -- eit sentralt styresystem som koordinerer ventilasjon, belysning, oppvarming, tryggleik og energimåling i eit næringsbygg.",
+      "27a7ad58497ba69e": "Eit kontorbygg bruker 400 000 kWh i året. Eit BMS gjev 25 % innsparing. Kor mykje blir spart?",
+      "ae2513eca0527fb5": "40 000 kWh",
+      "6053b87797ccaffb": "100 000 kWh",
+      "822c939b25544911": "75 000 kWh",
+      "e1d5da3d7bea15a9": "125 000 kWh",
+      "dc5e21d1f7ce0115": "$400\\,000 \\times 0{,}25 = 100\\,000$ kWh. Eit BMS gjev typisk 20-40 % innsparing, så 25 % er eit realistisk anslag.",
+      "5dea891fcfd4caf4": "Kvifor sparer behovsstyrt ventilasjon energi?",
+      "962b9c6925828ea3": "Han køyrer alltid på full effekt",
+      "67a1af096ef8009a": "Han slår av all ventilasjon heile dagen",
+      "f54bacb8915d6459": "Han ventilerer berre rom som er i bruk, justert etter talet på personar",
+      "ae05341367d0f9a9": "Han bruker berre kald uteluft",
+      "ee8fe8f3f3eaccd0": "Behovsstyrt ventilasjon bruker CO2- eller rørslesensorar til å ventilere berre rom som er i bruk, og justerer mengda etter talet på personar. Sidan berre 40-60 % av romma ofte blir brukte samstundes, er innsparinga stor.",
+      "74b7a9641c257fb5": "## Oppsummering\n\nVi starta med eit hus som tente lyset og skrudde opp varmen heilt av seg sjølv, og vi har sett korleis det faktisk heng saman. Eit **smarthus** koplar saman sensorar, aktuatorar og ei sentraleining for automatisk styring av lys, varme og tryggleik. Einingane snakkar saman via protokollar: **KNX** er kabelbasert og svært påliteleg for næringsbygg og nybygg, medan **Z-Wave** (868 MHz) og **Zigbee** (2,4 GHz) er trådlause mesh-protokollar som passar godt til ettermontering.\n\nSmart **lysstyring** med rørslesensorar og dagslyskompensering sparer 30 til 50 prosent lysenergi, og **varmestyring** med soner, nattsenking og fråværsmodus sparer 15 til 30 prosent varmeenergi. I store bygg samlar eit **BMS** alle tekniske system og gjev typisk 20 til 40 prosent energiinnsparing -- som i rekneeksempelet vårt blei 180 000 kroner i året. Huset som tenkjer sjølv, er altså ikkje berre behageleg, men òg god økonomi og godt for miljøet."
+    }
+  }
+}

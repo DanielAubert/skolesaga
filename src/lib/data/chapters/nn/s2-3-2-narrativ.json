@@ -1,1 +1,517 @@
-{"id":"s2-3-2-narrativ","courseId":"s2","chapterNumber":"3.2","title":"Andrederiverte og vendepunkt","subtitle":"Narrativ versjon","description":"Ei forteljing om smittekurver og krumming — kva den andrederiverte avslører når veksten skifter karakter.","estimatedMinutes":33,"competenceGoals":["bruke derivasjon til å analysere og drøfte funksjonar","tolke andrederiverten geometrisk og bruke han til å bestemme krumming"],"linkedChapterId":"s2-3-2","content":[{"id":"s2-3-2-n-intro","type":"text","content":"## «Kurva flatar ut»\n\nUnder ein epidemi høyrer du stadig uttrykket «smittekurva flatar ut». Talet på smitta aukar framleis — men auken blir mindre for kvar dag. Kva er det eigentleg som blir skildra her? Ikkje funksjonen sjølv, og ikkje den deriverte, men noko tredje: **andrederiverten**.\n\nVi veit at den deriverte $f'(x)$ fortel kor bratt funksjonen er. Andrederiverten er den deriverte av den deriverte, $f''(x) = \\frac{d}{dx}[f'(x)]$, og han fortel **kor raskt stiginga endrar seg**. Det er nettopp dette ein epidemiolog ser etter: når $f''$ blir negativ, veks smitten saktare — kurva har byrja å flate ut, sjølv om ho framleis peikar oppover.\n\nGeometrisk handlar dette om **krumming**. Ein funksjon er **konveks** på eit intervall dersom $f''(x) > 0$ der — grafen buar oppover og «smiler», som ein kopp som held vatn. Han er **konkav** dersom $f''(x) < 0$ — grafen buar nedover og er «sur», som ein kopp som søler vatn. Punktet der funksjonen skifter mellom konkav og konveks krumming, blir kalla eit **vendepunkt** — og i epidemien er vendepunktet sjølve nyheita: dagen då utviklinga snudde karakter.\n\nFormelt har $f$ vendepunkt i $x = a$ dersom $f''(a) = 0$ (eller $f''(a)$ er udefinert) **og** $f''$ faktisk skifter forteikn i $a$. Det siste kravet er lett å gløyme, og vi skal sjå kvifor det er heilt nødvendig."},{"id":"s2-3-2-n-section1","type":"text","content":"## Å finne vendepunkt\n\nLat oss trene på ein konkret funksjon: $f(x) = x^4 - 6x^2 + 8x + 1$. Framgangsmåten har fire steg.\n\nFørst deriverer vi to gonger: $f'(x) = 4x^3 - 12x + 8$ og $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$. Så løyser vi $f''(x) = 0$, som gjev kandidatane $x = -1$ og $x = 1$. Tredje steg er forteiknsskjemaet: $f''$ er positiv for $x < -1$ (konveks), negativ mellom $-1$ og $1$ (konkav), og positiv for $x > 1$ (konveks). Forteiknet skifter i begge kandidatane, så begge er ekte vendepunkt. Til slutt reknar vi ut $y$-verdiane: $f(-1) = 1 - 6 - 8 + 1 = -12$ og $f(1) = 1 - 6 + 8 + 1 = 4$. Vendepunkta er $(-1, -12)$ og $(1, 4)$.\n\nKvifor er forteiknsskiftet så viktig? Sjå på $f(x) = x^4$. Der er $f''(x) = 12x^2$, som er null i $x = 0$ — men $f''$ er positiv på begge sider. Grafen er konveks heile vegen, og $x = 0$ er **ikkje** eit vendepunkt (det er faktisk eit botnpunkt). $f''(a) = 0$ åleine garanterer altså ingenting; du må verifisere forteiknsskiftet.\n\nDette gjev oss ein fast rutine når oppgåva seier «finn vendepunkta»: finn $f''(x)$, løys $f''(x) = 0$, lag forteiknsskjema og stadfest forteiknsskifte, og rekn ut $y$-verdien. Hoppar du over forteiknsskjemaet, risikerer du å rapportere punkt som ikkje er vendepunkt — ei klassisk eksamensfelle."},{"id":"s2-3-2-n-quiz1","type":"exercise","exercise":{"id":"s2-3-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på krumming og vendepunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-2-n-quiz1-q0","task":"Kva fortel andrederiverten $f''(x)$ oss?","options":[{"id":"a","text":"Kvar funksjonen kryssar $x$-aksen","isCorrect":false},{"id":"b","text":"Kor bratt funksjonen er","isCorrect":false},{"id":"c","text":"Kor raskt stiginga endrar seg, altså krumminga","isCorrect":true},{"id":"d","text":"Definisjonsmengda til funksjonen","isCorrect":false}],"solution":"$f'$ skildrar stiginga, medan $f'' $ skildrar kor raskt stiginga endrar seg — det vi geometrisk ser som krumming."},{"id":"s2-3-2-n-quiz1-q1","task":"Ein funksjon har $f''(x) < 0$ på eit intervall. Kva veit vi?","options":[{"id":"a","text":"Funksjonen er konkav («sur») der","isCorrect":true},{"id":"b","text":"Funksjonen er konveks («smiler») der","isCorrect":false},{"id":"c","text":"Funksjonen er avtakande der","isCorrect":false},{"id":"d","text":"Funksjonen har eit nullpunkt der","isCorrect":false}],"solution":"$f'' < 0$ tyder konkav krumming — grafen buar nedover. Om funksjonen veks eller avtek blir bestemt av $f'$, ikkje $f''$."},{"id":"s2-3-2-n-quiz1-q2","task":"For $f(x) = x^4 - 6x^2 + 8x + 1$ er $f''(x) = 12(x-1)(x+1)$. Kva er vendepunkta?","options":[{"id":"a","text":"$(1, 4)$ og $(0, 1)$","isCorrect":false},{"id":"b","text":"$(-1, -12)$ og $(1, 4)$","isCorrect":true},{"id":"c","text":"Berre $(-1, -12)$","isCorrect":false},{"id":"d","text":"$(-1, 0)$ og $(1, 0)$","isCorrect":false}],"solution":"$f''$ skifter forteikn i både $x = -1$ og $x = 1$. Med $f(-1) = -12$ og $f(1) = 4$ blir vendepunkta $(-1, -12)$ og $(1, 4)$."},{"id":"s2-3-2-n-quiz1-q3","task":"Kvifor er $x = 0$ IKKJE eit vendepunkt for $f(x) = x^4$, sjølv om $f''(0) = 0$?","options":[{"id":"a","text":"Fordi $f(0) \\neq 0$","isCorrect":false},{"id":"b","text":"Fordi $f'(0) \\neq 0$","isCorrect":false},{"id":"c","text":"Fordi funksjonen ikkje er definert i $x = 0$","isCorrect":false},{"id":"d","text":"Fordi $f''(x) = 12x^2$ ikkje skifter forteikn i $x = 0$","isCorrect":true}],"solution":"$f''(x) = 12x^2 \\geq 0$ på begge sider av null — grafen er konveks heile vegen. Utan forteiknsskifte i $f''$ er det ikkje noko vendepunkt."}]}},{"id":"s2-3-2-n-section2","type":"text","content":"## Andrederivert-testen — og når han sviktar\n\nAndrederiverten gjev oss òg ein rask måte å klassifisere stasjonære punkt på. Anta at $f'(a) = 0$. **Andrederivert-testen** seier: dersom $f''(a) < 0$, er grafen konkav rundt $a$, og punktet er eit **lokalt toppunkt**. Dersom $f''(a) > 0$, er grafen konveks, og punktet er eit **lokalt botnpunkt**. Dersom $f''(a) = 0$, er testen **inkonklusiv** — då må du tilbake til forteiknsskjemaet for $f'$.\n\nVi prøver på $f(x) = 2x^3 - 3x^2 - 12x + 5$. Deriverer: $f'(x) = 6x^2 - 6x - 12 = 6(x-2)(x+1)$, så dei stasjonære punkta er $x = -1$ og $x = 2$. Andrederiverten er $f''(x) = 12x - 6$. I $x = -1$: $f''(-1) = -18 < 0$, altså toppunkt, med $f(-1) = 12$. I $x = 2$: $f''(2) = 18 > 0$, altså botnpunkt, med $f(2) = -15$. Toppunkt $(-1, 12)$ og botnpunkt $(2, -15)$ — raskt og elegant.\n\nMen testen har eit blindfelt. For $f(x) = x^4$ er både $f'(0) = 0$ og $f''(0) = 0$; testen seier ingenting. Forteiknsskjemaet for $f'$ reddar oss: $f'(x) = 4x^3$ skifter frå negativ til positiv i null, så det er eit botnpunkt. For $g(x) = x^3$ er òg $g'(0) = g''(0) = 0$, men her skifter $g'(x) = 3x^2$ **ikkje** forteikn — begge sider er positive. Då er $x = 0$ eit vendepunkt, ikkje eit ekstremalpunkt. Moralen: andrederivert-testen er ei snarveg, forteiknsskjemaet er fasiten."},{"id":"s2-3-2-n-quiz2","type":"exercise","exercise":{"id":"s2-3-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på andrederivert-testen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-2-n-quiz2-q0","task":"$f'(a) = 0$ og $f''(a) < 0$. Kva slags punkt er $x = a$?","options":[{"id":"a","text":"Lokalt botnpunkt","isCorrect":false},{"id":"b","text":"Lokalt toppunkt","isCorrect":true},{"id":"c","text":"Vendepunkt","isCorrect":false},{"id":"d","text":"Testen er inkonklusiv","isCorrect":false}],"solution":"Negativ andrederivert tyder konkav graf (bøyer ned) rundt punktet — eit stasjonært punkt der er eit toppunkt."},{"id":"s2-3-2-n-quiz2-q1","task":"For $f(x) = 2x^3 - 3x^2 - 12x + 5$ er $f''(x) = 12x - 6$. Kva skjer i det stasjonære punktet $x = 2$?","options":[{"id":"a","text":"Toppunkt, sidan $f''(2) < 0$","isCorrect":false},{"id":"b","text":"Vendepunkt, sidan $f''(2) = 0$","isCorrect":false},{"id":"c","text":"Botnpunkt, sidan $f''(2) = 18 > 0$","isCorrect":true},{"id":"d","text":"Ingenting kan avgjerast","isCorrect":false}],"solution":"$f''(2) = 24 - 6 = 18 > 0$ tyder konveks graf rundt $x = 2$, så det stasjonære punktet er eit botnpunkt: $(2, -15)$."},{"id":"s2-3-2-n-quiz2-q2","task":"Når er andrederivert-testen inkonklusiv?","options":[{"id":"a","text":"Når $f''(a) = 0$","isCorrect":true},{"id":"b","text":"Når $f''(a) > 0$","isCorrect":false},{"id":"c","text":"Når $f'(a) \\neq 0$","isCorrect":false},{"id":"d","text":"Når funksjonen er eit polynom","isCorrect":false}],"solution":"Dersom $f''(a) = 0$ gjev testen ingen konklusjon. Då må vi bruke forteiknsskjema for $f'(x)$ — slik som for $x^4$ (botnpunkt) og $x^3$ (vendepunkt)."},{"id":"s2-3-2-n-quiz2-q3","task":"For $g(x) = x^3$ er $g'(0) = 0$ og $g''(0) = 0$. Kva er $x = 0$?","options":[{"id":"a","text":"Toppunkt","isCorrect":false},{"id":"b","text":"Botnpunkt","isCorrect":false},{"id":"c","text":"Vendepunkt, ikkje ekstremalpunkt","isCorrect":true},{"id":"d","text":"Eit punkt utanfor definisjonsmengda","isCorrect":false}],"solution":"$g'(x) = 3x^2$ er positiv på begge sider av null, så $g$ veks heile vegen — ingen ekstremalverdi. Men $g''(x) = 6x$ skifter forteikn i $x = 0$, så det er eit vendepunkt."}]}},{"id":"s2-3-2-n-section3","type":"text","content":"## Å lese samspelet mellom $f$, $f'$ og $f''$\n\nNår du meistrar både første- og andrederiverten, kan du lese åtferda til ein funksjon som ein tabell med to forteikn. Er $f' > 0$ og $f'' > 0$, veks funksjonen stadig brattare oppover. Er $f' > 0$ og $f'' < 0$, veks han framleis, men saktare — det er dette som skjer når smittekurva «flatar ut». Er $f' < 0$ og $f'' > 0$, avtek funksjonen, men fallet bremsar. Og er begge negative, går det stadig brattare nedover. Kombinasjonen $f' = 0$ med $f'' < 0$ gjev toppunkt, og $f' = 0$ med $f'' > 0$ gjev botnpunkt.\n\nLat oss bruke dette på to døme. Først klokkekurva $f(x) = e^{-x^2}$. Der er $f'(x) = -2x e^{-x^2}$, og produktregelen gjev $f''(x) = 2e^{-x^2}(2x^2 - 1)$. Sidan $e^{-x^2} > 0$, er $f''(x) = 0$ når $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknsskjemaet viser konveks–konkav–konveks. Vendepunkta ligg i $(\\pm\\frac{\\sqrt{2}}{2}, \\frac{1}{\\sqrt{e}})$, med $\\frac{1}{\\sqrt{e}} \\approx 0{,}61$.\n\nSå ein praktisk situasjon: temperaturen i eit rom etter at omnen blir slått på, $T(t) = 20 - 15e^{-0{,}3t}$. Vi får $T'(t) = 4{,}5e^{-0{,}3t} > 0$ og $T''(t) = -1{,}35e^{-0{,}3t} < 0$ for alle $t$. Tolkinga: temperaturen stig heile tida, men stiginga avtek — rask oppvarming i starten, så gradvis utflating mot $20\\,°C$, som er ei horisontal asymptote rommet aldri heilt når. Til slutt eit kuriøst faktum verdt å hugse: vendepunktet til ein tredjegradsfunksjon ligg alltid midt mellom ekstremalpunkta."},{"id":"s2-3-2-n-quiz3","type":"exercise","exercise":{"id":"s2-3-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på samspelet mellom $f$, $f'$ og $f''$:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-2-n-quiz3-q0","task":"Ei smittekurve har $f'(t) > 0$ og $f''(t) < 0$. Kva tyder det?","options":[{"id":"a","text":"Smitten avtek raskt","isCorrect":false},{"id":"b","text":"Smitten aukar, men stadig saktare — kurva flatar ut","isCorrect":true},{"id":"c","text":"Smitten aukar stadig raskare","isCorrect":false},{"id":"d","text":"Smitten har nådd toppen","isCorrect":false}],"solution":"Positiv $f'$ tyder vekst; negativ $f''$ tyder at veksten bremsar. Kurva er veksande og konkav — ho flatar ut."},{"id":"s2-3-2-n-quiz3-q1","task":"Temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$ har $T'(t) > 0$ og $T''(t) < 0$. Kva skjer med temperaturen?","options":[{"id":"a","text":"Han søkk mot $20\\,°C$","isCorrect":false},{"id":"b","text":"Han stig stadig raskare","isCorrect":false},{"id":"c","text":"Han stig, men stiginga avtek, og han nærmar seg $20\\,°C$","isCorrect":true},{"id":"d","text":"Han svingar rundt $20\\,°C$","isCorrect":false}],"solution":"Temperaturen stig heile tida ($T' > 0$), men grafen er konkav ($T'' < 0$): stiginga blir mindre og mindre, og temperaturen flatar ut mot asymptoten $20\\,°C$."},{"id":"s2-3-2-n-quiz3-q2","task":"Kvar ligg vendepunkta til klokkekurva $f(x) = e^{-x^2}$?","options":[{"id":"a","text":"I $x = 0$","isCorrect":false},{"id":"b","text":"I $x = \\pm 1$","isCorrect":false},{"id":"c","text":"Ho har ingen vendepunkt","isCorrect":false},{"id":"d","text":"I $x = \\pm\\frac{\\sqrt{2}}{2}$","isCorrect":true}],"solution":"$f''(x) = 2e^{-x^2}(2x^2 - 1) = 0$ gjev $x^2 = \\tfrac{1}{2}$, altså $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknet skifter der. $x = 0$ er toppunktet."},{"id":"s2-3-2-n-quiz3-q3","task":"Kva er ein fullstendig framgangsmåte for å finne vendepunkt?","options":[{"id":"a","text":"Løys $f''(x) = 0$ — det held","isCorrect":false},{"id":"b","text":"Finn $f''$, løys $f''(x) = 0$, verifiser forteiknsskifte og rekn ut $y$-verdien","isCorrect":true},{"id":"c","text":"Løys $f'(x) = 0$ og sjekk at $f''(x) > 0$","isCorrect":false},{"id":"d","text":"Finn punkta der grafen kryssar $x$-aksen","isCorrect":false}],"solution":"Utan å verifisere forteiknsskiftet i $f''$ risikerer du å oppgje punkt som ikkje er vendepunkt, og utan $y$-verdien er ikkje punktet komplett oppgjeve."}]}},{"id":"s2-3-2-n-summary","type":"text","content":"## Oppsummering: det andrederiverten ser\n\nVi starta med ei utflatande smittekurve og fann verktøyet som skildrar ho: andrederiverten $f''(x)$, den deriverte av den deriverte. Medan $f'$ måler kor bratt grafen er, måler $f''$ kor raskt brattleiken endrar seg — altså **krumminga**. Positiv $f''$ tyder **konveks** graf som smiler og held vatn; negativ $f''$ tyder **konkav** graf som søler. Der krumminga skifter, ligg **vendepunkta** — men berre dersom $f''$ faktisk skifter forteikn, ikkje berre blir null. Dømet $f(x) = x^4$, der $f''(0) = 0$ utan forteiknsskifte, minner oss om at kandidatar må verifiserast med forteiknsskjema.\n\nAndrederiverten gjev oss òg **andrederivert-testen** for stasjonære punkt: $f'(a) = 0$ kombinert med $f''(a) < 0$ gjev toppunkt, og med $f''(a) > 0$ gjev botnpunkt. Blir $f''(a) = 0$, er testen inkonklusiv, og forteiknsskjemaet for $f'$ tek over — slik det skilde botnpunktet til $x^4$ frå vendepunktet til $x^3$.\n\nTil slutt såg vi korleis forteikna til $f'$ og $f''$ saman fortel ei heil historie: veksande og konveks er akselererande vekst, veksande og konkav er vekst som bremsar, og så vidare. Det var slik vi kunne lese temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$: alltid stigande, alltid med avtakande fart, på veg mot asymptoten. Neste gong nokon seier at «kurva flatar ut», veit du nøyaktig kva matematisk storleik dei snakkar om."}],"exercises":[],"_meta":{"sourceHash":"f87a81b82b9bca9b","translatedAt":"2026-06-20T08:57:18.802Z","model":"claude-code-agent","strings":88,"tm":{"6b0a5e636b074d1d":"Andrederiverte og vendepunkt","b195b06d1ed59702":"Narrativ versjon","ec4e209d357e7b51":"Ei forteljing om smittekurver og krumming — kva den andrederiverte avslører når veksten skifter karakter.","8de161bd05009a88":"bruke derivasjon til å analysere og drøfte funksjonar","fbb68d0d70d1aca0":"tolke andrederiverten geometrisk og bruke han til å bestemme krumming","f0ef8bfa5c5f068f":"## «Kurva flatar ut»\n\nUnder ein epidemi høyrer du stadig uttrykket «smittekurva flatar ut». Talet på smitta aukar framleis — men auken blir mindre for kvar dag. Kva er det eigentleg som blir skildra her? Ikkje funksjonen sjølv, og ikkje den deriverte, men noko tredje: **andrederiverten**.\n\nVi veit at den deriverte $f'(x)$ fortel kor bratt funksjonen er. Andrederiverten er den deriverte av den deriverte, $f''(x) = \\frac{d}{dx}[f'(x)]$, og han fortel **kor raskt stiginga endrar seg**. Det er nettopp dette ein epidemiolog ser etter: når $f''$ blir negativ, veks smitten saktare — kurva har byrja å flate ut, sjølv om ho framleis peikar oppover.\n\nGeometrisk handlar dette om **krumming**. Ein funksjon er **konveks** på eit intervall dersom $f''(x) > 0$ der — grafen buar oppover og «smiler», som ein kopp som held vatn. Han er **konkav** dersom $f''(x) < 0$ — grafen buar nedover og er «sur», som ein kopp som søler vatn. Punktet der funksjonen skifter mellom konkav og konveks krumming, blir kalla eit **vendepunkt** — og i epidemien er vendepunktet sjølve nyheita: dagen då utviklinga snudde karakter.\n\nFormelt har $f$ vendepunkt i $x = a$ dersom $f''(a) = 0$ (eller $f''(a)$ er udefinert) **og** $f''$ faktisk skifter forteikn i $a$. Det siste kravet er lett å gløyme, og vi skal sjå kvifor det er heilt nødvendig.","edc21b81508a2e18":"## Å finne vendepunkt\n\nLat oss trene på ein konkret funksjon: $f(x) = x^4 - 6x^2 + 8x + 1$. Framgangsmåten har fire steg.\n\nFørst deriverer vi to gonger: $f'(x) = 4x^3 - 12x + 8$ og $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$. Så løyser vi $f''(x) = 0$, som gjev kandidatane $x = -1$ og $x = 1$. Tredje steg er forteiknsskjemaet: $f''$ er positiv for $x < -1$ (konveks), negativ mellom $-1$ og $1$ (konkav), og positiv for $x > 1$ (konveks). Forteiknet skifter i begge kandidatane, så begge er ekte vendepunkt. Til slutt reknar vi ut $y$-verdiane: $f(-1) = 1 - 6 - 8 + 1 = -12$ og $f(1) = 1 - 6 + 8 + 1 = 4$. Vendepunkta er $(-1, -12)$ og $(1, 4)$.\n\nKvifor er forteiknsskiftet så viktig? Sjå på $f(x) = x^4$. Der er $f''(x) = 12x^2$, som er null i $x = 0$ — men $f''$ er positiv på begge sider. Grafen er konveks heile vegen, og $x = 0$ er **ikkje** eit vendepunkt (det er faktisk eit botnpunkt). $f''(a) = 0$ åleine garanterer altså ingenting; du må verifisere forteiknsskiftet.\n\nDette gjev oss ein fast rutine når oppgåva seier «finn vendepunkta»: finn $f''(x)$, løys $f''(x) = 0$, lag forteiknsskjema og stadfest forteiknsskifte, og rekn ut $y$-verdien. Hoppar du over forteiknsskjemaet, risikerer du å rapportere punkt som ikkje er vendepunkt — ei klassisk eksamensfelle.","d4c049fac3bb1925":"Test deg sjølv på krumming og vendepunkt:","4097889236a2af26":"placeholder","50b6d92996be751f":"Kva fortel andrederiverten $f''(x)$ oss?","20c1dbafb1548e03":"Kvar funksjonen kryssar $x$-aksen","06a8945c06f9cbeb":"Kor bratt funksjonen er","24eb1d6f59aef651":"Kor raskt stiginga endrar seg, altså krumminga","55ef0a1075b7453e":"Definisjonsmengda til funksjonen","da5d2c26b194ec77":"$f'$ skildrar stiginga, medan $f'' $ skildrar kor raskt stiginga endrar seg — det vi geometrisk ser som krumming.","3e7f4f54771c216d":"Ein funksjon har $f''(x) < 0$ på eit intervall. Kva veit vi?","e61eaf6a51ff4d54":"Funksjonen er konkav («sur») der","55f967d2408cd328":"Funksjonen er konveks («smiler») der","4fc6f57dfd412de2":"Funksjonen er avtakande der","e7d5abc152834877":"Funksjonen har eit nullpunkt der","00ad760800c8a1ce":"$f'' < 0$ tyder konkav krumming — grafen buar nedover. Om funksjonen veks eller avtek blir bestemt av $f'$, ikkje $f''$.","8c9c767e8d31b744":"For $f(x) = x^4 - 6x^2 + 8x + 1$ er $f''(x) = 12(x-1)(x+1)$. Kva er vendepunkta?","d92096cf4ec335d4":"$(1, 4)$ og $(0, 1)$","bafb9398af1ed8a6":"$(-1, -12)$ og $(1, 4)$","86a652275dd7bf8e":"Berre $(-1, -12)$","ba7abc451795ee34":"$(-1, 0)$ og $(1, 0)$","28fe2caa153abf61":"$f''$ skifter forteikn i både $x = -1$ og $x = 1$. Med $f(-1) = -12$ og $f(1) = 4$ blir vendepunkta $(-1, -12)$ og $(1, 4)$.","1bc11f6a6a5c8f11":"Kvifor er $x = 0$ IKKJE eit vendepunkt for $f(x) = x^4$, sjølv om $f''(0) = 0$?","82d6ab36d2a2ce8f":"Fordi $f(0) \\neq 0$","be1025cbf10a80a7":"Fordi $f'(0) \\neq 0$","4a24724a24ade2ac":"Fordi funksjonen ikkje er definert i $x = 0$","1125dd8c58cf94ef":"Fordi $f''(x) = 12x^2$ ikkje skifter forteikn i $x = 0$","3c21db683380dce0":"$f''(x) = 12x^2 \\geq 0$ på begge sider av null — grafen er konveks heile vegen. Utan forteiknsskifte i $f''$ er det ikkje noko vendepunkt.","69dccf14f0f95f0d":"## Andrederivert-testen — og når han sviktar\n\nAndrederiverten gjev oss òg ein rask måte å klassifisere stasjonære punkt på. Anta at $f'(a) = 0$. **Andrederivert-testen** seier: dersom $f''(a) < 0$, er grafen konkav rundt $a$, og punktet er eit **lokalt toppunkt**. Dersom $f''(a) > 0$, er grafen konveks, og punktet er eit **lokalt botnpunkt**. Dersom $f''(a) = 0$, er testen **inkonklusiv** — då må du tilbake til forteiknsskjemaet for $f'$.\n\nVi prøver på $f(x) = 2x^3 - 3x^2 - 12x + 5$. Deriverer: $f'(x) = 6x^2 - 6x - 12 = 6(x-2)(x+1)$, så dei stasjonære punkta er $x = -1$ og $x = 2$. Andrederiverten er $f''(x) = 12x - 6$. I $x = -1$: $f''(-1) = -18 < 0$, altså toppunkt, med $f(-1) = 12$. I $x = 2$: $f''(2) = 18 > 0$, altså botnpunkt, med $f(2) = -15$. Toppunkt $(-1, 12)$ og botnpunkt $(2, -15)$ — raskt og elegant.\n\nMen testen har eit blindfelt. For $f(x) = x^4$ er både $f'(0) = 0$ og $f''(0) = 0$; testen seier ingenting. Forteiknsskjemaet for $f'$ reddar oss: $f'(x) = 4x^3$ skifter frå negativ til positiv i null, så det er eit botnpunkt. For $g(x) = x^3$ er òg $g'(0) = g''(0) = 0$, men her skifter $g'(x) = 3x^2$ **ikkje** forteikn — begge sider er positive. Då er $x = 0$ eit vendepunkt, ikkje eit ekstremalpunkt. Moralen: andrederivert-testen er ei snarveg, forteiknsskjemaet er fasiten.","6340dff78e138abf":"Test deg sjølv på andrederivert-testen:","c2c61123b0ee6d3e":"$f'(a) = 0$ og $f''(a) < 0$. Kva slags punkt er $x = a$?","dc7300db065084c7":"Lokalt botnpunkt","c0670637f77eee35":"Lokalt toppunkt","6ae3ca786db3d7fa":"Vendepunkt","855c39b36f93548b":"Testen er inkonklusiv","f8e462e6b35078a2":"Negativ andrederivert tyder konkav graf (bøyer ned) rundt punktet — eit stasjonært punkt der er eit toppunkt.","89bf16acf088712b":"For $f(x) = 2x^3 - 3x^2 - 12x + 5$ er $f''(x) = 12x - 6$. Kva skjer i det stasjonære punktet $x = 2$?","87acfca9dfa33d2e":"Toppunkt, sidan $f''(2) < 0$","5503751b5ca30159":"Vendepunkt, sidan $f''(2) = 0$","6e94dbfe27e14dec":"Botnpunkt, sidan $f''(2) = 18 > 0$","65b92138ad3e9fe8":"Ingenting kan avgjerast","477199c3e46974fc":"$f''(2) = 24 - 6 = 18 > 0$ tyder konveks graf rundt $x = 2$, så det stasjonære punktet er eit botnpunkt: $(2, -15)$.","f45f4939d7443c08":"Når er andrederivert-testen inkonklusiv?","4e15b7711603796e":"Når $f''(a) = 0$","c0b0a9dba9191c9f":"Når $f''(a) > 0$","094e474c63f9cdc4":"Når $f'(a) \\neq 0$","edb273a396a52b67":"Når funksjonen er eit polynom","0e0b8e40c6540b4e":"Dersom $f''(a) = 0$ gjev testen ingen konklusjon. Då må vi bruke forteiknsskjema for $f'(x)$ — slik som for $x^4$ (botnpunkt) og $x^3$ (vendepunkt).","ea6eea241c5e68a0":"For $g(x) = x^3$ er $g'(0) = 0$ og $g''(0) = 0$. Kva er $x = 0$?","cd705900dee16561":"Toppunkt","e5494ffe48927b59":"Botnpunkt","bb5713768de2d734":"Vendepunkt, ikkje ekstremalpunkt","ddb43e2efae8947e":"Eit punkt utanfor definisjonsmengda","7f333a1932b9d47b":"$g'(x) = 3x^2$ er positiv på begge sider av null, så $g$ veks heile vegen — ingen ekstremalverdi. Men $g''(x) = 6x$ skifter forteikn i $x = 0$, så det er eit vendepunkt.","76e2275721847fd8":"## Å lese samspelet mellom $f$, $f'$ og $f''$\n\nNår du meistrar både første- og andrederiverten, kan du lese åtferda til ein funksjon som ein tabell med to forteikn. Er $f' > 0$ og $f'' > 0$, veks funksjonen stadig brattare oppover. Er $f' > 0$ og $f'' < 0$, veks han framleis, men saktare — det er dette som skjer når smittekurva «flatar ut». Er $f' < 0$ og $f'' > 0$, avtek funksjonen, men fallet bremsar. Og er begge negative, går det stadig brattare nedover. Kombinasjonen $f' = 0$ med $f'' < 0$ gjev toppunkt, og $f' = 0$ med $f'' > 0$ gjev botnpunkt.\n\nLat oss bruke dette på to døme. Først klokkekurva $f(x) = e^{-x^2}$. Der er $f'(x) = -2x e^{-x^2}$, og produktregelen gjev $f''(x) = 2e^{-x^2}(2x^2 - 1)$. Sidan $e^{-x^2} > 0$, er $f''(x) = 0$ når $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknsskjemaet viser konveks–konkav–konveks. Vendepunkta ligg i $(\\pm\\frac{\\sqrt{2}}{2}, \\frac{1}{\\sqrt{e}})$, med $\\frac{1}{\\sqrt{e}} \\approx 0{,}61$.\n\nSå ein praktisk situasjon: temperaturen i eit rom etter at omnen blir slått på, $T(t) = 20 - 15e^{-0{,}3t}$. Vi får $T'(t) = 4{,}5e^{-0{,}3t} > 0$ og $T''(t) = -1{,}35e^{-0{,}3t} < 0$ for alle $t$. Tolkinga: temperaturen stig heile tida, men stiginga avtek — rask oppvarming i starten, så gradvis utflating mot $20\\,°C$, som er ei horisontal asymptote rommet aldri heilt når. Til slutt eit kuriøst faktum verdt å hugse: vendepunktet til ein tredjegradsfunksjon ligg alltid midt mellom ekstremalpunkta.","bbe6152037f3677e":"Test deg sjølv på samspelet mellom $f$, $f'$ og $f''$:","99ab7a1771ed32d5":"Ei smittekurve har $f'(t) > 0$ og $f''(t) < 0$. Kva tyder det?","0c16804bd36fafbf":"Smitten avtek raskt","7f75eec26e9cfdaf":"Smitten aukar, men stadig saktare — kurva flatar ut","704fbb10f7802079":"Smitten aukar stadig raskare","3351b7772ad3cb4d":"Smitten har nådd toppen","7b5d8f50b8e42809":"Positiv $f'$ tyder vekst; negativ $f''$ tyder at veksten bremsar. Kurva er veksande og konkav — ho flatar ut.","7363231d8abbfe9f":"Temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$ har $T'(t) > 0$ og $T''(t) < 0$. Kva skjer med temperaturen?","7bd95bf895d9210c":"Han søkk mot $20\\,°C$","99f7c67d39d82189":"Han stig stadig raskare","a65ff541fc6938a1":"Han stig, men stiginga avtek, og han nærmar seg $20\\,°C$","f9be70f716fba402":"Han svingar rundt $20\\,°C$","95f1f883e6be31ab":"Temperaturen stig heile tida ($T' > 0$), men grafen er konkav ($T'' < 0$): stiginga blir mindre og mindre, og temperaturen flatar ut mot asymptoten $20\\,°C$.","f1e207e8caa9061b":"Kvar ligg vendepunkta til klokkekurva $f(x) = e^{-x^2}$?","914db6e14de871f0":"I $x = 0$","de8e434f196818bb":"I $x = \\pm 1$","fb209405c106c889":"Ho har ingen vendepunkt","c2e0a9f2cd4f70e3":"I $x = \\pm\\frac{\\sqrt{2}}{2}$","d25ee7320d43d8ba":"$f''(x) = 2e^{-x^2}(2x^2 - 1) = 0$ gjev $x^2 = \\tfrac{1}{2}$, altså $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknet skifter der. $x = 0$ er toppunktet.","bc85e1a28149f4f7":"Kva er ein fullstendig framgangsmåte for å finne vendepunkt?","db96f25c5d76b8ae":"Løys $f''(x) = 0$ — det held","cced023926c8ae94":"Finn $f''$, løys $f''(x) = 0$, verifiser forteiknsskifte og rekn ut $y$-verdien","1f7ea368a22a2816":"Løys $f'(x) = 0$ og sjekk at $f''(x) > 0$","3f0bfebe7d186a8a":"Finn punkta der grafen kryssar $x$-aksen","d1c58a33e62634d6":"Utan å verifisere forteiknsskiftet i $f''$ risikerer du å oppgje punkt som ikkje er vendepunkt, og utan $y$-verdien er ikkje punktet komplett oppgjeve.","e0395fa79614f067":"## Oppsummering: det andrederiverten ser\n\nVi starta med ei utflatande smittekurve og fann verktøyet som skildrar ho: andrederiverten $f''(x)$, den deriverte av den deriverte. Medan $f'$ måler kor bratt grafen er, måler $f''$ kor raskt brattleiken endrar seg — altså **krumminga**. Positiv $f''$ tyder **konveks** graf som smiler og held vatn; negativ $f''$ tyder **konkav** graf som søler. Der krumminga skifter, ligg **vendepunkta** — men berre dersom $f''$ faktisk skifter forteikn, ikkje berre blir null. Dømet $f(x) = x^4$, der $f''(0) = 0$ utan forteiknsskifte, minner oss om at kandidatar må verifiserast med forteiknsskjema.\n\nAndrederiverten gjev oss òg **andrederivert-testen** for stasjonære punkt: $f'(a) = 0$ kombinert med $f''(a) < 0$ gjev toppunkt, og med $f''(a) > 0$ gjev botnpunkt. Blir $f''(a) = 0$, er testen inkonklusiv, og forteiknsskjemaet for $f'$ tek over — slik det skilde botnpunktet til $x^4$ frå vendepunktet til $x^3$.\n\nTil slutt såg vi korleis forteikna til $f'$ og $f''$ saman fortel ei heil historie: veksande og konveks er akselererande vekst, veksande og konkav er vekst som bremsar, og så vidare. Det var slik vi kunne lese temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$: alltid stigande, alltid med avtakande fart, på veg mot asymptoten. Neste gong nokon seier at «kurva flatar ut», veit du nøyaktig kva matematisk storleik dei snakkar om."}}}
+{
+  "id": "s2-3-2-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "3.2",
+  "title": "Andrederiverte og vendepunkt",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om smittekurver og krumming — kva den andrederiverte avslører når veksten skifter karakter.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "bruke derivasjon til å analysere og drøfte funksjonar",
+    "tolke andrederiverten geometrisk og bruke han til å bestemme krumming"
+  ],
+  "linkedChapterId": "s2-3-2",
+  "content": [
+    {
+      "id": "s2-3-2-n-intro",
+      "type": "text",
+      "content": "## «Kurva flatar ut»\n\nUnder ein epidemi høyrer du stadig uttrykket «smittekurva flatar ut». Talet på smitta aukar framleis — men auken blir mindre for kvar dag. Kva er det eigentleg som blir skildra her? Ikkje funksjonen sjølv, og ikkje den deriverte, men noko tredje: **andrederiverten**.\n\nVi veit at den deriverte $f'(x)$ fortel kor bratt funksjonen er. Andrederiverten er den deriverte av den deriverte, $f''(x) = \\frac{d}{dx}[f'(x)]$, og han fortel **kor raskt stiginga endrar seg**. Det er nettopp dette ein epidemiolog ser etter: når $f''$ blir negativ, veks smitten saktare — kurva har byrja å flate ut, sjølv om ho framleis peikar oppover.\n\nGeometrisk handlar dette om **krumming**. Ein funksjon er **konveks** på eit intervall dersom $f''(x) > 0$ der — grafen buar oppover og «smiler», som ein kopp som held vatn. Han er **konkav** dersom $f''(x) < 0$ — grafen buar nedover og er «sur», som ein kopp som søler vatn. Punktet der funksjonen skifter mellom konkav og konveks krumming, blir kalla eit **vendepunkt** — og i epidemien er vendepunktet sjølve nyheita: dagen då utviklinga snudde karakter.\n\nFormelt har $f$ vendepunkt i $x = a$ dersom $f''(a) = 0$ (eller $f''(a)$ er udefinert) **og** $f''$ faktisk skifter forteikn i $a$. Det siste kravet er lett å gløyme, og vi skal sjå kvifor det er heilt nødvendig."
+    },
+    {
+      "id": "s2-3-2-n-section1",
+      "type": "text",
+      "content": "## Å finne vendepunkt\n\nLat oss trene på ein konkret funksjon: $f(x) = x^4 - 6x^2 + 8x + 1$. Framgangsmåten har fire steg.\n\nFørst deriverer vi to gonger: $f'(x) = 4x^3 - 12x + 8$ og $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$. Så løyser vi $f''(x) = 0$, som gjev kandidatane $x = -1$ og $x = 1$. Tredje steg er forteiknsskjemaet: $f''$ er positiv for $x < -1$ (konveks), negativ mellom $-1$ og $1$ (konkav), og positiv for $x > 1$ (konveks). Forteiknet skifter i begge kandidatane, så begge er ekte vendepunkt. Til slutt reknar vi ut $y$-verdiane: $f(-1) = 1 - 6 - 8 + 1 = -12$ og $f(1) = 1 - 6 + 8 + 1 = 4$. Vendepunkta er $(-1, -12)$ og $(1, 4)$.\n\nKvifor er forteiknsskiftet så viktig? Sjå på $f(x) = x^4$. Der er $f''(x) = 12x^2$, som er null i $x = 0$ — men $f''$ er positiv på begge sider. Grafen er konveks heile vegen, og $x = 0$ er **ikkje** eit vendepunkt (det er faktisk eit botnpunkt). $f''(a) = 0$ åleine garanterer altså ingenting; du må verifisere forteiknsskiftet.\n\nDette gjev oss ein fast rutine når oppgåva seier «finn vendepunkta»: finn $f''(x)$, løys $f''(x) = 0$, lag forteiknsskjema og stadfest forteiknsskifte, og rekn ut $y$-verdien. Hoppar du over forteiknsskjemaet, risikerer du å rapportere punkt som ikkje er vendepunkt — ei klassisk eksamensfelle."
+    },
+    {
+      "id": "s2-3-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på krumming og vendepunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-2-n-quiz1-q0",
+            "task": "Kva fortel andrederiverten $f''(x)$ oss?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Kor raskt stiginga endrar seg, altså krumminga",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Kvar funksjonen kryssar $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kor bratt funksjonen er",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Definisjonsmengda til funksjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'$ skildrar stiginga, medan $f'' $ skildrar kor raskt stiginga endrar seg — det vi geometrisk ser som krumming."
+          },
+          {
+            "id": "s2-3-2-n-quiz1-q1",
+            "task": "Ein funksjon har $f''(x) < 0$ på eit intervall. Kva veit vi?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Funksjonen er konveks («smiler») der",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Funksjonen er konkav («sur») der",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Funksjonen er avtakande der",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonen har eit nullpunkt der",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'' < 0$ tyder konkav krumming — grafen buar nedover. Om funksjonen veks eller avtek blir bestemt av $f'$, ikkje $f''$."
+          },
+          {
+            "id": "s2-3-2-n-quiz1-q2",
+            "task": "For $f(x) = x^4 - 6x^2 + 8x + 1$ er $f''(x) = 12(x-1)(x+1)$. Kva er vendepunkta?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(1, 4)$ og $(0, 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre $(-1, -12)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(-1, -12)$ og $(1, 4)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(-1, 0)$ og $(1, 0)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''$ skifter forteikn i både $x = -1$ og $x = 1$. Med $f(-1) = -12$ og $f(1) = 4$ blir vendepunkta $(-1, -12)$ og $(1, 4)$."
+          },
+          {
+            "id": "s2-3-2-n-quiz1-q3",
+            "task": "Kvifor er $x = 0$ IKKJE eit vendepunkt for $f(x) = x^4$, sjølv om $f''(0) = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $f(0) \\neq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $f'(0) \\neq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi funksjonen ikkje er definert i $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $f''(x) = 12x^2$ ikkje skifter forteikn i $x = 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f''(x) = 12x^2 \\geq 0$ på begge sider av null — grafen er konveks heile vegen. Utan forteiknsskifte i $f''$ er det ikkje noko vendepunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-2-n-section2",
+      "type": "text",
+      "content": "## Andrederivert-testen — og når han sviktar\n\nAndrederiverten gjev oss òg ein rask måte å klassifisere stasjonære punkt på. Anta at $f'(a) = 0$. **Andrederivert-testen** seier: dersom $f''(a) < 0$, er grafen konkav rundt $a$, og punktet er eit **lokalt toppunkt**. Dersom $f''(a) > 0$, er grafen konveks, og punktet er eit **lokalt botnpunkt**. Dersom $f''(a) = 0$, er testen **inkonklusiv** — då må du tilbake til forteiknsskjemaet for $f'$.\n\nVi prøver på $f(x) = 2x^3 - 3x^2 - 12x + 5$. Deriverer: $f'(x) = 6x^2 - 6x - 12 = 6(x-2)(x+1)$, så dei stasjonære punkta er $x = -1$ og $x = 2$. Andrederiverten er $f''(x) = 12x - 6$. I $x = -1$: $f''(-1) = -18 < 0$, altså toppunkt, med $f(-1) = 12$. I $x = 2$: $f''(2) = 18 > 0$, altså botnpunkt, med $f(2) = -15$. Toppunkt $(-1, 12)$ og botnpunkt $(2, -15)$ — raskt og elegant.\n\nMen testen har eit blindfelt. For $f(x) = x^4$ er både $f'(0) = 0$ og $f''(0) = 0$; testen seier ingenting. Forteiknsskjemaet for $f'$ reddar oss: $f'(x) = 4x^3$ skifter frå negativ til positiv i null, så det er eit botnpunkt. For $g(x) = x^3$ er òg $g'(0) = g''(0) = 0$, men her skifter $g'(x) = 3x^2$ **ikkje** forteikn — begge sider er positive. Då er $x = 0$ eit vendepunkt, ikkje eit ekstremalpunkt. Moralen: andrederivert-testen er ei snarveg, forteiknsskjemaet er fasiten."
+    },
+    {
+      "id": "s2-3-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på andrederivert-testen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-2-n-quiz2-q0",
+            "task": "$f'(a) = 0$ og $f''(a) < 0$. Kva slags punkt er $x = a$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Lokalt toppunkt",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lokalt botnpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vendepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Testen er inkonklusiv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Negativ andrederivert tyder konkav graf (bøyer ned) rundt punktet — eit stasjonært punkt der er eit toppunkt."
+          },
+          {
+            "id": "s2-3-2-n-quiz2-q1",
+            "task": "For $f(x) = 2x^3 - 3x^2 - 12x + 5$ er $f''(x) = 12x - 6$. Kva skjer i det stasjonære punktet $x = 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Toppunkt, sidan $f''(2) < 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Botnpunkt, sidan $f''(2) = 18 > 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Vendepunkt, sidan $f''(2) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting kan avgjerast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(2) = 24 - 6 = 18 > 0$ tyder konveks graf rundt $x = 2$, så det stasjonære punktet er eit botnpunkt: $(2, -15)$."
+          },
+          {
+            "id": "s2-3-2-n-quiz2-q2",
+            "task": "Når er andrederivert-testen inkonklusiv?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når $f''(a) > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $f'(a) \\neq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når $f''(a) = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når funksjonen er eit polynom",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dersom $f''(a) = 0$ gjev testen ingen konklusjon. Då må vi bruke forteiknsskjema for $f'(x)$ — slik som for $x^4$ (botnpunkt) og $x^3$ (vendepunkt)."
+          },
+          {
+            "id": "s2-3-2-n-quiz2-q3",
+            "task": "For $g(x) = x^3$ er $g'(0) = 0$ og $g''(0) = 0$. Kva er $x = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Toppunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Botnpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit punkt utanfor definisjonsmengda",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vendepunkt, ikkje ekstremalpunkt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$g'(x) = 3x^2$ er positiv på begge sider av null, så $g$ veks heile vegen — ingen ekstremalverdi. Men $g''(x) = 6x$ skifter forteikn i $x = 0$, så det er eit vendepunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-2-n-section3",
+      "type": "text",
+      "content": "## Å lese samspelet mellom $f$, $f'$ og $f''$\n\nNår du meistrar både første- og andrederiverten, kan du lese åtferda til ein funksjon som ein tabell med to forteikn. Er $f' > 0$ og $f'' > 0$, veks funksjonen stadig brattare oppover. Er $f' > 0$ og $f'' < 0$, veks han framleis, men saktare — det er dette som skjer når smittekurva «flatar ut». Er $f' < 0$ og $f'' > 0$, avtek funksjonen, men fallet bremsar. Og er begge negative, går det stadig brattare nedover. Kombinasjonen $f' = 0$ med $f'' < 0$ gjev toppunkt, og $f' = 0$ med $f'' > 0$ gjev botnpunkt.\n\nLat oss bruke dette på to døme. Først klokkekurva $f(x) = e^{-x^2}$. Der er $f'(x) = -2x e^{-x^2}$, og produktregelen gjev $f''(x) = 2e^{-x^2}(2x^2 - 1)$. Sidan $e^{-x^2} > 0$, er $f''(x) = 0$ når $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknsskjemaet viser konveks–konkav–konveks. Vendepunkta ligg i $(\\pm\\frac{\\sqrt{2}}{2}, \\frac{1}{\\sqrt{e}})$, med $\\frac{1}{\\sqrt{e}} \\approx 0{,}61$.\n\nSå ein praktisk situasjon: temperaturen i eit rom etter at omnen blir slått på, $T(t) = 20 - 15e^{-0{,}3t}$. Vi får $T'(t) = 4{,}5e^{-0{,}3t} > 0$ og $T''(t) = -1{,}35e^{-0{,}3t} < 0$ for alle $t$. Tolkinga: temperaturen stig heile tida, men stiginga avtek — rask oppvarming i starten, så gradvis utflating mot $20\\,°C$, som er ei horisontal asymptote rommet aldri heilt når. Til slutt eit kuriøst faktum verdt å hugse: vendepunktet til ein tredjegradsfunksjon ligg alltid midt mellom ekstremalpunkta."
+    },
+    {
+      "id": "s2-3-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på samspelet mellom $f$, $f'$ og $f''$:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-2-n-quiz3-q0",
+            "task": "Ei smittekurve har $f'(t) > 0$ og $f''(t) < 0$. Kva tyder det?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Smitten aukar, men stadig saktare — kurva flatar ut",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Smitten avtek raskt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Smitten aukar stadig raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Smitten har nådd toppen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Positiv $f'$ tyder vekst; negativ $f''$ tyder at veksten bremsar. Kurva er veksande og konkav — ho flatar ut."
+          },
+          {
+            "id": "s2-3-2-n-quiz3-q1",
+            "task": "Temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$ har $T'(t) > 0$ og $T''(t) < 0$. Kva skjer med temperaturen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han søkk mot $20\\,°C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han stig, men stiginga avtek, og han nærmar seg $20\\,°C$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han stig stadig raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han svingar rundt $20\\,°C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Temperaturen stig heile tida ($T' > 0$), men grafen er konkav ($T'' < 0$): stiginga blir mindre og mindre, og temperaturen flatar ut mot asymptoten $20\\,°C$."
+          },
+          {
+            "id": "s2-3-2-n-quiz3-q2",
+            "task": "Kvar ligg vendepunkta til klokkekurva $f(x) = e^{-x^2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "I $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "I $x = \\pm 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "I $x = \\pm\\frac{\\sqrt{2}}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ho har ingen vendepunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(x) = 2e^{-x^2}(2x^2 - 1) = 0$ gjev $x^2 = \\tfrac{1}{2}$, altså $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknet skifter der. $x = 0$ er toppunktet."
+          },
+          {
+            "id": "s2-3-2-n-quiz3-q3",
+            "task": "Kva er ein fullstendig framgangsmåte for å finne vendepunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Løys $f''(x) = 0$ — det held",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Løys $f'(x) = 0$ og sjekk at $f''(x) > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Finn punkta der grafen kryssar $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Finn $f''$, løys $f''(x) = 0$, verifiser forteiknsskifte og rekn ut $y$-verdien",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan å verifisere forteiknsskiftet i $f''$ risikerer du å oppgje punkt som ikkje er vendepunkt, og utan $y$-verdien er ikkje punktet komplett oppgjeve."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: det andrederiverten ser\n\nVi starta med ei utflatande smittekurve og fann verktøyet som skildrar ho: andrederiverten $f''(x)$, den deriverte av den deriverte. Medan $f'$ måler kor bratt grafen er, måler $f''$ kor raskt brattleiken endrar seg — altså **krumminga**. Positiv $f''$ tyder **konveks** graf som smiler og held vatn; negativ $f''$ tyder **konkav** graf som søler. Der krumminga skifter, ligg **vendepunkta** — men berre dersom $f''$ faktisk skifter forteikn, ikkje berre blir null. Dømet $f(x) = x^4$, der $f''(0) = 0$ utan forteiknsskifte, minner oss om at kandidatar må verifiserast med forteiknsskjema.\n\nAndrederiverten gjev oss òg **andrederivert-testen** for stasjonære punkt: $f'(a) = 0$ kombinert med $f''(a) < 0$ gjev toppunkt, og med $f''(a) > 0$ gjev botnpunkt. Blir $f''(a) = 0$, er testen inkonklusiv, og forteiknsskjemaet for $f'$ tek over — slik det skilde botnpunktet til $x^4$ frå vendepunktet til $x^3$.\n\nTil slutt såg vi korleis forteikna til $f'$ og $f''$ saman fortel ei heil historie: veksande og konveks er akselererande vekst, veksande og konkav er vekst som bremsar, og så vidare. Det var slik vi kunne lese temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$: alltid stigande, alltid med avtakande fart, på veg mot asymptoten. Neste gong nokon seier at «kurva flatar ut», veit du nøyaktig kva matematisk storleik dei snakkar om."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f87a81b82b9bca9b",
+    "translatedAt": "2026-06-20T08:57:18.802Z",
+    "model": "claude-code-agent",
+    "strings": 88,
+    "tm": {
+      "6b0a5e636b074d1d": "Andrederiverte og vendepunkt",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ec4e209d357e7b51": "Ei forteljing om smittekurver og krumming — kva den andrederiverte avslører når veksten skifter karakter.",
+      "8de161bd05009a88": "bruke derivasjon til å analysere og drøfte funksjonar",
+      "fbb68d0d70d1aca0": "tolke andrederiverten geometrisk og bruke han til å bestemme krumming",
+      "f0ef8bfa5c5f068f": "## «Kurva flatar ut»\n\nUnder ein epidemi høyrer du stadig uttrykket «smittekurva flatar ut». Talet på smitta aukar framleis — men auken blir mindre for kvar dag. Kva er det eigentleg som blir skildra her? Ikkje funksjonen sjølv, og ikkje den deriverte, men noko tredje: **andrederiverten**.\n\nVi veit at den deriverte $f'(x)$ fortel kor bratt funksjonen er. Andrederiverten er den deriverte av den deriverte, $f''(x) = \\frac{d}{dx}[f'(x)]$, og han fortel **kor raskt stiginga endrar seg**. Det er nettopp dette ein epidemiolog ser etter: når $f''$ blir negativ, veks smitten saktare — kurva har byrja å flate ut, sjølv om ho framleis peikar oppover.\n\nGeometrisk handlar dette om **krumming**. Ein funksjon er **konveks** på eit intervall dersom $f''(x) > 0$ der — grafen buar oppover og «smiler», som ein kopp som held vatn. Han er **konkav** dersom $f''(x) < 0$ — grafen buar nedover og er «sur», som ein kopp som søler vatn. Punktet der funksjonen skifter mellom konkav og konveks krumming, blir kalla eit **vendepunkt** — og i epidemien er vendepunktet sjølve nyheita: dagen då utviklinga snudde karakter.\n\nFormelt har $f$ vendepunkt i $x = a$ dersom $f''(a) = 0$ (eller $f''(a)$ er udefinert) **og** $f''$ faktisk skifter forteikn i $a$. Det siste kravet er lett å gløyme, og vi skal sjå kvifor det er heilt nødvendig.",
+      "edc21b81508a2e18": "## Å finne vendepunkt\n\nLat oss trene på ein konkret funksjon: $f(x) = x^4 - 6x^2 + 8x + 1$. Framgangsmåten har fire steg.\n\nFørst deriverer vi to gonger: $f'(x) = 4x^3 - 12x + 8$ og $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$. Så løyser vi $f''(x) = 0$, som gjev kandidatane $x = -1$ og $x = 1$. Tredje steg er forteiknsskjemaet: $f''$ er positiv for $x < -1$ (konveks), negativ mellom $-1$ og $1$ (konkav), og positiv for $x > 1$ (konveks). Forteiknet skifter i begge kandidatane, så begge er ekte vendepunkt. Til slutt reknar vi ut $y$-verdiane: $f(-1) = 1 - 6 - 8 + 1 = -12$ og $f(1) = 1 - 6 + 8 + 1 = 4$. Vendepunkta er $(-1, -12)$ og $(1, 4)$.\n\nKvifor er forteiknsskiftet så viktig? Sjå på $f(x) = x^4$. Der er $f''(x) = 12x^2$, som er null i $x = 0$ — men $f''$ er positiv på begge sider. Grafen er konveks heile vegen, og $x = 0$ er **ikkje** eit vendepunkt (det er faktisk eit botnpunkt). $f''(a) = 0$ åleine garanterer altså ingenting; du må verifisere forteiknsskiftet.\n\nDette gjev oss ein fast rutine når oppgåva seier «finn vendepunkta»: finn $f''(x)$, løys $f''(x) = 0$, lag forteiknsskjema og stadfest forteiknsskifte, og rekn ut $y$-verdien. Hoppar du over forteiknsskjemaet, risikerer du å rapportere punkt som ikkje er vendepunkt — ei klassisk eksamensfelle.",
+      "d4c049fac3bb1925": "Test deg sjølv på krumming og vendepunkt:",
+      "4097889236a2af26": "placeholder",
+      "50b6d92996be751f": "Kva fortel andrederiverten $f''(x)$ oss?",
+      "20c1dbafb1548e03": "Kvar funksjonen kryssar $x$-aksen",
+      "06a8945c06f9cbeb": "Kor bratt funksjonen er",
+      "24eb1d6f59aef651": "Kor raskt stiginga endrar seg, altså krumminga",
+      "55ef0a1075b7453e": "Definisjonsmengda til funksjonen",
+      "da5d2c26b194ec77": "$f'$ skildrar stiginga, medan $f'' $ skildrar kor raskt stiginga endrar seg — det vi geometrisk ser som krumming.",
+      "3e7f4f54771c216d": "Ein funksjon har $f''(x) < 0$ på eit intervall. Kva veit vi?",
+      "e61eaf6a51ff4d54": "Funksjonen er konkav («sur») der",
+      "55f967d2408cd328": "Funksjonen er konveks («smiler») der",
+      "4fc6f57dfd412de2": "Funksjonen er avtakande der",
+      "e7d5abc152834877": "Funksjonen har eit nullpunkt der",
+      "00ad760800c8a1ce": "$f'' < 0$ tyder konkav krumming — grafen buar nedover. Om funksjonen veks eller avtek blir bestemt av $f'$, ikkje $f''$.",
+      "8c9c767e8d31b744": "For $f(x) = x^4 - 6x^2 + 8x + 1$ er $f''(x) = 12(x-1)(x+1)$. Kva er vendepunkta?",
+      "d92096cf4ec335d4": "$(1, 4)$ og $(0, 1)$",
+      "bafb9398af1ed8a6": "$(-1, -12)$ og $(1, 4)$",
+      "86a652275dd7bf8e": "Berre $(-1, -12)$",
+      "ba7abc451795ee34": "$(-1, 0)$ og $(1, 0)$",
+      "28fe2caa153abf61": "$f''$ skifter forteikn i både $x = -1$ og $x = 1$. Med $f(-1) = -12$ og $f(1) = 4$ blir vendepunkta $(-1, -12)$ og $(1, 4)$.",
+      "1bc11f6a6a5c8f11": "Kvifor er $x = 0$ IKKJE eit vendepunkt for $f(x) = x^4$, sjølv om $f''(0) = 0$?",
+      "82d6ab36d2a2ce8f": "Fordi $f(0) \\neq 0$",
+      "be1025cbf10a80a7": "Fordi $f'(0) \\neq 0$",
+      "4a24724a24ade2ac": "Fordi funksjonen ikkje er definert i $x = 0$",
+      "1125dd8c58cf94ef": "Fordi $f''(x) = 12x^2$ ikkje skifter forteikn i $x = 0$",
+      "3c21db683380dce0": "$f''(x) = 12x^2 \\geq 0$ på begge sider av null — grafen er konveks heile vegen. Utan forteiknsskifte i $f''$ er det ikkje noko vendepunkt.",
+      "69dccf14f0f95f0d": "## Andrederivert-testen — og når han sviktar\n\nAndrederiverten gjev oss òg ein rask måte å klassifisere stasjonære punkt på. Anta at $f'(a) = 0$. **Andrederivert-testen** seier: dersom $f''(a) < 0$, er grafen konkav rundt $a$, og punktet er eit **lokalt toppunkt**. Dersom $f''(a) > 0$, er grafen konveks, og punktet er eit **lokalt botnpunkt**. Dersom $f''(a) = 0$, er testen **inkonklusiv** — då må du tilbake til forteiknsskjemaet for $f'$.\n\nVi prøver på $f(x) = 2x^3 - 3x^2 - 12x + 5$. Deriverer: $f'(x) = 6x^2 - 6x - 12 = 6(x-2)(x+1)$, så dei stasjonære punkta er $x = -1$ og $x = 2$. Andrederiverten er $f''(x) = 12x - 6$. I $x = -1$: $f''(-1) = -18 < 0$, altså toppunkt, med $f(-1) = 12$. I $x = 2$: $f''(2) = 18 > 0$, altså botnpunkt, med $f(2) = -15$. Toppunkt $(-1, 12)$ og botnpunkt $(2, -15)$ — raskt og elegant.\n\nMen testen har eit blindfelt. For $f(x) = x^4$ er både $f'(0) = 0$ og $f''(0) = 0$; testen seier ingenting. Forteiknsskjemaet for $f'$ reddar oss: $f'(x) = 4x^3$ skifter frå negativ til positiv i null, så det er eit botnpunkt. For $g(x) = x^3$ er òg $g'(0) = g''(0) = 0$, men her skifter $g'(x) = 3x^2$ **ikkje** forteikn — begge sider er positive. Då er $x = 0$ eit vendepunkt, ikkje eit ekstremalpunkt. Moralen: andrederivert-testen er ei snarveg, forteiknsskjemaet er fasiten.",
+      "6340dff78e138abf": "Test deg sjølv på andrederivert-testen:",
+      "c2c61123b0ee6d3e": "$f'(a) = 0$ og $f''(a) < 0$. Kva slags punkt er $x = a$?",
+      "dc7300db065084c7": "Lokalt botnpunkt",
+      "c0670637f77eee35": "Lokalt toppunkt",
+      "6ae3ca786db3d7fa": "Vendepunkt",
+      "855c39b36f93548b": "Testen er inkonklusiv",
+      "f8e462e6b35078a2": "Negativ andrederivert tyder konkav graf (bøyer ned) rundt punktet — eit stasjonært punkt der er eit toppunkt.",
+      "89bf16acf088712b": "For $f(x) = 2x^3 - 3x^2 - 12x + 5$ er $f''(x) = 12x - 6$. Kva skjer i det stasjonære punktet $x = 2$?",
+      "87acfca9dfa33d2e": "Toppunkt, sidan $f''(2) < 0$",
+      "5503751b5ca30159": "Vendepunkt, sidan $f''(2) = 0$",
+      "6e94dbfe27e14dec": "Botnpunkt, sidan $f''(2) = 18 > 0$",
+      "65b92138ad3e9fe8": "Ingenting kan avgjerast",
+      "477199c3e46974fc": "$f''(2) = 24 - 6 = 18 > 0$ tyder konveks graf rundt $x = 2$, så det stasjonære punktet er eit botnpunkt: $(2, -15)$.",
+      "f45f4939d7443c08": "Når er andrederivert-testen inkonklusiv?",
+      "4e15b7711603796e": "Når $f''(a) = 0$",
+      "c0b0a9dba9191c9f": "Når $f''(a) > 0$",
+      "094e474c63f9cdc4": "Når $f'(a) \\neq 0$",
+      "edb273a396a52b67": "Når funksjonen er eit polynom",
+      "0e0b8e40c6540b4e": "Dersom $f''(a) = 0$ gjev testen ingen konklusjon. Då må vi bruke forteiknsskjema for $f'(x)$ — slik som for $x^4$ (botnpunkt) og $x^3$ (vendepunkt).",
+      "ea6eea241c5e68a0": "For $g(x) = x^3$ er $g'(0) = 0$ og $g''(0) = 0$. Kva er $x = 0$?",
+      "cd705900dee16561": "Toppunkt",
+      "e5494ffe48927b59": "Botnpunkt",
+      "bb5713768de2d734": "Vendepunkt, ikkje ekstremalpunkt",
+      "ddb43e2efae8947e": "Eit punkt utanfor definisjonsmengda",
+      "7f333a1932b9d47b": "$g'(x) = 3x^2$ er positiv på begge sider av null, så $g$ veks heile vegen — ingen ekstremalverdi. Men $g''(x) = 6x$ skifter forteikn i $x = 0$, så det er eit vendepunkt.",
+      "76e2275721847fd8": "## Å lese samspelet mellom $f$, $f'$ og $f''$\n\nNår du meistrar både første- og andrederiverten, kan du lese åtferda til ein funksjon som ein tabell med to forteikn. Er $f' > 0$ og $f'' > 0$, veks funksjonen stadig brattare oppover. Er $f' > 0$ og $f'' < 0$, veks han framleis, men saktare — det er dette som skjer når smittekurva «flatar ut». Er $f' < 0$ og $f'' > 0$, avtek funksjonen, men fallet bremsar. Og er begge negative, går det stadig brattare nedover. Kombinasjonen $f' = 0$ med $f'' < 0$ gjev toppunkt, og $f' = 0$ med $f'' > 0$ gjev botnpunkt.\n\nLat oss bruke dette på to døme. Først klokkekurva $f(x) = e^{-x^2}$. Der er $f'(x) = -2x e^{-x^2}$, og produktregelen gjev $f''(x) = 2e^{-x^2}(2x^2 - 1)$. Sidan $e^{-x^2} > 0$, er $f''(x) = 0$ når $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknsskjemaet viser konveks–konkav–konveks. Vendepunkta ligg i $(\\pm\\frac{\\sqrt{2}}{2}, \\frac{1}{\\sqrt{e}})$, med $\\frac{1}{\\sqrt{e}} \\approx 0{,}61$.\n\nSå ein praktisk situasjon: temperaturen i eit rom etter at omnen blir slått på, $T(t) = 20 - 15e^{-0{,}3t}$. Vi får $T'(t) = 4{,}5e^{-0{,}3t} > 0$ og $T''(t) = -1{,}35e^{-0{,}3t} < 0$ for alle $t$. Tolkinga: temperaturen stig heile tida, men stiginga avtek — rask oppvarming i starten, så gradvis utflating mot $20\\,°C$, som er ei horisontal asymptote rommet aldri heilt når. Til slutt eit kuriøst faktum verdt å hugse: vendepunktet til ein tredjegradsfunksjon ligg alltid midt mellom ekstremalpunkta.",
+      "bbe6152037f3677e": "Test deg sjølv på samspelet mellom $f$, $f'$ og $f''$:",
+      "99ab7a1771ed32d5": "Ei smittekurve har $f'(t) > 0$ og $f''(t) < 0$. Kva tyder det?",
+      "0c16804bd36fafbf": "Smitten avtek raskt",
+      "7f75eec26e9cfdaf": "Smitten aukar, men stadig saktare — kurva flatar ut",
+      "704fbb10f7802079": "Smitten aukar stadig raskare",
+      "3351b7772ad3cb4d": "Smitten har nådd toppen",
+      "7b5d8f50b8e42809": "Positiv $f'$ tyder vekst; negativ $f''$ tyder at veksten bremsar. Kurva er veksande og konkav — ho flatar ut.",
+      "7363231d8abbfe9f": "Temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$ har $T'(t) > 0$ og $T''(t) < 0$. Kva skjer med temperaturen?",
+      "7bd95bf895d9210c": "Han søkk mot $20\\,°C$",
+      "99f7c67d39d82189": "Han stig stadig raskare",
+      "a65ff541fc6938a1": "Han stig, men stiginga avtek, og han nærmar seg $20\\,°C$",
+      "f9be70f716fba402": "Han svingar rundt $20\\,°C$",
+      "95f1f883e6be31ab": "Temperaturen stig heile tida ($T' > 0$), men grafen er konkav ($T'' < 0$): stiginga blir mindre og mindre, og temperaturen flatar ut mot asymptoten $20\\,°C$.",
+      "f1e207e8caa9061b": "Kvar ligg vendepunkta til klokkekurva $f(x) = e^{-x^2}$?",
+      "914db6e14de871f0": "I $x = 0$",
+      "de8e434f196818bb": "I $x = \\pm 1$",
+      "fb209405c106c889": "Ho har ingen vendepunkt",
+      "c2e0a9f2cd4f70e3": "I $x = \\pm\\frac{\\sqrt{2}}{2}$",
+      "d25ee7320d43d8ba": "$f''(x) = 2e^{-x^2}(2x^2 - 1) = 0$ gjev $x^2 = \\tfrac{1}{2}$, altså $x = \\pm\\frac{\\sqrt{2}}{2}$, og forteiknet skifter der. $x = 0$ er toppunktet.",
+      "bc85e1a28149f4f7": "Kva er ein fullstendig framgangsmåte for å finne vendepunkt?",
+      "db96f25c5d76b8ae": "Løys $f''(x) = 0$ — det held",
+      "cced023926c8ae94": "Finn $f''$, løys $f''(x) = 0$, verifiser forteiknsskifte og rekn ut $y$-verdien",
+      "1f7ea368a22a2816": "Løys $f'(x) = 0$ og sjekk at $f''(x) > 0$",
+      "3f0bfebe7d186a8a": "Finn punkta der grafen kryssar $x$-aksen",
+      "d1c58a33e62634d6": "Utan å verifisere forteiknsskiftet i $f''$ risikerer du å oppgje punkt som ikkje er vendepunkt, og utan $y$-verdien er ikkje punktet komplett oppgjeve.",
+      "e0395fa79614f067": "## Oppsummering: det andrederiverten ser\n\nVi starta med ei utflatande smittekurve og fann verktøyet som skildrar ho: andrederiverten $f''(x)$, den deriverte av den deriverte. Medan $f'$ måler kor bratt grafen er, måler $f''$ kor raskt brattleiken endrar seg — altså **krumminga**. Positiv $f''$ tyder **konveks** graf som smiler og held vatn; negativ $f''$ tyder **konkav** graf som søler. Der krumminga skifter, ligg **vendepunkta** — men berre dersom $f''$ faktisk skifter forteikn, ikkje berre blir null. Dømet $f(x) = x^4$, der $f''(0) = 0$ utan forteiknsskifte, minner oss om at kandidatar må verifiserast med forteiknsskjema.\n\nAndrederiverten gjev oss òg **andrederivert-testen** for stasjonære punkt: $f'(a) = 0$ kombinert med $f''(a) < 0$ gjev toppunkt, og med $f''(a) > 0$ gjev botnpunkt. Blir $f''(a) = 0$, er testen inkonklusiv, og forteiknsskjemaet for $f'$ tek over — slik det skilde botnpunktet til $x^4$ frå vendepunktet til $x^3$.\n\nTil slutt såg vi korleis forteikna til $f'$ og $f''$ saman fortel ei heil historie: veksande og konveks er akselererande vekst, veksande og konkav er vekst som bremsar, og så vidare. Det var slik vi kunne lese temperaturmodellen $T(t) = 20 - 15e^{-0{,}3t}$: alltid stigande, alltid med avtakande fart, på veg mot asymptoten. Neste gong nokon seier at «kurva flatar ut», veit du nøyaktig kva matematisk storleik dei snakkar om."
+    }
+  }
+}

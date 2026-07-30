@@ -1,1 +1,370 @@
-{"id":"r2-2-6-narrativ","courseId":"r2","chapterNumber":"2.6","title":"Areal under grafer","subtitle":"Narrativ versjon","description":"En fortelling om areal under grafer — integralets dobbeltliv som fortegnsareal og faktisk areal, og oppskriften med nullpunkter og oppdeling som alltid gir riktig svar.","estimatedMinutes":33,"competenceGoals":["beregne areal under grafer","handtere negative funksjonsverdier ved arealberegning","bruke integralregning til å finne arealer mellom kurver og akser"],"linkedChapterId":"r2-2-6","content":[{"id":"r2-2-6-n-intro","type":"text","content":"## Når integralet svarer null — og lyver\n\nEn bil kjører av gårde med hastighet $v(t) = 20 - 4t$ meter per sekund. Etter fem sekunder stopper den — og rygger så tilbake. Ved $t = 10$ regner du ut integralet av hastigheten og får... null. Har bilen stått stille? Selvsagt ikke: den kjørte $50$ meter frem og $50$ meter tilbake, totalt $100$ meter med bevegelse. Men integralet teller ryggingen som *minus* $50$, og summen blir null.\n\nHer møter vi integralets dobbeltliv. Det bestemte integralet måler **fortegnsareal** — pluss over $x$-aksen, minus under — og det er ofte akkurat det vi vil ha (netto forflytning, netto resultat). Men like ofte spør vi etter det *faktiske* arealet eller den *faktiske* strekningen, og da må vi behandle områdene under aksen med omhu.\n\nI dette kapittelet lærer du begge regnskapene: når integralet kan brukes direkte, hvordan negative bidrag oppstår, og den systematiske metoden — finn nullpunktene, del opp, summer absoluttverdier — som alltid gir riktig areal."},{"id":"r2-2-6-n-section1","type":"text","content":"## Det enkle tilfellet — og det lumske\n\nSå lenge funksjonen holder seg over $x$-aksen, er livet enkelt. For kontinuerlig $f$ med $f(x) \\geq 0$ på $[a,b]$ er arealet mellom grafen og aksen rett og slett\n\n$$A = \\int_a^b f(x) \\, dx$$\n\nKlassikeren: $f(x) = x^2$ er aldri negativ, så arealet fra $0$ til $3$ er $\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = 9$ arealenheter. Ferdig.\n\nMen se hva som skjer med $f(x) = x - 3$ på $[0, 2]$. Her ligger hele grafen *under* aksen, og\n\n$$\\int_0^2 (x-3)\\,dx = \\left[\\frac{x^2}{2} - 3x\\right]_0^2 = (2 - 6) - 0 = -4$$\n\nEt negativt areal? Geometrien forteller hva som foregår: Riemann-rektanglene har negative «høyder» $f(x_i)$, så hvert bidrag teller med minus. Integralet måler **fortegnsareal**: områder over aksen bidrar positivt, områder under bidrar negativt. Det faktiske arealet mellom grafen og aksen er her $|-4| = 4$.\n\nKonsekvensen er viktig å ta inn over seg: et integral kan bli null selv om grafen spenner ut store områder — hvis pluss- og minusbidragene kansellerer, slik bilens frem- og tilbakekjøring gjorde. Integralet lyver ikke, men det svarer på et annet spørsmål enn «hvor stort er området?»."},{"id":"r2-2-6-n-quiz1","type":"exercise","exercise":{"id":"r2-2-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på fortegnsareal:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-6-n-quiz1-q0","task":"Hva er $\\displaystyle\\int_0^2 (x - 3) \\, dx$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$-4$","isCorrect":true},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$-6$","isCorrect":false}],"solution":"$\\left[\\frac{x^2}{2} - 3x\\right]_0^2 = (2 - 6) - 0 = -4$. Grafen ligger under $x$-aksen på hele intervallet, så integralet er negativt."},{"id":"r2-2-6-n-quiz1-q1","task":"Grafen til $f$ ligger under $x$-aksen på hele $[a, b]$. Hva gjelder for $\\int_a^b f(x)\\,dx$?","options":[{"id":"a","text":"Integralet er null","isCorrect":false},{"id":"b","text":"Integralet er lik arealet","isCorrect":false},{"id":"c","text":"Integralet er negativt — det faktiske arealet er absoluttverdien","isCorrect":true},{"id":"d","text":"Integralet er udefinert","isCorrect":false}],"solution":"Negative funksjonsverdier gir negative bidrag i Riemannsummen. Arealet er $\\left|\\int_a^b f(x)\\,dx\\right|$."},{"id":"r2-2-6-n-quiz1-q2","task":"Kan $\\int_a^b f(x)\\,dx = 0$ selv om grafen avgrenser store områder mot $x$-aksen?","options":[{"id":"a","text":"Nei, da må $f$ være null overalt","isCorrect":false},{"id":"b","text":"Bare hvis $a = b$","isCorrect":false},{"id":"c","text":"Nei, integralet er alltid minst like stort som arealet","isCorrect":false},{"id":"d","text":"Ja — hvis positive og negative bidrag kansellerer hverandre","isCorrect":true}],"solution":"Integralet måler fortegnsareal. Er området over aksen like stort som området under, blir summen null — som bilen som kjører frem og tilbake."}]}},{"id":"r2-2-6-n-section2","type":"text","content":"## Oppskriften: del opp ved nullpunktene\n\nNår vi vil ha det *faktiske* arealet — alltid positivt — integrerer vi i prinsippet $|f(x)|$. I praksis betyr det en fast arbeidsgang:\n\n**1.** Finn nullpunktene til $f$ på $[a,b]$. **2.** Del intervallet opp ved nullpunktene, slik at $f$ har konstant fortegn på hver bit. **3.** Beregn delintegralene. **4.** Summer absoluttverdiene: $A = \\sum |\\text{delintegral}|$.\n\nLa oss kjøre hele løypa for $f(x) = x^2 - 4$ på $[-3, 3]$. Nullpunkter: $x = \\pm 2$. Fortegn: positiv på $[-3,-2]$, negativ på $[-2,2]$, positiv på $[2,3]$. Med antideriverten $\\frac{x^3}{3} - 4x$ blir delintegralene\n\n$$I_1 = \\int_{-3}^{-2} (x^2-4)\\,dx = \\frac{7}{3}, \\quad I_2 = \\int_{-2}^{2} (x^2-4)\\,dx = -\\frac{32}{3}, \\quad I_3 = \\int_{2}^{3} (x^2-4)\\,dx = \\frac{7}{3}$$\n\nog arealet\n\n$$A = \\frac{7}{3} + \\frac{32}{3} + \\frac{7}{3} = \\frac{46}{3} \\approx 15{,}3$$\n\nHadde vi slurvet og integrert rett over hele $[-3,3]$, ville vi fått $\\frac{7}{3} - \\frac{32}{3} + \\frac{7}{3} = -6$ — verken arealet eller noe annet nyttig.\n\nSamme oppskrift for $f(x) = x^3 - 4x$ mellom nullpunktene: $x(x-2)(x+2) = 0$ gir $x = -2, 0, 2$. Delintegralene over $[-2,0]$ og $[0,2]$ blir $4$ og $-4$ (grafen er symmetrisk om origo), og arealet er $|4| + |-4| = 8$ — mens det naive integralet over $[-2,2]$ gir null."},{"id":"r2-2-6-n-quiz2","type":"exercise","exercise":{"id":"r2-2-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på arealberegning med oppdeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-6-n-quiz2-q0","task":"Hva er første steg når du skal finne det faktiske arealet mellom grafen til $f$ og $x$-aksen på $[a,b]$?","options":[{"id":"a","text":"Finne nullpunktene til $f$ på intervallet","isCorrect":true},{"id":"b","text":"Derivere $f$","isCorrect":false},{"id":"c","text":"Beregne $\\int_a^b f(x)\\,dx$ direkte","isCorrect":false},{"id":"d","text":"Finne toppunktet til $f$","isCorrect":false}],"solution":"Nullpunktene avgjør hvor $f$ skifter fortegn. Deretter deles intervallet opp, og absoluttverdiene av delintegralene summeres."},{"id":"r2-2-6-n-quiz2-q1","task":"For $f(x) = x^3 - 4x$ er $\\int_{-2}^0 f\\,dx = 4$ og $\\int_0^2 f\\,dx = -4$. Hva er arealet mellom grafen og $x$-aksen på $[-2,2]$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$8$","isCorrect":true},{"id":"d","text":"$16$","isCorrect":false}],"solution":"Arealet er summen av absoluttverdiene: $|4| + |-4| = 8$. Integralet over hele intervallet gir $0$ fordi bidragene kansellerer."},{"id":"r2-2-6-n-quiz2-q2","task":"Det absolutte arealet mellom $f(x) = x^2 - 4$ og $x$-aksen på $[-3,3]$ er $\\frac{46}{3}$. Hvilket uttrykk beskriver dette arealet?","options":[{"id":"a","text":"$\\displaystyle\\int_{-3}^{3} (x^2-4)\\,dx$","isCorrect":false},{"id":"b","text":"$\\displaystyle\\left|\\int_{-3}^{3} (x^2-4)\\,dx\\right|$","isCorrect":false},{"id":"c","text":"$\\displaystyle\\int_{-2}^{2} |x^2-4|\\,dx$","isCorrect":false},{"id":"d","text":"$\\displaystyle\\int_{-3}^{3} |x^2-4|\\,dx$","isCorrect":true}],"solution":"Absolutt areal er $\\int_a^b |f(x)|\\,dx$ — her $\\int_{-3}^{3}|x^2-4|\\,dx = \\frac{7}{3} + \\frac{32}{3} + \\frac{7}{3} = \\frac{46}{3}$. Uten absoluttverdi får vi $-6$."}]}},{"id":"r2-2-6-n-section3","type":"text","content":"## Strekning eller forflytning? Integralet i praksis\n\nTilbake til bilen fra innledningen — nå med full verktøykasse. Hastigheten er $v(t) = 20 - 4t$ m/s, og $v(t) = 0$ gir $t = 5$: der snur bilen.\n\n**Netto forflytning** er fortegnsarealet, integralet rett frem:\n\n$$\\int_0^{10} (20 - 4t)\\,dt = \\left[20t - 2t^2\\right]_0^{10} = 200 - 200 = 0$$\n\nBilen ender der den startet.\n\n**Total strekning** er det absolutte arealet. Vi deler ved $t = 5$:\n\n$$s_1 = \\int_0^5 (20-4t)\\,dt = \\left[20t - 2t^2\\right]_0^5 = 50, \\qquad s_2 = \\int_5^{10} (20-4t)\\,dt = -50$$\n\nog strekningen blir $|50| + |-50| = 100$ meter. Begge svarene er riktige — de svarer bare på hver sin ting: «hvor endte du?» mot «hvor langt har du kjørt?».\n\nDette skillet går igjen overalt hvor integraler brukes: i fysikk (forflytning mot strekning, netto arbeid), i økonomi (netto resultat mot total omsetning), i biologi (netto populasjonsendring mot total utskifting). Det bestemte integralet av en endringsrate gir alltid *netto* endring; vil du ha *brutto*, må absoluttverdien inn. Å vite hvilket spørsmål man stiller, er halve jobben."},{"id":"r2-2-6-n-quiz3","type":"exercise","exercise":{"id":"r2-2-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på praktiske arealanvendelser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-6-n-quiz3-q0","task":"En bil har hastighet $v(t) = 20 - 4t$ m/s. Når snur bilen?","options":[{"id":"a","text":"$t = 4$ s","isCorrect":false},{"id":"b","text":"$t = 5$ s","isCorrect":true},{"id":"c","text":"$t = 10$ s","isCorrect":false},{"id":"d","text":"$t = 20$ s","isCorrect":false}],"solution":"Bilen snur når hastigheten er null: $20 - 4t = 0$ gir $t = 5$ s."},{"id":"r2-2-6-n-quiz3-q1","task":"For bilen over: hva er total tilbakelagt strekning på $[0, 10]$?","options":[{"id":"a","text":"$100$ m","isCorrect":true},{"id":"b","text":"$0$ m","isCorrect":false},{"id":"c","text":"$50$ m","isCorrect":false},{"id":"d","text":"$200$ m","isCorrect":false}],"solution":"Del ved $t = 5$: fremover $50$ m, bakover $50$ m. Total strekning $|50| + |-50| = 100$ m."},{"id":"r2-2-6-n-quiz3-q2","task":"Hva er bilens netto forflytning på $[0, 10]$?","options":[{"id":"a","text":"$100$ m","isCorrect":false},{"id":"b","text":"$50$ m","isCorrect":false},{"id":"c","text":"$-50$ m","isCorrect":false},{"id":"d","text":"$0$ m","isCorrect":true}],"solution":"$\\int_0^{10}(20-4t)\\,dt = 200 - 200 = 0$. Bilen er tilbake ved start — netto forflytning null, selv om den har kjørt $100$ m."},{"id":"r2-2-6-n-quiz3-q3","task":"Hvilket generelt prinsipp gjelder for integralet av en endringsrate?","options":[{"id":"a","text":"Det gir alltid total (brutto) endring","isCorrect":false},{"id":"b","text":"Det gir maksimal endring","isCorrect":false},{"id":"c","text":"Det gir netto endring — for brutto må vi integrere absoluttverdien","isCorrect":true},{"id":"d","text":"Det gir gjennomsnittlig endring","isCorrect":false}],"solution":"$\\int_a^b r(t)\\,dt$ summerer positive og negative bidrag til netto endring. Total «aktivitet» krever $\\int_a^b |r(t)|\\,dt$."}]}},{"id":"r2-2-6-n-summary","type":"text","content":"## Oppsummering: to regnskap, én metode\n\nIntegralet fører to slags regnskap, og nå behersker du begge. **Fortegnsarealet** $\\int_a^b f(x)\\,dx$ teller pluss over $x$-aksen og minus under — det er netto-regnskapet, og det kan bli null selv om grafen spenner ut store områder. **Det absolutte arealet** $\\int_a^b |f(x)|\\,dx$ er brutto-regnskapet, og det beregnes med den faste oppskriften: finn nullpunktene, del opp intervallet der fortegnet skifter, beregn delintegralene og summer absoluttverdiene. Slik ga $f(x) = x^2 - 4$ på $[-3,3]$ arealet $\\frac{46}{3}$, mens det naive integralet svarte $-6$.\n\nBilen med $v(t) = 20 - 4t$ bandt det hele sammen: netto forflytning $0$ meter, total strekning $100$ meter — to riktige svar på to ulike spørsmål. Skillet mellom netto og brutto følger integralet inn i fysikk, økonomi og biologi, og å identifisere riktig spørsmål er halve løsningen. I neste kapittel løfter vi blikket fra aksen: hva med arealet mellom *to* grafer som bukter seg om hverandre? Oppskriften ligner — men nå er det skjæringspunktene som bestemmer hvor vi deler."}],"exercises":[]}
+{
+  "id": "r2-2-6-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "2.6",
+  "title": "Areal under grafer",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om areal under grafer — integralets dobbeltliv som fortegnsareal og faktisk areal, og oppskriften med nullpunkter og oppdeling som alltid gir riktig svar.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "beregne areal under grafer",
+    "handtere negative funksjonsverdier ved arealberegning",
+    "bruke integralregning til å finne arealer mellom kurver og akser"
+  ],
+  "linkedChapterId": "r2-2-6",
+  "content": [
+    {
+      "id": "r2-2-6-n-intro",
+      "type": "text",
+      "content": "## Når integralet svarer null — og lyver\n\nEn bil kjører av gårde med hastighet $v(t) = 20 - 4t$ meter per sekund. Etter fem sekunder stopper den — og rygger så tilbake. Ved $t = 10$ regner du ut integralet av hastigheten og får... null. Har bilen stått stille? Selvsagt ikke: den kjørte $50$ meter frem og $50$ meter tilbake, totalt $100$ meter med bevegelse. Men integralet teller ryggingen som *minus* $50$, og summen blir null.\n\nHer møter vi integralets dobbeltliv. Det bestemte integralet måler **fortegnsareal** — pluss over $x$-aksen, minus under — og det er ofte akkurat det vi vil ha (netto forflytning, netto resultat). Men like ofte spør vi etter det *faktiske* arealet eller den *faktiske* strekningen, og da må vi behandle områdene under aksen med omhu.\n\nI dette kapittelet lærer du begge regnskapene: når integralet kan brukes direkte, hvordan negative bidrag oppstår, og den systematiske metoden — finn nullpunktene, del opp, summer absoluttverdier — som alltid gir riktig areal."
+    },
+    {
+      "id": "r2-2-6-n-section1",
+      "type": "text",
+      "content": "## Det enkle tilfellet — og det lumske\n\nSå lenge funksjonen holder seg over $x$-aksen, er livet enkelt. For kontinuerlig $f$ med $f(x) \\geq 0$ på $[a,b]$ er arealet mellom grafen og aksen rett og slett\n\n$$A = \\int_a^b f(x) \\, dx$$\n\nKlassikeren: $f(x) = x^2$ er aldri negativ, så arealet fra $0$ til $3$ er $\\int_0^3 x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = 9$ arealenheter. Ferdig.\n\nMen se hva som skjer med $f(x) = x - 3$ på $[0, 2]$. Her ligger hele grafen *under* aksen, og\n\n$$\\int_0^2 (x-3)\\,dx = \\left[\\frac{x^2}{2} - 3x\\right]_0^2 = (2 - 6) - 0 = -4$$\n\nEt negativt areal? Geometrien forteller hva som foregår: Riemann-rektanglene har negative «høyder» $f(x_i)$, så hvert bidrag teller med minus. Integralet måler **fortegnsareal**: områder over aksen bidrar positivt, områder under bidrar negativt. Det faktiske arealet mellom grafen og aksen er her $|-4| = 4$.\n\nKonsekvensen er viktig å ta inn over seg: et integral kan bli null selv om grafen spenner ut store områder — hvis pluss- og minusbidragene kansellerer, slik bilens frem- og tilbakekjøring gjorde. Integralet lyver ikke, men det svarer på et annet spørsmål enn «hvor stort er området?»."
+    },
+    {
+      "id": "r2-2-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på fortegnsareal:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-6-n-quiz1-q0",
+            "task": "Hva er $\\displaystyle\\int_0^2 (x - 3) \\, dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\left[\\frac{x^2}{2} - 3x\\right]_0^2 = (2 - 6) - 0 = -4$. Grafen ligger under $x$-aksen på hele intervallet, så integralet er negativt."
+          },
+          {
+            "id": "r2-2-6-n-quiz1-q1",
+            "task": "Grafen til $f$ ligger under $x$-aksen på hele $[a, b]$. Hva gjelder for $\\int_a^b f(x)\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Integralet er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Integralet er negativt — det faktiske arealet er absoluttverdien",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Integralet er lik arealet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Integralet er udefinert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Negative funksjonsverdier gir negative bidrag i Riemannsummen. Arealet er $\\left|\\int_a^b f(x)\\,dx\\right|$."
+          },
+          {
+            "id": "r2-2-6-n-quiz1-q2",
+            "task": "Kan $\\int_a^b f(x)\\,dx = 0$ selv om grafen avgrenser store områder mot $x$-aksen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nei, da må $f$ være null overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bare hvis $a = b$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja — hvis positive og negative bidrag kansellerer hverandre",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Nei, integralet er alltid minst like stort som arealet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Integralet måler fortegnsareal. Er området over aksen like stort som området under, blir summen null — som bilen som kjører frem og tilbake."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-6-n-section2",
+      "type": "text",
+      "content": "## Oppskriften: del opp ved nullpunktene\n\nNår vi vil ha det *faktiske* arealet — alltid positivt — integrerer vi i prinsippet $|f(x)|$. I praksis betyr det en fast arbeidsgang:\n\n**1.** Finn nullpunktene til $f$ på $[a,b]$. **2.** Del intervallet opp ved nullpunktene, slik at $f$ har konstant fortegn på hver bit. **3.** Beregn delintegralene. **4.** Summer absoluttverdiene: $A = \\sum |\\text{delintegral}|$.\n\nLa oss kjøre hele løypa for $f(x) = x^2 - 4$ på $[-3, 3]$. Nullpunkter: $x = \\pm 2$. Fortegn: positiv på $[-3,-2]$, negativ på $[-2,2]$, positiv på $[2,3]$. Med antideriverten $\\frac{x^3}{3} - 4x$ blir delintegralene\n\n$$I_1 = \\int_{-3}^{-2} (x^2-4)\\,dx = \\frac{7}{3}, \\quad I_2 = \\int_{-2}^{2} (x^2-4)\\,dx = -\\frac{32}{3}, \\quad I_3 = \\int_{2}^{3} (x^2-4)\\,dx = \\frac{7}{3}$$\n\nog arealet\n\n$$A = \\frac{7}{3} + \\frac{32}{3} + \\frac{7}{3} = \\frac{46}{3} \\approx 15{,}3$$\n\nHadde vi slurvet og integrert rett over hele $[-3,3]$, ville vi fått $\\frac{7}{3} - \\frac{32}{3} + \\frac{7}{3} = -6$ — verken arealet eller noe annet nyttig.\n\nSamme oppskrift for $f(x) = x^3 - 4x$ mellom nullpunktene: $x(x-2)(x+2) = 0$ gir $x = -2, 0, 2$. Delintegralene over $[-2,0]$ og $[0,2]$ blir $4$ og $-4$ (grafen er symmetrisk om origo), og arealet er $|4| + |-4| = 8$ — mens det naive integralet over $[-2,2]$ gir null."
+    },
+    {
+      "id": "r2-2-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på arealberegning med oppdeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-6-n-quiz2-q0",
+            "task": "Hva er første steg når du skal finne det faktiske arealet mellom grafen til $f$ og $x$-aksen på $[a,b]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Derivere $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Beregne $\\int_a^b f(x)\\,dx$ direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Finne toppunktet til $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Finne nullpunktene til $f$ på intervallet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Nullpunktene avgjør hvor $f$ skifter fortegn. Deretter deles intervallet opp, og absoluttverdiene av delintegralene summeres."
+          },
+          {
+            "id": "r2-2-6-n-quiz2-q1",
+            "task": "For $f(x) = x^3 - 4x$ er $\\int_{-2}^0 f\\,dx = 4$ og $\\int_0^2 f\\,dx = -4$. Hva er arealet mellom grafen og $x$-aksen på $[-2,2]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$16$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Arealet er summen av absoluttverdiene: $|4| + |-4| = 8$. Integralet over hele intervallet gir $0$ fordi bidragene kansellerer."
+          },
+          {
+            "id": "r2-2-6-n-quiz2-q2",
+            "task": "Det absolutte arealet mellom $f(x) = x^2 - 4$ og $x$-aksen på $[-3,3]$ er $\\frac{46}{3}$. Hvilket uttrykk beskriver dette arealet?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\displaystyle\\int_{-3}^{3} |x^2-4|\\,dx$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\displaystyle\\int_{-3}^{3} (x^2-4)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\displaystyle\\left|\\int_{-3}^{3} (x^2-4)\\,dx\\right|$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\displaystyle\\int_{-2}^{2} |x^2-4|\\,dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Absolutt areal er $\\int_a^b |f(x)|\\,dx$ — her $\\int_{-3}^{3}|x^2-4|\\,dx = \\frac{7}{3} + \\frac{32}{3} + \\frac{7}{3} = \\frac{46}{3}$. Uten absoluttverdi får vi $-6$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-6-n-section3",
+      "type": "text",
+      "content": "## Strekning eller forflytning? Integralet i praksis\n\nTilbake til bilen fra innledningen — nå med full verktøykasse. Hastigheten er $v(t) = 20 - 4t$ m/s, og $v(t) = 0$ gir $t = 5$: der snur bilen.\n\n**Netto forflytning** er fortegnsarealet, integralet rett frem:\n\n$$\\int_0^{10} (20 - 4t)\\,dt = \\left[20t - 2t^2\\right]_0^{10} = 200 - 200 = 0$$\n\nBilen ender der den startet.\n\n**Total strekning** er det absolutte arealet. Vi deler ved $t = 5$:\n\n$$s_1 = \\int_0^5 (20-4t)\\,dt = \\left[20t - 2t^2\\right]_0^5 = 50, \\qquad s_2 = \\int_5^{10} (20-4t)\\,dt = -50$$\n\nog strekningen blir $|50| + |-50| = 100$ meter. Begge svarene er riktige — de svarer bare på hver sin ting: «hvor endte du?» mot «hvor langt har du kjørt?».\n\nDette skillet går igjen overalt hvor integraler brukes: i fysikk (forflytning mot strekning, netto arbeid), i økonomi (netto resultat mot total omsetning), i biologi (netto populasjonsendring mot total utskifting). Det bestemte integralet av en endringsrate gir alltid *netto* endring; vil du ha *brutto*, må absoluttverdien inn. Å vite hvilket spørsmål man stiller, er halve jobben."
+    },
+    {
+      "id": "r2-2-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på praktiske arealanvendelser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-6-n-quiz3-q0",
+            "task": "En bil har hastighet $v(t) = 20 - 4t$ m/s. Når snur bilen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$t = 4$ s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$t = 5$ s",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$t = 10$ s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$t = 20$ s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bilen snur når hastigheten er null: $20 - 4t = 0$ gir $t = 5$ s."
+          },
+          {
+            "id": "r2-2-6-n-quiz3-q1",
+            "task": "For bilen over: hva er total tilbakelagt strekning på $[0, 10]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$50$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$200$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$100$ m",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Del ved $t = 5$: fremover $50$ m, bakover $50$ m. Total strekning $|50| + |-50| = 100$ m."
+          },
+          {
+            "id": "r2-2-6-n-quiz3-q2",
+            "task": "Hva er bilens netto forflytning på $[0, 10]$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$0$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$100$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$50$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-50$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_0^{10}(20-4t)\\,dt = 200 - 200 = 0$. Bilen er tilbake ved start — netto forflytning null, selv om den har kjørt $100$ m."
+          },
+          {
+            "id": "r2-2-6-n-quiz3-q3",
+            "task": "Hvilket generelt prinsipp gjelder for integralet av en endringsrate?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det gir alltid total (brutto) endring",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det gir netto endring — for brutto må vi integrere absoluttverdien",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det gir maksimal endring",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det gir gjennomsnittlig endring",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int_a^b r(t)\\,dt$ summerer positive og negative bidrag til netto endring. Total «aktivitet» krever $\\int_a^b |r(t)|\\,dt$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: to regnskap, én metode\n\nIntegralet fører to slags regnskap, og nå behersker du begge. **Fortegnsarealet** $\\int_a^b f(x)\\,dx$ teller pluss over $x$-aksen og minus under — det er netto-regnskapet, og det kan bli null selv om grafen spenner ut store områder. **Det absolutte arealet** $\\int_a^b |f(x)|\\,dx$ er brutto-regnskapet, og det beregnes med den faste oppskriften: finn nullpunktene, del opp intervallet der fortegnet skifter, beregn delintegralene og summer absoluttverdiene. Slik ga $f(x) = x^2 - 4$ på $[-3,3]$ arealet $\\frac{46}{3}$, mens det naive integralet svarte $-6$.\n\nBilen med $v(t) = 20 - 4t$ bandt det hele sammen: netto forflytning $0$ meter, total strekning $100$ meter — to riktige svar på to ulike spørsmål. Skillet mellom netto og brutto følger integralet inn i fysikk, økonomi og biologi, og å identifisere riktig spørsmål er halve løsningen. I neste kapittel løfter vi blikket fra aksen: hva med arealet mellom *to* grafer som bukter seg om hverandre? Oppskriften ligner — men nå er det skjæringspunktene som bestemmer hvor vi deler."
+    }
+  ],
+  "exercises": []
+}

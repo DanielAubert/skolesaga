@@ -1,1 +1,425 @@
-{"id":"fys1-2-1-narrativ","courseId":"fys1","chapterNumber":"2.1","title":"Posisjon, fart og akselerasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis fysikarar fangar rørsle i tal og piler -- og kvifor 7 meter gått kan bli 5 meter forflytta.","estimatedMinutes":38,"competenceGoals":["beskrive posisjon og forflytning som vektorer","forklare forskjellen mellom gjennomsnittlig og momentan fart","forklare forskjellen mellom gjennomsnittlig og momentan akselerasjon","bruke vektornotasjon for kinematiske størrelser"],"linkedChapterId":"fys1-2-1","content":[{"id":"fys1-2-1-n-intro","type":"text","content":"## Å skildre rørsle utan å bry seg om kvifor\n\nTenk deg at du står på ein perrong og ser eit tog gli forbi. Du kan skildre akkurat *korleis* det rører seg -- kvar det er, kor fort det går, om det aukar farten -- heilt utan å vite *kvifor*. Det er nettopp dette **kinematikk** handlar om: læra om rørsle, lausrive frå årsakene bak. Kreftene kjem vi til seinare.\n\nFor å skildre ei rørsle treng vi tre ting: eit **referansesystem** (eit koordinatsystem å måle ut frå), ein **tidsskala**, og ein måte å angi **retning** på. Det siste tvingar oss til å skilje mellom to slags storleikar.\n\nEin **skalar** har berre ein talverdi: masse (5 kg), temperatur (20 °C), tid (10 s). Ein **vektor** har derimot både talverdi *og* retning: ei forflytning på 5 m mot nord, ein hastigheit på 10 m/s mot aust. Vektorar skriv vi med ei pil over, som $\\vec{v}$. I kinematikken er posisjon, forflytning, hastigheit og akselerasjon alle vektorar -- for i fysikk er det sjeldan nok å vite *kor mykje*; du må òg vite *kva veg*."},{"id":"fys1-2-1-n-section1","type":"text","content":"## Posisjon, forflytning og ein snarveg på 5 meter\n\nLat oss starte med det grunnleggjande. **Posisjonen** til eit objekt er kvar det er i forhold til eit referansepunkt, origo. I éin dimensjon held det med eitt tal, $x$. I to dimensjonar treng vi ein posisjonsvektor $\\vec{r} = (x, y)$, og i tre $\\vec{r} = (x, y, z)$. Eininga er alltid meter.\n\n**Forflytning** er endringa i posisjon, altså $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$, ein vektor som peikar i rett linje frå der du starta til der du enda. Og her lurer ein av dei viktigaste finurlegheitene i kinematikken: forflytning er ikkje det same som tilbakelagd distanse.\n\nSi at du går 3 m mot aust og deretter 4 m mot nord. Den **tilbakelagde distansen** er den totale lengda langs banen, $3 + 4 = 7$ m -- ein skalar. Men **forflytninga** er snarvegen i luftlinje frå start til slutt: $\\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$ m i nordaustleg retning. Du *gjekk* sju meter, men *forflytta* deg berre fem. Distanse bryr seg om heile turen; forflytning bryr seg berre om byrjing og slutt."},{"id":"fys1-2-1-n-quiz1","type":"exercise","exercise":{"id":"fys1-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vektorar, posisjon og forflytning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-2-1-n-quiz1-q0","task":"Kva er skilnaden på ein skalar og ein vektor?","options":[{"id":"a","text":"Ein skalar har retning, ein vektor har ikkje","isCorrect":false},{"id":"b","text":"Ein vektor blir alltid målt i meter","isCorrect":false},{"id":"c","text":"Ein skalar har berre talverdi, ein vektor har både talverdi og retning","isCorrect":true},{"id":"d","text":"Det er ingen skilnad","isCorrect":false}],"solution":"Skalarar som masse og tid har berre ein talverdi. Vektorar som forflytning og hastigheit har i tillegg ei retning."},{"id":"fys1-2-1-n-quiz1-q1","task":"Du går 6 m mot aust og 8 m mot nord. Kva er beløpet av forflytninga?","options":[{"id":"a","text":"14 m","isCorrect":false},{"id":"b","text":"2 m","isCorrect":false},{"id":"c","text":"48 m","isCorrect":false},{"id":"d","text":"10 m","isCorrect":true}],"solution":"Forflytninga er snarvegen: $\\sqrt{6^2+8^2}=\\sqrt{36+64}=\\sqrt{100}=10$ m. Den tilbakelagde distansen er derimot 14 m."},{"id":"fys1-2-1-n-quiz1-q2","task":"Kva utsegn om forflytning er rett?","options":[{"id":"a","text":"Forflytning er ein vektor frå startposisjon til sluttposisjon","isCorrect":true},{"id":"b","text":"Forflytning er alltid lik tilbakelagd distanse","isCorrect":false},{"id":"c","text":"Forflytning er ein skalar","isCorrect":false},{"id":"d","text":"Forflytning kan aldri vere null","isCorrect":false}],"solution":"$\\Delta\\vec{r}=\\vec{r}_2-\\vec{r}_1$ er ein vektor i rett linje frå start til slutt. Går du i ein ring tilbake til start, er forflytninga til og med null."}]}},{"id":"fys1-2-1-n-section2","type":"text","content":"## Fart, hastigheit og den magiske augneblinken\n\nNo skal vi setje tid på rørsla. **Gjennomsnittleg fart** fortel kor raskt du rørte deg i snitt: $v_{gj} = \\frac{s}{\\Delta t}$, der $s$ er tilbakelagd distanse. Dette er ein skalar. **Gjennomsnittleg hastigheit** er derimot ein vektor, $\\vec{v}_{gj} = \\frac{\\Delta \\vec{r}}{\\Delta t}$ -- forflytning per tid, og han peikar same veg som forflytninga.\n\nMen ofte vil vi ikkje vite gjennomsnittet over ein heil tur; vi vil vite farten *akkurat no*, i éin bestemt augneblink -- slik speedometeret i ein bil viser. Det kallar vi **momentan hastigheit**. Matematisk lèt vi tidsintervallet krympe mot null: $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$. Med andre ord: momentan hastigheit er den deriverte av posisjonen med omsyn på tid. Eit fint trekk ved han er at han alltid peikar tangent til banen -- i akkurat den retninga objektet faktisk er på veg.\n\nI to dimensjonar deler vi han opp komponentvis, $\\vec{v} = (v_x, v_y) = \\left(\\frac{dx}{dt}, \\frac{dy}{dt}\\right)$, og sjølve farten -- beløpet av hastigheita -- finn vi med Pytagoras: $v = |\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$."},{"id":"fys1-2-1-n-quiz2","type":"exercise","exercise":{"id":"fys1-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på fart og hastigheit:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-2-1-n-quiz2-q0","task":"Kva er momentan hastigheit?","options":[{"id":"a","text":"Total distanse delt på total tid","isCorrect":false},{"id":"b","text":"Den deriverte av posisjon med omsyn på tid, $\\frac{d\\vec{r}}{dt}$","isCorrect":true},{"id":"c","text":"Alltid ein skalar","isCorrect":false},{"id":"d","text":"Den deriverte av akselerasjon","isCorrect":false}],"solution":"Momentan hastigheit er farten og retninga akkurat no, definert som grensa $\\lim_{\\Delta t\\to 0}\\frac{\\Delta\\vec{r}}{\\Delta t}=\\frac{d\\vec{r}}{dt}$."},{"id":"fys1-2-1-n-quiz2-q1","task":"Ein bil flyttar seg $(60,80)$ m på 10 s. Kva er beløpet av gjennomsnittshastigheita?","options":[{"id":"a","text":"14 m/s","isCorrect":false},{"id":"b","text":"7 m/s","isCorrect":false},{"id":"c","text":"10 m/s","isCorrect":true},{"id":"d","text":"100 m/s","isCorrect":false}],"solution":"Beløpet av forflytninga er $\\sqrt{60^2+80^2}=100$ m. Delt på 10 s gir det 10 m/s. Komponentvis: $\\vec{v}_{gj}=(6,8)$ m/s."},{"id":"fys1-2-1-n-quiz2-q2","task":"I kva retning peikar den momentane hastigheita?","options":[{"id":"a","text":"Alltid mot origo","isCorrect":false},{"id":"b","text":"Vinkelrett på banen","isCorrect":false},{"id":"c","text":"Alltid loddrett nedover","isCorrect":false},{"id":"d","text":"Tangent til banen, i rørsleretninga","isCorrect":true}],"solution":"Momentan hastigheit er alltid tangent til banen -- han peikar i den retninga objektet er på veg akkurat då."}]}},{"id":"fys1-2-1-n-section3","type":"text","content":"## Akselerasjon -- når hastigheita skiftar\n\nAkselerasjon er endringa i hastigheit per tidseining. **Gjennomsnittleg akselerasjon** er $\\vec{a}_{gj} = \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{\\vec{v}_2 - \\vec{v}_1}{t_2 - t_1}$, med eininga meter per sekund i andre, m/s². På same måte som med hastigheit finst ein **momentan akselerasjon** for éin bestemt augneblink: $\\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{d\\vec{v}}{dt}$ -- den deriverte av hastigheita. Legg merke til mønsteret: deriverer du posisjon får du hastigheit, deriverer du hastigheit får du akselerasjon.\n\nLat oss rekne på eit enkelt tilfelle. Ein bil aukar hastigheita frå $\\vec{v}_1 = (10, 0)$ m/s til $\\vec{v}_2 = (25, 0)$ m/s på 5 sekund. Då er $\\Delta \\vec{v} = (25, 0) - (10, 0) = (15, 0)$ m/s, og $\\vec{a}_{gj} = \\frac{(15, 0)}{5} = (3, 0)$ m/s² -- altså 3 m/s² i positiv x-retning.\n\nDet finst fleire måtar ein hastigheit kan endre seg på, og difor fleire slags akselerasjon. *Positiv* akselerasjon (i same retning som farten) gjer at hastigheita aukar -- bilen gir gass. *Negativ* akselerasjon, ofte kalla retardasjon, peikar motsett veg og bremsar. Men det luraste poenget er dette: akselerasjon treng ikkje endre *farten* i det heile. Ein bil som svingar med konstant fart akselererer likevel, fordi *retninga* på hastigheita endrar seg. Akselerasjon handlar om kvar endring av hastigheitsvektoren -- i storleik, i retning, eller begge."},{"id":"fys1-2-1-n-quiz3","type":"exercise","exercise":{"id":"fys1-2-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på akselerasjon og vektornotasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-2-1-n-quiz3-q0","task":"Ein bil aukar farten frå 10 m/s til 25 m/s på 5 s langs ein rett veg. Kva er akselerasjonen?","options":[{"id":"a","text":"3 m/s²","isCorrect":true},{"id":"b","text":"5 m/s²","isCorrect":false},{"id":"c","text":"15 m/s²","isCorrect":false},{"id":"d","text":"7 m/s²","isCorrect":false}],"solution":"$a=\\frac{\\Delta v}{\\Delta t}=\\frac{25-10}{5}=\\frac{15}{5}=3$ m/s²."},{"id":"fys1-2-1-n-quiz3-q1","task":"Ein bil køyrer i ein sving med konstant fart. Akselererer han?","options":[{"id":"a","text":"Nei, for farten er konstant","isCorrect":false},{"id":"b","text":"Ja, fordi retninga på hastigheita endrar seg","isCorrect":true},{"id":"c","text":"Berre viss han aukar farten","isCorrect":false},{"id":"d","text":"Berre viss han bremsar","isCorrect":false}],"solution":"Akselerasjon er kvar endring av hastigheitsvektoren. Sjølv om beløpet (farten) er konstant, endrar retninga seg i ein sving -- altså akselererer bilen."},{"id":"fys1-2-1-n-quiz3-q2","task":"Ein hastigheit har beløp $v$ og vinkel $\\theta$ med x-aksen. Kva er x-komponenten?","options":[{"id":"a","text":"$v\\sin\\theta$","isCorrect":false},{"id":"b","text":"$v\\tan\\theta$","isCorrect":false},{"id":"c","text":"$v\\cos\\theta$","isCorrect":true},{"id":"d","text":"$v/\\theta$","isCorrect":false}],"solution":"Vektoroppløysing gir $v_x=v\\cos\\theta$ og $v_y=v\\sin\\theta$. Beløpet finn ein att ved $v=\\sqrt{v_x^2+v_y^2}$."}]}},{"id":"fys1-2-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har bygd grunnmuren for å skildre rørsle. **Kinematikk** handlar om *korleis* ting rører seg, ikkje kvifor. Undervegs lærte vi å skilje **skalarar** (berre talverdi, som masse og tid) frå **vektorar** (talverdi og retning, som forflytning og hastigheit).\n\n**Forflytning** $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$ er snarvegen frå start til slutt og er noko anna enn tilbakelagd distanse langs banen -- hugs dei tre metrane aust og fire nord som vart fem meter forflytning, men sju meter gått. **Gjennomsnittleg hastigheit** $\\frac{\\Delta \\vec{r}}{\\Delta t}$ er forflytning per tid, medan **momentan hastigheit** $\\frac{d\\vec{r}}{dt}$ er farten og retninga akkurat no, alltid tangent til banen.\n\n**Akselerasjon** $\\frac{d\\vec{v}}{dt}$ er endringa i hastigheit, og han oppstår både når farten endrar seg og når retninga endrar seg -- difor akselererer ein bil i ein sving. Til slutt lærte vi vektoroppløysing: $v_x = v\\cos\\theta$, $v_y = v\\sin\\theta$, med beløpet $v = \\sqrt{v_x^2 + v_y^2}$ og vinkelen $\\theta = \\arctan(v_y/v_x)$. I to dimensjonar behandlar vi alltid x- og y-komponentane kvar for seg -- eit triks som blir uunnverleg i dei neste kapitla."}],"exercises":[],"_meta":{"sourceHash":"6edbfdd69277885a","translatedAt":"2026-06-20T22:49:07.068Z","model":"claude-code-agent","strings":72,"tm":{"8a512d2588c2061a":"Posisjon, fart og akselerasjon","b195b06d1ed59702":"Narrativ versjon","baca3267d8025cce":"Ei forteljing om korleis fysikarar fangar rørsle i tal og piler -- og kvifor 7 meter gått kan bli 5 meter forflytta.","3a4465aabd939958":"beskrive posisjon og forflytning som vektorer","e15eec2bd4f97798":"forklare forskjellen mellom gjennomsnittlig og momentan fart","7bf660e6eb717d58":"forklare forskjellen mellom gjennomsnittlig og momentan akselerasjon","d3774152b3085db9":"bruke vektornotasjon for kinematiske størrelser","3c07001e7028c931":"## Å skildre rørsle utan å bry seg om kvifor\n\nTenk deg at du står på ein perrong og ser eit tog gli forbi. Du kan skildre akkurat *korleis* det rører seg -- kvar det er, kor fort det går, om det aukar farten -- heilt utan å vite *kvifor*. Det er nettopp dette **kinematikk** handlar om: læra om rørsle, lausrive frå årsakene bak. Kreftene kjem vi til seinare.\n\nFor å skildre ei rørsle treng vi tre ting: eit **referansesystem** (eit koordinatsystem å måle ut frå), ein **tidsskala**, og ein måte å angi **retning** på. Det siste tvingar oss til å skilje mellom to slags storleikar.\n\nEin **skalar** har berre ein talverdi: masse (5 kg), temperatur (20 °C), tid (10 s). Ein **vektor** har derimot både talverdi *og* retning: ei forflytning på 5 m mot nord, ein hastigheit på 10 m/s mot aust. Vektorar skriv vi med ei pil over, som $\\vec{v}$. I kinematikken er posisjon, forflytning, hastigheit og akselerasjon alle vektorar -- for i fysikk er det sjeldan nok å vite *kor mykje*; du må òg vite *kva veg*.","f60bb25f04ccd039":"## Posisjon, forflytning og ein snarveg på 5 meter\n\nLat oss starte med det grunnleggjande. **Posisjonen** til eit objekt er kvar det er i forhold til eit referansepunkt, origo. I éin dimensjon held det med eitt tal, $x$. I to dimensjonar treng vi ein posisjonsvektor $\\vec{r} = (x, y)$, og i tre $\\vec{r} = (x, y, z)$. Eininga er alltid meter.\n\n**Forflytning** er endringa i posisjon, altså $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$, ein vektor som peikar i rett linje frå der du starta til der du enda. Og her lurer ein av dei viktigaste finurlegheitene i kinematikken: forflytning er ikkje det same som tilbakelagd distanse.\n\nSi at du går 3 m mot aust og deretter 4 m mot nord. Den **tilbakelagde distansen** er den totale lengda langs banen, $3 + 4 = 7$ m -- ein skalar. Men **forflytninga** er snarvegen i luftlinje frå start til slutt: $\\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$ m i nordaustleg retning. Du *gjekk* sju meter, men *forflytta* deg berre fem. Distanse bryr seg om heile turen; forflytning bryr seg berre om byrjing og slutt.","43e98b92ccf4c677":"Test deg sjølv på vektorar, posisjon og forflytning:","4097889236a2af26":"placeholder","051ce1d88ef0a636":"Kva er skilnaden på ein skalar og ein vektor?","6b36bdeec065f3f0":"Ein skalar har retning, ein vektor har ikkje","112c893ac479f1b6":"Ein vektor blir alltid målt i meter","879c00d1491de78c":"Ein skalar har berre talverdi, ein vektor har både talverdi og retning","290d93c2e3522153":"Det er ingen skilnad","ed4fbacfb3419de3":"Skalarar som masse og tid har berre ein talverdi. Vektorar som forflytning og hastigheit har i tillegg ei retning.","f75c8d423e9eb47c":"Du går 6 m mot aust og 8 m mot nord. Kva er beløpet av forflytninga?","c6a0eab7da12ed35":"14 m","ffe3e2ac16df6524":"2 m","5a1459e6e38398a0":"48 m","8fa112ad61e7be12":"10 m","3b8e110f889a276f":"Forflytninga er snarvegen: $\\sqrt{6^2+8^2}=\\sqrt{36+64}=\\sqrt{100}=10$ m. Den tilbakelagde distansen er derimot 14 m.","506560f02384354c":"Kva utsegn om forflytning er rett?","1ce298242432aeb8":"Forflytning er ein vektor frå startposisjon til sluttposisjon","666a31bf78e93635":"Forflytning er alltid lik tilbakelagd distanse","4d1af2caff882f03":"Forflytning er ein skalar","41b58e7237327679":"Forflytning kan aldri vere null","57c2f4f71e0cb016":"$\\Delta\\vec{r}=\\vec{r}_2-\\vec{r}_1$ er ein vektor i rett linje frå start til slutt. Går du i ein ring tilbake til start, er forflytninga til og med null.","5504c0207158f001":"## Fart, hastigheit og den magiske augneblinken\n\nNo skal vi setje tid på rørsla. **Gjennomsnittleg fart** fortel kor raskt du rørte deg i snitt: $v_{gj} = \\frac{s}{\\Delta t}$, der $s$ er tilbakelagd distanse. Dette er ein skalar. **Gjennomsnittleg hastigheit** er derimot ein vektor, $\\vec{v}_{gj} = \\frac{\\Delta \\vec{r}}{\\Delta t}$ -- forflytning per tid, og han peikar same veg som forflytninga.\n\nMen ofte vil vi ikkje vite gjennomsnittet over ein heil tur; vi vil vite farten *akkurat no*, i éin bestemt augneblink -- slik speedometeret i ein bil viser. Det kallar vi **momentan hastigheit**. Matematisk lèt vi tidsintervallet krympe mot null: $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$. Med andre ord: momentan hastigheit er den deriverte av posisjonen med omsyn på tid. Eit fint trekk ved han er at han alltid peikar tangent til banen -- i akkurat den retninga objektet faktisk er på veg.\n\nI to dimensjonar deler vi han opp komponentvis, $\\vec{v} = (v_x, v_y) = \\left(\\frac{dx}{dt}, \\frac{dy}{dt}\\right)$, og sjølve farten -- beløpet av hastigheita -- finn vi med Pytagoras: $v = |\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$.","3e8e3e5f46d51fa8":"Test deg sjølv på fart og hastigheit:","e758b601539584a8":"Kva er momentan hastigheit?","e0d83a65041e4be3":"Total distanse delt på total tid","806e4a40d6386ff5":"Den deriverte av posisjon med omsyn på tid, $\\frac{d\\vec{r}}{dt}$","84032b5bbfc3c793":"Alltid ein skalar","be4f0b4a1bdd3628":"Den deriverte av akselerasjon","48c5abe37e4bb728":"Momentan hastigheit er farten og retninga akkurat no, definert som grensa $\\lim_{\\Delta t\\to 0}\\frac{\\Delta\\vec{r}}{\\Delta t}=\\frac{d\\vec{r}}{dt}$.","3684bf1fd8f99882":"Ein bil flyttar seg $(60,80)$ m på 10 s. Kva er beløpet av gjennomsnittshastigheita?","1ca705cecac5abec":"14 m/s","58e33308c980a954":"7 m/s","e52bf51eec99486c":"10 m/s","cf3ed3ec2989693f":"100 m/s","e631dcfd3da7561b":"Beløpet av forflytninga er $\\sqrt{60^2+80^2}=100$ m. Delt på 10 s gir det 10 m/s. Komponentvis: $\\vec{v}_{gj}=(6,8)$ m/s.","82e87433ae03b3b8":"I kva retning peikar den momentane hastigheita?","cb5949e96de525ba":"Alltid mot origo","4cc95528733b21cd":"Vinkelrett på banen","7024f0a9285bc47c":"Alltid loddrett nedover","1989022297ce3c1a":"Tangent til banen, i rørsleretninga","e2c091333bfc89d8":"Momentan hastigheit er alltid tangent til banen -- han peikar i den retninga objektet er på veg akkurat då.","8b05e8f25d1a68ff":"## Akselerasjon -- når hastigheita skiftar\n\nAkselerasjon er endringa i hastigheit per tidseining. **Gjennomsnittleg akselerasjon** er $\\vec{a}_{gj} = \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{\\vec{v}_2 - \\vec{v}_1}{t_2 - t_1}$, med eininga meter per sekund i andre, m/s². På same måte som med hastigheit finst ein **momentan akselerasjon** for éin bestemt augneblink: $\\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{d\\vec{v}}{dt}$ -- den deriverte av hastigheita. Legg merke til mønsteret: deriverer du posisjon får du hastigheit, deriverer du hastigheit får du akselerasjon.\n\nLat oss rekne på eit enkelt tilfelle. Ein bil aukar hastigheita frå $\\vec{v}_1 = (10, 0)$ m/s til $\\vec{v}_2 = (25, 0)$ m/s på 5 sekund. Då er $\\Delta \\vec{v} = (25, 0) - (10, 0) = (15, 0)$ m/s, og $\\vec{a}_{gj} = \\frac{(15, 0)}{5} = (3, 0)$ m/s² -- altså 3 m/s² i positiv x-retning.\n\nDet finst fleire måtar ein hastigheit kan endre seg på, og difor fleire slags akselerasjon. *Positiv* akselerasjon (i same retning som farten) gjer at hastigheita aukar -- bilen gir gass. *Negativ* akselerasjon, ofte kalla retardasjon, peikar motsett veg og bremsar. Men det luraste poenget er dette: akselerasjon treng ikkje endre *farten* i det heile. Ein bil som svingar med konstant fart akselererer likevel, fordi *retninga* på hastigheita endrar seg. Akselerasjon handlar om kvar endring av hastigheitsvektoren -- i storleik, i retning, eller begge.","d40302cd2197dabf":"Test deg sjølv på akselerasjon og vektornotasjon:","316b537ebfea110c":"Ein bil aukar farten frå 10 m/s til 25 m/s på 5 s langs ein rett veg. Kva er akselerasjonen?","e85f47fe22b67810":"3 m/s²","fcd0237bc825fb44":"5 m/s²","3d7958ccafb43f35":"15 m/s²","e507e113b054bd85":"7 m/s²","6e3248f3f61d075b":"$a=\\frac{\\Delta v}{\\Delta t}=\\frac{25-10}{5}=\\frac{15}{5}=3$ m/s².","6be070dd3dea1152":"Ein bil køyrer i ein sving med konstant fart. Akselererer han?","bb61e1f3d2427686":"Nei, for farten er konstant","e837a9502f850b24":"Ja, fordi retninga på hastigheita endrar seg","a6aed7d746125a3b":"Berre viss han aukar farten","d2b33054889f3e68":"Berre viss han bremsar","0a273a8e65389acf":"Akselerasjon er kvar endring av hastigheitsvektoren. Sjølv om beløpet (farten) er konstant, endrar retninga seg i ein sving -- altså akselererer bilen.","0d5486c97c408fa6":"Ein hastigheit har beløp $v$ og vinkel $\\theta$ med x-aksen. Kva er x-komponenten?","2f07a92205afb1d1":"$v\\sin\\theta$","6810f99195108c5d":"$v\\tan\\theta$","91405d0a0f7db14d":"$v\\cos\\theta$","f864793f42e081c5":"$v/\\theta$","c38dd069f5cd4196":"Vektoroppløysing gir $v_x=v\\cos\\theta$ og $v_y=v\\sin\\theta$. Beløpet finn ein att ved $v=\\sqrt{v_x^2+v_y^2}$.","75425a1819d1a60b":"## Oppsummering\n\nVi har bygd grunnmuren for å skildre rørsle. **Kinematikk** handlar om *korleis* ting rører seg, ikkje kvifor. Undervegs lærte vi å skilje **skalarar** (berre talverdi, som masse og tid) frå **vektorar** (talverdi og retning, som forflytning og hastigheit).\n\n**Forflytning** $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$ er snarvegen frå start til slutt og er noko anna enn tilbakelagd distanse langs banen -- hugs dei tre metrane aust og fire nord som vart fem meter forflytning, men sju meter gått. **Gjennomsnittleg hastigheit** $\\frac{\\Delta \\vec{r}}{\\Delta t}$ er forflytning per tid, medan **momentan hastigheit** $\\frac{d\\vec{r}}{dt}$ er farten og retninga akkurat no, alltid tangent til banen.\n\n**Akselerasjon** $\\frac{d\\vec{v}}{dt}$ er endringa i hastigheit, og han oppstår både når farten endrar seg og når retninga endrar seg -- difor akselererer ein bil i ein sving. Til slutt lærte vi vektoroppløysing: $v_x = v\\cos\\theta$, $v_y = v\\sin\\theta$, med beløpet $v = \\sqrt{v_x^2 + v_y^2}$ og vinkelen $\\theta = \\arctan(v_y/v_x)$. I to dimensjonar behandlar vi alltid x- og y-komponentane kvar for seg -- eit triks som blir uunnverleg i dei neste kapitla."}}}
+{
+  "id": "fys1-2-1-narrativ",
+  "courseId": "fys1",
+  "chapterNumber": "2.1",
+  "title": "Posisjon, fart og akselerasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis fysikarar fangar rørsle i tal og piler -- og kvifor 7 meter gått kan bli 5 meter forflytta.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "beskrive posisjon og forflytning som vektorer",
+    "forklare forskjellen mellom gjennomsnittlig og momentan fart",
+    "forklare forskjellen mellom gjennomsnittlig og momentan akselerasjon",
+    "bruke vektornotasjon for kinematiske størrelser"
+  ],
+  "linkedChapterId": "fys1-2-1",
+  "content": [
+    {
+      "id": "fys1-2-1-n-intro",
+      "type": "text",
+      "content": "## Å skildre rørsle utan å bry seg om kvifor\n\nTenk deg at du står på ein perrong og ser eit tog gli forbi. Du kan skildre akkurat *korleis* det rører seg -- kvar det er, kor fort det går, om det aukar farten -- heilt utan å vite *kvifor*. Det er nettopp dette **kinematikk** handlar om: læra om rørsle, lausrive frå årsakene bak. Kreftene kjem vi til seinare.\n\nFor å skildre ei rørsle treng vi tre ting: eit **referansesystem** (eit koordinatsystem å måle ut frå), ein **tidsskala**, og ein måte å angi **retning** på. Det siste tvingar oss til å skilje mellom to slags storleikar.\n\nEin **skalar** har berre ein talverdi: masse (5 kg), temperatur (20 °C), tid (10 s). Ein **vektor** har derimot både talverdi *og* retning: ei forflytning på 5 m mot nord, ein hastigheit på 10 m/s mot aust. Vektorar skriv vi med ei pil over, som $\\vec{v}$. I kinematikken er posisjon, forflytning, hastigheit og akselerasjon alle vektorar -- for i fysikk er det sjeldan nok å vite *kor mykje*; du må òg vite *kva veg*."
+    },
+    {
+      "id": "fys1-2-1-n-section1",
+      "type": "text",
+      "content": "## Posisjon, forflytning og ein snarveg på 5 meter\n\nLat oss starte med det grunnleggjande. **Posisjonen** til eit objekt er kvar det er i forhold til eit referansepunkt, origo. I éin dimensjon held det med eitt tal, $x$. I to dimensjonar treng vi ein posisjonsvektor $\\vec{r} = (x, y)$, og i tre $\\vec{r} = (x, y, z)$. Eininga er alltid meter.\n\n**Forflytning** er endringa i posisjon, altså $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$, ein vektor som peikar i rett linje frå der du starta til der du enda. Og her lurer ein av dei viktigaste finurlegheitene i kinematikken: forflytning er ikkje det same som tilbakelagd distanse.\n\nSi at du går 3 m mot aust og deretter 4 m mot nord. Den **tilbakelagde distansen** er den totale lengda langs banen, $3 + 4 = 7$ m -- ein skalar. Men **forflytninga** er snarvegen i luftlinje frå start til slutt: $\\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$ m i nordaustleg retning. Du *gjekk* sju meter, men *forflytta* deg berre fem. Distanse bryr seg om heile turen; forflytning bryr seg berre om byrjing og slutt."
+    },
+    {
+      "id": "fys1-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vektorar, posisjon og forflytning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-2-1-n-quiz1-q0",
+            "task": "Kva er skilnaden på ein skalar og ein vektor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein skalar har retning, ein vektor har ikkje",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein skalar har berre talverdi, ein vektor har både talverdi og retning",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein vektor blir alltid målt i meter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skalarar som masse og tid har berre ein talverdi. Vektorar som forflytning og hastigheit har i tillegg ei retning."
+          },
+          {
+            "id": "fys1-2-1-n-quiz1-q1",
+            "task": "Du går 6 m mot aust og 8 m mot nord. Kva er beløpet av forflytninga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "14 m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "2 m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "10 m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "48 m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forflytninga er snarvegen: $\\sqrt{6^2+8^2}=\\sqrt{36+64}=\\sqrt{100}=10$ m. Den tilbakelagde distansen er derimot 14 m."
+          },
+          {
+            "id": "fys1-2-1-n-quiz1-q2",
+            "task": "Kva utsegn om forflytning er rett?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Forflytning er alltid lik tilbakelagd distanse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Forflytning er ein skalar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forflytning kan aldri vere null",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Forflytning er ein vektor frå startposisjon til sluttposisjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\Delta\\vec{r}=\\vec{r}_2-\\vec{r}_1$ er ein vektor i rett linje frå start til slutt. Går du i ein ring tilbake til start, er forflytninga til og med null."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-2-1-n-section2",
+      "type": "text",
+      "content": "## Fart, hastigheit og den magiske augneblinken\n\nNo skal vi setje tid på rørsla. **Gjennomsnittleg fart** fortel kor raskt du rørte deg i snitt: $v_{gj} = \\frac{s}{\\Delta t}$, der $s$ er tilbakelagd distanse. Dette er ein skalar. **Gjennomsnittleg hastigheit** er derimot ein vektor, $\\vec{v}_{gj} = \\frac{\\Delta \\vec{r}}{\\Delta t}$ -- forflytning per tid, og han peikar same veg som forflytninga.\n\nMen ofte vil vi ikkje vite gjennomsnittet over ein heil tur; vi vil vite farten *akkurat no*, i éin bestemt augneblink -- slik speedometeret i ein bil viser. Det kallar vi **momentan hastigheit**. Matematisk lèt vi tidsintervallet krympe mot null: $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$. Med andre ord: momentan hastigheit er den deriverte av posisjonen med omsyn på tid. Eit fint trekk ved han er at han alltid peikar tangent til banen -- i akkurat den retninga objektet faktisk er på veg.\n\nI to dimensjonar deler vi han opp komponentvis, $\\vec{v} = (v_x, v_y) = \\left(\\frac{dx}{dt}, \\frac{dy}{dt}\\right)$, og sjølve farten -- beløpet av hastigheita -- finn vi med Pytagoras: $v = |\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$."
+    },
+    {
+      "id": "fys1-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på fart og hastigheit:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-2-1-n-quiz2-q0",
+            "task": "Kva er momentan hastigheit?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den deriverte av posisjon med omsyn på tid, $\\frac{d\\vec{r}}{dt}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Total distanse delt på total tid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alltid ein skalar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den deriverte av akselerasjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Momentan hastigheit er farten og retninga akkurat no, definert som grensa $\\lim_{\\Delta t\\to 0}\\frac{\\Delta\\vec{r}}{\\Delta t}=\\frac{d\\vec{r}}{dt}$."
+          },
+          {
+            "id": "fys1-2-1-n-quiz2-q1",
+            "task": "Ein bil flyttar seg $(60,80)$ m på 10 s. Kva er beløpet av gjennomsnittshastigheita?",
+            "options": [
+              {
+                "id": "a",
+                "text": "14 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "10 m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "7 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "100 m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Beløpet av forflytninga er $\\sqrt{60^2+80^2}=100$ m. Delt på 10 s gir det 10 m/s. Komponentvis: $\\vec{v}_{gj}=(6,8)$ m/s."
+          },
+          {
+            "id": "fys1-2-1-n-quiz2-q2",
+            "task": "I kva retning peikar den momentane hastigheita?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alltid mot origo",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vinkelrett på banen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tangent til banen, i rørsleretninga",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Alltid loddrett nedover",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Momentan hastigheit er alltid tangent til banen -- han peikar i den retninga objektet er på veg akkurat då."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-2-1-n-section3",
+      "type": "text",
+      "content": "## Akselerasjon -- når hastigheita skiftar\n\nAkselerasjon er endringa i hastigheit per tidseining. **Gjennomsnittleg akselerasjon** er $\\vec{a}_{gj} = \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{\\vec{v}_2 - \\vec{v}_1}{t_2 - t_1}$, med eininga meter per sekund i andre, m/s². På same måte som med hastigheit finst ein **momentan akselerasjon** for éin bestemt augneblink: $\\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{d\\vec{v}}{dt}$ -- den deriverte av hastigheita. Legg merke til mønsteret: deriverer du posisjon får du hastigheit, deriverer du hastigheit får du akselerasjon.\n\nLat oss rekne på eit enkelt tilfelle. Ein bil aukar hastigheita frå $\\vec{v}_1 = (10, 0)$ m/s til $\\vec{v}_2 = (25, 0)$ m/s på 5 sekund. Då er $\\Delta \\vec{v} = (25, 0) - (10, 0) = (15, 0)$ m/s, og $\\vec{a}_{gj} = \\frac{(15, 0)}{5} = (3, 0)$ m/s² -- altså 3 m/s² i positiv x-retning.\n\nDet finst fleire måtar ein hastigheit kan endre seg på, og difor fleire slags akselerasjon. *Positiv* akselerasjon (i same retning som farten) gjer at hastigheita aukar -- bilen gir gass. *Negativ* akselerasjon, ofte kalla retardasjon, peikar motsett veg og bremsar. Men det luraste poenget er dette: akselerasjon treng ikkje endre *farten* i det heile. Ein bil som svingar med konstant fart akselererer likevel, fordi *retninga* på hastigheita endrar seg. Akselerasjon handlar om kvar endring av hastigheitsvektoren -- i storleik, i retning, eller begge."
+    },
+    {
+      "id": "fys1-2-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-2-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på akselerasjon og vektornotasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-2-1-n-quiz3-q0",
+            "task": "Ein bil aukar farten frå 10 m/s til 25 m/s på 5 s langs ein rett veg. Kva er akselerasjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "5 m/s²",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "15 m/s²",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "7 m/s²",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "3 m/s²",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$a=\\frac{\\Delta v}{\\Delta t}=\\frac{25-10}{5}=\\frac{15}{5}=3$ m/s²."
+          },
+          {
+            "id": "fys1-2-1-n-quiz3-q1",
+            "task": "Ein bil køyrer i ein sving med konstant fart. Akselererer han?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ja, fordi retninga på hastigheita endrar seg",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nei, for farten er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre viss han aukar farten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre viss han bremsar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Akselerasjon er kvar endring av hastigheitsvektoren. Sjølv om beløpet (farten) er konstant, endrar retninga seg i ein sving -- altså akselererer bilen."
+          },
+          {
+            "id": "fys1-2-1-n-quiz3-q2",
+            "task": "Ein hastigheit har beløp $v$ og vinkel $\\theta$ med x-aksen. Kva er x-komponenten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$v\\sin\\theta$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$v\\cos\\theta$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$v\\tan\\theta$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$v/\\theta$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vektoroppløysing gir $v_x=v\\cos\\theta$ og $v_y=v\\sin\\theta$. Beløpet finn ein att ved $v=\\sqrt{v_x^2+v_y^2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har bygd grunnmuren for å skildre rørsle. **Kinematikk** handlar om *korleis* ting rører seg, ikkje kvifor. Undervegs lærte vi å skilje **skalarar** (berre talverdi, som masse og tid) frå **vektorar** (talverdi og retning, som forflytning og hastigheit).\n\n**Forflytning** $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$ er snarvegen frå start til slutt og er noko anna enn tilbakelagd distanse langs banen -- hugs dei tre metrane aust og fire nord som vart fem meter forflytning, men sju meter gått. **Gjennomsnittleg hastigheit** $\\frac{\\Delta \\vec{r}}{\\Delta t}$ er forflytning per tid, medan **momentan hastigheit** $\\frac{d\\vec{r}}{dt}$ er farten og retninga akkurat no, alltid tangent til banen.\n\n**Akselerasjon** $\\frac{d\\vec{v}}{dt}$ er endringa i hastigheit, og han oppstår både når farten endrar seg og når retninga endrar seg -- difor akselererer ein bil i ein sving. Til slutt lærte vi vektoroppløysing: $v_x = v\\cos\\theta$, $v_y = v\\sin\\theta$, med beløpet $v = \\sqrt{v_x^2 + v_y^2}$ og vinkelen $\\theta = \\arctan(v_y/v_x)$. I to dimensjonar behandlar vi alltid x- og y-komponentane kvar for seg -- eit triks som blir uunnverleg i dei neste kapitla."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6edbfdd69277885a",
+    "translatedAt": "2026-06-20T22:49:07.068Z",
+    "model": "claude-code-agent",
+    "strings": 72,
+    "tm": {
+      "8a512d2588c2061a": "Posisjon, fart og akselerasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "baca3267d8025cce": "Ei forteljing om korleis fysikarar fangar rørsle i tal og piler -- og kvifor 7 meter gått kan bli 5 meter forflytta.",
+      "3a4465aabd939958": "beskrive posisjon og forflytning som vektorer",
+      "e15eec2bd4f97798": "forklare forskjellen mellom gjennomsnittlig og momentan fart",
+      "7bf660e6eb717d58": "forklare forskjellen mellom gjennomsnittlig og momentan akselerasjon",
+      "d3774152b3085db9": "bruke vektornotasjon for kinematiske størrelser",
+      "3c07001e7028c931": "## Å skildre rørsle utan å bry seg om kvifor\n\nTenk deg at du står på ein perrong og ser eit tog gli forbi. Du kan skildre akkurat *korleis* det rører seg -- kvar det er, kor fort det går, om det aukar farten -- heilt utan å vite *kvifor*. Det er nettopp dette **kinematikk** handlar om: læra om rørsle, lausrive frå årsakene bak. Kreftene kjem vi til seinare.\n\nFor å skildre ei rørsle treng vi tre ting: eit **referansesystem** (eit koordinatsystem å måle ut frå), ein **tidsskala**, og ein måte å angi **retning** på. Det siste tvingar oss til å skilje mellom to slags storleikar.\n\nEin **skalar** har berre ein talverdi: masse (5 kg), temperatur (20 °C), tid (10 s). Ein **vektor** har derimot både talverdi *og* retning: ei forflytning på 5 m mot nord, ein hastigheit på 10 m/s mot aust. Vektorar skriv vi med ei pil over, som $\\vec{v}$. I kinematikken er posisjon, forflytning, hastigheit og akselerasjon alle vektorar -- for i fysikk er det sjeldan nok å vite *kor mykje*; du må òg vite *kva veg*.",
+      "f60bb25f04ccd039": "## Posisjon, forflytning og ein snarveg på 5 meter\n\nLat oss starte med det grunnleggjande. **Posisjonen** til eit objekt er kvar det er i forhold til eit referansepunkt, origo. I éin dimensjon held det med eitt tal, $x$. I to dimensjonar treng vi ein posisjonsvektor $\\vec{r} = (x, y)$, og i tre $\\vec{r} = (x, y, z)$. Eininga er alltid meter.\n\n**Forflytning** er endringa i posisjon, altså $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$, ein vektor som peikar i rett linje frå der du starta til der du enda. Og her lurer ein av dei viktigaste finurlegheitene i kinematikken: forflytning er ikkje det same som tilbakelagd distanse.\n\nSi at du går 3 m mot aust og deretter 4 m mot nord. Den **tilbakelagde distansen** er den totale lengda langs banen, $3 + 4 = 7$ m -- ein skalar. Men **forflytninga** er snarvegen i luftlinje frå start til slutt: $\\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$ m i nordaustleg retning. Du *gjekk* sju meter, men *forflytta* deg berre fem. Distanse bryr seg om heile turen; forflytning bryr seg berre om byrjing og slutt.",
+      "43e98b92ccf4c677": "Test deg sjølv på vektorar, posisjon og forflytning:",
+      "4097889236a2af26": "placeholder",
+      "051ce1d88ef0a636": "Kva er skilnaden på ein skalar og ein vektor?",
+      "6b36bdeec065f3f0": "Ein skalar har retning, ein vektor har ikkje",
+      "112c893ac479f1b6": "Ein vektor blir alltid målt i meter",
+      "879c00d1491de78c": "Ein skalar har berre talverdi, ein vektor har både talverdi og retning",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "ed4fbacfb3419de3": "Skalarar som masse og tid har berre ein talverdi. Vektorar som forflytning og hastigheit har i tillegg ei retning.",
+      "f75c8d423e9eb47c": "Du går 6 m mot aust og 8 m mot nord. Kva er beløpet av forflytninga?",
+      "c6a0eab7da12ed35": "14 m",
+      "ffe3e2ac16df6524": "2 m",
+      "5a1459e6e38398a0": "48 m",
+      "8fa112ad61e7be12": "10 m",
+      "3b8e110f889a276f": "Forflytninga er snarvegen: $\\sqrt{6^2+8^2}=\\sqrt{36+64}=\\sqrt{100}=10$ m. Den tilbakelagde distansen er derimot 14 m.",
+      "506560f02384354c": "Kva utsegn om forflytning er rett?",
+      "1ce298242432aeb8": "Forflytning er ein vektor frå startposisjon til sluttposisjon",
+      "666a31bf78e93635": "Forflytning er alltid lik tilbakelagd distanse",
+      "4d1af2caff882f03": "Forflytning er ein skalar",
+      "41b58e7237327679": "Forflytning kan aldri vere null",
+      "57c2f4f71e0cb016": "$\\Delta\\vec{r}=\\vec{r}_2-\\vec{r}_1$ er ein vektor i rett linje frå start til slutt. Går du i ein ring tilbake til start, er forflytninga til og med null.",
+      "5504c0207158f001": "## Fart, hastigheit og den magiske augneblinken\n\nNo skal vi setje tid på rørsla. **Gjennomsnittleg fart** fortel kor raskt du rørte deg i snitt: $v_{gj} = \\frac{s}{\\Delta t}$, der $s$ er tilbakelagd distanse. Dette er ein skalar. **Gjennomsnittleg hastigheit** er derimot ein vektor, $\\vec{v}_{gj} = \\frac{\\Delta \\vec{r}}{\\Delta t}$ -- forflytning per tid, og han peikar same veg som forflytninga.\n\nMen ofte vil vi ikkje vite gjennomsnittet over ein heil tur; vi vil vite farten *akkurat no*, i éin bestemt augneblink -- slik speedometeret i ein bil viser. Det kallar vi **momentan hastigheit**. Matematisk lèt vi tidsintervallet krympe mot null: $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$. Med andre ord: momentan hastigheit er den deriverte av posisjonen med omsyn på tid. Eit fint trekk ved han er at han alltid peikar tangent til banen -- i akkurat den retninga objektet faktisk er på veg.\n\nI to dimensjonar deler vi han opp komponentvis, $\\vec{v} = (v_x, v_y) = \\left(\\frac{dx}{dt}, \\frac{dy}{dt}\\right)$, og sjølve farten -- beløpet av hastigheita -- finn vi med Pytagoras: $v = |\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$.",
+      "3e8e3e5f46d51fa8": "Test deg sjølv på fart og hastigheit:",
+      "e758b601539584a8": "Kva er momentan hastigheit?",
+      "e0d83a65041e4be3": "Total distanse delt på total tid",
+      "806e4a40d6386ff5": "Den deriverte av posisjon med omsyn på tid, $\\frac{d\\vec{r}}{dt}$",
+      "84032b5bbfc3c793": "Alltid ein skalar",
+      "be4f0b4a1bdd3628": "Den deriverte av akselerasjon",
+      "48c5abe37e4bb728": "Momentan hastigheit er farten og retninga akkurat no, definert som grensa $\\lim_{\\Delta t\\to 0}\\frac{\\Delta\\vec{r}}{\\Delta t}=\\frac{d\\vec{r}}{dt}$.",
+      "3684bf1fd8f99882": "Ein bil flyttar seg $(60,80)$ m på 10 s. Kva er beløpet av gjennomsnittshastigheita?",
+      "1ca705cecac5abec": "14 m/s",
+      "58e33308c980a954": "7 m/s",
+      "e52bf51eec99486c": "10 m/s",
+      "cf3ed3ec2989693f": "100 m/s",
+      "e631dcfd3da7561b": "Beløpet av forflytninga er $\\sqrt{60^2+80^2}=100$ m. Delt på 10 s gir det 10 m/s. Komponentvis: $\\vec{v}_{gj}=(6,8)$ m/s.",
+      "82e87433ae03b3b8": "I kva retning peikar den momentane hastigheita?",
+      "cb5949e96de525ba": "Alltid mot origo",
+      "4cc95528733b21cd": "Vinkelrett på banen",
+      "7024f0a9285bc47c": "Alltid loddrett nedover",
+      "1989022297ce3c1a": "Tangent til banen, i rørsleretninga",
+      "e2c091333bfc89d8": "Momentan hastigheit er alltid tangent til banen -- han peikar i den retninga objektet er på veg akkurat då.",
+      "8b05e8f25d1a68ff": "## Akselerasjon -- når hastigheita skiftar\n\nAkselerasjon er endringa i hastigheit per tidseining. **Gjennomsnittleg akselerasjon** er $\\vec{a}_{gj} = \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{\\vec{v}_2 - \\vec{v}_1}{t_2 - t_1}$, med eininga meter per sekund i andre, m/s². På same måte som med hastigheit finst ein **momentan akselerasjon** for éin bestemt augneblink: $\\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t} = \\frac{d\\vec{v}}{dt}$ -- den deriverte av hastigheita. Legg merke til mønsteret: deriverer du posisjon får du hastigheit, deriverer du hastigheit får du akselerasjon.\n\nLat oss rekne på eit enkelt tilfelle. Ein bil aukar hastigheita frå $\\vec{v}_1 = (10, 0)$ m/s til $\\vec{v}_2 = (25, 0)$ m/s på 5 sekund. Då er $\\Delta \\vec{v} = (25, 0) - (10, 0) = (15, 0)$ m/s, og $\\vec{a}_{gj} = \\frac{(15, 0)}{5} = (3, 0)$ m/s² -- altså 3 m/s² i positiv x-retning.\n\nDet finst fleire måtar ein hastigheit kan endre seg på, og difor fleire slags akselerasjon. *Positiv* akselerasjon (i same retning som farten) gjer at hastigheita aukar -- bilen gir gass. *Negativ* akselerasjon, ofte kalla retardasjon, peikar motsett veg og bremsar. Men det luraste poenget er dette: akselerasjon treng ikkje endre *farten* i det heile. Ein bil som svingar med konstant fart akselererer likevel, fordi *retninga* på hastigheita endrar seg. Akselerasjon handlar om kvar endring av hastigheitsvektoren -- i storleik, i retning, eller begge.",
+      "d40302cd2197dabf": "Test deg sjølv på akselerasjon og vektornotasjon:",
+      "316b537ebfea110c": "Ein bil aukar farten frå 10 m/s til 25 m/s på 5 s langs ein rett veg. Kva er akselerasjonen?",
+      "e85f47fe22b67810": "3 m/s²",
+      "fcd0237bc825fb44": "5 m/s²",
+      "3d7958ccafb43f35": "15 m/s²",
+      "e507e113b054bd85": "7 m/s²",
+      "6e3248f3f61d075b": "$a=\\frac{\\Delta v}{\\Delta t}=\\frac{25-10}{5}=\\frac{15}{5}=3$ m/s².",
+      "6be070dd3dea1152": "Ein bil køyrer i ein sving med konstant fart. Akselererer han?",
+      "bb61e1f3d2427686": "Nei, for farten er konstant",
+      "e837a9502f850b24": "Ja, fordi retninga på hastigheita endrar seg",
+      "a6aed7d746125a3b": "Berre viss han aukar farten",
+      "d2b33054889f3e68": "Berre viss han bremsar",
+      "0a273a8e65389acf": "Akselerasjon er kvar endring av hastigheitsvektoren. Sjølv om beløpet (farten) er konstant, endrar retninga seg i ein sving -- altså akselererer bilen.",
+      "0d5486c97c408fa6": "Ein hastigheit har beløp $v$ og vinkel $\\theta$ med x-aksen. Kva er x-komponenten?",
+      "2f07a92205afb1d1": "$v\\sin\\theta$",
+      "6810f99195108c5d": "$v\\tan\\theta$",
+      "91405d0a0f7db14d": "$v\\cos\\theta$",
+      "f864793f42e081c5": "$v/\\theta$",
+      "c38dd069f5cd4196": "Vektoroppløysing gir $v_x=v\\cos\\theta$ og $v_y=v\\sin\\theta$. Beløpet finn ein att ved $v=\\sqrt{v_x^2+v_y^2}$.",
+      "75425a1819d1a60b": "## Oppsummering\n\nVi har bygd grunnmuren for å skildre rørsle. **Kinematikk** handlar om *korleis* ting rører seg, ikkje kvifor. Undervegs lærte vi å skilje **skalarar** (berre talverdi, som masse og tid) frå **vektorar** (talverdi og retning, som forflytning og hastigheit).\n\n**Forflytning** $\\Delta \\vec{r} = \\vec{r}_2 - \\vec{r}_1$ er snarvegen frå start til slutt og er noko anna enn tilbakelagd distanse langs banen -- hugs dei tre metrane aust og fire nord som vart fem meter forflytning, men sju meter gått. **Gjennomsnittleg hastigheit** $\\frac{\\Delta \\vec{r}}{\\Delta t}$ er forflytning per tid, medan **momentan hastigheit** $\\frac{d\\vec{r}}{dt}$ er farten og retninga akkurat no, alltid tangent til banen.\n\n**Akselerasjon** $\\frac{d\\vec{v}}{dt}$ er endringa i hastigheit, og han oppstår både når farten endrar seg og når retninga endrar seg -- difor akselererer ein bil i ein sving. Til slutt lærte vi vektoroppløysing: $v_x = v\\cos\\theta$, $v_y = v\\sin\\theta$, med beløpet $v = \\sqrt{v_x^2 + v_y^2}$ og vinkelen $\\theta = \\arctan(v_y/v_x)$. I to dimensjonar behandlar vi alltid x- og y-komponentane kvar for seg -- eit triks som blir uunnverleg i dei neste kapitla."
+    }
+  }
+}

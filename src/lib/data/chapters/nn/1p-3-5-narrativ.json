@@ -1,1 +1,441 @@
-{"id":"1p-3-5-narrativ","courseId":"1p","chapterNumber":"3.5","title":"Eksponentialfunksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om sparekontoar, bilar som tapar verdi og bakteriar som doblar seg -- om vekstfaktor, doblingstid og veksten som alltid vinn til slutt.","estimatedMinutes":35,"competenceGoals":["utforske eigenskapane til eksponentialfunksjonar"],"linkedChapterId":"1p-3-5","content":[{"id":"1p-3-5-n-intro","type":"text","content":"## To måtar å bli rik på\n\nTenk deg to sparmåtar. I den første set du inn 500 kroner på kontoen kvart år -- etter 10 år har du lagt til 5000 kroner. I den andre let du pengane sjølv veksa med 5 prosent i året. Den første veksten er **lineær**: eit fast beløp per år. Den andre er **eksponentiell**: ein fast *prosent* per år. Og skilnaden er dramatisk -- for når pengane veks med ein prosent av seg sjølv, veks dei meir jo meir du har. Eksponentiell vekst startar i ro og mak, men akselererer og kan bli enorm.\n\nMatematikken bak heiter **eksponentialfunksjon** og skrives\n$$f(x) = a \\cdot b^x$$\nHer er $a$ **startverdien** -- verdien når $x = 0$ -- og $b$ er **vekstfaktoren**, talet verdien blir multiplisert med for kvar periode. Variabelen $x$ er ofte tida, målt i år, timar eller dagar. Legg merke til at $x$ no står i eksponenten -- derav namnet.\n\nVekstfaktoren bestemmer alt: Er $b > 1$, veks funksjonen, og vi har eksponentiell vekst. Er $0 < b < 1$, krympar ho for kvar periode -- eksponentiell nedgang. I dette kapittelet skal vi sjå korleis sparekontoar veks, korleis bilar tapar seg i verdi, og kor lang tid det tar før noko doblar eller halveras."},{"id":"1p-3-5-n-section1","type":"text","content":"## Vekstfaktoren: prosent forkledd som gangetall\n\nHemmeligheten bak eksponentialfunksjonen er samanhengen mellom prosent og vekstfaktor. Aukar noko med $p$ prosent per periode, er vekstfaktoren $b = 1 + \\frac{p}{100}$. Minkar det med $p$ prosent, er $b = 1 - \\frac{p}{100}$. Tre prosent årleg vekst gir altså $b = 1{,}03$, åtte prosent årleg nedgang gir $b = 0{,}92$, og 50 prosent nedgang gir $b = 0{,}50$.\n\nLa oss byggja ein modell. Du set 10 000 kroner i banken til 4 prosent årleg rente. Startverdien er $a = 10\\,000$ og vekstfaktoren $b = 1{,}04$, så beløpet etter $x$ år er $f(x) = 10\\,000 \\cdot 1{,}04^x$. Etter 5 år har du $f(5) = 10\\,000 \\cdot 1{,}04^5 \\approx 12\\,167$ kroner. Rentene har gitt renter -- det er derfor det blir meir enn $10\\,000 + 5 \\cdot 400$.\n\nNedgang fungerer på same måte. Ein ny bil kostar 350 000 kroner og misser 18 prosent av verdien kvart år. Vekstfaktoren er $b = 1 - 0{,}18 = 0{,}82$, og verdien etter $x$ år er $V(x) = 350\\,000 \\cdot 0{,}82^x$. Etter 3 år er bilen verdt $V(3) \\approx 193\\,000$ kroner, og etter 8 år berre $V(8) \\approx 71\\,500$ kroner -- omtrent ein femtedel av nyprisen. Det er verdt å tenka på før ein kjøper ny bil med lånte pengar."},{"id":"1p-3-5-n-quiz1","type":"exercise","exercise":{"id":"1p-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vekstfaktor og eksponentialfunksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-3-5-n-quiz1-q0","task":"Kva er vekstfaktoren ved $10\\%$ årleg vekst?","options":[{"id":"a","text":"$0{,}10$","isCorrect":false},{"id":"b","text":"$1{,}10$","isCorrect":true},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$1{,}01$","isCorrect":false}],"solution":"$b = 1 + \\frac{10}{100} = 1{,}10$."},{"id":"1p-3-5-n-quiz1-q1","task":"Kva er vekstfaktoren ved $8\\%$ årleg nedgang?","options":[{"id":"a","text":"$0{,}92$","isCorrect":true},{"id":"b","text":"$0{,}08$","isCorrect":false},{"id":"c","text":"$1{,}08$","isCorrect":false},{"id":"d","text":"$0{,}80$","isCorrect":false}],"solution":"$b = 1 - \\frac{8}{100} = 0{,}92$."},{"id":"1p-3-5-n-quiz1-q2","task":"Du set $10\\,000$ kr i banken til $4\\%$ årleg rente. Kva uttrykk gir beløpet etter $x$ år?","options":[{"id":"a","text":"$f(x) = 10\\,000 + 400x$","isCorrect":false},{"id":"b","text":"$f(x) = 10\\,000 \\cdot 0{,}04^x$","isCorrect":false},{"id":"c","text":"$f(x) = 10\\,000 \\cdot 1{,}04^x$","isCorrect":true},{"id":"d","text":"$f(x) = 1{,}04 \\cdot 10\\,000^x$","isCorrect":false}],"solution":"Startverdi $10\\,000$ og vekstfaktor $1{,}04$ gir $f(x) = 10\\,000 \\cdot 1{,}04^x$."},{"id":"1p-3-5-n-quiz1-q3","task":"Ei funksjon har vekstfaktor $b = 0{,}75$. Kva betyr det?","options":[{"id":"a","text":"$75\\%$ vekst per periode","isCorrect":false},{"id":"b","text":"$0{,}75\\%$ nedgang per periode","isCorrect":false},{"id":"c","text":"$75\\%$ nedgang per periode","isCorrect":false},{"id":"d","text":"$25\\%$ nedgang per periode","isCorrect":true}],"solution":"$b = 1 - 0{,}25 = 0{,}75$ tilsvarar $25\\%$ nedgang per periode."}]}},{"id":"1p-3-5-n-section2","type":"text","content":"## Kor lenge til det doblar?\n\nEit naturleg spørsmål ved eksponentiell vekst er: Kor lang tid tek det før verdien er **dobla**? Tida det tek, kallast **doblingstid**. Tilsvarande kallast tida det tek før noko er halverte ved eksponentiell nedgang, for **halveringstid**. I 1P finn vi desse ved å prøva oss fram, lesa av ein graf eller bruka digitale verktøy.\n\nSe på ei bakteriekoloni som startar med 500 bakteriar og veks med 15 prosent per time: $f(x) = 500 \\cdot 1{,}15^x$. Vi leiter etter $x$ som gjer at $1{,}15^x = 2$. Vi prøver: $1{,}15^3 \\approx 1{,}52$ er for lite, $1{,}15^4 \\approx 1{,}75$ framleis for lite, men $1{,}15^5 \\approx 2{,}01$ -- nesten nøyaktig 2. Doblingstida er omtrent 5 timar. Og her er noko fasinerande: Doblingstida er den same uansett startverdi. Om kolonien startar med 500 eller 10 000 bakteriar, tek doblingen like lang tid.\n\nFor overslag finnast ei praktisk tommelfingerregel, **72-regelen**: Doblingstida er omtrent $\\frac{72}{p}$ perIodar, der $p$ er vekstraten i prosent. Med 6 prosent årleg vekst doblar beløpet seg på cirka $\\frac{72}{6} = 12$ år; med 8 prosent på cirka 9 år. Halveringstid fungerer speilvendt: Eit radioaktivt stoff med halveringstid 6 timar som startar på 80 gram, er nede i 40 gram etter 6 timar og 20 gram etter 12 timar."},{"id":"1p-3-5-n-quiz2","type":"exercise","exercise":{"id":"1p-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på doblingstid og halveringstid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-3-5-n-quiz2-q0","task":"Kva er doblingstida til ein storleik?","options":[{"id":"a","text":"Tida det tek før verdien er dobla","isCorrect":true},{"id":"b","text":"Tida det tek før verdien er halverte","isCorrect":false},{"id":"c","text":"Det dobbelte av startverdien","isCorrect":false},{"id":"d","text":"Vekstfaktoren ganger to","isCorrect":false}],"solution":"Doblingstida er tida det tek før ein eksponentielt veksande storleik blir dobbelt så stor -- uavhengig av startverdien."},{"id":"1p-3-5-n-quiz2-q1","task":"Bruk 72-regelen: Omtrent kor lang er doblingstida ved $6\\%$ årleg vekst?","options":[{"id":"a","text":"$6$ år","isCorrect":false},{"id":"b","text":"$12$ år","isCorrect":true},{"id":"c","text":"$24$ år","isCorrect":false},{"id":"d","text":"$72$ år","isCorrect":false}],"solution":"Doblingstid $\\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år."},{"id":"1p-3-5-n-quiz2-q2","task":"Eit radioaktivt stoff har halveringstid $6$ timar. Du startar med $80$ gram. Kor mykje er igjen etter $12$ timar?","options":[{"id":"a","text":"$40$ gram","isCorrect":false},{"id":"b","text":"$10$ gram","isCorrect":false},{"id":"c","text":"$20$ gram","isCorrect":true},{"id":"d","text":"$0$ gram","isCorrect":false}],"solution":"Etter $6$ timer: $40$ g. Etter $12$ timer (to halveringer): $20$ g."}]}},{"id":"1p-3-5-n-section3","type":"text","content":"## Kapprenninga: lineær mot eksponentiell\n\nTo vener startar ein sparekappløp, begge med 5000 kroner. Sara set inn 1000 kroner ekstra kvart år -- lineær vekst, $S(x) = 1000x + 5000$. Jonas let i staden pengane vokse med 8 prosent per år -- eksponentiell vekst, $J(x) = 5000 \\cdot 1{,}08^x$.\n\nKven leidar? Etter 5 år har Sara 10 000 kroner, medan Jonas berre har omtrent 7 350. Etter 10 år står det 15 000 mot cirka 10 800 -- Sara leidar fortsatt klart. Men sjå kva som skjer vidare: Etter 20 år har Sara 25 000, medan Jonas har voksen til omtrent 23 300 og puscar ho i nakken. Kort tid etter går han forbi, og derifrå aukar forspranget hans raskare og raskare.\n\nDetta er det viktigaste poenget i heile kapittelet: Lineær vekst legg til eit fast *beløp* per periode, eksponentiell vekst gangar med ein fast *prosent*. Grafen til den lineære er ei rett linje, den eksponentielle ei kurve som bøyer seg oppover. Og ved eksponentiell vekst med $b > 1$ vil funksjonen **alltid** til slutt vokse forbi kvar lineær funksjon -- uansett kor bratt linja er. Det er derfor rentesrente blir kalla verda åttande underverk, og derfor langsiktig sparing lønner seg meir enn dei fleste trur."},{"id":"1p-3-5-n-quiz3","type":"exercise","exercise":{"id":"1p-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på lineær mot eksponentiell vekst:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1p-3-5-n-quiz3-q0","task":"Kva kjenneteiknar eksponentiell vekst?","options":[{"id":"a","text":"Verdien aukar med eit fast beløp per periode","isCorrect":false},{"id":"b","text":"Verdien aukar med ein fast prosent per periode","isCorrect":true},{"id":"c","text":"Grafen er ei rett linje","isCorrect":false},{"id":"d","text":"Verdien doublast kvar periode","isCorrect":false}],"solution":"Eksponentiell vekst tyder fast prosentvis endring -- verdien blir gonga med same vekstfaktor kvar periode."},{"id":"1p-3-5-n-quiz3-q1","task":"Sara sparar lineært: $S(x) = 1000x + 5000$. Kor mykje har ho etter $10$ år?","options":[{"id":"a","text":"$10\\,000$ kr","isCorrect":false},{"id":"b","text":"$50\\,000$ kr","isCorrect":false},{"id":"c","text":"$15\\,000$ kr","isCorrect":true},{"id":"d","text":"$11\\,000$ kr","isCorrect":false}],"solution":"$S(10) = 1000 \\cdot 10 + 5000 = 15\\,000$ kr."},{"id":"1p-3-5-n-quiz3-q2","task":"Kva skjer på lang sikt når ein eksponentiell funksjon med $b > 1$ blir samanlikna med ei lineær?","options":[{"id":"a","text":"Den lineære vinn alltid viss stigingstalet er stort nok","isCorrect":false},{"id":"b","text":"Dei vokser like fort til slutt","isCorrect":false},{"id":"c","text":"Den eksponentielle flatar ut","isCorrect":false},{"id":"d","text":"Den eksponentielle går alltid forbi den lineære til slutt","isCorrect":true}],"solution":"Eksponentiell vekst akselererer og passerer før eller sidan kvar lineær funksjon, uansett stigingstall."}]}},{"id":"1p-3-5-n-summary","type":"text","content":"## Fortelinga om veksten som akselererer\n\nVi starta med to sparmåtar, og no kjenner du skilnaden i djupnaden. Ein **eksponentialfunksjon** $f(x) = a \\cdot b^x$ beskriv alt som endrar seg med fast prosent: $a$ er startverdien, og $b$ er **vekstfaktoren**. Vekst på $p$ prosent gir $b = 1 + \\frac{p}{100}$, nedgang gir $b = 1 - \\frac{p}{100}$ -- og dermed fortel $b = 1{,}04$ om ein sparekonto med 4 prosent rente, medan $b = 0{,}82$ fortel om ein bil som taper 18 prosent av verdien i året.\n\n**Doblingstida** er tida før verdien doublast, **halveringstida** tida før ho blir halvert -- begge uavhengig av startverdien. For raske overslag brukar du 72-regelen: doblingstid $\\approx \\frac{72}{p}$.\n\nOg hugs kapprenninga mellom Sara og Jonas: Lineær vekst legg til eit fast beløp, eksponentiell gangar med ein fast faktor. På kort sikt kan den lineære leia, men den eksponentielle vinn alltid til slutt. Neste gong nokon snakkar om rentesrente, folkevaekst eller verditap på bil, veit du nøyaktig kva matematikk som ligg bak."}],"exercises":[],"_meta":{"sourceHash":"de969c27796e2c58","translatedAt":"2026-06-16T09:52:45.669Z","model":"claude-haiku-4-5-20251001","strings":67,"tm":{"26b6a95a6a0c76c0":"Eksponentialfunksjonar","b195b06d1ed59702":"Narrativ versjon","0170e4c1d9c1a0d8":"Ei forteljing om sparekontoar, bilar som tapar verdi og bakteriar som doblar seg -- om vekstfaktor, doblingstid og veksten som alltid vinn til slutt.","26f92628ae7b2f36":"utforske eigenskapane til eksponentialfunksjonar","acc57b0a5e9fc577":"## To måtar å bli rik på\n\nTenk deg to sparmåtar. I den første set du inn 500 kroner på kontoen kvart år -- etter 10 år har du lagt til 5000 kroner. I den andre let du pengane sjølv veksa med 5 prosent i året. Den første veksten er **lineær**: eit fast beløp per år. Den andre er **eksponentiell**: ein fast *prosent* per år. Og skilnaden er dramatisk -- for når pengane veks med ein prosent av seg sjølv, veks dei meir jo meir du har. Eksponentiell vekst startar i ro og mak, men akselererer og kan bli enorm.\n\nMatematikken bak heiter **eksponentialfunksjon** og skrives\n$$f(x) = a \\cdot b^x$$\nHer er $a$ **startverdien** -- verdien når $x = 0$ -- og $b$ er **vekstfaktoren**, talet verdien blir multiplisert med for kvar periode. Variabelen $x$ er ofte tida, målt i år, timar eller dagar. Legg merke til at $x$ no står i eksponenten -- derav namnet.\n\nVekstfaktoren bestemmer alt: Er $b > 1$, veks funksjonen, og vi har eksponentiell vekst. Er $0 < b < 1$, krympar ho for kvar periode -- eksponentiell nedgang. I dette kapittelet skal vi sjå korleis sparekontoar veks, korleis bilar tapar seg i verdi, og kor lang tid det tar før noko doblar eller halveras.","3877dff80ae8e394":"## Vekstfaktoren: prosent forkledd som gangetall\n\nHemmeligheten bak eksponentialfunksjonen er samanhengen mellom prosent og vekstfaktor. Aukar noko med $p$ prosent per periode, er vekstfaktoren $b = 1 + \\frac{p}{100}$. Minkar det med $p$ prosent, er $b = 1 - \\frac{p}{100}$. Tre prosent årleg vekst gir altså $b = 1{,}03$, åtte prosent årleg nedgang gir $b = 0{,}92$, og 50 prosent nedgang gir $b = 0{,}50$.\n\nLa oss byggja ein modell. Du set 10 000 kroner i banken til 4 prosent årleg rente. Startverdien er $a = 10\\,000$ og vekstfaktoren $b = 1{,}04$, så beløpet etter $x$ år er $f(x) = 10\\,000 \\cdot 1{,}04^x$. Etter 5 år har du $f(5) = 10\\,000 \\cdot 1{,}04^5 \\approx 12\\,167$ kroner. Rentene har gitt renter -- det er derfor det blir meir enn $10\\,000 + 5 \\cdot 400$.\n\nNedgang fungerer på same måte. Ein ny bil kostar 350 000 kroner og misser 18 prosent av verdien kvart år. Vekstfaktoren er $b = 1 - 0{,}18 = 0{,}82$, og verdien etter $x$ år er $V(x) = 350\\,000 \\cdot 0{,}82^x$. Etter 3 år er bilen verdt $V(3) \\approx 193\\,000$ kroner, og etter 8 år berre $V(8) \\approx 71\\,500$ kroner -- omtrent ein femtedel av nyprisen. Det er verdt å tenka på før ein kjøper ny bil med lånte pengar.","81523069c0c20255":"Test deg sjølv på vekstfaktor og eksponentialfunksjonar:","4097889236a2af26":"placeholder","83556be0330a4b98":"Kva er vekstfaktoren ved $10\\%$ årleg vekst?","d7bba2dda7f60a0e":"$b = 1 + \\frac{10}{100} = 1{,}10$.","b6e231e1ea52ac4d":"Kva er vekstfaktoren ved $8\\%$ årleg nedgang?","eb052b2277d28a5d":"$b = 1 - \\frac{8}{100} = 0{,}92$.","979aec86cb31a6d1":"Du set $10\\,000$ kr i banken til $4\\%$ årleg rente. Kva uttrykk gir beløpet etter $x$ år?","6feaa90f759476fe":"$f(x) = 10\\,000 + 400x$","2f0ed5a0e296bcdc":"$f(x) = 10\\,000 \\cdot 0{,}04^x$","0ebc94ef033ca4d5":"$f(x) = 10\\,000 \\cdot 1{,}04^x$","1768ed5abd0f1b46":"$f(x) = 1{,}04 \\cdot 10\\,000^x$","53f9756ae9964107":"Startverdi $10\\,000$ og vekstfaktor $1{,}04$ gir $f(x) = 10\\,000 \\cdot 1{,}04^x$.","d4aaed1e34dd18c5":"Ei funksjon har vekstfaktor $b = 0{,}75$. Kva betyr det?","8dd3276bba272d37":"$75\\%$ vekst per periode","40100ac84d83f85e":"$0{,}75\\%$ nedgang per periode","8342588d06961bb8":"$75\\%$ nedgang per periode","d3ef00ff85b2b60f":"$25\\%$ nedgang per periode","69d6d5ae5398c582":"$b = 1 - 0{,}25 = 0{,}75$ tilsvarar $25\\%$ nedgang per periode.","bec28fddb3c04aff":"## Kor lenge til det doblar?\n\nEit naturleg spørsmål ved eksponentiell vekst er: Kor lang tid tek det før verdien er **dobla**? Tida det tek, kallast **doblingstid**. Tilsvarande kallast tida det tek før noko er halverte ved eksponentiell nedgang, for **halveringstid**. I 1P finn vi desse ved å prøva oss fram, lesa av ein graf eller bruka digitale verktøy.\n\nSe på ei bakteriekoloni som startar med 500 bakteriar og veks med 15 prosent per time: $f(x) = 500 \\cdot 1{,}15^x$. Vi leiter etter $x$ som gjer at $1{,}15^x = 2$. Vi prøver: $1{,}15^3 \\approx 1{,}52$ er for lite, $1{,}15^4 \\approx 1{,}75$ framleis for lite, men $1{,}15^5 \\approx 2{,}01$ -- nesten nøyaktig 2. Doblingstida er omtrent 5 timar. Og her er noko fasinerande: Doblingstida er den same uansett startverdi. Om kolonien startar med 500 eller 10 000 bakteriar, tek doblingen like lang tid.\n\nFor overslag finnast ei praktisk tommelfingerregel, **72-regelen**: Doblingstida er omtrent $\\frac{72}{p}$ perIodar, der $p$ er vekstraten i prosent. Med 6 prosent årleg vekst doblar beløpet seg på cirka $\\frac{72}{6} = 12$ år; med 8 prosent på cirka 9 år. Halveringstid fungerer speilvendt: Eit radioaktivt stoff med halveringstid 6 timar som startar på 80 gram, er nede i 40 gram etter 6 timar og 20 gram etter 12 timar.","10d26ad52f3ba11f":"Test deg sjølv på doblingstid og halveringstid:","6996f1196d01b91b":"Kva er doblingstida til ein storleik?","c3f70ae2d59bc53f":"Tida det tek før verdien er dobla","069e45bee0fd5eaf":"Tida det tek før verdien er halverte","5b77b1848b5a04d0":"Det dobbelte av startverdien","97164d096729d528":"Vekstfaktoren ganger to","a19aa3c046fe9423":"Doblingstida er tida det tek før ein eksponentielt veksande storleik blir dobbelt så stor -- uavhengig av startverdien.","ac3348ff9cfee4bf":"Bruk 72-regelen: Omtrent kor lang er doblingstida ved $6\\%$ årleg vekst?","8046e878f251d7c4":"$6$ år","3a3a6b167308d271":"$12$ år","2a31f903c6c24fd0":"$24$ år","655e279a971b5f7e":"$72$ år","62c85e9f78680349":"Doblingstid $\\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år.","e530e633eb490b7d":"Eit radioaktivt stoff har halveringstid $6$ timar. Du startar med $80$ gram. Kor mykje er igjen etter $12$ timar?","b28bd25f3a4ddb1c":"$40$ gram","b4fb602b397db0b2":"$10$ gram","f31411e8fb7d94b1":"$20$ gram","e3b6d6cae3e6dd99":"$0$ gram","073c9f2e3e07bd33":"Etter $6$ timer: $40$ g. Etter $12$ timer (to halveringer): $20$ g.","292a60b5bc1fd199":"## Kapprenninga: lineær mot eksponentiell\n\nTo vener startar ein sparekappløp, begge med 5000 kroner. Sara set inn 1000 kroner ekstra kvart år -- lineær vekst, $S(x) = 1000x + 5000$. Jonas let i staden pengane vokse med 8 prosent per år -- eksponentiell vekst, $J(x) = 5000 \\cdot 1{,}08^x$.\n\nKven leidar? Etter 5 år har Sara 10 000 kroner, medan Jonas berre har omtrent 7 350. Etter 10 år står det 15 000 mot cirka 10 800 -- Sara leidar fortsatt klart. Men sjå kva som skjer vidare: Etter 20 år har Sara 25 000, medan Jonas har voksen til omtrent 23 300 og puscar ho i nakken. Kort tid etter går han forbi, og derifrå aukar forspranget hans raskare og raskare.\n\nDetta er det viktigaste poenget i heile kapittelet: Lineær vekst legg til eit fast *beløp* per periode, eksponentiell vekst gangar med ein fast *prosent*. Grafen til den lineære er ei rett linje, den eksponentielle ei kurve som bøyer seg oppover. Og ved eksponentiell vekst med $b > 1$ vil funksjonen **alltid** til slutt vokse forbi kvar lineær funksjon -- uansett kor bratt linja er. Det er derfor rentesrente blir kalla verda åttande underverk, og derfor langsiktig sparing lønner seg meir enn dei fleste trur.","793c4378d2a303e5":"Test deg sjølv på lineær mot eksponentiell vekst:","5a9d0f4bb4caf39d":"Kva kjenneteiknar eksponentiell vekst?","4147680b9eb346bf":"Verdien aukar med eit fast beløp per periode","c818444b36a3aa73":"Verdien aukar med ein fast prosent per periode","3cbc1a8b7b52f661":"Grafen er ei rett linje","b0d34a57c27d59a2":"Verdien doublast kvar periode","ac42dce59b8d8b14":"Eksponentiell vekst tyder fast prosentvis endring -- verdien blir gonga med same vekstfaktor kvar periode.","75cf46130bb1fe7e":"Sara sparar lineært: $S(x) = 1000x + 5000$. Kor mykje har ho etter $10$ år?","b32a8e128facc18a":"$10\\,000$ kr","a042530269f8dc2f":"$50\\,000$ kr","beb024ce92035d2e":"$15\\,000$ kr","a675eb38f78be873":"$11\\,000$ kr","349d82a6cf406424":"$S(10) = 1000 \\cdot 10 + 5000 = 15\\,000$ kr.","747dcd14d0836949":"Kva skjer på lang sikt når ein eksponentiell funksjon med $b > 1$ blir samanlikna med ei lineær?","7705734c77139cec":"Den lineære vinn alltid viss stigingstalet er stort nok","797a904a2c1e59f5":"Dei vokser like fort til slutt","94f8385315597920":"Den eksponentielle flatar ut","d29fec7ce3e82550":"Den eksponentielle går alltid forbi den lineære til slutt","473df9191a55550b":"Eksponentiell vekst akselererer og passerer før eller sidan kvar lineær funksjon, uansett stigingstall.","d68bd70ddd5e69d4":"## Fortelinga om veksten som akselererer\n\nVi starta med to sparmåtar, og no kjenner du skilnaden i djupnaden. Ein **eksponentialfunksjon** $f(x) = a \\cdot b^x$ beskriv alt som endrar seg med fast prosent: $a$ er startverdien, og $b$ er **vekstfaktoren**. Vekst på $p$ prosent gir $b = 1 + \\frac{p}{100}$, nedgang gir $b = 1 - \\frac{p}{100}$ -- og dermed fortel $b = 1{,}04$ om ein sparekonto med 4 prosent rente, medan $b = 0{,}82$ fortel om ein bil som taper 18 prosent av verdien i året.\n\n**Doblingstida** er tida før verdien doublast, **halveringstida** tida før ho blir halvert -- begge uavhengig av startverdien. For raske overslag brukar du 72-regelen: doblingstid $\\approx \\frac{72}{p}$.\n\nOg hugs kapprenninga mellom Sara og Jonas: Lineær vekst legg til eit fast beløp, eksponentiell gangar med ein fast faktor. På kort sikt kan den lineære leia, men den eksponentielle vinn alltid til slutt. Neste gong nokon snakkar om rentesrente, folkevaekst eller verditap på bil, veit du nøyaktig kva matematikk som ligg bak."}}}
+{
+  "id": "1p-3-5-narrativ",
+  "courseId": "1p",
+  "chapterNumber": "3.5",
+  "title": "Eksponentialfunksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om sparekontoar, bilar som tapar verdi og bakteriar som doblar seg -- om vekstfaktor, doblingstid og veksten som alltid vinn til slutt.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske eigenskapane til eksponentialfunksjonar"
+  ],
+  "linkedChapterId": "1p-3-5",
+  "content": [
+    {
+      "id": "1p-3-5-n-intro",
+      "type": "text",
+      "content": "## To måtar å bli rik på\n\nTenk deg to sparmåtar. I den første set du inn 500 kroner på kontoen kvart år -- etter 10 år har du lagt til 5000 kroner. I den andre let du pengane sjølv veksa med 5 prosent i året. Den første veksten er **lineær**: eit fast beløp per år. Den andre er **eksponentiell**: ein fast *prosent* per år. Og skilnaden er dramatisk -- for når pengane veks med ein prosent av seg sjølv, veks dei meir jo meir du har. Eksponentiell vekst startar i ro og mak, men akselererer og kan bli enorm.\n\nMatematikken bak heiter **eksponentialfunksjon** og skrives\n$$f(x) = a \\cdot b^x$$\nHer er $a$ **startverdien** -- verdien når $x = 0$ -- og $b$ er **vekstfaktoren**, talet verdien blir multiplisert med for kvar periode. Variabelen $x$ er ofte tida, målt i år, timar eller dagar. Legg merke til at $x$ no står i eksponenten -- derav namnet.\n\nVekstfaktoren bestemmer alt: Er $b > 1$, veks funksjonen, og vi har eksponentiell vekst. Er $0 < b < 1$, krympar ho for kvar periode -- eksponentiell nedgang. I dette kapittelet skal vi sjå korleis sparekontoar veks, korleis bilar tapar seg i verdi, og kor lang tid det tar før noko doblar eller halveras."
+    },
+    {
+      "id": "1p-3-5-n-section1",
+      "type": "text",
+      "content": "## Vekstfaktoren: prosent forkledd som gangetall\n\nHemmeligheten bak eksponentialfunksjonen er samanhengen mellom prosent og vekstfaktor. Aukar noko med $p$ prosent per periode, er vekstfaktoren $b = 1 + \\frac{p}{100}$. Minkar det med $p$ prosent, er $b = 1 - \\frac{p}{100}$. Tre prosent årleg vekst gir altså $b = 1{,}03$, åtte prosent årleg nedgang gir $b = 0{,}92$, og 50 prosent nedgang gir $b = 0{,}50$.\n\nLa oss byggja ein modell. Du set 10 000 kroner i banken til 4 prosent årleg rente. Startverdien er $a = 10\\,000$ og vekstfaktoren $b = 1{,}04$, så beløpet etter $x$ år er $f(x) = 10\\,000 \\cdot 1{,}04^x$. Etter 5 år har du $f(5) = 10\\,000 \\cdot 1{,}04^5 \\approx 12\\,167$ kroner. Rentene har gitt renter -- det er derfor det blir meir enn $10\\,000 + 5 \\cdot 400$.\n\nNedgang fungerer på same måte. Ein ny bil kostar 350 000 kroner og misser 18 prosent av verdien kvart år. Vekstfaktoren er $b = 1 - 0{,}18 = 0{,}82$, og verdien etter $x$ år er $V(x) = 350\\,000 \\cdot 0{,}82^x$. Etter 3 år er bilen verdt $V(3) \\approx 193\\,000$ kroner, og etter 8 år berre $V(8) \\approx 71\\,500$ kroner -- omtrent ein femtedel av nyprisen. Det er verdt å tenka på før ein kjøper ny bil med lånte pengar."
+    },
+    {
+      "id": "1p-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vekstfaktor og eksponentialfunksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-3-5-n-quiz1-q0",
+            "task": "Kva er vekstfaktoren ved $10\\%$ årleg vekst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}10$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1{,}01$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$b = 1 + \\frac{10}{100} = 1{,}10$."
+          },
+          {
+            "id": "1p-3-5-n-quiz1-q1",
+            "task": "Kva er vekstfaktoren ved $8\\%$ årleg nedgang?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}08$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}08$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}80$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0{,}92$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$b = 1 - \\frac{8}{100} = 0{,}92$."
+          },
+          {
+            "id": "1p-3-5-n-quiz1-q2",
+            "task": "Du set $10\\,000$ kr i banken til $4\\%$ årleg rente. Kva uttrykk gir beløpet etter $x$ år?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$f(x) = 10\\,000 \\cdot 1{,}04^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$f(x) = 10\\,000 + 400x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) = 10\\,000 \\cdot 0{,}04^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) = 1{,}04 \\cdot 10\\,000^x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Startverdi $10\\,000$ og vekstfaktor $1{,}04$ gir $f(x) = 10\\,000 \\cdot 1{,}04^x$."
+          },
+          {
+            "id": "1p-3-5-n-quiz1-q3",
+            "task": "Ei funksjon har vekstfaktor $b = 0{,}75$. Kva betyr det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$75\\%$ vekst per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25\\%$ nedgang per periode",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}75\\%$ nedgang per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$75\\%$ nedgang per periode",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$b = 1 - 0{,}25 = 0{,}75$ tilsvarar $25\\%$ nedgang per periode."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-3-5-n-section2",
+      "type": "text",
+      "content": "## Kor lenge til det doblar?\n\nEit naturleg spørsmål ved eksponentiell vekst er: Kor lang tid tek det før verdien er **dobla**? Tida det tek, kallast **doblingstid**. Tilsvarande kallast tida det tek før noko er halverte ved eksponentiell nedgang, for **halveringstid**. I 1P finn vi desse ved å prøva oss fram, lesa av ein graf eller bruka digitale verktøy.\n\nSe på ei bakteriekoloni som startar med 500 bakteriar og veks med 15 prosent per time: $f(x) = 500 \\cdot 1{,}15^x$. Vi leiter etter $x$ som gjer at $1{,}15^x = 2$. Vi prøver: $1{,}15^3 \\approx 1{,}52$ er for lite, $1{,}15^4 \\approx 1{,}75$ framleis for lite, men $1{,}15^5 \\approx 2{,}01$ -- nesten nøyaktig 2. Doblingstida er omtrent 5 timar. Og her er noko fasinerande: Doblingstida er den same uansett startverdi. Om kolonien startar med 500 eller 10 000 bakteriar, tek doblingen like lang tid.\n\nFor overslag finnast ei praktisk tommelfingerregel, **72-regelen**: Doblingstida er omtrent $\\frac{72}{p}$ perIodar, der $p$ er vekstraten i prosent. Med 6 prosent årleg vekst doblar beløpet seg på cirka $\\frac{72}{6} = 12$ år; med 8 prosent på cirka 9 år. Halveringstid fungerer speilvendt: Eit radioaktivt stoff med halveringstid 6 timar som startar på 80 gram, er nede i 40 gram etter 6 timar og 20 gram etter 12 timar."
+    },
+    {
+      "id": "1p-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på doblingstid og halveringstid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-3-5-n-quiz2-q0",
+            "task": "Kva er doblingstida til ein storleik?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Tida det tek før verdien er halverte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det dobbelte av startverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Tida det tek før verdien er dobla",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Vekstfaktoren ganger to",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Doblingstida er tida det tek før ein eksponentielt veksande storleik blir dobbelt så stor -- uavhengig av startverdien."
+          },
+          {
+            "id": "1p-3-5-n-quiz2-q1",
+            "task": "Bruk 72-regelen: Omtrent kor lang er doblingstida ved $6\\%$ årleg vekst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$ år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$24$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$72$ år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Doblingstid $\\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år."
+          },
+          {
+            "id": "1p-3-5-n-quiz2-q2",
+            "task": "Eit radioaktivt stoff har halveringstid $6$ timar. Du startar med $80$ gram. Kor mykje er igjen etter $12$ timar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$40$ gram",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10$ gram",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$ gram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$20$ gram",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Etter $6$ timer: $40$ g. Etter $12$ timer (to halveringer): $20$ g."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-3-5-n-section3",
+      "type": "text",
+      "content": "## Kapprenninga: lineær mot eksponentiell\n\nTo vener startar ein sparekappløp, begge med 5000 kroner. Sara set inn 1000 kroner ekstra kvart år -- lineær vekst, $S(x) = 1000x + 5000$. Jonas let i staden pengane vokse med 8 prosent per år -- eksponentiell vekst, $J(x) = 5000 \\cdot 1{,}08^x$.\n\nKven leidar? Etter 5 år har Sara 10 000 kroner, medan Jonas berre har omtrent 7 350. Etter 10 år står det 15 000 mot cirka 10 800 -- Sara leidar fortsatt klart. Men sjå kva som skjer vidare: Etter 20 år har Sara 25 000, medan Jonas har voksen til omtrent 23 300 og puscar ho i nakken. Kort tid etter går han forbi, og derifrå aukar forspranget hans raskare og raskare.\n\nDetta er det viktigaste poenget i heile kapittelet: Lineær vekst legg til eit fast *beløp* per periode, eksponentiell vekst gangar med ein fast *prosent*. Grafen til den lineære er ei rett linje, den eksponentielle ei kurve som bøyer seg oppover. Og ved eksponentiell vekst med $b > 1$ vil funksjonen **alltid** til slutt vokse forbi kvar lineær funksjon -- uansett kor bratt linja er. Det er derfor rentesrente blir kalla verda åttande underverk, og derfor langsiktig sparing lønner seg meir enn dei fleste trur."
+    },
+    {
+      "id": "1p-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1p-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lineær mot eksponentiell vekst:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1p-3-5-n-quiz3-q0",
+            "task": "Kva kjenneteiknar eksponentiell vekst?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Verdien aukar med ein fast prosent per periode",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Verdien aukar med eit fast beløp per periode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Grafen er ei rett linje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verdien doublast kvar periode",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentiell vekst tyder fast prosentvis endring -- verdien blir gonga med same vekstfaktor kvar periode."
+          },
+          {
+            "id": "1p-3-5-n-quiz3-q1",
+            "task": "Sara sparar lineært: $S(x) = 1000x + 5000$. Kor mykje har ho etter $10$ år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$50\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15\\,000$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$11\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S(10) = 1000 \\cdot 10 + 5000 = 15\\,000$ kr."
+          },
+          {
+            "id": "1p-3-5-n-quiz3-q2",
+            "task": "Kva skjer på lang sikt når ein eksponentiell funksjon med $b > 1$ blir samanlikna med ei lineær?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den lineære vinn alltid viss stigingstalet er stort nok",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei vokser like fort til slutt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den eksponentielle flatar ut",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den eksponentielle går alltid forbi den lineære til slutt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eksponentiell vekst akselererer og passerer før eller sidan kvar lineær funksjon, uansett stigingstall."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1p-3-5-n-summary",
+      "type": "text",
+      "content": "## Fortelinga om veksten som akselererer\n\nVi starta med to sparmåtar, og no kjenner du skilnaden i djupnaden. Ein **eksponentialfunksjon** $f(x) = a \\cdot b^x$ beskriv alt som endrar seg med fast prosent: $a$ er startverdien, og $b$ er **vekstfaktoren**. Vekst på $p$ prosent gir $b = 1 + \\frac{p}{100}$, nedgang gir $b = 1 - \\frac{p}{100}$ -- og dermed fortel $b = 1{,}04$ om ein sparekonto med 4 prosent rente, medan $b = 0{,}82$ fortel om ein bil som taper 18 prosent av verdien i året.\n\n**Doblingstida** er tida før verdien doublast, **halveringstida** tida før ho blir halvert -- begge uavhengig av startverdien. For raske overslag brukar du 72-regelen: doblingstid $\\approx \\frac{72}{p}$.\n\nOg hugs kapprenninga mellom Sara og Jonas: Lineær vekst legg til eit fast beløp, eksponentiell gangar med ein fast faktor. På kort sikt kan den lineære leia, men den eksponentielle vinn alltid til slutt. Neste gong nokon snakkar om rentesrente, folkevaekst eller verditap på bil, veit du nøyaktig kva matematikk som ligg bak."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "de969c27796e2c58",
+    "translatedAt": "2026-06-16T09:52:45.669Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 67,
+    "tm": {
+      "26b6a95a6a0c76c0": "Eksponentialfunksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "0170e4c1d9c1a0d8": "Ei forteljing om sparekontoar, bilar som tapar verdi og bakteriar som doblar seg -- om vekstfaktor, doblingstid og veksten som alltid vinn til slutt.",
+      "26f92628ae7b2f36": "utforske eigenskapane til eksponentialfunksjonar",
+      "acc57b0a5e9fc577": "## To måtar å bli rik på\n\nTenk deg to sparmåtar. I den første set du inn 500 kroner på kontoen kvart år -- etter 10 år har du lagt til 5000 kroner. I den andre let du pengane sjølv veksa med 5 prosent i året. Den første veksten er **lineær**: eit fast beløp per år. Den andre er **eksponentiell**: ein fast *prosent* per år. Og skilnaden er dramatisk -- for når pengane veks med ein prosent av seg sjølv, veks dei meir jo meir du har. Eksponentiell vekst startar i ro og mak, men akselererer og kan bli enorm.\n\nMatematikken bak heiter **eksponentialfunksjon** og skrives\n$$f(x) = a \\cdot b^x$$\nHer er $a$ **startverdien** -- verdien når $x = 0$ -- og $b$ er **vekstfaktoren**, talet verdien blir multiplisert med for kvar periode. Variabelen $x$ er ofte tida, målt i år, timar eller dagar. Legg merke til at $x$ no står i eksponenten -- derav namnet.\n\nVekstfaktoren bestemmer alt: Er $b > 1$, veks funksjonen, og vi har eksponentiell vekst. Er $0 < b < 1$, krympar ho for kvar periode -- eksponentiell nedgang. I dette kapittelet skal vi sjå korleis sparekontoar veks, korleis bilar tapar seg i verdi, og kor lang tid det tar før noko doblar eller halveras.",
+      "3877dff80ae8e394": "## Vekstfaktoren: prosent forkledd som gangetall\n\nHemmeligheten bak eksponentialfunksjonen er samanhengen mellom prosent og vekstfaktor. Aukar noko med $p$ prosent per periode, er vekstfaktoren $b = 1 + \\frac{p}{100}$. Minkar det med $p$ prosent, er $b = 1 - \\frac{p}{100}$. Tre prosent årleg vekst gir altså $b = 1{,}03$, åtte prosent årleg nedgang gir $b = 0{,}92$, og 50 prosent nedgang gir $b = 0{,}50$.\n\nLa oss byggja ein modell. Du set 10 000 kroner i banken til 4 prosent årleg rente. Startverdien er $a = 10\\,000$ og vekstfaktoren $b = 1{,}04$, så beløpet etter $x$ år er $f(x) = 10\\,000 \\cdot 1{,}04^x$. Etter 5 år har du $f(5) = 10\\,000 \\cdot 1{,}04^5 \\approx 12\\,167$ kroner. Rentene har gitt renter -- det er derfor det blir meir enn $10\\,000 + 5 \\cdot 400$.\n\nNedgang fungerer på same måte. Ein ny bil kostar 350 000 kroner og misser 18 prosent av verdien kvart år. Vekstfaktoren er $b = 1 - 0{,}18 = 0{,}82$, og verdien etter $x$ år er $V(x) = 350\\,000 \\cdot 0{,}82^x$. Etter 3 år er bilen verdt $V(3) \\approx 193\\,000$ kroner, og etter 8 år berre $V(8) \\approx 71\\,500$ kroner -- omtrent ein femtedel av nyprisen. Det er verdt å tenka på før ein kjøper ny bil med lånte pengar.",
+      "81523069c0c20255": "Test deg sjølv på vekstfaktor og eksponentialfunksjonar:",
+      "4097889236a2af26": "placeholder",
+      "83556be0330a4b98": "Kva er vekstfaktoren ved $10\\%$ årleg vekst?",
+      "d7bba2dda7f60a0e": "$b = 1 + \\frac{10}{100} = 1{,}10$.",
+      "b6e231e1ea52ac4d": "Kva er vekstfaktoren ved $8\\%$ årleg nedgang?",
+      "eb052b2277d28a5d": "$b = 1 - \\frac{8}{100} = 0{,}92$.",
+      "979aec86cb31a6d1": "Du set $10\\,000$ kr i banken til $4\\%$ årleg rente. Kva uttrykk gir beløpet etter $x$ år?",
+      "6feaa90f759476fe": "$f(x) = 10\\,000 + 400x$",
+      "2f0ed5a0e296bcdc": "$f(x) = 10\\,000 \\cdot 0{,}04^x$",
+      "0ebc94ef033ca4d5": "$f(x) = 10\\,000 \\cdot 1{,}04^x$",
+      "1768ed5abd0f1b46": "$f(x) = 1{,}04 \\cdot 10\\,000^x$",
+      "53f9756ae9964107": "Startverdi $10\\,000$ og vekstfaktor $1{,}04$ gir $f(x) = 10\\,000 \\cdot 1{,}04^x$.",
+      "d4aaed1e34dd18c5": "Ei funksjon har vekstfaktor $b = 0{,}75$. Kva betyr det?",
+      "8dd3276bba272d37": "$75\\%$ vekst per periode",
+      "40100ac84d83f85e": "$0{,}75\\%$ nedgang per periode",
+      "8342588d06961bb8": "$75\\%$ nedgang per periode",
+      "d3ef00ff85b2b60f": "$25\\%$ nedgang per periode",
+      "69d6d5ae5398c582": "$b = 1 - 0{,}25 = 0{,}75$ tilsvarar $25\\%$ nedgang per periode.",
+      "bec28fddb3c04aff": "## Kor lenge til det doblar?\n\nEit naturleg spørsmål ved eksponentiell vekst er: Kor lang tid tek det før verdien er **dobla**? Tida det tek, kallast **doblingstid**. Tilsvarande kallast tida det tek før noko er halverte ved eksponentiell nedgang, for **halveringstid**. I 1P finn vi desse ved å prøva oss fram, lesa av ein graf eller bruka digitale verktøy.\n\nSe på ei bakteriekoloni som startar med 500 bakteriar og veks med 15 prosent per time: $f(x) = 500 \\cdot 1{,}15^x$. Vi leiter etter $x$ som gjer at $1{,}15^x = 2$. Vi prøver: $1{,}15^3 \\approx 1{,}52$ er for lite, $1{,}15^4 \\approx 1{,}75$ framleis for lite, men $1{,}15^5 \\approx 2{,}01$ -- nesten nøyaktig 2. Doblingstida er omtrent 5 timar. Og her er noko fasinerande: Doblingstida er den same uansett startverdi. Om kolonien startar med 500 eller 10 000 bakteriar, tek doblingen like lang tid.\n\nFor overslag finnast ei praktisk tommelfingerregel, **72-regelen**: Doblingstida er omtrent $\\frac{72}{p}$ perIodar, der $p$ er vekstraten i prosent. Med 6 prosent årleg vekst doblar beløpet seg på cirka $\\frac{72}{6} = 12$ år; med 8 prosent på cirka 9 år. Halveringstid fungerer speilvendt: Eit radioaktivt stoff med halveringstid 6 timar som startar på 80 gram, er nede i 40 gram etter 6 timar og 20 gram etter 12 timar.",
+      "10d26ad52f3ba11f": "Test deg sjølv på doblingstid og halveringstid:",
+      "6996f1196d01b91b": "Kva er doblingstida til ein storleik?",
+      "c3f70ae2d59bc53f": "Tida det tek før verdien er dobla",
+      "069e45bee0fd5eaf": "Tida det tek før verdien er halverte",
+      "5b77b1848b5a04d0": "Det dobbelte av startverdien",
+      "97164d096729d528": "Vekstfaktoren ganger to",
+      "a19aa3c046fe9423": "Doblingstida er tida det tek før ein eksponentielt veksande storleik blir dobbelt så stor -- uavhengig av startverdien.",
+      "ac3348ff9cfee4bf": "Bruk 72-regelen: Omtrent kor lang er doblingstida ved $6\\%$ årleg vekst?",
+      "8046e878f251d7c4": "$6$ år",
+      "3a3a6b167308d271": "$12$ år",
+      "2a31f903c6c24fd0": "$24$ år",
+      "655e279a971b5f7e": "$72$ år",
+      "62c85e9f78680349": "Doblingstid $\\approx \\frac{72}{p} = \\frac{72}{6} = 12$ år.",
+      "e530e633eb490b7d": "Eit radioaktivt stoff har halveringstid $6$ timar. Du startar med $80$ gram. Kor mykje er igjen etter $12$ timar?",
+      "b28bd25f3a4ddb1c": "$40$ gram",
+      "b4fb602b397db0b2": "$10$ gram",
+      "f31411e8fb7d94b1": "$20$ gram",
+      "e3b6d6cae3e6dd99": "$0$ gram",
+      "073c9f2e3e07bd33": "Etter $6$ timer: $40$ g. Etter $12$ timer (to halveringer): $20$ g.",
+      "292a60b5bc1fd199": "## Kapprenninga: lineær mot eksponentiell\n\nTo vener startar ein sparekappløp, begge med 5000 kroner. Sara set inn 1000 kroner ekstra kvart år -- lineær vekst, $S(x) = 1000x + 5000$. Jonas let i staden pengane vokse med 8 prosent per år -- eksponentiell vekst, $J(x) = 5000 \\cdot 1{,}08^x$.\n\nKven leidar? Etter 5 år har Sara 10 000 kroner, medan Jonas berre har omtrent 7 350. Etter 10 år står det 15 000 mot cirka 10 800 -- Sara leidar fortsatt klart. Men sjå kva som skjer vidare: Etter 20 år har Sara 25 000, medan Jonas har voksen til omtrent 23 300 og puscar ho i nakken. Kort tid etter går han forbi, og derifrå aukar forspranget hans raskare og raskare.\n\nDetta er det viktigaste poenget i heile kapittelet: Lineær vekst legg til eit fast *beløp* per periode, eksponentiell vekst gangar med ein fast *prosent*. Grafen til den lineære er ei rett linje, den eksponentielle ei kurve som bøyer seg oppover. Og ved eksponentiell vekst med $b > 1$ vil funksjonen **alltid** til slutt vokse forbi kvar lineær funksjon -- uansett kor bratt linja er. Det er derfor rentesrente blir kalla verda åttande underverk, og derfor langsiktig sparing lønner seg meir enn dei fleste trur.",
+      "793c4378d2a303e5": "Test deg sjølv på lineær mot eksponentiell vekst:",
+      "5a9d0f4bb4caf39d": "Kva kjenneteiknar eksponentiell vekst?",
+      "4147680b9eb346bf": "Verdien aukar med eit fast beløp per periode",
+      "c818444b36a3aa73": "Verdien aukar med ein fast prosent per periode",
+      "3cbc1a8b7b52f661": "Grafen er ei rett linje",
+      "b0d34a57c27d59a2": "Verdien doublast kvar periode",
+      "ac42dce59b8d8b14": "Eksponentiell vekst tyder fast prosentvis endring -- verdien blir gonga med same vekstfaktor kvar periode.",
+      "75cf46130bb1fe7e": "Sara sparar lineært: $S(x) = 1000x + 5000$. Kor mykje har ho etter $10$ år?",
+      "b32a8e128facc18a": "$10\\,000$ kr",
+      "a042530269f8dc2f": "$50\\,000$ kr",
+      "beb024ce92035d2e": "$15\\,000$ kr",
+      "a675eb38f78be873": "$11\\,000$ kr",
+      "349d82a6cf406424": "$S(10) = 1000 \\cdot 10 + 5000 = 15\\,000$ kr.",
+      "747dcd14d0836949": "Kva skjer på lang sikt når ein eksponentiell funksjon med $b > 1$ blir samanlikna med ei lineær?",
+      "7705734c77139cec": "Den lineære vinn alltid viss stigingstalet er stort nok",
+      "797a904a2c1e59f5": "Dei vokser like fort til slutt",
+      "94f8385315597920": "Den eksponentielle flatar ut",
+      "d29fec7ce3e82550": "Den eksponentielle går alltid forbi den lineære til slutt",
+      "473df9191a55550b": "Eksponentiell vekst akselererer og passerer før eller sidan kvar lineær funksjon, uansett stigingstall.",
+      "d68bd70ddd5e69d4": "## Fortelinga om veksten som akselererer\n\nVi starta med to sparmåtar, og no kjenner du skilnaden i djupnaden. Ein **eksponentialfunksjon** $f(x) = a \\cdot b^x$ beskriv alt som endrar seg med fast prosent: $a$ er startverdien, og $b$ er **vekstfaktoren**. Vekst på $p$ prosent gir $b = 1 + \\frac{p}{100}$, nedgang gir $b = 1 - \\frac{p}{100}$ -- og dermed fortel $b = 1{,}04$ om ein sparekonto med 4 prosent rente, medan $b = 0{,}82$ fortel om ein bil som taper 18 prosent av verdien i året.\n\n**Doblingstida** er tida før verdien doublast, **halveringstida** tida før ho blir halvert -- begge uavhengig av startverdien. For raske overslag brukar du 72-regelen: doblingstid $\\approx \\frac{72}{p}$.\n\nOg hugs kapprenninga mellom Sara og Jonas: Lineær vekst legg til eit fast beløp, eksponentiell gangar med ein fast faktor. På kort sikt kan den lineære leia, men den eksponentielle vinn alltid til slutt. Neste gong nokon snakkar om rentesrente, folkevaekst eller verditap på bil, veit du nøyaktig kva matematikk som ligg bak."
+    }
+  }
+}

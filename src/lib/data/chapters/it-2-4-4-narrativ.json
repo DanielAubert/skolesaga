@@ -1,1 +1,341 @@
-{"id":"it-2-4-4-narrativ","courseId":"it-2","chapterNumber":"4.4","title":"Bygge eget API med Flask","subtitle":"Narrativ versjon","description":"En fortelling om å snu rollene og bli serveren selv – fra Flasks første rute og jsonify, via GET- og POST-forespørsler, til et komplett CRUD-API du kan teste med requests.","estimatedMinutes":42,"competenceGoals":["Definere ruter og håndtere GET- og POST-forespørsler i Flask","Returnere JSON med jsonify","Bygge et komplett CRUD-API og teste det"],"linkedChapterId":"it-2-4-4","content":[{"id":"it-2-4-4-n-intro","type":"text","content":"## Nå er det du som er restauranten\n\nSo langt har du vært gjesten – du har brukt API-er andre har laget. Nå snur vi rollene: du skal bygge ditt eget API. Verktøyet er **Flask**, et enkelt og populært Python-rammeverk for webutvikling. Med Flask kan du lage REST API-er, definere endepunkter, håndtere GET, POST, PUT og DELETE, og returnere JSON-data.\n\nFlask er ikke en del av standard Python, så du installerer det med `pip install flask`. Det kalles et **mikroframework**, fordi det er minimalistisk og lett å komme i gang med, men kan utvides med plugins ved behov. Din aller første Flask-app er kort:\n\n```python\nfrom flask import Flask\napp = Flask(__name__)\n\n@app.route('/')\ndef hjem():\n    return 'Velkommen til mitt API!'\n\n@app.route('/hei/<navn>')\ndef hei(navn):\n    return f'Hei, {navn}!'\n\nif __name__ == '__main__':\n    app.run(debug=True, port=5000)\n```\n\nHer er `@app.route()` en **dekoratør** som knytter en URL-sti til funksjonen under. `<navn>` er en URL-parameter, så `/hei/Emma` gir «Hei, Emma!». Og `debug=True` gir bedre feilmeldinger og automatisk omstart mens du utvikler."},{"id":"it-2-4-4-n-quiz1","type":"exercise","exercise":{"id":"it-2-4-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på Flask-grunnlaget:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-4-4-n-quiz1-q0","task":"Hva er Flask?","options":[{"id":"a","text":"En database","isCorrect":false},{"id":"b","text":"Et Python-rammeverk for webutvikling og API-er","isCorrect":true},{"id":"c","text":"En HTTP-metode","isCorrect":false},{"id":"d","text":"Et programmeringsspråk","isCorrect":false}],"solution":"Flask er et mikroframework for Python som gjør det enkelt å bygge webapplikasjoner og API-er."},{"id":"it-2-4-4-n-quiz1-q1","task":"Hva gjør @app.route() i Flask?","options":[{"id":"a","text":"Starter serveren","isCorrect":false},{"id":"b","text":"Returnerer alltid JSON","isCorrect":false},{"id":"c","text":"Knytter en URL-sti til en Python-funksjon","isCorrect":true},{"id":"d","text":"Sletter en rute","isCorrect":false}],"solution":"@app.route() er en dekoratør som definerer hvilken URL som skal kjøre funksjonen under."},{"id":"it-2-4-4-n-quiz1-q2","task":"Hva er <navn> i @app.route('/hei/<navn>')?","options":[{"id":"a","text":"En kommentar","isCorrect":false},{"id":"b","text":"En feilmelding","isCorrect":false},{"id":"c","text":"En HTTP-metode","isCorrect":false},{"id":"d","text":"En URL-parameter som sendes til funksjonen","isCorrect":true}],"solution":"<navn> er en URL-parameter; verdien i URL-en sendes inn som argument til funksjonen."}]}},{"id":"it-2-4-4-n-section1","type":"text","content":"## JSON, ruter og forespørsler\n\nÅ returnere ren tekst er greit for læring, men et ekte API returnerer **JSON**. Til det bruker vi `jsonify`, som automatisk konverterer Python-objekter til en JSON-respons med riktige HTTP-headere:\n\n```python\nfrom flask import Flask, jsonify\n\n@app.route('/api/elever')\ndef elever():\n    data = [{'id': 1, 'navn': 'Emma'}, {'id': 2, 'navn': 'Lars'}]\n    return jsonify(data)\n```\n\nEn **rute** er en URL-sti Flask lytter på, og du kan styre hvilke HTTP-metoder den godtar med `methods=['GET']` eller `methods=['POST']`. Standard er GET hvis du ikke sier noe annet.\n\nFor å lese data fra forespørselen bruker vi `request`-objektet. **Query-parametere** fra URL-en, som `/sok?q=flask&limit=5`, hentes med `request.args.get('q', '')` – det andre argumentet er en standardverdi, og du kan legge til `type=int` for å konvertere. Når en klient sender data i kroppen av en **POST**, leser du den med `request.get_json()`. Da bør du alltid validere: hvis dataene mangler eller en nødvendig nøkkel ikke finnes, returnerer du en feilmelding med statuskode 400. Lykkes opprettelsen, returnerer du den nye ressursen med statuskode 201 (Created). Legg merke til at du i Flask kan returnere både data og en statuskode samtidig: `return jsonify(ny_elev), 201`."},{"id":"it-2-4-4-n-quiz2","type":"exercise","exercise":{"id":"it-2-4-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på JSON og forespørsler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-4-4-n-quiz2-q0","task":"Hvordan returnerer du JSON fra en Flask-rute?","options":[{"id":"a","text":"return jsonify(data)","isCorrect":true},{"id":"b","text":"return json(data)","isCorrect":false},{"id":"c","text":"return print(data)","isCorrect":false},{"id":"d","text":"return data.json","isCorrect":false}],"solution":"jsonify() konverterer Python-objekter til en JSON-respons med riktige headere."},{"id":"it-2-4-4-n-quiz2-q1","task":"Hvordan henter du JSON-data sendt med en POST-forespørsel?","options":[{"id":"a","text":"request.json()","isCorrect":false},{"id":"b","text":"request.get_json()","isCorrect":true},{"id":"c","text":"request.data()","isCorrect":false},{"id":"d","text":"request.post()","isCorrect":false}],"solution":"request.get_json() henter og parser JSON-dataene fra kroppen av forespørselen."},{"id":"it-2-4-4-n-quiz2-q2","task":"Hvilken statuskode returnerer du når en ny ressurs er opprettet?","options":[{"id":"a","text":"200","isCorrect":false},{"id":"b","text":"404","isCorrect":false},{"id":"c","text":"201","isCorrect":true},{"id":"d","text":"500","isCorrect":false}],"solution":"201 Created signaliserer at en ny ressurs ble opprettet. Du skriver f.eks. return jsonify(ny_elev), 201."}]}},{"id":"it-2-4-4-n-section2","type":"text","content":"## Et komplett CRUD-API\n\nNå kan vi sette sammen alt til et fullstendig **CRUD-API** – Create, Read, Update, Delete – med de fire HTTP-metodene. Tenk på et bok-API med en liste `bøker` i minnet. **Create** er en POST til `/api/boker` som leser inn JSON, validerer at tittel finnes, lager en ny bok med ny id og returnerer den med 201. **Read** har to varianter: GET til `/api/boker` returnerer alle, mens GET til `/api/boker/<int:bok_id>` finner én bestemt og returnerer 404 hvis den ikke finnes. **Update** er en PUT til `/api/boker/<int:bok_id>` som oppdaterer feltene på en eksisterende bok. **Delete** er en DELETE som fjerner boken fra listen.\n\nLegg merke til to mønstre som går igjen. Ruteparameteren `<int:bok_id>` forteller Flask at id-en skal tolkes som et heltall. Og for å finne et element bruker vi `next((b for b in bøker if b['id'] == bok_id), None)`, som returnerer den første treffende boken eller None.\n\nDu kan teste ditt eget API med `requests`-biblioteket du allerede kjenner. `requests.get('http://localhost:5000/api/boker')` henter alle, `requests.post(url, json=ny_bok)` oppretter, `requests.put(url, json=oppdatering)` endrer, og `requests.delete(url)` sletter. Slik kan du automatisere testingen. Et praktisk eksempel er et værlogg-API der POST registrerer observasjoner med tidsstempel, GET henter dem (eventuelt begrenset med en `limit`-parameter), og et eget statistikk-endepunkt regner ut gjennomsnitt, min og max av temperaturene."},{"id":"it-2-4-4-n-quiz3","type":"exercise","exercise":{"id":"it-2-4-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på CRUD og testing:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-4-4-n-quiz3-q0","task":"Hva står CRUD for, og hvilke metoder tilsvarer det?","options":[{"id":"a","text":"Copy, Run, Use, Drop","isCorrect":false},{"id":"b","text":"Connect, Read, Upload, Download","isCorrect":false},{"id":"c","text":"Create/GET, Read/POST, Update/DELETE, Delete/PUT","isCorrect":false},{"id":"d","text":"Create/POST, Read/GET, Update/PUT, Delete/DELETE","isCorrect":true}],"solution":"CRUD står for Create (POST), Read (GET), Update (PUT) og Delete (DELETE)."},{"id":"it-2-4-4-n-quiz3-q1","task":"Hva betyr <int:bok_id> i en Flask-rute?","options":[{"id":"a","text":"At bok_id tolkes som et heltall fra URL-en","isCorrect":true},{"id":"b","text":"At ruten er privat","isCorrect":false},{"id":"c","text":"At svaret blir JSON","isCorrect":false},{"id":"d","text":"At metoden er POST","isCorrect":false}],"solution":"<int:bok_id> fanger en del av URL-en og tolker den som et heltall som sendes til funksjonen."},{"id":"it-2-4-4-n-quiz3-q2","task":"Hvordan sender du en ny bok til ditt eget API med requests?","options":[{"id":"a","text":"requests.get(url, json=ny_bok)","isCorrect":false},{"id":"b","text":"requests.post(url, json=ny_bok)","isCorrect":true},{"id":"c","text":"requests.delete(url)","isCorrect":false},{"id":"d","text":"requests.run(url)","isCorrect":false}],"solution":"requests.post med json-argumentet sender dataene som JSON i kroppen av en POST-forespørsel."}]}},{"id":"it-2-4-4-n-summary","type":"text","content":"## Oppsummering\n\nVi snudde rollene og ble serveren selv. **Flask** er et mikroframework der `@app.route()` knytter URL-stier til funksjoner, og `<navn>`-deler fanger URL-parametere. Et ekte API returnerer JSON med **jsonify**, godtar bestemte HTTP-metoder via `methods=[...]`, og leser data med `request.args.get()` for query-parametere og `request.get_json()` for POST-kropp – alltid med validering og passende statuskoder som 400 og 201.\n\nSatt sammen ble dette et komplett **CRUD-API**: POST for å opprette, GET for å lese (alle eller én), PUT for å oppdatere og DELETE for å slette, med `<int:id>`-parametere og 404 når noe ikke finnes. Du kan teste hele API-et med `requests`-biblioteket. I neste kapittel ser vi på det som ligger under det hele: nettverkskommunikasjon."}],"exercises":[]}
+{
+  "id": "it-2-4-4-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "4.4",
+  "title": "Bygge eget API med Flask",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å snu rollene og bli serveren selv – fra Flasks første rute og jsonify, via GET- og POST-forespørsler, til et komplett CRUD-API du kan teste med requests.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "Definere ruter og håndtere GET- og POST-forespørsler i Flask",
+    "Returnere JSON med jsonify",
+    "Bygge et komplett CRUD-API og teste det"
+  ],
+  "linkedChapterId": "it-2-4-4",
+  "content": [
+    {
+      "id": "it-2-4-4-n-intro",
+      "type": "text",
+      "content": "## Nå er det du som er restauranten\n\nSo langt har du vært gjesten – du har brukt API-er andre har laget. Nå snur vi rollene: du skal bygge ditt eget API. Verktøyet er **Flask**, et enkelt og populært Python-rammeverk for webutvikling. Med Flask kan du lage REST API-er, definere endepunkter, håndtere GET, POST, PUT og DELETE, og returnere JSON-data.\n\nFlask er ikke en del av standard Python, så du installerer det med `pip install flask`. Det kalles et **mikroframework**, fordi det er minimalistisk og lett å komme i gang med, men kan utvides med plugins ved behov. Din aller første Flask-app er kort:\n\n```python\nfrom flask import Flask\napp = Flask(__name__)\n\n@app.route('/')\ndef hjem():\n    return 'Velkommen til mitt API!'\n\n@app.route('/hei/<navn>')\ndef hei(navn):\n    return f'Hei, {navn}!'\n\nif __name__ == '__main__':\n    app.run(debug=True, port=5000)\n```\n\nHer er `@app.route()` en **dekoratør** som knytter en URL-sti til funksjonen under. `<navn>` er en URL-parameter, så `/hei/Emma` gir «Hei, Emma!». Og `debug=True` gir bedre feilmeldinger og automatisk omstart mens du utvikler."
+    },
+    {
+      "id": "it-2-4-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-4-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Flask-grunnlaget:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-4-4-n-quiz1-q0",
+            "task": "Hva er Flask?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Et Python-rammeverk for webutvikling og API-er",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En database",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En HTTP-metode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et programmeringsspråk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Flask er et mikroframework for Python som gjør det enkelt å bygge webapplikasjoner og API-er."
+          },
+          {
+            "id": "it-2-4-4-n-quiz1-q1",
+            "task": "Hva gjør @app.route() i Flask?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Starter serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Knytter en URL-sti til en Python-funksjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Returnerer alltid JSON",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sletter en rute",
+                "isCorrect": false
+              }
+            ],
+            "solution": "@app.route() er en dekoratør som definerer hvilken URL som skal kjøre funksjonen under."
+          },
+          {
+            "id": "it-2-4-4-n-quiz1-q2",
+            "task": "Hva er <navn> i @app.route('/hei/<navn>')?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En kommentar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En URL-parameter som sendes til funksjonen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "En HTTP-metode",
+                "isCorrect": false
+              }
+            ],
+            "solution": "<navn> er en URL-parameter; verdien i URL-en sendes inn som argument til funksjonen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-4-4-n-section1",
+      "type": "text",
+      "content": "## JSON, ruter og forespørsler\n\nÅ returnere ren tekst er greit for læring, men et ekte API returnerer **JSON**. Til det bruker vi `jsonify`, som automatisk konverterer Python-objekter til en JSON-respons med riktige HTTP-headere:\n\n```python\nfrom flask import Flask, jsonify\n\n@app.route('/api/elever')\ndef elever():\n    data = [{'id': 1, 'navn': 'Emma'}, {'id': 2, 'navn': 'Lars'}]\n    return jsonify(data)\n```\n\nEn **rute** er en URL-sti Flask lytter på, og du kan styre hvilke HTTP-metoder den godtar med `methods=['GET']` eller `methods=['POST']`. Standard er GET hvis du ikke sier noe annet.\n\nFor å lese data fra forespørselen bruker vi `request`-objektet. **Query-parametere** fra URL-en, som `/sok?q=flask&limit=5`, hentes med `request.args.get('q', '')` – det andre argumentet er en standardverdi, og du kan legge til `type=int` for å konvertere. Når en klient sender data i kroppen av en **POST**, leser du den med `request.get_json()`. Da bør du alltid validere: hvis dataene mangler eller en nødvendig nøkkel ikke finnes, returnerer du en feilmelding med statuskode 400. Lykkes opprettelsen, returnerer du den nye ressursen med statuskode 201 (Created). Legg merke til at du i Flask kan returnere både data og en statuskode samtidig: `return jsonify(ny_elev), 201`."
+    },
+    {
+      "id": "it-2-4-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-4-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på JSON og forespørsler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-4-4-n-quiz2-q0",
+            "task": "Hvordan returnerer du JSON fra en Flask-rute?",
+            "options": [
+              {
+                "id": "b",
+                "text": "return json(data)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "return print(data)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "return data.json",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "return jsonify(data)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "jsonify() konverterer Python-objekter til en JSON-respons med riktige headere."
+          },
+          {
+            "id": "it-2-4-4-n-quiz2-q1",
+            "task": "Hvordan henter du JSON-data sendt med en POST-forespørsel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "request.get_json()",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "request.json()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "request.data()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "request.post()",
+                "isCorrect": false
+              }
+            ],
+            "solution": "request.get_json() henter og parser JSON-dataene fra kroppen av forespørselen."
+          },
+          {
+            "id": "it-2-4-4-n-quiz2-q2",
+            "task": "Hvilken statuskode returnerer du når en ny ressurs er opprettet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "200",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "201",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "404",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "500",
+                "isCorrect": false
+              }
+            ],
+            "solution": "201 Created signaliserer at en ny ressurs ble opprettet. Du skriver f.eks. return jsonify(ny_elev), 201."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-4-4-n-section2",
+      "type": "text",
+      "content": "## Et komplett CRUD-API\n\nNå kan vi sette sammen alt til et fullstendig **CRUD-API** – Create, Read, Update, Delete – med de fire HTTP-metodene. Tenk på et bok-API med en liste `bøker` i minnet. **Create** er en POST til `/api/boker` som leser inn JSON, validerer at tittel finnes, lager en ny bok med ny id og returnerer den med 201. **Read** har to varianter: GET til `/api/boker` returnerer alle, mens GET til `/api/boker/<int:bok_id>` finner én bestemt og returnerer 404 hvis den ikke finnes. **Update** er en PUT til `/api/boker/<int:bok_id>` som oppdaterer feltene på en eksisterende bok. **Delete** er en DELETE som fjerner boken fra listen.\n\nLegg merke til to mønstre som går igjen. Ruteparameteren `<int:bok_id>` forteller Flask at id-en skal tolkes som et heltall. Og for å finne et element bruker vi `next((b for b in bøker if b['id'] == bok_id), None)`, som returnerer den første treffende boken eller None.\n\nDu kan teste ditt eget API med `requests`-biblioteket du allerede kjenner. `requests.get('http://localhost:5000/api/boker')` henter alle, `requests.post(url, json=ny_bok)` oppretter, `requests.put(url, json=oppdatering)` endrer, og `requests.delete(url)` sletter. Slik kan du automatisere testingen. Et praktisk eksempel er et værlogg-API der POST registrerer observasjoner med tidsstempel, GET henter dem (eventuelt begrenset med en `limit`-parameter), og et eget statistikk-endepunkt regner ut gjennomsnitt, min og max av temperaturene."
+    },
+    {
+      "id": "it-2-4-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-4-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på CRUD og testing:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-4-4-n-quiz3-q0",
+            "task": "Hva står CRUD for, og hvilke metoder tilsvarer det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Copy, Run, Use, Drop",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Connect, Read, Upload, Download",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Create/POST, Read/GET, Update/PUT, Delete/DELETE",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Create/GET, Read/POST, Update/DELETE, Delete/PUT",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CRUD står for Create (POST), Read (GET), Update (PUT) og Delete (DELETE)."
+          },
+          {
+            "id": "it-2-4-4-n-quiz3-q1",
+            "task": "Hva betyr <int:bok_id> i en Flask-rute?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At ruten er privat",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At svaret blir JSON",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At metoden er POST",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At bok_id tolkes som et heltall fra URL-en",
+                "isCorrect": true
+              }
+            ],
+            "solution": "<int:bok_id> fanger en del av URL-en og tolker den som et heltall som sendes til funksjonen."
+          },
+          {
+            "id": "it-2-4-4-n-quiz3-q2",
+            "task": "Hvordan sender du en ny bok til ditt eget API med requests?",
+            "options": [
+              {
+                "id": "b",
+                "text": "requests.post(url, json=ny_bok)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "requests.get(url, json=ny_bok)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "requests.delete(url)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "requests.run(url)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "requests.post med json-argumentet sender dataene som JSON i kroppen av en POST-forespørsel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-4-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi snudde rollene og ble serveren selv. **Flask** er et mikroframework der `@app.route()` knytter URL-stier til funksjoner, og `<navn>`-deler fanger URL-parametere. Et ekte API returnerer JSON med **jsonify**, godtar bestemte HTTP-metoder via `methods=[...]`, og leser data med `request.args.get()` for query-parametere og `request.get_json()` for POST-kropp – alltid med validering og passende statuskoder som 400 og 201.\n\nSatt sammen ble dette et komplett **CRUD-API**: POST for å opprette, GET for å lese (alle eller én), PUT for å oppdatere og DELETE for å slette, med `<int:id>`-parametere og 404 når noe ikke finnes. Du kan teste hele API-et med `requests`-biblioteket. I neste kapittel ser vi på det som ligger under det hele: nettverkskommunikasjon."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,349 @@
-{"id":"s2-4-1-narrativ","courseId":"s2","chapterNumber":"4.1","title":"Sannsynsfordelingar","subtitle":"Narrativ versjon","description":"Ei forteljing om lotteri og terningar — om stokastiske variablar, forventingsverdi og spreiinga rundt han.","estimatedMinutes":36,"competenceGoals":["rekne ut forventingsverdi, varians og standardavvik til stokastiske variablar","bruke sannsynsfordelingar i modellering"],"linkedChapterId":"s2-4-1","content":[{"id":"s2-4-1-n-intro","type":"text","content":"## Tal styrt av tilfeldigheiter\n\nPå skuleballet blir det selt lodd til inntekt for russetida, og du står med eitt i handa. Gevinsten kan bli 0, 50, 100 eller 500 kroner — men kva han blir, blir avgjort av tilfeldigheitene. Talet på rette på ei flervalsprøve du gjettar på, talet på kundar i kiosken i storefri, gevinsten i eit terningspel: alle er tal bestemte av tilfeldigheiter. Slike talverdiar blir kalla **stokastiske variablar**, og vi bruker store bokstavar som $X$, $Y$ og $Z$ for dei.\n\nEin **diskret stokastisk variabel** $X$ kan ta eit endeleg (eller teljbart) tal verdiar $x_1, x_2, \\ldots, x_n$. **Sannsynsfordelinga** til $X$ er ein tabell eller formel som gir $P(X = x_i)$ for kvar mogleg verdi. To krav må alltid vere oppfylte: kvart sannsyn ligg mellom 0 og 1, og summen av alle sannsyna er nøyaktig 1 — noko må jo skje.\n\nDet enklaste dømet er eit terningkast. Lat $X$ vere talet på auge. Då kan $X$ ta verdiane 1 til 6, kvar med sannsyn $\\frac{1}{6}$, og kontrollen stemmer: $6 \\cdot \\frac{1}{6} = 1$. Når alle utfall er like sannsynlege, kallar vi det ei **uniform fordeling**.\n\nMen tabellen åleine svarar ikkje på dei spørsmåla vi eigentleg stiller: Kva kan eg vente å vinne på loddet? Og kor mykje varierer resultatet frå gong til gong? Til det treng vi to nøkkeltal — forventingsverdien og variansen — og det er dei denne forteljinga handlar om."},{"id":"s2-4-1-n-section1","type":"text","content":"## Kva er loddet eigentleg verdt?\n\nLotteriet på ballet har denne gevinstfordelinga: gevinst 0 kr med sannsyn $0{,}60$, 50 kr med $0{,}25$, 100 kr med $0{,}10$ og 500 kr med $0{,}05$. Eit lodd kostar 40 kroner. Er det verdt det?\n\n**Forventingsverdien** til ein diskret stokastisk variabel er det vekta gjennomsnittet av alle moglege verdiar, der vektene er sannsyna: $$E(X) = \\mu = \\sum_{i=1}^{n} x_i \\cdot P(X = x_i)$$ Tolkinga: gjentek vi forsøket mange gonger, vil gjennomsnittet av resultata nærme seg $E(X)$ — det er «langtidsgjennomsnittet».\n\nFor loddet: $E(X) = 0 \\cdot 0{,}60 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}10 + 500 \\cdot 0{,}05 = 0 + 12{,}50 + 10 + 25 = 47{,}50$ kroner. Forventa gevinst er altså 47,50 kr, medan loddet kostar 40 kr — forventa nettogevinst er $+7{,}50$ kr per lodd. Eit slikt lotteri er ikkje «rettferdig» i matematisk forstand (forventa gevinst er ikkje lik prisen), og i praksis ville arrangøren tapt pengar og justert prisen eller sannsyna. Hos kommersielle spelselskap er reknestykket alltid motsett: forventingsverdien er lågare enn prisen.\n\nForventingsverdien følgjer enkle **reknereglar**: $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$. Forventinga er altså **lineær** — konstantar kan flyttast ut, og summar kan splittast. For terningen er til dømes $E(X) = \\frac{1+2+\\cdots+6}{6} = 3{,}5$; kastar du to terningar, er forventa sum $3{,}5 + 3{,}5 = 7$ utan vidare rekning."},{"id":"s2-4-1-n-quiz1","type":"exercise","exercise":{"id":"s2-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på stokastiske variablar og forventingsverdi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-1-n-quiz1-q0","task":"Kva for to krav blir stilte til ei sannsynsfordeling for ein diskret stokastisk variabel?","options":[{"id":"a","text":"Alle sannsyn er like, og dei summerer til 1","isCorrect":false},{"id":"b","text":"Kvart sannsyn ligg i $[0, 1]$, og summen av alle er 1","isCorrect":true},{"id":"c","text":"Verdiane må vere positive, og sannsyna må vere ulike","isCorrect":false},{"id":"d","text":"Forventingsverdien må vere 0","isCorrect":false}],"solution":"Krava er $0 \\leq P(X = x_i) \\leq 1$ for alle $i$ og $\\sum P(X = x_i) = 1$. Like sannsyn blir berre kravde i uniforme fordelingar."},{"id":"s2-4-1-n-quiz1-q1","task":"Kva er forventa gevinst i lotteriet med $P(0) = 0{,}60$, $P(50) = 0{,}25$, $P(100) = 0{,}10$ og $P(500) = 0{,}05$?","options":[{"id":"a","text":"$162{,}50$ kr","isCorrect":false},{"id":"b","text":"$40$ kr","isCorrect":false},{"id":"c","text":"$47{,}50$ kr","isCorrect":true},{"id":"d","text":"$25$ kr","isCorrect":false}],"solution":"$E(X) = 0 \\cdot 0{,}6 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}1 + 500 \\cdot 0{,}05 = 12{,}5 + 10 + 25 = 47{,}50$ kr."},{"id":"s2-4-1-n-quiz1-q2","task":"Korleis blir forventingsverdien $E(X)$ tolka?","options":[{"id":"a","text":"Den mest sannsynlege enkeltverdien","isCorrect":false},{"id":"b","text":"Gjennomsnittet av resultata når forsøket blir gjenteke mange gonger","isCorrect":true},{"id":"c","text":"Den høgaste moglege verdien","isCorrect":false},{"id":"d","text":"Medianen i fordelinga","isCorrect":false}],"solution":"Forventingsverdien er langtidsgjennomsnittet: ved mange gjentakingar nærmar gjennomsnittet seg $E(X)$. Han treng ikkje eingong vere ein mogleg verdi (terningens 3,5)."},{"id":"s2-4-1-n-quiz1-q3","task":"$E(X) = 3{,}5$. Kva er $E(2X + 1)$?","options":[{"id":"a","text":"$8$","isCorrect":true},{"id":"b","text":"$7$","isCorrect":false},{"id":"c","text":"$4{,}5$","isCorrect":false},{"id":"d","text":"$7{,}5$","isCorrect":false}],"solution":"Lineariteten gir $E(2X + 1) = 2E(X) + 1 = 2 \\cdot 3{,}5 + 1 = 8$."}]}},{"id":"s2-4-1-n-section2","type":"text","content":"## Spreiinga rundt gjennomsnittet\n\nTo lotteri kan ha nøyaktig same forventingsverdi og likevel kjennast heilt forskjellige: eitt gir alltid rundt 50 kr, det andre gir som regel null men av og til tusenvis. Skilnaden er **spreiinga**, og målet for han er **variansen**: $$\\text{Var}(X) = \\sigma^2 = E[(X - \\mu)^2] = \\sum_{i=1}^{n}(x_i - \\mu)^2 \\cdot P(X = x_i)$$ Variansen er altså det forventa kvadratavviket frå gjennomsnittet. Stor varians tyder stor uvisse.\n\nI praksis reknar vi nesten alltid med den **alternative formelen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$, der $E(X^2) = \\sum x_i^2 P(X = x_i)$ — han er raskare fordi du slepp å rekne ut avviket for kvar verdi. **Standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ hentar spreiinga tilbake til same eining som $X$ (variansen har eininga i andre potens).\n\nVi reknar på terningen. Vi har $E(X) = 3{,}5$. Vidare er $E(X^2) = \\frac{1 + 4 + 9 + 16 + 25 + 36}{6} = \\frac{91}{6}$. Då er $\\text{Var}(X) = \\frac{91}{6} - \\left(\\frac{7}{2}\\right)^2 = \\frac{182 - 147}{12} = \\frac{35}{12} \\approx 2{,}92$, og $\\sigma = \\sqrt{35/12} \\approx 1{,}71$ auge.\n\nVariansen har sine eigne reknereglar: $\\text{Var}(aX + b) = a^2\\text{Var}(X)$. Legg merke til at konstanten $b$ forsvinn — å leggje til eit fast beløp forskyv fordelinga, men endrar ikkje spreiinga. Og koeffisienten blir kvadrert. For **uavhengige** variablar gjeld dessutan $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nEit døme som samlar alt: $X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$, og vi lèt $Y = 3X - 2$. Då er $E(Y) = 3 \\cdot 5 - 2 = 13$, $\\text{Var}(Y) = 3^2 \\cdot 4 = 36$ og $\\text{SD}(Y) = 6$."},{"id":"s2-4-1-n-quiz2","type":"exercise","exercise":{"id":"s2-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på varians og standardavvik:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-1-n-quiz2-q0","task":"Kva for formel er den raskaste måten å rekne ut varians på?","options":[{"id":"a","text":"$\\text{Var}(X) = E(X^2) - [E(X)]^2$","isCorrect":true},{"id":"b","text":"$\\text{Var}(X) = E(X)^2$","isCorrect":false},{"id":"c","text":"$\\text{Var}(X) = \\sqrt{E(X^2)}$","isCorrect":false},{"id":"d","text":"$\\text{Var}(X) = E(X^2) + [E(X)]^2$","isCorrect":false}],"solution":"Den alternative formelen $E(X^2) - [E(X)]^2$ er raskare enn definisjonen fordi du slepp å rekne ut avviket $(x_i - \\mu)^2$ for kvar verdi."},{"id":"s2-4-1-n-quiz2-q1","task":"Kva er variansen til talet på auge på ein terning?","options":[{"id":"a","text":"$3{,}5$","isCorrect":false},{"id":"b","text":"$\\frac{91}{6}$","isCorrect":false},{"id":"c","text":"$1{,}71$","isCorrect":false},{"id":"d","text":"$\\frac{35}{12} \\approx 2{,}92$","isCorrect":true}],"solution":"$\\text{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{91}{6} - \\frac{49}{4} = \\frac{35}{12} \\approx 2{,}92$. Talet $1{,}71$ er standardavviket."},{"id":"s2-4-1-n-quiz2-q2","task":"Kvifor påverkar ikkje konstanten $b$ variansen i $\\text{Var}(aX + b) = a^2\\text{Var}(X)$?","options":[{"id":"a","text":"Fordi $b$ alltid er null","isCorrect":false},{"id":"b","text":"Fordi å leggje til ein konstant berre forskyv fordelinga utan å endre spreiinga","isCorrect":true},{"id":"c","text":"Fordi $b$ blir kvadrert til noko neglisjerbart","isCorrect":false},{"id":"d","text":"Det er ei tilnærming som berre gjeld store $b$","isCorrect":false}],"solution":"Alle verdiane blir flytte like mykje, så avstandane til gjennomsnittet — og dermed spreiinga — er uendra. Berre skaleringa $a$ påverkar variansen, med faktoren $a^2$."},{"id":"s2-4-1-n-quiz2-q3","task":"$X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$. Kva er $\\text{SD}(3X - 2)$?","options":[{"id":"a","text":"$12$","isCorrect":false},{"id":"b","text":"$36$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":true},{"id":"d","text":"$10$","isCorrect":false}],"solution":"$\\text{Var}(3X - 2) = 9 \\cdot 4 = 36$, så standardavviket er $\\sqrt{36} = 6$. (36 er variansen, ikkje standardavviket.)"}]}},{"id":"s2-4-1-n-summary","type":"text","content":"## Oppsummering: to tal som skildrar tilfeldigheita\n\nFrå loddsalet på skuleballet har vi bygd heile grunnmuren for sannsynsrekninga i S2. Ein **stokastisk variabel** er ein talverdi styrt av tilfeldigheiter, og **sannsynsfordelinga** er oversikta over $P(X = x)$ for alle moglege verdiar — med krava at kvart sannsyn ligg mellom 0 og 1 og at summen er nøyaktig 1.\n\nTo nøkkeltal skildrar fordelinga. **Forventingsverdien** $E(X) = \\sum x_i P(X = x_i)$ er det vekta gjennomsnittet og blir tolka som langtidsgjennomsnittet ved mange gjentakingar — det var slik vi fann at lotteriloddet var verdt 47,50 kr og at eit terningkast i snitt gir 3,5 auge. **Variansen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$ måler spreiinga rundt gjennomsnittet, og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer han i same eining som $X$.\n\nReknereglane gjer tunge utrekningar lette: forventinga er lineær, $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$, medan variansen følgjer $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantledd forsvinn, koeffisientar blir kvadrerte — og for uavhengige variablar blir variansane adderte: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nDesse omgrepa er språket alt det neste blir uttrykt i: binomisk og hypergeometrisk fordeling, normalfordelinga og etter kvart estimering og hypotesetesting. Kvar gong du møter ei ny fordeling, er dei to første spørsmåla alltid dei same: kva er forventingsverdien, og kor stor er spreiinga?"}],"exercises":[],"_meta":{"sourceHash":"fae3d24e07034806","translatedAt":"2026-06-20T08:41:13.511Z","model":"claude-code-agent","strings":51,"tm":{"03d560aee2788843":"Sannsynsfordelingar","b195b06d1ed59702":"Narrativ versjon","8b5dbed548f31593":"Ei forteljing om lotteri og terningar — om stokastiske variablar, forventingsverdi og spreiinga rundt han.","d18ca2471178d999":"rekne ut forventingsverdi, varians og standardavvik til stokastiske variablar","ea1bc93ce23dcfa3":"bruke sannsynsfordelingar i modellering","280787b585d95659":"## Tal styrt av tilfeldigheiter\n\nPå skuleballet blir det selt lodd til inntekt for russetida, og du står med eitt i handa. Gevinsten kan bli 0, 50, 100 eller 500 kroner — men kva han blir, blir avgjort av tilfeldigheitene. Talet på rette på ei flervalsprøve du gjettar på, talet på kundar i kiosken i storefri, gevinsten i eit terningspel: alle er tal bestemte av tilfeldigheiter. Slike talverdiar blir kalla **stokastiske variablar**, og vi bruker store bokstavar som $X$, $Y$ og $Z$ for dei.\n\nEin **diskret stokastisk variabel** $X$ kan ta eit endeleg (eller teljbart) tal verdiar $x_1, x_2, \\ldots, x_n$. **Sannsynsfordelinga** til $X$ er ein tabell eller formel som gir $P(X = x_i)$ for kvar mogleg verdi. To krav må alltid vere oppfylte: kvart sannsyn ligg mellom 0 og 1, og summen av alle sannsyna er nøyaktig 1 — noko må jo skje.\n\nDet enklaste dømet er eit terningkast. Lat $X$ vere talet på auge. Då kan $X$ ta verdiane 1 til 6, kvar med sannsyn $\\frac{1}{6}$, og kontrollen stemmer: $6 \\cdot \\frac{1}{6} = 1$. Når alle utfall er like sannsynlege, kallar vi det ei **uniform fordeling**.\n\nMen tabellen åleine svarar ikkje på dei spørsmåla vi eigentleg stiller: Kva kan eg vente å vinne på loddet? Og kor mykje varierer resultatet frå gong til gong? Til det treng vi to nøkkeltal — forventingsverdien og variansen — og det er dei denne forteljinga handlar om.","aff5edf18cf28f8b":"## Kva er loddet eigentleg verdt?\n\nLotteriet på ballet har denne gevinstfordelinga: gevinst 0 kr med sannsyn $0{,}60$, 50 kr med $0{,}25$, 100 kr med $0{,}10$ og 500 kr med $0{,}05$. Eit lodd kostar 40 kroner. Er det verdt det?\n\n**Forventingsverdien** til ein diskret stokastisk variabel er det vekta gjennomsnittet av alle moglege verdiar, der vektene er sannsyna: $$E(X) = \\mu = \\sum_{i=1}^{n} x_i \\cdot P(X = x_i)$$ Tolkinga: gjentek vi forsøket mange gonger, vil gjennomsnittet av resultata nærme seg $E(X)$ — det er «langtidsgjennomsnittet».\n\nFor loddet: $E(X) = 0 \\cdot 0{,}60 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}10 + 500 \\cdot 0{,}05 = 0 + 12{,}50 + 10 + 25 = 47{,}50$ kroner. Forventa gevinst er altså 47,50 kr, medan loddet kostar 40 kr — forventa nettogevinst er $+7{,}50$ kr per lodd. Eit slikt lotteri er ikkje «rettferdig» i matematisk forstand (forventa gevinst er ikkje lik prisen), og i praksis ville arrangøren tapt pengar og justert prisen eller sannsyna. Hos kommersielle spelselskap er reknestykket alltid motsett: forventingsverdien er lågare enn prisen.\n\nForventingsverdien følgjer enkle **reknereglar**: $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$. Forventinga er altså **lineær** — konstantar kan flyttast ut, og summar kan splittast. For terningen er til dømes $E(X) = \\frac{1+2+\\cdots+6}{6} = 3{,}5$; kastar du to terningar, er forventa sum $3{,}5 + 3{,}5 = 7$ utan vidare rekning.","c1a0a11ac83aa4b9":"Test deg sjølv på stokastiske variablar og forventingsverdi:","4097889236a2af26":"placeholder","1b8449ef2a724413":"Kva for to krav blir stilte til ei sannsynsfordeling for ein diskret stokastisk variabel?","a3d192f4a2e5412d":"Alle sannsyn er like, og dei summerer til 1","eaca9256dfef254e":"Kvart sannsyn ligg i $[0, 1]$, og summen av alle er 1","d8d8d8712a59238d":"Verdiane må vere positive, og sannsyna må vere ulike","0fbae22f8e1d135f":"Forventingsverdien må vere 0","32d52208a444838f":"Krava er $0 \\leq P(X = x_i) \\leq 1$ for alle $i$ og $\\sum P(X = x_i) = 1$. Like sannsyn blir berre kravde i uniforme fordelingar.","32ccee79c2b51bed":"Kva er forventa gevinst i lotteriet med $P(0) = 0{,}60$, $P(50) = 0{,}25$, $P(100) = 0{,}10$ og $P(500) = 0{,}05$?","d4137c7999a84491":"$162{,}50$ kr","a8fce32d1d06c60c":"$40$ kr","4c98bb4148c2264f":"$47{,}50$ kr","89c55d7672393c88":"$25$ kr","861a721c76119ba5":"$E(X) = 0 \\cdot 0{,}6 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}1 + 500 \\cdot 0{,}05 = 12{,}5 + 10 + 25 = 47{,}50$ kr.","730d3bd5d1c6137c":"Korleis blir forventingsverdien $E(X)$ tolka?","2f63910b08e76437":"Den mest sannsynlege enkeltverdien","a2253dac73ddca3c":"Gjennomsnittet av resultata når forsøket blir gjenteke mange gonger","af00190416377463":"Den høgaste moglege verdien","d5c9e21c03f41329":"Medianen i fordelinga","1c850f299593388f":"Forventingsverdien er langtidsgjennomsnittet: ved mange gjentakingar nærmar gjennomsnittet seg $E(X)$. Han treng ikkje eingong vere ein mogleg verdi (terningens 3,5).","7935f521708235e9":"$E(X) = 3{,}5$. Kva er $E(2X + 1)$?","cab57a6e92d32e4e":"Lineariteten gir $E(2X + 1) = 2E(X) + 1 = 2 \\cdot 3{,}5 + 1 = 8$.","3a4436fa43e0d689":"## Spreiinga rundt gjennomsnittet\n\nTo lotteri kan ha nøyaktig same forventingsverdi og likevel kjennast heilt forskjellige: eitt gir alltid rundt 50 kr, det andre gir som regel null men av og til tusenvis. Skilnaden er **spreiinga**, og målet for han er **variansen**: $$\\text{Var}(X) = \\sigma^2 = E[(X - \\mu)^2] = \\sum_{i=1}^{n}(x_i - \\mu)^2 \\cdot P(X = x_i)$$ Variansen er altså det forventa kvadratavviket frå gjennomsnittet. Stor varians tyder stor uvisse.\n\nI praksis reknar vi nesten alltid med den **alternative formelen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$, der $E(X^2) = \\sum x_i^2 P(X = x_i)$ — han er raskare fordi du slepp å rekne ut avviket for kvar verdi. **Standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ hentar spreiinga tilbake til same eining som $X$ (variansen har eininga i andre potens).\n\nVi reknar på terningen. Vi har $E(X) = 3{,}5$. Vidare er $E(X^2) = \\frac{1 + 4 + 9 + 16 + 25 + 36}{6} = \\frac{91}{6}$. Då er $\\text{Var}(X) = \\frac{91}{6} - \\left(\\frac{7}{2}\\right)^2 = \\frac{182 - 147}{12} = \\frac{35}{12} \\approx 2{,}92$, og $\\sigma = \\sqrt{35/12} \\approx 1{,}71$ auge.\n\nVariansen har sine eigne reknereglar: $\\text{Var}(aX + b) = a^2\\text{Var}(X)$. Legg merke til at konstanten $b$ forsvinn — å leggje til eit fast beløp forskyv fordelinga, men endrar ikkje spreiinga. Og koeffisienten blir kvadrert. For **uavhengige** variablar gjeld dessutan $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nEit døme som samlar alt: $X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$, og vi lèt $Y = 3X - 2$. Då er $E(Y) = 3 \\cdot 5 - 2 = 13$, $\\text{Var}(Y) = 3^2 \\cdot 4 = 36$ og $\\text{SD}(Y) = 6$.","953beea5dc2d9928":"Test deg sjølv på varians og standardavvik:","3fa749d8413f33ae":"Kva for formel er den raskaste måten å rekne ut varians på?","59c6cecb6b83f18a":"$\\text{Var}(X) = E(X^2) - [E(X)]^2$","50c65ea65c0e8a0b":"$\\text{Var}(X) = E(X)^2$","6450ce10cb85ee9d":"$\\text{Var}(X) = \\sqrt{E(X^2)}$","f6c5945b01483658":"$\\text{Var}(X) = E(X^2) + [E(X)]^2$","4af0a5bc45022f42":"Den alternative formelen $E(X^2) - [E(X)]^2$ er raskare enn definisjonen fordi du slepp å rekne ut avviket $(x_i - \\mu)^2$ for kvar verdi.","73c2ceb16e6b0c0b":"Kva er variansen til talet på auge på ein terning?","4643fe510e4a15fe":"$\\frac{91}{6}$","ec2d2059fc6d990d":"$\\frac{35}{12} \\approx 2{,}92$","35defd6099443c52":"$\\text{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{91}{6} - \\frac{49}{4} = \\frac{35}{12} \\approx 2{,}92$. Talet $1{,}71$ er standardavviket.","2a71814fdaefbe37":"Kvifor påverkar ikkje konstanten $b$ variansen i $\\text{Var}(aX + b) = a^2\\text{Var}(X)$?","c91a8204b0ca1b4f":"Fordi $b$ alltid er null","adac2c645993791e":"Fordi å leggje til ein konstant berre forskyv fordelinga utan å endre spreiinga","dd65c6840c67beb3":"Fordi $b$ blir kvadrert til noko neglisjerbart","9df4e9f8f97f942f":"Det er ei tilnærming som berre gjeld store $b$","822fb6409607bf0d":"Alle verdiane blir flytte like mykje, så avstandane til gjennomsnittet — og dermed spreiinga — er uendra. Berre skaleringa $a$ påverkar variansen, med faktoren $a^2$.","2fd6d165d8ffc0a0":"$X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$. Kva er $\\text{SD}(3X - 2)$?","8ccdeda4ea5a93cc":"$\\text{Var}(3X - 2) = 9 \\cdot 4 = 36$, så standardavviket er $\\sqrt{36} = 6$. (36 er variansen, ikkje standardavviket.)","0652536151577453":"## Oppsummering: to tal som skildrar tilfeldigheita\n\nFrå loddsalet på skuleballet har vi bygd heile grunnmuren for sannsynsrekninga i S2. Ein **stokastisk variabel** er ein talverdi styrt av tilfeldigheiter, og **sannsynsfordelinga** er oversikta over $P(X = x)$ for alle moglege verdiar — med krava at kvart sannsyn ligg mellom 0 og 1 og at summen er nøyaktig 1.\n\nTo nøkkeltal skildrar fordelinga. **Forventingsverdien** $E(X) = \\sum x_i P(X = x_i)$ er det vekta gjennomsnittet og blir tolka som langtidsgjennomsnittet ved mange gjentakingar — det var slik vi fann at lotteriloddet var verdt 47,50 kr og at eit terningkast i snitt gir 3,5 auge. **Variansen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$ måler spreiinga rundt gjennomsnittet, og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer han i same eining som $X$.\n\nReknereglane gjer tunge utrekningar lette: forventinga er lineær, $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$, medan variansen følgjer $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantledd forsvinn, koeffisientar blir kvadrerte — og for uavhengige variablar blir variansane adderte: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nDesse omgrepa er språket alt det neste blir uttrykt i: binomisk og hypergeometrisk fordeling, normalfordelinga og etter kvart estimering og hypotesetesting. Kvar gong du møter ei ny fordeling, er dei to første spørsmåla alltid dei same: kva er forventingsverdien, og kor stor er spreiinga?"}}}
+{
+  "id": "s2-4-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "4.1",
+  "title": "Sannsynsfordelingar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om lotteri og terningar — om stokastiske variablar, forventingsverdi og spreiinga rundt han.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "rekne ut forventingsverdi, varians og standardavvik til stokastiske variablar",
+    "bruke sannsynsfordelingar i modellering"
+  ],
+  "linkedChapterId": "s2-4-1",
+  "content": [
+    {
+      "id": "s2-4-1-n-intro",
+      "type": "text",
+      "content": "## Tal styrt av tilfeldigheiter\n\nPå skuleballet blir det selt lodd til inntekt for russetida, og du står med eitt i handa. Gevinsten kan bli 0, 50, 100 eller 500 kroner — men kva han blir, blir avgjort av tilfeldigheitene. Talet på rette på ei flervalsprøve du gjettar på, talet på kundar i kiosken i storefri, gevinsten i eit terningspel: alle er tal bestemte av tilfeldigheiter. Slike talverdiar blir kalla **stokastiske variablar**, og vi bruker store bokstavar som $X$, $Y$ og $Z$ for dei.\n\nEin **diskret stokastisk variabel** $X$ kan ta eit endeleg (eller teljbart) tal verdiar $x_1, x_2, \\ldots, x_n$. **Sannsynsfordelinga** til $X$ er ein tabell eller formel som gir $P(X = x_i)$ for kvar mogleg verdi. To krav må alltid vere oppfylte: kvart sannsyn ligg mellom 0 og 1, og summen av alle sannsyna er nøyaktig 1 — noko må jo skje.\n\nDet enklaste dømet er eit terningkast. Lat $X$ vere talet på auge. Då kan $X$ ta verdiane 1 til 6, kvar med sannsyn $\\frac{1}{6}$, og kontrollen stemmer: $6 \\cdot \\frac{1}{6} = 1$. Når alle utfall er like sannsynlege, kallar vi det ei **uniform fordeling**.\n\nMen tabellen åleine svarar ikkje på dei spørsmåla vi eigentleg stiller: Kva kan eg vente å vinne på loddet? Og kor mykje varierer resultatet frå gong til gong? Til det treng vi to nøkkeltal — forventingsverdien og variansen — og det er dei denne forteljinga handlar om."
+    },
+    {
+      "id": "s2-4-1-n-section1",
+      "type": "text",
+      "content": "## Kva er loddet eigentleg verdt?\n\nLotteriet på ballet har denne gevinstfordelinga: gevinst 0 kr med sannsyn $0{,}60$, 50 kr med $0{,}25$, 100 kr med $0{,}10$ og 500 kr med $0{,}05$. Eit lodd kostar 40 kroner. Er det verdt det?\n\n**Forventingsverdien** til ein diskret stokastisk variabel er det vekta gjennomsnittet av alle moglege verdiar, der vektene er sannsyna: $$E(X) = \\mu = \\sum_{i=1}^{n} x_i \\cdot P(X = x_i)$$ Tolkinga: gjentek vi forsøket mange gonger, vil gjennomsnittet av resultata nærme seg $E(X)$ — det er «langtidsgjennomsnittet».\n\nFor loddet: $E(X) = 0 \\cdot 0{,}60 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}10 + 500 \\cdot 0{,}05 = 0 + 12{,}50 + 10 + 25 = 47{,}50$ kroner. Forventa gevinst er altså 47,50 kr, medan loddet kostar 40 kr — forventa nettogevinst er $+7{,}50$ kr per lodd. Eit slikt lotteri er ikkje «rettferdig» i matematisk forstand (forventa gevinst er ikkje lik prisen), og i praksis ville arrangøren tapt pengar og justert prisen eller sannsyna. Hos kommersielle spelselskap er reknestykket alltid motsett: forventingsverdien er lågare enn prisen.\n\nForventingsverdien følgjer enkle **reknereglar**: $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$. Forventinga er altså **lineær** — konstantar kan flyttast ut, og summar kan splittast. For terningen er til dømes $E(X) = \\frac{1+2+\\cdots+6}{6} = 3{,}5$; kastar du to terningar, er forventa sum $3{,}5 + 3{,}5 = 7$ utan vidare rekning."
+    },
+    {
+      "id": "s2-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på stokastiske variablar og forventingsverdi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-1-n-quiz1-q0",
+            "task": "Kva for to krav blir stilte til ei sannsynsfordeling for ein diskret stokastisk variabel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kvart sannsyn ligg i $[0, 1]$, og summen av alle er 1",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Alle sannsyn er like, og dei summerer til 1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Verdiane må vere positive, og sannsyna må vere ulike",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forventingsverdien må vere 0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Krava er $0 \\leq P(X = x_i) \\leq 1$ for alle $i$ og $\\sum P(X = x_i) = 1$. Like sannsyn blir berre kravde i uniforme fordelingar."
+          },
+          {
+            "id": "s2-4-1-n-quiz1-q1",
+            "task": "Kva er forventa gevinst i lotteriet med $P(0) = 0{,}60$, $P(50) = 0{,}25$, $P(100) = 0{,}10$ og $P(500) = 0{,}05$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$162{,}50$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$47{,}50$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$40$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = 0 \\cdot 0{,}6 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}1 + 500 \\cdot 0{,}05 = 12{,}5 + 10 + 25 = 47{,}50$ kr."
+          },
+          {
+            "id": "s2-4-1-n-quiz1-q2",
+            "task": "Korleis blir forventingsverdien $E(X)$ tolka?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den mest sannsynlege enkeltverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den høgaste moglege verdien",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnittet av resultata når forsøket blir gjenteke mange gonger",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Medianen i fordelinga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forventingsverdien er langtidsgjennomsnittet: ved mange gjentakingar nærmar gjennomsnittet seg $E(X)$. Han treng ikkje eingong vere ein mogleg verdi (terningens 3,5)."
+          },
+          {
+            "id": "s2-4-1-n-quiz1-q3",
+            "task": "$E(X) = 3{,}5$. Kva er $E(2X + 1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$7{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Lineariteten gir $E(2X + 1) = 2E(X) + 1 = 2 \\cdot 3{,}5 + 1 = 8$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-1-n-section2",
+      "type": "text",
+      "content": "## Spreiinga rundt gjennomsnittet\n\nTo lotteri kan ha nøyaktig same forventingsverdi og likevel kjennast heilt forskjellige: eitt gir alltid rundt 50 kr, det andre gir som regel null men av og til tusenvis. Skilnaden er **spreiinga**, og målet for han er **variansen**: $$\\text{Var}(X) = \\sigma^2 = E[(X - \\mu)^2] = \\sum_{i=1}^{n}(x_i - \\mu)^2 \\cdot P(X = x_i)$$ Variansen er altså det forventa kvadratavviket frå gjennomsnittet. Stor varians tyder stor uvisse.\n\nI praksis reknar vi nesten alltid med den **alternative formelen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$, der $E(X^2) = \\sum x_i^2 P(X = x_i)$ — han er raskare fordi du slepp å rekne ut avviket for kvar verdi. **Standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ hentar spreiinga tilbake til same eining som $X$ (variansen har eininga i andre potens).\n\nVi reknar på terningen. Vi har $E(X) = 3{,}5$. Vidare er $E(X^2) = \\frac{1 + 4 + 9 + 16 + 25 + 36}{6} = \\frac{91}{6}$. Då er $\\text{Var}(X) = \\frac{91}{6} - \\left(\\frac{7}{2}\\right)^2 = \\frac{182 - 147}{12} = \\frac{35}{12} \\approx 2{,}92$, og $\\sigma = \\sqrt{35/12} \\approx 1{,}71$ auge.\n\nVariansen har sine eigne reknereglar: $\\text{Var}(aX + b) = a^2\\text{Var}(X)$. Legg merke til at konstanten $b$ forsvinn — å leggje til eit fast beløp forskyv fordelinga, men endrar ikkje spreiinga. Og koeffisienten blir kvadrert. For **uavhengige** variablar gjeld dessutan $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nEit døme som samlar alt: $X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$, og vi lèt $Y = 3X - 2$. Då er $E(Y) = 3 \\cdot 5 - 2 = 13$, $\\text{Var}(Y) = 3^2 \\cdot 4 = 36$ og $\\text{SD}(Y) = 6$."
+    },
+    {
+      "id": "s2-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på varians og standardavvik:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-1-n-quiz2-q0",
+            "task": "Kva for formel er den raskaste måten å rekne ut varians på?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\text{Var}(X) = E(X^2) - [E(X)]^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\text{Var}(X) = E(X)^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\text{Var}(X) = \\sqrt{E(X^2)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\text{Var}(X) = E(X^2) + [E(X)]^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den alternative formelen $E(X^2) - [E(X)]^2$ er raskare enn definisjonen fordi du slepp å rekne ut avviket $(x_i - \\mu)^2$ for kvar verdi."
+          },
+          {
+            "id": "s2-4-1-n-quiz2-q1",
+            "task": "Kva er variansen til talet på auge på ein terning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{35}{12} \\approx 2{,}92$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{91}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}71$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{91}{6} - \\frac{49}{4} = \\frac{35}{12} \\approx 2{,}92$. Talet $1{,}71$ er standardavviket."
+          },
+          {
+            "id": "s2-4-1-n-quiz2-q2",
+            "task": "Kvifor påverkar ikkje konstanten $b$ variansen i $\\text{Var}(aX + b) = a^2\\text{Var}(X)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $b$ alltid er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $b$ blir kvadrert til noko neglisjerbart",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi å leggje til ein konstant berre forskyv fordelinga utan å endre spreiinga",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er ei tilnærming som berre gjeld store $b$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle verdiane blir flytte like mykje, så avstandane til gjennomsnittet — og dermed spreiinga — er uendra. Berre skaleringa $a$ påverkar variansen, med faktoren $a^2$."
+          },
+          {
+            "id": "s2-4-1-n-quiz2-q3",
+            "task": "$X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$. Kva er $\\text{SD}(3X - 2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$36$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\text{Var}(3X - 2) = 9 \\cdot 4 = 36$, så standardavviket er $\\sqrt{36} = 6$. (36 er variansen, ikkje standardavviket.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: to tal som skildrar tilfeldigheita\n\nFrå loddsalet på skuleballet har vi bygd heile grunnmuren for sannsynsrekninga i S2. Ein **stokastisk variabel** er ein talverdi styrt av tilfeldigheiter, og **sannsynsfordelinga** er oversikta over $P(X = x)$ for alle moglege verdiar — med krava at kvart sannsyn ligg mellom 0 og 1 og at summen er nøyaktig 1.\n\nTo nøkkeltal skildrar fordelinga. **Forventingsverdien** $E(X) = \\sum x_i P(X = x_i)$ er det vekta gjennomsnittet og blir tolka som langtidsgjennomsnittet ved mange gjentakingar — det var slik vi fann at lotteriloddet var verdt 47,50 kr og at eit terningkast i snitt gir 3,5 auge. **Variansen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$ måler spreiinga rundt gjennomsnittet, og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer han i same eining som $X$.\n\nReknereglane gjer tunge utrekningar lette: forventinga er lineær, $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$, medan variansen følgjer $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantledd forsvinn, koeffisientar blir kvadrerte — og for uavhengige variablar blir variansane adderte: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nDesse omgrepa er språket alt det neste blir uttrykt i: binomisk og hypergeometrisk fordeling, normalfordelinga og etter kvart estimering og hypotesetesting. Kvar gong du møter ei ny fordeling, er dei to første spørsmåla alltid dei same: kva er forventingsverdien, og kor stor er spreiinga?"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "fae3d24e07034806",
+    "translatedAt": "2026-06-20T08:41:13.511Z",
+    "model": "claude-code-agent",
+    "strings": 51,
+    "tm": {
+      "03d560aee2788843": "Sannsynsfordelingar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "8b5dbed548f31593": "Ei forteljing om lotteri og terningar — om stokastiske variablar, forventingsverdi og spreiinga rundt han.",
+      "d18ca2471178d999": "rekne ut forventingsverdi, varians og standardavvik til stokastiske variablar",
+      "ea1bc93ce23dcfa3": "bruke sannsynsfordelingar i modellering",
+      "280787b585d95659": "## Tal styrt av tilfeldigheiter\n\nPå skuleballet blir det selt lodd til inntekt for russetida, og du står med eitt i handa. Gevinsten kan bli 0, 50, 100 eller 500 kroner — men kva han blir, blir avgjort av tilfeldigheitene. Talet på rette på ei flervalsprøve du gjettar på, talet på kundar i kiosken i storefri, gevinsten i eit terningspel: alle er tal bestemte av tilfeldigheiter. Slike talverdiar blir kalla **stokastiske variablar**, og vi bruker store bokstavar som $X$, $Y$ og $Z$ for dei.\n\nEin **diskret stokastisk variabel** $X$ kan ta eit endeleg (eller teljbart) tal verdiar $x_1, x_2, \\ldots, x_n$. **Sannsynsfordelinga** til $X$ er ein tabell eller formel som gir $P(X = x_i)$ for kvar mogleg verdi. To krav må alltid vere oppfylte: kvart sannsyn ligg mellom 0 og 1, og summen av alle sannsyna er nøyaktig 1 — noko må jo skje.\n\nDet enklaste dømet er eit terningkast. Lat $X$ vere talet på auge. Då kan $X$ ta verdiane 1 til 6, kvar med sannsyn $\\frac{1}{6}$, og kontrollen stemmer: $6 \\cdot \\frac{1}{6} = 1$. Når alle utfall er like sannsynlege, kallar vi det ei **uniform fordeling**.\n\nMen tabellen åleine svarar ikkje på dei spørsmåla vi eigentleg stiller: Kva kan eg vente å vinne på loddet? Og kor mykje varierer resultatet frå gong til gong? Til det treng vi to nøkkeltal — forventingsverdien og variansen — og det er dei denne forteljinga handlar om.",
+      "aff5edf18cf28f8b": "## Kva er loddet eigentleg verdt?\n\nLotteriet på ballet har denne gevinstfordelinga: gevinst 0 kr med sannsyn $0{,}60$, 50 kr med $0{,}25$, 100 kr med $0{,}10$ og 500 kr med $0{,}05$. Eit lodd kostar 40 kroner. Er det verdt det?\n\n**Forventingsverdien** til ein diskret stokastisk variabel er det vekta gjennomsnittet av alle moglege verdiar, der vektene er sannsyna: $$E(X) = \\mu = \\sum_{i=1}^{n} x_i \\cdot P(X = x_i)$$ Tolkinga: gjentek vi forsøket mange gonger, vil gjennomsnittet av resultata nærme seg $E(X)$ — det er «langtidsgjennomsnittet».\n\nFor loddet: $E(X) = 0 \\cdot 0{,}60 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}10 + 500 \\cdot 0{,}05 = 0 + 12{,}50 + 10 + 25 = 47{,}50$ kroner. Forventa gevinst er altså 47,50 kr, medan loddet kostar 40 kr — forventa nettogevinst er $+7{,}50$ kr per lodd. Eit slikt lotteri er ikkje «rettferdig» i matematisk forstand (forventa gevinst er ikkje lik prisen), og i praksis ville arrangøren tapt pengar og justert prisen eller sannsyna. Hos kommersielle spelselskap er reknestykket alltid motsett: forventingsverdien er lågare enn prisen.\n\nForventingsverdien følgjer enkle **reknereglar**: $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$. Forventinga er altså **lineær** — konstantar kan flyttast ut, og summar kan splittast. For terningen er til dømes $E(X) = \\frac{1+2+\\cdots+6}{6} = 3{,}5$; kastar du to terningar, er forventa sum $3{,}5 + 3{,}5 = 7$ utan vidare rekning.",
+      "c1a0a11ac83aa4b9": "Test deg sjølv på stokastiske variablar og forventingsverdi:",
+      "4097889236a2af26": "placeholder",
+      "1b8449ef2a724413": "Kva for to krav blir stilte til ei sannsynsfordeling for ein diskret stokastisk variabel?",
+      "a3d192f4a2e5412d": "Alle sannsyn er like, og dei summerer til 1",
+      "eaca9256dfef254e": "Kvart sannsyn ligg i $[0, 1]$, og summen av alle er 1",
+      "d8d8d8712a59238d": "Verdiane må vere positive, og sannsyna må vere ulike",
+      "0fbae22f8e1d135f": "Forventingsverdien må vere 0",
+      "32d52208a444838f": "Krava er $0 \\leq P(X = x_i) \\leq 1$ for alle $i$ og $\\sum P(X = x_i) = 1$. Like sannsyn blir berre kravde i uniforme fordelingar.",
+      "32ccee79c2b51bed": "Kva er forventa gevinst i lotteriet med $P(0) = 0{,}60$, $P(50) = 0{,}25$, $P(100) = 0{,}10$ og $P(500) = 0{,}05$?",
+      "d4137c7999a84491": "$162{,}50$ kr",
+      "a8fce32d1d06c60c": "$40$ kr",
+      "4c98bb4148c2264f": "$47{,}50$ kr",
+      "89c55d7672393c88": "$25$ kr",
+      "861a721c76119ba5": "$E(X) = 0 \\cdot 0{,}6 + 50 \\cdot 0{,}25 + 100 \\cdot 0{,}1 + 500 \\cdot 0{,}05 = 12{,}5 + 10 + 25 = 47{,}50$ kr.",
+      "730d3bd5d1c6137c": "Korleis blir forventingsverdien $E(X)$ tolka?",
+      "2f63910b08e76437": "Den mest sannsynlege enkeltverdien",
+      "a2253dac73ddca3c": "Gjennomsnittet av resultata når forsøket blir gjenteke mange gonger",
+      "af00190416377463": "Den høgaste moglege verdien",
+      "d5c9e21c03f41329": "Medianen i fordelinga",
+      "1c850f299593388f": "Forventingsverdien er langtidsgjennomsnittet: ved mange gjentakingar nærmar gjennomsnittet seg $E(X)$. Han treng ikkje eingong vere ein mogleg verdi (terningens 3,5).",
+      "7935f521708235e9": "$E(X) = 3{,}5$. Kva er $E(2X + 1)$?",
+      "cab57a6e92d32e4e": "Lineariteten gir $E(2X + 1) = 2E(X) + 1 = 2 \\cdot 3{,}5 + 1 = 8$.",
+      "3a4436fa43e0d689": "## Spreiinga rundt gjennomsnittet\n\nTo lotteri kan ha nøyaktig same forventingsverdi og likevel kjennast heilt forskjellige: eitt gir alltid rundt 50 kr, det andre gir som regel null men av og til tusenvis. Skilnaden er **spreiinga**, og målet for han er **variansen**: $$\\text{Var}(X) = \\sigma^2 = E[(X - \\mu)^2] = \\sum_{i=1}^{n}(x_i - \\mu)^2 \\cdot P(X = x_i)$$ Variansen er altså det forventa kvadratavviket frå gjennomsnittet. Stor varians tyder stor uvisse.\n\nI praksis reknar vi nesten alltid med den **alternative formelen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$, der $E(X^2) = \\sum x_i^2 P(X = x_i)$ — han er raskare fordi du slepp å rekne ut avviket for kvar verdi. **Standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ hentar spreiinga tilbake til same eining som $X$ (variansen har eininga i andre potens).\n\nVi reknar på terningen. Vi har $E(X) = 3{,}5$. Vidare er $E(X^2) = \\frac{1 + 4 + 9 + 16 + 25 + 36}{6} = \\frac{91}{6}$. Då er $\\text{Var}(X) = \\frac{91}{6} - \\left(\\frac{7}{2}\\right)^2 = \\frac{182 - 147}{12} = \\frac{35}{12} \\approx 2{,}92$, og $\\sigma = \\sqrt{35/12} \\approx 1{,}71$ auge.\n\nVariansen har sine eigne reknereglar: $\\text{Var}(aX + b) = a^2\\text{Var}(X)$. Legg merke til at konstanten $b$ forsvinn — å leggje til eit fast beløp forskyv fordelinga, men endrar ikkje spreiinga. Og koeffisienten blir kvadrert. For **uavhengige** variablar gjeld dessutan $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nEit døme som samlar alt: $X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$, og vi lèt $Y = 3X - 2$. Då er $E(Y) = 3 \\cdot 5 - 2 = 13$, $\\text{Var}(Y) = 3^2 \\cdot 4 = 36$ og $\\text{SD}(Y) = 6$.",
+      "953beea5dc2d9928": "Test deg sjølv på varians og standardavvik:",
+      "3fa749d8413f33ae": "Kva for formel er den raskaste måten å rekne ut varians på?",
+      "59c6cecb6b83f18a": "$\\text{Var}(X) = E(X^2) - [E(X)]^2$",
+      "50c65ea65c0e8a0b": "$\\text{Var}(X) = E(X)^2$",
+      "6450ce10cb85ee9d": "$\\text{Var}(X) = \\sqrt{E(X^2)}$",
+      "f6c5945b01483658": "$\\text{Var}(X) = E(X^2) + [E(X)]^2$",
+      "4af0a5bc45022f42": "Den alternative formelen $E(X^2) - [E(X)]^2$ er raskare enn definisjonen fordi du slepp å rekne ut avviket $(x_i - \\mu)^2$ for kvar verdi.",
+      "73c2ceb16e6b0c0b": "Kva er variansen til talet på auge på ein terning?",
+      "4643fe510e4a15fe": "$\\frac{91}{6}$",
+      "ec2d2059fc6d990d": "$\\frac{35}{12} \\approx 2{,}92$",
+      "35defd6099443c52": "$\\text{Var}(X) = E(X^2) - [E(X)]^2 = \\frac{91}{6} - \\frac{49}{4} = \\frac{35}{12} \\approx 2{,}92$. Talet $1{,}71$ er standardavviket.",
+      "2a71814fdaefbe37": "Kvifor påverkar ikkje konstanten $b$ variansen i $\\text{Var}(aX + b) = a^2\\text{Var}(X)$?",
+      "c91a8204b0ca1b4f": "Fordi $b$ alltid er null",
+      "adac2c645993791e": "Fordi å leggje til ein konstant berre forskyv fordelinga utan å endre spreiinga",
+      "dd65c6840c67beb3": "Fordi $b$ blir kvadrert til noko neglisjerbart",
+      "9df4e9f8f97f942f": "Det er ei tilnærming som berre gjeld store $b$",
+      "822fb6409607bf0d": "Alle verdiane blir flytte like mykje, så avstandane til gjennomsnittet — og dermed spreiinga — er uendra. Berre skaleringa $a$ påverkar variansen, med faktoren $a^2$.",
+      "2fd6d165d8ffc0a0": "$X$ har $E(X) = 5$ og $\\text{Var}(X) = 4$. Kva er $\\text{SD}(3X - 2)$?",
+      "8ccdeda4ea5a93cc": "$\\text{Var}(3X - 2) = 9 \\cdot 4 = 36$, så standardavviket er $\\sqrt{36} = 6$. (36 er variansen, ikkje standardavviket.)",
+      "0652536151577453": "## Oppsummering: to tal som skildrar tilfeldigheita\n\nFrå loddsalet på skuleballet har vi bygd heile grunnmuren for sannsynsrekninga i S2. Ein **stokastisk variabel** er ein talverdi styrt av tilfeldigheiter, og **sannsynsfordelinga** er oversikta over $P(X = x)$ for alle moglege verdiar — med krava at kvart sannsyn ligg mellom 0 og 1 og at summen er nøyaktig 1.\n\nTo nøkkeltal skildrar fordelinga. **Forventingsverdien** $E(X) = \\sum x_i P(X = x_i)$ er det vekta gjennomsnittet og blir tolka som langtidsgjennomsnittet ved mange gjentakingar — det var slik vi fann at lotteriloddet var verdt 47,50 kr og at eit terningkast i snitt gir 3,5 auge. **Variansen** $\\text{Var}(X) = E(X^2) - [E(X)]^2$ måler spreiinga rundt gjennomsnittet, og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer han i same eining som $X$.\n\nReknereglane gjer tunge utrekningar lette: forventinga er lineær, $E(aX + b) = aE(X) + b$ og $E(X + Y) = E(X) + E(Y)$, medan variansen følgjer $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantledd forsvinn, koeffisientar blir kvadrerte — og for uavhengige variablar blir variansane adderte: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$.\n\nDesse omgrepa er språket alt det neste blir uttrykt i: binomisk og hypergeometrisk fordeling, normalfordelinga og etter kvart estimering og hypotesetesting. Kvar gong du møter ei ny fordeling, er dei to første spørsmåla alltid dei same: kva er forventingsverdien, og kor stor er spreiinga?"
+    }
+  }
+}

@@ -1,1 +1,452 @@
-{"id":"elektro-data-vg1-1-7-narrativ","courseId":"elektro-data-vg1","chapterNumber":"1.7","title":"Halvleiarkomponentar","subtitle":"Narrativ versjon","description":"Ei forteljing om materialet som korkje er leiar eller isolator – og korleis ein bitteliten bit silisium vart til diodar, lysande LED-ar og transistorane som driv heile den digitale verda.","estimatedMinutes":40,"competenceGoals":["forklare oppbygning og virkemåte til halvlederkomponenter"],"linkedChapterId":"elektro-data-vg1-1-7","content":[{"id":"elektro-data-vg1-1-7-n-intro","type":"text","content":"## Materialet som forandra verda\n\nNokre materiale leier straum godt, som kopar. Andre leier nesten ikkje, som plast. Men midt imellom finst ei gruppe materiale som er litt av begge delar – og det er nettopp denne mellomtingen som har gjort den moderne verda mogleg. Vi kallar dei **halvleiarar**, og det desidert mest brukte er silisium, eit stoff vi finn i vanleg sand.\n\nDet geniale med ein halvleiar er at vi kan styre han. Ved å tilsetje ørsmå mengder av andre grunnstoff kan vi bestemme nøyaktig korleis han leier straum. Denne kontrollen er grunnlaget for tre komponentar som dukkar opp overalt: dioden som slepp straum éin veg, LED-en som lyser, og transistoren – den vesle brytaren som det sit milliardar av inni mobilen din.\n\nI dette kapittelet skal vi forstå kvar denne magien kjem frå. Vi skal sjå kva doping er, korleis ein PN-overgang oppstår og gjev oss dioden, kvifor ein LED lyser og treng ein motstand for å overleve, og til slutt korleis transistoren kan fungere både som ein bryter og ein forsterkar."},{"id":"elektro-data-vg1-1-7-n-section1","type":"text","content":"## Doping og dioden\n\nReint silisium leier straum ganske dårleg. Trikset er **doping**: vi tilset små mengder framande atom for å endre eigenskapane. Tilset vi fosfor eller arsen, får vi **N-type** silisium med eit overskot av frie elektron – negative ladningsberarar. Tilset vi i staden bor eller gallium, får vi **P-type** med eit underskot, det vil seie «hol» som oppfører seg som positive ladningsberarar.\n\nDet verkeleg interessante skjer når vi set ein N-type og ein P-type saman. I grenseflata oppstår ein **PN-overgang**, og denne overgangen er hjartet i ein **diode**. Ein diode slepp nemleg straum gjennom i berre éi retning. Når anoden (pluss-sida) er meir positiv enn katoden, seier vi at dioden er i foroverretning – då flyt straumen, men med eit lite spenningsfall på cirka 0,7 V for ein silisiumdiode. Snur du polariteten, kjem dioden i sperreretning, og då går det praktisk talt ingen straum.\n\nLat oss rekne litt. Ein silisiumdiode står i serie med ein motstand på 470 $\\Omega$, kopla til 5 V. Sidan dioden «et» 0,7 V, ligg resten over motstanden: $U_R = 5 - 0{,}7 = 4{,}3$ V. Straumen blir då $I = U_R/R = 4{,}3/470 \\approx 9{,}1$ mA. Inni overgangen smalnar eit område kalla deplesjonslaget når dioden leier, og utvidar seg når han sperrar – det er denne mekanismen som gjev einvegskøyringa. Difor blir diodar brukte til å likerette vekselstraum og til å verne krinsar mot at nokon koplar batteriet feil veg."},{"id":"elektro-data-vg1-1-7-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-1-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på halvleiarar og diodar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-1-7-n-quiz1-q0","task":"Kva gjev N-type doping halvleiaren?","options":[{"id":"a","text":"Eit overskot av hol","isCorrect":false},{"id":"b","text":"Eit overskot av frie elektron","isCorrect":true},{"id":"c","text":"Høgare motstand i begge retningar","isCorrect":false},{"id":"d","text":"Ingen ladningsberarar","isCorrect":false}],"solution":"N-type doping (med fosfor eller arsen) gjev ekstra frie elektron, altså negative ladningsberarar."},{"id":"elektro-data-vg1-1-7-n-quiz1-q1","task":"Kva er spenningsfallet over ein vanleg silisiumdiode i foroverretning?","options":[{"id":"a","text":"0,3 V","isCorrect":false},{"id":"b","text":"5 V","isCorrect":false},{"id":"c","text":"0,7 V","isCorrect":true},{"id":"d","text":"1,5 V","isCorrect":false}],"solution":"Ein silisiumdiode har eit spenningsfall på cirka 0,7 V i foroverretning."},{"id":"elektro-data-vg1-1-7-n-quiz1-q2","task":"Ein silisiumdiode i serie med 470 $\\Omega$ blir kopla til 5 V. Omtrent kor stor blir straumen?","options":[{"id":"a","text":"Ca. 11 mA","isCorrect":false},{"id":"b","text":"Ca. 5 mA","isCorrect":false},{"id":"c","text":"Ca. 15 mA","isCorrect":false},{"id":"d","text":"Ca. 9 mA","isCorrect":true}],"solution":"$U_R = 5 - 0{,}7 = 4{,}3$ V, og $I = 4{,}3/470 \\approx 9{,}1$ mA."}]}},{"id":"elektro-data-vg1-1-7-n-section2","type":"text","content":"## LED-en som lyser – og kvifor han treng ein livvakt\n\nNokre diodar gjer meir enn å sleppe straum éin veg: dei lyser. Ein **LED** (Light Emitting Diode) gjev frå seg lys når straumen passerer i foroverretning. Fargen avgjer spenningsfallet over LED-en: ein raud LED har rundt 1,8 V, ein grøn cirka 2,2 V, og ein blå eller kvit heile 3,2 V. Han vil typisk ha 10–20 mA straum gjennom seg.\n\nMen her er ein livsviktig regel: ein LED må alltid ha ein motstand i serie. Utan han ville straumen ha blitt ukontrollert stor, og LED-en ville ha brent opp på eit augneblink. Motstanden fungerer som ein livvakt som «et opp» den overflødige spenninga. Til gjengjeld er LED-ar fantastisk effektive samanlikna med gamle glødelamper, og dei held i 50 000 til 100 000 timar.\n\nLat oss rekne ut den nødvendige motstanden. Du vil kople ein raud LED, med spenningsfall 1,8 V og ønskt straum 15 mA, til eit 9 V-batteri. Spenninga over motstanden blir $U_R = 9 - 1{,}8 = 7{,}2$ V, og motstanden $R = 7{,}2/0{,}015 = 480\\,\\Omega$. Nærmaste standardverdi er 470 $\\Omega$, som gjev cirka 15,3 mA – heilt akseptabelt.\n\nPrinsippet er alltid det same: trekk spenningsfallet til LED-en frå kjeldespenninga, og del på ønskt straum. Tek vi ein blå LED (3,2 V, 20 mA) på ei 5 V-kjelde, blir $U_R = 5 - 3{,}2 = 1{,}8$ V og $R = 1{,}8/0{,}02 = 90\\,\\Omega$ – vi rundar til 100 $\\Omega$."},{"id":"elektro-data-vg1-1-7-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-1-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på lysdiodar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-1-7-n-quiz2-q0","task":"Kvifor treng ein LED alltid ein seriemotstand?","options":[{"id":"a","text":"For å avgrense straumen så LED-en ikkje brenn opp","isCorrect":true},{"id":"b","text":"For å gjere lyset sterkare","isCorrect":false},{"id":"c","text":"For å endre fargen på lyset","isCorrect":false},{"id":"d","text":"For å gjere han polaritetsuavhengig","isCorrect":false}],"solution":"Seriemotstanden avgrensar straumen. Utan han ville straumen ha blitt for stor og øydelagt LED-en."},{"id":"elektro-data-vg1-1-7-n-quiz2-q1","task":"Ein blå LED (3,2 V, 20 mA) blir kopla til 5 V. Kva for ein seriemotstand trengst?","options":[{"id":"a","text":"250 $\\Omega$","isCorrect":false},{"id":"b","text":"90 $\\Omega$","isCorrect":true},{"id":"c","text":"410 $\\Omega$","isCorrect":false},{"id":"d","text":"160 $\\Omega$","isCorrect":false}],"solution":"$U_R = 5 - 3{,}2 = 1{,}8$ V, $R = 1{,}8/0{,}02 = 90\\,\\Omega$ (nærmaste standardverdi 100 $\\Omega$)."},{"id":"elektro-data-vg1-1-7-n-quiz2-q2","task":"Kva avgjer spenningsfallet over ein LED?","options":[{"id":"a","text":"Verdien til seriemotstanden","isCorrect":false},{"id":"b","text":"Kjeldespenninga","isCorrect":false},{"id":"c","text":"Fargen på LED-en","isCorrect":true},{"id":"d","text":"Lengda på beina","isCorrect":false}],"solution":"Spenningsfallet er avhengig av fargen: raud $\\approx 1{,}8$ V, grøn $\\approx 2{,}2$ V, blå/kvit $\\approx 3{,}2$ V."}]}},{"id":"elektro-data-vg1-1-7-n-section3","type":"text","content":"## Transistoren – bryter og forsterkar i éin\n\nNo kjem komponenten som verkeleg forandra elektronikken: **transistoren**. Han kan gjere to ting – forsterke eit svakt signal, eller fungere som ein elektronisk bryter som slår av og på utan rørlege delar. Det finst to hovudtypar.\n\nDen **bipolare transistoren (BJT)** har tre bein: base (B), kollektor (C) og emitter (E). Ein NPN-transistor blir slått på når basen får positiv spenning. Det fine er at ein liten basestraum kan styre ein mykje større kollektorstraum. Forholdet blir kalla straumforsterkninga $\\beta$ (beta), og er $\\beta = I_C / I_B$, ofte mellom 100 og 300. Ein basestraum på ein brøkdel av ein milliampere kan altså styre titals milliampere.\n\nLat oss bruke ein transistor som bryter for ein LED. Vi har ein NPN med $\\beta = 200$ som skal styre ein LED på 20 mA, driven frå ein 5 V logikkutgang. Basestraumen vi treng er $I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For å vere sikre på at transistoren blir slått heilt på (går i metting), bruker vi gjerne to-tre gonger så mykje, sei 0,3 mA. Basemotstanden blir då $R_B = (5 - 0{,}7)/0{,}0003 = 4{,}3/0{,}0003 \\approx 14{,}3\\,\\text{k}\\Omega$. Vel vi standardverdien 10 k$\\Omega$, får vi rikeleg basestraum og god metting.\n\nDen andre typen er **MOSFET-en**, ein felteffekttransistor med beina gate (G), drain (D) og source (S). Han blir styrt av spenning på gaten i staden for straum, og bruker difor nesten ingen styreenergi i stabil tilstand. MOSFET-ar har låg motstand når dei er på og svitsjar raskt, og er den dominerande typen i moderne krinsar – men dei er ømfintlege for statisk elektrisitet. Det er nettopp denne bryterfunksjonen som gjer datamaskiner mogleg: ein moderne prosessor pakkar milliardar av transistorar på ei brikke på storleik med ein fingernegl, der kvar av dei representerer eit 0 eller eit 1."},{"id":"elektro-data-vg1-1-7-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-1-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på transistorar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-1-7-n-quiz3-q0","task":"Kva tyder straumforsterkninga $\\beta$ for ein bipolar transistor?","options":[{"id":"a","text":"Spenningsfallet over basen","isCorrect":false},{"id":"b","text":"Motstanden i emitteren","isCorrect":false},{"id":"c","text":"Talet på bein på transistoren","isCorrect":false},{"id":"d","text":"Forholdet mellom kollektorstraum og basestraum","isCorrect":true}],"solution":"$\\beta = I_C / I_B$, altså kor mange gonger større kollektorstraumen er enn basestraumen, ofte 100–300."},{"id":"elektro-data-vg1-1-7-n-quiz3-q1","task":"Kva er hovudskilnaden mellom ein BJT og ein MOSFET?","options":[{"id":"a","text":"BJT blir styrt av straum, MOSFET av spenning","isCorrect":true},{"id":"b","text":"BJT blir styrt av spenning, MOSFET av straum","isCorrect":false},{"id":"c","text":"Dei er heilt like","isCorrect":false},{"id":"d","text":"MOSFET kan ikkje brukast som bryter","isCorrect":false}],"solution":"Ein BJT blir styrt av basestraum, medan ein MOSFET blir styrt av spenning på gaten og bruker nesten ingen styreenergi i stabil tilstand."},{"id":"elektro-data-vg1-1-7-n-quiz3-q2","task":"Ein NPN med $\\beta = 200$ skal styre 20 mA kollektorstraum. Kor stor basestraum trengst minst?","options":[{"id":"a","text":"4 mA","isCorrect":false},{"id":"b","text":"0,1 mA","isCorrect":true},{"id":"c","text":"2 mA","isCorrect":false},{"id":"d","text":"1 mA","isCorrect":false}],"solution":"$I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For sikker metting blir gjerne 2–3 gonger meir brukt."},{"id":"elektro-data-vg1-1-7-n-quiz3-q3","task":"Kvifor er transistoren grunnlaget for moderne datamaskiner?","options":[{"id":"a","text":"Han lagrar store mengder energi","isCorrect":false},{"id":"b","text":"Han lyser i ulike fargar","isCorrect":false},{"id":"c","text":"Han fungerer som ein bryter (0/1) og kan pakkast i milliardar på éi brikke","isCorrect":true},{"id":"d","text":"Han likerettar vekselstraum","isCorrect":false}],"solution":"Transistoren fungerer som ein av-på-bryter som representerer 0 og 1. Milliardar av dei på éi brikke utfører utrekningane i ein prosessor."}]}},{"id":"elektro-data-vg1-1-7-n-summary","type":"text","content":"## Oppsummering\n\nVi har følgt vegen frå eit stykke silisium til den digitale tidsalderen. **Halvleiarar** ligg mellom leiarar og isolatorar, og ved **doping** kan vi lage N-type med ekstra elektron og P-type med hol. Møter dei kvarandre, oppstår ein **PN-overgang** – kjernen i ein **diode**, som slepp straum éin veg med eit spenningsfall på cirka 0,7 V for silisium.\n\nEin **LED** er ein diode som lyser, med fargebestemt spenningsfall, og han treng alltid ein seriemotstand for å overleve. Til slutt møtte vi **transistoren**, som både forsterkar og bryter: den straumstyrte **BJT-en** med base, kollektor og emitter og forsterkninga $\\beta = I_C/I_B$, og den spenningsstyrte **MOSFET-en** som dominerer moderne krinsar. Det er denne vesle brytaren, pakka i milliardar, som gjer alt frå mobilar til datamaskiner mogleg."}],"exercises":[],"_meta":{"sourceHash":"9baa021d39aebe24","translatedAt":"2026-06-21T01:46:23.115Z","model":"claude-code-agent","strings":75,"tm":{"a9630cbe0c39b1a1":"Halvleiarkomponentar","b195b06d1ed59702":"Narrativ versjon","068e4adad3914b3f":"Ei forteljing om materialet som korkje er leiar eller isolator – og korleis ein bitteliten bit silisium vart til diodar, lysande LED-ar og transistorane som driv heile den digitale verda.","c5f2c5f3640642fd":"forklare oppbygning og virkemåte til halvlederkomponenter","ce9073ba096aa460":"## Materialet som forandra verda\n\nNokre materiale leier straum godt, som kopar. Andre leier nesten ikkje, som plast. Men midt imellom finst ei gruppe materiale som er litt av begge delar – og det er nettopp denne mellomtingen som har gjort den moderne verda mogleg. Vi kallar dei **halvleiarar**, og det desidert mest brukte er silisium, eit stoff vi finn i vanleg sand.\n\nDet geniale med ein halvleiar er at vi kan styre han. Ved å tilsetje ørsmå mengder av andre grunnstoff kan vi bestemme nøyaktig korleis han leier straum. Denne kontrollen er grunnlaget for tre komponentar som dukkar opp overalt: dioden som slepp straum éin veg, LED-en som lyser, og transistoren – den vesle brytaren som det sit milliardar av inni mobilen din.\n\nI dette kapittelet skal vi forstå kvar denne magien kjem frå. Vi skal sjå kva doping er, korleis ein PN-overgang oppstår og gjev oss dioden, kvifor ein LED lyser og treng ein motstand for å overleve, og til slutt korleis transistoren kan fungere både som ein bryter og ein forsterkar.","010d4ddd0765c177":"## Doping og dioden\n\nReint silisium leier straum ganske dårleg. Trikset er **doping**: vi tilset små mengder framande atom for å endre eigenskapane. Tilset vi fosfor eller arsen, får vi **N-type** silisium med eit overskot av frie elektron – negative ladningsberarar. Tilset vi i staden bor eller gallium, får vi **P-type** med eit underskot, det vil seie «hol» som oppfører seg som positive ladningsberarar.\n\nDet verkeleg interessante skjer når vi set ein N-type og ein P-type saman. I grenseflata oppstår ein **PN-overgang**, og denne overgangen er hjartet i ein **diode**. Ein diode slepp nemleg straum gjennom i berre éi retning. Når anoden (pluss-sida) er meir positiv enn katoden, seier vi at dioden er i foroverretning – då flyt straumen, men med eit lite spenningsfall på cirka 0,7 V for ein silisiumdiode. Snur du polariteten, kjem dioden i sperreretning, og då går det praktisk talt ingen straum.\n\nLat oss rekne litt. Ein silisiumdiode står i serie med ein motstand på 470 $\\Omega$, kopla til 5 V. Sidan dioden «et» 0,7 V, ligg resten over motstanden: $U_R = 5 - 0{,}7 = 4{,}3$ V. Straumen blir då $I = U_R/R = 4{,}3/470 \\approx 9{,}1$ mA. Inni overgangen smalnar eit område kalla deplesjonslaget når dioden leier, og utvidar seg når han sperrar – det er denne mekanismen som gjev einvegskøyringa. Difor blir diodar brukte til å likerette vekselstraum og til å verne krinsar mot at nokon koplar batteriet feil veg.","17dfc845cc5e0f4e":"Test deg sjølv på halvleiarar og diodar:","4097889236a2af26":"placeholder","a03b478aeb4fc188":"Kva gjev N-type doping halvleiaren?","e7b336351e757957":"Eit overskot av hol","a10d8e00c7b93aa2":"Eit overskot av frie elektron","8be8bbd74f093444":"Høgare motstand i begge retningar","df56815272d7b93a":"Ingen ladningsberarar","35a5743cc900410f":"N-type doping (med fosfor eller arsen) gjev ekstra frie elektron, altså negative ladningsberarar.","7b6d172e8b840fe1":"Kva er spenningsfallet over ein vanleg silisiumdiode i foroverretning?","9b10a7dc7f6c3cf7":"0,3 V","38251178415b9e86":"5 V","4f4ccdaec07c70d7":"0,7 V","56adb02e4e05613a":"1,5 V","b54639bf49c5ba22":"Ein silisiumdiode har eit spenningsfall på cirka 0,7 V i foroverretning.","3632528f32f84c07":"Ein silisiumdiode i serie med 470 $\\Omega$ blir kopla til 5 V. Omtrent kor stor blir straumen?","e065b3a773d0d6f7":"Ca. 11 mA","6143311ac8b3edba":"Ca. 5 mA","4b3f51ca09330350":"Ca. 15 mA","93eca2a521bbf5aa":"Ca. 9 mA","fc42732a58ef7ae7":"$U_R = 5 - 0{,}7 = 4{,}3$ V, og $I = 4{,}3/470 \\approx 9{,}1$ mA.","9298c39e895195e2":"## LED-en som lyser – og kvifor han treng ein livvakt\n\nNokre diodar gjer meir enn å sleppe straum éin veg: dei lyser. Ein **LED** (Light Emitting Diode) gjev frå seg lys når straumen passerer i foroverretning. Fargen avgjer spenningsfallet over LED-en: ein raud LED har rundt 1,8 V, ein grøn cirka 2,2 V, og ein blå eller kvit heile 3,2 V. Han vil typisk ha 10–20 mA straum gjennom seg.\n\nMen her er ein livsviktig regel: ein LED må alltid ha ein motstand i serie. Utan han ville straumen ha blitt ukontrollert stor, og LED-en ville ha brent opp på eit augneblink. Motstanden fungerer som ein livvakt som «et opp» den overflødige spenninga. Til gjengjeld er LED-ar fantastisk effektive samanlikna med gamle glødelamper, og dei held i 50 000 til 100 000 timar.\n\nLat oss rekne ut den nødvendige motstanden. Du vil kople ein raud LED, med spenningsfall 1,8 V og ønskt straum 15 mA, til eit 9 V-batteri. Spenninga over motstanden blir $U_R = 9 - 1{,}8 = 7{,}2$ V, og motstanden $R = 7{,}2/0{,}015 = 480\\,\\Omega$. Nærmaste standardverdi er 470 $\\Omega$, som gjev cirka 15,3 mA – heilt akseptabelt.\n\nPrinsippet er alltid det same: trekk spenningsfallet til LED-en frå kjeldespenninga, og del på ønskt straum. Tek vi ein blå LED (3,2 V, 20 mA) på ei 5 V-kjelde, blir $U_R = 5 - 3{,}2 = 1{,}8$ V og $R = 1{,}8/0{,}02 = 90\\,\\Omega$ – vi rundar til 100 $\\Omega$.","25517550f73a9550":"Test deg sjølv på lysdiodar:","82e3b1bbc1eeba06":"Kvifor treng ein LED alltid ein seriemotstand?","ab2e3a8e5827ec8f":"For å avgrense straumen så LED-en ikkje brenn opp","78ca7ecd114fe17b":"For å gjere lyset sterkare","79528d1d93d325d0":"For å endre fargen på lyset","3209465d7f988898":"For å gjere han polaritetsuavhengig","d61ad166535a798a":"Seriemotstanden avgrensar straumen. Utan han ville straumen ha blitt for stor og øydelagt LED-en.","30b8d20a3c3ce327":"Ein blå LED (3,2 V, 20 mA) blir kopla til 5 V. Kva for ein seriemotstand trengst?","ecaa24331242a9dc":"250 $\\Omega$","578bdbec4c310491":"90 $\\Omega$","272d424599f0774f":"410 $\\Omega$","f2606c328bf5b948":"160 $\\Omega$","454fd739b392a740":"$U_R = 5 - 3{,}2 = 1{,}8$ V, $R = 1{,}8/0{,}02 = 90\\,\\Omega$ (nærmaste standardverdi 100 $\\Omega$).","4188a272fd878f18":"Kva avgjer spenningsfallet over ein LED?","63cff75b0735beff":"Verdien til seriemotstanden","0090f65b30ed6079":"Kjeldespenninga","60c03176a54e47d1":"Fargen på LED-en","f23306376a14d9a8":"Lengda på beina","df4f83d632c30934":"Spenningsfallet er avhengig av fargen: raud $\\approx 1{,}8$ V, grøn $\\approx 2{,}2$ V, blå/kvit $\\approx 3{,}2$ V.","3cbfc37a873fc868":"## Transistoren – bryter og forsterkar i éin\n\nNo kjem komponenten som verkeleg forandra elektronikken: **transistoren**. Han kan gjere to ting – forsterke eit svakt signal, eller fungere som ein elektronisk bryter som slår av og på utan rørlege delar. Det finst to hovudtypar.\n\nDen **bipolare transistoren (BJT)** har tre bein: base (B), kollektor (C) og emitter (E). Ein NPN-transistor blir slått på når basen får positiv spenning. Det fine er at ein liten basestraum kan styre ein mykje større kollektorstraum. Forholdet blir kalla straumforsterkninga $\\beta$ (beta), og er $\\beta = I_C / I_B$, ofte mellom 100 og 300. Ein basestraum på ein brøkdel av ein milliampere kan altså styre titals milliampere.\n\nLat oss bruke ein transistor som bryter for ein LED. Vi har ein NPN med $\\beta = 200$ som skal styre ein LED på 20 mA, driven frå ein 5 V logikkutgang. Basestraumen vi treng er $I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For å vere sikre på at transistoren blir slått heilt på (går i metting), bruker vi gjerne to-tre gonger så mykje, sei 0,3 mA. Basemotstanden blir då $R_B = (5 - 0{,}7)/0{,}0003 = 4{,}3/0{,}0003 \\approx 14{,}3\\,\\text{k}\\Omega$. Vel vi standardverdien 10 k$\\Omega$, får vi rikeleg basestraum og god metting.\n\nDen andre typen er **MOSFET-en**, ein felteffekttransistor med beina gate (G), drain (D) og source (S). Han blir styrt av spenning på gaten i staden for straum, og bruker difor nesten ingen styreenergi i stabil tilstand. MOSFET-ar har låg motstand når dei er på og svitsjar raskt, og er den dominerande typen i moderne krinsar – men dei er ømfintlege for statisk elektrisitet. Det er nettopp denne bryterfunksjonen som gjer datamaskiner mogleg: ein moderne prosessor pakkar milliardar av transistorar på ei brikke på storleik med ein fingernegl, der kvar av dei representerer eit 0 eller eit 1.","ebf9f45fb3d82d72":"Test deg sjølv på transistorar:","ff9ca6a01cf71817":"Kva tyder straumforsterkninga $\\beta$ for ein bipolar transistor?","ec45fcf4545bb95e":"Spenningsfallet over basen","d72be23e9bf0d0b2":"Motstanden i emitteren","5840786a13d7c0cd":"Talet på bein på transistoren","a7cfe1eb1d4ceb83":"Forholdet mellom kollektorstraum og basestraum","d3e6041cd7ecaebd":"$\\beta = I_C / I_B$, altså kor mange gonger større kollektorstraumen er enn basestraumen, ofte 100–300.","e4fcc02c136896bc":"Kva er hovudskilnaden mellom ein BJT og ein MOSFET?","4ae14f43fa7bce13":"BJT blir styrt av straum, MOSFET av spenning","49c11ce2b4948a65":"BJT blir styrt av spenning, MOSFET av straum","e1dc91e521d110ed":"Dei er heilt like","65b0d63ab3470263":"MOSFET kan ikkje brukast som bryter","22d9ec4e7ab7c897":"Ein BJT blir styrt av basestraum, medan ein MOSFET blir styrt av spenning på gaten og bruker nesten ingen styreenergi i stabil tilstand.","51b88ac1c98ff3dd":"Ein NPN med $\\beta = 200$ skal styre 20 mA kollektorstraum. Kor stor basestraum trengst minst?","746eb772f8974dfa":"4 mA","685fd7245f33ebc8":"0,1 mA","56a8443bd47bb07d":"2 mA","a845fa65bd8ba30d":"1 mA","2c06e407edbbda76":"$I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For sikker metting blir gjerne 2–3 gonger meir brukt.","9fb5803bd17f1e56":"Kvifor er transistoren grunnlaget for moderne datamaskiner?","bbc650e1747bb1a3":"Han lagrar store mengder energi","be46d7913ee47122":"Han lyser i ulike fargar","d33e55b5ffc4caa7":"Han fungerer som ein bryter (0/1) og kan pakkast i milliardar på éi brikke","f24d111a62044f1d":"Han likerettar vekselstraum","8266ee8fb9c92e2d":"Transistoren fungerer som ein av-på-bryter som representerer 0 og 1. Milliardar av dei på éi brikke utfører utrekningane i ein prosessor.","91707e404550c759":"## Oppsummering\n\nVi har følgt vegen frå eit stykke silisium til den digitale tidsalderen. **Halvleiarar** ligg mellom leiarar og isolatorar, og ved **doping** kan vi lage N-type med ekstra elektron og P-type med hol. Møter dei kvarandre, oppstår ein **PN-overgang** – kjernen i ein **diode**, som slepp straum éin veg med eit spenningsfall på cirka 0,7 V for silisium.\n\nEin **LED** er ein diode som lyser, med fargebestemt spenningsfall, og han treng alltid ein seriemotstand for å overleve. Til slutt møtte vi **transistoren**, som både forsterkar og bryter: den straumstyrte **BJT-en** med base, kollektor og emitter og forsterkninga $\\beta = I_C/I_B$, og den spenningsstyrte **MOSFET-en** som dominerer moderne krinsar. Det er denne vesle brytaren, pakka i milliardar, som gjer alt frå mobilar til datamaskiner mogleg."}}}
+{
+  "id": "elektro-data-vg1-1-7-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "1.7",
+  "title": "Halvleiarkomponentar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om materialet som korkje er leiar eller isolator – og korleis ein bitteliten bit silisium vart til diodar, lysande LED-ar og transistorane som driv heile den digitale verda.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forklare oppbygning og virkemåte til halvlederkomponenter"
+  ],
+  "linkedChapterId": "elektro-data-vg1-1-7",
+  "content": [
+    {
+      "id": "elektro-data-vg1-1-7-n-intro",
+      "type": "text",
+      "content": "## Materialet som forandra verda\n\nNokre materiale leier straum godt, som kopar. Andre leier nesten ikkje, som plast. Men midt imellom finst ei gruppe materiale som er litt av begge delar – og det er nettopp denne mellomtingen som har gjort den moderne verda mogleg. Vi kallar dei **halvleiarar**, og det desidert mest brukte er silisium, eit stoff vi finn i vanleg sand.\n\nDet geniale med ein halvleiar er at vi kan styre han. Ved å tilsetje ørsmå mengder av andre grunnstoff kan vi bestemme nøyaktig korleis han leier straum. Denne kontrollen er grunnlaget for tre komponentar som dukkar opp overalt: dioden som slepp straum éin veg, LED-en som lyser, og transistoren – den vesle brytaren som det sit milliardar av inni mobilen din.\n\nI dette kapittelet skal vi forstå kvar denne magien kjem frå. Vi skal sjå kva doping er, korleis ein PN-overgang oppstår og gjev oss dioden, kvifor ein LED lyser og treng ein motstand for å overleve, og til slutt korleis transistoren kan fungere både som ein bryter og ein forsterkar."
+    },
+    {
+      "id": "elektro-data-vg1-1-7-n-section1",
+      "type": "text",
+      "content": "## Doping og dioden\n\nReint silisium leier straum ganske dårleg. Trikset er **doping**: vi tilset små mengder framande atom for å endre eigenskapane. Tilset vi fosfor eller arsen, får vi **N-type** silisium med eit overskot av frie elektron – negative ladningsberarar. Tilset vi i staden bor eller gallium, får vi **P-type** med eit underskot, det vil seie «hol» som oppfører seg som positive ladningsberarar.\n\nDet verkeleg interessante skjer når vi set ein N-type og ein P-type saman. I grenseflata oppstår ein **PN-overgang**, og denne overgangen er hjartet i ein **diode**. Ein diode slepp nemleg straum gjennom i berre éi retning. Når anoden (pluss-sida) er meir positiv enn katoden, seier vi at dioden er i foroverretning – då flyt straumen, men med eit lite spenningsfall på cirka 0,7 V for ein silisiumdiode. Snur du polariteten, kjem dioden i sperreretning, og då går det praktisk talt ingen straum.\n\nLat oss rekne litt. Ein silisiumdiode står i serie med ein motstand på 470 $\\Omega$, kopla til 5 V. Sidan dioden «et» 0,7 V, ligg resten over motstanden: $U_R = 5 - 0{,}7 = 4{,}3$ V. Straumen blir då $I = U_R/R = 4{,}3/470 \\approx 9{,}1$ mA. Inni overgangen smalnar eit område kalla deplesjonslaget når dioden leier, og utvidar seg når han sperrar – det er denne mekanismen som gjev einvegskøyringa. Difor blir diodar brukte til å likerette vekselstraum og til å verne krinsar mot at nokon koplar batteriet feil veg."
+    },
+    {
+      "id": "elektro-data-vg1-1-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-1-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på halvleiarar og diodar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz1-q0",
+            "task": "Kva gjev N-type doping halvleiaren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eit overskot av hol",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Høgare motstand i begge retningar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eit overskot av frie elektron",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ingen ladningsberarar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "N-type doping (med fosfor eller arsen) gjev ekstra frie elektron, altså negative ladningsberarar."
+          },
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz1-q1",
+            "task": "Kva er spenningsfallet over ein vanleg silisiumdiode i foroverretning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "0,3 V",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "5 V",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1,5 V",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "0,7 V",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein silisiumdiode har eit spenningsfall på cirka 0,7 V i foroverretning."
+          },
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz1-q2",
+            "task": "Ein silisiumdiode i serie med 470 $\\Omega$ blir kopla til 5 V. Omtrent kor stor blir straumen?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Ca. 9 mA",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. 11 mA",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 5 mA",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 15 mA",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$U_R = 5 - 0{,}7 = 4{,}3$ V, og $I = 4{,}3/470 \\approx 9{,}1$ mA."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-1-7-n-section2",
+      "type": "text",
+      "content": "## LED-en som lyser – og kvifor han treng ein livvakt\n\nNokre diodar gjer meir enn å sleppe straum éin veg: dei lyser. Ein **LED** (Light Emitting Diode) gjev frå seg lys når straumen passerer i foroverretning. Fargen avgjer spenningsfallet over LED-en: ein raud LED har rundt 1,8 V, ein grøn cirka 2,2 V, og ein blå eller kvit heile 3,2 V. Han vil typisk ha 10–20 mA straum gjennom seg.\n\nMen her er ein livsviktig regel: ein LED må alltid ha ein motstand i serie. Utan han ville straumen ha blitt ukontrollert stor, og LED-en ville ha brent opp på eit augneblink. Motstanden fungerer som ein livvakt som «et opp» den overflødige spenninga. Til gjengjeld er LED-ar fantastisk effektive samanlikna med gamle glødelamper, og dei held i 50 000 til 100 000 timar.\n\nLat oss rekne ut den nødvendige motstanden. Du vil kople ein raud LED, med spenningsfall 1,8 V og ønskt straum 15 mA, til eit 9 V-batteri. Spenninga over motstanden blir $U_R = 9 - 1{,}8 = 7{,}2$ V, og motstanden $R = 7{,}2/0{,}015 = 480\\,\\Omega$. Nærmaste standardverdi er 470 $\\Omega$, som gjev cirka 15,3 mA – heilt akseptabelt.\n\nPrinsippet er alltid det same: trekk spenningsfallet til LED-en frå kjeldespenninga, og del på ønskt straum. Tek vi ein blå LED (3,2 V, 20 mA) på ei 5 V-kjelde, blir $U_R = 5 - 3{,}2 = 1{,}8$ V og $R = 1{,}8/0{,}02 = 90\\,\\Omega$ – vi rundar til 100 $\\Omega$."
+    },
+    {
+      "id": "elektro-data-vg1-1-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-1-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lysdiodar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz2-q0",
+            "task": "Kvifor treng ein LED alltid ein seriemotstand?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å gjere lyset sterkare",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For å avgrense straumen så LED-en ikkje brenn opp",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "For å endre fargen på lyset",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å gjere han polaritetsuavhengig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Seriemotstanden avgrensar straumen. Utan han ville straumen ha blitt for stor og øydelagt LED-en."
+          },
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz2-q1",
+            "task": "Ein blå LED (3,2 V, 20 mA) blir kopla til 5 V. Kva for ein seriemotstand trengst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "250 $\\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "410 $\\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "90 $\\Omega$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "160 $\\Omega$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$U_R = 5 - 3{,}2 = 1{,}8$ V, $R = 1{,}8/0{,}02 = 90\\,\\Omega$ (nærmaste standardverdi 100 $\\Omega$)."
+          },
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz2-q2",
+            "task": "Kva avgjer spenningsfallet over ein LED?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Verdien til seriemotstanden",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kjeldespenninga",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lengda på beina",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fargen på LED-en",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Spenningsfallet er avhengig av fargen: raud $\\approx 1{,}8$ V, grøn $\\approx 2{,}2$ V, blå/kvit $\\approx 3{,}2$ V."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-1-7-n-section3",
+      "type": "text",
+      "content": "## Transistoren – bryter og forsterkar i éin\n\nNo kjem komponenten som verkeleg forandra elektronikken: **transistoren**. Han kan gjere to ting – forsterke eit svakt signal, eller fungere som ein elektronisk bryter som slår av og på utan rørlege delar. Det finst to hovudtypar.\n\nDen **bipolare transistoren (BJT)** har tre bein: base (B), kollektor (C) og emitter (E). Ein NPN-transistor blir slått på når basen får positiv spenning. Det fine er at ein liten basestraum kan styre ein mykje større kollektorstraum. Forholdet blir kalla straumforsterkninga $\\beta$ (beta), og er $\\beta = I_C / I_B$, ofte mellom 100 og 300. Ein basestraum på ein brøkdel av ein milliampere kan altså styre titals milliampere.\n\nLat oss bruke ein transistor som bryter for ein LED. Vi har ein NPN med $\\beta = 200$ som skal styre ein LED på 20 mA, driven frå ein 5 V logikkutgang. Basestraumen vi treng er $I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For å vere sikre på at transistoren blir slått heilt på (går i metting), bruker vi gjerne to-tre gonger så mykje, sei 0,3 mA. Basemotstanden blir då $R_B = (5 - 0{,}7)/0{,}0003 = 4{,}3/0{,}0003 \\approx 14{,}3\\,\\text{k}\\Omega$. Vel vi standardverdien 10 k$\\Omega$, får vi rikeleg basestraum og god metting.\n\nDen andre typen er **MOSFET-en**, ein felteffekttransistor med beina gate (G), drain (D) og source (S). Han blir styrt av spenning på gaten i staden for straum, og bruker difor nesten ingen styreenergi i stabil tilstand. MOSFET-ar har låg motstand når dei er på og svitsjar raskt, og er den dominerande typen i moderne krinsar – men dei er ømfintlege for statisk elektrisitet. Det er nettopp denne bryterfunksjonen som gjer datamaskiner mogleg: ein moderne prosessor pakkar milliardar av transistorar på ei brikke på storleik med ein fingernegl, der kvar av dei representerer eit 0 eller eit 1."
+    },
+    {
+      "id": "elektro-data-vg1-1-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-1-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på transistorar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz3-q0",
+            "task": "Kva tyder straumforsterkninga $\\beta$ for ein bipolar transistor?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Forholdet mellom kollektorstraum og basestraum",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Spenningsfallet over basen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Motstanden i emitteren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Talet på bein på transistoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\beta = I_C / I_B$, altså kor mange gonger større kollektorstraumen er enn basestraumen, ofte 100–300."
+          },
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz3-q1",
+            "task": "Kva er hovudskilnaden mellom ein BJT og ein MOSFET?",
+            "options": [
+              {
+                "id": "b",
+                "text": "BJT blir styrt av spenning, MOSFET av straum",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "BJT blir styrt av straum, MOSFET av spenning",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Dei er heilt like",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "MOSFET kan ikkje brukast som bryter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein BJT blir styrt av basestraum, medan ein MOSFET blir styrt av spenning på gaten og bruker nesten ingen styreenergi i stabil tilstand."
+          },
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz3-q2",
+            "task": "Ein NPN med $\\beta = 200$ skal styre 20 mA kollektorstraum. Kor stor basestraum trengst minst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "4 mA",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "2 mA",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "0,1 mA",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "1 mA",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For sikker metting blir gjerne 2–3 gonger meir brukt."
+          },
+          {
+            "id": "elektro-data-vg1-1-7-n-quiz3-q3",
+            "task": "Kvifor er transistoren grunnlaget for moderne datamaskiner?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han lagrar store mengder energi",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han lyser i ulike fargar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han likerettar vekselstraum",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han fungerer som ein bryter (0/1) og kan pakkast i milliardar på éi brikke",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Transistoren fungerer som ein av-på-bryter som representerer 0 og 1. Milliardar av dei på éi brikke utfører utrekningane i ein prosessor."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-1-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har følgt vegen frå eit stykke silisium til den digitale tidsalderen. **Halvleiarar** ligg mellom leiarar og isolatorar, og ved **doping** kan vi lage N-type med ekstra elektron og P-type med hol. Møter dei kvarandre, oppstår ein **PN-overgang** – kjernen i ein **diode**, som slepp straum éin veg med eit spenningsfall på cirka 0,7 V for silisium.\n\nEin **LED** er ein diode som lyser, med fargebestemt spenningsfall, og han treng alltid ein seriemotstand for å overleve. Til slutt møtte vi **transistoren**, som både forsterkar og bryter: den straumstyrte **BJT-en** med base, kollektor og emitter og forsterkninga $\\beta = I_C/I_B$, og den spenningsstyrte **MOSFET-en** som dominerer moderne krinsar. Det er denne vesle brytaren, pakka i milliardar, som gjer alt frå mobilar til datamaskiner mogleg."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "9baa021d39aebe24",
+    "translatedAt": "2026-06-21T01:46:23.115Z",
+    "model": "claude-code-agent",
+    "strings": 75,
+    "tm": {
+      "a9630cbe0c39b1a1": "Halvleiarkomponentar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "068e4adad3914b3f": "Ei forteljing om materialet som korkje er leiar eller isolator – og korleis ein bitteliten bit silisium vart til diodar, lysande LED-ar og transistorane som driv heile den digitale verda.",
+      "c5f2c5f3640642fd": "forklare oppbygning og virkemåte til halvlederkomponenter",
+      "ce9073ba096aa460": "## Materialet som forandra verda\n\nNokre materiale leier straum godt, som kopar. Andre leier nesten ikkje, som plast. Men midt imellom finst ei gruppe materiale som er litt av begge delar – og det er nettopp denne mellomtingen som har gjort den moderne verda mogleg. Vi kallar dei **halvleiarar**, og det desidert mest brukte er silisium, eit stoff vi finn i vanleg sand.\n\nDet geniale med ein halvleiar er at vi kan styre han. Ved å tilsetje ørsmå mengder av andre grunnstoff kan vi bestemme nøyaktig korleis han leier straum. Denne kontrollen er grunnlaget for tre komponentar som dukkar opp overalt: dioden som slepp straum éin veg, LED-en som lyser, og transistoren – den vesle brytaren som det sit milliardar av inni mobilen din.\n\nI dette kapittelet skal vi forstå kvar denne magien kjem frå. Vi skal sjå kva doping er, korleis ein PN-overgang oppstår og gjev oss dioden, kvifor ein LED lyser og treng ein motstand for å overleve, og til slutt korleis transistoren kan fungere både som ein bryter og ein forsterkar.",
+      "010d4ddd0765c177": "## Doping og dioden\n\nReint silisium leier straum ganske dårleg. Trikset er **doping**: vi tilset små mengder framande atom for å endre eigenskapane. Tilset vi fosfor eller arsen, får vi **N-type** silisium med eit overskot av frie elektron – negative ladningsberarar. Tilset vi i staden bor eller gallium, får vi **P-type** med eit underskot, det vil seie «hol» som oppfører seg som positive ladningsberarar.\n\nDet verkeleg interessante skjer når vi set ein N-type og ein P-type saman. I grenseflata oppstår ein **PN-overgang**, og denne overgangen er hjartet i ein **diode**. Ein diode slepp nemleg straum gjennom i berre éi retning. Når anoden (pluss-sida) er meir positiv enn katoden, seier vi at dioden er i foroverretning – då flyt straumen, men med eit lite spenningsfall på cirka 0,7 V for ein silisiumdiode. Snur du polariteten, kjem dioden i sperreretning, og då går det praktisk talt ingen straum.\n\nLat oss rekne litt. Ein silisiumdiode står i serie med ein motstand på 470 $\\Omega$, kopla til 5 V. Sidan dioden «et» 0,7 V, ligg resten over motstanden: $U_R = 5 - 0{,}7 = 4{,}3$ V. Straumen blir då $I = U_R/R = 4{,}3/470 \\approx 9{,}1$ mA. Inni overgangen smalnar eit område kalla deplesjonslaget når dioden leier, og utvidar seg når han sperrar – det er denne mekanismen som gjev einvegskøyringa. Difor blir diodar brukte til å likerette vekselstraum og til å verne krinsar mot at nokon koplar batteriet feil veg.",
+      "17dfc845cc5e0f4e": "Test deg sjølv på halvleiarar og diodar:",
+      "4097889236a2af26": "placeholder",
+      "a03b478aeb4fc188": "Kva gjev N-type doping halvleiaren?",
+      "e7b336351e757957": "Eit overskot av hol",
+      "a10d8e00c7b93aa2": "Eit overskot av frie elektron",
+      "8be8bbd74f093444": "Høgare motstand i begge retningar",
+      "df56815272d7b93a": "Ingen ladningsberarar",
+      "35a5743cc900410f": "N-type doping (med fosfor eller arsen) gjev ekstra frie elektron, altså negative ladningsberarar.",
+      "7b6d172e8b840fe1": "Kva er spenningsfallet over ein vanleg silisiumdiode i foroverretning?",
+      "9b10a7dc7f6c3cf7": "0,3 V",
+      "38251178415b9e86": "5 V",
+      "4f4ccdaec07c70d7": "0,7 V",
+      "56adb02e4e05613a": "1,5 V",
+      "b54639bf49c5ba22": "Ein silisiumdiode har eit spenningsfall på cirka 0,7 V i foroverretning.",
+      "3632528f32f84c07": "Ein silisiumdiode i serie med 470 $\\Omega$ blir kopla til 5 V. Omtrent kor stor blir straumen?",
+      "e065b3a773d0d6f7": "Ca. 11 mA",
+      "6143311ac8b3edba": "Ca. 5 mA",
+      "4b3f51ca09330350": "Ca. 15 mA",
+      "93eca2a521bbf5aa": "Ca. 9 mA",
+      "fc42732a58ef7ae7": "$U_R = 5 - 0{,}7 = 4{,}3$ V, og $I = 4{,}3/470 \\approx 9{,}1$ mA.",
+      "9298c39e895195e2": "## LED-en som lyser – og kvifor han treng ein livvakt\n\nNokre diodar gjer meir enn å sleppe straum éin veg: dei lyser. Ein **LED** (Light Emitting Diode) gjev frå seg lys når straumen passerer i foroverretning. Fargen avgjer spenningsfallet over LED-en: ein raud LED har rundt 1,8 V, ein grøn cirka 2,2 V, og ein blå eller kvit heile 3,2 V. Han vil typisk ha 10–20 mA straum gjennom seg.\n\nMen her er ein livsviktig regel: ein LED må alltid ha ein motstand i serie. Utan han ville straumen ha blitt ukontrollert stor, og LED-en ville ha brent opp på eit augneblink. Motstanden fungerer som ein livvakt som «et opp» den overflødige spenninga. Til gjengjeld er LED-ar fantastisk effektive samanlikna med gamle glødelamper, og dei held i 50 000 til 100 000 timar.\n\nLat oss rekne ut den nødvendige motstanden. Du vil kople ein raud LED, med spenningsfall 1,8 V og ønskt straum 15 mA, til eit 9 V-batteri. Spenninga over motstanden blir $U_R = 9 - 1{,}8 = 7{,}2$ V, og motstanden $R = 7{,}2/0{,}015 = 480\\,\\Omega$. Nærmaste standardverdi er 470 $\\Omega$, som gjev cirka 15,3 mA – heilt akseptabelt.\n\nPrinsippet er alltid det same: trekk spenningsfallet til LED-en frå kjeldespenninga, og del på ønskt straum. Tek vi ein blå LED (3,2 V, 20 mA) på ei 5 V-kjelde, blir $U_R = 5 - 3{,}2 = 1{,}8$ V og $R = 1{,}8/0{,}02 = 90\\,\\Omega$ – vi rundar til 100 $\\Omega$.",
+      "25517550f73a9550": "Test deg sjølv på lysdiodar:",
+      "82e3b1bbc1eeba06": "Kvifor treng ein LED alltid ein seriemotstand?",
+      "ab2e3a8e5827ec8f": "For å avgrense straumen så LED-en ikkje brenn opp",
+      "78ca7ecd114fe17b": "For å gjere lyset sterkare",
+      "79528d1d93d325d0": "For å endre fargen på lyset",
+      "3209465d7f988898": "For å gjere han polaritetsuavhengig",
+      "d61ad166535a798a": "Seriemotstanden avgrensar straumen. Utan han ville straumen ha blitt for stor og øydelagt LED-en.",
+      "30b8d20a3c3ce327": "Ein blå LED (3,2 V, 20 mA) blir kopla til 5 V. Kva for ein seriemotstand trengst?",
+      "ecaa24331242a9dc": "250 $\\Omega$",
+      "578bdbec4c310491": "90 $\\Omega$",
+      "272d424599f0774f": "410 $\\Omega$",
+      "f2606c328bf5b948": "160 $\\Omega$",
+      "454fd739b392a740": "$U_R = 5 - 3{,}2 = 1{,}8$ V, $R = 1{,}8/0{,}02 = 90\\,\\Omega$ (nærmaste standardverdi 100 $\\Omega$).",
+      "4188a272fd878f18": "Kva avgjer spenningsfallet over ein LED?",
+      "63cff75b0735beff": "Verdien til seriemotstanden",
+      "0090f65b30ed6079": "Kjeldespenninga",
+      "60c03176a54e47d1": "Fargen på LED-en",
+      "f23306376a14d9a8": "Lengda på beina",
+      "df4f83d632c30934": "Spenningsfallet er avhengig av fargen: raud $\\approx 1{,}8$ V, grøn $\\approx 2{,}2$ V, blå/kvit $\\approx 3{,}2$ V.",
+      "3cbfc37a873fc868": "## Transistoren – bryter og forsterkar i éin\n\nNo kjem komponenten som verkeleg forandra elektronikken: **transistoren**. Han kan gjere to ting – forsterke eit svakt signal, eller fungere som ein elektronisk bryter som slår av og på utan rørlege delar. Det finst to hovudtypar.\n\nDen **bipolare transistoren (BJT)** har tre bein: base (B), kollektor (C) og emitter (E). Ein NPN-transistor blir slått på når basen får positiv spenning. Det fine er at ein liten basestraum kan styre ein mykje større kollektorstraum. Forholdet blir kalla straumforsterkninga $\\beta$ (beta), og er $\\beta = I_C / I_B$, ofte mellom 100 og 300. Ein basestraum på ein brøkdel av ein milliampere kan altså styre titals milliampere.\n\nLat oss bruke ein transistor som bryter for ein LED. Vi har ein NPN med $\\beta = 200$ som skal styre ein LED på 20 mA, driven frå ein 5 V logikkutgang. Basestraumen vi treng er $I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For å vere sikre på at transistoren blir slått heilt på (går i metting), bruker vi gjerne to-tre gonger så mykje, sei 0,3 mA. Basemotstanden blir då $R_B = (5 - 0{,}7)/0{,}0003 = 4{,}3/0{,}0003 \\approx 14{,}3\\,\\text{k}\\Omega$. Vel vi standardverdien 10 k$\\Omega$, får vi rikeleg basestraum og god metting.\n\nDen andre typen er **MOSFET-en**, ein felteffekttransistor med beina gate (G), drain (D) og source (S). Han blir styrt av spenning på gaten i staden for straum, og bruker difor nesten ingen styreenergi i stabil tilstand. MOSFET-ar har låg motstand når dei er på og svitsjar raskt, og er den dominerande typen i moderne krinsar – men dei er ømfintlege for statisk elektrisitet. Det er nettopp denne bryterfunksjonen som gjer datamaskiner mogleg: ein moderne prosessor pakkar milliardar av transistorar på ei brikke på storleik med ein fingernegl, der kvar av dei representerer eit 0 eller eit 1.",
+      "ebf9f45fb3d82d72": "Test deg sjølv på transistorar:",
+      "ff9ca6a01cf71817": "Kva tyder straumforsterkninga $\\beta$ for ein bipolar transistor?",
+      "ec45fcf4545bb95e": "Spenningsfallet over basen",
+      "d72be23e9bf0d0b2": "Motstanden i emitteren",
+      "5840786a13d7c0cd": "Talet på bein på transistoren",
+      "a7cfe1eb1d4ceb83": "Forholdet mellom kollektorstraum og basestraum",
+      "d3e6041cd7ecaebd": "$\\beta = I_C / I_B$, altså kor mange gonger større kollektorstraumen er enn basestraumen, ofte 100–300.",
+      "e4fcc02c136896bc": "Kva er hovudskilnaden mellom ein BJT og ein MOSFET?",
+      "4ae14f43fa7bce13": "BJT blir styrt av straum, MOSFET av spenning",
+      "49c11ce2b4948a65": "BJT blir styrt av spenning, MOSFET av straum",
+      "e1dc91e521d110ed": "Dei er heilt like",
+      "65b0d63ab3470263": "MOSFET kan ikkje brukast som bryter",
+      "22d9ec4e7ab7c897": "Ein BJT blir styrt av basestraum, medan ein MOSFET blir styrt av spenning på gaten og bruker nesten ingen styreenergi i stabil tilstand.",
+      "51b88ac1c98ff3dd": "Ein NPN med $\\beta = 200$ skal styre 20 mA kollektorstraum. Kor stor basestraum trengst minst?",
+      "746eb772f8974dfa": "4 mA",
+      "685fd7245f33ebc8": "0,1 mA",
+      "56a8443bd47bb07d": "2 mA",
+      "a845fa65bd8ba30d": "1 mA",
+      "2c06e407edbbda76": "$I_B = I_C/\\beta = 20\\,\\text{mA}/200 = 0{,}1$ mA. For sikker metting blir gjerne 2–3 gonger meir brukt.",
+      "9fb5803bd17f1e56": "Kvifor er transistoren grunnlaget for moderne datamaskiner?",
+      "bbc650e1747bb1a3": "Han lagrar store mengder energi",
+      "be46d7913ee47122": "Han lyser i ulike fargar",
+      "d33e55b5ffc4caa7": "Han fungerer som ein bryter (0/1) og kan pakkast i milliardar på éi brikke",
+      "f24d111a62044f1d": "Han likerettar vekselstraum",
+      "8266ee8fb9c92e2d": "Transistoren fungerer som ein av-på-bryter som representerer 0 og 1. Milliardar av dei på éi brikke utfører utrekningane i ein prosessor.",
+      "91707e404550c759": "## Oppsummering\n\nVi har følgt vegen frå eit stykke silisium til den digitale tidsalderen. **Halvleiarar** ligg mellom leiarar og isolatorar, og ved **doping** kan vi lage N-type med ekstra elektron og P-type med hol. Møter dei kvarandre, oppstår ein **PN-overgang** – kjernen i ein **diode**, som slepp straum éin veg med eit spenningsfall på cirka 0,7 V for silisium.\n\nEin **LED** er ein diode som lyser, med fargebestemt spenningsfall, og han treng alltid ein seriemotstand for å overleve. Til slutt møtte vi **transistoren**, som både forsterkar og bryter: den straumstyrte **BJT-en** med base, kollektor og emitter og forsterkninga $\\beta = I_C/I_B$, og den spenningsstyrte **MOSFET-en** som dominerer moderne krinsar. Det er denne vesle brytaren, pakka i milliardar, som gjer alt frå mobilar til datamaskiner mogleg."
+    }
+  }
+}

@@ -1,1 +1,483 @@
-{"id":"r1-2-5-narrativ","courseId":"r1","chapterNumber":"2.5","title":"Gjennomsnittleg og momentan vekstfart","subtitle":"Narrativ versjon","description":"Ei forteljing om fart -- frå gjennomsnittsfart mellom to fotoboksar til augneblinksfarten på speedometeret, og om sekanten som vrir seg over i tangenten.","estimatedMinutes":35,"competenceGoals":["berekne gjennomsnittleg vekstfart for ein funksjon på eit intervall","tolke gjennomsnittleg vekstfart geometrisk som stigingstalet til ein sekant","forstå momentan vekstfart som grenseverdi av gjennomsnittleg vekstfart","bruke definisjonen av den deriverte til å finne $f'(a)$","finne likninga til tangenten i eit punkt på grafen"],"linkedChapterId":"r1-2-5","content":[{"id":"r1-2-5-n-intro","type":"text","content":"## To fotoboksar og eit speedometer\n\nPå fleire norske vegstrekningar står det fotoboksar i par. Dei måler ikkje farten din i eit punkt -- dei tek tida mellom to passeringar og reknar ut **gjennomsnittsfarten**: køyrde du $5$ km på $4$ minutt, heldt du i snitt $75$ km/t. Speedometeret ditt påstår derimot noko langt meir subtilt: at du *akkurat no* held $82$ km/t. Men kva tyder eigentleg fart i eit enkelt augneblink? I løpet av eit augneblink rører ikkje bilen seg i det heile teke!\n\nDette tilsynelatande filosofiske spørsmålet er inngangsporten til differensialrekninga -- den delen av matematikken som Newton og Leibniz utvikla på 1600-talet, og som sidan har bore all moderne fysikk. Svaret deira var like enkelt som genialt: *augneblinksfarten er grenseverdien av gjennomsnittsfartar over stadig kortare tidsrom*. Mål gjennomsnittet over eitt sekund, over eit tidels, eit hundredels -- og sjå kva for ein verdi målingane nærmar seg.\n\nI dette kapittelet gjer vi denne ideen presis for ein vilkårleg funksjon $f$. **Gjennomsnittleg vekstfart** over eit intervall viser seg å vere stigingstalet til ein *sekant* -- ei linje gjennom to punkt på grafen. **Momentan vekstfart** i eit punkt blir grenseverdien når dei to punkta smeltar saman, og geometrisk skjer det noko vakkert: sekanten vrir seg over i *tangenten*, linja som berre så vidt rører grafen.\n\nTalet vi då står att med, har eit namn du kjem til å bruke resten av matematikklivet: **den deriverte**, $f'(a)$. Dette kapittelet er sjølve fødselen til omgrepet."},{"id":"r1-2-5-n-section1","type":"text","content":"## Gjennomsnittleg vekstfart -- stigingstalet til sekanten\n\nFor ein funksjon $f$ definerer vi den **gjennomsnittlege vekstfarten** på intervallet $[a, b]$ som\n\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{f(b) - f(a)}{b - a}$$\n\n-- endring i funksjonsverdi delt på endring i $x$. Geometrisk er dette stigingstalet til **sekanten**, linja gjennom dei to grafpunkta $(a, f(a))$ og $(b, f(b))$. Set vi $b = a + h$, der $h$ er breidda på intervallet, får uttrykket forma $\\frac{f(a+h) - f(a)}{h}$, som blir kalla **differansekvotienten** -- han blir hovudpersonen om eit augneblink.\n\nLat oss rekne på noko fysisk. Ein ball blir kasta rett opp, og høgda etter $t$ sekund er $h(t) = 20t - 5t^2$ meter. Gjennomsnittsfarten på $[1, 3]$? Vi finn $h(1) = 15$ og $h(3) = 60 - 45 = 15$, så\n\n$$\\frac{h(3) - h(1)}{3 - 1} = \\frac{15 - 15}{2} = 0 \\text{ m/s}$$\n\nNull! Ballen har vore ein tur oppe og kome ned til same høgd -- gjennomsnittet ser berre start og slutt, og avslører ingenting om ferda imellom. Snevrar vi inn til $[1,\\; 1{,}5]$, blir biletet eit anna: $h(1{,}5) = 18{,}75$, og gjennomsnittsfarten er $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s. Ballen er altså på veg *opp* rett etter $t = 1$.\n\nHer ser du både styrken og veikskapen ved gjennomsnittleg vekstfart. Styrken: han er lett å berekne og krev berre to målepunkt -- nøyaktig som fotoboksane. Veikskapen: han avheng av kva for intervall du vel, og han kan skjule dramatikk mellom endepunkta. Vil vi vite kva som skjer i sjølve augneblinken $t = 1$, må intervallet krympe -- mot null."},{"id":"r1-2-5-n-quiz1","type":"exercise","exercise":{"id":"r1-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på gjennomsnittleg vekstfart:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-5-n-quiz1-q0","task":"Kva er den geometriske tolkinga av $\\frac{f(b)-f(a)}{b-a}$?","options":[{"id":"a","text":"Stigingstalet til tangenten i $(a, f(a))$","isCorrect":false},{"id":"b","text":"Stigingstalet til sekanten gjennom $(a, f(a))$ og $(b, f(b))$","isCorrect":true},{"id":"c","text":"Arealet under grafen frå $a$ til $b$","isCorrect":false},{"id":"d","text":"Avstanden mellom dei to punkta","isCorrect":false}],"solution":"Gjennomsnittleg vekstfart er endring i $y$ delt på endring i $x$ mellom to grafpunkt -- nettopp stigingstalet til sekanten gjennom dei."},{"id":"r1-2-5-n-quiz1-q1","task":"Ein ball følgjer $h(t) = 20t - 5t^2$. Kva er gjennomsnittleg vekstfart på $[1, 3]$?","options":[{"id":"a","text":"$15$ m/s","isCorrect":false},{"id":"b","text":"$7{,}5$ m/s","isCorrect":false},{"id":"c","text":"$5$ m/s","isCorrect":false},{"id":"d","text":"$0$ m/s","isCorrect":true}],"solution":"$h(1) = 15$ og $h(3) = 15$, så $\\frac{15-15}{2} = 0$ m/s. Ballen er tilbake på same høgd -- gjennomsnittet ser berre endepunkta."},{"id":"r1-2-5-n-quiz1-q2","task":"Kva er gjennomsnittleg vekstfart for same ball på $[1,\\; 1{,}5]$?","options":[{"id":"a","text":"$7{,}5$ m/s","isCorrect":true},{"id":"b","text":"$0$ m/s","isCorrect":false},{"id":"c","text":"$18{,}75$ m/s","isCorrect":false},{"id":"d","text":"$3{,}75$ m/s","isCorrect":false}],"solution":"$h(1{,}5) = 30 - 11{,}25 = 18{,}75$, så $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s."},{"id":"r1-2-5-n-quiz1-q3","task":"Kva blir uttrykket $\\frac{f(a+h) - f(a)}{h}$ kalla?","options":[{"id":"a","text":"Den deriverte","isCorrect":false},{"id":"b","text":"Tangentlikninga","isCorrect":false},{"id":"c","text":"Differansekvotienten","isCorrect":true},{"id":"d","text":"Grenseverdien","isCorrect":false}],"solution":"Det er differansekvotienten -- gjennomsnittleg vekstfart over intervallet frå $a$ til $a+h$. Den deriverte er grenseverdien av han når $h \\to 0$."}]}},{"id":"r1-2-5-n-section2","type":"text","content":"## Momentan vekstfart -- når sekanten blir tangent\n\nNo krympar vi intervallet. Hald det eine punktet fast i $x = a$, og lat det andre, $x = a + h$, sige innover mot det. For kvar $h$ har sekanten eit stigingstal -- og spørsmålet er kva desse stigingstala *nærmar seg*.\n\nPrøv med $f(x) = x^2$ i punktet $a = 1$. For $h = 1$ er sekantstiginga $\\frac{4-1}{1} = 3$. For $h = 0{,}5$: $\\frac{2{,}25 - 1}{0{,}5} = 2{,}5$. For $h = 0{,}1$: $2{,}1$. For $h = 0{,}01$: $2{,}01$. Mønsteret ropar på oss: verdiane siktar mot $2$. Geometrisk ser du sekanten *vri seg* om punktet $(1, 1)$ og leggje seg til ro som **tangenten** -- linja som berre rører grafen der.\n\nDette er den **momentane vekstfarten**, og vi definerer han som ein grenseverdi:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nTalet blir kalla **den deriverte** av $f$ i $a$, og geometrisk er det stigingstalet til tangenten i $(a, f(a))$.\n\nDet fine er at vi kan rekne ut grenseverdien *eksakt*, med rein algebra. For $f(x) = x^2$, i eit vilkårleg punkt $x$:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h} = \\lim_{h \\to 0} (2x + h) = 2x$$\n\nKvadratsetninga opna parentesen, $x^2$-ledda strauk kvarandre, og $h$ kunne forkortast bort -- og då $h$ til slutt fekk gå mot null, stod $2x$ att. Formelen stadfestar tabellen: i $x = 1$ er $f'(1) = 2$, nøyaktig verdien sekantane sikta mot. Og han gir uendeleg mykje meir: i *kvart* punkt veit vi no kor bratt parabelen er. Mysteriet til speedometeret er løyst -- augneblinksfart er ein grenseverdi av gjennomsnittsfartar, og han kan bereknast eksakt."},{"id":"r1-2-5-n-quiz2","type":"exercise","exercise":{"id":"r1-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på momentan vekstfart og den deriverte:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-5-n-quiz2-q0","task":"Korleis er den deriverte $f'(a)$ definert?","options":[{"id":"a","text":"$\\frac{f(a+h)-f(a)}{h}$ for $h = 1$","isCorrect":false},{"id":"b","text":"$f(a+h) - f(a)$","isCorrect":false},{"id":"c","text":"$\\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$","isCorrect":true},{"id":"d","text":"$\\frac{f(b)-f(a)}{b-a}$","isCorrect":false}],"solution":"Den deriverte er grenseverdien av differansekvotienten når intervallbreidda $h$ går mot null."},{"id":"r1-2-5-n-quiz2-q1","task":"Kva er den geometriske tolkinga av $f'(a)$?","options":[{"id":"a","text":"Stigingstalet til tangenten i $(a, f(a))$","isCorrect":true},{"id":"b","text":"Stigingstalet til sekanten","isCorrect":false},{"id":"c","text":"Funksjonsverdien i $a$","isCorrect":false},{"id":"d","text":"Avstanden frå grafen til $x$-aksen","isCorrect":false}],"solution":"Når $h \\to 0$ vrir sekanten seg over i tangenten, og $f'(a)$ er stigingstalet til tangenten."},{"id":"r1-2-5-n-quiz2-q2","task":"Bruk definisjonen på $f(x) = x^2$: kva er $f'(x)$?","options":[{"id":"a","text":"$x$","isCorrect":false},{"id":"b","text":"$2x$","isCorrect":true},{"id":"c","text":"$x^2$","isCorrect":false},{"id":"d","text":"$2x + h$","isCorrect":false}],"solution":"$\\frac{(x+h)^2 - x^2}{h} = \\frac{2xh + h^2}{h} = 2x + h$, som går mot $2x$ når $h \\to 0$."},{"id":"r1-2-5-n-quiz2-q3","task":"Sekantstigingane for $f(x) = x^2$ rundt $x = 1$ var $3$, $2{,}5$, $2{,}1$, $2{,}01$ for stadig mindre $h$. Kva er $f'(1)$?","options":[{"id":"a","text":"$2{,}01$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":true}],"solution":"Verdiane nærmar seg $2$, og formelen $f'(x) = 2x$ stadfestar det: $f'(1) = 2 \\cdot 1 = 2$."}]}},{"id":"r1-2-5-n-section3","type":"text","content":"## Likninga til tangenten\n\nDen deriverte gir oss stigingstalet til tangenten -- då kan vi også skrive opp heile tangent*linja*. Ei rett linje gjennom punktet $(a, f(a))$ med stigingstal $f'(a)$ har likninga\n\n$$y = f(a) + f'(a)(x - a)$$\n\nDette er eittpunktsformelen frå tidlegare kurs, berre med dei nye storleikane sette inn. Les han som ein instruks: start i grafpunktet, og rør deg med helninga til tangenten.\n\nEit fullt døme: finn tangenten til $f(x) = x^2 - 3x + 2$ i punktet der $x = 2$. Tre ingrediensar trengst. *Punktet*: $f(2) = 4 - 6 + 2 = 0$, så tangenten rører grafen i $(2, 0)$. *Stigingstalet*: $f'(x) = 2x - 3$ (kvadratleddet bidreg med $2x$, slik vi utleidde, og det lineære leddet $-3x$ med konstanten $-3$), så $f'(2) = 1$. *Samansetjinga*:\n\n$$y = 0 + 1 \\cdot (x - 2) = x - 2$$\n\nTangenten er linja $y = x - 2$. Han treffer grafen i $(2, 0)$ med nøyaktig same helning som kurva har der -- den beste lineære etterlikninga av $f$ nær det punktet.\n\nAkkurat dette -- at tangenten er den beste lineære tilnærminga til funksjonen -- er grunnen til at den deriverte gjennomsyrer realfaga. Fysikaren les $f'$ som fart eller akselerasjon, kjemikaren som reaksjonsrate, økonomen som marginalinntekt: overalt blir det spurt om kor fort noko endrar seg *akkurat no*, og overalt er svaret det same talet.\n\nOppsummert står heile konstruksjonen på tre trinn: sekant (to punkt, gjennomsnitt), grenseprosess ($h \\to 0$), tangent (eitt punkt, augneblink). I kapittel 3 gjer vi sjølve grenseverdiomgrepet stuereint -- og byggjer derivasjonsmaskineriet som gjer utrekningane raske."},{"id":"r1-2-5-n-quiz3","type":"exercise","exercise":{"id":"r1-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på likninga til tangenten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-2-5-n-quiz3-q0","task":"Kva er likninga for tangenten til $f$ i punktet $(a, f(a))$?","options":[{"id":"a","text":"$y = f'(a) \\cdot x$","isCorrect":false},{"id":"b","text":"$y = f(a) + f'(a)(x - a)$","isCorrect":true},{"id":"c","text":"$y = f(a) \\cdot (x - a)$","isCorrect":false},{"id":"d","text":"$y = f'(a) + f(a)(x-a)$","isCorrect":false}],"solution":"Eittpunktsformelen med punkt $(a, f(a))$ og stigingstal $f'(a)$: $y = f(a) + f'(a)(x-a)$."},{"id":"r1-2-5-n-quiz3-q1","task":"Finn tangenten til $f(x) = x^2 - 3x + 2$ i $x = 2$ (der $f'(x) = 2x - 3$).","options":[{"id":"a","text":"$y = 2x - 3$","isCorrect":false},{"id":"b","text":"$y = x + 2$","isCorrect":false},{"id":"c","text":"$y = x - 2$","isCorrect":true},{"id":"d","text":"$y = -x + 2$","isCorrect":false}],"solution":"$f(2) = 0$ og $f'(2) = 1$, så $y = 0 + 1 \\cdot (x-2) = x - 2$."},{"id":"r1-2-5-n-quiz3-q2","task":"Kva skjer geometrisk med sekanten når $h \\to 0$?","options":[{"id":"a","text":"Han vrir seg om punktet og blir tangenten","isCorrect":true},{"id":"b","text":"Han blir vassrett","isCorrect":false},{"id":"c","text":"Han forsvinn","isCorrect":false},{"id":"d","text":"Han blir vinkelrett på grafen","isCorrect":false}],"solution":"Det bevegelege punktet siger inn mot det faste, og sekanten legg seg til ro som tangenten -- linja med stigingstal $f'(a)$."}]}},{"id":"r1-2-5-n-summary","type":"text","content":"## Forteljinga i eit nøtteskal\n\nFotoboksane og speedometeret stilte spørsmålet til kapittelet: kva er fart i eit augneblink? Svaret vart bygd i tre trinn.\n\nFørst **gjennomsnittleg vekstfart**: $\\frac{f(b)-f(a)}{b-a}$, stigingstalet til *sekanten* gjennom to grafpunkt -- lett å rekne ut, men blind for alt som skjer mellom endepunkta, slik ballkastet med gjennomsnittsfart null demonstrerte. På forma $\\frac{f(a+h)-f(a)}{h}$ heiter han differansekvotienten.\n\nSå **grenseprosessen**: lat $h \\to 0$ og sjå sekantstigingane nærme seg éin bestemt verdi, medan sekanten geometrisk vrir seg over i *tangenten*. Grenseverdien er den **momentane vekstfarten**, den deriverte:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nFor $f(x) = x^2$ gav algebraen oss $f'(x) = 2x$ eksakt -- kvadratsetning, stryking, forkorting, grense.\n\nTil slutt **likninga til tangenten** $y = f(a) + f'(a)(x-a)$: med funksjonsverdi og derivert i handa kan du skrive opp den rette linja som best etterliknar funksjonen nær punktet.\n\nDette er fødselsaugneblinken til differensialrekninga, og tolkingane står i kø: fart i fysikk, reaksjonsrate i kjemi, marginalkostnad i økonomi. I kapittel 3 får grenseverdiane si grundige handsaming, definisjonen blir brukt på fleire funksjonar -- og etter kvart kjem reknereglar som gjer at du slepp grenseprosessen kvar gong. Men hugs alltid kvar talet kjem frå: ein sekant som vart tolmodig pressa inn til ein tangent."}],"exercises":[],"_meta":{"sourceHash":"6687c01312a30ca5","translatedAt":"2026-06-19T23:23:51.761Z","model":"claude-code-agent","strings":81,"tm":{"35bb9c18c34f3c6a":"Gjennomsnittleg og momentan vekstfart","b195b06d1ed59702":"Narrativ versjon","201ec7a2d71427c6":"Ei forteljing om fart -- frå gjennomsnittsfart mellom to fotoboksar til augneblinksfarten på speedometeret, og om sekanten som vrir seg over i tangenten.","be8e928ee56e3651":"berekne gjennomsnittleg vekstfart for ein funksjon på eit intervall","74cb4c5d7ec9e53c":"tolke gjennomsnittleg vekstfart geometrisk som stigingstalet til ein sekant","53ff7fefb281844a":"forstå momentan vekstfart som grenseverdi av gjennomsnittleg vekstfart","84c2df1942eae3ef":"bruke definisjonen av den deriverte til å finne $f'(a)$","bcea2948ec6291d7":"finne likninga til tangenten i eit punkt på grafen","8e5bad6aa8a16cde":"## To fotoboksar og eit speedometer\n\nPå fleire norske vegstrekningar står det fotoboksar i par. Dei måler ikkje farten din i eit punkt -- dei tek tida mellom to passeringar og reknar ut **gjennomsnittsfarten**: køyrde du $5$ km på $4$ minutt, heldt du i snitt $75$ km/t. Speedometeret ditt påstår derimot noko langt meir subtilt: at du *akkurat no* held $82$ km/t. Men kva tyder eigentleg fart i eit enkelt augneblink? I løpet av eit augneblink rører ikkje bilen seg i det heile teke!\n\nDette tilsynelatande filosofiske spørsmålet er inngangsporten til differensialrekninga -- den delen av matematikken som Newton og Leibniz utvikla på 1600-talet, og som sidan har bore all moderne fysikk. Svaret deira var like enkelt som genialt: *augneblinksfarten er grenseverdien av gjennomsnittsfartar over stadig kortare tidsrom*. Mål gjennomsnittet over eitt sekund, over eit tidels, eit hundredels -- og sjå kva for ein verdi målingane nærmar seg.\n\nI dette kapittelet gjer vi denne ideen presis for ein vilkårleg funksjon $f$. **Gjennomsnittleg vekstfart** over eit intervall viser seg å vere stigingstalet til ein *sekant* -- ei linje gjennom to punkt på grafen. **Momentan vekstfart** i eit punkt blir grenseverdien når dei to punkta smeltar saman, og geometrisk skjer det noko vakkert: sekanten vrir seg over i *tangenten*, linja som berre så vidt rører grafen.\n\nTalet vi då står att med, har eit namn du kjem til å bruke resten av matematikklivet: **den deriverte**, $f'(a)$. Dette kapittelet er sjølve fødselen til omgrepet.","4751362559579d79":"## Gjennomsnittleg vekstfart -- stigingstalet til sekanten\n\nFor ein funksjon $f$ definerer vi den **gjennomsnittlege vekstfarten** på intervallet $[a, b]$ som\n\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{f(b) - f(a)}{b - a}$$\n\n-- endring i funksjonsverdi delt på endring i $x$. Geometrisk er dette stigingstalet til **sekanten**, linja gjennom dei to grafpunkta $(a, f(a))$ og $(b, f(b))$. Set vi $b = a + h$, der $h$ er breidda på intervallet, får uttrykket forma $\\frac{f(a+h) - f(a)}{h}$, som blir kalla **differansekvotienten** -- han blir hovudpersonen om eit augneblink.\n\nLat oss rekne på noko fysisk. Ein ball blir kasta rett opp, og høgda etter $t$ sekund er $h(t) = 20t - 5t^2$ meter. Gjennomsnittsfarten på $[1, 3]$? Vi finn $h(1) = 15$ og $h(3) = 60 - 45 = 15$, så\n\n$$\\frac{h(3) - h(1)}{3 - 1} = \\frac{15 - 15}{2} = 0 \\text{ m/s}$$\n\nNull! Ballen har vore ein tur oppe og kome ned til same høgd -- gjennomsnittet ser berre start og slutt, og avslører ingenting om ferda imellom. Snevrar vi inn til $[1,\\; 1{,}5]$, blir biletet eit anna: $h(1{,}5) = 18{,}75$, og gjennomsnittsfarten er $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s. Ballen er altså på veg *opp* rett etter $t = 1$.\n\nHer ser du både styrken og veikskapen ved gjennomsnittleg vekstfart. Styrken: han er lett å berekne og krev berre to målepunkt -- nøyaktig som fotoboksane. Veikskapen: han avheng av kva for intervall du vel, og han kan skjule dramatikk mellom endepunkta. Vil vi vite kva som skjer i sjølve augneblinken $t = 1$, må intervallet krympe -- mot null.","677dced109a9836d":"Test deg sjølv på gjennomsnittleg vekstfart:","4097889236a2af26":"placeholder","476280726c9cb02a":"Kva er den geometriske tolkinga av $\\frac{f(b)-f(a)}{b-a}$?","476a5ec216098dd3":"Stigingstalet til tangenten i $(a, f(a))$","c1006091e4d6612d":"Stigingstalet til sekanten gjennom $(a, f(a))$ og $(b, f(b))$","3fc095271f34436b":"Arealet under grafen frå $a$ til $b$","651f7b6670737499":"Avstanden mellom dei to punkta","2f93f5bdea9d9db6":"Gjennomsnittleg vekstfart er endring i $y$ delt på endring i $x$ mellom to grafpunkt -- nettopp stigingstalet til sekanten gjennom dei.","c57d4c001190314f":"Ein ball følgjer $h(t) = 20t - 5t^2$. Kva er gjennomsnittleg vekstfart på $[1, 3]$?","ef449669fce7daf3":"$15$ m/s","b2f33e4df8d893ae":"$7{,}5$ m/s","38c6ecca947271b7":"$5$ m/s","44834526359ad6da":"$0$ m/s","7ce76db6d7820aa6":"$h(1) = 15$ og $h(3) = 15$, så $\\frac{15-15}{2} = 0$ m/s. Ballen er tilbake på same høgd -- gjennomsnittet ser berre endepunkta.","ef6822acd577b93f":"Kva er gjennomsnittleg vekstfart for same ball på $[1,\\; 1{,}5]$?","7eba099755581f01":"$18{,}75$ m/s","db76bddfdff0e8c9":"$3{,}75$ m/s","c27a4847e49901fb":"$h(1{,}5) = 30 - 11{,}25 = 18{,}75$, så $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s.","5df0db1593fd26e3":"Kva blir uttrykket $\\frac{f(a+h) - f(a)}{h}$ kalla?","c214482f6ce3f80a":"Den deriverte","478df95089d78a45":"Tangentlikninga","cf32663c9f0f11b1":"Differansekvotienten","f0c971c9d7b0118d":"Grenseverdien","81b7b4fca9086053":"Det er differansekvotienten -- gjennomsnittleg vekstfart over intervallet frå $a$ til $a+h$. Den deriverte er grenseverdien av han når $h \\to 0$.","e37a6d0281c00e12":"## Momentan vekstfart -- når sekanten blir tangent\n\nNo krympar vi intervallet. Hald det eine punktet fast i $x = a$, og lat det andre, $x = a + h$, sige innover mot det. For kvar $h$ har sekanten eit stigingstal -- og spørsmålet er kva desse stigingstala *nærmar seg*.\n\nPrøv med $f(x) = x^2$ i punktet $a = 1$. For $h = 1$ er sekantstiginga $\\frac{4-1}{1} = 3$. For $h = 0{,}5$: $\\frac{2{,}25 - 1}{0{,}5} = 2{,}5$. For $h = 0{,}1$: $2{,}1$. For $h = 0{,}01$: $2{,}01$. Mønsteret ropar på oss: verdiane siktar mot $2$. Geometrisk ser du sekanten *vri seg* om punktet $(1, 1)$ og leggje seg til ro som **tangenten** -- linja som berre rører grafen der.\n\nDette er den **momentane vekstfarten**, og vi definerer han som ein grenseverdi:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nTalet blir kalla **den deriverte** av $f$ i $a$, og geometrisk er det stigingstalet til tangenten i $(a, f(a))$.\n\nDet fine er at vi kan rekne ut grenseverdien *eksakt*, med rein algebra. For $f(x) = x^2$, i eit vilkårleg punkt $x$:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h} = \\lim_{h \\to 0} (2x + h) = 2x$$\n\nKvadratsetninga opna parentesen, $x^2$-ledda strauk kvarandre, og $h$ kunne forkortast bort -- og då $h$ til slutt fekk gå mot null, stod $2x$ att. Formelen stadfestar tabellen: i $x = 1$ er $f'(1) = 2$, nøyaktig verdien sekantane sikta mot. Og han gir uendeleg mykje meir: i *kvart* punkt veit vi no kor bratt parabelen er. Mysteriet til speedometeret er løyst -- augneblinksfart er ein grenseverdi av gjennomsnittsfartar, og han kan bereknast eksakt.","44d9e8e61b5dbe14":"Test deg sjølv på momentan vekstfart og den deriverte:","d55160f0e74a60ec":"Korleis er den deriverte $f'(a)$ definert?","f8c49a3886d601f6":"$\\frac{f(a+h)-f(a)}{h}$ for $h = 1$","2d8cfcf590ab9619":"$f(a+h) - f(a)$","08f0562c327be1ec":"$\\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$","cf0be327a973ca4c":"$\\frac{f(b)-f(a)}{b-a}$","539ed9e1a862b277":"Den deriverte er grenseverdien av differansekvotienten når intervallbreidda $h$ går mot null.","5e60166f7030c248":"Kva er den geometriske tolkinga av $f'(a)$?","62b3bbffc467dd7a":"Stigingstalet til sekanten","792aeea12348368c":"Funksjonsverdien i $a$","aa9e6a4e90464387":"Avstanden frå grafen til $x$-aksen","284de5bb21f3e45c":"Når $h \\to 0$ vrir sekanten seg over i tangenten, og $f'(a)$ er stigingstalet til tangenten.","9d39244764a02696":"Bruk definisjonen på $f(x) = x^2$: kva er $f'(x)$?","22bf003d6cac79e1":"$x$","78a5bb6d2b2ceac0":"$2x$","7f408224ea7b716f":"$x^2$","521963fafbd720f9":"$2x + h$","dbe4f0f7046b9000":"$\\frac{(x+h)^2 - x^2}{h} = \\frac{2xh + h^2}{h} = 2x + h$, som går mot $2x$ når $h \\to 0$.","2c28c39aeb3e4b21":"Sekantstigingane for $f(x) = x^2$ rundt $x = 1$ var $3$, $2{,}5$, $2{,}1$, $2{,}01$ for stadig mindre $h$. Kva er $f'(1)$?","b4e1498a614997e9":"Verdiane nærmar seg $2$, og formelen $f'(x) = 2x$ stadfestar det: $f'(1) = 2 \\cdot 1 = 2$.","b6faa361b3f28e76":"## Likninga til tangenten\n\nDen deriverte gir oss stigingstalet til tangenten -- då kan vi også skrive opp heile tangent*linja*. Ei rett linje gjennom punktet $(a, f(a))$ med stigingstal $f'(a)$ har likninga\n\n$$y = f(a) + f'(a)(x - a)$$\n\nDette er eittpunktsformelen frå tidlegare kurs, berre med dei nye storleikane sette inn. Les han som ein instruks: start i grafpunktet, og rør deg med helninga til tangenten.\n\nEit fullt døme: finn tangenten til $f(x) = x^2 - 3x + 2$ i punktet der $x = 2$. Tre ingrediensar trengst. *Punktet*: $f(2) = 4 - 6 + 2 = 0$, så tangenten rører grafen i $(2, 0)$. *Stigingstalet*: $f'(x) = 2x - 3$ (kvadratleddet bidreg med $2x$, slik vi utleidde, og det lineære leddet $-3x$ med konstanten $-3$), så $f'(2) = 1$. *Samansetjinga*:\n\n$$y = 0 + 1 \\cdot (x - 2) = x - 2$$\n\nTangenten er linja $y = x - 2$. Han treffer grafen i $(2, 0)$ med nøyaktig same helning som kurva har der -- den beste lineære etterlikninga av $f$ nær det punktet.\n\nAkkurat dette -- at tangenten er den beste lineære tilnærminga til funksjonen -- er grunnen til at den deriverte gjennomsyrer realfaga. Fysikaren les $f'$ som fart eller akselerasjon, kjemikaren som reaksjonsrate, økonomen som marginalinntekt: overalt blir det spurt om kor fort noko endrar seg *akkurat no*, og overalt er svaret det same talet.\n\nOppsummert står heile konstruksjonen på tre trinn: sekant (to punkt, gjennomsnitt), grenseprosess ($h \\to 0$), tangent (eitt punkt, augneblink). I kapittel 3 gjer vi sjølve grenseverdiomgrepet stuereint -- og byggjer derivasjonsmaskineriet som gjer utrekningane raske.","396189dee9790dfe":"Test deg sjølv på likninga til tangenten:","65e8361f69dfbd69":"Kva er likninga for tangenten til $f$ i punktet $(a, f(a))$?","6ab1ccb6a0d262bd":"$y = f'(a) \\cdot x$","59a8cad7e3e8efd3":"$y = f(a) + f'(a)(x - a)$","44d998e79e3aa98e":"$y = f(a) \\cdot (x - a)$","14b10357facc1675":"$y = f'(a) + f(a)(x-a)$","83d0ab7f6d073848":"Eittpunktsformelen med punkt $(a, f(a))$ og stigingstal $f'(a)$: $y = f(a) + f'(a)(x-a)$.","786063e1bdec9c10":"Finn tangenten til $f(x) = x^2 - 3x + 2$ i $x = 2$ (der $f'(x) = 2x - 3$).","189ebcb7aea14e33":"$y = 2x - 3$","f8a395fc3d89903d":"$y = x + 2$","f5ada2300b8f8b5b":"$y = x - 2$","c8e2c4bce1665b82":"$y = -x + 2$","19e81b5c3630e48d":"$f(2) = 0$ og $f'(2) = 1$, så $y = 0 + 1 \\cdot (x-2) = x - 2$.","65eac711fc0aad26":"Kva skjer geometrisk med sekanten når $h \\to 0$?","66592f89f786b63f":"Han vrir seg om punktet og blir tangenten","5e4718f0cce6cc9c":"Han blir vassrett","976fa48725c368b4":"Han forsvinn","454a8fc8dafbb1e2":"Han blir vinkelrett på grafen","0ab727d02747cb0e":"Det bevegelege punktet siger inn mot det faste, og sekanten legg seg til ro som tangenten -- linja med stigingstal $f'(a)$.","2a5c07be4e3ed70b":"## Forteljinga i eit nøtteskal\n\nFotoboksane og speedometeret stilte spørsmålet til kapittelet: kva er fart i eit augneblink? Svaret vart bygd i tre trinn.\n\nFørst **gjennomsnittleg vekstfart**: $\\frac{f(b)-f(a)}{b-a}$, stigingstalet til *sekanten* gjennom to grafpunkt -- lett å rekne ut, men blind for alt som skjer mellom endepunkta, slik ballkastet med gjennomsnittsfart null demonstrerte. På forma $\\frac{f(a+h)-f(a)}{h}$ heiter han differansekvotienten.\n\nSå **grenseprosessen**: lat $h \\to 0$ og sjå sekantstigingane nærme seg éin bestemt verdi, medan sekanten geometrisk vrir seg over i *tangenten*. Grenseverdien er den **momentane vekstfarten**, den deriverte:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nFor $f(x) = x^2$ gav algebraen oss $f'(x) = 2x$ eksakt -- kvadratsetning, stryking, forkorting, grense.\n\nTil slutt **likninga til tangenten** $y = f(a) + f'(a)(x-a)$: med funksjonsverdi og derivert i handa kan du skrive opp den rette linja som best etterliknar funksjonen nær punktet.\n\nDette er fødselsaugneblinken til differensialrekninga, og tolkingane står i kø: fart i fysikk, reaksjonsrate i kjemi, marginalkostnad i økonomi. I kapittel 3 får grenseverdiane si grundige handsaming, definisjonen blir brukt på fleire funksjonar -- og etter kvart kjem reknereglar som gjer at du slepp grenseprosessen kvar gong. Men hugs alltid kvar talet kjem frå: ein sekant som vart tolmodig pressa inn til ein tangent."}}}
+{
+  "id": "r1-2-5-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "2.5",
+  "title": "Gjennomsnittleg og momentan vekstfart",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om fart -- frå gjennomsnittsfart mellom to fotoboksar til augneblinksfarten på speedometeret, og om sekanten som vrir seg over i tangenten.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "berekne gjennomsnittleg vekstfart for ein funksjon på eit intervall",
+    "tolke gjennomsnittleg vekstfart geometrisk som stigingstalet til ein sekant",
+    "forstå momentan vekstfart som grenseverdi av gjennomsnittleg vekstfart",
+    "bruke definisjonen av den deriverte til å finne $f'(a)$",
+    "finne likninga til tangenten i eit punkt på grafen"
+  ],
+  "linkedChapterId": "r1-2-5",
+  "content": [
+    {
+      "id": "r1-2-5-n-intro",
+      "type": "text",
+      "content": "## To fotoboksar og eit speedometer\n\nPå fleire norske vegstrekningar står det fotoboksar i par. Dei måler ikkje farten din i eit punkt -- dei tek tida mellom to passeringar og reknar ut **gjennomsnittsfarten**: køyrde du $5$ km på $4$ minutt, heldt du i snitt $75$ km/t. Speedometeret ditt påstår derimot noko langt meir subtilt: at du *akkurat no* held $82$ km/t. Men kva tyder eigentleg fart i eit enkelt augneblink? I løpet av eit augneblink rører ikkje bilen seg i det heile teke!\n\nDette tilsynelatande filosofiske spørsmålet er inngangsporten til differensialrekninga -- den delen av matematikken som Newton og Leibniz utvikla på 1600-talet, og som sidan har bore all moderne fysikk. Svaret deira var like enkelt som genialt: *augneblinksfarten er grenseverdien av gjennomsnittsfartar over stadig kortare tidsrom*. Mål gjennomsnittet over eitt sekund, over eit tidels, eit hundredels -- og sjå kva for ein verdi målingane nærmar seg.\n\nI dette kapittelet gjer vi denne ideen presis for ein vilkårleg funksjon $f$. **Gjennomsnittleg vekstfart** over eit intervall viser seg å vere stigingstalet til ein *sekant* -- ei linje gjennom to punkt på grafen. **Momentan vekstfart** i eit punkt blir grenseverdien når dei to punkta smeltar saman, og geometrisk skjer det noko vakkert: sekanten vrir seg over i *tangenten*, linja som berre så vidt rører grafen.\n\nTalet vi då står att med, har eit namn du kjem til å bruke resten av matematikklivet: **den deriverte**, $f'(a)$. Dette kapittelet er sjølve fødselen til omgrepet."
+    },
+    {
+      "id": "r1-2-5-n-section1",
+      "type": "text",
+      "content": "## Gjennomsnittleg vekstfart -- stigingstalet til sekanten\n\nFor ein funksjon $f$ definerer vi den **gjennomsnittlege vekstfarten** på intervallet $[a, b]$ som\n\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{f(b) - f(a)}{b - a}$$\n\n-- endring i funksjonsverdi delt på endring i $x$. Geometrisk er dette stigingstalet til **sekanten**, linja gjennom dei to grafpunkta $(a, f(a))$ og $(b, f(b))$. Set vi $b = a + h$, der $h$ er breidda på intervallet, får uttrykket forma $\\frac{f(a+h) - f(a)}{h}$, som blir kalla **differansekvotienten** -- han blir hovudpersonen om eit augneblink.\n\nLat oss rekne på noko fysisk. Ein ball blir kasta rett opp, og høgda etter $t$ sekund er $h(t) = 20t - 5t^2$ meter. Gjennomsnittsfarten på $[1, 3]$? Vi finn $h(1) = 15$ og $h(3) = 60 - 45 = 15$, så\n\n$$\\frac{h(3) - h(1)}{3 - 1} = \\frac{15 - 15}{2} = 0 \\text{ m/s}$$\n\nNull! Ballen har vore ein tur oppe og kome ned til same høgd -- gjennomsnittet ser berre start og slutt, og avslører ingenting om ferda imellom. Snevrar vi inn til $[1,\\; 1{,}5]$, blir biletet eit anna: $h(1{,}5) = 18{,}75$, og gjennomsnittsfarten er $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s. Ballen er altså på veg *opp* rett etter $t = 1$.\n\nHer ser du både styrken og veikskapen ved gjennomsnittleg vekstfart. Styrken: han er lett å berekne og krev berre to målepunkt -- nøyaktig som fotoboksane. Veikskapen: han avheng av kva for intervall du vel, og han kan skjule dramatikk mellom endepunkta. Vil vi vite kva som skjer i sjølve augneblinken $t = 1$, må intervallet krympe -- mot null."
+    },
+    {
+      "id": "r1-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på gjennomsnittleg vekstfart:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-5-n-quiz1-q0",
+            "task": "Kva er den geometriske tolkinga av $\\frac{f(b)-f(a)}{b-a}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Stigingstalet til sekanten gjennom $(a, f(a))$ og $(b, f(b))$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Stigingstalet til tangenten i $(a, f(a))$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Arealet under grafen frå $a$ til $b$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avstanden mellom dei to punkta",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittleg vekstfart er endring i $y$ delt på endring i $x$ mellom to grafpunkt -- nettopp stigingstalet til sekanten gjennom dei."
+          },
+          {
+            "id": "r1-2-5-n-quiz1-q1",
+            "task": "Ein ball følgjer $h(t) = 20t - 5t^2$. Kva er gjennomsnittleg vekstfart på $[1, 3]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7{,}5$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$ m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$5$ m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h(1) = 15$ og $h(3) = 15$, så $\\frac{15-15}{2} = 0$ m/s. Ballen er tilbake på same høgd -- gjennomsnittet ser berre endepunkta."
+          },
+          {
+            "id": "r1-2-5-n-quiz1-q2",
+            "task": "Kva er gjennomsnittleg vekstfart for same ball på $[1,\\; 1{,}5]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$18{,}75$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3{,}75$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$7{,}5$ m/s",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$h(1{,}5) = 30 - 11{,}25 = 18{,}75$, så $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s."
+          },
+          {
+            "id": "r1-2-5-n-quiz1-q3",
+            "task": "Kva blir uttrykket $\\frac{f(a+h) - f(a)}{h}$ kalla?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Differansekvotienten",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den deriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tangentlikninga",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grenseverdien",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er differansekvotienten -- gjennomsnittleg vekstfart over intervallet frå $a$ til $a+h$. Den deriverte er grenseverdien av han når $h \\to 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-5-n-section2",
+      "type": "text",
+      "content": "## Momentan vekstfart -- når sekanten blir tangent\n\nNo krympar vi intervallet. Hald det eine punktet fast i $x = a$, og lat det andre, $x = a + h$, sige innover mot det. For kvar $h$ har sekanten eit stigingstal -- og spørsmålet er kva desse stigingstala *nærmar seg*.\n\nPrøv med $f(x) = x^2$ i punktet $a = 1$. For $h = 1$ er sekantstiginga $\\frac{4-1}{1} = 3$. For $h = 0{,}5$: $\\frac{2{,}25 - 1}{0{,}5} = 2{,}5$. For $h = 0{,}1$: $2{,}1$. For $h = 0{,}01$: $2{,}01$. Mønsteret ropar på oss: verdiane siktar mot $2$. Geometrisk ser du sekanten *vri seg* om punktet $(1, 1)$ og leggje seg til ro som **tangenten** -- linja som berre rører grafen der.\n\nDette er den **momentane vekstfarten**, og vi definerer han som ein grenseverdi:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nTalet blir kalla **den deriverte** av $f$ i $a$, og geometrisk er det stigingstalet til tangenten i $(a, f(a))$.\n\nDet fine er at vi kan rekne ut grenseverdien *eksakt*, med rein algebra. For $f(x) = x^2$, i eit vilkårleg punkt $x$:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h} = \\lim_{h \\to 0} (2x + h) = 2x$$\n\nKvadratsetninga opna parentesen, $x^2$-ledda strauk kvarandre, og $h$ kunne forkortast bort -- og då $h$ til slutt fekk gå mot null, stod $2x$ att. Formelen stadfestar tabellen: i $x = 1$ er $f'(1) = 2$, nøyaktig verdien sekantane sikta mot. Og han gir uendeleg mykje meir: i *kvart* punkt veit vi no kor bratt parabelen er. Mysteriet til speedometeret er løyst -- augneblinksfart er ein grenseverdi av gjennomsnittsfartar, og han kan bereknast eksakt."
+    },
+    {
+      "id": "r1-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på momentan vekstfart og den deriverte:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-5-n-quiz2-q0",
+            "task": "Korleis er den deriverte $f'(a)$ definert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{f(a+h)-f(a)}{h}$ for $h = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$f(a+h) - f(a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{f(b)-f(a)}{b-a}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte er grenseverdien av differansekvotienten når intervallbreidda $h$ går mot null."
+          },
+          {
+            "id": "r1-2-5-n-quiz2-q1",
+            "task": "Kva er den geometriske tolkinga av $f'(a)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Stigingstalet til sekanten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonsverdien i $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Stigingstalet til tangenten i $(a, f(a))$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Avstanden frå grafen til $x$-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $h \\to 0$ vrir sekanten seg over i tangenten, og $f'(a)$ er stigingstalet til tangenten."
+          },
+          {
+            "id": "r1-2-5-n-quiz2-q2",
+            "task": "Bruk definisjonen på $f(x) = x^2$: kva er $f'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x + h$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{(x+h)^2 - x^2}{h} = \\frac{2xh + h^2}{h} = 2x + h$, som går mot $2x$ når $h \\to 0$."
+          },
+          {
+            "id": "r1-2-5-n-quiz2-q3",
+            "task": "Sekantstigingane for $f(x) = x^2$ rundt $x = 1$ var $3$, $2{,}5$, $2{,}1$, $2{,}01$ for stadig mindre $h$. Kva er $f'(1)$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2{,}01$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Verdiane nærmar seg $2$, og formelen $f'(x) = 2x$ stadfestar det: $f'(1) = 2 \\cdot 1 = 2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-5-n-section3",
+      "type": "text",
+      "content": "## Likninga til tangenten\n\nDen deriverte gir oss stigingstalet til tangenten -- då kan vi også skrive opp heile tangent*linja*. Ei rett linje gjennom punktet $(a, f(a))$ med stigingstal $f'(a)$ har likninga\n\n$$y = f(a) + f'(a)(x - a)$$\n\nDette er eittpunktsformelen frå tidlegare kurs, berre med dei nye storleikane sette inn. Les han som ein instruks: start i grafpunktet, og rør deg med helninga til tangenten.\n\nEit fullt døme: finn tangenten til $f(x) = x^2 - 3x + 2$ i punktet der $x = 2$. Tre ingrediensar trengst. *Punktet*: $f(2) = 4 - 6 + 2 = 0$, så tangenten rører grafen i $(2, 0)$. *Stigingstalet*: $f'(x) = 2x - 3$ (kvadratleddet bidreg med $2x$, slik vi utleidde, og det lineære leddet $-3x$ med konstanten $-3$), så $f'(2) = 1$. *Samansetjinga*:\n\n$$y = 0 + 1 \\cdot (x - 2) = x - 2$$\n\nTangenten er linja $y = x - 2$. Han treffer grafen i $(2, 0)$ med nøyaktig same helning som kurva har der -- den beste lineære etterlikninga av $f$ nær det punktet.\n\nAkkurat dette -- at tangenten er den beste lineære tilnærminga til funksjonen -- er grunnen til at den deriverte gjennomsyrer realfaga. Fysikaren les $f'$ som fart eller akselerasjon, kjemikaren som reaksjonsrate, økonomen som marginalinntekt: overalt blir det spurt om kor fort noko endrar seg *akkurat no*, og overalt er svaret det same talet.\n\nOppsummert står heile konstruksjonen på tre trinn: sekant (to punkt, gjennomsnitt), grenseprosess ($h \\to 0$), tangent (eitt punkt, augneblink). I kapittel 3 gjer vi sjølve grenseverdiomgrepet stuereint -- og byggjer derivasjonsmaskineriet som gjer utrekningane raske."
+    },
+    {
+      "id": "r1-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på likninga til tangenten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-2-5-n-quiz3-q0",
+            "task": "Kva er likninga for tangenten til $f$ i punktet $(a, f(a))$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = f'(a) \\cdot x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = f(a) + f'(a)(x - a)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$y = f(a) \\cdot (x - a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = f'(a) + f(a)(x-a)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eittpunktsformelen med punkt $(a, f(a))$ og stigingstal $f'(a)$: $y = f(a) + f'(a)(x-a)$."
+          },
+          {
+            "id": "r1-2-5-n-quiz3-q1",
+            "task": "Finn tangenten til $f(x) = x^2 - 3x + 2$ i $x = 2$ (der $f'(x) = 2x - 3$).",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = 2x - 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = x + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = x - 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = -x + 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(2) = 0$ og $f'(2) = 1$, så $y = 0 + 1 \\cdot (x-2) = x - 2$."
+          },
+          {
+            "id": "r1-2-5-n-quiz3-q2",
+            "task": "Kva skjer geometrisk med sekanten når $h \\to 0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han blir vassrett",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han forsvinn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han blir vinkelrett på grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Han vrir seg om punktet og blir tangenten",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Det bevegelege punktet siger inn mot det faste, og sekanten legg seg til ro som tangenten -- linja med stigingstal $f'(a)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-2-5-n-summary",
+      "type": "text",
+      "content": "## Forteljinga i eit nøtteskal\n\nFotoboksane og speedometeret stilte spørsmålet til kapittelet: kva er fart i eit augneblink? Svaret vart bygd i tre trinn.\n\nFørst **gjennomsnittleg vekstfart**: $\\frac{f(b)-f(a)}{b-a}$, stigingstalet til *sekanten* gjennom to grafpunkt -- lett å rekne ut, men blind for alt som skjer mellom endepunkta, slik ballkastet med gjennomsnittsfart null demonstrerte. På forma $\\frac{f(a+h)-f(a)}{h}$ heiter han differansekvotienten.\n\nSå **grenseprosessen**: lat $h \\to 0$ og sjå sekantstigingane nærme seg éin bestemt verdi, medan sekanten geometrisk vrir seg over i *tangenten*. Grenseverdien er den **momentane vekstfarten**, den deriverte:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nFor $f(x) = x^2$ gav algebraen oss $f'(x) = 2x$ eksakt -- kvadratsetning, stryking, forkorting, grense.\n\nTil slutt **likninga til tangenten** $y = f(a) + f'(a)(x-a)$: med funksjonsverdi og derivert i handa kan du skrive opp den rette linja som best etterliknar funksjonen nær punktet.\n\nDette er fødselsaugneblinken til differensialrekninga, og tolkingane står i kø: fart i fysikk, reaksjonsrate i kjemi, marginalkostnad i økonomi. I kapittel 3 får grenseverdiane si grundige handsaming, definisjonen blir brukt på fleire funksjonar -- og etter kvart kjem reknereglar som gjer at du slepp grenseprosessen kvar gong. Men hugs alltid kvar talet kjem frå: ein sekant som vart tolmodig pressa inn til ein tangent."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6687c01312a30ca5",
+    "translatedAt": "2026-06-19T23:23:51.761Z",
+    "model": "claude-code-agent",
+    "strings": 81,
+    "tm": {
+      "35bb9c18c34f3c6a": "Gjennomsnittleg og momentan vekstfart",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "201ec7a2d71427c6": "Ei forteljing om fart -- frå gjennomsnittsfart mellom to fotoboksar til augneblinksfarten på speedometeret, og om sekanten som vrir seg over i tangenten.",
+      "be8e928ee56e3651": "berekne gjennomsnittleg vekstfart for ein funksjon på eit intervall",
+      "74cb4c5d7ec9e53c": "tolke gjennomsnittleg vekstfart geometrisk som stigingstalet til ein sekant",
+      "53ff7fefb281844a": "forstå momentan vekstfart som grenseverdi av gjennomsnittleg vekstfart",
+      "84c2df1942eae3ef": "bruke definisjonen av den deriverte til å finne $f'(a)$",
+      "bcea2948ec6291d7": "finne likninga til tangenten i eit punkt på grafen",
+      "8e5bad6aa8a16cde": "## To fotoboksar og eit speedometer\n\nPå fleire norske vegstrekningar står det fotoboksar i par. Dei måler ikkje farten din i eit punkt -- dei tek tida mellom to passeringar og reknar ut **gjennomsnittsfarten**: køyrde du $5$ km på $4$ minutt, heldt du i snitt $75$ km/t. Speedometeret ditt påstår derimot noko langt meir subtilt: at du *akkurat no* held $82$ km/t. Men kva tyder eigentleg fart i eit enkelt augneblink? I løpet av eit augneblink rører ikkje bilen seg i det heile teke!\n\nDette tilsynelatande filosofiske spørsmålet er inngangsporten til differensialrekninga -- den delen av matematikken som Newton og Leibniz utvikla på 1600-talet, og som sidan har bore all moderne fysikk. Svaret deira var like enkelt som genialt: *augneblinksfarten er grenseverdien av gjennomsnittsfartar over stadig kortare tidsrom*. Mål gjennomsnittet over eitt sekund, over eit tidels, eit hundredels -- og sjå kva for ein verdi målingane nærmar seg.\n\nI dette kapittelet gjer vi denne ideen presis for ein vilkårleg funksjon $f$. **Gjennomsnittleg vekstfart** over eit intervall viser seg å vere stigingstalet til ein *sekant* -- ei linje gjennom to punkt på grafen. **Momentan vekstfart** i eit punkt blir grenseverdien når dei to punkta smeltar saman, og geometrisk skjer det noko vakkert: sekanten vrir seg over i *tangenten*, linja som berre så vidt rører grafen.\n\nTalet vi då står att med, har eit namn du kjem til å bruke resten av matematikklivet: **den deriverte**, $f'(a)$. Dette kapittelet er sjølve fødselen til omgrepet.",
+      "4751362559579d79": "## Gjennomsnittleg vekstfart -- stigingstalet til sekanten\n\nFor ein funksjon $f$ definerer vi den **gjennomsnittlege vekstfarten** på intervallet $[a, b]$ som\n\n$$\\frac{\\Delta f}{\\Delta x} = \\frac{f(b) - f(a)}{b - a}$$\n\n-- endring i funksjonsverdi delt på endring i $x$. Geometrisk er dette stigingstalet til **sekanten**, linja gjennom dei to grafpunkta $(a, f(a))$ og $(b, f(b))$. Set vi $b = a + h$, der $h$ er breidda på intervallet, får uttrykket forma $\\frac{f(a+h) - f(a)}{h}$, som blir kalla **differansekvotienten** -- han blir hovudpersonen om eit augneblink.\n\nLat oss rekne på noko fysisk. Ein ball blir kasta rett opp, og høgda etter $t$ sekund er $h(t) = 20t - 5t^2$ meter. Gjennomsnittsfarten på $[1, 3]$? Vi finn $h(1) = 15$ og $h(3) = 60 - 45 = 15$, så\n\n$$\\frac{h(3) - h(1)}{3 - 1} = \\frac{15 - 15}{2} = 0 \\text{ m/s}$$\n\nNull! Ballen har vore ein tur oppe og kome ned til same høgd -- gjennomsnittet ser berre start og slutt, og avslører ingenting om ferda imellom. Snevrar vi inn til $[1,\\; 1{,}5]$, blir biletet eit anna: $h(1{,}5) = 18{,}75$, og gjennomsnittsfarten er $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s. Ballen er altså på veg *opp* rett etter $t = 1$.\n\nHer ser du både styrken og veikskapen ved gjennomsnittleg vekstfart. Styrken: han er lett å berekne og krev berre to målepunkt -- nøyaktig som fotoboksane. Veikskapen: han avheng av kva for intervall du vel, og han kan skjule dramatikk mellom endepunkta. Vil vi vite kva som skjer i sjølve augneblinken $t = 1$, må intervallet krympe -- mot null.",
+      "677dced109a9836d": "Test deg sjølv på gjennomsnittleg vekstfart:",
+      "4097889236a2af26": "placeholder",
+      "476280726c9cb02a": "Kva er den geometriske tolkinga av $\\frac{f(b)-f(a)}{b-a}$?",
+      "476a5ec216098dd3": "Stigingstalet til tangenten i $(a, f(a))$",
+      "c1006091e4d6612d": "Stigingstalet til sekanten gjennom $(a, f(a))$ og $(b, f(b))$",
+      "3fc095271f34436b": "Arealet under grafen frå $a$ til $b$",
+      "651f7b6670737499": "Avstanden mellom dei to punkta",
+      "2f93f5bdea9d9db6": "Gjennomsnittleg vekstfart er endring i $y$ delt på endring i $x$ mellom to grafpunkt -- nettopp stigingstalet til sekanten gjennom dei.",
+      "c57d4c001190314f": "Ein ball følgjer $h(t) = 20t - 5t^2$. Kva er gjennomsnittleg vekstfart på $[1, 3]$?",
+      "ef449669fce7daf3": "$15$ m/s",
+      "b2f33e4df8d893ae": "$7{,}5$ m/s",
+      "38c6ecca947271b7": "$5$ m/s",
+      "44834526359ad6da": "$0$ m/s",
+      "7ce76db6d7820aa6": "$h(1) = 15$ og $h(3) = 15$, så $\\frac{15-15}{2} = 0$ m/s. Ballen er tilbake på same høgd -- gjennomsnittet ser berre endepunkta.",
+      "ef6822acd577b93f": "Kva er gjennomsnittleg vekstfart for same ball på $[1,\\; 1{,}5]$?",
+      "7eba099755581f01": "$18{,}75$ m/s",
+      "db76bddfdff0e8c9": "$3{,}75$ m/s",
+      "c27a4847e49901fb": "$h(1{,}5) = 30 - 11{,}25 = 18{,}75$, så $\\frac{18{,}75 - 15}{0{,}5} = 7{,}5$ m/s.",
+      "5df0db1593fd26e3": "Kva blir uttrykket $\\frac{f(a+h) - f(a)}{h}$ kalla?",
+      "c214482f6ce3f80a": "Den deriverte",
+      "478df95089d78a45": "Tangentlikninga",
+      "cf32663c9f0f11b1": "Differansekvotienten",
+      "f0c971c9d7b0118d": "Grenseverdien",
+      "81b7b4fca9086053": "Det er differansekvotienten -- gjennomsnittleg vekstfart over intervallet frå $a$ til $a+h$. Den deriverte er grenseverdien av han når $h \\to 0$.",
+      "e37a6d0281c00e12": "## Momentan vekstfart -- når sekanten blir tangent\n\nNo krympar vi intervallet. Hald det eine punktet fast i $x = a$, og lat det andre, $x = a + h$, sige innover mot det. For kvar $h$ har sekanten eit stigingstal -- og spørsmålet er kva desse stigingstala *nærmar seg*.\n\nPrøv med $f(x) = x^2$ i punktet $a = 1$. For $h = 1$ er sekantstiginga $\\frac{4-1}{1} = 3$. For $h = 0{,}5$: $\\frac{2{,}25 - 1}{0{,}5} = 2{,}5$. For $h = 0{,}1$: $2{,}1$. For $h = 0{,}01$: $2{,}01$. Mønsteret ropar på oss: verdiane siktar mot $2$. Geometrisk ser du sekanten *vri seg* om punktet $(1, 1)$ og leggje seg til ro som **tangenten** -- linja som berre rører grafen der.\n\nDette er den **momentane vekstfarten**, og vi definerer han som ein grenseverdi:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nTalet blir kalla **den deriverte** av $f$ i $a$, og geometrisk er det stigingstalet til tangenten i $(a, f(a))$.\n\nDet fine er at vi kan rekne ut grenseverdien *eksakt*, med rein algebra. For $f(x) = x^2$, i eit vilkårleg punkt $x$:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h} = \\lim_{h \\to 0} (2x + h) = 2x$$\n\nKvadratsetninga opna parentesen, $x^2$-ledda strauk kvarandre, og $h$ kunne forkortast bort -- og då $h$ til slutt fekk gå mot null, stod $2x$ att. Formelen stadfestar tabellen: i $x = 1$ er $f'(1) = 2$, nøyaktig verdien sekantane sikta mot. Og han gir uendeleg mykje meir: i *kvart* punkt veit vi no kor bratt parabelen er. Mysteriet til speedometeret er løyst -- augneblinksfart er ein grenseverdi av gjennomsnittsfartar, og han kan bereknast eksakt.",
+      "44d9e8e61b5dbe14": "Test deg sjølv på momentan vekstfart og den deriverte:",
+      "d55160f0e74a60ec": "Korleis er den deriverte $f'(a)$ definert?",
+      "f8c49a3886d601f6": "$\\frac{f(a+h)-f(a)}{h}$ for $h = 1$",
+      "2d8cfcf590ab9619": "$f(a+h) - f(a)$",
+      "08f0562c327be1ec": "$\\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$",
+      "cf0be327a973ca4c": "$\\frac{f(b)-f(a)}{b-a}$",
+      "539ed9e1a862b277": "Den deriverte er grenseverdien av differansekvotienten når intervallbreidda $h$ går mot null.",
+      "5e60166f7030c248": "Kva er den geometriske tolkinga av $f'(a)$?",
+      "62b3bbffc467dd7a": "Stigingstalet til sekanten",
+      "792aeea12348368c": "Funksjonsverdien i $a$",
+      "aa9e6a4e90464387": "Avstanden frå grafen til $x$-aksen",
+      "284de5bb21f3e45c": "Når $h \\to 0$ vrir sekanten seg over i tangenten, og $f'(a)$ er stigingstalet til tangenten.",
+      "9d39244764a02696": "Bruk definisjonen på $f(x) = x^2$: kva er $f'(x)$?",
+      "22bf003d6cac79e1": "$x$",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "7f408224ea7b716f": "$x^2$",
+      "521963fafbd720f9": "$2x + h$",
+      "dbe4f0f7046b9000": "$\\frac{(x+h)^2 - x^2}{h} = \\frac{2xh + h^2}{h} = 2x + h$, som går mot $2x$ når $h \\to 0$.",
+      "2c28c39aeb3e4b21": "Sekantstigingane for $f(x) = x^2$ rundt $x = 1$ var $3$, $2{,}5$, $2{,}1$, $2{,}01$ for stadig mindre $h$. Kva er $f'(1)$?",
+      "b4e1498a614997e9": "Verdiane nærmar seg $2$, og formelen $f'(x) = 2x$ stadfestar det: $f'(1) = 2 \\cdot 1 = 2$.",
+      "b6faa361b3f28e76": "## Likninga til tangenten\n\nDen deriverte gir oss stigingstalet til tangenten -- då kan vi også skrive opp heile tangent*linja*. Ei rett linje gjennom punktet $(a, f(a))$ med stigingstal $f'(a)$ har likninga\n\n$$y = f(a) + f'(a)(x - a)$$\n\nDette er eittpunktsformelen frå tidlegare kurs, berre med dei nye storleikane sette inn. Les han som ein instruks: start i grafpunktet, og rør deg med helninga til tangenten.\n\nEit fullt døme: finn tangenten til $f(x) = x^2 - 3x + 2$ i punktet der $x = 2$. Tre ingrediensar trengst. *Punktet*: $f(2) = 4 - 6 + 2 = 0$, så tangenten rører grafen i $(2, 0)$. *Stigingstalet*: $f'(x) = 2x - 3$ (kvadratleddet bidreg med $2x$, slik vi utleidde, og det lineære leddet $-3x$ med konstanten $-3$), så $f'(2) = 1$. *Samansetjinga*:\n\n$$y = 0 + 1 \\cdot (x - 2) = x - 2$$\n\nTangenten er linja $y = x - 2$. Han treffer grafen i $(2, 0)$ med nøyaktig same helning som kurva har der -- den beste lineære etterlikninga av $f$ nær det punktet.\n\nAkkurat dette -- at tangenten er den beste lineære tilnærminga til funksjonen -- er grunnen til at den deriverte gjennomsyrer realfaga. Fysikaren les $f'$ som fart eller akselerasjon, kjemikaren som reaksjonsrate, økonomen som marginalinntekt: overalt blir det spurt om kor fort noko endrar seg *akkurat no*, og overalt er svaret det same talet.\n\nOppsummert står heile konstruksjonen på tre trinn: sekant (to punkt, gjennomsnitt), grenseprosess ($h \\to 0$), tangent (eitt punkt, augneblink). I kapittel 3 gjer vi sjølve grenseverdiomgrepet stuereint -- og byggjer derivasjonsmaskineriet som gjer utrekningane raske.",
+      "396189dee9790dfe": "Test deg sjølv på likninga til tangenten:",
+      "65e8361f69dfbd69": "Kva er likninga for tangenten til $f$ i punktet $(a, f(a))$?",
+      "6ab1ccb6a0d262bd": "$y = f'(a) \\cdot x$",
+      "59a8cad7e3e8efd3": "$y = f(a) + f'(a)(x - a)$",
+      "44d998e79e3aa98e": "$y = f(a) \\cdot (x - a)$",
+      "14b10357facc1675": "$y = f'(a) + f(a)(x-a)$",
+      "83d0ab7f6d073848": "Eittpunktsformelen med punkt $(a, f(a))$ og stigingstal $f'(a)$: $y = f(a) + f'(a)(x-a)$.",
+      "786063e1bdec9c10": "Finn tangenten til $f(x) = x^2 - 3x + 2$ i $x = 2$ (der $f'(x) = 2x - 3$).",
+      "189ebcb7aea14e33": "$y = 2x - 3$",
+      "f8a395fc3d89903d": "$y = x + 2$",
+      "f5ada2300b8f8b5b": "$y = x - 2$",
+      "c8e2c4bce1665b82": "$y = -x + 2$",
+      "19e81b5c3630e48d": "$f(2) = 0$ og $f'(2) = 1$, så $y = 0 + 1 \\cdot (x-2) = x - 2$.",
+      "65eac711fc0aad26": "Kva skjer geometrisk med sekanten når $h \\to 0$?",
+      "66592f89f786b63f": "Han vrir seg om punktet og blir tangenten",
+      "5e4718f0cce6cc9c": "Han blir vassrett",
+      "976fa48725c368b4": "Han forsvinn",
+      "454a8fc8dafbb1e2": "Han blir vinkelrett på grafen",
+      "0ab727d02747cb0e": "Det bevegelege punktet siger inn mot det faste, og sekanten legg seg til ro som tangenten -- linja med stigingstal $f'(a)$.",
+      "2a5c07be4e3ed70b": "## Forteljinga i eit nøtteskal\n\nFotoboksane og speedometeret stilte spørsmålet til kapittelet: kva er fart i eit augneblink? Svaret vart bygd i tre trinn.\n\nFørst **gjennomsnittleg vekstfart**: $\\frac{f(b)-f(a)}{b-a}$, stigingstalet til *sekanten* gjennom to grafpunkt -- lett å rekne ut, men blind for alt som skjer mellom endepunkta, slik ballkastet med gjennomsnittsfart null demonstrerte. På forma $\\frac{f(a+h)-f(a)}{h}$ heiter han differansekvotienten.\n\nSå **grenseprosessen**: lat $h \\to 0$ og sjå sekantstigingane nærme seg éin bestemt verdi, medan sekanten geometrisk vrir seg over i *tangenten*. Grenseverdien er den **momentane vekstfarten**, den deriverte:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nFor $f(x) = x^2$ gav algebraen oss $f'(x) = 2x$ eksakt -- kvadratsetning, stryking, forkorting, grense.\n\nTil slutt **likninga til tangenten** $y = f(a) + f'(a)(x-a)$: med funksjonsverdi og derivert i handa kan du skrive opp den rette linja som best etterliknar funksjonen nær punktet.\n\nDette er fødselsaugneblinken til differensialrekninga, og tolkingane står i kø: fart i fysikk, reaksjonsrate i kjemi, marginalkostnad i økonomi. I kapittel 3 får grenseverdiane si grundige handsaming, definisjonen blir brukt på fleire funksjonar -- og etter kvart kjem reknereglar som gjer at du slepp grenseprosessen kvar gong. Men hugs alltid kvar talet kjem frå: ein sekant som vart tolmodig pressa inn til ein tangent."
+    }
+  }
+}

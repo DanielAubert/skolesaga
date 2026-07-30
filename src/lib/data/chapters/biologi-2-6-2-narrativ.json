@@ -1,1 +1,450 @@
-{"id":"biologi-2-6-2-narrativ","courseId":"biologi-2","chapterNumber":"6.2","title":"CRISPR og genredigering","subtitle":"Narrativ versjon","description":"En fortelling om bakterienes immunforsvar som ble til menneskehetens mest presise gensaks -- og om håpet og dilemmaene den fører med seg.","estimatedMinutes":16,"competenceGoals":["gjøre rede for prinsippet bak CRISPR-Cas9 og anvendelser innen genterapi"],"linkedChapterId":"biologi-2-6-2","content":[{"id":"biologi-2-6-2-n-intro","type":"text","content":"## En saks bakteriene fant opp\n\nNoen ganger kommer de største vitenskapelige gjennombruddene fra de minste organismene. CRISPR-Cas9 -- kanskje det viktigste verktøyet i moderne biologi -- begynte som bakterienes eget immunforsvar mot virus. Da Emmanuelle Charpentier og Jennifer Doudna gjorde det om til et presist laboratorieverktøy, fikk de Nobelprisen i kjemi i 2020.\n\nMed CRISPR kan vi redigere DNA på bestemte steder i genomet, med en presisjon man tidligere bare kunne drømme om. Det har åpnet enorme muligheter -- og reist tunge etiske spørsmål. I dette kapittelet skal vi forstå hvordan denne gensaksen virker, hvordan cellen reparerer kuttene, hvordan CRISPR brukes i genterapi og presisjonsmedisin, og hvilke utfordringer som fortsatt gjenstår."},{"id":"biologi-2-6-2-n-section1","type":"text","content":"## En programmerbar gensaks\n\nNavnet CRISPR (Clustered Regularly Interspaced Short Palindromic Repeats) viser til systemet bakterier bruker for å huske virus. Bakterien lagrer korte biter av virus-DNA mellom repeterte sekvenser i sitt eget genom -- en slags huskelapp. Når det samme viruset angriper igjen, bruker bakterien lappen til å gjenkjenne og uskadeliggjøre virus-DNA-et.\n\nForskerne tok denne mekanismen og gjorde den programmerbar. Systemet har to hovedkomponenter. **Guide-RNA (gRNA)** er en kort RNA-sekvens på rundt 20 nukleotider som er komplementær til målsekvensen i genomet -- forskeren designer den slik at den matcher akkurat det genet man vil redigere. **Cas9-proteinet** er selve saksen: et endonuklease som binder seg til guide-RNA-et, skanner DNA-et etter sekvenser som matcher, og klipper begge tråder (et dobbelttrådsbrudd).\n\nMen Cas9 kan ikke klippe hvor som helst. Den krever en kort sekvens kalt **PAM** (Protospacer Adjacent Motif) rett ved siden av målsekvensen -- for den vanligste Cas9 er PAM 5'-NGG-3', der N er en hvilken som helst base. PAM fungerer som et ankersted: Cas9 sjekker først om PAM er til stede, deretter om guide-RNA-et matcher. Stegene blir da: forskeren designer guide-RNA, det leveres sammen med Cas9 til cellen, komplekset skanner genomet og finner riktig PAM, guide-RNA baseparer med målsekvensen, Cas9 klipper begge tråder, og dobbelttrådsbruddet aktiverer cellens reparasjonsmaskineri."},{"id":"biologi-2-6-2-n-quiz1","type":"exercise","exercise":{"id":"biologi-2-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på CRISPR-Cas9-mekanismen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-6-2-n-quiz1-q0","task":"Hva er funksjonen til guide-RNA (gRNA)?","options":[{"id":"a","text":"Det klipper DNA direkte","isCorrect":false},{"id":"b","text":"Det leder Cas9 til riktig sted ved å basepare med målsekvensen","isCorrect":true},{"id":"c","text":"Det reparerer bruddet etter kutting","isCorrect":false},{"id":"d","text":"Det er en del av PAM-sekvensen","isCorrect":false}],"solution":"Guide-RNA leder Cas9 til riktig sted ved å basepare med den komplementære målsekvensen. Cas9 står for selve klippingen."},{"id":"biologi-2-6-2-n-quiz1-q1","task":"Hva er PAM-sekvensen?","options":[{"id":"a","text":"En del av guide-RNA-et","isCorrect":false},{"id":"b","text":"Et reparasjonsenzym","isCorrect":false},{"id":"c","text":"En kort DNA-sekvens (5'-NGG-3') som må være til stede for at Cas9 skal klippe","isCorrect":true},{"id":"d","text":"En type vektor","isCorrect":false}],"solution":"PAM (5'-NGG-3' for S. pyogenes Cas9) er en kort DNA-sekvens ved siden av målet som Cas9 trenger som ankersted."},{"id":"biologi-2-6-2-n-quiz1-q2","task":"Hvor stammer CRISPR-systemet opprinnelig fra?","options":[{"id":"a","text":"Menneskets immunsystem","isCorrect":false},{"id":"b","text":"Planters fotosyntese","isCorrect":false},{"id":"c","text":"Sopp","isCorrect":false},{"id":"d","text":"Bakterienes immunforsvar mot virus","isCorrect":true}],"solution":"CRISPR er basert på bakterienes naturlige immunforsvar mot virus, der de lagrer biter av virus-DNA som huskelapper."}]}},{"id":"biologi-2-6-2-n-section2","type":"text","content":"## To måter å reparere et brudd\n\nNår Cas9 har laget et dobbelttrådsbrudd, må cellen reparere det -- og hvilken reparasjonsmekanisme som brukes, avgjør resultatet av redigeringen. Det finnes to hovedveier.\n\n**NHEJ** (Non-Homologous End Joining) er den vanligste. Den kobler de brukne endene direkte sammen uten noen mal. Problemet er at den er **feilutsatt** -- den introduserer ofte små innsettinger eller delesjoner, kalt indels. Disse forskyver leserammen og kan inaktivere genet helt. Derfor brukes NHEJ til **gen-knockout**, altså å slå ut et gen. NHEJ er aktiv i alle faser av cellesyklusen.\n\n**HDR** (Homology-Directed Repair) bruker derimot en **donor-mal** -- en homolog DNA-sekvens -- til presis reparasjon. Forskeren leverer en kunstig mal med den ønskede sekvensen, slik at man kan rette en mutasjon, sette inn et gen eller endre enkeltbaser. HDR gir altså presise endringer, men er **mindre effektiv** enn NHEJ og krever at cellen er i S/G2-fasen.\n\nSkillet er enkelt å huske: vil du ødelegge et gen, bruker du NHEJ uten mal (gir tilfeldige indels). Vil du rette en feil presist, bruker du HDR med en donor-mal. Hvis en forsker for eksempel vil rette en punktmutasjon uten å ødelegge genet, må han bruke HDR med en korrekt donor-mal -- NHEJ ville bare gitt tilfeldige indels."},{"id":"biologi-2-6-2-n-quiz2","type":"exercise","exercise":{"id":"biologi-2-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på reparasjonsmekanismer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-6-2-n-quiz2-q0","task":"En forsker vil rette en punktmutasjon presist. Hvilken strategi bør brukes?","options":[{"id":"a","text":"HDR med en donor-mal med korrekt sekvens","isCorrect":true},{"id":"b","text":"NHEJ for å slå ut genet","isCorrect":false},{"id":"c","text":"NHEJ uten mal","isCorrect":false},{"id":"d","text":"HDR uten donor-mal","isCorrect":false}],"solution":"HDR med en donor-mal gir presis reparasjon der den korrekte sekvensen erstatter mutasjonen. NHEJ ville gitt tilfeldige indels."},{"id":"biologi-2-6-2-n-quiz2-q1","task":"Hva brukes NHEJ typisk til?","options":[{"id":"a","text":"Presis innsetting av gener","isCorrect":false},{"id":"b","text":"Gen-knockout (å slå ut et gen)","isCorrect":true},{"id":"c","text":"Å reparere uten å endre noe","isCorrect":false},{"id":"d","text":"Å kopiere DNA","isCorrect":false}],"solution":"NHEJ er feilutsatt og gir indels som forskyver leserammen -- nyttig for å slå ut et gen (gen-knockout)."},{"id":"biologi-2-6-2-n-quiz2-q2","task":"Hva trenger HDR som NHEJ ikke trenger?","options":[{"id":"a","text":"Cas9","isCorrect":false},{"id":"b","text":"Guide-RNA","isCorrect":false},{"id":"c","text":"En donor-mal","isCorrect":true},{"id":"d","text":"PAM-sekvens","isCorrect":false}],"solution":"HDR krever en homolog donor-mal som referanse for presis reparasjon; NHEJ kobler endene uten mal."}]}},{"id":"biologi-2-6-2-n-section3","type":"text","content":"## Fra laboratorium til pasient\n\nCRISPR har gjort **genterapi** -- behandling ved å korrigere eller erstatte defekte gener -- mer presis enn noensinne. Det finnes to hovedtilnærminger.\n\nVed **in vivo-genterapi** leveres verktøyene direkte til pasienten. CRISPR-komponentene pakkes i virale vektorer (ofte AAV) og injiseres i kroppen -- intravenøst, i øyet eller i muskler -- der de redigerer genene på stedet. Det er enklere å gjennomføre og kan nå celler i hele kroppen, men er vanskeligere å kontrollere og kan utløse immunreaksjoner mot vektorene. Ved **ex vivo-genterapi** tas celler ut av pasienten, redigeres i laboratoriet, kontrolleres for korrekt redigering, og settes tilbake. Det gir bedre kontroll, men krever at cellene kan høstes og tilbakeføres.\n\nValget avhenger av om målcellene er lett tilgjengelige. For **sigdcelleanemi** og beta-talassemi brukes ex vivo: blodstamceller høstes, CRISPR slår ut BCL11A-genet for å reaktivere føtalt hemoglobin, og cellene settes tilbake. Det første CRISPR-baserte legemiddelet, **Casgevy**, ble godkjent i 2023. For **Lebers kongenitale amaurose** (arvelig blindhet) brukes in vivo, fordi netthinneceller ikke lett kan tas ut og settes tilbake.\n\nCRISPR spiller også en rolle i **presisjonsmedisin** -- behandling tilpasset den enkeltes genetiske profil. Helgenomsekvensering kan finne sykdomsmutasjoner, CRISPR-baserte verktøy som SHERLOCK og DETECTR brukes til hurtigdiagnostikk, og ved CAR-T-celleterapi modifiseres pasientens T-celler genetisk til å gjenkjenne kreftceller."},{"id":"biologi-2-6-2-n-quiz3","type":"exercise","exercise":{"id":"biologi-2-6-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på genterapi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-6-2-n-quiz3-q0","task":"Hva kjennetegner ex vivo-genterapi?","options":[{"id":"a","text":"Verktøyene leveres direkte i kroppen","isCorrect":false},{"id":"b","text":"Bare medisiner brukes, ikke gener","isCorrect":false},{"id":"c","text":"Genene endres i kjønnscellene","isCorrect":false},{"id":"d","text":"Celler tas ut, redigeres i laboratoriet og settes tilbake","isCorrect":true}],"solution":"Ved ex vivo-genterapi tas celler ut, redigeres og kontrolleres i laboratoriet, og settes så tilbake i pasienten."},{"id":"biologi-2-6-2-n-quiz3-q1","task":"Hvorfor brukes ex vivo for sigdcelleanemi?","options":[{"id":"a","text":"Fordi blodstamceller lett kan høstes, redigeres og tilbakeføres","isCorrect":true},{"id":"b","text":"Fordi blodceller ikke kan redigeres","isCorrect":false},{"id":"c","text":"Fordi det er umulig å nå beinmargen","isCorrect":false},{"id":"d","text":"Fordi in vivo aldri brukes","isCorrect":false}],"solution":"Blodstamceller kan lett høstes fra beinmargen, redigeres og kontrolleres i laboratoriet, og settes tilbake -- ideelt for ex vivo."},{"id":"biologi-2-6-2-n-quiz3-q2","task":"Hva var Casgevy (godkjent 2023)?","options":[{"id":"a","text":"En ny type vektor","isCorrect":false},{"id":"b","text":"Det første CRISPR-baserte legemiddelet","isCorrect":true},{"id":"c","text":"Et restriksjonsenzym","isCorrect":false},{"id":"d","text":"En vaksine","isCorrect":false}],"solution":"Casgevy (exa-cel) var det første godkjente CRISPR-baserte legemiddelet, mot sigdcelleanemi og beta-talassemi."}]}},{"id":"biologi-2-6-2-n-section4","type":"text","content":"## Når presisjonen svikter, og etikken kalles inn\n\nTross alt potensialet, har CRISPR utfordringer som må løses. **Off-target-effekter** oppstår når Cas9 klipper på steder som ligner målsekvensen, men ikke er identiske, og dermed lager uønskede mutasjoner andre steder. Løsninger inkluderer høyfidelitets-Cas9-varianter og helgenomanalyse. **Leveringsutfordringer** handler om å få verktøyene til de riktige cellene; virale vektorer kan utløse immunreaksjoner, og lipid-nanopartikler utvikles som alternativ. **Mosaicisme** betyr at ikke alle celler redigeres likt -- noen blir riktige, andre feil -- spesielt problematisk i embryoer.\n\nMen den tyngste utfordringen er etisk, og den hviler på ett avgjørende skille. **Somatisk genredigering** endrer kroppsceller; endringene arves ikke og er bredt akseptert for medisinsk bruk. **Kimlinje-genredigering** endrer egg, sperm eller embryoer; endringene arves av alle fremtidige generasjoner og er svært kontroversiell. De fleste land, inkludert Norge, forbyr kimlinje-redigering av mennesker.\n\nHvor galt det kan gå, viste He Jiankui-saken i 2018, da en kinesisk forsker genredigerte tvillingjenter. Det førte til internasjonal fordømmelse og fengselsstraff. Saken aktualiserte spørsmål om «designer-babyer», om sosial ulikhet, og om vår rett til å endre arvematerialet til mennesker som ikke kan samtykke."},{"id":"biologi-2-6-2-n-quiz4","type":"exercise","exercise":{"id":"biologi-2-6-2-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på utfordringer ved genredigering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-6-2-n-quiz4-q0","task":"Hva menes med off-target-effekter?","options":[{"id":"a","text":"At guide-RNA brytes ned","isCorrect":false},{"id":"b","text":"At Cas9 bare klipper én tråd","isCorrect":false},{"id":"c","text":"At Cas9 klipper på steder som ligner målet og skaper uønskede mutasjoner","isCorrect":true},{"id":"d","text":"At immunsystemet ødelegger Cas9","isCorrect":false}],"solution":"Off-target-effekter er når Cas9 klipper sekvenser som ligner, men ikke er identiske med målet, og lager uønskede mutasjoner."},{"id":"biologi-2-6-2-n-quiz4-q1","task":"Hva er forskjellen på somatisk og kimlinje-genredigering?","options":[{"id":"a","text":"Somatisk arves, kimlinje arves ikke","isCorrect":false},{"id":"b","text":"De er det samme","isCorrect":false},{"id":"c","text":"Somatisk er forbudt, kimlinje er tillatt","isCorrect":false},{"id":"d","text":"Somatisk endrer kroppsceller (arves ikke); kimlinje endrer egg/sperm/embryo (arves)","isCorrect":true}],"solution":"Somatisk genredigering endrer kroppsceller og arves ikke; kimlinje-redigering endrer kjønnsceller eller embryo og arves av framtidige generasjoner."},{"id":"biologi-2-6-2-n-quiz4-q2","task":"Hvorfor er kimlinje-genredigering mer kontroversiell?","options":[{"id":"a","text":"Fordi endringene arves av framtidige generasjoner som ikke kan samtykke","isCorrect":true},{"id":"b","text":"Fordi den er billigere","isCorrect":false},{"id":"c","text":"Fordi den bare virker på planter","isCorrect":false},{"id":"d","text":"Fordi den aldri fungerer","isCorrect":false}],"solution":"Kimlinje-redigering påvirker alle framtidige generasjoner, som ikke kan samtykke -- derfor er den svært kontroversiell og forbudt i de fleste land."}]}},{"id":"biologi-2-6-2-n-summary","type":"text","content":"## Oppsummering\n\nVi har sett hvordan bakterienes immunforsvar ble til menneskehetens gensaks. **CRISPR-Cas9** bruker et **guide-RNA** til å lede **Cas9** til riktig sted, krever en **PAM-sekvens**, og lager et dobbelttrådsbrudd. Cellen reparerer enten med **NHEJ** (feilutsatt, gir indels -- brukes til knockout) eller **HDR** (presis, krever donor-mal -- brukes til knock-in).\n\nI **genterapi** leveres verktøyene **in vivo** (direkte i kroppen, f.eks. øyesykdom) eller **ex vivo** (celler tas ut og settes tilbake, f.eks. sigdcelleanemi), og Casgevy ble første godkjente CRISPR-medisin i 2023. Utfordringene omfatter **off-target-effekter**, levering og mosaicisme -- og det avgjørende etiske skillet mellom somatisk og kimlinje-genredigering, illustrert av He Jiankui-saken."}],"exercises":[]}
+{
+  "id": "biologi-2-6-2-narrativ",
+  "courseId": "biologi-2",
+  "chapterNumber": "6.2",
+  "title": "CRISPR og genredigering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om bakterienes immunforsvar som ble til menneskehetens mest presise gensaks -- og om håpet og dilemmaene den fører med seg.",
+  "estimatedMinutes": 16,
+  "competenceGoals": [
+    "gjøre rede for prinsippet bak CRISPR-Cas9 og anvendelser innen genterapi"
+  ],
+  "linkedChapterId": "biologi-2-6-2",
+  "content": [
+    {
+      "id": "biologi-2-6-2-n-intro",
+      "type": "text",
+      "content": "## En saks bakteriene fant opp\n\nNoen ganger kommer de største vitenskapelige gjennombruddene fra de minste organismene. CRISPR-Cas9 -- kanskje det viktigste verktøyet i moderne biologi -- begynte som bakterienes eget immunforsvar mot virus. Da Emmanuelle Charpentier og Jennifer Doudna gjorde det om til et presist laboratorieverktøy, fikk de Nobelprisen i kjemi i 2020.\n\nMed CRISPR kan vi redigere DNA på bestemte steder i genomet, med en presisjon man tidligere bare kunne drømme om. Det har åpnet enorme muligheter -- og reist tunge etiske spørsmål. I dette kapittelet skal vi forstå hvordan denne gensaksen virker, hvordan cellen reparerer kuttene, hvordan CRISPR brukes i genterapi og presisjonsmedisin, og hvilke utfordringer som fortsatt gjenstår."
+    },
+    {
+      "id": "biologi-2-6-2-n-section1",
+      "type": "text",
+      "content": "## En programmerbar gensaks\n\nNavnet CRISPR (Clustered Regularly Interspaced Short Palindromic Repeats) viser til systemet bakterier bruker for å huske virus. Bakterien lagrer korte biter av virus-DNA mellom repeterte sekvenser i sitt eget genom -- en slags huskelapp. Når det samme viruset angriper igjen, bruker bakterien lappen til å gjenkjenne og uskadeliggjøre virus-DNA-et.\n\nForskerne tok denne mekanismen og gjorde den programmerbar. Systemet har to hovedkomponenter. **Guide-RNA (gRNA)** er en kort RNA-sekvens på rundt 20 nukleotider som er komplementær til målsekvensen i genomet -- forskeren designer den slik at den matcher akkurat det genet man vil redigere. **Cas9-proteinet** er selve saksen: et endonuklease som binder seg til guide-RNA-et, skanner DNA-et etter sekvenser som matcher, og klipper begge tråder (et dobbelttrådsbrudd).\n\nMen Cas9 kan ikke klippe hvor som helst. Den krever en kort sekvens kalt **PAM** (Protospacer Adjacent Motif) rett ved siden av målsekvensen -- for den vanligste Cas9 er PAM 5'-NGG-3', der N er en hvilken som helst base. PAM fungerer som et ankersted: Cas9 sjekker først om PAM er til stede, deretter om guide-RNA-et matcher. Stegene blir da: forskeren designer guide-RNA, det leveres sammen med Cas9 til cellen, komplekset skanner genomet og finner riktig PAM, guide-RNA baseparer med målsekvensen, Cas9 klipper begge tråder, og dobbelttrådsbruddet aktiverer cellens reparasjonsmaskineri."
+    },
+    {
+      "id": "biologi-2-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på CRISPR-Cas9-mekanismen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-6-2-n-quiz1-q0",
+            "task": "Hva er funksjonen til guide-RNA (gRNA)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det klipper DNA direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det reparerer bruddet etter kutting",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er en del av PAM-sekvensen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det leder Cas9 til riktig sted ved å basepare med målsekvensen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Guide-RNA leder Cas9 til riktig sted ved å basepare med den komplementære målsekvensen. Cas9 står for selve klippingen."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz1-q1",
+            "task": "Hva er PAM-sekvensen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "En kort DNA-sekvens (5'-NGG-3') som må være til stede for at Cas9 skal klippe",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En del av guide-RNA-et",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Et reparasjonsenzym",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En type vektor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "PAM (5'-NGG-3' for S. pyogenes Cas9) er en kort DNA-sekvens ved siden av målet som Cas9 trenger som ankersted."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz1-q2",
+            "task": "Hvor stammer CRISPR-systemet opprinnelig fra?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Menneskets immunsystem",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bakterienes immunforsvar mot virus",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Planters fotosyntese",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sopp",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CRISPR er basert på bakterienes naturlige immunforsvar mot virus, der de lagrer biter av virus-DNA som huskelapper."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-6-2-n-section2",
+      "type": "text",
+      "content": "## To måter å reparere et brudd\n\nNår Cas9 har laget et dobbelttrådsbrudd, må cellen reparere det -- og hvilken reparasjonsmekanisme som brukes, avgjør resultatet av redigeringen. Det finnes to hovedveier.\n\n**NHEJ** (Non-Homologous End Joining) er den vanligste. Den kobler de brukne endene direkte sammen uten noen mal. Problemet er at den er **feilutsatt** -- den introduserer ofte små innsettinger eller delesjoner, kalt indels. Disse forskyver leserammen og kan inaktivere genet helt. Derfor brukes NHEJ til **gen-knockout**, altså å slå ut et gen. NHEJ er aktiv i alle faser av cellesyklusen.\n\n**HDR** (Homology-Directed Repair) bruker derimot en **donor-mal** -- en homolog DNA-sekvens -- til presis reparasjon. Forskeren leverer en kunstig mal med den ønskede sekvensen, slik at man kan rette en mutasjon, sette inn et gen eller endre enkeltbaser. HDR gir altså presise endringer, men er **mindre effektiv** enn NHEJ og krever at cellen er i S/G2-fasen.\n\nSkillet er enkelt å huske: vil du ødelegge et gen, bruker du NHEJ uten mal (gir tilfeldige indels). Vil du rette en feil presist, bruker du HDR med en donor-mal. Hvis en forsker for eksempel vil rette en punktmutasjon uten å ødelegge genet, må han bruke HDR med en korrekt donor-mal -- NHEJ ville bare gitt tilfeldige indels."
+    },
+    {
+      "id": "biologi-2-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på reparasjonsmekanismer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-6-2-n-quiz2-q0",
+            "task": "En forsker vil rette en punktmutasjon presist. Hvilken strategi bør brukes?",
+            "options": [
+              {
+                "id": "b",
+                "text": "NHEJ for å slå ut genet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "NHEJ uten mal",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "HDR med en donor-mal med korrekt sekvens",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "HDR uten donor-mal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HDR med en donor-mal gir presis reparasjon der den korrekte sekvensen erstatter mutasjonen. NHEJ ville gitt tilfeldige indels."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz2-q1",
+            "task": "Hva brukes NHEJ typisk til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Presis innsetting av gener",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å reparere uten å endre noe",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å kopiere DNA",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gen-knockout (å slå ut et gen)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "NHEJ er feilutsatt og gir indels som forskyver leserammen -- nyttig for å slå ut et gen (gen-knockout)."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz2-q2",
+            "task": "Hva trenger HDR som NHEJ ikke trenger?",
+            "options": [
+              {
+                "id": "c",
+                "text": "En donor-mal",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Cas9",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Guide-RNA",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "PAM-sekvens",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HDR krever en homolog donor-mal som referanse for presis reparasjon; NHEJ kobler endene uten mal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-6-2-n-section3",
+      "type": "text",
+      "content": "## Fra laboratorium til pasient\n\nCRISPR har gjort **genterapi** -- behandling ved å korrigere eller erstatte defekte gener -- mer presis enn noensinne. Det finnes to hovedtilnærminger.\n\nVed **in vivo-genterapi** leveres verktøyene direkte til pasienten. CRISPR-komponentene pakkes i virale vektorer (ofte AAV) og injiseres i kroppen -- intravenøst, i øyet eller i muskler -- der de redigerer genene på stedet. Det er enklere å gjennomføre og kan nå celler i hele kroppen, men er vanskeligere å kontrollere og kan utløse immunreaksjoner mot vektorene. Ved **ex vivo-genterapi** tas celler ut av pasienten, redigeres i laboratoriet, kontrolleres for korrekt redigering, og settes tilbake. Det gir bedre kontroll, men krever at cellene kan høstes og tilbakeføres.\n\nValget avhenger av om målcellene er lett tilgjengelige. For **sigdcelleanemi** og beta-talassemi brukes ex vivo: blodstamceller høstes, CRISPR slår ut BCL11A-genet for å reaktivere føtalt hemoglobin, og cellene settes tilbake. Det første CRISPR-baserte legemiddelet, **Casgevy**, ble godkjent i 2023. For **Lebers kongenitale amaurose** (arvelig blindhet) brukes in vivo, fordi netthinneceller ikke lett kan tas ut og settes tilbake.\n\nCRISPR spiller også en rolle i **presisjonsmedisin** -- behandling tilpasset den enkeltes genetiske profil. Helgenomsekvensering kan finne sykdomsmutasjoner, CRISPR-baserte verktøy som SHERLOCK og DETECTR brukes til hurtigdiagnostikk, og ved CAR-T-celleterapi modifiseres pasientens T-celler genetisk til å gjenkjenne kreftceller."
+    },
+    {
+      "id": "biologi-2-6-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-6-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på genterapi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-6-2-n-quiz3-q0",
+            "task": "Hva kjennetegner ex vivo-genterapi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Verktøyene leveres direkte i kroppen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Celler tas ut, redigeres i laboratoriet og settes tilbake",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Bare medisiner brukes, ikke gener",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Genene endres i kjønnscellene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved ex vivo-genterapi tas celler ut, redigeres og kontrolleres i laboratoriet, og settes så tilbake i pasienten."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz3-q1",
+            "task": "Hvorfor brukes ex vivo for sigdcelleanemi?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi blodceller ikke kan redigeres",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det er umulig å nå beinmargen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi blodstamceller lett kan høstes, redigeres og tilbakeføres",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi in vivo aldri brukes",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Blodstamceller kan lett høstes fra beinmargen, redigeres og kontrolleres i laboratoriet, og settes tilbake -- ideelt for ex vivo."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz3-q2",
+            "task": "Hva var Casgevy (godkjent 2023)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En ny type vektor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et restriksjonsenzym",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En vaksine",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det første CRISPR-baserte legemiddelet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Casgevy (exa-cel) var det første godkjente CRISPR-baserte legemiddelet, mot sigdcelleanemi og beta-talassemi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-6-2-n-section4",
+      "type": "text",
+      "content": "## Når presisjonen svikter, og etikken kalles inn\n\nTross alt potensialet, har CRISPR utfordringer som må løses. **Off-target-effekter** oppstår når Cas9 klipper på steder som ligner målsekvensen, men ikke er identiske, og dermed lager uønskede mutasjoner andre steder. Løsninger inkluderer høyfidelitets-Cas9-varianter og helgenomanalyse. **Leveringsutfordringer** handler om å få verktøyene til de riktige cellene; virale vektorer kan utløse immunreaksjoner, og lipid-nanopartikler utvikles som alternativ. **Mosaicisme** betyr at ikke alle celler redigeres likt -- noen blir riktige, andre feil -- spesielt problematisk i embryoer.\n\nMen den tyngste utfordringen er etisk, og den hviler på ett avgjørende skille. **Somatisk genredigering** endrer kroppsceller; endringene arves ikke og er bredt akseptert for medisinsk bruk. **Kimlinje-genredigering** endrer egg, sperm eller embryoer; endringene arves av alle fremtidige generasjoner og er svært kontroversiell. De fleste land, inkludert Norge, forbyr kimlinje-redigering av mennesker.\n\nHvor galt det kan gå, viste He Jiankui-saken i 2018, da en kinesisk forsker genredigerte tvillingjenter. Det førte til internasjonal fordømmelse og fengselsstraff. Saken aktualiserte spørsmål om «designer-babyer», om sosial ulikhet, og om vår rett til å endre arvematerialet til mennesker som ikke kan samtykke."
+    },
+    {
+      "id": "biologi-2-6-2-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-6-2-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på utfordringer ved genredigering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-6-2-n-quiz4-q0",
+            "task": "Hva menes med off-target-effekter?",
+            "options": [
+              {
+                "id": "c",
+                "text": "At Cas9 klipper på steder som ligner målet og skaper uønskede mutasjoner",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At guide-RNA brytes ned",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At Cas9 bare klipper én tråd",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At immunsystemet ødelegger Cas9",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Off-target-effekter er når Cas9 klipper sekvenser som ligner, men ikke er identiske med målet, og lager uønskede mutasjoner."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz4-q1",
+            "task": "Hva er forskjellen på somatisk og kimlinje-genredigering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Somatisk arves, kimlinje arves ikke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Somatisk endrer kroppsceller (arves ikke); kimlinje endrer egg/sperm/embryo (arves)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "De er det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Somatisk er forbudt, kimlinje er tillatt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Somatisk genredigering endrer kroppsceller og arves ikke; kimlinje-redigering endrer kjønnsceller eller embryo og arves av framtidige generasjoner."
+          },
+          {
+            "id": "biologi-2-6-2-n-quiz4-q2",
+            "task": "Hvorfor er kimlinje-genredigering mer kontroversiell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi den er billigere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi den bare virker på planter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi endringene arves av framtidige generasjoner som ikke kan samtykke",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi den aldri fungerer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kimlinje-redigering påvirker alle framtidige generasjoner, som ikke kan samtykke -- derfor er den svært kontroversiell og forbudt i de fleste land."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-6-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har sett hvordan bakterienes immunforsvar ble til menneskehetens gensaks. **CRISPR-Cas9** bruker et **guide-RNA** til å lede **Cas9** til riktig sted, krever en **PAM-sekvens**, og lager et dobbelttrådsbrudd. Cellen reparerer enten med **NHEJ** (feilutsatt, gir indels -- brukes til knockout) eller **HDR** (presis, krever donor-mal -- brukes til knock-in).\n\nI **genterapi** leveres verktøyene **in vivo** (direkte i kroppen, f.eks. øyesykdom) eller **ex vivo** (celler tas ut og settes tilbake, f.eks. sigdcelleanemi), og Casgevy ble første godkjente CRISPR-medisin i 2023. Utfordringene omfatter **off-target-effekter**, levering og mosaicisme -- og det avgjørende etiske skillet mellom somatisk og kimlinje-genredigering, illustrert av He Jiankui-saken."
+    }
+  ],
+  "exercises": []
+}

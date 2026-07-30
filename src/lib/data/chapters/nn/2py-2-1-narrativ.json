@@ -1,1 +1,292 @@
-{"id":"2py-2-1-narrativ","courseId":"2py","chapterNumber":"2.1","title":"Lineære samanhengar","subtitle":"Narrativ versjon","description":"Ei forteljing om rette linjer i arbeidslivet — frå mekanikarens timelønn til straumrekninga og røyrleggjarens avslørte prisliste.","estimatedMinutes":32,"competenceGoals":["forstå samanhengen mellom lineære funksjonar og rette linjer","tolke og bruke stigingstal og konstantledd"],"linkedChapterId":"2py-2-1","content":[{"id":"2py-2-1-n-intro","type":"text","content":"## Lønna som veks i rett linje\n\nAdrian er mekanikar og tener 285 kr timen. Jobbar han éin time, tener han 285 kr. To timar, 570 kr. Tre timar, 855 kr. Teiknar du desse punkta i eit koordinatsystem, ser du noko slåande: dei ligg på ei snorrett linje.\n\nSlike samanhengar — der noko aukar eller minkar jamt — blir kalla **lineære**, og dei er overalt i arbeidslivet: timelønn, straumrekningar med fastledd, drivstofforbruk per mil, materialkostnad per meter. Ein **lineær funksjon** har alltid forma\n\n$$f(x) = ax + b$$\n\nder $a$ blir kalla **stigingstalet** og fortel kor bratt linja er, medan $b$ blir kalla **konstantleddet** og fortel kvar linja kryssar $y$-aksen.\n\nDet fine med lineære funksjonar er at dei er føreseielege. Kjenner du dei to tala $a$ og $b$, kan du rekne ut kva som helst: kva ein jobb vil koste, kva ein arbeidsdag gir i lønn, kva straumrekninga blir neste månad. I dette kapittelet skal vi lære å lese, tolke og lage slike funksjonar med utgangspunkt i situasjonar frå verkstaden og arbeidskvardagen."},{"id":"2py-2-1-n-section1","type":"text","content":"## Stigingstal og konstantledd\n\nLat oss setje ord og tal på lønna til Adrian. Inntekta hans etter $x$ timar er\n\n$$f(x) = 285x$$\n\nStigingstalet er $a = 285$: inntekta aukar med 285 kr for kvar time han jobbar. Konstantleddet er $b = 0$ — jobbar han null timar, tener han null kroner, og grafen startar i origo. Ein vanleg 8-timarsdag gir $f(8) = 285 \\cdot 8 = 2\\,280$ kr.\n\nStigingstalet fortel generelt kor mykje $y$-verdien endrar seg når $x$ aukar med 1. Er $a > 0$, stig linja mot høgre. Er $a < 0$, søkk ho — tenk på verdien av eit verktøy som taper seg jamt. Og er $a = 0$, er linja heilt vassrett: ingenting endrar seg.\n\nMen ikkje alle rekningar startar på null. Bedrifta der Adrian jobbar, betaler fast nettleige på 450 kr i månaden pluss 1,20 kr per kilowattime straum. Månadskostnaden blir\n\n$$K(x) = 1{,}20x + 450$$\n\nHer er stigingstalet $a = 1{,}20$ — kvar kWh kostar 1,20 kr ekstra — og konstantleddet $b = 450$ er den faste nettleiga som må betalast uansett forbruk. Sjølv ein månad med null forbruk kostar 450 kr. Konstantleddet er altså «startprisen», medan stigingstalet er «prisen per eining». Klarer du å peike ut desse to i ein praktisk situasjon, har du allereie laga modellen."},{"id":"2py-2-1-n-quiz1","type":"exercise","exercise":{"id":"2py-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på stigingstal og konstantledd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-2-1-n-quiz1-q0","task":"Adrian tener 285 kr per time, altså $f(x) = 285x$. Kor mykje tener han på ein 8-timarsdag?","options":[{"id":"a","text":"$2\\,850$ kr","isCorrect":false},{"id":"b","text":"$2\\,080$ kr","isCorrect":false},{"id":"c","text":"$2\\,280$ kr","isCorrect":true},{"id":"d","text":"$1\\,995$ kr","isCorrect":false}],"solution":"$f(8) = 285 \\cdot 8 = 2\\,280$ kr."},{"id":"2py-2-1-n-quiz1-q1","task":"Kva fortel stigingstalet $a$ i ein lineær funksjon?","options":[{"id":"a","text":"Kor mykje $f(x)$ endrar seg når $x$ aukar med 1","isCorrect":true},{"id":"b","text":"Verdien av $f(x)$ når $x = 0$","isCorrect":false},{"id":"c","text":"Kvar linja kryssar $x$-aksen","isCorrect":false},{"id":"d","text":"Den største moglege funksjonsverdien","isCorrect":false}],"solution":"Stigingstalet er endringa i $f(x)$ per eining auke i $x$ — til dømes kroner per time eller kroner per kWh."},{"id":"2py-2-1-n-quiz1-q2","task":"Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva betyr talet 450?","options":[{"id":"a","text":"Prisen per kWh","isCorrect":false},{"id":"b","text":"Kostnaden ved forbruk på 1 kWh","isCorrect":false},{"id":"c","text":"Kor mange kWh som er inkluderte","isCorrect":false},{"id":"d","text":"Den faste nettleiga som blir betalt uansett forbruk","isCorrect":true}],"solution":"Konstantleddet $b = 450$ er verdien når $x = 0$ — den faste månadskostnaden som påløper sjølv utan forbruk."}]}},{"id":"2py-2-1-n-section2","type":"text","content":"## Å finne funksjonen frå to punkt\n\nOfte kjenner du ikkje $a$ og $b$ på førehand — du har berre nokre observasjonar. Då kan du rekne deg fram.\n\nEin røyrleggjar sender to fakturaer: ein jobb på 2 timar kosta 1 850 kr, og ein jobb på 5 timar kosta 3 950 kr. Kva er timeprisen, og kva tek han i fast oppmøtegebyr?\n\nStigingstalet finn vi med formelen\n\n$$a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$$\n\nTimeprisen er altså 700 kr. Konstantleddet finn vi ved å setje inn eitt av punkta: ved 2 timar er prisen $1\\,850$ kr, og av dette utgjer timane $2 \\cdot 700 = 1\\,400$ kr. Då må $b = 1\\,850 - 1\\,400 = 450$ kr — oppmøtegebyret. Prisfunksjonen er dermed $P(x) = 700x + 450$.\n\nSlik kan du «avsløre» prisstrukturen til ein kvar handverkar eller leverandør ut frå berre to fakturaer. Og når funksjonen først er på plass, kan du rekne framover: ein jobb på 8 timar vil koste $P(8) = 700 \\cdot 8 + 450 = 6\\,050$ kr.\n\nDet same gjeld straumrekninga frå førre seksjon: med $K(x) = 1{,}20x + 450$ og eit forbruk på 1 800 kWh blir rekninga $K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr. Grafen til ein lineær funksjon er alltid ei rett linje — difor held det faktisk med to punkt for å kjenne heile linja."},{"id":"2py-2-1-n-quiz2","type":"exercise","exercise":{"id":"2py-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på lineære funksjonar i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-2-1-n-quiz2-q0","task":"Ein røyrleggjar tek 1 850 kr for 2 timar og 3 950 kr for 5 timar. Kva er stigingstalet (timeprisen)?","options":[{"id":"a","text":"$420$ kr","isCorrect":false},{"id":"b","text":"$700$ kr","isCorrect":true},{"id":"c","text":"$790$ kr","isCorrect":false},{"id":"d","text":"$925$ kr","isCorrect":false}],"solution":"$a = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$ kr per time."},{"id":"2py-2-1-n-quiz2-q1","task":"Timeprisen er 700 kr og 2 timar kostar 1 850 kr totalt. Kva er konstantleddet (oppmøtegebyret)?","options":[{"id":"a","text":"$150$ kr","isCorrect":false},{"id":"b","text":"$700$ kr","isCorrect":false},{"id":"c","text":"$450$ kr","isCorrect":true},{"id":"d","text":"$1\\,150$ kr","isCorrect":false}],"solution":"$b = 1\\,850 - 2 \\cdot 700 = 1\\,850 - 1\\,400 = 450$ kr."},{"id":"2py-2-1-n-quiz2-q2","task":"Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva blir rekninga ved eit forbruk på 1 800 kWh?","options":[{"id":"a","text":"$2\\,610$ kr","isCorrect":true},{"id":"b","text":"$2\\,160$ kr","isCorrect":false},{"id":"c","text":"$1\\,800$ kr","isCorrect":false},{"id":"d","text":"$2\\,250$ kr","isCorrect":false}],"solution":"$K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr."}]}},{"id":"2py-2-1-n-summary","type":"text","content":"## Oppsummering\n\nFrå timelønna til Adrian til fakturaene til røyrleggjaren har vi sett det same mønsteret: ein **lineær funksjon** $f(x) = ax + b$ skildrar alt som veks eller minkar jamt, og grafen er alltid ei rett linje.\n\n**Stigingstalet** $a$ er endringa per eining — kroner per time, kroner per kWh, liter per mil. Positivt stigingstal gir ei stigande linje, negativt ei søkkande, og $a = 0$ gir ei vassrett linje. **Konstantleddet** $b$ er startverdien, altså verdien når $x = 0$ — i praksis fastprisen, oppmøtegebyret eller nettleiga som påløper uansett.\n\nHar du to punkt, finn du stigingstalet med $a = \\frac{y_2 - y_1}{x_2 - x_1}$, og deretter konstantleddet ved å setje inn eitt av punkta. Slik avslørte vi at røyrleggjaren tek 700 kr timen pluss 450 kr i oppmøte.\n\nNeste gong du ser ei prisliste med «fastpris pluss pris per eining», veit du nøyaktig kva du ser: ein lineær funksjon som berre ventar på å bli rekna på."}],"exercises":[],"_meta":{"sourceHash":"1f68cbce227bf202","translatedAt":"2026-06-17T00:37:08.291Z","model":"claude-code-agent","strings":49,"tm":{"5bdecf1055b6d219":"Lineære samanhengar","b195b06d1ed59702":"Narrativ versjon","b7df04accb17a539":"Ei forteljing om rette linjer i arbeidslivet — frå mekanikarens timelønn til straumrekninga og røyrleggjarens avslørte prisliste.","1de802517981441f":"forstå samanhengen mellom lineære funksjonar og rette linjer","cd4eda54b3fdb5e2":"tolke og bruke stigingstal og konstantledd","e5d6ecb5244aaca4":"## Lønna som veks i rett linje\n\nAdrian er mekanikar og tener 285 kr timen. Jobbar han éin time, tener han 285 kr. To timar, 570 kr. Tre timar, 855 kr. Teiknar du desse punkta i eit koordinatsystem, ser du noko slåande: dei ligg på ei snorrett linje.\n\nSlike samanhengar — der noko aukar eller minkar jamt — blir kalla **lineære**, og dei er overalt i arbeidslivet: timelønn, straumrekningar med fastledd, drivstofforbruk per mil, materialkostnad per meter. Ein **lineær funksjon** har alltid forma\n\n$$f(x) = ax + b$$\n\nder $a$ blir kalla **stigingstalet** og fortel kor bratt linja er, medan $b$ blir kalla **konstantleddet** og fortel kvar linja kryssar $y$-aksen.\n\nDet fine med lineære funksjonar er at dei er føreseielege. Kjenner du dei to tala $a$ og $b$, kan du rekne ut kva som helst: kva ein jobb vil koste, kva ein arbeidsdag gir i lønn, kva straumrekninga blir neste månad. I dette kapittelet skal vi lære å lese, tolke og lage slike funksjonar med utgangspunkt i situasjonar frå verkstaden og arbeidskvardagen.","5f754b5a658f3949":"## Stigingstal og konstantledd\n\nLat oss setje ord og tal på lønna til Adrian. Inntekta hans etter $x$ timar er\n\n$$f(x) = 285x$$\n\nStigingstalet er $a = 285$: inntekta aukar med 285 kr for kvar time han jobbar. Konstantleddet er $b = 0$ — jobbar han null timar, tener han null kroner, og grafen startar i origo. Ein vanleg 8-timarsdag gir $f(8) = 285 \\cdot 8 = 2\\,280$ kr.\n\nStigingstalet fortel generelt kor mykje $y$-verdien endrar seg når $x$ aukar med 1. Er $a > 0$, stig linja mot høgre. Er $a < 0$, søkk ho — tenk på verdien av eit verktøy som taper seg jamt. Og er $a = 0$, er linja heilt vassrett: ingenting endrar seg.\n\nMen ikkje alle rekningar startar på null. Bedrifta der Adrian jobbar, betaler fast nettleige på 450 kr i månaden pluss 1,20 kr per kilowattime straum. Månadskostnaden blir\n\n$$K(x) = 1{,}20x + 450$$\n\nHer er stigingstalet $a = 1{,}20$ — kvar kWh kostar 1,20 kr ekstra — og konstantleddet $b = 450$ er den faste nettleiga som må betalast uansett forbruk. Sjølv ein månad med null forbruk kostar 450 kr. Konstantleddet er altså «startprisen», medan stigingstalet er «prisen per eining». Klarer du å peike ut desse to i ein praktisk situasjon, har du allereie laga modellen.","c4b0641d62ea8968":"Test deg sjølv på stigingstal og konstantledd:","4097889236a2af26":"placeholder","41790e38d9a81f6b":"Adrian tener 285 kr per time, altså $f(x) = 285x$. Kor mykje tener han på ein 8-timarsdag?","a5f358370f7d7e2b":"$2\\,850$ kr","6f38f31dbb7725dd":"$2\\,080$ kr","4084d210189bf8e8":"$2\\,280$ kr","7e3344047f89688a":"$1\\,995$ kr","134b07f83141806e":"$f(8) = 285 \\cdot 8 = 2\\,280$ kr.","9ba5223a4dae2a55":"Kva fortel stigingstalet $a$ i ein lineær funksjon?","bdea7a117f338866":"Kor mykje $f(x)$ endrar seg når $x$ aukar med 1","341135a9eea6bf65":"Verdien av $f(x)$ når $x = 0$","ac26b72224e086a5":"Kvar linja kryssar $x$-aksen","3acbac43ab475177":"Den største moglege funksjonsverdien","bda0b543fdd85305":"Stigingstalet er endringa i $f(x)$ per eining auke i $x$ — til dømes kroner per time eller kroner per kWh.","b62e9050dfa8d831":"Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva betyr talet 450?","3c8be823f80a599b":"Prisen per kWh","be309e25183d9177":"Kostnaden ved forbruk på 1 kWh","e5eb5082db256683":"Kor mange kWh som er inkluderte","4f9701cdcb221542":"Den faste nettleiga som blir betalt uansett forbruk","57eef7c0cbdc7689":"Konstantleddet $b = 450$ er verdien når $x = 0$ — den faste månadskostnaden som påløper sjølv utan forbruk.","b3b9b622422b3d7a":"## Å finne funksjonen frå to punkt\n\nOfte kjenner du ikkje $a$ og $b$ på førehand — du har berre nokre observasjonar. Då kan du rekne deg fram.\n\nEin røyrleggjar sender to fakturaer: ein jobb på 2 timar kosta 1 850 kr, og ein jobb på 5 timar kosta 3 950 kr. Kva er timeprisen, og kva tek han i fast oppmøtegebyr?\n\nStigingstalet finn vi med formelen\n\n$$a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$$\n\nTimeprisen er altså 700 kr. Konstantleddet finn vi ved å setje inn eitt av punkta: ved 2 timar er prisen $1\\,850$ kr, og av dette utgjer timane $2 \\cdot 700 = 1\\,400$ kr. Då må $b = 1\\,850 - 1\\,400 = 450$ kr — oppmøtegebyret. Prisfunksjonen er dermed $P(x) = 700x + 450$.\n\nSlik kan du «avsløre» prisstrukturen til ein kvar handverkar eller leverandør ut frå berre to fakturaer. Og når funksjonen først er på plass, kan du rekne framover: ein jobb på 8 timar vil koste $P(8) = 700 \\cdot 8 + 450 = 6\\,050$ kr.\n\nDet same gjeld straumrekninga frå førre seksjon: med $K(x) = 1{,}20x + 450$ og eit forbruk på 1 800 kWh blir rekninga $K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr. Grafen til ein lineær funksjon er alltid ei rett linje — difor held det faktisk med to punkt for å kjenne heile linja.","e1889a08d9695e60":"Test deg sjølv på lineære funksjonar i praksis:","161463c6c7ee91f1":"Ein røyrleggjar tek 1 850 kr for 2 timar og 3 950 kr for 5 timar. Kva er stigingstalet (timeprisen)?","508ffa2420e4ab49":"$420$ kr","b7aa19e8d4a9a7ff":"$700$ kr","16c9a0b6c1060df2":"$790$ kr","60de2a610bd61a37":"$925$ kr","11098b0d67111a5d":"$a = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$ kr per time.","4c8a6f446272b87a":"Timeprisen er 700 kr og 2 timar kostar 1 850 kr totalt. Kva er konstantleddet (oppmøtegebyret)?","ab2ca30588095799":"$150$ kr","d54f6f7677d1d949":"$450$ kr","cd7963a7abae443e":"$1\\,150$ kr","5224ac494466632e":"$b = 1\\,850 - 2 \\cdot 700 = 1\\,850 - 1\\,400 = 450$ kr.","681556b1427bde7b":"Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva blir rekninga ved eit forbruk på 1 800 kWh?","2a03e33796ee0b36":"$2\\,610$ kr","94f3abdb6e47080a":"$2\\,160$ kr","2e5fff139d33a31b":"$1\\,800$ kr","0e3f77c58ac69de3":"$2\\,250$ kr","18dd974b49a916d0":"$K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr.","e4f6a6779c30d829":"## Oppsummering\n\nFrå timelønna til Adrian til fakturaene til røyrleggjaren har vi sett det same mønsteret: ein **lineær funksjon** $f(x) = ax + b$ skildrar alt som veks eller minkar jamt, og grafen er alltid ei rett linje.\n\n**Stigingstalet** $a$ er endringa per eining — kroner per time, kroner per kWh, liter per mil. Positivt stigingstal gir ei stigande linje, negativt ei søkkande, og $a = 0$ gir ei vassrett linje. **Konstantleddet** $b$ er startverdien, altså verdien når $x = 0$ — i praksis fastprisen, oppmøtegebyret eller nettleiga som påløper uansett.\n\nHar du to punkt, finn du stigingstalet med $a = \\frac{y_2 - y_1}{x_2 - x_1}$, og deretter konstantleddet ved å setje inn eitt av punkta. Slik avslørte vi at røyrleggjaren tek 700 kr timen pluss 450 kr i oppmøte.\n\nNeste gong du ser ei prisliste med «fastpris pluss pris per eining», veit du nøyaktig kva du ser: ein lineær funksjon som berre ventar på å bli rekna på."}}}
+{
+  "id": "2py-2-1-narrativ",
+  "courseId": "2py",
+  "chapterNumber": "2.1",
+  "title": "Lineære samanhengar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om rette linjer i arbeidslivet — frå mekanikarens timelønn til straumrekninga og røyrleggjarens avslørte prisliste.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "forstå samanhengen mellom lineære funksjonar og rette linjer",
+    "tolke og bruke stigingstal og konstantledd"
+  ],
+  "linkedChapterId": "2py-2-1",
+  "content": [
+    {
+      "id": "2py-2-1-n-intro",
+      "type": "text",
+      "content": "## Lønna som veks i rett linje\n\nAdrian er mekanikar og tener 285 kr timen. Jobbar han éin time, tener han 285 kr. To timar, 570 kr. Tre timar, 855 kr. Teiknar du desse punkta i eit koordinatsystem, ser du noko slåande: dei ligg på ei snorrett linje.\n\nSlike samanhengar — der noko aukar eller minkar jamt — blir kalla **lineære**, og dei er overalt i arbeidslivet: timelønn, straumrekningar med fastledd, drivstofforbruk per mil, materialkostnad per meter. Ein **lineær funksjon** har alltid forma\n\n$$f(x) = ax + b$$\n\nder $a$ blir kalla **stigingstalet** og fortel kor bratt linja er, medan $b$ blir kalla **konstantleddet** og fortel kvar linja kryssar $y$-aksen.\n\nDet fine med lineære funksjonar er at dei er føreseielege. Kjenner du dei to tala $a$ og $b$, kan du rekne ut kva som helst: kva ein jobb vil koste, kva ein arbeidsdag gir i lønn, kva straumrekninga blir neste månad. I dette kapittelet skal vi lære å lese, tolke og lage slike funksjonar med utgangspunkt i situasjonar frå verkstaden og arbeidskvardagen."
+    },
+    {
+      "id": "2py-2-1-n-section1",
+      "type": "text",
+      "content": "## Stigingstal og konstantledd\n\nLat oss setje ord og tal på lønna til Adrian. Inntekta hans etter $x$ timar er\n\n$$f(x) = 285x$$\n\nStigingstalet er $a = 285$: inntekta aukar med 285 kr for kvar time han jobbar. Konstantleddet er $b = 0$ — jobbar han null timar, tener han null kroner, og grafen startar i origo. Ein vanleg 8-timarsdag gir $f(8) = 285 \\cdot 8 = 2\\,280$ kr.\n\nStigingstalet fortel generelt kor mykje $y$-verdien endrar seg når $x$ aukar med 1. Er $a > 0$, stig linja mot høgre. Er $a < 0$, søkk ho — tenk på verdien av eit verktøy som taper seg jamt. Og er $a = 0$, er linja heilt vassrett: ingenting endrar seg.\n\nMen ikkje alle rekningar startar på null. Bedrifta der Adrian jobbar, betaler fast nettleige på 450 kr i månaden pluss 1,20 kr per kilowattime straum. Månadskostnaden blir\n\n$$K(x) = 1{,}20x + 450$$\n\nHer er stigingstalet $a = 1{,}20$ — kvar kWh kostar 1,20 kr ekstra — og konstantleddet $b = 450$ er den faste nettleiga som må betalast uansett forbruk. Sjølv ein månad med null forbruk kostar 450 kr. Konstantleddet er altså «startprisen», medan stigingstalet er «prisen per eining». Klarer du å peike ut desse to i ein praktisk situasjon, har du allereie laga modellen."
+    },
+    {
+      "id": "2py-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på stigingstal og konstantledd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-2-1-n-quiz1-q0",
+            "task": "Adrian tener 285 kr per time, altså $f(x) = 285x$. Kor mykje tener han på ein 8-timarsdag?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$2\\,280$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2\\,850$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\,080$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1\\,995$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(8) = 285 \\cdot 8 = 2\\,280$ kr."
+          },
+          {
+            "id": "2py-2-1-n-quiz1-q1",
+            "task": "Kva fortel stigingstalet $a$ i ein lineær funksjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Verdien av $f(x)$ når $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Kor mykje $f(x)$ endrar seg når $x$ aukar med 1",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kvar linja kryssar $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den største moglege funksjonsverdien",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigingstalet er endringa i $f(x)$ per eining auke i $x$ — til dømes kroner per time eller kroner per kWh."
+          },
+          {
+            "id": "2py-2-1-n-quiz1-q2",
+            "task": "Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva betyr talet 450?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Prisen per kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kostnaden ved forbruk på 1 kWh",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den faste nettleiga som blir betalt uansett forbruk",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kor mange kWh som er inkluderte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstantleddet $b = 450$ er verdien når $x = 0$ — den faste månadskostnaden som påløper sjølv utan forbruk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-2-1-n-section2",
+      "type": "text",
+      "content": "## Å finne funksjonen frå to punkt\n\nOfte kjenner du ikkje $a$ og $b$ på førehand — du har berre nokre observasjonar. Då kan du rekne deg fram.\n\nEin røyrleggjar sender to fakturaer: ein jobb på 2 timar kosta 1 850 kr, og ein jobb på 5 timar kosta 3 950 kr. Kva er timeprisen, og kva tek han i fast oppmøtegebyr?\n\nStigingstalet finn vi med formelen\n\n$$a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$$\n\nTimeprisen er altså 700 kr. Konstantleddet finn vi ved å setje inn eitt av punkta: ved 2 timar er prisen $1\\,850$ kr, og av dette utgjer timane $2 \\cdot 700 = 1\\,400$ kr. Då må $b = 1\\,850 - 1\\,400 = 450$ kr — oppmøtegebyret. Prisfunksjonen er dermed $P(x) = 700x + 450$.\n\nSlik kan du «avsløre» prisstrukturen til ein kvar handverkar eller leverandør ut frå berre to fakturaer. Og når funksjonen først er på plass, kan du rekne framover: ein jobb på 8 timar vil koste $P(8) = 700 \\cdot 8 + 450 = 6\\,050$ kr.\n\nDet same gjeld straumrekninga frå førre seksjon: med $K(x) = 1{,}20x + 450$ og eit forbruk på 1 800 kWh blir rekninga $K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr. Grafen til ein lineær funksjon er alltid ei rett linje — difor held det faktisk med to punkt for å kjenne heile linja."
+    },
+    {
+      "id": "2py-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lineære funksjonar i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-2-1-n-quiz2-q0",
+            "task": "Ein røyrleggjar tek 1 850 kr for 2 timar og 3 950 kr for 5 timar. Kva er stigingstalet (timeprisen)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$420$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$700$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$790$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$925$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$ kr per time."
+          },
+          {
+            "id": "2py-2-1-n-quiz2-q1",
+            "task": "Timeprisen er 700 kr og 2 timar kostar 1 850 kr totalt. Kva er konstantleddet (oppmøtegebyret)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$150$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$700$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1\\,150$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$450$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$b = 1\\,850 - 2 \\cdot 700 = 1\\,850 - 1\\,400 = 450$ kr."
+          },
+          {
+            "id": "2py-2-1-n-quiz2-q2",
+            "task": "Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva blir rekninga ved eit forbruk på 1 800 kWh?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2\\,610$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2\\,160$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1\\,800$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\,250$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFrå timelønna til Adrian til fakturaene til røyrleggjaren har vi sett det same mønsteret: ein **lineær funksjon** $f(x) = ax + b$ skildrar alt som veks eller minkar jamt, og grafen er alltid ei rett linje.\n\n**Stigingstalet** $a$ er endringa per eining — kroner per time, kroner per kWh, liter per mil. Positivt stigingstal gir ei stigande linje, negativt ei søkkande, og $a = 0$ gir ei vassrett linje. **Konstantleddet** $b$ er startverdien, altså verdien når $x = 0$ — i praksis fastprisen, oppmøtegebyret eller nettleiga som påløper uansett.\n\nHar du to punkt, finn du stigingstalet med $a = \\frac{y_2 - y_1}{x_2 - x_1}$, og deretter konstantleddet ved å setje inn eitt av punkta. Slik avslørte vi at røyrleggjaren tek 700 kr timen pluss 450 kr i oppmøte.\n\nNeste gong du ser ei prisliste med «fastpris pluss pris per eining», veit du nøyaktig kva du ser: ein lineær funksjon som berre ventar på å bli rekna på."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "1f68cbce227bf202",
+    "translatedAt": "2026-06-17T00:37:08.291Z",
+    "model": "claude-code-agent",
+    "strings": 49,
+    "tm": {
+      "5bdecf1055b6d219": "Lineære samanhengar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b7df04accb17a539": "Ei forteljing om rette linjer i arbeidslivet — frå mekanikarens timelønn til straumrekninga og røyrleggjarens avslørte prisliste.",
+      "1de802517981441f": "forstå samanhengen mellom lineære funksjonar og rette linjer",
+      "cd4eda54b3fdb5e2": "tolke og bruke stigingstal og konstantledd",
+      "e5d6ecb5244aaca4": "## Lønna som veks i rett linje\n\nAdrian er mekanikar og tener 285 kr timen. Jobbar han éin time, tener han 285 kr. To timar, 570 kr. Tre timar, 855 kr. Teiknar du desse punkta i eit koordinatsystem, ser du noko slåande: dei ligg på ei snorrett linje.\n\nSlike samanhengar — der noko aukar eller minkar jamt — blir kalla **lineære**, og dei er overalt i arbeidslivet: timelønn, straumrekningar med fastledd, drivstofforbruk per mil, materialkostnad per meter. Ein **lineær funksjon** har alltid forma\n\n$$f(x) = ax + b$$\n\nder $a$ blir kalla **stigingstalet** og fortel kor bratt linja er, medan $b$ blir kalla **konstantleddet** og fortel kvar linja kryssar $y$-aksen.\n\nDet fine med lineære funksjonar er at dei er føreseielege. Kjenner du dei to tala $a$ og $b$, kan du rekne ut kva som helst: kva ein jobb vil koste, kva ein arbeidsdag gir i lønn, kva straumrekninga blir neste månad. I dette kapittelet skal vi lære å lese, tolke og lage slike funksjonar med utgangspunkt i situasjonar frå verkstaden og arbeidskvardagen.",
+      "5f754b5a658f3949": "## Stigingstal og konstantledd\n\nLat oss setje ord og tal på lønna til Adrian. Inntekta hans etter $x$ timar er\n\n$$f(x) = 285x$$\n\nStigingstalet er $a = 285$: inntekta aukar med 285 kr for kvar time han jobbar. Konstantleddet er $b = 0$ — jobbar han null timar, tener han null kroner, og grafen startar i origo. Ein vanleg 8-timarsdag gir $f(8) = 285 \\cdot 8 = 2\\,280$ kr.\n\nStigingstalet fortel generelt kor mykje $y$-verdien endrar seg når $x$ aukar med 1. Er $a > 0$, stig linja mot høgre. Er $a < 0$, søkk ho — tenk på verdien av eit verktøy som taper seg jamt. Og er $a = 0$, er linja heilt vassrett: ingenting endrar seg.\n\nMen ikkje alle rekningar startar på null. Bedrifta der Adrian jobbar, betaler fast nettleige på 450 kr i månaden pluss 1,20 kr per kilowattime straum. Månadskostnaden blir\n\n$$K(x) = 1{,}20x + 450$$\n\nHer er stigingstalet $a = 1{,}20$ — kvar kWh kostar 1,20 kr ekstra — og konstantleddet $b = 450$ er den faste nettleiga som må betalast uansett forbruk. Sjølv ein månad med null forbruk kostar 450 kr. Konstantleddet er altså «startprisen», medan stigingstalet er «prisen per eining». Klarer du å peike ut desse to i ein praktisk situasjon, har du allereie laga modellen.",
+      "c4b0641d62ea8968": "Test deg sjølv på stigingstal og konstantledd:",
+      "4097889236a2af26": "placeholder",
+      "41790e38d9a81f6b": "Adrian tener 285 kr per time, altså $f(x) = 285x$. Kor mykje tener han på ein 8-timarsdag?",
+      "a5f358370f7d7e2b": "$2\\,850$ kr",
+      "6f38f31dbb7725dd": "$2\\,080$ kr",
+      "4084d210189bf8e8": "$2\\,280$ kr",
+      "7e3344047f89688a": "$1\\,995$ kr",
+      "134b07f83141806e": "$f(8) = 285 \\cdot 8 = 2\\,280$ kr.",
+      "9ba5223a4dae2a55": "Kva fortel stigingstalet $a$ i ein lineær funksjon?",
+      "bdea7a117f338866": "Kor mykje $f(x)$ endrar seg når $x$ aukar med 1",
+      "341135a9eea6bf65": "Verdien av $f(x)$ når $x = 0$",
+      "ac26b72224e086a5": "Kvar linja kryssar $x$-aksen",
+      "3acbac43ab475177": "Den største moglege funksjonsverdien",
+      "bda0b543fdd85305": "Stigingstalet er endringa i $f(x)$ per eining auke i $x$ — til dømes kroner per time eller kroner per kWh.",
+      "b62e9050dfa8d831": "Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva betyr talet 450?",
+      "3c8be823f80a599b": "Prisen per kWh",
+      "be309e25183d9177": "Kostnaden ved forbruk på 1 kWh",
+      "e5eb5082db256683": "Kor mange kWh som er inkluderte",
+      "4f9701cdcb221542": "Den faste nettleiga som blir betalt uansett forbruk",
+      "57eef7c0cbdc7689": "Konstantleddet $b = 450$ er verdien når $x = 0$ — den faste månadskostnaden som påløper sjølv utan forbruk.",
+      "b3b9b622422b3d7a": "## Å finne funksjonen frå to punkt\n\nOfte kjenner du ikkje $a$ og $b$ på førehand — du har berre nokre observasjonar. Då kan du rekne deg fram.\n\nEin røyrleggjar sender to fakturaer: ein jobb på 2 timar kosta 1 850 kr, og ein jobb på 5 timar kosta 3 950 kr. Kva er timeprisen, og kva tek han i fast oppmøtegebyr?\n\nStigingstalet finn vi med formelen\n\n$$a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$$\n\nTimeprisen er altså 700 kr. Konstantleddet finn vi ved å setje inn eitt av punkta: ved 2 timar er prisen $1\\,850$ kr, og av dette utgjer timane $2 \\cdot 700 = 1\\,400$ kr. Då må $b = 1\\,850 - 1\\,400 = 450$ kr — oppmøtegebyret. Prisfunksjonen er dermed $P(x) = 700x + 450$.\n\nSlik kan du «avsløre» prisstrukturen til ein kvar handverkar eller leverandør ut frå berre to fakturaer. Og når funksjonen først er på plass, kan du rekne framover: ein jobb på 8 timar vil koste $P(8) = 700 \\cdot 8 + 450 = 6\\,050$ kr.\n\nDet same gjeld straumrekninga frå førre seksjon: med $K(x) = 1{,}20x + 450$ og eit forbruk på 1 800 kWh blir rekninga $K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr. Grafen til ein lineær funksjon er alltid ei rett linje — difor held det faktisk med to punkt for å kjenne heile linja.",
+      "e1889a08d9695e60": "Test deg sjølv på lineære funksjonar i praksis:",
+      "161463c6c7ee91f1": "Ein røyrleggjar tek 1 850 kr for 2 timar og 3 950 kr for 5 timar. Kva er stigingstalet (timeprisen)?",
+      "508ffa2420e4ab49": "$420$ kr",
+      "b7aa19e8d4a9a7ff": "$700$ kr",
+      "16c9a0b6c1060df2": "$790$ kr",
+      "60de2a610bd61a37": "$925$ kr",
+      "11098b0d67111a5d": "$a = \\frac{3\\,950 - 1\\,850}{5 - 2} = \\frac{2\\,100}{3} = 700$ kr per time.",
+      "4c8a6f446272b87a": "Timeprisen er 700 kr og 2 timar kostar 1 850 kr totalt. Kva er konstantleddet (oppmøtegebyret)?",
+      "ab2ca30588095799": "$150$ kr",
+      "d54f6f7677d1d949": "$450$ kr",
+      "cd7963a7abae443e": "$1\\,150$ kr",
+      "5224ac494466632e": "$b = 1\\,850 - 2 \\cdot 700 = 1\\,850 - 1\\,400 = 450$ kr.",
+      "681556b1427bde7b": "Straumkostnaden er $K(x) = 1{,}20x + 450$. Kva blir rekninga ved eit forbruk på 1 800 kWh?",
+      "2a03e33796ee0b36": "$2\\,610$ kr",
+      "94f3abdb6e47080a": "$2\\,160$ kr",
+      "2e5fff139d33a31b": "$1\\,800$ kr",
+      "0e3f77c58ac69de3": "$2\\,250$ kr",
+      "18dd974b49a916d0": "$K(1800) = 1{,}20 \\cdot 1800 + 450 = 2\\,160 + 450 = 2\\,610$ kr.",
+      "e4f6a6779c30d829": "## Oppsummering\n\nFrå timelønna til Adrian til fakturaene til røyrleggjaren har vi sett det same mønsteret: ein **lineær funksjon** $f(x) = ax + b$ skildrar alt som veks eller minkar jamt, og grafen er alltid ei rett linje.\n\n**Stigingstalet** $a$ er endringa per eining — kroner per time, kroner per kWh, liter per mil. Positivt stigingstal gir ei stigande linje, negativt ei søkkande, og $a = 0$ gir ei vassrett linje. **Konstantleddet** $b$ er startverdien, altså verdien når $x = 0$ — i praksis fastprisen, oppmøtegebyret eller nettleiga som påløper uansett.\n\nHar du to punkt, finn du stigingstalet med $a = \\frac{y_2 - y_1}{x_2 - x_1}$, og deretter konstantleddet ved å setje inn eitt av punkta. Slik avslørte vi at røyrleggjaren tek 700 kr timen pluss 450 kr i oppmøte.\n\nNeste gong du ser ei prisliste med «fastpris pluss pris per eining», veit du nøyaktig kva du ser: ein lineær funksjon som berre ventar på å bli rekna på."
+    }
+  }
+}

@@ -1,1 +1,545 @@
-{"id":"im-vg1-3-7-narrativ","courseId":"im-vg1","chapterNumber":"3.7","title":"Publisering og versjonskontroll","subtitle":"Narrativ versjon","description":"Ei forteljing om å sleppe nettsida ut i verda -- Git som tidsmaskin for koden din, GitHub som delt verkstad, greiner for trygg eksperimentering, og gratis publisering med eitt tastetrykk.","estimatedMinutes":34,"competenceGoals":["publisere nettsider ved hjelp av ulike vertsløsninger","bruke versjonskontroll med Git for å spore endringer","samarbeide om kode ved hjelp av GitHub"],"linkedChapterId":"im-vg1-3-7","content":[{"id":"im-vg1-3-7-n-intro","type":"text","content":"## Den einsame nettsida\n\nDu har gjort det. Du har bygd ei heil nettside med HTML, CSS og JavaScript. Ho ser flott ut, ho fungerer, ho er responsiv og tilgjengeleg. Men det er eitt problem: ho finst berre på din eigen datamaskin. Ingen andre kan sjå ho. Ho er som eit måleri du har måla, men låst inne i eit rom utan dør. For at verda skal få sjå ho, må du **publisere** ho -- løfte ho opp på ein tenar slik at kven som helst kan vitje ho.\n\nMen det er ei utfordring til. Medan du arbeidde, gjorde du sikkert mange endringar. Nokre gonger øydela du kanskje noko og skulle ønskje du kunne gå tilbake. Kanskje vil du arbeide saman med andre utan at de overskriv arbeidet til kvarandre. Til dette treng du **versjonskontroll** -- og verktøyet alle bruker heiter Git.\n\nI denne forteljinga skal vi gjere nettsida di fri. Vi skal lære Git, tidsmaskinen som hugsar kvar einaste versjon av koden din. Vi skal møte GitHub, den delte verkstaden i skya. Vi skal oppdage greiner, som lèt deg eksperimentere utan frykt. Og til slutt skal vi publisere sida gratis, slik at ho blir live på internett -- for alle."},{"id":"im-vg1-3-7-n-section1","type":"text","content":"## Tidsmaskinen for koden din\n\n**Git** er eit versjonskontrollsystem, og den beste måten å forstå det på er å tenkje på lagringspunkt i eit dataspel. Når du spelar eit vanskeleg spel, lagrar du ofte undervegs, slik at du kan gå tilbake om noko går gale. Git gjer akkurat dette for koden din -- det lèt deg lagre augneblinksbilete av prosjektet, og gå tilbake til kva som helst av dei seinare.\n\nMed Git kan du spore endringar og sjå kva som blei endra, av kven og når. Du kan angre ved å gå tilbake til ein tidlegare versjon. Du kan eksperimentere trygt i ei eiga grein utan å øydeleggje hovudkoden. Og du kan samarbeide med andre utan at de trakkar på arbeidet til kvarandre. Git lagrar ein komplett historikk over heile prosjektet ditt.\n\nFor å forstå korleis Git arbeider, må du kjenne dei tre sonene koden bevegar seg gjennom. Først er det *working directory* -- filene du faktisk redigerer. Når du har gjort endringar du vil ta vare på, flyttar du dei til *staging area* med kommandoen `git add` -- ei slags venterom for ting som skal lagrast. Til slutt lagrar du eit augneblinksbilete i *repository*-et med `git commit`, gjerne med ei skildrande melding. Flyten er enkel å hugse: rediger, så `git add`, så `git commit`. Eit **commit** er sjølve lagringspunktet -- eit frose bilete av alle filene på det tidspunktet, med ei melding som fortel kva du gjorde og kvifor."},{"id":"im-vg1-3-7-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-3-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på Git og arbeidsflyten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-7-n-quiz1-q0","task":"Kva er Git?","options":[{"id":"a","text":"Ein nettlesar","isCorrect":false},{"id":"b","text":"Eit programmeringsspråk","isCorrect":false},{"id":"c","text":"Eit biletformat","isCorrect":false},{"id":"d","text":"Eit versjonskontrollsystem som sporar endringar i filer over tid","isCorrect":true}],"solution":"Git er eit versjonskontrollsystem som lagrar ein komplett historikk over endringar, slik at du kan gå tilbake og samarbeide."},{"id":"im-vg1-3-7-n-quiz1-q1","task":"Kva er rett arbeidsflyt for å lagre endringar i Git?","options":[{"id":"a","text":"Rediger, git add, git commit","isCorrect":true},{"id":"b","text":"git commit, så git add","isCorrect":false},{"id":"c","text":"git push, så git add","isCorrect":false},{"id":"d","text":"git commit, så git init","isCorrect":false}],"solution":"Flyten er: rediger filene, legg dei til staging med git add, og lagre augneblinksbiletet med git commit."},{"id":"im-vg1-3-7-n-quiz1-q2","task":"Kva er eit commit?","options":[{"id":"a","text":"Ei nettside som er publisert","isCorrect":false},{"id":"b","text":"Eit augneblinksbilete av filene på eit bestemt tidspunkt, med ei melding","isCorrect":true},{"id":"c","text":"Ein type CSS-regel","isCorrect":false},{"id":"d","text":"Eit bilete i full oppløysing","isCorrect":false}],"solution":"Eit commit er eit lagra augneblinksbilete av alle filene på eit bestemt tidspunkt, med ei melding som skildrar endringane."}]}},{"id":"im-vg1-3-7-n-section2","type":"text","content":"## Den delte verkstaden i skya\n\nGit køyrer på din eigen maskin, men kva om du vil sikkerheitskopiere historikken, eller arbeide saman med andre? Då treng du ein stad å lagre Git-prosjektet ditt i skya, og den mest populære staden heiter **GitHub**. Tenk på GitHub som ein felles verkstad der du kan leggje frå deg prosjektet, dele det med andre, og hente det fram igjen frå kva som helst maskin.\n\nFor å sende koden din opp til GitHub bruker du nokre få kommandoar. Først koblar du det lokale prosjektet ditt til eit GitHub-prosjekt med `git remote add origin` etterfølgt av adressa. Deretter lastar du opp endringane med `git push` -- det sender commit-ane dine opp i skya. Vil du hente ned endringar som andre har gjort, bruker du `git pull`. Push sender opp, pull hentar ned. Slik held du den lokale kopien din og kopien på GitHub synkronisert.\n\nGitHub gir deg mykje meir enn berre lagring. Det lèt deg dele kode med heile verda, samarbeide gjennom det som blir kalla *pull requests* -- ein måte å føreslå og diskutere endringar på -- og til og med publisere nettsider direkte, som vi snart skal sjå. For ein profesjonell utviklar er GitHub like naturleg som e-post. Nesten all moderne programvareutvikling skjer her, og å meistre det er ein av dei mest verdifulle ferdigheitene du kan ta med deg ut i arbeidslivet."},{"id":"im-vg1-3-7-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-3-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på GitHub:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-7-n-quiz2-q0","task":"Kva er GitHub?","options":[{"id":"a","text":"Eit operativsystem","isCorrect":false},{"id":"b","text":"Ein type nettlesar","isCorrect":false},{"id":"c","text":"Ei nettbasert plattform for å lagre Git-prosjekt i skya og samarbeide","isCorrect":true},{"id":"d","text":"Eit biletformat","isCorrect":false}],"solution":"GitHub er ei nettbasert plattform der du lagrar Git-prosjekt i skya, samarbeider med andre og kan publisere nettsider."},{"id":"im-vg1-3-7-n-quiz2-q1","task":"Kva gjer git push?","options":[{"id":"a","text":"Hentar ned endringane til andre","isCorrect":false},{"id":"b","text":"Slettar prosjektet","isCorrect":false},{"id":"c","text":"Lagar ei ny fil","isCorrect":false},{"id":"d","text":"Lastar opp dine commits til GitHub","isCorrect":true}],"solution":"git push lastar opp dine lokale commits til GitHub. git pull hentar derimot ned endringane til andre."},{"id":"im-vg1-3-7-n-quiz2-q2","task":"Kva er ein pull request?","options":[{"id":"a","text":"Ein måte å føreslå og diskutere endringar ved samarbeid","isCorrect":true},{"id":"b","text":"Ein måte å slette filer på","isCorrect":false},{"id":"c","text":"Ein type nettside","isCorrect":false},{"id":"d","text":"Ei feilmelding","isCorrect":false}],"solution":"Ein pull request er ein måte å føreslå endringar på GitHub, slik at andre kan diskutere og godkjenne dei før dei blir fletta inn."}]}},{"id":"im-vg1-3-7-n-section3","type":"text","content":"## Å eksperimentere utan frykt\n\nEin av dei mest geniale funksjonane til Git er **greiner**, eller branches på engelsk. Ei grein er ei uavhengig utviklingslinje -- ein parallell verkelegheit der du kan arbeide med noko nytt utan å røre hovudkoden. Hovudgreina heiter vanlegvis `main`, og det er den «ferdige», fungerande versjonen.\n\nTenk deg at du vil leggje til eit biletgalleri på nettsida di, men du er usikker på om det vil fungere. Viss du rotar rett i hovudkoden og det går gale, kan heile sida krasje. Løysinga er å lage ei ny grein med `git branch bildegalleri`, og byte over til ho med `git checkout`. No er du i din eigen vesle sandkasse. Her kan du eksperimentere fritt, gjere commits, prøve og feile -- alt utan at hovudgreina merkar noko som helst.\n\nNår galleriet endeleg fungerer som det skal, byter du tilbake til hovudgreina med `git checkout main`, og *flettar inn* arbeidet ditt med `git merge bildegalleri`. Då smeltar dei to greinene saman, og det nye galleriet blir ein del av hovudkoden. Viss eksperimentet derimot mislykkast, kan du berre forlate greina -- hovudkoden er framleis trygg og urørt. Greiner er nettopp dette: fridommen til å prøve nye ting utan frykt, og samstundes la fleire menneske arbeide på ulike funksjonar i same prosjekt samtidig. Det er kanskje den viktigaste grunnen til at Git har erobra heile utviklarverda."},{"id":"im-vg1-3-7-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-3-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på greiner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-7-n-quiz3-q0","task":"Kva er ei grein (branch) i Git?","options":[{"id":"a","text":"Ein type nettside","isCorrect":false},{"id":"b","text":"Ei uavhengig utviklingslinje der du kan arbeide utan å påverke hovudkoden","isCorrect":true},{"id":"c","text":"Ei feilmelding","isCorrect":false},{"id":"d","text":"Ein CSS-eigenskap","isCorrect":false}],"solution":"Ei grein er ei uavhengig utviklingslinje som lèt deg eksperimentere utan å påverke hovudkoden (main)."},{"id":"im-vg1-3-7-n-quiz3-q1","task":"Kva gjer git merge?","options":[{"id":"a","text":"Slettar ei grein","isCorrect":false},{"id":"b","text":"Lastar opp til GitHub","isCorrect":false},{"id":"c","text":"Flettar endringane frå ei grein inn i ei anna","isCorrect":true},{"id":"d","text":"Lagar eit nytt prosjekt","isCorrect":false}],"solution":"git merge flettar saman to greiner, slik at endringane frå éi grein blir ein del av ei anna."},{"id":"im-vg1-3-7-n-quiz3-q2","task":"Kva er hovudfordelen med å bruke ei grein for ein ny funksjon?","options":[{"id":"a","text":"Sida lastar raskare","isCorrect":false},{"id":"b","text":"Du slepp å bruke Git","isCorrect":false},{"id":"c","text":"Koden blir automatisk feilfri","isCorrect":false},{"id":"d","text":"Du kan eksperimentere trygt utan å risikere hovudkoden","isCorrect":true}],"solution":"Med ei grein kan du arbeide trygt med ein ny funksjon. Viss noko går gale, er hovudkoden urørt; fungerer det, flettar du det inn."}]}},{"id":"im-vg1-3-7-n-section4","type":"text","content":"## Ut i verda med eitt tastetrykk\n\nNo til det store augneblinket -- å gjere sida live. Det fantastiske er at det finst fleire gratis tenester som gjer publisering nesten latterleg enkelt, og at det heng saumlaust saman med Git og GitHub.\n\nDen mest tilgjengelege er **GitHub Pages**. Oppskrifta er kort: du legg HTML-, CSS- og JavaScript-filene dine i eit GitHub-prosjekt, går inn i innstillingane under «Pages», vel kva grein som skal publiserast, og trykkjer lagre. Etter nokre minutt er sida di live på ei adresse som `brukernavn.github.io/prosjekt`. Og det aller beste: kvar gong du gjer `git push` med nye endringar, blir nettsida oppdatert automatisk. Du redigerer lokalt, pushar, og verda ser den nye versjonen. To andre populære tenester er **Netlify**, der du kan dra og sleppe ei mappe eller koble til GitHub, og **Vercel**, som er spesielt godt eigna for moderne rammeverk som Next.js og React. Felles for alle tre er at dei publiserer automatisk kvar gong du dyttar opp ny kode.\n\nEit siste, viktig poeng før du slepp alt laus: ikkje alle filer bør hamne på GitHub. Passord, hemmelege nøklar, store mapper med avhengigheiter og maskingenererte filer høyrer ikkje heime i eit offentleg prosjekt. Til dette lagar du ei spesiell fil som heiter `.gitignore`, der du listar opp alt Git skal *oversjå* -- typisk ting som `node_modules/`, `.env` og loggfiler. Då slepp du å lekkje noko du ikkje burde. Med dette på plass er reisa fullført: frå ei einsam side på din eigen maskin, til ein levande nettstad ute i verda -- versjonert, sikkerheitskopiert, og klar til å vekse."},{"id":"im-vg1-3-7-n-quiz4","type":"exercise","exercise":{"id":"im-vg1-3-7-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på publisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-3-7-n-quiz4-q0","task":"Kva er GitHub Pages?","options":[{"id":"a","text":"Ei gratis teneste for å publisere nettsider direkte frå eit GitHub-prosjekt","isCorrect":true},{"id":"b","text":"Ein betalt nettlesar","isCorrect":false},{"id":"c","text":"Eit biletformat","isCorrect":false},{"id":"d","text":"Ein type Git-kommando","isCorrect":false}],"solution":"GitHub Pages lèt deg publisere nettsider gratis direkte frå eit GitHub-prosjekt, og sida blir oppdatert automatisk ved kvar push."},{"id":"im-vg1-3-7-n-quiz4-q1","task":"Kva er hensikta med ei .gitignore-fil?","options":[{"id":"a","text":"Å publisere nettsida","isCorrect":false},{"id":"b","text":"Å liste opp filer Git skal oversjå, som passord og avhengigheiter","isCorrect":true},{"id":"c","text":"Å slette heile prosjektet","isCorrect":false},{"id":"d","text":"Å gjere koden raskare","isCorrect":false}],"solution":".gitignore angir filer Git skal ignorere -- typisk passord, hemmelege nøklar, avhengigheiter og maskingenererte filer."},{"id":"im-vg1-3-7-n-quiz4-q2","task":"Kva skjer med ei GitHub Pages-side når du gjer git push med nye endringar?","options":[{"id":"a","text":"Ingenting, du må publisere manuelt kvar gong","isCorrect":false},{"id":"b","text":"Sida blir sletta","isCorrect":false},{"id":"c","text":"Nettsida blir oppdatert automatisk","isCorrect":true},{"id":"d","text":"Du må lage eit nytt prosjekt","isCorrect":false}],"solution":"Med GitHub Pages blir den live nettsida oppdatert automatisk kvar gong du pushar nye endringar."}]}},{"id":"im-vg1-3-7-n-summary","type":"text","content":"## Oppsummering\n\nVi har gjort nettsida fri. **Git** er tidsmaskinen som lagrar augneblinksbilete av koden din, med arbeidsflyten rediger -- `git add` -- `git commit`, gjennom dei tre sonene working directory, staging area og repository. Kvart **commit** er eit lagringspunkt du kan vende tilbake til.\n\n**GitHub** er den delte verkstaden i skya, der `git push` sender opp og `git pull` hentar ned, og der samarbeid skjer gjennom pull requests. **Greiner** lèt deg eksperimentere trygt i ei parallell linje og flette inn med `git merge` når alt fungerer. Til slutt publiserte vi gratis med **GitHub Pages**, Netlify eller Vercel -- der sida blir oppdatert automatisk ved kvar push -- og verna hemmelegheiter med ei `.gitignore`-fil. Frå einsam fil til levande nettstad: no kan koden din møte verda."}],"exercises":[],"_meta":{"sourceHash":"9cc76022713bb8e4","translatedAt":"2026-06-21T07:49:50.971Z","model":"claude-code-agent","strings":92,"tm":{"9bcce301f2034ae8":"Publisering og versjonskontroll","b195b06d1ed59702":"Narrativ versjon","1f1a6121de3bedcc":"Ei forteljing om å sleppe nettsida ut i verda -- Git som tidsmaskin for koden din, GitHub som delt verkstad, greiner for trygg eksperimentering, og gratis publisering med eitt tastetrykk.","3025c1a2bc088286":"publisere nettsider ved hjelp av ulike vertsløsninger","c66296d0ae2de502":"bruke versjonskontroll med Git for å spore endringer","d8110e83cf154ba6":"samarbeide om kode ved hjelp av GitHub","dd7b41631149d0a8":"## Den einsame nettsida\n\nDu har gjort det. Du har bygd ei heil nettside med HTML, CSS og JavaScript. Ho ser flott ut, ho fungerer, ho er responsiv og tilgjengeleg. Men det er eitt problem: ho finst berre på din eigen datamaskin. Ingen andre kan sjå ho. Ho er som eit måleri du har måla, men låst inne i eit rom utan dør. For at verda skal få sjå ho, må du **publisere** ho -- løfte ho opp på ein tenar slik at kven som helst kan vitje ho.\n\nMen det er ei utfordring til. Medan du arbeidde, gjorde du sikkert mange endringar. Nokre gonger øydela du kanskje noko og skulle ønskje du kunne gå tilbake. Kanskje vil du arbeide saman med andre utan at de overskriv arbeidet til kvarandre. Til dette treng du **versjonskontroll** -- og verktøyet alle bruker heiter Git.\n\nI denne forteljinga skal vi gjere nettsida di fri. Vi skal lære Git, tidsmaskinen som hugsar kvar einaste versjon av koden din. Vi skal møte GitHub, den delte verkstaden i skya. Vi skal oppdage greiner, som lèt deg eksperimentere utan frykt. Og til slutt skal vi publisere sida gratis, slik at ho blir live på internett -- for alle.","c9d5cf809e08d130":"## Tidsmaskinen for koden din\n\n**Git** er eit versjonskontrollsystem, og den beste måten å forstå det på er å tenkje på lagringspunkt i eit dataspel. Når du spelar eit vanskeleg spel, lagrar du ofte undervegs, slik at du kan gå tilbake om noko går gale. Git gjer akkurat dette for koden din -- det lèt deg lagre augneblinksbilete av prosjektet, og gå tilbake til kva som helst av dei seinare.\n\nMed Git kan du spore endringar og sjå kva som blei endra, av kven og når. Du kan angre ved å gå tilbake til ein tidlegare versjon. Du kan eksperimentere trygt i ei eiga grein utan å øydeleggje hovudkoden. Og du kan samarbeide med andre utan at de trakkar på arbeidet til kvarandre. Git lagrar ein komplett historikk over heile prosjektet ditt.\n\nFor å forstå korleis Git arbeider, må du kjenne dei tre sonene koden bevegar seg gjennom. Først er det *working directory* -- filene du faktisk redigerer. Når du har gjort endringar du vil ta vare på, flyttar du dei til *staging area* med kommandoen `git add` -- ei slags venterom for ting som skal lagrast. Til slutt lagrar du eit augneblinksbilete i *repository*-et med `git commit`, gjerne med ei skildrande melding. Flyten er enkel å hugse: rediger, så `git add`, så `git commit`. Eit **commit** er sjølve lagringspunktet -- eit frose bilete av alle filene på det tidspunktet, med ei melding som fortel kva du gjorde og kvifor.","c19e14b6f098ba2b":"Test deg sjølv på Git og arbeidsflyten:","4097889236a2af26":"placeholder","abe113ef1b9231ab":"Kva er Git?","0f6701feed0b2a4e":"Ein nettlesar","65c2cff9f3ea5605":"Eit programmeringsspråk","1ddd67de31f0098b":"Eit biletformat","f1e215c824a7c388":"Eit versjonskontrollsystem som sporar endringar i filer over tid","0a64e6288fc2b97f":"Git er eit versjonskontrollsystem som lagrar ein komplett historikk over endringar, slik at du kan gå tilbake og samarbeide.","795173b48c5fc585":"Kva er rett arbeidsflyt for å lagre endringar i Git?","e7628493ddb24ce4":"Rediger, git add, git commit","a7dbffea870817f5":"git commit, så git add","87c0533f809e867a":"git push, så git add","bfdf05ce401d5536":"git commit, så git init","2b8da541586119f3":"Flyten er: rediger filene, legg dei til staging med git add, og lagre augneblinksbiletet med git commit.","f238d0c252b5ee5c":"Kva er eit commit?","7610e9f0baf7c2f5":"Ei nettside som er publisert","0b966f7ddebcd09a":"Eit augneblinksbilete av filene på eit bestemt tidspunkt, med ei melding","d5a9a10e0e17f4fe":"Ein type CSS-regel","f78fcbb05213386a":"Eit bilete i full oppløysing","d30c1b30580ee102":"Eit commit er eit lagra augneblinksbilete av alle filene på eit bestemt tidspunkt, med ei melding som skildrar endringane.","ab247a811eeb691f":"## Den delte verkstaden i skya\n\nGit køyrer på din eigen maskin, men kva om du vil sikkerheitskopiere historikken, eller arbeide saman med andre? Då treng du ein stad å lagre Git-prosjektet ditt i skya, og den mest populære staden heiter **GitHub**. Tenk på GitHub som ein felles verkstad der du kan leggje frå deg prosjektet, dele det med andre, og hente det fram igjen frå kva som helst maskin.\n\nFor å sende koden din opp til GitHub bruker du nokre få kommandoar. Først koblar du det lokale prosjektet ditt til eit GitHub-prosjekt med `git remote add origin` etterfølgt av adressa. Deretter lastar du opp endringane med `git push` -- det sender commit-ane dine opp i skya. Vil du hente ned endringar som andre har gjort, bruker du `git pull`. Push sender opp, pull hentar ned. Slik held du den lokale kopien din og kopien på GitHub synkronisert.\n\nGitHub gir deg mykje meir enn berre lagring. Det lèt deg dele kode med heile verda, samarbeide gjennom det som blir kalla *pull requests* -- ein måte å føreslå og diskutere endringar på -- og til og med publisere nettsider direkte, som vi snart skal sjå. For ein profesjonell utviklar er GitHub like naturleg som e-post. Nesten all moderne programvareutvikling skjer her, og å meistre det er ein av dei mest verdifulle ferdigheitene du kan ta med deg ut i arbeidslivet.","59ab428987cfab08":"Test deg sjølv på GitHub:","1a363a42d0798eb1":"Kva er GitHub?","6c1fd712306f0d0d":"Eit operativsystem","cce28842957a8f12":"Ein type nettlesar","0138315ce4229e64":"Ei nettbasert plattform for å lagre Git-prosjekt i skya og samarbeide","527e9274b34bad96":"GitHub er ei nettbasert plattform der du lagrar Git-prosjekt i skya, samarbeider med andre og kan publisere nettsider.","fd29745279fbe3b2":"Kva gjer git push?","9c300be67aea0778":"Hentar ned endringane til andre","69e8462303687319":"Slettar prosjektet","54017ab130e0b58d":"Lagar ei ny fil","e3b4fb51853ae145":"Lastar opp dine commits til GitHub","9afa3fcb25b51725":"git push lastar opp dine lokale commits til GitHub. git pull hentar derimot ned endringane til andre.","420d53c62ec875f5":"Kva er ein pull request?","1c21209180d7e8a2":"Ein måte å føreslå og diskutere endringar ved samarbeid","1d945f0fd6c7e37f":"Ein måte å slette filer på","38e74ae34553f63d":"Ein type nettside","6b16392622e7b20a":"Ei feilmelding","4a0d44fbbd31a6ca":"Ein pull request er ein måte å føreslå endringar på GitHub, slik at andre kan diskutere og godkjenne dei før dei blir fletta inn.","8341baa5eaad478c":"## Å eksperimentere utan frykt\n\nEin av dei mest geniale funksjonane til Git er **greiner**, eller branches på engelsk. Ei grein er ei uavhengig utviklingslinje -- ein parallell verkelegheit der du kan arbeide med noko nytt utan å røre hovudkoden. Hovudgreina heiter vanlegvis `main`, og det er den «ferdige», fungerande versjonen.\n\nTenk deg at du vil leggje til eit biletgalleri på nettsida di, men du er usikker på om det vil fungere. Viss du rotar rett i hovudkoden og det går gale, kan heile sida krasje. Løysinga er å lage ei ny grein med `git branch bildegalleri`, og byte over til ho med `git checkout`. No er du i din eigen vesle sandkasse. Her kan du eksperimentere fritt, gjere commits, prøve og feile -- alt utan at hovudgreina merkar noko som helst.\n\nNår galleriet endeleg fungerer som det skal, byter du tilbake til hovudgreina med `git checkout main`, og *flettar inn* arbeidet ditt med `git merge bildegalleri`. Då smeltar dei to greinene saman, og det nye galleriet blir ein del av hovudkoden. Viss eksperimentet derimot mislykkast, kan du berre forlate greina -- hovudkoden er framleis trygg og urørt. Greiner er nettopp dette: fridommen til å prøve nye ting utan frykt, og samstundes la fleire menneske arbeide på ulike funksjonar i same prosjekt samtidig. Det er kanskje den viktigaste grunnen til at Git har erobra heile utviklarverda.","367c79273160d778":"Test deg sjølv på greiner:","4c3676ccae3e05a7":"Kva er ei grein (branch) i Git?","e14f41b623a2a6de":"Ei uavhengig utviklingslinje der du kan arbeide utan å påverke hovudkoden","87ae2983fba48a56":"Ein CSS-eigenskap","8e91513d2bf244ab":"Ei grein er ei uavhengig utviklingslinje som lèt deg eksperimentere utan å påverke hovudkoden (main).","588f52cc9cf4b15f":"Kva gjer git merge?","ea72836070316c66":"Slettar ei grein","f94b9c2e5db37dab":"Lastar opp til GitHub","b429f2424fb82994":"Flettar endringane frå ei grein inn i ei anna","f9d40e8f18604b21":"Lagar eit nytt prosjekt","50167c15ef8c9f7a":"git merge flettar saman to greiner, slik at endringane frå éi grein blir ein del av ei anna.","acf7b6ec0a301ac9":"Kva er hovudfordelen med å bruke ei grein for ein ny funksjon?","0fed566ed37fa2ff":"Sida lastar raskare","54f7d7a6e937a01e":"Du slepp å bruke Git","7924609c528064e4":"Koden blir automatisk feilfri","ca06dcb583310bdd":"Du kan eksperimentere trygt utan å risikere hovudkoden","db888add3b9d79ae":"Med ei grein kan du arbeide trygt med ein ny funksjon. Viss noko går gale, er hovudkoden urørt; fungerer det, flettar du det inn.","05d1cafa888459f9":"## Ut i verda med eitt tastetrykk\n\nNo til det store augneblinket -- å gjere sida live. Det fantastiske er at det finst fleire gratis tenester som gjer publisering nesten latterleg enkelt, og at det heng saumlaust saman med Git og GitHub.\n\nDen mest tilgjengelege er **GitHub Pages**. Oppskrifta er kort: du legg HTML-, CSS- og JavaScript-filene dine i eit GitHub-prosjekt, går inn i innstillingane under «Pages», vel kva grein som skal publiserast, og trykkjer lagre. Etter nokre minutt er sida di live på ei adresse som `brukernavn.github.io/prosjekt`. Og det aller beste: kvar gong du gjer `git push` med nye endringar, blir nettsida oppdatert automatisk. Du redigerer lokalt, pushar, og verda ser den nye versjonen. To andre populære tenester er **Netlify**, der du kan dra og sleppe ei mappe eller koble til GitHub, og **Vercel**, som er spesielt godt eigna for moderne rammeverk som Next.js og React. Felles for alle tre er at dei publiserer automatisk kvar gong du dyttar opp ny kode.\n\nEit siste, viktig poeng før du slepp alt laus: ikkje alle filer bør hamne på GitHub. Passord, hemmelege nøklar, store mapper med avhengigheiter og maskingenererte filer høyrer ikkje heime i eit offentleg prosjekt. Til dette lagar du ei spesiell fil som heiter `.gitignore`, der du listar opp alt Git skal *oversjå* -- typisk ting som `node_modules/`, `.env` og loggfiler. Då slepp du å lekkje noko du ikkje burde. Med dette på plass er reisa fullført: frå ei einsam side på din eigen maskin, til ein levande nettstad ute i verda -- versjonert, sikkerheitskopiert, og klar til å vekse.","0bd7ba0ffd7bf905":"Test deg sjølv på publisering:","265502635bf0f592":"Kva er GitHub Pages?","d40db3da084265ae":"Ei gratis teneste for å publisere nettsider direkte frå eit GitHub-prosjekt","549b4d468f1f0643":"Ein betalt nettlesar","cace6fc6b13b21ee":"Ein type Git-kommando","4332cb9019a432b6":"GitHub Pages lèt deg publisere nettsider gratis direkte frå eit GitHub-prosjekt, og sida blir oppdatert automatisk ved kvar push.","97b2b051264d7358":"Kva er hensikta med ei .gitignore-fil?","b73c5700d0c98bc0":"Å publisere nettsida","6f40cb19c1c3016f":"Å liste opp filer Git skal oversjå, som passord og avhengigheiter","02e117b1a7ee3f65":"Å slette heile prosjektet","560bac9302261a53":"Å gjere koden raskare","8fad9f2ce42ccc66":".gitignore angir filer Git skal ignorere -- typisk passord, hemmelege nøklar, avhengigheiter og maskingenererte filer.","003006f89de47148":"Kva skjer med ei GitHub Pages-side når du gjer git push med nye endringar?","6c29b3d379c3b186":"Ingenting, du må publisere manuelt kvar gong","1411b21406055280":"Sida blir sletta","9be9a865a5778b97":"Nettsida blir oppdatert automatisk","55bf54cbb0748ba6":"Du må lage eit nytt prosjekt","bcae93f1d5ef05ba":"Med GitHub Pages blir den live nettsida oppdatert automatisk kvar gong du pushar nye endringar.","5cbdbef4e1e0ec51":"## Oppsummering\n\nVi har gjort nettsida fri. **Git** er tidsmaskinen som lagrar augneblinksbilete av koden din, med arbeidsflyten rediger -- `git add` -- `git commit`, gjennom dei tre sonene working directory, staging area og repository. Kvart **commit** er eit lagringspunkt du kan vende tilbake til.\n\n**GitHub** er den delte verkstaden i skya, der `git push` sender opp og `git pull` hentar ned, og der samarbeid skjer gjennom pull requests. **Greiner** lèt deg eksperimentere trygt i ei parallell linje og flette inn med `git merge` når alt fungerer. Til slutt publiserte vi gratis med **GitHub Pages**, Netlify eller Vercel -- der sida blir oppdatert automatisk ved kvar push -- og verna hemmelegheiter med ei `.gitignore`-fil. Frå einsam fil til levande nettstad: no kan koden din møte verda."}}}
+{
+  "id": "im-vg1-3-7-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "3.7",
+  "title": "Publisering og versjonskontroll",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om å sleppe nettsida ut i verda -- Git som tidsmaskin for koden din, GitHub som delt verkstad, greiner for trygg eksperimentering, og gratis publisering med eitt tastetrykk.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "publisere nettsider ved hjelp av ulike vertsløsninger",
+    "bruke versjonskontroll med Git for å spore endringer",
+    "samarbeide om kode ved hjelp av GitHub"
+  ],
+  "linkedChapterId": "im-vg1-3-7",
+  "content": [
+    {
+      "id": "im-vg1-3-7-n-intro",
+      "type": "text",
+      "content": "## Den einsame nettsida\n\nDu har gjort det. Du har bygd ei heil nettside med HTML, CSS og JavaScript. Ho ser flott ut, ho fungerer, ho er responsiv og tilgjengeleg. Men det er eitt problem: ho finst berre på din eigen datamaskin. Ingen andre kan sjå ho. Ho er som eit måleri du har måla, men låst inne i eit rom utan dør. For at verda skal få sjå ho, må du **publisere** ho -- løfte ho opp på ein tenar slik at kven som helst kan vitje ho.\n\nMen det er ei utfordring til. Medan du arbeidde, gjorde du sikkert mange endringar. Nokre gonger øydela du kanskje noko og skulle ønskje du kunne gå tilbake. Kanskje vil du arbeide saman med andre utan at de overskriv arbeidet til kvarandre. Til dette treng du **versjonskontroll** -- og verktøyet alle bruker heiter Git.\n\nI denne forteljinga skal vi gjere nettsida di fri. Vi skal lære Git, tidsmaskinen som hugsar kvar einaste versjon av koden din. Vi skal møte GitHub, den delte verkstaden i skya. Vi skal oppdage greiner, som lèt deg eksperimentere utan frykt. Og til slutt skal vi publisere sida gratis, slik at ho blir live på internett -- for alle."
+    },
+    {
+      "id": "im-vg1-3-7-n-section1",
+      "type": "text",
+      "content": "## Tidsmaskinen for koden din\n\n**Git** er eit versjonskontrollsystem, og den beste måten å forstå det på er å tenkje på lagringspunkt i eit dataspel. Når du spelar eit vanskeleg spel, lagrar du ofte undervegs, slik at du kan gå tilbake om noko går gale. Git gjer akkurat dette for koden din -- det lèt deg lagre augneblinksbilete av prosjektet, og gå tilbake til kva som helst av dei seinare.\n\nMed Git kan du spore endringar og sjå kva som blei endra, av kven og når. Du kan angre ved å gå tilbake til ein tidlegare versjon. Du kan eksperimentere trygt i ei eiga grein utan å øydeleggje hovudkoden. Og du kan samarbeide med andre utan at de trakkar på arbeidet til kvarandre. Git lagrar ein komplett historikk over heile prosjektet ditt.\n\nFor å forstå korleis Git arbeider, må du kjenne dei tre sonene koden bevegar seg gjennom. Først er det *working directory* -- filene du faktisk redigerer. Når du har gjort endringar du vil ta vare på, flyttar du dei til *staging area* med kommandoen `git add` -- ei slags venterom for ting som skal lagrast. Til slutt lagrar du eit augneblinksbilete i *repository*-et med `git commit`, gjerne med ei skildrande melding. Flyten er enkel å hugse: rediger, så `git add`, så `git commit`. Eit **commit** er sjølve lagringspunktet -- eit frose bilete av alle filene på det tidspunktet, med ei melding som fortel kva du gjorde og kvifor."
+    },
+    {
+      "id": "im-vg1-3-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Git og arbeidsflyten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-7-n-quiz1-q0",
+            "task": "Kva er Git?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein nettlesar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit versjonskontrollsystem som sporar endringar i filer over tid",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Eit programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit biletformat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Git er eit versjonskontrollsystem som lagrar ein komplett historikk over endringar, slik at du kan gå tilbake og samarbeide."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz1-q1",
+            "task": "Kva er rett arbeidsflyt for å lagre endringar i Git?",
+            "options": [
+              {
+                "id": "b",
+                "text": "git commit, så git add",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "git push, så git add",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Rediger, git add, git commit",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "git commit, så git init",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Flyten er: rediger filene, legg dei til staging med git add, og lagre augneblinksbiletet med git commit."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz1-q2",
+            "task": "Kva er eit commit?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei nettside som er publisert",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein type CSS-regel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit bilete i full oppløysing",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eit augneblinksbilete av filene på eit bestemt tidspunkt, med ei melding",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eit commit er eit lagra augneblinksbilete av alle filene på eit bestemt tidspunkt, med ei melding som skildrar endringane."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-7-n-section2",
+      "type": "text",
+      "content": "## Den delte verkstaden i skya\n\nGit køyrer på din eigen maskin, men kva om du vil sikkerheitskopiere historikken, eller arbeide saman med andre? Då treng du ein stad å lagre Git-prosjektet ditt i skya, og den mest populære staden heiter **GitHub**. Tenk på GitHub som ein felles verkstad der du kan leggje frå deg prosjektet, dele det med andre, og hente det fram igjen frå kva som helst maskin.\n\nFor å sende koden din opp til GitHub bruker du nokre få kommandoar. Først koblar du det lokale prosjektet ditt til eit GitHub-prosjekt med `git remote add origin` etterfølgt av adressa. Deretter lastar du opp endringane med `git push` -- det sender commit-ane dine opp i skya. Vil du hente ned endringar som andre har gjort, bruker du `git pull`. Push sender opp, pull hentar ned. Slik held du den lokale kopien din og kopien på GitHub synkronisert.\n\nGitHub gir deg mykje meir enn berre lagring. Det lèt deg dele kode med heile verda, samarbeide gjennom det som blir kalla *pull requests* -- ein måte å føreslå og diskutere endringar på -- og til og med publisere nettsider direkte, som vi snart skal sjå. For ein profesjonell utviklar er GitHub like naturleg som e-post. Nesten all moderne programvareutvikling skjer her, og å meistre det er ein av dei mest verdifulle ferdigheitene du kan ta med deg ut i arbeidslivet."
+    },
+    {
+      "id": "im-vg1-3-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på GitHub:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-7-n-quiz2-q0",
+            "task": "Kva er GitHub?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Ei nettbasert plattform for å lagre Git-prosjekt i skya og samarbeide",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eit operativsystem",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein type nettlesar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit biletformat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "GitHub er ei nettbasert plattform der du lagrar Git-prosjekt i skya, samarbeider med andre og kan publisere nettsider."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz2-q1",
+            "task": "Kva gjer git push?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hentar ned endringane til andre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lastar opp dine commits til GitHub",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Slettar prosjektet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lagar ei ny fil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "git push lastar opp dine lokale commits til GitHub. git pull hentar derimot ned endringane til andre."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz2-q2",
+            "task": "Kva er ein pull request?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein måte å slette filer på",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein type nettside",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein måte å føreslå og diskutere endringar ved samarbeid",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein pull request er ein måte å føreslå endringar på GitHub, slik at andre kan diskutere og godkjenne dei før dei blir fletta inn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-7-n-section3",
+      "type": "text",
+      "content": "## Å eksperimentere utan frykt\n\nEin av dei mest geniale funksjonane til Git er **greiner**, eller branches på engelsk. Ei grein er ei uavhengig utviklingslinje -- ein parallell verkelegheit der du kan arbeide med noko nytt utan å røre hovudkoden. Hovudgreina heiter vanlegvis `main`, og det er den «ferdige», fungerande versjonen.\n\nTenk deg at du vil leggje til eit biletgalleri på nettsida di, men du er usikker på om det vil fungere. Viss du rotar rett i hovudkoden og det går gale, kan heile sida krasje. Løysinga er å lage ei ny grein med `git branch bildegalleri`, og byte over til ho med `git checkout`. No er du i din eigen vesle sandkasse. Her kan du eksperimentere fritt, gjere commits, prøve og feile -- alt utan at hovudgreina merkar noko som helst.\n\nNår galleriet endeleg fungerer som det skal, byter du tilbake til hovudgreina med `git checkout main`, og *flettar inn* arbeidet ditt med `git merge bildegalleri`. Då smeltar dei to greinene saman, og det nye galleriet blir ein del av hovudkoden. Viss eksperimentet derimot mislykkast, kan du berre forlate greina -- hovudkoden er framleis trygg og urørt. Greiner er nettopp dette: fridommen til å prøve nye ting utan frykt, og samstundes la fleire menneske arbeide på ulike funksjonar i same prosjekt samtidig. Det er kanskje den viktigaste grunnen til at Git har erobra heile utviklarverda."
+    },
+    {
+      "id": "im-vg1-3-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på greiner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-7-n-quiz3-q0",
+            "task": "Kva er ei grein (branch) i Git?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein type nettside",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein CSS-eigenskap",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ei uavhengig utviklingslinje der du kan arbeide utan å påverke hovudkoden",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ei grein er ei uavhengig utviklingslinje som lèt deg eksperimentere utan å påverke hovudkoden (main)."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz3-q1",
+            "task": "Kva gjer git merge?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Flettar endringane frå ei grein inn i ei anna",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Slettar ei grein",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lastar opp til GitHub",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Lagar eit nytt prosjekt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "git merge flettar saman to greiner, slik at endringane frå éi grein blir ein del av ei anna."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz3-q2",
+            "task": "Kva er hovudfordelen med å bruke ei grein for ein ny funksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sida lastar raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Du kan eksperimentere trygt utan å risikere hovudkoden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Du slepp å bruke Git",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Koden blir automatisk feilfri",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med ei grein kan du arbeide trygt med ein ny funksjon. Viss noko går gale, er hovudkoden urørt; fungerer det, flettar du det inn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-7-n-section4",
+      "type": "text",
+      "content": "## Ut i verda med eitt tastetrykk\n\nNo til det store augneblinket -- å gjere sida live. Det fantastiske er at det finst fleire gratis tenester som gjer publisering nesten latterleg enkelt, og at det heng saumlaust saman med Git og GitHub.\n\nDen mest tilgjengelege er **GitHub Pages**. Oppskrifta er kort: du legg HTML-, CSS- og JavaScript-filene dine i eit GitHub-prosjekt, går inn i innstillingane under «Pages», vel kva grein som skal publiserast, og trykkjer lagre. Etter nokre minutt er sida di live på ei adresse som `brukernavn.github.io/prosjekt`. Og det aller beste: kvar gong du gjer `git push` med nye endringar, blir nettsida oppdatert automatisk. Du redigerer lokalt, pushar, og verda ser den nye versjonen. To andre populære tenester er **Netlify**, der du kan dra og sleppe ei mappe eller koble til GitHub, og **Vercel**, som er spesielt godt eigna for moderne rammeverk som Next.js og React. Felles for alle tre er at dei publiserer automatisk kvar gong du dyttar opp ny kode.\n\nEit siste, viktig poeng før du slepp alt laus: ikkje alle filer bør hamne på GitHub. Passord, hemmelege nøklar, store mapper med avhengigheiter og maskingenererte filer høyrer ikkje heime i eit offentleg prosjekt. Til dette lagar du ei spesiell fil som heiter `.gitignore`, der du listar opp alt Git skal *oversjå* -- typisk ting som `node_modules/`, `.env` og loggfiler. Då slepp du å lekkje noko du ikkje burde. Med dette på plass er reisa fullført: frå ei einsam side på din eigen maskin, til ein levande nettstad ute i verda -- versjonert, sikkerheitskopiert, og klar til å vekse."
+    },
+    {
+      "id": "im-vg1-3-7-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-3-7-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på publisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-3-7-n-quiz4-q0",
+            "task": "Kva er GitHub Pages?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein betalt nettlesar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit biletformat",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ei gratis teneste for å publisere nettsider direkte frå eit GitHub-prosjekt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ein type Git-kommando",
+                "isCorrect": false
+              }
+            ],
+            "solution": "GitHub Pages lèt deg publisere nettsider gratis direkte frå eit GitHub-prosjekt, og sida blir oppdatert automatisk ved kvar push."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz4-q1",
+            "task": "Kva er hensikta med ei .gitignore-fil?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å publisere nettsida",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å slette heile prosjektet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å gjere koden raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å liste opp filer Git skal oversjå, som passord og avhengigheiter",
+                "isCorrect": true
+              }
+            ],
+            "solution": ".gitignore angir filer Git skal ignorere -- typisk passord, hemmelege nøklar, avhengigheiter og maskingenererte filer."
+          },
+          {
+            "id": "im-vg1-3-7-n-quiz4-q2",
+            "task": "Kva skjer med ei GitHub Pages-side når du gjer git push med nye endringar?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Nettsida blir oppdatert automatisk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ingenting, du må publisere manuelt kvar gong",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sida blir sletta",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Du må lage eit nytt prosjekt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med GitHub Pages blir den live nettsida oppdatert automatisk kvar gong du pushar nye endringar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-3-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har gjort nettsida fri. **Git** er tidsmaskinen som lagrar augneblinksbilete av koden din, med arbeidsflyten rediger -- `git add` -- `git commit`, gjennom dei tre sonene working directory, staging area og repository. Kvart **commit** er eit lagringspunkt du kan vende tilbake til.\n\n**GitHub** er den delte verkstaden i skya, der `git push` sender opp og `git pull` hentar ned, og der samarbeid skjer gjennom pull requests. **Greiner** lèt deg eksperimentere trygt i ei parallell linje og flette inn med `git merge` når alt fungerer. Til slutt publiserte vi gratis med **GitHub Pages**, Netlify eller Vercel -- der sida blir oppdatert automatisk ved kvar push -- og verna hemmelegheiter med ei `.gitignore`-fil. Frå einsam fil til levande nettstad: no kan koden din møte verda."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "9cc76022713bb8e4",
+    "translatedAt": "2026-06-21T07:49:50.971Z",
+    "model": "claude-code-agent",
+    "strings": 92,
+    "tm": {
+      "9bcce301f2034ae8": "Publisering og versjonskontroll",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1f1a6121de3bedcc": "Ei forteljing om å sleppe nettsida ut i verda -- Git som tidsmaskin for koden din, GitHub som delt verkstad, greiner for trygg eksperimentering, og gratis publisering med eitt tastetrykk.",
+      "3025c1a2bc088286": "publisere nettsider ved hjelp av ulike vertsløsninger",
+      "c66296d0ae2de502": "bruke versjonskontroll med Git for å spore endringer",
+      "d8110e83cf154ba6": "samarbeide om kode ved hjelp av GitHub",
+      "dd7b41631149d0a8": "## Den einsame nettsida\n\nDu har gjort det. Du har bygd ei heil nettside med HTML, CSS og JavaScript. Ho ser flott ut, ho fungerer, ho er responsiv og tilgjengeleg. Men det er eitt problem: ho finst berre på din eigen datamaskin. Ingen andre kan sjå ho. Ho er som eit måleri du har måla, men låst inne i eit rom utan dør. For at verda skal få sjå ho, må du **publisere** ho -- løfte ho opp på ein tenar slik at kven som helst kan vitje ho.\n\nMen det er ei utfordring til. Medan du arbeidde, gjorde du sikkert mange endringar. Nokre gonger øydela du kanskje noko og skulle ønskje du kunne gå tilbake. Kanskje vil du arbeide saman med andre utan at de overskriv arbeidet til kvarandre. Til dette treng du **versjonskontroll** -- og verktøyet alle bruker heiter Git.\n\nI denne forteljinga skal vi gjere nettsida di fri. Vi skal lære Git, tidsmaskinen som hugsar kvar einaste versjon av koden din. Vi skal møte GitHub, den delte verkstaden i skya. Vi skal oppdage greiner, som lèt deg eksperimentere utan frykt. Og til slutt skal vi publisere sida gratis, slik at ho blir live på internett -- for alle.",
+      "c9d5cf809e08d130": "## Tidsmaskinen for koden din\n\n**Git** er eit versjonskontrollsystem, og den beste måten å forstå det på er å tenkje på lagringspunkt i eit dataspel. Når du spelar eit vanskeleg spel, lagrar du ofte undervegs, slik at du kan gå tilbake om noko går gale. Git gjer akkurat dette for koden din -- det lèt deg lagre augneblinksbilete av prosjektet, og gå tilbake til kva som helst av dei seinare.\n\nMed Git kan du spore endringar og sjå kva som blei endra, av kven og når. Du kan angre ved å gå tilbake til ein tidlegare versjon. Du kan eksperimentere trygt i ei eiga grein utan å øydeleggje hovudkoden. Og du kan samarbeide med andre utan at de trakkar på arbeidet til kvarandre. Git lagrar ein komplett historikk over heile prosjektet ditt.\n\nFor å forstå korleis Git arbeider, må du kjenne dei tre sonene koden bevegar seg gjennom. Først er det *working directory* -- filene du faktisk redigerer. Når du har gjort endringar du vil ta vare på, flyttar du dei til *staging area* med kommandoen `git add` -- ei slags venterom for ting som skal lagrast. Til slutt lagrar du eit augneblinksbilete i *repository*-et med `git commit`, gjerne med ei skildrande melding. Flyten er enkel å hugse: rediger, så `git add`, så `git commit`. Eit **commit** er sjølve lagringspunktet -- eit frose bilete av alle filene på det tidspunktet, med ei melding som fortel kva du gjorde og kvifor.",
+      "c19e14b6f098ba2b": "Test deg sjølv på Git og arbeidsflyten:",
+      "4097889236a2af26": "placeholder",
+      "abe113ef1b9231ab": "Kva er Git?",
+      "0f6701feed0b2a4e": "Ein nettlesar",
+      "65c2cff9f3ea5605": "Eit programmeringsspråk",
+      "1ddd67de31f0098b": "Eit biletformat",
+      "f1e215c824a7c388": "Eit versjonskontrollsystem som sporar endringar i filer over tid",
+      "0a64e6288fc2b97f": "Git er eit versjonskontrollsystem som lagrar ein komplett historikk over endringar, slik at du kan gå tilbake og samarbeide.",
+      "795173b48c5fc585": "Kva er rett arbeidsflyt for å lagre endringar i Git?",
+      "e7628493ddb24ce4": "Rediger, git add, git commit",
+      "a7dbffea870817f5": "git commit, så git add",
+      "87c0533f809e867a": "git push, så git add",
+      "bfdf05ce401d5536": "git commit, så git init",
+      "2b8da541586119f3": "Flyten er: rediger filene, legg dei til staging med git add, og lagre augneblinksbiletet med git commit.",
+      "f238d0c252b5ee5c": "Kva er eit commit?",
+      "7610e9f0baf7c2f5": "Ei nettside som er publisert",
+      "0b966f7ddebcd09a": "Eit augneblinksbilete av filene på eit bestemt tidspunkt, med ei melding",
+      "d5a9a10e0e17f4fe": "Ein type CSS-regel",
+      "f78fcbb05213386a": "Eit bilete i full oppløysing",
+      "d30c1b30580ee102": "Eit commit er eit lagra augneblinksbilete av alle filene på eit bestemt tidspunkt, med ei melding som skildrar endringane.",
+      "ab247a811eeb691f": "## Den delte verkstaden i skya\n\nGit køyrer på din eigen maskin, men kva om du vil sikkerheitskopiere historikken, eller arbeide saman med andre? Då treng du ein stad å lagre Git-prosjektet ditt i skya, og den mest populære staden heiter **GitHub**. Tenk på GitHub som ein felles verkstad der du kan leggje frå deg prosjektet, dele det med andre, og hente det fram igjen frå kva som helst maskin.\n\nFor å sende koden din opp til GitHub bruker du nokre få kommandoar. Først koblar du det lokale prosjektet ditt til eit GitHub-prosjekt med `git remote add origin` etterfølgt av adressa. Deretter lastar du opp endringane med `git push` -- det sender commit-ane dine opp i skya. Vil du hente ned endringar som andre har gjort, bruker du `git pull`. Push sender opp, pull hentar ned. Slik held du den lokale kopien din og kopien på GitHub synkronisert.\n\nGitHub gir deg mykje meir enn berre lagring. Det lèt deg dele kode med heile verda, samarbeide gjennom det som blir kalla *pull requests* -- ein måte å føreslå og diskutere endringar på -- og til og med publisere nettsider direkte, som vi snart skal sjå. For ein profesjonell utviklar er GitHub like naturleg som e-post. Nesten all moderne programvareutvikling skjer her, og å meistre det er ein av dei mest verdifulle ferdigheitene du kan ta med deg ut i arbeidslivet.",
+      "59ab428987cfab08": "Test deg sjølv på GitHub:",
+      "1a363a42d0798eb1": "Kva er GitHub?",
+      "6c1fd712306f0d0d": "Eit operativsystem",
+      "cce28842957a8f12": "Ein type nettlesar",
+      "0138315ce4229e64": "Ei nettbasert plattform for å lagre Git-prosjekt i skya og samarbeide",
+      "527e9274b34bad96": "GitHub er ei nettbasert plattform der du lagrar Git-prosjekt i skya, samarbeider med andre og kan publisere nettsider.",
+      "fd29745279fbe3b2": "Kva gjer git push?",
+      "9c300be67aea0778": "Hentar ned endringane til andre",
+      "69e8462303687319": "Slettar prosjektet",
+      "54017ab130e0b58d": "Lagar ei ny fil",
+      "e3b4fb51853ae145": "Lastar opp dine commits til GitHub",
+      "9afa3fcb25b51725": "git push lastar opp dine lokale commits til GitHub. git pull hentar derimot ned endringane til andre.",
+      "420d53c62ec875f5": "Kva er ein pull request?",
+      "1c21209180d7e8a2": "Ein måte å føreslå og diskutere endringar ved samarbeid",
+      "1d945f0fd6c7e37f": "Ein måte å slette filer på",
+      "38e74ae34553f63d": "Ein type nettside",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "4a0d44fbbd31a6ca": "Ein pull request er ein måte å føreslå endringar på GitHub, slik at andre kan diskutere og godkjenne dei før dei blir fletta inn.",
+      "8341baa5eaad478c": "## Å eksperimentere utan frykt\n\nEin av dei mest geniale funksjonane til Git er **greiner**, eller branches på engelsk. Ei grein er ei uavhengig utviklingslinje -- ein parallell verkelegheit der du kan arbeide med noko nytt utan å røre hovudkoden. Hovudgreina heiter vanlegvis `main`, og det er den «ferdige», fungerande versjonen.\n\nTenk deg at du vil leggje til eit biletgalleri på nettsida di, men du er usikker på om det vil fungere. Viss du rotar rett i hovudkoden og det går gale, kan heile sida krasje. Løysinga er å lage ei ny grein med `git branch bildegalleri`, og byte over til ho med `git checkout`. No er du i din eigen vesle sandkasse. Her kan du eksperimentere fritt, gjere commits, prøve og feile -- alt utan at hovudgreina merkar noko som helst.\n\nNår galleriet endeleg fungerer som det skal, byter du tilbake til hovudgreina med `git checkout main`, og *flettar inn* arbeidet ditt med `git merge bildegalleri`. Då smeltar dei to greinene saman, og det nye galleriet blir ein del av hovudkoden. Viss eksperimentet derimot mislykkast, kan du berre forlate greina -- hovudkoden er framleis trygg og urørt. Greiner er nettopp dette: fridommen til å prøve nye ting utan frykt, og samstundes la fleire menneske arbeide på ulike funksjonar i same prosjekt samtidig. Det er kanskje den viktigaste grunnen til at Git har erobra heile utviklarverda.",
+      "367c79273160d778": "Test deg sjølv på greiner:",
+      "4c3676ccae3e05a7": "Kva er ei grein (branch) i Git?",
+      "e14f41b623a2a6de": "Ei uavhengig utviklingslinje der du kan arbeide utan å påverke hovudkoden",
+      "87ae2983fba48a56": "Ein CSS-eigenskap",
+      "8e91513d2bf244ab": "Ei grein er ei uavhengig utviklingslinje som lèt deg eksperimentere utan å påverke hovudkoden (main).",
+      "588f52cc9cf4b15f": "Kva gjer git merge?",
+      "ea72836070316c66": "Slettar ei grein",
+      "f94b9c2e5db37dab": "Lastar opp til GitHub",
+      "b429f2424fb82994": "Flettar endringane frå ei grein inn i ei anna",
+      "f9d40e8f18604b21": "Lagar eit nytt prosjekt",
+      "50167c15ef8c9f7a": "git merge flettar saman to greiner, slik at endringane frå éi grein blir ein del av ei anna.",
+      "acf7b6ec0a301ac9": "Kva er hovudfordelen med å bruke ei grein for ein ny funksjon?",
+      "0fed566ed37fa2ff": "Sida lastar raskare",
+      "54f7d7a6e937a01e": "Du slepp å bruke Git",
+      "7924609c528064e4": "Koden blir automatisk feilfri",
+      "ca06dcb583310bdd": "Du kan eksperimentere trygt utan å risikere hovudkoden",
+      "db888add3b9d79ae": "Med ei grein kan du arbeide trygt med ein ny funksjon. Viss noko går gale, er hovudkoden urørt; fungerer det, flettar du det inn.",
+      "05d1cafa888459f9": "## Ut i verda med eitt tastetrykk\n\nNo til det store augneblinket -- å gjere sida live. Det fantastiske er at det finst fleire gratis tenester som gjer publisering nesten latterleg enkelt, og at det heng saumlaust saman med Git og GitHub.\n\nDen mest tilgjengelege er **GitHub Pages**. Oppskrifta er kort: du legg HTML-, CSS- og JavaScript-filene dine i eit GitHub-prosjekt, går inn i innstillingane under «Pages», vel kva grein som skal publiserast, og trykkjer lagre. Etter nokre minutt er sida di live på ei adresse som `brukernavn.github.io/prosjekt`. Og det aller beste: kvar gong du gjer `git push` med nye endringar, blir nettsida oppdatert automatisk. Du redigerer lokalt, pushar, og verda ser den nye versjonen. To andre populære tenester er **Netlify**, der du kan dra og sleppe ei mappe eller koble til GitHub, og **Vercel**, som er spesielt godt eigna for moderne rammeverk som Next.js og React. Felles for alle tre er at dei publiserer automatisk kvar gong du dyttar opp ny kode.\n\nEit siste, viktig poeng før du slepp alt laus: ikkje alle filer bør hamne på GitHub. Passord, hemmelege nøklar, store mapper med avhengigheiter og maskingenererte filer høyrer ikkje heime i eit offentleg prosjekt. Til dette lagar du ei spesiell fil som heiter `.gitignore`, der du listar opp alt Git skal *oversjå* -- typisk ting som `node_modules/`, `.env` og loggfiler. Då slepp du å lekkje noko du ikkje burde. Med dette på plass er reisa fullført: frå ei einsam side på din eigen maskin, til ein levande nettstad ute i verda -- versjonert, sikkerheitskopiert, og klar til å vekse.",
+      "0bd7ba0ffd7bf905": "Test deg sjølv på publisering:",
+      "265502635bf0f592": "Kva er GitHub Pages?",
+      "d40db3da084265ae": "Ei gratis teneste for å publisere nettsider direkte frå eit GitHub-prosjekt",
+      "549b4d468f1f0643": "Ein betalt nettlesar",
+      "cace6fc6b13b21ee": "Ein type Git-kommando",
+      "4332cb9019a432b6": "GitHub Pages lèt deg publisere nettsider gratis direkte frå eit GitHub-prosjekt, og sida blir oppdatert automatisk ved kvar push.",
+      "97b2b051264d7358": "Kva er hensikta med ei .gitignore-fil?",
+      "b73c5700d0c98bc0": "Å publisere nettsida",
+      "6f40cb19c1c3016f": "Å liste opp filer Git skal oversjå, som passord og avhengigheiter",
+      "02e117b1a7ee3f65": "Å slette heile prosjektet",
+      "560bac9302261a53": "Å gjere koden raskare",
+      "8fad9f2ce42ccc66": ".gitignore angir filer Git skal ignorere -- typisk passord, hemmelege nøklar, avhengigheiter og maskingenererte filer.",
+      "003006f89de47148": "Kva skjer med ei GitHub Pages-side når du gjer git push med nye endringar?",
+      "6c29b3d379c3b186": "Ingenting, du må publisere manuelt kvar gong",
+      "1411b21406055280": "Sida blir sletta",
+      "9be9a865a5778b97": "Nettsida blir oppdatert automatisk",
+      "55bf54cbb0748ba6": "Du må lage eit nytt prosjekt",
+      "bcae93f1d5ef05ba": "Med GitHub Pages blir den live nettsida oppdatert automatisk kvar gong du pushar nye endringar.",
+      "5cbdbef4e1e0ec51": "## Oppsummering\n\nVi har gjort nettsida fri. **Git** er tidsmaskinen som lagrar augneblinksbilete av koden din, med arbeidsflyten rediger -- `git add` -- `git commit`, gjennom dei tre sonene working directory, staging area og repository. Kvart **commit** er eit lagringspunkt du kan vende tilbake til.\n\n**GitHub** er den delte verkstaden i skya, der `git push` sender opp og `git pull` hentar ned, og der samarbeid skjer gjennom pull requests. **Greiner** lèt deg eksperimentere trygt i ei parallell linje og flette inn med `git merge` når alt fungerer. Til slutt publiserte vi gratis med **GitHub Pages**, Netlify eller Vercel -- der sida blir oppdatert automatisk ved kvar push -- og verna hemmelegheiter med ei `.gitignore`-fil. Frå einsam fil til levande nettstad: no kan koden din møte verda."
+    }
+  }
+}

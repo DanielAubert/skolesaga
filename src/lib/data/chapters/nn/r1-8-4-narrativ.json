@@ -1,1 +1,674 @@
-{"id":"r1-8-4-narrativ","courseId":"r1","chapterNumber":"8.4","title":"Betinga sannsyn","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis informasjon forandrar sannsyn – betinga sannsyn, produktsetninga, uavhengigheit og totalsetninga.","estimatedMinutes":35,"competenceGoals":["rekne ut betinga sannsyn og tolke det i kontekst","avgjere om hendingar er uavhengige","bruke produktsetninga for avhengige og uavhengige hendingar","bruke totalsetninga til å rekne ut sannsyn via oppdeling"],"linkedChapterId":"r1-8-4","content":[{"id":"r1-8-4-n-intro","type":"text","content":"## Informasjon forandrar alt\n\nEin ven kastar ein terning bak ryggen din og seier: «Det blei eit partal.» Kva er no sannsynet for at det er ein seksar? Før beskjeden var svaret $\\frac{1}{6}$. Men no veit du noko: utfallet er $2$, $4$ eller $6$. Tre moglegheiter, éi av dei er seks – sannsynet har hoppa til $\\frac{1}{3}$.\n\nDette er kjernen i **betinga sannsyn**: ny informasjon krympar utfallsrommet, og sannsyna må reknast ut på nytt innanfor det som er att. Spørsmålet «kva er sannsynet for $A$, gitt at $B$ har inntruffe?» blir skrive $P(A \\mid B)$, og det er kanskje det viktigaste enkeltomgrepet i heile sannsynslæra – det ligg under alt frå medisinske testar til spamfilter.\n\nI dette kapittelet lærer du definisjonen, produktsetninga for «både-og»-sannsyn, det presise skiljet mellom *uavhengige* og *disjunkte* hendingar (som altfor mange blandar saman), og totalsetninga – verktøyet for å rekne seg gjennom oppdelte situasjonar."},{"id":"r1-8-4-n-section1","type":"text","content":"## Betinga sannsyn – det krympa utfallsrommet\n\nFormelt blir det betinga sannsynet for $A$ gitt $B$ definert som\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n\nLes formelen som eit bilete: informasjonen «$B$ har skjedd» innskrenkar verda til $B$. Innanfor denne nye, mindre verda spør vi kor stor del som også høyrer til $A$ – altså snittet $A \\cap B$ målt i forhold til heile $B$.\n\nTerningeksempelet i formelspråk: Lat $A$ = «viser 6» og $B$ = «viser partal». Snittet $A \\cap B$ er berre utfallet 6, så $P(A \\cap B) = \\frac{1}{6}$, medan $P(B) = \\frac{3}{6} = \\frac{1}{2}$. Då blir\n\n$$P(A \\mid B) = \\frac{1/6}{1/2} = \\frac{1}{3}$$\n\n– akkurat som intuisjonen sa: éi gunstig av tre attverande moglegheiter.\n\nVer nøye med retninga: $P(A \\mid B)$ og $P(B \\mid A)$ er generelt heilt forskjellige tal. Sannsynet for at nokon er våt gitt at det regnar, er ikkje det same som sannsynet for at det regnar gitt at nokon er våt – vedkomande kan jo ha dusja. Å halde dei to retningane frå kvarandre er halve kunsten i dette kapittelet, og det er nettopp den forvekslinga Bayes' setning (i kapittel 8.6) er laga for å rydde opp i."},{"id":"r1-8-4-n-quiz1","type":"exercise","exercise":{"id":"r1-8-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på betinga sannsyn:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz1-q0","task":"Kva er definisjonen av betinga sannsyn?","options":[{"id":"a","text":"$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$","isCorrect":true},{"id":"b","text":"$P(A \\mid B) = P(A) \\cdot P(B)$","isCorrect":false},{"id":"c","text":"$P(A \\mid B) = \\frac{P(B)}{P(A \\cap B)}$","isCorrect":false},{"id":"d","text":"$P(A \\mid B) = P(A) + P(B)$","isCorrect":false}],"solution":"Vi innskrenkar utfallsrommet til $B$ og måler delen av $B$ som også høyrer til $A$."},{"id":"r1-8-4-n-quiz1-q1","task":"Ein terning viser partal. Kva er sannsynet for at han viser 6?","options":[{"id":"a","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":true},{"id":"d","text":"$\\frac{2}{3}$","isCorrect":false}],"solution":"$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{1/6}{1/2} = \\frac{1}{3}$ – éi av dei tre partalsmoglegheitene."},{"id":"r1-8-4-n-quiz1-q2","task":"Kva gjer informasjonen «$B$ har inntruffe» med utfallsrommet?","options":[{"id":"a","text":"Han utvidar det med nye utfall","isCorrect":false},{"id":"b","text":"Han innskrenkar det til utfalla i $B$","isCorrect":true},{"id":"c","text":"Han endrar det ikkje","isCorrect":false},{"id":"d","text":"Han gjer alle utfall like sannsynlege","isCorrect":false}],"solution":"Betinging tyder at vi berre ser på den delen av utfallsrommet der $B$ er sann – verda krympar til $B$."},{"id":"r1-8-4-n-quiz1-q3","task":"Er $P(A \\mid B)$ og $P(B \\mid A)$ alltid like?","options":[{"id":"a","text":"Ja, alltid","isCorrect":false},{"id":"b","text":"Ja, men berre for terningar","isCorrect":false},{"id":"c","text":"Berre dersom hendingane er disjunkte","isCorrect":false},{"id":"d","text":"Nei – dei er generelt forskjellige","isCorrect":true}],"solution":"Retninga tyder alt: $P(\\text{våt} \\mid \\text{regn})$ er høg, medan $P(\\text{regn} \\mid \\text{våt})$ kan vere låg. Formlane har ulike nemnarar."}],"solution":""}},{"id":"r1-8-4-n-section2","type":"text","content":"## Produktsetninga – sannsyn i fleire steg\n\nSnur vi definisjonen av betinga sannsyn rundt, får vi **produktsetninga**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A \\mid B) = P(A) \\cdot P(B \\mid A)$$\n\nHo blir lesen naturleg som ei historie i to akter: sannsynet for at *begge* hendingane skjer, er sannsynet for den første gonger sannsynet for den andre *gitt* den første. For tre hendingar held kjeda fram: $P(A \\cap B \\cap C) = P(A) \\cdot P(B \\mid A) \\cdot P(C \\mid A \\cap B)$.\n\nParadegreina er trekking **utan tilbakelegging**. Ei øskje inneheld 8 raude og 4 blå kuler, og du trekkjer to. Kva er sannsynet for at begge er raude? Første trekk: $P(R_1) = \\frac{8}{12} = \\frac{2}{3}$. Men no er verda endra – éi raud kule er borte. Andre trekk: $P(R_2 \\mid R_1) = \\frac{7}{11}$. Produktsetninga limar det saman:\n\n$$P(R_1 \\cap R_2) = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$$\n\nTenk på det som å vandre nedover eit valtre der greinene er merkte med sannsyn: du gangar deg nedover langs vegen. Kvar grein tek omsyn til alt som har skjedd ovanfor – det er nettopp det det betinga sannsynet gjer. Dette biletet – tre med sannsyn på greinene – er kanskje det nyttigaste mentale verktøyet i heile sannsynsrekninga, og vi skal bruke det att i totalsetninga."},{"id":"r1-8-4-n-quiz2","type":"exercise","exercise":{"id":"r1-8-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på produktsetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz2-q0","task":"Kva seier produktsetninga?","options":[{"id":"a","text":"$P(A \\cap B) = P(A) + P(B)$","isCorrect":false},{"id":"b","text":"$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$","isCorrect":true},{"id":"c","text":"$P(A \\cup B) = P(A) \\cdot P(B)$","isCorrect":false},{"id":"d","text":"$P(A \\cap B) = P(A \\mid B) \\cdot P(B \\mid A)$","isCorrect":false}],"solution":"Sannsynet for begge: først $A$, deretter $B$ gitt $A$. Like gyldig: $P(B) \\cdot P(A \\mid B)$."},{"id":"r1-8-4-n-quiz2-q1","task":"8 raude og 4 blå kuler; du trekkjer to utan tilbakelegging. Kva er $P(R_2 \\mid R_1)$?","options":[{"id":"a","text":"$\\frac{8}{12}$","isCorrect":false},{"id":"b","text":"$\\frac{8}{11}$","isCorrect":false},{"id":"c","text":"$\\frac{7}{12}$","isCorrect":false},{"id":"d","text":"$\\frac{7}{11}$","isCorrect":true}],"solution":"Etter at éi raud er trekt, er det att 7 raude av 11 kuler: $P(R_2 \\mid R_1) = \\frac{7}{11}$."},{"id":"r1-8-4-n-quiz2-q2","task":"Kva er sannsynet for at begge kulene er raude?","options":[{"id":"a","text":"$\\frac{14}{33}$","isCorrect":true},{"id":"b","text":"$\\frac{4}{9}$","isCorrect":false},{"id":"c","text":"$\\frac{2}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{56}{144}$","isCorrect":false}],"solution":"$P(R_1 \\cap R_2) = \\frac{8}{12} \\cdot \\frac{7}{11} = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$."},{"id":"r1-8-4-n-quiz2-q3","task":"I kva situasjon er produktsetninga med betinga sannsyn særleg nyttig?","options":[{"id":"a","text":"Når hendingane er disjunkte","isCorrect":false},{"id":"b","text":"Når vi kastar mynt","isCorrect":false},{"id":"c","text":"Når vi trekkjer utan tilbakelegging","isCorrect":true},{"id":"d","text":"Når utfallsrommet er uendeleg","isCorrect":false}],"solution":"Utan tilbakelegging endrar sannsyna seg for kvart trekk, og kjeda $P(A)\\cdot P(B \\mid A)$ fangar nøyaktig dette."}],"solution":""}},{"id":"r1-8-4-n-section3","type":"text","content":"## Uavhengigheit – og forvekslinga alle gjer\n\nNokre gonger gir informasjon *ingen* effekt. Veit du at første myntkast gav krone, er sannsynet for krone i neste kast framleis $\\frac{1}{2}$ – mynten har inga hugsing. Slike hendingar blir kalla **uavhengige**: $P(A \\mid B) = P(A)$. Set vi dette inn i produktsetninga, får vi det ekvivalente og mest brukte vilkåret:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nUavhengigheit er ei gåve når du reknar: «både-og»-sannsyn blir reine produkt, utan betinga ledd.\n\nMen no til forvekslinga som feller flest: **uavhengig er ikkje det same som disjunkt**. Faktisk er det nesten motsett! Disjunkte hendingar har $A \\cap B = \\emptyset$, altså $P(A \\cap B) = 0$: dersom $A$ skjer, kan $B$ *ikkje* skje. Det er ekstremt sterk avhengigheit – informasjonen om $A$ avgjer $B$ fullstendig. Uavhengige hendingar, derimot, kan utmerkt godt skje samtidig; poenget er at den eine ikkje påverkar sjansen for den andre.\n\nKonkret: Kast to terningar. Lat $A$ = «terning 1 viser 6» og $B$ = «terning 2 viser 6». Desse er uavhengige – terningane veit ikkje om kvarandre – men ikkje disjunkte, for begge kan vise 6 samtidig: $P(A \\cap B) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$. Samanlikn med $C$ = «terning 1 viser 6» og $D$ = «terning 1 viser 3»: desse er disjunkte (same terning kan ikkje vise begge), og dermed sterkt avhengige. Memorer eksempelet – det reddar deg frå ei klassisk eksamensfelle."},{"id":"r1-8-4-n-quiz3","type":"exercise","exercise":{"id":"r1-8-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på uavhengigheit:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz3-q0","task":"Kva vilkår kjenneteiknar uavhengige hendingar?","options":[{"id":"a","text":"$P(A \\cap B) = 0$","isCorrect":false},{"id":"b","text":"$P(A \\cup B) = P(A) + P(B)$","isCorrect":false},{"id":"c","text":"$P(A \\cap B) = P(A) \\cdot P(B)$","isCorrect":true},{"id":"d","text":"$P(A \\mid B) = P(B)$","isCorrect":false}],"solution":"Uavhengigheit tyder $P(A \\mid B) = P(A)$, som er ekvivalent med produktformelen $P(A \\cap B) = P(A)P(B)$."},{"id":"r1-8-4-n-quiz3-q1","task":"To hendingar er disjunkte. Kva veit vi då?","options":[{"id":"a","text":"Dei er uavhengige","isCorrect":false},{"id":"b","text":"$P(A \\cap B) = 0$ – dei kan ikkje skje samtidig","isCorrect":true},{"id":"c","text":"$P(A) = P(B)$","isCorrect":false},{"id":"d","text":"$P(A \\mid B) = P(A)$","isCorrect":false}],"solution":"Disjunktheit tyder tomt snitt: $P(A \\cap B) = 0$. Det gjer hendingane sterkt avhengige – skjer den eine, er den andre utelukka."},{"id":"r1-8-4-n-quiz3-q2","task":"«Terning 1 viser 6» og «terning 2 viser 6» – kva er desse hendingane?","options":[{"id":"a","text":"Uavhengige, men ikkje disjunkte","isCorrect":true},{"id":"b","text":"Disjunkte, men ikkje uavhengige","isCorrect":false},{"id":"c","text":"Både disjunkte og uavhengige","isCorrect":false},{"id":"d","text":"Verken disjunkte eller uavhengige","isCorrect":false}],"solution":"Terningane påverkar ikkje kvarandre (uavhengige), og begge kan vise 6 samtidig (ikkje disjunkte): $P(A \\cap B) = \\frac{1}{36}$."},{"id":"r1-8-4-n-quiz3-q3","task":"To uavhengige hendingar har $P(A) = 0{,}4$ og $P(B) = 0{,}5$. Kva er $P(A \\cap B)$?","options":[{"id":"a","text":"$0{,}9$","isCorrect":false},{"id":"b","text":"$0{,}1$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$0{,}2$","isCorrect":true}],"solution":"Uavhengigheit gir $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2$."}],"solution":""}},{"id":"r1-8-4-n-section4","type":"text","content":"## Totalsetninga – å rekne via oppdeling\n\nSiste verktøy i dette kapittelet løyser eit vanleg praktisk problem: du vil finne $P(A)$, men sannsynet er avhengig av kva «situasjon» ein er i – og du kjenner berre dei betinga sannsyna i kvar situasjon.\n\nEin fabrikk har to maskiner. Maskin I lagar 60 % av delane med 3 % defektrate; maskin II lagar 40 % med 5 % defektrate. Kva er sannsynet for at ein tilfeldig del er defekt? Tenk valtre: først blir maskinen vald (to greiner), deretter blir defekt/ikkje avgjort (to greiner til). Sannsynet for «defekt» er summen over dei to vegane som endar der:\n\n$$P(D) = P(M_1) \\cdot P(D \\mid M_1) + P(M_2) \\cdot P(D \\mid M_2) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}038$$\n\nAltså 3,8 %. Dette er **totalsetninga** (lova om total sannsyn). Generelt: dersom $B_1, B_2, \\ldots, B_n$ er ein **partisjon** av utfallsrommet – gjensidig utelukkande hendingar som til saman dekkjer alt – gjeld\n\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\cdot P(A \\mid B_i)$$\n\nDet viktigaste spesialtilfellet har berre to alternativ, $B$ og komplementet $B^c$: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$.\n\nIntuisjonen er eit vekta gjennomsnitt: kvar situasjon bidreg med sitt betinga sannsyn, vekta med kor sannsynleg situasjonen sjølv er. Totalsetninga er også springbrettet til neste store tema – i kapittel 8.6 snur Bayes' setning reknestykket og spør: *gitt* at delen var defekt, kva maskin kom han frå?"},{"id":"r1-8-4-n-quiz4","type":"exercise","exercise":{"id":"r1-8-4-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på totalsetninga:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-4-n-quiz4-q0","task":"Kva er ein partisjon av utfallsrommet?","options":[{"id":"a","text":"Hendingar som alle har same sannsyn","isCorrect":false},{"id":"b","text":"Gjensidig utelukkande hendingar som til saman dekkjer heile utfallsrommet","isCorrect":true},{"id":"c","text":"To hendingar som er uavhengige","isCorrect":false},{"id":"d","text":"Delmengder som overlappar kvarandre","isCorrect":false}],"solution":"Ein partisjon deler utfallsrommet i bitar utan overlapp og utan hol – kvart utfall høyrer til nøyaktig éin bit."},{"id":"r1-8-4-n-quiz4-q1","task":"Maskin I: 60 % av produksjonen, 3 % defekt. Maskin II: 40 %, 5 % defekt. Kva er $P(\\text{defekt})$?","options":[{"id":"a","text":"$0{,}08$","isCorrect":false},{"id":"b","text":"$0{,}04$","isCorrect":false},{"id":"c","text":"$0{,}038$","isCorrect":true},{"id":"d","text":"$0{,}018$","isCorrect":false}],"solution":"$P(D) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}018 + 0{,}020 = 0{,}038$."},{"id":"r1-8-4-n-quiz4-q2","task":"Korleis kan totalsetninga tolkast?","options":[{"id":"a","text":"Som eit vekta gjennomsnitt av betinga sannsyn","isCorrect":true},{"id":"b","text":"Som ei øvre grense for $P(A)$","isCorrect":false},{"id":"c","text":"Som produktet av alle betinga sannsyn","isCorrect":false},{"id":"d","text":"Som komplementet til addisjonssetninga","isCorrect":false}],"solution":"Kvar situasjon $B_i$ bidreg med $P(A \\mid B_i)$, vekta med sannsynet $P(B_i)$ for situasjonen."},{"id":"r1-8-4-n-quiz4-q3","task":"Kva er spesialtilfellet til totalsetninga med to alternativ $B$ og $B^c$?","options":[{"id":"a","text":"$P(A) = P(A \\mid B) + P(A \\mid B^c)$","isCorrect":false},{"id":"b","text":"$P(A) = P(B)P(A \\mid B) \\cdot P(B^c)P(A \\mid B^c)$","isCorrect":false},{"id":"c","text":"$P(A) = P(B) + P(B^c)$","isCorrect":false},{"id":"d","text":"$P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$","isCorrect":true}],"solution":"Vi summerer over dei to vegane i valtreet: via $B$ og via $B^c$."}],"solution":""}},{"id":"r1-8-4-n-summary","type":"text","content":"## Oppsummering: å rekne med det du veit\n\nNy informasjon krympar utfallsrommet, og betinga sannsyn måler verda etter krympinga: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. Snudd om gir dette produktsetninga $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ – historia i to akter, perfekt for trekking utan tilbakelegging, der kvart trekk endrar føresetnadene for det neste.\n\nUavhengige hendingar er dei der informasjonen ikkje bit: $P(A \\mid B) = P(A)$, ekvivalent med $P(A \\cap B) = P(A)P(B)$. Og hugs det avgjerande skiljet: disjunkte hendingar er ikkje uavhengige – dei er ekstremt avhengige, for den eine utelukkar den andre. To terningar som begge kan vise seks er uavhengige; éin terning som skulle vist både tre og seks er ein umoglegheit.\n\nTotalsetninga $P(A) = \\sum P(B_i) \\cdot P(A \\mid B_i)$ lèt deg rekne ut eit totalsannsyn ved å dele verda i situasjonar og ta eit vekta gjennomsnitt – som fabrikken med to maskiner og 3,8 % samla defektrate. Med desse verktøya er du klar for to kraftfulle framhald: binomisk fordeling, og kronjuvelen Bayes' setning."}],"exercises":[],"_meta":{"sourceHash":"d25622f4703ac78a","translatedAt":"2026-06-20T00:28:21.927Z","model":"claude-code-agent","strings":109,"tm":{"00fce03a24b77d0c":"Betinga sannsyn","b195b06d1ed59702":"Narrativ versjon","1f5e654c1e089db6":"Ei forteljing om korleis informasjon forandrar sannsyn – betinga sannsyn, produktsetninga, uavhengigheit og totalsetninga.","9e79b493fc0ea4b8":"rekne ut betinga sannsyn og tolke det i kontekst","deba19754bc9685e":"avgjere om hendingar er uavhengige","dff0291c9787ec25":"bruke produktsetninga for avhengige og uavhengige hendingar","eec2573d591707ba":"bruke totalsetninga til å rekne ut sannsyn via oppdeling","c6a2861aac690c9e":"## Informasjon forandrar alt\n\nEin ven kastar ein terning bak ryggen din og seier: «Det blei eit partal.» Kva er no sannsynet for at det er ein seksar? Før beskjeden var svaret $\\frac{1}{6}$. Men no veit du noko: utfallet er $2$, $4$ eller $6$. Tre moglegheiter, éi av dei er seks – sannsynet har hoppa til $\\frac{1}{3}$.\n\nDette er kjernen i **betinga sannsyn**: ny informasjon krympar utfallsrommet, og sannsyna må reknast ut på nytt innanfor det som er att. Spørsmålet «kva er sannsynet for $A$, gitt at $B$ har inntruffe?» blir skrive $P(A \\mid B)$, og det er kanskje det viktigaste enkeltomgrepet i heile sannsynslæra – det ligg under alt frå medisinske testar til spamfilter.\n\nI dette kapittelet lærer du definisjonen, produktsetninga for «både-og»-sannsyn, det presise skiljet mellom *uavhengige* og *disjunkte* hendingar (som altfor mange blandar saman), og totalsetninga – verktøyet for å rekne seg gjennom oppdelte situasjonar.","8280a582c2651911":"## Betinga sannsyn – det krympa utfallsrommet\n\nFormelt blir det betinga sannsynet for $A$ gitt $B$ definert som\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n\nLes formelen som eit bilete: informasjonen «$B$ har skjedd» innskrenkar verda til $B$. Innanfor denne nye, mindre verda spør vi kor stor del som også høyrer til $A$ – altså snittet $A \\cap B$ målt i forhold til heile $B$.\n\nTerningeksempelet i formelspråk: Lat $A$ = «viser 6» og $B$ = «viser partal». Snittet $A \\cap B$ er berre utfallet 6, så $P(A \\cap B) = \\frac{1}{6}$, medan $P(B) = \\frac{3}{6} = \\frac{1}{2}$. Då blir\n\n$$P(A \\mid B) = \\frac{1/6}{1/2} = \\frac{1}{3}$$\n\n– akkurat som intuisjonen sa: éi gunstig av tre attverande moglegheiter.\n\nVer nøye med retninga: $P(A \\mid B)$ og $P(B \\mid A)$ er generelt heilt forskjellige tal. Sannsynet for at nokon er våt gitt at det regnar, er ikkje det same som sannsynet for at det regnar gitt at nokon er våt – vedkomande kan jo ha dusja. Å halde dei to retningane frå kvarandre er halve kunsten i dette kapittelet, og det er nettopp den forvekslinga Bayes' setning (i kapittel 8.6) er laga for å rydde opp i.","003e63fedb51b4fb":"Test deg sjølv på betinga sannsyn:","4097889236a2af26":"placeholder","fdf15c7d221d4d91":"Kva er definisjonen av betinga sannsyn?","2457f4da61ef02ae":"$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$","bc2959c6f9c18a6c":"$P(A \\mid B) = P(A) \\cdot P(B)$","922255a2ff0adb48":"$P(A \\mid B) = \\frac{P(B)}{P(A \\cap B)}$","e70e3ad9f639180c":"$P(A \\mid B) = P(A) + P(B)$","63d095afa8bf07b6":"Vi innskrenkar utfallsrommet til $B$ og måler delen av $B$ som også høyrer til $A$.","b56b129e13ca59bb":"Ein terning viser partal. Kva er sannsynet for at han viser 6?","ed2f0dca805db9c6":"$\\frac{1}{6}$","b61def0872c567fe":"$\\frac{1}{2}$","b87bda455923b2a6":"$\\frac{1}{3}$","eaaa0e080202e320":"$\\frac{2}{3}$","b9fb1754288b3e66":"$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{1/6}{1/2} = \\frac{1}{3}$ – éi av dei tre partalsmoglegheitene.","9e70b958b7d4b680":"Kva gjer informasjonen «$B$ har inntruffe» med utfallsrommet?","0b025b898875c3a5":"Han utvidar det med nye utfall","2662d66a7d7cc14c":"Han innskrenkar det til utfalla i $B$","fce4982297fa8664":"Han endrar det ikkje","de7973810dadc18a":"Han gjer alle utfall like sannsynlege","c5f71fc5a0466e3c":"Betinging tyder at vi berre ser på den delen av utfallsrommet der $B$ er sann – verda krympar til $B$.","7af85752843bc97b":"Er $P(A \\mid B)$ og $P(B \\mid A)$ alltid like?","24bae02689a77216":"Ja, alltid","30050cfd7236edc7":"Ja, men berre for terningar","eaa6dce44a893949":"Berre dersom hendingane er disjunkte","6e1967babb55f282":"Nei – dei er generelt forskjellige","d6ca19f6a5f1a94b":"Retninga tyder alt: $P(\\text{våt} \\mid \\text{regn})$ er høg, medan $P(\\text{regn} \\mid \\text{våt})$ kan vere låg. Formlane har ulike nemnarar.","2c70bc1a737966a2":"## Produktsetninga – sannsyn i fleire steg\n\nSnur vi definisjonen av betinga sannsyn rundt, får vi **produktsetninga**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A \\mid B) = P(A) \\cdot P(B \\mid A)$$\n\nHo blir lesen naturleg som ei historie i to akter: sannsynet for at *begge* hendingane skjer, er sannsynet for den første gonger sannsynet for den andre *gitt* den første. For tre hendingar held kjeda fram: $P(A \\cap B \\cap C) = P(A) \\cdot P(B \\mid A) \\cdot P(C \\mid A \\cap B)$.\n\nParadegreina er trekking **utan tilbakelegging**. Ei øskje inneheld 8 raude og 4 blå kuler, og du trekkjer to. Kva er sannsynet for at begge er raude? Første trekk: $P(R_1) = \\frac{8}{12} = \\frac{2}{3}$. Men no er verda endra – éi raud kule er borte. Andre trekk: $P(R_2 \\mid R_1) = \\frac{7}{11}$. Produktsetninga limar det saman:\n\n$$P(R_1 \\cap R_2) = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$$\n\nTenk på det som å vandre nedover eit valtre der greinene er merkte med sannsyn: du gangar deg nedover langs vegen. Kvar grein tek omsyn til alt som har skjedd ovanfor – det er nettopp det det betinga sannsynet gjer. Dette biletet – tre med sannsyn på greinene – er kanskje det nyttigaste mentale verktøyet i heile sannsynsrekninga, og vi skal bruke det att i totalsetninga.","f74f0d18629c2da5":"Test deg sjølv på produktsetninga:","fc74f460e018724b":"Kva seier produktsetninga?","b2eaca3c58a4c067":"$P(A \\cap B) = P(A) + P(B)$","648eac8329a3b00a":"$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$","bb9da5453f2d9a58":"$P(A \\cup B) = P(A) \\cdot P(B)$","c233af791cdb0832":"$P(A \\cap B) = P(A \\mid B) \\cdot P(B \\mid A)$","15d740737eede898":"Sannsynet for begge: først $A$, deretter $B$ gitt $A$. Like gyldig: $P(B) \\cdot P(A \\mid B)$.","010a1189550c09ce":"8 raude og 4 blå kuler; du trekkjer to utan tilbakelegging. Kva er $P(R_2 \\mid R_1)$?","e62e733a330ff644":"$\\frac{8}{12}$","2cb40a5997e3f189":"$\\frac{8}{11}$","51af187176d6fe7a":"$\\frac{7}{12}$","0cd0c4e5b8dd1737":"$\\frac{7}{11}$","0e1614cb2c7e7fbf":"Etter at éi raud er trekt, er det att 7 raude av 11 kuler: $P(R_2 \\mid R_1) = \\frac{7}{11}$.","85e38146b81c91c9":"Kva er sannsynet for at begge kulene er raude?","33819c55bd204d56":"$\\frac{14}{33}$","1101cd986a3d5669":"$\\frac{4}{9}$","6e45fe6db2eb0970":"$\\frac{56}{144}$","c419df02419cc0a6":"$P(R_1 \\cap R_2) = \\frac{8}{12} \\cdot \\frac{7}{11} = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$.","fb9c5f27c67571cf":"I kva situasjon er produktsetninga med betinga sannsyn særleg nyttig?","1106a3151384faa3":"Når hendingane er disjunkte","4d6b3c19765b1847":"Når vi kastar mynt","421754101dc2b447":"Når vi trekkjer utan tilbakelegging","f3fb7fee02d9134d":"Når utfallsrommet er uendeleg","ee654175e2654d83":"Utan tilbakelegging endrar sannsyna seg for kvart trekk, og kjeda $P(A)\\cdot P(B \\mid A)$ fangar nøyaktig dette.","4d9b57b89a0c93b9":"## Uavhengigheit – og forvekslinga alle gjer\n\nNokre gonger gir informasjon *ingen* effekt. Veit du at første myntkast gav krone, er sannsynet for krone i neste kast framleis $\\frac{1}{2}$ – mynten har inga hugsing. Slike hendingar blir kalla **uavhengige**: $P(A \\mid B) = P(A)$. Set vi dette inn i produktsetninga, får vi det ekvivalente og mest brukte vilkåret:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nUavhengigheit er ei gåve når du reknar: «både-og»-sannsyn blir reine produkt, utan betinga ledd.\n\nMen no til forvekslinga som feller flest: **uavhengig er ikkje det same som disjunkt**. Faktisk er det nesten motsett! Disjunkte hendingar har $A \\cap B = \\emptyset$, altså $P(A \\cap B) = 0$: dersom $A$ skjer, kan $B$ *ikkje* skje. Det er ekstremt sterk avhengigheit – informasjonen om $A$ avgjer $B$ fullstendig. Uavhengige hendingar, derimot, kan utmerkt godt skje samtidig; poenget er at den eine ikkje påverkar sjansen for den andre.\n\nKonkret: Kast to terningar. Lat $A$ = «terning 1 viser 6» og $B$ = «terning 2 viser 6». Desse er uavhengige – terningane veit ikkje om kvarandre – men ikkje disjunkte, for begge kan vise 6 samtidig: $P(A \\cap B) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$. Samanlikn med $C$ = «terning 1 viser 6» og $D$ = «terning 1 viser 3»: desse er disjunkte (same terning kan ikkje vise begge), og dermed sterkt avhengige. Memorer eksempelet – det reddar deg frå ei klassisk eksamensfelle.","61c9b02cec80d8f7":"Test deg sjølv på uavhengigheit:","d51e0e2c2b758017":"Kva vilkår kjenneteiknar uavhengige hendingar?","cb5fadb67795cdcf":"$P(A \\cap B) = 0$","9e0e23d00d8c74eb":"$P(A \\cup B) = P(A) + P(B)$","b4acd957c15db38a":"$P(A \\cap B) = P(A) \\cdot P(B)$","dd2d76d673053e8a":"$P(A \\mid B) = P(B)$","8ee7132d5c0d30c8":"Uavhengigheit tyder $P(A \\mid B) = P(A)$, som er ekvivalent med produktformelen $P(A \\cap B) = P(A)P(B)$.","f6051c949ea8e679":"To hendingar er disjunkte. Kva veit vi då?","3f347f27919a0576":"Dei er uavhengige","b24340490b4a5c84":"$P(A \\cap B) = 0$ – dei kan ikkje skje samtidig","28f82af58f037176":"$P(A) = P(B)$","52ff0895d0b7d5ea":"$P(A \\mid B) = P(A)$","8013f9b4c2035cb7":"Disjunktheit tyder tomt snitt: $P(A \\cap B) = 0$. Det gjer hendingane sterkt avhengige – skjer den eine, er den andre utelukka.","c02ee18f2cf6278e":"«Terning 1 viser 6» og «terning 2 viser 6» – kva er desse hendingane?","fad65a6a1c2746d4":"Uavhengige, men ikkje disjunkte","d1b588b20b410ca6":"Disjunkte, men ikkje uavhengige","17b67b45a2113f29":"Både disjunkte og uavhengige","2830b43d69d9a52c":"Verken disjunkte eller uavhengige","dd6a9e4d9a110cb7":"Terningane påverkar ikkje kvarandre (uavhengige), og begge kan vise 6 samtidig (ikkje disjunkte): $P(A \\cap B) = \\frac{1}{36}$.","96de05bfc2b46c65":"To uavhengige hendingar har $P(A) = 0{,}4$ og $P(B) = 0{,}5$. Kva er $P(A \\cap B)$?","b3b192d6da70e692":"Uavhengigheit gir $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2$.","1457d243494bbf02":"## Totalsetninga – å rekne via oppdeling\n\nSiste verktøy i dette kapittelet løyser eit vanleg praktisk problem: du vil finne $P(A)$, men sannsynet er avhengig av kva «situasjon» ein er i – og du kjenner berre dei betinga sannsyna i kvar situasjon.\n\nEin fabrikk har to maskiner. Maskin I lagar 60 % av delane med 3 % defektrate; maskin II lagar 40 % med 5 % defektrate. Kva er sannsynet for at ein tilfeldig del er defekt? Tenk valtre: først blir maskinen vald (to greiner), deretter blir defekt/ikkje avgjort (to greiner til). Sannsynet for «defekt» er summen over dei to vegane som endar der:\n\n$$P(D) = P(M_1) \\cdot P(D \\mid M_1) + P(M_2) \\cdot P(D \\mid M_2) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}038$$\n\nAltså 3,8 %. Dette er **totalsetninga** (lova om total sannsyn). Generelt: dersom $B_1, B_2, \\ldots, B_n$ er ein **partisjon** av utfallsrommet – gjensidig utelukkande hendingar som til saman dekkjer alt – gjeld\n\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\cdot P(A \\mid B_i)$$\n\nDet viktigaste spesialtilfellet har berre to alternativ, $B$ og komplementet $B^c$: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$.\n\nIntuisjonen er eit vekta gjennomsnitt: kvar situasjon bidreg med sitt betinga sannsyn, vekta med kor sannsynleg situasjonen sjølv er. Totalsetninga er også springbrettet til neste store tema – i kapittel 8.6 snur Bayes' setning reknestykket og spør: *gitt* at delen var defekt, kva maskin kom han frå?","5ae803c7cacbba09":"Test deg sjølv på totalsetninga:","b8ab3aba733e981d":"Kva er ein partisjon av utfallsrommet?","d16259ce8826b2a3":"Hendingar som alle har same sannsyn","dd0d04f567cc31b0":"Gjensidig utelukkande hendingar som til saman dekkjer heile utfallsrommet","d22dad2f12779a4e":"To hendingar som er uavhengige","462f85d1d5004d1f":"Delmengder som overlappar kvarandre","83da73b1fa55647a":"Ein partisjon deler utfallsrommet i bitar utan overlapp og utan hol – kvart utfall høyrer til nøyaktig éin bit.","90561dcac7590fbb":"Maskin I: 60 % av produksjonen, 3 % defekt. Maskin II: 40 %, 5 % defekt. Kva er $P(\\text{defekt})$?","73ccb078f36799bf":"$P(D) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}018 + 0{,}020 = 0{,}038$.","12f932d8e65344b7":"Korleis kan totalsetninga tolkast?","640404977f0e0ca7":"Som eit vekta gjennomsnitt av betinga sannsyn","e6999fe3b764d944":"Som ei øvre grense for $P(A)$","23662f65a62285b0":"Som produktet av alle betinga sannsyn","c8b5f38a3e2163da":"Som komplementet til addisjonssetninga","7100680993f01950":"Kvar situasjon $B_i$ bidreg med $P(A \\mid B_i)$, vekta med sannsynet $P(B_i)$ for situasjonen.","fdcd434f5ad148be":"Kva er spesialtilfellet til totalsetninga med to alternativ $B$ og $B^c$?","a58be851ab2e9883":"$P(A) = P(A \\mid B) + P(A \\mid B^c)$","2b4488c0a0800562":"$P(A) = P(B)P(A \\mid B) \\cdot P(B^c)P(A \\mid B^c)$","dacd99211402e080":"$P(A) = P(B) + P(B^c)$","c384bd86740ade53":"$P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$","8290be03d68d0589":"Vi summerer over dei to vegane i valtreet: via $B$ og via $B^c$.","dfd63a06aea0381c":"## Oppsummering: å rekne med det du veit\n\nNy informasjon krympar utfallsrommet, og betinga sannsyn måler verda etter krympinga: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. Snudd om gir dette produktsetninga $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ – historia i to akter, perfekt for trekking utan tilbakelegging, der kvart trekk endrar føresetnadene for det neste.\n\nUavhengige hendingar er dei der informasjonen ikkje bit: $P(A \\mid B) = P(A)$, ekvivalent med $P(A \\cap B) = P(A)P(B)$. Og hugs det avgjerande skiljet: disjunkte hendingar er ikkje uavhengige – dei er ekstremt avhengige, for den eine utelukkar den andre. To terningar som begge kan vise seks er uavhengige; éin terning som skulle vist både tre og seks er ein umoglegheit.\n\nTotalsetninga $P(A) = \\sum P(B_i) \\cdot P(A \\mid B_i)$ lèt deg rekne ut eit totalsannsyn ved å dele verda i situasjonar og ta eit vekta gjennomsnitt – som fabrikken med to maskiner og 3,8 % samla defektrate. Med desse verktøya er du klar for to kraftfulle framhald: binomisk fordeling, og kronjuvelen Bayes' setning."}}}
+{
+  "id": "r1-8-4-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "8.4",
+  "title": "Betinga sannsyn",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis informasjon forandrar sannsyn – betinga sannsyn, produktsetninga, uavhengigheit og totalsetninga.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "rekne ut betinga sannsyn og tolke det i kontekst",
+    "avgjere om hendingar er uavhengige",
+    "bruke produktsetninga for avhengige og uavhengige hendingar",
+    "bruke totalsetninga til å rekne ut sannsyn via oppdeling"
+  ],
+  "linkedChapterId": "r1-8-4",
+  "content": [
+    {
+      "id": "r1-8-4-n-intro",
+      "type": "text",
+      "content": "## Informasjon forandrar alt\n\nEin ven kastar ein terning bak ryggen din og seier: «Det blei eit partal.» Kva er no sannsynet for at det er ein seksar? Før beskjeden var svaret $\\frac{1}{6}$. Men no veit du noko: utfallet er $2$, $4$ eller $6$. Tre moglegheiter, éi av dei er seks – sannsynet har hoppa til $\\frac{1}{3}$.\n\nDette er kjernen i **betinga sannsyn**: ny informasjon krympar utfallsrommet, og sannsyna må reknast ut på nytt innanfor det som er att. Spørsmålet «kva er sannsynet for $A$, gitt at $B$ har inntruffe?» blir skrive $P(A \\mid B)$, og det er kanskje det viktigaste enkeltomgrepet i heile sannsynslæra – det ligg under alt frå medisinske testar til spamfilter.\n\nI dette kapittelet lærer du definisjonen, produktsetninga for «både-og»-sannsyn, det presise skiljet mellom *uavhengige* og *disjunkte* hendingar (som altfor mange blandar saman), og totalsetninga – verktøyet for å rekne seg gjennom oppdelte situasjonar."
+    },
+    {
+      "id": "r1-8-4-n-section1",
+      "type": "text",
+      "content": "## Betinga sannsyn – det krympa utfallsrommet\n\nFormelt blir det betinga sannsynet for $A$ gitt $B$ definert som\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n\nLes formelen som eit bilete: informasjonen «$B$ har skjedd» innskrenkar verda til $B$. Innanfor denne nye, mindre verda spør vi kor stor del som også høyrer til $A$ – altså snittet $A \\cap B$ målt i forhold til heile $B$.\n\nTerningeksempelet i formelspråk: Lat $A$ = «viser 6» og $B$ = «viser partal». Snittet $A \\cap B$ er berre utfallet 6, så $P(A \\cap B) = \\frac{1}{6}$, medan $P(B) = \\frac{3}{6} = \\frac{1}{2}$. Då blir\n\n$$P(A \\mid B) = \\frac{1/6}{1/2} = \\frac{1}{3}$$\n\n– akkurat som intuisjonen sa: éi gunstig av tre attverande moglegheiter.\n\nVer nøye med retninga: $P(A \\mid B)$ og $P(B \\mid A)$ er generelt heilt forskjellige tal. Sannsynet for at nokon er våt gitt at det regnar, er ikkje det same som sannsynet for at det regnar gitt at nokon er våt – vedkomande kan jo ha dusja. Å halde dei to retningane frå kvarandre er halve kunsten i dette kapittelet, og det er nettopp den forvekslinga Bayes' setning (i kapittel 8.6) er laga for å rydde opp i."
+    },
+    {
+      "id": "r1-8-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på betinga sannsyn:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz1-q0",
+            "task": "Kva er definisjonen av betinga sannsyn?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$P(A \\mid B) = P(A) \\cdot P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A \\mid B) = \\frac{P(B)}{P(A \\cap B)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\mid B) = P(A) + P(B)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi innskrenkar utfallsrommet til $B$ og måler delen av $B$ som også høyrer til $A$."
+          },
+          {
+            "id": "r1-8-4-n-quiz1-q1",
+            "task": "Ein terning viser partal. Kva er sannsynet for at han viser 6?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{1/6}{1/2} = \\frac{1}{3}$ – éi av dei tre partalsmoglegheitene."
+          },
+          {
+            "id": "r1-8-4-n-quiz1-q2",
+            "task": "Kva gjer informasjonen «$B$ har inntruffe» med utfallsrommet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han utvidar det med nye utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han endrar det ikkje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han innskrenkar det til utfalla i $B$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Han gjer alle utfall like sannsynlege",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Betinging tyder at vi berre ser på den delen av utfallsrommet der $B$ er sann – verda krympar til $B$."
+          },
+          {
+            "id": "r1-8-4-n-quiz1-q3",
+            "task": "Er $P(A \\mid B)$ og $P(B \\mid A)$ alltid like?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ja, men berre for terningar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre dersom hendingane er disjunkte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei – dei er generelt forskjellige",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Retninga tyder alt: $P(\\text{våt} \\mid \\text{regn})$ er høg, medan $P(\\text{regn} \\mid \\text{våt})$ kan vere låg. Formlane har ulike nemnarar."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-section2",
+      "type": "text",
+      "content": "## Produktsetninga – sannsyn i fleire steg\n\nSnur vi definisjonen av betinga sannsyn rundt, får vi **produktsetninga**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A \\mid B) = P(A) \\cdot P(B \\mid A)$$\n\nHo blir lesen naturleg som ei historie i to akter: sannsynet for at *begge* hendingane skjer, er sannsynet for den første gonger sannsynet for den andre *gitt* den første. For tre hendingar held kjeda fram: $P(A \\cap B \\cap C) = P(A) \\cdot P(B \\mid A) \\cdot P(C \\mid A \\cap B)$.\n\nParadegreina er trekking **utan tilbakelegging**. Ei øskje inneheld 8 raude og 4 blå kuler, og du trekkjer to. Kva er sannsynet for at begge er raude? Første trekk: $P(R_1) = \\frac{8}{12} = \\frac{2}{3}$. Men no er verda endra – éi raud kule er borte. Andre trekk: $P(R_2 \\mid R_1) = \\frac{7}{11}$. Produktsetninga limar det saman:\n\n$$P(R_1 \\cap R_2) = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$$\n\nTenk på det som å vandre nedover eit valtre der greinene er merkte med sannsyn: du gangar deg nedover langs vegen. Kvar grein tek omsyn til alt som har skjedd ovanfor – det er nettopp det det betinga sannsynet gjer. Dette biletet – tre med sannsyn på greinene – er kanskje det nyttigaste mentale verktøyet i heile sannsynsrekninga, og vi skal bruke det att i totalsetninga."
+    },
+    {
+      "id": "r1-8-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på produktsetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz2-q0",
+            "task": "Kva seier produktsetninga?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) = P(A) + P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A \\cup B) = P(A) \\cdot P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\cap B) = P(A \\mid B) \\cdot P(B \\mid A)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sannsynet for begge: først $A$, deretter $B$ gitt $A$. Like gyldig: $P(B) \\cdot P(A \\mid B)$."
+          },
+          {
+            "id": "r1-8-4-n-quiz2-q1",
+            "task": "8 raude og 4 blå kuler; du trekkjer to utan tilbakelegging. Kva er $P(R_2 \\mid R_1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{8}{12}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{7}{11}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{8}{11}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{7}{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter at éi raud er trekt, er det att 7 raude av 11 kuler: $P(R_2 \\mid R_1) = \\frac{7}{11}$."
+          },
+          {
+            "id": "r1-8-4-n-quiz2-q2",
+            "task": "Kva er sannsynet for at begge kulene er raude?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{4}{9}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{14}{33}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{56}{144}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(R_1 \\cap R_2) = \\frac{8}{12} \\cdot \\frac{7}{11} = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$."
+          },
+          {
+            "id": "r1-8-4-n-quiz2-q3",
+            "task": "I kva situasjon er produktsetninga med betinga sannsyn særleg nyttig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når hendingane er disjunkte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når vi kastar mynt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når utfallsrommet er uendeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når vi trekkjer utan tilbakelegging",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan tilbakelegging endrar sannsyna seg for kvart trekk, og kjeda $P(A)\\cdot P(B \\mid A)$ fangar nøyaktig dette."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-section3",
+      "type": "text",
+      "content": "## Uavhengigheit – og forvekslinga alle gjer\n\nNokre gonger gir informasjon *ingen* effekt. Veit du at første myntkast gav krone, er sannsynet for krone i neste kast framleis $\\frac{1}{2}$ – mynten har inga hugsing. Slike hendingar blir kalla **uavhengige**: $P(A \\mid B) = P(A)$. Set vi dette inn i produktsetninga, får vi det ekvivalente og mest brukte vilkåret:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nUavhengigheit er ei gåve når du reknar: «både-og»-sannsyn blir reine produkt, utan betinga ledd.\n\nMen no til forvekslinga som feller flest: **uavhengig er ikkje det same som disjunkt**. Faktisk er det nesten motsett! Disjunkte hendingar har $A \\cap B = \\emptyset$, altså $P(A \\cap B) = 0$: dersom $A$ skjer, kan $B$ *ikkje* skje. Det er ekstremt sterk avhengigheit – informasjonen om $A$ avgjer $B$ fullstendig. Uavhengige hendingar, derimot, kan utmerkt godt skje samtidig; poenget er at den eine ikkje påverkar sjansen for den andre.\n\nKonkret: Kast to terningar. Lat $A$ = «terning 1 viser 6» og $B$ = «terning 2 viser 6». Desse er uavhengige – terningane veit ikkje om kvarandre – men ikkje disjunkte, for begge kan vise 6 samtidig: $P(A \\cap B) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$. Samanlikn med $C$ = «terning 1 viser 6» og $D$ = «terning 1 viser 3»: desse er disjunkte (same terning kan ikkje vise begge), og dermed sterkt avhengige. Memorer eksempelet – det reddar deg frå ei klassisk eksamensfelle."
+    },
+    {
+      "id": "r1-8-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på uavhengigheit:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz3-q0",
+            "task": "Kva vilkår kjenneteiknar uavhengige hendingar?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$P(A \\cap B) = P(A) \\cdot P(B)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$P(A \\cap B) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(A \\cup B) = P(A) + P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\mid B) = P(B)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uavhengigheit tyder $P(A \\mid B) = P(A)$, som er ekvivalent med produktformelen $P(A \\cap B) = P(A)P(B)$."
+          },
+          {
+            "id": "r1-8-4-n-quiz3-q1",
+            "task": "To hendingar er disjunkte. Kva veit vi då?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(A \\cap B) = 0$ – dei kan ikkje skje samtidig",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$P(A) = P(B)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A \\mid B) = P(A)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Disjunktheit tyder tomt snitt: $P(A \\cap B) = 0$. Det gjer hendingane sterkt avhengige – skjer den eine, er den andre utelukka."
+          },
+          {
+            "id": "r1-8-4-n-quiz3-q2",
+            "task": "«Terning 1 viser 6» og «terning 2 viser 6» – kva er desse hendingane?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Disjunkte, men ikkje uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Både disjunkte og uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Uavhengige, men ikkje disjunkte",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Verken disjunkte eller uavhengige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Terningane påverkar ikkje kvarandre (uavhengige), og begge kan vise 6 samtidig (ikkje disjunkte): $P(A \\cap B) = \\frac{1}{36}$."
+          },
+          {
+            "id": "r1-8-4-n-quiz3-q3",
+            "task": "To uavhengige hendingar har $P(A) = 0{,}4$ og $P(B) = 0{,}5$. Kva er $P(A \\cap B)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uavhengigheit gir $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-section4",
+      "type": "text",
+      "content": "## Totalsetninga – å rekne via oppdeling\n\nSiste verktøy i dette kapittelet løyser eit vanleg praktisk problem: du vil finne $P(A)$, men sannsynet er avhengig av kva «situasjon» ein er i – og du kjenner berre dei betinga sannsyna i kvar situasjon.\n\nEin fabrikk har to maskiner. Maskin I lagar 60 % av delane med 3 % defektrate; maskin II lagar 40 % med 5 % defektrate. Kva er sannsynet for at ein tilfeldig del er defekt? Tenk valtre: først blir maskinen vald (to greiner), deretter blir defekt/ikkje avgjort (to greiner til). Sannsynet for «defekt» er summen over dei to vegane som endar der:\n\n$$P(D) = P(M_1) \\cdot P(D \\mid M_1) + P(M_2) \\cdot P(D \\mid M_2) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}038$$\n\nAltså 3,8 %. Dette er **totalsetninga** (lova om total sannsyn). Generelt: dersom $B_1, B_2, \\ldots, B_n$ er ein **partisjon** av utfallsrommet – gjensidig utelukkande hendingar som til saman dekkjer alt – gjeld\n\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\cdot P(A \\mid B_i)$$\n\nDet viktigaste spesialtilfellet har berre to alternativ, $B$ og komplementet $B^c$: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$.\n\nIntuisjonen er eit vekta gjennomsnitt: kvar situasjon bidreg med sitt betinga sannsyn, vekta med kor sannsynleg situasjonen sjølv er. Totalsetninga er også springbrettet til neste store tema – i kapittel 8.6 snur Bayes' setning reknestykket og spør: *gitt* at delen var defekt, kva maskin kom han frå?"
+    },
+    {
+      "id": "r1-8-4-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-4-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på totalsetninga:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-4-n-quiz4-q0",
+            "task": "Kva er ein partisjon av utfallsrommet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Gjensidig utelukkande hendingar som til saman dekkjer heile utfallsrommet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Hendingar som alle har same sannsyn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "To hendingar som er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Delmengder som overlappar kvarandre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein partisjon deler utfallsrommet i bitar utan overlapp og utan hol – kvart utfall høyrer til nøyaktig éin bit."
+          },
+          {
+            "id": "r1-8-4-n-quiz4-q1",
+            "task": "Maskin I: 60 % av produksjonen, 3 % defekt. Maskin II: 40 %, 5 % defekt. Kva er $P(\\text{defekt})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}08$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}038$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}04$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}018$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(D) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}018 + 0{,}020 = 0{,}038$."
+          },
+          {
+            "id": "r1-8-4-n-quiz4-q2",
+            "task": "Korleis kan totalsetninga tolkast?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Som ei øvre grense for $P(A)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Som produktet av alle betinga sannsyn",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Som eit vekta gjennomsnitt av betinga sannsyn",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Som komplementet til addisjonssetninga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvar situasjon $B_i$ bidreg med $P(A \\mid B_i)$, vekta med sannsynet $P(B_i)$ for situasjonen."
+          },
+          {
+            "id": "r1-8-4-n-quiz4-q3",
+            "task": "Kva er spesialtilfellet til totalsetninga med to alternativ $B$ og $B^c$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(A) = P(A \\mid B) + P(A \\mid B^c)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(A) = P(B)P(A \\mid B) \\cdot P(B^c)P(A \\mid B^c)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(A) = P(B) + P(B^c)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi summerer over dei to vegane i valtreet: via $B$ og via $B^c$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: å rekne med det du veit\n\nNy informasjon krympar utfallsrommet, og betinga sannsyn måler verda etter krympinga: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. Snudd om gir dette produktsetninga $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ – historia i to akter, perfekt for trekking utan tilbakelegging, der kvart trekk endrar føresetnadene for det neste.\n\nUavhengige hendingar er dei der informasjonen ikkje bit: $P(A \\mid B) = P(A)$, ekvivalent med $P(A \\cap B) = P(A)P(B)$. Og hugs det avgjerande skiljet: disjunkte hendingar er ikkje uavhengige – dei er ekstremt avhengige, for den eine utelukkar den andre. To terningar som begge kan vise seks er uavhengige; éin terning som skulle vist både tre og seks er ein umoglegheit.\n\nTotalsetninga $P(A) = \\sum P(B_i) \\cdot P(A \\mid B_i)$ lèt deg rekne ut eit totalsannsyn ved å dele verda i situasjonar og ta eit vekta gjennomsnitt – som fabrikken med to maskiner og 3,8 % samla defektrate. Med desse verktøya er du klar for to kraftfulle framhald: binomisk fordeling, og kronjuvelen Bayes' setning."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d25622f4703ac78a",
+    "translatedAt": "2026-06-20T00:28:21.927Z",
+    "model": "claude-code-agent",
+    "strings": 109,
+    "tm": {
+      "00fce03a24b77d0c": "Betinga sannsyn",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1f5e654c1e089db6": "Ei forteljing om korleis informasjon forandrar sannsyn – betinga sannsyn, produktsetninga, uavhengigheit og totalsetninga.",
+      "9e79b493fc0ea4b8": "rekne ut betinga sannsyn og tolke det i kontekst",
+      "deba19754bc9685e": "avgjere om hendingar er uavhengige",
+      "dff0291c9787ec25": "bruke produktsetninga for avhengige og uavhengige hendingar",
+      "eec2573d591707ba": "bruke totalsetninga til å rekne ut sannsyn via oppdeling",
+      "c6a2861aac690c9e": "## Informasjon forandrar alt\n\nEin ven kastar ein terning bak ryggen din og seier: «Det blei eit partal.» Kva er no sannsynet for at det er ein seksar? Før beskjeden var svaret $\\frac{1}{6}$. Men no veit du noko: utfallet er $2$, $4$ eller $6$. Tre moglegheiter, éi av dei er seks – sannsynet har hoppa til $\\frac{1}{3}$.\n\nDette er kjernen i **betinga sannsyn**: ny informasjon krympar utfallsrommet, og sannsyna må reknast ut på nytt innanfor det som er att. Spørsmålet «kva er sannsynet for $A$, gitt at $B$ har inntruffe?» blir skrive $P(A \\mid B)$, og det er kanskje det viktigaste enkeltomgrepet i heile sannsynslæra – det ligg under alt frå medisinske testar til spamfilter.\n\nI dette kapittelet lærer du definisjonen, produktsetninga for «både-og»-sannsyn, det presise skiljet mellom *uavhengige* og *disjunkte* hendingar (som altfor mange blandar saman), og totalsetninga – verktøyet for å rekne seg gjennom oppdelte situasjonar.",
+      "8280a582c2651911": "## Betinga sannsyn – det krympa utfallsrommet\n\nFormelt blir det betinga sannsynet for $A$ gitt $B$ definert som\n\n$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n\nLes formelen som eit bilete: informasjonen «$B$ har skjedd» innskrenkar verda til $B$. Innanfor denne nye, mindre verda spør vi kor stor del som også høyrer til $A$ – altså snittet $A \\cap B$ målt i forhold til heile $B$.\n\nTerningeksempelet i formelspråk: Lat $A$ = «viser 6» og $B$ = «viser partal». Snittet $A \\cap B$ er berre utfallet 6, så $P(A \\cap B) = \\frac{1}{6}$, medan $P(B) = \\frac{3}{6} = \\frac{1}{2}$. Då blir\n\n$$P(A \\mid B) = \\frac{1/6}{1/2} = \\frac{1}{3}$$\n\n– akkurat som intuisjonen sa: éi gunstig av tre attverande moglegheiter.\n\nVer nøye med retninga: $P(A \\mid B)$ og $P(B \\mid A)$ er generelt heilt forskjellige tal. Sannsynet for at nokon er våt gitt at det regnar, er ikkje det same som sannsynet for at det regnar gitt at nokon er våt – vedkomande kan jo ha dusja. Å halde dei to retningane frå kvarandre er halve kunsten i dette kapittelet, og det er nettopp den forvekslinga Bayes' setning (i kapittel 8.6) er laga for å rydde opp i.",
+      "003e63fedb51b4fb": "Test deg sjølv på betinga sannsyn:",
+      "4097889236a2af26": "placeholder",
+      "fdf15c7d221d4d91": "Kva er definisjonen av betinga sannsyn?",
+      "2457f4da61ef02ae": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$",
+      "bc2959c6f9c18a6c": "$P(A \\mid B) = P(A) \\cdot P(B)$",
+      "922255a2ff0adb48": "$P(A \\mid B) = \\frac{P(B)}{P(A \\cap B)}$",
+      "e70e3ad9f639180c": "$P(A \\mid B) = P(A) + P(B)$",
+      "63d095afa8bf07b6": "Vi innskrenkar utfallsrommet til $B$ og måler delen av $B$ som også høyrer til $A$.",
+      "b56b129e13ca59bb": "Ein terning viser partal. Kva er sannsynet for at han viser 6?",
+      "ed2f0dca805db9c6": "$\\frac{1}{6}$",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "eaaa0e080202e320": "$\\frac{2}{3}$",
+      "b9fb1754288b3e66": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{1/6}{1/2} = \\frac{1}{3}$ – éi av dei tre partalsmoglegheitene.",
+      "9e70b958b7d4b680": "Kva gjer informasjonen «$B$ har inntruffe» med utfallsrommet?",
+      "0b025b898875c3a5": "Han utvidar det med nye utfall",
+      "2662d66a7d7cc14c": "Han innskrenkar det til utfalla i $B$",
+      "fce4982297fa8664": "Han endrar det ikkje",
+      "de7973810dadc18a": "Han gjer alle utfall like sannsynlege",
+      "c5f71fc5a0466e3c": "Betinging tyder at vi berre ser på den delen av utfallsrommet der $B$ er sann – verda krympar til $B$.",
+      "7af85752843bc97b": "Er $P(A \\mid B)$ og $P(B \\mid A)$ alltid like?",
+      "24bae02689a77216": "Ja, alltid",
+      "30050cfd7236edc7": "Ja, men berre for terningar",
+      "eaa6dce44a893949": "Berre dersom hendingane er disjunkte",
+      "6e1967babb55f282": "Nei – dei er generelt forskjellige",
+      "d6ca19f6a5f1a94b": "Retninga tyder alt: $P(\\text{våt} \\mid \\text{regn})$ er høg, medan $P(\\text{regn} \\mid \\text{våt})$ kan vere låg. Formlane har ulike nemnarar.",
+      "2c70bc1a737966a2": "## Produktsetninga – sannsyn i fleire steg\n\nSnur vi definisjonen av betinga sannsyn rundt, får vi **produktsetninga**:\n\n$$P(A \\cap B) = P(B) \\cdot P(A \\mid B) = P(A) \\cdot P(B \\mid A)$$\n\nHo blir lesen naturleg som ei historie i to akter: sannsynet for at *begge* hendingane skjer, er sannsynet for den første gonger sannsynet for den andre *gitt* den første. For tre hendingar held kjeda fram: $P(A \\cap B \\cap C) = P(A) \\cdot P(B \\mid A) \\cdot P(C \\mid A \\cap B)$.\n\nParadegreina er trekking **utan tilbakelegging**. Ei øskje inneheld 8 raude og 4 blå kuler, og du trekkjer to. Kva er sannsynet for at begge er raude? Første trekk: $P(R_1) = \\frac{8}{12} = \\frac{2}{3}$. Men no er verda endra – éi raud kule er borte. Andre trekk: $P(R_2 \\mid R_1) = \\frac{7}{11}$. Produktsetninga limar det saman:\n\n$$P(R_1 \\cap R_2) = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$$\n\nTenk på det som å vandre nedover eit valtre der greinene er merkte med sannsyn: du gangar deg nedover langs vegen. Kvar grein tek omsyn til alt som har skjedd ovanfor – det er nettopp det det betinga sannsynet gjer. Dette biletet – tre med sannsyn på greinene – er kanskje det nyttigaste mentale verktøyet i heile sannsynsrekninga, og vi skal bruke det att i totalsetninga.",
+      "f74f0d18629c2da5": "Test deg sjølv på produktsetninga:",
+      "fc74f460e018724b": "Kva seier produktsetninga?",
+      "b2eaca3c58a4c067": "$P(A \\cap B) = P(A) + P(B)$",
+      "648eac8329a3b00a": "$P(A \\cap B) = P(A) \\cdot P(B \\mid A)$",
+      "bb9da5453f2d9a58": "$P(A \\cup B) = P(A) \\cdot P(B)$",
+      "c233af791cdb0832": "$P(A \\cap B) = P(A \\mid B) \\cdot P(B \\mid A)$",
+      "15d740737eede898": "Sannsynet for begge: først $A$, deretter $B$ gitt $A$. Like gyldig: $P(B) \\cdot P(A \\mid B)$.",
+      "010a1189550c09ce": "8 raude og 4 blå kuler; du trekkjer to utan tilbakelegging. Kva er $P(R_2 \\mid R_1)$?",
+      "e62e733a330ff644": "$\\frac{8}{12}$",
+      "2cb40a5997e3f189": "$\\frac{8}{11}$",
+      "51af187176d6fe7a": "$\\frac{7}{12}$",
+      "0cd0c4e5b8dd1737": "$\\frac{7}{11}$",
+      "0e1614cb2c7e7fbf": "Etter at éi raud er trekt, er det att 7 raude av 11 kuler: $P(R_2 \\mid R_1) = \\frac{7}{11}$.",
+      "85e38146b81c91c9": "Kva er sannsynet for at begge kulene er raude?",
+      "33819c55bd204d56": "$\\frac{14}{33}$",
+      "1101cd986a3d5669": "$\\frac{4}{9}$",
+      "6e45fe6db2eb0970": "$\\frac{56}{144}$",
+      "c419df02419cc0a6": "$P(R_1 \\cap R_2) = \\frac{8}{12} \\cdot \\frac{7}{11} = \\frac{2}{3} \\cdot \\frac{7}{11} = \\frac{14}{33} \\approx 0{,}424$.",
+      "fb9c5f27c67571cf": "I kva situasjon er produktsetninga med betinga sannsyn særleg nyttig?",
+      "1106a3151384faa3": "Når hendingane er disjunkte",
+      "4d6b3c19765b1847": "Når vi kastar mynt",
+      "421754101dc2b447": "Når vi trekkjer utan tilbakelegging",
+      "f3fb7fee02d9134d": "Når utfallsrommet er uendeleg",
+      "ee654175e2654d83": "Utan tilbakelegging endrar sannsyna seg for kvart trekk, og kjeda $P(A)\\cdot P(B \\mid A)$ fangar nøyaktig dette.",
+      "4d9b57b89a0c93b9": "## Uavhengigheit – og forvekslinga alle gjer\n\nNokre gonger gir informasjon *ingen* effekt. Veit du at første myntkast gav krone, er sannsynet for krone i neste kast framleis $\\frac{1}{2}$ – mynten har inga hugsing. Slike hendingar blir kalla **uavhengige**: $P(A \\mid B) = P(A)$. Set vi dette inn i produktsetninga, får vi det ekvivalente og mest brukte vilkåret:\n\n$$P(A \\cap B) = P(A) \\cdot P(B)$$\n\nUavhengigheit er ei gåve når du reknar: «både-og»-sannsyn blir reine produkt, utan betinga ledd.\n\nMen no til forvekslinga som feller flest: **uavhengig er ikkje det same som disjunkt**. Faktisk er det nesten motsett! Disjunkte hendingar har $A \\cap B = \\emptyset$, altså $P(A \\cap B) = 0$: dersom $A$ skjer, kan $B$ *ikkje* skje. Det er ekstremt sterk avhengigheit – informasjonen om $A$ avgjer $B$ fullstendig. Uavhengige hendingar, derimot, kan utmerkt godt skje samtidig; poenget er at den eine ikkje påverkar sjansen for den andre.\n\nKonkret: Kast to terningar. Lat $A$ = «terning 1 viser 6» og $B$ = «terning 2 viser 6». Desse er uavhengige – terningane veit ikkje om kvarandre – men ikkje disjunkte, for begge kan vise 6 samtidig: $P(A \\cap B) = \\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$. Samanlikn med $C$ = «terning 1 viser 6» og $D$ = «terning 1 viser 3»: desse er disjunkte (same terning kan ikkje vise begge), og dermed sterkt avhengige. Memorer eksempelet – det reddar deg frå ei klassisk eksamensfelle.",
+      "61c9b02cec80d8f7": "Test deg sjølv på uavhengigheit:",
+      "d51e0e2c2b758017": "Kva vilkår kjenneteiknar uavhengige hendingar?",
+      "cb5fadb67795cdcf": "$P(A \\cap B) = 0$",
+      "9e0e23d00d8c74eb": "$P(A \\cup B) = P(A) + P(B)$",
+      "b4acd957c15db38a": "$P(A \\cap B) = P(A) \\cdot P(B)$",
+      "dd2d76d673053e8a": "$P(A \\mid B) = P(B)$",
+      "8ee7132d5c0d30c8": "Uavhengigheit tyder $P(A \\mid B) = P(A)$, som er ekvivalent med produktformelen $P(A \\cap B) = P(A)P(B)$.",
+      "f6051c949ea8e679": "To hendingar er disjunkte. Kva veit vi då?",
+      "3f347f27919a0576": "Dei er uavhengige",
+      "b24340490b4a5c84": "$P(A \\cap B) = 0$ – dei kan ikkje skje samtidig",
+      "28f82af58f037176": "$P(A) = P(B)$",
+      "52ff0895d0b7d5ea": "$P(A \\mid B) = P(A)$",
+      "8013f9b4c2035cb7": "Disjunktheit tyder tomt snitt: $P(A \\cap B) = 0$. Det gjer hendingane sterkt avhengige – skjer den eine, er den andre utelukka.",
+      "c02ee18f2cf6278e": "«Terning 1 viser 6» og «terning 2 viser 6» – kva er desse hendingane?",
+      "fad65a6a1c2746d4": "Uavhengige, men ikkje disjunkte",
+      "d1b588b20b410ca6": "Disjunkte, men ikkje uavhengige",
+      "17b67b45a2113f29": "Både disjunkte og uavhengige",
+      "2830b43d69d9a52c": "Verken disjunkte eller uavhengige",
+      "dd6a9e4d9a110cb7": "Terningane påverkar ikkje kvarandre (uavhengige), og begge kan vise 6 samtidig (ikkje disjunkte): $P(A \\cap B) = \\frac{1}{36}$.",
+      "96de05bfc2b46c65": "To uavhengige hendingar har $P(A) = 0{,}4$ og $P(B) = 0{,}5$. Kva er $P(A \\cap B)$?",
+      "b3b192d6da70e692": "Uavhengigheit gir $P(A \\cap B) = P(A) \\cdot P(B) = 0{,}4 \\cdot 0{,}5 = 0{,}2$.",
+      "1457d243494bbf02": "## Totalsetninga – å rekne via oppdeling\n\nSiste verktøy i dette kapittelet løyser eit vanleg praktisk problem: du vil finne $P(A)$, men sannsynet er avhengig av kva «situasjon» ein er i – og du kjenner berre dei betinga sannsyna i kvar situasjon.\n\nEin fabrikk har to maskiner. Maskin I lagar 60 % av delane med 3 % defektrate; maskin II lagar 40 % med 5 % defektrate. Kva er sannsynet for at ein tilfeldig del er defekt? Tenk valtre: først blir maskinen vald (to greiner), deretter blir defekt/ikkje avgjort (to greiner til). Sannsynet for «defekt» er summen over dei to vegane som endar der:\n\n$$P(D) = P(M_1) \\cdot P(D \\mid M_1) + P(M_2) \\cdot P(D \\mid M_2) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}038$$\n\nAltså 3,8 %. Dette er **totalsetninga** (lova om total sannsyn). Generelt: dersom $B_1, B_2, \\ldots, B_n$ er ein **partisjon** av utfallsrommet – gjensidig utelukkande hendingar som til saman dekkjer alt – gjeld\n\n$$P(A) = \\sum_{i=1}^{n} P(B_i) \\cdot P(A \\mid B_i)$$\n\nDet viktigaste spesialtilfellet har berre to alternativ, $B$ og komplementet $B^c$: $P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$.\n\nIntuisjonen er eit vekta gjennomsnitt: kvar situasjon bidreg med sitt betinga sannsyn, vekta med kor sannsynleg situasjonen sjølv er. Totalsetninga er også springbrettet til neste store tema – i kapittel 8.6 snur Bayes' setning reknestykket og spør: *gitt* at delen var defekt, kva maskin kom han frå?",
+      "5ae803c7cacbba09": "Test deg sjølv på totalsetninga:",
+      "b8ab3aba733e981d": "Kva er ein partisjon av utfallsrommet?",
+      "d16259ce8826b2a3": "Hendingar som alle har same sannsyn",
+      "dd0d04f567cc31b0": "Gjensidig utelukkande hendingar som til saman dekkjer heile utfallsrommet",
+      "d22dad2f12779a4e": "To hendingar som er uavhengige",
+      "462f85d1d5004d1f": "Delmengder som overlappar kvarandre",
+      "83da73b1fa55647a": "Ein partisjon deler utfallsrommet i bitar utan overlapp og utan hol – kvart utfall høyrer til nøyaktig éin bit.",
+      "90561dcac7590fbb": "Maskin I: 60 % av produksjonen, 3 % defekt. Maskin II: 40 %, 5 % defekt. Kva er $P(\\text{defekt})$?",
+      "73ccb078f36799bf": "$P(D) = 0{,}60 \\cdot 0{,}03 + 0{,}40 \\cdot 0{,}05 = 0{,}018 + 0{,}020 = 0{,}038$.",
+      "12f932d8e65344b7": "Korleis kan totalsetninga tolkast?",
+      "640404977f0e0ca7": "Som eit vekta gjennomsnitt av betinga sannsyn",
+      "e6999fe3b764d944": "Som ei øvre grense for $P(A)$",
+      "23662f65a62285b0": "Som produktet av alle betinga sannsyn",
+      "c8b5f38a3e2163da": "Som komplementet til addisjonssetninga",
+      "7100680993f01950": "Kvar situasjon $B_i$ bidreg med $P(A \\mid B_i)$, vekta med sannsynet $P(B_i)$ for situasjonen.",
+      "fdcd434f5ad148be": "Kva er spesialtilfellet til totalsetninga med to alternativ $B$ og $B^c$?",
+      "a58be851ab2e9883": "$P(A) = P(A \\mid B) + P(A \\mid B^c)$",
+      "2b4488c0a0800562": "$P(A) = P(B)P(A \\mid B) \\cdot P(B^c)P(A \\mid B^c)$",
+      "dacd99211402e080": "$P(A) = P(B) + P(B^c)$",
+      "c384bd86740ade53": "$P(A) = P(B)P(A \\mid B) + P(B^c)P(A \\mid B^c)$",
+      "8290be03d68d0589": "Vi summerer over dei to vegane i valtreet: via $B$ og via $B^c$.",
+      "dfd63a06aea0381c": "## Oppsummering: å rekne med det du veit\n\nNy informasjon krympar utfallsrommet, og betinga sannsyn måler verda etter krympinga: $P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. Snudd om gir dette produktsetninga $P(A \\cap B) = P(A) \\cdot P(B \\mid A)$ – historia i to akter, perfekt for trekking utan tilbakelegging, der kvart trekk endrar føresetnadene for det neste.\n\nUavhengige hendingar er dei der informasjonen ikkje bit: $P(A \\mid B) = P(A)$, ekvivalent med $P(A \\cap B) = P(A)P(B)$. Og hugs det avgjerande skiljet: disjunkte hendingar er ikkje uavhengige – dei er ekstremt avhengige, for den eine utelukkar den andre. To terningar som begge kan vise seks er uavhengige; éin terning som skulle vist både tre og seks er ein umoglegheit.\n\nTotalsetninga $P(A) = \\sum P(B_i) \\cdot P(A \\mid B_i)$ lèt deg rekne ut eit totalsannsyn ved å dele verda i situasjonar og ta eit vekta gjennomsnitt – som fabrikken med to maskiner og 3,8 % samla defektrate. Med desse verktøya er du klar for to kraftfulle framhald: binomisk fordeling, og kronjuvelen Bayes' setning."
+    }
+  }
+}

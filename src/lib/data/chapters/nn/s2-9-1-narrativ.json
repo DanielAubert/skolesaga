@@ -1,1 +1,507 @@
-{"id":"s2-9-1-narrativ","courseId":"s2","chapterNumber":"9.1","title":"Følgjer og talmønster","subtitle":"Narrativ versjon","description":"Ei forteljing om medisinen i blodet og tala som veit kva som kjem — om aritmetiske og geometriske følgjer, rekursive og eksplisitte formlar, konvergens og dei tre store sumformlane.","estimatedMinutes":35,"competenceGoals":["utforske rekursive samanhengar og presentere eigne framgangsmåtar","gjere greie for omgrepa følgje, rekkje, konvergens og divergens, og bruke dette i problemløysing","modellere og analysere situasjonar ved hjelp av følgjer og rekkjer"],"linkedChapterId":"s2-9-1","content":[{"id":"s2-9-1-n-intro","type":"text","content":"## Tala som veit kva som kjem\n\nEin pasient får 400 mg av eit medikament, og kroppen bryt ned 25 % per døgn. Legen treng å vite: kor mykje er igjen om ei veke? Når er nivået under 10 mg? Spørsmåla handlar om ei liste med tal som følgjer eit mønster — og slike lister er blant dei mest anvendelege objekta i matematikken.\n\nEi **følgje** er ei ordna liste med tal etter eit bestemt mønster. Vi skriv ledda $a_1, a_2, a_3, \\ldots$ der $a_n$ er det $n$-te leddet. Følgjer modellerer alt frå rentevekst og medikamentkonsentrasjonar til folkedynamikk. Det finst to måtar å skildre dei på: ein **eksplisitt formel** gir $a_n$ direkte som funksjon av $n$ (som $a_n = 3n + 1$ — du kan hoppe rett til eit vilkårleg ledd), medan ein **rekursiv formel** gir $a_n$ ut frå dei føregåande ledda (som $a_{n+1} = 2a_n - 1$ med $a_1 = 5$ — du må starte frå byrjinga).\n\nI denne forteljinga studerer vi dei to viktigaste følgjeklassane — **aritmetiske** og **geometriske** — og det store spørsmålet om **konvergens**: nærmar følgja seg ein endeleg grenseverdi, eller veks ho utan grense? Medisinen i blodet, summane på sparekontoen og grenseverdiane møtest alle i same teori."},{"id":"s2-9-1-n-section1","type":"text","content":"## Dei to følgjefamiliane\n\nDen **aritmetiske følgja** har konstant *differanse* $d$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n + d$; eksplisitt: $a_n = a_1 + (n-1)d$. Følgja $3, 7, 11, 15, 19, \\ldots$ har $a_1 = 3$ og $d = 4$, med eksplisitt formel $a_n = 3 + (n-1) \\cdot 4 = 4n - 1$. Kontroll: $a_1 = 3$ og $a_5 = 19$. ✓\n\nDen **geometriske følgja** har konstant *forhold* (kvotient) $k$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n \\cdot k$; eksplisitt: $a_n = a_1 \\cdot k^{n-1}$. Følgja $2, 6, 18, 54, 162, \\ldots$ har $k = 3$ og formelen $a_n = 2 \\cdot 3^{n-1}$. Og følgja $800, 400, 200, 100, 50, \\ldots$ har $k = \\frac{1}{2}$ — ledda nærmar seg null fordi $|k| < 1$.\n\nMedisinen frå innleiinga er nettopp geometrisk: etter kvart døgn er 75 % igjen, så med $a_0 = 400$ er $a_{n+1} = 0{,}75 \\cdot a_n$, eksplisitt $a_n = 400 \\cdot 0{,}75^n$. Når er nivået under 10 mg? Vi løyser $400 \\cdot 0{,}75^n < 10$, altså $0{,}75^n < 0{,}025$. Logaritmen på begge sider (hugs: $\\ln 0{,}75$ er negativ, så ulikskapen snur):\n\n$$n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx \\frac{-3{,}689}{-0{,}288} \\approx 12{,}8$$\n\nEtter 13 døgn er konsentrasjonen under 10 mg. Slik kjenner du att følgjetypen i praksis: rekn ut differansane — er dei konstante, er følgja aritmetisk; rekn ut forholda — er dei konstante, er ho geometrisk."},{"id":"s2-9-1-n-quiz1","type":"exercise","exercise":{"id":"s2-9-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på aritmetiske og geometriske følgjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-1-n-quiz1-q0","task":"Følgja $3, 7, 11, 15, \\ldots$ har eksplisitt formel …","options":[{"id":"a","text":"$a_n = 4n - 1$","isCorrect":true},{"id":"b","text":"$a_n = 3 \\cdot 4^{n-1}$","isCorrect":false},{"id":"c","text":"$a_n = 3n + 4$","isCorrect":false},{"id":"d","text":"$a_n = 4n + 3$","isCorrect":false}],"solution":"Aritmetisk med $a_1 = 3$, $d = 4$: $a_n = 3 + (n-1)4 = 4n - 1$. Sjekk: $a_1 = 3$, $a_2 = 7$. ✓"},{"id":"s2-9-1-n-quiz1-q1","task":"Kva skil ein rekursiv formel frå ein eksplisitt?","options":[{"id":"a","text":"Rekursive formlar gjeld berre geometriske følgjer","isCorrect":false},{"id":"b","text":"Eksplisitte formlar krev startverdi","isCorrect":false},{"id":"c","text":"Rekursiv gir $a_{n+1}$ frå føregåande ledd; eksplisitt gir $a_n$ direkte som funksjon av $n$","isCorrect":true},{"id":"d","text":"Dei er alltid identiske","isCorrect":false}],"solution":"Med eksplisitt formel hoppar du rett til ledd nr. $n$; med rekursiv må du rekne deg fram ledd for ledd frå startverdien."},{"id":"s2-9-1-n-quiz1-q2","task":"Medikamentmengda følgjer $a_n = 400 \\cdot 0{,}75^n$. Kva slags følgje er dette?","options":[{"id":"a","text":"Aritmetisk med $d = -100$","isCorrect":false},{"id":"b","text":"Geometrisk med $k = 0{,}75$","isCorrect":true},{"id":"c","text":"Aritmetisk med $d = 0{,}75$","isCorrect":false},{"id":"d","text":"Korkje aritmetisk eller geometrisk","isCorrect":false}],"solution":"Kvart ledd er 75 % av førre — konstant forhold $k = 0{,}75$, altså geometrisk."},{"id":"s2-9-1-n-quiz1-q3","task":"Etter kor mange døgn er medikamentmengda under 10 mg?","options":[{"id":"a","text":"$8$ døgn","isCorrect":false},{"id":"b","text":"$40$ døgn","isCorrect":false},{"id":"c","text":"$25$ døgn","isCorrect":false},{"id":"d","text":"$13$ døgn","isCorrect":true}],"solution":"$400 \\cdot 0{,}75^n < 10 \\Rightarrow n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx 12{,}8$, altså etter 13 døgn."}]}},{"id":"s2-9-1-n-section2","type":"text","content":"## Konvergens — kvar er følgja på veg?\n\nEi følgje $\\{a_n\\}$ **konvergerer** mot $L$ dersom ledda kjem vilkårleg nær $L$ når $n$ veks utan grense; vi skriv $\\lim_{n \\to \\infty} a_n = L$. Ei følgje utan slik grenseverdi **divergerer**.\n\nFor dei to familiane er svaret ryddig. Ei aritmetisk følgje konvergerer berre i det trivielle tilfellet $d = 0$ (konstant følgje) — eit kvart anna $d$ sender ledda mot $\\pm\\infty$. Ei geometrisk følgje konvergerer mot $0$ når $|k| < 1$; ho divergerer når $|k| > 1$; ho er konstant når $k = 1$; og når $k = -1$ alternerer ho mellom $a_1$ og $-a_1$ utan å konvergere. Ver merksam på oscillasjon: følgja $(-1)^n$ er avgrensa, men konvergerer ikkje.\n\nFor følgjer gitt som brøkuttrykk i $n$ finst ein standardteknikk: del teljar og nemnar på den høgaste potensen av $n$. Til dømes $\\frac{3n^2 + n}{2n^2 + 5} = \\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.\n\nOgså rekursive følgjer kan ha grenseverdiar. Sjå på $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$: ledda blir $10, 8, 7, 6{,}5, 6{,}25, \\ldots$ — dei nærmar seg noko. Kva? Viss følgja konvergerer mot $L$, må grensa tilfredsstille $L = \\frac{L + 6}{2}$, som gir $2L = L + 6$, altså $L = 6$. Og vi kan *bevise* konvergensen med eit nydeleg triks: lat $b_n = a_n - 6$ vere avviket frå grensa. Då er\n\n$$b_{n+1} = a_{n+1} - 6 = \\frac{a_n + 6}{2} - 6 = \\frac{a_n - 6}{2} = \\frac{b_n}{2}$$\n\nAvviksfølgja er geometrisk med $k = \\frac{1}{2}$ og $b_1 = 4$, så $b_n = 4 \\cdot (\\frac{1}{2})^{n-1} \\to 0$ — og dermed $a_n = b_n + 6 \\to 6$. Generelt har rekursjonen $a_{n+1} = pa_n + q$ likevekta $L = \\frac{q}{1-p}$ og konvergerer mot henne når $|p| < 1$."},{"id":"s2-9-1-n-quiz2","type":"exercise","exercise":{"id":"s2-9-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på konvergens og divergens:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-1-n-quiz2-q0","task":"Når konvergerer den geometriske følgja $a_n = a_1 k^{n-1}$ mot 0?","options":[{"id":"a","text":"Når $k > 1$","isCorrect":false},{"id":"b","text":"Når $|k| < 1$","isCorrect":true},{"id":"c","text":"Alltid","isCorrect":false},{"id":"d","text":"Når $k = -1$","isCorrect":false}],"solution":"For $|k| < 1$ krympar $|k|^{n-1}$ mot null. For $|k| > 1$ divergerer følgja, og $k = -1$ gir oscillasjon."},{"id":"s2-9-1-n-quiz2-q1","task":"Kva er $\\lim_{n \\to \\infty} \\frac{3n^2 + n}{2n^2 + 5}$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$\\infty$","isCorrect":false},{"id":"c","text":"$\\frac{3}{2}$","isCorrect":true},{"id":"d","text":"$\\frac{1}{5}$","isCorrect":false}],"solution":"Del teljar og nemnar på $n^2$: $\\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$."},{"id":"s2-9-1-n-quiz2-q2","task":"Følgja $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$ konvergerer mot …","options":[{"id":"a","text":"$L = 6$","isCorrect":true},{"id":"b","text":"$L = 8$","isCorrect":false},{"id":"c","text":"$L = 10$","isCorrect":false},{"id":"d","text":"Ho divergerer","isCorrect":false}],"solution":"Grensa oppfyller $L = \\frac{L+6}{2} \\Rightarrow L = 6$, og avviket $b_n = a_n - 6$ blir halvert kvart steg, så det døyr ut."},{"id":"s2-9-1-n-quiz2-q3","task":"Kvifor konvergerer ikkje følgja $(-1)^n$?","options":[{"id":"a","text":"Fordi ledda veks mot uendeleg","isCorrect":false},{"id":"b","text":"Fordi ho ikkje har startverdi","isCorrect":false},{"id":"c","text":"Fordi ho er aritmetisk","isCorrect":false},{"id":"d","text":"Fordi ho oscillerer mellom $-1$ og $1$ utan å nærme seg éin bestemt verdi","isCorrect":true}],"solution":"Konvergens krev éin grenseverdi. $(-1)^n$ er avgrensa, men hoppar evig mellom to verdiar — ho divergerer."}]}},{"id":"s2-9-1-n-section3","type":"text","content":"## Summane — rekkjene tek over\n\nFrå følgjer til **rekkjer**: summen av ledda. Dei tre sumformlane du treng i S2, kjenner du no att som gamle vener.\n\nFor ei *aritmetisk rekkje* er summen av dei $n$ første ledda $S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n}{2}(2a_1 + (n-1)d)$. For ei *endeleg geometrisk rekkje* (med $k \\neq 1$) er $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$. Og for ei *uendeleg geometrisk rekkje* med $|k| < 1$ konvergerer summen mot $S = \\frac{a_1}{1 - k}$ — medan ho divergerer for $|k| \\geq 1$.\n\nTre raske anvendingar. Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal; etter 12 kvartal er totalproduksjonen $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6 \\cdot 1880 = 11\\,280$ einingar — aritmetisk rekkje. Ei uendeleg geometrisk rekkje med $a_1 = 300$ og $k = 0{,}6$ har sum $S = \\frac{300}{0{,}4} = 750$. Og den klassiske $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots$ summerer til $\\frac{1}{1 - 1/3} = \\frac{3}{2}$.\n\nDermed har du diagnoseverktøyet komplett: Sjå på følgja. Konstante differansar? Aritmetisk — lineær vekst, sum med $\\frac{n}{2}(a_1 + a_n)$. Konstante forhold? Geometrisk — eksponentiell endring, sum med $\\frac{k^n - 1}{k-1}$, og uendeleg sum $\\frac{a_1}{1-k}$ viss $|k| < 1$. Rekursjon på forma $a_{n+1} = pa_n + q$? Likevekt i $\\frac{q}{1-p}$, stabil når $|p| < 1$. Med dette i verktøykassa er du rusta både for figurtala i neste kapittel og for programmeringa i det siste."},{"id":"s2-9-1-n-quiz3","type":"exercise","exercise":{"id":"s2-9-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på sumformlane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-9-1-n-quiz3-q0","task":"Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal. Total produksjon etter 12 kvartal?","options":[{"id":"a","text":"$6000$","isCorrect":false},{"id":"b","text":"$11\\,280$","isCorrect":true},{"id":"c","text":"$1380$","isCorrect":false},{"id":"d","text":"$22\\,560$","isCorrect":false}],"solution":"Aritmetisk rekkje: $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6(1000 + 880) = 11\\,280$ einingar."},{"id":"s2-9-1-n-quiz3-q1","task":"Kva er summen av den uendelege rekkja med $a_1 = 300$ og $k = 0{,}6$?","options":[{"id":"a","text":"$500$","isCorrect":false},{"id":"b","text":"$300$","isCorrect":false},{"id":"c","text":"$750$","isCorrect":true},{"id":"d","text":"Ho divergerer","isCorrect":false}],"solution":"$|k| < 1$, så $S = \\frac{a_1}{1-k} = \\frac{300}{0{,}4} = 750$."},{"id":"s2-9-1-n-quiz3-q2","task":"$1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots = \\,?$","options":[{"id":"a","text":"$\\frac{4}{3}$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$\\frac{3}{2}$","isCorrect":true}],"solution":"Geometrisk med $a_1 = 1$, $k = \\frac{1}{3}$: $S = \\frac{1}{1 - 1/3} = \\frac{3}{2}$."},{"id":"s2-9-1-n-quiz3-q3","task":"Kva for ein sum divergerer?","options":[{"id":"a","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot 1{,}2^n$","isCorrect":true},{"id":"b","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}8^n$","isCorrect":false},{"id":"c","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot (-0{,}5)^n$","isCorrect":false},{"id":"d","text":"$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}99^n$","isCorrect":false}],"solution":"Kvotienten $1{,}2$ har $|k| > 1$ — ledda veks, og rekkja divergerer. Dei tre andre har $|k| < 1$ og konvergerer."}]}},{"id":"s2-9-1-n-summary","type":"text","content":"## Oppsummering: mønster, grenser og summar\n\nMedisinrekneskapen til legen opna døra til heile følgjeteorien. **Aritmetiske følgjer** har konstant differanse $d$ og eksplisitt formel $a_n = a_1 + (n-1)d$; **geometriske følgjer** har konstant kvotient $k$ og formel $a_n = a_1 k^{n-1}$. Begge kan skildrast **rekursivt** (steg for steg frå startverdi) eller **eksplisitt** (direkte hopp til ledd $n$) — og medikamentet $a_n = 400 \\cdot 0{,}75^n$ viste korleis logaritmar svarar på «når er nivået under …?»-spørsmål.\n\n**Konvergens** betyr at ledda nærmar seg ein grenseverdi $L$: geometriske følgjer konvergerer mot 0 når $|k| < 1$, brøkfølgjer blir temja ved å dele på høgaste potens av $n$, og rekursjonar $a_{n+1} = pa_n + q$ har likevekt $L = \\frac{q}{1-p}$, stabil når $|p| < 1$ — bevist elegant ved at avviksfølgja $b_n = a_n - L$ er geometrisk. Hugs fellene: oscillerande følgjer som $(-1)^n$ divergerer sjølv om dei er avgrensa.\n\nOg **sumformlane**: aritmetisk $S_n = \\frac{n}{2}(a_1 + a_n)$, geometrisk $S_n = a_1\\frac{k^n - 1}{k - 1}$, og den uendelege $S = \\frac{a_1}{1-k}$ for $|k| < 1$. Tre formlar, to følgjefamiliar, eitt spørsmål — kva er konstant, differansen eller forholdet? — og du kan modellere produksjon, medisin og sparing. Neste kapittel gjer tala synlege: figurtal, der følgjene blir geometri."}],"exercises":[],"_meta":{"sourceHash":"551a76a09c5137d7","translatedAt":"2026-06-20T09:44:28.117Z","model":"claude-code-agent","strings":79,"tm":{"aa92ee354a6a74a0":"Følgjer og talmønster","b195b06d1ed59702":"Narrativ versjon","defe78bea96a9778":"Ei forteljing om medisinen i blodet og tala som veit kva som kjem — om aritmetiske og geometriske følgjer, rekursive og eksplisitte formlar, konvergens og dei tre store sumformlane.","78781630f0e97834":"utforske rekursive samanhengar og presentere eigne framgangsmåtar","fecef60663e294e0":"gjere greie for omgrepa følgje, rekkje, konvergens og divergens, og bruke dette i problemløysing","af2e91e9daa1058e":"modellere og analysere situasjonar ved hjelp av følgjer og rekkjer","a81e607afb971610":"## Tala som veit kva som kjem\n\nEin pasient får 400 mg av eit medikament, og kroppen bryt ned 25 % per døgn. Legen treng å vite: kor mykje er igjen om ei veke? Når er nivået under 10 mg? Spørsmåla handlar om ei liste med tal som følgjer eit mønster — og slike lister er blant dei mest anvendelege objekta i matematikken.\n\nEi **følgje** er ei ordna liste med tal etter eit bestemt mønster. Vi skriv ledda $a_1, a_2, a_3, \\ldots$ der $a_n$ er det $n$-te leddet. Følgjer modellerer alt frå rentevekst og medikamentkonsentrasjonar til folkedynamikk. Det finst to måtar å skildre dei på: ein **eksplisitt formel** gir $a_n$ direkte som funksjon av $n$ (som $a_n = 3n + 1$ — du kan hoppe rett til eit vilkårleg ledd), medan ein **rekursiv formel** gir $a_n$ ut frå dei føregåande ledda (som $a_{n+1} = 2a_n - 1$ med $a_1 = 5$ — du må starte frå byrjinga).\n\nI denne forteljinga studerer vi dei to viktigaste følgjeklassane — **aritmetiske** og **geometriske** — og det store spørsmålet om **konvergens**: nærmar følgja seg ein endeleg grenseverdi, eller veks ho utan grense? Medisinen i blodet, summane på sparekontoen og grenseverdiane møtest alle i same teori.","259bc2929aa3ee29":"## Dei to følgjefamiliane\n\nDen **aritmetiske følgja** har konstant *differanse* $d$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n + d$; eksplisitt: $a_n = a_1 + (n-1)d$. Følgja $3, 7, 11, 15, 19, \\ldots$ har $a_1 = 3$ og $d = 4$, med eksplisitt formel $a_n = 3 + (n-1) \\cdot 4 = 4n - 1$. Kontroll: $a_1 = 3$ og $a_5 = 19$. ✓\n\nDen **geometriske følgja** har konstant *forhold* (kvotient) $k$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n \\cdot k$; eksplisitt: $a_n = a_1 \\cdot k^{n-1}$. Følgja $2, 6, 18, 54, 162, \\ldots$ har $k = 3$ og formelen $a_n = 2 \\cdot 3^{n-1}$. Og følgja $800, 400, 200, 100, 50, \\ldots$ har $k = \\frac{1}{2}$ — ledda nærmar seg null fordi $|k| < 1$.\n\nMedisinen frå innleiinga er nettopp geometrisk: etter kvart døgn er 75 % igjen, så med $a_0 = 400$ er $a_{n+1} = 0{,}75 \\cdot a_n$, eksplisitt $a_n = 400 \\cdot 0{,}75^n$. Når er nivået under 10 mg? Vi løyser $400 \\cdot 0{,}75^n < 10$, altså $0{,}75^n < 0{,}025$. Logaritmen på begge sider (hugs: $\\ln 0{,}75$ er negativ, så ulikskapen snur):\n\n$$n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx \\frac{-3{,}689}{-0{,}288} \\approx 12{,}8$$\n\nEtter 13 døgn er konsentrasjonen under 10 mg. Slik kjenner du att følgjetypen i praksis: rekn ut differansane — er dei konstante, er følgja aritmetisk; rekn ut forholda — er dei konstante, er ho geometrisk.","e38c1da1bcc9573e":"Test deg sjølv på aritmetiske og geometriske følgjer:","4097889236a2af26":"placeholder","02d4d72267e2820b":"Følgja $3, 7, 11, 15, \\ldots$ har eksplisitt formel …","24fcd00fc59205b9":"$a_n = 4n - 1$","9bc8adf7620bb072":"$a_n = 3 \\cdot 4^{n-1}$","d34ecc1fd87421b2":"$a_n = 3n + 4$","01bca61906889f42":"$a_n = 4n + 3$","08161dc62c73556e":"Aritmetisk med $a_1 = 3$, $d = 4$: $a_n = 3 + (n-1)4 = 4n - 1$. Sjekk: $a_1 = 3$, $a_2 = 7$. ✓","7c27d0797f3b592e":"Kva skil ein rekursiv formel frå ein eksplisitt?","1e79dd8deb7d62a5":"Rekursive formlar gjeld berre geometriske følgjer","2f43beaafb4abdb1":"Eksplisitte formlar krev startverdi","8967cfe02ca9d41f":"Rekursiv gir $a_{n+1}$ frå føregåande ledd; eksplisitt gir $a_n$ direkte som funksjon av $n$","d818bd62737c0f87":"Dei er alltid identiske","ef118379853a5590":"Med eksplisitt formel hoppar du rett til ledd nr. $n$; med rekursiv må du rekne deg fram ledd for ledd frå startverdien.","73a93ca9f0fcd0d1":"Medikamentmengda følgjer $a_n = 400 \\cdot 0{,}75^n$. Kva slags følgje er dette?","618b4f3763b3e6de":"Aritmetisk med $d = -100$","d300a11d7376fc0b":"Geometrisk med $k = 0{,}75$","3405fefb17945931":"Aritmetisk med $d = 0{,}75$","5320d88a1cb862f7":"Korkje aritmetisk eller geometrisk","ce948296960e3f00":"Kvart ledd er 75 % av førre — konstant forhold $k = 0{,}75$, altså geometrisk.","4f63c6676b73cad4":"Etter kor mange døgn er medikamentmengda under 10 mg?","1ebea7fa3a60c915":"$8$ døgn","b88146b539f05532":"$40$ døgn","94d9150c5bdfd269":"$25$ døgn","aa27b896eecb7fee":"$13$ døgn","403df1e711dc7ba5":"$400 \\cdot 0{,}75^n < 10 \\Rightarrow n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx 12{,}8$, altså etter 13 døgn.","a4297a1d9b7fbac3":"## Konvergens — kvar er følgja på veg?\n\nEi følgje $\\{a_n\\}$ **konvergerer** mot $L$ dersom ledda kjem vilkårleg nær $L$ når $n$ veks utan grense; vi skriv $\\lim_{n \\to \\infty} a_n = L$. Ei følgje utan slik grenseverdi **divergerer**.\n\nFor dei to familiane er svaret ryddig. Ei aritmetisk følgje konvergerer berre i det trivielle tilfellet $d = 0$ (konstant følgje) — eit kvart anna $d$ sender ledda mot $\\pm\\infty$. Ei geometrisk følgje konvergerer mot $0$ når $|k| < 1$; ho divergerer når $|k| > 1$; ho er konstant når $k = 1$; og når $k = -1$ alternerer ho mellom $a_1$ og $-a_1$ utan å konvergere. Ver merksam på oscillasjon: følgja $(-1)^n$ er avgrensa, men konvergerer ikkje.\n\nFor følgjer gitt som brøkuttrykk i $n$ finst ein standardteknikk: del teljar og nemnar på den høgaste potensen av $n$. Til dømes $\\frac{3n^2 + n}{2n^2 + 5} = \\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.\n\nOgså rekursive følgjer kan ha grenseverdiar. Sjå på $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$: ledda blir $10, 8, 7, 6{,}5, 6{,}25, \\ldots$ — dei nærmar seg noko. Kva? Viss følgja konvergerer mot $L$, må grensa tilfredsstille $L = \\frac{L + 6}{2}$, som gir $2L = L + 6$, altså $L = 6$. Og vi kan *bevise* konvergensen med eit nydeleg triks: lat $b_n = a_n - 6$ vere avviket frå grensa. Då er\n\n$$b_{n+1} = a_{n+1} - 6 = \\frac{a_n + 6}{2} - 6 = \\frac{a_n - 6}{2} = \\frac{b_n}{2}$$\n\nAvviksfølgja er geometrisk med $k = \\frac{1}{2}$ og $b_1 = 4$, så $b_n = 4 \\cdot (\\frac{1}{2})^{n-1} \\to 0$ — og dermed $a_n = b_n + 6 \\to 6$. Generelt har rekursjonen $a_{n+1} = pa_n + q$ likevekta $L = \\frac{q}{1-p}$ og konvergerer mot henne når $|p| < 1$.","476f4b53f8297f67":"Test deg sjølv på konvergens og divergens:","2474ace80f43016e":"Når konvergerer den geometriske følgja $a_n = a_1 k^{n-1}$ mot 0?","e53148ca377a429a":"Når $k > 1$","f0366516523e824e":"Når $|k| < 1$","de6d22124febe51f":"Alltid","48ec0e3f9982eaca":"Når $k = -1$","f166a263090d2a6e":"For $|k| < 1$ krympar $|k|^{n-1}$ mot null. For $|k| > 1$ divergerer følgja, og $k = -1$ gir oscillasjon.","0049cc12c1278b5c":"Kva er $\\lim_{n \\to \\infty} \\frac{3n^2 + n}{2n^2 + 5}$?","d249caca6d7f42a5":"$\\infty$","9663be320a691f04":"$\\frac{3}{2}$","7e6026b35a80b9fb":"$\\frac{1}{5}$","8ad8f14f99871180":"Del teljar og nemnar på $n^2$: $\\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.","b364501c247850e1":"Følgja $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$ konvergerer mot …","8dda18e619f276e8":"$L = 6$","e436813ab68d6d4c":"$L = 8$","947268a9b8926297":"$L = 10$","85f56d8f47729396":"Ho divergerer","1afb62a7f55f8750":"Grensa oppfyller $L = \\frac{L+6}{2} \\Rightarrow L = 6$, og avviket $b_n = a_n - 6$ blir halvert kvart steg, så det døyr ut.","3b36168879d9d6b3":"Kvifor konvergerer ikkje følgja $(-1)^n$?","1aa30c4a3a33f6b2":"Fordi ledda veks mot uendeleg","dbc054fdde538068":"Fordi ho ikkje har startverdi","067371111053cd51":"Fordi ho er aritmetisk","2bfe92146aa346cd":"Fordi ho oscillerer mellom $-1$ og $1$ utan å nærme seg éin bestemt verdi","8dfce49a6e5af4d4":"Konvergens krev éin grenseverdi. $(-1)^n$ er avgrensa, men hoppar evig mellom to verdiar — ho divergerer.","a5df4fc2a26a2f87":"## Summane — rekkjene tek over\n\nFrå følgjer til **rekkjer**: summen av ledda. Dei tre sumformlane du treng i S2, kjenner du no att som gamle vener.\n\nFor ei *aritmetisk rekkje* er summen av dei $n$ første ledda $S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n}{2}(2a_1 + (n-1)d)$. For ei *endeleg geometrisk rekkje* (med $k \\neq 1$) er $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$. Og for ei *uendeleg geometrisk rekkje* med $|k| < 1$ konvergerer summen mot $S = \\frac{a_1}{1 - k}$ — medan ho divergerer for $|k| \\geq 1$.\n\nTre raske anvendingar. Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal; etter 12 kvartal er totalproduksjonen $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6 \\cdot 1880 = 11\\,280$ einingar — aritmetisk rekkje. Ei uendeleg geometrisk rekkje med $a_1 = 300$ og $k = 0{,}6$ har sum $S = \\frac{300}{0{,}4} = 750$. Og den klassiske $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots$ summerer til $\\frac{1}{1 - 1/3} = \\frac{3}{2}$.\n\nDermed har du diagnoseverktøyet komplett: Sjå på følgja. Konstante differansar? Aritmetisk — lineær vekst, sum med $\\frac{n}{2}(a_1 + a_n)$. Konstante forhold? Geometrisk — eksponentiell endring, sum med $\\frac{k^n - 1}{k-1}$, og uendeleg sum $\\frac{a_1}{1-k}$ viss $|k| < 1$. Rekursjon på forma $a_{n+1} = pa_n + q$? Likevekt i $\\frac{q}{1-p}$, stabil når $|p| < 1$. Med dette i verktøykassa er du rusta både for figurtala i neste kapittel og for programmeringa i det siste.","c41159c3b4856fa4":"Test deg sjølv på sumformlane:","2a871006db994f0e":"Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal. Total produksjon etter 12 kvartal?","a246077e2415da21":"Aritmetisk rekkje: $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6(1000 + 880) = 11\\,280$ einingar.","e450074e7558ac08":"Kva er summen av den uendelege rekkja med $a_1 = 300$ og $k = 0{,}6$?","52bb3ca928994cbf":"$|k| < 1$, så $S = \\frac{a_1}{1-k} = \\frac{300}{0{,}4} = 750$.","7b25578780624916":"$1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots = \\,?$","9538490d24e57c09":"$\\frac{4}{3}$","218ae894dc0fce2b":"Geometrisk med $a_1 = 1$, $k = \\frac{1}{3}$: $S = \\frac{1}{1 - 1/3} = \\frac{3}{2}$.","66a741692d2e4d7f":"Kva for ein sum divergerer?","a9ebeff8ffc0b1de":"$\\sum_{n=0}^{\\infty} 5 \\cdot 1{,}2^n$","4159aa2907fb98fd":"$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}8^n$","c75139d0e14b7923":"$\\sum_{n=0}^{\\infty} 5 \\cdot (-0{,}5)^n$","70cff105b9b00ce6":"$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}99^n$","18e38bd8cb7a8734":"Kvotienten $1{,}2$ har $|k| > 1$ — ledda veks, og rekkja divergerer. Dei tre andre har $|k| < 1$ og konvergerer.","73e20967845e2b6c":"## Oppsummering: mønster, grenser og summar\n\nMedisinrekneskapen til legen opna døra til heile følgjeteorien. **Aritmetiske følgjer** har konstant differanse $d$ og eksplisitt formel $a_n = a_1 + (n-1)d$; **geometriske følgjer** har konstant kvotient $k$ og formel $a_n = a_1 k^{n-1}$. Begge kan skildrast **rekursivt** (steg for steg frå startverdi) eller **eksplisitt** (direkte hopp til ledd $n$) — og medikamentet $a_n = 400 \\cdot 0{,}75^n$ viste korleis logaritmar svarar på «når er nivået under …?»-spørsmål.\n\n**Konvergens** betyr at ledda nærmar seg ein grenseverdi $L$: geometriske følgjer konvergerer mot 0 når $|k| < 1$, brøkfølgjer blir temja ved å dele på høgaste potens av $n$, og rekursjonar $a_{n+1} = pa_n + q$ har likevekt $L = \\frac{q}{1-p}$, stabil når $|p| < 1$ — bevist elegant ved at avviksfølgja $b_n = a_n - L$ er geometrisk. Hugs fellene: oscillerande følgjer som $(-1)^n$ divergerer sjølv om dei er avgrensa.\n\nOg **sumformlane**: aritmetisk $S_n = \\frac{n}{2}(a_1 + a_n)$, geometrisk $S_n = a_1\\frac{k^n - 1}{k - 1}$, og den uendelege $S = \\frac{a_1}{1-k}$ for $|k| < 1$. Tre formlar, to følgjefamiliar, eitt spørsmål — kva er konstant, differansen eller forholdet? — og du kan modellere produksjon, medisin og sparing. Neste kapittel gjer tala synlege: figurtal, der følgjene blir geometri."}}}
+{
+  "id": "s2-9-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "9.1",
+  "title": "Følgjer og talmønster",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om medisinen i blodet og tala som veit kva som kjem — om aritmetiske og geometriske følgjer, rekursive og eksplisitte formlar, konvergens og dei tre store sumformlane.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske rekursive samanhengar og presentere eigne framgangsmåtar",
+    "gjere greie for omgrepa følgje, rekkje, konvergens og divergens, og bruke dette i problemløysing",
+    "modellere og analysere situasjonar ved hjelp av følgjer og rekkjer"
+  ],
+  "linkedChapterId": "s2-9-1",
+  "content": [
+    {
+      "id": "s2-9-1-n-intro",
+      "type": "text",
+      "content": "## Tala som veit kva som kjem\n\nEin pasient får 400 mg av eit medikament, og kroppen bryt ned 25 % per døgn. Legen treng å vite: kor mykje er igjen om ei veke? Når er nivået under 10 mg? Spørsmåla handlar om ei liste med tal som følgjer eit mønster — og slike lister er blant dei mest anvendelege objekta i matematikken.\n\nEi **følgje** er ei ordna liste med tal etter eit bestemt mønster. Vi skriv ledda $a_1, a_2, a_3, \\ldots$ der $a_n$ er det $n$-te leddet. Følgjer modellerer alt frå rentevekst og medikamentkonsentrasjonar til folkedynamikk. Det finst to måtar å skildre dei på: ein **eksplisitt formel** gir $a_n$ direkte som funksjon av $n$ (som $a_n = 3n + 1$ — du kan hoppe rett til eit vilkårleg ledd), medan ein **rekursiv formel** gir $a_n$ ut frå dei føregåande ledda (som $a_{n+1} = 2a_n - 1$ med $a_1 = 5$ — du må starte frå byrjinga).\n\nI denne forteljinga studerer vi dei to viktigaste følgjeklassane — **aritmetiske** og **geometriske** — og det store spørsmålet om **konvergens**: nærmar følgja seg ein endeleg grenseverdi, eller veks ho utan grense? Medisinen i blodet, summane på sparekontoen og grenseverdiane møtest alle i same teori."
+    },
+    {
+      "id": "s2-9-1-n-section1",
+      "type": "text",
+      "content": "## Dei to følgjefamiliane\n\nDen **aritmetiske følgja** har konstant *differanse* $d$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n + d$; eksplisitt: $a_n = a_1 + (n-1)d$. Følgja $3, 7, 11, 15, 19, \\ldots$ har $a_1 = 3$ og $d = 4$, med eksplisitt formel $a_n = 3 + (n-1) \\cdot 4 = 4n - 1$. Kontroll: $a_1 = 3$ og $a_5 = 19$. ✓\n\nDen **geometriske følgja** har konstant *forhold* (kvotient) $k$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n \\cdot k$; eksplisitt: $a_n = a_1 \\cdot k^{n-1}$. Følgja $2, 6, 18, 54, 162, \\ldots$ har $k = 3$ og formelen $a_n = 2 \\cdot 3^{n-1}$. Og følgja $800, 400, 200, 100, 50, \\ldots$ har $k = \\frac{1}{2}$ — ledda nærmar seg null fordi $|k| < 1$.\n\nMedisinen frå innleiinga er nettopp geometrisk: etter kvart døgn er 75 % igjen, så med $a_0 = 400$ er $a_{n+1} = 0{,}75 \\cdot a_n$, eksplisitt $a_n = 400 \\cdot 0{,}75^n$. Når er nivået under 10 mg? Vi løyser $400 \\cdot 0{,}75^n < 10$, altså $0{,}75^n < 0{,}025$. Logaritmen på begge sider (hugs: $\\ln 0{,}75$ er negativ, så ulikskapen snur):\n\n$$n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx \\frac{-3{,}689}{-0{,}288} \\approx 12{,}8$$\n\nEtter 13 døgn er konsentrasjonen under 10 mg. Slik kjenner du att følgjetypen i praksis: rekn ut differansane — er dei konstante, er følgja aritmetisk; rekn ut forholda — er dei konstante, er ho geometrisk."
+    },
+    {
+      "id": "s2-9-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på aritmetiske og geometriske følgjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-1-n-quiz1-q0",
+            "task": "Følgja $3, 7, 11, 15, \\ldots$ har eksplisitt formel …",
+            "options": [
+              {
+                "id": "b",
+                "text": "$a_n = 3 \\cdot 4^{n-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = 3n + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$a_n = 4n - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 4n + 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Aritmetisk med $a_1 = 3$, $d = 4$: $a_n = 3 + (n-1)4 = 4n - 1$. Sjekk: $a_1 = 3$, $a_2 = 7$. ✓"
+          },
+          {
+            "id": "s2-9-1-n-quiz1-q1",
+            "task": "Kva skil ein rekursiv formel frå ein eksplisitt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Rekursive formlar gjeld berre geometriske følgjer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eksplisitte formlar krev startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei er alltid identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rekursiv gir $a_{n+1}$ frå føregåande ledd; eksplisitt gir $a_n$ direkte som funksjon av $n$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med eksplisitt formel hoppar du rett til ledd nr. $n$; med rekursiv må du rekne deg fram ledd for ledd frå startverdien."
+          },
+          {
+            "id": "s2-9-1-n-quiz1-q2",
+            "task": "Medikamentmengda følgjer $a_n = 400 \\cdot 0{,}75^n$. Kva slags følgje er dette?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Geometrisk med $k = 0{,}75$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Aritmetisk med $d = -100$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aritmetisk med $d = 0{,}75$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Korkje aritmetisk eller geometrisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvart ledd er 75 % av førre — konstant forhold $k = 0{,}75$, altså geometrisk."
+          },
+          {
+            "id": "s2-9-1-n-quiz1-q3",
+            "task": "Etter kor mange døgn er medikamentmengda under 10 mg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$ døgn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$13$ døgn",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$40$ døgn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$25$ døgn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$400 \\cdot 0{,}75^n < 10 \\Rightarrow n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx 12{,}8$, altså etter 13 døgn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-1-n-section2",
+      "type": "text",
+      "content": "## Konvergens — kvar er følgja på veg?\n\nEi følgje $\\{a_n\\}$ **konvergerer** mot $L$ dersom ledda kjem vilkårleg nær $L$ når $n$ veks utan grense; vi skriv $\\lim_{n \\to \\infty} a_n = L$. Ei følgje utan slik grenseverdi **divergerer**.\n\nFor dei to familiane er svaret ryddig. Ei aritmetisk følgje konvergerer berre i det trivielle tilfellet $d = 0$ (konstant følgje) — eit kvart anna $d$ sender ledda mot $\\pm\\infty$. Ei geometrisk følgje konvergerer mot $0$ når $|k| < 1$; ho divergerer når $|k| > 1$; ho er konstant når $k = 1$; og når $k = -1$ alternerer ho mellom $a_1$ og $-a_1$ utan å konvergere. Ver merksam på oscillasjon: følgja $(-1)^n$ er avgrensa, men konvergerer ikkje.\n\nFor følgjer gitt som brøkuttrykk i $n$ finst ein standardteknikk: del teljar og nemnar på den høgaste potensen av $n$. Til dømes $\\frac{3n^2 + n}{2n^2 + 5} = \\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.\n\nOgså rekursive følgjer kan ha grenseverdiar. Sjå på $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$: ledda blir $10, 8, 7, 6{,}5, 6{,}25, \\ldots$ — dei nærmar seg noko. Kva? Viss følgja konvergerer mot $L$, må grensa tilfredsstille $L = \\frac{L + 6}{2}$, som gir $2L = L + 6$, altså $L = 6$. Og vi kan *bevise* konvergensen med eit nydeleg triks: lat $b_n = a_n - 6$ vere avviket frå grensa. Då er\n\n$$b_{n+1} = a_{n+1} - 6 = \\frac{a_n + 6}{2} - 6 = \\frac{a_n - 6}{2} = \\frac{b_n}{2}$$\n\nAvviksfølgja er geometrisk med $k = \\frac{1}{2}$ og $b_1 = 4$, så $b_n = 4 \\cdot (\\frac{1}{2})^{n-1} \\to 0$ — og dermed $a_n = b_n + 6 \\to 6$. Generelt har rekursjonen $a_{n+1} = pa_n + q$ likevekta $L = \\frac{q}{1-p}$ og konvergerer mot henne når $|p| < 1$."
+    },
+    {
+      "id": "s2-9-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på konvergens og divergens:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-1-n-quiz2-q0",
+            "task": "Når konvergerer den geometriske følgja $a_n = a_1 k^{n-1}$ mot 0?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $k > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $|k| < 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når $k = -1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $|k| < 1$ krympar $|k|^{n-1}$ mot null. For $|k| > 1$ divergerer følgja, og $k = -1$ gir oscillasjon."
+          },
+          {
+            "id": "s2-9-1-n-quiz2-q1",
+            "task": "Kva er $\\lim_{n \\to \\infty} \\frac{3n^2 + n}{2n^2 + 5}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Del teljar og nemnar på $n^2$: $\\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$."
+          },
+          {
+            "id": "s2-9-1-n-quiz2-q2",
+            "task": "Følgja $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$ konvergerer mot …",
+            "options": [
+              {
+                "id": "a",
+                "text": "$L = 6$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$L = 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$L = 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ho divergerer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grensa oppfyller $L = \\frac{L+6}{2} \\Rightarrow L = 6$, og avviket $b_n = a_n - 6$ blir halvert kvart steg, så det døyr ut."
+          },
+          {
+            "id": "s2-9-1-n-quiz2-q3",
+            "task": "Kvifor konvergerer ikkje følgja $(-1)^n$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi ledda veks mot uendeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi ho oscillerer mellom $-1$ og $1$ utan å nærme seg éin bestemt verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi ho ikkje har startverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi ho er aritmetisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konvergens krev éin grenseverdi. $(-1)^n$ er avgrensa, men hoppar evig mellom to verdiar — ho divergerer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-1-n-section3",
+      "type": "text",
+      "content": "## Summane — rekkjene tek over\n\nFrå følgjer til **rekkjer**: summen av ledda. Dei tre sumformlane du treng i S2, kjenner du no att som gamle vener.\n\nFor ei *aritmetisk rekkje* er summen av dei $n$ første ledda $S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n}{2}(2a_1 + (n-1)d)$. For ei *endeleg geometrisk rekkje* (med $k \\neq 1$) er $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$. Og for ei *uendeleg geometrisk rekkje* med $|k| < 1$ konvergerer summen mot $S = \\frac{a_1}{1 - k}$ — medan ho divergerer for $|k| \\geq 1$.\n\nTre raske anvendingar. Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal; etter 12 kvartal er totalproduksjonen $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6 \\cdot 1880 = 11\\,280$ einingar — aritmetisk rekkje. Ei uendeleg geometrisk rekkje med $a_1 = 300$ og $k = 0{,}6$ har sum $S = \\frac{300}{0{,}4} = 750$. Og den klassiske $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots$ summerer til $\\frac{1}{1 - 1/3} = \\frac{3}{2}$.\n\nDermed har du diagnoseverktøyet komplett: Sjå på følgja. Konstante differansar? Aritmetisk — lineær vekst, sum med $\\frac{n}{2}(a_1 + a_n)$. Konstante forhold? Geometrisk — eksponentiell endring, sum med $\\frac{k^n - 1}{k-1}$, og uendeleg sum $\\frac{a_1}{1-k}$ viss $|k| < 1$. Rekursjon på forma $a_{n+1} = pa_n + q$? Likevekt i $\\frac{q}{1-p}$, stabil når $|p| < 1$. Med dette i verktøykassa er du rusta både for figurtala i neste kapittel og for programmeringa i det siste."
+    },
+    {
+      "id": "s2-9-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-9-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sumformlane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-9-1-n-quiz3-q0",
+            "task": "Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal. Total produksjon etter 12 kvartal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1380$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$11\\,280$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$22\\,560$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Aritmetisk rekkje: $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6(1000 + 880) = 11\\,280$ einingar."
+          },
+          {
+            "id": "s2-9-1-n-quiz3-q1",
+            "task": "Kva er summen av den uendelege rekkja med $a_1 = 300$ og $k = 0{,}6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$500$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$300$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ho divergerer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$750$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|k| < 1$, så $S = \\frac{a_1}{1-k} = \\frac{300}{0{,}4} = 750$."
+          },
+          {
+            "id": "s2-9-1-n-quiz3-q2",
+            "task": "$1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots = \\,?$",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{4}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Geometrisk med $a_1 = 1$, $k = \\frac{1}{3}$: $S = \\frac{1}{1 - 1/3} = \\frac{3}{2}$."
+          },
+          {
+            "id": "s2-9-1-n-quiz3-q3",
+            "task": "Kva for ein sum divergerer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}8^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot 1{,}2^n$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot (-0{,}5)^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}99^n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvotienten $1{,}2$ har $|k| > 1$ — ledda veks, og rekkja divergerer. Dei tre andre har $|k| < 1$ og konvergerer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-9-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: mønster, grenser og summar\n\nMedisinrekneskapen til legen opna døra til heile følgjeteorien. **Aritmetiske følgjer** har konstant differanse $d$ og eksplisitt formel $a_n = a_1 + (n-1)d$; **geometriske følgjer** har konstant kvotient $k$ og formel $a_n = a_1 k^{n-1}$. Begge kan skildrast **rekursivt** (steg for steg frå startverdi) eller **eksplisitt** (direkte hopp til ledd $n$) — og medikamentet $a_n = 400 \\cdot 0{,}75^n$ viste korleis logaritmar svarar på «når er nivået under …?»-spørsmål.\n\n**Konvergens** betyr at ledda nærmar seg ein grenseverdi $L$: geometriske følgjer konvergerer mot 0 når $|k| < 1$, brøkfølgjer blir temja ved å dele på høgaste potens av $n$, og rekursjonar $a_{n+1} = pa_n + q$ har likevekt $L = \\frac{q}{1-p}$, stabil når $|p| < 1$ — bevist elegant ved at avviksfølgja $b_n = a_n - L$ er geometrisk. Hugs fellene: oscillerande følgjer som $(-1)^n$ divergerer sjølv om dei er avgrensa.\n\nOg **sumformlane**: aritmetisk $S_n = \\frac{n}{2}(a_1 + a_n)$, geometrisk $S_n = a_1\\frac{k^n - 1}{k - 1}$, og den uendelege $S = \\frac{a_1}{1-k}$ for $|k| < 1$. Tre formlar, to følgjefamiliar, eitt spørsmål — kva er konstant, differansen eller forholdet? — og du kan modellere produksjon, medisin og sparing. Neste kapittel gjer tala synlege: figurtal, der følgjene blir geometri."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "551a76a09c5137d7",
+    "translatedAt": "2026-06-20T09:44:28.117Z",
+    "model": "claude-code-agent",
+    "strings": 79,
+    "tm": {
+      "aa92ee354a6a74a0": "Følgjer og talmønster",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "defe78bea96a9778": "Ei forteljing om medisinen i blodet og tala som veit kva som kjem — om aritmetiske og geometriske følgjer, rekursive og eksplisitte formlar, konvergens og dei tre store sumformlane.",
+      "78781630f0e97834": "utforske rekursive samanhengar og presentere eigne framgangsmåtar",
+      "fecef60663e294e0": "gjere greie for omgrepa følgje, rekkje, konvergens og divergens, og bruke dette i problemløysing",
+      "af2e91e9daa1058e": "modellere og analysere situasjonar ved hjelp av følgjer og rekkjer",
+      "a81e607afb971610": "## Tala som veit kva som kjem\n\nEin pasient får 400 mg av eit medikament, og kroppen bryt ned 25 % per døgn. Legen treng å vite: kor mykje er igjen om ei veke? Når er nivået under 10 mg? Spørsmåla handlar om ei liste med tal som følgjer eit mønster — og slike lister er blant dei mest anvendelege objekta i matematikken.\n\nEi **følgje** er ei ordna liste med tal etter eit bestemt mønster. Vi skriv ledda $a_1, a_2, a_3, \\ldots$ der $a_n$ er det $n$-te leddet. Følgjer modellerer alt frå rentevekst og medikamentkonsentrasjonar til folkedynamikk. Det finst to måtar å skildre dei på: ein **eksplisitt formel** gir $a_n$ direkte som funksjon av $n$ (som $a_n = 3n + 1$ — du kan hoppe rett til eit vilkårleg ledd), medan ein **rekursiv formel** gir $a_n$ ut frå dei føregåande ledda (som $a_{n+1} = 2a_n - 1$ med $a_1 = 5$ — du må starte frå byrjinga).\n\nI denne forteljinga studerer vi dei to viktigaste følgjeklassane — **aritmetiske** og **geometriske** — og det store spørsmålet om **konvergens**: nærmar følgja seg ein endeleg grenseverdi, eller veks ho utan grense? Medisinen i blodet, summane på sparekontoen og grenseverdiane møtest alle i same teori.",
+      "259bc2929aa3ee29": "## Dei to følgjefamiliane\n\nDen **aritmetiske følgja** har konstant *differanse* $d$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n + d$; eksplisitt: $a_n = a_1 + (n-1)d$. Følgja $3, 7, 11, 15, 19, \\ldots$ har $a_1 = 3$ og $d = 4$, med eksplisitt formel $a_n = 3 + (n-1) \\cdot 4 = 4n - 1$. Kontroll: $a_1 = 3$ og $a_5 = 19$. ✓\n\nDen **geometriske følgja** har konstant *forhold* (kvotient) $k$ mellom påfølgjande ledd. Rekursivt: $a_{n+1} = a_n \\cdot k$; eksplisitt: $a_n = a_1 \\cdot k^{n-1}$. Følgja $2, 6, 18, 54, 162, \\ldots$ har $k = 3$ og formelen $a_n = 2 \\cdot 3^{n-1}$. Og følgja $800, 400, 200, 100, 50, \\ldots$ har $k = \\frac{1}{2}$ — ledda nærmar seg null fordi $|k| < 1$.\n\nMedisinen frå innleiinga er nettopp geometrisk: etter kvart døgn er 75 % igjen, så med $a_0 = 400$ er $a_{n+1} = 0{,}75 \\cdot a_n$, eksplisitt $a_n = 400 \\cdot 0{,}75^n$. Når er nivået under 10 mg? Vi løyser $400 \\cdot 0{,}75^n < 10$, altså $0{,}75^n < 0{,}025$. Logaritmen på begge sider (hugs: $\\ln 0{,}75$ er negativ, så ulikskapen snur):\n\n$$n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx \\frac{-3{,}689}{-0{,}288} \\approx 12{,}8$$\n\nEtter 13 døgn er konsentrasjonen under 10 mg. Slik kjenner du att følgjetypen i praksis: rekn ut differansane — er dei konstante, er følgja aritmetisk; rekn ut forholda — er dei konstante, er ho geometrisk.",
+      "e38c1da1bcc9573e": "Test deg sjølv på aritmetiske og geometriske følgjer:",
+      "4097889236a2af26": "placeholder",
+      "02d4d72267e2820b": "Følgja $3, 7, 11, 15, \\ldots$ har eksplisitt formel …",
+      "24fcd00fc59205b9": "$a_n = 4n - 1$",
+      "9bc8adf7620bb072": "$a_n = 3 \\cdot 4^{n-1}$",
+      "d34ecc1fd87421b2": "$a_n = 3n + 4$",
+      "01bca61906889f42": "$a_n = 4n + 3$",
+      "08161dc62c73556e": "Aritmetisk med $a_1 = 3$, $d = 4$: $a_n = 3 + (n-1)4 = 4n - 1$. Sjekk: $a_1 = 3$, $a_2 = 7$. ✓",
+      "7c27d0797f3b592e": "Kva skil ein rekursiv formel frå ein eksplisitt?",
+      "1e79dd8deb7d62a5": "Rekursive formlar gjeld berre geometriske følgjer",
+      "2f43beaafb4abdb1": "Eksplisitte formlar krev startverdi",
+      "8967cfe02ca9d41f": "Rekursiv gir $a_{n+1}$ frå føregåande ledd; eksplisitt gir $a_n$ direkte som funksjon av $n$",
+      "d818bd62737c0f87": "Dei er alltid identiske",
+      "ef118379853a5590": "Med eksplisitt formel hoppar du rett til ledd nr. $n$; med rekursiv må du rekne deg fram ledd for ledd frå startverdien.",
+      "73a93ca9f0fcd0d1": "Medikamentmengda følgjer $a_n = 400 \\cdot 0{,}75^n$. Kva slags følgje er dette?",
+      "618b4f3763b3e6de": "Aritmetisk med $d = -100$",
+      "d300a11d7376fc0b": "Geometrisk med $k = 0{,}75$",
+      "3405fefb17945931": "Aritmetisk med $d = 0{,}75$",
+      "5320d88a1cb862f7": "Korkje aritmetisk eller geometrisk",
+      "ce948296960e3f00": "Kvart ledd er 75 % av førre — konstant forhold $k = 0{,}75$, altså geometrisk.",
+      "4f63c6676b73cad4": "Etter kor mange døgn er medikamentmengda under 10 mg?",
+      "1ebea7fa3a60c915": "$8$ døgn",
+      "b88146b539f05532": "$40$ døgn",
+      "94d9150c5bdfd269": "$25$ døgn",
+      "aa27b896eecb7fee": "$13$ døgn",
+      "403df1e711dc7ba5": "$400 \\cdot 0{,}75^n < 10 \\Rightarrow n > \\frac{\\ln 0{,}025}{\\ln 0{,}75} \\approx 12{,}8$, altså etter 13 døgn.",
+      "a4297a1d9b7fbac3": "## Konvergens — kvar er følgja på veg?\n\nEi følgje $\\{a_n\\}$ **konvergerer** mot $L$ dersom ledda kjem vilkårleg nær $L$ når $n$ veks utan grense; vi skriv $\\lim_{n \\to \\infty} a_n = L$. Ei følgje utan slik grenseverdi **divergerer**.\n\nFor dei to familiane er svaret ryddig. Ei aritmetisk følgje konvergerer berre i det trivielle tilfellet $d = 0$ (konstant følgje) — eit kvart anna $d$ sender ledda mot $\\pm\\infty$. Ei geometrisk følgje konvergerer mot $0$ når $|k| < 1$; ho divergerer når $|k| > 1$; ho er konstant når $k = 1$; og når $k = -1$ alternerer ho mellom $a_1$ og $-a_1$ utan å konvergere. Ver merksam på oscillasjon: følgja $(-1)^n$ er avgrensa, men konvergerer ikkje.\n\nFor følgjer gitt som brøkuttrykk i $n$ finst ein standardteknikk: del teljar og nemnar på den høgaste potensen av $n$. Til dømes $\\frac{3n^2 + n}{2n^2 + 5} = \\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.\n\nOgså rekursive følgjer kan ha grenseverdiar. Sjå på $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$: ledda blir $10, 8, 7, 6{,}5, 6{,}25, \\ldots$ — dei nærmar seg noko. Kva? Viss følgja konvergerer mot $L$, må grensa tilfredsstille $L = \\frac{L + 6}{2}$, som gir $2L = L + 6$, altså $L = 6$. Og vi kan *bevise* konvergensen med eit nydeleg triks: lat $b_n = a_n - 6$ vere avviket frå grensa. Då er\n\n$$b_{n+1} = a_{n+1} - 6 = \\frac{a_n + 6}{2} - 6 = \\frac{a_n - 6}{2} = \\frac{b_n}{2}$$\n\nAvviksfølgja er geometrisk med $k = \\frac{1}{2}$ og $b_1 = 4$, så $b_n = 4 \\cdot (\\frac{1}{2})^{n-1} \\to 0$ — og dermed $a_n = b_n + 6 \\to 6$. Generelt har rekursjonen $a_{n+1} = pa_n + q$ likevekta $L = \\frac{q}{1-p}$ og konvergerer mot henne når $|p| < 1$.",
+      "476f4b53f8297f67": "Test deg sjølv på konvergens og divergens:",
+      "2474ace80f43016e": "Når konvergerer den geometriske følgja $a_n = a_1 k^{n-1}$ mot 0?",
+      "e53148ca377a429a": "Når $k > 1$",
+      "f0366516523e824e": "Når $|k| < 1$",
+      "de6d22124febe51f": "Alltid",
+      "48ec0e3f9982eaca": "Når $k = -1$",
+      "f166a263090d2a6e": "For $|k| < 1$ krympar $|k|^{n-1}$ mot null. For $|k| > 1$ divergerer følgja, og $k = -1$ gir oscillasjon.",
+      "0049cc12c1278b5c": "Kva er $\\lim_{n \\to \\infty} \\frac{3n^2 + n}{2n^2 + 5}$?",
+      "d249caca6d7f42a5": "$\\infty$",
+      "9663be320a691f04": "$\\frac{3}{2}$",
+      "7e6026b35a80b9fb": "$\\frac{1}{5}$",
+      "8ad8f14f99871180": "Del teljar og nemnar på $n^2$: $\\frac{3 + 1/n}{2 + 5/n^2} \\to \\frac{3}{2}$.",
+      "b364501c247850e1": "Følgja $a_1 = 10$, $a_{n+1} = \\frac{a_n + 6}{2}$ konvergerer mot …",
+      "8dda18e619f276e8": "$L = 6$",
+      "e436813ab68d6d4c": "$L = 8$",
+      "947268a9b8926297": "$L = 10$",
+      "85f56d8f47729396": "Ho divergerer",
+      "1afb62a7f55f8750": "Grensa oppfyller $L = \\frac{L+6}{2} \\Rightarrow L = 6$, og avviket $b_n = a_n - 6$ blir halvert kvart steg, så det døyr ut.",
+      "3b36168879d9d6b3": "Kvifor konvergerer ikkje følgja $(-1)^n$?",
+      "1aa30c4a3a33f6b2": "Fordi ledda veks mot uendeleg",
+      "dbc054fdde538068": "Fordi ho ikkje har startverdi",
+      "067371111053cd51": "Fordi ho er aritmetisk",
+      "2bfe92146aa346cd": "Fordi ho oscillerer mellom $-1$ og $1$ utan å nærme seg éin bestemt verdi",
+      "8dfce49a6e5af4d4": "Konvergens krev éin grenseverdi. $(-1)^n$ er avgrensa, men hoppar evig mellom to verdiar — ho divergerer.",
+      "a5df4fc2a26a2f87": "## Summane — rekkjene tek over\n\nFrå følgjer til **rekkjer**: summen av ledda. Dei tre sumformlane du treng i S2, kjenner du no att som gamle vener.\n\nFor ei *aritmetisk rekkje* er summen av dei $n$ første ledda $S_n = \\frac{n(a_1 + a_n)}{2} = \\frac{n}{2}(2a_1 + (n-1)d)$. For ei *endeleg geometrisk rekkje* (med $k \\neq 1$) er $S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1}$. Og for ei *uendeleg geometrisk rekkje* med $|k| < 1$ konvergerer summen mot $S = \\frac{a_1}{1 - k}$ — medan ho divergerer for $|k| \\geq 1$.\n\nTre raske anvendingar. Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal; etter 12 kvartal er totalproduksjonen $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6 \\cdot 1880 = 11\\,280$ einingar — aritmetisk rekkje. Ei uendeleg geometrisk rekkje med $a_1 = 300$ og $k = 0{,}6$ har sum $S = \\frac{300}{0{,}4} = 750$. Og den klassiske $1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots$ summerer til $\\frac{1}{1 - 1/3} = \\frac{3}{2}$.\n\nDermed har du diagnoseverktøyet komplett: Sjå på følgja. Konstante differansar? Aritmetisk — lineær vekst, sum med $\\frac{n}{2}(a_1 + a_n)$. Konstante forhold? Geometrisk — eksponentiell endring, sum med $\\frac{k^n - 1}{k-1}$, og uendeleg sum $\\frac{a_1}{1-k}$ viss $|k| < 1$. Rekursjon på forma $a_{n+1} = pa_n + q$? Likevekt i $\\frac{q}{1-p}$, stabil når $|p| < 1$. Med dette i verktøykassa er du rusta både for figurtala i neste kapittel og for programmeringa i det siste.",
+      "c41159c3b4856fa4": "Test deg sjølv på sumformlane:",
+      "2a871006db994f0e": "Ei bedrift produserer 500 einingar første kvartal og aukar med 80 per kvartal. Total produksjon etter 12 kvartal?",
+      "a246077e2415da21": "Aritmetisk rekkje: $S_{12} = \\frac{12}{2}(2 \\cdot 500 + 11 \\cdot 80) = 6(1000 + 880) = 11\\,280$ einingar.",
+      "e450074e7558ac08": "Kva er summen av den uendelege rekkja med $a_1 = 300$ og $k = 0{,}6$?",
+      "52bb3ca928994cbf": "$|k| < 1$, så $S = \\frac{a_1}{1-k} = \\frac{300}{0{,}4} = 750$.",
+      "7b25578780624916": "$1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + \\cdots = \\,?$",
+      "9538490d24e57c09": "$\\frac{4}{3}$",
+      "218ae894dc0fce2b": "Geometrisk med $a_1 = 1$, $k = \\frac{1}{3}$: $S = \\frac{1}{1 - 1/3} = \\frac{3}{2}$.",
+      "66a741692d2e4d7f": "Kva for ein sum divergerer?",
+      "a9ebeff8ffc0b1de": "$\\sum_{n=0}^{\\infty} 5 \\cdot 1{,}2^n$",
+      "4159aa2907fb98fd": "$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}8^n$",
+      "c75139d0e14b7923": "$\\sum_{n=0}^{\\infty} 5 \\cdot (-0{,}5)^n$",
+      "70cff105b9b00ce6": "$\\sum_{n=0}^{\\infty} 5 \\cdot 0{,}99^n$",
+      "18e38bd8cb7a8734": "Kvotienten $1{,}2$ har $|k| > 1$ — ledda veks, og rekkja divergerer. Dei tre andre har $|k| < 1$ og konvergerer.",
+      "73e20967845e2b6c": "## Oppsummering: mønster, grenser og summar\n\nMedisinrekneskapen til legen opna døra til heile følgjeteorien. **Aritmetiske følgjer** har konstant differanse $d$ og eksplisitt formel $a_n = a_1 + (n-1)d$; **geometriske følgjer** har konstant kvotient $k$ og formel $a_n = a_1 k^{n-1}$. Begge kan skildrast **rekursivt** (steg for steg frå startverdi) eller **eksplisitt** (direkte hopp til ledd $n$) — og medikamentet $a_n = 400 \\cdot 0{,}75^n$ viste korleis logaritmar svarar på «når er nivået under …?»-spørsmål.\n\n**Konvergens** betyr at ledda nærmar seg ein grenseverdi $L$: geometriske følgjer konvergerer mot 0 når $|k| < 1$, brøkfølgjer blir temja ved å dele på høgaste potens av $n$, og rekursjonar $a_{n+1} = pa_n + q$ har likevekt $L = \\frac{q}{1-p}$, stabil når $|p| < 1$ — bevist elegant ved at avviksfølgja $b_n = a_n - L$ er geometrisk. Hugs fellene: oscillerande følgjer som $(-1)^n$ divergerer sjølv om dei er avgrensa.\n\nOg **sumformlane**: aritmetisk $S_n = \\frac{n}{2}(a_1 + a_n)$, geometrisk $S_n = a_1\\frac{k^n - 1}{k - 1}$, og den uendelege $S = \\frac{a_1}{1-k}$ for $|k| < 1$. Tre formlar, to følgjefamiliar, eitt spørsmål — kva er konstant, differansen eller forholdet? — og du kan modellere produksjon, medisin og sparing. Neste kapittel gjer tala synlege: figurtal, der følgjene blir geometri."
+    }
+  }
+}

@@ -1,1 +1,432 @@
-{"id":"10-11-2-narrativ","courseId":"10","chapterNumber":"11.2","title":"Programmering med Python","subtitle":"Forteljing","description":"Ein forteljing om ditt første møte med Python -- frå variablar og utskrift til løkkjer og lister, alt med matematiske døme.","estimatedMinutes":40,"competenceGoals":["utforske matematiske eigenskapar og samanhengjar ved å bruke programmering"],"linkedChapterId":"10-11-2","content":[{"id":"10-11-2-n-intro","type":"text","content":"## Velkomen til Python\n\nNo som du kan lage algoritmar med pseudokode, er det på tide å ta steget vidare til eit ekte programmeringsspråk! **Python** er eit av verda sine mest populære programmeringsspråk, og det er spesielt populært i matematikk og vitskap fordi det er lett å lære og kraftig å bruke.\n\nMed Python kan du la datamaskina gjere utrekningar for deg, teikne grafar, simulere tilfeldige hendingar og mykje meir. Det finest er at Python-kode liknar veldig på pseudokode -- så overgangen blir enkel.\n\nI dette kapitlet skal vi dekke alt du treng for å komme i gang: variablar og datatypar, utskrift og inndata, vilkår, løkkjer og lister. Alt med matematiske døme, sjølvsagt!"},{"id":"10-11-2-n-section1","type":"text","content":"## Variablar -- boksar for verdiar\n\nI Python er ein **variabel** eit namn som lagrar ein verdi. Tenk på det som ein merkt boks der du kan leggje noko oppi. Du lagar ein variabel ved å gi ho eit namn og ein verdi:\n\n```python\nalder = 15\nnamn = \"Emma\"\nhøgd = 1.68\ner_elev = True\n```\n\nPython har fleire **datatypar**: `int` for heiltall (som $42$ eller $-7$), `float` for desimaltal (som $3{,}14$ eller $0{,}5$), `str` for tekst (som `\"Hei\"`), og `bool` for sannheitsverdiar (`True` eller `False`). Merk at Python bruker **punktum** som desimalteikn, ikkje komma!\n\nFor å vise noko på skjermen bruker vi funksjonen `print()`:\n\n```python\nprint(\"Hei, verda!\")\nprint(42)\nprint(\"Svaret er\", 7 + 3)\n```\n\nEin spesielt nyttig funksjon er **f-strengar**, som let deg setje variablar rett inn i tekst:\n\n```python\nnamn = \"Ola\"\nalder = 15\nprint(f\"{namn} er {alder} år gamal.\")\n```\n\nDette gir utskrifta: `Ola er 15 år gamal.`\n\nLa oss prøve noko meir matematisk. Anta at vi vil berekne arealet av ein sirkel med radius $r = 5$:\n\n```python\nimport math\n\nradius = 5\nareal = math.pi * radius**2\nprint(f\"Arealet av sirkelen er {areal:.2f}\")\n```\n\nHer bruker vi `import math` for å få tilgang til $\\pi$, og `**2` betyr \"opphøgd i 2\". Utskrifta blir: `Arealet av sirkelen er 78.54`."},{"id":"10-11-2-n-quiz1","type":"exercise","exercise":{"id":"10-11-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på variablar og utskrift:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-2-n-quiz1-q0","task":"Kva er datatypen til verdien 3.14 i Python?","options":[{"id":"a","text":"int","isCorrect":false},{"id":"b","text":"str","isCorrect":false},{"id":"c","text":"float","isCorrect":true},{"id":"d","text":"bool","isCorrect":false}],"solution":"$3.14$ er eit desimaltal, og desimaltal har datatypen `float` i Python."},{"id":"10-11-2-n-quiz1-q1","task":"Kva skriv denne koden ut? print(f\"Summen er {3 + 4}\")","options":[{"id":"a","text":"Summen er {3 + 4}","isCorrect":false},{"id":"b","text":"Summen er 7","isCorrect":true},{"id":"c","text":"f\"Summen er 7\"","isCorrect":false},{"id":"d","text":"Feilmelding","isCorrect":false}],"solution":"I ein f-streng blir uttrykk inne i krøllparenteser rekna ut. $3 + 4 = 7$, så utskrifta blir \"Summen er 7\"."},{"id":"10-11-2-n-quiz1-q2","task":"Kva betyr `**` i Python?","options":[{"id":"a","text":"Multiplikasjon","isCorrect":false},{"id":"b","text":"Divisjon","isCorrect":false},{"id":"c","text":"Kommentar","isCorrect":false},{"id":"d","text":"Potens (opphøgd i)","isCorrect":true}],"solution":"I Python betyr `**` potens. For døme er `2**3` det same som $2^3 = 8$."}],"solution":""}},{"id":"10-11-2-n-section2","type":"text","content":"## Inndata og matematiske operatorar\n\nFor å lese inn data frå brukaren bruker vi `input()`. Denne funksjonen returnerer alltid ein **tekststreng**, så vi må konvertere til tal med `int()` eller `float()`:\n\n```python\nnamn = input(\"Kva heiter du? \")\nalder = int(input(\"Kor gamal er du? \"))\nhøgd = float(input(\"Kor høg er du (i meter)? \"))\n```\n\nPython har desse matematiske operatorane:\n\n- `+` addisjon, `-` subtraksjon, `*` multiplikasjon\n- `/` vanleg divisjon (gir desimaltal): $7 / 3 = 2{,}333...$\n- `//` heiltallsdivisjon: $7 // 3 = 2$\n- `%` modulo (rest): $7 \\% 3 = 1$\n- `**` potens: $2^3$ blir skriven `2**3`\n\nMerk skilnaden mellom `/` og `//`. Og `%` (modulo) gir resten -- det same som vi brukte i Euklids algoritme!\n\n## Vilkår -- når programmet tek val\n\n**Vilkår** let programmet ta val basert på kva som er sant. Vi bruker `if`, `elif` (forkortelse for \"else if\") og `else`:\n\n```python\ntall = int(input(\"Skriv inn eit tal: \"))\n\nif tall > 0:\n    print(\"Talet er positivt\")\nelif tall < 0:\n    print(\"Talet er negativt\")\nelse:\n    print(\"Talet er null\")\n```\n\nViktig: Legg merke til **innrykkjet** (4 mellomrom). Python bruker innrykk for å vise kva som høyrer til eit vilkår. Samanlikningsoperatorane er: `==` (lik), `!=` (ikkje lik), `>`, `<`, `>=` og `<=`.\n\nHer er eit klassisk døme -- sjekke om eit tal er partal eller oddetal:\n\n```python\ntall = int(input(\"Skriv inn eit heiltall: \"))\n\nif tall % 2 == 0:\n    print(f\"{tall} er eit partal\")\nelse:\n    print(f\"{tall} er eit oddetal\")\n```\n\nVi bruker `tall % 2` for å finne resten når talet blir delt på 2. Hvis resten er 0, er talet eit partal."},{"id":"10-11-2-n-quiz2","type":"exercise","exercise":{"id":"10-11-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på inndata og vilkår:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-2-n-quiz2-q0","task":"Kva er resultatet av 17 // 5 i Python?","options":[{"id":"a","text":"3.4","isCorrect":false},{"id":"b","text":"3","isCorrect":true},{"id":"c","text":"2","isCorrect":false},{"id":"d","text":"4","isCorrect":false}],"solution":"`//` er heiltallsdivisjon. $17 / 5 = 3{,}4$, men heiltallsdivisjon gir berre heiltallsdelen: $3$."},{"id":"10-11-2-n-quiz2-q1","task":"Kvi må vi bruke int() eller float() rundt input()?","options":[{"id":"a","text":"Fordi input() alltid returnerer ein tekststreng, og vi treng tal for å rekne","isCorrect":true},{"id":"b","text":"Fordi input() ikkje fungerer utan det","isCorrect":false},{"id":"c","text":"Fordi Python krev det for tryggleik","isCorrect":false},{"id":"d","text":"Det er valfritt -- ein treng det eigentleg ikkje","isCorrect":false}],"solution":"Funksjonen `input()` returnerer alltid ein tekststreng. Hvis vi vil rekne med verdien, må vi konvertere ho til tal med `int()` (heiltall) eller `float()` (desimaltal)."},{"id":"10-11-2-n-quiz2-q2","task":"Kva er 17 % 5 i Python?","options":[{"id":"a","text":"3","isCorrect":false},{"id":"b","text":"5","isCorrect":false},{"id":"c","text":"2","isCorrect":true},{"id":"d","text":"3.4","isCorrect":false}],"solution":"`%` er modulo (rest). $17 = 3 \\cdot 5 + 2$, så $17 \\% 5 = 2$."}],"solution":""}},{"id":"10-11-2-n-section3","type":"text","content":"## Løkkjer -- når kode gjentek seg\n\nEin av dei kraftigaste tingane med programmering er evna til å gjenta kode. Det finst to typar løkkjer i Python: **for-løkkjer** og **while-løkkjer**.\n\nEin **for-løkke** gjentek kode eit bestemt antal gonger. Vi bruker `range()`:\n\n```python\nfor i in range(5):\n    print(i)  # Skriv ut: 0, 1, 2, 3, 4\n```\n\n`range()` kan bli brukt på tre måtar: `range(n)` gir tal frå 0 til $n-1$, `range(a, b)` gir tal frå $a$ til $b-1$, og `range(a, b, steg)` gir tal med eit bestemt steg.\n\nLa oss bruke ein for-løkke til å berekne summen $1 + 2 + 3 + \\ldots + 100$:\n\n```python\nsum_tall = 0\nfor i in range(1, 101):\n    sum_tall = sum_tall + i\nprint(f\"Summen er {sum_tall}\")\n```\n\nUtskrifta er: `Summen er 5050`. Vi kan sjekke med formelen: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\nEin **while-løkke** gjentek kode så lenge eit vilkår er sant:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nPass på at vilkåret til slutt blir usant, elles får du ein **uendeleg løkke** (programmet stoppar aldri)!\n\n## Lister -- samlingar av verdiar\n\nEin **liste** er ei samling av verdiar i ein bestemt rekkjefølgje:\n\n```python\ntall = [3, 7, 1, 9, 4]\nnamn = [\"Ola\", \"Kari\", \"Per\"]\n```\n\nNyttige listeoperasjonar: `len(liste)` gir antal element, `liste[i]` gir element nummer $i$ (startar på 0!), `liste.append(x)` legg til eit element, `sum(liste)` gir summen, `min(liste)` gir minste element og `max(liste)` gir største.\n\nHer er eit program som finn gjennomsnittet av ei talliste:\n\n```python\ntall = [4, 7, 2, 9, 5, 8]\ngjennomsnitt = sum(tall) / len(tall)\nprint(f\"Gjennomsnittet er {gjennomsnitt:.2f}\")\n```\n\nUtskrift: `Gjennomsnittet er 5.83`. Manuell sjekk: $\\frac{4 + 7 + 2 + 9 + 5 + 8}{6} = \\frac{35}{6} \\approx 5{,}83$."},{"id":"10-11-2-n-quiz3","type":"exercise","exercise":{"id":"10-11-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på løkker og lister:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-2-n-quiz3-q0","task":"Kva gir range(2, 7)?","options":[{"id":"a","text":"2, 3, 4, 5, 6, 7","isCorrect":false},{"id":"b","text":"2, 3, 4, 5, 6","isCorrect":true},{"id":"c","text":"3, 4, 5, 6","isCorrect":false},{"id":"d","text":"2, 3, 4, 5","isCorrect":false}],"solution":"`range(2, 7)` gir tala frå 2 til $7 - 1 = 6$, altso $2, 3, 4, 5, 6$."},{"id":"10-11-2-n-quiz3-q1","task":"Gitt lista tal = [10, 20, 30, 40]. Kva er tal[1]?","options":[{"id":"a","text":"10","isCorrect":false},{"id":"b","text":"20","isCorrect":true},{"id":"c","text":"30","isCorrect":false},{"id":"d","text":"40","isCorrect":false}],"solution":"Lister i Python startar på indeks 0. tal[0] = 10, tal[1] = 20, tal[2] = 30, tal[3] = 40."},{"id":"10-11-2-n-quiz3-q2","task":"Kva skrivast ut? sum_t = 0. for i in range(1, 4): sum_t = sum_t + i. print(sum_t)","options":[{"id":"a","text":"10","isCorrect":false},{"id":"b","text":"3","isCorrect":false},{"id":"c","text":"6","isCorrect":true},{"id":"d","text":"4","isCorrect":false}],"solution":"`range(1, 4)` gir $1, 2, 3$. Summen: $0 + 1 + 2 + 3 = 6$."},{"id":"10-11-2-n-quiz3-q3","task":"Kva er skilnaden mellom ein for-løkke og ein while-løkke?","options":[{"id":"a","text":"Det er ingen skilnad","isCorrect":false},{"id":"b","text":"For-løkker kan berre telje oppover, while-løkker kan berre telje nedover","isCorrect":false},{"id":"c","text":"For-løkker gjentek eit bestemt tal gonger, while-løkker gjentek så lenge ein betingelse er sann","isCorrect":true},{"id":"d","text":"While-løkker er raskare enn for-løkker","isCorrect":false}],"solution":"For-løkker blir brukte når vi veit på førehand kor mange gonger vi skal gjenta. While-løkker blir brukte når vi gjentek så lenge ein betingelse er sann -- vi veit ikkje nødvendigvis talet gonger på førehand."}],"solution":""}},{"id":"10-11-2-n-summary","type":"text","content":"## Oppsummering\n\nDu har no lært det grunnleggjande i Python! Her er ein oversikt:\n\n- **Variablar** lagrar verdiar med datatypane `int` (heiltal), `float` (desimaltal), `str` (tekst) og `bool` (sanningsverdi). Bruk punktum som desimaltegn i Python.\n- `print()` skriv ut verdiar, og **f-strengar** (`f\"tekst {variabel}\"`) let deg setja variablar rett inn i tekst.\n- `input()` les inn data frå brukaren. Hugsa å konvertera til tal med `int()` eller `float()`.\n- **Betingelser** (`if`/`elif`/`else`) let programmet ta val basert på samanlikningar (`==`, `!=`, `>`, `<`, `>=`, `<=`). Innrykk er viktig!\n- **For-løkker** gjentek kode eit bestemt tal gonger med `range()`. Hugsa at `range(a, b)` går frå $a$ til $b - 1$.\n- **While-løkker** gjentek kode så lenge ein betingelse er sann. Pass på endelause løkker!\n- **Lister** samlar verdiar med nyttige funksjonar som `sum()`, `len()`, `min()`, `max()` og `append()`. Indeksering startar på 0.\n- Matematiske operatorar: `+`, `-`, `*`, `/` (divisjon), `//` (heiltalsdivisjon), `%` (modulo), `**` (potens)."}],"exercises":[],"_meta":{"sourceHash":"f8de895a57b87d33","translatedAt":"2026-06-16T09:39:59.448Z","model":"claude-haiku-4-5-20251001","strings":55,"tm":{"315b2cdc5d588f0e":"Programmering med Python","b195b06d1ed59702":"Forteljing","e436545cece4597d":"Ein forteljing om ditt første møte med Python -- frå variablar og utskrift til løkkjer og lister, alt med matematiske døme.","2f6a47f720b783b8":"utforske matematiske eigenskapar og samanhengjar ved å bruke programmering","232656ebf8258744":"## Velkomen til Python\n\nNo som du kan lage algoritmar med pseudokode, er det på tide å ta steget vidare til eit ekte programmeringsspråk! **Python** er eit av verda sine mest populære programmeringsspråk, og det er spesielt populært i matematikk og vitskap fordi det er lett å lære og kraftig å bruke.\n\nMed Python kan du la datamaskina gjere utrekningar for deg, teikne grafar, simulere tilfeldige hendingar og mykje meir. Det finest er at Python-kode liknar veldig på pseudokode -- så overgangen blir enkel.\n\nI dette kapitlet skal vi dekke alt du treng for å komme i gang: variablar og datatypar, utskrift og inndata, vilkår, løkkjer og lister. Alt med matematiske døme, sjølvsagt!","ce402cead2733894":"## Variablar -- boksar for verdiar\n\nI Python er ein **variabel** eit namn som lagrar ein verdi. Tenk på det som ein merkt boks der du kan leggje noko oppi. Du lagar ein variabel ved å gi ho eit namn og ein verdi:\n\n```python\nalder = 15\nnamn = \"Emma\"\nhøgd = 1.68\ner_elev = True\n```\n\nPython har fleire **datatypar**: `int` for heiltall (som $42$ eller $-7$), `float` for desimaltal (som $3{,}14$ eller $0{,}5$), `str` for tekst (som `\"Hei\"`), og `bool` for sannheitsverdiar (`True` eller `False`). Merk at Python bruker **punktum** som desimalteikn, ikkje komma!\n\nFor å vise noko på skjermen bruker vi funksjonen `print()`:\n\n```python\nprint(\"Hei, verda!\")\nprint(42)\nprint(\"Svaret er\", 7 + 3)\n```\n\nEin spesielt nyttig funksjon er **f-strengar**, som let deg setje variablar rett inn i tekst:\n\n```python\nnamn = \"Ola\"\nalder = 15\nprint(f\"{namn} er {alder} år gamal.\")\n```\n\nDette gir utskrifta: `Ola er 15 år gamal.`\n\nLa oss prøve noko meir matematisk. Anta at vi vil berekne arealet av ein sirkel med radius $r = 5$:\n\n```python\nimport math\n\nradius = 5\nareal = math.pi * radius**2\nprint(f\"Arealet av sirkelen er {areal:.2f}\")\n```\n\nHer bruker vi `import math` for å få tilgang til $\\pi$, og `**2` betyr \"opphøgd i 2\". Utskrifta blir: `Arealet av sirkelen er 78.54`.","f1bbf32753c96260":"Test deg sjølv på variablar og utskrift:","4097889236a2af26":"placeholder","f3421b23e53c31f3":"Kva er datatypen til verdien 3.14 i Python?","6da88c34ba124c41":"int","8c25cb3686462e9a":"str","76a7e234dc54e9c6":"float","b760f44fa5965c24":"bool","88a3d6cd8027dd6a":"$3.14$ er eit desimaltal, og desimaltal har datatypen `float` i Python.","c3f656903f9e3c16":"Kva skriv denne koden ut? print(f\"Summen er {3 + 4}\")","592957c99567e84c":"Summen er {3 + 4}","298a0d8c7df0a335":"Summen er 7","9ff025bce78536eb":"f\"Summen er 7\"","5b4cdfb1308286a1":"Feilmelding","1307540cc2d17ffa":"I ein f-streng blir uttrykk inne i krøllparenteser rekna ut. $3 + 4 = 7$, så utskrifta blir \"Summen er 7\".","115bbd7438db1eae":"Kva betyr `**` i Python?","86fe1545a033d1c7":"Multiplikasjon","68c04867be0f9bd1":"Divisjon","7284227d681d1b17":"Kommentar","0afda5751ba823f0":"Potens (opphøgd i)","b4baf0166435af4a":"I Python betyr `**` potens. For døme er `2**3` det same som $2^3 = 8$.","eefc56af9ced8877":"## Inndata og matematiske operatorar\n\nFor å lese inn data frå brukaren bruker vi `input()`. Denne funksjonen returnerer alltid ein **tekststreng**, så vi må konvertere til tal med `int()` eller `float()`:\n\n```python\nnamn = input(\"Kva heiter du? \")\nalder = int(input(\"Kor gamal er du? \"))\nhøgd = float(input(\"Kor høg er du (i meter)? \"))\n```\n\nPython har desse matematiske operatorane:\n\n- `+` addisjon, `-` subtraksjon, `*` multiplikasjon\n- `/` vanleg divisjon (gir desimaltal): $7 / 3 = 2{,}333...$\n- `//` heiltallsdivisjon: $7 // 3 = 2$\n- `%` modulo (rest): $7 \\% 3 = 1$\n- `**` potens: $2^3$ blir skriven `2**3`\n\nMerk skilnaden mellom `/` og `//`. Og `%` (modulo) gir resten -- det same som vi brukte i Euklids algoritme!\n\n## Vilkår -- når programmet tek val\n\n**Vilkår** let programmet ta val basert på kva som er sant. Vi bruker `if`, `elif` (forkortelse for \"else if\") og `else`:\n\n```python\ntall = int(input(\"Skriv inn eit tal: \"))\n\nif tall > 0:\n    print(\"Talet er positivt\")\nelif tall < 0:\n    print(\"Talet er negativt\")\nelse:\n    print(\"Talet er null\")\n```\n\nViktig: Legg merke til **innrykkjet** (4 mellomrom). Python bruker innrykk for å vise kva som høyrer til eit vilkår. Samanlikningsoperatorane er: `==` (lik), `!=` (ikkje lik), `>`, `<`, `>=` og `<=`.\n\nHer er eit klassisk døme -- sjekke om eit tal er partal eller oddetal:\n\n```python\ntall = int(input(\"Skriv inn eit heiltall: \"))\n\nif tall % 2 == 0:\n    print(f\"{tall} er eit partal\")\nelse:\n    print(f\"{tall} er eit oddetal\")\n```\n\nVi bruker `tall % 2` for å finne resten når talet blir delt på 2. Hvis resten er 0, er talet eit partal.","a6673873bb2f3446":"Test deg sjølv på inndata og vilkår:","56d34ee154747e25":"Kva er resultatet av 17 // 5 i Python?","113746bbdbe69530":"`//` er heiltallsdivisjon. $17 / 5 = 3{,}4$, men heiltallsdivisjon gir berre heiltallsdelen: $3$.","69dec8ea3754d373":"Kvi må vi bruke int() eller float() rundt input()?","a0cf57a5083c0e5f":"Fordi input() alltid returnerer ein tekststreng, og vi treng tal for å rekne","c93618f2f73a8c6c":"Fordi input() ikkje fungerer utan det","81ca0a517d277180":"Fordi Python krev det for tryggleik","389dc0b96162edc5":"Det er valfritt -- ein treng det eigentleg ikkje","b16ec73b51aad64a":"Funksjonen `input()` returnerer alltid ein tekststreng. Hvis vi vil rekne med verdien, må vi konvertere ho til tal med `int()` (heiltall) eller `float()` (desimaltal).","46748c0b63b20119":"Kva er 17 % 5 i Python?","2c2a3474572966c5":"`%` er modulo (rest). $17 = 3 \\cdot 5 + 2$, så $17 \\% 5 = 2$.","35646a4754a40c67":"## Løkkjer -- når kode gjentek seg\n\nEin av dei kraftigaste tingane med programmering er evna til å gjenta kode. Det finst to typar løkkjer i Python: **for-løkkjer** og **while-løkkjer**.\n\nEin **for-løkke** gjentek kode eit bestemt antal gonger. Vi bruker `range()`:\n\n```python\nfor i in range(5):\n    print(i)  # Skriv ut: 0, 1, 2, 3, 4\n```\n\n`range()` kan bli brukt på tre måtar: `range(n)` gir tal frå 0 til $n-1$, `range(a, b)` gir tal frå $a$ til $b-1$, og `range(a, b, steg)` gir tal med eit bestemt steg.\n\nLa oss bruke ein for-løkke til å berekne summen $1 + 2 + 3 + \\ldots + 100$:\n\n```python\nsum_tall = 0\nfor i in range(1, 101):\n    sum_tall = sum_tall + i\nprint(f\"Summen er {sum_tall}\")\n```\n\nUtskrifta er: `Summen er 5050`. Vi kan sjekke med formelen: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\nEin **while-løkke** gjentek kode så lenge eit vilkår er sant:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nPass på at vilkåret til slutt blir usant, elles får du ein **uendeleg løkke** (programmet stoppar aldri)!\n\n## Lister -- samlingar av verdiar\n\nEin **liste** er ei samling av verdiar i ein bestemt rekkjefølgje:\n\n```python\ntall = [3, 7, 1, 9, 4]\nnamn = [\"Ola\", \"Kari\", \"Per\"]\n```\n\nNyttige listeoperasjonar: `len(liste)` gir antal element, `liste[i]` gir element nummer $i$ (startar på 0!), `liste.append(x)` legg til eit element, `sum(liste)` gir summen, `min(liste)` gir minste element og `max(liste)` gir største.\n\nHer er eit program som finn gjennomsnittet av ei talliste:\n\n```python\ntall = [4, 7, 2, 9, 5, 8]\ngjennomsnitt = sum(tall) / len(tall)\nprint(f\"Gjennomsnittet er {gjennomsnitt:.2f}\")\n```\n\nUtskrift: `Gjennomsnittet er 5.83`. Manuell sjekk: $\\frac{4 + 7 + 2 + 9 + 5 + 8}{6} = \\frac{35}{6} \\approx 5{,}83$.","f1b888f4ab5d9ee9":"Test deg sjølv på løkker og lister:","cd50786b160599e5":"Kva gir range(2, 7)?","282a7b061b47abbb":"`range(2, 7)` gir tala frå 2 til $7 - 1 = 6$, altso $2, 3, 4, 5, 6$.","4d3470829d016967":"Gitt lista tal = [10, 20, 30, 40]. Kva er tal[1]?","eadce37cfff55361":"Lister i Python startar på indeks 0. tal[0] = 10, tal[1] = 20, tal[2] = 30, tal[3] = 40.","f570a056861efb2d":"Kva skrivast ut? sum_t = 0. for i in range(1, 4): sum_t = sum_t + i. print(sum_t)","fa59cbac291ac41c":"`range(1, 4)` gir $1, 2, 3$. Summen: $0 + 1 + 2 + 3 = 6$.","cc074af612cec06f":"Kva er skilnaden mellom ein for-løkke og ein while-løkke?","290d93c2e3522153":"Det er ingen skilnad","cc76710458e601d3":"For-løkker kan berre telje oppover, while-løkker kan berre telje nedover","2ccfb0d182283f34":"For-løkker gjentek eit bestemt tal gonger, while-løkker gjentek så lenge ein betingelse er sann","49d90c2af095f02e":"While-løkker er raskare enn for-løkker","49415e42b6ac55e6":"For-løkker blir brukte når vi veit på førehand kor mange gonger vi skal gjenta. While-løkker blir brukte når vi gjentek så lenge ein betingelse er sann -- vi veit ikkje nødvendigvis talet gonger på førehand.","504285fa78d639cf":"## Oppsummering\n\nDu har no lært det grunnleggjande i Python! Her er ein oversikt:\n\n- **Variablar** lagrar verdiar med datatypane `int` (heiltal), `float` (desimaltal), `str` (tekst) og `bool` (sanningsverdi). Bruk punktum som desimaltegn i Python.\n- `print()` skriv ut verdiar, og **f-strengar** (`f\"tekst {variabel}\"`) let deg setja variablar rett inn i tekst.\n- `input()` les inn data frå brukaren. Hugsa å konvertera til tal med `int()` eller `float()`.\n- **Betingelser** (`if`/`elif`/`else`) let programmet ta val basert på samanlikningar (`==`, `!=`, `>`, `<`, `>=`, `<=`). Innrykk er viktig!\n- **For-løkker** gjentek kode eit bestemt tal gonger med `range()`. Hugsa at `range(a, b)` går frå $a$ til $b - 1$.\n- **While-løkker** gjentek kode så lenge ein betingelse er sann. Pass på endelause løkker!\n- **Lister** samlar verdiar med nyttige funksjonar som `sum()`, `len()`, `min()`, `max()` og `append()`. Indeksering startar på 0.\n- Matematiske operatorar: `+`, `-`, `*`, `/` (divisjon), `//` (heiltalsdivisjon), `%` (modulo), `**` (potens)."}}}
+{
+  "id": "10-11-2-narrativ",
+  "courseId": "10",
+  "chapterNumber": "11.2",
+  "title": "Programmering med Python",
+  "subtitle": "Forteljing",
+  "description": "Ein forteljing om ditt første møte med Python -- frå variablar og utskrift til løkkjer og lister, alt med matematiske døme.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "utforske matematiske eigenskapar og samanhengjar ved å bruke programmering"
+  ],
+  "linkedChapterId": "10-11-2",
+  "content": [
+    {
+      "id": "10-11-2-n-intro",
+      "type": "text",
+      "content": "## Velkomen til Python\n\nNo som du kan lage algoritmar med pseudokode, er det på tide å ta steget vidare til eit ekte programmeringsspråk! **Python** er eit av verda sine mest populære programmeringsspråk, og det er spesielt populært i matematikk og vitskap fordi det er lett å lære og kraftig å bruke.\n\nMed Python kan du la datamaskina gjere utrekningar for deg, teikne grafar, simulere tilfeldige hendingar og mykje meir. Det finest er at Python-kode liknar veldig på pseudokode -- så overgangen blir enkel.\n\nI dette kapitlet skal vi dekke alt du treng for å komme i gang: variablar og datatypar, utskrift og inndata, vilkår, løkkjer og lister. Alt med matematiske døme, sjølvsagt!"
+    },
+    {
+      "id": "10-11-2-n-section1",
+      "type": "text",
+      "content": "## Variablar -- boksar for verdiar\n\nI Python er ein **variabel** eit namn som lagrar ein verdi. Tenk på det som ein merkt boks der du kan leggje noko oppi. Du lagar ein variabel ved å gi ho eit namn og ein verdi:\n\n```python\nalder = 15\nnamn = \"Emma\"\nhøgd = 1.68\ner_elev = True\n```\n\nPython har fleire **datatypar**: `int` for heiltall (som $42$ eller $-7$), `float` for desimaltal (som $3{,}14$ eller $0{,}5$), `str` for tekst (som `\"Hei\"`), og `bool` for sannheitsverdiar (`True` eller `False`). Merk at Python bruker **punktum** som desimalteikn, ikkje komma!\n\nFor å vise noko på skjermen bruker vi funksjonen `print()`:\n\n```python\nprint(\"Hei, verda!\")\nprint(42)\nprint(\"Svaret er\", 7 + 3)\n```\n\nEin spesielt nyttig funksjon er **f-strengar**, som let deg setje variablar rett inn i tekst:\n\n```python\nnamn = \"Ola\"\nalder = 15\nprint(f\"{namn} er {alder} år gamal.\")\n```\n\nDette gir utskrifta: `Ola er 15 år gamal.`\n\nLa oss prøve noko meir matematisk. Anta at vi vil berekne arealet av ein sirkel med radius $r = 5$:\n\n```python\nimport math\n\nradius = 5\nareal = math.pi * radius**2\nprint(f\"Arealet av sirkelen er {areal:.2f}\")\n```\n\nHer bruker vi `import math` for å få tilgang til $\\pi$, og `**2` betyr \"opphøgd i 2\". Utskrifta blir: `Arealet av sirkelen er 78.54`."
+    },
+    {
+      "id": "10-11-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på variablar og utskrift:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-2-n-quiz1-q0",
+            "task": "Kva er datatypen til verdien 3.14 i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "int",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "str",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "float",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "bool",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$3.14$ er eit desimaltal, og desimaltal har datatypen `float` i Python."
+          },
+          {
+            "id": "10-11-2-n-quiz1-q1",
+            "task": "Kva skriv denne koden ut? print(f\"Summen er {3 + 4}\")",
+            "options": [
+              {
+                "id": "a",
+                "text": "Summen er {3 + 4}",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "f\"Summen er 7\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Summen er 7",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I ein f-streng blir uttrykk inne i krøllparenteser rekna ut. $3 + 4 = 7$, så utskrifta blir \"Summen er 7\"."
+          },
+          {
+            "id": "10-11-2-n-quiz1-q2",
+            "task": "Kva betyr `**` i Python?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Potens (opphøgd i)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Multiplikasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Divisjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kommentar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I Python betyr `**` potens. For døme er `2**3` det same som $2^3 = 8$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-2-n-section2",
+      "type": "text",
+      "content": "## Inndata og matematiske operatorar\n\nFor å lese inn data frå brukaren bruker vi `input()`. Denne funksjonen returnerer alltid ein **tekststreng**, så vi må konvertere til tal med `int()` eller `float()`:\n\n```python\nnamn = input(\"Kva heiter du? \")\nalder = int(input(\"Kor gamal er du? \"))\nhøgd = float(input(\"Kor høg er du (i meter)? \"))\n```\n\nPython har desse matematiske operatorane:\n\n- `+` addisjon, `-` subtraksjon, `*` multiplikasjon\n- `/` vanleg divisjon (gir desimaltal): $7 / 3 = 2{,}333...$\n- `//` heiltallsdivisjon: $7 // 3 = 2$\n- `%` modulo (rest): $7 \\% 3 = 1$\n- `**` potens: $2^3$ blir skriven `2**3`\n\nMerk skilnaden mellom `/` og `//`. Og `%` (modulo) gir resten -- det same som vi brukte i Euklids algoritme!\n\n## Vilkår -- når programmet tek val\n\n**Vilkår** let programmet ta val basert på kva som er sant. Vi bruker `if`, `elif` (forkortelse for \"else if\") og `else`:\n\n```python\ntall = int(input(\"Skriv inn eit tal: \"))\n\nif tall > 0:\n    print(\"Talet er positivt\")\nelif tall < 0:\n    print(\"Talet er negativt\")\nelse:\n    print(\"Talet er null\")\n```\n\nViktig: Legg merke til **innrykkjet** (4 mellomrom). Python bruker innrykk for å vise kva som høyrer til eit vilkår. Samanlikningsoperatorane er: `==` (lik), `!=` (ikkje lik), `>`, `<`, `>=` og `<=`.\n\nHer er eit klassisk døme -- sjekke om eit tal er partal eller oddetal:\n\n```python\ntall = int(input(\"Skriv inn eit heiltall: \"))\n\nif tall % 2 == 0:\n    print(f\"{tall} er eit partal\")\nelse:\n    print(f\"{tall} er eit oddetal\")\n```\n\nVi bruker `tall % 2` for å finne resten når talet blir delt på 2. Hvis resten er 0, er talet eit partal."
+    },
+    {
+      "id": "10-11-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på inndata og vilkår:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-2-n-quiz2-q0",
+            "task": "Kva er resultatet av 17 // 5 i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3.4",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "4",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`//` er heiltallsdivisjon. $17 / 5 = 3{,}4$, men heiltallsdivisjon gir berre heiltallsdelen: $3$."
+          },
+          {
+            "id": "10-11-2-n-quiz2-q1",
+            "task": "Kvi må vi bruke int() eller float() rundt input()?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi input() ikkje fungerer utan det",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi Python krev det for tryggleik",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi input() alltid returnerer ein tekststreng, og vi treng tal for å rekne",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er valfritt -- ein treng det eigentleg ikkje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonen `input()` returnerer alltid ein tekststreng. Hvis vi vil rekne med verdien, må vi konvertere ho til tal med `int()` (heiltall) eller `float()` (desimaltal)."
+          },
+          {
+            "id": "10-11-2-n-quiz2-q2",
+            "task": "Kva er 17 % 5 i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "5",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "3.4",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "2",
+                "isCorrect": true
+              }
+            ],
+            "solution": "`%` er modulo (rest). $17 = 3 \\cdot 5 + 2$, så $17 \\% 5 = 2$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-2-n-section3",
+      "type": "text",
+      "content": "## Løkkjer -- når kode gjentek seg\n\nEin av dei kraftigaste tingane med programmering er evna til å gjenta kode. Det finst to typar løkkjer i Python: **for-løkkjer** og **while-løkkjer**.\n\nEin **for-løkke** gjentek kode eit bestemt antal gonger. Vi bruker `range()`:\n\n```python\nfor i in range(5):\n    print(i)  # Skriv ut: 0, 1, 2, 3, 4\n```\n\n`range()` kan bli brukt på tre måtar: `range(n)` gir tal frå 0 til $n-1$, `range(a, b)` gir tal frå $a$ til $b-1$, og `range(a, b, steg)` gir tal med eit bestemt steg.\n\nLa oss bruke ein for-løkke til å berekne summen $1 + 2 + 3 + \\ldots + 100$:\n\n```python\nsum_tall = 0\nfor i in range(1, 101):\n    sum_tall = sum_tall + i\nprint(f\"Summen er {sum_tall}\")\n```\n\nUtskrifta er: `Summen er 5050`. Vi kan sjekke med formelen: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\nEin **while-løkke** gjentek kode så lenge eit vilkår er sant:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nPass på at vilkåret til slutt blir usant, elles får du ein **uendeleg løkke** (programmet stoppar aldri)!\n\n## Lister -- samlingar av verdiar\n\nEin **liste** er ei samling av verdiar i ein bestemt rekkjefølgje:\n\n```python\ntall = [3, 7, 1, 9, 4]\nnamn = [\"Ola\", \"Kari\", \"Per\"]\n```\n\nNyttige listeoperasjonar: `len(liste)` gir antal element, `liste[i]` gir element nummer $i$ (startar på 0!), `liste.append(x)` legg til eit element, `sum(liste)` gir summen, `min(liste)` gir minste element og `max(liste)` gir største.\n\nHer er eit program som finn gjennomsnittet av ei talliste:\n\n```python\ntall = [4, 7, 2, 9, 5, 8]\ngjennomsnitt = sum(tall) / len(tall)\nprint(f\"Gjennomsnittet er {gjennomsnitt:.2f}\")\n```\n\nUtskrift: `Gjennomsnittet er 5.83`. Manuell sjekk: $\\frac{4 + 7 + 2 + 9 + 5 + 8}{6} = \\frac{35}{6} \\approx 5{,}83$."
+    },
+    {
+      "id": "10-11-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på løkker og lister:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-2-n-quiz3-q0",
+            "task": "Kva gir range(2, 7)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "2, 3, 4, 5, 6",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "2, 3, 4, 5, 6, 7",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "3, 4, 5, 6",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "2, 3, 4, 5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`range(2, 7)` gir tala frå 2 til $7 - 1 = 6$, altso $2, 3, 4, 5, 6$."
+          },
+          {
+            "id": "10-11-2-n-quiz3-q1",
+            "task": "Gitt lista tal = [10, 20, 30, 40]. Kva er tal[1]?",
+            "options": [
+              {
+                "id": "a",
+                "text": "10",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "20",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "30",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "40",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lister i Python startar på indeks 0. tal[0] = 10, tal[1] = 20, tal[2] = 30, tal[3] = 40."
+          },
+          {
+            "id": "10-11-2-n-quiz3-q2",
+            "task": "Kva skrivast ut? sum_t = 0. for i in range(1, 4): sum_t = sum_t + i. print(sum_t)",
+            "options": [
+              {
+                "id": "a",
+                "text": "10",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "6",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "4",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`range(1, 4)` gir $1, 2, 3$. Summen: $0 + 1 + 2 + 3 = 6$."
+          },
+          {
+            "id": "10-11-2-n-quiz3-q3",
+            "task": "Kva er skilnaden mellom ein for-løkke og ein while-løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For-løkker kan berre telje oppover, while-løkker kan berre telje nedover",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "While-løkker er raskare enn for-løkker",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For-løkker gjentek eit bestemt tal gonger, while-løkker gjentek så lenge ein betingelse er sann",
+                "isCorrect": true
+              }
+            ],
+            "solution": "For-løkker blir brukte når vi veit på førehand kor mange gonger vi skal gjenta. While-løkker blir brukte når vi gjentek så lenge ein betingelse er sann -- vi veit ikkje nødvendigvis talet gonger på førehand."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nDu har no lært det grunnleggjande i Python! Her er ein oversikt:\n\n- **Variablar** lagrar verdiar med datatypane `int` (heiltal), `float` (desimaltal), `str` (tekst) og `bool` (sanningsverdi). Bruk punktum som desimaltegn i Python.\n- `print()` skriv ut verdiar, og **f-strengar** (`f\"tekst {variabel}\"`) let deg setja variablar rett inn i tekst.\n- `input()` les inn data frå brukaren. Hugsa å konvertera til tal med `int()` eller `float()`.\n- **Betingelser** (`if`/`elif`/`else`) let programmet ta val basert på samanlikningar (`==`, `!=`, `>`, `<`, `>=`, `<=`). Innrykk er viktig!\n- **For-løkker** gjentek kode eit bestemt tal gonger med `range()`. Hugsa at `range(a, b)` går frå $a$ til $b - 1$.\n- **While-løkker** gjentek kode så lenge ein betingelse er sann. Pass på endelause løkker!\n- **Lister** samlar verdiar med nyttige funksjonar som `sum()`, `len()`, `min()`, `max()` og `append()`. Indeksering startar på 0.\n- Matematiske operatorar: `+`, `-`, `*`, `/` (divisjon), `//` (heiltalsdivisjon), `%` (modulo), `**` (potens)."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f8de895a57b87d33",
+    "translatedAt": "2026-06-16T09:39:59.448Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 55,
+    "tm": {
+      "315b2cdc5d588f0e": "Programmering med Python",
+      "b195b06d1ed59702": "Forteljing",
+      "e436545cece4597d": "Ein forteljing om ditt første møte med Python -- frå variablar og utskrift til løkkjer og lister, alt med matematiske døme.",
+      "2f6a47f720b783b8": "utforske matematiske eigenskapar og samanhengjar ved å bruke programmering",
+      "232656ebf8258744": "## Velkomen til Python\n\nNo som du kan lage algoritmar med pseudokode, er det på tide å ta steget vidare til eit ekte programmeringsspråk! **Python** er eit av verda sine mest populære programmeringsspråk, og det er spesielt populært i matematikk og vitskap fordi det er lett å lære og kraftig å bruke.\n\nMed Python kan du la datamaskina gjere utrekningar for deg, teikne grafar, simulere tilfeldige hendingar og mykje meir. Det finest er at Python-kode liknar veldig på pseudokode -- så overgangen blir enkel.\n\nI dette kapitlet skal vi dekke alt du treng for å komme i gang: variablar og datatypar, utskrift og inndata, vilkår, løkkjer og lister. Alt med matematiske døme, sjølvsagt!",
+      "ce402cead2733894": "## Variablar -- boksar for verdiar\n\nI Python er ein **variabel** eit namn som lagrar ein verdi. Tenk på det som ein merkt boks der du kan leggje noko oppi. Du lagar ein variabel ved å gi ho eit namn og ein verdi:\n\n```python\nalder = 15\nnamn = \"Emma\"\nhøgd = 1.68\ner_elev = True\n```\n\nPython har fleire **datatypar**: `int` for heiltall (som $42$ eller $-7$), `float` for desimaltal (som $3{,}14$ eller $0{,}5$), `str` for tekst (som `\"Hei\"`), og `bool` for sannheitsverdiar (`True` eller `False`). Merk at Python bruker **punktum** som desimalteikn, ikkje komma!\n\nFor å vise noko på skjermen bruker vi funksjonen `print()`:\n\n```python\nprint(\"Hei, verda!\")\nprint(42)\nprint(\"Svaret er\", 7 + 3)\n```\n\nEin spesielt nyttig funksjon er **f-strengar**, som let deg setje variablar rett inn i tekst:\n\n```python\nnamn = \"Ola\"\nalder = 15\nprint(f\"{namn} er {alder} år gamal.\")\n```\n\nDette gir utskrifta: `Ola er 15 år gamal.`\n\nLa oss prøve noko meir matematisk. Anta at vi vil berekne arealet av ein sirkel med radius $r = 5$:\n\n```python\nimport math\n\nradius = 5\nareal = math.pi * radius**2\nprint(f\"Arealet av sirkelen er {areal:.2f}\")\n```\n\nHer bruker vi `import math` for å få tilgang til $\\pi$, og `**2` betyr \"opphøgd i 2\". Utskrifta blir: `Arealet av sirkelen er 78.54`.",
+      "f1bbf32753c96260": "Test deg sjølv på variablar og utskrift:",
+      "4097889236a2af26": "placeholder",
+      "f3421b23e53c31f3": "Kva er datatypen til verdien 3.14 i Python?",
+      "6da88c34ba124c41": "int",
+      "8c25cb3686462e9a": "str",
+      "76a7e234dc54e9c6": "float",
+      "b760f44fa5965c24": "bool",
+      "88a3d6cd8027dd6a": "$3.14$ er eit desimaltal, og desimaltal har datatypen `float` i Python.",
+      "c3f656903f9e3c16": "Kva skriv denne koden ut? print(f\"Summen er {3 + 4}\")",
+      "592957c99567e84c": "Summen er {3 + 4}",
+      "298a0d8c7df0a335": "Summen er 7",
+      "9ff025bce78536eb": "f\"Summen er 7\"",
+      "5b4cdfb1308286a1": "Feilmelding",
+      "1307540cc2d17ffa": "I ein f-streng blir uttrykk inne i krøllparenteser rekna ut. $3 + 4 = 7$, så utskrifta blir \"Summen er 7\".",
+      "115bbd7438db1eae": "Kva betyr `**` i Python?",
+      "86fe1545a033d1c7": "Multiplikasjon",
+      "68c04867be0f9bd1": "Divisjon",
+      "7284227d681d1b17": "Kommentar",
+      "0afda5751ba823f0": "Potens (opphøgd i)",
+      "b4baf0166435af4a": "I Python betyr `**` potens. For døme er `2**3` det same som $2^3 = 8$.",
+      "eefc56af9ced8877": "## Inndata og matematiske operatorar\n\nFor å lese inn data frå brukaren bruker vi `input()`. Denne funksjonen returnerer alltid ein **tekststreng**, så vi må konvertere til tal med `int()` eller `float()`:\n\n```python\nnamn = input(\"Kva heiter du? \")\nalder = int(input(\"Kor gamal er du? \"))\nhøgd = float(input(\"Kor høg er du (i meter)? \"))\n```\n\nPython har desse matematiske operatorane:\n\n- `+` addisjon, `-` subtraksjon, `*` multiplikasjon\n- `/` vanleg divisjon (gir desimaltal): $7 / 3 = 2{,}333...$\n- `//` heiltallsdivisjon: $7 // 3 = 2$\n- `%` modulo (rest): $7 \\% 3 = 1$\n- `**` potens: $2^3$ blir skriven `2**3`\n\nMerk skilnaden mellom `/` og `//`. Og `%` (modulo) gir resten -- det same som vi brukte i Euklids algoritme!\n\n## Vilkår -- når programmet tek val\n\n**Vilkår** let programmet ta val basert på kva som er sant. Vi bruker `if`, `elif` (forkortelse for \"else if\") og `else`:\n\n```python\ntall = int(input(\"Skriv inn eit tal: \"))\n\nif tall > 0:\n    print(\"Talet er positivt\")\nelif tall < 0:\n    print(\"Talet er negativt\")\nelse:\n    print(\"Talet er null\")\n```\n\nViktig: Legg merke til **innrykkjet** (4 mellomrom). Python bruker innrykk for å vise kva som høyrer til eit vilkår. Samanlikningsoperatorane er: `==` (lik), `!=` (ikkje lik), `>`, `<`, `>=` og `<=`.\n\nHer er eit klassisk døme -- sjekke om eit tal er partal eller oddetal:\n\n```python\ntall = int(input(\"Skriv inn eit heiltall: \"))\n\nif tall % 2 == 0:\n    print(f\"{tall} er eit partal\")\nelse:\n    print(f\"{tall} er eit oddetal\")\n```\n\nVi bruker `tall % 2` for å finne resten når talet blir delt på 2. Hvis resten er 0, er talet eit partal.",
+      "a6673873bb2f3446": "Test deg sjølv på inndata og vilkår:",
+      "56d34ee154747e25": "Kva er resultatet av 17 // 5 i Python?",
+      "113746bbdbe69530": "`//` er heiltallsdivisjon. $17 / 5 = 3{,}4$, men heiltallsdivisjon gir berre heiltallsdelen: $3$.",
+      "69dec8ea3754d373": "Kvi må vi bruke int() eller float() rundt input()?",
+      "a0cf57a5083c0e5f": "Fordi input() alltid returnerer ein tekststreng, og vi treng tal for å rekne",
+      "c93618f2f73a8c6c": "Fordi input() ikkje fungerer utan det",
+      "81ca0a517d277180": "Fordi Python krev det for tryggleik",
+      "389dc0b96162edc5": "Det er valfritt -- ein treng det eigentleg ikkje",
+      "b16ec73b51aad64a": "Funksjonen `input()` returnerer alltid ein tekststreng. Hvis vi vil rekne med verdien, må vi konvertere ho til tal med `int()` (heiltall) eller `float()` (desimaltal).",
+      "46748c0b63b20119": "Kva er 17 % 5 i Python?",
+      "2c2a3474572966c5": "`%` er modulo (rest). $17 = 3 \\cdot 5 + 2$, så $17 \\% 5 = 2$.",
+      "35646a4754a40c67": "## Løkkjer -- når kode gjentek seg\n\nEin av dei kraftigaste tingane med programmering er evna til å gjenta kode. Det finst to typar løkkjer i Python: **for-løkkjer** og **while-løkkjer**.\n\nEin **for-løkke** gjentek kode eit bestemt antal gonger. Vi bruker `range()`:\n\n```python\nfor i in range(5):\n    print(i)  # Skriv ut: 0, 1, 2, 3, 4\n```\n\n`range()` kan bli brukt på tre måtar: `range(n)` gir tal frå 0 til $n-1$, `range(a, b)` gir tal frå $a$ til $b-1$, og `range(a, b, steg)` gir tal med eit bestemt steg.\n\nLa oss bruke ein for-løkke til å berekne summen $1 + 2 + 3 + \\ldots + 100$:\n\n```python\nsum_tall = 0\nfor i in range(1, 101):\n    sum_tall = sum_tall + i\nprint(f\"Summen er {sum_tall}\")\n```\n\nUtskrifta er: `Summen er 5050`. Vi kan sjekke med formelen: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\nEin **while-løkke** gjentek kode så lenge eit vilkår er sant:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nPass på at vilkåret til slutt blir usant, elles får du ein **uendeleg løkke** (programmet stoppar aldri)!\n\n## Lister -- samlingar av verdiar\n\nEin **liste** er ei samling av verdiar i ein bestemt rekkjefølgje:\n\n```python\ntall = [3, 7, 1, 9, 4]\nnamn = [\"Ola\", \"Kari\", \"Per\"]\n```\n\nNyttige listeoperasjonar: `len(liste)` gir antal element, `liste[i]` gir element nummer $i$ (startar på 0!), `liste.append(x)` legg til eit element, `sum(liste)` gir summen, `min(liste)` gir minste element og `max(liste)` gir største.\n\nHer er eit program som finn gjennomsnittet av ei talliste:\n\n```python\ntall = [4, 7, 2, 9, 5, 8]\ngjennomsnitt = sum(tall) / len(tall)\nprint(f\"Gjennomsnittet er {gjennomsnitt:.2f}\")\n```\n\nUtskrift: `Gjennomsnittet er 5.83`. Manuell sjekk: $\\frac{4 + 7 + 2 + 9 + 5 + 8}{6} = \\frac{35}{6} \\approx 5{,}83$.",
+      "f1b888f4ab5d9ee9": "Test deg sjølv på løkker og lister:",
+      "cd50786b160599e5": "Kva gir range(2, 7)?",
+      "282a7b061b47abbb": "`range(2, 7)` gir tala frå 2 til $7 - 1 = 6$, altso $2, 3, 4, 5, 6$.",
+      "4d3470829d016967": "Gitt lista tal = [10, 20, 30, 40]. Kva er tal[1]?",
+      "eadce37cfff55361": "Lister i Python startar på indeks 0. tal[0] = 10, tal[1] = 20, tal[2] = 30, tal[3] = 40.",
+      "f570a056861efb2d": "Kva skrivast ut? sum_t = 0. for i in range(1, 4): sum_t = sum_t + i. print(sum_t)",
+      "fa59cbac291ac41c": "`range(1, 4)` gir $1, 2, 3$. Summen: $0 + 1 + 2 + 3 = 6$.",
+      "cc074af612cec06f": "Kva er skilnaden mellom ein for-løkke og ein while-løkke?",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "cc76710458e601d3": "For-løkker kan berre telje oppover, while-løkker kan berre telje nedover",
+      "2ccfb0d182283f34": "For-løkker gjentek eit bestemt tal gonger, while-løkker gjentek så lenge ein betingelse er sann",
+      "49d90c2af095f02e": "While-løkker er raskare enn for-løkker",
+      "49415e42b6ac55e6": "For-løkker blir brukte når vi veit på førehand kor mange gonger vi skal gjenta. While-løkker blir brukte når vi gjentek så lenge ein betingelse er sann -- vi veit ikkje nødvendigvis talet gonger på førehand.",
+      "504285fa78d639cf": "## Oppsummering\n\nDu har no lært det grunnleggjande i Python! Her er ein oversikt:\n\n- **Variablar** lagrar verdiar med datatypane `int` (heiltal), `float` (desimaltal), `str` (tekst) og `bool` (sanningsverdi). Bruk punktum som desimaltegn i Python.\n- `print()` skriv ut verdiar, og **f-strengar** (`f\"tekst {variabel}\"`) let deg setja variablar rett inn i tekst.\n- `input()` les inn data frå brukaren. Hugsa å konvertera til tal med `int()` eller `float()`.\n- **Betingelser** (`if`/`elif`/`else`) let programmet ta val basert på samanlikningar (`==`, `!=`, `>`, `<`, `>=`, `<=`). Innrykk er viktig!\n- **For-løkker** gjentek kode eit bestemt tal gonger med `range()`. Hugsa at `range(a, b)` går frå $a$ til $b - 1$.\n- **While-løkker** gjentek kode så lenge ein betingelse er sann. Pass på endelause løkker!\n- **Lister** samlar verdiar med nyttige funksjonar som `sum()`, `len()`, `min()`, `max()` og `append()`. Indeksering startar på 0.\n- Matematiske operatorar: `+`, `-`, `*`, `/` (divisjon), `//` (heiltalsdivisjon), `%` (modulo), `**` (potens)."
+    }
+  }
+}

@@ -1,1 +1,421 @@
-{"id":"2p-4-3-narrativ","courseId":"2p","chapterNumber":"4.3","title":"Binomisk sannsynlighet","subtitle":"Narrativ versjon","description":"Kaste mynt ti ganger, skyte straffekast i basketball, gjette på en prøve -- når forsøk gjentas med to mulige utfall, har vi et mønster som matematikken kan fange. Velkommen til binomisk sannsynlighet.","estimatedMinutes":40,"competenceGoals":["forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"],"linkedChapterId":"2p-4-3","content":[{"id":"2p-4-3-n-intro","type":"text","content":"## Suksess eller fiasko -- gang på gang\n\nForestill deg en basketballspiller ved frikaststreken. Hun har trent i årevis, og treffprosenten hennes er 70 prosent. I kveld skal hun ta 20 straffekast. Hvor mange treff er det rimelig å forvente? Hva er sjansen for at hun treffer alle 20? Og hva er sjansen for at hun treffer minst 15?\n\nEller tenk på en annen situasjon: Du sitter på en eksamen med 12 flervalgsoppgaver, hvert spørsmål har 4 alternativer, og du har *ingen anelse* om svaret. Du gjetter tilfeldig på alle. Hva er sjansen for å bestå?\n\nBegge disse situasjonene har noe til felles: Vi gjentar det samme forsøket mange ganger, og hvert forsøk har bare to mulige utfall -- suksess eller fiasko, treff eller bom, riktig eller galt. Denne typen situasjon dukker opp overalt, og matematikken har utviklet et elegant verktøy for å håndtere den: **binomisk sannsynlighet**. Det er det vi skal utforske nå."},{"id":"2p-4-3-n-section1","type":"text","content":"## De fire kjennetegnene ved et binomisk forsøk\n\nIkke alle gjentatte forsøk er binomiske. Et **binomisk forsøk** har fire helt spesifikke kjennetegn, og alle fire må være oppfylt.\n\nFor det første: Det må være et **fast antall forsøk** $n$. Du bestemmer på forhånd at du kaster terningen 8 ganger, tar 20 straffekast, eller svarer på 12 spørsmål. Antallet er bestemt før forsøket starter.\n\nFor det andre: Hvert forsøk har nøyaktig **to mulige utfall** -- det vi kaller \"suksess\" og \"fiasko\". Hva som er suksess, bestemmer du selv ut fra hva du er interessert i. Kaster du terning og teller seksere, er \"sekser\" suksess og alt annet fiasko. Svarer du på sant/usant-spørsmål, er \"riktig\" suksess.\n\nFor det tredje: Sannsynligheten $p$ for suksess er **den samme i hvert forsøk**. Treffprosenten er $\\frac{1}{6}$ for sekser i hvert kast, $0{,}5$ for riktig på sant/usant, og $0{,}70$ for treff på hvert straffekast.\n\nFor det fjerde: Forsøkene er **uavhengige** -- utfallet i ett forsøk påvirker ikke de andre. Det du fikk på forrige terningkast, endrer ikke sjansene i neste.\n\nNår alle fire er oppfylt, sier vi at den stokastiske variabelen $X$ = \"antall suksesser\" følger en **binomisk fordeling**, og vi skriver $X \\sim \\text{Bin}(n, p)$.\n\nLa oss sjekke noen eksempler. Å kaste en terning 8 ganger og telle seksere: Ja, det er binomisk -- $n = 8$, $p = \\frac{1}{6}$, uavhengige kast. Å trekke 5 kort fra en kortstokk uten tilbakelegging og telle ess: *Nei*, ikke binomisk, fordi trekking uten tilbakelegging gjør forsøkene avhengige (sannsynligheten endrer seg for hvert trekk). Å svare på 12 sant/usant-spørsmål ved ren gjetting: Ja, binomisk -- $n = 12$, $p = 0{,}5$, uavhengige gjetninger."},{"id":"2p-4-3-n-quiz1","type":"exercise","exercise":{"id":"2p-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på binomiske forsøk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-3-n-quiz1-q0","task":"Hvilket av følgende er et binomisk forsøk?","options":[{"id":"a","text":"Måle høyden til 30 tilfeldig valgte elever","isCorrect":false},{"id":"b","text":"Trekke 10 kuler fra en pose med 20 kuler uten tilbakelegging","isCorrect":false},{"id":"c","text":"Kaste en mynt 50 ganger og telle antall krone","isCorrect":true},{"id":"d","text":"Telle antall biler som passerer et punkt i løpet av en time","isCorrect":false}],"solution":"Myntkast 50 ganger oppfyller alle fire krav: fast $n = 50$, to utfall (krone/mynt), fast $p = 0{,}5$, uavhengige kast."},{"id":"2p-4-3-n-quiz1-q1","task":"Hvorfor er trekking av 5 kort fra en kortstokk uten tilbakelegging IKKE et binomisk forsøk?","options":[{"id":"a","text":"Fordi det ikke er to utfall","isCorrect":false},{"id":"b","text":"Fordi forsøkene ikke er uavhengige -- sannsynligheten endres for hvert trekk","isCorrect":true},{"id":"c","text":"Fordi $n$ ikke er fast","isCorrect":false},{"id":"d","text":"Fordi $p$ er for liten","isCorrect":false}],"solution":"Uten tilbakelegging endres sannsynligheten for hvert trekk (f.eks. sjansen for ess endres fra $\\frac{4}{52}$ til $\\frac{3}{51}$ etter at et ess er trukket). Forsøkene er altså *avhengige*, og kravet om uavhengighet brytes."}],"solution":""}},{"id":"2p-4-3-n-section2","type":"text","content":"## Den binomiske formelen -- matematikken bak mønsteret\n\nNå som vi vet hva et binomisk forsøk er, trenger vi en formel for å beregne sannsynligheter. Formelen for sannsynligheten for nøyaktig $k$ suksesser i $n$ forsøk med suksesssannsynlighet $p$ er:\n\n$$P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}$$\n\nLa oss forstå hva hver del betyr. Faktoren $p^k$ er sannsynligheten for $k$ suksesser -- for eksempel sjansen for at nøyaktig 2 terningkast gir sekser. Faktoren $(1-p)^{n-k}$ er sannsynligheten for de resterende $n-k$ fiaskoene. Og $\\binom{n}{k}$ -- **binomialkoeffisienten** -- forteller oss på hvor mange *rekkefølger* suksessene kan komme.\n\nBinomialkoeffisienten beregnes med: $\\binom{n}{k} = \\frac{n!}{k! \\cdot (n-k)!}$. For eksempel er $\\binom{6}{2} = \\frac{6!}{2! \\cdot 4!} = \\frac{720}{2 \\cdot 24} = 15$. Det betyr at det er 15 ulike måter å velge 2 elementer fra 6.\n\nLa oss regne et konkret eksempel. Du kaster en terning 5 ganger. Hva er sannsynligheten for nøyaktig 2 seksere? Vi har $n = 5$, $k = 2$, $p = \\frac{1}{6}$. Først binomialkoeffisienten: $\\binom{5}{2} = \\frac{5!}{2! \\cdot 3!} = \\frac{120}{2 \\cdot 6} = 10$. Så setter vi inn i formelen:\n\n$$P(X = 2) = 10 \\cdot \\left(\\frac{1}{6}\\right)^2 \\cdot \\left(\\frac{5}{6}\\right)^3 = 10 \\cdot \\frac{1}{36} \\cdot \\frac{125}{216} = \\frac{1250}{7776} \\approx 0{,}161$$\n\nAltså ca. 16,1 prosent sjanse for nøyaktig 2 seksere på 5 kast. De 10 rekkefølgene fra binomialkoeffisienten representerer alle måtene to seksere kan plasseres blant fem kast -- for eksempel SSFFF, SFSFF, SFFSF, og så videre."},{"id":"2p-4-3-n-quiz2","type":"exercise","exercise":{"id":"2p-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på den binomiske formelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-3-n-quiz2-q0","task":"Hva er verdien av binomialkoeffisienten $\\binom{6}{2}$?","options":[{"id":"a","text":"12","isCorrect":false},{"id":"b","text":"36","isCorrect":false},{"id":"c","text":"15","isCorrect":true},{"id":"d","text":"30","isCorrect":false}],"solution":"$\\binom{6}{2} = \\frac{6!}{2! \\cdot 4!} = \\frac{6 \\cdot 5}{2 \\cdot 1} = 15$. Det er 15 måter å velge 2 elementer fra 6."},{"id":"2p-4-3-n-quiz2-q1","task":"I formelen $P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}$, hva representerer faktoren $(1-p)^{n-k}$?","options":[{"id":"a","text":"Antall mulige rekkefølger","isCorrect":false},{"id":"b","text":"Sannsynligheten for de $n - k$ fiaskoene","isCorrect":true},{"id":"c","text":"Sannsynligheten for alle suksessene","isCorrect":false},{"id":"d","text":"Forventningsverdien","isCorrect":false}],"solution":"$p^k$ er sannsynligheten for $k$ suksesser, $(1-p)^{n-k}$ er sannsynligheten for de resterende $n - k$ fiaskoene, og $\\binom{n}{k}$ teller antall rekkefølger suksessene kan komme i."}],"solution":""}},{"id":"2p-4-3-n-section3","type":"text","content":"## Forventningsverdi og standardavvik -- hva kan vi forvente?\n\nFormelen gir oss sannsynligheten for et *bestemt* antall suksesser. Men ofte vil vi vite noe mer overordnet: Hvor mange suksesser kan vi *forvente* i gjennomsnitt? Og hvor mye vil resultatet typisk variere? Svarene gis av **forventningsverdien** og **standardavviket**.\n\nFor en binomisk fordeling $X \\sim \\text{Bin}(n, p)$ er forventningsverdien gitt ved den elegante formelen $E(X) = \\mu = n \\cdot p$. Den er rett og slett antall forsøk ganget med sannsynligheten for suksess i hvert forsøk. Basketballspilleren med 70 prosent treffprosent og 20 straffekast forventer $E(X) = 20 \\cdot 0{,}70 = 14$ treff. Det er gjennomsnittet over mange gjentakelser -- noen ganger treffer hun 12, noen ganger 16, men *i snitt* blir det 14.\n\nStandardavviket måler hvor mye resultatet typisk *avviker* fra forventningen: $\\sigma = \\sqrt{n \\cdot p \\cdot (1-p)}$. For basketballspilleren: $\\sigma = \\sqrt{20 \\cdot 0{,}70 \\cdot 0{,}30} = \\sqrt{4{,}2} \\approx 2{,}05$.\n\nHva betyr standardavviket i praksis? En nyttig tommelfingerregel er at de fleste resultater vil ligge innenfor $\\mu \\pm 2\\sigma$. For basketballspilleren: $14 \\pm 2 \\cdot 2{,}05 \\approx 14 \\pm 4$, altså mellom 10 og 18 treff. Hvis hun treffer bare 5 av 20, vet vi at noe uvanlig har skjedd.\n\nHer er et eksempel fra industrien. En fabrikk har 4 prosent feilrate på lyspærer. I en pakke med 25: $E(X) = 25 \\cdot 0{,}04 = 1{,}0$ defekt i snitt. $\\sigma = \\sqrt{25 \\cdot 0{,}04 \\cdot 0{,}96} = \\sqrt{0{,}96} \\approx 0{,}98$. Intervallet $\\mu \\pm 2\\sigma = 1{,}0 \\pm 1{,}96$ gir ca. 0 til 3. Å finne 5 defekte i en pakke ville være utenfor dette intervallet og altså *overraskende* -- det kunne tyde på et problem med produksjonen."},{"id":"2p-4-3-n-quiz3","type":"exercise","exercise":{"id":"2p-4-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på forventningsverdi og standardavvik:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-3-n-quiz3-q0","task":"En stokastisk variabel $X \\sim \\text{Bin}(100, \\; 0{,}3)$. Hva er forventningsverdien $E(X)$?","options":[{"id":"a","text":"$0{,}3$","isCorrect":false},{"id":"b","text":"$30$","isCorrect":true},{"id":"c","text":"$70$","isCorrect":false},{"id":"d","text":"$21$","isCorrect":false}],"solution":"$E(X) = n \\cdot p = 100 \\cdot 0{,}3 = 30$. I snitt forventer vi 30 suksesser i 100 forsøk."},{"id":"2p-4-3-n-quiz3-q1","task":"En basketballspiller har 70 % treffprosent og tar 20 straffekast. Hva er $E(X)$ og $\\sigma$?","options":[{"id":"a","text":"$E(X) = 14$, $\\sigma \\approx 4{,}2$","isCorrect":false},{"id":"b","text":"$E(X) = 7$, $\\sigma \\approx 2{,}05$","isCorrect":false},{"id":"c","text":"$E(X) = 14$, $\\sigma \\approx 2{,}05$","isCorrect":true},{"id":"d","text":"$E(X) = 6$, $\\sigma \\approx 1{,}41$","isCorrect":false}],"solution":"$E(X) = 20 \\cdot 0{,}70 = 14$ treff. $\\sigma = \\sqrt{20 \\cdot 0{,}70 \\cdot 0{,}30} = \\sqrt{4{,}2} \\approx 2{,}05$."}],"solution":""}},{"id":"2p-4-3-n-section4","type":"text","content":"## Digitale verktøy -- når regninga blir for tung\n\nDen binomiske formelen er elegant, men for store verdier av $n$ og $k$ blir beregningene upraktiske for hånd. Prøv å beregne $\\binom{50}{23}$ manuelt, og du forstår hvorfor vi trenger digitale verktøy.\n\nI **GeoGebra CAS** har du tre nyttige kommandoer: $\\texttt{BinomialKoeffisient(n, k)}$ beregner $\\binom{n}{k}$. $\\texttt{Binomial(n, p, k)}$ beregner $P(X = k)$ -- sannsynligheten for *nøyaktig* $k$ suksesser. Og $\\texttt{Binomial(n, p, k, true)}$ beregner den *kumulative* sannsynligheten $P(X \\leq k)$ -- sannsynligheten for *høyst* $k$ suksesser.\n\nI **Excel eller regneark** bruker du funksjonen BINOM.FORDELING. Med `=BINOM.FORDELING(k; n; p; USANN)` får du $P(X = k)$, og med `=BINOM.FORDELING(k; n; p; SANN)` får du $P(X \\leq k)$.\n\nEt viktig triks er å bruke komplementet for å finne $P(X \\geq k)$: $P(X \\geq k) = 1 - P(X \\leq k-1)$. La oss se hvordan. En elev gjetter tilfeldig på en prøve med 20 sant/usant-spørsmål, så $X \\sim \\text{Bin}(20, \\; 0{,}5)$. Hva er sannsynligheten for å få *minst* 15 riktige? Vi beregner: $P(X \\geq 15) = 1 - P(X \\leq 14)$. Med GeoGebra: $P(X \\leq 14) = \\texttt{Binomial(20, 0.5, 14, true)} \\approx 0{,}9793$. Altså $P(X \\geq 15) = 1 - 0{,}9793 = 0{,}0207 \\approx 2{,}1\\%$. Det er svært usannsynlig å gjette seg til 15 av 20 riktige -- noe som er betryggende for læreren.\n\nSpørreundersøkelser kan også analyseres med binomisk sannsynlighet. Hvis 40 prosent av ungdommer foretrekker streaming og du spør 15 tilfeldig valgte, kan du beregne at $P(X = 6) \\approx 0{,}207$ og at $P(X < 4) = P(X \\leq 3) \\approx 0{,}091$ med digitale verktøy."},{"id":"2p-4-3-n-quiz4","type":"exercise","exercise":{"id":"2p-4-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på kumulativ binomisk sannsynlighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-3-n-quiz4-q0","task":"Du vil finne $P(X \\geq 8)$ for en binomisk fordeling. Hvilken beregning er riktig?","options":[{"id":"a","text":"$P(X \\geq 8) = P(X \\leq 8)$","isCorrect":false},{"id":"b","text":"$P(X \\geq 8) = 1 - P(X \\leq 8)$","isCorrect":false},{"id":"c","text":"$P(X \\geq 8) = 1 - P(X \\leq 7)$","isCorrect":true},{"id":"d","text":"$P(X \\geq 8) = P(X = 8)$","isCorrect":false}],"solution":"$P(X \\geq 8) = 1 - P(X \\leq 7)$. Vi bruker komplementet av «høyst 7» for å finne «minst 8». Merk: $\\leq 7$, ikke $\\leq 8$, fordi $X = 8$ skal inkluderes."},{"id":"2p-4-3-n-quiz4-q1","task":"I GeoGebra gir `Binomial(20, 0.5, 14, true)` verdien $0{,}9793$. Hva er $P(X \\geq 15)$?","options":[{"id":"a","text":"$0{,}9793$","isCorrect":false},{"id":"b","text":"$0{,}0207$","isCorrect":true},{"id":"c","text":"$0{,}5$","isCorrect":false},{"id":"d","text":"$0{,}9586$","isCorrect":false}],"solution":"$P(X \\geq 15) = 1 - P(X \\leq 14) = 1 - 0{,}9793 = 0{,}0207 \\approx 2{,}1\\%$. Det er svært usannsynlig å gjette seg til 15 av 20 riktige."}],"solution":""}},{"id":"2p-4-3-n-section5","type":"text","content":"## Binomisk sannsynlighet i praksis\n\nLa oss avslutte med å se på noen situasjoner der binomisk sannsynlighet gir virkelig nyttige svar.\n\n**Kvalitetskontroll:** En kontrollør tester 10 produkter fra en linje med 8 prosent feilrate. Hva er sjansen for at *ingen* er defekte? $P(X = 0) = 0{,}92^{10} \\approx 0{,}434$. Bare 43 prosent sjanse for en feilfri prøve! Og sjansen for at *minst* ett produkt er defekt: $P(X \\geq 1) = 1 - 0{,}434 \\approx 0{,}566$. Altså over 50 prosent sjanse for å finne minst én feil -- selv med bare 8 prosent feilrate -- fordi vi tester 10 produkter.\n\n**Gjetting på eksamen:** I et TV-quizshow svarer en deltaker på 12 spørsmål med 3 alternativer, og gjetter tilfeldig. Da er $X \\sim \\text{Bin}(12, \\frac{1}{3})$. Forventningsverdien er $E(X) = 12 \\cdot \\frac{1}{3} = 4$ riktige, og standardavviket er $\\sigma = \\sqrt{12 \\cdot \\frac{1}{3} \\cdot \\frac{2}{3}} = \\sqrt{\\frac{8}{3}} \\approx 1{,}63$. Intervallet $\\mu \\pm 2\\sigma$ gir ca. 1 til 7 riktige. For å gå videre trengs minst 8 riktige: $P(X \\geq 8) \\approx 0{,}0028 = 0{,}28\\%$. Altså nesten umulig å gjette seg videre -- du trenger faktisk å *kunne* noe.\n\n**Standardavviket som varslingssignal:** En stokastisk variabel $X \\sim \\text{Bin}(50, \\; 0{,}2)$ har $E(X) = 10$ og $\\sigma = \\sqrt{50 \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{8} \\approx 2{,}83$. Intervallet $\\mu \\pm 2\\sigma$ gir ca. 4 til 16. Hvis du observerer 20 suksesser i 50 forsøk, er det *langt* utenfor det forventede. Enten har du vært veldig heldig, eller så er den virkelige sannsynligheten $p$ høyere enn 0,2.\n\nBinomisk sannsynlighet er et verktøy du vil møte igjen og igjen -- i statistikk, i naturvitenskap, i økonomi, og i hverdagslige beslutninger. Det fine er at mønsteret alltid er det samme: gjentatte, uavhengige forsøk med to utfall."},{"id":"2p-4-3-n-quiz5","type":"exercise","exercise":{"id":"2p-4-3-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på binomisk sannsynlighet i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2p-4-3-n-quiz5-q0","task":"En stokastisk variabel $X \\sim \\text{Bin}(50, \\; 0{,}2)$. Hva er standardavviket $\\sigma$?","options":[{"id":"a","text":"$10$","isCorrect":false},{"id":"b","text":"$\\sqrt{8} \\approx 2{,}83$","isCorrect":true},{"id":"c","text":"$8$","isCorrect":false},{"id":"d","text":"$\\sqrt{10} \\approx 3{,}16$","isCorrect":false}],"solution":"$\\sigma = \\sqrt{np(1-p)} = \\sqrt{50 \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{8} \\approx 2{,}83$."},{"id":"2p-4-3-n-quiz5-q1","task":"En kvalitetskontrollør tester 10 produkter fra en linje med 8 % feilrate. Hva er sannsynligheten for at *ingen* er defekte?","options":[{"id":"a","text":"$0{,}92$","isCorrect":false},{"id":"b","text":"$0{,}08^{10}$","isCorrect":false},{"id":"c","text":"$0{,}92^{10} \\approx 0{,}434$","isCorrect":true},{"id":"d","text":"$0{,}80$","isCorrect":false}],"solution":"$P(X = 0) = \\binom{10}{0} \\cdot 0{,}08^0 \\cdot 0{,}92^{10} = 0{,}92^{10} \\approx 0{,}434$. Bare ca. 43 % sjanse for en feilfri prøve, selv med bare 8 % feilrate."}],"solution":""}},{"id":"2p-4-3-n-summary","type":"text","content":"## Oppsummering\n\nBinomisk sannsynlighet gir oss et presist verktøy for å analysere gjentatte forsøk med to mulige utfall. Det er en av de mest anvendte sannsynlighetsmodellene i matematikken.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Binomisk forsøk**: Fast antall forsøk $n$, to utfall, fast sannsynlighet $p$, uavhengige forsøk\n- **Binomisk formel**: $P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}$\n- **Binomialkoeffisient**: $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ -- antall måter å velge $k$ av $n$\n- **Forventningsverdi**: $E(X) = np$ -- gjennomsnittlig antall suksesser\n- **Standardavvik**: $\\sigma = \\sqrt{np(1-p)}$ -- typisk spredning rundt forventningen\n- **Kumulativ sannsynlighet**: $P(X \\leq k)$ beregnes best med digitale verktøy\n- **Komplement**: $P(X \\geq k) = 1 - P(X \\leq k-1)$\n\n**Det viktigste du tar med deg:**\nBinomisk sannsynlighet dukker opp i en overraskende mengde situasjoner -- fra kvalitetskontroll og medisinsk forskning til spill og eksamensvurdering. Forventningsverdien forteller deg hva du kan forvente i gjennomsnitt, og standardavviket forteller deg hvor mye variasjon som er normalt. Når et resultat ligger mer enn $2\\sigma$ fra forventningen, bør du stoppe opp og spørre: Skjedde det noe uvanlig her?"}],"exercises":[]}
+{
+  "id": "2p-4-3-narrativ",
+  "courseId": "2p",
+  "chapterNumber": "4.3",
+  "title": "Binomisk sannsynlighet",
+  "subtitle": "Narrativ versjon",
+  "description": "Kaste mynt ti ganger, skyte straffekast i basketball, gjette på en prøve -- når forsøk gjentas med to mulige utfall, har vi et mønster som matematikken kan fange. Velkommen til binomisk sannsynlighet.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forklare og bruke prosent, prosentpoeng og vekstfaktor til modellering av praktiske situasjoner med digitale verktøy"
+  ],
+  "linkedChapterId": "2p-4-3",
+  "content": [
+    {
+      "id": "2p-4-3-n-intro",
+      "type": "text",
+      "content": "## Suksess eller fiasko -- gang på gang\n\nForestill deg en basketballspiller ved frikaststreken. Hun har trent i årevis, og treffprosenten hennes er 70 prosent. I kveld skal hun ta 20 straffekast. Hvor mange treff er det rimelig å forvente? Hva er sjansen for at hun treffer alle 20? Og hva er sjansen for at hun treffer minst 15?\n\nEller tenk på en annen situasjon: Du sitter på en eksamen med 12 flervalgsoppgaver, hvert spørsmål har 4 alternativer, og du har *ingen anelse* om svaret. Du gjetter tilfeldig på alle. Hva er sjansen for å bestå?\n\nBegge disse situasjonene har noe til felles: Vi gjentar det samme forsøket mange ganger, og hvert forsøk har bare to mulige utfall -- suksess eller fiasko, treff eller bom, riktig eller galt. Denne typen situasjon dukker opp overalt, og matematikken har utviklet et elegant verktøy for å håndtere den: **binomisk sannsynlighet**. Det er det vi skal utforske nå."
+    },
+    {
+      "id": "2p-4-3-n-section1",
+      "type": "text",
+      "content": "## De fire kjennetegnene ved et binomisk forsøk\n\nIkke alle gjentatte forsøk er binomiske. Et **binomisk forsøk** har fire helt spesifikke kjennetegn, og alle fire må være oppfylt.\n\nFor det første: Det må være et **fast antall forsøk** $n$. Du bestemmer på forhånd at du kaster terningen 8 ganger, tar 20 straffekast, eller svarer på 12 spørsmål. Antallet er bestemt før forsøket starter.\n\nFor det andre: Hvert forsøk har nøyaktig **to mulige utfall** -- det vi kaller \"suksess\" og \"fiasko\". Hva som er suksess, bestemmer du selv ut fra hva du er interessert i. Kaster du terning og teller seksere, er \"sekser\" suksess og alt annet fiasko. Svarer du på sant/usant-spørsmål, er \"riktig\" suksess.\n\nFor det tredje: Sannsynligheten $p$ for suksess er **den samme i hvert forsøk**. Treffprosenten er $\\frac{1}{6}$ for sekser i hvert kast, $0{,}5$ for riktig på sant/usant, og $0{,}70$ for treff på hvert straffekast.\n\nFor det fjerde: Forsøkene er **uavhengige** -- utfallet i ett forsøk påvirker ikke de andre. Det du fikk på forrige terningkast, endrer ikke sjansene i neste.\n\nNår alle fire er oppfylt, sier vi at den stokastiske variabelen $X$ = \"antall suksesser\" følger en **binomisk fordeling**, og vi skriver $X \\sim \\text{Bin}(n, p)$.\n\nLa oss sjekke noen eksempler. Å kaste en terning 8 ganger og telle seksere: Ja, det er binomisk -- $n = 8$, $p = \\frac{1}{6}$, uavhengige kast. Å trekke 5 kort fra en kortstokk uten tilbakelegging og telle ess: *Nei*, ikke binomisk, fordi trekking uten tilbakelegging gjør forsøkene avhengige (sannsynligheten endrer seg for hvert trekk). Å svare på 12 sant/usant-spørsmål ved ren gjetting: Ja, binomisk -- $n = 12$, $p = 0{,}5$, uavhengige gjetninger."
+    },
+    {
+      "id": "2p-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på binomiske forsøk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-3-n-quiz1-q0",
+            "task": "Hvilket av følgende er et binomisk forsøk?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Kaste en mynt 50 ganger og telle antall krone",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Måle høyden til 30 tilfeldig valgte elever",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Trekke 10 kuler fra en pose med 20 kuler uten tilbakelegging",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Telle antall biler som passerer et punkt i løpet av en time",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Myntkast 50 ganger oppfyller alle fire krav: fast $n = 50$, to utfall (krone/mynt), fast $p = 0{,}5$, uavhengige kast."
+          },
+          {
+            "id": "2p-4-3-n-quiz1-q1",
+            "task": "Hvorfor er trekking av 5 kort fra en kortstokk uten tilbakelegging IKKE et binomisk forsøk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det ikke er to utfall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi forsøkene ikke er uavhengige -- sannsynligheten endres for hvert trekk",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi $n$ ikke er fast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $p$ er for liten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten tilbakelegging endres sannsynligheten for hvert trekk (f.eks. sjansen for ess endres fra $\\frac{4}{52}$ til $\\frac{3}{51}$ etter at et ess er trukket). Forsøkene er altså *avhengige*, og kravet om uavhengighet brytes."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-3-n-section2",
+      "type": "text",
+      "content": "## Den binomiske formelen -- matematikken bak mønsteret\n\nNå som vi vet hva et binomisk forsøk er, trenger vi en formel for å beregne sannsynligheter. Formelen for sannsynligheten for nøyaktig $k$ suksesser i $n$ forsøk med suksesssannsynlighet $p$ er:\n\n$$P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}$$\n\nLa oss forstå hva hver del betyr. Faktoren $p^k$ er sannsynligheten for $k$ suksesser -- for eksempel sjansen for at nøyaktig 2 terningkast gir sekser. Faktoren $(1-p)^{n-k}$ er sannsynligheten for de resterende $n-k$ fiaskoene. Og $\\binom{n}{k}$ -- **binomialkoeffisienten** -- forteller oss på hvor mange *rekkefølger* suksessene kan komme.\n\nBinomialkoeffisienten beregnes med: $\\binom{n}{k} = \\frac{n!}{k! \\cdot (n-k)!}$. For eksempel er $\\binom{6}{2} = \\frac{6!}{2! \\cdot 4!} = \\frac{720}{2 \\cdot 24} = 15$. Det betyr at det er 15 ulike måter å velge 2 elementer fra 6.\n\nLa oss regne et konkret eksempel. Du kaster en terning 5 ganger. Hva er sannsynligheten for nøyaktig 2 seksere? Vi har $n = 5$, $k = 2$, $p = \\frac{1}{6}$. Først binomialkoeffisienten: $\\binom{5}{2} = \\frac{5!}{2! \\cdot 3!} = \\frac{120}{2 \\cdot 6} = 10$. Så setter vi inn i formelen:\n\n$$P(X = 2) = 10 \\cdot \\left(\\frac{1}{6}\\right)^2 \\cdot \\left(\\frac{5}{6}\\right)^3 = 10 \\cdot \\frac{1}{36} \\cdot \\frac{125}{216} = \\frac{1250}{7776} \\approx 0{,}161$$\n\nAltså ca. 16,1 prosent sjanse for nøyaktig 2 seksere på 5 kast. De 10 rekkefølgene fra binomialkoeffisienten representerer alle måtene to seksere kan plasseres blant fem kast -- for eksempel SSFFF, SFSFF, SFFSF, og så videre."
+    },
+    {
+      "id": "2p-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på den binomiske formelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-3-n-quiz2-q0",
+            "task": "Hva er verdien av binomialkoeffisienten $\\binom{6}{2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "12",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "36",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "15",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "30",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\binom{6}{2} = \\frac{6!}{2! \\cdot 4!} = \\frac{6 \\cdot 5}{2 \\cdot 1} = 15$. Det er 15 måter å velge 2 elementer fra 6."
+          },
+          {
+            "id": "2p-4-3-n-quiz2-q1",
+            "task": "I formelen $P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}$, hva representerer faktoren $(1-p)^{n-k}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Antall mulige rekkefølger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sannsynligheten for alle suksessene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forventningsverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sannsynligheten for de $n - k$ fiaskoene",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$p^k$ er sannsynligheten for $k$ suksesser, $(1-p)^{n-k}$ er sannsynligheten for de resterende $n - k$ fiaskoene, og $\\binom{n}{k}$ teller antall rekkefølger suksessene kan komme i."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-3-n-section3",
+      "type": "text",
+      "content": "## Forventningsverdi og standardavvik -- hva kan vi forvente?\n\nFormelen gir oss sannsynligheten for et *bestemt* antall suksesser. Men ofte vil vi vite noe mer overordnet: Hvor mange suksesser kan vi *forvente* i gjennomsnitt? Og hvor mye vil resultatet typisk variere? Svarene gis av **forventningsverdien** og **standardavviket**.\n\nFor en binomisk fordeling $X \\sim \\text{Bin}(n, p)$ er forventningsverdien gitt ved den elegante formelen $E(X) = \\mu = n \\cdot p$. Den er rett og slett antall forsøk ganget med sannsynligheten for suksess i hvert forsøk. Basketballspilleren med 70 prosent treffprosent og 20 straffekast forventer $E(X) = 20 \\cdot 0{,}70 = 14$ treff. Det er gjennomsnittet over mange gjentakelser -- noen ganger treffer hun 12, noen ganger 16, men *i snitt* blir det 14.\n\nStandardavviket måler hvor mye resultatet typisk *avviker* fra forventningen: $\\sigma = \\sqrt{n \\cdot p \\cdot (1-p)}$. For basketballspilleren: $\\sigma = \\sqrt{20 \\cdot 0{,}70 \\cdot 0{,}30} = \\sqrt{4{,}2} \\approx 2{,}05$.\n\nHva betyr standardavviket i praksis? En nyttig tommelfingerregel er at de fleste resultater vil ligge innenfor $\\mu \\pm 2\\sigma$. For basketballspilleren: $14 \\pm 2 \\cdot 2{,}05 \\approx 14 \\pm 4$, altså mellom 10 og 18 treff. Hvis hun treffer bare 5 av 20, vet vi at noe uvanlig har skjedd.\n\nHer er et eksempel fra industrien. En fabrikk har 4 prosent feilrate på lyspærer. I en pakke med 25: $E(X) = 25 \\cdot 0{,}04 = 1{,}0$ defekt i snitt. $\\sigma = \\sqrt{25 \\cdot 0{,}04 \\cdot 0{,}96} = \\sqrt{0{,}96} \\approx 0{,}98$. Intervallet $\\mu \\pm 2\\sigma = 1{,}0 \\pm 1{,}96$ gir ca. 0 til 3. Å finne 5 defekte i en pakke ville være utenfor dette intervallet og altså *overraskende* -- det kunne tyde på et problem med produksjonen."
+    },
+    {
+      "id": "2p-4-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på forventningsverdi og standardavvik:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-3-n-quiz3-q0",
+            "task": "En stokastisk variabel $X \\sim \\text{Bin}(100, \\; 0{,}3)$. Hva er forventningsverdien $E(X)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$30$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$70$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$21$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = n \\cdot p = 100 \\cdot 0{,}3 = 30$. I snitt forventer vi 30 suksesser i 100 forsøk."
+          },
+          {
+            "id": "2p-4-3-n-quiz3-q1",
+            "task": "En basketballspiller har 70 % treffprosent og tar 20 straffekast. Hva er $E(X)$ og $\\sigma$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$E(X) = 14$, $\\sigma \\approx 4{,}2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E(X) = 14$, $\\sigma \\approx 2{,}05$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$E(X) = 7$, $\\sigma \\approx 2{,}05$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$E(X) = 6$, $\\sigma \\approx 1{,}41$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = 20 \\cdot 0{,}70 = 14$ treff. $\\sigma = \\sqrt{20 \\cdot 0{,}70 \\cdot 0{,}30} = \\sqrt{4{,}2} \\approx 2{,}05$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-3-n-section4",
+      "type": "text",
+      "content": "## Digitale verktøy -- når regninga blir for tung\n\nDen binomiske formelen er elegant, men for store verdier av $n$ og $k$ blir beregningene upraktiske for hånd. Prøv å beregne $\\binom{50}{23}$ manuelt, og du forstår hvorfor vi trenger digitale verktøy.\n\nI **GeoGebra CAS** har du tre nyttige kommandoer: $\\texttt{BinomialKoeffisient(n, k)}$ beregner $\\binom{n}{k}$. $\\texttt{Binomial(n, p, k)}$ beregner $P(X = k)$ -- sannsynligheten for *nøyaktig* $k$ suksesser. Og $\\texttt{Binomial(n, p, k, true)}$ beregner den *kumulative* sannsynligheten $P(X \\leq k)$ -- sannsynligheten for *høyst* $k$ suksesser.\n\nI **Excel eller regneark** bruker du funksjonen BINOM.FORDELING. Med `=BINOM.FORDELING(k; n; p; USANN)` får du $P(X = k)$, og med `=BINOM.FORDELING(k; n; p; SANN)` får du $P(X \\leq k)$.\n\nEt viktig triks er å bruke komplementet for å finne $P(X \\geq k)$: $P(X \\geq k) = 1 - P(X \\leq k-1)$. La oss se hvordan. En elev gjetter tilfeldig på en prøve med 20 sant/usant-spørsmål, så $X \\sim \\text{Bin}(20, \\; 0{,}5)$. Hva er sannsynligheten for å få *minst* 15 riktige? Vi beregner: $P(X \\geq 15) = 1 - P(X \\leq 14)$. Med GeoGebra: $P(X \\leq 14) = \\texttt{Binomial(20, 0.5, 14, true)} \\approx 0{,}9793$. Altså $P(X \\geq 15) = 1 - 0{,}9793 = 0{,}0207 \\approx 2{,}1\\%$. Det er svært usannsynlig å gjette seg til 15 av 20 riktige -- noe som er betryggende for læreren.\n\nSpørreundersøkelser kan også analyseres med binomisk sannsynlighet. Hvis 40 prosent av ungdommer foretrekker streaming og du spør 15 tilfeldig valgte, kan du beregne at $P(X = 6) \\approx 0{,}207$ og at $P(X < 4) = P(X \\leq 3) \\approx 0{,}091$ med digitale verktøy."
+    },
+    {
+      "id": "2p-4-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kumulativ binomisk sannsynlighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-3-n-quiz4-q0",
+            "task": "Du vil finne $P(X \\geq 8)$ for en binomisk fordeling. Hvilken beregning er riktig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(X \\geq 8) = P(X \\leq 8)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$P(X \\geq 8) = 1 - P(X \\leq 8)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(X \\geq 8) = 1 - P(X \\leq 7)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$P(X \\geq 8) = P(X = 8)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(X \\geq 8) = 1 - P(X \\leq 7)$. Vi bruker komplementet av «høyst 7» for å finne «minst 8». Merk: $\\leq 7$, ikke $\\leq 8$, fordi $X = 8$ skal inkluderes."
+          },
+          {
+            "id": "2p-4-3-n-quiz4-q1",
+            "task": "I GeoGebra gir `Binomial(20, 0.5, 14, true)` verdien $0{,}9793$. Hva er $P(X \\geq 15)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}9793$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}9586$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}0207$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(X \\geq 15) = 1 - P(X \\leq 14) = 1 - 0{,}9793 = 0{,}0207 \\approx 2{,}1\\%$. Det er svært usannsynlig å gjette seg til 15 av 20 riktige."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-3-n-section5",
+      "type": "text",
+      "content": "## Binomisk sannsynlighet i praksis\n\nLa oss avslutte med å se på noen situasjoner der binomisk sannsynlighet gir virkelig nyttige svar.\n\n**Kvalitetskontroll:** En kontrollør tester 10 produkter fra en linje med 8 prosent feilrate. Hva er sjansen for at *ingen* er defekte? $P(X = 0) = 0{,}92^{10} \\approx 0{,}434$. Bare 43 prosent sjanse for en feilfri prøve! Og sjansen for at *minst* ett produkt er defekt: $P(X \\geq 1) = 1 - 0{,}434 \\approx 0{,}566$. Altså over 50 prosent sjanse for å finne minst én feil -- selv med bare 8 prosent feilrate -- fordi vi tester 10 produkter.\n\n**Gjetting på eksamen:** I et TV-quizshow svarer en deltaker på 12 spørsmål med 3 alternativer, og gjetter tilfeldig. Da er $X \\sim \\text{Bin}(12, \\frac{1}{3})$. Forventningsverdien er $E(X) = 12 \\cdot \\frac{1}{3} = 4$ riktige, og standardavviket er $\\sigma = \\sqrt{12 \\cdot \\frac{1}{3} \\cdot \\frac{2}{3}} = \\sqrt{\\frac{8}{3}} \\approx 1{,}63$. Intervallet $\\mu \\pm 2\\sigma$ gir ca. 1 til 7 riktige. For å gå videre trengs minst 8 riktige: $P(X \\geq 8) \\approx 0{,}0028 = 0{,}28\\%$. Altså nesten umulig å gjette seg videre -- du trenger faktisk å *kunne* noe.\n\n**Standardavviket som varslingssignal:** En stokastisk variabel $X \\sim \\text{Bin}(50, \\; 0{,}2)$ har $E(X) = 10$ og $\\sigma = \\sqrt{50 \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{8} \\approx 2{,}83$. Intervallet $\\mu \\pm 2\\sigma$ gir ca. 4 til 16. Hvis du observerer 20 suksesser i 50 forsøk, er det *langt* utenfor det forventede. Enten har du vært veldig heldig, eller så er den virkelige sannsynligheten $p$ høyere enn 0,2.\n\nBinomisk sannsynlighet er et verktøy du vil møte igjen og igjen -- i statistikk, i naturvitenskap, i økonomi, og i hverdagslige beslutninger. Det fine er at mønsteret alltid er det samme: gjentatte, uavhengige forsøk med to utfall."
+    },
+    {
+      "id": "2p-4-3-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "2p-4-3-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på binomisk sannsynlighet i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2p-4-3-n-quiz5-q0",
+            "task": "En stokastisk variabel $X \\sim \\text{Bin}(50, \\; 0{,}2)$. Hva er standardavviket $\\sigma$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\sqrt{8} \\approx 2{,}83$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{10} \\approx 3{,}16$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sigma = \\sqrt{np(1-p)} = \\sqrt{50 \\cdot 0{,}2 \\cdot 0{,}8} = \\sqrt{8} \\approx 2{,}83$."
+          },
+          {
+            "id": "2p-4-3-n-quiz5-q1",
+            "task": "En kvalitetskontrollør tester 10 produkter fra en linje med 8 % feilrate. Hva er sannsynligheten for at *ingen* er defekte?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}92$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}92^{10} \\approx 0{,}434$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}08^{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}80$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(X = 0) = \\binom{10}{0} \\cdot 0{,}08^0 \\cdot 0{,}92^{10} = 0{,}92^{10} \\approx 0{,}434$. Bare ca. 43 % sjanse for en feilfri prøve, selv med bare 8 % feilrate."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "2p-4-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nBinomisk sannsynlighet gir oss et presist verktøy for å analysere gjentatte forsøk med to mulige utfall. Det er en av de mest anvendte sannsynlighetsmodellene i matematikken.\n\n**Nøkkelbegreper du nå kjenner:**\n- **Binomisk forsøk**: Fast antall forsøk $n$, to utfall, fast sannsynlighet $p$, uavhengige forsøk\n- **Binomisk formel**: $P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}$\n- **Binomialkoeffisient**: $\\binom{n}{k} = \\frac{n!}{k!(n-k)!}$ -- antall måter å velge $k$ av $n$\n- **Forventningsverdi**: $E(X) = np$ -- gjennomsnittlig antall suksesser\n- **Standardavvik**: $\\sigma = \\sqrt{np(1-p)}$ -- typisk spredning rundt forventningen\n- **Kumulativ sannsynlighet**: $P(X \\leq k)$ beregnes best med digitale verktøy\n- **Komplement**: $P(X \\geq k) = 1 - P(X \\leq k-1)$\n\n**Det viktigste du tar med deg:**\nBinomisk sannsynlighet dukker opp i en overraskende mengde situasjoner -- fra kvalitetskontroll og medisinsk forskning til spill og eksamensvurdering. Forventningsverdien forteller deg hva du kan forvente i gjennomsnitt, og standardavviket forteller deg hvor mye variasjon som er normalt. Når et resultat ligger mer enn $2\\sigma$ fra forventningen, bør du stoppe opp og spørre: Skjedde det noe uvanlig her?"
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,555 @@
-{"id":"biologi-2-1-8-narrativ","courseId":"biologi-2","chapterNumber":"1.8","title":"Genomikk og bioinformatikk","subtitle":"Narrativ versjon","description":"En fortelling om hvordan vi leser og redigerer hele genomet – fra Humangenomprosjektet og tre generasjoner sekvensering til bioinformatikkens verktøy, CRISPR-Cas9 og de etiske spørsmålene genredigering reiser.","estimatedMinutes":21,"competenceGoals":["gjøre rede for DNA-sekvenseringsteknologier og deres anvendelser","forklare prinsippet bak CRISPR-Cas9 og diskutere etiske problemstillinger"],"linkedChapterId":"biologi-2-1-8","content":[{"id":"biologi-2-1-8-n-intro","type":"text","content":"## Å lese hele bruksanvisningen\n\nTenk deg at du ikke bare kan lese ett gen, men hele genomet – all den genetiske informasjonen i en organisme på én gang. Det er nettopp det **genomikk** handler om. Da Humangenomprosjektet ble fullført i 2003, og sekvenseringen siden ble dramatisk raskere og billigere, ble dette mulig: i dag kan et helt menneskegenom leses på timer for en brøkdel av den opprinnelige kostnaden.\n\nMen rådata er ikke det samme som forståelse. Til å analysere de enorme datamengdene trengs **bioinformatikk** – skjæringspunktet mellom biologi, informatikk og statistikk. I dette kapittelet skal vi følge reisen fra Humangenomprosjektet, gjennom de ulike sekvenseringsteknologiene og bioinformatiske verktøyene, til den banebrytende genredigeringen med CRISPR-Cas9 og de etiske spørsmålene den reiser."},{"id":"biologi-2-1-8-n-section1","type":"text","content":"## Humangenomprosjektet\n\n**Humangenomprosjektet** (HGP) var et internasjonalt samarbeid som pågikk fra 1990 til 2003 med mål om å kartlegge alle de rundt 3,2 milliarder baseparene i menneskets DNA. Det tok 13 år, kostet rundt 2,7 milliarder dollar og brukte Sanger-sekvensering.\n\nProsjektet ga flere overraskelser. Man hadde forventet rundt 100 000 proteinkodende gener, men fant bare **20 000–25 000**. Enda mer overraskende: bare rundt **1,5 %** av genomet koder faktisk for protein. Rundt 45 % består av repetitive sekvenser, mye av det avledet fra transposoner. Resten – som lenge ble kalt «junk-DNA» – viste seg senere (gjennom ENCODE-prosjektet) å inneholde mye DNA med regulatoriske og strukturelle funksjoner, som promotorer, enhancere, gener for ikke-kodende RNA, samt telomerer og centromerer. **Genomet** er altså mye mer enn bare gener; det er et komplekst landskap der reguleringen er like viktig som selve oppskriftene."},{"id":"biologi-2-1-8-n-quiz1","type":"exercise","exercise":{"id":"biologi-2-1-8-n-quiz1","type":"multiple-choice","number":"Quiz 1","task":"Test deg selv på Humangenomprosjektet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-1-8-n-quiz1-q0","task":"Hva var en av de mest overraskende oppdagelsene fra Humangenomprosjektet?","options":[{"id":"a","text":"Mennesker har over 200 000 proteinkodende gener","isCorrect":false},{"id":"b","text":"Alt DNA i genomet koder for proteiner","isCorrect":false},{"id":"c","text":"Genomet er bare 100 millioner basepar","isCorrect":false},{"id":"d","text":"Mennesker har bare ~20 000–25 000 proteinkodende gener, langt færre enn forventet","isCorrect":true}],"solution":"Man hadde ventet rundt 100 000 gener, men fant bare 20 000–25 000. Dessuten koder bare rundt 1,5 % av genomet for protein."},{"id":"biologi-2-1-8-n-quiz1-q1","task":"Omtrent hvor stor andel av det menneskelige genomet koder for protein?","options":[{"id":"a","text":"Ca. 1,5 %","isCorrect":true},{"id":"b","text":"Ca. 45 %","isCorrect":false},{"id":"c","text":"Ca. 80 %","isCorrect":false},{"id":"d","text":"Nesten 100 %","isCorrect":false}],"solution":"Bare rundt 1,5 % av genomet koder for protein. Mye av resten er repetitivt DNA og regulatoriske sekvenser."}]}},{"id":"biologi-2-1-8-n-section2","type":"text","content":"## Tre generasjoner sekvensering\n\nMåten vi leser DNA på, har utviklet seg i tre store steg. **Sanger-sekvensering** (1977) var arbeidshesten i Humangenomprosjektet. Den bruker kjedeterminering: spesielle ddNTP-er mangler 3'-OH-gruppen, så når en av dem bygges inn, stopper kjeden. Fragmentene sorteres etter størrelse med kapillærelektroforese, og fluorescensfargene avsløres sekvensen. Sanger leser rundt 700–1000 basepar med svært høy nøyaktighet (>99,99 %), men har lav kapasitet og høy kostnad per base.\n\n**Neste generasjons sekvensering (NGS), Illumina**, revolusjonerte feltet ved å sekvensere millioner av fragmenter parallelt. DNA-et festes til en flowcelle, amplifiseres i klynger, og leses ved syntese med fluorescensmerkede nukleotider. Reads er kortere (150–300 bp), men gjennomstrømningen er enorm og prisen lav – i dag rundt 200–1000 dollar per genom.\n\n**Tredjegenerasjons sekvensering, Oxford Nanopore**, trekker intakt DNA gjennom en bittliten pore i en membran. Når basene passerer, blokkerer de en elektrisk strøm i ulik grad, og strømendringene tolkes til en sekvens. Fordelen er ultralange reads (10 000–100 000+ bp) og at enheten er portabel og leser i sanntid – ulempen er litt lavere nøyaktighet per read (~95–99 %)."},{"id":"biologi-2-1-8-n-quiz2","type":"exercise","exercise":{"id":"biologi-2-1-8-n-quiz2","type":"multiple-choice","number":"Quiz 2","task":"Test deg selv på sekvenseringsteknologier:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-1-8-n-quiz2-q0","task":"Hva er prinsippet bak Sanger-sekvensering?","options":[{"id":"a","text":"Strømmåling gjennom en nanopore","isCorrect":false},{"id":"b","text":"Kjedeterminering med ddNTP-er som mangler 3'-OH-gruppen","isCorrect":true},{"id":"c","text":"Broamplifikasjon på en flowcelle","isCorrect":false},{"id":"d","text":"Direkte avlesning av proteiner","isCorrect":false}],"solution":"Sanger bruker ddNTP-er som mangler 3'-OH. Når en bygges inn, stopper kjeden, og fragmentene sorteres etter størrelse for å lese sekvensen."},{"id":"biologi-2-1-8-n-quiz2-q1","task":"Hvilken teknologi gir de lengste readene?","options":[{"id":"a","text":"Sanger-sekvensering","isCorrect":false},{"id":"b","text":"Illumina (NGS)","isCorrect":false},{"id":"c","text":"Oxford Nanopore","isCorrect":true},{"id":"d","text":"Massespektrometri","isCorrect":false}],"solution":"Oxford Nanopore gir ultralange reads på 10 000–100 000+ basepar, mens Sanger gir ~1000 bp og Illumina bare 150–300 bp."},{"id":"biologi-2-1-8-n-quiz2-q2","task":"Hva er hovedfordelen med Illumina (NGS) sammenlignet med Sanger?","options":[{"id":"a","text":"Mye lengre reads","isCorrect":false},{"id":"b","text":"Den kan lese proteiner direkte","isCorrect":false},{"id":"c","text":"Den krever ikke DNA","isCorrect":false},{"id":"d","text":"Mye høyere gjennomstrømning og lavere kostnad per base","isCorrect":true}],"solution":"Illumina sekvenserer millioner av fragmenter parallelt, noe som gir enorm gjennomstrømning og lav kostnad – men kortere reads enn Sanger."}]}},{"id":"biologi-2-1-8-n-section3","type":"text","content":"## Bioinformatikkens verktøy\n\nNår dataene først er der, må de tolkes, og det er bioinformatikkens oppgave. Det mest brukte verktøyet er **BLAST** (Basic Local Alignment Search Tool), som sammenligner en sekvens mot millioner av andre i databaser for å finne liknende sekvenser. Slik kan man identifisere et ukjent gen, finne evolusjonært beslektede gener i andre arter, eller gjenkjenne konserverte domener. Hvert treff får en **E-verdi**, som angir hvor sannsynlig det er å finne et like godt treff ved ren tilfeldighet – jo lavere E-verdi, jo mer signifikant treff.\n\nEt annet sentralt verktøy er **multippel sekvenssammenstilling**, der man stiller opp sekvenser fra mange arter ved siden av hverandre for å finne **konserverte regioner** – områder som har endret seg lite gjennom evolusjonen og derfor trolig har viktig funksjon. Basert på slike sammenstillinger kan man bygge **fylogenetiske trær** som viser evolusjonært slektskap. Grenlengdene reflekterer den evolusjonære avstanden, så arter med korte grener mellom seg er nært beslektet."},{"id":"biologi-2-1-8-n-quiz3","type":"exercise","exercise":{"id":"biologi-2-1-8-n-quiz3","type":"multiple-choice","number":"Quiz 3","task":"Test deg selv på bioinformatiske verktøy:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-1-8-n-quiz3-q0","task":"Hva er E-verdien i et BLAST-søk?","options":[{"id":"a","text":"Sannsynligheten for å finne et like godt treff ved tilfeldighet – lavere er mer signifikant","isCorrect":true},{"id":"b","text":"Prosent identitet mellom to sekvenser","isCorrect":false},{"id":"c","text":"Antall baser som er forskjellige","isCorrect":false},{"id":"d","text":"Lengden på den matchende regionen","isCorrect":false}],"solution":"E-verdien angir sannsynligheten for å få et like godt treff ved ren tilfeldighet. Lav E-verdi betyr at treffet er statistisk signifikant."},{"id":"biologi-2-1-8-n-quiz3-q1","task":"Hva forteller en konservert region i en multippel sekvenssammenstilling oss?","options":[{"id":"a","text":"At regionen er tilfeldig variabel","isCorrect":false},{"id":"b","text":"At regionen sannsynligvis har en viktig funksjon, siden den har endret seg lite gjennom evolusjonen","isCorrect":true},{"id":"c","text":"At sekvensen er feil","isCorrect":false},{"id":"d","text":"At arten er nyoppdaget","isCorrect":false}],"solution":"En konservert region har endret seg lite gjennom evolusjonen, noe som tyder på at den er viktig for funksjonen og derfor er bevart."}]}},{"id":"biologi-2-1-8-n-section4","type":"text","content":"## Fra sekvens til funksjon\n\nÅ kjenne genomsekvensen er bare begynnelsen. **Funksjonell genomikk** spør hvordan genomet faktisk fungerer, og deler seg i flere «omics»-felt. **Genomikk** studerer selve DNA-sekvensen. **Transkriptomikk**, med metoden RNA-seq, måler alle mRNA-molekylene i en celle og gir et øyeblikksbilde av genuttrykket – nyttig for å sammenligne friskt og sykt vev eller finne biomarkører. **Proteomikk** måler hvilke proteiner som faktisk produseres, ved hjelp av massespektrometri. Et viktig poeng er at mRNA-nivå og proteinnivå ikke alltid samsvarer, fordi translasjon, modifisering og nedbrytning også spiller inn.\n\nDet siste leddet i kjeden er **metabolomikk**, som studerer metabolittene – de små molekylene som er sluttproduktene av cellens stoffskifte. Metabolittprofilen reflekterer cellens faktiske fysiologiske tilstand og kan noen ganger avsløre sykdom før symptomene melder seg. **Epigenomikk** kartlegger i tillegg epigenetiske merker som metylering og histonmodifikasjoner."},{"id":"biologi-2-1-8-n-quiz4","type":"exercise","exercise":{"id":"biologi-2-1-8-n-quiz4","type":"multiple-choice","number":"Quiz 4","task":"Test deg selv på funksjonell genomikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-1-8-n-quiz4-q0","task":"Hva måler transkriptomikk (RNA-seq)?","options":[{"id":"a","text":"DNA-sekvensen i genomet","isCorrect":false},{"id":"b","text":"Metabolittkonsentrasjonene","isCorrect":false},{"id":"c","text":"Alle mRNA-molekylene i en celle, altså genuttrykket","isCorrect":true},{"id":"d","text":"Antall kromosomer","isCorrect":false}],"solution":"Transkriptomikk med RNA-seq måler alle mRNA-molekylene i en celle og gir dermed et øyeblikksbilde av hvilke gener som uttrykkes."},{"id":"biologi-2-1-8-n-quiz4-q1","task":"Hvorfor samsvarer ikke alltid mRNA-nivå og proteinnivå?","options":[{"id":"a","text":"Fordi mRNA aldri blir til protein","isCorrect":false},{"id":"b","text":"Fordi proteomikk er upålitelig","isCorrect":false},{"id":"c","text":"Fordi alle mRNA brytes ned umiddelbart","isCorrect":false},{"id":"d","text":"Fordi translasjon, proteinmodifisering og nedbrytning også påvirker proteinmengden","isCorrect":true}],"solution":"Proteinmengden påvirkes ikke bare av mRNA-nivået, men også av hvor effektivt mRNA-et translateres og hvordan proteinet modifiseres og brytes ned."}]}},{"id":"biologi-2-1-8-n-section5","type":"text","content":"## CRISPR-Cas9: molekylære sakser\n\nNoe av det mest revolusjonerende i moderne biologi er **CRISPR-Cas9**. Systemet ble opprinnelig oppdaget som bakterienes eget immunforsvar mot virus: bakterien lagrer korte biter av virus-DNA som et «immunologisk minne», og kutter viruset i stykker neste gang det angriper. Jennifer Doudna og Emmanuelle Charpentier (Nobelprisen i kjemi 2020) viste at systemet kan programmeres til å kutte hvilket som helst DNA på et helt presist sted.\n\nDet trengs tre komponenter. **Cas9** er et «molekylært saksenzym» (endonuklease) som kutter begge DNA-trådene. **Guide-RNA (sgRNA)** er et kort RNA på rundt 20 nukleotider som er komplementært til målsekvensen og leder Cas9 til riktig sted. Og **PAM-sekvensen** er en kort sekvens som må ligge rett ved målet, og som Cas9 kjenner igjen først. Etter at Cas9 har laget et dobbelttrådbrudd, reparerer cellen det på én av to måter: **NHEJ** (non-homologous end joining) skjøter endene upresist og lager tilfeldige insersjoner eller delesjoner – brukbart for å slå ut et gen. **HDR** (homology-directed repair) bruker en donor-DNA-mal til å gjøre en nøyaktig redigering. CRISPR brukes nå i grunnforskning, landbruk, diagnostikk og medisin – den godkjente behandlingen Casgevy mot sigdcelleanemi (2023) er et eksempel."},{"id":"biologi-2-1-8-n-quiz5","type":"exercise","exercise":{"id":"biologi-2-1-8-n-quiz5","type":"multiple-choice","number":"Quiz 5","task":"Test deg selv på CRISPR-Cas9:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-1-8-n-quiz5-q0","task":"Hva er funksjonen til guide-RNA (sgRNA) i CRISPR-Cas9?","options":[{"id":"a","text":"Å lede Cas9 til riktig målsekvens i DNA-et","isCorrect":true},{"id":"b","text":"Å kutte DNA-trådene","isCorrect":false},{"id":"c","text":"Å reparere bruddet etterpå","isCorrect":false},{"id":"d","text":"Å gjenkjenne PAM-sekvensen","isCorrect":false}],"solution":"Guide-RNA er komplementært til målsekvensen og leder Cas9-enzymet til riktig sted i DNA-et. Selve kuttingen gjøres av Cas9."},{"id":"biologi-2-1-8-n-quiz5-q1","task":"Hva er forskjellen mellom NHEJ og HDR etter et CRISPR-kutt?","options":[{"id":"a","text":"NHEJ er presis, HDR er upresis","isCorrect":false},{"id":"b","text":"NHEJ er upresis og gir gen-knockout, HDR er presis og bruker en donor-DNA-mal","isCorrect":true},{"id":"c","text":"Begge gir alltid samme resultat","isCorrect":false},{"id":"d","text":"NHEJ brukes bare i planter","isCorrect":false}],"solution":"NHEJ skjøter endene upresist (insersjoner/delesjoner → gen-knockout), mens HDR bruker en donor-mal til nøyaktig redigering."},{"id":"biologi-2-1-8-n-quiz5-q2","task":"Hvor kommer CRISPR-systemet opprinnelig fra?","options":[{"id":"a","text":"Fra menneskeceller","isCorrect":false},{"id":"b","text":"Fra plantefotosyntesen","isCorrect":false},{"id":"c","text":"Fra et bakterielt immunforsvar mot virus","isCorrect":true},{"id":"d","text":"Fra et laboratorium på 1970-tallet","isCorrect":false}],"solution":"CRISPR ble oppdaget som bakterienes immunforsvar mot bakteriofager, der bakterien lagrer og gjenkjenner virus-DNA for å kutte det opp."}]}},{"id":"biologi-2-1-8-n-section6","type":"text","content":"## De etiske spørsmålene\n\nGenredigering reiser dyptgripende etiske spørsmål. Et grunnleggende skille går mellom **somatisk celleredigering** og **kimcelleredigering**. Somatisk redigering endrer celler i kroppen, som blodstamceller, og endringene arves ikke videre. Dette er bredt akseptert som vanlig medisinsk behandling – Casgevy er et eksempel. Kimcelleredigering endrer derimot egg, sæd eller embryoer, og endringene arves til **alle framtidige generasjoner**. Dette er svært kontroversielt og forbudt i de fleste land.\n\nDen mest kjente saken er **He Jiankui-saken** fra 2018, der en kinesisk forsker redigerte CCR5-genet i embryoer for å gjøre tvillinger HIV-resistente. Inngrepet ble fordømt internasjonalt fordi det var medisinsk unødvendig, samtykket var mangelfullt, redigeringen var upresis, og CCR5-endringen kan ha uønskede bivirkninger. Forskeren ble fengslet. Sentrale problemstillinger er grensen mellom **behandling og forbedring** («designerbabyer»), **rettferdighet og tilgang** (Casgevy koster rundt 2 millioner dollar per behandling), **uforutsette konsekvenser** av off-target-redigeringer, og **gendriv** som kan endre hele arter. I Norge forbyr bioteknologiloven kimcelleredigering og genmodifisering av embryoer."},{"id":"biologi-2-1-8-n-quiz6","type":"exercise","exercise":{"id":"biologi-2-1-8-n-quiz6","type":"multiple-choice","number":"Quiz 6","task":"Test deg selv på etikk rundt genomredigering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"biologi-2-1-8-n-quiz6-q0","task":"Hva er hovedforskjellen mellom somatisk celleredigering og kimcelleredigering?","options":[{"id":"a","text":"Somatisk arves videre, kimcelle gjør ikke","isCorrect":false},{"id":"b","text":"De er etisk likestilte","isCorrect":false},{"id":"c","text":"Begge er forbudt i alle land","isCorrect":false},{"id":"d","text":"Somatisk arves ikke videre, mens kimcelleredigering arves til alle framtidige generasjoner","isCorrect":true}],"solution":"Somatisk redigering endrer kroppsceller og arves ikke. Kimcelleredigering endrer egg/sæd/embryo og arves til alle kommende generasjoner – derfor er den kontroversiell."},{"id":"biologi-2-1-8-n-quiz6-q1","task":"Hvorfor er kimcelleredigering mer kontroversielt enn somatisk redigering?","options":[{"id":"a","text":"Endringene arves videre, framtidige generasjoner kan ikke samtykke, og den åpner for designerbabyer","isCorrect":true},{"id":"b","text":"Den er billigere","isCorrect":false},{"id":"c","text":"Den virker aldri","isCorrect":false},{"id":"d","text":"Den er tillatt over hele verden","isCorrect":false}],"solution":"Kimcelleredigering arves til framtidige generasjoner som ikke har samtykket, og reiser frykt for designerbabyer og uforutsette konsekvenser. He Jiankui-saken er et avskrekkende eksempel."}]}},{"id":"biologi-2-1-8-n-summary","type":"text","content":"## Oppsummering\n\n**Genomikk** studerer hele genomer. **Humangenomprosjektet** (1990–2003) kartla ~3,2 milliarder basepar og avslørte at vi bare har 20 000–25 000 gener, og at bare ~1,5 % av genomet koder for protein. Tre sekvenseringsteknologier dominerer: **Sanger** (kjedeterminering, nøyaktig, lav kapasitet), **Illumina/NGS** (sekvensering ved syntese, enorm gjennomstrømning, billig) og **Oxford Nanopore** (strømmåling, ultralange reads, portabel).\n\n**Bioinformatikk** tolker dataene: **BLAST** sammenligner sekvenser (E-verdi angir signifikans), sekvenssammenstilling finner konserverte regioner, og fylogenetiske trær viser slektskap. **Funksjonell genomikk** omfatter transkriptomikk, proteomikk og metabolomikk. **CRISPR-Cas9** redigerer DNA presist med Cas9 og guide-RNA; NHEJ gir knockout, HDR gir nøyaktig redigering. Teknologien reiser etiske spørsmål, særlig skillet mellom akseptert **somatisk** redigering og kontroversiell **kimcelleredigering**, regulert i Norge av bioteknologiloven."}],"exercises":[]}
+{
+  "id": "biologi-2-1-8-narrativ",
+  "courseId": "biologi-2",
+  "chapterNumber": "1.8",
+  "title": "Genomikk og bioinformatikk",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan vi leser og redigerer hele genomet – fra Humangenomprosjektet og tre generasjoner sekvensering til bioinformatikkens verktøy, CRISPR-Cas9 og de etiske spørsmålene genredigering reiser.",
+  "estimatedMinutes": 21,
+  "competenceGoals": [
+    "gjøre rede for DNA-sekvenseringsteknologier og deres anvendelser",
+    "forklare prinsippet bak CRISPR-Cas9 og diskutere etiske problemstillinger"
+  ],
+  "linkedChapterId": "biologi-2-1-8",
+  "content": [
+    {
+      "id": "biologi-2-1-8-n-intro",
+      "type": "text",
+      "content": "## Å lese hele bruksanvisningen\n\nTenk deg at du ikke bare kan lese ett gen, men hele genomet – all den genetiske informasjonen i en organisme på én gang. Det er nettopp det **genomikk** handler om. Da Humangenomprosjektet ble fullført i 2003, og sekvenseringen siden ble dramatisk raskere og billigere, ble dette mulig: i dag kan et helt menneskegenom leses på timer for en brøkdel av den opprinnelige kostnaden.\n\nMen rådata er ikke det samme som forståelse. Til å analysere de enorme datamengdene trengs **bioinformatikk** – skjæringspunktet mellom biologi, informatikk og statistikk. I dette kapittelet skal vi følge reisen fra Humangenomprosjektet, gjennom de ulike sekvenseringsteknologiene og bioinformatiske verktøyene, til den banebrytende genredigeringen med CRISPR-Cas9 og de etiske spørsmålene den reiser."
+    },
+    {
+      "id": "biologi-2-1-8-n-section1",
+      "type": "text",
+      "content": "## Humangenomprosjektet\n\n**Humangenomprosjektet** (HGP) var et internasjonalt samarbeid som pågikk fra 1990 til 2003 med mål om å kartlegge alle de rundt 3,2 milliarder baseparene i menneskets DNA. Det tok 13 år, kostet rundt 2,7 milliarder dollar og brukte Sanger-sekvensering.\n\nProsjektet ga flere overraskelser. Man hadde forventet rundt 100 000 proteinkodende gener, men fant bare **20 000–25 000**. Enda mer overraskende: bare rundt **1,5 %** av genomet koder faktisk for protein. Rundt 45 % består av repetitive sekvenser, mye av det avledet fra transposoner. Resten – som lenge ble kalt «junk-DNA» – viste seg senere (gjennom ENCODE-prosjektet) å inneholde mye DNA med regulatoriske og strukturelle funksjoner, som promotorer, enhancere, gener for ikke-kodende RNA, samt telomerer og centromerer. **Genomet** er altså mye mer enn bare gener; det er et komplekst landskap der reguleringen er like viktig som selve oppskriftene."
+    },
+    {
+      "id": "biologi-2-1-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-1-8-n-quiz1",
+        "type": "multiple-choice",
+        "number": "Quiz 1",
+        "task": "Test deg selv på Humangenomprosjektet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-1-8-n-quiz1-q0",
+            "task": "Hva var en av de mest overraskende oppdagelsene fra Humangenomprosjektet?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Mennesker har bare ~20 000–25 000 proteinkodende gener, langt færre enn forventet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Mennesker har over 200 000 proteinkodende gener",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alt DNA i genomet koder for proteiner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Genomet er bare 100 millioner basepar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Man hadde ventet rundt 100 000 gener, men fant bare 20 000–25 000. Dessuten koder bare rundt 1,5 % av genomet for protein."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz1-q1",
+            "task": "Omtrent hvor stor andel av det menneskelige genomet koder for protein?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 1,5 %",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ca. 45 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 80 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nesten 100 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bare rundt 1,5 % av genomet koder for protein. Mye av resten er repetitivt DNA og regulatoriske sekvenser."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-1-8-n-section2",
+      "type": "text",
+      "content": "## Tre generasjoner sekvensering\n\nMåten vi leser DNA på, har utviklet seg i tre store steg. **Sanger-sekvensering** (1977) var arbeidshesten i Humangenomprosjektet. Den bruker kjedeterminering: spesielle ddNTP-er mangler 3'-OH-gruppen, så når en av dem bygges inn, stopper kjeden. Fragmentene sorteres etter størrelse med kapillærelektroforese, og fluorescensfargene avsløres sekvensen. Sanger leser rundt 700–1000 basepar med svært høy nøyaktighet (>99,99 %), men har lav kapasitet og høy kostnad per base.\n\n**Neste generasjons sekvensering (NGS), Illumina**, revolusjonerte feltet ved å sekvensere millioner av fragmenter parallelt. DNA-et festes til en flowcelle, amplifiseres i klynger, og leses ved syntese med fluorescensmerkede nukleotider. Reads er kortere (150–300 bp), men gjennomstrømningen er enorm og prisen lav – i dag rundt 200–1000 dollar per genom.\n\n**Tredjegenerasjons sekvensering, Oxford Nanopore**, trekker intakt DNA gjennom en bittliten pore i en membran. Når basene passerer, blokkerer de en elektrisk strøm i ulik grad, og strømendringene tolkes til en sekvens. Fordelen er ultralange reads (10 000–100 000+ bp) og at enheten er portabel og leser i sanntid – ulempen er litt lavere nøyaktighet per read (~95–99 %)."
+    },
+    {
+      "id": "biologi-2-1-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-1-8-n-quiz2",
+        "type": "multiple-choice",
+        "number": "Quiz 2",
+        "task": "Test deg selv på sekvenseringsteknologier:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-1-8-n-quiz2-q0",
+            "task": "Hva er prinsippet bak Sanger-sekvensering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Strømmåling gjennom en nanopore",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Broamplifikasjon på en flowcelle",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kjedeterminering med ddNTP-er som mangler 3'-OH-gruppen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Direkte avlesning av proteiner",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sanger bruker ddNTP-er som mangler 3'-OH. Når en bygges inn, stopper kjeden, og fragmentene sorteres etter størrelse for å lese sekvensen."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz2-q1",
+            "task": "Hvilken teknologi gir de lengste readene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sanger-sekvensering",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Illumina (NGS)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Massespektrometri",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Oxford Nanopore",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Oxford Nanopore gir ultralange reads på 10 000–100 000+ basepar, mens Sanger gir ~1000 bp og Illumina bare 150–300 bp."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz2-q2",
+            "task": "Hva er hovedfordelen med Illumina (NGS) sammenlignet med Sanger?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Mye lengre reads",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Mye høyere gjennomstrømning og lavere kostnad per base",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den kan lese proteiner direkte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den krever ikke DNA",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Illumina sekvenserer millioner av fragmenter parallelt, noe som gir enorm gjennomstrømning og lav kostnad – men kortere reads enn Sanger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-1-8-n-section3",
+      "type": "text",
+      "content": "## Bioinformatikkens verktøy\n\nNår dataene først er der, må de tolkes, og det er bioinformatikkens oppgave. Det mest brukte verktøyet er **BLAST** (Basic Local Alignment Search Tool), som sammenligner en sekvens mot millioner av andre i databaser for å finne liknende sekvenser. Slik kan man identifisere et ukjent gen, finne evolusjonært beslektede gener i andre arter, eller gjenkjenne konserverte domener. Hvert treff får en **E-verdi**, som angir hvor sannsynlig det er å finne et like godt treff ved ren tilfeldighet – jo lavere E-verdi, jo mer signifikant treff.\n\nEt annet sentralt verktøy er **multippel sekvenssammenstilling**, der man stiller opp sekvenser fra mange arter ved siden av hverandre for å finne **konserverte regioner** – områder som har endret seg lite gjennom evolusjonen og derfor trolig har viktig funksjon. Basert på slike sammenstillinger kan man bygge **fylogenetiske trær** som viser evolusjonært slektskap. Grenlengdene reflekterer den evolusjonære avstanden, så arter med korte grener mellom seg er nært beslektet."
+    },
+    {
+      "id": "biologi-2-1-8-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-1-8-n-quiz3",
+        "type": "multiple-choice",
+        "number": "Quiz 3",
+        "task": "Test deg selv på bioinformatiske verktøy:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-1-8-n-quiz3-q0",
+            "task": "Hva er E-verdien i et BLAST-søk?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Prosent identitet mellom to sekvenser",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antall baser som er forskjellige",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Sannsynligheten for å finne et like godt treff ved tilfeldighet – lavere er mer signifikant",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Lengden på den matchende regionen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "E-verdien angir sannsynligheten for å få et like godt treff ved ren tilfeldighet. Lav E-verdi betyr at treffet er statistisk signifikant."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz3-q1",
+            "task": "Hva forteller en konservert region i en multippel sekvenssammenstilling oss?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At regionen er tilfeldig variabel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At sekvensen er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At arten er nyoppdaget",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At regionen sannsynligvis har en viktig funksjon, siden den har endret seg lite gjennom evolusjonen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En konservert region har endret seg lite gjennom evolusjonen, noe som tyder på at den er viktig for funksjonen og derfor er bevart."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-1-8-n-section4",
+      "type": "text",
+      "content": "## Fra sekvens til funksjon\n\nÅ kjenne genomsekvensen er bare begynnelsen. **Funksjonell genomikk** spør hvordan genomet faktisk fungerer, og deler seg i flere «omics»-felt. **Genomikk** studerer selve DNA-sekvensen. **Transkriptomikk**, med metoden RNA-seq, måler alle mRNA-molekylene i en celle og gir et øyeblikksbilde av genuttrykket – nyttig for å sammenligne friskt og sykt vev eller finne biomarkører. **Proteomikk** måler hvilke proteiner som faktisk produseres, ved hjelp av massespektrometri. Et viktig poeng er at mRNA-nivå og proteinnivå ikke alltid samsvarer, fordi translasjon, modifisering og nedbrytning også spiller inn.\n\nDet siste leddet i kjeden er **metabolomikk**, som studerer metabolittene – de små molekylene som er sluttproduktene av cellens stoffskifte. Metabolittprofilen reflekterer cellens faktiske fysiologiske tilstand og kan noen ganger avsløre sykdom før symptomene melder seg. **Epigenomikk** kartlegger i tillegg epigenetiske merker som metylering og histonmodifikasjoner."
+    },
+    {
+      "id": "biologi-2-1-8-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-1-8-n-quiz4",
+        "type": "multiple-choice",
+        "number": "Quiz 4",
+        "task": "Test deg selv på funksjonell genomikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-1-8-n-quiz4-q0",
+            "task": "Hva måler transkriptomikk (RNA-seq)?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Alle mRNA-molekylene i en celle, altså genuttrykket",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "DNA-sekvensen i genomet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Metabolittkonsentrasjonene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antall kromosomer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Transkriptomikk med RNA-seq måler alle mRNA-molekylene i en celle og gir dermed et øyeblikksbilde av hvilke gener som uttrykkes."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz4-q1",
+            "task": "Hvorfor samsvarer ikke alltid mRNA-nivå og proteinnivå?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi mRNA aldri blir til protein",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi translasjon, proteinmodifisering og nedbrytning også påvirker proteinmengden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi proteomikk er upålitelig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi alle mRNA brytes ned umiddelbart",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Proteinmengden påvirkes ikke bare av mRNA-nivået, men også av hvor effektivt mRNA-et translateres og hvordan proteinet modifiseres og brytes ned."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-1-8-n-section5",
+      "type": "text",
+      "content": "## CRISPR-Cas9: molekylære sakser\n\nNoe av det mest revolusjonerende i moderne biologi er **CRISPR-Cas9**. Systemet ble opprinnelig oppdaget som bakterienes eget immunforsvar mot virus: bakterien lagrer korte biter av virus-DNA som et «immunologisk minne», og kutter viruset i stykker neste gang det angriper. Jennifer Doudna og Emmanuelle Charpentier (Nobelprisen i kjemi 2020) viste at systemet kan programmeres til å kutte hvilket som helst DNA på et helt presist sted.\n\nDet trengs tre komponenter. **Cas9** er et «molekylært saksenzym» (endonuklease) som kutter begge DNA-trådene. **Guide-RNA (sgRNA)** er et kort RNA på rundt 20 nukleotider som er komplementært til målsekvensen og leder Cas9 til riktig sted. Og **PAM-sekvensen** er en kort sekvens som må ligge rett ved målet, og som Cas9 kjenner igjen først. Etter at Cas9 har laget et dobbelttrådbrudd, reparerer cellen det på én av to måter: **NHEJ** (non-homologous end joining) skjøter endene upresist og lager tilfeldige insersjoner eller delesjoner – brukbart for å slå ut et gen. **HDR** (homology-directed repair) bruker en donor-DNA-mal til å gjøre en nøyaktig redigering. CRISPR brukes nå i grunnforskning, landbruk, diagnostikk og medisin – den godkjente behandlingen Casgevy mot sigdcelleanemi (2023) er et eksempel."
+    },
+    {
+      "id": "biologi-2-1-8-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-1-8-n-quiz5",
+        "type": "multiple-choice",
+        "number": "Quiz 5",
+        "task": "Test deg selv på CRISPR-Cas9:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-1-8-n-quiz5-q0",
+            "task": "Hva er funksjonen til guide-RNA (sgRNA) i CRISPR-Cas9?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å kutte DNA-trådene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å reparere bruddet etterpå",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Å lede Cas9 til riktig målsekvens i DNA-et",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Å gjenkjenne PAM-sekvensen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Guide-RNA er komplementært til målsekvensen og leder Cas9-enzymet til riktig sted i DNA-et. Selve kuttingen gjøres av Cas9."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz5-q1",
+            "task": "Hva er forskjellen mellom NHEJ og HDR etter et CRISPR-kutt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "NHEJ er presis, HDR er upresis",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge gir alltid samme resultat",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "NHEJ brukes bare i planter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "NHEJ er upresis og gir gen-knockout, HDR er presis og bruker en donor-DNA-mal",
+                "isCorrect": true
+              }
+            ],
+            "solution": "NHEJ skjøter endene upresist (insersjoner/delesjoner → gen-knockout), mens HDR bruker en donor-mal til nøyaktig redigering."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz5-q2",
+            "task": "Hvor kommer CRISPR-systemet opprinnelig fra?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fra et bakterielt immunforsvar mot virus",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fra menneskeceller",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fra plantefotosyntesen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fra et laboratorium på 1970-tallet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CRISPR ble oppdaget som bakterienes immunforsvar mot bakteriofager, der bakterien lagrer og gjenkjenner virus-DNA for å kutte det opp."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-1-8-n-section6",
+      "type": "text",
+      "content": "## De etiske spørsmålene\n\nGenredigering reiser dyptgripende etiske spørsmål. Et grunnleggende skille går mellom **somatisk celleredigering** og **kimcelleredigering**. Somatisk redigering endrer celler i kroppen, som blodstamceller, og endringene arves ikke videre. Dette er bredt akseptert som vanlig medisinsk behandling – Casgevy er et eksempel. Kimcelleredigering endrer derimot egg, sæd eller embryoer, og endringene arves til **alle framtidige generasjoner**. Dette er svært kontroversielt og forbudt i de fleste land.\n\nDen mest kjente saken er **He Jiankui-saken** fra 2018, der en kinesisk forsker redigerte CCR5-genet i embryoer for å gjøre tvillinger HIV-resistente. Inngrepet ble fordømt internasjonalt fordi det var medisinsk unødvendig, samtykket var mangelfullt, redigeringen var upresis, og CCR5-endringen kan ha uønskede bivirkninger. Forskeren ble fengslet. Sentrale problemstillinger er grensen mellom **behandling og forbedring** («designerbabyer»), **rettferdighet og tilgang** (Casgevy koster rundt 2 millioner dollar per behandling), **uforutsette konsekvenser** av off-target-redigeringer, og **gendriv** som kan endre hele arter. I Norge forbyr bioteknologiloven kimcelleredigering og genmodifisering av embryoer."
+    },
+    {
+      "id": "biologi-2-1-8-n-quiz6",
+      "type": "exercise",
+      "exercise": {
+        "id": "biologi-2-1-8-n-quiz6",
+        "type": "multiple-choice",
+        "number": "Quiz 6",
+        "task": "Test deg selv på etikk rundt genomredigering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "biologi-2-1-8-n-quiz6-q0",
+            "task": "Hva er hovedforskjellen mellom somatisk celleredigering og kimcelleredigering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Somatisk arves videre, kimcelle gjør ikke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Somatisk arves ikke videre, mens kimcelleredigering arves til alle framtidige generasjoner",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "De er etisk likestilte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge er forbudt i alle land",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Somatisk redigering endrer kroppsceller og arves ikke. Kimcelleredigering endrer egg/sæd/embryo og arves til alle kommende generasjoner – derfor er den kontroversiell."
+          },
+          {
+            "id": "biologi-2-1-8-n-quiz6-q1",
+            "task": "Hvorfor er kimcelleredigering mer kontroversielt enn somatisk redigering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den er billigere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den virker aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Endringene arves videre, framtidige generasjoner kan ikke samtykke, og den åpner for designerbabyer",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den er tillatt over hele verden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kimcelleredigering arves til framtidige generasjoner som ikke har samtykket, og reiser frykt for designerbabyer og uforutsette konsekvenser. He Jiankui-saken er et avskrekkende eksempel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "biologi-2-1-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Genomikk** studerer hele genomer. **Humangenomprosjektet** (1990–2003) kartla ~3,2 milliarder basepar og avslørte at vi bare har 20 000–25 000 gener, og at bare ~1,5 % av genomet koder for protein. Tre sekvenseringsteknologier dominerer: **Sanger** (kjedeterminering, nøyaktig, lav kapasitet), **Illumina/NGS** (sekvensering ved syntese, enorm gjennomstrømning, billig) og **Oxford Nanopore** (strømmåling, ultralange reads, portabel).\n\n**Bioinformatikk** tolker dataene: **BLAST** sammenligner sekvenser (E-verdi angir signifikans), sekvenssammenstilling finner konserverte regioner, og fylogenetiske trær viser slektskap. **Funksjonell genomikk** omfatter transkriptomikk, proteomikk og metabolomikk. **CRISPR-Cas9** redigerer DNA presist med Cas9 og guide-RNA; NHEJ gir knockout, HDR gir nøyaktig redigering. Teknologien reiser etiske spørsmål, særlig skillet mellom akseptert **somatisk** redigering og kontroversiell **kimcelleredigering**, regulert i Norge av bioteknologiloven."
+    }
+  ],
+  "exercises": []
+}

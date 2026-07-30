@@ -1,1 +1,238 @@
-{"id":"2py-2-4-narrativ","courseId":"2py","chapterNumber":"2.4","title":"Eksponentielle sammenhenger","subtitle":"Narrativ versjon","description":"En fortelling om varebilen som taper verdi og bakteriene som dobler seg — om endring som skjer i prosent, ikke i kroner.","estimatedMinutes":35,"competenceGoals":["forstå eksponentiell vekst og nedgang","beregne med vekstfaktor","finne halveringstid og fordoblingstid"],"linkedChapterId":"2py-2-4","content":[{"id":"2py-2-4-n-intro","type":"text","content":"## Varebilen som krymper i verdi\n\nHåndverkeren Stine kjøper ny varebil til 420 000 kr. Selgeren nevner i forbifarten at slike biler taper rundt 18 % av verdien hvert år. Stine regner kjapt i hodet: 18 % av 420 000 er 75 600, så etter fem år har den vel tapt $5 \\cdot 75\\,600 = 378\\,000$ kr og er nesten verdiløs?\n\nHeldigvis tar hun feil — og grunnen er forskjellen mellom **lineær** og **eksponentiell** endring. Lineær endring skjer med et fast *beløp* per periode. Eksponentiell endring skjer med en fast *prosent* per periode, og prosenten regnes hver gang av den nye, lavere verdien. Bilen taper mest verdi det første året, litt mindre det neste, og så videre.\n\nEksponentielle sammenhenger er overalt i yrkeslivet: verditap på biler og maskiner, bakterievekst i matvarer, prisstigning over tid, nedbrytning av medisiner i kroppen. I dette kapittelet lærer vi formelen som beskriver dem alle:\n\n$$N = N_0 \\cdot a^x$$\n\nder $N_0$ er startverdien, $a$ er vekstfaktoren og $x$ er antall perioder. Med den skal vi finne ut hva Stines bil faktisk er verdt om fem år — og hvorfor en kyllingfilet på kjøkkenbenken blir farlig fortere enn du tror."},{"id":"2py-2-4-n-section1","type":"text","content":"## Verditap med vekstfaktor\n\nLa oss regne riktig på Stines varebil. Startverdien er $N_0 = 420\\,000$ kr. En nedgang på 18 % per år gir vekstfaktor $a = 1 - 0{,}18 = 0{,}82$. Etter $x = 5$ år er verdien\n\n$$N = 420\\,000 \\cdot 0{,}82^5 = 420\\,000 \\cdot 0{,}3707 \\approx 155\\,700 \\text{ kr}$$\n\nBilen er altså verdt rundt 155 700 kr — ikke null, slik Stines hoderegning antydet. Verditapet er $420\\,000 - 155\\,700 = 264\\,300$ kr, fortsatt en solid sum, men fordelt slik at det første året koster mest: 18 % av 420 000 er 75 600 kr, mens det femte året bare tar 18 % av en mye lavere verdi.\n\nLegg merke til hvordan formelen virker: vi ganger med 0,82 én gang for hvert år, og potensen $0{,}82^5$ samler alle fem årene i én operasjon. Sammenlign med en lineær modell, der verdien hadde sunket med samme kronebeløp hvert år og truffet null etter drøyt fem år. Den eksponentielle kurven flater i stedet ut — den nærmer seg null, men når den aldri.\n\nDet samme regnestykket gjelder alt som vokser med fast prosent, bare med vekstfaktor over 1: en pris som stiger 8 % i året, har vekstfaktor 1,08, og etter $x$ år er prisen ganget med $1{,}08^x$. Én formel, alle retninger."},{"id":"2py-2-4-n-quiz1","type":"exercise","exercise":{"id":"2py-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på eksponentiell endring:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-2-4-n-quiz1-q0","task":"En varebil taper 18 % av verdien hvert år. Hva er vekstfaktoren?","options":[{"id":"a","text":"$1{,}18$","isCorrect":false},{"id":"b","text":"$0{,}82$","isCorrect":true},{"id":"c","text":"$0{,}18$","isCorrect":false},{"id":"d","text":"$0{,}92$","isCorrect":false}],"solution":"Nedgang på 18 % gir vekstfaktor $1 - 0{,}18 = 0{,}82$."},{"id":"2py-2-4-n-quiz1-q1","task":"Bilen kostet 420 000 kr og taper 18 % i året. Omtrent hva er den verdt etter 5 år?","options":[{"id":"a","text":"$42\\,000$ kr","isCorrect":false},{"id":"b","text":"$344\\,400$ kr","isCorrect":false},{"id":"c","text":"$200\\,000$ kr","isCorrect":false},{"id":"d","text":"$155\\,700$ kr","isCorrect":true}],"solution":"$N = 420\\,000 \\cdot 0{,}82^5 \\approx 420\\,000 \\cdot 0{,}3707 \\approx 155\\,700$ kr."},{"id":"2py-2-4-n-quiz1-q2","task":"Hva er forskjellen på lineær og eksponentiell endring?","options":[{"id":"a","text":"Eksponentiell endring skjer med fast prosent per periode, lineær med fast beløp","isCorrect":true},{"id":"b","text":"Lineær endring skjer med fast prosent, eksponentiell med fast beløp","isCorrect":false},{"id":"c","text":"Eksponentiell endring kan bare øke","isCorrect":false},{"id":"d","text":"Det er ingen forskjell","isCorrect":false}],"solution":"Lineær: samme tallendring hver periode. Eksponentiell: samme prosentvise endring hver periode — prosenten regnes av stadig ny verdi."}]}},{"id":"2py-2-4-n-section2","type":"text","content":"## Dobling, halvering og kyllingen på benken\n\nPå storkjøkkenet der venninnen til Stine jobber, gjelder en jernregel: kjølevarer skal raskt inn i kjøleskapet. Hvorfor så strengt? Matematikken gir svaret.\n\nEt parti kyllingfilet har 200 bakterier ved levering, og i romtemperatur **dobles** antallet hver 30. minutt. Doblingen betyr vekstfaktor $a = 2$ per halvtime. Står kyllingen fremme i 3 timer, har det gått $\\frac{3}{0{,}5} = 6$ perioder, og antall bakterier er\n\n$$N = 200 \\cdot 2^6 = 200 \\cdot 64 = 12\\,800$$\n\nFra 200 til nesten 13 000 bakterier på tre timer — det er eksponentiell vekst i praksis, og grunnen til at kjølekjeden aldri skal brytes.\n\nTiden det tar før noe dobler seg, kalles **fordoblingstiden**; for kyllingbakteriene er den 30 minutter. Motsatt kalles tiden det tar før noe halveres, for **halveringstiden** — det brukes blant annet om medisiner i kroppen og radioaktivt avfall. Kjenner du vekstfaktoren $a$, kan begge beregnes med logaritmer:\n\n$$\\text{Fordoblingstid} = \\frac{\\log(2)}{\\log(a)} \\qquad \\text{Halveringstid} = \\frac{\\log(0{,}5)}{\\log(a)}$$\n\nFor Stines varebil med $a = 0{,}82$ gir formelen en halveringstid på $\\frac{\\log(0{,}5)}{\\log(0{,}82)} \\approx 3{,}5$ år — etter cirka tre og et halvt år er bilen verdt halvparten. Slike tall gir en intuitiv følelse for hvor fort en eksponentiell utvikling egentlig går."},{"id":"2py-2-4-n-quiz2","type":"exercise","exercise":{"id":"2py-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på dobling og halvering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-2-4-n-quiz2-q0","task":"Bakterier dobles hver 30. minutt. Hvor mange perioder er det i 3 timer?","options":[{"id":"a","text":"$3$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":true},{"id":"d","text":"$9$","isCorrect":false}],"solution":"$\\frac{3 \\text{ timer}}{0{,}5 \\text{ timer}} = 6$ perioder på 30 minutter."},{"id":"2py-2-4-n-quiz2-q1","task":"Kyllingen har 200 bakterier som dobles 6 ganger. Hvor mange bakterier blir det?","options":[{"id":"a","text":"$12\\,800$","isCorrect":true},{"id":"b","text":"$2\\,400$","isCorrect":false},{"id":"c","text":"$1\\,200$","isCorrect":false},{"id":"d","text":"$6\\,400$","isCorrect":false}],"solution":"$N = 200 \\cdot 2^6 = 200 \\cdot 64 = 12\\,800$ bakterier."},{"id":"2py-2-4-n-quiz2-q2","task":"Hva er halveringstid?","options":[{"id":"a","text":"Tiden det tar før veksten stopper","isCorrect":false},{"id":"b","text":"Tiden det tar før en størrelse er redusert til halvparten","isCorrect":true},{"id":"c","text":"Halvparten av fordoblingstiden","isCorrect":false},{"id":"d","text":"Tiden det tar før vekstfaktoren blir 0,5","isCorrect":false}],"solution":"Halveringstiden er tiden det tar før verdien er halvert — brukes f.eks. om medisin i kroppen og verditap på utstyr."}]}},{"id":"2py-2-4-n-summary","type":"text","content":"## Oppsummering\n\nStines varebil og storkjøkkenets kylling forteller samme historie fra hver sin ende: når noe endrer seg med en fast **prosent** per periode, er utviklingen **eksponentiell**, og da gjelder formelen $N = N_0 \\cdot a^x$, der $N_0$ er startverdien, $a$ er vekstfaktoren og $x$ er antall perioder.\n\nVekstfaktoren bygger du som før: $p$ % økning gir $a = 1 + \\frac{p}{100}$, $p$ % nedgang gir $a = 1 - \\frac{p}{100}$. Er $a > 1$, vokser størrelsen; er $0 < a < 1$, minker den — men den når aldri helt null, slik bilen til 420 000 kr fortsatt var verdt 155 700 kr etter fem år med 18 % årlig verditap.\n\nForskjellen fra lineær endring er selve kjernen: lineært betyr fast *beløp* per periode, eksponentielt betyr fast *prosent* — og prosenten regnes av stadig ny verdi. Derfor eksploderer bakterietall som dobles hver halvtime, fra 200 til 12 800 på tre timer.\n\n**Fordoblingstid** og **halveringstid** er tiden det tar før verdien er doblet eller halvert, og kan finnes med logaritmer: $\\frac{\\log 2}{\\log a}$ og $\\frac{\\log 0{,}5}{\\log a}$. Neste gang noen sier «bare noen prosent i året», vet du at det kan bety enormt mye — gitt nok tid."}],"exercises":[]}
+{
+  "id": "2py-2-4-narrativ",
+  "courseId": "2py",
+  "chapterNumber": "2.4",
+  "title": "Eksponentielle sammenhenger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om varebilen som taper verdi og bakteriene som dobler seg — om endring som skjer i prosent, ikke i kroner.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå eksponentiell vekst og nedgang",
+    "beregne med vekstfaktor",
+    "finne halveringstid og fordoblingstid"
+  ],
+  "linkedChapterId": "2py-2-4",
+  "content": [
+    {
+      "id": "2py-2-4-n-intro",
+      "type": "text",
+      "content": "## Varebilen som krymper i verdi\n\nHåndverkeren Stine kjøper ny varebil til 420 000 kr. Selgeren nevner i forbifarten at slike biler taper rundt 18 % av verdien hvert år. Stine regner kjapt i hodet: 18 % av 420 000 er 75 600, så etter fem år har den vel tapt $5 \\cdot 75\\,600 = 378\\,000$ kr og er nesten verdiløs?\n\nHeldigvis tar hun feil — og grunnen er forskjellen mellom **lineær** og **eksponentiell** endring. Lineær endring skjer med et fast *beløp* per periode. Eksponentiell endring skjer med en fast *prosent* per periode, og prosenten regnes hver gang av den nye, lavere verdien. Bilen taper mest verdi det første året, litt mindre det neste, og så videre.\n\nEksponentielle sammenhenger er overalt i yrkeslivet: verditap på biler og maskiner, bakterievekst i matvarer, prisstigning over tid, nedbrytning av medisiner i kroppen. I dette kapittelet lærer vi formelen som beskriver dem alle:\n\n$$N = N_0 \\cdot a^x$$\n\nder $N_0$ er startverdien, $a$ er vekstfaktoren og $x$ er antall perioder. Med den skal vi finne ut hva Stines bil faktisk er verdt om fem år — og hvorfor en kyllingfilet på kjøkkenbenken blir farlig fortere enn du tror."
+    },
+    {
+      "id": "2py-2-4-n-section1",
+      "type": "text",
+      "content": "## Verditap med vekstfaktor\n\nLa oss regne riktig på Stines varebil. Startverdien er $N_0 = 420\\,000$ kr. En nedgang på 18 % per år gir vekstfaktor $a = 1 - 0{,}18 = 0{,}82$. Etter $x = 5$ år er verdien\n\n$$N = 420\\,000 \\cdot 0{,}82^5 = 420\\,000 \\cdot 0{,}3707 \\approx 155\\,700 \\text{ kr}$$\n\nBilen er altså verdt rundt 155 700 kr — ikke null, slik Stines hoderegning antydet. Verditapet er $420\\,000 - 155\\,700 = 264\\,300$ kr, fortsatt en solid sum, men fordelt slik at det første året koster mest: 18 % av 420 000 er 75 600 kr, mens det femte året bare tar 18 % av en mye lavere verdi.\n\nLegg merke til hvordan formelen virker: vi ganger med 0,82 én gang for hvert år, og potensen $0{,}82^5$ samler alle fem årene i én operasjon. Sammenlign med en lineær modell, der verdien hadde sunket med samme kronebeløp hvert år og truffet null etter drøyt fem år. Den eksponentielle kurven flater i stedet ut — den nærmer seg null, men når den aldri.\n\nDet samme regnestykket gjelder alt som vokser med fast prosent, bare med vekstfaktor over 1: en pris som stiger 8 % i året, har vekstfaktor 1,08, og etter $x$ år er prisen ganget med $1{,}08^x$. Én formel, alle retninger."
+    },
+    {
+      "id": "2py-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på eksponentiell endring:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-2-4-n-quiz1-q0",
+            "task": "En varebil taper 18 % av verdien hvert år. Hva er vekstfaktoren?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}82$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1{,}18$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}18$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}92$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nedgang på 18 % gir vekstfaktor $1 - 0{,}18 = 0{,}82$."
+          },
+          {
+            "id": "2py-2-4-n-quiz1-q1",
+            "task": "Bilen kostet 420 000 kr og taper 18 % i året. Omtrent hva er den verdt etter 5 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$42\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$155\\,700$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$344\\,400$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$200\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N = 420\\,000 \\cdot 0{,}82^5 \\approx 420\\,000 \\cdot 0{,}3707 \\approx 155\\,700$ kr."
+          },
+          {
+            "id": "2py-2-4-n-quiz1-q2",
+            "task": "Hva er forskjellen på lineær og eksponentiell endring?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Lineær endring skjer med fast prosent, eksponentiell med fast beløp",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eksponentiell endring kan bare øke",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Eksponentiell endring skjer med fast prosent per periode, lineær med fast beløp",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen forskjell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lineær: samme tallendring hver periode. Eksponentiell: samme prosentvise endring hver periode — prosenten regnes av stadig ny verdi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-2-4-n-section2",
+      "type": "text",
+      "content": "## Dobling, halvering og kyllingen på benken\n\nPå storkjøkkenet der venninnen til Stine jobber, gjelder en jernregel: kjølevarer skal raskt inn i kjøleskapet. Hvorfor så strengt? Matematikken gir svaret.\n\nEt parti kyllingfilet har 200 bakterier ved levering, og i romtemperatur **dobles** antallet hver 30. minutt. Doblingen betyr vekstfaktor $a = 2$ per halvtime. Står kyllingen fremme i 3 timer, har det gått $\\frac{3}{0{,}5} = 6$ perioder, og antall bakterier er\n\n$$N = 200 \\cdot 2^6 = 200 \\cdot 64 = 12\\,800$$\n\nFra 200 til nesten 13 000 bakterier på tre timer — det er eksponentiell vekst i praksis, og grunnen til at kjølekjeden aldri skal brytes.\n\nTiden det tar før noe dobler seg, kalles **fordoblingstiden**; for kyllingbakteriene er den 30 minutter. Motsatt kalles tiden det tar før noe halveres, for **halveringstiden** — det brukes blant annet om medisiner i kroppen og radioaktivt avfall. Kjenner du vekstfaktoren $a$, kan begge beregnes med logaritmer:\n\n$$\\text{Fordoblingstid} = \\frac{\\log(2)}{\\log(a)} \\qquad \\text{Halveringstid} = \\frac{\\log(0{,}5)}{\\log(a)}$$\n\nFor Stines varebil med $a = 0{,}82$ gir formelen en halveringstid på $\\frac{\\log(0{,}5)}{\\log(0{,}82)} \\approx 3{,}5$ år — etter cirka tre og et halvt år er bilen verdt halvparten. Slike tall gir en intuitiv følelse for hvor fort en eksponentiell utvikling egentlig går."
+    },
+    {
+      "id": "2py-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på dobling og halvering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-2-4-n-quiz2-q0",
+            "task": "Bakterier dobles hver 30. minutt. Hvor mange perioder er det i 3 timer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{3 \\text{ timer}}{0{,}5 \\text{ timer}} = 6$ perioder på 30 minutter."
+          },
+          {
+            "id": "2py-2-4-n-quiz2-q1",
+            "task": "Kyllingen har 200 bakterier som dobles 6 ganger. Hvor mange bakterier blir det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$12\\,800$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2\\,400$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1\\,200$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6\\,400$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N = 200 \\cdot 2^6 = 200 \\cdot 64 = 12\\,800$ bakterier."
+          },
+          {
+            "id": "2py-2-4-n-quiz2-q2",
+            "task": "Hva er halveringstid?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tiden det tar før veksten stopper",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tiden det tar før en størrelse er redusert til halvparten",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Halvparten av fordoblingstiden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tiden det tar før vekstfaktoren blir 0,5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Halveringstiden er tiden det tar før verdien er halvert — brukes f.eks. om medisin i kroppen og verditap på utstyr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nStines varebil og storkjøkkenets kylling forteller samme historie fra hver sin ende: når noe endrer seg med en fast **prosent** per periode, er utviklingen **eksponentiell**, og da gjelder formelen $N = N_0 \\cdot a^x$, der $N_0$ er startverdien, $a$ er vekstfaktoren og $x$ er antall perioder.\n\nVekstfaktoren bygger du som før: $p$ % økning gir $a = 1 + \\frac{p}{100}$, $p$ % nedgang gir $a = 1 - \\frac{p}{100}$. Er $a > 1$, vokser størrelsen; er $0 < a < 1$, minker den — men den når aldri helt null, slik bilen til 420 000 kr fortsatt var verdt 155 700 kr etter fem år med 18 % årlig verditap.\n\nForskjellen fra lineær endring er selve kjernen: lineært betyr fast *beløp* per periode, eksponentielt betyr fast *prosent* — og prosenten regnes av stadig ny verdi. Derfor eksploderer bakterietall som dobles hver halvtime, fra 200 til 12 800 på tre timer.\n\n**Fordoblingstid** og **halveringstid** er tiden det tar før verdien er doblet eller halvert, og kan finnes med logaritmer: $\\frac{\\log 2}{\\log a}$ og $\\frac{\\log 0{,}5}{\\log a}$. Neste gang noen sier «bare noen prosent i året», vet du at det kan bety enormt mye — gitt nok tid."
+    }
+  ],
+  "exercises": []
+}

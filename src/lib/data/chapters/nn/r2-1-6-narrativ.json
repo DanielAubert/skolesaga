@@ -1,1 +1,324 @@
-{"id":"r2-1-6-narrativ","courseId":"r2","chapterNumber":"1.6","title":"Induksjonsbevis","subtitle":"Narrativ versjon","description":"Ei forteljing om induksjonsbevis — dominorekkja der éi fallande brikke veltar den neste, og korleis to endelege steg kan bevise påstandar om uendeleg mange tal.","estimatedMinutes":40,"competenceGoals":["analysere og forsta matematiske bevis"],"linkedChapterId":"r2-1-6","content":[{"id":"r2-1-6-n-intro","type":"text","content":"## Dominorekkja som beviser alt\n\nSjå for deg ei uendeleg lang rekkje med dominobrikker, éi for kvart naturleg tal. Du vil garantere at *alle* fell. Å dytte kvar einskild brikke er umogleg — det er uendeleg mange. Men du treng berre å sikre to ting: at den *første* brikka fell, og at *kvar brikke som fell, veltar den neste*. Då fell brikke éin, som veltar brikke to, som veltar brikke tre — og dominoeffekten rullar gjennom heile uendelegheita.\n\nDette er nøyaktig tankegangen bak **matematisk induksjon**, ein av dei mektigaste bevisteknikkane i matematikken. Mange formlar — som at $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — påstår noko om *alle* naturlege tal. Vi kan teste $n = 1$, $n = 5$ og $n = 1000$, men testing beviser aldri uendeleg mange tilfelle. Induksjon gjer det, med eit endeleg argument i to steg. I dette kapittelet lærer du oppskrifta og bruker ho på summar, ulikskapar og deleleg."},{"id":"r2-1-6-n-section1","type":"text","content":"## Oppskrifta: basissteg og induksjonssteg\n\nLat $P(n)$ vere påstanden vi vil bevise for alle $n \\geq n_0$ (oftast $n_0 = 1$). Induksjonsbeviset har to delar:\n\n**1. Basissteg:** Vis at $P(n_0)$ er sann — den første dominobrikka fell.\n\n**2. Induksjonssteg:** Anta at $P(k)$ er sann for ein vilkårleg $k$ (dette blir kalla **induksjonshypotesen**), og vis at då må $P(k+1)$ òg vere sann — kvar fallande brikke veltar den neste.\n\nEr begge på plass, gjeld $P(n)$ for alle $n \\geq n_0$.\n\nLat oss bevise klassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$.\n\n**Basissteg** ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. Likt — brikke éin fell.\n\n**Induksjonssteg:** Anta $1 + 2 + \\cdots + k = \\frac{k(k+1)}{2}$. Legg til neste ledd, $k+1$, på begge sider:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\nMen dette er nøyaktig formelen med $n = k+1$! Antakinga om brikke $k$ velta brikke $k+1$, og beviset er fullført. Legg merke til det avgjerande grepet: vi *brukte* induksjonshypotesen til å erstatte summen av dei $k$ første ledda."},{"id":"r2-1-6-n-quiz1","type":"exercise","exercise":{"id":"r2-1-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på induksjonsprinsippet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-6-n-quiz1-q0","task":"Kva to steg består eit induksjonsbevis av?","options":[{"id":"a","text":"Hypotese og konklusjon","isCorrect":false},{"id":"b","text":"Basissteg og induksjonssteg","isCorrect":true},{"id":"c","text":"Antaking og motseiing","isCorrect":false},{"id":"d","text":"Døme og generalisering","isCorrect":false}],"solution":"Basissteget viser at påstanden gjeld for startverdien (t.d. $n = 1$); induksjonssteget viser at $P(k)$ medfører $P(k+1)$."},{"id":"r2-1-6-n-quiz1-q1","task":"Kva er induksjonshypotesen i eit induksjonsbevis?","options":[{"id":"a","text":"Påstanden $P(1)$","isCorrect":false},{"id":"b","text":"Påstanden $P(n)$ for alle $n$","isCorrect":false},{"id":"c","text":"Konklusjonen $P(k+1)$","isCorrect":false},{"id":"d","text":"Antakinga om at $P(k)$ er sann for ein vilkårleg $k$","isCorrect":true}],"solution":"I induksjonssteget antar vi at $P(k)$ er sann, og bruker dette til å vise $P(k+1)$. Antakinga blir kalla induksjonshypotesen."},{"id":"r2-1-6-n-quiz1-q2","task":"I beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$: kva gjer vi i induksjonssteget?","options":[{"id":"a","text":"Sjekkar at formelen stemmer for $n = 1$ og $n = 2$","isCorrect":false},{"id":"b","text":"Set inn $n = k + 1$ direkte i formelen","isCorrect":false},{"id":"c","text":"Legg $k+1$ til begge sider av induksjonshypotesen og formar om","isCorrect":true},{"id":"d","text":"Deriverer begge sider av likninga","isCorrect":false}],"solution":"Vi antar formelen for $n = k$, legg til neste ledd $(k+1)$ og viser at resultatet kan skrivast som $\\frac{(k+1)(k+2)}{2}$ — formelen for $n = k+1$."},{"id":"r2-1-6-n-quiz1-q3","task":"Kvifor held det ikkje å teste ein formel for $n = 1, 2, \\ldots, 1000$?","options":[{"id":"a","text":"Ein formel kan stemme for dei første tilfella, men svikte seinare — testing dekkjer aldri uendeleg mange tilfelle","isCorrect":true},{"id":"b","text":"Fordi testane kan innehalde reknefeil","isCorrect":false},{"id":"c","text":"Fordi formelen kan ha fleire variablar","isCorrect":false},{"id":"d","text":"Det held faktisk, dersom testane er nøyaktige","isCorrect":false}],"solution":"Påstanden gjeld uendeleg mange $n$. Uansett kor mange tilfelle vi testar, står uendeleg mange att — berre eit generelt argument som induksjon kan dekkje alle."}]}},{"id":"r2-1-6-n-section2","type":"text","content":"## Induksjon på ulikskapar og deleleg\n\nDominoeffekten verkar på meir enn sumformlar. Lat oss bevise ulikskapen $2^n > n$ for alle $n \\geq 1$.\n\n**Basissteg** ($n = 1$): $2^1 = 2 > 1$. ✓\n\n**Induksjonssteg:** Anta $2^k > k$. Då er\n\n$$2^{k+1} = 2 \\cdot 2^k > 2k = k + k \\geq k + 1$$\n\nsidan $k \\geq 1$. Altså er $2^{k+1} > k+1$, og dominoen rullar vidare. Legg merke til teknikken: vi skreiv $2^{k+1}$ som $2 \\cdot 2^k$ nettopp for å få brukt hypotesen.\n\nInduksjon meistrar òg deleleg. Påstand: $n^3 - n$ er deleleg med $6$ for alle $n \\geq 1$.\n\n**Basissteg:** $1^3 - 1 = 0$, og $0$ er deleleg med $6$. ✓\n\n**Induksjonssteg:** Anta at $6$ deler $k^3 - k$. Vi reknar ut differansen mellom neste og noverande tilfelle:\n\n$$(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$$\n\nFørste parentes er deleleg med $6$ etter hypotesen. I andre ledd er $k(k+1)$ eit produkt av to påfølgjande heiltal — alltid deleleg med $2$ — så $3k(k+1)$ er deleleg med $6$. Summen av to tal delelege med $6$ er sjølv deleleg med $6$. ✓\n\nTre heilt ulike påstandar, same maskineri. Det er styrken til induksjonen: eitt prinsipp, utalige bruksområde."},{"id":"r2-1-6-n-quiz2","type":"exercise","exercise":{"id":"r2-1-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på induksjonsbevis i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-6-n-quiz2-q0","task":"I beviset for $2^n > n$: kvifor skriv vi $2^{k+1} = 2 \\cdot 2^k$?","options":[{"id":"a","text":"For å forenkle potensrekninga","isCorrect":false},{"id":"b","text":"Fordi $2^{k+1}$ elles er udefinert","isCorrect":false},{"id":"c","text":"For å kunne bruke induksjonshypotesen $2^k > k$","isCorrect":true},{"id":"d","text":"For å få same grunntal på begge sider","isCorrect":false}],"solution":"Omskrivinga får $2^k$ til å dukke opp, slik at hypotesen $2^k > k$ kan setjast inn: $2 \\cdot 2^k > 2k \\geq k+1$."},{"id":"r2-1-6-n-quiz2-q1","task":"I beviset for at $6$ deler $n^3 - n$ brukte vi at $3k(k+1)$ er deleleg med $6$. Kvifor stemmer det?","options":[{"id":"a","text":"Fordi $k$ alltid er deleleg med $2$","isCorrect":false},{"id":"b","text":"Fordi $k(k+1)$ er eit produkt av to påfølgjande heiltal og dermed deleleg med $2$","isCorrect":true},{"id":"c","text":"Fordi $3k$ alltid er deleleg med $6$","isCorrect":false},{"id":"d","text":"Fordi $k+1$ alltid er eit partal","isCorrect":false}],"solution":"Av to påfølgjande heiltal er alltid eitt partal, så $k(k+1)$ er deleleg med $2$. Med faktoren $3$ framfor blir $3k(k+1)$ deleleg med $3 \\cdot 2 = 6$."},{"id":"r2-1-6-n-quiz2-q2","task":"Eit induksjonsbevis manglar basissteget, men induksjonssteget er korrekt gjennomført. Kva kan vi konkludere?","options":[{"id":"a","text":"Påstanden gjeld for alle $n \\geq 2$","isCorrect":false},{"id":"b","text":"Påstanden gjeld, sidan induksjonssteget er det viktigaste","isCorrect":false},{"id":"c","text":"Påstanden er usann","isCorrect":false},{"id":"d","text":"Ingenting — utan basissteg har dominoeffekten ingen startbrikke","isCorrect":true}],"solution":"Induksjonssteget seier berre «dersom brikke $k$ fell, fell brikke $k+1$». Utan at den første brikka faktisk blir dytta (basissteget), fell kanskje ingen brikker i det heile."}]}},{"id":"r2-1-6-n-summary","type":"text","content":"## Oppsummering: dominoeffekten som bevismetode\n\nMatematisk induksjon løyser eit problem som ser umogleg ut — å bevise noko for uendeleg mange tal — med to endelege steg. **Basissteget** dyttar den første dominobrikka: vis at $P(n_0)$ er sann. **Induksjonssteget** sikrar kjedereaksjonen: anta $P(k)$ (induksjonshypotesen) og vis at han tvingar fram $P(k+1)$. Saman gjev dei $P(n)$ for alle $n \\geq n_0$.\n\nVi har sett maskineriet handtere tre ulike typar påstandar: sumformelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$, der vi la til neste ledd og forma om; ulikskapen $2^n > n$, der omskrivinga $2^{k+1} = 2 \\cdot 2^k$ opna døra for hypotesen; og delelegheita $6 \\mid n^3 - n$, der differansen $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$ gjorde jobben. Hugs fellene: formuler $P(n)$ presist, hopp aldri over basissteget — utan startbrikke fell ingenting — og sørg for at induksjonshypotesen faktisk *blir brukt* i induksjonssteget. Med dette har du eit verktøy som ber langt utover R2: induksjon er ryggrada i bevis gjennom heile matematikken og informatikken."}],"exercises":[],"_meta":{"sourceHash":"d45aa97d6985923c","translatedAt":"2026-06-20T00:37:44.396Z","model":"claude-code-agent","strings":54,"tm":{"4f9632cf7954d2d0":"Induksjonsbevis","b195b06d1ed59702":"Narrativ versjon","70981e508a666a02":"Ei forteljing om induksjonsbevis — dominorekkja der éi fallande brikke veltar den neste, og korleis to endelege steg kan bevise påstandar om uendeleg mange tal.","c467193fbd890002":"analysere og forsta matematiske bevis","df42b39d2a93b9b7":"## Dominorekkja som beviser alt\n\nSjå for deg ei uendeleg lang rekkje med dominobrikker, éi for kvart naturleg tal. Du vil garantere at *alle* fell. Å dytte kvar einskild brikke er umogleg — det er uendeleg mange. Men du treng berre å sikre to ting: at den *første* brikka fell, og at *kvar brikke som fell, veltar den neste*. Då fell brikke éin, som veltar brikke to, som veltar brikke tre — og dominoeffekten rullar gjennom heile uendelegheita.\n\nDette er nøyaktig tankegangen bak **matematisk induksjon**, ein av dei mektigaste bevisteknikkane i matematikken. Mange formlar — som at $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — påstår noko om *alle* naturlege tal. Vi kan teste $n = 1$, $n = 5$ og $n = 1000$, men testing beviser aldri uendeleg mange tilfelle. Induksjon gjer det, med eit endeleg argument i to steg. I dette kapittelet lærer du oppskrifta og bruker ho på summar, ulikskapar og deleleg.","4ce10b54a56d2e31":"## Oppskrifta: basissteg og induksjonssteg\n\nLat $P(n)$ vere påstanden vi vil bevise for alle $n \\geq n_0$ (oftast $n_0 = 1$). Induksjonsbeviset har to delar:\n\n**1. Basissteg:** Vis at $P(n_0)$ er sann — den første dominobrikka fell.\n\n**2. Induksjonssteg:** Anta at $P(k)$ er sann for ein vilkårleg $k$ (dette blir kalla **induksjonshypotesen**), og vis at då må $P(k+1)$ òg vere sann — kvar fallande brikke veltar den neste.\n\nEr begge på plass, gjeld $P(n)$ for alle $n \\geq n_0$.\n\nLat oss bevise klassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$.\n\n**Basissteg** ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. Likt — brikke éin fell.\n\n**Induksjonssteg:** Anta $1 + 2 + \\cdots + k = \\frac{k(k+1)}{2}$. Legg til neste ledd, $k+1$, på begge sider:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\nMen dette er nøyaktig formelen med $n = k+1$! Antakinga om brikke $k$ velta brikke $k+1$, og beviset er fullført. Legg merke til det avgjerande grepet: vi *brukte* induksjonshypotesen til å erstatte summen av dei $k$ første ledda.","1419400c932b217a":"Test deg sjølv på induksjonsprinsippet:","4097889236a2af26":"placeholder","c83ca7bb6c29e635":"Kva to steg består eit induksjonsbevis av?","b7b4be10515d4590":"Hypotese og konklusjon","d79115facd0a7c8c":"Basissteg og induksjonssteg","41d92eaadc3c944e":"Antaking og motseiing","0d0e1207bae98bf7":"Døme og generalisering","2de2ab249ac60ddf":"Basissteget viser at påstanden gjeld for startverdien (t.d. $n = 1$); induksjonssteget viser at $P(k)$ medfører $P(k+1)$.","7a04c946c479feda":"Kva er induksjonshypotesen i eit induksjonsbevis?","e5ab1f7a82059d5a":"Påstanden $P(1)$","3eca6690613b456a":"Påstanden $P(n)$ for alle $n$","012d25f1d190edeb":"Konklusjonen $P(k+1)$","2a9681101ffb6f84":"Antakinga om at $P(k)$ er sann for ein vilkårleg $k$","11320387683b533a":"I induksjonssteget antar vi at $P(k)$ er sann, og bruker dette til å vise $P(k+1)$. Antakinga blir kalla induksjonshypotesen.","563cbbd0ac6dbeb0":"I beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$: kva gjer vi i induksjonssteget?","500d9a0dc8d2d33e":"Sjekkar at formelen stemmer for $n = 1$ og $n = 2$","9c6cebbb2ee6e0dd":"Set inn $n = k + 1$ direkte i formelen","55b8a4f023a42520":"Legg $k+1$ til begge sider av induksjonshypotesen og formar om","7f2e6c7d550cd4fa":"Deriverer begge sider av likninga","54fe9de411919807":"Vi antar formelen for $n = k$, legg til neste ledd $(k+1)$ og viser at resultatet kan skrivast som $\\frac{(k+1)(k+2)}{2}$ — formelen for $n = k+1$.","989d2f2e8e58f7fd":"Kvifor held det ikkje å teste ein formel for $n = 1, 2, \\ldots, 1000$?","60f0867c73b49bb4":"Ein formel kan stemme for dei første tilfella, men svikte seinare — testing dekkjer aldri uendeleg mange tilfelle","2aba66df7fa1793f":"Fordi testane kan innehalde reknefeil","d031c7cd4ed8c6c6":"Fordi formelen kan ha fleire variablar","5f572dd921918ee5":"Det held faktisk, dersom testane er nøyaktige","1c77ff792a04c8a3":"Påstanden gjeld uendeleg mange $n$. Uansett kor mange tilfelle vi testar, står uendeleg mange att — berre eit generelt argument som induksjon kan dekkje alle.","aa1ac3e246d2fe8c":"## Induksjon på ulikskapar og deleleg\n\nDominoeffekten verkar på meir enn sumformlar. Lat oss bevise ulikskapen $2^n > n$ for alle $n \\geq 1$.\n\n**Basissteg** ($n = 1$): $2^1 = 2 > 1$. ✓\n\n**Induksjonssteg:** Anta $2^k > k$. Då er\n\n$$2^{k+1} = 2 \\cdot 2^k > 2k = k + k \\geq k + 1$$\n\nsidan $k \\geq 1$. Altså er $2^{k+1} > k+1$, og dominoen rullar vidare. Legg merke til teknikken: vi skreiv $2^{k+1}$ som $2 \\cdot 2^k$ nettopp for å få brukt hypotesen.\n\nInduksjon meistrar òg deleleg. Påstand: $n^3 - n$ er deleleg med $6$ for alle $n \\geq 1$.\n\n**Basissteg:** $1^3 - 1 = 0$, og $0$ er deleleg med $6$. ✓\n\n**Induksjonssteg:** Anta at $6$ deler $k^3 - k$. Vi reknar ut differansen mellom neste og noverande tilfelle:\n\n$$(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$$\n\nFørste parentes er deleleg med $6$ etter hypotesen. I andre ledd er $k(k+1)$ eit produkt av to påfølgjande heiltal — alltid deleleg med $2$ — så $3k(k+1)$ er deleleg med $6$. Summen av to tal delelege med $6$ er sjølv deleleg med $6$. ✓\n\nTre heilt ulike påstandar, same maskineri. Det er styrken til induksjonen: eitt prinsipp, utalige bruksområde.","02b08b2ac7a37261":"Test deg sjølv på induksjonsbevis i praksis:","6cc3a9cd9fed4419":"I beviset for $2^n > n$: kvifor skriv vi $2^{k+1} = 2 \\cdot 2^k$?","e5ab56b4e4226576":"For å forenkle potensrekninga","493062e93b9a49a0":"Fordi $2^{k+1}$ elles er udefinert","adecc5f62f331367":"For å kunne bruke induksjonshypotesen $2^k > k$","966113d447eb7396":"For å få same grunntal på begge sider","e21ffcbb9ac2e05f":"Omskrivinga får $2^k$ til å dukke opp, slik at hypotesen $2^k > k$ kan setjast inn: $2 \\cdot 2^k > 2k \\geq k+1$.","772d40e1b238a2f9":"I beviset for at $6$ deler $n^3 - n$ brukte vi at $3k(k+1)$ er deleleg med $6$. Kvifor stemmer det?","12d16899f4d842b8":"Fordi $k$ alltid er deleleg med $2$","cfef6733f3d524a0":"Fordi $k(k+1)$ er eit produkt av to påfølgjande heiltal og dermed deleleg med $2$","171cffdac6da1c25":"Fordi $3k$ alltid er deleleg med $6$","673a0e538d5608fa":"Fordi $k+1$ alltid er eit partal","1dcf5118118042d0":"Av to påfølgjande heiltal er alltid eitt partal, så $k(k+1)$ er deleleg med $2$. Med faktoren $3$ framfor blir $3k(k+1)$ deleleg med $3 \\cdot 2 = 6$.","c416a03ce40105bf":"Eit induksjonsbevis manglar basissteget, men induksjonssteget er korrekt gjennomført. Kva kan vi konkludere?","e5d3b6d61a38e568":"Påstanden gjeld for alle $n \\geq 2$","fd4cf203c08569d6":"Påstanden gjeld, sidan induksjonssteget er det viktigaste","4eede4af57645087":"Påstanden er usann","4129ed38833ff4e5":"Ingenting — utan basissteg har dominoeffekten ingen startbrikke","d602f7606dfb2869":"Induksjonssteget seier berre «dersom brikke $k$ fell, fell brikke $k+1$». Utan at den første brikka faktisk blir dytta (basissteget), fell kanskje ingen brikker i det heile.","5bb7330338f9b5b3":"## Oppsummering: dominoeffekten som bevismetode\n\nMatematisk induksjon løyser eit problem som ser umogleg ut — å bevise noko for uendeleg mange tal — med to endelege steg. **Basissteget** dyttar den første dominobrikka: vis at $P(n_0)$ er sann. **Induksjonssteget** sikrar kjedereaksjonen: anta $P(k)$ (induksjonshypotesen) og vis at han tvingar fram $P(k+1)$. Saman gjev dei $P(n)$ for alle $n \\geq n_0$.\n\nVi har sett maskineriet handtere tre ulike typar påstandar: sumformelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$, der vi la til neste ledd og forma om; ulikskapen $2^n > n$, der omskrivinga $2^{k+1} = 2 \\cdot 2^k$ opna døra for hypotesen; og delelegheita $6 \\mid n^3 - n$, der differansen $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$ gjorde jobben. Hugs fellene: formuler $P(n)$ presist, hopp aldri over basissteget — utan startbrikke fell ingenting — og sørg for at induksjonshypotesen faktisk *blir brukt* i induksjonssteget. Med dette har du eit verktøy som ber langt utover R2: induksjon er ryggrada i bevis gjennom heile matematikken og informatikken."}}}
+{
+  "id": "r2-1-6-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "1.6",
+  "title": "Induksjonsbevis",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om induksjonsbevis — dominorekkja der éi fallande brikke veltar den neste, og korleis to endelege steg kan bevise påstandar om uendeleg mange tal.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "analysere og forsta matematiske bevis"
+  ],
+  "linkedChapterId": "r2-1-6",
+  "content": [
+    {
+      "id": "r2-1-6-n-intro",
+      "type": "text",
+      "content": "## Dominorekkja som beviser alt\n\nSjå for deg ei uendeleg lang rekkje med dominobrikker, éi for kvart naturleg tal. Du vil garantere at *alle* fell. Å dytte kvar einskild brikke er umogleg — det er uendeleg mange. Men du treng berre å sikre to ting: at den *første* brikka fell, og at *kvar brikke som fell, veltar den neste*. Då fell brikke éin, som veltar brikke to, som veltar brikke tre — og dominoeffekten rullar gjennom heile uendelegheita.\n\nDette er nøyaktig tankegangen bak **matematisk induksjon**, ein av dei mektigaste bevisteknikkane i matematikken. Mange formlar — som at $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — påstår noko om *alle* naturlege tal. Vi kan teste $n = 1$, $n = 5$ og $n = 1000$, men testing beviser aldri uendeleg mange tilfelle. Induksjon gjer det, med eit endeleg argument i to steg. I dette kapittelet lærer du oppskrifta og bruker ho på summar, ulikskapar og deleleg."
+    },
+    {
+      "id": "r2-1-6-n-section1",
+      "type": "text",
+      "content": "## Oppskrifta: basissteg og induksjonssteg\n\nLat $P(n)$ vere påstanden vi vil bevise for alle $n \\geq n_0$ (oftast $n_0 = 1$). Induksjonsbeviset har to delar:\n\n**1. Basissteg:** Vis at $P(n_0)$ er sann — den første dominobrikka fell.\n\n**2. Induksjonssteg:** Anta at $P(k)$ er sann for ein vilkårleg $k$ (dette blir kalla **induksjonshypotesen**), og vis at då må $P(k+1)$ òg vere sann — kvar fallande brikke veltar den neste.\n\nEr begge på plass, gjeld $P(n)$ for alle $n \\geq n_0$.\n\nLat oss bevise klassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$.\n\n**Basissteg** ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. Likt — brikke éin fell.\n\n**Induksjonssteg:** Anta $1 + 2 + \\cdots + k = \\frac{k(k+1)}{2}$. Legg til neste ledd, $k+1$, på begge sider:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\nMen dette er nøyaktig formelen med $n = k+1$! Antakinga om brikke $k$ velta brikke $k+1$, og beviset er fullført. Legg merke til det avgjerande grepet: vi *brukte* induksjonshypotesen til å erstatte summen av dei $k$ første ledda."
+    },
+    {
+      "id": "r2-1-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på induksjonsprinsippet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-6-n-quiz1-q0",
+            "task": "Kva to steg består eit induksjonsbevis av?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Basissteg og induksjonssteg",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Hypotese og konklusjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Antaking og motseiing",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Døme og generalisering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Basissteget viser at påstanden gjeld for startverdien (t.d. $n = 1$); induksjonssteget viser at $P(k)$ medfører $P(k+1)$."
+          },
+          {
+            "id": "r2-1-6-n-quiz1-q1",
+            "task": "Kva er induksjonshypotesen i eit induksjonsbevis?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Påstanden $P(1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Antakinga om at $P(k)$ er sann for ein vilkårleg $k$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Påstanden $P(n)$ for alle $n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Konklusjonen $P(k+1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I induksjonssteget antar vi at $P(k)$ er sann, og bruker dette til å vise $P(k+1)$. Antakinga blir kalla induksjonshypotesen."
+          },
+          {
+            "id": "r2-1-6-n-quiz1-q2",
+            "task": "I beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$: kva gjer vi i induksjonssteget?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sjekkar at formelen stemmer for $n = 1$ og $n = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Set inn $n = k + 1$ direkte i formelen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Legg $k+1$ til begge sider av induksjonshypotesen og formar om",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Deriverer begge sider av likninga",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi antar formelen for $n = k$, legg til neste ledd $(k+1)$ og viser at resultatet kan skrivast som $\\frac{(k+1)(k+2)}{2}$ — formelen for $n = k+1$."
+          },
+          {
+            "id": "r2-1-6-n-quiz1-q3",
+            "task": "Kvifor held det ikkje å teste ein formel for $n = 1, 2, \\ldots, 1000$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi testane kan innehalde reknefeil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi formelen kan ha fleire variablar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det held faktisk, dersom testane er nøyaktige",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein formel kan stemme for dei første tilfella, men svikte seinare — testing dekkjer aldri uendeleg mange tilfelle",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Påstanden gjeld uendeleg mange $n$. Uansett kor mange tilfelle vi testar, står uendeleg mange att — berre eit generelt argument som induksjon kan dekkje alle."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-6-n-section2",
+      "type": "text",
+      "content": "## Induksjon på ulikskapar og deleleg\n\nDominoeffekten verkar på meir enn sumformlar. Lat oss bevise ulikskapen $2^n > n$ for alle $n \\geq 1$.\n\n**Basissteg** ($n = 1$): $2^1 = 2 > 1$. ✓\n\n**Induksjonssteg:** Anta $2^k > k$. Då er\n\n$$2^{k+1} = 2 \\cdot 2^k > 2k = k + k \\geq k + 1$$\n\nsidan $k \\geq 1$. Altså er $2^{k+1} > k+1$, og dominoen rullar vidare. Legg merke til teknikken: vi skreiv $2^{k+1}$ som $2 \\cdot 2^k$ nettopp for å få brukt hypotesen.\n\nInduksjon meistrar òg deleleg. Påstand: $n^3 - n$ er deleleg med $6$ for alle $n \\geq 1$.\n\n**Basissteg:** $1^3 - 1 = 0$, og $0$ er deleleg med $6$. ✓\n\n**Induksjonssteg:** Anta at $6$ deler $k^3 - k$. Vi reknar ut differansen mellom neste og noverande tilfelle:\n\n$$(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$$\n\nFørste parentes er deleleg med $6$ etter hypotesen. I andre ledd er $k(k+1)$ eit produkt av to påfølgjande heiltal — alltid deleleg med $2$ — så $3k(k+1)$ er deleleg med $6$. Summen av to tal delelege med $6$ er sjølv deleleg med $6$. ✓\n\nTre heilt ulike påstandar, same maskineri. Det er styrken til induksjonen: eitt prinsipp, utalige bruksområde."
+    },
+    {
+      "id": "r2-1-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på induksjonsbevis i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-6-n-quiz2-q0",
+            "task": "I beviset for $2^n > n$: kvifor skriv vi $2^{k+1} = 2 \\cdot 2^k$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "For å kunne bruke induksjonshypotesen $2^k > k$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For å forenkle potensrekninga",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $2^{k+1}$ elles er udefinert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å få same grunntal på begge sider",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Omskrivinga får $2^k$ til å dukke opp, slik at hypotesen $2^k > k$ kan setjast inn: $2 \\cdot 2^k > 2k \\geq k+1$."
+          },
+          {
+            "id": "r2-1-6-n-quiz2-q1",
+            "task": "I beviset for at $6$ deler $n^3 - n$ brukte vi at $3k(k+1)$ er deleleg med $6$. Kvifor stemmer det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $k$ alltid er deleleg med $2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi $k(k+1)$ er eit produkt av to påfølgjande heiltal og dermed deleleg med $2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi $3k$ alltid er deleleg med $6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $k+1$ alltid er eit partal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Av to påfølgjande heiltal er alltid eitt partal, så $k(k+1)$ er deleleg med $2$. Med faktoren $3$ framfor blir $3k(k+1)$ deleleg med $3 \\cdot 2 = 6$."
+          },
+          {
+            "id": "r2-1-6-n-quiz2-q2",
+            "task": "Eit induksjonsbevis manglar basissteget, men induksjonssteget er korrekt gjennomført. Kva kan vi konkludere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Påstanden gjeld for alle $n \\geq 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Påstanden gjeld, sidan induksjonssteget er det viktigaste",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting — utan basissteg har dominoeffekten ingen startbrikke",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Påstanden er usann",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Induksjonssteget seier berre «dersom brikke $k$ fell, fell brikke $k+1$». Utan at den første brikka faktisk blir dytta (basissteget), fell kanskje ingen brikker i det heile."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: dominoeffekten som bevismetode\n\nMatematisk induksjon løyser eit problem som ser umogleg ut — å bevise noko for uendeleg mange tal — med to endelege steg. **Basissteget** dyttar den første dominobrikka: vis at $P(n_0)$ er sann. **Induksjonssteget** sikrar kjedereaksjonen: anta $P(k)$ (induksjonshypotesen) og vis at han tvingar fram $P(k+1)$. Saman gjev dei $P(n)$ for alle $n \\geq n_0$.\n\nVi har sett maskineriet handtere tre ulike typar påstandar: sumformelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$, der vi la til neste ledd og forma om; ulikskapen $2^n > n$, der omskrivinga $2^{k+1} = 2 \\cdot 2^k$ opna døra for hypotesen; og delelegheita $6 \\mid n^3 - n$, der differansen $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$ gjorde jobben. Hugs fellene: formuler $P(n)$ presist, hopp aldri over basissteget — utan startbrikke fell ingenting — og sørg for at induksjonshypotesen faktisk *blir brukt* i induksjonssteget. Med dette har du eit verktøy som ber langt utover R2: induksjon er ryggrada i bevis gjennom heile matematikken og informatikken."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d45aa97d6985923c",
+    "translatedAt": "2026-06-20T00:37:44.396Z",
+    "model": "claude-code-agent",
+    "strings": 54,
+    "tm": {
+      "4f9632cf7954d2d0": "Induksjonsbevis",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "70981e508a666a02": "Ei forteljing om induksjonsbevis — dominorekkja der éi fallande brikke veltar den neste, og korleis to endelege steg kan bevise påstandar om uendeleg mange tal.",
+      "c467193fbd890002": "analysere og forsta matematiske bevis",
+      "df42b39d2a93b9b7": "## Dominorekkja som beviser alt\n\nSjå for deg ei uendeleg lang rekkje med dominobrikker, éi for kvart naturleg tal. Du vil garantere at *alle* fell. Å dytte kvar einskild brikke er umogleg — det er uendeleg mange. Men du treng berre å sikre to ting: at den *første* brikka fell, og at *kvar brikke som fell, veltar den neste*. Då fell brikke éin, som veltar brikke to, som veltar brikke tre — og dominoeffekten rullar gjennom heile uendelegheita.\n\nDette er nøyaktig tankegangen bak **matematisk induksjon**, ein av dei mektigaste bevisteknikkane i matematikken. Mange formlar — som at $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$ — påstår noko om *alle* naturlege tal. Vi kan teste $n = 1$, $n = 5$ og $n = 1000$, men testing beviser aldri uendeleg mange tilfelle. Induksjon gjer det, med eit endeleg argument i to steg. I dette kapittelet lærer du oppskrifta og bruker ho på summar, ulikskapar og deleleg.",
+      "4ce10b54a56d2e31": "## Oppskrifta: basissteg og induksjonssteg\n\nLat $P(n)$ vere påstanden vi vil bevise for alle $n \\geq n_0$ (oftast $n_0 = 1$). Induksjonsbeviset har to delar:\n\n**1. Basissteg:** Vis at $P(n_0)$ er sann — den første dominobrikka fell.\n\n**2. Induksjonssteg:** Anta at $P(k)$ er sann for ein vilkårleg $k$ (dette blir kalla **induksjonshypotesen**), og vis at då må $P(k+1)$ òg vere sann — kvar fallande brikke veltar den neste.\n\nEr begge på plass, gjeld $P(n)$ for alle $n \\geq n_0$.\n\nLat oss bevise klassikaren: $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$.\n\n**Basissteg** ($n = 1$): venstre side er $1$, høgre side er $\\frac{1 \\cdot 2}{2} = 1$. Likt — brikke éin fell.\n\n**Induksjonssteg:** Anta $1 + 2 + \\cdots + k = \\frac{k(k+1)}{2}$. Legg til neste ledd, $k+1$, på begge sider:\n\n$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$\n\nMen dette er nøyaktig formelen med $n = k+1$! Antakinga om brikke $k$ velta brikke $k+1$, og beviset er fullført. Legg merke til det avgjerande grepet: vi *brukte* induksjonshypotesen til å erstatte summen av dei $k$ første ledda.",
+      "1419400c932b217a": "Test deg sjølv på induksjonsprinsippet:",
+      "4097889236a2af26": "placeholder",
+      "c83ca7bb6c29e635": "Kva to steg består eit induksjonsbevis av?",
+      "b7b4be10515d4590": "Hypotese og konklusjon",
+      "d79115facd0a7c8c": "Basissteg og induksjonssteg",
+      "41d92eaadc3c944e": "Antaking og motseiing",
+      "0d0e1207bae98bf7": "Døme og generalisering",
+      "2de2ab249ac60ddf": "Basissteget viser at påstanden gjeld for startverdien (t.d. $n = 1$); induksjonssteget viser at $P(k)$ medfører $P(k+1)$.",
+      "7a04c946c479feda": "Kva er induksjonshypotesen i eit induksjonsbevis?",
+      "e5ab1f7a82059d5a": "Påstanden $P(1)$",
+      "3eca6690613b456a": "Påstanden $P(n)$ for alle $n$",
+      "012d25f1d190edeb": "Konklusjonen $P(k+1)$",
+      "2a9681101ffb6f84": "Antakinga om at $P(k)$ er sann for ein vilkårleg $k$",
+      "11320387683b533a": "I induksjonssteget antar vi at $P(k)$ er sann, og bruker dette til å vise $P(k+1)$. Antakinga blir kalla induksjonshypotesen.",
+      "563cbbd0ac6dbeb0": "I beviset for $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$: kva gjer vi i induksjonssteget?",
+      "500d9a0dc8d2d33e": "Sjekkar at formelen stemmer for $n = 1$ og $n = 2$",
+      "9c6cebbb2ee6e0dd": "Set inn $n = k + 1$ direkte i formelen",
+      "55b8a4f023a42520": "Legg $k+1$ til begge sider av induksjonshypotesen og formar om",
+      "7f2e6c7d550cd4fa": "Deriverer begge sider av likninga",
+      "54fe9de411919807": "Vi antar formelen for $n = k$, legg til neste ledd $(k+1)$ og viser at resultatet kan skrivast som $\\frac{(k+1)(k+2)}{2}$ — formelen for $n = k+1$.",
+      "989d2f2e8e58f7fd": "Kvifor held det ikkje å teste ein formel for $n = 1, 2, \\ldots, 1000$?",
+      "60f0867c73b49bb4": "Ein formel kan stemme for dei første tilfella, men svikte seinare — testing dekkjer aldri uendeleg mange tilfelle",
+      "2aba66df7fa1793f": "Fordi testane kan innehalde reknefeil",
+      "d031c7cd4ed8c6c6": "Fordi formelen kan ha fleire variablar",
+      "5f572dd921918ee5": "Det held faktisk, dersom testane er nøyaktige",
+      "1c77ff792a04c8a3": "Påstanden gjeld uendeleg mange $n$. Uansett kor mange tilfelle vi testar, står uendeleg mange att — berre eit generelt argument som induksjon kan dekkje alle.",
+      "aa1ac3e246d2fe8c": "## Induksjon på ulikskapar og deleleg\n\nDominoeffekten verkar på meir enn sumformlar. Lat oss bevise ulikskapen $2^n > n$ for alle $n \\geq 1$.\n\n**Basissteg** ($n = 1$): $2^1 = 2 > 1$. ✓\n\n**Induksjonssteg:** Anta $2^k > k$. Då er\n\n$$2^{k+1} = 2 \\cdot 2^k > 2k = k + k \\geq k + 1$$\n\nsidan $k \\geq 1$. Altså er $2^{k+1} > k+1$, og dominoen rullar vidare. Legg merke til teknikken: vi skreiv $2^{k+1}$ som $2 \\cdot 2^k$ nettopp for å få brukt hypotesen.\n\nInduksjon meistrar òg deleleg. Påstand: $n^3 - n$ er deleleg med $6$ for alle $n \\geq 1$.\n\n**Basissteg:** $1^3 - 1 = 0$, og $0$ er deleleg med $6$. ✓\n\n**Induksjonssteg:** Anta at $6$ deler $k^3 - k$. Vi reknar ut differansen mellom neste og noverande tilfelle:\n\n$$(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$$\n\nFørste parentes er deleleg med $6$ etter hypotesen. I andre ledd er $k(k+1)$ eit produkt av to påfølgjande heiltal — alltid deleleg med $2$ — så $3k(k+1)$ er deleleg med $6$. Summen av to tal delelege med $6$ er sjølv deleleg med $6$. ✓\n\nTre heilt ulike påstandar, same maskineri. Det er styrken til induksjonen: eitt prinsipp, utalige bruksområde.",
+      "02b08b2ac7a37261": "Test deg sjølv på induksjonsbevis i praksis:",
+      "6cc3a9cd9fed4419": "I beviset for $2^n > n$: kvifor skriv vi $2^{k+1} = 2 \\cdot 2^k$?",
+      "e5ab56b4e4226576": "For å forenkle potensrekninga",
+      "493062e93b9a49a0": "Fordi $2^{k+1}$ elles er udefinert",
+      "adecc5f62f331367": "For å kunne bruke induksjonshypotesen $2^k > k$",
+      "966113d447eb7396": "For å få same grunntal på begge sider",
+      "e21ffcbb9ac2e05f": "Omskrivinga får $2^k$ til å dukke opp, slik at hypotesen $2^k > k$ kan setjast inn: $2 \\cdot 2^k > 2k \\geq k+1$.",
+      "772d40e1b238a2f9": "I beviset for at $6$ deler $n^3 - n$ brukte vi at $3k(k+1)$ er deleleg med $6$. Kvifor stemmer det?",
+      "12d16899f4d842b8": "Fordi $k$ alltid er deleleg med $2$",
+      "cfef6733f3d524a0": "Fordi $k(k+1)$ er eit produkt av to påfølgjande heiltal og dermed deleleg med $2$",
+      "171cffdac6da1c25": "Fordi $3k$ alltid er deleleg med $6$",
+      "673a0e538d5608fa": "Fordi $k+1$ alltid er eit partal",
+      "1dcf5118118042d0": "Av to påfølgjande heiltal er alltid eitt partal, så $k(k+1)$ er deleleg med $2$. Med faktoren $3$ framfor blir $3k(k+1)$ deleleg med $3 \\cdot 2 = 6$.",
+      "c416a03ce40105bf": "Eit induksjonsbevis manglar basissteget, men induksjonssteget er korrekt gjennomført. Kva kan vi konkludere?",
+      "e5d3b6d61a38e568": "Påstanden gjeld for alle $n \\geq 2$",
+      "fd4cf203c08569d6": "Påstanden gjeld, sidan induksjonssteget er det viktigaste",
+      "4eede4af57645087": "Påstanden er usann",
+      "4129ed38833ff4e5": "Ingenting — utan basissteg har dominoeffekten ingen startbrikke",
+      "d602f7606dfb2869": "Induksjonssteget seier berre «dersom brikke $k$ fell, fell brikke $k+1$». Utan at den første brikka faktisk blir dytta (basissteget), fell kanskje ingen brikker i det heile.",
+      "5bb7330338f9b5b3": "## Oppsummering: dominoeffekten som bevismetode\n\nMatematisk induksjon løyser eit problem som ser umogleg ut — å bevise noko for uendeleg mange tal — med to endelege steg. **Basissteget** dyttar den første dominobrikka: vis at $P(n_0)$ er sann. **Induksjonssteget** sikrar kjedereaksjonen: anta $P(k)$ (induksjonshypotesen) og vis at han tvingar fram $P(k+1)$. Saman gjev dei $P(n)$ for alle $n \\geq n_0$.\n\nVi har sett maskineriet handtere tre ulike typar påstandar: sumformelen $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$, der vi la til neste ledd og forma om; ulikskapen $2^n > n$, der omskrivinga $2^{k+1} = 2 \\cdot 2^k$ opna døra for hypotesen; og delelegheita $6 \\mid n^3 - n$, der differansen $(k+1)^3 - (k+1) = (k^3 - k) + 3k(k+1)$ gjorde jobben. Hugs fellene: formuler $P(n)$ presist, hopp aldri over basissteget — utan startbrikke fell ingenting — og sørg for at induksjonshypotesen faktisk *blir brukt* i induksjonssteget. Med dette har du eit verktøy som ber langt utover R2: induksjon er ryggrada i bevis gjennom heile matematikken og informatikken."
+    }
+  }
+}

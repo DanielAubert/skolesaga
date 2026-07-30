@@ -1,1 +1,940 @@
-{"id":"1t-1-7-narrativ","courseId":"1t","chapterNumber":"1.7","title":"Mengdelære","subtitle":"Forteljing-versjon","description":"Ei fortellin om samlingar av tal – korleis matematikarar sorterer tala i familiar, skildrar intervall på tallinjas, og kombinerer mengder med union, snitt og differanse.","estimatedMinutes":40,"competenceGoals":["bruke matematisk notasjon til å skildra mengder"],"linkedChapterId":"1t-1-7","content":[{"id":"1t-1-7-n-audio-1","type":"audio","title":"Høyr på denne delen","src":"/audio/1t/1t-1-7-narrativ-del1.mp3","description":"Lydfil som leser opp teksten fram til første quiz."},{"id":"1t-1-7-n-intro","type":"text","content":"## Å sortere talenes verden\n\nForestill deg at du har ein enormt stor samling med tal – alle tal som nokon gong er blitt tenkt på. Korleis held du orden på dei? Matematikarar løyste dette for lenge sidan ved å lage eit system av **mengder**: samlingar av objekt som deler ein bestemt eigenskap. Ein mengde kan innehalda tal, punkt, eller kva som helst anna.\n\nI dette kapitlet skal vi utforska fire store tallfamiliar, lære å skildra delar av tallinjas med **intervall**, kombinera mengder med **union** og **snitt**, fjerna element med **differanse**, og til slutt forstå **absoluttverdien** – omgrepet som handlar om avstand. Undervegs skal vi bli kjende med symbolane som gjer at matematikarar kan uttrykkja seg presist og effektivt."},{"id":"1t-1-7-n-section1","type":"text","content":"## Dei fire store tallfamiliane\n\nTenk deg at tala bur i eit leilegheitskompleks med fire etasjar. Jo høgare etasje, jo fleire tal slepper inn.\n\nI første etasje bur dei **naturlege tala**, $\\mathbb{N} = \\{1, 2, 3, 4, 5, ...\\}$. Dette er tala vi lærer først som barn – teljarane, dei positive heiltal. Du brukar dei kvar gong du teljer noko: tre eple, sju vener, tjueein poeng.\n\nI andre etasje bur **heiltal**, $\\mathbb{Z} = \\{..., -2, -1, 0, 1, 2, ...\\}$. Her slepper vi inn null og dei negative tala. Bokstaven $\\mathbb{Z}$ kjem frå det tyske ordet «Zahlen», som betyr tal. Alle naturlege tal er heiltal, men heiltal har i tillegg null og minusstala.\n\nTredje etasje er for dei **rasjonale tala**, $\\mathbb{Q}$. Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Hit høyrer $\\frac{1}{2}$, $-\\frac{3}{4}$, $0{,}75$ (som er $\\frac{3}{4}$), og til og med $5$ (som er $\\frac{5}{1}$). Alle heiltal er rasjonale, fordi du alltid kan setja $1$ i nemnaren.\n\nØvste etasje er forbeholdt dei **reelle tala**, $\\mathbb{R}$ – alle tal på tallinjas. Her finn vi også dei **irrasjonale tala**, som $\\sqrt{2}$, $\\pi$ og $e$. Desse tala har endeleg mange desimalar utan gjentakande mønster, og kan aldri skrivast som ein brøk. Samanhengen mellom familiane kan vi skriva slik: $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$. Symbolet $\\subset$ betyr «er ei delmengde av» – altså at alle tala i den venstre mengda også finnast i den høgre."},{"id":"1t-1-7-n-quiz1","type":"exercise","exercise":{"id":"1t-1-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjøl på dei fire store tallfamiliane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-7-n-quiz1-q0","task":"Kva er den minste tallfamiliens $\\sqrt{9}$ tilhøyrer?","options":[{"id":"a","text":"$\\mathbb{R}$ (reelle tal)","isCorrect":false},{"id":"b","text":"$\\mathbb{Q}$ (rasjonale tal)","isCorrect":false},{"id":"c","text":"$\\mathbb{N}$ (naturlege tal)","isCorrect":true},{"id":"d","text":"$\\mathbb{Z}$ (heiltal)","isCorrect":false}],"solution":"$\\sqrt{9} = 3$, som er eit naturleg tal. Sjølv om $3$ også er eit heiltal, rasjonalt tal og reelt tal, er $\\mathbb{N}$ den minste mengda det tilhøyrer."},{"id":"1t-1-7-n-quiz1-q1","task":"Kva kjenneteiкnar eit rasjonalt tal?","options":[{"id":"a","text":"Det er alltid positivt","isCorrect":false},{"id":"b","text":"Det har endeleg tal desimalar","isCorrect":false},{"id":"c","text":"Det kan skrivast som ein brøk $\\frac{a}{b}$ der $a \\in \\mathbb{Z}$ og $b \\in \\mathbb{N}$","isCorrect":true},{"id":"d","text":"Det er eit heiltal","isCorrect":false}],"solution":"Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Talet $0{,}\\overline{3} = \\frac{1}{3}$ er rasjonalt sjølv om det har endeleg mange desimalar, fordi desimalane gjentekk seg."},{"id":"1t-1-7-n-quiz1-q2","task":"Kva av desse tala er irrasjonalt?","options":[{"id":"a","text":"$\\frac{22}{7}$","isCorrect":false},{"id":"b","text":"$0{,}75$","isCorrect":false},{"id":"c","text":"$-5$","isCorrect":false},{"id":"d","text":"$\\sqrt{2}$","isCorrect":true}],"solution":"$\\sqrt{2}$ er irrasjonalt fordi det har endeleg mange desimalar utan gjentakande mønster og kan ikkje skrivast som ein brøk. $\\frac{22}{7}$ er rasjonalt (det er ein brøk), $0{,}75 = \\frac{3}{4}$, og $-5 = \\frac{-5}{1}$."},{"id":"1t-1-7-n-quiz1-q3","task":"Kva betyr $\\mathbb{N} \\subset \\mathbb{Z}$?","options":[{"id":"a","text":"$\\mathbb{N}$ er større enn $\\mathbb{Z}$","isCorrect":false},{"id":"b","text":"$\\mathbb{N}$ og $\\mathbb{Z}$ er like","isCorrect":false},{"id":"c","text":"$\\mathbb{N}$ er ei delmengde av $\\mathbb{Z}$","isCorrect":true},{"id":"d","text":"$\\mathbb{Z}$ er ei delmengde av $\\mathbb{N}$","isCorrect":false}],"solution":"Symbolet $\\subset$ betyr «er ei delmengde av». Alle naturlege tal ($1, 2, 3, ...$) finnast også mellom heiltal, men heiltal har i tillegg $0$ og negative tal. Difor er $\\mathbb{N} \\subset \\mathbb{Z}$."}]}},{"id":"1t-1-7-n-audio-2","type":"audio","title":"Høyr på denne delen","src":"/audio/1t/1t-1-7-narrativ-del2.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-7-n-section2","type":"text","content":"## Intervall – å skildra delar av tallinjas\n\nNo veit vi kva tallfamiliar som finnast. Men ofte treng vi å snakka om ein bestemt del av tallinjas – til dømes «alle tal mellom 2 og 7». Då brukar vi **intervall**.\n\nEit intervall er ei samanhengande strekning på tallinjas, og vi skildrar det med hakeparentesar og vinkelparentesar. Hakeparentesar $[$ og $]$ betyr at endepunktet **er med**, medan vinkelparentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje er med**.\n\nLat oss sjå på nokre døme. $[2, 7]$ betyr alle tal frå og med $2$ til og med $7$, altså $2 \\leq x \\leq 7$. Derimot betyr $\\langle 2, 7 \\rangle$ alle tal *mellom* $2$ og $7$, men utan $2$ og $7$ sjøl: $2 < x < 7$. Du kan også blanda: $[2, 7\\rangle$ betyr frå og med $2$ til (men ikkje med) $7$, altså $2 \\leq x < 7$.\n\nKva når eit intervall strekkjer seg endeleg langt? Då brukar vi pilsymbol: $\\langle 5, \\rightarrow \\rangle$ betyr alle tal som er *større enn* $5$, og $\\langle \\leftarrow, 10]$ betyr alle tal som er *mindre enn eller lik* $10$. Ved endeleg brukar vi alltid parentesar, aldri hakeparentesar – fordi endeleg ikkje er eit tal vi kan «inkludera».\n\nHer er ein hugskeregel som kan hjelpa: tenk på hakeparentesane som ei lukka dør (talet er inne i mengda) og parentesane som ei open dør (talet slepper ikkje inn). Så $[-3, 4\\rangle$ er eit intervall der $-3$ er med (lukka dør til venstre), medan $4$ ikkje er med (open dør til høgre). Ulikskapen som høyrer til er $-3 \\leq x < 4$.\n\nVi kan også skriva mengder ved å **lista opp elementa** i hakeparentesar, til dømes $\\{1, 2, 3, 4, 5\\}$, eller bruka **mengdebyggjarnotasjon**: $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$, der $\\mid$ betyr «slik at». Begge uttrykk det same."},{"id":"1t-1-7-n-quiz2","type":"exercise","exercise":{"id":"1t-1-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjøl på intervall og notasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-7-n-quiz2-q0","task":"Korleis skriv vi «alle tal frå og med $-3$ til $4$ (utan 4)» med intervallnotasjon?","options":[{"id":"a","text":"$\\langle -3, 4 \\rangle$","isCorrect":false},{"id":"b","text":"$[-3, 4]$","isCorrect":false},{"id":"c","text":"$\\langle -3, 4]$","isCorrect":false},{"id":"d","text":"$[-3, 4\\rangle$","isCorrect":true}],"solution":"Vi skal ha med $-3$ (klammer til venstre) og utan $4$ (parentesar til høyre). Det gir $[-3, 4\\rangle$, som svarar til ulikskapen $-3 \\leq x < 4$."},{"id":"1t-1-7-n-quiz2-q1","task":"Kva betyr klammer $[$ i intervallnotasjon?","options":[{"id":"a","text":"Endepunktet er ikkje med","isCorrect":false},{"id":"b","text":"Endepunktet er med","isCorrect":true},{"id":"c","text":"Intervallet er endeleg","isCorrect":false},{"id":"d","text":"Intervallet er tomt","isCorrect":false}],"solution":"Klammer $[$ og $]$ betyr at endepunktet **er med** i mengda. Det svarar til $\\leq$ eller $\\geq$ i ulikskapen. Parentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje** er med."},{"id":"1t-1-7-n-quiz2-q2","task":"Kva ulikskap svarar til intervallet $\\langle 5, \\rightarrow \\rangle$?","options":[{"id":"a","text":"$x \\geq 5$","isCorrect":false},{"id":"b","text":"$x > 5$","isCorrect":true},{"id":"c","text":"$x < 5$","isCorrect":false},{"id":"d","text":"$x \\leq 5$","isCorrect":false}],"solution":"$\\langle 5, \\rightarrow \\rangle$ betyr alle tal *strengt* større enn $5$. Parentesen ved $5$ betyr at $5$ sjølv ikkje er med, altså $x > 5$. Hadde vi skrive $[5, \\rightarrow \\rangle$ ville det bety $x \\geq 5$."},{"id":"1t-1-7-n-quiz2-q3","task":"Kvifor bruker vi alltid parentesar (aldri klammer) ved uendeleg?","options":[{"id":"a","text":"Fordi uendeleg er eit veldig stort tal","isCorrect":false},{"id":"b","text":"Fordi uendeleg ikkje er eit tal vi kan inkludera","isCorrect":true},{"id":"c","text":"Det er berre ein konvensjon","isCorrect":false},{"id":"d","text":"Fordi klammer berre vert brukte for negative tal","isCorrect":false}],"solution":"Uendeleg ($\\infty$) er ikkje eit reelt tal, det er eit konsept som betyr «utan grense». Sidan det ikkje er eit element på tallinja, kan vi ikkje inkludera det i mengda. Derfor bruker vi alltid parentesar ved uendeleg."},{"id":"1t-1-7-n-quiz2-q4","task":"Kva betyr $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$?","options":[{"id":"a","text":"Alle reelle tal mellom $0$ og $5$","isCorrect":false},{"id":"b","text":"$\\{0, 1, 2, 3, 4, 5\\}$","isCorrect":false},{"id":"c","text":"$\\{1, 2, 3, 4, 5\\}$","isCorrect":true},{"id":"d","text":"$\\langle 0, 5]$","isCorrect":false}],"solution":"Vi leiter etter heiltal ($\\mathbb{Z}$) som er strengt større enn $0$ og mindre enn eller lik $5$. Det gir oss $\\{1, 2, 3, 4, 5\\}$. Legg merke til at $0$ ikkje er med fordi kravet er $x > 0$ (strengt)."}]}},{"id":"1t-1-7-n-audio-3","type":"audio","title":"Høyr på denne delen","src":"/audio/1t/1t-1-7-narrativ-del3.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-7-n-section3","type":"text","content":"## Union, snitt og differanse\n\nNo som vi kan beskriva mengder, er neste steg å **kombinera** dei. Tenkj deg at du har to vennegjengar – gjeng $A$ og gjeng $B$. Nokre er berre med i den eine, nokre er med i begge.\n\n**Unionen** $A \\cup B$ er alle som er med i minst éin av gjengene – det svarar til «eller» i daglegspråket. Viss $A = [2, 6]$ og $B = [4, 9]$, dekker $A$ tallinja frå $2$ til $6$ og $B$ dekker frå $4$ til $9$. Slår vi dei saman, dekker vi alt frå $2$ til $9$: $A \\cup B = [2, 9]$.\n\n**Snittet** $A \\cap B$ er alle som er med i *begge* gjengene – det svarar til «og». Med same $A$ og $B$ inneheld begge mengdene tala frå $4$ til $6$: $A \\cap B = [4, 6]$.\n\n**Differansen** $A \\setminus B$ er alle som er i $A$ men *ikkje* i $B$ – dei som er med i gjeng $A$ men som aldri har blitt med i gjeng $B$. Med $A = [1, 7]$ og $B = [4, 10]$ beheld vi berre den delen av $A$ som $B$ ikkje dekker: $A \\setminus B = [1, 4\\rangle$. Legg merke til den opne parentesen ved $4$ – akkurat på grensa tipper vi over i $B$, så $4$ sjølv er ikkje med.\n\nLat oss ta eit døme med endelause intervall. Set $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Unionen $A \\cup B$ er alle reelle tal $\\mathbb{R}$, fordi $A$ dekker alt til og med $3$, og $B$ dekker alt over $1$ – saman dekker dei heile tallinja. Snittet $A \\cap B$ er tala som er i begge: $\\langle 1, 3]$, altså tala som er både større enn $1$ og mindre enn eller lik $3$.\n\nTil slutt: to mengder som ikkje overlappet i det heile tatt kallast **disjunkte**. Da er snittet den tomme mengda $\\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi $[1, 3] \\cap [5, 7] = \\emptyset$."},{"id":"1t-1-7-n-quiz3","type":"exercise","exercise":{"id":"1t-1-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på union, snitt og differanse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-7-n-quiz3-q0","task":"La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cap B$?","options":[{"id":"a","text":"$[1, 8]$","isCorrect":false},{"id":"b","text":"$[1, 3]$","isCorrect":false},{"id":"c","text":"$[3, 5]$","isCorrect":true},{"id":"d","text":"$[5, 8]$","isCorrect":false}],"solution":"Snittet $A \\cap B$ er tala som er i begge mengdene. $A$ går frå $1$ til $5$ og $B$ går frå $3$ til $8$. Overlappet er frå $3$ til $5$, altså $[3, 5]$."},{"id":"1t-1-7-n-quiz3-q1","task":"La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cup B$?","options":[{"id":"a","text":"$[1, 8]$","isCorrect":true},{"id":"b","text":"$[3, 5]$","isCorrect":false},{"id":"c","text":"$[1, 3] \\cup [5, 8]$","isCorrect":false},{"id":"d","text":"$[1, 5]$","isCorrect":false}],"solution":"Unionen $A \\cup B$ er alle tal som er i minst éin av mengdene. $A$ dekker $[1, 5]$ og $B$ dekker $[3, 8]$. Saman dekker dei alt frå $1$ til $8$: $A \\cup B = [1, 8]$."},{"id":"1t-1-7-n-quiz3-q2","task":"La $A = [1, 7]$ og $B = [4, 10]$. Kva er $A \\setminus B$?","options":[{"id":"a","text":"$[1, 4]$","isCorrect":false},{"id":"b","text":"$[1, 4\\rangle$","isCorrect":true},{"id":"c","text":"$\\langle 4, 7]$","isCorrect":false},{"id":"d","text":"$[1, 7]$","isCorrect":false}],"solution":"Differansen $A \\setminus B$ er alle element i $A$ som ikkje er i $B$. $B$ startar ved $4$, så vi beheld berre den delen av $A$ som er strengt mindre enn $4$: $[1, 4\\rangle$. Talet $4$ sjølv er i $B$, så det er ikkje med."},{"id":"1t-1-7-n-quiz3-q3","task":"Kva betyr det at to mengder er **disjunkte**?","options":[{"id":"a","text":"Dei er like store","isCorrect":false},{"id":"b","text":"Den eine er ein delmengd av den andre","isCorrect":false},{"id":"c","text":"Dei har ingen felles element","isCorrect":true},{"id":"d","text":"Unionen er tom","isCorrect":false}],"solution":"To mengder er disjunkte når dei ikkje overlapper i det heile tatt, altså $A \\cap B = \\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi det ikkje finst nokre tal som er i begge."},{"id":"1t-1-7-n-quiz3-q4","task":"La $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Kva er $A \\cap B$?","options":[{"id":"a","text":"$\\mathbb{R}$","isCorrect":false},{"id":"b","text":"$\\langle 1, 3]$","isCorrect":true},{"id":"c","text":"$[1, 3]$","isCorrect":false},{"id":"d","text":"$\\emptyset$","isCorrect":false}],"solution":"Snittet er tala som er i begge mengder. $A$ inneheld alt opp til og med $3$, og $B$ inneheld alt strengt over $1$. Tala som oppfyller begge krava er: $1 < x \\leq 3$, altså $\\langle 1, 3]$."}]}},{"id":"1t-1-7-n-audio-4","type":"audio","title":"Høyr på denne delen","src":"/audio/1t/1t-1-7-narrativ-del4.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-7-n-section4","type":"text","content":"## Absoluttverde – avstand på tallinj​a\n\nNå skal me sjå på eit omgrep som verkar enkelt, men som er overraskande kraftig: **absoluttverdien**. Absoluttverdien til eit tal er rett og slett **avstanden** frå talet til null på tallinja. Henne skrivast med loddrette strekar: $|x|$.\n\nSidan avstand alltid er positiv (eller null), er absoluttverdien aldri negativ. $|5| = 5$ fordi $5$ ligg fem einingar frå null. $|-7| = 7$ fordi $-7$ òg ligg sju einingar frå null – berre i motsett retning. Formelt definerast det slik: $|x| = x$ viss $x \\geq 0$, og $|x| = -x$ viss $x < 0$. Det siste kan forvirre: $-x$ betyr ikkje «eit negativt tal», det betyr «det motsette av $x$». Viss $x = -7$, blir $-x = -(-7) = 7$.\n\nDu kan òg ha uttrykk inne i absoluttverditeikna. $|3 - 8| = |-5| = 5$. Rekn ut det som er inne først, og ta deretter absoluttverdien.\n\nKva med rekneoperasjonar? $|-2| + |4| = 2 + 4 = 6$. Du tek absoluttverdien av kvart tal for seg, og reknar deretter som vanleg. Men vær forsiktig: $|-4| - |-6| = 4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt – det er berre sjølve absoluttverdien av eit enkelt tal som aldri er negativ.\n\nDu kan til og med ha absoluttverdiar inne i absoluttverdiar: $||-7| - |3|| = |7 - 3| = |4| = 4$. Rekn innan frå og ut, lag for lag.\n\nNår me kjenner forteiknet til ein variabel, kan me forenkle. Veit me at $a > 0$, er $|a| = a$ og $|-a| = a$. Dermed er $|a| + |-a| = a + a = 2a$."},{"id":"1t-1-7-n-quiz4","type":"exercise","exercise":{"id":"1t-1-7-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på absoluttverde:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-7-n-quiz4-q0","task":"Kva blir $|3 - 8| + |-2|$?","options":[{"id":"a","text":"$3$","isCorrect":false},{"id":"b","text":"$-3$","isCorrect":false},{"id":"c","text":"$7$","isCorrect":true},{"id":"d","text":"$9$","isCorrect":false}],"solution":"Me reknar ut steg for steg: $|3 - 8| = |-5| = 5$ og $|-2| = 2$. Dermed er $5 + 2 = 7$."},{"id":"1t-1-7-n-quiz4-q1","task":"Kva er absoluttverdien $|-7|$?","options":[{"id":"a","text":"$-7$","isCorrect":false},{"id":"b","text":"$7$","isCorrect":true},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$\\frac{1}{7}$","isCorrect":false}],"solution":"Absoluttverdien er avstanden frå talet til null på tallinja. $-7$ ligg $7$ einingar frå null, så $|-7| = 7$. Formelt: sidan $-7 < 0$, brukar me $|x| = -x$, altså $-(-7) = 7$."},{"id":"1t-1-7-n-quiz4-q2","task":"Kva blir $|-4| - |-6|$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$10$","isCorrect":false},{"id":"c","text":"$-2$","isCorrect":true},{"id":"d","text":"$-10$","isCorrect":false}],"solution":"Me tek absoluttverdien av kvart tal for seg: $|-4| = 4$ og $|-6| = 6$. Deretter reknar me: $4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt."},{"id":"1t-1-7-n-quiz4-q3","task":"Gitt at $a > 0$, kva er $|a| + |-a|$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$a$","isCorrect":false},{"id":"c","text":"$-2a$","isCorrect":false},{"id":"d","text":"$2a$","isCorrect":true}],"solution":"Når $a > 0$, er $|a| = a$. Og $|-a|$: sidan $a > 0$ er $-a < 0$, så $|-a| = -(-a) = a$. Dermed er $|a| + |-a| = a + a = 2a$."},{"id":"1t-1-7-n-quiz4-q4","task":"Kva blir $||-7| - |3||$?","options":[{"id":"a","text":"$10$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":true},{"id":"c","text":"$-4$","isCorrect":false},{"id":"d","text":"$7$","isCorrect":false}],"solution":"Me reknar innan frå og ut: $|-7| = 7$ og $|3| = 3$. Deretter: $|7 - 3| = |4| = 4$."}]}},{"id":"1t-1-7-n-audio-5","type":"audio","title":"Høyr på denne delen","src":"/audio/1t/1t-1-7-narrativ-del5.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-1-7-n-section5","type":"text","content":"## Absoluttverdiar og mengder – å kopla alt saman\n\nNå har me alle brikkan, og det er på tid å sjå korleis dei heng saman. Absoluttverdiar kan nemleg brukast til å beskrive mengder og intervall på ein elegant måte.\n\nTenk over kva $|x| < 3$ betyr. Det betyr at avstanden frå $x$ til null er mindre enn $3$. Kva tal oppfyller det? Alle tal mellom $-3$ og $3$: $-3 < x < 3$. Som intervall skriv me det $\\langle -3, 3 \\rangle$. Absoluttverdien omsetur altså «avstand mindre enn» til eit opent intervall rundt null.\n\nKva med $|x - 2| < 2$? No spør me: kva tal har avstand mindre enn $2$ frå talet $2$? Me kan setje opp ulikskapen $-2 < x - 2 < 2$, og legg til $2$ på alle sider: $0 < x < 4$. Mengda er $\\langle 0, 4 \\rangle$.\n\nNå kan me kombinere dette med det me lærte om snitt. La $A = \\{x \\in \\mathbb{R} \\mid |x| < 3\\} = \\langle -3, 3 \\rangle$ og $B = \\{x \\in \\mathbb{R} \\mid |x - 2| < 2\\} = \\langle 0, 4 \\rangle$. Då er snittet $A \\cap B = \\langle 0, 3 \\rangle$ – tala som er i begge mengder. Og for å kontrollere: kva tal er både nærmere enn $3$ frå null og nærmere enn $2$ frå $2$? Nettopp tala mellom $0$ og $3$.\n\nLa oss òg gjenta dei viktigaste symbola me har lært. $\\in$ betyr «er element i» (til dømes $5 \\in \\mathbb{N}$). $\\notin$ betyr «er ikkje element i» (til dømes $-3 \\notin \\mathbb{N}$). $\\subset$ betyr «er ein delmengd av» (til dømes $\\mathbb{N} \\subset \\mathbb{Z}$). Og $\\emptyset$ er den tomme mengda – ein mengd utan element.\n\nMengdelæra er språket matematikarar brukar for å snakka presist om samlingar av tal. Når du beherskar intervall, union, snitt og absoluttverde, har du eit verktøy som skal til å dukke opp igjen og igjen – i likningar, ulikskaper, funksjonsanalyse og langt vidare i matematikken."},{"id":"1t-1-7-n-quiz5","type":"exercise","exercise":{"id":"1t-1-7-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på absoluttverde og mengder:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-1-7-n-quiz5-q0","task":"Mengda $\\{x \\in \\mathbb{R} \\mid |x| < 3\\}$ kan skrivast som intervallet:","options":[{"id":"a","text":"$[0, 3]$","isCorrect":false},{"id":"b","text":"$\\langle -3, 3 \\rangle$","isCorrect":true},{"id":"c","text":"$[-3, 3]$","isCorrect":false},{"id":"d","text":"$\\langle 0, 3 \\rangle$","isCorrect":false}],"solution":"$|x| < 3$ betyr at avstanden frå $x$ til null er strengt mindre enn $3$. Det gir $-3 < x < 3$, som er intervallet $\\langle -3, 3 \\rangle$. Me brukar opne parentesar fordi $-3$ og $3$ sjølv ikkje er med (avstanden er då nøyaktig $3$, ikkje mindre enn)."},{"id":"1t-1-7-n-quiz5-q1","task":"Kva betyr $|x - 2| < 2$ som intervall?","options":[{"id":"a","text":"$\\langle -2, 2 \\rangle$","isCorrect":false},{"id":"b","text":"$\\langle 0, 4 \\rangle$","isCorrect":true},{"id":"c","text":"$[0, 4]$","isCorrect":false},{"id":"d","text":"$\\langle -4, 0 \\rangle$","isCorrect":false}],"solution":"$|x - 2| < 2$ betyr at avstanden frå $x$ til $2$ er mindre enn $2$. Vi set opp: $-2 < x - 2 < 2$. Legg til $2$ på alle sider: $0 < x < 4$. Det er intervallet $\\langle 0, 4 \\rangle$."},{"id":"1t-1-7-n-quiz5-q2","task":"La $A = \\langle -3, 3 \\rangle$ og $B = \\langle 0, 4 \\rangle$. Kva er $A \\cap B$?","options":[{"id":"a","text":"$\\langle -3, 4 \\rangle$","isCorrect":false},{"id":"b","text":"$\\langle -3, 0 \\rangle$","isCorrect":false},{"id":"c","text":"$\\langle 0, 3 \\rangle$","isCorrect":true},{"id":"d","text":"$[0, 3]$","isCorrect":false}],"solution":"Snittet er tala som er i båe mengdene. $A$ går frå $-3$ til $3$ (båe utan) og $B$ frå $0$ til $4$ (båe utan). Overlappet er tala som er strengt mellom $0$ og $3$: $\\langle 0, 3 \\rangle$."},{"id":"1t-1-7-n-quiz5-q3","task":"Kva betyr symbolet $\\in$?","options":[{"id":"a","text":"Er ei delmengd av","isCorrect":false},{"id":"b","text":"Er lik","isCorrect":false},{"id":"c","text":"Er element i","isCorrect":true},{"id":"d","text":"Er ikkje med i","isCorrect":false}],"solution":"Symbolet $\\in$ betyr «er element i». Til dømes betyr $5 \\in \\mathbb{N}$ at $5$ er eit element i mengda av naturlege tal. Symbolet $\\notin$ betyr det motsette: «er ikkje element i»."}]}},{"id":"1t-1-7-n-audio-6","type":"audio","title":"Lytt til oppsummeringa","src":"/audio/1t/1t-1-7-narrativ-del6.mp3","description":"Lydfil som les opp oppsummeringa."},{"id":"1t-1-7-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har me utforskt mengdelærens viktigaste omgrep.\n\n**Tallmengdene** dannar eit hierarki: dei naturlege tala $\\mathbb{N} = \\{1, 2, 3, ...\\}$ er dei enklaste, deretter kjem heiltala $\\mathbb{Z}$ (med null og negative tal), dei rasjonale tala $\\mathbb{Q}$ (alt som kan skrivast som brøk), og til slutt dei reelle tala $\\mathbb{R}$ (som også inkluderer irrasjonale tal som $\\sqrt{2}$ og $\\pi$). Samanhengen er $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$.\n\n**Intervall** let oss skildre samanhengande delar av tallinja. Klammer $[$ og $]$ betyr at endepunktet er med, parentesar $\\langle$ og $\\rangle$ betyr at det ikkje er med. Ved uendeleg brukar me alltid parentesar.\n\n**Union** ($\\cup$) gir oss alle element som er i minst éin av mengdene. **Snitt** ($\\cap$) gir oss berre elementa som er i båe. **Differanse** ($A \\setminus B$) gir elementa som er i $A$ men ikkje i $B$. To mengder utan felles element kallast disjunkte, og snittet deira er den tomme mengda $\\emptyset$.\n\n**Absoluttverdien** $|x|$ er avstanden frå $x$ til null på tallinja. Ho er alltid positiv eller null. Absoluttverdiar kan brukast til å skildre intervall: $|x| < a$ svarar til intervallet $\\langle -a, a \\rangle$, og $|x - c| < r$ skildrar alle tal med avstand mindre enn $r$ frå $c$."}],"exercises":[],"_meta":{"sourceHash":"2e461d0ade92e65e","translatedAt":"2026-06-16T10:01:00.617Z","model":"claude-haiku-4-5-20251001","strings":136,"tm":{"e97d223525b20467":"Mengdelære","b195b06d1ed59702":"Forteljing-versjon","e54f248a680ca44e":"Ei fortellin om samlingar av tal – korleis matematikarar sorterer tala i familiar, skildrar intervall på tallinjas, og kombinerer mengder med union, snitt og differanse.","31a1bcd5905a553b":"bruke matematisk notasjon til å skildra mengder","d2c9d9ef5d3f774f":"Høyr på denne delen","21954805f17795e8":"Lydfil som leser opp teksten fram til første quiz.","cf558e0513ff8ce0":"## Å sortere talenes verden\n\nForestill deg at du har ein enormt stor samling med tal – alle tal som nokon gong er blitt tenkt på. Korleis held du orden på dei? Matematikarar løyste dette for lenge sidan ved å lage eit system av **mengder**: samlingar av objekt som deler ein bestemt eigenskap. Ein mengde kan innehalda tal, punkt, eller kva som helst anna.\n\nI dette kapitlet skal vi utforska fire store tallfamiliar, lære å skildra delar av tallinjas med **intervall**, kombinera mengder med **union** og **snitt**, fjerna element med **differanse**, og til slutt forstå **absoluttverdien** – omgrepet som handlar om avstand. Undervegs skal vi bli kjende med symbolane som gjer at matematikarar kan uttrykkja seg presist og effektivt.","b29746287a42f06c":"## Dei fire store tallfamiliane\n\nTenk deg at tala bur i eit leilegheitskompleks med fire etasjar. Jo høgare etasje, jo fleire tal slepper inn.\n\nI første etasje bur dei **naturlege tala**, $\\mathbb{N} = \\{1, 2, 3, 4, 5, ...\\}$. Dette er tala vi lærer først som barn – teljarane, dei positive heiltal. Du brukar dei kvar gong du teljer noko: tre eple, sju vener, tjueein poeng.\n\nI andre etasje bur **heiltal**, $\\mathbb{Z} = \\{..., -2, -1, 0, 1, 2, ...\\}$. Her slepper vi inn null og dei negative tala. Bokstaven $\\mathbb{Z}$ kjem frå det tyske ordet «Zahlen», som betyr tal. Alle naturlege tal er heiltal, men heiltal har i tillegg null og minusstala.\n\nTredje etasje er for dei **rasjonale tala**, $\\mathbb{Q}$. Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Hit høyrer $\\frac{1}{2}$, $-\\frac{3}{4}$, $0{,}75$ (som er $\\frac{3}{4}$), og til og med $5$ (som er $\\frac{5}{1}$). Alle heiltal er rasjonale, fordi du alltid kan setja $1$ i nemnaren.\n\nØvste etasje er forbeholdt dei **reelle tala**, $\\mathbb{R}$ – alle tal på tallinjas. Her finn vi også dei **irrasjonale tala**, som $\\sqrt{2}$, $\\pi$ og $e$. Desse tala har endeleg mange desimalar utan gjentakande mønster, og kan aldri skrivast som ein brøk. Samanhengen mellom familiane kan vi skriva slik: $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$. Symbolet $\\subset$ betyr «er ei delmengde av» – altså at alle tala i den venstre mengda også finnast i den høgre.","d1b5898427e44f8f":"Test deg sjøl på dei fire store tallfamiliane:","4097889236a2af26":"placeholder","0b5388a64767ca75":"Kva er den minste tallfamiliens $\\sqrt{9}$ tilhøyrer?","9d5b33184f7f09dc":"$\\mathbb{R}$ (reelle tal)","6ca2d7bbacd38295":"$\\mathbb{Q}$ (rasjonale tal)","c67993f80d0b0387":"$\\mathbb{N}$ (naturlege tal)","7275a9e79afa4880":"$\\mathbb{Z}$ (heiltal)","fd224a7bc139f36d":"$\\sqrt{9} = 3$, som er eit naturleg tal. Sjølv om $3$ også er eit heiltal, rasjonalt tal og reelt tal, er $\\mathbb{N}$ den minste mengda det tilhøyrer.","4efd619898e043f3":"Kva kjenneteiкnar eit rasjonalt tal?","06f650963949bf23":"Det er alltid positivt","9b87a531ff1be224":"Det har endeleg tal desimalar","2d00afd4f26ded94":"Det kan skrivast som ein brøk $\\frac{a}{b}$ der $a \\in \\mathbb{Z}$ og $b \\in \\mathbb{N}$","f6342714d03e2bfd":"Det er eit heiltal","5b0f076a0d2a7df5":"Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Talet $0{,}\\overline{3} = \\frac{1}{3}$ er rasjonalt sjølv om det har endeleg mange desimalar, fordi desimalane gjentekk seg.","bc15edce148ea350":"Kva av desse tala er irrasjonalt?","2c1514b689a8945d":"$\\frac{22}{7}$","17b0fe9bda962747":"$\\sqrt{2}$","85a5ace838757102":"$\\sqrt{2}$ er irrasjonalt fordi det har endeleg mange desimalar utan gjentakande mønster og kan ikkje skrivast som ein brøk. $\\frac{22}{7}$ er rasjonalt (det er ein brøk), $0{,}75 = \\frac{3}{4}$, og $-5 = \\frac{-5}{1}$.","ddfb58d7ea0c614b":"Kva betyr $\\mathbb{N} \\subset \\mathbb{Z}$?","626b7b6301cc7097":"$\\mathbb{N}$ er større enn $\\mathbb{Z}$","538d4fac45eefc07":"$\\mathbb{N}$ og $\\mathbb{Z}$ er like","ae5880b4acb0e39c":"$\\mathbb{N}$ er ei delmengde av $\\mathbb{Z}$","8079afefff18f637":"$\\mathbb{Z}$ er ei delmengde av $\\mathbb{N}$","f7f664967cfb7339":"Symbolet $\\subset$ betyr «er ei delmengde av». Alle naturlege tal ($1, 2, 3, ...$) finnast også mellom heiltal, men heiltal har i tillegg $0$ og negative tal. Difor er $\\mathbb{N} \\subset \\mathbb{Z}$.","058005533831b7f6":"Lydfil som les opp teksten fram til neste quiz.","3060f028e4676153":"## Intervall – å skildra delar av tallinjas\n\nNo veit vi kva tallfamiliar som finnast. Men ofte treng vi å snakka om ein bestemt del av tallinjas – til dømes «alle tal mellom 2 og 7». Då brukar vi **intervall**.\n\nEit intervall er ei samanhengande strekning på tallinjas, og vi skildrar det med hakeparentesar og vinkelparentesar. Hakeparentesar $[$ og $]$ betyr at endepunktet **er med**, medan vinkelparentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje er med**.\n\nLat oss sjå på nokre døme. $[2, 7]$ betyr alle tal frå og med $2$ til og med $7$, altså $2 \\leq x \\leq 7$. Derimot betyr $\\langle 2, 7 \\rangle$ alle tal *mellom* $2$ og $7$, men utan $2$ og $7$ sjøl: $2 < x < 7$. Du kan også blanda: $[2, 7\\rangle$ betyr frå og med $2$ til (men ikkje med) $7$, altså $2 \\leq x < 7$.\n\nKva når eit intervall strekkjer seg endeleg langt? Då brukar vi pilsymbol: $\\langle 5, \\rightarrow \\rangle$ betyr alle tal som er *større enn* $5$, og $\\langle \\leftarrow, 10]$ betyr alle tal som er *mindre enn eller lik* $10$. Ved endeleg brukar vi alltid parentesar, aldri hakeparentesar – fordi endeleg ikkje er eit tal vi kan «inkludera».\n\nHer er ein hugskeregel som kan hjelpa: tenk på hakeparentesane som ei lukka dør (talet er inne i mengda) og parentesane som ei open dør (talet slepper ikkje inn). Så $[-3, 4\\rangle$ er eit intervall der $-3$ er med (lukka dør til venstre), medan $4$ ikkje er med (open dør til høgre). Ulikskapen som høyrer til er $-3 \\leq x < 4$.\n\nVi kan også skriva mengder ved å **lista opp elementa** i hakeparentesar, til dømes $\\{1, 2, 3, 4, 5\\}$, eller bruka **mengdebyggjarnotasjon**: $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$, der $\\mid$ betyr «slik at». Begge uttrykk det same.","5a2a2e13bc11a02e":"Test deg sjøl på intervall og notasjon:","46f23b1ef3277769":"Korleis skriv vi «alle tal frå og med $-3$ til $4$ (utan 4)» med intervallnotasjon?","2410a263f1dbb51f":"$\\langle -3, 4 \\rangle$","5b25c9f57ba8a672":"$\\langle -3, 4]$","dca820c39db5db86":"$[-3, 4\\rangle$","8375b8d7792953b3":"Vi skal ha med $-3$ (klammer til venstre) og utan $4$ (parentesar til høyre). Det gir $[-3, 4\\rangle$, som svarar til ulikskapen $-3 \\leq x < 4$.","3d4151a3366dff3d":"Kva betyr klammer $[$ i intervallnotasjon?","70059e3d1ef76f3e":"Endepunktet er ikkje med","8fa65c4217c0f9da":"Endepunktet er med","cb382ae5bb6c3f6a":"Intervallet er endeleg","947a901a99e958ac":"Intervallet er tomt","b8c6b6dfcfc3ff75":"Klammer $[$ og $]$ betyr at endepunktet **er med** i mengda. Det svarar til $\\leq$ eller $\\geq$ i ulikskapen. Parentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje** er med.","322dd733795606d8":"Kva ulikskap svarar til intervallet $\\langle 5, \\rightarrow \\rangle$?","668033be828b6690":"$x \\geq 5$","d4d4c5259679cbd9":"$x > 5$","4c1a262826c142aa":"$x < 5$","71a1fe07300d2409":"$x \\leq 5$","9b2cb92c49ea6804":"$\\langle 5, \\rightarrow \\rangle$ betyr alle tal *strengt* større enn $5$. Parentesen ved $5$ betyr at $5$ sjølv ikkje er med, altså $x > 5$. Hadde vi skrive $[5, \\rightarrow \\rangle$ ville det bety $x \\geq 5$.","7832d77eee066d1c":"Kvifor bruker vi alltid parentesar (aldri klammer) ved uendeleg?","06feec2cddbc3e15":"Fordi uendeleg er eit veldig stort tal","5b9557b6ee43cefb":"Fordi uendeleg ikkje er eit tal vi kan inkludera","f55b9ef04bf48d48":"Det er berre ein konvensjon","adee95002fbdbc3a":"Fordi klammer berre vert brukte for negative tal","99323c664b65247c":"Uendeleg ($\\infty$) er ikkje eit reelt tal, det er eit konsept som betyr «utan grense». Sidan det ikkje er eit element på tallinja, kan vi ikkje inkludera det i mengda. Derfor bruker vi alltid parentesar ved uendeleg.","1abee04181e2891c":"Kva betyr $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$?","d61bdf34e8a5dcc7":"Alle reelle tal mellom $0$ og $5$","e7925b0843b8a742":"$\\langle 0, 5]$","32dc2c940d354bc8":"Vi leiter etter heiltal ($\\mathbb{Z}$) som er strengt større enn $0$ og mindre enn eller lik $5$. Det gir oss $\\{1, 2, 3, 4, 5\\}$. Legg merke til at $0$ ikkje er med fordi kravet er $x > 0$ (strengt).","f1e6e2ec3835c27b":"## Union, snitt og differanse\n\nNo som vi kan beskriva mengder, er neste steg å **kombinera** dei. Tenkj deg at du har to vennegjengar – gjeng $A$ og gjeng $B$. Nokre er berre med i den eine, nokre er med i begge.\n\n**Unionen** $A \\cup B$ er alle som er med i minst éin av gjengene – det svarar til «eller» i daglegspråket. Viss $A = [2, 6]$ og $B = [4, 9]$, dekker $A$ tallinja frå $2$ til $6$ og $B$ dekker frå $4$ til $9$. Slår vi dei saman, dekker vi alt frå $2$ til $9$: $A \\cup B = [2, 9]$.\n\n**Snittet** $A \\cap B$ er alle som er med i *begge* gjengene – det svarar til «og». Med same $A$ og $B$ inneheld begge mengdene tala frå $4$ til $6$: $A \\cap B = [4, 6]$.\n\n**Differansen** $A \\setminus B$ er alle som er i $A$ men *ikkje* i $B$ – dei som er med i gjeng $A$ men som aldri har blitt med i gjeng $B$. Med $A = [1, 7]$ og $B = [4, 10]$ beheld vi berre den delen av $A$ som $B$ ikkje dekker: $A \\setminus B = [1, 4\\rangle$. Legg merke til den opne parentesen ved $4$ – akkurat på grensa tipper vi over i $B$, så $4$ sjølv er ikkje med.\n\nLat oss ta eit døme med endelause intervall. Set $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Unionen $A \\cup B$ er alle reelle tal $\\mathbb{R}$, fordi $A$ dekker alt til og med $3$, og $B$ dekker alt over $1$ – saman dekker dei heile tallinja. Snittet $A \\cap B$ er tala som er i begge: $\\langle 1, 3]$, altså tala som er både større enn $1$ og mindre enn eller lik $3$.\n\nTil slutt: to mengder som ikkje overlappet i det heile tatt kallast **disjunkte**. Da er snittet den tomme mengda $\\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi $[1, 3] \\cap [5, 7] = \\emptyset$.","c06b7f61fcbc8d98":"Test deg sjølv på union, snitt og differanse:","79b3eafd969e7266":"La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cap B$?","5dbd8e2afddf5eae":"Snittet $A \\cap B$ er tala som er i begge mengdene. $A$ går frå $1$ til $5$ og $B$ går frå $3$ til $8$. Overlappet er frå $3$ til $5$, altså $[3, 5]$.","c47ccb8fd95a1d24":"La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cup B$?","f3673d1f9c7179b1":"$[1, 3] \\cup [5, 8]$","4149f613e127eaeb":"Unionen $A \\cup B$ er alle tal som er i minst éin av mengdene. $A$ dekker $[1, 5]$ og $B$ dekker $[3, 8]$. Saman dekker dei alt frå $1$ til $8$: $A \\cup B = [1, 8]$.","cfa87d5e371c7f50":"La $A = [1, 7]$ og $B = [4, 10]$. Kva er $A \\setminus B$?","b5f4d6974cf5847f":"$[1, 4\\rangle$","c4a93bdd95599633":"$\\langle 4, 7]$","f93eb4a774e91c00":"Differansen $A \\setminus B$ er alle element i $A$ som ikkje er i $B$. $B$ startar ved $4$, så vi beheld berre den delen av $A$ som er strengt mindre enn $4$: $[1, 4\\rangle$. Talet $4$ sjølv er i $B$, så det er ikkje med.","63184cfffd77084f":"Kva betyr det at to mengder er **disjunkte**?","c300aa55cc60c20f":"Dei er like store","f1892760ab74bf89":"Den eine er ein delmengd av den andre","a17023a98e674d1c":"Dei har ingen felles element","1203a600ff1c72e4":"Unionen er tom","aab3cff33d10d0f0":"To mengder er disjunkte når dei ikkje overlapper i det heile tatt, altså $A \\cap B = \\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi det ikkje finst nokre tal som er i begge.","df278d082c6d1867":"La $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Kva er $A \\cap B$?","48ff44047ef8ff67":"$\\mathbb{R}$","876a76364f4961a9":"$\\langle 1, 3]$","c5a457b9d85dfcb5":"$\\emptyset$","6171ef607a76fdfd":"Snittet er tala som er i begge mengder. $A$ inneheld alt opp til og med $3$, og $B$ inneheld alt strengt over $1$. Tala som oppfyller begge krava er: $1 < x \\leq 3$, altså $\\langle 1, 3]$.","5a1f4844f6d78062":"## Absoluttverde – avstand på tallinj​a\n\nNå skal me sjå på eit omgrep som verkar enkelt, men som er overraskande kraftig: **absoluttverdien**. Absoluttverdien til eit tal er rett og slett **avstanden** frå talet til null på tallinja. Henne skrivast med loddrette strekar: $|x|$.\n\nSidan avstand alltid er positiv (eller null), er absoluttverdien aldri negativ. $|5| = 5$ fordi $5$ ligg fem einingar frå null. $|-7| = 7$ fordi $-7$ òg ligg sju einingar frå null – berre i motsett retning. Formelt definerast det slik: $|x| = x$ viss $x \\geq 0$, og $|x| = -x$ viss $x < 0$. Det siste kan forvirre: $-x$ betyr ikkje «eit negativt tal», det betyr «det motsette av $x$». Viss $x = -7$, blir $-x = -(-7) = 7$.\n\nDu kan òg ha uttrykk inne i absoluttverditeikna. $|3 - 8| = |-5| = 5$. Rekn ut det som er inne først, og ta deretter absoluttverdien.\n\nKva med rekneoperasjonar? $|-2| + |4| = 2 + 4 = 6$. Du tek absoluttverdien av kvart tal for seg, og reknar deretter som vanleg. Men vær forsiktig: $|-4| - |-6| = 4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt – det er berre sjølve absoluttverdien av eit enkelt tal som aldri er negativ.\n\nDu kan til og med ha absoluttverdiar inne i absoluttverdiar: $||-7| - |3|| = |7 - 3| = |4| = 4$. Rekn innan frå og ut, lag for lag.\n\nNår me kjenner forteiknet til ein variabel, kan me forenkle. Veit me at $a > 0$, er $|a| = a$ og $|-a| = a$. Dermed er $|a| + |-a| = a + a = 2a$.","05e2dbfbdb14da21":"Test deg sjølv på absoluttverde:","10397fcdaaabd0f9":"Kva blir $|3 - 8| + |-2|$?","2e5614dc089f0b24":"Me reknar ut steg for steg: $|3 - 8| = |-5| = 5$ og $|-2| = 2$. Dermed er $5 + 2 = 7$.","12dab57f4345b9c2":"Kva er absoluttverdien $|-7|$?","125b0b86b1f22c3c":"$\\frac{1}{7}$","5e7137818d1742a7":"Absoluttverdien er avstanden frå talet til null på tallinja. $-7$ ligg $7$ einingar frå null, så $|-7| = 7$. Formelt: sidan $-7 < 0$, brukar me $|x| = -x$, altså $-(-7) = 7$.","3f44dfe446acce2a":"Kva blir $|-4| - |-6|$?","d31073e436cb151f":"Me tek absoluttverdien av kvart tal for seg: $|-4| = 4$ og $|-6| = 6$. Deretter reknar me: $4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt.","9c1448a90cfb1f6e":"Gitt at $a > 0$, kva er $|a| + |-a|$?","401c22f57c1a7b3f":"$a$","e6c47259f6287fc2":"$-2a$","14fcfafef04cdc19":"$2a$","38bc42ed54fadd85":"Når $a > 0$, er $|a| = a$. Og $|-a|$: sidan $a > 0$ er $-a < 0$, så $|-a| = -(-a) = a$. Dermed er $|a| + |-a| = a + a = 2a$.","179a9cdb5dcaef0b":"Kva blir $||-7| - |3||$?","3816b2a63f31c921":"Me reknar innan frå og ut: $|-7| = 7$ og $|3| = 3$. Deretter: $|7 - 3| = |4| = 4$.","50ff5b9e8df15cb3":"## Absoluttverdiar og mengder – å kopla alt saman\n\nNå har me alle brikkan, og det er på tid å sjå korleis dei heng saman. Absoluttverdiar kan nemleg brukast til å beskrive mengder og intervall på ein elegant måte.\n\nTenk over kva $|x| < 3$ betyr. Det betyr at avstanden frå $x$ til null er mindre enn $3$. Kva tal oppfyller det? Alle tal mellom $-3$ og $3$: $-3 < x < 3$. Som intervall skriv me det $\\langle -3, 3 \\rangle$. Absoluttverdien omsetur altså «avstand mindre enn» til eit opent intervall rundt null.\n\nKva med $|x - 2| < 2$? No spør me: kva tal har avstand mindre enn $2$ frå talet $2$? Me kan setje opp ulikskapen $-2 < x - 2 < 2$, og legg til $2$ på alle sider: $0 < x < 4$. Mengda er $\\langle 0, 4 \\rangle$.\n\nNå kan me kombinere dette med det me lærte om snitt. La $A = \\{x \\in \\mathbb{R} \\mid |x| < 3\\} = \\langle -3, 3 \\rangle$ og $B = \\{x \\in \\mathbb{R} \\mid |x - 2| < 2\\} = \\langle 0, 4 \\rangle$. Då er snittet $A \\cap B = \\langle 0, 3 \\rangle$ – tala som er i begge mengder. Og for å kontrollere: kva tal er både nærmere enn $3$ frå null og nærmere enn $2$ frå $2$? Nettopp tala mellom $0$ og $3$.\n\nLa oss òg gjenta dei viktigaste symbola me har lært. $\\in$ betyr «er element i» (til dømes $5 \\in \\mathbb{N}$). $\\notin$ betyr «er ikkje element i» (til dømes $-3 \\notin \\mathbb{N}$). $\\subset$ betyr «er ein delmengd av» (til dømes $\\mathbb{N} \\subset \\mathbb{Z}$). Og $\\emptyset$ er den tomme mengda – ein mengd utan element.\n\nMengdelæra er språket matematikarar brukar for å snakka presist om samlingar av tal. Når du beherskar intervall, union, snitt og absoluttverde, har du eit verktøy som skal til å dukke opp igjen og igjen – i likningar, ulikskaper, funksjonsanalyse og langt vidare i matematikken.","2ed7dc43a2a953e2":"Test deg sjølv på absoluttverde og mengder:","961349ddc4e1ecff":"Mengda $\\{x \\in \\mathbb{R} \\mid |x| < 3\\}$ kan skrivast som intervallet:","806ff648fd113579":"$\\langle -3, 3 \\rangle$","3f0cbe5e7751bb81":"$\\langle 0, 3 \\rangle$","c7219e3e3bf24643":"$|x| < 3$ betyr at avstanden frå $x$ til null er strengt mindre enn $3$. Det gir $-3 < x < 3$, som er intervallet $\\langle -3, 3 \\rangle$. Me brukar opne parentesar fordi $-3$ og $3$ sjølv ikkje er med (avstanden er då nøyaktig $3$, ikkje mindre enn).","60aae2e913893611":"Kva betyr $|x - 2| < 2$ som intervall?","5d2df9aa27062e4a":"$\\langle -2, 2 \\rangle$","4becd45dc0a0d643":"$\\langle 0, 4 \\rangle$","b56f049437ecb8ab":"$\\langle -4, 0 \\rangle$","05a573693058da0f":"$|x - 2| < 2$ betyr at avstanden frå $x$ til $2$ er mindre enn $2$. Vi set opp: $-2 < x - 2 < 2$. Legg til $2$ på alle sider: $0 < x < 4$. Det er intervallet $\\langle 0, 4 \\rangle$.","be74a0c18d3297aa":"La $A = \\langle -3, 3 \\rangle$ og $B = \\langle 0, 4 \\rangle$. Kva er $A \\cap B$?","a0bcbd2eacbfa36b":"$\\langle -3, 0 \\rangle$","be0a7472957f08f2":"Snittet er tala som er i båe mengdene. $A$ går frå $-3$ til $3$ (båe utan) og $B$ frå $0$ til $4$ (båe utan). Overlappet er tala som er strengt mellom $0$ og $3$: $\\langle 0, 3 \\rangle$.","e5dd5ccc487b32cc":"Kva betyr symbolet $\\in$?","d7b84f25152cd121":"Er ei delmengd av","89931db57c22d72d":"Er lik","69116c0974149592":"Er element i","efb05fabb74b07bb":"Er ikkje med i","f10be3b55cff7e72":"Symbolet $\\in$ betyr «er element i». Til dømes betyr $5 \\in \\mathbb{N}$ at $5$ er eit element i mengda av naturlege tal. Symbolet $\\notin$ betyr det motsette: «er ikkje element i».","79eeeec37aef74be":"Lytt til oppsummeringa","b409d1128419f9c6":"Lydfil som les opp oppsummeringa.","d10a8fa17bacd3be":"## Oppsummering\n\nI dette kapittelet har me utforskt mengdelærens viktigaste omgrep.\n\n**Tallmengdene** dannar eit hierarki: dei naturlege tala $\\mathbb{N} = \\{1, 2, 3, ...\\}$ er dei enklaste, deretter kjem heiltala $\\mathbb{Z}$ (med null og negative tal), dei rasjonale tala $\\mathbb{Q}$ (alt som kan skrivast som brøk), og til slutt dei reelle tala $\\mathbb{R}$ (som også inkluderer irrasjonale tal som $\\sqrt{2}$ og $\\pi$). Samanhengen er $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$.\n\n**Intervall** let oss skildre samanhengande delar av tallinja. Klammer $[$ og $]$ betyr at endepunktet er med, parentesar $\\langle$ og $\\rangle$ betyr at det ikkje er med. Ved uendeleg brukar me alltid parentesar.\n\n**Union** ($\\cup$) gir oss alle element som er i minst éin av mengdene. **Snitt** ($\\cap$) gir oss berre elementa som er i båe. **Differanse** ($A \\setminus B$) gir elementa som er i $A$ men ikkje i $B$. To mengder utan felles element kallast disjunkte, og snittet deira er den tomme mengda $\\emptyset$.\n\n**Absoluttverdien** $|x|$ er avstanden frå $x$ til null på tallinja. Ho er alltid positiv eller null. Absoluttverdiar kan brukast til å skildre intervall: $|x| < a$ svarar til intervallet $\\langle -a, a \\rangle$, og $|x - c| < r$ skildrar alle tal med avstand mindre enn $r$ frå $c$."}}}
+{
+  "id": "1t-1-7-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "1.7",
+  "title": "Mengdelære",
+  "subtitle": "Forteljing-versjon",
+  "description": "Ei fortellin om samlingar av tal – korleis matematikarar sorterer tala i familiar, skildrar intervall på tallinjas, og kombinerer mengder med union, snitt og differanse.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bruke matematisk notasjon til å skildra mengder"
+  ],
+  "linkedChapterId": "1t-1-7",
+  "content": [
+    {
+      "id": "1t-1-7-n-audio-1",
+      "type": "audio",
+      "title": "Høyr på denne delen",
+      "src": "/audio/1t/1t-1-7-narrativ-del1.mp3",
+      "description": "Lydfil som leser opp teksten fram til første quiz."
+    },
+    {
+      "id": "1t-1-7-n-intro",
+      "type": "text",
+      "content": "## Å sortere talenes verden\n\nForestill deg at du har ein enormt stor samling med tal – alle tal som nokon gong er blitt tenkt på. Korleis held du orden på dei? Matematikarar løyste dette for lenge sidan ved å lage eit system av **mengder**: samlingar av objekt som deler ein bestemt eigenskap. Ein mengde kan innehalda tal, punkt, eller kva som helst anna.\n\nI dette kapitlet skal vi utforska fire store tallfamiliar, lære å skildra delar av tallinjas med **intervall**, kombinera mengder med **union** og **snitt**, fjerna element med **differanse**, og til slutt forstå **absoluttverdien** – omgrepet som handlar om avstand. Undervegs skal vi bli kjende med symbolane som gjer at matematikarar kan uttrykkja seg presist og effektivt."
+    },
+    {
+      "id": "1t-1-7-n-section1",
+      "type": "text",
+      "content": "## Dei fire store tallfamiliane\n\nTenk deg at tala bur i eit leilegheitskompleks med fire etasjar. Jo høgare etasje, jo fleire tal slepper inn.\n\nI første etasje bur dei **naturlege tala**, $\\mathbb{N} = \\{1, 2, 3, 4, 5, ...\\}$. Dette er tala vi lærer først som barn – teljarane, dei positive heiltal. Du brukar dei kvar gong du teljer noko: tre eple, sju vener, tjueein poeng.\n\nI andre etasje bur **heiltal**, $\\mathbb{Z} = \\{..., -2, -1, 0, 1, 2, ...\\}$. Her slepper vi inn null og dei negative tala. Bokstaven $\\mathbb{Z}$ kjem frå det tyske ordet «Zahlen», som betyr tal. Alle naturlege tal er heiltal, men heiltal har i tillegg null og minusstala.\n\nTredje etasje er for dei **rasjonale tala**, $\\mathbb{Q}$. Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Hit høyrer $\\frac{1}{2}$, $-\\frac{3}{4}$, $0{,}75$ (som er $\\frac{3}{4}$), og til og med $5$ (som er $\\frac{5}{1}$). Alle heiltal er rasjonale, fordi du alltid kan setja $1$ i nemnaren.\n\nØvste etasje er forbeholdt dei **reelle tala**, $\\mathbb{R}$ – alle tal på tallinjas. Her finn vi også dei **irrasjonale tala**, som $\\sqrt{2}$, $\\pi$ og $e$. Desse tala har endeleg mange desimalar utan gjentakande mønster, og kan aldri skrivast som ein brøk. Samanhengen mellom familiane kan vi skriva slik: $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$. Symbolet $\\subset$ betyr «er ei delmengde av» – altså at alle tala i den venstre mengda også finnast i den høgre."
+    },
+    {
+      "id": "1t-1-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjøl på dei fire store tallfamiliane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-7-n-quiz1-q0",
+            "task": "Kva er den minste tallfamiliens $\\sqrt{9}$ tilhøyrer?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\mathbb{N}$ (naturlege tal)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\mathbb{R}$ (reelle tal)",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mathbb{Q}$ (rasjonale tal)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mathbb{Z}$ (heiltal)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{9} = 3$, som er eit naturleg tal. Sjølv om $3$ også er eit heiltal, rasjonalt tal og reelt tal, er $\\mathbb{N}$ den minste mengda det tilhøyrer."
+          },
+          {
+            "id": "1t-1-7-n-quiz1-q1",
+            "task": "Kva kjenneteiкnar eit rasjonalt tal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er alltid positivt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det kan skrivast som ein brøk $\\frac{a}{b}$ der $a \\in \\mathbb{Z}$ og $b \\in \\mathbb{N}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det har endeleg tal desimalar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er eit heiltal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Talet $0{,}\\overline{3} = \\frac{1}{3}$ er rasjonalt sjølv om det har endeleg mange desimalar, fordi desimalane gjentekk seg."
+          },
+          {
+            "id": "1t-1-7-n-quiz1-q2",
+            "task": "Kva av desse tala er irrasjonalt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{22}{7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}75$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{2}$ er irrasjonalt fordi det har endeleg mange desimalar utan gjentakande mønster og kan ikkje skrivast som ein brøk. $\\frac{22}{7}$ er rasjonalt (det er ein brøk), $0{,}75 = \\frac{3}{4}$, og $-5 = \\frac{-5}{1}$."
+          },
+          {
+            "id": "1t-1-7-n-quiz1-q3",
+            "task": "Kva betyr $\\mathbb{N} \\subset \\mathbb{Z}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mathbb{N}$ er større enn $\\mathbb{Z}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mathbb{N}$ og $\\mathbb{Z}$ er like",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mathbb{Z}$ er ei delmengde av $\\mathbb{N}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mathbb{N}$ er ei delmengde av $\\mathbb{Z}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Symbolet $\\subset$ betyr «er ei delmengde av». Alle naturlege tal ($1, 2, 3, ...$) finnast også mellom heiltal, men heiltal har i tillegg $0$ og negative tal. Difor er $\\mathbb{N} \\subset \\mathbb{Z}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-7-n-audio-2",
+      "type": "audio",
+      "title": "Høyr på denne delen",
+      "src": "/audio/1t/1t-1-7-narrativ-del2.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-7-n-section2",
+      "type": "text",
+      "content": "## Intervall – å skildra delar av tallinjas\n\nNo veit vi kva tallfamiliar som finnast. Men ofte treng vi å snakka om ein bestemt del av tallinjas – til dømes «alle tal mellom 2 og 7». Då brukar vi **intervall**.\n\nEit intervall er ei samanhengande strekning på tallinjas, og vi skildrar det med hakeparentesar og vinkelparentesar. Hakeparentesar $[$ og $]$ betyr at endepunktet **er med**, medan vinkelparentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje er med**.\n\nLat oss sjå på nokre døme. $[2, 7]$ betyr alle tal frå og med $2$ til og med $7$, altså $2 \\leq x \\leq 7$. Derimot betyr $\\langle 2, 7 \\rangle$ alle tal *mellom* $2$ og $7$, men utan $2$ og $7$ sjøl: $2 < x < 7$. Du kan også blanda: $[2, 7\\rangle$ betyr frå og med $2$ til (men ikkje med) $7$, altså $2 \\leq x < 7$.\n\nKva når eit intervall strekkjer seg endeleg langt? Då brukar vi pilsymbol: $\\langle 5, \\rightarrow \\rangle$ betyr alle tal som er *større enn* $5$, og $\\langle \\leftarrow, 10]$ betyr alle tal som er *mindre enn eller lik* $10$. Ved endeleg brukar vi alltid parentesar, aldri hakeparentesar – fordi endeleg ikkje er eit tal vi kan «inkludera».\n\nHer er ein hugskeregel som kan hjelpa: tenk på hakeparentesane som ei lukka dør (talet er inne i mengda) og parentesane som ei open dør (talet slepper ikkje inn). Så $[-3, 4\\rangle$ er eit intervall der $-3$ er med (lukka dør til venstre), medan $4$ ikkje er med (open dør til høgre). Ulikskapen som høyrer til er $-3 \\leq x < 4$.\n\nVi kan også skriva mengder ved å **lista opp elementa** i hakeparentesar, til dømes $\\{1, 2, 3, 4, 5\\}$, eller bruka **mengdebyggjarnotasjon**: $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$, der $\\mid$ betyr «slik at». Begge uttrykk det same."
+    },
+    {
+      "id": "1t-1-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjøl på intervall og notasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-7-n-quiz2-q0",
+            "task": "Korleis skriv vi «alle tal frå og med $-3$ til $4$ (utan 4)» med intervallnotasjon?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$[-3, 4\\rangle$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\langle -3, 4 \\rangle$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[-3, 4]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\langle -3, 4]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi skal ha med $-3$ (klammer til venstre) og utan $4$ (parentesar til høyre). Det gir $[-3, 4\\rangle$, som svarar til ulikskapen $-3 \\leq x < 4$."
+          },
+          {
+            "id": "1t-1-7-n-quiz2-q1",
+            "task": "Kva betyr klammer $[$ i intervallnotasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Endepunktet er ikkje med",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Endepunktet er med",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Intervallet er endeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Intervallet er tomt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Klammer $[$ og $]$ betyr at endepunktet **er med** i mengda. Det svarar til $\\leq$ eller $\\geq$ i ulikskapen. Parentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje** er med."
+          },
+          {
+            "id": "1t-1-7-n-quiz2-q2",
+            "task": "Kva ulikskap svarar til intervallet $\\langle 5, \\rightarrow \\rangle$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x \\geq 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x > 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x < 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x \\leq 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\langle 5, \\rightarrow \\rangle$ betyr alle tal *strengt* større enn $5$. Parentesen ved $5$ betyr at $5$ sjølv ikkje er med, altså $x > 5$. Hadde vi skrive $[5, \\rightarrow \\rangle$ ville det bety $x \\geq 5$."
+          },
+          {
+            "id": "1t-1-7-n-quiz2-q3",
+            "task": "Kvifor bruker vi alltid parentesar (aldri klammer) ved uendeleg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi uendeleg er eit veldig stort tal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er berre ein konvensjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi uendeleg ikkje er eit tal vi kan inkludera",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi klammer berre vert brukte for negative tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uendeleg ($\\infty$) er ikkje eit reelt tal, det er eit konsept som betyr «utan grense». Sidan det ikkje er eit element på tallinja, kan vi ikkje inkludera det i mengda. Derfor bruker vi alltid parentesar ved uendeleg."
+          },
+          {
+            "id": "1t-1-7-n-quiz2-q4",
+            "task": "Kva betyr $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alle reelle tal mellom $0$ og $5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\{0, 1, 2, 3, 4, 5\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\langle 0, 5]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\{1, 2, 3, 4, 5\\}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi leiter etter heiltal ($\\mathbb{Z}$) som er strengt større enn $0$ og mindre enn eller lik $5$. Det gir oss $\\{1, 2, 3, 4, 5\\}$. Legg merke til at $0$ ikkje er med fordi kravet er $x > 0$ (strengt)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-7-n-audio-3",
+      "type": "audio",
+      "title": "Høyr på denne delen",
+      "src": "/audio/1t/1t-1-7-narrativ-del3.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-7-n-section3",
+      "type": "text",
+      "content": "## Union, snitt og differanse\n\nNo som vi kan beskriva mengder, er neste steg å **kombinera** dei. Tenkj deg at du har to vennegjengar – gjeng $A$ og gjeng $B$. Nokre er berre med i den eine, nokre er med i begge.\n\n**Unionen** $A \\cup B$ er alle som er med i minst éin av gjengene – det svarar til «eller» i daglegspråket. Viss $A = [2, 6]$ og $B = [4, 9]$, dekker $A$ tallinja frå $2$ til $6$ og $B$ dekker frå $4$ til $9$. Slår vi dei saman, dekker vi alt frå $2$ til $9$: $A \\cup B = [2, 9]$.\n\n**Snittet** $A \\cap B$ er alle som er med i *begge* gjengene – det svarar til «og». Med same $A$ og $B$ inneheld begge mengdene tala frå $4$ til $6$: $A \\cap B = [4, 6]$.\n\n**Differansen** $A \\setminus B$ er alle som er i $A$ men *ikkje* i $B$ – dei som er med i gjeng $A$ men som aldri har blitt med i gjeng $B$. Med $A = [1, 7]$ og $B = [4, 10]$ beheld vi berre den delen av $A$ som $B$ ikkje dekker: $A \\setminus B = [1, 4\\rangle$. Legg merke til den opne parentesen ved $4$ – akkurat på grensa tipper vi over i $B$, så $4$ sjølv er ikkje med.\n\nLat oss ta eit døme med endelause intervall. Set $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Unionen $A \\cup B$ er alle reelle tal $\\mathbb{R}$, fordi $A$ dekker alt til og med $3$, og $B$ dekker alt over $1$ – saman dekker dei heile tallinja. Snittet $A \\cap B$ er tala som er i begge: $\\langle 1, 3]$, altså tala som er både større enn $1$ og mindre enn eller lik $3$.\n\nTil slutt: to mengder som ikkje overlappet i det heile tatt kallast **disjunkte**. Da er snittet den tomme mengda $\\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi $[1, 3] \\cap [5, 7] = \\emptyset$."
+    },
+    {
+      "id": "1t-1-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på union, snitt og differanse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-7-n-quiz3-q0",
+            "task": "La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cap B$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$[3, 5]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[1, 8]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[1, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[5, 8]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Snittet $A \\cap B$ er tala som er i begge mengdene. $A$ går frå $1$ til $5$ og $B$ går frå $3$ til $8$. Overlappet er frå $3$ til $5$, altså $[3, 5]$."
+          },
+          {
+            "id": "1t-1-7-n-quiz3-q1",
+            "task": "La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cup B$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[3, 5]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[1, 3] \\cup [5, 8]$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$[1, 8]$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$[1, 5]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Unionen $A \\cup B$ er alle tal som er i minst éin av mengdene. $A$ dekker $[1, 5]$ og $B$ dekker $[3, 8]$. Saman dekker dei alt frå $1$ til $8$: $A \\cup B = [1, 8]$."
+          },
+          {
+            "id": "1t-1-7-n-quiz3-q2",
+            "task": "La $A = [1, 7]$ og $B = [4, 10]$. Kva er $A \\setminus B$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[1, 4]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\langle 4, 7]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[1, 7]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[1, 4\\rangle$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Differansen $A \\setminus B$ er alle element i $A$ som ikkje er i $B$. $B$ startar ved $4$, så vi beheld berre den delen av $A$ som er strengt mindre enn $4$: $[1, 4\\rangle$. Talet $4$ sjølv er i $B$, så det er ikkje med."
+          },
+          {
+            "id": "1t-1-7-n-quiz3-q3",
+            "task": "Kva betyr det at to mengder er **disjunkte**?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Dei har ingen felles element",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Dei er like store",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den eine er ein delmengd av den andre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Unionen er tom",
+                "isCorrect": false
+              }
+            ],
+            "solution": "To mengder er disjunkte når dei ikkje overlapper i det heile tatt, altså $A \\cap B = \\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi det ikkje finst nokre tal som er i begge."
+          },
+          {
+            "id": "1t-1-7-n-quiz3-q4",
+            "task": "La $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Kva er $A \\cap B$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mathbb{R}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\langle 1, 3]$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$[1, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\emptyset$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Snittet er tala som er i begge mengder. $A$ inneheld alt opp til og med $3$, og $B$ inneheld alt strengt over $1$. Tala som oppfyller begge krava er: $1 < x \\leq 3$, altså $\\langle 1, 3]$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-7-n-audio-4",
+      "type": "audio",
+      "title": "Høyr på denne delen",
+      "src": "/audio/1t/1t-1-7-narrativ-del4.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-7-n-section4",
+      "type": "text",
+      "content": "## Absoluttverde – avstand på tallinj​a\n\nNå skal me sjå på eit omgrep som verkar enkelt, men som er overraskande kraftig: **absoluttverdien**. Absoluttverdien til eit tal er rett og slett **avstanden** frå talet til null på tallinja. Henne skrivast med loddrette strekar: $|x|$.\n\nSidan avstand alltid er positiv (eller null), er absoluttverdien aldri negativ. $|5| = 5$ fordi $5$ ligg fem einingar frå null. $|-7| = 7$ fordi $-7$ òg ligg sju einingar frå null – berre i motsett retning. Formelt definerast det slik: $|x| = x$ viss $x \\geq 0$, og $|x| = -x$ viss $x < 0$. Det siste kan forvirre: $-x$ betyr ikkje «eit negativt tal», det betyr «det motsette av $x$». Viss $x = -7$, blir $-x = -(-7) = 7$.\n\nDu kan òg ha uttrykk inne i absoluttverditeikna. $|3 - 8| = |-5| = 5$. Rekn ut det som er inne først, og ta deretter absoluttverdien.\n\nKva med rekneoperasjonar? $|-2| + |4| = 2 + 4 = 6$. Du tek absoluttverdien av kvart tal for seg, og reknar deretter som vanleg. Men vær forsiktig: $|-4| - |-6| = 4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt – det er berre sjølve absoluttverdien av eit enkelt tal som aldri er negativ.\n\nDu kan til og med ha absoluttverdiar inne i absoluttverdiar: $||-7| - |3|| = |7 - 3| = |4| = 4$. Rekn innan frå og ut, lag for lag.\n\nNår me kjenner forteiknet til ein variabel, kan me forenkle. Veit me at $a > 0$, er $|a| = a$ og $|-a| = a$. Dermed er $|a| + |-a| = a + a = 2a$."
+    },
+    {
+      "id": "1t-1-7-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-7-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på absoluttverde:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-7-n-quiz4-q0",
+            "task": "Kva blir $|3 - 8| + |-2|$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Me reknar ut steg for steg: $|3 - 8| = |-5| = 5$ og $|-2| = 2$. Dermed er $5 + 2 = 7$."
+          },
+          {
+            "id": "1t-1-7-n-quiz4-q1",
+            "task": "Kva er absoluttverdien $|-7|$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Absoluttverdien er avstanden frå talet til null på tallinja. $-7$ ligg $7$ einingar frå null, så $|-7| = 7$. Formelt: sidan $-7 < 0$, brukar me $|x| = -x$, altså $-(-7) = 7$."
+          },
+          {
+            "id": "1t-1-7-n-quiz4-q2",
+            "task": "Kva blir $|-4| - |-6|$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$-2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Me tek absoluttverdien av kvart tal for seg: $|-4| = 4$ og $|-6| = 6$. Deretter reknar me: $4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt."
+          },
+          {
+            "id": "1t-1-7-n-quiz4-q3",
+            "task": "Gitt at $a > 0$, kva er $|a| + |-a|$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2a$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$a$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-2a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $a > 0$, er $|a| = a$. Og $|-a|$: sidan $a > 0$ er $-a < 0$, så $|-a| = -(-a) = a$. Dermed er $|a| + |-a| = a + a = 2a$."
+          },
+          {
+            "id": "1t-1-7-n-quiz4-q4",
+            "task": "Kva blir $||-7| - |3||$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Me reknar innan frå og ut: $|-7| = 7$ og $|3| = 3$. Deretter: $|7 - 3| = |4| = 4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-7-n-audio-5",
+      "type": "audio",
+      "title": "Høyr på denne delen",
+      "src": "/audio/1t/1t-1-7-narrativ-del5.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-1-7-n-section5",
+      "type": "text",
+      "content": "## Absoluttverdiar og mengder – å kopla alt saman\n\nNå har me alle brikkan, og det er på tid å sjå korleis dei heng saman. Absoluttverdiar kan nemleg brukast til å beskrive mengder og intervall på ein elegant måte.\n\nTenk over kva $|x| < 3$ betyr. Det betyr at avstanden frå $x$ til null er mindre enn $3$. Kva tal oppfyller det? Alle tal mellom $-3$ og $3$: $-3 < x < 3$. Som intervall skriv me det $\\langle -3, 3 \\rangle$. Absoluttverdien omsetur altså «avstand mindre enn» til eit opent intervall rundt null.\n\nKva med $|x - 2| < 2$? No spør me: kva tal har avstand mindre enn $2$ frå talet $2$? Me kan setje opp ulikskapen $-2 < x - 2 < 2$, og legg til $2$ på alle sider: $0 < x < 4$. Mengda er $\\langle 0, 4 \\rangle$.\n\nNå kan me kombinere dette med det me lærte om snitt. La $A = \\{x \\in \\mathbb{R} \\mid |x| < 3\\} = \\langle -3, 3 \\rangle$ og $B = \\{x \\in \\mathbb{R} \\mid |x - 2| < 2\\} = \\langle 0, 4 \\rangle$. Då er snittet $A \\cap B = \\langle 0, 3 \\rangle$ – tala som er i begge mengder. Og for å kontrollere: kva tal er både nærmere enn $3$ frå null og nærmere enn $2$ frå $2$? Nettopp tala mellom $0$ og $3$.\n\nLa oss òg gjenta dei viktigaste symbola me har lært. $\\in$ betyr «er element i» (til dømes $5 \\in \\mathbb{N}$). $\\notin$ betyr «er ikkje element i» (til dømes $-3 \\notin \\mathbb{N}$). $\\subset$ betyr «er ein delmengd av» (til dømes $\\mathbb{N} \\subset \\mathbb{Z}$). Og $\\emptyset$ er den tomme mengda – ein mengd utan element.\n\nMengdelæra er språket matematikarar brukar for å snakka presist om samlingar av tal. Når du beherskar intervall, union, snitt og absoluttverde, har du eit verktøy som skal til å dukke opp igjen og igjen – i likningar, ulikskaper, funksjonsanalyse og langt vidare i matematikken."
+    },
+    {
+      "id": "1t-1-7-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-1-7-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på absoluttverde og mengder:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-1-7-n-quiz5-q0",
+            "task": "Mengda $\\{x \\in \\mathbb{R} \\mid |x| < 3\\}$ kan skrivast som intervallet:",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[0, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[-3, 3]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\langle 0, 3 \\rangle$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\langle -3, 3 \\rangle$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|x| < 3$ betyr at avstanden frå $x$ til null er strengt mindre enn $3$. Det gir $-3 < x < 3$, som er intervallet $\\langle -3, 3 \\rangle$. Me brukar opne parentesar fordi $-3$ og $3$ sjølv ikkje er med (avstanden er då nøyaktig $3$, ikkje mindre enn)."
+          },
+          {
+            "id": "1t-1-7-n-quiz5-q1",
+            "task": "Kva betyr $|x - 2| < 2$ som intervall?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\langle 0, 4 \\rangle$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\langle -2, 2 \\rangle$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[0, 4]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\langle -4, 0 \\rangle$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|x - 2| < 2$ betyr at avstanden frå $x$ til $2$ er mindre enn $2$. Vi set opp: $-2 < x - 2 < 2$. Legg til $2$ på alle sider: $0 < x < 4$. Det er intervallet $\\langle 0, 4 \\rangle$."
+          },
+          {
+            "id": "1t-1-7-n-quiz5-q2",
+            "task": "La $A = \\langle -3, 3 \\rangle$ og $B = \\langle 0, 4 \\rangle$. Kva er $A \\cap B$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\langle -3, 4 \\rangle$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\langle 0, 3 \\rangle$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\langle -3, 0 \\rangle$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[0, 3]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Snittet er tala som er i båe mengdene. $A$ går frå $-3$ til $3$ (båe utan) og $B$ frå $0$ til $4$ (båe utan). Overlappet er tala som er strengt mellom $0$ og $3$: $\\langle 0, 3 \\rangle$."
+          },
+          {
+            "id": "1t-1-7-n-quiz5-q3",
+            "task": "Kva betyr symbolet $\\in$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Er ei delmengd av",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Er lik",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Er element i",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Er ikkje med i",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Symbolet $\\in$ betyr «er element i». Til dømes betyr $5 \\in \\mathbb{N}$ at $5$ er eit element i mengda av naturlege tal. Symbolet $\\notin$ betyr det motsette: «er ikkje element i»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-1-7-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringa",
+      "src": "/audio/1t/1t-1-7-narrativ-del6.mp3",
+      "description": "Lydfil som les opp oppsummeringa."
+    },
+    {
+      "id": "1t-1-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har me utforskt mengdelærens viktigaste omgrep.\n\n**Tallmengdene** dannar eit hierarki: dei naturlege tala $\\mathbb{N} = \\{1, 2, 3, ...\\}$ er dei enklaste, deretter kjem heiltala $\\mathbb{Z}$ (med null og negative tal), dei rasjonale tala $\\mathbb{Q}$ (alt som kan skrivast som brøk), og til slutt dei reelle tala $\\mathbb{R}$ (som også inkluderer irrasjonale tal som $\\sqrt{2}$ og $\\pi$). Samanhengen er $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$.\n\n**Intervall** let oss skildre samanhengande delar av tallinja. Klammer $[$ og $]$ betyr at endepunktet er med, parentesar $\\langle$ og $\\rangle$ betyr at det ikkje er med. Ved uendeleg brukar me alltid parentesar.\n\n**Union** ($\\cup$) gir oss alle element som er i minst éin av mengdene. **Snitt** ($\\cap$) gir oss berre elementa som er i båe. **Differanse** ($A \\setminus B$) gir elementa som er i $A$ men ikkje i $B$. To mengder utan felles element kallast disjunkte, og snittet deira er den tomme mengda $\\emptyset$.\n\n**Absoluttverdien** $|x|$ er avstanden frå $x$ til null på tallinja. Ho er alltid positiv eller null. Absoluttverdiar kan brukast til å skildre intervall: $|x| < a$ svarar til intervallet $\\langle -a, a \\rangle$, og $|x - c| < r$ skildrar alle tal med avstand mindre enn $r$ frå $c$."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "2e461d0ade92e65e",
+    "translatedAt": "2026-06-16T10:01:00.617Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 136,
+    "tm": {
+      "e97d223525b20467": "Mengdelære",
+      "b195b06d1ed59702": "Forteljing-versjon",
+      "e54f248a680ca44e": "Ei fortellin om samlingar av tal – korleis matematikarar sorterer tala i familiar, skildrar intervall på tallinjas, og kombinerer mengder med union, snitt og differanse.",
+      "31a1bcd5905a553b": "bruke matematisk notasjon til å skildra mengder",
+      "d2c9d9ef5d3f774f": "Høyr på denne delen",
+      "21954805f17795e8": "Lydfil som leser opp teksten fram til første quiz.",
+      "cf558e0513ff8ce0": "## Å sortere talenes verden\n\nForestill deg at du har ein enormt stor samling med tal – alle tal som nokon gong er blitt tenkt på. Korleis held du orden på dei? Matematikarar løyste dette for lenge sidan ved å lage eit system av **mengder**: samlingar av objekt som deler ein bestemt eigenskap. Ein mengde kan innehalda tal, punkt, eller kva som helst anna.\n\nI dette kapitlet skal vi utforska fire store tallfamiliar, lære å skildra delar av tallinjas med **intervall**, kombinera mengder med **union** og **snitt**, fjerna element med **differanse**, og til slutt forstå **absoluttverdien** – omgrepet som handlar om avstand. Undervegs skal vi bli kjende med symbolane som gjer at matematikarar kan uttrykkja seg presist og effektivt.",
+      "b29746287a42f06c": "## Dei fire store tallfamiliane\n\nTenk deg at tala bur i eit leilegheitskompleks med fire etasjar. Jo høgare etasje, jo fleire tal slepper inn.\n\nI første etasje bur dei **naturlege tala**, $\\mathbb{N} = \\{1, 2, 3, 4, 5, ...\\}$. Dette er tala vi lærer først som barn – teljarane, dei positive heiltal. Du brukar dei kvar gong du teljer noko: tre eple, sju vener, tjueein poeng.\n\nI andre etasje bur **heiltal**, $\\mathbb{Z} = \\{..., -2, -1, 0, 1, 2, ...\\}$. Her slepper vi inn null og dei negative tala. Bokstaven $\\mathbb{Z}$ kjem frå det tyske ordet «Zahlen», som betyr tal. Alle naturlege tal er heiltal, men heiltal har i tillegg null og minusstala.\n\nTredje etasje er for dei **rasjonale tala**, $\\mathbb{Q}$. Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Hit høyrer $\\frac{1}{2}$, $-\\frac{3}{4}$, $0{,}75$ (som er $\\frac{3}{4}$), og til og med $5$ (som er $\\frac{5}{1}$). Alle heiltal er rasjonale, fordi du alltid kan setja $1$ i nemnaren.\n\nØvste etasje er forbeholdt dei **reelle tala**, $\\mathbb{R}$ – alle tal på tallinjas. Her finn vi også dei **irrasjonale tala**, som $\\sqrt{2}$, $\\pi$ og $e$. Desse tala har endeleg mange desimalar utan gjentakande mønster, og kan aldri skrivast som ein brøk. Samanhengen mellom familiane kan vi skriva slik: $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$. Symbolet $\\subset$ betyr «er ei delmengde av» – altså at alle tala i den venstre mengda også finnast i den høgre.",
+      "d1b5898427e44f8f": "Test deg sjøl på dei fire store tallfamiliane:",
+      "4097889236a2af26": "placeholder",
+      "0b5388a64767ca75": "Kva er den minste tallfamiliens $\\sqrt{9}$ tilhøyrer?",
+      "9d5b33184f7f09dc": "$\\mathbb{R}$ (reelle tal)",
+      "6ca2d7bbacd38295": "$\\mathbb{Q}$ (rasjonale tal)",
+      "c67993f80d0b0387": "$\\mathbb{N}$ (naturlege tal)",
+      "7275a9e79afa4880": "$\\mathbb{Z}$ (heiltal)",
+      "fd224a7bc139f36d": "$\\sqrt{9} = 3$, som er eit naturleg tal. Sjølv om $3$ også er eit heiltal, rasjonalt tal og reelt tal, er $\\mathbb{N}$ den minste mengda det tilhøyrer.",
+      "4efd619898e043f3": "Kva kjenneteiкnar eit rasjonalt tal?",
+      "06f650963949bf23": "Det er alltid positivt",
+      "9b87a531ff1be224": "Det har endeleg tal desimalar",
+      "2d00afd4f26ded94": "Det kan skrivast som ein brøk $\\frac{a}{b}$ der $a \\in \\mathbb{Z}$ og $b \\in \\mathbb{N}$",
+      "f6342714d03e2bfd": "Det er eit heiltal",
+      "5b0f076a0d2a7df5": "Eit rasjonalt tal er kvart tal som kan skrivast som ein brøk $\\frac{a}{b}$ der $a$ er eit heiltal og $b$ er eit naturleg tal. Talet $0{,}\\overline{3} = \\frac{1}{3}$ er rasjonalt sjølv om det har endeleg mange desimalar, fordi desimalane gjentekk seg.",
+      "bc15edce148ea350": "Kva av desse tala er irrasjonalt?",
+      "2c1514b689a8945d": "$\\frac{22}{7}$",
+      "17b0fe9bda962747": "$\\sqrt{2}$",
+      "85a5ace838757102": "$\\sqrt{2}$ er irrasjonalt fordi det har endeleg mange desimalar utan gjentakande mønster og kan ikkje skrivast som ein brøk. $\\frac{22}{7}$ er rasjonalt (det er ein brøk), $0{,}75 = \\frac{3}{4}$, og $-5 = \\frac{-5}{1}$.",
+      "ddfb58d7ea0c614b": "Kva betyr $\\mathbb{N} \\subset \\mathbb{Z}$?",
+      "626b7b6301cc7097": "$\\mathbb{N}$ er større enn $\\mathbb{Z}$",
+      "538d4fac45eefc07": "$\\mathbb{N}$ og $\\mathbb{Z}$ er like",
+      "ae5880b4acb0e39c": "$\\mathbb{N}$ er ei delmengde av $\\mathbb{Z}$",
+      "8079afefff18f637": "$\\mathbb{Z}$ er ei delmengde av $\\mathbb{N}$",
+      "f7f664967cfb7339": "Symbolet $\\subset$ betyr «er ei delmengde av». Alle naturlege tal ($1, 2, 3, ...$) finnast også mellom heiltal, men heiltal har i tillegg $0$ og negative tal. Difor er $\\mathbb{N} \\subset \\mathbb{Z}$.",
+      "058005533831b7f6": "Lydfil som les opp teksten fram til neste quiz.",
+      "3060f028e4676153": "## Intervall – å skildra delar av tallinjas\n\nNo veit vi kva tallfamiliar som finnast. Men ofte treng vi å snakka om ein bestemt del av tallinjas – til dømes «alle tal mellom 2 og 7». Då brukar vi **intervall**.\n\nEit intervall er ei samanhengande strekning på tallinjas, og vi skildrar det med hakeparentesar og vinkelparentesar. Hakeparentesar $[$ og $]$ betyr at endepunktet **er med**, medan vinkelparentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje er med**.\n\nLat oss sjå på nokre døme. $[2, 7]$ betyr alle tal frå og med $2$ til og med $7$, altså $2 \\leq x \\leq 7$. Derimot betyr $\\langle 2, 7 \\rangle$ alle tal *mellom* $2$ og $7$, men utan $2$ og $7$ sjøl: $2 < x < 7$. Du kan også blanda: $[2, 7\\rangle$ betyr frå og med $2$ til (men ikkje med) $7$, altså $2 \\leq x < 7$.\n\nKva når eit intervall strekkjer seg endeleg langt? Då brukar vi pilsymbol: $\\langle 5, \\rightarrow \\rangle$ betyr alle tal som er *større enn* $5$, og $\\langle \\leftarrow, 10]$ betyr alle tal som er *mindre enn eller lik* $10$. Ved endeleg brukar vi alltid parentesar, aldri hakeparentesar – fordi endeleg ikkje er eit tal vi kan «inkludera».\n\nHer er ein hugskeregel som kan hjelpa: tenk på hakeparentesane som ei lukka dør (talet er inne i mengda) og parentesane som ei open dør (talet slepper ikkje inn). Så $[-3, 4\\rangle$ er eit intervall der $-3$ er med (lukka dør til venstre), medan $4$ ikkje er med (open dør til høgre). Ulikskapen som høyrer til er $-3 \\leq x < 4$.\n\nVi kan også skriva mengder ved å **lista opp elementa** i hakeparentesar, til dømes $\\{1, 2, 3, 4, 5\\}$, eller bruka **mengdebyggjarnotasjon**: $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$, der $\\mid$ betyr «slik at». Begge uttrykk det same.",
+      "5a2a2e13bc11a02e": "Test deg sjøl på intervall og notasjon:",
+      "46f23b1ef3277769": "Korleis skriv vi «alle tal frå og med $-3$ til $4$ (utan 4)» med intervallnotasjon?",
+      "2410a263f1dbb51f": "$\\langle -3, 4 \\rangle$",
+      "5b25c9f57ba8a672": "$\\langle -3, 4]$",
+      "dca820c39db5db86": "$[-3, 4\\rangle$",
+      "8375b8d7792953b3": "Vi skal ha med $-3$ (klammer til venstre) og utan $4$ (parentesar til høyre). Det gir $[-3, 4\\rangle$, som svarar til ulikskapen $-3 \\leq x < 4$.",
+      "3d4151a3366dff3d": "Kva betyr klammer $[$ i intervallnotasjon?",
+      "70059e3d1ef76f3e": "Endepunktet er ikkje med",
+      "8fa65c4217c0f9da": "Endepunktet er med",
+      "cb382ae5bb6c3f6a": "Intervallet er endeleg",
+      "947a901a99e958ac": "Intervallet er tomt",
+      "b8c6b6dfcfc3ff75": "Klammer $[$ og $]$ betyr at endepunktet **er med** i mengda. Det svarar til $\\leq$ eller $\\geq$ i ulikskapen. Parentesar $\\langle$ og $\\rangle$ betyr at endepunktet **ikkje** er med.",
+      "322dd733795606d8": "Kva ulikskap svarar til intervallet $\\langle 5, \\rightarrow \\rangle$?",
+      "668033be828b6690": "$x \\geq 5$",
+      "d4d4c5259679cbd9": "$x > 5$",
+      "4c1a262826c142aa": "$x < 5$",
+      "71a1fe07300d2409": "$x \\leq 5$",
+      "9b2cb92c49ea6804": "$\\langle 5, \\rightarrow \\rangle$ betyr alle tal *strengt* større enn $5$. Parentesen ved $5$ betyr at $5$ sjølv ikkje er med, altså $x > 5$. Hadde vi skrive $[5, \\rightarrow \\rangle$ ville det bety $x \\geq 5$.",
+      "7832d77eee066d1c": "Kvifor bruker vi alltid parentesar (aldri klammer) ved uendeleg?",
+      "06feec2cddbc3e15": "Fordi uendeleg er eit veldig stort tal",
+      "5b9557b6ee43cefb": "Fordi uendeleg ikkje er eit tal vi kan inkludera",
+      "f55b9ef04bf48d48": "Det er berre ein konvensjon",
+      "adee95002fbdbc3a": "Fordi klammer berre vert brukte for negative tal",
+      "99323c664b65247c": "Uendeleg ($\\infty$) er ikkje eit reelt tal, det er eit konsept som betyr «utan grense». Sidan det ikkje er eit element på tallinja, kan vi ikkje inkludera det i mengda. Derfor bruker vi alltid parentesar ved uendeleg.",
+      "1abee04181e2891c": "Kva betyr $\\{x \\in \\mathbb{Z} \\mid x > 0 \\text{ og } x \\leq 5\\}$?",
+      "d61bdf34e8a5dcc7": "Alle reelle tal mellom $0$ og $5$",
+      "e7925b0843b8a742": "$\\langle 0, 5]$",
+      "32dc2c940d354bc8": "Vi leiter etter heiltal ($\\mathbb{Z}$) som er strengt større enn $0$ og mindre enn eller lik $5$. Det gir oss $\\{1, 2, 3, 4, 5\\}$. Legg merke til at $0$ ikkje er med fordi kravet er $x > 0$ (strengt).",
+      "f1e6e2ec3835c27b": "## Union, snitt og differanse\n\nNo som vi kan beskriva mengder, er neste steg å **kombinera** dei. Tenkj deg at du har to vennegjengar – gjeng $A$ og gjeng $B$. Nokre er berre med i den eine, nokre er med i begge.\n\n**Unionen** $A \\cup B$ er alle som er med i minst éin av gjengene – det svarar til «eller» i daglegspråket. Viss $A = [2, 6]$ og $B = [4, 9]$, dekker $A$ tallinja frå $2$ til $6$ og $B$ dekker frå $4$ til $9$. Slår vi dei saman, dekker vi alt frå $2$ til $9$: $A \\cup B = [2, 9]$.\n\n**Snittet** $A \\cap B$ er alle som er med i *begge* gjengene – det svarar til «og». Med same $A$ og $B$ inneheld begge mengdene tala frå $4$ til $6$: $A \\cap B = [4, 6]$.\n\n**Differansen** $A \\setminus B$ er alle som er i $A$ men *ikkje* i $B$ – dei som er med i gjeng $A$ men som aldri har blitt med i gjeng $B$. Med $A = [1, 7]$ og $B = [4, 10]$ beheld vi berre den delen av $A$ som $B$ ikkje dekker: $A \\setminus B = [1, 4\\rangle$. Legg merke til den opne parentesen ved $4$ – akkurat på grensa tipper vi over i $B$, så $4$ sjølv er ikkje med.\n\nLat oss ta eit døme med endelause intervall. Set $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Unionen $A \\cup B$ er alle reelle tal $\\mathbb{R}$, fordi $A$ dekker alt til og med $3$, og $B$ dekker alt over $1$ – saman dekker dei heile tallinja. Snittet $A \\cap B$ er tala som er i begge: $\\langle 1, 3]$, altså tala som er både større enn $1$ og mindre enn eller lik $3$.\n\nTil slutt: to mengder som ikkje overlappet i det heile tatt kallast **disjunkte**. Da er snittet den tomme mengda $\\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi $[1, 3] \\cap [5, 7] = \\emptyset$.",
+      "c06b7f61fcbc8d98": "Test deg sjølv på union, snitt og differanse:",
+      "79b3eafd969e7266": "La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cap B$?",
+      "5dbd8e2afddf5eae": "Snittet $A \\cap B$ er tala som er i begge mengdene. $A$ går frå $1$ til $5$ og $B$ går frå $3$ til $8$. Overlappet er frå $3$ til $5$, altså $[3, 5]$.",
+      "c47ccb8fd95a1d24": "La $A = [1, 5]$ og $B = [3, 8]$. Kva er $A \\cup B$?",
+      "f3673d1f9c7179b1": "$[1, 3] \\cup [5, 8]$",
+      "4149f613e127eaeb": "Unionen $A \\cup B$ er alle tal som er i minst éin av mengdene. $A$ dekker $[1, 5]$ og $B$ dekker $[3, 8]$. Saman dekker dei alt frå $1$ til $8$: $A \\cup B = [1, 8]$.",
+      "cfa87d5e371c7f50": "La $A = [1, 7]$ og $B = [4, 10]$. Kva er $A \\setminus B$?",
+      "b5f4d6974cf5847f": "$[1, 4\\rangle$",
+      "c4a93bdd95599633": "$\\langle 4, 7]$",
+      "f93eb4a774e91c00": "Differansen $A \\setminus B$ er alle element i $A$ som ikkje er i $B$. $B$ startar ved $4$, så vi beheld berre den delen av $A$ som er strengt mindre enn $4$: $[1, 4\\rangle$. Talet $4$ sjølv er i $B$, så det er ikkje med.",
+      "63184cfffd77084f": "Kva betyr det at to mengder er **disjunkte**?",
+      "c300aa55cc60c20f": "Dei er like store",
+      "f1892760ab74bf89": "Den eine er ein delmengd av den andre",
+      "a17023a98e674d1c": "Dei har ingen felles element",
+      "1203a600ff1c72e4": "Unionen er tom",
+      "aab3cff33d10d0f0": "To mengder er disjunkte når dei ikkje overlapper i det heile tatt, altså $A \\cap B = \\emptyset$. For døme er $[1, 3]$ og $[5, 7]$ disjunkte fordi det ikkje finst nokre tal som er i begge.",
+      "df278d082c6d1867": "La $A = \\langle -\\infty, 3]$ og $B = \\langle 1, \\infty \\rangle$. Kva er $A \\cap B$?",
+      "48ff44047ef8ff67": "$\\mathbb{R}$",
+      "876a76364f4961a9": "$\\langle 1, 3]$",
+      "c5a457b9d85dfcb5": "$\\emptyset$",
+      "6171ef607a76fdfd": "Snittet er tala som er i begge mengder. $A$ inneheld alt opp til og med $3$, og $B$ inneheld alt strengt over $1$. Tala som oppfyller begge krava er: $1 < x \\leq 3$, altså $\\langle 1, 3]$.",
+      "5a1f4844f6d78062": "## Absoluttverde – avstand på tallinj​a\n\nNå skal me sjå på eit omgrep som verkar enkelt, men som er overraskande kraftig: **absoluttverdien**. Absoluttverdien til eit tal er rett og slett **avstanden** frå talet til null på tallinja. Henne skrivast med loddrette strekar: $|x|$.\n\nSidan avstand alltid er positiv (eller null), er absoluttverdien aldri negativ. $|5| = 5$ fordi $5$ ligg fem einingar frå null. $|-7| = 7$ fordi $-7$ òg ligg sju einingar frå null – berre i motsett retning. Formelt definerast det slik: $|x| = x$ viss $x \\geq 0$, og $|x| = -x$ viss $x < 0$. Det siste kan forvirre: $-x$ betyr ikkje «eit negativt tal», det betyr «det motsette av $x$». Viss $x = -7$, blir $-x = -(-7) = 7$.\n\nDu kan òg ha uttrykk inne i absoluttverditeikna. $|3 - 8| = |-5| = 5$. Rekn ut det som er inne først, og ta deretter absoluttverdien.\n\nKva med rekneoperasjonar? $|-2| + |4| = 2 + 4 = 6$. Du tek absoluttverdien av kvart tal for seg, og reknar deretter som vanleg. Men vær forsiktig: $|-4| - |-6| = 4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt – det er berre sjølve absoluttverdien av eit enkelt tal som aldri er negativ.\n\nDu kan til og med ha absoluttverdiar inne i absoluttverdiar: $||-7| - |3|| = |7 - 3| = |4| = 4$. Rekn innan frå og ut, lag for lag.\n\nNår me kjenner forteiknet til ein variabel, kan me forenkle. Veit me at $a > 0$, er $|a| = a$ og $|-a| = a$. Dermed er $|a| + |-a| = a + a = 2a$.",
+      "05e2dbfbdb14da21": "Test deg sjølv på absoluttverde:",
+      "10397fcdaaabd0f9": "Kva blir $|3 - 8| + |-2|$?",
+      "2e5614dc089f0b24": "Me reknar ut steg for steg: $|3 - 8| = |-5| = 5$ og $|-2| = 2$. Dermed er $5 + 2 = 7$.",
+      "12dab57f4345b9c2": "Kva er absoluttverdien $|-7|$?",
+      "125b0b86b1f22c3c": "$\\frac{1}{7}$",
+      "5e7137818d1742a7": "Absoluttverdien er avstanden frå talet til null på tallinja. $-7$ ligg $7$ einingar frå null, så $|-7| = 7$. Formelt: sidan $-7 < 0$, brukar me $|x| = -x$, altså $-(-7) = 7$.",
+      "3f44dfe446acce2a": "Kva blir $|-4| - |-6|$?",
+      "d31073e436cb151f": "Me tek absoluttverdien av kvart tal for seg: $|-4| = 4$ og $|-6| = 6$. Deretter reknar me: $4 - 6 = -2$. Resultatet av ein rekning med absoluttverdiar kan gjerne bli negativt.",
+      "9c1448a90cfb1f6e": "Gitt at $a > 0$, kva er $|a| + |-a|$?",
+      "401c22f57c1a7b3f": "$a$",
+      "e6c47259f6287fc2": "$-2a$",
+      "14fcfafef04cdc19": "$2a$",
+      "38bc42ed54fadd85": "Når $a > 0$, er $|a| = a$. Og $|-a|$: sidan $a > 0$ er $-a < 0$, så $|-a| = -(-a) = a$. Dermed er $|a| + |-a| = a + a = 2a$.",
+      "179a9cdb5dcaef0b": "Kva blir $||-7| - |3||$?",
+      "3816b2a63f31c921": "Me reknar innan frå og ut: $|-7| = 7$ og $|3| = 3$. Deretter: $|7 - 3| = |4| = 4$.",
+      "50ff5b9e8df15cb3": "## Absoluttverdiar og mengder – å kopla alt saman\n\nNå har me alle brikkan, og det er på tid å sjå korleis dei heng saman. Absoluttverdiar kan nemleg brukast til å beskrive mengder og intervall på ein elegant måte.\n\nTenk over kva $|x| < 3$ betyr. Det betyr at avstanden frå $x$ til null er mindre enn $3$. Kva tal oppfyller det? Alle tal mellom $-3$ og $3$: $-3 < x < 3$. Som intervall skriv me det $\\langle -3, 3 \\rangle$. Absoluttverdien omsetur altså «avstand mindre enn» til eit opent intervall rundt null.\n\nKva med $|x - 2| < 2$? No spør me: kva tal har avstand mindre enn $2$ frå talet $2$? Me kan setje opp ulikskapen $-2 < x - 2 < 2$, og legg til $2$ på alle sider: $0 < x < 4$. Mengda er $\\langle 0, 4 \\rangle$.\n\nNå kan me kombinere dette med det me lærte om snitt. La $A = \\{x \\in \\mathbb{R} \\mid |x| < 3\\} = \\langle -3, 3 \\rangle$ og $B = \\{x \\in \\mathbb{R} \\mid |x - 2| < 2\\} = \\langle 0, 4 \\rangle$. Då er snittet $A \\cap B = \\langle 0, 3 \\rangle$ – tala som er i begge mengder. Og for å kontrollere: kva tal er både nærmere enn $3$ frå null og nærmere enn $2$ frå $2$? Nettopp tala mellom $0$ og $3$.\n\nLa oss òg gjenta dei viktigaste symbola me har lært. $\\in$ betyr «er element i» (til dømes $5 \\in \\mathbb{N}$). $\\notin$ betyr «er ikkje element i» (til dømes $-3 \\notin \\mathbb{N}$). $\\subset$ betyr «er ein delmengd av» (til dømes $\\mathbb{N} \\subset \\mathbb{Z}$). Og $\\emptyset$ er den tomme mengda – ein mengd utan element.\n\nMengdelæra er språket matematikarar brukar for å snakka presist om samlingar av tal. Når du beherskar intervall, union, snitt og absoluttverde, har du eit verktøy som skal til å dukke opp igjen og igjen – i likningar, ulikskaper, funksjonsanalyse og langt vidare i matematikken.",
+      "2ed7dc43a2a953e2": "Test deg sjølv på absoluttverde og mengder:",
+      "961349ddc4e1ecff": "Mengda $\\{x \\in \\mathbb{R} \\mid |x| < 3\\}$ kan skrivast som intervallet:",
+      "806ff648fd113579": "$\\langle -3, 3 \\rangle$",
+      "3f0cbe5e7751bb81": "$\\langle 0, 3 \\rangle$",
+      "c7219e3e3bf24643": "$|x| < 3$ betyr at avstanden frå $x$ til null er strengt mindre enn $3$. Det gir $-3 < x < 3$, som er intervallet $\\langle -3, 3 \\rangle$. Me brukar opne parentesar fordi $-3$ og $3$ sjølv ikkje er med (avstanden er då nøyaktig $3$, ikkje mindre enn).",
+      "60aae2e913893611": "Kva betyr $|x - 2| < 2$ som intervall?",
+      "5d2df9aa27062e4a": "$\\langle -2, 2 \\rangle$",
+      "4becd45dc0a0d643": "$\\langle 0, 4 \\rangle$",
+      "b56f049437ecb8ab": "$\\langle -4, 0 \\rangle$",
+      "05a573693058da0f": "$|x - 2| < 2$ betyr at avstanden frå $x$ til $2$ er mindre enn $2$. Vi set opp: $-2 < x - 2 < 2$. Legg til $2$ på alle sider: $0 < x < 4$. Det er intervallet $\\langle 0, 4 \\rangle$.",
+      "be74a0c18d3297aa": "La $A = \\langle -3, 3 \\rangle$ og $B = \\langle 0, 4 \\rangle$. Kva er $A \\cap B$?",
+      "a0bcbd2eacbfa36b": "$\\langle -3, 0 \\rangle$",
+      "be0a7472957f08f2": "Snittet er tala som er i båe mengdene. $A$ går frå $-3$ til $3$ (båe utan) og $B$ frå $0$ til $4$ (båe utan). Overlappet er tala som er strengt mellom $0$ og $3$: $\\langle 0, 3 \\rangle$.",
+      "e5dd5ccc487b32cc": "Kva betyr symbolet $\\in$?",
+      "d7b84f25152cd121": "Er ei delmengd av",
+      "89931db57c22d72d": "Er lik",
+      "69116c0974149592": "Er element i",
+      "efb05fabb74b07bb": "Er ikkje med i",
+      "f10be3b55cff7e72": "Symbolet $\\in$ betyr «er element i». Til dømes betyr $5 \\in \\mathbb{N}$ at $5$ er eit element i mengda av naturlege tal. Symbolet $\\notin$ betyr det motsette: «er ikkje element i».",
+      "79eeeec37aef74be": "Lytt til oppsummeringa",
+      "b409d1128419f9c6": "Lydfil som les opp oppsummeringa.",
+      "d10a8fa17bacd3be": "## Oppsummering\n\nI dette kapittelet har me utforskt mengdelærens viktigaste omgrep.\n\n**Tallmengdene** dannar eit hierarki: dei naturlege tala $\\mathbb{N} = \\{1, 2, 3, ...\\}$ er dei enklaste, deretter kjem heiltala $\\mathbb{Z}$ (med null og negative tal), dei rasjonale tala $\\mathbb{Q}$ (alt som kan skrivast som brøk), og til slutt dei reelle tala $\\mathbb{R}$ (som også inkluderer irrasjonale tal som $\\sqrt{2}$ og $\\pi$). Samanhengen er $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$.\n\n**Intervall** let oss skildre samanhengande delar av tallinja. Klammer $[$ og $]$ betyr at endepunktet er med, parentesar $\\langle$ og $\\rangle$ betyr at det ikkje er med. Ved uendeleg brukar me alltid parentesar.\n\n**Union** ($\\cup$) gir oss alle element som er i minst éin av mengdene. **Snitt** ($\\cap$) gir oss berre elementa som er i båe. **Differanse** ($A \\setminus B$) gir elementa som er i $A$ men ikkje i $B$. To mengder utan felles element kallast disjunkte, og snittet deira er den tomme mengda $\\emptyset$.\n\n**Absoluttverdien** $|x|$ er avstanden frå $x$ til null på tallinja. Ho er alltid positiv eller null. Absoluttverdiar kan brukast til å skildre intervall: $|x| < a$ svarar til intervallet $\\langle -a, a \\rangle$, og $|x - c| < r$ skildrar alle tal med avstand mindre enn $r$ frå $c$."
+    }
+  }
+}

@@ -1,1 +1,268 @@
-{"id":"it-1-2-3-narrativ","courseId":"it-1","chapterNumber":"2.3","title":"Betingelser og valg (if/else)","subtitle":"Narrativ versjon","description":"En fortelling om hvordan programmer lærer å ta valg – fra sammenligningsoperatorer og if/elif/else til logiske operatorer som and, or og not.","estimatedMinutes":35,"competenceGoals":["bruke if, elif og else til å kontrollere programflyten","bruke sammenligningsoperatorer til å sammenligne verdier","kombinere betingelser med logiske operatorer (and, or, not)","lage programmer som reagerer på brukerinput med betingelser"],"linkedChapterId":"it-1-2-3","content":[{"id":"it-1-2-3-n-intro","type":"text","content":"## Når programmet må ta et valg\n\nTil nå har programmene våre kjørt rett fram, fra topp til bunn, uten å ta en eneste beslutning. Men virkelige programmer må velge: «Hvis brukeren skriver riktig passord, gi tilgang – ellers vis en feilmelding.» Eller: «Hvis temperaturen er under null, advar om frost.» Verktøyet for dette er **betingelser** og if-setninger.\n\nEn **betingelse** er et uttrykk som Python regner ut til enten `True` eller `False`. For å lage dem trenger vi **sammenligningsoperatorer**. `==` betyr «er lik» (ikke å forveksle med ett likhetstegn, som tilordner), `!=` betyr «er ikke lik», og så har vi `>`, `<`, `>=` og `<=`. For eksempel er `5 == 5` lik `True`, mens `5 < 3` er `False`. Du kan også sammenligne tekst, som Python gjør alfabetisk: `\"anna\" < \"bjørn\"` er `True`, men pass på at `\"Hei\" == \"hei\"` er `False`, for stor og liten bokstav er ikke det samme.\n\nEn **if-setning** kjører kode bare når betingelsen er sann:\n\n```python\nalder = int(input(\"Hvor gammel er du? \"))\nif alder >= 18:\n    print(\"Du er myndig!\")\n```\n\nHer er **innrykket** avgjørende. Det er innrykket – typisk fire mellomrom – som forteller Python hvilke linjer som hører til if-blokken. Linjer uten innrykk kjøres alltid, uansett om betingelsen var sann."},{"id":"it-1-2-3-n-section1","type":"text","content":"## To veier, og flere\n\nOfte vil du gjøre én ting hvis betingelsen er sann, og noe annet ellers. Da bruker du `else`:\n\n```python\ntall = int(input(\"Skriv inn et tall: \"))\nif tall % 2 == 0:\n    print(f\"{tall} er et partall\")\nelse:\n    print(f\"{tall} er et oddetall\")\n```\n\nHer bruker vi modulo (`%`): er resten ved divisjon med 2 lik 0, er tallet partall. Det er alltid enten if-blokken *eller* else-blokken som kjøres – aldri begge.\n\nMen hva om du har flere enn to muligheter? Da bruker du `elif`, kort for «else if». Python sjekker betingelsene fra topp til bunn og stopper ved den *første* som er sann:\n\n```python\npoeng = int(input(\"Hvor mange poeng fikk du? \"))\nif poeng >= 90:\n    karakter = \"A\"\nelif poeng >= 80:\n    karakter = \"B\"\nelif poeng >= 60:\n    karakter = \"C\"\nelse:\n    karakter = \"F\"\nprint(f\"Du fikk karakteren {karakter}\")\n```\n\nRekkefølgen er helt avgjørende. Fordi Python stopper ved første treff, må du starte med den høyeste grensen og jobbe deg nedover. Hadde du startet med `poeng >= 60`, ville selv en elev med 95 poeng fått C, fordi 95 også er større enn 60. Samme mønster bruker du til alt fra værmeldinger til menyvalg."},{"id":"it-1-2-3-n-quiz1","type":"exercise","exercise":{"id":"it-1-2-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på if, elif og else:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-3-n-quiz1-q0","task":"Hva avgjør hvilke linjer som hører til en if-blokk i Python?","options":[{"id":"a","text":"Innrykket (indentasjonen)","isCorrect":true},{"id":"b","text":"Antall semikolon","isCorrect":false},{"id":"c","text":"Krøllparenteser","isCorrect":false},{"id":"d","text":"Fargen på koden","isCorrect":false}],"solution":"I Python er det innrykket som forteller hvilke linjer som tilhører if-blokken."},{"id":"it-1-2-3-n-quiz1-q1","task":"Hva betyr operatoren == i Python?","options":[{"id":"a","text":"Tilordne en verdi","isCorrect":false},{"id":"b","text":"Er lik (sammenligning)","isCorrect":true},{"id":"c","text":"Er ikke lik","isCorrect":false},{"id":"d","text":"Større enn","isCorrect":false}],"solution":"== sammenligner to verdier og gir True hvis de er like. Ett likhetstegn (=) tilordner i stedet en verdi."},{"id":"it-1-2-3-n-quiz1-q2","task":"Hvorfor må man starte med den høyeste grensen i en elif-kjede for karakterer?","options":[{"id":"a","text":"Fordi Python kjører den raskere","isCorrect":false},{"id":"b","text":"Fordi else må komme først","isCorrect":false},{"id":"c","text":"Fordi Python stopper ved første sanne betingelse, så lavere grenser ville fanget for mange","isCorrect":true},{"id":"d","text":"Fordi det ser penere ut","isCorrect":false}],"solution":"Python stopper ved første sanne betingelse. Startet du med en lav grense, ville høye verdier også passet den og fått feil resultat."}]}},{"id":"it-1-2-3-n-section2","type":"text","content":"## Å kombinere betingelser\n\nNoen ganger må flere ting stemme samtidig. Da bruker du **logiske operatorer**. `and` (og) gir `True` bare når *begge* betingelsene er sanne. `or` (eller) gir `True` hvis *minst én* er sann. Og `not` (ikke) snur sannhetsverdien, slik at `True` blir `False`.\n\nMed `and` kan du sjekke at både alder og førerkort stemmer:\n\n```python\nif alder >= 18 and har_lappen == \"ja\":\n    print(\"Du kan kjøre bil!\")\n```\n\nMed `or` holder det at én ting stemmer, for eksempel at det er lørdag eller søndag. Og `not regner` er sant nettopp når det *ikke* regner. Et klassisk eksempel er et påloggingssystem der både brukernavn og passord må være riktige:\n\n```python\nif brukernavn == riktig_brukernavn and passord == riktig_passord:\n    print(\"Innlogging vellykket!\")\nelif brukernavn != riktig_brukernavn:\n    print(\"Feil brukernavn!\")\nelse:\n    print(\"Feil passord!\")\n```\n\nHer bruker vi `and` for å kreve at begge stemmer, og `elif`/`else` for å gi presis tilbakemelding. Du kan også **nøste** if-setninger inni hverandre, men det blir fort uoversiktlig. Som tommelfingerregel bør du ikke nøste dypere enn to nivåer – ofte kan du erstatte nøsting med en ryddigere elif-kjede eller en `and`-betingelse. God praksis er også å validere input først, for eksempel sjekke om `poeng < 0 or poeng > 100` før du regner videre."},{"id":"it-1-2-3-n-quiz2","type":"exercise","exercise":{"id":"it-1-2-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på logiske operatorer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-2-3-n-quiz2-q0","task":"Når gir A and B verdien True?","options":[{"id":"a","text":"Når minst én av A og B er sann","isCorrect":false},{"id":"b","text":"Bare når begge er usanne","isCorrect":false},{"id":"c","text":"Alltid","isCorrect":false},{"id":"d","text":"Bare når både A og B er sanne","isCorrect":true}],"solution":"and gir True bare når begge betingelsene er sanne samtidig."},{"id":"it-1-2-3-n-quiz2-q1","task":"Hva gir not True?","options":[{"id":"a","text":"False","isCorrect":true},{"id":"b","text":"True","isCorrect":false},{"id":"c","text":"En feilmelding","isCorrect":false},{"id":"d","text":"0","isCorrect":false}],"solution":"not inverterer verdien, så not True blir False."},{"id":"it-1-2-3-n-quiz2-q2","task":"Hvilken operator passer for «det er helg hvis det er lørdag eller søndag»?","options":[{"id":"a","text":"and","isCorrect":false},{"id":"b","text":"or","isCorrect":true},{"id":"c","text":"not","isCorrect":false},{"id":"d","text":"==","isCorrect":false}],"solution":"or passer, fordi det holder at minst én av betingelsene (lørdag eller søndag) er sann."},{"id":"it-1-2-3-n-quiz2-q3","task":"Hva er en god tommelfingerregel om nøstede if-setninger?","options":[{"id":"a","text":"Nøst alltid så dypt som mulig","isCorrect":false},{"id":"b","text":"if-setninger kan ikke nøstes","isCorrect":false},{"id":"c","text":"Unngå å nøste dypere enn to nivåer – bruk heller elif eller and","isCorrect":true},{"id":"d","text":"Nøsting gir alltid feil","isCorrect":false}],"solution":"Dyp nøsting blir uoversiktlig. Ofte kan en elif-kjede eller en and-betingelse gi samme logikk mer lesbart."}]}},{"id":"it-1-2-3-n-summary","type":"text","content":"## Oppsummering\n\nNå kan programmene dine ta valg. En **betingelse** er et uttrykk som er `True` eller `False`, bygd med **sammenligningsoperatorer** som `==`, `!=`, `<` og `>`. Med **if**, **elif** og **else** styrer du hvilken kode som kjøres, og innrykket avgjør hva som hører til hver blokk. Husk at Python stopper ved første sanne betingelse, så rekkefølgen i en elif-kjede teller.\n\n**Logiske operatorer** lar deg kombinere betingelser: `and` krever at begge stemmer, `or` krever minst én, og `not` snur verdien. Med disse byggesteinene kan du lage påloggingssystemer, karakterkalkulatorer og alt annet som krever at programmet reagerer ulikt på ulik input – og du bør validere input og unngå for dyp nøsting."}],"exercises":[]}
+{
+  "id": "it-1-2-3-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "2.3",
+  "title": "Betingelser og valg (if/else)",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan programmer lærer å ta valg – fra sammenligningsoperatorer og if/elif/else til logiske operatorer som and, or og not.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke if, elif og else til å kontrollere programflyten",
+    "bruke sammenligningsoperatorer til å sammenligne verdier",
+    "kombinere betingelser med logiske operatorer (and, or, not)",
+    "lage programmer som reagerer på brukerinput med betingelser"
+  ],
+  "linkedChapterId": "it-1-2-3",
+  "content": [
+    {
+      "id": "it-1-2-3-n-intro",
+      "type": "text",
+      "content": "## Når programmet må ta et valg\n\nTil nå har programmene våre kjørt rett fram, fra topp til bunn, uten å ta en eneste beslutning. Men virkelige programmer må velge: «Hvis brukeren skriver riktig passord, gi tilgang – ellers vis en feilmelding.» Eller: «Hvis temperaturen er under null, advar om frost.» Verktøyet for dette er **betingelser** og if-setninger.\n\nEn **betingelse** er et uttrykk som Python regner ut til enten `True` eller `False`. For å lage dem trenger vi **sammenligningsoperatorer**. `==` betyr «er lik» (ikke å forveksle med ett likhetstegn, som tilordner), `!=` betyr «er ikke lik», og så har vi `>`, `<`, `>=` og `<=`. For eksempel er `5 == 5` lik `True`, mens `5 < 3` er `False`. Du kan også sammenligne tekst, som Python gjør alfabetisk: `\"anna\" < \"bjørn\"` er `True`, men pass på at `\"Hei\" == \"hei\"` er `False`, for stor og liten bokstav er ikke det samme.\n\nEn **if-setning** kjører kode bare når betingelsen er sann:\n\n```python\nalder = int(input(\"Hvor gammel er du? \"))\nif alder >= 18:\n    print(\"Du er myndig!\")\n```\n\nHer er **innrykket** avgjørende. Det er innrykket – typisk fire mellomrom – som forteller Python hvilke linjer som hører til if-blokken. Linjer uten innrykk kjøres alltid, uansett om betingelsen var sann."
+    },
+    {
+      "id": "it-1-2-3-n-section1",
+      "type": "text",
+      "content": "## To veier, og flere\n\nOfte vil du gjøre én ting hvis betingelsen er sann, og noe annet ellers. Da bruker du `else`:\n\n```python\ntall = int(input(\"Skriv inn et tall: \"))\nif tall % 2 == 0:\n    print(f\"{tall} er et partall\")\nelse:\n    print(f\"{tall} er et oddetall\")\n```\n\nHer bruker vi modulo (`%`): er resten ved divisjon med 2 lik 0, er tallet partall. Det er alltid enten if-blokken *eller* else-blokken som kjøres – aldri begge.\n\nMen hva om du har flere enn to muligheter? Da bruker du `elif`, kort for «else if». Python sjekker betingelsene fra topp til bunn og stopper ved den *første* som er sann:\n\n```python\npoeng = int(input(\"Hvor mange poeng fikk du? \"))\nif poeng >= 90:\n    karakter = \"A\"\nelif poeng >= 80:\n    karakter = \"B\"\nelif poeng >= 60:\n    karakter = \"C\"\nelse:\n    karakter = \"F\"\nprint(f\"Du fikk karakteren {karakter}\")\n```\n\nRekkefølgen er helt avgjørende. Fordi Python stopper ved første treff, må du starte med den høyeste grensen og jobbe deg nedover. Hadde du startet med `poeng >= 60`, ville selv en elev med 95 poeng fått C, fordi 95 også er større enn 60. Samme mønster bruker du til alt fra værmeldinger til menyvalg."
+    },
+    {
+      "id": "it-1-2-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på if, elif og else:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-3-n-quiz1-q0",
+            "task": "Hva avgjør hvilke linjer som hører til en if-blokk i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Antall semikolon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Krøllparenteser",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fargen på koden",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Innrykket (indentasjonen)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I Python er det innrykket som forteller hvilke linjer som tilhører if-blokken."
+          },
+          {
+            "id": "it-1-2-3-n-quiz1-q1",
+            "task": "Hva betyr operatoren == i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Er lik (sammenligning)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Tilordne en verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Er ikke lik",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Større enn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "== sammenligner to verdier og gir True hvis de er like. Ett likhetstegn (=) tilordner i stedet en verdi."
+          },
+          {
+            "id": "it-1-2-3-n-quiz1-q2",
+            "task": "Hvorfor må man starte med den høyeste grensen i en elif-kjede for karakterer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi Python kjører den raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi Python stopper ved første sanne betingelse, så lavere grenser ville fanget for mange",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi else må komme først",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det ser penere ut",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Python stopper ved første sanne betingelse. Startet du med en lav grense, ville høye verdier også passet den og fått feil resultat."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-3-n-section2",
+      "type": "text",
+      "content": "## Å kombinere betingelser\n\nNoen ganger må flere ting stemme samtidig. Da bruker du **logiske operatorer**. `and` (og) gir `True` bare når *begge* betingelsene er sanne. `or` (eller) gir `True` hvis *minst én* er sann. Og `not` (ikke) snur sannhetsverdien, slik at `True` blir `False`.\n\nMed `and` kan du sjekke at både alder og førerkort stemmer:\n\n```python\nif alder >= 18 and har_lappen == \"ja\":\n    print(\"Du kan kjøre bil!\")\n```\n\nMed `or` holder det at én ting stemmer, for eksempel at det er lørdag eller søndag. Og `not regner` er sant nettopp når det *ikke* regner. Et klassisk eksempel er et påloggingssystem der både brukernavn og passord må være riktige:\n\n```python\nif brukernavn == riktig_brukernavn and passord == riktig_passord:\n    print(\"Innlogging vellykket!\")\nelif brukernavn != riktig_brukernavn:\n    print(\"Feil brukernavn!\")\nelse:\n    print(\"Feil passord!\")\n```\n\nHer bruker vi `and` for å kreve at begge stemmer, og `elif`/`else` for å gi presis tilbakemelding. Du kan også **nøste** if-setninger inni hverandre, men det blir fort uoversiktlig. Som tommelfingerregel bør du ikke nøste dypere enn to nivåer – ofte kan du erstatte nøsting med en ryddigere elif-kjede eller en `and`-betingelse. God praksis er også å validere input først, for eksempel sjekke om `poeng < 0 or poeng > 100` før du regner videre."
+    },
+    {
+      "id": "it-1-2-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-2-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på logiske operatorer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-2-3-n-quiz2-q0",
+            "task": "Når gir A and B verdien True?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når minst én av A og B er sann",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Bare når begge er usanne",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare når både A og B er sanne",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Alltid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "and gir True bare når begge betingelsene er sanne samtidig."
+          },
+          {
+            "id": "it-1-2-3-n-quiz2-q1",
+            "task": "Hva gir not True?",
+            "options": [
+              {
+                "id": "b",
+                "text": "True",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "False",
+                "isCorrect": true
+              }
+            ],
+            "solution": "not inverterer verdien, så not True blir False."
+          },
+          {
+            "id": "it-1-2-3-n-quiz2-q2",
+            "task": "Hvilken operator passer for «det er helg hvis det er lørdag eller søndag»?",
+            "options": [
+              {
+                "id": "b",
+                "text": "or",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "and",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "not",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "==",
+                "isCorrect": false
+              }
+            ],
+            "solution": "or passer, fordi det holder at minst én av betingelsene (lørdag eller søndag) er sann."
+          },
+          {
+            "id": "it-1-2-3-n-quiz2-q3",
+            "task": "Hva er en god tommelfingerregel om nøstede if-setninger?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nøst alltid så dypt som mulig",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Unngå å nøste dypere enn to nivåer – bruk heller elif eller and",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "if-setninger kan ikke nøstes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nøsting gir alltid feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dyp nøsting blir uoversiktlig. Ofte kan en elif-kjede eller en and-betingelse gi samme logikk mer lesbart."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-2-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNå kan programmene dine ta valg. En **betingelse** er et uttrykk som er `True` eller `False`, bygd med **sammenligningsoperatorer** som `==`, `!=`, `<` og `>`. Med **if**, **elif** og **else** styrer du hvilken kode som kjøres, og innrykket avgjør hva som hører til hver blokk. Husk at Python stopper ved første sanne betingelse, så rekkefølgen i en elif-kjede teller.\n\n**Logiske operatorer** lar deg kombinere betingelser: `and` krever at begge stemmer, `or` krever minst én, og `not` snur verdien. Med disse byggesteinene kan du lage påloggingssystemer, karakterkalkulatorer og alt annet som krever at programmet reagerer ulikt på ulik input – og du bør validere input og unngå for dyp nøsting."
+    }
+  ],
+  "exercises": []
+}

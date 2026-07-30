@@ -1,1 +1,341 @@
-{"id":"elektro-data-vg1-6-5-narrativ","courseId":"elektro-data-vg1","chapterNumber":"6.5","title":"Industriell automasjon","subtitle":"Narrativ versjon","description":"En fortelling om fabrikken som styrer seg selv – transportbånd, industriroboter, prosessindustri og SCADA-systemet som holder øye med alt.","estimatedMinutes":35,"competenceGoals":["forklare oppbygning og funksjon av automatiserte systemer i industrien"],"linkedChapterId":"elektro-data-vg1-6-5","content":[{"id":"elektro-data-vg1-6-5-n-intro","type":"text","content":"## Fabrikken som nesten styrer seg selv\n\nSe for deg en moderne bilfabrikk. Hundrevis av robotarmer sveiser, maler og monterer i en koreografi så presis at biler ruller ferdige ut i den andre enden – nesten uten en menneskehånd på selve produktet. Eller tenk på en oljeplattform i Nordsjøen, der ventiler, pumper og kompressorer styres og overvåkes fra en kontrollrom langt unna. Dette er **industriell automasjon**, og det har forandret produksjonen i hele verden.\n\nNorge er faktisk et foregangsland her, spesielt innen prosessautomasjon i olje og gass, i oppdrettsnæringen og i metallproduksjon. I dette kapittelet skal vi gå inn i den automatiserte fabrikken og se hvordan den henger sammen. Vi skal møte byggesteinene i en produksjonslinje, bli kjent med de ulike robottypene og hva de er gode til, forstå skillet mellom prosessindustri og diskret produksjon, og til slutt se hvordan et SCADA-system gir operatøren full oversikt over alt som skjer."},{"id":"elektro-data-vg1-6-5-n-section1","type":"text","content":"## Byggesteinene i en automatisert linje\n\nLa oss starte med å se hvordan en automatisert produksjonslinje er satt sammen. **Produksjonsautomasjon** betyr at maskiner og styresystemer gjør produksjonsoppgavene med lite eller ingen manuell innsats, og noen få komponenter går igjen overalt. **Transportbånd** frakter emnene mellom arbeidsstasjonene. **Roboter** utfører sveising, montering, maling og pakking. **Sensorer** registrerer posisjoner, nivåer, temperaturer og kvalitetsavvik. **Aktuatorer** utfører de fysiske handlingene. Og i sentrum sitter hjernen: **PLS-en**, den programmerbare logiske styringen.\n\nPLS-en fortjener et eget avsnitt, for den er nettopp det – hjernen i systemet. Den leser inn signaler fra alle sensorene, behandler dem etter et programmert logikkprogram, og sender ut styresignaler til aktuatorene. Før i tiden gjorde man slik logikk med fysiske relékretser; PLS-en erstattet dem med programmerbar logikk du kan endre med noen tastetrykk i stedet for å bygge om kabling.\n\nHvorfor automatisere i det hele tatt? Fordelene er mange: økt hastighet og kapasitet, jevnere kvalitet fordi menneskelig variasjon forsvinner, færre arbeidsulykker, lavere driftskostnader over tid, og evnen til å kjøre døgnet rundt uten pauser. Men det finnes også ulemper man må være ærlig om: høy investeringskostnad, behov for kompetent vedlikeholdspersonell, mindre fleksibilitet når produktet skal endres, og at arbeidsplasser kan forsvinne. Automasjon er et kraftig verktøy, men ikke gratis."},{"id":"elektro-data-vg1-6-5-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-6-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på produksjonsautomasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-5-n-quiz1-q0","task":"Hva er PLS-ens rolle i et automatisert system?","options":[{"id":"a","text":"En sensor som måler temperatur","isCorrect":false},{"id":"b","text":"Styreenheten – \"hjernen\" som kontrollerer sekvenser og logikk","isCorrect":true},{"id":"c","text":"En robot for sveising","isCorrect":false},{"id":"d","text":"Et transportbånd","isCorrect":false}],"solution":"PLS-en (Programmerbar Logisk Styring) leser inn sensorsignaler, behandler dem etter et logikkprogram og styrer aktuatorene. Den erstatter tradisjonelle relékretser med programmerbar logikk."},{"id":"elektro-data-vg1-6-5-n-quiz1-q1","task":"Hvilken av disse er en fordel med produksjonsautomasjon?","options":[{"id":"a","text":"Lav investeringskostnad","isCorrect":false},{"id":"b","text":"Den er svært fleksibel ved produktendringer","isCorrect":false},{"id":"c","text":"Den kan kjøre 24/7 med jevn kvalitet og færre arbeidsulykker","isCorrect":true},{"id":"d","text":"Den trenger ikke vedlikehold","isCorrect":false}],"solution":"Automasjon gir høy kapasitet døgnet rundt, jevnere kvalitet og færre ulykker. Høy investeringskostnad og mindre fleksibilitet er derimot ulemper."},{"id":"elektro-data-vg1-6-5-n-quiz1-q2","task":"Hva erstattet PLS-en sammenlignet med eldre styresystemer?","options":[{"id":"a","text":"Transportbånd","isCorrect":false},{"id":"b","text":"Alle sensorer","isCorrect":false},{"id":"c","text":"Operatørene helt","isCorrect":false},{"id":"d","text":"Tradisjonelle relékretser, med programmerbar logikk","isCorrect":true}],"solution":"PLS-en erstattet fysiske relékretser med programmerbar logikk, slik at man kan endre styringen i programvare i stedet for å bygge om kabling."}]}},{"id":"elektro-data-vg1-6-5-n-section2","type":"text","content":"## Robotenes mange ansikter\n\nNår folk hører \"industrirobot\", ser de gjerne for seg én type arm – men det finnes en hel familie, hver bygget for sin oppgave. En **industrirobot** er en programmerbar maskin med flere akser som utfører varierte oppgaver automatisk, og det er smart å velge riktig type.\n\nDen **artikulerte roboten**, eller leddroboten, har 4 til 7 rotasjonsledd og ligner mest på en menneskearm. Den er den mest fleksible og brukes til sveising, maling og montering. **SCARA-roboten** har to rotasjonsledd i horisontalplanet pluss en vertikal akse, og er rask og presis – ideell for plukk-og-plasser og montering av elektronikk. **Deltaroboten** henger i taket med tre parallelle armer og er ekstremt rask, perfekt for sortering og pakking av lett gods. Den **kartesiske roboten** beveger seg langs X-, Y- og Z-aksene og er enkel å styre, slik vi finner i CNC-maskiner og 3D-printere. Og til slutt **coboten**, samarbeidsroboten, som er laget for å jobbe trygt side om side med mennesker uten gjerder – den har lavere kraft og hastighet og innebygde kraftsensorer som stopper den om den støter borti noen.\n\nNår man velger robot, ser man på spesifikasjoner som rekkevidde, nyttelast, repeterbarhet og frihetsgrader. Et eksempel: en sjokoladefabrikk skal sortere og pakke sjokolader på 20 gram i et tempo på 120 stykk i minuttet. Hvilken robot? Svaret er deltaroboten. Den er den raskeste for plukk-og-plasser, de lette sjokoladene ligger godt innenfor nyttelasten, og 120 stykk i minuttet betyr 2 i sekundet – syklustider under et halvt sekund, akkurat det delta klarer. En artikulert robot ville vært altfor treg til denne oppgaven."},{"id":"elektro-data-vg1-6-5-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-6-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på industriroboter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-5-n-quiz2-q0","task":"En sjokoladefabrikk skal sortere lette sjokolader i høyt tempo (120/min). Hvilken robot passer best?","options":[{"id":"a","text":"Deltarobot","isCorrect":true},{"id":"b","text":"Artikulert robot","isCorrect":false},{"id":"c","text":"Kartesisk robot","isCorrect":false},{"id":"d","text":"Cobot","isCorrect":false}],"solution":"Deltaroboten er den raskeste for plukk-og-plasser av lett gods, montert i taket med tre parallelle armer. Den klarer de korte syklustidene 120/min krever."},{"id":"elektro-data-vg1-6-5-n-quiz2-q1","task":"Hva er en cobot?","options":[{"id":"a","text":"En robot kun for sveising","isCorrect":false},{"id":"b","text":"En samarbeidsrobot laget for å jobbe trygt side om side med mennesker","isCorrect":true},{"id":"c","text":"En robot som styrer andre roboter","isCorrect":false},{"id":"d","text":"En robot drevet av trykkluft","isCorrect":false}],"solution":"En cobot (samarbeidsrobot) har kraftsensorer, lavere kraft og hastighet, og kan jobbe trygt sammen med mennesker uten beskyttelsesgjerder. Den stopper ved kontakt."},{"id":"elektro-data-vg1-6-5-n-quiz2-q2","task":"Hvilken robottype ligner mest på en menneskearm og er mest fleksibel?","options":[{"id":"a","text":"Deltarobot","isCorrect":false},{"id":"b","text":"Kartesisk robot","isCorrect":false},{"id":"c","text":"Artikulert robot (leddrobot)","isCorrect":true},{"id":"d","text":"SCARA-robot","isCorrect":false}],"solution":"Den artikulerte roboten har 4-7 rotasjonsledd og ligner en menneskearm. Den er den mest fleksible og brukes til sveising, maling og montering."}]}},{"id":"elektro-data-vg1-6-5-n-section3","type":"text","content":"## To slags produksjon, og øyet som ser alt\n\nIndustrien deles grovt i to typer produksjon, og forskjellen er verdt å forstå. I **prosessindustri** lager man varer gjennom kontinuerlige eller batchvise kjemiske og fysiske prosesser – og produktet kan vanligvis ikke tas fra hverandre igjen til råvarer. Et oljeraffineri som omdanner råolje til bensin og diesel gjennom destillasjon er prosessindustri, og det samme er et aluminiumsverk som smelter bauksitt til aluminium. I **diskret produksjon** lager man derimot tellbare, identifiserbare enkeltprodukter ved å montere komponenter – og produktet kan demonteres igjen. En bilfabrikk som setter sammen biler av tusenvis av deler er diskret produksjon, og en elektronikkfabrikk som monterer kretskort og telefoner likeså.\n\nUansett type trenger man et øye som ser hele anlegget på en gang, og det er her **SCADA** kommer inn – Supervisory Control And Data Acquisition. Tenk på det som det overordnede datasystemet for overvåkning og styring. Nederst sitter feltinstrumentene, sensorer og aktuatorer ute i anlegget. PLS-er styrer lokalt, og et kommunikasjonsnettverk binder dem sammen med en SCADA-server som samler inn data, lagrer historikk og kjører alarmer. Operatøren sitter ved en stasjon med **HMI**, Human-Machine Interface – et operatørpanel eller en skjerm som viser prosessbilder med levende verdier, knapper for manuell styring og alarmer som kan kvitteres.\n\nViktig å merke seg: SCADA *erstatter* ikke PLS-ene, det *kommuniserer* med dem. PLS-ene gjør den raske, lokale styringen, mens SCADA gir den store oversikten – sanntidsvisualisering, alarmhåndtering, trendlogging av historiske data, fjernstyring av ventiler og pumper, og rapportgenerering. På et lakseslakteri kan SCADA for eksempel samle data fra alle PLS-ene, vise produksjonstall og temperaturer, varsle ved brudd i kjølekjeden, og logge alt for sporbarhet til Mattilsynet."},{"id":"elektro-data-vg1-6-5-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-6-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på produksjonstyper og SCADA:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-5-n-quiz3-q0","task":"Hva er hovedoppgaven til et SCADA-system?","options":[{"id":"a","text":"Å erstatte alle PLS-er med én sentral maskin","isCorrect":false},{"id":"b","text":"Å designe robotprogrammer","isCorrect":false},{"id":"c","text":"Å produsere selve varene","isCorrect":false},{"id":"d","text":"Å overvåke, samle inn data fra og fjernstyre industrielle prosesser","isCorrect":true}],"solution":"SCADA samler inn data fra PLS-er og sensorer, viser dem i sanntid, håndterer alarmer, logger historikk og gir fjernstyring. Det erstatter ikke PLS-ene, men kommuniserer med dem."},{"id":"elektro-data-vg1-6-5-n-quiz3-q1","task":"Hvilket er et eksempel på prosessindustri?","options":[{"id":"a","text":"Et oljeraffineri som omdanner råolje til bensin","isCorrect":true},{"id":"b","text":"En bilfabrikk som monterer biler","isCorrect":false},{"id":"c","text":"En elektronikkfabrikk som monterer telefoner","isCorrect":false},{"id":"d","text":"En møbelfabrikk som setter sammen stoler","isCorrect":false}],"solution":"Prosessindustri lager varer gjennom kontinuerlige kjemiske/fysiske prosesser der produktet ikke kan demonteres, som et oljeraffineri. Bil- og elektronikkfabrikker er diskret produksjon."},{"id":"elektro-data-vg1-6-5-n-quiz3-q2","task":"Hva er et HMI?","options":[{"id":"a","text":"En type industrirobot","isCorrect":false},{"id":"b","text":"Et operatørpanel/skjerm som gir visuell oversikt og styringsmuligheter","isCorrect":true},{"id":"c","text":"En sensor for trykk","isCorrect":false},{"id":"d","text":"Et kommunikasjonsnettverk","isCorrect":false}],"solution":"HMI (Human-Machine Interface) er operatørens grensesnitt – en skjerm med prosessbilder, dynamiske verdier, styreknapper og alarmvisning."}]}},{"id":"elektro-data-vg1-6-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har gått gjennom den automatiserte fabrikken. **Produksjonsautomasjon** bygger på transportbånd, roboter, sensorer og aktuatorer, med **PLS-en** som hjernen som erstattet de gamle relékretsene. Automasjon gir høy kapasitet, jevn kvalitet og færre ulykker, men koster mye og gjør produksjonen mindre fleksibel.\n\n**Industriroboter** finnes i mange former – artikulert, SCARA, delta, kartesisk og cobot – og man velger etter oppgave, hastighet og last. Vi skilte mellom **prosessindustri**, der produktet lages i kontinuerlige prosesser, og **diskret produksjon**, der tellbare produkter monteres av deler. Og over det hele våker **SCADA**-systemet, som samler data, viser dem til operatøren gjennom et **HMI**, håndterer alarmer og gir fjernstyring – uten å erstatte PLS-ene som gjør den lokale styringen."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-6-5-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "6.5",
+  "title": "Industriell automasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om fabrikken som styrer seg selv – transportbånd, industriroboter, prosessindustri og SCADA-systemet som holder øye med alt.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forklare oppbygning og funksjon av automatiserte systemer i industrien"
+  ],
+  "linkedChapterId": "elektro-data-vg1-6-5",
+  "content": [
+    {
+      "id": "elektro-data-vg1-6-5-n-intro",
+      "type": "text",
+      "content": "## Fabrikken som nesten styrer seg selv\n\nSe for deg en moderne bilfabrikk. Hundrevis av robotarmer sveiser, maler og monterer i en koreografi så presis at biler ruller ferdige ut i den andre enden – nesten uten en menneskehånd på selve produktet. Eller tenk på en oljeplattform i Nordsjøen, der ventiler, pumper og kompressorer styres og overvåkes fra en kontrollrom langt unna. Dette er **industriell automasjon**, og det har forandret produksjonen i hele verden.\n\nNorge er faktisk et foregangsland her, spesielt innen prosessautomasjon i olje og gass, i oppdrettsnæringen og i metallproduksjon. I dette kapittelet skal vi gå inn i den automatiserte fabrikken og se hvordan den henger sammen. Vi skal møte byggesteinene i en produksjonslinje, bli kjent med de ulike robottypene og hva de er gode til, forstå skillet mellom prosessindustri og diskret produksjon, og til slutt se hvordan et SCADA-system gir operatøren full oversikt over alt som skjer."
+    },
+    {
+      "id": "elektro-data-vg1-6-5-n-section1",
+      "type": "text",
+      "content": "## Byggesteinene i en automatisert linje\n\nLa oss starte med å se hvordan en automatisert produksjonslinje er satt sammen. **Produksjonsautomasjon** betyr at maskiner og styresystemer gjør produksjonsoppgavene med lite eller ingen manuell innsats, og noen få komponenter går igjen overalt. **Transportbånd** frakter emnene mellom arbeidsstasjonene. **Roboter** utfører sveising, montering, maling og pakking. **Sensorer** registrerer posisjoner, nivåer, temperaturer og kvalitetsavvik. **Aktuatorer** utfører de fysiske handlingene. Og i sentrum sitter hjernen: **PLS-en**, den programmerbare logiske styringen.\n\nPLS-en fortjener et eget avsnitt, for den er nettopp det – hjernen i systemet. Den leser inn signaler fra alle sensorene, behandler dem etter et programmert logikkprogram, og sender ut styresignaler til aktuatorene. Før i tiden gjorde man slik logikk med fysiske relékretser; PLS-en erstattet dem med programmerbar logikk du kan endre med noen tastetrykk i stedet for å bygge om kabling.\n\nHvorfor automatisere i det hele tatt? Fordelene er mange: økt hastighet og kapasitet, jevnere kvalitet fordi menneskelig variasjon forsvinner, færre arbeidsulykker, lavere driftskostnader over tid, og evnen til å kjøre døgnet rundt uten pauser. Men det finnes også ulemper man må være ærlig om: høy investeringskostnad, behov for kompetent vedlikeholdspersonell, mindre fleksibilitet når produktet skal endres, og at arbeidsplasser kan forsvinne. Automasjon er et kraftig verktøy, men ikke gratis."
+    },
+    {
+      "id": "elektro-data-vg1-6-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på produksjonsautomasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz1-q0",
+            "task": "Hva er PLS-ens rolle i et automatisert system?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Styreenheten – \"hjernen\" som kontrollerer sekvenser og logikk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En sensor som måler temperatur",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En robot for sveising",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et transportbånd",
+                "isCorrect": false
+              }
+            ],
+            "solution": "PLS-en (Programmerbar Logisk Styring) leser inn sensorsignaler, behandler dem etter et logikkprogram og styrer aktuatorene. Den erstatter tradisjonelle relékretser med programmerbar logikk."
+          },
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz1-q1",
+            "task": "Hvilken av disse er en fordel med produksjonsautomasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lav investeringskostnad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den kan kjøre 24/7 med jevn kvalitet og færre arbeidsulykker",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den er svært fleksibel ved produktendringer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den trenger ikke vedlikehold",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Automasjon gir høy kapasitet døgnet rundt, jevnere kvalitet og færre ulykker. Høy investeringskostnad og mindre fleksibilitet er derimot ulemper."
+          },
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz1-q2",
+            "task": "Hva erstattet PLS-en sammenlignet med eldre styresystemer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Transportbånd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alle sensorer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tradisjonelle relékretser, med programmerbar logikk",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Operatørene helt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "PLS-en erstattet fysiske relékretser med programmerbar logikk, slik at man kan endre styringen i programvare i stedet for å bygge om kabling."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-5-n-section2",
+      "type": "text",
+      "content": "## Robotenes mange ansikter\n\nNår folk hører \"industrirobot\", ser de gjerne for seg én type arm – men det finnes en hel familie, hver bygget for sin oppgave. En **industrirobot** er en programmerbar maskin med flere akser som utfører varierte oppgaver automatisk, og det er smart å velge riktig type.\n\nDen **artikulerte roboten**, eller leddroboten, har 4 til 7 rotasjonsledd og ligner mest på en menneskearm. Den er den mest fleksible og brukes til sveising, maling og montering. **SCARA-roboten** har to rotasjonsledd i horisontalplanet pluss en vertikal akse, og er rask og presis – ideell for plukk-og-plasser og montering av elektronikk. **Deltaroboten** henger i taket med tre parallelle armer og er ekstremt rask, perfekt for sortering og pakking av lett gods. Den **kartesiske roboten** beveger seg langs X-, Y- og Z-aksene og er enkel å styre, slik vi finner i CNC-maskiner og 3D-printere. Og til slutt **coboten**, samarbeidsroboten, som er laget for å jobbe trygt side om side med mennesker uten gjerder – den har lavere kraft og hastighet og innebygde kraftsensorer som stopper den om den støter borti noen.\n\nNår man velger robot, ser man på spesifikasjoner som rekkevidde, nyttelast, repeterbarhet og frihetsgrader. Et eksempel: en sjokoladefabrikk skal sortere og pakke sjokolader på 20 gram i et tempo på 120 stykk i minuttet. Hvilken robot? Svaret er deltaroboten. Den er den raskeste for plukk-og-plasser, de lette sjokoladene ligger godt innenfor nyttelasten, og 120 stykk i minuttet betyr 2 i sekundet – syklustider under et halvt sekund, akkurat det delta klarer. En artikulert robot ville vært altfor treg til denne oppgaven."
+    },
+    {
+      "id": "elektro-data-vg1-6-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på industriroboter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz2-q0",
+            "task": "En sjokoladefabrikk skal sortere lette sjokolader i høyt tempo (120/min). Hvilken robot passer best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Artikulert robot",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kartesisk robot",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Cobot",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Deltarobot",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Deltaroboten er den raskeste for plukk-og-plasser av lett gods, montert i taket med tre parallelle armer. Den klarer de korte syklustidene 120/min krever."
+          },
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz2-q1",
+            "task": "Hva er en cobot?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En samarbeidsrobot laget for å jobbe trygt side om side med mennesker",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En robot kun for sveising",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En robot som styrer andre roboter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En robot drevet av trykkluft",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En cobot (samarbeidsrobot) har kraftsensorer, lavere kraft og hastighet, og kan jobbe trygt sammen med mennesker uten beskyttelsesgjerder. Den stopper ved kontakt."
+          },
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz2-q2",
+            "task": "Hvilken robottype ligner mest på en menneskearm og er mest fleksibel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Deltarobot",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Artikulert robot (leddrobot)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Kartesisk robot",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "SCARA-robot",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den artikulerte roboten har 4-7 rotasjonsledd og ligner en menneskearm. Den er den mest fleksible og brukes til sveising, maling og montering."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-5-n-section3",
+      "type": "text",
+      "content": "## To slags produksjon, og øyet som ser alt\n\nIndustrien deles grovt i to typer produksjon, og forskjellen er verdt å forstå. I **prosessindustri** lager man varer gjennom kontinuerlige eller batchvise kjemiske og fysiske prosesser – og produktet kan vanligvis ikke tas fra hverandre igjen til råvarer. Et oljeraffineri som omdanner råolje til bensin og diesel gjennom destillasjon er prosessindustri, og det samme er et aluminiumsverk som smelter bauksitt til aluminium. I **diskret produksjon** lager man derimot tellbare, identifiserbare enkeltprodukter ved å montere komponenter – og produktet kan demonteres igjen. En bilfabrikk som setter sammen biler av tusenvis av deler er diskret produksjon, og en elektronikkfabrikk som monterer kretskort og telefoner likeså.\n\nUansett type trenger man et øye som ser hele anlegget på en gang, og det er her **SCADA** kommer inn – Supervisory Control And Data Acquisition. Tenk på det som det overordnede datasystemet for overvåkning og styring. Nederst sitter feltinstrumentene, sensorer og aktuatorer ute i anlegget. PLS-er styrer lokalt, og et kommunikasjonsnettverk binder dem sammen med en SCADA-server som samler inn data, lagrer historikk og kjører alarmer. Operatøren sitter ved en stasjon med **HMI**, Human-Machine Interface – et operatørpanel eller en skjerm som viser prosessbilder med levende verdier, knapper for manuell styring og alarmer som kan kvitteres.\n\nViktig å merke seg: SCADA *erstatter* ikke PLS-ene, det *kommuniserer* med dem. PLS-ene gjør den raske, lokale styringen, mens SCADA gir den store oversikten – sanntidsvisualisering, alarmhåndtering, trendlogging av historiske data, fjernstyring av ventiler og pumper, og rapportgenerering. På et lakseslakteri kan SCADA for eksempel samle data fra alle PLS-ene, vise produksjonstall og temperaturer, varsle ved brudd i kjølekjeden, og logge alt for sporbarhet til Mattilsynet."
+    },
+    {
+      "id": "elektro-data-vg1-6-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på produksjonstyper og SCADA:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz3-q0",
+            "task": "Hva er hovedoppgaven til et SCADA-system?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å erstatte alle PLS-er med én sentral maskin",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å designe robotprogrammer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å overvåke, samle inn data fra og fjernstyre industrielle prosesser",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å produsere selve varene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SCADA samler inn data fra PLS-er og sensorer, viser dem i sanntid, håndterer alarmer, logger historikk og gir fjernstyring. Det erstatter ikke PLS-ene, men kommuniserer med dem."
+          },
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz3-q1",
+            "task": "Hvilket er et eksempel på prosessindustri?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En bilfabrikk som monterer biler",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En elektronikkfabrikk som monterer telefoner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En møbelfabrikk som setter sammen stoler",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Et oljeraffineri som omdanner råolje til bensin",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Prosessindustri lager varer gjennom kontinuerlige kjemiske/fysiske prosesser der produktet ikke kan demonteres, som et oljeraffineri. Bil- og elektronikkfabrikker er diskret produksjon."
+          },
+          {
+            "id": "elektro-data-vg1-6-5-n-quiz3-q2",
+            "task": "Hva er et HMI?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Et operatørpanel/skjerm som gir visuell oversikt og styringsmuligheter",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En type industrirobot",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En sensor for trykk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Et kommunikasjonsnettverk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HMI (Human-Machine Interface) er operatørens grensesnitt – en skjerm med prosessbilder, dynamiske verdier, styreknapper og alarmvisning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har gått gjennom den automatiserte fabrikken. **Produksjonsautomasjon** bygger på transportbånd, roboter, sensorer og aktuatorer, med **PLS-en** som hjernen som erstattet de gamle relékretsene. Automasjon gir høy kapasitet, jevn kvalitet og færre ulykker, men koster mye og gjør produksjonen mindre fleksibel.\n\n**Industriroboter** finnes i mange former – artikulert, SCARA, delta, kartesisk og cobot – og man velger etter oppgave, hastighet og last. Vi skilte mellom **prosessindustri**, der produktet lages i kontinuerlige prosesser, og **diskret produksjon**, der tellbare produkter monteres av deler. Og over det hele våker **SCADA**-systemet, som samler data, viser dem til operatøren gjennom et **HMI**, håndterer alarmer og gir fjernstyring – uten å erstatte PLS-ene som gjør den lokale styringen."
+    }
+  ],
+  "exercises": []
+}

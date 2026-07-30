@@ -1,1 +1,399 @@
-{"id":"elektro-data-vg1-3-narrativ","courseId":"elektro-data-vg1","chapterNumber":"3","title":"Digital elektronikk","subtitle":"Narrativ versjon","description":"En fortelling om hvordan hele den moderne verden er bygd på bare to tall – og hvordan logiske porter setter sammen disse nullene og enerne til alt fra alarmer til datamaskiner.","estimatedMinutes":35,"competenceGoals":["forstå digitale signaler og tallsystemer","arbeide med logiske porter"],"linkedChapterId":"elektro-data-vg1-3","content":[{"id":"elektro-data-vg1-3-n-intro","type":"text","content":"## Verden bygd på to tall\n\nNesten alt du bruker i løpet av en dag – mobilen, klokka, bilen, betalingsterminalen – er digitalt. Men hva betyr egentlig «digitalt»? Hemmeligheten er at all denne teknologien bygger på bare to verdier: 1 og 0, på og av. Det høres nesten for enkelt ut til å være sant, men nettopp denne enkelheten er styrken.\n\nMens analog elektronikk jobber med signaler som glir jevnt opp og ned, jobber digital elektronikk med diskrete verdier som hopper mellom to nivåer. Denne forskjellen er grunnen til at digitale systemer er så pålitelige: et signal som bare skal være enten høyt eller lavt, er mye lettere å skille fra støy enn et som kan ha en hvilken som helst verdi.\n\nI dette kapittelet skal vi forstå fundamentet. Vi ser forskjellen på analoge og digitale signaler, lærer hvordan tall skrives i totallssystemet og det heksadesimale systemet, og møter de logiske portene – AND, OR, NOT og XOR – som er de minste byggeklossene i ethvert digitalt system."},{"id":"elektro-data-vg1-3-n-section1","type":"text","content":"## Analogt og digitalt – to slags signaler\n\nLa oss starte med å skille de to verdenene. Et **analogt signal** kan ha en hvilken som helst verdi innenfor et område. Temperaturen ute er et godt eksempel: den kan være 15,3 grader, eller 15,4, eller hvilken som helst verdi imellom. Lysstyrke, lydvolum og vekt er like glidende.\n\nEt **digitalt signal** har derimot bare to nivåer: høy eller lav, 1 eller 0. Vi kaller dem binære signaler. Hvorfor velger moderne datamaskiner det digitale? Fordi det er lettere å behandle, mer motstandsdyktig mot støy, enklere å lagre og kopiere uten feil, og kan representere all slags informasjon. I praksis defineres nivåene med spenning: en logisk 0 ligger gjerne mellom 0 og 0,8 V, mens en logisk 1 ligger mellom 2 og 5 V. Området imellom unngås, slik at signalet alltid er tydelig enten det ene eller det andre.\n\nTenk på forskjellen slik: en lysbryter er digital – den er på eller av. En lysdemper er analog – den kan stå i en hvilken som helst stilling. Begge styrer lys, men på helt forskjellige måter. Det er denne grunnleggende todelingen mellom det kontinuerlige og det diskrete som hele resten av kapittelet bygger på."},{"id":"elektro-data-vg1-3-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på analoge og digitale signaler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-3-n-quiz1-q0","task":"Hvilket av disse er et analogt signal?","options":[{"id":"a","text":"En bryter som er på eller av","isCorrect":false},{"id":"b","text":"Et binært tall","isCorrect":false},{"id":"c","text":"Temperaturen i et rom","isCorrect":true},{"id":"d","text":"En LED som lyser eller ikke","isCorrect":false}],"solution":"Temperatur kan ha en hvilken som helst verdi i et område, og er dermed analog. De andre har bare to tilstander."},{"id":"elektro-data-vg1-3-n-quiz1-q1","task":"Hvor mange nivåer har et digitalt signal?","options":[{"id":"a","text":"Uendelig mange","isCorrect":false},{"id":"b","text":"Ti","isCorrect":false},{"id":"c","text":"Tre","isCorrect":false},{"id":"d","text":"To","isCorrect":true}],"solution":"Et digitalt signal har bare to nivåer: høy/1 og lav/0."},{"id":"elektro-data-vg1-3-n-quiz1-q2","task":"Hvorfor foretrekkes digitale signaler i datamaskiner?","options":[{"id":"a","text":"Fordi de er mer motstandsdyktige mot støy og enkle å lagre og kopiere","isCorrect":true},{"id":"b","text":"Fordi de kan ha uendelig mange verdier","isCorrect":false},{"id":"c","text":"Fordi de bruker mindre spenning enn alt annet","isCorrect":false},{"id":"d","text":"Fordi de er analoge","isCorrect":false}],"solution":"Digitale signaler skiller seg lett fra støy, og de er enkle å behandle, lagre og kopiere uten feil."}]}},{"id":"elektro-data-vg1-3-n-section2","type":"text","content":"## Tall med bare nuller og enere\n\nNår en datamaskin bare kjenner 1 og 0, hvordan kan den da telle og regne? Svaret er det **binære tallsystemet**, base 2. Akkurat som i vårt vanlige titallssystem har hver posisjon en verdi – men i stedet for potenser av 10 bruker vi potenser av 2.\n\nLa oss lese binærtallet $1011_2$. Fra høyre representerer posisjonene $2^0, 2^1, 2^2, 2^3$, altså 1, 2, 4 og 8. Vi får $1 \\cdot 8 + 0 \\cdot 4 + 1 \\cdot 2 + 1 \\cdot 1 = 8 + 0 + 2 + 1 = 11$ i desimal. Et annet eksempel: $1101_2 = 8 + 4 + 0 + 1 = 13$. Slik oversetter vi fra binært til vanlige tall – bare legg sammen posisjonsverdiene der det står 1.\n\nDen andre veien, fra desimalt til binært, deler vi gjentatte ganger på 2 og noterer restene. Ta tallet 25: $25 \\div 2 = 12$ rest 1, $12 \\div 2 = 6$ rest 0, $6 \\div 2 = 3$ rest 0, $3 \\div 2 = 1$ rest 1, $1 \\div 2 = 0$ rest 1. Leser vi restene baklengs, får vi $25 = 11001_2$.\n\nBinærtall blir fort lange, så programmerere bruker ofte det **heksadesimale** systemet, base 16, som en kompakt snarvei. Det bruker sifrene 0–9 og bokstavene A–F, der A = 10, B = 11, og så videre opp til F = 15. Det fine er at fire binære siffer passer nøyaktig til ett heksadesimalt: $1011_2 = B_{16}$, og $FF_{16} = 255_{10} = 11111111_2$. Et tall som $2A_{16}$ blir $2 \\cdot 16 + 10 = 42$ i desimal, eller $101010_2$ i binær."},{"id":"elektro-data-vg1-3-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på tallsystemer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-3-n-quiz2-q0","task":"Hva er $1101_2$ i desimal?","options":[{"id":"a","text":"11","isCorrect":false},{"id":"b","text":"13","isCorrect":true},{"id":"c","text":"15","isCorrect":false},{"id":"d","text":"26","isCorrect":false}],"solution":"$1 \\cdot 8 + 1 \\cdot 4 + 0 \\cdot 2 + 1 \\cdot 1 = 13$."},{"id":"elektro-data-vg1-3-n-quiz2-q1","task":"Hva er desimaltallet 15 i binær form?","options":[{"id":"a","text":"$1110_2$","isCorrect":false},{"id":"b","text":"$1101_2$","isCorrect":false},{"id":"c","text":"$1111_2$","isCorrect":true},{"id":"d","text":"$10000_2$","isCorrect":false}],"solution":"$15 = 8+4+2+1 = 1111_2$."},{"id":"elektro-data-vg1-3-n-quiz2-q2","task":"Hvor mange binære siffer tilsvarer ett heksadesimalt siffer?","options":[{"id":"a","text":"To","isCorrect":false},{"id":"b","text":"Tre","isCorrect":false},{"id":"c","text":"Åtte","isCorrect":false},{"id":"d","text":"Fire","isCorrect":true}],"solution":"Fire binære siffer dekker verdiene 0–15, akkurat som ett heksadesimalt siffer (0–F)."},{"id":"elektro-data-vg1-3-n-quiz2-q3","task":"Hva er $2A_{16}$ i desimal?","options":[{"id":"a","text":"42","isCorrect":true},{"id":"b","text":"26","isCorrect":false},{"id":"c","text":"52","isCorrect":false},{"id":"d","text":"30","isCorrect":false}],"solution":"$2A_{16} = 2 \\cdot 16 + 10 = 32 + 10 = 42$."}]}},{"id":"elektro-data-vg1-3-n-section3","type":"text","content":"## Portene som bestemmer\n\nNå har vi tallene, men hva er det som faktisk gjør noe med dem? Svaret er **logiske porter** – små elektroniske kretser som tar ett eller to binære signaler inn og gir ett binært signal ut. Det finnes noen få grunnleggende, og sammen kan de bygge hvilken som helst digital funksjon.\n\n**AND-porten** (OG) gir 1 bare hvis alle inngangene er 1. Tenk på en dør som krever både riktig kode OG nøkkel. **OR-porten** (ELLER) gir 1 hvis minst én inngang er 1 – som en alarm som skal gå hvis enten døren eller vinduet åpnes. **NOT-porten** (IKKE) snur signalet, så 0 blir 1 og 1 blir 0 – nyttig for en utelampe som skal tenne når det IKKE er lyst ute. Og **XOR-porten** (eksklusiv ELLER) gir 1 bare når inngangene er forskjellige; den skiller seg fra OR ved at $1 \\oplus 1 = 0$.\n\nFor å holde styr på hva en port gjør, bruker vi en sannhetstabell som lister opp utgangen for hver kombinasjon av innganger. For AND blir utgangen 1 kun i den ene raden der både A og B er 1. Resultatet av $1 \\text{ AND } 0$ er for eksempel 0, fordi ikke alle inngangene er 1.\n\nNår vi kobler porter sammen, kan vi løse ekte problemer. Tenk på en bil som bare skal starte hvis nøkkelen er i tenningen OG enten setebeltet er festet ELLER passasjersetet er tomt. Med inngangene N (nøkkel), S (setebelte) og T (tomt sete) blir uttrykket $\\text{Start} = N \\text{ AND } (S \\text{ OR } T)$. Vi trenger altså en OR-port for $(S \\text{ OR } T)$ og en AND-port som kombinerer dette med nøkkelsignalet. Bak alt dette ligger **boolsk algebra**, matematikken George Boole utviklet på 1800-tallet, med regler som De Morgans lover som lar oss forenkle slike uttrykk og bruke færrest mulig porter."},{"id":"elektro-data-vg1-3-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på logiske porter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"elektro-data-vg1-3-n-quiz3-q0","task":"Hva er resultatet av $1 \\text{ AND } 0$?","options":[{"id":"a","text":"1","isCorrect":false},{"id":"b","text":"0","isCorrect":true},{"id":"c","text":"2","isCorrect":false},{"id":"d","text":"Udefinert","isCorrect":false}],"solution":"AND gir 1 bare hvis alle innganger er 1. Siden den ene er 0, blir resultatet 0."},{"id":"elektro-data-vg1-3-n-quiz3-q1","task":"Hva er forskjellen mellom OR og XOR?","options":[{"id":"a","text":"De er identiske","isCorrect":false},{"id":"b","text":"OR gir alltid 0","isCorrect":false},{"id":"c","text":"XOR gir 0 når begge inngangene er 1, mens OR gir 1","isCorrect":true},{"id":"d","text":"XOR har bare én inngang","isCorrect":false}],"solution":"OR gir 1 hvis minst én inngang er 1 (også når begge er 1). XOR gir 1 bare når inngangene er forskjellige, så $1 \\oplus 1 = 0$."},{"id":"elektro-data-vg1-3-n-quiz3-q2","task":"Hvilken port trengs for en alarm som går hvis enten døren ELLER vinduet åpnes?","options":[{"id":"a","text":"AND-port","isCorrect":false},{"id":"b","text":"NOT-port","isCorrect":false},{"id":"c","text":"XOR-port","isCorrect":false},{"id":"d","text":"OR-port","isCorrect":true}],"solution":"En OR-port gir 1 hvis minst én inngang (dør eller vindu) er aktivert."},{"id":"elektro-data-vg1-3-n-quiz3-q3","task":"For bilen som starter med $\\text{Start} = N \\text{ AND } (S \\text{ OR } T)$, hvilke porter trengs?","options":[{"id":"a","text":"En OR-port og en AND-port","isCorrect":true},{"id":"b","text":"To NOT-porter","isCorrect":false},{"id":"c","text":"Tre XOR-porter","isCorrect":false},{"id":"d","text":"Bare en AND-port","isCorrect":false}],"solution":"En OR-port lager $(S \\text{ OR } T)$, og en AND-port kombinerer resultatet med nøkkelsignalet N."}]}},{"id":"elektro-data-vg1-3-n-summary","type":"text","content":"## Oppsummering\n\nVi har lagt grunnlaget for hele den digitale verdenen. **Analoge signaler** glir kontinuerlig, mens **digitale signaler** kjenner bare to nivåer – 1 og 0 – noe som gjør dem robuste mot støy og lette å lagre og kopiere. Tall skrives i det **binære** systemet med potenser av 2, der vi konverterer til desimalt ved å legge sammen posisjonsverdiene og til binært ved å dele gjentatte ganger på 2. Det **heksadesimale** systemet gir en kompakt skrivemåte, der fire binære siffer tilsvarer ett hex-siffer.\n\nDe **logiske portene** er byggeklossene: AND gir 1 når alle er 1, OR når minst én er 1, NOT inverterer, og XOR gir 1 når inngangene er forskjellige. Ved å koble porter sammen og bruke **boolsk algebra** kan vi designe alt fra en alarm til en bilstartlås – og til sjuende og sist hele datamaskiner."}],"exercises":[]}
+{
+  "id": "elektro-data-vg1-3-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "3",
+  "title": "Digital elektronikk",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan hele den moderne verden er bygd på bare to tall – og hvordan logiske porter setter sammen disse nullene og enerne til alt fra alarmer til datamaskiner.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forstå digitale signaler og tallsystemer",
+    "arbeide med logiske porter"
+  ],
+  "linkedChapterId": "elektro-data-vg1-3",
+  "content": [
+    {
+      "id": "elektro-data-vg1-3-n-intro",
+      "type": "text",
+      "content": "## Verden bygd på to tall\n\nNesten alt du bruker i løpet av en dag – mobilen, klokka, bilen, betalingsterminalen – er digitalt. Men hva betyr egentlig «digitalt»? Hemmeligheten er at all denne teknologien bygger på bare to verdier: 1 og 0, på og av. Det høres nesten for enkelt ut til å være sant, men nettopp denne enkelheten er styrken.\n\nMens analog elektronikk jobber med signaler som glir jevnt opp og ned, jobber digital elektronikk med diskrete verdier som hopper mellom to nivåer. Denne forskjellen er grunnen til at digitale systemer er så pålitelige: et signal som bare skal være enten høyt eller lavt, er mye lettere å skille fra støy enn et som kan ha en hvilken som helst verdi.\n\nI dette kapittelet skal vi forstå fundamentet. Vi ser forskjellen på analoge og digitale signaler, lærer hvordan tall skrives i totallssystemet og det heksadesimale systemet, og møter de logiske portene – AND, OR, NOT og XOR – som er de minste byggeklossene i ethvert digitalt system."
+    },
+    {
+      "id": "elektro-data-vg1-3-n-section1",
+      "type": "text",
+      "content": "## Analogt og digitalt – to slags signaler\n\nLa oss starte med å skille de to verdenene. Et **analogt signal** kan ha en hvilken som helst verdi innenfor et område. Temperaturen ute er et godt eksempel: den kan være 15,3 grader, eller 15,4, eller hvilken som helst verdi imellom. Lysstyrke, lydvolum og vekt er like glidende.\n\nEt **digitalt signal** har derimot bare to nivåer: høy eller lav, 1 eller 0. Vi kaller dem binære signaler. Hvorfor velger moderne datamaskiner det digitale? Fordi det er lettere å behandle, mer motstandsdyktig mot støy, enklere å lagre og kopiere uten feil, og kan representere all slags informasjon. I praksis defineres nivåene med spenning: en logisk 0 ligger gjerne mellom 0 og 0,8 V, mens en logisk 1 ligger mellom 2 og 5 V. Området imellom unngås, slik at signalet alltid er tydelig enten det ene eller det andre.\n\nTenk på forskjellen slik: en lysbryter er digital – den er på eller av. En lysdemper er analog – den kan stå i en hvilken som helst stilling. Begge styrer lys, men på helt forskjellige måter. Det er denne grunnleggende todelingen mellom det kontinuerlige og det diskrete som hele resten av kapittelet bygger på."
+    },
+    {
+      "id": "elektro-data-vg1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på analoge og digitale signaler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-3-n-quiz1-q0",
+            "task": "Hvilket av disse er et analogt signal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En bryter som er på eller av",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Temperaturen i et rom",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Et binært tall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En LED som lyser eller ikke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Temperatur kan ha en hvilken som helst verdi i et område, og er dermed analog. De andre har bare to tilstander."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz1-q1",
+            "task": "Hvor mange nivåer har et digitalt signal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Uendelig mange",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ti",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "To",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Tre",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et digitalt signal har bare to nivåer: høy/1 og lav/0."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz1-q2",
+            "task": "Hvorfor foretrekkes digitale signaler i datamaskiner?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi de kan ha uendelig mange verdier",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi de bruker mindre spenning enn alt annet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi de er analoge",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi de er mer motstandsdyktige mot støy og enkle å lagre og kopiere",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Digitale signaler skiller seg lett fra støy, og de er enkle å behandle, lagre og kopiere uten feil."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-3-n-section2",
+      "type": "text",
+      "content": "## Tall med bare nuller og enere\n\nNår en datamaskin bare kjenner 1 og 0, hvordan kan den da telle og regne? Svaret er det **binære tallsystemet**, base 2. Akkurat som i vårt vanlige titallssystem har hver posisjon en verdi – men i stedet for potenser av 10 bruker vi potenser av 2.\n\nLa oss lese binærtallet $1011_2$. Fra høyre representerer posisjonene $2^0, 2^1, 2^2, 2^3$, altså 1, 2, 4 og 8. Vi får $1 \\cdot 8 + 0 \\cdot 4 + 1 \\cdot 2 + 1 \\cdot 1 = 8 + 0 + 2 + 1 = 11$ i desimal. Et annet eksempel: $1101_2 = 8 + 4 + 0 + 1 = 13$. Slik oversetter vi fra binært til vanlige tall – bare legg sammen posisjonsverdiene der det står 1.\n\nDen andre veien, fra desimalt til binært, deler vi gjentatte ganger på 2 og noterer restene. Ta tallet 25: $25 \\div 2 = 12$ rest 1, $12 \\div 2 = 6$ rest 0, $6 \\div 2 = 3$ rest 0, $3 \\div 2 = 1$ rest 1, $1 \\div 2 = 0$ rest 1. Leser vi restene baklengs, får vi $25 = 11001_2$.\n\nBinærtall blir fort lange, så programmerere bruker ofte det **heksadesimale** systemet, base 16, som en kompakt snarvei. Det bruker sifrene 0–9 og bokstavene A–F, der A = 10, B = 11, og så videre opp til F = 15. Det fine er at fire binære siffer passer nøyaktig til ett heksadesimalt: $1011_2 = B_{16}$, og $FF_{16} = 255_{10} = 11111111_2$. Et tall som $2A_{16}$ blir $2 \\cdot 16 + 10 = 42$ i desimal, eller $101010_2$ i binær."
+    },
+    {
+      "id": "elektro-data-vg1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på tallsystemer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-3-n-quiz2-q0",
+            "task": "Hva er $1101_2$ i desimal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "11",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "13",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "15",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "26",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$1 \\cdot 8 + 1 \\cdot 4 + 0 \\cdot 2 + 1 \\cdot 1 = 13$."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz2-q1",
+            "task": "Hva er desimaltallet 15 i binær form?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$1111_2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1110_2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1101_2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10000_2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$15 = 8+4+2+1 = 1111_2$."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz2-q2",
+            "task": "Hvor mange binære siffer tilsvarer ett heksadesimalt siffer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fire",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Åtte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fire binære siffer dekker verdiene 0–15, akkurat som ett heksadesimalt siffer (0–F)."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz2-q3",
+            "task": "Hva er $2A_{16}$ i desimal?",
+            "options": [
+              {
+                "id": "b",
+                "text": "26",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "52",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "30",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "42",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$2A_{16} = 2 \\cdot 16 + 10 = 32 + 10 = 42$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-3-n-section3",
+      "type": "text",
+      "content": "## Portene som bestemmer\n\nNå har vi tallene, men hva er det som faktisk gjør noe med dem? Svaret er **logiske porter** – små elektroniske kretser som tar ett eller to binære signaler inn og gir ett binært signal ut. Det finnes noen få grunnleggende, og sammen kan de bygge hvilken som helst digital funksjon.\n\n**AND-porten** (OG) gir 1 bare hvis alle inngangene er 1. Tenk på en dør som krever både riktig kode OG nøkkel. **OR-porten** (ELLER) gir 1 hvis minst én inngang er 1 – som en alarm som skal gå hvis enten døren eller vinduet åpnes. **NOT-porten** (IKKE) snur signalet, så 0 blir 1 og 1 blir 0 – nyttig for en utelampe som skal tenne når det IKKE er lyst ute. Og **XOR-porten** (eksklusiv ELLER) gir 1 bare når inngangene er forskjellige; den skiller seg fra OR ved at $1 \\oplus 1 = 0$.\n\nFor å holde styr på hva en port gjør, bruker vi en sannhetstabell som lister opp utgangen for hver kombinasjon av innganger. For AND blir utgangen 1 kun i den ene raden der både A og B er 1. Resultatet av $1 \\text{ AND } 0$ er for eksempel 0, fordi ikke alle inngangene er 1.\n\nNår vi kobler porter sammen, kan vi løse ekte problemer. Tenk på en bil som bare skal starte hvis nøkkelen er i tenningen OG enten setebeltet er festet ELLER passasjersetet er tomt. Med inngangene N (nøkkel), S (setebelte) og T (tomt sete) blir uttrykket $\\text{Start} = N \\text{ AND } (S \\text{ OR } T)$. Vi trenger altså en OR-port for $(S \\text{ OR } T)$ og en AND-port som kombinerer dette med nøkkelsignalet. Bak alt dette ligger **boolsk algebra**, matematikken George Boole utviklet på 1800-tallet, med regler som De Morgans lover som lar oss forenkle slike uttrykk og bruke færrest mulig porter."
+    },
+    {
+      "id": "elektro-data-vg1-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på logiske porter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "elektro-data-vg1-3-n-quiz3-q0",
+            "task": "Hva er resultatet av $1 \\text{ AND } 0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "0",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Udefinert",
+                "isCorrect": false
+              }
+            ],
+            "solution": "AND gir 1 bare hvis alle innganger er 1. Siden den ene er 0, blir resultatet 0."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz3-q1",
+            "task": "Hva er forskjellen mellom OR og XOR?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "XOR gir 0 når begge inngangene er 1, mens OR gir 1",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "OR gir alltid 0",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "XOR har bare én inngang",
+                "isCorrect": false
+              }
+            ],
+            "solution": "OR gir 1 hvis minst én inngang er 1 (også når begge er 1). XOR gir 1 bare når inngangene er forskjellige, så $1 \\oplus 1 = 0$."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz3-q2",
+            "task": "Hvilken port trengs for en alarm som går hvis enten døren ELLER vinduet åpnes?",
+            "options": [
+              {
+                "id": "a",
+                "text": "AND-port",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "NOT-port",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "OR-port",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "XOR-port",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En OR-port gir 1 hvis minst én inngang (dør eller vindu) er aktivert."
+          },
+          {
+            "id": "elektro-data-vg1-3-n-quiz3-q3",
+            "task": "For bilen som starter med $\\text{Start} = N \\text{ AND } (S \\text{ OR } T)$, hvilke porter trengs?",
+            "options": [
+              {
+                "id": "b",
+                "text": "To NOT-porter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tre XOR-porter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare en AND-port",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En OR-port og en AND-port",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En OR-port lager $(S \\text{ OR } T)$, og en AND-port kombinerer resultatet med nøkkelsignalet N."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lagt grunnlaget for hele den digitale verdenen. **Analoge signaler** glir kontinuerlig, mens **digitale signaler** kjenner bare to nivåer – 1 og 0 – noe som gjør dem robuste mot støy og lette å lagre og kopiere. Tall skrives i det **binære** systemet med potenser av 2, der vi konverterer til desimalt ved å legge sammen posisjonsverdiene og til binært ved å dele gjentatte ganger på 2. Det **heksadesimale** systemet gir en kompakt skrivemåte, der fire binære siffer tilsvarer ett hex-siffer.\n\nDe **logiske portene** er byggeklossene: AND gir 1 når alle er 1, OR når minst én er 1, NOT inverterer, og XOR gir 1 når inngangene er forskjellige. Ved å koble porter sammen og bruke **boolsk algebra** kan vi designe alt fra en alarm til en bilstartlås – og til sjuende og sist hele datamaskiner."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,607 @@
-{"id":"r2-4-9-narrativ","courseId":"r2","chapterNumber":"4.9","title":"Derivasjon av trigonometriske funksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om fart i svingingane — kvifor (sin x)' = cos x og (cos x)' = −sin x, korleis kjerneregelen tek samansette uttrykk, og kva derivasjon avslører om rørsla til pendelen.","estimatedMinutes":36,"competenceGoals":["analysere og tolke ulike funksjonar ved å bruke derivasjon","derivere trigonometriske funksjonar","bruke kjerneregelen på samansette trigonometriske funksjonar","drøfte funksjonar med trigonometriske uttrykk"],"linkedChapterId":"r2-4-9","content":[{"id":"r2-4-9-n-intro","type":"text","content":"## Kor fort svingar bølgja?\n\nEin pendel svingar fram og tilbake i eit urverk. Du veit nøyaktig kvar han er til kvar tid — posisjonen følgjer ei cosinuskurve — men kor **fort** rører han seg? Og når akselererer han mest? Spørsmål om fart og endring er domenet til derivasjonen, og skal vi analysere alt som svingar — bølgjer, tonar, pendlar, straum — må vi kunne derivere dei trigonometriske funksjonane.\n\nDet er målet for denne forteljinga. Vi skal utleie dei tre grunnreglane: at $(\\sin x)' = \\cos x$, at $(\\cos x)' = -\\sin x$, og at $(\\tan x)' = \\frac{1}{\\cos^2 x}$. Undervegs avslører vi kvifor sinus og cosinus dansar så elegant rundt kvarandre under derivasjon, og kvifor det vesle minusteiknet i cosinusregelen er så lett å gløyme — og så viktig å hugse. Deretter koplar vi på kjerneregelen, slik at òg samansette funksjonar som $\\sin(2x)$, $\\cos(x^2)$ og $e^{\\sin x}$ lèt seg derivere. Til slutt brukar vi alt saman til funksjonsdrøfting — ekstremalpunkt, vendepunkt og tangentar — og vender tilbake til pendelen for å finne farten og akselerasjonen hans.\n\nÉin ting må på plass før vi startar: i heile dette kapitlet blir vinklar målte i **radianar**. Derivasjonsreglane gjeld berre då — det er sjølve grunnen til at radianar vart innførte. Med gradar ville kvar einaste formel fått ein stygg omrekningsfaktor på slep."},{"id":"r2-4-9-n-section1","type":"text","content":"## Dei tre grunnreglane — og kvifor dei stemmer\n\nAlt kviler på to grenseverdiar som kan lesast ut av einingssirkelen: $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$ og $\\lim_{x \\to 0} \\frac{1 - \\cos x}{x} = 0$. Den første seier at for små vinklar i radianar er $\\sin x \\approx x$ — bogen og høgda blir like — og det er nettopp her radianane gjer jobben sin. I gradar ville grensa blitt eit anna tal, og alle reglane nedanfor ville fått faktorar hengande ved seg.\n\nMed grenseverdiane i handa deriverer vi $\\sin x$ frå definisjonen. Differansekvotienten er $\\frac{\\sin(x+h) - \\sin x}{h}$, og addisjonsformelen $\\sin(x+h) = \\sin x\\cos h + \\cos x\\sin h$ lèt oss sortere: $\\sin x \\cdot \\frac{\\cos h - 1}{h} + \\cos x \\cdot \\frac{\\sin h}{h}$. Når $h \\to 0$ går første brøk mot $0$ og andre mot $1$, og att står\n\n$$(\\sin x)' = \\cos x$$\n\nSame manøver med addisjonsformelen for cosinus gjev $(\\cos x)' = -\\sin x$ — **med minus**. Ein vanleg feil er å gløyme minusteiknet; hugs: sinus gjev pluss cosinus, cosinus gjev minus sinus. For tangens brukar vi brøkregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$: teljaren blir $\\cos^2 x + \\sin^2 x = 1$, så\n\n$$(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$$\n\nReglane blir kombinerte fritt med dei du kan frå før. Lineære kombinasjonar: $(3\\sin x)' = 3\\cos x$ og $(-2\\cos x + 5)' = 2\\sin x$. Produktregelen: $(x\\sin x)' = \\sin x + x\\cos x$. Brøkregelen: $\\left(\\frac{\\sin x}{x}\\right)' = \\frac{x\\cos x - \\sin x}{x^2}$. Maskineriet er det same som alltid — berre med tre nye byggjeklossar."},{"id":"r2-4-9-n-quiz1","type":"exercise","exercise":{"id":"r2-4-9-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grunnreglane for derivasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-9-n-quiz1-q0","task":"Kva er $(\\sin x)'$?","options":[{"id":"a","text":"$-\\cos x$","isCorrect":false},{"id":"b","text":"$\\cos x$","isCorrect":true},{"id":"c","text":"$-\\sin x$","isCorrect":false},{"id":"d","text":"$\\tan x$","isCorrect":false}],"solution":"Den deriverte av sinus er cosinus: $(\\sin x)' = \\cos x$."},{"id":"r2-4-9-n-quiz1-q1","task":"Kva er $(\\cos x)'$?","options":[{"id":"a","text":"$\\sin x$","isCorrect":false},{"id":"b","text":"$\\cos x$","isCorrect":false},{"id":"c","text":"$-\\sin x$","isCorrect":true},{"id":"d","text":"$\\frac{1}{\\sin x}$","isCorrect":false}],"solution":"Hugs minusteiknet: $(\\cos x)' = -\\sin x$."},{"id":"r2-4-9-n-quiz1-q2","task":"Kva er $(\\tan x)'$?","options":[{"id":"a","text":"$\\frac{1}{\\cos^2 x}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{\\sin^2 x}$","isCorrect":false},{"id":"c","text":"$\\sec x$","isCorrect":false},{"id":"d","text":"$\\cot x$","isCorrect":false}],"solution":"Brøkregelen på $\\frac{\\sin x}{\\cos x}$ gjev $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$, som òg kan skrivast $1 + \\tan^2 x$."},{"id":"r2-4-9-n-quiz1-q3","task":"Kva er $\\lim_{x \\to 0} \\frac{\\sin x}{x}$ når $x$ blir målt i radianar?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$\\infty$","isCorrect":false},{"id":"c","text":"$\\frac{\\pi}{180}$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":true}],"solution":"For små vinklar i radianar er $\\sin x \\approx x$, så grensa er $1$. Dette er grunnen til at vi må bruke radianar i derivasjon."}]}},{"id":"r2-4-9-n-section2","type":"text","content":"## Kjerneregelen — derivasjon i fleire lag\n\nSvingingane i røynda kjem sjeldan som naken $\\sin x$. Ein pendel følgjer kanskje $\\cos(2t)$, ei modulert lydbølgje $\\sin(x^2)$, ei demping $e^{\\sin x}$. Felles for alle: ein funksjon **inni** ein annan. Då treng vi kjerneregelen — deriver det ytste laget, behald kjernen urørd, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$(\\sin u)' = \\cos u \\cdot u', \\qquad (\\cos u)' = -\\sin u \\cdot u', \\qquad (\\tan u)' = \\frac{u'}{\\cos^2 u}$$\n\nDei enklaste tilfella har lineær kjerne: $(\\sin 2x)' = 2\\cos 2x$, $(\\cos 3x)' = -3\\sin 3x$ og $(\\tan 5x)' = \\frac{5}{\\cos^2 5x}$ — konstanten hoppar ut framføre. Med rikare kjernar skjer det meir: $(\\sin(x^2))' = 2x\\cos(x^2)$, og $(\\cos(2x + 3))' = -2\\sin(2x + 3)$.\n\nNokre gonger er trigonometrien sjølv kjernen. I $\\sin^2 x = (\\sin x)^2$ er det ytste laget kvadratet: $(\\sin^2 x)' = 2\\sin x \\cdot \\cos x$, som dobbeltvinkelformelen kjenner att som $\\sin 2x$. I $\\sin(\\cos x)$ ligg cosinus innarst: den deriverte blir $\\cos(\\cos x) \\cdot (-\\sin x)$. Og kjerneregelen samarbeider gjerne med dei andre reglane: produktregelen gjev $(e^x\\sin x)' = e^x(\\sin x + \\cos x)$, eksponentialregelen gjev $(e^{\\sin x})' = \\cos x \\cdot e^{\\sin x}$, og logaritmen gjev $(\\ln(\\sin x))' = \\frac{\\cos x}{\\sin x} = \\cot x$ for $x \\in (0, \\pi)$.\n\nSjølv tre lag går fint, berre du skrellar dei utanfrå og inn: $f(x) = \\sin^3(2x)$ har laga $u^3$, $\\sin v$ og $2x$, og derivasjonen gjev $3\\sin^2(2x) \\cdot 2\\cos(2x) = 6\\sin^2(2x)\\cos(2x)$. Tenk løk: eitt lag om gongen."},{"id":"r2-4-9-n-quiz2","type":"exercise","exercise":{"id":"r2-4-9-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kjerneregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-9-n-quiz2-q0","task":"Kva er $(\\sin 2x)'$?","options":[{"id":"a","text":"$2\\cos 2x$","isCorrect":true},{"id":"b","text":"$\\cos 2x$","isCorrect":false},{"id":"c","text":"$-2\\cos 2x$","isCorrect":false},{"id":"d","text":"$2\\sin 2x$","isCorrect":false}],"solution":"Kjernen er $u = 2x$ med $u' = 2$: $(\\sin 2x)' = \\cos 2x \\cdot 2 = 2\\cos 2x$."},{"id":"r2-4-9-n-quiz2-q1","task":"Kva er $\\left(\\cos(x^2)\\right)'$?","options":[{"id":"a","text":"$-\\sin(x^2)$","isCorrect":false},{"id":"b","text":"$2x\\sin(x^2)$","isCorrect":false},{"id":"c","text":"$-2x\\sin(x^2)$","isCorrect":true},{"id":"d","text":"$-\\sin(2x)$","isCorrect":false}],"solution":"Kjernen er $u = x^2$ med $u' = 2x$: $(\\cos(x^2))' = -\\sin(x^2) \\cdot 2x = -2x\\sin(x^2)$."},{"id":"r2-4-9-n-quiz2-q2","task":"Kva er $(\\sin^2 x)'$?","options":[{"id":"a","text":"$2\\cos^2 x$","isCorrect":false},{"id":"b","text":"$2\\sin x\\cos x$","isCorrect":true},{"id":"c","text":"$\\cos^2 x$","isCorrect":false},{"id":"d","text":"$2\\sin x$","isCorrect":false}],"solution":"Ytste laget er kvadratet: $2\\sin x \\cdot (\\sin x)' = 2\\sin x\\cos x$, som er det same som $\\sin 2x$."},{"id":"r2-4-9-n-quiz2-q3","task":"Kva er $\\left(e^{\\sin x}\\right)'$?","options":[{"id":"a","text":"$e^{\\sin x}$","isCorrect":false},{"id":"b","text":"$e^{\\cos x}$","isCorrect":false},{"id":"c","text":"$\\sin x \\cdot e^{\\sin x}$","isCorrect":false},{"id":"d","text":"$\\cos x \\cdot e^{\\sin x}$","isCorrect":true}],"solution":"$(e^u)' = e^u \\cdot u'$ med $u = \\sin x$ gjev $e^{\\sin x} \\cdot \\cos x$."}]}},{"id":"r2-4-9-n-section3","type":"text","content":"## Drøfting: toppar, botnar og vendepunkt\n\nMed derivasjonsreglane på plass kan vi drøfte trigonometriske funksjonar akkurat som alle andre: finn definisjonsmengda, løys $f'(x) = 0$ for stasjonære punkt, klassifiser dei med $f''$ eller forteiknsskjema, og finn vendepunkt der $f''$ skiftar forteikn. Det einaste nye er at likningane blir trigonometriske — og dei meistrar du no. Eit godt råd: avgrens deg gjerne til éin periode først; resten følgjer av periodisiteten.\n\nTa $f(x) = \\sin x + \\cos x$ på $[0, 2\\pi]$. Den deriverte er $f'(x) = \\cos x - \\sin x$, og $f'(x) = 0$ gjev $\\tan x = 1$, altså $x = \\frac{\\pi}{4}$ og $x = \\frac{5\\pi}{4}$. Andrederiverten $f''(x) = -\\sin x - \\cos x$ feller dommen: $f''\\left(\\frac{\\pi}{4}\\right) = -\\sqrt{2} < 0$ gjev maksimum med verdi $f\\left(\\frac{\\pi}{4}\\right) = \\sqrt{2}$, medan $f''\\left(\\frac{5\\pi}{4}\\right) = \\sqrt{2} > 0$ gjev minimum med verdi $-\\sqrt{2}$. (Kjenner du att $\\sqrt{2}$? Det er nettopp $R$ frå omskrivinga $\\sin x + \\cos x = \\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$ — to kapittel møtest.)\n\nVendepunkt finn vi i forteiknsskiftet til $f''$. For $f(x) = \\sin x$ er $f''(x) = -\\sin x$, som er null i $x = n\\pi$ og skiftar forteikn der: vendepunkt i $(\\pi, 0)$ innanfor $[0, 2\\pi]$ (randpunkta blir ikkje rekna med). For $f(x) = x + \\sin x$ er $f''(x) = -\\sin x$ negativ på $(0, \\pi)$ og positiv på $(\\pi, 2\\pi)$ — grafen er konkav først, så konveks, med vendepunkt i $(\\pi, \\pi)$.\n\nTangentar følgjer den vanlege oppskrifta $y = f(a) + f'(a)(x - a)$. For $f(x) = \\cos 2x$ i $x = \\frac{\\pi}{6}$: punktet er $\\left(\\frac{\\pi}{6}, \\frac{1}{2}\\right)$, stigninga er $f'\\left(\\frac{\\pi}{6}\\right) = -2\\sin\\frac{\\pi}{3} = -\\sqrt{3}$, og tangenten blir $y = -\\sqrt{3}x + \\frac{\\sqrt{3}\\pi}{6} + \\frac{1}{2}$."},{"id":"r2-4-9-n-quiz3","type":"exercise","exercise":{"id":"r2-4-9-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på funksjonsdrøfting:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-9-n-quiz3-q0","task":"Kvar har $f(x) = \\sin x + \\cos x$ dei stasjonære punkta sine?","options":[{"id":"a","text":"Der $\\tan x = -1$","isCorrect":false},{"id":"b","text":"Der $\\tan x = 1$","isCorrect":true},{"id":"c","text":"Der $\\sin x = 0$","isCorrect":false},{"id":"d","text":"Der $\\cos x = 0$","isCorrect":false}],"solution":"$f'(x) = \\cos x - \\sin x = 0$ gjev $\\sin x = \\cos x$, altså $\\tan x = 1$ og $x = \\frac{\\pi}{4} + n\\pi$."},{"id":"r2-4-9-n-quiz3-q1","task":"Kva er den største verdien til $f(x) = \\sin x + \\cos x$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$\\frac{3}{2}$","isCorrect":false},{"id":"d","text":"$\\sqrt{2}$","isCorrect":true}],"solution":"Maksimum i $x = \\frac{\\pi}{4}$: $f\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{2}}{2} = \\sqrt{2}$."},{"id":"r2-4-9-n-quiz3-q2","task":"Kvar har $f(x) = \\sin x$ vendepunktet sitt i $(0, 2\\pi)$?","options":[{"id":"a","text":"$x = \\pi$","isCorrect":true},{"id":"b","text":"$x = \\frac{\\pi}{2}$","isCorrect":false},{"id":"c","text":"$x = \\frac{3\\pi}{2}$","isCorrect":false},{"id":"d","text":"$x = \\frac{\\pi}{4}$","isCorrect":false}],"solution":"$f''(x) = -\\sin x$ er null og skiftar forteikn i $x = \\pi$, så vendepunktet er $(\\pi, 0)$."}]}},{"id":"r2-4-9-n-section4","type":"text","content":"## Pendelen — harmonisk rørsle\n\nTilbake til urverket. Posisjonen til pendelen er $s(t) = 3\\cos(2t)$ cm, der $t$ er tid i sekund. No kan vi endeleg svare på spørsmåla frå innleiinga.\n\n**Farten** er den deriverte av posisjonen. Kjerneregelen gjev $v(t) = s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s. **Akselerasjonen** er den deriverte av farten: $a(t) = v'(t) = -12\\cos(2t)$ cm/s².\n\nOg her openberrar det seg noko vakkert. Samanlikn akselerasjonen med posisjonen: $a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$. Akselerasjonen er proporsjonal med utslaget, med motsett forteikn — jo lenger ut pendelen er, dess hardare blir han trekt tilbake mot midten. Dette kjenneteiknet, $a = -k \\cdot s$, definerer det fysikarane kallar **harmonisk rørsle**, og det er inga tilfeldigheit at sinus og cosinus skildrar henne: dei er nettopp funksjonane som reproduserer seg sjølve med minusforteikn etter to derivasjonar.\n\nNår står pendelen stille? Farten er null når $\\sin(2t) = 0$, altså $2t = n\\pi$, som gjev $t = \\frac{n\\pi}{2}$: ved $t = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, \\ldots$ sekund. Set du inn, ser du at pendelen då er i ytterstillingane $s = \\pm 3$ cm. Og motsett: farten er størst, $|v| = 6$ cm/s, når $|\\sin(2t)| = 1$ — det er idet pendelen susar gjennom likevektspunktet $s = 0$. Stille ytst, raskast i midten: derivasjonen har gjort løyndomane til pendelen synlege, og same analyse gjeld for kvar svinging du måtte møte — frå gitarstrenger til vekselstraum."},{"id":"r2-4-9-n-quiz4","type":"exercise","exercise":{"id":"r2-4-9-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på harmonisk rørsle:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-9-n-quiz4-q0","task":"Posisjonen til pendelen er $s(t) = 3\\cos(2t)$. Kva er farten $v(t) = s'(t)$?","options":[{"id":"a","text":"$-3\\sin(2t)$","isCorrect":false},{"id":"b","text":"$6\\sin(2t)$","isCorrect":false},{"id":"c","text":"$-6\\sin(2t)$","isCorrect":true},{"id":"d","text":"$-6\\cos(2t)$","isCorrect":false}],"solution":"Kjerneregelen: $s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s."},{"id":"r2-4-9-n-quiz4-q1","task":"Kva samanheng gjeld mellom akselerasjonen og posisjonen for $s(t) = 3\\cos(2t)$?","options":[{"id":"a","text":"$a(t) = 4s(t)$","isCorrect":false},{"id":"b","text":"$a(t) = -4s(t)$","isCorrect":true},{"id":"c","text":"$a(t) = -2s(t)$","isCorrect":false},{"id":"d","text":"$a(t) = s(t)$","isCorrect":false}],"solution":"$a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$ — kjenneteiknet på harmonisk rørsle."},{"id":"r2-4-9-n-quiz4-q2","task":"Når er farten til pendelen størst?","options":[{"id":"a","text":"I ytterstillingane","isCorrect":false},{"id":"b","text":"Ved $t = 0$","isCorrect":false},{"id":"c","text":"Når akselerasjonen er størst","isCorrect":false},{"id":"d","text":"Når han passerer likevektspunktet $s = 0$","isCorrect":true}],"solution":"$|v| = 6$ cm/s når $|\\sin 2t| = 1$, og då er $\\cos 2t = 0$, altså $s = 0$: pendelen er raskast gjennom midten."}]}},{"id":"r2-4-9-n-summary","type":"text","content":"## Oppsummering\n\nVi starta med ein pendel og eit spørsmål om fart, og enda med full kontroll over derivasjon av alt som svingar. Grunnmuren var grenseverdien $\\lim_{x \\to 0}\\frac{\\sin x}{x} = 1$ — gyldig berre i radianar, og sjølve grunnen til at radianar er vinkelmålet til derivasjonen. Frå den og addisjonsformlane følgde dei tre reglane: $(\\sin x)' = \\cos x$, $(\\cos x)' = -\\sin x$ (gløym aldri minusteiknet!) og $(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$.\n\nKjerneregelen utvida repertoaret til samansette funksjonar: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$, slik at $(\\sin 2x)' = 2\\cos 2x$, $(\\cos(x^2))' = -2x\\sin(x^2)$ og $(\\sin^2 x)' = 2\\sin x\\cos x = \\sin 2x$. Saman med produkt-, brøk- og eksponentialreglane deriverte vi alt frå $e^x\\sin x$ til trelagsfunksjonen $\\sin^3(2x)$ — alltid lag for lag, utanfrå og inn.\n\nDrøftinga følgde kjend oppskrift med trigonometriske likningar som nytt krydder: $f(x) = \\sin x + \\cos x$ fekk maksimum $\\sqrt{2}$ i $x = \\frac{\\pi}{4}$ og minimum $-\\sqrt{2}$ i $x = \\frac{5\\pi}{4}$, sinuskurva fekk vendepunkt i $(\\pi, 0)$, og tangentar følgde $y = f(a) + f'(a)(x - a)$ som før.\n\nTil slutt gav pendelen oss løna frå fysikken for strevet: posisjon $s(t) = 3\\cos(2t)$ gav fart $v(t) = -6\\sin(2t)$ og akselerasjon $a(t) = -4s(t)$ — harmonisk rørsle, der svinginga er som raskast gjennom likevektspunktet og står stille ytst. Sinus og cosinus deriverer seg i ring, og nettopp difor er dei naturen sitt val for alt som svingar."}],"exercises":[],"_meta":{"sourceHash":"2c0a922159c9a45c","translatedAt":"2026-06-20T00:35:45.544Z","model":"claude-code-agent","strings":101,"tm":{"9a2a011b3c94cfd9":"Derivasjon av trigonometriske funksjonar","b195b06d1ed59702":"Narrativ versjon","9c016807b09bd6e8":"Ei forteljing om fart i svingingane — kvifor (sin x)' = cos x og (cos x)' = −sin x, korleis kjerneregelen tek samansette uttrykk, og kva derivasjon avslører om rørsla til pendelen.","ea0304d29c984bdb":"analysere og tolke ulike funksjonar ved å bruke derivasjon","3dcc754373fb0d62":"derivere trigonometriske funksjonar","6602ff5ad0d3d715":"bruke kjerneregelen på samansette trigonometriske funksjonar","51c4e56068d8f5e9":"drøfte funksjonar med trigonometriske uttrykk","11bba2bdd37e72ff":"## Kor fort svingar bølgja?\n\nEin pendel svingar fram og tilbake i eit urverk. Du veit nøyaktig kvar han er til kvar tid — posisjonen følgjer ei cosinuskurve — men kor **fort** rører han seg? Og når akselererer han mest? Spørsmål om fart og endring er domenet til derivasjonen, og skal vi analysere alt som svingar — bølgjer, tonar, pendlar, straum — må vi kunne derivere dei trigonometriske funksjonane.\n\nDet er målet for denne forteljinga. Vi skal utleie dei tre grunnreglane: at $(\\sin x)' = \\cos x$, at $(\\cos x)' = -\\sin x$, og at $(\\tan x)' = \\frac{1}{\\cos^2 x}$. Undervegs avslører vi kvifor sinus og cosinus dansar så elegant rundt kvarandre under derivasjon, og kvifor det vesle minusteiknet i cosinusregelen er så lett å gløyme — og så viktig å hugse. Deretter koplar vi på kjerneregelen, slik at òg samansette funksjonar som $\\sin(2x)$, $\\cos(x^2)$ og $e^{\\sin x}$ lèt seg derivere. Til slutt brukar vi alt saman til funksjonsdrøfting — ekstremalpunkt, vendepunkt og tangentar — og vender tilbake til pendelen for å finne farten og akselerasjonen hans.\n\nÉin ting må på plass før vi startar: i heile dette kapitlet blir vinklar målte i **radianar**. Derivasjonsreglane gjeld berre då — det er sjølve grunnen til at radianar vart innførte. Med gradar ville kvar einaste formel fått ein stygg omrekningsfaktor på slep.","f3e19c878330a559":"## Dei tre grunnreglane — og kvifor dei stemmer\n\nAlt kviler på to grenseverdiar som kan lesast ut av einingssirkelen: $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$ og $\\lim_{x \\to 0} \\frac{1 - \\cos x}{x} = 0$. Den første seier at for små vinklar i radianar er $\\sin x \\approx x$ — bogen og høgda blir like — og det er nettopp her radianane gjer jobben sin. I gradar ville grensa blitt eit anna tal, og alle reglane nedanfor ville fått faktorar hengande ved seg.\n\nMed grenseverdiane i handa deriverer vi $\\sin x$ frå definisjonen. Differansekvotienten er $\\frac{\\sin(x+h) - \\sin x}{h}$, og addisjonsformelen $\\sin(x+h) = \\sin x\\cos h + \\cos x\\sin h$ lèt oss sortere: $\\sin x \\cdot \\frac{\\cos h - 1}{h} + \\cos x \\cdot \\frac{\\sin h}{h}$. Når $h \\to 0$ går første brøk mot $0$ og andre mot $1$, og att står\n\n$$(\\sin x)' = \\cos x$$\n\nSame manøver med addisjonsformelen for cosinus gjev $(\\cos x)' = -\\sin x$ — **med minus**. Ein vanleg feil er å gløyme minusteiknet; hugs: sinus gjev pluss cosinus, cosinus gjev minus sinus. For tangens brukar vi brøkregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$: teljaren blir $\\cos^2 x + \\sin^2 x = 1$, så\n\n$$(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$$\n\nReglane blir kombinerte fritt med dei du kan frå før. Lineære kombinasjonar: $(3\\sin x)' = 3\\cos x$ og $(-2\\cos x + 5)' = 2\\sin x$. Produktregelen: $(x\\sin x)' = \\sin x + x\\cos x$. Brøkregelen: $\\left(\\frac{\\sin x}{x}\\right)' = \\frac{x\\cos x - \\sin x}{x^2}$. Maskineriet er det same som alltid — berre med tre nye byggjeklossar.","b99dd85f8ed0f893":"Test deg sjølv på grunnreglane for derivasjon:","4097889236a2af26":"placeholder","b3b8bac2201b45f3":"Kva er $(\\sin x)'$?","307ec2110fbc04ef":"$-\\cos x$","67e2c6816e246082":"$\\cos x$","e7bfd7b18f267039":"$-\\sin x$","9d98edf6a3166207":"$\\tan x$","cde7d2ddaeed6ec8":"Den deriverte av sinus er cosinus: $(\\sin x)' = \\cos x$.","b5afbcb84c5ab2d5":"Kva er $(\\cos x)'$?","7105366b47d6451c":"$\\sin x$","38d267aa1d47a2c5":"$\\frac{1}{\\sin x}$","184318602392a981":"Hugs minusteiknet: $(\\cos x)' = -\\sin x$.","062e26b816a915fe":"Kva er $(\\tan x)'$?","4f25a237b89b7e2a":"$\\frac{1}{\\cos^2 x}$","8017b4e57d4980a9":"$\\frac{1}{\\sin^2 x}$","890804eeb279c77c":"$\\sec x$","585d24043c8c3c7e":"$\\cot x$","c860f493fdc24a6c":"Brøkregelen på $\\frac{\\sin x}{\\cos x}$ gjev $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$, som òg kan skrivast $1 + \\tan^2 x$.","1f6fef14b17e12ad":"Kva er $\\lim_{x \\to 0} \\frac{\\sin x}{x}$ når $x$ blir målt i radianar?","d249caca6d7f42a5":"$\\infty$","31788aaef292162f":"$\\frac{\\pi}{180}$","65a8e72397d932e7":"For små vinklar i radianar er $\\sin x \\approx x$, så grensa er $1$. Dette er grunnen til at vi må bruke radianar i derivasjon.","f8db0cfb69ceaa46":"## Kjerneregelen — derivasjon i fleire lag\n\nSvingingane i røynda kjem sjeldan som naken $\\sin x$. Ein pendel følgjer kanskje $\\cos(2t)$, ei modulert lydbølgje $\\sin(x^2)$, ei demping $e^{\\sin x}$. Felles for alle: ein funksjon **inni** ein annan. Då treng vi kjerneregelen — deriver det ytste laget, behald kjernen urørd, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$(\\sin u)' = \\cos u \\cdot u', \\qquad (\\cos u)' = -\\sin u \\cdot u', \\qquad (\\tan u)' = \\frac{u'}{\\cos^2 u}$$\n\nDei enklaste tilfella har lineær kjerne: $(\\sin 2x)' = 2\\cos 2x$, $(\\cos 3x)' = -3\\sin 3x$ og $(\\tan 5x)' = \\frac{5}{\\cos^2 5x}$ — konstanten hoppar ut framføre. Med rikare kjernar skjer det meir: $(\\sin(x^2))' = 2x\\cos(x^2)$, og $(\\cos(2x + 3))' = -2\\sin(2x + 3)$.\n\nNokre gonger er trigonometrien sjølv kjernen. I $\\sin^2 x = (\\sin x)^2$ er det ytste laget kvadratet: $(\\sin^2 x)' = 2\\sin x \\cdot \\cos x$, som dobbeltvinkelformelen kjenner att som $\\sin 2x$. I $\\sin(\\cos x)$ ligg cosinus innarst: den deriverte blir $\\cos(\\cos x) \\cdot (-\\sin x)$. Og kjerneregelen samarbeider gjerne med dei andre reglane: produktregelen gjev $(e^x\\sin x)' = e^x(\\sin x + \\cos x)$, eksponentialregelen gjev $(e^{\\sin x})' = \\cos x \\cdot e^{\\sin x}$, og logaritmen gjev $(\\ln(\\sin x))' = \\frac{\\cos x}{\\sin x} = \\cot x$ for $x \\in (0, \\pi)$.\n\nSjølv tre lag går fint, berre du skrellar dei utanfrå og inn: $f(x) = \\sin^3(2x)$ har laga $u^3$, $\\sin v$ og $2x$, og derivasjonen gjev $3\\sin^2(2x) \\cdot 2\\cos(2x) = 6\\sin^2(2x)\\cos(2x)$. Tenk løk: eitt lag om gongen.","2dc62059be68345b":"Test deg sjølv på kjerneregelen:","ca0fee5554687aff":"Kva er $(\\sin 2x)'$?","5b0ba139d8f58f50":"$2\\cos 2x$","cd790c06460e12cc":"$\\cos 2x$","e3efa5500e33acdb":"$-2\\cos 2x$","f843703fdb6b89e4":"$2\\sin 2x$","d1b28d102da48869":"Kjernen er $u = 2x$ med $u' = 2$: $(\\sin 2x)' = \\cos 2x \\cdot 2 = 2\\cos 2x$.","0756818d007a1ffd":"Kva er $\\left(\\cos(x^2)\\right)'$?","1f014111ee5e0a3a":"$-\\sin(x^2)$","4431d9ccc8d4bb27":"$2x\\sin(x^2)$","ecb23279781ab226":"$-2x\\sin(x^2)$","01e0ffc7519de63a":"$-\\sin(2x)$","203d57c3237b6a07":"Kjernen er $u = x^2$ med $u' = 2x$: $(\\cos(x^2))' = -\\sin(x^2) \\cdot 2x = -2x\\sin(x^2)$.","ed53831f416c318d":"Kva er $(\\sin^2 x)'$?","3c7acfca596b3802":"$2\\cos^2 x$","c6b121f052ddd25f":"$2\\sin x\\cos x$","f751559f04212d82":"$\\cos^2 x$","fb06b029d354bb5d":"$2\\sin x$","2fe638e2daca27f4":"Ytste laget er kvadratet: $2\\sin x \\cdot (\\sin x)' = 2\\sin x\\cos x$, som er det same som $\\sin 2x$.","5a435fd9b1b171b1":"Kva er $\\left(e^{\\sin x}\\right)'$?","cee3abcc9683e8e7":"$e^{\\sin x}$","3b4f59046f68b665":"$e^{\\cos x}$","a2e11c13a90d70bb":"$\\sin x \\cdot e^{\\sin x}$","7d5ff8027c0969e0":"$\\cos x \\cdot e^{\\sin x}$","b46c0a2a1ebcc95f":"$(e^u)' = e^u \\cdot u'$ med $u = \\sin x$ gjev $e^{\\sin x} \\cdot \\cos x$.","dca06af4389a913e":"## Drøfting: toppar, botnar og vendepunkt\n\nMed derivasjonsreglane på plass kan vi drøfte trigonometriske funksjonar akkurat som alle andre: finn definisjonsmengda, løys $f'(x) = 0$ for stasjonære punkt, klassifiser dei med $f''$ eller forteiknsskjema, og finn vendepunkt der $f''$ skiftar forteikn. Det einaste nye er at likningane blir trigonometriske — og dei meistrar du no. Eit godt råd: avgrens deg gjerne til éin periode først; resten følgjer av periodisiteten.\n\nTa $f(x) = \\sin x + \\cos x$ på $[0, 2\\pi]$. Den deriverte er $f'(x) = \\cos x - \\sin x$, og $f'(x) = 0$ gjev $\\tan x = 1$, altså $x = \\frac{\\pi}{4}$ og $x = \\frac{5\\pi}{4}$. Andrederiverten $f''(x) = -\\sin x - \\cos x$ feller dommen: $f''\\left(\\frac{\\pi}{4}\\right) = -\\sqrt{2} < 0$ gjev maksimum med verdi $f\\left(\\frac{\\pi}{4}\\right) = \\sqrt{2}$, medan $f''\\left(\\frac{5\\pi}{4}\\right) = \\sqrt{2} > 0$ gjev minimum med verdi $-\\sqrt{2}$. (Kjenner du att $\\sqrt{2}$? Det er nettopp $R$ frå omskrivinga $\\sin x + \\cos x = \\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$ — to kapittel møtest.)\n\nVendepunkt finn vi i forteiknsskiftet til $f''$. For $f(x) = \\sin x$ er $f''(x) = -\\sin x$, som er null i $x = n\\pi$ og skiftar forteikn der: vendepunkt i $(\\pi, 0)$ innanfor $[0, 2\\pi]$ (randpunkta blir ikkje rekna med). For $f(x) = x + \\sin x$ er $f''(x) = -\\sin x$ negativ på $(0, \\pi)$ og positiv på $(\\pi, 2\\pi)$ — grafen er konkav først, så konveks, med vendepunkt i $(\\pi, \\pi)$.\n\nTangentar følgjer den vanlege oppskrifta $y = f(a) + f'(a)(x - a)$. For $f(x) = \\cos 2x$ i $x = \\frac{\\pi}{6}$: punktet er $\\left(\\frac{\\pi}{6}, \\frac{1}{2}\\right)$, stigninga er $f'\\left(\\frac{\\pi}{6}\\right) = -2\\sin\\frac{\\pi}{3} = -\\sqrt{3}$, og tangenten blir $y = -\\sqrt{3}x + \\frac{\\sqrt{3}\\pi}{6} + \\frac{1}{2}$.","18703f1ec565d94d":"Test deg sjølv på funksjonsdrøfting:","6af71f5ec92639e4":"Kvar har $f(x) = \\sin x + \\cos x$ dei stasjonære punkta sine?","1cbdf6c34c40b4eb":"Der $\\tan x = -1$","240ff82fb05176db":"Der $\\tan x = 1$","7ac91d5603564d4d":"Der $\\sin x = 0$","ac76537634cc8fe2":"Der $\\cos x = 0$","1ac5c6fc01c723fe":"$f'(x) = \\cos x - \\sin x = 0$ gjev $\\sin x = \\cos x$, altså $\\tan x = 1$ og $x = \\frac{\\pi}{4} + n\\pi$.","baee17d0cebad2e5":"Kva er den største verdien til $f(x) = \\sin x + \\cos x$?","9663be320a691f04":"$\\frac{3}{2}$","17b0fe9bda962747":"$\\sqrt{2}$","207a9835636f8fd5":"Maksimum i $x = \\frac{\\pi}{4}$: $f\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{2}}{2} = \\sqrt{2}$.","b55cca296db93a95":"Kvar har $f(x) = \\sin x$ vendepunktet sitt i $(0, 2\\pi)$?","a3f69742016ac4f6":"$x = \\pi$","9d8cfb68d174e589":"$x = \\frac{\\pi}{2}$","ee176f815f11d21b":"$x = \\frac{3\\pi}{2}$","3e9240496f54c4fd":"$x = \\frac{\\pi}{4}$","cab0b75301bc4d7e":"$f''(x) = -\\sin x$ er null og skiftar forteikn i $x = \\pi$, så vendepunktet er $(\\pi, 0)$.","4ad100fc2cf14e9d":"## Pendelen — harmonisk rørsle\n\nTilbake til urverket. Posisjonen til pendelen er $s(t) = 3\\cos(2t)$ cm, der $t$ er tid i sekund. No kan vi endeleg svare på spørsmåla frå innleiinga.\n\n**Farten** er den deriverte av posisjonen. Kjerneregelen gjev $v(t) = s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s. **Akselerasjonen** er den deriverte av farten: $a(t) = v'(t) = -12\\cos(2t)$ cm/s².\n\nOg her openberrar det seg noko vakkert. Samanlikn akselerasjonen med posisjonen: $a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$. Akselerasjonen er proporsjonal med utslaget, med motsett forteikn — jo lenger ut pendelen er, dess hardare blir han trekt tilbake mot midten. Dette kjenneteiknet, $a = -k \\cdot s$, definerer det fysikarane kallar **harmonisk rørsle**, og det er inga tilfeldigheit at sinus og cosinus skildrar henne: dei er nettopp funksjonane som reproduserer seg sjølve med minusforteikn etter to derivasjonar.\n\nNår står pendelen stille? Farten er null når $\\sin(2t) = 0$, altså $2t = n\\pi$, som gjev $t = \\frac{n\\pi}{2}$: ved $t = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, \\ldots$ sekund. Set du inn, ser du at pendelen då er i ytterstillingane $s = \\pm 3$ cm. Og motsett: farten er størst, $|v| = 6$ cm/s, når $|\\sin(2t)| = 1$ — det er idet pendelen susar gjennom likevektspunktet $s = 0$. Stille ytst, raskast i midten: derivasjonen har gjort løyndomane til pendelen synlege, og same analyse gjeld for kvar svinging du måtte møte — frå gitarstrenger til vekselstraum.","f5284a6ed236558a":"Test deg sjølv på harmonisk rørsle:","022c287b0019147e":"Posisjonen til pendelen er $s(t) = 3\\cos(2t)$. Kva er farten $v(t) = s'(t)$?","07039675e576c005":"$-3\\sin(2t)$","0113ceb2052bc0c3":"$6\\sin(2t)$","5c1eed820a7e9e47":"$-6\\sin(2t)$","b147f75264236e30":"$-6\\cos(2t)$","466afba52d571757":"Kjerneregelen: $s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s.","1c209d7736cdf08d":"Kva samanheng gjeld mellom akselerasjonen og posisjonen for $s(t) = 3\\cos(2t)$?","cf2248cb0a061930":"$a(t) = 4s(t)$","764b32dd29ecf1e5":"$a(t) = -4s(t)$","dbe399b0c13cbc4f":"$a(t) = -2s(t)$","eb678132a9e388de":"$a(t) = s(t)$","1384333e227ac390":"$a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$ — kjenneteiknet på harmonisk rørsle.","1a8146f844565813":"Når er farten til pendelen størst?","5c5d154ba2a1ab6a":"I ytterstillingane","b7b523699da991f8":"Ved $t = 0$","a0cefbd7e4a3237a":"Når akselerasjonen er størst","d2ecdc59605a9e8b":"Når han passerer likevektspunktet $s = 0$","ff43b063981b0196":"$|v| = 6$ cm/s når $|\\sin 2t| = 1$, og då er $\\cos 2t = 0$, altså $s = 0$: pendelen er raskast gjennom midten.","bcfdd2441ec84dda":"## Oppsummering\n\nVi starta med ein pendel og eit spørsmål om fart, og enda med full kontroll over derivasjon av alt som svingar. Grunnmuren var grenseverdien $\\lim_{x \\to 0}\\frac{\\sin x}{x} = 1$ — gyldig berre i radianar, og sjølve grunnen til at radianar er vinkelmålet til derivasjonen. Frå den og addisjonsformlane følgde dei tre reglane: $(\\sin x)' = \\cos x$, $(\\cos x)' = -\\sin x$ (gløym aldri minusteiknet!) og $(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$.\n\nKjerneregelen utvida repertoaret til samansette funksjonar: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$, slik at $(\\sin 2x)' = 2\\cos 2x$, $(\\cos(x^2))' = -2x\\sin(x^2)$ og $(\\sin^2 x)' = 2\\sin x\\cos x = \\sin 2x$. Saman med produkt-, brøk- og eksponentialreglane deriverte vi alt frå $e^x\\sin x$ til trelagsfunksjonen $\\sin^3(2x)$ — alltid lag for lag, utanfrå og inn.\n\nDrøftinga følgde kjend oppskrift med trigonometriske likningar som nytt krydder: $f(x) = \\sin x + \\cos x$ fekk maksimum $\\sqrt{2}$ i $x = \\frac{\\pi}{4}$ og minimum $-\\sqrt{2}$ i $x = \\frac{5\\pi}{4}$, sinuskurva fekk vendepunkt i $(\\pi, 0)$, og tangentar følgde $y = f(a) + f'(a)(x - a)$ som før.\n\nTil slutt gav pendelen oss løna frå fysikken for strevet: posisjon $s(t) = 3\\cos(2t)$ gav fart $v(t) = -6\\sin(2t)$ og akselerasjon $a(t) = -4s(t)$ — harmonisk rørsle, der svinginga er som raskast gjennom likevektspunktet og står stille ytst. Sinus og cosinus deriverer seg i ring, og nettopp difor er dei naturen sitt val for alt som svingar."}}}
+{
+  "id": "r2-4-9-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "4.9",
+  "title": "Derivasjon av trigonometriske funksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om fart i svingingane — kvifor (sin x)' = cos x og (cos x)' = −sin x, korleis kjerneregelen tek samansette uttrykk, og kva derivasjon avslører om rørsla til pendelen.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "analysere og tolke ulike funksjonar ved å bruke derivasjon",
+    "derivere trigonometriske funksjonar",
+    "bruke kjerneregelen på samansette trigonometriske funksjonar",
+    "drøfte funksjonar med trigonometriske uttrykk"
+  ],
+  "linkedChapterId": "r2-4-9",
+  "content": [
+    {
+      "id": "r2-4-9-n-intro",
+      "type": "text",
+      "content": "## Kor fort svingar bølgja?\n\nEin pendel svingar fram og tilbake i eit urverk. Du veit nøyaktig kvar han er til kvar tid — posisjonen følgjer ei cosinuskurve — men kor **fort** rører han seg? Og når akselererer han mest? Spørsmål om fart og endring er domenet til derivasjonen, og skal vi analysere alt som svingar — bølgjer, tonar, pendlar, straum — må vi kunne derivere dei trigonometriske funksjonane.\n\nDet er målet for denne forteljinga. Vi skal utleie dei tre grunnreglane: at $(\\sin x)' = \\cos x$, at $(\\cos x)' = -\\sin x$, og at $(\\tan x)' = \\frac{1}{\\cos^2 x}$. Undervegs avslører vi kvifor sinus og cosinus dansar så elegant rundt kvarandre under derivasjon, og kvifor det vesle minusteiknet i cosinusregelen er så lett å gløyme — og så viktig å hugse. Deretter koplar vi på kjerneregelen, slik at òg samansette funksjonar som $\\sin(2x)$, $\\cos(x^2)$ og $e^{\\sin x}$ lèt seg derivere. Til slutt brukar vi alt saman til funksjonsdrøfting — ekstremalpunkt, vendepunkt og tangentar — og vender tilbake til pendelen for å finne farten og akselerasjonen hans.\n\nÉin ting må på plass før vi startar: i heile dette kapitlet blir vinklar målte i **radianar**. Derivasjonsreglane gjeld berre då — det er sjølve grunnen til at radianar vart innførte. Med gradar ville kvar einaste formel fått ein stygg omrekningsfaktor på slep."
+    },
+    {
+      "id": "r2-4-9-n-section1",
+      "type": "text",
+      "content": "## Dei tre grunnreglane — og kvifor dei stemmer\n\nAlt kviler på to grenseverdiar som kan lesast ut av einingssirkelen: $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$ og $\\lim_{x \\to 0} \\frac{1 - \\cos x}{x} = 0$. Den første seier at for små vinklar i radianar er $\\sin x \\approx x$ — bogen og høgda blir like — og det er nettopp her radianane gjer jobben sin. I gradar ville grensa blitt eit anna tal, og alle reglane nedanfor ville fått faktorar hengande ved seg.\n\nMed grenseverdiane i handa deriverer vi $\\sin x$ frå definisjonen. Differansekvotienten er $\\frac{\\sin(x+h) - \\sin x}{h}$, og addisjonsformelen $\\sin(x+h) = \\sin x\\cos h + \\cos x\\sin h$ lèt oss sortere: $\\sin x \\cdot \\frac{\\cos h - 1}{h} + \\cos x \\cdot \\frac{\\sin h}{h}$. Når $h \\to 0$ går første brøk mot $0$ og andre mot $1$, og att står\n\n$$(\\sin x)' = \\cos x$$\n\nSame manøver med addisjonsformelen for cosinus gjev $(\\cos x)' = -\\sin x$ — **med minus**. Ein vanleg feil er å gløyme minusteiknet; hugs: sinus gjev pluss cosinus, cosinus gjev minus sinus. For tangens brukar vi brøkregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$: teljaren blir $\\cos^2 x + \\sin^2 x = 1$, så\n\n$$(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$$\n\nReglane blir kombinerte fritt med dei du kan frå før. Lineære kombinasjonar: $(3\\sin x)' = 3\\cos x$ og $(-2\\cos x + 5)' = 2\\sin x$. Produktregelen: $(x\\sin x)' = \\sin x + x\\cos x$. Brøkregelen: $\\left(\\frac{\\sin x}{x}\\right)' = \\frac{x\\cos x - \\sin x}{x^2}$. Maskineriet er det same som alltid — berre med tre nye byggjeklossar."
+    },
+    {
+      "id": "r2-4-9-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-9-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grunnreglane for derivasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-9-n-quiz1-q0",
+            "task": "Kva er $(\\sin x)'$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-\\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\cos x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\tan x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte av sinus er cosinus: $(\\sin x)' = \\cos x$."
+          },
+          {
+            "id": "r2-4-9-n-quiz1-q1",
+            "task": "Kva er $(\\cos x)'$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\cos x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{\\sin x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\sin x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Hugs minusteiknet: $(\\cos x)' = -\\sin x$."
+          },
+          {
+            "id": "r2-4-9-n-quiz1-q2",
+            "task": "Kva er $(\\tan x)'$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{\\cos^2 x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{\\sin^2 x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sec x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\cot x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Brøkregelen på $\\frac{\\sin x}{\\cos x}$ gjev $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$, som òg kan skrivast $1 + \\tan^2 x$."
+          },
+          {
+            "id": "r2-4-9-n-quiz1-q3",
+            "task": "Kva er $\\lim_{x \\to 0} \\frac{\\sin x}{x}$ når $x$ blir målt i radianar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\pi}{180}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For små vinklar i radianar er $\\sin x \\approx x$, så grensa er $1$. Dette er grunnen til at vi må bruke radianar i derivasjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-9-n-section2",
+      "type": "text",
+      "content": "## Kjerneregelen — derivasjon i fleire lag\n\nSvingingane i røynda kjem sjeldan som naken $\\sin x$. Ein pendel følgjer kanskje $\\cos(2t)$, ei modulert lydbølgje $\\sin(x^2)$, ei demping $e^{\\sin x}$. Felles for alle: ein funksjon **inni** ein annan. Då treng vi kjerneregelen — deriver det ytste laget, behald kjernen urørd, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$(\\sin u)' = \\cos u \\cdot u', \\qquad (\\cos u)' = -\\sin u \\cdot u', \\qquad (\\tan u)' = \\frac{u'}{\\cos^2 u}$$\n\nDei enklaste tilfella har lineær kjerne: $(\\sin 2x)' = 2\\cos 2x$, $(\\cos 3x)' = -3\\sin 3x$ og $(\\tan 5x)' = \\frac{5}{\\cos^2 5x}$ — konstanten hoppar ut framføre. Med rikare kjernar skjer det meir: $(\\sin(x^2))' = 2x\\cos(x^2)$, og $(\\cos(2x + 3))' = -2\\sin(2x + 3)$.\n\nNokre gonger er trigonometrien sjølv kjernen. I $\\sin^2 x = (\\sin x)^2$ er det ytste laget kvadratet: $(\\sin^2 x)' = 2\\sin x \\cdot \\cos x$, som dobbeltvinkelformelen kjenner att som $\\sin 2x$. I $\\sin(\\cos x)$ ligg cosinus innarst: den deriverte blir $\\cos(\\cos x) \\cdot (-\\sin x)$. Og kjerneregelen samarbeider gjerne med dei andre reglane: produktregelen gjev $(e^x\\sin x)' = e^x(\\sin x + \\cos x)$, eksponentialregelen gjev $(e^{\\sin x})' = \\cos x \\cdot e^{\\sin x}$, og logaritmen gjev $(\\ln(\\sin x))' = \\frac{\\cos x}{\\sin x} = \\cot x$ for $x \\in (0, \\pi)$.\n\nSjølv tre lag går fint, berre du skrellar dei utanfrå og inn: $f(x) = \\sin^3(2x)$ har laga $u^3$, $\\sin v$ og $2x$, og derivasjonen gjev $3\\sin^2(2x) \\cdot 2\\cos(2x) = 6\\sin^2(2x)\\cos(2x)$. Tenk løk: eitt lag om gongen."
+    },
+    {
+      "id": "r2-4-9-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-9-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kjerneregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-9-n-quiz2-q0",
+            "task": "Kva er $(\\sin 2x)'$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\cos 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-2\\cos 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2\\cos 2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2\\sin 2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernen er $u = 2x$ med $u' = 2$: $(\\sin 2x)' = \\cos 2x \\cdot 2 = 2\\cos 2x$."
+          },
+          {
+            "id": "r2-4-9-n-quiz2-q1",
+            "task": "Kva er $\\left(\\cos(x^2)\\right)'$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-\\sin(x^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x\\sin(x^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\sin(2x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-2x\\sin(x^2)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kjernen er $u = x^2$ med $u' = 2x$: $(\\cos(x^2))' = -\\sin(x^2) \\cdot 2x = -2x\\sin(x^2)$."
+          },
+          {
+            "id": "r2-4-9-n-quiz2-q2",
+            "task": "Kva er $(\\sin^2 x)'$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2\\sin x\\cos x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2\\cos^2 x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\cos^2 x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\sin x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ytste laget er kvadratet: $2\\sin x \\cdot (\\sin x)' = 2\\sin x\\cos x$, som er det same som $\\sin 2x$."
+          },
+          {
+            "id": "r2-4-9-n-quiz2-q3",
+            "task": "Kva er $\\left(e^{\\sin x}\\right)'$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{\\sin x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\cos x \\cdot e^{\\sin x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$e^{\\cos x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sin x \\cdot e^{\\sin x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(e^u)' = e^u \\cdot u'$ med $u = \\sin x$ gjev $e^{\\sin x} \\cdot \\cos x$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-9-n-section3",
+      "type": "text",
+      "content": "## Drøfting: toppar, botnar og vendepunkt\n\nMed derivasjonsreglane på plass kan vi drøfte trigonometriske funksjonar akkurat som alle andre: finn definisjonsmengda, løys $f'(x) = 0$ for stasjonære punkt, klassifiser dei med $f''$ eller forteiknsskjema, og finn vendepunkt der $f''$ skiftar forteikn. Det einaste nye er at likningane blir trigonometriske — og dei meistrar du no. Eit godt råd: avgrens deg gjerne til éin periode først; resten følgjer av periodisiteten.\n\nTa $f(x) = \\sin x + \\cos x$ på $[0, 2\\pi]$. Den deriverte er $f'(x) = \\cos x - \\sin x$, og $f'(x) = 0$ gjev $\\tan x = 1$, altså $x = \\frac{\\pi}{4}$ og $x = \\frac{5\\pi}{4}$. Andrederiverten $f''(x) = -\\sin x - \\cos x$ feller dommen: $f''\\left(\\frac{\\pi}{4}\\right) = -\\sqrt{2} < 0$ gjev maksimum med verdi $f\\left(\\frac{\\pi}{4}\\right) = \\sqrt{2}$, medan $f''\\left(\\frac{5\\pi}{4}\\right) = \\sqrt{2} > 0$ gjev minimum med verdi $-\\sqrt{2}$. (Kjenner du att $\\sqrt{2}$? Det er nettopp $R$ frå omskrivinga $\\sin x + \\cos x = \\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$ — to kapittel møtest.)\n\nVendepunkt finn vi i forteiknsskiftet til $f''$. For $f(x) = \\sin x$ er $f''(x) = -\\sin x$, som er null i $x = n\\pi$ og skiftar forteikn der: vendepunkt i $(\\pi, 0)$ innanfor $[0, 2\\pi]$ (randpunkta blir ikkje rekna med). For $f(x) = x + \\sin x$ er $f''(x) = -\\sin x$ negativ på $(0, \\pi)$ og positiv på $(\\pi, 2\\pi)$ — grafen er konkav først, så konveks, med vendepunkt i $(\\pi, \\pi)$.\n\nTangentar følgjer den vanlege oppskrifta $y = f(a) + f'(a)(x - a)$. For $f(x) = \\cos 2x$ i $x = \\frac{\\pi}{6}$: punktet er $\\left(\\frac{\\pi}{6}, \\frac{1}{2}\\right)$, stigninga er $f'\\left(\\frac{\\pi}{6}\\right) = -2\\sin\\frac{\\pi}{3} = -\\sqrt{3}$, og tangenten blir $y = -\\sqrt{3}x + \\frac{\\sqrt{3}\\pi}{6} + \\frac{1}{2}$."
+    },
+    {
+      "id": "r2-4-9-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-9-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på funksjonsdrøfting:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-9-n-quiz3-q0",
+            "task": "Kvar har $f(x) = \\sin x + \\cos x$ dei stasjonære punkta sine?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Der $\\tan x = -1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Der $\\sin x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Der $\\tan x = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Der $\\cos x = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = \\cos x - \\sin x = 0$ gjev $\\sin x = \\cos x$, altså $\\tan x = 1$ og $x = \\frac{\\pi}{4} + n\\pi$."
+          },
+          {
+            "id": "r2-4-9-n-quiz3-q1",
+            "task": "Kva er den største verdien til $f(x) = \\sin x + \\cos x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Maksimum i $x = \\frac{\\pi}{4}$: $f\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{2}}{2} = \\sqrt{2}$."
+          },
+          {
+            "id": "r2-4-9-n-quiz3-q2",
+            "task": "Kvar har $f(x) = \\sin x$ vendepunktet sitt i $(0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = \\pi$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{3\\pi}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{\\pi}{4}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(x) = -\\sin x$ er null og skiftar forteikn i $x = \\pi$, så vendepunktet er $(\\pi, 0)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-9-n-section4",
+      "type": "text",
+      "content": "## Pendelen — harmonisk rørsle\n\nTilbake til urverket. Posisjonen til pendelen er $s(t) = 3\\cos(2t)$ cm, der $t$ er tid i sekund. No kan vi endeleg svare på spørsmåla frå innleiinga.\n\n**Farten** er den deriverte av posisjonen. Kjerneregelen gjev $v(t) = s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s. **Akselerasjonen** er den deriverte av farten: $a(t) = v'(t) = -12\\cos(2t)$ cm/s².\n\nOg her openberrar det seg noko vakkert. Samanlikn akselerasjonen med posisjonen: $a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$. Akselerasjonen er proporsjonal med utslaget, med motsett forteikn — jo lenger ut pendelen er, dess hardare blir han trekt tilbake mot midten. Dette kjenneteiknet, $a = -k \\cdot s$, definerer det fysikarane kallar **harmonisk rørsle**, og det er inga tilfeldigheit at sinus og cosinus skildrar henne: dei er nettopp funksjonane som reproduserer seg sjølve med minusforteikn etter to derivasjonar.\n\nNår står pendelen stille? Farten er null når $\\sin(2t) = 0$, altså $2t = n\\pi$, som gjev $t = \\frac{n\\pi}{2}$: ved $t = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, \\ldots$ sekund. Set du inn, ser du at pendelen då er i ytterstillingane $s = \\pm 3$ cm. Og motsett: farten er størst, $|v| = 6$ cm/s, når $|\\sin(2t)| = 1$ — det er idet pendelen susar gjennom likevektspunktet $s = 0$. Stille ytst, raskast i midten: derivasjonen har gjort løyndomane til pendelen synlege, og same analyse gjeld for kvar svinging du måtte møte — frå gitarstrenger til vekselstraum."
+    },
+    {
+      "id": "r2-4-9-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-9-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på harmonisk rørsle:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-9-n-quiz4-q0",
+            "task": "Posisjonen til pendelen er $s(t) = 3\\cos(2t)$. Kva er farten $v(t) = s'(t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-3\\sin(2t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-6\\sin(2t)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$6\\sin(2t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-6\\cos(2t)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjerneregelen: $s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s."
+          },
+          {
+            "id": "r2-4-9-n-quiz4-q1",
+            "task": "Kva samanheng gjeld mellom akselerasjonen og posisjonen for $s(t) = 3\\cos(2t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a(t) = 4s(t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a(t) = -2s(t)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a(t) = -4s(t)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a(t) = s(t)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$ — kjenneteiknet på harmonisk rørsle."
+          },
+          {
+            "id": "r2-4-9-n-quiz4-q2",
+            "task": "Når er farten til pendelen størst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "I ytterstillingane",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ved $t = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når akselerasjonen er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når han passerer likevektspunktet $s = 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|v| = 6$ cm/s når $|\\sin 2t| = 1$, og då er $\\cos 2t = 0$, altså $s = 0$: pendelen er raskast gjennom midten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-9-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi starta med ein pendel og eit spørsmål om fart, og enda med full kontroll over derivasjon av alt som svingar. Grunnmuren var grenseverdien $\\lim_{x \\to 0}\\frac{\\sin x}{x} = 1$ — gyldig berre i radianar, og sjølve grunnen til at radianar er vinkelmålet til derivasjonen. Frå den og addisjonsformlane følgde dei tre reglane: $(\\sin x)' = \\cos x$, $(\\cos x)' = -\\sin x$ (gløym aldri minusteiknet!) og $(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$.\n\nKjerneregelen utvida repertoaret til samansette funksjonar: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$, slik at $(\\sin 2x)' = 2\\cos 2x$, $(\\cos(x^2))' = -2x\\sin(x^2)$ og $(\\sin^2 x)' = 2\\sin x\\cos x = \\sin 2x$. Saman med produkt-, brøk- og eksponentialreglane deriverte vi alt frå $e^x\\sin x$ til trelagsfunksjonen $\\sin^3(2x)$ — alltid lag for lag, utanfrå og inn.\n\nDrøftinga følgde kjend oppskrift med trigonometriske likningar som nytt krydder: $f(x) = \\sin x + \\cos x$ fekk maksimum $\\sqrt{2}$ i $x = \\frac{\\pi}{4}$ og minimum $-\\sqrt{2}$ i $x = \\frac{5\\pi}{4}$, sinuskurva fekk vendepunkt i $(\\pi, 0)$, og tangentar følgde $y = f(a) + f'(a)(x - a)$ som før.\n\nTil slutt gav pendelen oss løna frå fysikken for strevet: posisjon $s(t) = 3\\cos(2t)$ gav fart $v(t) = -6\\sin(2t)$ og akselerasjon $a(t) = -4s(t)$ — harmonisk rørsle, der svinginga er som raskast gjennom likevektspunktet og står stille ytst. Sinus og cosinus deriverer seg i ring, og nettopp difor er dei naturen sitt val for alt som svingar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "2c0a922159c9a45c",
+    "translatedAt": "2026-06-20T00:35:45.544Z",
+    "model": "claude-code-agent",
+    "strings": 101,
+    "tm": {
+      "9a2a011b3c94cfd9": "Derivasjon av trigonometriske funksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "9c016807b09bd6e8": "Ei forteljing om fart i svingingane — kvifor (sin x)' = cos x og (cos x)' = −sin x, korleis kjerneregelen tek samansette uttrykk, og kva derivasjon avslører om rørsla til pendelen.",
+      "ea0304d29c984bdb": "analysere og tolke ulike funksjonar ved å bruke derivasjon",
+      "3dcc754373fb0d62": "derivere trigonometriske funksjonar",
+      "6602ff5ad0d3d715": "bruke kjerneregelen på samansette trigonometriske funksjonar",
+      "51c4e56068d8f5e9": "drøfte funksjonar med trigonometriske uttrykk",
+      "11bba2bdd37e72ff": "## Kor fort svingar bølgja?\n\nEin pendel svingar fram og tilbake i eit urverk. Du veit nøyaktig kvar han er til kvar tid — posisjonen følgjer ei cosinuskurve — men kor **fort** rører han seg? Og når akselererer han mest? Spørsmål om fart og endring er domenet til derivasjonen, og skal vi analysere alt som svingar — bølgjer, tonar, pendlar, straum — må vi kunne derivere dei trigonometriske funksjonane.\n\nDet er målet for denne forteljinga. Vi skal utleie dei tre grunnreglane: at $(\\sin x)' = \\cos x$, at $(\\cos x)' = -\\sin x$, og at $(\\tan x)' = \\frac{1}{\\cos^2 x}$. Undervegs avslører vi kvifor sinus og cosinus dansar så elegant rundt kvarandre under derivasjon, og kvifor det vesle minusteiknet i cosinusregelen er så lett å gløyme — og så viktig å hugse. Deretter koplar vi på kjerneregelen, slik at òg samansette funksjonar som $\\sin(2x)$, $\\cos(x^2)$ og $e^{\\sin x}$ lèt seg derivere. Til slutt brukar vi alt saman til funksjonsdrøfting — ekstremalpunkt, vendepunkt og tangentar — og vender tilbake til pendelen for å finne farten og akselerasjonen hans.\n\nÉin ting må på plass før vi startar: i heile dette kapitlet blir vinklar målte i **radianar**. Derivasjonsreglane gjeld berre då — det er sjølve grunnen til at radianar vart innførte. Med gradar ville kvar einaste formel fått ein stygg omrekningsfaktor på slep.",
+      "f3e19c878330a559": "## Dei tre grunnreglane — og kvifor dei stemmer\n\nAlt kviler på to grenseverdiar som kan lesast ut av einingssirkelen: $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$ og $\\lim_{x \\to 0} \\frac{1 - \\cos x}{x} = 0$. Den første seier at for små vinklar i radianar er $\\sin x \\approx x$ — bogen og høgda blir like — og det er nettopp her radianane gjer jobben sin. I gradar ville grensa blitt eit anna tal, og alle reglane nedanfor ville fått faktorar hengande ved seg.\n\nMed grenseverdiane i handa deriverer vi $\\sin x$ frå definisjonen. Differansekvotienten er $\\frac{\\sin(x+h) - \\sin x}{h}$, og addisjonsformelen $\\sin(x+h) = \\sin x\\cos h + \\cos x\\sin h$ lèt oss sortere: $\\sin x \\cdot \\frac{\\cos h - 1}{h} + \\cos x \\cdot \\frac{\\sin h}{h}$. Når $h \\to 0$ går første brøk mot $0$ og andre mot $1$, og att står\n\n$$(\\sin x)' = \\cos x$$\n\nSame manøver med addisjonsformelen for cosinus gjev $(\\cos x)' = -\\sin x$ — **med minus**. Ein vanleg feil er å gløyme minusteiknet; hugs: sinus gjev pluss cosinus, cosinus gjev minus sinus. For tangens brukar vi brøkregelen på $\\tan x = \\frac{\\sin x}{\\cos x}$: teljaren blir $\\cos^2 x + \\sin^2 x = 1$, så\n\n$$(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$$\n\nReglane blir kombinerte fritt med dei du kan frå før. Lineære kombinasjonar: $(3\\sin x)' = 3\\cos x$ og $(-2\\cos x + 5)' = 2\\sin x$. Produktregelen: $(x\\sin x)' = \\sin x + x\\cos x$. Brøkregelen: $\\left(\\frac{\\sin x}{x}\\right)' = \\frac{x\\cos x - \\sin x}{x^2}$. Maskineriet er det same som alltid — berre med tre nye byggjeklossar.",
+      "b99dd85f8ed0f893": "Test deg sjølv på grunnreglane for derivasjon:",
+      "4097889236a2af26": "placeholder",
+      "b3b8bac2201b45f3": "Kva er $(\\sin x)'$?",
+      "307ec2110fbc04ef": "$-\\cos x$",
+      "67e2c6816e246082": "$\\cos x$",
+      "e7bfd7b18f267039": "$-\\sin x$",
+      "9d98edf6a3166207": "$\\tan x$",
+      "cde7d2ddaeed6ec8": "Den deriverte av sinus er cosinus: $(\\sin x)' = \\cos x$.",
+      "b5afbcb84c5ab2d5": "Kva er $(\\cos x)'$?",
+      "7105366b47d6451c": "$\\sin x$",
+      "38d267aa1d47a2c5": "$\\frac{1}{\\sin x}$",
+      "184318602392a981": "Hugs minusteiknet: $(\\cos x)' = -\\sin x$.",
+      "062e26b816a915fe": "Kva er $(\\tan x)'$?",
+      "4f25a237b89b7e2a": "$\\frac{1}{\\cos^2 x}$",
+      "8017b4e57d4980a9": "$\\frac{1}{\\sin^2 x}$",
+      "890804eeb279c77c": "$\\sec x$",
+      "585d24043c8c3c7e": "$\\cot x$",
+      "c860f493fdc24a6c": "Brøkregelen på $\\frac{\\sin x}{\\cos x}$ gjev $\\frac{\\cos^2 x + \\sin^2 x}{\\cos^2 x} = \\frac{1}{\\cos^2 x}$, som òg kan skrivast $1 + \\tan^2 x$.",
+      "1f6fef14b17e12ad": "Kva er $\\lim_{x \\to 0} \\frac{\\sin x}{x}$ når $x$ blir målt i radianar?",
+      "d249caca6d7f42a5": "$\\infty$",
+      "31788aaef292162f": "$\\frac{\\pi}{180}$",
+      "65a8e72397d932e7": "For små vinklar i radianar er $\\sin x \\approx x$, så grensa er $1$. Dette er grunnen til at vi må bruke radianar i derivasjon.",
+      "f8db0cfb69ceaa46": "## Kjerneregelen — derivasjon i fleire lag\n\nSvingingane i røynda kjem sjeldan som naken $\\sin x$. Ein pendel følgjer kanskje $\\cos(2t)$, ei modulert lydbølgje $\\sin(x^2)$, ei demping $e^{\\sin x}$. Felles for alle: ein funksjon **inni** ein annan. Då treng vi kjerneregelen — deriver det ytste laget, behald kjernen urørd, og gang med den deriverte av kjernen. For trigonometriske funksjonar med kjerne $u = u(x)$:\n\n$$(\\sin u)' = \\cos u \\cdot u', \\qquad (\\cos u)' = -\\sin u \\cdot u', \\qquad (\\tan u)' = \\frac{u'}{\\cos^2 u}$$\n\nDei enklaste tilfella har lineær kjerne: $(\\sin 2x)' = 2\\cos 2x$, $(\\cos 3x)' = -3\\sin 3x$ og $(\\tan 5x)' = \\frac{5}{\\cos^2 5x}$ — konstanten hoppar ut framføre. Med rikare kjernar skjer det meir: $(\\sin(x^2))' = 2x\\cos(x^2)$, og $(\\cos(2x + 3))' = -2\\sin(2x + 3)$.\n\nNokre gonger er trigonometrien sjølv kjernen. I $\\sin^2 x = (\\sin x)^2$ er det ytste laget kvadratet: $(\\sin^2 x)' = 2\\sin x \\cdot \\cos x$, som dobbeltvinkelformelen kjenner att som $\\sin 2x$. I $\\sin(\\cos x)$ ligg cosinus innarst: den deriverte blir $\\cos(\\cos x) \\cdot (-\\sin x)$. Og kjerneregelen samarbeider gjerne med dei andre reglane: produktregelen gjev $(e^x\\sin x)' = e^x(\\sin x + \\cos x)$, eksponentialregelen gjev $(e^{\\sin x})' = \\cos x \\cdot e^{\\sin x}$, og logaritmen gjev $(\\ln(\\sin x))' = \\frac{\\cos x}{\\sin x} = \\cot x$ for $x \\in (0, \\pi)$.\n\nSjølv tre lag går fint, berre du skrellar dei utanfrå og inn: $f(x) = \\sin^3(2x)$ har laga $u^3$, $\\sin v$ og $2x$, og derivasjonen gjev $3\\sin^2(2x) \\cdot 2\\cos(2x) = 6\\sin^2(2x)\\cos(2x)$. Tenk løk: eitt lag om gongen.",
+      "2dc62059be68345b": "Test deg sjølv på kjerneregelen:",
+      "ca0fee5554687aff": "Kva er $(\\sin 2x)'$?",
+      "5b0ba139d8f58f50": "$2\\cos 2x$",
+      "cd790c06460e12cc": "$\\cos 2x$",
+      "e3efa5500e33acdb": "$-2\\cos 2x$",
+      "f843703fdb6b89e4": "$2\\sin 2x$",
+      "d1b28d102da48869": "Kjernen er $u = 2x$ med $u' = 2$: $(\\sin 2x)' = \\cos 2x \\cdot 2 = 2\\cos 2x$.",
+      "0756818d007a1ffd": "Kva er $\\left(\\cos(x^2)\\right)'$?",
+      "1f014111ee5e0a3a": "$-\\sin(x^2)$",
+      "4431d9ccc8d4bb27": "$2x\\sin(x^2)$",
+      "ecb23279781ab226": "$-2x\\sin(x^2)$",
+      "01e0ffc7519de63a": "$-\\sin(2x)$",
+      "203d57c3237b6a07": "Kjernen er $u = x^2$ med $u' = 2x$: $(\\cos(x^2))' = -\\sin(x^2) \\cdot 2x = -2x\\sin(x^2)$.",
+      "ed53831f416c318d": "Kva er $(\\sin^2 x)'$?",
+      "3c7acfca596b3802": "$2\\cos^2 x$",
+      "c6b121f052ddd25f": "$2\\sin x\\cos x$",
+      "f751559f04212d82": "$\\cos^2 x$",
+      "fb06b029d354bb5d": "$2\\sin x$",
+      "2fe638e2daca27f4": "Ytste laget er kvadratet: $2\\sin x \\cdot (\\sin x)' = 2\\sin x\\cos x$, som er det same som $\\sin 2x$.",
+      "5a435fd9b1b171b1": "Kva er $\\left(e^{\\sin x}\\right)'$?",
+      "cee3abcc9683e8e7": "$e^{\\sin x}$",
+      "3b4f59046f68b665": "$e^{\\cos x}$",
+      "a2e11c13a90d70bb": "$\\sin x \\cdot e^{\\sin x}$",
+      "7d5ff8027c0969e0": "$\\cos x \\cdot e^{\\sin x}$",
+      "b46c0a2a1ebcc95f": "$(e^u)' = e^u \\cdot u'$ med $u = \\sin x$ gjev $e^{\\sin x} \\cdot \\cos x$.",
+      "dca06af4389a913e": "## Drøfting: toppar, botnar og vendepunkt\n\nMed derivasjonsreglane på plass kan vi drøfte trigonometriske funksjonar akkurat som alle andre: finn definisjonsmengda, løys $f'(x) = 0$ for stasjonære punkt, klassifiser dei med $f''$ eller forteiknsskjema, og finn vendepunkt der $f''$ skiftar forteikn. Det einaste nye er at likningane blir trigonometriske — og dei meistrar du no. Eit godt råd: avgrens deg gjerne til éin periode først; resten følgjer av periodisiteten.\n\nTa $f(x) = \\sin x + \\cos x$ på $[0, 2\\pi]$. Den deriverte er $f'(x) = \\cos x - \\sin x$, og $f'(x) = 0$ gjev $\\tan x = 1$, altså $x = \\frac{\\pi}{4}$ og $x = \\frac{5\\pi}{4}$. Andrederiverten $f''(x) = -\\sin x - \\cos x$ feller dommen: $f''\\left(\\frac{\\pi}{4}\\right) = -\\sqrt{2} < 0$ gjev maksimum med verdi $f\\left(\\frac{\\pi}{4}\\right) = \\sqrt{2}$, medan $f''\\left(\\frac{5\\pi}{4}\\right) = \\sqrt{2} > 0$ gjev minimum med verdi $-\\sqrt{2}$. (Kjenner du att $\\sqrt{2}$? Det er nettopp $R$ frå omskrivinga $\\sin x + \\cos x = \\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$ — to kapittel møtest.)\n\nVendepunkt finn vi i forteiknsskiftet til $f''$. For $f(x) = \\sin x$ er $f''(x) = -\\sin x$, som er null i $x = n\\pi$ og skiftar forteikn der: vendepunkt i $(\\pi, 0)$ innanfor $[0, 2\\pi]$ (randpunkta blir ikkje rekna med). For $f(x) = x + \\sin x$ er $f''(x) = -\\sin x$ negativ på $(0, \\pi)$ og positiv på $(\\pi, 2\\pi)$ — grafen er konkav først, så konveks, med vendepunkt i $(\\pi, \\pi)$.\n\nTangentar følgjer den vanlege oppskrifta $y = f(a) + f'(a)(x - a)$. For $f(x) = \\cos 2x$ i $x = \\frac{\\pi}{6}$: punktet er $\\left(\\frac{\\pi}{6}, \\frac{1}{2}\\right)$, stigninga er $f'\\left(\\frac{\\pi}{6}\\right) = -2\\sin\\frac{\\pi}{3} = -\\sqrt{3}$, og tangenten blir $y = -\\sqrt{3}x + \\frac{\\sqrt{3}\\pi}{6} + \\frac{1}{2}$.",
+      "18703f1ec565d94d": "Test deg sjølv på funksjonsdrøfting:",
+      "6af71f5ec92639e4": "Kvar har $f(x) = \\sin x + \\cos x$ dei stasjonære punkta sine?",
+      "1cbdf6c34c40b4eb": "Der $\\tan x = -1$",
+      "240ff82fb05176db": "Der $\\tan x = 1$",
+      "7ac91d5603564d4d": "Der $\\sin x = 0$",
+      "ac76537634cc8fe2": "Der $\\cos x = 0$",
+      "1ac5c6fc01c723fe": "$f'(x) = \\cos x - \\sin x = 0$ gjev $\\sin x = \\cos x$, altså $\\tan x = 1$ og $x = \\frac{\\pi}{4} + n\\pi$.",
+      "baee17d0cebad2e5": "Kva er den største verdien til $f(x) = \\sin x + \\cos x$?",
+      "9663be320a691f04": "$\\frac{3}{2}$",
+      "17b0fe9bda962747": "$\\sqrt{2}$",
+      "207a9835636f8fd5": "Maksimum i $x = \\frac{\\pi}{4}$: $f\\left(\\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{2}}{2} = \\sqrt{2}$.",
+      "b55cca296db93a95": "Kvar har $f(x) = \\sin x$ vendepunktet sitt i $(0, 2\\pi)$?",
+      "a3f69742016ac4f6": "$x = \\pi$",
+      "9d8cfb68d174e589": "$x = \\frac{\\pi}{2}$",
+      "ee176f815f11d21b": "$x = \\frac{3\\pi}{2}$",
+      "3e9240496f54c4fd": "$x = \\frac{\\pi}{4}$",
+      "cab0b75301bc4d7e": "$f''(x) = -\\sin x$ er null og skiftar forteikn i $x = \\pi$, så vendepunktet er $(\\pi, 0)$.",
+      "4ad100fc2cf14e9d": "## Pendelen — harmonisk rørsle\n\nTilbake til urverket. Posisjonen til pendelen er $s(t) = 3\\cos(2t)$ cm, der $t$ er tid i sekund. No kan vi endeleg svare på spørsmåla frå innleiinga.\n\n**Farten** er den deriverte av posisjonen. Kjerneregelen gjev $v(t) = s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s. **Akselerasjonen** er den deriverte av farten: $a(t) = v'(t) = -12\\cos(2t)$ cm/s².\n\nOg her openberrar det seg noko vakkert. Samanlikn akselerasjonen med posisjonen: $a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$. Akselerasjonen er proporsjonal med utslaget, med motsett forteikn — jo lenger ut pendelen er, dess hardare blir han trekt tilbake mot midten. Dette kjenneteiknet, $a = -k \\cdot s$, definerer det fysikarane kallar **harmonisk rørsle**, og det er inga tilfeldigheit at sinus og cosinus skildrar henne: dei er nettopp funksjonane som reproduserer seg sjølve med minusforteikn etter to derivasjonar.\n\nNår står pendelen stille? Farten er null når $\\sin(2t) = 0$, altså $2t = n\\pi$, som gjev $t = \\frac{n\\pi}{2}$: ved $t = 0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}, \\ldots$ sekund. Set du inn, ser du at pendelen då er i ytterstillingane $s = \\pm 3$ cm. Og motsett: farten er størst, $|v| = 6$ cm/s, når $|\\sin(2t)| = 1$ — det er idet pendelen susar gjennom likevektspunktet $s = 0$. Stille ytst, raskast i midten: derivasjonen har gjort løyndomane til pendelen synlege, og same analyse gjeld for kvar svinging du måtte møte — frå gitarstrenger til vekselstraum.",
+      "f5284a6ed236558a": "Test deg sjølv på harmonisk rørsle:",
+      "022c287b0019147e": "Posisjonen til pendelen er $s(t) = 3\\cos(2t)$. Kva er farten $v(t) = s'(t)$?",
+      "07039675e576c005": "$-3\\sin(2t)$",
+      "0113ceb2052bc0c3": "$6\\sin(2t)$",
+      "5c1eed820a7e9e47": "$-6\\sin(2t)$",
+      "b147f75264236e30": "$-6\\cos(2t)$",
+      "466afba52d571757": "Kjerneregelen: $s'(t) = 3 \\cdot (-\\sin 2t) \\cdot 2 = -6\\sin(2t)$ cm/s.",
+      "1c209d7736cdf08d": "Kva samanheng gjeld mellom akselerasjonen og posisjonen for $s(t) = 3\\cos(2t)$?",
+      "cf2248cb0a061930": "$a(t) = 4s(t)$",
+      "764b32dd29ecf1e5": "$a(t) = -4s(t)$",
+      "dbe399b0c13cbc4f": "$a(t) = -2s(t)$",
+      "eb678132a9e388de": "$a(t) = s(t)$",
+      "1384333e227ac390": "$a(t) = -12\\cos(2t) = -4 \\cdot 3\\cos(2t) = -4s(t)$ — kjenneteiknet på harmonisk rørsle.",
+      "1a8146f844565813": "Når er farten til pendelen størst?",
+      "5c5d154ba2a1ab6a": "I ytterstillingane",
+      "b7b523699da991f8": "Ved $t = 0$",
+      "a0cefbd7e4a3237a": "Når akselerasjonen er størst",
+      "d2ecdc59605a9e8b": "Når han passerer likevektspunktet $s = 0$",
+      "ff43b063981b0196": "$|v| = 6$ cm/s når $|\\sin 2t| = 1$, og då er $\\cos 2t = 0$, altså $s = 0$: pendelen er raskast gjennom midten.",
+      "bcfdd2441ec84dda": "## Oppsummering\n\nVi starta med ein pendel og eit spørsmål om fart, og enda med full kontroll over derivasjon av alt som svingar. Grunnmuren var grenseverdien $\\lim_{x \\to 0}\\frac{\\sin x}{x} = 1$ — gyldig berre i radianar, og sjølve grunnen til at radianar er vinkelmålet til derivasjonen. Frå den og addisjonsformlane følgde dei tre reglane: $(\\sin x)' = \\cos x$, $(\\cos x)' = -\\sin x$ (gløym aldri minusteiknet!) og $(\\tan x)' = \\frac{1}{\\cos^2 x} = 1 + \\tan^2 x$.\n\nKjerneregelen utvida repertoaret til samansette funksjonar: $(\\sin u)' = u'\\cos u$ og $(\\cos u)' = -u'\\sin u$, slik at $(\\sin 2x)' = 2\\cos 2x$, $(\\cos(x^2))' = -2x\\sin(x^2)$ og $(\\sin^2 x)' = 2\\sin x\\cos x = \\sin 2x$. Saman med produkt-, brøk- og eksponentialreglane deriverte vi alt frå $e^x\\sin x$ til trelagsfunksjonen $\\sin^3(2x)$ — alltid lag for lag, utanfrå og inn.\n\nDrøftinga følgde kjend oppskrift med trigonometriske likningar som nytt krydder: $f(x) = \\sin x + \\cos x$ fekk maksimum $\\sqrt{2}$ i $x = \\frac{\\pi}{4}$ og minimum $-\\sqrt{2}$ i $x = \\frac{5\\pi}{4}$, sinuskurva fekk vendepunkt i $(\\pi, 0)$, og tangentar følgde $y = f(a) + f'(a)(x - a)$ som før.\n\nTil slutt gav pendelen oss løna frå fysikken for strevet: posisjon $s(t) = 3\\cos(2t)$ gav fart $v(t) = -6\\sin(2t)$ og akselerasjon $a(t) = -4s(t)$ — harmonisk rørsle, der svinginga er som raskast gjennom likevektspunktet og står stille ytst. Sinus og cosinus deriverer seg i ring, og nettopp difor er dei naturen sitt val for alt som svingar."
+    }
+  }
+}

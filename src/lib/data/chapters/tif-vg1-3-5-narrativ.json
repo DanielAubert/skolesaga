@@ -1,1 +1,398 @@
-{"id":"tif-vg1-3-5-narrativ","courseId":"tif-vg1","chapterNumber":"3.5","title":"CNC-programmering","subtitle":"Narrativ versjon","description":"En fortelling om hvordan noen få bokstaver og tall -- G-koder og M-koder -- får en maskin til å fres, bore og gjenge nøyaktig der du vil, og hvordan du bygger et trygt program fra første til siste linje.","estimatedMinutes":38,"competenceGoals":["anvende grunnleggende programmering av styringssystemer innenfor robotisering, automatisering og CNC"],"linkedChapterId":"tif-vg1-3-5","content":[{"id":"tif-vg1-3-5-n-intro","type":"text","content":"## Å skrive et språk maskinen forstår\n\nDu har rigget maskinen, satt nullpunktet og spent fast emnet. Men hva skal maskinen egentlig gjøre? Den trenger en oppskrift, linje for linje, og den oppskriften skriver du i **G-kode** -- et standardisert språk (også kalt RS-274) som de aller fleste CNC-maskiner forstår.\n\nEt program er bygd opp av nummererte linjer vi kaller **blokker**. Se på denne: `N10 G01 X50.0 Y25.0 F100`. Her er N10 blokknummeret, G01 forteller hva slags bevegelse, X50.0 og Y25.0 er koordinatene verktøyet skal til, og F100 er **matingen** -- altså hvor fort verktøyet skal mate seg framover, i mm/min.\n\nDe viktigste G-kodene styrer bevegelse. **G00** er hurtiggang: maskinen flytter seg så fort den kan, men dette bruker du bare i fri luft, aldri i materialet. **G01** er lineær interpolasjon -- en rett linje med kontrollert mating, som du bruker når du faktisk skjærer. **G02** og **G03** lager sirkelbuer henholdsvis med og mot klokken.\n\nAndre G-koder setter opp hvordan maskinen tolker tallene. G54--G59 velger arbeidsnullpunkt. G90 betyr absolutte koordinater (alt teller fra nullpunktet), mens G91 betyr inkrementelle (alt teller fra der verktøyet står nå). G17 velger XY-planet for sirkler, og G40--G43 styrer verktøykompensasjon. Med disse byggeklossene kan du beskrive nesten enhver bevegelse."},{"id":"tif-vg1-3-5-n-section1","type":"text","content":"## M-koder: maskinens hjelpefunksjoner\n\nG-kodene flytter verktøyet, men noe må jo slå på spindelen, åpne kjølevæsken og bytte verktøy. Det er **M-kodene** sin jobb (M står for *miscellaneous*, altså diverse). Du bør kunne de vanligste utenat: M03 starter spindelen med klokken, M04 mot klokken, og M05 stopper den. M06 utfører verktøyskift. M08 slår på kjølevæsken, M09 slår den av. M00 er programstopp, og M30 avslutter programmet og resetter til starten.\n\nVed siden av disse styrer du to ting med egne bokstaver: **S** setter spindelhastigheten, så `S1500` betyr 1500 omdreininger per minutt, og **F** setter matingen, så `F200` betyr 200 mm/min. Et verktøyvalg ser slik ut: `T01 M06` -- velg verktøy 1 og bytt til det.\n\nEn typisk programstart vever alt dette sammen: `G21 G90 G54` setter metrisk, absolutt og nullpunkt 1, `T01 M06` henter verktøyet, `S2000 M03` starter spindelen på 2000 rpm med klokken, `G43 H01` aktiverer lengdekompensasjonen, og `M08` åpner kjølevæsken.\n\nNår du skal lage sirkler, har du to metoder. Med senterkoordinater skriver du for eksempel `G02 X50 Y0 I25 J0`, der I og J peker fra startpunktet til sirkelens senter. Med radius skriver du i stedet `G02 X50 Y0 R25`, der R25 er radien direkte. Begge kjører maskinen i en bue til X50, Y0."},{"id":"tif-vg1-3-5-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på G-koder og M-koder:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-5-n-quiz1-q0","task":"Hva er forskjellen på G00 og G01?","options":[{"id":"a","text":"G00 er metrisk; G01 er tommer","isCorrect":false},{"id":"b","text":"G00 starter spindelen; G01 stopper den","isCorrect":false},{"id":"c","text":"De er to navn på samme bevegelse","isCorrect":false},{"id":"d","text":"G00 er hurtiggang i fri luft; G01 er rett linje med mating under skjæring","isCorrect":true}],"solution":"G00 er hurtiggang for rask posisjonering i fri luft, mens G01 er lineær interpolasjon med kontrollert mating (F), brukt når verktøyet skjærer. G00 skal aldri brukes i materialet."},{"id":"tif-vg1-3-5-n-quiz1-q1","task":"Hva gjør kommandoen M03?","options":[{"id":"a","text":"Starter spindelen med klokken","isCorrect":true},{"id":"b","text":"Bytter verktøy","isCorrect":false},{"id":"c","text":"Slår på kjølevæske","isCorrect":false},{"id":"d","text":"Stopper programmet","isCorrect":false}],"solution":"M03 starter spindelen med klokken. M04 går mot klokken, og M05 stopper spindelen."},{"id":"tif-vg1-3-5-n-quiz1-q2","task":"Hva er forskjellen på G90 og G91?","options":[{"id":"a","text":"G90 er for dreiing, G91 for fresing","isCorrect":false},{"id":"b","text":"G90 er absolutte koordinater fra nullpunktet; G91 er inkrementelle fra nåværende posisjon","isCorrect":true},{"id":"c","text":"G90 starter kjøling, G91 stopper den","isCorrect":false},{"id":"d","text":"G90 er metrisk, G91 er tommer","isCorrect":false}],"solution":"G90 gir absolutte koordinater der alt teller fra arbeidsnullpunktet. G91 gir inkrementelle koordinater der hver verdi er en bevegelse fra der verktøyet står nå. G90 er vanligst og tryggest."},{"id":"tif-vg1-3-5-n-quiz1-q3","task":"Hva betyr S2000 i et CNC-program?","options":[{"id":"a","text":"Mating på 2000 mm/min","isCorrect":false},{"id":"b","text":"Verktøy nummer 2000","isCorrect":false},{"id":"c","text":"Spindelhastighet på 2000 omdreininger per minutt","isCorrect":true},{"id":"d","text":"Blokknummer 2000","isCorrect":false}],"solution":"S setter spindelhastigheten, så S2000 betyr 2000 rpm. Mating settes med F, og verktøy velges med T."}]}},{"id":"tif-vg1-3-5-n-section2","type":"text","content":"## Et helt program fra topp til bunn\n\nNå skal vi sette delene sammen til et fullstendig program. Et godt program følger alltid den samme strukturen, og det begynner med en **sikkerhetslinje** som setter maskinen i en kjent tilstand: `G21 G90 G40 G80 G17` -- metrisk, absolutt, ingen radiuskompensasjon, ingen aktive sykluser, og XY-planet valgt. Slik unngår du at en glemt innstilling fra forrige jobb gir overraskelser.\n\nEtter sikkerhetslinjen kommer verktøyoppsettet (`T01 M06`, `S2000 M03`, `G43 H01`), så posisjonering i fri luft med G00, så selve bearbeidingen med G01, og til slutt en ryddig avslutning: `G00 Z50` for å trekke verktøyet trygt opp, `M05 M09` for å stoppe spindel og kjøling, og `M30` for å avslutte.\n\nLa oss frese en rektangulær kontur på $50 \\times 30$ mm med startpunkt i X0, Y0. Etter oppstart og verktøyvalg kjører du i fri luft til utenfor emnet, senker til like over overflaten med G00, og går så ned i materialet med `G01 Z-5 F100`. Deretter freser du konturen med klokken: `G01 X50` mot høyre, `G01 Y30` oppover, `G01 X0` mot venstre og `G01 Y0` tilbake til start. Da har du gått hele veien rundt og lukket konturen. Til slutt `G00 Z50`, `M05 M09` og `M30`.\n\nLegg merke til logikken: ned i materialet, rundt konturen, opp og avslutt. Den samme ryggraden går igjen i nesten alle program du skriver."},{"id":"tif-vg1-3-5-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på programstruktur:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-5-n-quiz2-q0","task":"Hva er hensikten med sikkerhetslinjen øverst i et program (f.eks. G21 G90 G40 G80 G17)?","options":[{"id":"a","text":"Å starte spindelen raskt","isCorrect":false},{"id":"b","text":"Å spare programminne","isCorrect":false},{"id":"c","text":"Å bytte verktøy","isCorrect":false},{"id":"d","text":"Å sette maskinen i en kjent og trygg starttilstand","isCorrect":true}],"solution":"Sikkerhetslinjen nullstiller modus (metrisk, absolutt, ingen kompensasjon eller sykluser) slik at glemte innstillinger fra forrige jobb ikke gir overraskelser."},{"id":"tif-vg1-3-5-n-quiz2-q1","task":"Hvilken kommando bruker du for å trekke verktøyet trygt opp før programslutt?","options":[{"id":"a","text":"G00 Z50","isCorrect":true},{"id":"b","text":"G01 Z-5","isCorrect":false},{"id":"c","text":"M03","isCorrect":false},{"id":"d","text":"G80","isCorrect":false}],"solution":"G00 Z50 kjører verktøyet raskt opp til en trygg høyde over emnet i fri luft før spindel og kjøling slås av."},{"id":"tif-vg1-3-5-n-quiz2-q2","task":"I hvilken rekkefølge bygges et typisk program?","options":[{"id":"a","text":"Bearbeiding, sikkerhetslinje, verktøyoppsett, avslutning","isCorrect":false},{"id":"b","text":"Sikkerhetslinje, verktøyoppsett, posisjonering, bearbeiding, avslutning","isCorrect":true},{"id":"c","text":"Avslutning, posisjonering, bearbeiding, oppstart","isCorrect":false},{"id":"d","text":"Verktøyoppsett, avslutning, bearbeiding, sikkerhetslinje","isCorrect":false}],"solution":"Et program starter med sikkerhetslinje, så verktøyoppsett, posisjonering i fri luft, selve bearbeidingen, og til slutt en ryddig avslutning med M05, M09 og M30."}]}},{"id":"tif-vg1-3-5-n-section3","type":"text","content":"## Faste sykluser: la maskinen gjøre det kjedelige\n\nSe for deg at du skal bore tjue hull. Det ville vært slitsomt å skrive ut hele ned-opp-bevegelsen tjue ganger. Derfor finnes **faste sykluser** -- ferdiglagde sekvenser for repeterende operasjoner.\n\nDen enkleste er **G81**, vanlig boring: `G81 X10 Y10 Z-15 R2 F100` borer et hull på X10, Y10 til dybden $-15$ mm, med returnivå R2 og mating 100 mm/min. Det fine er at når syklusen er aktivert, borer maskinen et nytt hull hver gang du bare gir en ny posisjon: skriver du `X30` på neste linje, bores et hull der med de samme innstillingene. Til slutt kansellerer du syklusen med **G80**.\n\nFor dype hull bruker du **G83**, dypboring med 'peck'. Her borer maskinen et lite stykke av gangen -- styrt av Q-verdien -- og trekker verktøyet helt ut mellom hvert steg. `G83 X10 Y10 Z-30 R2 Q5 F80` borer altså 5 mm av gangen til $-30$ mm. Hvorfor? Ved dype hull (mer enn cirka tre ganger bordiameteren) må sponet ut, ellers får du varmeutvikling, sponet kan klemme fast boret, og i verste fall brekker det. Utrekkingen lar sponet falle ut og kjølevæsken slippe til. En slektning, G73, gjør det samme med kortere utrekk.\n\nSkal du skjære gjenger, bruker du **G84**, der F-verdien er gjengestigningen og maskinen reverserer automatisk på vei opp. Slik tar de faste syklusene seg av det kjedelige og feilutsatte, mens du konsentrerer deg om geometrien."},{"id":"tif-vg1-3-5-n-quiz3","type":"exercise","exercise":{"id":"tif-vg1-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på faste sykluser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-5-n-quiz3-q0","task":"Hva gjør syklusen G81?","options":[{"id":"a","text":"Freser en lomme","isCorrect":false},{"id":"b","text":"Skjærer gjenger","isCorrect":false},{"id":"c","text":"Borer et enkelt hull til angitt dybde","isCorrect":true},{"id":"d","text":"Stopper spindelen","isCorrect":false}],"solution":"G81 er den enkle boresyklusen: den borer et hull til angitt Z-dybde med returnivå R og mating F."},{"id":"tif-vg1-3-5-n-quiz3-q1","task":"Hvorfor brukes dypboresyklusen G83 (peck) på dype hull?","options":[{"id":"a","text":"For å spare kjølevæske","isCorrect":false},{"id":"b","text":"For å gjøre hullet større","isCorrect":false},{"id":"c","text":"For å rotere emnet","isCorrect":false},{"id":"d","text":"For å evakuere spon og hindre varme, fastklemming og borbrudd","isCorrect":true}],"solution":"G83 trekker verktøyet helt ut mellom hvert lille steg, slik at sponet kommer ut og kjølevæsken slipper til. Det hindrer varmeutvikling, fastklemming og at boret brekker."},{"id":"tif-vg1-3-5-n-quiz3-q2","task":"Hvilken kommando kansellerer en aktiv fast syklus?","options":[{"id":"a","text":"G80","isCorrect":true},{"id":"b","text":"G00","isCorrect":false},{"id":"c","text":"M30","isCorrect":false},{"id":"d","text":"G90","isCorrect":false}],"solution":"G80 kansellerer alle faste sykluser, slik at maskinen ikke fortsetter å bore på hver nye posisjon."},{"id":"tif-vg1-3-5-n-quiz3-q3","task":"I G84 (gjenging), hva angir F-verdien?","options":[{"id":"a","text":"Spindelhastigheten","isCorrect":false},{"id":"b","text":"Gjengestigningen","isCorrect":true},{"id":"c","text":"Hulldybden","isCorrect":false},{"id":"d","text":"Returnivået","isCorrect":false}],"solution":"I gjengesyklusen G84 er F-verdien gjengestigningen. Maskinen synkroniserer spindel og mating og reverserer automatisk på vei opp."}]}},{"id":"tif-vg1-3-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært å skrive maskinens språk. **G-koder** styrer bevegelse: G00 er hurtiggang i fri luft, G01 er rett linje med mating, og G02/G03 lager sirkelbuer. G90 og G91 avgjør om koordinatene er absolutte eller inkrementelle. **M-koder** styrer hjelpefunksjoner som spindel (M03/M05), verktøyskift (M06), kjøling (M08/M09) og programslutt (M30), mens S setter turtall og F setter mating.\n\nVi bygde et fullstendig program med fast struktur: **sikkerhetslinje**, verktøyoppsett, posisjonering, bearbeiding og en ryddig avslutning -- og freste en rektangulær kontur ved å gå ned i materialet og rundt med G01.\n\nTil slutt så vi at **faste sykluser** sparer arbeid og feil: G81 borer enkle hull, G83 dypborer med peck for å evakuere spon, og G84 skjærer gjenger -- alle avsluttet med G80. Med disse byggeklossene kan du skrive trygge, ryddige program som maskinen utfører nøyaktig slik du mente."}],"exercises":[]}
+{
+  "id": "tif-vg1-3-5-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "3.5",
+  "title": "CNC-programmering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan noen få bokstaver og tall -- G-koder og M-koder -- får en maskin til å fres, bore og gjenge nøyaktig der du vil, og hvordan du bygger et trygt program fra første til siste linje.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "anvende grunnleggende programmering av styringssystemer innenfor robotisering, automatisering og CNC"
+  ],
+  "linkedChapterId": "tif-vg1-3-5",
+  "content": [
+    {
+      "id": "tif-vg1-3-5-n-intro",
+      "type": "text",
+      "content": "## Å skrive et språk maskinen forstår\n\nDu har rigget maskinen, satt nullpunktet og spent fast emnet. Men hva skal maskinen egentlig gjøre? Den trenger en oppskrift, linje for linje, og den oppskriften skriver du i **G-kode** -- et standardisert språk (også kalt RS-274) som de aller fleste CNC-maskiner forstår.\n\nEt program er bygd opp av nummererte linjer vi kaller **blokker**. Se på denne: `N10 G01 X50.0 Y25.0 F100`. Her er N10 blokknummeret, G01 forteller hva slags bevegelse, X50.0 og Y25.0 er koordinatene verktøyet skal til, og F100 er **matingen** -- altså hvor fort verktøyet skal mate seg framover, i mm/min.\n\nDe viktigste G-kodene styrer bevegelse. **G00** er hurtiggang: maskinen flytter seg så fort den kan, men dette bruker du bare i fri luft, aldri i materialet. **G01** er lineær interpolasjon -- en rett linje med kontrollert mating, som du bruker når du faktisk skjærer. **G02** og **G03** lager sirkelbuer henholdsvis med og mot klokken.\n\nAndre G-koder setter opp hvordan maskinen tolker tallene. G54--G59 velger arbeidsnullpunkt. G90 betyr absolutte koordinater (alt teller fra nullpunktet), mens G91 betyr inkrementelle (alt teller fra der verktøyet står nå). G17 velger XY-planet for sirkler, og G40--G43 styrer verktøykompensasjon. Med disse byggeklossene kan du beskrive nesten enhver bevegelse."
+    },
+    {
+      "id": "tif-vg1-3-5-n-section1",
+      "type": "text",
+      "content": "## M-koder: maskinens hjelpefunksjoner\n\nG-kodene flytter verktøyet, men noe må jo slå på spindelen, åpne kjølevæsken og bytte verktøy. Det er **M-kodene** sin jobb (M står for *miscellaneous*, altså diverse). Du bør kunne de vanligste utenat: M03 starter spindelen med klokken, M04 mot klokken, og M05 stopper den. M06 utfører verktøyskift. M08 slår på kjølevæsken, M09 slår den av. M00 er programstopp, og M30 avslutter programmet og resetter til starten.\n\nVed siden av disse styrer du to ting med egne bokstaver: **S** setter spindelhastigheten, så `S1500` betyr 1500 omdreininger per minutt, og **F** setter matingen, så `F200` betyr 200 mm/min. Et verktøyvalg ser slik ut: `T01 M06` -- velg verktøy 1 og bytt til det.\n\nEn typisk programstart vever alt dette sammen: `G21 G90 G54` setter metrisk, absolutt og nullpunkt 1, `T01 M06` henter verktøyet, `S2000 M03` starter spindelen på 2000 rpm med klokken, `G43 H01` aktiverer lengdekompensasjonen, og `M08` åpner kjølevæsken.\n\nNår du skal lage sirkler, har du to metoder. Med senterkoordinater skriver du for eksempel `G02 X50 Y0 I25 J0`, der I og J peker fra startpunktet til sirkelens senter. Med radius skriver du i stedet `G02 X50 Y0 R25`, der R25 er radien direkte. Begge kjører maskinen i en bue til X50, Y0."
+    },
+    {
+      "id": "tif-vg1-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på G-koder og M-koder:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-5-n-quiz1-q0",
+            "task": "Hva er forskjellen på G00 og G01?",
+            "options": [
+              {
+                "id": "a",
+                "text": "G00 er metrisk; G01 er tommer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "G00 starter spindelen; G01 stopper den",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "G00 er hurtiggang i fri luft; G01 er rett linje med mating under skjæring",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "De er to navn på samme bevegelse",
+                "isCorrect": false
+              }
+            ],
+            "solution": "G00 er hurtiggang for rask posisjonering i fri luft, mens G01 er lineær interpolasjon med kontrollert mating (F), brukt når verktøyet skjærer. G00 skal aldri brukes i materialet."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz1-q1",
+            "task": "Hva gjør kommandoen M03?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bytter verktøy",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Slår på kjølevæske",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stopper programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Starter spindelen med klokken",
+                "isCorrect": true
+              }
+            ],
+            "solution": "M03 starter spindelen med klokken. M04 går mot klokken, og M05 stopper spindelen."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz1-q2",
+            "task": "Hva er forskjellen på G90 og G91?",
+            "options": [
+              {
+                "id": "b",
+                "text": "G90 er absolutte koordinater fra nullpunktet; G91 er inkrementelle fra nåværende posisjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "G90 er for dreiing, G91 for fresing",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "G90 starter kjøling, G91 stopper den",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "G90 er metrisk, G91 er tommer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "G90 gir absolutte koordinater der alt teller fra arbeidsnullpunktet. G91 gir inkrementelle koordinater der hver verdi er en bevegelse fra der verktøyet står nå. G90 er vanligst og tryggest."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz1-q3",
+            "task": "Hva betyr S2000 i et CNC-program?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Mating på 2000 mm/min",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Verktøy nummer 2000",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spindelhastighet på 2000 omdreininger per minutt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Blokknummer 2000",
+                "isCorrect": false
+              }
+            ],
+            "solution": "S setter spindelhastigheten, så S2000 betyr 2000 rpm. Mating settes med F, og verktøy velges med T."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-5-n-section2",
+      "type": "text",
+      "content": "## Et helt program fra topp til bunn\n\nNå skal vi sette delene sammen til et fullstendig program. Et godt program følger alltid den samme strukturen, og det begynner med en **sikkerhetslinje** som setter maskinen i en kjent tilstand: `G21 G90 G40 G80 G17` -- metrisk, absolutt, ingen radiuskompensasjon, ingen aktive sykluser, og XY-planet valgt. Slik unngår du at en glemt innstilling fra forrige jobb gir overraskelser.\n\nEtter sikkerhetslinjen kommer verktøyoppsettet (`T01 M06`, `S2000 M03`, `G43 H01`), så posisjonering i fri luft med G00, så selve bearbeidingen med G01, og til slutt en ryddig avslutning: `G00 Z50` for å trekke verktøyet trygt opp, `M05 M09` for å stoppe spindel og kjøling, og `M30` for å avslutte.\n\nLa oss frese en rektangulær kontur på $50 \\times 30$ mm med startpunkt i X0, Y0. Etter oppstart og verktøyvalg kjører du i fri luft til utenfor emnet, senker til like over overflaten med G00, og går så ned i materialet med `G01 Z-5 F100`. Deretter freser du konturen med klokken: `G01 X50` mot høyre, `G01 Y30` oppover, `G01 X0` mot venstre og `G01 Y0` tilbake til start. Da har du gått hele veien rundt og lukket konturen. Til slutt `G00 Z50`, `M05 M09` og `M30`.\n\nLegg merke til logikken: ned i materialet, rundt konturen, opp og avslutt. Den samme ryggraden går igjen i nesten alle program du skriver."
+    },
+    {
+      "id": "tif-vg1-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på programstruktur:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-5-n-quiz2-q0",
+            "task": "Hva er hensikten med sikkerhetslinjen øverst i et program (f.eks. G21 G90 G40 G80 G17)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å starte spindelen raskt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sette maskinen i en kjent og trygg starttilstand",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å spare programminne",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bytte verktøy",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sikkerhetslinjen nullstiller modus (metrisk, absolutt, ingen kompensasjon eller sykluser) slik at glemte innstillinger fra forrige jobb ikke gir overraskelser."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz2-q1",
+            "task": "Hvilken kommando bruker du for å trekke verktøyet trygt opp før programslutt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "G01 Z-5",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "M03",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "G80",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "G00 Z50",
+                "isCorrect": true
+              }
+            ],
+            "solution": "G00 Z50 kjører verktøyet raskt opp til en trygg høyde over emnet i fri luft før spindel og kjøling slås av."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz2-q2",
+            "task": "I hvilken rekkefølge bygges et typisk program?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sikkerhetslinje, verktøyoppsett, posisjonering, bearbeiding, avslutning",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bearbeiding, sikkerhetslinje, verktøyoppsett, avslutning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Avslutning, posisjonering, bearbeiding, oppstart",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Verktøyoppsett, avslutning, bearbeiding, sikkerhetslinje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et program starter med sikkerhetslinje, så verktøyoppsett, posisjonering i fri luft, selve bearbeidingen, og til slutt en ryddig avslutning med M05, M09 og M30."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-5-n-section3",
+      "type": "text",
+      "content": "## Faste sykluser: la maskinen gjøre det kjedelige\n\nSe for deg at du skal bore tjue hull. Det ville vært slitsomt å skrive ut hele ned-opp-bevegelsen tjue ganger. Derfor finnes **faste sykluser** -- ferdiglagde sekvenser for repeterende operasjoner.\n\nDen enkleste er **G81**, vanlig boring: `G81 X10 Y10 Z-15 R2 F100` borer et hull på X10, Y10 til dybden $-15$ mm, med returnivå R2 og mating 100 mm/min. Det fine er at når syklusen er aktivert, borer maskinen et nytt hull hver gang du bare gir en ny posisjon: skriver du `X30` på neste linje, bores et hull der med de samme innstillingene. Til slutt kansellerer du syklusen med **G80**.\n\nFor dype hull bruker du **G83**, dypboring med 'peck'. Her borer maskinen et lite stykke av gangen -- styrt av Q-verdien -- og trekker verktøyet helt ut mellom hvert steg. `G83 X10 Y10 Z-30 R2 Q5 F80` borer altså 5 mm av gangen til $-30$ mm. Hvorfor? Ved dype hull (mer enn cirka tre ganger bordiameteren) må sponet ut, ellers får du varmeutvikling, sponet kan klemme fast boret, og i verste fall brekker det. Utrekkingen lar sponet falle ut og kjølevæsken slippe til. En slektning, G73, gjør det samme med kortere utrekk.\n\nSkal du skjære gjenger, bruker du **G84**, der F-verdien er gjengestigningen og maskinen reverserer automatisk på vei opp. Slik tar de faste syklusene seg av det kjedelige og feilutsatte, mens du konsentrerer deg om geometrien."
+    },
+    {
+      "id": "tif-vg1-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på faste sykluser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-5-n-quiz3-q0",
+            "task": "Hva gjør syklusen G81?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Freser en lomme",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Borer et enkelt hull til angitt dybde",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Skjærer gjenger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stopper spindelen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "G81 er den enkle boresyklusen: den borer et hull til angitt Z-dybde med returnivå R og mating F."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz3-q1",
+            "task": "Hvorfor brukes dypboresyklusen G83 (peck) på dype hull?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å spare kjølevæske",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For å gjøre hullet større",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å evakuere spon og hindre varme, fastklemming og borbrudd",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "For å rotere emnet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "G83 trekker verktøyet helt ut mellom hvert lille steg, slik at sponet kommer ut og kjølevæsken slipper til. Det hindrer varmeutvikling, fastklemming og at boret brekker."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz3-q2",
+            "task": "Hvilken kommando kansellerer en aktiv fast syklus?",
+            "options": [
+              {
+                "id": "b",
+                "text": "G00",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "M30",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "G90",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "G80",
+                "isCorrect": true
+              }
+            ],
+            "solution": "G80 kansellerer alle faste sykluser, slik at maskinen ikke fortsetter å bore på hver nye posisjon."
+          },
+          {
+            "id": "tif-vg1-3-5-n-quiz3-q3",
+            "task": "I G84 (gjenging), hva angir F-verdien?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Gjengestigningen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Spindelhastigheten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hulldybden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Returnivået",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I gjengesyklusen G84 er F-verdien gjengestigningen. Maskinen synkroniserer spindel og mating og reverserer automatisk på vei opp."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært å skrive maskinens språk. **G-koder** styrer bevegelse: G00 er hurtiggang i fri luft, G01 er rett linje med mating, og G02/G03 lager sirkelbuer. G90 og G91 avgjør om koordinatene er absolutte eller inkrementelle. **M-koder** styrer hjelpefunksjoner som spindel (M03/M05), verktøyskift (M06), kjøling (M08/M09) og programslutt (M30), mens S setter turtall og F setter mating.\n\nVi bygde et fullstendig program med fast struktur: **sikkerhetslinje**, verktøyoppsett, posisjonering, bearbeiding og en ryddig avslutning -- og freste en rektangulær kontur ved å gå ned i materialet og rundt med G01.\n\nTil slutt så vi at **faste sykluser** sparer arbeid og feil: G81 borer enkle hull, G83 dypborer med peck for å evakuere spon, og G84 skjærer gjenger -- alle avsluttet med G80. Med disse byggeklossene kan du skrive trygge, ryddige program som maskinen utfører nøyaktig slik du mente."
+    }
+  ],
+  "exercises": []
+}

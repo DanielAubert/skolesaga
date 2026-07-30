@@ -1,1 +1,398 @@
-{"id":"8-11-2-narrativ","courseId":"8","chapterNumber":"11.2","title":"Løkker og variablar","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av løkker og variablar der vi oppdagar korleis datamaskinen kan gjenta instruksjonar tusenvis av gonger, utforske talrekkjer og la oss eksperimentere med matematiske mønster.","estimatedMinutes":30,"competenceGoals":["bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt"],"linkedChapterId":"8-11-2","content":[{"id":"8-11-2-n-intro","type":"text","content":"## Gjenta utan å bli sliten\n\nTenk deg at du får i oppgåve å skrive ut alle tala frå 1 til 1000. For hand ville det teke deg timevis. Men ein datamaskin gjer det på eit brøkdels sekund -- fordi han kan **gjenta** instruksjonar så mange gonger han vil, utan å bli sliten eller gjere feil.\n\nDenne evna til å gjenta ting -- det vi kallar **løkker** -- er kanskje den viktigaste grunnen til at programmering er så nyttig i matematikk. Med løkker kan vi:\n- Summere hundrevis av tal på eit augneblink\n- Utforske talrekkjer og mønster\n- Sjekke tusenvis av moglegheiter\n\nLa oss starte med dei to typane løkker i Python: **for-løkka** og **while-løkka**."},{"id":"8-11-2-n-section1","type":"text","content":"## For-løkka -- gjenta eit visst tal gonger\n\nEi **for-løkke** blir brukt når du veit på førehand kor mange gonger du vil gjenta noko. I Python ser ho slik ut:\n\n```python\nfor i in range(5):\n    print(i)\n```\n\nDette skriv ut:\n```\n0\n1\n2\n3\n4\n```\n\n`range(5)` lagar tala $0, 1, 2, 3, 4$ -- altså 5 tal, men ho startar på 0 og stoppar **før** 5. Variabelen `i` tek etter tur verdien av kvart tal.\n\nDu kan òg bestemme start- og sluttverdi:\n\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\nDette skriv ut $1, 2, 3, 4, 5$. Formatet er `range(start, stopp)` der `stopp` **ikkje** er med.\n\n**Innrykk er viktig!** Alt som skal gjentakast må ha 4 mellomrom framføre seg. Koden utan innrykk køyrer etter at løkka er ferdig:\n\n```python\nfor i in range(3):\n    print(f\"Inne i lokken: {i}\")\nprint(\"Denne linjen kjores etter lokken\")\n```\n\nResultat:\n```\nInne i lokken: 0\nInne i lokken: 1\nInne i lokken: 2\nDenne linjen kjores etter lokken\n```"},{"id":"8-11-2-n-quiz1","type":"exercise","exercise":{"id":"8-11-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på for-løkker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-2-n-quiz1-q0","task":"Kva skriv `for i in range(4): print(i)` ut?","options":[{"id":"a","text":"`1 2 3 4`","isCorrect":false},{"id":"b","text":"`0 1 2 3`","isCorrect":true},{"id":"c","text":"`0 1 2 3 4`","isCorrect":false},{"id":"d","text":"`1 2 3`","isCorrect":false}],"solution":"`range(4)` gir tala $0, 1, 2, 3$ -- altså 4 tal som startar på 0 og stoppar før 4."},{"id":"8-11-2-n-quiz1-q1","task":"Kva skriv `for i in range(2, 7): print(i)` ut?","options":[{"id":"a","text":"`2 3 4 5 6`","isCorrect":true},{"id":"b","text":"`2 3 4 5 6 7`","isCorrect":false},{"id":"c","text":"`1 2 3 4 5 6 7`","isCorrect":false},{"id":"d","text":"`2 7`","isCorrect":false}],"solution":"`range(2, 7)` startar på 2 og stoppar **før** 7, så vi får tala $2, 3, 4, 5, 6$."},{"id":"8-11-2-n-quiz1-q2","task":"Kvifor er innrykk (4 mellomrom) viktig i Python?","options":[{"id":"a","text":"Det er berre for å gjere koden pen","isCorrect":false},{"id":"b","text":"Det fortel Python kva kode som høyrer til løkka","isCorrect":true},{"id":"c","text":"Det gjer programmet raskare","isCorrect":false},{"id":"d","text":"Det er valfritt","isCorrect":false}],"solution":"Python bruker innrykk for å vite kva linjer som høyrer til løkka. Utan rett innrykk får du ei feilmelding, eller koden køyrer på feil tidspunkt."}]}},{"id":"8-11-2-n-section2","type":"text","content":"## Bruke løkker til matematikk\n\nNo kjem det artigaste: å bruke løkker til å utforske matematikk!\n\n**Døme 1: Summere tala frå 1 til 100**\n\nDen unge Gauss fekk denne oppgåva på skulen og fann svaret med ein genial snarveg. Men vi kan bruke ei løkke:\n\n```python\ntotal = 0\nfor i in range(1, 101):\n    total = total + i\nprint(f\"Summen av tallene 1 til 100 er {total}\")\n```\n\nResultat: `Summen av tallene 1 til 100 er 5050`\n\nVi kan sjekke med formelen til Gauss: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\n**Døme 2: Gongetabellen**\n\n```python\ntall = 7\nfor i in range(1, 11):\n    print(f\"{tall} * {i} = {tall * i}\")\n```\n\nResultat:\n```\n7 * 1 = 7\n7 * 2 = 14\n7 * 3 = 21\n...\n7 * 10 = 70\n```\n\n**Døme 3: Finne alle partal frå 1 til 20**\n\n```python\nfor i in range(1, 21):\n    if i % 2 == 0:\n        print(i)\n```\n\nHer bruker vi **modulo** (`%`), som gir resten ved divisjon. Dersom `i % 2 == 0`, tyder det at `i` er deleleg med 2 -- altså eit partal."},{"id":"8-11-2-n-quiz2","type":"exercise","exercise":{"id":"8-11-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på løkker og matematikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-2-n-quiz2-q0","task":"Kva skriv dette programmet ut?\n\n```python\ntotal = 0\nfor i in range(1, 6):\n    total = total + i\nprint(total)\n```","options":[{"id":"a","text":"`6`","isCorrect":false},{"id":"b","text":"`15`","isCorrect":true},{"id":"c","text":"`21`","isCorrect":false},{"id":"d","text":"`10`","isCorrect":false}],"solution":"`range(1, 6)` gir tala $1, 2, 3, 4, 5$. Summen er $1 + 2 + 3 + 4 + 5 = 15$."},{"id":"8-11-2-n-quiz2-q1","task":"Kva er verdien av `15 % 4`?","options":[{"id":"a","text":"`3`","isCorrect":true},{"id":"b","text":"`3.75`","isCorrect":false},{"id":"c","text":"`4`","isCorrect":false},{"id":"d","text":"`1`","isCorrect":false}],"solution":"$15 = 4 \\cdot 3 + 3$, så resten er $3$. Modulo-operatoren gir nettopp denne resten."},{"id":"8-11-2-n-quiz2-q2","task":"Kva tal sjekkar `if i % 3 == 0` for?","options":[{"id":"a","text":"Om `i` er eit partal","isCorrect":false},{"id":"b","text":"Om `i` er deleleg med 3","isCorrect":true},{"id":"c","text":"Om `i` er større enn 3","isCorrect":false},{"id":"d","text":"Om `i` er eit primtal","isCorrect":false}],"solution":"`i % 3` gir resten når `i` blir delt på 3. Dersom resten er 0, er `i` deleleg med 3. Til dømes: $9 \\div 3 = 3$ med rest $0$, så $9 \\% 3 == 0$ er sant."}]}},{"id":"8-11-2-n-section3","type":"text","content":"## While-løkka -- gjenta så lenge eit vilkår er sant\n\nDen andre typen løkke er **while-løkka**. Ho gjentek koden så lenge eit vilkår er oppfylt:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nDette skriv ut tala 1 til 10. While-løkka sjekkar vilkåret `tall <= 10` før kvar gjennomgang. Når `tall` blir 11, er vilkåret ikkje lenger sant, og løkka stoppar.\n\n**Viktig:** Du må hugse å oppdatere variabelen inne i løkka! Gløymer du `tall = tall + 1`, vil `tall` alltid vere 1, vilkåret er alltid sant, og løkka køyrer for alltid (ei «evig løkke»).\n\n**Døme: Dobl eit tal til det overstig 1000**\n\n```python\ntall = 1\nantall = 0\nwhile tall <= 1000:\n    tall = tall * 2\n    antall = antall + 1\nprint(f\"Etter {antall} doblinger er tallet {tall}\")\n```\n\nResultat: `Etter 10 doblinger er tallet 1024`\n\nFordi $2^{10} = 1024 > 1000$. While-løkka er perfekt når vi ikkje veit på førehand kor mange gonger vi må gjenta -- vi veit berre **når vi skal stoppe**."},{"id":"8-11-2-n-section4","type":"text","content":"## Utforske talrekkjer med løkker\n\nLøkker er fantastiske for å utforske matematiske mønster. La oss sjå på nokre døme.\n\n**Kvadrattala:**\n\n```python\nprint(\"Kvadrattallene:\")\nfor n in range(1, 11):\n    print(f\"{n}² = {n**2}\")\n```\n\nResultat:\n```\n1² = 1\n2² = 4\n3² = 9\n4² = 16\n...\n10² = 100\n```\n\n**Trekanttala** (1, 3, 6, 10, 15, ...):\n\n```python\nprint(\"Trekanttallene:\")\ntrekanttall = 0\nfor n in range(1, 11):\n    trekanttall = trekanttall + n\n    print(f\"T({n}) = {trekanttall}\")\n```\n\nKvart trekanttal er summen av dei første $n$ naturlege tala: $T(n) = 1 + 2 + 3 + \\ldots + n$.\n\n**Fibonacci-tala** (1, 1, 2, 3, 5, 8, 13, 21, ...):\n\n```python\na = 1\nb = 1\nprint(a)\nprint(b)\nfor i in range(10):\n    c = a + b\n    print(c)\n    a = b\n    b = c\n```\n\nKvart Fibonacci-tal er summen av dei to føregåande. Denne rekkja dukkar opp overalt i naturen -- i solsikker, sneglehus og ananas!"},{"id":"8-11-2-n-quiz3","type":"exercise","exercise":{"id":"8-11-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på while-løkker og talrekkjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-11-2-n-quiz3-q0","task":"Kva er skilnaden mellom ei for-løkke og ei while-løkke?","options":[{"id":"a","text":"Dei gjer nøyaktig det same","isCorrect":false},{"id":"b","text":"For-løkka gjentek eit visst tal gonger, while-løkka gjentek så lenge eit vilkår er sant","isCorrect":true},{"id":"c","text":"While-løkka er raskare","isCorrect":false},{"id":"d","text":"For-løkka kan berre telje oppover","isCorrect":false}],"solution":"For-løkka blir brukt når du veit talet på gjentakingar (t.d. «gjenta 10 gonger»). While-løkka blir brukt når du veit vilkåret for å stoppe (t.d. «gjenta til talet er større enn 1000»)."},{"id":"8-11-2-n-quiz3-q1","task":"Kva er det femte trekanttalet $T(5)$?","options":[{"id":"a","text":"$10$","isCorrect":false},{"id":"b","text":"$15$","isCorrect":true},{"id":"c","text":"$25$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":false}],"solution":"$T(5) = 1 + 2 + 3 + 4 + 5 = 15$. Trekanttala blir kalla det fordi du kan arrangere dei som trekantar med prikkar."},{"id":"8-11-2-n-quiz3-q2","task":"Fibonacci-tala byrjar med 1, 1, 2, 3, 5, 8. Kva er det neste talet?","options":[{"id":"a","text":"$11$","isCorrect":false},{"id":"b","text":"$13$","isCorrect":true},{"id":"c","text":"$14$","isCorrect":false},{"id":"d","text":"$10$","isCorrect":false}],"solution":"Kvart Fibonacci-tal er summen av dei to føregåande: $5 + 8 = 13$. Så rekkja held fram med 13."}]}},{"id":"8-11-2-n-summary","type":"text","content":"## Oppsummering\n\nLøkker lèt datamaskinen gjenta instruksjonar -- og det gjer programmering til eit kraftig verktøy i matematikk:\n\n- **For-løkka** gjentek eit visst tal gonger: `for i in range(start, stopp)`\n- **While-løkka** gjentek så lenge eit vilkår er sant: `while vilkår:`\n- **range(n)** gir tala $0, 1, \\ldots, n-1$. **range(a, b)** gir $a, a+1, \\ldots, b-1$.\n- **Modulo** (`%`) gir resten ved divisjon -- nyttig for å sjekke deleleg\n- **Summering**: Start med `total = 0` og legg til i løkka\n- **Matematiske rekkjer**: Kvadrattal ($n^2$), trekanttal ($1 + 2 + \\ldots + n$) og Fibonacci-tal (summen av dei to føregåande)\n- **Innrykk**: Koden med innrykk høyrer til løkka, koden utan køyrer etterpå\n- **Pass opp for evig løkke**: Hugs å oppdatere variabelen i while-løkka!\n\nMed løkker kan du utforske matematiske mønster som ville teke timar for hand -- men som datamaskinen fiksar på millisekund. I neste kapittel skal vi lære om **algoritmar** -- oppskrifter for å løyse problem steg for steg."}],"exercises":[],"_meta":{"sourceHash":"fd1fcdb11c3831cc","translatedAt":"2026-06-17T01:27:02.995Z","model":"claude-code-agent","strings":46,"tm":{"3cdd0d45f6af6e1f":"Løkker og variablar","b195b06d1ed59702":"Narrativ versjon","95031a5a78e19bdc":"Ein forteljande gjennomgang av løkker og variablar der vi oppdagar korleis datamaskinen kan gjenta instruksjonar tusenvis av gonger, utforske talrekkjer og la oss eksperimentere med matematiske mønster.","38b3f88b8d0434b5":"bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt","127d67a77ce5c6b5":"## Gjenta utan å bli sliten\n\nTenk deg at du får i oppgåve å skrive ut alle tala frå 1 til 1000. For hand ville det teke deg timevis. Men ein datamaskin gjer det på eit brøkdels sekund -- fordi han kan **gjenta** instruksjonar så mange gonger han vil, utan å bli sliten eller gjere feil.\n\nDenne evna til å gjenta ting -- det vi kallar **løkker** -- er kanskje den viktigaste grunnen til at programmering er så nyttig i matematikk. Med løkker kan vi:\n- Summere hundrevis av tal på eit augneblink\n- Utforske talrekkjer og mønster\n- Sjekke tusenvis av moglegheiter\n\nLa oss starte med dei to typane løkker i Python: **for-løkka** og **while-løkka**.","7ef4221822610dcc":"## For-løkka -- gjenta eit visst tal gonger\n\nEi **for-løkke** blir brukt når du veit på førehand kor mange gonger du vil gjenta noko. I Python ser ho slik ut:\n\n```python\nfor i in range(5):\n    print(i)\n```\n\nDette skriv ut:\n```\n0\n1\n2\n3\n4\n```\n\n`range(5)` lagar tala $0, 1, 2, 3, 4$ -- altså 5 tal, men ho startar på 0 og stoppar **før** 5. Variabelen `i` tek etter tur verdien av kvart tal.\n\nDu kan òg bestemme start- og sluttverdi:\n\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\nDette skriv ut $1, 2, 3, 4, 5$. Formatet er `range(start, stopp)` der `stopp` **ikkje** er med.\n\n**Innrykk er viktig!** Alt som skal gjentakast må ha 4 mellomrom framføre seg. Koden utan innrykk køyrer etter at løkka er ferdig:\n\n```python\nfor i in range(3):\n    print(f\"Inne i lokken: {i}\")\nprint(\"Denne linjen kjores etter lokken\")\n```\n\nResultat:\n```\nInne i lokken: 0\nInne i lokken: 1\nInne i lokken: 2\nDenne linjen kjores etter lokken\n```","0e91bd3b61c2eecc":"Test deg sjølv på for-løkker:","4097889236a2af26":"placeholder","71fd5b6ec783bcc5":"Kva skriv `for i in range(4): print(i)` ut?","d46a023fdfc80934":"`range(4)` gir tala $0, 1, 2, 3$ -- altså 4 tal som startar på 0 og stoppar før 4.","67df65c9fd2e6d0f":"Kva skriv `for i in range(2, 7): print(i)` ut?","28db147f1da24211":"`range(2, 7)` startar på 2 og stoppar **før** 7, så vi får tala $2, 3, 4, 5, 6$.","454b973240aad8dc":"Kvifor er innrykk (4 mellomrom) viktig i Python?","3b0de97ba78f724d":"Det er berre for å gjere koden pen","8e1f42a0eab42879":"Det fortel Python kva kode som høyrer til løkka","5b85f4d04873eafe":"Det gjer programmet raskare","9ac246ec28ad5591":"Det er valfritt","8c816419e76fda3f":"Python bruker innrykk for å vite kva linjer som høyrer til løkka. Utan rett innrykk får du ei feilmelding, eller koden køyrer på feil tidspunkt.","167026b9c55414eb":"## Bruke løkker til matematikk\n\nNo kjem det artigaste: å bruke løkker til å utforske matematikk!\n\n**Døme 1: Summere tala frå 1 til 100**\n\nDen unge Gauss fekk denne oppgåva på skulen og fann svaret med ein genial snarveg. Men vi kan bruke ei løkke:\n\n```python\ntotal = 0\nfor i in range(1, 101):\n    total = total + i\nprint(f\"Summen av tallene 1 til 100 er {total}\")\n```\n\nResultat: `Summen av tallene 1 til 100 er 5050`\n\nVi kan sjekke med formelen til Gauss: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\n**Døme 2: Gongetabellen**\n\n```python\ntall = 7\nfor i in range(1, 11):\n    print(f\"{tall} * {i} = {tall * i}\")\n```\n\nResultat:\n```\n7 * 1 = 7\n7 * 2 = 14\n7 * 3 = 21\n...\n7 * 10 = 70\n```\n\n**Døme 3: Finne alle partal frå 1 til 20**\n\n```python\nfor i in range(1, 21):\n    if i % 2 == 0:\n        print(i)\n```\n\nHer bruker vi **modulo** (`%`), som gir resten ved divisjon. Dersom `i % 2 == 0`, tyder det at `i` er deleleg med 2 -- altså eit partal.","6349819876541f3f":"Test deg sjølv på løkker og matematikk:","88ffdfd0526615f4":"Kva skriv dette programmet ut?\n\n```python\ntotal = 0\nfor i in range(1, 6):\n    total = total + i\nprint(total)\n```","2c56b68d6580df1c":"`range(1, 6)` gir tala $1, 2, 3, 4, 5$. Summen er $1 + 2 + 3 + 4 + 5 = 15$.","814f0c568b502977":"Kva er verdien av `15 % 4`?","ea30e1fa63302544":"$15 = 4 \\cdot 3 + 3$, så resten er $3$. Modulo-operatoren gir nettopp denne resten.","e47391ffcef75c5f":"Kva tal sjekkar `if i % 3 == 0` for?","273962b012e4326b":"Om `i` er eit partal","d97b027720eed3aa":"Om `i` er deleleg med 3","6e7988b845a05815":"Om `i` er større enn 3","24ea09b093692c17":"Om `i` er eit primtal","381effc2c64d0295":"`i % 3` gir resten når `i` blir delt på 3. Dersom resten er 0, er `i` deleleg med 3. Til dømes: $9 \\div 3 = 3$ med rest $0$, så $9 \\% 3 == 0$ er sant.","0ce1f496b5a2e608":"## While-løkka -- gjenta så lenge eit vilkår er sant\n\nDen andre typen løkke er **while-løkka**. Ho gjentek koden så lenge eit vilkår er oppfylt:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nDette skriv ut tala 1 til 10. While-løkka sjekkar vilkåret `tall <= 10` før kvar gjennomgang. Når `tall` blir 11, er vilkåret ikkje lenger sant, og løkka stoppar.\n\n**Viktig:** Du må hugse å oppdatere variabelen inne i løkka! Gløymer du `tall = tall + 1`, vil `tall` alltid vere 1, vilkåret er alltid sant, og løkka køyrer for alltid (ei «evig løkke»).\n\n**Døme: Dobl eit tal til det overstig 1000**\n\n```python\ntall = 1\nantall = 0\nwhile tall <= 1000:\n    tall = tall * 2\n    antall = antall + 1\nprint(f\"Etter {antall} doblinger er tallet {tall}\")\n```\n\nResultat: `Etter 10 doblinger er tallet 1024`\n\nFordi $2^{10} = 1024 > 1000$. While-løkka er perfekt når vi ikkje veit på førehand kor mange gonger vi må gjenta -- vi veit berre **når vi skal stoppe**.","6a4b3760d38b832f":"## Utforske talrekkjer med løkker\n\nLøkker er fantastiske for å utforske matematiske mønster. La oss sjå på nokre døme.\n\n**Kvadrattala:**\n\n```python\nprint(\"Kvadrattallene:\")\nfor n in range(1, 11):\n    print(f\"{n}² = {n**2}\")\n```\n\nResultat:\n```\n1² = 1\n2² = 4\n3² = 9\n4² = 16\n...\n10² = 100\n```\n\n**Trekanttala** (1, 3, 6, 10, 15, ...):\n\n```python\nprint(\"Trekanttallene:\")\ntrekanttall = 0\nfor n in range(1, 11):\n    trekanttall = trekanttall + n\n    print(f\"T({n}) = {trekanttall}\")\n```\n\nKvart trekanttal er summen av dei første $n$ naturlege tala: $T(n) = 1 + 2 + 3 + \\ldots + n$.\n\n**Fibonacci-tala** (1, 1, 2, 3, 5, 8, 13, 21, ...):\n\n```python\na = 1\nb = 1\nprint(a)\nprint(b)\nfor i in range(10):\n    c = a + b\n    print(c)\n    a = b\n    b = c\n```\n\nKvart Fibonacci-tal er summen av dei to føregåande. Denne rekkja dukkar opp overalt i naturen -- i solsikker, sneglehus og ananas!","10aa844085c7f3c7":"Test deg sjølv på while-løkker og talrekkjer:","cc074af612cec06f":"Kva er skilnaden mellom ei for-løkke og ei while-løkke?","7d2cdc8d35a40886":"Dei gjer nøyaktig det same","6a73b0b847a1bf5a":"For-løkka gjentek eit visst tal gonger, while-løkka gjentek så lenge eit vilkår er sant","1a8e6f281ea0f529":"While-løkka er raskare","5637626ce0f9f053":"For-løkka kan berre telje oppover","33d56b8a004befdc":"For-løkka blir brukt når du veit talet på gjentakingar (t.d. «gjenta 10 gonger»). While-løkka blir brukt når du veit vilkåret for å stoppe (t.d. «gjenta til talet er større enn 1000»).","aeef2857232845ed":"Kva er det femte trekanttalet $T(5)$?","bb052fd4c8deffb1":"$T(5) = 1 + 2 + 3 + 4 + 5 = 15$. Trekanttala blir kalla det fordi du kan arrangere dei som trekantar med prikkar.","613afbf7fc3de991":"Fibonacci-tala byrjar med 1, 1, 2, 3, 5, 8. Kva er det neste talet?","b19c3d14f28245aa":"Kvart Fibonacci-tal er summen av dei to føregåande: $5 + 8 = 13$. Så rekkja held fram med 13.","8ffa86d6f673ade1":"## Oppsummering\n\nLøkker lèt datamaskinen gjenta instruksjonar -- og det gjer programmering til eit kraftig verktøy i matematikk:\n\n- **For-løkka** gjentek eit visst tal gonger: `for i in range(start, stopp)`\n- **While-løkka** gjentek så lenge eit vilkår er sant: `while vilkår:`\n- **range(n)** gir tala $0, 1, \\ldots, n-1$. **range(a, b)** gir $a, a+1, \\ldots, b-1$.\n- **Modulo** (`%`) gir resten ved divisjon -- nyttig for å sjekke deleleg\n- **Summering**: Start med `total = 0` og legg til i løkka\n- **Matematiske rekkjer**: Kvadrattal ($n^2$), trekanttal ($1 + 2 + \\ldots + n$) og Fibonacci-tal (summen av dei to føregåande)\n- **Innrykk**: Koden med innrykk høyrer til løkka, koden utan køyrer etterpå\n- **Pass opp for evig løkke**: Hugs å oppdatere variabelen i while-løkka!\n\nMed løkker kan du utforske matematiske mønster som ville teke timar for hand -- men som datamaskinen fiksar på millisekund. I neste kapittel skal vi lære om **algoritmar** -- oppskrifter for å løyse problem steg for steg."}}}
+{
+  "id": "8-11-2-narrativ",
+  "courseId": "8",
+  "chapterNumber": "11.2",
+  "title": "Løkker og variablar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av løkker og variablar der vi oppdagar korleis datamaskinen kan gjenta instruksjonar tusenvis av gonger, utforske talrekkjer og la oss eksperimentere med matematiske mønster.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt"
+  ],
+  "linkedChapterId": "8-11-2",
+  "content": [
+    {
+      "id": "8-11-2-n-intro",
+      "type": "text",
+      "content": "## Gjenta utan å bli sliten\n\nTenk deg at du får i oppgåve å skrive ut alle tala frå 1 til 1000. For hand ville det teke deg timevis. Men ein datamaskin gjer det på eit brøkdels sekund -- fordi han kan **gjenta** instruksjonar så mange gonger han vil, utan å bli sliten eller gjere feil.\n\nDenne evna til å gjenta ting -- det vi kallar **løkker** -- er kanskje den viktigaste grunnen til at programmering er så nyttig i matematikk. Med løkker kan vi:\n- Summere hundrevis av tal på eit augneblink\n- Utforske talrekkjer og mønster\n- Sjekke tusenvis av moglegheiter\n\nLa oss starte med dei to typane løkker i Python: **for-løkka** og **while-løkka**."
+    },
+    {
+      "id": "8-11-2-n-section1",
+      "type": "text",
+      "content": "## For-løkka -- gjenta eit visst tal gonger\n\nEi **for-løkke** blir brukt når du veit på førehand kor mange gonger du vil gjenta noko. I Python ser ho slik ut:\n\n```python\nfor i in range(5):\n    print(i)\n```\n\nDette skriv ut:\n```\n0\n1\n2\n3\n4\n```\n\n`range(5)` lagar tala $0, 1, 2, 3, 4$ -- altså 5 tal, men ho startar på 0 og stoppar **før** 5. Variabelen `i` tek etter tur verdien av kvart tal.\n\nDu kan òg bestemme start- og sluttverdi:\n\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\nDette skriv ut $1, 2, 3, 4, 5$. Formatet er `range(start, stopp)` der `stopp` **ikkje** er med.\n\n**Innrykk er viktig!** Alt som skal gjentakast må ha 4 mellomrom framføre seg. Koden utan innrykk køyrer etter at løkka er ferdig:\n\n```python\nfor i in range(3):\n    print(f\"Inne i lokken: {i}\")\nprint(\"Denne linjen kjores etter lokken\")\n```\n\nResultat:\n```\nInne i lokken: 0\nInne i lokken: 1\nInne i lokken: 2\nDenne linjen kjores etter lokken\n```"
+    },
+    {
+      "id": "8-11-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på for-løkker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-2-n-quiz1-q0",
+            "task": "Kva skriv `for i in range(4): print(i)` ut?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`1 2 3 4`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`0 1 2 3 4`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`1 2 3`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`0 1 2 3`",
+                "isCorrect": true
+              }
+            ],
+            "solution": "`range(4)` gir tala $0, 1, 2, 3$ -- altså 4 tal som startar på 0 og stoppar før 4."
+          },
+          {
+            "id": "8-11-2-n-quiz1-q1",
+            "task": "Kva skriv `for i in range(2, 7): print(i)` ut?",
+            "options": [
+              {
+                "id": "a",
+                "text": "`2 3 4 5 6`",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "`2 3 4 5 6 7`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`1 2 3 4 5 6 7`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`2 7`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`range(2, 7)` startar på 2 og stoppar **før** 7, så vi får tala $2, 3, 4, 5, 6$."
+          },
+          {
+            "id": "8-11-2-n-quiz1-q2",
+            "task": "Kvifor er innrykk (4 mellomrom) viktig i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er berre for å gjere koden pen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det fortel Python kva kode som høyrer til løkka",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det gjer programmet raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er valfritt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Python bruker innrykk for å vite kva linjer som høyrer til løkka. Utan rett innrykk får du ei feilmelding, eller koden køyrer på feil tidspunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-2-n-section2",
+      "type": "text",
+      "content": "## Bruke løkker til matematikk\n\nNo kjem det artigaste: å bruke løkker til å utforske matematikk!\n\n**Døme 1: Summere tala frå 1 til 100**\n\nDen unge Gauss fekk denne oppgåva på skulen og fann svaret med ein genial snarveg. Men vi kan bruke ei løkke:\n\n```python\ntotal = 0\nfor i in range(1, 101):\n    total = total + i\nprint(f\"Summen av tallene 1 til 100 er {total}\")\n```\n\nResultat: `Summen av tallene 1 til 100 er 5050`\n\nVi kan sjekke med formelen til Gauss: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\n**Døme 2: Gongetabellen**\n\n```python\ntall = 7\nfor i in range(1, 11):\n    print(f\"{tall} * {i} = {tall * i}\")\n```\n\nResultat:\n```\n7 * 1 = 7\n7 * 2 = 14\n7 * 3 = 21\n...\n7 * 10 = 70\n```\n\n**Døme 3: Finne alle partal frå 1 til 20**\n\n```python\nfor i in range(1, 21):\n    if i % 2 == 0:\n        print(i)\n```\n\nHer bruker vi **modulo** (`%`), som gir resten ved divisjon. Dersom `i % 2 == 0`, tyder det at `i` er deleleg med 2 -- altså eit partal."
+    },
+    {
+      "id": "8-11-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på løkker og matematikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-2-n-quiz2-q0",
+            "task": "Kva skriv dette programmet ut?\n\n```python\ntotal = 0\nfor i in range(1, 6):\n    total = total + i\nprint(total)\n```",
+            "options": [
+              {
+                "id": "a",
+                "text": "`6`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`21`",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "`15`",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "`10`",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`range(1, 6)` gir tala $1, 2, 3, 4, 5$. Summen er $1 + 2 + 3 + 4 + 5 = 15$."
+          },
+          {
+            "id": "8-11-2-n-quiz2-q1",
+            "task": "Kva er verdien av `15 % 4`?",
+            "options": [
+              {
+                "id": "b",
+                "text": "`3.75`",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "`4`",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "`1`",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "`3`",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$15 = 4 \\cdot 3 + 3$, så resten er $3$. Modulo-operatoren gir nettopp denne resten."
+          },
+          {
+            "id": "8-11-2-n-quiz2-q2",
+            "task": "Kva tal sjekkar `if i % 3 == 0` for?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Om `i` er deleleg med 3",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Om `i` er eit partal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Om `i` er større enn 3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Om `i` er eit primtal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`i % 3` gir resten når `i` blir delt på 3. Dersom resten er 0, er `i` deleleg med 3. Til dømes: $9 \\div 3 = 3$ med rest $0$, så $9 \\% 3 == 0$ er sant."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-2-n-section3",
+      "type": "text",
+      "content": "## While-løkka -- gjenta så lenge eit vilkår er sant\n\nDen andre typen løkke er **while-løkka**. Ho gjentek koden så lenge eit vilkår er oppfylt:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nDette skriv ut tala 1 til 10. While-løkka sjekkar vilkåret `tall <= 10` før kvar gjennomgang. Når `tall` blir 11, er vilkåret ikkje lenger sant, og løkka stoppar.\n\n**Viktig:** Du må hugse å oppdatere variabelen inne i løkka! Gløymer du `tall = tall + 1`, vil `tall` alltid vere 1, vilkåret er alltid sant, og løkka køyrer for alltid (ei «evig løkke»).\n\n**Døme: Dobl eit tal til det overstig 1000**\n\n```python\ntall = 1\nantall = 0\nwhile tall <= 1000:\n    tall = tall * 2\n    antall = antall + 1\nprint(f\"Etter {antall} doblinger er tallet {tall}\")\n```\n\nResultat: `Etter 10 doblinger er tallet 1024`\n\nFordi $2^{10} = 1024 > 1000$. While-løkka er perfekt når vi ikkje veit på førehand kor mange gonger vi må gjenta -- vi veit berre **når vi skal stoppe**."
+    },
+    {
+      "id": "8-11-2-n-section4",
+      "type": "text",
+      "content": "## Utforske talrekkjer med løkker\n\nLøkker er fantastiske for å utforske matematiske mønster. La oss sjå på nokre døme.\n\n**Kvadrattala:**\n\n```python\nprint(\"Kvadrattallene:\")\nfor n in range(1, 11):\n    print(f\"{n}² = {n**2}\")\n```\n\nResultat:\n```\n1² = 1\n2² = 4\n3² = 9\n4² = 16\n...\n10² = 100\n```\n\n**Trekanttala** (1, 3, 6, 10, 15, ...):\n\n```python\nprint(\"Trekanttallene:\")\ntrekanttall = 0\nfor n in range(1, 11):\n    trekanttall = trekanttall + n\n    print(f\"T({n}) = {trekanttall}\")\n```\n\nKvart trekanttal er summen av dei første $n$ naturlege tala: $T(n) = 1 + 2 + 3 + \\ldots + n$.\n\n**Fibonacci-tala** (1, 1, 2, 3, 5, 8, 13, 21, ...):\n\n```python\na = 1\nb = 1\nprint(a)\nprint(b)\nfor i in range(10):\n    c = a + b\n    print(c)\n    a = b\n    b = c\n```\n\nKvart Fibonacci-tal er summen av dei to føregåande. Denne rekkja dukkar opp overalt i naturen -- i solsikker, sneglehus og ananas!"
+    },
+    {
+      "id": "8-11-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-11-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på while-løkker og talrekkjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-11-2-n-quiz3-q0",
+            "task": "Kva er skilnaden mellom ei for-løkke og ei while-løkke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei gjer nøyaktig det same",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For-løkka gjentek eit visst tal gonger, while-løkka gjentek så lenge eit vilkår er sant",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "While-løkka er raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For-løkka kan berre telje oppover",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For-løkka blir brukt når du veit talet på gjentakingar (t.d. «gjenta 10 gonger»). While-løkka blir brukt når du veit vilkåret for å stoppe (t.d. «gjenta til talet er større enn 1000»)."
+          },
+          {
+            "id": "8-11-2-n-quiz3-q1",
+            "task": "Kva er det femte trekanttalet $T(5)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T(5) = 1 + 2 + 3 + 4 + 5 = 15$. Trekanttala blir kalla det fordi du kan arrangere dei som trekantar med prikkar."
+          },
+          {
+            "id": "8-11-2-n-quiz3-q2",
+            "task": "Fibonacci-tala byrjar med 1, 1, 2, 3, 5, 8. Kva er det neste talet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$11$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$14$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$13$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvart Fibonacci-tal er summen av dei to føregåande: $5 + 8 = 13$. Så rekkja held fram med 13."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-11-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nLøkker lèt datamaskinen gjenta instruksjonar -- og det gjer programmering til eit kraftig verktøy i matematikk:\n\n- **For-løkka** gjentek eit visst tal gonger: `for i in range(start, stopp)`\n- **While-løkka** gjentek så lenge eit vilkår er sant: `while vilkår:`\n- **range(n)** gir tala $0, 1, \\ldots, n-1$. **range(a, b)** gir $a, a+1, \\ldots, b-1$.\n- **Modulo** (`%`) gir resten ved divisjon -- nyttig for å sjekke deleleg\n- **Summering**: Start med `total = 0` og legg til i løkka\n- **Matematiske rekkjer**: Kvadrattal ($n^2$), trekanttal ($1 + 2 + \\ldots + n$) og Fibonacci-tal (summen av dei to føregåande)\n- **Innrykk**: Koden med innrykk høyrer til løkka, koden utan køyrer etterpå\n- **Pass opp for evig løkke**: Hugs å oppdatere variabelen i while-løkka!\n\nMed løkker kan du utforske matematiske mønster som ville teke timar for hand -- men som datamaskinen fiksar på millisekund. I neste kapittel skal vi lære om **algoritmar** -- oppskrifter for å løyse problem steg for steg."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "fd1fcdb11c3831cc",
+    "translatedAt": "2026-06-17T01:27:02.995Z",
+    "model": "claude-code-agent",
+    "strings": 46,
+    "tm": {
+      "3cdd0d45f6af6e1f": "Løkker og variablar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "95031a5a78e19bdc": "Ein forteljande gjennomgang av løkker og variablar der vi oppdagar korleis datamaskinen kan gjenta instruksjonar tusenvis av gonger, utforske talrekkjer og la oss eksperimentere med matematiske mønster.",
+      "38b3f88b8d0434b5": "bruke programmering til å utforske matematiske eigenskapar og samanhengar og til å kode kreative og interaktive produkt",
+      "127d67a77ce5c6b5": "## Gjenta utan å bli sliten\n\nTenk deg at du får i oppgåve å skrive ut alle tala frå 1 til 1000. For hand ville det teke deg timevis. Men ein datamaskin gjer det på eit brøkdels sekund -- fordi han kan **gjenta** instruksjonar så mange gonger han vil, utan å bli sliten eller gjere feil.\n\nDenne evna til å gjenta ting -- det vi kallar **løkker** -- er kanskje den viktigaste grunnen til at programmering er så nyttig i matematikk. Med løkker kan vi:\n- Summere hundrevis av tal på eit augneblink\n- Utforske talrekkjer og mønster\n- Sjekke tusenvis av moglegheiter\n\nLa oss starte med dei to typane løkker i Python: **for-løkka** og **while-løkka**.",
+      "7ef4221822610dcc": "## For-løkka -- gjenta eit visst tal gonger\n\nEi **for-løkke** blir brukt når du veit på førehand kor mange gonger du vil gjenta noko. I Python ser ho slik ut:\n\n```python\nfor i in range(5):\n    print(i)\n```\n\nDette skriv ut:\n```\n0\n1\n2\n3\n4\n```\n\n`range(5)` lagar tala $0, 1, 2, 3, 4$ -- altså 5 tal, men ho startar på 0 og stoppar **før** 5. Variabelen `i` tek etter tur verdien av kvart tal.\n\nDu kan òg bestemme start- og sluttverdi:\n\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\nDette skriv ut $1, 2, 3, 4, 5$. Formatet er `range(start, stopp)` der `stopp` **ikkje** er med.\n\n**Innrykk er viktig!** Alt som skal gjentakast må ha 4 mellomrom framføre seg. Koden utan innrykk køyrer etter at løkka er ferdig:\n\n```python\nfor i in range(3):\n    print(f\"Inne i lokken: {i}\")\nprint(\"Denne linjen kjores etter lokken\")\n```\n\nResultat:\n```\nInne i lokken: 0\nInne i lokken: 1\nInne i lokken: 2\nDenne linjen kjores etter lokken\n```",
+      "0e91bd3b61c2eecc": "Test deg sjølv på for-løkker:",
+      "4097889236a2af26": "placeholder",
+      "71fd5b6ec783bcc5": "Kva skriv `for i in range(4): print(i)` ut?",
+      "d46a023fdfc80934": "`range(4)` gir tala $0, 1, 2, 3$ -- altså 4 tal som startar på 0 og stoppar før 4.",
+      "67df65c9fd2e6d0f": "Kva skriv `for i in range(2, 7): print(i)` ut?",
+      "28db147f1da24211": "`range(2, 7)` startar på 2 og stoppar **før** 7, så vi får tala $2, 3, 4, 5, 6$.",
+      "454b973240aad8dc": "Kvifor er innrykk (4 mellomrom) viktig i Python?",
+      "3b0de97ba78f724d": "Det er berre for å gjere koden pen",
+      "8e1f42a0eab42879": "Det fortel Python kva kode som høyrer til løkka",
+      "5b85f4d04873eafe": "Det gjer programmet raskare",
+      "9ac246ec28ad5591": "Det er valfritt",
+      "8c816419e76fda3f": "Python bruker innrykk for å vite kva linjer som høyrer til løkka. Utan rett innrykk får du ei feilmelding, eller koden køyrer på feil tidspunkt.",
+      "167026b9c55414eb": "## Bruke løkker til matematikk\n\nNo kjem det artigaste: å bruke løkker til å utforske matematikk!\n\n**Døme 1: Summere tala frå 1 til 100**\n\nDen unge Gauss fekk denne oppgåva på skulen og fann svaret med ein genial snarveg. Men vi kan bruke ei løkke:\n\n```python\ntotal = 0\nfor i in range(1, 101):\n    total = total + i\nprint(f\"Summen av tallene 1 til 100 er {total}\")\n```\n\nResultat: `Summen av tallene 1 til 100 er 5050`\n\nVi kan sjekke med formelen til Gauss: $\\frac{100 \\cdot 101}{2} = 5050$. Stemmer!\n\n**Døme 2: Gongetabellen**\n\n```python\ntall = 7\nfor i in range(1, 11):\n    print(f\"{tall} * {i} = {tall * i}\")\n```\n\nResultat:\n```\n7 * 1 = 7\n7 * 2 = 14\n7 * 3 = 21\n...\n7 * 10 = 70\n```\n\n**Døme 3: Finne alle partal frå 1 til 20**\n\n```python\nfor i in range(1, 21):\n    if i % 2 == 0:\n        print(i)\n```\n\nHer bruker vi **modulo** (`%`), som gir resten ved divisjon. Dersom `i % 2 == 0`, tyder det at `i` er deleleg med 2 -- altså eit partal.",
+      "6349819876541f3f": "Test deg sjølv på løkker og matematikk:",
+      "88ffdfd0526615f4": "Kva skriv dette programmet ut?\n\n```python\ntotal = 0\nfor i in range(1, 6):\n    total = total + i\nprint(total)\n```",
+      "2c56b68d6580df1c": "`range(1, 6)` gir tala $1, 2, 3, 4, 5$. Summen er $1 + 2 + 3 + 4 + 5 = 15$.",
+      "814f0c568b502977": "Kva er verdien av `15 % 4`?",
+      "ea30e1fa63302544": "$15 = 4 \\cdot 3 + 3$, så resten er $3$. Modulo-operatoren gir nettopp denne resten.",
+      "e47391ffcef75c5f": "Kva tal sjekkar `if i % 3 == 0` for?",
+      "273962b012e4326b": "Om `i` er eit partal",
+      "d97b027720eed3aa": "Om `i` er deleleg med 3",
+      "6e7988b845a05815": "Om `i` er større enn 3",
+      "24ea09b093692c17": "Om `i` er eit primtal",
+      "381effc2c64d0295": "`i % 3` gir resten når `i` blir delt på 3. Dersom resten er 0, er `i` deleleg med 3. Til dømes: $9 \\div 3 = 3$ med rest $0$, så $9 \\% 3 == 0$ er sant.",
+      "0ce1f496b5a2e608": "## While-løkka -- gjenta så lenge eit vilkår er sant\n\nDen andre typen løkke er **while-løkka**. Ho gjentek koden så lenge eit vilkår er oppfylt:\n\n```python\ntall = 1\nwhile tall <= 10:\n    print(tall)\n    tall = tall + 1\n```\n\nDette skriv ut tala 1 til 10. While-løkka sjekkar vilkåret `tall <= 10` før kvar gjennomgang. Når `tall` blir 11, er vilkåret ikkje lenger sant, og løkka stoppar.\n\n**Viktig:** Du må hugse å oppdatere variabelen inne i løkka! Gløymer du `tall = tall + 1`, vil `tall` alltid vere 1, vilkåret er alltid sant, og løkka køyrer for alltid (ei «evig løkke»).\n\n**Døme: Dobl eit tal til det overstig 1000**\n\n```python\ntall = 1\nantall = 0\nwhile tall <= 1000:\n    tall = tall * 2\n    antall = antall + 1\nprint(f\"Etter {antall} doblinger er tallet {tall}\")\n```\n\nResultat: `Etter 10 doblinger er tallet 1024`\n\nFordi $2^{10} = 1024 > 1000$. While-løkka er perfekt når vi ikkje veit på førehand kor mange gonger vi må gjenta -- vi veit berre **når vi skal stoppe**.",
+      "6a4b3760d38b832f": "## Utforske talrekkjer med løkker\n\nLøkker er fantastiske for å utforske matematiske mønster. La oss sjå på nokre døme.\n\n**Kvadrattala:**\n\n```python\nprint(\"Kvadrattallene:\")\nfor n in range(1, 11):\n    print(f\"{n}² = {n**2}\")\n```\n\nResultat:\n```\n1² = 1\n2² = 4\n3² = 9\n4² = 16\n...\n10² = 100\n```\n\n**Trekanttala** (1, 3, 6, 10, 15, ...):\n\n```python\nprint(\"Trekanttallene:\")\ntrekanttall = 0\nfor n in range(1, 11):\n    trekanttall = trekanttall + n\n    print(f\"T({n}) = {trekanttall}\")\n```\n\nKvart trekanttal er summen av dei første $n$ naturlege tala: $T(n) = 1 + 2 + 3 + \\ldots + n$.\n\n**Fibonacci-tala** (1, 1, 2, 3, 5, 8, 13, 21, ...):\n\n```python\na = 1\nb = 1\nprint(a)\nprint(b)\nfor i in range(10):\n    c = a + b\n    print(c)\n    a = b\n    b = c\n```\n\nKvart Fibonacci-tal er summen av dei to føregåande. Denne rekkja dukkar opp overalt i naturen -- i solsikker, sneglehus og ananas!",
+      "10aa844085c7f3c7": "Test deg sjølv på while-løkker og talrekkjer:",
+      "cc074af612cec06f": "Kva er skilnaden mellom ei for-løkke og ei while-løkke?",
+      "7d2cdc8d35a40886": "Dei gjer nøyaktig det same",
+      "6a73b0b847a1bf5a": "For-løkka gjentek eit visst tal gonger, while-løkka gjentek så lenge eit vilkår er sant",
+      "1a8e6f281ea0f529": "While-løkka er raskare",
+      "5637626ce0f9f053": "For-løkka kan berre telje oppover",
+      "33d56b8a004befdc": "For-løkka blir brukt når du veit talet på gjentakingar (t.d. «gjenta 10 gonger»). While-løkka blir brukt når du veit vilkåret for å stoppe (t.d. «gjenta til talet er større enn 1000»).",
+      "aeef2857232845ed": "Kva er det femte trekanttalet $T(5)$?",
+      "bb052fd4c8deffb1": "$T(5) = 1 + 2 + 3 + 4 + 5 = 15$. Trekanttala blir kalla det fordi du kan arrangere dei som trekantar med prikkar.",
+      "613afbf7fc3de991": "Fibonacci-tala byrjar med 1, 1, 2, 3, 5, 8. Kva er det neste talet?",
+      "b19c3d14f28245aa": "Kvart Fibonacci-tal er summen av dei to føregåande: $5 + 8 = 13$. Så rekkja held fram med 13.",
+      "8ffa86d6f673ade1": "## Oppsummering\n\nLøkker lèt datamaskinen gjenta instruksjonar -- og det gjer programmering til eit kraftig verktøy i matematikk:\n\n- **For-løkka** gjentek eit visst tal gonger: `for i in range(start, stopp)`\n- **While-løkka** gjentek så lenge eit vilkår er sant: `while vilkår:`\n- **range(n)** gir tala $0, 1, \\ldots, n-1$. **range(a, b)** gir $a, a+1, \\ldots, b-1$.\n- **Modulo** (`%`) gir resten ved divisjon -- nyttig for å sjekke deleleg\n- **Summering**: Start med `total = 0` og legg til i løkka\n- **Matematiske rekkjer**: Kvadrattal ($n^2$), trekanttal ($1 + 2 + \\ldots + n$) og Fibonacci-tal (summen av dei to føregåande)\n- **Innrykk**: Koden med innrykk høyrer til løkka, koden utan køyrer etterpå\n- **Pass opp for evig løkke**: Hugs å oppdatere variabelen i while-løkka!\n\nMed løkker kan du utforske matematiske mønster som ville teke timar for hand -- men som datamaskinen fiksar på millisekund. I neste kapittel skal vi lære om **algoritmar** -- oppskrifter for å løyse problem steg for steg."
+    }
+  }
+}

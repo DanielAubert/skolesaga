@@ -1,1 +1,439 @@
-{"id":"s1-4-5-narrativ","courseId":"s1","chapterNumber":"4.5","title":"Elastisitet","subtitle":"Narrativ versjon","description":"Ei forteljing om avgifter, billettprisar og brødsal — priselastisitet, krysspriselastisitet og inntektselastisitet.","estimatedMinutes":31,"competenceGoals":["anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett","anvende derivasjon til å analysere og forstå optimaliseringsproblemer"],"linkedChapterId":"s1-4-5","content":[{"id":"s1-4-5-n-intro","type":"text","content":"## Kor mykje toler kundane?\n\nFinansdepartementet vurderer å auke avgifta på tobakk. Ein flyselskapsdirektør vurderer å setje opp billettprisane. Ein daglegvarekjede lurer på kva som skjer med brødsalet dersom folk får betre råd. Alle tre stiller i bunn og grunn same spørsmålet: **kor følsam er etterspurnaden?** Svaret blir målt med **elastisitet** — eitt av dei mest brukte verktøya i heile økonomifaget.\n\nI 4.3 såg vi at etterspurnaden avtek når prisen aukar. Elastisiteten kvantifiserer *kor mykje*. For ein etterspurnadsfunksjon $x(p)$ er **priselastisiteten** ved pris $p$:\n\n$$E_p = \\frac{p}{x(p)} \\cdot x'(p) \\approx \\frac{\\text{prosentvis endring i etterspurnad}}{\\text{prosentvis endring i pris}}$$\n\nTolkinga følgjer talverdien: $|E_p| > 1$ blir kalla **elastisk** — etterspurnaden er svært prisfølsam. $|E_p| = 1$ er **einingselastisk**, og $|E_p| < 1$ er **uelastisk** — etterspurnaden reagerer lite. Fordi $x'(p) < 0$ for vanlege varer, er $E_p$ normalt negativ, og vi bruker $|E_p|$ når vi tolkar.\n\nLa oss rekne på $x(p) = 1000 - 5p$. Med $x'(p) = -5$ blir $E_p = \\frac{-5p}{1000 - 5p}$. Ved $p = 50$: $E_p = \\frac{-250}{750} = -\\frac{1}{3}$ — uelastisk; 1 % prisauke gir berre 0,33 % salsfall. Ved $p = 150$: $E_p = \\frac{-750}{250} = -3$ — elastisk; no kostar 1 % prisauke heile 3 % av salet. Same vara, same marknad — men følsemda er dramatisk avhengig av kvar på etterspurnadskurva du står."},{"id":"s1-4-5-n-quiz1","type":"exercise","exercise":{"id":"s1-4-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på priselastisitet og tolking:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-5-n-quiz1-q0","task":"Kva måler priselastisiteten?","options":[{"id":"a","text":"Prosentvis endring i etterspurnad per prosent prisendring","isCorrect":true},{"id":"b","text":"Kor mykje prisen endrar seg over tid","isCorrect":false},{"id":"c","text":"Forholdet mellom inntekt og kostnad","isCorrect":false},{"id":"d","text":"Tal på einingar selde per krone","isCorrect":false}],"solution":"$E_p$ er forholdet mellom prosentvis endring i etterspurnad og prosentvis endring i pris."},{"id":"s1-4-5-n-quiz1-q1","task":"For $x(p) = 1000 - 5p$ er $E_p = -3$ ved $p = 150$. Korleis tolkar vi det?","options":[{"id":"a","text":"Uelastisk: salet fell berre $0{,}3\\,\\%$ ved $1\\,\\%$ prisauke","isCorrect":false},{"id":"b","text":"Elastisk: $1\\,\\%$ prisauke gir ca. $3\\,\\%$ nedgang i etterspurnaden","isCorrect":true},{"id":"c","text":"Etterspurnaden aukar $3\\,\\%$ ved prisauke","isCorrect":false},{"id":"d","text":"Prisen er tre gonger for høg","isCorrect":false}],"solution":"$|E_p| = 3 > 1$: elastisk. Ein prisauke på 1 % gir omtrent 3 % nedgang i etterspurnaden."},{"id":"s1-4-5-n-quiz1-q2","task":"Kvifor er priselastisiteten vanlegvis negativ?","options":[{"id":"a","text":"Fordi prisane alltid søkk over tid","isCorrect":false},{"id":"b","text":"Fordi bedrifter taper pengar","isCorrect":false},{"id":"c","text":"Fordi etterspurnaden søkk når prisen aukar ($x'(p) < 0$)","isCorrect":true},{"id":"d","text":"Det er ein reknefeil — han er alltid positiv","isCorrect":false}],"solution":"For vanlege varer er $x'(p) < 0$, og dermed blir $E_p = \\frac{p}{x}x'(p)$ negativ. Vi tolkar talverdien $|E_p|$."}]}},{"id":"s1-4-5-n-section1","type":"text","content":"## Elastisitet styrer både prisar og avgifter\n\nKva skal direktøren og departementet gjere med tala sine? Nøkkelen er samanhengen mellom elastisitet og inntekt. For inntekta $I(p) = p \\cdot x(p)$ kan det visast at\n\n$$I'(p) = x(p) \\cdot (1 + E_p)$$\n\nKonsekvensen les vi rett ut: Når $|E_p| < 1$ (uelastisk) er $I'(p) > 0$ — prisauke gir høgare inntekt. Når $|E_p| > 1$ (elastisk) er $I'(p) < 0$ — prisauke gir lågare inntekt. Og når $|E_p| = 1$ er $I'(p) = 0$ — inntekta står på maksimumet sitt. **Inntektsmaksimum blir altså oppnådd der etterspurnaden er einingselastisk.**\n\nFor bedrifter blir dette prisstrategi. Varer med uelastisk etterspurnad — medisinar, tobakk, salt — toler prisauke utan at mange kundar forsvinn; inntekta aukar. Varer med elastisk etterspurnad — luksusvarer, restaurantbesøk, ferieturar — straffar prisaukar hardt; der bør ein vere varsam.\n\nFor styresmaktene blir det avgiftspolitikk. Ei avgift på uelastiske varer som tobakk og alkohol endrar forbruket lite, men gir staten store inntekter — det er difor nettopp desse varene er avgiftsbelagde i dei fleste land. Ei avgift på elastiske varer gir derimot lite proveny, fordi forbruket stupar når prisen stig. Same formel, to heilt ulike bruksområde: den eine maksimerer omsetninga til ei bedrift, den andre finansierer eit statsbudsjett. Det er denne dobbeltheita som gjer elastisitet til allemannseige blant økonomar."},{"id":"s1-4-5-n-quiz2","type":"exercise","exercise":{"id":"s1-4-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på elastisitet, inntekt og avgifter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-5-n-quiz2-q0","task":"Etterspurnaden er uelastisk ($|E_p| < 1$). Kva skjer med inntekta ved ein prisauke?","options":[{"id":"a","text":"Ho søkk","isCorrect":false},{"id":"b","text":"Ho er uendra","isCorrect":false},{"id":"c","text":"Ho aukar","isCorrect":true},{"id":"d","text":"Ho blir null","isCorrect":false}],"solution":"Av $I'(p) = x(p)(1 + E_p)$ følgjer at $I'(p) > 0$ når $|E_p| < 1$ — prisauke gir høgare inntekt."},{"id":"s1-4-5-n-quiz2-q1","task":"Kvar er inntekta $I(p) = p \\cdot x(p)$ maksimal?","options":[{"id":"a","text":"Der $E_p = -1$ (einingselastisk)","isCorrect":true},{"id":"b","text":"Der $E_p = 0$","isCorrect":false},{"id":"c","text":"Der prisen er høgast","isCorrect":false},{"id":"d","text":"Der etterspurnaden er størst","isCorrect":false}],"solution":"Inntektsmaksimum oppstår der etterspurnaden er einingselastisk, $E_p = -1$, fordi $I'(p) = 0$ akkurat der."},{"id":"s1-4-5-n-quiz2-q2","task":"Kvifor legg staten gjerne høge avgifter på tobakk og alkohol?","options":[{"id":"a","text":"Fordi etterspurnaden er elastisk og forbruket fell mykje","isCorrect":false},{"id":"b","text":"Fordi varene er billege å produsere","isCorrect":false},{"id":"c","text":"Fordi ingen kjøper dei uansett","isCorrect":false},{"id":"d","text":"Fordi etterspurnaden er uelastisk — forbruket fell lite og avgifta gir store inntekter","isCorrect":true}],"solution":"Uelastisk etterspurnad tyder at forbruket endrar seg lite ved prisauke, så avgifta gir høgt proveny."}]}},{"id":"s1-4-5-n-section2","type":"text","content":"## Slektningane: krysspris- og inntektselastisitet\n\nElastisitet handlar ikkje berre om prisen til vara sjølv. **Krysspriselastisiteten** måler korleis etterspurnaden etter vare $A$ reagerer når prisen på vare $B$ endrar seg:\n\n$$E_{AB} = \\frac{p_B}{x_A} \\cdot \\frac{\\Delta x_A}{\\Delta p_B}$$\n\nForteiknet avslører forholdet mellom varene. Er $E_{AB} > 0$, er dei **substituttar** — blir Pepsi dyrare, kjøper folk meir Cola. Er $E_{AB} < 0$, er dei **komplement** — stig bensinprisen, blir det kjøpt færre bilar. Og $E_{AB} \\approx 0$ tyder at varene er uavhengige. Eit eksempel: prisen på elbil $A$ aukar 10 %, og salet av konkurrenten $B$ aukar 4 %. Då er $E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positivt, så bilane er substituttar, men den moderate verdien tyder på at dei ikkje er fullverdige erstatningar for kvarandre.\n\n**Inntektselastisiteten** måler i staden responsen på endra kjøpekraft:\n\n$$E_I = \\frac{I}{x} \\cdot \\frac{\\Delta x}{\\Delta I}$$\n\nHer blir varene klassifiserte etter verdien: $E_I > 1$ er ei **luksusvare** (etterspurnaden veks raskare enn inntekta), $0 < E_I < 1$ er ei **nødvendig vare**, og $E_I < 0$ er ei **mindreverdig vare** — etterspurnaden søkk når folk får betre råd, som billege bussreiser når ein får råd til bil.\n\nKonkret: inntekta til hushalda aukar 8 %. Restaurantbesøk aukar 14 % — $E_I = 1{,}75$, luksus. Brødkjøp aukar 2 % — $E_I = 0{,}25$, nødvendigheit. Nye pengar går altså først til luksusforbruk, medan basisvarene står stille. Slike tal er glimrande råstoff for prosjektoppgåver: forbruksundersøkinga til SSB, OECD.Stat og Eurostat lèt deg samanlikne marknader og land med ekte data."},{"id":"s1-4-5-n-quiz3","type":"exercise","exercise":{"id":"s1-4-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på krysspris- og inntektselastisitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-5-n-quiz3-q0","task":"Krysspriselastisiteten mellom to varer er positiv. Kva tyder det?","options":[{"id":"a","text":"Varene er komplement","isCorrect":false},{"id":"b","text":"Varene er substituttar","isCorrect":true},{"id":"c","text":"Varene er uavhengige","isCorrect":false},{"id":"d","text":"Den eine vara er ei luksusvare","isCorrect":false}],"solution":"Positiv krysspriselastisitet: når den eine blir dyrare, aukar etterspurnaden etter den andre — dei erstattar kvarandre."},{"id":"s1-4-5-n-quiz3-q1","task":"Prisen på vare $A$ aukar $10\\,\\%$, og salet av vare $B$ aukar $4\\,\\%$. Kva er krysspriselastisiteten $E_{BA}$?","options":[{"id":"a","text":"$2{,}5$","isCorrect":false},{"id":"b","text":"$-0{,}4$","isCorrect":false},{"id":"c","text":"$0{,}4$","isCorrect":true},{"id":"d","text":"$40$","isCorrect":false}],"solution":"$E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positiv, så varene er substituttar."},{"id":"s1-4-5-n-quiz3-q2","task":"Inntekta aukar $8\\,\\%$ og restaurantbesøk aukar $14\\,\\%$. Korleis blir restaurantbesøk klassifisert?","options":[{"id":"a","text":"Mindreverdig vare","isCorrect":false},{"id":"b","text":"Nødvendig vare","isCorrect":false},{"id":"c","text":"Uavhengig vare","isCorrect":false},{"id":"d","text":"Luksusvare","isCorrect":true}],"solution":"$E_I = \\frac{14}{8} = 1{,}75 > 1$: luksusvare — etterspurnaden veks raskare enn inntekta."},{"id":"s1-4-5-n-quiz3-q3","task":"Ei vare har inntektselastisitet $E_I < 0$. Kva blir ho kalla?","options":[{"id":"a","text":"Mindreverdig vare","isCorrect":true},{"id":"b","text":"Luksusvare","isCorrect":false},{"id":"c","text":"Substitutt","isCorrect":false},{"id":"d","text":"Einingselastisk vare","isCorrect":false}],"solution":"Negativ inntektselastisitet tyder at etterspurnaden søkk når inntekta aukar — ei mindreverdig vare, som billeg transport når folk får råd til bil."}]}},{"id":"s1-4-5-n-summary","type":"text","content":"## Oppsummering: dei tre andleta til følsemda\n\nDirektøren, departementet og daglegvarekjeden fekk kvart sitt svar frå same verktøykasse. **Priselastisiteten** $E_p = \\frac{p}{x(p)} \\cdot x'(p)$ måler prosentvis etterspurnadsendring per prosent prisendring; han er normalt negativ, og talverdien skil elastisk ($|E| > 1$), einingselastisk og uelastisk ($|E| < 1$) etterspurnad — som kan variere langs éi og same etterspurnadskurve.\n\nKoplinga til inntekta er det kraftigaste resultatet i kapittelet: $I'(p) = x(p)(1 + E_p)$, så prisauke lønner seg når etterspurnaden er uelastisk, straffar seg når han er elastisk, og **inntekta er maksimal nøyaktig der $E_p = -1$**. Same logikk forklarer kvifor staten avgiftslegg nettopp uelastiske varer.\n\n**Krysspriselastisiteten** utvidar blikket til prisane på andre varer — positivt forteikn avslører substituttar, negativt komplement. **Inntektselastisiteten** koplar etterspurnaden til kjøpekrafta og sorterer varene i luksusvarer ($E_I > 1$), nødvendige varer ($0 < E_I < 1$) og mindreverdige varer ($E_I < 0$).\n\nTre elastisitetar, eitt prinsipp: prosentvis respons delt på prosentvis impuls. Med dei kan du analysere prisstrategi, avgiftspolitikk og forbruksmønster — og med data frå SSB, OECD og Eurostat kan du gjere det på ekte marknader i ditt eige prosjektarbeid."}],"exercises":[],"_meta":{"sourceHash":"c45b3c12d13ba172","translatedAt":"2026-06-20T03:28:44.559Z","model":"claude-code-agent","strings":71,"tm":{"f01aa2909ca34836":"Elastisitet","b195b06d1ed59702":"Narrativ versjon","e6765ad9181557a4":"Ei forteljing om avgifter, billettprisar og brødsal — priselastisitet, krysspriselastisitet og inntektselastisitet.","6c8c1b0ca1a567ea":"anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett","b977895472710067":"anvende derivasjon til å analysere og forstå optimaliseringsproblemer","8ffad0bd82757b18":"## Kor mykje toler kundane?\n\nFinansdepartementet vurderer å auke avgifta på tobakk. Ein flyselskapsdirektør vurderer å setje opp billettprisane. Ein daglegvarekjede lurer på kva som skjer med brødsalet dersom folk får betre råd. Alle tre stiller i bunn og grunn same spørsmålet: **kor følsam er etterspurnaden?** Svaret blir målt med **elastisitet** — eitt av dei mest brukte verktøya i heile økonomifaget.\n\nI 4.3 såg vi at etterspurnaden avtek når prisen aukar. Elastisiteten kvantifiserer *kor mykje*. For ein etterspurnadsfunksjon $x(p)$ er **priselastisiteten** ved pris $p$:\n\n$$E_p = \\frac{p}{x(p)} \\cdot x'(p) \\approx \\frac{\\text{prosentvis endring i etterspurnad}}{\\text{prosentvis endring i pris}}$$\n\nTolkinga følgjer talverdien: $|E_p| > 1$ blir kalla **elastisk** — etterspurnaden er svært prisfølsam. $|E_p| = 1$ er **einingselastisk**, og $|E_p| < 1$ er **uelastisk** — etterspurnaden reagerer lite. Fordi $x'(p) < 0$ for vanlege varer, er $E_p$ normalt negativ, og vi bruker $|E_p|$ når vi tolkar.\n\nLa oss rekne på $x(p) = 1000 - 5p$. Med $x'(p) = -5$ blir $E_p = \\frac{-5p}{1000 - 5p}$. Ved $p = 50$: $E_p = \\frac{-250}{750} = -\\frac{1}{3}$ — uelastisk; 1 % prisauke gir berre 0,33 % salsfall. Ved $p = 150$: $E_p = \\frac{-750}{250} = -3$ — elastisk; no kostar 1 % prisauke heile 3 % av salet. Same vara, same marknad — men følsemda er dramatisk avhengig av kvar på etterspurnadskurva du står.","1d91cc685c1dcc2b":"Test deg sjølv på priselastisitet og tolking:","4097889236a2af26":"placeholder","9b62eee0a0fef2ce":"Kva måler priselastisiteten?","1134c88177b88547":"Prosentvis endring i etterspurnad per prosent prisendring","ec5e71c146cc2c6d":"Kor mykje prisen endrar seg over tid","16963299074127ad":"Forholdet mellom inntekt og kostnad","15e26bf620233f94":"Tal på einingar selde per krone","f6812c493d27ae42":"$E_p$ er forholdet mellom prosentvis endring i etterspurnad og prosentvis endring i pris.","d375c1314ef98344":"For $x(p) = 1000 - 5p$ er $E_p = -3$ ved $p = 150$. Korleis tolkar vi det?","154b2c5beaf2e9f8":"Uelastisk: salet fell berre $0{,}3\\,\\%$ ved $1\\,\\%$ prisauke","49916c3349baf199":"Elastisk: $1\\,\\%$ prisauke gir ca. $3\\,\\%$ nedgang i etterspurnaden","2748ed0b5be88264":"Etterspurnaden aukar $3\\,\\%$ ved prisauke","863b95e37cd78ccf":"Prisen er tre gonger for høg","87d5fade807ae11b":"$|E_p| = 3 > 1$: elastisk. Ein prisauke på 1 % gir omtrent 3 % nedgang i etterspurnaden.","885f07168981b474":"Kvifor er priselastisiteten vanlegvis negativ?","5abf98423e1defe0":"Fordi prisane alltid søkk over tid","2d8a844fedae68c6":"Fordi bedrifter taper pengar","d8f9d7ccf688c759":"Fordi etterspurnaden søkk når prisen aukar ($x'(p) < 0$)","068ca3b371100908":"Det er ein reknefeil — han er alltid positiv","48420266d20b8c86":"For vanlege varer er $x'(p) < 0$, og dermed blir $E_p = \\frac{p}{x}x'(p)$ negativ. Vi tolkar talverdien $|E_p|$.","109a80bfc032d9b3":"## Elastisitet styrer både prisar og avgifter\n\nKva skal direktøren og departementet gjere med tala sine? Nøkkelen er samanhengen mellom elastisitet og inntekt. For inntekta $I(p) = p \\cdot x(p)$ kan det visast at\n\n$$I'(p) = x(p) \\cdot (1 + E_p)$$\n\nKonsekvensen les vi rett ut: Når $|E_p| < 1$ (uelastisk) er $I'(p) > 0$ — prisauke gir høgare inntekt. Når $|E_p| > 1$ (elastisk) er $I'(p) < 0$ — prisauke gir lågare inntekt. Og når $|E_p| = 1$ er $I'(p) = 0$ — inntekta står på maksimumet sitt. **Inntektsmaksimum blir altså oppnådd der etterspurnaden er einingselastisk.**\n\nFor bedrifter blir dette prisstrategi. Varer med uelastisk etterspurnad — medisinar, tobakk, salt — toler prisauke utan at mange kundar forsvinn; inntekta aukar. Varer med elastisk etterspurnad — luksusvarer, restaurantbesøk, ferieturar — straffar prisaukar hardt; der bør ein vere varsam.\n\nFor styresmaktene blir det avgiftspolitikk. Ei avgift på uelastiske varer som tobakk og alkohol endrar forbruket lite, men gir staten store inntekter — det er difor nettopp desse varene er avgiftsbelagde i dei fleste land. Ei avgift på elastiske varer gir derimot lite proveny, fordi forbruket stupar når prisen stig. Same formel, to heilt ulike bruksområde: den eine maksimerer omsetninga til ei bedrift, den andre finansierer eit statsbudsjett. Det er denne dobbeltheita som gjer elastisitet til allemannseige blant økonomar.","0b6962484bba3fc0":"Test deg sjølv på elastisitet, inntekt og avgifter:","4306e0132c2e5302":"Etterspurnaden er uelastisk ($|E_p| < 1$). Kva skjer med inntekta ved ein prisauke?","ac818d4bbc20e304":"Ho søkk","142245cc422dd35c":"Ho er uendra","87a0d2206760d3be":"Ho aukar","5031b57a8ee81c40":"Ho blir null","d2204e662324b3cd":"Av $I'(p) = x(p)(1 + E_p)$ følgjer at $I'(p) > 0$ når $|E_p| < 1$ — prisauke gir høgare inntekt.","83a8009eb56137de":"Kvar er inntekta $I(p) = p \\cdot x(p)$ maksimal?","aaa33decc7696091":"Der $E_p = -1$ (einingselastisk)","3f662fe2311e5628":"Der $E_p = 0$","5811120ba424c13c":"Der prisen er høgast","307348036894f70f":"Der etterspurnaden er størst","a03546de35845304":"Inntektsmaksimum oppstår der etterspurnaden er einingselastisk, $E_p = -1$, fordi $I'(p) = 0$ akkurat der.","2805f7421c55117a":"Kvifor legg staten gjerne høge avgifter på tobakk og alkohol?","4d3e2787bdd5b729":"Fordi etterspurnaden er elastisk og forbruket fell mykje","61b58cde1289a6ca":"Fordi varene er billege å produsere","c9b574411f342a73":"Fordi ingen kjøper dei uansett","3c6b6e2fcf21db42":"Fordi etterspurnaden er uelastisk — forbruket fell lite og avgifta gir store inntekter","ea211705031f3c75":"Uelastisk etterspurnad tyder at forbruket endrar seg lite ved prisauke, så avgifta gir høgt proveny.","2d80ab138f0a0a74":"## Slektningane: krysspris- og inntektselastisitet\n\nElastisitet handlar ikkje berre om prisen til vara sjølv. **Krysspriselastisiteten** måler korleis etterspurnaden etter vare $A$ reagerer når prisen på vare $B$ endrar seg:\n\n$$E_{AB} = \\frac{p_B}{x_A} \\cdot \\frac{\\Delta x_A}{\\Delta p_B}$$\n\nForteiknet avslører forholdet mellom varene. Er $E_{AB} > 0$, er dei **substituttar** — blir Pepsi dyrare, kjøper folk meir Cola. Er $E_{AB} < 0$, er dei **komplement** — stig bensinprisen, blir det kjøpt færre bilar. Og $E_{AB} \\approx 0$ tyder at varene er uavhengige. Eit eksempel: prisen på elbil $A$ aukar 10 %, og salet av konkurrenten $B$ aukar 4 %. Då er $E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positivt, så bilane er substituttar, men den moderate verdien tyder på at dei ikkje er fullverdige erstatningar for kvarandre.\n\n**Inntektselastisiteten** måler i staden responsen på endra kjøpekraft:\n\n$$E_I = \\frac{I}{x} \\cdot \\frac{\\Delta x}{\\Delta I}$$\n\nHer blir varene klassifiserte etter verdien: $E_I > 1$ er ei **luksusvare** (etterspurnaden veks raskare enn inntekta), $0 < E_I < 1$ er ei **nødvendig vare**, og $E_I < 0$ er ei **mindreverdig vare** — etterspurnaden søkk når folk får betre råd, som billege bussreiser når ein får råd til bil.\n\nKonkret: inntekta til hushalda aukar 8 %. Restaurantbesøk aukar 14 % — $E_I = 1{,}75$, luksus. Brødkjøp aukar 2 % — $E_I = 0{,}25$, nødvendigheit. Nye pengar går altså først til luksusforbruk, medan basisvarene står stille. Slike tal er glimrande råstoff for prosjektoppgåver: forbruksundersøkinga til SSB, OECD.Stat og Eurostat lèt deg samanlikne marknader og land med ekte data.","19ef516a357d3539":"Test deg sjølv på krysspris- og inntektselastisitet:","b22e9f4e75e8ce48":"Krysspriselastisiteten mellom to varer er positiv. Kva tyder det?","89530b1f00c83532":"Varene er komplement","e5165f504b7b356c":"Varene er substituttar","44dc6418ed373117":"Varene er uavhengige","c0fefbfcfebac86b":"Den eine vara er ei luksusvare","4a9d490625793b13":"Positiv krysspriselastisitet: når den eine blir dyrare, aukar etterspurnaden etter den andre — dei erstattar kvarandre.","4a7162f0acf6fbc8":"Prisen på vare $A$ aukar $10\\,\\%$, og salet av vare $B$ aukar $4\\,\\%$. Kva er krysspriselastisiteten $E_{BA}$?","d606a6fd1d349976":"$E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positiv, så varene er substituttar.","65a15191af78ddc9":"Inntekta aukar $8\\,\\%$ og restaurantbesøk aukar $14\\,\\%$. Korleis blir restaurantbesøk klassifisert?","5258bd07c8086922":"Mindreverdig vare","a36415614abe989d":"Nødvendig vare","5c90bd194042ede0":"Uavhengig vare","103bce645bec4413":"Luksusvare","b8f3448fa61b4b89":"$E_I = \\frac{14}{8} = 1{,}75 > 1$: luksusvare — etterspurnaden veks raskare enn inntekta.","b8e84c2bf0a71bff":"Ei vare har inntektselastisitet $E_I < 0$. Kva blir ho kalla?","c8dde7f2b8e5e1c3":"Substitutt","8d4ca97c567b9c02":"Einingselastisk vare","d3ccef1dc740cc9f":"Negativ inntektselastisitet tyder at etterspurnaden søkk når inntekta aukar — ei mindreverdig vare, som billeg transport når folk får råd til bil.","3ac2f2a74b574075":"## Oppsummering: dei tre andleta til følsemda\n\nDirektøren, departementet og daglegvarekjeden fekk kvart sitt svar frå same verktøykasse. **Priselastisiteten** $E_p = \\frac{p}{x(p)} \\cdot x'(p)$ måler prosentvis etterspurnadsendring per prosent prisendring; han er normalt negativ, og talverdien skil elastisk ($|E| > 1$), einingselastisk og uelastisk ($|E| < 1$) etterspurnad — som kan variere langs éi og same etterspurnadskurve.\n\nKoplinga til inntekta er det kraftigaste resultatet i kapittelet: $I'(p) = x(p)(1 + E_p)$, så prisauke lønner seg når etterspurnaden er uelastisk, straffar seg når han er elastisk, og **inntekta er maksimal nøyaktig der $E_p = -1$**. Same logikk forklarer kvifor staten avgiftslegg nettopp uelastiske varer.\n\n**Krysspriselastisiteten** utvidar blikket til prisane på andre varer — positivt forteikn avslører substituttar, negativt komplement. **Inntektselastisiteten** koplar etterspurnaden til kjøpekrafta og sorterer varene i luksusvarer ($E_I > 1$), nødvendige varer ($0 < E_I < 1$) og mindreverdige varer ($E_I < 0$).\n\nTre elastisitetar, eitt prinsipp: prosentvis respons delt på prosentvis impuls. Med dei kan du analysere prisstrategi, avgiftspolitikk og forbruksmønster — og med data frå SSB, OECD og Eurostat kan du gjere det på ekte marknader i ditt eige prosjektarbeid."}}}
+{
+  "id": "s1-4-5-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "4.5",
+  "title": "Elastisitet",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om avgifter, billettprisar og brødsal — priselastisitet, krysspriselastisitet og inntektselastisitet.",
+  "estimatedMinutes": 31,
+  "competenceGoals": [
+    "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett",
+    "anvende derivasjon til å analysere og forstå optimaliseringsproblemer"
+  ],
+  "linkedChapterId": "s1-4-5",
+  "content": [
+    {
+      "id": "s1-4-5-n-intro",
+      "type": "text",
+      "content": "## Kor mykje toler kundane?\n\nFinansdepartementet vurderer å auke avgifta på tobakk. Ein flyselskapsdirektør vurderer å setje opp billettprisane. Ein daglegvarekjede lurer på kva som skjer med brødsalet dersom folk får betre råd. Alle tre stiller i bunn og grunn same spørsmålet: **kor følsam er etterspurnaden?** Svaret blir målt med **elastisitet** — eitt av dei mest brukte verktøya i heile økonomifaget.\n\nI 4.3 såg vi at etterspurnaden avtek når prisen aukar. Elastisiteten kvantifiserer *kor mykje*. For ein etterspurnadsfunksjon $x(p)$ er **priselastisiteten** ved pris $p$:\n\n$$E_p = \\frac{p}{x(p)} \\cdot x'(p) \\approx \\frac{\\text{prosentvis endring i etterspurnad}}{\\text{prosentvis endring i pris}}$$\n\nTolkinga følgjer talverdien: $|E_p| > 1$ blir kalla **elastisk** — etterspurnaden er svært prisfølsam. $|E_p| = 1$ er **einingselastisk**, og $|E_p| < 1$ er **uelastisk** — etterspurnaden reagerer lite. Fordi $x'(p) < 0$ for vanlege varer, er $E_p$ normalt negativ, og vi bruker $|E_p|$ når vi tolkar.\n\nLa oss rekne på $x(p) = 1000 - 5p$. Med $x'(p) = -5$ blir $E_p = \\frac{-5p}{1000 - 5p}$. Ved $p = 50$: $E_p = \\frac{-250}{750} = -\\frac{1}{3}$ — uelastisk; 1 % prisauke gir berre 0,33 % salsfall. Ved $p = 150$: $E_p = \\frac{-750}{250} = -3$ — elastisk; no kostar 1 % prisauke heile 3 % av salet. Same vara, same marknad — men følsemda er dramatisk avhengig av kvar på etterspurnadskurva du står."
+    },
+    {
+      "id": "s1-4-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på priselastisitet og tolking:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-5-n-quiz1-q0",
+            "task": "Kva måler priselastisiteten?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kor mykje prisen endrar seg over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Forholdet mellom inntekt og kostnad",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Prosentvis endring i etterspurnad per prosent prisendring",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Tal på einingar selde per krone",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E_p$ er forholdet mellom prosentvis endring i etterspurnad og prosentvis endring i pris."
+          },
+          {
+            "id": "s1-4-5-n-quiz1-q1",
+            "task": "For $x(p) = 1000 - 5p$ er $E_p = -3$ ved $p = 150$. Korleis tolkar vi det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Uelastisk: salet fell berre $0{,}3\\,\\%$ ved $1\\,\\%$ prisauke",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Etterspurnaden aukar $3\\,\\%$ ved prisauke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Prisen er tre gonger for høg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Elastisk: $1\\,\\%$ prisauke gir ca. $3\\,\\%$ nedgang i etterspurnaden",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$|E_p| = 3 > 1$: elastisk. Ein prisauke på 1 % gir omtrent 3 % nedgang i etterspurnaden."
+          },
+          {
+            "id": "s1-4-5-n-quiz1-q2",
+            "task": "Kvifor er priselastisiteten vanlegvis negativ?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fordi etterspurnaden søkk når prisen aukar ($x'(p) < 0$)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi prisane alltid søkk over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi bedrifter taper pengar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er ein reknefeil — han er alltid positiv",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For vanlege varer er $x'(p) < 0$, og dermed blir $E_p = \\frac{p}{x}x'(p)$ negativ. Vi tolkar talverdien $|E_p|$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-5-n-section1",
+      "type": "text",
+      "content": "## Elastisitet styrer både prisar og avgifter\n\nKva skal direktøren og departementet gjere med tala sine? Nøkkelen er samanhengen mellom elastisitet og inntekt. For inntekta $I(p) = p \\cdot x(p)$ kan det visast at\n\n$$I'(p) = x(p) \\cdot (1 + E_p)$$\n\nKonsekvensen les vi rett ut: Når $|E_p| < 1$ (uelastisk) er $I'(p) > 0$ — prisauke gir høgare inntekt. Når $|E_p| > 1$ (elastisk) er $I'(p) < 0$ — prisauke gir lågare inntekt. Og når $|E_p| = 1$ er $I'(p) = 0$ — inntekta står på maksimumet sitt. **Inntektsmaksimum blir altså oppnådd der etterspurnaden er einingselastisk.**\n\nFor bedrifter blir dette prisstrategi. Varer med uelastisk etterspurnad — medisinar, tobakk, salt — toler prisauke utan at mange kundar forsvinn; inntekta aukar. Varer med elastisk etterspurnad — luksusvarer, restaurantbesøk, ferieturar — straffar prisaukar hardt; der bør ein vere varsam.\n\nFor styresmaktene blir det avgiftspolitikk. Ei avgift på uelastiske varer som tobakk og alkohol endrar forbruket lite, men gir staten store inntekter — det er difor nettopp desse varene er avgiftsbelagde i dei fleste land. Ei avgift på elastiske varer gir derimot lite proveny, fordi forbruket stupar når prisen stig. Same formel, to heilt ulike bruksområde: den eine maksimerer omsetninga til ei bedrift, den andre finansierer eit statsbudsjett. Det er denne dobbeltheita som gjer elastisitet til allemannseige blant økonomar."
+    },
+    {
+      "id": "s1-4-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på elastisitet, inntekt og avgifter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-5-n-quiz2-q0",
+            "task": "Etterspurnaden er uelastisk ($|E_p| < 1$). Kva skjer med inntekta ved ein prisauke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ho søkk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ho aukar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ho er uendra",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ho blir null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Av $I'(p) = x(p)(1 + E_p)$ følgjer at $I'(p) > 0$ når $|E_p| < 1$ — prisauke gir høgare inntekt."
+          },
+          {
+            "id": "s1-4-5-n-quiz2-q1",
+            "task": "Kvar er inntekta $I(p) = p \\cdot x(p)$ maksimal?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Der $E_p = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Der prisen er høgast",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Der $E_p = -1$ (einingselastisk)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Der etterspurnaden er størst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Inntektsmaksimum oppstår der etterspurnaden er einingselastisk, $E_p = -1$, fordi $I'(p) = 0$ akkurat der."
+          },
+          {
+            "id": "s1-4-5-n-quiz2-q2",
+            "task": "Kvifor legg staten gjerne høge avgifter på tobakk og alkohol?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi etterspurnaden er elastisk og forbruket fell mykje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi varene er billege å produsere",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi ingen kjøper dei uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi etterspurnaden er uelastisk — forbruket fell lite og avgifta gir store inntekter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Uelastisk etterspurnad tyder at forbruket endrar seg lite ved prisauke, så avgifta gir høgt proveny."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-5-n-section2",
+      "type": "text",
+      "content": "## Slektningane: krysspris- og inntektselastisitet\n\nElastisitet handlar ikkje berre om prisen til vara sjølv. **Krysspriselastisiteten** måler korleis etterspurnaden etter vare $A$ reagerer når prisen på vare $B$ endrar seg:\n\n$$E_{AB} = \\frac{p_B}{x_A} \\cdot \\frac{\\Delta x_A}{\\Delta p_B}$$\n\nForteiknet avslører forholdet mellom varene. Er $E_{AB} > 0$, er dei **substituttar** — blir Pepsi dyrare, kjøper folk meir Cola. Er $E_{AB} < 0$, er dei **komplement** — stig bensinprisen, blir det kjøpt færre bilar. Og $E_{AB} \\approx 0$ tyder at varene er uavhengige. Eit eksempel: prisen på elbil $A$ aukar 10 %, og salet av konkurrenten $B$ aukar 4 %. Då er $E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positivt, så bilane er substituttar, men den moderate verdien tyder på at dei ikkje er fullverdige erstatningar for kvarandre.\n\n**Inntektselastisiteten** måler i staden responsen på endra kjøpekraft:\n\n$$E_I = \\frac{I}{x} \\cdot \\frac{\\Delta x}{\\Delta I}$$\n\nHer blir varene klassifiserte etter verdien: $E_I > 1$ er ei **luksusvare** (etterspurnaden veks raskare enn inntekta), $0 < E_I < 1$ er ei **nødvendig vare**, og $E_I < 0$ er ei **mindreverdig vare** — etterspurnaden søkk når folk får betre råd, som billege bussreiser når ein får råd til bil.\n\nKonkret: inntekta til hushalda aukar 8 %. Restaurantbesøk aukar 14 % — $E_I = 1{,}75$, luksus. Brødkjøp aukar 2 % — $E_I = 0{,}25$, nødvendigheit. Nye pengar går altså først til luksusforbruk, medan basisvarene står stille. Slike tal er glimrande råstoff for prosjektoppgåver: forbruksundersøkinga til SSB, OECD.Stat og Eurostat lèt deg samanlikne marknader og land med ekte data."
+    },
+    {
+      "id": "s1-4-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på krysspris- og inntektselastisitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-5-n-quiz3-q0",
+            "task": "Krysspriselastisiteten mellom to varer er positiv. Kva tyder det?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Varene er substituttar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Varene er komplement",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Varene er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den eine vara er ei luksusvare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Positiv krysspriselastisitet: når den eine blir dyrare, aukar etterspurnaden etter den andre — dei erstattar kvarandre."
+          },
+          {
+            "id": "s1-4-5-n-quiz3-q1",
+            "task": "Prisen på vare $A$ aukar $10\\,\\%$, og salet av vare $B$ aukar $4\\,\\%$. Kva er krysspriselastisiteten $E_{BA}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0{,}4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$-0{,}4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$40$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positiv, så varene er substituttar."
+          },
+          {
+            "id": "s1-4-5-n-quiz3-q2",
+            "task": "Inntekta aukar $8\\,\\%$ og restaurantbesøk aukar $14\\,\\%$. Korleis blir restaurantbesøk klassifisert?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Mindreverdig vare",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nødvendig vare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Luksusvare",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Uavhengig vare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E_I = \\frac{14}{8} = 1{,}75 > 1$: luksusvare — etterspurnaden veks raskare enn inntekta."
+          },
+          {
+            "id": "s1-4-5-n-quiz3-q3",
+            "task": "Ei vare har inntektselastisitet $E_I < 0$. Kva blir ho kalla?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Luksusvare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Substitutt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Einingselastisk vare",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Mindreverdig vare",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativ inntektselastisitet tyder at etterspurnaden søkk når inntekta aukar — ei mindreverdig vare, som billeg transport når folk får råd til bil."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: dei tre andleta til følsemda\n\nDirektøren, departementet og daglegvarekjeden fekk kvart sitt svar frå same verktøykasse. **Priselastisiteten** $E_p = \\frac{p}{x(p)} \\cdot x'(p)$ måler prosentvis etterspurnadsendring per prosent prisendring; han er normalt negativ, og talverdien skil elastisk ($|E| > 1$), einingselastisk og uelastisk ($|E| < 1$) etterspurnad — som kan variere langs éi og same etterspurnadskurve.\n\nKoplinga til inntekta er det kraftigaste resultatet i kapittelet: $I'(p) = x(p)(1 + E_p)$, så prisauke lønner seg når etterspurnaden er uelastisk, straffar seg når han er elastisk, og **inntekta er maksimal nøyaktig der $E_p = -1$**. Same logikk forklarer kvifor staten avgiftslegg nettopp uelastiske varer.\n\n**Krysspriselastisiteten** utvidar blikket til prisane på andre varer — positivt forteikn avslører substituttar, negativt komplement. **Inntektselastisiteten** koplar etterspurnaden til kjøpekrafta og sorterer varene i luksusvarer ($E_I > 1$), nødvendige varer ($0 < E_I < 1$) og mindreverdige varer ($E_I < 0$).\n\nTre elastisitetar, eitt prinsipp: prosentvis respons delt på prosentvis impuls. Med dei kan du analysere prisstrategi, avgiftspolitikk og forbruksmønster — og med data frå SSB, OECD og Eurostat kan du gjere det på ekte marknader i ditt eige prosjektarbeid."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c45b3c12d13ba172",
+    "translatedAt": "2026-06-20T03:28:44.559Z",
+    "model": "claude-code-agent",
+    "strings": 71,
+    "tm": {
+      "f01aa2909ca34836": "Elastisitet",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "e6765ad9181557a4": "Ei forteljing om avgifter, billettprisar og brødsal — priselastisitet, krysspriselastisitet og inntektselastisitet.",
+      "6c8c1b0ca1a567ea": "anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett",
+      "b977895472710067": "anvende derivasjon til å analysere og forstå optimaliseringsproblemer",
+      "8ffad0bd82757b18": "## Kor mykje toler kundane?\n\nFinansdepartementet vurderer å auke avgifta på tobakk. Ein flyselskapsdirektør vurderer å setje opp billettprisane. Ein daglegvarekjede lurer på kva som skjer med brødsalet dersom folk får betre råd. Alle tre stiller i bunn og grunn same spørsmålet: **kor følsam er etterspurnaden?** Svaret blir målt med **elastisitet** — eitt av dei mest brukte verktøya i heile økonomifaget.\n\nI 4.3 såg vi at etterspurnaden avtek når prisen aukar. Elastisiteten kvantifiserer *kor mykje*. For ein etterspurnadsfunksjon $x(p)$ er **priselastisiteten** ved pris $p$:\n\n$$E_p = \\frac{p}{x(p)} \\cdot x'(p) \\approx \\frac{\\text{prosentvis endring i etterspurnad}}{\\text{prosentvis endring i pris}}$$\n\nTolkinga følgjer talverdien: $|E_p| > 1$ blir kalla **elastisk** — etterspurnaden er svært prisfølsam. $|E_p| = 1$ er **einingselastisk**, og $|E_p| < 1$ er **uelastisk** — etterspurnaden reagerer lite. Fordi $x'(p) < 0$ for vanlege varer, er $E_p$ normalt negativ, og vi bruker $|E_p|$ når vi tolkar.\n\nLa oss rekne på $x(p) = 1000 - 5p$. Med $x'(p) = -5$ blir $E_p = \\frac{-5p}{1000 - 5p}$. Ved $p = 50$: $E_p = \\frac{-250}{750} = -\\frac{1}{3}$ — uelastisk; 1 % prisauke gir berre 0,33 % salsfall. Ved $p = 150$: $E_p = \\frac{-750}{250} = -3$ — elastisk; no kostar 1 % prisauke heile 3 % av salet. Same vara, same marknad — men følsemda er dramatisk avhengig av kvar på etterspurnadskurva du står.",
+      "1d91cc685c1dcc2b": "Test deg sjølv på priselastisitet og tolking:",
+      "4097889236a2af26": "placeholder",
+      "9b62eee0a0fef2ce": "Kva måler priselastisiteten?",
+      "1134c88177b88547": "Prosentvis endring i etterspurnad per prosent prisendring",
+      "ec5e71c146cc2c6d": "Kor mykje prisen endrar seg over tid",
+      "16963299074127ad": "Forholdet mellom inntekt og kostnad",
+      "15e26bf620233f94": "Tal på einingar selde per krone",
+      "f6812c493d27ae42": "$E_p$ er forholdet mellom prosentvis endring i etterspurnad og prosentvis endring i pris.",
+      "d375c1314ef98344": "For $x(p) = 1000 - 5p$ er $E_p = -3$ ved $p = 150$. Korleis tolkar vi det?",
+      "154b2c5beaf2e9f8": "Uelastisk: salet fell berre $0{,}3\\,\\%$ ved $1\\,\\%$ prisauke",
+      "49916c3349baf199": "Elastisk: $1\\,\\%$ prisauke gir ca. $3\\,\\%$ nedgang i etterspurnaden",
+      "2748ed0b5be88264": "Etterspurnaden aukar $3\\,\\%$ ved prisauke",
+      "863b95e37cd78ccf": "Prisen er tre gonger for høg",
+      "87d5fade807ae11b": "$|E_p| = 3 > 1$: elastisk. Ein prisauke på 1 % gir omtrent 3 % nedgang i etterspurnaden.",
+      "885f07168981b474": "Kvifor er priselastisiteten vanlegvis negativ?",
+      "5abf98423e1defe0": "Fordi prisane alltid søkk over tid",
+      "2d8a844fedae68c6": "Fordi bedrifter taper pengar",
+      "d8f9d7ccf688c759": "Fordi etterspurnaden søkk når prisen aukar ($x'(p) < 0$)",
+      "068ca3b371100908": "Det er ein reknefeil — han er alltid positiv",
+      "48420266d20b8c86": "For vanlege varer er $x'(p) < 0$, og dermed blir $E_p = \\frac{p}{x}x'(p)$ negativ. Vi tolkar talverdien $|E_p|$.",
+      "109a80bfc032d9b3": "## Elastisitet styrer både prisar og avgifter\n\nKva skal direktøren og departementet gjere med tala sine? Nøkkelen er samanhengen mellom elastisitet og inntekt. For inntekta $I(p) = p \\cdot x(p)$ kan det visast at\n\n$$I'(p) = x(p) \\cdot (1 + E_p)$$\n\nKonsekvensen les vi rett ut: Når $|E_p| < 1$ (uelastisk) er $I'(p) > 0$ — prisauke gir høgare inntekt. Når $|E_p| > 1$ (elastisk) er $I'(p) < 0$ — prisauke gir lågare inntekt. Og når $|E_p| = 1$ er $I'(p) = 0$ — inntekta står på maksimumet sitt. **Inntektsmaksimum blir altså oppnådd der etterspurnaden er einingselastisk.**\n\nFor bedrifter blir dette prisstrategi. Varer med uelastisk etterspurnad — medisinar, tobakk, salt — toler prisauke utan at mange kundar forsvinn; inntekta aukar. Varer med elastisk etterspurnad — luksusvarer, restaurantbesøk, ferieturar — straffar prisaukar hardt; der bør ein vere varsam.\n\nFor styresmaktene blir det avgiftspolitikk. Ei avgift på uelastiske varer som tobakk og alkohol endrar forbruket lite, men gir staten store inntekter — det er difor nettopp desse varene er avgiftsbelagde i dei fleste land. Ei avgift på elastiske varer gir derimot lite proveny, fordi forbruket stupar når prisen stig. Same formel, to heilt ulike bruksområde: den eine maksimerer omsetninga til ei bedrift, den andre finansierer eit statsbudsjett. Det er denne dobbeltheita som gjer elastisitet til allemannseige blant økonomar.",
+      "0b6962484bba3fc0": "Test deg sjølv på elastisitet, inntekt og avgifter:",
+      "4306e0132c2e5302": "Etterspurnaden er uelastisk ($|E_p| < 1$). Kva skjer med inntekta ved ein prisauke?",
+      "ac818d4bbc20e304": "Ho søkk",
+      "142245cc422dd35c": "Ho er uendra",
+      "87a0d2206760d3be": "Ho aukar",
+      "5031b57a8ee81c40": "Ho blir null",
+      "d2204e662324b3cd": "Av $I'(p) = x(p)(1 + E_p)$ følgjer at $I'(p) > 0$ når $|E_p| < 1$ — prisauke gir høgare inntekt.",
+      "83a8009eb56137de": "Kvar er inntekta $I(p) = p \\cdot x(p)$ maksimal?",
+      "aaa33decc7696091": "Der $E_p = -1$ (einingselastisk)",
+      "3f662fe2311e5628": "Der $E_p = 0$",
+      "5811120ba424c13c": "Der prisen er høgast",
+      "307348036894f70f": "Der etterspurnaden er størst",
+      "a03546de35845304": "Inntektsmaksimum oppstår der etterspurnaden er einingselastisk, $E_p = -1$, fordi $I'(p) = 0$ akkurat der.",
+      "2805f7421c55117a": "Kvifor legg staten gjerne høge avgifter på tobakk og alkohol?",
+      "4d3e2787bdd5b729": "Fordi etterspurnaden er elastisk og forbruket fell mykje",
+      "61b58cde1289a6ca": "Fordi varene er billege å produsere",
+      "c9b574411f342a73": "Fordi ingen kjøper dei uansett",
+      "3c6b6e2fcf21db42": "Fordi etterspurnaden er uelastisk — forbruket fell lite og avgifta gir store inntekter",
+      "ea211705031f3c75": "Uelastisk etterspurnad tyder at forbruket endrar seg lite ved prisauke, så avgifta gir høgt proveny.",
+      "2d80ab138f0a0a74": "## Slektningane: krysspris- og inntektselastisitet\n\nElastisitet handlar ikkje berre om prisen til vara sjølv. **Krysspriselastisiteten** måler korleis etterspurnaden etter vare $A$ reagerer når prisen på vare $B$ endrar seg:\n\n$$E_{AB} = \\frac{p_B}{x_A} \\cdot \\frac{\\Delta x_A}{\\Delta p_B}$$\n\nForteiknet avslører forholdet mellom varene. Er $E_{AB} > 0$, er dei **substituttar** — blir Pepsi dyrare, kjøper folk meir Cola. Er $E_{AB} < 0$, er dei **komplement** — stig bensinprisen, blir det kjøpt færre bilar. Og $E_{AB} \\approx 0$ tyder at varene er uavhengige. Eit eksempel: prisen på elbil $A$ aukar 10 %, og salet av konkurrenten $B$ aukar 4 %. Då er $E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positivt, så bilane er substituttar, men den moderate verdien tyder på at dei ikkje er fullverdige erstatningar for kvarandre.\n\n**Inntektselastisiteten** måler i staden responsen på endra kjøpekraft:\n\n$$E_I = \\frac{I}{x} \\cdot \\frac{\\Delta x}{\\Delta I}$$\n\nHer blir varene klassifiserte etter verdien: $E_I > 1$ er ei **luksusvare** (etterspurnaden veks raskare enn inntekta), $0 < E_I < 1$ er ei **nødvendig vare**, og $E_I < 0$ er ei **mindreverdig vare** — etterspurnaden søkk når folk får betre råd, som billege bussreiser når ein får råd til bil.\n\nKonkret: inntekta til hushalda aukar 8 %. Restaurantbesøk aukar 14 % — $E_I = 1{,}75$, luksus. Brødkjøp aukar 2 % — $E_I = 0{,}25$, nødvendigheit. Nye pengar går altså først til luksusforbruk, medan basisvarene står stille. Slike tal er glimrande råstoff for prosjektoppgåver: forbruksundersøkinga til SSB, OECD.Stat og Eurostat lèt deg samanlikne marknader og land med ekte data.",
+      "19ef516a357d3539": "Test deg sjølv på krysspris- og inntektselastisitet:",
+      "b22e9f4e75e8ce48": "Krysspriselastisiteten mellom to varer er positiv. Kva tyder det?",
+      "89530b1f00c83532": "Varene er komplement",
+      "e5165f504b7b356c": "Varene er substituttar",
+      "44dc6418ed373117": "Varene er uavhengige",
+      "c0fefbfcfebac86b": "Den eine vara er ei luksusvare",
+      "4a9d490625793b13": "Positiv krysspriselastisitet: når den eine blir dyrare, aukar etterspurnaden etter den andre — dei erstattar kvarandre.",
+      "4a7162f0acf6fbc8": "Prisen på vare $A$ aukar $10\\,\\%$, og salet av vare $B$ aukar $4\\,\\%$. Kva er krysspriselastisiteten $E_{BA}$?",
+      "d606a6fd1d349976": "$E_{BA} = \\frac{4\\,\\%}{10\\,\\%} = 0{,}4$ — positiv, så varene er substituttar.",
+      "65a15191af78ddc9": "Inntekta aukar $8\\,\\%$ og restaurantbesøk aukar $14\\,\\%$. Korleis blir restaurantbesøk klassifisert?",
+      "5258bd07c8086922": "Mindreverdig vare",
+      "a36415614abe989d": "Nødvendig vare",
+      "5c90bd194042ede0": "Uavhengig vare",
+      "103bce645bec4413": "Luksusvare",
+      "b8f3448fa61b4b89": "$E_I = \\frac{14}{8} = 1{,}75 > 1$: luksusvare — etterspurnaden veks raskare enn inntekta.",
+      "b8e84c2bf0a71bff": "Ei vare har inntektselastisitet $E_I < 0$. Kva blir ho kalla?",
+      "c8dde7f2b8e5e1c3": "Substitutt",
+      "8d4ca97c567b9c02": "Einingselastisk vare",
+      "d3ccef1dc740cc9f": "Negativ inntektselastisitet tyder at etterspurnaden søkk når inntekta aukar — ei mindreverdig vare, som billeg transport når folk får råd til bil.",
+      "3ac2f2a74b574075": "## Oppsummering: dei tre andleta til følsemda\n\nDirektøren, departementet og daglegvarekjeden fekk kvart sitt svar frå same verktøykasse. **Priselastisiteten** $E_p = \\frac{p}{x(p)} \\cdot x'(p)$ måler prosentvis etterspurnadsendring per prosent prisendring; han er normalt negativ, og talverdien skil elastisk ($|E| > 1$), einingselastisk og uelastisk ($|E| < 1$) etterspurnad — som kan variere langs éi og same etterspurnadskurve.\n\nKoplinga til inntekta er det kraftigaste resultatet i kapittelet: $I'(p) = x(p)(1 + E_p)$, så prisauke lønner seg når etterspurnaden er uelastisk, straffar seg når han er elastisk, og **inntekta er maksimal nøyaktig der $E_p = -1$**. Same logikk forklarer kvifor staten avgiftslegg nettopp uelastiske varer.\n\n**Krysspriselastisiteten** utvidar blikket til prisane på andre varer — positivt forteikn avslører substituttar, negativt komplement. **Inntektselastisiteten** koplar etterspurnaden til kjøpekrafta og sorterer varene i luksusvarer ($E_I > 1$), nødvendige varer ($0 < E_I < 1$) og mindreverdige varer ($E_I < 0$).\n\nTre elastisitetar, eitt prinsipp: prosentvis respons delt på prosentvis impuls. Med dei kan du analysere prisstrategi, avgiftspolitikk og forbruksmønster — og med data frå SSB, OECD og Eurostat kan du gjere det på ekte marknader i ditt eige prosjektarbeid."
+    }
+  }
+}

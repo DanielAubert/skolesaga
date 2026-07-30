@@ -1,1 +1,558 @@
-{"id":"r1-3-3-narrativ","courseId":"r1","chapterNumber":"3.3","title":"Derivasjonens definisjon","subtitle":"Narrativ versjon","description":"En fortelling om matematikkhistoriens største oppfinnelse -- hvordan Newton og Leibniz fanget øyeblikket, og hvordan grenseverdien gjør den deriverte til presis matematikk.","estimatedMinutes":40,"competenceGoals":["forsta sammenhengen mellom sekant og tangent","beherske derivasjonens definisjon som en grenseverdi","kunne derivere enkle funksjoner ved hjelp av definisjonen","forsta den geometriske tolkningen av den deriverte","kunne bruke numerisk derivasjon"],"linkedChapterId":"r1-3-3","content":[{"id":"r1-3-3-n-intro","type":"text","content":"## Kappløpet om øyeblikket\n\nPå 1660- og 70-tallet, uavhengig av hverandre, løste en engelskmann og en tysker det samme urgamle problemet -- og utløste matematikkhistoriens bitreste prioritetsstrid. Isaac Newton trengte et verktøy for fysikken sin: planetene akselererer langs banene, og han måtte kunne snakke presist om fart og endring *i et øyeblikk*. Gottfried Wilhelm Leibniz kom fra filosofien og jaktet på et universelt symbolspråk for endring. Begge fant det samme: **differensialregningen**. Striden om hvem som var først, forgiftet forholdet mellom engelsk og kontinental matematikk i hundre år -- men selve oppfinnelsen forandret verden mer enn de fleste kriger.\n\nProblemet deres kjenner du fra kapittel 2.5: en bil kjører $100$ km på to timer, gjennomsnittsfart $50$ km/t -- men hva er farten *akkurat nå*? Et øyeblikk har ingen varighet, bilen flytter seg ikke i løpet av det, og $\\frac{0}{0}$ stirrer mot oss. Newtons og Leibniz' løsning var grenseprosessen: la tidsintervallet krympe mot null og se hva gjennomsnittsfartene nærmer seg.\n\nI kapittel 2.5 fikk du ideen; nå, med grenseverdier (3.1) og kontinuitet (3.2) i verktøykassen, bygger vi den ut til full styrke. Du skal beherske definisjonen $f'(a) = \\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$, bruke den til å derivere $x^2$, $x^3$, $\\frac{1}{x}$ og $\\sqrt{x}$ fra bunnen av, finne tangentlikninger, tilnærme deriverte numerisk -- og forstå når en funksjon overhodet *ikke er* deriverbar. Dette er hjertet i R1."},{"id":"r1-3-3-n-section1","type":"text","content":"## Fra sekant til tangent -- repetisjon med ny presisjon\n\nUtgangspunktet er kjent: den **gjennomsnittlige vekstfarten** til $f$ på $[a, b]$ er $\\frac{f(b)-f(a)}{b-a}$, stigningstallet til *sekanten* gjennom $(a, f(a))$ og $(b, f(b))$. Skriver vi $b = a + h$, får vi formen som bærer resten av kapittelet:\n\n$$\\frac{f(a+h) - f(a)}{h}$$\n\n-- **differansekvotienten**, også kalt Newton-kvotienten. For $f(x) = x^2$ på $[1, 3]$: $\\frac{9 - 1}{2} = 4$; sekanten gjennom $(1,1)$ og $(3,9)$ stiger med $4$.\n\nNå kommer grenseprosessen, og denne gangen ser vi den i sakte film. Vi vil finne den momentane vekstfarten til $f(x) = x^2$ i $x = 2$, og beregner differansekvotienten for stadig mindre $h$. Med $h = 1$: $\\frac{(2+1)^2 - 4}{1} = 5$. Med $h = 0{,}5$: $\\frac{6{,}25 - 4}{0{,}5} = 4{,}5$. Med $h = 0{,}1$: $\\frac{4{,}41 - 4}{0{,}1} = 4{,}1$. Med $h = 0{,}01$: $4{,}01$.\n\nTallene hvisker stadig tydeligere: $5$, $4{,}5$, $4{,}1$, $4{,}01$, $\\ldots \\to 4$. Geometrisk ser du sekantens frie endepunkt sige langs parabelen inn mot $(2, 4)$, mens linjen vrir seg på plass som **tangenten** -- linjen som bare berører grafen i det ene punktet og deler dens retning der.\n\nDet er verdt å dvele ved hvorfor vi *må* ta en grense og ikke bare kan sette $h = 0$: da ville både teller og nevner vært null, og $\\frac{0}{0}$ sier ingenting. Men for hver $h \\neq 0$, uansett hvor liten, er differansekvotienten et hederlig tall -- og det er *følgen* av slike tall som peker ut svaret. Nøyaktig dette var den ubestemte formen fra 3.1, og nøyaktig derfor trengte vi grenseverdibegrepet før vi kunne komme hit."},{"id":"r1-3-3-n-quiz1","type":"exercise","exercise":{"id":"r1-3-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på sekant og differansekvotient:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-3-n-quiz1-q0","task":"Hva er den gjennomsnittlige vekstfarten til $f(x) = x^2$ på $[1, 3]$?","options":[{"id":"a","text":"$8$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":true},{"id":"c","text":"$2$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":false}],"solution":"$\\frac{f(3)-f(1)}{3-1} = \\frac{9-1}{2} = 4$ -- sekantens stigningstall."},{"id":"r1-3-3-n-quiz1-q1","task":"For $f(x) = x^2$ i $x = 2$ ga $h = 1$, $0{,}5$, $0{,}1$ og $0{,}01$ differansekvotientene $5$, $4{,}5$, $4{,}1$ og $4{,}01$. Hva er den momentane vekstfarten i $x = 2$?","options":[{"id":"a","text":"$4{,}01$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$4$","isCorrect":true}],"solution":"Verdiene nærmer seg $4$ når $h \\to 0$. Den momentane vekstfarten er grenseverdien, $4$."},{"id":"r1-3-3-n-quiz1-q2","task":"Hva kalles uttrykket $\\frac{f(a+h)-f(a)}{h}$?","options":[{"id":"a","text":"Tangentkvotienten","isCorrect":false},{"id":"b","text":"Den deriverte","isCorrect":false},{"id":"c","text":"Differansekvotienten (Newton-kvotienten)","isCorrect":true},{"id":"d","text":"Grensekvotienten","isCorrect":false}],"solution":"Det er differansekvotienten -- sekantens stigningstall over intervallet fra $a$ til $a+h$."},{"id":"r1-3-3-n-quiz1-q3","task":"Hvorfor kan vi ikke bare sette $h = 0$ i differansekvotienten?","options":[{"id":"a","text":"Fordi det gir den ubestemte formen $\\frac{0}{0}$","isCorrect":true},{"id":"b","text":"Fordi $h$ må være et helt tall","isCorrect":false},{"id":"c","text":"Fordi funksjonen ikke er definert i $a$","isCorrect":false},{"id":"d","text":"Fordi svaret da blir uendelig","isCorrect":false}],"solution":"Med $h = 0$ er både teller og nevner null. Derfor tar vi grenseverdien når $h \\to 0$ i stedet -- det er hele poenget med definisjonen."}]}},{"id":"r1-3-3-n-section2","type":"text","content":"## Definisjonen -- og de første deriverte fra bunnen av\n\nNå formulerer vi det presist. Den **deriverte** av $f$ i punktet $x = a$ er\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nforutsatt at grenseverdien eksisterer. En likeverdig form fås ved å sette $x = a + h$: $f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x - a}$. Notasjonen varierer med tradisjonen: Lagranges $f'(x)$ er vanligst i Norge, Leibniz' $\\frac{df}{dx}$ dominerer i fysikk (og bærer minnet om kvotienten den kom fra), og operatorformen $Df(x)$ dukker også opp. Alle betyr det samme.\n\nLa oss bruke definisjonen som det presisjonsverktøyet den er. **$f(x) = x^2$:** firetrinnsrutinen er alltid den samme. Beregn $f(x+h) = x^2 + 2xh + h^2$; finn differansen $f(x+h) - f(x) = 2xh + h^2$; del på $h$ og forkort: $\\frac{h(2x+h)}{h} = 2x + h$; ta grensen: $f'(x) = \\lim_{h \\to 0}(2x + h) = 2x$. Merk det avgjørende øyeblikket: forkortingen av $h$ forvandlet den ubestemte formen til et ufarlig uttrykk -- nøyaktig faktoriserings-teknikken fra 3.1.\n\n**$f(x) = x^3$:** kuben gir $f(x+h) = x^3 + 3x^2h + 3xh^2 + h^3$, differansen blir $3x^2h + 3xh^2 + h^3 = h(3x^2 + 3xh + h^2)$, og etter forkorting og grense: $f'(x) = 3x^2$.\n\nSer du mønsteret som avtegner seg? $x^2$ ga $2x$; $x^3$ ga $3x^2$. Eksponenten hopper ned som faktor og reduseres med én -- potensregelen $\\left(x^n\\right)' = nx^{n-1}$ er i ferd med å avsløre seg selv. Den, og alle de andre derivasjonsreglene, kommer i senere kapitler -- men nå vet du hva de er: ferdigregnede grenseverdier, satt på lager."},{"id":"r1-3-3-n-quiz2","type":"exercise","exercise":{"id":"r1-3-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på derivasjonens definisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-3-n-quiz2-q0","task":"Hvordan er den deriverte $f'(a)$ definert?","options":[{"id":"a","text":"$\\frac{f(a+h)-f(a)}{h}$","isCorrect":false},{"id":"b","text":"$\\lim_{h \\to 0} f(a+h) - f(a)$","isCorrect":false},{"id":"c","text":"$\\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$","isCorrect":true},{"id":"d","text":"$\\frac{f(b)-f(a)}{b-a}$","isCorrect":false}],"solution":"Den deriverte er grenseverdien av differansekvotienten når $h \\to 0$, forutsatt at den eksisterer."},{"id":"r1-3-3-n-quiz2-q1","task":"Bruk definisjonen på $f(x) = x^3$. Hva er $f'(x)$?","options":[{"id":"a","text":"$x^2$","isCorrect":false},{"id":"b","text":"$3x^2$","isCorrect":true},{"id":"c","text":"$3x$","isCorrect":false},{"id":"d","text":"$x^3$","isCorrect":false}],"solution":"$\\frac{(x+h)^3 - x^3}{h} = \\frac{h(3x^2+3xh+h^2)}{h} = 3x^2 + 3xh + h^2 \\to 3x^2$ når $h \\to 0$."},{"id":"r1-3-3-n-quiz2-q2","task":"Hvilket uttrykk er en likeverdig (alternativ) form av definisjonen?","options":[{"id":"a","text":"$f'(a) = \\lim_{x \\to a} \\frac{f(x)-f(a)}{x-a}$","isCorrect":true},{"id":"b","text":"$f'(a) = \\frac{f(a)}{a}$","isCorrect":false},{"id":"c","text":"$f'(a) = \\lim_{x \\to 0} \\frac{f(x)}{x}$","isCorrect":false},{"id":"d","text":"$f'(a) = \\lim_{h \\to 0} \\frac{f(a)-f(a-h)}{a}$","isCorrect":false}],"solution":"Substitusjonen $x = a + h$ gjør $h \\to 0$ om til $x \\to a$ og gir formen $\\lim_{x \\to a} \\frac{f(x)-f(a)}{x-a}$."},{"id":"r1-3-3-n-quiz2-q3","task":"Hva er $\\frac{df}{dx}$ for notasjon?","options":[{"id":"a","text":"Operatornotasjon","isCorrect":false},{"id":"b","text":"Lagranges notasjon","isCorrect":false},{"id":"c","text":"En brøk som alltid kan forkortes","isCorrect":false},{"id":"d","text":"Leibniz' notasjon for den deriverte","isCorrect":true}],"solution":"$\\frac{df}{dx}$ er Leibniz' notasjon -- et minne om differansekvotienten den deriverte er grensen av. Lagranges variant er $f'(x)$."}]}},{"id":"r1-3-3-n-section3","type":"text","content":"## To klassikere til -- og tangentens likning\n\nDefinisjonen takler mer enn polynomer. **$f(x) = \\frac{1}{x}$:** differansen krever fellesnevner, slik du lærte i kapittel 1.4:\n\n$$f(x+h) - f(x) = \\frac{1}{x+h} - \\frac{1}{x} = \\frac{x - (x+h)}{x(x+h)} = \\frac{-h}{x(x+h)}$$\n\nDelt på $h$ blir det $\\frac{-1}{x(x+h)}$, og grensen når $h \\to 0$ gir $f'(x) = -\\frac{1}{x^2}$. Negativ overalt -- rimelig, for $\\frac{1}{x}$ avtar på hele sitt definisjonsområde.\n\n**$f(x) = \\sqrt{x}$:** her gir innsetting $\\frac{\\sqrt{x+h}-\\sqrt{x}}{h}$, og roten må bort -- konjugattrikset fra 3.1! Vi utvider med $\\sqrt{x+h} + \\sqrt{x}$:\n\n$$\\frac{(x+h) - x}{h(\\sqrt{x+h}+\\sqrt{x})} = \\frac{1}{\\sqrt{x+h}+\\sqrt{x}} \\;\\longrightarrow\\; \\frac{1}{2\\sqrt{x}}$$\n\nAltså $\\left(\\sqrt{x}\\right)' = \\frac{1}{2\\sqrt{x}}$ for $x > 0$. Legg merke til hvordan hele kapittel 1 og 3.1 jobber for oss her: brøkregning, konjugering, grenseverdier -- definisjonen er stedet der trådene møtes.\n\nMed deriverte i hånden kan vi skrive opp **tangentens likning**. Tangenten i $(a, f(a))$ har stigningstall $f'(a)$, så ettpunktsformelen gir\n\n$$y - f(a) = f'(a)(x - a)$$\n\nEksempel: tangenten til $f(x) = x^2$ der $x = 3$. Punktet: $f(3) = 9$. Stigningen: $f'(3) = 2 \\cdot 3 = 6$. Likningen: $y - 9 = 6(x-3)$, altså $y = 6x - 9$. Denne linjen er funksjonens beste lineære stand-in nær $x = 3$ -- zoomer du langt nok inn på parabelen der, er den ikke til å skille fra linjen $y = 6x - 9$. Det er dette «lokalt lineær»-perspektivet som gjør den deriverte så anvendelig i alt fra fysikk til maskinlæring."},{"id":"r1-3-3-n-quiz3","type":"exercise","exercise":{"id":"r1-3-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på flere deriverte og tangenten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-3-n-quiz3-q0","task":"Hva er den deriverte av $f(x) = \\frac{1}{x}$?","options":[{"id":"a","text":"$\\frac{1}{x^2}$","isCorrect":false},{"id":"b","text":"$-\\frac{1}{x^2}$","isCorrect":true},{"id":"c","text":"$\\ln x$","isCorrect":false},{"id":"d","text":"$-\\frac{1}{x}$","isCorrect":false}],"solution":"Differansen gir $\\frac{-h}{x(x+h)}$, delt på $h$ blir det $\\frac{-1}{x(x+h)}$, og grensen er $-\\frac{1}{x^2}$."},{"id":"r1-3-3-n-quiz3-q1","task":"Hva er den deriverte av $f(x) = \\sqrt{x}$ for $x > 0$?","options":[{"id":"a","text":"$\\sqrt{x}$","isCorrect":false},{"id":"b","text":"$\\frac{2}{\\sqrt{x}}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{\\sqrt{x}}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{2\\sqrt{x}}$","isCorrect":true}],"solution":"Konjugatutvidelse gir $\\frac{1}{\\sqrt{x+h}+\\sqrt{x}}$, som går mot $\\frac{1}{2\\sqrt{x}}$ når $h \\to 0$."},{"id":"r1-3-3-n-quiz3-q2","task":"Hva er likningen for tangenten til $f(x) = x^2$ i punktet der $x = 3$?","options":[{"id":"a","text":"$y = 6x - 9$","isCorrect":true},{"id":"b","text":"$y = 9x - 6$","isCorrect":false},{"id":"c","text":"$y = 6x + 9$","isCorrect":false},{"id":"d","text":"$y = 2x + 3$","isCorrect":false}],"solution":"$f(3) = 9$ og $f'(3) = 6$: $y - 9 = 6(x-3)$ gir $y = 6x - 9$."},{"id":"r1-3-3-n-quiz3-q3","task":"Hvilken teknikk fra grenseverdikapittelet trengs for å derivere $\\sqrt{x}$ fra definisjonen?","options":[{"id":"a","text":"Fortegnslinje","isCorrect":false},{"id":"b","text":"Polynomdivisjon","isCorrect":false},{"id":"c","text":"Konjugering","isCorrect":true},{"id":"d","text":"L'Hôpitals regel","isCorrect":false}],"solution":"Differansekvotienten $\\frac{\\sqrt{x+h}-\\sqrt{x}}{h}$ temmes ved å gange med konjugatet $\\sqrt{x+h}+\\sqrt{x}$, som fjerner røttene i telleren."}]}},{"id":"r1-3-3-n-section4","type":"text","content":"## Numerisk derivasjon -- og når deriverbarheten svikter\n\nIkke alle funksjoner lar seg derivere analytisk -- og ofte har du bare måledata. Da tilnærmer vi den deriverte **numerisk**: vi bruker differansekvotienten med en liten, men endelig $h$. Tre varianter finnes. **Framoverdifferansen** $\\frac{f(a+h)-f(a)}{h}$ og **bakoverdifferansen** $\\frac{f(a)-f(a-h)}{h}$ ser hver sin vei; **sentraldifferansen**\n\n$$f'(a) \\approx \\frac{f(a+h) - f(a-h)}{2h}$$\n\nser begge veier og er klart mest nøyaktig: feilen dens krymper som $h^2$, mot $h$ for de ensidige. Halverer du $h$, kvarteres altså sentralfeilen. Eksempel: for $f(x) = \\sin x$ i $\\frac{\\pi}{4}$ gir sentraldifferanse med $h = 0{,}01$ verdien $\\approx 0{,}707$ -- som stemmer med fasiten $\\frac{\\sqrt{2}}{2}$.\n\nMen når *finnes* den deriverte overhodet? Definisjonen krever at grenseverdien eksisterer, og det er ingen selvfølge. Først en viktig enveissammenheng: **er $f$ deriverbar i $a$, er $f$ også kontinuerlig der** -- glatthet forutsetter helhet. Det motsatte gjelder ikke, og motbeviset er gammel kjenning: $f(x) = |x|$.\n\nAbsoluttverdien er kontinuerlig i null, men se på differansekvotienten der: fra høyre ($h > 0$) er $\\frac{|h|}{h} = 1$; fra venstre ($h < 0$) er $\\frac{|h|}{h} = -1$. De ensidige grensene er uenige -- $1 \\neq -1$ -- så grenseverdien, og dermed $f'(0)$, eksisterer ikke. Geometrisk: i V-ens spisse bunnpunkt finnes ingen entydig tangentretning; grafen «mener» én ting fra hver side.\n\nTre ting dreper altså deriverbarhet: **spisse hjørner** (som $|x|$ i null), **vertikale tangenter** (som $\\sqrt[3]{x}$ i null, der stigningen løper mot uendelig) og **diskontinuiteter** (hopp og hull -- uten kontinuitet, ingen derivert). Deriverbarhet er med andre ord et strengere adelsmerke enn kontinuitet: grafen må ikke bare henge sammen, den må være *glatt*."},{"id":"r1-3-3-n-quiz4","type":"exercise","exercise":{"id":"r1-3-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på numerisk derivasjon og deriverbarhet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-3-n-quiz4-q0","task":"Hva er formelen for sentraldifferansen?","options":[{"id":"a","text":"$\\frac{f(a+h)-f(a-h)}{2h}$","isCorrect":true},{"id":"b","text":"$\\frac{f(a+h)-f(a)}{h}$","isCorrect":false},{"id":"c","text":"$\\frac{f(a)-f(a-h)}{h}$","isCorrect":false},{"id":"d","text":"$\\frac{f(a+h)+f(a-h)}{2h}$","isCorrect":false}],"solution":"Sentraldifferansen bruker punkter på begge sider av $a$: $\\frac{f(a+h)-f(a-h)}{2h}$."},{"id":"r1-3-3-n-quiz4-q1","task":"Hvorfor foretrekkes sentraldifferansen?","options":[{"id":"a","text":"Den krever færre funksjonsverdier","isCorrect":false},{"id":"b","text":"Den gir alltid eksakt svar","isCorrect":false},{"id":"c","text":"Feilen er proporsjonal med $h^2$, mot $h$ for framover- og bakoverdifferansen","isCorrect":true},{"id":"d","text":"Den fungerer også når $f$ er diskontinuerlig","isCorrect":false}],"solution":"Sentraldifferansens feil skalerer som $h^2$: halverer du $h$, reduseres feilen til en fjerdedel. De ensidige differansene har feil proporsjonal med $h$."},{"id":"r1-3-3-n-quiz4-q2","task":"Hvorfor er $f(x) = |x|$ ikke deriverbar i $x = 0$?","options":[{"id":"a","text":"Fordi $f$ er diskontinuerlig i $0$","isCorrect":false},{"id":"b","text":"Fordi differansekvotienten har grense $1$ fra høyre og $-1$ fra venstre","isCorrect":true},{"id":"c","text":"Fordi $f(0)$ ikke eksisterer","isCorrect":false},{"id":"d","text":"Fordi tangenten er vertikal der","isCorrect":false}],"solution":"$\\frac{|h|}{h}$ er $1$ for $h > 0$ og $-1$ for $h < 0$. Ulike ensidige grenser betyr at grenseverdien -- og dermed $f'(0)$ -- ikke finnes. Grafen har et spisst hjørne."},{"id":"r1-3-3-n-quiz4-q3","task":"Hva er sammenhengen mellom deriverbarhet og kontinuitet?","options":[{"id":"a","text":"De er det samme","isCorrect":false},{"id":"b","text":"Kontinuitet medfører deriverbarhet","isCorrect":false},{"id":"c","text":"Det er ingen sammenheng","isCorrect":false},{"id":"d","text":"Deriverbarhet medfører kontinuitet, men ikke omvendt","isCorrect":true}],"solution":"Deriverbar $\\Rightarrow$ kontinuerlig. Motsatt vei gjelder ikke: $|x|$ er kontinuerlig i $0$ uten å være deriverbar der."}]}},{"id":"r1-3-3-n-summary","type":"text","content":"## Fortellingen i et nøtteskall\n\nNewton og Leibniz kjempet om æren, men oppfinnelsen deres deler vi alle: en presis matematikk for endring i øyeblikket.\n\nReisen gikk fra **sekanten** -- differansekvotienten $\\frac{f(a+h)-f(a)}{h}$, gjennomsnittlig vekstfart over et intervall -- via grenseprosessen der $h$ krymper og tallene avslører sitt mål, til **definisjonen**:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$$\n\nDirekte innsetting av $h = 0$ gir $\\frac{0}{0}$; det er algebraen -- utviding, forkorting, konjugering -- som forløser grensen. Slik fant vi fra bunnen av at $(x^2)' = 2x$, $(x^3)' = 3x^2$, $\\left(\\frac{1}{x}\\right)' = -\\frac{1}{x^2}$ og $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$ -- og skimtet mønsteret $\\left(x^n\\right)' = nx^{n-1}$.\n\nGeometrien: $f'(a)$ er **tangentens stigningstall**, og tangenten $y - f(a) = f'(a)(x-a)$ er funksjonens beste lineære tilnærming -- parabelens tangent i $x = 3$ ble $y = 6x - 9$. Numerikken: når analytisk regning er stengt, gir **sentraldifferansen** $\\frac{f(a+h)-f(a-h)}{2h}$ presise tilnærminger med feil som $h^2$.\n\nOg grensene for det hele: deriverbarhet *krever* kontinuitet, men kontinuitet er ikke nok -- $|x|$ med sitt spisse hjørne, kubikkroten med sin vertikale tangent og enhver diskontinuitet står utenfor.\n\nDefinisjonen er fundamentet; regnereglene som kommer, er dens ferdigstøpte konsekvenser. Men nå vet du hva som bor i symbolet $f'$ -- en sekant, tålmodig presset til tangent, av en grenseverdi."}],"exercises":[]}
+{
+  "id": "r1-3-3-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "3.3",
+  "title": "Derivasjonens definisjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om matematikkhistoriens største oppfinnelse -- hvordan Newton og Leibniz fanget øyeblikket, og hvordan grenseverdien gjør den deriverte til presis matematikk.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forsta sammenhengen mellom sekant og tangent",
+    "beherske derivasjonens definisjon som en grenseverdi",
+    "kunne derivere enkle funksjoner ved hjelp av definisjonen",
+    "forsta den geometriske tolkningen av den deriverte",
+    "kunne bruke numerisk derivasjon"
+  ],
+  "linkedChapterId": "r1-3-3",
+  "content": [
+    {
+      "id": "r1-3-3-n-intro",
+      "type": "text",
+      "content": "## Kappløpet om øyeblikket\n\nPå 1660- og 70-tallet, uavhengig av hverandre, løste en engelskmann og en tysker det samme urgamle problemet -- og utløste matematikkhistoriens bitreste prioritetsstrid. Isaac Newton trengte et verktøy for fysikken sin: planetene akselererer langs banene, og han måtte kunne snakke presist om fart og endring *i et øyeblikk*. Gottfried Wilhelm Leibniz kom fra filosofien og jaktet på et universelt symbolspråk for endring. Begge fant det samme: **differensialregningen**. Striden om hvem som var først, forgiftet forholdet mellom engelsk og kontinental matematikk i hundre år -- men selve oppfinnelsen forandret verden mer enn de fleste kriger.\n\nProblemet deres kjenner du fra kapittel 2.5: en bil kjører $100$ km på to timer, gjennomsnittsfart $50$ km/t -- men hva er farten *akkurat nå*? Et øyeblikk har ingen varighet, bilen flytter seg ikke i løpet av det, og $\\frac{0}{0}$ stirrer mot oss. Newtons og Leibniz' løsning var grenseprosessen: la tidsintervallet krympe mot null og se hva gjennomsnittsfartene nærmer seg.\n\nI kapittel 2.5 fikk du ideen; nå, med grenseverdier (3.1) og kontinuitet (3.2) i verktøykassen, bygger vi den ut til full styrke. Du skal beherske definisjonen $f'(a) = \\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$, bruke den til å derivere $x^2$, $x^3$, $\\frac{1}{x}$ og $\\sqrt{x}$ fra bunnen av, finne tangentlikninger, tilnærme deriverte numerisk -- og forstå når en funksjon overhodet *ikke er* deriverbar. Dette er hjertet i R1."
+    },
+    {
+      "id": "r1-3-3-n-section1",
+      "type": "text",
+      "content": "## Fra sekant til tangent -- repetisjon med ny presisjon\n\nUtgangspunktet er kjent: den **gjennomsnittlige vekstfarten** til $f$ på $[a, b]$ er $\\frac{f(b)-f(a)}{b-a}$, stigningstallet til *sekanten* gjennom $(a, f(a))$ og $(b, f(b))$. Skriver vi $b = a + h$, får vi formen som bærer resten av kapittelet:\n\n$$\\frac{f(a+h) - f(a)}{h}$$\n\n-- **differansekvotienten**, også kalt Newton-kvotienten. For $f(x) = x^2$ på $[1, 3]$: $\\frac{9 - 1}{2} = 4$; sekanten gjennom $(1,1)$ og $(3,9)$ stiger med $4$.\n\nNå kommer grenseprosessen, og denne gangen ser vi den i sakte film. Vi vil finne den momentane vekstfarten til $f(x) = x^2$ i $x = 2$, og beregner differansekvotienten for stadig mindre $h$. Med $h = 1$: $\\frac{(2+1)^2 - 4}{1} = 5$. Med $h = 0{,}5$: $\\frac{6{,}25 - 4}{0{,}5} = 4{,}5$. Med $h = 0{,}1$: $\\frac{4{,}41 - 4}{0{,}1} = 4{,}1$. Med $h = 0{,}01$: $4{,}01$.\n\nTallene hvisker stadig tydeligere: $5$, $4{,}5$, $4{,}1$, $4{,}01$, $\\ldots \\to 4$. Geometrisk ser du sekantens frie endepunkt sige langs parabelen inn mot $(2, 4)$, mens linjen vrir seg på plass som **tangenten** -- linjen som bare berører grafen i det ene punktet og deler dens retning der.\n\nDet er verdt å dvele ved hvorfor vi *må* ta en grense og ikke bare kan sette $h = 0$: da ville både teller og nevner vært null, og $\\frac{0}{0}$ sier ingenting. Men for hver $h \\neq 0$, uansett hvor liten, er differansekvotienten et hederlig tall -- og det er *følgen* av slike tall som peker ut svaret. Nøyaktig dette var den ubestemte formen fra 3.1, og nøyaktig derfor trengte vi grenseverdibegrepet før vi kunne komme hit."
+    },
+    {
+      "id": "r1-3-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sekant og differansekvotient:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-3-n-quiz1-q0",
+            "task": "Hva er den gjennomsnittlige vekstfarten til $f(x) = x^2$ på $[1, 3]$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{f(3)-f(1)}{3-1} = \\frac{9-1}{2} = 4$ -- sekantens stigningstall."
+          },
+          {
+            "id": "r1-3-3-n-quiz1-q1",
+            "task": "For $f(x) = x^2$ i $x = 2$ ga $h = 1$, $0{,}5$, $0{,}1$ og $0{,}01$ differansekvotientene $5$, $4{,}5$, $4{,}1$ og $4{,}01$. Hva er den momentane vekstfarten i $x = 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4{,}01$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Verdiene nærmer seg $4$ når $h \\to 0$. Den momentane vekstfarten er grenseverdien, $4$."
+          },
+          {
+            "id": "r1-3-3-n-quiz1-q2",
+            "task": "Hva kalles uttrykket $\\frac{f(a+h)-f(a)}{h}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tangentkvotienten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den deriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Differansekvotienten (Newton-kvotienten)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Grensekvotienten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er differansekvotienten -- sekantens stigningstall over intervallet fra $a$ til $a+h$."
+          },
+          {
+            "id": "r1-3-3-n-quiz1-q3",
+            "task": "Hvorfor kan vi ikke bare sette $h = 0$ i differansekvotienten?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $h$ må være et helt tall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi funksjonen ikke er definert i $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi svaret da blir uendelig",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi det gir den ubestemte formen $\\frac{0}{0}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $h = 0$ er både teller og nevner null. Derfor tar vi grenseverdien når $h \\to 0$ i stedet -- det er hele poenget med definisjonen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-3-n-section2",
+      "type": "text",
+      "content": "## Definisjonen -- og de første deriverte fra bunnen av\n\nNå formulerer vi det presist. Den **deriverte** av $f$ i punktet $x = a$ er\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nforutsatt at grenseverdien eksisterer. En likeverdig form fås ved å sette $x = a + h$: $f'(a) = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x - a}$. Notasjonen varierer med tradisjonen: Lagranges $f'(x)$ er vanligst i Norge, Leibniz' $\\frac{df}{dx}$ dominerer i fysikk (og bærer minnet om kvotienten den kom fra), og operatorformen $Df(x)$ dukker også opp. Alle betyr det samme.\n\nLa oss bruke definisjonen som det presisjonsverktøyet den er. **$f(x) = x^2$:** firetrinnsrutinen er alltid den samme. Beregn $f(x+h) = x^2 + 2xh + h^2$; finn differansen $f(x+h) - f(x) = 2xh + h^2$; del på $h$ og forkort: $\\frac{h(2x+h)}{h} = 2x + h$; ta grensen: $f'(x) = \\lim_{h \\to 0}(2x + h) = 2x$. Merk det avgjørende øyeblikket: forkortingen av $h$ forvandlet den ubestemte formen til et ufarlig uttrykk -- nøyaktig faktoriserings-teknikken fra 3.1.\n\n**$f(x) = x^3$:** kuben gir $f(x+h) = x^3 + 3x^2h + 3xh^2 + h^3$, differansen blir $3x^2h + 3xh^2 + h^3 = h(3x^2 + 3xh + h^2)$, og etter forkorting og grense: $f'(x) = 3x^2$.\n\nSer du mønsteret som avtegner seg? $x^2$ ga $2x$; $x^3$ ga $3x^2$. Eksponenten hopper ned som faktor og reduseres med én -- potensregelen $\\left(x^n\\right)' = nx^{n-1}$ er i ferd med å avsløre seg selv. Den, og alle de andre derivasjonsreglene, kommer i senere kapitler -- men nå vet du hva de er: ferdigregnede grenseverdier, satt på lager."
+    },
+    {
+      "id": "r1-3-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på derivasjonens definisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-3-n-quiz2-q0",
+            "task": "Hvordan er den deriverte $f'(a)$ definert?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{f(a+h)-f(a)}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\lim_{h \\to 0} f(a+h) - f(a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{f(b)-f(a)}{b-a}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte er grenseverdien av differansekvotienten når $h \\to 0$, forutsatt at den eksisterer."
+          },
+          {
+            "id": "r1-3-3-n-quiz2-q1",
+            "task": "Bruk definisjonen på $f(x) = x^3$. Hva er $f'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3x^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{(x+h)^3 - x^3}{h} = \\frac{h(3x^2+3xh+h^2)}{h} = 3x^2 + 3xh + h^2 \\to 3x^2$ når $h \\to 0$."
+          },
+          {
+            "id": "r1-3-3-n-quiz2-q2",
+            "task": "Hvilket uttrykk er en likeverdig (alternativ) form av definisjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f'(a) = \\frac{f(a)}{a}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f'(a) = \\lim_{x \\to 0} \\frac{f(x)}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$f'(a) = \\lim_{x \\to a} \\frac{f(x)-f(a)}{x-a}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f'(a) = \\lim_{h \\to 0} \\frac{f(a)-f(a-h)}{a}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Substitusjonen $x = a + h$ gjør $h \\to 0$ om til $x \\to a$ og gir formen $\\lim_{x \\to a} \\frac{f(x)-f(a)}{x-a}$."
+          },
+          {
+            "id": "r1-3-3-n-quiz2-q3",
+            "task": "Hva er $\\frac{df}{dx}$ for notasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Operatornotasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Lagranges notasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En brøk som alltid kan forkortes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Leibniz' notasjon for den deriverte",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{df}{dx}$ er Leibniz' notasjon -- et minne om differansekvotienten den deriverte er grensen av. Lagranges variant er $f'(x)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-3-n-section3",
+      "type": "text",
+      "content": "## To klassikere til -- og tangentens likning\n\nDefinisjonen takler mer enn polynomer. **$f(x) = \\frac{1}{x}$:** differansen krever fellesnevner, slik du lærte i kapittel 1.4:\n\n$$f(x+h) - f(x) = \\frac{1}{x+h} - \\frac{1}{x} = \\frac{x - (x+h)}{x(x+h)} = \\frac{-h}{x(x+h)}$$\n\nDelt på $h$ blir det $\\frac{-1}{x(x+h)}$, og grensen når $h \\to 0$ gir $f'(x) = -\\frac{1}{x^2}$. Negativ overalt -- rimelig, for $\\frac{1}{x}$ avtar på hele sitt definisjonsområde.\n\n**$f(x) = \\sqrt{x}$:** her gir innsetting $\\frac{\\sqrt{x+h}-\\sqrt{x}}{h}$, og roten må bort -- konjugattrikset fra 3.1! Vi utvider med $\\sqrt{x+h} + \\sqrt{x}$:\n\n$$\\frac{(x+h) - x}{h(\\sqrt{x+h}+\\sqrt{x})} = \\frac{1}{\\sqrt{x+h}+\\sqrt{x}} \\;\\longrightarrow\\; \\frac{1}{2\\sqrt{x}}$$\n\nAltså $\\left(\\sqrt{x}\\right)' = \\frac{1}{2\\sqrt{x}}$ for $x > 0$. Legg merke til hvordan hele kapittel 1 og 3.1 jobber for oss her: brøkregning, konjugering, grenseverdier -- definisjonen er stedet der trådene møtes.\n\nMed deriverte i hånden kan vi skrive opp **tangentens likning**. Tangenten i $(a, f(a))$ har stigningstall $f'(a)$, så ettpunktsformelen gir\n\n$$y - f(a) = f'(a)(x - a)$$\n\nEksempel: tangenten til $f(x) = x^2$ der $x = 3$. Punktet: $f(3) = 9$. Stigningen: $f'(3) = 2 \\cdot 3 = 6$. Likningen: $y - 9 = 6(x-3)$, altså $y = 6x - 9$. Denne linjen er funksjonens beste lineære stand-in nær $x = 3$ -- zoomer du langt nok inn på parabelen der, er den ikke til å skille fra linjen $y = 6x - 9$. Det er dette «lokalt lineær»-perspektivet som gjør den deriverte så anvendelig i alt fra fysikk til maskinlæring."
+    },
+    {
+      "id": "r1-3-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på flere deriverte og tangenten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-3-n-quiz3-q0",
+            "task": "Hva er den deriverte av $f(x) = \\frac{1}{x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-\\frac{1}{x^2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\frac{1}{x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Differansen gir $\\frac{-h}{x(x+h)}$, delt på $h$ blir det $\\frac{-1}{x(x+h)}$, og grensen er $-\\frac{1}{x^2}$."
+          },
+          {
+            "id": "r1-3-3-n-quiz3-q1",
+            "task": "Hva er den deriverte av $f(x) = \\sqrt{x}$ for $x > 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2\\sqrt{x}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2}{\\sqrt{x}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{\\sqrt{x}}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konjugatutvidelse gir $\\frac{1}{\\sqrt{x+h}+\\sqrt{x}}$, som går mot $\\frac{1}{2\\sqrt{x}}$ når $h \\to 0$."
+          },
+          {
+            "id": "r1-3-3-n-quiz3-q2",
+            "task": "Hva er likningen for tangenten til $f(x) = x^2$ i punktet der $x = 3$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 9x - 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 6x + 9$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = 6x - 9$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = 2x + 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(3) = 9$ og $f'(3) = 6$: $y - 9 = 6(x-3)$ gir $y = 6x - 9$."
+          },
+          {
+            "id": "r1-3-3-n-quiz3-q3",
+            "task": "Hvilken teknikk fra grenseverdikapittelet trengs for å derivere $\\sqrt{x}$ fra definisjonen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fortegnslinje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Polynomdivisjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "L'Hôpitals regel",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Konjugering",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Differansekvotienten $\\frac{\\sqrt{x+h}-\\sqrt{x}}{h}$ temmes ved å gange med konjugatet $\\sqrt{x+h}+\\sqrt{x}$, som fjerner røttene i telleren."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-3-n-section4",
+      "type": "text",
+      "content": "## Numerisk derivasjon -- og når deriverbarheten svikter\n\nIkke alle funksjoner lar seg derivere analytisk -- og ofte har du bare måledata. Da tilnærmer vi den deriverte **numerisk**: vi bruker differansekvotienten med en liten, men endelig $h$. Tre varianter finnes. **Framoverdifferansen** $\\frac{f(a+h)-f(a)}{h}$ og **bakoverdifferansen** $\\frac{f(a)-f(a-h)}{h}$ ser hver sin vei; **sentraldifferansen**\n\n$$f'(a) \\approx \\frac{f(a+h) - f(a-h)}{2h}$$\n\nser begge veier og er klart mest nøyaktig: feilen dens krymper som $h^2$, mot $h$ for de ensidige. Halverer du $h$, kvarteres altså sentralfeilen. Eksempel: for $f(x) = \\sin x$ i $\\frac{\\pi}{4}$ gir sentraldifferanse med $h = 0{,}01$ verdien $\\approx 0{,}707$ -- som stemmer med fasiten $\\frac{\\sqrt{2}}{2}$.\n\nMen når *finnes* den deriverte overhodet? Definisjonen krever at grenseverdien eksisterer, og det er ingen selvfølge. Først en viktig enveissammenheng: **er $f$ deriverbar i $a$, er $f$ også kontinuerlig der** -- glatthet forutsetter helhet. Det motsatte gjelder ikke, og motbeviset er gammel kjenning: $f(x) = |x|$.\n\nAbsoluttverdien er kontinuerlig i null, men se på differansekvotienten der: fra høyre ($h > 0$) er $\\frac{|h|}{h} = 1$; fra venstre ($h < 0$) er $\\frac{|h|}{h} = -1$. De ensidige grensene er uenige -- $1 \\neq -1$ -- så grenseverdien, og dermed $f'(0)$, eksisterer ikke. Geometrisk: i V-ens spisse bunnpunkt finnes ingen entydig tangentretning; grafen «mener» én ting fra hver side.\n\nTre ting dreper altså deriverbarhet: **spisse hjørner** (som $|x|$ i null), **vertikale tangenter** (som $\\sqrt[3]{x}$ i null, der stigningen løper mot uendelig) og **diskontinuiteter** (hopp og hull -- uten kontinuitet, ingen derivert). Deriverbarhet er med andre ord et strengere adelsmerke enn kontinuitet: grafen må ikke bare henge sammen, den må være *glatt*."
+    },
+    {
+      "id": "r1-3-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på numerisk derivasjon og deriverbarhet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-3-n-quiz4-q0",
+            "task": "Hva er formelen for sentraldifferansen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{f(a+h)-f(a-h)}{2h}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{f(a+h)-f(a)}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{f(a)-f(a-h)}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{f(a+h)+f(a-h)}{2h}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sentraldifferansen bruker punkter på begge sider av $a$: $\\frac{f(a+h)-f(a-h)}{2h}$."
+          },
+          {
+            "id": "r1-3-3-n-quiz4-q1",
+            "task": "Hvorfor foretrekkes sentraldifferansen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den krever færre funksjonsverdier",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Feilen er proporsjonal med $h^2$, mot $h$ for framover- og bakoverdifferansen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den gir alltid eksakt svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den fungerer også når $f$ er diskontinuerlig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sentraldifferansens feil skalerer som $h^2$: halverer du $h$, reduseres feilen til en fjerdedel. De ensidige differansene har feil proporsjonal med $h$."
+          },
+          {
+            "id": "r1-3-3-n-quiz4-q2",
+            "task": "Hvorfor er $f(x) = |x|$ ikke deriverbar i $x = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $f$ er diskontinuerlig i $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $f(0)$ ikke eksisterer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi differansekvotienten har grense $1$ fra høyre og $-1$ fra venstre",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi tangenten er vertikal der",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{|h|}{h}$ er $1$ for $h > 0$ og $-1$ for $h < 0$. Ulike ensidige grenser betyr at grenseverdien -- og dermed $f'(0)$ -- ikke finnes. Grafen har et spisst hjørne."
+          },
+          {
+            "id": "r1-3-3-n-quiz4-q3",
+            "task": "Hva er sammenhengen mellom deriverbarhet og kontinuitet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kontinuitet medfører deriverbarhet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er ingen sammenheng",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Deriverbarhet medfører kontinuitet, men ikke omvendt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Deriverbar $\\Rightarrow$ kontinuerlig. Motsatt vei gjelder ikke: $|x|$ er kontinuerlig i $0$ uten å være deriverbar der."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-3-n-summary",
+      "type": "text",
+      "content": "## Fortellingen i et nøtteskall\n\nNewton og Leibniz kjempet om æren, men oppfinnelsen deres deler vi alle: en presis matematikk for endring i øyeblikket.\n\nReisen gikk fra **sekanten** -- differansekvotienten $\\frac{f(a+h)-f(a)}{h}$, gjennomsnittlig vekstfart over et intervall -- via grenseprosessen der $h$ krymper og tallene avslører sitt mål, til **definisjonen**:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h)-f(a)}{h}$$\n\nDirekte innsetting av $h = 0$ gir $\\frac{0}{0}$; det er algebraen -- utviding, forkorting, konjugering -- som forløser grensen. Slik fant vi fra bunnen av at $(x^2)' = 2x$, $(x^3)' = 3x^2$, $\\left(\\frac{1}{x}\\right)' = -\\frac{1}{x^2}$ og $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$ -- og skimtet mønsteret $\\left(x^n\\right)' = nx^{n-1}$.\n\nGeometrien: $f'(a)$ er **tangentens stigningstall**, og tangenten $y - f(a) = f'(a)(x-a)$ er funksjonens beste lineære tilnærming -- parabelens tangent i $x = 3$ ble $y = 6x - 9$. Numerikken: når analytisk regning er stengt, gir **sentraldifferansen** $\\frac{f(a+h)-f(a-h)}{2h}$ presise tilnærminger med feil som $h^2$.\n\nOg grensene for det hele: deriverbarhet *krever* kontinuitet, men kontinuitet er ikke nok -- $|x|$ med sitt spisse hjørne, kubikkroten med sin vertikale tangent og enhver diskontinuitet står utenfor.\n\nDefinisjonen er fundamentet; regnereglene som kommer, er dens ferdigstøpte konsekvenser. Men nå vet du hva som bor i symbolet $f'$ -- en sekant, tålmodig presset til tangent, av en grenseverdi."
+    }
+  ],
+  "exercises": []
+}

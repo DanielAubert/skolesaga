@@ -1,1 +1,678 @@
-{"id":"nat-vg1-1-5-narrativ","courseId":"nat-vg1","chapterNumber":"1.5","title":"Programmering og modellering","subtitle":"Narrativ versjon","description":"Opplev korleis nokre få linjer kode kan simulere radioaktiv nedbryting, føreseie folkevekst og avsløre mønster i naturen som er usynlege for det blotte auget.","estimatedMinutes":40,"competenceGoals":["vurdere og lage program som modellerer naturfaglege fenomen"],"linkedChapterId":"nat-vg1-1-5","content":[{"id":"nat-vg1-1-5-n-intro","type":"text","content":"## Då datamaskinen vart naturvitarens beste venn\n\nI 2020, då covid-19-pandemien råka verda, stod politikarar overfor umoglege val. Skulle dei stengje ned samfunnet for å bremse smitten, eller halde alt ope og håpe på det beste? Svaret kom i stor grad frå *programmering*. Forskarar over heile verda bygde datamodellar som simulerte korleis viruset ville spreie seg under ulike scenario. Modellane var ikkje perfekte -- ingen modell er det -- men dei gav verdifull innsikt som hjelpte med å redde liv.\n\nDette er berre eitt døme på korleis programmering har vorte uunnverleg i naturvitskapen. Meteorologar bruker program til å føreseie vêret. Biologar analyserer DNA-sekvensar med kode. Fysikarar simulerer kollisjonar mellom partiklar. Klimaforskarar køyrer modellar som viser korleis temperaturen vil endre seg dei neste hundre åra. I alle desse tilfella gjer datamaskinen noko ho er suveren til: ho utfører millionar av berekningar raskare enn noko menneske kunne klart.\n\nMen programmering handlar ikkje berre om fart. Det handlar òg om å *visualisere* data -- å gjere tal om til grafar og diagram som hjelper oss å sjå mønster vi elles ville oversett. Det handlar om å *simulere* scenario vi ikkje kan teste i verkelegheita -- du kan ikkje sende ein rakett til Mars for å teste kvar einaste baneberekning, men du kan simulere han på ein datamaskin tusenvis av gonger. Og det handlar om å byggje *modellar* -- forenkla versjonar av verkelegheita som hjelper oss å forstå komplekse fenomen.\n\nI dette kapittelet skal du lære grunnleggjande programmering i Python og bruke det til å modellere naturfaglege fenomen. Du treng ingen forkunnskapar -- vi startar frå byrjinga."},{"id":"nat-vg1-1-5-n-section1","type":"text","content":"## Variablar og berekningar -- byggjesteinane i all programmering\n\nTenk deg at du har ein kalkulator der du kan gi namn til tala dine. I staden for å hugse at «5.0» er massen og «10» er tida, kan du skrive `masse = 5.0` og `tid = 10`. Det er akkurat dette ein **variabel** er: ein namngitt boks som lagrar ein verdi.\n\nI Python, som er programmeringsspråket vi bruker i naturfag, finst det ulike typar verdiar. **Desimaltal** (kalla *float*) ser ut som `masse = 5.0`. **Heiltal** (kalla *int*) ser ut som `antall = 10`. **Tekst** (kalla *string*) skrivst med hermeteikn, som `navn = \"Natrium\"`. Og **sann/usann** (kalla *boolean*) skrivst som `er_metall = True` eller `er_metall = False`.\n\nNår du har lagra verdiar i variablar, kan du gjere berekningar med dei akkurat som på ein kalkulator. Skriv `avstand = 100` og `tid = 10`, og så kan du berekne fart med `fart = avstand / tid`. Python støttar alle dei vanlege matematiske operatorane: pluss (`+`), minus (`-`), gange (`*`), dele (`/`), og potens (`**`). Vil du berekne 5 opphøgd i andre, skriv du `5 ** 2`, som gir 25.\n\nFor å vise resultatet bruker du `print`-funksjonen. Skriv du `print(f\"Farten er {fart} m/s\")`, vil programmet vise «Farten er 10.0 m/s» på skjermen. Bokstaven `f` framfor hermeteiknet tyder at du kan setje inn variablar direkte i teksten med krøllparentesar.\n\nPython har òg innebygde matematiske funksjonar. Ved å skrive `import math` får du tilgang til mellom anna `math.sqrt(16)` for kvadratrot (gir 4.0), `math.pi` for pi (3.14159...), `abs(-5)` for absoluttverdi (gir 5), og `round(3.7)` for avrunding (gir 4).\n\nLat oss sjå på eit konkret naturfagleg døme. Energien til ein foton bereknast med formelen E = h · c / lambda, der h er Plancks konstant (6.626 x 10^-34 J·s), c er lyshastigheita (3 x 10^8 m/s), og lambda er bølgjelengda. I Python skriv du dette som `h = 6.626e-34`, `c = 3e8`, `bolgelengde = 550e-9` (for grønt lys med bølgjelengd 550 nanometer), og `energi = h * c / bolgelengde`. Resultatet er ca. 3.614 x 10^-19 Joule, eller om lag 2.26 elektronvolt."},{"id":"nat-vg1-1-5-n-quiz1","type":"exercise","exercise":{"id":"nat-vg1-1-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på variablar og berekningar i Python:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"nat-vg1-1-5-n-quiz1-q0","task":"Kva er ein variabel i programmering?","options":[{"id":"a","text":"Ein matematisk formel som alltid gir same svar","isCorrect":false},{"id":"b","text":"Ein namngitt boks som lagrar ein verdi","isCorrect":true},{"id":"c","text":"Eit tal som endrar seg tilfeldig","isCorrect":false},{"id":"d","text":"Ein type kalkulator i Python","isCorrect":false}],"solution":"Ein variabel er ein namngitt boks som lagrar ein verdi. Du lagar han ved å gi han eit namn og tildele ein verdi, til dømes masse = 5.0. Verdien kan vere eit tal, tekst, sant/usant eller andre datatypar."},{"id":"nat-vg1-1-5-n-quiz1-q1","task":"Kva blir resultatet av koden: fart = 150 / 12?","options":[{"id":"a","text":"12","isCorrect":false},{"id":"b","text":"12.5","isCorrect":true},{"id":"c","text":"13","isCorrect":false},{"id":"d","text":"150","isCorrect":false}],"solution":"Divisjonsoperatoren / i Python gir alltid eit desimaltal (float). 150 delt på 12 er 12.5. Viss du ønskjer heiltalsdivisjon (berre heile tal), bruker du // i staden, som ville gitt 12."},{"id":"nat-vg1-1-5-n-quiz1-q2","task":"Kva skriv du i Python for å berekne 3 opphøgd i fjerde (3^4)?","options":[{"id":"a","text":"3 ^ 4","isCorrect":false},{"id":"b","text":"3 * 4","isCorrect":false},{"id":"c","text":"3 ** 4","isCorrect":true},{"id":"d","text":"pow(3, 4) er den einaste måten","isCorrect":false}],"solution":"I Python bruker du ** for potensrekning. 3 ** 4 gir 81. Merk at ^ i Python ikkje er potensoperatoren -- han brukast til noko anna (bitvis XOR). Du kan òg bruke pow(3, 4), men ** er den vanlegaste måten."},{"id":"nat-vg1-1-5-n-quiz1-q3","task":"Kva gjer print(f\"Svaret er {42 * 2}\")?","options":[{"id":"a","text":"Skriv ut: Svaret er {42 * 2}","isCorrect":false},{"id":"b","text":"Gir ei feilmelding","isCorrect":false},{"id":"c","text":"Skriv ut: Svaret er 84","isCorrect":true},{"id":"d","text":"Skriv ut: 84","isCorrect":false}],"solution":"Bokstaven f framfor hermeteiknet lagar ein f-string, som tyder at Python evaluerer uttrykk inne i krøllparentesar. {42 * 2} bereknast til 84, og heile utskrifta blir «Svaret er 84»."}]}},{"id":"nat-vg1-1-5-n-section2","type":"text","content":"## Løkker -- når du treng å gjenta noko tusen gonger\n\nFørestill deg at du skal berekne posisjonen til ein ball som fell fritt kvart tidsskritt i 100 sekund. Du *kunne* skrive 100 separate berekningar -- men det ville vore vanvitig kjedeleg og feilformbart. I staden bruker du ei **løkke**, som ber datamaskinen gjenta ei handling så mange gonger du vil.\n\nDen vanlegaste typen er **for-løkka**, som du bruker når du veit nøyaktig kor mange gonger noko skal gjentakast. I Python skriv du `for i in range(1, 6):` etterfølgt av den innrykte koden du vil gjenta. Denne løkka køyrer fem gonger, med `i` lik 1, 2, 3, 4 og 5 etter tur. Funksjonen `range()` genererer talrekkjer: `range(5)` gir tala 0 til 4, `range(1, 6)` gir 1 til 5, og `range(0, 10, 2)` gir 0, 2, 4, 6, 8 (altså med steg på 2).\n\nDen andre typen er **while-løkka**, som held fram med å køyre *så lenge eit vilkår er sant*. Tenk deg at du halverer ei mengd radioaktivt stoff og vil finne ut kor mange halveringar som trengst før mengda er under ei viss grense. Du skriv `while mengde >= 1:` og lèt løkka halvere mengda og telje talet på halveringar. Du veit ikkje på førehand kor mange gonger løkka treng å køyre -- det avheng av startmengda.\n\nLøkker blir verkeleg kraftige når du kombinerer dei med **lister**. Ei liste er ei samling av verdiar, skriven med hakeparentesar: `temperaturer = [18, 20, 22, 19, 21]`. Du kan hente eit enkelt element med `temperaturer[0]` (det første elementet, 18), finne talet på element med `len(temperaturer)`, og leggje til nye element med `temperaturer.append(23)`.\n\nTil dømes, viss du har ei liste med temperaturmålingar og vil berekne gjennomsnittet, skriv du ei for-løkke som legg saman alle verdiane, og deler summen på talet. Eller du kan bruke Pythons innebygde `sum()`-funksjon: `gjennomsnitt = sum(temperaturer) / len(temperaturer)`. For lista [18.5, 19.2, 20.1, 18.8, 19.5] gir dette 19.22 grader Celsius."},{"id":"nat-vg1-1-5-n-section3","type":"text","content":"## Vilkår -- når programmet ditt må ta val\n\nI verkelegheita handlar mange ting om val. Viss temperaturen er over 30 grader, tek du på deg shorts. Viss det regnar, tek du med paraply. Programmering fungerer på same måte: **if-setningar** lèt programmet ta avgjerder basert på vilkår.\n\nI Python skriv du `if temperatur > 30:` etterfølgt av kva som skal skje i det tilfellet. Du kan leggje til fleire alternativ med `elif` (forkorting for «else if») og eit siste alternativ med `else` som fangar opp alt anna. Til dømes: *Viss* temperaturen er over 30, skriv «Varmt!». *Eller viss* han er over 20, skriv «Behagelig». *Eller viss* han er over 10, skriv «Kjølig». *Elles* skriv «Kaldt!».\n\nFor å samanlikne verdiar bruker du samanlikningsoperatorar: `==` (er lik), `!=` (er ikkje lik), `>` (større enn), `<` (mindre enn), `>=` (større enn eller lik), og `<=` (mindre enn eller lik). Merk at *er lik* skrivst med dobbelt likskapsteikn (`==`), ikkje enkelt -- fordi enkelt likskapsteikn brukast til å tildele verdiar til variablar.\n\nDu kan òg kombinere fleire vilkår med `and` (begge må vere sanne), `or` (minst éin må vere sann), og `not` (snur sann til usann). Til dømes: `if alder >= 15 and har_billett:` sjekkar om personen *både* er gammal nok *og* har billett.\n\nVilkår er spesielt nyttige i naturfagleg modellering. Tenk deg at du simulerer ein populasjon: *viss* populasjonen fell under ei viss grense, er arten truga. Eller du simulerer ein kjemisk reaksjon: *viss* temperaturen er over eit terskelpunkt, startar reaksjonen. Vilkår gjer modellane dine meir realistiske ved å la dei reagere på endringar -- akkurat som naturen gjer."},{"id":"nat-vg1-1-5-n-quiz2","type":"exercise","exercise":{"id":"nat-vg1-1-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på løkker og vilkår i Python:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"nat-vg1-1-5-n-quiz2-q0","task":"Kva type løkke bruker du når du veit nøyaktig kor mange gonger koden skal gjentakast?","options":[{"id":"a","text":"while-løkke","isCorrect":false},{"id":"b","text":"if-løkke","isCorrect":false},{"id":"c","text":"for-løkke","isCorrect":true},{"id":"d","text":"repeat-løkke","isCorrect":false}],"solution":"Ei for-løkke brukast når du veit kor mange gonger koden skal køyre. Du kan til dømes skrive for i in range(100) for å køyre koden 100 gonger. Ei while-løkke brukast når du ikkje veit talet på førehand og heller vil køyre så lenge eit vilkår er sant."},{"id":"nat-vg1-1-5-n-quiz2-q1","task":"Kva produserer range(0, 10, 2)?","options":[{"id":"a","text":"Tala 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10","isCorrect":false},{"id":"b","text":"Tala 0, 2, 4, 6, 8","isCorrect":true},{"id":"c","text":"Tala 2, 4, 6, 8, 10","isCorrect":false},{"id":"d","text":"Tala 0, 2","isCorrect":false}],"solution":"range(0, 10, 2) genererer tal frå 0 opp til (men ikkje inkludert) 10, med steg på 2. Resultatet er 0, 2, 4, 6, 8. Det tredje argumentet angir stegstorleiken."},{"id":"nat-vg1-1-5-n-quiz2-q2","task":"Kva er skilnaden mellom = og == i Python?","options":[{"id":"a","text":"Dei tyder det same","isCorrect":false},{"id":"b","text":"= brukast for å tildele verdiar, == brukast for å samanlikne","isCorrect":true},{"id":"c","text":"== brukast for å tildele verdiar, = brukast for å samanlikne","isCorrect":false},{"id":"d","text":"= brukast for heiltal, == brukast for desimaltal","isCorrect":false}],"solution":"Enkelt likskapsteikn (=) tildeler ein verdi til ein variabel, til dømes x = 5. Dobbelt likskapsteikn (==) samanliknar to verdiar og gir True eller False, til dømes if x == 5 sjekkar om x er lik 5."},{"id":"nat-vg1-1-5-n-quiz2-q3","task":"Kva tyder operatoren \"and\" i ei if-setning?","options":[{"id":"a","text":"Minst éin av vilkåra må vere sann","isCorrect":false},{"id":"b","text":"Ingen av vilkåra treng å vere sanne","isCorrect":false},{"id":"c","text":"Han snur eit vilkår frå sann til usann","isCorrect":false},{"id":"d","text":"Begge vilkåra må vere sanne","isCorrect":true}],"solution":"Operatoren \"and\" krev at begge vilkåra er sanne for at heile uttrykket skal vere sant. Til dømes er \"alder >= 15 and har_billett\" berre sant viss personen både er 15 eller eldre OG har billett. For \"minst éin må vere sann\" bruker du \"or\" i staden."}]}},{"id":"nat-vg1-1-5-n-section4","type":"text","content":"## Visualisering -- når tal blir til bilete\n\nEi tabell med hundre tal er vanskeleg å forstå. Men ein graf som viser dei same tala? Han fortel deg umiddelbart om det er ein trend, eit mønster eller eit avvik. **Visualisering** handlar om å gjere data synleg, og i Python bruker vi biblioteket **matplotlib** til dette.\n\nÅ lage ein enkel graf er overraskande lett. Du importerer biblioteket med `import matplotlib.pyplot as plt`, lagar to lister med x- og y-verdiar, og bruker `plt.plot(x, y)` for å teikne grafen. Med `plt.xlabel()`, `plt.ylabel()` og `plt.title()` legg du til forklarande tekst, og `plt.show()` viser resultatet.\n\nDu kan tilpasse utsjånaden med formatstrengar. Til dømes tyder `'b-'` blå linje, `'r--'` raud stipla linje, `'go'` grøne sirklar, og `'k^'` svarte trekantar. Vil du ha blå linje med sirklar på datapunkta, skriv du `'b-o'`. Du kan òg lage punktdiagram med `plt.scatter()`, stolpediagram med `plt.bar()`, leggje til rutenett med `plt.grid(True)`, og vise ei forklaring med `plt.legend()`.\n\nVisualisering er ikkje berre pynt -- det er eit vitskapleg verktøy. Når du plottar temperaturdata over eit år, kan du umiddelbart sjå sesongvariasjonar. Når du plottar radioaktiv nedbryting, ser du den karakteristiske eksponentielle kurva. Og når du samanliknar to datasett i same graf -- til dømes rovdyr- og byttedyrpopulasjonar -- kan du sjå samanhengar som tala åleine ikkje ville avslørt."},{"id":"nat-vg1-1-5-n-section5","type":"text","content":"## Modellering -- forenkle verkelegheita for å forstå henne\n\nNo er vi framme ved det mest spennande: å bruke alt vi har lært til å *modellere naturfaglege fenomen*. Ein **modell** er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer detaljar som ikkje er avgjerande. Ingen modell er perfekt, men ein god modell gir oss innsikt.\n\nLat oss starte med **radioaktiv nedbryting**. Når eit radioaktivt stoff brytast ned, halverast mengda for kvart tidsintervall som kallast halveringstida. Formelen er N = N0 · 0.5^(t/halveringstid), der N er mengda som gjenstår, N0 er startmengda og t er tida. I Python kan du simulere dette med ei for-løkke som bereknar mengda for kvart tidssteg og lagrar verdiane i ei liste. Startar du med 1000 atom og ei halveringstid på 10 år, vil du ha 500 atom etter 10 år, 250 etter 20 år, 125 etter 30 år, og berre 31.2 etter 50 år -- litt over 3 prosent av det du byrja med. Plottar du resultata, ser du ei jamn, fallande kurve som aldri heilt når null.\n\nVil du finne ut kor lang tid det tek før berre 1 prosent av stoffet er igjen, kan du bruke ei while-løkke som halverer mengda gjentekne gonger og tel tida. Svaret er ca. 66-67 år, som svarar til rundt 6.6 halveringstider. Du kan stadfeste dette matematisk: 0.01 = 0.5^n gir n = log(0.01)/log(0.5) = 6.64 halveringstider, altså 66.4 år.\n\nEit anna klassisk døme er **eksponentiell folkevekst**. Viss ein populasjon veks med 2 prosent per år, tyder det at neste års populasjon er 1.02 gonger årets. Ei for-løkke som gjentek dette i 50 år viser at 1000 individ blir til 2692 -- nesten ei tredobling. Plottar du dette, ser du ei kurve som stig stadig brattare, som er kjenneteiknet på eksponentiell vekst.\n\nFor meir avanserte modellar kan du simulere eit **rovdyr-byttedyr-system** (Lotka-Volterra-modellen). Her påverkar to populasjonar kvarandre: kaninar reproduserer seg, men blir etne av revar. Revar døyr ut utan mat, men formerer seg når det er mange kaninar. Resultatet er fascinerande sykliske svingingar der populasjonane stig og fell i utakt -- nøyaktig slik vi observerer i naturen."},{"id":"nat-vg1-1-5-n-quiz3","type":"exercise","exercise":{"id":"nat-vg1-1-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på visualisering og modellering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"nat-vg1-1-5-n-quiz3-q0","task":"Kva Python-bibliotek brukast vanlegvis til å lage grafar og diagram?","options":[{"id":"a","text":"numpy","isCorrect":false},{"id":"b","text":"matplotlib","isCorrect":true},{"id":"c","text":"pandas","isCorrect":false},{"id":"d","text":"math","isCorrect":false}],"solution":"Matplotlib (vanlegvis importert som matplotlib.pyplot med forkortinga plt) er standardbiblioteket for å lage grafar i Python. Det støttar linjediagram, punktdiagram, stolpediagram og mykje meir."},{"id":"nat-vg1-1-5-n-quiz3-q1","task":"Du startar med 1000 atom av eit radioaktivt stoff med halveringstid 10 år. Kor mange atom er igjen etter 20 år?","options":[{"id":"a","text":"500","isCorrect":false},{"id":"b","text":"250","isCorrect":true},{"id":"c","text":"100","isCorrect":false},{"id":"d","text":"0","isCorrect":false}],"solution":"Etter 20 år har det gått to halveringstider (20/10 = 2). Etter første halvering: 1000/2 = 500. Etter andre halvering: 500/2 = 250. Alternativt: N = 1000 · 0.5^(20/10) = 1000 · 0.25 = 250 atom."},{"id":"nat-vg1-1-5-n-quiz3-q2","task":"Kva er ein modell i naturfagleg programmering?","options":[{"id":"a","text":"Ein perfekt kopi av verkelegheita i kode","isCorrect":false},{"id":"b","text":"Eit program som berre lagar grafar","isCorrect":false},{"id":"c","text":"Ein forenkla representasjon av verkelegheita som fangar opp dei viktigaste mekanismane","isCorrect":true},{"id":"d","text":"Eit program som samlar inn data frå sensorar","isCorrect":false}],"solution":"Ein modell er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer mindre viktige detaljar. Ingen modell er perfekt, men ein god modell gir verdifull innsikt om fenomenet han skildrar."},{"id":"nat-vg1-1-5-n-quiz3-q3","task":"Kva kjenneteiknar grafen for eksponentiell vekst?","options":[{"id":"a","text":"Ei rett linje som stig jamt","isCorrect":false},{"id":"b","text":"Ei kurve som flatar ut over tid","isCorrect":false},{"id":"c","text":"Ei kurve som stig stadig brattare","isCorrect":true},{"id":"d","text":"Ei kurve som svingar opp og ned","isCorrect":false}],"solution":"Eksponentiell vekst gir ei kurve som stig stadig brattare. Med 2% årleg vekst verkar det lite i starten, men effekten akkumulerast: 1000 individ blir til nesten 2700 på 50 år. Ei rett linje ville vore lineær vekst, og ei kurve som flatar ut kallast logistisk vekst."},{"id":"nat-vg1-1-5-n-quiz3-q4","task":"Kva viser ein Lotka-Volterra-modell (rovdyr-byttedyr)?","options":[{"id":"a","text":"At rovdyr alltid utryddar byttedyra","isCorrect":false},{"id":"b","text":"At begge populasjonane veks eksponentielt","isCorrect":false},{"id":"c","text":"At populasjonane held seg heilt stabile over tid","isCorrect":false},{"id":"d","text":"At populasjonane svingar syklisk i utakt med kvarandre","isCorrect":true}],"solution":"Lotka-Volterra-modellen viser at rovdyr og byttedyr påverkar kvarandre i eit syklisk mønster. Når det er mange byttedyr, aukar rovdyra. Når rovdyra aukar, minkar byttedyra. Når byttedyra minkar, minkar rovdyra igjen. Og så byrjar syklusen på nytt."}]}},{"id":"nat-vg1-1-5-n-section6","type":"text","content":"## Kritisk vurdering -- ein modell er berre så god som føresetnadene\n\nDet er freistande å stole blindt på det datamaskinen fortel oss. Datamaskiner er jo så presise! Men hugs: ein datamaskin gjer berre det han får beskjed om. Viss modellen din byggjer på feil føresetnader, vil resultata òg vere feil -- uansett kor mange desimalar datamaskinen viser.\n\nLat oss ta eit døme. Tenk deg ein enkel modell som føreseier karakterar basert på studietimar: karakter = studietimar x 0.5 + 1. For 10 timar studering gir denne modellen karakter 6. Men kva med 20 timar studering? Då får du karakter 11, som er umogleg i det norske karaktersystemet! Modellen har inga øvre grense.\n\nDessutan går modellen ut frå ein *lineær samanheng* -- at dobbelt så mykje studering gir dobbelt så mykje betre karakter. I verkelegheita er samanhengen langt meir kompleks. Kvaliteten på studia er minst like viktig som mengda. Forkunnskapar spelar inn. Vanskegraden varierer mellom fag. Dagsform på eksamen kan utgjere heile skilnaden. Og to personar som studerer like mange timar, kan få heilt ulike karakterar.\n\nDenne typen kritisk vurdering er essensiell i all naturvitskapleg modellering. Når du lagar eller bruker ein modell, bør du alltid spørje: Kva føresetnader byggjer modellen på? Er føresetnadene rimelege? Kva ignorerer modellen? I kva situasjonar vil modellen gi meiningslause resultat?\n\nHugs at *alle modellar er forenklingar*. Eksponentiell vekst-modellen vår går ut frå at ein populasjon kan vekse uendeleg -- i verkelegheita avgrensast veksten av tilgjengeleg mat, plass og andre faktorar. Radioaktiv nedbryting-modellen vår er faktisk ganske nøyaktig fordi han byggjer på veletablerte fysiske lover. Rovdyr-byttedyr-modellen fangar opp det grunnleggjande mønsteret, men ignorerer faktorar som sjukdom, sesongvariasjonar og konkurranse frå andre artar. Ein god naturvitar veit at modellen er eit verktøy for å forstå, ikkje ein erstatning for verkelegheita."},{"id":"nat-vg1-1-5-n-quiz4","type":"exercise","exercise":{"id":"nat-vg1-1-5-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på kritisk vurdering av modellar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"nat-vg1-1-5-n-quiz4-q0","task":"Kvifor er det viktig å vurdere føresetnadene i ein modell?","options":[{"id":"a","text":"Fordi datamaskiner alltid gjer berekningsfeil","isCorrect":false},{"id":"b","text":"Fordi feil føresetnader gir feil resultat, uansett kor presis berekninga er","isCorrect":true},{"id":"c","text":"Fordi læraren krev det i rapporten","isCorrect":false},{"id":"d","text":"Fordi alle modellar er heilt ubrukelege","isCorrect":false}],"solution":"Ein modell er berre så god som føresetnadene han byggjer på. Datamaskinen bereknar presist, men han kan ikkje vite om føresetnadene er rette. Ein modell med feil føresetnader kan gi resultat som ser truverdige ut men er misvisande -- dette kallast «garbage in, garbage out»."},{"id":"nat-vg1-1-5-n-quiz4-q1","task":"Kva er den største svakheita med ein eksponentiell vekstmodell for ein biologisk populasjon?","options":[{"id":"a","text":"Han kan ikkje brukast med desimaltal","isCorrect":false},{"id":"b","text":"Han går ut frå at populasjonen kan vekse uendeleg utan avgrensingar","isCorrect":true},{"id":"c","text":"Han gir alltid for låge verdiar","isCorrect":false},{"id":"d","text":"Han krev for mykje datakraft","isCorrect":false}],"solution":"Eksponentiell vekst går ut frå at populasjonen veks med ein fast prosentdel per tidseining utan avgrensingar. I verkelegheita avgrensast veksten av tilgjengeleg mat, plass, sjukdom og konkurranse. Ein meir realistisk modell er logistisk vekst, som inkluderer ei bereevne."},{"id":"nat-vg1-1-5-n-quiz4-q2","task":"Karaktermodellen karakter = studietimar x 0.5 + 1 gir karakter 11 for 20 timar studering. Kva er dette eit døme på?","options":[{"id":"a","text":"Ein berekningsfeil i Python","isCorrect":false},{"id":"b","text":"At modellen manglar ei realistisk øvre grense","isCorrect":true},{"id":"c","text":"At norske karakterar går opp til 11","isCorrect":false},{"id":"d","text":"At studietimar ikkje påverkar karakterar","isCorrect":false}],"solution":"Modellen manglar ei øvre grense som speglar det norske karaktersystemet (1-6). Ein forbetra modell ville inkludert ein max-funksjon som avgrensar resultatet til 6, og kanskje òg teke omsyn til avtakande utbytte -- at dei siste timanes studering gir mindre forbetring enn dei første."}]}},{"id":"nat-vg1-1-5-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi sett korleis programmering har vorte eit uunnverleg verktøy i naturvitskapen -- frå pandemisimuleringar til klimamodellar og DNA-analysar.\n\n**Grunnleggjande Python** byggjer på variablar (namngitte boksar som lagrar verdiar), matematiske operatorar (+, -, *, /, ** for potens), og print-funksjonen for å vise resultat. Variablar kan innehalde desimaltal (float), heiltal (int), tekst (string) og sann/usann-verdiar (boolean). Funksjonar frå math-biblioteket gir tilgang til kvadratrot, pi, absoluttverdi og avrunding.\n\n**Løkker** lèt deg gjenta kode: for-løkker brukast når du veit antal repetisjonar, while-løkker brukast når du vil halde fram så lenge eit vilkår er sant. Lister samlar mange verdiar i ein variabel, og range()-funksjonen genererer talrekkjer.\n\n**Vilkår** med if/elif/else lèt programmet ta val. Samanlikningsoperatorar (==, !=, >, <, >=, <=) og logiske operatorar (and, or, not) avgjer kva kodeblokk som køyrer.\n\n**Visualisering** med matplotlib gjer data til grafar og diagram som avslører mønster. Linjediagram med plt.plot(), punktdiagram med plt.scatter(), og tekst med plt.xlabel(), plt.ylabel() og plt.title() er dei viktigaste verktøya.\n\n**Modellering** bruker alt dette saman til å simulere naturfaglege fenomen. Radioaktiv nedbryting følgjer formelen N = N0 · 0.5^(t/halveringstid), eksponentiell vekst følgjer N = N0 · (1+r)^t, og rovdyr-byttedyr-system viser sykliske svingingar.\n\n**Kritisk vurdering** er avgjerande: alle modellar er forenklingar. Du bør alltid spørje kva føresetnader modellen byggjer på, kva han ignorerer, og i kva situasjonar han gir meiningslause resultat. Programmering automatiserer berekningar, men det er du som naturvitar som må vurdere om resultata gir meining."}],"exercises":[],"_meta":{"sourceHash":"f28a49932c6fce1e","translatedAt":"2026-06-19T00:34:27.621Z","model":"claude-code-agent","strings":105,"tm":{"97513b78a42ab7a3":"Programmering og modellering","b195b06d1ed59702":"Narrativ versjon","ccfaae17f55cea2e":"Opplev korleis nokre få linjer kode kan simulere radioaktiv nedbryting, føreseie folkevekst og avsløre mønster i naturen som er usynlege for det blotte auget.","33e500e97fba949a":"vurdere og lage program som modellerer naturfaglege fenomen","8e9245ccde7bacab":"## Då datamaskinen vart naturvitarens beste venn\n\nI 2020, då covid-19-pandemien råka verda, stod politikarar overfor umoglege val. Skulle dei stengje ned samfunnet for å bremse smitten, eller halde alt ope og håpe på det beste? Svaret kom i stor grad frå *programmering*. Forskarar over heile verda bygde datamodellar som simulerte korleis viruset ville spreie seg under ulike scenario. Modellane var ikkje perfekte -- ingen modell er det -- men dei gav verdifull innsikt som hjelpte med å redde liv.\n\nDette er berre eitt døme på korleis programmering har vorte uunnverleg i naturvitskapen. Meteorologar bruker program til å føreseie vêret. Biologar analyserer DNA-sekvensar med kode. Fysikarar simulerer kollisjonar mellom partiklar. Klimaforskarar køyrer modellar som viser korleis temperaturen vil endre seg dei neste hundre åra. I alle desse tilfella gjer datamaskinen noko ho er suveren til: ho utfører millionar av berekningar raskare enn noko menneske kunne klart.\n\nMen programmering handlar ikkje berre om fart. Det handlar òg om å *visualisere* data -- å gjere tal om til grafar og diagram som hjelper oss å sjå mønster vi elles ville oversett. Det handlar om å *simulere* scenario vi ikkje kan teste i verkelegheita -- du kan ikkje sende ein rakett til Mars for å teste kvar einaste baneberekning, men du kan simulere han på ein datamaskin tusenvis av gonger. Og det handlar om å byggje *modellar* -- forenkla versjonar av verkelegheita som hjelper oss å forstå komplekse fenomen.\n\nI dette kapittelet skal du lære grunnleggjande programmering i Python og bruke det til å modellere naturfaglege fenomen. Du treng ingen forkunnskapar -- vi startar frå byrjinga.","480f8a1d0990b374":"## Variablar og berekningar -- byggjesteinane i all programmering\n\nTenk deg at du har ein kalkulator der du kan gi namn til tala dine. I staden for å hugse at «5.0» er massen og «10» er tida, kan du skrive `masse = 5.0` og `tid = 10`. Det er akkurat dette ein **variabel** er: ein namngitt boks som lagrar ein verdi.\n\nI Python, som er programmeringsspråket vi bruker i naturfag, finst det ulike typar verdiar. **Desimaltal** (kalla *float*) ser ut som `masse = 5.0`. **Heiltal** (kalla *int*) ser ut som `antall = 10`. **Tekst** (kalla *string*) skrivst med hermeteikn, som `navn = \"Natrium\"`. Og **sann/usann** (kalla *boolean*) skrivst som `er_metall = True` eller `er_metall = False`.\n\nNår du har lagra verdiar i variablar, kan du gjere berekningar med dei akkurat som på ein kalkulator. Skriv `avstand = 100` og `tid = 10`, og så kan du berekne fart med `fart = avstand / tid`. Python støttar alle dei vanlege matematiske operatorane: pluss (`+`), minus (`-`), gange (`*`), dele (`/`), og potens (`**`). Vil du berekne 5 opphøgd i andre, skriv du `5 ** 2`, som gir 25.\n\nFor å vise resultatet bruker du `print`-funksjonen. Skriv du `print(f\"Farten er {fart} m/s\")`, vil programmet vise «Farten er 10.0 m/s» på skjermen. Bokstaven `f` framfor hermeteiknet tyder at du kan setje inn variablar direkte i teksten med krøllparentesar.\n\nPython har òg innebygde matematiske funksjonar. Ved å skrive `import math` får du tilgang til mellom anna `math.sqrt(16)` for kvadratrot (gir 4.0), `math.pi` for pi (3.14159...), `abs(-5)` for absoluttverdi (gir 5), og `round(3.7)` for avrunding (gir 4).\n\nLat oss sjå på eit konkret naturfagleg døme. Energien til ein foton bereknast med formelen E = h · c / lambda, der h er Plancks konstant (6.626 x 10^-34 J·s), c er lyshastigheita (3 x 10^8 m/s), og lambda er bølgjelengda. I Python skriv du dette som `h = 6.626e-34`, `c = 3e8`, `bolgelengde = 550e-9` (for grønt lys med bølgjelengd 550 nanometer), og `energi = h * c / bolgelengde`. Resultatet er ca. 3.614 x 10^-19 Joule, eller om lag 2.26 elektronvolt.","89cfe7e2ee3625e9":"Test deg sjølv på variablar og berekningar i Python:","4097889236a2af26":"placeholder","ed3d93298465e191":"Kva er ein variabel i programmering?","b630715310cdef03":"Ein matematisk formel som alltid gir same svar","e73205ed1e4be2c3":"Ein namngitt boks som lagrar ein verdi","d3c94a010eaa9a78":"Eit tal som endrar seg tilfeldig","cf8e5504549db7dc":"Ein type kalkulator i Python","427cf9b05d355c1a":"Ein variabel er ein namngitt boks som lagrar ein verdi. Du lagar han ved å gi han eit namn og tildele ein verdi, til dømes masse = 5.0. Verdien kan vere eit tal, tekst, sant/usant eller andre datatypar.","92ea29f66fa37425":"Kva blir resultatet av koden: fart = 150 / 12?","03dabb703f03770b":"Divisjonsoperatoren / i Python gir alltid eit desimaltal (float). 150 delt på 12 er 12.5. Viss du ønskjer heiltalsdivisjon (berre heile tal), bruker du // i staden, som ville gitt 12.","e2e260371a1203ee":"Kva skriv du i Python for å berekne 3 opphøgd i fjerde (3^4)?","cae22f779bd14421":"pow(3, 4) er den einaste måten","2745546997d56b1f":"I Python bruker du ** for potensrekning. 3 ** 4 gir 81. Merk at ^ i Python ikkje er potensoperatoren -- han brukast til noko anna (bitvis XOR). Du kan òg bruke pow(3, 4), men ** er den vanlegaste måten.","1c6de11f800b8d90":"Kva gjer print(f\"Svaret er {42 * 2}\")?","a80eee7dcbe88666":"Skriv ut: Svaret er {42 * 2}","4a325858e99a81b5":"Gir ei feilmelding","90bfebbb2d8c354f":"Skriv ut: Svaret er 84","e8656eeafc960edc":"Skriv ut: 84","bb3838979ce1ca74":"Bokstaven f framfor hermeteiknet lagar ein f-string, som tyder at Python evaluerer uttrykk inne i krøllparentesar. {42 * 2} bereknast til 84, og heile utskrifta blir «Svaret er 84».","616facaf964e19e4":"## Løkker -- når du treng å gjenta noko tusen gonger\n\nFørestill deg at du skal berekne posisjonen til ein ball som fell fritt kvart tidsskritt i 100 sekund. Du *kunne* skrive 100 separate berekningar -- men det ville vore vanvitig kjedeleg og feilformbart. I staden bruker du ei **løkke**, som ber datamaskinen gjenta ei handling så mange gonger du vil.\n\nDen vanlegaste typen er **for-løkka**, som du bruker når du veit nøyaktig kor mange gonger noko skal gjentakast. I Python skriv du `for i in range(1, 6):` etterfølgt av den innrykte koden du vil gjenta. Denne løkka køyrer fem gonger, med `i` lik 1, 2, 3, 4 og 5 etter tur. Funksjonen `range()` genererer talrekkjer: `range(5)` gir tala 0 til 4, `range(1, 6)` gir 1 til 5, og `range(0, 10, 2)` gir 0, 2, 4, 6, 8 (altså med steg på 2).\n\nDen andre typen er **while-løkka**, som held fram med å køyre *så lenge eit vilkår er sant*. Tenk deg at du halverer ei mengd radioaktivt stoff og vil finne ut kor mange halveringar som trengst før mengda er under ei viss grense. Du skriv `while mengde >= 1:` og lèt løkka halvere mengda og telje talet på halveringar. Du veit ikkje på førehand kor mange gonger løkka treng å køyre -- det avheng av startmengda.\n\nLøkker blir verkeleg kraftige når du kombinerer dei med **lister**. Ei liste er ei samling av verdiar, skriven med hakeparentesar: `temperaturer = [18, 20, 22, 19, 21]`. Du kan hente eit enkelt element med `temperaturer[0]` (det første elementet, 18), finne talet på element med `len(temperaturer)`, og leggje til nye element med `temperaturer.append(23)`.\n\nTil dømes, viss du har ei liste med temperaturmålingar og vil berekne gjennomsnittet, skriv du ei for-løkke som legg saman alle verdiane, og deler summen på talet. Eller du kan bruke Pythons innebygde `sum()`-funksjon: `gjennomsnitt = sum(temperaturer) / len(temperaturer)`. For lista [18.5, 19.2, 20.1, 18.8, 19.5] gir dette 19.22 grader Celsius.","562fa34b6ff86f72":"## Vilkår -- når programmet ditt må ta val\n\nI verkelegheita handlar mange ting om val. Viss temperaturen er over 30 grader, tek du på deg shorts. Viss det regnar, tek du med paraply. Programmering fungerer på same måte: **if-setningar** lèt programmet ta avgjerder basert på vilkår.\n\nI Python skriv du `if temperatur > 30:` etterfølgt av kva som skal skje i det tilfellet. Du kan leggje til fleire alternativ med `elif` (forkorting for «else if») og eit siste alternativ med `else` som fangar opp alt anna. Til dømes: *Viss* temperaturen er over 30, skriv «Varmt!». *Eller viss* han er over 20, skriv «Behagelig». *Eller viss* han er over 10, skriv «Kjølig». *Elles* skriv «Kaldt!».\n\nFor å samanlikne verdiar bruker du samanlikningsoperatorar: `==` (er lik), `!=` (er ikkje lik), `>` (større enn), `<` (mindre enn), `>=` (større enn eller lik), og `<=` (mindre enn eller lik). Merk at *er lik* skrivst med dobbelt likskapsteikn (`==`), ikkje enkelt -- fordi enkelt likskapsteikn brukast til å tildele verdiar til variablar.\n\nDu kan òg kombinere fleire vilkår med `and` (begge må vere sanne), `or` (minst éin må vere sann), og `not` (snur sann til usann). Til dømes: `if alder >= 15 and har_billett:` sjekkar om personen *både* er gammal nok *og* har billett.\n\nVilkår er spesielt nyttige i naturfagleg modellering. Tenk deg at du simulerer ein populasjon: *viss* populasjonen fell under ei viss grense, er arten truga. Eller du simulerer ein kjemisk reaksjon: *viss* temperaturen er over eit terskelpunkt, startar reaksjonen. Vilkår gjer modellane dine meir realistiske ved å la dei reagere på endringar -- akkurat som naturen gjer.","2c818ea16c76614a":"Test deg sjølv på løkker og vilkår i Python:","b14c2c3543574d8e":"Kva type løkke bruker du når du veit nøyaktig kor mange gonger koden skal gjentakast?","10b933c56aea21de":"while-løkke","d453d571149791c5":"if-løkke","7e5d7e9ea31df0e8":"for-løkke","c40f0c1156aedb4c":"repeat-løkke","4d7c2facab1fa6e6":"Ei for-løkke brukast når du veit kor mange gonger koden skal køyre. Du kan til dømes skrive for i in range(100) for å køyre koden 100 gonger. Ei while-løkke brukast når du ikkje veit talet på førehand og heller vil køyre så lenge eit vilkår er sant.","873c25c58eee6850":"Kva produserer range(0, 10, 2)?","4cd79f987ca279ca":"Tala 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10","9f35b6330760e306":"Tala 0, 2, 4, 6, 8","cdc007798307f3c7":"Tala 2, 4, 6, 8, 10","eeb30dedcdcde48b":"Tala 0, 2","510b7cdbecb22026":"range(0, 10, 2) genererer tal frå 0 opp til (men ikkje inkludert) 10, med steg på 2. Resultatet er 0, 2, 4, 6, 8. Det tredje argumentet angir stegstorleiken.","98c12851a2aec8c6":"Kva er skilnaden mellom = og == i Python?","3831197841163288":"Dei tyder det same","05780c13dd42df11":"= brukast for å tildele verdiar, == brukast for å samanlikne","0fda3494c0be4da5":"== brukast for å tildele verdiar, = brukast for å samanlikne","3ecdf8a375a2ae07":"= brukast for heiltal, == brukast for desimaltal","cf689c2a6c163bc2":"Enkelt likskapsteikn (=) tildeler ein verdi til ein variabel, til dømes x = 5. Dobbelt likskapsteikn (==) samanliknar to verdiar og gir True eller False, til dømes if x == 5 sjekkar om x er lik 5.","67333494f24ebb45":"Kva tyder operatoren \"and\" i ei if-setning?","dea550474fb8dcd2":"Minst éin av vilkåra må vere sann","e2c6dac35d03219f":"Ingen av vilkåra treng å vere sanne","afe3e4bff9d01716":"Han snur eit vilkår frå sann til usann","e267c72f10e1d3b8":"Begge vilkåra må vere sanne","123fe94cdd36ed0e":"Operatoren \"and\" krev at begge vilkåra er sanne for at heile uttrykket skal vere sant. Til dømes er \"alder >= 15 and har_billett\" berre sant viss personen både er 15 eller eldre OG har billett. For \"minst éin må vere sann\" bruker du \"or\" i staden.","863d228fbac05e8c":"## Visualisering -- når tal blir til bilete\n\nEi tabell med hundre tal er vanskeleg å forstå. Men ein graf som viser dei same tala? Han fortel deg umiddelbart om det er ein trend, eit mønster eller eit avvik. **Visualisering** handlar om å gjere data synleg, og i Python bruker vi biblioteket **matplotlib** til dette.\n\nÅ lage ein enkel graf er overraskande lett. Du importerer biblioteket med `import matplotlib.pyplot as plt`, lagar to lister med x- og y-verdiar, og bruker `plt.plot(x, y)` for å teikne grafen. Med `plt.xlabel()`, `plt.ylabel()` og `plt.title()` legg du til forklarande tekst, og `plt.show()` viser resultatet.\n\nDu kan tilpasse utsjånaden med formatstrengar. Til dømes tyder `'b-'` blå linje, `'r--'` raud stipla linje, `'go'` grøne sirklar, og `'k^'` svarte trekantar. Vil du ha blå linje med sirklar på datapunkta, skriv du `'b-o'`. Du kan òg lage punktdiagram med `plt.scatter()`, stolpediagram med `plt.bar()`, leggje til rutenett med `plt.grid(True)`, og vise ei forklaring med `plt.legend()`.\n\nVisualisering er ikkje berre pynt -- det er eit vitskapleg verktøy. Når du plottar temperaturdata over eit år, kan du umiddelbart sjå sesongvariasjonar. Når du plottar radioaktiv nedbryting, ser du den karakteristiske eksponentielle kurva. Og når du samanliknar to datasett i same graf -- til dømes rovdyr- og byttedyrpopulasjonar -- kan du sjå samanhengar som tala åleine ikkje ville avslørt.","7204655fe5cf3258":"## Modellering -- forenkle verkelegheita for å forstå henne\n\nNo er vi framme ved det mest spennande: å bruke alt vi har lært til å *modellere naturfaglege fenomen*. Ein **modell** er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer detaljar som ikkje er avgjerande. Ingen modell er perfekt, men ein god modell gir oss innsikt.\n\nLat oss starte med **radioaktiv nedbryting**. Når eit radioaktivt stoff brytast ned, halverast mengda for kvart tidsintervall som kallast halveringstida. Formelen er N = N0 · 0.5^(t/halveringstid), der N er mengda som gjenstår, N0 er startmengda og t er tida. I Python kan du simulere dette med ei for-løkke som bereknar mengda for kvart tidssteg og lagrar verdiane i ei liste. Startar du med 1000 atom og ei halveringstid på 10 år, vil du ha 500 atom etter 10 år, 250 etter 20 år, 125 etter 30 år, og berre 31.2 etter 50 år -- litt over 3 prosent av det du byrja med. Plottar du resultata, ser du ei jamn, fallande kurve som aldri heilt når null.\n\nVil du finne ut kor lang tid det tek før berre 1 prosent av stoffet er igjen, kan du bruke ei while-løkke som halverer mengda gjentekne gonger og tel tida. Svaret er ca. 66-67 år, som svarar til rundt 6.6 halveringstider. Du kan stadfeste dette matematisk: 0.01 = 0.5^n gir n = log(0.01)/log(0.5) = 6.64 halveringstider, altså 66.4 år.\n\nEit anna klassisk døme er **eksponentiell folkevekst**. Viss ein populasjon veks med 2 prosent per år, tyder det at neste års populasjon er 1.02 gonger årets. Ei for-løkke som gjentek dette i 50 år viser at 1000 individ blir til 2692 -- nesten ei tredobling. Plottar du dette, ser du ei kurve som stig stadig brattare, som er kjenneteiknet på eksponentiell vekst.\n\nFor meir avanserte modellar kan du simulere eit **rovdyr-byttedyr-system** (Lotka-Volterra-modellen). Her påverkar to populasjonar kvarandre: kaninar reproduserer seg, men blir etne av revar. Revar døyr ut utan mat, men formerer seg når det er mange kaninar. Resultatet er fascinerande sykliske svingingar der populasjonane stig og fell i utakt -- nøyaktig slik vi observerer i naturen.","dd1cb3e2f100dc98":"Test deg sjølv på visualisering og modellering:","d3510dd2bddf8ac9":"Kva Python-bibliotek brukast vanlegvis til å lage grafar og diagram?","73dd0baf8e5438da":"numpy","2b15fcd19d49b750":"matplotlib","ae4863bdae026314":"pandas","58a6d6801ae771e6":"math","92b23895edfcf8b8":"Matplotlib (vanlegvis importert som matplotlib.pyplot med forkortinga plt) er standardbiblioteket for å lage grafar i Python. Det støttar linjediagram, punktdiagram, stolpediagram og mykje meir.","e1ca5838be473e59":"Du startar med 1000 atom av eit radioaktivt stoff med halveringstid 10 år. Kor mange atom er igjen etter 20 år?","a729edc7c8b9b917":"Etter 20 år har det gått to halveringstider (20/10 = 2). Etter første halvering: 1000/2 = 500. Etter andre halvering: 500/2 = 250. Alternativt: N = 1000 · 0.5^(20/10) = 1000 · 0.25 = 250 atom.","b34c00f66be9ab09":"Kva er ein modell i naturfagleg programmering?","b8a0851e5c2dba4e":"Ein perfekt kopi av verkelegheita i kode","c9d5a15dbf7edd03":"Eit program som berre lagar grafar","3795fb2918ee9fe4":"Ein forenkla representasjon av verkelegheita som fangar opp dei viktigaste mekanismane","a6c7c30d343fd149":"Eit program som samlar inn data frå sensorar","f7c83306db8a701b":"Ein modell er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer mindre viktige detaljar. Ingen modell er perfekt, men ein god modell gir verdifull innsikt om fenomenet han skildrar.","4e8f3c066e4b3232":"Kva kjenneteiknar grafen for eksponentiell vekst?","a2c714c1d1c7ea7a":"Ei rett linje som stig jamt","7d7c65f0a97490ad":"Ei kurve som flatar ut over tid","7fc664f6fc548474":"Ei kurve som stig stadig brattare","bea0ba181dd4a652":"Ei kurve som svingar opp og ned","6a0cfb6dedaed978":"Eksponentiell vekst gir ei kurve som stig stadig brattare. Med 2% årleg vekst verkar det lite i starten, men effekten akkumulerast: 1000 individ blir til nesten 2700 på 50 år. Ei rett linje ville vore lineær vekst, og ei kurve som flatar ut kallast logistisk vekst.","eb7662fe69d5dcb3":"Kva viser ein Lotka-Volterra-modell (rovdyr-byttedyr)?","93ece118cae837f8":"At rovdyr alltid utryddar byttedyra","e8c8d97acabb9f32":"At begge populasjonane veks eksponentielt","b63d41eb465b772d":"At populasjonane held seg heilt stabile over tid","f8d977508c817ae4":"At populasjonane svingar syklisk i utakt med kvarandre","5b38f18794607328":"Lotka-Volterra-modellen viser at rovdyr og byttedyr påverkar kvarandre i eit syklisk mønster. Når det er mange byttedyr, aukar rovdyra. Når rovdyra aukar, minkar byttedyra. Når byttedyra minkar, minkar rovdyra igjen. Og så byrjar syklusen på nytt.","eb64e51423ddb5a9":"## Kritisk vurdering -- ein modell er berre så god som føresetnadene\n\nDet er freistande å stole blindt på det datamaskinen fortel oss. Datamaskiner er jo så presise! Men hugs: ein datamaskin gjer berre det han får beskjed om. Viss modellen din byggjer på feil føresetnader, vil resultata òg vere feil -- uansett kor mange desimalar datamaskinen viser.\n\nLat oss ta eit døme. Tenk deg ein enkel modell som føreseier karakterar basert på studietimar: karakter = studietimar x 0.5 + 1. For 10 timar studering gir denne modellen karakter 6. Men kva med 20 timar studering? Då får du karakter 11, som er umogleg i det norske karaktersystemet! Modellen har inga øvre grense.\n\nDessutan går modellen ut frå ein *lineær samanheng* -- at dobbelt så mykje studering gir dobbelt så mykje betre karakter. I verkelegheita er samanhengen langt meir kompleks. Kvaliteten på studia er minst like viktig som mengda. Forkunnskapar spelar inn. Vanskegraden varierer mellom fag. Dagsform på eksamen kan utgjere heile skilnaden. Og to personar som studerer like mange timar, kan få heilt ulike karakterar.\n\nDenne typen kritisk vurdering er essensiell i all naturvitskapleg modellering. Når du lagar eller bruker ein modell, bør du alltid spørje: Kva føresetnader byggjer modellen på? Er føresetnadene rimelege? Kva ignorerer modellen? I kva situasjonar vil modellen gi meiningslause resultat?\n\nHugs at *alle modellar er forenklingar*. Eksponentiell vekst-modellen vår går ut frå at ein populasjon kan vekse uendeleg -- i verkelegheita avgrensast veksten av tilgjengeleg mat, plass og andre faktorar. Radioaktiv nedbryting-modellen vår er faktisk ganske nøyaktig fordi han byggjer på veletablerte fysiske lover. Rovdyr-byttedyr-modellen fangar opp det grunnleggjande mønsteret, men ignorerer faktorar som sjukdom, sesongvariasjonar og konkurranse frå andre artar. Ein god naturvitar veit at modellen er eit verktøy for å forstå, ikkje ein erstatning for verkelegheita.","eef97887beb0c041":"Test deg sjølv på kritisk vurdering av modellar:","ea82fb01c7861d57":"Kvifor er det viktig å vurdere føresetnadene i ein modell?","4b21d2a11902009d":"Fordi datamaskiner alltid gjer berekningsfeil","6d0f7f3eda6cbe24":"Fordi feil føresetnader gir feil resultat, uansett kor presis berekninga er","98785a9db9be5ec6":"Fordi læraren krev det i rapporten","62db9cc21e83aaf0":"Fordi alle modellar er heilt ubrukelege","1314a3f58c87e7b9":"Ein modell er berre så god som føresetnadene han byggjer på. Datamaskinen bereknar presist, men han kan ikkje vite om føresetnadene er rette. Ein modell med feil føresetnader kan gi resultat som ser truverdige ut men er misvisande -- dette kallast «garbage in, garbage out».","06ed17079602a395":"Kva er den største svakheita med ein eksponentiell vekstmodell for ein biologisk populasjon?","883ed77f10ab9516":"Han kan ikkje brukast med desimaltal","46a90ca0f4e92802":"Han går ut frå at populasjonen kan vekse uendeleg utan avgrensingar","a4b49eb3a300135b":"Han gir alltid for låge verdiar","3fe0f8a5537a8277":"Han krev for mykje datakraft","4de8fa01b26ebd15":"Eksponentiell vekst går ut frå at populasjonen veks med ein fast prosentdel per tidseining utan avgrensingar. I verkelegheita avgrensast veksten av tilgjengeleg mat, plass, sjukdom og konkurranse. Ein meir realistisk modell er logistisk vekst, som inkluderer ei bereevne.","2491b3a97d97b051":"Karaktermodellen karakter = studietimar x 0.5 + 1 gir karakter 11 for 20 timar studering. Kva er dette eit døme på?","3bf67c94de9c34f1":"Ein berekningsfeil i Python","62339c87d318bc6c":"At modellen manglar ei realistisk øvre grense","dab85f5dc5a3e9fd":"At norske karakterar går opp til 11","3c83a956b730d599":"At studietimar ikkje påverkar karakterar","7356783e8f155f7d":"Modellen manglar ei øvre grense som speglar det norske karaktersystemet (1-6). Ein forbetra modell ville inkludert ein max-funksjon som avgrensar resultatet til 6, og kanskje òg teke omsyn til avtakande utbytte -- at dei siste timanes studering gir mindre forbetring enn dei første.","a185caba93ebdb40":"## Oppsummering\n\nI dette kapittelet har vi sett korleis programmering har vorte eit uunnverleg verktøy i naturvitskapen -- frå pandemisimuleringar til klimamodellar og DNA-analysar.\n\n**Grunnleggjande Python** byggjer på variablar (namngitte boksar som lagrar verdiar), matematiske operatorar (+, -, *, /, ** for potens), og print-funksjonen for å vise resultat. Variablar kan innehalde desimaltal (float), heiltal (int), tekst (string) og sann/usann-verdiar (boolean). Funksjonar frå math-biblioteket gir tilgang til kvadratrot, pi, absoluttverdi og avrunding.\n\n**Løkker** lèt deg gjenta kode: for-løkker brukast når du veit antal repetisjonar, while-løkker brukast når du vil halde fram så lenge eit vilkår er sant. Lister samlar mange verdiar i ein variabel, og range()-funksjonen genererer talrekkjer.\n\n**Vilkår** med if/elif/else lèt programmet ta val. Samanlikningsoperatorar (==, !=, >, <, >=, <=) og logiske operatorar (and, or, not) avgjer kva kodeblokk som køyrer.\n\n**Visualisering** med matplotlib gjer data til grafar og diagram som avslører mønster. Linjediagram med plt.plot(), punktdiagram med plt.scatter(), og tekst med plt.xlabel(), plt.ylabel() og plt.title() er dei viktigaste verktøya.\n\n**Modellering** bruker alt dette saman til å simulere naturfaglege fenomen. Radioaktiv nedbryting følgjer formelen N = N0 · 0.5^(t/halveringstid), eksponentiell vekst følgjer N = N0 · (1+r)^t, og rovdyr-byttedyr-system viser sykliske svingingar.\n\n**Kritisk vurdering** er avgjerande: alle modellar er forenklingar. Du bør alltid spørje kva føresetnader modellen byggjer på, kva han ignorerer, og i kva situasjonar han gir meiningslause resultat. Programmering automatiserer berekningar, men det er du som naturvitar som må vurdere om resultata gir meining."}}}
+{
+  "id": "nat-vg1-1-5-narrativ",
+  "courseId": "nat-vg1",
+  "chapterNumber": "1.5",
+  "title": "Programmering og modellering",
+  "subtitle": "Narrativ versjon",
+  "description": "Opplev korleis nokre få linjer kode kan simulere radioaktiv nedbryting, føreseie folkevekst og avsløre mønster i naturen som er usynlege for det blotte auget.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "vurdere og lage program som modellerer naturfaglege fenomen"
+  ],
+  "linkedChapterId": "nat-vg1-1-5",
+  "content": [
+    {
+      "id": "nat-vg1-1-5-n-intro",
+      "type": "text",
+      "content": "## Då datamaskinen vart naturvitarens beste venn\n\nI 2020, då covid-19-pandemien råka verda, stod politikarar overfor umoglege val. Skulle dei stengje ned samfunnet for å bremse smitten, eller halde alt ope og håpe på det beste? Svaret kom i stor grad frå *programmering*. Forskarar over heile verda bygde datamodellar som simulerte korleis viruset ville spreie seg under ulike scenario. Modellane var ikkje perfekte -- ingen modell er det -- men dei gav verdifull innsikt som hjelpte med å redde liv.\n\nDette er berre eitt døme på korleis programmering har vorte uunnverleg i naturvitskapen. Meteorologar bruker program til å føreseie vêret. Biologar analyserer DNA-sekvensar med kode. Fysikarar simulerer kollisjonar mellom partiklar. Klimaforskarar køyrer modellar som viser korleis temperaturen vil endre seg dei neste hundre åra. I alle desse tilfella gjer datamaskinen noko ho er suveren til: ho utfører millionar av berekningar raskare enn noko menneske kunne klart.\n\nMen programmering handlar ikkje berre om fart. Det handlar òg om å *visualisere* data -- å gjere tal om til grafar og diagram som hjelper oss å sjå mønster vi elles ville oversett. Det handlar om å *simulere* scenario vi ikkje kan teste i verkelegheita -- du kan ikkje sende ein rakett til Mars for å teste kvar einaste baneberekning, men du kan simulere han på ein datamaskin tusenvis av gonger. Og det handlar om å byggje *modellar* -- forenkla versjonar av verkelegheita som hjelper oss å forstå komplekse fenomen.\n\nI dette kapittelet skal du lære grunnleggjande programmering i Python og bruke det til å modellere naturfaglege fenomen. Du treng ingen forkunnskapar -- vi startar frå byrjinga."
+    },
+    {
+      "id": "nat-vg1-1-5-n-section1",
+      "type": "text",
+      "content": "## Variablar og berekningar -- byggjesteinane i all programmering\n\nTenk deg at du har ein kalkulator der du kan gi namn til tala dine. I staden for å hugse at «5.0» er massen og «10» er tida, kan du skrive `masse = 5.0` og `tid = 10`. Det er akkurat dette ein **variabel** er: ein namngitt boks som lagrar ein verdi.\n\nI Python, som er programmeringsspråket vi bruker i naturfag, finst det ulike typar verdiar. **Desimaltal** (kalla *float*) ser ut som `masse = 5.0`. **Heiltal** (kalla *int*) ser ut som `antall = 10`. **Tekst** (kalla *string*) skrivst med hermeteikn, som `navn = \"Natrium\"`. Og **sann/usann** (kalla *boolean*) skrivst som `er_metall = True` eller `er_metall = False`.\n\nNår du har lagra verdiar i variablar, kan du gjere berekningar med dei akkurat som på ein kalkulator. Skriv `avstand = 100` og `tid = 10`, og så kan du berekne fart med `fart = avstand / tid`. Python støttar alle dei vanlege matematiske operatorane: pluss (`+`), minus (`-`), gange (`*`), dele (`/`), og potens (`**`). Vil du berekne 5 opphøgd i andre, skriv du `5 ** 2`, som gir 25.\n\nFor å vise resultatet bruker du `print`-funksjonen. Skriv du `print(f\"Farten er {fart} m/s\")`, vil programmet vise «Farten er 10.0 m/s» på skjermen. Bokstaven `f` framfor hermeteiknet tyder at du kan setje inn variablar direkte i teksten med krøllparentesar.\n\nPython har òg innebygde matematiske funksjonar. Ved å skrive `import math` får du tilgang til mellom anna `math.sqrt(16)` for kvadratrot (gir 4.0), `math.pi` for pi (3.14159...), `abs(-5)` for absoluttverdi (gir 5), og `round(3.7)` for avrunding (gir 4).\n\nLat oss sjå på eit konkret naturfagleg døme. Energien til ein foton bereknast med formelen E = h · c / lambda, der h er Plancks konstant (6.626 x 10^-34 J·s), c er lyshastigheita (3 x 10^8 m/s), og lambda er bølgjelengda. I Python skriv du dette som `h = 6.626e-34`, `c = 3e8`, `bolgelengde = 550e-9` (for grønt lys med bølgjelengd 550 nanometer), og `energi = h * c / bolgelengde`. Resultatet er ca. 3.614 x 10^-19 Joule, eller om lag 2.26 elektronvolt."
+    },
+    {
+      "id": "nat-vg1-1-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "nat-vg1-1-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på variablar og berekningar i Python:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "nat-vg1-1-5-n-quiz1-q0",
+            "task": "Kva er ein variabel i programmering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein matematisk formel som alltid gir same svar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein namngitt boks som lagrar ein verdi",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Eit tal som endrar seg tilfeldig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein type kalkulator i Python",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein variabel er ein namngitt boks som lagrar ein verdi. Du lagar han ved å gi han eit namn og tildele ein verdi, til dømes masse = 5.0. Verdien kan vere eit tal, tekst, sant/usant eller andre datatypar."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz1-q1",
+            "task": "Kva blir resultatet av koden: fart = 150 / 12?",
+            "options": [
+              {
+                "id": "a",
+                "text": "12",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "12.5",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "13",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "150",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Divisjonsoperatoren / i Python gir alltid eit desimaltal (float). 150 delt på 12 er 12.5. Viss du ønskjer heiltalsdivisjon (berre heile tal), bruker du // i staden, som ville gitt 12."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz1-q2",
+            "task": "Kva skriv du i Python for å berekne 3 opphøgd i fjerde (3^4)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3 ^ 4",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3 * 4",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "3 ** 4",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "pow(3, 4) er den einaste måten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I Python bruker du ** for potensrekning. 3 ** 4 gir 81. Merk at ^ i Python ikkje er potensoperatoren -- han brukast til noko anna (bitvis XOR). Du kan òg bruke pow(3, 4), men ** er den vanlegaste måten."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz1-q3",
+            "task": "Kva gjer print(f\"Svaret er {42 * 2}\")?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skriv ut: Svaret er {42 * 2}",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gir ei feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Skriv ut: 84",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Skriv ut: Svaret er 84",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Bokstaven f framfor hermeteiknet lagar ein f-string, som tyder at Python evaluerer uttrykk inne i krøllparentesar. {42 * 2} bereknast til 84, og heile utskrifta blir «Svaret er 84»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "nat-vg1-1-5-n-section2",
+      "type": "text",
+      "content": "## Løkker -- når du treng å gjenta noko tusen gonger\n\nFørestill deg at du skal berekne posisjonen til ein ball som fell fritt kvart tidsskritt i 100 sekund. Du *kunne* skrive 100 separate berekningar -- men det ville vore vanvitig kjedeleg og feilformbart. I staden bruker du ei **løkke**, som ber datamaskinen gjenta ei handling så mange gonger du vil.\n\nDen vanlegaste typen er **for-løkka**, som du bruker når du veit nøyaktig kor mange gonger noko skal gjentakast. I Python skriv du `for i in range(1, 6):` etterfølgt av den innrykte koden du vil gjenta. Denne løkka køyrer fem gonger, med `i` lik 1, 2, 3, 4 og 5 etter tur. Funksjonen `range()` genererer talrekkjer: `range(5)` gir tala 0 til 4, `range(1, 6)` gir 1 til 5, og `range(0, 10, 2)` gir 0, 2, 4, 6, 8 (altså med steg på 2).\n\nDen andre typen er **while-løkka**, som held fram med å køyre *så lenge eit vilkår er sant*. Tenk deg at du halverer ei mengd radioaktivt stoff og vil finne ut kor mange halveringar som trengst før mengda er under ei viss grense. Du skriv `while mengde >= 1:` og lèt løkka halvere mengda og telje talet på halveringar. Du veit ikkje på førehand kor mange gonger løkka treng å køyre -- det avheng av startmengda.\n\nLøkker blir verkeleg kraftige når du kombinerer dei med **lister**. Ei liste er ei samling av verdiar, skriven med hakeparentesar: `temperaturer = [18, 20, 22, 19, 21]`. Du kan hente eit enkelt element med `temperaturer[0]` (det første elementet, 18), finne talet på element med `len(temperaturer)`, og leggje til nye element med `temperaturer.append(23)`.\n\nTil dømes, viss du har ei liste med temperaturmålingar og vil berekne gjennomsnittet, skriv du ei for-løkke som legg saman alle verdiane, og deler summen på talet. Eller du kan bruke Pythons innebygde `sum()`-funksjon: `gjennomsnitt = sum(temperaturer) / len(temperaturer)`. For lista [18.5, 19.2, 20.1, 18.8, 19.5] gir dette 19.22 grader Celsius."
+    },
+    {
+      "id": "nat-vg1-1-5-n-section3",
+      "type": "text",
+      "content": "## Vilkår -- når programmet ditt må ta val\n\nI verkelegheita handlar mange ting om val. Viss temperaturen er over 30 grader, tek du på deg shorts. Viss det regnar, tek du med paraply. Programmering fungerer på same måte: **if-setningar** lèt programmet ta avgjerder basert på vilkår.\n\nI Python skriv du `if temperatur > 30:` etterfølgt av kva som skal skje i det tilfellet. Du kan leggje til fleire alternativ med `elif` (forkorting for «else if») og eit siste alternativ med `else` som fangar opp alt anna. Til dømes: *Viss* temperaturen er over 30, skriv «Varmt!». *Eller viss* han er over 20, skriv «Behagelig». *Eller viss* han er over 10, skriv «Kjølig». *Elles* skriv «Kaldt!».\n\nFor å samanlikne verdiar bruker du samanlikningsoperatorar: `==` (er lik), `!=` (er ikkje lik), `>` (større enn), `<` (mindre enn), `>=` (større enn eller lik), og `<=` (mindre enn eller lik). Merk at *er lik* skrivst med dobbelt likskapsteikn (`==`), ikkje enkelt -- fordi enkelt likskapsteikn brukast til å tildele verdiar til variablar.\n\nDu kan òg kombinere fleire vilkår med `and` (begge må vere sanne), `or` (minst éin må vere sann), og `not` (snur sann til usann). Til dømes: `if alder >= 15 and har_billett:` sjekkar om personen *både* er gammal nok *og* har billett.\n\nVilkår er spesielt nyttige i naturfagleg modellering. Tenk deg at du simulerer ein populasjon: *viss* populasjonen fell under ei viss grense, er arten truga. Eller du simulerer ein kjemisk reaksjon: *viss* temperaturen er over eit terskelpunkt, startar reaksjonen. Vilkår gjer modellane dine meir realistiske ved å la dei reagere på endringar -- akkurat som naturen gjer."
+    },
+    {
+      "id": "nat-vg1-1-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "nat-vg1-1-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på løkker og vilkår i Python:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "nat-vg1-1-5-n-quiz2-q0",
+            "task": "Kva type løkke bruker du når du veit nøyaktig kor mange gonger koden skal gjentakast?",
+            "options": [
+              {
+                "id": "c",
+                "text": "for-løkke",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "while-løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "if-løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "repeat-løkke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei for-løkke brukast når du veit kor mange gonger koden skal køyre. Du kan til dømes skrive for i in range(100) for å køyre koden 100 gonger. Ei while-løkke brukast når du ikkje veit talet på førehand og heller vil køyre så lenge eit vilkår er sant."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz2-q1",
+            "task": "Kva produserer range(0, 10, 2)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tala 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tala 2, 4, 6, 8, 10",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tala 0, 2, 4, 6, 8",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Tala 0, 2",
+                "isCorrect": false
+              }
+            ],
+            "solution": "range(0, 10, 2) genererer tal frå 0 opp til (men ikkje inkludert) 10, med steg på 2. Resultatet er 0, 2, 4, 6, 8. Det tredje argumentet angir stegstorleiken."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz2-q2",
+            "task": "Kva er skilnaden mellom = og == i Python?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei tyder det same",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "== brukast for å tildele verdiar, = brukast for å samanlikne",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "= brukast for heiltal, == brukast for desimaltal",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "= brukast for å tildele verdiar, == brukast for å samanlikne",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Enkelt likskapsteikn (=) tildeler ein verdi til ein variabel, til dømes x = 5. Dobbelt likskapsteikn (==) samanliknar to verdiar og gir True eller False, til dømes if x == 5 sjekkar om x er lik 5."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz2-q3",
+            "task": "Kva tyder operatoren \"and\" i ei if-setning?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Begge vilkåra må vere sanne",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Minst éin av vilkåra må vere sann",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ingen av vilkåra treng å vere sanne",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han snur eit vilkår frå sann til usann",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Operatoren \"and\" krev at begge vilkåra er sanne for at heile uttrykket skal vere sant. Til dømes er \"alder >= 15 and har_billett\" berre sant viss personen både er 15 eller eldre OG har billett. For \"minst éin må vere sann\" bruker du \"or\" i staden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "nat-vg1-1-5-n-section4",
+      "type": "text",
+      "content": "## Visualisering -- når tal blir til bilete\n\nEi tabell med hundre tal er vanskeleg å forstå. Men ein graf som viser dei same tala? Han fortel deg umiddelbart om det er ein trend, eit mønster eller eit avvik. **Visualisering** handlar om å gjere data synleg, og i Python bruker vi biblioteket **matplotlib** til dette.\n\nÅ lage ein enkel graf er overraskande lett. Du importerer biblioteket med `import matplotlib.pyplot as plt`, lagar to lister med x- og y-verdiar, og bruker `plt.plot(x, y)` for å teikne grafen. Med `plt.xlabel()`, `plt.ylabel()` og `plt.title()` legg du til forklarande tekst, og `plt.show()` viser resultatet.\n\nDu kan tilpasse utsjånaden med formatstrengar. Til dømes tyder `'b-'` blå linje, `'r--'` raud stipla linje, `'go'` grøne sirklar, og `'k^'` svarte trekantar. Vil du ha blå linje med sirklar på datapunkta, skriv du `'b-o'`. Du kan òg lage punktdiagram med `plt.scatter()`, stolpediagram med `plt.bar()`, leggje til rutenett med `plt.grid(True)`, og vise ei forklaring med `plt.legend()`.\n\nVisualisering er ikkje berre pynt -- det er eit vitskapleg verktøy. Når du plottar temperaturdata over eit år, kan du umiddelbart sjå sesongvariasjonar. Når du plottar radioaktiv nedbryting, ser du den karakteristiske eksponentielle kurva. Og når du samanliknar to datasett i same graf -- til dømes rovdyr- og byttedyrpopulasjonar -- kan du sjå samanhengar som tala åleine ikkje ville avslørt."
+    },
+    {
+      "id": "nat-vg1-1-5-n-section5",
+      "type": "text",
+      "content": "## Modellering -- forenkle verkelegheita for å forstå henne\n\nNo er vi framme ved det mest spennande: å bruke alt vi har lært til å *modellere naturfaglege fenomen*. Ein **modell** er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer detaljar som ikkje er avgjerande. Ingen modell er perfekt, men ein god modell gir oss innsikt.\n\nLat oss starte med **radioaktiv nedbryting**. Når eit radioaktivt stoff brytast ned, halverast mengda for kvart tidsintervall som kallast halveringstida. Formelen er N = N0 · 0.5^(t/halveringstid), der N er mengda som gjenstår, N0 er startmengda og t er tida. I Python kan du simulere dette med ei for-løkke som bereknar mengda for kvart tidssteg og lagrar verdiane i ei liste. Startar du med 1000 atom og ei halveringstid på 10 år, vil du ha 500 atom etter 10 år, 250 etter 20 år, 125 etter 30 år, og berre 31.2 etter 50 år -- litt over 3 prosent av det du byrja med. Plottar du resultata, ser du ei jamn, fallande kurve som aldri heilt når null.\n\nVil du finne ut kor lang tid det tek før berre 1 prosent av stoffet er igjen, kan du bruke ei while-løkke som halverer mengda gjentekne gonger og tel tida. Svaret er ca. 66-67 år, som svarar til rundt 6.6 halveringstider. Du kan stadfeste dette matematisk: 0.01 = 0.5^n gir n = log(0.01)/log(0.5) = 6.64 halveringstider, altså 66.4 år.\n\nEit anna klassisk døme er **eksponentiell folkevekst**. Viss ein populasjon veks med 2 prosent per år, tyder det at neste års populasjon er 1.02 gonger årets. Ei for-løkke som gjentek dette i 50 år viser at 1000 individ blir til 2692 -- nesten ei tredobling. Plottar du dette, ser du ei kurve som stig stadig brattare, som er kjenneteiknet på eksponentiell vekst.\n\nFor meir avanserte modellar kan du simulere eit **rovdyr-byttedyr-system** (Lotka-Volterra-modellen). Her påverkar to populasjonar kvarandre: kaninar reproduserer seg, men blir etne av revar. Revar døyr ut utan mat, men formerer seg når det er mange kaninar. Resultatet er fascinerande sykliske svingingar der populasjonane stig og fell i utakt -- nøyaktig slik vi observerer i naturen."
+    },
+    {
+      "id": "nat-vg1-1-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "nat-vg1-1-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på visualisering og modellering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "nat-vg1-1-5-n-quiz3-q0",
+            "task": "Kva Python-bibliotek brukast vanlegvis til å lage grafar og diagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "numpy",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "matplotlib",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "pandas",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "math",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Matplotlib (vanlegvis importert som matplotlib.pyplot med forkortinga plt) er standardbiblioteket for å lage grafar i Python. Det støttar linjediagram, punktdiagram, stolpediagram og mykje meir."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz3-q1",
+            "task": "Du startar med 1000 atom av eit radioaktivt stoff med halveringstid 10 år. Kor mange atom er igjen etter 20 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "500",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "250",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "100",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter 20 år har det gått to halveringstider (20/10 = 2). Etter første halvering: 1000/2 = 500. Etter andre halvering: 500/2 = 250. Alternativt: N = 1000 · 0.5^(20/10) = 1000 · 0.25 = 250 atom."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz3-q2",
+            "task": "Kva er ein modell i naturfagleg programmering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein perfekt kopi av verkelegheita i kode",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Eit program som berre lagar grafar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein forenkla representasjon av verkelegheita som fangar opp dei viktigaste mekanismane",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Eit program som samlar inn data frå sensorar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein modell er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer mindre viktige detaljar. Ingen modell er perfekt, men ein god modell gir verdifull innsikt om fenomenet han skildrar."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz3-q3",
+            "task": "Kva kjenneteiknar grafen for eksponentiell vekst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei rett linje som stig jamt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ei kurve som flatar ut over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei kurve som svingar opp og ned",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei kurve som stig stadig brattare",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eksponentiell vekst gir ei kurve som stig stadig brattare. Med 2% årleg vekst verkar det lite i starten, men effekten akkumulerast: 1000 individ blir til nesten 2700 på 50 år. Ei rett linje ville vore lineær vekst, og ei kurve som flatar ut kallast logistisk vekst."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz3-q4",
+            "task": "Kva viser ein Lotka-Volterra-modell (rovdyr-byttedyr)?",
+            "options": [
+              {
+                "id": "d",
+                "text": "At populasjonane svingar syklisk i utakt med kvarandre",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At rovdyr alltid utryddar byttedyra",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At begge populasjonane veks eksponentielt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At populasjonane held seg heilt stabile over tid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lotka-Volterra-modellen viser at rovdyr og byttedyr påverkar kvarandre i eit syklisk mønster. Når det er mange byttedyr, aukar rovdyra. Når rovdyra aukar, minkar byttedyra. Når byttedyra minkar, minkar rovdyra igjen. Og så byrjar syklusen på nytt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "nat-vg1-1-5-n-section6",
+      "type": "text",
+      "content": "## Kritisk vurdering -- ein modell er berre så god som føresetnadene\n\nDet er freistande å stole blindt på det datamaskinen fortel oss. Datamaskiner er jo så presise! Men hugs: ein datamaskin gjer berre det han får beskjed om. Viss modellen din byggjer på feil føresetnader, vil resultata òg vere feil -- uansett kor mange desimalar datamaskinen viser.\n\nLat oss ta eit døme. Tenk deg ein enkel modell som føreseier karakterar basert på studietimar: karakter = studietimar x 0.5 + 1. For 10 timar studering gir denne modellen karakter 6. Men kva med 20 timar studering? Då får du karakter 11, som er umogleg i det norske karaktersystemet! Modellen har inga øvre grense.\n\nDessutan går modellen ut frå ein *lineær samanheng* -- at dobbelt så mykje studering gir dobbelt så mykje betre karakter. I verkelegheita er samanhengen langt meir kompleks. Kvaliteten på studia er minst like viktig som mengda. Forkunnskapar spelar inn. Vanskegraden varierer mellom fag. Dagsform på eksamen kan utgjere heile skilnaden. Og to personar som studerer like mange timar, kan få heilt ulike karakterar.\n\nDenne typen kritisk vurdering er essensiell i all naturvitskapleg modellering. Når du lagar eller bruker ein modell, bør du alltid spørje: Kva føresetnader byggjer modellen på? Er føresetnadene rimelege? Kva ignorerer modellen? I kva situasjonar vil modellen gi meiningslause resultat?\n\nHugs at *alle modellar er forenklingar*. Eksponentiell vekst-modellen vår går ut frå at ein populasjon kan vekse uendeleg -- i verkelegheita avgrensast veksten av tilgjengeleg mat, plass og andre faktorar. Radioaktiv nedbryting-modellen vår er faktisk ganske nøyaktig fordi han byggjer på veletablerte fysiske lover. Rovdyr-byttedyr-modellen fangar opp det grunnleggjande mønsteret, men ignorerer faktorar som sjukdom, sesongvariasjonar og konkurranse frå andre artar. Ein god naturvitar veit at modellen er eit verktøy for å forstå, ikkje ein erstatning for verkelegheita."
+    },
+    {
+      "id": "nat-vg1-1-5-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "nat-vg1-1-5-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kritisk vurdering av modellar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "nat-vg1-1-5-n-quiz4-q0",
+            "task": "Kvifor er det viktig å vurdere føresetnadene i ein modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi datamaskiner alltid gjer berekningsfeil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi læraren krev det i rapporten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi feil føresetnader gir feil resultat, uansett kor presis berekninga er",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi alle modellar er heilt ubrukelege",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein modell er berre så god som føresetnadene han byggjer på. Datamaskinen bereknar presist, men han kan ikkje vite om føresetnadene er rette. Ein modell med feil føresetnader kan gi resultat som ser truverdige ut men er misvisande -- dette kallast «garbage in, garbage out»."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz4-q1",
+            "task": "Kva er den største svakheita med ein eksponentiell vekstmodell for ein biologisk populasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han kan ikkje brukast med desimaltal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han gir alltid for låge verdiar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han krev for mykje datakraft",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han går ut frå at populasjonen kan vekse uendeleg utan avgrensingar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eksponentiell vekst går ut frå at populasjonen veks med ein fast prosentdel per tidseining utan avgrensingar. I verkelegheita avgrensast veksten av tilgjengeleg mat, plass, sjukdom og konkurranse. Ein meir realistisk modell er logistisk vekst, som inkluderer ei bereevne."
+          },
+          {
+            "id": "nat-vg1-1-5-n-quiz4-q2",
+            "task": "Karaktermodellen karakter = studietimar x 0.5 + 1 gir karakter 11 for 20 timar studering. Kva er dette eit døme på?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At modellen manglar ei realistisk øvre grense",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein berekningsfeil i Python",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At norske karakterar går opp til 11",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At studietimar ikkje påverkar karakterar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Modellen manglar ei øvre grense som speglar det norske karaktersystemet (1-6). Ein forbetra modell ville inkludert ein max-funksjon som avgrensar resultatet til 6, og kanskje òg teke omsyn til avtakande utbytte -- at dei siste timanes studering gir mindre forbetring enn dei første."
+          }
+        ]
+      }
+    },
+    {
+      "id": "nat-vg1-1-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi sett korleis programmering har vorte eit uunnverleg verktøy i naturvitskapen -- frå pandemisimuleringar til klimamodellar og DNA-analysar.\n\n**Grunnleggjande Python** byggjer på variablar (namngitte boksar som lagrar verdiar), matematiske operatorar (+, -, *, /, ** for potens), og print-funksjonen for å vise resultat. Variablar kan innehalde desimaltal (float), heiltal (int), tekst (string) og sann/usann-verdiar (boolean). Funksjonar frå math-biblioteket gir tilgang til kvadratrot, pi, absoluttverdi og avrunding.\n\n**Løkker** lèt deg gjenta kode: for-løkker brukast når du veit antal repetisjonar, while-løkker brukast når du vil halde fram så lenge eit vilkår er sant. Lister samlar mange verdiar i ein variabel, og range()-funksjonen genererer talrekkjer.\n\n**Vilkår** med if/elif/else lèt programmet ta val. Samanlikningsoperatorar (==, !=, >, <, >=, <=) og logiske operatorar (and, or, not) avgjer kva kodeblokk som køyrer.\n\n**Visualisering** med matplotlib gjer data til grafar og diagram som avslører mønster. Linjediagram med plt.plot(), punktdiagram med plt.scatter(), og tekst med plt.xlabel(), plt.ylabel() og plt.title() er dei viktigaste verktøya.\n\n**Modellering** bruker alt dette saman til å simulere naturfaglege fenomen. Radioaktiv nedbryting følgjer formelen N = N0 · 0.5^(t/halveringstid), eksponentiell vekst følgjer N = N0 · (1+r)^t, og rovdyr-byttedyr-system viser sykliske svingingar.\n\n**Kritisk vurdering** er avgjerande: alle modellar er forenklingar. Du bør alltid spørje kva føresetnader modellen byggjer på, kva han ignorerer, og i kva situasjonar han gir meiningslause resultat. Programmering automatiserer berekningar, men det er du som naturvitar som må vurdere om resultata gir meining."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f28a49932c6fce1e",
+    "translatedAt": "2026-06-19T00:34:27.621Z",
+    "model": "claude-code-agent",
+    "strings": 105,
+    "tm": {
+      "97513b78a42ab7a3": "Programmering og modellering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ccfaae17f55cea2e": "Opplev korleis nokre få linjer kode kan simulere radioaktiv nedbryting, føreseie folkevekst og avsløre mønster i naturen som er usynlege for det blotte auget.",
+      "33e500e97fba949a": "vurdere og lage program som modellerer naturfaglege fenomen",
+      "8e9245ccde7bacab": "## Då datamaskinen vart naturvitarens beste venn\n\nI 2020, då covid-19-pandemien råka verda, stod politikarar overfor umoglege val. Skulle dei stengje ned samfunnet for å bremse smitten, eller halde alt ope og håpe på det beste? Svaret kom i stor grad frå *programmering*. Forskarar over heile verda bygde datamodellar som simulerte korleis viruset ville spreie seg under ulike scenario. Modellane var ikkje perfekte -- ingen modell er det -- men dei gav verdifull innsikt som hjelpte med å redde liv.\n\nDette er berre eitt døme på korleis programmering har vorte uunnverleg i naturvitskapen. Meteorologar bruker program til å føreseie vêret. Biologar analyserer DNA-sekvensar med kode. Fysikarar simulerer kollisjonar mellom partiklar. Klimaforskarar køyrer modellar som viser korleis temperaturen vil endre seg dei neste hundre åra. I alle desse tilfella gjer datamaskinen noko ho er suveren til: ho utfører millionar av berekningar raskare enn noko menneske kunne klart.\n\nMen programmering handlar ikkje berre om fart. Det handlar òg om å *visualisere* data -- å gjere tal om til grafar og diagram som hjelper oss å sjå mønster vi elles ville oversett. Det handlar om å *simulere* scenario vi ikkje kan teste i verkelegheita -- du kan ikkje sende ein rakett til Mars for å teste kvar einaste baneberekning, men du kan simulere han på ein datamaskin tusenvis av gonger. Og det handlar om å byggje *modellar* -- forenkla versjonar av verkelegheita som hjelper oss å forstå komplekse fenomen.\n\nI dette kapittelet skal du lære grunnleggjande programmering i Python og bruke det til å modellere naturfaglege fenomen. Du treng ingen forkunnskapar -- vi startar frå byrjinga.",
+      "480f8a1d0990b374": "## Variablar og berekningar -- byggjesteinane i all programmering\n\nTenk deg at du har ein kalkulator der du kan gi namn til tala dine. I staden for å hugse at «5.0» er massen og «10» er tida, kan du skrive `masse = 5.0` og `tid = 10`. Det er akkurat dette ein **variabel** er: ein namngitt boks som lagrar ein verdi.\n\nI Python, som er programmeringsspråket vi bruker i naturfag, finst det ulike typar verdiar. **Desimaltal** (kalla *float*) ser ut som `masse = 5.0`. **Heiltal** (kalla *int*) ser ut som `antall = 10`. **Tekst** (kalla *string*) skrivst med hermeteikn, som `navn = \"Natrium\"`. Og **sann/usann** (kalla *boolean*) skrivst som `er_metall = True` eller `er_metall = False`.\n\nNår du har lagra verdiar i variablar, kan du gjere berekningar med dei akkurat som på ein kalkulator. Skriv `avstand = 100` og `tid = 10`, og så kan du berekne fart med `fart = avstand / tid`. Python støttar alle dei vanlege matematiske operatorane: pluss (`+`), minus (`-`), gange (`*`), dele (`/`), og potens (`**`). Vil du berekne 5 opphøgd i andre, skriv du `5 ** 2`, som gir 25.\n\nFor å vise resultatet bruker du `print`-funksjonen. Skriv du `print(f\"Farten er {fart} m/s\")`, vil programmet vise «Farten er 10.0 m/s» på skjermen. Bokstaven `f` framfor hermeteiknet tyder at du kan setje inn variablar direkte i teksten med krøllparentesar.\n\nPython har òg innebygde matematiske funksjonar. Ved å skrive `import math` får du tilgang til mellom anna `math.sqrt(16)` for kvadratrot (gir 4.0), `math.pi` for pi (3.14159...), `abs(-5)` for absoluttverdi (gir 5), og `round(3.7)` for avrunding (gir 4).\n\nLat oss sjå på eit konkret naturfagleg døme. Energien til ein foton bereknast med formelen E = h · c / lambda, der h er Plancks konstant (6.626 x 10^-34 J·s), c er lyshastigheita (3 x 10^8 m/s), og lambda er bølgjelengda. I Python skriv du dette som `h = 6.626e-34`, `c = 3e8`, `bolgelengde = 550e-9` (for grønt lys med bølgjelengd 550 nanometer), og `energi = h * c / bolgelengde`. Resultatet er ca. 3.614 x 10^-19 Joule, eller om lag 2.26 elektronvolt.",
+      "89cfe7e2ee3625e9": "Test deg sjølv på variablar og berekningar i Python:",
+      "4097889236a2af26": "placeholder",
+      "ed3d93298465e191": "Kva er ein variabel i programmering?",
+      "b630715310cdef03": "Ein matematisk formel som alltid gir same svar",
+      "e73205ed1e4be2c3": "Ein namngitt boks som lagrar ein verdi",
+      "d3c94a010eaa9a78": "Eit tal som endrar seg tilfeldig",
+      "cf8e5504549db7dc": "Ein type kalkulator i Python",
+      "427cf9b05d355c1a": "Ein variabel er ein namngitt boks som lagrar ein verdi. Du lagar han ved å gi han eit namn og tildele ein verdi, til dømes masse = 5.0. Verdien kan vere eit tal, tekst, sant/usant eller andre datatypar.",
+      "92ea29f66fa37425": "Kva blir resultatet av koden: fart = 150 / 12?",
+      "03dabb703f03770b": "Divisjonsoperatoren / i Python gir alltid eit desimaltal (float). 150 delt på 12 er 12.5. Viss du ønskjer heiltalsdivisjon (berre heile tal), bruker du // i staden, som ville gitt 12.",
+      "e2e260371a1203ee": "Kva skriv du i Python for å berekne 3 opphøgd i fjerde (3^4)?",
+      "cae22f779bd14421": "pow(3, 4) er den einaste måten",
+      "2745546997d56b1f": "I Python bruker du ** for potensrekning. 3 ** 4 gir 81. Merk at ^ i Python ikkje er potensoperatoren -- han brukast til noko anna (bitvis XOR). Du kan òg bruke pow(3, 4), men ** er den vanlegaste måten.",
+      "1c6de11f800b8d90": "Kva gjer print(f\"Svaret er {42 * 2}\")?",
+      "a80eee7dcbe88666": "Skriv ut: Svaret er {42 * 2}",
+      "4a325858e99a81b5": "Gir ei feilmelding",
+      "90bfebbb2d8c354f": "Skriv ut: Svaret er 84",
+      "e8656eeafc960edc": "Skriv ut: 84",
+      "bb3838979ce1ca74": "Bokstaven f framfor hermeteiknet lagar ein f-string, som tyder at Python evaluerer uttrykk inne i krøllparentesar. {42 * 2} bereknast til 84, og heile utskrifta blir «Svaret er 84».",
+      "616facaf964e19e4": "## Løkker -- når du treng å gjenta noko tusen gonger\n\nFørestill deg at du skal berekne posisjonen til ein ball som fell fritt kvart tidsskritt i 100 sekund. Du *kunne* skrive 100 separate berekningar -- men det ville vore vanvitig kjedeleg og feilformbart. I staden bruker du ei **løkke**, som ber datamaskinen gjenta ei handling så mange gonger du vil.\n\nDen vanlegaste typen er **for-løkka**, som du bruker når du veit nøyaktig kor mange gonger noko skal gjentakast. I Python skriv du `for i in range(1, 6):` etterfølgt av den innrykte koden du vil gjenta. Denne løkka køyrer fem gonger, med `i` lik 1, 2, 3, 4 og 5 etter tur. Funksjonen `range()` genererer talrekkjer: `range(5)` gir tala 0 til 4, `range(1, 6)` gir 1 til 5, og `range(0, 10, 2)` gir 0, 2, 4, 6, 8 (altså med steg på 2).\n\nDen andre typen er **while-løkka**, som held fram med å køyre *så lenge eit vilkår er sant*. Tenk deg at du halverer ei mengd radioaktivt stoff og vil finne ut kor mange halveringar som trengst før mengda er under ei viss grense. Du skriv `while mengde >= 1:` og lèt løkka halvere mengda og telje talet på halveringar. Du veit ikkje på førehand kor mange gonger løkka treng å køyre -- det avheng av startmengda.\n\nLøkker blir verkeleg kraftige når du kombinerer dei med **lister**. Ei liste er ei samling av verdiar, skriven med hakeparentesar: `temperaturer = [18, 20, 22, 19, 21]`. Du kan hente eit enkelt element med `temperaturer[0]` (det første elementet, 18), finne talet på element med `len(temperaturer)`, og leggje til nye element med `temperaturer.append(23)`.\n\nTil dømes, viss du har ei liste med temperaturmålingar og vil berekne gjennomsnittet, skriv du ei for-løkke som legg saman alle verdiane, og deler summen på talet. Eller du kan bruke Pythons innebygde `sum()`-funksjon: `gjennomsnitt = sum(temperaturer) / len(temperaturer)`. For lista [18.5, 19.2, 20.1, 18.8, 19.5] gir dette 19.22 grader Celsius.",
+      "562fa34b6ff86f72": "## Vilkår -- når programmet ditt må ta val\n\nI verkelegheita handlar mange ting om val. Viss temperaturen er over 30 grader, tek du på deg shorts. Viss det regnar, tek du med paraply. Programmering fungerer på same måte: **if-setningar** lèt programmet ta avgjerder basert på vilkår.\n\nI Python skriv du `if temperatur > 30:` etterfølgt av kva som skal skje i det tilfellet. Du kan leggje til fleire alternativ med `elif` (forkorting for «else if») og eit siste alternativ med `else` som fangar opp alt anna. Til dømes: *Viss* temperaturen er over 30, skriv «Varmt!». *Eller viss* han er over 20, skriv «Behagelig». *Eller viss* han er over 10, skriv «Kjølig». *Elles* skriv «Kaldt!».\n\nFor å samanlikne verdiar bruker du samanlikningsoperatorar: `==` (er lik), `!=` (er ikkje lik), `>` (større enn), `<` (mindre enn), `>=` (større enn eller lik), og `<=` (mindre enn eller lik). Merk at *er lik* skrivst med dobbelt likskapsteikn (`==`), ikkje enkelt -- fordi enkelt likskapsteikn brukast til å tildele verdiar til variablar.\n\nDu kan òg kombinere fleire vilkår med `and` (begge må vere sanne), `or` (minst éin må vere sann), og `not` (snur sann til usann). Til dømes: `if alder >= 15 and har_billett:` sjekkar om personen *både* er gammal nok *og* har billett.\n\nVilkår er spesielt nyttige i naturfagleg modellering. Tenk deg at du simulerer ein populasjon: *viss* populasjonen fell under ei viss grense, er arten truga. Eller du simulerer ein kjemisk reaksjon: *viss* temperaturen er over eit terskelpunkt, startar reaksjonen. Vilkår gjer modellane dine meir realistiske ved å la dei reagere på endringar -- akkurat som naturen gjer.",
+      "2c818ea16c76614a": "Test deg sjølv på løkker og vilkår i Python:",
+      "b14c2c3543574d8e": "Kva type løkke bruker du når du veit nøyaktig kor mange gonger koden skal gjentakast?",
+      "10b933c56aea21de": "while-løkke",
+      "d453d571149791c5": "if-løkke",
+      "7e5d7e9ea31df0e8": "for-løkke",
+      "c40f0c1156aedb4c": "repeat-løkke",
+      "4d7c2facab1fa6e6": "Ei for-løkke brukast når du veit kor mange gonger koden skal køyre. Du kan til dømes skrive for i in range(100) for å køyre koden 100 gonger. Ei while-løkke brukast når du ikkje veit talet på førehand og heller vil køyre så lenge eit vilkår er sant.",
+      "873c25c58eee6850": "Kva produserer range(0, 10, 2)?",
+      "4cd79f987ca279ca": "Tala 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10",
+      "9f35b6330760e306": "Tala 0, 2, 4, 6, 8",
+      "cdc007798307f3c7": "Tala 2, 4, 6, 8, 10",
+      "eeb30dedcdcde48b": "Tala 0, 2",
+      "510b7cdbecb22026": "range(0, 10, 2) genererer tal frå 0 opp til (men ikkje inkludert) 10, med steg på 2. Resultatet er 0, 2, 4, 6, 8. Det tredje argumentet angir stegstorleiken.",
+      "98c12851a2aec8c6": "Kva er skilnaden mellom = og == i Python?",
+      "3831197841163288": "Dei tyder det same",
+      "05780c13dd42df11": "= brukast for å tildele verdiar, == brukast for å samanlikne",
+      "0fda3494c0be4da5": "== brukast for å tildele verdiar, = brukast for å samanlikne",
+      "3ecdf8a375a2ae07": "= brukast for heiltal, == brukast for desimaltal",
+      "cf689c2a6c163bc2": "Enkelt likskapsteikn (=) tildeler ein verdi til ein variabel, til dømes x = 5. Dobbelt likskapsteikn (==) samanliknar to verdiar og gir True eller False, til dømes if x == 5 sjekkar om x er lik 5.",
+      "67333494f24ebb45": "Kva tyder operatoren \"and\" i ei if-setning?",
+      "dea550474fb8dcd2": "Minst éin av vilkåra må vere sann",
+      "e2c6dac35d03219f": "Ingen av vilkåra treng å vere sanne",
+      "afe3e4bff9d01716": "Han snur eit vilkår frå sann til usann",
+      "e267c72f10e1d3b8": "Begge vilkåra må vere sanne",
+      "123fe94cdd36ed0e": "Operatoren \"and\" krev at begge vilkåra er sanne for at heile uttrykket skal vere sant. Til dømes er \"alder >= 15 and har_billett\" berre sant viss personen både er 15 eller eldre OG har billett. For \"minst éin må vere sann\" bruker du \"or\" i staden.",
+      "863d228fbac05e8c": "## Visualisering -- når tal blir til bilete\n\nEi tabell med hundre tal er vanskeleg å forstå. Men ein graf som viser dei same tala? Han fortel deg umiddelbart om det er ein trend, eit mønster eller eit avvik. **Visualisering** handlar om å gjere data synleg, og i Python bruker vi biblioteket **matplotlib** til dette.\n\nÅ lage ein enkel graf er overraskande lett. Du importerer biblioteket med `import matplotlib.pyplot as plt`, lagar to lister med x- og y-verdiar, og bruker `plt.plot(x, y)` for å teikne grafen. Med `plt.xlabel()`, `plt.ylabel()` og `plt.title()` legg du til forklarande tekst, og `plt.show()` viser resultatet.\n\nDu kan tilpasse utsjånaden med formatstrengar. Til dømes tyder `'b-'` blå linje, `'r--'` raud stipla linje, `'go'` grøne sirklar, og `'k^'` svarte trekantar. Vil du ha blå linje med sirklar på datapunkta, skriv du `'b-o'`. Du kan òg lage punktdiagram med `plt.scatter()`, stolpediagram med `plt.bar()`, leggje til rutenett med `plt.grid(True)`, og vise ei forklaring med `plt.legend()`.\n\nVisualisering er ikkje berre pynt -- det er eit vitskapleg verktøy. Når du plottar temperaturdata over eit år, kan du umiddelbart sjå sesongvariasjonar. Når du plottar radioaktiv nedbryting, ser du den karakteristiske eksponentielle kurva. Og når du samanliknar to datasett i same graf -- til dømes rovdyr- og byttedyrpopulasjonar -- kan du sjå samanhengar som tala åleine ikkje ville avslørt.",
+      "7204655fe5cf3258": "## Modellering -- forenkle verkelegheita for å forstå henne\n\nNo er vi framme ved det mest spennande: å bruke alt vi har lært til å *modellere naturfaglege fenomen*. Ein **modell** er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer detaljar som ikkje er avgjerande. Ingen modell er perfekt, men ein god modell gir oss innsikt.\n\nLat oss starte med **radioaktiv nedbryting**. Når eit radioaktivt stoff brytast ned, halverast mengda for kvart tidsintervall som kallast halveringstida. Formelen er N = N0 · 0.5^(t/halveringstid), der N er mengda som gjenstår, N0 er startmengda og t er tida. I Python kan du simulere dette med ei for-løkke som bereknar mengda for kvart tidssteg og lagrar verdiane i ei liste. Startar du med 1000 atom og ei halveringstid på 10 år, vil du ha 500 atom etter 10 år, 250 etter 20 år, 125 etter 30 år, og berre 31.2 etter 50 år -- litt over 3 prosent av det du byrja med. Plottar du resultata, ser du ei jamn, fallande kurve som aldri heilt når null.\n\nVil du finne ut kor lang tid det tek før berre 1 prosent av stoffet er igjen, kan du bruke ei while-løkke som halverer mengda gjentekne gonger og tel tida. Svaret er ca. 66-67 år, som svarar til rundt 6.6 halveringstider. Du kan stadfeste dette matematisk: 0.01 = 0.5^n gir n = log(0.01)/log(0.5) = 6.64 halveringstider, altså 66.4 år.\n\nEit anna klassisk døme er **eksponentiell folkevekst**. Viss ein populasjon veks med 2 prosent per år, tyder det at neste års populasjon er 1.02 gonger årets. Ei for-løkke som gjentek dette i 50 år viser at 1000 individ blir til 2692 -- nesten ei tredobling. Plottar du dette, ser du ei kurve som stig stadig brattare, som er kjenneteiknet på eksponentiell vekst.\n\nFor meir avanserte modellar kan du simulere eit **rovdyr-byttedyr-system** (Lotka-Volterra-modellen). Her påverkar to populasjonar kvarandre: kaninar reproduserer seg, men blir etne av revar. Revar døyr ut utan mat, men formerer seg når det er mange kaninar. Resultatet er fascinerande sykliske svingingar der populasjonane stig og fell i utakt -- nøyaktig slik vi observerer i naturen.",
+      "dd1cb3e2f100dc98": "Test deg sjølv på visualisering og modellering:",
+      "d3510dd2bddf8ac9": "Kva Python-bibliotek brukast vanlegvis til å lage grafar og diagram?",
+      "73dd0baf8e5438da": "numpy",
+      "2b15fcd19d49b750": "matplotlib",
+      "ae4863bdae026314": "pandas",
+      "58a6d6801ae771e6": "math",
+      "92b23895edfcf8b8": "Matplotlib (vanlegvis importert som matplotlib.pyplot med forkortinga plt) er standardbiblioteket for å lage grafar i Python. Det støttar linjediagram, punktdiagram, stolpediagram og mykje meir.",
+      "e1ca5838be473e59": "Du startar med 1000 atom av eit radioaktivt stoff med halveringstid 10 år. Kor mange atom er igjen etter 20 år?",
+      "a729edc7c8b9b917": "Etter 20 år har det gått to halveringstider (20/10 = 2). Etter første halvering: 1000/2 = 500. Etter andre halvering: 500/2 = 250. Alternativt: N = 1000 · 0.5^(20/10) = 1000 · 0.25 = 250 atom.",
+      "b34c00f66be9ab09": "Kva er ein modell i naturfagleg programmering?",
+      "b8a0851e5c2dba4e": "Ein perfekt kopi av verkelegheita i kode",
+      "c9d5a15dbf7edd03": "Eit program som berre lagar grafar",
+      "3795fb2918ee9fe4": "Ein forenkla representasjon av verkelegheita som fangar opp dei viktigaste mekanismane",
+      "a6c7c30d343fd149": "Eit program som samlar inn data frå sensorar",
+      "f7c83306db8a701b": "Ein modell er ein forenkla representasjon av verkelegheita. Han fangar opp dei viktigaste mekanismane og ignorerer mindre viktige detaljar. Ingen modell er perfekt, men ein god modell gir verdifull innsikt om fenomenet han skildrar.",
+      "4e8f3c066e4b3232": "Kva kjenneteiknar grafen for eksponentiell vekst?",
+      "a2c714c1d1c7ea7a": "Ei rett linje som stig jamt",
+      "7d7c65f0a97490ad": "Ei kurve som flatar ut over tid",
+      "7fc664f6fc548474": "Ei kurve som stig stadig brattare",
+      "bea0ba181dd4a652": "Ei kurve som svingar opp og ned",
+      "6a0cfb6dedaed978": "Eksponentiell vekst gir ei kurve som stig stadig brattare. Med 2% årleg vekst verkar det lite i starten, men effekten akkumulerast: 1000 individ blir til nesten 2700 på 50 år. Ei rett linje ville vore lineær vekst, og ei kurve som flatar ut kallast logistisk vekst.",
+      "eb7662fe69d5dcb3": "Kva viser ein Lotka-Volterra-modell (rovdyr-byttedyr)?",
+      "93ece118cae837f8": "At rovdyr alltid utryddar byttedyra",
+      "e8c8d97acabb9f32": "At begge populasjonane veks eksponentielt",
+      "b63d41eb465b772d": "At populasjonane held seg heilt stabile over tid",
+      "f8d977508c817ae4": "At populasjonane svingar syklisk i utakt med kvarandre",
+      "5b38f18794607328": "Lotka-Volterra-modellen viser at rovdyr og byttedyr påverkar kvarandre i eit syklisk mønster. Når det er mange byttedyr, aukar rovdyra. Når rovdyra aukar, minkar byttedyra. Når byttedyra minkar, minkar rovdyra igjen. Og så byrjar syklusen på nytt.",
+      "eb64e51423ddb5a9": "## Kritisk vurdering -- ein modell er berre så god som føresetnadene\n\nDet er freistande å stole blindt på det datamaskinen fortel oss. Datamaskiner er jo så presise! Men hugs: ein datamaskin gjer berre det han får beskjed om. Viss modellen din byggjer på feil føresetnader, vil resultata òg vere feil -- uansett kor mange desimalar datamaskinen viser.\n\nLat oss ta eit døme. Tenk deg ein enkel modell som føreseier karakterar basert på studietimar: karakter = studietimar x 0.5 + 1. For 10 timar studering gir denne modellen karakter 6. Men kva med 20 timar studering? Då får du karakter 11, som er umogleg i det norske karaktersystemet! Modellen har inga øvre grense.\n\nDessutan går modellen ut frå ein *lineær samanheng* -- at dobbelt så mykje studering gir dobbelt så mykje betre karakter. I verkelegheita er samanhengen langt meir kompleks. Kvaliteten på studia er minst like viktig som mengda. Forkunnskapar spelar inn. Vanskegraden varierer mellom fag. Dagsform på eksamen kan utgjere heile skilnaden. Og to personar som studerer like mange timar, kan få heilt ulike karakterar.\n\nDenne typen kritisk vurdering er essensiell i all naturvitskapleg modellering. Når du lagar eller bruker ein modell, bør du alltid spørje: Kva føresetnader byggjer modellen på? Er føresetnadene rimelege? Kva ignorerer modellen? I kva situasjonar vil modellen gi meiningslause resultat?\n\nHugs at *alle modellar er forenklingar*. Eksponentiell vekst-modellen vår går ut frå at ein populasjon kan vekse uendeleg -- i verkelegheita avgrensast veksten av tilgjengeleg mat, plass og andre faktorar. Radioaktiv nedbryting-modellen vår er faktisk ganske nøyaktig fordi han byggjer på veletablerte fysiske lover. Rovdyr-byttedyr-modellen fangar opp det grunnleggjande mønsteret, men ignorerer faktorar som sjukdom, sesongvariasjonar og konkurranse frå andre artar. Ein god naturvitar veit at modellen er eit verktøy for å forstå, ikkje ein erstatning for verkelegheita.",
+      "eef97887beb0c041": "Test deg sjølv på kritisk vurdering av modellar:",
+      "ea82fb01c7861d57": "Kvifor er det viktig å vurdere føresetnadene i ein modell?",
+      "4b21d2a11902009d": "Fordi datamaskiner alltid gjer berekningsfeil",
+      "6d0f7f3eda6cbe24": "Fordi feil føresetnader gir feil resultat, uansett kor presis berekninga er",
+      "98785a9db9be5ec6": "Fordi læraren krev det i rapporten",
+      "62db9cc21e83aaf0": "Fordi alle modellar er heilt ubrukelege",
+      "1314a3f58c87e7b9": "Ein modell er berre så god som føresetnadene han byggjer på. Datamaskinen bereknar presist, men han kan ikkje vite om føresetnadene er rette. Ein modell med feil føresetnader kan gi resultat som ser truverdige ut men er misvisande -- dette kallast «garbage in, garbage out».",
+      "06ed17079602a395": "Kva er den største svakheita med ein eksponentiell vekstmodell for ein biologisk populasjon?",
+      "883ed77f10ab9516": "Han kan ikkje brukast med desimaltal",
+      "46a90ca0f4e92802": "Han går ut frå at populasjonen kan vekse uendeleg utan avgrensingar",
+      "a4b49eb3a300135b": "Han gir alltid for låge verdiar",
+      "3fe0f8a5537a8277": "Han krev for mykje datakraft",
+      "4de8fa01b26ebd15": "Eksponentiell vekst går ut frå at populasjonen veks med ein fast prosentdel per tidseining utan avgrensingar. I verkelegheita avgrensast veksten av tilgjengeleg mat, plass, sjukdom og konkurranse. Ein meir realistisk modell er logistisk vekst, som inkluderer ei bereevne.",
+      "2491b3a97d97b051": "Karaktermodellen karakter = studietimar x 0.5 + 1 gir karakter 11 for 20 timar studering. Kva er dette eit døme på?",
+      "3bf67c94de9c34f1": "Ein berekningsfeil i Python",
+      "62339c87d318bc6c": "At modellen manglar ei realistisk øvre grense",
+      "dab85f5dc5a3e9fd": "At norske karakterar går opp til 11",
+      "3c83a956b730d599": "At studietimar ikkje påverkar karakterar",
+      "7356783e8f155f7d": "Modellen manglar ei øvre grense som speglar det norske karaktersystemet (1-6). Ein forbetra modell ville inkludert ein max-funksjon som avgrensar resultatet til 6, og kanskje òg teke omsyn til avtakande utbytte -- at dei siste timanes studering gir mindre forbetring enn dei første.",
+      "a185caba93ebdb40": "## Oppsummering\n\nI dette kapittelet har vi sett korleis programmering har vorte eit uunnverleg verktøy i naturvitskapen -- frå pandemisimuleringar til klimamodellar og DNA-analysar.\n\n**Grunnleggjande Python** byggjer på variablar (namngitte boksar som lagrar verdiar), matematiske operatorar (+, -, *, /, ** for potens), og print-funksjonen for å vise resultat. Variablar kan innehalde desimaltal (float), heiltal (int), tekst (string) og sann/usann-verdiar (boolean). Funksjonar frå math-biblioteket gir tilgang til kvadratrot, pi, absoluttverdi og avrunding.\n\n**Løkker** lèt deg gjenta kode: for-løkker brukast når du veit antal repetisjonar, while-løkker brukast når du vil halde fram så lenge eit vilkår er sant. Lister samlar mange verdiar i ein variabel, og range()-funksjonen genererer talrekkjer.\n\n**Vilkår** med if/elif/else lèt programmet ta val. Samanlikningsoperatorar (==, !=, >, <, >=, <=) og logiske operatorar (and, or, not) avgjer kva kodeblokk som køyrer.\n\n**Visualisering** med matplotlib gjer data til grafar og diagram som avslører mønster. Linjediagram med plt.plot(), punktdiagram med plt.scatter(), og tekst med plt.xlabel(), plt.ylabel() og plt.title() er dei viktigaste verktøya.\n\n**Modellering** bruker alt dette saman til å simulere naturfaglege fenomen. Radioaktiv nedbryting følgjer formelen N = N0 · 0.5^(t/halveringstid), eksponentiell vekst følgjer N = N0 · (1+r)^t, og rovdyr-byttedyr-system viser sykliske svingingar.\n\n**Kritisk vurdering** er avgjerande: alle modellar er forenklingar. Du bør alltid spørje kva føresetnader modellen byggjer på, kva han ignorerer, og i kva situasjonar han gir meiningslause resultat. Programmering automatiserer berekningar, men det er du som naturvitar som må vurdere om resultata gir meining."
+    }
+  }
+}

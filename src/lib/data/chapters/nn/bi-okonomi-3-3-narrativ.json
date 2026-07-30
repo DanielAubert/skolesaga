@@ -1,1 +1,347 @@
-{"id":"bi-okonomi-3-3-narrativ","courseId":"bi-okonomi","chapterNumber":"3.3","title":"Eksponentialfunksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om vekst som tek av -- funksjonar der variabelen sit i eksponenten og lèt oss modellere alt frå bakteriar som doblar seg til pengar som veks med renter.","estimatedMinutes":20,"competenceGoals":["forstå eksponentiell vekst og nedgang"],"linkedChapterId":"bi-okonomi-3-3","content":[{"id":"bi-okonomi-3-3-n-intro","type":"text","content":"## Når veksten tek av\n\nLegg eitt riskorn på første ruta på eit sjakkbrett, to på neste, fire på den tredje -- og hald fram med å doble. Lenge ser det uskuldig ut, men plutseleg eksploderer tala. Dette er **eksponentiell vekst**, og han blir skildra av ein heilt eigen funksjonstype der variabelen sit i sjølve eksponenten.\n\nEin **eksponentialfunksjon** har forma $f(x)=a\\cdot b^x$, der $a\\neq 0$, $b>0$ og $b\\neq 1$. Her er $a$ **startverdien**, fordi $f(0)=a\\cdot b^0=a$, og $b$ er **vekstfaktoren** -- talet vi gangar med for kvart steg. Eit særleg viktig grunntal er Eulers tal $e\\approx 2{,}718$, som gjev funksjonen $f(x)=e^x$ og dukkar opp naturleg i mange vekstmodellar.\n\nLat oss prøve. Ein bakteriekultur startar med $1000$ bakteriar og doblar seg kvar time. Då er startverdien $a=1000$ og vekstfaktoren $b=2$, så $N(t)=1000\\cdot 2^t$. Vi sjekkar: $N(0)=1000\\cdot 2^0=1000$, $N(1)=1000\\cdot 2^1=2000$ og $N(2)=1000\\cdot 2^2=4000$. Talet veks ikkje jamt som på ei linje -- det gangar seg oppover, og det er nettopp det som gjer eksponentiell vekst så kraftfull."},{"id":"bi-okonomi-3-3-n-section1","type":"text","content":"## Vekstfaktoren fortel alt\n\nDet er vekstfaktoren $b$ som bestemmer om ein eksponentialfunksjon veks eller skrumpar. Er $b>1$, har vi **vekst** -- grafen stig og blir brattare og brattare. Er $0<b<1$, har vi **nedgang** -- grafen søkk og nærmar seg null. Akkurat $b=1$ er forbode, for då ville ingenting skje.\n\nI praksis kjenner vi ofte ein prosent i staden for ein vekstfaktor, og då må vi rekne om. Aukar noko med $p$ prosent per eining, blir $b=1+\\frac{p}{100}$. Avtek noko med $p$ prosent, blir $b=1-\\frac{p}{100}$. Tenk på ein bil som mistar $15\\%$ av verdien kvart år og kostar $400\\,000$ kr ny. Vekstfaktoren er $b=1-0{,}15=0{,}85$, så verdien følgjer $V(t)=400\\,000\\cdot 0{,}85^t$. Etter fem år er han verdt $V(5)=400\\,000\\cdot 0{,}85^5\\approx 177\\,000$ kr.\n\nMotsett veg veks sparepengar. Set du $10\\,000$ kr i banken med $3\\%$ årleg rente, blir vekstfaktoren $b=1+0{,}03=1{,}03$, og beløpet følgjer $K(t)=10\\,000\\cdot 1{,}03^t$. Etter tjue år: $K(20)=10\\,000\\cdot 1{,}03^{20}\\approx 18\\,061$ kr -- altså rundt $8061$ kr i rein rente. Den vesle prosenten gjer stor skilnad når han får verke år etter år."},{"id":"bi-okonomi-3-3-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-3-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på startverdi, vekstfaktor og prosent:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-3-3-n-quiz1-q0","task":"I funksjonen $f(x)=a\\cdot b^x$, kva er startverdien?","options":[{"id":"a","text":"$b$","isCorrect":false},{"id":"b","text":"$a$","isCorrect":true},{"id":"c","text":"$x$","isCorrect":false},{"id":"d","text":"$a\\cdot b$","isCorrect":false}],"solution":"Startverdien er $a$, fordi $f(0)=a\\cdot b^0=a$."},{"id":"bi-okonomi-3-3-n-quiz1-q1","task":"Ei vare aukar med $3\\%$ per år. Kva er vekstfaktoren?","options":[{"id":"a","text":"$0{,}97$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$1{,}03$","isCorrect":true},{"id":"d","text":"$0{,}03$","isCorrect":false}],"solution":"$b=1+\\frac{3}{100}=1{,}03$."},{"id":"bi-okonomi-3-3-n-quiz1-q2","task":"Ein bil mistar $15\\%$ av verdien per år. Kva er vekstfaktoren?","options":[{"id":"a","text":"$1{,}15$","isCorrect":false},{"id":"b","text":"$0{,}15$","isCorrect":false},{"id":"c","text":"$15$","isCorrect":false},{"id":"d","text":"$0{,}85$","isCorrect":true}],"solution":"$b=1-\\frac{15}{100}=0{,}85$."},{"id":"bi-okonomi-3-3-n-quiz1-q3","task":"Bakteriekulturen er $N(t)=1000\\cdot 2^t$. Kor mange er det etter $2$ timar?","options":[{"id":"a","text":"$4000$","isCorrect":true},{"id":"b","text":"$2000$","isCorrect":false},{"id":"c","text":"$3000$","isCorrect":false},{"id":"d","text":"$8000$","isCorrect":false}],"solution":"$N(2)=1000\\cdot 2^2=1000\\cdot 4=4000$."}]}},{"id":"bi-okonomi-3-3-n-section2","type":"text","content":"## Dei faste vanane til grafane\n\nUansett kva tal vi vel, oppfører grafen til $f(x)=a\\cdot b^x$ med $a>0$ seg etter nokre faste reglar. Han kryssar alltid $y$-aksen i startverdien, $f(0)=a$. Han er alltid positiv -- $f(x)>0$ for alle $x$ -- og har difor ingen nullpunkt. Og han har ein **horisontal asymptote** ved $y=0$: grafen nærmar seg $x$-aksen meir og meir utan nokon gong å røre han.\n\nForteiknet på veksten avgjer retninga. Er $b>1$, stig grafen frå venstre mot høgre og blir bratt for store $x$. Er $0<b<1$, søkk han og kryp nedover mot null. Samanlikn $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$. Den første veks, fordi $b=2>1$; den andre avtek, fordi $b=0{,}5<1$. Begge går gjennom $(0,1)$, og sidan $\\left(\\frac{1}{2}\\right)^x=2^{-x}$, er dei to grafane speglingar av kvarandre om $y$-aksen.\n\nDenne typen funksjon er grunnmuren under alt frå befolkningsvekst og renteutrekning til radioaktiv nedbryting. Vil vi vite kor lang tid noko bruker på å doble seg eller halvere seg, finst det eigne formlar -- doblingstida er $T=\\frac{\\ln 2}{\\ln b}$ og halveringstida $T=\\frac{\\ln 0{,}5}{\\ln b}$ -- men dei byggjer på logaritmar, som er temaet for neste kapittel."},{"id":"bi-okonomi-3-3-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-3-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på eigenskapane til grafen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-3-3-n-quiz2-q0","task":"Når veks ein eksponentialfunksjon $f(x)=a\\cdot b^x$ (med $a>0$)?","options":[{"id":"a","text":"Når $0<b<1$","isCorrect":false},{"id":"b","text":"Når $b>1$","isCorrect":true},{"id":"c","text":"Når $b=1$","isCorrect":false},{"id":"d","text":"Når $b<0$","isCorrect":false}],"solution":"$b>1$ gjev vekst; $0<b<1$ gjev nedgang."},{"id":"bi-okonomi-3-3-n-quiz2-q1","task":"Kva er den horisontale asymptoten til $f(x)=a\\cdot b^x$?","options":[{"id":"a","text":"$x=0$","isCorrect":false},{"id":"b","text":"$y=a$","isCorrect":false},{"id":"c","text":"$y=0$","isCorrect":true},{"id":"d","text":"$y=b$","isCorrect":false}],"solution":"Grafen nærmar seg $x$-aksen, altså $y=0$, men kryssar han aldri."},{"id":"bi-okonomi-3-3-n-quiz2-q2","task":"Kor mange nullpunkt har $f(x)=a\\cdot b^x$ med $a>0$?","options":[{"id":"a","text":"Eitt","isCorrect":false},{"id":"b","text":"To","isCorrect":false},{"id":"c","text":"Uendeleg mange","isCorrect":false},{"id":"d","text":"Ingen","isCorrect":true}],"solution":"Funksjonen er alltid positiv, så han har ingen nullpunkt."},{"id":"bi-okonomi-3-3-n-quiz2-q3","task":"Korleis er grafane til $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$ i forhold til kvarandre?","options":[{"id":"a","text":"Speglingar om $y$-aksen","isCorrect":true},{"id":"b","text":"Identiske","isCorrect":false},{"id":"c","text":"Parallelle linjer","isCorrect":false},{"id":"d","text":"Speglingar om $x$-aksen","isCorrect":false}],"solution":"$\\left(\\frac{1}{2}\\right)^x=2^{-x}$, så grafane er speglingar om $y$-aksen."}]}},{"id":"bi-okonomi-3-3-n-summary","type":"text","content":"## Oppsummering\n\nEin **eksponentialfunksjon** $f(x)=a\\cdot b^x$ har variabelen i eksponenten, med $a\\neq 0$, $b>0$ og $b\\neq 1$. **Startverdien** $a$ er verdien ved $x=0$, og **vekstfaktoren** $b$ er talet vi gangar med for kvart steg. Det naturlege grunntalet $e\\approx 2{,}718$ gjev den spesielle funksjonen $e^x$.\n\nVekstfaktoren styrer retninga: $b>1$ gjev **vekst**, medan $0<b<1$ gjev **nedgang**. Når vi kjenner ein prosent, reknar vi om med $b=1+\\frac{p}{100}$ ved auke og $b=1-\\frac{p}{100}$ ved nedgang -- slik fekk bilen $b=0{,}85$ og banksparinga $b=1{,}03$.\n\nGrafen til ein eksponentialfunksjon med $a>0$ er alltid positiv, kryssar $y$-aksen i startverdien, har ingen nullpunkt og nærmar seg den horisontale asymptoten $y=0$. Denne typen funksjon modellerer vekst og nedgang i bakteriekulturar, bilverdiar og bankkontoar -- og legg grunnlaget for logaritmane vi møter i neste kapittel."}],"exercises":[],"_meta":{"sourceHash":"46e615e70f470748","translatedAt":"2026-06-21T00:50:05.470Z","model":"claude-code-agent","strings":48,"tm":{"26b6a95a6a0c76c0":"Eksponentialfunksjonar","b195b06d1ed59702":"Narrativ versjon","ec712884144e5216":"Ei forteljing om vekst som tek av -- funksjonar der variabelen sit i eksponenten og lèt oss modellere alt frå bakteriar som doblar seg til pengar som veks med renter.","af0b5c9cc538ebcc":"forstå eksponentiell vekst og nedgang","a6199421f9e18fb0":"## Når veksten tek av\n\nLegg eitt riskorn på første ruta på eit sjakkbrett, to på neste, fire på den tredje -- og hald fram med å doble. Lenge ser det uskuldig ut, men plutseleg eksploderer tala. Dette er **eksponentiell vekst**, og han blir skildra av ein heilt eigen funksjonstype der variabelen sit i sjølve eksponenten.\n\nEin **eksponentialfunksjon** har forma $f(x)=a\\cdot b^x$, der $a\\neq 0$, $b>0$ og $b\\neq 1$. Her er $a$ **startverdien**, fordi $f(0)=a\\cdot b^0=a$, og $b$ er **vekstfaktoren** -- talet vi gangar med for kvart steg. Eit særleg viktig grunntal er Eulers tal $e\\approx 2{,}718$, som gjev funksjonen $f(x)=e^x$ og dukkar opp naturleg i mange vekstmodellar.\n\nLat oss prøve. Ein bakteriekultur startar med $1000$ bakteriar og doblar seg kvar time. Då er startverdien $a=1000$ og vekstfaktoren $b=2$, så $N(t)=1000\\cdot 2^t$. Vi sjekkar: $N(0)=1000\\cdot 2^0=1000$, $N(1)=1000\\cdot 2^1=2000$ og $N(2)=1000\\cdot 2^2=4000$. Talet veks ikkje jamt som på ei linje -- det gangar seg oppover, og det er nettopp det som gjer eksponentiell vekst så kraftfull.","c77605ba0707b6f1":"## Vekstfaktoren fortel alt\n\nDet er vekstfaktoren $b$ som bestemmer om ein eksponentialfunksjon veks eller skrumpar. Er $b>1$, har vi **vekst** -- grafen stig og blir brattare og brattare. Er $0<b<1$, har vi **nedgang** -- grafen søkk og nærmar seg null. Akkurat $b=1$ er forbode, for då ville ingenting skje.\n\nI praksis kjenner vi ofte ein prosent i staden for ein vekstfaktor, og då må vi rekne om. Aukar noko med $p$ prosent per eining, blir $b=1+\\frac{p}{100}$. Avtek noko med $p$ prosent, blir $b=1-\\frac{p}{100}$. Tenk på ein bil som mistar $15\\%$ av verdien kvart år og kostar $400\\,000$ kr ny. Vekstfaktoren er $b=1-0{,}15=0{,}85$, så verdien følgjer $V(t)=400\\,000\\cdot 0{,}85^t$. Etter fem år er han verdt $V(5)=400\\,000\\cdot 0{,}85^5\\approx 177\\,000$ kr.\n\nMotsett veg veks sparepengar. Set du $10\\,000$ kr i banken med $3\\%$ årleg rente, blir vekstfaktoren $b=1+0{,}03=1{,}03$, og beløpet følgjer $K(t)=10\\,000\\cdot 1{,}03^t$. Etter tjue år: $K(20)=10\\,000\\cdot 1{,}03^{20}\\approx 18\\,061$ kr -- altså rundt $8061$ kr i rein rente. Den vesle prosenten gjer stor skilnad når han får verke år etter år.","beb127208dc85f08":"Test deg sjølv på startverdi, vekstfaktor og prosent:","4097889236a2af26":"placeholder","6377e57ef15e4456":"I funksjonen $f(x)=a\\cdot b^x$, kva er startverdien?","00511bf0a6978c2c":"$b$","401c22f57c1a7b3f":"$a$","22bf003d6cac79e1":"$x$","45af324dc88401dd":"$a\\cdot b$","d48ea254eb327e4f":"Startverdien er $a$, fordi $f(0)=a\\cdot b^0=a$.","c15931a81fb71a58":"Ei vare aukar med $3\\%$ per år. Kva er vekstfaktoren?","5f3a8ee468232895":"$b=1+\\frac{3}{100}=1{,}03$.","f8df1b63003322ac":"Ein bil mistar $15\\%$ av verdien per år. Kva er vekstfaktoren?","c05fdcf20f3ff3c6":"$b=1-\\frac{15}{100}=0{,}85$.","d9cbf4de0374335a":"Bakteriekulturen er $N(t)=1000\\cdot 2^t$. Kor mange er det etter $2$ timar?","e3cd6e1f577fb2e8":"$N(2)=1000\\cdot 2^2=1000\\cdot 4=4000$.","7391f67a36767452":"## Dei faste vanane til grafane\n\nUansett kva tal vi vel, oppfører grafen til $f(x)=a\\cdot b^x$ med $a>0$ seg etter nokre faste reglar. Han kryssar alltid $y$-aksen i startverdien, $f(0)=a$. Han er alltid positiv -- $f(x)>0$ for alle $x$ -- og har difor ingen nullpunkt. Og han har ein **horisontal asymptote** ved $y=0$: grafen nærmar seg $x$-aksen meir og meir utan nokon gong å røre han.\n\nForteiknet på veksten avgjer retninga. Er $b>1$, stig grafen frå venstre mot høgre og blir bratt for store $x$. Er $0<b<1$, søkk han og kryp nedover mot null. Samanlikn $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$. Den første veks, fordi $b=2>1$; den andre avtek, fordi $b=0{,}5<1$. Begge går gjennom $(0,1)$, og sidan $\\left(\\frac{1}{2}\\right)^x=2^{-x}$, er dei to grafane speglingar av kvarandre om $y$-aksen.\n\nDenne typen funksjon er grunnmuren under alt frå befolkningsvekst og renteutrekning til radioaktiv nedbryting. Vil vi vite kor lang tid noko bruker på å doble seg eller halvere seg, finst det eigne formlar -- doblingstida er $T=\\frac{\\ln 2}{\\ln b}$ og halveringstida $T=\\frac{\\ln 0{,}5}{\\ln b}$ -- men dei byggjer på logaritmar, som er temaet for neste kapittel.","f21377bcbe397688":"Test deg sjølv på eigenskapane til grafen:","8cb0f190e9c8b713":"Når veks ein eksponentialfunksjon $f(x)=a\\cdot b^x$ (med $a>0$)?","039108dac6b2dfb8":"Når $0<b<1$","2dcce38b7ab46f0b":"Når $b>1$","32ac0ea44520cef4":"Når $b=1$","56f951527a72ed85":"Når $b<0$","21e4ec2456194890":"$b>1$ gjev vekst; $0<b<1$ gjev nedgang.","b697a5e5640ac175":"Kva er den horisontale asymptoten til $f(x)=a\\cdot b^x$?","dbd5301847c30f3d":"$x=0$","32b8a6df5ecebe88":"$y=a$","d754d9302ff03b81":"$y=0$","22813418e3f4abc2":"$y=b$","a096e53433b211cb":"Grafen nærmar seg $x$-aksen, altså $y=0$, men kryssar han aldri.","6417fb2bd009fcf5":"Kor mange nullpunkt har $f(x)=a\\cdot b^x$ med $a>0$?","64fc821125025fd5":"Eitt","f4b06ef6d3c81436":"To","6b5eccd31267a114":"Uendeleg mange","4caa44f124d9c5e5":"Ingen","4d96220c743cd7af":"Funksjonen er alltid positiv, så han har ingen nullpunkt.","d6a32940cf5f8283":"Korleis er grafane til $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$ i forhold til kvarandre?","ddaa69debd8c0830":"Speglingar om $y$-aksen","b2d27075e085e44d":"Identiske","b67c0ef8f9854b7e":"Parallelle linjer","fe44ee8e8fed73d2":"Speglingar om $x$-aksen","ac52bacdc7a5c20f":"$\\left(\\frac{1}{2}\\right)^x=2^{-x}$, så grafane er speglingar om $y$-aksen.","7f7fe7a737d2d378":"## Oppsummering\n\nEin **eksponentialfunksjon** $f(x)=a\\cdot b^x$ har variabelen i eksponenten, med $a\\neq 0$, $b>0$ og $b\\neq 1$. **Startverdien** $a$ er verdien ved $x=0$, og **vekstfaktoren** $b$ er talet vi gangar med for kvart steg. Det naturlege grunntalet $e\\approx 2{,}718$ gjev den spesielle funksjonen $e^x$.\n\nVekstfaktoren styrer retninga: $b>1$ gjev **vekst**, medan $0<b<1$ gjev **nedgang**. Når vi kjenner ein prosent, reknar vi om med $b=1+\\frac{p}{100}$ ved auke og $b=1-\\frac{p}{100}$ ved nedgang -- slik fekk bilen $b=0{,}85$ og banksparinga $b=1{,}03$.\n\nGrafen til ein eksponentialfunksjon med $a>0$ er alltid positiv, kryssar $y$-aksen i startverdien, har ingen nullpunkt og nærmar seg den horisontale asymptoten $y=0$. Denne typen funksjon modellerer vekst og nedgang i bakteriekulturar, bilverdiar og bankkontoar -- og legg grunnlaget for logaritmane vi møter i neste kapittel."}}}
+{
+  "id": "bi-okonomi-3-3-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "3.3",
+  "title": "Eksponentialfunksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om vekst som tek av -- funksjonar der variabelen sit i eksponenten og lèt oss modellere alt frå bakteriar som doblar seg til pengar som veks med renter.",
+  "estimatedMinutes": 20,
+  "competenceGoals": [
+    "forstå eksponentiell vekst og nedgang"
+  ],
+  "linkedChapterId": "bi-okonomi-3-3",
+  "content": [
+    {
+      "id": "bi-okonomi-3-3-n-intro",
+      "type": "text",
+      "content": "## Når veksten tek av\n\nLegg eitt riskorn på første ruta på eit sjakkbrett, to på neste, fire på den tredje -- og hald fram med å doble. Lenge ser det uskuldig ut, men plutseleg eksploderer tala. Dette er **eksponentiell vekst**, og han blir skildra av ein heilt eigen funksjonstype der variabelen sit i sjølve eksponenten.\n\nEin **eksponentialfunksjon** har forma $f(x)=a\\cdot b^x$, der $a\\neq 0$, $b>0$ og $b\\neq 1$. Her er $a$ **startverdien**, fordi $f(0)=a\\cdot b^0=a$, og $b$ er **vekstfaktoren** -- talet vi gangar med for kvart steg. Eit særleg viktig grunntal er Eulers tal $e\\approx 2{,}718$, som gjev funksjonen $f(x)=e^x$ og dukkar opp naturleg i mange vekstmodellar.\n\nLat oss prøve. Ein bakteriekultur startar med $1000$ bakteriar og doblar seg kvar time. Då er startverdien $a=1000$ og vekstfaktoren $b=2$, så $N(t)=1000\\cdot 2^t$. Vi sjekkar: $N(0)=1000\\cdot 2^0=1000$, $N(1)=1000\\cdot 2^1=2000$ og $N(2)=1000\\cdot 2^2=4000$. Talet veks ikkje jamt som på ei linje -- det gangar seg oppover, og det er nettopp det som gjer eksponentiell vekst så kraftfull."
+    },
+    {
+      "id": "bi-okonomi-3-3-n-section1",
+      "type": "text",
+      "content": "## Vekstfaktoren fortel alt\n\nDet er vekstfaktoren $b$ som bestemmer om ein eksponentialfunksjon veks eller skrumpar. Er $b>1$, har vi **vekst** -- grafen stig og blir brattare og brattare. Er $0<b<1$, har vi **nedgang** -- grafen søkk og nærmar seg null. Akkurat $b=1$ er forbode, for då ville ingenting skje.\n\nI praksis kjenner vi ofte ein prosent i staden for ein vekstfaktor, og då må vi rekne om. Aukar noko med $p$ prosent per eining, blir $b=1+\\frac{p}{100}$. Avtek noko med $p$ prosent, blir $b=1-\\frac{p}{100}$. Tenk på ein bil som mistar $15\\%$ av verdien kvart år og kostar $400\\,000$ kr ny. Vekstfaktoren er $b=1-0{,}15=0{,}85$, så verdien følgjer $V(t)=400\\,000\\cdot 0{,}85^t$. Etter fem år er han verdt $V(5)=400\\,000\\cdot 0{,}85^5\\approx 177\\,000$ kr.\n\nMotsett veg veks sparepengar. Set du $10\\,000$ kr i banken med $3\\%$ årleg rente, blir vekstfaktoren $b=1+0{,}03=1{,}03$, og beløpet følgjer $K(t)=10\\,000\\cdot 1{,}03^t$. Etter tjue år: $K(20)=10\\,000\\cdot 1{,}03^{20}\\approx 18\\,061$ kr -- altså rundt $8061$ kr i rein rente. Den vesle prosenten gjer stor skilnad når han får verke år etter år."
+    },
+    {
+      "id": "bi-okonomi-3-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-3-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på startverdi, vekstfaktor og prosent:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-3-3-n-quiz1-q0",
+            "task": "I funksjonen $f(x)=a\\cdot b^x$, kva er startverdien?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$b$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a\\cdot b$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Startverdien er $a$, fordi $f(0)=a\\cdot b^0=a$."
+          },
+          {
+            "id": "bi-okonomi-3-3-n-quiz1-q1",
+            "task": "Ei vare aukar med $3\\%$ per år. Kva er vekstfaktoren?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$1{,}03$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}97$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}03$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$b=1+\\frac{3}{100}=1{,}03$."
+          },
+          {
+            "id": "bi-okonomi-3-3-n-quiz1-q2",
+            "task": "Ein bil mistar $15\\%$ av verdien per år. Kva er vekstfaktoren?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}85$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0{,}15$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$b=1-\\frac{15}{100}=0{,}85$."
+          },
+          {
+            "id": "bi-okonomi-3-3-n-quiz1-q3",
+            "task": "Bakteriekulturen er $N(t)=1000\\cdot 2^t$. Kor mange er det etter $2$ timar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3000$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$4000$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$8000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$N(2)=1000\\cdot 2^2=1000\\cdot 4=4000$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-3-3-n-section2",
+      "type": "text",
+      "content": "## Dei faste vanane til grafane\n\nUansett kva tal vi vel, oppfører grafen til $f(x)=a\\cdot b^x$ med $a>0$ seg etter nokre faste reglar. Han kryssar alltid $y$-aksen i startverdien, $f(0)=a$. Han er alltid positiv -- $f(x)>0$ for alle $x$ -- og har difor ingen nullpunkt. Og han har ein **horisontal asymptote** ved $y=0$: grafen nærmar seg $x$-aksen meir og meir utan nokon gong å røre han.\n\nForteiknet på veksten avgjer retninga. Er $b>1$, stig grafen frå venstre mot høgre og blir bratt for store $x$. Er $0<b<1$, søkk han og kryp nedover mot null. Samanlikn $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$. Den første veks, fordi $b=2>1$; den andre avtek, fordi $b=0{,}5<1$. Begge går gjennom $(0,1)$, og sidan $\\left(\\frac{1}{2}\\right)^x=2^{-x}$, er dei to grafane speglingar av kvarandre om $y$-aksen.\n\nDenne typen funksjon er grunnmuren under alt frå befolkningsvekst og renteutrekning til radioaktiv nedbryting. Vil vi vite kor lang tid noko bruker på å doble seg eller halvere seg, finst det eigne formlar -- doblingstida er $T=\\frac{\\ln 2}{\\ln b}$ og halveringstida $T=\\frac{\\ln 0{,}5}{\\ln b}$ -- men dei byggjer på logaritmar, som er temaet for neste kapittel."
+    },
+    {
+      "id": "bi-okonomi-3-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-3-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eigenskapane til grafen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-3-3-n-quiz2-q0",
+            "task": "Når veks ein eksponentialfunksjon $f(x)=a\\cdot b^x$ (med $a>0$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $0<b<1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $b=1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $b<0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $b>1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$b>1$ gjev vekst; $0<b<1$ gjev nedgang."
+          },
+          {
+            "id": "bi-okonomi-3-3-n-quiz2-q1",
+            "task": "Kva er den horisontale asymptoten til $f(x)=a\\cdot b^x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$y=0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y=a$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y=b$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grafen nærmar seg $x$-aksen, altså $y=0$, men kryssar han aldri."
+          },
+          {
+            "id": "bi-okonomi-3-3-n-quiz2-q2",
+            "task": "Kor mange nullpunkt har $f(x)=a\\cdot b^x$ med $a>0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eitt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendeleg mange",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonen er alltid positiv, så han har ingen nullpunkt."
+          },
+          {
+            "id": "bi-okonomi-3-3-n-quiz2-q3",
+            "task": "Korleis er grafane til $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$ i forhold til kvarandre?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Parallelle linjer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Speglingar om $y$-aksen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Speglingar om $x$-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\left(\\frac{1}{2}\\right)^x=2^{-x}$, så grafane er speglingar om $y$-aksen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-3-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEin **eksponentialfunksjon** $f(x)=a\\cdot b^x$ har variabelen i eksponenten, med $a\\neq 0$, $b>0$ og $b\\neq 1$. **Startverdien** $a$ er verdien ved $x=0$, og **vekstfaktoren** $b$ er talet vi gangar med for kvart steg. Det naturlege grunntalet $e\\approx 2{,}718$ gjev den spesielle funksjonen $e^x$.\n\nVekstfaktoren styrer retninga: $b>1$ gjev **vekst**, medan $0<b<1$ gjev **nedgang**. Når vi kjenner ein prosent, reknar vi om med $b=1+\\frac{p}{100}$ ved auke og $b=1-\\frac{p}{100}$ ved nedgang -- slik fekk bilen $b=0{,}85$ og banksparinga $b=1{,}03$.\n\nGrafen til ein eksponentialfunksjon med $a>0$ er alltid positiv, kryssar $y$-aksen i startverdien, har ingen nullpunkt og nærmar seg den horisontale asymptoten $y=0$. Denne typen funksjon modellerer vekst og nedgang i bakteriekulturar, bilverdiar og bankkontoar -- og legg grunnlaget for logaritmane vi møter i neste kapittel."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "46e615e70f470748",
+    "translatedAt": "2026-06-21T00:50:05.470Z",
+    "model": "claude-code-agent",
+    "strings": 48,
+    "tm": {
+      "26b6a95a6a0c76c0": "Eksponentialfunksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ec712884144e5216": "Ei forteljing om vekst som tek av -- funksjonar der variabelen sit i eksponenten og lèt oss modellere alt frå bakteriar som doblar seg til pengar som veks med renter.",
+      "af0b5c9cc538ebcc": "forstå eksponentiell vekst og nedgang",
+      "a6199421f9e18fb0": "## Når veksten tek av\n\nLegg eitt riskorn på første ruta på eit sjakkbrett, to på neste, fire på den tredje -- og hald fram med å doble. Lenge ser det uskuldig ut, men plutseleg eksploderer tala. Dette er **eksponentiell vekst**, og han blir skildra av ein heilt eigen funksjonstype der variabelen sit i sjølve eksponenten.\n\nEin **eksponentialfunksjon** har forma $f(x)=a\\cdot b^x$, der $a\\neq 0$, $b>0$ og $b\\neq 1$. Her er $a$ **startverdien**, fordi $f(0)=a\\cdot b^0=a$, og $b$ er **vekstfaktoren** -- talet vi gangar med for kvart steg. Eit særleg viktig grunntal er Eulers tal $e\\approx 2{,}718$, som gjev funksjonen $f(x)=e^x$ og dukkar opp naturleg i mange vekstmodellar.\n\nLat oss prøve. Ein bakteriekultur startar med $1000$ bakteriar og doblar seg kvar time. Då er startverdien $a=1000$ og vekstfaktoren $b=2$, så $N(t)=1000\\cdot 2^t$. Vi sjekkar: $N(0)=1000\\cdot 2^0=1000$, $N(1)=1000\\cdot 2^1=2000$ og $N(2)=1000\\cdot 2^2=4000$. Talet veks ikkje jamt som på ei linje -- det gangar seg oppover, og det er nettopp det som gjer eksponentiell vekst så kraftfull.",
+      "c77605ba0707b6f1": "## Vekstfaktoren fortel alt\n\nDet er vekstfaktoren $b$ som bestemmer om ein eksponentialfunksjon veks eller skrumpar. Er $b>1$, har vi **vekst** -- grafen stig og blir brattare og brattare. Er $0<b<1$, har vi **nedgang** -- grafen søkk og nærmar seg null. Akkurat $b=1$ er forbode, for då ville ingenting skje.\n\nI praksis kjenner vi ofte ein prosent i staden for ein vekstfaktor, og då må vi rekne om. Aukar noko med $p$ prosent per eining, blir $b=1+\\frac{p}{100}$. Avtek noko med $p$ prosent, blir $b=1-\\frac{p}{100}$. Tenk på ein bil som mistar $15\\%$ av verdien kvart år og kostar $400\\,000$ kr ny. Vekstfaktoren er $b=1-0{,}15=0{,}85$, så verdien følgjer $V(t)=400\\,000\\cdot 0{,}85^t$. Etter fem år er han verdt $V(5)=400\\,000\\cdot 0{,}85^5\\approx 177\\,000$ kr.\n\nMotsett veg veks sparepengar. Set du $10\\,000$ kr i banken med $3\\%$ årleg rente, blir vekstfaktoren $b=1+0{,}03=1{,}03$, og beløpet følgjer $K(t)=10\\,000\\cdot 1{,}03^t$. Etter tjue år: $K(20)=10\\,000\\cdot 1{,}03^{20}\\approx 18\\,061$ kr -- altså rundt $8061$ kr i rein rente. Den vesle prosenten gjer stor skilnad når han får verke år etter år.",
+      "beb127208dc85f08": "Test deg sjølv på startverdi, vekstfaktor og prosent:",
+      "4097889236a2af26": "placeholder",
+      "6377e57ef15e4456": "I funksjonen $f(x)=a\\cdot b^x$, kva er startverdien?",
+      "00511bf0a6978c2c": "$b$",
+      "401c22f57c1a7b3f": "$a$",
+      "22bf003d6cac79e1": "$x$",
+      "45af324dc88401dd": "$a\\cdot b$",
+      "d48ea254eb327e4f": "Startverdien er $a$, fordi $f(0)=a\\cdot b^0=a$.",
+      "c15931a81fb71a58": "Ei vare aukar med $3\\%$ per år. Kva er vekstfaktoren?",
+      "5f3a8ee468232895": "$b=1+\\frac{3}{100}=1{,}03$.",
+      "f8df1b63003322ac": "Ein bil mistar $15\\%$ av verdien per år. Kva er vekstfaktoren?",
+      "c05fdcf20f3ff3c6": "$b=1-\\frac{15}{100}=0{,}85$.",
+      "d9cbf4de0374335a": "Bakteriekulturen er $N(t)=1000\\cdot 2^t$. Kor mange er det etter $2$ timar?",
+      "e3cd6e1f577fb2e8": "$N(2)=1000\\cdot 2^2=1000\\cdot 4=4000$.",
+      "7391f67a36767452": "## Dei faste vanane til grafane\n\nUansett kva tal vi vel, oppfører grafen til $f(x)=a\\cdot b^x$ med $a>0$ seg etter nokre faste reglar. Han kryssar alltid $y$-aksen i startverdien, $f(0)=a$. Han er alltid positiv -- $f(x)>0$ for alle $x$ -- og har difor ingen nullpunkt. Og han har ein **horisontal asymptote** ved $y=0$: grafen nærmar seg $x$-aksen meir og meir utan nokon gong å røre han.\n\nForteiknet på veksten avgjer retninga. Er $b>1$, stig grafen frå venstre mot høgre og blir bratt for store $x$. Er $0<b<1$, søkk han og kryp nedover mot null. Samanlikn $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$. Den første veks, fordi $b=2>1$; den andre avtek, fordi $b=0{,}5<1$. Begge går gjennom $(0,1)$, og sidan $\\left(\\frac{1}{2}\\right)^x=2^{-x}$, er dei to grafane speglingar av kvarandre om $y$-aksen.\n\nDenne typen funksjon er grunnmuren under alt frå befolkningsvekst og renteutrekning til radioaktiv nedbryting. Vil vi vite kor lang tid noko bruker på å doble seg eller halvere seg, finst det eigne formlar -- doblingstida er $T=\\frac{\\ln 2}{\\ln b}$ og halveringstida $T=\\frac{\\ln 0{,}5}{\\ln b}$ -- men dei byggjer på logaritmar, som er temaet for neste kapittel.",
+      "f21377bcbe397688": "Test deg sjølv på eigenskapane til grafen:",
+      "8cb0f190e9c8b713": "Når veks ein eksponentialfunksjon $f(x)=a\\cdot b^x$ (med $a>0$)?",
+      "039108dac6b2dfb8": "Når $0<b<1$",
+      "2dcce38b7ab46f0b": "Når $b>1$",
+      "32ac0ea44520cef4": "Når $b=1$",
+      "56f951527a72ed85": "Når $b<0$",
+      "21e4ec2456194890": "$b>1$ gjev vekst; $0<b<1$ gjev nedgang.",
+      "b697a5e5640ac175": "Kva er den horisontale asymptoten til $f(x)=a\\cdot b^x$?",
+      "dbd5301847c30f3d": "$x=0$",
+      "32b8a6df5ecebe88": "$y=a$",
+      "d754d9302ff03b81": "$y=0$",
+      "22813418e3f4abc2": "$y=b$",
+      "a096e53433b211cb": "Grafen nærmar seg $x$-aksen, altså $y=0$, men kryssar han aldri.",
+      "6417fb2bd009fcf5": "Kor mange nullpunkt har $f(x)=a\\cdot b^x$ med $a>0$?",
+      "64fc821125025fd5": "Eitt",
+      "f4b06ef6d3c81436": "To",
+      "6b5eccd31267a114": "Uendeleg mange",
+      "4caa44f124d9c5e5": "Ingen",
+      "4d96220c743cd7af": "Funksjonen er alltid positiv, så han har ingen nullpunkt.",
+      "d6a32940cf5f8283": "Korleis er grafane til $f(x)=2^x$ og $g(x)=\\left(\\frac{1}{2}\\right)^x$ i forhold til kvarandre?",
+      "ddaa69debd8c0830": "Speglingar om $y$-aksen",
+      "b2d27075e085e44d": "Identiske",
+      "b67c0ef8f9854b7e": "Parallelle linjer",
+      "fe44ee8e8fed73d2": "Speglingar om $x$-aksen",
+      "ac52bacdc7a5c20f": "$\\left(\\frac{1}{2}\\right)^x=2^{-x}$, så grafane er speglingar om $y$-aksen.",
+      "7f7fe7a737d2d378": "## Oppsummering\n\nEin **eksponentialfunksjon** $f(x)=a\\cdot b^x$ har variabelen i eksponenten, med $a\\neq 0$, $b>0$ og $b\\neq 1$. **Startverdien** $a$ er verdien ved $x=0$, og **vekstfaktoren** $b$ er talet vi gangar med for kvart steg. Det naturlege grunntalet $e\\approx 2{,}718$ gjev den spesielle funksjonen $e^x$.\n\nVekstfaktoren styrer retninga: $b>1$ gjev **vekst**, medan $0<b<1$ gjev **nedgang**. Når vi kjenner ein prosent, reknar vi om med $b=1+\\frac{p}{100}$ ved auke og $b=1-\\frac{p}{100}$ ved nedgang -- slik fekk bilen $b=0{,}85$ og banksparinga $b=1{,}03$.\n\nGrafen til ein eksponentialfunksjon med $a>0$ er alltid positiv, kryssar $y$-aksen i startverdien, har ingen nullpunkt og nærmar seg den horisontale asymptoten $y=0$. Denne typen funksjon modellerer vekst og nedgang i bakteriekulturar, bilverdiar og bankkontoar -- og legg grunnlaget for logaritmane vi møter i neste kapittel."
+    }
+  }
+}

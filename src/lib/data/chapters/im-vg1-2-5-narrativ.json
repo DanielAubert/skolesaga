@@ -1,1 +1,452 @@
-{"id":"im-vg1-2-5-narrativ","courseId":"im-vg1","chapterNumber":"2.5","title":"Funksjoner og modularisering","subtitle":"Narrativ versjon","description":"En fortelling om hvordan vi gir koden orden -- funksjoner som pakker oppgaver pent sammen, parametere og returverdier som lar dem snakke, og modularisering som forvandler kaos til oversikt.","estimatedMinutes":36,"competenceGoals":["definere og kalle egne funksjoner i Python","bruke parametere og returverdier effektivt","organisere kode i gjenbrukbare moduler"],"linkedChapterId":"im-vg1-2-5","content":[{"id":"im-vg1-2-5-n-intro","type":"text","content":"## Den late programmererens dyd\n\nDet finnes et godt prinsipp blant programmerere: ikke gjenta deg selv. Hvis du finner deg selv skrivende den samme koden om og om igjen, gjør du sannsynligvis noe feil. Tenk deg at du skal hilse på ti personer, og hver gang skriver de samme tre linjene kode på nytt. Det blir langt, kjedelig, og hvis du senere vil endre hilsenen, må du rette den ti steder. En liten feil ett sted, og du har en bug.\n\nLøsningen er en av de vakreste ideene i programmeringen: **funksjoner**. En funksjon er en navngitt kodeblokk som utfører en bestemt oppgave, og som du kan kalle så mange ganger du vil. Du skriver oppskriften én gang, gir den et navn, og bruker den igjen og igjen. Det er den late programmererens dyd -- og latskap er her en god ting, for den fører til ryddig, vedlikeholdbar kode.\n\nI denne fortellingen skal vi lære å lage våre egne funksjoner. Vi skal se hvordan de tar imot informasjon gjennom parametere og sender svar tilbake gjennom returverdier. Vi skal forstå forskjellen på lokale og globale variabler, og til slutt skal vi oppdage modularisering -- kunsten å dele et stort program opp i små, oversiktlige biter som hver gjør én ting godt."},{"id":"im-vg1-2-5-n-section1","type":"text","content":"## Å lage din egen oppskrift\n\nDu har allerede brukt funksjoner -- `print()` og `input()` er funksjoner andre har laget. Nå skal du lage dine egne. I Python definerer du en funksjon med nøkkelordet `def`, etterfulgt av et navn og et par parenteser. Den enkleste hilsefunksjonen ser slik ut: `def hilsen(navn):` med en `print(f\"Hei, {navn}!\")` under. Når du så skriver `hilsen(\"Kari\")`, kjøres koden inni funksjonen med navnet «Kari», og du får «Hei, Kari!». Kall den med «Ola», og du får «Hei, Ola!». Samme oppskrift, ulike ingredienser.\n\nLegg merke til ordet **navn** inni parentesen. Det er en **parameter** -- en variabel som tar imot en verdi når funksjonen kalles. Parametere er måten du sender informasjon *inn* i funksjonen på, slik at den kan jobbe med ulike data hver gang.\n\nDu kan også gi parametere en **standardverdi**, som brukes hvis du ikke oppgir noe. Definerer du `def hilsen(navn, ord=\"Hei\"):`, kan du kalle `hilsen(\"Kari\")` og få «Hei, Kari!» -- standardverdien «Hei» brukes automatisk. Men kaller du `hilsen(\"Ola\", \"God dag\")`, overstyrer du standarden og får «God dag, Ola!». Standardverdier gjør funksjonene dine fleksible: enkle å bruke i det vanlige tilfellet, men mulige å tilpasse når du trenger det."},{"id":"im-vg1-2-5-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på funksjoner og parametere:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-5-n-quiz1-q0","task":"Hvilket nøkkelord brukes for å definere en funksjon i Python?","options":[{"id":"a","text":"func","isCorrect":false},{"id":"b","text":"function","isCorrect":false},{"id":"c","text":"def","isCorrect":true},{"id":"d","text":"define","isCorrect":false}],"solution":"I Python defineres en funksjon med nøkkelordet def, etterfulgt av navn og parenteser."},{"id":"im-vg1-2-5-n-quiz1-q1","task":"Hva er en parameter?","options":[{"id":"a","text":"En kommentar i koden","isCorrect":false},{"id":"b","text":"Et tall som alltid er 0","isCorrect":false},{"id":"c","text":"Et reservert ord","isCorrect":false},{"id":"d","text":"En variabel som tar imot en verdi når funksjonen kalles","isCorrect":true}],"solution":"En parameter er en variabel i funksjonsdefinisjonen som mottar en verdi når funksjonen kalles."},{"id":"im-vg1-2-5-n-quiz1-q2","task":"Hva skjer ved hilsen(\"Kari\") når funksjonen er def hilsen(navn, ord=\"Hei\")?","options":[{"id":"a","text":"Standardverdien «Hei» brukes, så resultatet blir «Hei, Kari!»","isCorrect":true},{"id":"b","text":"Det gir en feilmelding","isCorrect":false},{"id":"c","text":"Ingenting skjer","isCorrect":false},{"id":"d","text":"Det skrives ut «ord, Kari!»","isCorrect":false}],"solution":"Når ord ikke oppgis, brukes standardverdien «Hei», så resultatet blir «Hei, Kari!»."}]}},{"id":"im-vg1-2-5-n-section2","type":"text","content":"## Når funksjonen svarer tilbake\n\nSå langt har funksjonene våre bare *gjort* noe, som å skrive ut tekst. Men ofte vil vi at en funksjon skal *regne ut* noe og gi oss svaret tilbake, slik at vi kan bruke det videre. Til det har vi nøkkelordet **return** og det vi kaller en **returverdi**.\n\nTenk deg en addisjonsfunksjon: `def adder(a, b):` med `return a + b` under. Når du skriver `adder(3, 7)`, regner funksjonen ut summen og sender tallet 10 *tilbake* til der den ble kalt. Du kan da skrive `print(adder(3, 7))` for å vise det, eller lagre svaret i en variabel for å bruke det senere. Forskjellen er viktig: en funksjon som bare `print`-er, viser noe på skjermen og er ferdig med det, mens en funksjon som `return`-er, gir deg en verdi du kan jobbe videre med.\n\nDette åpner for å bygge nyttige verktøy. Du kan lage en funksjon `kvadrat(tall)` som returnerer `tall ** 2`, eller en `er_partall(tall)` som returnerer `tall % 2 == 0` -- altså `True` eller `False`. Den siste kan du bruke rett i en if-setning eller løkke. Du kan til og med la en funksjon returnere ulike verdier basert på betingelser, som en `karakter(poeng)`-funksjon som returnerer «A», «B», «C» og så videre etter hvor mange poeng som sendes inn. Med return blir funksjonene dine til små maskiner som tar inn data og leverer resultater."},{"id":"im-vg1-2-5-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på returverdier:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-5-n-quiz2-q0","task":"Hva returnerer doble(7) når funksjonen er def doble(tall): return tall * 2?","options":[{"id":"a","text":"7","isCorrect":false},{"id":"b","text":"14","isCorrect":true},{"id":"c","text":"77","isCorrect":false},{"id":"d","text":"None","isCorrect":false}],"solution":"doble(7) returnerer 7 * 2 = 14."},{"id":"im-vg1-2-5-n-quiz2-q1","task":"Hva skrives ut av print(f(3)) og print(f(3, 10)) når def f(a, b=5): return a + b?","options":[{"id":"a","text":"8 og 8","isCorrect":false},{"id":"b","text":"3 og 13","isCorrect":false},{"id":"c","text":"8 og 13","isCorrect":true},{"id":"d","text":"En feilmelding","isCorrect":false}],"solution":"f(3) bruker standardverdien b=5: 3+5=8. f(3, 10) bruker b=10: 3+10=13."},{"id":"im-vg1-2-5-n-quiz2-q2","task":"Hva er forskjellen på en funksjon som print-er og en som return-er?","options":[{"id":"a","text":"Det er ingen forskjell","isCorrect":false},{"id":"b","text":"return kan bare brukes én gang per program","isCorrect":false},{"id":"c","text":"print er raskere enn return","isCorrect":false},{"id":"d","text":"print viser noe på skjermen, return gir tilbake en verdi du kan bruke videre","isCorrect":true}],"solution":"En print-funksjon viser noe på skjermen, mens en return-funksjon sender tilbake en verdi som kan lagres og brukes videre."}]}},{"id":"im-vg1-2-5-n-section3","type":"text","content":"## Hvor variablene bor\n\nNå må vi forstå et viktig begrep: hvor en variabel «bor», eller det vi kaller dens *virkeområde*. Det handler om hvor i programmet en variabel er synlig og kan brukes.\n\nEn variabel som opprettes *inne* i en funksjon, kalles **lokal**. Den finnes bare der, inni funksjonen, og forsvinner i det funksjonen er ferdig. Det er litt som et privat notat på arbeidsbordet ditt -- bare du på rommet ser det. En variabel som opprettes *utenfor* alle funksjoner, kalles **global**, og kan ses fra hele programmet, omtrent som en oppslagstavle i gangen alle kan lese.\n\nLa oss se det i praksis. Hvis `x = 10` er global, og vi inni en funksjon lager `y = 5` som lokal, så kan funksjonen lese begge og skrive ut «10 5». Men prøver vi å bruke `y` *utenfor* funksjonen, får vi en feilmelding -- for `y` eksisterer ikke der ute; den bor inni funksjonen og kommer ikke ut. Dette kan virke tungvint i starten, men det er faktisk en stor fordel: lokale variabler hindrer at funksjoner roter til hverandres data. Hver funksjon får sitt eget private rom å jobbe i, og det gjør programmer langt tryggere og lettere å forstå."},{"id":"im-vg1-2-5-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på lokale og globale variabler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-5-n-quiz3-q0","task":"Hva er en lokal variabel?","options":[{"id":"a","text":"En variabel som finnes bare inne i funksjonen den er laget i","isCorrect":true},{"id":"b","text":"En variabel som alltid er 0","isCorrect":false},{"id":"c","text":"En variabel som kan ses fra hele programmet","isCorrect":false},{"id":"d","text":"Et reservert ord","isCorrect":false}],"solution":"En lokal variabel opprettes inne i en funksjon og finnes bare der; den forsvinner når funksjonen er ferdig."},{"id":"im-vg1-2-5-n-quiz3-q1","task":"Hva skjer hvis du prøver å bruke en lokal variabel utenfor funksjonen den hører til?","options":[{"id":"a","text":"Den får verdien 0","isCorrect":false},{"id":"b","text":"Du får en feilmelding fordi variabelen ikke finnes der","isCorrect":true},{"id":"c","text":"Den blir automatisk global","isCorrect":false},{"id":"d","text":"Ingenting skjer","isCorrect":false}],"solution":"En lokal variabel eksisterer bare inne i sin funksjon, så å bruke den utenfor gir en feilmelding."},{"id":"im-vg1-2-5-n-quiz3-q2","task":"Hvorfor er lokale variabler en fordel?","options":[{"id":"a","text":"De gjør programmet tregere","isCorrect":false},{"id":"b","text":"De bruker mer minne","isCorrect":false},{"id":"c","text":"De hindrer funksjoner i å rote til hverandres data","isCorrect":true},{"id":"d","text":"De kan aldri endres","isCorrect":false}],"solution":"Lokale variabler gir hver funksjon sitt eget private rom, slik at funksjoner ikke forstyrrer hverandres data."}]}},{"id":"im-vg1-2-5-n-section4","type":"text","content":"## Å bygge med byggeklosser\n\nNå kommer vi til den store ideen: **modularisering**. Dette betyr å dele et helt program opp i mindre, selvstendige funksjoner, der hver gjør én klart avgrenset oppgave. I stedet for én lang, uoversiktlig kodemasse, får du et sett med ryddige byggeklosser du kan sette sammen.\n\nTenk deg at du skal regne på sirkler. I stedet for å blande alt sammen, lager du én funksjon `sirkel_areal(radius)` som returnerer `math.pi * radius ** 2`, og en annen `sirkel_omkrets(radius)` som returnerer `2 * math.pi * radius`. Legg merke til at vi her bruker `import math` for å hente inn ferdige matematiske verktøy, som `math.pi`. Nå kan hovedprogrammet bare spørre om en radius og kalle de to funksjonene -- ryddig, lesbart og lett å teste hver for seg.\n\nDette er enda kraftigere når du bygger større programmer. Du kan lage en funksjon `les_tall(nr)` som henter et tall fra brukeren, en `gjennomsnitt(liste)` som regner ut snittet, og en `hovedprogram()` som binder alt sammen. Hver funksjon er liten og forståelig, og hvis noe går galt, vet du raskt hvor du skal lete. Modularisering gjør koden mer oversiktlig, lettere å gjenbruke, og enklere å vedlikeholde. Det er forskjellen på et rotete skrivebord og et velorganisert verksted -- og det er kjennetegnet på en moden programmerer."},{"id":"im-vg1-2-5-n-quiz4","type":"exercise","exercise":{"id":"im-vg1-2-5-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på modularisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-5-n-quiz4-q0","task":"Hva betyr modularisering?","options":[{"id":"a","text":"Å skrive all kode på én lang linje","isCorrect":false},{"id":"b","text":"Å fjerne alle funksjoner","isCorrect":false},{"id":"c","text":"Å bare bruke globale variabler","isCorrect":false},{"id":"d","text":"Å dele programmet i mindre, selvstendige funksjoner","isCorrect":true}],"solution":"Modularisering betyr å dele opp et program i mindre, selvstendige funksjoner som hver gjør én avgrenset oppgave."},{"id":"im-vg1-2-5-n-quiz4-q1","task":"Hva gjør «import math» i et program?","options":[{"id":"a","text":"Henter inn ferdige matematiske verktøy, som math.pi","isCorrect":true},{"id":"b","text":"Sletter alle tall","isCorrect":false},{"id":"c","text":"Starter en løkke","isCorrect":false},{"id":"d","text":"Skriver ut et tilfeldig tall","isCorrect":false}],"solution":"import math henter inn matematikk-modulen, slik at du kan bruke ferdige verktøy som math.pi og math-funksjoner."},{"id":"im-vg1-2-5-n-quiz4-q2","task":"Hva er en fordel med å dele et program i flere funksjoner?","options":[{"id":"a","text":"Koden blir vanskeligere å lese","isCorrect":false},{"id":"b","text":"Koden blir mer oversiktlig, gjenbrukbar og lettere å vedlikeholde","isCorrect":true},{"id":"c","text":"Programmet slutter å virke","isCorrect":false},{"id":"d","text":"Man slipper å bruke variabler","isCorrect":false}],"solution":"Modularisering gjør koden mer oversiktlig, lettere å gjenbruke og enklere å vedlikeholde og feilsøke."}]}},{"id":"im-vg1-2-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært å gi koden orden gjennom **funksjoner** -- navngitte kodeblokker, definert med `def`, som vi kan kalle igjen og igjen i stedet for å gjenta oss selv. Funksjoner tar imot informasjon via **parametere** (gjerne med standardverdier for fleksibilitet) og sender svar tilbake via **returverdier** med `return`, slik at de blir til små maskiner som omdanner inndata til resultater.\n\nVi forsto også hvor variabler bor: **lokale** variabler finnes bare inne i sin funksjon, mens **globale** ses fra hele programmet -- og at lokale variabler beskytter funksjoner mot å rote til hverandres data. Til slutt møtte vi **modularisering**, kunsten å bygge programmer av små, selvstendige byggeklosser som hver gjør én ting godt. Resultatet er kode som er oversiktlig, gjenbrukbar og enkel å vedlikeholde."}],"exercises":[]}
+{
+  "id": "im-vg1-2-5-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "2.5",
+  "title": "Funksjoner og modularisering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan vi gir koden orden -- funksjoner som pakker oppgaver pent sammen, parametere og returverdier som lar dem snakke, og modularisering som forvandler kaos til oversikt.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "definere og kalle egne funksjoner i Python",
+    "bruke parametere og returverdier effektivt",
+    "organisere kode i gjenbrukbare moduler"
+  ],
+  "linkedChapterId": "im-vg1-2-5",
+  "content": [
+    {
+      "id": "im-vg1-2-5-n-intro",
+      "type": "text",
+      "content": "## Den late programmererens dyd\n\nDet finnes et godt prinsipp blant programmerere: ikke gjenta deg selv. Hvis du finner deg selv skrivende den samme koden om og om igjen, gjør du sannsynligvis noe feil. Tenk deg at du skal hilse på ti personer, og hver gang skriver de samme tre linjene kode på nytt. Det blir langt, kjedelig, og hvis du senere vil endre hilsenen, må du rette den ti steder. En liten feil ett sted, og du har en bug.\n\nLøsningen er en av de vakreste ideene i programmeringen: **funksjoner**. En funksjon er en navngitt kodeblokk som utfører en bestemt oppgave, og som du kan kalle så mange ganger du vil. Du skriver oppskriften én gang, gir den et navn, og bruker den igjen og igjen. Det er den late programmererens dyd -- og latskap er her en god ting, for den fører til ryddig, vedlikeholdbar kode.\n\nI denne fortellingen skal vi lære å lage våre egne funksjoner. Vi skal se hvordan de tar imot informasjon gjennom parametere og sender svar tilbake gjennom returverdier. Vi skal forstå forskjellen på lokale og globale variabler, og til slutt skal vi oppdage modularisering -- kunsten å dele et stort program opp i små, oversiktlige biter som hver gjør én ting godt."
+    },
+    {
+      "id": "im-vg1-2-5-n-section1",
+      "type": "text",
+      "content": "## Å lage din egen oppskrift\n\nDu har allerede brukt funksjoner -- `print()` og `input()` er funksjoner andre har laget. Nå skal du lage dine egne. I Python definerer du en funksjon med nøkkelordet `def`, etterfulgt av et navn og et par parenteser. Den enkleste hilsefunksjonen ser slik ut: `def hilsen(navn):` med en `print(f\"Hei, {navn}!\")` under. Når du så skriver `hilsen(\"Kari\")`, kjøres koden inni funksjonen med navnet «Kari», og du får «Hei, Kari!». Kall den med «Ola», og du får «Hei, Ola!». Samme oppskrift, ulike ingredienser.\n\nLegg merke til ordet **navn** inni parentesen. Det er en **parameter** -- en variabel som tar imot en verdi når funksjonen kalles. Parametere er måten du sender informasjon *inn* i funksjonen på, slik at den kan jobbe med ulike data hver gang.\n\nDu kan også gi parametere en **standardverdi**, som brukes hvis du ikke oppgir noe. Definerer du `def hilsen(navn, ord=\"Hei\"):`, kan du kalle `hilsen(\"Kari\")` og få «Hei, Kari!» -- standardverdien «Hei» brukes automatisk. Men kaller du `hilsen(\"Ola\", \"God dag\")`, overstyrer du standarden og får «God dag, Ola!». Standardverdier gjør funksjonene dine fleksible: enkle å bruke i det vanlige tilfellet, men mulige å tilpasse når du trenger det."
+    },
+    {
+      "id": "im-vg1-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på funksjoner og parametere:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-5-n-quiz1-q0",
+            "task": "Hvilket nøkkelord brukes for å definere en funksjon i Python?",
+            "options": [
+              {
+                "id": "c",
+                "text": "def",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "func",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "function",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "define",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I Python defineres en funksjon med nøkkelordet def, etterfulgt av navn og parenteser."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz1-q1",
+            "task": "Hva er en parameter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En kommentar i koden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En variabel som tar imot en verdi når funksjonen kalles",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Et tall som alltid er 0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et reservert ord",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En parameter er en variabel i funksjonsdefinisjonen som mottar en verdi når funksjonen kalles."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz1-q2",
+            "task": "Hva skjer ved hilsen(\"Kari\") når funksjonen er def hilsen(navn, ord=\"Hei\")?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det gir en feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingenting skjer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Standardverdien «Hei» brukes, så resultatet blir «Hei, Kari!»",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det skrives ut «ord, Kari!»",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når ord ikke oppgis, brukes standardverdien «Hei», så resultatet blir «Hei, Kari!»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-5-n-section2",
+      "type": "text",
+      "content": "## Når funksjonen svarer tilbake\n\nSå langt har funksjonene våre bare *gjort* noe, som å skrive ut tekst. Men ofte vil vi at en funksjon skal *regne ut* noe og gi oss svaret tilbake, slik at vi kan bruke det videre. Til det har vi nøkkelordet **return** og det vi kaller en **returverdi**.\n\nTenk deg en addisjonsfunksjon: `def adder(a, b):` med `return a + b` under. Når du skriver `adder(3, 7)`, regner funksjonen ut summen og sender tallet 10 *tilbake* til der den ble kalt. Du kan da skrive `print(adder(3, 7))` for å vise det, eller lagre svaret i en variabel for å bruke det senere. Forskjellen er viktig: en funksjon som bare `print`-er, viser noe på skjermen og er ferdig med det, mens en funksjon som `return`-er, gir deg en verdi du kan jobbe videre med.\n\nDette åpner for å bygge nyttige verktøy. Du kan lage en funksjon `kvadrat(tall)` som returnerer `tall ** 2`, eller en `er_partall(tall)` som returnerer `tall % 2 == 0` -- altså `True` eller `False`. Den siste kan du bruke rett i en if-setning eller løkke. Du kan til og med la en funksjon returnere ulike verdier basert på betingelser, som en `karakter(poeng)`-funksjon som returnerer «A», «B», «C» og så videre etter hvor mange poeng som sendes inn. Med return blir funksjonene dine til små maskiner som tar inn data og leverer resultater."
+    },
+    {
+      "id": "im-vg1-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på returverdier:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-5-n-quiz2-q0",
+            "task": "Hva returnerer doble(7) når funksjonen er def doble(tall): return tall * 2?",
+            "options": [
+              {
+                "id": "a",
+                "text": "7",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "77",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "None",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "14",
+                "isCorrect": true
+              }
+            ],
+            "solution": "doble(7) returnerer 7 * 2 = 14."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz2-q1",
+            "task": "Hva skrives ut av print(f(3)) og print(f(3, 10)) når def f(a, b=5): return a + b?",
+            "options": [
+              {
+                "id": "c",
+                "text": "8 og 13",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "8 og 8",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "3 og 13",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "f(3) bruker standardverdien b=5: 3+5=8. f(3, 10) bruker b=10: 3+10=13."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz2-q2",
+            "task": "Hva er forskjellen på en funksjon som print-er og en som return-er?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er ingen forskjell",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "print viser noe på skjermen, return gir tilbake en verdi du kan bruke videre",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "return kan bare brukes én gang per program",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "print er raskere enn return",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En print-funksjon viser noe på skjermen, mens en return-funksjon sender tilbake en verdi som kan lagres og brukes videre."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-5-n-section3",
+      "type": "text",
+      "content": "## Hvor variablene bor\n\nNå må vi forstå et viktig begrep: hvor en variabel «bor», eller det vi kaller dens *virkeområde*. Det handler om hvor i programmet en variabel er synlig og kan brukes.\n\nEn variabel som opprettes *inne* i en funksjon, kalles **lokal**. Den finnes bare der, inni funksjonen, og forsvinner i det funksjonen er ferdig. Det er litt som et privat notat på arbeidsbordet ditt -- bare du på rommet ser det. En variabel som opprettes *utenfor* alle funksjoner, kalles **global**, og kan ses fra hele programmet, omtrent som en oppslagstavle i gangen alle kan lese.\n\nLa oss se det i praksis. Hvis `x = 10` er global, og vi inni en funksjon lager `y = 5` som lokal, så kan funksjonen lese begge og skrive ut «10 5». Men prøver vi å bruke `y` *utenfor* funksjonen, får vi en feilmelding -- for `y` eksisterer ikke der ute; den bor inni funksjonen og kommer ikke ut. Dette kan virke tungvint i starten, men det er faktisk en stor fordel: lokale variabler hindrer at funksjoner roter til hverandres data. Hver funksjon får sitt eget private rom å jobbe i, og det gjør programmer langt tryggere og lettere å forstå."
+    },
+    {
+      "id": "im-vg1-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lokale og globale variabler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-5-n-quiz3-q0",
+            "task": "Hva er en lokal variabel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En variabel som alltid er 0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En variabel som kan ses fra hele programmet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En variabel som finnes bare inne i funksjonen den er laget i",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Et reservert ord",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En lokal variabel opprettes inne i en funksjon og finnes bare der; den forsvinner når funksjonen er ferdig."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz3-q1",
+            "task": "Hva skjer hvis du prøver å bruke en lokal variabel utenfor funksjonen den hører til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den får verdien 0",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den blir automatisk global",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting skjer",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Du får en feilmelding fordi variabelen ikke finnes der",
+                "isCorrect": true
+              }
+            ],
+            "solution": "En lokal variabel eksisterer bare inne i sin funksjon, så å bruke den utenfor gir en feilmelding."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz3-q2",
+            "task": "Hvorfor er lokale variabler en fordel?",
+            "options": [
+              {
+                "id": "c",
+                "text": "De hindrer funksjoner i å rote til hverandres data",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "De gjør programmet tregere",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De bruker mer minne",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "De kan aldri endres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lokale variabler gir hver funksjon sitt eget private rom, slik at funksjoner ikke forstyrrer hverandres data."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-5-n-section4",
+      "type": "text",
+      "content": "## Å bygge med byggeklosser\n\nNå kommer vi til den store ideen: **modularisering**. Dette betyr å dele et helt program opp i mindre, selvstendige funksjoner, der hver gjør én klart avgrenset oppgave. I stedet for én lang, uoversiktlig kodemasse, får du et sett med ryddige byggeklosser du kan sette sammen.\n\nTenk deg at du skal regne på sirkler. I stedet for å blande alt sammen, lager du én funksjon `sirkel_areal(radius)` som returnerer `math.pi * radius ** 2`, og en annen `sirkel_omkrets(radius)` som returnerer `2 * math.pi * radius`. Legg merke til at vi her bruker `import math` for å hente inn ferdige matematiske verktøy, som `math.pi`. Nå kan hovedprogrammet bare spørre om en radius og kalle de to funksjonene -- ryddig, lesbart og lett å teste hver for seg.\n\nDette er enda kraftigere når du bygger større programmer. Du kan lage en funksjon `les_tall(nr)` som henter et tall fra brukeren, en `gjennomsnitt(liste)` som regner ut snittet, og en `hovedprogram()` som binder alt sammen. Hver funksjon er liten og forståelig, og hvis noe går galt, vet du raskt hvor du skal lete. Modularisering gjør koden mer oversiktlig, lettere å gjenbruke, og enklere å vedlikeholde. Det er forskjellen på et rotete skrivebord og et velorganisert verksted -- og det er kjennetegnet på en moden programmerer."
+    },
+    {
+      "id": "im-vg1-2-5-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-5-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modularisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-5-n-quiz4-q0",
+            "task": "Hva betyr modularisering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å skrive all kode på én lang linje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å dele programmet i mindre, selvstendige funksjoner",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å fjerne alle funksjoner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bare bruke globale variabler",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Modularisering betyr å dele opp et program i mindre, selvstendige funksjoner som hver gjør én avgrenset oppgave."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz4-q1",
+            "task": "Hva gjør «import math» i et program?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sletter alle tall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Starter en løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Henter inn ferdige matematiske verktøy, som math.pi",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Skriver ut et tilfeldig tall",
+                "isCorrect": false
+              }
+            ],
+            "solution": "import math henter inn matematikk-modulen, slik at du kan bruke ferdige verktøy som math.pi og math-funksjoner."
+          },
+          {
+            "id": "im-vg1-2-5-n-quiz4-q2",
+            "task": "Hva er en fordel med å dele et program i flere funksjoner?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Koden blir vanskeligere å lese",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Programmet slutter å virke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Man slipper å bruke variabler",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Koden blir mer oversiktlig, gjenbrukbar og lettere å vedlikeholde",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Modularisering gjør koden mer oversiktlig, lettere å gjenbruke og enklere å vedlikeholde og feilsøke."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært å gi koden orden gjennom **funksjoner** -- navngitte kodeblokker, definert med `def`, som vi kan kalle igjen og igjen i stedet for å gjenta oss selv. Funksjoner tar imot informasjon via **parametere** (gjerne med standardverdier for fleksibilitet) og sender svar tilbake via **returverdier** med `return`, slik at de blir til små maskiner som omdanner inndata til resultater.\n\nVi forsto også hvor variabler bor: **lokale** variabler finnes bare inne i sin funksjon, mens **globale** ses fra hele programmet -- og at lokale variabler beskytter funksjoner mot å rote til hverandres data. Til slutt møtte vi **modularisering**, kunsten å bygge programmer av små, selvstendige byggeklosser som hver gjør én ting godt. Resultatet er kode som er oversiktlig, gjenbrukbar og enkel å vedlikeholde."
+    }
+  ],
+  "exercises": []
+}

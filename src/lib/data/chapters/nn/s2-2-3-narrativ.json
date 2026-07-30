@@ -1,1 +1,359 @@
-{"id":"s2-2-3-narrativ","courseId":"s2","chapterNumber":"2.3","title":"Lineære differensiallikningar","subtitle":"Narrativ versjon","description":"Ei forteljing om sparekontoen med både rente og innskot: integrerande faktor som gjer venstresida til ein produktderivert, og løysingar som svingar inn mot stabil likevekt.","estimatedMinutes":32,"competenceGoals":["løyse lineære differensiallikningar","bruke differensiallikningar i modellering"],"linkedChapterId":"s2-2-3","content":[{"id":"s2-2-3-n-intro","type":"text","content":"## Kontoen med både rente og innskot\n\nDu set opp eit spareprogram: kontoen har rente, og i tillegg overfører du eit fast beløp jamt gjennom året. Endringa i saldoen kjem altså frå to kjelder samtidig — ein del som er proporsjonal med saldoen (renta), og ein del som er konstant (innskota). Modellen blir noko sånt som $y' = ry + b$, eller meir generelt likningar der $y'$, $y$ og eit «pådrag» utanfrå inngår lineært.\n\nSlike likningar har eit eige namn. Ei **lineær første ordens differensiallikning** har forma\n\n$$y' + p(x)y = q(x)$$\n\nder $p(x)$ og $q(x)$ er kjende funksjonar. Ordet *lineær* siktar til at $y$ og $y'$ berre opptrer i første potens — ingen $y^2$, ingen $\\sqrt{y}$, ingen $y \\cdot y'$. Funksjonen $q(x)$ på høgresida spelar rolla som ytre pådrag: innskot på kontoen, tilførsel til eit basseng, oppvarming av eit hus.\n\nKvifor ein ny metode? Separasjon fungerer fint så lenge høgresida faktoriserer pent, men ei likning som $y' + 2xy = x$ lèt seg ikkje separere — $x$- og $y$-delane er vovne saman med addisjon, ikkje multiplikasjon. Lineære likningar treng sitt eige verktøy.\n\nVerktøyet heiter **integrerande faktor**, og det er noko så sjeldsynt som eit triks som kjennest som magi første gong og som rein systematikk etterpå: vi gangar heile likninga med ein smart vald funksjon som gjer venstresida til *den deriverte av eit produkt* — og då kan alt integrerast i eitt jafs. Lat oss sjå nøyaktig korleis."},{"id":"s2-2-3-n-section1","type":"text","content":"## Integrerande faktor\n\nMetoden for å løyse $y' + p(x)y = q(x)$ går i fire trinn.\n\n**Trinn 1:** Finn den **integrerande faktoren** $\\mu(x) = e^{\\int p(x)\\,dx}$.\n\n**Trinn 2:** Multipliser heile likninga med $\\mu(x)$: $\\mu y' + \\mu p y = \\mu q$. Og her skjer trikset: fordi $\\mu' = p\\mu$ (det er nett slik $\\mu$ er konstruert), er venstresida eksakt produktregelen brukt på $\\mu y$:\n\n$$\\frac{d}{dx}(\\mu y) = \\mu q$$\n\n**Trinn 3:** Integrer begge sider: $\\mu y = \\int \\mu q\\,dx + C$.\n\n**Trinn 4:** Løys for $y$: $y = \\frac{1}{\\mu}\\int \\mu q\\,dx + \\frac{C}{\\mu}$.\n\nMagien ligg i trinn 2. Venstresida $\\mu y' + \\mu p y$ er, ledd for ledd, nøyaktig kva produktregelen gjev når vi deriverer $\\mu y$: nemleg $\\mu y' + \\mu' y$, sidan $\\mu' = p\\mu$. Heile den uhandterlege venstresida kollapsar til éin derivert — og ei likning på forma «derivert av noko = kjend funksjon» blir løyst ved rein integrasjon, akkurat som i kapittel 2.1.\n\nLat oss sjekke konstruksjonen på eit konkret døme: for likninga $y' + 2y = 4$ er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$. Multiplisert med $e^{2x}$ blir likninga $e^{2x}y' + 2e^{2x}y = 4e^{2x}$ — og venstresida er nøyaktig $(e^{2x}y)'$. Kontroller sjølv med produktregelen: $(e^{2x}y)' = e^{2x}y' + 2e^{2x}y$. Stemmer på ein prikk. Resten av utrekninga tek vi i neste seksjon — og der ventar òg ei tolking som gjer svaret interessant for både sparekontoar og samfunnsmodellar."},{"id":"s2-2-3-n-quiz1","type":"exercise","exercise":{"id":"s2-2-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på lineære likningar og integrerande faktor:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-3-n-quiz1-q0","task":"Kva form har ei lineær første ordens differensiallikning?","options":[{"id":"a","text":"$y' + p(x)y = q(x)$","isCorrect":true},{"id":"b","text":"$y' = f(x) \\cdot g(y)$","isCorrect":false},{"id":"c","text":"$y'' + y = 0$","isCorrect":false},{"id":"d","text":"$y' \\cdot y = p(x)$","isCorrect":false}],"solution":"Lineær første ordens form: $y' + p(x)y = q(x)$, der $y$ og $y'$ berre opptrer i første potens. Forma $f(x)g(y)$ kjenneteiknar separable likningar."},{"id":"s2-2-3-n-quiz1-q1","task":"Kva er den integrerande faktoren for $y' + p(x)y = q(x)$?","options":[{"id":"a","text":"$\\mu = \\int p(x)\\,dx$","isCorrect":false},{"id":"b","text":"$\\mu = e^{\\int p(x)\\,dx}$","isCorrect":true},{"id":"c","text":"$\\mu = \\ln|p(x)|$","isCorrect":false},{"id":"d","text":"$\\mu = e^{p(x)}$","isCorrect":false}],"solution":"Den integrerande faktoren er $\\mu(x) = e^{\\int p(x)\\,dx}$ — eksponentialfunksjonen av integralet av $p$, ikkje av $p$ sjølv."},{"id":"s2-2-3-n-quiz1-q2","task":"Kva er den integrerande faktoren for $y' + 2y = 4$?","options":[{"id":"a","text":"$\\mu = e^{4x}$","isCorrect":false},{"id":"b","text":"$\\mu = 2x$","isCorrect":false},{"id":"c","text":"$\\mu = e^{2x}$","isCorrect":true},{"id":"d","text":"$\\mu = e^{x^2}$","isCorrect":false}],"solution":"Her er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$."},{"id":"s2-2-3-n-quiz1-q3","task":"Kva blir venstresida $\\mu y' + \\mu p y$ etter multiplikasjon med den integrerande faktoren?","options":[{"id":"a","text":"Den deriverte av produktet: $(\\mu y)'$","isCorrect":true},{"id":"b","text":"Integralet $\\int \\mu y\\,dx$","isCorrect":false},{"id":"c","text":"Null","isCorrect":false},{"id":"d","text":"$\\mu^2 y$","isCorrect":false}],"solution":"Sidan $\\mu' = p\\mu$, er $\\mu y' + \\mu p y = \\mu y' + \\mu' y = (\\mu y)'$ etter produktregelen. Det er heile poenget: likninga blir «derivert av noko = kjend funksjon»."}]}},{"id":"s2-2-3-n-section2","type":"text","content":"## Løysing, likevekt og stabilitet\n\nLat oss fullføre dømet $y' + 2y = 4$. Med $\\mu = e^{2x}$ har vi $(e^{2x}y)' = 4e^{2x}$. Integrasjon gjev $e^{2x}y = 2e^{2x} + C$, og deling på $e^{2x}$ gjev løysinga\n\n$$y = 2 + Ce^{-2x}$$\n\nMønsteret er heilt generelt: likninga $y' + ay = b$ med konstante koeffisientar har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Og denne forma fortel ei historie i to delar. Konstantleddet $\\frac{b}{a}$ er **likevektsløysinga** — den konstante løysinga vi finn ved å setje $y' = 0$ (her: $2y = 4$, altså $y = 2$). Leddet $Ce^{-ax}$ er avviket frå likevekta, og for $a > 0$ døyr det eksponentielt ut.\n\nKonsekvensen er slåande: *uansett* startverdi nærmar alle løysingar seg likevekta $\\frac{b}{a}$ når $x \\to \\infty$. Startar du over, søkk du ned mot henne; startar du under, stig du opp. Vi seier at likevekta er **stabil**. Med initialvilkår, sei $y(0) = 5$ for likninga $y' + 3y = 6$: likevekta er $\\frac{6}{3} = 2$, løysinga er $y = 2 + Ce^{-3x}$, og $y(0) = 2 + C = 5$ gjev $C = 3$, altså $y = 2 + 3e^{-3x}$ — start i 5, eksponentielt glid ned mot 2.\n\nDet er denne strukturen som gjer lineære likningar til arbeidshesten i praktisk modellering. Ein konto der det blir sett inn pengar med fast rate samtidig som det blir trekt gebyr proporsjonalt med saldoen, eit basseng som blir tilført reint vatn medan blandinga renn ut (blandingsproblem), eit hus som blir varma opp mot ei termostatgrense, ein marknad der prisen blir justert mot likevektsnivået — alle har forma $y' + ay = b$, og alle svarar med same kurva: eksponentiell innsving mot $\\frac{b}{a}$. Når du ser ein storleik som «flatar ut mot eit nivå», er det ofte ei lineær differensiallikning som ligg bak."},{"id":"s2-2-3-n-quiz2","type":"exercise","exercise":{"id":"s2-2-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på løysing og likevekt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-3-n-quiz2-q0","task":"Kva er den generelle løysinga av $y' + 2y = 4$?","options":[{"id":"a","text":"$y = 4 + Ce^{2x}$","isCorrect":false},{"id":"b","text":"$y = 2 + Ce^{-2x}$","isCorrect":true},{"id":"c","text":"$y = 2x + C$","isCorrect":false},{"id":"d","text":"$y = Ce^{-2x}$","isCorrect":false}],"solution":"Integrerande faktor $e^{2x}$ gjev $(e^{2x}y)' = 4e^{2x}$, så $e^{2x}y = 2e^{2x} + C$ og $y = 2 + Ce^{-2x}$."},{"id":"s2-2-3-n-quiz2-q1","task":"Kva er likevektsløysinga til $y' + ay = b$ (med $a \\neq 0$)?","options":[{"id":"a","text":"$y = \\frac{a}{b}$","isCorrect":false},{"id":"b","text":"$y = ab$","isCorrect":false},{"id":"c","text":"$y = b - a$","isCorrect":false},{"id":"d","text":"$y = \\frac{b}{a}$","isCorrect":true}],"solution":"Likevekt tyder $y' = 0$, som gjev $ay = b$, altså $y = \\frac{b}{a}$. Det er den konstante løysinga systemet kviler i."},{"id":"s2-2-3-n-quiz2-q2","task":"Kva skjer med løysingane av $y' + 2y = 4$ når $x \\to \\infty$?","options":[{"id":"a","text":"Dei veks mot uendeleg","isCorrect":false},{"id":"b","text":"Dei nærmar seg likevekta $y = 2$ uansett startverdi","isCorrect":true},{"id":"c","text":"Dei søkk mot null","isCorrect":false},{"id":"d","text":"Dei svingar fram og tilbake rundt $4$","isCorrect":false}],"solution":"Løysinga er $y = 2 + Ce^{-2x}$, og avviksleddet $Ce^{-2x}$ døyr ut når $x$ veks. Alle løysingar glid inn mot den stabile likevekta $y = 2$."},{"id":"s2-2-3-n-quiz2-q3","task":"Kva er den partikulære løysinga av $y' + 3y = 6$ med $y(0) = 5$?","options":[{"id":"a","text":"$y = 2 + 3e^{-3x}$","isCorrect":true},{"id":"b","text":"$y = 5e^{-3x}$","isCorrect":false},{"id":"c","text":"$y = 2 + 5e^{-3x}$","isCorrect":false},{"id":"d","text":"$y = 3 + 2e^{-3x}$","isCorrect":false}],"solution":"Generell løysing: $y = \\frac{6}{3} + Ce^{-3x} = 2 + Ce^{-3x}$. Initialvilkåret gjev $2 + C = 5$, altså $C = 3$: $y = 2 + 3e^{-3x}$."}]}},{"id":"s2-2-3-n-summary","type":"text","content":"## Produktregelen som låste opp likninga\n\nSparekontoen med både rente og innskot er ikkje lenger noko problem. Lineære første ordens likningar $y' + p(x)y = q(x)$ blir løyste med integrerande faktor $\\mu = e^{\\int p(x)\\,dx}$: multipliser likninga med $\\mu$, og venstresida kollapsar — takka vere konstruksjonen $\\mu' = p\\mu$ — til produktderiverten $(\\mu y)'$. Deretter er det berre å integrere og dele på $\\mu$. Fire trinn, ingen gjetting.\n\nFor konstante koeffisientar fekk du eit resultat verdt å hugse: $y' + ay = b$ har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Strukturen er likevekt pluss avvik. Likevektsløysinga $\\frac{b}{a}$ finn du raskast ved å setje $y' = 0$, og for $a > 0$ døyr avviket $Ce^{-ax}$ eksponentielt ut — likevekta er stabil, og alle løysingar flatar ut mot henne, slik $y' + 3y = 6$ med start i 5 gleid ned mot 2 langs $y = 2 + 3e^{-3x}$.\n\nDet er nett denne innsving-mot-nivå-dynamikken du ser i kontoar med faste innskot og gebyr, i blandingsproblem, i oppvarming mot termostat og i prisar som søkjer mot marknadslikevekt. Saman med separasjonsmetoden frå førre kapittel har du no to kraftige løysingsteknikkar — og i neste kapittel løftar vi blikket frå teknikkane til sjølve modellane: eksponentiell og logistisk vekst, og kunsten å velje rett modell for verkelegheita."}],"exercises":[],"_meta":{"sourceHash":"15077ac2ee8255d6","translatedAt":"2026-06-20T09:03:19.008Z","model":"claude-code-agent","strings":61,"tm":{"6747923d71b4b48d":"Lineære differensiallikningar","b195b06d1ed59702":"Narrativ versjon","b19cb928ff99bc20":"Ei forteljing om sparekontoen med både rente og innskot: integrerande faktor som gjer venstresida til ein produktderivert, og løysingar som svingar inn mot stabil likevekt.","008782b78f5d1423":"løyse lineære differensiallikningar","ae8c05c274c7745a":"bruke differensiallikningar i modellering","3ab573f75cf0896d":"## Kontoen med både rente og innskot\n\nDu set opp eit spareprogram: kontoen har rente, og i tillegg overfører du eit fast beløp jamt gjennom året. Endringa i saldoen kjem altså frå to kjelder samtidig — ein del som er proporsjonal med saldoen (renta), og ein del som er konstant (innskota). Modellen blir noko sånt som $y' = ry + b$, eller meir generelt likningar der $y'$, $y$ og eit «pådrag» utanfrå inngår lineært.\n\nSlike likningar har eit eige namn. Ei **lineær første ordens differensiallikning** har forma\n\n$$y' + p(x)y = q(x)$$\n\nder $p(x)$ og $q(x)$ er kjende funksjonar. Ordet *lineær* siktar til at $y$ og $y'$ berre opptrer i første potens — ingen $y^2$, ingen $\\sqrt{y}$, ingen $y \\cdot y'$. Funksjonen $q(x)$ på høgresida spelar rolla som ytre pådrag: innskot på kontoen, tilførsel til eit basseng, oppvarming av eit hus.\n\nKvifor ein ny metode? Separasjon fungerer fint så lenge høgresida faktoriserer pent, men ei likning som $y' + 2xy = x$ lèt seg ikkje separere — $x$- og $y$-delane er vovne saman med addisjon, ikkje multiplikasjon. Lineære likningar treng sitt eige verktøy.\n\nVerktøyet heiter **integrerande faktor**, og det er noko så sjeldsynt som eit triks som kjennest som magi første gong og som rein systematikk etterpå: vi gangar heile likninga med ein smart vald funksjon som gjer venstresida til *den deriverte av eit produkt* — og då kan alt integrerast i eitt jafs. Lat oss sjå nøyaktig korleis.","40261c3f6664c503":"## Integrerande faktor\n\nMetoden for å løyse $y' + p(x)y = q(x)$ går i fire trinn.\n\n**Trinn 1:** Finn den **integrerande faktoren** $\\mu(x) = e^{\\int p(x)\\,dx}$.\n\n**Trinn 2:** Multipliser heile likninga med $\\mu(x)$: $\\mu y' + \\mu p y = \\mu q$. Og her skjer trikset: fordi $\\mu' = p\\mu$ (det er nett slik $\\mu$ er konstruert), er venstresida eksakt produktregelen brukt på $\\mu y$:\n\n$$\\frac{d}{dx}(\\mu y) = \\mu q$$\n\n**Trinn 3:** Integrer begge sider: $\\mu y = \\int \\mu q\\,dx + C$.\n\n**Trinn 4:** Løys for $y$: $y = \\frac{1}{\\mu}\\int \\mu q\\,dx + \\frac{C}{\\mu}$.\n\nMagien ligg i trinn 2. Venstresida $\\mu y' + \\mu p y$ er, ledd for ledd, nøyaktig kva produktregelen gjev når vi deriverer $\\mu y$: nemleg $\\mu y' + \\mu' y$, sidan $\\mu' = p\\mu$. Heile den uhandterlege venstresida kollapsar til éin derivert — og ei likning på forma «derivert av noko = kjend funksjon» blir løyst ved rein integrasjon, akkurat som i kapittel 2.1.\n\nLat oss sjekke konstruksjonen på eit konkret døme: for likninga $y' + 2y = 4$ er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$. Multiplisert med $e^{2x}$ blir likninga $e^{2x}y' + 2e^{2x}y = 4e^{2x}$ — og venstresida er nøyaktig $(e^{2x}y)'$. Kontroller sjølv med produktregelen: $(e^{2x}y)' = e^{2x}y' + 2e^{2x}y$. Stemmer på ein prikk. Resten av utrekninga tek vi i neste seksjon — og der ventar òg ei tolking som gjer svaret interessant for både sparekontoar og samfunnsmodellar.","875fb4d3f601b5d1":"Test deg sjølv på lineære likningar og integrerande faktor:","4097889236a2af26":"placeholder","756e623714b46fac":"Kva form har ei lineær første ordens differensiallikning?","55e6b609ec2e3c85":"$y' + p(x)y = q(x)$","e445003ed6eecddb":"$y' = f(x) \\cdot g(y)$","6c00526291a0311d":"$y'' + y = 0$","fe555b4ee93efd1a":"$y' \\cdot y = p(x)$","65b6522b765f74a8":"Lineær første ordens form: $y' + p(x)y = q(x)$, der $y$ og $y'$ berre opptrer i første potens. Forma $f(x)g(y)$ kjenneteiknar separable likningar.","841637f8869e0ef7":"Kva er den integrerande faktoren for $y' + p(x)y = q(x)$?","38738e4ef0d9e1d2":"$\\mu = \\int p(x)\\,dx$","af0f1b2851556f7e":"$\\mu = e^{\\int p(x)\\,dx}$","ebf2992c8a160051":"$\\mu = \\ln|p(x)|$","9f50f21a85232240":"$\\mu = e^{p(x)}$","0e626edcc2da6ae4":"Den integrerande faktoren er $\\mu(x) = e^{\\int p(x)\\,dx}$ — eksponentialfunksjonen av integralet av $p$, ikkje av $p$ sjølv.","dbd14c6be370ca90":"Kva er den integrerande faktoren for $y' + 2y = 4$?","1764cd7392e75166":"$\\mu = e^{4x}$","d2497ba41961dbc2":"$\\mu = 2x$","2738f0c1ed38b3fd":"$\\mu = e^{2x}$","6468c0b7c67d4b33":"$\\mu = e^{x^2}$","dc4ddb0206f414fd":"Her er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$.","0dfd1dee92046ebd":"Kva blir venstresida $\\mu y' + \\mu p y$ etter multiplikasjon med den integrerande faktoren?","7936020a63254d08":"Den deriverte av produktet: $(\\mu y)'$","5aa53c39c081abc3":"Integralet $\\int \\mu y\\,dx$","fa1d2db62d4d952e":"Null","296eeacbd1ca36f5":"$\\mu^2 y$","c24beacd859e9b76":"Sidan $\\mu' = p\\mu$, er $\\mu y' + \\mu p y = \\mu y' + \\mu' y = (\\mu y)'$ etter produktregelen. Det er heile poenget: likninga blir «derivert av noko = kjend funksjon».","2ebfae5c718a502a":"## Løysing, likevekt og stabilitet\n\nLat oss fullføre dømet $y' + 2y = 4$. Med $\\mu = e^{2x}$ har vi $(e^{2x}y)' = 4e^{2x}$. Integrasjon gjev $e^{2x}y = 2e^{2x} + C$, og deling på $e^{2x}$ gjev løysinga\n\n$$y = 2 + Ce^{-2x}$$\n\nMønsteret er heilt generelt: likninga $y' + ay = b$ med konstante koeffisientar har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Og denne forma fortel ei historie i to delar. Konstantleddet $\\frac{b}{a}$ er **likevektsløysinga** — den konstante løysinga vi finn ved å setje $y' = 0$ (her: $2y = 4$, altså $y = 2$). Leddet $Ce^{-ax}$ er avviket frå likevekta, og for $a > 0$ døyr det eksponentielt ut.\n\nKonsekvensen er slåande: *uansett* startverdi nærmar alle løysingar seg likevekta $\\frac{b}{a}$ når $x \\to \\infty$. Startar du over, søkk du ned mot henne; startar du under, stig du opp. Vi seier at likevekta er **stabil**. Med initialvilkår, sei $y(0) = 5$ for likninga $y' + 3y = 6$: likevekta er $\\frac{6}{3} = 2$, løysinga er $y = 2 + Ce^{-3x}$, og $y(0) = 2 + C = 5$ gjev $C = 3$, altså $y = 2 + 3e^{-3x}$ — start i 5, eksponentielt glid ned mot 2.\n\nDet er denne strukturen som gjer lineære likningar til arbeidshesten i praktisk modellering. Ein konto der det blir sett inn pengar med fast rate samtidig som det blir trekt gebyr proporsjonalt med saldoen, eit basseng som blir tilført reint vatn medan blandinga renn ut (blandingsproblem), eit hus som blir varma opp mot ei termostatgrense, ein marknad der prisen blir justert mot likevektsnivået — alle har forma $y' + ay = b$, og alle svarar med same kurva: eksponentiell innsving mot $\\frac{b}{a}$. Når du ser ein storleik som «flatar ut mot eit nivå», er det ofte ei lineær differensiallikning som ligg bak.","715e0d08da04761f":"Test deg sjølv på løysing og likevekt:","2975dc9d49cdc442":"Kva er den generelle løysinga av $y' + 2y = 4$?","fec26a964bfab3c8":"$y = 4 + Ce^{2x}$","bdc115956d331aa3":"$y = 2 + Ce^{-2x}$","2cf2371fdf1bcf85":"$y = 2x + C$","69072f7bb2ec512d":"$y = Ce^{-2x}$","af3c6ba48c32a47f":"Integrerande faktor $e^{2x}$ gjev $(e^{2x}y)' = 4e^{2x}$, så $e^{2x}y = 2e^{2x} + C$ og $y = 2 + Ce^{-2x}$.","7ea5f8d5094c7152":"Kva er likevektsløysinga til $y' + ay = b$ (med $a \\neq 0$)?","c2f60f650bf11ae7":"$y = \\frac{a}{b}$","58116a7573943478":"$y = ab$","be36fddc8be704f7":"$y = b - a$","cb6a1d59df54c0c0":"$y = \\frac{b}{a}$","85216936e2607ce5":"Likevekt tyder $y' = 0$, som gjev $ay = b$, altså $y = \\frac{b}{a}$. Det er den konstante løysinga systemet kviler i.","190806b4c705280d":"Kva skjer med løysingane av $y' + 2y = 4$ når $x \\to \\infty$?","6bca36d0b44b8a6b":"Dei veks mot uendeleg","3065fcfbba9a577a":"Dei nærmar seg likevekta $y = 2$ uansett startverdi","242a964bce7bf35b":"Dei søkk mot null","9a74f058238181c1":"Dei svingar fram og tilbake rundt $4$","0447e3b95d826554":"Løysinga er $y = 2 + Ce^{-2x}$, og avviksleddet $Ce^{-2x}$ døyr ut når $x$ veks. Alle løysingar glid inn mot den stabile likevekta $y = 2$.","18db2afa26567c41":"Kva er den partikulære løysinga av $y' + 3y = 6$ med $y(0) = 5$?","698ba6de8e828494":"$y = 2 + 3e^{-3x}$","451a4547b208b04e":"$y = 5e^{-3x}$","7c61e2949d8c1b6d":"$y = 2 + 5e^{-3x}$","52215439aad0c615":"$y = 3 + 2e^{-3x}$","7fe1f2ecce3e61b6":"Generell løysing: $y = \\frac{6}{3} + Ce^{-3x} = 2 + Ce^{-3x}$. Initialvilkåret gjev $2 + C = 5$, altså $C = 3$: $y = 2 + 3e^{-3x}$.","bd48cbeca049ff63":"## Produktregelen som låste opp likninga\n\nSparekontoen med både rente og innskot er ikkje lenger noko problem. Lineære første ordens likningar $y' + p(x)y = q(x)$ blir løyste med integrerande faktor $\\mu = e^{\\int p(x)\\,dx}$: multipliser likninga med $\\mu$, og venstresida kollapsar — takka vere konstruksjonen $\\mu' = p\\mu$ — til produktderiverten $(\\mu y)'$. Deretter er det berre å integrere og dele på $\\mu$. Fire trinn, ingen gjetting.\n\nFor konstante koeffisientar fekk du eit resultat verdt å hugse: $y' + ay = b$ har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Strukturen er likevekt pluss avvik. Likevektsløysinga $\\frac{b}{a}$ finn du raskast ved å setje $y' = 0$, og for $a > 0$ døyr avviket $Ce^{-ax}$ eksponentielt ut — likevekta er stabil, og alle løysingar flatar ut mot henne, slik $y' + 3y = 6$ med start i 5 gleid ned mot 2 langs $y = 2 + 3e^{-3x}$.\n\nDet er nett denne innsving-mot-nivå-dynamikken du ser i kontoar med faste innskot og gebyr, i blandingsproblem, i oppvarming mot termostat og i prisar som søkjer mot marknadslikevekt. Saman med separasjonsmetoden frå førre kapittel har du no to kraftige løysingsteknikkar — og i neste kapittel løftar vi blikket frå teknikkane til sjølve modellane: eksponentiell og logistisk vekst, og kunsten å velje rett modell for verkelegheita."}}}
+{
+  "id": "s2-2-3-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "2.3",
+  "title": "Lineære differensiallikningar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om sparekontoen med både rente og innskot: integrerande faktor som gjer venstresida til ein produktderivert, og løysingar som svingar inn mot stabil likevekt.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "løyse lineære differensiallikningar",
+    "bruke differensiallikningar i modellering"
+  ],
+  "linkedChapterId": "s2-2-3",
+  "content": [
+    {
+      "id": "s2-2-3-n-intro",
+      "type": "text",
+      "content": "## Kontoen med både rente og innskot\n\nDu set opp eit spareprogram: kontoen har rente, og i tillegg overfører du eit fast beløp jamt gjennom året. Endringa i saldoen kjem altså frå to kjelder samtidig — ein del som er proporsjonal med saldoen (renta), og ein del som er konstant (innskota). Modellen blir noko sånt som $y' = ry + b$, eller meir generelt likningar der $y'$, $y$ og eit «pådrag» utanfrå inngår lineært.\n\nSlike likningar har eit eige namn. Ei **lineær første ordens differensiallikning** har forma\n\n$$y' + p(x)y = q(x)$$\n\nder $p(x)$ og $q(x)$ er kjende funksjonar. Ordet *lineær* siktar til at $y$ og $y'$ berre opptrer i første potens — ingen $y^2$, ingen $\\sqrt{y}$, ingen $y \\cdot y'$. Funksjonen $q(x)$ på høgresida spelar rolla som ytre pådrag: innskot på kontoen, tilførsel til eit basseng, oppvarming av eit hus.\n\nKvifor ein ny metode? Separasjon fungerer fint så lenge høgresida faktoriserer pent, men ei likning som $y' + 2xy = x$ lèt seg ikkje separere — $x$- og $y$-delane er vovne saman med addisjon, ikkje multiplikasjon. Lineære likningar treng sitt eige verktøy.\n\nVerktøyet heiter **integrerande faktor**, og det er noko så sjeldsynt som eit triks som kjennest som magi første gong og som rein systematikk etterpå: vi gangar heile likninga med ein smart vald funksjon som gjer venstresida til *den deriverte av eit produkt* — og då kan alt integrerast i eitt jafs. Lat oss sjå nøyaktig korleis."
+    },
+    {
+      "id": "s2-2-3-n-section1",
+      "type": "text",
+      "content": "## Integrerande faktor\n\nMetoden for å løyse $y' + p(x)y = q(x)$ går i fire trinn.\n\n**Trinn 1:** Finn den **integrerande faktoren** $\\mu(x) = e^{\\int p(x)\\,dx}$.\n\n**Trinn 2:** Multipliser heile likninga med $\\mu(x)$: $\\mu y' + \\mu p y = \\mu q$. Og her skjer trikset: fordi $\\mu' = p\\mu$ (det er nett slik $\\mu$ er konstruert), er venstresida eksakt produktregelen brukt på $\\mu y$:\n\n$$\\frac{d}{dx}(\\mu y) = \\mu q$$\n\n**Trinn 3:** Integrer begge sider: $\\mu y = \\int \\mu q\\,dx + C$.\n\n**Trinn 4:** Løys for $y$: $y = \\frac{1}{\\mu}\\int \\mu q\\,dx + \\frac{C}{\\mu}$.\n\nMagien ligg i trinn 2. Venstresida $\\mu y' + \\mu p y$ er, ledd for ledd, nøyaktig kva produktregelen gjev når vi deriverer $\\mu y$: nemleg $\\mu y' + \\mu' y$, sidan $\\mu' = p\\mu$. Heile den uhandterlege venstresida kollapsar til éin derivert — og ei likning på forma «derivert av noko = kjend funksjon» blir løyst ved rein integrasjon, akkurat som i kapittel 2.1.\n\nLat oss sjekke konstruksjonen på eit konkret døme: for likninga $y' + 2y = 4$ er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$. Multiplisert med $e^{2x}$ blir likninga $e^{2x}y' + 2e^{2x}y = 4e^{2x}$ — og venstresida er nøyaktig $(e^{2x}y)'$. Kontroller sjølv med produktregelen: $(e^{2x}y)' = e^{2x}y' + 2e^{2x}y$. Stemmer på ein prikk. Resten av utrekninga tek vi i neste seksjon — og der ventar òg ei tolking som gjer svaret interessant for både sparekontoar og samfunnsmodellar."
+    },
+    {
+      "id": "s2-2-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lineære likningar og integrerande faktor:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-3-n-quiz1-q0",
+            "task": "Kva form har ei lineær første ordens differensiallikning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y' + p(x)y = q(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$y' = f(x) \\cdot g(y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y'' + y = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y' \\cdot y = p(x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lineær første ordens form: $y' + p(x)y = q(x)$, der $y$ og $y'$ berre opptrer i første potens. Forma $f(x)g(y)$ kjenneteiknar separable likningar."
+          },
+          {
+            "id": "s2-2-3-n-quiz1-q1",
+            "task": "Kva er den integrerande faktoren for $y' + p(x)y = q(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mu = \\int p(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mu = e^{\\int p(x)\\,dx}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\mu = \\ln|p(x)|$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mu = e^{p(x)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den integrerande faktoren er $\\mu(x) = e^{\\int p(x)\\,dx}$ — eksponentialfunksjonen av integralet av $p$, ikkje av $p$ sjølv."
+          },
+          {
+            "id": "s2-2-3-n-quiz1-q2",
+            "task": "Kva er den integrerande faktoren for $y' + 2y = 4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mu = e^{4x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mu = 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mu = e^{2x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\mu = e^{x^2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Her er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$."
+          },
+          {
+            "id": "s2-2-3-n-quiz1-q3",
+            "task": "Kva blir venstresida $\\mu y' + \\mu p y$ etter multiplikasjon med den integrerande faktoren?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Integralet $\\int \\mu y\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mu^2 y$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den deriverte av produktet: $(\\mu y)'$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sidan $\\mu' = p\\mu$, er $\\mu y' + \\mu p y = \\mu y' + \\mu' y = (\\mu y)'$ etter produktregelen. Det er heile poenget: likninga blir «derivert av noko = kjend funksjon»."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-3-n-section2",
+      "type": "text",
+      "content": "## Løysing, likevekt og stabilitet\n\nLat oss fullføre dømet $y' + 2y = 4$. Med $\\mu = e^{2x}$ har vi $(e^{2x}y)' = 4e^{2x}$. Integrasjon gjev $e^{2x}y = 2e^{2x} + C$, og deling på $e^{2x}$ gjev løysinga\n\n$$y = 2 + Ce^{-2x}$$\n\nMønsteret er heilt generelt: likninga $y' + ay = b$ med konstante koeffisientar har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Og denne forma fortel ei historie i to delar. Konstantleddet $\\frac{b}{a}$ er **likevektsløysinga** — den konstante løysinga vi finn ved å setje $y' = 0$ (her: $2y = 4$, altså $y = 2$). Leddet $Ce^{-ax}$ er avviket frå likevekta, og for $a > 0$ døyr det eksponentielt ut.\n\nKonsekvensen er slåande: *uansett* startverdi nærmar alle løysingar seg likevekta $\\frac{b}{a}$ når $x \\to \\infty$. Startar du over, søkk du ned mot henne; startar du under, stig du opp. Vi seier at likevekta er **stabil**. Med initialvilkår, sei $y(0) = 5$ for likninga $y' + 3y = 6$: likevekta er $\\frac{6}{3} = 2$, løysinga er $y = 2 + Ce^{-3x}$, og $y(0) = 2 + C = 5$ gjev $C = 3$, altså $y = 2 + 3e^{-3x}$ — start i 5, eksponentielt glid ned mot 2.\n\nDet er denne strukturen som gjer lineære likningar til arbeidshesten i praktisk modellering. Ein konto der det blir sett inn pengar med fast rate samtidig som det blir trekt gebyr proporsjonalt med saldoen, eit basseng som blir tilført reint vatn medan blandinga renn ut (blandingsproblem), eit hus som blir varma opp mot ei termostatgrense, ein marknad der prisen blir justert mot likevektsnivået — alle har forma $y' + ay = b$, og alle svarar med same kurva: eksponentiell innsving mot $\\frac{b}{a}$. Når du ser ein storleik som «flatar ut mot eit nivå», er det ofte ei lineær differensiallikning som ligg bak."
+    },
+    {
+      "id": "s2-2-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på løysing og likevekt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-3-n-quiz2-q0",
+            "task": "Kva er den generelle løysinga av $y' + 2y = 4$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 2 + Ce^{-2x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$y = 4 + Ce^{2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 2x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = Ce^{-2x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Integrerande faktor $e^{2x}$ gjev $(e^{2x}y)' = 4e^{2x}$, så $e^{2x}y = 2e^{2x} + C$ og $y = 2 + Ce^{-2x}$."
+          },
+          {
+            "id": "s2-2-3-n-quiz2-q1",
+            "task": "Kva er likevektsløysinga til $y' + ay = b$ (med $a \\neq 0$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = \\frac{a}{b}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = \\frac{b}{a}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$y = ab$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = b - a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likevekt tyder $y' = 0$, som gjev $ay = b$, altså $y = \\frac{b}{a}$. Det er den konstante løysinga systemet kviler i."
+          },
+          {
+            "id": "s2-2-3-n-quiz2-q2",
+            "task": "Kva skjer med løysingane av $y' + 2y = 4$ når $x \\to \\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei veks mot uendeleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei søkk mot null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei nærmar seg likevekta $y = 2$ uansett startverdi",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Dei svingar fram og tilbake rundt $4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Løysinga er $y = 2 + Ce^{-2x}$, og avviksleddet $Ce^{-2x}$ døyr ut når $x$ veks. Alle løysingar glid inn mot den stabile likevekta $y = 2$."
+          },
+          {
+            "id": "s2-2-3-n-quiz2-q3",
+            "task": "Kva er den partikulære løysinga av $y' + 3y = 6$ med $y(0) = 5$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 5e^{-3x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 2 + 5e^{-3x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = 3 + 2e^{-3x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = 2 + 3e^{-3x}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Generell løysing: $y = \\frac{6}{3} + Ce^{-3x} = 2 + Ce^{-3x}$. Initialvilkåret gjev $2 + C = 5$, altså $C = 3$: $y = 2 + 3e^{-3x}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-3-n-summary",
+      "type": "text",
+      "content": "## Produktregelen som låste opp likninga\n\nSparekontoen med både rente og innskot er ikkje lenger noko problem. Lineære første ordens likningar $y' + p(x)y = q(x)$ blir løyste med integrerande faktor $\\mu = e^{\\int p(x)\\,dx}$: multipliser likninga med $\\mu$, og venstresida kollapsar — takka vere konstruksjonen $\\mu' = p\\mu$ — til produktderiverten $(\\mu y)'$. Deretter er det berre å integrere og dele på $\\mu$. Fire trinn, ingen gjetting.\n\nFor konstante koeffisientar fekk du eit resultat verdt å hugse: $y' + ay = b$ har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Strukturen er likevekt pluss avvik. Likevektsløysinga $\\frac{b}{a}$ finn du raskast ved å setje $y' = 0$, og for $a > 0$ døyr avviket $Ce^{-ax}$ eksponentielt ut — likevekta er stabil, og alle løysingar flatar ut mot henne, slik $y' + 3y = 6$ med start i 5 gleid ned mot 2 langs $y = 2 + 3e^{-3x}$.\n\nDet er nett denne innsving-mot-nivå-dynamikken du ser i kontoar med faste innskot og gebyr, i blandingsproblem, i oppvarming mot termostat og i prisar som søkjer mot marknadslikevekt. Saman med separasjonsmetoden frå førre kapittel har du no to kraftige løysingsteknikkar — og i neste kapittel løftar vi blikket frå teknikkane til sjølve modellane: eksponentiell og logistisk vekst, og kunsten å velje rett modell for verkelegheita."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "15077ac2ee8255d6",
+    "translatedAt": "2026-06-20T09:03:19.008Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "6747923d71b4b48d": "Lineære differensiallikningar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b19cb928ff99bc20": "Ei forteljing om sparekontoen med både rente og innskot: integrerande faktor som gjer venstresida til ein produktderivert, og løysingar som svingar inn mot stabil likevekt.",
+      "008782b78f5d1423": "løyse lineære differensiallikningar",
+      "ae8c05c274c7745a": "bruke differensiallikningar i modellering",
+      "3ab573f75cf0896d": "## Kontoen med både rente og innskot\n\nDu set opp eit spareprogram: kontoen har rente, og i tillegg overfører du eit fast beløp jamt gjennom året. Endringa i saldoen kjem altså frå to kjelder samtidig — ein del som er proporsjonal med saldoen (renta), og ein del som er konstant (innskota). Modellen blir noko sånt som $y' = ry + b$, eller meir generelt likningar der $y'$, $y$ og eit «pådrag» utanfrå inngår lineært.\n\nSlike likningar har eit eige namn. Ei **lineær første ordens differensiallikning** har forma\n\n$$y' + p(x)y = q(x)$$\n\nder $p(x)$ og $q(x)$ er kjende funksjonar. Ordet *lineær* siktar til at $y$ og $y'$ berre opptrer i første potens — ingen $y^2$, ingen $\\sqrt{y}$, ingen $y \\cdot y'$. Funksjonen $q(x)$ på høgresida spelar rolla som ytre pådrag: innskot på kontoen, tilførsel til eit basseng, oppvarming av eit hus.\n\nKvifor ein ny metode? Separasjon fungerer fint så lenge høgresida faktoriserer pent, men ei likning som $y' + 2xy = x$ lèt seg ikkje separere — $x$- og $y$-delane er vovne saman med addisjon, ikkje multiplikasjon. Lineære likningar treng sitt eige verktøy.\n\nVerktøyet heiter **integrerande faktor**, og det er noko så sjeldsynt som eit triks som kjennest som magi første gong og som rein systematikk etterpå: vi gangar heile likninga med ein smart vald funksjon som gjer venstresida til *den deriverte av eit produkt* — og då kan alt integrerast i eitt jafs. Lat oss sjå nøyaktig korleis.",
+      "40261c3f6664c503": "## Integrerande faktor\n\nMetoden for å løyse $y' + p(x)y = q(x)$ går i fire trinn.\n\n**Trinn 1:** Finn den **integrerande faktoren** $\\mu(x) = e^{\\int p(x)\\,dx}$.\n\n**Trinn 2:** Multipliser heile likninga med $\\mu(x)$: $\\mu y' + \\mu p y = \\mu q$. Og her skjer trikset: fordi $\\mu' = p\\mu$ (det er nett slik $\\mu$ er konstruert), er venstresida eksakt produktregelen brukt på $\\mu y$:\n\n$$\\frac{d}{dx}(\\mu y) = \\mu q$$\n\n**Trinn 3:** Integrer begge sider: $\\mu y = \\int \\mu q\\,dx + C$.\n\n**Trinn 4:** Løys for $y$: $y = \\frac{1}{\\mu}\\int \\mu q\\,dx + \\frac{C}{\\mu}$.\n\nMagien ligg i trinn 2. Venstresida $\\mu y' + \\mu p y$ er, ledd for ledd, nøyaktig kva produktregelen gjev når vi deriverer $\\mu y$: nemleg $\\mu y' + \\mu' y$, sidan $\\mu' = p\\mu$. Heile den uhandterlege venstresida kollapsar til éin derivert — og ei likning på forma «derivert av noko = kjend funksjon» blir løyst ved rein integrasjon, akkurat som i kapittel 2.1.\n\nLat oss sjekke konstruksjonen på eit konkret døme: for likninga $y' + 2y = 4$ er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$. Multiplisert med $e^{2x}$ blir likninga $e^{2x}y' + 2e^{2x}y = 4e^{2x}$ — og venstresida er nøyaktig $(e^{2x}y)'$. Kontroller sjølv med produktregelen: $(e^{2x}y)' = e^{2x}y' + 2e^{2x}y$. Stemmer på ein prikk. Resten av utrekninga tek vi i neste seksjon — og der ventar òg ei tolking som gjer svaret interessant for både sparekontoar og samfunnsmodellar.",
+      "875fb4d3f601b5d1": "Test deg sjølv på lineære likningar og integrerande faktor:",
+      "4097889236a2af26": "placeholder",
+      "756e623714b46fac": "Kva form har ei lineær første ordens differensiallikning?",
+      "55e6b609ec2e3c85": "$y' + p(x)y = q(x)$",
+      "e445003ed6eecddb": "$y' = f(x) \\cdot g(y)$",
+      "6c00526291a0311d": "$y'' + y = 0$",
+      "fe555b4ee93efd1a": "$y' \\cdot y = p(x)$",
+      "65b6522b765f74a8": "Lineær første ordens form: $y' + p(x)y = q(x)$, der $y$ og $y'$ berre opptrer i første potens. Forma $f(x)g(y)$ kjenneteiknar separable likningar.",
+      "841637f8869e0ef7": "Kva er den integrerande faktoren for $y' + p(x)y = q(x)$?",
+      "38738e4ef0d9e1d2": "$\\mu = \\int p(x)\\,dx$",
+      "af0f1b2851556f7e": "$\\mu = e^{\\int p(x)\\,dx}$",
+      "ebf2992c8a160051": "$\\mu = \\ln|p(x)|$",
+      "9f50f21a85232240": "$\\mu = e^{p(x)}$",
+      "0e626edcc2da6ae4": "Den integrerande faktoren er $\\mu(x) = e^{\\int p(x)\\,dx}$ — eksponentialfunksjonen av integralet av $p$, ikkje av $p$ sjølv.",
+      "dbd14c6be370ca90": "Kva er den integrerande faktoren for $y' + 2y = 4$?",
+      "1764cd7392e75166": "$\\mu = e^{4x}$",
+      "d2497ba41961dbc2": "$\\mu = 2x$",
+      "2738f0c1ed38b3fd": "$\\mu = e^{2x}$",
+      "6468c0b7c67d4b33": "$\\mu = e^{x^2}$",
+      "dc4ddb0206f414fd": "Her er $p(x) = 2$, så $\\mu = e^{\\int 2\\,dx} = e^{2x}$.",
+      "0dfd1dee92046ebd": "Kva blir venstresida $\\mu y' + \\mu p y$ etter multiplikasjon med den integrerande faktoren?",
+      "7936020a63254d08": "Den deriverte av produktet: $(\\mu y)'$",
+      "5aa53c39c081abc3": "Integralet $\\int \\mu y\\,dx$",
+      "fa1d2db62d4d952e": "Null",
+      "296eeacbd1ca36f5": "$\\mu^2 y$",
+      "c24beacd859e9b76": "Sidan $\\mu' = p\\mu$, er $\\mu y' + \\mu p y = \\mu y' + \\mu' y = (\\mu y)'$ etter produktregelen. Det er heile poenget: likninga blir «derivert av noko = kjend funksjon».",
+      "2ebfae5c718a502a": "## Løysing, likevekt og stabilitet\n\nLat oss fullføre dømet $y' + 2y = 4$. Med $\\mu = e^{2x}$ har vi $(e^{2x}y)' = 4e^{2x}$. Integrasjon gjev $e^{2x}y = 2e^{2x} + C$, og deling på $e^{2x}$ gjev løysinga\n\n$$y = 2 + Ce^{-2x}$$\n\nMønsteret er heilt generelt: likninga $y' + ay = b$ med konstante koeffisientar har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Og denne forma fortel ei historie i to delar. Konstantleddet $\\frac{b}{a}$ er **likevektsløysinga** — den konstante løysinga vi finn ved å setje $y' = 0$ (her: $2y = 4$, altså $y = 2$). Leddet $Ce^{-ax}$ er avviket frå likevekta, og for $a > 0$ døyr det eksponentielt ut.\n\nKonsekvensen er slåande: *uansett* startverdi nærmar alle løysingar seg likevekta $\\frac{b}{a}$ når $x \\to \\infty$. Startar du over, søkk du ned mot henne; startar du under, stig du opp. Vi seier at likevekta er **stabil**. Med initialvilkår, sei $y(0) = 5$ for likninga $y' + 3y = 6$: likevekta er $\\frac{6}{3} = 2$, løysinga er $y = 2 + Ce^{-3x}$, og $y(0) = 2 + C = 5$ gjev $C = 3$, altså $y = 2 + 3e^{-3x}$ — start i 5, eksponentielt glid ned mot 2.\n\nDet er denne strukturen som gjer lineære likningar til arbeidshesten i praktisk modellering. Ein konto der det blir sett inn pengar med fast rate samtidig som det blir trekt gebyr proporsjonalt med saldoen, eit basseng som blir tilført reint vatn medan blandinga renn ut (blandingsproblem), eit hus som blir varma opp mot ei termostatgrense, ein marknad der prisen blir justert mot likevektsnivået — alle har forma $y' + ay = b$, og alle svarar med same kurva: eksponentiell innsving mot $\\frac{b}{a}$. Når du ser ein storleik som «flatar ut mot eit nivå», er det ofte ei lineær differensiallikning som ligg bak.",
+      "715e0d08da04761f": "Test deg sjølv på løysing og likevekt:",
+      "2975dc9d49cdc442": "Kva er den generelle løysinga av $y' + 2y = 4$?",
+      "fec26a964bfab3c8": "$y = 4 + Ce^{2x}$",
+      "bdc115956d331aa3": "$y = 2 + Ce^{-2x}$",
+      "2cf2371fdf1bcf85": "$y = 2x + C$",
+      "69072f7bb2ec512d": "$y = Ce^{-2x}$",
+      "af3c6ba48c32a47f": "Integrerande faktor $e^{2x}$ gjev $(e^{2x}y)' = 4e^{2x}$, så $e^{2x}y = 2e^{2x} + C$ og $y = 2 + Ce^{-2x}$.",
+      "7ea5f8d5094c7152": "Kva er likevektsløysinga til $y' + ay = b$ (med $a \\neq 0$)?",
+      "c2f60f650bf11ae7": "$y = \\frac{a}{b}$",
+      "58116a7573943478": "$y = ab$",
+      "be36fddc8be704f7": "$y = b - a$",
+      "cb6a1d59df54c0c0": "$y = \\frac{b}{a}$",
+      "85216936e2607ce5": "Likevekt tyder $y' = 0$, som gjev $ay = b$, altså $y = \\frac{b}{a}$. Det er den konstante løysinga systemet kviler i.",
+      "190806b4c705280d": "Kva skjer med løysingane av $y' + 2y = 4$ når $x \\to \\infty$?",
+      "6bca36d0b44b8a6b": "Dei veks mot uendeleg",
+      "3065fcfbba9a577a": "Dei nærmar seg likevekta $y = 2$ uansett startverdi",
+      "242a964bce7bf35b": "Dei søkk mot null",
+      "9a74f058238181c1": "Dei svingar fram og tilbake rundt $4$",
+      "0447e3b95d826554": "Løysinga er $y = 2 + Ce^{-2x}$, og avviksleddet $Ce^{-2x}$ døyr ut når $x$ veks. Alle løysingar glid inn mot den stabile likevekta $y = 2$.",
+      "18db2afa26567c41": "Kva er den partikulære løysinga av $y' + 3y = 6$ med $y(0) = 5$?",
+      "698ba6de8e828494": "$y = 2 + 3e^{-3x}$",
+      "451a4547b208b04e": "$y = 5e^{-3x}$",
+      "7c61e2949d8c1b6d": "$y = 2 + 5e^{-3x}$",
+      "52215439aad0c615": "$y = 3 + 2e^{-3x}$",
+      "7fe1f2ecce3e61b6": "Generell løysing: $y = \\frac{6}{3} + Ce^{-3x} = 2 + Ce^{-3x}$. Initialvilkåret gjev $2 + C = 5$, altså $C = 3$: $y = 2 + 3e^{-3x}$.",
+      "bd48cbeca049ff63": "## Produktregelen som låste opp likninga\n\nSparekontoen med både rente og innskot er ikkje lenger noko problem. Lineære første ordens likningar $y' + p(x)y = q(x)$ blir løyste med integrerande faktor $\\mu = e^{\\int p(x)\\,dx}$: multipliser likninga med $\\mu$, og venstresida kollapsar — takka vere konstruksjonen $\\mu' = p\\mu$ — til produktderiverten $(\\mu y)'$. Deretter er det berre å integrere og dele på $\\mu$. Fire trinn, ingen gjetting.\n\nFor konstante koeffisientar fekk du eit resultat verdt å hugse: $y' + ay = b$ har løysinga $y = \\frac{b}{a} + Ce^{-ax}$. Strukturen er likevekt pluss avvik. Likevektsløysinga $\\frac{b}{a}$ finn du raskast ved å setje $y' = 0$, og for $a > 0$ døyr avviket $Ce^{-ax}$ eksponentielt ut — likevekta er stabil, og alle løysingar flatar ut mot henne, slik $y' + 3y = 6$ med start i 5 gleid ned mot 2 langs $y = 2 + 3e^{-3x}$.\n\nDet er nett denne innsving-mot-nivå-dynamikken du ser i kontoar med faste innskot og gebyr, i blandingsproblem, i oppvarming mot termostat og i prisar som søkjer mot marknadslikevekt. Saman med separasjonsmetoden frå førre kapittel har du no to kraftige løysingsteknikkar — og i neste kapittel løftar vi blikket frå teknikkane til sjølve modellane: eksponentiell og logistisk vekst, og kunsten å velje rett modell for verkelegheita."
+    }
+  }
+}

@@ -1,1 +1,382 @@
-{"id":"r1-6-4-narrativ","courseId":"r1","chapterNumber":"6.4","title":"Vektorlengd og avstand","subtitle":"Narrativ versjon","description":"Ei forteljing om lengder og avstandar -- frå Pytagoras som måleband til den kortaste vegen frå skipet til kysten: avstandsformlar for punkt, linjer og parallelle linjer, med projeksjonen som motor.","estimatedMinutes":35,"competenceGoals":["rekne ut lengda av ein vektor ved hjelp av koordinatane","rekne ut avstanden mellom to punkt i planet","rekne ut avstanden frå eit punkt til ei linje","rekne ut avstanden mellom to parallelle linjer","finne midtpunktet mellom to punkt","bruke projeksjonsformelen på avstandsproblem"],"linkedChapterId":"r1-6-4","content":[{"id":"r1-6-4-n-intro","type":"text","content":"## Kor langt er det eigentleg?\n\n«Kor langt er det dit?» er kanskje det eldste geometriske spørsmålet som finst. Ein kartapp svarar på det tusenvis av gonger i sekundet: avstanden frå deg til kafeen, frå bussen til haldeplassen, frå skipet til grunna. Og bak kvart einaste svar ligg den same to og eit halvt tusen år gamle setninga – Pytagoras.\n\nI dette kapittelet samlar vi avstandsverktøya i vektorspråket. Det startar med det enklaste: kor lang er ein vektor? Svaret er ei kvadratrot av kvadrerte komponentar, og av det følgjer umiddelbart avstanden mellom to punkt – det er jo berre lengda av vektoren mellom dei. På kjøpet får vi midtpunktsformelen, som fortel kvar det er rettferdig å møtast.\n\nMen så kjem det spørsmålet kartappen *eigentleg* slit med: kor langt er det frå eit punkt til ei *linje*? Tenk på eit skip og ei lang, rett kystlinje: avstanden er ikkje til eit bestemt punkt på land, men til det *næraste* punktet – målt vinkelrett inn. Det finst ein formel for dette, kompakt og elegant, og ein systerformel for avstanden mellom to parallelle linjer. Til slutt skal du få sjå kvifor formelen verkar: under panseret sit projeksjonen frå vektorrekninga og gjer jobben. La oss byrje med målebandet."},{"id":"r1-6-4-n-section1","type":"text","content":"## Frå Pytagoras til midtpunktet\n\nLengda av ein vektor $\\vec{v} = (x, y)$ er hypotenusen i trekanten med katetar $x$ og $y$: $$|\\vec{v}| = \\sqrt{x^2 + y^2}$$ Ho blir òg kalla *absoluttverdien* eller *norma* til vektoren, og ho er aldri negativ – faktisk er $|\\vec{v}| = 0$ berre for nullvektoren sjølv. Skalering oppfører seg som venta: $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$, så doblar du vektoren, blir lengda dobla, uansett forteikn på $k$. Prøv: $\\vec{u} = (3, -4)$ har lengd $\\sqrt{9 + 16} = 5$, og $\\vec{w} = (-2, 2\\sqrt{3})$ har lengd $\\sqrt{4 + 12} = 4$. Negative komponentar spelar inga rolle – kvadreringa viskar ut forteikna.\n\nAvstanden mellom to punkt følgjer no gratis: avstanden frå $A = (x_1, y_1)$ til $B = (x_2, y_2)$ er lengda av vektoren $\\overrightarrow{AB} = (x_2 - x_1, y_2 - y_1)$, altså $$|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ Frå $A = (1, 2)$ til $B = (5, -1)$: $\\sqrt{4^2 + (-3)^2} = \\sqrt{25} = 5$. Éin formel, alle avstandar mellom punkt i planet.\n\nOg kvar møtest ein på halvvegen? **Midtpunktet** er gjennomsnittet av koordinatane: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – det er punktet du når med vektoren $\\frac{1}{2}(\\overrightarrow{OA} + \\overrightarrow{OB})$ frå origo. Mellom $A = (-3, 5)$ og $B = (7, -1)$ ligg midtpunktet i $M = (2, 2)$. Formelen kan òg *snuast*: veit du at midtpunktet av $AB$ er $M = (4, 1)$ og at $A = (1, 3)$, løyser du berre ut den ukjende enden. Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (2 \\cdot 4 - 1,\\; 2 \\cdot 1 - 3) = (7, -1)$. Halvparten kjend, halvparten rekna ut."},{"id":"r1-6-4-n-quiz1","type":"exercise","exercise":{"id":"r1-6-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på lengd, avstand og midtpunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-4-n-quiz1-q0","task":"Kva er lengda av $\\vec{u} = (3, -4)$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$-5$","isCorrect":false},{"id":"c","text":"$5$","isCorrect":true},{"id":"d","text":"$\\sqrt{7}$","isCorrect":false}],"solution":"$|\\vec{u}| = \\sqrt{3^2 + (-4)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. Lengda er alltid ikkje-negativ."},{"id":"r1-6-4-n-quiz1-q1","task":"Kva er avstanden mellom $A = (1, 2)$ og $B = (5, -1)$?","options":[{"id":"a","text":"$5$","isCorrect":true},{"id":"b","text":"$7$","isCorrect":false},{"id":"c","text":"$\\sqrt{5}$","isCorrect":false},{"id":"d","text":"$25$","isCorrect":false}],"solution":"$|AB| = \\sqrt{(5-1)^2 + (-1-2)^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$."},{"id":"r1-6-4-n-quiz1-q2","task":"Finn midtpunktet mellom $A = (-3, 5)$ og $B = (7, -1)$.","options":[{"id":"a","text":"$(4, 4)$","isCorrect":false},{"id":"b","text":"$(2, 2)$","isCorrect":true},{"id":"c","text":"$(5, 3)$","isCorrect":false},{"id":"d","text":"$(2, 3)$","isCorrect":false}],"solution":"$M = \\left(\\frac{-3 + 7}{2}, \\frac{5 + (-1)}{2}\\right) = (2, 2)$."},{"id":"r1-6-4-n-quiz1-q3","task":"Midtpunktet av $AB$ er $M = (4, 1)$, og $A = (1, 3)$. Finn $B$.","options":[{"id":"a","text":"$(2{,}5,\\; 2)$","isCorrect":false},{"id":"b","text":"$(5, -2)$","isCorrect":false},{"id":"c","text":"$(3, -2)$","isCorrect":false},{"id":"d","text":"$(7, -1)$","isCorrect":true}],"solution":"Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (8 - 1,\\; 2 - 3) = (7, -1)$."}]}},{"id":"r1-6-4-n-section2","type":"text","content":"## Avstanden til ei linje – og kvifor formelen verkar\n\nEit skip er i punktet $P = (3, 1)$, og ei rett kystlinje følgjer linja $2x - y + 4 = 0$. Kor nær land er skipet? Avstanden frå eit punkt til ei linje blir alltid målt *vinkelrett* inn – det er den kortaste vegen. Heldigvis finst ein formel som gjer alt på éin gong. For linja $\\ell$: $ax + by + c = 0$ og punktet $P = (x_0, y_0)$ er $$d(P, \\ell) = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$$ Oppskrifta er nesten frekk i sin enkelheit: sett koordinatane til punktet inn i venstresida til linja, ta absoluttverdi, og del på lengda av $(a, b)$. For skipet vårt: $d = \\frac{|2 \\cdot 3 - 1 \\cdot 1 + 4|}{\\sqrt{4 + 1}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$, om lag 4 einingar.\n\nKvifor verkar dette? Her kjem vektorrekninga til heider og ære. Vektoren $\\vec{n} = (a, b)$ er *normalvektoren* til linja – han står vinkelrett på linja. Tek du ein vektor $\\vec{u}$ frå eit vilkårleg punkt på linja til $P$, er avstanden nettopp lengda av **projeksjonen** av $\\vec{u}$ på $\\vec{n}$: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Reknar du ut dette uttrykket, fell avstandsformelen ut, ledd for ledd. Formelen er altså ikkje magi – han er projeksjonen i forkledning, og same ideen fungerer like godt i tre dimensjonar.\n\nTo **parallelle linjer** har same normalvektor, og dermed same koeffisientar $a$ og $b$: $\\ell_1$: $ax + by + c_1 = 0$ og $\\ell_2$: $ax + by + c_2 = 0$. Avstanden mellom dei blir $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. For $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$: $d = \\frac{|-5 - 10|}{\\sqrt{9 + 16}} = \\frac{15}{5} = 3$. Er du i tvil, kan du alltid velje eit punkt på den eine linja og bruke punkt-til-linje-formelen mot den andre – same svar. Og ein siste godbit: avstandsformelen er ein arealmaskin for trekantar. Med grunnlinja $g$ som avstanden mellom to hjørne og høgda $h$ som avstanden frå det tredje hjørnet til linja gjennom grunnlinja, er arealet $A = \\frac{1}{2}gh$ – to avstandsutrekningar, eitt areal."},{"id":"r1-6-4-n-quiz2","type":"exercise","exercise":{"id":"r1-6-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på avstand til linjer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-6-4-n-quiz2-q0","task":"Kva er avstanden frå $P = (3, 1)$ til linja $2x - y + 4 = 0$?","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$\\frac{9}{\\sqrt{5}}$","isCorrect":true},{"id":"c","text":"$\\frac{5}{\\sqrt{9}}$","isCorrect":false},{"id":"d","text":"$\\frac{7}{\\sqrt{5}}$","isCorrect":false}],"solution":"$d = \\frac{|2 \\cdot 3 + (-1) \\cdot 1 + 4|}{\\sqrt{2^2 + (-1)^2}} = \\frac{|6 - 1 + 4|}{\\sqrt{5}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$."},{"id":"r1-6-4-n-quiz2-q1","task":"Korleis blir avstanden frå eit punkt til ei linje målt?","options":[{"id":"a","text":"Langs $x$-aksen","isCorrect":false},{"id":"b","text":"Til det næraste endepunktet på linja","isCorrect":false},{"id":"c","text":"Vinkelrett på linja -- den kortaste vegen","isCorrect":true},{"id":"d","text":"Langs retningsvektoren til linja","isCorrect":false}],"solution":"Avstanden er lengda av det vinkelrette linjestykket frå punktet ned på linja. Alle andre vegar til linja er lengre."},{"id":"r1-6-4-n-quiz2-q2","task":"Finn avstanden mellom linjene $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$.","options":[{"id":"a","text":"$15$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":false},{"id":"c","text":"$\\frac{15}{\\sqrt{7}}$","isCorrect":false},{"id":"d","text":"$3$","isCorrect":true}],"solution":"Linjene er parallelle (same normalvektor $(3, 4)$), så $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}} = \\frac{|-5 - 10|}{5} = 3$."},{"id":"r1-6-4-n-quiz2-q3","task":"Korleis ser du at to linjer på forma $ax + by + c = 0$ er parallelle?","options":[{"id":"a","text":"Dei har same normalvektor $(a, b)$","isCorrect":true},{"id":"b","text":"Dei har same konstantledd $c$","isCorrect":false},{"id":"c","text":"Begge går gjennom origo","isCorrect":false},{"id":"d","text":"Koeffisientane $a$ og $b$ er like store","isCorrect":false}],"solution":"Parallelle linjer har same retning, og dermed same (eller proporsjonal) normalvektor $(a, b)$. Berre konstantleddet $c$ skil dei."},{"id":"r1-6-4-n-quiz2-q4","task":"Kva vektoroperasjon ligg bak avstandsformelen $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$?","options":[{"id":"a","text":"Vektoraddisjon","isCorrect":false},{"id":"b","text":"Projeksjon på normalvektoren $\\vec{n} = (a, b)$","isCorrect":true},{"id":"c","text":"Skalar multiplikasjon","isCorrect":false},{"id":"d","text":"Derivasjon av stadvektoren","isCorrect":false}],"solution":"Avstanden er lengda av projeksjonen av ein vektor frå linja til punktet på normalvektoren: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Formelen er projeksjonen i forkledning."}]}},{"id":"r1-6-4-n-summary","type":"text","content":"## Alle avstandar, eitt verktøysett\n\nSpørsmålet «kor langt er det?» har no fått presise svar i alle variantar. Grunnsteinen er vektorlengda $|\\vec{v}| = \\sqrt{x^2 + y^2}$ – Pytagoras brukt på komponentane – med dei greie eigenskapane $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$ og at berre nullvektoren har lengd null. Avstanden mellom to punkt er rett og slett lengda av vektoren mellom dei, $|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$, og midtpunktet er gjennomsnittet av koordinatane, $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – ein formel som like gjerne kan snuast for å finne ein ukjend ende når midtpunktet er kjent.\n\nSå heva vi blikket frå punkt til linjer. Avstanden frå punktet $P = (x_0, y_0)$ til linja $ax + by + c = 0$ blir målt vinkelrett inn og er $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$ – den kortaste vegen frå skipet til kystlinja. To parallelle linjer med same normalvektor har avstanden $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. Og viktigast av alt: formelen er inga trylleformel. Han er lengda av projeksjonen på normalvektoren $\\vec{n} = (a, b)$ – vektorrekninga frå førre kapittel som stiller opp og gjer grovarbeidet, og som vil halde fram med å verke den dagen du går frå planet til rommet.\n\nSom bonus såg du at to avstandsutrekningar gir eit trekantareal via $A = \\frac{1}{2}gh$. I neste kapittel snur vi perspektivet: i staden for å måle avstandar til linjer og kurver skal vi *skildre* linjene og sirklane sjølve – med normalvektorar og avstandar som byggjesteinar."}],"exercises":[],"_meta":{"sourceHash":"990acf3e45c5700d","translatedAt":"2026-06-19T23:57:59.201Z","model":"claude-code-agent","strings":53,"tm":{"1dc522d07eef03df":"Vektorlengd og avstand","b195b06d1ed59702":"Narrativ versjon","ae7588d1343f561c":"Ei forteljing om lengder og avstandar -- frå Pytagoras som måleband til den kortaste vegen frå skipet til kysten: avstandsformlar for punkt, linjer og parallelle linjer, med projeksjonen som motor.","810cddb39280d34a":"rekne ut lengda av ein vektor ved hjelp av koordinatane","4e0011eeb4d0f11b":"rekne ut avstanden mellom to punkt i planet","e145713e111d582f":"rekne ut avstanden frå eit punkt til ei linje","5517f7f91e4fa3c9":"rekne ut avstanden mellom to parallelle linjer","2749a04166fb0a4e":"finne midtpunktet mellom to punkt","56e5ef52a94a89ab":"bruke projeksjonsformelen på avstandsproblem","2c043a3500aa67f2":"## Kor langt er det eigentleg?\n\n«Kor langt er det dit?» er kanskje det eldste geometriske spørsmålet som finst. Ein kartapp svarar på det tusenvis av gonger i sekundet: avstanden frå deg til kafeen, frå bussen til haldeplassen, frå skipet til grunna. Og bak kvart einaste svar ligg den same to og eit halvt tusen år gamle setninga – Pytagoras.\n\nI dette kapittelet samlar vi avstandsverktøya i vektorspråket. Det startar med det enklaste: kor lang er ein vektor? Svaret er ei kvadratrot av kvadrerte komponentar, og av det følgjer umiddelbart avstanden mellom to punkt – det er jo berre lengda av vektoren mellom dei. På kjøpet får vi midtpunktsformelen, som fortel kvar det er rettferdig å møtast.\n\nMen så kjem det spørsmålet kartappen *eigentleg* slit med: kor langt er det frå eit punkt til ei *linje*? Tenk på eit skip og ei lang, rett kystlinje: avstanden er ikkje til eit bestemt punkt på land, men til det *næraste* punktet – målt vinkelrett inn. Det finst ein formel for dette, kompakt og elegant, og ein systerformel for avstanden mellom to parallelle linjer. Til slutt skal du få sjå kvifor formelen verkar: under panseret sit projeksjonen frå vektorrekninga og gjer jobben. La oss byrje med målebandet.","e2a6b21906f9c7e2":"## Frå Pytagoras til midtpunktet\n\nLengda av ein vektor $\\vec{v} = (x, y)$ er hypotenusen i trekanten med katetar $x$ og $y$: $$|\\vec{v}| = \\sqrt{x^2 + y^2}$$ Ho blir òg kalla *absoluttverdien* eller *norma* til vektoren, og ho er aldri negativ – faktisk er $|\\vec{v}| = 0$ berre for nullvektoren sjølv. Skalering oppfører seg som venta: $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$, så doblar du vektoren, blir lengda dobla, uansett forteikn på $k$. Prøv: $\\vec{u} = (3, -4)$ har lengd $\\sqrt{9 + 16} = 5$, og $\\vec{w} = (-2, 2\\sqrt{3})$ har lengd $\\sqrt{4 + 12} = 4$. Negative komponentar spelar inga rolle – kvadreringa viskar ut forteikna.\n\nAvstanden mellom to punkt følgjer no gratis: avstanden frå $A = (x_1, y_1)$ til $B = (x_2, y_2)$ er lengda av vektoren $\\overrightarrow{AB} = (x_2 - x_1, y_2 - y_1)$, altså $$|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ Frå $A = (1, 2)$ til $B = (5, -1)$: $\\sqrt{4^2 + (-3)^2} = \\sqrt{25} = 5$. Éin formel, alle avstandar mellom punkt i planet.\n\nOg kvar møtest ein på halvvegen? **Midtpunktet** er gjennomsnittet av koordinatane: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – det er punktet du når med vektoren $\\frac{1}{2}(\\overrightarrow{OA} + \\overrightarrow{OB})$ frå origo. Mellom $A = (-3, 5)$ og $B = (7, -1)$ ligg midtpunktet i $M = (2, 2)$. Formelen kan òg *snuast*: veit du at midtpunktet av $AB$ er $M = (4, 1)$ og at $A = (1, 3)$, løyser du berre ut den ukjende enden. Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (2 \\cdot 4 - 1,\\; 2 \\cdot 1 - 3) = (7, -1)$. Halvparten kjend, halvparten rekna ut.","c8b339b92c8afcc2":"Test deg sjølv på lengd, avstand og midtpunkt:","4097889236a2af26":"placeholder","4ca93f056103e549":"Kva er lengda av $\\vec{u} = (3, -4)$?","7052a12c06ee3181":"$\\sqrt{7}$","06e8e9c435c8926c":"$|\\vec{u}| = \\sqrt{3^2 + (-4)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. Lengda er alltid ikkje-negativ.","687c13a102bb7083":"Kva er avstanden mellom $A = (1, 2)$ og $B = (5, -1)$?","16210e1060b04315":"$\\sqrt{5}$","b636c13a146f13ce":"$|AB| = \\sqrt{(5-1)^2 + (-1-2)^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$.","4b6cdb0d6146e5fb":"Finn midtpunktet mellom $A = (-3, 5)$ og $B = (7, -1)$.","4ec04682bd69ef7f":"$M = \\left(\\frac{-3 + 7}{2}, \\frac{5 + (-1)}{2}\\right) = (2, 2)$.","65d974d89366c0d9":"Midtpunktet av $AB$ er $M = (4, 1)$, og $A = (1, 3)$. Finn $B$.","46ad855d08061e76":"Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (8 - 1,\\; 2 - 3) = (7, -1)$.","820074c4451aa769":"## Avstanden til ei linje – og kvifor formelen verkar\n\nEit skip er i punktet $P = (3, 1)$, og ei rett kystlinje følgjer linja $2x - y + 4 = 0$. Kor nær land er skipet? Avstanden frå eit punkt til ei linje blir alltid målt *vinkelrett* inn – det er den kortaste vegen. Heldigvis finst ein formel som gjer alt på éin gong. For linja $\\ell$: $ax + by + c = 0$ og punktet $P = (x_0, y_0)$ er $$d(P, \\ell) = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$$ Oppskrifta er nesten frekk i sin enkelheit: sett koordinatane til punktet inn i venstresida til linja, ta absoluttverdi, og del på lengda av $(a, b)$. For skipet vårt: $d = \\frac{|2 \\cdot 3 - 1 \\cdot 1 + 4|}{\\sqrt{4 + 1}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$, om lag 4 einingar.\n\nKvifor verkar dette? Her kjem vektorrekninga til heider og ære. Vektoren $\\vec{n} = (a, b)$ er *normalvektoren* til linja – han står vinkelrett på linja. Tek du ein vektor $\\vec{u}$ frå eit vilkårleg punkt på linja til $P$, er avstanden nettopp lengda av **projeksjonen** av $\\vec{u}$ på $\\vec{n}$: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Reknar du ut dette uttrykket, fell avstandsformelen ut, ledd for ledd. Formelen er altså ikkje magi – han er projeksjonen i forkledning, og same ideen fungerer like godt i tre dimensjonar.\n\nTo **parallelle linjer** har same normalvektor, og dermed same koeffisientar $a$ og $b$: $\\ell_1$: $ax + by + c_1 = 0$ og $\\ell_2$: $ax + by + c_2 = 0$. Avstanden mellom dei blir $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. For $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$: $d = \\frac{|-5 - 10|}{\\sqrt{9 + 16}} = \\frac{15}{5} = 3$. Er du i tvil, kan du alltid velje eit punkt på den eine linja og bruke punkt-til-linje-formelen mot den andre – same svar. Og ein siste godbit: avstandsformelen er ein arealmaskin for trekantar. Med grunnlinja $g$ som avstanden mellom to hjørne og høgda $h$ som avstanden frå det tredje hjørnet til linja gjennom grunnlinja, er arealet $A = \\frac{1}{2}gh$ – to avstandsutrekningar, eitt areal.","77f93e437217ec7e":"Test deg sjølv på avstand til linjer:","8906e4e81262bc96":"Kva er avstanden frå $P = (3, 1)$ til linja $2x - y + 4 = 0$?","cdb03da2192fc66d":"$\\frac{9}{\\sqrt{5}}$","c3f92b1886929852":"$\\frac{5}{\\sqrt{9}}$","b28c853f074d0e8f":"$\\frac{7}{\\sqrt{5}}$","6fd809822b88e2fd":"$d = \\frac{|2 \\cdot 3 + (-1) \\cdot 1 + 4|}{\\sqrt{2^2 + (-1)^2}} = \\frac{|6 - 1 + 4|}{\\sqrt{5}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$.","6bd3ad327c500c15":"Korleis blir avstanden frå eit punkt til ei linje målt?","f3a4164a38895cd7":"Langs $x$-aksen","accfbbe2d25cb41c":"Til det næraste endepunktet på linja","c5706fbaf3aaae4d":"Vinkelrett på linja -- den kortaste vegen","fcf23dae30653f65":"Langs retningsvektoren til linja","8824e7dae54e0cd2":"Avstanden er lengda av det vinkelrette linjestykket frå punktet ned på linja. Alle andre vegar til linja er lengre.","3a3820747d8d0012":"Finn avstanden mellom linjene $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$.","8d523773a4737a84":"$\\frac{15}{\\sqrt{7}}$","46f59bb6568cae90":"Linjene er parallelle (same normalvektor $(3, 4)$), så $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}} = \\frac{|-5 - 10|}{5} = 3$.","d18c4b541385b147":"Korleis ser du at to linjer på forma $ax + by + c = 0$ er parallelle?","822db283aceaa94c":"Dei har same normalvektor $(a, b)$","8c1a4441dd7a260a":"Dei har same konstantledd $c$","47aa3216c3147a3a":"Begge går gjennom origo","3b19d6e4e6b2fbe1":"Koeffisientane $a$ og $b$ er like store","b03b9ce2f2e3dbb4":"Parallelle linjer har same retning, og dermed same (eller proporsjonal) normalvektor $(a, b)$. Berre konstantleddet $c$ skil dei.","c1687533165b8383":"Kva vektoroperasjon ligg bak avstandsformelen $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$?","75b20f161cf7fb0b":"Vektoraddisjon","5f816f028d091148":"Projeksjon på normalvektoren $\\vec{n} = (a, b)$","18c278d88ead70e4":"Skalar multiplikasjon","1d341c3a5e55f7ef":"Derivasjon av stadvektoren","d8e00dbd969503e9":"Avstanden er lengda av projeksjonen av ein vektor frå linja til punktet på normalvektoren: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Formelen er projeksjonen i forkledning.","8d40642507ec6ae2":"## Alle avstandar, eitt verktøysett\n\nSpørsmålet «kor langt er det?» har no fått presise svar i alle variantar. Grunnsteinen er vektorlengda $|\\vec{v}| = \\sqrt{x^2 + y^2}$ – Pytagoras brukt på komponentane – med dei greie eigenskapane $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$ og at berre nullvektoren har lengd null. Avstanden mellom to punkt er rett og slett lengda av vektoren mellom dei, $|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$, og midtpunktet er gjennomsnittet av koordinatane, $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – ein formel som like gjerne kan snuast for å finne ein ukjend ende når midtpunktet er kjent.\n\nSå heva vi blikket frå punkt til linjer. Avstanden frå punktet $P = (x_0, y_0)$ til linja $ax + by + c = 0$ blir målt vinkelrett inn og er $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$ – den kortaste vegen frå skipet til kystlinja. To parallelle linjer med same normalvektor har avstanden $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. Og viktigast av alt: formelen er inga trylleformel. Han er lengda av projeksjonen på normalvektoren $\\vec{n} = (a, b)$ – vektorrekninga frå førre kapittel som stiller opp og gjer grovarbeidet, og som vil halde fram med å verke den dagen du går frå planet til rommet.\n\nSom bonus såg du at to avstandsutrekningar gir eit trekantareal via $A = \\frac{1}{2}gh$. I neste kapittel snur vi perspektivet: i staden for å måle avstandar til linjer og kurver skal vi *skildre* linjene og sirklane sjølve – med normalvektorar og avstandar som byggjesteinar."}}}
+{
+  "id": "r1-6-4-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "6.4",
+  "title": "Vektorlengd og avstand",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om lengder og avstandar -- frå Pytagoras som måleband til den kortaste vegen frå skipet til kysten: avstandsformlar for punkt, linjer og parallelle linjer, med projeksjonen som motor.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "rekne ut lengda av ein vektor ved hjelp av koordinatane",
+    "rekne ut avstanden mellom to punkt i planet",
+    "rekne ut avstanden frå eit punkt til ei linje",
+    "rekne ut avstanden mellom to parallelle linjer",
+    "finne midtpunktet mellom to punkt",
+    "bruke projeksjonsformelen på avstandsproblem"
+  ],
+  "linkedChapterId": "r1-6-4",
+  "content": [
+    {
+      "id": "r1-6-4-n-intro",
+      "type": "text",
+      "content": "## Kor langt er det eigentleg?\n\n«Kor langt er det dit?» er kanskje det eldste geometriske spørsmålet som finst. Ein kartapp svarar på det tusenvis av gonger i sekundet: avstanden frå deg til kafeen, frå bussen til haldeplassen, frå skipet til grunna. Og bak kvart einaste svar ligg den same to og eit halvt tusen år gamle setninga – Pytagoras.\n\nI dette kapittelet samlar vi avstandsverktøya i vektorspråket. Det startar med det enklaste: kor lang er ein vektor? Svaret er ei kvadratrot av kvadrerte komponentar, og av det følgjer umiddelbart avstanden mellom to punkt – det er jo berre lengda av vektoren mellom dei. På kjøpet får vi midtpunktsformelen, som fortel kvar det er rettferdig å møtast.\n\nMen så kjem det spørsmålet kartappen *eigentleg* slit med: kor langt er det frå eit punkt til ei *linje*? Tenk på eit skip og ei lang, rett kystlinje: avstanden er ikkje til eit bestemt punkt på land, men til det *næraste* punktet – målt vinkelrett inn. Det finst ein formel for dette, kompakt og elegant, og ein systerformel for avstanden mellom to parallelle linjer. Til slutt skal du få sjå kvifor formelen verkar: under panseret sit projeksjonen frå vektorrekninga og gjer jobben. La oss byrje med målebandet."
+    },
+    {
+      "id": "r1-6-4-n-section1",
+      "type": "text",
+      "content": "## Frå Pytagoras til midtpunktet\n\nLengda av ein vektor $\\vec{v} = (x, y)$ er hypotenusen i trekanten med katetar $x$ og $y$: $$|\\vec{v}| = \\sqrt{x^2 + y^2}$$ Ho blir òg kalla *absoluttverdien* eller *norma* til vektoren, og ho er aldri negativ – faktisk er $|\\vec{v}| = 0$ berre for nullvektoren sjølv. Skalering oppfører seg som venta: $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$, så doblar du vektoren, blir lengda dobla, uansett forteikn på $k$. Prøv: $\\vec{u} = (3, -4)$ har lengd $\\sqrt{9 + 16} = 5$, og $\\vec{w} = (-2, 2\\sqrt{3})$ har lengd $\\sqrt{4 + 12} = 4$. Negative komponentar spelar inga rolle – kvadreringa viskar ut forteikna.\n\nAvstanden mellom to punkt følgjer no gratis: avstanden frå $A = (x_1, y_1)$ til $B = (x_2, y_2)$ er lengda av vektoren $\\overrightarrow{AB} = (x_2 - x_1, y_2 - y_1)$, altså $$|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ Frå $A = (1, 2)$ til $B = (5, -1)$: $\\sqrt{4^2 + (-3)^2} = \\sqrt{25} = 5$. Éin formel, alle avstandar mellom punkt i planet.\n\nOg kvar møtest ein på halvvegen? **Midtpunktet** er gjennomsnittet av koordinatane: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – det er punktet du når med vektoren $\\frac{1}{2}(\\overrightarrow{OA} + \\overrightarrow{OB})$ frå origo. Mellom $A = (-3, 5)$ og $B = (7, -1)$ ligg midtpunktet i $M = (2, 2)$. Formelen kan òg *snuast*: veit du at midtpunktet av $AB$ er $M = (4, 1)$ og at $A = (1, 3)$, løyser du berre ut den ukjende enden. Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (2 \\cdot 4 - 1,\\; 2 \\cdot 1 - 3) = (7, -1)$. Halvparten kjend, halvparten rekna ut."
+    },
+    {
+      "id": "r1-6-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lengd, avstand og midtpunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-4-n-quiz1-q0",
+            "task": "Kva er lengda av $\\vec{u} = (3, -4)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{7}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|\\vec{u}| = \\sqrt{3^2 + (-4)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. Lengda er alltid ikkje-negativ."
+          },
+          {
+            "id": "r1-6-4-n-quiz1-q1",
+            "task": "Kva er avstanden mellom $A = (1, 2)$ og $B = (5, -1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|AB| = \\sqrt{(5-1)^2 + (-1-2)^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$."
+          },
+          {
+            "id": "r1-6-4-n-quiz1-q2",
+            "task": "Finn midtpunktet mellom $A = (-3, 5)$ og $B = (7, -1)$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(4, 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(5, 3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(2, 2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(2, 3)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$M = \\left(\\frac{-3 + 7}{2}, \\frac{5 + (-1)}{2}\\right) = (2, 2)$."
+          },
+          {
+            "id": "r1-6-4-n-quiz1-q3",
+            "task": "Midtpunktet av $AB$ er $M = (4, 1)$, og $A = (1, 3)$. Finn $B$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(2{,}5,\\; 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(5, -2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(3, -2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(7, -1)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (8 - 1,\\; 2 - 3) = (7, -1)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-4-n-section2",
+      "type": "text",
+      "content": "## Avstanden til ei linje – og kvifor formelen verkar\n\nEit skip er i punktet $P = (3, 1)$, og ei rett kystlinje følgjer linja $2x - y + 4 = 0$. Kor nær land er skipet? Avstanden frå eit punkt til ei linje blir alltid målt *vinkelrett* inn – det er den kortaste vegen. Heldigvis finst ein formel som gjer alt på éin gong. For linja $\\ell$: $ax + by + c = 0$ og punktet $P = (x_0, y_0)$ er $$d(P, \\ell) = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$$ Oppskrifta er nesten frekk i sin enkelheit: sett koordinatane til punktet inn i venstresida til linja, ta absoluttverdi, og del på lengda av $(a, b)$. For skipet vårt: $d = \\frac{|2 \\cdot 3 - 1 \\cdot 1 + 4|}{\\sqrt{4 + 1}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$, om lag 4 einingar.\n\nKvifor verkar dette? Her kjem vektorrekninga til heider og ære. Vektoren $\\vec{n} = (a, b)$ er *normalvektoren* til linja – han står vinkelrett på linja. Tek du ein vektor $\\vec{u}$ frå eit vilkårleg punkt på linja til $P$, er avstanden nettopp lengda av **projeksjonen** av $\\vec{u}$ på $\\vec{n}$: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Reknar du ut dette uttrykket, fell avstandsformelen ut, ledd for ledd. Formelen er altså ikkje magi – han er projeksjonen i forkledning, og same ideen fungerer like godt i tre dimensjonar.\n\nTo **parallelle linjer** har same normalvektor, og dermed same koeffisientar $a$ og $b$: $\\ell_1$: $ax + by + c_1 = 0$ og $\\ell_2$: $ax + by + c_2 = 0$. Avstanden mellom dei blir $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. For $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$: $d = \\frac{|-5 - 10|}{\\sqrt{9 + 16}} = \\frac{15}{5} = 3$. Er du i tvil, kan du alltid velje eit punkt på den eine linja og bruke punkt-til-linje-formelen mot den andre – same svar. Og ein siste godbit: avstandsformelen er ein arealmaskin for trekantar. Med grunnlinja $g$ som avstanden mellom to hjørne og høgda $h$ som avstanden frå det tredje hjørnet til linja gjennom grunnlinja, er arealet $A = \\frac{1}{2}gh$ – to avstandsutrekningar, eitt areal."
+    },
+    {
+      "id": "r1-6-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-6-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på avstand til linjer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-6-4-n-quiz2-q0",
+            "task": "Kva er avstanden frå $P = (3, 1)$ til linja $2x - y + 4 = 0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{9}{\\sqrt{5}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{5}{\\sqrt{9}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{7}{\\sqrt{5}}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$d = \\frac{|2 \\cdot 3 + (-1) \\cdot 1 + 4|}{\\sqrt{2^2 + (-1)^2}} = \\frac{|6 - 1 + 4|}{\\sqrt{5}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$."
+          },
+          {
+            "id": "r1-6-4-n-quiz2-q1",
+            "task": "Korleis blir avstanden frå eit punkt til ei linje målt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Langs $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vinkelrett på linja -- den kortaste vegen",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Til det næraste endepunktet på linja",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Langs retningsvektoren til linja",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Avstanden er lengda av det vinkelrette linjestykket frå punktet ned på linja. Alle andre vegar til linja er lengre."
+          },
+          {
+            "id": "r1-6-4-n-quiz2-q2",
+            "task": "Finn avstanden mellom linjene $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{15}{\\sqrt{7}}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Linjene er parallelle (same normalvektor $(3, 4)$), så $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}} = \\frac{|-5 - 10|}{5} = 3$."
+          },
+          {
+            "id": "r1-6-4-n-quiz2-q3",
+            "task": "Korleis ser du at to linjer på forma $ax + by + c = 0$ er parallelle?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Dei har same konstantledd $c$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Begge går gjennom origo",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Koeffisientane $a$ og $b$ er like store",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Dei har same normalvektor $(a, b)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Parallelle linjer har same retning, og dermed same (eller proporsjonal) normalvektor $(a, b)$. Berre konstantleddet $c$ skil dei."
+          },
+          {
+            "id": "r1-6-4-n-quiz2-q4",
+            "task": "Kva vektoroperasjon ligg bak avstandsformelen $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Projeksjon på normalvektoren $\\vec{n} = (a, b)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Vektoraddisjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Skalar multiplikasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Derivasjon av stadvektoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Avstanden er lengda av projeksjonen av ein vektor frå linja til punktet på normalvektoren: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Formelen er projeksjonen i forkledning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-6-4-n-summary",
+      "type": "text",
+      "content": "## Alle avstandar, eitt verktøysett\n\nSpørsmålet «kor langt er det?» har no fått presise svar i alle variantar. Grunnsteinen er vektorlengda $|\\vec{v}| = \\sqrt{x^2 + y^2}$ – Pytagoras brukt på komponentane – med dei greie eigenskapane $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$ og at berre nullvektoren har lengd null. Avstanden mellom to punkt er rett og slett lengda av vektoren mellom dei, $|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$, og midtpunktet er gjennomsnittet av koordinatane, $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – ein formel som like gjerne kan snuast for å finne ein ukjend ende når midtpunktet er kjent.\n\nSå heva vi blikket frå punkt til linjer. Avstanden frå punktet $P = (x_0, y_0)$ til linja $ax + by + c = 0$ blir målt vinkelrett inn og er $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$ – den kortaste vegen frå skipet til kystlinja. To parallelle linjer med same normalvektor har avstanden $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. Og viktigast av alt: formelen er inga trylleformel. Han er lengda av projeksjonen på normalvektoren $\\vec{n} = (a, b)$ – vektorrekninga frå førre kapittel som stiller opp og gjer grovarbeidet, og som vil halde fram med å verke den dagen du går frå planet til rommet.\n\nSom bonus såg du at to avstandsutrekningar gir eit trekantareal via $A = \\frac{1}{2}gh$. I neste kapittel snur vi perspektivet: i staden for å måle avstandar til linjer og kurver skal vi *skildre* linjene og sirklane sjølve – med normalvektorar og avstandar som byggjesteinar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "990acf3e45c5700d",
+    "translatedAt": "2026-06-19T23:57:59.201Z",
+    "model": "claude-code-agent",
+    "strings": 53,
+    "tm": {
+      "1dc522d07eef03df": "Vektorlengd og avstand",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ae7588d1343f561c": "Ei forteljing om lengder og avstandar -- frå Pytagoras som måleband til den kortaste vegen frå skipet til kysten: avstandsformlar for punkt, linjer og parallelle linjer, med projeksjonen som motor.",
+      "810cddb39280d34a": "rekne ut lengda av ein vektor ved hjelp av koordinatane",
+      "4e0011eeb4d0f11b": "rekne ut avstanden mellom to punkt i planet",
+      "e145713e111d582f": "rekne ut avstanden frå eit punkt til ei linje",
+      "5517f7f91e4fa3c9": "rekne ut avstanden mellom to parallelle linjer",
+      "2749a04166fb0a4e": "finne midtpunktet mellom to punkt",
+      "56e5ef52a94a89ab": "bruke projeksjonsformelen på avstandsproblem",
+      "2c043a3500aa67f2": "## Kor langt er det eigentleg?\n\n«Kor langt er det dit?» er kanskje det eldste geometriske spørsmålet som finst. Ein kartapp svarar på det tusenvis av gonger i sekundet: avstanden frå deg til kafeen, frå bussen til haldeplassen, frå skipet til grunna. Og bak kvart einaste svar ligg den same to og eit halvt tusen år gamle setninga – Pytagoras.\n\nI dette kapittelet samlar vi avstandsverktøya i vektorspråket. Det startar med det enklaste: kor lang er ein vektor? Svaret er ei kvadratrot av kvadrerte komponentar, og av det følgjer umiddelbart avstanden mellom to punkt – det er jo berre lengda av vektoren mellom dei. På kjøpet får vi midtpunktsformelen, som fortel kvar det er rettferdig å møtast.\n\nMen så kjem det spørsmålet kartappen *eigentleg* slit med: kor langt er det frå eit punkt til ei *linje*? Tenk på eit skip og ei lang, rett kystlinje: avstanden er ikkje til eit bestemt punkt på land, men til det *næraste* punktet – målt vinkelrett inn. Det finst ein formel for dette, kompakt og elegant, og ein systerformel for avstanden mellom to parallelle linjer. Til slutt skal du få sjå kvifor formelen verkar: under panseret sit projeksjonen frå vektorrekninga og gjer jobben. La oss byrje med målebandet.",
+      "e2a6b21906f9c7e2": "## Frå Pytagoras til midtpunktet\n\nLengda av ein vektor $\\vec{v} = (x, y)$ er hypotenusen i trekanten med katetar $x$ og $y$: $$|\\vec{v}| = \\sqrt{x^2 + y^2}$$ Ho blir òg kalla *absoluttverdien* eller *norma* til vektoren, og ho er aldri negativ – faktisk er $|\\vec{v}| = 0$ berre for nullvektoren sjølv. Skalering oppfører seg som venta: $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$, så doblar du vektoren, blir lengda dobla, uansett forteikn på $k$. Prøv: $\\vec{u} = (3, -4)$ har lengd $\\sqrt{9 + 16} = 5$, og $\\vec{w} = (-2, 2\\sqrt{3})$ har lengd $\\sqrt{4 + 12} = 4$. Negative komponentar spelar inga rolle – kvadreringa viskar ut forteikna.\n\nAvstanden mellom to punkt følgjer no gratis: avstanden frå $A = (x_1, y_1)$ til $B = (x_2, y_2)$ er lengda av vektoren $\\overrightarrow{AB} = (x_2 - x_1, y_2 - y_1)$, altså $$|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$ Frå $A = (1, 2)$ til $B = (5, -1)$: $\\sqrt{4^2 + (-3)^2} = \\sqrt{25} = 5$. Éin formel, alle avstandar mellom punkt i planet.\n\nOg kvar møtest ein på halvvegen? **Midtpunktet** er gjennomsnittet av koordinatane: $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – det er punktet du når med vektoren $\\frac{1}{2}(\\overrightarrow{OA} + \\overrightarrow{OB})$ frå origo. Mellom $A = (-3, 5)$ og $B = (7, -1)$ ligg midtpunktet i $M = (2, 2)$. Formelen kan òg *snuast*: veit du at midtpunktet av $AB$ er $M = (4, 1)$ og at $A = (1, 3)$, løyser du berre ut den ukjende enden. Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (2 \\cdot 4 - 1,\\; 2 \\cdot 1 - 3) = (7, -1)$. Halvparten kjend, halvparten rekna ut.",
+      "c8b339b92c8afcc2": "Test deg sjølv på lengd, avstand og midtpunkt:",
+      "4097889236a2af26": "placeholder",
+      "4ca93f056103e549": "Kva er lengda av $\\vec{u} = (3, -4)$?",
+      "7052a12c06ee3181": "$\\sqrt{7}$",
+      "06e8e9c435c8926c": "$|\\vec{u}| = \\sqrt{3^2 + (-4)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. Lengda er alltid ikkje-negativ.",
+      "687c13a102bb7083": "Kva er avstanden mellom $A = (1, 2)$ og $B = (5, -1)$?",
+      "16210e1060b04315": "$\\sqrt{5}$",
+      "b636c13a146f13ce": "$|AB| = \\sqrt{(5-1)^2 + (-1-2)^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$.",
+      "4b6cdb0d6146e5fb": "Finn midtpunktet mellom $A = (-3, 5)$ og $B = (7, -1)$.",
+      "4ec04682bd69ef7f": "$M = \\left(\\frac{-3 + 7}{2}, \\frac{5 + (-1)}{2}\\right) = (2, 2)$.",
+      "65d974d89366c0d9": "Midtpunktet av $AB$ er $M = (4, 1)$, og $A = (1, 3)$. Finn $B$.",
+      "46ad855d08061e76": "Av $M = \\frac{1}{2}(A + B)$ følgjer $B = 2M - A = (8 - 1,\\; 2 - 3) = (7, -1)$.",
+      "820074c4451aa769": "## Avstanden til ei linje – og kvifor formelen verkar\n\nEit skip er i punktet $P = (3, 1)$, og ei rett kystlinje følgjer linja $2x - y + 4 = 0$. Kor nær land er skipet? Avstanden frå eit punkt til ei linje blir alltid målt *vinkelrett* inn – det er den kortaste vegen. Heldigvis finst ein formel som gjer alt på éin gong. For linja $\\ell$: $ax + by + c = 0$ og punktet $P = (x_0, y_0)$ er $$d(P, \\ell) = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$$ Oppskrifta er nesten frekk i sin enkelheit: sett koordinatane til punktet inn i venstresida til linja, ta absoluttverdi, og del på lengda av $(a, b)$. For skipet vårt: $d = \\frac{|2 \\cdot 3 - 1 \\cdot 1 + 4|}{\\sqrt{4 + 1}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$, om lag 4 einingar.\n\nKvifor verkar dette? Her kjem vektorrekninga til heider og ære. Vektoren $\\vec{n} = (a, b)$ er *normalvektoren* til linja – han står vinkelrett på linja. Tek du ein vektor $\\vec{u}$ frå eit vilkårleg punkt på linja til $P$, er avstanden nettopp lengda av **projeksjonen** av $\\vec{u}$ på $\\vec{n}$: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Reknar du ut dette uttrykket, fell avstandsformelen ut, ledd for ledd. Formelen er altså ikkje magi – han er projeksjonen i forkledning, og same ideen fungerer like godt i tre dimensjonar.\n\nTo **parallelle linjer** har same normalvektor, og dermed same koeffisientar $a$ og $b$: $\\ell_1$: $ax + by + c_1 = 0$ og $\\ell_2$: $ax + by + c_2 = 0$. Avstanden mellom dei blir $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. For $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$: $d = \\frac{|-5 - 10|}{\\sqrt{9 + 16}} = \\frac{15}{5} = 3$. Er du i tvil, kan du alltid velje eit punkt på den eine linja og bruke punkt-til-linje-formelen mot den andre – same svar. Og ein siste godbit: avstandsformelen er ein arealmaskin for trekantar. Med grunnlinja $g$ som avstanden mellom to hjørne og høgda $h$ som avstanden frå det tredje hjørnet til linja gjennom grunnlinja, er arealet $A = \\frac{1}{2}gh$ – to avstandsutrekningar, eitt areal.",
+      "77f93e437217ec7e": "Test deg sjølv på avstand til linjer:",
+      "8906e4e81262bc96": "Kva er avstanden frå $P = (3, 1)$ til linja $2x - y + 4 = 0$?",
+      "cdb03da2192fc66d": "$\\frac{9}{\\sqrt{5}}$",
+      "c3f92b1886929852": "$\\frac{5}{\\sqrt{9}}$",
+      "b28c853f074d0e8f": "$\\frac{7}{\\sqrt{5}}$",
+      "6fd809822b88e2fd": "$d = \\frac{|2 \\cdot 3 + (-1) \\cdot 1 + 4|}{\\sqrt{2^2 + (-1)^2}} = \\frac{|6 - 1 + 4|}{\\sqrt{5}} = \\frac{9}{\\sqrt{5}} = \\frac{9\\sqrt{5}}{5}$.",
+      "6bd3ad327c500c15": "Korleis blir avstanden frå eit punkt til ei linje målt?",
+      "f3a4164a38895cd7": "Langs $x$-aksen",
+      "accfbbe2d25cb41c": "Til det næraste endepunktet på linja",
+      "c5706fbaf3aaae4d": "Vinkelrett på linja -- den kortaste vegen",
+      "fcf23dae30653f65": "Langs retningsvektoren til linja",
+      "8824e7dae54e0cd2": "Avstanden er lengda av det vinkelrette linjestykket frå punktet ned på linja. Alle andre vegar til linja er lengre.",
+      "3a3820747d8d0012": "Finn avstanden mellom linjene $3x + 4y - 5 = 0$ og $3x + 4y + 10 = 0$.",
+      "8d523773a4737a84": "$\\frac{15}{\\sqrt{7}}$",
+      "46f59bb6568cae90": "Linjene er parallelle (same normalvektor $(3, 4)$), så $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}} = \\frac{|-5 - 10|}{5} = 3$.",
+      "d18c4b541385b147": "Korleis ser du at to linjer på forma $ax + by + c = 0$ er parallelle?",
+      "822db283aceaa94c": "Dei har same normalvektor $(a, b)$",
+      "8c1a4441dd7a260a": "Dei har same konstantledd $c$",
+      "47aa3216c3147a3a": "Begge går gjennom origo",
+      "3b19d6e4e6b2fbe1": "Koeffisientane $a$ og $b$ er like store",
+      "b03b9ce2f2e3dbb4": "Parallelle linjer har same retning, og dermed same (eller proporsjonal) normalvektor $(a, b)$. Berre konstantleddet $c$ skil dei.",
+      "c1687533165b8383": "Kva vektoroperasjon ligg bak avstandsformelen $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$?",
+      "75b20f161cf7fb0b": "Vektoraddisjon",
+      "5f816f028d091148": "Projeksjon på normalvektoren $\\vec{n} = (a, b)$",
+      "18c278d88ead70e4": "Skalar multiplikasjon",
+      "1d341c3a5e55f7ef": "Derivasjon av stadvektoren",
+      "d8e00dbd969503e9": "Avstanden er lengda av projeksjonen av ein vektor frå linja til punktet på normalvektoren: $\\frac{|\\vec{u} \\cdot \\vec{n}|}{|\\vec{n}|}$. Formelen er projeksjonen i forkledning.",
+      "8d40642507ec6ae2": "## Alle avstandar, eitt verktøysett\n\nSpørsmålet «kor langt er det?» har no fått presise svar i alle variantar. Grunnsteinen er vektorlengda $|\\vec{v}| = \\sqrt{x^2 + y^2}$ – Pytagoras brukt på komponentane – med dei greie eigenskapane $|k\\vec{v}| = |k| \\cdot |\\vec{v}|$ og at berre nullvektoren har lengd null. Avstanden mellom to punkt er rett og slett lengda av vektoren mellom dei, $|AB| = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$, og midtpunktet er gjennomsnittet av koordinatane, $M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$ – ein formel som like gjerne kan snuast for å finne ein ukjend ende når midtpunktet er kjent.\n\nSå heva vi blikket frå punkt til linjer. Avstanden frå punktet $P = (x_0, y_0)$ til linja $ax + by + c = 0$ blir målt vinkelrett inn og er $d = \\frac{|ax_0 + by_0 + c|}{\\sqrt{a^2 + b^2}}$ – den kortaste vegen frå skipet til kystlinja. To parallelle linjer med same normalvektor har avstanden $d = \\frac{|c_1 - c_2|}{\\sqrt{a^2 + b^2}}$. Og viktigast av alt: formelen er inga trylleformel. Han er lengda av projeksjonen på normalvektoren $\\vec{n} = (a, b)$ – vektorrekninga frå førre kapittel som stiller opp og gjer grovarbeidet, og som vil halde fram med å verke den dagen du går frå planet til rommet.\n\nSom bonus såg du at to avstandsutrekningar gir eit trekantareal via $A = \\frac{1}{2}gh$. I neste kapittel snur vi perspektivet: i staden for å måle avstandar til linjer og kurver skal vi *skildre* linjene og sirklane sjølve – med normalvektorar og avstandar som byggjesteinar."
+    }
+  }
+}

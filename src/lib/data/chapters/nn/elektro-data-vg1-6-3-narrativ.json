@@ -1,1 +1,412 @@
-{"id":"elektro-data-vg1-6-3-narrativ","courseId":"elektro-data-vg1","chapterNumber":"6.3","title":"Reguleringsteknikk","subtitle":"Narrativ versjon","description":"Ei forteljing om kunsten å halde noko stabilt – frå termostaten på veggen til PID-regulatoren som styrer temperatur, trykk og nivå med presisjon.","estimatedMinutes":38,"competenceGoals":["forklare grunnleggende prinsipper for reguleringsteknikk"],"linkedChapterId":"elektro-data-vg1-6-3","content":[{"id":"elektro-data-vg1-6-3-n-intro","type":"text","content":"## Kunsten å halde noko akkurat passe\n\nTermostaten på veggen din gjer noko ganske bemerkelsesverdig heile tida, utan at du tenkjer over det. Han måler temperaturen i rommet, samanliknar han med den du har stilt inn, og skrur varmen av eller på for å treffe akkurat den temperaturen du vil ha. Det høyrest trivielt ut, men dette er sjølve hjartet i eit heilt fagfelt: **reguleringsteknikk**, kunsten å styre ein prosess slik at ein målt verdi blir halden så nær eit ønskt nivå som mogleg.\n\nI industrien blir dette drive til det ekstreme. Den same grunnidéen blir brukt til å halde temperaturen i ein kjemisk reaktor stabil på ein tidels grad, til å halde trykket i ei røyrleidning konstant, eller til å styre nivået i ein tank. I dette kapittelet skal vi byggje opp forståinga steg for steg: først forskjellen på å berre styre blindt og å styre med tilbakemelding, deretter omgrepa vi treng, og til slutt dei tre byggjeklossane P, I og D som til saman utgjer den berømte PID-regulatoren."},{"id":"elektro-data-vg1-6-3-n-section1","type":"text","content":"## Med eller utan auge på resultatet\n\nDet finst to grunnleggjande måtar å styre på, og forskjellen handlar om éi ting: om systemet sjekkar resultatet eller ikkje. **Open regulering**, òg kalla rein styring, køyrer eit førehandsbestemt signal utan å bry seg om kva som faktisk skjer. Tenk på ein brødristar med tidsur: han varmar i den tida du stiller inn, heilt uavhengig av om brødet blei passe eller brent. Det er enkelt, men håplaust viss noko uventa skjer.\n\n**Lukka regulering** har derimot auge. Systemet måler resultatet og justerer pådraget basert på målinga, gjennom ei **tilbakekoplingssløyfe** som heile tida samanliknar ønskt verdi med faktisk verdi. Romtermostaten er det klassiske dømet: han måler temperaturen kontinuerleg og justerer varmen deretter.\n\nFor å snakke presist om dette treng vi nokre omgrep. **Settpunktet** (SP) er den ønskte verdien, til dømes 22 grader. **Prosessvariabelen** (PV) er den målte verdien, altså den faktiske romtemperaturen. **Reguleringsavviket** (e) er differansen mellom dei: $e = SP - PV$. **Pådraget** (u) er styresignalet som blir sendt til aktuatoren, til dømes varmeeffekten. Og **forstyrringar** er ytre påverknader, som eit ope vindauge. Lat oss rekne på eit døme: eit rom skal haldast på 22 grader, men sensoren viser 19. Då er avviket $e = 22 - 19 = 3$ grader. Avviket er positivt, altså er det for kaldt, og regulatoren bør auke pådraget og gje meir varme. Etter kvart som temperaturen stig mot 22, krympar avviket, og pådraget blir redusert gradvis."},{"id":"elektro-data-vg1-6-3-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-6-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på open og lukka regulering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-3-n-quiz1-q0","task":"Kva type regulering bruker ein brødristar med fast tid?","options":[{"id":"a","text":"Open regulering (styring) utan tilbakekopling","isCorrect":true},{"id":"b","text":"Lukka regulering med tilbakekopling","isCorrect":false},{"id":"c","text":"PID-regulering","isCorrect":false},{"id":"d","text":"Integralregulering","isCorrect":false}],"solution":"Ein brødristar med tidsur er open regulering: han varmar i førehandsbestemt tid utan å måle om brødet faktisk er ferdig. Det er ingen tilbakekopling."},{"id":"elektro-data-vg1-6-3-n-quiz1-q1","task":"Eit rom skal haldast på 22 °C, men sensoren viser 19 °C. Kva er reguleringsavviket?","options":[{"id":"a","text":"−3 °C","isCorrect":false},{"id":"b","text":"3 °C","isCorrect":true},{"id":"c","text":"41 °C","isCorrect":false},{"id":"d","text":"19 °C","isCorrect":false}],"solution":"$e = SP - PV = 22 - 19 = 3$ °C. Avviket er positivt, så rommet er for kaldt og regulatoren bør gje meir varme."},{"id":"elektro-data-vg1-6-3-n-quiz1-q2","task":"Kva er ein fordel med lukka regulering framfor open?","options":[{"id":"a","text":"Han er alltid billegare","isCorrect":false},{"id":"b","text":"Han treng ingen sensor","isCorrect":false},{"id":"c","text":"Han måler resultatet og kan kompensere for forstyrringar","isCorrect":true},{"id":"d","text":"Han er raskare å programmere","isCorrect":false}],"solution":"Lukka regulering bruker tilbakekopling, måler resultatet og justerer pådraget. Dermed kan han kompensere for forstyrringar, noko open regulering ikkje kan."}]}},{"id":"elektro-data-vg1-6-3-n-section2","type":"text","content":"## P, I og D – fortid, notid og framtid\n\nNo skal vi byggje sjølve regulatoren, og han består av opp til tre ledd som kvart ser på avviket på sin eigen måte. Lat oss møte dei.\n\nFørst **P-regulering**, det proporsjonale leddet. Det gjev eit pådrag som er proporsjonalt med avviket: $u = K_p \\cdot e$, der $K_p$ er ei forsterking du vel. Stort avvik gjev stort pådrag og rask korreksjon; lite avvik gjev lite pådrag. Med $K_p = 5$ og eit avvik på 2 grader blir pådraget $u = 5 \\cdot 2 = 10$ einingar. Men P-regulering har ein irriterande veikskap: han når aldri heilt fram til settpunktet åleine. Når avviket blir lite, blir pådraget òg så lite at det ikkje klarar å lukke dei siste smulane – det står alltid igjen eit lite **stasjonært avvik**.\n\nHer kjem **I-regulering**, integralleddet, til unnsetning. Det gjev pådrag basert på *summen* av avviket over tid. Så lenge det er eit lite vedvarande avvik, byggjer I-leddet seg opp og opp, heilt til avviket blir pressa heilt ned til null. Det er nettopp I-leddet som fjernar det stasjonære avviket P-leddet ikkje greier. Ulempa er at det kan bli litt tregt og gje oversving om det blir brukt åleine.\n\nTil slutt **D-regulering**, derivatleddet, som ser på *endringstakta* til avviket – kor raskt det forandrar seg. D-leddet verkar som ein brems: når prosessvariabelen susar raskt mot settpunktet, dempar D-leddet pådraget og hindrar at systemet skyt forbi målet. Ein fin hugseregel bind det saman: **P ser på notida** (\"kor stort er avviket no?\"), **I ser på fortida** (\"kor lenge har avviket vart?\"), og **D ser på framtida** (\"kor raskt endrar avviket seg?\"). Ein **PID-regulator** kombinerer alle tre."},{"id":"elektro-data-vg1-6-3-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-6-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på P-, I- og D-ledd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-3-n-quiz2-q0","task":"Kva er hovudproblemet med rein P-regulering åleine?","options":[{"id":"a","text":"Han reagerer for tregt på alt","isCorrect":false},{"id":"b","text":"Han kan berre brukast til temperatur","isCorrect":false},{"id":"c","text":"Han krev alltid trykkluft","isCorrect":false},{"id":"d","text":"Han gjev alltid eit stasjonært avvik – treffer aldri heilt settpunktet","isCorrect":true}],"solution":"Når avviket blir lite, blir P-pådraget så lite at det ikkje når heilt fram. Det står igjen eit stasjonært avvik, som I-leddet trengst for å fjerne."},{"id":"elektro-data-vg1-6-3-n-quiz2-q1","task":"Kva ledd fjernar det stasjonære avviket?","options":[{"id":"a","text":"I-leddet (integral)","isCorrect":true},{"id":"b","text":"P-leddet","isCorrect":false},{"id":"c","text":"D-leddet","isCorrect":false},{"id":"d","text":"Ingen av dei","isCorrect":false}],"solution":"I-leddet summerer avviket over tid, så sjølv eit lite vedvarande avvik byggjer opp pådraget til avviket blir null. Det fjernar det stasjonære avviket."},{"id":"elektro-data-vg1-6-3-n-quiz2-q2","task":"Kva ledd dempar svingingar og oversving?","options":[{"id":"a","text":"P-leddet","isCorrect":false},{"id":"b","text":"D-leddet (derivat)","isCorrect":true},{"id":"c","text":"I-leddet","isCorrect":false},{"id":"d","text":"Alle tre likt","isCorrect":false}],"solution":"D-leddet reagerer på kor raskt avviket blir endra og verkar som ein brems. Når systemet nærmar seg settpunktet raskt, dempar D-leddet pådraget og hindrar oversving."}]}},{"id":"elektro-data-vg1-6-3-n-section3","type":"text","content":"## PID i aksjon – og reknestykket bak\n\nLat oss sjå heile PID-regulatoren jobbe i eit verkeleg scenario. Tenk deg ein tank med vatn som skal haldast på 60 grader. Plutseleg tappar nokon kaldt vatn, og temperaturen stuper til 50 grader. Kva skjer inni regulatoren?\n\n**P-leddet** reagerer med ein gong på storleiken: avviket er no $e = 60 - 50 = 10$ grader, så P-leddet gjev eit kraftig pådrag for å skru opp varmen. **D-leddet** reagerer på at temperaturen fall så *raskt* – det brå fallet gjev eit stort derivat, og D-leddet legg på eit ekstra støyt for å motverke den plutselege endringa. Og **I-leddet** jobbar i bakgrunnen: så lenge temperaturen ligg under 60, summerer det opp avviket og syter for at òg dei siste gradene mot settpunktet faktisk blir nådde. Resultatet er at temperaturen stig raskt tilbake mot 60 grader, med minimal oversving takka vere den dempande effekten til D-leddet. Det er denne samhandlinga som gjer PID så kraftig.\n\nLat oss avslutte med litt talarbeid på eit enklare tilfelle. Ein rein P-regulator med $K_p = 4$ styrer vassnivået i ein tank. Settpunktet er 80 cm, men sensoren måler 65 cm. Avviket blir $e = SP - PV = 80 - 65 = 15$ cm, og pådraget blir $u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar. P-regulatoren vil fylle tanken, men stoppar med eit lite stasjonært avvik, fordi pådraget krympar når nivået nærmar seg 80. Legg vi til I-regulering, vil I-leddet summere opp det attverande avviket – sjølv om det berre er eit par centimeter – og sakte men sikkert presse pådraget vidare heilt til nivået treffer nøyaktig 80 cm. Slik utfyller dei tre ledda kvarandre til ei rask, presis og stabil regulering."},{"id":"elektro-data-vg1-6-3-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-6-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på PID i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-6-3-n-quiz3-q0","task":"Ein P-regulator har Kp = 4. Avviket er 15 cm. Kva er pådraget?","options":[{"id":"a","text":"15 einingar","isCorrect":false},{"id":"b","text":"19 einingar","isCorrect":false},{"id":"c","text":"60 einingar","isCorrect":true},{"id":"d","text":"4 einingar","isCorrect":false}],"solution":"$u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar."},{"id":"elektro-data-vg1-6-3-n-quiz3-q1","task":"I tanken som fell frå 60 °C til 50 °C, kva ledd reagerer kraftigast på sjølve det raske fallet?","options":[{"id":"a","text":"P-leddet","isCorrect":false},{"id":"b","text":"I-leddet","isCorrect":false},{"id":"c","text":"Ingen av dei","isCorrect":false},{"id":"d","text":"D-leddet, fordi det reagerer på endringstakta","isCorrect":true}],"solution":"Den raske endringa gjev eit stort derivat, og D-leddet svarar med eit ekstra pådrag utover det P-leddet gjev. D-leddet ser på kor raskt avviket blir endra."},{"id":"elektro-data-vg1-6-3-n-quiz3-q2","task":"Kvifor kombinerer vi P, I og D i éin regulator?","options":[{"id":"a","text":"For å få rask respons (P), fjerna stasjonært avvik (I) og dempa svingingar (D)","isCorrect":true},{"id":"b","text":"For å gjere han billegare","isCorrect":false},{"id":"c","text":"Fordi lova krev det","isCorrect":false},{"id":"d","text":"For å sleppe sensorar","isCorrect":false}],"solution":"P gjev rask korreksjon, I fjernar det stasjonære avviket, og D dempar oversving. Saman gjev dei rask, presis og stabil regulering."}]}},{"id":"elektro-data-vg1-6-3-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært kunsten å halde noko akkurat passe. **Open regulering** køyrer eit førehandsbestemt signal utan å sjekke resultatet, medan **lukka regulering** bruker ei tilbakekoplingssløyfe til å måle og korrigere kontinuerleg. Kjernen er **reguleringsavviket** $e = SP - PV$, forskjellen mellom ønskt og faktisk verdi.\n\nRegulatoren blir bygd av tre ledd som ser på avviket ulikt: **P** reagerer på storleiken til avviket no, men lèt eit stasjonært avvik stå igjen; **I** summerer avviket over tid og fjernar nettopp dette restavviket; og **D** reagerer på endringstakta og dempar svingingar. Ein **PID-regulator** kombinerer alle tre til rask, presis og stabil styring – akkurat det som trengst for å halde temperatur, trykk og nivå nøyaktig der vi vil ha dei."}],"exercises":[],"_meta":{"sourceHash":"ee87089916404b46","translatedAt":"2026-06-21T10:30:36.475Z","model":"claude-code-agent","strings":69,"tm":{"8d111b11c615fac8":"Reguleringsteknikk","b195b06d1ed59702":"Narrativ versjon","b5a6c100d2404b5e":"Ei forteljing om kunsten å halde noko stabilt – frå termostaten på veggen til PID-regulatoren som styrer temperatur, trykk og nivå med presisjon.","2816ad2bbfc6b189":"forklare grunnleggende prinsipper for reguleringsteknikk","b70f62e4f4670eb0":"## Kunsten å halde noko akkurat passe\n\nTermostaten på veggen din gjer noko ganske bemerkelsesverdig heile tida, utan at du tenkjer over det. Han måler temperaturen i rommet, samanliknar han med den du har stilt inn, og skrur varmen av eller på for å treffe akkurat den temperaturen du vil ha. Det høyrest trivielt ut, men dette er sjølve hjartet i eit heilt fagfelt: **reguleringsteknikk**, kunsten å styre ein prosess slik at ein målt verdi blir halden så nær eit ønskt nivå som mogleg.\n\nI industrien blir dette drive til det ekstreme. Den same grunnidéen blir brukt til å halde temperaturen i ein kjemisk reaktor stabil på ein tidels grad, til å halde trykket i ei røyrleidning konstant, eller til å styre nivået i ein tank. I dette kapittelet skal vi byggje opp forståinga steg for steg: først forskjellen på å berre styre blindt og å styre med tilbakemelding, deretter omgrepa vi treng, og til slutt dei tre byggjeklossane P, I og D som til saman utgjer den berømte PID-regulatoren.","0caaed684b6c8ac7":"## Med eller utan auge på resultatet\n\nDet finst to grunnleggjande måtar å styre på, og forskjellen handlar om éi ting: om systemet sjekkar resultatet eller ikkje. **Open regulering**, òg kalla rein styring, køyrer eit førehandsbestemt signal utan å bry seg om kva som faktisk skjer. Tenk på ein brødristar med tidsur: han varmar i den tida du stiller inn, heilt uavhengig av om brødet blei passe eller brent. Det er enkelt, men håplaust viss noko uventa skjer.\n\n**Lukka regulering** har derimot auge. Systemet måler resultatet og justerer pådraget basert på målinga, gjennom ei **tilbakekoplingssløyfe** som heile tida samanliknar ønskt verdi med faktisk verdi. Romtermostaten er det klassiske dømet: han måler temperaturen kontinuerleg og justerer varmen deretter.\n\nFor å snakke presist om dette treng vi nokre omgrep. **Settpunktet** (SP) er den ønskte verdien, til dømes 22 grader. **Prosessvariabelen** (PV) er den målte verdien, altså den faktiske romtemperaturen. **Reguleringsavviket** (e) er differansen mellom dei: $e = SP - PV$. **Pådraget** (u) er styresignalet som blir sendt til aktuatoren, til dømes varmeeffekten. Og **forstyrringar** er ytre påverknader, som eit ope vindauge. Lat oss rekne på eit døme: eit rom skal haldast på 22 grader, men sensoren viser 19. Då er avviket $e = 22 - 19 = 3$ grader. Avviket er positivt, altså er det for kaldt, og regulatoren bør auke pådraget og gje meir varme. Etter kvart som temperaturen stig mot 22, krympar avviket, og pådraget blir redusert gradvis.","f31e6472fee6e870":"Test deg sjølv på open og lukka regulering:","4097889236a2af26":"placeholder","a0b4c18718db5e52":"Kva type regulering bruker ein brødristar med fast tid?","0864875cdb2d0b65":"Open regulering (styring) utan tilbakekopling","79f88bf0ce7cac60":"Lukka regulering med tilbakekopling","4b261386aea107b0":"PID-regulering","9124bfba63fa8201":"Integralregulering","6f977c922e33b3ce":"Ein brødristar med tidsur er open regulering: han varmar i førehandsbestemt tid utan å måle om brødet faktisk er ferdig. Det er ingen tilbakekopling.","8c68b1840d491e0a":"Eit rom skal haldast på 22 °C, men sensoren viser 19 °C. Kva er reguleringsavviket?","766b674f25211498":"−3 °C","df30f600b4748f10":"3 °C","3581d97398387406":"41 °C","386e64201f0d8521":"19 °C","8ed1c8bcd02ae026":"$e = SP - PV = 22 - 19 = 3$ °C. Avviket er positivt, så rommet er for kaldt og regulatoren bør gje meir varme.","dd925558cdf680f2":"Kva er ein fordel med lukka regulering framfor open?","7f46c532775049a4":"Han er alltid billegare","5248d25c0d703e45":"Han treng ingen sensor","9e79d99ab201da2d":"Han måler resultatet og kan kompensere for forstyrringar","bab0390a9773d043":"Han er raskare å programmere","bae06c0a76e6b0ef":"Lukka regulering bruker tilbakekopling, måler resultatet og justerer pådraget. Dermed kan han kompensere for forstyrringar, noko open regulering ikkje kan.","2164f04e8b1756f3":"## P, I og D – fortid, notid og framtid\n\nNo skal vi byggje sjølve regulatoren, og han består av opp til tre ledd som kvart ser på avviket på sin eigen måte. Lat oss møte dei.\n\nFørst **P-regulering**, det proporsjonale leddet. Det gjev eit pådrag som er proporsjonalt med avviket: $u = K_p \\cdot e$, der $K_p$ er ei forsterking du vel. Stort avvik gjev stort pådrag og rask korreksjon; lite avvik gjev lite pådrag. Med $K_p = 5$ og eit avvik på 2 grader blir pådraget $u = 5 \\cdot 2 = 10$ einingar. Men P-regulering har ein irriterande veikskap: han når aldri heilt fram til settpunktet åleine. Når avviket blir lite, blir pådraget òg så lite at det ikkje klarar å lukke dei siste smulane – det står alltid igjen eit lite **stasjonært avvik**.\n\nHer kjem **I-regulering**, integralleddet, til unnsetning. Det gjev pådrag basert på *summen* av avviket over tid. Så lenge det er eit lite vedvarande avvik, byggjer I-leddet seg opp og opp, heilt til avviket blir pressa heilt ned til null. Det er nettopp I-leddet som fjernar det stasjonære avviket P-leddet ikkje greier. Ulempa er at det kan bli litt tregt og gje oversving om det blir brukt åleine.\n\nTil slutt **D-regulering**, derivatleddet, som ser på *endringstakta* til avviket – kor raskt det forandrar seg. D-leddet verkar som ein brems: når prosessvariabelen susar raskt mot settpunktet, dempar D-leddet pådraget og hindrar at systemet skyt forbi målet. Ein fin hugseregel bind det saman: **P ser på notida** (\"kor stort er avviket no?\"), **I ser på fortida** (\"kor lenge har avviket vart?\"), og **D ser på framtida** (\"kor raskt endrar avviket seg?\"). Ein **PID-regulator** kombinerer alle tre.","d5c353a290477dd9":"Test deg sjølv på P-, I- og D-ledd:","4dbe9a0728b735a6":"Kva er hovudproblemet med rein P-regulering åleine?","485405b0c32011d2":"Han reagerer for tregt på alt","94a6764e5a60290c":"Han kan berre brukast til temperatur","f0e52a3f0b4fb880":"Han krev alltid trykkluft","610cfea442dcde9f":"Han gjev alltid eit stasjonært avvik – treffer aldri heilt settpunktet","3290edaa8a817e23":"Når avviket blir lite, blir P-pådraget så lite at det ikkje når heilt fram. Det står igjen eit stasjonært avvik, som I-leddet trengst for å fjerne.","c6eeae697a8c0e23":"Kva ledd fjernar det stasjonære avviket?","e1885546a9c9fbf9":"I-leddet (integral)","de40968ae352e8b4":"P-leddet","3731b6f4780f1906":"D-leddet","bb60f24e85070ad0":"Ingen av dei","7c890e120bfa5e47":"I-leddet summerer avviket over tid, så sjølv eit lite vedvarande avvik byggjer opp pådraget til avviket blir null. Det fjernar det stasjonære avviket.","2a396510393acef4":"Kva ledd dempar svingingar og oversving?","973d38fd66dc1c61":"D-leddet (derivat)","508b8509ee1354c0":"I-leddet","6529468a9b443033":"Alle tre likt","829da4d42b6ff43b":"D-leddet reagerer på kor raskt avviket blir endra og verkar som ein brems. Når systemet nærmar seg settpunktet raskt, dempar D-leddet pådraget og hindrar oversving.","1829c238d75a66d8":"## PID i aksjon – og reknestykket bak\n\nLat oss sjå heile PID-regulatoren jobbe i eit verkeleg scenario. Tenk deg ein tank med vatn som skal haldast på 60 grader. Plutseleg tappar nokon kaldt vatn, og temperaturen stuper til 50 grader. Kva skjer inni regulatoren?\n\n**P-leddet** reagerer med ein gong på storleiken: avviket er no $e = 60 - 50 = 10$ grader, så P-leddet gjev eit kraftig pådrag for å skru opp varmen. **D-leddet** reagerer på at temperaturen fall så *raskt* – det brå fallet gjev eit stort derivat, og D-leddet legg på eit ekstra støyt for å motverke den plutselege endringa. Og **I-leddet** jobbar i bakgrunnen: så lenge temperaturen ligg under 60, summerer det opp avviket og syter for at òg dei siste gradene mot settpunktet faktisk blir nådde. Resultatet er at temperaturen stig raskt tilbake mot 60 grader, med minimal oversving takka vere den dempande effekten til D-leddet. Det er denne samhandlinga som gjer PID så kraftig.\n\nLat oss avslutte med litt talarbeid på eit enklare tilfelle. Ein rein P-regulator med $K_p = 4$ styrer vassnivået i ein tank. Settpunktet er 80 cm, men sensoren måler 65 cm. Avviket blir $e = SP - PV = 80 - 65 = 15$ cm, og pådraget blir $u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar. P-regulatoren vil fylle tanken, men stoppar med eit lite stasjonært avvik, fordi pådraget krympar når nivået nærmar seg 80. Legg vi til I-regulering, vil I-leddet summere opp det attverande avviket – sjølv om det berre er eit par centimeter – og sakte men sikkert presse pådraget vidare heilt til nivået treffer nøyaktig 80 cm. Slik utfyller dei tre ledda kvarandre til ei rask, presis og stabil regulering.","f2092e985d35ccc2":"Test deg sjølv på PID i praksis:","6c9e6127d0e92e83":"Ein P-regulator har Kp = 4. Avviket er 15 cm. Kva er pådraget?","757b4815c794cc5c":"15 einingar","fa56bd7efddf7ca1":"19 einingar","1f8a43f1c4132dc7":"60 einingar","c423bd8a9f4dc3dc":"4 einingar","431da81515e815a8":"$u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar.","0a185bb64a13be56":"I tanken som fell frå 60 °C til 50 °C, kva ledd reagerer kraftigast på sjølve det raske fallet?","354cc3d12323de6b":"D-leddet, fordi det reagerer på endringstakta","2e7066ee7160fda8":"Den raske endringa gjev eit stort derivat, og D-leddet svarar med eit ekstra pådrag utover det P-leddet gjev. D-leddet ser på kor raskt avviket blir endra.","0cc4f562a49e5e59":"Kvifor kombinerer vi P, I og D i éin regulator?","dcfa8e3f787a0ee7":"For å få rask respons (P), fjerna stasjonært avvik (I) og dempa svingingar (D)","f8958c40feff3964":"For å gjere han billegare","2b3717f8496cc891":"Fordi lova krev det","6b214c279b6aeca4":"For å sleppe sensorar","a23c95256ae91365":"P gjev rask korreksjon, I fjernar det stasjonære avviket, og D dempar oversving. Saman gjev dei rask, presis og stabil regulering.","197940ae7aa2a391":"## Oppsummering\n\nVi har lært kunsten å halde noko akkurat passe. **Open regulering** køyrer eit førehandsbestemt signal utan å sjekke resultatet, medan **lukka regulering** bruker ei tilbakekoplingssløyfe til å måle og korrigere kontinuerleg. Kjernen er **reguleringsavviket** $e = SP - PV$, forskjellen mellom ønskt og faktisk verdi.\n\nRegulatoren blir bygd av tre ledd som ser på avviket ulikt: **P** reagerer på storleiken til avviket no, men lèt eit stasjonært avvik stå igjen; **I** summerer avviket over tid og fjernar nettopp dette restavviket; og **D** reagerer på endringstakta og dempar svingingar. Ein **PID-regulator** kombinerer alle tre til rask, presis og stabil styring – akkurat det som trengst for å halde temperatur, trykk og nivå nøyaktig der vi vil ha dei."}}}
+{
+  "id": "elektro-data-vg1-6-3-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "6.3",
+  "title": "Reguleringsteknikk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kunsten å halde noko stabilt – frå termostaten på veggen til PID-regulatoren som styrer temperatur, trykk og nivå med presisjon.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "forklare grunnleggende prinsipper for reguleringsteknikk"
+  ],
+  "linkedChapterId": "elektro-data-vg1-6-3",
+  "content": [
+    {
+      "id": "elektro-data-vg1-6-3-n-intro",
+      "type": "text",
+      "content": "## Kunsten å halde noko akkurat passe\n\nTermostaten på veggen din gjer noko ganske bemerkelsesverdig heile tida, utan at du tenkjer over det. Han måler temperaturen i rommet, samanliknar han med den du har stilt inn, og skrur varmen av eller på for å treffe akkurat den temperaturen du vil ha. Det høyrest trivielt ut, men dette er sjølve hjartet i eit heilt fagfelt: **reguleringsteknikk**, kunsten å styre ein prosess slik at ein målt verdi blir halden så nær eit ønskt nivå som mogleg.\n\nI industrien blir dette drive til det ekstreme. Den same grunnidéen blir brukt til å halde temperaturen i ein kjemisk reaktor stabil på ein tidels grad, til å halde trykket i ei røyrleidning konstant, eller til å styre nivået i ein tank. I dette kapittelet skal vi byggje opp forståinga steg for steg: først forskjellen på å berre styre blindt og å styre med tilbakemelding, deretter omgrepa vi treng, og til slutt dei tre byggjeklossane P, I og D som til saman utgjer den berømte PID-regulatoren."
+    },
+    {
+      "id": "elektro-data-vg1-6-3-n-section1",
+      "type": "text",
+      "content": "## Med eller utan auge på resultatet\n\nDet finst to grunnleggjande måtar å styre på, og forskjellen handlar om éi ting: om systemet sjekkar resultatet eller ikkje. **Open regulering**, òg kalla rein styring, køyrer eit førehandsbestemt signal utan å bry seg om kva som faktisk skjer. Tenk på ein brødristar med tidsur: han varmar i den tida du stiller inn, heilt uavhengig av om brødet blei passe eller brent. Det er enkelt, men håplaust viss noko uventa skjer.\n\n**Lukka regulering** har derimot auge. Systemet måler resultatet og justerer pådraget basert på målinga, gjennom ei **tilbakekoplingssløyfe** som heile tida samanliknar ønskt verdi med faktisk verdi. Romtermostaten er det klassiske dømet: han måler temperaturen kontinuerleg og justerer varmen deretter.\n\nFor å snakke presist om dette treng vi nokre omgrep. **Settpunktet** (SP) er den ønskte verdien, til dømes 22 grader. **Prosessvariabelen** (PV) er den målte verdien, altså den faktiske romtemperaturen. **Reguleringsavviket** (e) er differansen mellom dei: $e = SP - PV$. **Pådraget** (u) er styresignalet som blir sendt til aktuatoren, til dømes varmeeffekten. Og **forstyrringar** er ytre påverknader, som eit ope vindauge. Lat oss rekne på eit døme: eit rom skal haldast på 22 grader, men sensoren viser 19. Då er avviket $e = 22 - 19 = 3$ grader. Avviket er positivt, altså er det for kaldt, og regulatoren bør auke pådraget og gje meir varme. Etter kvart som temperaturen stig mot 22, krympar avviket, og pådraget blir redusert gradvis."
+    },
+    {
+      "id": "elektro-data-vg1-6-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på open og lukka regulering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz1-q0",
+            "task": "Kva type regulering bruker ein brødristar med fast tid?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Lukka regulering med tilbakekopling",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "PID-regulering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Integralregulering",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Open regulering (styring) utan tilbakekopling",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein brødristar med tidsur er open regulering: han varmar i førehandsbestemt tid utan å måle om brødet faktisk er ferdig. Det er ingen tilbakekopling."
+          },
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz1-q1",
+            "task": "Eit rom skal haldast på 22 °C, men sensoren viser 19 °C. Kva er reguleringsavviket?",
+            "options": [
+              {
+                "id": "b",
+                "text": "3 °C",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "−3 °C",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "41 °C",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "19 °C",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$e = SP - PV = 22 - 19 = 3$ °C. Avviket er positivt, så rommet er for kaldt og regulatoren bør gje meir varme."
+          },
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz1-q2",
+            "task": "Kva er ein fordel med lukka regulering framfor open?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han er alltid billegare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han måler resultatet og kan kompensere for forstyrringar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han treng ingen sensor",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han er raskare å programmere",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lukka regulering bruker tilbakekopling, måler resultatet og justerer pådraget. Dermed kan han kompensere for forstyrringar, noko open regulering ikkje kan."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-3-n-section2",
+      "type": "text",
+      "content": "## P, I og D – fortid, notid og framtid\n\nNo skal vi byggje sjølve regulatoren, og han består av opp til tre ledd som kvart ser på avviket på sin eigen måte. Lat oss møte dei.\n\nFørst **P-regulering**, det proporsjonale leddet. Det gjev eit pådrag som er proporsjonalt med avviket: $u = K_p \\cdot e$, der $K_p$ er ei forsterking du vel. Stort avvik gjev stort pådrag og rask korreksjon; lite avvik gjev lite pådrag. Med $K_p = 5$ og eit avvik på 2 grader blir pådraget $u = 5 \\cdot 2 = 10$ einingar. Men P-regulering har ein irriterande veikskap: han når aldri heilt fram til settpunktet åleine. Når avviket blir lite, blir pådraget òg så lite at det ikkje klarar å lukke dei siste smulane – det står alltid igjen eit lite **stasjonært avvik**.\n\nHer kjem **I-regulering**, integralleddet, til unnsetning. Det gjev pådrag basert på *summen* av avviket over tid. Så lenge det er eit lite vedvarande avvik, byggjer I-leddet seg opp og opp, heilt til avviket blir pressa heilt ned til null. Det er nettopp I-leddet som fjernar det stasjonære avviket P-leddet ikkje greier. Ulempa er at det kan bli litt tregt og gje oversving om det blir brukt åleine.\n\nTil slutt **D-regulering**, derivatleddet, som ser på *endringstakta* til avviket – kor raskt det forandrar seg. D-leddet verkar som ein brems: når prosessvariabelen susar raskt mot settpunktet, dempar D-leddet pådraget og hindrar at systemet skyt forbi målet. Ein fin hugseregel bind det saman: **P ser på notida** (\"kor stort er avviket no?\"), **I ser på fortida** (\"kor lenge har avviket vart?\"), og **D ser på framtida** (\"kor raskt endrar avviket seg?\"). Ein **PID-regulator** kombinerer alle tre."
+    },
+    {
+      "id": "elektro-data-vg1-6-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på P-, I- og D-ledd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz2-q0",
+            "task": "Kva er hovudproblemet med rein P-regulering åleine?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han reagerer for tregt på alt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han kan berre brukast til temperatur",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han gjev alltid eit stasjonært avvik – treffer aldri heilt settpunktet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han krev alltid trykkluft",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når avviket blir lite, blir P-pådraget så lite at det ikkje når heilt fram. Det står igjen eit stasjonært avvik, som I-leddet trengst for å fjerne."
+          },
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz2-q1",
+            "task": "Kva ledd fjernar det stasjonære avviket?",
+            "options": [
+              {
+                "id": "a",
+                "text": "I-leddet (integral)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "P-leddet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "D-leddet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen av dei",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I-leddet summerer avviket over tid, så sjølv eit lite vedvarande avvik byggjer opp pådraget til avviket blir null. Det fjernar det stasjonære avviket."
+          },
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz2-q2",
+            "task": "Kva ledd dempar svingingar og oversving?",
+            "options": [
+              {
+                "id": "a",
+                "text": "P-leddet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "I-leddet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle tre likt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "D-leddet (derivat)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "D-leddet reagerer på kor raskt avviket blir endra og verkar som ein brems. Når systemet nærmar seg settpunktet raskt, dempar D-leddet pådraget og hindrar oversving."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-3-n-section3",
+      "type": "text",
+      "content": "## PID i aksjon – og reknestykket bak\n\nLat oss sjå heile PID-regulatoren jobbe i eit verkeleg scenario. Tenk deg ein tank med vatn som skal haldast på 60 grader. Plutseleg tappar nokon kaldt vatn, og temperaturen stuper til 50 grader. Kva skjer inni regulatoren?\n\n**P-leddet** reagerer med ein gong på storleiken: avviket er no $e = 60 - 50 = 10$ grader, så P-leddet gjev eit kraftig pådrag for å skru opp varmen. **D-leddet** reagerer på at temperaturen fall så *raskt* – det brå fallet gjev eit stort derivat, og D-leddet legg på eit ekstra støyt for å motverke den plutselege endringa. Og **I-leddet** jobbar i bakgrunnen: så lenge temperaturen ligg under 60, summerer det opp avviket og syter for at òg dei siste gradene mot settpunktet faktisk blir nådde. Resultatet er at temperaturen stig raskt tilbake mot 60 grader, med minimal oversving takka vere den dempande effekten til D-leddet. Det er denne samhandlinga som gjer PID så kraftig.\n\nLat oss avslutte med litt talarbeid på eit enklare tilfelle. Ein rein P-regulator med $K_p = 4$ styrer vassnivået i ein tank. Settpunktet er 80 cm, men sensoren måler 65 cm. Avviket blir $e = SP - PV = 80 - 65 = 15$ cm, og pådraget blir $u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar. P-regulatoren vil fylle tanken, men stoppar med eit lite stasjonært avvik, fordi pådraget krympar når nivået nærmar seg 80. Legg vi til I-regulering, vil I-leddet summere opp det attverande avviket – sjølv om det berre er eit par centimeter – og sakte men sikkert presse pådraget vidare heilt til nivået treffer nøyaktig 80 cm. Slik utfyller dei tre ledda kvarandre til ei rask, presis og stabil regulering."
+    },
+    {
+      "id": "elektro-data-vg1-6-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-6-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på PID i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz3-q0",
+            "task": "Ein P-regulator har Kp = 4. Avviket er 15 cm. Kva er pådraget?",
+            "options": [
+              {
+                "id": "a",
+                "text": "15 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "60 einingar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "19 einingar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "4 einingar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar."
+          },
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz3-q1",
+            "task": "I tanken som fell frå 60 °C til 50 °C, kva ledd reagerer kraftigast på sjølve det raske fallet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "P-leddet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "I-leddet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen av dei",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "D-leddet, fordi det reagerer på endringstakta",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den raske endringa gjev eit stort derivat, og D-leddet svarar med eit ekstra pådrag utover det P-leddet gjev. D-leddet ser på kor raskt avviket blir endra."
+          },
+          {
+            "id": "elektro-data-vg1-6-3-n-quiz3-q2",
+            "task": "Kvifor kombinerer vi P, I og D i éin regulator?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å gjere han billegare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi lova krev det",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For å få rask respons (P), fjerna stasjonært avvik (I) og dempa svingingar (D)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "For å sleppe sensorar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "P gjev rask korreksjon, I fjernar det stasjonære avviket, og D dempar oversving. Saman gjev dei rask, presis og stabil regulering."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-6-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært kunsten å halde noko akkurat passe. **Open regulering** køyrer eit førehandsbestemt signal utan å sjekke resultatet, medan **lukka regulering** bruker ei tilbakekoplingssløyfe til å måle og korrigere kontinuerleg. Kjernen er **reguleringsavviket** $e = SP - PV$, forskjellen mellom ønskt og faktisk verdi.\n\nRegulatoren blir bygd av tre ledd som ser på avviket ulikt: **P** reagerer på storleiken til avviket no, men lèt eit stasjonært avvik stå igjen; **I** summerer avviket over tid og fjernar nettopp dette restavviket; og **D** reagerer på endringstakta og dempar svingingar. Ein **PID-regulator** kombinerer alle tre til rask, presis og stabil styring – akkurat det som trengst for å halde temperatur, trykk og nivå nøyaktig der vi vil ha dei."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "ee87089916404b46",
+    "translatedAt": "2026-06-21T10:30:36.475Z",
+    "model": "claude-code-agent",
+    "strings": 69,
+    "tm": {
+      "8d111b11c615fac8": "Reguleringsteknikk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b5a6c100d2404b5e": "Ei forteljing om kunsten å halde noko stabilt – frå termostaten på veggen til PID-regulatoren som styrer temperatur, trykk og nivå med presisjon.",
+      "2816ad2bbfc6b189": "forklare grunnleggende prinsipper for reguleringsteknikk",
+      "b70f62e4f4670eb0": "## Kunsten å halde noko akkurat passe\n\nTermostaten på veggen din gjer noko ganske bemerkelsesverdig heile tida, utan at du tenkjer over det. Han måler temperaturen i rommet, samanliknar han med den du har stilt inn, og skrur varmen av eller på for å treffe akkurat den temperaturen du vil ha. Det høyrest trivielt ut, men dette er sjølve hjartet i eit heilt fagfelt: **reguleringsteknikk**, kunsten å styre ein prosess slik at ein målt verdi blir halden så nær eit ønskt nivå som mogleg.\n\nI industrien blir dette drive til det ekstreme. Den same grunnidéen blir brukt til å halde temperaturen i ein kjemisk reaktor stabil på ein tidels grad, til å halde trykket i ei røyrleidning konstant, eller til å styre nivået i ein tank. I dette kapittelet skal vi byggje opp forståinga steg for steg: først forskjellen på å berre styre blindt og å styre med tilbakemelding, deretter omgrepa vi treng, og til slutt dei tre byggjeklossane P, I og D som til saman utgjer den berømte PID-regulatoren.",
+      "0caaed684b6c8ac7": "## Med eller utan auge på resultatet\n\nDet finst to grunnleggjande måtar å styre på, og forskjellen handlar om éi ting: om systemet sjekkar resultatet eller ikkje. **Open regulering**, òg kalla rein styring, køyrer eit førehandsbestemt signal utan å bry seg om kva som faktisk skjer. Tenk på ein brødristar med tidsur: han varmar i den tida du stiller inn, heilt uavhengig av om brødet blei passe eller brent. Det er enkelt, men håplaust viss noko uventa skjer.\n\n**Lukka regulering** har derimot auge. Systemet måler resultatet og justerer pådraget basert på målinga, gjennom ei **tilbakekoplingssløyfe** som heile tida samanliknar ønskt verdi med faktisk verdi. Romtermostaten er det klassiske dømet: han måler temperaturen kontinuerleg og justerer varmen deretter.\n\nFor å snakke presist om dette treng vi nokre omgrep. **Settpunktet** (SP) er den ønskte verdien, til dømes 22 grader. **Prosessvariabelen** (PV) er den målte verdien, altså den faktiske romtemperaturen. **Reguleringsavviket** (e) er differansen mellom dei: $e = SP - PV$. **Pådraget** (u) er styresignalet som blir sendt til aktuatoren, til dømes varmeeffekten. Og **forstyrringar** er ytre påverknader, som eit ope vindauge. Lat oss rekne på eit døme: eit rom skal haldast på 22 grader, men sensoren viser 19. Då er avviket $e = 22 - 19 = 3$ grader. Avviket er positivt, altså er det for kaldt, og regulatoren bør auke pådraget og gje meir varme. Etter kvart som temperaturen stig mot 22, krympar avviket, og pådraget blir redusert gradvis.",
+      "f31e6472fee6e870": "Test deg sjølv på open og lukka regulering:",
+      "4097889236a2af26": "placeholder",
+      "a0b4c18718db5e52": "Kva type regulering bruker ein brødristar med fast tid?",
+      "0864875cdb2d0b65": "Open regulering (styring) utan tilbakekopling",
+      "79f88bf0ce7cac60": "Lukka regulering med tilbakekopling",
+      "4b261386aea107b0": "PID-regulering",
+      "9124bfba63fa8201": "Integralregulering",
+      "6f977c922e33b3ce": "Ein brødristar med tidsur er open regulering: han varmar i førehandsbestemt tid utan å måle om brødet faktisk er ferdig. Det er ingen tilbakekopling.",
+      "8c68b1840d491e0a": "Eit rom skal haldast på 22 °C, men sensoren viser 19 °C. Kva er reguleringsavviket?",
+      "766b674f25211498": "−3 °C",
+      "df30f600b4748f10": "3 °C",
+      "3581d97398387406": "41 °C",
+      "386e64201f0d8521": "19 °C",
+      "8ed1c8bcd02ae026": "$e = SP - PV = 22 - 19 = 3$ °C. Avviket er positivt, så rommet er for kaldt og regulatoren bør gje meir varme.",
+      "dd925558cdf680f2": "Kva er ein fordel med lukka regulering framfor open?",
+      "7f46c532775049a4": "Han er alltid billegare",
+      "5248d25c0d703e45": "Han treng ingen sensor",
+      "9e79d99ab201da2d": "Han måler resultatet og kan kompensere for forstyrringar",
+      "bab0390a9773d043": "Han er raskare å programmere",
+      "bae06c0a76e6b0ef": "Lukka regulering bruker tilbakekopling, måler resultatet og justerer pådraget. Dermed kan han kompensere for forstyrringar, noko open regulering ikkje kan.",
+      "2164f04e8b1756f3": "## P, I og D – fortid, notid og framtid\n\nNo skal vi byggje sjølve regulatoren, og han består av opp til tre ledd som kvart ser på avviket på sin eigen måte. Lat oss møte dei.\n\nFørst **P-regulering**, det proporsjonale leddet. Det gjev eit pådrag som er proporsjonalt med avviket: $u = K_p \\cdot e$, der $K_p$ er ei forsterking du vel. Stort avvik gjev stort pådrag og rask korreksjon; lite avvik gjev lite pådrag. Med $K_p = 5$ og eit avvik på 2 grader blir pådraget $u = 5 \\cdot 2 = 10$ einingar. Men P-regulering har ein irriterande veikskap: han når aldri heilt fram til settpunktet åleine. Når avviket blir lite, blir pådraget òg så lite at det ikkje klarar å lukke dei siste smulane – det står alltid igjen eit lite **stasjonært avvik**.\n\nHer kjem **I-regulering**, integralleddet, til unnsetning. Det gjev pådrag basert på *summen* av avviket over tid. Så lenge det er eit lite vedvarande avvik, byggjer I-leddet seg opp og opp, heilt til avviket blir pressa heilt ned til null. Det er nettopp I-leddet som fjernar det stasjonære avviket P-leddet ikkje greier. Ulempa er at det kan bli litt tregt og gje oversving om det blir brukt åleine.\n\nTil slutt **D-regulering**, derivatleddet, som ser på *endringstakta* til avviket – kor raskt det forandrar seg. D-leddet verkar som ein brems: når prosessvariabelen susar raskt mot settpunktet, dempar D-leddet pådraget og hindrar at systemet skyt forbi målet. Ein fin hugseregel bind det saman: **P ser på notida** (\"kor stort er avviket no?\"), **I ser på fortida** (\"kor lenge har avviket vart?\"), og **D ser på framtida** (\"kor raskt endrar avviket seg?\"). Ein **PID-regulator** kombinerer alle tre.",
+      "d5c353a290477dd9": "Test deg sjølv på P-, I- og D-ledd:",
+      "4dbe9a0728b735a6": "Kva er hovudproblemet med rein P-regulering åleine?",
+      "485405b0c32011d2": "Han reagerer for tregt på alt",
+      "94a6764e5a60290c": "Han kan berre brukast til temperatur",
+      "f0e52a3f0b4fb880": "Han krev alltid trykkluft",
+      "610cfea442dcde9f": "Han gjev alltid eit stasjonært avvik – treffer aldri heilt settpunktet",
+      "3290edaa8a817e23": "Når avviket blir lite, blir P-pådraget så lite at det ikkje når heilt fram. Det står igjen eit stasjonært avvik, som I-leddet trengst for å fjerne.",
+      "c6eeae697a8c0e23": "Kva ledd fjernar det stasjonære avviket?",
+      "e1885546a9c9fbf9": "I-leddet (integral)",
+      "de40968ae352e8b4": "P-leddet",
+      "3731b6f4780f1906": "D-leddet",
+      "bb60f24e85070ad0": "Ingen av dei",
+      "7c890e120bfa5e47": "I-leddet summerer avviket over tid, så sjølv eit lite vedvarande avvik byggjer opp pådraget til avviket blir null. Det fjernar det stasjonære avviket.",
+      "2a396510393acef4": "Kva ledd dempar svingingar og oversving?",
+      "973d38fd66dc1c61": "D-leddet (derivat)",
+      "508b8509ee1354c0": "I-leddet",
+      "6529468a9b443033": "Alle tre likt",
+      "829da4d42b6ff43b": "D-leddet reagerer på kor raskt avviket blir endra og verkar som ein brems. Når systemet nærmar seg settpunktet raskt, dempar D-leddet pådraget og hindrar oversving.",
+      "1829c238d75a66d8": "## PID i aksjon – og reknestykket bak\n\nLat oss sjå heile PID-regulatoren jobbe i eit verkeleg scenario. Tenk deg ein tank med vatn som skal haldast på 60 grader. Plutseleg tappar nokon kaldt vatn, og temperaturen stuper til 50 grader. Kva skjer inni regulatoren?\n\n**P-leddet** reagerer med ein gong på storleiken: avviket er no $e = 60 - 50 = 10$ grader, så P-leddet gjev eit kraftig pådrag for å skru opp varmen. **D-leddet** reagerer på at temperaturen fall så *raskt* – det brå fallet gjev eit stort derivat, og D-leddet legg på eit ekstra støyt for å motverke den plutselege endringa. Og **I-leddet** jobbar i bakgrunnen: så lenge temperaturen ligg under 60, summerer det opp avviket og syter for at òg dei siste gradene mot settpunktet faktisk blir nådde. Resultatet er at temperaturen stig raskt tilbake mot 60 grader, med minimal oversving takka vere den dempande effekten til D-leddet. Det er denne samhandlinga som gjer PID så kraftig.\n\nLat oss avslutte med litt talarbeid på eit enklare tilfelle. Ein rein P-regulator med $K_p = 4$ styrer vassnivået i ein tank. Settpunktet er 80 cm, men sensoren måler 65 cm. Avviket blir $e = SP - PV = 80 - 65 = 15$ cm, og pådraget blir $u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar. P-regulatoren vil fylle tanken, men stoppar med eit lite stasjonært avvik, fordi pådraget krympar når nivået nærmar seg 80. Legg vi til I-regulering, vil I-leddet summere opp det attverande avviket – sjølv om det berre er eit par centimeter – og sakte men sikkert presse pådraget vidare heilt til nivået treffer nøyaktig 80 cm. Slik utfyller dei tre ledda kvarandre til ei rask, presis og stabil regulering.",
+      "f2092e985d35ccc2": "Test deg sjølv på PID i praksis:",
+      "6c9e6127d0e92e83": "Ein P-regulator har Kp = 4. Avviket er 15 cm. Kva er pådraget?",
+      "757b4815c794cc5c": "15 einingar",
+      "fa56bd7efddf7ca1": "19 einingar",
+      "1f8a43f1c4132dc7": "60 einingar",
+      "c423bd8a9f4dc3dc": "4 einingar",
+      "431da81515e815a8": "$u = K_p \\cdot e = 4 \\cdot 15 = 60$ einingar.",
+      "0a185bb64a13be56": "I tanken som fell frå 60 °C til 50 °C, kva ledd reagerer kraftigast på sjølve det raske fallet?",
+      "354cc3d12323de6b": "D-leddet, fordi det reagerer på endringstakta",
+      "2e7066ee7160fda8": "Den raske endringa gjev eit stort derivat, og D-leddet svarar med eit ekstra pådrag utover det P-leddet gjev. D-leddet ser på kor raskt avviket blir endra.",
+      "0cc4f562a49e5e59": "Kvifor kombinerer vi P, I og D i éin regulator?",
+      "dcfa8e3f787a0ee7": "For å få rask respons (P), fjerna stasjonært avvik (I) og dempa svingingar (D)",
+      "f8958c40feff3964": "For å gjere han billegare",
+      "2b3717f8496cc891": "Fordi lova krev det",
+      "6b214c279b6aeca4": "For å sleppe sensorar",
+      "a23c95256ae91365": "P gjev rask korreksjon, I fjernar det stasjonære avviket, og D dempar oversving. Saman gjev dei rask, presis og stabil regulering.",
+      "197940ae7aa2a391": "## Oppsummering\n\nVi har lært kunsten å halde noko akkurat passe. **Open regulering** køyrer eit førehandsbestemt signal utan å sjekke resultatet, medan **lukka regulering** bruker ei tilbakekoplingssløyfe til å måle og korrigere kontinuerleg. Kjernen er **reguleringsavviket** $e = SP - PV$, forskjellen mellom ønskt og faktisk verdi.\n\nRegulatoren blir bygd av tre ledd som ser på avviket ulikt: **P** reagerer på storleiken til avviket no, men lèt eit stasjonært avvik stå igjen; **I** summerer avviket over tid og fjernar nettopp dette restavviket; og **D** reagerer på endringstakta og dempar svingingar. Ein **PID-regulator** kombinerer alle tre til rask, presis og stabil styring – akkurat det som trengst for å halde temperatur, trykk og nivå nøyaktig der vi vil ha dei."
+    }
+  }
+}

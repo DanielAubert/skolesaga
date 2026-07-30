@@ -1,1 +1,344 @@
-{"id":"tif-vg1-3-4-narrativ","courseId":"tif-vg1","chapterNumber":"3.4","title":"Introduksjon til CNC-maskiner","subtitle":"Narrativ versjon","description":"En fortelling om datastyrte maskiner som dreier og freser hundre identiske deler uten å blunke -- og hvordan du som operatør finner nullpunktet, rigger og holder deg trygg ved en maskin som ikke tilgir feil.","estimatedMinutes":36,"competenceGoals":["anvende grunnleggende programmering av styringssystemer innenfor robotisering, automatisering og CNC"],"linkedChapterId":"tif-vg1-3-4","content":[{"id":"tif-vg1-3-4-n-intro","type":"text","content":"## Maskinen som aldri blir trøtt\n\nSe for deg at du må lage 200 helt like aksler. På en gammeldags dreiebenk ville du dreid hver eneste én for hånd, og selv om du er dyktig, ville ingen av dem blitt helt identiske. Nummer 47 ville vært en hårsbredd annerledes enn nummer 12, fordi mennesker blir trøtte og hender skjelver.\n\nDet er her **CNC** kommer inn. Bokstavene står for *Computer Numerical Control* -- datastyring. Du skriver et program én gang, og maskinen utfører nøyaktig de samme bevegelsene gang etter gang, like presist på del 200 som på del 1. Teknologien er ikke ny: på 1950-tallet styrte man maskiner med hullkort (NC), på 1970-tallet kom de første integrerte datamaskinene (CNC), og i dag har vi avanserte styringer med simulering og til og med AI-assistanse.\n\nHvorfor velger vi CNC? Fordi den gir høy **repeterbarhet** og nøyaktighet, kan lage komplekse geometrier, produserer serier raskt og gir en dokumenterbar prosess. Men det koster: maskinene er dyre, krever programmering, og riggingen tar tid hvis du bare skal lage én del.\n\nDu møter flere typer. **CNC-dreiebenken** jobber typisk i to akser (X og Z) og dreier runde emner. **CNC-freseren**, eller bearbeidingssenteret, er ofte 3-akset (X, Y, Z), men finnes også som 5-akset for full orientering. Og **dreie-fresesenteret** kombinerer begge, så hele deler blir ferdige i én oppspenning."},{"id":"tif-vg1-3-4-n-section1","type":"text","content":"## Å snakke maskinens språk: akser og nullpunkter\n\nFor at maskinen skal forstå hvor den skal flytte verktøyet, jobber den i et koordinatsystem -- akkurat som rutenettet i matematikken. På en freser er **X-aksen** horisontal fra side til side, **Y-aksen** horisontal fram og tilbake, og **Z-aksen** vertikal langs spindelen, der positiv retning er bort fra emnet. På en dreiebenk er X den radiale retningen og Z langs spindelen. Du kan huske de positive retningene med høyrehåndsregelen: pekefinger er X, langfinger er Y og tommel er Z.\n\nTrenger du å vippe eller rotere emnet, kommer rotasjonsaksene inn: A roterer rundt X, B rundt Y (vanlig på 5-akset), og C rundt Z (spindelorientering).\n\nMen koordinater må telles fra et sted. Her er det avgjørende å holde to nullpunkter fra hverandre. **Maskinnullpunktet (M)** er et fast punkt maskinen selv er kalibrert med fra fabrikken -- maskinen kjører hit hver gang du slår den på (homing). **Arbeidsnullpunktet (W)** er derimot ditt valgte nullpunkt på selve emnet, for eksempel et hjørne eller sentrum. Alle koordinatene i programmet ditt teller fra dette punktet. Du kan lagre inntil seks slike arbeidsnullpunkter i registrene G54 til G59.\n\nEt eksempel: et rektangulært emne på $100 \\times 50 \\times 25$ mm. Du legger gjerne X0, Y0 i øvre venstre hjørne og Z0 på toppen av emnet. Da vet maskinen nøyaktig hvor 'her' er."},{"id":"tif-vg1-3-4-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-3-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på CNC og koordinatsystem:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-4-n-quiz1-q0","task":"Hva er den største fordelen med CNC-maskinering i serieproduksjon?","options":[{"id":"a","text":"Det er alltid billigere enn alt annet","isCorrect":false},{"id":"b","text":"Den trenger ingen programmering","isCorrect":false},{"id":"c","text":"Høy repeterbarhet -- alle deler blir like","isCorrect":true},{"id":"d","text":"Den krever ingen rigging","isCorrect":false}],"solution":"CNC gir høy repeterbarhet: maskinen utfører de samme bevegelsene like presist hver gang, så hele serien blir identisk."},{"id":"tif-vg1-3-4-n-quiz1-q1","task":"Hvilke akser har en standard 3-akset CNC-freser?","options":[{"id":"a","text":"A, B og C","isCorrect":false},{"id":"b","text":"X, Y og A","isCorrect":false},{"id":"c","text":"X, Z og C","isCorrect":false},{"id":"d","text":"X, Y og Z","isCorrect":true}],"solution":"En 3-akset freser har lineæraksene X, Y og Z. Rotasjonsaksene A, B og C finnes på 4- og 5-aksede maskiner."},{"id":"tif-vg1-3-4-n-quiz1-q2","task":"Hva er forskjellen på maskinnullpunkt (M) og arbeidsnullpunkt (W)?","options":[{"id":"a","text":"M er et fast punkt på maskinen; W er ditt valgte nullpunkt på emnet","isCorrect":true},{"id":"b","text":"M settes av operatøren; W er fast fra fabrikken","isCorrect":false},{"id":"c","text":"De er to navn på det samme punktet","isCorrect":false},{"id":"d","text":"M gjelder dreiing; W gjelder fresing","isCorrect":false}],"solution":"Maskinnullpunktet er kalibrert fast fra fabrikken (maskinen homes hit). Arbeidsnullpunktet velger operatøren på emnet, og programmets koordinater teller fra det."}]}},{"id":"tif-vg1-3-4-n-section2","type":"text","content":"## Verktøy, oppspenning og touch-off\n\nMaskinen vet ikke av seg selv hvor langt verktøyet stikker ut eller hvor tjukt det er -- den må fortelles det. Derfor lagrer du **verktøydata** i styringen. På en freser registrerer du lengdekorreksjon i Z og radiuskorreksjon for konturfresing, knyttet til et verktøynummer (T-nummer). På en dreiebenk registrerer du X- og Z-korreksjon samt spissradius. Verktøyene kan måles manuelt med et kalibreringsstykke, eller automatisk med laser- eller berøringsprobe.\n\nEmnet må også holdes bom fast. Til fresing bruker du gjerne maskinskrustikke, spennklosser i T-spor, vakuumchuck for tynne plater eller modulær fikstur. Til dreiing er den 3-bakkede chucken standard, mens en spennhylse (collet) gir høyere presisjon, og senter støtter lange emner.\n\nSelve riggingen følger en fast logikk. Du monterer emnet i fiksturen, finner arbeidsnullpunktet ved **touch-off**, måler og registrerer verktøyene, og kjører programmet i simulering før du tør røre noe. Så kjører du den første delen med redusert hastighet, kontrollmåler resultatet og justerer om nødvendig.\n\nTouch-off betyr rett og slett at du kjører verktøyet forsiktig inntil emnet til det akkurat berører kanten, og setter den aksen til null der. Med en kantfinner eller probe blir det enda mer nøyaktig enn for hånd. Når X0, Y0 og Z0 er satt og lagret i G54, vet maskinen hvor emnet ditt faktisk ligger."},{"id":"tif-vg1-3-4-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-3-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på verktøy og oppsett:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-4-n-quiz2-q0","task":"Hva betyr touch-off på en CNC-maskin?","options":[{"id":"a","text":"Å slå av maskinen","isCorrect":false},{"id":"b","text":"Å sette arbeidsnullpunktet ved å berøre emnet med verktøyet","isCorrect":true},{"id":"c","text":"Å bytte verktøy automatisk","isCorrect":false},{"id":"d","text":"Å rengjøre måleflatene","isCorrect":false}],"solution":"Touch-off er prosessen der du kjører verktøyet inntil emnet til lett kontakt og setter aksen til null, slik at arbeidsnullpunktet defineres."},{"id":"tif-vg1-3-4-n-quiz2-q1","task":"Hvilket oppspenningsutstyr er standard for dreiing av runde emner?","options":[{"id":"a","text":"Maskinskrustikke","isCorrect":false},{"id":"b","text":"Vakuumchuck","isCorrect":false},{"id":"c","text":"3-bakket chuck","isCorrect":true},{"id":"d","text":"T-spor med spennklosser","isCorrect":false}],"solution":"Den 3-bakkede chucken er standard for dreiing fordi de tre bakkene sentrerer det runde emnet automatisk. Collet gir høyere presisjon."},{"id":"tif-vg1-3-4-n-quiz2-q2","task":"I hvilket register lagrer du typisk arbeidsnullpunktet?","options":[{"id":"a","text":"M03","isCorrect":false},{"id":"b","text":"T01","isCorrect":false},{"id":"c","text":"F100","isCorrect":false},{"id":"d","text":"G54","isCorrect":true}],"solution":"Arbeidsnullpunktet lagres i offset-registrene G54 til G59. G54 er det første og mest brukte."}]}},{"id":"tif-vg1-3-4-n-section3","type":"text","content":"## Respekt for en maskin som ikke tilgir\n\nEn CNC-maskin er kraftig, og den gjør akkurat som den får beskjed om -- også når beskjeden er feil. Den beveger seg fort, har en roterende spindel og verktøy, skarpe kanter og spon, klemfare ved verktøyskift, og kjølevæske som kan gjøre gulvet glatt. Du må ha respekt for den.\n\nHeldigvis er maskinene bygd med sikkerhet i bunn. **Vernedøren** har en interlock-bryter som stopper maskinen i det sekundet døren åpnes -- og du manipulerer aldri den bryteren. **Nødstoppen**, den røde soppknappen, stopper all bevegelse umiddelbart og finnes flere steder. I tillegg har du programstopp: 'feed hold' pauser, mens 'reset' avbryter helt.\n\nFør du kjører, kontrollerer du at emnet sitter sikkert, at verktøyet er festet, at nullpunktet stemmer, og du simulerer programmet. Så lukker du døren. Under kjøring følger du med, lytter etter unormale lyder, holder hendene ute av maskinen og en hånd nær nødstoppen. Og kommer det en alarm, leser du meldingen -- du trykker aldri blindt 'reset', men forstår årsaken først, for en oversett kollisjon kan gjøre stor skade.\n\nEn trygg startprosedyre ser slik ut: slå på maskin og styring, kjør homing, spenn emnet, sett arbeidsnullpunktet, last programmet, sjekk verktøylista, kjør grafisk simulering, lukk døren, og start i **singel-blokk** der maskinen tar én programlinje av gangen. Når alt ser trygt ut, lar du den kjøre kontinuerlig."},{"id":"tif-vg1-3-4-n-quiz3","type":"exercise","exercise":{"id":"tif-vg1-3-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sikkerhet ved CNC:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-3-4-n-quiz3-q0","task":"Hva skjer når vernedøren åpnes under kjøring?","options":[{"id":"a","text":"Maskinen stopper automatisk via interlock-bryteren","isCorrect":true},{"id":"b","text":"Bare hastigheten reduseres","isCorrect":false},{"id":"c","text":"Ingenting","isCorrect":false},{"id":"d","text":"Alarmen piper, men maskinen kjører videre","isCorrect":false}],"solution":"Vernedørens interlock-bryter stopper maskinen straks døren åpnes. Den hindrer kontakt med bevegelige deler og må aldri manipuleres."},{"id":"tif-vg1-3-4-n-quiz3-q1","task":"Hvorfor starter du programmet i singel-blokk første gang?","options":[{"id":"a","text":"For å spare strøm","isCorrect":false},{"id":"b","text":"For å kjøre én linje av gangen og fange feil før skade skjer","isCorrect":true},{"id":"c","text":"For å varme opp spindelen","isCorrect":false},{"id":"d","text":"For å slå av kjølevæsken","isCorrect":false}],"solution":"I singel-blokk utfører maskinen én programlinje av gangen, slik at du kan oppdage og stoppe feil eller kollisjoner før de gjør skade."},{"id":"tif-vg1-3-4-n-quiz3-q2","task":"Hva er riktig respons når en alarm dukker opp?","options":[{"id":"a","text":"Trykke reset med en gang så jobben fortsetter","isCorrect":false},{"id":"b","text":"Ignorere den hvis maskinen virker fin","isCorrect":false},{"id":"c","text":"Lese meldingen og forstå årsaken før du gjør noe","isCorrect":true},{"id":"d","text":"Slå av strømmen til hele verkstedet","isCorrect":false}],"solution":"Du skal aldri trykke reset blindt. Les alarmmeldingen, finn årsaken og sjekk for kollisjoner før du fortsetter."}]}},{"id":"tif-vg1-3-4-n-summary","type":"text","content":"## Oppsummering\n\nVi begynte med 200 like aksler og så hvordan **CNC** -- datastyring -- løser problemet med høy repeterbarhet og nøyaktighet, til en pris av høy investering, programmeringsbehov og rigging. Du møter CNC-dreiebenker, fresere og kombinerte dreie-fresesentre.\n\nMaskinen jobber i et koordinatsystem med lineæraksene X, Y og Z og rotasjonsaksene A, B og C. Det avgjørende skillet går mellom **maskinnullpunktet**, som er fast fra fabrikken, og **arbeidsnullpunktet** du selv setter på emnet og lagrer i G54--G59. Verktøydata legges inn i styringen, emnet spennes fast i chuck eller skrustikke, og arbeidsnullpunktet finnes ved **touch-off**.\n\nTil slutt så vi at CNC-maskiner krever respekt: vernedør med interlock og nødstopp beskytter deg, men du må selv simulere, kjøre singel-blokk første gang, holde hendene ute og lese alarmer i stedet for å trykke blindt reset. Da blir maskinen en trygg og utrettelig medarbeider."}],"exercises":[]}
+{
+  "id": "tif-vg1-3-4-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "3.4",
+  "title": "Introduksjon til CNC-maskiner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om datastyrte maskiner som dreier og freser hundre identiske deler uten å blunke -- og hvordan du som operatør finner nullpunktet, rigger og holder deg trygg ved en maskin som ikke tilgir feil.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "anvende grunnleggende programmering av styringssystemer innenfor robotisering, automatisering og CNC"
+  ],
+  "linkedChapterId": "tif-vg1-3-4",
+  "content": [
+    {
+      "id": "tif-vg1-3-4-n-intro",
+      "type": "text",
+      "content": "## Maskinen som aldri blir trøtt\n\nSe for deg at du må lage 200 helt like aksler. På en gammeldags dreiebenk ville du dreid hver eneste én for hånd, og selv om du er dyktig, ville ingen av dem blitt helt identiske. Nummer 47 ville vært en hårsbredd annerledes enn nummer 12, fordi mennesker blir trøtte og hender skjelver.\n\nDet er her **CNC** kommer inn. Bokstavene står for *Computer Numerical Control* -- datastyring. Du skriver et program én gang, og maskinen utfører nøyaktig de samme bevegelsene gang etter gang, like presist på del 200 som på del 1. Teknologien er ikke ny: på 1950-tallet styrte man maskiner med hullkort (NC), på 1970-tallet kom de første integrerte datamaskinene (CNC), og i dag har vi avanserte styringer med simulering og til og med AI-assistanse.\n\nHvorfor velger vi CNC? Fordi den gir høy **repeterbarhet** og nøyaktighet, kan lage komplekse geometrier, produserer serier raskt og gir en dokumenterbar prosess. Men det koster: maskinene er dyre, krever programmering, og riggingen tar tid hvis du bare skal lage én del.\n\nDu møter flere typer. **CNC-dreiebenken** jobber typisk i to akser (X og Z) og dreier runde emner. **CNC-freseren**, eller bearbeidingssenteret, er ofte 3-akset (X, Y, Z), men finnes også som 5-akset for full orientering. Og **dreie-fresesenteret** kombinerer begge, så hele deler blir ferdige i én oppspenning."
+    },
+    {
+      "id": "tif-vg1-3-4-n-section1",
+      "type": "text",
+      "content": "## Å snakke maskinens språk: akser og nullpunkter\n\nFor at maskinen skal forstå hvor den skal flytte verktøyet, jobber den i et koordinatsystem -- akkurat som rutenettet i matematikken. På en freser er **X-aksen** horisontal fra side til side, **Y-aksen** horisontal fram og tilbake, og **Z-aksen** vertikal langs spindelen, der positiv retning er bort fra emnet. På en dreiebenk er X den radiale retningen og Z langs spindelen. Du kan huske de positive retningene med høyrehåndsregelen: pekefinger er X, langfinger er Y og tommel er Z.\n\nTrenger du å vippe eller rotere emnet, kommer rotasjonsaksene inn: A roterer rundt X, B rundt Y (vanlig på 5-akset), og C rundt Z (spindelorientering).\n\nMen koordinater må telles fra et sted. Her er det avgjørende å holde to nullpunkter fra hverandre. **Maskinnullpunktet (M)** er et fast punkt maskinen selv er kalibrert med fra fabrikken -- maskinen kjører hit hver gang du slår den på (homing). **Arbeidsnullpunktet (W)** er derimot ditt valgte nullpunkt på selve emnet, for eksempel et hjørne eller sentrum. Alle koordinatene i programmet ditt teller fra dette punktet. Du kan lagre inntil seks slike arbeidsnullpunkter i registrene G54 til G59.\n\nEt eksempel: et rektangulært emne på $100 \\times 50 \\times 25$ mm. Du legger gjerne X0, Y0 i øvre venstre hjørne og Z0 på toppen av emnet. Da vet maskinen nøyaktig hvor 'her' er."
+    },
+    {
+      "id": "tif-vg1-3-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på CNC og koordinatsystem:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-4-n-quiz1-q0",
+            "task": "Hva er den største fordelen med CNC-maskinering i serieproduksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det er alltid billigere enn alt annet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Høy repeterbarhet -- alle deler blir like",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den trenger ingen programmering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den krever ingen rigging",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CNC gir høy repeterbarhet: maskinen utfører de samme bevegelsene like presist hver gang, så hele serien blir identisk."
+          },
+          {
+            "id": "tif-vg1-3-4-n-quiz1-q1",
+            "task": "Hvilke akser har en standard 3-akset CNC-freser?",
+            "options": [
+              {
+                "id": "a",
+                "text": "A, B og C",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "X, Y og A",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "X, Y og Z",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "X, Z og C",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En 3-akset freser har lineæraksene X, Y og Z. Rotasjonsaksene A, B og C finnes på 4- og 5-aksede maskiner."
+          },
+          {
+            "id": "tif-vg1-3-4-n-quiz1-q2",
+            "task": "Hva er forskjellen på maskinnullpunkt (M) og arbeidsnullpunkt (W)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "M settes av operatøren; W er fast fra fabrikken",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De er to navn på det samme punktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "M gjelder dreiing; W gjelder fresing",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "M er et fast punkt på maskinen; W er ditt valgte nullpunkt på emnet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Maskinnullpunktet er kalibrert fast fra fabrikken (maskinen homes hit). Arbeidsnullpunktet velger operatøren på emnet, og programmets koordinater teller fra det."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-4-n-section2",
+      "type": "text",
+      "content": "## Verktøy, oppspenning og touch-off\n\nMaskinen vet ikke av seg selv hvor langt verktøyet stikker ut eller hvor tjukt det er -- den må fortelles det. Derfor lagrer du **verktøydata** i styringen. På en freser registrerer du lengdekorreksjon i Z og radiuskorreksjon for konturfresing, knyttet til et verktøynummer (T-nummer). På en dreiebenk registrerer du X- og Z-korreksjon samt spissradius. Verktøyene kan måles manuelt med et kalibreringsstykke, eller automatisk med laser- eller berøringsprobe.\n\nEmnet må også holdes bom fast. Til fresing bruker du gjerne maskinskrustikke, spennklosser i T-spor, vakuumchuck for tynne plater eller modulær fikstur. Til dreiing er den 3-bakkede chucken standard, mens en spennhylse (collet) gir høyere presisjon, og senter støtter lange emner.\n\nSelve riggingen følger en fast logikk. Du monterer emnet i fiksturen, finner arbeidsnullpunktet ved **touch-off**, måler og registrerer verktøyene, og kjører programmet i simulering før du tør røre noe. Så kjører du den første delen med redusert hastighet, kontrollmåler resultatet og justerer om nødvendig.\n\nTouch-off betyr rett og slett at du kjører verktøyet forsiktig inntil emnet til det akkurat berører kanten, og setter den aksen til null der. Med en kantfinner eller probe blir det enda mer nøyaktig enn for hånd. Når X0, Y0 og Z0 er satt og lagret i G54, vet maskinen hvor emnet ditt faktisk ligger."
+    },
+    {
+      "id": "tif-vg1-3-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på verktøy og oppsett:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-4-n-quiz2-q0",
+            "task": "Hva betyr touch-off på en CNC-maskin?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å sette arbeidsnullpunktet ved å berøre emnet med verktøyet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å slå av maskinen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bytte verktøy automatisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å rengjøre måleflatene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Touch-off er prosessen der du kjører verktøyet inntil emnet til lett kontakt og setter aksen til null, slik at arbeidsnullpunktet defineres."
+          },
+          {
+            "id": "tif-vg1-3-4-n-quiz2-q1",
+            "task": "Hvilket oppspenningsutstyr er standard for dreiing av runde emner?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Maskinskrustikke",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "3-bakket chuck",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Vakuumchuck",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "T-spor med spennklosser",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den 3-bakkede chucken er standard for dreiing fordi de tre bakkene sentrerer det runde emnet automatisk. Collet gir høyere presisjon."
+          },
+          {
+            "id": "tif-vg1-3-4-n-quiz2-q2",
+            "task": "I hvilket register lagrer du typisk arbeidsnullpunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "M03",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "T01",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "G54",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "F100",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Arbeidsnullpunktet lagres i offset-registrene G54 til G59. G54 er det første og mest brukte."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-4-n-section3",
+      "type": "text",
+      "content": "## Respekt for en maskin som ikke tilgir\n\nEn CNC-maskin er kraftig, og den gjør akkurat som den får beskjed om -- også når beskjeden er feil. Den beveger seg fort, har en roterende spindel og verktøy, skarpe kanter og spon, klemfare ved verktøyskift, og kjølevæske som kan gjøre gulvet glatt. Du må ha respekt for den.\n\nHeldigvis er maskinene bygd med sikkerhet i bunn. **Vernedøren** har en interlock-bryter som stopper maskinen i det sekundet døren åpnes -- og du manipulerer aldri den bryteren. **Nødstoppen**, den røde soppknappen, stopper all bevegelse umiddelbart og finnes flere steder. I tillegg har du programstopp: 'feed hold' pauser, mens 'reset' avbryter helt.\n\nFør du kjører, kontrollerer du at emnet sitter sikkert, at verktøyet er festet, at nullpunktet stemmer, og du simulerer programmet. Så lukker du døren. Under kjøring følger du med, lytter etter unormale lyder, holder hendene ute av maskinen og en hånd nær nødstoppen. Og kommer det en alarm, leser du meldingen -- du trykker aldri blindt 'reset', men forstår årsaken først, for en oversett kollisjon kan gjøre stor skade.\n\nEn trygg startprosedyre ser slik ut: slå på maskin og styring, kjør homing, spenn emnet, sett arbeidsnullpunktet, last programmet, sjekk verktøylista, kjør grafisk simulering, lukk døren, og start i **singel-blokk** der maskinen tar én programlinje av gangen. Når alt ser trygt ut, lar du den kjøre kontinuerlig."
+    },
+    {
+      "id": "tif-vg1-3-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-3-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sikkerhet ved CNC:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-3-4-n-quiz3-q0",
+            "task": "Hva skjer når vernedøren åpnes under kjøring?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Bare hastigheten reduseres",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingenting",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alarmen piper, men maskinen kjører videre",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Maskinen stopper automatisk via interlock-bryteren",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vernedørens interlock-bryter stopper maskinen straks døren åpnes. Den hindrer kontakt med bevegelige deler og må aldri manipuleres."
+          },
+          {
+            "id": "tif-vg1-3-4-n-quiz3-q1",
+            "task": "Hvorfor starter du programmet i singel-blokk første gang?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å kjøre én linje av gangen og fange feil før skade skjer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "For å spare strøm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å varme opp spindelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å slå av kjølevæsken",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I singel-blokk utfører maskinen én programlinje av gangen, slik at du kan oppdage og stoppe feil eller kollisjoner før de gjør skade."
+          },
+          {
+            "id": "tif-vg1-3-4-n-quiz3-q2",
+            "task": "Hva er riktig respons når en alarm dukker opp?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Trykke reset med en gang så jobben fortsetter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lese meldingen og forstå årsaken før du gjør noe",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ignorere den hvis maskinen virker fin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Slå av strømmen til hele verkstedet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du skal aldri trykke reset blindt. Les alarmmeldingen, finn årsaken og sjekk for kollisjoner før du fortsetter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-3-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi begynte med 200 like aksler og så hvordan **CNC** -- datastyring -- løser problemet med høy repeterbarhet og nøyaktighet, til en pris av høy investering, programmeringsbehov og rigging. Du møter CNC-dreiebenker, fresere og kombinerte dreie-fresesentre.\n\nMaskinen jobber i et koordinatsystem med lineæraksene X, Y og Z og rotasjonsaksene A, B og C. Det avgjørende skillet går mellom **maskinnullpunktet**, som er fast fra fabrikken, og **arbeidsnullpunktet** du selv setter på emnet og lagrer i G54--G59. Verktøydata legges inn i styringen, emnet spennes fast i chuck eller skrustikke, og arbeidsnullpunktet finnes ved **touch-off**.\n\nTil slutt så vi at CNC-maskiner krever respekt: vernedør med interlock og nødstopp beskytter deg, men du må selv simulere, kjøre singel-blokk første gang, holde hendene ute og lese alarmer i stedet for å trykke blindt reset. Da blir maskinen en trygg og utrettelig medarbeider."
+    }
+  ],
+  "exercises": []
+}

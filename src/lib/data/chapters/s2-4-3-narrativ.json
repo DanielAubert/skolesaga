@@ -1,1 +1,424 @@
-{"id":"s2-4-3-narrativ","courseId":"s2","chapterNumber":"4.3","title":"Normalfordeling og sentralgrensesetningen","subtitle":"Narrativ versjon","description":"En fortelling om klokkekurven som dukker opp overalt — fra fødselsvekter til fabrikkbolter — og setningen som forklarer hvorfor.","estimatedMinutes":40,"competenceGoals":["bruke normalfordelingen til å beregne sannsynligheter","bruke sentralgrensesetningen til å vurdere fordelinger til summer og gjennomsnitt","bruke normalapproksimasjon til binomisk fordeling"],"linkedChapterId":"s2-4-3","content":[{"id":"s2-4-3-n-intro","type":"text","content":"## Kurven som dukker opp overalt\n\nMål høyden til tusen norske menn, vei tusen nyfødte, samle testresultater eller målefeil fra et laboratorium — og tegn fordelingen. Hver gang trer den samme formen frem: en symmetrisk, klokkeformet kurve med en topp i midten og slanke haler ut til sidene. Dette er **normalfordelingen**, den mest brukte sannsynlighetsfordelingen i hele statistikken.\n\nEn kontinuerlig stokastisk variabel $X$ er normalfordelt med forventningsverdi $\\mu$ og varians $\\sigma^2$, skrevet $X \\sim N(\\mu, \\sigma^2)$, dersom tetthetsfunksjonen er $$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$ Formelen ser dramatisk ut, men egenskapene er enkle å huske: kurven er klokkeformet og symmetrisk om $\\mu$, toppunktet ligger i $x = \\mu$, vendepunktene ligger nøyaktig i $x = \\mu \\pm \\sigma$, arealet under hele kurven er 1, og sannsynligheter er arealer: $P(a \\leq X \\leq b)$ er arealet under kurven mellom $a$ og $b$.\n\nDet mest praktiske verktøyet er **68-95-99,7-regelen**: omtrent 68 % av observasjonene ligger innenfor ett standardavvik fra gjennomsnittet, omtrent 95 % innenfor to, og hele 99,7 % innenfor tre. Er høyden til norske menn normalfordelt med $\\mu = 180$ cm og $\\sigma = 7$ cm, ligger altså 68 % mellom 173 og 187 cm. Og andelen over 194 cm — som er $\\mu + 2\\sigma$ — er halvparten av de 5 prosentene utenfor to standardavvik: omtrent 2,5 %.\n\nMen hvorfor dukker akkurat denne kurven opp overalt? Svaret heter sentralgrensesetningen, og den kommer senere i fortellingen."},{"id":"s2-4-3-n-section1","type":"text","content":"## Standardisering: alle klokkekurver er én\n\nPå nyfødtavdelingen er fødselsvekten tilnærmet normalfordelt med $\\mu = 3{,}5$ kg og $\\sigma = 0{,}5$ kg. Hva er sannsynligheten for at en nyfødt veier mellom 3,0 og 4,0 kg?\n\nNøkkelen er at alle normalfordelinger egentlig er samme kurve, bare forskjøvet og strukket. **Standardnormalfordelingen** $Z \\sim N(0, 1)$ har $\\mu = 0$ og $\\sigma = 1$, og enhver normalfordelt $X$ kan **standardiseres**: $$Z = \\frac{X - \\mu}{\\sigma}$$ $z$-verdien forteller hvor mange standardavvik $X$ ligger fra gjennomsnittet. Sannsynligheter slår vi opp i den kumulative fordelingsfunksjonen $\\Phi(z) = P(Z \\leq z)$, fra tabell eller kalkulator: $P(X \\leq a) = \\Phi\\left(\\frac{a-\\mu}{\\sigma}\\right)$.\n\nFor fødselsvektene: $z_1 = \\frac{3{,}0 - 3{,}5}{0{,}5} = -1$ og $z_2 = \\frac{4{,}0 - 3{,}5}{0{,}5} = 1$. Da er $P(3{,}0 < X < 4{,}0) = \\Phi(1) - \\Phi(-1) = 0{,}8413 - 0{,}1587 = 0{,}6827$ — som stemmer perfekt med 68-regelen, siden intervallet er nøyaktig $\\mu \\pm \\sigma$.\n\nVi kan også gå motsatt vei. Hvilken vekt overstiges av bare 5 % av de nyfødte? Vi søker $a$ slik at $P(X \\leq a) = 0{,}95$. Tabellen gir $\\Phi(1{,}645) \\approx 0{,}95$, så $\\frac{a - 3{,}5}{0{,}5} = 1{,}645$ og $a = 3{,}5 + 0{,}5 \\cdot 1{,}645 \\approx 4{,}32$ kg.\n\nNoen $z$-verdier er verdt å pugge fordi de går igjen i hele statistikken: $1{,}645$ (90 %), $1{,}96$ (95 %) og $2{,}576$ (99 %). Og tegn alltid en skisse av klokkekurven med det aktuelle området skravert — det er den beste forsikringen mot å regne på feil hale."},{"id":"s2-4-3-n-quiz1","type":"exercise","exercise":{"id":"s2-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på normalfordelingen og standardisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-3-n-quiz1-q0","task":"Hvor stor andel av observasjonene ligger innenfor $\\mu \\pm 2\\sigma$ i en normalfordeling?","options":[{"id":"a","text":"Ca. 68 %","isCorrect":false},{"id":"b","text":"Ca. 95 %","isCorrect":true},{"id":"c","text":"Ca. 99,7 %","isCorrect":false},{"id":"d","text":"Ca. 50 %","isCorrect":false}],"solution":"68-95-99,7-regelen: 68 % innenfor $\\pm\\sigma$, 95 % innenfor $\\pm 2\\sigma$, 99,7 % innenfor $\\pm 3\\sigma$."},{"id":"s2-4-3-n-quiz1-q1","task":"Høyden er $N(180, 7^2)$. Hvor stor andel av mennene er over 194 cm?","options":[{"id":"a","text":"Ca. 2,5 %","isCorrect":true},{"id":"b","text":"Ca. 5 %","isCorrect":false},{"id":"c","text":"Ca. 16 %","isCorrect":false},{"id":"d","text":"Ca. 0,3 %","isCorrect":false}],"solution":"$194 = 180 + 2 \\cdot 7 = \\mu + 2\\sigma$. Utenfor $\\pm 2\\sigma$ ligger ca. 5 %, og halvparten av dem — 2,5 % — er i øvre hale."},{"id":"s2-4-3-n-quiz1-q2","task":"Hva forteller $z$-verdien $Z = \\frac{X - \\mu}{\\sigma}$?","options":[{"id":"a","text":"Sannsynligheten for $X$","isCorrect":false},{"id":"b","text":"Variansen til $X$","isCorrect":false},{"id":"c","text":"Hvor mange standardavvik $X$ ligger fra gjennomsnittet","isCorrect":true},{"id":"d","text":"Arealet under hele kurven","isCorrect":false}],"solution":"Standardiseringen måler avstanden fra $\\mu$ i enheter av $\\sigma$. Dermed kan alle normalfordelinger slås opp i samme tabell for $Z \\sim N(0,1)$."},{"id":"s2-4-3-n-quiz1-q3","task":"Fødselsvekt er $N(3{,}5,\\ 0{,}5^2)$. Bare 5 % veier mer enn hvilken vekt?","options":[{"id":"a","text":"$4{,}0$ kg","isCorrect":false},{"id":"b","text":"$4{,}48$ kg","isCorrect":false},{"id":"c","text":"$4{,}5$ kg","isCorrect":false},{"id":"d","text":"$4{,}32$ kg","isCorrect":true}],"solution":"$P(X \\leq a) = 0{,}95$ gir $z = 1{,}645$: $a = 3{,}5 + 0{,}5 \\cdot 1{,}645 \\approx 4{,}32$ kg."}]}},{"id":"s2-4-3-n-section2","type":"text","content":"## Boltene og setningen som forklarer alt\n\nEn fabrikk produserer bolter med gjennomsnittslengde $\\mu = 50$ mm og standardavvik $\\sigma = 2$ mm — men ingen har sagt at lengdene er normalfordelt. Kvalitetsavdelingen måler 100 bolter og regner ut gjennomsnittet. Hva er sannsynligheten for at gjennomsnittet ligger mellom 49,5 og 50,5 mm?\n\nHer kommer statistikkens kanskje viktigste resultat inn: **sentralgrensesetningen**. La $X_1, X_2, \\ldots, X_n$ være uavhengige stokastiske variabler med samme fordeling, forventning $\\mu$ og varians $\\sigma^2$. Da gjelder for store $n$: summen er tilnærmet normalfordelt, $S_n \\approx N(n\\mu,\\ n\\sigma^2)$, og gjennomsnittet er tilnærmet $\\bar{X} \\approx N\\left(\\mu,\\ \\frac{\\sigma^2}{n}\\right)$. Det bemerkelsesverdige er at dette gjelder **uansett hvilken fordeling** enkeltvariablene har — skjev, hakkete, hva som helst. Summer og gjennomsnitt av mange uavhengige bidrag blir klokkeformede. Tommelfingerregelen er at $n \\geq 30$ vanligvis er nok. Det er dette som forklarer hvorfor normalfordelingen dukker opp overalt: høyde, vekt og målefeil er nettopp summer av mange små, uavhengige bidrag.\n\nFor boltene: $\\bar{X} \\approx N(50,\\ \\frac{4}{100})$, så standardavviket til gjennomsnittet er $\\sigma_{\\bar{X}} = \\frac{2}{\\sqrt{100}} = 0{,}2$ mm — ti ganger mindre enn for en enkelt bolt. Standardisering gir $z = \\frac{49{,}5 - 50}{0{,}2} = -2{,}5$ og $z = \\frac{50{,}5 - 50}{0{,}2} = 2{,}5$, og $P(-2{,}5 < Z < 2{,}5) = 0{,}9938 - 0{,}0062 = 0{,}9876$. Nesten 99 % sikkert at gjennomsnittet treffer innenfor en halv millimeter — selv om vi aldri visste fordelingen til enkeltboltene. Det er sentralgrensesetningens magi: gjennomsnitt er langt mer forutsigbare enn enkeltobservasjoner."},{"id":"s2-4-3-n-quiz2","type":"exercise","exercise":{"id":"s2-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på sentralgrensesetningen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-3-n-quiz2-q0","task":"Hva sier sentralgrensesetningen om gjennomsnittet $\\bar{X}$ av $n$ uavhengige variabler?","options":[{"id":"a","text":"$\\bar{X} \\approx N\\left(\\mu, \\frac{\\sigma^2}{n}\\right)$ for store $n$, uansett opprinnelig fordeling","isCorrect":true},{"id":"b","text":"$\\bar{X}$ er alltid nøyaktig normalfordelt","isCorrect":false},{"id":"c","text":"$\\bar{X} \\approx N(n\\mu, n\\sigma^2)$","isCorrect":false},{"id":"d","text":"Setningen gjelder bare hvis $X_i$ er normalfordelte","isCorrect":false}],"solution":"Gjennomsnittet blir tilnærmet normalfordelt med forventning $\\mu$ og varians $\\sigma^2/n$ — uansett hva fordelingen til enkeltvariablene er. Det er summen som har $N(n\\mu, n\\sigma^2)$."},{"id":"s2-4-3-n-quiz2-q1","task":"Boltene har $\\sigma = 2$ mm. Hva er standardavviket til gjennomsnittet av 100 bolter?","options":[{"id":"a","text":"$2$ mm","isCorrect":false},{"id":"b","text":"$0{,}2$ mm","isCorrect":true},{"id":"c","text":"$0{,}02$ mm","isCorrect":false},{"id":"d","text":"$20$ mm","isCorrect":false}],"solution":"$\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{2}{\\sqrt{100}} = 0{,}2$ mm. Gjennomsnitt er mer presise enn enkeltmålinger — usikkerheten deles på $\\sqrt{n}$."},{"id":"s2-4-3-n-quiz2-q2","task":"Hvor mange observasjoner regnes vanligvis som nok for at sentralgrensesetningen gir god tilnærming?","options":[{"id":"a","text":"$n \\geq 5$","isCorrect":false},{"id":"b","text":"$n \\geq 1000$","isCorrect":false},{"id":"c","text":"$n \\geq 30$","isCorrect":true},{"id":"d","text":"$n \\geq 100$, alltid","isCorrect":false}],"solution":"Tommelfingerregelen er $n \\geq 30$. Jo skjevere utgangsfordeling, desto større $n$ trengs, men 30 holder i de fleste tilfeller."},{"id":"s2-4-3-n-quiz2-q3","task":"Hvorfor er normalfordelingen så vanlig i naturen og samfunnet?","options":[{"id":"a","text":"Fordi alle målinger egentlig er normalfordelte","isCorrect":false},{"id":"b","text":"Fordi mange størrelser er summer av mange små uavhengige bidrag, som ifølge sentralgrensesetningen blir tilnærmet normalfordelte","isCorrect":true},{"id":"c","text":"Fordi statistikere velger å bruke den","isCorrect":false},{"id":"d","text":"Fordi den har enklest formel","isCorrect":false}],"solution":"Høyde, vekt, målefeil og lignende oppstår som summer av mange små tilfeldige bidrag — og sentralgrensesetningen sier at slike summer blir klokkeformede."}]}},{"id":"s2-4-3-n-section3","type":"text","content":"## Mynten som ble normalfordelt\n\nEn siste anvendelse binder sammen forrige kapittel og dette: **normalapproksimasjon til binomisk fordeling**. En binomisk variabel er jo nettopp en sum av $n$ uavhengige 0/1-forsøk (Bernoulli-variabler), så sentralgrensesetningen lover at den blir tilnærmet normalfordelt når $n$ er stor: $B(n, p) \\approx N(np,\\ np(1-p))$. Kravet for god tilnærming er $np \\geq 5$ **og** $n(1-p) \\geq 5$.\n\nMen det er én subtilitet: binomisk fordeling er diskret (bare heltall), mens normalfordelingen er kontinuerlig. Derfor bruker vi **kontinuitetskorreksjon**: heltallet $k$ «eier» intervallet fra $k - 0{,}5$ til $k + 0{,}5$ på den kontinuerlige skalaen. Dermed er $$P(X \\leq k) \\approx \\Phi\\left(\\frac{k + 0{,}5 - np}{\\sqrt{np(1-p)}}\\right)$$ og punktsannsynligheten $P(X = k)$ blir differansen mellom $\\Phi$ i $k + 0{,}5$ og $k - 0{,}5$. Korreksjonen gir bedre nøyaktighet, men kan utelates for svært store $n$.\n\nEksempel: en mynt kastes 200 ganger, og vi vil finne sannsynligheten for mellom 90 og 110 kron (inklusivt). $X \\sim B(200,\\ 0{,}5)$ har $\\mu = np = 100$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{50} \\approx 7{,}07$. Kravene er greit oppfylt ($np = n(1-p) = 100$). Med kontinuitetskorreksjon: $$P(90 \\leq X \\leq 110) \\approx \\Phi\\left(\\frac{110{,}5 - 100}{7{,}07}\\right) - \\Phi\\left(\\frac{89{,}5 - 100}{7{,}07}\\right) = \\Phi(1{,}48) - \\Phi(-1{,}48) = 0{,}9306 - 0{,}0694 = 0{,}8612$$ Omtrent 86 %. En rimelighetskontroll med 68-95-99,7-regelen: $[\\mu - \\sigma, \\mu + \\sigma] = [93, 107]$ skulle gi ca. 68 %, og vårt intervall er litt bredere — 86 % virker fornuftig.\n\nEksamensstrategien for normalfordeling er dermed komplett: tegn skisse, standardiser, slå opp, sjekk rimelighet — og ved binomisk approksimasjon: sjekk $np \\geq 5$ og $n(1-p) \\geq 5$ først, og husk $\\pm 0{,}5$."},{"id":"s2-4-3-n-quiz3","type":"exercise","exercise":{"id":"s2-4-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på normalapproksimasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-3-n-quiz3-q0","task":"Når kan $B(n, p)$ approksimeres med normalfordelingen?","options":[{"id":"a","text":"Når $n \\geq 10$","isCorrect":false},{"id":"b","text":"Når $np \\geq 5$ og $n(1-p) \\geq 5$","isCorrect":true},{"id":"c","text":"Når $p < 0{,}05$","isCorrect":false},{"id":"d","text":"Alltid","isCorrect":false}],"solution":"Begge kravene $np \\geq 5$ og $n(1-p) \\geq 5$ må være oppfylt — fordelingen må ha «nok» forventede suksesser og fiaskoer til å være tilnærmet symmetrisk."},{"id":"s2-4-3-n-quiz3-q1","task":"Hvorfor brukes kontinuitetskorreksjon ($\\pm 0{,}5$)?","options":[{"id":"a","text":"For å kompensere for at vi tilnærmer en diskret fordeling med en kontinuerlig","isCorrect":true},{"id":"b","text":"For å gjøre standardavviket større","isCorrect":false},{"id":"c","text":"Fordi normalfordelingen er skjev","isCorrect":false},{"id":"d","text":"For å unngå negative sannsynligheter","isCorrect":false}],"solution":"Heltallet $k$ representeres av intervallet $[k - 0{,}5,\\ k + 0{,}5]$ på den kontinuerlige skalaen. Korreksjonen gir merkbart bedre nøyaktighet."},{"id":"s2-4-3-n-quiz3-q2","task":"200 myntkast: hva er $\\mu$ og $\\sigma$ for antall kron?","options":[{"id":"a","text":"$\\mu = 100$, $\\sigma = 50$","isCorrect":false},{"id":"b","text":"$\\mu = 50$, $\\sigma = \\sqrt{200}$","isCorrect":false},{"id":"c","text":"$\\mu = 100$, $\\sigma = \\sqrt{50} \\approx 7{,}07$","isCorrect":true},{"id":"d","text":"$\\mu = 100$, $\\sigma = 10$","isCorrect":false}],"solution":"$\\mu = np = 200 \\cdot 0{,}5 = 100$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{200 \\cdot 0{,}5 \\cdot 0{,}5} = \\sqrt{50} \\approx 7{,}07$."},{"id":"s2-4-3-n-quiz3-q3","task":"Hvilke $z$-verdier hører til 90 %, 95 % og 99 % (tosidig)?","options":[{"id":"a","text":"$1{,}28$, $1{,}645$ og $1{,}96$","isCorrect":false},{"id":"b","text":"$1{,}645$, $1{,}96$ og $2{,}576$","isCorrect":true},{"id":"c","text":"$1$, $2$ og $3$","isCorrect":false},{"id":"d","text":"$0{,}90$, $0{,}95$ og $0{,}99$","isCorrect":false}],"solution":"De kritiske verdiene $z_{0{,}05} = 1{,}645$, $z_{0{,}025} = 1{,}96$ og $z_{0{,}005} = 2{,}576$ går igjen i hele statistikken og bør sitte."}]}},{"id":"s2-4-3-n-summary","type":"text","content":"## Oppsummering: klokken, kjernen og korreksjonen\n\nNormalfordelingen $N(\\mu, \\sigma^2)$ er statistikkens arbeidshest: klokkeformet, symmetrisk om $\\mu$, med vendepunkter i $\\mu \\pm \\sigma$ og totalt areal 1. **68-95-99,7-regelen** gir lynraske overslag, og **standardiseringen** $Z = \\frac{X - \\mu}{\\sigma}$ oversetter enhver normalfordeling til standardnormalen $N(0,1)$, der $\\Phi(z)$ kan slås opp. Slik fant vi at 68 % av nyfødte veier mellom 3,0 og 4,0 kg, og at bare 5 % veier mer enn 4,32 kg.\n\nForklaringen på kurvens allestedsnærvær er **sentralgrensesetningen**: summer og gjennomsnitt av mange uavhengige variabler med samme fordeling blir tilnærmet normalfordelte uansett utgangspunkt — $\\bar{X} \\approx N(\\mu, \\frac{\\sigma^2}{n})$ for $n \\geq 30$. Standardavviket til gjennomsnittet, $\\frac{\\sigma}{\\sqrt{n}}$, krymper med utvalgsstørrelsen, og derfor kunne boltefabrikken være 99 % sikker på gjennomsnittet uten å kjenne fordelingen til en eneste bolt.\n\nOg fordi en binomisk variabel er en sum av Bernoulli-forsøk, gjelder **normalapproksimasjonen** $B(n,p) \\approx N(np,\\ np(1-p))$ når $np \\geq 5$ og $n(1-p) \\geq 5$ — med **kontinuitetskorreksjonen** $\\pm 0{,}5$ som bro mellom det diskrete og det kontinuerlige, slik myntkast-regnestykket viste.\n\nHusk arbeidsrutinen: tegn skisse, standardiser, slå opp, og sjekk svaret mot 68-95-99,7-regelen. Og merk deg tallene $1{,}645$, $1{,}96$ og $2{,}576$ — i kapitlene om estimering og hypotesetesting kommer de tilbake som gamle kjente."}],"exercises":[]}
+{
+  "id": "s2-4-3-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "4.3",
+  "title": "Normalfordeling og sentralgrensesetningen",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om klokkekurven som dukker opp overalt — fra fødselsvekter til fabrikkbolter — og setningen som forklarer hvorfor.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "bruke normalfordelingen til å beregne sannsynligheter",
+    "bruke sentralgrensesetningen til å vurdere fordelinger til summer og gjennomsnitt",
+    "bruke normalapproksimasjon til binomisk fordeling"
+  ],
+  "linkedChapterId": "s2-4-3",
+  "content": [
+    {
+      "id": "s2-4-3-n-intro",
+      "type": "text",
+      "content": "## Kurven som dukker opp overalt\n\nMål høyden til tusen norske menn, vei tusen nyfødte, samle testresultater eller målefeil fra et laboratorium — og tegn fordelingen. Hver gang trer den samme formen frem: en symmetrisk, klokkeformet kurve med en topp i midten og slanke haler ut til sidene. Dette er **normalfordelingen**, den mest brukte sannsynlighetsfordelingen i hele statistikken.\n\nEn kontinuerlig stokastisk variabel $X$ er normalfordelt med forventningsverdi $\\mu$ og varians $\\sigma^2$, skrevet $X \\sim N(\\mu, \\sigma^2)$, dersom tetthetsfunksjonen er $$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}$$ Formelen ser dramatisk ut, men egenskapene er enkle å huske: kurven er klokkeformet og symmetrisk om $\\mu$, toppunktet ligger i $x = \\mu$, vendepunktene ligger nøyaktig i $x = \\mu \\pm \\sigma$, arealet under hele kurven er 1, og sannsynligheter er arealer: $P(a \\leq X \\leq b)$ er arealet under kurven mellom $a$ og $b$.\n\nDet mest praktiske verktøyet er **68-95-99,7-regelen**: omtrent 68 % av observasjonene ligger innenfor ett standardavvik fra gjennomsnittet, omtrent 95 % innenfor to, og hele 99,7 % innenfor tre. Er høyden til norske menn normalfordelt med $\\mu = 180$ cm og $\\sigma = 7$ cm, ligger altså 68 % mellom 173 og 187 cm. Og andelen over 194 cm — som er $\\mu + 2\\sigma$ — er halvparten av de 5 prosentene utenfor to standardavvik: omtrent 2,5 %.\n\nMen hvorfor dukker akkurat denne kurven opp overalt? Svaret heter sentralgrensesetningen, og den kommer senere i fortellingen."
+    },
+    {
+      "id": "s2-4-3-n-section1",
+      "type": "text",
+      "content": "## Standardisering: alle klokkekurver er én\n\nPå nyfødtavdelingen er fødselsvekten tilnærmet normalfordelt med $\\mu = 3{,}5$ kg og $\\sigma = 0{,}5$ kg. Hva er sannsynligheten for at en nyfødt veier mellom 3,0 og 4,0 kg?\n\nNøkkelen er at alle normalfordelinger egentlig er samme kurve, bare forskjøvet og strukket. **Standardnormalfordelingen** $Z \\sim N(0, 1)$ har $\\mu = 0$ og $\\sigma = 1$, og enhver normalfordelt $X$ kan **standardiseres**: $$Z = \\frac{X - \\mu}{\\sigma}$$ $z$-verdien forteller hvor mange standardavvik $X$ ligger fra gjennomsnittet. Sannsynligheter slår vi opp i den kumulative fordelingsfunksjonen $\\Phi(z) = P(Z \\leq z)$, fra tabell eller kalkulator: $P(X \\leq a) = \\Phi\\left(\\frac{a-\\mu}{\\sigma}\\right)$.\n\nFor fødselsvektene: $z_1 = \\frac{3{,}0 - 3{,}5}{0{,}5} = -1$ og $z_2 = \\frac{4{,}0 - 3{,}5}{0{,}5} = 1$. Da er $P(3{,}0 < X < 4{,}0) = \\Phi(1) - \\Phi(-1) = 0{,}8413 - 0{,}1587 = 0{,}6827$ — som stemmer perfekt med 68-regelen, siden intervallet er nøyaktig $\\mu \\pm \\sigma$.\n\nVi kan også gå motsatt vei. Hvilken vekt overstiges av bare 5 % av de nyfødte? Vi søker $a$ slik at $P(X \\leq a) = 0{,}95$. Tabellen gir $\\Phi(1{,}645) \\approx 0{,}95$, så $\\frac{a - 3{,}5}{0{,}5} = 1{,}645$ og $a = 3{,}5 + 0{,}5 \\cdot 1{,}645 \\approx 4{,}32$ kg.\n\nNoen $z$-verdier er verdt å pugge fordi de går igjen i hele statistikken: $1{,}645$ (90 %), $1{,}96$ (95 %) og $2{,}576$ (99 %). Og tegn alltid en skisse av klokkekurven med det aktuelle området skravert — det er den beste forsikringen mot å regne på feil hale."
+    },
+    {
+      "id": "s2-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på normalfordelingen og standardisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-3-n-quiz1-q0",
+            "task": "Hvor stor andel av observasjonene ligger innenfor $\\mu \\pm 2\\sigma$ i en normalfordeling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 95 %",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ca. 68 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 99,7 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 50 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "68-95-99,7-regelen: 68 % innenfor $\\pm\\sigma$, 95 % innenfor $\\pm 2\\sigma$, 99,7 % innenfor $\\pm 3\\sigma$."
+          },
+          {
+            "id": "s2-4-3-n-quiz1-q1",
+            "task": "Høyden er $N(180, 7^2)$. Hvor stor andel av mennene er over 194 cm?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 5 %",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. 2,5 %",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 16 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 0,3 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$194 = 180 + 2 \\cdot 7 = \\mu + 2\\sigma$. Utenfor $\\pm 2\\sigma$ ligger ca. 5 %, og halvparten av dem — 2,5 % — er i øvre hale."
+          },
+          {
+            "id": "s2-4-3-n-quiz1-q2",
+            "task": "Hva forteller $z$-verdien $Z = \\frac{X - \\mu}{\\sigma}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sannsynligheten for $X$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Variansen til $X$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Hvor mange standardavvik $X$ ligger fra gjennomsnittet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Arealet under hele kurven",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Standardiseringen måler avstanden fra $\\mu$ i enheter av $\\sigma$. Dermed kan alle normalfordelinger slås opp i samme tabell for $Z \\sim N(0,1)$."
+          },
+          {
+            "id": "s2-4-3-n-quiz1-q3",
+            "task": "Fødselsvekt er $N(3{,}5,\\ 0{,}5^2)$. Bare 5 % veier mer enn hvilken vekt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4{,}0$ kg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4{,}48$ kg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4{,}5$ kg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4{,}32$ kg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(X \\leq a) = 0{,}95$ gir $z = 1{,}645$: $a = 3{,}5 + 0{,}5 \\cdot 1{,}645 \\approx 4{,}32$ kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-3-n-section2",
+      "type": "text",
+      "content": "## Boltene og setningen som forklarer alt\n\nEn fabrikk produserer bolter med gjennomsnittslengde $\\mu = 50$ mm og standardavvik $\\sigma = 2$ mm — men ingen har sagt at lengdene er normalfordelt. Kvalitetsavdelingen måler 100 bolter og regner ut gjennomsnittet. Hva er sannsynligheten for at gjennomsnittet ligger mellom 49,5 og 50,5 mm?\n\nHer kommer statistikkens kanskje viktigste resultat inn: **sentralgrensesetningen**. La $X_1, X_2, \\ldots, X_n$ være uavhengige stokastiske variabler med samme fordeling, forventning $\\mu$ og varians $\\sigma^2$. Da gjelder for store $n$: summen er tilnærmet normalfordelt, $S_n \\approx N(n\\mu,\\ n\\sigma^2)$, og gjennomsnittet er tilnærmet $\\bar{X} \\approx N\\left(\\mu,\\ \\frac{\\sigma^2}{n}\\right)$. Det bemerkelsesverdige er at dette gjelder **uansett hvilken fordeling** enkeltvariablene har — skjev, hakkete, hva som helst. Summer og gjennomsnitt av mange uavhengige bidrag blir klokkeformede. Tommelfingerregelen er at $n \\geq 30$ vanligvis er nok. Det er dette som forklarer hvorfor normalfordelingen dukker opp overalt: høyde, vekt og målefeil er nettopp summer av mange små, uavhengige bidrag.\n\nFor boltene: $\\bar{X} \\approx N(50,\\ \\frac{4}{100})$, så standardavviket til gjennomsnittet er $\\sigma_{\\bar{X}} = \\frac{2}{\\sqrt{100}} = 0{,}2$ mm — ti ganger mindre enn for en enkelt bolt. Standardisering gir $z = \\frac{49{,}5 - 50}{0{,}2} = -2{,}5$ og $z = \\frac{50{,}5 - 50}{0{,}2} = 2{,}5$, og $P(-2{,}5 < Z < 2{,}5) = 0{,}9938 - 0{,}0062 = 0{,}9876$. Nesten 99 % sikkert at gjennomsnittet treffer innenfor en halv millimeter — selv om vi aldri visste fordelingen til enkeltboltene. Det er sentralgrensesetningens magi: gjennomsnitt er langt mer forutsigbare enn enkeltobservasjoner."
+    },
+    {
+      "id": "s2-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sentralgrensesetningen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-3-n-quiz2-q0",
+            "task": "Hva sier sentralgrensesetningen om gjennomsnittet $\\bar{X}$ av $n$ uavhengige variabler?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\bar{X} \\approx N\\left(\\mu, \\frac{\\sigma^2}{n}\\right)$ for store $n$, uansett opprinnelig fordeling",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\bar{X}$ er alltid nøyaktig normalfordelt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\bar{X} \\approx N(n\\mu, n\\sigma^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Setningen gjelder bare hvis $X_i$ er normalfordelte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomsnittet blir tilnærmet normalfordelt med forventning $\\mu$ og varians $\\sigma^2/n$ — uansett hva fordelingen til enkeltvariablene er. Det er summen som har $N(n\\mu, n\\sigma^2)$."
+          },
+          {
+            "id": "s2-4-3-n-quiz2-q1",
+            "task": "Boltene har $\\sigma = 2$ mm. Hva er standardavviket til gjennomsnittet av 100 bolter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}2$ mm",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$0{,}02$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$20$ mm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}} = \\frac{2}{\\sqrt{100}} = 0{,}2$ mm. Gjennomsnitt er mer presise enn enkeltmålinger — usikkerheten deles på $\\sqrt{n}$."
+          },
+          {
+            "id": "s2-4-3-n-quiz2-q2",
+            "task": "Hvor mange observasjoner regnes vanligvis som nok for at sentralgrensesetningen gir god tilnærming?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$n \\geq 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$n \\geq 1000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$n \\geq 30$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$n \\geq 100$, alltid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tommelfingerregelen er $n \\geq 30$. Jo skjevere utgangsfordeling, desto større $n$ trengs, men 30 holder i de fleste tilfeller."
+          },
+          {
+            "id": "s2-4-3-n-quiz2-q3",
+            "task": "Hvorfor er normalfordelingen så vanlig i naturen og samfunnet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi alle målinger egentlig er normalfordelte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi statistikere velger å bruke den",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi den har enklest formel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi mange størrelser er summer av mange små uavhengige bidrag, som ifølge sentralgrensesetningen blir tilnærmet normalfordelte",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Høyde, vekt, målefeil og lignende oppstår som summer av mange små tilfeldige bidrag — og sentralgrensesetningen sier at slike summer blir klokkeformede."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-3-n-section3",
+      "type": "text",
+      "content": "## Mynten som ble normalfordelt\n\nEn siste anvendelse binder sammen forrige kapittel og dette: **normalapproksimasjon til binomisk fordeling**. En binomisk variabel er jo nettopp en sum av $n$ uavhengige 0/1-forsøk (Bernoulli-variabler), så sentralgrensesetningen lover at den blir tilnærmet normalfordelt når $n$ er stor: $B(n, p) \\approx N(np,\\ np(1-p))$. Kravet for god tilnærming er $np \\geq 5$ **og** $n(1-p) \\geq 5$.\n\nMen det er én subtilitet: binomisk fordeling er diskret (bare heltall), mens normalfordelingen er kontinuerlig. Derfor bruker vi **kontinuitetskorreksjon**: heltallet $k$ «eier» intervallet fra $k - 0{,}5$ til $k + 0{,}5$ på den kontinuerlige skalaen. Dermed er $$P(X \\leq k) \\approx \\Phi\\left(\\frac{k + 0{,}5 - np}{\\sqrt{np(1-p)}}\\right)$$ og punktsannsynligheten $P(X = k)$ blir differansen mellom $\\Phi$ i $k + 0{,}5$ og $k - 0{,}5$. Korreksjonen gir bedre nøyaktighet, men kan utelates for svært store $n$.\n\nEksempel: en mynt kastes 200 ganger, og vi vil finne sannsynligheten for mellom 90 og 110 kron (inklusivt). $X \\sim B(200,\\ 0{,}5)$ har $\\mu = np = 100$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{50} \\approx 7{,}07$. Kravene er greit oppfylt ($np = n(1-p) = 100$). Med kontinuitetskorreksjon: $$P(90 \\leq X \\leq 110) \\approx \\Phi\\left(\\frac{110{,}5 - 100}{7{,}07}\\right) - \\Phi\\left(\\frac{89{,}5 - 100}{7{,}07}\\right) = \\Phi(1{,}48) - \\Phi(-1{,}48) = 0{,}9306 - 0{,}0694 = 0{,}8612$$ Omtrent 86 %. En rimelighetskontroll med 68-95-99,7-regelen: $[\\mu - \\sigma, \\mu + \\sigma] = [93, 107]$ skulle gi ca. 68 %, og vårt intervall er litt bredere — 86 % virker fornuftig.\n\nEksamensstrategien for normalfordeling er dermed komplett: tegn skisse, standardiser, slå opp, sjekk rimelighet — og ved binomisk approksimasjon: sjekk $np \\geq 5$ og $n(1-p) \\geq 5$ først, og husk $\\pm 0{,}5$."
+    },
+    {
+      "id": "s2-4-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på normalapproksimasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-3-n-quiz3-q0",
+            "task": "Når kan $B(n, p)$ approksimeres med normalfordelingen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når $np \\geq 5$ og $n(1-p) \\geq 5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Når $n \\geq 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $p < 0{,}05$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Begge kravene $np \\geq 5$ og $n(1-p) \\geq 5$ må være oppfylt — fordelingen må ha «nok» forventede suksesser og fiaskoer til å være tilnærmet symmetrisk."
+          },
+          {
+            "id": "s2-4-3-n-quiz3-q1",
+            "task": "Hvorfor brukes kontinuitetskorreksjon ($\\pm 0{,}5$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å gjøre standardavviket større",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "For å kompensere for at vi tilnærmer en diskret fordeling med en kontinuerlig",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi normalfordelingen er skjev",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For å unngå negative sannsynligheter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Heltallet $k$ representeres av intervallet $[k - 0{,}5,\\ k + 0{,}5]$ på den kontinuerlige skalaen. Korreksjonen gir merkbart bedre nøyaktighet."
+          },
+          {
+            "id": "s2-4-3-n-quiz3-q2",
+            "task": "200 myntkast: hva er $\\mu$ og $\\sigma$ for antall kron?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mu = 100$, $\\sigma = 50$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mu = 50$, $\\sigma = \\sqrt{200}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mu = 100$, $\\sigma = \\sqrt{50} \\approx 7{,}07$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\mu = 100$, $\\sigma = 10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\mu = np = 200 \\cdot 0{,}5 = 100$ og $\\sigma = \\sqrt{np(1-p)} = \\sqrt{200 \\cdot 0{,}5 \\cdot 0{,}5} = \\sqrt{50} \\approx 7{,}07$."
+          },
+          {
+            "id": "s2-4-3-n-quiz3-q3",
+            "task": "Hvilke $z$-verdier hører til 90 %, 95 % og 99 % (tosidig)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1{,}28$, $1{,}645$ og $1{,}96$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$, $2$ og $3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}90$, $0{,}95$ og $0{,}99$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}645$, $1{,}96$ og $2{,}576$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "De kritiske verdiene $z_{0{,}05} = 1{,}645$, $z_{0{,}025} = 1{,}96$ og $z_{0{,}005} = 2{,}576$ går igjen i hele statistikken og bør sitte."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: klokken, kjernen og korreksjonen\n\nNormalfordelingen $N(\\mu, \\sigma^2)$ er statistikkens arbeidshest: klokkeformet, symmetrisk om $\\mu$, med vendepunkter i $\\mu \\pm \\sigma$ og totalt areal 1. **68-95-99,7-regelen** gir lynraske overslag, og **standardiseringen** $Z = \\frac{X - \\mu}{\\sigma}$ oversetter enhver normalfordeling til standardnormalen $N(0,1)$, der $\\Phi(z)$ kan slås opp. Slik fant vi at 68 % av nyfødte veier mellom 3,0 og 4,0 kg, og at bare 5 % veier mer enn 4,32 kg.\n\nForklaringen på kurvens allestedsnærvær er **sentralgrensesetningen**: summer og gjennomsnitt av mange uavhengige variabler med samme fordeling blir tilnærmet normalfordelte uansett utgangspunkt — $\\bar{X} \\approx N(\\mu, \\frac{\\sigma^2}{n})$ for $n \\geq 30$. Standardavviket til gjennomsnittet, $\\frac{\\sigma}{\\sqrt{n}}$, krymper med utvalgsstørrelsen, og derfor kunne boltefabrikken være 99 % sikker på gjennomsnittet uten å kjenne fordelingen til en eneste bolt.\n\nOg fordi en binomisk variabel er en sum av Bernoulli-forsøk, gjelder **normalapproksimasjonen** $B(n,p) \\approx N(np,\\ np(1-p))$ når $np \\geq 5$ og $n(1-p) \\geq 5$ — med **kontinuitetskorreksjonen** $\\pm 0{,}5$ som bro mellom det diskrete og det kontinuerlige, slik myntkast-regnestykket viste.\n\nHusk arbeidsrutinen: tegn skisse, standardiser, slå opp, og sjekk svaret mot 68-95-99,7-regelen. Og merk deg tallene $1{,}645$, $1{,}96$ og $2{,}576$ — i kapitlene om estimering og hypotesetesting kommer de tilbake som gamle kjente."
+    }
+  ],
+  "exercises": []
+}

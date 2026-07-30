@@ -1,1 +1,264 @@
-{"id":"r2-1-2-narrativ","courseId":"r2","chapterNumber":"1.2","title":"Aritmetiske følger","subtitle":"Narrativ versjon","description":"En fortelling om aritmetiske følger — fra Gauss' geniale parings-triks som niåring til formlene for ledd og summer i jevnt voksende tallmønstre.","estimatedMinutes":30,"competenceGoals":["forsta og bruke formler for aritmetiske følger","anvende aritmetiske følger i praktiske situasjoner"],"linkedChapterId":"r2-1-2","content":[{"id":"r2-1-2-n-intro","type":"text","content":"## Den late skolegutten og det geniale trikset\n\nDet fortelles at den tyske matematikeren Carl Friedrich Gauss som niåring fikk en straffeoppgave av læreren: legg sammen alle tallene fra $1$ til $100$. Mens klassekameratene svettet over kolonner med addisjon, leverte Gauss svaret etter få sekunder: $5050$. Trikset hans? Han paret tallene fra hver sin ende — $1 + 100 = 101$, $2 + 99 = 101$, $3 + 98 = 101$ — og innså at han hadde $50$ slike par. Altså $50 \\cdot 101 = 5050$.\n\nTallene $1, 2, 3, \\ldots, 100$ er et eksempel på en **aritmetisk følge**: en følge der du legger til det samme tallet for hvert steg. Slike følger dukker opp overalt — i sparepenger som vokser med fast beløp hver måned, i seteradene i et amfi og i prislister med fast påslag. I dette kapittelet skal vi finne formler for både leddene og summen, og du skal få se at Gauss' barndomstriks er selve nøkkelen til sumformelen."},{"id":"r2-1-2-n-section1","type":"text","content":"## Hva kjennetegner en aritmetisk følge?\n\nTenk deg at du setter av $500$ kroner hver måned. Sparesaldoen din blir $500, 1000, 1500, 2000, 2500, \\ldots$ — for hvert steg legges det samme beløpet til. Dette er kjernen i en **aritmetisk følge**: differansen mellom påfølgende ledd er konstant. Vi kaller den $d$ og skriver $d = a_{n+1} - a_n$.\n\nDifferansen kan godt være negativ. Følgen $20, 17, 14, 11, \\ldots$ er aritmetisk med $d = -3$ — den synker like jevnt som sparekontoen vokste. Vil du sjekke om en følge er aritmetisk, regner du rett og slett ut differansene: for $2, 5, 8, 11, 14, \\ldots$ får vi $5-2 = 3$, $8-5 = 3$ og $11-8 = 3$. Konstant differanse, altså aritmetisk med $d = 3$.\n\nNå til den eksplisitte formelen. For å komme fra $a_1$ til $a_n$ tar vi $n - 1$ steg, og hvert steg legger til $d$. Dermed:\n\n$$a_n = a_1 + (n-1) \\cdot d$$\n\nHar en følge $a_1 = 7$ og $d = 4$, blir ledd nummer femti $a_{50} = 7 + 49 \\cdot 4 = 7 + 196 = 203$. Formelen virker også baklengs: vet vi at $a_3 = 11$ og $a_7 = 27$, er det $7 - 3 = 4$ steg mellom dem, så $27 = 11 + 4d$, som gir $d = 4$."},{"id":"r2-1-2-n-quiz1","type":"exercise","exercise":{"id":"r2-1-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på aritmetiske følger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-2-n-quiz1-q0","task":"Hvilken av disse følgene er aritmetisk?","options":[{"id":"a","text":"$2, 4, 8, 16, \\ldots$","isCorrect":false},{"id":"b","text":"$1, 4, 9, 16, \\ldots$","isCorrect":false},{"id":"c","text":"$20, 17, 14, 11, \\ldots$","isCorrect":true},{"id":"d","text":"$1, 1, 2, 3, \\ldots$","isCorrect":false}],"solution":"$20, 17, 14, 11, \\ldots$ har konstant differanse $d = -3$, og er dermed aritmetisk. De andre følgene har ikke konstant differanse."},{"id":"r2-1-2-n-quiz1-q1","task":"En aritmetisk følge har $a_1 = 7$ og $d = 4$. Hva er $a_{50}$?","options":[{"id":"a","text":"$207$","isCorrect":false},{"id":"b","text":"$203$","isCorrect":true},{"id":"c","text":"$200$","isCorrect":false},{"id":"d","text":"$196$","isCorrect":false}],"solution":"$a_{50} = a_1 + (50-1) \\cdot d = 7 + 49 \\cdot 4 = 7 + 196 = 203$. Husk at det er $n-1$ steg, ikke $n$."},{"id":"r2-1-2-n-quiz1-q2","task":"I en aritmetisk følge er $a_3 = 11$ og $a_7 = 27$. Hva er differansen $d$?","options":[{"id":"a","text":"$4$","isCorrect":true},{"id":"b","text":"$\\frac{16}{7}$","isCorrect":false},{"id":"c","text":"$16$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"Fra $a_3$ til $a_7$ er det $4$ steg: $a_7 = a_3 + 4d$, altså $27 = 11 + 4d$, som gir $4d = 16$ og $d = 4$."}]}},{"id":"r2-1-2-n-section2","type":"text","content":"## Gauss' triks blir formel\n\nTilbake til klasserommet i Tyskland. Det Gauss egentlig oppdaget, var at i en aritmetisk følge er summen av første og siste ledd alltid lik summen av andre og nest siste ledd, og så videre innover. Hvert par bidrar like mye, og vi har $\\frac{n}{2}$ par. Det gir sumformelen for de $n$ første leddene:\n\n$$S_n = \\frac{n(a_1 + a_n)}{2}$$\n\nDu kan lese den som «gjennomsnittet av første og siste ledd, ganget med antall ledd». For Gauss' oppgave: $S_{100} = \\frac{100(1 + 100)}{2} = \\frac{100 \\cdot 101}{2} = 5050$. Akkurat som han fant.\n\nKjenner vi ikke det siste leddet, kan vi sette inn $a_n = a_1 + (n-1)d$ og få varianten\n\n$$S_n = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nLa oss bruke den på en sparesituasjon. Du sparer $1000$ kroner den første måneden og øker beløpet med $200$ kroner hver måned. Hvor mye har du etter ett år? Her er $a_1 = 1000$, $d = 200$ og $n = 12$:\n\n$$S_{12} = \\frac{12}{2}(2 \\cdot 1000 + 11 \\cdot 200) = 6(2000 + 2200) = 25\\,200 \\text{ kr}$$\n\nEt helt års sparing oppsummert i én linje — det er aritmetikkens svar på Gauss' snarvei."},{"id":"r2-1-2-n-quiz2","type":"exercise","exercise":{"id":"r2-1-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på summen av aritmetiske følger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-1-2-n-quiz2-q0","task":"Hva er summen $1 + 2 + 3 + \\cdots + 100$?","options":[{"id":"a","text":"$10\\,100$","isCorrect":false},{"id":"b","text":"$5000$","isCorrect":false},{"id":"c","text":"$10\\,000$","isCorrect":false},{"id":"d","text":"$5050$","isCorrect":true}],"solution":"$S_{100} = \\frac{100(1 + 100)}{2} = \\frac{100 \\cdot 101}{2} = 5050$ — Gauss' klassiker."},{"id":"r2-1-2-n-quiz2-q1","task":"En aritmetisk følge har $a_1 = 4$ og $a_{10} = 31$. Hva er summen av de ti første leddene?","options":[{"id":"a","text":"$140$","isCorrect":false},{"id":"b","text":"$175$","isCorrect":true},{"id":"c","text":"$310$","isCorrect":false},{"id":"d","text":"$135$","isCorrect":false}],"solution":"$S_{10} = \\frac{10(a_1 + a_{10})}{2} = \\frac{10(4 + 31)}{2} = \\frac{350}{2} = 175$."},{"id":"r2-1-2-n-quiz2-q2","task":"Du sparer $1000$ kr første måned og øker med $200$ kr hver måned. Hvor mye har du spart til sammen etter $12$ måneder?","options":[{"id":"a","text":"$25\\,200$ kr","isCorrect":true},{"id":"b","text":"$26\\,400$ kr","isCorrect":false},{"id":"c","text":"$24\\,000$ kr","isCorrect":false},{"id":"d","text":"$13\\,200$ kr","isCorrect":false}],"solution":"$S_{12} = \\frac{12}{2}(2 \\cdot 1000 + 11 \\cdot 200) = 6 \\cdot 4200 = 25\\,200$ kr."},{"id":"r2-1-2-n-quiz2-q3","task":"Hvilken tolkning av sumformelen $S_n = \\frac{n(a_1 + a_n)}{2}$ er riktig?","options":[{"id":"a","text":"Differansen ganget med antall ledd","isCorrect":false},{"id":"b","text":"Det midterste leddet ganget med differansen","isCorrect":false},{"id":"c","text":"Gjennomsnittet av første og siste ledd, ganget med antall ledd","isCorrect":true},{"id":"d","text":"Halvparten av siste ledd ganget med antall ledd","isCorrect":false}],"solution":"$\\frac{a_1 + a_n}{2}$ er gjennomsnittet av første og siste ledd, og i en aritmetisk følge er dette også gjennomsnittet av alle leddene. Summen blir gjennomsnittet ganget med $n$."}]}},{"id":"r2-1-2-n-summary","type":"text","content":"## Oppsummering: jevne steg og smarte par\n\nEn aritmetisk følge er matematikkens jevne trapp: differansen $d = a_{n+1} - a_n$ er den samme hele veien, enten den er positiv som i sparekontoen eller negativ som i en jevnt synkende temperatur. Den eksplisitte formelen $a_n = a_1 + (n-1)d$ tar oss direkte til et hvilket som helst trinn, og kjenner vi to ledd, kan vi alltid regne oss tilbake til både $d$ og $a_1$.\n\nDen store gevinsten i kapittelet er sumformelen. Gauss' parings-triks — første pluss siste, andre pluss nest siste — ga oss $S_n = \\frac{n(a_1 + a_n)}{2}$, gjennomsnittet av ytterleddene ganget med antall ledd. Med varianten $S_n = \\frac{n}{2}(2a_1 + (n-1)d)$ slipper vi til og med å kjenne det siste leddet. Dermed kan et helt års sparing, hundrevis av seterader eller summen av de tusen første oddetallene regnes ut på én linje. I neste kapittel bytter vi ut addisjon med multiplikasjon og møter de geometriske følgene — der vokser ikke trappen jevnt, men stadig brattere."}],"exercises":[]}
+{
+  "id": "r2-1-2-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "1.2",
+  "title": "Aritmetiske følger",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om aritmetiske følger — fra Gauss' geniale parings-triks som niåring til formlene for ledd og summer i jevnt voksende tallmønstre.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "forsta og bruke formler for aritmetiske følger",
+    "anvende aritmetiske følger i praktiske situasjoner"
+  ],
+  "linkedChapterId": "r2-1-2",
+  "content": [
+    {
+      "id": "r2-1-2-n-intro",
+      "type": "text",
+      "content": "## Den late skolegutten og det geniale trikset\n\nDet fortelles at den tyske matematikeren Carl Friedrich Gauss som niåring fikk en straffeoppgave av læreren: legg sammen alle tallene fra $1$ til $100$. Mens klassekameratene svettet over kolonner med addisjon, leverte Gauss svaret etter få sekunder: $5050$. Trikset hans? Han paret tallene fra hver sin ende — $1 + 100 = 101$, $2 + 99 = 101$, $3 + 98 = 101$ — og innså at han hadde $50$ slike par. Altså $50 \\cdot 101 = 5050$.\n\nTallene $1, 2, 3, \\ldots, 100$ er et eksempel på en **aritmetisk følge**: en følge der du legger til det samme tallet for hvert steg. Slike følger dukker opp overalt — i sparepenger som vokser med fast beløp hver måned, i seteradene i et amfi og i prislister med fast påslag. I dette kapittelet skal vi finne formler for både leddene og summen, og du skal få se at Gauss' barndomstriks er selve nøkkelen til sumformelen."
+    },
+    {
+      "id": "r2-1-2-n-section1",
+      "type": "text",
+      "content": "## Hva kjennetegner en aritmetisk følge?\n\nTenk deg at du setter av $500$ kroner hver måned. Sparesaldoen din blir $500, 1000, 1500, 2000, 2500, \\ldots$ — for hvert steg legges det samme beløpet til. Dette er kjernen i en **aritmetisk følge**: differansen mellom påfølgende ledd er konstant. Vi kaller den $d$ og skriver $d = a_{n+1} - a_n$.\n\nDifferansen kan godt være negativ. Følgen $20, 17, 14, 11, \\ldots$ er aritmetisk med $d = -3$ — den synker like jevnt som sparekontoen vokste. Vil du sjekke om en følge er aritmetisk, regner du rett og slett ut differansene: for $2, 5, 8, 11, 14, \\ldots$ får vi $5-2 = 3$, $8-5 = 3$ og $11-8 = 3$. Konstant differanse, altså aritmetisk med $d = 3$.\n\nNå til den eksplisitte formelen. For å komme fra $a_1$ til $a_n$ tar vi $n - 1$ steg, og hvert steg legger til $d$. Dermed:\n\n$$a_n = a_1 + (n-1) \\cdot d$$\n\nHar en følge $a_1 = 7$ og $d = 4$, blir ledd nummer femti $a_{50} = 7 + 49 \\cdot 4 = 7 + 196 = 203$. Formelen virker også baklengs: vet vi at $a_3 = 11$ og $a_7 = 27$, er det $7 - 3 = 4$ steg mellom dem, så $27 = 11 + 4d$, som gir $d = 4$."
+    },
+    {
+      "id": "r2-1-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på aritmetiske følger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-2-n-quiz1-q0",
+            "task": "Hvilken av disse følgene er aritmetisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2, 4, 8, 16, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1, 4, 9, 16, \\ldots$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$20, 17, 14, 11, \\ldots$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$1, 1, 2, 3, \\ldots$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$20, 17, 14, 11, \\ldots$ har konstant differanse $d = -3$, og er dermed aritmetisk. De andre følgene har ikke konstant differanse."
+          },
+          {
+            "id": "r2-1-2-n-quiz1-q1",
+            "task": "En aritmetisk følge har $a_1 = 7$ og $d = 4$. Hva er $a_{50}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$207$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$203$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$200$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$196$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_{50} = a_1 + (50-1) \\cdot d = 7 + 49 \\cdot 4 = 7 + 196 = 203$. Husk at det er $n-1$ steg, ikke $n$."
+          },
+          {
+            "id": "r2-1-2-n-quiz1-q2",
+            "task": "I en aritmetisk følge er $a_3 = 11$ og $a_7 = 27$. Hva er differansen $d$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{16}{7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fra $a_3$ til $a_7$ er det $4$ steg: $a_7 = a_3 + 4d$, altså $27 = 11 + 4d$, som gir $4d = 16$ og $d = 4$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-2-n-section2",
+      "type": "text",
+      "content": "## Gauss' triks blir formel\n\nTilbake til klasserommet i Tyskland. Det Gauss egentlig oppdaget, var at i en aritmetisk følge er summen av første og siste ledd alltid lik summen av andre og nest siste ledd, og så videre innover. Hvert par bidrar like mye, og vi har $\\frac{n}{2}$ par. Det gir sumformelen for de $n$ første leddene:\n\n$$S_n = \\frac{n(a_1 + a_n)}{2}$$\n\nDu kan lese den som «gjennomsnittet av første og siste ledd, ganget med antall ledd». For Gauss' oppgave: $S_{100} = \\frac{100(1 + 100)}{2} = \\frac{100 \\cdot 101}{2} = 5050$. Akkurat som han fant.\n\nKjenner vi ikke det siste leddet, kan vi sette inn $a_n = a_1 + (n-1)d$ og få varianten\n\n$$S_n = \\frac{n}{2}\\bigl(2a_1 + (n-1)d\\bigr)$$\n\nLa oss bruke den på en sparesituasjon. Du sparer $1000$ kroner den første måneden og øker beløpet med $200$ kroner hver måned. Hvor mye har du etter ett år? Her er $a_1 = 1000$, $d = 200$ og $n = 12$:\n\n$$S_{12} = \\frac{12}{2}(2 \\cdot 1000 + 11 \\cdot 200) = 6(2000 + 2200) = 25\\,200 \\text{ kr}$$\n\nEt helt års sparing oppsummert i én linje — det er aritmetikkens svar på Gauss' snarvei."
+    },
+    {
+      "id": "r2-1-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-1-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på summen av aritmetiske følger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-1-2-n-quiz2-q0",
+            "task": "Hva er summen $1 + 2 + 3 + \\cdots + 100$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$5050$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$10\\,100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S_{100} = \\frac{100(1 + 100)}{2} = \\frac{100 \\cdot 101}{2} = 5050$ — Gauss' klassiker."
+          },
+          {
+            "id": "r2-1-2-n-quiz2-q1",
+            "task": "En aritmetisk følge har $a_1 = 4$ og $a_{10} = 31$. Hva er summen av de ti første leddene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$140$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$310$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$175$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$135$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S_{10} = \\frac{10(a_1 + a_{10})}{2} = \\frac{10(4 + 31)}{2} = \\frac{350}{2} = 175$."
+          },
+          {
+            "id": "r2-1-2-n-quiz2-q2",
+            "task": "Du sparer $1000$ kr første måned og øker med $200$ kr hver måned. Hvor mye har du spart til sammen etter $12$ måneder?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$26\\,400$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$24\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$13\\,200$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$25\\,200$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$S_{12} = \\frac{12}{2}(2 \\cdot 1000 + 11 \\cdot 200) = 6 \\cdot 4200 = 25\\,200$ kr."
+          },
+          {
+            "id": "r2-1-2-n-quiz2-q3",
+            "task": "Hvilken tolkning av sumformelen $S_n = \\frac{n(a_1 + a_n)}{2}$ er riktig?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Gjennomsnittet av første og siste ledd, ganget med antall ledd",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Differansen ganget med antall ledd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det midterste leddet ganget med differansen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Halvparten av siste ledd ganget med antall ledd",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{a_1 + a_n}{2}$ er gjennomsnittet av første og siste ledd, og i en aritmetisk følge er dette også gjennomsnittet av alle leddene. Summen blir gjennomsnittet ganget med $n$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-1-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: jevne steg og smarte par\n\nEn aritmetisk følge er matematikkens jevne trapp: differansen $d = a_{n+1} - a_n$ er den samme hele veien, enten den er positiv som i sparekontoen eller negativ som i en jevnt synkende temperatur. Den eksplisitte formelen $a_n = a_1 + (n-1)d$ tar oss direkte til et hvilket som helst trinn, og kjenner vi to ledd, kan vi alltid regne oss tilbake til både $d$ og $a_1$.\n\nDen store gevinsten i kapittelet er sumformelen. Gauss' parings-triks — første pluss siste, andre pluss nest siste — ga oss $S_n = \\frac{n(a_1 + a_n)}{2}$, gjennomsnittet av ytterleddene ganget med antall ledd. Med varianten $S_n = \\frac{n}{2}(2a_1 + (n-1)d)$ slipper vi til og med å kjenne det siste leddet. Dermed kan et helt års sparing, hundrevis av seterader eller summen av de tusen første oddetallene regnes ut på én linje. I neste kapittel bytter vi ut addisjon med multiplikasjon og møter de geometriske følgene — der vokser ikke trappen jevnt, men stadig brattere."
+    }
+  ],
+  "exercises": []
+}

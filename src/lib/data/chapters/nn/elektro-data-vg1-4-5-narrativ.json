@@ -1,1 +1,413 @@
-{"id":"elektro-data-vg1-4-5-narrativ","courseId":"elektro-data-vg1","chapterNumber":"4.5","title":"Serielle kommunikasjonsprotokollar","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis brikkene inne i ein dings snakkar saman – UART, SPI og I2C, bit for bit over nokre få leiarar.","estimatedMinutes":35,"competenceGoals":["forklare og bruke serielle kommunikasjonsprotokoller"],"linkedChapterId":"elektro-data-vg1-4-5","content":[{"id":"elektro-data-vg1-4-5-n-intro","type":"text","content":"## Når brikkene må snakke saman\n\nTenk deg at du har bygd ein liten dings med ein Arduino. Mikrokontrollaren skal lese temperaturen frå ein sensor, skrive eit tal til ein skjerm og kanskje lagre noko på eit minnekort. Men korleis får desse brikkene eigentleg snakka saman? Dei har ikkje noko tastatur, inga stemme – berre nokre små bein av metall, pinnane, som dei kan sende spenning ut på og lese spenning inn på.\n\nLøysinga er **seriell kommunikasjon**: data blir sende **éin bit om gongen** over éin eller nokre få leiarar. Det høyrest tregt ut samanlikna med **parallell kommunikasjon**, der mange bit blir sende samtidig på mange leiarar, slik som i gamle skrivarkablar. Men seriell vann kampen fordi du slepp ein heil bunt med trådar, og fordi det kan køyrast lynraskt. I elektronikkverda finst det tre store serielle protokollar du må kjenne: **UART**, **SPI** og **I2C**. Dei løyser same oppgåve på tre ganske forskjellige måtar, og kvar av dei har sine styrkar."},{"id":"elektro-data-vg1-4-5-n-section1","type":"text","content":"## UART – den enkle praten på to trådar\n\nLat oss byrje med den enklaste, **UART**. Tenk deg to personar som snakkar utan ei felles klokke på veggen – dei må på førehand bli samde om kor fort dei skal snakke. Akkurat slik fungerer UART: han er **asynkron**, altså utan eit eige klokkesignal. I staden må sendar og mottakar stille inn same **baudrate**, altså fart. Vanlege verdiar er 9600 og 115200 bits per sekund.\n\nUART treng forbløffande lite: berre to leiarar pluss felles jord. **TX** sender, **RX** mottek, og GND er den felles botnlinja. Sidan TX og RX er kvar sin leiar, kan han sende og motta samtidig – det blir kalla **full-duplex**. Kvar lille datapakke, ein \"frame\", blir bygd opp av ein startbit som alltid er 0, åtte databit med sjølve informasjonen, ein valfri paritetsbit til feilsjekk, og til slutt ein eller to stoppbit som alltid er 1.\n\nSei at du koplar ein GPS-modul til Arduinoen din, og modulen sender med baudrate 9600. Då må du skrive `Serial.begin(9600)` i koden så fartane stemmer. Du koplar TX-en til modulen til RX-en på Arduinoen og omvendt – linjene blir kryssa – og du må hugse felles jord. Og ei siste felle: bruker den eine 3,3 V og den andre 5 V, treng du ein nivåkonverter, elles risikerer du å øydeleggje brikka. Kva skjer dersom du rotar med baudraten, og set 115200 på den eine og 9600 på den andre? Då samplar mottakaren signalet med feil takt, og du ser berre uleseleg \"søppeltekst\" på skjermen. Det er fordi UART er asynkron og ikkje har noko klokkesignal å synkronisere etter."},{"id":"elektro-data-vg1-4-5-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-4-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på UART:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-4-5-n-quiz1-q0","task":"Kva tyder det at UART er asynkron?","options":[{"id":"a","text":"Han sender alle bit samtidig","isCorrect":false},{"id":"b","text":"Han kan berre sende data éin veg","isCorrect":false},{"id":"c","text":"Han bruker ikkje eit felles klokkesignal – baudraten må setjast likt","isCorrect":true},{"id":"d","text":"Han kan berre kople til éi eining","isCorrect":false}],"solution":"Asynkron tyder at det ikkje finst eit felles klokkesignal. Difor må sendar og mottakar vere stilte inn på same baudrate for å tolke dataa rett."},{"id":"elektro-data-vg1-4-5-n-quiz1-q1","task":"Kor mange leiarar bruker UART til sjølve datakommunikasjonen (utanom jord)?","options":[{"id":"a","text":"1 leiar","isCorrect":false},{"id":"b","text":"4 leiarar","isCorrect":false},{"id":"c","text":"3 leiarar","isCorrect":false},{"id":"d","text":"2 leiarar: TX og RX","isCorrect":true}],"solution":"UART bruker TX (sendar) og RX (mottakar) pluss felles jord. Fordi dei er kvar sin leiar, kan han sende og motta samtidig (full-duplex)."},{"id":"elektro-data-vg1-4-5-n-quiz1-q2","task":"Kva ser du dersom sendar og mottakar har ulik baudrate?","options":[{"id":"a","text":"Uleseleg \"søppeltekst\", fordi bitane blir lesne på feil tidspunkt","isCorrect":true},{"id":"b","text":"Litt tregare, men korrekt tekst","isCorrect":false},{"id":"c","text":"Ingenting skjer – det fungerer som vanleg","isCorrect":false},{"id":"d","text":"Ei automatisk feilmelding som rettar opp baudraten","isCorrect":false}],"solution":"Mottakaren samplar signalet med sin eigen takt, som ikkje stemmer med takten til sendaren. Resultatet er tilfeldige, uleselege teikn, fordi UART ikkje har klokkesignal å synkronisere etter."}]}},{"id":"elektro-data-vg1-4-5-n-section2","type":"text","content":"## SPI – den raske med ein sjef i front\n\nNår UART blir for tregt, hentar vi fram **SPI**. Her er det ikkje lenger to likeverdige partar som snakkar fritt; no har vi ein tydeleg sjef. SPI følgjer **master/slave**-prinsippet, der éi eining, masteren, styrer heile kommunikasjonen, og resten lyttar. Og denne gongen er det eit klokkesignal med – SPI er **synkron**.\n\nSPI bruker fire leiarar. **MOSI** fører data frå master til slave, **MISO** fører data andre vegen frå slave til master, **SCK** er klokkesignalet masteren slår takten med, og **SS** (Slave Select, også kalla Chip Select) blir brukt til å peike ut kva slave som er aktiv. Fordi data går på to skilde linjer, MOSI og MISO, kan SPI sende og motta samtidig – også han er full-duplex. Og han er rask: typisk frå 1 heilt opp til 50 MHz. Det er difor SPI er førstevalet for SD-kort, fargeskjermar og sensorar som spyttar ut mykje data.\n\nMen korleis vel masteren kven han snakkar med når fleire slavar heng på? Sei at du har både ein temperatursensor på SS-pinne 10 og eit SD-kort på SS-pinne 4, medan MOSI, MISO og SCK blir delte av begge. Vil masteren lese temperatur, dreg han pinne 10 LOW (aktiv) og held pinne 4 HIGH (inaktiv), og snakkar fritt med sensoren. Skal han så skrive til kortet, snur han om: pinne 4 LOW, pinne 10 HIGH. Regelen er at låg spenning tyder aktiv, høg tyder sovande, og berre éin slave kan vere aktiv av gongen. Ulempa er openberr – du treng ein eigen SS-leiar for kvar einaste slave."},{"id":"elektro-data-vg1-4-5-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-4-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på SPI:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-4-5-n-quiz2-q0","task":"Korleis vel ein SPI-master kva slave han snakkar med?","options":[{"id":"a","text":"Ved hjelp av ei unik adresse for kvar slave","isCorrect":false},{"id":"b","text":"Ved å dra rett Slave Select-linje LOW (aktiv)","isCorrect":true},{"id":"c","text":"Ved å endre baudraten","isCorrect":false},{"id":"d","text":"Slavane vel seg sjølve etter tur","isCorrect":false}],"solution":"SPI bruker ei eiga Slave Select-linje per slave. Masteren aktiverer ønskt slave ved å setje SS-linja til han LOW, medan dei andre blir haldne HIGH."},{"id":"elektro-data-vg1-4-5-n-quiz2-q1","task":"Kva tyder \"full-duplex\" i SPI?","options":[{"id":"a","text":"Data kan sendast begge vegar, men ikkje samtidig","isCorrect":false},{"id":"b","text":"Data kan berre sendast éin veg","isCorrect":false},{"id":"c","text":"Master sender på MOSI og mottek på MISO samtidig","isCorrect":true},{"id":"d","text":"To masterar deler bussen","isCorrect":false}],"solution":"SPI har to skilde datalinjer, MOSI og MISO, så masteren kan sende og motta ein byte samtidig. Det er skilnaden frå half-duplex, der ein må vente på tur."},{"id":"elektro-data-vg1-4-5-n-quiz2-q2","task":"Kva er ein typisk ulempe ved SPI når du har mange slavar?","options":[{"id":"a","text":"Han blir for langsam","isCorrect":false},{"id":"b","text":"Han kan ikkje bruke klokkesignal","isCorrect":false},{"id":"c","text":"Han krev same baudrate på alle","isCorrect":false},{"id":"d","text":"Du treng ein eigen Slave Select-leiar for kvar slave","isCorrect":true}],"solution":"Kvar slave treng si eiga SS-linje. Med mange slavar blir det mange leiarar og pinnar, noko som er den viktigaste ulempa til SPI."}]}},{"id":"elektro-data-vg1-4-5-n-section3","type":"text","content":"## I2C – mange einingar på berre to trådar\n\nTil slutt har vi **I2C**, uttalt \"i-to-c\". Han løyser akkurat problemet SPI slit med: kva om du vil kople på mange einingar utan å drukne i leiarar? I2C er synkron som SPI, men greier seg med berre **to leiarar**, uansett kor mange einingar du har. **SDA** er datalinja, som går begge vegar, og **SCL** er klokkesignalet frå masteren. Fordi det berre er éi datalinje, kan I2C sende éin veg av gongen – han er **half-duplex**.\n\nLøyndomen bak at så mange einingar kan dele dei to leiarane, er **adressering**. Kvar eining har si eiga 7-bits adresse. Sei at du har tre I2C-einingar på same buss: ein temperatursensor på adresse 0x48, eit akselerometer på 0x68 og ein OLED-skjerm på 0x3C. Når Arduinoen vil lese temperatur, sender han ein startbetingelse følgt av adressa 0x48. Berre sensoren med akkurat den adressa svarar; dei andre ligg stille. Etterpå sender masteren ein stoppbetingelse, og bussen er fri att. På denne måten kan du i teorien ha opptil 128 einingar på dei same to leiarane. Farten er meir beskjeden enn SPI – frå 100 kHz i standardmodus opp til 3,4 MHz – og ei felle er at to einingar med same fabrikkadresse vil kollidere. Men for sensorar, små skjermar, klokkebrikker og minne er I2C ofte det smartaste valet.\n\nFørestill deg at du byggjer ein værstasjon med temperatursensor, fuktsensor, trykksensor, ein OLED-skjerm og eit SD-kort. Dei fire første sender små datamengder – legg dei alle på I2C-bussen, kvar med si adresse, og slepp unna med to leiarar totalt. SD-kortet derimot, som skal skrive store loggfiler raskt, fortener SPI. Slik bruker du styrkane til begge protokollane samtidig."},{"id":"elektro-data-vg1-4-5-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-4-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på I2C og protokollval:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-4-5-n-quiz3-q0","task":"Kor mange leiarar bruker I2C til datakommunikasjon (utanom jord)?","options":[{"id":"a","text":"2 leiarar: SDA og SCL","isCorrect":true},{"id":"b","text":"4 leiarar","isCorrect":false},{"id":"c","text":"3 leiarar","isCorrect":false},{"id":"d","text":"1 leiar","isCorrect":false}],"solution":"I2C bruker berre SDA (data) og SCL (klokke). Alle einingar deler desse to linjene og blir skilde frå kvarandre med unike adresser."},{"id":"elektro-data-vg1-4-5-n-quiz3-q1","task":"Korleis veit rett I2C-eining at meldinga er meint for ho?","options":[{"id":"a","text":"Kvar eining har ei eiga Slave Select-linje","isCorrect":false},{"id":"b","text":"Masteren sender den unike 7-bits adressa til eininga først","isCorrect":true},{"id":"c","text":"Einingane svarar etter tur i ei fast rekkjefølgje","isCorrect":false},{"id":"d","text":"Dei skil på baudrate","isCorrect":false}],"solution":"Masteren sender adressa til den eininga han vil snakke med. Berre eininga med den adressa svarar, medan dei andre ligg stille."},{"id":"elektro-data-vg1-4-5-n-quiz3-q2","task":"I ein værstasjon med fleire sensorar og eit SD-kort, kva val er fornuftig?","options":[{"id":"a","text":"Alt på UART","isCorrect":false},{"id":"b","text":"Alt på SPI med éi delt SS-linje","isCorrect":false},{"id":"c","text":"Sensorane på I2C (delt buss), SD-kortet på SPI (rask skriving)","isCorrect":true},{"id":"d","text":"Alt på Bluetooth","isCorrect":false}],"solution":"Sensorane sender små datamengder og kan dele dei to leiarane til I2C-bussen, kvar med si adresse. SD-kortet treng høg fart og passar best på SPI."}]}},{"id":"elektro-data-vg1-4-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har møtt tre måtar å la brikker snakke saman på, alle seriell – éin bit om gongen. **UART** er den enklaste: to leiarar (TX og RX), asynkron utan klokke, full-duplex, men avhengig av at begge bruker same baudrate. Han passar fint til GPS-modular og feilsøking. **SPI** er den raske med ein master i front: fire leiarar (MOSI, MISO, SCK og ein SS per slave), synkron og full-duplex, ideell for SD-kort og skjermar. **I2C** er den fleksible: berre to leiarar (SDA og SCL), synkron og half-duplex, der mange einingar deler bussen og blir skilde ved kvar si 7-bits adresse.\n\nValet mellom dei handlar om behova dine. Treng du enkel punkt-til-punkt, vel UART. Treng du fart, vel SPI. Treng du mange einingar på få leiarar, vel I2C. Og som værstasjonen viste – ofte er det smartaste å kombinere dei og la kvar protokoll gjere det han er best på."}],"exercises":[],"_meta":{"sourceHash":"1bd67803a43623fa","translatedAt":"2026-06-21T10:28:14.732Z","model":"claude-code-agent","strings":69,"tm":{"0ad41529261a5626":"Serielle kommunikasjonsprotokollar","b195b06d1ed59702":"Narrativ versjon","81f7111f552b1e9b":"Ei forteljing om korleis brikkene inne i ein dings snakkar saman – UART, SPI og I2C, bit for bit over nokre få leiarar.","ac533870d5368902":"forklare og bruke serielle kommunikasjonsprotokoller","72c179abb50db470":"## Når brikkene må snakke saman\n\nTenk deg at du har bygd ein liten dings med ein Arduino. Mikrokontrollaren skal lese temperaturen frå ein sensor, skrive eit tal til ein skjerm og kanskje lagre noko på eit minnekort. Men korleis får desse brikkene eigentleg snakka saman? Dei har ikkje noko tastatur, inga stemme – berre nokre små bein av metall, pinnane, som dei kan sende spenning ut på og lese spenning inn på.\n\nLøysinga er **seriell kommunikasjon**: data blir sende **éin bit om gongen** over éin eller nokre få leiarar. Det høyrest tregt ut samanlikna med **parallell kommunikasjon**, der mange bit blir sende samtidig på mange leiarar, slik som i gamle skrivarkablar. Men seriell vann kampen fordi du slepp ein heil bunt med trådar, og fordi det kan køyrast lynraskt. I elektronikkverda finst det tre store serielle protokollar du må kjenne: **UART**, **SPI** og **I2C**. Dei løyser same oppgåve på tre ganske forskjellige måtar, og kvar av dei har sine styrkar.","df8b9b2ff97e6111":"## UART – den enkle praten på to trådar\n\nLat oss byrje med den enklaste, **UART**. Tenk deg to personar som snakkar utan ei felles klokke på veggen – dei må på førehand bli samde om kor fort dei skal snakke. Akkurat slik fungerer UART: han er **asynkron**, altså utan eit eige klokkesignal. I staden må sendar og mottakar stille inn same **baudrate**, altså fart. Vanlege verdiar er 9600 og 115200 bits per sekund.\n\nUART treng forbløffande lite: berre to leiarar pluss felles jord. **TX** sender, **RX** mottek, og GND er den felles botnlinja. Sidan TX og RX er kvar sin leiar, kan han sende og motta samtidig – det blir kalla **full-duplex**. Kvar lille datapakke, ein \"frame\", blir bygd opp av ein startbit som alltid er 0, åtte databit med sjølve informasjonen, ein valfri paritetsbit til feilsjekk, og til slutt ein eller to stoppbit som alltid er 1.\n\nSei at du koplar ein GPS-modul til Arduinoen din, og modulen sender med baudrate 9600. Då må du skrive `Serial.begin(9600)` i koden så fartane stemmer. Du koplar TX-en til modulen til RX-en på Arduinoen og omvendt – linjene blir kryssa – og du må hugse felles jord. Og ei siste felle: bruker den eine 3,3 V og den andre 5 V, treng du ein nivåkonverter, elles risikerer du å øydeleggje brikka. Kva skjer dersom du rotar med baudraten, og set 115200 på den eine og 9600 på den andre? Då samplar mottakaren signalet med feil takt, og du ser berre uleseleg \"søppeltekst\" på skjermen. Det er fordi UART er asynkron og ikkje har noko klokkesignal å synkronisere etter.","2dedc0483f01e02e":"Test deg sjølv på UART:","4097889236a2af26":"placeholder","b498f99c1f3fbd30":"Kva tyder det at UART er asynkron?","d3a5ade27489d56b":"Han sender alle bit samtidig","7cb562fbc28dcca7":"Han kan berre sende data éin veg","9bbfea3aa9b8843c":"Han bruker ikkje eit felles klokkesignal – baudraten må setjast likt","9bafb41c05b94b1a":"Han kan berre kople til éi eining","1e8c3cf5d8378f77":"Asynkron tyder at det ikkje finst eit felles klokkesignal. Difor må sendar og mottakar vere stilte inn på same baudrate for å tolke dataa rett.","7e291441b7e342be":"Kor mange leiarar bruker UART til sjølve datakommunikasjonen (utanom jord)?","879237e591952b5c":"1 leiar","81c634e48e15cf23":"4 leiarar","32afcdf101a32e00":"3 leiarar","92bdd906275fb410":"2 leiarar: TX og RX","b6ff2ccbabe9a3f5":"UART bruker TX (sendar) og RX (mottakar) pluss felles jord. Fordi dei er kvar sin leiar, kan han sende og motta samtidig (full-duplex).","4aa8d2c7e4e6b966":"Kva ser du dersom sendar og mottakar har ulik baudrate?","11efd3cdab301e9d":"Uleseleg \"søppeltekst\", fordi bitane blir lesne på feil tidspunkt","3cd8d15fda097a42":"Litt tregare, men korrekt tekst","c822869099a92ed5":"Ingenting skjer – det fungerer som vanleg","8fee7033f24f43e6":"Ei automatisk feilmelding som rettar opp baudraten","bde9d0d4f332686e":"Mottakaren samplar signalet med sin eigen takt, som ikkje stemmer med takten til sendaren. Resultatet er tilfeldige, uleselege teikn, fordi UART ikkje har klokkesignal å synkronisere etter.","bb22ee98cb9f0eb2":"## SPI – den raske med ein sjef i front\n\nNår UART blir for tregt, hentar vi fram **SPI**. Her er det ikkje lenger to likeverdige partar som snakkar fritt; no har vi ein tydeleg sjef. SPI følgjer **master/slave**-prinsippet, der éi eining, masteren, styrer heile kommunikasjonen, og resten lyttar. Og denne gongen er det eit klokkesignal med – SPI er **synkron**.\n\nSPI bruker fire leiarar. **MOSI** fører data frå master til slave, **MISO** fører data andre vegen frå slave til master, **SCK** er klokkesignalet masteren slår takten med, og **SS** (Slave Select, også kalla Chip Select) blir brukt til å peike ut kva slave som er aktiv. Fordi data går på to skilde linjer, MOSI og MISO, kan SPI sende og motta samtidig – også han er full-duplex. Og han er rask: typisk frå 1 heilt opp til 50 MHz. Det er difor SPI er førstevalet for SD-kort, fargeskjermar og sensorar som spyttar ut mykje data.\n\nMen korleis vel masteren kven han snakkar med når fleire slavar heng på? Sei at du har både ein temperatursensor på SS-pinne 10 og eit SD-kort på SS-pinne 4, medan MOSI, MISO og SCK blir delte av begge. Vil masteren lese temperatur, dreg han pinne 10 LOW (aktiv) og held pinne 4 HIGH (inaktiv), og snakkar fritt med sensoren. Skal han så skrive til kortet, snur han om: pinne 4 LOW, pinne 10 HIGH. Regelen er at låg spenning tyder aktiv, høg tyder sovande, og berre éin slave kan vere aktiv av gongen. Ulempa er openberr – du treng ein eigen SS-leiar for kvar einaste slave.","908f428448d0ba7b":"Test deg sjølv på SPI:","f6e1d25df3e4ac89":"Korleis vel ein SPI-master kva slave han snakkar med?","62748dde6516a243":"Ved hjelp av ei unik adresse for kvar slave","f812843f2dffbf34":"Ved å dra rett Slave Select-linje LOW (aktiv)","9e86ead91664412b":"Ved å endre baudraten","3f483eb84a5d79b1":"Slavane vel seg sjølve etter tur","980c0f7f8c4bc759":"SPI bruker ei eiga Slave Select-linje per slave. Masteren aktiverer ønskt slave ved å setje SS-linja til han LOW, medan dei andre blir haldne HIGH.","28b3c1d327257259":"Kva tyder \"full-duplex\" i SPI?","4696141e7b7e45eb":"Data kan sendast begge vegar, men ikkje samtidig","27bca4b786a34965":"Data kan berre sendast éin veg","8e28b04f4095f045":"Master sender på MOSI og mottek på MISO samtidig","6a360c4241bfa3cd":"To masterar deler bussen","895e8b22c4f013a2":"SPI har to skilde datalinjer, MOSI og MISO, så masteren kan sende og motta ein byte samtidig. Det er skilnaden frå half-duplex, der ein må vente på tur.","b890b204f74f6d18":"Kva er ein typisk ulempe ved SPI når du har mange slavar?","1086a5a143c6a446":"Han blir for langsam","129bd372856f489c":"Han kan ikkje bruke klokkesignal","be70ed48e156a19c":"Han krev same baudrate på alle","66f199946a89b414":"Du treng ein eigen Slave Select-leiar for kvar slave","32b4a3c877c37edb":"Kvar slave treng si eiga SS-linje. Med mange slavar blir det mange leiarar og pinnar, noko som er den viktigaste ulempa til SPI.","3b36f4ea6c32aa9c":"## I2C – mange einingar på berre to trådar\n\nTil slutt har vi **I2C**, uttalt \"i-to-c\". Han løyser akkurat problemet SPI slit med: kva om du vil kople på mange einingar utan å drukne i leiarar? I2C er synkron som SPI, men greier seg med berre **to leiarar**, uansett kor mange einingar du har. **SDA** er datalinja, som går begge vegar, og **SCL** er klokkesignalet frå masteren. Fordi det berre er éi datalinje, kan I2C sende éin veg av gongen – han er **half-duplex**.\n\nLøyndomen bak at så mange einingar kan dele dei to leiarane, er **adressering**. Kvar eining har si eiga 7-bits adresse. Sei at du har tre I2C-einingar på same buss: ein temperatursensor på adresse 0x48, eit akselerometer på 0x68 og ein OLED-skjerm på 0x3C. Når Arduinoen vil lese temperatur, sender han ein startbetingelse følgt av adressa 0x48. Berre sensoren med akkurat den adressa svarar; dei andre ligg stille. Etterpå sender masteren ein stoppbetingelse, og bussen er fri att. På denne måten kan du i teorien ha opptil 128 einingar på dei same to leiarane. Farten er meir beskjeden enn SPI – frå 100 kHz i standardmodus opp til 3,4 MHz – og ei felle er at to einingar med same fabrikkadresse vil kollidere. Men for sensorar, små skjermar, klokkebrikker og minne er I2C ofte det smartaste valet.\n\nFørestill deg at du byggjer ein værstasjon med temperatursensor, fuktsensor, trykksensor, ein OLED-skjerm og eit SD-kort. Dei fire første sender små datamengder – legg dei alle på I2C-bussen, kvar med si adresse, og slepp unna med to leiarar totalt. SD-kortet derimot, som skal skrive store loggfiler raskt, fortener SPI. Slik bruker du styrkane til begge protokollane samtidig.","37274b17a565be92":"Test deg sjølv på I2C og protokollval:","ed728e0e5c24fe56":"Kor mange leiarar bruker I2C til datakommunikasjon (utanom jord)?","73ff15ab2f0e58fe":"2 leiarar: SDA og SCL","fea6f54cf7cc955c":"I2C bruker berre SDA (data) og SCL (klokke). Alle einingar deler desse to linjene og blir skilde frå kvarandre med unike adresser.","161be4707a5a149e":"Korleis veit rett I2C-eining at meldinga er meint for ho?","933d4786c720eab0":"Kvar eining har ei eiga Slave Select-linje","72e55bc1f84d17e4":"Masteren sender den unike 7-bits adressa til eininga først","c58c9937573eed42":"Einingane svarar etter tur i ei fast rekkjefølgje","a93e33e6fdaff090":"Dei skil på baudrate","82513c9a52cc87a3":"Masteren sender adressa til den eininga han vil snakke med. Berre eininga med den adressa svarar, medan dei andre ligg stille.","53f5a4e55cc13a71":"I ein værstasjon med fleire sensorar og eit SD-kort, kva val er fornuftig?","dcbd8bb43dba0aae":"Alt på UART","fef31480a15fea51":"Alt på SPI med éi delt SS-linje","dc5578fd7b91bc5f":"Sensorane på I2C (delt buss), SD-kortet på SPI (rask skriving)","1c6f95cad42ab387":"Alt på Bluetooth","d7355639fb621483":"Sensorane sender små datamengder og kan dele dei to leiarane til I2C-bussen, kvar med si adresse. SD-kortet treng høg fart og passar best på SPI.","e230b330ac053245":"## Oppsummering\n\nVi har møtt tre måtar å la brikker snakke saman på, alle seriell – éin bit om gongen. **UART** er den enklaste: to leiarar (TX og RX), asynkron utan klokke, full-duplex, men avhengig av at begge bruker same baudrate. Han passar fint til GPS-modular og feilsøking. **SPI** er den raske med ein master i front: fire leiarar (MOSI, MISO, SCK og ein SS per slave), synkron og full-duplex, ideell for SD-kort og skjermar. **I2C** er den fleksible: berre to leiarar (SDA og SCL), synkron og half-duplex, der mange einingar deler bussen og blir skilde ved kvar si 7-bits adresse.\n\nValet mellom dei handlar om behova dine. Treng du enkel punkt-til-punkt, vel UART. Treng du fart, vel SPI. Treng du mange einingar på få leiarar, vel I2C. Og som værstasjonen viste – ofte er det smartaste å kombinere dei og la kvar protokoll gjere det han er best på."}}}
+{
+  "id": "elektro-data-vg1-4-5-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "4.5",
+  "title": "Serielle kommunikasjonsprotokollar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis brikkene inne i ein dings snakkar saman – UART, SPI og I2C, bit for bit over nokre få leiarar.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "forklare og bruke serielle kommunikasjonsprotokoller"
+  ],
+  "linkedChapterId": "elektro-data-vg1-4-5",
+  "content": [
+    {
+      "id": "elektro-data-vg1-4-5-n-intro",
+      "type": "text",
+      "content": "## Når brikkene må snakke saman\n\nTenk deg at du har bygd ein liten dings med ein Arduino. Mikrokontrollaren skal lese temperaturen frå ein sensor, skrive eit tal til ein skjerm og kanskje lagre noko på eit minnekort. Men korleis får desse brikkene eigentleg snakka saman? Dei har ikkje noko tastatur, inga stemme – berre nokre små bein av metall, pinnane, som dei kan sende spenning ut på og lese spenning inn på.\n\nLøysinga er **seriell kommunikasjon**: data blir sende **éin bit om gongen** over éin eller nokre få leiarar. Det høyrest tregt ut samanlikna med **parallell kommunikasjon**, der mange bit blir sende samtidig på mange leiarar, slik som i gamle skrivarkablar. Men seriell vann kampen fordi du slepp ein heil bunt med trådar, og fordi det kan køyrast lynraskt. I elektronikkverda finst det tre store serielle protokollar du må kjenne: **UART**, **SPI** og **I2C**. Dei løyser same oppgåve på tre ganske forskjellige måtar, og kvar av dei har sine styrkar."
+    },
+    {
+      "id": "elektro-data-vg1-4-5-n-section1",
+      "type": "text",
+      "content": "## UART – den enkle praten på to trådar\n\nLat oss byrje med den enklaste, **UART**. Tenk deg to personar som snakkar utan ei felles klokke på veggen – dei må på førehand bli samde om kor fort dei skal snakke. Akkurat slik fungerer UART: han er **asynkron**, altså utan eit eige klokkesignal. I staden må sendar og mottakar stille inn same **baudrate**, altså fart. Vanlege verdiar er 9600 og 115200 bits per sekund.\n\nUART treng forbløffande lite: berre to leiarar pluss felles jord. **TX** sender, **RX** mottek, og GND er den felles botnlinja. Sidan TX og RX er kvar sin leiar, kan han sende og motta samtidig – det blir kalla **full-duplex**. Kvar lille datapakke, ein \"frame\", blir bygd opp av ein startbit som alltid er 0, åtte databit med sjølve informasjonen, ein valfri paritetsbit til feilsjekk, og til slutt ein eller to stoppbit som alltid er 1.\n\nSei at du koplar ein GPS-modul til Arduinoen din, og modulen sender med baudrate 9600. Då må du skrive `Serial.begin(9600)` i koden så fartane stemmer. Du koplar TX-en til modulen til RX-en på Arduinoen og omvendt – linjene blir kryssa – og du må hugse felles jord. Og ei siste felle: bruker den eine 3,3 V og den andre 5 V, treng du ein nivåkonverter, elles risikerer du å øydeleggje brikka. Kva skjer dersom du rotar med baudraten, og set 115200 på den eine og 9600 på den andre? Då samplar mottakaren signalet med feil takt, og du ser berre uleseleg \"søppeltekst\" på skjermen. Det er fordi UART er asynkron og ikkje har noko klokkesignal å synkronisere etter."
+    },
+    {
+      "id": "elektro-data-vg1-4-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-4-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på UART:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz1-q0",
+            "task": "Kva tyder det at UART er asynkron?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han sender alle bit samtidig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han kan berre sende data éin veg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han kan berre kople til éi eining",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han bruker ikkje eit felles klokkesignal – baudraten må setjast likt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Asynkron tyder at det ikkje finst eit felles klokkesignal. Difor må sendar og mottakar vere stilte inn på same baudrate for å tolke dataa rett."
+          },
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz1-q1",
+            "task": "Kor mange leiarar bruker UART til sjølve datakommunikasjonen (utanom jord)?",
+            "options": [
+              {
+                "id": "d",
+                "text": "2 leiarar: TX og RX",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "1 leiar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "4 leiarar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "3 leiarar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "UART bruker TX (sendar) og RX (mottakar) pluss felles jord. Fordi dei er kvar sin leiar, kan han sende og motta samtidig (full-duplex)."
+          },
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz1-q2",
+            "task": "Kva ser du dersom sendar og mottakar har ulik baudrate?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Litt tregare, men korrekt tekst",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Uleseleg \"søppeltekst\", fordi bitane blir lesne på feil tidspunkt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ingenting skjer – det fungerer som vanleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei automatisk feilmelding som rettar opp baudraten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mottakaren samplar signalet med sin eigen takt, som ikkje stemmer med takten til sendaren. Resultatet er tilfeldige, uleselege teikn, fordi UART ikkje har klokkesignal å synkronisere etter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-4-5-n-section2",
+      "type": "text",
+      "content": "## SPI – den raske med ein sjef i front\n\nNår UART blir for tregt, hentar vi fram **SPI**. Her er det ikkje lenger to likeverdige partar som snakkar fritt; no har vi ein tydeleg sjef. SPI følgjer **master/slave**-prinsippet, der éi eining, masteren, styrer heile kommunikasjonen, og resten lyttar. Og denne gongen er det eit klokkesignal med – SPI er **synkron**.\n\nSPI bruker fire leiarar. **MOSI** fører data frå master til slave, **MISO** fører data andre vegen frå slave til master, **SCK** er klokkesignalet masteren slår takten med, og **SS** (Slave Select, også kalla Chip Select) blir brukt til å peike ut kva slave som er aktiv. Fordi data går på to skilde linjer, MOSI og MISO, kan SPI sende og motta samtidig – også han er full-duplex. Og han er rask: typisk frå 1 heilt opp til 50 MHz. Det er difor SPI er førstevalet for SD-kort, fargeskjermar og sensorar som spyttar ut mykje data.\n\nMen korleis vel masteren kven han snakkar med når fleire slavar heng på? Sei at du har både ein temperatursensor på SS-pinne 10 og eit SD-kort på SS-pinne 4, medan MOSI, MISO og SCK blir delte av begge. Vil masteren lese temperatur, dreg han pinne 10 LOW (aktiv) og held pinne 4 HIGH (inaktiv), og snakkar fritt med sensoren. Skal han så skrive til kortet, snur han om: pinne 4 LOW, pinne 10 HIGH. Regelen er at låg spenning tyder aktiv, høg tyder sovande, og berre éin slave kan vere aktiv av gongen. Ulempa er openberr – du treng ein eigen SS-leiar for kvar einaste slave."
+    },
+    {
+      "id": "elektro-data-vg1-4-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-4-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på SPI:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz2-q0",
+            "task": "Korleis vel ein SPI-master kva slave han snakkar med?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ved hjelp av ei unik adresse for kvar slave",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ved å endre baudraten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ved å dra rett Slave Select-linje LOW (aktiv)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Slavane vel seg sjølve etter tur",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SPI bruker ei eiga Slave Select-linje per slave. Masteren aktiverer ønskt slave ved å setje SS-linja til han LOW, medan dei andre blir haldne HIGH."
+          },
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz2-q1",
+            "task": "Kva tyder \"full-duplex\" i SPI?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Data kan sendast begge vegar, men ikkje samtidig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Data kan berre sendast éin veg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "To masterar deler bussen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Master sender på MOSI og mottek på MISO samtidig",
+                "isCorrect": true
+              }
+            ],
+            "solution": "SPI har to skilde datalinjer, MOSI og MISO, så masteren kan sende og motta ein byte samtidig. Det er skilnaden frå half-duplex, der ein må vente på tur."
+          },
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz2-q2",
+            "task": "Kva er ein typisk ulempe ved SPI når du har mange slavar?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Du treng ein eigen Slave Select-leiar for kvar slave",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Han blir for langsam",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han kan ikkje bruke klokkesignal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han krev same baudrate på alle",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvar slave treng si eiga SS-linje. Med mange slavar blir det mange leiarar og pinnar, noko som er den viktigaste ulempa til SPI."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-4-5-n-section3",
+      "type": "text",
+      "content": "## I2C – mange einingar på berre to trådar\n\nTil slutt har vi **I2C**, uttalt \"i-to-c\". Han løyser akkurat problemet SPI slit med: kva om du vil kople på mange einingar utan å drukne i leiarar? I2C er synkron som SPI, men greier seg med berre **to leiarar**, uansett kor mange einingar du har. **SDA** er datalinja, som går begge vegar, og **SCL** er klokkesignalet frå masteren. Fordi det berre er éi datalinje, kan I2C sende éin veg av gongen – han er **half-duplex**.\n\nLøyndomen bak at så mange einingar kan dele dei to leiarane, er **adressering**. Kvar eining har si eiga 7-bits adresse. Sei at du har tre I2C-einingar på same buss: ein temperatursensor på adresse 0x48, eit akselerometer på 0x68 og ein OLED-skjerm på 0x3C. Når Arduinoen vil lese temperatur, sender han ein startbetingelse følgt av adressa 0x48. Berre sensoren med akkurat den adressa svarar; dei andre ligg stille. Etterpå sender masteren ein stoppbetingelse, og bussen er fri att. På denne måten kan du i teorien ha opptil 128 einingar på dei same to leiarane. Farten er meir beskjeden enn SPI – frå 100 kHz i standardmodus opp til 3,4 MHz – og ei felle er at to einingar med same fabrikkadresse vil kollidere. Men for sensorar, små skjermar, klokkebrikker og minne er I2C ofte det smartaste valet.\n\nFørestill deg at du byggjer ein værstasjon med temperatursensor, fuktsensor, trykksensor, ein OLED-skjerm og eit SD-kort. Dei fire første sender små datamengder – legg dei alle på I2C-bussen, kvar med si adresse, og slepp unna med to leiarar totalt. SD-kortet derimot, som skal skrive store loggfiler raskt, fortener SPI. Slik bruker du styrkane til begge protokollane samtidig."
+    },
+    {
+      "id": "elektro-data-vg1-4-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-4-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på I2C og protokollval:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz3-q0",
+            "task": "Kor mange leiarar bruker I2C til datakommunikasjon (utanom jord)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "4 leiarar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "2 leiarar: SDA og SCL",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "3 leiarar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "1 leiar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I2C bruker berre SDA (data) og SCL (klokke). Alle einingar deler desse to linjene og blir skilde frå kvarandre med unike adresser."
+          },
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz3-q1",
+            "task": "Korleis veit rett I2C-eining at meldinga er meint for ho?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kvar eining har ei eiga Slave Select-linje",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Einingane svarar etter tur i ei fast rekkjefølgje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Masteren sender den unike 7-bits adressa til eininga først",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Dei skil på baudrate",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Masteren sender adressa til den eininga han vil snakke med. Berre eininga med den adressa svarar, medan dei andre ligg stille."
+          },
+          {
+            "id": "elektro-data-vg1-4-5-n-quiz3-q2",
+            "task": "I ein værstasjon med fleire sensorar og eit SD-kort, kva val er fornuftig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alt på UART",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alt på SPI med éi delt SS-linje",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alt på Bluetooth",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sensorane på I2C (delt buss), SD-kortet på SPI (rask skriving)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sensorane sender små datamengder og kan dele dei to leiarane til I2C-bussen, kvar med si adresse. SD-kortet treng høg fart og passar best på SPI."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-4-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har møtt tre måtar å la brikker snakke saman på, alle seriell – éin bit om gongen. **UART** er den enklaste: to leiarar (TX og RX), asynkron utan klokke, full-duplex, men avhengig av at begge bruker same baudrate. Han passar fint til GPS-modular og feilsøking. **SPI** er den raske med ein master i front: fire leiarar (MOSI, MISO, SCK og ein SS per slave), synkron og full-duplex, ideell for SD-kort og skjermar. **I2C** er den fleksible: berre to leiarar (SDA og SCL), synkron og half-duplex, der mange einingar deler bussen og blir skilde ved kvar si 7-bits adresse.\n\nValet mellom dei handlar om behova dine. Treng du enkel punkt-til-punkt, vel UART. Treng du fart, vel SPI. Treng du mange einingar på få leiarar, vel I2C. Og som værstasjonen viste – ofte er det smartaste å kombinere dei og la kvar protokoll gjere det han er best på."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "1bd67803a43623fa",
+    "translatedAt": "2026-06-21T10:28:14.732Z",
+    "model": "claude-code-agent",
+    "strings": 69,
+    "tm": {
+      "0ad41529261a5626": "Serielle kommunikasjonsprotokollar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "81f7111f552b1e9b": "Ei forteljing om korleis brikkene inne i ein dings snakkar saman – UART, SPI og I2C, bit for bit over nokre få leiarar.",
+      "ac533870d5368902": "forklare og bruke serielle kommunikasjonsprotokoller",
+      "72c179abb50db470": "## Når brikkene må snakke saman\n\nTenk deg at du har bygd ein liten dings med ein Arduino. Mikrokontrollaren skal lese temperaturen frå ein sensor, skrive eit tal til ein skjerm og kanskje lagre noko på eit minnekort. Men korleis får desse brikkene eigentleg snakka saman? Dei har ikkje noko tastatur, inga stemme – berre nokre små bein av metall, pinnane, som dei kan sende spenning ut på og lese spenning inn på.\n\nLøysinga er **seriell kommunikasjon**: data blir sende **éin bit om gongen** over éin eller nokre få leiarar. Det høyrest tregt ut samanlikna med **parallell kommunikasjon**, der mange bit blir sende samtidig på mange leiarar, slik som i gamle skrivarkablar. Men seriell vann kampen fordi du slepp ein heil bunt med trådar, og fordi det kan køyrast lynraskt. I elektronikkverda finst det tre store serielle protokollar du må kjenne: **UART**, **SPI** og **I2C**. Dei løyser same oppgåve på tre ganske forskjellige måtar, og kvar av dei har sine styrkar.",
+      "df8b9b2ff97e6111": "## UART – den enkle praten på to trådar\n\nLat oss byrje med den enklaste, **UART**. Tenk deg to personar som snakkar utan ei felles klokke på veggen – dei må på førehand bli samde om kor fort dei skal snakke. Akkurat slik fungerer UART: han er **asynkron**, altså utan eit eige klokkesignal. I staden må sendar og mottakar stille inn same **baudrate**, altså fart. Vanlege verdiar er 9600 og 115200 bits per sekund.\n\nUART treng forbløffande lite: berre to leiarar pluss felles jord. **TX** sender, **RX** mottek, og GND er den felles botnlinja. Sidan TX og RX er kvar sin leiar, kan han sende og motta samtidig – det blir kalla **full-duplex**. Kvar lille datapakke, ein \"frame\", blir bygd opp av ein startbit som alltid er 0, åtte databit med sjølve informasjonen, ein valfri paritetsbit til feilsjekk, og til slutt ein eller to stoppbit som alltid er 1.\n\nSei at du koplar ein GPS-modul til Arduinoen din, og modulen sender med baudrate 9600. Då må du skrive `Serial.begin(9600)` i koden så fartane stemmer. Du koplar TX-en til modulen til RX-en på Arduinoen og omvendt – linjene blir kryssa – og du må hugse felles jord. Og ei siste felle: bruker den eine 3,3 V og den andre 5 V, treng du ein nivåkonverter, elles risikerer du å øydeleggje brikka. Kva skjer dersom du rotar med baudraten, og set 115200 på den eine og 9600 på den andre? Då samplar mottakaren signalet med feil takt, og du ser berre uleseleg \"søppeltekst\" på skjermen. Det er fordi UART er asynkron og ikkje har noko klokkesignal å synkronisere etter.",
+      "2dedc0483f01e02e": "Test deg sjølv på UART:",
+      "4097889236a2af26": "placeholder",
+      "b498f99c1f3fbd30": "Kva tyder det at UART er asynkron?",
+      "d3a5ade27489d56b": "Han sender alle bit samtidig",
+      "7cb562fbc28dcca7": "Han kan berre sende data éin veg",
+      "9bbfea3aa9b8843c": "Han bruker ikkje eit felles klokkesignal – baudraten må setjast likt",
+      "9bafb41c05b94b1a": "Han kan berre kople til éi eining",
+      "1e8c3cf5d8378f77": "Asynkron tyder at det ikkje finst eit felles klokkesignal. Difor må sendar og mottakar vere stilte inn på same baudrate for å tolke dataa rett.",
+      "7e291441b7e342be": "Kor mange leiarar bruker UART til sjølve datakommunikasjonen (utanom jord)?",
+      "879237e591952b5c": "1 leiar",
+      "81c634e48e15cf23": "4 leiarar",
+      "32afcdf101a32e00": "3 leiarar",
+      "92bdd906275fb410": "2 leiarar: TX og RX",
+      "b6ff2ccbabe9a3f5": "UART bruker TX (sendar) og RX (mottakar) pluss felles jord. Fordi dei er kvar sin leiar, kan han sende og motta samtidig (full-duplex).",
+      "4aa8d2c7e4e6b966": "Kva ser du dersom sendar og mottakar har ulik baudrate?",
+      "11efd3cdab301e9d": "Uleseleg \"søppeltekst\", fordi bitane blir lesne på feil tidspunkt",
+      "3cd8d15fda097a42": "Litt tregare, men korrekt tekst",
+      "c822869099a92ed5": "Ingenting skjer – det fungerer som vanleg",
+      "8fee7033f24f43e6": "Ei automatisk feilmelding som rettar opp baudraten",
+      "bde9d0d4f332686e": "Mottakaren samplar signalet med sin eigen takt, som ikkje stemmer med takten til sendaren. Resultatet er tilfeldige, uleselege teikn, fordi UART ikkje har klokkesignal å synkronisere etter.",
+      "bb22ee98cb9f0eb2": "## SPI – den raske med ein sjef i front\n\nNår UART blir for tregt, hentar vi fram **SPI**. Her er det ikkje lenger to likeverdige partar som snakkar fritt; no har vi ein tydeleg sjef. SPI følgjer **master/slave**-prinsippet, der éi eining, masteren, styrer heile kommunikasjonen, og resten lyttar. Og denne gongen er det eit klokkesignal med – SPI er **synkron**.\n\nSPI bruker fire leiarar. **MOSI** fører data frå master til slave, **MISO** fører data andre vegen frå slave til master, **SCK** er klokkesignalet masteren slår takten med, og **SS** (Slave Select, også kalla Chip Select) blir brukt til å peike ut kva slave som er aktiv. Fordi data går på to skilde linjer, MOSI og MISO, kan SPI sende og motta samtidig – også han er full-duplex. Og han er rask: typisk frå 1 heilt opp til 50 MHz. Det er difor SPI er førstevalet for SD-kort, fargeskjermar og sensorar som spyttar ut mykje data.\n\nMen korleis vel masteren kven han snakkar med når fleire slavar heng på? Sei at du har både ein temperatursensor på SS-pinne 10 og eit SD-kort på SS-pinne 4, medan MOSI, MISO og SCK blir delte av begge. Vil masteren lese temperatur, dreg han pinne 10 LOW (aktiv) og held pinne 4 HIGH (inaktiv), og snakkar fritt med sensoren. Skal han så skrive til kortet, snur han om: pinne 4 LOW, pinne 10 HIGH. Regelen er at låg spenning tyder aktiv, høg tyder sovande, og berre éin slave kan vere aktiv av gongen. Ulempa er openberr – du treng ein eigen SS-leiar for kvar einaste slave.",
+      "908f428448d0ba7b": "Test deg sjølv på SPI:",
+      "f6e1d25df3e4ac89": "Korleis vel ein SPI-master kva slave han snakkar med?",
+      "62748dde6516a243": "Ved hjelp av ei unik adresse for kvar slave",
+      "f812843f2dffbf34": "Ved å dra rett Slave Select-linje LOW (aktiv)",
+      "9e86ead91664412b": "Ved å endre baudraten",
+      "3f483eb84a5d79b1": "Slavane vel seg sjølve etter tur",
+      "980c0f7f8c4bc759": "SPI bruker ei eiga Slave Select-linje per slave. Masteren aktiverer ønskt slave ved å setje SS-linja til han LOW, medan dei andre blir haldne HIGH.",
+      "28b3c1d327257259": "Kva tyder \"full-duplex\" i SPI?",
+      "4696141e7b7e45eb": "Data kan sendast begge vegar, men ikkje samtidig",
+      "27bca4b786a34965": "Data kan berre sendast éin veg",
+      "8e28b04f4095f045": "Master sender på MOSI og mottek på MISO samtidig",
+      "6a360c4241bfa3cd": "To masterar deler bussen",
+      "895e8b22c4f013a2": "SPI har to skilde datalinjer, MOSI og MISO, så masteren kan sende og motta ein byte samtidig. Det er skilnaden frå half-duplex, der ein må vente på tur.",
+      "b890b204f74f6d18": "Kva er ein typisk ulempe ved SPI når du har mange slavar?",
+      "1086a5a143c6a446": "Han blir for langsam",
+      "129bd372856f489c": "Han kan ikkje bruke klokkesignal",
+      "be70ed48e156a19c": "Han krev same baudrate på alle",
+      "66f199946a89b414": "Du treng ein eigen Slave Select-leiar for kvar slave",
+      "32b4a3c877c37edb": "Kvar slave treng si eiga SS-linje. Med mange slavar blir det mange leiarar og pinnar, noko som er den viktigaste ulempa til SPI.",
+      "3b36f4ea6c32aa9c": "## I2C – mange einingar på berre to trådar\n\nTil slutt har vi **I2C**, uttalt \"i-to-c\". Han løyser akkurat problemet SPI slit med: kva om du vil kople på mange einingar utan å drukne i leiarar? I2C er synkron som SPI, men greier seg med berre **to leiarar**, uansett kor mange einingar du har. **SDA** er datalinja, som går begge vegar, og **SCL** er klokkesignalet frå masteren. Fordi det berre er éi datalinje, kan I2C sende éin veg av gongen – han er **half-duplex**.\n\nLøyndomen bak at så mange einingar kan dele dei to leiarane, er **adressering**. Kvar eining har si eiga 7-bits adresse. Sei at du har tre I2C-einingar på same buss: ein temperatursensor på adresse 0x48, eit akselerometer på 0x68 og ein OLED-skjerm på 0x3C. Når Arduinoen vil lese temperatur, sender han ein startbetingelse følgt av adressa 0x48. Berre sensoren med akkurat den adressa svarar; dei andre ligg stille. Etterpå sender masteren ein stoppbetingelse, og bussen er fri att. På denne måten kan du i teorien ha opptil 128 einingar på dei same to leiarane. Farten er meir beskjeden enn SPI – frå 100 kHz i standardmodus opp til 3,4 MHz – og ei felle er at to einingar med same fabrikkadresse vil kollidere. Men for sensorar, små skjermar, klokkebrikker og minne er I2C ofte det smartaste valet.\n\nFørestill deg at du byggjer ein værstasjon med temperatursensor, fuktsensor, trykksensor, ein OLED-skjerm og eit SD-kort. Dei fire første sender små datamengder – legg dei alle på I2C-bussen, kvar med si adresse, og slepp unna med to leiarar totalt. SD-kortet derimot, som skal skrive store loggfiler raskt, fortener SPI. Slik bruker du styrkane til begge protokollane samtidig.",
+      "37274b17a565be92": "Test deg sjølv på I2C og protokollval:",
+      "ed728e0e5c24fe56": "Kor mange leiarar bruker I2C til datakommunikasjon (utanom jord)?",
+      "73ff15ab2f0e58fe": "2 leiarar: SDA og SCL",
+      "fea6f54cf7cc955c": "I2C bruker berre SDA (data) og SCL (klokke). Alle einingar deler desse to linjene og blir skilde frå kvarandre med unike adresser.",
+      "161be4707a5a149e": "Korleis veit rett I2C-eining at meldinga er meint for ho?",
+      "933d4786c720eab0": "Kvar eining har ei eiga Slave Select-linje",
+      "72e55bc1f84d17e4": "Masteren sender den unike 7-bits adressa til eininga først",
+      "c58c9937573eed42": "Einingane svarar etter tur i ei fast rekkjefølgje",
+      "a93e33e6fdaff090": "Dei skil på baudrate",
+      "82513c9a52cc87a3": "Masteren sender adressa til den eininga han vil snakke med. Berre eininga med den adressa svarar, medan dei andre ligg stille.",
+      "53f5a4e55cc13a71": "I ein værstasjon med fleire sensorar og eit SD-kort, kva val er fornuftig?",
+      "dcbd8bb43dba0aae": "Alt på UART",
+      "fef31480a15fea51": "Alt på SPI med éi delt SS-linje",
+      "dc5578fd7b91bc5f": "Sensorane på I2C (delt buss), SD-kortet på SPI (rask skriving)",
+      "1c6f95cad42ab387": "Alt på Bluetooth",
+      "d7355639fb621483": "Sensorane sender små datamengder og kan dele dei to leiarane til I2C-bussen, kvar med si adresse. SD-kortet treng høg fart og passar best på SPI.",
+      "e230b330ac053245": "## Oppsummering\n\nVi har møtt tre måtar å la brikker snakke saman på, alle seriell – éin bit om gongen. **UART** er den enklaste: to leiarar (TX og RX), asynkron utan klokke, full-duplex, men avhengig av at begge bruker same baudrate. Han passar fint til GPS-modular og feilsøking. **SPI** er den raske med ein master i front: fire leiarar (MOSI, MISO, SCK og ein SS per slave), synkron og full-duplex, ideell for SD-kort og skjermar. **I2C** er den fleksible: berre to leiarar (SDA og SCL), synkron og half-duplex, der mange einingar deler bussen og blir skilde ved kvar si 7-bits adresse.\n\nValet mellom dei handlar om behova dine. Treng du enkel punkt-til-punkt, vel UART. Treng du fart, vel SPI. Treng du mange einingar på få leiarar, vel I2C. Og som værstasjonen viste – ofte er det smartaste å kombinere dei og la kvar protokoll gjere det han er best på."
+    }
+  }
+}

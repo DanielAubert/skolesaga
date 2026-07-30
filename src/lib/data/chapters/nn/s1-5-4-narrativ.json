@@ -1,1 +1,320 @@
-{"id":"s1-5-4-narrativ","courseId":"s1","chapterNumber":"5.4","title":"Hypergeometrisk fordeling","subtitle":"Narrativ versjon","description":"Ei forteljing om stikkprøver -- kor god er eigentleg kvalitetskontrollen på mottakslageret? Urnemodellen, den hypergeometriske formelen og komplementtrikset for «minst éin».","estimatedMinutes":30,"competenceGoals":["rekne ut sannsyn med hypergeometrisk fordeling"],"linkedChapterId":"s1-5-4","content":[{"id":"s1-5-4-n-intro","type":"text","content":"## Stikkprøven som avgjer heile partiet\n\nPå eit mottakslager står ein innkjøpsansvarleg framfor eit parti på 20 elektronikkeiningar frå ein ny leverandør. Å teste alle ville teke ein heil dag, så bedrifta har ein fast rutine: trekk 5 tilfeldige einingar, og send heile partiet i retur dersom nokon av dei er defekte. Men kor god er eigentleg denne rutinen? Dersom 3 av dei 20 einingane faktisk er defekte — kor sannsynleg er det at stikkprøven avslører det?\n\nSpørsmålet har ei presis matematisk form. Vi har ein populasjon med to kategoriar (defekt/ok), vi trekkjer eit utval **utan tilbakelegging** — ei eining som er plukka ut, blir ikkje lagd tilbake — og vi spør kor mange av den eine kategorien vi får. Akkurat denne situasjonen blir skildra av den **hypergeometriske fordelinga**.\n\nMønsteret går igjen overalt i samfunnet: Mattilsynet som trekkjer matvarer frå eit vareparti, ein valkomité som trekkjer eit utval frå eit medlemsregister med to fløyer, ein biolog som fangar inn fisk frå ein merkt bestand. Felles for alle er urnemodellen: ei «urne» med kuler i to fargar, og ei hand som trekkjer utan å leggje tilbake. I dette kapittelet set vi formelen på plass, reknar på både kuler og kvalitetskontroll, og lærer det viktigaste trikset av alle: komplementregelen for «minst éin»."},{"id":"s1-5-4-n-section1","type":"text","content":"## Formelen — telje gunstige delt på moglege\n\nLat oss byggje formelen med kombinatorikken frå tidlegare. Vi innfører tre tal: $N$ er totalt tal objekt, $M$ er talet med den eigenskapen vi ser etter, og $n$ er talet vi trekkjer. Den stokastiske variabelen $X$ tel kor mange med eigenskapen som hamnar i utvalet.\n\nKor mange utval gir nøyaktig $k$ «spesielle»? Vi må velje $k$ av dei $M$ spesielle — det kan gjerast på $\\binom{M}{k}$ måtar — *og* dei resterande $n-k$ frå dei $N-M$ vanlege, på $\\binom{N-M}{n-k}$ måtar. Multiplikasjonsprinsippet gangar desse saman. Totalt tal moglege utval er $\\binom{N}{n}$, og sidan alle er like sannsynlege:\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}, \\qquad k = 0, 1, \\ldots, \\min(n, M)$$\n\nPrøv han på ei klassisk urne: 12 kuler, der 5 er raude og 7 blå, og vi trekkjer 4. Sannsynet for nøyaktig 2 raude blir\n\n$$P(X = 2) = \\frac{\\binom{5}{2} \\cdot \\binom{7}{2}}{\\binom{12}{4}} = \\frac{10 \\cdot 21}{495} = \\frac{210}{495} \\approx 0{,}424$$\n\naltså rundt 42 %. Fordelinga har òg ein bemerkelsesverdig enkel **forventningsverdi**: $E(X) = n \\cdot \\frac{M}{N}$ — du forventar same *del* spesielle i utvalet som i populasjonen. Variansen er $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$, der den siste faktoren krympar spreiinga fordi trekningane utan tilbakelegging heng saman."},{"id":"s1-5-4-n-quiz1","type":"exercise","exercise":{"id":"s1-5-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på den hypergeometriske formelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-4-n-quiz1-q0","task":"Kva situasjon blir skildra av ei hypergeometrisk fordeling?","options":[{"id":"a","text":"Trekning med tilbakelegging frå ein populasjon med to typar","isCorrect":false},{"id":"b","text":"Trekning utan tilbakelegging frå ein populasjon med to typar","isCorrect":true},{"id":"c","text":"Tal forsøk til første suksess","isCorrect":false},{"id":"d","text":"Kontinuerlege målingar rundt eit gjennomsnitt","isCorrect":false}],"solution":"Hypergeometrisk fordeling: to kategoriar, utval utan tilbakelegging, og vi tel talet på den eine kategorien."},{"id":"s1-5-4-n-quiz1-q1","task":"Ei urne har 10 kuler, 4 raude og 6 blå. Du trekkjer 3. Kva er $P(X = 2)$ raude?","options":[{"id":"a","text":"$\\dfrac{\\binom{4}{2}\\binom{6}{1}}{\\binom{10}{3}} = \\dfrac{36}{120} = 0{,}3$","isCorrect":true},{"id":"b","text":"$\\dfrac{\\binom{4}{2}}{\\binom{10}{3}} = \\dfrac{6}{120}$","isCorrect":false},{"id":"c","text":"$\\left(\\dfrac{4}{10}\\right)^2 \\cdot \\dfrac{6}{10}$","isCorrect":false},{"id":"d","text":"$\\dfrac{\\binom{4}{2}\\binom{6}{2}}{\\binom{10}{3}}$","isCorrect":false}],"solution":"Vel 2 av 4 raude og 1 av 6 blå: $\\frac{6 \\cdot 6}{120} = \\frac{36}{120} = 0{,}3$. Hugs at dei resterande $n-k$ må veljast frå den andre gruppa."},{"id":"s1-5-4-n-quiz1-q2","task":"Eit utval på $n = 6$ blir trekt frå $N = 30$ einingar der $M = 10$ har ein eigenskap. Kva er $E(X)$?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$2$","isCorrect":true},{"id":"d","text":"$10$","isCorrect":false}],"solution":"$E(X) = n \\cdot \\frac{M}{N} = 6 \\cdot \\frac{10}{30} = 2$. Utvalet er venta å spegle delen i populasjonen, $\\frac{1}{3}$."}]}},{"id":"s1-5-4-n-section2","type":"text","content":"## Kvalitetskontrollen — og «minst éin»-trikset\n\nTilbake til mottakslageret. Partiet har $N = 20$ einingar, $M = 3$ av dei er defekte, og vi trekkjer $n = 5$. Rutinen slår alarm dersom vi finn *minst éin* defekt — så vi treng $P(X \\geq 1)$.\n\nHer kunne vi summere $P(X=1) + P(X=2) + P(X=3)$, men det finst ein raskare veg. Hendinga «minst éin defekt» er komplementet til «ingen defekte», så\n\n$$P(X \\geq 1) = 1 - P(X = 0)$$\n\nVi reknar ut det eine sannsynet vi treng — at alle 5 trekte er feilfrie:\n\n$$P(X = 0) = \\frac{\\binom{3}{0} \\cdot \\binom{17}{5}}{\\binom{20}{5}} = \\frac{1 \\cdot 6188}{15\\,504} \\approx 0{,}399$$\n\nDermed er $P(X \\geq 1) = 1 - 0{,}399 = 0{,}601$. Stikkprøven avslører altså eit slikt parti i berre ca. 60 % av tilfella — fire av ti dårlege parti slepp gjennom! For innkjøpsansvarleg er dette gull verdt å vite: vil bedrifta ha betre vern, må stikkprøven aukast, og formelen lèt oss rekne ut nøyaktig kor mykje.\n\nDette er hypergeometrisk fordeling i sitt rette element: **kvalitetskontroll og stikkprøver**, der populasjonen er endeleg og kvart trekk endrar det som er att. Legg merke til kontrasten med trekning *med* tilbakelegging, der sannsynet er likt i kvart trekk — den situasjonen får si eiga fordeling (den binomiske) i neste hovudkapittel. Hugseregelen er enkel: endeleg populasjon og utan tilbakelegging → hypergeometrisk; konstant sannsyn i kvart forsøk → binomisk."},{"id":"s1-5-4-n-quiz2","type":"exercise","exercise":{"id":"s1-5-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på kvalitetskontroll og komplement:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-4-n-quiz2-q0","task":"Kva er den smartaste måten å rekne ut $P(X \\geq 1)$ på?","options":[{"id":"a","text":"$P(X = 1) + P(X = 2)$","isCorrect":false},{"id":"b","text":"$1 - P(X = 0)$","isCorrect":true},{"id":"c","text":"$1 - P(X = 1)$","isCorrect":false},{"id":"d","text":"$P(X = 0) + P(X = 1)$","isCorrect":false}],"solution":"«Minst éin» er komplementet til «ingen»: $P(X \\geq 1) = 1 - P(X = 0)$. Då slepp vi å summere mange ledd."},{"id":"s1-5-4-n-quiz2-q1","task":"Eit parti har 10 einingar, 2 er defekte. Du trekkjer 3. Kva er $P(X = 0)$?","options":[{"id":"a","text":"$\\dfrac{\\binom{8}{3}}{\\binom{10}{3}} = \\dfrac{56}{120} \\approx 0{,}467$","isCorrect":true},{"id":"b","text":"$\\left(\\dfrac{8}{10}\\right)^3 = 0{,}512$","isCorrect":false},{"id":"c","text":"$\\dfrac{\\binom{2}{0}}{\\binom{10}{3}}$","isCorrect":false},{"id":"d","text":"$\\dfrac{8}{10} = 0{,}8$","isCorrect":false}],"solution":"Alle tre må kome frå dei 8 feilfrie: $P(X=0) = \\frac{\\binom{2}{0}\\binom{8}{3}}{\\binom{10}{3}} = \\frac{56}{120} \\approx 0{,}467$. Potensrekning $0{,}8^3$ ville føresett tilbakelegging."},{"id":"s1-5-4-n-quiz2-q2","task":"Kvifor passar ikkje binomisk tankegang (same sannsyn i kvart trekk) i stikkprøvekontroll av eit lite parti?","options":[{"id":"a","text":"Fordi det er fleire enn to kategoriar","isCorrect":false},{"id":"b","text":"Fordi kvart trekk utan tilbakelegging endrar samansetninga av det som er att","isCorrect":true},{"id":"c","text":"Fordi defektar aldri er tilfeldige","isCorrect":false},{"id":"d","text":"Fordi binomisk fordeling berre gjeld myntkast","isCorrect":false}],"solution":"Utan tilbakelegging endrar delen defekte seg for kvart trekk — trekningane er avhengige. Då er hypergeometrisk fordeling den rette modellen."},{"id":"s1-5-4-n-quiz2-q3","task":"I eksempelet med 20 einingar og 3 defekte var $P(X \\geq 1) \\approx 0{,}60$ ved stikkprøve på 5. Kva tyder det i praksis?","options":[{"id":"a","text":"60 % av einingane er defekte","isCorrect":false},{"id":"b","text":"Kontrollen overser eit slikt dårleg parti i ca. 40 % av tilfella","isCorrect":true},{"id":"c","text":"Partiet blir alltid godkjent","isCorrect":false},{"id":"d","text":"Sannsynet for defekt i kvart trekk er 60 %","isCorrect":false}],"solution":"Med sannsyn $1 - 0{,}60 = 0{,}40$ finn stikkprøven ingen defekte, og partiet slepp gjennom. Større stikkprøve gir betre vern."}]}},{"id":"s1-5-4-n-summary","type":"text","content":"## Oppsummering: urnemodellen i arbeidslivet\n\nStikkprøverutinen frå mottakslageret fekk sin dom: med 5 av 20 einingar kontrollerte blir eit parti med 3 defekte oppdaga berre i ca. 60 % av tilfella. Verktøyet som gav svaret, var den **hypergeometriske fordelinga** — modellen for trekning *utan tilbakelegging* frå ein populasjon med to typar.\n\nOppskrifta er rein kombinatorikk. Med $N$ objekt totalt, $M$ spesielle og eit utval på $n$, er sannsynet for nøyaktig $k$ spesielle\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\n— vel dei spesielle med éin binomialkoeffisient, resten med ein annan, og del på alle moglege utval. Forventningsverdien er like intuitiv som han er enkel: $E(X) = n \\cdot \\frac{M}{N}$, utvalet speglar i gjennomsnitt delen i populasjonen.\n\nTo arbeidsvanar er verdt å ta med vidare. For det første: spørsmål om «minst éin» blir nesten alltid løyste raskast med komplementet, $P(X \\geq 1) = 1 - P(X = 0)$. For det andre: sjekk alltid om trekninga skjer med eller utan tilbakelegging. Utan tilbakelegging er trekka avhengige og fordelinga hypergeometrisk; med tilbakelegging (eller konstant sannsyn) er vi i binomisk territorium — fordelinga vi skal utforske grundig i neste hovudkapittel. Urnemodellen du no meistrar, er den same anten «kulene» er elektronikkeiningar på eit lager, matvarer hos Mattilsynet eller respondentar i eit register."}],"exercises":[],"_meta":{"sourceHash":"178c3165cc846f82","translatedAt":"2026-06-20T03:30:22.027Z","model":"claude-code-agent","strings":50,"tm":{"c31a59e183bfde7f":"Hypergeometrisk fordeling","b195b06d1ed59702":"Narrativ versjon","0fb406edab6e7b1c":"Ei forteljing om stikkprøver -- kor god er eigentleg kvalitetskontrollen på mottakslageret? Urnemodellen, den hypergeometriske formelen og komplementtrikset for «minst éin».","e9918e8482434cee":"rekne ut sannsyn med hypergeometrisk fordeling","d28b0b93d75f8c23":"## Stikkprøven som avgjer heile partiet\n\nPå eit mottakslager står ein innkjøpsansvarleg framfor eit parti på 20 elektronikkeiningar frå ein ny leverandør. Å teste alle ville teke ein heil dag, så bedrifta har ein fast rutine: trekk 5 tilfeldige einingar, og send heile partiet i retur dersom nokon av dei er defekte. Men kor god er eigentleg denne rutinen? Dersom 3 av dei 20 einingane faktisk er defekte — kor sannsynleg er det at stikkprøven avslører det?\n\nSpørsmålet har ei presis matematisk form. Vi har ein populasjon med to kategoriar (defekt/ok), vi trekkjer eit utval **utan tilbakelegging** — ei eining som er plukka ut, blir ikkje lagd tilbake — og vi spør kor mange av den eine kategorien vi får. Akkurat denne situasjonen blir skildra av den **hypergeometriske fordelinga**.\n\nMønsteret går igjen overalt i samfunnet: Mattilsynet som trekkjer matvarer frå eit vareparti, ein valkomité som trekkjer eit utval frå eit medlemsregister med to fløyer, ein biolog som fangar inn fisk frå ein merkt bestand. Felles for alle er urnemodellen: ei «urne» med kuler i to fargar, og ei hand som trekkjer utan å leggje tilbake. I dette kapittelet set vi formelen på plass, reknar på både kuler og kvalitetskontroll, og lærer det viktigaste trikset av alle: komplementregelen for «minst éin».","71bbbf4ba6baa4fc":"## Formelen — telje gunstige delt på moglege\n\nLat oss byggje formelen med kombinatorikken frå tidlegare. Vi innfører tre tal: $N$ er totalt tal objekt, $M$ er talet med den eigenskapen vi ser etter, og $n$ er talet vi trekkjer. Den stokastiske variabelen $X$ tel kor mange med eigenskapen som hamnar i utvalet.\n\nKor mange utval gir nøyaktig $k$ «spesielle»? Vi må velje $k$ av dei $M$ spesielle — det kan gjerast på $\\binom{M}{k}$ måtar — *og* dei resterande $n-k$ frå dei $N-M$ vanlege, på $\\binom{N-M}{n-k}$ måtar. Multiplikasjonsprinsippet gangar desse saman. Totalt tal moglege utval er $\\binom{N}{n}$, og sidan alle er like sannsynlege:\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}, \\qquad k = 0, 1, \\ldots, \\min(n, M)$$\n\nPrøv han på ei klassisk urne: 12 kuler, der 5 er raude og 7 blå, og vi trekkjer 4. Sannsynet for nøyaktig 2 raude blir\n\n$$P(X = 2) = \\frac{\\binom{5}{2} \\cdot \\binom{7}{2}}{\\binom{12}{4}} = \\frac{10 \\cdot 21}{495} = \\frac{210}{495} \\approx 0{,}424$$\n\naltså rundt 42 %. Fordelinga har òg ein bemerkelsesverdig enkel **forventningsverdi**: $E(X) = n \\cdot \\frac{M}{N}$ — du forventar same *del* spesielle i utvalet som i populasjonen. Variansen er $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$, der den siste faktoren krympar spreiinga fordi trekningane utan tilbakelegging heng saman.","54477c25e706c49a":"Test deg sjølv på den hypergeometriske formelen:","4097889236a2af26":"placeholder","67cf47285ca4c785":"Kva situasjon blir skildra av ei hypergeometrisk fordeling?","865207146ec3c5ed":"Trekning med tilbakelegging frå ein populasjon med to typar","238ec0b36d2b3187":"Trekning utan tilbakelegging frå ein populasjon med to typar","2d539dd8739cb441":"Tal forsøk til første suksess","57c889fd50a9a71a":"Kontinuerlege målingar rundt eit gjennomsnitt","91c881ee82a98102":"Hypergeometrisk fordeling: to kategoriar, utval utan tilbakelegging, og vi tel talet på den eine kategorien.","fda5a72dac582eca":"Ei urne har 10 kuler, 4 raude og 6 blå. Du trekkjer 3. Kva er $P(X = 2)$ raude?","b62a5d6fae05100b":"$\\dfrac{\\binom{4}{2}\\binom{6}{1}}{\\binom{10}{3}} = \\dfrac{36}{120} = 0{,}3$","e3507d4d87a86f59":"$\\dfrac{\\binom{4}{2}}{\\binom{10}{3}} = \\dfrac{6}{120}$","dfc441a824a8ae68":"$\\left(\\dfrac{4}{10}\\right)^2 \\cdot \\dfrac{6}{10}$","e8f2bf0303dff3b0":"$\\dfrac{\\binom{4}{2}\\binom{6}{2}}{\\binom{10}{3}}$","02daab8ff459ab9c":"Vel 2 av 4 raude og 1 av 6 blå: $\\frac{6 \\cdot 6}{120} = \\frac{36}{120} = 0{,}3$. Hugs at dei resterande $n-k$ må veljast frå den andre gruppa.","f0939b3beaf7ad2b":"Eit utval på $n = 6$ blir trekt frå $N = 30$ einingar der $M = 10$ har ein eigenskap. Kva er $E(X)$?","66a7f92e11eef921":"$E(X) = n \\cdot \\frac{M}{N} = 6 \\cdot \\frac{10}{30} = 2$. Utvalet er venta å spegle delen i populasjonen, $\\frac{1}{3}$.","f5429f7715cf58e7":"## Kvalitetskontrollen — og «minst éin»-trikset\n\nTilbake til mottakslageret. Partiet har $N = 20$ einingar, $M = 3$ av dei er defekte, og vi trekkjer $n = 5$. Rutinen slår alarm dersom vi finn *minst éin* defekt — så vi treng $P(X \\geq 1)$.\n\nHer kunne vi summere $P(X=1) + P(X=2) + P(X=3)$, men det finst ein raskare veg. Hendinga «minst éin defekt» er komplementet til «ingen defekte», så\n\n$$P(X \\geq 1) = 1 - P(X = 0)$$\n\nVi reknar ut det eine sannsynet vi treng — at alle 5 trekte er feilfrie:\n\n$$P(X = 0) = \\frac{\\binom{3}{0} \\cdot \\binom{17}{5}}{\\binom{20}{5}} = \\frac{1 \\cdot 6188}{15\\,504} \\approx 0{,}399$$\n\nDermed er $P(X \\geq 1) = 1 - 0{,}399 = 0{,}601$. Stikkprøven avslører altså eit slikt parti i berre ca. 60 % av tilfella — fire av ti dårlege parti slepp gjennom! For innkjøpsansvarleg er dette gull verdt å vite: vil bedrifta ha betre vern, må stikkprøven aukast, og formelen lèt oss rekne ut nøyaktig kor mykje.\n\nDette er hypergeometrisk fordeling i sitt rette element: **kvalitetskontroll og stikkprøver**, der populasjonen er endeleg og kvart trekk endrar det som er att. Legg merke til kontrasten med trekning *med* tilbakelegging, der sannsynet er likt i kvart trekk — den situasjonen får si eiga fordeling (den binomiske) i neste hovudkapittel. Hugseregelen er enkel: endeleg populasjon og utan tilbakelegging → hypergeometrisk; konstant sannsyn i kvart forsøk → binomisk.","83e30b7165b57e76":"Test deg sjølv på kvalitetskontroll og komplement:","b11420a07c0a8257":"Kva er den smartaste måten å rekne ut $P(X \\geq 1)$ på?","803ace579e2e1c78":"$P(X = 1) + P(X = 2)$","b7745569c25a9a1b":"$1 - P(X = 0)$","1ab4ef88ea6ed6b5":"$1 - P(X = 1)$","33b492aecc63f945":"$P(X = 0) + P(X = 1)$","c9eb52493202ead2":"«Minst éin» er komplementet til «ingen»: $P(X \\geq 1) = 1 - P(X = 0)$. Då slepp vi å summere mange ledd.","f48e2d546cb88403":"Eit parti har 10 einingar, 2 er defekte. Du trekkjer 3. Kva er $P(X = 0)$?","c7d8fd89cb92a687":"$\\dfrac{\\binom{8}{3}}{\\binom{10}{3}} = \\dfrac{56}{120} \\approx 0{,}467$","549d114ae6533f36":"$\\left(\\dfrac{8}{10}\\right)^3 = 0{,}512$","ffe940b453349e02":"$\\dfrac{\\binom{2}{0}}{\\binom{10}{3}}$","158ce9d47381a05b":"$\\dfrac{8}{10} = 0{,}8$","8d96bc6e4b0addb7":"Alle tre må kome frå dei 8 feilfrie: $P(X=0) = \\frac{\\binom{2}{0}\\binom{8}{3}}{\\binom{10}{3}} = \\frac{56}{120} \\approx 0{,}467$. Potensrekning $0{,}8^3$ ville føresett tilbakelegging.","6c2a8d842de26e5f":"Kvifor passar ikkje binomisk tankegang (same sannsyn i kvart trekk) i stikkprøvekontroll av eit lite parti?","3995d736786898ce":"Fordi det er fleire enn to kategoriar","e995522a943e42d9":"Fordi kvart trekk utan tilbakelegging endrar samansetninga av det som er att","bfd5f37ea4cf5bc6":"Fordi defektar aldri er tilfeldige","cbd5cc03ab81d002":"Fordi binomisk fordeling berre gjeld myntkast","a4c9abb04e78b991":"Utan tilbakelegging endrar delen defekte seg for kvart trekk — trekningane er avhengige. Då er hypergeometrisk fordeling den rette modellen.","a47b91392d9257ab":"I eksempelet med 20 einingar og 3 defekte var $P(X \\geq 1) \\approx 0{,}60$ ved stikkprøve på 5. Kva tyder det i praksis?","6f8ce5642dea69ef":"60 % av einingane er defekte","ddccf2bd6e88c220":"Kontrollen overser eit slikt dårleg parti i ca. 40 % av tilfella","8104ee61022c4b4a":"Partiet blir alltid godkjent","5700173a6bbdedbb":"Sannsynet for defekt i kvart trekk er 60 %","9bc35da60f8f7c06":"Med sannsyn $1 - 0{,}60 = 0{,}40$ finn stikkprøven ingen defekte, og partiet slepp gjennom. Større stikkprøve gir betre vern.","bd96455dd6988890":"## Oppsummering: urnemodellen i arbeidslivet\n\nStikkprøverutinen frå mottakslageret fekk sin dom: med 5 av 20 einingar kontrollerte blir eit parti med 3 defekte oppdaga berre i ca. 60 % av tilfella. Verktøyet som gav svaret, var den **hypergeometriske fordelinga** — modellen for trekning *utan tilbakelegging* frå ein populasjon med to typar.\n\nOppskrifta er rein kombinatorikk. Med $N$ objekt totalt, $M$ spesielle og eit utval på $n$, er sannsynet for nøyaktig $k$ spesielle\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\n— vel dei spesielle med éin binomialkoeffisient, resten med ein annan, og del på alle moglege utval. Forventningsverdien er like intuitiv som han er enkel: $E(X) = n \\cdot \\frac{M}{N}$, utvalet speglar i gjennomsnitt delen i populasjonen.\n\nTo arbeidsvanar er verdt å ta med vidare. For det første: spørsmål om «minst éin» blir nesten alltid løyste raskast med komplementet, $P(X \\geq 1) = 1 - P(X = 0)$. For det andre: sjekk alltid om trekninga skjer med eller utan tilbakelegging. Utan tilbakelegging er trekka avhengige og fordelinga hypergeometrisk; med tilbakelegging (eller konstant sannsyn) er vi i binomisk territorium — fordelinga vi skal utforske grundig i neste hovudkapittel. Urnemodellen du no meistrar, er den same anten «kulene» er elektronikkeiningar på eit lager, matvarer hos Mattilsynet eller respondentar i eit register."}}}
+{
+  "id": "s1-5-4-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "5.4",
+  "title": "Hypergeometrisk fordeling",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om stikkprøver -- kor god er eigentleg kvalitetskontrollen på mottakslageret? Urnemodellen, den hypergeometriske formelen og komplementtrikset for «minst éin».",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "rekne ut sannsyn med hypergeometrisk fordeling"
+  ],
+  "linkedChapterId": "s1-5-4",
+  "content": [
+    {
+      "id": "s1-5-4-n-intro",
+      "type": "text",
+      "content": "## Stikkprøven som avgjer heile partiet\n\nPå eit mottakslager står ein innkjøpsansvarleg framfor eit parti på 20 elektronikkeiningar frå ein ny leverandør. Å teste alle ville teke ein heil dag, så bedrifta har ein fast rutine: trekk 5 tilfeldige einingar, og send heile partiet i retur dersom nokon av dei er defekte. Men kor god er eigentleg denne rutinen? Dersom 3 av dei 20 einingane faktisk er defekte — kor sannsynleg er det at stikkprøven avslører det?\n\nSpørsmålet har ei presis matematisk form. Vi har ein populasjon med to kategoriar (defekt/ok), vi trekkjer eit utval **utan tilbakelegging** — ei eining som er plukka ut, blir ikkje lagd tilbake — og vi spør kor mange av den eine kategorien vi får. Akkurat denne situasjonen blir skildra av den **hypergeometriske fordelinga**.\n\nMønsteret går igjen overalt i samfunnet: Mattilsynet som trekkjer matvarer frå eit vareparti, ein valkomité som trekkjer eit utval frå eit medlemsregister med to fløyer, ein biolog som fangar inn fisk frå ein merkt bestand. Felles for alle er urnemodellen: ei «urne» med kuler i to fargar, og ei hand som trekkjer utan å leggje tilbake. I dette kapittelet set vi formelen på plass, reknar på både kuler og kvalitetskontroll, og lærer det viktigaste trikset av alle: komplementregelen for «minst éin»."
+    },
+    {
+      "id": "s1-5-4-n-section1",
+      "type": "text",
+      "content": "## Formelen — telje gunstige delt på moglege\n\nLat oss byggje formelen med kombinatorikken frå tidlegare. Vi innfører tre tal: $N$ er totalt tal objekt, $M$ er talet med den eigenskapen vi ser etter, og $n$ er talet vi trekkjer. Den stokastiske variabelen $X$ tel kor mange med eigenskapen som hamnar i utvalet.\n\nKor mange utval gir nøyaktig $k$ «spesielle»? Vi må velje $k$ av dei $M$ spesielle — det kan gjerast på $\\binom{M}{k}$ måtar — *og* dei resterande $n-k$ frå dei $N-M$ vanlege, på $\\binom{N-M}{n-k}$ måtar. Multiplikasjonsprinsippet gangar desse saman. Totalt tal moglege utval er $\\binom{N}{n}$, og sidan alle er like sannsynlege:\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}, \\qquad k = 0, 1, \\ldots, \\min(n, M)$$\n\nPrøv han på ei klassisk urne: 12 kuler, der 5 er raude og 7 blå, og vi trekkjer 4. Sannsynet for nøyaktig 2 raude blir\n\n$$P(X = 2) = \\frac{\\binom{5}{2} \\cdot \\binom{7}{2}}{\\binom{12}{4}} = \\frac{10 \\cdot 21}{495} = \\frac{210}{495} \\approx 0{,}424$$\n\naltså rundt 42 %. Fordelinga har òg ein bemerkelsesverdig enkel **forventningsverdi**: $E(X) = n \\cdot \\frac{M}{N}$ — du forventar same *del* spesielle i utvalet som i populasjonen. Variansen er $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$, der den siste faktoren krympar spreiinga fordi trekningane utan tilbakelegging heng saman."
+    },
+    {
+      "id": "s1-5-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på den hypergeometriske formelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-4-n-quiz1-q0",
+            "task": "Kva situasjon blir skildra av ei hypergeometrisk fordeling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Trekning med tilbakelegging frå ein populasjon med to typar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tal forsøk til første suksess",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Trekning utan tilbakelegging frå ein populasjon med to typar",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Kontinuerlege målingar rundt eit gjennomsnitt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hypergeometrisk fordeling: to kategoriar, utval utan tilbakelegging, og vi tel talet på den eine kategorien."
+          },
+          {
+            "id": "s1-5-4-n-quiz1-q1",
+            "task": "Ei urne har 10 kuler, 4 raude og 6 blå. Du trekkjer 3. Kva er $P(X = 2)$ raude?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\dfrac{\\binom{4}{2}}{\\binom{10}{3}} = \\dfrac{6}{120}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\left(\\dfrac{4}{10}\\right)^2 \\cdot \\dfrac{6}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{\\binom{4}{2}\\binom{6}{2}}{\\binom{10}{3}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{\\binom{4}{2}\\binom{6}{1}}{\\binom{10}{3}} = \\dfrac{36}{120} = 0{,}3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vel 2 av 4 raude og 1 av 6 blå: $\\frac{6 \\cdot 6}{120} = \\frac{36}{120} = 0{,}3$. Hugs at dei resterande $n-k$ må veljast frå den andre gruppa."
+          },
+          {
+            "id": "s1-5-4-n-quiz1-q2",
+            "task": "Eit utval på $n = 6$ blir trekt frå $N = 30$ einingar der $M = 10$ har ein eigenskap. Kva er $E(X)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = n \\cdot \\frac{M}{N} = 6 \\cdot \\frac{10}{30} = 2$. Utvalet er venta å spegle delen i populasjonen, $\\frac{1}{3}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-4-n-section2",
+      "type": "text",
+      "content": "## Kvalitetskontrollen — og «minst éin»-trikset\n\nTilbake til mottakslageret. Partiet har $N = 20$ einingar, $M = 3$ av dei er defekte, og vi trekkjer $n = 5$. Rutinen slår alarm dersom vi finn *minst éin* defekt — så vi treng $P(X \\geq 1)$.\n\nHer kunne vi summere $P(X=1) + P(X=2) + P(X=3)$, men det finst ein raskare veg. Hendinga «minst éin defekt» er komplementet til «ingen defekte», så\n\n$$P(X \\geq 1) = 1 - P(X = 0)$$\n\nVi reknar ut det eine sannsynet vi treng — at alle 5 trekte er feilfrie:\n\n$$P(X = 0) = \\frac{\\binom{3}{0} \\cdot \\binom{17}{5}}{\\binom{20}{5}} = \\frac{1 \\cdot 6188}{15\\,504} \\approx 0{,}399$$\n\nDermed er $P(X \\geq 1) = 1 - 0{,}399 = 0{,}601$. Stikkprøven avslører altså eit slikt parti i berre ca. 60 % av tilfella — fire av ti dårlege parti slepp gjennom! For innkjøpsansvarleg er dette gull verdt å vite: vil bedrifta ha betre vern, må stikkprøven aukast, og formelen lèt oss rekne ut nøyaktig kor mykje.\n\nDette er hypergeometrisk fordeling i sitt rette element: **kvalitetskontroll og stikkprøver**, der populasjonen er endeleg og kvart trekk endrar det som er att. Legg merke til kontrasten med trekning *med* tilbakelegging, der sannsynet er likt i kvart trekk — den situasjonen får si eiga fordeling (den binomiske) i neste hovudkapittel. Hugseregelen er enkel: endeleg populasjon og utan tilbakelegging → hypergeometrisk; konstant sannsyn i kvart forsøk → binomisk."
+    },
+    {
+      "id": "s1-5-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kvalitetskontroll og komplement:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-4-n-quiz2-q0",
+            "task": "Kva er den smartaste måten å rekne ut $P(X \\geq 1)$ på?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(X = 1) + P(X = 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1 - P(X = 0)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1 - P(X = 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(X = 0) + P(X = 1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "«Minst éin» er komplementet til «ingen»: $P(X \\geq 1) = 1 - P(X = 0)$. Då slepp vi å summere mange ledd."
+          },
+          {
+            "id": "s1-5-4-n-quiz2-q1",
+            "task": "Eit parti har 10 einingar, 2 er defekte. Du trekkjer 3. Kva er $P(X = 0)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\left(\\dfrac{8}{10}\\right)^3 = 0{,}512$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\dfrac{\\binom{2}{0}}{\\binom{10}{3}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{\\binom{8}{3}}{\\binom{10}{3}} = \\dfrac{56}{120} \\approx 0{,}467$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{8}{10} = 0{,}8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Alle tre må kome frå dei 8 feilfrie: $P(X=0) = \\frac{\\binom{2}{0}\\binom{8}{3}}{\\binom{10}{3}} = \\frac{56}{120} \\approx 0{,}467$. Potensrekning $0{,}8^3$ ville føresett tilbakelegging."
+          },
+          {
+            "id": "s1-5-4-n-quiz2-q2",
+            "task": "Kvifor passar ikkje binomisk tankegang (same sannsyn i kvart trekk) i stikkprøvekontroll av eit lite parti?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det er fleire enn to kategoriar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi defektar aldri er tilfeldige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi binomisk fordeling berre gjeld myntkast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi kvart trekk utan tilbakelegging endrar samansetninga av det som er att",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Utan tilbakelegging endrar delen defekte seg for kvart trekk — trekningane er avhengige. Då er hypergeometrisk fordeling den rette modellen."
+          },
+          {
+            "id": "s1-5-4-n-quiz2-q3",
+            "task": "I eksempelet med 20 einingar og 3 defekte var $P(X \\geq 1) \\approx 0{,}60$ ved stikkprøve på 5. Kva tyder det i praksis?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kontrollen overser eit slikt dårleg parti i ca. 40 % av tilfella",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "60 % av einingane er defekte",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Partiet blir alltid godkjent",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sannsynet for defekt i kvart trekk er 60 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med sannsyn $1 - 0{,}60 = 0{,}40$ finn stikkprøven ingen defekte, og partiet slepp gjennom. Større stikkprøve gir betre vern."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: urnemodellen i arbeidslivet\n\nStikkprøverutinen frå mottakslageret fekk sin dom: med 5 av 20 einingar kontrollerte blir eit parti med 3 defekte oppdaga berre i ca. 60 % av tilfella. Verktøyet som gav svaret, var den **hypergeometriske fordelinga** — modellen for trekning *utan tilbakelegging* frå ein populasjon med to typar.\n\nOppskrifta er rein kombinatorikk. Med $N$ objekt totalt, $M$ spesielle og eit utval på $n$, er sannsynet for nøyaktig $k$ spesielle\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\n— vel dei spesielle med éin binomialkoeffisient, resten med ein annan, og del på alle moglege utval. Forventningsverdien er like intuitiv som han er enkel: $E(X) = n \\cdot \\frac{M}{N}$, utvalet speglar i gjennomsnitt delen i populasjonen.\n\nTo arbeidsvanar er verdt å ta med vidare. For det første: spørsmål om «minst éin» blir nesten alltid løyste raskast med komplementet, $P(X \\geq 1) = 1 - P(X = 0)$. For det andre: sjekk alltid om trekninga skjer med eller utan tilbakelegging. Utan tilbakelegging er trekka avhengige og fordelinga hypergeometrisk; med tilbakelegging (eller konstant sannsyn) er vi i binomisk territorium — fordelinga vi skal utforske grundig i neste hovudkapittel. Urnemodellen du no meistrar, er den same anten «kulene» er elektronikkeiningar på eit lager, matvarer hos Mattilsynet eller respondentar i eit register."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "178c3165cc846f82",
+    "translatedAt": "2026-06-20T03:30:22.027Z",
+    "model": "claude-code-agent",
+    "strings": 50,
+    "tm": {
+      "c31a59e183bfde7f": "Hypergeometrisk fordeling",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "0fb406edab6e7b1c": "Ei forteljing om stikkprøver -- kor god er eigentleg kvalitetskontrollen på mottakslageret? Urnemodellen, den hypergeometriske formelen og komplementtrikset for «minst éin».",
+      "e9918e8482434cee": "rekne ut sannsyn med hypergeometrisk fordeling",
+      "d28b0b93d75f8c23": "## Stikkprøven som avgjer heile partiet\n\nPå eit mottakslager står ein innkjøpsansvarleg framfor eit parti på 20 elektronikkeiningar frå ein ny leverandør. Å teste alle ville teke ein heil dag, så bedrifta har ein fast rutine: trekk 5 tilfeldige einingar, og send heile partiet i retur dersom nokon av dei er defekte. Men kor god er eigentleg denne rutinen? Dersom 3 av dei 20 einingane faktisk er defekte — kor sannsynleg er det at stikkprøven avslører det?\n\nSpørsmålet har ei presis matematisk form. Vi har ein populasjon med to kategoriar (defekt/ok), vi trekkjer eit utval **utan tilbakelegging** — ei eining som er plukka ut, blir ikkje lagd tilbake — og vi spør kor mange av den eine kategorien vi får. Akkurat denne situasjonen blir skildra av den **hypergeometriske fordelinga**.\n\nMønsteret går igjen overalt i samfunnet: Mattilsynet som trekkjer matvarer frå eit vareparti, ein valkomité som trekkjer eit utval frå eit medlemsregister med to fløyer, ein biolog som fangar inn fisk frå ein merkt bestand. Felles for alle er urnemodellen: ei «urne» med kuler i to fargar, og ei hand som trekkjer utan å leggje tilbake. I dette kapittelet set vi formelen på plass, reknar på både kuler og kvalitetskontroll, og lærer det viktigaste trikset av alle: komplementregelen for «minst éin».",
+      "71bbbf4ba6baa4fc": "## Formelen — telje gunstige delt på moglege\n\nLat oss byggje formelen med kombinatorikken frå tidlegare. Vi innfører tre tal: $N$ er totalt tal objekt, $M$ er talet med den eigenskapen vi ser etter, og $n$ er talet vi trekkjer. Den stokastiske variabelen $X$ tel kor mange med eigenskapen som hamnar i utvalet.\n\nKor mange utval gir nøyaktig $k$ «spesielle»? Vi må velje $k$ av dei $M$ spesielle — det kan gjerast på $\\binom{M}{k}$ måtar — *og* dei resterande $n-k$ frå dei $N-M$ vanlege, på $\\binom{N-M}{n-k}$ måtar. Multiplikasjonsprinsippet gangar desse saman. Totalt tal moglege utval er $\\binom{N}{n}$, og sidan alle er like sannsynlege:\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}, \\qquad k = 0, 1, \\ldots, \\min(n, M)$$\n\nPrøv han på ei klassisk urne: 12 kuler, der 5 er raude og 7 blå, og vi trekkjer 4. Sannsynet for nøyaktig 2 raude blir\n\n$$P(X = 2) = \\frac{\\binom{5}{2} \\cdot \\binom{7}{2}}{\\binom{12}{4}} = \\frac{10 \\cdot 21}{495} = \\frac{210}{495} \\approx 0{,}424$$\n\naltså rundt 42 %. Fordelinga har òg ein bemerkelsesverdig enkel **forventningsverdi**: $E(X) = n \\cdot \\frac{M}{N}$ — du forventar same *del* spesielle i utvalet som i populasjonen. Variansen er $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$, der den siste faktoren krympar spreiinga fordi trekningane utan tilbakelegging heng saman.",
+      "54477c25e706c49a": "Test deg sjølv på den hypergeometriske formelen:",
+      "4097889236a2af26": "placeholder",
+      "67cf47285ca4c785": "Kva situasjon blir skildra av ei hypergeometrisk fordeling?",
+      "865207146ec3c5ed": "Trekning med tilbakelegging frå ein populasjon med to typar",
+      "238ec0b36d2b3187": "Trekning utan tilbakelegging frå ein populasjon med to typar",
+      "2d539dd8739cb441": "Tal forsøk til første suksess",
+      "57c889fd50a9a71a": "Kontinuerlege målingar rundt eit gjennomsnitt",
+      "91c881ee82a98102": "Hypergeometrisk fordeling: to kategoriar, utval utan tilbakelegging, og vi tel talet på den eine kategorien.",
+      "fda5a72dac582eca": "Ei urne har 10 kuler, 4 raude og 6 blå. Du trekkjer 3. Kva er $P(X = 2)$ raude?",
+      "b62a5d6fae05100b": "$\\dfrac{\\binom{4}{2}\\binom{6}{1}}{\\binom{10}{3}} = \\dfrac{36}{120} = 0{,}3$",
+      "e3507d4d87a86f59": "$\\dfrac{\\binom{4}{2}}{\\binom{10}{3}} = \\dfrac{6}{120}$",
+      "dfc441a824a8ae68": "$\\left(\\dfrac{4}{10}\\right)^2 \\cdot \\dfrac{6}{10}$",
+      "e8f2bf0303dff3b0": "$\\dfrac{\\binom{4}{2}\\binom{6}{2}}{\\binom{10}{3}}$",
+      "02daab8ff459ab9c": "Vel 2 av 4 raude og 1 av 6 blå: $\\frac{6 \\cdot 6}{120} = \\frac{36}{120} = 0{,}3$. Hugs at dei resterande $n-k$ må veljast frå den andre gruppa.",
+      "f0939b3beaf7ad2b": "Eit utval på $n = 6$ blir trekt frå $N = 30$ einingar der $M = 10$ har ein eigenskap. Kva er $E(X)$?",
+      "66a7f92e11eef921": "$E(X) = n \\cdot \\frac{M}{N} = 6 \\cdot \\frac{10}{30} = 2$. Utvalet er venta å spegle delen i populasjonen, $\\frac{1}{3}$.",
+      "f5429f7715cf58e7": "## Kvalitetskontrollen — og «minst éin»-trikset\n\nTilbake til mottakslageret. Partiet har $N = 20$ einingar, $M = 3$ av dei er defekte, og vi trekkjer $n = 5$. Rutinen slår alarm dersom vi finn *minst éin* defekt — så vi treng $P(X \\geq 1)$.\n\nHer kunne vi summere $P(X=1) + P(X=2) + P(X=3)$, men det finst ein raskare veg. Hendinga «minst éin defekt» er komplementet til «ingen defekte», så\n\n$$P(X \\geq 1) = 1 - P(X = 0)$$\n\nVi reknar ut det eine sannsynet vi treng — at alle 5 trekte er feilfrie:\n\n$$P(X = 0) = \\frac{\\binom{3}{0} \\cdot \\binom{17}{5}}{\\binom{20}{5}} = \\frac{1 \\cdot 6188}{15\\,504} \\approx 0{,}399$$\n\nDermed er $P(X \\geq 1) = 1 - 0{,}399 = 0{,}601$. Stikkprøven avslører altså eit slikt parti i berre ca. 60 % av tilfella — fire av ti dårlege parti slepp gjennom! For innkjøpsansvarleg er dette gull verdt å vite: vil bedrifta ha betre vern, må stikkprøven aukast, og formelen lèt oss rekne ut nøyaktig kor mykje.\n\nDette er hypergeometrisk fordeling i sitt rette element: **kvalitetskontroll og stikkprøver**, der populasjonen er endeleg og kvart trekk endrar det som er att. Legg merke til kontrasten med trekning *med* tilbakelegging, der sannsynet er likt i kvart trekk — den situasjonen får si eiga fordeling (den binomiske) i neste hovudkapittel. Hugseregelen er enkel: endeleg populasjon og utan tilbakelegging → hypergeometrisk; konstant sannsyn i kvart forsøk → binomisk.",
+      "83e30b7165b57e76": "Test deg sjølv på kvalitetskontroll og komplement:",
+      "b11420a07c0a8257": "Kva er den smartaste måten å rekne ut $P(X \\geq 1)$ på?",
+      "803ace579e2e1c78": "$P(X = 1) + P(X = 2)$",
+      "b7745569c25a9a1b": "$1 - P(X = 0)$",
+      "1ab4ef88ea6ed6b5": "$1 - P(X = 1)$",
+      "33b492aecc63f945": "$P(X = 0) + P(X = 1)$",
+      "c9eb52493202ead2": "«Minst éin» er komplementet til «ingen»: $P(X \\geq 1) = 1 - P(X = 0)$. Då slepp vi å summere mange ledd.",
+      "f48e2d546cb88403": "Eit parti har 10 einingar, 2 er defekte. Du trekkjer 3. Kva er $P(X = 0)$?",
+      "c7d8fd89cb92a687": "$\\dfrac{\\binom{8}{3}}{\\binom{10}{3}} = \\dfrac{56}{120} \\approx 0{,}467$",
+      "549d114ae6533f36": "$\\left(\\dfrac{8}{10}\\right)^3 = 0{,}512$",
+      "ffe940b453349e02": "$\\dfrac{\\binom{2}{0}}{\\binom{10}{3}}$",
+      "158ce9d47381a05b": "$\\dfrac{8}{10} = 0{,}8$",
+      "8d96bc6e4b0addb7": "Alle tre må kome frå dei 8 feilfrie: $P(X=0) = \\frac{\\binom{2}{0}\\binom{8}{3}}{\\binom{10}{3}} = \\frac{56}{120} \\approx 0{,}467$. Potensrekning $0{,}8^3$ ville føresett tilbakelegging.",
+      "6c2a8d842de26e5f": "Kvifor passar ikkje binomisk tankegang (same sannsyn i kvart trekk) i stikkprøvekontroll av eit lite parti?",
+      "3995d736786898ce": "Fordi det er fleire enn to kategoriar",
+      "e995522a943e42d9": "Fordi kvart trekk utan tilbakelegging endrar samansetninga av det som er att",
+      "bfd5f37ea4cf5bc6": "Fordi defektar aldri er tilfeldige",
+      "cbd5cc03ab81d002": "Fordi binomisk fordeling berre gjeld myntkast",
+      "a4c9abb04e78b991": "Utan tilbakelegging endrar delen defekte seg for kvart trekk — trekningane er avhengige. Då er hypergeometrisk fordeling den rette modellen.",
+      "a47b91392d9257ab": "I eksempelet med 20 einingar og 3 defekte var $P(X \\geq 1) \\approx 0{,}60$ ved stikkprøve på 5. Kva tyder det i praksis?",
+      "6f8ce5642dea69ef": "60 % av einingane er defekte",
+      "ddccf2bd6e88c220": "Kontrollen overser eit slikt dårleg parti i ca. 40 % av tilfella",
+      "8104ee61022c4b4a": "Partiet blir alltid godkjent",
+      "5700173a6bbdedbb": "Sannsynet for defekt i kvart trekk er 60 %",
+      "9bc35da60f8f7c06": "Med sannsyn $1 - 0{,}60 = 0{,}40$ finn stikkprøven ingen defekte, og partiet slepp gjennom. Større stikkprøve gir betre vern.",
+      "bd96455dd6988890": "## Oppsummering: urnemodellen i arbeidslivet\n\nStikkprøverutinen frå mottakslageret fekk sin dom: med 5 av 20 einingar kontrollerte blir eit parti med 3 defekte oppdaga berre i ca. 60 % av tilfella. Verktøyet som gav svaret, var den **hypergeometriske fordelinga** — modellen for trekning *utan tilbakelegging* frå ein populasjon med to typar.\n\nOppskrifta er rein kombinatorikk. Med $N$ objekt totalt, $M$ spesielle og eit utval på $n$, er sannsynet for nøyaktig $k$ spesielle\n\n$$P(X = k) = \\frac{\\binom{M}{k} \\cdot \\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\n— vel dei spesielle med éin binomialkoeffisient, resten med ein annan, og del på alle moglege utval. Forventningsverdien er like intuitiv som han er enkel: $E(X) = n \\cdot \\frac{M}{N}$, utvalet speglar i gjennomsnitt delen i populasjonen.\n\nTo arbeidsvanar er verdt å ta med vidare. For det første: spørsmål om «minst éin» blir nesten alltid løyste raskast med komplementet, $P(X \\geq 1) = 1 - P(X = 0)$. For det andre: sjekk alltid om trekninga skjer med eller utan tilbakelegging. Utan tilbakelegging er trekka avhengige og fordelinga hypergeometrisk; med tilbakelegging (eller konstant sannsyn) er vi i binomisk territorium — fordelinga vi skal utforske grundig i neste hovudkapittel. Urnemodellen du no meistrar, er den same anten «kulene» er elektronikkeiningar på eit lager, matvarer hos Mattilsynet eller respondentar i eit register."
+    }
+  }
+}

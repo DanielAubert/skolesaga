@@ -1,1 +1,375 @@
-{"id":"9-10-1-narrativ","courseId":"9","chapterNumber":"10.1","title":"Spreiingsmål i praksis","subtitle":"Narrativ versjon","description":"Ein forteljande gjennomgang av spreiingsmål -- kvartilar, interkvartilbreidd og bokssplott -- der vi utforskar kvifor gjennomsnittet åleine ikkje fortel heile historia.","estimatedMinutes":35,"competenceGoals":["bruke sentralmål og spreiingsmål til å analysere og samanlikne datasett"],"linkedChapterId":"9-10-1","content":[{"id":"9-10-1-n-intro","type":"text","content":"## Gjennomsnittet lyg (nesten)\n\nTenk deg to fotballag. Begge har gjennomsnittleg $1{,}5$ mål per kamp i sesongen. Men det eine laget scorar konsekvent $1$ eller $2$ mål kvar kamp, medan det andre laget vekslar mellom $0$ og $6$ mål. Dei har likt gjennomsnitt, men opplevinga av å sjå kampane er vilt forskjellig!\n\nDet er dette **spreiingsmål** handlar om. Medan **sentralmål** (gjennomsnitt, median, typetal) fortel oss kvar «midten» av dataa ligg, fortel spreiingsmål oss kor **spreidde** dataa er rundt midten. Er verdiane samla tett saman, eller er dei vidt spreidde?\n\nI dette kapittelet lærer vi om tre viktige verktøy:\n- **Kvartilar** -- som deler dataa i fire like store delar\n- **Interkvartilbreidd (IQR)** -- som måler spreiinga til dei midtarste 50 %\n- **Bokssplott** -- som gir ei visuell oversikt over heile fordelinga"},{"id":"9-10-1-n-section1","type":"text","content":"## Kvartilar -- å dele dataa i fire\n\nTenk deg at du sorterer alle elevane i klassen etter høgd, frå kortast til høgast. **Medianen** deler gruppa i to halvdelar. Men vi kan dele vidare: medianen av den nedre halvdelen gir **første kvartil** ($Q_1$), og medianen av den øvre halvdelen gir **tredje kvartil** ($Q_3$).\n\nNo har vi fire grupper:\n- Dei 25 % lågaste verdiane (under $Q_1$)\n- Dei neste 25 % (mellom $Q_1$ og medianen)\n- Dei neste 25 % (mellom medianen og $Q_3$)\n- Dei 25 % høgaste verdiane (over $Q_3$)\n\n**Slik finn du kvartilane:**\n1. Sorter dataa frå minst til størst.\n2. Finn medianen ($Q_2$) -- han deler datasettet i to halvdelar.\n3. Finn medianen av den nedre halvdelen ($Q_1$).\n4. Finn medianen av den øvre halvdelen ($Q_3$).\n\nViktig: Viss medianen er eitt av datapunkta (oddetal verdiar), blir han **ikkje** teken med i nokon av halvdelane.\n\nEit døme: Resultata til $11$ elevar på ein prøve (allereie sorterte): $7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18$. Medianen ($Q_2$) er verdi nummer $6$: $Q_2 = 12$. Nedre halvdel er $7, 8, 9, 10, 11$ med median $Q_1 = 9$. Øvre halvdel er $13, 14, 15, 16, 18$ med median $Q_3 = 15$."},{"id":"9-10-1-n-quiz1","type":"exercise","exercise":{"id":"9-10-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på kvartilar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-10-1-n-quiz1-q0","task":"Resultata til $9$ elevar (sorterte): $14, 18, 20, 22, 24, 25, 27, 28, 30$. Kva er $Q_1$?","options":[{"id":"a","text":"$18$","isCorrect":false},{"id":"b","text":"$19$","isCorrect":true},{"id":"c","text":"$20$","isCorrect":false},{"id":"d","text":"$22$","isCorrect":false}],"solution":"Medianen er verdi $5$: $Q_2 = 24$. Nedre halvdel: $14, 18, 20, 22$. $Q_1 = \\frac{18 + 20}{2} = 19$."},{"id":"9-10-1-n-quiz1-q1","task":"Eit datasett har $Q_1 = 12$ og $Q_3 = 28$. Kva er IQR?","options":[{"id":"a","text":"$40$","isCorrect":false},{"id":"b","text":"$20$","isCorrect":false},{"id":"c","text":"$16$","isCorrect":true},{"id":"d","text":"$14$","isCorrect":false}],"solution":"$\\text{IQR} = Q_3 - Q_1 = 28 - 12 = 16$. IQR måler spreiinga til dei midtarste $50\\%$ av dataa."},{"id":"9-10-1-n-quiz1-q2","task":"Kva fortel IQR oss?","options":[{"id":"a","text":"Skilnaden mellom største og minste verdi","isCorrect":false},{"id":"b","text":"Gjennomsnittet av dataa","isCorrect":false},{"id":"c","text":"Spreiinga til dei midtarste $50\\%$ av dataa","isCorrect":true},{"id":"d","text":"Talet på datapunkt","isCorrect":false}],"solution":"IQR $= Q_3 - Q_1$ måler spreiinga til dei midtarste $50\\%$ av dataa. Det er eit robust spreiingsmål som ikkje blir påverka av ekstremverdiar."}]}},{"id":"9-10-1-n-section2","type":"text","content":"## Bokssplott og uteliggjarar\n\nEit **bokssplott** er ei grafisk framstilling som viser fem nøkkeltal -- den såkalla **femtalsoversikta**: minimum, $Q_1$, median ($Q_2$), $Q_3$ og maksimum.\n\nSjølve «boksen» strekkjer seg frå $Q_1$ til $Q_3$, med ei linje i midten for medianen. «Whiskers» (strekar) strekkjer seg ut til minimum og maksimum. Bokssplott er fantastiske for å samanlikne to datasett visuelt -- du kan med eitt blikk sjå kva for gruppe som har størst spreiing og om ei gruppe har eit høgare sentralpunkt.\n\nMen kva med verdiar som er veldig langt unna resten? Dei blir kalla **uteliggjarar**, og dei blir markerte som enkeltpunkt utanfor whiskers. Ein verdi er ein uteliggjar viss han ligg meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor $Q_1$ eller $Q_3$:\n\n- Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR}$\n- Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR}$\n\nVerdiar utanfor desse grensene er uteliggjarar. Whiskers strekkjer seg då berre til den siste verdien som *ikkje* er ein uteliggjar.\n\nEit døme: Talet på sjokoladebitar $13$ elevar åt i ei veke: $2, 3, 5, 6, 7, 7, 8, 9, 10, 11, 12, 14, 25$. Her er $Q_1 = 5{,}5$, $Q_2 = 8$, $Q_3 = 11{,}5$ og $\\text{IQR} = 6$. Den øvre grensa er $11{,}5 + 9 = 20{,}5$. Verdien $25$ er over denne grensa og er altså ein **uteliggjar** -- kanskje nokon hadde ei veldig god (eller dårleg?) sjokoladeveke!"},{"id":"9-10-1-n-quiz2","type":"exercise","exercise":{"id":"9-10-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på bokssplott og uteliggjarar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-10-1-n-quiz2-q0","task":"Leksetimar for $12$ elevar: $3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 20$. Er $20$ ein uteliggjar?","options":[{"id":"a","text":"Ja, $20$ er over den øvre grensa","isCorrect":true},{"id":"b","text":"Nei, $20$ er innanfor grensene","isCorrect":false},{"id":"c","text":"Vi kan ikkje avgjere det utan meir informasjon","isCorrect":false},{"id":"d","text":"Ja, men berre viss gjennomsnittet er under $10$","isCorrect":false}],"solution":"$Q_1 = 5{,}5$, $Q_3 = 10{,}5$, $\\text{IQR} = 5$. Øvre grense: $10{,}5 + 7{,}5 = 18$. Verdien $20 > 18$, så $20$ er ein uteliggjar."},{"id":"9-10-1-n-quiz2-q1","task":"To grupper har begge median $15$. Gruppe A har $\\text{IQR} = 6$ og Gruppe B har $\\text{IQR} = 14$. Kva kan vi seie?","options":[{"id":"a","text":"Gruppe A har høgare gjennomsnitt","isCorrect":false},{"id":"b","text":"Gruppe B har mykje større spreiing i resultata","isCorrect":true},{"id":"c","text":"Gruppene er heilt like","isCorrect":false},{"id":"d","text":"Gruppe B har lågare resultat","isCorrect":false}],"solution":"Sjølv om begge har same median, er spreiinga i gruppe B ($\\text{IQR} = 14$) meir enn dobbelt så stor som i gruppe A ($\\text{IQR} = 6$). Det er mykje større skilnader mellom elevane i gruppe B."},{"id":"9-10-1-n-quiz2-q2","task":"Kvifor er IQR eit betre spreiingsmål enn variasjonsbreidda (maks $-$ min) når det finst uteliggjarar?","options":[{"id":"a","text":"Fordi IQR alltid er større","isCorrect":false},{"id":"b","text":"Fordi IQR er lettare å rekne ut","isCorrect":false},{"id":"c","text":"Fordi IQR ikkje blir påverka av ekstremverdiar","isCorrect":true},{"id":"d","text":"Fordi IQR bruker alle datapunkta","isCorrect":false}],"solution":"IQR måler berre spreiinga til dei midtarste $50\\%$ og ignorerer dei mest ekstreme verdiane. Variasjonsbreidda kan bli veldig stor på grunn av éin einaste uteliggjar, og gir då eit misvisande bilete."}]}},{"id":"9-10-1-n-section3","type":"text","content":"## Standardavvik -- den gjennomsnittlege avstanden frå gjennomsnittet\n\nMedan IQR berre ser på dei midtarste $50\\%$, finst det eit spreiingsmål som tek omsyn til **alle** datapunkta: **standardavviket**. Det måler den gjennomsnittlege avstanden frå gjennomsnittet.\n\nFormelen ser litt skremmande ut, men ideen er enkel:\n\n$$s = \\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n - 1}}$$\n\nSteg for steg:\n1. Finn gjennomsnittet $\\bar{x}$.\n2. For kvart datapunkt: finn avviket frå gjennomsnittet ($x_i - \\bar{x}$).\n3. Kvadrér kvart avvik (for å unngå at positive og negative avvik nullar kvarandre ut).\n4. Finn gjennomsnittet av dei kvadrerte avvika (del på $n - 1$).\n5. Ta kvadratrota.\n\nEit døme: Fem vener har $12, 15, 18, 20, 25$ appar. Gjennomsnittet er $\\bar{x} = 18$. Kvadrerte avvik: $36 + 9 + 0 + 4 + 49 = 98$. Standardavvik: $s = \\sqrt{\\frac{98}{4}} = \\sqrt{24{,}5} \\approx 4{,}95$. Verdiane avvik altså i gjennomsnitt ca. $5$ appar frå gjennomsnittet.\n\nEi viktig ting: standardavviket er **kjenslevart for uteliggjarar**, akkurat som gjennomsnittet. Éin ekstremt høg eller låg verdi kan blåse opp standardavviket dramatisk. Difor er median og IQR ofte betre val for skeive datasett."},{"id":"9-10-1-n-quiz3","type":"exercise","exercise":{"id":"9-10-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på standardavvik:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"9-10-1-n-quiz3-q0","task":"Datasettet $4, 7, 8, 10, 11$ har gjennomsnitt $8$. Kva er standardavviket?","options":[{"id":"a","text":"$s \\approx 2{,}74$","isCorrect":true},{"id":"b","text":"$s \\approx 7{,}50$","isCorrect":false},{"id":"c","text":"$s \\approx 1{,}87$","isCorrect":false},{"id":"d","text":"$s \\approx 6{,}00$","isCorrect":false}],"solution":"Kvadrerte avvik: $16 + 1 + 0 + 4 + 9 = 30$. $s = \\sqrt{\\frac{30}{4}} = \\sqrt{7{,}5} \\approx 2{,}74$."},{"id":"9-10-1-n-quiz3-q1","task":"Fråvær for $10$ elevar: $1, 2, 3, 3, 4, 5, 6, 8, 10, 35$. Gjennomsnitt er $7{,}7$ og standardavvik ca. $10{,}0$. Utan uteliggjaren $35$ er gjennomsnitt $4{,}7$ og standardavvik ca. $2{,}9$. Kva fortel dette?","options":[{"id":"a","text":"Uteliggjarar har lita påverknad på statistikken","isCorrect":false},{"id":"b","text":"Éin uteliggjar kan påverke gjennomsnitt og standardavvik dramatisk","isCorrect":true},{"id":"c","text":"Standardavviket er alltid ca. $10$","isCorrect":false},{"id":"d","text":"Medianen blir påverka like mykje som gjennomsnittet","isCorrect":false}],"solution":"Uteliggjaren $35$ dreg gjennomsnittet frå $4{,}7$ til $7{,}7$ (over $60\\%$ auke) og tredoblar standardavviket frå ca. $2{,}9$ til ca. $10{,}0$. Éin einaste verdi endrar heile biletet!"}]}},{"id":"9-10-1-n-summary","type":"text","content":"## Oppsummering\n\nSentralmål åleine fortel ikkje heile historia -- vi treng spreiingsmål for å forstå kor spreidde dataa er.\n\n| Omgrep | Kva det måler | Robust mot uteliggjarar? |\n|--------|---------------|----------------------|\n| Variasjonsbreidd (maks $-$ min) | Total spreiing | Nei |\n| IQR ($Q_3 - Q_1$) | Spreiing for midtarste $50\\%$ | Ja |\n| Standardavvik ($s$) | Gjennomsnittleg avvik frå gjennomsnittet | Nei |\n\n- **Kvartilar** deler dataa i fire like store delar: $Q_1$ (25 %), $Q_2$ = median (50 %), $Q_3$ (75 %)\n- **Bokssplott** viser femtalsoversikta visuelt og markerer uteliggjarar\n- **Uteliggjarar** er verdiar meir enn $1{,}5 \\cdot \\text{IQR}$ frå $Q_1$ eller $Q_3$\n- Vel IQR/median for skeive data med uteliggjarar, og standardavvik/gjennomsnitt for symmetriske data"}],"exercises":[],"_meta":{"sourceHash":"bafa0939709f4ecb","translatedAt":"2026-06-17T02:07:31.623Z","model":"claude-code-agent","strings":55,"tm":{"2a48b3237e51ed56":"Spreiingsmål i praksis","b195b06d1ed59702":"Narrativ versjon","dab00ed53f901396":"Ein forteljande gjennomgang av spreiingsmål -- kvartilar, interkvartilbreidd og bokssplott -- der vi utforskar kvifor gjennomsnittet åleine ikkje fortel heile historia.","09adc3edfa313d9f":"bruke sentralmål og spreiingsmål til å analysere og samanlikne datasett","ae6dbf0b4db71712":"## Gjennomsnittet lyg (nesten)\n\nTenk deg to fotballag. Begge har gjennomsnittleg $1{,}5$ mål per kamp i sesongen. Men det eine laget scorar konsekvent $1$ eller $2$ mål kvar kamp, medan det andre laget vekslar mellom $0$ og $6$ mål. Dei har likt gjennomsnitt, men opplevinga av å sjå kampane er vilt forskjellig!\n\nDet er dette **spreiingsmål** handlar om. Medan **sentralmål** (gjennomsnitt, median, typetal) fortel oss kvar «midten» av dataa ligg, fortel spreiingsmål oss kor **spreidde** dataa er rundt midten. Er verdiane samla tett saman, eller er dei vidt spreidde?\n\nI dette kapittelet lærer vi om tre viktige verktøy:\n- **Kvartilar** -- som deler dataa i fire like store delar\n- **Interkvartilbreidd (IQR)** -- som måler spreiinga til dei midtarste 50 %\n- **Bokssplott** -- som gir ei visuell oversikt over heile fordelinga","dadf472adc546263":"## Kvartilar -- å dele dataa i fire\n\nTenk deg at du sorterer alle elevane i klassen etter høgd, frå kortast til høgast. **Medianen** deler gruppa i to halvdelar. Men vi kan dele vidare: medianen av den nedre halvdelen gir **første kvartil** ($Q_1$), og medianen av den øvre halvdelen gir **tredje kvartil** ($Q_3$).\n\nNo har vi fire grupper:\n- Dei 25 % lågaste verdiane (under $Q_1$)\n- Dei neste 25 % (mellom $Q_1$ og medianen)\n- Dei neste 25 % (mellom medianen og $Q_3$)\n- Dei 25 % høgaste verdiane (over $Q_3$)\n\n**Slik finn du kvartilane:**\n1. Sorter dataa frå minst til størst.\n2. Finn medianen ($Q_2$) -- han deler datasettet i to halvdelar.\n3. Finn medianen av den nedre halvdelen ($Q_1$).\n4. Finn medianen av den øvre halvdelen ($Q_3$).\n\nViktig: Viss medianen er eitt av datapunkta (oddetal verdiar), blir han **ikkje** teken med i nokon av halvdelane.\n\nEit døme: Resultata til $11$ elevar på ein prøve (allereie sorterte): $7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18$. Medianen ($Q_2$) er verdi nummer $6$: $Q_2 = 12$. Nedre halvdel er $7, 8, 9, 10, 11$ med median $Q_1 = 9$. Øvre halvdel er $13, 14, 15, 16, 18$ med median $Q_3 = 15$.","2c35af3334bd1c33":"Test deg sjølv på kvartilar:","4097889236a2af26":"placeholder","87358e085e9335b5":"Resultata til $9$ elevar (sorterte): $14, 18, 20, 22, 24, 25, 27, 28, 30$. Kva er $Q_1$?","0a2e508bc812c488":"Medianen er verdi $5$: $Q_2 = 24$. Nedre halvdel: $14, 18, 20, 22$. $Q_1 = \\frac{18 + 20}{2} = 19$.","936d954da00c183d":"Eit datasett har $Q_1 = 12$ og $Q_3 = 28$. Kva er IQR?","1d7455dd66cc66cc":"$\\text{IQR} = Q_3 - Q_1 = 28 - 12 = 16$. IQR måler spreiinga til dei midtarste $50\\%$ av dataa.","06c1bdff94ba32fb":"Kva fortel IQR oss?","36e7c6f66204b332":"Skilnaden mellom største og minste verdi","00349e84f848345f":"Gjennomsnittet av dataa","fc6efe6f6379f9d4":"Spreiinga til dei midtarste $50\\%$ av dataa","466d62037839085f":"Talet på datapunkt","a6db91d0ce72ce39":"IQR $= Q_3 - Q_1$ måler spreiinga til dei midtarste $50\\%$ av dataa. Det er eit robust spreiingsmål som ikkje blir påverka av ekstremverdiar.","9b619c7e63891447":"## Bokssplott og uteliggjarar\n\nEit **bokssplott** er ei grafisk framstilling som viser fem nøkkeltal -- den såkalla **femtalsoversikta**: minimum, $Q_1$, median ($Q_2$), $Q_3$ og maksimum.\n\nSjølve «boksen» strekkjer seg frå $Q_1$ til $Q_3$, med ei linje i midten for medianen. «Whiskers» (strekar) strekkjer seg ut til minimum og maksimum. Bokssplott er fantastiske for å samanlikne to datasett visuelt -- du kan med eitt blikk sjå kva for gruppe som har størst spreiing og om ei gruppe har eit høgare sentralpunkt.\n\nMen kva med verdiar som er veldig langt unna resten? Dei blir kalla **uteliggjarar**, og dei blir markerte som enkeltpunkt utanfor whiskers. Ein verdi er ein uteliggjar viss han ligg meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor $Q_1$ eller $Q_3$:\n\n- Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR}$\n- Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR}$\n\nVerdiar utanfor desse grensene er uteliggjarar. Whiskers strekkjer seg då berre til den siste verdien som *ikkje* er ein uteliggjar.\n\nEit døme: Talet på sjokoladebitar $13$ elevar åt i ei veke: $2, 3, 5, 6, 7, 7, 8, 9, 10, 11, 12, 14, 25$. Her er $Q_1 = 5{,}5$, $Q_2 = 8$, $Q_3 = 11{,}5$ og $\\text{IQR} = 6$. Den øvre grensa er $11{,}5 + 9 = 20{,}5$. Verdien $25$ er over denne grensa og er altså ein **uteliggjar** -- kanskje nokon hadde ei veldig god (eller dårleg?) sjokoladeveke!","ddcd6b59c70092be":"Test deg sjølv på bokssplott og uteliggjarar:","c383d85251a49eb3":"Leksetimar for $12$ elevar: $3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 20$. Er $20$ ein uteliggjar?","b9cfbd43d87dde70":"Ja, $20$ er over den øvre grensa","d6c745d5470b3774":"Nei, $20$ er innanfor grensene","ec8af792a5edbdf1":"Vi kan ikkje avgjere det utan meir informasjon","1e65e2680679cf7d":"Ja, men berre viss gjennomsnittet er under $10$","345ae138eb0d87dd":"$Q_1 = 5{,}5$, $Q_3 = 10{,}5$, $\\text{IQR} = 5$. Øvre grense: $10{,}5 + 7{,}5 = 18$. Verdien $20 > 18$, så $20$ er ein uteliggjar.","1ef3876fe672e42a":"To grupper har begge median $15$. Gruppe A har $\\text{IQR} = 6$ og Gruppe B har $\\text{IQR} = 14$. Kva kan vi seie?","175e86fa905eef88":"Gruppe A har høgare gjennomsnitt","d9e1f495784673b1":"Gruppe B har mykje større spreiing i resultata","33ee0dabd80f3f3d":"Gruppene er heilt like","6f003002870c24e9":"Gruppe B har lågare resultat","ece2b80b110d1030":"Sjølv om begge har same median, er spreiinga i gruppe B ($\\text{IQR} = 14$) meir enn dobbelt så stor som i gruppe A ($\\text{IQR} = 6$). Det er mykje større skilnader mellom elevane i gruppe B.","00ea3531765e4b8f":"Kvifor er IQR eit betre spreiingsmål enn variasjonsbreidda (maks $-$ min) når det finst uteliggjarar?","a70a991856b1376c":"Fordi IQR alltid er større","553f209724630bb7":"Fordi IQR er lettare å rekne ut","89582d67beca69f7":"Fordi IQR ikkje blir påverka av ekstremverdiar","f42443587412f414":"Fordi IQR bruker alle datapunkta","eb655198e3617965":"IQR måler berre spreiinga til dei midtarste $50\\%$ og ignorerer dei mest ekstreme verdiane. Variasjonsbreidda kan bli veldig stor på grunn av éin einaste uteliggjar, og gir då eit misvisande bilete.","d7ee65d476a17731":"## Standardavvik -- den gjennomsnittlege avstanden frå gjennomsnittet\n\nMedan IQR berre ser på dei midtarste $50\\%$, finst det eit spreiingsmål som tek omsyn til **alle** datapunkta: **standardavviket**. Det måler den gjennomsnittlege avstanden frå gjennomsnittet.\n\nFormelen ser litt skremmande ut, men ideen er enkel:\n\n$$s = \\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n - 1}}$$\n\nSteg for steg:\n1. Finn gjennomsnittet $\\bar{x}$.\n2. For kvart datapunkt: finn avviket frå gjennomsnittet ($x_i - \\bar{x}$).\n3. Kvadrér kvart avvik (for å unngå at positive og negative avvik nullar kvarandre ut).\n4. Finn gjennomsnittet av dei kvadrerte avvika (del på $n - 1$).\n5. Ta kvadratrota.\n\nEit døme: Fem vener har $12, 15, 18, 20, 25$ appar. Gjennomsnittet er $\\bar{x} = 18$. Kvadrerte avvik: $36 + 9 + 0 + 4 + 49 = 98$. Standardavvik: $s = \\sqrt{\\frac{98}{4}} = \\sqrt{24{,}5} \\approx 4{,}95$. Verdiane avvik altså i gjennomsnitt ca. $5$ appar frå gjennomsnittet.\n\nEi viktig ting: standardavviket er **kjenslevart for uteliggjarar**, akkurat som gjennomsnittet. Éin ekstremt høg eller låg verdi kan blåse opp standardavviket dramatisk. Difor er median og IQR ofte betre val for skeive datasett.","a2b9334eb1efe9da":"Test deg sjølv på standardavvik:","c9461ae5dfacf354":"Datasettet $4, 7, 8, 10, 11$ har gjennomsnitt $8$. Kva er standardavviket?","631d76c7f13218e6":"$s \\approx 2{,}74$","d9bf053fd61cbf6a":"$s \\approx 7{,}50$","b0cb583eab3ca991":"$s \\approx 1{,}87$","3247cbff3e8a720f":"$s \\approx 6{,}00$","fd3f134bc5170983":"Kvadrerte avvik: $16 + 1 + 0 + 4 + 9 = 30$. $s = \\sqrt{\\frac{30}{4}} = \\sqrt{7{,}5} \\approx 2{,}74$.","4be933483cfe1d58":"Fråvær for $10$ elevar: $1, 2, 3, 3, 4, 5, 6, 8, 10, 35$. Gjennomsnitt er $7{,}7$ og standardavvik ca. $10{,}0$. Utan uteliggjaren $35$ er gjennomsnitt $4{,}7$ og standardavvik ca. $2{,}9$. Kva fortel dette?","79afdcb4e66d4474":"Uteliggjarar har lita påverknad på statistikken","afb1e87bdfd1a67b":"Éin uteliggjar kan påverke gjennomsnitt og standardavvik dramatisk","7755cae37398fe4e":"Standardavviket er alltid ca. $10$","f6442e426b6b2f15":"Medianen blir påverka like mykje som gjennomsnittet","c5c79cbdd92113ff":"Uteliggjaren $35$ dreg gjennomsnittet frå $4{,}7$ til $7{,}7$ (over $60\\%$ auke) og tredoblar standardavviket frå ca. $2{,}9$ til ca. $10{,}0$. Éin einaste verdi endrar heile biletet!","4a363804cacf28d2":"## Oppsummering\n\nSentralmål åleine fortel ikkje heile historia -- vi treng spreiingsmål for å forstå kor spreidde dataa er.\n\n| Omgrep | Kva det måler | Robust mot uteliggjarar? |\n|--------|---------------|----------------------|\n| Variasjonsbreidd (maks $-$ min) | Total spreiing | Nei |\n| IQR ($Q_3 - Q_1$) | Spreiing for midtarste $50\\%$ | Ja |\n| Standardavvik ($s$) | Gjennomsnittleg avvik frå gjennomsnittet | Nei |\n\n- **Kvartilar** deler dataa i fire like store delar: $Q_1$ (25 %), $Q_2$ = median (50 %), $Q_3$ (75 %)\n- **Bokssplott** viser femtalsoversikta visuelt og markerer uteliggjarar\n- **Uteliggjarar** er verdiar meir enn $1{,}5 \\cdot \\text{IQR}$ frå $Q_1$ eller $Q_3$\n- Vel IQR/median for skeive data med uteliggjarar, og standardavvik/gjennomsnitt for symmetriske data"}}}
+{
+  "id": "9-10-1-narrativ",
+  "courseId": "9",
+  "chapterNumber": "10.1",
+  "title": "Spreiingsmål i praksis",
+  "subtitle": "Narrativ versjon",
+  "description": "Ein forteljande gjennomgang av spreiingsmål -- kvartilar, interkvartilbreidd og bokssplott -- der vi utforskar kvifor gjennomsnittet åleine ikkje fortel heile historia.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke sentralmål og spreiingsmål til å analysere og samanlikne datasett"
+  ],
+  "linkedChapterId": "9-10-1",
+  "content": [
+    {
+      "id": "9-10-1-n-intro",
+      "type": "text",
+      "content": "## Gjennomsnittet lyg (nesten)\n\nTenk deg to fotballag. Begge har gjennomsnittleg $1{,}5$ mål per kamp i sesongen. Men det eine laget scorar konsekvent $1$ eller $2$ mål kvar kamp, medan det andre laget vekslar mellom $0$ og $6$ mål. Dei har likt gjennomsnitt, men opplevinga av å sjå kampane er vilt forskjellig!\n\nDet er dette **spreiingsmål** handlar om. Medan **sentralmål** (gjennomsnitt, median, typetal) fortel oss kvar «midten» av dataa ligg, fortel spreiingsmål oss kor **spreidde** dataa er rundt midten. Er verdiane samla tett saman, eller er dei vidt spreidde?\n\nI dette kapittelet lærer vi om tre viktige verktøy:\n- **Kvartilar** -- som deler dataa i fire like store delar\n- **Interkvartilbreidd (IQR)** -- som måler spreiinga til dei midtarste 50 %\n- **Bokssplott** -- som gir ei visuell oversikt over heile fordelinga"
+    },
+    {
+      "id": "9-10-1-n-section1",
+      "type": "text",
+      "content": "## Kvartilar -- å dele dataa i fire\n\nTenk deg at du sorterer alle elevane i klassen etter høgd, frå kortast til høgast. **Medianen** deler gruppa i to halvdelar. Men vi kan dele vidare: medianen av den nedre halvdelen gir **første kvartil** ($Q_1$), og medianen av den øvre halvdelen gir **tredje kvartil** ($Q_3$).\n\nNo har vi fire grupper:\n- Dei 25 % lågaste verdiane (under $Q_1$)\n- Dei neste 25 % (mellom $Q_1$ og medianen)\n- Dei neste 25 % (mellom medianen og $Q_3$)\n- Dei 25 % høgaste verdiane (over $Q_3$)\n\n**Slik finn du kvartilane:**\n1. Sorter dataa frå minst til størst.\n2. Finn medianen ($Q_2$) -- han deler datasettet i to halvdelar.\n3. Finn medianen av den nedre halvdelen ($Q_1$).\n4. Finn medianen av den øvre halvdelen ($Q_3$).\n\nViktig: Viss medianen er eitt av datapunkta (oddetal verdiar), blir han **ikkje** teken med i nokon av halvdelane.\n\nEit døme: Resultata til $11$ elevar på ein prøve (allereie sorterte): $7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18$. Medianen ($Q_2$) er verdi nummer $6$: $Q_2 = 12$. Nedre halvdel er $7, 8, 9, 10, 11$ med median $Q_1 = 9$. Øvre halvdel er $13, 14, 15, 16, 18$ med median $Q_3 = 15$."
+    },
+    {
+      "id": "9-10-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-10-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kvartilar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-10-1-n-quiz1-q0",
+            "task": "Resultata til $9$ elevar (sorterte): $14, 18, 20, 22, 24, 25, 27, 28, 30$. Kva er $Q_1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$19$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$22$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Medianen er verdi $5$: $Q_2 = 24$. Nedre halvdel: $14, 18, 20, 22$. $Q_1 = \\frac{18 + 20}{2} = 19$."
+          },
+          {
+            "id": "9-10-1-n-quiz1-q1",
+            "task": "Eit datasett har $Q_1 = 12$ og $Q_3 = 28$. Kva er IQR?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$40$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$16$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$14$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{IQR} = Q_3 - Q_1 = 28 - 12 = 16$. IQR måler spreiinga til dei midtarste $50\\%$ av dataa."
+          },
+          {
+            "id": "9-10-1-n-quiz1-q2",
+            "task": "Kva fortel IQR oss?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skilnaden mellom største og minste verdi",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gjennomsnittet av dataa",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Talet på datapunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spreiinga til dei midtarste $50\\%$ av dataa",
+                "isCorrect": true
+              }
+            ],
+            "solution": "IQR $= Q_3 - Q_1$ måler spreiinga til dei midtarste $50\\%$ av dataa. Det er eit robust spreiingsmål som ikkje blir påverka av ekstremverdiar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-10-1-n-section2",
+      "type": "text",
+      "content": "## Bokssplott og uteliggjarar\n\nEit **bokssplott** er ei grafisk framstilling som viser fem nøkkeltal -- den såkalla **femtalsoversikta**: minimum, $Q_1$, median ($Q_2$), $Q_3$ og maksimum.\n\nSjølve «boksen» strekkjer seg frå $Q_1$ til $Q_3$, med ei linje i midten for medianen. «Whiskers» (strekar) strekkjer seg ut til minimum og maksimum. Bokssplott er fantastiske for å samanlikne to datasett visuelt -- du kan med eitt blikk sjå kva for gruppe som har størst spreiing og om ei gruppe har eit høgare sentralpunkt.\n\nMen kva med verdiar som er veldig langt unna resten? Dei blir kalla **uteliggjarar**, og dei blir markerte som enkeltpunkt utanfor whiskers. Ein verdi er ein uteliggjar viss han ligg meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor $Q_1$ eller $Q_3$:\n\n- Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR}$\n- Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR}$\n\nVerdiar utanfor desse grensene er uteliggjarar. Whiskers strekkjer seg då berre til den siste verdien som *ikkje* er ein uteliggjar.\n\nEit døme: Talet på sjokoladebitar $13$ elevar åt i ei veke: $2, 3, 5, 6, 7, 7, 8, 9, 10, 11, 12, 14, 25$. Her er $Q_1 = 5{,}5$, $Q_2 = 8$, $Q_3 = 11{,}5$ og $\\text{IQR} = 6$. Den øvre grensa er $11{,}5 + 9 = 20{,}5$. Verdien $25$ er over denne grensa og er altså ein **uteliggjar** -- kanskje nokon hadde ei veldig god (eller dårleg?) sjokoladeveke!"
+    },
+    {
+      "id": "9-10-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-10-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på bokssplott og uteliggjarar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-10-1-n-quiz2-q0",
+            "task": "Leksetimar for $12$ elevar: $3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 20$. Er $20$ ein uteliggjar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, $20$ er over den øvre grensa",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Nei, $20$ er innanfor grensene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vi kan ikkje avgjere det utan meir informasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ja, men berre viss gjennomsnittet er under $10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$Q_1 = 5{,}5$, $Q_3 = 10{,}5$, $\\text{IQR} = 5$. Øvre grense: $10{,}5 + 7{,}5 = 18$. Verdien $20 > 18$, så $20$ er ein uteliggjar."
+          },
+          {
+            "id": "9-10-1-n-quiz2-q1",
+            "task": "To grupper har begge median $15$. Gruppe A har $\\text{IQR} = 6$ og Gruppe B har $\\text{IQR} = 14$. Kva kan vi seie?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Gruppe A har høgare gjennomsnitt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Gruppene er heilt like",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gruppe B har lågare resultat",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Gruppe B har mykje større spreiing i resultata",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sjølv om begge har same median, er spreiinga i gruppe B ($\\text{IQR} = 14$) meir enn dobbelt så stor som i gruppe A ($\\text{IQR} = 6$). Det er mykje større skilnader mellom elevane i gruppe B."
+          },
+          {
+            "id": "9-10-1-n-quiz2-q2",
+            "task": "Kvifor er IQR eit betre spreiingsmål enn variasjonsbreidda (maks $-$ min) når det finst uteliggjarar?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Fordi IQR ikkje blir påverka av ekstremverdiar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi IQR alltid er større",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi IQR er lettare å rekne ut",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi IQR bruker alle datapunkta",
+                "isCorrect": false
+              }
+            ],
+            "solution": "IQR måler berre spreiinga til dei midtarste $50\\%$ og ignorerer dei mest ekstreme verdiane. Variasjonsbreidda kan bli veldig stor på grunn av éin einaste uteliggjar, og gir då eit misvisande bilete."
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-10-1-n-section3",
+      "type": "text",
+      "content": "## Standardavvik -- den gjennomsnittlege avstanden frå gjennomsnittet\n\nMedan IQR berre ser på dei midtarste $50\\%$, finst det eit spreiingsmål som tek omsyn til **alle** datapunkta: **standardavviket**. Det måler den gjennomsnittlege avstanden frå gjennomsnittet.\n\nFormelen ser litt skremmande ut, men ideen er enkel:\n\n$$s = \\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n - 1}}$$\n\nSteg for steg:\n1. Finn gjennomsnittet $\\bar{x}$.\n2. For kvart datapunkt: finn avviket frå gjennomsnittet ($x_i - \\bar{x}$).\n3. Kvadrér kvart avvik (for å unngå at positive og negative avvik nullar kvarandre ut).\n4. Finn gjennomsnittet av dei kvadrerte avvika (del på $n - 1$).\n5. Ta kvadratrota.\n\nEit døme: Fem vener har $12, 15, 18, 20, 25$ appar. Gjennomsnittet er $\\bar{x} = 18$. Kvadrerte avvik: $36 + 9 + 0 + 4 + 49 = 98$. Standardavvik: $s = \\sqrt{\\frac{98}{4}} = \\sqrt{24{,}5} \\approx 4{,}95$. Verdiane avvik altså i gjennomsnitt ca. $5$ appar frå gjennomsnittet.\n\nEi viktig ting: standardavviket er **kjenslevart for uteliggjarar**, akkurat som gjennomsnittet. Éin ekstremt høg eller låg verdi kan blåse opp standardavviket dramatisk. Difor er median og IQR ofte betre val for skeive datasett."
+    },
+    {
+      "id": "9-10-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "9-10-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på standardavvik:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "9-10-1-n-quiz3-q0",
+            "task": "Datasettet $4, 7, 8, 10, 11$ har gjennomsnitt $8$. Kva er standardavviket?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$s \\approx 7{,}50$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$s \\approx 2{,}74$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$s \\approx 1{,}87$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$s \\approx 6{,}00$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvadrerte avvik: $16 + 1 + 0 + 4 + 9 = 30$. $s = \\sqrt{\\frac{30}{4}} = \\sqrt{7{,}5} \\approx 2{,}74$."
+          },
+          {
+            "id": "9-10-1-n-quiz3-q1",
+            "task": "Fråvær for $10$ elevar: $1, 2, 3, 3, 4, 5, 6, 8, 10, 35$. Gjennomsnitt er $7{,}7$ og standardavvik ca. $10{,}0$. Utan uteliggjaren $35$ er gjennomsnitt $4{,}7$ og standardavvik ca. $2{,}9$. Kva fortel dette?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Uteliggjarar har lita påverknad på statistikken",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Standardavviket er alltid ca. $10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Éin uteliggjar kan påverke gjennomsnitt og standardavvik dramatisk",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Medianen blir påverka like mykje som gjennomsnittet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uteliggjaren $35$ dreg gjennomsnittet frå $4{,}7$ til $7{,}7$ (over $60\\%$ auke) og tredoblar standardavviket frå ca. $2{,}9$ til ca. $10{,}0$. Éin einaste verdi endrar heile biletet!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "9-10-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nSentralmål åleine fortel ikkje heile historia -- vi treng spreiingsmål for å forstå kor spreidde dataa er.\n\n| Omgrep | Kva det måler | Robust mot uteliggjarar? |\n|--------|---------------|----------------------|\n| Variasjonsbreidd (maks $-$ min) | Total spreiing | Nei |\n| IQR ($Q_3 - Q_1$) | Spreiing for midtarste $50\\%$ | Ja |\n| Standardavvik ($s$) | Gjennomsnittleg avvik frå gjennomsnittet | Nei |\n\n- **Kvartilar** deler dataa i fire like store delar: $Q_1$ (25 %), $Q_2$ = median (50 %), $Q_3$ (75 %)\n- **Bokssplott** viser femtalsoversikta visuelt og markerer uteliggjarar\n- **Uteliggjarar** er verdiar meir enn $1{,}5 \\cdot \\text{IQR}$ frå $Q_1$ eller $Q_3$\n- Vel IQR/median for skeive data med uteliggjarar, og standardavvik/gjennomsnitt for symmetriske data"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "bafa0939709f4ecb",
+    "translatedAt": "2026-06-17T02:07:31.623Z",
+    "model": "claude-code-agent",
+    "strings": 55,
+    "tm": {
+      "2a48b3237e51ed56": "Spreiingsmål i praksis",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "dab00ed53f901396": "Ein forteljande gjennomgang av spreiingsmål -- kvartilar, interkvartilbreidd og bokssplott -- der vi utforskar kvifor gjennomsnittet åleine ikkje fortel heile historia.",
+      "09adc3edfa313d9f": "bruke sentralmål og spreiingsmål til å analysere og samanlikne datasett",
+      "ae6dbf0b4db71712": "## Gjennomsnittet lyg (nesten)\n\nTenk deg to fotballag. Begge har gjennomsnittleg $1{,}5$ mål per kamp i sesongen. Men det eine laget scorar konsekvent $1$ eller $2$ mål kvar kamp, medan det andre laget vekslar mellom $0$ og $6$ mål. Dei har likt gjennomsnitt, men opplevinga av å sjå kampane er vilt forskjellig!\n\nDet er dette **spreiingsmål** handlar om. Medan **sentralmål** (gjennomsnitt, median, typetal) fortel oss kvar «midten» av dataa ligg, fortel spreiingsmål oss kor **spreidde** dataa er rundt midten. Er verdiane samla tett saman, eller er dei vidt spreidde?\n\nI dette kapittelet lærer vi om tre viktige verktøy:\n- **Kvartilar** -- som deler dataa i fire like store delar\n- **Interkvartilbreidd (IQR)** -- som måler spreiinga til dei midtarste 50 %\n- **Bokssplott** -- som gir ei visuell oversikt over heile fordelinga",
+      "dadf472adc546263": "## Kvartilar -- å dele dataa i fire\n\nTenk deg at du sorterer alle elevane i klassen etter høgd, frå kortast til høgast. **Medianen** deler gruppa i to halvdelar. Men vi kan dele vidare: medianen av den nedre halvdelen gir **første kvartil** ($Q_1$), og medianen av den øvre halvdelen gir **tredje kvartil** ($Q_3$).\n\nNo har vi fire grupper:\n- Dei 25 % lågaste verdiane (under $Q_1$)\n- Dei neste 25 % (mellom $Q_1$ og medianen)\n- Dei neste 25 % (mellom medianen og $Q_3$)\n- Dei 25 % høgaste verdiane (over $Q_3$)\n\n**Slik finn du kvartilane:**\n1. Sorter dataa frå minst til størst.\n2. Finn medianen ($Q_2$) -- han deler datasettet i to halvdelar.\n3. Finn medianen av den nedre halvdelen ($Q_1$).\n4. Finn medianen av den øvre halvdelen ($Q_3$).\n\nViktig: Viss medianen er eitt av datapunkta (oddetal verdiar), blir han **ikkje** teken med i nokon av halvdelane.\n\nEit døme: Resultata til $11$ elevar på ein prøve (allereie sorterte): $7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18$. Medianen ($Q_2$) er verdi nummer $6$: $Q_2 = 12$. Nedre halvdel er $7, 8, 9, 10, 11$ med median $Q_1 = 9$. Øvre halvdel er $13, 14, 15, 16, 18$ med median $Q_3 = 15$.",
+      "2c35af3334bd1c33": "Test deg sjølv på kvartilar:",
+      "4097889236a2af26": "placeholder",
+      "87358e085e9335b5": "Resultata til $9$ elevar (sorterte): $14, 18, 20, 22, 24, 25, 27, 28, 30$. Kva er $Q_1$?",
+      "0a2e508bc812c488": "Medianen er verdi $5$: $Q_2 = 24$. Nedre halvdel: $14, 18, 20, 22$. $Q_1 = \\frac{18 + 20}{2} = 19$.",
+      "936d954da00c183d": "Eit datasett har $Q_1 = 12$ og $Q_3 = 28$. Kva er IQR?",
+      "1d7455dd66cc66cc": "$\\text{IQR} = Q_3 - Q_1 = 28 - 12 = 16$. IQR måler spreiinga til dei midtarste $50\\%$ av dataa.",
+      "06c1bdff94ba32fb": "Kva fortel IQR oss?",
+      "36e7c6f66204b332": "Skilnaden mellom største og minste verdi",
+      "00349e84f848345f": "Gjennomsnittet av dataa",
+      "fc6efe6f6379f9d4": "Spreiinga til dei midtarste $50\\%$ av dataa",
+      "466d62037839085f": "Talet på datapunkt",
+      "a6db91d0ce72ce39": "IQR $= Q_3 - Q_1$ måler spreiinga til dei midtarste $50\\%$ av dataa. Det er eit robust spreiingsmål som ikkje blir påverka av ekstremverdiar.",
+      "9b619c7e63891447": "## Bokssplott og uteliggjarar\n\nEit **bokssplott** er ei grafisk framstilling som viser fem nøkkeltal -- den såkalla **femtalsoversikta**: minimum, $Q_1$, median ($Q_2$), $Q_3$ og maksimum.\n\nSjølve «boksen» strekkjer seg frå $Q_1$ til $Q_3$, med ei linje i midten for medianen. «Whiskers» (strekar) strekkjer seg ut til minimum og maksimum. Bokssplott er fantastiske for å samanlikne to datasett visuelt -- du kan med eitt blikk sjå kva for gruppe som har størst spreiing og om ei gruppe har eit høgare sentralpunkt.\n\nMen kva med verdiar som er veldig langt unna resten? Dei blir kalla **uteliggjarar**, og dei blir markerte som enkeltpunkt utanfor whiskers. Ein verdi er ein uteliggjar viss han ligg meir enn $1{,}5 \\cdot \\text{IQR}$ utanfor $Q_1$ eller $Q_3$:\n\n- Nedre grense: $Q_1 - 1{,}5 \\cdot \\text{IQR}$\n- Øvre grense: $Q_3 + 1{,}5 \\cdot \\text{IQR}$\n\nVerdiar utanfor desse grensene er uteliggjarar. Whiskers strekkjer seg då berre til den siste verdien som *ikkje* er ein uteliggjar.\n\nEit døme: Talet på sjokoladebitar $13$ elevar åt i ei veke: $2, 3, 5, 6, 7, 7, 8, 9, 10, 11, 12, 14, 25$. Her er $Q_1 = 5{,}5$, $Q_2 = 8$, $Q_3 = 11{,}5$ og $\\text{IQR} = 6$. Den øvre grensa er $11{,}5 + 9 = 20{,}5$. Verdien $25$ er over denne grensa og er altså ein **uteliggjar** -- kanskje nokon hadde ei veldig god (eller dårleg?) sjokoladeveke!",
+      "ddcd6b59c70092be": "Test deg sjølv på bokssplott og uteliggjarar:",
+      "c383d85251a49eb3": "Leksetimar for $12$ elevar: $3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 20$. Er $20$ ein uteliggjar?",
+      "b9cfbd43d87dde70": "Ja, $20$ er over den øvre grensa",
+      "d6c745d5470b3774": "Nei, $20$ er innanfor grensene",
+      "ec8af792a5edbdf1": "Vi kan ikkje avgjere det utan meir informasjon",
+      "1e65e2680679cf7d": "Ja, men berre viss gjennomsnittet er under $10$",
+      "345ae138eb0d87dd": "$Q_1 = 5{,}5$, $Q_3 = 10{,}5$, $\\text{IQR} = 5$. Øvre grense: $10{,}5 + 7{,}5 = 18$. Verdien $20 > 18$, så $20$ er ein uteliggjar.",
+      "1ef3876fe672e42a": "To grupper har begge median $15$. Gruppe A har $\\text{IQR} = 6$ og Gruppe B har $\\text{IQR} = 14$. Kva kan vi seie?",
+      "175e86fa905eef88": "Gruppe A har høgare gjennomsnitt",
+      "d9e1f495784673b1": "Gruppe B har mykje større spreiing i resultata",
+      "33ee0dabd80f3f3d": "Gruppene er heilt like",
+      "6f003002870c24e9": "Gruppe B har lågare resultat",
+      "ece2b80b110d1030": "Sjølv om begge har same median, er spreiinga i gruppe B ($\\text{IQR} = 14$) meir enn dobbelt så stor som i gruppe A ($\\text{IQR} = 6$). Det er mykje større skilnader mellom elevane i gruppe B.",
+      "00ea3531765e4b8f": "Kvifor er IQR eit betre spreiingsmål enn variasjonsbreidda (maks $-$ min) når det finst uteliggjarar?",
+      "a70a991856b1376c": "Fordi IQR alltid er større",
+      "553f209724630bb7": "Fordi IQR er lettare å rekne ut",
+      "89582d67beca69f7": "Fordi IQR ikkje blir påverka av ekstremverdiar",
+      "f42443587412f414": "Fordi IQR bruker alle datapunkta",
+      "eb655198e3617965": "IQR måler berre spreiinga til dei midtarste $50\\%$ og ignorerer dei mest ekstreme verdiane. Variasjonsbreidda kan bli veldig stor på grunn av éin einaste uteliggjar, og gir då eit misvisande bilete.",
+      "d7ee65d476a17731": "## Standardavvik -- den gjennomsnittlege avstanden frå gjennomsnittet\n\nMedan IQR berre ser på dei midtarste $50\\%$, finst det eit spreiingsmål som tek omsyn til **alle** datapunkta: **standardavviket**. Det måler den gjennomsnittlege avstanden frå gjennomsnittet.\n\nFormelen ser litt skremmande ut, men ideen er enkel:\n\n$$s = \\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n - 1}}$$\n\nSteg for steg:\n1. Finn gjennomsnittet $\\bar{x}$.\n2. For kvart datapunkt: finn avviket frå gjennomsnittet ($x_i - \\bar{x}$).\n3. Kvadrér kvart avvik (for å unngå at positive og negative avvik nullar kvarandre ut).\n4. Finn gjennomsnittet av dei kvadrerte avvika (del på $n - 1$).\n5. Ta kvadratrota.\n\nEit døme: Fem vener har $12, 15, 18, 20, 25$ appar. Gjennomsnittet er $\\bar{x} = 18$. Kvadrerte avvik: $36 + 9 + 0 + 4 + 49 = 98$. Standardavvik: $s = \\sqrt{\\frac{98}{4}} = \\sqrt{24{,}5} \\approx 4{,}95$. Verdiane avvik altså i gjennomsnitt ca. $5$ appar frå gjennomsnittet.\n\nEi viktig ting: standardavviket er **kjenslevart for uteliggjarar**, akkurat som gjennomsnittet. Éin ekstremt høg eller låg verdi kan blåse opp standardavviket dramatisk. Difor er median og IQR ofte betre val for skeive datasett.",
+      "a2b9334eb1efe9da": "Test deg sjølv på standardavvik:",
+      "c9461ae5dfacf354": "Datasettet $4, 7, 8, 10, 11$ har gjennomsnitt $8$. Kva er standardavviket?",
+      "631d76c7f13218e6": "$s \\approx 2{,}74$",
+      "d9bf053fd61cbf6a": "$s \\approx 7{,}50$",
+      "b0cb583eab3ca991": "$s \\approx 1{,}87$",
+      "3247cbff3e8a720f": "$s \\approx 6{,}00$",
+      "fd3f134bc5170983": "Kvadrerte avvik: $16 + 1 + 0 + 4 + 9 = 30$. $s = \\sqrt{\\frac{30}{4}} = \\sqrt{7{,}5} \\approx 2{,}74$.",
+      "4be933483cfe1d58": "Fråvær for $10$ elevar: $1, 2, 3, 3, 4, 5, 6, 8, 10, 35$. Gjennomsnitt er $7{,}7$ og standardavvik ca. $10{,}0$. Utan uteliggjaren $35$ er gjennomsnitt $4{,}7$ og standardavvik ca. $2{,}9$. Kva fortel dette?",
+      "79afdcb4e66d4474": "Uteliggjarar har lita påverknad på statistikken",
+      "afb1e87bdfd1a67b": "Éin uteliggjar kan påverke gjennomsnitt og standardavvik dramatisk",
+      "7755cae37398fe4e": "Standardavviket er alltid ca. $10$",
+      "f6442e426b6b2f15": "Medianen blir påverka like mykje som gjennomsnittet",
+      "c5c79cbdd92113ff": "Uteliggjaren $35$ dreg gjennomsnittet frå $4{,}7$ til $7{,}7$ (over $60\\%$ auke) og tredoblar standardavviket frå ca. $2{,}9$ til ca. $10{,}0$. Éin einaste verdi endrar heile biletet!",
+      "4a363804cacf28d2": "## Oppsummering\n\nSentralmål åleine fortel ikkje heile historia -- vi treng spreiingsmål for å forstå kor spreidde dataa er.\n\n| Omgrep | Kva det måler | Robust mot uteliggjarar? |\n|--------|---------------|----------------------|\n| Variasjonsbreidd (maks $-$ min) | Total spreiing | Nei |\n| IQR ($Q_3 - Q_1$) | Spreiing for midtarste $50\\%$ | Ja |\n| Standardavvik ($s$) | Gjennomsnittleg avvik frå gjennomsnittet | Nei |\n\n- **Kvartilar** deler dataa i fire like store delar: $Q_1$ (25 %), $Q_2$ = median (50 %), $Q_3$ (75 %)\n- **Bokssplott** viser femtalsoversikta visuelt og markerer uteliggjarar\n- **Uteliggjarar** er verdiar meir enn $1{,}5 \\cdot \\text{IQR}$ frå $Q_1$ eller $Q_3$\n- Vel IQR/median for skeive data med uteliggjarar, og standardavvik/gjennomsnitt for symmetriske data"
+    }
+  }
+}

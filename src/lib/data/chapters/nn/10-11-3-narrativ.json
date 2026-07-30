@@ -1,1 +1,445 @@
-{"id":"10-11-3-narrativ","courseId":"10","chapterNumber":"11.3","title":"Matematisk programmering","subtitle":"Forteljing","description":"Ei forteljing om korleis Python kan løysa likningar, plotta funksjonar, simulera terningkast, jakte primtal og knusa statistikk.","estimatedMinutes":40,"competenceGoals":["utforska matematiske eigenskapar og samanhengar ved å bruka programmering","bruka programmering til å utforska sannsyn"],"linkedChapterId":"10-11-3","content":[{"id":"10-11-3-n-intro","type":"text","content":"## Når Python møter matematikk\n\nNå som du kan grunnleggjande Python, er det på tid å bruka det til noko verkeleg spennande: å utforska matematikk! Med eit program kan du gjera tusenvis av berekningar på sekund -- noko som ville teke timar for hand.\n\nTenk deg at du vil finna løysinga av ei vanskeleg likning, teikna grafen til ei funksjon, simulera 10 000 terningkast eller finna alle primtal opp til 100. Alt dette er eit lite Python-program unna. La oss dykka inn!"},{"id":"10-11-3-n-section1","type":"text","content":"## Løysa likningar numerisk -- prøva og feila med stil\n\nNokon likningar er vanskelege å løysa analytisk med formlar, men vi kan bruka programmering til å finna løysingar **numerisk**. Det betyr at vi prøver oss fram systematisk.\n\nEin **numerisk løysing** finn ein tilnærma verdi av svaret ved å testa mange verdiar. Vi definerer $f(x)$ som venstre side minus høgre side av likningen, og leiter etter $x$-verdiar der $f(x)$ er veldig nær null -- eller skiftar forteikn.\n\nLa oss prøva med likningen $x^3 - 2x - 5 = 0$. Vi søkjer mellom $x = 1$ og $x = 3$:\n\n```python\ndef f(x):\n    return x**3 - 2*x - 5\n\nx = 1.0\nsteg = 0.001\n\nwhile x <= 3.0:\n    if abs(f(x)) < 0.01:\n        print(f\"Mogleg løysing: x = {x:.3f}, f(x) = {f(x):.4f}\")\n    x += steg\n```\n\nProgrammet finn at løysinga er omtrent $x \\approx 2{,}094$. Vi kan sjekka: $2{,}094^3 - 2 \\cdot 2{,}094 - 5 \\approx 0$. Stemmer!\n\nDenna metoden fungerer fordi datamaskina kan testa tusenvis av verdiar på eit augeblikk. For likningen $x^2 - 4x + 1 = 0$ finn vi løysingane $x \\approx 0{,}268$ og $x \\approx 3{,}732$, som stemmer med abc-formelen: $x = 2 \\pm \\sqrt{3}$."},{"id":"10-11-3-n-section2","type":"text","content":"## Plotta funksjonar -- sjå matematikken\n\nEin av dei kraftigaste tingane vi kan gjera med programmering er å **teikna grafar**. Vi kan laga ei enkel tekstgraf rett i terminalen:\n\n```python\nfor x in range(-5, 6):\n    y = x**2\n    stolpar = \"*\" * y\n    print(f\"x = {x:3d} | {stolpar} ({y})\")\n```\n\nDette teiknar $f(x) = x^2$ med stjerner. Du kan tydleg sjå parabelforma: grafen er symmetrisk om $x = 0$ og stig raskt for store $|x|$.\n\nFor finare grafar kan du bruka biblioteket **matplotlib**:\n\n```python\nimport matplotlib.pyplot as plt\n\nx_verdiar = []\ny_verdiar = []\n\nfor i in range(-50, 51):\n    x = i / 10\n    x_verdiar.append(x)\n    y_verdiar.append(x**2)\n\nplt.plot(x_verdiar, y_verdiar)\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.title(\"f(x) = x^2\")\nplt.grid(True)\nplt.show()\n```\n\nMed matplotlib kan du og plotta fleire funksjonar i same graf, leggja til rutenett og aksetitlar, og eksportera grafen som bilete. Det er eit uvurderleg verktøy for å visualisera matematikk!"},{"id":"10-11-3-n-quiz1","type":"exercise","exercise":{"id":"10-11-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på numerisk løysing og plotting:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-3-n-quiz1-q0","task":"Kva betyr det å løysa ei likning \"numerisk\"?","options":[{"id":"a","text":"Å bruka formlar til å finna eksakt svar","isCorrect":false},{"id":"b","text":"Å testa mange verdiar systematisk for å finna ei tilnærma løysing","isCorrect":true},{"id":"c","text":"Å gjetta på svaret","isCorrect":false},{"id":"d","text":"Å bruka GeoGebra","isCorrect":false}],"solution":"Ein numerisk løysing finn ei tilnærma verdi ved å testa mange $x$-verdiar systematisk og sjå når $f(x)$ er nær null."},{"id":"10-11-3-n-quiz1-q1","task":"Når vi søkjer etter løysingar av $f(x) = 0$ numerisk, kva ser vi etter?","options":[{"id":"a","text":"Der $f(x)$ er storast mogleg","isCorrect":false},{"id":"b","text":"Der $f(x)$ er lik 1","isCorrect":false},{"id":"c","text":"Der $x$ er lik 0","isCorrect":false},{"id":"d","text":"Der $f(x)$ skiftar forteikn eller er veldig nær null","isCorrect":true}],"solution":"Vi leiter etter $x$-verdiar der $|f(x)|$ er veldig liten (nær null), eller der $f(x)$ skiftar forteikn frå positivt til negativt."},{"id":"10-11-3-n-quiz1-q2","task":"Kva gir koden: \"*\" * 5 i Python?","options":[{"id":"a","text":"\"*****\"","isCorrect":true},{"id":"b","text":"\"*5\"","isCorrect":false},{"id":"c","text":"5","isCorrect":false},{"id":"d","text":"Feilmelding","isCorrect":false}],"solution":"I Python gjenta `\"*\" * 5` stjernetegnet 5 gonger, og gir strengen `\"*****\"`."}],"solution":""}},{"id":"10-11-3-n-section3","type":"text","content":"## Monte Carlo-simulering -- terningkast på datamaskina\n\nEin av dei mest spennande bruksområda for programmering i matematikk er å **simulera tilfeldige forsøk**. I staden for å berekna sannsyn med formlar, kan vi la datamaskina gjenta forsoket tusenvis av gonger og telja utfalla. Denne metoden kallast **Monte Carlo-simulering**, oppkalla etter det berømt kasinoet i Monte Carlo.\n\nPrinsippet er enkelt:\n\n$$P(\\text{hendelse}) \\approx \\frac{\\text{antall gunstige utfall}}{\\text{totalt antall forsøk}}$$\n\nJo fleire forsøk vi gjer, desto nærare kjem vi den eksakte sannsynet. Med 10 000 forsøk får vi vanlegvis eit godt estimat.\n\nI Python brukar vi `random`-modulen:\n\n```python\nimport random\n\nterning = random.randint(1, 6)     # Tilfeldig heiltall frå 1 til 6\nmynt = random.choice([\"kron\", \"mynt\"])  # Tilfeldig val\n```\n\nLa oss simulera 10 000 kast med to terningar og finna sannsynet for å få summen 7:\n\n```python\nimport random\n\nantall_forsøk = 10000\nantall_syv = 0\n\nfor i in range(antall_forsøk):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_syv += 1\n\nsannsyn = antall_syv / antall_forsøk\nprint(f\"Estimert sannsyn: {sannsyn:.4f}\")\n```\n\nTypisk utskrift: ca. $0{,}167$. Den eksakte sannsynet er $\\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$ (det er 6 gunstige utfall: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ av totalt $36$ moglege). Simuleringen stemmer!\n\nDu kan og bruka Monte Carlo til å estimera $\\pi$! Generer tilfeldige punkt $(x, y)$ i eit einingskvadrat og tell kor mange som hamnar innanfor kvartsirkelen $x^2 + y^2 \\leq 1$. Då er $\\pi \\approx 4 \\cdot \\frac{\\text{innanfor}}{\\text{totalt}}$, fordi arealet av kvartsirkelen er $\\frac{\\pi}{4}$."},{"id":"10-11-3-n-quiz2","type":"exercise","exercise":{"id":"10-11-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på Monte Carlo-simulering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-3-n-quiz2-q0","task":"Kva er ein Monte Carlo-simulering?","options":[{"id":"a","text":"Ein metode for å løysa likningar analytisk","isCorrect":false},{"id":"b","text":"Ein metode som brukar tilfeldige tal til å estimera eit resultat gjennom mange forsøk","isCorrect":true},{"id":"c","text":"Ein sorteringsalgoritme","isCorrect":false},{"id":"d","text":"Ein metode for å teikna grafar","isCorrect":false}],"solution":"Monte Carlo-simulering brukar tilfeldige tal til å gjenta eit forsøk mange gonger og estimera sannsynet eller andre resultat."},{"id":"10-11-3-n-quiz2-q1","task":"Kva gir random.randint(1, 6) i Python?","options":[{"id":"a","text":"Eit tilfeldig desimaltal mellom 1 og 6","isCorrect":false},{"id":"b","text":"Alltid talet 6","isCorrect":false},{"id":"c","text":"Eit tilfeldig heiltall frå 1 til 6 (inkludert begge)","isCorrect":true},{"id":"d","text":"Eit tilfeldig heiltall frå 1 til 5","isCorrect":false}],"solution":"`random.randint(1, 6)` gir eit tilfeldig heiltall frå og med 1 til og med 6. Perfekt for å simulera eit terningkast!"},{"id":"10-11-3-n-quiz2-q2","task":"Vi kastar to terningar. Kva er den eksakte sannsynligheten for å få minst ein seksar?","options":[{"id":"a","text":"$\\frac{1}{6}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"c","text":"$\\frac{11}{36}$","isCorrect":true},{"id":"d","text":"$\\frac{12}{36}$","isCorrect":false}],"solution":"$P(\\text{minst ein 6}) = 1 - P(\\text{ingen 6}) = 1 - \\frac{5}{6} \\cdot \\frac{5}{6} = 1 - \\frac{25}{36} = \\frac{11}{36} \\approx 0{,}306$."}],"solution":""}},{"id":"10-11-3-n-section4","type":"text","content":"## Primtalsletjing med Python\n\nEit **primtal** er eit tal større enn 1 som berre er delelig med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$ Å finne store primtal er viktig i kryptografi -- det er primtal som gjer at nettbank og passord er trygge!\n\nHer er eit smart triks: for å sjekke om $n$ er eit primtal, treng vi berre å teste divisorar opp til $\\sqrt{n}$. Kvifor? Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, ville $a \\cdot b > n$.\n\n```python\nimport math\n\ntal = int(input(\"Skriv inn eit tal: \"))\n\nif tal < 2:\n    print(f\"{tal} er ikkje eit primtal\")\nelse:\n    er_primtal = True\n    for i in range(2, int(math.sqrt(tal)) + 1):\n        if tal % i == 0:\n            er_primtal = False\n            break\n    if er_primtal:\n        print(f\"{tal} er eit primtal\")\n    else:\n        print(f\"{tal} er ikkje eit primtal\")\n```\n\nFor $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar berre 2, 3, 4, 5, 6, 7, 8, 9. Ingen deler 97, så 97 er eit primtal! Det er 25 primtal mellom 2 og 100.\n\n## Statistikk med Python\n\nNår vi har store datamengder, er programmering uvurderleg for å rekne ut statistiske målestokkar. Dei viktigaste er:\n\n- **Gjennomsnitt**: $\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$\n- **Median**: Den midterste verdien i sortert rekkjefølgje (for oddetal $n$: element nr. $n//2$; for partal $n$: gjennomsnittet av dei to midterste)\n- **Typetal**: Verdien som forekjem oftast\n- **Variasjonsbrei**: Største verdi minus minste verdi\n\n```python\nkarakterar = [4, 5, 3, 6, 5, 4, 5, 3, 4, 6]\nsortert = sorted(karakterar)\nn = len(sortert)\n\ngjennomsnitt = sum(karakterar) / n\nif n % 2 == 1:\n    median = sortert[n // 2]\nelse:\n    median = (sortert[n // 2 - 1] + sortert[n // 2]) / 2\n\ntypetal = max(set(karakterar), key=karakterar.count)\nvariasjonsbrei = max(karakterar) - min(karakterar)\n\nprint(f\"Gjennomsnitt: {gjennomsnitt:.1f}\")\nprint(f\"Median: {median}\")\nprint(f\"Typetal: {typetal}\")\nprint(f\"Variasjonsbrei: {variasjonsbrei}\")\n```\n\nResultatet: Gjennomsnitt $= 4{,}5$, median $= 4{,}5$, typetal $= 4$ (og 5, begge forekjem 3 gonger), variasjonsbrei $= 3$."},{"id":"10-11-3-n-quiz3","type":"exercise","exercise":{"id":"10-11-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på primtal og statistikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-3-n-quiz3-q0","task":"Kvifor treng vi berre å sjekke divisorar opp til $\\sqrt{n}$ når vi testar om $n$ er eit primtal?","options":[{"id":"a","text":"Fordi det er ein tommelfingerregel utan matematisk grunngiving","isCorrect":false},{"id":"b","text":"Fordi alle primtal er mindre enn $\\sqrt{n}$","isCorrect":false},{"id":"c","text":"Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, så ville $a \\cdot b > n$","isCorrect":true},{"id":"d","text":"Fordi Python ikkje klarer å sjekke fleire tal","isCorrect":false}],"solution":"Viss $n$ har ein faktor $a > \\sqrt{n}$, må den andre faktoren $b = n/a$ vere mindre enn $\\sqrt{n}$, og vi ville allereie ha funne ho."},{"id":"10-11-3-n-quiz3-q1","task":"Kva er medianen av tala $3, 7, 2, 9, 5$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$5{,}2$","isCorrect":false},{"id":"c","text":"$5$","isCorrect":true},{"id":"d","text":"$3$","isCorrect":false}],"solution":"Sorter: $2, 3, 5, 7, 9$. Med 5 tal (oddetal) er medianen det midterste elementet, som er $5$."},{"id":"10-11-3-n-quiz3-q2","task":"Kor mange primtal er det mellom 2 og 20?","options":[{"id":"a","text":"6","isCorrect":false},{"id":"b","text":"7","isCorrect":false},{"id":"c","text":"8","isCorrect":true},{"id":"d","text":"9","isCorrect":false}],"solution":"Primtala mellom 2 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykker."},{"id":"10-11-3-n-quiz3-q3","task":"Kva er variasjonsbrei til tala $[2, 8, 3, 15, 6]$?","options":[{"id":"a","text":"$6{,}8$","isCorrect":false},{"id":"b","text":"$15$","isCorrect":false},{"id":"c","text":"$12$","isCorrect":false},{"id":"d","text":"$13$","isCorrect":true}],"solution":"Variasjonsbrei = største verdi minus minste verdi = $15 - 2 = 13$."}],"solution":""}},{"id":"10-11-3-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har du sett kor kraftig kombinasjonen av Python og matematikk er:\n\n- **Numerisk likningsløysing**: Vi kan teste mange $x$-verdiar systematisk for å finne der $f(x) \\approx 0$, sjølv for likningar som er vanskelege å løyse med formlar.\n- **Plottar funksjonar**: Vi kan lage tekstgrafer med stjernor eller bruke matplotlib for profesjonelle grafar som visualiserer matematiske samanhengar.\n- **Monte Carlo-simulering**: Ved å bruke tilfeldige tal kan vi estimere sannsynleikaar gjennom mange forsøk. Jo fleire forsøk, desto betre estimat. Formelen er $P \\approx \\frac{\\text{gunstige}}{\\text{totalt}}$.\n- **Primtal**: Vi kan sjekke om tal er primtal ved å teste divisorar opp til $\\sqrt{n}$. Det er 25 primtal mellom 2 og 100.\n- **Statistikk**: Python gjer det enkelt å rekne ut gjennomsnitt, median, typetal og variasjonsbrei for store datamengder med funksjonar som `sum()`, `len()`, `sorted()`, `min()` og `max()`.\n\nProgrammering er ikkje berre eit hjelpemiddel -- det er ein måte å tenkje på. Når du lærer å programmere, lærer du å bryte ned problem i små steg, tenkje logisk og automatisere løysingar. Det er ferdigheiter du får bruk for langt utanfor matematikktimane!"}],"exercises":[],"_meta":{"sourceHash":"f3a8f75546cf059e","translatedAt":"2026-06-16T09:40:45.153Z","model":"claude-haiku-4-5-20251001","strings":62,"tm":{"6a3a10a17cfd109d":"Matematisk programmering","b195b06d1ed59702":"Forteljing","6efd09ffc6bc05e4":"Ei forteljing om korleis Python kan løysa likningar, plotta funksjonar, simulera terningkast, jakte primtal og knusa statistikk.","2f6a47f720b783b8":"utforska matematiske eigenskapar og samanhengar ved å bruka programmering","a22d453450698bda":"bruka programmering til å utforska sannsyn","f8ae78df3e669144":"## Når Python møter matematikk\n\nNå som du kan grunnleggjande Python, er det på tid å bruka det til noko verkeleg spennande: å utforska matematikk! Med eit program kan du gjera tusenvis av berekningar på sekund -- noko som ville teke timar for hand.\n\nTenk deg at du vil finna løysinga av ei vanskeleg likning, teikna grafen til ei funksjon, simulera 10 000 terningkast eller finna alle primtal opp til 100. Alt dette er eit lite Python-program unna. La oss dykka inn!","c9dfcb3b9f62f8e8":"## Løysa likningar numerisk -- prøva og feila med stil\n\nNokon likningar er vanskelege å løysa analytisk med formlar, men vi kan bruka programmering til å finna løysingar **numerisk**. Det betyr at vi prøver oss fram systematisk.\n\nEin **numerisk løysing** finn ein tilnærma verdi av svaret ved å testa mange verdiar. Vi definerer $f(x)$ som venstre side minus høgre side av likningen, og leiter etter $x$-verdiar der $f(x)$ er veldig nær null -- eller skiftar forteikn.\n\nLa oss prøva med likningen $x^3 - 2x - 5 = 0$. Vi søkjer mellom $x = 1$ og $x = 3$:\n\n```python\ndef f(x):\n    return x**3 - 2*x - 5\n\nx = 1.0\nsteg = 0.001\n\nwhile x <= 3.0:\n    if abs(f(x)) < 0.01:\n        print(f\"Mogleg løysing: x = {x:.3f}, f(x) = {f(x):.4f}\")\n    x += steg\n```\n\nProgrammet finn at løysinga er omtrent $x \\approx 2{,}094$. Vi kan sjekka: $2{,}094^3 - 2 \\cdot 2{,}094 - 5 \\approx 0$. Stemmer!\n\nDenna metoden fungerer fordi datamaskina kan testa tusenvis av verdiar på eit augeblikk. For likningen $x^2 - 4x + 1 = 0$ finn vi løysingane $x \\approx 0{,}268$ og $x \\approx 3{,}732$, som stemmer med abc-formelen: $x = 2 \\pm \\sqrt{3}$.","ea006b5dc6869e6b":"## Plotta funksjonar -- sjå matematikken\n\nEin av dei kraftigaste tingane vi kan gjera med programmering er å **teikna grafar**. Vi kan laga ei enkel tekstgraf rett i terminalen:\n\n```python\nfor x in range(-5, 6):\n    y = x**2\n    stolpar = \"*\" * y\n    print(f\"x = {x:3d} | {stolpar} ({y})\")\n```\n\nDette teiknar $f(x) = x^2$ med stjerner. Du kan tydleg sjå parabelforma: grafen er symmetrisk om $x = 0$ og stig raskt for store $|x|$.\n\nFor finare grafar kan du bruka biblioteket **matplotlib**:\n\n```python\nimport matplotlib.pyplot as plt\n\nx_verdiar = []\ny_verdiar = []\n\nfor i in range(-50, 51):\n    x = i / 10\n    x_verdiar.append(x)\n    y_verdiar.append(x**2)\n\nplt.plot(x_verdiar, y_verdiar)\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.title(\"f(x) = x^2\")\nplt.grid(True)\nplt.show()\n```\n\nMed matplotlib kan du og plotta fleire funksjonar i same graf, leggja til rutenett og aksetitlar, og eksportera grafen som bilete. Det er eit uvurderleg verktøy for å visualisera matematikk!","d3d0c880c0aa13ca":"Test deg sjølv på numerisk løysing og plotting:","4097889236a2af26":"placeholder","78e8aaf057c6e68b":"Kva betyr det å løysa ei likning \"numerisk\"?","c0b0c33b6b0441a6":"Å bruka formlar til å finna eksakt svar","114f1ff5988a12d2":"Å testa mange verdiar systematisk for å finna ei tilnærma løysing","601909d98f6cae0f":"Å gjetta på svaret","b3e827038500ec8e":"Å bruka GeoGebra","f5602981bc82afb3":"Ein numerisk løysing finn ei tilnærma verdi ved å testa mange $x$-verdiar systematisk og sjå når $f(x)$ er nær null.","4f92cfb05fd3d13f":"Når vi søkjer etter løysingar av $f(x) = 0$ numerisk, kva ser vi etter?","eb7bfeddf2cf4f3a":"Der $f(x)$ er storast mogleg","5b4636dbaadcc68d":"Der $f(x)$ er lik 1","8ddbf183cdcd17ff":"Der $x$ er lik 0","75871896081bfc41":"Der $f(x)$ skiftar forteikn eller er veldig nær null","693a6ab117c1ceaa":"Vi leiter etter $x$-verdiar der $|f(x)|$ er veldig liten (nær null), eller der $f(x)$ skiftar forteikn frå positivt til negativt.","f9d53bcec9bd69cd":"Kva gir koden: \"*\" * 5 i Python?","5b4cdfb1308286a1":"Feilmelding","f33f8bad064515ca":"I Python gjenta `\"*\" * 5` stjernetegnet 5 gonger, og gir strengen `\"*****\"`.","d8a11ba433114941":"## Monte Carlo-simulering -- terningkast på datamaskina\n\nEin av dei mest spennande bruksområda for programmering i matematikk er å **simulera tilfeldige forsøk**. I staden for å berekna sannsyn med formlar, kan vi la datamaskina gjenta forsoket tusenvis av gonger og telja utfalla. Denne metoden kallast **Monte Carlo-simulering**, oppkalla etter det berømt kasinoet i Monte Carlo.\n\nPrinsippet er enkelt:\n\n$$P(\\text{hendelse}) \\approx \\frac{\\text{antall gunstige utfall}}{\\text{totalt antall forsøk}}$$\n\nJo fleire forsøk vi gjer, desto nærare kjem vi den eksakte sannsynet. Med 10 000 forsøk får vi vanlegvis eit godt estimat.\n\nI Python brukar vi `random`-modulen:\n\n```python\nimport random\n\nterning = random.randint(1, 6)     # Tilfeldig heiltall frå 1 til 6\nmynt = random.choice([\"kron\", \"mynt\"])  # Tilfeldig val\n```\n\nLa oss simulera 10 000 kast med to terningar og finna sannsynet for å få summen 7:\n\n```python\nimport random\n\nantall_forsøk = 10000\nantall_syv = 0\n\nfor i in range(antall_forsøk):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_syv += 1\n\nsannsyn = antall_syv / antall_forsøk\nprint(f\"Estimert sannsyn: {sannsyn:.4f}\")\n```\n\nTypisk utskrift: ca. $0{,}167$. Den eksakte sannsynet er $\\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$ (det er 6 gunstige utfall: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ av totalt $36$ moglege). Simuleringen stemmer!\n\nDu kan og bruka Monte Carlo til å estimera $\\pi$! Generer tilfeldige punkt $(x, y)$ i eit einingskvadrat og tell kor mange som hamnar innanfor kvartsirkelen $x^2 + y^2 \\leq 1$. Då er $\\pi \\approx 4 \\cdot \\frac{\\text{innanfor}}{\\text{totalt}}$, fordi arealet av kvartsirkelen er $\\frac{\\pi}{4}$.","0a94d8d733cd58e5":"Test deg sjølv på Monte Carlo-simulering:","9b7d83b9d6c33037":"Kva er ein Monte Carlo-simulering?","5d8ef80f5e6f5156":"Ein metode for å løysa likningar analytisk","426f223a74a1d0c7":"Ein metode som brukar tilfeldige tal til å estimera eit resultat gjennom mange forsøk","3a38beac6a566a20":"Ein sorteringsalgoritme","01ba60982b9db04a":"Ein metode for å teikna grafar","8184363904453d67":"Monte Carlo-simulering brukar tilfeldige tal til å gjenta eit forsøk mange gonger og estimera sannsynet eller andre resultat.","b86bbb46626acb8f":"Kva gir random.randint(1, 6) i Python?","ab8258ecf427c58c":"Eit tilfeldig desimaltal mellom 1 og 6","80a997066f0cefc9":"Alltid talet 6","7b45d07ba6d797d9":"Eit tilfeldig heiltall frå 1 til 6 (inkludert begge)","e327d89fcf3c9077":"Eit tilfeldig heiltall frå 1 til 5","93a72a1924644bdd":"`random.randint(1, 6)` gir eit tilfeldig heiltall frå og med 1 til og med 6. Perfekt for å simulera eit terningkast!","cd6ffb66aa522276":"Vi kastar to terningar. Kva er den eksakte sannsynligheten for å få minst ein seksar?","ed2f0dca805db9c6":"$\\frac{1}{6}$","b87bda455923b2a6":"$\\frac{1}{3}$","5bcf29064df10cd4":"$\\frac{11}{36}$","22ef5b5497581c0b":"$\\frac{12}{36}$","5cb4fe9158dce2d1":"$P(\\text{minst ein 6}) = 1 - P(\\text{ingen 6}) = 1 - \\frac{5}{6} \\cdot \\frac{5}{6} = 1 - \\frac{25}{36} = \\frac{11}{36} \\approx 0{,}306$.","dc698e0840d0d070":"## Primtalsletjing med Python\n\nEit **primtal** er eit tal større enn 1 som berre er delelig med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$ Å finne store primtal er viktig i kryptografi -- det er primtal som gjer at nettbank og passord er trygge!\n\nHer er eit smart triks: for å sjekke om $n$ er eit primtal, treng vi berre å teste divisorar opp til $\\sqrt{n}$. Kvifor? Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, ville $a \\cdot b > n$.\n\n```python\nimport math\n\ntal = int(input(\"Skriv inn eit tal: \"))\n\nif tal < 2:\n    print(f\"{tal} er ikkje eit primtal\")\nelse:\n    er_primtal = True\n    for i in range(2, int(math.sqrt(tal)) + 1):\n        if tal % i == 0:\n            er_primtal = False\n            break\n    if er_primtal:\n        print(f\"{tal} er eit primtal\")\n    else:\n        print(f\"{tal} er ikkje eit primtal\")\n```\n\nFor $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar berre 2, 3, 4, 5, 6, 7, 8, 9. Ingen deler 97, så 97 er eit primtal! Det er 25 primtal mellom 2 og 100.\n\n## Statistikk med Python\n\nNår vi har store datamengder, er programmering uvurderleg for å rekne ut statistiske målestokkar. Dei viktigaste er:\n\n- **Gjennomsnitt**: $\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$\n- **Median**: Den midterste verdien i sortert rekkjefølgje (for oddetal $n$: element nr. $n//2$; for partal $n$: gjennomsnittet av dei to midterste)\n- **Typetal**: Verdien som forekjem oftast\n- **Variasjonsbrei**: Største verdi minus minste verdi\n\n```python\nkarakterar = [4, 5, 3, 6, 5, 4, 5, 3, 4, 6]\nsortert = sorted(karakterar)\nn = len(sortert)\n\ngjennomsnitt = sum(karakterar) / n\nif n % 2 == 1:\n    median = sortert[n // 2]\nelse:\n    median = (sortert[n // 2 - 1] + sortert[n // 2]) / 2\n\ntypetal = max(set(karakterar), key=karakterar.count)\nvariasjonsbrei = max(karakterar) - min(karakterar)\n\nprint(f\"Gjennomsnitt: {gjennomsnitt:.1f}\")\nprint(f\"Median: {median}\")\nprint(f\"Typetal: {typetal}\")\nprint(f\"Variasjonsbrei: {variasjonsbrei}\")\n```\n\nResultatet: Gjennomsnitt $= 4{,}5$, median $= 4{,}5$, typetal $= 4$ (og 5, begge forekjem 3 gonger), variasjonsbrei $= 3$.","f10ac7880a3ebc1a":"Test deg sjølv på primtal og statistikk:","22b57a80f8ad32c9":"Kvifor treng vi berre å sjekke divisorar opp til $\\sqrt{n}$ når vi testar om $n$ er eit primtal?","9026fc1340dacbfb":"Fordi det er ein tommelfingerregel utan matematisk grunngiving","d902e18fc1f325ec":"Fordi alle primtal er mindre enn $\\sqrt{n}$","94ae74ab5b34167d":"Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, så ville $a \\cdot b > n$","5525d7cd1b54cc81":"Fordi Python ikkje klarer å sjekke fleire tal","7829b0157a0e9abc":"Viss $n$ har ein faktor $a > \\sqrt{n}$, må den andre faktoren $b = n/a$ vere mindre enn $\\sqrt{n}$, og vi ville allereie ha funne ho.","46e5ee20aec3a81f":"Kva er medianen av tala $3, 7, 2, 9, 5$?","85a8286a76b040c7":"Sorter: $2, 3, 5, 7, 9$. Med 5 tal (oddetal) er medianen det midterste elementet, som er $5$.","8bcded0f677456c3":"Kor mange primtal er det mellom 2 og 20?","99a2fb6f282da88f":"Primtala mellom 2 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykker.","ef9bb44ea2c9cb27":"Kva er variasjonsbrei til tala $[2, 8, 3, 15, 6]$?","fc0e92c0fd85a062":"Variasjonsbrei = største verdi minus minste verdi = $15 - 2 = 13$.","344f36a291864576":"## Oppsummering\n\nI dette kapittelet har du sett kor kraftig kombinasjonen av Python og matematikk er:\n\n- **Numerisk likningsløysing**: Vi kan teste mange $x$-verdiar systematisk for å finne der $f(x) \\approx 0$, sjølv for likningar som er vanskelege å løyse med formlar.\n- **Plottar funksjonar**: Vi kan lage tekstgrafer med stjernor eller bruke matplotlib for profesjonelle grafar som visualiserer matematiske samanhengar.\n- **Monte Carlo-simulering**: Ved å bruke tilfeldige tal kan vi estimere sannsynleikaar gjennom mange forsøk. Jo fleire forsøk, desto betre estimat. Formelen er $P \\approx \\frac{\\text{gunstige}}{\\text{totalt}}$.\n- **Primtal**: Vi kan sjekke om tal er primtal ved å teste divisorar opp til $\\sqrt{n}$. Det er 25 primtal mellom 2 og 100.\n- **Statistikk**: Python gjer det enkelt å rekne ut gjennomsnitt, median, typetal og variasjonsbrei for store datamengder med funksjonar som `sum()`, `len()`, `sorted()`, `min()` og `max()`.\n\nProgrammering er ikkje berre eit hjelpemiddel -- det er ein måte å tenkje på. Når du lærer å programmere, lærer du å bryte ned problem i små steg, tenkje logisk og automatisere løysingar. Det er ferdigheiter du får bruk for langt utanfor matematikktimane!"}}}
+{
+  "id": "10-11-3-narrativ",
+  "courseId": "10",
+  "chapterNumber": "11.3",
+  "title": "Matematisk programmering",
+  "subtitle": "Forteljing",
+  "description": "Ei forteljing om korleis Python kan løysa likningar, plotta funksjonar, simulera terningkast, jakte primtal og knusa statistikk.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "utforska matematiske eigenskapar og samanhengar ved å bruka programmering",
+    "bruka programmering til å utforska sannsyn"
+  ],
+  "linkedChapterId": "10-11-3",
+  "content": [
+    {
+      "id": "10-11-3-n-intro",
+      "type": "text",
+      "content": "## Når Python møter matematikk\n\nNå som du kan grunnleggjande Python, er det på tid å bruka det til noko verkeleg spennande: å utforska matematikk! Med eit program kan du gjera tusenvis av berekningar på sekund -- noko som ville teke timar for hand.\n\nTenk deg at du vil finna løysinga av ei vanskeleg likning, teikna grafen til ei funksjon, simulera 10 000 terningkast eller finna alle primtal opp til 100. Alt dette er eit lite Python-program unna. La oss dykka inn!"
+    },
+    {
+      "id": "10-11-3-n-section1",
+      "type": "text",
+      "content": "## Løysa likningar numerisk -- prøva og feila med stil\n\nNokon likningar er vanskelege å løysa analytisk med formlar, men vi kan bruka programmering til å finna løysingar **numerisk**. Det betyr at vi prøver oss fram systematisk.\n\nEin **numerisk løysing** finn ein tilnærma verdi av svaret ved å testa mange verdiar. Vi definerer $f(x)$ som venstre side minus høgre side av likningen, og leiter etter $x$-verdiar der $f(x)$ er veldig nær null -- eller skiftar forteikn.\n\nLa oss prøva med likningen $x^3 - 2x - 5 = 0$. Vi søkjer mellom $x = 1$ og $x = 3$:\n\n```python\ndef f(x):\n    return x**3 - 2*x - 5\n\nx = 1.0\nsteg = 0.001\n\nwhile x <= 3.0:\n    if abs(f(x)) < 0.01:\n        print(f\"Mogleg løysing: x = {x:.3f}, f(x) = {f(x):.4f}\")\n    x += steg\n```\n\nProgrammet finn at løysinga er omtrent $x \\approx 2{,}094$. Vi kan sjekka: $2{,}094^3 - 2 \\cdot 2{,}094 - 5 \\approx 0$. Stemmer!\n\nDenna metoden fungerer fordi datamaskina kan testa tusenvis av verdiar på eit augeblikk. For likningen $x^2 - 4x + 1 = 0$ finn vi løysingane $x \\approx 0{,}268$ og $x \\approx 3{,}732$, som stemmer med abc-formelen: $x = 2 \\pm \\sqrt{3}$."
+    },
+    {
+      "id": "10-11-3-n-section2",
+      "type": "text",
+      "content": "## Plotta funksjonar -- sjå matematikken\n\nEin av dei kraftigaste tingane vi kan gjera med programmering er å **teikna grafar**. Vi kan laga ei enkel tekstgraf rett i terminalen:\n\n```python\nfor x in range(-5, 6):\n    y = x**2\n    stolpar = \"*\" * y\n    print(f\"x = {x:3d} | {stolpar} ({y})\")\n```\n\nDette teiknar $f(x) = x^2$ med stjerner. Du kan tydleg sjå parabelforma: grafen er symmetrisk om $x = 0$ og stig raskt for store $|x|$.\n\nFor finare grafar kan du bruka biblioteket **matplotlib**:\n\n```python\nimport matplotlib.pyplot as plt\n\nx_verdiar = []\ny_verdiar = []\n\nfor i in range(-50, 51):\n    x = i / 10\n    x_verdiar.append(x)\n    y_verdiar.append(x**2)\n\nplt.plot(x_verdiar, y_verdiar)\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.title(\"f(x) = x^2\")\nplt.grid(True)\nplt.show()\n```\n\nMed matplotlib kan du og plotta fleire funksjonar i same graf, leggja til rutenett og aksetitlar, og eksportera grafen som bilete. Det er eit uvurderleg verktøy for å visualisera matematikk!"
+    },
+    {
+      "id": "10-11-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på numerisk løysing og plotting:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-3-n-quiz1-q0",
+            "task": "Kva betyr det å løysa ei likning \"numerisk\"?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å testa mange verdiar systematisk for å finna ei tilnærma løysing",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å bruka formlar til å finna eksakt svar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å gjetta på svaret",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å bruka GeoGebra",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein numerisk løysing finn ei tilnærma verdi ved å testa mange $x$-verdiar systematisk og sjå når $f(x)$ er nær null."
+          },
+          {
+            "id": "10-11-3-n-quiz1-q1",
+            "task": "Når vi søkjer etter løysingar av $f(x) = 0$ numerisk, kva ser vi etter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Der $f(x)$ er storast mogleg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Der $f(x)$ skiftar forteikn eller er veldig nær null",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Der $f(x)$ er lik 1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Der $x$ er lik 0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi leiter etter $x$-verdiar der $|f(x)|$ er veldig liten (nær null), eller der $f(x)$ skiftar forteikn frå positivt til negativt."
+          },
+          {
+            "id": "10-11-3-n-quiz1-q2",
+            "task": "Kva gir koden: \"*\" * 5 i Python?",
+            "options": [
+              {
+                "id": "b",
+                "text": "\"*5\"",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "5",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "\"*****\"",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I Python gjenta `\"*\" * 5` stjernetegnet 5 gonger, og gir strengen `\"*****\"`."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-3-n-section3",
+      "type": "text",
+      "content": "## Monte Carlo-simulering -- terningkast på datamaskina\n\nEin av dei mest spennande bruksområda for programmering i matematikk er å **simulera tilfeldige forsøk**. I staden for å berekna sannsyn med formlar, kan vi la datamaskina gjenta forsoket tusenvis av gonger og telja utfalla. Denne metoden kallast **Monte Carlo-simulering**, oppkalla etter det berømt kasinoet i Monte Carlo.\n\nPrinsippet er enkelt:\n\n$$P(\\text{hendelse}) \\approx \\frac{\\text{antall gunstige utfall}}{\\text{totalt antall forsøk}}$$\n\nJo fleire forsøk vi gjer, desto nærare kjem vi den eksakte sannsynet. Med 10 000 forsøk får vi vanlegvis eit godt estimat.\n\nI Python brukar vi `random`-modulen:\n\n```python\nimport random\n\nterning = random.randint(1, 6)     # Tilfeldig heiltall frå 1 til 6\nmynt = random.choice([\"kron\", \"mynt\"])  # Tilfeldig val\n```\n\nLa oss simulera 10 000 kast med to terningar og finna sannsynet for å få summen 7:\n\n```python\nimport random\n\nantall_forsøk = 10000\nantall_syv = 0\n\nfor i in range(antall_forsøk):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_syv += 1\n\nsannsyn = antall_syv / antall_forsøk\nprint(f\"Estimert sannsyn: {sannsyn:.4f}\")\n```\n\nTypisk utskrift: ca. $0{,}167$. Den eksakte sannsynet er $\\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$ (det er 6 gunstige utfall: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ av totalt $36$ moglege). Simuleringen stemmer!\n\nDu kan og bruka Monte Carlo til å estimera $\\pi$! Generer tilfeldige punkt $(x, y)$ i eit einingskvadrat og tell kor mange som hamnar innanfor kvartsirkelen $x^2 + y^2 \\leq 1$. Då er $\\pi \\approx 4 \\cdot \\frac{\\text{innanfor}}{\\text{totalt}}$, fordi arealet av kvartsirkelen er $\\frac{\\pi}{4}$."
+    },
+    {
+      "id": "10-11-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Monte Carlo-simulering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-3-n-quiz2-q0",
+            "task": "Kva er ein Monte Carlo-simulering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein metode for å løysa likningar analytisk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein sorteringsalgoritme",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein metode for å teikna grafar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein metode som brukar tilfeldige tal til å estimera eit resultat gjennom mange forsøk",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Monte Carlo-simulering brukar tilfeldige tal til å gjenta eit forsøk mange gonger og estimera sannsynet eller andre resultat."
+          },
+          {
+            "id": "10-11-3-n-quiz2-q1",
+            "task": "Kva gir random.randint(1, 6) i Python?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Eit tilfeldig heiltall frå 1 til 6 (inkludert begge)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eit tilfeldig desimaltal mellom 1 og 6",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Alltid talet 6",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit tilfeldig heiltall frå 1 til 5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`random.randint(1, 6)` gir eit tilfeldig heiltall frå og med 1 til og med 6. Perfekt for å simulera eit terningkast!"
+          },
+          {
+            "id": "10-11-3-n-quiz2-q2",
+            "task": "Vi kastar to terningar. Kva er den eksakte sannsynligheten for å få minst ein seksar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{11}{36}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{12}{36}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(\\text{minst ein 6}) = 1 - P(\\text{ingen 6}) = 1 - \\frac{5}{6} \\cdot \\frac{5}{6} = 1 - \\frac{25}{36} = \\frac{11}{36} \\approx 0{,}306$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-3-n-section4",
+      "type": "text",
+      "content": "## Primtalsletjing med Python\n\nEit **primtal** er eit tal større enn 1 som berre er delelig med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$ Å finne store primtal er viktig i kryptografi -- det er primtal som gjer at nettbank og passord er trygge!\n\nHer er eit smart triks: for å sjekke om $n$ er eit primtal, treng vi berre å teste divisorar opp til $\\sqrt{n}$. Kvifor? Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, ville $a \\cdot b > n$.\n\n```python\nimport math\n\ntal = int(input(\"Skriv inn eit tal: \"))\n\nif tal < 2:\n    print(f\"{tal} er ikkje eit primtal\")\nelse:\n    er_primtal = True\n    for i in range(2, int(math.sqrt(tal)) + 1):\n        if tal % i == 0:\n            er_primtal = False\n            break\n    if er_primtal:\n        print(f\"{tal} er eit primtal\")\n    else:\n        print(f\"{tal} er ikkje eit primtal\")\n```\n\nFor $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar berre 2, 3, 4, 5, 6, 7, 8, 9. Ingen deler 97, så 97 er eit primtal! Det er 25 primtal mellom 2 og 100.\n\n## Statistikk med Python\n\nNår vi har store datamengder, er programmering uvurderleg for å rekne ut statistiske målestokkar. Dei viktigaste er:\n\n- **Gjennomsnitt**: $\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$\n- **Median**: Den midterste verdien i sortert rekkjefølgje (for oddetal $n$: element nr. $n//2$; for partal $n$: gjennomsnittet av dei to midterste)\n- **Typetal**: Verdien som forekjem oftast\n- **Variasjonsbrei**: Største verdi minus minste verdi\n\n```python\nkarakterar = [4, 5, 3, 6, 5, 4, 5, 3, 4, 6]\nsortert = sorted(karakterar)\nn = len(sortert)\n\ngjennomsnitt = sum(karakterar) / n\nif n % 2 == 1:\n    median = sortert[n // 2]\nelse:\n    median = (sortert[n // 2 - 1] + sortert[n // 2]) / 2\n\ntypetal = max(set(karakterar), key=karakterar.count)\nvariasjonsbrei = max(karakterar) - min(karakterar)\n\nprint(f\"Gjennomsnitt: {gjennomsnitt:.1f}\")\nprint(f\"Median: {median}\")\nprint(f\"Typetal: {typetal}\")\nprint(f\"Variasjonsbrei: {variasjonsbrei}\")\n```\n\nResultatet: Gjennomsnitt $= 4{,}5$, median $= 4{,}5$, typetal $= 4$ (og 5, begge forekjem 3 gonger), variasjonsbrei $= 3$."
+    },
+    {
+      "id": "10-11-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på primtal og statistikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-3-n-quiz3-q0",
+            "task": "Kvifor treng vi berre å sjekke divisorar opp til $\\sqrt{n}$ når vi testar om $n$ er eit primtal?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det er ein tommelfingerregel utan matematisk grunngiving",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi alle primtal er mindre enn $\\sqrt{n}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, så ville $a \\cdot b > n$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi Python ikkje klarer å sjekke fleire tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Viss $n$ har ein faktor $a > \\sqrt{n}$, må den andre faktoren $b = n/a$ vere mindre enn $\\sqrt{n}$, og vi ville allereie ha funne ho."
+          },
+          {
+            "id": "10-11-3-n-quiz3-q1",
+            "task": "Kva er medianen av tala $3, 7, 2, 9, 5$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5{,}2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sorter: $2, 3, 5, 7, 9$. Med 5 tal (oddetal) er medianen det midterste elementet, som er $5$."
+          },
+          {
+            "id": "10-11-3-n-quiz3-q2",
+            "task": "Kor mange primtal er det mellom 2 og 20?",
+            "options": [
+              {
+                "id": "a",
+                "text": "6",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "7",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "8",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "9",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Primtala mellom 2 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykker."
+          },
+          {
+            "id": "10-11-3-n-quiz3-q3",
+            "task": "Kva er variasjonsbrei til tala $[2, 8, 3, 15, 6]$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$13$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$6{,}8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$15$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variasjonsbrei = største verdi minus minste verdi = $15 - 2 = 13$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har du sett kor kraftig kombinasjonen av Python og matematikk er:\n\n- **Numerisk likningsløysing**: Vi kan teste mange $x$-verdiar systematisk for å finne der $f(x) \\approx 0$, sjølv for likningar som er vanskelege å løyse med formlar.\n- **Plottar funksjonar**: Vi kan lage tekstgrafer med stjernor eller bruke matplotlib for profesjonelle grafar som visualiserer matematiske samanhengar.\n- **Monte Carlo-simulering**: Ved å bruke tilfeldige tal kan vi estimere sannsynleikaar gjennom mange forsøk. Jo fleire forsøk, desto betre estimat. Formelen er $P \\approx \\frac{\\text{gunstige}}{\\text{totalt}}$.\n- **Primtal**: Vi kan sjekke om tal er primtal ved å teste divisorar opp til $\\sqrt{n}$. Det er 25 primtal mellom 2 og 100.\n- **Statistikk**: Python gjer det enkelt å rekne ut gjennomsnitt, median, typetal og variasjonsbrei for store datamengder med funksjonar som `sum()`, `len()`, `sorted()`, `min()` og `max()`.\n\nProgrammering er ikkje berre eit hjelpemiddel -- det er ein måte å tenkje på. Når du lærer å programmere, lærer du å bryte ned problem i små steg, tenkje logisk og automatisere løysingar. Det er ferdigheiter du får bruk for langt utanfor matematikktimane!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "f3a8f75546cf059e",
+    "translatedAt": "2026-06-16T09:40:45.153Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 62,
+    "tm": {
+      "6a3a10a17cfd109d": "Matematisk programmering",
+      "b195b06d1ed59702": "Forteljing",
+      "6efd09ffc6bc05e4": "Ei forteljing om korleis Python kan løysa likningar, plotta funksjonar, simulera terningkast, jakte primtal og knusa statistikk.",
+      "2f6a47f720b783b8": "utforska matematiske eigenskapar og samanhengar ved å bruka programmering",
+      "a22d453450698bda": "bruka programmering til å utforska sannsyn",
+      "f8ae78df3e669144": "## Når Python møter matematikk\n\nNå som du kan grunnleggjande Python, er det på tid å bruka det til noko verkeleg spennande: å utforska matematikk! Med eit program kan du gjera tusenvis av berekningar på sekund -- noko som ville teke timar for hand.\n\nTenk deg at du vil finna løysinga av ei vanskeleg likning, teikna grafen til ei funksjon, simulera 10 000 terningkast eller finna alle primtal opp til 100. Alt dette er eit lite Python-program unna. La oss dykka inn!",
+      "c9dfcb3b9f62f8e8": "## Løysa likningar numerisk -- prøva og feila med stil\n\nNokon likningar er vanskelege å løysa analytisk med formlar, men vi kan bruka programmering til å finna løysingar **numerisk**. Det betyr at vi prøver oss fram systematisk.\n\nEin **numerisk løysing** finn ein tilnærma verdi av svaret ved å testa mange verdiar. Vi definerer $f(x)$ som venstre side minus høgre side av likningen, og leiter etter $x$-verdiar der $f(x)$ er veldig nær null -- eller skiftar forteikn.\n\nLa oss prøva med likningen $x^3 - 2x - 5 = 0$. Vi søkjer mellom $x = 1$ og $x = 3$:\n\n```python\ndef f(x):\n    return x**3 - 2*x - 5\n\nx = 1.0\nsteg = 0.001\n\nwhile x <= 3.0:\n    if abs(f(x)) < 0.01:\n        print(f\"Mogleg løysing: x = {x:.3f}, f(x) = {f(x):.4f}\")\n    x += steg\n```\n\nProgrammet finn at løysinga er omtrent $x \\approx 2{,}094$. Vi kan sjekka: $2{,}094^3 - 2 \\cdot 2{,}094 - 5 \\approx 0$. Stemmer!\n\nDenna metoden fungerer fordi datamaskina kan testa tusenvis av verdiar på eit augeblikk. For likningen $x^2 - 4x + 1 = 0$ finn vi løysingane $x \\approx 0{,}268$ og $x \\approx 3{,}732$, som stemmer med abc-formelen: $x = 2 \\pm \\sqrt{3}$.",
+      "ea006b5dc6869e6b": "## Plotta funksjonar -- sjå matematikken\n\nEin av dei kraftigaste tingane vi kan gjera med programmering er å **teikna grafar**. Vi kan laga ei enkel tekstgraf rett i terminalen:\n\n```python\nfor x in range(-5, 6):\n    y = x**2\n    stolpar = \"*\" * y\n    print(f\"x = {x:3d} | {stolpar} ({y})\")\n```\n\nDette teiknar $f(x) = x^2$ med stjerner. Du kan tydleg sjå parabelforma: grafen er symmetrisk om $x = 0$ og stig raskt for store $|x|$.\n\nFor finare grafar kan du bruka biblioteket **matplotlib**:\n\n```python\nimport matplotlib.pyplot as plt\n\nx_verdiar = []\ny_verdiar = []\n\nfor i in range(-50, 51):\n    x = i / 10\n    x_verdiar.append(x)\n    y_verdiar.append(x**2)\n\nplt.plot(x_verdiar, y_verdiar)\nplt.xlabel(\"x\")\nplt.ylabel(\"f(x)\")\nplt.title(\"f(x) = x^2\")\nplt.grid(True)\nplt.show()\n```\n\nMed matplotlib kan du og plotta fleire funksjonar i same graf, leggja til rutenett og aksetitlar, og eksportera grafen som bilete. Det er eit uvurderleg verktøy for å visualisera matematikk!",
+      "d3d0c880c0aa13ca": "Test deg sjølv på numerisk løysing og plotting:",
+      "4097889236a2af26": "placeholder",
+      "78e8aaf057c6e68b": "Kva betyr det å løysa ei likning \"numerisk\"?",
+      "c0b0c33b6b0441a6": "Å bruka formlar til å finna eksakt svar",
+      "114f1ff5988a12d2": "Å testa mange verdiar systematisk for å finna ei tilnærma løysing",
+      "601909d98f6cae0f": "Å gjetta på svaret",
+      "b3e827038500ec8e": "Å bruka GeoGebra",
+      "f5602981bc82afb3": "Ein numerisk løysing finn ei tilnærma verdi ved å testa mange $x$-verdiar systematisk og sjå når $f(x)$ er nær null.",
+      "4f92cfb05fd3d13f": "Når vi søkjer etter løysingar av $f(x) = 0$ numerisk, kva ser vi etter?",
+      "eb7bfeddf2cf4f3a": "Der $f(x)$ er storast mogleg",
+      "5b4636dbaadcc68d": "Der $f(x)$ er lik 1",
+      "8ddbf183cdcd17ff": "Der $x$ er lik 0",
+      "75871896081bfc41": "Der $f(x)$ skiftar forteikn eller er veldig nær null",
+      "693a6ab117c1ceaa": "Vi leiter etter $x$-verdiar der $|f(x)|$ er veldig liten (nær null), eller der $f(x)$ skiftar forteikn frå positivt til negativt.",
+      "f9d53bcec9bd69cd": "Kva gir koden: \"*\" * 5 i Python?",
+      "5b4cdfb1308286a1": "Feilmelding",
+      "f33f8bad064515ca": "I Python gjenta `\"*\" * 5` stjernetegnet 5 gonger, og gir strengen `\"*****\"`.",
+      "d8a11ba433114941": "## Monte Carlo-simulering -- terningkast på datamaskina\n\nEin av dei mest spennande bruksområda for programmering i matematikk er å **simulera tilfeldige forsøk**. I staden for å berekna sannsyn med formlar, kan vi la datamaskina gjenta forsoket tusenvis av gonger og telja utfalla. Denne metoden kallast **Monte Carlo-simulering**, oppkalla etter det berømt kasinoet i Monte Carlo.\n\nPrinsippet er enkelt:\n\n$$P(\\text{hendelse}) \\approx \\frac{\\text{antall gunstige utfall}}{\\text{totalt antall forsøk}}$$\n\nJo fleire forsøk vi gjer, desto nærare kjem vi den eksakte sannsynet. Med 10 000 forsøk får vi vanlegvis eit godt estimat.\n\nI Python brukar vi `random`-modulen:\n\n```python\nimport random\n\nterning = random.randint(1, 6)     # Tilfeldig heiltall frå 1 til 6\nmynt = random.choice([\"kron\", \"mynt\"])  # Tilfeldig val\n```\n\nLa oss simulera 10 000 kast med to terningar og finna sannsynet for å få summen 7:\n\n```python\nimport random\n\nantall_forsøk = 10000\nantall_syv = 0\n\nfor i in range(antall_forsøk):\n    terning1 = random.randint(1, 6)\n    terning2 = random.randint(1, 6)\n    if terning1 + terning2 == 7:\n        antall_syv += 1\n\nsannsyn = antall_syv / antall_forsøk\nprint(f\"Estimert sannsyn: {sannsyn:.4f}\")\n```\n\nTypisk utskrift: ca. $0{,}167$. Den eksakte sannsynet er $\\frac{6}{36} = \\frac{1}{6} \\approx 0{,}1667$ (det er 6 gunstige utfall: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ av totalt $36$ moglege). Simuleringen stemmer!\n\nDu kan og bruka Monte Carlo til å estimera $\\pi$! Generer tilfeldige punkt $(x, y)$ i eit einingskvadrat og tell kor mange som hamnar innanfor kvartsirkelen $x^2 + y^2 \\leq 1$. Då er $\\pi \\approx 4 \\cdot \\frac{\\text{innanfor}}{\\text{totalt}}$, fordi arealet av kvartsirkelen er $\\frac{\\pi}{4}$.",
+      "0a94d8d733cd58e5": "Test deg sjølv på Monte Carlo-simulering:",
+      "9b7d83b9d6c33037": "Kva er ein Monte Carlo-simulering?",
+      "5d8ef80f5e6f5156": "Ein metode for å løysa likningar analytisk",
+      "426f223a74a1d0c7": "Ein metode som brukar tilfeldige tal til å estimera eit resultat gjennom mange forsøk",
+      "3a38beac6a566a20": "Ein sorteringsalgoritme",
+      "01ba60982b9db04a": "Ein metode for å teikna grafar",
+      "8184363904453d67": "Monte Carlo-simulering brukar tilfeldige tal til å gjenta eit forsøk mange gonger og estimera sannsynet eller andre resultat.",
+      "b86bbb46626acb8f": "Kva gir random.randint(1, 6) i Python?",
+      "ab8258ecf427c58c": "Eit tilfeldig desimaltal mellom 1 og 6",
+      "80a997066f0cefc9": "Alltid talet 6",
+      "7b45d07ba6d797d9": "Eit tilfeldig heiltall frå 1 til 6 (inkludert begge)",
+      "e327d89fcf3c9077": "Eit tilfeldig heiltall frå 1 til 5",
+      "93a72a1924644bdd": "`random.randint(1, 6)` gir eit tilfeldig heiltall frå og med 1 til og med 6. Perfekt for å simulera eit terningkast!",
+      "cd6ffb66aa522276": "Vi kastar to terningar. Kva er den eksakte sannsynligheten for å få minst ein seksar?",
+      "ed2f0dca805db9c6": "$\\frac{1}{6}$",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "5bcf29064df10cd4": "$\\frac{11}{36}$",
+      "22ef5b5497581c0b": "$\\frac{12}{36}$",
+      "5cb4fe9158dce2d1": "$P(\\text{minst ein 6}) = 1 - P(\\text{ingen 6}) = 1 - \\frac{5}{6} \\cdot \\frac{5}{6} = 1 - \\frac{25}{36} = \\frac{11}{36} \\approx 0{,}306$.",
+      "dc698e0840d0d070": "## Primtalsletjing med Python\n\nEit **primtal** er eit tal større enn 1 som berre er delelig med 1 og seg sjølv. Dei første primtala er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$ Å finne store primtal er viktig i kryptografi -- det er primtal som gjer at nettbank og passord er trygge!\n\nHer er eit smart triks: for å sjekke om $n$ er eit primtal, treng vi berre å teste divisorar opp til $\\sqrt{n}$. Kvifor? Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, ville $a \\cdot b > n$.\n\n```python\nimport math\n\ntal = int(input(\"Skriv inn eit tal: \"))\n\nif tal < 2:\n    print(f\"{tal} er ikkje eit primtal\")\nelse:\n    er_primtal = True\n    for i in range(2, int(math.sqrt(tal)) + 1):\n        if tal % i == 0:\n            er_primtal = False\n            break\n    if er_primtal:\n        print(f\"{tal} er eit primtal\")\n    else:\n        print(f\"{tal} er ikkje eit primtal\")\n```\n\nFor $n = 97$: $\\sqrt{97} \\approx 9{,}8$, så vi sjekkar berre 2, 3, 4, 5, 6, 7, 8, 9. Ingen deler 97, så 97 er eit primtal! Det er 25 primtal mellom 2 og 100.\n\n## Statistikk med Python\n\nNår vi har store datamengder, er programmering uvurderleg for å rekne ut statistiske målestokkar. Dei viktigaste er:\n\n- **Gjennomsnitt**: $\\bar{x} = \\frac{x_1 + x_2 + \\ldots + x_n}{n}$\n- **Median**: Den midterste verdien i sortert rekkjefølgje (for oddetal $n$: element nr. $n//2$; for partal $n$: gjennomsnittet av dei to midterste)\n- **Typetal**: Verdien som forekjem oftast\n- **Variasjonsbrei**: Største verdi minus minste verdi\n\n```python\nkarakterar = [4, 5, 3, 6, 5, 4, 5, 3, 4, 6]\nsortert = sorted(karakterar)\nn = len(sortert)\n\ngjennomsnitt = sum(karakterar) / n\nif n % 2 == 1:\n    median = sortert[n // 2]\nelse:\n    median = (sortert[n // 2 - 1] + sortert[n // 2]) / 2\n\ntypetal = max(set(karakterar), key=karakterar.count)\nvariasjonsbrei = max(karakterar) - min(karakterar)\n\nprint(f\"Gjennomsnitt: {gjennomsnitt:.1f}\")\nprint(f\"Median: {median}\")\nprint(f\"Typetal: {typetal}\")\nprint(f\"Variasjonsbrei: {variasjonsbrei}\")\n```\n\nResultatet: Gjennomsnitt $= 4{,}5$, median $= 4{,}5$, typetal $= 4$ (og 5, begge forekjem 3 gonger), variasjonsbrei $= 3$.",
+      "f10ac7880a3ebc1a": "Test deg sjølv på primtal og statistikk:",
+      "22b57a80f8ad32c9": "Kvifor treng vi berre å sjekke divisorar opp til $\\sqrt{n}$ når vi testar om $n$ er eit primtal?",
+      "9026fc1340dacbfb": "Fordi det er ein tommelfingerregel utan matematisk grunngiving",
+      "d902e18fc1f325ec": "Fordi alle primtal er mindre enn $\\sqrt{n}$",
+      "94ae74ab5b34167d": "Fordi viss $n = a \\cdot b$ og begge er større enn $\\sqrt{n}$, så ville $a \\cdot b > n$",
+      "5525d7cd1b54cc81": "Fordi Python ikkje klarer å sjekke fleire tal",
+      "7829b0157a0e9abc": "Viss $n$ har ein faktor $a > \\sqrt{n}$, må den andre faktoren $b = n/a$ vere mindre enn $\\sqrt{n}$, og vi ville allereie ha funne ho.",
+      "46e5ee20aec3a81f": "Kva er medianen av tala $3, 7, 2, 9, 5$?",
+      "85a8286a76b040c7": "Sorter: $2, 3, 5, 7, 9$. Med 5 tal (oddetal) er medianen det midterste elementet, som er $5$.",
+      "8bcded0f677456c3": "Kor mange primtal er det mellom 2 og 20?",
+      "99a2fb6f282da88f": "Primtala mellom 2 og 20 er: $2, 3, 5, 7, 11, 13, 17, 19$ -- det er 8 stykker.",
+      "ef9bb44ea2c9cb27": "Kva er variasjonsbrei til tala $[2, 8, 3, 15, 6]$?",
+      "fc0e92c0fd85a062": "Variasjonsbrei = største verdi minus minste verdi = $15 - 2 = 13$.",
+      "344f36a291864576": "## Oppsummering\n\nI dette kapittelet har du sett kor kraftig kombinasjonen av Python og matematikk er:\n\n- **Numerisk likningsløysing**: Vi kan teste mange $x$-verdiar systematisk for å finne der $f(x) \\approx 0$, sjølv for likningar som er vanskelege å løyse med formlar.\n- **Plottar funksjonar**: Vi kan lage tekstgrafer med stjernor eller bruke matplotlib for profesjonelle grafar som visualiserer matematiske samanhengar.\n- **Monte Carlo-simulering**: Ved å bruke tilfeldige tal kan vi estimere sannsynleikaar gjennom mange forsøk. Jo fleire forsøk, desto betre estimat. Formelen er $P \\approx \\frac{\\text{gunstige}}{\\text{totalt}}$.\n- **Primtal**: Vi kan sjekke om tal er primtal ved å teste divisorar opp til $\\sqrt{n}$. Det er 25 primtal mellom 2 og 100.\n- **Statistikk**: Python gjer det enkelt å rekne ut gjennomsnitt, median, typetal og variasjonsbrei for store datamengder med funksjonar som `sum()`, `len()`, `sorted()`, `min()` og `max()`.\n\nProgrammering er ikkje berre eit hjelpemiddel -- det er ein måte å tenkje på. Når du lærer å programmere, lærer du å bryte ned problem i små steg, tenkje logisk og automatisere løysingar. Det er ferdigheiter du får bruk for langt utanfor matematikktimane!"
+    }
+  }
+}

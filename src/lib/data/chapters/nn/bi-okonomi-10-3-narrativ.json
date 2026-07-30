@@ -1,1 +1,344 @@
-{"id":"bi-okonomi-10-3-narrativ","courseId":"bi-okonomi","chapterNumber":"10.3","title":"Geometriske rekkjer","subtitle":"Narrativ versjon","description":"Ei forteljing om geometriske følgjer -- der noko blir ganga med ein fast faktor per periode -- og om korleis rentes rente, sparing og annuitetar alle byggjer på éin elegant sumformel.","estimatedMinutes":32,"competenceGoals":[],"linkedChapterId":"bi-okonomi-10-3","content":[{"id":"bi-okonomi-10-3-n-intro","type":"text","content":"## Når noko blir ganga, ikkje lagt til\n\nI førre kapittel la vi til eit fast beløp for kvart skritt. Men dei verkeleg spennande økonomiske prosessane gjer noko anna: dei **gangar** med ein fast faktor kvar periode. Det er dette vi kallar eksponentiell vekst -- og det er motoren bak rentes rente, sparing og verdsetjing av aksjar. Følgjer av denne typen kallar vi **geometriske**.\n\nEi følgje er geometrisk når forholdet mellom to nabolledd alltid er det same: $\\frac{a_{n+1}}{a_n} = k$. Talet $k$ blir kalla **kvotienten** eller vekstfaktoren, den rekursive formelen er $a_{n+1} = k\\cdot a_n$, og den eksplisitte formelen er $a_n = a_1\\cdot k^{n-1}$. Følgja $3, 6, 12, 24, 48, \\ldots$ er geometrisk med $a_1 = 3$ og $k = 2$, fordi vi doblar for kvart skritt.\n\nLat oss prøve. Har du $a_1 = 5$ og $k = 1{,}1$, veks ledda med $10\\,\\%$ kvar gong: $5,\\ 5{,}5,\\ 6{,}05,\\ \\ldots$, og det tiande leddet er $a_{10} = 5\\cdot 1{,}1^9 \\approx 11{,}79$. Og kjenner du to ledd, finn du $k$: er $a_3 = 18$ og $a_6 = 486$, gir forholdet $\\frac{a_6}{a_3} = k^3 = \\frac{486}{18} = 27$, så $k = \\sqrt[3]{27} = 3$, og vidare $a_1\\cdot 9 = 18$, altså $a_1 = 2$. Følgja er $2, 6, 18, 54, 162, 486, \\ldots$"},{"id":"bi-okonomi-10-3-n-section1","type":"text","content":"## Ein sum som foldar seg saman\n\nKorleis summerer vi ei geometrisk rekkje, $S_n = a_1 + a_1 k + a_1 k^2 + \\ldots + a_1 k^{n-1}$? Trikset her er like elegant som Gauss', men annleis. Vi gangar heile summen med $k$ og set dei to under kvarandre: $S_n$ og $k\\cdot S_n$. Når vi trekkjer den eine frå den andre, blir alt i midten kansellert, og vi sit att med $kS_n - S_n = a_1 k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$. Deler vi på $k-1$ (når $k \\neq 1$), får vi formelen $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$, som òg kan skrivast $a_1\\cdot \\frac{1 - k^n}{1 - k}$.\n\nDet klassiske dømet er sjakkbrettet med korn: $1$ korn på første rute, $2$ på andre, $4$ på tredje, alltid det dobbelte. Det er ei geometrisk følgje med $a_1 = 1$ og $k = 2$, så dei ti første rutene gir $S_{10} = 1\\cdot \\frac{2^{10} - 1}{2 - 1} = \\frac{1024 - 1}{1} = 1023$ korn. Lat oss kontrollere på ei kortare følgje: for $3, 6, 12, 24, \\ldots$ med $k = 2$ er $S_8 = 3\\cdot \\frac{2^8 - 1}{1} = 3\\cdot 255 = 765$.\n\nNår $k > 1$ veks ledda, og då er det greitt å bruke $\\frac{k^n - 1}{k - 1}$ sidan begge ledd er positive. Når $\\lvert k\\rvert < 1$ søkk ledda mot null, og då er forma $\\frac{1 - k^n}{1 - k}$ ofte greiast. Til dømes gir $a_1 = 100$ og $k = 0{,}5$ over $6$ ledd $S_6 = 100\\cdot \\frac{1 - 0{,}5^6}{1 - 0{,}5} = 100\\cdot \\frac{0{,}984375}{0{,}5} = 196{,}875$."},{"id":"bi-okonomi-10-3-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-10-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på geometriske følgjer og summen av dei:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-3-n-quiz1-q0","task":"Ei geometrisk følgje har $a_1 = 4$ og $k = 2$. Kva er $a_{10}$?","options":[{"id":"a","text":"$1024$","isCorrect":false},{"id":"b","text":"$512$","isCorrect":false},{"id":"c","text":"$40$","isCorrect":false},{"id":"d","text":"$2048$","isCorrect":true}],"solution":"Vi brukar $a_n = a_1\\cdot k^{n-1}$: $a_{10} = 4\\cdot 2^9 = 4\\cdot 512 = 2048$."},{"id":"bi-okonomi-10-3-n-quiz1-q1","task":"I ei geometrisk følgje er $a_2 = 12$ og $a_5 = 96$. Kva er kvotienten $k$?","options":[{"id":"a","text":"$2$","isCorrect":true},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$8$","isCorrect":false}],"solution":"Frå $a_2$ til $a_5$ er det tre skritt: $\\frac{a_5}{a_2} = k^3 = \\frac{96}{12} = 8$, så $k = \\sqrt[3]{8} = 2$."},{"id":"bi-okonomi-10-3-n-quiz1-q2","task":"Kva er summen $S_8$ av følgja $3, 6, 12, 24, \\ldots$?","options":[{"id":"a","text":"$768$","isCorrect":false},{"id":"b","text":"$765$","isCorrect":true},{"id":"c","text":"$255$","isCorrect":false},{"id":"d","text":"$381$","isCorrect":false}],"solution":"Her er $a_1 = 3$, $k = 2$, $n = 8$: $S_8 = 3\\cdot \\frac{2^8 - 1}{2 - 1} = 3\\cdot 255 = 765$."},{"id":"bi-okonomi-10-3-n-quiz1-q3","task":"Kva er den eksplisitte formelen for ei geometrisk følgje?","options":[{"id":"a","text":"$a_n = a_1 + (n-1)k$","isCorrect":false},{"id":"b","text":"$a_n = a_1\\cdot k\\cdot n$","isCorrect":false},{"id":"c","text":"$a_n = a_1\\cdot k^{n-1}$","isCorrect":true},{"id":"d","text":"$a_n = a_1\\cdot k^n$","isCorrect":false}],"solution":"Kvart ledd er det førre ganga med $k$, så frå $a_1$ til $a_n$ gangar vi $n-1$ gonger: $a_n = a_1\\cdot k^{n-1}$."}]}},{"id":"bi-okonomi-10-3-n-section2","type":"text","content":"## Sparing, rentes rente og annuitetar\n\nHer kjem den verkelege grunnen til at geometriske rekkjer er berebjelken i finansmatematikk. Tenk at du set inn $10\\,000$ kr ved slutten av kvart år i $8$ år til $5\\,\\%$ rente. Eit innskot sett inn ved slutten av år $j$ tener rente i $8 - j$ år, så ved slutten av år $8$ er det verdt $10\\,000\\cdot 1{,}05^{8-j}$. Summerer vi alle åtte, får vi nettopp ei geometrisk rekkje med $k = 1{,}05$: sluttverdien er $FV = 10\\,000\\cdot \\frac{1{,}05^8 - 1}{1{,}05 - 1} = 10\\,000\\cdot \\frac{0{,}4775}{0{,}05} \\approx 95\\,491$ kr. Du sette inn $80\\,000$ kr, men sit att med over $95\\,000$ kr -- skilnaden er rentes rente.\n\nDette er ikkje tilfeldig. Skriv vi $k = 1 + r$, blir nemnaren $k - 1 = r$, og geometrisk sumformel blir identisk med **sluttverdiformelen for annuitet**: $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$. Heile finansmatematikken byggjer altså på denne eine geometriske rekkja. Set du til dømes inn $24\\,000$ kr i året i $30$ år til $6\\,\\%$, blir $FV = 24\\,000\\cdot \\frac{1{,}06^{30} - 1}{0{,}06} = 24\\,000\\cdot \\frac{4{,}7435}{0{,}06} \\approx 1\\,897\\,400$ kr -- du har spart inn $720\\,000$ kr, men rentes rente har meir enn dobla beløpet.\n\nDen same rekkja skildrar eksponentiell vekst utanfor sparing. Ein oppstart som sel $50$ einingar første månad med $8\\,\\%$ månadleg vekst, har selt $S_{24} = 50\\cdot \\frac{1{,}08^{24} - 1}{0{,}08} = 50\\cdot \\frac{5{,}3412}{0{,}08} \\approx 3\\,338$ einingar etter to år. Og når noko veks eksponentielt, kan vi snu på det og spørje kor lenge det tek -- ved logaritmar. Ei investering som veks $7\\,\\%$ i året treng $n = \\frac{\\ln 5}{\\ln 1{,}07} \\approx 23{,}8$, altså $24$ år, på å femdoble seg, fordi $200\\,000\\cdot 1{,}07^n \\geq 1\\,000\\,000$ krev $1{,}07^n \\geq 5$."},{"id":"bi-okonomi-10-3-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-10-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på sparing, annuitetar og eksponentiell vekst:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-10-3-n-quiz2-q0","task":"Kva formel gir sluttverdien av like årlege innskot $A$ over $n$ år med rente $r$?","options":[{"id":"a","text":"$FV = A\\cdot r^n$","isCorrect":false},{"id":"b","text":"$FV = A\\cdot \\frac{r}{(1+r)^n}$","isCorrect":false},{"id":"c","text":"$FV = A\\cdot n\\cdot r$","isCorrect":false},{"id":"d","text":"$FV = A\\cdot \\frac{(1+r)^n - 1}{r}$","isCorrect":true}],"solution":"Sluttverdiformelen er $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som er nettopp geometrisk sumformel med $k = 1 + r$."},{"id":"bi-okonomi-10-3-n-quiz2-q1","task":"Du sparer $8\\,000$ kr/år i $20$ år til $4\\,\\%$ rente. Kva er sluttverdien (avrunda)?","options":[{"id":"a","text":"$238\\,225$ kr","isCorrect":true},{"id":"b","text":"$160\\,000$ kr","isCorrect":false},{"id":"c","text":"$320\\,000$ kr","isCorrect":false},{"id":"d","text":"$208\\,000$ kr","isCorrect":false}],"solution":"$FV = 8\\,000\\cdot \\frac{1{,}04^{20} - 1}{0{,}04} = 8\\,000\\cdot 29{,}778 \\approx 238\\,225$ kr. Merk at innskota utgjorde berre $160\\,000$ kr."},{"id":"bi-okonomi-10-3-n-quiz2-q2","task":"Ei investering på $500\\,000$ kr blir dobla kvart $7.$ år. Kor mykje er ho verdt etter $35$ år?","options":[{"id":"a","text":"$2\\,500\\,000$ kr","isCorrect":false},{"id":"b","text":"$16\\,000\\,000$ kr","isCorrect":true},{"id":"c","text":"$10\\,000\\,000$ kr","isCorrect":false},{"id":"d","text":"$3\\,500\\,000$ kr","isCorrect":false}],"solution":"$35$ år er $5$ doblingar ($35/7 = 5$), så verdien blir $500\\,000\\cdot 2^5 = 500\\,000\\cdot 32 = 16\\,000\\,000$ kr."},{"id":"bi-okonomi-10-3-n-quiz2-q3","task":"Kvifor er sluttverdien av faste innskot større enn summen av innskota sjølve?","options":[{"id":"a","text":"På grunn av inflasjon","isCorrect":false},{"id":"b","text":"Fordi banken legg til eit fast gebyr","isCorrect":false},{"id":"c","text":"På grunn av rentes rente -- kvart innskot tener rente i fleire år","isCorrect":true},{"id":"d","text":"Det er han ikkje; dei er alltid like","isCorrect":false}],"solution":"Kvart innskot får rente, og rentene får sjølve rente i dei påfølgjande åra. Denne rentes-rente-effekten gjer at sluttverdien overstig summen av dei reine innskota."}]}},{"id":"bi-okonomi-10-3-n-summary","type":"text","content":"## Oppsummering\n\nEi **geometrisk følgje** gangar med ein fast kvotient $k$ for kvart skritt, med eksplisitt formel $a_n = a_1\\cdot k^{n-1}$. Kjenner vi to ledd, finn vi $k$ via forholdet mellom dei, $k^{n-m} = \\frac{a_n}{a_m}$.\n\nSummen av dei $n$ første ledda får vi ved å trekkje $k\\cdot S_n$ frå $S_n$, noko som gir $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$ for $k \\neq 1$ (og $S_n = n\\cdot a_1$ når $k = 1$). Denne eine formelen er hjørnesteinen i finansmatematikken: med $k = 1 + r$ blir han til **sluttverdiformelen for annuitet**, $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som skildrar sparing med rentes rente. Den same geometriske strukturen styrer eksponentielt veksande sal og folkesetnad, og ved hjelp av logaritmar kan vi rekne ut kor lenge noko treng for å doble eller femdoble seg. I neste kapittel tek vi det siste steget: kva skjer når vi lèt ei geometrisk rekkje halde fram i all æve?"}],"exercises":[],"_meta":{"sourceHash":"1cfc0369d735db22","translatedAt":"2026-06-21T00:50:52.207Z","model":"claude-code-agent","strings":47,"tm":{"80469476b40660c6":"Geometriske rekkjer","b195b06d1ed59702":"Narrativ versjon","3e4e01a9debd9d05":"Ei forteljing om geometriske følgjer -- der noko blir ganga med ein fast faktor per periode -- og om korleis rentes rente, sparing og annuitetar alle byggjer på éin elegant sumformel.","7f13c764798f1763":"## Når noko blir ganga, ikkje lagt til\n\nI førre kapittel la vi til eit fast beløp for kvart skritt. Men dei verkeleg spennande økonomiske prosessane gjer noko anna: dei **gangar** med ein fast faktor kvar periode. Det er dette vi kallar eksponentiell vekst -- og det er motoren bak rentes rente, sparing og verdsetjing av aksjar. Følgjer av denne typen kallar vi **geometriske**.\n\nEi følgje er geometrisk når forholdet mellom to nabolledd alltid er det same: $\\frac{a_{n+1}}{a_n} = k$. Talet $k$ blir kalla **kvotienten** eller vekstfaktoren, den rekursive formelen er $a_{n+1} = k\\cdot a_n$, og den eksplisitte formelen er $a_n = a_1\\cdot k^{n-1}$. Følgja $3, 6, 12, 24, 48, \\ldots$ er geometrisk med $a_1 = 3$ og $k = 2$, fordi vi doblar for kvart skritt.\n\nLat oss prøve. Har du $a_1 = 5$ og $k = 1{,}1$, veks ledda med $10\\,\\%$ kvar gong: $5,\\ 5{,}5,\\ 6{,}05,\\ \\ldots$, og det tiande leddet er $a_{10} = 5\\cdot 1{,}1^9 \\approx 11{,}79$. Og kjenner du to ledd, finn du $k$: er $a_3 = 18$ og $a_6 = 486$, gir forholdet $\\frac{a_6}{a_3} = k^3 = \\frac{486}{18} = 27$, så $k = \\sqrt[3]{27} = 3$, og vidare $a_1\\cdot 9 = 18$, altså $a_1 = 2$. Følgja er $2, 6, 18, 54, 162, 486, \\ldots$","20f7341c9e0766cf":"## Ein sum som foldar seg saman\n\nKorleis summerer vi ei geometrisk rekkje, $S_n = a_1 + a_1 k + a_1 k^2 + \\ldots + a_1 k^{n-1}$? Trikset her er like elegant som Gauss', men annleis. Vi gangar heile summen med $k$ og set dei to under kvarandre: $S_n$ og $k\\cdot S_n$. Når vi trekkjer den eine frå den andre, blir alt i midten kansellert, og vi sit att med $kS_n - S_n = a_1 k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$. Deler vi på $k-1$ (når $k \\neq 1$), får vi formelen $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$, som òg kan skrivast $a_1\\cdot \\frac{1 - k^n}{1 - k}$.\n\nDet klassiske dømet er sjakkbrettet med korn: $1$ korn på første rute, $2$ på andre, $4$ på tredje, alltid det dobbelte. Det er ei geometrisk følgje med $a_1 = 1$ og $k = 2$, så dei ti første rutene gir $S_{10} = 1\\cdot \\frac{2^{10} - 1}{2 - 1} = \\frac{1024 - 1}{1} = 1023$ korn. Lat oss kontrollere på ei kortare følgje: for $3, 6, 12, 24, \\ldots$ med $k = 2$ er $S_8 = 3\\cdot \\frac{2^8 - 1}{1} = 3\\cdot 255 = 765$.\n\nNår $k > 1$ veks ledda, og då er det greitt å bruke $\\frac{k^n - 1}{k - 1}$ sidan begge ledd er positive. Når $\\lvert k\\rvert < 1$ søkk ledda mot null, og då er forma $\\frac{1 - k^n}{1 - k}$ ofte greiast. Til dømes gir $a_1 = 100$ og $k = 0{,}5$ over $6$ ledd $S_6 = 100\\cdot \\frac{1 - 0{,}5^6}{1 - 0{,}5} = 100\\cdot \\frac{0{,}984375}{0{,}5} = 196{,}875$.","1b89de7771cad3d4":"Test deg sjølv på geometriske følgjer og summen av dei:","4097889236a2af26":"placeholder","3f8dc01422e819a5":"Ei geometrisk følgje har $a_1 = 4$ og $k = 2$. Kva er $a_{10}$?","94b593c315663240":"Vi brukar $a_n = a_1\\cdot k^{n-1}$: $a_{10} = 4\\cdot 2^9 = 4\\cdot 512 = 2048$.","3f89721c60a12670":"I ei geometrisk følgje er $a_2 = 12$ og $a_5 = 96$. Kva er kvotienten $k$?","8957fb92ba8c782b":"Frå $a_2$ til $a_5$ er det tre skritt: $\\frac{a_5}{a_2} = k^3 = \\frac{96}{12} = 8$, så $k = \\sqrt[3]{8} = 2$.","3868c964621d3ca1":"Kva er summen $S_8$ av følgja $3, 6, 12, 24, \\ldots$?","7f241399a4eb74ee":"Her er $a_1 = 3$, $k = 2$, $n = 8$: $S_8 = 3\\cdot \\frac{2^8 - 1}{2 - 1} = 3\\cdot 255 = 765$.","67776eabc9c95f91":"Kva er den eksplisitte formelen for ei geometrisk følgje?","4e382a1a347a9961":"$a_n = a_1 + (n-1)k$","c98e9101de4a4b3c":"$a_n = a_1\\cdot k\\cdot n$","d88063ad8ad52071":"$a_n = a_1\\cdot k^{n-1}$","00348658391ff3c4":"$a_n = a_1\\cdot k^n$","508342e37c94db6c":"Kvart ledd er det førre ganga med $k$, så frå $a_1$ til $a_n$ gangar vi $n-1$ gonger: $a_n = a_1\\cdot k^{n-1}$.","4ec6c57615123a7f":"## Sparing, rentes rente og annuitetar\n\nHer kjem den verkelege grunnen til at geometriske rekkjer er berebjelken i finansmatematikk. Tenk at du set inn $10\\,000$ kr ved slutten av kvart år i $8$ år til $5\\,\\%$ rente. Eit innskot sett inn ved slutten av år $j$ tener rente i $8 - j$ år, så ved slutten av år $8$ er det verdt $10\\,000\\cdot 1{,}05^{8-j}$. Summerer vi alle åtte, får vi nettopp ei geometrisk rekkje med $k = 1{,}05$: sluttverdien er $FV = 10\\,000\\cdot \\frac{1{,}05^8 - 1}{1{,}05 - 1} = 10\\,000\\cdot \\frac{0{,}4775}{0{,}05} \\approx 95\\,491$ kr. Du sette inn $80\\,000$ kr, men sit att med over $95\\,000$ kr -- skilnaden er rentes rente.\n\nDette er ikkje tilfeldig. Skriv vi $k = 1 + r$, blir nemnaren $k - 1 = r$, og geometrisk sumformel blir identisk med **sluttverdiformelen for annuitet**: $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$. Heile finansmatematikken byggjer altså på denne eine geometriske rekkja. Set du til dømes inn $24\\,000$ kr i året i $30$ år til $6\\,\\%$, blir $FV = 24\\,000\\cdot \\frac{1{,}06^{30} - 1}{0{,}06} = 24\\,000\\cdot \\frac{4{,}7435}{0{,}06} \\approx 1\\,897\\,400$ kr -- du har spart inn $720\\,000$ kr, men rentes rente har meir enn dobla beløpet.\n\nDen same rekkja skildrar eksponentiell vekst utanfor sparing. Ein oppstart som sel $50$ einingar første månad med $8\\,\\%$ månadleg vekst, har selt $S_{24} = 50\\cdot \\frac{1{,}08^{24} - 1}{0{,}08} = 50\\cdot \\frac{5{,}3412}{0{,}08} \\approx 3\\,338$ einingar etter to år. Og når noko veks eksponentielt, kan vi snu på det og spørje kor lenge det tek -- ved logaritmar. Ei investering som veks $7\\,\\%$ i året treng $n = \\frac{\\ln 5}{\\ln 1{,}07} \\approx 23{,}8$, altså $24$ år, på å femdoble seg, fordi $200\\,000\\cdot 1{,}07^n \\geq 1\\,000\\,000$ krev $1{,}07^n \\geq 5$.","0b788b0aaea087b7":"Test deg sjølv på sparing, annuitetar og eksponentiell vekst:","f1c8c7725a77eb70":"Kva formel gir sluttverdien av like årlege innskot $A$ over $n$ år med rente $r$?","ef4ea01d52ff7007":"$FV = A\\cdot r^n$","68657cb6000d7c6e":"$FV = A\\cdot \\frac{r}{(1+r)^n}$","043ffaf76edeb6b8":"$FV = A\\cdot n\\cdot r$","5a04fa6aba8729b6":"$FV = A\\cdot \\frac{(1+r)^n - 1}{r}$","470bd852590c858f":"Sluttverdiformelen er $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som er nettopp geometrisk sumformel med $k = 1 + r$.","eaaa383022bb98a8":"Du sparer $8\\,000$ kr/år i $20$ år til $4\\,\\%$ rente. Kva er sluttverdien (avrunda)?","1f382251919335f1":"$238\\,225$ kr","399366f1b20153cd":"$160\\,000$ kr","a686ac4459e54b69":"$320\\,000$ kr","8e5f5fc9cf8a4538":"$208\\,000$ kr","59d9111573b6d622":"$FV = 8\\,000\\cdot \\frac{1{,}04^{20} - 1}{0{,}04} = 8\\,000\\cdot 29{,}778 \\approx 238\\,225$ kr. Merk at innskota utgjorde berre $160\\,000$ kr.","7a5fd98a1c1892ff":"Ei investering på $500\\,000$ kr blir dobla kvart $7.$ år. Kor mykje er ho verdt etter $35$ år?","4ae803bb25adc330":"$2\\,500\\,000$ kr","f54ee3eb78c29c91":"$16\\,000\\,000$ kr","3a3463c540414929":"$10\\,000\\,000$ kr","ff1d185d84c62efe":"$3\\,500\\,000$ kr","094a18180a871e30":"$35$ år er $5$ doblingar ($35/7 = 5$), så verdien blir $500\\,000\\cdot 2^5 = 500\\,000\\cdot 32 = 16\\,000\\,000$ kr.","b078bf70613b6d6f":"Kvifor er sluttverdien av faste innskot større enn summen av innskota sjølve?","383d3142870ca9ee":"På grunn av inflasjon","3fbb0ab7758d39e6":"Fordi banken legg til eit fast gebyr","cf9c731558c86110":"På grunn av rentes rente -- kvart innskot tener rente i fleire år","2a92b4fc2a94d00a":"Det er han ikkje; dei er alltid like","69dc26b65a561214":"Kvart innskot får rente, og rentene får sjølve rente i dei påfølgjande åra. Denne rentes-rente-effekten gjer at sluttverdien overstig summen av dei reine innskota.","fd0c22850372639d":"## Oppsummering\n\nEi **geometrisk følgje** gangar med ein fast kvotient $k$ for kvart skritt, med eksplisitt formel $a_n = a_1\\cdot k^{n-1}$. Kjenner vi to ledd, finn vi $k$ via forholdet mellom dei, $k^{n-m} = \\frac{a_n}{a_m}$.\n\nSummen av dei $n$ første ledda får vi ved å trekkje $k\\cdot S_n$ frå $S_n$, noko som gir $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$ for $k \\neq 1$ (og $S_n = n\\cdot a_1$ når $k = 1$). Denne eine formelen er hjørnesteinen i finansmatematikken: med $k = 1 + r$ blir han til **sluttverdiformelen for annuitet**, $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som skildrar sparing med rentes rente. Den same geometriske strukturen styrer eksponentielt veksande sal og folkesetnad, og ved hjelp av logaritmar kan vi rekne ut kor lenge noko treng for å doble eller femdoble seg. I neste kapittel tek vi det siste steget: kva skjer når vi lèt ei geometrisk rekkje halde fram i all æve?"}}}
+{
+  "id": "bi-okonomi-10-3-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "10.3",
+  "title": "Geometriske rekkjer",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om geometriske følgjer -- der noko blir ganga med ein fast faktor per periode -- og om korleis rentes rente, sparing og annuitetar alle byggjer på éin elegant sumformel.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-10-3",
+  "content": [
+    {
+      "id": "bi-okonomi-10-3-n-intro",
+      "type": "text",
+      "content": "## Når noko blir ganga, ikkje lagt til\n\nI førre kapittel la vi til eit fast beløp for kvart skritt. Men dei verkeleg spennande økonomiske prosessane gjer noko anna: dei **gangar** med ein fast faktor kvar periode. Det er dette vi kallar eksponentiell vekst -- og det er motoren bak rentes rente, sparing og verdsetjing av aksjar. Følgjer av denne typen kallar vi **geometriske**.\n\nEi følgje er geometrisk når forholdet mellom to nabolledd alltid er det same: $\\frac{a_{n+1}}{a_n} = k$. Talet $k$ blir kalla **kvotienten** eller vekstfaktoren, den rekursive formelen er $a_{n+1} = k\\cdot a_n$, og den eksplisitte formelen er $a_n = a_1\\cdot k^{n-1}$. Følgja $3, 6, 12, 24, 48, \\ldots$ er geometrisk med $a_1 = 3$ og $k = 2$, fordi vi doblar for kvart skritt.\n\nLat oss prøve. Har du $a_1 = 5$ og $k = 1{,}1$, veks ledda med $10\\,\\%$ kvar gong: $5,\\ 5{,}5,\\ 6{,}05,\\ \\ldots$, og det tiande leddet er $a_{10} = 5\\cdot 1{,}1^9 \\approx 11{,}79$. Og kjenner du to ledd, finn du $k$: er $a_3 = 18$ og $a_6 = 486$, gir forholdet $\\frac{a_6}{a_3} = k^3 = \\frac{486}{18} = 27$, så $k = \\sqrt[3]{27} = 3$, og vidare $a_1\\cdot 9 = 18$, altså $a_1 = 2$. Følgja er $2, 6, 18, 54, 162, 486, \\ldots$"
+    },
+    {
+      "id": "bi-okonomi-10-3-n-section1",
+      "type": "text",
+      "content": "## Ein sum som foldar seg saman\n\nKorleis summerer vi ei geometrisk rekkje, $S_n = a_1 + a_1 k + a_1 k^2 + \\ldots + a_1 k^{n-1}$? Trikset her er like elegant som Gauss', men annleis. Vi gangar heile summen med $k$ og set dei to under kvarandre: $S_n$ og $k\\cdot S_n$. Når vi trekkjer den eine frå den andre, blir alt i midten kansellert, og vi sit att med $kS_n - S_n = a_1 k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$. Deler vi på $k-1$ (når $k \\neq 1$), får vi formelen $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$, som òg kan skrivast $a_1\\cdot \\frac{1 - k^n}{1 - k}$.\n\nDet klassiske dømet er sjakkbrettet med korn: $1$ korn på første rute, $2$ på andre, $4$ på tredje, alltid det dobbelte. Det er ei geometrisk følgje med $a_1 = 1$ og $k = 2$, så dei ti første rutene gir $S_{10} = 1\\cdot \\frac{2^{10} - 1}{2 - 1} = \\frac{1024 - 1}{1} = 1023$ korn. Lat oss kontrollere på ei kortare følgje: for $3, 6, 12, 24, \\ldots$ med $k = 2$ er $S_8 = 3\\cdot \\frac{2^8 - 1}{1} = 3\\cdot 255 = 765$.\n\nNår $k > 1$ veks ledda, og då er det greitt å bruke $\\frac{k^n - 1}{k - 1}$ sidan begge ledd er positive. Når $\\lvert k\\rvert < 1$ søkk ledda mot null, og då er forma $\\frac{1 - k^n}{1 - k}$ ofte greiast. Til dømes gir $a_1 = 100$ og $k = 0{,}5$ over $6$ ledd $S_6 = 100\\cdot \\frac{1 - 0{,}5^6}{1 - 0{,}5} = 100\\cdot \\frac{0{,}984375}{0{,}5} = 196{,}875$."
+    },
+    {
+      "id": "bi-okonomi-10-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på geometriske følgjer og summen av dei:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-3-n-quiz1-q0",
+            "task": "Ei geometrisk følgje har $a_1 = 4$ og $k = 2$. Kva er $a_{10}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1024$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2048$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$512$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$40$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi brukar $a_n = a_1\\cdot k^{n-1}$: $a_{10} = 4\\cdot 2^9 = 4\\cdot 512 = 2048$."
+          },
+          {
+            "id": "bi-okonomi-10-3-n-quiz1-q1",
+            "task": "I ei geometrisk følgje er $a_2 = 12$ og $a_5 = 96$. Kva er kvotienten $k$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå $a_2$ til $a_5$ er det tre skritt: $\\frac{a_5}{a_2} = k^3 = \\frac{96}{12} = 8$, så $k = \\sqrt[3]{8} = 2$."
+          },
+          {
+            "id": "bi-okonomi-10-3-n-quiz1-q2",
+            "task": "Kva er summen $S_8$ av følgja $3, 6, 12, 24, \\ldots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$768$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$255$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$765$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$381$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Her er $a_1 = 3$, $k = 2$, $n = 8$: $S_8 = 3\\cdot \\frac{2^8 - 1}{2 - 1} = 3\\cdot 255 = 765$."
+          },
+          {
+            "id": "bi-okonomi-10-3-n-quiz1-q3",
+            "task": "Kva er den eksplisitte formelen for ei geometrisk følgje?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_n = a_1 + (n-1)k$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = a_1\\cdot k\\cdot n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = a_1\\cdot k^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_n = a_1\\cdot k^{n-1}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvart ledd er det førre ganga med $k$, så frå $a_1$ til $a_n$ gangar vi $n-1$ gonger: $a_n = a_1\\cdot k^{n-1}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-3-n-section2",
+      "type": "text",
+      "content": "## Sparing, rentes rente og annuitetar\n\nHer kjem den verkelege grunnen til at geometriske rekkjer er berebjelken i finansmatematikk. Tenk at du set inn $10\\,000$ kr ved slutten av kvart år i $8$ år til $5\\,\\%$ rente. Eit innskot sett inn ved slutten av år $j$ tener rente i $8 - j$ år, så ved slutten av år $8$ er det verdt $10\\,000\\cdot 1{,}05^{8-j}$. Summerer vi alle åtte, får vi nettopp ei geometrisk rekkje med $k = 1{,}05$: sluttverdien er $FV = 10\\,000\\cdot \\frac{1{,}05^8 - 1}{1{,}05 - 1} = 10\\,000\\cdot \\frac{0{,}4775}{0{,}05} \\approx 95\\,491$ kr. Du sette inn $80\\,000$ kr, men sit att med over $95\\,000$ kr -- skilnaden er rentes rente.\n\nDette er ikkje tilfeldig. Skriv vi $k = 1 + r$, blir nemnaren $k - 1 = r$, og geometrisk sumformel blir identisk med **sluttverdiformelen for annuitet**: $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$. Heile finansmatematikken byggjer altså på denne eine geometriske rekkja. Set du til dømes inn $24\\,000$ kr i året i $30$ år til $6\\,\\%$, blir $FV = 24\\,000\\cdot \\frac{1{,}06^{30} - 1}{0{,}06} = 24\\,000\\cdot \\frac{4{,}7435}{0{,}06} \\approx 1\\,897\\,400$ kr -- du har spart inn $720\\,000$ kr, men rentes rente har meir enn dobla beløpet.\n\nDen same rekkja skildrar eksponentiell vekst utanfor sparing. Ein oppstart som sel $50$ einingar første månad med $8\\,\\%$ månadleg vekst, har selt $S_{24} = 50\\cdot \\frac{1{,}08^{24} - 1}{0{,}08} = 50\\cdot \\frac{5{,}3412}{0{,}08} \\approx 3\\,338$ einingar etter to år. Og når noko veks eksponentielt, kan vi snu på det og spørje kor lenge det tek -- ved logaritmar. Ei investering som veks $7\\,\\%$ i året treng $n = \\frac{\\ln 5}{\\ln 1{,}07} \\approx 23{,}8$, altså $24$ år, på å femdoble seg, fordi $200\\,000\\cdot 1{,}07^n \\geq 1\\,000\\,000$ krev $1{,}07^n \\geq 5$."
+    },
+    {
+      "id": "bi-okonomi-10-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-10-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sparing, annuitetar og eksponentiell vekst:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-10-3-n-quiz2-q0",
+            "task": "Kva formel gir sluttverdien av like årlege innskot $A$ over $n$ år med rente $r$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$FV = A\\cdot r^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$FV = A\\cdot \\frac{(1+r)^n - 1}{r}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$FV = A\\cdot \\frac{r}{(1+r)^n}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$FV = A\\cdot n\\cdot r$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sluttverdiformelen er $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som er nettopp geometrisk sumformel med $k = 1 + r$."
+          },
+          {
+            "id": "bi-okonomi-10-3-n-quiz2-q1",
+            "task": "Du sparer $8\\,000$ kr/år i $20$ år til $4\\,\\%$ rente. Kva er sluttverdien (avrunda)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$160\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$320\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$238\\,225$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$208\\,000$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$FV = 8\\,000\\cdot \\frac{1{,}04^{20} - 1}{0{,}04} = 8\\,000\\cdot 29{,}778 \\approx 238\\,225$ kr. Merk at innskota utgjorde berre $160\\,000$ kr."
+          },
+          {
+            "id": "bi-okonomi-10-3-n-quiz2-q2",
+            "task": "Ei investering på $500\\,000$ kr blir dobla kvart $7.$ år. Kor mykje er ho verdt etter $35$ år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2\\,500\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$10\\,000\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3\\,500\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$16\\,000\\,000$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$35$ år er $5$ doblingar ($35/7 = 5$), så verdien blir $500\\,000\\cdot 2^5 = 500\\,000\\cdot 32 = 16\\,000\\,000$ kr."
+          },
+          {
+            "id": "bi-okonomi-10-3-n-quiz2-q3",
+            "task": "Kvifor er sluttverdien av faste innskot større enn summen av innskota sjølve?",
+            "options": [
+              {
+                "id": "c",
+                "text": "På grunn av rentes rente -- kvart innskot tener rente i fleire år",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "På grunn av inflasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi banken legg til eit fast gebyr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er han ikkje; dei er alltid like",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvart innskot får rente, og rentene får sjølve rente i dei påfølgjande åra. Denne rentes-rente-effekten gjer at sluttverdien overstig summen av dei reine innskota."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-10-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEi **geometrisk følgje** gangar med ein fast kvotient $k$ for kvart skritt, med eksplisitt formel $a_n = a_1\\cdot k^{n-1}$. Kjenner vi to ledd, finn vi $k$ via forholdet mellom dei, $k^{n-m} = \\frac{a_n}{a_m}$.\n\nSummen av dei $n$ første ledda får vi ved å trekkje $k\\cdot S_n$ frå $S_n$, noko som gir $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$ for $k \\neq 1$ (og $S_n = n\\cdot a_1$ når $k = 1$). Denne eine formelen er hjørnesteinen i finansmatematikken: med $k = 1 + r$ blir han til **sluttverdiformelen for annuitet**, $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som skildrar sparing med rentes rente. Den same geometriske strukturen styrer eksponentielt veksande sal og folkesetnad, og ved hjelp av logaritmar kan vi rekne ut kor lenge noko treng for å doble eller femdoble seg. I neste kapittel tek vi det siste steget: kva skjer når vi lèt ei geometrisk rekkje halde fram i all æve?"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "1cfc0369d735db22",
+    "translatedAt": "2026-06-21T00:50:52.207Z",
+    "model": "claude-code-agent",
+    "strings": 47,
+    "tm": {
+      "80469476b40660c6": "Geometriske rekkjer",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "3e4e01a9debd9d05": "Ei forteljing om geometriske følgjer -- der noko blir ganga med ein fast faktor per periode -- og om korleis rentes rente, sparing og annuitetar alle byggjer på éin elegant sumformel.",
+      "7f13c764798f1763": "## Når noko blir ganga, ikkje lagt til\n\nI førre kapittel la vi til eit fast beløp for kvart skritt. Men dei verkeleg spennande økonomiske prosessane gjer noko anna: dei **gangar** med ein fast faktor kvar periode. Det er dette vi kallar eksponentiell vekst -- og det er motoren bak rentes rente, sparing og verdsetjing av aksjar. Følgjer av denne typen kallar vi **geometriske**.\n\nEi følgje er geometrisk når forholdet mellom to nabolledd alltid er det same: $\\frac{a_{n+1}}{a_n} = k$. Talet $k$ blir kalla **kvotienten** eller vekstfaktoren, den rekursive formelen er $a_{n+1} = k\\cdot a_n$, og den eksplisitte formelen er $a_n = a_1\\cdot k^{n-1}$. Følgja $3, 6, 12, 24, 48, \\ldots$ er geometrisk med $a_1 = 3$ og $k = 2$, fordi vi doblar for kvart skritt.\n\nLat oss prøve. Har du $a_1 = 5$ og $k = 1{,}1$, veks ledda med $10\\,\\%$ kvar gong: $5,\\ 5{,}5,\\ 6{,}05,\\ \\ldots$, og det tiande leddet er $a_{10} = 5\\cdot 1{,}1^9 \\approx 11{,}79$. Og kjenner du to ledd, finn du $k$: er $a_3 = 18$ og $a_6 = 486$, gir forholdet $\\frac{a_6}{a_3} = k^3 = \\frac{486}{18} = 27$, så $k = \\sqrt[3]{27} = 3$, og vidare $a_1\\cdot 9 = 18$, altså $a_1 = 2$. Følgja er $2, 6, 18, 54, 162, 486, \\ldots$",
+      "20f7341c9e0766cf": "## Ein sum som foldar seg saman\n\nKorleis summerer vi ei geometrisk rekkje, $S_n = a_1 + a_1 k + a_1 k^2 + \\ldots + a_1 k^{n-1}$? Trikset her er like elegant som Gauss', men annleis. Vi gangar heile summen med $k$ og set dei to under kvarandre: $S_n$ og $k\\cdot S_n$. Når vi trekkjer den eine frå den andre, blir alt i midten kansellert, og vi sit att med $kS_n - S_n = a_1 k^n - a_1$, altså $S_n(k-1) = a_1(k^n - 1)$. Deler vi på $k-1$ (når $k \\neq 1$), får vi formelen $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$, som òg kan skrivast $a_1\\cdot \\frac{1 - k^n}{1 - k}$.\n\nDet klassiske dømet er sjakkbrettet med korn: $1$ korn på første rute, $2$ på andre, $4$ på tredje, alltid det dobbelte. Det er ei geometrisk følgje med $a_1 = 1$ og $k = 2$, så dei ti første rutene gir $S_{10} = 1\\cdot \\frac{2^{10} - 1}{2 - 1} = \\frac{1024 - 1}{1} = 1023$ korn. Lat oss kontrollere på ei kortare følgje: for $3, 6, 12, 24, \\ldots$ med $k = 2$ er $S_8 = 3\\cdot \\frac{2^8 - 1}{1} = 3\\cdot 255 = 765$.\n\nNår $k > 1$ veks ledda, og då er det greitt å bruke $\\frac{k^n - 1}{k - 1}$ sidan begge ledd er positive. Når $\\lvert k\\rvert < 1$ søkk ledda mot null, og då er forma $\\frac{1 - k^n}{1 - k}$ ofte greiast. Til dømes gir $a_1 = 100$ og $k = 0{,}5$ over $6$ ledd $S_6 = 100\\cdot \\frac{1 - 0{,}5^6}{1 - 0{,}5} = 100\\cdot \\frac{0{,}984375}{0{,}5} = 196{,}875$.",
+      "1b89de7771cad3d4": "Test deg sjølv på geometriske følgjer og summen av dei:",
+      "4097889236a2af26": "placeholder",
+      "3f8dc01422e819a5": "Ei geometrisk følgje har $a_1 = 4$ og $k = 2$. Kva er $a_{10}$?",
+      "94b593c315663240": "Vi brukar $a_n = a_1\\cdot k^{n-1}$: $a_{10} = 4\\cdot 2^9 = 4\\cdot 512 = 2048$.",
+      "3f89721c60a12670": "I ei geometrisk følgje er $a_2 = 12$ og $a_5 = 96$. Kva er kvotienten $k$?",
+      "8957fb92ba8c782b": "Frå $a_2$ til $a_5$ er det tre skritt: $\\frac{a_5}{a_2} = k^3 = \\frac{96}{12} = 8$, så $k = \\sqrt[3]{8} = 2$.",
+      "3868c964621d3ca1": "Kva er summen $S_8$ av følgja $3, 6, 12, 24, \\ldots$?",
+      "7f241399a4eb74ee": "Her er $a_1 = 3$, $k = 2$, $n = 8$: $S_8 = 3\\cdot \\frac{2^8 - 1}{2 - 1} = 3\\cdot 255 = 765$.",
+      "67776eabc9c95f91": "Kva er den eksplisitte formelen for ei geometrisk følgje?",
+      "4e382a1a347a9961": "$a_n = a_1 + (n-1)k$",
+      "c98e9101de4a4b3c": "$a_n = a_1\\cdot k\\cdot n$",
+      "d88063ad8ad52071": "$a_n = a_1\\cdot k^{n-1}$",
+      "00348658391ff3c4": "$a_n = a_1\\cdot k^n$",
+      "508342e37c94db6c": "Kvart ledd er det førre ganga med $k$, så frå $a_1$ til $a_n$ gangar vi $n-1$ gonger: $a_n = a_1\\cdot k^{n-1}$.",
+      "4ec6c57615123a7f": "## Sparing, rentes rente og annuitetar\n\nHer kjem den verkelege grunnen til at geometriske rekkjer er berebjelken i finansmatematikk. Tenk at du set inn $10\\,000$ kr ved slutten av kvart år i $8$ år til $5\\,\\%$ rente. Eit innskot sett inn ved slutten av år $j$ tener rente i $8 - j$ år, så ved slutten av år $8$ er det verdt $10\\,000\\cdot 1{,}05^{8-j}$. Summerer vi alle åtte, får vi nettopp ei geometrisk rekkje med $k = 1{,}05$: sluttverdien er $FV = 10\\,000\\cdot \\frac{1{,}05^8 - 1}{1{,}05 - 1} = 10\\,000\\cdot \\frac{0{,}4775}{0{,}05} \\approx 95\\,491$ kr. Du sette inn $80\\,000$ kr, men sit att med over $95\\,000$ kr -- skilnaden er rentes rente.\n\nDette er ikkje tilfeldig. Skriv vi $k = 1 + r$, blir nemnaren $k - 1 = r$, og geometrisk sumformel blir identisk med **sluttverdiformelen for annuitet**: $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$. Heile finansmatematikken byggjer altså på denne eine geometriske rekkja. Set du til dømes inn $24\\,000$ kr i året i $30$ år til $6\\,\\%$, blir $FV = 24\\,000\\cdot \\frac{1{,}06^{30} - 1}{0{,}06} = 24\\,000\\cdot \\frac{4{,}7435}{0{,}06} \\approx 1\\,897\\,400$ kr -- du har spart inn $720\\,000$ kr, men rentes rente har meir enn dobla beløpet.\n\nDen same rekkja skildrar eksponentiell vekst utanfor sparing. Ein oppstart som sel $50$ einingar første månad med $8\\,\\%$ månadleg vekst, har selt $S_{24} = 50\\cdot \\frac{1{,}08^{24} - 1}{0{,}08} = 50\\cdot \\frac{5{,}3412}{0{,}08} \\approx 3\\,338$ einingar etter to år. Og når noko veks eksponentielt, kan vi snu på det og spørje kor lenge det tek -- ved logaritmar. Ei investering som veks $7\\,\\%$ i året treng $n = \\frac{\\ln 5}{\\ln 1{,}07} \\approx 23{,}8$, altså $24$ år, på å femdoble seg, fordi $200\\,000\\cdot 1{,}07^n \\geq 1\\,000\\,000$ krev $1{,}07^n \\geq 5$.",
+      "0b788b0aaea087b7": "Test deg sjølv på sparing, annuitetar og eksponentiell vekst:",
+      "f1c8c7725a77eb70": "Kva formel gir sluttverdien av like årlege innskot $A$ over $n$ år med rente $r$?",
+      "ef4ea01d52ff7007": "$FV = A\\cdot r^n$",
+      "68657cb6000d7c6e": "$FV = A\\cdot \\frac{r}{(1+r)^n}$",
+      "043ffaf76edeb6b8": "$FV = A\\cdot n\\cdot r$",
+      "5a04fa6aba8729b6": "$FV = A\\cdot \\frac{(1+r)^n - 1}{r}$",
+      "470bd852590c858f": "Sluttverdiformelen er $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som er nettopp geometrisk sumformel med $k = 1 + r$.",
+      "eaaa383022bb98a8": "Du sparer $8\\,000$ kr/år i $20$ år til $4\\,\\%$ rente. Kva er sluttverdien (avrunda)?",
+      "1f382251919335f1": "$238\\,225$ kr",
+      "399366f1b20153cd": "$160\\,000$ kr",
+      "a686ac4459e54b69": "$320\\,000$ kr",
+      "8e5f5fc9cf8a4538": "$208\\,000$ kr",
+      "59d9111573b6d622": "$FV = 8\\,000\\cdot \\frac{1{,}04^{20} - 1}{0{,}04} = 8\\,000\\cdot 29{,}778 \\approx 238\\,225$ kr. Merk at innskota utgjorde berre $160\\,000$ kr.",
+      "7a5fd98a1c1892ff": "Ei investering på $500\\,000$ kr blir dobla kvart $7.$ år. Kor mykje er ho verdt etter $35$ år?",
+      "4ae803bb25adc330": "$2\\,500\\,000$ kr",
+      "f54ee3eb78c29c91": "$16\\,000\\,000$ kr",
+      "3a3463c540414929": "$10\\,000\\,000$ kr",
+      "ff1d185d84c62efe": "$3\\,500\\,000$ kr",
+      "094a18180a871e30": "$35$ år er $5$ doblingar ($35/7 = 5$), så verdien blir $500\\,000\\cdot 2^5 = 500\\,000\\cdot 32 = 16\\,000\\,000$ kr.",
+      "b078bf70613b6d6f": "Kvifor er sluttverdien av faste innskot større enn summen av innskota sjølve?",
+      "383d3142870ca9ee": "På grunn av inflasjon",
+      "3fbb0ab7758d39e6": "Fordi banken legg til eit fast gebyr",
+      "cf9c731558c86110": "På grunn av rentes rente -- kvart innskot tener rente i fleire år",
+      "2a92b4fc2a94d00a": "Det er han ikkje; dei er alltid like",
+      "69dc26b65a561214": "Kvart innskot får rente, og rentene får sjølve rente i dei påfølgjande åra. Denne rentes-rente-effekten gjer at sluttverdien overstig summen av dei reine innskota.",
+      "fd0c22850372639d": "## Oppsummering\n\nEi **geometrisk følgje** gangar med ein fast kvotient $k$ for kvart skritt, med eksplisitt formel $a_n = a_1\\cdot k^{n-1}$. Kjenner vi to ledd, finn vi $k$ via forholdet mellom dei, $k^{n-m} = \\frac{a_n}{a_m}$.\n\nSummen av dei $n$ første ledda får vi ved å trekkje $k\\cdot S_n$ frå $S_n$, noko som gir $S_n = a_1\\cdot \\frac{k^n - 1}{k - 1}$ for $k \\neq 1$ (og $S_n = n\\cdot a_1$ når $k = 1$). Denne eine formelen er hjørnesteinen i finansmatematikken: med $k = 1 + r$ blir han til **sluttverdiformelen for annuitet**, $FV = A\\cdot \\frac{(1+r)^n - 1}{r}$, som skildrar sparing med rentes rente. Den same geometriske strukturen styrer eksponentielt veksande sal og folkesetnad, og ved hjelp av logaritmar kan vi rekne ut kor lenge noko treng for å doble eller femdoble seg. I neste kapittel tek vi det siste steget: kva skjer når vi lèt ei geometrisk rekkje halde fram i all æve?"
+    }
+  }
+}

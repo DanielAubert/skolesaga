@@ -1,1 +1,514 @@
-{"id":"s2-4-4-narrativ","courseId":"s2","chapterNumber":"4.4","title":"Forventningsverdi og varians","subtitle":"Narrativ versjon","description":"Ei forteljing om ei bedrift som reknar på usikker forteneste — og reknereglane som gjer samansett tilfeldigheit handterleg.","estimatedMinutes":36,"competenceGoals":["rekne ut forventningsverdi, varians og standardavvik til stokastiske variablar","bruke reknereglar for forventningsverdi og varians i praktiske problem","forstå og bruke standardisering av stokastiske variablar"],"linkedChapterId":"s2-4-4","content":[{"id":"s2-4-4-n-intro","type":"text","content":"## Usikkerheit som kan reknast på\n\nEin liten nettbutikk sel to produkt. Salet svingar frå dag til dag, lønsemda varierer, og likevel må dagleg leiar budsjettere: kva blir fortenesta i morgon — og kor mykje kan ho slingre? Det høyrest ut som gjettverk, men det er det ikkje. Med to nøkkeltal og nokre få reknereglar kan samansett usikkerheit reknast på som kvar som helst annan storleik.\n\nDei to nøkkeltala kjenner du frå før. **Forventningsverdien** $E(X) = \\mu$ er senteret i fordelinga — det langsiktige gjennomsnittet, rekna ut som $E(X) = \\sum x_i \\cdot P(X = x_i)$. **Variansen** $\\text{Var}(X) = \\sigma^2$ måler spreiinga rundt senteret, raskast rekna ut med $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer spreiinga i same eining som $X$ — kroner, ikkje kroner i andre.\n\nDet nye i dette kapittelet er **reknereglane**: korleis oppfører forventning og varians seg når vi skalerer variablar, legg dei saman og trekkjer dei frå kvarandre? Det er desse reglane som lèt nettbutikken gå frå «salet av produkt A og B varierer» til «forventa dagsforteneste er 1950 kroner med standardavvik 203 kroner». Og på vegen skal vi møte standardisering — trikset som gjer eple og pærer samanliknbare — og Tsjebysjevs ulikskap, garantien som gjeld for absolutt alle fordelingar."},{"id":"s2-4-4-n-section1","type":"text","content":"## Reknereglane\n\nFor forventningsverdien gjeld fire reglar. Ein konstant har seg sjølv som forventning: $E(c) = c$. Lineærtransformasjonar følgjer $E(aX + b) = aE(X) + b$. Summar kan alltid splittast: $E(X + Y) = E(X) + E(Y)$ — og dette gjeld faktisk **alltid**, òg når $X$ og $Y$ er avhengige. Samla: $E(aX + bY + c) = aE(X) + bE(Y) + c$. Forventninga er ein **lineær operator**: konstantar blir flytta ut, summar splitta. (Produkt er derimot ikkje gratis: $E(X \\cdot Y) = E(X) \\cdot E(Y)$ gjeld berre for **uavhengige** variablar.)\n\nVariansen oppfører seg annleis. Ein konstant har inga spreiing: $\\text{Var}(c) = 0$. Ved lineærtransformasjon gjeld $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantleddet $b$ forsvinn heilt, for å forskyve ei fordeling endrar ikkje spreiinga, medan skaleringsfaktoren $a$ blir **kvadrert**. For **uavhengige** $X$ og $Y$ blir variansane addert: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$. Og her kjem kapittelets mest kontraintuitive faktum: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$ — variansen blir addert **òg ved subtraksjon**. Usikkerheit kan ikkje trekkjast frå; to usikre storleikar gir meir samla usikkerheit uansett om du legg dei saman eller trekkjer dei frå kvarandre. Generelt for uavhengige variablar: $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$.\n\nVer òg nøye med skilnaden på varians og standardavvik i skalering: $\\text{Var}(aX) = a^2\\text{Var}(X)$, men $\\text{SD}(aX) = |a| \\cdot \\text{SD}(X)$. Å gløyme kvadreringa — eller å kvadrere standardavviket éin gong for mykje — er blant dei vanlegaste feila på eksamen."},{"id":"s2-4-4-n-quiz1","type":"exercise","exercise":{"id":"s2-4-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på reknereglane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-4-n-quiz1-q0","task":"Kva regel gjeld ALLTID, òg for avhengige variablar?","options":[{"id":"a","text":"$E(X + Y) = E(X) + E(Y)$","isCorrect":true},{"id":"b","text":"$\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$","isCorrect":false},{"id":"c","text":"$E(XY) = E(X)E(Y)$","isCorrect":false},{"id":"d","text":"$\\text{Var}(XY) = \\text{Var}(X)\\text{Var}(Y)$","isCorrect":false}],"solution":"Additiviteten til forventninga gjeld utan vilkår. Varians-addisjon og produktregelen for forventning krev uavhengigheit."},{"id":"s2-4-4-n-quiz1-q1","task":"Kva er $\\text{Var}(aX + b)$?","options":[{"id":"a","text":"$a\\,\\text{Var}(X) + b$","isCorrect":false},{"id":"b","text":"$a^2\\,\\text{Var}(X) + b$","isCorrect":false},{"id":"c","text":"$a^2\\,\\text{Var}(X)$","isCorrect":true},{"id":"d","text":"$a\\,\\text{Var}(X)$","isCorrect":false}],"solution":"Konstanten $b$ forskyv berre fordelinga og påverkar ikkje spreiinga; skaleringsfaktoren blir kvadrert: $\\text{Var}(aX+b) = a^2\\text{Var}(X)$."},{"id":"s2-4-4-n-quiz1-q2","task":"$X$ og $Y$ er uavhengige. Kva er $\\text{Var}(X - Y)$?","options":[{"id":"a","text":"$\\text{Var}(X) - \\text{Var}(Y)$","isCorrect":false},{"id":"b","text":"$\\text{Var}(X) + \\text{Var}(Y)$","isCorrect":true},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$|\\text{Var}(X) - \\text{Var}(Y)|$","isCorrect":false}],"solution":"Variansen blir addert òg ved subtraksjon: $\\text{Var}(X - Y) = (-1)^2\\text{Var}(Y) + \\text{Var}(X)$. Usikkerheita aukar uansett."},{"id":"s2-4-4-n-quiz1-q3","task":"Kva er $\\text{SD}(3X)$ uttrykt ved $\\text{SD}(X)$?","options":[{"id":"a","text":"$9 \\cdot \\text{SD}(X)$","isCorrect":false},{"id":"b","text":"$\\sqrt{3} \\cdot \\text{SD}(X)$","isCorrect":false},{"id":"c","text":"$\\text{SD}(X)$","isCorrect":false},{"id":"d","text":"$3 \\cdot \\text{SD}(X)$","isCorrect":true}],"solution":"$\\text{Var}(3X) = 9\\text{Var}(X)$, så $\\text{SD}(3X) = \\sqrt{9\\text{Var}(X)} = 3\\,\\text{SD}(X)$. Standardavviket skalerer med $|a|$, variansen med $a^2$."}]}},{"id":"s2-4-4-n-section2","type":"text","content":"## Budsjettet til nettbutikken\n\nNo bruker vi reglane på nettbutikken. Dagleg sal av produkt A er $X$ med $E(X) = 30$ og $\\text{Var}(X) = 16$; produkt B er $Y$ med $E(Y) = 50$ og $\\text{Var}(Y) = 25$. Sala er uavhengige. Fortenesta er 40 kr per A-eining og 25 kr per B-eining, og faste kostnader er 500 kr per dag. Total dagsforteneste blir dermed $F = 40X + 25Y - 500$.\n\nForventninga følgjer lineariteten: $E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kroner. Variansen bruker regelen for uavhengige variablar — og hugs at konstanten $-500$ forsvinn: $\\text{Var}(F) = 40^2 \\cdot 16 + 25^2 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) = \\sqrt{41\\,225} \\approx 203$ kroner. Konklusjonen til styremøtet: forventa dagsforteneste 1950 kr, med eit typisk avvik på rundt 200 kr.\n\nMen kva tyder «typisk avvik» meir presist? For mange klokkeforma fordelingar gjeld tommelfingerregelen 68-95-99,7: omtrent 68 % av dagane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$, 99,7 % innanfor $\\mu \\pm 3\\sigma$. Regelen er eksakt for normalfordelinga og ei god tilnærming for mange andre.\n\nOg om fordelinga er heilt ukjend — kanskje skeiv og rar? Då har vi **Tsjebysjevs ulikskap**, som gjeld for absolutt alle fordelingar: $$P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$$ Minst $1 - \\frac{1}{k^2}$ av sannsynet ligg innanfor $k$ standardavvik frå gjennomsnittet: minst 75 % innanfor $2\\sigma$, minst 88,9 % innanfor $3\\sigma$. Garantien er svakare enn normalregelen — men ho krev ingenting i byte."},{"id":"s2-4-4-n-quiz2","type":"exercise","exercise":{"id":"s2-4-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på samansette variablar og spreiingsreglar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-4-n-quiz2-q0","task":"$F = 40X + 25Y - 500$ med $E(X) = 30$ og $E(Y) = 50$. Kva er $E(F)$?","options":[{"id":"a","text":"$2450$ kr","isCorrect":false},{"id":"b","text":"$1950$ kr","isCorrect":true},{"id":"c","text":"$1450$ kr","isCorrect":false},{"id":"d","text":"$80$ kr","isCorrect":false}],"solution":"$E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kr. Konstanten blir trekt frå forventninga."},{"id":"s2-4-4-n-quiz2-q1","task":"Kvifor påverkar ikkje dei faste kostnadene på 500 kr variansen til $F$?","options":[{"id":"a","text":"Fordi konstantar forskyv fordelinga utan å endre spreiinga","isCorrect":true},{"id":"b","text":"Fordi 500 kr er eit lite beløp","isCorrect":false},{"id":"c","text":"Fordi kostnadene er uavhengige av salet","isCorrect":false},{"id":"d","text":"Dei påverkar variansen, men lite","isCorrect":false}],"solution":"$\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ — konstanten $c$ er borte. Eit fast frådrag kvar dag endrar ikkje kor mykje fortenesta svingar."},{"id":"s2-4-4-n-quiz2-q2","task":"Med $\\text{Var}(X) = 16$ og $\\text{Var}(Y) = 25$ (uavhengige): kva er $\\text{Var}(40X + 25Y - 500)$?","options":[{"id":"a","text":"$41$","isCorrect":false},{"id":"b","text":"$1265$","isCorrect":false},{"id":"c","text":"$41\\,225$","isCorrect":true},{"id":"d","text":"$40\\,725$","isCorrect":false}],"solution":"$40^2 \\cdot 16 + 25^2 \\cdot 25 = 1600 \\cdot 16 + 625 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) \\approx 203$ kr."},{"id":"s2-4-4-n-quiz2-q3","task":"Kva garanterer Tsjebysjevs ulikskap for $k = 2$?","options":[{"id":"a","text":"Nøyaktig 95 % ligg innanfor $2\\sigma$","isCorrect":false},{"id":"b","text":"Minst 75 % av sannsynet ligg innanfor $2\\sigma$ frå $\\mu$, uansett fordeling","isCorrect":true},{"id":"c","text":"Maksimalt 75 % ligg innanfor $2\\sigma$","isCorrect":false},{"id":"d","text":"At fordelinga er normalfordelt","isCorrect":false}],"solution":"$P(|X - \\mu| \\geq 2\\sigma) \\leq \\frac{1}{4}$, så minst $1 - \\frac{1}{4} = 75\\%$ ligg innanfor. Garantien gjeld alle fordelingar; normalfordelinga gir dei skarpare 95 %."}]}},{"id":"s2-4-4-n-section3","type":"text","content":"## Felles målestokk: standardisering\n\nEit siste verktøy gjer usikre storleikar frå heilt ulike verder samanliknbare. Anta at du fekk 82 poeng på ei prøve der snittet var 70 med standardavvik 8, medan venen din fekk 75 på ei prøve med snitt 60 og standardavvik 12. Kven presterte best i forhold til si gruppe? Tala kan ikkje samanliknast direkte — skalaane er forskjellige.\n\nLøysinga er **standardisering**. Gitt ein stokastisk variabel $X$ med forventning $\\mu$ og standardavvik $\\sigma > 0$, definerer vi den standardiserte variabelen $$Z = \\frac{X - \\mu}{\\sigma}$$ $Z$ måler avstanden frå gjennomsnittet i einingar av standardavvik. Og uansett kva slags fordeling $X$ har, får $Z$ alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$.\n\nBeviset er ei elegant anvending av reknereglane vi nettopp lærte. Forventninga: $E(Z) = E\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma}E(X - \\mu) = \\frac{1}{\\sigma}(\\mu - \\mu) = 0$. Variansen: $\\text{Var}(Z) = \\text{Var}\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma^2}\\text{Var}(X) = \\frac{\\sigma^2}{\\sigma^2} = 1$ — konstanten $\\mu$ forsvann, og skaleringsfaktoren $\\frac{1}{\\sigma}$ blei kvadrert. Begge reknereglane i aksjon i éi og same utleiing.\n\nTilbake til prøvene: din $z$-verdi er $\\frac{82 - 70}{8} = 1{,}5$, venens er $\\frac{75 - 60}{12} = 1{,}25$. Du låg halvannan standardavvik over snittet, venen berre eitt og eit kvart — du presterte best relativt sett, sjølv om begge tala «82» og «75» seier lite åleine. Det er same standardisering som i normalfordelingskapittelet gjorde alle klokkekurver til éi; her ser vi at trikset verkar for alle fordelingar overhovud."},{"id":"s2-4-4-n-quiz3","type":"exercise","exercise":{"id":"s2-4-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på standardisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-4-4-n-quiz3-q0","task":"Kva er forventning og varians til den standardiserte variabelen $Z = \\frac{X - \\mu}{\\sigma}$?","options":[{"id":"a","text":"$E(Z) = \\mu$, $\\text{Var}(Z) = \\sigma^2$","isCorrect":false},{"id":"b","text":"$E(Z) = 0$, $\\text{Var}(Z) = 1$","isCorrect":true},{"id":"c","text":"$E(Z) = 1$, $\\text{Var}(Z) = 0$","isCorrect":false},{"id":"d","text":"Det kjem an på fordelinga til $X$","isCorrect":false}],"solution":"Standardisering gir alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$, uansett kva fordeling $X$ har."},{"id":"s2-4-4-n-quiz3-q1","task":"Kvifor blir $\\text{Var}(Z) = \\frac{1}{\\sigma^2}\\text{Var}(X)$ i beviset?","options":[{"id":"a","text":"Fordi variansen skalerer med kvadratet av faktoren: $\\text{Var}(aX) = a^2\\text{Var}(X)$ med $a = \\frac{1}{\\sigma}$","isCorrect":true},{"id":"b","text":"Fordi $\\mu$ blir kvadrert","isCorrect":false},{"id":"c","text":"Fordi variansen alltid er 1","isCorrect":false},{"id":"d","text":"Fordi $Z$ er normalfordelt","isCorrect":false}],"solution":"$Z = \\frac{1}{\\sigma}X - \\frac{\\mu}{\\sigma}$: konstantleddet forsvinn, og faktoren $\\frac{1}{\\sigma}$ blir kvadrert til $\\frac{1}{\\sigma^2}$. Dermed $\\text{Var}(Z) = \\frac{\\sigma^2}{\\sigma^2} = 1$."},{"id":"s2-4-4-n-quiz3-q2","task":"Du fekk 82 poeng (snitt 70, $\\sigma = 8$); venen fekk 75 (snitt 60, $\\sigma = 12$). Kven presterte best relativt sett?","options":[{"id":"a","text":"Venen, fordi fordelinga hans hadde størst spreiing","isCorrect":false},{"id":"b","text":"Like bra","isCorrect":false},{"id":"c","text":"Du, med $z = 1{,}5$ mot venens $z = 1{,}25$","isCorrect":true},{"id":"d","text":"Det kan ikkje samanliknast","isCorrect":false}],"solution":"$z$-verdiane er $\\frac{82-70}{8} = 1{,}5$ og $\\frac{75-60}{12} = 1{,}25$. Standardisering gjer prestasjonar på ulike skalaar samanliknbare — og $1{,}5 > 1{,}25$."},{"id":"s2-4-4-n-quiz3-q3","task":"Kva blir standardisering brukt til?","options":[{"id":"a","text":"Å gjere alle fordelingar normalfordelte","isCorrect":false},{"id":"b","text":"Å auke forventningsverdien","isCorrect":false},{"id":"c","text":"Å fjerne tilfeldigheita frå ein variabel","isCorrect":false},{"id":"d","text":"Å samanlikne verdiar frå ulike fordelingar på ein felles skala","isCorrect":true}],"solution":"Standardisering endrar ikkje forma på fordelinga, men flyttar ho til skalaen med senter 0 og spreiing 1, slik at verdiar frå ulike fordelingar kan samanliknast."}]}},{"id":"s2-4-4-n-summary","type":"text","content":"## Oppsummering: algebraen for tilfeldigheit\n\nBudsjettproblemet til nettbutikken viste at usikkerheit følgjer reknereglar like presise som vanleg algebra. **Forventninga er lineær**: $E(aX + b) = aE(X) + b$, og $E(X + Y) = E(X) + E(Y)$ gjeld alltid — òg for avhengige variablar. **Variansen** speler etter andre reglar: konstantledd forsvinn og koeffisientar blir kvadrert, $\\text{Var}(aX + b) = a^2\\text{Var}(X)$, og for uavhengige variablar blir variansane addert — påfallande nok òg ved subtraksjon, $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$, for usikkerheit lèt seg ikkje trekkje frå. Den generelle formelen $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ gav oss svaret til nettbutikken: forventa forteneste 1950 kr, standardavvik 203 kr.\n\nTil tolkinga av standardavviket har vi to nivå: 68-95-99,7-regelen for klokkeforma fordelingar, og **Tsjebysjevs ulikskap** $P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$ som universell garanti — minst 75 % innanfor to standardavvik, uansett fordeling.\n\nOg med **standardiseringa** $Z = \\frac{X - \\mu}{\\sigma}$, som alltid gir $E(Z) = 0$ og $\\text{Var}(Z) = 1$, fekk vi ein felles målestokk for alt som varierer — frå prøveresultat til forteneste. Hugs presisjonsdetaljane som skil gode svar frå slurvete: variansen skalerer med $a^2$, standardavviket med $|a|$, og det er alltid verdt å spørje om variablane faktisk er uavhengige før du adderer variansar."}],"exercises":[],"_meta":{"sourceHash":"93c8c005a99ee94d","translatedAt":"2026-06-20T08:58:03.555Z","model":"claude-code-agent","strings":84,"tm":{"d12a40d1ad37a30a":"Forventningsverdi og varians","b195b06d1ed59702":"Narrativ versjon","8a070c58a2eed33e":"Ei forteljing om ei bedrift som reknar på usikker forteneste — og reknereglane som gjer samansett tilfeldigheit handterleg.","d18ca2471178d999":"rekne ut forventningsverdi, varians og standardavvik til stokastiske variablar","ee08fb8281598385":"bruke reknereglar for forventningsverdi og varians i praktiske problem","edc04c610ab32fa7":"forstå og bruke standardisering av stokastiske variablar","1e1061bd5b2091c1":"## Usikkerheit som kan reknast på\n\nEin liten nettbutikk sel to produkt. Salet svingar frå dag til dag, lønsemda varierer, og likevel må dagleg leiar budsjettere: kva blir fortenesta i morgon — og kor mykje kan ho slingre? Det høyrest ut som gjettverk, men det er det ikkje. Med to nøkkeltal og nokre få reknereglar kan samansett usikkerheit reknast på som kvar som helst annan storleik.\n\nDei to nøkkeltala kjenner du frå før. **Forventningsverdien** $E(X) = \\mu$ er senteret i fordelinga — det langsiktige gjennomsnittet, rekna ut som $E(X) = \\sum x_i \\cdot P(X = x_i)$. **Variansen** $\\text{Var}(X) = \\sigma^2$ måler spreiinga rundt senteret, raskast rekna ut med $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer spreiinga i same eining som $X$ — kroner, ikkje kroner i andre.\n\nDet nye i dette kapittelet er **reknereglane**: korleis oppfører forventning og varians seg når vi skalerer variablar, legg dei saman og trekkjer dei frå kvarandre? Det er desse reglane som lèt nettbutikken gå frå «salet av produkt A og B varierer» til «forventa dagsforteneste er 1950 kroner med standardavvik 203 kroner». Og på vegen skal vi møte standardisering — trikset som gjer eple og pærer samanliknbare — og Tsjebysjevs ulikskap, garantien som gjeld for absolutt alle fordelingar.","5104caa15338ca60":"## Reknereglane\n\nFor forventningsverdien gjeld fire reglar. Ein konstant har seg sjølv som forventning: $E(c) = c$. Lineærtransformasjonar følgjer $E(aX + b) = aE(X) + b$. Summar kan alltid splittast: $E(X + Y) = E(X) + E(Y)$ — og dette gjeld faktisk **alltid**, òg når $X$ og $Y$ er avhengige. Samla: $E(aX + bY + c) = aE(X) + bE(Y) + c$. Forventninga er ein **lineær operator**: konstantar blir flytta ut, summar splitta. (Produkt er derimot ikkje gratis: $E(X \\cdot Y) = E(X) \\cdot E(Y)$ gjeld berre for **uavhengige** variablar.)\n\nVariansen oppfører seg annleis. Ein konstant har inga spreiing: $\\text{Var}(c) = 0$. Ved lineærtransformasjon gjeld $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantleddet $b$ forsvinn heilt, for å forskyve ei fordeling endrar ikkje spreiinga, medan skaleringsfaktoren $a$ blir **kvadrert**. For **uavhengige** $X$ og $Y$ blir variansane addert: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$. Og her kjem kapittelets mest kontraintuitive faktum: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$ — variansen blir addert **òg ved subtraksjon**. Usikkerheit kan ikkje trekkjast frå; to usikre storleikar gir meir samla usikkerheit uansett om du legg dei saman eller trekkjer dei frå kvarandre. Generelt for uavhengige variablar: $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$.\n\nVer òg nøye med skilnaden på varians og standardavvik i skalering: $\\text{Var}(aX) = a^2\\text{Var}(X)$, men $\\text{SD}(aX) = |a| \\cdot \\text{SD}(X)$. Å gløyme kvadreringa — eller å kvadrere standardavviket éin gong for mykje — er blant dei vanlegaste feila på eksamen.","b1af8cbb122bd828":"Test deg sjølv på reknereglane:","4097889236a2af26":"placeholder","e562e85af5908fed":"Kva regel gjeld ALLTID, òg for avhengige variablar?","e41c485ccf9d1f71":"$E(X + Y) = E(X) + E(Y)$","9bb3b286d2e1c1ef":"$\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$","3c15bf622bdf6c58":"$E(XY) = E(X)E(Y)$","e11d03e792f49db4":"$\\text{Var}(XY) = \\text{Var}(X)\\text{Var}(Y)$","8e0f78ba180ae923":"Additiviteten til forventninga gjeld utan vilkår. Varians-addisjon og produktregelen for forventning krev uavhengigheit.","b0aa10fc6c7503e2":"Kva er $\\text{Var}(aX + b)$?","efd26cc096998bc9":"$a\\,\\text{Var}(X) + b$","37794ca8e98a048d":"$a^2\\,\\text{Var}(X) + b$","2241a740f1b4aa59":"$a^2\\,\\text{Var}(X)$","de94ce6a597a179d":"$a\\,\\text{Var}(X)$","c240f0a42450d4a4":"Konstanten $b$ forskyv berre fordelinga og påverkar ikkje spreiinga; skaleringsfaktoren blir kvadrert: $\\text{Var}(aX+b) = a^2\\text{Var}(X)$.","938c7fe47ec36141":"$X$ og $Y$ er uavhengige. Kva er $\\text{Var}(X - Y)$?","ff83338057f9c53a":"$\\text{Var}(X) - \\text{Var}(Y)$","eb58d97aa87d44c4":"$\\text{Var}(X) + \\text{Var}(Y)$","c377ddec204ac27e":"$|\\text{Var}(X) - \\text{Var}(Y)|$","827b632175adf42e":"Variansen blir addert òg ved subtraksjon: $\\text{Var}(X - Y) = (-1)^2\\text{Var}(Y) + \\text{Var}(X)$. Usikkerheita aukar uansett.","aabe142f79679ef3":"Kva er $\\text{SD}(3X)$ uttrykt ved $\\text{SD}(X)$?","af137a6898af8130":"$9 \\cdot \\text{SD}(X)$","0c71d19e9f105c41":"$\\sqrt{3} \\cdot \\text{SD}(X)$","fb8b3d47ecf619ac":"$\\text{SD}(X)$","22f4fb49b1bb621c":"$3 \\cdot \\text{SD}(X)$","e4c7a02233c3771a":"$\\text{Var}(3X) = 9\\text{Var}(X)$, så $\\text{SD}(3X) = \\sqrt{9\\text{Var}(X)} = 3\\,\\text{SD}(X)$. Standardavviket skalerer med $|a|$, variansen med $a^2$.","ca71110060024e32":"## Budsjettet til nettbutikken\n\nNo bruker vi reglane på nettbutikken. Dagleg sal av produkt A er $X$ med $E(X) = 30$ og $\\text{Var}(X) = 16$; produkt B er $Y$ med $E(Y) = 50$ og $\\text{Var}(Y) = 25$. Sala er uavhengige. Fortenesta er 40 kr per A-eining og 25 kr per B-eining, og faste kostnader er 500 kr per dag. Total dagsforteneste blir dermed $F = 40X + 25Y - 500$.\n\nForventninga følgjer lineariteten: $E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kroner. Variansen bruker regelen for uavhengige variablar — og hugs at konstanten $-500$ forsvinn: $\\text{Var}(F) = 40^2 \\cdot 16 + 25^2 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) = \\sqrt{41\\,225} \\approx 203$ kroner. Konklusjonen til styremøtet: forventa dagsforteneste 1950 kr, med eit typisk avvik på rundt 200 kr.\n\nMen kva tyder «typisk avvik» meir presist? For mange klokkeforma fordelingar gjeld tommelfingerregelen 68-95-99,7: omtrent 68 % av dagane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$, 99,7 % innanfor $\\mu \\pm 3\\sigma$. Regelen er eksakt for normalfordelinga og ei god tilnærming for mange andre.\n\nOg om fordelinga er heilt ukjend — kanskje skeiv og rar? Då har vi **Tsjebysjevs ulikskap**, som gjeld for absolutt alle fordelingar: $$P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$$ Minst $1 - \\frac{1}{k^2}$ av sannsynet ligg innanfor $k$ standardavvik frå gjennomsnittet: minst 75 % innanfor $2\\sigma$, minst 88,9 % innanfor $3\\sigma$. Garantien er svakare enn normalregelen — men ho krev ingenting i byte.","60528b5d7297ae1b":"Test deg sjølv på samansette variablar og spreiingsreglar:","c8fadf869329c605":"$F = 40X + 25Y - 500$ med $E(X) = 30$ og $E(Y) = 50$. Kva er $E(F)$?","642cae460c95fad9":"$2450$ kr","22009f2043828343":"$1950$ kr","d8dd0c7ef6a605fc":"$1450$ kr","83cf0c072a7317c1":"$80$ kr","772a274a8f6f71db":"$E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kr. Konstanten blir trekt frå forventninga.","71cf7928dd540e66":"Kvifor påverkar ikkje dei faste kostnadene på 500 kr variansen til $F$?","0f39bff70690ddec":"Fordi konstantar forskyv fordelinga utan å endre spreiinga","c21864f38bcac075":"Fordi 500 kr er eit lite beløp","3f29768362bd0318":"Fordi kostnadene er uavhengige av salet","daeb08cd2bc2c231":"Dei påverkar variansen, men lite","99a2589b37d9ded6":"$\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ — konstanten $c$ er borte. Eit fast frådrag kvar dag endrar ikkje kor mykje fortenesta svingar.","b10b7ceea2589853":"Med $\\text{Var}(X) = 16$ og $\\text{Var}(Y) = 25$ (uavhengige): kva er $\\text{Var}(40X + 25Y - 500)$?","c4a2360fb23c76e0":"$40^2 \\cdot 16 + 25^2 \\cdot 25 = 1600 \\cdot 16 + 625 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) \\approx 203$ kr.","c9fbb2a9c5078549":"Kva garanterer Tsjebysjevs ulikskap for $k = 2$?","f7f18dd410ccb63c":"Nøyaktig 95 % ligg innanfor $2\\sigma$","bd0f0e7986db6c81":"Minst 75 % av sannsynet ligg innanfor $2\\sigma$ frå $\\mu$, uansett fordeling","2a636b8eebabcbe5":"Maksimalt 75 % ligg innanfor $2\\sigma$","9d6e4c0571f5d488":"At fordelinga er normalfordelt","4e5e7b61f8016d6a":"$P(|X - \\mu| \\geq 2\\sigma) \\leq \\frac{1}{4}$, så minst $1 - \\frac{1}{4} = 75\\%$ ligg innanfor. Garantien gjeld alle fordelingar; normalfordelinga gir dei skarpare 95 %.","51fa77c854b64a02":"## Felles målestokk: standardisering\n\nEit siste verktøy gjer usikre storleikar frå heilt ulike verder samanliknbare. Anta at du fekk 82 poeng på ei prøve der snittet var 70 med standardavvik 8, medan venen din fekk 75 på ei prøve med snitt 60 og standardavvik 12. Kven presterte best i forhold til si gruppe? Tala kan ikkje samanliknast direkte — skalaane er forskjellige.\n\nLøysinga er **standardisering**. Gitt ein stokastisk variabel $X$ med forventning $\\mu$ og standardavvik $\\sigma > 0$, definerer vi den standardiserte variabelen $$Z = \\frac{X - \\mu}{\\sigma}$$ $Z$ måler avstanden frå gjennomsnittet i einingar av standardavvik. Og uansett kva slags fordeling $X$ har, får $Z$ alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$.\n\nBeviset er ei elegant anvending av reknereglane vi nettopp lærte. Forventninga: $E(Z) = E\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma}E(X - \\mu) = \\frac{1}{\\sigma}(\\mu - \\mu) = 0$. Variansen: $\\text{Var}(Z) = \\text{Var}\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma^2}\\text{Var}(X) = \\frac{\\sigma^2}{\\sigma^2} = 1$ — konstanten $\\mu$ forsvann, og skaleringsfaktoren $\\frac{1}{\\sigma}$ blei kvadrert. Begge reknereglane i aksjon i éi og same utleiing.\n\nTilbake til prøvene: din $z$-verdi er $\\frac{82 - 70}{8} = 1{,}5$, venens er $\\frac{75 - 60}{12} = 1{,}25$. Du låg halvannan standardavvik over snittet, venen berre eitt og eit kvart — du presterte best relativt sett, sjølv om begge tala «82» og «75» seier lite åleine. Det er same standardisering som i normalfordelingskapittelet gjorde alle klokkekurver til éi; her ser vi at trikset verkar for alle fordelingar overhovud.","5b434f17cc3d7bda":"Test deg sjølv på standardisering:","0379614a80f89b1c":"Kva er forventning og varians til den standardiserte variabelen $Z = \\frac{X - \\mu}{\\sigma}$?","fc396551c3790ba6":"$E(Z) = \\mu$, $\\text{Var}(Z) = \\sigma^2$","b7f13b37956ef20e":"$E(Z) = 0$, $\\text{Var}(Z) = 1$","f1ba0817dd90e26b":"$E(Z) = 1$, $\\text{Var}(Z) = 0$","74e6fcca8089849b":"Det kjem an på fordelinga til $X$","8774d14dc778c7e6":"Standardisering gir alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$, uansett kva fordeling $X$ har.","ecf9cf72e207fbd7":"Kvifor blir $\\text{Var}(Z) = \\frac{1}{\\sigma^2}\\text{Var}(X)$ i beviset?","a3377056035f1b12":"Fordi variansen skalerer med kvadratet av faktoren: $\\text{Var}(aX) = a^2\\text{Var}(X)$ med $a = \\frac{1}{\\sigma}$","5b7460c625dc5790":"Fordi $\\mu$ blir kvadrert","50bb6dc4a3177e2e":"Fordi variansen alltid er 1","bed4514337120f02":"Fordi $Z$ er normalfordelt","86baa191b8e17325":"$Z = \\frac{1}{\\sigma}X - \\frac{\\mu}{\\sigma}$: konstantleddet forsvinn, og faktoren $\\frac{1}{\\sigma}$ blir kvadrert til $\\frac{1}{\\sigma^2}$. Dermed $\\text{Var}(Z) = \\frac{\\sigma^2}{\\sigma^2} = 1$.","a3ae19f9bef5b9fd":"Du fekk 82 poeng (snitt 70, $\\sigma = 8$); venen fekk 75 (snitt 60, $\\sigma = 12$). Kven presterte best relativt sett?","3373719c5ef44239":"Venen, fordi fordelinga hans hadde størst spreiing","1b1f90cb64ace481":"Like bra","81a98fb2d7dc2546":"Du, med $z = 1{,}5$ mot venens $z = 1{,}25$","dbc0f129739f8594":"Det kan ikkje samanliknast","0a138d171126f670":"$z$-verdiane er $\\frac{82-70}{8} = 1{,}5$ og $\\frac{75-60}{12} = 1{,}25$. Standardisering gjer prestasjonar på ulike skalaar samanliknbare — og $1{,}5 > 1{,}25$.","f555e87911e35ffd":"Kva blir standardisering brukt til?","3d8e1227577f4023":"Å gjere alle fordelingar normalfordelte","b7c53c1519aefc4e":"Å auke forventningsverdien","1d70a17517b7523d":"Å fjerne tilfeldigheita frå ein variabel","04ff32506bf91bf8":"Å samanlikne verdiar frå ulike fordelingar på ein felles skala","d3d7c2ab2baec183":"Standardisering endrar ikkje forma på fordelinga, men flyttar ho til skalaen med senter 0 og spreiing 1, slik at verdiar frå ulike fordelingar kan samanliknast.","19e1d06343c13498":"## Oppsummering: algebraen for tilfeldigheit\n\nBudsjettproblemet til nettbutikken viste at usikkerheit følgjer reknereglar like presise som vanleg algebra. **Forventninga er lineær**: $E(aX + b) = aE(X) + b$, og $E(X + Y) = E(X) + E(Y)$ gjeld alltid — òg for avhengige variablar. **Variansen** speler etter andre reglar: konstantledd forsvinn og koeffisientar blir kvadrert, $\\text{Var}(aX + b) = a^2\\text{Var}(X)$, og for uavhengige variablar blir variansane addert — påfallande nok òg ved subtraksjon, $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$, for usikkerheit lèt seg ikkje trekkje frå. Den generelle formelen $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ gav oss svaret til nettbutikken: forventa forteneste 1950 kr, standardavvik 203 kr.\n\nTil tolkinga av standardavviket har vi to nivå: 68-95-99,7-regelen for klokkeforma fordelingar, og **Tsjebysjevs ulikskap** $P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$ som universell garanti — minst 75 % innanfor to standardavvik, uansett fordeling.\n\nOg med **standardiseringa** $Z = \\frac{X - \\mu}{\\sigma}$, som alltid gir $E(Z) = 0$ og $\\text{Var}(Z) = 1$, fekk vi ein felles målestokk for alt som varierer — frå prøveresultat til forteneste. Hugs presisjonsdetaljane som skil gode svar frå slurvete: variansen skalerer med $a^2$, standardavviket med $|a|$, og det er alltid verdt å spørje om variablane faktisk er uavhengige før du adderer variansar."}}}
+{
+  "id": "s2-4-4-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "4.4",
+  "title": "Forventningsverdi og varians",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ei bedrift som reknar på usikker forteneste — og reknereglane som gjer samansett tilfeldigheit handterleg.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "rekne ut forventningsverdi, varians og standardavvik til stokastiske variablar",
+    "bruke reknereglar for forventningsverdi og varians i praktiske problem",
+    "forstå og bruke standardisering av stokastiske variablar"
+  ],
+  "linkedChapterId": "s2-4-4",
+  "content": [
+    {
+      "id": "s2-4-4-n-intro",
+      "type": "text",
+      "content": "## Usikkerheit som kan reknast på\n\nEin liten nettbutikk sel to produkt. Salet svingar frå dag til dag, lønsemda varierer, og likevel må dagleg leiar budsjettere: kva blir fortenesta i morgon — og kor mykje kan ho slingre? Det høyrest ut som gjettverk, men det er det ikkje. Med to nøkkeltal og nokre få reknereglar kan samansett usikkerheit reknast på som kvar som helst annan storleik.\n\nDei to nøkkeltala kjenner du frå før. **Forventningsverdien** $E(X) = \\mu$ er senteret i fordelinga — det langsiktige gjennomsnittet, rekna ut som $E(X) = \\sum x_i \\cdot P(X = x_i)$. **Variansen** $\\text{Var}(X) = \\sigma^2$ måler spreiinga rundt senteret, raskast rekna ut med $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer spreiinga i same eining som $X$ — kroner, ikkje kroner i andre.\n\nDet nye i dette kapittelet er **reknereglane**: korleis oppfører forventning og varians seg når vi skalerer variablar, legg dei saman og trekkjer dei frå kvarandre? Det er desse reglane som lèt nettbutikken gå frå «salet av produkt A og B varierer» til «forventa dagsforteneste er 1950 kroner med standardavvik 203 kroner». Og på vegen skal vi møte standardisering — trikset som gjer eple og pærer samanliknbare — og Tsjebysjevs ulikskap, garantien som gjeld for absolutt alle fordelingar."
+    },
+    {
+      "id": "s2-4-4-n-section1",
+      "type": "text",
+      "content": "## Reknereglane\n\nFor forventningsverdien gjeld fire reglar. Ein konstant har seg sjølv som forventning: $E(c) = c$. Lineærtransformasjonar følgjer $E(aX + b) = aE(X) + b$. Summar kan alltid splittast: $E(X + Y) = E(X) + E(Y)$ — og dette gjeld faktisk **alltid**, òg når $X$ og $Y$ er avhengige. Samla: $E(aX + bY + c) = aE(X) + bE(Y) + c$. Forventninga er ein **lineær operator**: konstantar blir flytta ut, summar splitta. (Produkt er derimot ikkje gratis: $E(X \\cdot Y) = E(X) \\cdot E(Y)$ gjeld berre for **uavhengige** variablar.)\n\nVariansen oppfører seg annleis. Ein konstant har inga spreiing: $\\text{Var}(c) = 0$. Ved lineærtransformasjon gjeld $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantleddet $b$ forsvinn heilt, for å forskyve ei fordeling endrar ikkje spreiinga, medan skaleringsfaktoren $a$ blir **kvadrert**. For **uavhengige** $X$ og $Y$ blir variansane addert: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$. Og her kjem kapittelets mest kontraintuitive faktum: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$ — variansen blir addert **òg ved subtraksjon**. Usikkerheit kan ikkje trekkjast frå; to usikre storleikar gir meir samla usikkerheit uansett om du legg dei saman eller trekkjer dei frå kvarandre. Generelt for uavhengige variablar: $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$.\n\nVer òg nøye med skilnaden på varians og standardavvik i skalering: $\\text{Var}(aX) = a^2\\text{Var}(X)$, men $\\text{SD}(aX) = |a| \\cdot \\text{SD}(X)$. Å gløyme kvadreringa — eller å kvadrere standardavviket éin gong for mykje — er blant dei vanlegaste feila på eksamen."
+    },
+    {
+      "id": "s2-4-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på reknereglane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-4-n-quiz1-q0",
+            "task": "Kva regel gjeld ALLTID, òg for avhengige variablar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$E(X + Y) = E(X) + E(Y)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E(XY) = E(X)E(Y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\text{Var}(XY) = \\text{Var}(X)\\text{Var}(Y)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Additiviteten til forventninga gjeld utan vilkår. Varians-addisjon og produktregelen for forventning krev uavhengigheit."
+          },
+          {
+            "id": "s2-4-4-n-quiz1-q1",
+            "task": "Kva er $\\text{Var}(aX + b)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a\\,\\text{Var}(X) + b$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a^2\\,\\text{Var}(X)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$a^2\\,\\text{Var}(X) + b$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a\\,\\text{Var}(X)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstanten $b$ forskyv berre fordelinga og påverkar ikkje spreiinga; skaleringsfaktoren blir kvadrert: $\\text{Var}(aX+b) = a^2\\text{Var}(X)$."
+          },
+          {
+            "id": "s2-4-4-n-quiz1-q2",
+            "task": "$X$ og $Y$ er uavhengige. Kva er $\\text{Var}(X - Y)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\text{Var}(X) - \\text{Var}(Y)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\text{Var}(X) + \\text{Var}(Y)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$|\\text{Var}(X) - \\text{Var}(Y)|$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Variansen blir addert òg ved subtraksjon: $\\text{Var}(X - Y) = (-1)^2\\text{Var}(Y) + \\text{Var}(X)$. Usikkerheita aukar uansett."
+          },
+          {
+            "id": "s2-4-4-n-quiz1-q3",
+            "task": "Kva er $\\text{SD}(3X)$ uttrykt ved $\\text{SD}(X)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9 \\cdot \\text{SD}(X)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{3} \\cdot \\text{SD}(X)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\text{SD}(X)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3 \\cdot \\text{SD}(X)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\text{Var}(3X) = 9\\text{Var}(X)$, så $\\text{SD}(3X) = \\sqrt{9\\text{Var}(X)} = 3\\,\\text{SD}(X)$. Standardavviket skalerer med $|a|$, variansen med $a^2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-4-n-section2",
+      "type": "text",
+      "content": "## Budsjettet til nettbutikken\n\nNo bruker vi reglane på nettbutikken. Dagleg sal av produkt A er $X$ med $E(X) = 30$ og $\\text{Var}(X) = 16$; produkt B er $Y$ med $E(Y) = 50$ og $\\text{Var}(Y) = 25$. Sala er uavhengige. Fortenesta er 40 kr per A-eining og 25 kr per B-eining, og faste kostnader er 500 kr per dag. Total dagsforteneste blir dermed $F = 40X + 25Y - 500$.\n\nForventninga følgjer lineariteten: $E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kroner. Variansen bruker regelen for uavhengige variablar — og hugs at konstanten $-500$ forsvinn: $\\text{Var}(F) = 40^2 \\cdot 16 + 25^2 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) = \\sqrt{41\\,225} \\approx 203$ kroner. Konklusjonen til styremøtet: forventa dagsforteneste 1950 kr, med eit typisk avvik på rundt 200 kr.\n\nMen kva tyder «typisk avvik» meir presist? For mange klokkeforma fordelingar gjeld tommelfingerregelen 68-95-99,7: omtrent 68 % av dagane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$, 99,7 % innanfor $\\mu \\pm 3\\sigma$. Regelen er eksakt for normalfordelinga og ei god tilnærming for mange andre.\n\nOg om fordelinga er heilt ukjend — kanskje skeiv og rar? Då har vi **Tsjebysjevs ulikskap**, som gjeld for absolutt alle fordelingar: $$P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$$ Minst $1 - \\frac{1}{k^2}$ av sannsynet ligg innanfor $k$ standardavvik frå gjennomsnittet: minst 75 % innanfor $2\\sigma$, minst 88,9 % innanfor $3\\sigma$. Garantien er svakare enn normalregelen — men ho krev ingenting i byte."
+    },
+    {
+      "id": "s2-4-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på samansette variablar og spreiingsreglar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-4-n-quiz2-q0",
+            "task": "$F = 40X + 25Y - 500$ med $E(X) = 30$ og $E(Y) = 50$. Kva er $E(F)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2450$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1950$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1450$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$80$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kr. Konstanten blir trekt frå forventninga."
+          },
+          {
+            "id": "s2-4-4-n-quiz2-q1",
+            "task": "Kvifor påverkar ikkje dei faste kostnadene på 500 kr variansen til $F$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi konstantar forskyv fordelinga utan å endre spreiinga",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi 500 kr er eit lite beløp",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi kostnadene er uavhengige av salet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei påverkar variansen, men lite",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ — konstanten $c$ er borte. Eit fast frådrag kvar dag endrar ikkje kor mykje fortenesta svingar."
+          },
+          {
+            "id": "s2-4-4-n-quiz2-q2",
+            "task": "Med $\\text{Var}(X) = 16$ og $\\text{Var}(Y) = 25$ (uavhengige): kva er $\\text{Var}(40X + 25Y - 500)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$41$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1265$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$41\\,225$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$40\\,725$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$40^2 \\cdot 16 + 25^2 \\cdot 25 = 1600 \\cdot 16 + 625 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) \\approx 203$ kr."
+          },
+          {
+            "id": "s2-4-4-n-quiz2-q3",
+            "task": "Kva garanterer Tsjebysjevs ulikskap for $k = 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nøyaktig 95 % ligg innanfor $2\\sigma$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Maksimalt 75 % ligg innanfor $2\\sigma$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At fordelinga er normalfordelt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Minst 75 % av sannsynet ligg innanfor $2\\sigma$ frå $\\mu$, uansett fordeling",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(|X - \\mu| \\geq 2\\sigma) \\leq \\frac{1}{4}$, så minst $1 - \\frac{1}{4} = 75\\%$ ligg innanfor. Garantien gjeld alle fordelingar; normalfordelinga gir dei skarpare 95 %."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-4-n-section3",
+      "type": "text",
+      "content": "## Felles målestokk: standardisering\n\nEit siste verktøy gjer usikre storleikar frå heilt ulike verder samanliknbare. Anta at du fekk 82 poeng på ei prøve der snittet var 70 med standardavvik 8, medan venen din fekk 75 på ei prøve med snitt 60 og standardavvik 12. Kven presterte best i forhold til si gruppe? Tala kan ikkje samanliknast direkte — skalaane er forskjellige.\n\nLøysinga er **standardisering**. Gitt ein stokastisk variabel $X$ med forventning $\\mu$ og standardavvik $\\sigma > 0$, definerer vi den standardiserte variabelen $$Z = \\frac{X - \\mu}{\\sigma}$$ $Z$ måler avstanden frå gjennomsnittet i einingar av standardavvik. Og uansett kva slags fordeling $X$ har, får $Z$ alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$.\n\nBeviset er ei elegant anvending av reknereglane vi nettopp lærte. Forventninga: $E(Z) = E\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma}E(X - \\mu) = \\frac{1}{\\sigma}(\\mu - \\mu) = 0$. Variansen: $\\text{Var}(Z) = \\text{Var}\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma^2}\\text{Var}(X) = \\frac{\\sigma^2}{\\sigma^2} = 1$ — konstanten $\\mu$ forsvann, og skaleringsfaktoren $\\frac{1}{\\sigma}$ blei kvadrert. Begge reknereglane i aksjon i éi og same utleiing.\n\nTilbake til prøvene: din $z$-verdi er $\\frac{82 - 70}{8} = 1{,}5$, venens er $\\frac{75 - 60}{12} = 1{,}25$. Du låg halvannan standardavvik over snittet, venen berre eitt og eit kvart — du presterte best relativt sett, sjølv om begge tala «82» og «75» seier lite åleine. Det er same standardisering som i normalfordelingskapittelet gjorde alle klokkekurver til éi; her ser vi at trikset verkar for alle fordelingar overhovud."
+    },
+    {
+      "id": "s2-4-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-4-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på standardisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-4-4-n-quiz3-q0",
+            "task": "Kva er forventning og varians til den standardiserte variabelen $Z = \\frac{X - \\mu}{\\sigma}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$E(Z) = 0$, $\\text{Var}(Z) = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$E(Z) = \\mu$, $\\text{Var}(Z) = \\sigma^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E(Z) = 1$, $\\text{Var}(Z) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kjem an på fordelinga til $X$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Standardisering gir alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$, uansett kva fordeling $X$ har."
+          },
+          {
+            "id": "s2-4-4-n-quiz3-q1",
+            "task": "Kvifor blir $\\text{Var}(Z) = \\frac{1}{\\sigma^2}\\text{Var}(X)$ i beviset?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $\\mu$ blir kvadrert",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi variansen skalerer med kvadratet av faktoren: $\\text{Var}(aX) = a^2\\text{Var}(X)$ med $a = \\frac{1}{\\sigma}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi variansen alltid er 1",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $Z$ er normalfordelt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$Z = \\frac{1}{\\sigma}X - \\frac{\\mu}{\\sigma}$: konstantleddet forsvinn, og faktoren $\\frac{1}{\\sigma}$ blir kvadrert til $\\frac{1}{\\sigma^2}$. Dermed $\\text{Var}(Z) = \\frac{\\sigma^2}{\\sigma^2} = 1$."
+          },
+          {
+            "id": "s2-4-4-n-quiz3-q2",
+            "task": "Du fekk 82 poeng (snitt 70, $\\sigma = 8$); venen fekk 75 (snitt 60, $\\sigma = 12$). Kven presterte best relativt sett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Venen, fordi fordelinga hans hadde størst spreiing",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Like bra",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Du, med $z = 1{,}5$ mot venens $z = 1{,}25$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det kan ikkje samanliknast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$z$-verdiane er $\\frac{82-70}{8} = 1{,}5$ og $\\frac{75-60}{12} = 1{,}25$. Standardisering gjer prestasjonar på ulike skalaar samanliknbare — og $1{,}5 > 1{,}25$."
+          },
+          {
+            "id": "s2-4-4-n-quiz3-q3",
+            "task": "Kva blir standardisering brukt til?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å gjere alle fordelingar normalfordelte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å auke forventningsverdien",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å fjerne tilfeldigheita frå ein variabel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å samanlikne verdiar frå ulike fordelingar på ein felles skala",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Standardisering endrar ikkje forma på fordelinga, men flyttar ho til skalaen med senter 0 og spreiing 1, slik at verdiar frå ulike fordelingar kan samanliknast."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-4-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: algebraen for tilfeldigheit\n\nBudsjettproblemet til nettbutikken viste at usikkerheit følgjer reknereglar like presise som vanleg algebra. **Forventninga er lineær**: $E(aX + b) = aE(X) + b$, og $E(X + Y) = E(X) + E(Y)$ gjeld alltid — òg for avhengige variablar. **Variansen** speler etter andre reglar: konstantledd forsvinn og koeffisientar blir kvadrert, $\\text{Var}(aX + b) = a^2\\text{Var}(X)$, og for uavhengige variablar blir variansane addert — påfallande nok òg ved subtraksjon, $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$, for usikkerheit lèt seg ikkje trekkje frå. Den generelle formelen $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ gav oss svaret til nettbutikken: forventa forteneste 1950 kr, standardavvik 203 kr.\n\nTil tolkinga av standardavviket har vi to nivå: 68-95-99,7-regelen for klokkeforma fordelingar, og **Tsjebysjevs ulikskap** $P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$ som universell garanti — minst 75 % innanfor to standardavvik, uansett fordeling.\n\nOg med **standardiseringa** $Z = \\frac{X - \\mu}{\\sigma}$, som alltid gir $E(Z) = 0$ og $\\text{Var}(Z) = 1$, fekk vi ein felles målestokk for alt som varierer — frå prøveresultat til forteneste. Hugs presisjonsdetaljane som skil gode svar frå slurvete: variansen skalerer med $a^2$, standardavviket med $|a|$, og det er alltid verdt å spørje om variablane faktisk er uavhengige før du adderer variansar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "93c8c005a99ee94d",
+    "translatedAt": "2026-06-20T08:58:03.555Z",
+    "model": "claude-code-agent",
+    "strings": 84,
+    "tm": {
+      "d12a40d1ad37a30a": "Forventningsverdi og varians",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "8a070c58a2eed33e": "Ei forteljing om ei bedrift som reknar på usikker forteneste — og reknereglane som gjer samansett tilfeldigheit handterleg.",
+      "d18ca2471178d999": "rekne ut forventningsverdi, varians og standardavvik til stokastiske variablar",
+      "ee08fb8281598385": "bruke reknereglar for forventningsverdi og varians i praktiske problem",
+      "edc04c610ab32fa7": "forstå og bruke standardisering av stokastiske variablar",
+      "1e1061bd5b2091c1": "## Usikkerheit som kan reknast på\n\nEin liten nettbutikk sel to produkt. Salet svingar frå dag til dag, lønsemda varierer, og likevel må dagleg leiar budsjettere: kva blir fortenesta i morgon — og kor mykje kan ho slingre? Det høyrest ut som gjettverk, men det er det ikkje. Med to nøkkeltal og nokre få reknereglar kan samansett usikkerheit reknast på som kvar som helst annan storleik.\n\nDei to nøkkeltala kjenner du frå før. **Forventningsverdien** $E(X) = \\mu$ er senteret i fordelinga — det langsiktige gjennomsnittet, rekna ut som $E(X) = \\sum x_i \\cdot P(X = x_i)$. **Variansen** $\\text{Var}(X) = \\sigma^2$ måler spreiinga rundt senteret, raskast rekna ut med $\\text{Var}(X) = E(X^2) - [E(X)]^2$. Og **standardavviket** $\\sigma = \\sqrt{\\text{Var}(X)}$ uttrykkjer spreiinga i same eining som $X$ — kroner, ikkje kroner i andre.\n\nDet nye i dette kapittelet er **reknereglane**: korleis oppfører forventning og varians seg når vi skalerer variablar, legg dei saman og trekkjer dei frå kvarandre? Det er desse reglane som lèt nettbutikken gå frå «salet av produkt A og B varierer» til «forventa dagsforteneste er 1950 kroner med standardavvik 203 kroner». Og på vegen skal vi møte standardisering — trikset som gjer eple og pærer samanliknbare — og Tsjebysjevs ulikskap, garantien som gjeld for absolutt alle fordelingar.",
+      "5104caa15338ca60": "## Reknereglane\n\nFor forventningsverdien gjeld fire reglar. Ein konstant har seg sjølv som forventning: $E(c) = c$. Lineærtransformasjonar følgjer $E(aX + b) = aE(X) + b$. Summar kan alltid splittast: $E(X + Y) = E(X) + E(Y)$ — og dette gjeld faktisk **alltid**, òg når $X$ og $Y$ er avhengige. Samla: $E(aX + bY + c) = aE(X) + bE(Y) + c$. Forventninga er ein **lineær operator**: konstantar blir flytta ut, summar splitta. (Produkt er derimot ikkje gratis: $E(X \\cdot Y) = E(X) \\cdot E(Y)$ gjeld berre for **uavhengige** variablar.)\n\nVariansen oppfører seg annleis. Ein konstant har inga spreiing: $\\text{Var}(c) = 0$. Ved lineærtransformasjon gjeld $\\text{Var}(aX + b) = a^2\\text{Var}(X)$ — konstantleddet $b$ forsvinn heilt, for å forskyve ei fordeling endrar ikkje spreiinga, medan skaleringsfaktoren $a$ blir **kvadrert**. For **uavhengige** $X$ og $Y$ blir variansane addert: $\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$. Og her kjem kapittelets mest kontraintuitive faktum: $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$ — variansen blir addert **òg ved subtraksjon**. Usikkerheit kan ikkje trekkjast frå; to usikre storleikar gir meir samla usikkerheit uansett om du legg dei saman eller trekkjer dei frå kvarandre. Generelt for uavhengige variablar: $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$.\n\nVer òg nøye med skilnaden på varians og standardavvik i skalering: $\\text{Var}(aX) = a^2\\text{Var}(X)$, men $\\text{SD}(aX) = |a| \\cdot \\text{SD}(X)$. Å gløyme kvadreringa — eller å kvadrere standardavviket éin gong for mykje — er blant dei vanlegaste feila på eksamen.",
+      "b1af8cbb122bd828": "Test deg sjølv på reknereglane:",
+      "4097889236a2af26": "placeholder",
+      "e562e85af5908fed": "Kva regel gjeld ALLTID, òg for avhengige variablar?",
+      "e41c485ccf9d1f71": "$E(X + Y) = E(X) + E(Y)$",
+      "9bb3b286d2e1c1ef": "$\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)$",
+      "3c15bf622bdf6c58": "$E(XY) = E(X)E(Y)$",
+      "e11d03e792f49db4": "$\\text{Var}(XY) = \\text{Var}(X)\\text{Var}(Y)$",
+      "8e0f78ba180ae923": "Additiviteten til forventninga gjeld utan vilkår. Varians-addisjon og produktregelen for forventning krev uavhengigheit.",
+      "b0aa10fc6c7503e2": "Kva er $\\text{Var}(aX + b)$?",
+      "efd26cc096998bc9": "$a\\,\\text{Var}(X) + b$",
+      "37794ca8e98a048d": "$a^2\\,\\text{Var}(X) + b$",
+      "2241a740f1b4aa59": "$a^2\\,\\text{Var}(X)$",
+      "de94ce6a597a179d": "$a\\,\\text{Var}(X)$",
+      "c240f0a42450d4a4": "Konstanten $b$ forskyv berre fordelinga og påverkar ikkje spreiinga; skaleringsfaktoren blir kvadrert: $\\text{Var}(aX+b) = a^2\\text{Var}(X)$.",
+      "938c7fe47ec36141": "$X$ og $Y$ er uavhengige. Kva er $\\text{Var}(X - Y)$?",
+      "ff83338057f9c53a": "$\\text{Var}(X) - \\text{Var}(Y)$",
+      "eb58d97aa87d44c4": "$\\text{Var}(X) + \\text{Var}(Y)$",
+      "c377ddec204ac27e": "$|\\text{Var}(X) - \\text{Var}(Y)|$",
+      "827b632175adf42e": "Variansen blir addert òg ved subtraksjon: $\\text{Var}(X - Y) = (-1)^2\\text{Var}(Y) + \\text{Var}(X)$. Usikkerheita aukar uansett.",
+      "aabe142f79679ef3": "Kva er $\\text{SD}(3X)$ uttrykt ved $\\text{SD}(X)$?",
+      "af137a6898af8130": "$9 \\cdot \\text{SD}(X)$",
+      "0c71d19e9f105c41": "$\\sqrt{3} \\cdot \\text{SD}(X)$",
+      "fb8b3d47ecf619ac": "$\\text{SD}(X)$",
+      "22f4fb49b1bb621c": "$3 \\cdot \\text{SD}(X)$",
+      "e4c7a02233c3771a": "$\\text{Var}(3X) = 9\\text{Var}(X)$, så $\\text{SD}(3X) = \\sqrt{9\\text{Var}(X)} = 3\\,\\text{SD}(X)$. Standardavviket skalerer med $|a|$, variansen med $a^2$.",
+      "ca71110060024e32": "## Budsjettet til nettbutikken\n\nNo bruker vi reglane på nettbutikken. Dagleg sal av produkt A er $X$ med $E(X) = 30$ og $\\text{Var}(X) = 16$; produkt B er $Y$ med $E(Y) = 50$ og $\\text{Var}(Y) = 25$. Sala er uavhengige. Fortenesta er 40 kr per A-eining og 25 kr per B-eining, og faste kostnader er 500 kr per dag. Total dagsforteneste blir dermed $F = 40X + 25Y - 500$.\n\nForventninga følgjer lineariteten: $E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kroner. Variansen bruker regelen for uavhengige variablar — og hugs at konstanten $-500$ forsvinn: $\\text{Var}(F) = 40^2 \\cdot 16 + 25^2 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) = \\sqrt{41\\,225} \\approx 203$ kroner. Konklusjonen til styremøtet: forventa dagsforteneste 1950 kr, med eit typisk avvik på rundt 200 kr.\n\nMen kva tyder «typisk avvik» meir presist? For mange klokkeforma fordelingar gjeld tommelfingerregelen 68-95-99,7: omtrent 68 % av dagane innanfor $\\mu \\pm \\sigma$, 95 % innanfor $\\mu \\pm 2\\sigma$, 99,7 % innanfor $\\mu \\pm 3\\sigma$. Regelen er eksakt for normalfordelinga og ei god tilnærming for mange andre.\n\nOg om fordelinga er heilt ukjend — kanskje skeiv og rar? Då har vi **Tsjebysjevs ulikskap**, som gjeld for absolutt alle fordelingar: $$P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$$ Minst $1 - \\frac{1}{k^2}$ av sannsynet ligg innanfor $k$ standardavvik frå gjennomsnittet: minst 75 % innanfor $2\\sigma$, minst 88,9 % innanfor $3\\sigma$. Garantien er svakare enn normalregelen — men ho krev ingenting i byte.",
+      "60528b5d7297ae1b": "Test deg sjølv på samansette variablar og spreiingsreglar:",
+      "c8fadf869329c605": "$F = 40X + 25Y - 500$ med $E(X) = 30$ og $E(Y) = 50$. Kva er $E(F)$?",
+      "642cae460c95fad9": "$2450$ kr",
+      "22009f2043828343": "$1950$ kr",
+      "d8dd0c7ef6a605fc": "$1450$ kr",
+      "83cf0c072a7317c1": "$80$ kr",
+      "772a274a8f6f71db": "$E(F) = 40 \\cdot 30 + 25 \\cdot 50 - 500 = 1200 + 1250 - 500 = 1950$ kr. Konstanten blir trekt frå forventninga.",
+      "71cf7928dd540e66": "Kvifor påverkar ikkje dei faste kostnadene på 500 kr variansen til $F$?",
+      "0f39bff70690ddec": "Fordi konstantar forskyv fordelinga utan å endre spreiinga",
+      "c21864f38bcac075": "Fordi 500 kr er eit lite beløp",
+      "3f29768362bd0318": "Fordi kostnadene er uavhengige av salet",
+      "daeb08cd2bc2c231": "Dei påverkar variansen, men lite",
+      "99a2589b37d9ded6": "$\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ — konstanten $c$ er borte. Eit fast frådrag kvar dag endrar ikkje kor mykje fortenesta svingar.",
+      "b10b7ceea2589853": "Med $\\text{Var}(X) = 16$ og $\\text{Var}(Y) = 25$ (uavhengige): kva er $\\text{Var}(40X + 25Y - 500)$?",
+      "c4a2360fb23c76e0": "$40^2 \\cdot 16 + 25^2 \\cdot 25 = 1600 \\cdot 16 + 625 \\cdot 25 = 25\\,600 + 15\\,625 = 41\\,225$, som gir $\\text{SD}(F) \\approx 203$ kr.",
+      "c9fbb2a9c5078549": "Kva garanterer Tsjebysjevs ulikskap for $k = 2$?",
+      "f7f18dd410ccb63c": "Nøyaktig 95 % ligg innanfor $2\\sigma$",
+      "bd0f0e7986db6c81": "Minst 75 % av sannsynet ligg innanfor $2\\sigma$ frå $\\mu$, uansett fordeling",
+      "2a636b8eebabcbe5": "Maksimalt 75 % ligg innanfor $2\\sigma$",
+      "9d6e4c0571f5d488": "At fordelinga er normalfordelt",
+      "4e5e7b61f8016d6a": "$P(|X - \\mu| \\geq 2\\sigma) \\leq \\frac{1}{4}$, så minst $1 - \\frac{1}{4} = 75\\%$ ligg innanfor. Garantien gjeld alle fordelingar; normalfordelinga gir dei skarpare 95 %.",
+      "51fa77c854b64a02": "## Felles målestokk: standardisering\n\nEit siste verktøy gjer usikre storleikar frå heilt ulike verder samanliknbare. Anta at du fekk 82 poeng på ei prøve der snittet var 70 med standardavvik 8, medan venen din fekk 75 på ei prøve med snitt 60 og standardavvik 12. Kven presterte best i forhold til si gruppe? Tala kan ikkje samanliknast direkte — skalaane er forskjellige.\n\nLøysinga er **standardisering**. Gitt ein stokastisk variabel $X$ med forventning $\\mu$ og standardavvik $\\sigma > 0$, definerer vi den standardiserte variabelen $$Z = \\frac{X - \\mu}{\\sigma}$$ $Z$ måler avstanden frå gjennomsnittet i einingar av standardavvik. Og uansett kva slags fordeling $X$ har, får $Z$ alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$.\n\nBeviset er ei elegant anvending av reknereglane vi nettopp lærte. Forventninga: $E(Z) = E\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma}E(X - \\mu) = \\frac{1}{\\sigma}(\\mu - \\mu) = 0$. Variansen: $\\text{Var}(Z) = \\text{Var}\\left(\\frac{X - \\mu}{\\sigma}\\right) = \\frac{1}{\\sigma^2}\\text{Var}(X) = \\frac{\\sigma^2}{\\sigma^2} = 1$ — konstanten $\\mu$ forsvann, og skaleringsfaktoren $\\frac{1}{\\sigma}$ blei kvadrert. Begge reknereglane i aksjon i éi og same utleiing.\n\nTilbake til prøvene: din $z$-verdi er $\\frac{82 - 70}{8} = 1{,}5$, venens er $\\frac{75 - 60}{12} = 1{,}25$. Du låg halvannan standardavvik over snittet, venen berre eitt og eit kvart — du presterte best relativt sett, sjølv om begge tala «82» og «75» seier lite åleine. Det er same standardisering som i normalfordelingskapittelet gjorde alle klokkekurver til éi; her ser vi at trikset verkar for alle fordelingar overhovud.",
+      "5b434f17cc3d7bda": "Test deg sjølv på standardisering:",
+      "0379614a80f89b1c": "Kva er forventning og varians til den standardiserte variabelen $Z = \\frac{X - \\mu}{\\sigma}$?",
+      "fc396551c3790ba6": "$E(Z) = \\mu$, $\\text{Var}(Z) = \\sigma^2$",
+      "b7f13b37956ef20e": "$E(Z) = 0$, $\\text{Var}(Z) = 1$",
+      "f1ba0817dd90e26b": "$E(Z) = 1$, $\\text{Var}(Z) = 0$",
+      "74e6fcca8089849b": "Det kjem an på fordelinga til $X$",
+      "8774d14dc778c7e6": "Standardisering gir alltid $E(Z) = 0$ og $\\text{Var}(Z) = 1$, uansett kva fordeling $X$ har.",
+      "ecf9cf72e207fbd7": "Kvifor blir $\\text{Var}(Z) = \\frac{1}{\\sigma^2}\\text{Var}(X)$ i beviset?",
+      "a3377056035f1b12": "Fordi variansen skalerer med kvadratet av faktoren: $\\text{Var}(aX) = a^2\\text{Var}(X)$ med $a = \\frac{1}{\\sigma}$",
+      "5b7460c625dc5790": "Fordi $\\mu$ blir kvadrert",
+      "50bb6dc4a3177e2e": "Fordi variansen alltid er 1",
+      "bed4514337120f02": "Fordi $Z$ er normalfordelt",
+      "86baa191b8e17325": "$Z = \\frac{1}{\\sigma}X - \\frac{\\mu}{\\sigma}$: konstantleddet forsvinn, og faktoren $\\frac{1}{\\sigma}$ blir kvadrert til $\\frac{1}{\\sigma^2}$. Dermed $\\text{Var}(Z) = \\frac{\\sigma^2}{\\sigma^2} = 1$.",
+      "a3ae19f9bef5b9fd": "Du fekk 82 poeng (snitt 70, $\\sigma = 8$); venen fekk 75 (snitt 60, $\\sigma = 12$). Kven presterte best relativt sett?",
+      "3373719c5ef44239": "Venen, fordi fordelinga hans hadde størst spreiing",
+      "1b1f90cb64ace481": "Like bra",
+      "81a98fb2d7dc2546": "Du, med $z = 1{,}5$ mot venens $z = 1{,}25$",
+      "dbc0f129739f8594": "Det kan ikkje samanliknast",
+      "0a138d171126f670": "$z$-verdiane er $\\frac{82-70}{8} = 1{,}5$ og $\\frac{75-60}{12} = 1{,}25$. Standardisering gjer prestasjonar på ulike skalaar samanliknbare — og $1{,}5 > 1{,}25$.",
+      "f555e87911e35ffd": "Kva blir standardisering brukt til?",
+      "3d8e1227577f4023": "Å gjere alle fordelingar normalfordelte",
+      "b7c53c1519aefc4e": "Å auke forventningsverdien",
+      "1d70a17517b7523d": "Å fjerne tilfeldigheita frå ein variabel",
+      "04ff32506bf91bf8": "Å samanlikne verdiar frå ulike fordelingar på ein felles skala",
+      "d3d7c2ab2baec183": "Standardisering endrar ikkje forma på fordelinga, men flyttar ho til skalaen med senter 0 og spreiing 1, slik at verdiar frå ulike fordelingar kan samanliknast.",
+      "19e1d06343c13498": "## Oppsummering: algebraen for tilfeldigheit\n\nBudsjettproblemet til nettbutikken viste at usikkerheit følgjer reknereglar like presise som vanleg algebra. **Forventninga er lineær**: $E(aX + b) = aE(X) + b$, og $E(X + Y) = E(X) + E(Y)$ gjeld alltid — òg for avhengige variablar. **Variansen** speler etter andre reglar: konstantledd forsvinn og koeffisientar blir kvadrert, $\\text{Var}(aX + b) = a^2\\text{Var}(X)$, og for uavhengige variablar blir variansane addert — påfallande nok òg ved subtraksjon, $\\text{Var}(X - Y) = \\text{Var}(X) + \\text{Var}(Y)$, for usikkerheit lèt seg ikkje trekkje frå. Den generelle formelen $\\text{Var}(aX + bY + c) = a^2\\text{Var}(X) + b^2\\text{Var}(Y)$ gav oss svaret til nettbutikken: forventa forteneste 1950 kr, standardavvik 203 kr.\n\nTil tolkinga av standardavviket har vi to nivå: 68-95-99,7-regelen for klokkeforma fordelingar, og **Tsjebysjevs ulikskap** $P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$ som universell garanti — minst 75 % innanfor to standardavvik, uansett fordeling.\n\nOg med **standardiseringa** $Z = \\frac{X - \\mu}{\\sigma}$, som alltid gir $E(Z) = 0$ og $\\text{Var}(Z) = 1$, fekk vi ein felles målestokk for alt som varierer — frå prøveresultat til forteneste. Hugs presisjonsdetaljane som skil gode svar frå slurvete: variansen skalerer med $a^2$, standardavviket med $|a|$, og det er alltid verdt å spørje om variablane faktisk er uavhengige før du adderer variansar."
+    }
+  }
+}

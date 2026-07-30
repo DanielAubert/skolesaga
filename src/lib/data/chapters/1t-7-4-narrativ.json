@@ -1,1 +1,397 @@
-{"id":"1t-7-4-narrativ","courseId":"1t","chapterNumber":"7.4","title":"Derivasjon i GeoGebra","subtitle":"Narrativ versjon","description":"En fortelling om å se den deriverte – tangenter som legger seg inntil grafen, stigningstall som leses av, og to grafer som forteller hverandres historie.","estimatedMinutes":26,"competenceGoals":["bruke GeoGebra til å finne den deriverte av en funksjon","tegne tangenter og finne stigningstall i GeoGebra","visualisere sammenhengen mellom en funksjon og dens deriverte"],"linkedChapterId":"1t-7-4","content":[{"id":"1t-7-4-n-intro","type":"text","content":"## Å se det usynlige\n\nDu har lært derivasjonsreglene og kan regne ut at $f(x) = x^3$ har derivert $f'(x) = 3x^2$. Men hva *betyr* det egentlig? Den deriverte er ett av de begrepene som blir mye lettere å forstå når du kan se den – og det er akkurat det GeoGebra lar deg gjøre.\n\nGeoGebra er et kraftig verktøy for å utforske derivasjon. Du kan finne den deriverte funksjonen algebraisk med én kommando, tegne tangenter som legger seg perfekt inntil grafen, lese av stigningstallet til tangenten i et hvilket som helst punkt – og, kanskje mest lærerikt av alt, tegne grafene til $f$ og $f'$ ved siden av hverandre og se hvordan de forteller hverandres historie.\n\nI denne fortellingen lærer du de viktigste kommandoene i tur og orden: `Derivert()` for å finne den deriverte, `Tangent()` og `Stigning()` for å jobbe med tangenter, og til slutt det visuelle samspillet der fortegnet til $f'$ avslører hvor $f$ stiger og synker. Underveis kontrollerer vi alltid mot håndregning – for verktøyet skal bekrefte forståelsen din, ikke erstatte den."},{"id":"1t-7-4-n-section1","type":"text","content":"## Derivert() – den deriverte på kommando\n\nDen mest grunnleggende kommandoen er like enkel som den er kraftig: `Derivert(f)` gir den deriverte av funksjonen `f`. Du kan skrive uttrykket rett inn – `Derivert(x^2 - 3x + 1)` svarer `2x - 3` – eller derivere en funksjon du allerede har definert: har du `f(x) = x^3`, gir `Derivert(f)` svaret `3x^2`.\n\nLa oss ta en litt større funksjon: $f(x) = x^4 - 2x^2 + x$. Vi skriver inn `f(x) = x^4 - 2x^2 + x` og deretter `g(x) = Derivert(f)`. GeoGebra svarer $g(x) = 4x^3 - 4x + 1$ – og tegner samtidig grafen til den deriverte i samme koordinatsystem.\n\nStemmer det? Vi kontrollerer med derivasjonsreglene: $x^4$ gir $4x^3$, $-2x^2$ gir $-4x$, og $x$ gir $1$. Altså $f'(x) = 4x^3 - 4x + 1$ – nøyaktig det GeoGebra sa. Denne dobbeltsjekken er gullstandarden for å jobbe med CAS-verktøy: GeoGebra gjør deg rask, håndregningen gjør deg sikker, og når begge gir samme svar, vet du at både tastingen og forståelsen er riktig.\n\nTrenger du verdien av den deriverte i et bestemt punkt, slipper du å definere en egen funksjon: skriv rett og slett `f'(2)`, så får du stigningstallet til grafen i $x = 2$. Apostrof-notasjonen fungerer i GeoGebra akkurat som i matteboka."},{"id":"1t-7-4-n-quiz1","type":"exercise","exercise":{"id":"1t-7-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på Derivert-kommandoen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-7-4-n-quiz1-q0","task":"Hva gir kommandoen Derivert(f) når $f(x) = x^3$?","options":[{"id":"a","text":"$3x^2$","isCorrect":true},{"id":"b","text":"$x^2$","isCorrect":false},{"id":"c","text":"$\\frac{x^4}{4}$","isCorrect":false},{"id":"d","text":"$3x$","isCorrect":false}],"solution":"Derivert(f) gir den deriverte funksjonen: $f'(x) = 3x^2$."},{"id":"1t-7-4-n-quiz1-q1","task":"GeoGebra sier at $f(x) = x^4 - 2x^2 + x$ har derivert $4x^3 - 4x + 1$. Hvordan kontrollerer du det?","options":[{"id":"a","text":"Deriverer ledd for ledd for hånd: $4x^3 - 4x + 1$ – det stemmer","isCorrect":true},{"id":"b","text":"Kjører Derivert(f) en gang til","isCorrect":false},{"id":"c","text":"Setter inn $x = 0$ i $f$","isCorrect":false},{"id":"d","text":"Det kan ikke kontrolleres","isCorrect":false}],"solution":"Bruk derivasjonsreglene: $x^4 \\to 4x^3$, $-2x^2 \\to -4x$, $x \\to 1$. Håndregning og GeoGebra gir samme svar."},{"id":"1t-7-4-n-quiz1-q2","task":"Hvordan finner du verdien av den deriverte i $x = 2$ raskest i GeoGebra?","options":[{"id":"a","text":"Skriv Verdi(Derivert(f), 2)","isCorrect":false},{"id":"b","text":"Skriv f'(2)","isCorrect":true},{"id":"c","text":"Les av grafen med øyemål","isCorrect":false},{"id":"d","text":"Det går ikke i GeoGebra","isCorrect":false}],"solution":"Apostrof-notasjonen fungerer direkte: f'(2) gir stigningstallet til grafen i $x = 2$."}]}},{"id":"1t-7-4-n-section2","type":"text","content":"## Tangenter og stigningstall – den deriverte gjort synlig\n\nHva *er* egentlig den deriverte i et punkt? Det er stigningstallet til **tangenten** – den rette linjen som berører grafen i punktet og har nøyaktig samme stigning som grafen der. I GeoGebra kan du tegne den og se selv.\n\nKommandoen er `Tangent(A, f)`, der `A` er et punkt på grafen. Vil du ha tangenten der $x = 2$, kan du skrive `Tangent((2, f(2)), f)` direkte. Og når tangenten er tegnet, henter `Stigning(linje)` ut stigningstallet – som per definisjon er verdien av den deriverte i punktet.\n\nLa oss se hele kjeden i aksjon for $f(x) = x^2 - 4x + 3$ i punktet der $x = 3$. Vi skriver fire linjer: `f(x) = x^2 - 4x + 3`, så `A = (3, f(3))` som legger punktet på grafen, deretter `t = Tangent(A, f)` som tegner tangenten, og til slutt `a = Stigning(t)`. GeoGebra svarer $a = 2$.\n\nKontrollen for hånd tar fem sekunder: $f'(x) = 2x - 4$, så $f'(3) = 2 \\cdot 3 - 4 = 2$. Tangentens stigningstall og den deriverte er samme tall – det er selve kjernen i derivasjonsbegrepet, og nå har du *sett* det på skjermen.\n\nDra gjerne punktet $A$ langs grafen og se tangenten vippe: bratt oppover der grafen stiger raskt, flat i bunnpunktet, bratt nedover der den synker. Den lille animasjonen er kanskje den beste derivasjonsforklaringen som finnes."},{"id":"1t-7-4-n-quiz2","type":"exercise","exercise":{"id":"1t-7-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på tangenter og stigningstall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-7-4-n-quiz2-q0","task":"Hva er en tangent til en graf?","options":[{"id":"a","text":"En linje som krysser grafen i to punkter","isCorrect":false},{"id":"b","text":"En rett linje som berører grafen i ett punkt med samme stigningstall som grafen der","isCorrect":true},{"id":"c","text":"En vertikal linje gjennom toppunktet","isCorrect":false},{"id":"d","text":"Grafen til den deriverte","isCorrect":false}],"solution":"Tangenten berører grafen i ett punkt og har samme stigningstall som grafen i akkurat det punktet – stigningstallet er verdien av den deriverte."},{"id":"1t-7-4-n-quiz2-q1","task":"Hvilke kommandoer tegner tangenten til $f$ i punktet der $x = 2$?","options":[{"id":"a","text":"Tangent((2, f(2)), f)","isCorrect":true},{"id":"b","text":"Stigning(f, 2)","isCorrect":false},{"id":"c","text":"Derivert(f, 2)","isCorrect":false},{"id":"d","text":"Linje(2, f)","isCorrect":false}],"solution":"Tangent(punkt, funksjon) tegner tangenten – f.eks. Tangent((2, f(2)), f), eller Tangent(A, f) der A er et punkt på grafen."},{"id":"1t-7-4-n-quiz2-q2","task":"$f(x) = x^2 - 4x + 3$. Hva er stigningstallet til tangenten i $x = 3$?","options":[{"id":"a","text":"$-2$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":true}],"solution":"Stigning(t) gir 2, og kontrollen bekrefter: $f'(x) = 2x - 4$ gir $f'(3) = 2$."},{"id":"1t-7-4-n-quiz2-q3","task":"Hva gir kommandoen Stigning(t) når t er en tangent til grafen i et punkt?","options":[{"id":"a","text":"Verdien av den deriverte i tangeringspunktet","isCorrect":true},{"id":"b","text":"Skjæringen med $y$-aksen","isCorrect":false},{"id":"c","text":"Funksjonsverdien i punktet","isCorrect":false},{"id":"d","text":"Lengden av tangenten","isCorrect":false}],"solution":"Tangentens stigningstall er per definisjon den deriverte i tangeringspunktet – Stigning(t) leser den av."}]}},{"id":"1t-7-4-n-section3","type":"text","content":"## To grafer, én historie – f og f' side om side\n\nDen siste – og kanskje viktigste – øvelsen er å tegne grafene til $f$ og $f'$ i samme koordinatsystem og lese dem som én fortelling. Sammenhengen er denne: Der $f$ er **stigende**, er $f' > 0$ (grafen til den deriverte ligger over $x$-aksen). Der $f$ er **synkende**, er $f' < 0$. Og der $f$ har **topp- eller bunnpunkt**, er $f' = 0$ – grafen til den deriverte krysser $x$-aksen nøyaktig der originalgrafen har horisontal tangent.\n\nLa oss analysere $f(x) = x^3 - 3x$ på denne måten. Vi skriver `f(x) = x^3 - 3x`, så `g(x) = Derivert(f)` og `Nullpunkt(g)`. GeoGebra forteller at $g(x) = 3x^2 - 3$ har nullpunkter i $x = -1$ og $x = 1$ – kandidatene til topp- og bunnpunkt for $f$.\n\nSå leser vi fortegnet til $g$: For $x < -1$ er $g(x) > 0$, så $f$ er stigende. Mellom $-1$ og $1$ er $g(x) < 0$, så $f$ er synkende. For $x > 1$ er $g(x) > 0$, og $f$ stiger igjen. Konklusjonen følger av seg selv: $f$ har et toppunkt ved $x = -1$ (stiger inn, synker ut) og et bunnpunkt ved $x = 1$ (synker inn, stiger ut).\n\nVil du gå rett på, finner `Løs(f'(x) = 0)` i CAS alle $x$-verdier med horisontal tangent. Men poenget med å se begge grafene er forståelsen: den deriverte er ikke et mystisk nytt objekt – den er fartsmåleren til $f$, tegnet som sin egen graf."},{"id":"1t-7-4-n-quiz3","type":"exercise","exercise":{"id":"1t-7-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sammenhengen mellom f og f':","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-7-4-n-quiz3-q0","task":"Hva gjelder der funksjonen $f$ er stigende?","options":[{"id":"a","text":"$f'(x) > 0$","isCorrect":true},{"id":"b","text":"$f'(x) < 0$","isCorrect":false},{"id":"c","text":"$f'(x) = 0$","isCorrect":false},{"id":"d","text":"$f(x) > 0$","isCorrect":false}],"solution":"Der $f$ stiger, er den deriverte positiv. Der $f$ synker, er $f' < 0$, og i topp-/bunnpunkter er $f' = 0$."},{"id":"1t-7-4-n-quiz3-q1","task":"$f(x) = x^3 - 3x$ har $f'(x) = 3x^2 - 3$ med nullpunkter $x = -1$ og $x = 1$. Hva skjer ved $x = -1$?","options":[{"id":"a","text":"$f$ har et bunnpunkt","isCorrect":false},{"id":"b","text":"$f$ har et toppunkt","isCorrect":true},{"id":"c","text":"$f$ har et nullpunkt","isCorrect":false},{"id":"d","text":"Ingenting spesielt","isCorrect":false}],"solution":"$f' > 0$ før $x = -1$ og $f' < 0$ etter – funksjonen stiger inn og synker ut, altså toppunkt. Ved $x = 1$ er det motsatt: bunnpunkt."},{"id":"1t-7-4-n-quiz3-q2","task":"Hvor er $f(x) = x^3 - 3x$ synkende?","options":[{"id":"a","text":"For $x < -1$","isCorrect":false},{"id":"b","text":"For $x > 1$","isCorrect":false},{"id":"c","text":"For $-1 < x < 1$","isCorrect":true},{"id":"d","text":"For alle $x < 0$","isCorrect":false}],"solution":"Mellom nullpunktene til den deriverte er $f'(x) = 3x^2 - 3 < 0$, så $f$ er synkende på intervallet $-1 < x < 1$."},{"id":"1t-7-4-n-quiz3-q3","task":"Hvilken CAS-kommando finner alle $x$-verdier der grafen til $f$ har horisontal tangent?","options":[{"id":"a","text":"Løs(f'(x) = 0)","isCorrect":true},{"id":"b","text":"Løs(f(x) = 0)","isCorrect":false},{"id":"c","text":"Tangent(0, f)","isCorrect":false},{"id":"d","text":"Stigning(f)","isCorrect":false}],"solution":"Horisontal tangent betyr $f'(x) = 0$ – kommandoen Løs(f'(x) = 0) finner alle slike punkter. Løs(f(x) = 0) finner nullpunktene til $f$ selv."}]}},{"id":"1t-7-4-n-summary","type":"text","content":"## Fartsmåleren på skjermen\n\nDen deriverte er ikke lenger usynlig. Med `Derivert(f)` får du den deriverte funksjonen $f'(x)$ algebraisk – som da $x^4 - 2x^2 + x$ ble til $4x^3 - 4x + 1$, bekreftet av håndregningen. Med `Tangent(A, f)` legger du tangenten inntil grafen i et punkt, `Stigning(t)` leser av stigningstallet, og snarveien `f'(a)` gir den deriverte i $x = a$ direkte – slik $f'(3) = 2$ stemte perfekt med tangentens stigning for $f(x) = x^2 - 4x + 3$.\n\nDen store innsikten er samspillet mellom de to grafene: der $f$ stiger, ligger $f'$ over $x$-aksen; der $f$ synker, ligger den under; og der $f$ snur – i topp- og bunnpunkter – krysser $f'$ aksen, fordi tangenten er horisontal og $f' = 0$. Slik avslørte $3x^2 - 3$ at $x^3 - 3x$ har toppunkt i $x = -1$ og bunnpunkt i $x = 1$, og `Løs(f'(x) = 0)` finner slike punkter på kommando.\n\nTa med deg arbeidsvanen videre: la GeoGebra regne, men kontrollér mot derivasjonsreglene du kan for hånd. Når skjermen og hodet ditt er enige, har du både fart og forståelse – og den deriverte har gått fra formel til noe du faktisk kan se."}],"exercises":[]}
+{
+  "id": "1t-7-4-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "7.4",
+  "title": "Derivasjon i GeoGebra",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å se den deriverte – tangenter som legger seg inntil grafen, stigningstall som leses av, og to grafer som forteller hverandres historie.",
+  "estimatedMinutes": 26,
+  "competenceGoals": [
+    "bruke GeoGebra til å finne den deriverte av en funksjon",
+    "tegne tangenter og finne stigningstall i GeoGebra",
+    "visualisere sammenhengen mellom en funksjon og dens deriverte"
+  ],
+  "linkedChapterId": "1t-7-4",
+  "content": [
+    {
+      "id": "1t-7-4-n-intro",
+      "type": "text",
+      "content": "## Å se det usynlige\n\nDu har lært derivasjonsreglene og kan regne ut at $f(x) = x^3$ har derivert $f'(x) = 3x^2$. Men hva *betyr* det egentlig? Den deriverte er ett av de begrepene som blir mye lettere å forstå når du kan se den – og det er akkurat det GeoGebra lar deg gjøre.\n\nGeoGebra er et kraftig verktøy for å utforske derivasjon. Du kan finne den deriverte funksjonen algebraisk med én kommando, tegne tangenter som legger seg perfekt inntil grafen, lese av stigningstallet til tangenten i et hvilket som helst punkt – og, kanskje mest lærerikt av alt, tegne grafene til $f$ og $f'$ ved siden av hverandre og se hvordan de forteller hverandres historie.\n\nI denne fortellingen lærer du de viktigste kommandoene i tur og orden: `Derivert()` for å finne den deriverte, `Tangent()` og `Stigning()` for å jobbe med tangenter, og til slutt det visuelle samspillet der fortegnet til $f'$ avslører hvor $f$ stiger og synker. Underveis kontrollerer vi alltid mot håndregning – for verktøyet skal bekrefte forståelsen din, ikke erstatte den."
+    },
+    {
+      "id": "1t-7-4-n-section1",
+      "type": "text",
+      "content": "## Derivert() – den deriverte på kommando\n\nDen mest grunnleggende kommandoen er like enkel som den er kraftig: `Derivert(f)` gir den deriverte av funksjonen `f`. Du kan skrive uttrykket rett inn – `Derivert(x^2 - 3x + 1)` svarer `2x - 3` – eller derivere en funksjon du allerede har definert: har du `f(x) = x^3`, gir `Derivert(f)` svaret `3x^2`.\n\nLa oss ta en litt større funksjon: $f(x) = x^4 - 2x^2 + x$. Vi skriver inn `f(x) = x^4 - 2x^2 + x` og deretter `g(x) = Derivert(f)`. GeoGebra svarer $g(x) = 4x^3 - 4x + 1$ – og tegner samtidig grafen til den deriverte i samme koordinatsystem.\n\nStemmer det? Vi kontrollerer med derivasjonsreglene: $x^4$ gir $4x^3$, $-2x^2$ gir $-4x$, og $x$ gir $1$. Altså $f'(x) = 4x^3 - 4x + 1$ – nøyaktig det GeoGebra sa. Denne dobbeltsjekken er gullstandarden for å jobbe med CAS-verktøy: GeoGebra gjør deg rask, håndregningen gjør deg sikker, og når begge gir samme svar, vet du at både tastingen og forståelsen er riktig.\n\nTrenger du verdien av den deriverte i et bestemt punkt, slipper du å definere en egen funksjon: skriv rett og slett `f'(2)`, så får du stigningstallet til grafen i $x = 2$. Apostrof-notasjonen fungerer i GeoGebra akkurat som i matteboka."
+    },
+    {
+      "id": "1t-7-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Derivert-kommandoen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-7-4-n-quiz1-q0",
+            "task": "Hva gir kommandoen Derivert(f) når $f(x) = x^3$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x^4}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$3x^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Derivert(f) gir den deriverte funksjonen: $f'(x) = 3x^2$."
+          },
+          {
+            "id": "1t-7-4-n-quiz1-q1",
+            "task": "GeoGebra sier at $f(x) = x^4 - 2x^2 + x$ har derivert $4x^3 - 4x + 1$. Hvordan kontrollerer du det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Deriverer ledd for ledd for hånd: $4x^3 - 4x + 1$ – det stemmer",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Kjører Derivert(f) en gang til",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Setter inn $x = 0$ i $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kan ikke kontrolleres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bruk derivasjonsreglene: $x^4 \\to 4x^3$, $-2x^2 \\to -4x$, $x \\to 1$. Håndregning og GeoGebra gir samme svar."
+          },
+          {
+            "id": "1t-7-4-n-quiz1-q2",
+            "task": "Hvordan finner du verdien av den deriverte i $x = 2$ raskest i GeoGebra?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Skriv Verdi(Derivert(f), 2)",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Skriv f'(2)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Les av grafen med øyemål",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det går ikke i GeoGebra",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Apostrof-notasjonen fungerer direkte: f'(2) gir stigningstallet til grafen i $x = 2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-4-n-section2",
+      "type": "text",
+      "content": "## Tangenter og stigningstall – den deriverte gjort synlig\n\nHva *er* egentlig den deriverte i et punkt? Det er stigningstallet til **tangenten** – den rette linjen som berører grafen i punktet og har nøyaktig samme stigning som grafen der. I GeoGebra kan du tegne den og se selv.\n\nKommandoen er `Tangent(A, f)`, der `A` er et punkt på grafen. Vil du ha tangenten der $x = 2$, kan du skrive `Tangent((2, f(2)), f)` direkte. Og når tangenten er tegnet, henter `Stigning(linje)` ut stigningstallet – som per definisjon er verdien av den deriverte i punktet.\n\nLa oss se hele kjeden i aksjon for $f(x) = x^2 - 4x + 3$ i punktet der $x = 3$. Vi skriver fire linjer: `f(x) = x^2 - 4x + 3`, så `A = (3, f(3))` som legger punktet på grafen, deretter `t = Tangent(A, f)` som tegner tangenten, og til slutt `a = Stigning(t)`. GeoGebra svarer $a = 2$.\n\nKontrollen for hånd tar fem sekunder: $f'(x) = 2x - 4$, så $f'(3) = 2 \\cdot 3 - 4 = 2$. Tangentens stigningstall og den deriverte er samme tall – det er selve kjernen i derivasjonsbegrepet, og nå har du *sett* det på skjermen.\n\nDra gjerne punktet $A$ langs grafen og se tangenten vippe: bratt oppover der grafen stiger raskt, flat i bunnpunktet, bratt nedover der den synker. Den lille animasjonen er kanskje den beste derivasjonsforklaringen som finnes."
+    },
+    {
+      "id": "1t-7-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på tangenter og stigningstall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-7-4-n-quiz2-q0",
+            "task": "Hva er en tangent til en graf?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En linje som krysser grafen i to punkter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En vertikal linje gjennom toppunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafen til den deriverte",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En rett linje som berører grafen i ett punkt med samme stigningstall som grafen der",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tangenten berører grafen i ett punkt og har samme stigningstall som grafen i akkurat det punktet – stigningstallet er verdien av den deriverte."
+          },
+          {
+            "id": "1t-7-4-n-quiz2-q1",
+            "task": "Hvilke kommandoer tegner tangenten til $f$ i punktet der $x = 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tangent((2, f(2)), f)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Stigning(f, 2)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Derivert(f, 2)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Linje(2, f)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tangent(punkt, funksjon) tegner tangenten – f.eks. Tangent((2, f(2)), f), eller Tangent(A, f) der A er et punkt på grafen."
+          },
+          {
+            "id": "1t-7-4-n-quiz2-q2",
+            "task": "$f(x) = x^2 - 4x + 3$. Hva er stigningstallet til tangenten i $x = 3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigning(t) gir 2, og kontrollen bekrefter: $f'(x) = 2x - 4$ gir $f'(3) = 2$."
+          },
+          {
+            "id": "1t-7-4-n-quiz2-q3",
+            "task": "Hva gir kommandoen Stigning(t) når t er en tangent til grafen i et punkt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Skjæringen med $y$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonsverdien i punktet",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Verdien av den deriverte i tangeringspunktet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Lengden av tangenten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tangentens stigningstall er per definisjon den deriverte i tangeringspunktet – Stigning(t) leser den av."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-4-n-section3",
+      "type": "text",
+      "content": "## To grafer, én historie – f og f' side om side\n\nDen siste – og kanskje viktigste – øvelsen er å tegne grafene til $f$ og $f'$ i samme koordinatsystem og lese dem som én fortelling. Sammenhengen er denne: Der $f$ er **stigende**, er $f' > 0$ (grafen til den deriverte ligger over $x$-aksen). Der $f$ er **synkende**, er $f' < 0$. Og der $f$ har **topp- eller bunnpunkt**, er $f' = 0$ – grafen til den deriverte krysser $x$-aksen nøyaktig der originalgrafen har horisontal tangent.\n\nLa oss analysere $f(x) = x^3 - 3x$ på denne måten. Vi skriver `f(x) = x^3 - 3x`, så `g(x) = Derivert(f)` og `Nullpunkt(g)`. GeoGebra forteller at $g(x) = 3x^2 - 3$ har nullpunkter i $x = -1$ og $x = 1$ – kandidatene til topp- og bunnpunkt for $f$.\n\nSå leser vi fortegnet til $g$: For $x < -1$ er $g(x) > 0$, så $f$ er stigende. Mellom $-1$ og $1$ er $g(x) < 0$, så $f$ er synkende. For $x > 1$ er $g(x) > 0$, og $f$ stiger igjen. Konklusjonen følger av seg selv: $f$ har et toppunkt ved $x = -1$ (stiger inn, synker ut) og et bunnpunkt ved $x = 1$ (synker inn, stiger ut).\n\nVil du gå rett på, finner `Løs(f'(x) = 0)` i CAS alle $x$-verdier med horisontal tangent. Men poenget med å se begge grafene er forståelsen: den deriverte er ikke et mystisk nytt objekt – den er fartsmåleren til $f$, tegnet som sin egen graf."
+    },
+    {
+      "id": "1t-7-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sammenhengen mellom f og f':",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-7-4-n-quiz3-q0",
+            "task": "Hva gjelder der funksjonen $f$ er stigende?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f'(x) > 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$f'(x) < 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f'(x) = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) > 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Der $f$ stiger, er den deriverte positiv. Der $f$ synker, er $f' < 0$, og i topp-/bunnpunkter er $f' = 0$."
+          },
+          {
+            "id": "1t-7-4-n-quiz3-q1",
+            "task": "$f(x) = x^3 - 3x$ har $f'(x) = 3x^2 - 3$ med nullpunkter $x = -1$ og $x = 1$. Hva skjer ved $x = -1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f$ har et bunnpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f$ har et nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingenting spesielt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f$ har et toppunkt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f' > 0$ før $x = -1$ og $f' < 0$ etter – funksjonen stiger inn og synker ut, altså toppunkt. Ved $x = 1$ er det motsatt: bunnpunkt."
+          },
+          {
+            "id": "1t-7-4-n-quiz3-q2",
+            "task": "Hvor er $f(x) = x^3 - 3x$ synkende?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For $x < -1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For $-1 < x < 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "For $x > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For alle $x < 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mellom nullpunktene til den deriverte er $f'(x) = 3x^2 - 3 < 0$, så $f$ er synkende på intervallet $-1 < x < 1$."
+          },
+          {
+            "id": "1t-7-4-n-quiz3-q3",
+            "task": "Hvilken CAS-kommando finner alle $x$-verdier der grafen til $f$ har horisontal tangent?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Løs(f(x) = 0)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tangent(0, f)",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Løs(f'(x) = 0)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Stigning(f)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Horisontal tangent betyr $f'(x) = 0$ – kommandoen Løs(f'(x) = 0) finner alle slike punkter. Løs(f(x) = 0) finner nullpunktene til $f$ selv."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-4-n-summary",
+      "type": "text",
+      "content": "## Fartsmåleren på skjermen\n\nDen deriverte er ikke lenger usynlig. Med `Derivert(f)` får du den deriverte funksjonen $f'(x)$ algebraisk – som da $x^4 - 2x^2 + x$ ble til $4x^3 - 4x + 1$, bekreftet av håndregningen. Med `Tangent(A, f)` legger du tangenten inntil grafen i et punkt, `Stigning(t)` leser av stigningstallet, og snarveien `f'(a)` gir den deriverte i $x = a$ direkte – slik $f'(3) = 2$ stemte perfekt med tangentens stigning for $f(x) = x^2 - 4x + 3$.\n\nDen store innsikten er samspillet mellom de to grafene: der $f$ stiger, ligger $f'$ over $x$-aksen; der $f$ synker, ligger den under; og der $f$ snur – i topp- og bunnpunkter – krysser $f'$ aksen, fordi tangenten er horisontal og $f' = 0$. Slik avslørte $3x^2 - 3$ at $x^3 - 3x$ har toppunkt i $x = -1$ og bunnpunkt i $x = 1$, og `Løs(f'(x) = 0)` finner slike punkter på kommando.\n\nTa med deg arbeidsvanen videre: la GeoGebra regne, men kontrollér mot derivasjonsreglene du kan for hånd. Når skjermen og hodet ditt er enige, har du både fart og forståelse – og den deriverte har gått fra formel til noe du faktisk kan se."
+    }
+  ],
+  "exercises": []
+}

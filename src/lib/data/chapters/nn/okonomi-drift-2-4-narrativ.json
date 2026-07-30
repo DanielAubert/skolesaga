@@ -1,1 +1,289 @@
-{"id":"okonomi-drift-2-4-narrativ","courseId":"okonomi-drift","chapterNumber":"2.4","title":"Investering og finansiering","subtitle":"Narrativ versjon","description":"Ei forteljing om kvifor ei krone i dag er verdt meir enn ei krone i morgon -- og korleis noverdi, internrente og tilbakebetalingstid avgjer om ei investering lønner seg.","estimatedMinutes":14,"linkedChapterId":"okonomi-drift-2-4","content":[{"id":"okonomi-drift-2-4-n-intro","type":"text","content":"## Pengar no versus pengar seinare\n\nEi bedrift står overfor eit val: bruke 500 000 kr i dag på ein ny maskin, i håp om å tene meir i åra som kjem. Lønner det seg? Investeringar er blant dei viktigaste -- og mest skjebnesvangre -- avgjerdene ei bedrift tek. Dei bind store beløp over lang tid, og ei feilavgjerd kan true heile verksemda.\n\nFor å vurdere ei investering må vi samanlikne det vi brukar i dag med det vi ventar å få tilbake seinare. Men her ligg ein finurlegheit: 100 000 kr i dag er *meir verdt* enn 100 000 kr om fem år. Kvifor? Fordi pengane i dag kan investerast og gje avkastning i mellomtida, fordi inflasjon et opp kjøpekrafta, og fordi framtida er usikker.\n\nDifor må vi **diskontere** framtidige kontantstraumar -- rekne dei tilbake til kva dei er verdt i dag. Dette er sjølve grunnprinsippet i investeringsanalyse, og vi skal møte tre verktøy som byggjer på det: noverdi, internrente og tilbakebetalingstid."},{"id":"okonomi-drift-2-4-n-section1","type":"text","content":"## Noverdimetoden -- det viktigaste verktøyet\n\nDen mest sentrale metoden er **noverdi**, på engelsk Net Present Value (NPV). Den er summen av alle framtidige kontantstraumar diskonterte tilbake til i dag, minus investeringsbeløpet. Kvar kontantstraum i år $n$ blir delt på $(1+r)^n$, der $r$ er avkastningskravet. Avgjerdsregelen er enkel: er $NPV > 0$, gjev investeringa meir enn avkastningskravet og er lønsam; er $NPV < 0$, er ho det ikkje.\n\nLat oss rekne. Eit firma investerer 500 000 kr i utstyr som gjev 150 000 kr i året i 5 år, med eit avkastningskrav på 10 %. Vi diskonterer kvar kontantstraum: år 1 gjev $150\\,000 / 1{,}10 = 136\\,350$ kr, år 2 gjev $150\\,000 / 1{,}10^2 = 123\\,900$ kr, og slik vidare nedover til år 5 som gjev 93 150 kr. Summen av dei fem diskonterte beløpa er 568 500 kr. Trekkjer vi frå investeringa, blir $NPV = 568\\,500 - 500\\,000 = 68\\,500$ kr. Positiv noverdi -- investeringa gjev meir enn 10 % og bør gjennomførast.\n\nNoverdimetoden er kraftig fordi han tek tidsverdien av pengar på alvor. Det betyr at *når* kontantstraumane kjem, har stor verknad. To prosjekt med like store totale kontantstraumar kan ha heilt ulik noverdi -- det som gjev mest tidleg, vinn, fordi tidlege beløp blir diskonterte mindre."},{"id":"okonomi-drift-2-4-n-quiz1","type":"exercise","exercise":{"id":"okonomi-drift-2-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på tidsverdi og noverdi:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-2-4-n-quiz1-q0","task":"Kvifor er ei krone i dag meir verdt enn ei krone om fem år?","options":[{"id":"a","text":"Fordi pengane kan investerast og gje avkastning, og inflasjon et opp kjøpekrafta","isCorrect":true},{"id":"b","text":"Fordi myntar slitast med tida","isCorrect":false},{"id":"c","text":"Det er ho ikkje -- dei er like mykje verdt","isCorrect":false},{"id":"d","text":"Fordi banken tek gebyr","isCorrect":false}],"solution":"Pengar i dag kan setjast i arbeid og gje avkastning, medan inflasjon og uvisse reduserer verdien av framtidige beløp. Difor diskonterer vi."},{"id":"okonomi-drift-2-4-n-quiz1-q1","task":"Kva betyr det at ei investering har positiv noverdi (NPV > 0)?","options":[{"id":"a","text":"At investeringa er risikofri","isCorrect":false},{"id":"b","text":"At ho gjev høgare avkastning enn avkastningskravet","isCorrect":true},{"id":"c","text":"At ho er tilbakebetalt innan eitt år","isCorrect":false},{"id":"d","text":"At ho ikkje krev finansiering","isCorrect":false}],"solution":"Positiv noverdi betyr at dei diskonterte kontantstraumane overstig investeringa, slik at avkastninga er høgare enn avkastningskravet."},{"id":"okonomi-drift-2-4-n-quiz1-q2","task":"To prosjekt har like store totale kontantstraumar. Kva for eitt har høgast noverdi?","options":[{"id":"a","text":"Det som gjev mest seint","isCorrect":false},{"id":"b","text":"Dei har alltid lik noverdi","isCorrect":false},{"id":"c","text":"Det som gjev mest tidleg","isCorrect":true},{"id":"d","text":"Det med høgast investering","isCorrect":false}],"solution":"Tidlege kontantstraumar blir diskonterte mindre og er difor meir verdt. Prosjektet som gjev mest tidleg, har høgast noverdi."}]}},{"id":"okonomi-drift-2-4-n-section2","type":"text","content":"## Internrente og tilbakebetalingstid\n\nNoverdien gjev eit kronebeløp, men leiarar likar ofte å snakke i prosent. Då kjem **internrenta** (Internal Rate of Return, IRR) godt med. Internrenta er den renta som gjer at noverdien blir nøyaktig null -- altså den avkastninga investeringa faktisk gjev. Avgjerdsregelen: er internrenta høgare enn avkastningskravet, er investeringa lønsam. Fordelen er at ho er lett å forstå -- «investeringa gjev 15 % avkastning» -- men ho kan gje feil rangering når prosjekta har ulik storleik, og ho går urealistisk ut frå at mellomliggjande kontantstraumar blir reinvesterte til same høge rente.\n\nDet tredje verktøyet er **tilbakebetalingstid** (payback period) -- talet på år det tek før dei akkumulerte kontantstraumane har dekt investeringa. Investerer du 800 000 kr og får 250 000 kr i året, er tilbakebetalingstida $800\\,000 / 250\\,000 = 3{,}2$ år. Metoden er enkel og gjev eit grovt mål på risiko -- jo kortare tid, jo lågare risiko. Men han har to veikskapar: han tek ikkje omsyn til tidsverdien av pengar, og han ignorerer alt som skjer *etter* tilbakebetalingstidspunktet.\n\nNår investeringa er avgjord, må ho finansierast. Det finst to hovudkjelder. **Eigenkapitalfinansiering** -- opptent overskot, emisjon eller innskot frå eigarane -- gjev robustheit utan faste betalingsforpliktingar, men kan vatne ut eigarskapet. **Framandkapitalfinansiering** -- lån, obligasjonar eller leasing -- er ofte billigare fordi rentekostnader er frådragsføre, men faste rente- og avdragsforpliktingar aukar den finansielle risikoen. Ein sunn balanse mellom dei to er avgjerande for stabiliteten."},{"id":"okonomi-drift-2-4-n-quiz2","type":"exercise","exercise":{"id":"okonomi-drift-2-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på internrente, tilbakebetalingstid og finansiering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-2-4-n-quiz2-q0","task":"Kva er internrenta (IRR)?","options":[{"id":"a","text":"Renta banken tek på lånet","isCorrect":false},{"id":"b","text":"Tilbakebetalingstida i prosent","isCorrect":false},{"id":"c","text":"Inflasjonen","isCorrect":false},{"id":"d","text":"Den renta som gjer noverdien lik null","isCorrect":true}],"solution":"Internrenta er den renta som gjev NPV = 0, altså den avkastninga investeringa faktisk gjev."},{"id":"okonomi-drift-2-4-n-quiz2-q1","task":"Kva er den største veikskapen ved tilbakebetalingsmetoden?","options":[{"id":"a","text":"Han ignorerer kontantstraumar etter tilbakebetalingstidspunktet og tidsverdien av pengar","isCorrect":true},{"id":"b","text":"Han er for komplisert","isCorrect":false},{"id":"c","text":"Han krev kjennskap til internrenta","isCorrect":false},{"id":"d","text":"Han kan berre brukast på store investeringar","isCorrect":false}],"solution":"Tilbakebetalingsmetoden bryr seg ikkje om kva som skjer etter at investeringa er tent inn, og den vanlege varianten ser bort frå tidsverdien av pengar."},{"id":"okonomi-drift-2-4-n-quiz2-q2","task":"Kva er ein fordel med framandkapitalfinansiering (lån)?","options":[{"id":"a","text":"Ingen betalingsforpliktingar","isCorrect":false},{"id":"b","text":"Rentekostnader er frådragsføre, og eigarskapet blir halde udelt","isCorrect":true},{"id":"c","text":"Eigarskapet blir vatna ut","isCorrect":false},{"id":"d","text":"Han gjev alltid lågast risiko","isCorrect":false}],"solution":"Lån er ofte billigare fordi renter gjev skattefrådrag, og eigarane held full kontroll. Ulempa er faste forpliktingar som aukar risikoen."}]}},{"id":"okonomi-drift-2-4-n-summary","type":"text","content":"## Oppsummering\n\nInvesteringar bind store beløp over tid, og grunnprinsippet for å vurdere dei er at pengar i dag er meir verdt enn pengar seinare. Difor **diskonterer** vi framtidige kontantstraumar.\n\n**Noverdimetoden (NPV)** er det viktigaste verktøyet: er noverdien positiv, gjev investeringa meir enn avkastningskravet. Fordi metoden tek tidsverdien på alvor, betyr det mykje *når* pengane kjem. **Internrenta (IRR)** uttrykkjer avkastninga i prosent og er lett å kommunisere, men kan gje feil rangering ved ulik prosjektstorleik. **Tilbakebetalingstida** er enkel og gjev eit mål på risiko, men ignorerer både tidsverdien og det som skjer etter tilbakebetaling. I praksis blir dei tre brukte saman.\n\nNår investeringa er avgjord, må ho finansierast -- med **eigenkapital** (robust, men kan vatne ut eigarskap) eller **framandkapital** (billigare på grunn av skattefrådrag, men med faste forpliktingar som aukar risikoen)."}],"exercises":[],"_meta":{"sourceHash":"a14979c812a5cf1c","translatedAt":"2026-06-21T01:16:09.971Z","model":"claude-code-agent","strings":47,"tm":{"baf9ca249ba5ed14":"Investering og finansiering","b195b06d1ed59702":"Narrativ versjon","6945e51ca0167528":"Ei forteljing om kvifor ei krone i dag er verdt meir enn ei krone i morgon -- og korleis noverdi, internrente og tilbakebetalingstid avgjer om ei investering lønner seg.","f0e45beb209fd075":"## Pengar no versus pengar seinare\n\nEi bedrift står overfor eit val: bruke 500 000 kr i dag på ein ny maskin, i håp om å tene meir i åra som kjem. Lønner det seg? Investeringar er blant dei viktigaste -- og mest skjebnesvangre -- avgjerdene ei bedrift tek. Dei bind store beløp over lang tid, og ei feilavgjerd kan true heile verksemda.\n\nFor å vurdere ei investering må vi samanlikne det vi brukar i dag med det vi ventar å få tilbake seinare. Men her ligg ein finurlegheit: 100 000 kr i dag er *meir verdt* enn 100 000 kr om fem år. Kvifor? Fordi pengane i dag kan investerast og gje avkastning i mellomtida, fordi inflasjon et opp kjøpekrafta, og fordi framtida er usikker.\n\nDifor må vi **diskontere** framtidige kontantstraumar -- rekne dei tilbake til kva dei er verdt i dag. Dette er sjølve grunnprinsippet i investeringsanalyse, og vi skal møte tre verktøy som byggjer på det: noverdi, internrente og tilbakebetalingstid.","a9c30e92d1e60ea8":"## Noverdimetoden -- det viktigaste verktøyet\n\nDen mest sentrale metoden er **noverdi**, på engelsk Net Present Value (NPV). Den er summen av alle framtidige kontantstraumar diskonterte tilbake til i dag, minus investeringsbeløpet. Kvar kontantstraum i år $n$ blir delt på $(1+r)^n$, der $r$ er avkastningskravet. Avgjerdsregelen er enkel: er $NPV > 0$, gjev investeringa meir enn avkastningskravet og er lønsam; er $NPV < 0$, er ho det ikkje.\n\nLat oss rekne. Eit firma investerer 500 000 kr i utstyr som gjev 150 000 kr i året i 5 år, med eit avkastningskrav på 10 %. Vi diskonterer kvar kontantstraum: år 1 gjev $150\\,000 / 1{,}10 = 136\\,350$ kr, år 2 gjev $150\\,000 / 1{,}10^2 = 123\\,900$ kr, og slik vidare nedover til år 5 som gjev 93 150 kr. Summen av dei fem diskonterte beløpa er 568 500 kr. Trekkjer vi frå investeringa, blir $NPV = 568\\,500 - 500\\,000 = 68\\,500$ kr. Positiv noverdi -- investeringa gjev meir enn 10 % og bør gjennomførast.\n\nNoverdimetoden er kraftig fordi han tek tidsverdien av pengar på alvor. Det betyr at *når* kontantstraumane kjem, har stor verknad. To prosjekt med like store totale kontantstraumar kan ha heilt ulik noverdi -- det som gjev mest tidleg, vinn, fordi tidlege beløp blir diskonterte mindre.","1edcab2c7c41efd2":"Test deg sjølv på tidsverdi og noverdi:","4097889236a2af26":"placeholder","b66ae9fdd75f4a85":"Kvifor er ei krone i dag meir verdt enn ei krone om fem år?","abd6084202a4949c":"Fordi pengane kan investerast og gje avkastning, og inflasjon et opp kjøpekrafta","e6d0694ddeb2b067":"Fordi myntar slitast med tida","dd505b00b85523f9":"Det er ho ikkje -- dei er like mykje verdt","0ceb9857ac9d6f95":"Fordi banken tek gebyr","bc34c316ee516ff9":"Pengar i dag kan setjast i arbeid og gje avkastning, medan inflasjon og uvisse reduserer verdien av framtidige beløp. Difor diskonterer vi.","253533215f0cc026":"Kva betyr det at ei investering har positiv noverdi (NPV > 0)?","6a76ec955eaa8e01":"At investeringa er risikofri","7091ffcbca379b7d":"At ho gjev høgare avkastning enn avkastningskravet","bccac85177ed0239":"At ho er tilbakebetalt innan eitt år","89f967e0dd294744":"At ho ikkje krev finansiering","b3689b1668dab720":"Positiv noverdi betyr at dei diskonterte kontantstraumane overstig investeringa, slik at avkastninga er høgare enn avkastningskravet.","5969109a78b2ee34":"To prosjekt har like store totale kontantstraumar. Kva for eitt har høgast noverdi?","59953286fc1c9a15":"Det som gjev mest seint","51755b6fdd020e61":"Dei har alltid lik noverdi","24809da8f7ee0b8b":"Det som gjev mest tidleg","3bfeaa1e20ed0b5a":"Det med høgast investering","3439e3ef9a803e33":"Tidlege kontantstraumar blir diskonterte mindre og er difor meir verdt. Prosjektet som gjev mest tidleg, har høgast noverdi.","f5d4230a0ae64702":"## Internrente og tilbakebetalingstid\n\nNoverdien gjev eit kronebeløp, men leiarar likar ofte å snakke i prosent. Då kjem **internrenta** (Internal Rate of Return, IRR) godt med. Internrenta er den renta som gjer at noverdien blir nøyaktig null -- altså den avkastninga investeringa faktisk gjev. Avgjerdsregelen: er internrenta høgare enn avkastningskravet, er investeringa lønsam. Fordelen er at ho er lett å forstå -- «investeringa gjev 15 % avkastning» -- men ho kan gje feil rangering når prosjekta har ulik storleik, og ho går urealistisk ut frå at mellomliggjande kontantstraumar blir reinvesterte til same høge rente.\n\nDet tredje verktøyet er **tilbakebetalingstid** (payback period) -- talet på år det tek før dei akkumulerte kontantstraumane har dekt investeringa. Investerer du 800 000 kr og får 250 000 kr i året, er tilbakebetalingstida $800\\,000 / 250\\,000 = 3{,}2$ år. Metoden er enkel og gjev eit grovt mål på risiko -- jo kortare tid, jo lågare risiko. Men han har to veikskapar: han tek ikkje omsyn til tidsverdien av pengar, og han ignorerer alt som skjer *etter* tilbakebetalingstidspunktet.\n\nNår investeringa er avgjord, må ho finansierast. Det finst to hovudkjelder. **Eigenkapitalfinansiering** -- opptent overskot, emisjon eller innskot frå eigarane -- gjev robustheit utan faste betalingsforpliktingar, men kan vatne ut eigarskapet. **Framandkapitalfinansiering** -- lån, obligasjonar eller leasing -- er ofte billigare fordi rentekostnader er frådragsføre, men faste rente- og avdragsforpliktingar aukar den finansielle risikoen. Ein sunn balanse mellom dei to er avgjerande for stabiliteten.","e895708f000ebd8e":"Test deg sjølv på internrente, tilbakebetalingstid og finansiering:","db1f2e6a45eacd31":"Kva er internrenta (IRR)?","1b40e589542d1b82":"Renta banken tek på lånet","4b20ec896feac097":"Tilbakebetalingstida i prosent","48b2e2f321d00275":"Inflasjonen","e4ccf785f6275d88":"Den renta som gjer noverdien lik null","63d325b70d4fe96c":"Internrenta er den renta som gjev NPV = 0, altså den avkastninga investeringa faktisk gjev.","c94511dbb9495bbe":"Kva er den største veikskapen ved tilbakebetalingsmetoden?","515bc09ad57c6856":"Han ignorerer kontantstraumar etter tilbakebetalingstidspunktet og tidsverdien av pengar","efdbc0a73c19cd9d":"Han er for komplisert","2a251cceec525210":"Han krev kjennskap til internrenta","205a61f6e03b9b20":"Han kan berre brukast på store investeringar","4e41736de45b6c04":"Tilbakebetalingsmetoden bryr seg ikkje om kva som skjer etter at investeringa er tent inn, og den vanlege varianten ser bort frå tidsverdien av pengar.","016d7bb9b1ac68ff":"Kva er ein fordel med framandkapitalfinansiering (lån)?","60e9ae85d351f9b8":"Ingen betalingsforpliktingar","964277dddf677446":"Rentekostnader er frådragsføre, og eigarskapet blir halde udelt","7c7fd967aa38d14a":"Eigarskapet blir vatna ut","9d3b6872cf39b58d":"Han gjev alltid lågast risiko","42ec6cc35f250be5":"Lån er ofte billigare fordi renter gjev skattefrådrag, og eigarane held full kontroll. Ulempa er faste forpliktingar som aukar risikoen.","3c209f844fa2bd75":"## Oppsummering\n\nInvesteringar bind store beløp over tid, og grunnprinsippet for å vurdere dei er at pengar i dag er meir verdt enn pengar seinare. Difor **diskonterer** vi framtidige kontantstraumar.\n\n**Noverdimetoden (NPV)** er det viktigaste verktøyet: er noverdien positiv, gjev investeringa meir enn avkastningskravet. Fordi metoden tek tidsverdien på alvor, betyr det mykje *når* pengane kjem. **Internrenta (IRR)** uttrykkjer avkastninga i prosent og er lett å kommunisere, men kan gje feil rangering ved ulik prosjektstorleik. **Tilbakebetalingstida** er enkel og gjev eit mål på risiko, men ignorerer både tidsverdien og det som skjer etter tilbakebetaling. I praksis blir dei tre brukte saman.\n\nNår investeringa er avgjord, må ho finansierast -- med **eigenkapital** (robust, men kan vatne ut eigarskap) eller **framandkapital** (billigare på grunn av skattefrådrag, men med faste forpliktingar som aukar risikoen)."}}}
+{
+  "id": "okonomi-drift-2-4-narrativ",
+  "courseId": "okonomi-drift",
+  "chapterNumber": "2.4",
+  "title": "Investering og finansiering",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kvifor ei krone i dag er verdt meir enn ei krone i morgon -- og korleis noverdi, internrente og tilbakebetalingstid avgjer om ei investering lønner seg.",
+  "estimatedMinutes": 14,
+  "linkedChapterId": "okonomi-drift-2-4",
+  "content": [
+    {
+      "id": "okonomi-drift-2-4-n-intro",
+      "type": "text",
+      "content": "## Pengar no versus pengar seinare\n\nEi bedrift står overfor eit val: bruke 500 000 kr i dag på ein ny maskin, i håp om å tene meir i åra som kjem. Lønner det seg? Investeringar er blant dei viktigaste -- og mest skjebnesvangre -- avgjerdene ei bedrift tek. Dei bind store beløp over lang tid, og ei feilavgjerd kan true heile verksemda.\n\nFor å vurdere ei investering må vi samanlikne det vi brukar i dag med det vi ventar å få tilbake seinare. Men her ligg ein finurlegheit: 100 000 kr i dag er *meir verdt* enn 100 000 kr om fem år. Kvifor? Fordi pengane i dag kan investerast og gje avkastning i mellomtida, fordi inflasjon et opp kjøpekrafta, og fordi framtida er usikker.\n\nDifor må vi **diskontere** framtidige kontantstraumar -- rekne dei tilbake til kva dei er verdt i dag. Dette er sjølve grunnprinsippet i investeringsanalyse, og vi skal møte tre verktøy som byggjer på det: noverdi, internrente og tilbakebetalingstid."
+    },
+    {
+      "id": "okonomi-drift-2-4-n-section1",
+      "type": "text",
+      "content": "## Noverdimetoden -- det viktigaste verktøyet\n\nDen mest sentrale metoden er **noverdi**, på engelsk Net Present Value (NPV). Den er summen av alle framtidige kontantstraumar diskonterte tilbake til i dag, minus investeringsbeløpet. Kvar kontantstraum i år $n$ blir delt på $(1+r)^n$, der $r$ er avkastningskravet. Avgjerdsregelen er enkel: er $NPV > 0$, gjev investeringa meir enn avkastningskravet og er lønsam; er $NPV < 0$, er ho det ikkje.\n\nLat oss rekne. Eit firma investerer 500 000 kr i utstyr som gjev 150 000 kr i året i 5 år, med eit avkastningskrav på 10 %. Vi diskonterer kvar kontantstraum: år 1 gjev $150\\,000 / 1{,}10 = 136\\,350$ kr, år 2 gjev $150\\,000 / 1{,}10^2 = 123\\,900$ kr, og slik vidare nedover til år 5 som gjev 93 150 kr. Summen av dei fem diskonterte beløpa er 568 500 kr. Trekkjer vi frå investeringa, blir $NPV = 568\\,500 - 500\\,000 = 68\\,500$ kr. Positiv noverdi -- investeringa gjev meir enn 10 % og bør gjennomførast.\n\nNoverdimetoden er kraftig fordi han tek tidsverdien av pengar på alvor. Det betyr at *når* kontantstraumane kjem, har stor verknad. To prosjekt med like store totale kontantstraumar kan ha heilt ulik noverdi -- det som gjev mest tidleg, vinn, fordi tidlege beløp blir diskonterte mindre."
+    },
+    {
+      "id": "okonomi-drift-2-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-2-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tidsverdi og noverdi:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-2-4-n-quiz1-q0",
+            "task": "Kvifor er ei krone i dag meir verdt enn ei krone om fem år?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi myntar slitast med tida",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi pengane kan investerast og gje avkastning, og inflasjon et opp kjøpekrafta",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det er ho ikkje -- dei er like mykje verdt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi banken tek gebyr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Pengar i dag kan setjast i arbeid og gje avkastning, medan inflasjon og uvisse reduserer verdien av framtidige beløp. Difor diskonterer vi."
+          },
+          {
+            "id": "okonomi-drift-2-4-n-quiz1-q1",
+            "task": "Kva betyr det at ei investering har positiv noverdi (NPV > 0)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At investeringa er risikofri",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At ho er tilbakebetalt innan eitt år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At ho gjev høgare avkastning enn avkastningskravet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At ho ikkje krev finansiering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Positiv noverdi betyr at dei diskonterte kontantstraumane overstig investeringa, slik at avkastninga er høgare enn avkastningskravet."
+          },
+          {
+            "id": "okonomi-drift-2-4-n-quiz1-q2",
+            "task": "To prosjekt har like store totale kontantstraumar. Kva for eitt har høgast noverdi?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det som gjev mest seint",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei har alltid lik noverdi",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det med høgast investering",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det som gjev mest tidleg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tidlege kontantstraumar blir diskonterte mindre og er difor meir verdt. Prosjektet som gjev mest tidleg, har høgast noverdi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-2-4-n-section2",
+      "type": "text",
+      "content": "## Internrente og tilbakebetalingstid\n\nNoverdien gjev eit kronebeløp, men leiarar likar ofte å snakke i prosent. Då kjem **internrenta** (Internal Rate of Return, IRR) godt med. Internrenta er den renta som gjer at noverdien blir nøyaktig null -- altså den avkastninga investeringa faktisk gjev. Avgjerdsregelen: er internrenta høgare enn avkastningskravet, er investeringa lønsam. Fordelen er at ho er lett å forstå -- «investeringa gjev 15 % avkastning» -- men ho kan gje feil rangering når prosjekta har ulik storleik, og ho går urealistisk ut frå at mellomliggjande kontantstraumar blir reinvesterte til same høge rente.\n\nDet tredje verktøyet er **tilbakebetalingstid** (payback period) -- talet på år det tek før dei akkumulerte kontantstraumane har dekt investeringa. Investerer du 800 000 kr og får 250 000 kr i året, er tilbakebetalingstida $800\\,000 / 250\\,000 = 3{,}2$ år. Metoden er enkel og gjev eit grovt mål på risiko -- jo kortare tid, jo lågare risiko. Men han har to veikskapar: han tek ikkje omsyn til tidsverdien av pengar, og han ignorerer alt som skjer *etter* tilbakebetalingstidspunktet.\n\nNår investeringa er avgjord, må ho finansierast. Det finst to hovudkjelder. **Eigenkapitalfinansiering** -- opptent overskot, emisjon eller innskot frå eigarane -- gjev robustheit utan faste betalingsforpliktingar, men kan vatne ut eigarskapet. **Framandkapitalfinansiering** -- lån, obligasjonar eller leasing -- er ofte billigare fordi rentekostnader er frådragsføre, men faste rente- og avdragsforpliktingar aukar den finansielle risikoen. Ein sunn balanse mellom dei to er avgjerande for stabiliteten."
+    },
+    {
+      "id": "okonomi-drift-2-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-2-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på internrente, tilbakebetalingstid og finansiering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-2-4-n-quiz2-q0",
+            "task": "Kva er internrenta (IRR)?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Den renta som gjer noverdien lik null",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Renta banken tek på lånet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tilbakebetalingstida i prosent",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Inflasjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Internrenta er den renta som gjev NPV = 0, altså den avkastninga investeringa faktisk gjev."
+          },
+          {
+            "id": "okonomi-drift-2-4-n-quiz2-q1",
+            "task": "Kva er den største veikskapen ved tilbakebetalingsmetoden?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han er for komplisert",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Han ignorerer kontantstraumar etter tilbakebetalingstidspunktet og tidsverdien av pengar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han krev kjennskap til internrenta",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han kan berre brukast på store investeringar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tilbakebetalingsmetoden bryr seg ikkje om kva som skjer etter at investeringa er tent inn, og den vanlege varianten ser bort frå tidsverdien av pengar."
+          },
+          {
+            "id": "okonomi-drift-2-4-n-quiz2-q2",
+            "task": "Kva er ein fordel med framandkapitalfinansiering (lån)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ingen betalingsforpliktingar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eigarskapet blir vatna ut",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Rentekostnader er frådragsføre, og eigarskapet blir halde udelt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Han gjev alltid lågast risiko",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lån er ofte billigare fordi renter gjev skattefrådrag, og eigarane held full kontroll. Ulempa er faste forpliktingar som aukar risikoen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-2-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nInvesteringar bind store beløp over tid, og grunnprinsippet for å vurdere dei er at pengar i dag er meir verdt enn pengar seinare. Difor **diskonterer** vi framtidige kontantstraumar.\n\n**Noverdimetoden (NPV)** er det viktigaste verktøyet: er noverdien positiv, gjev investeringa meir enn avkastningskravet. Fordi metoden tek tidsverdien på alvor, betyr det mykje *når* pengane kjem. **Internrenta (IRR)** uttrykkjer avkastninga i prosent og er lett å kommunisere, men kan gje feil rangering ved ulik prosjektstorleik. **Tilbakebetalingstida** er enkel og gjev eit mål på risiko, men ignorerer både tidsverdien og det som skjer etter tilbakebetaling. I praksis blir dei tre brukte saman.\n\nNår investeringa er avgjord, må ho finansierast -- med **eigenkapital** (robust, men kan vatne ut eigarskap) eller **framandkapital** (billigare på grunn av skattefrådrag, men med faste forpliktingar som aukar risikoen)."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "a14979c812a5cf1c",
+    "translatedAt": "2026-06-21T01:16:09.971Z",
+    "model": "claude-code-agent",
+    "strings": 47,
+    "tm": {
+      "baf9ca249ba5ed14": "Investering og finansiering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "6945e51ca0167528": "Ei forteljing om kvifor ei krone i dag er verdt meir enn ei krone i morgon -- og korleis noverdi, internrente og tilbakebetalingstid avgjer om ei investering lønner seg.",
+      "f0e45beb209fd075": "## Pengar no versus pengar seinare\n\nEi bedrift står overfor eit val: bruke 500 000 kr i dag på ein ny maskin, i håp om å tene meir i åra som kjem. Lønner det seg? Investeringar er blant dei viktigaste -- og mest skjebnesvangre -- avgjerdene ei bedrift tek. Dei bind store beløp over lang tid, og ei feilavgjerd kan true heile verksemda.\n\nFor å vurdere ei investering må vi samanlikne det vi brukar i dag med det vi ventar å få tilbake seinare. Men her ligg ein finurlegheit: 100 000 kr i dag er *meir verdt* enn 100 000 kr om fem år. Kvifor? Fordi pengane i dag kan investerast og gje avkastning i mellomtida, fordi inflasjon et opp kjøpekrafta, og fordi framtida er usikker.\n\nDifor må vi **diskontere** framtidige kontantstraumar -- rekne dei tilbake til kva dei er verdt i dag. Dette er sjølve grunnprinsippet i investeringsanalyse, og vi skal møte tre verktøy som byggjer på det: noverdi, internrente og tilbakebetalingstid.",
+      "a9c30e92d1e60ea8": "## Noverdimetoden -- det viktigaste verktøyet\n\nDen mest sentrale metoden er **noverdi**, på engelsk Net Present Value (NPV). Den er summen av alle framtidige kontantstraumar diskonterte tilbake til i dag, minus investeringsbeløpet. Kvar kontantstraum i år $n$ blir delt på $(1+r)^n$, der $r$ er avkastningskravet. Avgjerdsregelen er enkel: er $NPV > 0$, gjev investeringa meir enn avkastningskravet og er lønsam; er $NPV < 0$, er ho det ikkje.\n\nLat oss rekne. Eit firma investerer 500 000 kr i utstyr som gjev 150 000 kr i året i 5 år, med eit avkastningskrav på 10 %. Vi diskonterer kvar kontantstraum: år 1 gjev $150\\,000 / 1{,}10 = 136\\,350$ kr, år 2 gjev $150\\,000 / 1{,}10^2 = 123\\,900$ kr, og slik vidare nedover til år 5 som gjev 93 150 kr. Summen av dei fem diskonterte beløpa er 568 500 kr. Trekkjer vi frå investeringa, blir $NPV = 568\\,500 - 500\\,000 = 68\\,500$ kr. Positiv noverdi -- investeringa gjev meir enn 10 % og bør gjennomførast.\n\nNoverdimetoden er kraftig fordi han tek tidsverdien av pengar på alvor. Det betyr at *når* kontantstraumane kjem, har stor verknad. To prosjekt med like store totale kontantstraumar kan ha heilt ulik noverdi -- det som gjev mest tidleg, vinn, fordi tidlege beløp blir diskonterte mindre.",
+      "1edcab2c7c41efd2": "Test deg sjølv på tidsverdi og noverdi:",
+      "4097889236a2af26": "placeholder",
+      "b66ae9fdd75f4a85": "Kvifor er ei krone i dag meir verdt enn ei krone om fem år?",
+      "abd6084202a4949c": "Fordi pengane kan investerast og gje avkastning, og inflasjon et opp kjøpekrafta",
+      "e6d0694ddeb2b067": "Fordi myntar slitast med tida",
+      "dd505b00b85523f9": "Det er ho ikkje -- dei er like mykje verdt",
+      "0ceb9857ac9d6f95": "Fordi banken tek gebyr",
+      "bc34c316ee516ff9": "Pengar i dag kan setjast i arbeid og gje avkastning, medan inflasjon og uvisse reduserer verdien av framtidige beløp. Difor diskonterer vi.",
+      "253533215f0cc026": "Kva betyr det at ei investering har positiv noverdi (NPV > 0)?",
+      "6a76ec955eaa8e01": "At investeringa er risikofri",
+      "7091ffcbca379b7d": "At ho gjev høgare avkastning enn avkastningskravet",
+      "bccac85177ed0239": "At ho er tilbakebetalt innan eitt år",
+      "89f967e0dd294744": "At ho ikkje krev finansiering",
+      "b3689b1668dab720": "Positiv noverdi betyr at dei diskonterte kontantstraumane overstig investeringa, slik at avkastninga er høgare enn avkastningskravet.",
+      "5969109a78b2ee34": "To prosjekt har like store totale kontantstraumar. Kva for eitt har høgast noverdi?",
+      "59953286fc1c9a15": "Det som gjev mest seint",
+      "51755b6fdd020e61": "Dei har alltid lik noverdi",
+      "24809da8f7ee0b8b": "Det som gjev mest tidleg",
+      "3bfeaa1e20ed0b5a": "Det med høgast investering",
+      "3439e3ef9a803e33": "Tidlege kontantstraumar blir diskonterte mindre og er difor meir verdt. Prosjektet som gjev mest tidleg, har høgast noverdi.",
+      "f5d4230a0ae64702": "## Internrente og tilbakebetalingstid\n\nNoverdien gjev eit kronebeløp, men leiarar likar ofte å snakke i prosent. Då kjem **internrenta** (Internal Rate of Return, IRR) godt med. Internrenta er den renta som gjer at noverdien blir nøyaktig null -- altså den avkastninga investeringa faktisk gjev. Avgjerdsregelen: er internrenta høgare enn avkastningskravet, er investeringa lønsam. Fordelen er at ho er lett å forstå -- «investeringa gjev 15 % avkastning» -- men ho kan gje feil rangering når prosjekta har ulik storleik, og ho går urealistisk ut frå at mellomliggjande kontantstraumar blir reinvesterte til same høge rente.\n\nDet tredje verktøyet er **tilbakebetalingstid** (payback period) -- talet på år det tek før dei akkumulerte kontantstraumane har dekt investeringa. Investerer du 800 000 kr og får 250 000 kr i året, er tilbakebetalingstida $800\\,000 / 250\\,000 = 3{,}2$ år. Metoden er enkel og gjev eit grovt mål på risiko -- jo kortare tid, jo lågare risiko. Men han har to veikskapar: han tek ikkje omsyn til tidsverdien av pengar, og han ignorerer alt som skjer *etter* tilbakebetalingstidspunktet.\n\nNår investeringa er avgjord, må ho finansierast. Det finst to hovudkjelder. **Eigenkapitalfinansiering** -- opptent overskot, emisjon eller innskot frå eigarane -- gjev robustheit utan faste betalingsforpliktingar, men kan vatne ut eigarskapet. **Framandkapitalfinansiering** -- lån, obligasjonar eller leasing -- er ofte billigare fordi rentekostnader er frådragsføre, men faste rente- og avdragsforpliktingar aukar den finansielle risikoen. Ein sunn balanse mellom dei to er avgjerande for stabiliteten.",
+      "e895708f000ebd8e": "Test deg sjølv på internrente, tilbakebetalingstid og finansiering:",
+      "db1f2e6a45eacd31": "Kva er internrenta (IRR)?",
+      "1b40e589542d1b82": "Renta banken tek på lånet",
+      "4b20ec896feac097": "Tilbakebetalingstida i prosent",
+      "48b2e2f321d00275": "Inflasjonen",
+      "e4ccf785f6275d88": "Den renta som gjer noverdien lik null",
+      "63d325b70d4fe96c": "Internrenta er den renta som gjev NPV = 0, altså den avkastninga investeringa faktisk gjev.",
+      "c94511dbb9495bbe": "Kva er den største veikskapen ved tilbakebetalingsmetoden?",
+      "515bc09ad57c6856": "Han ignorerer kontantstraumar etter tilbakebetalingstidspunktet og tidsverdien av pengar",
+      "efdbc0a73c19cd9d": "Han er for komplisert",
+      "2a251cceec525210": "Han krev kjennskap til internrenta",
+      "205a61f6e03b9b20": "Han kan berre brukast på store investeringar",
+      "4e41736de45b6c04": "Tilbakebetalingsmetoden bryr seg ikkje om kva som skjer etter at investeringa er tent inn, og den vanlege varianten ser bort frå tidsverdien av pengar.",
+      "016d7bb9b1ac68ff": "Kva er ein fordel med framandkapitalfinansiering (lån)?",
+      "60e9ae85d351f9b8": "Ingen betalingsforpliktingar",
+      "964277dddf677446": "Rentekostnader er frådragsføre, og eigarskapet blir halde udelt",
+      "7c7fd967aa38d14a": "Eigarskapet blir vatna ut",
+      "9d3b6872cf39b58d": "Han gjev alltid lågast risiko",
+      "42ec6cc35f250be5": "Lån er ofte billigare fordi renter gjev skattefrådrag, og eigarane held full kontroll. Ulempa er faste forpliktingar som aukar risikoen.",
+      "3c209f844fa2bd75": "## Oppsummering\n\nInvesteringar bind store beløp over tid, og grunnprinsippet for å vurdere dei er at pengar i dag er meir verdt enn pengar seinare. Difor **diskonterer** vi framtidige kontantstraumar.\n\n**Noverdimetoden (NPV)** er det viktigaste verktøyet: er noverdien positiv, gjev investeringa meir enn avkastningskravet. Fordi metoden tek tidsverdien på alvor, betyr det mykje *når* pengane kjem. **Internrenta (IRR)** uttrykkjer avkastninga i prosent og er lett å kommunisere, men kan gje feil rangering ved ulik prosjektstorleik. **Tilbakebetalingstida** er enkel og gjev eit mål på risiko, men ignorerer både tidsverdien og det som skjer etter tilbakebetaling. I praksis blir dei tre brukte saman.\n\nNår investeringa er avgjord, må ho finansierast -- med **eigenkapital** (robust, men kan vatne ut eigarskap) eller **framandkapital** (billigare på grunn av skattefrådrag, men med faste forpliktingar som aukar risikoen)."
+    }
+  }
+}

@@ -1,1 +1,634 @@
-{"id":"r1-4-1-narrativ","courseId":"r1","chapterNumber":"4.1","title":"Derivasjonsreglar","subtitle":"Narrativ versjon","description":"Ei forteljing om derivasjonsreglane -- frå augneblinksfarten til speedometeret til verktøykassa som lèt deg derivere polynom, brøkar og røter på sekund.","estimatedMinutes":35,"competenceGoals":["derivere konstantar","bruke potensregelen til å derivere potensar av x","bruke konstantfaktoren til å derivere funksjonar multipliserte med ein konstant","bruke sumregelen og differanseregelen til å derivere summar og differansar","derivere polynom","derivere funksjonar med negative og rasjonale eksponentar"],"linkedChapterId":"r1-4-1","content":[{"id":"r1-4-1-n-intro","type":"text","content":"## Fartsmålaren som aldri tek feil\n\nTenk deg at du sit i ein bil og ser på speedometeret. Nåla viser 80 km/t – ikkje gjennomsnittsfarten for heile turen, men farten *akkurat no*. Det speedometeret gjer, er i bunn og grunn derivasjon: det måler kor fort posisjonen din endrar seg i ein bestemt augneblink.\n\nI førre kapittel lærte du at den deriverte er definert som ein grenseverdi: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$. Det er ein vakker definisjon, men la oss vere ærlege – å rekne ut den grenseverdien kvar einaste gong er som å byggje speedometeret på nytt kvar gong du skal køyre. I dette kapittelet skal vi gjere noko mykje smartare: vi skal utleie *reglar* som lèt oss derivere nesten kva som helst på sekund.\n\nDerivasjon er eitt av dei mest brukte verktøya i matematikk og naturvitskap. Med den deriverte finn vi vekstfart og endringsrate, stigingstal til tangentar, maksimums- og minimumsverdiar, og vi kan optimalisere alt frå bensinforbruk til bedriftsoverskot. Men først treng vi verktøykassa. Vi byggjer ho opp regel for regel, frå den aller enklaste."},{"id":"r1-4-1-n-section1","type":"text","content":"## Det som står stille, og det som veks\n\nVi startar med det enklaste som finst: ein funksjon som ikkje gjer nokon ting. Dersom $f(x) = 5$, er verdien 5 uansett kva $x$ er. Grafen er ei horisontal linje, og ei horisontal linje har stigingstal null overalt. Sidan den deriverte måler endring, og ein konstant aldri endrar seg, seier **konstantregelen** at $(c)' = 0$. Det gjeld alle konstantar – òg $\\pi$ og $\\sqrt{2}$ er konstantar, sjølv om dei ikkje er pene heiltal. Beviset er nesten komisk kort: i definisjonen blir teljaren $c - c = 0$, så heile grenseverdien blir null.\n\nSå til arbeidshesten i heile kapittelet: **potensregelen**. For $f(x) = x^n$, der $n$ er eit reelt tal, er $f'(x) = n \\cdot x^{n-1}$. Hugs han slik: *eksponenten hoppar ned framom og blir redusert med éin*. Deriverer du $x^5$, hoppar femtalet ned og eksponenten blir fire: $5x^4$. Deriverer du $x^{10}$, får du $10x^9$.\n\nKva med $f(x) = x$? Det er $x^1$, så $f'(x) = 1 \\cdot x^0 = 1$. Det gir perfekt meining – grafen til $y = x$ er ei rett linje med stigingstal 1. Tre resultat dukkar opp så ofte at dei er verdt å kunne i søvne: $(x)' = 1$, $(x^2)' = 2x$ og $(x^3)' = 3x^2$.\n\nKvar kjem potensregelen frå? For positive heiltal kan vi bevise han med binomialteoremet: når vi utvidar $(x+h)^n$, er dei to første ledda $x^n + nx^{n-1}h$, og resten inneheld $h^2$ eller høgare potensar. Etter at $x^n$ blir kansellert og vi deler på $h$, forsvinn alle dei små ledda når $h \\to 0$ – og igjen står nøyaktig $nx^{n-1}$."},{"id":"r1-4-1-n-quiz1","type":"exercise","exercise":{"id":"r1-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på konstantregelen og potensregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-1-n-quiz1-q0","task":"Kva er den deriverte av $f(x) = x^7$?","options":[{"id":"a","text":"$x^6$","isCorrect":false},{"id":"b","text":"$7x^6$","isCorrect":true},{"id":"c","text":"$7x^7$","isCorrect":false},{"id":"d","text":"$6x^7$","isCorrect":false}],"solution":"Potensregelen: eksponenten hoppar ned framom og blir redusert med éin. $(x^7)' = 7x^{7-1} = 7x^6$."},{"id":"r1-4-1-n-quiz1-q1","task":"Kva er den deriverte av $f(x) = \\pi$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$\\pi$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":true},{"id":"d","text":"$\\pi x$","isCorrect":false}],"solution":"$\\pi \\approx 3{,}14$ er ein konstant, sjølv om han ikkje er eit heiltal. Konstantregelen gir $(\\pi)' = 0$."},{"id":"r1-4-1-n-quiz1-q2","task":"Kva er $(x)'$?","options":[{"id":"a","text":"$1$","isCorrect":true},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$x$","isCorrect":false},{"id":"d","text":"$2x$","isCorrect":false}],"solution":"$x = x^1$, så potensregelen gir $1 \\cdot x^0 = 1$. Det stemmer med at grafen til $y = x$ har stigingstal 1."},{"id":"r1-4-1-n-quiz1-q3","task":"La $f(x) = x^4$. Kva er $f'(2)$?","options":[{"id":"a","text":"$8$","isCorrect":false},{"id":"b","text":"$16$","isCorrect":false},{"id":"c","text":"$24$","isCorrect":false},{"id":"d","text":"$32$","isCorrect":true}],"solution":"$f'(x) = 4x^3$, så $f'(2) = 4 \\cdot 2^3 = 4 \\cdot 8 = 32$."}]}},{"id":"r1-4-1-n-section2","type":"text","content":"## Å derivere ledd for ledd\n\nKva skjer når funksjonen er ganga med eit tal, som $f(x) = 3x^4$? Regelen for **konstant faktor** seier at konstanten berre følgjer med gjennom derivasjonen: $(c \\cdot f(x))' = c \\cdot f'(x)$. Vi deriverer $x^4$ til $4x^3$ og gangar med 3: $(3x^4)' = 12x^3$. I beviset kan konstanten setjast utanfor grenseverdien, og det er nett difor han kan «flyttast ut». På same måte blir $(-2x^5)' = -10x^4$ og $(\\frac{1}{2}x^6)' = 3x^5$.\n\nNeste byggjekloss: **sumregelen** og **differanseregelen**. Den deriverte av ein sum er summen av dei deriverte: $(f + g)' = f' + g'$, og tilsvarande med minus. Beviset er ei rein omgruppering av ledda i grenseverdien. Konsekvensen er enorm: vi kan derivere *kvart ledd for seg*.\n\nKombinerer vi alle reglane, kan vi derivere eitkvart polynom. Ta $P(x) = 3x^4 - 2x^3 + 5x^2 - x + 4$. Vi går frå venstre mot høgre: $(3x^4)' = 12x^3$, $(-2x^3)' = -6x^2$, $(5x^2)' = 10x$, $(-x)' = -1$, og konstantleddet $4$ forsvinn. Resultatet: $P'(x) = 12x^3 - 6x^2 + 10x - 1$.\n\nGenerelt har polynomet $P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$ den deriverte $P'(x) = n \\cdot a_n x^{n-1} + (n-1) \\cdot a_{n-1} x^{n-2} + \\ldots + a_1$. Legg merke til at konstantleddet $a_0$ alltid forsvinn – det bidreg ikkje til endringa, berre til nivået. Teiknar du grafen til $f(x) = x^3 - 3x$ saman med $f'(x) = 3x^2 - 3$, ser du noko vakkert: den deriverte er null nøyaktig der originalfunksjonen har topp- og botnpunkt. Det hintet kjem vi attende til i kapittelet om funksjonsdrøfting."},{"id":"r1-4-1-n-quiz2","type":"exercise","exercise":{"id":"r1-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på konstant faktor, sumregelen og polynom:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-1-n-quiz2-q0","task":"Kva er den deriverte av $f(x) = 5x^3$?","options":[{"id":"a","text":"$15x^2$","isCorrect":true},{"id":"b","text":"$5x^2$","isCorrect":false},{"id":"c","text":"$15x^3$","isCorrect":false},{"id":"d","text":"$8x^2$","isCorrect":false}],"solution":"Konstanten følgjer med: $(5x^3)' = 5 \\cdot 3x^2 = 15x^2$."},{"id":"r1-4-1-n-quiz2-q1","task":"Kva er den deriverte av $f(x) = x^3 - 4x^2 + 7$?","options":[{"id":"a","text":"$3x^2 - 4x$","isCorrect":false},{"id":"b","text":"$3x^2 - 8x + 7$","isCorrect":false},{"id":"c","text":"$3x^2 - 8x$","isCorrect":true},{"id":"d","text":"$x^2 - 8x$","isCorrect":false}],"solution":"Vi deriverer ledd for ledd: $(x^3)' = 3x^2$, $(-4x^2)' = -8x$, og konstanten $7$ gir $0$. Altså $f'(x) = 3x^2 - 8x$."},{"id":"r1-4-1-n-quiz2-q2","task":"La $f(x) = 2x^4 + 3x$. Kva er $f'(1)$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$11$","isCorrect":true},{"id":"c","text":"$8$","isCorrect":false},{"id":"d","text":"$14$","isCorrect":false}],"solution":"$f'(x) = 8x^3 + 3$, så $f'(1) = 8 + 3 = 11$."},{"id":"r1-4-1-n-quiz2-q3","task":"Kva ledd i eit polynom forsvinn alltid når vi deriverer?","options":[{"id":"a","text":"Leddet med høgast eksponent","isCorrect":false},{"id":"b","text":"Førstegradsleddet","isCorrect":false},{"id":"c","text":"Alle ledd med negativ koeffisient","isCorrect":false},{"id":"d","text":"Konstantleddet","isCorrect":true}],"solution":"Konstantleddet $a_0$ har derivert lik 0 etter konstantregelen. Det påverkar nivået til grafen, men ikkje endringa."}]}},{"id":"r1-4-1-n-section3","type":"text","content":"## Potensregelen utan grenser\n\nHer kjem den verkeleg gode nyheita: potensregelen $(x^n)' = nx^{n-1}$ gjeld ikkje berre for pene, positive heiltal. Han gjeld for *alle* reelle eksponentar – òg negative tal og brøkar. Det opnar døra til ei heil verd av funksjonar.\n\nFørst dei negative eksponentane. Nøkkelen er omskrivinga $\\frac{1}{x^n} = x^{-n}$. Brøken $\\frac{1}{x}$ er altså $x^{-1}$, og $\\frac{1}{x^2}$ er $x^{-2}$. Skal du derivere $g(x) = \\frac{1}{x}$, skriv du om til $x^{-1}$ og bruker potensregelen: $g'(x) = -1 \\cdot x^{-2} = -\\frac{1}{x^2}$. Litt meir samansett: $h(x) = \\frac{3}{x^4} = 3x^{-4}$ gir $h'(x) = 3 \\cdot (-4)x^{-5} = -\\frac{12}{x^5}$. Strategien er alltid den same: *skriv om brøken til ein potens med negativ eksponent før du deriverer*, og skriv gjerne svaret attende som brøk til slutt.\n\nSå røtene. Her er samanhengen $\\sqrt{x} = x^{1/2}$, og meir generelt $\\sqrt[n]{x} = x^{1/n}$ og $\\sqrt[n]{x^m} = x^{m/n}$. Deriverer vi $f(x) = \\sqrt{x} = x^{1/2}$, gir potensregelen $f'(x) = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet, $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$, dukkar opp så ofte at det fortener ein eigen plass i hukommelsen.\n\nAndre variantar følgjer same oppskrift: $\\sqrt[3]{x} = x^{1/3}$ gir $\\frac{1}{3}x^{-2/3} = \\frac{1}{3\\sqrt[3]{x^2}}$, medan $x^{3/2}$ gir $\\frac{3}{2}x^{1/2} = \\frac{3\\sqrt{x}}{2}$. Til og med $\\frac{1}{\\sqrt{x}} = x^{-1/2}$ lèt seg temme: den deriverte blir $-\\frac{1}{2}x^{-3/2} = -\\frac{1}{2\\sqrt{x^3}}$. Éin regel, uendeleg mange funksjonar."},{"id":"r1-4-1-n-quiz3","type":"exercise","exercise":{"id":"r1-4-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på negative og rasjonale eksponentar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-1-n-quiz3-q0","task":"Kva er den deriverte av $f(x) = \\frac{1}{x}$?","options":[{"id":"a","text":"$\\frac{1}{x^2}$","isCorrect":false},{"id":"b","text":"$-\\frac{1}{x^2}$","isCorrect":true},{"id":"c","text":"$-\\frac{1}{x}$","isCorrect":false},{"id":"d","text":"$\\ln x$","isCorrect":false}],"solution":"Skriv om: $\\frac{1}{x} = x^{-1}$. Potensregelen gir $-1 \\cdot x^{-2} = -\\frac{1}{x^2}$."},{"id":"r1-4-1-n-quiz3-q1","task":"Kva er $(\\sqrt{x})'$?","options":[{"id":"a","text":"$\\frac{1}{2\\sqrt{x}}$","isCorrect":true},{"id":"b","text":"$\\frac{1}{\\sqrt{x}}$","isCorrect":false},{"id":"c","text":"$2\\sqrt{x}$","isCorrect":false},{"id":"d","text":"$\\frac{\\sqrt{x}}{2}$","isCorrect":false}],"solution":"$\\sqrt{x} = x^{1/2}$, så den deriverte er $\\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet er verdt å hugse!"},{"id":"r1-4-1-n-quiz3-q2","task":"Kva er den deriverte av $h(x) = \\frac{3}{x^2}$?","options":[{"id":"a","text":"$\\frac{6}{x}$","isCorrect":false},{"id":"b","text":"$-\\frac{3}{x^3}$","isCorrect":false},{"id":"c","text":"$\\frac{3}{2x}$","isCorrect":false},{"id":"d","text":"$-\\frac{6}{x^3}$","isCorrect":true}],"solution":"$h(x) = 3x^{-2}$ gir $h'(x) = 3 \\cdot (-2)x^{-3} = -6x^{-3} = -\\frac{6}{x^3}$."},{"id":"r1-4-1-n-quiz3-q3","task":"Kva er den deriverte av $f(x) = x^{3/2}$?","options":[{"id":"a","text":"$\\frac{2}{3}x^{1/2}$","isCorrect":false},{"id":"b","text":"$\\frac{3}{2}x^{3/2}$","isCorrect":false},{"id":"c","text":"$\\frac{3}{2}\\sqrt{x}$","isCorrect":true},{"id":"d","text":"$\\frac{3}{2\\sqrt{x}}$","isCorrect":false}],"solution":"Potensregelen: $\\frac{3}{2}x^{3/2 - 1} = \\frac{3}{2}x^{1/2} = \\frac{3}{2}\\sqrt{x}$."}]}},{"id":"r1-4-1-n-section4","type":"text","content":"## Tangenten – den deriverte i arbeid\n\nNo som verktøykassa er full, la oss bruke ho til noko konkret. Den deriverte $f'(a)$ gir stigingstalet til tangenten til grafen i punktet $(a, f(a))$ – den rette linja som akkurat rører kurva og peikar i same retning som ho.\n\nLa oss finne tangenten til $f(x) = x^3 - 2x + 1$ i punktet der $x = 2$. Oppskrifta har tre steg. **Steg 1:** Finn berøringspunktet. $f(2) = 8 - 4 + 1 = 5$, så tangenten rører grafen i $(2, 5)$. **Steg 2:** Finn stigingstalet. Vi deriverer: $f'(x) = 3x^2 - 2$, og set inn: $f'(2) = 12 - 2 = 10$. Tangenten har altså stigingstal 10. **Steg 3:** Bruk eittpunktsformelen $y - y_1 = a(x - x_1)$: vi får $y - 5 = 10(x - 2)$, som ryddar seg til $y = 10x - 15$.\n\nTre steg, og du har likninga for ei linje som matematisk sett «kyssar» kurva i nøyaktig eitt punkt og deler retninga hennar der. Du kan òg snu spørsmålet: *kvar* har grafen ein horisontal tangent? Det skjer der stigingstalet er null, altså der $f'(x) = 0$. For $f(x) = x^2 - 4x$ gir $f'(x) = 2x - 4 = 0$ løysinga $x = 2$ – der flatar grafen ut. Slike punkt er nøkkelen til å finne topp- og botnpunkt, og det er nett dit reisa går vidare i kurset."},{"id":"r1-4-1-n-quiz4","type":"exercise","exercise":{"id":"r1-4-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på tangentar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-4-1-n-quiz4-q0","task":"Kva er stigingstalet til tangenten til $f(x) = x^2$ i punktet der $x = 3$?","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$6$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"$f'(x) = 2x$, så stigingstalet i $x = 3$ er $f'(3) = 6$."},{"id":"r1-4-1-n-quiz4-q1","task":"For kva $x$-verdi har $f(x) = x^2 - 4x$ horisontal tangent?","options":[{"id":"a","text":"$x = 2$","isCorrect":true},{"id":"b","text":"$x = 4$","isCorrect":false},{"id":"c","text":"$x = 0$","isCorrect":false},{"id":"d","text":"$x = -2$","isCorrect":false}],"solution":"Horisontal tangent tyder $f'(x) = 0$. $f'(x) = 2x - 4 = 0$ gir $x = 2$."},{"id":"r1-4-1-n-quiz4-q2","task":"Kva er likninga for tangenten til $f(x) = x^3 - 2x + 1$ i $x = 2$?","options":[{"id":"a","text":"$y = 10x - 5$","isCorrect":false},{"id":"b","text":"$y = 5x - 10$","isCorrect":false},{"id":"c","text":"$y = 10x - 15$","isCorrect":true},{"id":"d","text":"$y = 12x - 15$","isCorrect":false}],"solution":"Berøringspunkt: $f(2) = 5$. Stigingstal: $f'(x) = 3x^2 - 2$ gir $f'(2) = 10$. Eittpunktsformelen: $y - 5 = 10(x - 2)$, altså $y = 10x - 15$."}]}},{"id":"r1-4-1-n-summary","type":"text","content":"## Verktøykassa er klar\n\nDu starta kapittelet med éin tungvint metode – grenseverdidefinisjonen – og avsluttar med ei heil verktøykasse. **Konstantregelen** seier at $(c)' = 0$: det som ikkje endrar seg, har ingen endringsrate. **Potensregelen** $(x^n)' = n \\cdot x^{n-1}$ er arbeidshesten, og han gjeld for alle reelle eksponentar – positive, negative og brøkar. **Konstant faktor** lèt talet følgje med: $(c \\cdot f)' = c \\cdot f'$. Og **sumregelen** og **differanseregelen**, $(f \\pm g)' = f' \\pm g'$, lèt oss derivere ledd for ledd.\n\nSaman gjer desse reglane at du kan derivere eitkvart polynom på få sekund, og med omskrivingane $\\frac{1}{x^n} = x^{-n}$ og $\\sqrt{x} = x^{1/2}$ temmer du òg brøkar og røter. Spesialtilfella $(x)' = 1$, $(x^2)' = 2x$ og $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$ bør sitje som refleks.\n\nTil slutt såg du den deriverte i arbeid: $f'(a)$ er stigingstalet til tangenten i $(a, f(a))$, og med eittpunktsformelen finn du likninga til tangenten i tre steg. Der $f'(x) = 0$, flatar grafen ut – og akkurat det sporet følgjer vi vidare når vi snart skal drøfte funksjonar og jakte på topp- og botnpunkt. Speedometeret er bygd. No skal vi ut og køyre."}],"exercises":[],"_meta":{"sourceHash":"1c54b1199f4140de","translatedAt":"2026-06-19T23:59:27.565Z","model":"claude-code-agent","strings":97,"tm":{"086e4aee23bdb77a":"Derivasjonsreglar","b195b06d1ed59702":"Narrativ versjon","7c01b74e3c795cb2":"Ei forteljing om derivasjonsreglane -- frå augneblinksfarten til speedometeret til verktøykassa som lèt deg derivere polynom, brøkar og røter på sekund.","857ce2c6ee6af34d":"derivere konstantar","cf43bfa523f45a5b":"bruke potensregelen til å derivere potensar av x","956746b7dae65262":"bruke konstantfaktoren til å derivere funksjonar multipliserte med ein konstant","acc6d0570475e8a9":"bruke sumregelen og differanseregelen til å derivere summar og differansar","089cc63692e0ac11":"derivere polynom","2b217affe6f0306a":"derivere funksjonar med negative og rasjonale eksponentar","1f9213e7b376e564":"## Fartsmålaren som aldri tek feil\n\nTenk deg at du sit i ein bil og ser på speedometeret. Nåla viser 80 km/t – ikkje gjennomsnittsfarten for heile turen, men farten *akkurat no*. Det speedometeret gjer, er i bunn og grunn derivasjon: det måler kor fort posisjonen din endrar seg i ein bestemt augneblink.\n\nI førre kapittel lærte du at den deriverte er definert som ein grenseverdi: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$. Det er ein vakker definisjon, men la oss vere ærlege – å rekne ut den grenseverdien kvar einaste gong er som å byggje speedometeret på nytt kvar gong du skal køyre. I dette kapittelet skal vi gjere noko mykje smartare: vi skal utleie *reglar* som lèt oss derivere nesten kva som helst på sekund.\n\nDerivasjon er eitt av dei mest brukte verktøya i matematikk og naturvitskap. Med den deriverte finn vi vekstfart og endringsrate, stigingstal til tangentar, maksimums- og minimumsverdiar, og vi kan optimalisere alt frå bensinforbruk til bedriftsoverskot. Men først treng vi verktøykassa. Vi byggjer ho opp regel for regel, frå den aller enklaste.","4142268ce3e95f20":"## Det som står stille, og det som veks\n\nVi startar med det enklaste som finst: ein funksjon som ikkje gjer nokon ting. Dersom $f(x) = 5$, er verdien 5 uansett kva $x$ er. Grafen er ei horisontal linje, og ei horisontal linje har stigingstal null overalt. Sidan den deriverte måler endring, og ein konstant aldri endrar seg, seier **konstantregelen** at $(c)' = 0$. Det gjeld alle konstantar – òg $\\pi$ og $\\sqrt{2}$ er konstantar, sjølv om dei ikkje er pene heiltal. Beviset er nesten komisk kort: i definisjonen blir teljaren $c - c = 0$, så heile grenseverdien blir null.\n\nSå til arbeidshesten i heile kapittelet: **potensregelen**. For $f(x) = x^n$, der $n$ er eit reelt tal, er $f'(x) = n \\cdot x^{n-1}$. Hugs han slik: *eksponenten hoppar ned framom og blir redusert med éin*. Deriverer du $x^5$, hoppar femtalet ned og eksponenten blir fire: $5x^4$. Deriverer du $x^{10}$, får du $10x^9$.\n\nKva med $f(x) = x$? Det er $x^1$, så $f'(x) = 1 \\cdot x^0 = 1$. Det gir perfekt meining – grafen til $y = x$ er ei rett linje med stigingstal 1. Tre resultat dukkar opp så ofte at dei er verdt å kunne i søvne: $(x)' = 1$, $(x^2)' = 2x$ og $(x^3)' = 3x^2$.\n\nKvar kjem potensregelen frå? For positive heiltal kan vi bevise han med binomialteoremet: når vi utvidar $(x+h)^n$, er dei to første ledda $x^n + nx^{n-1}h$, og resten inneheld $h^2$ eller høgare potensar. Etter at $x^n$ blir kansellert og vi deler på $h$, forsvinn alle dei små ledda når $h \\to 0$ – og igjen står nøyaktig $nx^{n-1}$.","f47974739abc6d00":"Test deg sjølv på konstantregelen og potensregelen:","4097889236a2af26":"placeholder","29fa7324e722827c":"Kva er den deriverte av $f(x) = x^7$?","61915a2afe51d4f9":"$x^6$","b864d8f772037ed3":"$7x^6$","07be87da54b19461":"$7x^7$","95a079ed7d344028":"$6x^7$","5ecaecadeb682f80":"Potensregelen: eksponenten hoppar ned framom og blir redusert med éin. $(x^7)' = 7x^{7-1} = 7x^6$.","227ce38e96d89846":"Kva er den deriverte av $f(x) = \\pi$?","7fb34fd76c28bba5":"$\\pi$","feb5744504b70708":"$\\pi x$","4603a426f768afc2":"$\\pi \\approx 3{,}14$ er ein konstant, sjølv om han ikkje er eit heiltal. Konstantregelen gir $(\\pi)' = 0$.","3d8860d9caec1f30":"Kva er $(x)'$?","22bf003d6cac79e1":"$x$","78a5bb6d2b2ceac0":"$2x$","fe38577d09d6fbf5":"$x = x^1$, så potensregelen gir $1 \\cdot x^0 = 1$. Det stemmer med at grafen til $y = x$ har stigingstal 1.","e2b03474caab82c1":"La $f(x) = x^4$. Kva er $f'(2)$?","0b473bc70fa5be14":"$f'(x) = 4x^3$, så $f'(2) = 4 \\cdot 2^3 = 4 \\cdot 8 = 32$.","4c6b6504956278e8":"## Å derivere ledd for ledd\n\nKva skjer når funksjonen er ganga med eit tal, som $f(x) = 3x^4$? Regelen for **konstant faktor** seier at konstanten berre følgjer med gjennom derivasjonen: $(c \\cdot f(x))' = c \\cdot f'(x)$. Vi deriverer $x^4$ til $4x^3$ og gangar med 3: $(3x^4)' = 12x^3$. I beviset kan konstanten setjast utanfor grenseverdien, og det er nett difor han kan «flyttast ut». På same måte blir $(-2x^5)' = -10x^4$ og $(\\frac{1}{2}x^6)' = 3x^5$.\n\nNeste byggjekloss: **sumregelen** og **differanseregelen**. Den deriverte av ein sum er summen av dei deriverte: $(f + g)' = f' + g'$, og tilsvarande med minus. Beviset er ei rein omgruppering av ledda i grenseverdien. Konsekvensen er enorm: vi kan derivere *kvart ledd for seg*.\n\nKombinerer vi alle reglane, kan vi derivere eitkvart polynom. Ta $P(x) = 3x^4 - 2x^3 + 5x^2 - x + 4$. Vi går frå venstre mot høgre: $(3x^4)' = 12x^3$, $(-2x^3)' = -6x^2$, $(5x^2)' = 10x$, $(-x)' = -1$, og konstantleddet $4$ forsvinn. Resultatet: $P'(x) = 12x^3 - 6x^2 + 10x - 1$.\n\nGenerelt har polynomet $P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$ den deriverte $P'(x) = n \\cdot a_n x^{n-1} + (n-1) \\cdot a_{n-1} x^{n-2} + \\ldots + a_1$. Legg merke til at konstantleddet $a_0$ alltid forsvinn – det bidreg ikkje til endringa, berre til nivået. Teiknar du grafen til $f(x) = x^3 - 3x$ saman med $f'(x) = 3x^2 - 3$, ser du noko vakkert: den deriverte er null nøyaktig der originalfunksjonen har topp- og botnpunkt. Det hintet kjem vi attende til i kapittelet om funksjonsdrøfting.","9030082f880283ba":"Test deg sjølv på konstant faktor, sumregelen og polynom:","aa6d1a960b2ed512":"Kva er den deriverte av $f(x) = 5x^3$?","e0f077b4db7c47c3":"$15x^2$","ad3af523c960d6a7":"$5x^2$","2712172c58729164":"$15x^3$","fb97411d4ff2a8da":"$8x^2$","1f84f4e7a3fe8b8d":"Konstanten følgjer med: $(5x^3)' = 5 \\cdot 3x^2 = 15x^2$.","bfad460a080dd1f3":"Kva er den deriverte av $f(x) = x^3 - 4x^2 + 7$?","14c0f805fc1ed55e":"$3x^2 - 4x$","a08c7b3d62fbfd6c":"$3x^2 - 8x + 7$","b8529b6ce4f0564b":"$3x^2 - 8x$","5b58679c1d0458ab":"$x^2 - 8x$","7350736a14343ffe":"Vi deriverer ledd for ledd: $(x^3)' = 3x^2$, $(-4x^2)' = -8x$, og konstanten $7$ gir $0$. Altså $f'(x) = 3x^2 - 8x$.","6af203f6803e2a23":"La $f(x) = 2x^4 + 3x$. Kva er $f'(1)$?","92aa7417db973667":"$f'(x) = 8x^3 + 3$, så $f'(1) = 8 + 3 = 11$.","b0011591c65ab63f":"Kva ledd i eit polynom forsvinn alltid når vi deriverer?","bc72f301e0a0d7da":"Leddet med høgast eksponent","30335c6ccc6cac88":"Førstegradsleddet","40eb85c5f7be58a6":"Alle ledd med negativ koeffisient","359073c1a5bf3ce8":"Konstantleddet","fd41981044fba1f0":"Konstantleddet $a_0$ har derivert lik 0 etter konstantregelen. Det påverkar nivået til grafen, men ikkje endringa.","a517b51bc5fe7e84":"## Potensregelen utan grenser\n\nHer kjem den verkeleg gode nyheita: potensregelen $(x^n)' = nx^{n-1}$ gjeld ikkje berre for pene, positive heiltal. Han gjeld for *alle* reelle eksponentar – òg negative tal og brøkar. Det opnar døra til ei heil verd av funksjonar.\n\nFørst dei negative eksponentane. Nøkkelen er omskrivinga $\\frac{1}{x^n} = x^{-n}$. Brøken $\\frac{1}{x}$ er altså $x^{-1}$, og $\\frac{1}{x^2}$ er $x^{-2}$. Skal du derivere $g(x) = \\frac{1}{x}$, skriv du om til $x^{-1}$ og bruker potensregelen: $g'(x) = -1 \\cdot x^{-2} = -\\frac{1}{x^2}$. Litt meir samansett: $h(x) = \\frac{3}{x^4} = 3x^{-4}$ gir $h'(x) = 3 \\cdot (-4)x^{-5} = -\\frac{12}{x^5}$. Strategien er alltid den same: *skriv om brøken til ein potens med negativ eksponent før du deriverer*, og skriv gjerne svaret attende som brøk til slutt.\n\nSå røtene. Her er samanhengen $\\sqrt{x} = x^{1/2}$, og meir generelt $\\sqrt[n]{x} = x^{1/n}$ og $\\sqrt[n]{x^m} = x^{m/n}$. Deriverer vi $f(x) = \\sqrt{x} = x^{1/2}$, gir potensregelen $f'(x) = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet, $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$, dukkar opp så ofte at det fortener ein eigen plass i hukommelsen.\n\nAndre variantar følgjer same oppskrift: $\\sqrt[3]{x} = x^{1/3}$ gir $\\frac{1}{3}x^{-2/3} = \\frac{1}{3\\sqrt[3]{x^2}}$, medan $x^{3/2}$ gir $\\frac{3}{2}x^{1/2} = \\frac{3\\sqrt{x}}{2}$. Til og med $\\frac{1}{\\sqrt{x}} = x^{-1/2}$ lèt seg temme: den deriverte blir $-\\frac{1}{2}x^{-3/2} = -\\frac{1}{2\\sqrt{x^3}}$. Éin regel, uendeleg mange funksjonar.","46f92c8a1517666c":"Test deg sjølv på negative og rasjonale eksponentar:","42ec941a469b3727":"Kva er den deriverte av $f(x) = \\frac{1}{x}$?","c3d8cbf603c8afaf":"$\\frac{1}{x^2}$","3c6dbfbfa555b128":"$-\\frac{1}{x^2}$","4f3cc8b8cf23b81d":"$-\\frac{1}{x}$","5baeaa2459d35eaa":"$\\ln x$","68ccf2bfbb5bd07f":"Skriv om: $\\frac{1}{x} = x^{-1}$. Potensregelen gir $-1 \\cdot x^{-2} = -\\frac{1}{x^2}$.","f1f898d76d24eb43":"Kva er $(\\sqrt{x})'$?","b8d69c3cac911a48":"$\\frac{1}{2\\sqrt{x}}$","73bab3e91e10661f":"$\\frac{1}{\\sqrt{x}}$","5775ca0a91464c76":"$2\\sqrt{x}$","bbab2169149bc0df":"$\\frac{\\sqrt{x}}{2}$","6ea69587d564c53f":"$\\sqrt{x} = x^{1/2}$, så den deriverte er $\\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet er verdt å hugse!","5e3733e8929e573d":"Kva er den deriverte av $h(x) = \\frac{3}{x^2}$?","e0c7d6f30e2137a4":"$\\frac{6}{x}$","6e4dec0c5398fa69":"$-\\frac{3}{x^3}$","da016ad1ff7d17cc":"$\\frac{3}{2x}$","747926f01e65ee43":"$-\\frac{6}{x^3}$","341e9a0af5eadbd8":"$h(x) = 3x^{-2}$ gir $h'(x) = 3 \\cdot (-2)x^{-3} = -6x^{-3} = -\\frac{6}{x^3}$.","1adcd7fd4fb33469":"Kva er den deriverte av $f(x) = x^{3/2}$?","dc3edf99a5c49187":"$\\frac{2}{3}x^{1/2}$","548fb1e8762bdb97":"$\\frac{3}{2}x^{3/2}$","10ea32c988358e1c":"$\\frac{3}{2}\\sqrt{x}$","8a3bc9cfe4239945":"$\\frac{3}{2\\sqrt{x}}$","d407050b3960dbac":"Potensregelen: $\\frac{3}{2}x^{3/2 - 1} = \\frac{3}{2}x^{1/2} = \\frac{3}{2}\\sqrt{x}$.","6d2e2891cfa95d9c":"## Tangenten – den deriverte i arbeid\n\nNo som verktøykassa er full, la oss bruke ho til noko konkret. Den deriverte $f'(a)$ gir stigingstalet til tangenten til grafen i punktet $(a, f(a))$ – den rette linja som akkurat rører kurva og peikar i same retning som ho.\n\nLa oss finne tangenten til $f(x) = x^3 - 2x + 1$ i punktet der $x = 2$. Oppskrifta har tre steg. **Steg 1:** Finn berøringspunktet. $f(2) = 8 - 4 + 1 = 5$, så tangenten rører grafen i $(2, 5)$. **Steg 2:** Finn stigingstalet. Vi deriverer: $f'(x) = 3x^2 - 2$, og set inn: $f'(2) = 12 - 2 = 10$. Tangenten har altså stigingstal 10. **Steg 3:** Bruk eittpunktsformelen $y - y_1 = a(x - x_1)$: vi får $y - 5 = 10(x - 2)$, som ryddar seg til $y = 10x - 15$.\n\nTre steg, og du har likninga for ei linje som matematisk sett «kyssar» kurva i nøyaktig eitt punkt og deler retninga hennar der. Du kan òg snu spørsmålet: *kvar* har grafen ein horisontal tangent? Det skjer der stigingstalet er null, altså der $f'(x) = 0$. For $f(x) = x^2 - 4x$ gir $f'(x) = 2x - 4 = 0$ løysinga $x = 2$ – der flatar grafen ut. Slike punkt er nøkkelen til å finne topp- og botnpunkt, og det er nett dit reisa går vidare i kurset.","52958a49d93310b5":"Test deg sjølv på tangentar:","c16906818cde3501":"Kva er stigingstalet til tangenten til $f(x) = x^2$ i punktet der $x = 3$?","58b18e8f67bb8a8c":"$f'(x) = 2x$, så stigingstalet i $x = 3$ er $f'(3) = 6$.","d4ac7fc2913d097f":"For kva $x$-verdi har $f(x) = x^2 - 4x$ horisontal tangent?","0c82bd6cd3ab8ff8":"$x = 2$","d14d177d812c2ded":"$x = 4$","25efa207f9f60f58":"$x = 0$","0ae482c265a0e7fd":"$x = -2$","10e9a52c37cd26b4":"Horisontal tangent tyder $f'(x) = 0$. $f'(x) = 2x - 4 = 0$ gir $x = 2$.","0d84e382fcc287d2":"Kva er likninga for tangenten til $f(x) = x^3 - 2x + 1$ i $x = 2$?","8c85be71c5b7a76d":"$y = 10x - 5$","0a891665ba6428a6":"$y = 5x - 10$","e5299076c924e165":"$y = 10x - 15$","474f0ff827b0aca5":"$y = 12x - 15$","81adf588d7eaa8eb":"Berøringspunkt: $f(2) = 5$. Stigingstal: $f'(x) = 3x^2 - 2$ gir $f'(2) = 10$. Eittpunktsformelen: $y - 5 = 10(x - 2)$, altså $y = 10x - 15$.","0e300f8484fbe55b":"## Verktøykassa er klar\n\nDu starta kapittelet med éin tungvint metode – grenseverdidefinisjonen – og avsluttar med ei heil verktøykasse. **Konstantregelen** seier at $(c)' = 0$: det som ikkje endrar seg, har ingen endringsrate. **Potensregelen** $(x^n)' = n \\cdot x^{n-1}$ er arbeidshesten, og han gjeld for alle reelle eksponentar – positive, negative og brøkar. **Konstant faktor** lèt talet følgje med: $(c \\cdot f)' = c \\cdot f'$. Og **sumregelen** og **differanseregelen**, $(f \\pm g)' = f' \\pm g'$, lèt oss derivere ledd for ledd.\n\nSaman gjer desse reglane at du kan derivere eitkvart polynom på få sekund, og med omskrivingane $\\frac{1}{x^n} = x^{-n}$ og $\\sqrt{x} = x^{1/2}$ temmer du òg brøkar og røter. Spesialtilfella $(x)' = 1$, $(x^2)' = 2x$ og $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$ bør sitje som refleks.\n\nTil slutt såg du den deriverte i arbeid: $f'(a)$ er stigingstalet til tangenten i $(a, f(a))$, og med eittpunktsformelen finn du likninga til tangenten i tre steg. Der $f'(x) = 0$, flatar grafen ut – og akkurat det sporet følgjer vi vidare når vi snart skal drøfte funksjonar og jakte på topp- og botnpunkt. Speedometeret er bygd. No skal vi ut og køyre."}}}
+{
+  "id": "r1-4-1-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "4.1",
+  "title": "Derivasjonsreglar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om derivasjonsreglane -- frå augneblinksfarten til speedometeret til verktøykassa som lèt deg derivere polynom, brøkar og røter på sekund.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "derivere konstantar",
+    "bruke potensregelen til å derivere potensar av x",
+    "bruke konstantfaktoren til å derivere funksjonar multipliserte med ein konstant",
+    "bruke sumregelen og differanseregelen til å derivere summar og differansar",
+    "derivere polynom",
+    "derivere funksjonar med negative og rasjonale eksponentar"
+  ],
+  "linkedChapterId": "r1-4-1",
+  "content": [
+    {
+      "id": "r1-4-1-n-intro",
+      "type": "text",
+      "content": "## Fartsmålaren som aldri tek feil\n\nTenk deg at du sit i ein bil og ser på speedometeret. Nåla viser 80 km/t – ikkje gjennomsnittsfarten for heile turen, men farten *akkurat no*. Det speedometeret gjer, er i bunn og grunn derivasjon: det måler kor fort posisjonen din endrar seg i ein bestemt augneblink.\n\nI førre kapittel lærte du at den deriverte er definert som ein grenseverdi: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$. Det er ein vakker definisjon, men la oss vere ærlege – å rekne ut den grenseverdien kvar einaste gong er som å byggje speedometeret på nytt kvar gong du skal køyre. I dette kapittelet skal vi gjere noko mykje smartare: vi skal utleie *reglar* som lèt oss derivere nesten kva som helst på sekund.\n\nDerivasjon er eitt av dei mest brukte verktøya i matematikk og naturvitskap. Med den deriverte finn vi vekstfart og endringsrate, stigingstal til tangentar, maksimums- og minimumsverdiar, og vi kan optimalisere alt frå bensinforbruk til bedriftsoverskot. Men først treng vi verktøykassa. Vi byggjer ho opp regel for regel, frå den aller enklaste."
+    },
+    {
+      "id": "r1-4-1-n-section1",
+      "type": "text",
+      "content": "## Det som står stille, og det som veks\n\nVi startar med det enklaste som finst: ein funksjon som ikkje gjer nokon ting. Dersom $f(x) = 5$, er verdien 5 uansett kva $x$ er. Grafen er ei horisontal linje, og ei horisontal linje har stigingstal null overalt. Sidan den deriverte måler endring, og ein konstant aldri endrar seg, seier **konstantregelen** at $(c)' = 0$. Det gjeld alle konstantar – òg $\\pi$ og $\\sqrt{2}$ er konstantar, sjølv om dei ikkje er pene heiltal. Beviset er nesten komisk kort: i definisjonen blir teljaren $c - c = 0$, så heile grenseverdien blir null.\n\nSå til arbeidshesten i heile kapittelet: **potensregelen**. For $f(x) = x^n$, der $n$ er eit reelt tal, er $f'(x) = n \\cdot x^{n-1}$. Hugs han slik: *eksponenten hoppar ned framom og blir redusert med éin*. Deriverer du $x^5$, hoppar femtalet ned og eksponenten blir fire: $5x^4$. Deriverer du $x^{10}$, får du $10x^9$.\n\nKva med $f(x) = x$? Det er $x^1$, så $f'(x) = 1 \\cdot x^0 = 1$. Det gir perfekt meining – grafen til $y = x$ er ei rett linje med stigingstal 1. Tre resultat dukkar opp så ofte at dei er verdt å kunne i søvne: $(x)' = 1$, $(x^2)' = 2x$ og $(x^3)' = 3x^2$.\n\nKvar kjem potensregelen frå? For positive heiltal kan vi bevise han med binomialteoremet: når vi utvidar $(x+h)^n$, er dei to første ledda $x^n + nx^{n-1}h$, og resten inneheld $h^2$ eller høgare potensar. Etter at $x^n$ blir kansellert og vi deler på $h$, forsvinn alle dei små ledda når $h \\to 0$ – og igjen står nøyaktig $nx^{n-1}$."
+    },
+    {
+      "id": "r1-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på konstantregelen og potensregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-1-n-quiz1-q0",
+            "task": "Kva er den deriverte av $f(x) = x^7$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$7x^6$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x^6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7x^7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6x^7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potensregelen: eksponenten hoppar ned framom og blir redusert med éin. $(x^7)' = 7x^{7-1} = 7x^6$."
+          },
+          {
+            "id": "r1-4-1-n-quiz1-q1",
+            "task": "Kva er den deriverte av $f(x) = \\pi$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\pi x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\pi \\approx 3{,}14$ er ein konstant, sjølv om han ikkje er eit heiltal. Konstantregelen gir $(\\pi)' = 0$."
+          },
+          {
+            "id": "r1-4-1-n-quiz1-q2",
+            "task": "Kva er $(x)'$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x = x^1$, så potensregelen gir $1 \\cdot x^0 = 1$. Det stemmer med at grafen til $y = x$ har stigingstal 1."
+          },
+          {
+            "id": "r1-4-1-n-quiz1-q3",
+            "task": "La $f(x) = x^4$. Kva er $f'(2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$24$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$32$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(x) = 4x^3$, så $f'(2) = 4 \\cdot 2^3 = 4 \\cdot 8 = 32$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-1-n-section2",
+      "type": "text",
+      "content": "## Å derivere ledd for ledd\n\nKva skjer når funksjonen er ganga med eit tal, som $f(x) = 3x^4$? Regelen for **konstant faktor** seier at konstanten berre følgjer med gjennom derivasjonen: $(c \\cdot f(x))' = c \\cdot f'(x)$. Vi deriverer $x^4$ til $4x^3$ og gangar med 3: $(3x^4)' = 12x^3$. I beviset kan konstanten setjast utanfor grenseverdien, og det er nett difor han kan «flyttast ut». På same måte blir $(-2x^5)' = -10x^4$ og $(\\frac{1}{2}x^6)' = 3x^5$.\n\nNeste byggjekloss: **sumregelen** og **differanseregelen**. Den deriverte av ein sum er summen av dei deriverte: $(f + g)' = f' + g'$, og tilsvarande med minus. Beviset er ei rein omgruppering av ledda i grenseverdien. Konsekvensen er enorm: vi kan derivere *kvart ledd for seg*.\n\nKombinerer vi alle reglane, kan vi derivere eitkvart polynom. Ta $P(x) = 3x^4 - 2x^3 + 5x^2 - x + 4$. Vi går frå venstre mot høgre: $(3x^4)' = 12x^3$, $(-2x^3)' = -6x^2$, $(5x^2)' = 10x$, $(-x)' = -1$, og konstantleddet $4$ forsvinn. Resultatet: $P'(x) = 12x^3 - 6x^2 + 10x - 1$.\n\nGenerelt har polynomet $P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$ den deriverte $P'(x) = n \\cdot a_n x^{n-1} + (n-1) \\cdot a_{n-1} x^{n-2} + \\ldots + a_1$. Legg merke til at konstantleddet $a_0$ alltid forsvinn – det bidreg ikkje til endringa, berre til nivået. Teiknar du grafen til $f(x) = x^3 - 3x$ saman med $f'(x) = 3x^2 - 3$, ser du noko vakkert: den deriverte er null nøyaktig der originalfunksjonen har topp- og botnpunkt. Det hintet kjem vi attende til i kapittelet om funksjonsdrøfting."
+    },
+    {
+      "id": "r1-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på konstant faktor, sumregelen og polynom:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-1-n-quiz2-q0",
+            "task": "Kva er den deriverte av $f(x) = 5x^3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15x^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$5x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$15x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8x^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstanten følgjer med: $(5x^3)' = 5 \\cdot 3x^2 = 15x^2$."
+          },
+          {
+            "id": "r1-4-1-n-quiz2-q1",
+            "task": "Kva er den deriverte av $f(x) = x^3 - 4x^2 + 7$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x^2 - 4x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3x^2 - 8x$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3x^2 - 8x + 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2 - 8x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer ledd for ledd: $(x^3)' = 3x^2$, $(-4x^2)' = -8x$, og konstanten $7$ gir $0$. Altså $f'(x) = 3x^2 - 8x$."
+          },
+          {
+            "id": "r1-4-1-n-quiz2-q2",
+            "task": "La $f(x) = 2x^4 + 3x$. Kva er $f'(1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$11$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$14$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = 8x^3 + 3$, så $f'(1) = 8 + 3 = 11$."
+          },
+          {
+            "id": "r1-4-1-n-quiz2-q3",
+            "task": "Kva ledd i eit polynom forsvinn alltid når vi deriverer?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Leddet med høgast eksponent",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Førstegradsleddet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Alle ledd med negativ koeffisient",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Konstantleddet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Konstantleddet $a_0$ har derivert lik 0 etter konstantregelen. Det påverkar nivået til grafen, men ikkje endringa."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-1-n-section3",
+      "type": "text",
+      "content": "## Potensregelen utan grenser\n\nHer kjem den verkeleg gode nyheita: potensregelen $(x^n)' = nx^{n-1}$ gjeld ikkje berre for pene, positive heiltal. Han gjeld for *alle* reelle eksponentar – òg negative tal og brøkar. Det opnar døra til ei heil verd av funksjonar.\n\nFørst dei negative eksponentane. Nøkkelen er omskrivinga $\\frac{1}{x^n} = x^{-n}$. Brøken $\\frac{1}{x}$ er altså $x^{-1}$, og $\\frac{1}{x^2}$ er $x^{-2}$. Skal du derivere $g(x) = \\frac{1}{x}$, skriv du om til $x^{-1}$ og bruker potensregelen: $g'(x) = -1 \\cdot x^{-2} = -\\frac{1}{x^2}$. Litt meir samansett: $h(x) = \\frac{3}{x^4} = 3x^{-4}$ gir $h'(x) = 3 \\cdot (-4)x^{-5} = -\\frac{12}{x^5}$. Strategien er alltid den same: *skriv om brøken til ein potens med negativ eksponent før du deriverer*, og skriv gjerne svaret attende som brøk til slutt.\n\nSå røtene. Her er samanhengen $\\sqrt{x} = x^{1/2}$, og meir generelt $\\sqrt[n]{x} = x^{1/n}$ og $\\sqrt[n]{x^m} = x^{m/n}$. Deriverer vi $f(x) = \\sqrt{x} = x^{1/2}$, gir potensregelen $f'(x) = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet, $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$, dukkar opp så ofte at det fortener ein eigen plass i hukommelsen.\n\nAndre variantar følgjer same oppskrift: $\\sqrt[3]{x} = x^{1/3}$ gir $\\frac{1}{3}x^{-2/3} = \\frac{1}{3\\sqrt[3]{x^2}}$, medan $x^{3/2}$ gir $\\frac{3}{2}x^{1/2} = \\frac{3\\sqrt{x}}{2}$. Til og med $\\frac{1}{\\sqrt{x}} = x^{-1/2}$ lèt seg temme: den deriverte blir $-\\frac{1}{2}x^{-3/2} = -\\frac{1}{2\\sqrt{x^3}}$. Éin regel, uendeleg mange funksjonar."
+    },
+    {
+      "id": "r1-4-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på negative og rasjonale eksponentar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-1-n-quiz3-q0",
+            "task": "Kva er den deriverte av $f(x) = \\frac{1}{x}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-\\frac{1}{x^2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{x^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-\\frac{1}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skriv om: $\\frac{1}{x} = x^{-1}$. Potensregelen gir $-1 \\cdot x^{-2} = -\\frac{1}{x^2}$."
+          },
+          {
+            "id": "r1-4-1-n-quiz3-q1",
+            "task": "Kva er $(\\sqrt{x})'$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{1}{\\sqrt{x}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2\\sqrt{x}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2\\sqrt{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\sqrt{x}}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{x} = x^{1/2}$, så den deriverte er $\\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet er verdt å hugse!"
+          },
+          {
+            "id": "r1-4-1-n-quiz3-q2",
+            "task": "Kva er den deriverte av $h(x) = \\frac{3}{x^2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{6}{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-\\frac{3}{x^3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\frac{6}{x^3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3}{2x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h(x) = 3x^{-2}$ gir $h'(x) = 3 \\cdot (-2)x^{-3} = -6x^{-3} = -\\frac{6}{x^3}$."
+          },
+          {
+            "id": "r1-4-1-n-quiz3-q3",
+            "task": "Kva er den deriverte av $f(x) = x^{3/2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{2}{3}x^{1/2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{3}{2}x^{3/2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{2\\sqrt{x}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3}{2}\\sqrt{x}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Potensregelen: $\\frac{3}{2}x^{3/2 - 1} = \\frac{3}{2}x^{1/2} = \\frac{3}{2}\\sqrt{x}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-1-n-section4",
+      "type": "text",
+      "content": "## Tangenten – den deriverte i arbeid\n\nNo som verktøykassa er full, la oss bruke ho til noko konkret. Den deriverte $f'(a)$ gir stigingstalet til tangenten til grafen i punktet $(a, f(a))$ – den rette linja som akkurat rører kurva og peikar i same retning som ho.\n\nLa oss finne tangenten til $f(x) = x^3 - 2x + 1$ i punktet der $x = 2$. Oppskrifta har tre steg. **Steg 1:** Finn berøringspunktet. $f(2) = 8 - 4 + 1 = 5$, så tangenten rører grafen i $(2, 5)$. **Steg 2:** Finn stigingstalet. Vi deriverer: $f'(x) = 3x^2 - 2$, og set inn: $f'(2) = 12 - 2 = 10$. Tangenten har altså stigingstal 10. **Steg 3:** Bruk eittpunktsformelen $y - y_1 = a(x - x_1)$: vi får $y - 5 = 10(x - 2)$, som ryddar seg til $y = 10x - 15$.\n\nTre steg, og du har likninga for ei linje som matematisk sett «kyssar» kurva i nøyaktig eitt punkt og deler retninga hennar der. Du kan òg snu spørsmålet: *kvar* har grafen ein horisontal tangent? Det skjer der stigingstalet er null, altså der $f'(x) = 0$. For $f(x) = x^2 - 4x$ gir $f'(x) = 2x - 4 = 0$ løysinga $x = 2$ – der flatar grafen ut. Slike punkt er nøkkelen til å finne topp- og botnpunkt, og det er nett dit reisa går vidare i kurset."
+    },
+    {
+      "id": "r1-4-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-4-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tangentar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-4-1-n-quiz4-q0",
+            "task": "Kva er stigingstalet til tangenten til $f(x) = x^2$ i punktet der $x = 3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = 2x$, så stigingstalet i $x = 3$ er $f'(3) = 6$."
+          },
+          {
+            "id": "r1-4-1-n-quiz4-q1",
+            "task": "For kva $x$-verdi har $f(x) = x^2 - 4x$ horisontal tangent?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = -2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Horisontal tangent tyder $f'(x) = 0$. $f'(x) = 2x - 4 = 0$ gir $x = 2$."
+          },
+          {
+            "id": "r1-4-1-n-quiz4-q2",
+            "task": "Kva er likninga for tangenten til $f(x) = x^3 - 2x + 1$ i $x = 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = 10x - 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = 5x - 10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 10x - 15$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = 12x - 15$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Berøringspunkt: $f(2) = 5$. Stigingstal: $f'(x) = 3x^2 - 2$ gir $f'(2) = 10$. Eittpunktsformelen: $y - 5 = 10(x - 2)$, altså $y = 10x - 15$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-4-1-n-summary",
+      "type": "text",
+      "content": "## Verktøykassa er klar\n\nDu starta kapittelet med éin tungvint metode – grenseverdidefinisjonen – og avsluttar med ei heil verktøykasse. **Konstantregelen** seier at $(c)' = 0$: det som ikkje endrar seg, har ingen endringsrate. **Potensregelen** $(x^n)' = n \\cdot x^{n-1}$ er arbeidshesten, og han gjeld for alle reelle eksponentar – positive, negative og brøkar. **Konstant faktor** lèt talet følgje med: $(c \\cdot f)' = c \\cdot f'$. Og **sumregelen** og **differanseregelen**, $(f \\pm g)' = f' \\pm g'$, lèt oss derivere ledd for ledd.\n\nSaman gjer desse reglane at du kan derivere eitkvart polynom på få sekund, og med omskrivingane $\\frac{1}{x^n} = x^{-n}$ og $\\sqrt{x} = x^{1/2}$ temmer du òg brøkar og røter. Spesialtilfella $(x)' = 1$, $(x^2)' = 2x$ og $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$ bør sitje som refleks.\n\nTil slutt såg du den deriverte i arbeid: $f'(a)$ er stigingstalet til tangenten i $(a, f(a))$, og med eittpunktsformelen finn du likninga til tangenten i tre steg. Der $f'(x) = 0$, flatar grafen ut – og akkurat det sporet følgjer vi vidare når vi snart skal drøfte funksjonar og jakte på topp- og botnpunkt. Speedometeret er bygd. No skal vi ut og køyre."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "1c54b1199f4140de",
+    "translatedAt": "2026-06-19T23:59:27.565Z",
+    "model": "claude-code-agent",
+    "strings": 97,
+    "tm": {
+      "086e4aee23bdb77a": "Derivasjonsreglar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7c01b74e3c795cb2": "Ei forteljing om derivasjonsreglane -- frå augneblinksfarten til speedometeret til verktøykassa som lèt deg derivere polynom, brøkar og røter på sekund.",
+      "857ce2c6ee6af34d": "derivere konstantar",
+      "cf43bfa523f45a5b": "bruke potensregelen til å derivere potensar av x",
+      "956746b7dae65262": "bruke konstantfaktoren til å derivere funksjonar multipliserte med ein konstant",
+      "acc6d0570475e8a9": "bruke sumregelen og differanseregelen til å derivere summar og differansar",
+      "089cc63692e0ac11": "derivere polynom",
+      "2b217affe6f0306a": "derivere funksjonar med negative og rasjonale eksponentar",
+      "1f9213e7b376e564": "## Fartsmålaren som aldri tek feil\n\nTenk deg at du sit i ein bil og ser på speedometeret. Nåla viser 80 km/t – ikkje gjennomsnittsfarten for heile turen, men farten *akkurat no*. Det speedometeret gjer, er i bunn og grunn derivasjon: det måler kor fort posisjonen din endrar seg i ein bestemt augneblink.\n\nI førre kapittel lærte du at den deriverte er definert som ein grenseverdi: $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$. Det er ein vakker definisjon, men la oss vere ærlege – å rekne ut den grenseverdien kvar einaste gong er som å byggje speedometeret på nytt kvar gong du skal køyre. I dette kapittelet skal vi gjere noko mykje smartare: vi skal utleie *reglar* som lèt oss derivere nesten kva som helst på sekund.\n\nDerivasjon er eitt av dei mest brukte verktøya i matematikk og naturvitskap. Med den deriverte finn vi vekstfart og endringsrate, stigingstal til tangentar, maksimums- og minimumsverdiar, og vi kan optimalisere alt frå bensinforbruk til bedriftsoverskot. Men først treng vi verktøykassa. Vi byggjer ho opp regel for regel, frå den aller enklaste.",
+      "4142268ce3e95f20": "## Det som står stille, og det som veks\n\nVi startar med det enklaste som finst: ein funksjon som ikkje gjer nokon ting. Dersom $f(x) = 5$, er verdien 5 uansett kva $x$ er. Grafen er ei horisontal linje, og ei horisontal linje har stigingstal null overalt. Sidan den deriverte måler endring, og ein konstant aldri endrar seg, seier **konstantregelen** at $(c)' = 0$. Det gjeld alle konstantar – òg $\\pi$ og $\\sqrt{2}$ er konstantar, sjølv om dei ikkje er pene heiltal. Beviset er nesten komisk kort: i definisjonen blir teljaren $c - c = 0$, så heile grenseverdien blir null.\n\nSå til arbeidshesten i heile kapittelet: **potensregelen**. For $f(x) = x^n$, der $n$ er eit reelt tal, er $f'(x) = n \\cdot x^{n-1}$. Hugs han slik: *eksponenten hoppar ned framom og blir redusert med éin*. Deriverer du $x^5$, hoppar femtalet ned og eksponenten blir fire: $5x^4$. Deriverer du $x^{10}$, får du $10x^9$.\n\nKva med $f(x) = x$? Det er $x^1$, så $f'(x) = 1 \\cdot x^0 = 1$. Det gir perfekt meining – grafen til $y = x$ er ei rett linje med stigingstal 1. Tre resultat dukkar opp så ofte at dei er verdt å kunne i søvne: $(x)' = 1$, $(x^2)' = 2x$ og $(x^3)' = 3x^2$.\n\nKvar kjem potensregelen frå? For positive heiltal kan vi bevise han med binomialteoremet: når vi utvidar $(x+h)^n$, er dei to første ledda $x^n + nx^{n-1}h$, og resten inneheld $h^2$ eller høgare potensar. Etter at $x^n$ blir kansellert og vi deler på $h$, forsvinn alle dei små ledda når $h \\to 0$ – og igjen står nøyaktig $nx^{n-1}$.",
+      "f47974739abc6d00": "Test deg sjølv på konstantregelen og potensregelen:",
+      "4097889236a2af26": "placeholder",
+      "29fa7324e722827c": "Kva er den deriverte av $f(x) = x^7$?",
+      "61915a2afe51d4f9": "$x^6$",
+      "b864d8f772037ed3": "$7x^6$",
+      "07be87da54b19461": "$7x^7$",
+      "95a079ed7d344028": "$6x^7$",
+      "5ecaecadeb682f80": "Potensregelen: eksponenten hoppar ned framom og blir redusert med éin. $(x^7)' = 7x^{7-1} = 7x^6$.",
+      "227ce38e96d89846": "Kva er den deriverte av $f(x) = \\pi$?",
+      "7fb34fd76c28bba5": "$\\pi$",
+      "feb5744504b70708": "$\\pi x$",
+      "4603a426f768afc2": "$\\pi \\approx 3{,}14$ er ein konstant, sjølv om han ikkje er eit heiltal. Konstantregelen gir $(\\pi)' = 0$.",
+      "3d8860d9caec1f30": "Kva er $(x)'$?",
+      "22bf003d6cac79e1": "$x$",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "fe38577d09d6fbf5": "$x = x^1$, så potensregelen gir $1 \\cdot x^0 = 1$. Det stemmer med at grafen til $y = x$ har stigingstal 1.",
+      "e2b03474caab82c1": "La $f(x) = x^4$. Kva er $f'(2)$?",
+      "0b473bc70fa5be14": "$f'(x) = 4x^3$, så $f'(2) = 4 \\cdot 2^3 = 4 \\cdot 8 = 32$.",
+      "4c6b6504956278e8": "## Å derivere ledd for ledd\n\nKva skjer når funksjonen er ganga med eit tal, som $f(x) = 3x^4$? Regelen for **konstant faktor** seier at konstanten berre følgjer med gjennom derivasjonen: $(c \\cdot f(x))' = c \\cdot f'(x)$. Vi deriverer $x^4$ til $4x^3$ og gangar med 3: $(3x^4)' = 12x^3$. I beviset kan konstanten setjast utanfor grenseverdien, og det er nett difor han kan «flyttast ut». På same måte blir $(-2x^5)' = -10x^4$ og $(\\frac{1}{2}x^6)' = 3x^5$.\n\nNeste byggjekloss: **sumregelen** og **differanseregelen**. Den deriverte av ein sum er summen av dei deriverte: $(f + g)' = f' + g'$, og tilsvarande med minus. Beviset er ei rein omgruppering av ledda i grenseverdien. Konsekvensen er enorm: vi kan derivere *kvart ledd for seg*.\n\nKombinerer vi alle reglane, kan vi derivere eitkvart polynom. Ta $P(x) = 3x^4 - 2x^3 + 5x^2 - x + 4$. Vi går frå venstre mot høgre: $(3x^4)' = 12x^3$, $(-2x^3)' = -6x^2$, $(5x^2)' = 10x$, $(-x)' = -1$, og konstantleddet $4$ forsvinn. Resultatet: $P'(x) = 12x^3 - 6x^2 + 10x - 1$.\n\nGenerelt har polynomet $P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$ den deriverte $P'(x) = n \\cdot a_n x^{n-1} + (n-1) \\cdot a_{n-1} x^{n-2} + \\ldots + a_1$. Legg merke til at konstantleddet $a_0$ alltid forsvinn – det bidreg ikkje til endringa, berre til nivået. Teiknar du grafen til $f(x) = x^3 - 3x$ saman med $f'(x) = 3x^2 - 3$, ser du noko vakkert: den deriverte er null nøyaktig der originalfunksjonen har topp- og botnpunkt. Det hintet kjem vi attende til i kapittelet om funksjonsdrøfting.",
+      "9030082f880283ba": "Test deg sjølv på konstant faktor, sumregelen og polynom:",
+      "aa6d1a960b2ed512": "Kva er den deriverte av $f(x) = 5x^3$?",
+      "e0f077b4db7c47c3": "$15x^2$",
+      "ad3af523c960d6a7": "$5x^2$",
+      "2712172c58729164": "$15x^3$",
+      "fb97411d4ff2a8da": "$8x^2$",
+      "1f84f4e7a3fe8b8d": "Konstanten følgjer med: $(5x^3)' = 5 \\cdot 3x^2 = 15x^2$.",
+      "bfad460a080dd1f3": "Kva er den deriverte av $f(x) = x^3 - 4x^2 + 7$?",
+      "14c0f805fc1ed55e": "$3x^2 - 4x$",
+      "a08c7b3d62fbfd6c": "$3x^2 - 8x + 7$",
+      "b8529b6ce4f0564b": "$3x^2 - 8x$",
+      "5b58679c1d0458ab": "$x^2 - 8x$",
+      "7350736a14343ffe": "Vi deriverer ledd for ledd: $(x^3)' = 3x^2$, $(-4x^2)' = -8x$, og konstanten $7$ gir $0$. Altså $f'(x) = 3x^2 - 8x$.",
+      "6af203f6803e2a23": "La $f(x) = 2x^4 + 3x$. Kva er $f'(1)$?",
+      "92aa7417db973667": "$f'(x) = 8x^3 + 3$, så $f'(1) = 8 + 3 = 11$.",
+      "b0011591c65ab63f": "Kva ledd i eit polynom forsvinn alltid når vi deriverer?",
+      "bc72f301e0a0d7da": "Leddet med høgast eksponent",
+      "30335c6ccc6cac88": "Førstegradsleddet",
+      "40eb85c5f7be58a6": "Alle ledd med negativ koeffisient",
+      "359073c1a5bf3ce8": "Konstantleddet",
+      "fd41981044fba1f0": "Konstantleddet $a_0$ har derivert lik 0 etter konstantregelen. Det påverkar nivået til grafen, men ikkje endringa.",
+      "a517b51bc5fe7e84": "## Potensregelen utan grenser\n\nHer kjem den verkeleg gode nyheita: potensregelen $(x^n)' = nx^{n-1}$ gjeld ikkje berre for pene, positive heiltal. Han gjeld for *alle* reelle eksponentar – òg negative tal og brøkar. Det opnar døra til ei heil verd av funksjonar.\n\nFørst dei negative eksponentane. Nøkkelen er omskrivinga $\\frac{1}{x^n} = x^{-n}$. Brøken $\\frac{1}{x}$ er altså $x^{-1}$, og $\\frac{1}{x^2}$ er $x^{-2}$. Skal du derivere $g(x) = \\frac{1}{x}$, skriv du om til $x^{-1}$ og bruker potensregelen: $g'(x) = -1 \\cdot x^{-2} = -\\frac{1}{x^2}$. Litt meir samansett: $h(x) = \\frac{3}{x^4} = 3x^{-4}$ gir $h'(x) = 3 \\cdot (-4)x^{-5} = -\\frac{12}{x^5}$. Strategien er alltid den same: *skriv om brøken til ein potens med negativ eksponent før du deriverer*, og skriv gjerne svaret attende som brøk til slutt.\n\nSå røtene. Her er samanhengen $\\sqrt{x} = x^{1/2}$, og meir generelt $\\sqrt[n]{x} = x^{1/n}$ og $\\sqrt[n]{x^m} = x^{m/n}$. Deriverer vi $f(x) = \\sqrt{x} = x^{1/2}$, gir potensregelen $f'(x) = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet, $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$, dukkar opp så ofte at det fortener ein eigen plass i hukommelsen.\n\nAndre variantar følgjer same oppskrift: $\\sqrt[3]{x} = x^{1/3}$ gir $\\frac{1}{3}x^{-2/3} = \\frac{1}{3\\sqrt[3]{x^2}}$, medan $x^{3/2}$ gir $\\frac{3}{2}x^{1/2} = \\frac{3\\sqrt{x}}{2}$. Til og med $\\frac{1}{\\sqrt{x}} = x^{-1/2}$ lèt seg temme: den deriverte blir $-\\frac{1}{2}x^{-3/2} = -\\frac{1}{2\\sqrt{x^3}}$. Éin regel, uendeleg mange funksjonar.",
+      "46f92c8a1517666c": "Test deg sjølv på negative og rasjonale eksponentar:",
+      "42ec941a469b3727": "Kva er den deriverte av $f(x) = \\frac{1}{x}$?",
+      "c3d8cbf603c8afaf": "$\\frac{1}{x^2}$",
+      "3c6dbfbfa555b128": "$-\\frac{1}{x^2}$",
+      "4f3cc8b8cf23b81d": "$-\\frac{1}{x}$",
+      "5baeaa2459d35eaa": "$\\ln x$",
+      "68ccf2bfbb5bd07f": "Skriv om: $\\frac{1}{x} = x^{-1}$. Potensregelen gir $-1 \\cdot x^{-2} = -\\frac{1}{x^2}$.",
+      "f1f898d76d24eb43": "Kva er $(\\sqrt{x})'$?",
+      "b8d69c3cac911a48": "$\\frac{1}{2\\sqrt{x}}$",
+      "73bab3e91e10661f": "$\\frac{1}{\\sqrt{x}}$",
+      "5775ca0a91464c76": "$2\\sqrt{x}$",
+      "bbab2169149bc0df": "$\\frac{\\sqrt{x}}{2}$",
+      "6ea69587d564c53f": "$\\sqrt{x} = x^{1/2}$, så den deriverte er $\\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Dette resultatet er verdt å hugse!",
+      "5e3733e8929e573d": "Kva er den deriverte av $h(x) = \\frac{3}{x^2}$?",
+      "e0c7d6f30e2137a4": "$\\frac{6}{x}$",
+      "6e4dec0c5398fa69": "$-\\frac{3}{x^3}$",
+      "da016ad1ff7d17cc": "$\\frac{3}{2x}$",
+      "747926f01e65ee43": "$-\\frac{6}{x^3}$",
+      "341e9a0af5eadbd8": "$h(x) = 3x^{-2}$ gir $h'(x) = 3 \\cdot (-2)x^{-3} = -6x^{-3} = -\\frac{6}{x^3}$.",
+      "1adcd7fd4fb33469": "Kva er den deriverte av $f(x) = x^{3/2}$?",
+      "dc3edf99a5c49187": "$\\frac{2}{3}x^{1/2}$",
+      "548fb1e8762bdb97": "$\\frac{3}{2}x^{3/2}$",
+      "10ea32c988358e1c": "$\\frac{3}{2}\\sqrt{x}$",
+      "8a3bc9cfe4239945": "$\\frac{3}{2\\sqrt{x}}$",
+      "d407050b3960dbac": "Potensregelen: $\\frac{3}{2}x^{3/2 - 1} = \\frac{3}{2}x^{1/2} = \\frac{3}{2}\\sqrt{x}$.",
+      "6d2e2891cfa95d9c": "## Tangenten – den deriverte i arbeid\n\nNo som verktøykassa er full, la oss bruke ho til noko konkret. Den deriverte $f'(a)$ gir stigingstalet til tangenten til grafen i punktet $(a, f(a))$ – den rette linja som akkurat rører kurva og peikar i same retning som ho.\n\nLa oss finne tangenten til $f(x) = x^3 - 2x + 1$ i punktet der $x = 2$. Oppskrifta har tre steg. **Steg 1:** Finn berøringspunktet. $f(2) = 8 - 4 + 1 = 5$, så tangenten rører grafen i $(2, 5)$. **Steg 2:** Finn stigingstalet. Vi deriverer: $f'(x) = 3x^2 - 2$, og set inn: $f'(2) = 12 - 2 = 10$. Tangenten har altså stigingstal 10. **Steg 3:** Bruk eittpunktsformelen $y - y_1 = a(x - x_1)$: vi får $y - 5 = 10(x - 2)$, som ryddar seg til $y = 10x - 15$.\n\nTre steg, og du har likninga for ei linje som matematisk sett «kyssar» kurva i nøyaktig eitt punkt og deler retninga hennar der. Du kan òg snu spørsmålet: *kvar* har grafen ein horisontal tangent? Det skjer der stigingstalet er null, altså der $f'(x) = 0$. For $f(x) = x^2 - 4x$ gir $f'(x) = 2x - 4 = 0$ løysinga $x = 2$ – der flatar grafen ut. Slike punkt er nøkkelen til å finne topp- og botnpunkt, og det er nett dit reisa går vidare i kurset.",
+      "52958a49d93310b5": "Test deg sjølv på tangentar:",
+      "c16906818cde3501": "Kva er stigingstalet til tangenten til $f(x) = x^2$ i punktet der $x = 3$?",
+      "58b18e8f67bb8a8c": "$f'(x) = 2x$, så stigingstalet i $x = 3$ er $f'(3) = 6$.",
+      "d4ac7fc2913d097f": "For kva $x$-verdi har $f(x) = x^2 - 4x$ horisontal tangent?",
+      "0c82bd6cd3ab8ff8": "$x = 2$",
+      "d14d177d812c2ded": "$x = 4$",
+      "25efa207f9f60f58": "$x = 0$",
+      "0ae482c265a0e7fd": "$x = -2$",
+      "10e9a52c37cd26b4": "Horisontal tangent tyder $f'(x) = 0$. $f'(x) = 2x - 4 = 0$ gir $x = 2$.",
+      "0d84e382fcc287d2": "Kva er likninga for tangenten til $f(x) = x^3 - 2x + 1$ i $x = 2$?",
+      "8c85be71c5b7a76d": "$y = 10x - 5$",
+      "0a891665ba6428a6": "$y = 5x - 10$",
+      "e5299076c924e165": "$y = 10x - 15$",
+      "474f0ff827b0aca5": "$y = 12x - 15$",
+      "81adf588d7eaa8eb": "Berøringspunkt: $f(2) = 5$. Stigingstal: $f'(x) = 3x^2 - 2$ gir $f'(2) = 10$. Eittpunktsformelen: $y - 5 = 10(x - 2)$, altså $y = 10x - 15$.",
+      "0e300f8484fbe55b": "## Verktøykassa er klar\n\nDu starta kapittelet med éin tungvint metode – grenseverdidefinisjonen – og avsluttar med ei heil verktøykasse. **Konstantregelen** seier at $(c)' = 0$: det som ikkje endrar seg, har ingen endringsrate. **Potensregelen** $(x^n)' = n \\cdot x^{n-1}$ er arbeidshesten, og han gjeld for alle reelle eksponentar – positive, negative og brøkar. **Konstant faktor** lèt talet følgje med: $(c \\cdot f)' = c \\cdot f'$. Og **sumregelen** og **differanseregelen**, $(f \\pm g)' = f' \\pm g'$, lèt oss derivere ledd for ledd.\n\nSaman gjer desse reglane at du kan derivere eitkvart polynom på få sekund, og med omskrivingane $\\frac{1}{x^n} = x^{-n}$ og $\\sqrt{x} = x^{1/2}$ temmer du òg brøkar og røter. Spesialtilfella $(x)' = 1$, $(x^2)' = 2x$ og $(\\sqrt{x})' = \\frac{1}{2\\sqrt{x}}$ bør sitje som refleks.\n\nTil slutt såg du den deriverte i arbeid: $f'(a)$ er stigingstalet til tangenten i $(a, f(a))$, og med eittpunktsformelen finn du likninga til tangenten i tre steg. Der $f'(x) = 0$, flatar grafen ut – og akkurat det sporet følgjer vi vidare når vi snart skal drøfte funksjonar og jakte på topp- og botnpunkt. Speedometeret er bygd. No skal vi ut og køyre."
+    }
+  }
+}

@@ -1,1 +1,355 @@
-{"id":"s2-3-4-narrativ","courseId":"s2","chapterNumber":"3.4","title":"Asymptotar og grenseåtferd","subtitle":"Narrativ versjon","description":"Ei forteljing om grenser som aldri heilt blir nådde — frå medisinkonsentrasjon til marknadsmetting — og linjene grafane legg seg inntil.","estimatedMinutes":36,"competenceGoals":["bestemme vertikale, horisontale og skrå asymptotar for rasjonale funksjonar og andre funksjonstypar","analysere grenseåtferda til funksjonar når x går mot uendeleg eller mot singulære punkt"],"linkedChapterId":"s2-3-4","content":[{"id":"s2-3-4-n-intro","type":"text","content":"## Grensa som aldri blir nådd\n\nNår eit nytt produkt blir lansert, veks brukartalet raskt i starten — men marknaden er ikkje uendeleg. Etter kvart flatar veksten ut mot eit tak, ei metting som kurva nærmar seg utan nokosinne å nå. Og i eit laboratorium kan konsentrasjonen av eit stoff eksplodere mot uendeleg når vi nærmar oss eit kritisk punkt. Begge fenomena blir skildra av same matematiske idé: **asymptotar** — linjer som grafen nærmar seg utan å nå.\n\nNår vi drøftar ein funksjon, må vi forstå kva som skjer i ytterkantane: når $x$ går mot uendeleg, og når $x$ nærmar seg punkt der funksjonen ikkje er definert. I S2 møter vi tre typar asymptotar.\n\nLinja $x = a$ er ei **vertikal asymptote** dersom $f(x) \\to \\pm\\infty$ når $x \\to a$ frå høgre eller venstre. Slike oppstår typisk der nemnaren i ein rasjonal funksjon er null utan at teljaren òg er null der. Linja $y = L$ er ei **horisontal asymptote** dersom $\\lim_{x \\to \\infty} f(x) = L$ eller $\\lim_{x \\to -\\infty} f(x) = L$ — og ein funksjon kan faktisk ha ulike horisontale asymptotar mot høgre og venstre. Linja $y = ax + b$ (med $a \\neq 0$) er ei **skrå asymptote** dersom $f(x) - (ax + b) \\to 0$ når $x \\to \\pm\\infty$; ho finn vi gjerne med polynomdivisjon, eller med grenseverdiane $a = \\lim_{x\\to\\infty} \\frac{f(x)}{x}$ og $b = \\lim_{x\\to\\infty} [f(x) - ax]$.\n\nÅ identifisere desse korrekt er avgjerande for ei fullstendig funksjonsdrøfting — og for å forstå kva modellane våre eigentleg seier om verkelegheita."},{"id":"s2-3-4-n-section1","type":"text","content":"## Gradene avslører alt\n\nFor rasjonale funksjonar $f(x) = \\frac{P(x)}{Q(x)}$ finst det ein komplett hugseregel basert på gradene: lat $P$ ha grad $m$ og $Q$ ha grad $n$. **Vertikale asymptotar** ligg i nullpunkta til $Q$ som ikkje òg er nullpunkt for $P$. For åtferda mot uendeleg gjeld: dersom $m < n$, er $y = 0$ horisontal asymptote. Dersom $m = n$, er asymptoten $y = \\frac{a_m}{b_n}$ — forholdet mellom dei leiande koeffisientane. Dersom $m = n + 1$, finst ei skrå asymptote som du finn med polynomdivisjon. Og dersom $m > n + 1$, finst verken horisontal eller skrå asymptote.\n\nVi testar på $f(x) = \\frac{x^2 + x - 6}{x - 1}$. Nemnaren er null i $x = 1$, og teljaren er $1 + 1 - 6 = -4 \\neq 0$ der, så $x = 1$ er ei vertikal asymptote. Grenseverdiane stadfestar dramatikken: frå høgre går $f$ mot $\\frac{-4}{0^+} = -\\infty$, frå venstre mot $+\\infty$. Graden i teljaren er 2 og i nemnaren 1 — nøyaktig éin meir — så vi polynomdividerer: $\\frac{x^2+x-6}{x-1} = x + 2 + \\frac{-4}{x-1}$. Når $x \\to \\pm\\infty$ forsvinn brøken, og den skrå asymptoten er $y = x + 2$.\n\nEit anna døme: $f(x) = \\frac{3x^2 - 1}{x^2 + 4}$. Her er nemnaren $x^2 + 4$ alltid positiv — ingen vertikale asymptotar i det heile teke. Gradene er like ($m = n = 2$), så vi deler teljar og nemnar på $x^2$: $\\frac{3 - 1/x^2}{1 + 4/x^2} \\to \\frac{3}{1} = 3$. Horisontal asymptote $y = 3$ i begge retningar.\n\nEi vanleg misforståing: kan grafen krysse ei asymptote? Ei **vertikal** asymptote kan aldri kryssast — funksjonen er ikkje definert der. Men horisontale og skrå asymptotar kan grafen fint krysse for moderate $x$-verdiar; asymptoten skildrar berre åtferda når $|x|$ blir stor."},{"id":"s2-3-4-n-quiz1","type":"exercise","exercise":{"id":"s2-3-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på asymptotar for rasjonale funksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-4-n-quiz1-q0","task":"Kvar har $f(x) = \\frac{x^2 + x - 6}{x - 1}$ vertikal asymptote?","options":[{"id":"a","text":"$x = 1$","isCorrect":true},{"id":"b","text":"$x = -6$","isCorrect":false},{"id":"c","text":"$x = 2$","isCorrect":false},{"id":"d","text":"Ho har ingen","isCorrect":false}],"solution":"Nemnaren er null i $x = 1$, medan teljaren er $-4 \\neq 0$ der. Då går $f(x) \\to \\pm\\infty$, og $x = 1$ er vertikal asymptote."},{"id":"s2-3-4-n-quiz1-q1","task":"For $\\frac{P(x)}{Q(x)}$ der teljar og nemnar har same grad, kva er den horisontale asymptoten?","options":[{"id":"a","text":"$y = 0$","isCorrect":false},{"id":"b","text":"Forholdet mellom dei leiande koeffisientane","isCorrect":true},{"id":"c","text":"Det finst ingen","isCorrect":false},{"id":"d","text":"Summen av koeffisientane","isCorrect":false}],"solution":"Når $m = n$ er asymptoten $y = \\frac{a_m}{b_n}$. For $\\frac{3x^2-1}{x^2+4}$ blir det $y = 3$."},{"id":"s2-3-4-n-quiz1-q2","task":"Når har ein rasjonal funksjon ei skrå asymptote?","options":[{"id":"a","text":"Når graden i teljaren er mindre enn i nemnaren","isCorrect":false},{"id":"b","text":"Når gradene er like","isCorrect":false},{"id":"c","text":"Når graden i teljaren er nøyaktig éin meir enn i nemnaren","isCorrect":true},{"id":"d","text":"Når nemnaren aldri er null","isCorrect":false}],"solution":"Skrå asymptote $y = ax + b$ oppstår når $m = n + 1$. Sjølve linja finn du med polynomdivisjon, slik $\\frac{x^2+x-6}{x-1} = x + 2 - \\frac{4}{x-1}$ gav $y = x+2$."},{"id":"s2-3-4-n-quiz1-q3","task":"Kan grafen til ein funksjon krysse asymptotane sine?","options":[{"id":"a","text":"Nei, aldri","isCorrect":false},{"id":"b","text":"Ja, alle typar kan kryssast","isCorrect":false},{"id":"c","text":"Berre vertikale asymptotar kan kryssast","isCorrect":false},{"id":"d","text":"Horisontale og skrå kan kryssast, vertikale aldri","isCorrect":true}],"solution":"Funksjonen er udefinert på ei vertikal asymptote, så ho kan aldri kryssast. Horisontale og skrå asymptotar skildrar berre åtferda for store $|x|$ — grafen kan godt krysse dei undervegs."}]}},{"id":"s2-3-4-n-section2","type":"text","content":"## Kappløpet mot uendeleg\n\nKva skjer når funksjonar av ulik type konkurrerer om å vekse raskast? Tenk deg eit kappløp mot uendeleg mellom logaritmen $\\ln x$, potensen $x^a$ og eksponentialfunksjonen $e^x$. Resultatet er alltid det same, og det er verdt å kunne utanåt: **veksthierarkiet** seier at $\\ln x \\ll x^a \\ll a^x \\ll x!$ for store $x$. Logaritmen er tregast, potensar slår logaritmar, eksponentialfunksjonar slår alle potensar, og fakultetet slår alt.\n\nDette gjev oss ei liste med grenseverdiar som dukkar opp igjen og igjen i drøftingar: $\\lim_{x\\to\\infty} \\frac{1}{x^n} = 0$ for $n > 0$. $\\lim_{x\\to\\infty} \\frac{e^x}{x^n} = \\infty$ og $\\lim_{x\\to\\infty} \\frac{x^n}{e^x} = 0$ — eksponentiell slår polynom. $\\lim_{x\\to\\infty} \\frac{\\ln x}{x^a} = 0$ for $a > 0$ — polynom slår logaritme. Og den litt overraskande $\\lim_{x\\to 0^+} x \\ln x = 0$: når $x$ kryp mot null, går $\\ln x$ rett nok mot $-\\infty$, men $x$ går mot null raskare og vinn dragkampen.\n\nVeksthierarkiet løyser òg asymptoteproblem der gradregelen ikkje gjeld. Sjå på $f(x) = \\frac{e^x}{e^x + 1}$ — ein slektning av dei logistiske kurvene som skildrar marknadsmetting. Nemnaren $e^x + 1$ er alltid positiv, så ingen vertikale asymptotar finst. Mot høgre deler vi teljar og nemnar på $e^x$: $f(x) = \\frac{1}{1 + e^{-x}} \\to \\frac{1}{1+0} = 1$. Mot venstre går $e^x \\to 0$, så $f(x) \\to \\frac{0}{0+1} = 0$. Funksjonen har altså **to ulike horisontale asymptotar**: $y = 0$ mot venstre og $y = 1$ mot høgre. Grafen klatrar frå null mot éin — akkurat som marknadsdelen til eit produkt som spreier seg, men aldri når hundre prosent metting frå denne modellen åleine."},{"id":"s2-3-4-n-quiz2","type":"exercise","exercise":{"id":"s2-3-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på grenseverdiar og veksthierarkiet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-4-n-quiz2-q0","task":"Kva er $\\lim_{x \\to \\infty} \\frac{x^n}{e^x}$?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$\\infty$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$n$","isCorrect":false}],"solution":"Eksponentialfunksjonen veks raskare enn einkvar potens, så brøken går mot null."},{"id":"s2-3-4-n-quiz2-q1","task":"Kva for ei rekkjefølgje i veksthierarkiet er rett for store $x$?","options":[{"id":"a","text":"$x^a \\ll \\ln x \\ll e^x$","isCorrect":false},{"id":"b","text":"$e^x \\ll x^a \\ll \\ln x$","isCorrect":false},{"id":"c","text":"$\\ln x \\ll x^a \\ll e^x$","isCorrect":true},{"id":"d","text":"$\\ln x \\ll e^x \\ll x^a$","isCorrect":false}],"solution":"Logaritmen veks tregast, potensfunksjonar raskare, og eksponentialfunksjonen raskast: $\\ln x \\ll x^a \\ll e^x$."},{"id":"s2-3-4-n-quiz2-q2","task":"Kva er $\\lim_{x \\to 0^+} x \\ln x$?","options":[{"id":"a","text":"$-\\infty$","isCorrect":false},{"id":"b","text":"$0$","isCorrect":true},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$+\\infty$","isCorrect":false}],"solution":"Sjølv om $\\ln x \\to -\\infty$, går $x$ mot null raskare. Produktet går mot $0$ — ein grenseverdi som ofte trengst i drøfting av logaritmefunksjonar."},{"id":"s2-3-4-n-quiz2-q3","task":"Kva horisontale asymptotar har $f(x) = \\frac{e^x}{e^x + 1}$?","options":[{"id":"a","text":"Berre $y = 1$","isCorrect":false},{"id":"b","text":"Berre $y = 0$","isCorrect":false},{"id":"c","text":"$y = 0$ mot venstre og $y = 1$ mot høgre","isCorrect":true},{"id":"d","text":"$y = -1$ og $y = 1$","isCorrect":false}],"solution":"Mot høgre: $\\frac{1}{1+e^{-x}} \\to 1$. Mot venstre: $e^x \\to 0$ gjev $f(x) \\to 0$. To ulike horisontale asymptotar er fullt mogleg."}]}},{"id":"s2-3-4-n-summary","type":"text","content":"## Oppsummering: kartet over ytterkantane\n\nVi har teikna kartet over korleis funksjonar oppfører seg i ytterkantane. Tre typar asymptotar skildrar det: den **vertikale** $x = a$, der $f(x) \\to \\pm\\infty$ ved eit punkt utanfor definisjonsmengda; den **horisontale** $y = L$, der funksjonen flatar ut mot ein grenseverdi når $x \\to \\pm\\infty$; og den **skrå** $y = ax + b$, som du avslører med polynomdivisjon.\n\nFor rasjonale funksjonar $\\frac{P(x)}{Q(x)}$ er gradene nøkkelen: vertikale asymptotar ligg i nullpunkta til nemnaren (der teljaren ikkje òg er null). Er teljargraden mindre enn nemnargraden, er $y = 0$ asymptote; er gradene like, er asymptoten forholdet mellom dei leiande koeffisientane; er teljargraden nøyaktig éin større, finst ei skrå asymptote. Hugs òg at grafen aldri kan krysse ei vertikal asymptote, men gjerne ei horisontal eller skrå undervegs.\n\nFor funksjonar med eksponential- og logaritmeuttrykk er **veksthierarkiet** $\\ln x \\ll x^a \\ll e^x$ kompasset. Det gjev grenseverdiane du bør kunne utanåt: $\\frac{x^n}{e^x} \\to 0$, $\\frac{\\ln x}{x^a} \\to 0$ og $x \\ln x \\to 0$ når $x \\to 0^+$. Med desse i verktøykassa kunne vi vise at mettingskurva $\\frac{e^x}{e^x+1}$ klatrar frå asymptoten $y = 0$ til asymptoten $y = 1$ — eit matematisk bilete på ein marknad som blir fylt opp. Asymptotane er altså meir enn strekar på ein skisse: dei er utsegnet til modellen om kva som skjer på lang sikt og ved kritiske punkt."}],"exercises":[],"_meta":{"sourceHash":"76d3c725167253d5","translatedAt":"2026-06-20T09:03:46.062Z","model":"claude-code-agent","strings":57,"tm":{"afec1075b2c68d40":"Asymptotar og grenseåtferd","b195b06d1ed59702":"Narrativ versjon","754319afd70334b3":"Ei forteljing om grenser som aldri heilt blir nådde — frå medisinkonsentrasjon til marknadsmetting — og linjene grafane legg seg inntil.","2485115bc9c19c74":"bestemme vertikale, horisontale og skrå asymptotar for rasjonale funksjonar og andre funksjonstypar","c8d4d6466ae3aecd":"analysere grenseåtferda til funksjonar når x går mot uendeleg eller mot singulære punkt","03285f24b2b74636":"## Grensa som aldri blir nådd\n\nNår eit nytt produkt blir lansert, veks brukartalet raskt i starten — men marknaden er ikkje uendeleg. Etter kvart flatar veksten ut mot eit tak, ei metting som kurva nærmar seg utan nokosinne å nå. Og i eit laboratorium kan konsentrasjonen av eit stoff eksplodere mot uendeleg når vi nærmar oss eit kritisk punkt. Begge fenomena blir skildra av same matematiske idé: **asymptotar** — linjer som grafen nærmar seg utan å nå.\n\nNår vi drøftar ein funksjon, må vi forstå kva som skjer i ytterkantane: når $x$ går mot uendeleg, og når $x$ nærmar seg punkt der funksjonen ikkje er definert. I S2 møter vi tre typar asymptotar.\n\nLinja $x = a$ er ei **vertikal asymptote** dersom $f(x) \\to \\pm\\infty$ når $x \\to a$ frå høgre eller venstre. Slike oppstår typisk der nemnaren i ein rasjonal funksjon er null utan at teljaren òg er null der. Linja $y = L$ er ei **horisontal asymptote** dersom $\\lim_{x \\to \\infty} f(x) = L$ eller $\\lim_{x \\to -\\infty} f(x) = L$ — og ein funksjon kan faktisk ha ulike horisontale asymptotar mot høgre og venstre. Linja $y = ax + b$ (med $a \\neq 0$) er ei **skrå asymptote** dersom $f(x) - (ax + b) \\to 0$ når $x \\to \\pm\\infty$; ho finn vi gjerne med polynomdivisjon, eller med grenseverdiane $a = \\lim_{x\\to\\infty} \\frac{f(x)}{x}$ og $b = \\lim_{x\\to\\infty} [f(x) - ax]$.\n\nÅ identifisere desse korrekt er avgjerande for ei fullstendig funksjonsdrøfting — og for å forstå kva modellane våre eigentleg seier om verkelegheita.","64bd3d939b913c0f":"## Gradene avslører alt\n\nFor rasjonale funksjonar $f(x) = \\frac{P(x)}{Q(x)}$ finst det ein komplett hugseregel basert på gradene: lat $P$ ha grad $m$ og $Q$ ha grad $n$. **Vertikale asymptotar** ligg i nullpunkta til $Q$ som ikkje òg er nullpunkt for $P$. For åtferda mot uendeleg gjeld: dersom $m < n$, er $y = 0$ horisontal asymptote. Dersom $m = n$, er asymptoten $y = \\frac{a_m}{b_n}$ — forholdet mellom dei leiande koeffisientane. Dersom $m = n + 1$, finst ei skrå asymptote som du finn med polynomdivisjon. Og dersom $m > n + 1$, finst verken horisontal eller skrå asymptote.\n\nVi testar på $f(x) = \\frac{x^2 + x - 6}{x - 1}$. Nemnaren er null i $x = 1$, og teljaren er $1 + 1 - 6 = -4 \\neq 0$ der, så $x = 1$ er ei vertikal asymptote. Grenseverdiane stadfestar dramatikken: frå høgre går $f$ mot $\\frac{-4}{0^+} = -\\infty$, frå venstre mot $+\\infty$. Graden i teljaren er 2 og i nemnaren 1 — nøyaktig éin meir — så vi polynomdividerer: $\\frac{x^2+x-6}{x-1} = x + 2 + \\frac{-4}{x-1}$. Når $x \\to \\pm\\infty$ forsvinn brøken, og den skrå asymptoten er $y = x + 2$.\n\nEit anna døme: $f(x) = \\frac{3x^2 - 1}{x^2 + 4}$. Her er nemnaren $x^2 + 4$ alltid positiv — ingen vertikale asymptotar i det heile teke. Gradene er like ($m = n = 2$), så vi deler teljar og nemnar på $x^2$: $\\frac{3 - 1/x^2}{1 + 4/x^2} \\to \\frac{3}{1} = 3$. Horisontal asymptote $y = 3$ i begge retningar.\n\nEi vanleg misforståing: kan grafen krysse ei asymptote? Ei **vertikal** asymptote kan aldri kryssast — funksjonen er ikkje definert der. Men horisontale og skrå asymptotar kan grafen fint krysse for moderate $x$-verdiar; asymptoten skildrar berre åtferda når $|x|$ blir stor.","f77470aa2fd70026":"Test deg sjølv på asymptotar for rasjonale funksjonar:","4097889236a2af26":"placeholder","67492af19b6cb9cf":"Kvar har $f(x) = \\frac{x^2 + x - 6}{x - 1}$ vertikal asymptote?","b96ae96cb92f7fb0":"$x = 1$","50a348317f5a3c60":"$x = -6$","0c82bd6cd3ab8ff8":"$x = 2$","8e8f20093238d0db":"Ho har ingen","95f5ce0ae4e946a8":"Nemnaren er null i $x = 1$, medan teljaren er $-4 \\neq 0$ der. Då går $f(x) \\to \\pm\\infty$, og $x = 1$ er vertikal asymptote.","19883575aae3d3a0":"For $\\frac{P(x)}{Q(x)}$ der teljar og nemnar har same grad, kva er den horisontale asymptoten?","3007076ebe489d03":"$y = 0$","f9652c55c22a4c79":"Forholdet mellom dei leiande koeffisientane","4a0a20ee43cede12":"Det finst ingen","43f3c0d2b0bad1f7":"Summen av koeffisientane","02c0f3b74cd85f40":"Når $m = n$ er asymptoten $y = \\frac{a_m}{b_n}$. For $\\frac{3x^2-1}{x^2+4}$ blir det $y = 3$.","fdec7746255caad5":"Når har ein rasjonal funksjon ei skrå asymptote?","f3fdb32c937bd813":"Når graden i teljaren er mindre enn i nemnaren","30b550b2ef3ee966":"Når gradene er like","9cf2623bd2bbbc6b":"Når graden i teljaren er nøyaktig éin meir enn i nemnaren","a13c06d5143ff5cc":"Når nemnaren aldri er null","e5e1e7bf2a112361":"Skrå asymptote $y = ax + b$ oppstår når $m = n + 1$. Sjølve linja finn du med polynomdivisjon, slik $\\frac{x^2+x-6}{x-1} = x + 2 - \\frac{4}{x-1}$ gav $y = x+2$.","78f22b9e93674759":"Kan grafen til ein funksjon krysse asymptotane sine?","d62944a7f617cdf5":"Nei, aldri","5cdf9910ad2d9084":"Ja, alle typar kan kryssast","474338ef8f296ef3":"Berre vertikale asymptotar kan kryssast","9957fb435fb55361":"Horisontale og skrå kan kryssast, vertikale aldri","a5b476b66f55cc7f":"Funksjonen er udefinert på ei vertikal asymptote, så ho kan aldri kryssast. Horisontale og skrå asymptotar skildrar berre åtferda for store $|x|$ — grafen kan godt krysse dei undervegs.","4b3a07f356b244ee":"## Kappløpet mot uendeleg\n\nKva skjer når funksjonar av ulik type konkurrerer om å vekse raskast? Tenk deg eit kappløp mot uendeleg mellom logaritmen $\\ln x$, potensen $x^a$ og eksponentialfunksjonen $e^x$. Resultatet er alltid det same, og det er verdt å kunne utanåt: **veksthierarkiet** seier at $\\ln x \\ll x^a \\ll a^x \\ll x!$ for store $x$. Logaritmen er tregast, potensar slår logaritmar, eksponentialfunksjonar slår alle potensar, og fakultetet slår alt.\n\nDette gjev oss ei liste med grenseverdiar som dukkar opp igjen og igjen i drøftingar: $\\lim_{x\\to\\infty} \\frac{1}{x^n} = 0$ for $n > 0$. $\\lim_{x\\to\\infty} \\frac{e^x}{x^n} = \\infty$ og $\\lim_{x\\to\\infty} \\frac{x^n}{e^x} = 0$ — eksponentiell slår polynom. $\\lim_{x\\to\\infty} \\frac{\\ln x}{x^a} = 0$ for $a > 0$ — polynom slår logaritme. Og den litt overraskande $\\lim_{x\\to 0^+} x \\ln x = 0$: når $x$ kryp mot null, går $\\ln x$ rett nok mot $-\\infty$, men $x$ går mot null raskare og vinn dragkampen.\n\nVeksthierarkiet løyser òg asymptoteproblem der gradregelen ikkje gjeld. Sjå på $f(x) = \\frac{e^x}{e^x + 1}$ — ein slektning av dei logistiske kurvene som skildrar marknadsmetting. Nemnaren $e^x + 1$ er alltid positiv, så ingen vertikale asymptotar finst. Mot høgre deler vi teljar og nemnar på $e^x$: $f(x) = \\frac{1}{1 + e^{-x}} \\to \\frac{1}{1+0} = 1$. Mot venstre går $e^x \\to 0$, så $f(x) \\to \\frac{0}{0+1} = 0$. Funksjonen har altså **to ulike horisontale asymptotar**: $y = 0$ mot venstre og $y = 1$ mot høgre. Grafen klatrar frå null mot éin — akkurat som marknadsdelen til eit produkt som spreier seg, men aldri når hundre prosent metting frå denne modellen åleine.","16bdc45bc8d0fc94":"Test deg sjølv på grenseverdiar og veksthierarkiet:","eebfcd816d078b8e":"Kva er $\\lim_{x \\to \\infty} \\frac{x^n}{e^x}$?","d249caca6d7f42a5":"$\\infty$","bb28a9b83048a0f3":"$n$","b4b4d3bfc0b846cb":"Eksponentialfunksjonen veks raskare enn einkvar potens, så brøken går mot null.","ed49ef244f9efe65":"Kva for ei rekkjefølgje i veksthierarkiet er rett for store $x$?","8e3f597084ce747c":"$x^a \\ll \\ln x \\ll e^x$","170626c2fbc8744f":"$e^x \\ll x^a \\ll \\ln x$","836714ce348a16d5":"$\\ln x \\ll x^a \\ll e^x$","369104d61eb0c62f":"$\\ln x \\ll e^x \\ll x^a$","e32ce845e6cdbf42":"Logaritmen veks tregast, potensfunksjonar raskare, og eksponentialfunksjonen raskast: $\\ln x \\ll x^a \\ll e^x$.","206d2a006a42bc5f":"Kva er $\\lim_{x \\to 0^+} x \\ln x$?","53877e249bb1ce67":"$-\\infty$","c66760d57327e8e0":"$+\\infty$","0f84cbbfedc531d4":"Sjølv om $\\ln x \\to -\\infty$, går $x$ mot null raskare. Produktet går mot $0$ — ein grenseverdi som ofte trengst i drøfting av logaritmefunksjonar.","7f96dabff12eac37":"Kva horisontale asymptotar har $f(x) = \\frac{e^x}{e^x + 1}$?","bef1e825ac476123":"Berre $y = 1$","3ee126670791fa7d":"Berre $y = 0$","0b092139527c8c3d":"$y = 0$ mot venstre og $y = 1$ mot høgre","76da1ddad5c85b8b":"$y = -1$ og $y = 1$","1b192ae4c7a32547":"Mot høgre: $\\frac{1}{1+e^{-x}} \\to 1$. Mot venstre: $e^x \\to 0$ gjev $f(x) \\to 0$. To ulike horisontale asymptotar er fullt mogleg.","0cf6d9f64e2bb098":"## Oppsummering: kartet over ytterkantane\n\nVi har teikna kartet over korleis funksjonar oppfører seg i ytterkantane. Tre typar asymptotar skildrar det: den **vertikale** $x = a$, der $f(x) \\to \\pm\\infty$ ved eit punkt utanfor definisjonsmengda; den **horisontale** $y = L$, der funksjonen flatar ut mot ein grenseverdi når $x \\to \\pm\\infty$; og den **skrå** $y = ax + b$, som du avslører med polynomdivisjon.\n\nFor rasjonale funksjonar $\\frac{P(x)}{Q(x)}$ er gradene nøkkelen: vertikale asymptotar ligg i nullpunkta til nemnaren (der teljaren ikkje òg er null). Er teljargraden mindre enn nemnargraden, er $y = 0$ asymptote; er gradene like, er asymptoten forholdet mellom dei leiande koeffisientane; er teljargraden nøyaktig éin større, finst ei skrå asymptote. Hugs òg at grafen aldri kan krysse ei vertikal asymptote, men gjerne ei horisontal eller skrå undervegs.\n\nFor funksjonar med eksponential- og logaritmeuttrykk er **veksthierarkiet** $\\ln x \\ll x^a \\ll e^x$ kompasset. Det gjev grenseverdiane du bør kunne utanåt: $\\frac{x^n}{e^x} \\to 0$, $\\frac{\\ln x}{x^a} \\to 0$ og $x \\ln x \\to 0$ når $x \\to 0^+$. Med desse i verktøykassa kunne vi vise at mettingskurva $\\frac{e^x}{e^x+1}$ klatrar frå asymptoten $y = 0$ til asymptoten $y = 1$ — eit matematisk bilete på ein marknad som blir fylt opp. Asymptotane er altså meir enn strekar på ein skisse: dei er utsegnet til modellen om kva som skjer på lang sikt og ved kritiske punkt."}}}
+{
+  "id": "s2-3-4-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "3.4",
+  "title": "Asymptotar og grenseåtferd",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om grenser som aldri heilt blir nådde — frå medisinkonsentrasjon til marknadsmetting — og linjene grafane legg seg inntil.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "bestemme vertikale, horisontale og skrå asymptotar for rasjonale funksjonar og andre funksjonstypar",
+    "analysere grenseåtferda til funksjonar når x går mot uendeleg eller mot singulære punkt"
+  ],
+  "linkedChapterId": "s2-3-4",
+  "content": [
+    {
+      "id": "s2-3-4-n-intro",
+      "type": "text",
+      "content": "## Grensa som aldri blir nådd\n\nNår eit nytt produkt blir lansert, veks brukartalet raskt i starten — men marknaden er ikkje uendeleg. Etter kvart flatar veksten ut mot eit tak, ei metting som kurva nærmar seg utan nokosinne å nå. Og i eit laboratorium kan konsentrasjonen av eit stoff eksplodere mot uendeleg når vi nærmar oss eit kritisk punkt. Begge fenomena blir skildra av same matematiske idé: **asymptotar** — linjer som grafen nærmar seg utan å nå.\n\nNår vi drøftar ein funksjon, må vi forstå kva som skjer i ytterkantane: når $x$ går mot uendeleg, og når $x$ nærmar seg punkt der funksjonen ikkje er definert. I S2 møter vi tre typar asymptotar.\n\nLinja $x = a$ er ei **vertikal asymptote** dersom $f(x) \\to \\pm\\infty$ når $x \\to a$ frå høgre eller venstre. Slike oppstår typisk der nemnaren i ein rasjonal funksjon er null utan at teljaren òg er null der. Linja $y = L$ er ei **horisontal asymptote** dersom $\\lim_{x \\to \\infty} f(x) = L$ eller $\\lim_{x \\to -\\infty} f(x) = L$ — og ein funksjon kan faktisk ha ulike horisontale asymptotar mot høgre og venstre. Linja $y = ax + b$ (med $a \\neq 0$) er ei **skrå asymptote** dersom $f(x) - (ax + b) \\to 0$ når $x \\to \\pm\\infty$; ho finn vi gjerne med polynomdivisjon, eller med grenseverdiane $a = \\lim_{x\\to\\infty} \\frac{f(x)}{x}$ og $b = \\lim_{x\\to\\infty} [f(x) - ax]$.\n\nÅ identifisere desse korrekt er avgjerande for ei fullstendig funksjonsdrøfting — og for å forstå kva modellane våre eigentleg seier om verkelegheita."
+    },
+    {
+      "id": "s2-3-4-n-section1",
+      "type": "text",
+      "content": "## Gradene avslører alt\n\nFor rasjonale funksjonar $f(x) = \\frac{P(x)}{Q(x)}$ finst det ein komplett hugseregel basert på gradene: lat $P$ ha grad $m$ og $Q$ ha grad $n$. **Vertikale asymptotar** ligg i nullpunkta til $Q$ som ikkje òg er nullpunkt for $P$. For åtferda mot uendeleg gjeld: dersom $m < n$, er $y = 0$ horisontal asymptote. Dersom $m = n$, er asymptoten $y = \\frac{a_m}{b_n}$ — forholdet mellom dei leiande koeffisientane. Dersom $m = n + 1$, finst ei skrå asymptote som du finn med polynomdivisjon. Og dersom $m > n + 1$, finst verken horisontal eller skrå asymptote.\n\nVi testar på $f(x) = \\frac{x^2 + x - 6}{x - 1}$. Nemnaren er null i $x = 1$, og teljaren er $1 + 1 - 6 = -4 \\neq 0$ der, så $x = 1$ er ei vertikal asymptote. Grenseverdiane stadfestar dramatikken: frå høgre går $f$ mot $\\frac{-4}{0^+} = -\\infty$, frå venstre mot $+\\infty$. Graden i teljaren er 2 og i nemnaren 1 — nøyaktig éin meir — så vi polynomdividerer: $\\frac{x^2+x-6}{x-1} = x + 2 + \\frac{-4}{x-1}$. Når $x \\to \\pm\\infty$ forsvinn brøken, og den skrå asymptoten er $y = x + 2$.\n\nEit anna døme: $f(x) = \\frac{3x^2 - 1}{x^2 + 4}$. Her er nemnaren $x^2 + 4$ alltid positiv — ingen vertikale asymptotar i det heile teke. Gradene er like ($m = n = 2$), så vi deler teljar og nemnar på $x^2$: $\\frac{3 - 1/x^2}{1 + 4/x^2} \\to \\frac{3}{1} = 3$. Horisontal asymptote $y = 3$ i begge retningar.\n\nEi vanleg misforståing: kan grafen krysse ei asymptote? Ei **vertikal** asymptote kan aldri kryssast — funksjonen er ikkje definert der. Men horisontale og skrå asymptotar kan grafen fint krysse for moderate $x$-verdiar; asymptoten skildrar berre åtferda når $|x|$ blir stor."
+    },
+    {
+      "id": "s2-3-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på asymptotar for rasjonale funksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-4-n-quiz1-q0",
+            "task": "Kvar har $f(x) = \\frac{x^2 + x - 6}{x - 1}$ vertikal asymptote?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = -6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ho har ingen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nemnaren er null i $x = 1$, medan teljaren er $-4 \\neq 0$ der. Då går $f(x) \\to \\pm\\infty$, og $x = 1$ er vertikal asymptote."
+          },
+          {
+            "id": "s2-3-4-n-quiz1-q1",
+            "task": "For $\\frac{P(x)}{Q(x)}$ der teljar og nemnar har same grad, kva er den horisontale asymptoten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Forholdet mellom dei leiande koeffisientane",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det finst ingen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Summen av koeffisientane",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $m = n$ er asymptoten $y = \\frac{a_m}{b_n}$. For $\\frac{3x^2-1}{x^2+4}$ blir det $y = 3$."
+          },
+          {
+            "id": "s2-3-4-n-quiz1-q2",
+            "task": "Når har ein rasjonal funksjon ei skrå asymptote?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når graden i teljaren er mindre enn i nemnaren",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når gradene er like",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når graden i teljaren er nøyaktig éin meir enn i nemnaren",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når nemnaren aldri er null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skrå asymptote $y = ax + b$ oppstår når $m = n + 1$. Sjølve linja finn du med polynomdivisjon, slik $\\frac{x^2+x-6}{x-1} = x + 2 - \\frac{4}{x-1}$ gav $y = x+2$."
+          },
+          {
+            "id": "s2-3-4-n-quiz1-q3",
+            "task": "Kan grafen til ein funksjon krysse asymptotane sine?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nei, aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ja, alle typar kan kryssast",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre vertikale asymptotar kan kryssast",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Horisontale og skrå kan kryssast, vertikale aldri",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Funksjonen er udefinert på ei vertikal asymptote, så ho kan aldri kryssast. Horisontale og skrå asymptotar skildrar berre åtferda for store $|x|$ — grafen kan godt krysse dei undervegs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-4-n-section2",
+      "type": "text",
+      "content": "## Kappløpet mot uendeleg\n\nKva skjer når funksjonar av ulik type konkurrerer om å vekse raskast? Tenk deg eit kappløp mot uendeleg mellom logaritmen $\\ln x$, potensen $x^a$ og eksponentialfunksjonen $e^x$. Resultatet er alltid det same, og det er verdt å kunne utanåt: **veksthierarkiet** seier at $\\ln x \\ll x^a \\ll a^x \\ll x!$ for store $x$. Logaritmen er tregast, potensar slår logaritmar, eksponentialfunksjonar slår alle potensar, og fakultetet slår alt.\n\nDette gjev oss ei liste med grenseverdiar som dukkar opp igjen og igjen i drøftingar: $\\lim_{x\\to\\infty} \\frac{1}{x^n} = 0$ for $n > 0$. $\\lim_{x\\to\\infty} \\frac{e^x}{x^n} = \\infty$ og $\\lim_{x\\to\\infty} \\frac{x^n}{e^x} = 0$ — eksponentiell slår polynom. $\\lim_{x\\to\\infty} \\frac{\\ln x}{x^a} = 0$ for $a > 0$ — polynom slår logaritme. Og den litt overraskande $\\lim_{x\\to 0^+} x \\ln x = 0$: når $x$ kryp mot null, går $\\ln x$ rett nok mot $-\\infty$, men $x$ går mot null raskare og vinn dragkampen.\n\nVeksthierarkiet løyser òg asymptoteproblem der gradregelen ikkje gjeld. Sjå på $f(x) = \\frac{e^x}{e^x + 1}$ — ein slektning av dei logistiske kurvene som skildrar marknadsmetting. Nemnaren $e^x + 1$ er alltid positiv, så ingen vertikale asymptotar finst. Mot høgre deler vi teljar og nemnar på $e^x$: $f(x) = \\frac{1}{1 + e^{-x}} \\to \\frac{1}{1+0} = 1$. Mot venstre går $e^x \\to 0$, så $f(x) \\to \\frac{0}{0+1} = 0$. Funksjonen har altså **to ulike horisontale asymptotar**: $y = 0$ mot venstre og $y = 1$ mot høgre. Grafen klatrar frå null mot éin — akkurat som marknadsdelen til eit produkt som spreier seg, men aldri når hundre prosent metting frå denne modellen åleine."
+    },
+    {
+      "id": "s2-3-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grenseverdiar og veksthierarkiet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-4-n-quiz2-q0",
+            "task": "Kva er $\\lim_{x \\to \\infty} \\frac{x^n}{e^x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentialfunksjonen veks raskare enn einkvar potens, så brøken går mot null."
+          },
+          {
+            "id": "s2-3-4-n-quiz2-q1",
+            "task": "Kva for ei rekkjefølgje i veksthierarkiet er rett for store $x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^a \\ll \\ln x \\ll e^x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\ln x \\ll x^a \\ll e^x$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$e^x \\ll x^a \\ll \\ln x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln x \\ll e^x \\ll x^a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logaritmen veks tregast, potensfunksjonar raskare, og eksponentialfunksjonen raskast: $\\ln x \\ll x^a \\ll e^x$."
+          },
+          {
+            "id": "s2-3-4-n-quiz2-q2",
+            "task": "Kva er $\\lim_{x \\to 0^+} x \\ln x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$+\\infty$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sjølv om $\\ln x \\to -\\infty$, går $x$ mot null raskare. Produktet går mot $0$ — ein grenseverdi som ofte trengst i drøfting av logaritmefunksjonar."
+          },
+          {
+            "id": "s2-3-4-n-quiz2-q3",
+            "task": "Kva horisontale asymptotar har $f(x) = \\frac{e^x}{e^x + 1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre $y = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre $y = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = -1$ og $y = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 0$ mot venstre og $y = 1$ mot høgre",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Mot høgre: $\\frac{1}{1+e^{-x}} \\to 1$. Mot venstre: $e^x \\to 0$ gjev $f(x) \\to 0$. To ulike horisontale asymptotar er fullt mogleg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: kartet over ytterkantane\n\nVi har teikna kartet over korleis funksjonar oppfører seg i ytterkantane. Tre typar asymptotar skildrar det: den **vertikale** $x = a$, der $f(x) \\to \\pm\\infty$ ved eit punkt utanfor definisjonsmengda; den **horisontale** $y = L$, der funksjonen flatar ut mot ein grenseverdi når $x \\to \\pm\\infty$; og den **skrå** $y = ax + b$, som du avslører med polynomdivisjon.\n\nFor rasjonale funksjonar $\\frac{P(x)}{Q(x)}$ er gradene nøkkelen: vertikale asymptotar ligg i nullpunkta til nemnaren (der teljaren ikkje òg er null). Er teljargraden mindre enn nemnargraden, er $y = 0$ asymptote; er gradene like, er asymptoten forholdet mellom dei leiande koeffisientane; er teljargraden nøyaktig éin større, finst ei skrå asymptote. Hugs òg at grafen aldri kan krysse ei vertikal asymptote, men gjerne ei horisontal eller skrå undervegs.\n\nFor funksjonar med eksponential- og logaritmeuttrykk er **veksthierarkiet** $\\ln x \\ll x^a \\ll e^x$ kompasset. Det gjev grenseverdiane du bør kunne utanåt: $\\frac{x^n}{e^x} \\to 0$, $\\frac{\\ln x}{x^a} \\to 0$ og $x \\ln x \\to 0$ når $x \\to 0^+$. Med desse i verktøykassa kunne vi vise at mettingskurva $\\frac{e^x}{e^x+1}$ klatrar frå asymptoten $y = 0$ til asymptoten $y = 1$ — eit matematisk bilete på ein marknad som blir fylt opp. Asymptotane er altså meir enn strekar på ein skisse: dei er utsegnet til modellen om kva som skjer på lang sikt og ved kritiske punkt."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "76d3c725167253d5",
+    "translatedAt": "2026-06-20T09:03:46.062Z",
+    "model": "claude-code-agent",
+    "strings": 57,
+    "tm": {
+      "afec1075b2c68d40": "Asymptotar og grenseåtferd",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "754319afd70334b3": "Ei forteljing om grenser som aldri heilt blir nådde — frå medisinkonsentrasjon til marknadsmetting — og linjene grafane legg seg inntil.",
+      "2485115bc9c19c74": "bestemme vertikale, horisontale og skrå asymptotar for rasjonale funksjonar og andre funksjonstypar",
+      "c8d4d6466ae3aecd": "analysere grenseåtferda til funksjonar når x går mot uendeleg eller mot singulære punkt",
+      "03285f24b2b74636": "## Grensa som aldri blir nådd\n\nNår eit nytt produkt blir lansert, veks brukartalet raskt i starten — men marknaden er ikkje uendeleg. Etter kvart flatar veksten ut mot eit tak, ei metting som kurva nærmar seg utan nokosinne å nå. Og i eit laboratorium kan konsentrasjonen av eit stoff eksplodere mot uendeleg når vi nærmar oss eit kritisk punkt. Begge fenomena blir skildra av same matematiske idé: **asymptotar** — linjer som grafen nærmar seg utan å nå.\n\nNår vi drøftar ein funksjon, må vi forstå kva som skjer i ytterkantane: når $x$ går mot uendeleg, og når $x$ nærmar seg punkt der funksjonen ikkje er definert. I S2 møter vi tre typar asymptotar.\n\nLinja $x = a$ er ei **vertikal asymptote** dersom $f(x) \\to \\pm\\infty$ når $x \\to a$ frå høgre eller venstre. Slike oppstår typisk der nemnaren i ein rasjonal funksjon er null utan at teljaren òg er null der. Linja $y = L$ er ei **horisontal asymptote** dersom $\\lim_{x \\to \\infty} f(x) = L$ eller $\\lim_{x \\to -\\infty} f(x) = L$ — og ein funksjon kan faktisk ha ulike horisontale asymptotar mot høgre og venstre. Linja $y = ax + b$ (med $a \\neq 0$) er ei **skrå asymptote** dersom $f(x) - (ax + b) \\to 0$ når $x \\to \\pm\\infty$; ho finn vi gjerne med polynomdivisjon, eller med grenseverdiane $a = \\lim_{x\\to\\infty} \\frac{f(x)}{x}$ og $b = \\lim_{x\\to\\infty} [f(x) - ax]$.\n\nÅ identifisere desse korrekt er avgjerande for ei fullstendig funksjonsdrøfting — og for å forstå kva modellane våre eigentleg seier om verkelegheita.",
+      "64bd3d939b913c0f": "## Gradene avslører alt\n\nFor rasjonale funksjonar $f(x) = \\frac{P(x)}{Q(x)}$ finst det ein komplett hugseregel basert på gradene: lat $P$ ha grad $m$ og $Q$ ha grad $n$. **Vertikale asymptotar** ligg i nullpunkta til $Q$ som ikkje òg er nullpunkt for $P$. For åtferda mot uendeleg gjeld: dersom $m < n$, er $y = 0$ horisontal asymptote. Dersom $m = n$, er asymptoten $y = \\frac{a_m}{b_n}$ — forholdet mellom dei leiande koeffisientane. Dersom $m = n + 1$, finst ei skrå asymptote som du finn med polynomdivisjon. Og dersom $m > n + 1$, finst verken horisontal eller skrå asymptote.\n\nVi testar på $f(x) = \\frac{x^2 + x - 6}{x - 1}$. Nemnaren er null i $x = 1$, og teljaren er $1 + 1 - 6 = -4 \\neq 0$ der, så $x = 1$ er ei vertikal asymptote. Grenseverdiane stadfestar dramatikken: frå høgre går $f$ mot $\\frac{-4}{0^+} = -\\infty$, frå venstre mot $+\\infty$. Graden i teljaren er 2 og i nemnaren 1 — nøyaktig éin meir — så vi polynomdividerer: $\\frac{x^2+x-6}{x-1} = x + 2 + \\frac{-4}{x-1}$. Når $x \\to \\pm\\infty$ forsvinn brøken, og den skrå asymptoten er $y = x + 2$.\n\nEit anna døme: $f(x) = \\frac{3x^2 - 1}{x^2 + 4}$. Her er nemnaren $x^2 + 4$ alltid positiv — ingen vertikale asymptotar i det heile teke. Gradene er like ($m = n = 2$), så vi deler teljar og nemnar på $x^2$: $\\frac{3 - 1/x^2}{1 + 4/x^2} \\to \\frac{3}{1} = 3$. Horisontal asymptote $y = 3$ i begge retningar.\n\nEi vanleg misforståing: kan grafen krysse ei asymptote? Ei **vertikal** asymptote kan aldri kryssast — funksjonen er ikkje definert der. Men horisontale og skrå asymptotar kan grafen fint krysse for moderate $x$-verdiar; asymptoten skildrar berre åtferda når $|x|$ blir stor.",
+      "f77470aa2fd70026": "Test deg sjølv på asymptotar for rasjonale funksjonar:",
+      "4097889236a2af26": "placeholder",
+      "67492af19b6cb9cf": "Kvar har $f(x) = \\frac{x^2 + x - 6}{x - 1}$ vertikal asymptote?",
+      "b96ae96cb92f7fb0": "$x = 1$",
+      "50a348317f5a3c60": "$x = -6$",
+      "0c82bd6cd3ab8ff8": "$x = 2$",
+      "8e8f20093238d0db": "Ho har ingen",
+      "95f5ce0ae4e946a8": "Nemnaren er null i $x = 1$, medan teljaren er $-4 \\neq 0$ der. Då går $f(x) \\to \\pm\\infty$, og $x = 1$ er vertikal asymptote.",
+      "19883575aae3d3a0": "For $\\frac{P(x)}{Q(x)}$ der teljar og nemnar har same grad, kva er den horisontale asymptoten?",
+      "3007076ebe489d03": "$y = 0$",
+      "f9652c55c22a4c79": "Forholdet mellom dei leiande koeffisientane",
+      "4a0a20ee43cede12": "Det finst ingen",
+      "43f3c0d2b0bad1f7": "Summen av koeffisientane",
+      "02c0f3b74cd85f40": "Når $m = n$ er asymptoten $y = \\frac{a_m}{b_n}$. For $\\frac{3x^2-1}{x^2+4}$ blir det $y = 3$.",
+      "fdec7746255caad5": "Når har ein rasjonal funksjon ei skrå asymptote?",
+      "f3fdb32c937bd813": "Når graden i teljaren er mindre enn i nemnaren",
+      "30b550b2ef3ee966": "Når gradene er like",
+      "9cf2623bd2bbbc6b": "Når graden i teljaren er nøyaktig éin meir enn i nemnaren",
+      "a13c06d5143ff5cc": "Når nemnaren aldri er null",
+      "e5e1e7bf2a112361": "Skrå asymptote $y = ax + b$ oppstår når $m = n + 1$. Sjølve linja finn du med polynomdivisjon, slik $\\frac{x^2+x-6}{x-1} = x + 2 - \\frac{4}{x-1}$ gav $y = x+2$.",
+      "78f22b9e93674759": "Kan grafen til ein funksjon krysse asymptotane sine?",
+      "d62944a7f617cdf5": "Nei, aldri",
+      "5cdf9910ad2d9084": "Ja, alle typar kan kryssast",
+      "474338ef8f296ef3": "Berre vertikale asymptotar kan kryssast",
+      "9957fb435fb55361": "Horisontale og skrå kan kryssast, vertikale aldri",
+      "a5b476b66f55cc7f": "Funksjonen er udefinert på ei vertikal asymptote, så ho kan aldri kryssast. Horisontale og skrå asymptotar skildrar berre åtferda for store $|x|$ — grafen kan godt krysse dei undervegs.",
+      "4b3a07f356b244ee": "## Kappløpet mot uendeleg\n\nKva skjer når funksjonar av ulik type konkurrerer om å vekse raskast? Tenk deg eit kappløp mot uendeleg mellom logaritmen $\\ln x$, potensen $x^a$ og eksponentialfunksjonen $e^x$. Resultatet er alltid det same, og det er verdt å kunne utanåt: **veksthierarkiet** seier at $\\ln x \\ll x^a \\ll a^x \\ll x!$ for store $x$. Logaritmen er tregast, potensar slår logaritmar, eksponentialfunksjonar slår alle potensar, og fakultetet slår alt.\n\nDette gjev oss ei liste med grenseverdiar som dukkar opp igjen og igjen i drøftingar: $\\lim_{x\\to\\infty} \\frac{1}{x^n} = 0$ for $n > 0$. $\\lim_{x\\to\\infty} \\frac{e^x}{x^n} = \\infty$ og $\\lim_{x\\to\\infty} \\frac{x^n}{e^x} = 0$ — eksponentiell slår polynom. $\\lim_{x\\to\\infty} \\frac{\\ln x}{x^a} = 0$ for $a > 0$ — polynom slår logaritme. Og den litt overraskande $\\lim_{x\\to 0^+} x \\ln x = 0$: når $x$ kryp mot null, går $\\ln x$ rett nok mot $-\\infty$, men $x$ går mot null raskare og vinn dragkampen.\n\nVeksthierarkiet løyser òg asymptoteproblem der gradregelen ikkje gjeld. Sjå på $f(x) = \\frac{e^x}{e^x + 1}$ — ein slektning av dei logistiske kurvene som skildrar marknadsmetting. Nemnaren $e^x + 1$ er alltid positiv, så ingen vertikale asymptotar finst. Mot høgre deler vi teljar og nemnar på $e^x$: $f(x) = \\frac{1}{1 + e^{-x}} \\to \\frac{1}{1+0} = 1$. Mot venstre går $e^x \\to 0$, så $f(x) \\to \\frac{0}{0+1} = 0$. Funksjonen har altså **to ulike horisontale asymptotar**: $y = 0$ mot venstre og $y = 1$ mot høgre. Grafen klatrar frå null mot éin — akkurat som marknadsdelen til eit produkt som spreier seg, men aldri når hundre prosent metting frå denne modellen åleine.",
+      "16bdc45bc8d0fc94": "Test deg sjølv på grenseverdiar og veksthierarkiet:",
+      "eebfcd816d078b8e": "Kva er $\\lim_{x \\to \\infty} \\frac{x^n}{e^x}$?",
+      "d249caca6d7f42a5": "$\\infty$",
+      "bb28a9b83048a0f3": "$n$",
+      "b4b4d3bfc0b846cb": "Eksponentialfunksjonen veks raskare enn einkvar potens, så brøken går mot null.",
+      "ed49ef244f9efe65": "Kva for ei rekkjefølgje i veksthierarkiet er rett for store $x$?",
+      "8e3f597084ce747c": "$x^a \\ll \\ln x \\ll e^x$",
+      "170626c2fbc8744f": "$e^x \\ll x^a \\ll \\ln x$",
+      "836714ce348a16d5": "$\\ln x \\ll x^a \\ll e^x$",
+      "369104d61eb0c62f": "$\\ln x \\ll e^x \\ll x^a$",
+      "e32ce845e6cdbf42": "Logaritmen veks tregast, potensfunksjonar raskare, og eksponentialfunksjonen raskast: $\\ln x \\ll x^a \\ll e^x$.",
+      "206d2a006a42bc5f": "Kva er $\\lim_{x \\to 0^+} x \\ln x$?",
+      "53877e249bb1ce67": "$-\\infty$",
+      "c66760d57327e8e0": "$+\\infty$",
+      "0f84cbbfedc531d4": "Sjølv om $\\ln x \\to -\\infty$, går $x$ mot null raskare. Produktet går mot $0$ — ein grenseverdi som ofte trengst i drøfting av logaritmefunksjonar.",
+      "7f96dabff12eac37": "Kva horisontale asymptotar har $f(x) = \\frac{e^x}{e^x + 1}$?",
+      "bef1e825ac476123": "Berre $y = 1$",
+      "3ee126670791fa7d": "Berre $y = 0$",
+      "0b092139527c8c3d": "$y = 0$ mot venstre og $y = 1$ mot høgre",
+      "76da1ddad5c85b8b": "$y = -1$ og $y = 1$",
+      "1b192ae4c7a32547": "Mot høgre: $\\frac{1}{1+e^{-x}} \\to 1$. Mot venstre: $e^x \\to 0$ gjev $f(x) \\to 0$. To ulike horisontale asymptotar er fullt mogleg.",
+      "0cf6d9f64e2bb098": "## Oppsummering: kartet over ytterkantane\n\nVi har teikna kartet over korleis funksjonar oppfører seg i ytterkantane. Tre typar asymptotar skildrar det: den **vertikale** $x = a$, der $f(x) \\to \\pm\\infty$ ved eit punkt utanfor definisjonsmengda; den **horisontale** $y = L$, der funksjonen flatar ut mot ein grenseverdi når $x \\to \\pm\\infty$; og den **skrå** $y = ax + b$, som du avslører med polynomdivisjon.\n\nFor rasjonale funksjonar $\\frac{P(x)}{Q(x)}$ er gradene nøkkelen: vertikale asymptotar ligg i nullpunkta til nemnaren (der teljaren ikkje òg er null). Er teljargraden mindre enn nemnargraden, er $y = 0$ asymptote; er gradene like, er asymptoten forholdet mellom dei leiande koeffisientane; er teljargraden nøyaktig éin større, finst ei skrå asymptote. Hugs òg at grafen aldri kan krysse ei vertikal asymptote, men gjerne ei horisontal eller skrå undervegs.\n\nFor funksjonar med eksponential- og logaritmeuttrykk er **veksthierarkiet** $\\ln x \\ll x^a \\ll e^x$ kompasset. Det gjev grenseverdiane du bør kunne utanåt: $\\frac{x^n}{e^x} \\to 0$, $\\frac{\\ln x}{x^a} \\to 0$ og $x \\ln x \\to 0$ når $x \\to 0^+$. Med desse i verktøykassa kunne vi vise at mettingskurva $\\frac{e^x}{e^x+1}$ klatrar frå asymptoten $y = 0$ til asymptoten $y = 1$ — eit matematisk bilete på ein marknad som blir fylt opp. Asymptotane er altså meir enn strekar på ein skisse: dei er utsegnet til modellen om kva som skjer på lang sikt og ved kritiske punkt."
+    }
+  }
+}

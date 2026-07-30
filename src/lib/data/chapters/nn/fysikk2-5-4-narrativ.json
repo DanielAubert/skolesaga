@@ -1,1 +1,420 @@
-{"id":"fysikk2-5-4-narrativ","courseId":"fysikk2","chapterNumber":"5.4","title":"Generatorar og motorar","subtitle":"Narrativ versjon","description":"Ei forteljing om éi maskin i to retningar — generatoren som lagar straum og motoren som lagar rørsle, effektivverdiar, dreiemoment og tilbake-EMF-en som forklarar startrykket til motoren.","estimatedMinutes":33,"competenceGoals":["forklare verkemåten til AC-generatoren og effektivverdiar","analysere dreiemoment og verkemåte i DC-motorar","rekne ut tilbake-EMF og straum i motorar"],"linkedChapterId":"fysikk2-5-4","content":[{"id":"fysikk2-5-4-n-intro","type":"text","content":"## Éi maskin, to retningar\n\nFaradays induksjon gav oss to av dei viktigaste maskinene i sivilisasjonen: **generatoren**, som gjer mekanisk energi til elektrisk, og **motoren**, som gjer elektrisk energi til mekanisk. Det forbløffande er at dette i prinsippet er nøyaktig same maskina, berre brukt i kvar si retning. Begge utnyttar samspelet mellom magnetfelt og straumførande leiarar. I dette kapittelet ser vi nærare på korleis generatoren lagar sinusforma spenning, kvifor vi brukar effektivverdiar, korleis likestraumsmotoren fungerer — og det subtile fenomenet **tilbake-EMF**, som forklarar kvifor ein motor trekkjer enormt mykje straum i det augneblikket han startar."},{"id":"fysikk2-5-4-n-section1","type":"text","content":"## Generatoren og effektivverdiar\n\nEin AC-generator har ein spole med $N$ vindingar og areal $A$ som roterer med vinkelfrekvens $\\omega$ i eit felt $B$. Vinkelen mellom normalvektoren til spolen og feltet er $\\theta = \\omega t$, så fluksen er $\\Phi(t) = NBA\\cos(\\omega t)$. Faradays lov gir spenninga ved derivasjon:\n\n$$\\varepsilon(t) = NBA\\omega\\sin(\\omega t) = \\varepsilon_0\\sin(\\omega t)$$\n\nmed toppverdi $\\varepsilon_0 = NBA\\omega$. Frekvensen heng saman med rotasjonen gjennom $\\omega = 2\\pi f = 2\\pi/T$. I Noreg er $f = 50$ Hz, perioden $T = 0{,}020$ s og $\\omega = 314$ rad/s. Lat oss rekne: ein generator med $N = 500$ vindingar, $A = 0{,}040$ m², $B = 0{,}30$ T og $f = 50$ Hz gir $\\omega = 314$ rad/s og toppverdi $\\varepsilon_0 = 500\\cdot 0{,}30\\cdot 0{,}040\\cdot 314 = 1884$ V.\n\nFordi spenninga vekslar forteikn, beskriv vi henne med **effektivverdiar** (RMS), definert slik at dei gir rett gjennomsnittleg effekt $P_{\\text{gj}} = I_{\\text{rms}}^2 R$. Sidan gjennomsnittet av $\\sin^2$ er $\\frac{1}{2}$, er\n\n$$V_{\\text{rms}} = \\frac{V_0}{\\sqrt{2}}, \\qquad I_{\\text{rms}} = \\frac{I_0}{\\sqrt{2}}$$\n\nNorsk nettspenning på $230$ V er ein effektivverdi; toppverdien er $V_0 = 230\\cdot\\sqrt{2} = 325$ V. Ei vanleg felle er å forveksle dei to."},{"id":"fysikk2-5-4-n-quiz1","type":"exercise","exercise":{"id":"fysikk2-5-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på generator og RMS:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-5-4-n-quiz1-q0","task":"Kva er toppverdien av spenninga frå ein AC-generator?","options":[{"id":"a","text":"$NBA$","isCorrect":false},{"id":"b","text":"$NBA/\\omega$","isCorrect":false},{"id":"c","text":"$NBA\\omega$","isCorrect":true},{"id":"d","text":"$NBA\\omega^2$","isCorrect":false}],"solution":"Toppverdien er $\\varepsilon_0 = NBA\\omega$, der $\\omega = 2\\pi f$ er vinkelfrekvensen."},{"id":"fysikk2-5-4-n-quiz1-q1","task":"Kvifor brukar vi RMS-verdiar for AC?","options":[{"id":"a","text":"Fordi toppverdien er null","isCorrect":false},{"id":"b","text":"Fordi dei er lettare å måle","isCorrect":false},{"id":"c","text":"Av tradisjon","isCorrect":false},{"id":"d","text":"Fordi dei gir rett gjennomsnittleg effekt i ein motstand","isCorrect":true}],"solution":"Det vanlege gjennomsnittet av AC er null, men effekten ($\\propto I^2$) er ikkje det. RMS-verdien er definert slik at $P_{\\text{gj}} = I_{\\text{rms}}^2 R$."},{"id":"fysikk2-5-4-n-quiz1-q2","task":"Norsk nett er 230 V rms. Kva er toppverdien?","options":[{"id":"a","text":"325 V","isCorrect":true},{"id":"b","text":"230 V","isCorrect":false},{"id":"c","text":"163 V","isCorrect":false},{"id":"d","text":"460 V","isCorrect":false}],"solution":"$V_0 = V_{\\text{rms}}\\sqrt{2} = 230\\cdot 1{,}414 \\approx 325$ V."}]}},{"id":"fysikk2-5-4-n-section2","type":"text","content":"## Motoren og dreiemomentet\n\nEin **motor** er ein generator i revers: han omdannar elektrisk energi til mekanisk. Ein likestraumsmotor har same oppbygginga som ein DC-generator — ein straumførande spole i eit magnetfelt — men no sender vi straum gjennom spolen, og den magnetiske krafta på straumen skaper eit **dreiemoment** som får spolen til å rotere. For ein rektangulær spole med $N$ vindingar, straum $I$ og areal $A$ i eit felt $B$ er dreiemomentet\n\n$$\\tau = NIAB\\sin\\theta$$\n\nder $\\theta$ er vinkelen mellom normalvektoren til spolen og feltet. Det er maksimalt når $\\theta = 90°$, altså $\\tau_{\\text{maks}} = NIAB$. Ein **kommutator** snur straumretninga idet spolen passerer likevektsstillinga, slik at dreiemomentet alltid peikar same vegen og rotasjonen blir kontinuerleg.\n\nSamanhengen mellom dei to maskinene er total: generatoren tek inn mekanisk energi og gir ut elektrisk via induksjon (Faradays lov), medan motoren tek inn elektrisk energi og gir ut mekanisk via kraft på straum i felt. Same prinsippa, motsett retning. Denne dualiteten er nettopp det som gjer **regenerativ bremsing** mogleg: motoren i ein elbil kan, under bremsing, køyrast baklengs som generator og lade kinetisk energi tilbake i batteriet, typisk med $60$–$70\\%$ verknadsgrad."},{"id":"fysikk2-5-4-n-quiz2","type":"exercise","exercise":{"id":"fysikk2-5-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på motoren:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-5-4-n-quiz2-q0","task":"Kva er dreiemomentet på ein straumførande spole i ein motor?","options":[{"id":"a","text":"$\\tau = BIL$","isCorrect":false},{"id":"b","text":"$\\tau = NIAB\\sin\\theta$","isCorrect":true},{"id":"c","text":"$\\tau = NBA\\omega$","isCorrect":false},{"id":"d","text":"$\\tau = I^2R$","isCorrect":false}],"solution":"Dreiemomentet er $\\tau = NIAB\\sin\\theta$, maksimalt $NIAB$ når $\\theta = 90°$."},{"id":"fysikk2-5-4-n-quiz2-q1","task":"Kva er samanhengen mellom motor og generator?","options":[{"id":"a","text":"Dei er heilt ulike maskiner","isCorrect":false},{"id":"b","text":"Berre motoren brukar magnetfelt","isCorrect":false},{"id":"c","text":"Dei er i prinsippet same maskina brukt i motsett retning","isCorrect":true},{"id":"d","text":"Berre generatoren har spole","isCorrect":false}],"solution":"Generatoren gjer mekanisk energi til elektrisk, motoren gjer elektrisk til mekanisk — same maskina, motsett retning."},{"id":"fysikk2-5-4-n-quiz2-q2","task":"Kva gjer kommutatoren mogleg i ein DC-motor?","options":[{"id":"a","text":"Lagar vekselstraum","isCorrect":false},{"id":"b","text":"Måler farten","isCorrect":false},{"id":"c","text":"Lagrar energi","isCorrect":false},{"id":"d","text":"Snur straumretninga så dreiemomentet alltid verkar same vegen","isCorrect":true}],"solution":"Kommutatoren snur straumen ved likevektsstillinga, slik at dreiemomentet held same rotasjonsretning og rørsla blir kontinuerleg."}]}},{"id":"fysikk2-5-4-n-section3","type":"text","content":"## Tilbake-EMF\n\nHer kjem ein subtil og viktig effekt. Når ein motor spinn, fungerer han **samstundes som generator**! Den roterande spolen induserer ein EMF som etter Lenz' lov motverkar den pålagde spenninga. Denne blir kalla **tilbake-EMF** (back-EMF), og han er proporsjonal med rotasjonsfarten: $\\varepsilon_{\\text{tilbake}} = NBA\\omega$. Krinslikninga for motoren blir\n\n$$V = \\varepsilon_{\\text{tilbake}} + IR$$\n\nså straumen er $I = (V - \\varepsilon_{\\text{tilbake}})/R$. Dette forklarar eit fenomen du kanskje har merka: ved **oppstart** står motoren stille, $\\omega = 0$, så tilbake-EMF-en er null og straumen blir maksimal, $I = V/R$. Det er difor lyset kan blinke når ein stor motor startar — han trekkjer eit kraftig straumrykk. Når motoren kjem opp i fart, veks tilbake-EMF-en, og straumen søkk til eit normalt nivå.\n\nLat oss rekne: ein DC-motor med $R = 2{,}0\\,\\Omega$ blir driven med $V = 24$ V. Ved oppstart er $I = 24/2{,}0 = 12$ A — eit kraftig rykk. Ved full fart, der tilbake-EMF-en er $20$ V, blir $I = (24 - 20)/2{,}0 = 2{,}0$ A. Den mekaniske effekten motoren leverer er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}\\cdot I = 20\\cdot 2{,}0 = 40$ W, og verknadsgraden er $\\eta = \\varepsilon_{\\text{tilbake}}/V = 20/24 = 0{,}83$. Tilbake-EMF er altså ikkje eit problem, men sjølve mekanismen som gjer motoren effektiv."},{"id":"fysikk2-5-4-n-quiz3","type":"exercise","exercise":{"id":"fysikk2-5-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på tilbake-EMF:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"fysikk2-5-4-n-quiz3-q0","task":"Kva er tilbake-EMF i ein motor?","options":[{"id":"a","text":"Ein indusert EMF som motverkar den pålagde spenninga når motoren spinn","isCorrect":true},{"id":"b","text":"Ein feil i motoren","isCorrect":false},{"id":"c","text":"Straumen ved oppstart","isCorrect":false},{"id":"d","text":"Effekttapet","isCorrect":false}],"solution":"Den roterande motoren fungerer også som generator og induserer ein tilbake-EMF som etter Lenz' lov motverkar den pålagde spenninga."},{"id":"fysikk2-5-4-n-quiz3-q1","task":"Kvifor trekkjer ein motor mest straum ved oppstart?","options":[{"id":"a","text":"Fordi motstanden er størst då","isCorrect":false},{"id":"b","text":"Fordi tilbake-EMF er null når $\\omega = 0$, så $I = V/R$","isCorrect":true},{"id":"c","text":"Fordi feltet er sterkast","isCorrect":false},{"id":"d","text":"Fordi spenninga er høgast","isCorrect":false}],"solution":"Ved oppstart står motoren stille, så tilbake-EMF er null og straumen blir maksimal: $I = V/R$."},{"id":"fysikk2-5-4-n-quiz3-q2","task":"Ein motor ($R = 2{,}0\\,\\Omega$, $V = 24$ V) har tilbake-EMF 20 V ved full fart. Kva er straumen?","options":[{"id":"a","text":"12 A","isCorrect":false},{"id":"b","text":"22 A","isCorrect":false},{"id":"c","text":"2,0 A","isCorrect":true},{"id":"d","text":"10 A","isCorrect":false}],"solution":"$I = (V - \\varepsilon_{\\text{tilbake}})/R = (24-20)/2{,}0 = 2{,}0$ A."}]}},{"id":"fysikk2-5-4-n-summary","type":"text","content":"## Oppsummering\n\nGenerator og motor er **same maskina** brukt i kvar si retning. Generatoren lagar $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, og vi beskriv AC med **effektivverdiar** $V_{\\text{rms}} = V_0/\\sqrt{2}$ (norsk nett: 230 V rms, 325 V topp). Motoren skaper eit **dreiemoment** $\\tau = NIAB\\sin\\theta$, og kommutatoren gir kontinuerleg rotasjon. Når motoren spinn, induserer han ein **tilbake-EMF** $\\varepsilon_{\\text{tilbake}} = NBA\\omega$, så $V = \\varepsilon_{\\text{tilbake}} + IR$. Ved oppstart er tilbake-EMF null og straumen maksimal ($I = V/R$); ved full fart søkk straumen. Mekanisk effekt er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}I$, og dualiteten gjer regenerativ bremsing mogleg."}],"exercises":[],"_meta":{"sourceHash":"bda985a4e94d4d4d","translatedAt":"2026-06-20T22:45:23.549Z","model":"claude-code-agent","strings":71,"tm":{"241b650a2c3c3e32":"Generatorar og motorar","b195b06d1ed59702":"Narrativ versjon","fffd5787b36e6df7":"Ei forteljing om éi maskin i to retningar — generatoren som lagar straum og motoren som lagar rørsle, effektivverdiar, dreiemoment og tilbake-EMF-en som forklarar startrykket til motoren.","9eeb9a05d6a24d6b":"forklare verkemåten til AC-generatoren og effektivverdiar","5c166dc89774f6bb":"analysere dreiemoment og verkemåte i DC-motorar","4696e6b7f33e8dac":"rekne ut tilbake-EMF og straum i motorar","7fc1fc307176fa0a":"## Éi maskin, to retningar\n\nFaradays induksjon gav oss to av dei viktigaste maskinene i sivilisasjonen: **generatoren**, som gjer mekanisk energi til elektrisk, og **motoren**, som gjer elektrisk energi til mekanisk. Det forbløffande er at dette i prinsippet er nøyaktig same maskina, berre brukt i kvar si retning. Begge utnyttar samspelet mellom magnetfelt og straumførande leiarar. I dette kapittelet ser vi nærare på korleis generatoren lagar sinusforma spenning, kvifor vi brukar effektivverdiar, korleis likestraumsmotoren fungerer — og det subtile fenomenet **tilbake-EMF**, som forklarar kvifor ein motor trekkjer enormt mykje straum i det augneblikket han startar.","166052d0c1d7f7f7":"## Generatoren og effektivverdiar\n\nEin AC-generator har ein spole med $N$ vindingar og areal $A$ som roterer med vinkelfrekvens $\\omega$ i eit felt $B$. Vinkelen mellom normalvektoren til spolen og feltet er $\\theta = \\omega t$, så fluksen er $\\Phi(t) = NBA\\cos(\\omega t)$. Faradays lov gir spenninga ved derivasjon:\n\n$$\\varepsilon(t) = NBA\\omega\\sin(\\omega t) = \\varepsilon_0\\sin(\\omega t)$$\n\nmed toppverdi $\\varepsilon_0 = NBA\\omega$. Frekvensen heng saman med rotasjonen gjennom $\\omega = 2\\pi f = 2\\pi/T$. I Noreg er $f = 50$ Hz, perioden $T = 0{,}020$ s og $\\omega = 314$ rad/s. Lat oss rekne: ein generator med $N = 500$ vindingar, $A = 0{,}040$ m², $B = 0{,}30$ T og $f = 50$ Hz gir $\\omega = 314$ rad/s og toppverdi $\\varepsilon_0 = 500\\cdot 0{,}30\\cdot 0{,}040\\cdot 314 = 1884$ V.\n\nFordi spenninga vekslar forteikn, beskriv vi henne med **effektivverdiar** (RMS), definert slik at dei gir rett gjennomsnittleg effekt $P_{\\text{gj}} = I_{\\text{rms}}^2 R$. Sidan gjennomsnittet av $\\sin^2$ er $\\frac{1}{2}$, er\n\n$$V_{\\text{rms}} = \\frac{V_0}{\\sqrt{2}}, \\qquad I_{\\text{rms}} = \\frac{I_0}{\\sqrt{2}}$$\n\nNorsk nettspenning på $230$ V er ein effektivverdi; toppverdien er $V_0 = 230\\cdot\\sqrt{2} = 325$ V. Ei vanleg felle er å forveksle dei to.","f63254af37ee4ab2":"Test deg sjølv på generator og RMS:","4097889236a2af26":"placeholder","bd50b36808667a77":"Kva er toppverdien av spenninga frå ein AC-generator?","37432c9a6be58d55":"$NBA$","6363587893473d1a":"$NBA/\\omega$","be9964e4d0d4a67b":"$NBA\\omega$","c2816999cd0f6b7c":"$NBA\\omega^2$","0824e4604ee36480":"Toppverdien er $\\varepsilon_0 = NBA\\omega$, der $\\omega = 2\\pi f$ er vinkelfrekvensen.","23d3d7fcbdd1e23e":"Kvifor brukar vi RMS-verdiar for AC?","b6ee27f1369d46ee":"Fordi toppverdien er null","9820a30991d5e811":"Fordi dei er lettare å måle","57ed86b5e0d5b275":"Av tradisjon","2a7534d93c569669":"Fordi dei gir rett gjennomsnittleg effekt i ein motstand","8474802645ae8892":"Det vanlege gjennomsnittet av AC er null, men effekten ($\\propto I^2$) er ikkje det. RMS-verdien er definert slik at $P_{\\text{gj}} = I_{\\text{rms}}^2 R$.","6dc3833d0943a20b":"Norsk nett er 230 V rms. Kva er toppverdien?","2ed83aadd08e40c4":"325 V","1eb522965ca0be0f":"230 V","a9c029507a8f927a":"163 V","7d2593f59e73e2df":"460 V","e0bc7968d2882697":"$V_0 = V_{\\text{rms}}\\sqrt{2} = 230\\cdot 1{,}414 \\approx 325$ V.","ce33aff06d3822bb":"## Motoren og dreiemomentet\n\nEin **motor** er ein generator i revers: han omdannar elektrisk energi til mekanisk. Ein likestraumsmotor har same oppbygginga som ein DC-generator — ein straumførande spole i eit magnetfelt — men no sender vi straum gjennom spolen, og den magnetiske krafta på straumen skaper eit **dreiemoment** som får spolen til å rotere. For ein rektangulær spole med $N$ vindingar, straum $I$ og areal $A$ i eit felt $B$ er dreiemomentet\n\n$$\\tau = NIAB\\sin\\theta$$\n\nder $\\theta$ er vinkelen mellom normalvektoren til spolen og feltet. Det er maksimalt når $\\theta = 90°$, altså $\\tau_{\\text{maks}} = NIAB$. Ein **kommutator** snur straumretninga idet spolen passerer likevektsstillinga, slik at dreiemomentet alltid peikar same vegen og rotasjonen blir kontinuerleg.\n\nSamanhengen mellom dei to maskinene er total: generatoren tek inn mekanisk energi og gir ut elektrisk via induksjon (Faradays lov), medan motoren tek inn elektrisk energi og gir ut mekanisk via kraft på straum i felt. Same prinsippa, motsett retning. Denne dualiteten er nettopp det som gjer **regenerativ bremsing** mogleg: motoren i ein elbil kan, under bremsing, køyrast baklengs som generator og lade kinetisk energi tilbake i batteriet, typisk med $60$–$70\\%$ verknadsgrad.","5ef65bc2992fd06d":"Test deg sjølv på motoren:","843ee32ab57416a0":"Kva er dreiemomentet på ein straumførande spole i ein motor?","a867d28fdc7a6d12":"$\\tau = BIL$","558e1893b2897f0a":"$\\tau = NIAB\\sin\\theta$","795f9255b4712799":"$\\tau = NBA\\omega$","f34710b648bb85ed":"$\\tau = I^2R$","c775060a940fa3cf":"Dreiemomentet er $\\tau = NIAB\\sin\\theta$, maksimalt $NIAB$ når $\\theta = 90°$.","a342a4bac61ccee7":"Kva er samanhengen mellom motor og generator?","c97b4b0e202e9cb8":"Dei er heilt ulike maskiner","54789fafd1b18bd1":"Berre motoren brukar magnetfelt","e09a84f7d56c81a5":"Dei er i prinsippet same maskina brukt i motsett retning","3a85c6dbe761b54c":"Berre generatoren har spole","9c50f5a73a65ec91":"Generatoren gjer mekanisk energi til elektrisk, motoren gjer elektrisk til mekanisk — same maskina, motsett retning.","19af4699d2c35b76":"Kva gjer kommutatoren mogleg i ein DC-motor?","1958a6ded8a12e3b":"Lagar vekselstraum","7d5c02a7790fbbc1":"Måler farten","1135f2b8058542fb":"Lagrar energi","2a95df21850cb2c8":"Snur straumretninga så dreiemomentet alltid verkar same vegen","cb55211e08e9f4ae":"Kommutatoren snur straumen ved likevektsstillinga, slik at dreiemomentet held same rotasjonsretning og rørsla blir kontinuerleg.","3d87365af104aa93":"## Tilbake-EMF\n\nHer kjem ein subtil og viktig effekt. Når ein motor spinn, fungerer han **samstundes som generator**! Den roterande spolen induserer ein EMF som etter Lenz' lov motverkar den pålagde spenninga. Denne blir kalla **tilbake-EMF** (back-EMF), og han er proporsjonal med rotasjonsfarten: $\\varepsilon_{\\text{tilbake}} = NBA\\omega$. Krinslikninga for motoren blir\n\n$$V = \\varepsilon_{\\text{tilbake}} + IR$$\n\nså straumen er $I = (V - \\varepsilon_{\\text{tilbake}})/R$. Dette forklarar eit fenomen du kanskje har merka: ved **oppstart** står motoren stille, $\\omega = 0$, så tilbake-EMF-en er null og straumen blir maksimal, $I = V/R$. Det er difor lyset kan blinke når ein stor motor startar — han trekkjer eit kraftig straumrykk. Når motoren kjem opp i fart, veks tilbake-EMF-en, og straumen søkk til eit normalt nivå.\n\nLat oss rekne: ein DC-motor med $R = 2{,}0\\,\\Omega$ blir driven med $V = 24$ V. Ved oppstart er $I = 24/2{,}0 = 12$ A — eit kraftig rykk. Ved full fart, der tilbake-EMF-en er $20$ V, blir $I = (24 - 20)/2{,}0 = 2{,}0$ A. Den mekaniske effekten motoren leverer er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}\\cdot I = 20\\cdot 2{,}0 = 40$ W, og verknadsgraden er $\\eta = \\varepsilon_{\\text{tilbake}}/V = 20/24 = 0{,}83$. Tilbake-EMF er altså ikkje eit problem, men sjølve mekanismen som gjer motoren effektiv.","34042d8e25192dc6":"Test deg sjølv på tilbake-EMF:","9f834b38ce950c8f":"Kva er tilbake-EMF i ein motor?","3f8b13310b325f3f":"Ein indusert EMF som motverkar den pålagde spenninga når motoren spinn","b044d39811110d04":"Ein feil i motoren","0c5308d65985126f":"Straumen ved oppstart","d716f2d05d72288d":"Effekttapet","f03a9c82440680da":"Den roterande motoren fungerer også som generator og induserer ein tilbake-EMF som etter Lenz' lov motverkar den pålagde spenninga.","30cf66aa19c62352":"Kvifor trekkjer ein motor mest straum ved oppstart?","9ddc64ee4a00947c":"Fordi motstanden er størst då","4a0e8e2a24485511":"Fordi tilbake-EMF er null når $\\omega = 0$, så $I = V/R$","de63c6613d112c5e":"Fordi feltet er sterkast","f6de1186794ac2e1":"Fordi spenninga er høgast","b06c596b7497fb3e":"Ved oppstart står motoren stille, så tilbake-EMF er null og straumen blir maksimal: $I = V/R$.","ed751577158f3ee5":"Ein motor ($R = 2{,}0\\,\\Omega$, $V = 24$ V) har tilbake-EMF 20 V ved full fart. Kva er straumen?","32a26bd0f9d24f8a":"12 A","7a5ea05578bd8be7":"22 A","bf6a02a4d59b59bd":"2,0 A","744f62abcb272093":"10 A","6c2d7eab650a8f42":"$I = (V - \\varepsilon_{\\text{tilbake}})/R = (24-20)/2{,}0 = 2{,}0$ A.","70612e8f5d7bb6da":"## Oppsummering\n\nGenerator og motor er **same maskina** brukt i kvar si retning. Generatoren lagar $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, og vi beskriv AC med **effektivverdiar** $V_{\\text{rms}} = V_0/\\sqrt{2}$ (norsk nett: 230 V rms, 325 V topp). Motoren skaper eit **dreiemoment** $\\tau = NIAB\\sin\\theta$, og kommutatoren gir kontinuerleg rotasjon. Når motoren spinn, induserer han ein **tilbake-EMF** $\\varepsilon_{\\text{tilbake}} = NBA\\omega$, så $V = \\varepsilon_{\\text{tilbake}} + IR$. Ved oppstart er tilbake-EMF null og straumen maksimal ($I = V/R$); ved full fart søkk straumen. Mekanisk effekt er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}I$, og dualiteten gjer regenerativ bremsing mogleg."}}}
+{
+  "id": "fysikk2-5-4-narrativ",
+  "courseId": "fysikk2",
+  "chapterNumber": "5.4",
+  "title": "Generatorar og motorar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om éi maskin i to retningar — generatoren som lagar straum og motoren som lagar rørsle, effektivverdiar, dreiemoment og tilbake-EMF-en som forklarar startrykket til motoren.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "forklare verkemåten til AC-generatoren og effektivverdiar",
+    "analysere dreiemoment og verkemåte i DC-motorar",
+    "rekne ut tilbake-EMF og straum i motorar"
+  ],
+  "linkedChapterId": "fysikk2-5-4",
+  "content": [
+    {
+      "id": "fysikk2-5-4-n-intro",
+      "type": "text",
+      "content": "## Éi maskin, to retningar\n\nFaradays induksjon gav oss to av dei viktigaste maskinene i sivilisasjonen: **generatoren**, som gjer mekanisk energi til elektrisk, og **motoren**, som gjer elektrisk energi til mekanisk. Det forbløffande er at dette i prinsippet er nøyaktig same maskina, berre brukt i kvar si retning. Begge utnyttar samspelet mellom magnetfelt og straumførande leiarar. I dette kapittelet ser vi nærare på korleis generatoren lagar sinusforma spenning, kvifor vi brukar effektivverdiar, korleis likestraumsmotoren fungerer — og det subtile fenomenet **tilbake-EMF**, som forklarar kvifor ein motor trekkjer enormt mykje straum i det augneblikket han startar."
+    },
+    {
+      "id": "fysikk2-5-4-n-section1",
+      "type": "text",
+      "content": "## Generatoren og effektivverdiar\n\nEin AC-generator har ein spole med $N$ vindingar og areal $A$ som roterer med vinkelfrekvens $\\omega$ i eit felt $B$. Vinkelen mellom normalvektoren til spolen og feltet er $\\theta = \\omega t$, så fluksen er $\\Phi(t) = NBA\\cos(\\omega t)$. Faradays lov gir spenninga ved derivasjon:\n\n$$\\varepsilon(t) = NBA\\omega\\sin(\\omega t) = \\varepsilon_0\\sin(\\omega t)$$\n\nmed toppverdi $\\varepsilon_0 = NBA\\omega$. Frekvensen heng saman med rotasjonen gjennom $\\omega = 2\\pi f = 2\\pi/T$. I Noreg er $f = 50$ Hz, perioden $T = 0{,}020$ s og $\\omega = 314$ rad/s. Lat oss rekne: ein generator med $N = 500$ vindingar, $A = 0{,}040$ m², $B = 0{,}30$ T og $f = 50$ Hz gir $\\omega = 314$ rad/s og toppverdi $\\varepsilon_0 = 500\\cdot 0{,}30\\cdot 0{,}040\\cdot 314 = 1884$ V.\n\nFordi spenninga vekslar forteikn, beskriv vi henne med **effektivverdiar** (RMS), definert slik at dei gir rett gjennomsnittleg effekt $P_{\\text{gj}} = I_{\\text{rms}}^2 R$. Sidan gjennomsnittet av $\\sin^2$ er $\\frac{1}{2}$, er\n\n$$V_{\\text{rms}} = \\frac{V_0}{\\sqrt{2}}, \\qquad I_{\\text{rms}} = \\frac{I_0}{\\sqrt{2}}$$\n\nNorsk nettspenning på $230$ V er ein effektivverdi; toppverdien er $V_0 = 230\\cdot\\sqrt{2} = 325$ V. Ei vanleg felle er å forveksle dei to."
+    },
+    {
+      "id": "fysikk2-5-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-5-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på generator og RMS:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-5-4-n-quiz1-q0",
+            "task": "Kva er toppverdien av spenninga frå ein AC-generator?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$NBA$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$NBA/\\omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$NBA\\omega^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$NBA\\omega$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Toppverdien er $\\varepsilon_0 = NBA\\omega$, der $\\omega = 2\\pi f$ er vinkelfrekvensen."
+          },
+          {
+            "id": "fysikk2-5-4-n-quiz1-q1",
+            "task": "Kvifor brukar vi RMS-verdiar for AC?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Fordi dei gir rett gjennomsnittleg effekt i ein motstand",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi toppverdien er null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi dei er lettare å måle",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Av tradisjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det vanlege gjennomsnittet av AC er null, men effekten ($\\propto I^2$) er ikkje det. RMS-verdien er definert slik at $P_{\\text{gj}} = I_{\\text{rms}}^2 R$."
+          },
+          {
+            "id": "fysikk2-5-4-n-quiz1-q2",
+            "task": "Norsk nett er 230 V rms. Kva er toppverdien?",
+            "options": [
+              {
+                "id": "b",
+                "text": "230 V",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "325 V",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "163 V",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "460 V",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$V_0 = V_{\\text{rms}}\\sqrt{2} = 230\\cdot 1{,}414 \\approx 325$ V."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-5-4-n-section2",
+      "type": "text",
+      "content": "## Motoren og dreiemomentet\n\nEin **motor** er ein generator i revers: han omdannar elektrisk energi til mekanisk. Ein likestraumsmotor har same oppbygginga som ein DC-generator — ein straumførande spole i eit magnetfelt — men no sender vi straum gjennom spolen, og den magnetiske krafta på straumen skaper eit **dreiemoment** som får spolen til å rotere. For ein rektangulær spole med $N$ vindingar, straum $I$ og areal $A$ i eit felt $B$ er dreiemomentet\n\n$$\\tau = NIAB\\sin\\theta$$\n\nder $\\theta$ er vinkelen mellom normalvektoren til spolen og feltet. Det er maksimalt når $\\theta = 90°$, altså $\\tau_{\\text{maks}} = NIAB$. Ein **kommutator** snur straumretninga idet spolen passerer likevektsstillinga, slik at dreiemomentet alltid peikar same vegen og rotasjonen blir kontinuerleg.\n\nSamanhengen mellom dei to maskinene er total: generatoren tek inn mekanisk energi og gir ut elektrisk via induksjon (Faradays lov), medan motoren tek inn elektrisk energi og gir ut mekanisk via kraft på straum i felt. Same prinsippa, motsett retning. Denne dualiteten er nettopp det som gjer **regenerativ bremsing** mogleg: motoren i ein elbil kan, under bremsing, køyrast baklengs som generator og lade kinetisk energi tilbake i batteriet, typisk med $60$–$70\\%$ verknadsgrad."
+    },
+    {
+      "id": "fysikk2-5-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-5-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på motoren:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-5-4-n-quiz2-q0",
+            "task": "Kva er dreiemomentet på ein straumførande spole i ein motor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\tau = BIL$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\tau = NBA\\omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\tau = NIAB\\sin\\theta$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\tau = I^2R$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dreiemomentet er $\\tau = NIAB\\sin\\theta$, maksimalt $NIAB$ når $\\theta = 90°$."
+          },
+          {
+            "id": "fysikk2-5-4-n-quiz2-q1",
+            "task": "Kva er samanhengen mellom motor og generator?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei er heilt ulike maskiner",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre motoren brukar magnetfelt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre generatoren har spole",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei er i prinsippet same maskina brukt i motsett retning",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Generatoren gjer mekanisk energi til elektrisk, motoren gjer elektrisk til mekanisk — same maskina, motsett retning."
+          },
+          {
+            "id": "fysikk2-5-4-n-quiz2-q2",
+            "task": "Kva gjer kommutatoren mogleg i ein DC-motor?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Snur straumretninga så dreiemomentet alltid verkar same vegen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lagar vekselstraum",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Måler farten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Lagrar energi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kommutatoren snur straumen ved likevektsstillinga, slik at dreiemomentet held same rotasjonsretning og rørsla blir kontinuerleg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-5-4-n-section3",
+      "type": "text",
+      "content": "## Tilbake-EMF\n\nHer kjem ein subtil og viktig effekt. Når ein motor spinn, fungerer han **samstundes som generator**! Den roterande spolen induserer ein EMF som etter Lenz' lov motverkar den pålagde spenninga. Denne blir kalla **tilbake-EMF** (back-EMF), og han er proporsjonal med rotasjonsfarten: $\\varepsilon_{\\text{tilbake}} = NBA\\omega$. Krinslikninga for motoren blir\n\n$$V = \\varepsilon_{\\text{tilbake}} + IR$$\n\nså straumen er $I = (V - \\varepsilon_{\\text{tilbake}})/R$. Dette forklarar eit fenomen du kanskje har merka: ved **oppstart** står motoren stille, $\\omega = 0$, så tilbake-EMF-en er null og straumen blir maksimal, $I = V/R$. Det er difor lyset kan blinke når ein stor motor startar — han trekkjer eit kraftig straumrykk. Når motoren kjem opp i fart, veks tilbake-EMF-en, og straumen søkk til eit normalt nivå.\n\nLat oss rekne: ein DC-motor med $R = 2{,}0\\,\\Omega$ blir driven med $V = 24$ V. Ved oppstart er $I = 24/2{,}0 = 12$ A — eit kraftig rykk. Ved full fart, der tilbake-EMF-en er $20$ V, blir $I = (24 - 20)/2{,}0 = 2{,}0$ A. Den mekaniske effekten motoren leverer er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}\\cdot I = 20\\cdot 2{,}0 = 40$ W, og verknadsgraden er $\\eta = \\varepsilon_{\\text{tilbake}}/V = 20/24 = 0{,}83$. Tilbake-EMF er altså ikkje eit problem, men sjølve mekanismen som gjer motoren effektiv."
+    },
+    {
+      "id": "fysikk2-5-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fysikk2-5-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tilbake-EMF:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "fysikk2-5-4-n-quiz3-q0",
+            "task": "Kva er tilbake-EMF i ein motor?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein feil i motoren",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein indusert EMF som motverkar den pålagde spenninga når motoren spinn",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Straumen ved oppstart",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Effekttapet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den roterande motoren fungerer også som generator og induserer ein tilbake-EMF som etter Lenz' lov motverkar den pålagde spenninga."
+          },
+          {
+            "id": "fysikk2-5-4-n-quiz3-q1",
+            "task": "Kvifor trekkjer ein motor mest straum ved oppstart?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi motstanden er størst då",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi feltet er sterkast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi tilbake-EMF er null når $\\omega = 0$, så $I = V/R$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi spenninga er høgast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved oppstart står motoren stille, så tilbake-EMF er null og straumen blir maksimal: $I = V/R$."
+          },
+          {
+            "id": "fysikk2-5-4-n-quiz3-q2",
+            "task": "Ein motor ($R = 2{,}0\\,\\Omega$, $V = 24$ V) har tilbake-EMF 20 V ved full fart. Kva er straumen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "12 A",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "22 A",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "10 A",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "2,0 A",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$I = (V - \\varepsilon_{\\text{tilbake}})/R = (24-20)/2{,}0 = 2{,}0$ A."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fysikk2-5-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nGenerator og motor er **same maskina** brukt i kvar si retning. Generatoren lagar $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, og vi beskriv AC med **effektivverdiar** $V_{\\text{rms}} = V_0/\\sqrt{2}$ (norsk nett: 230 V rms, 325 V topp). Motoren skaper eit **dreiemoment** $\\tau = NIAB\\sin\\theta$, og kommutatoren gir kontinuerleg rotasjon. Når motoren spinn, induserer han ein **tilbake-EMF** $\\varepsilon_{\\text{tilbake}} = NBA\\omega$, så $V = \\varepsilon_{\\text{tilbake}} + IR$. Ved oppstart er tilbake-EMF null og straumen maksimal ($I = V/R$); ved full fart søkk straumen. Mekanisk effekt er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}I$, og dualiteten gjer regenerativ bremsing mogleg."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "bda985a4e94d4d4d",
+    "translatedAt": "2026-06-20T22:45:23.549Z",
+    "model": "claude-code-agent",
+    "strings": 71,
+    "tm": {
+      "241b650a2c3c3e32": "Generatorar og motorar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "fffd5787b36e6df7": "Ei forteljing om éi maskin i to retningar — generatoren som lagar straum og motoren som lagar rørsle, effektivverdiar, dreiemoment og tilbake-EMF-en som forklarar startrykket til motoren.",
+      "9eeb9a05d6a24d6b": "forklare verkemåten til AC-generatoren og effektivverdiar",
+      "5c166dc89774f6bb": "analysere dreiemoment og verkemåte i DC-motorar",
+      "4696e6b7f33e8dac": "rekne ut tilbake-EMF og straum i motorar",
+      "7fc1fc307176fa0a": "## Éi maskin, to retningar\n\nFaradays induksjon gav oss to av dei viktigaste maskinene i sivilisasjonen: **generatoren**, som gjer mekanisk energi til elektrisk, og **motoren**, som gjer elektrisk energi til mekanisk. Det forbløffande er at dette i prinsippet er nøyaktig same maskina, berre brukt i kvar si retning. Begge utnyttar samspelet mellom magnetfelt og straumførande leiarar. I dette kapittelet ser vi nærare på korleis generatoren lagar sinusforma spenning, kvifor vi brukar effektivverdiar, korleis likestraumsmotoren fungerer — og det subtile fenomenet **tilbake-EMF**, som forklarar kvifor ein motor trekkjer enormt mykje straum i det augneblikket han startar.",
+      "166052d0c1d7f7f7": "## Generatoren og effektivverdiar\n\nEin AC-generator har ein spole med $N$ vindingar og areal $A$ som roterer med vinkelfrekvens $\\omega$ i eit felt $B$. Vinkelen mellom normalvektoren til spolen og feltet er $\\theta = \\omega t$, så fluksen er $\\Phi(t) = NBA\\cos(\\omega t)$. Faradays lov gir spenninga ved derivasjon:\n\n$$\\varepsilon(t) = NBA\\omega\\sin(\\omega t) = \\varepsilon_0\\sin(\\omega t)$$\n\nmed toppverdi $\\varepsilon_0 = NBA\\omega$. Frekvensen heng saman med rotasjonen gjennom $\\omega = 2\\pi f = 2\\pi/T$. I Noreg er $f = 50$ Hz, perioden $T = 0{,}020$ s og $\\omega = 314$ rad/s. Lat oss rekne: ein generator med $N = 500$ vindingar, $A = 0{,}040$ m², $B = 0{,}30$ T og $f = 50$ Hz gir $\\omega = 314$ rad/s og toppverdi $\\varepsilon_0 = 500\\cdot 0{,}30\\cdot 0{,}040\\cdot 314 = 1884$ V.\n\nFordi spenninga vekslar forteikn, beskriv vi henne med **effektivverdiar** (RMS), definert slik at dei gir rett gjennomsnittleg effekt $P_{\\text{gj}} = I_{\\text{rms}}^2 R$. Sidan gjennomsnittet av $\\sin^2$ er $\\frac{1}{2}$, er\n\n$$V_{\\text{rms}} = \\frac{V_0}{\\sqrt{2}}, \\qquad I_{\\text{rms}} = \\frac{I_0}{\\sqrt{2}}$$\n\nNorsk nettspenning på $230$ V er ein effektivverdi; toppverdien er $V_0 = 230\\cdot\\sqrt{2} = 325$ V. Ei vanleg felle er å forveksle dei to.",
+      "f63254af37ee4ab2": "Test deg sjølv på generator og RMS:",
+      "4097889236a2af26": "placeholder",
+      "bd50b36808667a77": "Kva er toppverdien av spenninga frå ein AC-generator?",
+      "37432c9a6be58d55": "$NBA$",
+      "6363587893473d1a": "$NBA/\\omega$",
+      "be9964e4d0d4a67b": "$NBA\\omega$",
+      "c2816999cd0f6b7c": "$NBA\\omega^2$",
+      "0824e4604ee36480": "Toppverdien er $\\varepsilon_0 = NBA\\omega$, der $\\omega = 2\\pi f$ er vinkelfrekvensen.",
+      "23d3d7fcbdd1e23e": "Kvifor brukar vi RMS-verdiar for AC?",
+      "b6ee27f1369d46ee": "Fordi toppverdien er null",
+      "9820a30991d5e811": "Fordi dei er lettare å måle",
+      "57ed86b5e0d5b275": "Av tradisjon",
+      "2a7534d93c569669": "Fordi dei gir rett gjennomsnittleg effekt i ein motstand",
+      "8474802645ae8892": "Det vanlege gjennomsnittet av AC er null, men effekten ($\\propto I^2$) er ikkje det. RMS-verdien er definert slik at $P_{\\text{gj}} = I_{\\text{rms}}^2 R$.",
+      "6dc3833d0943a20b": "Norsk nett er 230 V rms. Kva er toppverdien?",
+      "2ed83aadd08e40c4": "325 V",
+      "1eb522965ca0be0f": "230 V",
+      "a9c029507a8f927a": "163 V",
+      "7d2593f59e73e2df": "460 V",
+      "e0bc7968d2882697": "$V_0 = V_{\\text{rms}}\\sqrt{2} = 230\\cdot 1{,}414 \\approx 325$ V.",
+      "ce33aff06d3822bb": "## Motoren og dreiemomentet\n\nEin **motor** er ein generator i revers: han omdannar elektrisk energi til mekanisk. Ein likestraumsmotor har same oppbygginga som ein DC-generator — ein straumførande spole i eit magnetfelt — men no sender vi straum gjennom spolen, og den magnetiske krafta på straumen skaper eit **dreiemoment** som får spolen til å rotere. For ein rektangulær spole med $N$ vindingar, straum $I$ og areal $A$ i eit felt $B$ er dreiemomentet\n\n$$\\tau = NIAB\\sin\\theta$$\n\nder $\\theta$ er vinkelen mellom normalvektoren til spolen og feltet. Det er maksimalt når $\\theta = 90°$, altså $\\tau_{\\text{maks}} = NIAB$. Ein **kommutator** snur straumretninga idet spolen passerer likevektsstillinga, slik at dreiemomentet alltid peikar same vegen og rotasjonen blir kontinuerleg.\n\nSamanhengen mellom dei to maskinene er total: generatoren tek inn mekanisk energi og gir ut elektrisk via induksjon (Faradays lov), medan motoren tek inn elektrisk energi og gir ut mekanisk via kraft på straum i felt. Same prinsippa, motsett retning. Denne dualiteten er nettopp det som gjer **regenerativ bremsing** mogleg: motoren i ein elbil kan, under bremsing, køyrast baklengs som generator og lade kinetisk energi tilbake i batteriet, typisk med $60$–$70\\%$ verknadsgrad.",
+      "5ef65bc2992fd06d": "Test deg sjølv på motoren:",
+      "843ee32ab57416a0": "Kva er dreiemomentet på ein straumførande spole i ein motor?",
+      "a867d28fdc7a6d12": "$\\tau = BIL$",
+      "558e1893b2897f0a": "$\\tau = NIAB\\sin\\theta$",
+      "795f9255b4712799": "$\\tau = NBA\\omega$",
+      "f34710b648bb85ed": "$\\tau = I^2R$",
+      "c775060a940fa3cf": "Dreiemomentet er $\\tau = NIAB\\sin\\theta$, maksimalt $NIAB$ når $\\theta = 90°$.",
+      "a342a4bac61ccee7": "Kva er samanhengen mellom motor og generator?",
+      "c97b4b0e202e9cb8": "Dei er heilt ulike maskiner",
+      "54789fafd1b18bd1": "Berre motoren brukar magnetfelt",
+      "e09a84f7d56c81a5": "Dei er i prinsippet same maskina brukt i motsett retning",
+      "3a85c6dbe761b54c": "Berre generatoren har spole",
+      "9c50f5a73a65ec91": "Generatoren gjer mekanisk energi til elektrisk, motoren gjer elektrisk til mekanisk — same maskina, motsett retning.",
+      "19af4699d2c35b76": "Kva gjer kommutatoren mogleg i ein DC-motor?",
+      "1958a6ded8a12e3b": "Lagar vekselstraum",
+      "7d5c02a7790fbbc1": "Måler farten",
+      "1135f2b8058542fb": "Lagrar energi",
+      "2a95df21850cb2c8": "Snur straumretninga så dreiemomentet alltid verkar same vegen",
+      "cb55211e08e9f4ae": "Kommutatoren snur straumen ved likevektsstillinga, slik at dreiemomentet held same rotasjonsretning og rørsla blir kontinuerleg.",
+      "3d87365af104aa93": "## Tilbake-EMF\n\nHer kjem ein subtil og viktig effekt. Når ein motor spinn, fungerer han **samstundes som generator**! Den roterande spolen induserer ein EMF som etter Lenz' lov motverkar den pålagde spenninga. Denne blir kalla **tilbake-EMF** (back-EMF), og han er proporsjonal med rotasjonsfarten: $\\varepsilon_{\\text{tilbake}} = NBA\\omega$. Krinslikninga for motoren blir\n\n$$V = \\varepsilon_{\\text{tilbake}} + IR$$\n\nså straumen er $I = (V - \\varepsilon_{\\text{tilbake}})/R$. Dette forklarar eit fenomen du kanskje har merka: ved **oppstart** står motoren stille, $\\omega = 0$, så tilbake-EMF-en er null og straumen blir maksimal, $I = V/R$. Det er difor lyset kan blinke når ein stor motor startar — han trekkjer eit kraftig straumrykk. Når motoren kjem opp i fart, veks tilbake-EMF-en, og straumen søkk til eit normalt nivå.\n\nLat oss rekne: ein DC-motor med $R = 2{,}0\\,\\Omega$ blir driven med $V = 24$ V. Ved oppstart er $I = 24/2{,}0 = 12$ A — eit kraftig rykk. Ved full fart, der tilbake-EMF-en er $20$ V, blir $I = (24 - 20)/2{,}0 = 2{,}0$ A. Den mekaniske effekten motoren leverer er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}\\cdot I = 20\\cdot 2{,}0 = 40$ W, og verknadsgraden er $\\eta = \\varepsilon_{\\text{tilbake}}/V = 20/24 = 0{,}83$. Tilbake-EMF er altså ikkje eit problem, men sjølve mekanismen som gjer motoren effektiv.",
+      "34042d8e25192dc6": "Test deg sjølv på tilbake-EMF:",
+      "9f834b38ce950c8f": "Kva er tilbake-EMF i ein motor?",
+      "3f8b13310b325f3f": "Ein indusert EMF som motverkar den pålagde spenninga når motoren spinn",
+      "b044d39811110d04": "Ein feil i motoren",
+      "0c5308d65985126f": "Straumen ved oppstart",
+      "d716f2d05d72288d": "Effekttapet",
+      "f03a9c82440680da": "Den roterande motoren fungerer også som generator og induserer ein tilbake-EMF som etter Lenz' lov motverkar den pålagde spenninga.",
+      "30cf66aa19c62352": "Kvifor trekkjer ein motor mest straum ved oppstart?",
+      "9ddc64ee4a00947c": "Fordi motstanden er størst då",
+      "4a0e8e2a24485511": "Fordi tilbake-EMF er null når $\\omega = 0$, så $I = V/R$",
+      "de63c6613d112c5e": "Fordi feltet er sterkast",
+      "f6de1186794ac2e1": "Fordi spenninga er høgast",
+      "b06c596b7497fb3e": "Ved oppstart står motoren stille, så tilbake-EMF er null og straumen blir maksimal: $I = V/R$.",
+      "ed751577158f3ee5": "Ein motor ($R = 2{,}0\\,\\Omega$, $V = 24$ V) har tilbake-EMF 20 V ved full fart. Kva er straumen?",
+      "32a26bd0f9d24f8a": "12 A",
+      "7a5ea05578bd8be7": "22 A",
+      "bf6a02a4d59b59bd": "2,0 A",
+      "744f62abcb272093": "10 A",
+      "6c2d7eab650a8f42": "$I = (V - \\varepsilon_{\\text{tilbake}})/R = (24-20)/2{,}0 = 2{,}0$ A.",
+      "70612e8f5d7bb6da": "## Oppsummering\n\nGenerator og motor er **same maskina** brukt i kvar si retning. Generatoren lagar $\\varepsilon(t) = NBA\\omega\\sin(\\omega t)$, og vi beskriv AC med **effektivverdiar** $V_{\\text{rms}} = V_0/\\sqrt{2}$ (norsk nett: 230 V rms, 325 V topp). Motoren skaper eit **dreiemoment** $\\tau = NIAB\\sin\\theta$, og kommutatoren gir kontinuerleg rotasjon. Når motoren spinn, induserer han ein **tilbake-EMF** $\\varepsilon_{\\text{tilbake}} = NBA\\omega$, så $V = \\varepsilon_{\\text{tilbake}} + IR$. Ved oppstart er tilbake-EMF null og straumen maksimal ($I = V/R$); ved full fart søkk straumen. Mekanisk effekt er $P_{\\text{mek}} = \\varepsilon_{\\text{tilbake}}I$, og dualiteten gjer regenerativ bremsing mogleg."
+    }
+  }
+}

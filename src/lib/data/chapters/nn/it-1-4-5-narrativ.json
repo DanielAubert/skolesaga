@@ -1,1 +1,349 @@
-{"id":"it-1-4-5-narrativ","courseId":"it-1","chapterNumber":"4.5","title":"Avansert CSS – Flexbox og Grid","subtitle":"Narrativ versjon","description":"Ei forteljing om dei to verktøya som revolusjonerte weblayout – flexbox for éin-dimensjonal fordeling og grid for todimensjonale sideoppsett, og når du vel kva.","estimatedMinutes":45,"competenceGoals":["bruke CSS Flexbox og Grid til å lage avanserte sideoppsett","velge riktig layout-teknikk for ulike designbehov"],"linkedChapterId":"it-1-4-5","content":[{"id":"it-1-4-5-n-intro","type":"text","content":"## Slutten på float-triksa\n\nFør flexbox og grid måtte utviklarar bruke kreative triks med float, tabellar og absolutt posisjonering for å lage sjølv enkle layoutar. I dag har desse to modulane revolusjonert weblayout. **Flexbox** er eindimensjonal og jobbar langs éin akse – rad eller kolonne. **CSS Grid** er todimensjonal og jobbar med rader og kolonner samtidig.\n\nLa oss starte med flexbox. Du aktiverer det med `display: flex` på foreldreelementet, som blir ein **flex-container**, medan dei direkte barna blir **flex-element**. Flexbox har to akser: hovudaksen (som standard horisontal) og kryssaksen (vertikal). `flex-direction` styrer retninga på hovudaksen – `row` er standard, `column` gjer det vertikalt. `flex-wrap: wrap` lèt elementa bryte til ny linje når plassen er full, og `gap` gir avstand mellom elementa.\n\nDei to viktigaste justeringseigenskapane er **justify-content** (fordeling langs hovudaksen) og **align-items** (justering langs kryssaksen). `justify-content` har verdiar som `center`, `space-between` og `space-evenly`, medan `align-items` har `center`, `flex-start` og `stretch`. Det mest elska trikset i moderne CSS er å kombinere dei for å sentrere noko perfekt:\n\n```css\n.sentrert {\n  display: flex;\n  justify-content: center;  /* horisontalt */\n  align-items: center;      /* vertikalt */\n  height: 100vh;\n}\n```\n\nFør flexbox var vertikal sentrering ei av dei mest frustrerande oppgåvene i heile CSS."},{"id":"it-1-4-5-n-quiz1","type":"exercise","exercise":{"id":"it-1-4-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på flexbox-grunnlag:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-4-5-n-quiz1-q0","task":"Kva gjer: display: flex; justify-content: center; align-items: center; height: 100vh?","options":[{"id":"a","text":"Plasserer elementa i eit rutenett","isCorrect":false},{"id":"b","text":"Gjer containeren 100 pikslar høg","isCorrect":false},{"id":"c","text":"Sentrerer innhaldet horisontalt og vertikalt i heile viewport-høgda","isCorrect":true},{"id":"d","text":"Stablar elementa i ei kolonne","isCorrect":false}],"solution":"justify-content sentrerer horisontalt, align-items vertikalt, og height: 100vh gir full viewport-høgd – innhaldet hamnar midt på skjermen."},{"id":"it-1-4-5-n-quiz1-q1","task":"Kva styrer flex-direction?","options":[{"id":"a","text":"Fargen på elementa","isCorrect":false},{"id":"b","text":"Avstanden mellom elementa","isCorrect":false},{"id":"c","text":"Skriftstorleiken","isCorrect":false},{"id":"d","text":"Retninga på hovudaksen (rad eller kolonne)","isCorrect":true}],"solution":"flex-direction bestemmer retninga på hovudaksen: row (horisontalt, standard) eller column (vertikalt)."}]}},{"id":"it-1-4-5-n-section1","type":"text","content":"## Kontroll over kvart element\n\nMedan container-eigenskapane styrer heilskapen, styrer tre eigenskapar på barna korleis kvart element oppfører seg. `flex-grow` seier kor mykje eit element skal vekse relativt til dei andre når det er ledig plass. `flex-shrink` seier kor mykje det krympar når plassen er trang (`0` betyr aldri). Og `flex-basis` set startstorleiken før vekst eller krymping.\n\nDesse kan slåast saman i kortforma `flex`. `flex: 1` betyr at elementet veks og deler ledig plass likt med andre `flex: 1`-element. `flex: 0 0 250px` betyr «ikkje veks, ikkje krymp, ver 250px brei». Eit godt døme er ein sidebar-layout: gi sidebaren `flex: 0 0 250px` for fast breidd og hovudinnhaldet `flex: 1` for å fylle resten.\n\nForholda mellom flex-verdiane fordeler plassen. Har du tre element med `flex: 1`, `flex: 2` og `flex: 1`, blir summen 4 andelar – så dei får høvesvis 25 %, 50 % og 25 % av den ledige plassen. Dette gjer det enkelt å lage proporsjonale kolonner utan å rekne ut pikslar."},{"id":"it-1-4-5-n-quiz2","type":"exercise","exercise":{"id":"it-1-4-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på flex-element:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-4-5-n-quiz2-q0","task":"Tre flex-element har flex: 1, flex: 2 og flex: 1. Korleis blir plassen fordelt?","options":[{"id":"a","text":"25%, 50% og 25% av tilgjengeleg plass","isCorrect":true},{"id":"b","text":"Alle får lik breidd","isCorrect":false},{"id":"c","text":"Det midtarste får fast breidd på 2px","isCorrect":false},{"id":"d","text":"Elementa blir stabla vertikalt","isCorrect":false}],"solution":"Summen er 4 andelar (1+2+1), så elementa får 25%, 50% og 25% av plassen."},{"id":"it-1-4-5-n-quiz2-q1","task":"Kva betyr flex: 0 0 250px på ein sidebar?","options":[{"id":"a","text":"Sidebaren veks ubegrensa","isCorrect":false},{"id":"b","text":"Sidebaren har fast breidd på 250px og verken veks eller krympar","isCorrect":true},{"id":"c","text":"Sidebaren er alltid 0px","isCorrect":false},{"id":"d","text":"Sidebaren blir skjult","isCorrect":false}],"solution":"flex: 0 0 250px betyr flex-grow 0, flex-shrink 0 og flex-basis 250px – altså fast breidd som verken veks eller krympar."}]}},{"id":"it-1-4-5-n-section2","type":"text","content":"## Grid: rutenettet i to dimensjonar\n\n**CSS Grid** blir aktivert med `display: grid`, og du definerer strukturen med `grid-template-columns` og `grid-template-rows`. Den viktige **fr-eininga** (fraction) er ein andel av ledig plass: `grid-template-columns: 1fr 2fr 1fr` gir tre kolonner der den midtarste blir dobbelt så brei som dei to andre. Kortforma `repeat(3, 1fr)` lagar tre like kolonner.\n\nDu kan plassere element manuelt. `grid-column: 1 / 3` lèt eit element spenne over kolonne 1 til 3, og `grid-column: 1 / -1` strekkjer det over alle kolonner. Alternativt bruker du `span`, som i `grid-column: span 2`. Ein spesielt lesbar teknikk er `grid-template-areas`, der du «teiknar» layouten i CSS med namngitte område, og koplar elementa til dei med `grid-area`.\n\nDen kanskje mest nyttige grid-teknikken er responsivt rutenett utan media queries: `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`. Her betyr `minmax(280px, 1fr)` at kvar kolonne er minst 280px, men kan vekse, og `auto-fit` lèt nettlesaren rekne ut kor mange kolonner som får plass – fleire på breie skjermar, færre på smale. Skilnaden på `auto-fit` og `auto-fill` er subtil: `auto-fit` kollapsar tomme spor og lèt elementa strekkje seg, medan `auto-fill` beheld dei tomme spora. I dei fleste tilfella er `auto-fit` det du vil ha.\n\nNår skal du bruke kva? Bruk **flexbox** for komponentar og eindimensjonal fordeling – menyar, verktøylinjer, sentrering. Bruk **grid** for todimensjonale sideoppsett – header, sidebar og footer, galleri og dashbord. I praksis bruker du gjerne grid for den overordna sidelayouten og flexbox for innhaldet inni kvar celle. Og `gap` er enklare enn margin for avstandar i begge."},{"id":"it-1-4-5-n-quiz3","type":"exercise","exercise":{"id":"it-1-4-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på grid og val av teknikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-4-5-n-quiz3-q0","task":"Kva er den viktigaste skilnaden mellom Flexbox og Grid?","options":[{"id":"a","text":"Flexbox er nyare enn Grid","isCorrect":false},{"id":"b","text":"Grid er berre for bilete","isCorrect":false},{"id":"c","text":"Flexbox er eindimensjonal, medan Grid er todimensjonal (rader og kolonner samtidig)","isCorrect":true},{"id":"d","text":"Flexbox verkar ikkje på mobil","isCorrect":false}],"solution":"Flexbox jobbar i éin dimensjon (rad eller kolonne), medan Grid jobbar i to dimensjonar samtidig."},{"id":"it-1-4-5-n-quiz3-q1","task":"Kva betyr grid-template-columns: 1fr 2fr 1fr?","options":[{"id":"a","text":"Tre kolonner på 1px, 2px og 1px","isCorrect":false},{"id":"b","text":"Tre kolonner på 1rem, 2rem og 1rem","isCorrect":false},{"id":"c","text":"Éi kolonne på 1fr med gap på 2fr","isCorrect":false},{"id":"d","text":"Tre kolonner der den midtarste er dobbelt så brei som dei andre","isCorrect":true}],"solution":"fr-eininga fordeler ledig plass. 1fr 2fr 1fr gir den midtarste kolonnen dobbelt så mykje plass som dei to andre."},{"id":"it-1-4-5-n-quiz3-q2","task":"Kva er skilnaden mellom auto-fit og auto-fill i repeat(...)?","options":[{"id":"a","text":"auto-fit kollapsar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld tomme spor","isCorrect":true},{"id":"b","text":"Det er ingen skilnad","isCorrect":false},{"id":"c","text":"auto-fill er raskare","isCorrect":false},{"id":"d","text":"auto-fit verkar berre med pikslar","isCorrect":false}],"solution":"auto-fit fjernar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld dei tomme spora."}]}},{"id":"it-1-4-5-n-summary","type":"text","content":"## Oppsummering\n\nFlexbox og grid har gjort float-triksa overflødige. **Flexbox** er eindimensjonal og perfekt for å fordele og sentrere element i ei rad eller kolonne – med `flex-direction`, `justify-content`, `align-items`, `gap` og kortforma `flex` (der forholdstal som 1:2:1 deler plassen i 25/50/25 %).\n\n**CSS Grid** er todimensjonal og ideelt for heile sideoppsett, med `grid-template-columns`, `fr`-eininga, `grid-template-areas` og den responsive `repeat(auto-fit, minmax(...))`-teknikken som gir rutenett utan media queries. Tommelregelen: flexbox for komponentar, grid for sideoppsett – og gjerne begge saman. Med desse to kan du byggje nesten kva som helst layout."}],"exercises":[],"_meta":{"sourceHash":"1e1b74bea2ca62ff","translatedAt":"2026-06-20T23:58:16.001Z","model":"claude-code-agent","strings":57,"tm":{"cb9d18762e300a4a":"Avansert CSS – Flexbox og Grid","b195b06d1ed59702":"Narrativ versjon","92e83ee48635ed0a":"Ei forteljing om dei to verktøya som revolusjonerte weblayout – flexbox for éin-dimensjonal fordeling og grid for todimensjonale sideoppsett, og når du vel kva.","8d9d7dfd3ffc8201":"bruke CSS Flexbox og Grid til å lage avanserte sideoppsett","9f38b207bc74f787":"velge riktig layout-teknikk for ulike designbehov","42e3660e772db678":"## Slutten på float-triksa\n\nFør flexbox og grid måtte utviklarar bruke kreative triks med float, tabellar og absolutt posisjonering for å lage sjølv enkle layoutar. I dag har desse to modulane revolusjonert weblayout. **Flexbox** er eindimensjonal og jobbar langs éin akse – rad eller kolonne. **CSS Grid** er todimensjonal og jobbar med rader og kolonner samtidig.\n\nLa oss starte med flexbox. Du aktiverer det med `display: flex` på foreldreelementet, som blir ein **flex-container**, medan dei direkte barna blir **flex-element**. Flexbox har to akser: hovudaksen (som standard horisontal) og kryssaksen (vertikal). `flex-direction` styrer retninga på hovudaksen – `row` er standard, `column` gjer det vertikalt. `flex-wrap: wrap` lèt elementa bryte til ny linje når plassen er full, og `gap` gir avstand mellom elementa.\n\nDei to viktigaste justeringseigenskapane er **justify-content** (fordeling langs hovudaksen) og **align-items** (justering langs kryssaksen). `justify-content` har verdiar som `center`, `space-between` og `space-evenly`, medan `align-items` har `center`, `flex-start` og `stretch`. Det mest elska trikset i moderne CSS er å kombinere dei for å sentrere noko perfekt:\n\n```css\n.sentrert {\n  display: flex;\n  justify-content: center;  /* horisontalt */\n  align-items: center;      /* vertikalt */\n  height: 100vh;\n}\n```\n\nFør flexbox var vertikal sentrering ei av dei mest frustrerande oppgåvene i heile CSS.","5fd74a56844bdcae":"Test deg sjølv på flexbox-grunnlag:","4097889236a2af26":"placeholder","0999cad5e468844f":"Kva gjer: display: flex; justify-content: center; align-items: center; height: 100vh?","b60aebb75f651c85":"Plasserer elementa i eit rutenett","f03588be610afe12":"Gjer containeren 100 pikslar høg","4b3afa8cf27bcede":"Sentrerer innhaldet horisontalt og vertikalt i heile viewport-høgda","f928413691a4ab36":"Stablar elementa i ei kolonne","fbeabc2c1d2f40c5":"justify-content sentrerer horisontalt, align-items vertikalt, og height: 100vh gir full viewport-høgd – innhaldet hamnar midt på skjermen.","2ecbae9d82a836ae":"Kva styrer flex-direction?","7578ac9d3d071242":"Fargen på elementa","e19d5378c0a8286a":"Avstanden mellom elementa","f47681dc8f92af30":"Skriftstorleiken","d77d32a95bbcd95b":"Retninga på hovudaksen (rad eller kolonne)","930b78ab1d05857e":"flex-direction bestemmer retninga på hovudaksen: row (horisontalt, standard) eller column (vertikalt).","e031249babec3d2c":"## Kontroll over kvart element\n\nMedan container-eigenskapane styrer heilskapen, styrer tre eigenskapar på barna korleis kvart element oppfører seg. `flex-grow` seier kor mykje eit element skal vekse relativt til dei andre når det er ledig plass. `flex-shrink` seier kor mykje det krympar når plassen er trang (`0` betyr aldri). Og `flex-basis` set startstorleiken før vekst eller krymping.\n\nDesse kan slåast saman i kortforma `flex`. `flex: 1` betyr at elementet veks og deler ledig plass likt med andre `flex: 1`-element. `flex: 0 0 250px` betyr «ikkje veks, ikkje krymp, ver 250px brei». Eit godt døme er ein sidebar-layout: gi sidebaren `flex: 0 0 250px` for fast breidd og hovudinnhaldet `flex: 1` for å fylle resten.\n\nForholda mellom flex-verdiane fordeler plassen. Har du tre element med `flex: 1`, `flex: 2` og `flex: 1`, blir summen 4 andelar – så dei får høvesvis 25 %, 50 % og 25 % av den ledige plassen. Dette gjer det enkelt å lage proporsjonale kolonner utan å rekne ut pikslar.","acb2cc2152c0769b":"Test deg sjølv på flex-element:","04105b57e3d3a06a":"Tre flex-element har flex: 1, flex: 2 og flex: 1. Korleis blir plassen fordelt?","7e3f93cad80f0d4e":"25%, 50% og 25% av tilgjengeleg plass","4699eec4454b5913":"Alle får lik breidd","1c3cd7dbce8f2709":"Det midtarste får fast breidd på 2px","d6296bad2863bfe6":"Elementa blir stabla vertikalt","dcc64e5a6b71a0f9":"Summen er 4 andelar (1+2+1), så elementa får 25%, 50% og 25% av plassen.","987f474de61fa9b7":"Kva betyr flex: 0 0 250px på ein sidebar?","0f070227cf785f26":"Sidebaren veks ubegrensa","752859f663b87c1c":"Sidebaren har fast breidd på 250px og verken veks eller krympar","dd36e4b9b1b896f0":"Sidebaren er alltid 0px","18798f0a61305f60":"Sidebaren blir skjult","240b3de074c6bcae":"flex: 0 0 250px betyr flex-grow 0, flex-shrink 0 og flex-basis 250px – altså fast breidd som verken veks eller krympar.","4ef4e89e574f48b0":"## Grid: rutenettet i to dimensjonar\n\n**CSS Grid** blir aktivert med `display: grid`, og du definerer strukturen med `grid-template-columns` og `grid-template-rows`. Den viktige **fr-eininga** (fraction) er ein andel av ledig plass: `grid-template-columns: 1fr 2fr 1fr` gir tre kolonner der den midtarste blir dobbelt så brei som dei to andre. Kortforma `repeat(3, 1fr)` lagar tre like kolonner.\n\nDu kan plassere element manuelt. `grid-column: 1 / 3` lèt eit element spenne over kolonne 1 til 3, og `grid-column: 1 / -1` strekkjer det over alle kolonner. Alternativt bruker du `span`, som i `grid-column: span 2`. Ein spesielt lesbar teknikk er `grid-template-areas`, der du «teiknar» layouten i CSS med namngitte område, og koplar elementa til dei med `grid-area`.\n\nDen kanskje mest nyttige grid-teknikken er responsivt rutenett utan media queries: `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`. Her betyr `minmax(280px, 1fr)` at kvar kolonne er minst 280px, men kan vekse, og `auto-fit` lèt nettlesaren rekne ut kor mange kolonner som får plass – fleire på breie skjermar, færre på smale. Skilnaden på `auto-fit` og `auto-fill` er subtil: `auto-fit` kollapsar tomme spor og lèt elementa strekkje seg, medan `auto-fill` beheld dei tomme spora. I dei fleste tilfella er `auto-fit` det du vil ha.\n\nNår skal du bruke kva? Bruk **flexbox** for komponentar og eindimensjonal fordeling – menyar, verktøylinjer, sentrering. Bruk **grid** for todimensjonale sideoppsett – header, sidebar og footer, galleri og dashbord. I praksis bruker du gjerne grid for den overordna sidelayouten og flexbox for innhaldet inni kvar celle. Og `gap` er enklare enn margin for avstandar i begge.","94abeafcf6b01eda":"Test deg sjølv på grid og val av teknikk:","f92e72a685ae8c03":"Kva er den viktigaste skilnaden mellom Flexbox og Grid?","65bb2b040335b0f2":"Flexbox er nyare enn Grid","b5715457b6fb3321":"Grid er berre for bilete","e41474c9cd6608c7":"Flexbox er eindimensjonal, medan Grid er todimensjonal (rader og kolonner samtidig)","d71fc0f2254f41c8":"Flexbox verkar ikkje på mobil","7ccb4317aed7e3df":"Flexbox jobbar i éin dimensjon (rad eller kolonne), medan Grid jobbar i to dimensjonar samtidig.","7db1818166a4e6c0":"Kva betyr grid-template-columns: 1fr 2fr 1fr?","2257631d9298f61e":"Tre kolonner på 1px, 2px og 1px","792c99167c58b8ed":"Tre kolonner på 1rem, 2rem og 1rem","f61284f6aca5545a":"Éi kolonne på 1fr med gap på 2fr","ef45ac36f9835a09":"Tre kolonner der den midtarste er dobbelt så brei som dei andre","e9868ffe5699e804":"fr-eininga fordeler ledig plass. 1fr 2fr 1fr gir den midtarste kolonnen dobbelt så mykje plass som dei to andre.","2b92ddecbc42405d":"Kva er skilnaden mellom auto-fit og auto-fill i repeat(...)?","27feb32c35b3d65a":"auto-fit kollapsar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld tomme spor","290d93c2e3522153":"Det er ingen skilnad","da34dffafa2da45c":"auto-fill er raskare","551377d1f0e56dab":"auto-fit verkar berre med pikslar","4fd5f2707f808ece":"auto-fit fjernar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld dei tomme spora.","10989cf49309cba7":"## Oppsummering\n\nFlexbox og grid har gjort float-triksa overflødige. **Flexbox** er eindimensjonal og perfekt for å fordele og sentrere element i ei rad eller kolonne – med `flex-direction`, `justify-content`, `align-items`, `gap` og kortforma `flex` (der forholdstal som 1:2:1 deler plassen i 25/50/25 %).\n\n**CSS Grid** er todimensjonal og ideelt for heile sideoppsett, med `grid-template-columns`, `fr`-eininga, `grid-template-areas` og den responsive `repeat(auto-fit, minmax(...))`-teknikken som gir rutenett utan media queries. Tommelregelen: flexbox for komponentar, grid for sideoppsett – og gjerne begge saman. Med desse to kan du byggje nesten kva som helst layout."}}}
+{
+  "id": "it-1-4-5-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "4.5",
+  "title": "Avansert CSS – Flexbox og Grid",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om dei to verktøya som revolusjonerte weblayout – flexbox for éin-dimensjonal fordeling og grid for todimensjonale sideoppsett, og når du vel kva.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "bruke CSS Flexbox og Grid til å lage avanserte sideoppsett",
+    "velge riktig layout-teknikk for ulike designbehov"
+  ],
+  "linkedChapterId": "it-1-4-5",
+  "content": [
+    {
+      "id": "it-1-4-5-n-intro",
+      "type": "text",
+      "content": "## Slutten på float-triksa\n\nFør flexbox og grid måtte utviklarar bruke kreative triks med float, tabellar og absolutt posisjonering for å lage sjølv enkle layoutar. I dag har desse to modulane revolusjonert weblayout. **Flexbox** er eindimensjonal og jobbar langs éin akse – rad eller kolonne. **CSS Grid** er todimensjonal og jobbar med rader og kolonner samtidig.\n\nLa oss starte med flexbox. Du aktiverer det med `display: flex` på foreldreelementet, som blir ein **flex-container**, medan dei direkte barna blir **flex-element**. Flexbox har to akser: hovudaksen (som standard horisontal) og kryssaksen (vertikal). `flex-direction` styrer retninga på hovudaksen – `row` er standard, `column` gjer det vertikalt. `flex-wrap: wrap` lèt elementa bryte til ny linje når plassen er full, og `gap` gir avstand mellom elementa.\n\nDei to viktigaste justeringseigenskapane er **justify-content** (fordeling langs hovudaksen) og **align-items** (justering langs kryssaksen). `justify-content` har verdiar som `center`, `space-between` og `space-evenly`, medan `align-items` har `center`, `flex-start` og `stretch`. Det mest elska trikset i moderne CSS er å kombinere dei for å sentrere noko perfekt:\n\n```css\n.sentrert {\n  display: flex;\n  justify-content: center;  /* horisontalt */\n  align-items: center;      /* vertikalt */\n  height: 100vh;\n}\n```\n\nFør flexbox var vertikal sentrering ei av dei mest frustrerande oppgåvene i heile CSS."
+    },
+    {
+      "id": "it-1-4-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-4-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på flexbox-grunnlag:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-4-5-n-quiz1-q0",
+            "task": "Kva gjer: display: flex; justify-content: center; align-items: center; height: 100vh?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Plasserer elementa i eit rutenett",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sentrerer innhaldet horisontalt og vertikalt i heile viewport-høgda",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Gjer containeren 100 pikslar høg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stablar elementa i ei kolonne",
+                "isCorrect": false
+              }
+            ],
+            "solution": "justify-content sentrerer horisontalt, align-items vertikalt, og height: 100vh gir full viewport-høgd – innhaldet hamnar midt på skjermen."
+          },
+          {
+            "id": "it-1-4-5-n-quiz1-q1",
+            "task": "Kva styrer flex-direction?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fargen på elementa",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Avstanden mellom elementa",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Retninga på hovudaksen (rad eller kolonne)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Skriftstorleiken",
+                "isCorrect": false
+              }
+            ],
+            "solution": "flex-direction bestemmer retninga på hovudaksen: row (horisontalt, standard) eller column (vertikalt)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-4-5-n-section1",
+      "type": "text",
+      "content": "## Kontroll over kvart element\n\nMedan container-eigenskapane styrer heilskapen, styrer tre eigenskapar på barna korleis kvart element oppfører seg. `flex-grow` seier kor mykje eit element skal vekse relativt til dei andre når det er ledig plass. `flex-shrink` seier kor mykje det krympar når plassen er trang (`0` betyr aldri). Og `flex-basis` set startstorleiken før vekst eller krymping.\n\nDesse kan slåast saman i kortforma `flex`. `flex: 1` betyr at elementet veks og deler ledig plass likt med andre `flex: 1`-element. `flex: 0 0 250px` betyr «ikkje veks, ikkje krymp, ver 250px brei». Eit godt døme er ein sidebar-layout: gi sidebaren `flex: 0 0 250px` for fast breidd og hovudinnhaldet `flex: 1` for å fylle resten.\n\nForholda mellom flex-verdiane fordeler plassen. Har du tre element med `flex: 1`, `flex: 2` og `flex: 1`, blir summen 4 andelar – så dei får høvesvis 25 %, 50 % og 25 % av den ledige plassen. Dette gjer det enkelt å lage proporsjonale kolonner utan å rekne ut pikslar."
+    },
+    {
+      "id": "it-1-4-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-4-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på flex-element:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-4-5-n-quiz2-q0",
+            "task": "Tre flex-element har flex: 1, flex: 2 og flex: 1. Korleis blir plassen fordelt?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle får lik breidd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det midtarste får fast breidd på 2px",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Elementa blir stabla vertikalt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "25%, 50% og 25% av tilgjengeleg plass",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Summen er 4 andelar (1+2+1), så elementa får 25%, 50% og 25% av plassen."
+          },
+          {
+            "id": "it-1-4-5-n-quiz2-q1",
+            "task": "Kva betyr flex: 0 0 250px på ein sidebar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sidebaren har fast breidd på 250px og verken veks eller krympar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Sidebaren veks ubegrensa",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sidebaren er alltid 0px",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sidebaren blir skjult",
+                "isCorrect": false
+              }
+            ],
+            "solution": "flex: 0 0 250px betyr flex-grow 0, flex-shrink 0 og flex-basis 250px – altså fast breidd som verken veks eller krympar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-4-5-n-section2",
+      "type": "text",
+      "content": "## Grid: rutenettet i to dimensjonar\n\n**CSS Grid** blir aktivert med `display: grid`, og du definerer strukturen med `grid-template-columns` og `grid-template-rows`. Den viktige **fr-eininga** (fraction) er ein andel av ledig plass: `grid-template-columns: 1fr 2fr 1fr` gir tre kolonner der den midtarste blir dobbelt så brei som dei to andre. Kortforma `repeat(3, 1fr)` lagar tre like kolonner.\n\nDu kan plassere element manuelt. `grid-column: 1 / 3` lèt eit element spenne over kolonne 1 til 3, og `grid-column: 1 / -1` strekkjer det over alle kolonner. Alternativt bruker du `span`, som i `grid-column: span 2`. Ein spesielt lesbar teknikk er `grid-template-areas`, der du «teiknar» layouten i CSS med namngitte område, og koplar elementa til dei med `grid-area`.\n\nDen kanskje mest nyttige grid-teknikken er responsivt rutenett utan media queries: `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`. Her betyr `minmax(280px, 1fr)` at kvar kolonne er minst 280px, men kan vekse, og `auto-fit` lèt nettlesaren rekne ut kor mange kolonner som får plass – fleire på breie skjermar, færre på smale. Skilnaden på `auto-fit` og `auto-fill` er subtil: `auto-fit` kollapsar tomme spor og lèt elementa strekkje seg, medan `auto-fill` beheld dei tomme spora. I dei fleste tilfella er `auto-fit` det du vil ha.\n\nNår skal du bruke kva? Bruk **flexbox** for komponentar og eindimensjonal fordeling – menyar, verktøylinjer, sentrering. Bruk **grid** for todimensjonale sideoppsett – header, sidebar og footer, galleri og dashbord. I praksis bruker du gjerne grid for den overordna sidelayouten og flexbox for innhaldet inni kvar celle. Og `gap` er enklare enn margin for avstandar i begge."
+    },
+    {
+      "id": "it-1-4-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-4-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grid og val av teknikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-4-5-n-quiz3-q0",
+            "task": "Kva er den viktigaste skilnaden mellom Flexbox og Grid?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Flexbox er nyare enn Grid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Flexbox er eindimensjonal, medan Grid er todimensjonal (rader og kolonner samtidig)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Grid er berre for bilete",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Flexbox verkar ikkje på mobil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Flexbox jobbar i éin dimensjon (rad eller kolonne), medan Grid jobbar i to dimensjonar samtidig."
+          },
+          {
+            "id": "it-1-4-5-n-quiz3-q1",
+            "task": "Kva betyr grid-template-columns: 1fr 2fr 1fr?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Tre kolonner på 1px, 2px og 1px",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Tre kolonner på 1rem, 2rem og 1rem",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tre kolonner der den midtarste er dobbelt så brei som dei andre",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Éi kolonne på 1fr med gap på 2fr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "fr-eininga fordeler ledig plass. 1fr 2fr 1fr gir den midtarste kolonnen dobbelt så mykje plass som dei to andre."
+          },
+          {
+            "id": "it-1-4-5-n-quiz3-q2",
+            "task": "Kva er skilnaden mellom auto-fit og auto-fill i repeat(...)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "auto-fill er raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "auto-fit verkar berre med pikslar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "auto-fit kollapsar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld tomme spor",
+                "isCorrect": true
+              }
+            ],
+            "solution": "auto-fit fjernar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld dei tomme spora."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-4-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFlexbox og grid har gjort float-triksa overflødige. **Flexbox** er eindimensjonal og perfekt for å fordele og sentrere element i ei rad eller kolonne – med `flex-direction`, `justify-content`, `align-items`, `gap` og kortforma `flex` (der forholdstal som 1:2:1 deler plassen i 25/50/25 %).\n\n**CSS Grid** er todimensjonal og ideelt for heile sideoppsett, med `grid-template-columns`, `fr`-eininga, `grid-template-areas` og den responsive `repeat(auto-fit, minmax(...))`-teknikken som gir rutenett utan media queries. Tommelregelen: flexbox for komponentar, grid for sideoppsett – og gjerne begge saman. Med desse to kan du byggje nesten kva som helst layout."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "1e1b74bea2ca62ff",
+    "translatedAt": "2026-06-20T23:58:16.001Z",
+    "model": "claude-code-agent",
+    "strings": 57,
+    "tm": {
+      "cb9d18762e300a4a": "Avansert CSS – Flexbox og Grid",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "92e83ee48635ed0a": "Ei forteljing om dei to verktøya som revolusjonerte weblayout – flexbox for éin-dimensjonal fordeling og grid for todimensjonale sideoppsett, og når du vel kva.",
+      "8d9d7dfd3ffc8201": "bruke CSS Flexbox og Grid til å lage avanserte sideoppsett",
+      "9f38b207bc74f787": "velge riktig layout-teknikk for ulike designbehov",
+      "42e3660e772db678": "## Slutten på float-triksa\n\nFør flexbox og grid måtte utviklarar bruke kreative triks med float, tabellar og absolutt posisjonering for å lage sjølv enkle layoutar. I dag har desse to modulane revolusjonert weblayout. **Flexbox** er eindimensjonal og jobbar langs éin akse – rad eller kolonne. **CSS Grid** er todimensjonal og jobbar med rader og kolonner samtidig.\n\nLa oss starte med flexbox. Du aktiverer det med `display: flex` på foreldreelementet, som blir ein **flex-container**, medan dei direkte barna blir **flex-element**. Flexbox har to akser: hovudaksen (som standard horisontal) og kryssaksen (vertikal). `flex-direction` styrer retninga på hovudaksen – `row` er standard, `column` gjer det vertikalt. `flex-wrap: wrap` lèt elementa bryte til ny linje når plassen er full, og `gap` gir avstand mellom elementa.\n\nDei to viktigaste justeringseigenskapane er **justify-content** (fordeling langs hovudaksen) og **align-items** (justering langs kryssaksen). `justify-content` har verdiar som `center`, `space-between` og `space-evenly`, medan `align-items` har `center`, `flex-start` og `stretch`. Det mest elska trikset i moderne CSS er å kombinere dei for å sentrere noko perfekt:\n\n```css\n.sentrert {\n  display: flex;\n  justify-content: center;  /* horisontalt */\n  align-items: center;      /* vertikalt */\n  height: 100vh;\n}\n```\n\nFør flexbox var vertikal sentrering ei av dei mest frustrerande oppgåvene i heile CSS.",
+      "5fd74a56844bdcae": "Test deg sjølv på flexbox-grunnlag:",
+      "4097889236a2af26": "placeholder",
+      "0999cad5e468844f": "Kva gjer: display: flex; justify-content: center; align-items: center; height: 100vh?",
+      "b60aebb75f651c85": "Plasserer elementa i eit rutenett",
+      "f03588be610afe12": "Gjer containeren 100 pikslar høg",
+      "4b3afa8cf27bcede": "Sentrerer innhaldet horisontalt og vertikalt i heile viewport-høgda",
+      "f928413691a4ab36": "Stablar elementa i ei kolonne",
+      "fbeabc2c1d2f40c5": "justify-content sentrerer horisontalt, align-items vertikalt, og height: 100vh gir full viewport-høgd – innhaldet hamnar midt på skjermen.",
+      "2ecbae9d82a836ae": "Kva styrer flex-direction?",
+      "7578ac9d3d071242": "Fargen på elementa",
+      "e19d5378c0a8286a": "Avstanden mellom elementa",
+      "f47681dc8f92af30": "Skriftstorleiken",
+      "d77d32a95bbcd95b": "Retninga på hovudaksen (rad eller kolonne)",
+      "930b78ab1d05857e": "flex-direction bestemmer retninga på hovudaksen: row (horisontalt, standard) eller column (vertikalt).",
+      "e031249babec3d2c": "## Kontroll over kvart element\n\nMedan container-eigenskapane styrer heilskapen, styrer tre eigenskapar på barna korleis kvart element oppfører seg. `flex-grow` seier kor mykje eit element skal vekse relativt til dei andre når det er ledig plass. `flex-shrink` seier kor mykje det krympar når plassen er trang (`0` betyr aldri). Og `flex-basis` set startstorleiken før vekst eller krymping.\n\nDesse kan slåast saman i kortforma `flex`. `flex: 1` betyr at elementet veks og deler ledig plass likt med andre `flex: 1`-element. `flex: 0 0 250px` betyr «ikkje veks, ikkje krymp, ver 250px brei». Eit godt døme er ein sidebar-layout: gi sidebaren `flex: 0 0 250px` for fast breidd og hovudinnhaldet `flex: 1` for å fylle resten.\n\nForholda mellom flex-verdiane fordeler plassen. Har du tre element med `flex: 1`, `flex: 2` og `flex: 1`, blir summen 4 andelar – så dei får høvesvis 25 %, 50 % og 25 % av den ledige plassen. Dette gjer det enkelt å lage proporsjonale kolonner utan å rekne ut pikslar.",
+      "acb2cc2152c0769b": "Test deg sjølv på flex-element:",
+      "04105b57e3d3a06a": "Tre flex-element har flex: 1, flex: 2 og flex: 1. Korleis blir plassen fordelt?",
+      "7e3f93cad80f0d4e": "25%, 50% og 25% av tilgjengeleg plass",
+      "4699eec4454b5913": "Alle får lik breidd",
+      "1c3cd7dbce8f2709": "Det midtarste får fast breidd på 2px",
+      "d6296bad2863bfe6": "Elementa blir stabla vertikalt",
+      "dcc64e5a6b71a0f9": "Summen er 4 andelar (1+2+1), så elementa får 25%, 50% og 25% av plassen.",
+      "987f474de61fa9b7": "Kva betyr flex: 0 0 250px på ein sidebar?",
+      "0f070227cf785f26": "Sidebaren veks ubegrensa",
+      "752859f663b87c1c": "Sidebaren har fast breidd på 250px og verken veks eller krympar",
+      "dd36e4b9b1b896f0": "Sidebaren er alltid 0px",
+      "18798f0a61305f60": "Sidebaren blir skjult",
+      "240b3de074c6bcae": "flex: 0 0 250px betyr flex-grow 0, flex-shrink 0 og flex-basis 250px – altså fast breidd som verken veks eller krympar.",
+      "4ef4e89e574f48b0": "## Grid: rutenettet i to dimensjonar\n\n**CSS Grid** blir aktivert med `display: grid`, og du definerer strukturen med `grid-template-columns` og `grid-template-rows`. Den viktige **fr-eininga** (fraction) er ein andel av ledig plass: `grid-template-columns: 1fr 2fr 1fr` gir tre kolonner der den midtarste blir dobbelt så brei som dei to andre. Kortforma `repeat(3, 1fr)` lagar tre like kolonner.\n\nDu kan plassere element manuelt. `grid-column: 1 / 3` lèt eit element spenne over kolonne 1 til 3, og `grid-column: 1 / -1` strekkjer det over alle kolonner. Alternativt bruker du `span`, som i `grid-column: span 2`. Ein spesielt lesbar teknikk er `grid-template-areas`, der du «teiknar» layouten i CSS med namngitte område, og koplar elementa til dei med `grid-area`.\n\nDen kanskje mest nyttige grid-teknikken er responsivt rutenett utan media queries: `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`. Her betyr `minmax(280px, 1fr)` at kvar kolonne er minst 280px, men kan vekse, og `auto-fit` lèt nettlesaren rekne ut kor mange kolonner som får plass – fleire på breie skjermar, færre på smale. Skilnaden på `auto-fit` og `auto-fill` er subtil: `auto-fit` kollapsar tomme spor og lèt elementa strekkje seg, medan `auto-fill` beheld dei tomme spora. I dei fleste tilfella er `auto-fit` det du vil ha.\n\nNår skal du bruke kva? Bruk **flexbox** for komponentar og eindimensjonal fordeling – menyar, verktøylinjer, sentrering. Bruk **grid** for todimensjonale sideoppsett – header, sidebar og footer, galleri og dashbord. I praksis bruker du gjerne grid for den overordna sidelayouten og flexbox for innhaldet inni kvar celle. Og `gap` er enklare enn margin for avstandar i begge.",
+      "94abeafcf6b01eda": "Test deg sjølv på grid og val av teknikk:",
+      "f92e72a685ae8c03": "Kva er den viktigaste skilnaden mellom Flexbox og Grid?",
+      "65bb2b040335b0f2": "Flexbox er nyare enn Grid",
+      "b5715457b6fb3321": "Grid er berre for bilete",
+      "e41474c9cd6608c7": "Flexbox er eindimensjonal, medan Grid er todimensjonal (rader og kolonner samtidig)",
+      "d71fc0f2254f41c8": "Flexbox verkar ikkje på mobil",
+      "7ccb4317aed7e3df": "Flexbox jobbar i éin dimensjon (rad eller kolonne), medan Grid jobbar i to dimensjonar samtidig.",
+      "7db1818166a4e6c0": "Kva betyr grid-template-columns: 1fr 2fr 1fr?",
+      "2257631d9298f61e": "Tre kolonner på 1px, 2px og 1px",
+      "792c99167c58b8ed": "Tre kolonner på 1rem, 2rem og 1rem",
+      "f61284f6aca5545a": "Éi kolonne på 1fr med gap på 2fr",
+      "ef45ac36f9835a09": "Tre kolonner der den midtarste er dobbelt så brei som dei andre",
+      "e9868ffe5699e804": "fr-eininga fordeler ledig plass. 1fr 2fr 1fr gir den midtarste kolonnen dobbelt så mykje plass som dei to andre.",
+      "2b92ddecbc42405d": "Kva er skilnaden mellom auto-fit og auto-fill i repeat(...)?",
+      "27feb32c35b3d65a": "auto-fit kollapsar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld tomme spor",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "da34dffafa2da45c": "auto-fill er raskare",
+      "551377d1f0e56dab": "auto-fit verkar berre med pikslar",
+      "4fd5f2707f808ece": "auto-fit fjernar tomme spor og lèt elementa strekkje seg, medan auto-fill beheld dei tomme spora.",
+      "10989cf49309cba7": "## Oppsummering\n\nFlexbox og grid har gjort float-triksa overflødige. **Flexbox** er eindimensjonal og perfekt for å fordele og sentrere element i ei rad eller kolonne – med `flex-direction`, `justify-content`, `align-items`, `gap` og kortforma `flex` (der forholdstal som 1:2:1 deler plassen i 25/50/25 %).\n\n**CSS Grid** er todimensjonal og ideelt for heile sideoppsett, med `grid-template-columns`, `fr`-eininga, `grid-template-areas` og den responsive `repeat(auto-fit, minmax(...))`-teknikken som gir rutenett utan media queries. Tommelregelen: flexbox for komponentar, grid for sideoppsett – og gjerne begge saman. Med desse to kan du byggje nesten kva som helst layout."
+    }
+  }
+}

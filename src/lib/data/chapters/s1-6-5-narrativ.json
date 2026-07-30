@@ -1,1 +1,262 @@
-{"id":"s1-6-5-narrativ","courseId":"s1","chapterNumber":"6.5","title":"Hypergeometrisk fordeling","subtitle":"Narrativ versjon","description":"En fortelling om kvalitetskontrollen på kretskortfabrikken — trekking uten tilbakelegging, den hypergeometriske formelen og binomisk tilnærming.","estimatedMinutes":31,"competenceGoals":["forklare trekking uten tilbakelegging","anvende den hypergeometriske formelen","bruke hypergeometrisk fordeling i kvalitetskontroll","sammenligne hypergeometrisk og binomialfordeling","vurdere når binomial er god approksimasjon"],"linkedChapterId":"s1-6-5","content":[{"id":"s1-6-5-n-intro","type":"text","content":"## Stikkprøven som ikke legger tilbake\n\nEn elektronikkfabrikk har produsert et parti på 50 kretskort, og kvalitetssjefen vet at noen av dem kan være defekte. Hun plukker ut 8 kort for testing. Men her er detaljen som endrer all matematikk: når et kort er plukket, legges det **ikke tilbake** i bunken. For hvert trekk endres sammensetningen av resten — og dermed sannsynlighetene.\n\nI binomialfordelingen antok vi konstant sannsynlighet i hvert forsøk, noe som tilsvarer trekking **med** tilbakelegging. Kvalitetskontroll, meningsmålinger der 50 respondenter velges fra en gruppe på 500, og Lotto der 7 tall trekkes av 34 — alle er trekking **uten** tilbakelegging. Slike situasjoner beskrives av den **hypergeometriske fordelingen**.\n\nOppsettet er slik: en populasjon har $N$ objekter, hvorav $M$ er av typen «suksess» og $N - M$ av typen «fiasko». Vi trekker $n$ objekter uten tilbakelegging, og lar $X$ være antall suksesser i utvalget. Da er\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\nLogikken bak formelen er ren kombinatorikk: telleren teller måtene å velge $k$ suksesser blant $M$ og samtidig $n-k$ fiaskoer blant $N-M$; nevneren teller alle måter å velge $n$ av $N$.\n\nForventningsverdien er behagelig enkel, $E(X) = n \\cdot \\frac{M}{N}$, mens variansen $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$ bærer med seg faktoren $\\frac{N-n}{N-1}$ — den **endelige populasjonskorreksjonen** — som viser at trekking uten tilbakelegging gir *mindre* spredning enn med."},{"id":"s1-6-5-n-quiz1","type":"exercise","exercise":{"id":"s1-6-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på hypergeometrisk fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-5-n-quiz1-q0","task":"Hva skiller den hypergeometriske fordelingen fra binomialfordelingen?","options":[{"id":"a","text":"Den gjelder bare for terningkast","isCorrect":false},{"id":"b","text":"Den beskriver trekking uten tilbakelegging, der sannsynligheten endres for hvert trekk","isCorrect":true},{"id":"c","text":"Den krever at $n$ er større enn $N$","isCorrect":false},{"id":"d","text":"Den har alltid forventningsverdi null","isCorrect":false}],"solution":"Hypergeometrisk fordeling brukes når vi trekker uten tilbakelegging — sammensetningen av populasjonen endres underveis."},{"id":"s1-6-5-n-quiz1-q1","task":"I formelen $P(X = k) = \\dfrac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ — hva teller $\\binom{N}{n}$?","options":[{"id":"a","text":"Antall suksesser i utvalget","isCorrect":false},{"id":"b","text":"Antall defekte i populasjonen","isCorrect":false},{"id":"c","text":"Antall fiaskoer i utvalget","isCorrect":false},{"id":"d","text":"Alle måter å velge $n$ objekter blant $N$","isCorrect":true}],"solution":"Nevneren er det totale antallet mulige utvalg: $\\binom{N}{n}$ måter å trekke $n$ av $N$ objekter."},{"id":"s1-6-5-n-quiz1-q2","task":"Hva er forventningsverdien til en hypergeometrisk fordelt variabel?","options":[{"id":"a","text":"$E(X) = n \\cdot \\dfrac{M}{N}$","isCorrect":true},{"id":"b","text":"$E(X) = \\dfrac{N}{n \\cdot M}$","isCorrect":false},{"id":"c","text":"$E(X) = M \\cdot N$","isCorrect":false},{"id":"d","text":"$E(X) = \\dfrac{n}{N}$","isCorrect":false}],"solution":"$E(X) = n \\cdot \\frac{M}{N}$ — utvalgsstørrelsen ganger andelen suksesser i populasjonen."}]}},{"id":"s1-6-5-n-section1","type":"text","content":"## Kvalitetskontrollen — og snarveien via binomialen\n\nTilbake til fabrikken. Partiet har $N = 50$ kort, hvorav $M = 5$ er defekte, og kvalitetssjefen tester $n = 8$. Hva er sjansen for at stikkprøven ikke avslører noen defekte i det hele tatt?\n\n$$P(X = 0) = \\frac{\\binom{5}{0}\\binom{45}{8}}{\\binom{50}{8}} = \\frac{215\\,553\\,195}{536\\,878\\,650} \\approx 0{,}401$$\n\nHele 40 % sjanse for at et parti med 10 % defekte slipper gjennom uten anmerkning! Forventet antall defekte i utvalget er $E(X) = 8 \\cdot \\frac{5}{50} = 0{,}8$. Og sannsynligheten for å finne minst to? Med $P(X = 1) \\approx 0{,}395$ blir\n\n$$P(X \\geq 2) = 1 - P(X = 0) - P(X = 1) \\approx 1 - 0{,}401 - 0{,}395 = 0{,}204$$\n\nSlike beregninger forteller bedriften hvor stor stikkprøven må være for at kontrollen skal være effektiv — en avveining mellom testkostnad og risiko.\n\nMen må vi alltid slite med de store binomialkoeffisientene? Nei. Når utvalget er lite i forhold til populasjonen — tommelfingerregel: $n < 0{,}05 \\cdot N$ — endrer hvert trekk sammensetningen så lite at trekking uten tilbakelegging nesten er det samme som med. Da kan vi approksimere med en binomialfordeling med $p = \\frac{M}{N}$:\n\n$$X \\approx \\text{Bin}\\!\\left(n, \\frac{M}{N}\\right)$$\n\nVelger du 10 fra en populasjon på 1 000, er binomialen en utmerket tilnærming; velger du 10 fra 15, må du bruke den hypergeometriske. Forskjellen ligger nettopp i den endelige populasjonskorreksjonen: i store populasjoner er den umerkelig, i små er den avgjørende."},{"id":"s1-6-5-n-quiz2","type":"exercise","exercise":{"id":"s1-6-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kvalitetskontroll og tilnærming:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-6-5-n-quiz2-q0","task":"Et parti har $N = 50$ kort, $M = 5$ defekte, og $n = 8$ testes. Hva er forventet antall defekte i utvalget?","options":[{"id":"a","text":"$E(X) = 5$","isCorrect":false},{"id":"b","text":"$E(X) = 1{,}6$","isCorrect":false},{"id":"c","text":"$E(X) = 0{,}8$","isCorrect":true},{"id":"d","text":"$E(X) = 0{,}1$","isCorrect":false}],"solution":"$E(X) = n \\cdot \\frac{M}{N} = 8 \\cdot \\frac{5}{50} = 0{,}8$."},{"id":"s1-6-5-n-quiz2-q1","task":"I samme kontroll er $P(X = 0) \\approx 0{,}401$ og $P(X = 1) \\approx 0{,}395$. Hva er $P(X \\geq 2)$?","options":[{"id":"a","text":"Ca. $0{,}20$","isCorrect":true},{"id":"b","text":"Ca. $0{,}40$","isCorrect":false},{"id":"c","text":"Ca. $0{,}60$","isCorrect":false},{"id":"d","text":"Ca. $0{,}80$","isCorrect":false}],"solution":"$P(X \\geq 2) = 1 - P(X=0) - P(X=1) \\approx 1 - 0{,}401 - 0{,}395 = 0{,}204$."},{"id":"s1-6-5-n-quiz2-q2","task":"Når kan den hypergeometriske fordelingen approksimeres med en binomialfordeling?","options":[{"id":"a","text":"Når $n$ er større enn $M$","isCorrect":false},{"id":"b","text":"Når populasjonen er svært liten","isCorrect":false},{"id":"c","text":"Aldri — de er helt forskjellige","isCorrect":false},{"id":"d","text":"Når utvalget er lite i forhold til populasjonen (ca. $n < 0{,}05N$)","isCorrect":true}],"solution":"Når $n \\ll N$ endrer hvert trekk sammensetningen ubetydelig, og $X \\approx \\text{Bin}(n, M/N)$."},{"id":"s1-6-5-n-quiz2-q3","task":"Du trekker $10$ kort fra en bunke på $15$. Hvilken fordeling bør du bruke for antall spar?","options":[{"id":"a","text":"Binomialfordeling — utvalget er stort nok","isCorrect":false},{"id":"b","text":"Hypergeometrisk — utvalget er stort i forhold til populasjonen","isCorrect":true},{"id":"c","text":"Normalfordeling","isCorrect":false},{"id":"d","text":"Uniform fordeling","isCorrect":false}],"solution":"$\\frac{10}{15} = 67\\,\\%$ av populasjonen trekkes — langt over 5 %-grensen, så binomial tilnærming blir dårlig. Bruk hypergeometrisk."}]}},{"id":"s1-6-5-n-summary","type":"text","content":"## Oppsummering: matematikken i stikkprøven\n\nKvalitetssjefens 8 kort fra partiet på 50 var ikke et binomisk forsøk — hvert trekk endret bunken. Den **hypergeometriske fordelingen** håndterer nettopp dette: med $N$ objekter, hvorav $M$ er spesielle, og $n$ trekk uten tilbakelegging, er\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\n— kombinatorikk i tre etasjer: gunstige valg av suksesser, gunstige valg av fiaskoer, delt på alle mulige utvalg. **Forventningsverdien** $E(X) = n \\cdot \\frac{M}{N}$ er den samme som for binomialen, mens variansen krympes av den endelige populasjonskorreksjonen $\\frac{N-n}{N-1}$.\n\nRegnestykkene fra fabrikken viste fordelingens praktiske kraft: 40 % sjanse for at stikkprøven overser alle de defekte kortene er et tall som tvinger fram bedre kontrollrutiner. Og **tilnærmingen** sparer arbeid: er utvalget under cirka 5–10 % av populasjonen, kan du trygt bruke binomialfordelingen med $p = \\frac{M}{N}$ i stedet — trekkingens påvirkning på bunken er da neglisjerbar.\n\nKvalitetskontroll, kortspill, lotterier og utvalgsundersøkelser — overalt der noe trekkes uten å legges tilbake, er det denne fordelingen som gjelder. I neste kapittel går vi motsatt vei og ser hva som skjer når antallet forsøk blir stort: da smelter alle disse fordelingene sammen i normalfordelingens klokkeform."}],"exercises":[]}
+{
+  "id": "s1-6-5-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "6.5",
+  "title": "Hypergeometrisk fordeling",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kvalitetskontrollen på kretskortfabrikken — trekking uten tilbakelegging, den hypergeometriske formelen og binomisk tilnærming.",
+  "estimatedMinutes": 31,
+  "competenceGoals": [
+    "forklare trekking uten tilbakelegging",
+    "anvende den hypergeometriske formelen",
+    "bruke hypergeometrisk fordeling i kvalitetskontroll",
+    "sammenligne hypergeometrisk og binomialfordeling",
+    "vurdere når binomial er god approksimasjon"
+  ],
+  "linkedChapterId": "s1-6-5",
+  "content": [
+    {
+      "id": "s1-6-5-n-intro",
+      "type": "text",
+      "content": "## Stikkprøven som ikke legger tilbake\n\nEn elektronikkfabrikk har produsert et parti på 50 kretskort, og kvalitetssjefen vet at noen av dem kan være defekte. Hun plukker ut 8 kort for testing. Men her er detaljen som endrer all matematikk: når et kort er plukket, legges det **ikke tilbake** i bunken. For hvert trekk endres sammensetningen av resten — og dermed sannsynlighetene.\n\nI binomialfordelingen antok vi konstant sannsynlighet i hvert forsøk, noe som tilsvarer trekking **med** tilbakelegging. Kvalitetskontroll, meningsmålinger der 50 respondenter velges fra en gruppe på 500, og Lotto der 7 tall trekkes av 34 — alle er trekking **uten** tilbakelegging. Slike situasjoner beskrives av den **hypergeometriske fordelingen**.\n\nOppsettet er slik: en populasjon har $N$ objekter, hvorav $M$ er av typen «suksess» og $N - M$ av typen «fiasko». Vi trekker $n$ objekter uten tilbakelegging, og lar $X$ være antall suksesser i utvalget. Da er\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\nLogikken bak formelen er ren kombinatorikk: telleren teller måtene å velge $k$ suksesser blant $M$ og samtidig $n-k$ fiaskoer blant $N-M$; nevneren teller alle måter å velge $n$ av $N$.\n\nForventningsverdien er behagelig enkel, $E(X) = n \\cdot \\frac{M}{N}$, mens variansen $\\text{Var}(X) = n \\cdot \\frac{M}{N} \\cdot \\frac{N-M}{N} \\cdot \\frac{N-n}{N-1}$ bærer med seg faktoren $\\frac{N-n}{N-1}$ — den **endelige populasjonskorreksjonen** — som viser at trekking uten tilbakelegging gir *mindre* spredning enn med."
+    },
+    {
+      "id": "s1-6-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på hypergeometrisk fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-5-n-quiz1-q0",
+            "task": "Hva skiller den hypergeometriske fordelingen fra binomialfordelingen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den gjelder bare for terningkast",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den beskriver trekking uten tilbakelegging, der sannsynligheten endres for hvert trekk",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den krever at $n$ er større enn $N$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den har alltid forventningsverdi null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hypergeometrisk fordeling brukes når vi trekker uten tilbakelegging — sammensetningen av populasjonen endres underveis."
+          },
+          {
+            "id": "s1-6-5-n-quiz1-q1",
+            "task": "I formelen $P(X = k) = \\dfrac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ — hva teller $\\binom{N}{n}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Antall suksesser i utvalget",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Antall defekte i populasjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle måter å velge $n$ objekter blant $N$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Antall fiaskoer i utvalget",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nevneren er det totale antallet mulige utvalg: $\\binom{N}{n}$ måter å trekke $n$ av $N$ objekter."
+          },
+          {
+            "id": "s1-6-5-n-quiz1-q2",
+            "task": "Hva er forventningsverdien til en hypergeometrisk fordelt variabel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$E(X) = \\dfrac{N}{n \\cdot M}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$E(X) = M \\cdot N$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$E(X) = \\dfrac{n}{N}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$E(X) = n \\cdot \\dfrac{M}{N}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$E(X) = n \\cdot \\frac{M}{N}$ — utvalgsstørrelsen ganger andelen suksesser i populasjonen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-5-n-section1",
+      "type": "text",
+      "content": "## Kvalitetskontrollen — og snarveien via binomialen\n\nTilbake til fabrikken. Partiet har $N = 50$ kort, hvorav $M = 5$ er defekte, og kvalitetssjefen tester $n = 8$. Hva er sjansen for at stikkprøven ikke avslører noen defekte i det hele tatt?\n\n$$P(X = 0) = \\frac{\\binom{5}{0}\\binom{45}{8}}{\\binom{50}{8}} = \\frac{215\\,553\\,195}{536\\,878\\,650} \\approx 0{,}401$$\n\nHele 40 % sjanse for at et parti med 10 % defekte slipper gjennom uten anmerkning! Forventet antall defekte i utvalget er $E(X) = 8 \\cdot \\frac{5}{50} = 0{,}8$. Og sannsynligheten for å finne minst to? Med $P(X = 1) \\approx 0{,}395$ blir\n\n$$P(X \\geq 2) = 1 - P(X = 0) - P(X = 1) \\approx 1 - 0{,}401 - 0{,}395 = 0{,}204$$\n\nSlike beregninger forteller bedriften hvor stor stikkprøven må være for at kontrollen skal være effektiv — en avveining mellom testkostnad og risiko.\n\nMen må vi alltid slite med de store binomialkoeffisientene? Nei. Når utvalget er lite i forhold til populasjonen — tommelfingerregel: $n < 0{,}05 \\cdot N$ — endrer hvert trekk sammensetningen så lite at trekking uten tilbakelegging nesten er det samme som med. Da kan vi approksimere med en binomialfordeling med $p = \\frac{M}{N}$:\n\n$$X \\approx \\text{Bin}\\!\\left(n, \\frac{M}{N}\\right)$$\n\nVelger du 10 fra en populasjon på 1 000, er binomialen en utmerket tilnærming; velger du 10 fra 15, må du bruke den hypergeometriske. Forskjellen ligger nettopp i den endelige populasjonskorreksjonen: i store populasjoner er den umerkelig, i små er den avgjørende."
+    },
+    {
+      "id": "s1-6-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-6-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kvalitetskontroll og tilnærming:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-6-5-n-quiz2-q0",
+            "task": "Et parti har $N = 50$ kort, $M = 5$ defekte, og $n = 8$ testes. Hva er forventet antall defekte i utvalget?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$E(X) = 0{,}8$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$E(X) = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$E(X) = 1{,}6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$E(X) = 0{,}1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = n \\cdot \\frac{M}{N} = 8 \\cdot \\frac{5}{50} = 0{,}8$."
+          },
+          {
+            "id": "s1-6-5-n-quiz2-q1",
+            "task": "I samme kontroll er $P(X = 0) \\approx 0{,}401$ og $P(X = 1) \\approx 0{,}395$. Hva er $P(X \\geq 2)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. $0{,}40$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. $0{,}20$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. $0{,}60$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $0{,}80$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(X \\geq 2) = 1 - P(X=0) - P(X=1) \\approx 1 - 0{,}401 - 0{,}395 = 0{,}204$."
+          },
+          {
+            "id": "s1-6-5-n-quiz2-q2",
+            "task": "Når kan den hypergeometriske fordelingen approksimeres med en binomialfordeling?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $n$ er større enn $M$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når populasjonen er svært liten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når utvalget er lite i forhold til populasjonen (ca. $n < 0{,}05N$)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Aldri — de er helt forskjellige",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $n \\ll N$ endrer hvert trekk sammensetningen ubetydelig, og $X \\approx \\text{Bin}(n, M/N)$."
+          },
+          {
+            "id": "s1-6-5-n-quiz2-q3",
+            "task": "Du trekker $10$ kort fra en bunke på $15$. Hvilken fordeling bør du bruke for antall spar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Binomialfordeling — utvalget er stort nok",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Normalfordeling",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Uniform fordeling",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Hypergeometrisk — utvalget er stort i forhold til populasjonen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{10}{15} = 67\\,\\%$ av populasjonen trekkes — langt over 5 %-grensen, så binomial tilnærming blir dårlig. Bruk hypergeometrisk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-6-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: matematikken i stikkprøven\n\nKvalitetssjefens 8 kort fra partiet på 50 var ikke et binomisk forsøk — hvert trekk endret bunken. Den **hypergeometriske fordelingen** håndterer nettopp dette: med $N$ objekter, hvorav $M$ er spesielle, og $n$ trekk uten tilbakelegging, er\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\n— kombinatorikk i tre etasjer: gunstige valg av suksesser, gunstige valg av fiaskoer, delt på alle mulige utvalg. **Forventningsverdien** $E(X) = n \\cdot \\frac{M}{N}$ er den samme som for binomialen, mens variansen krympes av den endelige populasjonskorreksjonen $\\frac{N-n}{N-1}$.\n\nRegnestykkene fra fabrikken viste fordelingens praktiske kraft: 40 % sjanse for at stikkprøven overser alle de defekte kortene er et tall som tvinger fram bedre kontrollrutiner. Og **tilnærmingen** sparer arbeid: er utvalget under cirka 5–10 % av populasjonen, kan du trygt bruke binomialfordelingen med $p = \\frac{M}{N}$ i stedet — trekkingens påvirkning på bunken er da neglisjerbar.\n\nKvalitetskontroll, kortspill, lotterier og utvalgsundersøkelser — overalt der noe trekkes uten å legges tilbake, er det denne fordelingen som gjelder. I neste kapittel går vi motsatt vei og ser hva som skjer når antallet forsøk blir stort: da smelter alle disse fordelingene sammen i normalfordelingens klokkeform."
+    }
+  ],
+  "exercises": []
+}

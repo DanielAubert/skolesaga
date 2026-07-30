@@ -1,1 +1,403 @@
-{"id":"it-1-5-2-narrativ","courseId":"it-1","chapterNumber":"5.2","title":"Variablar, datatypar og operatorar i JavaScript","subtitle":"Narrativ versjon","description":"Ei forteljing om det dynamiske typesystemet i JavaScript – datatypar, operatorar, snikande typekonvertering, og dei allestadsnærverande strukturane arrays og objekt.","estimatedMinutes":38,"competenceGoals":["bruke variabler, datatyper og operatorer i programmer","forstå forskjellen mellom primitive datatyper og objekter i JavaScript"],"linkedChapterId":"it-1-5-2","content":[{"id":"it-1-5-2-n-intro","type":"text","content":"## Eit språk som gjettar typen for deg\n\nJavaScript er **dynamisk typa**: du deklarerer ikkje kva type ein variabel skal ha – typen blir bestemt automatisk av verdien du tilordnar. Det gir fleksibilitet, men òg overraskingar dersom du ikkje forstår systemet. Ein **datatype** bestemmer kva verdiar ein variabel kan ha og kva operasjonar som er lov. JavaScript har sju *primitive* typar og éin *samansett* type (object).\n\nDei tre viktigaste primitive typane er number, string og boolean. **Number** dekkjer alle tal, både heiltal og desimaltal – det finst ingen eigen heiltalstype. Pass på spesialverdiane: `1 / 0` gir `Infinity`, `\"hei\" * 2` gir `NaN` (Not a Number), og `0.1 + 0.2` gir overraskande `0.30000000000000004` på grunn av flytepunktsfeil. **String** er tekst i hermeteikn, og ein spesielt nyttig variant er *template literals* med backticks, som støttar innebygde uttrykk: `` `${navn} er ${alder} år` ``. **Boolean** er `true` eller `false`.\n\nI tillegg har JavaScript to verdiar for «ingenting». `undefined` betyr at ein variabel er deklarert, men ikkje har fått ein verdi enno. `null` betyr eit *medvite* fråvær av verdi – som «brukaren er ikkje logga inn enno». Ein kjend kuriositet: `typeof null` gir `\"object\"`, ein velkjend bug i språket som aldri blei retta."},{"id":"it-1-5-2-n-quiz1","type":"exercise","exercise":{"id":"it-1-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på datatypar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-2-n-quiz1-q0","task":"Kva returnerer typeof \"42\"?","options":[{"id":"a","text":"\"number\"","isCorrect":false},{"id":"b","text":"\"integer\"","isCorrect":false},{"id":"c","text":"\"string\"","isCorrect":true},{"id":"d","text":"\"boolean\"","isCorrect":false}],"solution":"\"42\" står i hermeteikn og er difor ein tekststreng, så typeof gir \"string\"."},{"id":"it-1-5-2-n-quiz1-q1","task":"Kva blir skrive ut av console.log(typeof null)?","options":[{"id":"a","text":"\"null\"","isCorrect":false},{"id":"b","text":"\"undefined\"","isCorrect":false},{"id":"c","text":"\"boolean\"","isCorrect":false},{"id":"d","text":"\"object\"","isCorrect":true}],"solution":"typeof null gir \"object\" – ein velkjend bug i JavaScript som aldri blei retta."},{"id":"it-1-5-2-n-quiz1-q2","task":"Kva er skilnaden mellom undefined og null?","options":[{"id":"a","text":"undefined betyr «ikkje sett enno», null betyr «medvite sett til ingenting»","isCorrect":true},{"id":"b","text":"Dei er identiske","isCorrect":false},{"id":"c","text":"null er for tal, undefined for tekst","isCorrect":false},{"id":"d","text":"undefined er alltid ein feil","isCorrect":false}],"solution":"undefined betyr at verdien ikkje er sett enno, medan null blir brukt når du med vilje set ein variabel til ingenting."}]}},{"id":"it-1-5-2-n-section1","type":"text","content":"## Operatorar og snikande konvertering\n\nJavaScript har dei vanlege rekneoperatorane: `+`, `-`, `*`, `/`, `%` (modulo/rest) og `**` (potens). Du kan òg forkorte tilordning med `+=`, `-=`, `*=` og `/=`, samt auke og minke med `tall++` og `tall--`.\n\nFor samanlikning gjeld ein jernregel: bruk alltid `===` (streng likskap), aldri `==` (laus likskap). Strenge operatorar krev at både verdi og type stemmer, medan `==` utfører automatisk typekonvertering som gir uventa resultat. Til dømes er `5 === \"5\"` lik `false` (ulike typar), medan `5 == \"5\"` faktisk er `true` – og endå rarare: `0 == \"\"` er `true`. Logiske operatorar er `&&` (og), `||` (eller) og `!` (ikkje).\n\nDen verkeleg snikande fella er **implisitt typekonvertering** (coercion). Plussoperatoren er spesiell: når éi side er ein streng, gjer han den andre om til streng og limer dei saman. Difor er `\"5\" + 3` lik `\"53\"`, medan `\"5\" - 3` faktisk er `2` – fordi minus tvingar fram talkonvertering. Likeins gir `true + 1` verdien `2`. For å unngå kaos kan du konvertere eksplisitt med `Number(\"42\")`, `parseInt(\"42px\")`, `String(42)` og `Boolean(0)`."},{"id":"it-1-5-2-n-quiz2","type":"exercise","exercise":{"id":"it-1-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på operatorar og konvertering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-2-n-quiz2-q0","task":"Kva blir resultatet av \"5\" + 3?","options":[{"id":"a","text":"8","isCorrect":false},{"id":"b","text":"\"53\"","isCorrect":true},{"id":"c","text":"\"8\"","isCorrect":false},{"id":"d","text":"NaN","isCorrect":false}],"solution":"Plussoperatoren med ein streng på den eine sida gjer den andre om til streng og set dei saman: \"53\"."},{"id":"it-1-5-2-n-quiz2-q1","task":"Kvifor bør du bruke === i staden for ==?","options":[{"id":"a","text":"=== er raskare å skrive","isCorrect":false},{"id":"b","text":"== finst ikkje i JavaScript","isCorrect":false},{"id":"c","text":"=== krev at både verdi og type stemmer, medan == gjer snikande typekonvertering","isCorrect":true},{"id":"d","text":"Dei er heilt like","isCorrect":false}],"solution":"=== samanliknar både verdi og type strengt, medan == konverterer typar automatisk og kan gi uventa resultat."},{"id":"it-1-5-2-n-quiz2-q2","task":"Kva gir \"5\" - 3 i JavaScript?","options":[{"id":"a","text":"\"53\"","isCorrect":false},{"id":"b","text":"\"2\"","isCorrect":false},{"id":"c","text":"NaN","isCorrect":false},{"id":"d","text":"2","isCorrect":true}],"solution":"Minus finst ikkje for strengar, så JavaScript konverterer \"5\" til talet 5, og 5 - 3 = 2."}]}},{"id":"it-1-5-2-n-section2","type":"text","content":"## Arrays og objekt – datastrukturane overalt\n\nDen samansette typen object dekkjer to enormt viktige strukturar. Ein **array** er ei ordna liste av verdiar, oppretta med klammeparentesar: `const frukter = [\"eple\", \"banan\", \"appelsin\"]`. Du hentar element med indeks, og hugs at indeksen startar på 0 – så `frukter[0]` er «eple». `frukter.length` gir talet på element. Eit viktig poeng: sjølv om ein array er `const`, kan du framleis *endre innhaldet* (`frukter[1] = \"mango\"`); det er berre sjølve variabelen som ikkje kan byttast ut.\n\nArrays har mange nyttige metodar. `push` legg til bakarst, `pop` fjernar det siste, `includes` sjekkar om ein verdi finst, og `indexOf` finn posisjonen. Dei kraftigaste er `map` (lagar ein ny array ved å transformere kvart element), `filter` (beheld berre element som oppfyller eit vilkår) og `reduce` (slår alle saman til éin verdi, til dømes ein sum). Filtrerer du `[10, 20, 30, 40, 50]` på `t > 25`, sit du att med tre element (30, 40, 50).\n\nEit **objekt** er ei samling av **nøkkel-verdi-par** og blir brukt til å gruppere relaterte data: `const elev = { fornavn: \"Sara\", alder: 17 }`. Du hentar verdiar med punktnotasjon (`elev.fornavn`) eller klammenotasjon (`elev[\"fornavn\"]`), endrar dei direkte, legg til nye med tilordning, og slettar med `delete`. Objekt kan innehalde både arrays og andre objekt, så `skole.adresse.gate` grev seg nedover i strukturen. Arrays og objekt er fundamentet for JSON-formatet, som blir brukt i nesten all datautveksling på weben."},{"id":"it-1-5-2-n-quiz3","type":"exercise","exercise":{"id":"it-1-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på arrays og objekt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-5-2-n-quiz3-q0","task":"Kva er frukter[2] etter: const frukter = [\"eple\",\"banan\",\"appelsin\",\"mango\"]; frukter[2] = \"druer\"?","options":[{"id":"a","text":"\"druer\"","isCorrect":true},{"id":"b","text":"\"appelsin\"","isCorrect":false},{"id":"c","text":"\"banan\"","isCorrect":false},{"id":"d","text":"Feil, fordi arrayen er const","isCorrect":false}],"solution":"Indeks 2 blir endra til «druer». Ein const-array kan endre innhald, berre ikkje byttast ut heilt."},{"id":"it-1-5-2-n-quiz3-q1","task":"Kva er storeTall.length? const tall = [10,20,30,40,50]; const storeTall = tall.filter(t => t > 25)","options":[{"id":"a","text":"2","isCorrect":false},{"id":"b","text":"3","isCorrect":true},{"id":"c","text":"5","isCorrect":false},{"id":"d","text":"0","isCorrect":false}],"solution":"filter beheld 30, 40 og 50 (dei over 25), altså 3 element."},{"id":"it-1-5-2-n-quiz3-q2","task":"Kva er eit objekt i JavaScript?","options":[{"id":"a","text":"Ei ordna liste av verdiar","isCorrect":false},{"id":"b","text":"Ein type løkke","isCorrect":false},{"id":"c","text":"Ei samling av nøkkel-verdi-par (eigenskapar)","isCorrect":true},{"id":"d","text":"Eit tal med desimalar","isCorrect":false}],"solution":"Eit objekt grupperer relaterte data som nøkkel-verdi-par, til dømes { fornavn: \"Sara\", alder: 17 }."}]}},{"id":"it-1-5-2-n-summary","type":"text","content":"## Oppsummering\n\nJavaScript er **dynamisk typa**, med sju primitive datatypar (number, string, boolean, null, undefined med fleire) og objekt som samansett type. Number dekkjer alle tal, template literals med backticks gjer tekst smidig, og du må kjenne skiljet mellom `undefined` (ikkje sett enno) og `null` (medvite ingenting).\n\nBlant operatorane er regelen om å alltid bruke `===` framfor `==` viktig, fordi **implisitt typekonvertering** elles gir overraskingar som at `\"5\" + 3` blir `\"53\"`. Til slutt møtte vi dei to strukturane du vil bruke konstant: **arrays** (ordna lister med metodar som map, filter og reduce) og **objekt** (nøkkel-verdi-par). Desse to er grunnlaget for JSON og dataflyten på heile weben."}],"exercises":[],"_meta":{"sourceHash":"4b2bc15c3a307636","translatedAt":"2026-06-20T23:58:16.002Z","model":"claude-code-agent","strings":59,"tm":{"3bb7291c7efd15b2":"Variablar, datatypar og operatorar i JavaScript","b195b06d1ed59702":"Narrativ versjon","ebb7cc35e50e9839":"Ei forteljing om det dynamiske typesystemet i JavaScript – datatypar, operatorar, snikande typekonvertering, og dei allestadsnærverande strukturane arrays og objekt.","41f9016700316693":"bruke variabler, datatyper og operatorer i programmer","671a471b00fda156":"forstå forskjellen mellom primitive datatyper og objekter i JavaScript","1e290d23583eb6dd":"## Eit språk som gjettar typen for deg\n\nJavaScript er **dynamisk typa**: du deklarerer ikkje kva type ein variabel skal ha – typen blir bestemt automatisk av verdien du tilordnar. Det gir fleksibilitet, men òg overraskingar dersom du ikkje forstår systemet. Ein **datatype** bestemmer kva verdiar ein variabel kan ha og kva operasjonar som er lov. JavaScript har sju *primitive* typar og éin *samansett* type (object).\n\nDei tre viktigaste primitive typane er number, string og boolean. **Number** dekkjer alle tal, både heiltal og desimaltal – det finst ingen eigen heiltalstype. Pass på spesialverdiane: `1 / 0` gir `Infinity`, `\"hei\" * 2` gir `NaN` (Not a Number), og `0.1 + 0.2` gir overraskande `0.30000000000000004` på grunn av flytepunktsfeil. **String** er tekst i hermeteikn, og ein spesielt nyttig variant er *template literals* med backticks, som støttar innebygde uttrykk: `` `${navn} er ${alder} år` ``. **Boolean** er `true` eller `false`.\n\nI tillegg har JavaScript to verdiar for «ingenting». `undefined` betyr at ein variabel er deklarert, men ikkje har fått ein verdi enno. `null` betyr eit *medvite* fråvær av verdi – som «brukaren er ikkje logga inn enno». Ein kjend kuriositet: `typeof null` gir `\"object\"`, ein velkjend bug i språket som aldri blei retta.","08dba88a3bee26a8":"Test deg sjølv på datatypar:","4097889236a2af26":"placeholder","15fa64d48aafaa3f":"Kva returnerer typeof \"42\"?","fd1a55ee2217c1ac":"\"number\"","bb894e256c101d18":"\"integer\"","e9e5c1c9e4f62773":"\"string\"","a5b031ab62bc416d":"\"boolean\"","60b2afbbcffdef65":"\"42\" står i hermeteikn og er difor ein tekststreng, så typeof gir \"string\".","0fa9a0e0a07130f8":"Kva blir skrive ut av console.log(typeof null)?","f072cbec3bf88418":"\"null\"","cf939b398b75f0a6":"\"undefined\"","626992da9517ee49":"\"object\"","9fae7ae9153c2739":"typeof null gir \"object\" – ein velkjend bug i JavaScript som aldri blei retta.","16d60b13d4342c95":"Kva er skilnaden mellom undefined og null?","22da61f7c997a396":"undefined betyr «ikkje sett enno», null betyr «medvite sett til ingenting»","3b3baa10a15618d0":"Dei er identiske","7f3b67c1f7b1a08a":"null er for tal, undefined for tekst","4fe153798e20be36":"undefined er alltid ein feil","108c5b92513e89fa":"undefined betyr at verdien ikkje er sett enno, medan null blir brukt når du med vilje set ein variabel til ingenting.","012ca6342ea489fb":"## Operatorar og snikande konvertering\n\nJavaScript har dei vanlege rekneoperatorane: `+`, `-`, `*`, `/`, `%` (modulo/rest) og `**` (potens). Du kan òg forkorte tilordning med `+=`, `-=`, `*=` og `/=`, samt auke og minke med `tall++` og `tall--`.\n\nFor samanlikning gjeld ein jernregel: bruk alltid `===` (streng likskap), aldri `==` (laus likskap). Strenge operatorar krev at både verdi og type stemmer, medan `==` utfører automatisk typekonvertering som gir uventa resultat. Til dømes er `5 === \"5\"` lik `false` (ulike typar), medan `5 == \"5\"` faktisk er `true` – og endå rarare: `0 == \"\"` er `true`. Logiske operatorar er `&&` (og), `||` (eller) og `!` (ikkje).\n\nDen verkeleg snikande fella er **implisitt typekonvertering** (coercion). Plussoperatoren er spesiell: når éi side er ein streng, gjer han den andre om til streng og limer dei saman. Difor er `\"5\" + 3` lik `\"53\"`, medan `\"5\" - 3` faktisk er `2` – fordi minus tvingar fram talkonvertering. Likeins gir `true + 1` verdien `2`. For å unngå kaos kan du konvertere eksplisitt med `Number(\"42\")`, `parseInt(\"42px\")`, `String(42)` og `Boolean(0)`.","2b625f7cd93e4b92":"Test deg sjølv på operatorar og konvertering:","c16152aa54fbe514":"Kva blir resultatet av \"5\" + 3?","d5b592c05dc25b50":"NaN","cb18aafd5bf023d9":"Plussoperatoren med ein streng på den eine sida gjer den andre om til streng og set dei saman: \"53\".","11249d4cd49e13da":"Kvifor bør du bruke === i staden for ==?","6393f8eb5a638d78":"=== er raskare å skrive","a9edbb780e917169":"== finst ikkje i JavaScript","48c1bba06457c937":"=== krev at både verdi og type stemmer, medan == gjer snikande typekonvertering","e1dc91e521d110ed":"Dei er heilt like","04a1ab412e1f61d0":"=== samanliknar både verdi og type strengt, medan == konverterer typar automatisk og kan gi uventa resultat.","57c6218324fe0f4c":"Kva gir \"5\" - 3 i JavaScript?","f718e8fe5442243c":"Minus finst ikkje for strengar, så JavaScript konverterer \"5\" til talet 5, og 5 - 3 = 2.","ef90e541fc04b7e2":"## Arrays og objekt – datastrukturane overalt\n\nDen samansette typen object dekkjer to enormt viktige strukturar. Ein **array** er ei ordna liste av verdiar, oppretta med klammeparentesar: `const frukter = [\"eple\", \"banan\", \"appelsin\"]`. Du hentar element med indeks, og hugs at indeksen startar på 0 – så `frukter[0]` er «eple». `frukter.length` gir talet på element. Eit viktig poeng: sjølv om ein array er `const`, kan du framleis *endre innhaldet* (`frukter[1] = \"mango\"`); det er berre sjølve variabelen som ikkje kan byttast ut.\n\nArrays har mange nyttige metodar. `push` legg til bakarst, `pop` fjernar det siste, `includes` sjekkar om ein verdi finst, og `indexOf` finn posisjonen. Dei kraftigaste er `map` (lagar ein ny array ved å transformere kvart element), `filter` (beheld berre element som oppfyller eit vilkår) og `reduce` (slår alle saman til éin verdi, til dømes ein sum). Filtrerer du `[10, 20, 30, 40, 50]` på `t > 25`, sit du att med tre element (30, 40, 50).\n\nEit **objekt** er ei samling av **nøkkel-verdi-par** og blir brukt til å gruppere relaterte data: `const elev = { fornavn: \"Sara\", alder: 17 }`. Du hentar verdiar med punktnotasjon (`elev.fornavn`) eller klammenotasjon (`elev[\"fornavn\"]`), endrar dei direkte, legg til nye med tilordning, og slettar med `delete`. Objekt kan innehalde både arrays og andre objekt, så `skole.adresse.gate` grev seg nedover i strukturen. Arrays og objekt er fundamentet for JSON-formatet, som blir brukt i nesten all datautveksling på weben.","d0f98c7142b987af":"Test deg sjølv på arrays og objekt:","6023bd2402d331b1":"Kva er frukter[2] etter: const frukter = [\"eple\",\"banan\",\"appelsin\",\"mango\"]; frukter[2] = \"druer\"?","6e2cf1b618a3470a":"\"druer\"","c8c5929ef1bc2557":"\"appelsin\"","7d1434c631f6ccbd":"\"banan\"","502cfebc2f1ebe56":"Feil, fordi arrayen er const","ab6a17fb17917eb7":"Indeks 2 blir endra til «druer». Ein const-array kan endre innhald, berre ikkje byttast ut heilt.","e680ecbcd0f7f015":"Kva er storeTall.length? const tall = [10,20,30,40,50]; const storeTall = tall.filter(t => t > 25)","0f5bfc4304d332ed":"filter beheld 30, 40 og 50 (dei over 25), altså 3 element.","d5e9f53c678ae2d2":"Kva er eit objekt i JavaScript?","fcf351c49fbbbae7":"Ei ordna liste av verdiar","4ca369627b439380":"Ein type løkke","cf526e3e81400943":"Ei samling av nøkkel-verdi-par (eigenskapar)","bb5ab7edfc990bb3":"Eit tal med desimalar","21fdeda06cb3693c":"Eit objekt grupperer relaterte data som nøkkel-verdi-par, til dømes { fornavn: \"Sara\", alder: 17 }.","45b30055d7feaeae":"## Oppsummering\n\nJavaScript er **dynamisk typa**, med sju primitive datatypar (number, string, boolean, null, undefined med fleire) og objekt som samansett type. Number dekkjer alle tal, template literals med backticks gjer tekst smidig, og du må kjenne skiljet mellom `undefined` (ikkje sett enno) og `null` (medvite ingenting).\n\nBlant operatorane er regelen om å alltid bruke `===` framfor `==` viktig, fordi **implisitt typekonvertering** elles gir overraskingar som at `\"5\" + 3` blir `\"53\"`. Til slutt møtte vi dei to strukturane du vil bruke konstant: **arrays** (ordna lister med metodar som map, filter og reduce) og **objekt** (nøkkel-verdi-par). Desse to er grunnlaget for JSON og dataflyten på heile weben."}}}
+{
+  "id": "it-1-5-2-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "5.2",
+  "title": "Variablar, datatypar og operatorar i JavaScript",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om det dynamiske typesystemet i JavaScript – datatypar, operatorar, snikande typekonvertering, og dei allestadsnærverande strukturane arrays og objekt.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "bruke variabler, datatyper og operatorer i programmer",
+    "forstå forskjellen mellom primitive datatyper og objekter i JavaScript"
+  ],
+  "linkedChapterId": "it-1-5-2",
+  "content": [
+    {
+      "id": "it-1-5-2-n-intro",
+      "type": "text",
+      "content": "## Eit språk som gjettar typen for deg\n\nJavaScript er **dynamisk typa**: du deklarerer ikkje kva type ein variabel skal ha – typen blir bestemt automatisk av verdien du tilordnar. Det gir fleksibilitet, men òg overraskingar dersom du ikkje forstår systemet. Ein **datatype** bestemmer kva verdiar ein variabel kan ha og kva operasjonar som er lov. JavaScript har sju *primitive* typar og éin *samansett* type (object).\n\nDei tre viktigaste primitive typane er number, string og boolean. **Number** dekkjer alle tal, både heiltal og desimaltal – det finst ingen eigen heiltalstype. Pass på spesialverdiane: `1 / 0` gir `Infinity`, `\"hei\" * 2` gir `NaN` (Not a Number), og `0.1 + 0.2` gir overraskande `0.30000000000000004` på grunn av flytepunktsfeil. **String** er tekst i hermeteikn, og ein spesielt nyttig variant er *template literals* med backticks, som støttar innebygde uttrykk: `` `${navn} er ${alder} år` ``. **Boolean** er `true` eller `false`.\n\nI tillegg har JavaScript to verdiar for «ingenting». `undefined` betyr at ein variabel er deklarert, men ikkje har fått ein verdi enno. `null` betyr eit *medvite* fråvær av verdi – som «brukaren er ikkje logga inn enno». Ein kjend kuriositet: `typeof null` gir `\"object\"`, ein velkjend bug i språket som aldri blei retta."
+    },
+    {
+      "id": "it-1-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på datatypar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-2-n-quiz1-q0",
+            "task": "Kva returnerer typeof \"42\"?",
+            "options": [
+              {
+                "id": "a",
+                "text": "\"number\"",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "\"string\"",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "\"integer\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "\"boolean\"",
+                "isCorrect": false
+              }
+            ],
+            "solution": "\"42\" står i hermeteikn og er difor ein tekststreng, så typeof gir \"string\"."
+          },
+          {
+            "id": "it-1-5-2-n-quiz1-q1",
+            "task": "Kva blir skrive ut av console.log(typeof null)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "\"null\"",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "\"undefined\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "\"object\"",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "\"boolean\"",
+                "isCorrect": false
+              }
+            ],
+            "solution": "typeof null gir \"object\" – ein velkjend bug i JavaScript som aldri blei retta."
+          },
+          {
+            "id": "it-1-5-2-n-quiz1-q2",
+            "task": "Kva er skilnaden mellom undefined og null?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Dei er identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "null er for tal, undefined for tekst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "undefined er alltid ein feil",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "undefined betyr «ikkje sett enno», null betyr «medvite sett til ingenting»",
+                "isCorrect": true
+              }
+            ],
+            "solution": "undefined betyr at verdien ikkje er sett enno, medan null blir brukt når du med vilje set ein variabel til ingenting."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-2-n-section1",
+      "type": "text",
+      "content": "## Operatorar og snikande konvertering\n\nJavaScript har dei vanlege rekneoperatorane: `+`, `-`, `*`, `/`, `%` (modulo/rest) og `**` (potens). Du kan òg forkorte tilordning med `+=`, `-=`, `*=` og `/=`, samt auke og minke med `tall++` og `tall--`.\n\nFor samanlikning gjeld ein jernregel: bruk alltid `===` (streng likskap), aldri `==` (laus likskap). Strenge operatorar krev at både verdi og type stemmer, medan `==` utfører automatisk typekonvertering som gir uventa resultat. Til dømes er `5 === \"5\"` lik `false` (ulike typar), medan `5 == \"5\"` faktisk er `true` – og endå rarare: `0 == \"\"` er `true`. Logiske operatorar er `&&` (og), `||` (eller) og `!` (ikkje).\n\nDen verkeleg snikande fella er **implisitt typekonvertering** (coercion). Plussoperatoren er spesiell: når éi side er ein streng, gjer han den andre om til streng og limer dei saman. Difor er `\"5\" + 3` lik `\"53\"`, medan `\"5\" - 3` faktisk er `2` – fordi minus tvingar fram talkonvertering. Likeins gir `true + 1` verdien `2`. For å unngå kaos kan du konvertere eksplisitt med `Number(\"42\")`, `parseInt(\"42px\")`, `String(42)` og `Boolean(0)`."
+    },
+    {
+      "id": "it-1-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på operatorar og konvertering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-2-n-quiz2-q0",
+            "task": "Kva blir resultatet av \"5\" + 3?",
+            "options": [
+              {
+                "id": "b",
+                "text": "\"53\"",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "8",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "\"8\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "NaN",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Plussoperatoren med ein streng på den eine sida gjer den andre om til streng og set dei saman: \"53\"."
+          },
+          {
+            "id": "it-1-5-2-n-quiz2-q1",
+            "task": "Kvifor bør du bruke === i staden for ==?",
+            "options": [
+              {
+                "id": "a",
+                "text": "=== er raskare å skrive",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "=== krev at både verdi og type stemmer, medan == gjer snikande typekonvertering",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "== finst ikkje i JavaScript",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei er heilt like",
+                "isCorrect": false
+              }
+            ],
+            "solution": "=== samanliknar både verdi og type strengt, medan == konverterer typar automatisk og kan gi uventa resultat."
+          },
+          {
+            "id": "it-1-5-2-n-quiz2-q2",
+            "task": "Kva gir \"5\" - 3 i JavaScript?",
+            "options": [
+              {
+                "id": "a",
+                "text": "\"53\"",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "\"2\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "2",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "NaN",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Minus finst ikkje for strengar, så JavaScript konverterer \"5\" til talet 5, og 5 - 3 = 2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-2-n-section2",
+      "type": "text",
+      "content": "## Arrays og objekt – datastrukturane overalt\n\nDen samansette typen object dekkjer to enormt viktige strukturar. Ein **array** er ei ordna liste av verdiar, oppretta med klammeparentesar: `const frukter = [\"eple\", \"banan\", \"appelsin\"]`. Du hentar element med indeks, og hugs at indeksen startar på 0 – så `frukter[0]` er «eple». `frukter.length` gir talet på element. Eit viktig poeng: sjølv om ein array er `const`, kan du framleis *endre innhaldet* (`frukter[1] = \"mango\"`); det er berre sjølve variabelen som ikkje kan byttast ut.\n\nArrays har mange nyttige metodar. `push` legg til bakarst, `pop` fjernar det siste, `includes` sjekkar om ein verdi finst, og `indexOf` finn posisjonen. Dei kraftigaste er `map` (lagar ein ny array ved å transformere kvart element), `filter` (beheld berre element som oppfyller eit vilkår) og `reduce` (slår alle saman til éin verdi, til dømes ein sum). Filtrerer du `[10, 20, 30, 40, 50]` på `t > 25`, sit du att med tre element (30, 40, 50).\n\nEit **objekt** er ei samling av **nøkkel-verdi-par** og blir brukt til å gruppere relaterte data: `const elev = { fornavn: \"Sara\", alder: 17 }`. Du hentar verdiar med punktnotasjon (`elev.fornavn`) eller klammenotasjon (`elev[\"fornavn\"]`), endrar dei direkte, legg til nye med tilordning, og slettar med `delete`. Objekt kan innehalde både arrays og andre objekt, så `skole.adresse.gate` grev seg nedover i strukturen. Arrays og objekt er fundamentet for JSON-formatet, som blir brukt i nesten all datautveksling på weben."
+    },
+    {
+      "id": "it-1-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på arrays og objekt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-5-2-n-quiz3-q0",
+            "task": "Kva er frukter[2] etter: const frukter = [\"eple\",\"banan\",\"appelsin\",\"mango\"]; frukter[2] = \"druer\"?",
+            "options": [
+              {
+                "id": "b",
+                "text": "\"appelsin\"",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "\"banan\"",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Feil, fordi arrayen er const",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "\"druer\"",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Indeks 2 blir endra til «druer». Ein const-array kan endre innhald, berre ikkje byttast ut heilt."
+          },
+          {
+            "id": "it-1-5-2-n-quiz3-q1",
+            "task": "Kva er storeTall.length? const tall = [10,20,30,40,50]; const storeTall = tall.filter(t => t > 25)",
+            "options": [
+              {
+                "id": "b",
+                "text": "3",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "5",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "filter beheld 30, 40 og 50 (dei over 25), altså 3 element."
+          },
+          {
+            "id": "it-1-5-2-n-quiz3-q2",
+            "task": "Kva er eit objekt i JavaScript?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ei ordna liste av verdiar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei samling av nøkkel-verdi-par (eigenskapar)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein type løkke",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit tal med desimalar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit objekt grupperer relaterte data som nøkkel-verdi-par, til dømes { fornavn: \"Sara\", alder: 17 }."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nJavaScript er **dynamisk typa**, med sju primitive datatypar (number, string, boolean, null, undefined med fleire) og objekt som samansett type. Number dekkjer alle tal, template literals med backticks gjer tekst smidig, og du må kjenne skiljet mellom `undefined` (ikkje sett enno) og `null` (medvite ingenting).\n\nBlant operatorane er regelen om å alltid bruke `===` framfor `==` viktig, fordi **implisitt typekonvertering** elles gir overraskingar som at `\"5\" + 3` blir `\"53\"`. Til slutt møtte vi dei to strukturane du vil bruke konstant: **arrays** (ordna lister med metodar som map, filter og reduce) og **objekt** (nøkkel-verdi-par). Desse to er grunnlaget for JSON og dataflyten på heile weben."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "4b2bc15c3a307636",
+    "translatedAt": "2026-06-20T23:58:16.002Z",
+    "model": "claude-code-agent",
+    "strings": 59,
+    "tm": {
+      "3bb7291c7efd15b2": "Variablar, datatypar og operatorar i JavaScript",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "ebb7cc35e50e9839": "Ei forteljing om det dynamiske typesystemet i JavaScript – datatypar, operatorar, snikande typekonvertering, og dei allestadsnærverande strukturane arrays og objekt.",
+      "41f9016700316693": "bruke variabler, datatyper og operatorer i programmer",
+      "671a471b00fda156": "forstå forskjellen mellom primitive datatyper og objekter i JavaScript",
+      "1e290d23583eb6dd": "## Eit språk som gjettar typen for deg\n\nJavaScript er **dynamisk typa**: du deklarerer ikkje kva type ein variabel skal ha – typen blir bestemt automatisk av verdien du tilordnar. Det gir fleksibilitet, men òg overraskingar dersom du ikkje forstår systemet. Ein **datatype** bestemmer kva verdiar ein variabel kan ha og kva operasjonar som er lov. JavaScript har sju *primitive* typar og éin *samansett* type (object).\n\nDei tre viktigaste primitive typane er number, string og boolean. **Number** dekkjer alle tal, både heiltal og desimaltal – det finst ingen eigen heiltalstype. Pass på spesialverdiane: `1 / 0` gir `Infinity`, `\"hei\" * 2` gir `NaN` (Not a Number), og `0.1 + 0.2` gir overraskande `0.30000000000000004` på grunn av flytepunktsfeil. **String** er tekst i hermeteikn, og ein spesielt nyttig variant er *template literals* med backticks, som støttar innebygde uttrykk: `` `${navn} er ${alder} år` ``. **Boolean** er `true` eller `false`.\n\nI tillegg har JavaScript to verdiar for «ingenting». `undefined` betyr at ein variabel er deklarert, men ikkje har fått ein verdi enno. `null` betyr eit *medvite* fråvær av verdi – som «brukaren er ikkje logga inn enno». Ein kjend kuriositet: `typeof null` gir `\"object\"`, ein velkjend bug i språket som aldri blei retta.",
+      "08dba88a3bee26a8": "Test deg sjølv på datatypar:",
+      "4097889236a2af26": "placeholder",
+      "15fa64d48aafaa3f": "Kva returnerer typeof \"42\"?",
+      "fd1a55ee2217c1ac": "\"number\"",
+      "bb894e256c101d18": "\"integer\"",
+      "e9e5c1c9e4f62773": "\"string\"",
+      "a5b031ab62bc416d": "\"boolean\"",
+      "60b2afbbcffdef65": "\"42\" står i hermeteikn og er difor ein tekststreng, så typeof gir \"string\".",
+      "0fa9a0e0a07130f8": "Kva blir skrive ut av console.log(typeof null)?",
+      "f072cbec3bf88418": "\"null\"",
+      "cf939b398b75f0a6": "\"undefined\"",
+      "626992da9517ee49": "\"object\"",
+      "9fae7ae9153c2739": "typeof null gir \"object\" – ein velkjend bug i JavaScript som aldri blei retta.",
+      "16d60b13d4342c95": "Kva er skilnaden mellom undefined og null?",
+      "22da61f7c997a396": "undefined betyr «ikkje sett enno», null betyr «medvite sett til ingenting»",
+      "3b3baa10a15618d0": "Dei er identiske",
+      "7f3b67c1f7b1a08a": "null er for tal, undefined for tekst",
+      "4fe153798e20be36": "undefined er alltid ein feil",
+      "108c5b92513e89fa": "undefined betyr at verdien ikkje er sett enno, medan null blir brukt når du med vilje set ein variabel til ingenting.",
+      "012ca6342ea489fb": "## Operatorar og snikande konvertering\n\nJavaScript har dei vanlege rekneoperatorane: `+`, `-`, `*`, `/`, `%` (modulo/rest) og `**` (potens). Du kan òg forkorte tilordning med `+=`, `-=`, `*=` og `/=`, samt auke og minke med `tall++` og `tall--`.\n\nFor samanlikning gjeld ein jernregel: bruk alltid `===` (streng likskap), aldri `==` (laus likskap). Strenge operatorar krev at både verdi og type stemmer, medan `==` utfører automatisk typekonvertering som gir uventa resultat. Til dømes er `5 === \"5\"` lik `false` (ulike typar), medan `5 == \"5\"` faktisk er `true` – og endå rarare: `0 == \"\"` er `true`. Logiske operatorar er `&&` (og), `||` (eller) og `!` (ikkje).\n\nDen verkeleg snikande fella er **implisitt typekonvertering** (coercion). Plussoperatoren er spesiell: når éi side er ein streng, gjer han den andre om til streng og limer dei saman. Difor er `\"5\" + 3` lik `\"53\"`, medan `\"5\" - 3` faktisk er `2` – fordi minus tvingar fram talkonvertering. Likeins gir `true + 1` verdien `2`. For å unngå kaos kan du konvertere eksplisitt med `Number(\"42\")`, `parseInt(\"42px\")`, `String(42)` og `Boolean(0)`.",
+      "2b625f7cd93e4b92": "Test deg sjølv på operatorar og konvertering:",
+      "c16152aa54fbe514": "Kva blir resultatet av \"5\" + 3?",
+      "d5b592c05dc25b50": "NaN",
+      "cb18aafd5bf023d9": "Plussoperatoren med ein streng på den eine sida gjer den andre om til streng og set dei saman: \"53\".",
+      "11249d4cd49e13da": "Kvifor bør du bruke === i staden for ==?",
+      "6393f8eb5a638d78": "=== er raskare å skrive",
+      "a9edbb780e917169": "== finst ikkje i JavaScript",
+      "48c1bba06457c937": "=== krev at både verdi og type stemmer, medan == gjer snikande typekonvertering",
+      "e1dc91e521d110ed": "Dei er heilt like",
+      "04a1ab412e1f61d0": "=== samanliknar både verdi og type strengt, medan == konverterer typar automatisk og kan gi uventa resultat.",
+      "57c6218324fe0f4c": "Kva gir \"5\" - 3 i JavaScript?",
+      "f718e8fe5442243c": "Minus finst ikkje for strengar, så JavaScript konverterer \"5\" til talet 5, og 5 - 3 = 2.",
+      "ef90e541fc04b7e2": "## Arrays og objekt – datastrukturane overalt\n\nDen samansette typen object dekkjer to enormt viktige strukturar. Ein **array** er ei ordna liste av verdiar, oppretta med klammeparentesar: `const frukter = [\"eple\", \"banan\", \"appelsin\"]`. Du hentar element med indeks, og hugs at indeksen startar på 0 – så `frukter[0]` er «eple». `frukter.length` gir talet på element. Eit viktig poeng: sjølv om ein array er `const`, kan du framleis *endre innhaldet* (`frukter[1] = \"mango\"`); det er berre sjølve variabelen som ikkje kan byttast ut.\n\nArrays har mange nyttige metodar. `push` legg til bakarst, `pop` fjernar det siste, `includes` sjekkar om ein verdi finst, og `indexOf` finn posisjonen. Dei kraftigaste er `map` (lagar ein ny array ved å transformere kvart element), `filter` (beheld berre element som oppfyller eit vilkår) og `reduce` (slår alle saman til éin verdi, til dømes ein sum). Filtrerer du `[10, 20, 30, 40, 50]` på `t > 25`, sit du att med tre element (30, 40, 50).\n\nEit **objekt** er ei samling av **nøkkel-verdi-par** og blir brukt til å gruppere relaterte data: `const elev = { fornavn: \"Sara\", alder: 17 }`. Du hentar verdiar med punktnotasjon (`elev.fornavn`) eller klammenotasjon (`elev[\"fornavn\"]`), endrar dei direkte, legg til nye med tilordning, og slettar med `delete`. Objekt kan innehalde både arrays og andre objekt, så `skole.adresse.gate` grev seg nedover i strukturen. Arrays og objekt er fundamentet for JSON-formatet, som blir brukt i nesten all datautveksling på weben.",
+      "d0f98c7142b987af": "Test deg sjølv på arrays og objekt:",
+      "6023bd2402d331b1": "Kva er frukter[2] etter: const frukter = [\"eple\",\"banan\",\"appelsin\",\"mango\"]; frukter[2] = \"druer\"?",
+      "6e2cf1b618a3470a": "\"druer\"",
+      "c8c5929ef1bc2557": "\"appelsin\"",
+      "7d1434c631f6ccbd": "\"banan\"",
+      "502cfebc2f1ebe56": "Feil, fordi arrayen er const",
+      "ab6a17fb17917eb7": "Indeks 2 blir endra til «druer». Ein const-array kan endre innhald, berre ikkje byttast ut heilt.",
+      "e680ecbcd0f7f015": "Kva er storeTall.length? const tall = [10,20,30,40,50]; const storeTall = tall.filter(t => t > 25)",
+      "0f5bfc4304d332ed": "filter beheld 30, 40 og 50 (dei over 25), altså 3 element.",
+      "d5e9f53c678ae2d2": "Kva er eit objekt i JavaScript?",
+      "fcf351c49fbbbae7": "Ei ordna liste av verdiar",
+      "4ca369627b439380": "Ein type løkke",
+      "cf526e3e81400943": "Ei samling av nøkkel-verdi-par (eigenskapar)",
+      "bb5ab7edfc990bb3": "Eit tal med desimalar",
+      "21fdeda06cb3693c": "Eit objekt grupperer relaterte data som nøkkel-verdi-par, til dømes { fornavn: \"Sara\", alder: 17 }.",
+      "45b30055d7feaeae": "## Oppsummering\n\nJavaScript er **dynamisk typa**, med sju primitive datatypar (number, string, boolean, null, undefined med fleire) og objekt som samansett type. Number dekkjer alle tal, template literals med backticks gjer tekst smidig, og du må kjenne skiljet mellom `undefined` (ikkje sett enno) og `null` (medvite ingenting).\n\nBlant operatorane er regelen om å alltid bruke `===` framfor `==` viktig, fordi **implisitt typekonvertering** elles gir overraskingar som at `\"5\" + 3` blir `\"53\"`. Til slutt møtte vi dei to strukturane du vil bruke konstant: **arrays** (ordna lister med metodar som map, filter og reduce) og **objekt** (nøkkel-verdi-par). Desse to er grunnlaget for JSON og dataflyten på heile weben."
+    }
+  }
+}

@@ -1,1 +1,361 @@
-{"id":"tif-vg1-5-8-narrativ","courseId":"tif-vg1","chapterNumber":"5.8","title":"Elektropneumatikk og styring","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis elektrisk hjerne møter pneumatisk muskel -- solenoidventilar, sensorar og PLS-en som styrer moderne automatiserte maskinar.","estimatedMinutes":30,"competenceGoals":["bruke fagterminologi for å beskrive og dokumentere arbeidsprosesser","reflektere over hvordan teknologisk utvikling påvirker arbeidsoppgaver og arbeidsprosesser"],"linkedChapterId":"tif-vg1-5-8","content":[{"id":"tif-vg1-5-8-n-intro","type":"text","content":"## Når elektronikk møter trykkluft\n\nDu har lært om musklane til pneumatikken -- sylindrar som dyttar og grip med kraft. Men ein muskel utan ei hjerne er lite verdt. Kva om du vil at ein maskin skal gjere ting *automatisk*, i rett rekkjefølgje, styrt av eit program? Då kombinerer du elektrisk styring med pneumatisk kraft, og resultatet er **elektropneumatikk** -- fleksible, programmerbare system som er enkle å byggje inn i automatiserte produksjonslinjer.\n\nBrua mellom det elektriske og det pneumatiske er **solenoidventilen** -- ein pneumatisk ventil som blir styrt elektrisk via ein elektromagnet (ein solenoid). Verkemåten er elegant: du tilfører elektrisk spenning til solenoiden, magnetfeltet trekkjer ventilspolen, ventilen skiftar posisjon, og lufta strøymer til eller frå sylinderen. Dermed kan eit lite elektrisk signal styre ei kraftig pneumatisk rørsle.\n\nDet finst to grunntypar. Ein **monostabil** ventil har fjør-retur, så han fell tilbake til utgangsstillinga straks straumen forsvinn. Ein **bistabil** ventil blir verande i posisjonen til den motsette solenoiden blir aktivert -- han 'hugsar' altså tilstanden sin.\n\nTypiske solenoidventilar køyrer på 24 V DC (eller 230 V AC), bruker berre 2--5 W, og skiftar posisjon på 20--50 millisekund -- altså svært raskt. Med ein solenoidventil kan ei datamaskin styre trykkluft like enkelt som å slå av og på ei lampe, og det er nettopp dette som opnar døra til full automatisering."},{"id":"tif-vg1-5-8-n-section1","type":"text","content":"## Sansane og hjerna i systemet\n\nFor at eit automatisk system skal vite kva det driv med, treng det **sansar** -- altså sensorar. Sensorar gir styresystemet informasjon om posisjonar, tilstandar og hendingar.\n\nNokre sensorar overvaker sylindrar direkte. Ein **reed-brytar** reagerer på ein magnet i stempelet og melder frå om posisjonen, og ein **Hall-sensor** gjer det same elektronisk. Andre sensorar detekterer gjenstandar utan å røre dei -- **proksimitetsgivarar**. Ein **induktiv** givar merkjer berre metall, ein **kapasitiv** merkjer alle materiale, og ein **optisk** reagerer når ein lysstråle blir broten eller reflektert. I tillegg finst trykkbrytarar, strøymingsbrytarar og temperaturfølarar. Valet blir styrt av oppgåva: skal du finne ein metalldel, bruker du ein robust induktiv givar; skal du måle nivået av plast eller væske i ein tank, bruker du ein kapasitiv.\n\nHjerna i systemet er **PLS**-en (Programmable Logic Controller), ei industriell datamaskin bygd for å styre maskinar. Han har fire delar: **inngangar** som tek imot signal frå sensorar og knappar, ein **CPU** som køyrer programmet, **utgangar** som sender signal til ventilar og motorar, og ei **straumforsyning**. CPU-en jobbar i ei evig løkke -- han les inngangane, utfører logikken og oppdaterer utgangane, typisk på 10--50 millisekund.\n\nPLS-en blir programmert på fleire måtar. **Stigediagram** (Ladder) liknar eit elektrisk skjema og er mest brukt. **Funksjonsblokker** er grafiske, og **strukturert tekst** er kodebasert. Eit enkelt stigediagram kan til dømes seie: når sensor A OG sensor B er aktive, aktiver utgang Y1. Slik omset PLS-en informasjonen til sansane til handling, gong på gong, utan å bli trøytt."},{"id":"tif-vg1-5-8-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-5-8-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på solenoidventilar, sensorar og PLS:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-5-8-n-quiz1-q0","task":"Kva er hovudfordelen med solenoidventilar framfor manuelle ventilar?","options":[{"id":"a","text":"Dei kan fjernstyrast og automatiserast","isCorrect":true},{"id":"b","text":"Dei er alltid billegare","isCorrect":false},{"id":"c","text":"Dei treng inga straumforsyning","isCorrect":false},{"id":"d","text":"Dei bruker mindre trykkluft","isCorrect":false}],"solution":"Solenoidventilar blir styrte elektrisk frå ein PLS eller anna styresystem, noko som gjer fjernstyring og automatisering mogleg. Manuelle ventilar krev fysisk aktivering."},{"id":"tif-vg1-5-8-n-quiz1-q1","task":"Kva sensor detekterer BERRE metall?","options":[{"id":"a","text":"Kapasitiv givar","isCorrect":false},{"id":"b","text":"Induktiv givar","isCorrect":true},{"id":"c","text":"Optisk givar","isCorrect":false},{"id":"d","text":"Temperaturfølar","isCorrect":false}],"solution":"Ein induktiv givar detekterer berre metall via eit oscillerande magnetfelt. Ein kapasitiv givar merkjer alle materiale."},{"id":"tif-vg1-5-8-n-quiz1-q2","task":"Kva er dei tre signalrelaterte hovuddelane i ein PLS?","options":[{"id":"a","text":"Pumpe, ventil og sylinder","isCorrect":false},{"id":"b","text":"Filter, regulator og lubrikator","isCorrect":false},{"id":"c","text":"Inngangar, CPU og utgangar","isCorrect":true},{"id":"d","text":"Sensor, motor og fjør","isCorrect":false}],"solution":"PLS-en har inngangar (frå sensorar/knappar), ein CPU (køyrer programmet) og utgangar (til ventilar/motorar), pluss ei straumforsyning."},{"id":"tif-vg1-5-8-n-quiz1-q3","task":"Kva kjenneteiknar ein bistabil solenoidventil?","options":[{"id":"a","text":"Han fell tilbake med fjør når straumen forsvinn","isCorrect":false},{"id":"b","text":"Han kan berre brukast med likestraum","isCorrect":false},{"id":"c","text":"Han har ingen portar","isCorrect":false},{"id":"d","text":"Han blir verande i posisjon til den motsette solenoiden blir aktivert","isCorrect":true}],"solution":"Ein bistabil ventil 'hugsar' posisjonen og blir verande til den motsette solenoiden blir aktivert. Ein monostabil har fjør-retur."}]}},{"id":"tif-vg1-5-8-n-section2","type":"text","content":"## Alt spelar saman -- og to skjema fortel historia\n\nLat oss sjå korleis delane samarbeider i ein automatisk stemplingsmaskin. Han skal starte når operatøren trykkjer START, vente til eit produkt er på plass (sensor), køyre stempelet ned (sylinder), vente til botnposisjon (sensor), køyre stempelet opp, vente til toppposisjon, og så gjenta frå produktsensoren. PLS-en les sensorane kontinuerleg og styrer solenoidventilen ut frå denne logikken. Og heile tida blir ein **naudstopp** overvaka -- blir han aktivert, stoppar alt momentant. Slik blir tryggleik bygd inn i sjølve programmet.\n\nEit komplett elektropneumatisk system blir dokumentert med *to* skjema som høyrer saman. Det **pneumatiske skjemaet** viser vegen til trykklufta: kompressor → FRL → ventil → sylinder. Det **elektriske skjemaet** viser styrekrinsen: straumforsyning → brytar/sensor → PLS → solenoid. Bindeleddet er at ventilen i pneumatikkskjemaet blir merkt med same referanse -- til dømes Y1 -- som solenoiden i det elektriske skjemaet, slik at du ser korleis signalet og lufta heng saman.\n\nEin detalj verdt å merke seg: styrekrinsen køyrer nesten alltid på **24 V DC**, ikkje 230 V. Kvifor? Fordi 24 V er trygg lågspenning, dei fleste sensorar og PLS-modular er laga for han, DC-signal toler elektrisk støy betre, logikken blir enkel (0 V = av, 24 V = på), og systemet kan køyre på batteri ved straumbrot. Dei kraftige motorane kan framleis gå på 230 V, men hjerna og sansane jobbar trygt på 24 V.\n\nNår noko sviktar, feilsøkjer du systematisk gjennom heile kjeda: er det 24 V på styrekrinsen, verkar startknappen, kjem signalet til PLS-inngangen, er programmet rett, lyser PLS-utgangen, og når signalet fram til solenoiden? Lyser ikkje LED-en til solenoiden, leitar du oppstraums til du finn brotet."},{"id":"tif-vg1-5-8-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-5-8-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på system, skjema og feilsøking:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-5-8-n-quiz2-q0","task":"Kvifor blir 24 V DC brukt i styrekrinsen i industristyring?","options":[{"id":"a","text":"Fordi det er trygg lågspenning, støyrobust og standard for sensorar/PLS","isCorrect":true},{"id":"b","text":"Fordi det gir meir kraft til motorane","isCorrect":false},{"id":"c","text":"Fordi 230 V ikkje finst i industrien","isCorrect":false},{"id":"d","text":"Fordi det er dyrare og dermed betre","isCorrect":false}],"solution":"24 V DC er trygg lågspenning, mindre utsett for støy, standard for sensorar og PLS-modular, og kan køyre på batteri. Kraftige motorar kan framleis bruke 230 V."},{"id":"tif-vg1-5-8-n-quiz2-q1","task":"Korleis blir det pneumatiske og det elektriske skjemaet kopla saman?","options":[{"id":"a","text":"Dei har ingen samanheng","isCorrect":false},{"id":"b","text":"Ventilen og solenoiden blir merkte med same referanse, f.eks. Y1","isCorrect":true},{"id":"c","text":"Dei blir teikna på same ark utan merking","isCorrect":false},{"id":"d","text":"Dei bruker same trykkeining","isCorrect":false}],"solution":"Ventilen i pneumatikkskjemaet og solenoiden i det elektriske skjemaet blir merkte med same referanse (f.eks. Y1), slik at samanhengen mellom signal og luft er tydeleg."},{"id":"tif-vg1-5-8-n-quiz2-q2","task":"I stemplingsmaskinen, kva sikrar at maskinen kan stoppast trygt når som helst?","options":[{"id":"a","text":"Ein lyddempar","isCorrect":false},{"id":"b","text":"Ein ekstra sylinder","isCorrect":false},{"id":"c","text":"Ein naudstopp som blir overvaka kontinuerleg","isCorrect":true},{"id":"d","text":"Ein kapasitiv givar","isCorrect":false}],"solution":"Ein naudstoppinngang blir overvaka kontinuerleg av PLS-en og stoppar alt momentant når han blir aktivert."},{"id":"tif-vg1-5-8-n-quiz2-q3","task":"LED-en til solenoiden lyser ikkje når du trykkjer START. Kva sjekkar du systematisk?","options":[{"id":"a","text":"Berre trykklufta","isCorrect":false},{"id":"b","text":"Berre fargen på leidningane","isCorrect":false},{"id":"c","text":"Berre lyddemparen","isCorrect":false},{"id":"d","text":"Heile kjeda: 24 V, startknapp, PLS-inngang, program, PLS-utgang og kabling til solenoid","isCorrect":true}],"solution":"Du feilsøkjer heile signalkjeda: straumforsyning (24 V), startknapp, kabling, PLS-inngang, program, PLS-utgang og kabling til solenoiden, til du finn brotet."}]}},{"id":"tif-vg1-5-8-n-summary","type":"text","content":"## Oppsummering\n\nVi har kopla elektrisk hjerne til pneumatisk muskel. **Solenoidventilen** er brua: eit lite elektrisk signal styrer ei kraftig luftrørsle, og han finst som monostabil (fjør-retur) eller bistabil (hugsar posisjonen).\n\n**Sensorar** gir systemet sansar -- reed-brytarar og Hall-sensorar for sylinderposisjon, og induktive, kapasitive og optiske givarar for å oppdage gjenstandar. **PLS**-en er hjerna, med inngangar, CPU, utgangar og straumforsyning, programmert med mellom anna stigediagram, som les, reknar og styrer i ei evig løkke.\n\nAlt spelar saman i automatiske maskinar som stemplingsmaskinen, med naudstopp innebygd for tryggleik. Systemet blir dokumentert med to samankopla skjema -- pneumatisk og elektrisk -- der ventil og solenoid deler referanse. Styrekrinsen køyrer trygt på 24 V DC, og feilsøking følgjer heile signalkjeda. Med solenoidventilar, sensorar og PLS forstår du no byggjesteinane i moderne, automatisert produksjon."}],"exercises":[],"_meta":{"sourceHash":"d7cd5c7a5a497932","translatedAt":"2026-06-21T09:54:01.214Z","model":"claude-code-agent","strings":61,"tm":{"733e72197150bfca":"Elektropneumatikk og styring","b195b06d1ed59702":"Narrativ versjon","54ac1f0c89266086":"Ei forteljing om korleis elektrisk hjerne møter pneumatisk muskel -- solenoidventilar, sensorar og PLS-en som styrer moderne automatiserte maskinar.","2e7cb66e908a185e":"bruke fagterminologi for å beskrive og dokumentere arbeidsprosesser","59ac73f3a6b04864":"reflektere over hvordan teknologisk utvikling påvirker arbeidsoppgaver og arbeidsprosesser","fa4326a4ae6b69f7":"## Når elektronikk møter trykkluft\n\nDu har lært om musklane til pneumatikken -- sylindrar som dyttar og grip med kraft. Men ein muskel utan ei hjerne er lite verdt. Kva om du vil at ein maskin skal gjere ting *automatisk*, i rett rekkjefølgje, styrt av eit program? Då kombinerer du elektrisk styring med pneumatisk kraft, og resultatet er **elektropneumatikk** -- fleksible, programmerbare system som er enkle å byggje inn i automatiserte produksjonslinjer.\n\nBrua mellom det elektriske og det pneumatiske er **solenoidventilen** -- ein pneumatisk ventil som blir styrt elektrisk via ein elektromagnet (ein solenoid). Verkemåten er elegant: du tilfører elektrisk spenning til solenoiden, magnetfeltet trekkjer ventilspolen, ventilen skiftar posisjon, og lufta strøymer til eller frå sylinderen. Dermed kan eit lite elektrisk signal styre ei kraftig pneumatisk rørsle.\n\nDet finst to grunntypar. Ein **monostabil** ventil har fjør-retur, så han fell tilbake til utgangsstillinga straks straumen forsvinn. Ein **bistabil** ventil blir verande i posisjonen til den motsette solenoiden blir aktivert -- han 'hugsar' altså tilstanden sin.\n\nTypiske solenoidventilar køyrer på 24 V DC (eller 230 V AC), bruker berre 2--5 W, og skiftar posisjon på 20--50 millisekund -- altså svært raskt. Med ein solenoidventil kan ei datamaskin styre trykkluft like enkelt som å slå av og på ei lampe, og det er nettopp dette som opnar døra til full automatisering.","c10c9a073ccb3588":"## Sansane og hjerna i systemet\n\nFor at eit automatisk system skal vite kva det driv med, treng det **sansar** -- altså sensorar. Sensorar gir styresystemet informasjon om posisjonar, tilstandar og hendingar.\n\nNokre sensorar overvaker sylindrar direkte. Ein **reed-brytar** reagerer på ein magnet i stempelet og melder frå om posisjonen, og ein **Hall-sensor** gjer det same elektronisk. Andre sensorar detekterer gjenstandar utan å røre dei -- **proksimitetsgivarar**. Ein **induktiv** givar merkjer berre metall, ein **kapasitiv** merkjer alle materiale, og ein **optisk** reagerer når ein lysstråle blir broten eller reflektert. I tillegg finst trykkbrytarar, strøymingsbrytarar og temperaturfølarar. Valet blir styrt av oppgåva: skal du finne ein metalldel, bruker du ein robust induktiv givar; skal du måle nivået av plast eller væske i ein tank, bruker du ein kapasitiv.\n\nHjerna i systemet er **PLS**-en (Programmable Logic Controller), ei industriell datamaskin bygd for å styre maskinar. Han har fire delar: **inngangar** som tek imot signal frå sensorar og knappar, ein **CPU** som køyrer programmet, **utgangar** som sender signal til ventilar og motorar, og ei **straumforsyning**. CPU-en jobbar i ei evig løkke -- han les inngangane, utfører logikken og oppdaterer utgangane, typisk på 10--50 millisekund.\n\nPLS-en blir programmert på fleire måtar. **Stigediagram** (Ladder) liknar eit elektrisk skjema og er mest brukt. **Funksjonsblokker** er grafiske, og **strukturert tekst** er kodebasert. Eit enkelt stigediagram kan til dømes seie: når sensor A OG sensor B er aktive, aktiver utgang Y1. Slik omset PLS-en informasjonen til sansane til handling, gong på gong, utan å bli trøytt.","d611d0989a54cf9c":"Test deg sjølv på solenoidventilar, sensorar og PLS:","4097889236a2af26":"placeholder","02cfb87db452d7a7":"Kva er hovudfordelen med solenoidventilar framfor manuelle ventilar?","e0fddc23d5fc7722":"Dei kan fjernstyrast og automatiserast","e0a567d83878b83a":"Dei er alltid billegare","e2ec922d63c035c9":"Dei treng inga straumforsyning","785d9c07b97bd20f":"Dei bruker mindre trykkluft","fc004ab93218a8d6":"Solenoidventilar blir styrte elektrisk frå ein PLS eller anna styresystem, noko som gjer fjernstyring og automatisering mogleg. Manuelle ventilar krev fysisk aktivering.","f5ee231cf1c1577d":"Kva sensor detekterer BERRE metall?","828bfbeebae89d77":"Kapasitiv givar","5086fff19ca49f74":"Induktiv givar","4a6f700242de52f3":"Optisk givar","e38d803a491a486b":"Temperaturfølar","4e68723e98a3a0da":"Ein induktiv givar detekterer berre metall via eit oscillerande magnetfelt. Ein kapasitiv givar merkjer alle materiale.","53edc9bcb1f25c94":"Kva er dei tre signalrelaterte hovuddelane i ein PLS?","2247048b825dc1ee":"Pumpe, ventil og sylinder","02b6d4c7370e11a0":"Filter, regulator og lubrikator","a689d0839643e8e4":"Inngangar, CPU og utgangar","5da7e23fc94038f6":"Sensor, motor og fjør","76d320ea9aa6fce9":"PLS-en har inngangar (frå sensorar/knappar), ein CPU (køyrer programmet) og utgangar (til ventilar/motorar), pluss ei straumforsyning.","ed1a54e355f971d3":"Kva kjenneteiknar ein bistabil solenoidventil?","b4f1aeb0fdc0424c":"Han fell tilbake med fjør når straumen forsvinn","972143f347c8f523":"Han kan berre brukast med likestraum","c91405f375d06ba1":"Han har ingen portar","d90ae4002b4bf7ba":"Han blir verande i posisjon til den motsette solenoiden blir aktivert","5e78973a75756a71":"Ein bistabil ventil 'hugsar' posisjonen og blir verande til den motsette solenoiden blir aktivert. Ein monostabil har fjør-retur.","9da6a7ebd6b2bdeb":"## Alt spelar saman -- og to skjema fortel historia\n\nLat oss sjå korleis delane samarbeider i ein automatisk stemplingsmaskin. Han skal starte når operatøren trykkjer START, vente til eit produkt er på plass (sensor), køyre stempelet ned (sylinder), vente til botnposisjon (sensor), køyre stempelet opp, vente til toppposisjon, og så gjenta frå produktsensoren. PLS-en les sensorane kontinuerleg og styrer solenoidventilen ut frå denne logikken. Og heile tida blir ein **naudstopp** overvaka -- blir han aktivert, stoppar alt momentant. Slik blir tryggleik bygd inn i sjølve programmet.\n\nEit komplett elektropneumatisk system blir dokumentert med *to* skjema som høyrer saman. Det **pneumatiske skjemaet** viser vegen til trykklufta: kompressor → FRL → ventil → sylinder. Det **elektriske skjemaet** viser styrekrinsen: straumforsyning → brytar/sensor → PLS → solenoid. Bindeleddet er at ventilen i pneumatikkskjemaet blir merkt med same referanse -- til dømes Y1 -- som solenoiden i det elektriske skjemaet, slik at du ser korleis signalet og lufta heng saman.\n\nEin detalj verdt å merke seg: styrekrinsen køyrer nesten alltid på **24 V DC**, ikkje 230 V. Kvifor? Fordi 24 V er trygg lågspenning, dei fleste sensorar og PLS-modular er laga for han, DC-signal toler elektrisk støy betre, logikken blir enkel (0 V = av, 24 V = på), og systemet kan køyre på batteri ved straumbrot. Dei kraftige motorane kan framleis gå på 230 V, men hjerna og sansane jobbar trygt på 24 V.\n\nNår noko sviktar, feilsøkjer du systematisk gjennom heile kjeda: er det 24 V på styrekrinsen, verkar startknappen, kjem signalet til PLS-inngangen, er programmet rett, lyser PLS-utgangen, og når signalet fram til solenoiden? Lyser ikkje LED-en til solenoiden, leitar du oppstraums til du finn brotet.","2c972e009d378d83":"Test deg sjølv på system, skjema og feilsøking:","2a792b9c391a1b04":"Kvifor blir 24 V DC brukt i styrekrinsen i industristyring?","c1793721dd081412":"Fordi det er trygg lågspenning, støyrobust og standard for sensorar/PLS","46e81479233a3c77":"Fordi det gir meir kraft til motorane","5f977f4a9da33210":"Fordi 230 V ikkje finst i industrien","99a7d9553593a272":"Fordi det er dyrare og dermed betre","bfa5531e01f0b7f2":"24 V DC er trygg lågspenning, mindre utsett for støy, standard for sensorar og PLS-modular, og kan køyre på batteri. Kraftige motorar kan framleis bruke 230 V.","8637b3caa607c983":"Korleis blir det pneumatiske og det elektriske skjemaet kopla saman?","e0aceac820e8a544":"Dei har ingen samanheng","a8e7b44bb826055b":"Ventilen og solenoiden blir merkte med same referanse, f.eks. Y1","56f67583e2386090":"Dei blir teikna på same ark utan merking","60c29fc8f63f3271":"Dei bruker same trykkeining","c2cb1a97c0807d55":"Ventilen i pneumatikkskjemaet og solenoiden i det elektriske skjemaet blir merkte med same referanse (f.eks. Y1), slik at samanhengen mellom signal og luft er tydeleg.","a3a1a77a1937b99d":"I stemplingsmaskinen, kva sikrar at maskinen kan stoppast trygt når som helst?","3e11ef65545c7448":"Ein lyddempar","eef901acb380627a":"Ein ekstra sylinder","5e9518351c378d6b":"Ein naudstopp som blir overvaka kontinuerleg","ab92a14647b2a053":"Ein kapasitiv givar","74cb529606d23b36":"Ein naudstoppinngang blir overvaka kontinuerleg av PLS-en og stoppar alt momentant når han blir aktivert.","d5b611bdc7849c1f":"LED-en til solenoiden lyser ikkje når du trykkjer START. Kva sjekkar du systematisk?","a6d45ed194e7f79c":"Berre trykklufta","1e8764ec03c49024":"Berre fargen på leidningane","0e50a34fdd05dbaf":"Berre lyddemparen","b4dd3715711bcce3":"Heile kjeda: 24 V, startknapp, PLS-inngang, program, PLS-utgang og kabling til solenoid","0230fb9617760577":"Du feilsøkjer heile signalkjeda: straumforsyning (24 V), startknapp, kabling, PLS-inngang, program, PLS-utgang og kabling til solenoiden, til du finn brotet.","d5abf20f50acb513":"## Oppsummering\n\nVi har kopla elektrisk hjerne til pneumatisk muskel. **Solenoidventilen** er brua: eit lite elektrisk signal styrer ei kraftig luftrørsle, og han finst som monostabil (fjør-retur) eller bistabil (hugsar posisjonen).\n\n**Sensorar** gir systemet sansar -- reed-brytarar og Hall-sensorar for sylinderposisjon, og induktive, kapasitive og optiske givarar for å oppdage gjenstandar. **PLS**-en er hjerna, med inngangar, CPU, utgangar og straumforsyning, programmert med mellom anna stigediagram, som les, reknar og styrer i ei evig løkke.\n\nAlt spelar saman i automatiske maskinar som stemplingsmaskinen, med naudstopp innebygd for tryggleik. Systemet blir dokumentert med to samankopla skjema -- pneumatisk og elektrisk -- der ventil og solenoid deler referanse. Styrekrinsen køyrer trygt på 24 V DC, og feilsøking følgjer heile signalkjeda. Med solenoidventilar, sensorar og PLS forstår du no byggjesteinane i moderne, automatisert produksjon."}}}
+{
+  "id": "tif-vg1-5-8-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "5.8",
+  "title": "Elektropneumatikk og styring",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis elektrisk hjerne møter pneumatisk muskel -- solenoidventilar, sensorar og PLS-en som styrer moderne automatiserte maskinar.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke fagterminologi for å beskrive og dokumentere arbeidsprosesser",
+    "reflektere over hvordan teknologisk utvikling påvirker arbeidsoppgaver og arbeidsprosesser"
+  ],
+  "linkedChapterId": "tif-vg1-5-8",
+  "content": [
+    {
+      "id": "tif-vg1-5-8-n-intro",
+      "type": "text",
+      "content": "## Når elektronikk møter trykkluft\n\nDu har lært om musklane til pneumatikken -- sylindrar som dyttar og grip med kraft. Men ein muskel utan ei hjerne er lite verdt. Kva om du vil at ein maskin skal gjere ting *automatisk*, i rett rekkjefølgje, styrt av eit program? Då kombinerer du elektrisk styring med pneumatisk kraft, og resultatet er **elektropneumatikk** -- fleksible, programmerbare system som er enkle å byggje inn i automatiserte produksjonslinjer.\n\nBrua mellom det elektriske og det pneumatiske er **solenoidventilen** -- ein pneumatisk ventil som blir styrt elektrisk via ein elektromagnet (ein solenoid). Verkemåten er elegant: du tilfører elektrisk spenning til solenoiden, magnetfeltet trekkjer ventilspolen, ventilen skiftar posisjon, og lufta strøymer til eller frå sylinderen. Dermed kan eit lite elektrisk signal styre ei kraftig pneumatisk rørsle.\n\nDet finst to grunntypar. Ein **monostabil** ventil har fjør-retur, så han fell tilbake til utgangsstillinga straks straumen forsvinn. Ein **bistabil** ventil blir verande i posisjonen til den motsette solenoiden blir aktivert -- han 'hugsar' altså tilstanden sin.\n\nTypiske solenoidventilar køyrer på 24 V DC (eller 230 V AC), bruker berre 2--5 W, og skiftar posisjon på 20--50 millisekund -- altså svært raskt. Med ein solenoidventil kan ei datamaskin styre trykkluft like enkelt som å slå av og på ei lampe, og det er nettopp dette som opnar døra til full automatisering."
+    },
+    {
+      "id": "tif-vg1-5-8-n-section1",
+      "type": "text",
+      "content": "## Sansane og hjerna i systemet\n\nFor at eit automatisk system skal vite kva det driv med, treng det **sansar** -- altså sensorar. Sensorar gir styresystemet informasjon om posisjonar, tilstandar og hendingar.\n\nNokre sensorar overvaker sylindrar direkte. Ein **reed-brytar** reagerer på ein magnet i stempelet og melder frå om posisjonen, og ein **Hall-sensor** gjer det same elektronisk. Andre sensorar detekterer gjenstandar utan å røre dei -- **proksimitetsgivarar**. Ein **induktiv** givar merkjer berre metall, ein **kapasitiv** merkjer alle materiale, og ein **optisk** reagerer når ein lysstråle blir broten eller reflektert. I tillegg finst trykkbrytarar, strøymingsbrytarar og temperaturfølarar. Valet blir styrt av oppgåva: skal du finne ein metalldel, bruker du ein robust induktiv givar; skal du måle nivået av plast eller væske i ein tank, bruker du ein kapasitiv.\n\nHjerna i systemet er **PLS**-en (Programmable Logic Controller), ei industriell datamaskin bygd for å styre maskinar. Han har fire delar: **inngangar** som tek imot signal frå sensorar og knappar, ein **CPU** som køyrer programmet, **utgangar** som sender signal til ventilar og motorar, og ei **straumforsyning**. CPU-en jobbar i ei evig løkke -- han les inngangane, utfører logikken og oppdaterer utgangane, typisk på 10--50 millisekund.\n\nPLS-en blir programmert på fleire måtar. **Stigediagram** (Ladder) liknar eit elektrisk skjema og er mest brukt. **Funksjonsblokker** er grafiske, og **strukturert tekst** er kodebasert. Eit enkelt stigediagram kan til dømes seie: når sensor A OG sensor B er aktive, aktiver utgang Y1. Slik omset PLS-en informasjonen til sansane til handling, gong på gong, utan å bli trøytt."
+    },
+    {
+      "id": "tif-vg1-5-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-5-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på solenoidventilar, sensorar og PLS:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-5-8-n-quiz1-q0",
+            "task": "Kva er hovudfordelen med solenoidventilar framfor manuelle ventilar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Dei er alltid billegare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei treng inga straumforsyning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei bruker mindre trykkluft",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Dei kan fjernstyrast og automatiserast",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Solenoidventilar blir styrte elektrisk frå ein PLS eller anna styresystem, noko som gjer fjernstyring og automatisering mogleg. Manuelle ventilar krev fysisk aktivering."
+          },
+          {
+            "id": "tif-vg1-5-8-n-quiz1-q1",
+            "task": "Kva sensor detekterer BERRE metall?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Induktiv givar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Kapasitiv givar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Optisk givar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Temperaturfølar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein induktiv givar detekterer berre metall via eit oscillerande magnetfelt. Ein kapasitiv givar merkjer alle materiale."
+          },
+          {
+            "id": "tif-vg1-5-8-n-quiz1-q2",
+            "task": "Kva er dei tre signalrelaterte hovuddelane i ein PLS?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Pumpe, ventil og sylinder",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Inngangar, CPU og utgangar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Filter, regulator og lubrikator",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sensor, motor og fjør",
+                "isCorrect": false
+              }
+            ],
+            "solution": "PLS-en har inngangar (frå sensorar/knappar), ein CPU (køyrer programmet) og utgangar (til ventilar/motorar), pluss ei straumforsyning."
+          },
+          {
+            "id": "tif-vg1-5-8-n-quiz1-q3",
+            "task": "Kva kjenneteiknar ein bistabil solenoidventil?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han fell tilbake med fjør når straumen forsvinn",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han kan berre brukast med likestraum",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han blir verande i posisjon til den motsette solenoiden blir aktivert",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han har ingen portar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein bistabil ventil 'hugsar' posisjonen og blir verande til den motsette solenoiden blir aktivert. Ein monostabil har fjør-retur."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-5-8-n-section2",
+      "type": "text",
+      "content": "## Alt spelar saman -- og to skjema fortel historia\n\nLat oss sjå korleis delane samarbeider i ein automatisk stemplingsmaskin. Han skal starte når operatøren trykkjer START, vente til eit produkt er på plass (sensor), køyre stempelet ned (sylinder), vente til botnposisjon (sensor), køyre stempelet opp, vente til toppposisjon, og så gjenta frå produktsensoren. PLS-en les sensorane kontinuerleg og styrer solenoidventilen ut frå denne logikken. Og heile tida blir ein **naudstopp** overvaka -- blir han aktivert, stoppar alt momentant. Slik blir tryggleik bygd inn i sjølve programmet.\n\nEit komplett elektropneumatisk system blir dokumentert med *to* skjema som høyrer saman. Det **pneumatiske skjemaet** viser vegen til trykklufta: kompressor → FRL → ventil → sylinder. Det **elektriske skjemaet** viser styrekrinsen: straumforsyning → brytar/sensor → PLS → solenoid. Bindeleddet er at ventilen i pneumatikkskjemaet blir merkt med same referanse -- til dømes Y1 -- som solenoiden i det elektriske skjemaet, slik at du ser korleis signalet og lufta heng saman.\n\nEin detalj verdt å merke seg: styrekrinsen køyrer nesten alltid på **24 V DC**, ikkje 230 V. Kvifor? Fordi 24 V er trygg lågspenning, dei fleste sensorar og PLS-modular er laga for han, DC-signal toler elektrisk støy betre, logikken blir enkel (0 V = av, 24 V = på), og systemet kan køyre på batteri ved straumbrot. Dei kraftige motorane kan framleis gå på 230 V, men hjerna og sansane jobbar trygt på 24 V.\n\nNår noko sviktar, feilsøkjer du systematisk gjennom heile kjeda: er det 24 V på styrekrinsen, verkar startknappen, kjem signalet til PLS-inngangen, er programmet rett, lyser PLS-utgangen, og når signalet fram til solenoiden? Lyser ikkje LED-en til solenoiden, leitar du oppstraums til du finn brotet."
+    },
+    {
+      "id": "tif-vg1-5-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-5-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på system, skjema og feilsøking:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-5-8-n-quiz2-q0",
+            "task": "Kvifor blir 24 V DC brukt i styrekrinsen i industristyring?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi det gir meir kraft til motorane",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi 230 V ikkje finst i industrien",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det er dyrare og dermed betre",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi det er trygg lågspenning, støyrobust og standard for sensorar/PLS",
+                "isCorrect": true
+              }
+            ],
+            "solution": "24 V DC er trygg lågspenning, mindre utsett for støy, standard for sensorar og PLS-modular, og kan køyre på batteri. Kraftige motorar kan framleis bruke 230 V."
+          },
+          {
+            "id": "tif-vg1-5-8-n-quiz2-q1",
+            "task": "Korleis blir det pneumatiske og det elektriske skjemaet kopla saman?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ventilen og solenoiden blir merkte med same referanse, f.eks. Y1",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Dei har ingen samanheng",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei blir teikna på same ark utan merking",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei bruker same trykkeining",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ventilen i pneumatikkskjemaet og solenoiden i det elektriske skjemaet blir merkte med same referanse (f.eks. Y1), slik at samanhengen mellom signal og luft er tydeleg."
+          },
+          {
+            "id": "tif-vg1-5-8-n-quiz2-q2",
+            "task": "I stemplingsmaskinen, kva sikrar at maskinen kan stoppast trygt når som helst?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein lyddempar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein naudstopp som blir overvaka kontinuerleg",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein ekstra sylinder",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein kapasitiv givar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein naudstoppinngang blir overvaka kontinuerleg av PLS-en og stoppar alt momentant når han blir aktivert."
+          },
+          {
+            "id": "tif-vg1-5-8-n-quiz2-q3",
+            "task": "LED-en til solenoiden lyser ikkje når du trykkjer START. Kva sjekkar du systematisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre trykklufta",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre fargen på leidningane",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Heile kjeda: 24 V, startknapp, PLS-inngang, program, PLS-utgang og kabling til solenoid",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Berre lyddemparen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du feilsøkjer heile signalkjeda: straumforsyning (24 V), startknapp, kabling, PLS-inngang, program, PLS-utgang og kabling til solenoiden, til du finn brotet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-5-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har kopla elektrisk hjerne til pneumatisk muskel. **Solenoidventilen** er brua: eit lite elektrisk signal styrer ei kraftig luftrørsle, og han finst som monostabil (fjør-retur) eller bistabil (hugsar posisjonen).\n\n**Sensorar** gir systemet sansar -- reed-brytarar og Hall-sensorar for sylinderposisjon, og induktive, kapasitive og optiske givarar for å oppdage gjenstandar. **PLS**-en er hjerna, med inngangar, CPU, utgangar og straumforsyning, programmert med mellom anna stigediagram, som les, reknar og styrer i ei evig løkke.\n\nAlt spelar saman i automatiske maskinar som stemplingsmaskinen, med naudstopp innebygd for tryggleik. Systemet blir dokumentert med to samankopla skjema -- pneumatisk og elektrisk -- der ventil og solenoid deler referanse. Styrekrinsen køyrer trygt på 24 V DC, og feilsøking følgjer heile signalkjeda. Med solenoidventilar, sensorar og PLS forstår du no byggjesteinane i moderne, automatisert produksjon."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d7cd5c7a5a497932",
+    "translatedAt": "2026-06-21T09:54:01.214Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "733e72197150bfca": "Elektropneumatikk og styring",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "54ac1f0c89266086": "Ei forteljing om korleis elektrisk hjerne møter pneumatisk muskel -- solenoidventilar, sensorar og PLS-en som styrer moderne automatiserte maskinar.",
+      "2e7cb66e908a185e": "bruke fagterminologi for å beskrive og dokumentere arbeidsprosesser",
+      "59ac73f3a6b04864": "reflektere over hvordan teknologisk utvikling påvirker arbeidsoppgaver og arbeidsprosesser",
+      "fa4326a4ae6b69f7": "## Når elektronikk møter trykkluft\n\nDu har lært om musklane til pneumatikken -- sylindrar som dyttar og grip med kraft. Men ein muskel utan ei hjerne er lite verdt. Kva om du vil at ein maskin skal gjere ting *automatisk*, i rett rekkjefølgje, styrt av eit program? Då kombinerer du elektrisk styring med pneumatisk kraft, og resultatet er **elektropneumatikk** -- fleksible, programmerbare system som er enkle å byggje inn i automatiserte produksjonslinjer.\n\nBrua mellom det elektriske og det pneumatiske er **solenoidventilen** -- ein pneumatisk ventil som blir styrt elektrisk via ein elektromagnet (ein solenoid). Verkemåten er elegant: du tilfører elektrisk spenning til solenoiden, magnetfeltet trekkjer ventilspolen, ventilen skiftar posisjon, og lufta strøymer til eller frå sylinderen. Dermed kan eit lite elektrisk signal styre ei kraftig pneumatisk rørsle.\n\nDet finst to grunntypar. Ein **monostabil** ventil har fjør-retur, så han fell tilbake til utgangsstillinga straks straumen forsvinn. Ein **bistabil** ventil blir verande i posisjonen til den motsette solenoiden blir aktivert -- han 'hugsar' altså tilstanden sin.\n\nTypiske solenoidventilar køyrer på 24 V DC (eller 230 V AC), bruker berre 2--5 W, og skiftar posisjon på 20--50 millisekund -- altså svært raskt. Med ein solenoidventil kan ei datamaskin styre trykkluft like enkelt som å slå av og på ei lampe, og det er nettopp dette som opnar døra til full automatisering.",
+      "c10c9a073ccb3588": "## Sansane og hjerna i systemet\n\nFor at eit automatisk system skal vite kva det driv med, treng det **sansar** -- altså sensorar. Sensorar gir styresystemet informasjon om posisjonar, tilstandar og hendingar.\n\nNokre sensorar overvaker sylindrar direkte. Ein **reed-brytar** reagerer på ein magnet i stempelet og melder frå om posisjonen, og ein **Hall-sensor** gjer det same elektronisk. Andre sensorar detekterer gjenstandar utan å røre dei -- **proksimitetsgivarar**. Ein **induktiv** givar merkjer berre metall, ein **kapasitiv** merkjer alle materiale, og ein **optisk** reagerer når ein lysstråle blir broten eller reflektert. I tillegg finst trykkbrytarar, strøymingsbrytarar og temperaturfølarar. Valet blir styrt av oppgåva: skal du finne ein metalldel, bruker du ein robust induktiv givar; skal du måle nivået av plast eller væske i ein tank, bruker du ein kapasitiv.\n\nHjerna i systemet er **PLS**-en (Programmable Logic Controller), ei industriell datamaskin bygd for å styre maskinar. Han har fire delar: **inngangar** som tek imot signal frå sensorar og knappar, ein **CPU** som køyrer programmet, **utgangar** som sender signal til ventilar og motorar, og ei **straumforsyning**. CPU-en jobbar i ei evig løkke -- han les inngangane, utfører logikken og oppdaterer utgangane, typisk på 10--50 millisekund.\n\nPLS-en blir programmert på fleire måtar. **Stigediagram** (Ladder) liknar eit elektrisk skjema og er mest brukt. **Funksjonsblokker** er grafiske, og **strukturert tekst** er kodebasert. Eit enkelt stigediagram kan til dømes seie: når sensor A OG sensor B er aktive, aktiver utgang Y1. Slik omset PLS-en informasjonen til sansane til handling, gong på gong, utan å bli trøytt.",
+      "d611d0989a54cf9c": "Test deg sjølv på solenoidventilar, sensorar og PLS:",
+      "4097889236a2af26": "placeholder",
+      "02cfb87db452d7a7": "Kva er hovudfordelen med solenoidventilar framfor manuelle ventilar?",
+      "e0fddc23d5fc7722": "Dei kan fjernstyrast og automatiserast",
+      "e0a567d83878b83a": "Dei er alltid billegare",
+      "e2ec922d63c035c9": "Dei treng inga straumforsyning",
+      "785d9c07b97bd20f": "Dei bruker mindre trykkluft",
+      "fc004ab93218a8d6": "Solenoidventilar blir styrte elektrisk frå ein PLS eller anna styresystem, noko som gjer fjernstyring og automatisering mogleg. Manuelle ventilar krev fysisk aktivering.",
+      "f5ee231cf1c1577d": "Kva sensor detekterer BERRE metall?",
+      "828bfbeebae89d77": "Kapasitiv givar",
+      "5086fff19ca49f74": "Induktiv givar",
+      "4a6f700242de52f3": "Optisk givar",
+      "e38d803a491a486b": "Temperaturfølar",
+      "4e68723e98a3a0da": "Ein induktiv givar detekterer berre metall via eit oscillerande magnetfelt. Ein kapasitiv givar merkjer alle materiale.",
+      "53edc9bcb1f25c94": "Kva er dei tre signalrelaterte hovuddelane i ein PLS?",
+      "2247048b825dc1ee": "Pumpe, ventil og sylinder",
+      "02b6d4c7370e11a0": "Filter, regulator og lubrikator",
+      "a689d0839643e8e4": "Inngangar, CPU og utgangar",
+      "5da7e23fc94038f6": "Sensor, motor og fjør",
+      "76d320ea9aa6fce9": "PLS-en har inngangar (frå sensorar/knappar), ein CPU (køyrer programmet) og utgangar (til ventilar/motorar), pluss ei straumforsyning.",
+      "ed1a54e355f971d3": "Kva kjenneteiknar ein bistabil solenoidventil?",
+      "b4f1aeb0fdc0424c": "Han fell tilbake med fjør når straumen forsvinn",
+      "972143f347c8f523": "Han kan berre brukast med likestraum",
+      "c91405f375d06ba1": "Han har ingen portar",
+      "d90ae4002b4bf7ba": "Han blir verande i posisjon til den motsette solenoiden blir aktivert",
+      "5e78973a75756a71": "Ein bistabil ventil 'hugsar' posisjonen og blir verande til den motsette solenoiden blir aktivert. Ein monostabil har fjør-retur.",
+      "9da6a7ebd6b2bdeb": "## Alt spelar saman -- og to skjema fortel historia\n\nLat oss sjå korleis delane samarbeider i ein automatisk stemplingsmaskin. Han skal starte når operatøren trykkjer START, vente til eit produkt er på plass (sensor), køyre stempelet ned (sylinder), vente til botnposisjon (sensor), køyre stempelet opp, vente til toppposisjon, og så gjenta frå produktsensoren. PLS-en les sensorane kontinuerleg og styrer solenoidventilen ut frå denne logikken. Og heile tida blir ein **naudstopp** overvaka -- blir han aktivert, stoppar alt momentant. Slik blir tryggleik bygd inn i sjølve programmet.\n\nEit komplett elektropneumatisk system blir dokumentert med *to* skjema som høyrer saman. Det **pneumatiske skjemaet** viser vegen til trykklufta: kompressor → FRL → ventil → sylinder. Det **elektriske skjemaet** viser styrekrinsen: straumforsyning → brytar/sensor → PLS → solenoid. Bindeleddet er at ventilen i pneumatikkskjemaet blir merkt med same referanse -- til dømes Y1 -- som solenoiden i det elektriske skjemaet, slik at du ser korleis signalet og lufta heng saman.\n\nEin detalj verdt å merke seg: styrekrinsen køyrer nesten alltid på **24 V DC**, ikkje 230 V. Kvifor? Fordi 24 V er trygg lågspenning, dei fleste sensorar og PLS-modular er laga for han, DC-signal toler elektrisk støy betre, logikken blir enkel (0 V = av, 24 V = på), og systemet kan køyre på batteri ved straumbrot. Dei kraftige motorane kan framleis gå på 230 V, men hjerna og sansane jobbar trygt på 24 V.\n\nNår noko sviktar, feilsøkjer du systematisk gjennom heile kjeda: er det 24 V på styrekrinsen, verkar startknappen, kjem signalet til PLS-inngangen, er programmet rett, lyser PLS-utgangen, og når signalet fram til solenoiden? Lyser ikkje LED-en til solenoiden, leitar du oppstraums til du finn brotet.",
+      "2c972e009d378d83": "Test deg sjølv på system, skjema og feilsøking:",
+      "2a792b9c391a1b04": "Kvifor blir 24 V DC brukt i styrekrinsen i industristyring?",
+      "c1793721dd081412": "Fordi det er trygg lågspenning, støyrobust og standard for sensorar/PLS",
+      "46e81479233a3c77": "Fordi det gir meir kraft til motorane",
+      "5f977f4a9da33210": "Fordi 230 V ikkje finst i industrien",
+      "99a7d9553593a272": "Fordi det er dyrare og dermed betre",
+      "bfa5531e01f0b7f2": "24 V DC er trygg lågspenning, mindre utsett for støy, standard for sensorar og PLS-modular, og kan køyre på batteri. Kraftige motorar kan framleis bruke 230 V.",
+      "8637b3caa607c983": "Korleis blir det pneumatiske og det elektriske skjemaet kopla saman?",
+      "e0aceac820e8a544": "Dei har ingen samanheng",
+      "a8e7b44bb826055b": "Ventilen og solenoiden blir merkte med same referanse, f.eks. Y1",
+      "56f67583e2386090": "Dei blir teikna på same ark utan merking",
+      "60c29fc8f63f3271": "Dei bruker same trykkeining",
+      "c2cb1a97c0807d55": "Ventilen i pneumatikkskjemaet og solenoiden i det elektriske skjemaet blir merkte med same referanse (f.eks. Y1), slik at samanhengen mellom signal og luft er tydeleg.",
+      "a3a1a77a1937b99d": "I stemplingsmaskinen, kva sikrar at maskinen kan stoppast trygt når som helst?",
+      "3e11ef65545c7448": "Ein lyddempar",
+      "eef901acb380627a": "Ein ekstra sylinder",
+      "5e9518351c378d6b": "Ein naudstopp som blir overvaka kontinuerleg",
+      "ab92a14647b2a053": "Ein kapasitiv givar",
+      "74cb529606d23b36": "Ein naudstoppinngang blir overvaka kontinuerleg av PLS-en og stoppar alt momentant når han blir aktivert.",
+      "d5b611bdc7849c1f": "LED-en til solenoiden lyser ikkje når du trykkjer START. Kva sjekkar du systematisk?",
+      "a6d45ed194e7f79c": "Berre trykklufta",
+      "1e8764ec03c49024": "Berre fargen på leidningane",
+      "0e50a34fdd05dbaf": "Berre lyddemparen",
+      "b4dd3715711bcce3": "Heile kjeda: 24 V, startknapp, PLS-inngang, program, PLS-utgang og kabling til solenoid",
+      "0230fb9617760577": "Du feilsøkjer heile signalkjeda: straumforsyning (24 V), startknapp, kabling, PLS-inngang, program, PLS-utgang og kabling til solenoiden, til du finn brotet.",
+      "d5abf20f50acb513": "## Oppsummering\n\nVi har kopla elektrisk hjerne til pneumatisk muskel. **Solenoidventilen** er brua: eit lite elektrisk signal styrer ei kraftig luftrørsle, og han finst som monostabil (fjør-retur) eller bistabil (hugsar posisjonen).\n\n**Sensorar** gir systemet sansar -- reed-brytarar og Hall-sensorar for sylinderposisjon, og induktive, kapasitive og optiske givarar for å oppdage gjenstandar. **PLS**-en er hjerna, med inngangar, CPU, utgangar og straumforsyning, programmert med mellom anna stigediagram, som les, reknar og styrer i ei evig løkke.\n\nAlt spelar saman i automatiske maskinar som stemplingsmaskinen, med naudstopp innebygd for tryggleik. Systemet blir dokumentert med to samankopla skjema -- pneumatisk og elektrisk -- der ventil og solenoid deler referanse. Styrekrinsen køyrer trygt på 24 V DC, og feilsøking følgjer heile signalkjeda. Med solenoidventilar, sensorar og PLS forstår du no byggjesteinane i moderne, automatisert produksjon."
+    }
+  }
+}

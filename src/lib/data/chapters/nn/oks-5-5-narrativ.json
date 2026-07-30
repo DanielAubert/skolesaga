@@ -1,1 +1,299 @@
-{"id":"oks-5-5-narrativ","courseId":"okonomistyring","chapterNumber":"5.5","title":"Investering og lønsemdsutrekningar","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi avgjer om ei investering løner seg – om nåverdien som flyttar framtidige kroner til i dag, om internrenta, og om tilbakebetalingstida.","estimatedMinutes":16,"competenceGoals":["Forstå kvifor pengar i dag er meir verde enn pengar i framtida","Kunne rekne ut nåverdi (NPV) og vurdere lønsemd","Forstå internrente (IRR) og korleis ho blir samanlikna med kalkulasjonsrenta","Kunne rekne ut tilbakebetalingstid"],"linkedChapterId":"oks-5-5","content":[{"id":"oks-5-5-n-intro","type":"text","content":"## Er 1 000 kroner i dag verde meir enn 1 000 om fem år?\n\nSvaret er ja – og det er sjølve grunnsteinen i all investeringsvurdering. Når ei bedrift vurderer å kjøpe ei maskin, må ho samanlikne ein kostnad i dag med inntekter som kjem over fleire år. Men ei krone i framtida er ikkje verd like mykje som ei krone no, av tre grunnar: pengane kunne vore investerte og gitt avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker.\n\nDifor brukar vi **nåverdi** – på engelsk Net Present Value, NPV – som reknar om framtidige kontantstraumar til dagens kroner. Vi «diskonterer» framtidige beløp med ei kalkulasjonsrente:\n\n$$\\text{NV} = \\frac{K_1}{(1+r)^1} + \\frac{K_2}{(1+r)^2} + \\ldots + \\frac{K_n}{(1+r)^n} - I_0$$\n\nHer er $K_1, K_2, \\ldots$ dei årlege netto kontantstraumane, $r$ er kalkulasjonsrenta (avkastningskravet), og $I_0$ er investeringsbeløpet. Regelen er enkel: er nåverdien positiv, er investeringa lønsam; er han negativ, er ho ulønsam."},{"id":"oks-5-5-n-section1","type":"text","content":"## Nåverdien i arbeid\n\nLat oss rekne på eit snikkarverkstad som vurderer å kjøpe ei høvlemaskin for 200 000 kroner. Maskina gir netto kontantstraum på 80 000 i år 1, 80 000 i år 2, 60 000 i år 3 og 40 000 i år 4. Kalkulasjonsrenta er 8 prosent.\n\nVi diskonterer kvart år for seg. År 1: $\\frac{80\\,000}{1{,}08} \\approx 74\\,074$. År 2: $\\frac{80\\,000}{1{,}08^2} \\approx 68\\,587$. År 3: $\\frac{60\\,000}{1{,}08^3} \\approx 47\\,625$. År 4: $\\frac{40\\,000}{1{,}08^4} \\approx 29\\,399$. Summen av nåverdiane er omtrent $74\\,074 + 68\\,587 + 47\\,625 + 29\\,399 = 219\\,685$ kroner. Trekkjer vi frå investeringa, blir nåverdien $219\\,685 - 200\\,000 = 19\\,685$ kroner. Positiv – så investeringa er lønsam, og bedrifta bør kjøpe maskina.\n\nLegg merke til at dei same 80 000 kronene er verde mindre dess lenger fram dei kjem: 74 074 i år 1, men berre 68 587 i år 2. Det er nettopp dette diskonteringa fangar opp – tidsverdien av pengar. Hadde vi berre summert kontantstraumane rått, ville vi fått $260\\,000$ kroner og overvurdert lønsemda kraftig."},{"id":"oks-5-5-n-quiz1","type":"exercise","exercise":{"id":"oks-5-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på nåverdi og tidsverdien av pengar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"oks-5-5-n-quiz1-q0","task":"Kva betyr det at ei investering har positiv nåverdi (NV > 0)?","options":[{"id":"a","text":"Investeringa går nøyaktig i null","isCorrect":false},{"id":"b","text":"Investeringa er ulønsam","isCorrect":false},{"id":"c","text":"Investeringa har for høg risiko","isCorrect":false},{"id":"d","text":"Investeringa er lønsam","isCorrect":true}],"solution":"Positiv nåverdi betyr at investeringa gir meir avkastning enn kalkulasjonsrenta krev, og er difor lønsam."},{"id":"oks-5-5-n-quiz1-q1","task":"Kvifor er 100 000 kr i dag meir verde enn 100 000 kr om fem år?","options":[{"id":"a","text":"Fordi pengane kan gi avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker","isCorrect":true},{"id":"b","text":"Fordi setlar endrar farge over tid","isCorrect":false},{"id":"c","text":"Fordi 100 000 kr alltid blir til 50 000 kr","isCorrect":false},{"id":"d","text":"Det stemmer ikkje – dei er like mykje verde","isCorrect":false}],"solution":"Pengar i dag kan investerast og gi avkastning, inflasjon reduserer kjøpekrafta over tid, og framtidige beløp er usikre. Difor diskonterer vi framtidige kontantstraumar."},{"id":"oks-5-5-n-quiz1-q2","task":"Ei investering på 200 000 kr har kontantstraumar med samla nåverdi 219 685 kr. Kva er nåverdien av investeringa?","options":[{"id":"a","text":"419 685 kr","isCorrect":false},{"id":"b","text":"19 685 kr","isCorrect":true},{"id":"c","text":"−19 685 kr","isCorrect":false},{"id":"d","text":"200 000 kr","isCorrect":false}],"solution":"$\\text{NV} = 219\\,685 - 200\\,000 = 19\\,685$ kr – positiv, så investeringa er lønsam."}]}},{"id":"oks-5-5-n-section2","type":"text","content":"## Internrente og tilbakebetalingstid\n\nNåverdien er ikkje det einaste verktøyet. **Internrenta** – Internal Rate of Return, IRR – er den renta som gjer nåverdien nøyaktig lik null. Ho uttrykkjer den eigne avkastninga til investeringa i prosent. Vi finn ho ved prøving og feiling, eller med ein kalkulator. For høvlemaskina vår ligg internrenta på rundt 16 prosent. Regelen er enkel: er internrenta høgare enn kalkulasjonsrenta, er investeringa lønsam. Her er internrenta på 16 prosent klart høgare enn avkastningskravet på 8 prosent, så investeringa er svært god. Fordelen med internrenta er at ho er lett å samanlikne med andre moglegheiter, som bankrente eller aksjeavkastning.\n\nDen tredje metoden er **tilbakebetalingstid** – kor lang tid det tek før investeringa er tent inn. Vi summerer kontantstraumane til dei når investeringsbeløpet. For høvlemaskina er det 80 000 etter år 1, $80\\,000 + 80\\,000 = 160\\,000$ etter år 2, og etter år 3 har vi passert 200 000. Meir presist manglar vi $200\\,000 - 160\\,000 = 40\\,000$ etter år 2, og år 3 gir 60 000, så vi treng $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ av år 3. Tilbakebetalingstida blir altså cirka 2 år og 8 månader. Kort tilbakebetalingstid betyr lågare risiko, men metoden har ein svakheit: han ignorerer tidsverdien av pengar og alt som skjer etter at investeringa er tent inn.\n\nDei tre metodane utfyller kvarandre. **Nåverdi** blir anbefalt som hovudmetode, fordi han tek omsyn til tidsverdien og gir svaret i kroner. **Internrente** er god for å kommunisere avkastninga i prosent, og **tilbakebetalingstid** er eit enkelt mål på risiko. Sjølve kalkulasjonsrenta – avkastningskravet – blir gjerne sett mellom 8 og 12 prosent, basert på alternativkostnad og risiko. Men hugs: ein positiv nåverdi er ikkje nok åleine. Bedrifta må òg vurdere likviditet, strategi, risiko og ikkje-økonomiske faktorar."},{"id":"oks-5-5-n-quiz2","type":"exercise","exercise":{"id":"oks-5-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på internrente og tilbakebetalingstid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"oks-5-5-n-quiz2-q0","task":"Kva er internrenta (IRR)?","options":[{"id":"a","text":"Renta banken tek på lån","isCorrect":false},{"id":"b","text":"Den nominelle renta på eit serielån","isCorrect":false},{"id":"c","text":"Den renta som gir nåverdi lik null – den eigne avkastninga til investeringa","isCorrect":true},{"id":"d","text":"Inflasjonsraten","isCorrect":false}],"solution":"Internrenta er den renta som gjer nåverdien lik null. Ho uttrykkjer avkastninga til investeringa, og blir samanlikna med kalkulasjonsrenta."},{"id":"oks-5-5-n-quiz2-q1","task":"Ei investering har internrente 16 % og kalkulasjonsrente 8 %. Er ho lønsam?","options":[{"id":"a","text":"Nei, internrenta er for høg","isCorrect":false},{"id":"b","text":"Nei, dei må vere like","isCorrect":false},{"id":"c","text":"Det kan ikkje avgjerast","isCorrect":false},{"id":"d","text":"Ja, fordi internrenta er høgare enn kalkulasjonsrenta","isCorrect":true}],"solution":"Når internrenta (16 %) er høgare enn kalkulasjonsrenta (8 %), er investeringa lønsam."},{"id":"oks-5-5-n-quiz2-q2","task":"Ei investering på 200 000 kr gir 80 000, 80 000 og 60 000 kr dei tre første åra. Cirka kor lang er tilbakebetalingstida?","options":[{"id":"a","text":"Cirka 2 år og 8 månader","isCorrect":true},{"id":"b","text":"Cirka 1 år","isCorrect":false},{"id":"c","text":"Cirka 4 år","isCorrect":false},{"id":"d","text":"Cirka 3 år og 6 månader","isCorrect":false}],"solution":"Etter 2 år er 160 000 tent inn; det manglar 40 000. År 3 gir 60 000, så $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ år. Tilbakebetalingstida er cirka 2 år og 8 månader."}]}},{"id":"oks-5-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært å avgjere om ei investering løner seg, med utgangspunkt i at pengar i dag er meir verde enn pengar i framtida. **Nåverdien** (NPV) diskonterer framtidige kontantstraumar til dagens kroner og trekkjer frå investeringa; positiv nåverdi betyr lønsam investering.\n\nVi såg òg på **internrenta** (IRR), renta som gir nåverdi lik null og som blir samanlikna med kalkulasjonsrenta, og på **tilbakebetalingstid**, eit enkelt mål på risiko som likevel ignorerer tidsverdien av pengar. Nåverdi er hovudmetoden, medan dei to andre gir nyttig tilleggsinformasjon – og økonomiske tal er aldri det einaste som tel i ei investeringsavgjerd."}],"exercises":[],"_meta":{"sourceHash":"eab9bb52b8f82b5d","translatedAt":"2026-06-21T01:29:48.402Z","model":"claude-code-agent","strings":51,"tm":{"9b979c9c92b4ed4a":"Investering og lønsemdsutrekningar","b195b06d1ed59702":"Narrativ versjon","3c358b5839050254":"Ei forteljing om korleis vi avgjer om ei investering løner seg – om nåverdien som flyttar framtidige kroner til i dag, om internrenta, og om tilbakebetalingstida.","b2a164cf8af017f3":"Forstå kvifor pengar i dag er meir verde enn pengar i framtida","78224510e229d3d1":"Kunne rekne ut nåverdi (NPV) og vurdere lønsemd","30163346d0792b41":"Forstå internrente (IRR) og korleis ho blir samanlikna med kalkulasjonsrenta","dcc9ce24e3f496ef":"Kunne rekne ut tilbakebetalingstid","4a9ff4ab20b70cdb":"## Er 1 000 kroner i dag verde meir enn 1 000 om fem år?\n\nSvaret er ja – og det er sjølve grunnsteinen i all investeringsvurdering. Når ei bedrift vurderer å kjøpe ei maskin, må ho samanlikne ein kostnad i dag med inntekter som kjem over fleire år. Men ei krone i framtida er ikkje verd like mykje som ei krone no, av tre grunnar: pengane kunne vore investerte og gitt avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker.\n\nDifor brukar vi **nåverdi** – på engelsk Net Present Value, NPV – som reknar om framtidige kontantstraumar til dagens kroner. Vi «diskonterer» framtidige beløp med ei kalkulasjonsrente:\n\n$$\\text{NV} = \\frac{K_1}{(1+r)^1} + \\frac{K_2}{(1+r)^2} + \\ldots + \\frac{K_n}{(1+r)^n} - I_0$$\n\nHer er $K_1, K_2, \\ldots$ dei årlege netto kontantstraumane, $r$ er kalkulasjonsrenta (avkastningskravet), og $I_0$ er investeringsbeløpet. Regelen er enkel: er nåverdien positiv, er investeringa lønsam; er han negativ, er ho ulønsam.","535bf34f4d434520":"## Nåverdien i arbeid\n\nLat oss rekne på eit snikkarverkstad som vurderer å kjøpe ei høvlemaskin for 200 000 kroner. Maskina gir netto kontantstraum på 80 000 i år 1, 80 000 i år 2, 60 000 i år 3 og 40 000 i år 4. Kalkulasjonsrenta er 8 prosent.\n\nVi diskonterer kvart år for seg. År 1: $\\frac{80\\,000}{1{,}08} \\approx 74\\,074$. År 2: $\\frac{80\\,000}{1{,}08^2} \\approx 68\\,587$. År 3: $\\frac{60\\,000}{1{,}08^3} \\approx 47\\,625$. År 4: $\\frac{40\\,000}{1{,}08^4} \\approx 29\\,399$. Summen av nåverdiane er omtrent $74\\,074 + 68\\,587 + 47\\,625 + 29\\,399 = 219\\,685$ kroner. Trekkjer vi frå investeringa, blir nåverdien $219\\,685 - 200\\,000 = 19\\,685$ kroner. Positiv – så investeringa er lønsam, og bedrifta bør kjøpe maskina.\n\nLegg merke til at dei same 80 000 kronene er verde mindre dess lenger fram dei kjem: 74 074 i år 1, men berre 68 587 i år 2. Det er nettopp dette diskonteringa fangar opp – tidsverdien av pengar. Hadde vi berre summert kontantstraumane rått, ville vi fått $260\\,000$ kroner og overvurdert lønsemda kraftig.","e4fd6f48f8122914":"Test deg sjølv på nåverdi og tidsverdien av pengar:","4097889236a2af26":"placeholder","845c2e19fc281464":"Kva betyr det at ei investering har positiv nåverdi (NV > 0)?","bc57a11556c47918":"Investeringa går nøyaktig i null","3f96b2777230c353":"Investeringa er ulønsam","f8337d03eb0c6082":"Investeringa har for høg risiko","e6a3bd4bcc7ade82":"Investeringa er lønsam","b7fbe73ae0be78f5":"Positiv nåverdi betyr at investeringa gir meir avkastning enn kalkulasjonsrenta krev, og er difor lønsam.","1a50aeda94aa3215":"Kvifor er 100 000 kr i dag meir verde enn 100 000 kr om fem år?","bd48335c020b1c2b":"Fordi pengane kan gi avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker","833a157c5c4b4bd6":"Fordi setlar endrar farge over tid","e19f3fa1f0d68f81":"Fordi 100 000 kr alltid blir til 50 000 kr","31ce10e5e9317380":"Det stemmer ikkje – dei er like mykje verde","795120f1bde6bc4f":"Pengar i dag kan investerast og gi avkastning, inflasjon reduserer kjøpekrafta over tid, og framtidige beløp er usikre. Difor diskonterer vi framtidige kontantstraumar.","3f8e504014d22294":"Ei investering på 200 000 kr har kontantstraumar med samla nåverdi 219 685 kr. Kva er nåverdien av investeringa?","211b1335aa486805":"419 685 kr","91dc9db1fe2d8b7b":"19 685 kr","b2f3bee758afbec9":"−19 685 kr","35b714edd1f46154":"200 000 kr","a38a293f53e3d5f6":"$\\text{NV} = 219\\,685 - 200\\,000 = 19\\,685$ kr – positiv, så investeringa er lønsam.","4eb36021ef174bfd":"## Internrente og tilbakebetalingstid\n\nNåverdien er ikkje det einaste verktøyet. **Internrenta** – Internal Rate of Return, IRR – er den renta som gjer nåverdien nøyaktig lik null. Ho uttrykkjer den eigne avkastninga til investeringa i prosent. Vi finn ho ved prøving og feiling, eller med ein kalkulator. For høvlemaskina vår ligg internrenta på rundt 16 prosent. Regelen er enkel: er internrenta høgare enn kalkulasjonsrenta, er investeringa lønsam. Her er internrenta på 16 prosent klart høgare enn avkastningskravet på 8 prosent, så investeringa er svært god. Fordelen med internrenta er at ho er lett å samanlikne med andre moglegheiter, som bankrente eller aksjeavkastning.\n\nDen tredje metoden er **tilbakebetalingstid** – kor lang tid det tek før investeringa er tent inn. Vi summerer kontantstraumane til dei når investeringsbeløpet. For høvlemaskina er det 80 000 etter år 1, $80\\,000 + 80\\,000 = 160\\,000$ etter år 2, og etter år 3 har vi passert 200 000. Meir presist manglar vi $200\\,000 - 160\\,000 = 40\\,000$ etter år 2, og år 3 gir 60 000, så vi treng $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ av år 3. Tilbakebetalingstida blir altså cirka 2 år og 8 månader. Kort tilbakebetalingstid betyr lågare risiko, men metoden har ein svakheit: han ignorerer tidsverdien av pengar og alt som skjer etter at investeringa er tent inn.\n\nDei tre metodane utfyller kvarandre. **Nåverdi** blir anbefalt som hovudmetode, fordi han tek omsyn til tidsverdien og gir svaret i kroner. **Internrente** er god for å kommunisere avkastninga i prosent, og **tilbakebetalingstid** er eit enkelt mål på risiko. Sjølve kalkulasjonsrenta – avkastningskravet – blir gjerne sett mellom 8 og 12 prosent, basert på alternativkostnad og risiko. Men hugs: ein positiv nåverdi er ikkje nok åleine. Bedrifta må òg vurdere likviditet, strategi, risiko og ikkje-økonomiske faktorar.","7339b9b0a4f5b94f":"Test deg sjølv på internrente og tilbakebetalingstid:","db1f2e6a45eacd31":"Kva er internrenta (IRR)?","ad6db7a1c3bdf558":"Renta banken tek på lån","1f56cb0b81e16057":"Den nominelle renta på eit serielån","a9a78e6d7dfc5a5f":"Den renta som gir nåverdi lik null – den eigne avkastninga til investeringa","b1aacaa4124018d0":"Inflasjonsraten","5db69c5c229c3fdb":"Internrenta er den renta som gjer nåverdien lik null. Ho uttrykkjer avkastninga til investeringa, og blir samanlikna med kalkulasjonsrenta.","115220270815424d":"Ei investering har internrente 16 % og kalkulasjonsrente 8 %. Er ho lønsam?","93cf277cacf20941":"Nei, internrenta er for høg","bf643c8bab3ff6ac":"Nei, dei må vere like","963d9a054b8deade":"Det kan ikkje avgjerast","6a508446956035f3":"Ja, fordi internrenta er høgare enn kalkulasjonsrenta","0a9f493ba8a90061":"Når internrenta (16 %) er høgare enn kalkulasjonsrenta (8 %), er investeringa lønsam.","f5b22644703f6cfb":"Ei investering på 200 000 kr gir 80 000, 80 000 og 60 000 kr dei tre første åra. Cirka kor lang er tilbakebetalingstida?","fdff61131ae1da14":"Cirka 2 år og 8 månader","30b1e0174defefb7":"Cirka 1 år","a7207cc6b0b24d42":"Cirka 4 år","cbb058e37d005598":"Cirka 3 år og 6 månader","bb584be78564cfc6":"Etter 2 år er 160 000 tent inn; det manglar 40 000. År 3 gir 60 000, så $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ år. Tilbakebetalingstida er cirka 2 år og 8 månader.","e757c677fa15a0b0":"## Oppsummering\n\nVi har lært å avgjere om ei investering løner seg, med utgangspunkt i at pengar i dag er meir verde enn pengar i framtida. **Nåverdien** (NPV) diskonterer framtidige kontantstraumar til dagens kroner og trekkjer frå investeringa; positiv nåverdi betyr lønsam investering.\n\nVi såg òg på **internrenta** (IRR), renta som gir nåverdi lik null og som blir samanlikna med kalkulasjonsrenta, og på **tilbakebetalingstid**, eit enkelt mål på risiko som likevel ignorerer tidsverdien av pengar. Nåverdi er hovudmetoden, medan dei to andre gir nyttig tilleggsinformasjon – og økonomiske tal er aldri det einaste som tel i ei investeringsavgjerd."}}}
+{
+  "id": "oks-5-5-narrativ",
+  "courseId": "okonomistyring",
+  "chapterNumber": "5.5",
+  "title": "Investering og lønsemdsutrekningar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi avgjer om ei investering løner seg – om nåverdien som flyttar framtidige kroner til i dag, om internrenta, og om tilbakebetalingstida.",
+  "estimatedMinutes": 16,
+  "competenceGoals": [
+    "Forstå kvifor pengar i dag er meir verde enn pengar i framtida",
+    "Kunne rekne ut nåverdi (NPV) og vurdere lønsemd",
+    "Forstå internrente (IRR) og korleis ho blir samanlikna med kalkulasjonsrenta",
+    "Kunne rekne ut tilbakebetalingstid"
+  ],
+  "linkedChapterId": "oks-5-5",
+  "content": [
+    {
+      "id": "oks-5-5-n-intro",
+      "type": "text",
+      "content": "## Er 1 000 kroner i dag verde meir enn 1 000 om fem år?\n\nSvaret er ja – og det er sjølve grunnsteinen i all investeringsvurdering. Når ei bedrift vurderer å kjøpe ei maskin, må ho samanlikne ein kostnad i dag med inntekter som kjem over fleire år. Men ei krone i framtida er ikkje verd like mykje som ei krone no, av tre grunnar: pengane kunne vore investerte og gitt avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker.\n\nDifor brukar vi **nåverdi** – på engelsk Net Present Value, NPV – som reknar om framtidige kontantstraumar til dagens kroner. Vi «diskonterer» framtidige beløp med ei kalkulasjonsrente:\n\n$$\\text{NV} = \\frac{K_1}{(1+r)^1} + \\frac{K_2}{(1+r)^2} + \\ldots + \\frac{K_n}{(1+r)^n} - I_0$$\n\nHer er $K_1, K_2, \\ldots$ dei årlege netto kontantstraumane, $r$ er kalkulasjonsrenta (avkastningskravet), og $I_0$ er investeringsbeløpet. Regelen er enkel: er nåverdien positiv, er investeringa lønsam; er han negativ, er ho ulønsam."
+    },
+    {
+      "id": "oks-5-5-n-section1",
+      "type": "text",
+      "content": "## Nåverdien i arbeid\n\nLat oss rekne på eit snikkarverkstad som vurderer å kjøpe ei høvlemaskin for 200 000 kroner. Maskina gir netto kontantstraum på 80 000 i år 1, 80 000 i år 2, 60 000 i år 3 og 40 000 i år 4. Kalkulasjonsrenta er 8 prosent.\n\nVi diskonterer kvart år for seg. År 1: $\\frac{80\\,000}{1{,}08} \\approx 74\\,074$. År 2: $\\frac{80\\,000}{1{,}08^2} \\approx 68\\,587$. År 3: $\\frac{60\\,000}{1{,}08^3} \\approx 47\\,625$. År 4: $\\frac{40\\,000}{1{,}08^4} \\approx 29\\,399$. Summen av nåverdiane er omtrent $74\\,074 + 68\\,587 + 47\\,625 + 29\\,399 = 219\\,685$ kroner. Trekkjer vi frå investeringa, blir nåverdien $219\\,685 - 200\\,000 = 19\\,685$ kroner. Positiv – så investeringa er lønsam, og bedrifta bør kjøpe maskina.\n\nLegg merke til at dei same 80 000 kronene er verde mindre dess lenger fram dei kjem: 74 074 i år 1, men berre 68 587 i år 2. Det er nettopp dette diskonteringa fangar opp – tidsverdien av pengar. Hadde vi berre summert kontantstraumane rått, ville vi fått $260\\,000$ kroner og overvurdert lønsemda kraftig."
+    },
+    {
+      "id": "oks-5-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "oks-5-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på nåverdi og tidsverdien av pengar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "oks-5-5-n-quiz1-q0",
+            "task": "Kva betyr det at ei investering har positiv nåverdi (NV > 0)?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Investeringa er lønsam",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Investeringa går nøyaktig i null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Investeringa er ulønsam",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Investeringa har for høg risiko",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Positiv nåverdi betyr at investeringa gir meir avkastning enn kalkulasjonsrenta krev, og er difor lønsam."
+          },
+          {
+            "id": "oks-5-5-n-quiz1-q1",
+            "task": "Kvifor er 100 000 kr i dag meir verde enn 100 000 kr om fem år?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi setlar endrar farge over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi pengane kan gi avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi 100 000 kr alltid blir til 50 000 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det stemmer ikkje – dei er like mykje verde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Pengar i dag kan investerast og gi avkastning, inflasjon reduserer kjøpekrafta over tid, og framtidige beløp er usikre. Difor diskonterer vi framtidige kontantstraumar."
+          },
+          {
+            "id": "oks-5-5-n-quiz1-q2",
+            "task": "Ei investering på 200 000 kr har kontantstraumar med samla nåverdi 219 685 kr. Kva er nåverdien av investeringa?",
+            "options": [
+              {
+                "id": "a",
+                "text": "419 685 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "−19 685 kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "19 685 kr",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "200 000 kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{NV} = 219\\,685 - 200\\,000 = 19\\,685$ kr – positiv, så investeringa er lønsam."
+          }
+        ]
+      }
+    },
+    {
+      "id": "oks-5-5-n-section2",
+      "type": "text",
+      "content": "## Internrente og tilbakebetalingstid\n\nNåverdien er ikkje det einaste verktøyet. **Internrenta** – Internal Rate of Return, IRR – er den renta som gjer nåverdien nøyaktig lik null. Ho uttrykkjer den eigne avkastninga til investeringa i prosent. Vi finn ho ved prøving og feiling, eller med ein kalkulator. For høvlemaskina vår ligg internrenta på rundt 16 prosent. Regelen er enkel: er internrenta høgare enn kalkulasjonsrenta, er investeringa lønsam. Her er internrenta på 16 prosent klart høgare enn avkastningskravet på 8 prosent, så investeringa er svært god. Fordelen med internrenta er at ho er lett å samanlikne med andre moglegheiter, som bankrente eller aksjeavkastning.\n\nDen tredje metoden er **tilbakebetalingstid** – kor lang tid det tek før investeringa er tent inn. Vi summerer kontantstraumane til dei når investeringsbeløpet. For høvlemaskina er det 80 000 etter år 1, $80\\,000 + 80\\,000 = 160\\,000$ etter år 2, og etter år 3 har vi passert 200 000. Meir presist manglar vi $200\\,000 - 160\\,000 = 40\\,000$ etter år 2, og år 3 gir 60 000, så vi treng $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ av år 3. Tilbakebetalingstida blir altså cirka 2 år og 8 månader. Kort tilbakebetalingstid betyr lågare risiko, men metoden har ein svakheit: han ignorerer tidsverdien av pengar og alt som skjer etter at investeringa er tent inn.\n\nDei tre metodane utfyller kvarandre. **Nåverdi** blir anbefalt som hovudmetode, fordi han tek omsyn til tidsverdien og gir svaret i kroner. **Internrente** er god for å kommunisere avkastninga i prosent, og **tilbakebetalingstid** er eit enkelt mål på risiko. Sjølve kalkulasjonsrenta – avkastningskravet – blir gjerne sett mellom 8 og 12 prosent, basert på alternativkostnad og risiko. Men hugs: ein positiv nåverdi er ikkje nok åleine. Bedrifta må òg vurdere likviditet, strategi, risiko og ikkje-økonomiske faktorar."
+    },
+    {
+      "id": "oks-5-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "oks-5-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på internrente og tilbakebetalingstid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "oks-5-5-n-quiz2-q0",
+            "task": "Kva er internrenta (IRR)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Renta banken tek på lån",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den nominelle renta på eit serielån",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Inflasjonsraten",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den renta som gir nåverdi lik null – den eigne avkastninga til investeringa",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Internrenta er den renta som gjer nåverdien lik null. Ho uttrykkjer avkastninga til investeringa, og blir samanlikna med kalkulasjonsrenta."
+          },
+          {
+            "id": "oks-5-5-n-quiz2-q1",
+            "task": "Ei investering har internrente 16 % og kalkulasjonsrente 8 %. Er ho lønsam?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Ja, fordi internrenta er høgare enn kalkulasjonsrenta",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nei, internrenta er for høg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nei, dei må vere like",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det kan ikkje avgjerast",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når internrenta (16 %) er høgare enn kalkulasjonsrenta (8 %), er investeringa lønsam."
+          },
+          {
+            "id": "oks-5-5-n-quiz2-q2",
+            "task": "Ei investering på 200 000 kr gir 80 000, 80 000 og 60 000 kr dei tre første åra. Cirka kor lang er tilbakebetalingstida?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Cirka 1 år",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Cirka 2 år og 8 månader",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Cirka 4 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Cirka 3 år og 6 månader",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Etter 2 år er 160 000 tent inn; det manglar 40 000. År 3 gir 60 000, så $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ år. Tilbakebetalingstida er cirka 2 år og 8 månader."
+          }
+        ]
+      }
+    },
+    {
+      "id": "oks-5-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært å avgjere om ei investering løner seg, med utgangspunkt i at pengar i dag er meir verde enn pengar i framtida. **Nåverdien** (NPV) diskonterer framtidige kontantstraumar til dagens kroner og trekkjer frå investeringa; positiv nåverdi betyr lønsam investering.\n\nVi såg òg på **internrenta** (IRR), renta som gir nåverdi lik null og som blir samanlikna med kalkulasjonsrenta, og på **tilbakebetalingstid**, eit enkelt mål på risiko som likevel ignorerer tidsverdien av pengar. Nåverdi er hovudmetoden, medan dei to andre gir nyttig tilleggsinformasjon – og økonomiske tal er aldri det einaste som tel i ei investeringsavgjerd."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "eab9bb52b8f82b5d",
+    "translatedAt": "2026-06-21T01:29:48.402Z",
+    "model": "claude-code-agent",
+    "strings": 51,
+    "tm": {
+      "9b979c9c92b4ed4a": "Investering og lønsemdsutrekningar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "3c358b5839050254": "Ei forteljing om korleis vi avgjer om ei investering løner seg – om nåverdien som flyttar framtidige kroner til i dag, om internrenta, og om tilbakebetalingstida.",
+      "b2a164cf8af017f3": "Forstå kvifor pengar i dag er meir verde enn pengar i framtida",
+      "78224510e229d3d1": "Kunne rekne ut nåverdi (NPV) og vurdere lønsemd",
+      "30163346d0792b41": "Forstå internrente (IRR) og korleis ho blir samanlikna med kalkulasjonsrenta",
+      "dcc9ce24e3f496ef": "Kunne rekne ut tilbakebetalingstid",
+      "4a9ff4ab20b70cdb": "## Er 1 000 kroner i dag verde meir enn 1 000 om fem år?\n\nSvaret er ja – og det er sjølve grunnsteinen i all investeringsvurdering. Når ei bedrift vurderer å kjøpe ei maskin, må ho samanlikne ein kostnad i dag med inntekter som kjem over fleire år. Men ei krone i framtida er ikkje verd like mykje som ei krone no, av tre grunnar: pengane kunne vore investerte og gitt avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker.\n\nDifor brukar vi **nåverdi** – på engelsk Net Present Value, NPV – som reknar om framtidige kontantstraumar til dagens kroner. Vi «diskonterer» framtidige beløp med ei kalkulasjonsrente:\n\n$$\\text{NV} = \\frac{K_1}{(1+r)^1} + \\frac{K_2}{(1+r)^2} + \\ldots + \\frac{K_n}{(1+r)^n} - I_0$$\n\nHer er $K_1, K_2, \\ldots$ dei årlege netto kontantstraumane, $r$ er kalkulasjonsrenta (avkastningskravet), og $I_0$ er investeringsbeløpet. Regelen er enkel: er nåverdien positiv, er investeringa lønsam; er han negativ, er ho ulønsam.",
+      "535bf34f4d434520": "## Nåverdien i arbeid\n\nLat oss rekne på eit snikkarverkstad som vurderer å kjøpe ei høvlemaskin for 200 000 kroner. Maskina gir netto kontantstraum på 80 000 i år 1, 80 000 i år 2, 60 000 i år 3 og 40 000 i år 4. Kalkulasjonsrenta er 8 prosent.\n\nVi diskonterer kvart år for seg. År 1: $\\frac{80\\,000}{1{,}08} \\approx 74\\,074$. År 2: $\\frac{80\\,000}{1{,}08^2} \\approx 68\\,587$. År 3: $\\frac{60\\,000}{1{,}08^3} \\approx 47\\,625$. År 4: $\\frac{40\\,000}{1{,}08^4} \\approx 29\\,399$. Summen av nåverdiane er omtrent $74\\,074 + 68\\,587 + 47\\,625 + 29\\,399 = 219\\,685$ kroner. Trekkjer vi frå investeringa, blir nåverdien $219\\,685 - 200\\,000 = 19\\,685$ kroner. Positiv – så investeringa er lønsam, og bedrifta bør kjøpe maskina.\n\nLegg merke til at dei same 80 000 kronene er verde mindre dess lenger fram dei kjem: 74 074 i år 1, men berre 68 587 i år 2. Det er nettopp dette diskonteringa fangar opp – tidsverdien av pengar. Hadde vi berre summert kontantstraumane rått, ville vi fått $260\\,000$ kroner og overvurdert lønsemda kraftig.",
+      "e4fd6f48f8122914": "Test deg sjølv på nåverdi og tidsverdien av pengar:",
+      "4097889236a2af26": "placeholder",
+      "845c2e19fc281464": "Kva betyr det at ei investering har positiv nåverdi (NV > 0)?",
+      "bc57a11556c47918": "Investeringa går nøyaktig i null",
+      "3f96b2777230c353": "Investeringa er ulønsam",
+      "f8337d03eb0c6082": "Investeringa har for høg risiko",
+      "e6a3bd4bcc7ade82": "Investeringa er lønsam",
+      "b7fbe73ae0be78f5": "Positiv nåverdi betyr at investeringa gir meir avkastning enn kalkulasjonsrenta krev, og er difor lønsam.",
+      "1a50aeda94aa3215": "Kvifor er 100 000 kr i dag meir verde enn 100 000 kr om fem år?",
+      "bd48335c020b1c2b": "Fordi pengane kan gi avkastning, inflasjon et opp kjøpekrafta, og framtida er usikker",
+      "833a157c5c4b4bd6": "Fordi setlar endrar farge over tid",
+      "e19f3fa1f0d68f81": "Fordi 100 000 kr alltid blir til 50 000 kr",
+      "31ce10e5e9317380": "Det stemmer ikkje – dei er like mykje verde",
+      "795120f1bde6bc4f": "Pengar i dag kan investerast og gi avkastning, inflasjon reduserer kjøpekrafta over tid, og framtidige beløp er usikre. Difor diskonterer vi framtidige kontantstraumar.",
+      "3f8e504014d22294": "Ei investering på 200 000 kr har kontantstraumar med samla nåverdi 219 685 kr. Kva er nåverdien av investeringa?",
+      "211b1335aa486805": "419 685 kr",
+      "91dc9db1fe2d8b7b": "19 685 kr",
+      "b2f3bee758afbec9": "−19 685 kr",
+      "35b714edd1f46154": "200 000 kr",
+      "a38a293f53e3d5f6": "$\\text{NV} = 219\\,685 - 200\\,000 = 19\\,685$ kr – positiv, så investeringa er lønsam.",
+      "4eb36021ef174bfd": "## Internrente og tilbakebetalingstid\n\nNåverdien er ikkje det einaste verktøyet. **Internrenta** – Internal Rate of Return, IRR – er den renta som gjer nåverdien nøyaktig lik null. Ho uttrykkjer den eigne avkastninga til investeringa i prosent. Vi finn ho ved prøving og feiling, eller med ein kalkulator. For høvlemaskina vår ligg internrenta på rundt 16 prosent. Regelen er enkel: er internrenta høgare enn kalkulasjonsrenta, er investeringa lønsam. Her er internrenta på 16 prosent klart høgare enn avkastningskravet på 8 prosent, så investeringa er svært god. Fordelen med internrenta er at ho er lett å samanlikne med andre moglegheiter, som bankrente eller aksjeavkastning.\n\nDen tredje metoden er **tilbakebetalingstid** – kor lang tid det tek før investeringa er tent inn. Vi summerer kontantstraumane til dei når investeringsbeløpet. For høvlemaskina er det 80 000 etter år 1, $80\\,000 + 80\\,000 = 160\\,000$ etter år 2, og etter år 3 har vi passert 200 000. Meir presist manglar vi $200\\,000 - 160\\,000 = 40\\,000$ etter år 2, og år 3 gir 60 000, så vi treng $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ av år 3. Tilbakebetalingstida blir altså cirka 2 år og 8 månader. Kort tilbakebetalingstid betyr lågare risiko, men metoden har ein svakheit: han ignorerer tidsverdien av pengar og alt som skjer etter at investeringa er tent inn.\n\nDei tre metodane utfyller kvarandre. **Nåverdi** blir anbefalt som hovudmetode, fordi han tek omsyn til tidsverdien og gir svaret i kroner. **Internrente** er god for å kommunisere avkastninga i prosent, og **tilbakebetalingstid** er eit enkelt mål på risiko. Sjølve kalkulasjonsrenta – avkastningskravet – blir gjerne sett mellom 8 og 12 prosent, basert på alternativkostnad og risiko. Men hugs: ein positiv nåverdi er ikkje nok åleine. Bedrifta må òg vurdere likviditet, strategi, risiko og ikkje-økonomiske faktorar.",
+      "7339b9b0a4f5b94f": "Test deg sjølv på internrente og tilbakebetalingstid:",
+      "db1f2e6a45eacd31": "Kva er internrenta (IRR)?",
+      "ad6db7a1c3bdf558": "Renta banken tek på lån",
+      "1f56cb0b81e16057": "Den nominelle renta på eit serielån",
+      "a9a78e6d7dfc5a5f": "Den renta som gir nåverdi lik null – den eigne avkastninga til investeringa",
+      "b1aacaa4124018d0": "Inflasjonsraten",
+      "5db69c5c229c3fdb": "Internrenta er den renta som gjer nåverdien lik null. Ho uttrykkjer avkastninga til investeringa, og blir samanlikna med kalkulasjonsrenta.",
+      "115220270815424d": "Ei investering har internrente 16 % og kalkulasjonsrente 8 %. Er ho lønsam?",
+      "93cf277cacf20941": "Nei, internrenta er for høg",
+      "bf643c8bab3ff6ac": "Nei, dei må vere like",
+      "963d9a054b8deade": "Det kan ikkje avgjerast",
+      "6a508446956035f3": "Ja, fordi internrenta er høgare enn kalkulasjonsrenta",
+      "0a9f493ba8a90061": "Når internrenta (16 %) er høgare enn kalkulasjonsrenta (8 %), er investeringa lønsam.",
+      "f5b22644703f6cfb": "Ei investering på 200 000 kr gir 80 000, 80 000 og 60 000 kr dei tre første åra. Cirka kor lang er tilbakebetalingstida?",
+      "fdff61131ae1da14": "Cirka 2 år og 8 månader",
+      "30b1e0174defefb7": "Cirka 1 år",
+      "a7207cc6b0b24d42": "Cirka 4 år",
+      "cbb058e37d005598": "Cirka 3 år og 6 månader",
+      "bb584be78564cfc6": "Etter 2 år er 160 000 tent inn; det manglar 40 000. År 3 gir 60 000, så $\\frac{40\\,000}{60\\,000} \\approx 0{,}67$ år. Tilbakebetalingstida er cirka 2 år og 8 månader.",
+      "e757c677fa15a0b0": "## Oppsummering\n\nVi har lært å avgjere om ei investering løner seg, med utgangspunkt i at pengar i dag er meir verde enn pengar i framtida. **Nåverdien** (NPV) diskonterer framtidige kontantstraumar til dagens kroner og trekkjer frå investeringa; positiv nåverdi betyr lønsam investering.\n\nVi såg òg på **internrenta** (IRR), renta som gir nåverdi lik null og som blir samanlikna med kalkulasjonsrenta, og på **tilbakebetalingstid**, eit enkelt mål på risiko som likevel ignorerer tidsverdien av pengar. Nåverdi er hovudmetoden, medan dei to andre gir nyttig tilleggsinformasjon – og økonomiske tal er aldri det einaste som tel i ei investeringsavgjerd."
+    }
+  }
+}

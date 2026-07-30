@@ -1,1 +1,349 @@
-{"id":"10-11-1-narrativ","courseId":"10","chapterNumber":"11.1","title":"Algoritmer og pseudokode","subtitle":"Narrativ versjon","description":"En fortelling om algoritmer, flytdiagrammer og pseudokode -- fra kakeoppskrifter til Euklids geniale metode for a finne storste felles divisor.","estimatedMinutes":35,"competenceGoals":["utforske matematiske eigenskapar og samanhengar ved a bruke programmering"],"linkedChapterId":"10-11-1","content":[{"id":"10-11-1-n-intro","type":"text","content":"## Fra kakeoppskrift til algoritme\n\nHar du noen gang bakt en kake? Da har du allerede brukt en algoritme uten a vite det. En kakeoppskrift er nemlig en steg-for-steg-beskrivelse av hva du skal gjore for a oppna et bestemt resultat -- akkurat som en **algoritme** i matematikken.\n\nEn algoritme er en presis, endelig oppskrift for a lose et problem. Den har tre viktige egenskaper: den er **presis** (hvert steg er entydig beskrevet), den er **endelig** (den stopper etter et endelig antall steg), og den er **generell** (den fungerer for alle gyldige inndata, ikke bare ett spesifikt tilfelle).\n\nDu bruker faktisk algoritmer i matematikk hele tiden. Nar du deler to tall med lang divisjon, folger du en algoritme. Nar du finner fellesnevner, folger du en algoritme. I dette kapittelet skal vi se narmere pa hvordan vi kan beskrive slike fremgangsma ter pa tre ulike mater: med vanlig tekst, med **flytdiagrammer** og med **pseudokode**. Vi skal ogsa utforske noen klassiske algoritmer, som Euklids algoritme for a finne storste felles divisor og boblsortering for a sortere en liste.\n\nLa oss starte med noe enkelt. Tenk deg at du har tre tall -- $a$, $b$ og $c$ -- og du vil finne det storste av dem. Hvordan vil du ga frem? En mulig algoritme er:\n\n1. Sett $\\text{storst} = a$\n2. Hvis $b > \\text{storst}$, sett $\\text{storst} = b$\n3. Hvis $c > \\text{storst}$, sett $\\text{storst} = c$\n4. Na er $\\text{storst}$ det storste av de tre tallene\n\nLa oss teste med $a = 7$, $b = 12$, $c = 5$. Forst setter vi storst $= 7$. Sa sjekker vi: er $12 > 7$? Ja, sa storst $= 12$. Er $5 > 12$? Nei, sa storst er fortsatt $12$. Svaret er $12$. Enkelt og presist!"},{"id":"10-11-1-n-section1","type":"text","content":"## Flytdiagrammer -- algoritmer du kan se\n\nNoen ganger er det lettere a forsta en algoritme hvis du kan *se* den. Det er her **flytdiagrammer** kommer inn. Et flytdiagram er en grafisk fremstilling av en algoritme der vi bruker standardiserte symboler:\n\n- **Oval** (avrundet rektangel): Start og stopp\n- **Rektangel**: Prosess eller beregning\n- **Diamant** (rombe): Beslutning -- et ja/nei-sporsmal\n- **Parallellogram**: Inn- eller utdata\n- **Pil**: Viser retningen flyten gar i\n\nFlytdiagrammer er spesielt nyttige nar det er **forgreninger** (if/else) eller **lokker** (gjentakelser), fordi du kan folge pilene og se noyaktig hva som skjer.\n\nLa oss lage et flytdiagram som sjekker om et tall er partall eller oddetall. Vi starter med [Start], gar til [Les inn tall n], sa til en diamant [Er n delelig med 2?]. Hvis ja, folger vi pilen til [Skriv ut \"Partall\"] og deretter [Stopp]. Hvis nei, gar vi til [Skriv ut \"Oddetall\"] og deretter [Stopp].\n\nMatematisk sjekker vi dette med modulo-operasjonen: $n \\mod 2 = 0$ betyr at $n$ er et partall. For eksempel: $14 \\mod 2 = 0$, sa 14 er et partall."},{"id":"10-11-1-n-quiz1","type":"exercise","exercise":{"id":"10-11-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv pa algoritmer og flytdiagrammer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-1-n-quiz1-q0","task":"Hvilke tre egenskaper ma en god algoritme ha?","options":[{"id":"a","text":"Rask, moderne og digital","isCorrect":false},{"id":"b","text":"Presis, endelig og generell","isCorrect":true},{"id":"c","text":"Kort, enkel og morsom","isCorrect":false},{"id":"d","text":"Presis, uendelig og spesifikk","isCorrect":false}],"solution":"En god algoritme er presis (hvert steg er entydig), endelig (den stopper etter et endelig antall steg) og generell (den fungerer for alle gyldige inndata)."},{"id":"10-11-1-n-quiz1-q1","task":"Hvilket symbol brukes for en beslutning (ja/nei-sporsmal) i et flytdiagram?","options":[{"id":"a","text":"Rektangel","isCorrect":false},{"id":"b","text":"Oval","isCorrect":false},{"id":"c","text":"Parallellogram","isCorrect":false},{"id":"d","text":"Diamant (rombe)","isCorrect":true}],"solution":"Diamanten (romben) brukes for beslutninger i flytdiagrammer. Den har to utganger: ja og nei."},{"id":"10-11-1-n-quiz1-q2","task":"Hva er $17 \\mod 3$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":false}],"solution":"$17 = 5 \\cdot 3 + 2$, sa $17 \\mod 3 = 2$. Modulo gir resten ved heltallsdivisjon."}],"solution":""}},{"id":"10-11-1-n-section2","type":"text","content":"## Pseudokode -- skriv algoritmen som nesten-kode\n\nMellom vanlig tekst og ekte programmeringssprak finnes **pseudokode**. Det er en forenklet, uformell mate a skrive en algoritme pa som ligner et programmeringssprak, men som er skrevet pa vanlig sprak slik at den er lett a forsta.\n\nDe vanligste elementene i pseudokode er:\n- **LES** / **SKRIV**: For inn- og utdata\n- **SETT** / **LA**: For a tilordne verdier\n- **HVIS ... SA ... ELLERS**: For betingelser (forgreninger)\n- **GJENTA ... MENS** / **FOR ... TIL**: For lokker (gjentakelser)\n- **RETURNER**: For a gi tilbake et resultat\n\nLa oss skrive pseudokode for a beregne summen $1 + 2 + 3 + \\ldots + n$:\n\n```\nLES n\nSETT sum = 0\nFOR i = 1 TIL n\n    SETT sum = sum + i\nSLUTT FOR\nSKRIV \"Summen er \" + sum\n```\n\nHvis vi tester med $n = 5$: Vi starter med sum $= 0$. Sa legger vi til 1 (sum $= 1$), deretter 2 (sum $= 3$), deretter 3 (sum $= 6$), deretter 4 (sum $= 10$), og til slutt 5 (sum $= 15$). Summen av tallene fra 1 til 5 er $15$.\n\nVi kan sjekke med formelen: $\\frac{n(n+1)}{2} = \\frac{5 \\cdot 6}{2} = 15$. Stemmer!\n\nLegg merke til at pseudokode ikke trenger a folge strenge syntaksregler. Den bor bare vare presis nok til at noen kan oversette den til et ekte programmeringssprak."},{"id":"10-11-1-n-section3","type":"text","content":"## Euklids algoritme -- 2300 ar gammel og fortsatt genial\n\nEn av de eldste kjente algoritmene i verden er **Euklids algoritme**, oppkalt etter den greske matematikeren Euklid som beskrev den rundt 300 f.Kr. Tenk pa det -- en algoritme som er over 2300 ar gammel, og som fortsatt brukes i dag!\n\nEuklids algoritme finner den **storste felles divisor** (SFD) av to tall. Den storste felles divisor av to tall $a$ og $b$ er det storste tallet som gar opp i begge. Vi skriver $\\text{SFD}(a, b)$. For eksempel er $\\text{SFD}(12, 8) = 4$ fordi 4 er det storste tallet som deler bade 12 og 8.\n\nAlgoritmen er overraskende enkel:\n\n1. Hvis $b = 0$, er $\\text{SFD}(a, b) = a$. Stopp.\n2. Beregn resten $r = a \\mod b$.\n3. Sett $a = b$ og $b = r$.\n4. Ga til steg 1.\n\nI pseudokode:\n\n```\nLES a, b\nGJENTA MENS b ≠ 0\n    SETT r = a mod b\n    SETT a = b\n    SETT b = r\nSLUTT GJENTA\nSKRIV \"SFD er \" + a\n```\n\nLa oss prove med $\\text{SFD}(48, 18)$. Forst: $48 \\mod 18 = 12$, sa vi setter $a = 18$, $b = 12$. Neste runde: $18 \\mod 12 = 6$, sa $a = 12$, $b = 6$. Neste: $12 \\mod 6 = 0$, sa $a = 6$, $b = 0$. Stopp! $\\text{SFD}(48, 18) = 6$.\n\nVi kan sjekke: $48 = 6 \\cdot 8$ og $18 = 6 \\cdot 3$. Stemmer! Euklids algoritme er ogsa nyttig for a forkorte broker -- du deler teller og nevner med SFD. For eksempel: $\\frac{48}{36}$ forkortes ved a finne $\\text{SFD}(48, 36) = 12$, sa $\\frac{48}{36} = \\frac{4}{3}$."},{"id":"10-11-1-n-quiz2","type":"exercise","exercise":{"id":"10-11-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv pa pseudokode og Euklids algoritme:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-1-n-quiz2-q0","task":"Hva er $\\text{SFD}(84, 36)$?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$4$","isCorrect":false},{"id":"d","text":"$18$","isCorrect":false}],"solution":"Euklids algoritme: $84 \\mod 36 = 12$, $36 \\mod 12 = 0$. Stopp! $\\text{SFD}(84, 36) = 12$."},{"id":"10-11-1-n-quiz2-q1","task":"I pseudokode, hva betyr \"GJENTA MENS b ≠ 0\"?","options":[{"id":"a","text":"Kjor koden inne i lokken sa lenge b ikke er lik 0","isCorrect":true},{"id":"b","text":"Kjor koden inne i lokken noyaktig b ganger","isCorrect":false},{"id":"c","text":"Hopp over koden hvis b er 0","isCorrect":false},{"id":"d","text":"Sett b til 0 og kjor koden en gang","isCorrect":false}],"solution":"\"GJENTA MENS\" er en lokke som gjentar instruksjonene sa lenge betingelsen er sann. Her betyr det: fortsett sa lenge $b$ ikke er lik null."},{"id":"10-11-1-n-quiz2-q2","task":"Hva vil denne pseudokoden skrive ut nar n = 4? LES n. SETT produkt = 1. FOR i = 1 TIL n: SETT produkt = produkt * i. SKRIV produkt.","options":[{"id":"a","text":"$10$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$24$","isCorrect":true},{"id":"d","text":"$16$","isCorrect":false}],"solution":"Pseudokoden beregner $n! = 4! = 1 \\cdot 2 \\cdot 3 \\cdot 4 = 24$ (n fakultet)."},{"id":"10-11-1-n-quiz2-q3","task":"Hva er $\\text{SFD}(105, 45)$?","options":[{"id":"a","text":"$5$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$9$","isCorrect":false},{"id":"d","text":"$15$","isCorrect":true}],"solution":"$105 \\mod 45 = 15$, $45 \\mod 15 = 0$. $\\text{SFD}(105, 45) = 15$."}],"solution":""}},{"id":"10-11-1-n-section4","type":"text","content":"## Boblsortering -- nar tall bobler opp pa riktig plass\n\n**Sortering** er en av de vanligste oppgavene i programmering. Hver gang du soker etter noe pa nettet, sorterer et digitalt musikkbibliotek eller rangerer en tabell, brukes sorteringsalgoritmer bak kulissene.\n\nEn av de enkleste sorteringsalgoritmene er **boblsortering** (bubble sort). Navnet kommer av at de storste verdiene gradvis \"bobler\" opp til riktig posisjon, litt som luftbobler i vann. Ideen er:\n\n1. Ga gjennom listen og sammenlign hvert par av naboelementer\n2. Hvis to naboer er i feil rekkefolgje, bytt dem\n3. Gjenta til hele listen er sortert\n\nLa oss sortere listen $[5, 3, 8, 1, 2]$:\n\n**Runde 1:** Vi sammenligner 5 og 3 -- $5 > 3$, bytt! $\\rightarrow [3, 5, 8, 1, 2]$. Sa 5 og 8 -- ok. Sa 8 og 1 -- bytt! $\\rightarrow [3, 5, 1, 8, 2]$. Sa 8 og 2 -- bytt! $\\rightarrow [3, 5, 1, 2, 8]$. Na har 8 \"boblet\" opp til riktig plass!\n\n**Runde 2:** $3 < 5$, ok. $5 > 1$, bytt! $\\rightarrow [3, 1, 5, 2, 8]$. $5 > 2$, bytt! $\\rightarrow [3, 1, 2, 5, 8]$.\n\n**Runde 3:** $3 > 1$, bytt! $\\rightarrow [1, 3, 2, 5, 8]$. $3 > 2$, bytt! $\\rightarrow [1, 2, 3, 5, 8]$.\n\n**Runde 4:** $1 < 2$, ok. Ingen bytter -- ferdig! Sortert liste: $[1, 2, 3, 5, 8]$.\n\nBoblsortering er kanskje ikke den mest effektive algoritmen for store datamengder, men den er enkel a forsta og viser grunnprinsippet bak sortering."},{"id":"10-11-1-n-quiz3","type":"exercise","exercise":{"id":"10-11-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv pa boblsortering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-11-1-n-quiz3-q0","task":"Etter forste runde med boblsortering av listen $[7, 2, 9, 4, 1]$, hva er listen?","options":[{"id":"a","text":"$[1, 2, 4, 7, 9]$","isCorrect":false},{"id":"b","text":"$[2, 7, 4, 1, 9]$","isCorrect":true},{"id":"c","text":"$[2, 7, 9, 1, 4]$","isCorrect":false},{"id":"d","text":"$[7, 2, 4, 1, 9]$","isCorrect":false}],"solution":"Runde 1: $7 > 2$, bytt $\\rightarrow [2, 7, 9, 4, 1]$. $7 < 9$, ok. $9 > 4$, bytt $\\rightarrow [2, 7, 4, 9, 1]$. $9 > 1$, bytt $\\rightarrow [2, 7, 4, 1, 9]$."},{"id":"10-11-1-n-quiz3-q1","task":"Hvorfor heter algoritmen \"boblsortering\"?","options":[{"id":"a","text":"Fordi den ble oppfunnet i en sapebukkefabrikk","isCorrect":false},{"id":"b","text":"Fordi de storste verdiene gradvis bobler opp til riktig posisjon","isCorrect":true},{"id":"c","text":"Fordi de minste verdiene forsvinner som bobler","isCorrect":false},{"id":"d","text":"Fordi listen deles i bobler som sorteres hver for seg","isCorrect":false}],"solution":"Navnet kommer av at de storste verdiene gradvis \"bobler\" oppover til riktig posisjon i listen, slik luftbobler stiger i vann."}],"solution":""}},{"id":"10-11-1-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi sett at algoritmer er overalt -- fra kakeoppskrifter til avansert matematikk. Her er det viktigste du bor ta med deg:\n\n- En **algoritme** er en presis, endelig oppskrift for a lose et problem. Den ma vare presis, endelig og generell.\n- **Flytdiagrammer** bruker standardiserte symboler (ovaler, rektangler, diamanter, parallellogrammer) for a visualisere algoritmer grafisk.\n- **Pseudokode** er en uformell tekstbeskrivelse av en algoritme som ligner et programmeringssprak, med elementer som LES, SKRIV, SETT, HVIS, GJENTA og FOR.\n- **Euklids algoritme** finner storste felles divisor (SFD) ved gjentatt divisjon med rest. Den er over 2300 ar gammel og brukes fortsatt i dag.\n- **Boblsortering** sorterer en liste ved a sammenligne og bytte naboer gjentatte ganger, slik at de storste verdiene \"bobler\" opp til riktig plass.\n- **Modulo** ($a \\mod b$) gir resten ved heltallsdivisjon og er et sentralt verktoy i mange algoritmer."}],"exercises":[]}
+{
+  "id": "10-11-1-narrativ",
+  "courseId": "10",
+  "chapterNumber": "11.1",
+  "title": "Algoritmer og pseudokode",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om algoritmer, flytdiagrammer og pseudokode -- fra kakeoppskrifter til Euklids geniale metode for a finne storste felles divisor.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske matematiske eigenskapar og samanhengar ved a bruke programmering"
+  ],
+  "linkedChapterId": "10-11-1",
+  "content": [
+    {
+      "id": "10-11-1-n-intro",
+      "type": "text",
+      "content": "## Fra kakeoppskrift til algoritme\n\nHar du noen gang bakt en kake? Da har du allerede brukt en algoritme uten a vite det. En kakeoppskrift er nemlig en steg-for-steg-beskrivelse av hva du skal gjore for a oppna et bestemt resultat -- akkurat som en **algoritme** i matematikken.\n\nEn algoritme er en presis, endelig oppskrift for a lose et problem. Den har tre viktige egenskaper: den er **presis** (hvert steg er entydig beskrevet), den er **endelig** (den stopper etter et endelig antall steg), og den er **generell** (den fungerer for alle gyldige inndata, ikke bare ett spesifikt tilfelle).\n\nDu bruker faktisk algoritmer i matematikk hele tiden. Nar du deler to tall med lang divisjon, folger du en algoritme. Nar du finner fellesnevner, folger du en algoritme. I dette kapittelet skal vi se narmere pa hvordan vi kan beskrive slike fremgangsma ter pa tre ulike mater: med vanlig tekst, med **flytdiagrammer** og med **pseudokode**. Vi skal ogsa utforske noen klassiske algoritmer, som Euklids algoritme for a finne storste felles divisor og boblsortering for a sortere en liste.\n\nLa oss starte med noe enkelt. Tenk deg at du har tre tall -- $a$, $b$ og $c$ -- og du vil finne det storste av dem. Hvordan vil du ga frem? En mulig algoritme er:\n\n1. Sett $\\text{storst} = a$\n2. Hvis $b > \\text{storst}$, sett $\\text{storst} = b$\n3. Hvis $c > \\text{storst}$, sett $\\text{storst} = c$\n4. Na er $\\text{storst}$ det storste av de tre tallene\n\nLa oss teste med $a = 7$, $b = 12$, $c = 5$. Forst setter vi storst $= 7$. Sa sjekker vi: er $12 > 7$? Ja, sa storst $= 12$. Er $5 > 12$? Nei, sa storst er fortsatt $12$. Svaret er $12$. Enkelt og presist!"
+    },
+    {
+      "id": "10-11-1-n-section1",
+      "type": "text",
+      "content": "## Flytdiagrammer -- algoritmer du kan se\n\nNoen ganger er det lettere a forsta en algoritme hvis du kan *se* den. Det er her **flytdiagrammer** kommer inn. Et flytdiagram er en grafisk fremstilling av en algoritme der vi bruker standardiserte symboler:\n\n- **Oval** (avrundet rektangel): Start og stopp\n- **Rektangel**: Prosess eller beregning\n- **Diamant** (rombe): Beslutning -- et ja/nei-sporsmal\n- **Parallellogram**: Inn- eller utdata\n- **Pil**: Viser retningen flyten gar i\n\nFlytdiagrammer er spesielt nyttige nar det er **forgreninger** (if/else) eller **lokker** (gjentakelser), fordi du kan folge pilene og se noyaktig hva som skjer.\n\nLa oss lage et flytdiagram som sjekker om et tall er partall eller oddetall. Vi starter med [Start], gar til [Les inn tall n], sa til en diamant [Er n delelig med 2?]. Hvis ja, folger vi pilen til [Skriv ut \"Partall\"] og deretter [Stopp]. Hvis nei, gar vi til [Skriv ut \"Oddetall\"] og deretter [Stopp].\n\nMatematisk sjekker vi dette med modulo-operasjonen: $n \\mod 2 = 0$ betyr at $n$ er et partall. For eksempel: $14 \\mod 2 = 0$, sa 14 er et partall."
+    },
+    {
+      "id": "10-11-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv pa algoritmer og flytdiagrammer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-1-n-quiz1-q0",
+            "task": "Hvilke tre egenskaper ma en god algoritme ha?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Rask, moderne og digital",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Presis, endelig og generell",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kort, enkel og morsom",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Presis, uendelig og spesifikk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En god algoritme er presis (hvert steg er entydig), endelig (den stopper etter et endelig antall steg) og generell (den fungerer for alle gyldige inndata)."
+          },
+          {
+            "id": "10-11-1-n-quiz1-q1",
+            "task": "Hvilket symbol brukes for en beslutning (ja/nei-sporsmal) i et flytdiagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Rektangel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Oval",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Diamant (rombe)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Parallellogram",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Diamanten (romben) brukes for beslutninger i flytdiagrammer. Den har to utganger: ja og nei."
+          },
+          {
+            "id": "10-11-1-n-quiz1-q2",
+            "task": "Hva er $17 \\mod 3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$17 = 5 \\cdot 3 + 2$, sa $17 \\mod 3 = 2$. Modulo gir resten ved heltallsdivisjon."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-1-n-section2",
+      "type": "text",
+      "content": "## Pseudokode -- skriv algoritmen som nesten-kode\n\nMellom vanlig tekst og ekte programmeringssprak finnes **pseudokode**. Det er en forenklet, uformell mate a skrive en algoritme pa som ligner et programmeringssprak, men som er skrevet pa vanlig sprak slik at den er lett a forsta.\n\nDe vanligste elementene i pseudokode er:\n- **LES** / **SKRIV**: For inn- og utdata\n- **SETT** / **LA**: For a tilordne verdier\n- **HVIS ... SA ... ELLERS**: For betingelser (forgreninger)\n- **GJENTA ... MENS** / **FOR ... TIL**: For lokker (gjentakelser)\n- **RETURNER**: For a gi tilbake et resultat\n\nLa oss skrive pseudokode for a beregne summen $1 + 2 + 3 + \\ldots + n$:\n\n```\nLES n\nSETT sum = 0\nFOR i = 1 TIL n\n    SETT sum = sum + i\nSLUTT FOR\nSKRIV \"Summen er \" + sum\n```\n\nHvis vi tester med $n = 5$: Vi starter med sum $= 0$. Sa legger vi til 1 (sum $= 1$), deretter 2 (sum $= 3$), deretter 3 (sum $= 6$), deretter 4 (sum $= 10$), og til slutt 5 (sum $= 15$). Summen av tallene fra 1 til 5 er $15$.\n\nVi kan sjekke med formelen: $\\frac{n(n+1)}{2} = \\frac{5 \\cdot 6}{2} = 15$. Stemmer!\n\nLegg merke til at pseudokode ikke trenger a folge strenge syntaksregler. Den bor bare vare presis nok til at noen kan oversette den til et ekte programmeringssprak."
+    },
+    {
+      "id": "10-11-1-n-section3",
+      "type": "text",
+      "content": "## Euklids algoritme -- 2300 ar gammel og fortsatt genial\n\nEn av de eldste kjente algoritmene i verden er **Euklids algoritme**, oppkalt etter den greske matematikeren Euklid som beskrev den rundt 300 f.Kr. Tenk pa det -- en algoritme som er over 2300 ar gammel, og som fortsatt brukes i dag!\n\nEuklids algoritme finner den **storste felles divisor** (SFD) av to tall. Den storste felles divisor av to tall $a$ og $b$ er det storste tallet som gar opp i begge. Vi skriver $\\text{SFD}(a, b)$. For eksempel er $\\text{SFD}(12, 8) = 4$ fordi 4 er det storste tallet som deler bade 12 og 8.\n\nAlgoritmen er overraskende enkel:\n\n1. Hvis $b = 0$, er $\\text{SFD}(a, b) = a$. Stopp.\n2. Beregn resten $r = a \\mod b$.\n3. Sett $a = b$ og $b = r$.\n4. Ga til steg 1.\n\nI pseudokode:\n\n```\nLES a, b\nGJENTA MENS b ≠ 0\n    SETT r = a mod b\n    SETT a = b\n    SETT b = r\nSLUTT GJENTA\nSKRIV \"SFD er \" + a\n```\n\nLa oss prove med $\\text{SFD}(48, 18)$. Forst: $48 \\mod 18 = 12$, sa vi setter $a = 18$, $b = 12$. Neste runde: $18 \\mod 12 = 6$, sa $a = 12$, $b = 6$. Neste: $12 \\mod 6 = 0$, sa $a = 6$, $b = 0$. Stopp! $\\text{SFD}(48, 18) = 6$.\n\nVi kan sjekke: $48 = 6 \\cdot 8$ og $18 = 6 \\cdot 3$. Stemmer! Euklids algoritme er ogsa nyttig for a forkorte broker -- du deler teller og nevner med SFD. For eksempel: $\\frac{48}{36}$ forkortes ved a finne $\\text{SFD}(48, 36) = 12$, sa $\\frac{48}{36} = \\frac{4}{3}$."
+    },
+    {
+      "id": "10-11-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv pa pseudokode og Euklids algoritme:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-1-n-quiz2-q0",
+            "task": "Hva er $\\text{SFD}(84, 36)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$18$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Euklids algoritme: $84 \\mod 36 = 12$, $36 \\mod 12 = 0$. Stopp! $\\text{SFD}(84, 36) = 12$."
+          },
+          {
+            "id": "10-11-1-n-quiz2-q1",
+            "task": "I pseudokode, hva betyr \"GJENTA MENS b ≠ 0\"?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kjor koden inne i lokken noyaktig b ganger",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Kjor koden inne i lokken sa lenge b ikke er lik 0",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Hopp over koden hvis b er 0",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Sett b til 0 og kjor koden en gang",
+                "isCorrect": false
+              }
+            ],
+            "solution": "\"GJENTA MENS\" er en lokke som gjentar instruksjonene sa lenge betingelsen er sann. Her betyr det: fortsett sa lenge $b$ ikke er lik null."
+          },
+          {
+            "id": "10-11-1-n-quiz2-q2",
+            "task": "Hva vil denne pseudokoden skrive ut nar n = 4? LES n. SETT produkt = 1. FOR i = 1 TIL n: SETT produkt = produkt * i. SKRIV produkt.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$24$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$16$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Pseudokoden beregner $n! = 4! = 1 \\cdot 2 \\cdot 3 \\cdot 4 = 24$ (n fakultet)."
+          },
+          {
+            "id": "10-11-1-n-quiz2-q3",
+            "task": "Hva er $\\text{SFD}(105, 45)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$15$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$105 \\mod 45 = 15$, $45 \\mod 15 = 0$. $\\text{SFD}(105, 45) = 15$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-1-n-section4",
+      "type": "text",
+      "content": "## Boblsortering -- nar tall bobler opp pa riktig plass\n\n**Sortering** er en av de vanligste oppgavene i programmering. Hver gang du soker etter noe pa nettet, sorterer et digitalt musikkbibliotek eller rangerer en tabell, brukes sorteringsalgoritmer bak kulissene.\n\nEn av de enkleste sorteringsalgoritmene er **boblsortering** (bubble sort). Navnet kommer av at de storste verdiene gradvis \"bobler\" opp til riktig posisjon, litt som luftbobler i vann. Ideen er:\n\n1. Ga gjennom listen og sammenlign hvert par av naboelementer\n2. Hvis to naboer er i feil rekkefolgje, bytt dem\n3. Gjenta til hele listen er sortert\n\nLa oss sortere listen $[5, 3, 8, 1, 2]$:\n\n**Runde 1:** Vi sammenligner 5 og 3 -- $5 > 3$, bytt! $\\rightarrow [3, 5, 8, 1, 2]$. Sa 5 og 8 -- ok. Sa 8 og 1 -- bytt! $\\rightarrow [3, 5, 1, 8, 2]$. Sa 8 og 2 -- bytt! $\\rightarrow [3, 5, 1, 2, 8]$. Na har 8 \"boblet\" opp til riktig plass!\n\n**Runde 2:** $3 < 5$, ok. $5 > 1$, bytt! $\\rightarrow [3, 1, 5, 2, 8]$. $5 > 2$, bytt! $\\rightarrow [3, 1, 2, 5, 8]$.\n\n**Runde 3:** $3 > 1$, bytt! $\\rightarrow [1, 3, 2, 5, 8]$. $3 > 2$, bytt! $\\rightarrow [1, 2, 3, 5, 8]$.\n\n**Runde 4:** $1 < 2$, ok. Ingen bytter -- ferdig! Sortert liste: $[1, 2, 3, 5, 8]$.\n\nBoblsortering er kanskje ikke den mest effektive algoritmen for store datamengder, men den er enkel a forsta og viser grunnprinsippet bak sortering."
+    },
+    {
+      "id": "10-11-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-11-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv pa boblsortering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-11-1-n-quiz3-q0",
+            "task": "Etter forste runde med boblsortering av listen $[7, 2, 9, 4, 1]$, hva er listen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[2, 7, 4, 1, 9]$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$[1, 2, 4, 7, 9]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[2, 7, 9, 1, 4]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[7, 2, 4, 1, 9]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Runde 1: $7 > 2$, bytt $\\rightarrow [2, 7, 9, 4, 1]$. $7 < 9$, ok. $9 > 4$, bytt $\\rightarrow [2, 7, 4, 9, 1]$. $9 > 1$, bytt $\\rightarrow [2, 7, 4, 1, 9]$."
+          },
+          {
+            "id": "10-11-1-n-quiz3-q1",
+            "task": "Hvorfor heter algoritmen \"boblsortering\"?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi den ble oppfunnet i en sapebukkefabrikk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi de storste verdiene gradvis bobler opp til riktig posisjon",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi de minste verdiene forsvinner som bobler",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi listen deles i bobler som sorteres hver for seg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Navnet kommer av at de storste verdiene gradvis \"bobler\" oppover til riktig posisjon i listen, slik luftbobler stiger i vann."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "10-11-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi sett at algoritmer er overalt -- fra kakeoppskrifter til avansert matematikk. Her er det viktigste du bor ta med deg:\n\n- En **algoritme** er en presis, endelig oppskrift for a lose et problem. Den ma vare presis, endelig og generell.\n- **Flytdiagrammer** bruker standardiserte symboler (ovaler, rektangler, diamanter, parallellogrammer) for a visualisere algoritmer grafisk.\n- **Pseudokode** er en uformell tekstbeskrivelse av en algoritme som ligner et programmeringssprak, med elementer som LES, SKRIV, SETT, HVIS, GJENTA og FOR.\n- **Euklids algoritme** finner storste felles divisor (SFD) ved gjentatt divisjon med rest. Den er over 2300 ar gammel og brukes fortsatt i dag.\n- **Boblsortering** sorterer en liste ved a sammenligne og bytte naboer gjentatte ganger, slik at de storste verdiene \"bobler\" opp til riktig plass.\n- **Modulo** ($a \\mod b$) gir resten ved heltallsdivisjon og er et sentralt verktoy i mange algoritmer."
+    }
+  ],
+  "exercises": []
+}

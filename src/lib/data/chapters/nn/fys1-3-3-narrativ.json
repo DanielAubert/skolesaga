@@ -1,1 +1,584 @@
-{"id":"fys1-3-3-narrativ","courseId":"fys1","chapterNumber":"3.3","title":"Rørsle med friksjon og luftmotstand","subtitle":"Narrativ versjon","description":"Ei forteljing om kvifor ein kasse plutseleg losnar på eit skråplan, og kvifor ein fallskjermhoppar overlever -- fysikken bak terminalfarten.","estimatedMinutes":36,"competenceGoals":["skille mellom statisk og kinetisk friksjon","analysere bevegelse på skråplan med friksjon","forstå luftmotstand og terminalfart","bruke numeriske metoder til å modellere bevegelse med varierende krefter"],"linkedChapterId":"fys1-3-3","content":[{"id":"fys1-3-3-n-intro","type":"text","content":"## Når kreftene avgjer kva som beveger seg\n\nVi kjenner no kreftene -- tyngde, normalkraft, friksjon, luftmotstand. Men kva *skjer* eigentleg når dei speler saman? Byrjar ein kasse på eit skråplan å gli, eller blir han ståande? Kor fort kan ein fallskjermhoppar eigentleg falle? Det er desse spørsmåla vi no skal svare på.\n\nFriksjon og luftmotstand har ein felles eigenskap som gjer dei spennande: dei er ikkje konstante. Statisk friksjon tilpassar seg, og luftmotstand veks med farten. Det tyder at rørsla kan endre karakter undervegs -- noko kan stå stille, så plutseleg losne, eller akselerere og så flate ut til konstant fart.\n\nLat oss byrje med å sjå nærare på dei to ansikta til friksjonen, så analysere skråplanet i detalj, og til slutt møte den viktigaste konsekvensen av luftmotstanden: terminalfarten."},{"id":"fys1-3-3-n-section1","type":"text","content":"## Dei to ansikta til friksjonen -- og det plutselege hoppet\n\nLat oss sjå endå nærare på skilnaden mellom statisk og kinetisk friksjon, for han rommar ein liten dramaturgi. Tenk deg at du gradvis aukar krafta $F$ du dyttar ein kasse med.\n\nI **fase 1** står kassen stille, og den statiske friksjonen matchar deg presist: $f_s = F$, og krafta veks pent og lineært medan kassen ikkje rikkar seg, heilt opp til taket $f_{s,\\text{maks}} = \\mu_s N$. I **fase 2**, det kritiske punktet, er $F = \\mu_s N$, og kassen er akkurat på nippet til å losne. I **fase 3** glir kassen, og no tek den konstante kinetiske friksjonen $f_k = \\mu_k N$ over.\n\nDet dramatiske er overgangen: i same augneblink som kassen losnar, *hoppar* friksjonen brått ned frå den høge $\\mu_s N$ til den lågare $\\mu_k N$. Plutseleg er det mykje lettare å dytte, og kassen rykkjer framover. Du har sikkert kjent dette når du flyttar møblar -- det «slepper» med eitt.\n\nKvifor er $\\mu_k < \\mu_s$? Mikroskopisk handlar det om at to flater i ro har tid til å «låse seg» saman -- atoma dannar bindingar der overflateruheitene kilar seg i kvarandre, og det krev ekstra kraft å bryte dei. Når flatene først glir, hoppar dei over ujamnheitene utan å rekke å danne like sterke bindingar, og motstanden blir mindre. Difor: vanskelegast å starte, lettare å halde fram."},{"id":"fys1-3-3-n-quiz1","type":"exercise","exercise":{"id":"fys1-3-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på statisk og kinetisk friksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-3-3-n-quiz1-q0","task":"Kva skjer med friksjonen i det augneblinket ein kasse losnar og byrjar å gli?","options":[{"id":"a","text":"Han aukar brått","isCorrect":false},{"id":"b","text":"Han forsvinn heilt","isCorrect":false},{"id":"c","text":"Han hoppar ned frå $\\mu_s N$ til $\\mu_k N$","isCorrect":true},{"id":"d","text":"Han held seg uendra","isCorrect":false}],"solution":"Sidan $\\mu_k<\\mu_s$, fell friksjonen brått frå maksimal statisk verdi til den lågare kinetiske verdien -- difor «slepper» det."},{"id":"fys1-3-3-n-quiz1-q1","task":"Medan ein kasse står stille og du dyttar med ei kraft under taket, kor stor er den statiske friksjonen?","options":[{"id":"a","text":"Alltid $\\mu_s N$","isCorrect":false},{"id":"b","text":"Null","isCorrect":false},{"id":"c","text":"$\\mu_k N$","isCorrect":false},{"id":"d","text":"Akkurat like stor som dyttet ditt","isCorrect":true}],"solution":"Statisk friksjon er variabel og tilpassar seg dyttet: $f_s=F$ heilt opp til taket $\\mu_s N$."},{"id":"fys1-3-3-n-quiz1-q2","task":"Kvifor er det vanskelegare å setje ein tung bil i rørsle enn å halde han rullande?","options":[{"id":"a","text":"Fordi maksimal statisk friksjon er større enn kinetisk friksjon","isCorrect":true},{"id":"b","text":"Fordi bilen blir tyngre i rørsle","isCorrect":false},{"id":"c","text":"Fordi luftmotstanden forsvinn","isCorrect":false},{"id":"d","text":"Fordi normalkrafta aukar","isCorrect":false}],"solution":"Du må vinne over $f_{s,\\text{maks}}=\\mu_s N$ for å starte, men berre den mindre $f_k=\\mu_k N$ for å halde i gang."}]}},{"id":"fys1-3-3-n-section2","type":"text","content":"## Skråplanet -- tre skjebnar avgjorde av vinkelen\n\nEit objekt på eit skråplan med vinkel $\\theta$ er kanskje det mest klassiske dynamikkproblemet som finst. Tyngda blir splitta som vi lærte: $G_\\parallel = mg\\sin\\theta$ trekkjer nedover langs planet, medan $G_\\perp = mg\\cos\\theta$ pressar inn i det, slik at $N = mg\\cos\\theta$. Spørsmålet er om friksjonen klarer å halde att mot $G_\\parallel$. Svaret blir avgjort av vinkelen, og gir tre moglege skjebnar.\n\n**Står objektet stille?** Då må statisk friksjon balansere tyngdekomponenten: $f_s = mg\\sin\\theta$. Dette krev at $f_s \\leq \\mu_s N$, som blir forenkla vakkert til $\\tan\\theta \\leq \\mu_s$. Altså: objektet blir ståande så lenge $\\theta \\leq \\arctan(\\mu_s)$. Akkurat ved grensevinkelen $\\theta_{\\text{maks}} = \\arctan(\\mu_s)$ byrjar det å gli.\n\n**Glir det med konstant fart?** Det skjer dersom den kinetiske friksjonen nøyaktig balanserer tyngdekomponenten: $mg\\sin\\theta = \\mu_k mg\\cos\\theta$, altså $\\tan\\theta = \\mu_k$.\n\n**Akselererer det nedover?** Det skjer når tyngda vinn over friksjonen, $\\theta > \\arctan(\\mu_k)$, og då blir akselerasjonen $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$.\n\nLegg merke til at det finst to grensevinklar, og sidan $\\mu_k < \\mu_s$ er $\\arctan(\\mu_k) < \\arctan(\\mu_s)$. Lat oss rekne på ein kasse på 30 kg med $\\theta = 20°$, $\\mu_s = 0{,}45$, $\\mu_k = 0{,}35$. Grensevinkelen for å losne er $\\arctan(0{,}45) = 24{,}2°$. Sidan $20° < 24{,}2°$, blir kassen ståande dersom du legg han forsiktig ned. Men gir du han fart? Grensevinkelen for konstant fart er $\\arctan(0{,}35) = 19{,}3°$, og sidan $20° > 19{,}3°$, vil han då akselerere -- om enn så vidt: $a = 9{,}8(\\sin 20° - 0{,}35\\cos 20°) = 9{,}8(0{,}342 - 0{,}329) \\approx 0{,}13$ m/s². Ein kasse som blir liggjande i ro, men sklir dersom han får ein dytt -- alt avheng av om vinkelen er over eller under grensene."},{"id":"fys1-3-3-n-quiz2","type":"exercise","exercise":{"id":"fys1-3-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på skråplan med friksjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-3-3-n-quiz2-q0","task":"Ved kva for ein føresetnad blir eit objekt liggjande i ro på eit skråplan?","options":[{"id":"a","text":"$\\tan\\theta > \\mu_s$","isCorrect":false},{"id":"b","text":"$\\tan\\theta \\leq \\mu_s$","isCorrect":true},{"id":"c","text":"$\\theta = 90°$","isCorrect":false},{"id":"d","text":"$\\mu_s = 0$","isCorrect":false}],"solution":"Statisk friksjon klarer å halde objektet så lenge $mg\\sin\\theta\\leq\\mu_s mg\\cos\\theta$, altså $\\tan\\theta\\leq\\mu_s$."},{"id":"fys1-3-3-n-quiz2-q1","task":"Kva er akselerasjonen til eit objekt som glir ned eit skråplan med kinetisk friksjon?","options":[{"id":"a","text":"$a = g\\sin\\theta$","isCorrect":false},{"id":"b","text":"$a = \\mu_k g$","isCorrect":false},{"id":"c","text":"$a = g(\\sin\\theta - \\mu_k\\cos\\theta)$","isCorrect":true},{"id":"d","text":"$a = g\\cos\\theta$","isCorrect":false}],"solution":"Langs planet: $mg\\sin\\theta-\\mu_k mg\\cos\\theta=ma$, som gir $a=g(\\sin\\theta-\\mu_k\\cos\\theta)$."},{"id":"fys1-3-3-n-quiz2-q2","task":"Ein kasse ($\\mu_s=0{,}45$) ligg på eit skråplan med $\\theta=20°$. Glir han frå ro? ($\\arctan 0{,}45=24{,}2°$)","options":[{"id":"a","text":"Ja, han glir","isCorrect":false},{"id":"b","text":"Han veltar","isCorrect":false},{"id":"c","text":"Han glir oppover","isCorrect":false},{"id":"d","text":"Nei, han blir liggjande fordi $20° < 24{,}2°$","isCorrect":true}],"solution":"Grensevinkelen er $\\arctan(\\mu_s)=24{,}2°$. Sidan $20°$ er under denne, held den statiske friksjonen kassen i ro."}]}},{"id":"fys1-3-3-n-section3","type":"text","content":"## Luftmotstand og terminalfart -- kvifor fallskjermen reddar liv\n\nNår noko beveger seg gjennom luft, blir det bremsa av **luftmotstand** (drag). I motsetnad til vanleg friksjon veks han med farten -- ved høge fartar om lag med kvadratet av farten: $F_L = kv^2$, eller meir presist $F_L = \\frac{1}{2}C_D \\rho A v^2$, der $C_D$ er ein formavhengig koeffisient, $\\rho$ er lufttettleiken og $A$ tverrsnittarealet. Doblar du farten, firedoblast luftmotstanden. Han peikar alltid motsett rørsleretninga, og han omdannar rørsleenergi til varme.\n\nDenne fartsavhengigheita gir eit vakkert fenomen. Tenk deg eit objekt som fell. Heilt i starten er farten liten, luftmotstanden nesten null, og akselerasjonen er full $g$ -- reint fritt fall. Men etter kvart som farten aukar, veks luftmotstanden, og nettokrafta -- og dermed akselerasjonen -- søkk: $a = g - \\frac{k}{m}v^2$. Til slutt blir luftmotstanden like stor som tyngda, nettokrafta blir null, og objektet fell vidare med konstant fart. Denne farten kallar vi **terminalfarten**.\n\nVi finn han ved å setje akselerasjonen lik null: $mg = kv_t^2$, altså $v_t = \\sqrt{\\frac{mg}{k}}$, eller med den nøyaktige modellen $v_t = \\sqrt{\\frac{2mg}{C_D\\rho A}}$. Tunge objekt får høgare terminalfart (difor fell ein stein fortare enn ei fjør i luft), medan stort areal gir lågare -- og det er nettopp her fallskjermen verkar.\n\nTa ein fallskjermhoppar på 80 kg. I buklandingsstilling med $k = 0{,}22$ kg/m blir terminalfarten $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{0{,}22}} = \\sqrt{3564} \\approx 60$ m/s -- altså 216 km/t, dødeleg ved bakken. Ved halve terminalfarten, $v = 30$ m/s, er akselerasjonen framleis $a = 9{,}8 - \\frac{0{,}22}{80}\\cdot 30^2 \\approx 7{,}3$ m/s², tre fjerdedelar av $g$. Men i det skjermen blir opna, hoppar $k$ til rundt 100 kg/m, og terminalfarten stupar til $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{100}} = \\sqrt{7{,}84} \\approx 2{,}8$ m/s -- berre 10 km/t. Ein reduksjon på over tjue gonger. Det er skilnaden på liv og død."},{"id":"fys1-3-3-n-quiz3","type":"exercise","exercise":{"id":"fys1-3-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på luftmotstand og terminalfart:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-3-3-n-quiz3-q0","task":"Kva skjer med luftmotstanden dersom farten blir dobla (turbulent modell)?","options":[{"id":"a","text":"Han blir firedobla","isCorrect":true},{"id":"b","text":"Han blir dobla","isCorrect":false},{"id":"c","text":"Han blir halvert","isCorrect":false},{"id":"d","text":"Han blir uendra","isCorrect":false}],"solution":"Med $F_L=kv^2$ veks luftmotstanden med kvadratet av farten, så dobbel fart gir fire gonger så stor motstand."},{"id":"fys1-3-3-n-quiz3-q1","task":"Kva kjenneteiknar terminalfart?","options":[{"id":"a","text":"Farten aukar utan grense","isCorrect":false},{"id":"b","text":"Akselerasjonen er null fordi luftmotstand = tyngdekraft","isCorrect":true},{"id":"c","text":"Luftmotstanden er null","isCorrect":false},{"id":"d","text":"Objektet stoppar heilt","isCorrect":false}],"solution":"Ved terminalfart balanserer luftmotstanden tyngda, så nettokrafta og akselerasjonen er null og farten konstant: $v_t=\\sqrt{mg/k}$."},{"id":"fys1-3-3-n-quiz3-q2","task":"Ein fallskjermhoppar på 80 kg har $k=0{,}22$ kg/m i fritt fall. Kva er terminalfarten?","options":[{"id":"a","text":"Ca. 3 m/s","isCorrect":false},{"id":"b","text":"Ca. 30 m/s","isCorrect":false},{"id":"c","text":"Ca. 60 m/s","isCorrect":true},{"id":"d","text":"Ca. 100 m/s","isCorrect":false}],"solution":"$v_t=\\sqrt{\\frac{80\\cdot 9{,}8}{0{,}22}}=\\sqrt{3564}\\approx 60$ m/s (216 km/t)."},{"id":"fys1-3-3-n-quiz3-q3","task":"Kvifor reduserer ein opna fallskjerm terminalfarten dramatisk?","options":[{"id":"a","text":"Han aukar massen til hopparen","isCorrect":false},{"id":"b","text":"Han fjernar tyngdekrafta","isCorrect":false},{"id":"c","text":"Han gjer lufta tynnare","isCorrect":false},{"id":"d","text":"Han aukar arealet $A$ kraftig, slik at $v_t$ søkk","isCorrect":true}],"solution":"Skjermen aukar tverrsnittarealet enormt, noko som aukar luftmotstandskonstanten. Sidan $v_t=\\sqrt{mg/k}$, søkk terminalfarten -- frå ca. 60 m/s til under 3 m/s."}]}},{"id":"fys1-3-3-n-section4","type":"text","content":"## Når formlane gir opp -- numerisk modellering\n\nLuftmotstanden skaper eit lite problem: fordi krafta avheng av farten, og farten i sin tur avheng av krafta, blir rørslelikninga for eit fall med luftmotstand vanskeleg å løyse med vanleg algebra. Differensiallikninga $\\frac{dv}{dt} = g - \\frac{k}{m}v^2$ har rett nok ei eksakt løysing, men ho krev avansert integrasjon. For meir realistiske, samansette krefter finst det ofte inga formel-løysing i det heile teke.\n\nDå grip vi til **numerisk modellering** -- akkurat den teknikken vi møtte i kapittel 1.3. Ideen er den same: tilnærm den kontinuerlege rørsla med mange små diskrete steg. For kvart lite tidssteg $\\Delta t$ reknar vi akselerasjonen frå kreftene akkurat no, $a_i = \\frac{F(x_i, v_i, t_i)}{m}$, oppdaterer farten $v_{i+1} = v_i + a_i \\Delta t$, oppdaterer posisjonen $x_{i+1} = x_i + v_i \\Delta t$, og rykkjer tida fram. Så gjentek vi.\n\nDet fine er at datamaskina ikkje bryr seg om at krafta endrar seg frå steg til steg -- ho reknar berre på nytt kvar gong. Slepp du ein ball med luftmotstand frå 100 m, gir simuleringa at han bruker litt lengre tid og treffer med litt lågare fart enn reint fritt fall, akkurat som vi ville vente. Mindre tidssteg gir meir nøyaktige svar, men kostar reknetid -- typisk held $\\Delta t$ rundt 0,001 til 0,01 s.\n\nStyrken er at metoden taklar kva som helst kraft du kan tenkje deg: luftmotstand som veks med $v^2$, gravitasjon som varierer med høgda, tidsavhengige krefter. Veikskapen er at han gir tal, ikkje formlar, og berre er ei tilnærming. Men for den verkelege verda, med alle dei uryddige kreftene sine, er numerisk modellering ofte den einaste vegen fram."},{"id":"fys1-3-3-n-quiz4","type":"exercise","exercise":{"id":"fys1-3-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på numerisk modellering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"fys1-3-3-n-quiz4-q0","task":"Kvifor er fall med luftmotstand vanskeleg å løyse med vanleg algebra?","options":[{"id":"a","text":"Fordi krafta (luftmotstanden) avheng av farten, som igjen avheng av krafta","isCorrect":true},{"id":"b","text":"Fordi tyngdekrafta forsvinn","isCorrect":false},{"id":"c","text":"Fordi massen endrar seg","isCorrect":false},{"id":"d","text":"Fordi det ikkje er noko akselerasjon","isCorrect":false}],"solution":"Når krafta avheng av farten ($F_L=kv^2$), blir rørslelikninga kopla på ein måte som ikkje har ei enkel algebraisk løysing."},{"id":"fys1-3-3-n-quiz4-q1","task":"I Eulers metode, korleis blir farten oppdatert for kvart tidssteg?","options":[{"id":"a","text":"$v_{i+1} = v_i \\cdot \\Delta t$","isCorrect":false},{"id":"b","text":"$v_{i+1} = v_i + a_i\\Delta t$","isCorrect":true},{"id":"c","text":"$v_{i+1} = a_i / \\Delta t$","isCorrect":false},{"id":"d","text":"$v_{i+1} = v_i - x_i$","isCorrect":false}],"solution":"Kvart steg legg til bidraget frå akselerasjonen: ny fart = gammal fart pluss $a\\cdot\\Delta t$."},{"id":"fys1-3-3-n-quiz4-q2","task":"Kva er ein styrke ved numeriske metodar?","options":[{"id":"a","text":"Dei gir alltid ein eksakt formel","isCorrect":false},{"id":"b","text":"Dei krev inga datamaskin","isCorrect":false},{"id":"c","text":"Dei kan handtere komplekse, varierande krefter som luftmotstand","isCorrect":true},{"id":"d","text":"Dei har ingen feilkjelder","isCorrect":false}],"solution":"Numeriske metodar taklar krefter som varierer med fart, posisjon eller tid -- noko analytiske formlar ofte ikkje greier. Ulempa er at dei gir tal, ikkje formlar, og er tilnærmingar."}]}},{"id":"fys1-3-3-n-summary","type":"text","content":"## Oppsummering\n\nNår krefter speler saman, avgjer dei kva som faktisk beveger seg. **Dei to ansikta til friksjonen** vart tydelegare: statisk friksjon tilpassar seg opp til taket $\\mu_s N$, men i det eit objekt losnar, hoppar friksjonen brått ned til den lågare kinetiske verdien $\\mu_k N$ -- difor «slepper» tunge ting plutseleg.\n\nPå **skråplanet** avgjer vinkelen tre skjebnar: objektet står stille dersom $\\tan\\theta \\leq \\mu_s$, glir med konstant fart dersom $\\tan\\theta = \\mu_k$, og akselererer med $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$ dersom vinkelen er endå større. Sidan $\\mu_k < \\mu_s$, finst ei sone der noko blir liggjande i ro, men sklir dersom det får ein dytt.\n\n**Luftmotstand** veks med kvadratet av farten og fører til **terminalfart** $v_t = \\sqrt{\\frac{mg}{k}}$, der luftmotstand balanserer tyngde og farten blir konstant. Fallskjermen reddar liv nettopp ved å auke arealet og dermed senke terminalfarten frå rundt 60 m/s til under 3 m/s. Og fordi slike fartsavhengige krefter sjeldan har pene løysingar, brukte vi **numerisk modellering** -- mange små steg med Eulers metode -- til å rekne oss gjennom det datamaskina, og ikkje algebraen, må handtere."}],"exercises":[],"_meta":{"sourceHash":"d233722b3a0f9e1d","translatedAt":"2026-06-20T22:48:16.812Z","model":"claude-code-agent","strings":99,"tm":{"8b02a4757a95b849":"Rørsle med friksjon og luftmotstand","b195b06d1ed59702":"Narrativ versjon","7616035e3b23b776":"Ei forteljing om kvifor ein kasse plutseleg losnar på eit skråplan, og kvifor ein fallskjermhoppar overlever -- fysikken bak terminalfarten.","67a26d7607d06457":"skille mellom statisk og kinetisk friksjon","53fbeb172fe76160":"analysere bevegelse på skråplan med friksjon","5fcaa951bb56b432":"forstå luftmotstand og terminalfart","e2e959bf68d7f742":"bruke numeriske metoder til å modellere bevegelse med varierende krefter","70158eb8afec5b79":"## Når kreftene avgjer kva som beveger seg\n\nVi kjenner no kreftene -- tyngde, normalkraft, friksjon, luftmotstand. Men kva *skjer* eigentleg når dei speler saman? Byrjar ein kasse på eit skråplan å gli, eller blir han ståande? Kor fort kan ein fallskjermhoppar eigentleg falle? Det er desse spørsmåla vi no skal svare på.\n\nFriksjon og luftmotstand har ein felles eigenskap som gjer dei spennande: dei er ikkje konstante. Statisk friksjon tilpassar seg, og luftmotstand veks med farten. Det tyder at rørsla kan endre karakter undervegs -- noko kan stå stille, så plutseleg losne, eller akselerere og så flate ut til konstant fart.\n\nLat oss byrje med å sjå nærare på dei to ansikta til friksjonen, så analysere skråplanet i detalj, og til slutt møte den viktigaste konsekvensen av luftmotstanden: terminalfarten.","be74d3c417631777":"## Dei to ansikta til friksjonen -- og det plutselege hoppet\n\nLat oss sjå endå nærare på skilnaden mellom statisk og kinetisk friksjon, for han rommar ein liten dramaturgi. Tenk deg at du gradvis aukar krafta $F$ du dyttar ein kasse med.\n\nI **fase 1** står kassen stille, og den statiske friksjonen matchar deg presist: $f_s = F$, og krafta veks pent og lineært medan kassen ikkje rikkar seg, heilt opp til taket $f_{s,\\text{maks}} = \\mu_s N$. I **fase 2**, det kritiske punktet, er $F = \\mu_s N$, og kassen er akkurat på nippet til å losne. I **fase 3** glir kassen, og no tek den konstante kinetiske friksjonen $f_k = \\mu_k N$ over.\n\nDet dramatiske er overgangen: i same augneblink som kassen losnar, *hoppar* friksjonen brått ned frå den høge $\\mu_s N$ til den lågare $\\mu_k N$. Plutseleg er det mykje lettare å dytte, og kassen rykkjer framover. Du har sikkert kjent dette når du flyttar møblar -- det «slepper» med eitt.\n\nKvifor er $\\mu_k < \\mu_s$? Mikroskopisk handlar det om at to flater i ro har tid til å «låse seg» saman -- atoma dannar bindingar der overflateruheitene kilar seg i kvarandre, og det krev ekstra kraft å bryte dei. Når flatene først glir, hoppar dei over ujamnheitene utan å rekke å danne like sterke bindingar, og motstanden blir mindre. Difor: vanskelegast å starte, lettare å halde fram.","26ce65ad3e2a122f":"Test deg sjølv på statisk og kinetisk friksjon:","4097889236a2af26":"placeholder","621a3e5de1d29baa":"Kva skjer med friksjonen i det augneblinket ein kasse losnar og byrjar å gli?","3b23d830c5c1b8b1":"Han aukar brått","bb8226b2d72d12d3":"Han forsvinn heilt","442f9d9d6325064d":"Han hoppar ned frå $\\mu_s N$ til $\\mu_k N$","23b1e77376f84819":"Han held seg uendra","929d7c7bbe0b893a":"Sidan $\\mu_k<\\mu_s$, fell friksjonen brått frå maksimal statisk verdi til den lågare kinetiske verdien -- difor «slepper» det.","97fd342084e67603":"Medan ein kasse står stille og du dyttar med ei kraft under taket, kor stor er den statiske friksjonen?","beb587ad74608dc1":"Alltid $\\mu_s N$","fa1d2db62d4d952e":"Null","b8d8f2e25e81f76b":"$\\mu_k N$","4da6bae5d6fd7313":"Akkurat like stor som dyttet ditt","bd354081c6bfda81":"Statisk friksjon er variabel og tilpassar seg dyttet: $f_s=F$ heilt opp til taket $\\mu_s N$.","739a6d71d253a1fa":"Kvifor er det vanskelegare å setje ein tung bil i rørsle enn å halde han rullande?","83ebcc85db180a53":"Fordi maksimal statisk friksjon er større enn kinetisk friksjon","3f3f146bba0f5f1a":"Fordi bilen blir tyngre i rørsle","54cc8d7750a7eb2b":"Fordi luftmotstanden forsvinn","57b7255ca81a82e9":"Fordi normalkrafta aukar","c9c213aeddfc0f6d":"Du må vinne over $f_{s,\\text{maks}}=\\mu_s N$ for å starte, men berre den mindre $f_k=\\mu_k N$ for å halde i gang.","bdbeb214d64ee01d":"## Skråplanet -- tre skjebnar avgjorde av vinkelen\n\nEit objekt på eit skråplan med vinkel $\\theta$ er kanskje det mest klassiske dynamikkproblemet som finst. Tyngda blir splitta som vi lærte: $G_\\parallel = mg\\sin\\theta$ trekkjer nedover langs planet, medan $G_\\perp = mg\\cos\\theta$ pressar inn i det, slik at $N = mg\\cos\\theta$. Spørsmålet er om friksjonen klarer å halde att mot $G_\\parallel$. Svaret blir avgjort av vinkelen, og gir tre moglege skjebnar.\n\n**Står objektet stille?** Då må statisk friksjon balansere tyngdekomponenten: $f_s = mg\\sin\\theta$. Dette krev at $f_s \\leq \\mu_s N$, som blir forenkla vakkert til $\\tan\\theta \\leq \\mu_s$. Altså: objektet blir ståande så lenge $\\theta \\leq \\arctan(\\mu_s)$. Akkurat ved grensevinkelen $\\theta_{\\text{maks}} = \\arctan(\\mu_s)$ byrjar det å gli.\n\n**Glir det med konstant fart?** Det skjer dersom den kinetiske friksjonen nøyaktig balanserer tyngdekomponenten: $mg\\sin\\theta = \\mu_k mg\\cos\\theta$, altså $\\tan\\theta = \\mu_k$.\n\n**Akselererer det nedover?** Det skjer når tyngda vinn over friksjonen, $\\theta > \\arctan(\\mu_k)$, og då blir akselerasjonen $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$.\n\nLegg merke til at det finst to grensevinklar, og sidan $\\mu_k < \\mu_s$ er $\\arctan(\\mu_k) < \\arctan(\\mu_s)$. Lat oss rekne på ein kasse på 30 kg med $\\theta = 20°$, $\\mu_s = 0{,}45$, $\\mu_k = 0{,}35$. Grensevinkelen for å losne er $\\arctan(0{,}45) = 24{,}2°$. Sidan $20° < 24{,}2°$, blir kassen ståande dersom du legg han forsiktig ned. Men gir du han fart? Grensevinkelen for konstant fart er $\\arctan(0{,}35) = 19{,}3°$, og sidan $20° > 19{,}3°$, vil han då akselerere -- om enn så vidt: $a = 9{,}8(\\sin 20° - 0{,}35\\cos 20°) = 9{,}8(0{,}342 - 0{,}329) \\approx 0{,}13$ m/s². Ein kasse som blir liggjande i ro, men sklir dersom han får ein dytt -- alt avheng av om vinkelen er over eller under grensene.","11b8815f796d0277":"Test deg sjølv på skråplan med friksjon:","09b35c63ca5861a0":"Ved kva for ein føresetnad blir eit objekt liggjande i ro på eit skråplan?","85ad9ed2c3d799c3":"$\\tan\\theta > \\mu_s$","b1f6b301369bdf1f":"$\\tan\\theta \\leq \\mu_s$","4ca5778986e9973c":"$\\theta = 90°$","149b92a175192671":"$\\mu_s = 0$","784c06087a8ebe34":"Statisk friksjon klarer å halde objektet så lenge $mg\\sin\\theta\\leq\\mu_s mg\\cos\\theta$, altså $\\tan\\theta\\leq\\mu_s$.","6763618c9dd7e5e0":"Kva er akselerasjonen til eit objekt som glir ned eit skråplan med kinetisk friksjon?","69a4e8b4290ea2a7":"$a = g\\sin\\theta$","a52c15fd43b260fd":"$a = \\mu_k g$","377b6786217323a0":"$a = g(\\sin\\theta - \\mu_k\\cos\\theta)$","24d681cf7d88d63c":"$a = g\\cos\\theta$","85bfdd29d52f3e8e":"Langs planet: $mg\\sin\\theta-\\mu_k mg\\cos\\theta=ma$, som gir $a=g(\\sin\\theta-\\mu_k\\cos\\theta)$.","510c36fd6e987ca8":"Ein kasse ($\\mu_s=0{,}45$) ligg på eit skråplan med $\\theta=20°$. Glir han frå ro? ($\\arctan 0{,}45=24{,}2°$)","3cd781a00565591c":"Ja, han glir","1e12f7f8ea6cd4ae":"Han veltar","f7f50fa31321d1b3":"Han glir oppover","2d47838ed1185cc1":"Nei, han blir liggjande fordi $20° < 24{,}2°$","ca467c6f898f6076":"Grensevinkelen er $\\arctan(\\mu_s)=24{,}2°$. Sidan $20°$ er under denne, held den statiske friksjonen kassen i ro.","5e27ea93038fa035":"## Luftmotstand og terminalfart -- kvifor fallskjermen reddar liv\n\nNår noko beveger seg gjennom luft, blir det bremsa av **luftmotstand** (drag). I motsetnad til vanleg friksjon veks han med farten -- ved høge fartar om lag med kvadratet av farten: $F_L = kv^2$, eller meir presist $F_L = \\frac{1}{2}C_D \\rho A v^2$, der $C_D$ er ein formavhengig koeffisient, $\\rho$ er lufttettleiken og $A$ tverrsnittarealet. Doblar du farten, firedoblast luftmotstanden. Han peikar alltid motsett rørsleretninga, og han omdannar rørsleenergi til varme.\n\nDenne fartsavhengigheita gir eit vakkert fenomen. Tenk deg eit objekt som fell. Heilt i starten er farten liten, luftmotstanden nesten null, og akselerasjonen er full $g$ -- reint fritt fall. Men etter kvart som farten aukar, veks luftmotstanden, og nettokrafta -- og dermed akselerasjonen -- søkk: $a = g - \\frac{k}{m}v^2$. Til slutt blir luftmotstanden like stor som tyngda, nettokrafta blir null, og objektet fell vidare med konstant fart. Denne farten kallar vi **terminalfarten**.\n\nVi finn han ved å setje akselerasjonen lik null: $mg = kv_t^2$, altså $v_t = \\sqrt{\\frac{mg}{k}}$, eller med den nøyaktige modellen $v_t = \\sqrt{\\frac{2mg}{C_D\\rho A}}$. Tunge objekt får høgare terminalfart (difor fell ein stein fortare enn ei fjør i luft), medan stort areal gir lågare -- og det er nettopp her fallskjermen verkar.\n\nTa ein fallskjermhoppar på 80 kg. I buklandingsstilling med $k = 0{,}22$ kg/m blir terminalfarten $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{0{,}22}} = \\sqrt{3564} \\approx 60$ m/s -- altså 216 km/t, dødeleg ved bakken. Ved halve terminalfarten, $v = 30$ m/s, er akselerasjonen framleis $a = 9{,}8 - \\frac{0{,}22}{80}\\cdot 30^2 \\approx 7{,}3$ m/s², tre fjerdedelar av $g$. Men i det skjermen blir opna, hoppar $k$ til rundt 100 kg/m, og terminalfarten stupar til $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{100}} = \\sqrt{7{,}84} \\approx 2{,}8$ m/s -- berre 10 km/t. Ein reduksjon på over tjue gonger. Det er skilnaden på liv og død.","eaef707f85b89a84":"Test deg sjølv på luftmotstand og terminalfart:","95eb572c55e56238":"Kva skjer med luftmotstanden dersom farten blir dobla (turbulent modell)?","2cc416c617d2e24a":"Han blir firedobla","dbb3244ea0f0556b":"Han blir dobla","cf674b021ee9aa5b":"Han blir halvert","2c5a0e7857d1ba1e":"Han blir uendra","3b653df90860c663":"Med $F_L=kv^2$ veks luftmotstanden med kvadratet av farten, så dobbel fart gir fire gonger så stor motstand.","369a177ecaf58684":"Kva kjenneteiknar terminalfart?","61ee5a6b4b1a2869":"Farten aukar utan grense","ab5561b529e0895f":"Akselerasjonen er null fordi luftmotstand = tyngdekraft","21336e4e70b63ef3":"Luftmotstanden er null","e02244029989fba8":"Objektet stoppar heilt","60bf6f33ad4d230e":"Ved terminalfart balanserer luftmotstanden tyngda, så nettokrafta og akselerasjonen er null og farten konstant: $v_t=\\sqrt{mg/k}$.","d2ed45ce0f34eab5":"Ein fallskjermhoppar på 80 kg har $k=0{,}22$ kg/m i fritt fall. Kva er terminalfarten?","3a31ea3ac5638e5a":"Ca. 3 m/s","a35df6a58ec30e6e":"Ca. 30 m/s","f5260e61bac9ce46":"Ca. 60 m/s","d8e183a57ec7f98e":"Ca. 100 m/s","d83f992f3e7ba548":"$v_t=\\sqrt{\\frac{80\\cdot 9{,}8}{0{,}22}}=\\sqrt{3564}\\approx 60$ m/s (216 km/t).","a8c2ddc6bd9cda0b":"Kvifor reduserer ein opna fallskjerm terminalfarten dramatisk?","8db0c141cf12218d":"Han aukar massen til hopparen","1ac18a1937f46236":"Han fjernar tyngdekrafta","e82c7e7e91ec2550":"Han gjer lufta tynnare","24e4879fb2a63560":"Han aukar arealet $A$ kraftig, slik at $v_t$ søkk","68694330b5bfa4c6":"Skjermen aukar tverrsnittarealet enormt, noko som aukar luftmotstandskonstanten. Sidan $v_t=\\sqrt{mg/k}$, søkk terminalfarten -- frå ca. 60 m/s til under 3 m/s.","c10d13a0367e652f":"## Når formlane gir opp -- numerisk modellering\n\nLuftmotstanden skaper eit lite problem: fordi krafta avheng av farten, og farten i sin tur avheng av krafta, blir rørslelikninga for eit fall med luftmotstand vanskeleg å løyse med vanleg algebra. Differensiallikninga $\\frac{dv}{dt} = g - \\frac{k}{m}v^2$ har rett nok ei eksakt løysing, men ho krev avansert integrasjon. For meir realistiske, samansette krefter finst det ofte inga formel-løysing i det heile teke.\n\nDå grip vi til **numerisk modellering** -- akkurat den teknikken vi møtte i kapittel 1.3. Ideen er den same: tilnærm den kontinuerlege rørsla med mange små diskrete steg. For kvart lite tidssteg $\\Delta t$ reknar vi akselerasjonen frå kreftene akkurat no, $a_i = \\frac{F(x_i, v_i, t_i)}{m}$, oppdaterer farten $v_{i+1} = v_i + a_i \\Delta t$, oppdaterer posisjonen $x_{i+1} = x_i + v_i \\Delta t$, og rykkjer tida fram. Så gjentek vi.\n\nDet fine er at datamaskina ikkje bryr seg om at krafta endrar seg frå steg til steg -- ho reknar berre på nytt kvar gong. Slepp du ein ball med luftmotstand frå 100 m, gir simuleringa at han bruker litt lengre tid og treffer med litt lågare fart enn reint fritt fall, akkurat som vi ville vente. Mindre tidssteg gir meir nøyaktige svar, men kostar reknetid -- typisk held $\\Delta t$ rundt 0,001 til 0,01 s.\n\nStyrken er at metoden taklar kva som helst kraft du kan tenkje deg: luftmotstand som veks med $v^2$, gravitasjon som varierer med høgda, tidsavhengige krefter. Veikskapen er at han gir tal, ikkje formlar, og berre er ei tilnærming. Men for den verkelege verda, med alle dei uryddige kreftene sine, er numerisk modellering ofte den einaste vegen fram.","57917f63c91aa18b":"Test deg sjølv på numerisk modellering:","70a243319b210203":"Kvifor er fall med luftmotstand vanskeleg å løyse med vanleg algebra?","f9d6b51a157d53d7":"Fordi krafta (luftmotstanden) avheng av farten, som igjen avheng av krafta","62a2432f9d30e3cd":"Fordi tyngdekrafta forsvinn","0167c8a940748d50":"Fordi massen endrar seg","9a9cdc06610934d6":"Fordi det ikkje er noko akselerasjon","14fe4eb00addec88":"Når krafta avheng av farten ($F_L=kv^2$), blir rørslelikninga kopla på ein måte som ikkje har ei enkel algebraisk løysing.","dd3f3ac71c0cafaa":"I Eulers metode, korleis blir farten oppdatert for kvart tidssteg?","3ac052a8b4167ca9":"$v_{i+1} = v_i \\cdot \\Delta t$","de1c093fea0df56c":"$v_{i+1} = v_i + a_i\\Delta t$","66704430fcdb0a7e":"$v_{i+1} = a_i / \\Delta t$","a8e74151f5470d7a":"$v_{i+1} = v_i - x_i$","15f770611fcbefc6":"Kvart steg legg til bidraget frå akselerasjonen: ny fart = gammal fart pluss $a\\cdot\\Delta t$.","4df98e937dc648ba":"Kva er ein styrke ved numeriske metodar?","67e8f9007281f738":"Dei gir alltid ein eksakt formel","344c5d3ed6cc4392":"Dei krev inga datamaskin","50a3bb675360774f":"Dei kan handtere komplekse, varierande krefter som luftmotstand","b3702dd1f4f0104a":"Dei har ingen feilkjelder","cb084c7cf8004974":"Numeriske metodar taklar krefter som varierer med fart, posisjon eller tid -- noko analytiske formlar ofte ikkje greier. Ulempa er at dei gir tal, ikkje formlar, og er tilnærmingar.","6e180a600c26bc7e":"## Oppsummering\n\nNår krefter speler saman, avgjer dei kva som faktisk beveger seg. **Dei to ansikta til friksjonen** vart tydelegare: statisk friksjon tilpassar seg opp til taket $\\mu_s N$, men i det eit objekt losnar, hoppar friksjonen brått ned til den lågare kinetiske verdien $\\mu_k N$ -- difor «slepper» tunge ting plutseleg.\n\nPå **skråplanet** avgjer vinkelen tre skjebnar: objektet står stille dersom $\\tan\\theta \\leq \\mu_s$, glir med konstant fart dersom $\\tan\\theta = \\mu_k$, og akselererer med $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$ dersom vinkelen er endå større. Sidan $\\mu_k < \\mu_s$, finst ei sone der noko blir liggjande i ro, men sklir dersom det får ein dytt.\n\n**Luftmotstand** veks med kvadratet av farten og fører til **terminalfart** $v_t = \\sqrt{\\frac{mg}{k}}$, der luftmotstand balanserer tyngde og farten blir konstant. Fallskjermen reddar liv nettopp ved å auke arealet og dermed senke terminalfarten frå rundt 60 m/s til under 3 m/s. Og fordi slike fartsavhengige krefter sjeldan har pene løysingar, brukte vi **numerisk modellering** -- mange små steg med Eulers metode -- til å rekne oss gjennom det datamaskina, og ikkje algebraen, må handtere."}}}
+{
+  "id": "fys1-3-3-narrativ",
+  "courseId": "fys1",
+  "chapterNumber": "3.3",
+  "title": "Rørsle med friksjon og luftmotstand",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kvifor ein kasse plutseleg losnar på eit skråplan, og kvifor ein fallskjermhoppar overlever -- fysikken bak terminalfarten.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "skille mellom statisk og kinetisk friksjon",
+    "analysere bevegelse på skråplan med friksjon",
+    "forstå luftmotstand og terminalfart",
+    "bruke numeriske metoder til å modellere bevegelse med varierende krefter"
+  ],
+  "linkedChapterId": "fys1-3-3",
+  "content": [
+    {
+      "id": "fys1-3-3-n-intro",
+      "type": "text",
+      "content": "## Når kreftene avgjer kva som beveger seg\n\nVi kjenner no kreftene -- tyngde, normalkraft, friksjon, luftmotstand. Men kva *skjer* eigentleg når dei speler saman? Byrjar ein kasse på eit skråplan å gli, eller blir han ståande? Kor fort kan ein fallskjermhoppar eigentleg falle? Det er desse spørsmåla vi no skal svare på.\n\nFriksjon og luftmotstand har ein felles eigenskap som gjer dei spennande: dei er ikkje konstante. Statisk friksjon tilpassar seg, og luftmotstand veks med farten. Det tyder at rørsla kan endre karakter undervegs -- noko kan stå stille, så plutseleg losne, eller akselerere og så flate ut til konstant fart.\n\nLat oss byrje med å sjå nærare på dei to ansikta til friksjonen, så analysere skråplanet i detalj, og til slutt møte den viktigaste konsekvensen av luftmotstanden: terminalfarten."
+    },
+    {
+      "id": "fys1-3-3-n-section1",
+      "type": "text",
+      "content": "## Dei to ansikta til friksjonen -- og det plutselege hoppet\n\nLat oss sjå endå nærare på skilnaden mellom statisk og kinetisk friksjon, for han rommar ein liten dramaturgi. Tenk deg at du gradvis aukar krafta $F$ du dyttar ein kasse med.\n\nI **fase 1** står kassen stille, og den statiske friksjonen matchar deg presist: $f_s = F$, og krafta veks pent og lineært medan kassen ikkje rikkar seg, heilt opp til taket $f_{s,\\text{maks}} = \\mu_s N$. I **fase 2**, det kritiske punktet, er $F = \\mu_s N$, og kassen er akkurat på nippet til å losne. I **fase 3** glir kassen, og no tek den konstante kinetiske friksjonen $f_k = \\mu_k N$ over.\n\nDet dramatiske er overgangen: i same augneblink som kassen losnar, *hoppar* friksjonen brått ned frå den høge $\\mu_s N$ til den lågare $\\mu_k N$. Plutseleg er det mykje lettare å dytte, og kassen rykkjer framover. Du har sikkert kjent dette når du flyttar møblar -- det «slepper» med eitt.\n\nKvifor er $\\mu_k < \\mu_s$? Mikroskopisk handlar det om at to flater i ro har tid til å «låse seg» saman -- atoma dannar bindingar der overflateruheitene kilar seg i kvarandre, og det krev ekstra kraft å bryte dei. Når flatene først glir, hoppar dei over ujamnheitene utan å rekke å danne like sterke bindingar, og motstanden blir mindre. Difor: vanskelegast å starte, lettare å halde fram."
+    },
+    {
+      "id": "fys1-3-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-3-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på statisk og kinetisk friksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-3-3-n-quiz1-q0",
+            "task": "Kva skjer med friksjonen i det augneblinket ein kasse losnar og byrjar å gli?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han aukar brått",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han hoppar ned frå $\\mu_s N$ til $\\mu_k N$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han forsvinn heilt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han held seg uendra",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan $\\mu_k<\\mu_s$, fell friksjonen brått frå maksimal statisk verdi til den lågare kinetiske verdien -- difor «slepper» det."
+          },
+          {
+            "id": "fys1-3-3-n-quiz1-q1",
+            "task": "Medan ein kasse står stille og du dyttar med ei kraft under taket, kor stor er den statiske friksjonen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Alltid $\\mu_s N$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Akkurat like stor som dyttet ditt",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\mu_k N$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Statisk friksjon er variabel og tilpassar seg dyttet: $f_s=F$ heilt opp til taket $\\mu_s N$."
+          },
+          {
+            "id": "fys1-3-3-n-quiz1-q2",
+            "task": "Kvifor er det vanskelegare å setje ein tung bil i rørsle enn å halde han rullande?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi bilen blir tyngre i rørsle",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi luftmotstanden forsvinn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi normalkrafta aukar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi maksimal statisk friksjon er større enn kinetisk friksjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Du må vinne over $f_{s,\\text{maks}}=\\mu_s N$ for å starte, men berre den mindre $f_k=\\mu_k N$ for å halde i gang."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-3-3-n-section2",
+      "type": "text",
+      "content": "## Skråplanet -- tre skjebnar avgjorde av vinkelen\n\nEit objekt på eit skråplan med vinkel $\\theta$ er kanskje det mest klassiske dynamikkproblemet som finst. Tyngda blir splitta som vi lærte: $G_\\parallel = mg\\sin\\theta$ trekkjer nedover langs planet, medan $G_\\perp = mg\\cos\\theta$ pressar inn i det, slik at $N = mg\\cos\\theta$. Spørsmålet er om friksjonen klarer å halde att mot $G_\\parallel$. Svaret blir avgjort av vinkelen, og gir tre moglege skjebnar.\n\n**Står objektet stille?** Då må statisk friksjon balansere tyngdekomponenten: $f_s = mg\\sin\\theta$. Dette krev at $f_s \\leq \\mu_s N$, som blir forenkla vakkert til $\\tan\\theta \\leq \\mu_s$. Altså: objektet blir ståande så lenge $\\theta \\leq \\arctan(\\mu_s)$. Akkurat ved grensevinkelen $\\theta_{\\text{maks}} = \\arctan(\\mu_s)$ byrjar det å gli.\n\n**Glir det med konstant fart?** Det skjer dersom den kinetiske friksjonen nøyaktig balanserer tyngdekomponenten: $mg\\sin\\theta = \\mu_k mg\\cos\\theta$, altså $\\tan\\theta = \\mu_k$.\n\n**Akselererer det nedover?** Det skjer når tyngda vinn over friksjonen, $\\theta > \\arctan(\\mu_k)$, og då blir akselerasjonen $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$.\n\nLegg merke til at det finst to grensevinklar, og sidan $\\mu_k < \\mu_s$ er $\\arctan(\\mu_k) < \\arctan(\\mu_s)$. Lat oss rekne på ein kasse på 30 kg med $\\theta = 20°$, $\\mu_s = 0{,}45$, $\\mu_k = 0{,}35$. Grensevinkelen for å losne er $\\arctan(0{,}45) = 24{,}2°$. Sidan $20° < 24{,}2°$, blir kassen ståande dersom du legg han forsiktig ned. Men gir du han fart? Grensevinkelen for konstant fart er $\\arctan(0{,}35) = 19{,}3°$, og sidan $20° > 19{,}3°$, vil han då akselerere -- om enn så vidt: $a = 9{,}8(\\sin 20° - 0{,}35\\cos 20°) = 9{,}8(0{,}342 - 0{,}329) \\approx 0{,}13$ m/s². Ein kasse som blir liggjande i ro, men sklir dersom han får ein dytt -- alt avheng av om vinkelen er over eller under grensene."
+    },
+    {
+      "id": "fys1-3-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-3-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på skråplan med friksjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-3-3-n-quiz2-q0",
+            "task": "Ved kva for ein føresetnad blir eit objekt liggjande i ro på eit skråplan?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\tan\\theta \\leq \\mu_s$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\tan\\theta > \\mu_s$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\theta = 90°$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\mu_s = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Statisk friksjon klarer å halde objektet så lenge $mg\\sin\\theta\\leq\\mu_s mg\\cos\\theta$, altså $\\tan\\theta\\leq\\mu_s$."
+          },
+          {
+            "id": "fys1-3-3-n-quiz2-q1",
+            "task": "Kva er akselerasjonen til eit objekt som glir ned eit skråplan med kinetisk friksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a = g\\sin\\theta$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a = g(\\sin\\theta - \\mu_k\\cos\\theta)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$a = \\mu_k g$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a = g\\cos\\theta$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Langs planet: $mg\\sin\\theta-\\mu_k mg\\cos\\theta=ma$, som gir $a=g(\\sin\\theta-\\mu_k\\cos\\theta)$."
+          },
+          {
+            "id": "fys1-3-3-n-quiz2-q2",
+            "task": "Ein kasse ($\\mu_s=0{,}45$) ligg på eit skråplan med $\\theta=20°$. Glir han frå ro? ($\\arctan 0{,}45=24{,}2°$)",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, han glir",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han veltar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei, han blir liggjande fordi $20° < 24{,}2°$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han glir oppover",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grensevinkelen er $\\arctan(\\mu_s)=24{,}2°$. Sidan $20°$ er under denne, held den statiske friksjonen kassen i ro."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-3-3-n-section3",
+      "type": "text",
+      "content": "## Luftmotstand og terminalfart -- kvifor fallskjermen reddar liv\n\nNår noko beveger seg gjennom luft, blir det bremsa av **luftmotstand** (drag). I motsetnad til vanleg friksjon veks han med farten -- ved høge fartar om lag med kvadratet av farten: $F_L = kv^2$, eller meir presist $F_L = \\frac{1}{2}C_D \\rho A v^2$, der $C_D$ er ein formavhengig koeffisient, $\\rho$ er lufttettleiken og $A$ tverrsnittarealet. Doblar du farten, firedoblast luftmotstanden. Han peikar alltid motsett rørsleretninga, og han omdannar rørsleenergi til varme.\n\nDenne fartsavhengigheita gir eit vakkert fenomen. Tenk deg eit objekt som fell. Heilt i starten er farten liten, luftmotstanden nesten null, og akselerasjonen er full $g$ -- reint fritt fall. Men etter kvart som farten aukar, veks luftmotstanden, og nettokrafta -- og dermed akselerasjonen -- søkk: $a = g - \\frac{k}{m}v^2$. Til slutt blir luftmotstanden like stor som tyngda, nettokrafta blir null, og objektet fell vidare med konstant fart. Denne farten kallar vi **terminalfarten**.\n\nVi finn han ved å setje akselerasjonen lik null: $mg = kv_t^2$, altså $v_t = \\sqrt{\\frac{mg}{k}}$, eller med den nøyaktige modellen $v_t = \\sqrt{\\frac{2mg}{C_D\\rho A}}$. Tunge objekt får høgare terminalfart (difor fell ein stein fortare enn ei fjør i luft), medan stort areal gir lågare -- og det er nettopp her fallskjermen verkar.\n\nTa ein fallskjermhoppar på 80 kg. I buklandingsstilling med $k = 0{,}22$ kg/m blir terminalfarten $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{0{,}22}} = \\sqrt{3564} \\approx 60$ m/s -- altså 216 km/t, dødeleg ved bakken. Ved halve terminalfarten, $v = 30$ m/s, er akselerasjonen framleis $a = 9{,}8 - \\frac{0{,}22}{80}\\cdot 30^2 \\approx 7{,}3$ m/s², tre fjerdedelar av $g$. Men i det skjermen blir opna, hoppar $k$ til rundt 100 kg/m, og terminalfarten stupar til $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{100}} = \\sqrt{7{,}84} \\approx 2{,}8$ m/s -- berre 10 km/t. Ein reduksjon på over tjue gonger. Det er skilnaden på liv og død."
+    },
+    {
+      "id": "fys1-3-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-3-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på luftmotstand og terminalfart:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-3-3-n-quiz3-q0",
+            "task": "Kva skjer med luftmotstanden dersom farten blir dobla (turbulent modell)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han blir dobla",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han blir halvert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han blir uendra",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Han blir firedobla",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $F_L=kv^2$ veks luftmotstanden med kvadratet av farten, så dobbel fart gir fire gonger så stor motstand."
+          },
+          {
+            "id": "fys1-3-3-n-quiz3-q1",
+            "task": "Kva kjenneteiknar terminalfart?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Akselerasjonen er null fordi luftmotstand = tyngdekraft",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Farten aukar utan grense",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Luftmotstanden er null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Objektet stoppar heilt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved terminalfart balanserer luftmotstanden tyngda, så nettokrafta og akselerasjonen er null og farten konstant: $v_t=\\sqrt{mg/k}$."
+          },
+          {
+            "id": "fys1-3-3-n-quiz3-q2",
+            "task": "Ein fallskjermhoppar på 80 kg har $k=0{,}22$ kg/m i fritt fall. Kva er terminalfarten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 3 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 30 m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 60 m/s",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ca. 100 m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$v_t=\\sqrt{\\frac{80\\cdot 9{,}8}{0{,}22}}=\\sqrt{3564}\\approx 60$ m/s (216 km/t)."
+          },
+          {
+            "id": "fys1-3-3-n-quiz3-q3",
+            "task": "Kvifor reduserer ein opna fallskjerm terminalfarten dramatisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han aukar massen til hopparen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han aukar arealet $A$ kraftig, slik at $v_t$ søkk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Han fjernar tyngdekrafta",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han gjer lufta tynnare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skjermen aukar tverrsnittarealet enormt, noko som aukar luftmotstandskonstanten. Sidan $v_t=\\sqrt{mg/k}$, søkk terminalfarten -- frå ca. 60 m/s til under 3 m/s."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-3-3-n-section4",
+      "type": "text",
+      "content": "## Når formlane gir opp -- numerisk modellering\n\nLuftmotstanden skaper eit lite problem: fordi krafta avheng av farten, og farten i sin tur avheng av krafta, blir rørslelikninga for eit fall med luftmotstand vanskeleg å løyse med vanleg algebra. Differensiallikninga $\\frac{dv}{dt} = g - \\frac{k}{m}v^2$ har rett nok ei eksakt løysing, men ho krev avansert integrasjon. For meir realistiske, samansette krefter finst det ofte inga formel-løysing i det heile teke.\n\nDå grip vi til **numerisk modellering** -- akkurat den teknikken vi møtte i kapittel 1.3. Ideen er den same: tilnærm den kontinuerlege rørsla med mange små diskrete steg. For kvart lite tidssteg $\\Delta t$ reknar vi akselerasjonen frå kreftene akkurat no, $a_i = \\frac{F(x_i, v_i, t_i)}{m}$, oppdaterer farten $v_{i+1} = v_i + a_i \\Delta t$, oppdaterer posisjonen $x_{i+1} = x_i + v_i \\Delta t$, og rykkjer tida fram. Så gjentek vi.\n\nDet fine er at datamaskina ikkje bryr seg om at krafta endrar seg frå steg til steg -- ho reknar berre på nytt kvar gong. Slepp du ein ball med luftmotstand frå 100 m, gir simuleringa at han bruker litt lengre tid og treffer med litt lågare fart enn reint fritt fall, akkurat som vi ville vente. Mindre tidssteg gir meir nøyaktige svar, men kostar reknetid -- typisk held $\\Delta t$ rundt 0,001 til 0,01 s.\n\nStyrken er at metoden taklar kva som helst kraft du kan tenkje deg: luftmotstand som veks med $v^2$, gravitasjon som varierer med høgda, tidsavhengige krefter. Veikskapen er at han gir tal, ikkje formlar, og berre er ei tilnærming. Men for den verkelege verda, med alle dei uryddige kreftene sine, er numerisk modellering ofte den einaste vegen fram."
+    },
+    {
+      "id": "fys1-3-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "fys1-3-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på numerisk modellering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "fys1-3-3-n-quiz4-q0",
+            "task": "Kvifor er fall med luftmotstand vanskeleg å løyse med vanleg algebra?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi tyngdekrafta forsvinn",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi massen endrar seg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det ikkje er noko akselerasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi krafta (luftmotstanden) avheng av farten, som igjen avheng av krafta",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når krafta avheng av farten ($F_L=kv^2$), blir rørslelikninga kopla på ein måte som ikkje har ei enkel algebraisk løysing."
+          },
+          {
+            "id": "fys1-3-3-n-quiz4-q1",
+            "task": "I Eulers metode, korleis blir farten oppdatert for kvart tidssteg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$v_{i+1} = v_i \\cdot \\Delta t$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$v_{i+1} = v_i + a_i\\Delta t$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$v_{i+1} = a_i / \\Delta t$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$v_{i+1} = v_i - x_i$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kvart steg legg til bidraget frå akselerasjonen: ny fart = gammal fart pluss $a\\cdot\\Delta t$."
+          },
+          {
+            "id": "fys1-3-3-n-quiz4-q2",
+            "task": "Kva er ein styrke ved numeriske metodar?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Dei kan handtere komplekse, varierande krefter som luftmotstand",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Dei gir alltid ein eksakt formel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei krev inga datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei har ingen feilkjelder",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Numeriske metodar taklar krefter som varierer med fart, posisjon eller tid -- noko analytiske formlar ofte ikkje greier. Ulempa er at dei gir tal, ikkje formlar, og er tilnærmingar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "fys1-3-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår krefter speler saman, avgjer dei kva som faktisk beveger seg. **Dei to ansikta til friksjonen** vart tydelegare: statisk friksjon tilpassar seg opp til taket $\\mu_s N$, men i det eit objekt losnar, hoppar friksjonen brått ned til den lågare kinetiske verdien $\\mu_k N$ -- difor «slepper» tunge ting plutseleg.\n\nPå **skråplanet** avgjer vinkelen tre skjebnar: objektet står stille dersom $\\tan\\theta \\leq \\mu_s$, glir med konstant fart dersom $\\tan\\theta = \\mu_k$, og akselererer med $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$ dersom vinkelen er endå større. Sidan $\\mu_k < \\mu_s$, finst ei sone der noko blir liggjande i ro, men sklir dersom det får ein dytt.\n\n**Luftmotstand** veks med kvadratet av farten og fører til **terminalfart** $v_t = \\sqrt{\\frac{mg}{k}}$, der luftmotstand balanserer tyngde og farten blir konstant. Fallskjermen reddar liv nettopp ved å auke arealet og dermed senke terminalfarten frå rundt 60 m/s til under 3 m/s. Og fordi slike fartsavhengige krefter sjeldan har pene løysingar, brukte vi **numerisk modellering** -- mange små steg med Eulers metode -- til å rekne oss gjennom det datamaskina, og ikkje algebraen, må handtere."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d233722b3a0f9e1d",
+    "translatedAt": "2026-06-20T22:48:16.812Z",
+    "model": "claude-code-agent",
+    "strings": 99,
+    "tm": {
+      "8b02a4757a95b849": "Rørsle med friksjon og luftmotstand",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7616035e3b23b776": "Ei forteljing om kvifor ein kasse plutseleg losnar på eit skråplan, og kvifor ein fallskjermhoppar overlever -- fysikken bak terminalfarten.",
+      "67a26d7607d06457": "skille mellom statisk og kinetisk friksjon",
+      "53fbeb172fe76160": "analysere bevegelse på skråplan med friksjon",
+      "5fcaa951bb56b432": "forstå luftmotstand og terminalfart",
+      "e2e959bf68d7f742": "bruke numeriske metoder til å modellere bevegelse med varierende krefter",
+      "70158eb8afec5b79": "## Når kreftene avgjer kva som beveger seg\n\nVi kjenner no kreftene -- tyngde, normalkraft, friksjon, luftmotstand. Men kva *skjer* eigentleg når dei speler saman? Byrjar ein kasse på eit skråplan å gli, eller blir han ståande? Kor fort kan ein fallskjermhoppar eigentleg falle? Det er desse spørsmåla vi no skal svare på.\n\nFriksjon og luftmotstand har ein felles eigenskap som gjer dei spennande: dei er ikkje konstante. Statisk friksjon tilpassar seg, og luftmotstand veks med farten. Det tyder at rørsla kan endre karakter undervegs -- noko kan stå stille, så plutseleg losne, eller akselerere og så flate ut til konstant fart.\n\nLat oss byrje med å sjå nærare på dei to ansikta til friksjonen, så analysere skråplanet i detalj, og til slutt møte den viktigaste konsekvensen av luftmotstanden: terminalfarten.",
+      "be74d3c417631777": "## Dei to ansikta til friksjonen -- og det plutselege hoppet\n\nLat oss sjå endå nærare på skilnaden mellom statisk og kinetisk friksjon, for han rommar ein liten dramaturgi. Tenk deg at du gradvis aukar krafta $F$ du dyttar ein kasse med.\n\nI **fase 1** står kassen stille, og den statiske friksjonen matchar deg presist: $f_s = F$, og krafta veks pent og lineært medan kassen ikkje rikkar seg, heilt opp til taket $f_{s,\\text{maks}} = \\mu_s N$. I **fase 2**, det kritiske punktet, er $F = \\mu_s N$, og kassen er akkurat på nippet til å losne. I **fase 3** glir kassen, og no tek den konstante kinetiske friksjonen $f_k = \\mu_k N$ over.\n\nDet dramatiske er overgangen: i same augneblink som kassen losnar, *hoppar* friksjonen brått ned frå den høge $\\mu_s N$ til den lågare $\\mu_k N$. Plutseleg er det mykje lettare å dytte, og kassen rykkjer framover. Du har sikkert kjent dette når du flyttar møblar -- det «slepper» med eitt.\n\nKvifor er $\\mu_k < \\mu_s$? Mikroskopisk handlar det om at to flater i ro har tid til å «låse seg» saman -- atoma dannar bindingar der overflateruheitene kilar seg i kvarandre, og det krev ekstra kraft å bryte dei. Når flatene først glir, hoppar dei over ujamnheitene utan å rekke å danne like sterke bindingar, og motstanden blir mindre. Difor: vanskelegast å starte, lettare å halde fram.",
+      "26ce65ad3e2a122f": "Test deg sjølv på statisk og kinetisk friksjon:",
+      "4097889236a2af26": "placeholder",
+      "621a3e5de1d29baa": "Kva skjer med friksjonen i det augneblinket ein kasse losnar og byrjar å gli?",
+      "3b23d830c5c1b8b1": "Han aukar brått",
+      "bb8226b2d72d12d3": "Han forsvinn heilt",
+      "442f9d9d6325064d": "Han hoppar ned frå $\\mu_s N$ til $\\mu_k N$",
+      "23b1e77376f84819": "Han held seg uendra",
+      "929d7c7bbe0b893a": "Sidan $\\mu_k<\\mu_s$, fell friksjonen brått frå maksimal statisk verdi til den lågare kinetiske verdien -- difor «slepper» det.",
+      "97fd342084e67603": "Medan ein kasse står stille og du dyttar med ei kraft under taket, kor stor er den statiske friksjonen?",
+      "beb587ad74608dc1": "Alltid $\\mu_s N$",
+      "fa1d2db62d4d952e": "Null",
+      "b8d8f2e25e81f76b": "$\\mu_k N$",
+      "4da6bae5d6fd7313": "Akkurat like stor som dyttet ditt",
+      "bd354081c6bfda81": "Statisk friksjon er variabel og tilpassar seg dyttet: $f_s=F$ heilt opp til taket $\\mu_s N$.",
+      "739a6d71d253a1fa": "Kvifor er det vanskelegare å setje ein tung bil i rørsle enn å halde han rullande?",
+      "83ebcc85db180a53": "Fordi maksimal statisk friksjon er større enn kinetisk friksjon",
+      "3f3f146bba0f5f1a": "Fordi bilen blir tyngre i rørsle",
+      "54cc8d7750a7eb2b": "Fordi luftmotstanden forsvinn",
+      "57b7255ca81a82e9": "Fordi normalkrafta aukar",
+      "c9c213aeddfc0f6d": "Du må vinne over $f_{s,\\text{maks}}=\\mu_s N$ for å starte, men berre den mindre $f_k=\\mu_k N$ for å halde i gang.",
+      "bdbeb214d64ee01d": "## Skråplanet -- tre skjebnar avgjorde av vinkelen\n\nEit objekt på eit skråplan med vinkel $\\theta$ er kanskje det mest klassiske dynamikkproblemet som finst. Tyngda blir splitta som vi lærte: $G_\\parallel = mg\\sin\\theta$ trekkjer nedover langs planet, medan $G_\\perp = mg\\cos\\theta$ pressar inn i det, slik at $N = mg\\cos\\theta$. Spørsmålet er om friksjonen klarer å halde att mot $G_\\parallel$. Svaret blir avgjort av vinkelen, og gir tre moglege skjebnar.\n\n**Står objektet stille?** Då må statisk friksjon balansere tyngdekomponenten: $f_s = mg\\sin\\theta$. Dette krev at $f_s \\leq \\mu_s N$, som blir forenkla vakkert til $\\tan\\theta \\leq \\mu_s$. Altså: objektet blir ståande så lenge $\\theta \\leq \\arctan(\\mu_s)$. Akkurat ved grensevinkelen $\\theta_{\\text{maks}} = \\arctan(\\mu_s)$ byrjar det å gli.\n\n**Glir det med konstant fart?** Det skjer dersom den kinetiske friksjonen nøyaktig balanserer tyngdekomponenten: $mg\\sin\\theta = \\mu_k mg\\cos\\theta$, altså $\\tan\\theta = \\mu_k$.\n\n**Akselererer det nedover?** Det skjer når tyngda vinn over friksjonen, $\\theta > \\arctan(\\mu_k)$, og då blir akselerasjonen $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$.\n\nLegg merke til at det finst to grensevinklar, og sidan $\\mu_k < \\mu_s$ er $\\arctan(\\mu_k) < \\arctan(\\mu_s)$. Lat oss rekne på ein kasse på 30 kg med $\\theta = 20°$, $\\mu_s = 0{,}45$, $\\mu_k = 0{,}35$. Grensevinkelen for å losne er $\\arctan(0{,}45) = 24{,}2°$. Sidan $20° < 24{,}2°$, blir kassen ståande dersom du legg han forsiktig ned. Men gir du han fart? Grensevinkelen for konstant fart er $\\arctan(0{,}35) = 19{,}3°$, og sidan $20° > 19{,}3°$, vil han då akselerere -- om enn så vidt: $a = 9{,}8(\\sin 20° - 0{,}35\\cos 20°) = 9{,}8(0{,}342 - 0{,}329) \\approx 0{,}13$ m/s². Ein kasse som blir liggjande i ro, men sklir dersom han får ein dytt -- alt avheng av om vinkelen er over eller under grensene.",
+      "11b8815f796d0277": "Test deg sjølv på skråplan med friksjon:",
+      "09b35c63ca5861a0": "Ved kva for ein føresetnad blir eit objekt liggjande i ro på eit skråplan?",
+      "85ad9ed2c3d799c3": "$\\tan\\theta > \\mu_s$",
+      "b1f6b301369bdf1f": "$\\tan\\theta \\leq \\mu_s$",
+      "4ca5778986e9973c": "$\\theta = 90°$",
+      "149b92a175192671": "$\\mu_s = 0$",
+      "784c06087a8ebe34": "Statisk friksjon klarer å halde objektet så lenge $mg\\sin\\theta\\leq\\mu_s mg\\cos\\theta$, altså $\\tan\\theta\\leq\\mu_s$.",
+      "6763618c9dd7e5e0": "Kva er akselerasjonen til eit objekt som glir ned eit skråplan med kinetisk friksjon?",
+      "69a4e8b4290ea2a7": "$a = g\\sin\\theta$",
+      "a52c15fd43b260fd": "$a = \\mu_k g$",
+      "377b6786217323a0": "$a = g(\\sin\\theta - \\mu_k\\cos\\theta)$",
+      "24d681cf7d88d63c": "$a = g\\cos\\theta$",
+      "85bfdd29d52f3e8e": "Langs planet: $mg\\sin\\theta-\\mu_k mg\\cos\\theta=ma$, som gir $a=g(\\sin\\theta-\\mu_k\\cos\\theta)$.",
+      "510c36fd6e987ca8": "Ein kasse ($\\mu_s=0{,}45$) ligg på eit skråplan med $\\theta=20°$. Glir han frå ro? ($\\arctan 0{,}45=24{,}2°$)",
+      "3cd781a00565591c": "Ja, han glir",
+      "1e12f7f8ea6cd4ae": "Han veltar",
+      "f7f50fa31321d1b3": "Han glir oppover",
+      "2d47838ed1185cc1": "Nei, han blir liggjande fordi $20° < 24{,}2°$",
+      "ca467c6f898f6076": "Grensevinkelen er $\\arctan(\\mu_s)=24{,}2°$. Sidan $20°$ er under denne, held den statiske friksjonen kassen i ro.",
+      "5e27ea93038fa035": "## Luftmotstand og terminalfart -- kvifor fallskjermen reddar liv\n\nNår noko beveger seg gjennom luft, blir det bremsa av **luftmotstand** (drag). I motsetnad til vanleg friksjon veks han med farten -- ved høge fartar om lag med kvadratet av farten: $F_L = kv^2$, eller meir presist $F_L = \\frac{1}{2}C_D \\rho A v^2$, der $C_D$ er ein formavhengig koeffisient, $\\rho$ er lufttettleiken og $A$ tverrsnittarealet. Doblar du farten, firedoblast luftmotstanden. Han peikar alltid motsett rørsleretninga, og han omdannar rørsleenergi til varme.\n\nDenne fartsavhengigheita gir eit vakkert fenomen. Tenk deg eit objekt som fell. Heilt i starten er farten liten, luftmotstanden nesten null, og akselerasjonen er full $g$ -- reint fritt fall. Men etter kvart som farten aukar, veks luftmotstanden, og nettokrafta -- og dermed akselerasjonen -- søkk: $a = g - \\frac{k}{m}v^2$. Til slutt blir luftmotstanden like stor som tyngda, nettokrafta blir null, og objektet fell vidare med konstant fart. Denne farten kallar vi **terminalfarten**.\n\nVi finn han ved å setje akselerasjonen lik null: $mg = kv_t^2$, altså $v_t = \\sqrt{\\frac{mg}{k}}$, eller med den nøyaktige modellen $v_t = \\sqrt{\\frac{2mg}{C_D\\rho A}}$. Tunge objekt får høgare terminalfart (difor fell ein stein fortare enn ei fjør i luft), medan stort areal gir lågare -- og det er nettopp her fallskjermen verkar.\n\nTa ein fallskjermhoppar på 80 kg. I buklandingsstilling med $k = 0{,}22$ kg/m blir terminalfarten $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{0{,}22}} = \\sqrt{3564} \\approx 60$ m/s -- altså 216 km/t, dødeleg ved bakken. Ved halve terminalfarten, $v = 30$ m/s, er akselerasjonen framleis $a = 9{,}8 - \\frac{0{,}22}{80}\\cdot 30^2 \\approx 7{,}3$ m/s², tre fjerdedelar av $g$. Men i det skjermen blir opna, hoppar $k$ til rundt 100 kg/m, og terminalfarten stupar til $v_t = \\sqrt{\\frac{80 \\cdot 9{,}8}{100}} = \\sqrt{7{,}84} \\approx 2{,}8$ m/s -- berre 10 km/t. Ein reduksjon på over tjue gonger. Det er skilnaden på liv og død.",
+      "eaef707f85b89a84": "Test deg sjølv på luftmotstand og terminalfart:",
+      "95eb572c55e56238": "Kva skjer med luftmotstanden dersom farten blir dobla (turbulent modell)?",
+      "2cc416c617d2e24a": "Han blir firedobla",
+      "dbb3244ea0f0556b": "Han blir dobla",
+      "cf674b021ee9aa5b": "Han blir halvert",
+      "2c5a0e7857d1ba1e": "Han blir uendra",
+      "3b653df90860c663": "Med $F_L=kv^2$ veks luftmotstanden med kvadratet av farten, så dobbel fart gir fire gonger så stor motstand.",
+      "369a177ecaf58684": "Kva kjenneteiknar terminalfart?",
+      "61ee5a6b4b1a2869": "Farten aukar utan grense",
+      "ab5561b529e0895f": "Akselerasjonen er null fordi luftmotstand = tyngdekraft",
+      "21336e4e70b63ef3": "Luftmotstanden er null",
+      "e02244029989fba8": "Objektet stoppar heilt",
+      "60bf6f33ad4d230e": "Ved terminalfart balanserer luftmotstanden tyngda, så nettokrafta og akselerasjonen er null og farten konstant: $v_t=\\sqrt{mg/k}$.",
+      "d2ed45ce0f34eab5": "Ein fallskjermhoppar på 80 kg har $k=0{,}22$ kg/m i fritt fall. Kva er terminalfarten?",
+      "3a31ea3ac5638e5a": "Ca. 3 m/s",
+      "a35df6a58ec30e6e": "Ca. 30 m/s",
+      "f5260e61bac9ce46": "Ca. 60 m/s",
+      "d8e183a57ec7f98e": "Ca. 100 m/s",
+      "d83f992f3e7ba548": "$v_t=\\sqrt{\\frac{80\\cdot 9{,}8}{0{,}22}}=\\sqrt{3564}\\approx 60$ m/s (216 km/t).",
+      "a8c2ddc6bd9cda0b": "Kvifor reduserer ein opna fallskjerm terminalfarten dramatisk?",
+      "8db0c141cf12218d": "Han aukar massen til hopparen",
+      "1ac18a1937f46236": "Han fjernar tyngdekrafta",
+      "e82c7e7e91ec2550": "Han gjer lufta tynnare",
+      "24e4879fb2a63560": "Han aukar arealet $A$ kraftig, slik at $v_t$ søkk",
+      "68694330b5bfa4c6": "Skjermen aukar tverrsnittarealet enormt, noko som aukar luftmotstandskonstanten. Sidan $v_t=\\sqrt{mg/k}$, søkk terminalfarten -- frå ca. 60 m/s til under 3 m/s.",
+      "c10d13a0367e652f": "## Når formlane gir opp -- numerisk modellering\n\nLuftmotstanden skaper eit lite problem: fordi krafta avheng av farten, og farten i sin tur avheng av krafta, blir rørslelikninga for eit fall med luftmotstand vanskeleg å løyse med vanleg algebra. Differensiallikninga $\\frac{dv}{dt} = g - \\frac{k}{m}v^2$ har rett nok ei eksakt løysing, men ho krev avansert integrasjon. For meir realistiske, samansette krefter finst det ofte inga formel-løysing i det heile teke.\n\nDå grip vi til **numerisk modellering** -- akkurat den teknikken vi møtte i kapittel 1.3. Ideen er den same: tilnærm den kontinuerlege rørsla med mange små diskrete steg. For kvart lite tidssteg $\\Delta t$ reknar vi akselerasjonen frå kreftene akkurat no, $a_i = \\frac{F(x_i, v_i, t_i)}{m}$, oppdaterer farten $v_{i+1} = v_i + a_i \\Delta t$, oppdaterer posisjonen $x_{i+1} = x_i + v_i \\Delta t$, og rykkjer tida fram. Så gjentek vi.\n\nDet fine er at datamaskina ikkje bryr seg om at krafta endrar seg frå steg til steg -- ho reknar berre på nytt kvar gong. Slepp du ein ball med luftmotstand frå 100 m, gir simuleringa at han bruker litt lengre tid og treffer med litt lågare fart enn reint fritt fall, akkurat som vi ville vente. Mindre tidssteg gir meir nøyaktige svar, men kostar reknetid -- typisk held $\\Delta t$ rundt 0,001 til 0,01 s.\n\nStyrken er at metoden taklar kva som helst kraft du kan tenkje deg: luftmotstand som veks med $v^2$, gravitasjon som varierer med høgda, tidsavhengige krefter. Veikskapen er at han gir tal, ikkje formlar, og berre er ei tilnærming. Men for den verkelege verda, med alle dei uryddige kreftene sine, er numerisk modellering ofte den einaste vegen fram.",
+      "57917f63c91aa18b": "Test deg sjølv på numerisk modellering:",
+      "70a243319b210203": "Kvifor er fall med luftmotstand vanskeleg å løyse med vanleg algebra?",
+      "f9d6b51a157d53d7": "Fordi krafta (luftmotstanden) avheng av farten, som igjen avheng av krafta",
+      "62a2432f9d30e3cd": "Fordi tyngdekrafta forsvinn",
+      "0167c8a940748d50": "Fordi massen endrar seg",
+      "9a9cdc06610934d6": "Fordi det ikkje er noko akselerasjon",
+      "14fe4eb00addec88": "Når krafta avheng av farten ($F_L=kv^2$), blir rørslelikninga kopla på ein måte som ikkje har ei enkel algebraisk løysing.",
+      "dd3f3ac71c0cafaa": "I Eulers metode, korleis blir farten oppdatert for kvart tidssteg?",
+      "3ac052a8b4167ca9": "$v_{i+1} = v_i \\cdot \\Delta t$",
+      "de1c093fea0df56c": "$v_{i+1} = v_i + a_i\\Delta t$",
+      "66704430fcdb0a7e": "$v_{i+1} = a_i / \\Delta t$",
+      "a8e74151f5470d7a": "$v_{i+1} = v_i - x_i$",
+      "15f770611fcbefc6": "Kvart steg legg til bidraget frå akselerasjonen: ny fart = gammal fart pluss $a\\cdot\\Delta t$.",
+      "4df98e937dc648ba": "Kva er ein styrke ved numeriske metodar?",
+      "67e8f9007281f738": "Dei gir alltid ein eksakt formel",
+      "344c5d3ed6cc4392": "Dei krev inga datamaskin",
+      "50a3bb675360774f": "Dei kan handtere komplekse, varierande krefter som luftmotstand",
+      "b3702dd1f4f0104a": "Dei har ingen feilkjelder",
+      "cb084c7cf8004974": "Numeriske metodar taklar krefter som varierer med fart, posisjon eller tid -- noko analytiske formlar ofte ikkje greier. Ulempa er at dei gir tal, ikkje formlar, og er tilnærmingar.",
+      "6e180a600c26bc7e": "## Oppsummering\n\nNår krefter speler saman, avgjer dei kva som faktisk beveger seg. **Dei to ansikta til friksjonen** vart tydelegare: statisk friksjon tilpassar seg opp til taket $\\mu_s N$, men i det eit objekt losnar, hoppar friksjonen brått ned til den lågare kinetiske verdien $\\mu_k N$ -- difor «slepper» tunge ting plutseleg.\n\nPå **skråplanet** avgjer vinkelen tre skjebnar: objektet står stille dersom $\\tan\\theta \\leq \\mu_s$, glir med konstant fart dersom $\\tan\\theta = \\mu_k$, og akselererer med $a = g(\\sin\\theta - \\mu_k\\cos\\theta)$ dersom vinkelen er endå større. Sidan $\\mu_k < \\mu_s$, finst ei sone der noko blir liggjande i ro, men sklir dersom det får ein dytt.\n\n**Luftmotstand** veks med kvadratet av farten og fører til **terminalfart** $v_t = \\sqrt{\\frac{mg}{k}}$, der luftmotstand balanserer tyngde og farten blir konstant. Fallskjermen reddar liv nettopp ved å auke arealet og dermed senke terminalfarten frå rundt 60 m/s til under 3 m/s. Og fordi slike fartsavhengige krefter sjeldan har pene løysingar, brukte vi **numerisk modellering** -- mange små steg med Eulers metode -- til å rekne oss gjennom det datamaskina, og ikkje algebraen, må handtere."
+    }
+  }
+}

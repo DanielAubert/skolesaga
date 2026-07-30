@@ -1,1 +1,417 @@
-{"id":"it-2-2-5-narrativ","courseId":"it-2","chapterNumber":"5","title":"UML og modellering","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi teiknar programvare før vi skriv ho – frå klassediagrammets blåkopiar og relasjonanes diamantar til use case- og sekvensdiagram som fangar kva systemet gjer og i kva rekkjefølgje.","estimatedMinutes":33,"competenceGoals":["Forstå kva UML er og kvifor det blir brukt","Lese og lage klassediagram med relasjonar","Forstå use case- og sekvensdiagram"],"linkedChapterId":"it-2-2-5","content":[{"id":"it-2-2-5-n-intro","type":"text","content":"## Teikn huset før du byggjer det\n\nEin arkitekt teiknar blåkopiar før ein einaste murstein blir lagd. På same måte er det lurt å planleggje programvare før du kodar. Verktøyet for dette heiter **UML** – Unified Modeling Language – eit standardisert visuelt språk for å teikne programvaredesign. UML-diagram fungerer som blåkopiar for kode: dei hjelper deg å tenkje gjennom strukturen før du skriv ei einaste linje Python.\n\nKvifor bry seg? UML gjev ei felles visuell forståing av systemet, hjelper med planlegging, dokumenterer designet for andre utviklarar, og gjer det lettare å diskutere løysingar. Vi skal sjå på tre sentrale diagramtypar: **klassediagram**, som viser klassar og relasjonar; **use case-diagram**, som viser funksjonalitet frå brukarens perspektiv; og **sekvensdiagram**, som viser interaksjon mellom objekt over tid.\n\nKlassediagrammet er det vanlegaste. Kvar klasse blir teikna som ein boks med tre rom: namnet øvst, attributta i midten og metodane nedst. Framfor kvart medlem står eit symbol for synlegheit: `-` for privat, `+` for offentleg (public), og `#` for verna (protected). Ein `Person`-boks med `- navn: str` og `+ si_hei()` svarar altså direkte til ein Python-klasse med eit attributt og ein metode."},{"id":"it-2-2-5-n-quiz1","type":"exercise","exercise":{"id":"it-2-2-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på UML og klassediagram:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-2-5-n-quiz1-q0","task":"Kva er UML?","options":[{"id":"a","text":"Eit programmeringsspråk som erstattar Python","isCorrect":false},{"id":"b","text":"Eit standardisert visuelt språk for å modellere programvare","isCorrect":true},{"id":"c","text":"Ein database","isCorrect":false},{"id":"d","text":"Ein type maskinvare","isCorrect":false}],"solution":"UML (Unified Modeling Language) er eit visuelt språk for å visualisere og dokumentere programvaredesign."},{"id":"it-2-2-5-n-quiz1-q1","task":"Kva betyr symbolet `-` framfor eit medlem i eit klassediagram?","options":[{"id":"a","text":"Offentleg (public)","isCorrect":false},{"id":"b","text":"Statisk","isCorrect":false},{"id":"c","text":"Privat","isCorrect":true},{"id":"d","text":"Abstrakt","isCorrect":false}],"solution":"`-` markerer at attributtet eller metoden er privat. `+` er offentleg og `#` er verna."},{"id":"it-2-2-5-n-quiz1-q2","task":"Kva tre rom har ein klasseboks i eit klassediagram?","options":[{"id":"a","text":"Import, kode, output","isCorrect":false},{"id":"b","text":"Start, midt, slutt","isCorrect":false},{"id":"c","text":"Nøkkel, verdi, hash","isCorrect":false},{"id":"d","text":"Namn, attributt, metodar","isCorrect":true}],"solution":"Ein klasseboks blir delt i tre: namnet øvst, attributta i midten og metodane nedst."}]}},{"id":"it-2-2-5-n-section1","type":"text","content":"## Relasjonane mellom klassane\n\nEit klassediagram blir verkeleg nyttig når det viser korleis klassane heng saman. Kvar relasjonstype har sitt eige symbol. **Arv** blir teikna som ei pil med ein hol trekant: Student peikar opp mot Person fordi ein student arvar frå ein person. **Komposisjon** blir vist med ein fylt diamant: Bil har ein fylt diamant mot Motor, fordi motoren er ein integrert del av bilen og ikkje kan eksistere utan han. **Aggregering** bruker ein tom diamant for ei lausare kobling, som ein Skole som har Studentar, der studentane kan eksistere uavhengig. Ei enkel linje er **assosiasjon** – at ein klasse bruker ein annan – og ei stipla pil er **avhengigheit**, der den eine bruker den andre mellombels.\n\nDesse symbola blir omsette rett til kode. Når diagrammet viser arv frå Person til Student, betyr det `class Student(Person)` med `super().__init__()` i konstruktøren. Når diagrammet viser komposisjon mellom Bil og Motor, betyr det at Bil i konstruktøren sin lagar `self.motor = Motor(hk)`. Skilnaden på den fylte og den tomme diamanten er nettopp skilnaden vi lærte tidlegare: komposisjon er tett eigarskap, aggregering er lausare. Å lese desse symbola rett lèt deg forstå eit heilt systemdesign på sekund, og å teikne dei rett lèt deg formidle ditt eige."},{"id":"it-2-2-5-n-quiz2","type":"exercise","exercise":{"id":"it-2-2-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på relasjonar i klassediagram:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-2-5-n-quiz2-q0","task":"Kva relasjon betyr «Bil har ein Motor som ikkje eksisterer utan bilen»?","options":[{"id":"a","text":"Komposisjon","isCorrect":true},{"id":"b","text":"Arv","isCorrect":false},{"id":"c","text":"Aggregering","isCorrect":false},{"id":"d","text":"Assosiasjon","isCorrect":false}],"solution":"Komposisjon (fylt diamant) betyr at delen er ein integrert del av heilskapen og ikkje kan eksistere uavhengig."},{"id":"it-2-2-5-n-quiz2-q1","task":"Korleis blir arv teikna i UML?","options":[{"id":"a","text":"Ein fylt diamant","isCorrect":false},{"id":"b","text":"Ei pil med hol trekant frå subklasse til superklasse","isCorrect":true},{"id":"c","text":"Ei stipla pil","isCorrect":false},{"id":"d","text":"Ein tom diamant","isCorrect":false}],"solution":"Arv blir vist med ei pil som har ein hol trekant, peikande frå subklassen mot superklassen."},{"id":"it-2-2-5-n-quiz2-q2","task":"Kva er skilnaden på fylt og tom diamant?","options":[{"id":"a","text":"Ingen skilnad","isCorrect":false},{"id":"b","text":"Fylt = arv; tom = assosiasjon","isCorrect":false},{"id":"c","text":"Fylt = komposisjon (tett); tom = aggregering (laus)","isCorrect":true},{"id":"d","text":"Fylt = offentleg; tom = privat","isCorrect":false}],"solution":"Fylt diamant er komposisjon (tett eigarskap), medan tom diamant er aggregering (lausare kobling der delane kan leve uavhengig)."}]}},{"id":"it-2-2-5-n-section2","type":"text","content":"## Use case og sekvens – kva og når\n\nKlassediagrammet viser strukturen, men to andre diagramtypar fangar andre sider av systemet. Eit **use case-diagram** viser funksjonaliteten frå brukarens perspektiv. Det består av **aktørar** – teikna som strekfigurar, til dømes ein kunde eller bibliotekar – og **use cases** – teikna som ovalar, som «logg inn», «sjå saldo» eller «overfør pengar». Linjer koblar kvar aktør til det vedkomande kan gjere. Det viktige er at use cases skildrar *kva* systemet gjer, ikkje *korleis*. Skal du designe eit nettbutikk- eller bestillingssystem og vise kva kunden kan gjere, er use case-diagrammet det rette valet.\n\nEit **sekvensdiagram** viser derimot korleis objekt samhandlar over tid. Objekta står som boksar øvst, kvar med ei vertikal stipla **livslinje** nedover som representerer eksistensen til objektet. **Meldingar** blir teikna som horisontale piler mellom livslinjene, og tynne boksar på linja viser når eit objekt er aktivt. Tenk på ein handlekurv: brukaren kallar `legg_til`, handlekurven spør ei vare om prisen og får 199 kr tilbake, brukaren kallar `betal`, handlekurven reknar ut summen internt og svarar «Betalt». Sekvensdiagrammet viser nettopp *rekkjefølgja* av operasjonar.\n\nI praksis kombinerer du gjerne alle tre når du planlegg. For eit biblioteksystem kan use case-diagrammet vise kva bibliotekar og medlem kan gjere, klassediagrammet vise Bok og Medlem med relasjonane mellom dei, og sekvensdiagrammet vise sjølve utlånsprosessen steg for steg. Ved å planleggje slik unngår du mange feil før du i det heile teke kodar."},{"id":"it-2-2-5-n-quiz3","type":"exercise","exercise":{"id":"it-2-2-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på use case- og sekvensdiagram:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-2-5-n-quiz3-q0","task":"Kva viser eit use case-diagram?","options":[{"id":"a","text":"Korleis klassar er strukturerte internt","isCorrect":false},{"id":"b","text":"Database-skjema","isCorrect":false},{"id":"c","text":"Maskinvarekrav","isCorrect":false},{"id":"d","text":"Funksjonalitet frå brukarens perspektiv","isCorrect":true}],"solution":"Use case-diagram viser kva systemet kan gjere sett frå aktørane (brukarane) sitt ståstad."},{"id":"it-2-2-5-n-quiz3-q1","task":"Kva representerer dei vertikale stipla linjene i eit sekvensdiagram?","options":[{"id":"a","text":"Objekta sine livslinjer over tid","isCorrect":true},{"id":"b","text":"Klassar","isCorrect":false},{"id":"c","text":"Meldingar","isCorrect":false},{"id":"d","text":"Relasjonar","isCorrect":false}],"solution":"Dei stipla vertikale linjene er livslinjer som viser eksistensen til eit objekt gjennom sekvensen."},{"id":"it-2-2-5-n-quiz3-q2","task":"Du skal vise kva ein kunde kan gjere i eit bestillingssystem. Kva diagram passar best?","options":[{"id":"a","text":"Klassediagram","isCorrect":false},{"id":"b","text":"Use case-diagram","isCorrect":true},{"id":"c","text":"Sekvensdiagram","isCorrect":false},{"id":"d","text":"Hashtabell","isCorrect":false}],"solution":"Use case-diagrammet er best for å vise funksjonaliteten til systemet frå brukarens perspektiv."}]}},{"id":"it-2-2-5-n-summary","type":"text","content":"## Oppsummering\n\nAkkurat som ein arkitekt teiknar før byggjinga, planlegg vi programvare med **UML** – eit standardisert visuelt språk. **Klassediagram** viser klassar med namn, attributt og metodar, og relasjonane mellom dei: arv (hol trekant), komposisjon (fylt diamant), aggregering (tom diamant), assosiasjon (linje) og avhengigheit (stipla pil). Symbola blir omsette direkte til Python-kode.\n\n**Use case-diagram** viser funksjonaliteten frå brukarens perspektiv med aktørar og ovalar – kva systemet gjer, ikkje korleis. **Sekvensdiagram** viser korleis objekt samhandlar over tid, med livslinjer og meldingar i rett rekkjefølgje. Ved å kombinere dei tre kan du tenkje gjennom eit heilt design – som eit biblioteksystem – før du skriv kode. Med dette har du fullført seksjonen om avansert OOP og designmønster."}],"exercises":[],"_meta":{"sourceHash":"4ec67cf924c28172","translatedAt":"2026-06-20T23:59:44.542Z","model":"claude-code-agent","strings":70,"tm":{"9be86b17ce33e13f":"UML og modellering","b195b06d1ed59702":"Narrativ versjon","662f6413627f55f5":"Ei forteljing om korleis vi teiknar programvare før vi skriv ho – frå klassediagrammets blåkopiar og relasjonanes diamantar til use case- og sekvensdiagram som fangar kva systemet gjer og i kva rekkjefølgje.","2e59b468ddb81357":"Forstå kva UML er og kvifor det blir brukt","71affeb9e123c9a6":"Lese og lage klassediagram med relasjonar","552a3e5e5d6836a2":"Forstå use case- og sekvensdiagram","7f912613de17874e":"## Teikn huset før du byggjer det\n\nEin arkitekt teiknar blåkopiar før ein einaste murstein blir lagd. På same måte er det lurt å planleggje programvare før du kodar. Verktøyet for dette heiter **UML** – Unified Modeling Language – eit standardisert visuelt språk for å teikne programvaredesign. UML-diagram fungerer som blåkopiar for kode: dei hjelper deg å tenkje gjennom strukturen før du skriv ei einaste linje Python.\n\nKvifor bry seg? UML gjev ei felles visuell forståing av systemet, hjelper med planlegging, dokumenterer designet for andre utviklarar, og gjer det lettare å diskutere løysingar. Vi skal sjå på tre sentrale diagramtypar: **klassediagram**, som viser klassar og relasjonar; **use case-diagram**, som viser funksjonalitet frå brukarens perspektiv; og **sekvensdiagram**, som viser interaksjon mellom objekt over tid.\n\nKlassediagrammet er det vanlegaste. Kvar klasse blir teikna som ein boks med tre rom: namnet øvst, attributta i midten og metodane nedst. Framfor kvart medlem står eit symbol for synlegheit: `-` for privat, `+` for offentleg (public), og `#` for verna (protected). Ein `Person`-boks med `- navn: str` og `+ si_hei()` svarar altså direkte til ein Python-klasse med eit attributt og ein metode.","1251f0516964e7e6":"Test deg sjølv på UML og klassediagram:","4097889236a2af26":"placeholder","c60f1c40c953c5ab":"Kva er UML?","3200a9bb19bf9b5c":"Eit programmeringsspråk som erstattar Python","4467ba3d02ec01f9":"Eit standardisert visuelt språk for å modellere programvare","585a2dbb9e63d37a":"Ein database","acbe131652a3ac62":"Ein type maskinvare","aa9998dbc6bf5bf7":"UML (Unified Modeling Language) er eit visuelt språk for å visualisere og dokumentere programvaredesign.","4abe56a61132f99d":"Kva betyr symbolet `-` framfor eit medlem i eit klassediagram?","d268f31ac8a409ea":"Offentleg (public)","d3f32c3dfe2c83cc":"Statisk","ca2bb5f431f0fff9":"Privat","1c65955a3f568a5d":"Abstrakt","79d6c9e23037b7d8":"`-` markerer at attributtet eller metoden er privat. `+` er offentleg og `#` er verna.","92858af47a07e721":"Kva tre rom har ein klasseboks i eit klassediagram?","7e9898515c30369d":"Import, kode, output","8d0f65a43b5c3b5d":"Start, midt, slutt","3623ff0540ddb370":"Nøkkel, verdi, hash","988cdb7e8b2c5453":"Namn, attributt, metodar","740970a7969ab61e":"Ein klasseboks blir delt i tre: namnet øvst, attributta i midten og metodane nedst.","3db48246bd48c17c":"## Relasjonane mellom klassane\n\nEit klassediagram blir verkeleg nyttig når det viser korleis klassane heng saman. Kvar relasjonstype har sitt eige symbol. **Arv** blir teikna som ei pil med ein hol trekant: Student peikar opp mot Person fordi ein student arvar frå ein person. **Komposisjon** blir vist med ein fylt diamant: Bil har ein fylt diamant mot Motor, fordi motoren er ein integrert del av bilen og ikkje kan eksistere utan han. **Aggregering** bruker ein tom diamant for ei lausare kobling, som ein Skole som har Studentar, der studentane kan eksistere uavhengig. Ei enkel linje er **assosiasjon** – at ein klasse bruker ein annan – og ei stipla pil er **avhengigheit**, der den eine bruker den andre mellombels.\n\nDesse symbola blir omsette rett til kode. Når diagrammet viser arv frå Person til Student, betyr det `class Student(Person)` med `super().__init__()` i konstruktøren. Når diagrammet viser komposisjon mellom Bil og Motor, betyr det at Bil i konstruktøren sin lagar `self.motor = Motor(hk)`. Skilnaden på den fylte og den tomme diamanten er nettopp skilnaden vi lærte tidlegare: komposisjon er tett eigarskap, aggregering er lausare. Å lese desse symbola rett lèt deg forstå eit heilt systemdesign på sekund, og å teikne dei rett lèt deg formidle ditt eige.","95e8da0cedf65d97":"Test deg sjølv på relasjonar i klassediagram:","d65c7be9801f2770":"Kva relasjon betyr «Bil har ein Motor som ikkje eksisterer utan bilen»?","41c54d2ecc482554":"Komposisjon","d7e5db58f189e857":"Arv","22902bf50d790004":"Aggregering","ebd327ebc8440578":"Assosiasjon","353428f4856c3b91":"Komposisjon (fylt diamant) betyr at delen er ein integrert del av heilskapen og ikkje kan eksistere uavhengig.","fac2803e2e6913ec":"Korleis blir arv teikna i UML?","e9029a688755c6f3":"Ein fylt diamant","1fe582ec386816af":"Ei pil med hol trekant frå subklasse til superklasse","2b494e67ea600ae8":"Ei stipla pil","bab0125d3ba2ee6a":"Ein tom diamant","1a5c87fbd9299f95":"Arv blir vist med ei pil som har ein hol trekant, peikande frå subklassen mot superklassen.","01ab806050af4a41":"Kva er skilnaden på fylt og tom diamant?","e4027d2a03684ec1":"Ingen skilnad","34af66c85ca8799a":"Fylt = arv; tom = assosiasjon","2811e15130a582cf":"Fylt = komposisjon (tett); tom = aggregering (laus)","253bd2113c0c7357":"Fylt = offentleg; tom = privat","d88b401c3b585a4d":"Fylt diamant er komposisjon (tett eigarskap), medan tom diamant er aggregering (lausare kobling der delane kan leve uavhengig).","3c2a387f28a38518":"## Use case og sekvens – kva og når\n\nKlassediagrammet viser strukturen, men to andre diagramtypar fangar andre sider av systemet. Eit **use case-diagram** viser funksjonaliteten frå brukarens perspektiv. Det består av **aktørar** – teikna som strekfigurar, til dømes ein kunde eller bibliotekar – og **use cases** – teikna som ovalar, som «logg inn», «sjå saldo» eller «overfør pengar». Linjer koblar kvar aktør til det vedkomande kan gjere. Det viktige er at use cases skildrar *kva* systemet gjer, ikkje *korleis*. Skal du designe eit nettbutikk- eller bestillingssystem og vise kva kunden kan gjere, er use case-diagrammet det rette valet.\n\nEit **sekvensdiagram** viser derimot korleis objekt samhandlar over tid. Objekta står som boksar øvst, kvar med ei vertikal stipla **livslinje** nedover som representerer eksistensen til objektet. **Meldingar** blir teikna som horisontale piler mellom livslinjene, og tynne boksar på linja viser når eit objekt er aktivt. Tenk på ein handlekurv: brukaren kallar `legg_til`, handlekurven spør ei vare om prisen og får 199 kr tilbake, brukaren kallar `betal`, handlekurven reknar ut summen internt og svarar «Betalt». Sekvensdiagrammet viser nettopp *rekkjefølgja* av operasjonar.\n\nI praksis kombinerer du gjerne alle tre når du planlegg. For eit biblioteksystem kan use case-diagrammet vise kva bibliotekar og medlem kan gjere, klassediagrammet vise Bok og Medlem med relasjonane mellom dei, og sekvensdiagrammet vise sjølve utlånsprosessen steg for steg. Ved å planleggje slik unngår du mange feil før du i det heile teke kodar.","a02b6dc1c3c65d18":"Test deg sjølv på use case- og sekvensdiagram:","ca0f3eea00db429d":"Kva viser eit use case-diagram?","551b5c3e05de263e":"Korleis klassar er strukturerte internt","02cad69532d60167":"Database-skjema","e3b86faceeb430ee":"Maskinvarekrav","b3eee24716a3ac8a":"Funksjonalitet frå brukarens perspektiv","1ad66b2016f3093c":"Use case-diagram viser kva systemet kan gjere sett frå aktørane (brukarane) sitt ståstad.","8b9bb6582fc31349":"Kva representerer dei vertikale stipla linjene i eit sekvensdiagram?","ff490bdaacf7c557":"Objekta sine livslinjer over tid","6d19a9017eadba4b":"Klassar","a58bcd96ee139bb7":"Meldingar","e16d217177af2d79":"Relasjonar","29263523ecc49e4a":"Dei stipla vertikale linjene er livslinjer som viser eksistensen til eit objekt gjennom sekvensen.","2519883380e0430e":"Du skal vise kva ein kunde kan gjere i eit bestillingssystem. Kva diagram passar best?","c72f56829b748f7c":"Klassediagram","aff6d2b31fd245a3":"Use case-diagram","cd7d2393dfe932c2":"Sekvensdiagram","50f94f667c4275f8":"Hashtabell","52454baff56df01b":"Use case-diagrammet er best for å vise funksjonaliteten til systemet frå brukarens perspektiv.","d1f7126fc87275ee":"## Oppsummering\n\nAkkurat som ein arkitekt teiknar før byggjinga, planlegg vi programvare med **UML** – eit standardisert visuelt språk. **Klassediagram** viser klassar med namn, attributt og metodar, og relasjonane mellom dei: arv (hol trekant), komposisjon (fylt diamant), aggregering (tom diamant), assosiasjon (linje) og avhengigheit (stipla pil). Symbola blir omsette direkte til Python-kode.\n\n**Use case-diagram** viser funksjonaliteten frå brukarens perspektiv med aktørar og ovalar – kva systemet gjer, ikkje korleis. **Sekvensdiagram** viser korleis objekt samhandlar over tid, med livslinjer og meldingar i rett rekkjefølgje. Ved å kombinere dei tre kan du tenkje gjennom eit heilt design – som eit biblioteksystem – før du skriv kode. Med dette har du fullført seksjonen om avansert OOP og designmønster."}}}
+{
+  "id": "it-2-2-5-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "5",
+  "title": "UML og modellering",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi teiknar programvare før vi skriv ho – frå klassediagrammets blåkopiar og relasjonanes diamantar til use case- og sekvensdiagram som fangar kva systemet gjer og i kva rekkjefølgje.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "Forstå kva UML er og kvifor det blir brukt",
+    "Lese og lage klassediagram med relasjonar",
+    "Forstå use case- og sekvensdiagram"
+  ],
+  "linkedChapterId": "it-2-2-5",
+  "content": [
+    {
+      "id": "it-2-2-5-n-intro",
+      "type": "text",
+      "content": "## Teikn huset før du byggjer det\n\nEin arkitekt teiknar blåkopiar før ein einaste murstein blir lagd. På same måte er det lurt å planleggje programvare før du kodar. Verktøyet for dette heiter **UML** – Unified Modeling Language – eit standardisert visuelt språk for å teikne programvaredesign. UML-diagram fungerer som blåkopiar for kode: dei hjelper deg å tenkje gjennom strukturen før du skriv ei einaste linje Python.\n\nKvifor bry seg? UML gjev ei felles visuell forståing av systemet, hjelper med planlegging, dokumenterer designet for andre utviklarar, og gjer det lettare å diskutere løysingar. Vi skal sjå på tre sentrale diagramtypar: **klassediagram**, som viser klassar og relasjonar; **use case-diagram**, som viser funksjonalitet frå brukarens perspektiv; og **sekvensdiagram**, som viser interaksjon mellom objekt over tid.\n\nKlassediagrammet er det vanlegaste. Kvar klasse blir teikna som ein boks med tre rom: namnet øvst, attributta i midten og metodane nedst. Framfor kvart medlem står eit symbol for synlegheit: `-` for privat, `+` for offentleg (public), og `#` for verna (protected). Ein `Person`-boks med `- navn: str` og `+ si_hei()` svarar altså direkte til ein Python-klasse med eit attributt og ein metode."
+    },
+    {
+      "id": "it-2-2-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-2-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på UML og klassediagram:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-2-5-n-quiz1-q0",
+            "task": "Kva er UML?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Eit standardisert visuelt språk for å modellere programvare",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Eit programmeringsspråk som erstattar Python",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein database",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein type maskinvare",
+                "isCorrect": false
+              }
+            ],
+            "solution": "UML (Unified Modeling Language) er eit visuelt språk for å visualisere og dokumentere programvaredesign."
+          },
+          {
+            "id": "it-2-2-5-n-quiz1-q1",
+            "task": "Kva betyr symbolet `-` framfor eit medlem i eit klassediagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Offentleg (public)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Privat",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Statisk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Abstrakt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`-` markerer at attributtet eller metoden er privat. `+` er offentleg og `#` er verna."
+          },
+          {
+            "id": "it-2-2-5-n-quiz1-q2",
+            "task": "Kva tre rom har ein klasseboks i eit klassediagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Import, kode, output",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Start, midt, slutt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Namn, attributt, metodar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Nøkkel, verdi, hash",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein klasseboks blir delt i tre: namnet øvst, attributta i midten og metodane nedst."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-2-5-n-section1",
+      "type": "text",
+      "content": "## Relasjonane mellom klassane\n\nEit klassediagram blir verkeleg nyttig når det viser korleis klassane heng saman. Kvar relasjonstype har sitt eige symbol. **Arv** blir teikna som ei pil med ein hol trekant: Student peikar opp mot Person fordi ein student arvar frå ein person. **Komposisjon** blir vist med ein fylt diamant: Bil har ein fylt diamant mot Motor, fordi motoren er ein integrert del av bilen og ikkje kan eksistere utan han. **Aggregering** bruker ein tom diamant for ei lausare kobling, som ein Skole som har Studentar, der studentane kan eksistere uavhengig. Ei enkel linje er **assosiasjon** – at ein klasse bruker ein annan – og ei stipla pil er **avhengigheit**, der den eine bruker den andre mellombels.\n\nDesse symbola blir omsette rett til kode. Når diagrammet viser arv frå Person til Student, betyr det `class Student(Person)` med `super().__init__()` i konstruktøren. Når diagrammet viser komposisjon mellom Bil og Motor, betyr det at Bil i konstruktøren sin lagar `self.motor = Motor(hk)`. Skilnaden på den fylte og den tomme diamanten er nettopp skilnaden vi lærte tidlegare: komposisjon er tett eigarskap, aggregering er lausare. Å lese desse symbola rett lèt deg forstå eit heilt systemdesign på sekund, og å teikne dei rett lèt deg formidle ditt eige."
+    },
+    {
+      "id": "it-2-2-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-2-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på relasjonar i klassediagram:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-2-5-n-quiz2-q0",
+            "task": "Kva relasjon betyr «Bil har ein Motor som ikkje eksisterer utan bilen»?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Arv",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aggregering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Assosiasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Komposisjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Komposisjon (fylt diamant) betyr at delen er ein integrert del av heilskapen og ikkje kan eksistere uavhengig."
+          },
+          {
+            "id": "it-2-2-5-n-quiz2-q1",
+            "task": "Korleis blir arv teikna i UML?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei pil med hol trekant frå subklasse til superklasse",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein fylt diamant",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei stipla pil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein tom diamant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Arv blir vist med ei pil som har ein hol trekant, peikande frå subklassen mot superklassen."
+          },
+          {
+            "id": "it-2-2-5-n-quiz2-q2",
+            "task": "Kva er skilnaden på fylt og tom diamant?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ingen skilnad",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fylt = komposisjon (tett); tom = aggregering (laus)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fylt = arv; tom = assosiasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fylt = offentleg; tom = privat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fylt diamant er komposisjon (tett eigarskap), medan tom diamant er aggregering (lausare kobling der delane kan leve uavhengig)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-2-5-n-section2",
+      "type": "text",
+      "content": "## Use case og sekvens – kva og når\n\nKlassediagrammet viser strukturen, men to andre diagramtypar fangar andre sider av systemet. Eit **use case-diagram** viser funksjonaliteten frå brukarens perspektiv. Det består av **aktørar** – teikna som strekfigurar, til dømes ein kunde eller bibliotekar – og **use cases** – teikna som ovalar, som «logg inn», «sjå saldo» eller «overfør pengar». Linjer koblar kvar aktør til det vedkomande kan gjere. Det viktige er at use cases skildrar *kva* systemet gjer, ikkje *korleis*. Skal du designe eit nettbutikk- eller bestillingssystem og vise kva kunden kan gjere, er use case-diagrammet det rette valet.\n\nEit **sekvensdiagram** viser derimot korleis objekt samhandlar over tid. Objekta står som boksar øvst, kvar med ei vertikal stipla **livslinje** nedover som representerer eksistensen til objektet. **Meldingar** blir teikna som horisontale piler mellom livslinjene, og tynne boksar på linja viser når eit objekt er aktivt. Tenk på ein handlekurv: brukaren kallar `legg_til`, handlekurven spør ei vare om prisen og får 199 kr tilbake, brukaren kallar `betal`, handlekurven reknar ut summen internt og svarar «Betalt». Sekvensdiagrammet viser nettopp *rekkjefølgja* av operasjonar.\n\nI praksis kombinerer du gjerne alle tre når du planlegg. For eit biblioteksystem kan use case-diagrammet vise kva bibliotekar og medlem kan gjere, klassediagrammet vise Bok og Medlem med relasjonane mellom dei, og sekvensdiagrammet vise sjølve utlånsprosessen steg for steg. Ved å planleggje slik unngår du mange feil før du i det heile teke kodar."
+    },
+    {
+      "id": "it-2-2-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-2-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på use case- og sekvensdiagram:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-2-5-n-quiz3-q0",
+            "task": "Kva viser eit use case-diagram?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Korleis klassar er strukturerte internt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Database-skjema",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonalitet frå brukarens perspektiv",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Maskinvarekrav",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Use case-diagram viser kva systemet kan gjere sett frå aktørane (brukarane) sitt ståstad."
+          },
+          {
+            "id": "it-2-2-5-n-quiz3-q1",
+            "task": "Kva representerer dei vertikale stipla linjene i eit sekvensdiagram?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Klassar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Meldingar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Relasjonar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Objekta sine livslinjer over tid",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Dei stipla vertikale linjene er livslinjer som viser eksistensen til eit objekt gjennom sekvensen."
+          },
+          {
+            "id": "it-2-2-5-n-quiz3-q2",
+            "task": "Du skal vise kva ein kunde kan gjere i eit bestillingssystem. Kva diagram passar best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Use case-diagram",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Klassediagram",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Sekvensdiagram",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Hashtabell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Use case-diagrammet er best for å vise funksjonaliteten til systemet frå brukarens perspektiv."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-2-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nAkkurat som ein arkitekt teiknar før byggjinga, planlegg vi programvare med **UML** – eit standardisert visuelt språk. **Klassediagram** viser klassar med namn, attributt og metodar, og relasjonane mellom dei: arv (hol trekant), komposisjon (fylt diamant), aggregering (tom diamant), assosiasjon (linje) og avhengigheit (stipla pil). Symbola blir omsette direkte til Python-kode.\n\n**Use case-diagram** viser funksjonaliteten frå brukarens perspektiv med aktørar og ovalar – kva systemet gjer, ikkje korleis. **Sekvensdiagram** viser korleis objekt samhandlar over tid, med livslinjer og meldingar i rett rekkjefølgje. Ved å kombinere dei tre kan du tenkje gjennom eit heilt design – som eit biblioteksystem – før du skriv kode. Med dette har du fullført seksjonen om avansert OOP og designmønster."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "4ec67cf924c28172",
+    "translatedAt": "2026-06-20T23:59:44.542Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "9be86b17ce33e13f": "UML og modellering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "662f6413627f55f5": "Ei forteljing om korleis vi teiknar programvare før vi skriv ho – frå klassediagrammets blåkopiar og relasjonanes diamantar til use case- og sekvensdiagram som fangar kva systemet gjer og i kva rekkjefølgje.",
+      "2e59b468ddb81357": "Forstå kva UML er og kvifor det blir brukt",
+      "71affeb9e123c9a6": "Lese og lage klassediagram med relasjonar",
+      "552a3e5e5d6836a2": "Forstå use case- og sekvensdiagram",
+      "7f912613de17874e": "## Teikn huset før du byggjer det\n\nEin arkitekt teiknar blåkopiar før ein einaste murstein blir lagd. På same måte er det lurt å planleggje programvare før du kodar. Verktøyet for dette heiter **UML** – Unified Modeling Language – eit standardisert visuelt språk for å teikne programvaredesign. UML-diagram fungerer som blåkopiar for kode: dei hjelper deg å tenkje gjennom strukturen før du skriv ei einaste linje Python.\n\nKvifor bry seg? UML gjev ei felles visuell forståing av systemet, hjelper med planlegging, dokumenterer designet for andre utviklarar, og gjer det lettare å diskutere løysingar. Vi skal sjå på tre sentrale diagramtypar: **klassediagram**, som viser klassar og relasjonar; **use case-diagram**, som viser funksjonalitet frå brukarens perspektiv; og **sekvensdiagram**, som viser interaksjon mellom objekt over tid.\n\nKlassediagrammet er det vanlegaste. Kvar klasse blir teikna som ein boks med tre rom: namnet øvst, attributta i midten og metodane nedst. Framfor kvart medlem står eit symbol for synlegheit: `-` for privat, `+` for offentleg (public), og `#` for verna (protected). Ein `Person`-boks med `- navn: str` og `+ si_hei()` svarar altså direkte til ein Python-klasse med eit attributt og ein metode.",
+      "1251f0516964e7e6": "Test deg sjølv på UML og klassediagram:",
+      "4097889236a2af26": "placeholder",
+      "c60f1c40c953c5ab": "Kva er UML?",
+      "3200a9bb19bf9b5c": "Eit programmeringsspråk som erstattar Python",
+      "4467ba3d02ec01f9": "Eit standardisert visuelt språk for å modellere programvare",
+      "585a2dbb9e63d37a": "Ein database",
+      "acbe131652a3ac62": "Ein type maskinvare",
+      "aa9998dbc6bf5bf7": "UML (Unified Modeling Language) er eit visuelt språk for å visualisere og dokumentere programvaredesign.",
+      "4abe56a61132f99d": "Kva betyr symbolet `-` framfor eit medlem i eit klassediagram?",
+      "d268f31ac8a409ea": "Offentleg (public)",
+      "d3f32c3dfe2c83cc": "Statisk",
+      "ca2bb5f431f0fff9": "Privat",
+      "1c65955a3f568a5d": "Abstrakt",
+      "79d6c9e23037b7d8": "`-` markerer at attributtet eller metoden er privat. `+` er offentleg og `#` er verna.",
+      "92858af47a07e721": "Kva tre rom har ein klasseboks i eit klassediagram?",
+      "7e9898515c30369d": "Import, kode, output",
+      "8d0f65a43b5c3b5d": "Start, midt, slutt",
+      "3623ff0540ddb370": "Nøkkel, verdi, hash",
+      "988cdb7e8b2c5453": "Namn, attributt, metodar",
+      "740970a7969ab61e": "Ein klasseboks blir delt i tre: namnet øvst, attributta i midten og metodane nedst.",
+      "3db48246bd48c17c": "## Relasjonane mellom klassane\n\nEit klassediagram blir verkeleg nyttig når det viser korleis klassane heng saman. Kvar relasjonstype har sitt eige symbol. **Arv** blir teikna som ei pil med ein hol trekant: Student peikar opp mot Person fordi ein student arvar frå ein person. **Komposisjon** blir vist med ein fylt diamant: Bil har ein fylt diamant mot Motor, fordi motoren er ein integrert del av bilen og ikkje kan eksistere utan han. **Aggregering** bruker ein tom diamant for ei lausare kobling, som ein Skole som har Studentar, der studentane kan eksistere uavhengig. Ei enkel linje er **assosiasjon** – at ein klasse bruker ein annan – og ei stipla pil er **avhengigheit**, der den eine bruker den andre mellombels.\n\nDesse symbola blir omsette rett til kode. Når diagrammet viser arv frå Person til Student, betyr det `class Student(Person)` med `super().__init__()` i konstruktøren. Når diagrammet viser komposisjon mellom Bil og Motor, betyr det at Bil i konstruktøren sin lagar `self.motor = Motor(hk)`. Skilnaden på den fylte og den tomme diamanten er nettopp skilnaden vi lærte tidlegare: komposisjon er tett eigarskap, aggregering er lausare. Å lese desse symbola rett lèt deg forstå eit heilt systemdesign på sekund, og å teikne dei rett lèt deg formidle ditt eige.",
+      "95e8da0cedf65d97": "Test deg sjølv på relasjonar i klassediagram:",
+      "d65c7be9801f2770": "Kva relasjon betyr «Bil har ein Motor som ikkje eksisterer utan bilen»?",
+      "41c54d2ecc482554": "Komposisjon",
+      "d7e5db58f189e857": "Arv",
+      "22902bf50d790004": "Aggregering",
+      "ebd327ebc8440578": "Assosiasjon",
+      "353428f4856c3b91": "Komposisjon (fylt diamant) betyr at delen er ein integrert del av heilskapen og ikkje kan eksistere uavhengig.",
+      "fac2803e2e6913ec": "Korleis blir arv teikna i UML?",
+      "e9029a688755c6f3": "Ein fylt diamant",
+      "1fe582ec386816af": "Ei pil med hol trekant frå subklasse til superklasse",
+      "2b494e67ea600ae8": "Ei stipla pil",
+      "bab0125d3ba2ee6a": "Ein tom diamant",
+      "1a5c87fbd9299f95": "Arv blir vist med ei pil som har ein hol trekant, peikande frå subklassen mot superklassen.",
+      "01ab806050af4a41": "Kva er skilnaden på fylt og tom diamant?",
+      "e4027d2a03684ec1": "Ingen skilnad",
+      "34af66c85ca8799a": "Fylt = arv; tom = assosiasjon",
+      "2811e15130a582cf": "Fylt = komposisjon (tett); tom = aggregering (laus)",
+      "253bd2113c0c7357": "Fylt = offentleg; tom = privat",
+      "d88b401c3b585a4d": "Fylt diamant er komposisjon (tett eigarskap), medan tom diamant er aggregering (lausare kobling der delane kan leve uavhengig).",
+      "3c2a387f28a38518": "## Use case og sekvens – kva og når\n\nKlassediagrammet viser strukturen, men to andre diagramtypar fangar andre sider av systemet. Eit **use case-diagram** viser funksjonaliteten frå brukarens perspektiv. Det består av **aktørar** – teikna som strekfigurar, til dømes ein kunde eller bibliotekar – og **use cases** – teikna som ovalar, som «logg inn», «sjå saldo» eller «overfør pengar». Linjer koblar kvar aktør til det vedkomande kan gjere. Det viktige er at use cases skildrar *kva* systemet gjer, ikkje *korleis*. Skal du designe eit nettbutikk- eller bestillingssystem og vise kva kunden kan gjere, er use case-diagrammet det rette valet.\n\nEit **sekvensdiagram** viser derimot korleis objekt samhandlar over tid. Objekta står som boksar øvst, kvar med ei vertikal stipla **livslinje** nedover som representerer eksistensen til objektet. **Meldingar** blir teikna som horisontale piler mellom livslinjene, og tynne boksar på linja viser når eit objekt er aktivt. Tenk på ein handlekurv: brukaren kallar `legg_til`, handlekurven spør ei vare om prisen og får 199 kr tilbake, brukaren kallar `betal`, handlekurven reknar ut summen internt og svarar «Betalt». Sekvensdiagrammet viser nettopp *rekkjefølgja* av operasjonar.\n\nI praksis kombinerer du gjerne alle tre når du planlegg. For eit biblioteksystem kan use case-diagrammet vise kva bibliotekar og medlem kan gjere, klassediagrammet vise Bok og Medlem med relasjonane mellom dei, og sekvensdiagrammet vise sjølve utlånsprosessen steg for steg. Ved å planleggje slik unngår du mange feil før du i det heile teke kodar.",
+      "a02b6dc1c3c65d18": "Test deg sjølv på use case- og sekvensdiagram:",
+      "ca0f3eea00db429d": "Kva viser eit use case-diagram?",
+      "551b5c3e05de263e": "Korleis klassar er strukturerte internt",
+      "02cad69532d60167": "Database-skjema",
+      "e3b86faceeb430ee": "Maskinvarekrav",
+      "b3eee24716a3ac8a": "Funksjonalitet frå brukarens perspektiv",
+      "1ad66b2016f3093c": "Use case-diagram viser kva systemet kan gjere sett frå aktørane (brukarane) sitt ståstad.",
+      "8b9bb6582fc31349": "Kva representerer dei vertikale stipla linjene i eit sekvensdiagram?",
+      "ff490bdaacf7c557": "Objekta sine livslinjer over tid",
+      "6d19a9017eadba4b": "Klassar",
+      "a58bcd96ee139bb7": "Meldingar",
+      "e16d217177af2d79": "Relasjonar",
+      "29263523ecc49e4a": "Dei stipla vertikale linjene er livslinjer som viser eksistensen til eit objekt gjennom sekvensen.",
+      "2519883380e0430e": "Du skal vise kva ein kunde kan gjere i eit bestillingssystem. Kva diagram passar best?",
+      "c72f56829b748f7c": "Klassediagram",
+      "aff6d2b31fd245a3": "Use case-diagram",
+      "cd7d2393dfe932c2": "Sekvensdiagram",
+      "50f94f667c4275f8": "Hashtabell",
+      "52454baff56df01b": "Use case-diagrammet er best for å vise funksjonaliteten til systemet frå brukarens perspektiv.",
+      "d1f7126fc87275ee": "## Oppsummering\n\nAkkurat som ein arkitekt teiknar før byggjinga, planlegg vi programvare med **UML** – eit standardisert visuelt språk. **Klassediagram** viser klassar med namn, attributt og metodar, og relasjonane mellom dei: arv (hol trekant), komposisjon (fylt diamant), aggregering (tom diamant), assosiasjon (linje) og avhengigheit (stipla pil). Symbola blir omsette direkte til Python-kode.\n\n**Use case-diagram** viser funksjonaliteten frå brukarens perspektiv med aktørar og ovalar – kva systemet gjer, ikkje korleis. **Sekvensdiagram** viser korleis objekt samhandlar over tid, med livslinjer og meldingar i rett rekkjefølgje. Ved å kombinere dei tre kan du tenkje gjennom eit heilt design – som eit biblioteksystem – før du skriv kode. Med dette har du fullført seksjonen om avansert OOP og designmønster."
+    }
+  }
+}

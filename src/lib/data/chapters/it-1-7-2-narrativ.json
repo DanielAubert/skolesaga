@@ -1,1 +1,340 @@
-{"id":"it-1-7-2-narrativ","courseId":"it-1","chapterNumber":"7.2","title":"Internett og kommunikasjonsprotokoller","subtitle":"Narrativ versjon","description":"En fortelling om reglene som binder internett sammen – TCP/IP og det treveis håndtrykket, lagmodellene OSI og TCP/IP, og protokollene HTTP, HTTPS og DNS.","estimatedMinutes":40,"competenceGoals":["gjøre rede for sentrale kommunikasjonsprotokoller og deres funksjon","forklare lagmodeller for nettverkskommunikasjon og hvordan data sendes over internett"],"linkedChapterId":"it-1-7-2","content":[{"id":"it-1-7-2-n-intro","type":"text","content":"## Et felles språk for milliarder av enheter\n\nInternett kobler sammen milliarder av forskjellige enheter, laget av ulike produsenter med ulike operativsystemer. Hvordan kan de kommunisere sømløst? Svaret er **protokoller** – standardiserte regler alle følger. En god analogi er postverket: du skriver adressen på en bestemt måte, bruker frimerke, og posten leverer. En kommunikasjonsprotokoll definerer på samme måte hvordan digitale data pakkes, adresseres, sendes og mottas.\n\nFundamentet er protokollparet **TCP/IP**, to protokoller som samarbeider. **IP** (Internet Protocol) tar seg av adressering og ruting: hver enhet har en IP-adresse, og IP sørger for at datapakker sendes til riktig mottaker. IP er *forbindelsesløs* – hver pakke sendes uavhengig og kan ta ulik vei – og gir ingen garanti for at pakker kommer fram. Her kommer **TCP** (Transmission Control Protocol) inn og sikrer *pålitelig levering*: data deles i nummererte segmenter, mottakeren bekrefter hvert segment (ACK), tapte segmenter sendes på nytt, og alt settes sammen i riktig rekkefølge.\n\nFør TCP sender data, opprettes en forbindelse gjennom et **treveis håndtrykk**: klienten sender SYN («jeg vil koble meg til»), serveren svarer SYN-ACK («OK, jeg er klar»), og klienten bekrefter med ACK («la oss starte»). Det finnes også et raskere alternativ, **UDP** (User Datagram Protocol), som sender pakker uten bekreftelse eller rekkefølgekontroll. UDP er mindre pålitelig, men raskere, og brukes der hastighet er viktigst – videostrømming, online spill, DNS-oppslag og internetttelefoni (VoIP)."},{"id":"it-1-7-2-n-quiz1","type":"exercise","exercise":{"id":"it-1-7-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på TCP, IP og UDP:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-2-n-quiz1-q0","task":"Hva er hovedforskjellen mellom TCP og UDP?","options":[{"id":"a","text":"TCP er trådløs og UDP er kablet","isCorrect":false},{"id":"b","text":"UDP er sikrere fordi den krypterer","isCorrect":false},{"id":"c","text":"TCP garanterer pålitelig levering, mens UDP er raskere men gir ingen leveringsgaranti","isCorrect":true},{"id":"d","text":"TCP er bare for e-post","isCorrect":false}],"solution":"TCP sikrer pålitelig, ordnet levering, mens UDP er raskere men uten leveringsgaranti – derfor brukes UDP til strømming og spill."},{"id":"it-1-7-2-n-quiz1-q1","task":"Hva skjer under et TCP treveis håndtrykk?","options":[{"id":"a","text":"Data krypteres i tre steg","isCorrect":false},{"id":"b","text":"DNS gjør tre oppslag","isCorrect":false},{"id":"c","text":"Data sendes tre ganger","isCorrect":false},{"id":"d","text":"Klienten sender SYN, serveren svarer SYN-ACK, og klienten bekrefter med ACK","isCorrect":true}],"solution":"Det treveis håndtrykket er SYN → SYN-ACK → ACK, som oppretter TCP-forbindelsen før data sendes."},{"id":"it-1-7-2-n-quiz1-q2","task":"Hva tar IP-protokollen seg av?","options":[{"id":"a","text":"Adressering og ruting av datapakker","isCorrect":true},{"id":"b","text":"Kryptering av all trafikk","isCorrect":false},{"id":"c","text":"Å bekrefte at hvert segment kom frem","isCorrect":false},{"id":"d","text":"Å vise nettsider","isCorrect":false}],"solution":"IP tar seg av adressering og ruting, mens TCP sørger for den pålitelige leveringen."}]}},{"id":"it-1-7-2-n-section1","type":"text","content":"## Lag på lag\n\nFor å forstå den komplekse kommunikasjonen bruker vi **lagmodeller** som deler funksjonene i separate lag med hvert sitt ansvar. **OSI-modellen** er en teoretisk referansemodell med syv lag, fra det fysiske laget nederst (kabler og signaler), via datalink (Ethernet, Wi-Fi), nettverk (IP), transport (TCP, UDP), sesjon og presentasjon, opp til applikasjonslaget øverst (HTTP, DNS). En grei huskeregel ovenfra og ned er «All People Seem To Need Data Processing».\n\nI praksis bruker internett den enklere **TCP/IP-modellen** med fire lag: applikasjonslaget (HTTP, DNS), transportlaget (TCP, UDP), internettlaget (IP) og nettverksaksesslaget (Ethernet, Wi-Fi). Denne beskriver bedre hvordan internett faktisk fungerer, mens OSI-modellen brukes mest som referanse ved diskusjon og feilsøking.\n\nNår data sendes nedover lagene, legger hvert lag til sin egen **header** med kontrollinformasjon. Dette kalles **innkapsling**. Applikasjonslaget lager meldingen; transportlaget legger til TCP-header med portnumre og kaller det et *segment*; nettverkslaget legger til IP-header med IP-adresser og kaller det en *pakke*; datalinklaget legger til Ethernet-header med MAC-adresser og kaller det en *ramme*; og det fysiske laget sender alt som biter. Hos mottakeren skjer det motsatte – hvert lag fjerner sin header og sender dataene oppover. Tenk på det som konvolutter inni konvolutter."},{"id":"it-1-7-2-n-quiz2","type":"exercise","exercise":{"id":"it-1-7-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på lagmodeller og innkapsling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-2-n-quiz2-q0","task":"Hvor mange lag har OSI-modellen?","options":[{"id":"a","text":"Fire","isCorrect":false},{"id":"b","text":"Syv","isCorrect":true},{"id":"c","text":"Fem","isCorrect":false},{"id":"d","text":"Ti","isCorrect":false}],"solution":"OSI-modellen har syv lag, mens den praktiske TCP/IP-modellen har fire."},{"id":"it-1-7-2-n-quiz2-q1","task":"Hva er innkapsling (encapsulation) i nettverkssammenheng?","options":[{"id":"a","text":"At data krypteres","isCorrect":false},{"id":"b","text":"At data komprimeres","isCorrect":false},{"id":"c","text":"At hvert lag legger til sin egen kontrollinformasjon (header) rundt dataene fra laget over","isCorrect":true},{"id":"d","text":"At pakker dupliseres","isCorrect":false}],"solution":"Innkapsling betyr at hvert lag legger til sin egen header rundt dataene – som konvolutter inni konvolutter."},{"id":"it-1-7-2-n-quiz2-q2","task":"På hvilket lag i TCP/IP-modellen jobber HTTP og DNS?","options":[{"id":"a","text":"Transportlaget","isCorrect":false},{"id":"b","text":"Internettlaget","isCorrect":false},{"id":"c","text":"Nettverksaksesslaget","isCorrect":false},{"id":"d","text":"Applikasjonslaget","isCorrect":true}],"solution":"HTTP og DNS hører til applikasjonslaget, øverst i TCP/IP-modellen."}]}},{"id":"it-1-7-2-n-section2","type":"text","content":"## Web og navneoppslag\n\nØverst i modellen finner vi protokollene du møter daglig. **HTTP** driver webben med en enkel forespørsel-svar-modell. De viktigste metodene er GET (hent en ressurs, langt vanligst), POST (send data), PUT (oppdater) og DELETE (slett). Serveren svarer alltid med en **statuskode**: 2xx betyr suksess (200 OK), 3xx omdirigering (301 Moved Permanently), 4xx klientfeil (404 Not Found, 403 Forbidden) og 5xx serverfeil (500 Internal Server Error). **HTTPS** legger kryptering med **TLS** oppå HTTP – når du ser hengelåsen, er kommunikasjonen kryptert, serverens identitet verifisert med et digitalt sertifikat, og dataene beskyttet mot endring. I dag bruker over 95 % av alle nettsider HTTPS.\n\nDen siste sentrale protokollen er **DNS**, internettets navnetjeneste som oversetter domenenavn til IP-adresser, slik at du slipper å huske `195.88.55.16` i stedet for `www.vg.no`. DNS er hierarkisk, organisert som et omvendt tre: rotsonen øverst, så toppdomener (.no, .com), andrenivådomener (nrk.no) og subdomener (www.nrk.no). Et oppslag går trinnvis: nettleseren sjekker først sin cache, deretter spør en DNS-resolver en rotserver, som peker til .no-serveren, som peker til NRKs navneserver, som til slutt gir IP-adressen. Hele prosessen tar vanligvis under 100 millisekunder, og caching gjør gjentatte oppslag mye raskere. DNS-serveren inneholder ulike poster: A-poster (IPv4-adresse), AAAA-poster (IPv6), CNAME (alias), MX (e-postserver) og TXT (tekst, ofte til verifisering og sikkerhet)."},{"id":"it-1-7-2-n-quiz3","type":"exercise","exercise":{"id":"it-1-7-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på HTTP, HTTPS og DNS:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-7-2-n-quiz3-q0","task":"Hvilken HTTP-statuskode betyr at siden ikke ble funnet?","options":[{"id":"a","text":"404 Not Found","isCorrect":true},{"id":"b","text":"200 OK","isCorrect":false},{"id":"c","text":"301 Moved Permanently","isCorrect":false},{"id":"d","text":"500 Internal Server Error","isCorrect":false}],"solution":"404 Not Found betyr at den forespurte ressursen ikke ble funnet på serveren."},{"id":"it-1-7-2-n-quiz3-q1","task":"Hva er DNS sin hovedoppgave?","options":[{"id":"a","text":"Å kryptere nettverkstrafikk","isCorrect":false},{"id":"b","text":"Å oversette domenenavn til IP-adresser","isCorrect":true},{"id":"c","text":"Å lagre nettsider i cache","isCorrect":false},{"id":"d","text":"Å sende e-post","isCorrect":false}],"solution":"DNS oversetter menneskelesbare domenenavn til IP-adresser, slik at du slipper å huske tallene."},{"id":"it-1-7-2-n-quiz3-q2","task":"Hva legger HTTPS til oppå HTTP?","options":[{"id":"a","text":"Raskere lasting","isCorrect":false},{"id":"b","text":"Flere bilder","isCorrect":false},{"id":"c","text":"Kryptering med TLS, verifisert serveridentitet og beskyttelse mot endring","isCorrect":true},{"id":"d","text":"Automatisk innlogging","isCorrect":false}],"solution":"HTTPS legger TLS-kryptering oppå HTTP, verifiserer serverens identitet med et sertifikat og beskytter dataene mot endring."}]}},{"id":"it-1-7-2-n-summary","type":"text","content":"## Oppsummering\n\nProtokoller er det felles språket som lar milliarder av ulike enheter kommunisere. Fundamentet er **TCP/IP**, der IP tar seg av adressering og ruting, og TCP sikrer pålitelig levering – etablert gjennom det treveis håndtrykket SYN → SYN-ACK → ACK. **UDP** er et raskere, mindre pålitelig alternativ for strømming og spill.\n\n**Lagmodellene** OSI (7 lag) og TCP/IP (4 lag) deler kommunikasjonen i ansvarsområder, og **innkapsling** gjør at hvert lag legger til sin header som konvolutter inni konvolutter. Øverst finner vi **HTTP** (med metoder og statuskoder som 404), **HTTPS** (kryptert med TLS) og **DNS**, som hierarkisk oversetter domenenavn til IP-adresser. Til sammen er dette maskineriet som gjør hvert nettleserbesøk mulig."}],"exercises":[]}
+{
+  "id": "it-1-7-2-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "7.2",
+  "title": "Internett og kommunikasjonsprotokoller",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om reglene som binder internett sammen – TCP/IP og det treveis håndtrykket, lagmodellene OSI og TCP/IP, og protokollene HTTP, HTTPS og DNS.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "gjøre rede for sentrale kommunikasjonsprotokoller og deres funksjon",
+    "forklare lagmodeller for nettverkskommunikasjon og hvordan data sendes over internett"
+  ],
+  "linkedChapterId": "it-1-7-2",
+  "content": [
+    {
+      "id": "it-1-7-2-n-intro",
+      "type": "text",
+      "content": "## Et felles språk for milliarder av enheter\n\nInternett kobler sammen milliarder av forskjellige enheter, laget av ulike produsenter med ulike operativsystemer. Hvordan kan de kommunisere sømløst? Svaret er **protokoller** – standardiserte regler alle følger. En god analogi er postverket: du skriver adressen på en bestemt måte, bruker frimerke, og posten leverer. En kommunikasjonsprotokoll definerer på samme måte hvordan digitale data pakkes, adresseres, sendes og mottas.\n\nFundamentet er protokollparet **TCP/IP**, to protokoller som samarbeider. **IP** (Internet Protocol) tar seg av adressering og ruting: hver enhet har en IP-adresse, og IP sørger for at datapakker sendes til riktig mottaker. IP er *forbindelsesløs* – hver pakke sendes uavhengig og kan ta ulik vei – og gir ingen garanti for at pakker kommer fram. Her kommer **TCP** (Transmission Control Protocol) inn og sikrer *pålitelig levering*: data deles i nummererte segmenter, mottakeren bekrefter hvert segment (ACK), tapte segmenter sendes på nytt, og alt settes sammen i riktig rekkefølge.\n\nFør TCP sender data, opprettes en forbindelse gjennom et **treveis håndtrykk**: klienten sender SYN («jeg vil koble meg til»), serveren svarer SYN-ACK («OK, jeg er klar»), og klienten bekrefter med ACK («la oss starte»). Det finnes også et raskere alternativ, **UDP** (User Datagram Protocol), som sender pakker uten bekreftelse eller rekkefølgekontroll. UDP er mindre pålitelig, men raskere, og brukes der hastighet er viktigst – videostrømming, online spill, DNS-oppslag og internetttelefoni (VoIP)."
+    },
+    {
+      "id": "it-1-7-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på TCP, IP og UDP:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-2-n-quiz1-q0",
+            "task": "Hva er hovedforskjellen mellom TCP og UDP?",
+            "options": [
+              {
+                "id": "a",
+                "text": "TCP er trådløs og UDP er kablet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "TCP garanterer pålitelig levering, mens UDP er raskere men gir ingen leveringsgaranti",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "UDP er sikrere fordi den krypterer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "TCP er bare for e-post",
+                "isCorrect": false
+              }
+            ],
+            "solution": "TCP sikrer pålitelig, ordnet levering, mens UDP er raskere men uten leveringsgaranti – derfor brukes UDP til strømming og spill."
+          },
+          {
+            "id": "it-1-7-2-n-quiz1-q1",
+            "task": "Hva skjer under et TCP treveis håndtrykk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Data krypteres i tre steg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "DNS gjør tre oppslag",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Klienten sender SYN, serveren svarer SYN-ACK, og klienten bekrefter med ACK",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Data sendes tre ganger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det treveis håndtrykket er SYN → SYN-ACK → ACK, som oppretter TCP-forbindelsen før data sendes."
+          },
+          {
+            "id": "it-1-7-2-n-quiz1-q2",
+            "task": "Hva tar IP-protokollen seg av?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Kryptering av all trafikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å bekrefte at hvert segment kom frem",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å vise nettsider",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Adressering og ruting av datapakker",
+                "isCorrect": true
+              }
+            ],
+            "solution": "IP tar seg av adressering og ruting, mens TCP sørger for den pålitelige leveringen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-2-n-section1",
+      "type": "text",
+      "content": "## Lag på lag\n\nFor å forstå den komplekse kommunikasjonen bruker vi **lagmodeller** som deler funksjonene i separate lag med hvert sitt ansvar. **OSI-modellen** er en teoretisk referansemodell med syv lag, fra det fysiske laget nederst (kabler og signaler), via datalink (Ethernet, Wi-Fi), nettverk (IP), transport (TCP, UDP), sesjon og presentasjon, opp til applikasjonslaget øverst (HTTP, DNS). En grei huskeregel ovenfra og ned er «All People Seem To Need Data Processing».\n\nI praksis bruker internett den enklere **TCP/IP-modellen** med fire lag: applikasjonslaget (HTTP, DNS), transportlaget (TCP, UDP), internettlaget (IP) og nettverksaksesslaget (Ethernet, Wi-Fi). Denne beskriver bedre hvordan internett faktisk fungerer, mens OSI-modellen brukes mest som referanse ved diskusjon og feilsøking.\n\nNår data sendes nedover lagene, legger hvert lag til sin egen **header** med kontrollinformasjon. Dette kalles **innkapsling**. Applikasjonslaget lager meldingen; transportlaget legger til TCP-header med portnumre og kaller det et *segment*; nettverkslaget legger til IP-header med IP-adresser og kaller det en *pakke*; datalinklaget legger til Ethernet-header med MAC-adresser og kaller det en *ramme*; og det fysiske laget sender alt som biter. Hos mottakeren skjer det motsatte – hvert lag fjerner sin header og sender dataene oppover. Tenk på det som konvolutter inni konvolutter."
+    },
+    {
+      "id": "it-1-7-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på lagmodeller og innkapsling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-2-n-quiz2-q0",
+            "task": "Hvor mange lag har OSI-modellen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Syv",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fire",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fem",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ti",
+                "isCorrect": false
+              }
+            ],
+            "solution": "OSI-modellen har syv lag, mens den praktiske TCP/IP-modellen har fire."
+          },
+          {
+            "id": "it-1-7-2-n-quiz2-q1",
+            "task": "Hva er innkapsling (encapsulation) i nettverkssammenheng?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At data krypteres",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At hvert lag legger til sin egen kontrollinformasjon (header) rundt dataene fra laget over",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At data komprimeres",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At pakker dupliseres",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Innkapsling betyr at hvert lag legger til sin egen header rundt dataene – som konvolutter inni konvolutter."
+          },
+          {
+            "id": "it-1-7-2-n-quiz2-q2",
+            "task": "På hvilket lag i TCP/IP-modellen jobber HTTP og DNS?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Transportlaget",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Internettlaget",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Applikasjonslaget",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Nettverksaksesslaget",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HTTP og DNS hører til applikasjonslaget, øverst i TCP/IP-modellen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-2-n-section2",
+      "type": "text",
+      "content": "## Web og navneoppslag\n\nØverst i modellen finner vi protokollene du møter daglig. **HTTP** driver webben med en enkel forespørsel-svar-modell. De viktigste metodene er GET (hent en ressurs, langt vanligst), POST (send data), PUT (oppdater) og DELETE (slett). Serveren svarer alltid med en **statuskode**: 2xx betyr suksess (200 OK), 3xx omdirigering (301 Moved Permanently), 4xx klientfeil (404 Not Found, 403 Forbidden) og 5xx serverfeil (500 Internal Server Error). **HTTPS** legger kryptering med **TLS** oppå HTTP – når du ser hengelåsen, er kommunikasjonen kryptert, serverens identitet verifisert med et digitalt sertifikat, og dataene beskyttet mot endring. I dag bruker over 95 % av alle nettsider HTTPS.\n\nDen siste sentrale protokollen er **DNS**, internettets navnetjeneste som oversetter domenenavn til IP-adresser, slik at du slipper å huske `195.88.55.16` i stedet for `www.vg.no`. DNS er hierarkisk, organisert som et omvendt tre: rotsonen øverst, så toppdomener (.no, .com), andrenivådomener (nrk.no) og subdomener (www.nrk.no). Et oppslag går trinnvis: nettleseren sjekker først sin cache, deretter spør en DNS-resolver en rotserver, som peker til .no-serveren, som peker til NRKs navneserver, som til slutt gir IP-adressen. Hele prosessen tar vanligvis under 100 millisekunder, og caching gjør gjentatte oppslag mye raskere. DNS-serveren inneholder ulike poster: A-poster (IPv4-adresse), AAAA-poster (IPv6), CNAME (alias), MX (e-postserver) og TXT (tekst, ofte til verifisering og sikkerhet)."
+    },
+    {
+      "id": "it-1-7-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-7-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på HTTP, HTTPS og DNS:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-7-2-n-quiz3-q0",
+            "task": "Hvilken HTTP-statuskode betyr at siden ikke ble funnet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "200 OK",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "301 Moved Permanently",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "500 Internal Server Error",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "404 Not Found",
+                "isCorrect": true
+              }
+            ],
+            "solution": "404 Not Found betyr at den forespurte ressursen ikke ble funnet på serveren."
+          },
+          {
+            "id": "it-1-7-2-n-quiz3-q1",
+            "task": "Hva er DNS sin hovedoppgave?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å oversette domenenavn til IP-adresser",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å kryptere nettverkstrafikk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å lagre nettsider i cache",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å sende e-post",
+                "isCorrect": false
+              }
+            ],
+            "solution": "DNS oversetter menneskelesbare domenenavn til IP-adresser, slik at du slipper å huske tallene."
+          },
+          {
+            "id": "it-1-7-2-n-quiz3-q2",
+            "task": "Hva legger HTTPS til oppå HTTP?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Raskere lasting",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kryptering med TLS, verifisert serveridentitet og beskyttelse mot endring",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Flere bilder",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Automatisk innlogging",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HTTPS legger TLS-kryptering oppå HTTP, verifiserer serverens identitet med et sertifikat og beskytter dataene mot endring."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-7-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nProtokoller er det felles språket som lar milliarder av ulike enheter kommunisere. Fundamentet er **TCP/IP**, der IP tar seg av adressering og ruting, og TCP sikrer pålitelig levering – etablert gjennom det treveis håndtrykket SYN → SYN-ACK → ACK. **UDP** er et raskere, mindre pålitelig alternativ for strømming og spill.\n\n**Lagmodellene** OSI (7 lag) og TCP/IP (4 lag) deler kommunikasjonen i ansvarsområder, og **innkapsling** gjør at hvert lag legger til sin header som konvolutter inni konvolutter. Øverst finner vi **HTTP** (med metoder og statuskoder som 404), **HTTPS** (kryptert med TLS) og **DNS**, som hierarkisk oversetter domenenavn til IP-adresser. Til sammen er dette maskineriet som gjør hvert nettleserbesøk mulig."
+    }
+  ],
+  "exercises": []
+}

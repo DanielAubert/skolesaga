@@ -1,1 +1,503 @@
-{"id":"r1-1-1-narrativ","courseId":"r1","chapterNumber":"1.1","title":"Polynomer og polynomdivisjon","subtitle":"Narrativ versjon","description":"En fortelling om polynomene -- matematikkens arbeidshester -- og om hvordan divisjon og faktorteoremet lar oss knekke dem opp i nullpunkter og faktorer.","estimatedMinutes":40,"competenceGoals":["forstå hva et polynom er og kunne identifisere grad og koeffisienter","beherske polynomdivisjon","bruke faktorteoremet til å faktorisere polynomer","finne nullpunkter til polynomer"],"linkedChapterId":"r1-1-1","content":[{"id":"r1-1-1-n-intro","type":"text","content":"## Matematikkens arbeidshester\n\nNår du skanner en QR-kode med mobilen, skjer det noe bemerkelsesverdig: selv om koden er delvis tildekket eller skadet, leser telefonen den likevel riktig. Hemmeligheten er polynomdivisjon. Dataene i koden er kodet som koeffisienter i et polynom, og ved å dividere med et bestemt kontrollpolynom kan mobilen oppdage og rette feil. Den samme ideen, Reed-Solomon-koder, beskytter data på Blu-ray-plater og i kommunikasjon med romsonder milliarder av kilometer unna.\n\nPolynomer er på mange måter matematikkens arbeidshester. De er enkle nok til at vi kan regne med dem for hånd, men fleksible nok til å beskrive alt fra banen til en fotball til rentebanen i en låneavtale. I dette kapittelet skal vi bli ordentlig kjent med dem: hva de er, hvordan vi regner med dem, og -- viktigst av alt -- hvordan vi kan *faktorisere* dem.\n\nÅ faktorisere et polynom er som å primtallsfaktorisere et tall: vi avslører byggesteinene det er laget av. Og byggesteinene henger nøye sammen med polynomets nullpunkter -- de $x$-verdiene som gjør polynomet lik null. Veien dit går gjennom tre verktøy du skal mestre: polynomdivisjon, faktorteoremet og teoremet om rasjonale røtter. La oss begynne med begynnelsen: hva et polynom egentlig er."},{"id":"r1-1-1-n-section1","type":"text","content":"## Hva er et polynom?\n\nEt **polynom** i variabelen $x$ er et uttrykk på formen\n\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder koeffisientene $a_n, \\ldots, a_0$ er reelle tall og $n$ er et ikke-negativt heltall. Tre ord går igjen når vi snakker om polynomer. **Graden** er den høyeste potensen av $x$ som faktisk forekommer. Den **ledende koeffisienten** er tallet foran denne høyeste potensen, og **konstantleddet** er $a_0$ -- leddet uten $x$.\n\nTa $P(x) = 3x^4 - 2x^2 + 5x - 1$. Her er graden $4$, den ledende koeffisienten $3$ og konstantleddet $-1$. I $Q(x) = -2x^3 + x$ er graden $3$, ledende koeffisient $-2$, og konstantleddet er $0$ siden det ikke står noe konstantledd der. Til og med et rent tall som $R(x) = 7$ er et polynom -- av grad $0$.\n\nÅ regne med polynomer er heldigvis ikke noe nytt: vi bruker reglene du allerede kan. Ved **addisjon og subtraksjon** kombinerer vi like ledd, altså ledd med samme potens av $x$. Med $P(x) = 2x^2 + 3x - 1$ og $Q(x) = x^2 - 2x + 4$ får vi $P(x) + Q(x) = 3x^2 + x + 3$, og $P(x) - Q(x) = x^2 + 5x - 5$ -- husk at minustegnet skifter fortegn på *alle* leddene i $Q$.\n\nVed **multiplikasjon** bruker vi distributiv lov: hvert ledd i det ene polynomet ganges med hvert ledd i det andre. Da blir $P(x) \\cdot Q(x) = 2x^4 - x^3 + x^2 + 14x - 4$ etter at vi har samlet like ledd. Legg merke til et nyttig mønster: graden til produktet er summen av gradene, her $2 + 2 = 4$."},{"id":"r1-1-1-n-quiz1","type":"exercise","exercise":{"id":"r1-1-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på polynomer og polynomregning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-1-n-quiz1-q0","task":"Hva er graden til polynomet $P(x) = 3x^4 - 2x^2 + 5x - 1$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":false}],"solution":"Graden er den høyeste potensen av $x$ som forekommer, altså $4$."},{"id":"r1-1-1-n-quiz1-q1","task":"Hva er den ledende koeffisienten i $Q(x) = -2x^3 + x$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$-2$","isCorrect":true},{"id":"d","text":"$0$","isCorrect":false}],"solution":"Den ledende koeffisienten er tallet foran den høyeste potensen $x^3$, altså $-2$."},{"id":"r1-1-1-n-quiz1-q2","task":"Hva er konstantleddet i $R(x) = 4x^3 - x^2$?","options":[{"id":"a","text":"$0$","isCorrect":true},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$-1$","isCorrect":false},{"id":"d","text":"$-x^2$","isCorrect":false}],"solution":"Det finnes ikke noe ledd uten $x$, så konstantleddet er $0$."},{"id":"r1-1-1-n-quiz1-q3","task":"Hva er $(2x^2 + 3x - 1) + (x^2 - 2x + 4)$?","options":[{"id":"a","text":"$3x^2 + 5x + 3$","isCorrect":false},{"id":"b","text":"$2x^2 + x + 3$","isCorrect":false},{"id":"c","text":"$3x^2 + x - 5$","isCorrect":false},{"id":"d","text":"$3x^2 + x + 3$","isCorrect":true}],"solution":"Kombiner like ledd: $2x^2 + x^2 = 3x^2$, $3x - 2x = x$ og $-1 + 4 = 3$."}]}},{"id":"r1-1-1-n-section2","type":"text","content":"## Polynomdivisjon -- divisjon med rest\n\nHusker du divisjon med rest fra barneskolen? $17$ delt på $5$ gir $3$ med rest $2$, altså $17 = 5 \\cdot 3 + 2$. Polynomdivisjon er nøyaktig samme idé, bare med polynomer i stedet for tall. Vi deler et polynom $P(x)$ (dividenden) på et polynom $D(x)$ (divisoren) og får en kvotient $Q(x)$ og en rest $R(x)$:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\n**Divisjonsalgoritmen** garanterer at kvotienten og resten finnes og er entydige, og at graden til resten alltid er *lavere* enn graden til divisoren -- akkurat som resten $2$ er mindre enn $5$ i talleksempelet. Deler vi på et førstegradspolynom som $x - 1$, blir resten derfor bare et tall.\n\nSelve regningen følger samme rytme som tallregning: del, gang, trekk fra, ta ned neste ledd. La oss dele $x^3 - 2x^2 + 5x - 3$ på $x - 1$. Først: $x^3 \\div x = x^2$. Vi ganger $x^2$ med $(x-1)$ og trekker fra; igjen står $-x^2 + 5x$. Så: $-x^2 \\div x = -x$, gang og trekk fra; igjen står $4x - 3$. Til slutt: $4x \\div x = 4$, og etter siste subtraksjon står vi igjen med resten $1$. Altså:\n\n$$x^3 - 2x^2 + 5x - 3 = (x - 1)(x^2 - x + 4) + 1$$\n\nTo praktiske råd: skriv alltid polynomene i synkende potensrekkefølge, og sett inn $0$ som koeffisient for potenser som mangler -- ellers er det fort gjort å rote seg bort. Og du kan alltid kontrollere svaret ved å gange kvotienten med divisoren og legge til resten. Et elegant frampek: resten ved divisjon med $(x - a)$ er alltid lik $P(a)$. Sjekk selv: $P(1) = 1 - 2 + 5 - 3 = 1$, nøyaktig resten vi fant."},{"id":"r1-1-1-n-quiz2","type":"exercise","exercise":{"id":"r1-1-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på polynomdivisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-1-n-quiz2-q0","task":"Hva er kvotienten i divisjonen $(x^2 + 5x + 6) : (x + 2)$?","options":[{"id":"a","text":"$x + 2$","isCorrect":false},{"id":"b","text":"$x + 3$","isCorrect":true},{"id":"c","text":"$x - 3$","isCorrect":false},{"id":"d","text":"$x + 5$","isCorrect":false}],"solution":"$x^2 + 5x + 6 = (x+2)(x+3)$, så divisjonen går opp med kvotient $x + 3$."},{"id":"r1-1-1-n-quiz2-q1","task":"Hva er resten i divisjonen $(x^3 - 2x^2 + 5x - 3) : (x - 1)$?","options":[{"id":"a","text":"$1$","isCorrect":true},{"id":"b","text":"$0$","isCorrect":false},{"id":"c","text":"$-3$","isCorrect":false},{"id":"d","text":"$4$","isCorrect":false}],"solution":"Divisjonen gir $x^3 - 2x^2 + 5x - 3 = (x-1)(x^2 - x + 4) + 1$. Kontroll: $P(1) = 1 - 2 + 5 - 3 = 1$."},{"id":"r1-1-1-n-quiz2-q2","task":"I $P(x) = D(x) \\cdot Q(x) + R(x)$ -- hvilket krav gjelder for resten $R(x)$?","options":[{"id":"a","text":"$R(x)$ har samme grad som $D(x)$","isCorrect":false},{"id":"b","text":"$R(x)$ er alltid null","isCorrect":false},{"id":"c","text":"Graden til $R(x)$ er lavere enn graden til $D(x)$, eller $R(x) = 0$","isCorrect":true},{"id":"d","text":"$R(x)$ har høyere grad enn $Q(x)$","isCorrect":false}],"solution":"Divisjonsalgoritmen sier at $\\text{grad}(R) < \\text{grad}(D)$ eller $R(x) = 0$ -- akkurat som resten i tallregning er mindre enn divisoren."},{"id":"r1-1-1-n-quiz2-q3","task":"Hva blir resten når $P(x) = x^3 - 3x + 1$ divideres med $(x - 2)$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":true},{"id":"c","text":"$-1$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":false}],"solution":"Resten ved divisjon med $(x - a)$ er $P(a)$. Her: $P(2) = 8 - 6 + 1 = 3$."}]}},{"id":"r1-1-1-n-section3","type":"text","content":"## Faktorteoremet -- nøkkelen til faktorisering\n\nNå kommer kapittelets viktigste innsikt. Tenk på hva det betyr at divisjonen av $P(x)$ med $(x - a)$ går *opp*, altså at resten er null. Da er $P(x) = (x - a) \\cdot Q(x)$, og setter vi inn $x = a$, blir $P(a) = 0 \\cdot Q(a) = 0$. Og siden resten ved divisjon med $(x-a)$ alltid er $P(a)$, gjelder også det motsatte. Dette er **faktorteoremet**:\n\n$$P(a) = 0 \\quad \\Leftrightarrow \\quad (x - a) \\text{ er en faktor i } P(x)$$\n\nNullpunkter og faktorer er altså to sider av samme sak. Hvert nullpunkt avslører en faktor, og hver faktor avslører et nullpunkt.\n\nDette gir oss en jaktstrategi for å faktorisere polynomer av grad tre og høyere, der ingen abc-formel finnes. Først *gjetter* vi et nullpunkt -- prøv gjerne små heltall som $\\pm 1, \\pm 2, \\pm 3$. Finner vi en verdi $a$ med $P(a) = 0$, vet vi at $(x - a)$ er en faktor. Så dividerer vi $P(x)$ på $(x - a)$ og står igjen med et polynom av lavere grad, som vi angriper på nytt.\n\nSe hvordan det fungerer på $P(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver $x = 1$: $P(1) = 1 - 6 + 11 - 6 = 0$. Treff! Da er $(x - 1)$ en faktor, og polynomdivisjon gir $P(x) : (x - 1) = x^2 - 5x + 6$. Dette andregradsuttrykket kan vi faktorisere på vanlig måte: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$P(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunktene er $x = 1$, $x = 2$ og $x = 3$. Tredjegradspolynomet er knekket helt opp i førstegradsfaktorer -- byggesteinene er avslørt."},{"id":"r1-1-1-n-quiz3","type":"exercise","exercise":{"id":"r1-1-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på faktorteoremet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-1-n-quiz3-q0","task":"Du regner ut at $P(1) = 0$ for et polynom $P(x)$. Hva kan du konkludere?","options":[{"id":"a","text":"$(x - 1)$ er en faktor i $P(x)$","isCorrect":true},{"id":"b","text":"$(x + 1)$ er en faktor i $P(x)$","isCorrect":false},{"id":"c","text":"$P(x)$ har grad $1$","isCorrect":false},{"id":"d","text":"$P(x)$ har ingen flere nullpunkter","isCorrect":false}],"solution":"Faktorteoremet: $P(a) = 0 \\Leftrightarrow (x - a)$ er faktor. Med $a = 1$ er $(x - 1)$ en faktor."},{"id":"r1-1-1-n-quiz3-q1","task":"Hva er den fullstendige faktoriseringen av $P(x) = x^3 - 6x^2 + 11x - 6$?","options":[{"id":"a","text":"$(x+1)(x+2)(x+3)$","isCorrect":false},{"id":"b","text":"$(x-1)(x-2)(x+3)$","isCorrect":false},{"id":"c","text":"$(x-1)(x-2)(x-3)$","isCorrect":true},{"id":"d","text":"$(x-6)(x-11)(x-6)$","isCorrect":false}],"solution":"$P(1) = 0$ gir faktoren $(x-1)$. Divisjon gir $x^2 - 5x + 6 = (x-2)(x-3)$, så $P(x) = (x-1)(x-2)(x-3)$."},{"id":"r1-1-1-n-quiz3-q2","task":"For hvilken verdi av $k$ er $(x + 2)$ en faktor i $P(x) = x^3 + kx^2 - x + 6$?","options":[{"id":"a","text":"$k = 2$","isCorrect":false},{"id":"b","text":"$k = -2$","isCorrect":false},{"id":"c","text":"$k = 1$","isCorrect":false},{"id":"d","text":"$k = 0$","isCorrect":true}],"solution":"Faktorteoremet krever $P(-2) = 0$: $-8 + 4k + 2 + 6 = 4k = 0$, altså $k = 0$."}]}},{"id":"r1-1-1-n-section4","type":"text","content":"## Systematisk jakt: teoremet om rasjonale røtter\n\nÅ gjette nullpunkter i blinde kan bli slitsomt. Heldigvis finnes det et teorem som krymper jaktområdet dramatisk. **Teoremet om rasjonale røtter** sier: hvis polynomet $P(x) = a_n x^n + \\ldots + a_1 x + a_0$ har heltallskoeffisienter og et rasjonalt nullpunkt $\\frac{p}{q}$ på forkortet form, så må $p$ være en divisor i konstantleddet $a_0$, og $q$ må være en divisor i den ledende koeffisienten $a_n$.\n\nIntuisjonen er at konstantleddet «husker» produktet av nullpunktene, mens den ledende koeffisienten styrer nevnerne som kan dukke opp. Kandidatlisten blir dermed endelig og ofte kort.\n\nLa oss bruke dette på $P(x) = 2x^3 - 3x^2 - 3x + 2$. Konstantleddet er $2$, så $p \\in \\{\\pm 1, \\pm 2\\}$. Den ledende koeffisienten er $2$, så $q \\in \\{1, 2\\}$. De eneste mulige rasjonale nullpunktene er dermed $\\pm 1$, $\\pm 2$ og $\\pm \\frac{1}{2}$ -- seks kandidater i stedet for uendelig mange.\n\nVi tester: $P(1) = 2 - 3 - 3 + 2 = -2$, bom. $P(-1) = -2 - 3 + 3 + 2 = 0$, treff! $P(2) = 16 - 12 - 6 + 2 = 0$, treff igjen. Med to faktorer $(x+1)$ og $(x-2)$ i boks dividerer vi: $P(x) : \\left[(x+1)(x-2)\\right] = 2x - 1$, og dermed er\n\n$$P(x) = (x+1)(x-2)(2x-1)$$\n\nmed nullpunkter $x = -1$, $x = 2$ og $x = \\frac{1}{2}$. Legg merke til at $\\frac{1}{2}$ passer perfekt med teoremet: $p = 1$ deler konstantleddet $2$, og $q = 2$ deler den ledende koeffisienten $2$."},{"id":"r1-1-1-n-quiz4","type":"exercise","exercise":{"id":"r1-1-1-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på rasjonale røtter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-1-n-quiz4-q0","task":"For $P(x) = 2x^3 - 3x^2 - 3x + 2$: hvilket tall er IKKE en mulig rasjonal rot ifølge teoremet om rasjonale røtter?","options":[{"id":"a","text":"$-1$","isCorrect":false},{"id":"b","text":"$\\frac{3}{2}$","isCorrect":true},{"id":"c","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$2$","isCorrect":false}],"solution":"Kandidatene er $\\frac{p}{q}$ der $p$ deler $2$ og $q$ deler $2$: $\\pm 1, \\pm 2, \\pm \\frac{1}{2}$. Tallet $\\frac{3}{2}$ har $p = 3$, som ikke deler konstantleddet $2$."},{"id":"r1-1-1-n-quiz4-q1","task":"Hva er $P(-1)$ for $P(x) = 2x^3 - 3x^2 - 3x + 2$?","options":[{"id":"a","text":"$-2$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":true},{"id":"d","text":"$-6$","isCorrect":false}],"solution":"$P(-1) = -2 - 3 + 3 + 2 = 0$. Dermed er $(x + 1)$ en faktor i $P(x)$."},{"id":"r1-1-1-n-quiz4-q2","task":"Hva er alle nullpunktene til $P(x) = 2x^3 - 3x^2 - 3x + 2 = (x+1)(x-2)(2x-1)$?","options":[{"id":"a","text":"$x = -1$, $x = 2$ og $x = \\frac{1}{2}$","isCorrect":true},{"id":"b","text":"$x = 1$, $x = -2$ og $x = 2$","isCorrect":false},{"id":"c","text":"$x = -1$, $x = 2$ og $x = 2$","isCorrect":false},{"id":"d","text":"$x = 1$, $x = 2$ og $x = -\\frac{1}{2}$","isCorrect":false}],"solution":"Faktorene gir $x + 1 = 0$, $x - 2 = 0$ og $2x - 1 = 0$, altså $x = -1$, $x = 2$ og $x = \\frac{1}{2}$."}]}},{"id":"r1-1-1-n-summary","type":"text","content":"## Fortellingen i et nøtteskall\n\nVi startet med QR-koder og endte med en komplett verktøykasse for å plukke polynomer fra hverandre. Et **polynom** $P(x) = a_n x^n + \\ldots + a_0$ kjennetegnes av graden sin, den ledende koeffisienten og konstantleddet, og vi adderer, subtraherer og multipliserer dem med helt vanlige regneregler.\n\n**Polynomdivisjon** er divisjon med rest, akkurat som for tall: $P(x) = D(x) \\cdot Q(x) + R(x)$, der resten har lavere grad enn divisoren. Rytmen er den samme hver gang -- del, gang, trekk fra, ta ned neste ledd -- og svaret kan alltid kontrolleres ved å gange ut igjen.\n\nKapittelets juvel er **faktorteoremet**: $(x - a)$ er en faktor i $P(x)$ hvis og bare hvis $P(a) = 0$. Nullpunkter og faktorer er to sider av samme sak, og det gir oss strategien for å faktorisere polynomer av høy grad: finn ett nullpunkt, divider ut faktoren, og gjenta på det enklere polynomet som står igjen.\n\nNår vi leter etter nullpunkter, slipper vi å gjette vilt. **Teoremet om rasjonale røtter** forteller at en rasjonal rot $\\frac{p}{q}$ må ha $p$ som divisor i konstantleddet og $q$ som divisor i den ledende koeffisienten -- en kort kandidatliste vi kan teste systematisk.\n\nDisse verktøyene følger deg gjennom hele R1: faktorisering trengs når du skal forkorte rasjonale uttrykk, løse ulikheter med fortegnslinje og analysere funksjoner. Polynomene er arbeidshester -- nå vet du hvordan du temmer dem."}],"exercises":[]}
+{
+  "id": "r1-1-1-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "1.1",
+  "title": "Polynomer og polynomdivisjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om polynomene -- matematikkens arbeidshester -- og om hvordan divisjon og faktorteoremet lar oss knekke dem opp i nullpunkter og faktorer.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forstå hva et polynom er og kunne identifisere grad og koeffisienter",
+    "beherske polynomdivisjon",
+    "bruke faktorteoremet til å faktorisere polynomer",
+    "finne nullpunkter til polynomer"
+  ],
+  "linkedChapterId": "r1-1-1",
+  "content": [
+    {
+      "id": "r1-1-1-n-intro",
+      "type": "text",
+      "content": "## Matematikkens arbeidshester\n\nNår du skanner en QR-kode med mobilen, skjer det noe bemerkelsesverdig: selv om koden er delvis tildekket eller skadet, leser telefonen den likevel riktig. Hemmeligheten er polynomdivisjon. Dataene i koden er kodet som koeffisienter i et polynom, og ved å dividere med et bestemt kontrollpolynom kan mobilen oppdage og rette feil. Den samme ideen, Reed-Solomon-koder, beskytter data på Blu-ray-plater og i kommunikasjon med romsonder milliarder av kilometer unna.\n\nPolynomer er på mange måter matematikkens arbeidshester. De er enkle nok til at vi kan regne med dem for hånd, men fleksible nok til å beskrive alt fra banen til en fotball til rentebanen i en låneavtale. I dette kapittelet skal vi bli ordentlig kjent med dem: hva de er, hvordan vi regner med dem, og -- viktigst av alt -- hvordan vi kan *faktorisere* dem.\n\nÅ faktorisere et polynom er som å primtallsfaktorisere et tall: vi avslører byggesteinene det er laget av. Og byggesteinene henger nøye sammen med polynomets nullpunkter -- de $x$-verdiene som gjør polynomet lik null. Veien dit går gjennom tre verktøy du skal mestre: polynomdivisjon, faktorteoremet og teoremet om rasjonale røtter. La oss begynne med begynnelsen: hva et polynom egentlig er."
+    },
+    {
+      "id": "r1-1-1-n-section1",
+      "type": "text",
+      "content": "## Hva er et polynom?\n\nEt **polynom** i variabelen $x$ er et uttrykk på formen\n\n$$P(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder koeffisientene $a_n, \\ldots, a_0$ er reelle tall og $n$ er et ikke-negativt heltall. Tre ord går igjen når vi snakker om polynomer. **Graden** er den høyeste potensen av $x$ som faktisk forekommer. Den **ledende koeffisienten** er tallet foran denne høyeste potensen, og **konstantleddet** er $a_0$ -- leddet uten $x$.\n\nTa $P(x) = 3x^4 - 2x^2 + 5x - 1$. Her er graden $4$, den ledende koeffisienten $3$ og konstantleddet $-1$. I $Q(x) = -2x^3 + x$ er graden $3$, ledende koeffisient $-2$, og konstantleddet er $0$ siden det ikke står noe konstantledd der. Til og med et rent tall som $R(x) = 7$ er et polynom -- av grad $0$.\n\nÅ regne med polynomer er heldigvis ikke noe nytt: vi bruker reglene du allerede kan. Ved **addisjon og subtraksjon** kombinerer vi like ledd, altså ledd med samme potens av $x$. Med $P(x) = 2x^2 + 3x - 1$ og $Q(x) = x^2 - 2x + 4$ får vi $P(x) + Q(x) = 3x^2 + x + 3$, og $P(x) - Q(x) = x^2 + 5x - 5$ -- husk at minustegnet skifter fortegn på *alle* leddene i $Q$.\n\nVed **multiplikasjon** bruker vi distributiv lov: hvert ledd i det ene polynomet ganges med hvert ledd i det andre. Da blir $P(x) \\cdot Q(x) = 2x^4 - x^3 + x^2 + 14x - 4$ etter at vi har samlet like ledd. Legg merke til et nyttig mønster: graden til produktet er summen av gradene, her $2 + 2 = 4$."
+    },
+    {
+      "id": "r1-1-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på polynomer og polynomregning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-1-n-quiz1-q0",
+            "task": "Hva er graden til polynomet $P(x) = 3x^4 - 2x^2 + 5x - 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Graden er den høyeste potensen av $x$ som forekommer, altså $4$."
+          },
+          {
+            "id": "r1-1-1-n-quiz1-q1",
+            "task": "Hva er den ledende koeffisienten i $Q(x) = -2x^3 + x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$-2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den ledende koeffisienten er tallet foran den høyeste potensen $x^3$, altså $-2$."
+          },
+          {
+            "id": "r1-1-1-n-quiz1-q2",
+            "task": "Hva er konstantleddet i $R(x) = 4x^3 - x^2$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-x^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det finnes ikke noe ledd uten $x$, så konstantleddet er $0$."
+          },
+          {
+            "id": "r1-1-1-n-quiz1-q3",
+            "task": "Hva er $(2x^2 + 3x - 1) + (x^2 - 2x + 4)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x^2 + 5x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x^2 + x + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x^2 + x + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3x^2 + x - 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kombiner like ledd: $2x^2 + x^2 = 3x^2$, $3x - 2x = x$ og $-1 + 4 = 3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-1-n-section2",
+      "type": "text",
+      "content": "## Polynomdivisjon -- divisjon med rest\n\nHusker du divisjon med rest fra barneskolen? $17$ delt på $5$ gir $3$ med rest $2$, altså $17 = 5 \\cdot 3 + 2$. Polynomdivisjon er nøyaktig samme idé, bare med polynomer i stedet for tall. Vi deler et polynom $P(x)$ (dividenden) på et polynom $D(x)$ (divisoren) og får en kvotient $Q(x)$ og en rest $R(x)$:\n\n$$P(x) = D(x) \\cdot Q(x) + R(x)$$\n\n**Divisjonsalgoritmen** garanterer at kvotienten og resten finnes og er entydige, og at graden til resten alltid er *lavere* enn graden til divisoren -- akkurat som resten $2$ er mindre enn $5$ i talleksempelet. Deler vi på et førstegradspolynom som $x - 1$, blir resten derfor bare et tall.\n\nSelve regningen følger samme rytme som tallregning: del, gang, trekk fra, ta ned neste ledd. La oss dele $x^3 - 2x^2 + 5x - 3$ på $x - 1$. Først: $x^3 \\div x = x^2$. Vi ganger $x^2$ med $(x-1)$ og trekker fra; igjen står $-x^2 + 5x$. Så: $-x^2 \\div x = -x$, gang og trekk fra; igjen står $4x - 3$. Til slutt: $4x \\div x = 4$, og etter siste subtraksjon står vi igjen med resten $1$. Altså:\n\n$$x^3 - 2x^2 + 5x - 3 = (x - 1)(x^2 - x + 4) + 1$$\n\nTo praktiske råd: skriv alltid polynomene i synkende potensrekkefølge, og sett inn $0$ som koeffisient for potenser som mangler -- ellers er det fort gjort å rote seg bort. Og du kan alltid kontrollere svaret ved å gange kvotienten med divisoren og legge til resten. Et elegant frampek: resten ved divisjon med $(x - a)$ er alltid lik $P(a)$. Sjekk selv: $P(1) = 1 - 2 + 5 - 3 = 1$, nøyaktig resten vi fant."
+    },
+    {
+      "id": "r1-1-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på polynomdivisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-1-n-quiz2-q0",
+            "task": "Hva er kvotienten i divisjonen $(x^2 + 5x + 6) : (x + 2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x - 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x + 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x + 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x^2 + 5x + 6 = (x+2)(x+3)$, så divisjonen går opp med kvotient $x + 3$."
+          },
+          {
+            "id": "r1-1-1-n-quiz2-q1",
+            "task": "Hva er resten i divisjonen $(x^3 - 2x^2 + 5x - 3) : (x - 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Divisjonen gir $x^3 - 2x^2 + 5x - 3 = (x-1)(x^2 - x + 4) + 1$. Kontroll: $P(1) = 1 - 2 + 5 - 3 = 1$."
+          },
+          {
+            "id": "r1-1-1-n-quiz2-q2",
+            "task": "I $P(x) = D(x) \\cdot Q(x) + R(x)$ -- hvilket krav gjelder for resten $R(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$R(x)$ har samme grad som $D(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Graden til $R(x)$ er lavere enn graden til $D(x)$, eller $R(x) = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$R(x)$ er alltid null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$R(x)$ har høyere grad enn $Q(x)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Divisjonsalgoritmen sier at $\\text{grad}(R) < \\text{grad}(D)$ eller $R(x) = 0$ -- akkurat som resten i tallregning er mindre enn divisoren."
+          },
+          {
+            "id": "r1-1-1-n-quiz2-q3",
+            "task": "Hva blir resten når $P(x) = x^3 - 3x + 1$ divideres med $(x - 2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Resten ved divisjon med $(x - a)$ er $P(a)$. Her: $P(2) = 8 - 6 + 1 = 3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-1-n-section3",
+      "type": "text",
+      "content": "## Faktorteoremet -- nøkkelen til faktorisering\n\nNå kommer kapittelets viktigste innsikt. Tenk på hva det betyr at divisjonen av $P(x)$ med $(x - a)$ går *opp*, altså at resten er null. Da er $P(x) = (x - a) \\cdot Q(x)$, og setter vi inn $x = a$, blir $P(a) = 0 \\cdot Q(a) = 0$. Og siden resten ved divisjon med $(x-a)$ alltid er $P(a)$, gjelder også det motsatte. Dette er **faktorteoremet**:\n\n$$P(a) = 0 \\quad \\Leftrightarrow \\quad (x - a) \\text{ er en faktor i } P(x)$$\n\nNullpunkter og faktorer er altså to sider av samme sak. Hvert nullpunkt avslører en faktor, og hver faktor avslører et nullpunkt.\n\nDette gir oss en jaktstrategi for å faktorisere polynomer av grad tre og høyere, der ingen abc-formel finnes. Først *gjetter* vi et nullpunkt -- prøv gjerne små heltall som $\\pm 1, \\pm 2, \\pm 3$. Finner vi en verdi $a$ med $P(a) = 0$, vet vi at $(x - a)$ er en faktor. Så dividerer vi $P(x)$ på $(x - a)$ og står igjen med et polynom av lavere grad, som vi angriper på nytt.\n\nSe hvordan det fungerer på $P(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver $x = 1$: $P(1) = 1 - 6 + 11 - 6 = 0$. Treff! Da er $(x - 1)$ en faktor, og polynomdivisjon gir $P(x) : (x - 1) = x^2 - 5x + 6$. Dette andregradsuttrykket kan vi faktorisere på vanlig måte: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$P(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunktene er $x = 1$, $x = 2$ og $x = 3$. Tredjegradspolynomet er knekket helt opp i førstegradsfaktorer -- byggesteinene er avslørt."
+    },
+    {
+      "id": "r1-1-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på faktorteoremet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-1-n-quiz3-q0",
+            "task": "Du regner ut at $P(1) = 0$ for et polynom $P(x)$. Hva kan du konkludere?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x + 1)$ er en faktor i $P(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(x)$ har grad $1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(x)$ har ingen flere nullpunkter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$(x - 1)$ er en faktor i $P(x)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Faktorteoremet: $P(a) = 0 \\Leftrightarrow (x - a)$ er faktor. Med $a = 1$ er $(x - 1)$ en faktor."
+          },
+          {
+            "id": "r1-1-1-n-quiz3-q1",
+            "task": "Hva er den fullstendige faktoriseringen av $P(x) = x^3 - 6x^2 + 11x - 6$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$(x-1)(x-2)(x-3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(x+1)(x+2)(x+3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x-1)(x-2)(x+3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x-6)(x-11)(x-6)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(1) = 0$ gir faktoren $(x-1)$. Divisjon gir $x^2 - 5x + 6 = (x-2)(x-3)$, så $P(x) = (x-1)(x-2)(x-3)$."
+          },
+          {
+            "id": "r1-1-1-n-quiz3-q2",
+            "task": "For hvilken verdi av $k$ er $(x + 2)$ en faktor i $P(x) = x^3 + kx^2 - x + 6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$k = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$k = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$k = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$k = 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorteoremet krever $P(-2) = 0$: $-8 + 4k + 2 + 6 = 4k = 0$, altså $k = 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-1-n-section4",
+      "type": "text",
+      "content": "## Systematisk jakt: teoremet om rasjonale røtter\n\nÅ gjette nullpunkter i blinde kan bli slitsomt. Heldigvis finnes det et teorem som krymper jaktområdet dramatisk. **Teoremet om rasjonale røtter** sier: hvis polynomet $P(x) = a_n x^n + \\ldots + a_1 x + a_0$ har heltallskoeffisienter og et rasjonalt nullpunkt $\\frac{p}{q}$ på forkortet form, så må $p$ være en divisor i konstantleddet $a_0$, og $q$ må være en divisor i den ledende koeffisienten $a_n$.\n\nIntuisjonen er at konstantleddet «husker» produktet av nullpunktene, mens den ledende koeffisienten styrer nevnerne som kan dukke opp. Kandidatlisten blir dermed endelig og ofte kort.\n\nLa oss bruke dette på $P(x) = 2x^3 - 3x^2 - 3x + 2$. Konstantleddet er $2$, så $p \\in \\{\\pm 1, \\pm 2\\}$. Den ledende koeffisienten er $2$, så $q \\in \\{1, 2\\}$. De eneste mulige rasjonale nullpunktene er dermed $\\pm 1$, $\\pm 2$ og $\\pm \\frac{1}{2}$ -- seks kandidater i stedet for uendelig mange.\n\nVi tester: $P(1) = 2 - 3 - 3 + 2 = -2$, bom. $P(-1) = -2 - 3 + 3 + 2 = 0$, treff! $P(2) = 16 - 12 - 6 + 2 = 0$, treff igjen. Med to faktorer $(x+1)$ og $(x-2)$ i boks dividerer vi: $P(x) : \\left[(x+1)(x-2)\\right] = 2x - 1$, og dermed er\n\n$$P(x) = (x+1)(x-2)(2x-1)$$\n\nmed nullpunkter $x = -1$, $x = 2$ og $x = \\frac{1}{2}$. Legg merke til at $\\frac{1}{2}$ passer perfekt med teoremet: $p = 1$ deler konstantleddet $2$, og $q = 2$ deler den ledende koeffisienten $2$."
+    },
+    {
+      "id": "r1-1-1-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-1-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rasjonale røtter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-1-n-quiz4-q0",
+            "task": "For $P(x) = 2x^3 - 3x^2 - 3x + 2$: hvilket tall er IKKE en mulig rasjonal rot ifølge teoremet om rasjonale røtter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{3}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kandidatene er $\\frac{p}{q}$ der $p$ deler $2$ og $q$ deler $2$: $\\pm 1, \\pm 2, \\pm \\frac{1}{2}$. Tallet $\\frac{3}{2}$ har $p = 3$, som ikke deler konstantleddet $2$."
+          },
+          {
+            "id": "r1-1-1-n-quiz4-q1",
+            "task": "Hva er $P(-1)$ for $P(x) = 2x^3 - 3x^2 - 3x + 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(-1) = -2 - 3 + 3 + 2 = 0$. Dermed er $(x + 1)$ en faktor i $P(x)$."
+          },
+          {
+            "id": "r1-1-1-n-quiz4-q2",
+            "task": "Hva er alle nullpunktene til $P(x) = 2x^3 - 3x^2 - 3x + 2 = (x+1)(x-2)(2x-1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = -1$, $x = 2$ og $x = \\frac{1}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = 1$, $x = -2$ og $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = -1$, $x = 2$ og $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 1$, $x = 2$ og $x = -\\frac{1}{2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorene gir $x + 1 = 0$, $x - 2 = 0$ og $2x - 1 = 0$, altså $x = -1$, $x = 2$ og $x = \\frac{1}{2}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-1-n-summary",
+      "type": "text",
+      "content": "## Fortellingen i et nøtteskall\n\nVi startet med QR-koder og endte med en komplett verktøykasse for å plukke polynomer fra hverandre. Et **polynom** $P(x) = a_n x^n + \\ldots + a_0$ kjennetegnes av graden sin, den ledende koeffisienten og konstantleddet, og vi adderer, subtraherer og multipliserer dem med helt vanlige regneregler.\n\n**Polynomdivisjon** er divisjon med rest, akkurat som for tall: $P(x) = D(x) \\cdot Q(x) + R(x)$, der resten har lavere grad enn divisoren. Rytmen er den samme hver gang -- del, gang, trekk fra, ta ned neste ledd -- og svaret kan alltid kontrolleres ved å gange ut igjen.\n\nKapittelets juvel er **faktorteoremet**: $(x - a)$ er en faktor i $P(x)$ hvis og bare hvis $P(a) = 0$. Nullpunkter og faktorer er to sider av samme sak, og det gir oss strategien for å faktorisere polynomer av høy grad: finn ett nullpunkt, divider ut faktoren, og gjenta på det enklere polynomet som står igjen.\n\nNår vi leter etter nullpunkter, slipper vi å gjette vilt. **Teoremet om rasjonale røtter** forteller at en rasjonal rot $\\frac{p}{q}$ må ha $p$ som divisor i konstantleddet og $q$ som divisor i den ledende koeffisienten -- en kort kandidatliste vi kan teste systematisk.\n\nDisse verktøyene følger deg gjennom hele R1: faktorisering trengs når du skal forkorte rasjonale uttrykk, løse ulikheter med fortegnslinje og analysere funksjoner. Polynomene er arbeidshester -- nå vet du hvordan du temmer dem."
+    }
+  ],
+  "exercises": []
+}

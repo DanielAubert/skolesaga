@@ -1,1 +1,416 @@
-{"id":"elektro-data-vg1-4-6-narrativ","courseId":"elektro-data-vg1","chapterNumber":"4.6","title":"Nettverksutstyr og kabelsystem","subtitle":"Narrativ versjon","description":"Ei forteljing om reisa ein datapakke tek – frå svitsj og ruter til koparkablar, lysande fiber og det ryddige patchepanelet i nettverksrommet.","estimatedMinutes":33,"competenceGoals":["identifisere og forklare nettverkskomponenter og kabelsystemer"],"linkedChapterId":"elektro-data-vg1-4-6","content":[{"id":"elektro-data-vg1-4-6-n-intro","type":"text","content":"## Maskina bak veggen\n\nDu opnar nettlesaren, skriv inn ei adresse, og eit augneblikk seinare fyller nettsida skjermen. Det kjennest som magi, men bak den enkle handlinga står eit heilt maskineri av boksar, kablar og kontaktar som du sjeldan ser. Eit datanettverk er mykje meir enn maskinene som er kopla til det.\n\nVi deler utstyret i to grupper. Dei **aktive komponentane** er dei smarte boksane som behandlar og vidaresender data – svitsjar, rutarar og aksesspunkt. Dei **passive komponentane** er kablane og kontaktane som berre fraktar signala fysisk frå stad til stad. Skal du installere eit nytt nettverk eller finne ut kvifor det eksisterande heng seg opp, må du kjenne begge delar. Lat oss følgje dataa på reisa og bli kjende med utstyret dei møter undervegs."},{"id":"elektro-data-vg1-4-6-n-section1","type":"text","content":"## Svitsj og ruter – to boksar med ulik jobb\n\nDei to viktigaste aktive boksane er svitsjen og ruteren, og skilnaden mellom dei er lett å rote bort. Lat oss halde dei frå kvarandre.\n\nEin **svitsj** koplar saman einingar som tilhøyrer *same* lokale nettverk, eit LAN. Han jobbar på **lag 2** i OSI-modellen og bruker MAC-adresser. Det fine med ein svitsj er at han lærer: for kvar port hugsar han kva eining, altså kva MAC-adresse, som heng der. Når ei ramme kjem inn, les han MAC-adressa til destinasjonen og sender ramma *berre* ut på den eine rette porten – ikkje til alle, slik ein gammaldags hub gjorde. Svitsjar finst som enkle plug-and-play \"unmanaged\", som konfigurerbare \"managed\" med VLAN og overvaking, og som PoE-svitsjar som kan sende straum gjennom nettverkskabelen.\n\nEin **ruter** har ei anna oppgåve: han bind saman *forskjellige* nettverk og finn vegen for pakkane mellom dei. Han jobbar på **lag 3** og bruker IP-adresser. Ruteren vel beste rute, omset mellom dine private og dei offentlege adressene på internett med NAT, deler ut IP-adresser via DHCP og fungerer som ein enkel brannmur. Heime er ruteren ofte den boksen du fekk frå internettleverandøren, og han gøymer gjerne både ruter, svitsj, WiFi og modem i same kabinett.\n\nLat oss sjå det i praksis. PC-A med adresse 192.168.1.10 skal først sende ei fil til PC-B på 192.168.1.20 i same nettverk. Då lagar PC-A ei ramme med MAC-adressa til PC-B, svitsjen kjenner att adressa og sender ho rett til rett port – ruteren rører ikkje ein finger, for alt skjer innanfor same nettverk. Men så skal PC-A besøke ei nettside ute på internett. No er måladressa utanfor det lokale nettet, så pakken blir sendt til standard gateway, altså ruteren. Svitsjen fraktar ramma bort til porten til ruteren, ruteren byter den private IP-en til PC-A med sin offentlege via NAT, og sender pakken vidare ut i verda."},{"id":"elektro-data-vg1-4-6-n-quiz1","type":"exercise","exercise":{"id":"elektro-data-vg1-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på svitsj og ruter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-4-6-n-quiz1-q0","task":"Kva er hovudoppgåva til ein svitsj?","options":[{"id":"a","text":"Å kople saman forskjellige nettverk med IP-adresser","isCorrect":false},{"id":"b","text":"Å gje trådlaus tilgang","isCorrect":false},{"id":"c","text":"Å omsetje private og offentlege IP-adresser","isCorrect":false},{"id":"d","text":"Å kople saman einingar i same lokale nettverk med MAC-adresser","isCorrect":true}],"solution":"Ein svitsj koplar einingar i same LAN og jobbar på lag 2 med MAC-adresser. Å kople ulike nettverk med IP-adresser er jobben til ruteren (lag 3)."},{"id":"elektro-data-vg1-4-6-n-quiz1-q1","task":"PC-A sender ei fil til PC-B i same nettverk. Kva eining er IKKJE involvert?","options":[{"id":"a","text":"Ruteren","isCorrect":true},{"id":"b","text":"Svitsjen","isCorrect":false},{"id":"c","text":"Nettverkskabelen","isCorrect":false},{"id":"d","text":"Nettverkskortet i PC-ane","isCorrect":false}],"solution":"Når begge PC-ane er i same nettverk, sender svitsjen ramma direkte mellom dei ut frå MAC-adressa. Ruteren blir berre brukt når trafikken skal til eit anna nettverk."},{"id":"elektro-data-vg1-4-6-n-quiz1-q2","task":"Kva gjer ruteren med NAT når PC-A besøker ei nettside på internett?","options":[{"id":"a","text":"Han krypterer heile pakken","isCorrect":false},{"id":"b","text":"Han byter den private IP-en til PC-A med ruterens offentlege IP","isCorrect":true},{"id":"c","text":"Han endrar MAC-adressa til nettsida","isCorrect":false},{"id":"d","text":"Han aukar farten på linja","isCorrect":false}],"solution":"NAT (Network Address Translation) erstattar den private avsendaradressa med ruterens offentlege IP, slik at svaret finn vegen tilbake."}]}},{"id":"elektro-data-vg1-4-6-n-section2","type":"text","content":"## Aksesspunktet og koparkablane\n\nDei fleste einingane dine koplar seg trådlaust i dag, og brua mellom WiFi og det kabla nettet heiter **trådlaust aksesspunkt**, eller AP. Det blir kopla til svitsjen med ein Ethernet-kabel og sender ut eit WiFi-signal med eit nettverksnamn (SSID) som einingane kan kople seg til. Ofte får det straum gjennom sjølve nettverkskabelen via PoE, og det kan kringkaste fleire SSID-ar, til dømes éin for tilsette og éin for gjester. Plasseringa betyr mykje: monter det i taket, unna metall og betong, og rekn med om lag eitt AP per 100 til 150 kvadratmeter for god innandørs dekning. Medan ein heimeruter samlar ruter, svitsj og AP i éin boks, bruker ein frittståande AP-ar når ein treng fleire punkt spreidde utover eit stort kontor med sentralisert styring.\n\nSå kjem vi til sjølve årene i nettverket: **Ethernet-kablane**, også kalla TP-kablar fordi dei inneheld fire par tvinna kopartrådar. Dei endar i ein RJ45-kontakt, og dei finst i ulike kategoriar. Cat 5e taklar 1 Gbps, Cat 6 klarar 10 Gbps – men berre over korte 55 meter – medan Cat 6a held 10 Gbps over fulle 100 meter. Cat 7 og Cat 8 er skjerma spesialkablar for datasenter. Felles for alle koparkablane er den harde grensa: **maks 100 meter** frå svitsj til eining, for lenger enn det blir signalet svekt for mykje.\n\nTenk deg at ei bedrift skal kable eit nytt kontorbygg med femti arbeidsplassar. I dag held det med 1 Gbps, men dei vil kunne oppgradere til 10 Gbps seinare. Cat 5e fell bort, for han når ikkje 10 Gbps. Cat 6 klarar det berre over 55 meter, og mange kabelstrekk i eit kontorbygg er lengre. Cat 6a derimot gjev 10 Gbps over heile 100 meter – framtidssikkert. Meirkostnaden er liten, og det er mykje billigare å leggje rett kabel med éin gong enn å rive opp golv og tak om nokre år."},{"id":"elektro-data-vg1-4-6-n-quiz2","type":"exercise","exercise":{"id":"elektro-data-vg1-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på aksesspunkt og kablar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-4-6-n-quiz2-q0","task":"Kva er den maksimale lengda på ein Ethernet koparkabel (Cat 5e/6/6a) frå svitsj til eining?","options":[{"id":"a","text":"50 meter","isCorrect":false},{"id":"b","text":"250 meter","isCorrect":false},{"id":"c","text":"100 meter","isCorrect":true},{"id":"d","text":"500 meter","isCorrect":false}],"solution":"Grensa er 100 meter. Over dette blir signalet svekt for mykje. For lengre avstandar blir fiber eller ekstra svitsjar brukte."},{"id":"elektro-data-vg1-4-6-n-quiz2-q1","task":"Ei bedrift vil ha 1 Gbps no og høve til 10 Gbps over 100 meter seinare. Kva kabel?","options":[{"id":"a","text":"Cat 5e","isCorrect":false},{"id":"b","text":"Cat 6 (berre 55 m for 10 Gbps)","isCorrect":false},{"id":"c","text":"Cat 3","isCorrect":false},{"id":"d","text":"Cat 6a","isCorrect":true}],"solution":"Cat 6a gjev 10 Gbps over fulle 100 meter og er dermed framtidssikkert. Cat 5e når ikkje 10 Gbps, og Cat 6 berre over 55 meter."},{"id":"elektro-data-vg1-4-6-n-quiz2-q2","task":"Kva er fordelen med at eit aksesspunkt får straum via PoE?","options":[{"id":"a","text":"Straum og data går i same kabel, så installasjonen i taket blir ryddig","isCorrect":true},{"id":"b","text":"Det gjev høgare WiFi-fart","isCorrect":false},{"id":"c","text":"Det fjernar behovet for kryptering","isCorrect":false},{"id":"d","text":"Det doblar rekkjevidda","isCorrect":false}],"solution":"PoE (Power over Ethernet) leverer straum gjennom nettverkskabelen, slik at eit takmontert AP ikkje treng eigen straumkontakt – ryddig og praktisk."}]}},{"id":"elektro-data-vg1-4-6-n-section3","type":"text","content":"## Fiber av lys og eit ryddig nettverksrom\n\nNår dei 100 metrane til koparet ikkje strekkjer til, eller når du treng verkeleg høg fart, byter vi ut elektrisitet med lys. **Fiberoptisk kabel** sender data som lyspulsar gjennom ein hårtynn glaskjerne. Det finst to typar: **singlemode** med ein bitteliten kjerne der ein laser sender lys i éi retning – rekkjevidde opptil heile 100 km, brukt mellom bygg og over lange strekk – og **multimode** med tjukkare kjerne der ein LED sender lys i fleire retningar, med rekkjevidde opptil 2 km inne i bygg og datasenter. Fiber gjev enorm fart, lang rekkjevidde og er **immun mot elektromagnetisk støy**, rett og slett fordi lys ikkje blir påverka av elektriske felt. Det siste er ein stor fordel i ein fabrikk full av elektromotorar og sveiseapparat, og det er nettopp difor ein trekkjer fiber mellom bygningar: kopar kan nemleg leie farleg spenning ved lynnedslag, medan fiber gjev full galvanisk isolasjon mellom bygga.\n\nTil slutt må alt dette haldast ryddig, og der kjem **strukturert kabling** og **patchepanelet** inn. Tenk deg den fysiske reisa: frå PC-en går ein kort patchekabel til eit vegguttak ved pulten. Derifrå løper ein fast horisontal kabel i veggen heilt inn til nettverksrommet, der han endar i eit patchepanel. Frå patchepanelet koplar ein ny kort patchekabel over til svitsjen, og vidare til ruteren. Fordelen med dette systemet er at det er oversiktleg og haldbart: skal ein tilsett flytte plass, byter du berre ein patchekabel i staden for å rive opp veggen, og feilsøking blir mykje enklare."},{"id":"elektro-data-vg1-4-6-n-quiz3","type":"exercise","exercise":{"id":"elektro-data-vg1-4-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på fiber og strukturert kabling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"elektro-data-vg1-4-6-n-quiz3-q0","task":"Kvifor er fiberoptisk kabel immun mot elektromagnetisk støy?","options":[{"id":"a","text":"Fordi koparet er ekstra tjukt","isCorrect":false},{"id":"b","text":"Fordi data blir sende som lys, og lys blir ikkje påverka av elektriske felt","isCorrect":true},{"id":"c","text":"Fordi han alltid er skjerma med metallfolie","isCorrect":false},{"id":"d","text":"Fordi han bruker høgare spenning","isCorrect":false}],"solution":"Fiber sender data som lyspulsar i glas, ikkje som elektriske signal. Lys blir ikkje forstyrra av elektromagnetiske felt, i motsetnad til straum i kopar."},{"id":"elektro-data-vg1-4-6-n-quiz3-q1","task":"Kva fibertype når lengst (opptil ca. 100 km)?","options":[{"id":"a","text":"Multimode","isCorrect":false},{"id":"b","text":"Cat 6a-fiber","isCorrect":false},{"id":"c","text":"Singlemode","isCorrect":true},{"id":"d","text":"UTP-fiber","isCorrect":false}],"solution":"Singlemode har ein svært tynn kjerne og bruker laser, og når opptil rundt 100 km. Multimode bruker LED og rekkjer opptil ca. 2 km inne i bygg."},{"id":"elektro-data-vg1-4-6-n-quiz3-q2","task":"Kva er fordelen med strukturert kabling og patchepanel når ein tilsett byter plass?","options":[{"id":"a","text":"Ein må leggje ny kabel i veggen","isCorrect":false},{"id":"b","text":"Ein må byte heile svitsjen","isCorrect":false},{"id":"c","text":"Ein må konfigurere ny IP-adresse manuelt på ruteren","isCorrect":false},{"id":"d","text":"Ein byter berre ein patchekabel i nettverksrommet","isCorrect":true}],"solution":"Med patchepanel og faste kabelstrekk kan ein flytte ein brukar ved å byte ein kort patchekabel, i staden for å trekkje ny fast kabel."}]}},{"id":"elektro-data-vg1-4-6-n-summary","type":"text","content":"## Oppsummering\n\nVi har følgt dataa gjennom heile nettverksmaskineriet. Ein **svitsj** koplar saman einingar i same lokale nettverk på lag 2 med MAC-adresser, medan ein **ruter** bind ulike nettverk saman på lag 3 med IP-adresser og omset mellom private og offentlege adresser via NAT. Eit **trådlaust aksesspunkt** gjev WiFi-tilgang til det kabla nettet og kan straumforsynast via PoE.\n\nDei passive komponentane fraktar sjølve signalet. **Ethernet-kablar** i kategoriane Cat 5e, 6 og 6a er standarden til koparet, med ei grense på 100 meter, medan **fiberoptikk** sender data som lys, gjev høgast fart og lengst rekkjevidde, og toler elektromagnetisk støy. Til slutt held **strukturert kabling** med **patchepanel** alt ryddig, så installasjonen blir oversiktleg, fleksibel og enkel å feilsøke."}],"exercises":[],"_meta":{"sourceHash":"e09357d283c48163","translatedAt":"2026-06-21T10:28:14.733Z","model":"claude-code-agent","strings":69,"tm":{"d63fbdabfc53cad2":"Nettverksutstyr og kabelsystem","b195b06d1ed59702":"Narrativ versjon","7d898dd70d5c2877":"Ei forteljing om reisa ein datapakke tek – frå svitsj og ruter til koparkablar, lysande fiber og det ryddige patchepanelet i nettverksrommet.","05bf444464d7eb83":"identifisere og forklare nettverkskomponenter og kabelsystemer","02a4ddcd09e67b64":"## Maskina bak veggen\n\nDu opnar nettlesaren, skriv inn ei adresse, og eit augneblikk seinare fyller nettsida skjermen. Det kjennest som magi, men bak den enkle handlinga står eit heilt maskineri av boksar, kablar og kontaktar som du sjeldan ser. Eit datanettverk er mykje meir enn maskinene som er kopla til det.\n\nVi deler utstyret i to grupper. Dei **aktive komponentane** er dei smarte boksane som behandlar og vidaresender data – svitsjar, rutarar og aksesspunkt. Dei **passive komponentane** er kablane og kontaktane som berre fraktar signala fysisk frå stad til stad. Skal du installere eit nytt nettverk eller finne ut kvifor det eksisterande heng seg opp, må du kjenne begge delar. Lat oss følgje dataa på reisa og bli kjende med utstyret dei møter undervegs.","7bc2b311f832ed71":"## Svitsj og ruter – to boksar med ulik jobb\n\nDei to viktigaste aktive boksane er svitsjen og ruteren, og skilnaden mellom dei er lett å rote bort. Lat oss halde dei frå kvarandre.\n\nEin **svitsj** koplar saman einingar som tilhøyrer *same* lokale nettverk, eit LAN. Han jobbar på **lag 2** i OSI-modellen og bruker MAC-adresser. Det fine med ein svitsj er at han lærer: for kvar port hugsar han kva eining, altså kva MAC-adresse, som heng der. Når ei ramme kjem inn, les han MAC-adressa til destinasjonen og sender ramma *berre* ut på den eine rette porten – ikkje til alle, slik ein gammaldags hub gjorde. Svitsjar finst som enkle plug-and-play \"unmanaged\", som konfigurerbare \"managed\" med VLAN og overvaking, og som PoE-svitsjar som kan sende straum gjennom nettverkskabelen.\n\nEin **ruter** har ei anna oppgåve: han bind saman *forskjellige* nettverk og finn vegen for pakkane mellom dei. Han jobbar på **lag 3** og bruker IP-adresser. Ruteren vel beste rute, omset mellom dine private og dei offentlege adressene på internett med NAT, deler ut IP-adresser via DHCP og fungerer som ein enkel brannmur. Heime er ruteren ofte den boksen du fekk frå internettleverandøren, og han gøymer gjerne både ruter, svitsj, WiFi og modem i same kabinett.\n\nLat oss sjå det i praksis. PC-A med adresse 192.168.1.10 skal først sende ei fil til PC-B på 192.168.1.20 i same nettverk. Då lagar PC-A ei ramme med MAC-adressa til PC-B, svitsjen kjenner att adressa og sender ho rett til rett port – ruteren rører ikkje ein finger, for alt skjer innanfor same nettverk. Men så skal PC-A besøke ei nettside ute på internett. No er måladressa utanfor det lokale nettet, så pakken blir sendt til standard gateway, altså ruteren. Svitsjen fraktar ramma bort til porten til ruteren, ruteren byter den private IP-en til PC-A med sin offentlege via NAT, og sender pakken vidare ut i verda.","8b9efd8120b916ab":"Test deg sjølv på svitsj og ruter:","4097889236a2af26":"placeholder","565b99485b5eea3e":"Kva er hovudoppgåva til ein svitsj?","bc857a9fc60ab72f":"Å kople saman forskjellige nettverk med IP-adresser","a6d35380ff553d4a":"Å gje trådlaus tilgang","7130ac2d709cc383":"Å omsetje private og offentlege IP-adresser","3a8f67f29795cf2e":"Å kople saman einingar i same lokale nettverk med MAC-adresser","2e99924ac17645a5":"Ein svitsj koplar einingar i same LAN og jobbar på lag 2 med MAC-adresser. Å kople ulike nettverk med IP-adresser er jobben til ruteren (lag 3).","0916484355200fd2":"PC-A sender ei fil til PC-B i same nettverk. Kva eining er IKKJE involvert?","968dbf23f033b246":"Ruteren","28e38de784a9f383":"Svitsjen","ca79c0c04f184485":"Nettverkskabelen","6cae49199f17a10b":"Nettverkskortet i PC-ane","6c8baa4bb3c67154":"Når begge PC-ane er i same nettverk, sender svitsjen ramma direkte mellom dei ut frå MAC-adressa. Ruteren blir berre brukt når trafikken skal til eit anna nettverk.","55abff1aa93b2ebe":"Kva gjer ruteren med NAT når PC-A besøker ei nettside på internett?","980e960aa3ec2b2e":"Han krypterer heile pakken","a64fb84a9100b810":"Han byter den private IP-en til PC-A med ruterens offentlege IP","fe07503600510e8b":"Han endrar MAC-adressa til nettsida","220916080523a0b8":"Han aukar farten på linja","922af94ed512e255":"NAT (Network Address Translation) erstattar den private avsendaradressa med ruterens offentlege IP, slik at svaret finn vegen tilbake.","9a8acecb9280899d":"## Aksesspunktet og koparkablane\n\nDei fleste einingane dine koplar seg trådlaust i dag, og brua mellom WiFi og det kabla nettet heiter **trådlaust aksesspunkt**, eller AP. Det blir kopla til svitsjen med ein Ethernet-kabel og sender ut eit WiFi-signal med eit nettverksnamn (SSID) som einingane kan kople seg til. Ofte får det straum gjennom sjølve nettverkskabelen via PoE, og det kan kringkaste fleire SSID-ar, til dømes éin for tilsette og éin for gjester. Plasseringa betyr mykje: monter det i taket, unna metall og betong, og rekn med om lag eitt AP per 100 til 150 kvadratmeter for god innandørs dekning. Medan ein heimeruter samlar ruter, svitsj og AP i éin boks, bruker ein frittståande AP-ar når ein treng fleire punkt spreidde utover eit stort kontor med sentralisert styring.\n\nSå kjem vi til sjølve årene i nettverket: **Ethernet-kablane**, også kalla TP-kablar fordi dei inneheld fire par tvinna kopartrådar. Dei endar i ein RJ45-kontakt, og dei finst i ulike kategoriar. Cat 5e taklar 1 Gbps, Cat 6 klarar 10 Gbps – men berre over korte 55 meter – medan Cat 6a held 10 Gbps over fulle 100 meter. Cat 7 og Cat 8 er skjerma spesialkablar for datasenter. Felles for alle koparkablane er den harde grensa: **maks 100 meter** frå svitsj til eining, for lenger enn det blir signalet svekt for mykje.\n\nTenk deg at ei bedrift skal kable eit nytt kontorbygg med femti arbeidsplassar. I dag held det med 1 Gbps, men dei vil kunne oppgradere til 10 Gbps seinare. Cat 5e fell bort, for han når ikkje 10 Gbps. Cat 6 klarar det berre over 55 meter, og mange kabelstrekk i eit kontorbygg er lengre. Cat 6a derimot gjev 10 Gbps over heile 100 meter – framtidssikkert. Meirkostnaden er liten, og det er mykje billigare å leggje rett kabel med éin gong enn å rive opp golv og tak om nokre år.","0a54b5f46425c9cb":"Test deg sjølv på aksesspunkt og kablar:","2b250f4b3d03f429":"Kva er den maksimale lengda på ein Ethernet koparkabel (Cat 5e/6/6a) frå svitsj til eining?","13c9b30dc6c8b16e":"50 meter","07884ac703aaa97f":"250 meter","f940188f8026facc":"100 meter","dd7972dc16a92524":"500 meter","91e6c87f1dd1c8c4":"Grensa er 100 meter. Over dette blir signalet svekt for mykje. For lengre avstandar blir fiber eller ekstra svitsjar brukte.","a26189c5e38c6abb":"Ei bedrift vil ha 1 Gbps no og høve til 10 Gbps over 100 meter seinare. Kva kabel?","62b117deb4db1913":"Cat 5e","752e63ccc86ee16b":"Cat 6 (berre 55 m for 10 Gbps)","67c03a10cf0b9ed9":"Cat 3","1492fbbcc680c6d3":"Cat 6a","cd9bfcbd36e85fc9":"Cat 6a gjev 10 Gbps over fulle 100 meter og er dermed framtidssikkert. Cat 5e når ikkje 10 Gbps, og Cat 6 berre over 55 meter.","4f50e5013906cfce":"Kva er fordelen med at eit aksesspunkt får straum via PoE?","e3b0fee4ff8e9163":"Straum og data går i same kabel, så installasjonen i taket blir ryddig","1f9678866e995771":"Det gjev høgare WiFi-fart","63290237d548a8f6":"Det fjernar behovet for kryptering","37291dcaf8f24889":"Det doblar rekkjevidda","198d9c56bc5cfdd3":"PoE (Power over Ethernet) leverer straum gjennom nettverkskabelen, slik at eit takmontert AP ikkje treng eigen straumkontakt – ryddig og praktisk.","4ffcac9b49f7cb25":"## Fiber av lys og eit ryddig nettverksrom\n\nNår dei 100 metrane til koparet ikkje strekkjer til, eller når du treng verkeleg høg fart, byter vi ut elektrisitet med lys. **Fiberoptisk kabel** sender data som lyspulsar gjennom ein hårtynn glaskjerne. Det finst to typar: **singlemode** med ein bitteliten kjerne der ein laser sender lys i éi retning – rekkjevidde opptil heile 100 km, brukt mellom bygg og over lange strekk – og **multimode** med tjukkare kjerne der ein LED sender lys i fleire retningar, med rekkjevidde opptil 2 km inne i bygg og datasenter. Fiber gjev enorm fart, lang rekkjevidde og er **immun mot elektromagnetisk støy**, rett og slett fordi lys ikkje blir påverka av elektriske felt. Det siste er ein stor fordel i ein fabrikk full av elektromotorar og sveiseapparat, og det er nettopp difor ein trekkjer fiber mellom bygningar: kopar kan nemleg leie farleg spenning ved lynnedslag, medan fiber gjev full galvanisk isolasjon mellom bygga.\n\nTil slutt må alt dette haldast ryddig, og der kjem **strukturert kabling** og **patchepanelet** inn. Tenk deg den fysiske reisa: frå PC-en går ein kort patchekabel til eit vegguttak ved pulten. Derifrå løper ein fast horisontal kabel i veggen heilt inn til nettverksrommet, der han endar i eit patchepanel. Frå patchepanelet koplar ein ny kort patchekabel over til svitsjen, og vidare til ruteren. Fordelen med dette systemet er at det er oversiktleg og haldbart: skal ein tilsett flytte plass, byter du berre ein patchekabel i staden for å rive opp veggen, og feilsøking blir mykje enklare.","ba422d43f8a272b0":"Test deg sjølv på fiber og strukturert kabling:","b6d755795460c12c":"Kvifor er fiberoptisk kabel immun mot elektromagnetisk støy?","612fae02c96e4d5c":"Fordi koparet er ekstra tjukt","173ee71a746963d7":"Fordi data blir sende som lys, og lys blir ikkje påverka av elektriske felt","77061ba1a722b39e":"Fordi han alltid er skjerma med metallfolie","966bef5aec911bf7":"Fordi han bruker høgare spenning","93de0c4b5546053e":"Fiber sender data som lyspulsar i glas, ikkje som elektriske signal. Lys blir ikkje forstyrra av elektromagnetiske felt, i motsetnad til straum i kopar.","504d3d463f4f4bdb":"Kva fibertype når lengst (opptil ca. 100 km)?","40b0c042f8b6fdfe":"Multimode","e1251506874bb430":"Cat 6a-fiber","5d87de643ebdadb6":"Singlemode","c57481cca11186ff":"UTP-fiber","42bc0213319aaf71":"Singlemode har ein svært tynn kjerne og bruker laser, og når opptil rundt 100 km. Multimode bruker LED og rekkjer opptil ca. 2 km inne i bygg.","d24a1a0d02cb7d95":"Kva er fordelen med strukturert kabling og patchepanel når ein tilsett byter plass?","8c6cf6c39eaa043b":"Ein må leggje ny kabel i veggen","87055e6b15285e31":"Ein må byte heile svitsjen","4e582a466416b7e5":"Ein må konfigurere ny IP-adresse manuelt på ruteren","34cd8a901a06ece0":"Ein byter berre ein patchekabel i nettverksrommet","527643f8e2cec2e3":"Med patchepanel og faste kabelstrekk kan ein flytte ein brukar ved å byte ein kort patchekabel, i staden for å trekkje ny fast kabel.","1924b948b8d9579f":"## Oppsummering\n\nVi har følgt dataa gjennom heile nettverksmaskineriet. Ein **svitsj** koplar saman einingar i same lokale nettverk på lag 2 med MAC-adresser, medan ein **ruter** bind ulike nettverk saman på lag 3 med IP-adresser og omset mellom private og offentlege adresser via NAT. Eit **trådlaust aksesspunkt** gjev WiFi-tilgang til det kabla nettet og kan straumforsynast via PoE.\n\nDei passive komponentane fraktar sjølve signalet. **Ethernet-kablar** i kategoriane Cat 5e, 6 og 6a er standarden til koparet, med ei grense på 100 meter, medan **fiberoptikk** sender data som lys, gjev høgast fart og lengst rekkjevidde, og toler elektromagnetisk støy. Til slutt held **strukturert kabling** med **patchepanel** alt ryddig, så installasjonen blir oversiktleg, fleksibel og enkel å feilsøke."}}}
+{
+  "id": "elektro-data-vg1-4-6-narrativ",
+  "courseId": "elektro-data-vg1",
+  "chapterNumber": "4.6",
+  "title": "Nettverksutstyr og kabelsystem",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om reisa ein datapakke tek – frå svitsj og ruter til koparkablar, lysande fiber og det ryddige patchepanelet i nettverksrommet.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "identifisere og forklare nettverkskomponenter og kabelsystemer"
+  ],
+  "linkedChapterId": "elektro-data-vg1-4-6",
+  "content": [
+    {
+      "id": "elektro-data-vg1-4-6-n-intro",
+      "type": "text",
+      "content": "## Maskina bak veggen\n\nDu opnar nettlesaren, skriv inn ei adresse, og eit augneblikk seinare fyller nettsida skjermen. Det kjennest som magi, men bak den enkle handlinga står eit heilt maskineri av boksar, kablar og kontaktar som du sjeldan ser. Eit datanettverk er mykje meir enn maskinene som er kopla til det.\n\nVi deler utstyret i to grupper. Dei **aktive komponentane** er dei smarte boksane som behandlar og vidaresender data – svitsjar, rutarar og aksesspunkt. Dei **passive komponentane** er kablane og kontaktane som berre fraktar signala fysisk frå stad til stad. Skal du installere eit nytt nettverk eller finne ut kvifor det eksisterande heng seg opp, må du kjenne begge delar. Lat oss følgje dataa på reisa og bli kjende med utstyret dei møter undervegs."
+    },
+    {
+      "id": "elektro-data-vg1-4-6-n-section1",
+      "type": "text",
+      "content": "## Svitsj og ruter – to boksar med ulik jobb\n\nDei to viktigaste aktive boksane er svitsjen og ruteren, og skilnaden mellom dei er lett å rote bort. Lat oss halde dei frå kvarandre.\n\nEin **svitsj** koplar saman einingar som tilhøyrer *same* lokale nettverk, eit LAN. Han jobbar på **lag 2** i OSI-modellen og bruker MAC-adresser. Det fine med ein svitsj er at han lærer: for kvar port hugsar han kva eining, altså kva MAC-adresse, som heng der. Når ei ramme kjem inn, les han MAC-adressa til destinasjonen og sender ramma *berre* ut på den eine rette porten – ikkje til alle, slik ein gammaldags hub gjorde. Svitsjar finst som enkle plug-and-play \"unmanaged\", som konfigurerbare \"managed\" med VLAN og overvaking, og som PoE-svitsjar som kan sende straum gjennom nettverkskabelen.\n\nEin **ruter** har ei anna oppgåve: han bind saman *forskjellige* nettverk og finn vegen for pakkane mellom dei. Han jobbar på **lag 3** og bruker IP-adresser. Ruteren vel beste rute, omset mellom dine private og dei offentlege adressene på internett med NAT, deler ut IP-adresser via DHCP og fungerer som ein enkel brannmur. Heime er ruteren ofte den boksen du fekk frå internettleverandøren, og han gøymer gjerne både ruter, svitsj, WiFi og modem i same kabinett.\n\nLat oss sjå det i praksis. PC-A med adresse 192.168.1.10 skal først sende ei fil til PC-B på 192.168.1.20 i same nettverk. Då lagar PC-A ei ramme med MAC-adressa til PC-B, svitsjen kjenner att adressa og sender ho rett til rett port – ruteren rører ikkje ein finger, for alt skjer innanfor same nettverk. Men så skal PC-A besøke ei nettside ute på internett. No er måladressa utanfor det lokale nettet, så pakken blir sendt til standard gateway, altså ruteren. Svitsjen fraktar ramma bort til porten til ruteren, ruteren byter den private IP-en til PC-A med sin offentlege via NAT, og sender pakken vidare ut i verda."
+    },
+    {
+      "id": "elektro-data-vg1-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på svitsj og ruter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz1-q0",
+            "task": "Kva er hovudoppgåva til ein svitsj?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Å kople saman einingar i same lokale nettverk med MAC-adresser",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å kople saman forskjellige nettverk med IP-adresser",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å gje trådlaus tilgang",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å omsetje private og offentlege IP-adresser",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein svitsj koplar einingar i same LAN og jobbar på lag 2 med MAC-adresser. Å kople ulike nettverk med IP-adresser er jobben til ruteren (lag 3)."
+          },
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz1-q1",
+            "task": "PC-A sender ei fil til PC-B i same nettverk. Kva eining er IKKJE involvert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Svitsjen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ruteren",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Nettverkskabelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nettverkskortet i PC-ane",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når begge PC-ane er i same nettverk, sender svitsjen ramma direkte mellom dei ut frå MAC-adressa. Ruteren blir berre brukt når trafikken skal til eit anna nettverk."
+          },
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz1-q2",
+            "task": "Kva gjer ruteren med NAT når PC-A besøker ei nettside på internett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han krypterer heile pakken",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han endrar MAC-adressa til nettsida",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han byter den private IP-en til PC-A med ruterens offentlege IP",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Han aukar farten på linja",
+                "isCorrect": false
+              }
+            ],
+            "solution": "NAT (Network Address Translation) erstattar den private avsendaradressa med ruterens offentlege IP, slik at svaret finn vegen tilbake."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-4-6-n-section2",
+      "type": "text",
+      "content": "## Aksesspunktet og koparkablane\n\nDei fleste einingane dine koplar seg trådlaust i dag, og brua mellom WiFi og det kabla nettet heiter **trådlaust aksesspunkt**, eller AP. Det blir kopla til svitsjen med ein Ethernet-kabel og sender ut eit WiFi-signal med eit nettverksnamn (SSID) som einingane kan kople seg til. Ofte får det straum gjennom sjølve nettverkskabelen via PoE, og det kan kringkaste fleire SSID-ar, til dømes éin for tilsette og éin for gjester. Plasseringa betyr mykje: monter det i taket, unna metall og betong, og rekn med om lag eitt AP per 100 til 150 kvadratmeter for god innandørs dekning. Medan ein heimeruter samlar ruter, svitsj og AP i éin boks, bruker ein frittståande AP-ar når ein treng fleire punkt spreidde utover eit stort kontor med sentralisert styring.\n\nSå kjem vi til sjølve årene i nettverket: **Ethernet-kablane**, også kalla TP-kablar fordi dei inneheld fire par tvinna kopartrådar. Dei endar i ein RJ45-kontakt, og dei finst i ulike kategoriar. Cat 5e taklar 1 Gbps, Cat 6 klarar 10 Gbps – men berre over korte 55 meter – medan Cat 6a held 10 Gbps over fulle 100 meter. Cat 7 og Cat 8 er skjerma spesialkablar for datasenter. Felles for alle koparkablane er den harde grensa: **maks 100 meter** frå svitsj til eining, for lenger enn det blir signalet svekt for mykje.\n\nTenk deg at ei bedrift skal kable eit nytt kontorbygg med femti arbeidsplassar. I dag held det med 1 Gbps, men dei vil kunne oppgradere til 10 Gbps seinare. Cat 5e fell bort, for han når ikkje 10 Gbps. Cat 6 klarar det berre over 55 meter, og mange kabelstrekk i eit kontorbygg er lengre. Cat 6a derimot gjev 10 Gbps over heile 100 meter – framtidssikkert. Meirkostnaden er liten, og det er mykje billigare å leggje rett kabel med éin gong enn å rive opp golv og tak om nokre år."
+    },
+    {
+      "id": "elektro-data-vg1-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på aksesspunkt og kablar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz2-q0",
+            "task": "Kva er den maksimale lengda på ein Ethernet koparkabel (Cat 5e/6/6a) frå svitsj til eining?",
+            "options": [
+              {
+                "id": "a",
+                "text": "50 meter",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "250 meter",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "500 meter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "100 meter",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Grensa er 100 meter. Over dette blir signalet svekt for mykje. For lengre avstandar blir fiber eller ekstra svitsjar brukte."
+          },
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz2-q1",
+            "task": "Ei bedrift vil ha 1 Gbps no og høve til 10 Gbps over 100 meter seinare. Kva kabel?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Cat 6a",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Cat 5e",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Cat 6 (berre 55 m for 10 Gbps)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Cat 3",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Cat 6a gjev 10 Gbps over fulle 100 meter og er dermed framtidssikkert. Cat 5e når ikkje 10 Gbps, og Cat 6 berre over 55 meter."
+          },
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz2-q2",
+            "task": "Kva er fordelen med at eit aksesspunkt får straum via PoE?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Det gjev høgare WiFi-fart",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Straum og data går i same kabel, så installasjonen i taket blir ryddig",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det fjernar behovet for kryptering",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det doblar rekkjevidda",
+                "isCorrect": false
+              }
+            ],
+            "solution": "PoE (Power over Ethernet) leverer straum gjennom nettverkskabelen, slik at eit takmontert AP ikkje treng eigen straumkontakt – ryddig og praktisk."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-4-6-n-section3",
+      "type": "text",
+      "content": "## Fiber av lys og eit ryddig nettverksrom\n\nNår dei 100 metrane til koparet ikkje strekkjer til, eller når du treng verkeleg høg fart, byter vi ut elektrisitet med lys. **Fiberoptisk kabel** sender data som lyspulsar gjennom ein hårtynn glaskjerne. Det finst to typar: **singlemode** med ein bitteliten kjerne der ein laser sender lys i éi retning – rekkjevidde opptil heile 100 km, brukt mellom bygg og over lange strekk – og **multimode** med tjukkare kjerne der ein LED sender lys i fleire retningar, med rekkjevidde opptil 2 km inne i bygg og datasenter. Fiber gjev enorm fart, lang rekkjevidde og er **immun mot elektromagnetisk støy**, rett og slett fordi lys ikkje blir påverka av elektriske felt. Det siste er ein stor fordel i ein fabrikk full av elektromotorar og sveiseapparat, og det er nettopp difor ein trekkjer fiber mellom bygningar: kopar kan nemleg leie farleg spenning ved lynnedslag, medan fiber gjev full galvanisk isolasjon mellom bygga.\n\nTil slutt må alt dette haldast ryddig, og der kjem **strukturert kabling** og **patchepanelet** inn. Tenk deg den fysiske reisa: frå PC-en går ein kort patchekabel til eit vegguttak ved pulten. Derifrå løper ein fast horisontal kabel i veggen heilt inn til nettverksrommet, der han endar i eit patchepanel. Frå patchepanelet koplar ein ny kort patchekabel over til svitsjen, og vidare til ruteren. Fordelen med dette systemet er at det er oversiktleg og haldbart: skal ein tilsett flytte plass, byter du berre ein patchekabel i staden for å rive opp veggen, og feilsøking blir mykje enklare."
+    },
+    {
+      "id": "elektro-data-vg1-4-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "elektro-data-vg1-4-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på fiber og strukturert kabling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz3-q0",
+            "task": "Kvifor er fiberoptisk kabel immun mot elektromagnetisk støy?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi koparet er ekstra tjukt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi han alltid er skjerma med metallfolie",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi data blir sende som lys, og lys blir ikkje påverka av elektriske felt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi han bruker høgare spenning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fiber sender data som lyspulsar i glas, ikkje som elektriske signal. Lys blir ikkje forstyrra av elektromagnetiske felt, i motsetnad til straum i kopar."
+          },
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz3-q1",
+            "task": "Kva fibertype når lengst (opptil ca. 100 km)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Multimode",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Cat 6a-fiber",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "UTP-fiber",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Singlemode",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Singlemode har ein svært tynn kjerne og bruker laser, og når opptil rundt 100 km. Multimode bruker LED og rekkjer opptil ca. 2 km inne i bygg."
+          },
+          {
+            "id": "elektro-data-vg1-4-6-n-quiz3-q2",
+            "task": "Kva er fordelen med strukturert kabling og patchepanel når ein tilsett byter plass?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Ein byter berre ein patchekabel i nettverksrommet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein må leggje ny kabel i veggen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein må byte heile svitsjen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein må konfigurere ny IP-adresse manuelt på ruteren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med patchepanel og faste kabelstrekk kan ein flytte ein brukar ved å byte ein kort patchekabel, i staden for å trekkje ny fast kabel."
+          }
+        ]
+      }
+    },
+    {
+      "id": "elektro-data-vg1-4-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har følgt dataa gjennom heile nettverksmaskineriet. Ein **svitsj** koplar saman einingar i same lokale nettverk på lag 2 med MAC-adresser, medan ein **ruter** bind ulike nettverk saman på lag 3 med IP-adresser og omset mellom private og offentlege adresser via NAT. Eit **trådlaust aksesspunkt** gjev WiFi-tilgang til det kabla nettet og kan straumforsynast via PoE.\n\nDei passive komponentane fraktar sjølve signalet. **Ethernet-kablar** i kategoriane Cat 5e, 6 og 6a er standarden til koparet, med ei grense på 100 meter, medan **fiberoptikk** sender data som lys, gjev høgast fart og lengst rekkjevidde, og toler elektromagnetisk støy. Til slutt held **strukturert kabling** med **patchepanel** alt ryddig, så installasjonen blir oversiktleg, fleksibel og enkel å feilsøke."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "e09357d283c48163",
+    "translatedAt": "2026-06-21T10:28:14.733Z",
+    "model": "claude-code-agent",
+    "strings": 69,
+    "tm": {
+      "d63fbdabfc53cad2": "Nettverksutstyr og kabelsystem",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7d898dd70d5c2877": "Ei forteljing om reisa ein datapakke tek – frå svitsj og ruter til koparkablar, lysande fiber og det ryddige patchepanelet i nettverksrommet.",
+      "05bf444464d7eb83": "identifisere og forklare nettverkskomponenter og kabelsystemer",
+      "02a4ddcd09e67b64": "## Maskina bak veggen\n\nDu opnar nettlesaren, skriv inn ei adresse, og eit augneblikk seinare fyller nettsida skjermen. Det kjennest som magi, men bak den enkle handlinga står eit heilt maskineri av boksar, kablar og kontaktar som du sjeldan ser. Eit datanettverk er mykje meir enn maskinene som er kopla til det.\n\nVi deler utstyret i to grupper. Dei **aktive komponentane** er dei smarte boksane som behandlar og vidaresender data – svitsjar, rutarar og aksesspunkt. Dei **passive komponentane** er kablane og kontaktane som berre fraktar signala fysisk frå stad til stad. Skal du installere eit nytt nettverk eller finne ut kvifor det eksisterande heng seg opp, må du kjenne begge delar. Lat oss følgje dataa på reisa og bli kjende med utstyret dei møter undervegs.",
+      "7bc2b311f832ed71": "## Svitsj og ruter – to boksar med ulik jobb\n\nDei to viktigaste aktive boksane er svitsjen og ruteren, og skilnaden mellom dei er lett å rote bort. Lat oss halde dei frå kvarandre.\n\nEin **svitsj** koplar saman einingar som tilhøyrer *same* lokale nettverk, eit LAN. Han jobbar på **lag 2** i OSI-modellen og bruker MAC-adresser. Det fine med ein svitsj er at han lærer: for kvar port hugsar han kva eining, altså kva MAC-adresse, som heng der. Når ei ramme kjem inn, les han MAC-adressa til destinasjonen og sender ramma *berre* ut på den eine rette porten – ikkje til alle, slik ein gammaldags hub gjorde. Svitsjar finst som enkle plug-and-play \"unmanaged\", som konfigurerbare \"managed\" med VLAN og overvaking, og som PoE-svitsjar som kan sende straum gjennom nettverkskabelen.\n\nEin **ruter** har ei anna oppgåve: han bind saman *forskjellige* nettverk og finn vegen for pakkane mellom dei. Han jobbar på **lag 3** og bruker IP-adresser. Ruteren vel beste rute, omset mellom dine private og dei offentlege adressene på internett med NAT, deler ut IP-adresser via DHCP og fungerer som ein enkel brannmur. Heime er ruteren ofte den boksen du fekk frå internettleverandøren, og han gøymer gjerne både ruter, svitsj, WiFi og modem i same kabinett.\n\nLat oss sjå det i praksis. PC-A med adresse 192.168.1.10 skal først sende ei fil til PC-B på 192.168.1.20 i same nettverk. Då lagar PC-A ei ramme med MAC-adressa til PC-B, svitsjen kjenner att adressa og sender ho rett til rett port – ruteren rører ikkje ein finger, for alt skjer innanfor same nettverk. Men så skal PC-A besøke ei nettside ute på internett. No er måladressa utanfor det lokale nettet, så pakken blir sendt til standard gateway, altså ruteren. Svitsjen fraktar ramma bort til porten til ruteren, ruteren byter den private IP-en til PC-A med sin offentlege via NAT, og sender pakken vidare ut i verda.",
+      "8b9efd8120b916ab": "Test deg sjølv på svitsj og ruter:",
+      "4097889236a2af26": "placeholder",
+      "565b99485b5eea3e": "Kva er hovudoppgåva til ein svitsj?",
+      "bc857a9fc60ab72f": "Å kople saman forskjellige nettverk med IP-adresser",
+      "a6d35380ff553d4a": "Å gje trådlaus tilgang",
+      "7130ac2d709cc383": "Å omsetje private og offentlege IP-adresser",
+      "3a8f67f29795cf2e": "Å kople saman einingar i same lokale nettverk med MAC-adresser",
+      "2e99924ac17645a5": "Ein svitsj koplar einingar i same LAN og jobbar på lag 2 med MAC-adresser. Å kople ulike nettverk med IP-adresser er jobben til ruteren (lag 3).",
+      "0916484355200fd2": "PC-A sender ei fil til PC-B i same nettverk. Kva eining er IKKJE involvert?",
+      "968dbf23f033b246": "Ruteren",
+      "28e38de784a9f383": "Svitsjen",
+      "ca79c0c04f184485": "Nettverkskabelen",
+      "6cae49199f17a10b": "Nettverkskortet i PC-ane",
+      "6c8baa4bb3c67154": "Når begge PC-ane er i same nettverk, sender svitsjen ramma direkte mellom dei ut frå MAC-adressa. Ruteren blir berre brukt når trafikken skal til eit anna nettverk.",
+      "55abff1aa93b2ebe": "Kva gjer ruteren med NAT når PC-A besøker ei nettside på internett?",
+      "980e960aa3ec2b2e": "Han krypterer heile pakken",
+      "a64fb84a9100b810": "Han byter den private IP-en til PC-A med ruterens offentlege IP",
+      "fe07503600510e8b": "Han endrar MAC-adressa til nettsida",
+      "220916080523a0b8": "Han aukar farten på linja",
+      "922af94ed512e255": "NAT (Network Address Translation) erstattar den private avsendaradressa med ruterens offentlege IP, slik at svaret finn vegen tilbake.",
+      "9a8acecb9280899d": "## Aksesspunktet og koparkablane\n\nDei fleste einingane dine koplar seg trådlaust i dag, og brua mellom WiFi og det kabla nettet heiter **trådlaust aksesspunkt**, eller AP. Det blir kopla til svitsjen med ein Ethernet-kabel og sender ut eit WiFi-signal med eit nettverksnamn (SSID) som einingane kan kople seg til. Ofte får det straum gjennom sjølve nettverkskabelen via PoE, og det kan kringkaste fleire SSID-ar, til dømes éin for tilsette og éin for gjester. Plasseringa betyr mykje: monter det i taket, unna metall og betong, og rekn med om lag eitt AP per 100 til 150 kvadratmeter for god innandørs dekning. Medan ein heimeruter samlar ruter, svitsj og AP i éin boks, bruker ein frittståande AP-ar når ein treng fleire punkt spreidde utover eit stort kontor med sentralisert styring.\n\nSå kjem vi til sjølve årene i nettverket: **Ethernet-kablane**, også kalla TP-kablar fordi dei inneheld fire par tvinna kopartrådar. Dei endar i ein RJ45-kontakt, og dei finst i ulike kategoriar. Cat 5e taklar 1 Gbps, Cat 6 klarar 10 Gbps – men berre over korte 55 meter – medan Cat 6a held 10 Gbps over fulle 100 meter. Cat 7 og Cat 8 er skjerma spesialkablar for datasenter. Felles for alle koparkablane er den harde grensa: **maks 100 meter** frå svitsj til eining, for lenger enn det blir signalet svekt for mykje.\n\nTenk deg at ei bedrift skal kable eit nytt kontorbygg med femti arbeidsplassar. I dag held det med 1 Gbps, men dei vil kunne oppgradere til 10 Gbps seinare. Cat 5e fell bort, for han når ikkje 10 Gbps. Cat 6 klarar det berre over 55 meter, og mange kabelstrekk i eit kontorbygg er lengre. Cat 6a derimot gjev 10 Gbps over heile 100 meter – framtidssikkert. Meirkostnaden er liten, og det er mykje billigare å leggje rett kabel med éin gong enn å rive opp golv og tak om nokre år.",
+      "0a54b5f46425c9cb": "Test deg sjølv på aksesspunkt og kablar:",
+      "2b250f4b3d03f429": "Kva er den maksimale lengda på ein Ethernet koparkabel (Cat 5e/6/6a) frå svitsj til eining?",
+      "13c9b30dc6c8b16e": "50 meter",
+      "07884ac703aaa97f": "250 meter",
+      "f940188f8026facc": "100 meter",
+      "dd7972dc16a92524": "500 meter",
+      "91e6c87f1dd1c8c4": "Grensa er 100 meter. Over dette blir signalet svekt for mykje. For lengre avstandar blir fiber eller ekstra svitsjar brukte.",
+      "a26189c5e38c6abb": "Ei bedrift vil ha 1 Gbps no og høve til 10 Gbps over 100 meter seinare. Kva kabel?",
+      "62b117deb4db1913": "Cat 5e",
+      "752e63ccc86ee16b": "Cat 6 (berre 55 m for 10 Gbps)",
+      "67c03a10cf0b9ed9": "Cat 3",
+      "1492fbbcc680c6d3": "Cat 6a",
+      "cd9bfcbd36e85fc9": "Cat 6a gjev 10 Gbps over fulle 100 meter og er dermed framtidssikkert. Cat 5e når ikkje 10 Gbps, og Cat 6 berre over 55 meter.",
+      "4f50e5013906cfce": "Kva er fordelen med at eit aksesspunkt får straum via PoE?",
+      "e3b0fee4ff8e9163": "Straum og data går i same kabel, så installasjonen i taket blir ryddig",
+      "1f9678866e995771": "Det gjev høgare WiFi-fart",
+      "63290237d548a8f6": "Det fjernar behovet for kryptering",
+      "37291dcaf8f24889": "Det doblar rekkjevidda",
+      "198d9c56bc5cfdd3": "PoE (Power over Ethernet) leverer straum gjennom nettverkskabelen, slik at eit takmontert AP ikkje treng eigen straumkontakt – ryddig og praktisk.",
+      "4ffcac9b49f7cb25": "## Fiber av lys og eit ryddig nettverksrom\n\nNår dei 100 metrane til koparet ikkje strekkjer til, eller når du treng verkeleg høg fart, byter vi ut elektrisitet med lys. **Fiberoptisk kabel** sender data som lyspulsar gjennom ein hårtynn glaskjerne. Det finst to typar: **singlemode** med ein bitteliten kjerne der ein laser sender lys i éi retning – rekkjevidde opptil heile 100 km, brukt mellom bygg og over lange strekk – og **multimode** med tjukkare kjerne der ein LED sender lys i fleire retningar, med rekkjevidde opptil 2 km inne i bygg og datasenter. Fiber gjev enorm fart, lang rekkjevidde og er **immun mot elektromagnetisk støy**, rett og slett fordi lys ikkje blir påverka av elektriske felt. Det siste er ein stor fordel i ein fabrikk full av elektromotorar og sveiseapparat, og det er nettopp difor ein trekkjer fiber mellom bygningar: kopar kan nemleg leie farleg spenning ved lynnedslag, medan fiber gjev full galvanisk isolasjon mellom bygga.\n\nTil slutt må alt dette haldast ryddig, og der kjem **strukturert kabling** og **patchepanelet** inn. Tenk deg den fysiske reisa: frå PC-en går ein kort patchekabel til eit vegguttak ved pulten. Derifrå løper ein fast horisontal kabel i veggen heilt inn til nettverksrommet, der han endar i eit patchepanel. Frå patchepanelet koplar ein ny kort patchekabel over til svitsjen, og vidare til ruteren. Fordelen med dette systemet er at det er oversiktleg og haldbart: skal ein tilsett flytte plass, byter du berre ein patchekabel i staden for å rive opp veggen, og feilsøking blir mykje enklare.",
+      "ba422d43f8a272b0": "Test deg sjølv på fiber og strukturert kabling:",
+      "b6d755795460c12c": "Kvifor er fiberoptisk kabel immun mot elektromagnetisk støy?",
+      "612fae02c96e4d5c": "Fordi koparet er ekstra tjukt",
+      "173ee71a746963d7": "Fordi data blir sende som lys, og lys blir ikkje påverka av elektriske felt",
+      "77061ba1a722b39e": "Fordi han alltid er skjerma med metallfolie",
+      "966bef5aec911bf7": "Fordi han bruker høgare spenning",
+      "93de0c4b5546053e": "Fiber sender data som lyspulsar i glas, ikkje som elektriske signal. Lys blir ikkje forstyrra av elektromagnetiske felt, i motsetnad til straum i kopar.",
+      "504d3d463f4f4bdb": "Kva fibertype når lengst (opptil ca. 100 km)?",
+      "40b0c042f8b6fdfe": "Multimode",
+      "e1251506874bb430": "Cat 6a-fiber",
+      "5d87de643ebdadb6": "Singlemode",
+      "c57481cca11186ff": "UTP-fiber",
+      "42bc0213319aaf71": "Singlemode har ein svært tynn kjerne og bruker laser, og når opptil rundt 100 km. Multimode bruker LED og rekkjer opptil ca. 2 km inne i bygg.",
+      "d24a1a0d02cb7d95": "Kva er fordelen med strukturert kabling og patchepanel når ein tilsett byter plass?",
+      "8c6cf6c39eaa043b": "Ein må leggje ny kabel i veggen",
+      "87055e6b15285e31": "Ein må byte heile svitsjen",
+      "4e582a466416b7e5": "Ein må konfigurere ny IP-adresse manuelt på ruteren",
+      "34cd8a901a06ece0": "Ein byter berre ein patchekabel i nettverksrommet",
+      "527643f8e2cec2e3": "Med patchepanel og faste kabelstrekk kan ein flytte ein brukar ved å byte ein kort patchekabel, i staden for å trekkje ny fast kabel.",
+      "1924b948b8d9579f": "## Oppsummering\n\nVi har følgt dataa gjennom heile nettverksmaskineriet. Ein **svitsj** koplar saman einingar i same lokale nettverk på lag 2 med MAC-adresser, medan ein **ruter** bind ulike nettverk saman på lag 3 med IP-adresser og omset mellom private og offentlege adresser via NAT. Eit **trådlaust aksesspunkt** gjev WiFi-tilgang til det kabla nettet og kan straumforsynast via PoE.\n\nDei passive komponentane fraktar sjølve signalet. **Ethernet-kablar** i kategoriane Cat 5e, 6 og 6a er standarden til koparet, med ei grense på 100 meter, medan **fiberoptikk** sender data som lys, gjev høgast fart og lengst rekkjevidde, og toler elektromagnetisk støy. Til slutt held **strukturert kabling** med **patchepanel** alt ryddig, så installasjonen blir oversiktleg, fleksibel og enkel å feilsøke."
+    }
+  }
+}

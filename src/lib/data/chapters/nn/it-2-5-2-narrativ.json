@@ -1,1 +1,416 @@
-{"id":"it-2-5-2-narrativ","courseId":"it-2","chapterNumber":"2","title":"Avansert SQL","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi får data spreidde over mange tabellar til å snakke saman – frå JOIN og GROUP BY, via underspørjingar og views, til indeksar som gjer trege spørjingar lynraske.","estimatedMinutes":44,"competenceGoals":["Kombinere tabellar med JOIN og aggregere med GROUP BY/HAVING","Bruke subqueries og views","Forstå indeksar og når dei lønner seg"],"linkedChapterId":"it-2-5-2","content":[{"id":"it-2-5-2-n-intro","type":"text","content":"## Når data ligg spreidde\n\nDu kan allereie SELECT, WHERE og ORDER BY. Men i ein normalisert database ligg data spreidde over mange tabellar – det var jo heile poenget med normaliseringa. Skal du hente ut meiningsfull informasjon, må du kombinere tabellane igjen. Det gjer du med **JOIN**.\n\nDen vanlegaste varianten er **INNER JOIN**, som berre returnerer rader der det finst eit treff i begge tabellane. Vil du hente alle bøker saman med forfattarnamnet, koblar du Bok og Forfattar på forfatterID:\n\n```sql\nSELECT Bok.tittel, Forfatter.navn\nFROM Bok\nINNER JOIN Forfatter ON Bok.forfatterID = Forfatter.forfatterID;\n```\n\nNokre gonger vil du ha med rader utan treff. Då brukar du **LEFT JOIN**, som returnerer alle rader frå venstre tabell, òg dei utan match – dei får berre NULL i kolonnane frå høgre. Vil du ha med forfattarar som enno ikkje har skrive noka bok, er LEFT JOIN svaret. I SQLite finst ikkje RIGHT JOIN eller FULL OUTER JOIN, men du kjem langt med å byte rekkjefølgja i ein LEFT JOIN. Og du kan kjede fleire JOIN-ar saman for å koble tre eller fire tabellar i éi spørjing."},{"id":"it-2-5-2-n-quiz1","type":"exercise","exercise":{"id":"it-2-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på JOIN:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-2-n-quiz1-q0","task":"Kva returnerer ein INNER JOIN?","options":[{"id":"a","text":"Berre rader med treff i begge tabellane","isCorrect":true},{"id":"b","text":"Alle rader frå begge tabellane uansett","isCorrect":false},{"id":"c","text":"Berre rader frå venstre tabell","isCorrect":false},{"id":"d","text":"Ingen rader","isCorrect":false}],"solution":"INNER JOIN gir berre rader der det finst matchande verdiar i begge tabellane."},{"id":"it-2-5-2-n-quiz1-q1","task":"Du vil ha med forfattarar som ikkje har skrive noka bok. Kva JOIN brukar du?","options":[{"id":"a","text":"INNER JOIN","isCorrect":false},{"id":"b","text":"LEFT JOIN med Forfattar som venstre tabell","isCorrect":true},{"id":"c","text":"CROSS JOIN","isCorrect":false},{"id":"d","text":"Ingen JOIN","isCorrect":false}],"solution":"LEFT JOIN tek vare på alle rader frå venstre tabell, så forfattarar utan bøker kjem med (med NULL i bok-kolonnane)."},{"id":"it-2-5-2-n-quiz1-q2","task":"Kva skjer i kolonnane frå høgre tabell ved ein LEFT JOIN utan treff?","options":[{"id":"a","text":"Raden blir droppa","isCorrect":false},{"id":"b","text":"Dei blir 0","isCorrect":false},{"id":"c","text":"Dei blir NULL","isCorrect":true},{"id":"d","text":"Det gir feil","isCorrect":false}],"solution":"Når det ikkje finst match i høgre tabell, blir kolonnane hennar fylte med NULL."}]}},{"id":"it-2-5-2-n-section1","type":"text","content":"## Gruppering, aggregering og underspørjingar\n\nOfte vil du ikkje sjå kvar enkelt rad, men eit samandrag. Då brukar du **GROUP BY** saman med aggregatfunksjonar: `COUNT()` tel, `SUM()` summerer, `AVG()` reknar gjennomsnitt, og `MIN()`/`MAX()` finn ytterpunkt. Vil du vite kor mange elevar som er i kvar klasse, grupperer du på klasseID og tel. Vil du filtrere sjølve gruppene – til dømes berre vise fag med snittkarakter over 4,0 – brukar du **HAVING**. Her er skilnaden viktig: WHERE filtrerer rader *før* gruppering, medan HAVING filtrerer grupper *etter* gruppering.\n\nRekkjefølgja SQL køyrer i, er verdt å hugse: FROM vel tabell, WHERE filtrerer rader, GROUP BY grupperer, HAVING filtrerer grupper, SELECT vel kolonnar, og ORDER BY sorterer til slutt. Ein GROUP BY må inkludere alle SELECT-kolonnar som ikkje er aggregatfunksjonar.\n\nNokre gonger treng du resultatet av éi spørjing inni ei anna. Det blir kalla ein **subquery** (underspørjing). Du kan bruke han i WHERE – til dømes for å finne elevar med snitt høgare enn det totale gjennomsnittet ved å samanlikne mot `(SELECT AVG(karakter) FROM Karakter)`. Du kan bruke han i FROM som om resultatet var ein mellombels tabell. Og du kan kombinere han med `IN` for å finne alle elevar som finst i resultatet av ei anna spørjing, som dei som har fått 6 i minst eitt fag."},{"id":"it-2-5-2-n-quiz2","type":"exercise","exercise":{"id":"it-2-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på gruppering og subqueries:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-2-n-quiz2-q0","task":"Kva er skilnaden på WHERE og HAVING?","options":[{"id":"a","text":"Dei er identiske","isCorrect":false},{"id":"b","text":"HAVING kjem alltid før WHERE","isCorrect":false},{"id":"c","text":"WHERE verkar berre på tal","isCorrect":false},{"id":"d","text":"WHERE filtrerer rader før gruppering; HAVING filtrerer grupper etter gruppering","isCorrect":true}],"solution":"WHERE filtrerer enkeltrader før GROUP BY, medan HAVING filtrerer dei ferdige gruppene etterpå."},{"id":"it-2-5-2-n-quiz2-q1","task":"Kva funksjon tel talet på rader i ei gruppe?","options":[{"id":"a","text":"COUNT()","isCorrect":true},{"id":"b","text":"SUM()","isCorrect":false},{"id":"c","text":"AVG()","isCorrect":false},{"id":"d","text":"MAX()","isCorrect":false}],"solution":"COUNT() tel talet på rader. SUM summerer, AVG gir gjennomsnitt, og MIN/MAX finn ytterpunkt."},{"id":"it-2-5-2-n-quiz2-q2","task":"Kva er ein subquery?","options":[{"id":"a","text":"Ein tabell utan kolonnar","isCorrect":false},{"id":"b","text":"Ei SQL-spørjing inne i ei anna spørjing","isCorrect":true},{"id":"c","text":"Ein type indeks","isCorrect":false},{"id":"d","text":"Ei feilmelding","isCorrect":false}],"solution":"Ein subquery er ei spørjing nesta inne i ei anna, ofte brukt i WHERE eller FROM for å levere eit mellomresultat."}]}},{"id":"it-2-5-2-n-section2","type":"text","content":"## Views og indeksar\n\nNokre spørjingar blir lange og kompliserte, og du skriv dei om og om igjen. Då kan ein **view** hjelpe – ei lagra SQL-spørjing som oppfører seg som ein tabell. Han lagrar ingen data, men gir deg ei ferdig spørjing til gjenbruk:\n\n```sql\nCREATE VIEW ElevOversikt AS\nSELECT Elev.navn, Klasse.klassenavn, AVG(Karakter.karakter) AS snittkarakter\nFROM Elev\nJOIN Klasse ON Elev.klasseID = Klasse.klasseID\nLEFT JOIN Karakter ON Elev.elevID = Karakter.elevID\nGROUP BY Elev.elevID;\n```\n\nEtterpå kan du bruke `SELECT * FROM ElevOversikt WHERE snittkarakter > 4.5` som om det var ein vanleg tabell. Views forenklar komplekse spørjingar, gir gjenbrukbar kode, skjuler kompleksitet for sluttbrukarar, og kan brukast til tryggleik ved å gi tilgang til viewet i staden for rådatatabellen.\n\nNår databasen veks, kan spørjingar bli trege. Ein **indeks** er ein datastruktur som gjer søk raskare – tenk på stikkordregisteret bak i ei bok, som lèt deg finne eit tema utan å bla gjennom alt. Du bør lage indeksar på kolonnar som ofte blir brukte i WHERE og JOIN, og på framandnøklar; primærnøklar får automatisk indeks. Men det er ei avveging: indeksar gjer SELECT dramatisk raskare, men dei tek ekstra plass og gjer INSERT, UPDATE og DELETE litt tregare fordi indeksen må oppdaterast. Difor lagar du ikkje indeks på alt – berre på kolonnar som faktisk blir brukte mykje i spørjingar."},{"id":"it-2-5-2-n-quiz3","type":"exercise","exercise":{"id":"it-2-5-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på views og indeksar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-5-2-n-quiz3-q0","task":"Kva er ein view i SQL?","options":[{"id":"a","text":"Ein kopi av alle data","isCorrect":false},{"id":"b","text":"Ein type primærnøkkel","isCorrect":false},{"id":"c","text":"Ei lagra spørjing som oppfører seg som ein virtuell tabell","isCorrect":true},{"id":"d","text":"Ei feilmelding","isCorrect":false}],"solution":"Ein view er ei lagra SQL-spørjing utan eigne data, som kan brukast som ein tabell og forenklar gjenbruk."},{"id":"it-2-5-2-n-quiz3-q1","task":"Kva er hensikta med ein indeks?","options":[{"id":"a","text":"Å slette data","isCorrect":false},{"id":"b","text":"Å lagre passord","isCorrect":false},{"id":"c","text":"Å fjerne duplikat","isCorrect":false},{"id":"d","text":"Å gjere søk og JOIN raskare","isCorrect":true}],"solution":"Ein indeks fungerer som eit stikkordregister og gjer SELECT og JOIN raskare på store tabellar."},{"id":"it-2-5-2-n-quiz3-q2","task":"Kva er ei ulempe med å lage mange indeksar?","options":[{"id":"a","text":"Dei gjer INSERT, UPDATE og DELETE tregare og tek ekstra plass","isCorrect":true},{"id":"b","text":"Dei gjer SELECT tregare","isCorrect":false},{"id":"c","text":"Dei slettar data","isCorrect":false},{"id":"d","text":"Dei har ingen ulemper","isCorrect":false}],"solution":"Kvar indeks må oppdaterast ved skriveoperasjonar og brukar ekstra lagringsplass, så ein bør berre indeksere kolonnar som faktisk blir brukte mykje."}]}},{"id":"it-2-5-2-n-summary","type":"text","content":"## Oppsummering\n\nNår data ligg spreidde over normaliserte tabellar, samlar vi dei igjen med **JOIN** – INNER JOIN for berre treff, LEFT JOIN for å ta vare på alt frå venstre tabell. **GROUP BY** med aggregatfunksjonar som COUNT, SUM og AVG gir samandrag, og **HAVING** filtrerer gruppene etter at WHERE har filtrert radene. **Subqueries** lèt oss bruke resultatet av éi spørjing inni ei anna.\n\nFor å rydde og gjenbruke lagar vi **views** – lagra spørjingar som oppfører seg som tabellar. Og for fart brukar vi **indeksar**, som gjer SELECT og JOIN raskare mot prisen av litt tregare skriving og meir plass. Med desse verktøya kan du hente ut nesten kva som helst innsikt frå ein relasjonsdatabase. I neste kapittel koblar vi Python til SQLite."}],"exercises":[],"_meta":{"sourceHash":"c69b851da79bb2a4","translatedAt":"2026-06-20T23:59:09.040Z","model":"claude-code-agent","strings":70,"tm":{"e48f74d67db4c814":"Avansert SQL","b195b06d1ed59702":"Narrativ versjon","98cf3f781437c4d7":"Ei forteljing om korleis vi får data spreidde over mange tabellar til å snakke saman – frå JOIN og GROUP BY, via underspørjingar og views, til indeksar som gjer trege spørjingar lynraske.","d2f7a5421095a0e4":"Kombinere tabellar med JOIN og aggregere med GROUP BY/HAVING","a4b9ab2b67d4f940":"Bruke subqueries og views","4d44c8f4a8675df5":"Forstå indeksar og når dei lønner seg","418260fb6f9a2649":"## Når data ligg spreidde\n\nDu kan allereie SELECT, WHERE og ORDER BY. Men i ein normalisert database ligg data spreidde over mange tabellar – det var jo heile poenget med normaliseringa. Skal du hente ut meiningsfull informasjon, må du kombinere tabellane igjen. Det gjer du med **JOIN**.\n\nDen vanlegaste varianten er **INNER JOIN**, som berre returnerer rader der det finst eit treff i begge tabellane. Vil du hente alle bøker saman med forfattarnamnet, koblar du Bok og Forfattar på forfatterID:\n\n```sql\nSELECT Bok.tittel, Forfatter.navn\nFROM Bok\nINNER JOIN Forfatter ON Bok.forfatterID = Forfatter.forfatterID;\n```\n\nNokre gonger vil du ha med rader utan treff. Då brukar du **LEFT JOIN**, som returnerer alle rader frå venstre tabell, òg dei utan match – dei får berre NULL i kolonnane frå høgre. Vil du ha med forfattarar som enno ikkje har skrive noka bok, er LEFT JOIN svaret. I SQLite finst ikkje RIGHT JOIN eller FULL OUTER JOIN, men du kjem langt med å byte rekkjefølgja i ein LEFT JOIN. Og du kan kjede fleire JOIN-ar saman for å koble tre eller fire tabellar i éi spørjing.","3f077436519d61ca":"Test deg sjølv på JOIN:","4097889236a2af26":"placeholder","ce418f907ecbab8d":"Kva returnerer ein INNER JOIN?","b45e4fe27637f03a":"Berre rader med treff i begge tabellane","fe8f6f5409b8cd34":"Alle rader frå begge tabellane uansett","a7c62f31e6954385":"Berre rader frå venstre tabell","753f866c0890064f":"Ingen rader","02a3bed5ba0e41f7":"INNER JOIN gir berre rader der det finst matchande verdiar i begge tabellane.","bdee0604c0dc464b":"Du vil ha med forfattarar som ikkje har skrive noka bok. Kva JOIN brukar du?","98b2b2a0e1ba74ee":"INNER JOIN","2dee3bb9720966e6":"LEFT JOIN med Forfattar som venstre tabell","82443ed3bab27658":"CROSS JOIN","c691837c636d680d":"Ingen JOIN","4dea0af5fe8a791e":"LEFT JOIN tek vare på alle rader frå venstre tabell, så forfattarar utan bøker kjem med (med NULL i bok-kolonnane).","776cb523e2d712e8":"Kva skjer i kolonnane frå høgre tabell ved ein LEFT JOIN utan treff?","f3a15b3e7435bf1a":"Raden blir droppa","5756528c61970830":"Dei blir 0","09ec47c8f17b07d4":"Dei blir NULL","9d3f41d7c93b249c":"Det gir feil","cfd93894e9ed31f7":"Når det ikkje finst match i høgre tabell, blir kolonnane hennar fylte med NULL.","752be624792b2479":"## Gruppering, aggregering og underspørjingar\n\nOfte vil du ikkje sjå kvar enkelt rad, men eit samandrag. Då brukar du **GROUP BY** saman med aggregatfunksjonar: `COUNT()` tel, `SUM()` summerer, `AVG()` reknar gjennomsnitt, og `MIN()`/`MAX()` finn ytterpunkt. Vil du vite kor mange elevar som er i kvar klasse, grupperer du på klasseID og tel. Vil du filtrere sjølve gruppene – til dømes berre vise fag med snittkarakter over 4,0 – brukar du **HAVING**. Her er skilnaden viktig: WHERE filtrerer rader *før* gruppering, medan HAVING filtrerer grupper *etter* gruppering.\n\nRekkjefølgja SQL køyrer i, er verdt å hugse: FROM vel tabell, WHERE filtrerer rader, GROUP BY grupperer, HAVING filtrerer grupper, SELECT vel kolonnar, og ORDER BY sorterer til slutt. Ein GROUP BY må inkludere alle SELECT-kolonnar som ikkje er aggregatfunksjonar.\n\nNokre gonger treng du resultatet av éi spørjing inni ei anna. Det blir kalla ein **subquery** (underspørjing). Du kan bruke han i WHERE – til dømes for å finne elevar med snitt høgare enn det totale gjennomsnittet ved å samanlikne mot `(SELECT AVG(karakter) FROM Karakter)`. Du kan bruke han i FROM som om resultatet var ein mellombels tabell. Og du kan kombinere han med `IN` for å finne alle elevar som finst i resultatet av ei anna spørjing, som dei som har fått 6 i minst eitt fag.","403933bf8c330e3c":"Test deg sjølv på gruppering og subqueries:","2a3fd602c83d908f":"Kva er skilnaden på WHERE og HAVING?","3b3baa10a15618d0":"Dei er identiske","f3cdabc0f9447fb5":"HAVING kjem alltid før WHERE","c08aadc9afb22c29":"WHERE verkar berre på tal","ce7687420f805085":"WHERE filtrerer rader før gruppering; HAVING filtrerer grupper etter gruppering","7ad7ff6b9a10dd43":"WHERE filtrerer enkeltrader før GROUP BY, medan HAVING filtrerer dei ferdige gruppene etterpå.","c1c3613836374142":"Kva funksjon tel talet på rader i ei gruppe?","93c46f885123736d":"COUNT()","5a9c64bdfd24b304":"SUM()","5dd8e9b350d66ff4":"AVG()","095fbc4b38dea784":"MAX()","c9ffc5d1973bef9d":"COUNT() tel talet på rader. SUM summerer, AVG gir gjennomsnitt, og MIN/MAX finn ytterpunkt.","71f95e807ee20edc":"Kva er ein subquery?","011004b539aa3c91":"Ein tabell utan kolonnar","9ab98906112b4bf2":"Ei SQL-spørjing inne i ei anna spørjing","5a75f5c96727a084":"Ein type indeks","6b16392622e7b20a":"Ei feilmelding","bb3bb93179599688":"Ein subquery er ei spørjing nesta inne i ei anna, ofte brukt i WHERE eller FROM for å levere eit mellomresultat.","d36d24ce297c56cc":"## Views og indeksar\n\nNokre spørjingar blir lange og kompliserte, og du skriv dei om og om igjen. Då kan ein **view** hjelpe – ei lagra SQL-spørjing som oppfører seg som ein tabell. Han lagrar ingen data, men gir deg ei ferdig spørjing til gjenbruk:\n\n```sql\nCREATE VIEW ElevOversikt AS\nSELECT Elev.navn, Klasse.klassenavn, AVG(Karakter.karakter) AS snittkarakter\nFROM Elev\nJOIN Klasse ON Elev.klasseID = Klasse.klasseID\nLEFT JOIN Karakter ON Elev.elevID = Karakter.elevID\nGROUP BY Elev.elevID;\n```\n\nEtterpå kan du bruke `SELECT * FROM ElevOversikt WHERE snittkarakter > 4.5` som om det var ein vanleg tabell. Views forenklar komplekse spørjingar, gir gjenbrukbar kode, skjuler kompleksitet for sluttbrukarar, og kan brukast til tryggleik ved å gi tilgang til viewet i staden for rådatatabellen.\n\nNår databasen veks, kan spørjingar bli trege. Ein **indeks** er ein datastruktur som gjer søk raskare – tenk på stikkordregisteret bak i ei bok, som lèt deg finne eit tema utan å bla gjennom alt. Du bør lage indeksar på kolonnar som ofte blir brukte i WHERE og JOIN, og på framandnøklar; primærnøklar får automatisk indeks. Men det er ei avveging: indeksar gjer SELECT dramatisk raskare, men dei tek ekstra plass og gjer INSERT, UPDATE og DELETE litt tregare fordi indeksen må oppdaterast. Difor lagar du ikkje indeks på alt – berre på kolonnar som faktisk blir brukte mykje i spørjingar.","9d5e178ffd77b9a5":"Test deg sjølv på views og indeksar:","4f8d44ca67a69d7e":"Kva er ein view i SQL?","6ac5199c8aee6b8e":"Ein kopi av alle data","00dcb1ee6b88d646":"Ein type primærnøkkel","23f6f28e14bc92ba":"Ei lagra spørjing som oppfører seg som ein virtuell tabell","1a6588a6599d6f22":"Ein view er ei lagra SQL-spørjing utan eigne data, som kan brukast som ein tabell og forenklar gjenbruk.","e1182e35fe042942":"Kva er hensikta med ein indeks?","085a14d6f91a0bec":"Å slette data","691023238e9c7c31":"Å lagre passord","b20f90b1120dab61":"Å fjerne duplikat","ab7de3260e2ae7e7":"Å gjere søk og JOIN raskare","1edebb0a2f2e6e61":"Ein indeks fungerer som eit stikkordregister og gjer SELECT og JOIN raskare på store tabellar.","ede36cf86bf101bd":"Kva er ei ulempe med å lage mange indeksar?","97a1cf44e65b378e":"Dei gjer INSERT, UPDATE og DELETE tregare og tek ekstra plass","3ef45a9880236c8c":"Dei gjer SELECT tregare","d525b643a749a580":"Dei slettar data","6c4dd3d6d894216f":"Dei har ingen ulemper","6dac8064a8658edf":"Kvar indeks må oppdaterast ved skriveoperasjonar og brukar ekstra lagringsplass, så ein bør berre indeksere kolonnar som faktisk blir brukte mykje.","a36ba3883dbda4c2":"## Oppsummering\n\nNår data ligg spreidde over normaliserte tabellar, samlar vi dei igjen med **JOIN** – INNER JOIN for berre treff, LEFT JOIN for å ta vare på alt frå venstre tabell. **GROUP BY** med aggregatfunksjonar som COUNT, SUM og AVG gir samandrag, og **HAVING** filtrerer gruppene etter at WHERE har filtrert radene. **Subqueries** lèt oss bruke resultatet av éi spørjing inni ei anna.\n\nFor å rydde og gjenbruke lagar vi **views** – lagra spørjingar som oppfører seg som tabellar. Og for fart brukar vi **indeksar**, som gjer SELECT og JOIN raskare mot prisen av litt tregare skriving og meir plass. Med desse verktøya kan du hente ut nesten kva som helst innsikt frå ein relasjonsdatabase. I neste kapittel koblar vi Python til SQLite."}}}
+{
+  "id": "it-2-5-2-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "2",
+  "title": "Avansert SQL",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi får data spreidde over mange tabellar til å snakke saman – frå JOIN og GROUP BY, via underspørjingar og views, til indeksar som gjer trege spørjingar lynraske.",
+  "estimatedMinutes": 44,
+  "competenceGoals": [
+    "Kombinere tabellar med JOIN og aggregere med GROUP BY/HAVING",
+    "Bruke subqueries og views",
+    "Forstå indeksar og når dei lønner seg"
+  ],
+  "linkedChapterId": "it-2-5-2",
+  "content": [
+    {
+      "id": "it-2-5-2-n-intro",
+      "type": "text",
+      "content": "## Når data ligg spreidde\n\nDu kan allereie SELECT, WHERE og ORDER BY. Men i ein normalisert database ligg data spreidde over mange tabellar – det var jo heile poenget med normaliseringa. Skal du hente ut meiningsfull informasjon, må du kombinere tabellane igjen. Det gjer du med **JOIN**.\n\nDen vanlegaste varianten er **INNER JOIN**, som berre returnerer rader der det finst eit treff i begge tabellane. Vil du hente alle bøker saman med forfattarnamnet, koblar du Bok og Forfattar på forfatterID:\n\n```sql\nSELECT Bok.tittel, Forfatter.navn\nFROM Bok\nINNER JOIN Forfatter ON Bok.forfatterID = Forfatter.forfatterID;\n```\n\nNokre gonger vil du ha med rader utan treff. Då brukar du **LEFT JOIN**, som returnerer alle rader frå venstre tabell, òg dei utan match – dei får berre NULL i kolonnane frå høgre. Vil du ha med forfattarar som enno ikkje har skrive noka bok, er LEFT JOIN svaret. I SQLite finst ikkje RIGHT JOIN eller FULL OUTER JOIN, men du kjem langt med å byte rekkjefølgja i ein LEFT JOIN. Og du kan kjede fleire JOIN-ar saman for å koble tre eller fire tabellar i éi spørjing."
+    },
+    {
+      "id": "it-2-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på JOIN:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-2-n-quiz1-q0",
+            "task": "Kva returnerer ein INNER JOIN?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle rader frå begge tabellane uansett",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre rader frå venstre tabell",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen rader",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Berre rader med treff i begge tabellane",
+                "isCorrect": true
+              }
+            ],
+            "solution": "INNER JOIN gir berre rader der det finst matchande verdiar i begge tabellane."
+          },
+          {
+            "id": "it-2-5-2-n-quiz1-q1",
+            "task": "Du vil ha med forfattarar som ikkje har skrive noka bok. Kva JOIN brukar du?",
+            "options": [
+              {
+                "id": "b",
+                "text": "LEFT JOIN med Forfattar som venstre tabell",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "INNER JOIN",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "CROSS JOIN",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen JOIN",
+                "isCorrect": false
+              }
+            ],
+            "solution": "LEFT JOIN tek vare på alle rader frå venstre tabell, så forfattarar utan bøker kjem med (med NULL i bok-kolonnane)."
+          },
+          {
+            "id": "it-2-5-2-n-quiz1-q2",
+            "task": "Kva skjer i kolonnane frå høgre tabell ved ein LEFT JOIN utan treff?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Raden blir droppa",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei blir NULL",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Dei blir 0",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det gir feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når det ikkje finst match i høgre tabell, blir kolonnane hennar fylte med NULL."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-2-n-section1",
+      "type": "text",
+      "content": "## Gruppering, aggregering og underspørjingar\n\nOfte vil du ikkje sjå kvar enkelt rad, men eit samandrag. Då brukar du **GROUP BY** saman med aggregatfunksjonar: `COUNT()` tel, `SUM()` summerer, `AVG()` reknar gjennomsnitt, og `MIN()`/`MAX()` finn ytterpunkt. Vil du vite kor mange elevar som er i kvar klasse, grupperer du på klasseID og tel. Vil du filtrere sjølve gruppene – til dømes berre vise fag med snittkarakter over 4,0 – brukar du **HAVING**. Her er skilnaden viktig: WHERE filtrerer rader *før* gruppering, medan HAVING filtrerer grupper *etter* gruppering.\n\nRekkjefølgja SQL køyrer i, er verdt å hugse: FROM vel tabell, WHERE filtrerer rader, GROUP BY grupperer, HAVING filtrerer grupper, SELECT vel kolonnar, og ORDER BY sorterer til slutt. Ein GROUP BY må inkludere alle SELECT-kolonnar som ikkje er aggregatfunksjonar.\n\nNokre gonger treng du resultatet av éi spørjing inni ei anna. Det blir kalla ein **subquery** (underspørjing). Du kan bruke han i WHERE – til dømes for å finne elevar med snitt høgare enn det totale gjennomsnittet ved å samanlikne mot `(SELECT AVG(karakter) FROM Karakter)`. Du kan bruke han i FROM som om resultatet var ein mellombels tabell. Og du kan kombinere han med `IN` for å finne alle elevar som finst i resultatet av ei anna spørjing, som dei som har fått 6 i minst eitt fag."
+    },
+    {
+      "id": "it-2-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på gruppering og subqueries:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-2-n-quiz2-q0",
+            "task": "Kva er skilnaden på WHERE og HAVING?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dei er identiske",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "HAVING kjem alltid før WHERE",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "WHERE filtrerer rader før gruppering; HAVING filtrerer grupper etter gruppering",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "WHERE verkar berre på tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "WHERE filtrerer enkeltrader før GROUP BY, medan HAVING filtrerer dei ferdige gruppene etterpå."
+          },
+          {
+            "id": "it-2-5-2-n-quiz2-q1",
+            "task": "Kva funksjon tel talet på rader i ei gruppe?",
+            "options": [
+              {
+                "id": "b",
+                "text": "SUM()",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "AVG()",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "MAX()",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "COUNT()",
+                "isCorrect": true
+              }
+            ],
+            "solution": "COUNT() tel talet på rader. SUM summerer, AVG gir gjennomsnitt, og MIN/MAX finn ytterpunkt."
+          },
+          {
+            "id": "it-2-5-2-n-quiz2-q2",
+            "task": "Kva er ein subquery?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei SQL-spørjing inne i ei anna spørjing",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein tabell utan kolonnar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein type indeks",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein subquery er ei spørjing nesta inne i ei anna, ofte brukt i WHERE eller FROM for å levere eit mellomresultat."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-2-n-section2",
+      "type": "text",
+      "content": "## Views og indeksar\n\nNokre spørjingar blir lange og kompliserte, og du skriv dei om og om igjen. Då kan ein **view** hjelpe – ei lagra SQL-spørjing som oppfører seg som ein tabell. Han lagrar ingen data, men gir deg ei ferdig spørjing til gjenbruk:\n\n```sql\nCREATE VIEW ElevOversikt AS\nSELECT Elev.navn, Klasse.klassenavn, AVG(Karakter.karakter) AS snittkarakter\nFROM Elev\nJOIN Klasse ON Elev.klasseID = Klasse.klasseID\nLEFT JOIN Karakter ON Elev.elevID = Karakter.elevID\nGROUP BY Elev.elevID;\n```\n\nEtterpå kan du bruke `SELECT * FROM ElevOversikt WHERE snittkarakter > 4.5` som om det var ein vanleg tabell. Views forenklar komplekse spørjingar, gir gjenbrukbar kode, skjuler kompleksitet for sluttbrukarar, og kan brukast til tryggleik ved å gi tilgang til viewet i staden for rådatatabellen.\n\nNår databasen veks, kan spørjingar bli trege. Ein **indeks** er ein datastruktur som gjer søk raskare – tenk på stikkordregisteret bak i ei bok, som lèt deg finne eit tema utan å bla gjennom alt. Du bør lage indeksar på kolonnar som ofte blir brukte i WHERE og JOIN, og på framandnøklar; primærnøklar får automatisk indeks. Men det er ei avveging: indeksar gjer SELECT dramatisk raskare, men dei tek ekstra plass og gjer INSERT, UPDATE og DELETE litt tregare fordi indeksen må oppdaterast. Difor lagar du ikkje indeks på alt – berre på kolonnar som faktisk blir brukte mykje i spørjingar."
+    },
+    {
+      "id": "it-2-5-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-5-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på views og indeksar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-5-2-n-quiz3-q0",
+            "task": "Kva er ein view i SQL?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein kopi av alle data",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei lagra spørjing som oppfører seg som ein virtuell tabell",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ein type primærnøkkel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein view er ei lagra SQL-spørjing utan eigne data, som kan brukast som ein tabell og forenklar gjenbruk."
+          },
+          {
+            "id": "it-2-5-2-n-quiz3-q1",
+            "task": "Kva er hensikta med ein indeks?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å slette data",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å lagre passord",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å gjere søk og JOIN raskare",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å fjerne duplikat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein indeks fungerer som eit stikkordregister og gjer SELECT og JOIN raskare på store tabellar."
+          },
+          {
+            "id": "it-2-5-2-n-quiz3-q2",
+            "task": "Kva er ei ulempe med å lage mange indeksar?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Dei gjer SELECT tregare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Dei slettar data",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei har ingen ulemper",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Dei gjer INSERT, UPDATE og DELETE tregare og tek ekstra plass",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvar indeks må oppdaterast ved skriveoperasjonar og brukar ekstra lagringsplass, så ein bør berre indeksere kolonnar som faktisk blir brukte mykje."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår data ligg spreidde over normaliserte tabellar, samlar vi dei igjen med **JOIN** – INNER JOIN for berre treff, LEFT JOIN for å ta vare på alt frå venstre tabell. **GROUP BY** med aggregatfunksjonar som COUNT, SUM og AVG gir samandrag, og **HAVING** filtrerer gruppene etter at WHERE har filtrert radene. **Subqueries** lèt oss bruke resultatet av éi spørjing inni ei anna.\n\nFor å rydde og gjenbruke lagar vi **views** – lagra spørjingar som oppfører seg som tabellar. Og for fart brukar vi **indeksar**, som gjer SELECT og JOIN raskare mot prisen av litt tregare skriving og meir plass. Med desse verktøya kan du hente ut nesten kva som helst innsikt frå ein relasjonsdatabase. I neste kapittel koblar vi Python til SQLite."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "c69b851da79bb2a4",
+    "translatedAt": "2026-06-20T23:59:09.040Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "e48f74d67db4c814": "Avansert SQL",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "98cf3f781437c4d7": "Ei forteljing om korleis vi får data spreidde over mange tabellar til å snakke saman – frå JOIN og GROUP BY, via underspørjingar og views, til indeksar som gjer trege spørjingar lynraske.",
+      "d2f7a5421095a0e4": "Kombinere tabellar med JOIN og aggregere med GROUP BY/HAVING",
+      "a4b9ab2b67d4f940": "Bruke subqueries og views",
+      "4d44c8f4a8675df5": "Forstå indeksar og når dei lønner seg",
+      "418260fb6f9a2649": "## Når data ligg spreidde\n\nDu kan allereie SELECT, WHERE og ORDER BY. Men i ein normalisert database ligg data spreidde over mange tabellar – det var jo heile poenget med normaliseringa. Skal du hente ut meiningsfull informasjon, må du kombinere tabellane igjen. Det gjer du med **JOIN**.\n\nDen vanlegaste varianten er **INNER JOIN**, som berre returnerer rader der det finst eit treff i begge tabellane. Vil du hente alle bøker saman med forfattarnamnet, koblar du Bok og Forfattar på forfatterID:\n\n```sql\nSELECT Bok.tittel, Forfatter.navn\nFROM Bok\nINNER JOIN Forfatter ON Bok.forfatterID = Forfatter.forfatterID;\n```\n\nNokre gonger vil du ha med rader utan treff. Då brukar du **LEFT JOIN**, som returnerer alle rader frå venstre tabell, òg dei utan match – dei får berre NULL i kolonnane frå høgre. Vil du ha med forfattarar som enno ikkje har skrive noka bok, er LEFT JOIN svaret. I SQLite finst ikkje RIGHT JOIN eller FULL OUTER JOIN, men du kjem langt med å byte rekkjefølgja i ein LEFT JOIN. Og du kan kjede fleire JOIN-ar saman for å koble tre eller fire tabellar i éi spørjing.",
+      "3f077436519d61ca": "Test deg sjølv på JOIN:",
+      "4097889236a2af26": "placeholder",
+      "ce418f907ecbab8d": "Kva returnerer ein INNER JOIN?",
+      "b45e4fe27637f03a": "Berre rader med treff i begge tabellane",
+      "fe8f6f5409b8cd34": "Alle rader frå begge tabellane uansett",
+      "a7c62f31e6954385": "Berre rader frå venstre tabell",
+      "753f866c0890064f": "Ingen rader",
+      "02a3bed5ba0e41f7": "INNER JOIN gir berre rader der det finst matchande verdiar i begge tabellane.",
+      "bdee0604c0dc464b": "Du vil ha med forfattarar som ikkje har skrive noka bok. Kva JOIN brukar du?",
+      "98b2b2a0e1ba74ee": "INNER JOIN",
+      "2dee3bb9720966e6": "LEFT JOIN med Forfattar som venstre tabell",
+      "82443ed3bab27658": "CROSS JOIN",
+      "c691837c636d680d": "Ingen JOIN",
+      "4dea0af5fe8a791e": "LEFT JOIN tek vare på alle rader frå venstre tabell, så forfattarar utan bøker kjem med (med NULL i bok-kolonnane).",
+      "776cb523e2d712e8": "Kva skjer i kolonnane frå høgre tabell ved ein LEFT JOIN utan treff?",
+      "f3a15b3e7435bf1a": "Raden blir droppa",
+      "5756528c61970830": "Dei blir 0",
+      "09ec47c8f17b07d4": "Dei blir NULL",
+      "9d3f41d7c93b249c": "Det gir feil",
+      "cfd93894e9ed31f7": "Når det ikkje finst match i høgre tabell, blir kolonnane hennar fylte med NULL.",
+      "752be624792b2479": "## Gruppering, aggregering og underspørjingar\n\nOfte vil du ikkje sjå kvar enkelt rad, men eit samandrag. Då brukar du **GROUP BY** saman med aggregatfunksjonar: `COUNT()` tel, `SUM()` summerer, `AVG()` reknar gjennomsnitt, og `MIN()`/`MAX()` finn ytterpunkt. Vil du vite kor mange elevar som er i kvar klasse, grupperer du på klasseID og tel. Vil du filtrere sjølve gruppene – til dømes berre vise fag med snittkarakter over 4,0 – brukar du **HAVING**. Her er skilnaden viktig: WHERE filtrerer rader *før* gruppering, medan HAVING filtrerer grupper *etter* gruppering.\n\nRekkjefølgja SQL køyrer i, er verdt å hugse: FROM vel tabell, WHERE filtrerer rader, GROUP BY grupperer, HAVING filtrerer grupper, SELECT vel kolonnar, og ORDER BY sorterer til slutt. Ein GROUP BY må inkludere alle SELECT-kolonnar som ikkje er aggregatfunksjonar.\n\nNokre gonger treng du resultatet av éi spørjing inni ei anna. Det blir kalla ein **subquery** (underspørjing). Du kan bruke han i WHERE – til dømes for å finne elevar med snitt høgare enn det totale gjennomsnittet ved å samanlikne mot `(SELECT AVG(karakter) FROM Karakter)`. Du kan bruke han i FROM som om resultatet var ein mellombels tabell. Og du kan kombinere han med `IN` for å finne alle elevar som finst i resultatet av ei anna spørjing, som dei som har fått 6 i minst eitt fag.",
+      "403933bf8c330e3c": "Test deg sjølv på gruppering og subqueries:",
+      "2a3fd602c83d908f": "Kva er skilnaden på WHERE og HAVING?",
+      "3b3baa10a15618d0": "Dei er identiske",
+      "f3cdabc0f9447fb5": "HAVING kjem alltid før WHERE",
+      "c08aadc9afb22c29": "WHERE verkar berre på tal",
+      "ce7687420f805085": "WHERE filtrerer rader før gruppering; HAVING filtrerer grupper etter gruppering",
+      "7ad7ff6b9a10dd43": "WHERE filtrerer enkeltrader før GROUP BY, medan HAVING filtrerer dei ferdige gruppene etterpå.",
+      "c1c3613836374142": "Kva funksjon tel talet på rader i ei gruppe?",
+      "93c46f885123736d": "COUNT()",
+      "5a9c64bdfd24b304": "SUM()",
+      "5dd8e9b350d66ff4": "AVG()",
+      "095fbc4b38dea784": "MAX()",
+      "c9ffc5d1973bef9d": "COUNT() tel talet på rader. SUM summerer, AVG gir gjennomsnitt, og MIN/MAX finn ytterpunkt.",
+      "71f95e807ee20edc": "Kva er ein subquery?",
+      "011004b539aa3c91": "Ein tabell utan kolonnar",
+      "9ab98906112b4bf2": "Ei SQL-spørjing inne i ei anna spørjing",
+      "5a75f5c96727a084": "Ein type indeks",
+      "6b16392622e7b20a": "Ei feilmelding",
+      "bb3bb93179599688": "Ein subquery er ei spørjing nesta inne i ei anna, ofte brukt i WHERE eller FROM for å levere eit mellomresultat.",
+      "d36d24ce297c56cc": "## Views og indeksar\n\nNokre spørjingar blir lange og kompliserte, og du skriv dei om og om igjen. Då kan ein **view** hjelpe – ei lagra SQL-spørjing som oppfører seg som ein tabell. Han lagrar ingen data, men gir deg ei ferdig spørjing til gjenbruk:\n\n```sql\nCREATE VIEW ElevOversikt AS\nSELECT Elev.navn, Klasse.klassenavn, AVG(Karakter.karakter) AS snittkarakter\nFROM Elev\nJOIN Klasse ON Elev.klasseID = Klasse.klasseID\nLEFT JOIN Karakter ON Elev.elevID = Karakter.elevID\nGROUP BY Elev.elevID;\n```\n\nEtterpå kan du bruke `SELECT * FROM ElevOversikt WHERE snittkarakter > 4.5` som om det var ein vanleg tabell. Views forenklar komplekse spørjingar, gir gjenbrukbar kode, skjuler kompleksitet for sluttbrukarar, og kan brukast til tryggleik ved å gi tilgang til viewet i staden for rådatatabellen.\n\nNår databasen veks, kan spørjingar bli trege. Ein **indeks** er ein datastruktur som gjer søk raskare – tenk på stikkordregisteret bak i ei bok, som lèt deg finne eit tema utan å bla gjennom alt. Du bør lage indeksar på kolonnar som ofte blir brukte i WHERE og JOIN, og på framandnøklar; primærnøklar får automatisk indeks. Men det er ei avveging: indeksar gjer SELECT dramatisk raskare, men dei tek ekstra plass og gjer INSERT, UPDATE og DELETE litt tregare fordi indeksen må oppdaterast. Difor lagar du ikkje indeks på alt – berre på kolonnar som faktisk blir brukte mykje i spørjingar.",
+      "9d5e178ffd77b9a5": "Test deg sjølv på views og indeksar:",
+      "4f8d44ca67a69d7e": "Kva er ein view i SQL?",
+      "6ac5199c8aee6b8e": "Ein kopi av alle data",
+      "00dcb1ee6b88d646": "Ein type primærnøkkel",
+      "23f6f28e14bc92ba": "Ei lagra spørjing som oppfører seg som ein virtuell tabell",
+      "1a6588a6599d6f22": "Ein view er ei lagra SQL-spørjing utan eigne data, som kan brukast som ein tabell og forenklar gjenbruk.",
+      "e1182e35fe042942": "Kva er hensikta med ein indeks?",
+      "085a14d6f91a0bec": "Å slette data",
+      "691023238e9c7c31": "Å lagre passord",
+      "b20f90b1120dab61": "Å fjerne duplikat",
+      "ab7de3260e2ae7e7": "Å gjere søk og JOIN raskare",
+      "1edebb0a2f2e6e61": "Ein indeks fungerer som eit stikkordregister og gjer SELECT og JOIN raskare på store tabellar.",
+      "ede36cf86bf101bd": "Kva er ei ulempe med å lage mange indeksar?",
+      "97a1cf44e65b378e": "Dei gjer INSERT, UPDATE og DELETE tregare og tek ekstra plass",
+      "3ef45a9880236c8c": "Dei gjer SELECT tregare",
+      "d525b643a749a580": "Dei slettar data",
+      "6c4dd3d6d894216f": "Dei har ingen ulemper",
+      "6dac8064a8658edf": "Kvar indeks må oppdaterast ved skriveoperasjonar og brukar ekstra lagringsplass, så ein bør berre indeksere kolonnar som faktisk blir brukte mykje.",
+      "a36ba3883dbda4c2": "## Oppsummering\n\nNår data ligg spreidde over normaliserte tabellar, samlar vi dei igjen med **JOIN** – INNER JOIN for berre treff, LEFT JOIN for å ta vare på alt frå venstre tabell. **GROUP BY** med aggregatfunksjonar som COUNT, SUM og AVG gir samandrag, og **HAVING** filtrerer gruppene etter at WHERE har filtrert radene. **Subqueries** lèt oss bruke resultatet av éi spørjing inni ei anna.\n\nFor å rydde og gjenbruke lagar vi **views** – lagra spørjingar som oppfører seg som tabellar. Og for fart brukar vi **indeksar**, som gjer SELECT og JOIN raskare mot prisen av litt tregare skriving og meir plass. Med desse verktøya kan du hente ut nesten kva som helst innsikt frå ein relasjonsdatabase. I neste kapittel koblar vi Python til SQLite."
+    }
+  }
+}

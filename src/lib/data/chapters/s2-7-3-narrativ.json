@@ -1,1 +1,291 @@
-{"id":"s2-7-3-narrativ","courseId":"s2","chapterNumber":"7.3","title":"Uendelige geometriske rekker","subtitle":"Narrativ versjon","description":"En fortelling om vandringen mot veggen som aldri tar slutt — om konvergens, summen av uendelige geometriske rekker, periodiske desimaltall og sprettballen som likevel kommer i mål.","estimatedMinutes":35,"competenceGoals":["gjøre rede for begrepene rekker, konvergens og divergens, og bruke rekker i modellering","avgjøre om en uendelig geometrisk rekke konvergerer, og i så fall beregne summen"],"linkedChapterId":"s2-7-3","content":[{"id":"s2-7-3-n-intro","type":"text","content":"## Kan en uendelig sum bli endelig?\n\nStill deg midt i rommet og gå halvparten av veien til veggen. Gå så halvparten av det som gjenstår. Og halvparten igjen. Du legger altså bak deg $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots$ — uendelig mange strekninger. Kommer du noen gang frem? Intuisjonen sier at du nærmer deg veggen, og at den totale strekningen nærmer seg nøyaktig $1$. Men kan vi virkelig legge sammen *uendelig mange* tall og få et *endelig* svar?\n\nSvaret er ja — noen ganger. Dette er et av de mest fascinerende resultatene i matematikken, og i dette kapittelet skal vi formalisere ideen og finne ut nøyaktig *når* en uendelig geometrisk rekke har en endelig sum.\n\nNøkkelbegrepene heter **konvergens** og **divergens**. En uendelig rekke $\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + \\cdots$ er *konvergent* dersom delsummene $S_n = a_1 + a_2 + \\cdots + a_n$ nærmer seg en bestemt verdi $S$ når $n \\to \\infty$; da skriver vi $\\sum_{n=1}^{\\infty} a_n = S$. Nærmer delsummene seg ikke noen bestemt verdi, er rekken *divergent*. Vandringen mot veggen, en sprettball som spretter lavere og lavere, og til og med desimaltallene du har brukt hele livet — alle skjuler de en uendelig geometrisk rekke."},{"id":"s2-7-3-n-section1","type":"text","content":"## Konvergensbetingelsen og sumformelen\n\nNår konvergerer en uendelig geometrisk rekke? Vi starter med den endelige summen fra forrige kapittel og skriver den om:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1} = \\frac{a_1}{1-k}(1 - k^n)$$\n\nAlt avhenger av hva $k^n$ gjør når $n \\to \\infty$. Dersom $|k| < 1$, blir $k^n$ mindre og mindre og går mot null — og da gjenstår bare det vakre resultatet:\n\n$$S = \\lim_{n \\to \\infty} S_n = \\frac{a_1}{1-k} \\qquad \\text{når } |k| < 1$$\n\nDersom $|k| \\geq 1$, divergerer rekken. Betingelsen $|k| < 1$ betyr i praksis at hvert ledd er mindre enn det foregående i absoluttverdi — leddene bidrar stadig mindre. For $k = 1$ får vi $a + a + a + \\cdots \\to \\infty$; for $k = -1$ oscillerer summen $a - a + a - a + \\cdots$ uten å nærme seg noe; og for $|k| > 1$ vokser leddene i absoluttverdi.\n\nLa oss prøve: konvergerer $\\sum_{n=0}^{\\infty} 6 \\cdot \\left(\\frac{1}{3}\\right)^n$? Her er $a_1 = 6$ (leddet for $n = 0$) og $k = \\frac{1}{3}$. Siden $|k| < 1$ konvergerer rekken, og summen er\n\n$$S = \\frac{6}{1 - \\frac{1}{3}} = \\frac{6}{\\frac{2}{3}} = 9$$\n\nDelsummene bekrefter det: $S_1 = 6$, $S_2 = 8$, $S_3 = 8{,}67$, $S_4 \\approx 8{,}89$ — på vei mot 9. Merk at formen med startindeks 0, $\\sum_{n=0}^{\\infty} a \\cdot k^n = \\frac{a}{1-k}$, er den vanligste i teori og på eksamen.\n\nEn siste advarsel: at leddene går mot null er en **nødvendig** betingelse for konvergens — men **ikke tilstrekkelig**. Den harmoniske rekken $1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\cdots$ divergerer, selv om $\\frac{1}{n} \\to 0$. For *geometriske* rekker er imidlertid $|k| < 1$ hele historien."},{"id":"s2-7-3-n-quiz1","type":"exercise","exercise":{"id":"s2-7-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på konvergens og sumformelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-3-n-quiz1-q0","task":"Når konvergerer en uendelig geometrisk rekke?","options":[{"id":"a","text":"Når $|k| < 1$","isCorrect":true},{"id":"b","text":"Når $k > 0$","isCorrect":false},{"id":"c","text":"Når $a_1 < 1$","isCorrect":false},{"id":"d","text":"Alltid — uendelige rekker har alltid en sum","isCorrect":false}],"solution":"Rekken konvergerer hvis og bare hvis $|k| < 1$, for da går $k^n \\to 0$ og $S_n \\to \\frac{a_1}{1-k}$."},{"id":"s2-7-3-n-quiz1-q1","task":"Hva er summen av $\\sum_{n=0}^{\\infty} 6 \\cdot \\left(\\frac{1}{3}\\right)^n$?","options":[{"id":"a","text":"$18$","isCorrect":false},{"id":"b","text":"$9$","isCorrect":true},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"Rekken divergerer","isCorrect":false}],"solution":"$a_1 = 6$, $k = \\frac{1}{3}$: $S = \\frac{6}{1 - 1/3} = \\frac{6}{2/3} = 9$."},{"id":"s2-7-3-n-quiz1-q2","task":"Hva skjer med den geometriske rekken når $k = -1$?","options":[{"id":"a","text":"Den konvergerer mot $\\frac{a_1}{2}$","isCorrect":false},{"id":"b","text":"Den konvergerer mot $0$","isCorrect":false},{"id":"c","text":"Delsummene oscillerer uten å nærme seg én verdi — rekken divergerer","isCorrect":true},{"id":"d","text":"Den vokser mot uendelig","isCorrect":false}],"solution":"Summen blir $a - a + a - a + \\cdots$, og delsummene hopper mellom $a$ og $0$. Ingen grenseverdi, altså divergens."},{"id":"s2-7-3-n-quiz1-q3","task":"Den harmoniske rekken $1 + \\frac{1}{2} + \\frac{1}{3} + \\cdots$ har ledd som går mot null. Hvorfor er den likevel divergent?","options":[{"id":"a","text":"Fordi leddene er positive","isCorrect":false},{"id":"b","text":"Fordi den ikke er geometrisk og dermed alltid divergerer","isCorrect":false},{"id":"c","text":"Den er faktisk konvergent","isCorrect":false},{"id":"d","text":"Fordi $a_n \\to 0$ er nødvendig, men ikke tilstrekkelig for konvergens","isCorrect":true}],"solution":"At leddene går mot null garanterer ikke at summen er endelig. Den harmoniske rekken er standardeksempelet: $\\frac{1}{n} \\to 0$, men delsummene vokser over alle grenser."}]}},{"id":"s2-7-3-n-section2","type":"text","content":"## Desimaltall og sprettballer\n\nHer er en hemmelighet som har gjemt seg i tallene dine siden barneskolen: periodiske desimaltall *er* uendelige geometriske rekker. Ta $0{,}\\overline{3} = 0{,}333\\ldots$ Det er egentlig summen\n\n$$\\frac{3}{10} + \\frac{3}{100} + \\frac{3}{1000} + \\cdots$$\n\nen geometrisk rekke med $a_1 = \\frac{3}{10}$ og $k = \\frac{1}{10}$. Sumformelen gir $S = \\frac{3/10}{1 - 1/10} = \\frac{3/10}{9/10} = \\frac{3}{9} = \\frac{1}{3}$ — beviset for at $0{,}\\overline{3} = \\frac{1}{3}$.\n\nSamme teknikk fungerer for lengre perioder. Hva er $0{,}\\overline{27} = 0{,}272727\\ldots$ som brøk? Vi skriver $\\frac{27}{100} + \\frac{27}{10\\,000} + \\cdots$ med $a_1 = \\frac{27}{100}$ og $k = \\frac{1}{100}$:\n\n$$S = \\frac{\\frac{27}{100}}{1 - \\frac{1}{100}} = \\frac{\\frac{27}{100}}{\\frac{99}{100}} = \\frac{27}{99} = \\frac{3}{11}$$\n\nSlik viser geometriske rekker at alle periodiske desimaltall er rasjonale tall.\n\nSå til den klassiske eksamensfavoritten: **sprettballen**. En ball slippes fra 10 meter, og hver gang den treffer bakken, spretter den til 60 % av forrige høyde. Hvor langt beveger ballen seg totalt? Vi deler bevegelsen i to. Nedover faller den $10 + 6 + 3{,}6 + \\cdots = \\frac{10}{1 - 0{,}6} = \\frac{10}{0{,}4} = 25$ meter. Oppover spretter den $6 + 3{,}6 + \\cdots = \\frac{6}{0{,}4} = 15$ meter. Totalt $25 + 15 = 40$ meter — en endelig distanse, selv om ballen i teorien spretter uendelig mange ganger. Alternativt: total $= 10 + 2(6 + 3{,}6 + \\cdots) = 10 + 2 \\cdot 15 = 40$ m. Lignende regnestykker dukker opp for medisindoser som brytes ned, pendler som svinger seg til ro, og økonomiske strømmer som diskonteres — overalt der noe gjentar seg i stadig mindre skala."},{"id":"s2-7-3-n-quiz2","type":"exercise","exercise":{"id":"s2-7-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på desimaltall og praktiske anvendelser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-3-n-quiz2-q0","task":"Skriv $0{,}\\overline{27}$ som brøk.","options":[{"id":"a","text":"$\\frac{27}{100}$","isCorrect":false},{"id":"b","text":"$\\frac{27}{90}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{27}$","isCorrect":false},{"id":"d","text":"$\\frac{3}{11}$","isCorrect":true}],"solution":"$0{,}\\overline{27} = \\frac{27}{100} + \\frac{27}{10\\,000} + \\cdots = \\frac{27/100}{1 - 1/100} = \\frac{27}{99} = \\frac{3}{11}$."},{"id":"s2-7-3-n-quiz2-q1","task":"I rekken for $0{,}\\overline{3} = \\frac{3}{10} + \\frac{3}{100} + \\cdots$, hva er kvotienten $k$?","options":[{"id":"a","text":"$k = \\frac{1}{10}$","isCorrect":true},{"id":"b","text":"$k = \\frac{3}{10}$","isCorrect":false},{"id":"c","text":"$k = 3$","isCorrect":false},{"id":"d","text":"$k = \\frac{1}{3}$","isCorrect":false}],"solution":"Hvert ledd er en tidel av det forrige: $k = \\frac{1}{10}$. Med $a_1 = \\frac{3}{10}$ gir sumformelen $\\frac{1}{3}$."},{"id":"s2-7-3-n-quiz2-q2","task":"Sprettballen slippes fra 10 m og spretter til 60 % av forrige høyde hver gang. Hva er total tilbakelagt distanse?","options":[{"id":"a","text":"$25$ m","isCorrect":false},{"id":"b","text":"$40$ m","isCorrect":true},{"id":"c","text":"$16$ m","isCorrect":false},{"id":"d","text":"Uendelig","isCorrect":false}],"solution":"Nedover: $\\frac{10}{1-0{,}6} = 25$ m. Oppover: $\\frac{6}{1-0{,}6} = 15$ m. Totalt $40$ m — endelig, fordi $|k| = 0{,}6 < 1$."},{"id":"s2-7-3-n-quiz2-q3","task":"En uendelig geometrisk rekke har $a_1 = 8$ og sum $S = 20$. Hva er $k$?","options":[{"id":"a","text":"$k = \\frac{2}{5}$","isCorrect":false},{"id":"b","text":"$k = \\frac{8}{20}$","isCorrect":false},{"id":"c","text":"$k = \\frac{3}{5}$","isCorrect":true},{"id":"d","text":"$k = \\frac{5}{3}$","isCorrect":false}],"solution":"$S = \\frac{a_1}{1-k}$ gir $20 = \\frac{8}{1-k}$, altså $1 - k = \\frac{8}{20} = 0{,}4$ og $k = 0{,}6 = \\frac{3}{5}$."}]}},{"id":"s2-7-3-n-summary","type":"text","content":"## Oppsummering: uendelig mange skritt, endelig vei\n\nVandringen mot veggen var ikke noe paradoks likevel: $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1$, akkurat som intuisjonen sa. En uendelig rekke **konvergerer** når delsummene $S_n$ nærmer seg en bestemt verdi, og for geometriske rekker er hele svaret samlet i én betingelse og én formel:\n\n$$S = \\frac{a_1}{1-k} \\qquad \\text{hvis og bare hvis } |k| < 1$$\n\nBeviset bygde på omskrivingen $S_n = \\frac{a_1}{1-k}(1 - k^n)$ og det faktum at $k^n \\to 0$ når $|k| < 1$. For $|k| \\geq 1$ divergerer rekken: leddene blir ikke små nok til at summen kan stabilisere seg. Og husk presiseringen: $a_n \\to 0$ er nødvendig for konvergens, men ikke tilstrekkelig — den harmoniske rekken divergerer selv om leddene forsvinner.\n\nVerktøyet viste seg overraskende allsidig. Periodiske desimaltall avslørte seg som geometriske rekker — $0{,}\\overline{3} = \\frac{1}{3}$ og $0{,}\\overline{27} = \\frac{3}{11}$ — som beviser at de er rasjonale tall. Sprettballen fra 10 meter la bak seg nøyaktig 40 meter, tross uendelig mange sprett. Samme matematikk styrer medisinkonsentrasjoner, pendelsvingninger og økonomiske strømmer.\n\nOg nettopp økonomien venter i neste kapittel: når faste sparebeløp og lånebetalinger møter renters rente, er det summene fra dette kapittelet som gjør jobben."}],"exercises":[]}
+{
+  "id": "s2-7-3-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "7.3",
+  "title": "Uendelige geometriske rekker",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om vandringen mot veggen som aldri tar slutt — om konvergens, summen av uendelige geometriske rekker, periodiske desimaltall og sprettballen som likevel kommer i mål.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "gjøre rede for begrepene rekker, konvergens og divergens, og bruke rekker i modellering",
+    "avgjøre om en uendelig geometrisk rekke konvergerer, og i så fall beregne summen"
+  ],
+  "linkedChapterId": "s2-7-3",
+  "content": [
+    {
+      "id": "s2-7-3-n-intro",
+      "type": "text",
+      "content": "## Kan en uendelig sum bli endelig?\n\nStill deg midt i rommet og gå halvparten av veien til veggen. Gå så halvparten av det som gjenstår. Og halvparten igjen. Du legger altså bak deg $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots$ — uendelig mange strekninger. Kommer du noen gang frem? Intuisjonen sier at du nærmer deg veggen, og at den totale strekningen nærmer seg nøyaktig $1$. Men kan vi virkelig legge sammen *uendelig mange* tall og få et *endelig* svar?\n\nSvaret er ja — noen ganger. Dette er et av de mest fascinerende resultatene i matematikken, og i dette kapittelet skal vi formalisere ideen og finne ut nøyaktig *når* en uendelig geometrisk rekke har en endelig sum.\n\nNøkkelbegrepene heter **konvergens** og **divergens**. En uendelig rekke $\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + \\cdots$ er *konvergent* dersom delsummene $S_n = a_1 + a_2 + \\cdots + a_n$ nærmer seg en bestemt verdi $S$ når $n \\to \\infty$; da skriver vi $\\sum_{n=1}^{\\infty} a_n = S$. Nærmer delsummene seg ikke noen bestemt verdi, er rekken *divergent*. Vandringen mot veggen, en sprettball som spretter lavere og lavere, og til og med desimaltallene du har brukt hele livet — alle skjuler de en uendelig geometrisk rekke."
+    },
+    {
+      "id": "s2-7-3-n-section1",
+      "type": "text",
+      "content": "## Konvergensbetingelsen og sumformelen\n\nNår konvergerer en uendelig geometrisk rekke? Vi starter med den endelige summen fra forrige kapittel og skriver den om:\n\n$$S_n = a_1 \\cdot \\frac{k^n - 1}{k - 1} = \\frac{a_1}{1-k}(1 - k^n)$$\n\nAlt avhenger av hva $k^n$ gjør når $n \\to \\infty$. Dersom $|k| < 1$, blir $k^n$ mindre og mindre og går mot null — og da gjenstår bare det vakre resultatet:\n\n$$S = \\lim_{n \\to \\infty} S_n = \\frac{a_1}{1-k} \\qquad \\text{når } |k| < 1$$\n\nDersom $|k| \\geq 1$, divergerer rekken. Betingelsen $|k| < 1$ betyr i praksis at hvert ledd er mindre enn det foregående i absoluttverdi — leddene bidrar stadig mindre. For $k = 1$ får vi $a + a + a + \\cdots \\to \\infty$; for $k = -1$ oscillerer summen $a - a + a - a + \\cdots$ uten å nærme seg noe; og for $|k| > 1$ vokser leddene i absoluttverdi.\n\nLa oss prøve: konvergerer $\\sum_{n=0}^{\\infty} 6 \\cdot \\left(\\frac{1}{3}\\right)^n$? Her er $a_1 = 6$ (leddet for $n = 0$) og $k = \\frac{1}{3}$. Siden $|k| < 1$ konvergerer rekken, og summen er\n\n$$S = \\frac{6}{1 - \\frac{1}{3}} = \\frac{6}{\\frac{2}{3}} = 9$$\n\nDelsummene bekrefter det: $S_1 = 6$, $S_2 = 8$, $S_3 = 8{,}67$, $S_4 \\approx 8{,}89$ — på vei mot 9. Merk at formen med startindeks 0, $\\sum_{n=0}^{\\infty} a \\cdot k^n = \\frac{a}{1-k}$, er den vanligste i teori og på eksamen.\n\nEn siste advarsel: at leddene går mot null er en **nødvendig** betingelse for konvergens — men **ikke tilstrekkelig**. Den harmoniske rekken $1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\cdots$ divergerer, selv om $\\frac{1}{n} \\to 0$. For *geometriske* rekker er imidlertid $|k| < 1$ hele historien."
+    },
+    {
+      "id": "s2-7-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på konvergens og sumformelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-3-n-quiz1-q0",
+            "task": "Når konvergerer en uendelig geometrisk rekke?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når $k > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $a_1 < 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alltid — uendelige rekker har alltid en sum",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når $|k| < 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Rekken konvergerer hvis og bare hvis $|k| < 1$, for da går $k^n \\to 0$ og $S_n \\to \\frac{a_1}{1-k}$."
+          },
+          {
+            "id": "s2-7-3-n-quiz1-q1",
+            "task": "Hva er summen av $\\sum_{n=0}^{\\infty} 6 \\cdot \\left(\\frac{1}{3}\\right)^n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$18$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Rekken divergerer",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_1 = 6$, $k = \\frac{1}{3}$: $S = \\frac{6}{1 - 1/3} = \\frac{6}{2/3} = 9$."
+          },
+          {
+            "id": "s2-7-3-n-quiz1-q2",
+            "task": "Hva skjer med den geometriske rekken når $k = -1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den konvergerer mot $\\frac{a_1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Delsummene oscillerer uten å nærme seg én verdi — rekken divergerer",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den konvergerer mot $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den vokser mot uendelig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Summen blir $a - a + a - a + \\cdots$, og delsummene hopper mellom $a$ og $0$. Ingen grenseverdi, altså divergens."
+          },
+          {
+            "id": "s2-7-3-n-quiz1-q3",
+            "task": "Den harmoniske rekken $1 + \\frac{1}{2} + \\frac{1}{3} + \\cdots$ har ledd som går mot null. Hvorfor er den likevel divergent?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi leddene er positive",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi den ikke er geometrisk og dermed alltid divergerer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $a_n \\to 0$ er nødvendig, men ikke tilstrekkelig for konvergens",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den er faktisk konvergent",
+                "isCorrect": false
+              }
+            ],
+            "solution": "At leddene går mot null garanterer ikke at summen er endelig. Den harmoniske rekken er standardeksempelet: $\\frac{1}{n} \\to 0$, men delsummene vokser over alle grenser."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-3-n-section2",
+      "type": "text",
+      "content": "## Desimaltall og sprettballer\n\nHer er en hemmelighet som har gjemt seg i tallene dine siden barneskolen: periodiske desimaltall *er* uendelige geometriske rekker. Ta $0{,}\\overline{3} = 0{,}333\\ldots$ Det er egentlig summen\n\n$$\\frac{3}{10} + \\frac{3}{100} + \\frac{3}{1000} + \\cdots$$\n\nen geometrisk rekke med $a_1 = \\frac{3}{10}$ og $k = \\frac{1}{10}$. Sumformelen gir $S = \\frac{3/10}{1 - 1/10} = \\frac{3/10}{9/10} = \\frac{3}{9} = \\frac{1}{3}$ — beviset for at $0{,}\\overline{3} = \\frac{1}{3}$.\n\nSamme teknikk fungerer for lengre perioder. Hva er $0{,}\\overline{27} = 0{,}272727\\ldots$ som brøk? Vi skriver $\\frac{27}{100} + \\frac{27}{10\\,000} + \\cdots$ med $a_1 = \\frac{27}{100}$ og $k = \\frac{1}{100}$:\n\n$$S = \\frac{\\frac{27}{100}}{1 - \\frac{1}{100}} = \\frac{\\frac{27}{100}}{\\frac{99}{100}} = \\frac{27}{99} = \\frac{3}{11}$$\n\nSlik viser geometriske rekker at alle periodiske desimaltall er rasjonale tall.\n\nSå til den klassiske eksamensfavoritten: **sprettballen**. En ball slippes fra 10 meter, og hver gang den treffer bakken, spretter den til 60 % av forrige høyde. Hvor langt beveger ballen seg totalt? Vi deler bevegelsen i to. Nedover faller den $10 + 6 + 3{,}6 + \\cdots = \\frac{10}{1 - 0{,}6} = \\frac{10}{0{,}4} = 25$ meter. Oppover spretter den $6 + 3{,}6 + \\cdots = \\frac{6}{0{,}4} = 15$ meter. Totalt $25 + 15 = 40$ meter — en endelig distanse, selv om ballen i teorien spretter uendelig mange ganger. Alternativt: total $= 10 + 2(6 + 3{,}6 + \\cdots) = 10 + 2 \\cdot 15 = 40$ m. Lignende regnestykker dukker opp for medisindoser som brytes ned, pendler som svinger seg til ro, og økonomiske strømmer som diskonteres — overalt der noe gjentar seg i stadig mindre skala."
+    },
+    {
+      "id": "s2-7-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på desimaltall og praktiske anvendelser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-3-n-quiz2-q0",
+            "task": "Skriv $0{,}\\overline{27}$ som brøk.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{27}{100}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{27}{90}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{27}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{3}{11}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$0{,}\\overline{27} = \\frac{27}{100} + \\frac{27}{10\\,000} + \\cdots = \\frac{27/100}{1 - 1/100} = \\frac{27}{99} = \\frac{3}{11}$."
+          },
+          {
+            "id": "s2-7-3-n-quiz2-q1",
+            "task": "I rekken for $0{,}\\overline{3} = \\frac{3}{10} + \\frac{3}{100} + \\cdots$, hva er kvotienten $k$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$k = \\frac{1}{10}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$k = \\frac{3}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$k = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$k = \\frac{1}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hvert ledd er en tidel av det forrige: $k = \\frac{1}{10}$. Med $a_1 = \\frac{3}{10}$ gir sumformelen $\\frac{1}{3}$."
+          },
+          {
+            "id": "s2-7-3-n-quiz2-q2",
+            "task": "Sprettballen slippes fra 10 m og spretter til 60 % av forrige høyde hver gang. Hva er total tilbakelagt distanse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$25$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$40$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$16$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Uendelig",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nedover: $\\frac{10}{1-0{,}6} = 25$ m. Oppover: $\\frac{6}{1-0{,}6} = 15$ m. Totalt $40$ m — endelig, fordi $|k| = 0{,}6 < 1$."
+          },
+          {
+            "id": "s2-7-3-n-quiz2-q3",
+            "task": "En uendelig geometrisk rekke har $a_1 = 8$ og sum $S = 20$. Hva er $k$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$k = \\frac{2}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$k = \\frac{8}{20}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$k = \\frac{3}{5}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$k = \\frac{5}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$S = \\frac{a_1}{1-k}$ gir $20 = \\frac{8}{1-k}$, altså $1 - k = \\frac{8}{20} = 0{,}4$ og $k = 0{,}6 = \\frac{3}{5}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: uendelig mange skritt, endelig vei\n\nVandringen mot veggen var ikke noe paradoks likevel: $\\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots = 1$, akkurat som intuisjonen sa. En uendelig rekke **konvergerer** når delsummene $S_n$ nærmer seg en bestemt verdi, og for geometriske rekker er hele svaret samlet i én betingelse og én formel:\n\n$$S = \\frac{a_1}{1-k} \\qquad \\text{hvis og bare hvis } |k| < 1$$\n\nBeviset bygde på omskrivingen $S_n = \\frac{a_1}{1-k}(1 - k^n)$ og det faktum at $k^n \\to 0$ når $|k| < 1$. For $|k| \\geq 1$ divergerer rekken: leddene blir ikke små nok til at summen kan stabilisere seg. Og husk presiseringen: $a_n \\to 0$ er nødvendig for konvergens, men ikke tilstrekkelig — den harmoniske rekken divergerer selv om leddene forsvinner.\n\nVerktøyet viste seg overraskende allsidig. Periodiske desimaltall avslørte seg som geometriske rekker — $0{,}\\overline{3} = \\frac{1}{3}$ og $0{,}\\overline{27} = \\frac{3}{11}$ — som beviser at de er rasjonale tall. Sprettballen fra 10 meter la bak seg nøyaktig 40 meter, tross uendelig mange sprett. Samme matematikk styrer medisinkonsentrasjoner, pendelsvingninger og økonomiske strømmer.\n\nOg nettopp økonomien venter i neste kapittel: når faste sparebeløp og lånebetalinger møter renters rente, er det summene fra dette kapittelet som gjør jobben."
+    }
+  ],
+  "exercises": []
+}

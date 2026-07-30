@@ -1,1 +1,316 @@
-{"id":"r2-4-7-narrativ","courseId":"r2","chapterNumber":"4.7","title":"Omskriving til ren sinusform","subtitle":"Narrativ versjon","description":"En fortelling om bølger som smelter sammen — hvordan a sin x + b cos x alltid er én ren sinus R sin(x + α) i forkledning, og hva det gir oss av ekstremverdier, likninger og superposisjon.","estimatedMinutes":33,"competenceGoals":["omskrive uttrykk på formen a sin x + b cos x til ren sinusform","bruke omskriving til å løse likninger og finne ekstremverdier","forstå sammenhengen mellom addisjonsformlene og omskriving"],"linkedChapterId":"r2-4-7","content":[{"id":"r2-4-7-n-intro","type":"text","content":"## To bølger blir én\n\nSett deg ved et lydmiksebord. To høyttalere spiller toner med nøyaktig samme frekvens, men de er ikke i takt — den ene følger en sinuskurve, den andre en cosinuskurve. Hva hører du? Ikke to lyder, men **én** tone: bølgene smelter sammen til en eneste ren svingning. Matematisk betyr det at et uttrykk på formen $a\\sin x + b\\cos x$ — som ser ut som en rotete sum av to forskjellige funksjoner — i virkeligheten alltid er én enkelt, ren sinusfunksjon i forkledning.\n\nDette er kapitlets store påstand: for alle tall $a$ og $b$ (ikke begge null) finnes det en amplitude $R$ og en faseforskyvning $\\alpha$ slik at $a\\sin x + b\\cos x = R\\sin(x + \\alpha)$. Og når forkledningen først er avslørt, blir vanskelige spørsmål plutselig enkle. Hva er maksimumsverdien til $f(x) = 3\\sin x + 4\\cos x$? Skrevet som $R\\sin(x + \\alpha)$ er svaret øyeblikkelig: $R$, siden sinus aldri overstiger $1$. Hvordan løser du likningen $\\sin x + \\cos x = 1$? Omskriv venstresiden til én sinus, og du står igjen med en helt vanlig sinuslikning.\n\nI denne fortellingen utleder vi omskrivingsformelen fra addisjonsformelen for sinus, lærer å finne $R$ og $\\alpha$ trygt — også når koeffisientene er negative — og bruker teknikken på ekstremverdier, likninger og fysikkens superposisjon av bølger."},{"id":"r2-4-7-n-section1","type":"text","content":"## Avsløringen: å finne R og alfa\n\nHvorfor skulle $a\\sin x + b\\cos x$ være en ren sinus? Nøkkelen er addisjonsformelen. Gang ut $R\\sin(x + \\alpha)$:\n\n$$R\\sin(x + \\alpha) = R\\cos\\alpha \\cdot \\sin x + R\\sin\\alpha \\cdot \\cos x$$\n\nDette har nøyaktig samme form som $a\\sin x + b\\cos x$ — vi trenger bare at $a = R\\cos\\alpha$ og $b = R\\sin\\alpha$. Kvadrerer og adderer vi de to kravene, gir Pytagoras-identiteten $a^2 + b^2 = R^2$, altså\n\n$$R = \\sqrt{a^2 + b^2}$$\n\nog vinkelen $\\alpha$ bestemmes entydig i $[0, 2\\pi)$ av $\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$. Du kan også bruke $\\tan\\alpha = \\frac{b}{a}$, men da må du selv passe på riktig kvadrant ut fra fortegnene til $a$ og $b$: begge positive gir første kvadrant, $a < 0, b > 0$ andre, begge negative tredje, og $a > 0, b < 0$ fjerde.\n\nLa oss avsløre $3\\sin x + 4\\cos x$. Først $R = \\sqrt{9 + 16} = 5$. Så $\\cos\\alpha = \\frac{3}{5}$ og $\\sin\\alpha = \\frac{4}{5}$ — begge positive, så $\\alpha$ ligger i første kvadrant: $\\alpha = \\arctan\\frac{4}{3} \\approx 0{,}927$. Dermed er $3\\sin x + 4\\cos x = 5\\sin(x + 0{,}927)$, en ren sinus med amplitude $5$.\n\nMed negative koeffisienter er kvadranten alt. For $\\sin x - \\sqrt{3}\\cos x$ er $R = \\sqrt{1 + 3} = 2$, og $\\cos\\alpha = \\frac{1}{2}$, $\\sin\\alpha = -\\frac{\\sqrt{3}}{2}$ plasserer $\\alpha$ i fjerde kvadrant: $\\alpha = -\\frac{\\pi}{3}$. Altså $\\sin x - \\sqrt{3}\\cos x = 2\\sin\\left(x - \\frac{\\pi}{3}\\right)$ — og du kan alltid kontrollere ved å gange ut igjen med addisjonsformelen.\n\nUttrykket kan for øvrig også skrives på cosinusform, $R\\cos(x - \\beta)$ med $\\sin\\beta = \\frac{a}{R}$ og $\\cos\\beta = \\frac{b}{R}$ — samme $R$, bare en annen referansevinkel. Velg formen oppgaven ber om."},{"id":"r2-4-7-n-quiz1","type":"exercise","exercise":{"id":"r2-4-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på omskriving til ren sinusform:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-7-n-quiz1-q0","task":"Hva er $R$ når $3\\sin x + 4\\cos x$ skrives som $R\\sin(x + \\alpha)$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$\\sqrt{7}$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"$R = \\sqrt{a^2 + b^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$."},{"id":"r2-4-7-n-quiz1-q1","task":"Hvordan bestemmes vinkelen $\\alpha$ i omskrivingen?","options":[{"id":"a","text":"$\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$","isCorrect":true},{"id":"b","text":"$\\sin\\alpha = \\frac{a}{R}$ og $\\cos\\alpha = \\frac{b}{R}$","isCorrect":false},{"id":"c","text":"$\\alpha = \\arctan\\frac{a}{b}$ alltid","isCorrect":false},{"id":"d","text":"$\\alpha = \\frac{a}{b}$","isCorrect":false}],"solution":"Sammenligning med addisjonsformelen gir $a = R\\cos\\alpha$ og $b = R\\sin\\alpha$, altså $\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$."},{"id":"r2-4-7-n-quiz1-q2","task":"Hva er $A\\sin x + A\\cos x$ (like koeffisienter) omskrevet?","options":[{"id":"a","text":"$2A\\sin\\left(x + \\frac{\\pi}{4}\\right)$","isCorrect":false},{"id":"b","text":"$A\\sin\\left(x + \\frac{\\pi}{2}\\right)$","isCorrect":false},{"id":"c","text":"$A\\sqrt{2}\\sin\\left(x - \\frac{\\pi}{4}\\right)$","isCorrect":false},{"id":"d","text":"$A\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$","isCorrect":true}],"solution":"$R = \\sqrt{A^2 + A^2} = A\\sqrt{2}$ og $\\cos\\alpha = \\sin\\alpha = \\frac{\\sqrt{2}}{2}$ gir $\\alpha = \\frac{\\pi}{4}$."}]}},{"id":"r2-4-7-n-section2","type":"text","content":"## Ekstremverdier og likninger — gevinsten\n\nHva er gevinsten ved omskrivingen? Først og fremst **ekstremverdier**. Siden $-1 \\leq \\sin(x + \\alpha) \\leq 1$, er maksimumsverdien til $R\\sin(x + \\alpha)$ nøyaktig $R$ og minimumsverdien $-R$. Ta $f(x) = 5\\sin x + 12\\cos x$: med $R = \\sqrt{25 + 144} = 13$ vet vi umiddelbart at $f$ svinger mellom $-13$ og $13$. Vil du vite *hvor* maksimum inntreffer, løser du $\\sin(x + \\alpha) = 1$, altså $x + \\alpha = \\frac{\\pi}{2} + 2\\pi k$, som med $\\alpha = \\arctan\\frac{12}{5} \\approx 1{,}176$ gir $x \\approx 0{,}395 + 2\\pi k$. Minimum følger tilsvarende fra $\\sin(x + \\alpha) = -1$.\n\nDen andre gevinsten er **likninger**. Se på $\\sin x + \\cos x = 1$ for $x \\in [0, 2\\pi)$. Venstresiden er spesialtilfellet med like koeffisienter: $a = b = 1$ gir $R = \\sqrt{2}$ og $\\alpha = \\frac{\\pi}{4}$, så likningen blir\n\n$$\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right) = 1 \\quad\\Longleftrightarrow\\quad \\sin\\left(x + \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$$\n\nNå er det en helt vanlig sinuslikning: $x + \\frac{\\pi}{4} = \\frac{\\pi}{4}$ eller $x + \\frac{\\pi}{4} = \\frac{3\\pi}{4}$, som gir $x = 0$ og $x = \\frac{\\pi}{2}$. Kontroll: $\\sin 0 + \\cos 0 = 1$ og $\\sin\\frac{\\pi}{2} + \\cos\\frac{\\pi}{2} = 1$ — begge stemmer.\n\nTeknikken fungerer like godt med sammensatte argumenter. I $2\\sin(3x) + 2\\cos(3x)$ behandler du $3x$ som én variabel: $R = 2\\sqrt{2}$ og $\\alpha = \\frac{\\pi}{4}$ gir $2\\sqrt{2}\\sin\\left(3x + \\frac{\\pi}{4}\\right)$, en funksjon med amplitude $2\\sqrt{2}$ og periode $\\frac{2\\pi}{3}$. Verdt å huske er også snarveien for like koeffisienter: $A\\sin x + A\\cos x = A\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$."},{"id":"r2-4-7-n-quiz2","type":"exercise","exercise":{"id":"r2-4-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på ekstremverdier og likninger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-7-n-quiz2-q0","task":"Hva er den største verdien til $f(x) = 5\\sin x + 12\\cos x$?","options":[{"id":"a","text":"$17$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":false},{"id":"c","text":"$13$","isCorrect":true},{"id":"d","text":"$12$","isCorrect":false}],"solution":"$R = \\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$, og maksimum av $R\\sin(x + \\alpha)$ er $R = 13$."},{"id":"r2-4-7-n-quiz2-q1","task":"Hvilke løsninger har $\\sin x + \\cos x = 1$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"$x = 0$ og $x = \\frac{\\pi}{2}$","isCorrect":true},{"id":"b","text":"$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$","isCorrect":false},{"id":"c","text":"$x = \\frac{\\pi}{2}$ og $x = \\pi$","isCorrect":false},{"id":"d","text":"Bare $x = \\frac{\\pi}{4}$","isCorrect":false}],"solution":"Omskriving gir $\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right) = 1$, altså $\\sin\\left(x + \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$, med løsningene $x = 0$ og $x = \\frac{\\pi}{2}$."},{"id":"r2-4-7-n-quiz2-q2","task":"Hva er den minste verdien til $g(x) = 3\\sin x + 4\\cos x$?","options":[{"id":"a","text":"$-7$","isCorrect":false},{"id":"b","text":"$-3$","isCorrect":false},{"id":"c","text":"$-4$","isCorrect":false},{"id":"d","text":"$-5$","isCorrect":true}],"solution":"$R = 5$, og minimum av $5\\sin(x + \\alpha)$ er $-5$."}]}},{"id":"r2-4-7-n-section3","type":"text","content":"## Superposisjon — fysikken bak mikseboret\n\nTilbake til miksebordet. Når to bølger med samme frekvens møtes, sier fysikken at utslagene adderes — prinsippet kalles **superposisjon**. La den ene bølgen være $y_1 = A_1\\sin(\\omega t)$ og den andre $y_2 = A_2\\cos(\\omega t)$, som bare er en sinus forskjøvet en kvart periode. Summen er\n\n$$y = A_1\\sin(\\omega t) + A_2\\cos(\\omega t) = R\\sin(\\omega t + \\alpha)$$\n\nmed resulterende amplitude $R = \\sqrt{A_1^2 + A_2^2}$. Det er omskrivingsformelen vår, ord for ord — matematikken garanterer at to bølger med samme frekvens alltid gir én ny bølge med samme frekvens, bare med ny amplitude og fase.\n\nKonkret: to lydbølger $y_1 = 3\\sin(440t)$ og $y_2 = 4\\cos(440t)$ gir $R = \\sqrt{9 + 16} = 5$ og $\\alpha = \\arctan\\frac{4}{3} \\approx 0{,}927$, altså $y = 5\\sin(440t + 0{,}927)$. Tre observasjoner er verdt å dvele ved. Amplituden ble $5$ — større enn begge de opprinnelige, men mindre enn summen $3 + 4 = 7$; hvor mye bølgene forsterker hverandre avhenger av faseforholdet. Frekvensen er uendret: øret hører samme tonehøyde, bare sterkere. Og faseforskyvningen $0{,}927$ forteller når bølgetoppene kommer i forhold til de opprinnelige bølgene.\n\nDette prinsippet bærer store deler av fysikken: lyd som interfererer, vekselstrømmer som adderes i kretser, lysbølger i interferensmønstre. Hver gang to svingninger med samme frekvens legges sammen, er det $R = \\sqrt{a^2 + b^2}$ som bestemmer resultatet — den lille formelen fra dette kapitlet er bokstavelig talt overalt i bølgenes verden."},{"id":"r2-4-7-n-quiz3","type":"exercise","exercise":{"id":"r2-4-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på superposisjon av bølger:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-7-n-quiz3-q0","task":"To bølger $y_1 = 3\\sin(440t)$ og $y_2 = 4\\cos(440t)$ legges sammen. Hva er amplituden til den resulterende bølgen?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$3{,}5$","isCorrect":false},{"id":"d","text":"$\\sqrt{7}$","isCorrect":false}],"solution":"$R = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$ — større enn hver enkelt, men mindre enn summen $7$."},{"id":"r2-4-7-n-quiz3-q1","task":"Hva skjer med frekvensen når to bølger med samme frekvens superponeres?","options":[{"id":"a","text":"Den dobles","isCorrect":false},{"id":"b","text":"Den halveres","isCorrect":false},{"id":"c","text":"Den er uendret","isCorrect":true},{"id":"d","text":"Den avhenger av amplitudene","isCorrect":false}],"solution":"Omskrivingen $a\\sin(\\omega t) + b\\cos(\\omega t) = R\\sin(\\omega t + \\alpha)$ beholder $\\omega$: bare amplitude og fase endres."}]}},{"id":"r2-4-7-n-summary","type":"text","content":"## Oppsummering\n\nFortellingen startet ved miksebordet, der to utakte bølger smeltet sammen til én ren tone. Matematikken bak er kapitlets hovedformel: $a\\sin x + b\\cos x = R\\sin(x + \\alpha)$, der amplituden er $R = \\sqrt{a^2 + b^2}$ og fasevinkelen $\\alpha$ bestemmes av $\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$. Utledningen var ren addisjonsformel: $R\\sin(x + \\alpha) = R\\cos\\alpha\\sin x + R\\sin\\alpha\\cos x$, og sammenligning av koeffisienter ga kravene $a = R\\cos\\alpha$ og $b = R\\sin\\alpha$, med Pytagoras som leverte $R$. Fortegnene til $a$ og $b$ peker ut riktig kvadrant for $\\alpha$ — det er her du må være våken, slik $\\sin x - \\sqrt{3}\\cos x = 2\\sin\\left(x - \\frac{\\pi}{3}\\right)$ krevde en vinkel i fjerde kvadrant.\n\nGevinstene var umiddelbare. Ekstremverdier: maksimum er $R$ og minimum er $-R$, punktum — slik $5\\sin x + 12\\cos x$ måtte svinge mellom $\\pm 13$. Likninger: $\\sin x + \\cos x = 1$ ble til en standard sinuslikning via spesialtilfellet $A\\sin x + A\\cos x = A\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$. Og fysikken: superposisjon av to bølger med samme frekvens gir alltid én ny bølge med samme frekvens og amplitude $R = \\sqrt{A_1^2 + A_2^2}$.\n\nDet rotete uttrykket $a\\sin x + b\\cos x$ var altså aldri rotete — det var en ren sinus i forkledning, og nå vet du nøyaktig hvordan du tar av masken."}],"exercises":[]}
+{
+  "id": "r2-4-7-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "4.7",
+  "title": "Omskriving til ren sinusform",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om bølger som smelter sammen — hvordan a sin x + b cos x alltid er én ren sinus R sin(x + α) i forkledning, og hva det gir oss av ekstremverdier, likninger og superposisjon.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "omskrive uttrykk på formen a sin x + b cos x til ren sinusform",
+    "bruke omskriving til å løse likninger og finne ekstremverdier",
+    "forstå sammenhengen mellom addisjonsformlene og omskriving"
+  ],
+  "linkedChapterId": "r2-4-7",
+  "content": [
+    {
+      "id": "r2-4-7-n-intro",
+      "type": "text",
+      "content": "## To bølger blir én\n\nSett deg ved et lydmiksebord. To høyttalere spiller toner med nøyaktig samme frekvens, men de er ikke i takt — den ene følger en sinuskurve, den andre en cosinuskurve. Hva hører du? Ikke to lyder, men **én** tone: bølgene smelter sammen til en eneste ren svingning. Matematisk betyr det at et uttrykk på formen $a\\sin x + b\\cos x$ — som ser ut som en rotete sum av to forskjellige funksjoner — i virkeligheten alltid er én enkelt, ren sinusfunksjon i forkledning.\n\nDette er kapitlets store påstand: for alle tall $a$ og $b$ (ikke begge null) finnes det en amplitude $R$ og en faseforskyvning $\\alpha$ slik at $a\\sin x + b\\cos x = R\\sin(x + \\alpha)$. Og når forkledningen først er avslørt, blir vanskelige spørsmål plutselig enkle. Hva er maksimumsverdien til $f(x) = 3\\sin x + 4\\cos x$? Skrevet som $R\\sin(x + \\alpha)$ er svaret øyeblikkelig: $R$, siden sinus aldri overstiger $1$. Hvordan løser du likningen $\\sin x + \\cos x = 1$? Omskriv venstresiden til én sinus, og du står igjen med en helt vanlig sinuslikning.\n\nI denne fortellingen utleder vi omskrivingsformelen fra addisjonsformelen for sinus, lærer å finne $R$ og $\\alpha$ trygt — også når koeffisientene er negative — og bruker teknikken på ekstremverdier, likninger og fysikkens superposisjon av bølger."
+    },
+    {
+      "id": "r2-4-7-n-section1",
+      "type": "text",
+      "content": "## Avsløringen: å finne R og alfa\n\nHvorfor skulle $a\\sin x + b\\cos x$ være en ren sinus? Nøkkelen er addisjonsformelen. Gang ut $R\\sin(x + \\alpha)$:\n\n$$R\\sin(x + \\alpha) = R\\cos\\alpha \\cdot \\sin x + R\\sin\\alpha \\cdot \\cos x$$\n\nDette har nøyaktig samme form som $a\\sin x + b\\cos x$ — vi trenger bare at $a = R\\cos\\alpha$ og $b = R\\sin\\alpha$. Kvadrerer og adderer vi de to kravene, gir Pytagoras-identiteten $a^2 + b^2 = R^2$, altså\n\n$$R = \\sqrt{a^2 + b^2}$$\n\nog vinkelen $\\alpha$ bestemmes entydig i $[0, 2\\pi)$ av $\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$. Du kan også bruke $\\tan\\alpha = \\frac{b}{a}$, men da må du selv passe på riktig kvadrant ut fra fortegnene til $a$ og $b$: begge positive gir første kvadrant, $a < 0, b > 0$ andre, begge negative tredje, og $a > 0, b < 0$ fjerde.\n\nLa oss avsløre $3\\sin x + 4\\cos x$. Først $R = \\sqrt{9 + 16} = 5$. Så $\\cos\\alpha = \\frac{3}{5}$ og $\\sin\\alpha = \\frac{4}{5}$ — begge positive, så $\\alpha$ ligger i første kvadrant: $\\alpha = \\arctan\\frac{4}{3} \\approx 0{,}927$. Dermed er $3\\sin x + 4\\cos x = 5\\sin(x + 0{,}927)$, en ren sinus med amplitude $5$.\n\nMed negative koeffisienter er kvadranten alt. For $\\sin x - \\sqrt{3}\\cos x$ er $R = \\sqrt{1 + 3} = 2$, og $\\cos\\alpha = \\frac{1}{2}$, $\\sin\\alpha = -\\frac{\\sqrt{3}}{2}$ plasserer $\\alpha$ i fjerde kvadrant: $\\alpha = -\\frac{\\pi}{3}$. Altså $\\sin x - \\sqrt{3}\\cos x = 2\\sin\\left(x - \\frac{\\pi}{3}\\right)$ — og du kan alltid kontrollere ved å gange ut igjen med addisjonsformelen.\n\nUttrykket kan for øvrig også skrives på cosinusform, $R\\cos(x - \\beta)$ med $\\sin\\beta = \\frac{a}{R}$ og $\\cos\\beta = \\frac{b}{R}$ — samme $R$, bare en annen referansevinkel. Velg formen oppgaven ber om."
+    },
+    {
+      "id": "r2-4-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på omskriving til ren sinusform:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-7-n-quiz1-q0",
+            "task": "Hva er $R$ når $3\\sin x + 4\\cos x$ skrives som $R\\sin(x + \\alpha)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sqrt{7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$R = \\sqrt{a^2 + b^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$."
+          },
+          {
+            "id": "r2-4-7-n-quiz1-q1",
+            "task": "Hvordan bestemmes vinkelen $\\alpha$ i omskrivingen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\sin\\alpha = \\frac{a}{R}$ og $\\cos\\alpha = \\frac{b}{R}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\alpha = \\arctan\\frac{a}{b}$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\alpha = \\frac{a}{b}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sammenligning med addisjonsformelen gir $a = R\\cos\\alpha$ og $b = R\\sin\\alpha$, altså $\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$."
+          },
+          {
+            "id": "r2-4-7-n-quiz1-q2",
+            "task": "Hva er $A\\sin x + A\\cos x$ (like koeffisienter) omskrevet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2A\\sin\\left(x + \\frac{\\pi}{4}\\right)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$A\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$A\\sin\\left(x + \\frac{\\pi}{2}\\right)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$A\\sqrt{2}\\sin\\left(x - \\frac{\\pi}{4}\\right)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R = \\sqrt{A^2 + A^2} = A\\sqrt{2}$ og $\\cos\\alpha = \\sin\\alpha = \\frac{\\sqrt{2}}{2}$ gir $\\alpha = \\frac{\\pi}{4}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-7-n-section2",
+      "type": "text",
+      "content": "## Ekstremverdier og likninger — gevinsten\n\nHva er gevinsten ved omskrivingen? Først og fremst **ekstremverdier**. Siden $-1 \\leq \\sin(x + \\alpha) \\leq 1$, er maksimumsverdien til $R\\sin(x + \\alpha)$ nøyaktig $R$ og minimumsverdien $-R$. Ta $f(x) = 5\\sin x + 12\\cos x$: med $R = \\sqrt{25 + 144} = 13$ vet vi umiddelbart at $f$ svinger mellom $-13$ og $13$. Vil du vite *hvor* maksimum inntreffer, løser du $\\sin(x + \\alpha) = 1$, altså $x + \\alpha = \\frac{\\pi}{2} + 2\\pi k$, som med $\\alpha = \\arctan\\frac{12}{5} \\approx 1{,}176$ gir $x \\approx 0{,}395 + 2\\pi k$. Minimum følger tilsvarende fra $\\sin(x + \\alpha) = -1$.\n\nDen andre gevinsten er **likninger**. Se på $\\sin x + \\cos x = 1$ for $x \\in [0, 2\\pi)$. Venstresiden er spesialtilfellet med like koeffisienter: $a = b = 1$ gir $R = \\sqrt{2}$ og $\\alpha = \\frac{\\pi}{4}$, så likningen blir\n\n$$\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right) = 1 \\quad\\Longleftrightarrow\\quad \\sin\\left(x + \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$$\n\nNå er det en helt vanlig sinuslikning: $x + \\frac{\\pi}{4} = \\frac{\\pi}{4}$ eller $x + \\frac{\\pi}{4} = \\frac{3\\pi}{4}$, som gir $x = 0$ og $x = \\frac{\\pi}{2}$. Kontroll: $\\sin 0 + \\cos 0 = 1$ og $\\sin\\frac{\\pi}{2} + \\cos\\frac{\\pi}{2} = 1$ — begge stemmer.\n\nTeknikken fungerer like godt med sammensatte argumenter. I $2\\sin(3x) + 2\\cos(3x)$ behandler du $3x$ som én variabel: $R = 2\\sqrt{2}$ og $\\alpha = \\frac{\\pi}{4}$ gir $2\\sqrt{2}\\sin\\left(3x + \\frac{\\pi}{4}\\right)$, en funksjon med amplitude $2\\sqrt{2}$ og periode $\\frac{2\\pi}{3}$. Verdt å huske er også snarveien for like koeffisienter: $A\\sin x + A\\cos x = A\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$."
+    },
+    {
+      "id": "r2-4-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ekstremverdier og likninger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-7-n-quiz2-q0",
+            "task": "Hva er den største verdien til $f(x) = 5\\sin x + 12\\cos x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$17$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$13$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R = \\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$, og maksimum av $R\\sin(x + \\alpha)$ er $R = 13$."
+          },
+          {
+            "id": "r2-4-7-n-quiz2-q1",
+            "task": "Hvilke løsninger har $\\sin x + \\cos x = 1$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = \\frac{\\pi}{4}$ og $x = \\frac{3\\pi}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = \\frac{\\pi}{2}$ og $x = \\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare $x = \\frac{\\pi}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = 0$ og $x = \\frac{\\pi}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Omskriving gir $\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right) = 1$, altså $\\sin\\left(x + \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{2}}{2}$, med løsningene $x = 0$ og $x = \\frac{\\pi}{2}$."
+          },
+          {
+            "id": "r2-4-7-n-quiz2-q2",
+            "task": "Hva er den minste verdien til $g(x) = 3\\sin x + 4\\cos x$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$-5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R = 5$, og minimum av $5\\sin(x + \\alpha)$ er $-5$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-7-n-section3",
+      "type": "text",
+      "content": "## Superposisjon — fysikken bak mikseboret\n\nTilbake til miksebordet. Når to bølger med samme frekvens møtes, sier fysikken at utslagene adderes — prinsippet kalles **superposisjon**. La den ene bølgen være $y_1 = A_1\\sin(\\omega t)$ og den andre $y_2 = A_2\\cos(\\omega t)$, som bare er en sinus forskjøvet en kvart periode. Summen er\n\n$$y = A_1\\sin(\\omega t) + A_2\\cos(\\omega t) = R\\sin(\\omega t + \\alpha)$$\n\nmed resulterende amplitude $R = \\sqrt{A_1^2 + A_2^2}$. Det er omskrivingsformelen vår, ord for ord — matematikken garanterer at to bølger med samme frekvens alltid gir én ny bølge med samme frekvens, bare med ny amplitude og fase.\n\nKonkret: to lydbølger $y_1 = 3\\sin(440t)$ og $y_2 = 4\\cos(440t)$ gir $R = \\sqrt{9 + 16} = 5$ og $\\alpha = \\arctan\\frac{4}{3} \\approx 0{,}927$, altså $y = 5\\sin(440t + 0{,}927)$. Tre observasjoner er verdt å dvele ved. Amplituden ble $5$ — større enn begge de opprinnelige, men mindre enn summen $3 + 4 = 7$; hvor mye bølgene forsterker hverandre avhenger av faseforholdet. Frekvensen er uendret: øret hører samme tonehøyde, bare sterkere. Og faseforskyvningen $0{,}927$ forteller når bølgetoppene kommer i forhold til de opprinnelige bølgene.\n\nDette prinsippet bærer store deler av fysikken: lyd som interfererer, vekselstrømmer som adderes i kretser, lysbølger i interferensmønstre. Hver gang to svingninger med samme frekvens legges sammen, er det $R = \\sqrt{a^2 + b^2}$ som bestemmer resultatet — den lille formelen fra dette kapitlet er bokstavelig talt overalt i bølgenes verden."
+    },
+    {
+      "id": "r2-4-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på superposisjon av bølger:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-7-n-quiz3-q0",
+            "task": "To bølger $y_1 = 3\\sin(440t)$ og $y_2 = 4\\cos(440t)$ legges sammen. Hva er amplituden til den resulterende bølgen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{7}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$ — større enn hver enkelt, men mindre enn summen $7$."
+          },
+          {
+            "id": "r2-4-7-n-quiz3-q1",
+            "task": "Hva skjer med frekvensen når to bølger med samme frekvens superponeres?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den dobles",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den halveres",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den er uendret",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den avhenger av amplitudene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Omskrivingen $a\\sin(\\omega t) + b\\cos(\\omega t) = R\\sin(\\omega t + \\alpha)$ beholder $\\omega$: bare amplitude og fase endres."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFortellingen startet ved miksebordet, der to utakte bølger smeltet sammen til én ren tone. Matematikken bak er kapitlets hovedformel: $a\\sin x + b\\cos x = R\\sin(x + \\alpha)$, der amplituden er $R = \\sqrt{a^2 + b^2}$ og fasevinkelen $\\alpha$ bestemmes av $\\cos\\alpha = \\frac{a}{R}$ og $\\sin\\alpha = \\frac{b}{R}$. Utledningen var ren addisjonsformel: $R\\sin(x + \\alpha) = R\\cos\\alpha\\sin x + R\\sin\\alpha\\cos x$, og sammenligning av koeffisienter ga kravene $a = R\\cos\\alpha$ og $b = R\\sin\\alpha$, med Pytagoras som leverte $R$. Fortegnene til $a$ og $b$ peker ut riktig kvadrant for $\\alpha$ — det er her du må være våken, slik $\\sin x - \\sqrt{3}\\cos x = 2\\sin\\left(x - \\frac{\\pi}{3}\\right)$ krevde en vinkel i fjerde kvadrant.\n\nGevinstene var umiddelbare. Ekstremverdier: maksimum er $R$ og minimum er $-R$, punktum — slik $5\\sin x + 12\\cos x$ måtte svinge mellom $\\pm 13$. Likninger: $\\sin x + \\cos x = 1$ ble til en standard sinuslikning via spesialtilfellet $A\\sin x + A\\cos x = A\\sqrt{2}\\sin\\left(x + \\frac{\\pi}{4}\\right)$. Og fysikken: superposisjon av to bølger med samme frekvens gir alltid én ny bølge med samme frekvens og amplitude $R = \\sqrt{A_1^2 + A_2^2}$.\n\nDet rotete uttrykket $a\\sin x + b\\cos x$ var altså aldri rotete — det var en ren sinus i forkledning, og nå vet du nøyaktig hvordan du tar av masken."
+    }
+  ],
+  "exercises": []
+}

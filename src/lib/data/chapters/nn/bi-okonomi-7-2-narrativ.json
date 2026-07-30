@@ -1,1 +1,319 @@
-{"id":"bi-okonomi-7-2-narrativ","courseId":"bi-okonomi","chapterNumber":"7.2","title":"Partielle deriverte","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi måler endring når fleire ting varierer samstundes -- vi frys éin variabel, deriverer den andre, og oppdagar marginalprodukt, grensenytter og løyndomen bak avtakande avkastning.","estimatedMinutes":36,"competenceGoals":[],"linkedChapterId":"bi-okonomi-7-2","content":[{"id":"bi-okonomi-7-2-n-intro","type":"text","content":"## Å fryse éin variabel om gongen\n\nTenk deg at du leier ei bedrift med både kapital $K$ og arbeidskraft $L$. Du lurer på: kor mykje meir produserer vi dersom vi tilset éin ekstra arbeidar, gitt at maskinparken er den same? Spørsmålet handlar om endring i berre **éi** retning, medan alt anna blir halde fast. Det er nettopp dette **partiell derivasjon** måler.\n\nDen partielle deriverte av $f(x,y)$ med omsyn på $x$ blir skriven $\\dfrac{\\partial f}{\\partial x}$, eller kortare $f_x$. Definisjonen liknar den vanlege deriverte, men no held vi $y$ konstant: $f_x=\\lim_{h\\to 0}\\dfrac{f(x+h,y)-f(x,y)}{h}$. I praksis treng vi ikkje grenseverdien -- regelen er enkel: for å finne $f_x$, handsam $y$ som eit tal og deriver som vanleg med omsyn på $x$.\n\nLat oss prøve $f(x,y)=3x^2+5xy-2y^2+7$. Når vi deriverer mhp $x$ blir $3x^2\\to 6x$, leddet $5xy\\to 5y$ (her er $5y$ talet framfor $x$), medan $-2y^2$ og $7$ er reine konstantar og forsvinn. Altså $f_x=6x+5y$. Deriverer vi i staden mhp $y$, forsvinn $3x^2$, $5xy\\to 5x$ og $-2y^2\\to -4y$, så $f_y=5x-4y$. Eit godt knep: når du deriverer mhp $x$, lat som $y$ er talet $5$."},{"id":"bi-okonomi-7-2-n-section1","type":"text","content":"## Marginalprodukt, grensenytte og grensekostnad\n\nDei partielle deriverte har konkrete økonomiske namn. For ein produktfunksjon $Q(K,L)$ er $Q_K$ **marginalproduktet av kapital** (MPK) og $Q_L$ **marginalproduktet av arbeidskraft** (MPL). For ein nyttefunksjon $U(x,y)$ er $U_x$ og $U_y$ **grensenyttene**, og for ein kostnadsfunksjon $C(x,y)$ er $C_x$ og $C_y$ **grensekostnadene** ved å auke produksjonen av kvar vare.\n\nTa Cobb-Douglas $Q(K,L)=10K^{0{,}3}L^{0{,}7}$. Deriverer vi mhp $K$ får vi $Q_K=10\\cdot 0{,}3\\,K^{-0{,}7}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$, og mhp $L$ blir $Q_L=10\\cdot 0{,}7\\,K^{0{,}3}L^{-0{,}3}=7K^{0{,}3}L^{-0{,}3}$. $Q_K$ fortel kor mykje ekstra produksjon ei ekstra eining kapital gir.\n\nGrensekostnader kan avhenge av begge varer. For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$ blir $C_x=6+0{,}1x+0{,}03y$ og $C_y=4+0{,}03x+0{,}04y$. Ved $(100,50)$ er $C_x=6+10+1{,}5=17{,}5$ kr -- det kostar ca. 17,50 kr å lage éi vare A til, og merk at produksjonen av B påverkar dette via interaksjonsleddet. For nytten $U(x,y)=\\sqrt{xy}=x^{1/2}y^{1/2}$ blir $U_x=\\tfrac{1}{2}\\sqrt{y/x}$ og $U_y=\\tfrac{1}{2}\\sqrt{x/y}$; ved $(4,9)$ gir det $U_x=\\tfrac{1}{2}\\cdot\\tfrac{3}{2}=0{,}75$ og $U_y=\\tfrac{1}{2}\\cdot\\tfrac{2}{3}=\\tfrac{1}{3}$."},{"id":"bi-okonomi-7-2-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-7-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på partielle deriverte og marginale omgrep:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-7-2-n-quiz1-q0","task":"For $f(x,y)=3x^2+5xy-2y^2+7$, kva er $f_x$?","options":[{"id":"a","text":"$6x+5xy$","isCorrect":false},{"id":"b","text":"$6x+5y$","isCorrect":true},{"id":"c","text":"$6x-4y$","isCorrect":false},{"id":"d","text":"$5x-4y$","isCorrect":false}],"solution":"Handsam $y$ som konstant: $3x^2\\to 6x$, $5xy\\to 5y$, $-2y^2$ og $7$ forsvinn. Altså $f_x=6x+5y$."},{"id":"bi-okonomi-7-2-n-quiz1-q1","task":"For $Q(K,L)=10K^{0{,}3}L^{0{,}7}$, kva er marginalproduktet av kapital $Q_K$?","options":[{"id":"a","text":"$7K^{0{,}3}L^{-0{,}3}$","isCorrect":false},{"id":"b","text":"$10K^{-0{,}7}L^{0{,}7}$","isCorrect":false},{"id":"c","text":"$3K^{-0{,}7}L^{0{,}7}$","isCorrect":true},{"id":"d","text":"$3K^{0{,}3}L^{0{,}7}$","isCorrect":false}],"solution":"$Q_K=10\\cdot 0{,}3\\,K^{0{,}3-1}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$. Eksponenten på $K$ søkk med 1."},{"id":"bi-okonomi-7-2-n-quiz1-q2","task":"For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$, kva er grensekostnaden $C_x(100,50)$?","options":[{"id":"a","text":"$16$","isCorrect":false},{"id":"b","text":"$10{,}5$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$17{,}5$","isCorrect":true}],"solution":"$C_x=6+0{,}1x+0{,}03y$, så $C_x(100,50)=6+10+1{,}5=17{,}5$ kr."}]}},{"id":"bi-okonomi-7-2-n-section2","type":"text","content":"## Andre runde: andreordens partielle deriverte\n\nDei partielle deriverte $f_x$ og $f_y$ er sjølv funksjonar av $x$ og $y$, så vi kan derivere dei på nytt. Det gir **andreordens partielle deriverte**: $f_{xx}$ (deriver $f_x$ mhp $x$), $f_{yy}$ (deriver $f_y$ mhp $y$), og dei to **krysspartielle** $f_{xy}$ og $f_{yx}$. Ei vakker overrasking, **Youngs setning**, seier at så lenge desse er kontinuerlege, spelar rekkjefølgja inga rolle: $f_{xy}=f_{yx}$.\n\nLat oss sjekke det på $f(x,y)=x^3y^2-4xy+y^3$. Førsteordens: $f_x=3x^2y^2-4y$ og $f_y=2x^3y-4x+3y^2$. Andreordens: $f_{xx}=6xy^2$, $f_{yy}=2x^3+6y$, $f_{xy}=6x^2y-4$ og $f_{yx}=6x^2y-4$. Ganske rett er $f_{xy}=f_{yx}$.\n\nForteiknet til desse fortel mykje om økonomien. For Cobb-Douglas $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ blir $Q_{KK}=-1{,}5K^{-1{,}5}L^{0{,}5}<0$ og $Q_{LL}=-1{,}5K^{0{,}5}L^{-1{,}5}<0$. Negativ andrederivert tyder **avtakande marginalprodukt** -- kvar ny arbeidar gir noko ekstra, men gevinsten krympar di fleire du alt har. Dette er **lova om avtakande grenseproduktivitet**. Samstundes er $Q_{KL}=1{,}5K^{-0{,}5}L^{-0{,}5}>0$, og positiv krysspartiell tyder at innsatsfaktorane er **komplementære**: meir arbeidskraft gjer kapitalen meir produktiv. For ein nyttefunksjon avgjer forteiknet til $U_{xy}$ på same måte om to gode er komplementære ($U_{xy}>0$) eller substitutt ($U_{xy}<0$)."},{"id":"bi-okonomi-7-2-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-7-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på andreordens partielle deriverte:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-7-2-n-quiz2-q0","task":"Kva seier Youngs setning?","options":[{"id":"a","text":"$f_{xy}=f_{yx}$ når dei krysspartielle er kontinuerlege","isCorrect":true},{"id":"b","text":"$f_{xx}=f_{yy}$ alltid","isCorrect":false},{"id":"c","text":"$f_x=f_y$ i stasjonære punkt","isCorrect":false},{"id":"d","text":"$f_{xy}=0$ for alle funksjonar","isCorrect":false}],"solution":"Youngs setning seier at dei krysspartielle er like, $f_{xy}=f_{yx}$, så lenge dei er kontinuerlege -- rekkjefølgja på derivasjon spelar inga rolle."},{"id":"bi-okonomi-7-2-n-quiz2-q1","task":"For $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ er $Q_{LL}<0$. Kva tyder det økonomisk?","options":[{"id":"a","text":"Marginalproduktet av arbeidskraft er negativt","isCorrect":false},{"id":"b","text":"Avtakande marginalprodukt av arbeidskraft","isCorrect":true},{"id":"c","text":"Konstant skalaavkastning","isCorrect":false},{"id":"d","text":"Arbeidskraft og kapital er substitutt","isCorrect":false}],"solution":"$Q_L>0$ men $Q_{LL}<0$ tyder at marginalproduktet er positivt, men avtek -- lova om avtakande grenseproduktivitet."},{"id":"bi-okonomi-7-2-n-quiz2-q2","task":"For $U(x,y)=xy+2x+3y$ er $U_{xy}=1>0$. Kva seier dette om goda?","options":[{"id":"a","text":"Dei er substitutt","isCorrect":false},{"id":"b","text":"Dei er uavhengige","isCorrect":false},{"id":"c","text":"Dei er komplementære","isCorrect":true},{"id":"d","text":"Nytten er konstant","isCorrect":false}],"solution":"$U_{xy}>0$ tyder at meir av $y$ aukar grensenytten av $x$ -- goda er komplementære (som bil og bensin)."},{"id":"bi-okonomi-7-2-n-quiz2-q3","task":"For $f(x,y)=x^3y^2-4xy+y^3$, kva er $f_{xx}$?","options":[{"id":"a","text":"$3x^2y^2-4y$","isCorrect":false},{"id":"b","text":"$6x^2y-4$","isCorrect":false},{"id":"c","text":"$2x^3+6y$","isCorrect":false},{"id":"d","text":"$6xy^2$","isCorrect":true}],"solution":"Først $f_x=3x^2y^2-4y$, så deriver mhp $x$ igjen: $f_{xx}=6xy^2$ (leddet $-4y$ er konstant i $x$)."}]}},{"id":"bi-okonomi-7-2-n-summary","type":"text","content":"## Oppsummering\n\nEi **partiell derivert** måler korleis ein funksjon endrar seg når vi varierer éin variabel og held dei andre fast. Regelen er enkel: handsam den andre variabelen som ein konstant og deriver som vanleg. Resultata har tunge økonomiske namn -- $Q_K$ og $Q_L$ er marginalprodukt, $U_x$ og $U_y$ grensenytter, $C_x$ og $C_y$ grensekostnader.\n\nDeriverer vi ein gong til, får vi **andreordens partielle deriverte** $f_{xx}$, $f_{yy}$ og dei krysspartielle $f_{xy}$ og $f_{yx}$, som er like ved **Youngs setning** når dei er kontinuerlege. Forteikna ber meining: $Q_{KK}<0$ og $Q_{LL}<0$ gir avtakande grenseproduktivitet, medan $f_{xy}>0$ tyder komplementære gode og $f_{xy}<0$ substitutt. Desse andreordens storleikane blir avgjerande når vi i neste kapittel skal avgjere om eit stasjonært punkt er eit maksimum, minimum eller sadelpunkt."}],"exercises":[],"_meta":{"sourceHash":"4210b5a005572bf5","translatedAt":"2026-06-21T01:03:39.682Z","model":"claude-code-agent","strings":49,"tm":{"6c34df31126edf58":"Partielle deriverte","b195b06d1ed59702":"Narrativ versjon","7a16d8b63cecabfc":"Ei forteljing om korleis vi måler endring når fleire ting varierer samstundes -- vi frys éin variabel, deriverer den andre, og oppdagar marginalprodukt, grensenytter og løyndomen bak avtakande avkastning.","9dbe30aa395897b2":"## Å fryse éin variabel om gongen\n\nTenk deg at du leier ei bedrift med både kapital $K$ og arbeidskraft $L$. Du lurer på: kor mykje meir produserer vi dersom vi tilset éin ekstra arbeidar, gitt at maskinparken er den same? Spørsmålet handlar om endring i berre **éi** retning, medan alt anna blir halde fast. Det er nettopp dette **partiell derivasjon** måler.\n\nDen partielle deriverte av $f(x,y)$ med omsyn på $x$ blir skriven $\\dfrac{\\partial f}{\\partial x}$, eller kortare $f_x$. Definisjonen liknar den vanlege deriverte, men no held vi $y$ konstant: $f_x=\\lim_{h\\to 0}\\dfrac{f(x+h,y)-f(x,y)}{h}$. I praksis treng vi ikkje grenseverdien -- regelen er enkel: for å finne $f_x$, handsam $y$ som eit tal og deriver som vanleg med omsyn på $x$.\n\nLat oss prøve $f(x,y)=3x^2+5xy-2y^2+7$. Når vi deriverer mhp $x$ blir $3x^2\\to 6x$, leddet $5xy\\to 5y$ (her er $5y$ talet framfor $x$), medan $-2y^2$ og $7$ er reine konstantar og forsvinn. Altså $f_x=6x+5y$. Deriverer vi i staden mhp $y$, forsvinn $3x^2$, $5xy\\to 5x$ og $-2y^2\\to -4y$, så $f_y=5x-4y$. Eit godt knep: når du deriverer mhp $x$, lat som $y$ er talet $5$.","f0a84ddfae7b0d4c":"## Marginalprodukt, grensenytte og grensekostnad\n\nDei partielle deriverte har konkrete økonomiske namn. For ein produktfunksjon $Q(K,L)$ er $Q_K$ **marginalproduktet av kapital** (MPK) og $Q_L$ **marginalproduktet av arbeidskraft** (MPL). For ein nyttefunksjon $U(x,y)$ er $U_x$ og $U_y$ **grensenyttene**, og for ein kostnadsfunksjon $C(x,y)$ er $C_x$ og $C_y$ **grensekostnadene** ved å auke produksjonen av kvar vare.\n\nTa Cobb-Douglas $Q(K,L)=10K^{0{,}3}L^{0{,}7}$. Deriverer vi mhp $K$ får vi $Q_K=10\\cdot 0{,}3\\,K^{-0{,}7}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$, og mhp $L$ blir $Q_L=10\\cdot 0{,}7\\,K^{0{,}3}L^{-0{,}3}=7K^{0{,}3}L^{-0{,}3}$. $Q_K$ fortel kor mykje ekstra produksjon ei ekstra eining kapital gir.\n\nGrensekostnader kan avhenge av begge varer. For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$ blir $C_x=6+0{,}1x+0{,}03y$ og $C_y=4+0{,}03x+0{,}04y$. Ved $(100,50)$ er $C_x=6+10+1{,}5=17{,}5$ kr -- det kostar ca. 17,50 kr å lage éi vare A til, og merk at produksjonen av B påverkar dette via interaksjonsleddet. For nytten $U(x,y)=\\sqrt{xy}=x^{1/2}y^{1/2}$ blir $U_x=\\tfrac{1}{2}\\sqrt{y/x}$ og $U_y=\\tfrac{1}{2}\\sqrt{x/y}$; ved $(4,9)$ gir det $U_x=\\tfrac{1}{2}\\cdot\\tfrac{3}{2}=0{,}75$ og $U_y=\\tfrac{1}{2}\\cdot\\tfrac{2}{3}=\\tfrac{1}{3}$.","c21540681f17a1b6":"Test deg sjølv på partielle deriverte og marginale omgrep:","4097889236a2af26":"placeholder","dbb0420d341b3fa9":"For $f(x,y)=3x^2+5xy-2y^2+7$, kva er $f_x$?","400fd85a92bbe296":"$6x+5xy$","82f29287f9b09032":"$6x+5y$","c38a3fd8f0e60526":"$6x-4y$","fb642d96df344174":"$5x-4y$","f92caff01e99494e":"Handsam $y$ som konstant: $3x^2\\to 6x$, $5xy\\to 5y$, $-2y^2$ og $7$ forsvinn. Altså $f_x=6x+5y$.","8bf852e4f6283c47":"For $Q(K,L)=10K^{0{,}3}L^{0{,}7}$, kva er marginalproduktet av kapital $Q_K$?","d6fc5ac77d9dbe6f":"$7K^{0{,}3}L^{-0{,}3}$","e3070874ad52aced":"$10K^{-0{,}7}L^{0{,}7}$","ee39373a6aa970a7":"$3K^{-0{,}7}L^{0{,}7}$","2eb7fd960354ad8b":"$3K^{0{,}3}L^{0{,}7}$","98276508be3f8d1d":"$Q_K=10\\cdot 0{,}3\\,K^{0{,}3-1}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$. Eksponenten på $K$ søkk med 1.","22fead13aef8dfc1":"For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$, kva er grensekostnaden $C_x(100,50)$?","751666699331065a":"$C_x=6+0{,}1x+0{,}03y$, så $C_x(100,50)=6+10+1{,}5=17{,}5$ kr.","6f84d50e92bdefb8":"## Andre runde: andreordens partielle deriverte\n\nDei partielle deriverte $f_x$ og $f_y$ er sjølv funksjonar av $x$ og $y$, så vi kan derivere dei på nytt. Det gir **andreordens partielle deriverte**: $f_{xx}$ (deriver $f_x$ mhp $x$), $f_{yy}$ (deriver $f_y$ mhp $y$), og dei to **krysspartielle** $f_{xy}$ og $f_{yx}$. Ei vakker overrasking, **Youngs setning**, seier at så lenge desse er kontinuerlege, spelar rekkjefølgja inga rolle: $f_{xy}=f_{yx}$.\n\nLat oss sjekke det på $f(x,y)=x^3y^2-4xy+y^3$. Førsteordens: $f_x=3x^2y^2-4y$ og $f_y=2x^3y-4x+3y^2$. Andreordens: $f_{xx}=6xy^2$, $f_{yy}=2x^3+6y$, $f_{xy}=6x^2y-4$ og $f_{yx}=6x^2y-4$. Ganske rett er $f_{xy}=f_{yx}$.\n\nForteiknet til desse fortel mykje om økonomien. For Cobb-Douglas $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ blir $Q_{KK}=-1{,}5K^{-1{,}5}L^{0{,}5}<0$ og $Q_{LL}=-1{,}5K^{0{,}5}L^{-1{,}5}<0$. Negativ andrederivert tyder **avtakande marginalprodukt** -- kvar ny arbeidar gir noko ekstra, men gevinsten krympar di fleire du alt har. Dette er **lova om avtakande grenseproduktivitet**. Samstundes er $Q_{KL}=1{,}5K^{-0{,}5}L^{-0{,}5}>0$, og positiv krysspartiell tyder at innsatsfaktorane er **komplementære**: meir arbeidskraft gjer kapitalen meir produktiv. For ein nyttefunksjon avgjer forteiknet til $U_{xy}$ på same måte om to gode er komplementære ($U_{xy}>0$) eller substitutt ($U_{xy}<0$).","a0a2db0af761f8aa":"Test deg sjølv på andreordens partielle deriverte:","f6d928a66d7cd0b0":"Kva seier Youngs setning?","1773d68d0f3b47fd":"$f_{xy}=f_{yx}$ når dei krysspartielle er kontinuerlege","002b10a137c40d39":"$f_{xx}=f_{yy}$ alltid","d04baa4f87e50702":"$f_x=f_y$ i stasjonære punkt","3e264b1eb1e25dfe":"$f_{xy}=0$ for alle funksjonar","ec18423f0cec5e44":"Youngs setning seier at dei krysspartielle er like, $f_{xy}=f_{yx}$, så lenge dei er kontinuerlege -- rekkjefølgja på derivasjon spelar inga rolle.","a94886827a05cf60":"For $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ er $Q_{LL}<0$. Kva tyder det økonomisk?","ccb4a59b5686b795":"Marginalproduktet av arbeidskraft er negativt","56e9424340050700":"Avtakande marginalprodukt av arbeidskraft","97a29550fe4c9fbb":"Konstant skalaavkastning","d4787cf26086519f":"Arbeidskraft og kapital er substitutt","0d622901eb7aa9df":"$Q_L>0$ men $Q_{LL}<0$ tyder at marginalproduktet er positivt, men avtek -- lova om avtakande grenseproduktivitet.","679614e8d5ff02b5":"For $U(x,y)=xy+2x+3y$ er $U_{xy}=1>0$. Kva seier dette om goda?","7bd0e386e089ec97":"Dei er substitutt","3f347f27919a0576":"Dei er uavhengige","3c37b7c0d9d3c343":"Dei er komplementære","9d87215e5e393bf2":"Nytten er konstant","ae53eb2c31f7214b":"$U_{xy}>0$ tyder at meir av $y$ aukar grensenytten av $x$ -- goda er komplementære (som bil og bensin).","7a5cdaa2f68be573":"For $f(x,y)=x^3y^2-4xy+y^3$, kva er $f_{xx}$?","018d70fa93d5e5aa":"$3x^2y^2-4y$","7e5d78da6295e4b2":"$6x^2y-4$","e0241bf39d454aef":"$2x^3+6y$","4cf77217e99ea566":"$6xy^2$","3fb8c96f92671399":"Først $f_x=3x^2y^2-4y$, så deriver mhp $x$ igjen: $f_{xx}=6xy^2$ (leddet $-4y$ er konstant i $x$).","07346ef123fae9d6":"## Oppsummering\n\nEi **partiell derivert** måler korleis ein funksjon endrar seg når vi varierer éin variabel og held dei andre fast. Regelen er enkel: handsam den andre variabelen som ein konstant og deriver som vanleg. Resultata har tunge økonomiske namn -- $Q_K$ og $Q_L$ er marginalprodukt, $U_x$ og $U_y$ grensenytter, $C_x$ og $C_y$ grensekostnader.\n\nDeriverer vi ein gong til, får vi **andreordens partielle deriverte** $f_{xx}$, $f_{yy}$ og dei krysspartielle $f_{xy}$ og $f_{yx}$, som er like ved **Youngs setning** når dei er kontinuerlege. Forteikna ber meining: $Q_{KK}<0$ og $Q_{LL}<0$ gir avtakande grenseproduktivitet, medan $f_{xy}>0$ tyder komplementære gode og $f_{xy}<0$ substitutt. Desse andreordens storleikane blir avgjerande når vi i neste kapittel skal avgjere om eit stasjonært punkt er eit maksimum, minimum eller sadelpunkt."}}}
+{
+  "id": "bi-okonomi-7-2-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "7.2",
+  "title": "Partielle deriverte",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi måler endring når fleire ting varierer samstundes -- vi frys éin variabel, deriverer den andre, og oppdagar marginalprodukt, grensenytter og løyndomen bak avtakande avkastning.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-7-2",
+  "content": [
+    {
+      "id": "bi-okonomi-7-2-n-intro",
+      "type": "text",
+      "content": "## Å fryse éin variabel om gongen\n\nTenk deg at du leier ei bedrift med både kapital $K$ og arbeidskraft $L$. Du lurer på: kor mykje meir produserer vi dersom vi tilset éin ekstra arbeidar, gitt at maskinparken er den same? Spørsmålet handlar om endring i berre **éi** retning, medan alt anna blir halde fast. Det er nettopp dette **partiell derivasjon** måler.\n\nDen partielle deriverte av $f(x,y)$ med omsyn på $x$ blir skriven $\\dfrac{\\partial f}{\\partial x}$, eller kortare $f_x$. Definisjonen liknar den vanlege deriverte, men no held vi $y$ konstant: $f_x=\\lim_{h\\to 0}\\dfrac{f(x+h,y)-f(x,y)}{h}$. I praksis treng vi ikkje grenseverdien -- regelen er enkel: for å finne $f_x$, handsam $y$ som eit tal og deriver som vanleg med omsyn på $x$.\n\nLat oss prøve $f(x,y)=3x^2+5xy-2y^2+7$. Når vi deriverer mhp $x$ blir $3x^2\\to 6x$, leddet $5xy\\to 5y$ (her er $5y$ talet framfor $x$), medan $-2y^2$ og $7$ er reine konstantar og forsvinn. Altså $f_x=6x+5y$. Deriverer vi i staden mhp $y$, forsvinn $3x^2$, $5xy\\to 5x$ og $-2y^2\\to -4y$, så $f_y=5x-4y$. Eit godt knep: når du deriverer mhp $x$, lat som $y$ er talet $5$."
+    },
+    {
+      "id": "bi-okonomi-7-2-n-section1",
+      "type": "text",
+      "content": "## Marginalprodukt, grensenytte og grensekostnad\n\nDei partielle deriverte har konkrete økonomiske namn. For ein produktfunksjon $Q(K,L)$ er $Q_K$ **marginalproduktet av kapital** (MPK) og $Q_L$ **marginalproduktet av arbeidskraft** (MPL). For ein nyttefunksjon $U(x,y)$ er $U_x$ og $U_y$ **grensenyttene**, og for ein kostnadsfunksjon $C(x,y)$ er $C_x$ og $C_y$ **grensekostnadene** ved å auke produksjonen av kvar vare.\n\nTa Cobb-Douglas $Q(K,L)=10K^{0{,}3}L^{0{,}7}$. Deriverer vi mhp $K$ får vi $Q_K=10\\cdot 0{,}3\\,K^{-0{,}7}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$, og mhp $L$ blir $Q_L=10\\cdot 0{,}7\\,K^{0{,}3}L^{-0{,}3}=7K^{0{,}3}L^{-0{,}3}$. $Q_K$ fortel kor mykje ekstra produksjon ei ekstra eining kapital gir.\n\nGrensekostnader kan avhenge av begge varer. For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$ blir $C_x=6+0{,}1x+0{,}03y$ og $C_y=4+0{,}03x+0{,}04y$. Ved $(100,50)$ er $C_x=6+10+1{,}5=17{,}5$ kr -- det kostar ca. 17,50 kr å lage éi vare A til, og merk at produksjonen av B påverkar dette via interaksjonsleddet. For nytten $U(x,y)=\\sqrt{xy}=x^{1/2}y^{1/2}$ blir $U_x=\\tfrac{1}{2}\\sqrt{y/x}$ og $U_y=\\tfrac{1}{2}\\sqrt{x/y}$; ved $(4,9)$ gir det $U_x=\\tfrac{1}{2}\\cdot\\tfrac{3}{2}=0{,}75$ og $U_y=\\tfrac{1}{2}\\cdot\\tfrac{2}{3}=\\tfrac{1}{3}$."
+    },
+    {
+      "id": "bi-okonomi-7-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-7-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på partielle deriverte og marginale omgrep:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-7-2-n-quiz1-q0",
+            "task": "For $f(x,y)=3x^2+5xy-2y^2+7$, kva er $f_x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6x+5xy$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6x-4y$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5x-4y$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6x+5y$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Handsam $y$ som konstant: $3x^2\\to 6x$, $5xy\\to 5y$, $-2y^2$ og $7$ forsvinn. Altså $f_x=6x+5y$."
+          },
+          {
+            "id": "bi-okonomi-7-2-n-quiz1-q1",
+            "task": "For $Q(K,L)=10K^{0{,}3}L^{0{,}7}$, kva er marginalproduktet av kapital $Q_K$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$3K^{-0{,}7}L^{0{,}7}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7K^{0{,}3}L^{-0{,}3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10K^{-0{,}7}L^{0{,}7}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3K^{0{,}3}L^{0{,}7}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$Q_K=10\\cdot 0{,}3\\,K^{0{,}3-1}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$. Eksponenten på $K$ søkk med 1."
+          },
+          {
+            "id": "bi-okonomi-7-2-n-quiz1-q2",
+            "task": "For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$, kva er grensekostnaden $C_x(100,50)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$17{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$10{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$C_x=6+0{,}1x+0{,}03y$, så $C_x(100,50)=6+10+1{,}5=17{,}5$ kr."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-7-2-n-section2",
+      "type": "text",
+      "content": "## Andre runde: andreordens partielle deriverte\n\nDei partielle deriverte $f_x$ og $f_y$ er sjølv funksjonar av $x$ og $y$, så vi kan derivere dei på nytt. Det gir **andreordens partielle deriverte**: $f_{xx}$ (deriver $f_x$ mhp $x$), $f_{yy}$ (deriver $f_y$ mhp $y$), og dei to **krysspartielle** $f_{xy}$ og $f_{yx}$. Ei vakker overrasking, **Youngs setning**, seier at så lenge desse er kontinuerlege, spelar rekkjefølgja inga rolle: $f_{xy}=f_{yx}$.\n\nLat oss sjekke det på $f(x,y)=x^3y^2-4xy+y^3$. Førsteordens: $f_x=3x^2y^2-4y$ og $f_y=2x^3y-4x+3y^2$. Andreordens: $f_{xx}=6xy^2$, $f_{yy}=2x^3+6y$, $f_{xy}=6x^2y-4$ og $f_{yx}=6x^2y-4$. Ganske rett er $f_{xy}=f_{yx}$.\n\nForteiknet til desse fortel mykje om økonomien. For Cobb-Douglas $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ blir $Q_{KK}=-1{,}5K^{-1{,}5}L^{0{,}5}<0$ og $Q_{LL}=-1{,}5K^{0{,}5}L^{-1{,}5}<0$. Negativ andrederivert tyder **avtakande marginalprodukt** -- kvar ny arbeidar gir noko ekstra, men gevinsten krympar di fleire du alt har. Dette er **lova om avtakande grenseproduktivitet**. Samstundes er $Q_{KL}=1{,}5K^{-0{,}5}L^{-0{,}5}>0$, og positiv krysspartiell tyder at innsatsfaktorane er **komplementære**: meir arbeidskraft gjer kapitalen meir produktiv. For ein nyttefunksjon avgjer forteiknet til $U_{xy}$ på same måte om to gode er komplementære ($U_{xy}>0$) eller substitutt ($U_{xy}<0$)."
+    },
+    {
+      "id": "bi-okonomi-7-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-7-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på andreordens partielle deriverte:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-7-2-n-quiz2-q0",
+            "task": "Kva seier Youngs setning?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f_{xx}=f_{yy}$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f_x=f_y$ i stasjonære punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$f_{xy}=f_{yx}$ når dei krysspartielle er kontinuerlege",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f_{xy}=0$ for alle funksjonar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Youngs setning seier at dei krysspartielle er like, $f_{xy}=f_{yx}$, så lenge dei er kontinuerlege -- rekkjefølgja på derivasjon spelar inga rolle."
+          },
+          {
+            "id": "bi-okonomi-7-2-n-quiz2-q1",
+            "task": "For $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ er $Q_{LL}<0$. Kva tyder det økonomisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Marginalproduktet av arbeidskraft er negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Konstant skalaavkastning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Arbeidskraft og kapital er substitutt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Avtakande marginalprodukt av arbeidskraft",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$Q_L>0$ men $Q_{LL}<0$ tyder at marginalproduktet er positivt, men avtek -- lova om avtakande grenseproduktivitet."
+          },
+          {
+            "id": "bi-okonomi-7-2-n-quiz2-q2",
+            "task": "For $U(x,y)=xy+2x+3y$ er $U_{xy}=1>0$. Kva seier dette om goda?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Dei er komplementære",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Dei er substitutt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Dei er uavhengige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nytten er konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$U_{xy}>0$ tyder at meir av $y$ aukar grensenytten av $x$ -- goda er komplementære (som bil og bensin)."
+          },
+          {
+            "id": "bi-okonomi-7-2-n-quiz2-q3",
+            "task": "For $f(x,y)=x^3y^2-4xy+y^3$, kva er $f_{xx}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x^2y^2-4y$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6xy^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$6x^2y-4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x^3+6y$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først $f_x=3x^2y^2-4y$, så deriver mhp $x$ igjen: $f_{xx}=6xy^2$ (leddet $-4y$ er konstant i $x$)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-7-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEi **partiell derivert** måler korleis ein funksjon endrar seg når vi varierer éin variabel og held dei andre fast. Regelen er enkel: handsam den andre variabelen som ein konstant og deriver som vanleg. Resultata har tunge økonomiske namn -- $Q_K$ og $Q_L$ er marginalprodukt, $U_x$ og $U_y$ grensenytter, $C_x$ og $C_y$ grensekostnader.\n\nDeriverer vi ein gong til, får vi **andreordens partielle deriverte** $f_{xx}$, $f_{yy}$ og dei krysspartielle $f_{xy}$ og $f_{yx}$, som er like ved **Youngs setning** når dei er kontinuerlege. Forteikna ber meining: $Q_{KK}<0$ og $Q_{LL}<0$ gir avtakande grenseproduktivitet, medan $f_{xy}>0$ tyder komplementære gode og $f_{xy}<0$ substitutt. Desse andreordens storleikane blir avgjerande når vi i neste kapittel skal avgjere om eit stasjonært punkt er eit maksimum, minimum eller sadelpunkt."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "4210b5a005572bf5",
+    "translatedAt": "2026-06-21T01:03:39.682Z",
+    "model": "claude-code-agent",
+    "strings": 49,
+    "tm": {
+      "6c34df31126edf58": "Partielle deriverte",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7a16d8b63cecabfc": "Ei forteljing om korleis vi måler endring når fleire ting varierer samstundes -- vi frys éin variabel, deriverer den andre, og oppdagar marginalprodukt, grensenytter og løyndomen bak avtakande avkastning.",
+      "9dbe30aa395897b2": "## Å fryse éin variabel om gongen\n\nTenk deg at du leier ei bedrift med både kapital $K$ og arbeidskraft $L$. Du lurer på: kor mykje meir produserer vi dersom vi tilset éin ekstra arbeidar, gitt at maskinparken er den same? Spørsmålet handlar om endring i berre **éi** retning, medan alt anna blir halde fast. Det er nettopp dette **partiell derivasjon** måler.\n\nDen partielle deriverte av $f(x,y)$ med omsyn på $x$ blir skriven $\\dfrac{\\partial f}{\\partial x}$, eller kortare $f_x$. Definisjonen liknar den vanlege deriverte, men no held vi $y$ konstant: $f_x=\\lim_{h\\to 0}\\dfrac{f(x+h,y)-f(x,y)}{h}$. I praksis treng vi ikkje grenseverdien -- regelen er enkel: for å finne $f_x$, handsam $y$ som eit tal og deriver som vanleg med omsyn på $x$.\n\nLat oss prøve $f(x,y)=3x^2+5xy-2y^2+7$. Når vi deriverer mhp $x$ blir $3x^2\\to 6x$, leddet $5xy\\to 5y$ (her er $5y$ talet framfor $x$), medan $-2y^2$ og $7$ er reine konstantar og forsvinn. Altså $f_x=6x+5y$. Deriverer vi i staden mhp $y$, forsvinn $3x^2$, $5xy\\to 5x$ og $-2y^2\\to -4y$, så $f_y=5x-4y$. Eit godt knep: når du deriverer mhp $x$, lat som $y$ er talet $5$.",
+      "f0a84ddfae7b0d4c": "## Marginalprodukt, grensenytte og grensekostnad\n\nDei partielle deriverte har konkrete økonomiske namn. For ein produktfunksjon $Q(K,L)$ er $Q_K$ **marginalproduktet av kapital** (MPK) og $Q_L$ **marginalproduktet av arbeidskraft** (MPL). For ein nyttefunksjon $U(x,y)$ er $U_x$ og $U_y$ **grensenyttene**, og for ein kostnadsfunksjon $C(x,y)$ er $C_x$ og $C_y$ **grensekostnadene** ved å auke produksjonen av kvar vare.\n\nTa Cobb-Douglas $Q(K,L)=10K^{0{,}3}L^{0{,}7}$. Deriverer vi mhp $K$ får vi $Q_K=10\\cdot 0{,}3\\,K^{-0{,}7}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$, og mhp $L$ blir $Q_L=10\\cdot 0{,}7\\,K^{0{,}3}L^{-0{,}3}=7K^{0{,}3}L^{-0{,}3}$. $Q_K$ fortel kor mykje ekstra produksjon ei ekstra eining kapital gir.\n\nGrensekostnader kan avhenge av begge varer. For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$ blir $C_x=6+0{,}1x+0{,}03y$ og $C_y=4+0{,}03x+0{,}04y$. Ved $(100,50)$ er $C_x=6+10+1{,}5=17{,}5$ kr -- det kostar ca. 17,50 kr å lage éi vare A til, og merk at produksjonen av B påverkar dette via interaksjonsleddet. For nytten $U(x,y)=\\sqrt{xy}=x^{1/2}y^{1/2}$ blir $U_x=\\tfrac{1}{2}\\sqrt{y/x}$ og $U_y=\\tfrac{1}{2}\\sqrt{x/y}$; ved $(4,9)$ gir det $U_x=\\tfrac{1}{2}\\cdot\\tfrac{3}{2}=0{,}75$ og $U_y=\\tfrac{1}{2}\\cdot\\tfrac{2}{3}=\\tfrac{1}{3}$.",
+      "c21540681f17a1b6": "Test deg sjølv på partielle deriverte og marginale omgrep:",
+      "4097889236a2af26": "placeholder",
+      "dbb0420d341b3fa9": "For $f(x,y)=3x^2+5xy-2y^2+7$, kva er $f_x$?",
+      "400fd85a92bbe296": "$6x+5xy$",
+      "82f29287f9b09032": "$6x+5y$",
+      "c38a3fd8f0e60526": "$6x-4y$",
+      "fb642d96df344174": "$5x-4y$",
+      "f92caff01e99494e": "Handsam $y$ som konstant: $3x^2\\to 6x$, $5xy\\to 5y$, $-2y^2$ og $7$ forsvinn. Altså $f_x=6x+5y$.",
+      "8bf852e4f6283c47": "For $Q(K,L)=10K^{0{,}3}L^{0{,}7}$, kva er marginalproduktet av kapital $Q_K$?",
+      "d6fc5ac77d9dbe6f": "$7K^{0{,}3}L^{-0{,}3}$",
+      "e3070874ad52aced": "$10K^{-0{,}7}L^{0{,}7}$",
+      "ee39373a6aa970a7": "$3K^{-0{,}7}L^{0{,}7}$",
+      "2eb7fd960354ad8b": "$3K^{0{,}3}L^{0{,}7}$",
+      "98276508be3f8d1d": "$Q_K=10\\cdot 0{,}3\\,K^{0{,}3-1}L^{0{,}7}=3K^{-0{,}7}L^{0{,}7}$. Eksponenten på $K$ søkk med 1.",
+      "22fead13aef8dfc1": "For $C(x,y)=500+6x+4y+0{,}05x^2+0{,}03xy+0{,}02y^2$, kva er grensekostnaden $C_x(100,50)$?",
+      "751666699331065a": "$C_x=6+0{,}1x+0{,}03y$, så $C_x(100,50)=6+10+1{,}5=17{,}5$ kr.",
+      "6f84d50e92bdefb8": "## Andre runde: andreordens partielle deriverte\n\nDei partielle deriverte $f_x$ og $f_y$ er sjølv funksjonar av $x$ og $y$, så vi kan derivere dei på nytt. Det gir **andreordens partielle deriverte**: $f_{xx}$ (deriver $f_x$ mhp $x$), $f_{yy}$ (deriver $f_y$ mhp $y$), og dei to **krysspartielle** $f_{xy}$ og $f_{yx}$. Ei vakker overrasking, **Youngs setning**, seier at så lenge desse er kontinuerlege, spelar rekkjefølgja inga rolle: $f_{xy}=f_{yx}$.\n\nLat oss sjekke det på $f(x,y)=x^3y^2-4xy+y^3$. Førsteordens: $f_x=3x^2y^2-4y$ og $f_y=2x^3y-4x+3y^2$. Andreordens: $f_{xx}=6xy^2$, $f_{yy}=2x^3+6y$, $f_{xy}=6x^2y-4$ og $f_{yx}=6x^2y-4$. Ganske rett er $f_{xy}=f_{yx}$.\n\nForteiknet til desse fortel mykje om økonomien. For Cobb-Douglas $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ blir $Q_{KK}=-1{,}5K^{-1{,}5}L^{0{,}5}<0$ og $Q_{LL}=-1{,}5K^{0{,}5}L^{-1{,}5}<0$. Negativ andrederivert tyder **avtakande marginalprodukt** -- kvar ny arbeidar gir noko ekstra, men gevinsten krympar di fleire du alt har. Dette er **lova om avtakande grenseproduktivitet**. Samstundes er $Q_{KL}=1{,}5K^{-0{,}5}L^{-0{,}5}>0$, og positiv krysspartiell tyder at innsatsfaktorane er **komplementære**: meir arbeidskraft gjer kapitalen meir produktiv. For ein nyttefunksjon avgjer forteiknet til $U_{xy}$ på same måte om to gode er komplementære ($U_{xy}>0$) eller substitutt ($U_{xy}<0$).",
+      "a0a2db0af761f8aa": "Test deg sjølv på andreordens partielle deriverte:",
+      "f6d928a66d7cd0b0": "Kva seier Youngs setning?",
+      "1773d68d0f3b47fd": "$f_{xy}=f_{yx}$ når dei krysspartielle er kontinuerlege",
+      "002b10a137c40d39": "$f_{xx}=f_{yy}$ alltid",
+      "d04baa4f87e50702": "$f_x=f_y$ i stasjonære punkt",
+      "3e264b1eb1e25dfe": "$f_{xy}=0$ for alle funksjonar",
+      "ec18423f0cec5e44": "Youngs setning seier at dei krysspartielle er like, $f_{xy}=f_{yx}$, så lenge dei er kontinuerlege -- rekkjefølgja på derivasjon spelar inga rolle.",
+      "a94886827a05cf60": "For $Q(K,L)=6K^{0{,}5}L^{0{,}5}$ er $Q_{LL}<0$. Kva tyder det økonomisk?",
+      "ccb4a59b5686b795": "Marginalproduktet av arbeidskraft er negativt",
+      "56e9424340050700": "Avtakande marginalprodukt av arbeidskraft",
+      "97a29550fe4c9fbb": "Konstant skalaavkastning",
+      "d4787cf26086519f": "Arbeidskraft og kapital er substitutt",
+      "0d622901eb7aa9df": "$Q_L>0$ men $Q_{LL}<0$ tyder at marginalproduktet er positivt, men avtek -- lova om avtakande grenseproduktivitet.",
+      "679614e8d5ff02b5": "For $U(x,y)=xy+2x+3y$ er $U_{xy}=1>0$. Kva seier dette om goda?",
+      "7bd0e386e089ec97": "Dei er substitutt",
+      "3f347f27919a0576": "Dei er uavhengige",
+      "3c37b7c0d9d3c343": "Dei er komplementære",
+      "9d87215e5e393bf2": "Nytten er konstant",
+      "ae53eb2c31f7214b": "$U_{xy}>0$ tyder at meir av $y$ aukar grensenytten av $x$ -- goda er komplementære (som bil og bensin).",
+      "7a5cdaa2f68be573": "For $f(x,y)=x^3y^2-4xy+y^3$, kva er $f_{xx}$?",
+      "018d70fa93d5e5aa": "$3x^2y^2-4y$",
+      "7e5d78da6295e4b2": "$6x^2y-4$",
+      "e0241bf39d454aef": "$2x^3+6y$",
+      "4cf77217e99ea566": "$6xy^2$",
+      "3fb8c96f92671399": "Først $f_x=3x^2y^2-4y$, så deriver mhp $x$ igjen: $f_{xx}=6xy^2$ (leddet $-4y$ er konstant i $x$).",
+      "07346ef123fae9d6": "## Oppsummering\n\nEi **partiell derivert** måler korleis ein funksjon endrar seg når vi varierer éin variabel og held dei andre fast. Regelen er enkel: handsam den andre variabelen som ein konstant og deriver som vanleg. Resultata har tunge økonomiske namn -- $Q_K$ og $Q_L$ er marginalprodukt, $U_x$ og $U_y$ grensenytter, $C_x$ og $C_y$ grensekostnader.\n\nDeriverer vi ein gong til, får vi **andreordens partielle deriverte** $f_{xx}$, $f_{yy}$ og dei krysspartielle $f_{xy}$ og $f_{yx}$, som er like ved **Youngs setning** når dei er kontinuerlege. Forteikna ber meining: $Q_{KK}<0$ og $Q_{LL}<0$ gir avtakande grenseproduktivitet, medan $f_{xy}>0$ tyder komplementære gode og $f_{xy}<0$ substitutt. Desse andreordens storleikane blir avgjerande når vi i neste kapittel skal avgjere om eit stasjonært punkt er eit maksimum, minimum eller sadelpunkt."
+    }
+  }
+}

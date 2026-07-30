@@ -1,1 +1,346 @@
-{"id":"im-vg1-2-2-narrativ","courseId":"im-vg1","chapterNumber":"2.2","title":"Variabler, datatyper og operatorer","subtitle":"Narrativ versjon","description":"En fortelling om programmeringens byggeklosser -- de navngitte boksene vi kaller variabler, de ulike typene verdier de kan romme, og operatorene som lar maskinen regne og sette ord sammen.","estimatedMinutes":34,"competenceGoals":["opprette og bruke variabler i Python","beskrive ulike datatyper og når de brukes","bruke aritmetiske operatorer og strengoperasjoner"],"linkedChapterId":"im-vg1-2-2","content":[{"id":"im-vg1-2-2-n-intro","type":"text","content":"## Bokser med navn på\n\nForestill deg at du rydder på rommet og setter ting i merkede bokser. På én boks står det «sokker», på en annen «ladere», på en tredje «godteri». Når du senere trenger en lader, går du ikke gjennom hele rommet -- du henter bare boksen merket «ladere». Det er akkurat slik en datamaskin holder orden på informasjon, og boksene kaller vi **variabler**.\n\nEn variabel er rett og slett et navngitt lagringssted i minnet som holder på en verdi. Du gir den et navn, putter en verdi inn, og kan hente den fram igjen eller bytte den ut senere. Dette er kanskje den aller mest grunnleggende ideen i all programmering -- uten variabler kan et program ikke huske noe som helst.\n\nI denne fortellingen skal vi bli godt kjent med disse boksene. Vi skal lære hvilke typer verdier de kan inneholde, hvordan vi regner med dem ved hjelp av operatorer, og hvordan vi setter sammen tekst på smarte måter. Til slutt skal vi la programmet vårt snakke med brukeren og ta imot det de skriver. Dette er byggeklossene alt annet bygger på."},{"id":"im-vg1-2-2-n-section1","type":"text","content":"## Fire slags verdier\n\nNår du lager en variabel i Python, gjør du det enkelt: du skriver navnet, et likhetstegn, og verdien. For eksempel `navn = \"Kari\"`. Men legg merke til at verdiene kommer i ulike former, og hver form kaller vi en **datatype**.\n\nDe fire viktigste er enkle å huske. En **str**, eller streng, er tekst, og den skrives alltid inni anførselstegn, som `navn = \"Kari\"`. En **int** er et heltall uten desimaler, som `alder = 16`. En **float** er et desimaltall, som `hoyde = 1.72`. Og en **bool**, eller boolsk verdi, er en sannhetsverdi som bare kan være `True` eller `False`, for eksempel `er_elev = True`. Datatypen forteller maskinen hva slags innhold boksen har, og dermed hva den kan gjøre med det.\n\nDet finnes noen regler for hva du kan kalle variablene dine. Navnet må starte med en bokstav eller en understrek. Python skiller mellom store og små bokstaver, så `Alder` og `alder` er to ulike variabler. Og du kan ikke bruke reserverte ord som `if` eller `for`, fordi de allerede betyr noe spesielt i Python. Et godt råd: gi variablene beskrivende navn, slik at `temperatur` er bedre enn `t`. Da blir koden lettere å forstå for både deg og andre."},{"id":"im-vg1-2-2-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-2-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på variabler og datatyper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-2-n-quiz1-q0","task":"Hva er datatypen til verdien 3.14?","options":[{"id":"a","text":"float","isCorrect":true},{"id":"b","text":"int","isCorrect":false},{"id":"c","text":"str","isCorrect":false},{"id":"d","text":"bool","isCorrect":false}],"solution":"3.14 er et desimaltall, og desimaltall har datatypen float i Python."},{"id":"im-vg1-2-2-n-quiz1-q1","task":"Hvilken datatype brukes for sannhetsverdiene True og False?","options":[{"id":"a","text":"str","isCorrect":false},{"id":"b","text":"bool","isCorrect":true},{"id":"c","text":"int","isCorrect":false},{"id":"d","text":"float","isCorrect":false}],"solution":"Sannhetsverdiene True og False har datatypen bool (boolsk verdi)."},{"id":"im-vg1-2-2-n-quiz1-q2","task":"Hvilket variabelnavn er gyldig i Python?","options":[{"id":"a","text":"if","isCorrect":false},{"id":"b","text":"2tall","isCorrect":false},{"id":"c","text":"alder","isCorrect":true},{"id":"d","text":"for","isCorrect":false}],"solution":"alder er gyldig. Navn kan ikke starte med tall (2tall), og reserverte ord som if og for kan ikke brukes."}]}},{"id":"im-vg1-2-2-n-section2","type":"text","content":"## Når maskinen skal regne\n\nNå som vi har verdier i bokser, vil vi naturligvis kunne regne med dem. Til det bruker vi **operatorer** -- symboler som utfører en operasjon. De fleste kjenner du allerede fra matten, men noen har en liten vri.\n\nDe vanlige er greie: `+` legger sammen, så `7 + 3` blir 10. `-` trekker fra, `*` ganger, så `7 * 3` blir 21. Divisjon med `/` gir alltid et desimaltall, så `7 / 3` blir omtrent 2,333. Men her kommer de spennende: `//` er heltallsdivisjon, som kaster bort desimalene, så `7 // 3` blir 2. Operatoren `%`, som kalles modulo, gir *resten* etter divisjon -- `7 % 3` blir 1, fordi 7 delt på 3 er 2 med 1 til rest. Og `**` er potens, så `2 ** 3` betyr to opphøyd i tredje, altså 8.\n\nModulo er overraskende nyttig. Vil du sjekke om et tall er partall, ser du om `tall % 2` blir 0. En liten advarsel verdt å huske: operatorene oppfører seg annerledes på tekst enn på tall. Hvis `x = \"3\"` og `y = \"7\"` er strenger -- altså tekst i anførselstegn -- så blir `x + y` ikke 10, men «37», fordi `+` på tekst *limer sammen* strengene i stedet for å regne. Maskinen gjør nøyaktig det den får beskjed om, så det gjelder å holde tunga rett i munnen på hva som er tall og hva som er tekst."},{"id":"im-vg1-2-2-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-2-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på operatorer:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-2-n-quiz2-q0","task":"Hva blir resultatet av 17 % 5?","options":[{"id":"a","text":"3","isCorrect":false},{"id":"b","text":"3.4","isCorrect":false},{"id":"c","text":"5","isCorrect":false},{"id":"d","text":"2","isCorrect":true}],"solution":"Modulo gir resten. 17 delt på 5 er 3 med rest 2, så 17 % 5 = 2."},{"id":"im-vg1-2-2-n-quiz2-q1","task":"Hva blir 2 ** 4?","options":[{"id":"a","text":"16","isCorrect":true},{"id":"b","text":"8","isCorrect":false},{"id":"c","text":"6","isCorrect":false},{"id":"d","text":"24","isCorrect":false}],"solution":"** er potens. 2 ** 4 betyr 2 opphøyd i fjerde: 2·2·2·2 = 16."},{"id":"im-vg1-2-2-n-quiz2-q2","task":"Hva skrives ut hvis x = \"3\" og y = \"7\" og du kjører print(x + y)?","options":[{"id":"a","text":"10","isCorrect":false},{"id":"b","text":"37","isCorrect":true},{"id":"c","text":"3 7","isCorrect":false},{"id":"d","text":"En feilmelding","isCorrect":false}],"solution":"Siden x og y er strenger (tekst), limer + dem sammen til «37» i stedet for å regne."}]}},{"id":"im-vg1-2-2-n-section3","type":"text","content":"## Å sette ord sammen og snakke med brukeren\n\nTekst er like viktig som tall i programmering, og Python gir oss flere måter å jobbe med strenger på. Den enkleste er å lime dem sammen med `+`. Har du `fornavn = \"Ola\"` og `etternavn = \"Nordmann\"`, kan du skrive `print(fornavn + \" \" + etternavn)` for å få «Ola Nordmann» -- legg merke til at vi limer inn et mellomrom mellom dem.\n\nMen det finnes en mye elegantere metode som heter **f-streng**, en formattert tekststreng. Du setter en `f` rett foran anførselstegnet og kan da sette variabler rett inn i teksten ved hjelp av krøllparenteser. Skriver du `alder = 16` og deretter `print(f\"Jeg er {alder} år gammel.\")`, skrives det ut «Jeg er 16 år gammel.» Variabelen `alder` byttes automatisk ut med verdien. Dette er ryddig, lett å lese, og blir favoritten din ganske raskt.\n\nOg hva med å la programmet snakke med den som bruker det? Til det har vi `input()`, som lar brukeren skrive inn noe. Men her er en felle: alt brukeren skriver, kommer inn som tekst, altså en streng -- selv om de skriver et tall. Skal du regne med det, må du konvertere. Funksjonen `int()` gjør tekst om til heltall, og `float()` til desimaltall. Slik kan du lage et lite program: `temperatur = float(input(\"Celsius: \"))`, og deretter `fahrenheit = temperatur * 9/5 + 32`. Vil du vise svaret pent med én desimal, bruker du f-strengen med et lite triks: `print(f\"{temperatur}°C = {fahrenheit:.1f}°F\")`, der `:.1f` betyr «vis dette tallet med én desimal»."},{"id":"im-vg1-2-2-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-2-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på strenger og brukerinput:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-2-2-n-quiz3-q0","task":"Hva gjør en f-streng som f\"Hei {navn}\"?","options":[{"id":"a","text":"Skriver alltid ut ordet «navn»","isCorrect":false},{"id":"b","text":"Sletter variabelen navn","isCorrect":false},{"id":"c","text":"Setter verdien av variabelen navn rett inn i teksten","isCorrect":true},{"id":"d","text":"Gir en feilmelding","isCorrect":false}],"solution":"En f-streng lar deg sette variabler rett inn i teksten via krøllparenteser, slik at {navn} byttes ut med variabelens verdi."},{"id":"im-vg1-2-2-n-quiz3-q1","task":"Hvilken datatype gir input() alltid tilbake?","options":[{"id":"a","text":"int","isCorrect":false},{"id":"b","text":"float","isCorrect":false},{"id":"c","text":"bool","isCorrect":false},{"id":"d","text":"str (tekst)","isCorrect":true}],"solution":"input() gir alltid tilbake en streng (tekst), selv om brukeren skriver et tall. Da må man konvertere med int() eller float()."},{"id":"im-vg1-2-2-n-quiz3-q2","task":"Hva betyr :.1f i en f-streng?","options":[{"id":"a","text":"At tallet skal vises med én desimal","isCorrect":true},{"id":"b","text":"At teksten skal gjentas én gang","isCorrect":false},{"id":"c","text":"At variabelen skal slettes","isCorrect":false},{"id":"d","text":"At programmet skal stoppe","isCorrect":false}],"solution":":.1f formaterer et desimaltall slik at det vises med nøyaktig én desimal."}]}},{"id":"im-vg1-2-2-n-summary","type":"text","content":"## Oppsummering\n\nVi har lagt grunnmuren for all programmering. **Variabler** er navngitte bokser som lagrer verdier vi kan hente fram og endre. Hver verdi har en **datatype**: heltall (int), desimaltall (float), tekst (str) og sannhetsverdier (bool). Variabelnavn må følge noen regler -- starte med bokstav, ikke være reserverte ord -- og bør være beskrivende.\n\nVi lærte å regne med **operatorer** som `+`, `*`, `/`, heltallsdivisjon `//`, modulo `%` for rest, og potens `**` -- og at de samme symbolene oppfører seg annerledes på tekst enn på tall. Til slutt så vi hvordan vi setter sammen tekst med vanlig liming eller de mye smartere **f-strengene**, og hvordan `input()` lar programmet snakke med brukeren -- men husk å konvertere med `int()` eller `float()` når du skal regne med det de skriver."}],"exercises":[]}
+{
+  "id": "im-vg1-2-2-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "2.2",
+  "title": "Variabler, datatyper og operatorer",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om programmeringens byggeklosser -- de navngitte boksene vi kaller variabler, de ulike typene verdier de kan romme, og operatorene som lar maskinen regne og sette ord sammen.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "opprette og bruke variabler i Python",
+    "beskrive ulike datatyper og når de brukes",
+    "bruke aritmetiske operatorer og strengoperasjoner"
+  ],
+  "linkedChapterId": "im-vg1-2-2",
+  "content": [
+    {
+      "id": "im-vg1-2-2-n-intro",
+      "type": "text",
+      "content": "## Bokser med navn på\n\nForestill deg at du rydder på rommet og setter ting i merkede bokser. På én boks står det «sokker», på en annen «ladere», på en tredje «godteri». Når du senere trenger en lader, går du ikke gjennom hele rommet -- du henter bare boksen merket «ladere». Det er akkurat slik en datamaskin holder orden på informasjon, og boksene kaller vi **variabler**.\n\nEn variabel er rett og slett et navngitt lagringssted i minnet som holder på en verdi. Du gir den et navn, putter en verdi inn, og kan hente den fram igjen eller bytte den ut senere. Dette er kanskje den aller mest grunnleggende ideen i all programmering -- uten variabler kan et program ikke huske noe som helst.\n\nI denne fortellingen skal vi bli godt kjent med disse boksene. Vi skal lære hvilke typer verdier de kan inneholde, hvordan vi regner med dem ved hjelp av operatorer, og hvordan vi setter sammen tekst på smarte måter. Til slutt skal vi la programmet vårt snakke med brukeren og ta imot det de skriver. Dette er byggeklossene alt annet bygger på."
+    },
+    {
+      "id": "im-vg1-2-2-n-section1",
+      "type": "text",
+      "content": "## Fire slags verdier\n\nNår du lager en variabel i Python, gjør du det enkelt: du skriver navnet, et likhetstegn, og verdien. For eksempel `navn = \"Kari\"`. Men legg merke til at verdiene kommer i ulike former, og hver form kaller vi en **datatype**.\n\nDe fire viktigste er enkle å huske. En **str**, eller streng, er tekst, og den skrives alltid inni anførselstegn, som `navn = \"Kari\"`. En **int** er et heltall uten desimaler, som `alder = 16`. En **float** er et desimaltall, som `hoyde = 1.72`. Og en **bool**, eller boolsk verdi, er en sannhetsverdi som bare kan være `True` eller `False`, for eksempel `er_elev = True`. Datatypen forteller maskinen hva slags innhold boksen har, og dermed hva den kan gjøre med det.\n\nDet finnes noen regler for hva du kan kalle variablene dine. Navnet må starte med en bokstav eller en understrek. Python skiller mellom store og små bokstaver, så `Alder` og `alder` er to ulike variabler. Og du kan ikke bruke reserverte ord som `if` eller `for`, fordi de allerede betyr noe spesielt i Python. Et godt råd: gi variablene beskrivende navn, slik at `temperatur` er bedre enn `t`. Da blir koden lettere å forstå for både deg og andre."
+    },
+    {
+      "id": "im-vg1-2-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på variabler og datatyper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-2-n-quiz1-q0",
+            "task": "Hva er datatypen til verdien 3.14?",
+            "options": [
+              {
+                "id": "b",
+                "text": "int",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "str",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "float",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "bool",
+                "isCorrect": false
+              }
+            ],
+            "solution": "3.14 er et desimaltall, og desimaltall har datatypen float i Python."
+          },
+          {
+            "id": "im-vg1-2-2-n-quiz1-q1",
+            "task": "Hvilken datatype brukes for sannhetsverdiene True og False?",
+            "options": [
+              {
+                "id": "a",
+                "text": "str",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "int",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "float",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "bool",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Sannhetsverdiene True og False har datatypen bool (boolsk verdi)."
+          },
+          {
+            "id": "im-vg1-2-2-n-quiz1-q2",
+            "task": "Hvilket variabelnavn er gyldig i Python?",
+            "options": [
+              {
+                "id": "c",
+                "text": "alder",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "if",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "2tall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "for",
+                "isCorrect": false
+              }
+            ],
+            "solution": "alder er gyldig. Navn kan ikke starte med tall (2tall), og reserverte ord som if og for kan ikke brukes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-2-n-section2",
+      "type": "text",
+      "content": "## Når maskinen skal regne\n\nNå som vi har verdier i bokser, vil vi naturligvis kunne regne med dem. Til det bruker vi **operatorer** -- symboler som utfører en operasjon. De fleste kjenner du allerede fra matten, men noen har en liten vri.\n\nDe vanlige er greie: `+` legger sammen, så `7 + 3` blir 10. `-` trekker fra, `*` ganger, så `7 * 3` blir 21. Divisjon med `/` gir alltid et desimaltall, så `7 / 3` blir omtrent 2,333. Men her kommer de spennende: `//` er heltallsdivisjon, som kaster bort desimalene, så `7 // 3` blir 2. Operatoren `%`, som kalles modulo, gir *resten* etter divisjon -- `7 % 3` blir 1, fordi 7 delt på 3 er 2 med 1 til rest. Og `**` er potens, så `2 ** 3` betyr to opphøyd i tredje, altså 8.\n\nModulo er overraskende nyttig. Vil du sjekke om et tall er partall, ser du om `tall % 2` blir 0. En liten advarsel verdt å huske: operatorene oppfører seg annerledes på tekst enn på tall. Hvis `x = \"3\"` og `y = \"7\"` er strenger -- altså tekst i anførselstegn -- så blir `x + y` ikke 10, men «37», fordi `+` på tekst *limer sammen* strengene i stedet for å regne. Maskinen gjør nøyaktig det den får beskjed om, så det gjelder å holde tunga rett i munnen på hva som er tall og hva som er tekst."
+    },
+    {
+      "id": "im-vg1-2-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på operatorer:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-2-n-quiz2-q0",
+            "task": "Hva blir resultatet av 17 % 5?",
+            "options": [
+              {
+                "id": "a",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "2",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "3.4",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "5",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Modulo gir resten. 17 delt på 5 er 3 med rest 2, så 17 % 5 = 2."
+          },
+          {
+            "id": "im-vg1-2-2-n-quiz2-q1",
+            "task": "Hva blir 2 ** 4?",
+            "options": [
+              {
+                "id": "b",
+                "text": "8",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "6",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "16",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "24",
+                "isCorrect": false
+              }
+            ],
+            "solution": "** er potens. 2 ** 4 betyr 2 opphøyd i fjerde: 2·2·2·2 = 16."
+          },
+          {
+            "id": "im-vg1-2-2-n-quiz2-q2",
+            "task": "Hva skrives ut hvis x = \"3\" og y = \"7\" og du kjører print(x + y)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "10",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "3 7",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En feilmelding",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "37",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Siden x og y er strenger (tekst), limer + dem sammen til «37» i stedet for å regne."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-2-n-section3",
+      "type": "text",
+      "content": "## Å sette ord sammen og snakke med brukeren\n\nTekst er like viktig som tall i programmering, og Python gir oss flere måter å jobbe med strenger på. Den enkleste er å lime dem sammen med `+`. Har du `fornavn = \"Ola\"` og `etternavn = \"Nordmann\"`, kan du skrive `print(fornavn + \" \" + etternavn)` for å få «Ola Nordmann» -- legg merke til at vi limer inn et mellomrom mellom dem.\n\nMen det finnes en mye elegantere metode som heter **f-streng**, en formattert tekststreng. Du setter en `f` rett foran anførselstegnet og kan da sette variabler rett inn i teksten ved hjelp av krøllparenteser. Skriver du `alder = 16` og deretter `print(f\"Jeg er {alder} år gammel.\")`, skrives det ut «Jeg er 16 år gammel.» Variabelen `alder` byttes automatisk ut med verdien. Dette er ryddig, lett å lese, og blir favoritten din ganske raskt.\n\nOg hva med å la programmet snakke med den som bruker det? Til det har vi `input()`, som lar brukeren skrive inn noe. Men her er en felle: alt brukeren skriver, kommer inn som tekst, altså en streng -- selv om de skriver et tall. Skal du regne med det, må du konvertere. Funksjonen `int()` gjør tekst om til heltall, og `float()` til desimaltall. Slik kan du lage et lite program: `temperatur = float(input(\"Celsius: \"))`, og deretter `fahrenheit = temperatur * 9/5 + 32`. Vil du vise svaret pent med én desimal, bruker du f-strengen med et lite triks: `print(f\"{temperatur}°C = {fahrenheit:.1f}°F\")`, der `:.1f` betyr «vis dette tallet med én desimal»."
+    },
+    {
+      "id": "im-vg1-2-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-2-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på strenger og brukerinput:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-2-2-n-quiz3-q0",
+            "task": "Hva gjør en f-streng som f\"Hei {navn}\"?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Setter verdien av variabelen navn rett inn i teksten",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Skriver alltid ut ordet «navn»",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sletter variabelen navn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Gir en feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En f-streng lar deg sette variabler rett inn i teksten via krøllparenteser, slik at {navn} byttes ut med variabelens verdi."
+          },
+          {
+            "id": "im-vg1-2-2-n-quiz3-q1",
+            "task": "Hvilken datatype gir input() alltid tilbake?",
+            "options": [
+              {
+                "id": "a",
+                "text": "int",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "str (tekst)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "float",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "bool",
+                "isCorrect": false
+              }
+            ],
+            "solution": "input() gir alltid tilbake en streng (tekst), selv om brukeren skriver et tall. Da må man konvertere med int() eller float()."
+          },
+          {
+            "id": "im-vg1-2-2-n-quiz3-q2",
+            "task": "Hva betyr :.1f i en f-streng?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At teksten skal gjentas én gang",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At variabelen skal slettes",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At tallet skal vises med én desimal",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At programmet skal stoppe",
+                "isCorrect": false
+              }
+            ],
+            "solution": ":.1f formaterer et desimaltall slik at det vises med nøyaktig én desimal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-2-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lagt grunnmuren for all programmering. **Variabler** er navngitte bokser som lagrer verdier vi kan hente fram og endre. Hver verdi har en **datatype**: heltall (int), desimaltall (float), tekst (str) og sannhetsverdier (bool). Variabelnavn må følge noen regler -- starte med bokstav, ikke være reserverte ord -- og bør være beskrivende.\n\nVi lærte å regne med **operatorer** som `+`, `*`, `/`, heltallsdivisjon `//`, modulo `%` for rest, og potens `**` -- og at de samme symbolene oppfører seg annerledes på tekst enn på tall. Til slutt så vi hvordan vi setter sammen tekst med vanlig liming eller de mye smartere **f-strengene**, og hvordan `input()` lar programmet snakke med brukeren -- men husk å konvertere med `int()` eller `float()` når du skal regne med det de skriver."
+    }
+  ],
+  "exercises": []
+}

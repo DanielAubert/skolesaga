@@ -1,1 +1,237 @@
-{"id":"2py-7-2-narrativ","courseId":"2py","chapterNumber":"7.2","title":"Måleverktøy og nøyaktighet","subtitle":"Narrativ versjon","description":"En fortelling om sommerjobben i kvalitetskontrollen -- om toleranser, avvik og kunsten å vite når noe er godt nok.","estimatedMinutes":26,"competenceGoals":["bruke måleverktøy med riktig nøyaktighet","forstå toleranser og avvik"],"linkedChapterId":"2py-7-2","content":[{"id":"2py-7-2-n-intro","type":"text","content":"## Akselen som ble vraket\n\nDu har fått sommerjobb i kvalitetskontrollen på et mekanisk verksted. Foran deg ligger en kasse med nydreide aksler, og jobben din er å avgjøre hvilke som kan sendes til kunden, og hvilke som må vrakes. Men hva betyr egentlig «god nok»? En aksel blir aldri *nøyaktig* $25$ millimeter — det finnes alltid bittesmå variasjoner i maskin, materiale og måling.\n\nDet er her noen viktige begreper kommer inn. **Nøyaktighet** handler om hvor nær målingen din er den sanne verdien. **Presisjon** handler om noe annet: hvor like resultatene blir hvis du måler samme ting flere ganger. Du kan faktisk være presis uten å være nøyaktig — som en dartspiller som treffer samme punkt hver gang, men langt fra blinken. I tillegg kan selve avlesningen gå galt; leser du av et skyvelære litt skjevt, får du en **avlesningsfeil**.\n\nFordi ingenting kan lages helt perfekt, oppgir tegningene i stedet en **toleranse**: hvor stort avvik fra målet som er tillatt. Det er toleransen som avgjør om akselen i hånden din er en salgbar del eller skrapmetall — og i dette kapittelet lærer du å gjøre den vurderingen selv."},{"id":"2py-7-2-n-section1","type":"text","content":"## Toleranse — det tillatte slingringsmonnet\n\nPå arbeidstegningen står det at akslene skal ha diameter $25{,}00$ mm $\\pm\\, 0{,}05$ mm. Tallet $25{,}00$ kalles det **nominelle målet** — det idealet produksjonen sikter mot. Plusstegnet og minustegnet forteller hvor langt unna idealet en del kan ligge og fortsatt være godkjent.\n\nVi regner ut grensene. Nedre toleransegrense er $25{,}00 - 0{,}05 = 24{,}95$ mm, og øvre grense er $25{,}00 + 0{,}05 = 25{,}05$ mm. Alt mellom disse to verdiene er innenfor **toleranseområdet**, som her er $0{,}10$ mm bredt. Tenk på det som et målbilde: alt innenfor rammen er godkjent, alt utenfor må vrakes — uansett om det bommer med en hundredel eller en hel millimeter.\n\nNå tar du fram skyvelæret og måler åtte aksler fra kassen: $24{,}96$ — $25{,}02$ — $25{,}04$ — $24{,}94$ — $25{,}06$ — $25{,}01$ — $24{,}98$ — $25{,}03$ mm. Du sjekker hver enkelt mot grensene. $24{,}94$ er under $24{,}95$, så den ryker. $25{,}06$ er over $25{,}05$, så den ryker også. De seks andre ligger trygt innenfor.\n\nSeks av åtte godkjent gir andelen $\\frac{6}{8} = 0{,}75 = 75\\,\\%$. Det tallet rapporterer du videre til produksjonslederen — og hvis andelen synker neste uke, er det et signal om at maskinen må justeres. Slik brukes toleranser hver eneste dag i industrien: ikke for å kreve det umulige, men for å vite nøyaktig når noe er godt nok."},{"id":"2py-7-2-n-quiz1","type":"exercise","exercise":{"id":"2py-7-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på toleranser:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-7-2-n-quiz1-q0","task":"En bolt skal ha diameter $12$ mm $\\pm\\, 0{,}1$ mm. Hva er nedre toleransegrense?","options":[{"id":"a","text":"$12{,}1$ mm","isCorrect":false},{"id":"b","text":"$11{,}9$ mm","isCorrect":true},{"id":"c","text":"$11{,}0$ mm","isCorrect":false},{"id":"d","text":"$12{,}0$ mm","isCorrect":false}],"solution":"Nedre grense er nominelt mål minus toleranse: $12 - 0{,}1 = 11{,}9$ mm."},{"id":"2py-7-2-n-quiz1-q1","task":"En aksel skal være $25{,}00$ mm $\\pm\\, 0{,}05$ mm. Du måler $25{,}06$ mm. Er den godkjent?","options":[{"id":"a","text":"Ja, fordi avviket er under $0{,}1$ mm","isCorrect":false},{"id":"b","text":"Ja, fordi den er større enn $25$ mm","isCorrect":false},{"id":"c","text":"Nei, fordi øvre grense er $25{,}05$ mm","isCorrect":true},{"id":"d","text":"Nei, fordi alle aksler skal være nøyaktig $25{,}00$ mm","isCorrect":false}],"solution":"Øvre toleransegrense er $25{,}00 + 0{,}05 = 25{,}05$ mm. Målingen $25{,}06$ mm ligger over grensen og må vrakes."},{"id":"2py-7-2-n-quiz1-q2","task":"Et mål er oppgitt som $50$ mm $\\pm\\, 0{,}2$ mm. Hvor bredt er toleranseområdet?","options":[{"id":"a","text":"$0{,}4$ mm","isCorrect":true},{"id":"b","text":"$0{,}2$ mm","isCorrect":false},{"id":"c","text":"$50{,}2$ mm","isCorrect":false},{"id":"d","text":"$49{,}8$ mm","isCorrect":false}],"solution":"Toleranseområdet går fra $49{,}8$ til $50{,}2$ mm, altså $0{,}2 + 0{,}2 = 0{,}4$ mm bredt."}]}},{"id":"2py-7-2-n-section2","type":"text","content":"## Avvik — hvor mye bommet vi, og betyr det noe?\n\nProduksjonslederen vil vite mer enn bare «godkjent eller vraket». Hun vil vite *hvor mye* målene avviker. Da bruker vi to mål på feilen.\n\n**Absolutt avvik** er rett og slett forskjellen mellom målt verdi og riktig verdi, uten fortegn: avvik $=$ |målt verdi $-$ riktig verdi|. Måler du en del til $102$ cm når den skulle vært $100$ cm, er det absolutte avviket $2$ cm.\n\nMen er $2$ cm mye? Det kommer an på hva du måler! På en to meter lang bjelke er det småtteri, på en mobilskjerm ville det vært katastrofe. Derfor regner vi også ut det **relative avviket**, som setter feilen i forhold til riktig verdi: relativt avvik $= \\frac{\\text{avvik}}{\\text{riktig verdi}} \\cdot 100\\,\\%$. I eksempelet vårt: $\\frac{2}{100} \\cdot 100\\,\\% = 2\\,\\%$. Det relative avviket gjør det mulig å sammenligne nøyaktighet på tvers av store og små mål.\n\nHva gjør du så når selve målingen er usikker? Du gjentar den. Måler du samme aksel fem ganger, vil resultatene variere litt på grunn av tilfeldige feil — litt ulikt trykk på skyvelæret, litt ulik avlesningsvinkel. Tar du **gjennomsnittet** av målingene, jevner de tilfeldige feilene seg ut, og du kommer nærmere den sanne verdien.\n\nÉn ting til er verdt å merke seg: måleusikkerhet **forplanter seg** i beregninger. Bommer du litt på både lengden og bredden av et gulv, blir feilen i arealet større enn hver av målefeilene alene — fordi de to feilene ganges sammen. Små slurvefeil i målingen kan altså bli dyre når du bestiller materialer ut fra regnestykket."},{"id":"2py-7-2-n-quiz2","type":"exercise","exercise":{"id":"2py-7-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på avvik og målenøyaktighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"2py-7-2-n-quiz2-q0","task":"Du måler en planke til $102$ cm. Riktig lengde er $100$ cm. Hva er det absolutte avviket?","options":[{"id":"a","text":"$102$ cm","isCorrect":false},{"id":"b","text":"$0{,}2$ cm","isCorrect":false},{"id":"c","text":"$1{,}02$ cm","isCorrect":false},{"id":"d","text":"$2$ cm","isCorrect":true}],"solution":"Absolutt avvik $=$ |målt $-$ riktig| $= |102 - 100| = 2$ cm."},{"id":"2py-7-2-n-quiz2-q1","task":"Hva er det relative avviket i samme måling ($2$ cm avvik på $100$ cm)?","options":[{"id":"a","text":"$0{,}2\\,\\%$","isCorrect":false},{"id":"b","text":"$2\\,\\%$","isCorrect":true},{"id":"c","text":"$20\\,\\%$","isCorrect":false},{"id":"d","text":"$0{,}02\\,\\%$","isCorrect":false}],"solution":"Relativt avvik $= \\frac{2}{100} \\cdot 100\\,\\% = 2\\,\\%$."},{"id":"2py-7-2-n-quiz2-q2","task":"Hvorfor lønner det seg å måle flere ganger og bruke gjennomsnittet?","options":[{"id":"a","text":"Fordi måleverktøyet blir mer nøyaktig av å brukes","isCorrect":false},{"id":"b","text":"Fordi toleransen blir større for hver måling","isCorrect":false},{"id":"c","text":"Fordi tilfeldige målefeil jevner seg ut i gjennomsnittet","isCorrect":true},{"id":"d","text":"Fordi det absolutte avviket alltid blir null","isCorrect":false}],"solution":"Tilfeldige feil slår ut litt opp og litt ned. I gjennomsnittet av flere målinger jevner de seg ut, og resultatet kommer nærmere den sanne verdien."}]}},{"id":"2py-7-2-n-summary","type":"text","content":"## Oppsummering: godkjent eller vraket?\n\nEtter en uke i kvalitetskontrollen sitter begrepene. **Toleransen** forteller hvilket avvik fra det nominelle målet som er tillatt — for akselen på $25{,}00$ mm $\\pm\\, 0{,}05$ mm går toleranseområdet fra $24{,}95$ til $25{,}05$ mm, og alt utenfor vrakes. Du vet også forskjellen på **nøyaktighet** (hvor nær sannheten du er) og **presisjon** (hvor like gjentatte målinger er), og at avlesningsfeil kan lure selv en erfaren fagarbeider.\n\nNår feilen skal tallfestes, bruker du to mål. Det **absolutte avviket** er |målt verdi $-$ riktig verdi|, målt i samme enhet som målet selv. Det **relative avviket** setter feilen i perspektiv: $\\frac{\\text{avvik}}{\\text{riktig verdi}} \\cdot 100\\,\\%$ — og gjør at du kan sammenligne en feil på en bjelke med en feil på en bolt.\n\nTo arbeidsvaner tar du med deg ut i yrkeslivet. For det første: gjenta målinger og bruk gjennomsnittet, så jevner de tilfeldige feilene seg ut. For det andre: husk at usikkerhet forplanter seg — små feil i lengde og bredde gir større utslag i arealet, og dermed i materialbestillingen og prisen. Den som måler nøye, sparer både penger og reklamasjoner."}],"exercises":[]}
+{
+  "id": "2py-7-2-narrativ",
+  "courseId": "2py",
+  "chapterNumber": "7.2",
+  "title": "Måleverktøy og nøyaktighet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om sommerjobben i kvalitetskontrollen -- om toleranser, avvik og kunsten å vite når noe er godt nok.",
+  "estimatedMinutes": 26,
+  "competenceGoals": [
+    "bruke måleverktøy med riktig nøyaktighet",
+    "forstå toleranser og avvik"
+  ],
+  "linkedChapterId": "2py-7-2",
+  "content": [
+    {
+      "id": "2py-7-2-n-intro",
+      "type": "text",
+      "content": "## Akselen som ble vraket\n\nDu har fått sommerjobb i kvalitetskontrollen på et mekanisk verksted. Foran deg ligger en kasse med nydreide aksler, og jobben din er å avgjøre hvilke som kan sendes til kunden, og hvilke som må vrakes. Men hva betyr egentlig «god nok»? En aksel blir aldri *nøyaktig* $25$ millimeter — det finnes alltid bittesmå variasjoner i maskin, materiale og måling.\n\nDet er her noen viktige begreper kommer inn. **Nøyaktighet** handler om hvor nær målingen din er den sanne verdien. **Presisjon** handler om noe annet: hvor like resultatene blir hvis du måler samme ting flere ganger. Du kan faktisk være presis uten å være nøyaktig — som en dartspiller som treffer samme punkt hver gang, men langt fra blinken. I tillegg kan selve avlesningen gå galt; leser du av et skyvelære litt skjevt, får du en **avlesningsfeil**.\n\nFordi ingenting kan lages helt perfekt, oppgir tegningene i stedet en **toleranse**: hvor stort avvik fra målet som er tillatt. Det er toleransen som avgjør om akselen i hånden din er en salgbar del eller skrapmetall — og i dette kapittelet lærer du å gjøre den vurderingen selv."
+    },
+    {
+      "id": "2py-7-2-n-section1",
+      "type": "text",
+      "content": "## Toleranse — det tillatte slingringsmonnet\n\nPå arbeidstegningen står det at akslene skal ha diameter $25{,}00$ mm $\\pm\\, 0{,}05$ mm. Tallet $25{,}00$ kalles det **nominelle målet** — det idealet produksjonen sikter mot. Plusstegnet og minustegnet forteller hvor langt unna idealet en del kan ligge og fortsatt være godkjent.\n\nVi regner ut grensene. Nedre toleransegrense er $25{,}00 - 0{,}05 = 24{,}95$ mm, og øvre grense er $25{,}00 + 0{,}05 = 25{,}05$ mm. Alt mellom disse to verdiene er innenfor **toleranseområdet**, som her er $0{,}10$ mm bredt. Tenk på det som et målbilde: alt innenfor rammen er godkjent, alt utenfor må vrakes — uansett om det bommer med en hundredel eller en hel millimeter.\n\nNå tar du fram skyvelæret og måler åtte aksler fra kassen: $24{,}96$ — $25{,}02$ — $25{,}04$ — $24{,}94$ — $25{,}06$ — $25{,}01$ — $24{,}98$ — $25{,}03$ mm. Du sjekker hver enkelt mot grensene. $24{,}94$ er under $24{,}95$, så den ryker. $25{,}06$ er over $25{,}05$, så den ryker også. De seks andre ligger trygt innenfor.\n\nSeks av åtte godkjent gir andelen $\\frac{6}{8} = 0{,}75 = 75\\,\\%$. Det tallet rapporterer du videre til produksjonslederen — og hvis andelen synker neste uke, er det et signal om at maskinen må justeres. Slik brukes toleranser hver eneste dag i industrien: ikke for å kreve det umulige, men for å vite nøyaktig når noe er godt nok."
+    },
+    {
+      "id": "2py-7-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-7-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på toleranser:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-7-2-n-quiz1-q0",
+            "task": "En bolt skal ha diameter $12$ mm $\\pm\\, 0{,}1$ mm. Hva er nedre toleransegrense?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$11{,}9$ mm",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$12{,}1$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$11{,}0$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12{,}0$ mm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nedre grense er nominelt mål minus toleranse: $12 - 0{,}1 = 11{,}9$ mm."
+          },
+          {
+            "id": "2py-7-2-n-quiz1-q1",
+            "task": "En aksel skal være $25{,}00$ mm $\\pm\\, 0{,}05$ mm. Du måler $25{,}06$ mm. Er den godkjent?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, fordi avviket er under $0{,}1$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nei, fordi øvre grense er $25{,}05$ mm",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ja, fordi den er større enn $25$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nei, fordi alle aksler skal være nøyaktig $25{,}00$ mm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Øvre toleransegrense er $25{,}00 + 0{,}05 = 25{,}05$ mm. Målingen $25{,}06$ mm ligger over grensen og må vrakes."
+          },
+          {
+            "id": "2py-7-2-n-quiz1-q2",
+            "task": "Et mål er oppgitt som $50$ mm $\\pm\\, 0{,}2$ mm. Hvor bredt er toleranseområdet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}2$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$50{,}2$ mm",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$0{,}4$ mm",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$49{,}8$ mm",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Toleranseområdet går fra $49{,}8$ til $50{,}2$ mm, altså $0{,}2 + 0{,}2 = 0{,}4$ mm bredt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-7-2-n-section2",
+      "type": "text",
+      "content": "## Avvik — hvor mye bommet vi, og betyr det noe?\n\nProduksjonslederen vil vite mer enn bare «godkjent eller vraket». Hun vil vite *hvor mye* målene avviker. Da bruker vi to mål på feilen.\n\n**Absolutt avvik** er rett og slett forskjellen mellom målt verdi og riktig verdi, uten fortegn: avvik $=$ |målt verdi $-$ riktig verdi|. Måler du en del til $102$ cm når den skulle vært $100$ cm, er det absolutte avviket $2$ cm.\n\nMen er $2$ cm mye? Det kommer an på hva du måler! På en to meter lang bjelke er det småtteri, på en mobilskjerm ville det vært katastrofe. Derfor regner vi også ut det **relative avviket**, som setter feilen i forhold til riktig verdi: relativt avvik $= \\frac{\\text{avvik}}{\\text{riktig verdi}} \\cdot 100\\,\\%$. I eksempelet vårt: $\\frac{2}{100} \\cdot 100\\,\\% = 2\\,\\%$. Det relative avviket gjør det mulig å sammenligne nøyaktighet på tvers av store og små mål.\n\nHva gjør du så når selve målingen er usikker? Du gjentar den. Måler du samme aksel fem ganger, vil resultatene variere litt på grunn av tilfeldige feil — litt ulikt trykk på skyvelæret, litt ulik avlesningsvinkel. Tar du **gjennomsnittet** av målingene, jevner de tilfeldige feilene seg ut, og du kommer nærmere den sanne verdien.\n\nÉn ting til er verdt å merke seg: måleusikkerhet **forplanter seg** i beregninger. Bommer du litt på både lengden og bredden av et gulv, blir feilen i arealet større enn hver av målefeilene alene — fordi de to feilene ganges sammen. Små slurvefeil i målingen kan altså bli dyre når du bestiller materialer ut fra regnestykket."
+    },
+    {
+      "id": "2py-7-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "2py-7-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på avvik og målenøyaktighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "2py-7-2-n-quiz2-q0",
+            "task": "Du måler en planke til $102$ cm. Riktig lengde er $100$ cm. Hva er det absolutte avviket?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$102$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}2$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}02$ cm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2$ cm",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Absolutt avvik $=$ |målt $-$ riktig| $= |102 - 100| = 2$ cm."
+          },
+          {
+            "id": "2py-7-2-n-quiz2-q1",
+            "task": "Hva er det relative avviket i samme måling ($2$ cm avvik på $100$ cm)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0{,}2\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$20\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}02\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Relativt avvik $= \\frac{2}{100} \\cdot 100\\,\\% = 2\\,\\%$."
+          },
+          {
+            "id": "2py-7-2-n-quiz2-q2",
+            "task": "Hvorfor lønner det seg å måle flere ganger og bruke gjennomsnittet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi måleverktøyet blir mer nøyaktig av å brukes",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi tilfeldige målefeil jevner seg ut i gjennomsnittet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi toleransen blir større for hver måling",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det absolutte avviket alltid blir null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tilfeldige feil slår ut litt opp og litt ned. I gjennomsnittet av flere målinger jevner de seg ut, og resultatet kommer nærmere den sanne verdien."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2py-7-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: godkjent eller vraket?\n\nEtter en uke i kvalitetskontrollen sitter begrepene. **Toleransen** forteller hvilket avvik fra det nominelle målet som er tillatt — for akselen på $25{,}00$ mm $\\pm\\, 0{,}05$ mm går toleranseområdet fra $24{,}95$ til $25{,}05$ mm, og alt utenfor vrakes. Du vet også forskjellen på **nøyaktighet** (hvor nær sannheten du er) og **presisjon** (hvor like gjentatte målinger er), og at avlesningsfeil kan lure selv en erfaren fagarbeider.\n\nNår feilen skal tallfestes, bruker du to mål. Det **absolutte avviket** er |målt verdi $-$ riktig verdi|, målt i samme enhet som målet selv. Det **relative avviket** setter feilen i perspektiv: $\\frac{\\text{avvik}}{\\text{riktig verdi}} \\cdot 100\\,\\%$ — og gjør at du kan sammenligne en feil på en bjelke med en feil på en bolt.\n\nTo arbeidsvaner tar du med deg ut i yrkeslivet. For det første: gjenta målinger og bruk gjennomsnittet, så jevner de tilfeldige feilene seg ut. For det andre: husk at usikkerhet forplanter seg — små feil i lengde og bredde gir større utslag i arealet, og dermed i materialbestillingen og prisen. Den som måler nøye, sparer både penger og reklamasjoner."
+    }
+  ],
+  "exercises": []
+}

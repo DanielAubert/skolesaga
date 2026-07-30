@@ -1,1 +1,524 @@
-{"id":"r1-8-7-narrativ","courseId":"r1","chapterNumber":"8.7","title":"Binomisk og hypergeometrisk fordeling","subtitle":"Narrativ versjon","description":"Ei forteljing om terningen og kortstokken – to fordelingar for å telje suksessar, og diagnosen som avgjer kva for ei som gjeld.","estimatedMinutes":35,"competenceGoals":["kjenne att situasjonar der binomisk fordeling passar","rekne ut sannsyn med binomisk fordeling","rekne ut forventa verdi og varians for binomisk fordeling","kjenne att situasjonar der hypergeometrisk fordeling passar","rekne ut sannsyn med hypergeometrisk fordeling","velje rett fordeling for ulike situasjonar"],"linkedChapterId":"r1-8-7","content":[{"id":"r1-8-7-n-intro","type":"text","content":"## Med eller utan tilbakelegging?\n\nTo spel, tilsynelatande like: I det første kastar du ein terning ti gonger og tel seksarar. I det andre trekkjer du fem kort frå ein kortstokk og tel hjarter. Begge handlar om å telje «suksessar» i ei rekkje trekk – men under panseret er dei fundamentalt forskjellige.\n\nTerningen har inga hugsing: sannsynet for ein seksar er $\\frac{1}{6}$ i kvart einaste kast, uansett kva som kom før. Kortstokken hugsar alt: trekkjer du ein hjarter, er det færre hjarter att, og sannsynet søkk for neste trekk. Det første er trekking *med* tilbakelegging (eller tilsvarande), det andre *utan*.\n\nTo fordelingar matchar dei to verdene: den **binomiske** fordelinga for uavhengige forsøk med konstant sannsyn, og den **hypergeometriske** for trekking utan tilbakelegging frå ein endeleg populasjon. I dette kapittelet lærer du begge formlar – og det viktigaste av alt: å diagnostisere rett kva for ei som gjeld. Å velje rett fordeling er like viktig som sjølve rekninga."},{"id":"r1-8-7-n-section1","type":"text","content":"## Binomisk fordeling – verda til terningen\n\nDen binomiske fordelinga kjenner du frå kapittel 8.5, så her repeterer vi kort og set ho i arbeid. Føresetnadene: fast tal forsøk $n$, to utfall per forsøk, konstant suksessannsyn $p$, uavhengige forsøk. Då er $X \\sim B(n, p)$ med\n\n$$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$$\n\nog dei hendige formlane $E(X) = np$, $\\text{Var}(X) = np(1-p)$ og $\\sigma(X) = \\sqrt{np(1-p)}$.\n\nTerningspelet: ti kast, $X$ = tal på seksarar. Kvart kast er uavhengig med $p = \\frac{1}{6}$, så $X \\sim B(10, \\frac{1}{6})$. Sannsynet for nøyaktig tre seksarar: $P(X = 3) = \\binom{10}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^7 \\approx 0{,}155$. Forventninga er $E(X) = \\frac{10}{6} \\approx 1{,}67$ og variansen $\\frac{25}{18} \\approx 1{,}39$.\n\nEit eksamensaktuelt mønster er «minst»-spørsmål. Ein elev gjettar på 8 fleirvalsoppgåver med fire alternativ: $X \\sim B(8;\\, 0{,}25)$. Sannsynet for minst 3 rette går raskast via komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$. Vi summerer dei tre små: $P(X=0) = 0{,}75^8 \\approx 0{,}100$, $P(X=1) = 8 \\cdot 0{,}25 \\cdot 0{,}75^7 \\approx 0{,}267$ og $P(X=2) = 28 \\cdot 0{,}0625 \\cdot 0{,}75^6 \\approx 0{,}311$. Dermed $P(X \\geq 3) \\approx 1 - 0{,}679 = 0{,}321$. Omtrent éin av tre gjettarar klarar tre rette eller meir."},{"id":"r1-8-7-n-quiz1","type":"exercise","exercise":{"id":"r1-8-7-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på binomisk fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-7-n-quiz1-q0","task":"Ein terning blir kasta 10 gonger, $X$ = tal på seksarar. Kva for fordeling har $X$?","options":[{"id":"a","text":"$B(10, \\frac{1}{6})$","isCorrect":true},{"id":"b","text":"$H(10, 6, 1)$","isCorrect":false},{"id":"c","text":"$B(6, \\frac{1}{10})$","isCorrect":false},{"id":"d","text":"$B(10, \\frac{1}{2})$","isCorrect":false}],"solution":"Kasta er uavhengige med konstant $p = \\frac{1}{6}$: klassisk binomisk situasjon."},{"id":"r1-8-7-n-quiz1-q1","task":"Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim B(10, \\frac{1}{6})$?","options":[{"id":"a","text":"$E = \\frac{10}{6}$, $\\text{Var} = \\frac{10}{6}$","isCorrect":false},{"id":"b","text":"$E = \\frac{5}{3} \\approx 1{,}67$, $\\text{Var} = \\frac{25}{18} \\approx 1{,}39$","isCorrect":true},{"id":"c","text":"$E = 5$, $\\text{Var} = 2{,}5$","isCorrect":false},{"id":"d","text":"$E = \\frac{5}{3}$, $\\text{Var} = \\sqrt{25/18}$","isCorrect":false}],"solution":"$E(X) = np = \\frac{10}{6} = \\frac{5}{3}$ og $\\text{Var}(X) = np(1-p) = 10 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6} = \\frac{25}{18}$."},{"id":"r1-8-7-n-quiz1-q2","task":"Ein elev gjettar på 8 firevalsoppgåver. Korleis blir $P(X \\geq 3)$ rekna ut mest effektivt?","options":[{"id":"a","text":"$P(X=3) + P(X=4)$","isCorrect":false},{"id":"b","text":"$1 - P(X \\geq 2)$","isCorrect":false},{"id":"c","text":"$1 - P(X=0) - P(X=1) - P(X=2)$","isCorrect":true},{"id":"d","text":"$0{,}25^3$","isCorrect":false}],"solution":"Komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$, der berre tre ledd må summerast. Svaret blir $\\approx 0{,}321$."},{"id":"r1-8-7-n-quiz1-q3","task":"Kva er $P(X = 0)$ for $X \\sim B(8;\\, 0{,}25)$?","options":[{"id":"a","text":"$0{,}25^8$","isCorrect":false},{"id":"b","text":"$8 \\cdot 0{,}75$","isCorrect":false},{"id":"c","text":"$1 - 0{,}25^8$","isCorrect":false},{"id":"d","text":"$0{,}75^8 \\approx 0{,}100$","isCorrect":true}],"solution":"Null suksessar tyder åtte fiaskoar: $P(X=0) = 0{,}75^8 \\approx 0{,}1001$."}],"solution":""}},{"id":"r1-8-7-n-section2","type":"text","content":"## Hypergeometrisk fordeling – verda til kortstokken\n\nNo til trekking utan tilbakelegging. Oppsettet: ein populasjon med $N$ element, der $M$ er «suksessar» og $N - M$ «fiaskoar». Du trekkjer $n$ element utan å leggje tilbake, og $X$ tel suksessane i utvalet. Då er $X$ **hypergeometrisk fordelt**, $X \\sim H(N, M, n)$, og\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\nFormelen er rein kombinatorikk og burde sjå kjend ut – det er nøyaktig korttrekk-rekninga frå kapittel 8.3! Nemnaren tel alle måtar å trekkje $n$ av $N$; teljaren tel dei gunstige: vel $k$ av suksessane *og* $n-k$ av fiaskoane. Forventninga er behageleg intuitiv: $E(X) = n \\cdot \\frac{M}{N}$ – utvalsstorleiken gonger delen suksessar i populasjonen. (Variansen har ein ekstra krympefaktor $\\frac{N-n}{N-1}$ samanlikna med binomisk – utan tilbakelegging blir resultata faktisk *litt meir* føreseielege.)\n\nKortspelet: trekk 5 kort, tel hjarter. Populasjonen er $N = 52$ med $M = 13$ hjarter, og $X \\sim H(52, 13, 5)$. Sannsynet for nøyaktig 2 hjarter:\n\n$$P(X = 2) = \\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} = \\frac{78 \\cdot 9139}{2\\,598\\,960} \\approx 0{,}274$$\n\nOg forventninga: $E(X) = 5 \\cdot \\frac{13}{52} = 1{,}25$ hjarter per hand – ein fjerdedel av korta, akkurat som delen i stokken. Typiske hypergeometriske situasjonar: kortspel, lotteri, og kvalitetskontroll av små parti – overalt der kvart trekk endrar det som er att."},{"id":"r1-8-7-n-quiz2","type":"exercise","exercise":{"id":"r1-8-7-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på hypergeometrisk fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-7-n-quiz2-q0","task":"Kva skildrar den hypergeometriske fordelinga?","options":[{"id":"a","text":"Talet på forsøk til første suksess","isCorrect":false},{"id":"b","text":"Talet på suksessar ved trekking utan tilbakelegging frå ein endeleg populasjon","isCorrect":true},{"id":"c","text":"Talet på suksessar i uavhengige forsøk med konstant $p$","isCorrect":false},{"id":"d","text":"Summen av to terningar","isCorrect":false}],"solution":"Hypergeometrisk fordeling gjeld når vi trekkjer $n$ element utan tilbakelegging frå $N$, der $M$ er suksessar."},{"id":"r1-8-7-n-quiz2-q1","task":"5 kort blir trekt frå 52 (13 hjarter). Kva er $P(X = 2)$ for talet på hjarter?","options":[{"id":"a","text":"$\\binom{5}{2}\\left(\\frac{1}{4}\\right)^2\\left(\\frac{3}{4}\\right)^3$","isCorrect":false},{"id":"b","text":"$\\frac{\\binom{13}{2}}{\\binom{52}{5}}$","isCorrect":false},{"id":"c","text":"$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} \\approx 0{,}274$","isCorrect":true},{"id":"d","text":"$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{2}}$","isCorrect":false}],"solution":"Vel 2 av 13 hjarter og 3 av 39 andre, delt på alle $\\binom{52}{5}$ hender: $\\approx 0{,}274$."},{"id":"r1-8-7-n-quiz2-q2","task":"Kva er $E(X)$ for $X \\sim H(52, 13, 5)$?","options":[{"id":"a","text":"$5 \\cdot \\frac{13}{52} = 1{,}25$","isCorrect":true},{"id":"b","text":"$\\frac{52}{13} = 4$","isCorrect":false},{"id":"c","text":"$5 \\cdot \\frac{1}{2} = 2{,}5$","isCorrect":false},{"id":"d","text":"$13 \\cdot \\frac{5}{52}$ $= 1{,}25$, men formelen er feil","isCorrect":false}],"solution":"$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{13}{52} = 1{,}25$ – utvalsstorleiken gonger suksessdelen."},{"id":"r1-8-7-n-quiz2-q3","task":"Eit parti har 20 produkt, 4 defekte. Du trekkjer 3 utan tilbakelegging. Kva er $P(X = 0)$?","options":[{"id":"a","text":"$0{,}8^3 = 0{,}512$","isCorrect":false},{"id":"b","text":"$\\frac{4}{20}$","isCorrect":false},{"id":"c","text":"$\\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} \\cdot \\frac{1}{2}$","isCorrect":false},{"id":"d","text":"$\\frac{\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$","isCorrect":true}],"solution":"$P(X=0) = \\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$. Binomisk tilnærming ($0{,}512$) ville her vore unøyaktig."}],"solution":""}},{"id":"r1-8-7-n-section3","type":"text","content":"## Diagnosen: kva for fordeling gjeld?\n\nNo til den eigentlege ferdigheita i kapittelet: å sjå på ein situasjon og stille rett diagnose. Nøkkelspørsmålet er alltid: **endrar sannsynet seg undervegs?** Kast, spinn og trekk *med* tilbakelegging: nei – binomisk. Trekk *utan* tilbakelegging frå ei avgrensa mengd: ja – hypergeometrisk.\n\nEit kvalitetskontroll-eksempel: eit parti har 20 produkt der 4 er defekte, og du trekkjer 3 for kontroll. Utan tilbakelegging frå ein liten populasjon: $X \\sim H(20, 4, 3)$. Sannsynet for nøyaktig éin defekt: $P(X = 1) = \\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} = \\frac{4 \\cdot 120}{1140} \\approx 0{,}421$, og forventninga er $E(X) = 3 \\cdot \\frac{4}{20} = 0{,}6$.\n\nMen her kjem ei praktisk letting: er populasjonen *stor* i forhold til utvalet, spelar tilbakelegging nesten inga rolle – å fjerne eitt element av hundre tusen endrar knapt delane. **Tommelfingerregelen**: er populasjonen meir enn ti gonger større enn utvalet ($N > 10n$), kan du bruke binomisk fordeling som god tilnærming til den hypergeometriske, med $p = \\frac{M}{N}$. Det er difor meiningsmålingar reknar binomisk sjølv om dei strengt teke trekkjer personar utan tilbakelegging: 1 000 spurde av fleire millionar veljarar.\n\nSå hugs sjekkpunkta før du reknar: Fast $n$? To utfall? Og framfor alt – konstant sannsyn, eller krympar populasjonen merkbart for kvart trekk? Trekkjer du frå ei øskje med 10 kuler utan tilbakelegging, er forsøka ikkje uavhengige, og då *må* du hypergeometrisk til verks."},{"id":"r1-8-7-n-quiz3","type":"exercise","exercise":{"id":"r1-8-7-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på val av fordeling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-8-7-n-quiz3-q0","task":"Kva er nøkkelspørsmålet når du skal velje mellom binomisk og hypergeometrisk fordeling?","options":[{"id":"a","text":"Kor mange utfall kvart forsøk har","isCorrect":false},{"id":"b","text":"Om sannsynet endrar seg frå trekk til trekk","isCorrect":true},{"id":"c","text":"Om forventningsverdien er heiltal","isCorrect":false},{"id":"d","text":"Om $n$ er større enn 30","isCorrect":false}],"solution":"Konstant sannsyn (uavhengigheit) gir binomisk; trekking utan tilbakelegging frå endeleg populasjon gir hypergeometrisk."},{"id":"r1-8-7-n-quiz3-q1","task":"Eit parti har 20 produkt, 4 defekte; 3 blir trekt utan tilbakelegging. Kva er $P(X = 1)$?","options":[{"id":"a","text":"$\\binom{3}{1}\\cdot 0{,}2 \\cdot 0{,}8^2$","isCorrect":false},{"id":"b","text":"$\\frac{4}{20} = 0{,}2$","isCorrect":false},{"id":"c","text":"$\\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} \\approx 0{,}421$","isCorrect":true},{"id":"d","text":"$\\frac{\\binom{4}{1}}{\\binom{20}{3}}$","isCorrect":false}],"solution":"Hypergeometrisk: $\\frac{4 \\cdot 120}{1140} = \\frac{480}{1140} \\approx 0{,}421$."},{"id":"r1-8-7-n-quiz3-q2","task":"Når kan binomisk fordeling brukast som tilnærming til hypergeometrisk?","options":[{"id":"a","text":"Aldri – dei er heilt forskjellige","isCorrect":false},{"id":"b","text":"Når $M = N$","isCorrect":false},{"id":"c","text":"Når utvalet er større enn populasjonen","isCorrect":false},{"id":"d","text":"Når populasjonen er meir enn ca. 10 gonger større enn utvalet","isCorrect":true}],"solution":"Med $N > 10n$ endrar kvart trekk delane så lite at konstant $p = \\frac{M}{N}$ er ei god tilnærming."},{"id":"r1-8-7-n-quiz3-q3","task":"Ei meiningsmåling spør 1 000 av 4 millionar veljarar. Kva for modell er i praksis rett for talet på ja-svar?","options":[{"id":"a","text":"Binomisk – populasjonen er enorm i forhold til utvalet, så $p$ er praktisk talt konstant","isCorrect":true},{"id":"b","text":"Hypergeometrisk – det blir trekt utan tilbakelegging","isCorrect":false},{"id":"c","text":"Ingen av dei","isCorrect":false},{"id":"d","text":"Begge er like gale","isCorrect":false}],"solution":"Strengt teke hypergeometrisk, men med $N = 4\\,000\\,000 \\gg 10 \\cdot 1000$ er binomisk tilnærming utmerkt – og mykje enklare å rekne med."}],"solution":""}},{"id":"r1-8-7-n-summary","type":"text","content":"## Oppsummering: terningen og kortstokken\n\nTo verder, to fordelingar. I verda til terningen – uavhengige forsøk med konstant suksessannsyn, eller trekking med tilbakelegging – gjeld den binomiske fordelinga $X \\sim B(n, p)$ med $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. I verda til kortstokken – trekking utan tilbakelegging frå ein endeleg populasjon med $M$ suksessar blant $N$ – gjeld den hypergeometriske $X \\sim H(N, M, n)$ med $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ og den intuitive forventninga $E(X) = n \\cdot \\frac{M}{N}$.\n\nDiagnosen blir stilt med eitt spørsmål: endrar sannsynet seg undervegs? Og gløym ikkje fluktruta: når populasjonen er meir enn ti gonger utvalet, er binomisk ei utmerkt tilnærming til hypergeometrisk – det er difor meiningsmålingar slepp unna med den enkle modellen.\n\nDermed er sannsynskapittelet komplett: frå teljeprinsippa via klassisk og betinga sannsyn til Bayes og dei to store fordelingane. Sjekk alltid føresetnadene før du vel modell – det er der skilnaden på rett og galt svar ligg."}],"exercises":[],"_meta":{"sourceHash":"ca928535534e82db","translatedAt":"2026-06-20T00:28:21.934Z","model":"claude-code-agent","strings":88,"tm":{"2a367181789fa1d2":"Binomisk og hypergeometrisk fordeling","b195b06d1ed59702":"Narrativ versjon","3d8122725449a4ca":"Ei forteljing om terningen og kortstokken – to fordelingar for å telje suksessar, og diagnosen som avgjer kva for ei som gjeld.","27214ba81ff60266":"kjenne att situasjonar der binomisk fordeling passar","350e00152da0c875":"rekne ut sannsyn med binomisk fordeling","4951e3be0e41812e":"rekne ut forventa verdi og varians for binomisk fordeling","3c02a0c4cbecb029":"kjenne att situasjonar der hypergeometrisk fordeling passar","e9918e8482434cee":"rekne ut sannsyn med hypergeometrisk fordeling","b98b00a387533f36":"velje rett fordeling for ulike situasjonar","2dc88b149a945f55":"## Med eller utan tilbakelegging?\n\nTo spel, tilsynelatande like: I det første kastar du ein terning ti gonger og tel seksarar. I det andre trekkjer du fem kort frå ein kortstokk og tel hjarter. Begge handlar om å telje «suksessar» i ei rekkje trekk – men under panseret er dei fundamentalt forskjellige.\n\nTerningen har inga hugsing: sannsynet for ein seksar er $\\frac{1}{6}$ i kvart einaste kast, uansett kva som kom før. Kortstokken hugsar alt: trekkjer du ein hjarter, er det færre hjarter att, og sannsynet søkk for neste trekk. Det første er trekking *med* tilbakelegging (eller tilsvarande), det andre *utan*.\n\nTo fordelingar matchar dei to verdene: den **binomiske** fordelinga for uavhengige forsøk med konstant sannsyn, og den **hypergeometriske** for trekking utan tilbakelegging frå ein endeleg populasjon. I dette kapittelet lærer du begge formlar – og det viktigaste av alt: å diagnostisere rett kva for ei som gjeld. Å velje rett fordeling er like viktig som sjølve rekninga.","bb01501c37783c1e":"## Binomisk fordeling – verda til terningen\n\nDen binomiske fordelinga kjenner du frå kapittel 8.5, så her repeterer vi kort og set ho i arbeid. Føresetnadene: fast tal forsøk $n$, to utfall per forsøk, konstant suksessannsyn $p$, uavhengige forsøk. Då er $X \\sim B(n, p)$ med\n\n$$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$$\n\nog dei hendige formlane $E(X) = np$, $\\text{Var}(X) = np(1-p)$ og $\\sigma(X) = \\sqrt{np(1-p)}$.\n\nTerningspelet: ti kast, $X$ = tal på seksarar. Kvart kast er uavhengig med $p = \\frac{1}{6}$, så $X \\sim B(10, \\frac{1}{6})$. Sannsynet for nøyaktig tre seksarar: $P(X = 3) = \\binom{10}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^7 \\approx 0{,}155$. Forventninga er $E(X) = \\frac{10}{6} \\approx 1{,}67$ og variansen $\\frac{25}{18} \\approx 1{,}39$.\n\nEit eksamensaktuelt mønster er «minst»-spørsmål. Ein elev gjettar på 8 fleirvalsoppgåver med fire alternativ: $X \\sim B(8;\\, 0{,}25)$. Sannsynet for minst 3 rette går raskast via komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$. Vi summerer dei tre små: $P(X=0) = 0{,}75^8 \\approx 0{,}100$, $P(X=1) = 8 \\cdot 0{,}25 \\cdot 0{,}75^7 \\approx 0{,}267$ og $P(X=2) = 28 \\cdot 0{,}0625 \\cdot 0{,}75^6 \\approx 0{,}311$. Dermed $P(X \\geq 3) \\approx 1 - 0{,}679 = 0{,}321$. Omtrent éin av tre gjettarar klarar tre rette eller meir.","8986174caaf1c4d3":"Test deg sjølv på binomisk fordeling:","4097889236a2af26":"placeholder","9b2da4e4e40794b9":"Ein terning blir kasta 10 gonger, $X$ = tal på seksarar. Kva for fordeling har $X$?","43b6088ecc314571":"$B(10, \\frac{1}{6})$","580c7ebd1e90cc79":"$H(10, 6, 1)$","a1d28ec7d49a32c2":"$B(6, \\frac{1}{10})$","f0f312399543f7e3":"$B(10, \\frac{1}{2})$","d7e9dbc637e7ab24":"Kasta er uavhengige med konstant $p = \\frac{1}{6}$: klassisk binomisk situasjon.","89525bbbd4d26fa4":"Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim B(10, \\frac{1}{6})$?","895c5e3338b9836c":"$E = \\frac{10}{6}$, $\\text{Var} = \\frac{10}{6}$","e6076e8ab3db5eff":"$E = \\frac{5}{3} \\approx 1{,}67$, $\\text{Var} = \\frac{25}{18} \\approx 1{,}39$","1d132680f4d4f8f5":"$E = 5$, $\\text{Var} = 2{,}5$","67faf9f6651ccec9":"$E = \\frac{5}{3}$, $\\text{Var} = \\sqrt{25/18}$","cdbeceda5c8d817f":"$E(X) = np = \\frac{10}{6} = \\frac{5}{3}$ og $\\text{Var}(X) = np(1-p) = 10 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6} = \\frac{25}{18}$.","d7e8dabdfefa8c0b":"Ein elev gjettar på 8 firevalsoppgåver. Korleis blir $P(X \\geq 3)$ rekna ut mest effektivt?","a7449e5fa9edfc74":"$P(X=3) + P(X=4)$","6bc55725165a16c0":"$1 - P(X \\geq 2)$","824525be941e036e":"$1 - P(X=0) - P(X=1) - P(X=2)$","34d5821458fc3a75":"Komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$, der berre tre ledd må summerast. Svaret blir $\\approx 0{,}321$.","f29ee3634ad6398c":"Kva er $P(X = 0)$ for $X \\sim B(8;\\, 0{,}25)$?","66f12ead488c6713":"$8 \\cdot 0{,}75$","bf86cee18ef698ec":"$0{,}75^8 \\approx 0{,}100$","9c036a98dffa4fb4":"Null suksessar tyder åtte fiaskoar: $P(X=0) = 0{,}75^8 \\approx 0{,}1001$.","ec8699e32f094d64":"## Hypergeometrisk fordeling – verda til kortstokken\n\nNo til trekking utan tilbakelegging. Oppsettet: ein populasjon med $N$ element, der $M$ er «suksessar» og $N - M$ «fiaskoar». Du trekkjer $n$ element utan å leggje tilbake, og $X$ tel suksessane i utvalet. Då er $X$ **hypergeometrisk fordelt**, $X \\sim H(N, M, n)$, og\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\nFormelen er rein kombinatorikk og burde sjå kjend ut – det er nøyaktig korttrekk-rekninga frå kapittel 8.3! Nemnaren tel alle måtar å trekkje $n$ av $N$; teljaren tel dei gunstige: vel $k$ av suksessane *og* $n-k$ av fiaskoane. Forventninga er behageleg intuitiv: $E(X) = n \\cdot \\frac{M}{N}$ – utvalsstorleiken gonger delen suksessar i populasjonen. (Variansen har ein ekstra krympefaktor $\\frac{N-n}{N-1}$ samanlikna med binomisk – utan tilbakelegging blir resultata faktisk *litt meir* føreseielege.)\n\nKortspelet: trekk 5 kort, tel hjarter. Populasjonen er $N = 52$ med $M = 13$ hjarter, og $X \\sim H(52, 13, 5)$. Sannsynet for nøyaktig 2 hjarter:\n\n$$P(X = 2) = \\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} = \\frac{78 \\cdot 9139}{2\\,598\\,960} \\approx 0{,}274$$\n\nOg forventninga: $E(X) = 5 \\cdot \\frac{13}{52} = 1{,}25$ hjarter per hand – ein fjerdedel av korta, akkurat som delen i stokken. Typiske hypergeometriske situasjonar: kortspel, lotteri, og kvalitetskontroll av små parti – overalt der kvart trekk endrar det som er att.","26fbe23389b37310":"Test deg sjølv på hypergeometrisk fordeling:","06c43f742c945af7":"Kva skildrar den hypergeometriske fordelinga?","2d539dd8739cb441":"Talet på forsøk til første suksess","e3f7c8090c339923":"Talet på suksessar ved trekking utan tilbakelegging frå ein endeleg populasjon","36f086941f3d3b21":"Talet på suksessar i uavhengige forsøk med konstant $p$","17fc18c2484599c8":"Summen av to terningar","421943891ad2fce4":"Hypergeometrisk fordeling gjeld når vi trekkjer $n$ element utan tilbakelegging frå $N$, der $M$ er suksessar.","de293f848f65e478":"5 kort blir trekt frå 52 (13 hjarter). Kva er $P(X = 2)$ for talet på hjarter?","7080a443bc589824":"$\\binom{5}{2}\\left(\\frac{1}{4}\\right)^2\\left(\\frac{3}{4}\\right)^3$","8cce8bb5bf2eb308":"$\\frac{\\binom{13}{2}}{\\binom{52}{5}}$","da796d62197d9329":"$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} \\approx 0{,}274$","fffde7ab59956a11":"$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{2}}$","2a94124deb90d06f":"Vel 2 av 13 hjarter og 3 av 39 andre, delt på alle $\\binom{52}{5}$ hender: $\\approx 0{,}274$.","1d17f0145d21f50a":"Kva er $E(X)$ for $X \\sim H(52, 13, 5)$?","8a0306179a6f5ad0":"$5 \\cdot \\frac{13}{52} = 1{,}25$","7398c1e65ee105a9":"$\\frac{52}{13} = 4$","97621593358e9a4a":"$5 \\cdot \\frac{1}{2} = 2{,}5$","f3e8874004ceee01":"$13 \\cdot \\frac{5}{52}$ $= 1{,}25$, men formelen er feil","b69d83576f0d0bc1":"$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{13}{52} = 1{,}25$ – utvalsstorleiken gonger suksessdelen.","22495ae037d974dc":"Eit parti har 20 produkt, 4 defekte. Du trekkjer 3 utan tilbakelegging. Kva er $P(X = 0)$?","808199040cb2d5b7":"$\\frac{4}{20}$","fdac492de4691efe":"$\\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} \\cdot \\frac{1}{2}$","731bf92ce7c48f34":"$\\frac{\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$","7520c1c4bc3695c9":"$P(X=0) = \\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$. Binomisk tilnærming ($0{,}512$) ville her vore unøyaktig.","3a7f1689472c562b":"## Diagnosen: kva for fordeling gjeld?\n\nNo til den eigentlege ferdigheita i kapittelet: å sjå på ein situasjon og stille rett diagnose. Nøkkelspørsmålet er alltid: **endrar sannsynet seg undervegs?** Kast, spinn og trekk *med* tilbakelegging: nei – binomisk. Trekk *utan* tilbakelegging frå ei avgrensa mengd: ja – hypergeometrisk.\n\nEit kvalitetskontroll-eksempel: eit parti har 20 produkt der 4 er defekte, og du trekkjer 3 for kontroll. Utan tilbakelegging frå ein liten populasjon: $X \\sim H(20, 4, 3)$. Sannsynet for nøyaktig éin defekt: $P(X = 1) = \\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} = \\frac{4 \\cdot 120}{1140} \\approx 0{,}421$, og forventninga er $E(X) = 3 \\cdot \\frac{4}{20} = 0{,}6$.\n\nMen her kjem ei praktisk letting: er populasjonen *stor* i forhold til utvalet, spelar tilbakelegging nesten inga rolle – å fjerne eitt element av hundre tusen endrar knapt delane. **Tommelfingerregelen**: er populasjonen meir enn ti gonger større enn utvalet ($N > 10n$), kan du bruke binomisk fordeling som god tilnærming til den hypergeometriske, med $p = \\frac{M}{N}$. Det er difor meiningsmålingar reknar binomisk sjølv om dei strengt teke trekkjer personar utan tilbakelegging: 1 000 spurde av fleire millionar veljarar.\n\nSå hugs sjekkpunkta før du reknar: Fast $n$? To utfall? Og framfor alt – konstant sannsyn, eller krympar populasjonen merkbart for kvart trekk? Trekkjer du frå ei øskje med 10 kuler utan tilbakelegging, er forsøka ikkje uavhengige, og då *må* du hypergeometrisk til verks.","2c79cedfb60e7e1c":"Test deg sjølv på val av fordeling:","e93d31c5256108f8":"Kva er nøkkelspørsmålet når du skal velje mellom binomisk og hypergeometrisk fordeling?","8b95d7e6a7cfc334":"Kor mange utfall kvart forsøk har","da6fd194a009747e":"Om sannsynet endrar seg frå trekk til trekk","88081e5840e42893":"Om forventningsverdien er heiltal","94d97a0dfb02f63b":"Om $n$ er større enn 30","3730158268710bd6":"Konstant sannsyn (uavhengigheit) gir binomisk; trekking utan tilbakelegging frå endeleg populasjon gir hypergeometrisk.","4f7f04463b56bef3":"Eit parti har 20 produkt, 4 defekte; 3 blir trekt utan tilbakelegging. Kva er $P(X = 1)$?","c175fcc5cd50e02d":"$\\binom{3}{1}\\cdot 0{,}2 \\cdot 0{,}8^2$","a57dddedb0a38fcf":"$\\frac{4}{20} = 0{,}2$","bc5c91fa2778206f":"$\\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} \\approx 0{,}421$","ff318c50da24a06d":"$\\frac{\\binom{4}{1}}{\\binom{20}{3}}$","8e1e3067506615d0":"Hypergeometrisk: $\\frac{4 \\cdot 120}{1140} = \\frac{480}{1140} \\approx 0{,}421$.","981e7fd830011b93":"Når kan binomisk fordeling brukast som tilnærming til hypergeometrisk?","870f76ea846a5005":"Aldri – dei er heilt forskjellige","bb43033bc90418c8":"Når $M = N$","1e6c86a67684ab84":"Når utvalet er større enn populasjonen","70f60dca5e557229":"Når populasjonen er meir enn ca. 10 gonger større enn utvalet","08fe9a7c7eb6fb54":"Med $N > 10n$ endrar kvart trekk delane så lite at konstant $p = \\frac{M}{N}$ er ei god tilnærming.","305905680235c410":"Ei meiningsmåling spør 1 000 av 4 millionar veljarar. Kva for modell er i praksis rett for talet på ja-svar?","f8d52532bf6b59a7":"Binomisk – populasjonen er enorm i forhold til utvalet, så $p$ er praktisk talt konstant","3390ad635e640056":"Hypergeometrisk – det blir trekt utan tilbakelegging","bb60f24e85070ad0":"Ingen av dei","a9fabde82475a1f8":"Begge er like gale","4064df5efef76a15":"Strengt teke hypergeometrisk, men med $N = 4\\,000\\,000 \\gg 10 \\cdot 1000$ er binomisk tilnærming utmerkt – og mykje enklare å rekne med.","228ecdbfbdd21b02":"## Oppsummering: terningen og kortstokken\n\nTo verder, to fordelingar. I verda til terningen – uavhengige forsøk med konstant suksessannsyn, eller trekking med tilbakelegging – gjeld den binomiske fordelinga $X \\sim B(n, p)$ med $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. I verda til kortstokken – trekking utan tilbakelegging frå ein endeleg populasjon med $M$ suksessar blant $N$ – gjeld den hypergeometriske $X \\sim H(N, M, n)$ med $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ og den intuitive forventninga $E(X) = n \\cdot \\frac{M}{N}$.\n\nDiagnosen blir stilt med eitt spørsmål: endrar sannsynet seg undervegs? Og gløym ikkje fluktruta: når populasjonen er meir enn ti gonger utvalet, er binomisk ei utmerkt tilnærming til hypergeometrisk – det er difor meiningsmålingar slepp unna med den enkle modellen.\n\nDermed er sannsynskapittelet komplett: frå teljeprinsippa via klassisk og betinga sannsyn til Bayes og dei to store fordelingane. Sjekk alltid føresetnadene før du vel modell – det er der skilnaden på rett og galt svar ligg."}}}
+{
+  "id": "r1-8-7-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "8.7",
+  "title": "Binomisk og hypergeometrisk fordeling",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om terningen og kortstokken – to fordelingar for å telje suksessar, og diagnosen som avgjer kva for ei som gjeld.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "kjenne att situasjonar der binomisk fordeling passar",
+    "rekne ut sannsyn med binomisk fordeling",
+    "rekne ut forventa verdi og varians for binomisk fordeling",
+    "kjenne att situasjonar der hypergeometrisk fordeling passar",
+    "rekne ut sannsyn med hypergeometrisk fordeling",
+    "velje rett fordeling for ulike situasjonar"
+  ],
+  "linkedChapterId": "r1-8-7",
+  "content": [
+    {
+      "id": "r1-8-7-n-intro",
+      "type": "text",
+      "content": "## Med eller utan tilbakelegging?\n\nTo spel, tilsynelatande like: I det første kastar du ein terning ti gonger og tel seksarar. I det andre trekkjer du fem kort frå ein kortstokk og tel hjarter. Begge handlar om å telje «suksessar» i ei rekkje trekk – men under panseret er dei fundamentalt forskjellige.\n\nTerningen har inga hugsing: sannsynet for ein seksar er $\\frac{1}{6}$ i kvart einaste kast, uansett kva som kom før. Kortstokken hugsar alt: trekkjer du ein hjarter, er det færre hjarter att, og sannsynet søkk for neste trekk. Det første er trekking *med* tilbakelegging (eller tilsvarande), det andre *utan*.\n\nTo fordelingar matchar dei to verdene: den **binomiske** fordelinga for uavhengige forsøk med konstant sannsyn, og den **hypergeometriske** for trekking utan tilbakelegging frå ein endeleg populasjon. I dette kapittelet lærer du begge formlar – og det viktigaste av alt: å diagnostisere rett kva for ei som gjeld. Å velje rett fordeling er like viktig som sjølve rekninga."
+    },
+    {
+      "id": "r1-8-7-n-section1",
+      "type": "text",
+      "content": "## Binomisk fordeling – verda til terningen\n\nDen binomiske fordelinga kjenner du frå kapittel 8.5, så her repeterer vi kort og set ho i arbeid. Føresetnadene: fast tal forsøk $n$, to utfall per forsøk, konstant suksessannsyn $p$, uavhengige forsøk. Då er $X \\sim B(n, p)$ med\n\n$$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$$\n\nog dei hendige formlane $E(X) = np$, $\\text{Var}(X) = np(1-p)$ og $\\sigma(X) = \\sqrt{np(1-p)}$.\n\nTerningspelet: ti kast, $X$ = tal på seksarar. Kvart kast er uavhengig med $p = \\frac{1}{6}$, så $X \\sim B(10, \\frac{1}{6})$. Sannsynet for nøyaktig tre seksarar: $P(X = 3) = \\binom{10}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^7 \\approx 0{,}155$. Forventninga er $E(X) = \\frac{10}{6} \\approx 1{,}67$ og variansen $\\frac{25}{18} \\approx 1{,}39$.\n\nEit eksamensaktuelt mønster er «minst»-spørsmål. Ein elev gjettar på 8 fleirvalsoppgåver med fire alternativ: $X \\sim B(8;\\, 0{,}25)$. Sannsynet for minst 3 rette går raskast via komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$. Vi summerer dei tre små: $P(X=0) = 0{,}75^8 \\approx 0{,}100$, $P(X=1) = 8 \\cdot 0{,}25 \\cdot 0{,}75^7 \\approx 0{,}267$ og $P(X=2) = 28 \\cdot 0{,}0625 \\cdot 0{,}75^6 \\approx 0{,}311$. Dermed $P(X \\geq 3) \\approx 1 - 0{,}679 = 0{,}321$. Omtrent éin av tre gjettarar klarar tre rette eller meir."
+    },
+    {
+      "id": "r1-8-7-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-7-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på binomisk fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-7-n-quiz1-q0",
+            "task": "Ein terning blir kasta 10 gonger, $X$ = tal på seksarar. Kva for fordeling har $X$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$B(10, \\frac{1}{6})$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$H(10, 6, 1)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$B(6, \\frac{1}{10})$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$B(10, \\frac{1}{2})$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kasta er uavhengige med konstant $p = \\frac{1}{6}$: klassisk binomisk situasjon."
+          },
+          {
+            "id": "r1-8-7-n-quiz1-q1",
+            "task": "Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim B(10, \\frac{1}{6})$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$E = \\frac{10}{6}$, $\\text{Var} = \\frac{10}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$E = \\frac{5}{3} \\approx 1{,}67$, $\\text{Var} = \\frac{25}{18} \\approx 1{,}39$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$E = 5$, $\\text{Var} = 2{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$E = \\frac{5}{3}$, $\\text{Var} = \\sqrt{25/18}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = np = \\frac{10}{6} = \\frac{5}{3}$ og $\\text{Var}(X) = np(1-p) = 10 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6} = \\frac{25}{18}$."
+          },
+          {
+            "id": "r1-8-7-n-quiz1-q2",
+            "task": "Ein elev gjettar på 8 firevalsoppgåver. Korleis blir $P(X \\geq 3)$ rekna ut mest effektivt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$P(X=3) + P(X=4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1 - P(X \\geq 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1 - P(X=0) - P(X=1) - P(X=2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}25^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$, der berre tre ledd må summerast. Svaret blir $\\approx 0{,}321$."
+          },
+          {
+            "id": "r1-8-7-n-quiz1-q3",
+            "task": "Kva er $P(X = 0)$ for $X \\sim B(8;\\, 0{,}25)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}25^8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8 \\cdot 0{,}75$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1 - 0{,}25^8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0{,}75^8 \\approx 0{,}100$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Null suksessar tyder åtte fiaskoar: $P(X=0) = 0{,}75^8 \\approx 0{,}1001$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-7-n-section2",
+      "type": "text",
+      "content": "## Hypergeometrisk fordeling – verda til kortstokken\n\nNo til trekking utan tilbakelegging. Oppsettet: ein populasjon med $N$ element, der $M$ er «suksessar» og $N - M$ «fiaskoar». Du trekkjer $n$ element utan å leggje tilbake, og $X$ tel suksessane i utvalet. Då er $X$ **hypergeometrisk fordelt**, $X \\sim H(N, M, n)$, og\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\nFormelen er rein kombinatorikk og burde sjå kjend ut – det er nøyaktig korttrekk-rekninga frå kapittel 8.3! Nemnaren tel alle måtar å trekkje $n$ av $N$; teljaren tel dei gunstige: vel $k$ av suksessane *og* $n-k$ av fiaskoane. Forventninga er behageleg intuitiv: $E(X) = n \\cdot \\frac{M}{N}$ – utvalsstorleiken gonger delen suksessar i populasjonen. (Variansen har ein ekstra krympefaktor $\\frac{N-n}{N-1}$ samanlikna med binomisk – utan tilbakelegging blir resultata faktisk *litt meir* føreseielege.)\n\nKortspelet: trekk 5 kort, tel hjarter. Populasjonen er $N = 52$ med $M = 13$ hjarter, og $X \\sim H(52, 13, 5)$. Sannsynet for nøyaktig 2 hjarter:\n\n$$P(X = 2) = \\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} = \\frac{78 \\cdot 9139}{2\\,598\\,960} \\approx 0{,}274$$\n\nOg forventninga: $E(X) = 5 \\cdot \\frac{13}{52} = 1{,}25$ hjarter per hand – ein fjerdedel av korta, akkurat som delen i stokken. Typiske hypergeometriske situasjonar: kortspel, lotteri, og kvalitetskontroll av små parti – overalt der kvart trekk endrar det som er att."
+    },
+    {
+      "id": "r1-8-7-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-7-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på hypergeometrisk fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-7-n-quiz2-q0",
+            "task": "Kva skildrar den hypergeometriske fordelinga?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Talet på suksessar ved trekking utan tilbakelegging frå ein endeleg populasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Talet på forsøk til første suksess",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Talet på suksessar i uavhengige forsøk med konstant $p$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Summen av to terningar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hypergeometrisk fordeling gjeld når vi trekkjer $n$ element utan tilbakelegging frå $N$, der $M$ er suksessar."
+          },
+          {
+            "id": "r1-8-7-n-quiz2-q1",
+            "task": "5 kort blir trekt frå 52 (13 hjarter). Kva er $P(X = 2)$ for talet på hjarter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\binom{5}{2}\\left(\\frac{1}{4}\\right)^2\\left(\\frac{3}{4}\\right)^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} \\approx 0{,}274$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\binom{13}{2}}{\\binom{52}{5}}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{2}}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vel 2 av 13 hjarter og 3 av 39 andre, delt på alle $\\binom{52}{5}$ hender: $\\approx 0{,}274$."
+          },
+          {
+            "id": "r1-8-7-n-quiz2-q2",
+            "task": "Kva er $E(X)$ for $X \\sim H(52, 13, 5)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{52}{13} = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5 \\cdot \\frac{1}{2} = 2{,}5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$5 \\cdot \\frac{13}{52} = 1{,}25$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$13 \\cdot \\frac{5}{52}$ $= 1{,}25$, men formelen er feil",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{13}{52} = 1{,}25$ – utvalsstorleiken gonger suksessdelen."
+          },
+          {
+            "id": "r1-8-7-n-quiz2-q3",
+            "task": "Eit parti har 20 produkt, 4 defekte. Du trekkjer 3 utan tilbakelegging. Kva er $P(X = 0)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}8^3 = 0{,}512$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{4}{20}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} \\cdot \\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(X=0) = \\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$. Binomisk tilnærming ($0{,}512$) ville her vore unøyaktig."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-7-n-section3",
+      "type": "text",
+      "content": "## Diagnosen: kva for fordeling gjeld?\n\nNo til den eigentlege ferdigheita i kapittelet: å sjå på ein situasjon og stille rett diagnose. Nøkkelspørsmålet er alltid: **endrar sannsynet seg undervegs?** Kast, spinn og trekk *med* tilbakelegging: nei – binomisk. Trekk *utan* tilbakelegging frå ei avgrensa mengd: ja – hypergeometrisk.\n\nEit kvalitetskontroll-eksempel: eit parti har 20 produkt der 4 er defekte, og du trekkjer 3 for kontroll. Utan tilbakelegging frå ein liten populasjon: $X \\sim H(20, 4, 3)$. Sannsynet for nøyaktig éin defekt: $P(X = 1) = \\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} = \\frac{4 \\cdot 120}{1140} \\approx 0{,}421$, og forventninga er $E(X) = 3 \\cdot \\frac{4}{20} = 0{,}6$.\n\nMen her kjem ei praktisk letting: er populasjonen *stor* i forhold til utvalet, spelar tilbakelegging nesten inga rolle – å fjerne eitt element av hundre tusen endrar knapt delane. **Tommelfingerregelen**: er populasjonen meir enn ti gonger større enn utvalet ($N > 10n$), kan du bruke binomisk fordeling som god tilnærming til den hypergeometriske, med $p = \\frac{M}{N}$. Det er difor meiningsmålingar reknar binomisk sjølv om dei strengt teke trekkjer personar utan tilbakelegging: 1 000 spurde av fleire millionar veljarar.\n\nSå hugs sjekkpunkta før du reknar: Fast $n$? To utfall? Og framfor alt – konstant sannsyn, eller krympar populasjonen merkbart for kvart trekk? Trekkjer du frå ei øskje med 10 kuler utan tilbakelegging, er forsøka ikkje uavhengige, og då *må* du hypergeometrisk til verks."
+    },
+    {
+      "id": "r1-8-7-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-8-7-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på val av fordeling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-8-7-n-quiz3-q0",
+            "task": "Kva er nøkkelspørsmålet når du skal velje mellom binomisk og hypergeometrisk fordeling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Om sannsynet endrar seg frå trekk til trekk",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Kor mange utfall kvart forsøk har",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Om forventningsverdien er heiltal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Om $n$ er større enn 30",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstant sannsyn (uavhengigheit) gir binomisk; trekking utan tilbakelegging frå endeleg populasjon gir hypergeometrisk."
+          },
+          {
+            "id": "r1-8-7-n-quiz3-q1",
+            "task": "Eit parti har 20 produkt, 4 defekte; 3 blir trekt utan tilbakelegging. Kva er $P(X = 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\binom{3}{1}\\cdot 0{,}2 \\cdot 0{,}8^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} \\approx 0{,}421$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{4}{20} = 0{,}2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\binom{4}{1}}{\\binom{20}{3}}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hypergeometrisk: $\\frac{4 \\cdot 120}{1140} = \\frac{480}{1140} \\approx 0{,}421$."
+          },
+          {
+            "id": "r1-8-7-n-quiz3-q2",
+            "task": "Når kan binomisk fordeling brukast som tilnærming til hypergeometrisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Aldri – dei er heilt forskjellige",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $M = N$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når populasjonen er meir enn ca. 10 gonger større enn utvalet",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når utvalet er større enn populasjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $N > 10n$ endrar kvart trekk delane så lite at konstant $p = \\frac{M}{N}$ er ei god tilnærming."
+          },
+          {
+            "id": "r1-8-7-n-quiz3-q3",
+            "task": "Ei meiningsmåling spør 1 000 av 4 millionar veljarar. Kva for modell er i praksis rett for talet på ja-svar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Binomisk – populasjonen er enorm i forhold til utvalet, så $p$ er praktisk talt konstant",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Hypergeometrisk – det blir trekt utan tilbakelegging",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen av dei",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Begge er like gale",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Strengt teke hypergeometrisk, men med $N = 4\\,000\\,000 \\gg 10 \\cdot 1000$ er binomisk tilnærming utmerkt – og mykje enklare å rekne med."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "r1-8-7-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: terningen og kortstokken\n\nTo verder, to fordelingar. I verda til terningen – uavhengige forsøk med konstant suksessannsyn, eller trekking med tilbakelegging – gjeld den binomiske fordelinga $X \\sim B(n, p)$ med $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. I verda til kortstokken – trekking utan tilbakelegging frå ein endeleg populasjon med $M$ suksessar blant $N$ – gjeld den hypergeometriske $X \\sim H(N, M, n)$ med $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ og den intuitive forventninga $E(X) = n \\cdot \\frac{M}{N}$.\n\nDiagnosen blir stilt med eitt spørsmål: endrar sannsynet seg undervegs? Og gløym ikkje fluktruta: når populasjonen er meir enn ti gonger utvalet, er binomisk ei utmerkt tilnærming til hypergeometrisk – det er difor meiningsmålingar slepp unna med den enkle modellen.\n\nDermed er sannsynskapittelet komplett: frå teljeprinsippa via klassisk og betinga sannsyn til Bayes og dei to store fordelingane. Sjekk alltid føresetnadene før du vel modell – det er der skilnaden på rett og galt svar ligg."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "ca928535534e82db",
+    "translatedAt": "2026-06-20T00:28:21.934Z",
+    "model": "claude-code-agent",
+    "strings": 88,
+    "tm": {
+      "2a367181789fa1d2": "Binomisk og hypergeometrisk fordeling",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "3d8122725449a4ca": "Ei forteljing om terningen og kortstokken – to fordelingar for å telje suksessar, og diagnosen som avgjer kva for ei som gjeld.",
+      "27214ba81ff60266": "kjenne att situasjonar der binomisk fordeling passar",
+      "350e00152da0c875": "rekne ut sannsyn med binomisk fordeling",
+      "4951e3be0e41812e": "rekne ut forventa verdi og varians for binomisk fordeling",
+      "3c02a0c4cbecb029": "kjenne att situasjonar der hypergeometrisk fordeling passar",
+      "e9918e8482434cee": "rekne ut sannsyn med hypergeometrisk fordeling",
+      "b98b00a387533f36": "velje rett fordeling for ulike situasjonar",
+      "2dc88b149a945f55": "## Med eller utan tilbakelegging?\n\nTo spel, tilsynelatande like: I det første kastar du ein terning ti gonger og tel seksarar. I det andre trekkjer du fem kort frå ein kortstokk og tel hjarter. Begge handlar om å telje «suksessar» i ei rekkje trekk – men under panseret er dei fundamentalt forskjellige.\n\nTerningen har inga hugsing: sannsynet for ein seksar er $\\frac{1}{6}$ i kvart einaste kast, uansett kva som kom før. Kortstokken hugsar alt: trekkjer du ein hjarter, er det færre hjarter att, og sannsynet søkk for neste trekk. Det første er trekking *med* tilbakelegging (eller tilsvarande), det andre *utan*.\n\nTo fordelingar matchar dei to verdene: den **binomiske** fordelinga for uavhengige forsøk med konstant sannsyn, og den **hypergeometriske** for trekking utan tilbakelegging frå ein endeleg populasjon. I dette kapittelet lærer du begge formlar – og det viktigaste av alt: å diagnostisere rett kva for ei som gjeld. Å velje rett fordeling er like viktig som sjølve rekninga.",
+      "bb01501c37783c1e": "## Binomisk fordeling – verda til terningen\n\nDen binomiske fordelinga kjenner du frå kapittel 8.5, så her repeterer vi kort og set ho i arbeid. Føresetnadene: fast tal forsøk $n$, to utfall per forsøk, konstant suksessannsyn $p$, uavhengige forsøk. Då er $X \\sim B(n, p)$ med\n\n$$P(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}$$\n\nog dei hendige formlane $E(X) = np$, $\\text{Var}(X) = np(1-p)$ og $\\sigma(X) = \\sqrt{np(1-p)}$.\n\nTerningspelet: ti kast, $X$ = tal på seksarar. Kvart kast er uavhengig med $p = \\frac{1}{6}$, så $X \\sim B(10, \\frac{1}{6})$. Sannsynet for nøyaktig tre seksarar: $P(X = 3) = \\binom{10}{3}\\left(\\frac{1}{6}\\right)^3\\left(\\frac{5}{6}\\right)^7 \\approx 0{,}155$. Forventninga er $E(X) = \\frac{10}{6} \\approx 1{,}67$ og variansen $\\frac{25}{18} \\approx 1{,}39$.\n\nEit eksamensaktuelt mønster er «minst»-spørsmål. Ein elev gjettar på 8 fleirvalsoppgåver med fire alternativ: $X \\sim B(8;\\, 0{,}25)$. Sannsynet for minst 3 rette går raskast via komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$. Vi summerer dei tre små: $P(X=0) = 0{,}75^8 \\approx 0{,}100$, $P(X=1) = 8 \\cdot 0{,}25 \\cdot 0{,}75^7 \\approx 0{,}267$ og $P(X=2) = 28 \\cdot 0{,}0625 \\cdot 0{,}75^6 \\approx 0{,}311$. Dermed $P(X \\geq 3) \\approx 1 - 0{,}679 = 0{,}321$. Omtrent éin av tre gjettarar klarar tre rette eller meir.",
+      "8986174caaf1c4d3": "Test deg sjølv på binomisk fordeling:",
+      "4097889236a2af26": "placeholder",
+      "9b2da4e4e40794b9": "Ein terning blir kasta 10 gonger, $X$ = tal på seksarar. Kva for fordeling har $X$?",
+      "43b6088ecc314571": "$B(10, \\frac{1}{6})$",
+      "580c7ebd1e90cc79": "$H(10, 6, 1)$",
+      "a1d28ec7d49a32c2": "$B(6, \\frac{1}{10})$",
+      "f0f312399543f7e3": "$B(10, \\frac{1}{2})$",
+      "d7e9dbc637e7ab24": "Kasta er uavhengige med konstant $p = \\frac{1}{6}$: klassisk binomisk situasjon.",
+      "89525bbbd4d26fa4": "Kva er $E(X)$ og $\\text{Var}(X)$ for $X \\sim B(10, \\frac{1}{6})$?",
+      "895c5e3338b9836c": "$E = \\frac{10}{6}$, $\\text{Var} = \\frac{10}{6}$",
+      "e6076e8ab3db5eff": "$E = \\frac{5}{3} \\approx 1{,}67$, $\\text{Var} = \\frac{25}{18} \\approx 1{,}39$",
+      "1d132680f4d4f8f5": "$E = 5$, $\\text{Var} = 2{,}5$",
+      "67faf9f6651ccec9": "$E = \\frac{5}{3}$, $\\text{Var} = \\sqrt{25/18}$",
+      "cdbeceda5c8d817f": "$E(X) = np = \\frac{10}{6} = \\frac{5}{3}$ og $\\text{Var}(X) = np(1-p) = 10 \\cdot \\frac{1}{6} \\cdot \\frac{5}{6} = \\frac{25}{18}$.",
+      "d7e8dabdfefa8c0b": "Ein elev gjettar på 8 firevalsoppgåver. Korleis blir $P(X \\geq 3)$ rekna ut mest effektivt?",
+      "a7449e5fa9edfc74": "$P(X=3) + P(X=4)$",
+      "6bc55725165a16c0": "$1 - P(X \\geq 2)$",
+      "824525be941e036e": "$1 - P(X=0) - P(X=1) - P(X=2)$",
+      "34d5821458fc3a75": "Komplementet: $P(X \\geq 3) = 1 - P(X \\leq 2)$, der berre tre ledd må summerast. Svaret blir $\\approx 0{,}321$.",
+      "f29ee3634ad6398c": "Kva er $P(X = 0)$ for $X \\sim B(8;\\, 0{,}25)$?",
+      "66f12ead488c6713": "$8 \\cdot 0{,}75$",
+      "bf86cee18ef698ec": "$0{,}75^8 \\approx 0{,}100$",
+      "9c036a98dffa4fb4": "Null suksessar tyder åtte fiaskoar: $P(X=0) = 0{,}75^8 \\approx 0{,}1001$.",
+      "ec8699e32f094d64": "## Hypergeometrisk fordeling – verda til kortstokken\n\nNo til trekking utan tilbakelegging. Oppsettet: ein populasjon med $N$ element, der $M$ er «suksessar» og $N - M$ «fiaskoar». Du trekkjer $n$ element utan å leggje tilbake, og $X$ tel suksessane i utvalet. Då er $X$ **hypergeometrisk fordelt**, $X \\sim H(N, M, n)$, og\n\n$$P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$$\n\nFormelen er rein kombinatorikk og burde sjå kjend ut – det er nøyaktig korttrekk-rekninga frå kapittel 8.3! Nemnaren tel alle måtar å trekkje $n$ av $N$; teljaren tel dei gunstige: vel $k$ av suksessane *og* $n-k$ av fiaskoane. Forventninga er behageleg intuitiv: $E(X) = n \\cdot \\frac{M}{N}$ – utvalsstorleiken gonger delen suksessar i populasjonen. (Variansen har ein ekstra krympefaktor $\\frac{N-n}{N-1}$ samanlikna med binomisk – utan tilbakelegging blir resultata faktisk *litt meir* føreseielege.)\n\nKortspelet: trekk 5 kort, tel hjarter. Populasjonen er $N = 52$ med $M = 13$ hjarter, og $X \\sim H(52, 13, 5)$. Sannsynet for nøyaktig 2 hjarter:\n\n$$P(X = 2) = \\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} = \\frac{78 \\cdot 9139}{2\\,598\\,960} \\approx 0{,}274$$\n\nOg forventninga: $E(X) = 5 \\cdot \\frac{13}{52} = 1{,}25$ hjarter per hand – ein fjerdedel av korta, akkurat som delen i stokken. Typiske hypergeometriske situasjonar: kortspel, lotteri, og kvalitetskontroll av små parti – overalt der kvart trekk endrar det som er att.",
+      "26fbe23389b37310": "Test deg sjølv på hypergeometrisk fordeling:",
+      "06c43f742c945af7": "Kva skildrar den hypergeometriske fordelinga?",
+      "2d539dd8739cb441": "Talet på forsøk til første suksess",
+      "e3f7c8090c339923": "Talet på suksessar ved trekking utan tilbakelegging frå ein endeleg populasjon",
+      "36f086941f3d3b21": "Talet på suksessar i uavhengige forsøk med konstant $p$",
+      "17fc18c2484599c8": "Summen av to terningar",
+      "421943891ad2fce4": "Hypergeometrisk fordeling gjeld når vi trekkjer $n$ element utan tilbakelegging frå $N$, der $M$ er suksessar.",
+      "de293f848f65e478": "5 kort blir trekt frå 52 (13 hjarter). Kva er $P(X = 2)$ for talet på hjarter?",
+      "7080a443bc589824": "$\\binom{5}{2}\\left(\\frac{1}{4}\\right)^2\\left(\\frac{3}{4}\\right)^3$",
+      "8cce8bb5bf2eb308": "$\\frac{\\binom{13}{2}}{\\binom{52}{5}}$",
+      "da796d62197d9329": "$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{5}} \\approx 0{,}274$",
+      "fffde7ab59956a11": "$\\frac{\\binom{13}{2}\\binom{39}{3}}{\\binom{52}{2}}$",
+      "2a94124deb90d06f": "Vel 2 av 13 hjarter og 3 av 39 andre, delt på alle $\\binom{52}{5}$ hender: $\\approx 0{,}274$.",
+      "1d17f0145d21f50a": "Kva er $E(X)$ for $X \\sim H(52, 13, 5)$?",
+      "8a0306179a6f5ad0": "$5 \\cdot \\frac{13}{52} = 1{,}25$",
+      "7398c1e65ee105a9": "$\\frac{52}{13} = 4$",
+      "97621593358e9a4a": "$5 \\cdot \\frac{1}{2} = 2{,}5$",
+      "f3e8874004ceee01": "$13 \\cdot \\frac{5}{52}$ $= 1{,}25$, men formelen er feil",
+      "b69d83576f0d0bc1": "$E(X) = n \\cdot \\frac{M}{N} = 5 \\cdot \\frac{13}{52} = 1{,}25$ – utvalsstorleiken gonger suksessdelen.",
+      "22495ae037d974dc": "Eit parti har 20 produkt, 4 defekte. Du trekkjer 3 utan tilbakelegging. Kva er $P(X = 0)$?",
+      "808199040cb2d5b7": "$\\frac{4}{20}$",
+      "fdac492de4691efe": "$\\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} \\cdot \\frac{1}{2}$",
+      "731bf92ce7c48f34": "$\\frac{\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$",
+      "7520c1c4bc3695c9": "$P(X=0) = \\frac{\\binom{4}{0}\\binom{16}{3}}{\\binom{20}{3}} = \\frac{560}{1140} \\approx 0{,}491$. Binomisk tilnærming ($0{,}512$) ville her vore unøyaktig.",
+      "3a7f1689472c562b": "## Diagnosen: kva for fordeling gjeld?\n\nNo til den eigentlege ferdigheita i kapittelet: å sjå på ein situasjon og stille rett diagnose. Nøkkelspørsmålet er alltid: **endrar sannsynet seg undervegs?** Kast, spinn og trekk *med* tilbakelegging: nei – binomisk. Trekk *utan* tilbakelegging frå ei avgrensa mengd: ja – hypergeometrisk.\n\nEit kvalitetskontroll-eksempel: eit parti har 20 produkt der 4 er defekte, og du trekkjer 3 for kontroll. Utan tilbakelegging frå ein liten populasjon: $X \\sim H(20, 4, 3)$. Sannsynet for nøyaktig éin defekt: $P(X = 1) = \\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} = \\frac{4 \\cdot 120}{1140} \\approx 0{,}421$, og forventninga er $E(X) = 3 \\cdot \\frac{4}{20} = 0{,}6$.\n\nMen her kjem ei praktisk letting: er populasjonen *stor* i forhold til utvalet, spelar tilbakelegging nesten inga rolle – å fjerne eitt element av hundre tusen endrar knapt delane. **Tommelfingerregelen**: er populasjonen meir enn ti gonger større enn utvalet ($N > 10n$), kan du bruke binomisk fordeling som god tilnærming til den hypergeometriske, med $p = \\frac{M}{N}$. Det er difor meiningsmålingar reknar binomisk sjølv om dei strengt teke trekkjer personar utan tilbakelegging: 1 000 spurde av fleire millionar veljarar.\n\nSå hugs sjekkpunkta før du reknar: Fast $n$? To utfall? Og framfor alt – konstant sannsyn, eller krympar populasjonen merkbart for kvart trekk? Trekkjer du frå ei øskje med 10 kuler utan tilbakelegging, er forsøka ikkje uavhengige, og då *må* du hypergeometrisk til verks.",
+      "2c79cedfb60e7e1c": "Test deg sjølv på val av fordeling:",
+      "e93d31c5256108f8": "Kva er nøkkelspørsmålet når du skal velje mellom binomisk og hypergeometrisk fordeling?",
+      "8b95d7e6a7cfc334": "Kor mange utfall kvart forsøk har",
+      "da6fd194a009747e": "Om sannsynet endrar seg frå trekk til trekk",
+      "88081e5840e42893": "Om forventningsverdien er heiltal",
+      "94d97a0dfb02f63b": "Om $n$ er større enn 30",
+      "3730158268710bd6": "Konstant sannsyn (uavhengigheit) gir binomisk; trekking utan tilbakelegging frå endeleg populasjon gir hypergeometrisk.",
+      "4f7f04463b56bef3": "Eit parti har 20 produkt, 4 defekte; 3 blir trekt utan tilbakelegging. Kva er $P(X = 1)$?",
+      "c175fcc5cd50e02d": "$\\binom{3}{1}\\cdot 0{,}2 \\cdot 0{,}8^2$",
+      "a57dddedb0a38fcf": "$\\frac{4}{20} = 0{,}2$",
+      "bc5c91fa2778206f": "$\\frac{\\binom{4}{1}\\binom{16}{2}}{\\binom{20}{3}} \\approx 0{,}421$",
+      "ff318c50da24a06d": "$\\frac{\\binom{4}{1}}{\\binom{20}{3}}$",
+      "8e1e3067506615d0": "Hypergeometrisk: $\\frac{4 \\cdot 120}{1140} = \\frac{480}{1140} \\approx 0{,}421$.",
+      "981e7fd830011b93": "Når kan binomisk fordeling brukast som tilnærming til hypergeometrisk?",
+      "870f76ea846a5005": "Aldri – dei er heilt forskjellige",
+      "bb43033bc90418c8": "Når $M = N$",
+      "1e6c86a67684ab84": "Når utvalet er større enn populasjonen",
+      "70f60dca5e557229": "Når populasjonen er meir enn ca. 10 gonger større enn utvalet",
+      "08fe9a7c7eb6fb54": "Med $N > 10n$ endrar kvart trekk delane så lite at konstant $p = \\frac{M}{N}$ er ei god tilnærming.",
+      "305905680235c410": "Ei meiningsmåling spør 1 000 av 4 millionar veljarar. Kva for modell er i praksis rett for talet på ja-svar?",
+      "f8d52532bf6b59a7": "Binomisk – populasjonen er enorm i forhold til utvalet, så $p$ er praktisk talt konstant",
+      "3390ad635e640056": "Hypergeometrisk – det blir trekt utan tilbakelegging",
+      "bb60f24e85070ad0": "Ingen av dei",
+      "a9fabde82475a1f8": "Begge er like gale",
+      "4064df5efef76a15": "Strengt teke hypergeometrisk, men med $N = 4\\,000\\,000 \\gg 10 \\cdot 1000$ er binomisk tilnærming utmerkt – og mykje enklare å rekne med.",
+      "228ecdbfbdd21b02": "## Oppsummering: terningen og kortstokken\n\nTo verder, to fordelingar. I verda til terningen – uavhengige forsøk med konstant suksessannsyn, eller trekking med tilbakelegging – gjeld den binomiske fordelinga $X \\sim B(n, p)$ med $P(X = k) = \\binom{n}{k}p^k(1-p)^{n-k}$, $E(X) = np$ og $\\text{Var}(X) = np(1-p)$. I verda til kortstokken – trekking utan tilbakelegging frå ein endeleg populasjon med $M$ suksessar blant $N$ – gjeld den hypergeometriske $X \\sim H(N, M, n)$ med $P(X = k) = \\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}$ og den intuitive forventninga $E(X) = n \\cdot \\frac{M}{N}$.\n\nDiagnosen blir stilt med eitt spørsmål: endrar sannsynet seg undervegs? Og gløym ikkje fluktruta: når populasjonen er meir enn ti gonger utvalet, er binomisk ei utmerkt tilnærming til hypergeometrisk – det er difor meiningsmålingar slepp unna med den enkle modellen.\n\nDermed er sannsynskapittelet komplett: frå teljeprinsippa via klassisk og betinga sannsyn til Bayes og dei to store fordelingane. Sjekk alltid føresetnadene før du vel modell – det er der skilnaden på rett og galt svar ligg."
+    }
+  }
+}

@@ -1,1 +1,364 @@
-{"id":"s1-4-4-narrativ","courseId":"s1","chapterNumber":"4.4","title":"Lønnsomhetsanalyse","subtitle":"Narrativ versjon","description":"En fortelling om kaffebaren som må finne sitt nullpunkt — break-even, dekningsbidrag, dekningsgrad og sensitivitet.","estimatedMinutes":34,"competenceGoals":["anvende derivasjon til å analysere og forstå optimaliseringsproblemer","planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn"],"linkedChapterId":"s1-4-4","content":[{"id":"s1-4-4-n-intro","type":"text","content":"## Kafeen som må vite sitt nullpunkt\n\nTo venner skal åpne kaffebar. Husleie, lønn og utstyr koster 60 000 kr i måneden uansett hvor mye de selger, hver kopp koster 18 kr i råvarer å lage, og prisen er satt til 45 kr. Spørsmålet som avgjør alt: **hvor mange kopper må de selge for ikke å tape penger?** Det spørsmålet — og verktøyene som besvarer det — kalles **lønnsomhetsanalyse**, og er noe av det mest brukte i bedriftsøkonomi.\n\nTre nøkkelbegreper bærer analysen. **Nullpunktet** er volumet der inntekten akkurat dekker kostnadene. **Dekningsbidraget** er det hver solgt enhet bidrar med til å dekke faste kostnader og gi overskudd. **Dekningsgraden** er det samme bidraget målt i prosent av prisen.\n\nFormelt er nullpunktet (på engelsk **break-even point**) volumet $x_0$ der\n\n$$I(x_0) = K(x_0) \\quad \\Leftrightarrow \\quad O(x_0) = 0$$\n\nFor $x < x_0$ går bedriften med tap, for $x > x_0$ med overskudd.\n\nLa oss regne på kafeen. Kostnadene er $K(x) = 18x + 60\\,000$ og inntekten $I(x) = 45x$, så overskuddet blir $O(x) = 45x - 18x - 60\\,000 = 27x - 60\\,000$. Nullpunktet: $27x_0 = 60\\,000$ gir $x_0 \\approx 2\\,222$ kopper. De må altså selge rundt **2 223 kopper i måneden** — omtrent 75 om dagen — bare for å gå i null. Selger de 3 000, blir overskuddet $O(3\\,000) = 81\\,000 - 60\\,000 = 21\\,000$ kr. Nå har vennene et konkret mål å styre etter."},{"id":"s1-4-4-n-quiz1","type":"exercise","exercise":{"id":"s1-4-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på nullpunktet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-4-n-quiz1-q0","task":"Hva er nullpunktet (break-even) for en bedrift?","options":[{"id":"a","text":"Volumet der de variable kostnadene er null","isCorrect":false},{"id":"b","text":"Volumet der inntekten akkurat dekker kostnadene","isCorrect":true},{"id":"c","text":"Volumet der inntekten er størst","isCorrect":false},{"id":"d","text":"Prisen som gir flest kunder","isCorrect":false}],"solution":"Nullpunktet er salgsvolumet $x_0$ der $I(x_0) = K(x_0)$, altså der overskuddet er null."},{"id":"s1-4-4-n-quiz1-q1","task":"Kafeen har $K(x) = 18x + 60\\,000$ og $I(x) = 45x$. Hva er overskuddsfunksjonen?","options":[{"id":"a","text":"$O(x) = 27x - 60\\,000$","isCorrect":true},{"id":"b","text":"$O(x) = 63x - 60\\,000$","isCorrect":false},{"id":"c","text":"$O(x) = 45x - 18x$","isCorrect":false},{"id":"d","text":"$O(x) = 27x + 60\\,000$","isCorrect":false}],"solution":"$O(x) = I(x) - K(x) = 45x - 18x - 60\\,000 = 27x - 60\\,000$."},{"id":"s1-4-4-n-quiz1-q2","task":"Hva skjer med resultatet når salget er lavere enn nullpunktet?","options":[{"id":"a","text":"Bedriften går med overskudd","isCorrect":false},{"id":"b","text":"Overskuddet er maksimalt","isCorrect":false},{"id":"c","text":"Bedriften går med tap","isCorrect":true},{"id":"d","text":"Inntekten er null","isCorrect":false}],"solution":"For $x < x_0$ er $O(x) < 0$ — kostnadene overstiger inntektene, og bedriften taper penger."}]}},{"id":"s1-4-4-n-section1","type":"text","content":"## Dekningsbidrag og dekningsgrad — kronene bak hver kopp\n\nDet finnes en snarvei til nullpunktet som samtidig gir dypere innsikt. For en lineær kostnadsstruktur $K(x) = vx + F$, der $v$ er variabel kostnad per enhet og $F$ er faste kostnader, og fast pris $p$, definerer vi **dekningsbidraget per enhet**:\n\n$$\\text{DB} = p - v$$\n\nDet totale dekningsbidraget er $\\text{TDB}(x) = (p - v)x$, og **dekningsgraden** er bidraget i prosent av prisen:\n\n$$\\text{DG} = \\frac{\\text{DB}}{p} \\cdot 100\\,\\%$$\n\nNullpunktet kan da skrives kompakt som\n\n$$x_0 = \\frac{F}{\\text{DB}}$$\n\nFor kafeen: $\\text{DB} = 45 - 18 = 27$ kr per kopp, og $\\text{DG} = \\frac{27}{45} \\cdot 100\\,\\% = 60\\,\\%$. Av hver salgskrone går altså 60 øre til å dekke faste kostnader og overskudd, mens 40 øre er ren råvarekostnad. Nullpunktet: $x_0 = \\frac{60\\,000}{27} \\approx 2\\,222$ kopper — samme svar som før, men nå med en formel som viser *hvorfor*: de faste kostnadene må «betales ned» med 27 kr per kopp.\n\nDekningsgraden gjør det mulig å sammenligne bransjer. Dagligvarer ligger typisk på 10–30 % (høye variable kostnader), kafeer og produksjon på 40–60 %, mens digitale tjenester kan ha 70–95 % — hver ny kunde koster nesten ingenting. Selger bedriften flere produkter, brukes det **veide dekningsbidraget** $\\overline{\\text{DB}} = \\sum_i s_i \\cdot \\text{DB}_i$, der $s_i$ er produktenes salgsandeler, og $x_0 = F / \\overline{\\text{DB}}$ — men bare så lenge salgsmiksen holder seg konstant."},{"id":"s1-4-4-n-quiz2","type":"exercise","exercise":{"id":"s1-4-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på dekningsbidrag og dekningsgrad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-4-n-quiz2-q0","task":"Prisen er $45$ kr og variabel kostnad $18$ kr per kopp. Hva er dekningsbidraget per kopp?","options":[{"id":"a","text":"$45$ kr","isCorrect":false},{"id":"b","text":"$18$ kr","isCorrect":false},{"id":"c","text":"$63$ kr","isCorrect":false},{"id":"d","text":"$27$ kr","isCorrect":true}],"solution":"$\\text{DB} = p - v = 45 - 18 = 27$ kr per kopp."},{"id":"s1-4-4-n-quiz2-q1","task":"Hva er dekningsgraden i samme eksempel?","options":[{"id":"a","text":"$60\\,\\%$","isCorrect":true},{"id":"b","text":"$40\\,\\%$","isCorrect":false},{"id":"c","text":"$27\\,\\%$","isCorrect":false},{"id":"d","text":"$45\\,\\%$","isCorrect":false}],"solution":"$\\text{DG} = \\frac{27}{45} \\cdot 100\\,\\% = 60\\,\\%$."},{"id":"s1-4-4-n-quiz2-q2","task":"Faste kostnader er $F = 60\\,000$ kr og $\\text{DB} = 27$ kr. Hvilken formel gir nullpunktet?","options":[{"id":"a","text":"$x_0 = F \\cdot \\text{DB}$","isCorrect":false},{"id":"b","text":"$x_0 = \\dfrac{F}{\\text{DB}}$","isCorrect":true},{"id":"c","text":"$x_0 = \\dfrac{\\text{DB}}{F}$","isCorrect":false},{"id":"d","text":"$x_0 = F - \\text{DB}$","isCorrect":false}],"solution":"Nullpunktet er $x_0 = \\frac{F}{\\text{DB}} = \\frac{60\\,000}{27} \\approx 2\\,222$ enheter."},{"id":"s1-4-4-n-quiz2-q3","task":"Hvilken bransje har typisk høyest dekningsgrad?","options":[{"id":"a","text":"Dagligvarehandel","isCorrect":false},{"id":"b","text":"Kafédrift","isCorrect":false},{"id":"c","text":"Digitale tjenester og programvare","isCorrect":true},{"id":"d","text":"Råvareproduksjon","isCorrect":false}],"solution":"Digitale tjenester har nesten null variable kostnader per ny kunde, og DG på typisk 70–95 %."}]}},{"id":"s1-4-4-n-section2","type":"text","content":"## Sensitivitet — hva om prisen endres?\n\nEn lønnsomhetsanalyse er aldri ferdig med ett regnestykke. Forutsetningene endrer seg: strøm blir dyrere, råvarer svinger, lønninger justeres. Derfor gjør vi **sensitivitetsanalyse** — vi endrer én forutsetning og ser hva som skjer med nullpunktet.\n\nAnta at kafeen vurderer å sette prisen opp fra 45 til 49 kr. Det nye dekningsbidraget blir $49 - 18 = 31$ kr per kopp, og nullpunktet faller til\n\n$$x_0 = \\frac{60\\,000}{31} \\approx 1\\,936 \\text{ kopper}$$\n\nFra 2 222 til 1 936 — bedriften trenger å selge omtrent **286 færre kopper** for å gå i null. En liten prisjustering flytter altså målstreken merkbart.\n\nMen her møtes dette kapittelet og det forrige: vil prisøkningen skremme bort kunder? Det avhenger av **priselastisiteten**. Er etterspørselen uelastisk, tåler kundene 49 kr, og resultatet bedres. Er den elastisk, kan totalresultatet bli verre selv om nullpunktet er lavere. Lønnsomhetsanalysen gir deg kartet; elastisiteten forteller hvordan terrenget reagerer når du flytter deg.\n\nLønnsomhetsanalyse egner seg også godt som prosjekttema. Du kan regne på skolens kantine — hvor mange porsjoner må selges for å gå i null? Du kan sammenligne dekningsgraden i tre bransjer ved hjelp av åpne årsregnskap fra BRREG (regnskap.no), eller undersøke hvor følsomt nullpunktet er for 5 % strømprisøkning, 10 % råvareprisøkning eller 3 % lønnsvekst med prisindekser fra SSB.no. Det er nøyaktig slik analysene gjøres i virkelige bedrifter — bare med større tall."},{"id":"s1-4-4-n-quiz3","type":"exercise","exercise":{"id":"s1-4-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på sensitivitetsanalyse:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-4-4-n-quiz3-q0","task":"Kafeen øker prisen fra $45$ til $49$ kr (variabel kostnad fortsatt $18$ kr). Hva blir det nye nullpunktet?","options":[{"id":"a","text":"Ca. $1\\,936$ kopper","isCorrect":true},{"id":"b","text":"Ca. $2\\,222$ kopper","isCorrect":false},{"id":"c","text":"Ca. $2\\,500$ kopper","isCorrect":false},{"id":"d","text":"Ca. $1\\,224$ kopper","isCorrect":false}],"solution":"Nytt DB: $49 - 18 = 31$ kr. $x_0 = \\frac{60\\,000}{31} \\approx 1\\,936$ kopper."},{"id":"s1-4-4-n-quiz3-q1","task":"Hva er poenget med en sensitivitetsanalyse?","options":[{"id":"a","text":"Å finne den eksakte fremtidige prisen","isCorrect":false},{"id":"b","text":"Å undersøke hvordan resultatet endres når forutsetningene endres","isCorrect":true},{"id":"c","text":"Å beregne skatten til bedriften","isCorrect":false},{"id":"d","text":"Å maksimere de faste kostnadene","isCorrect":false}],"solution":"Sensitivitetsanalyse varierer én forutsetning om gangen (pris, kostnad, volum) og viser hvor robust konklusjonen er."},{"id":"s1-4-4-n-quiz3-q2","task":"Prisøkningen senker nullpunktet — men hva kan likevel gjøre totalresultatet dårligere?","options":[{"id":"a","text":"At de faste kostnadene synker","isCorrect":false},{"id":"b","text":"At dekningsbidraget øker","isCorrect":false},{"id":"c","text":"At etterspørselen er elastisk og mange kunder forsvinner","isCorrect":true},{"id":"d","text":"At dekningsgraden stiger","isCorrect":false}],"solution":"Hvis etterspørselen er elastisk, faller salget mer enn prisøkningen kompenserer for — da hjelper det ikke at nullpunktet er lavere."}]}},{"id":"s1-4-4-n-summary","type":"text","content":"## Oppsummering: målstreken for lønnsomhet\n\nKaffebar-vennene vet nå nøyaktig hva som skal til. **Nullpunktet (break-even)** er salgsvolumet der inntektene akkurat dekker kostnadene — under det taper de penger, over det tjener de. Den raskeste veien dit er formelen $x_0 = \\frac{\\text{faste kostnader}}{\\text{DB}}$.\n\n**Dekningsbidraget** $\\text{DB} = p - v$ — pris minus variabel enhetskostnad — er kronene hver solgt kopp bidrar med til å betale husleie og gi overskudd; for kafeen 27 kr. **Dekningsgraden** $\\text{DG} = \\frac{\\text{DB}}{p} \\cdot 100\\,\\%$ uttrykker det samme i prosent av prisen og gjør det mulig å sammenligne produkter og bransjer, fra dagligvarenes 10–30 % til programvarens 70–95 %. Med flere produkter brukes det veide dekningsbidraget, gitt konstant salgsmiks.\n\n**Sensitivitetsanalysen** minner oss om at tallene lever: en prisøkning fra 45 til 49 kr senket nullpunktet med nesten 300 kopper, men om det faktisk lønner seg, avgjøres av elastisiteten fra forrige kapittel. Slik henger bedriftsøkonomien sammen — kostnadsstruktur, prissetting og markedsrespons i ett regnestykke. Og med åpne data fra BRREG og SSB kan du gjøre nøyaktig samme analyse på ekte norske bedrifter i ditt eget prosjektarbeid."}],"exercises":[]}
+{
+  "id": "s1-4-4-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "4.4",
+  "title": "Lønnsomhetsanalyse",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om kaffebaren som må finne sitt nullpunkt — break-even, dekningsbidrag, dekningsgrad og sensitivitet.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "anvende derivasjon til å analysere og forstå optimaliseringsproblemer",
+    "planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til samfunnsøkonomiske temaer og forhold, og analysere og presentere funn"
+  ],
+  "linkedChapterId": "s1-4-4",
+  "content": [
+    {
+      "id": "s1-4-4-n-intro",
+      "type": "text",
+      "content": "## Kafeen som må vite sitt nullpunkt\n\nTo venner skal åpne kaffebar. Husleie, lønn og utstyr koster 60 000 kr i måneden uansett hvor mye de selger, hver kopp koster 18 kr i råvarer å lage, og prisen er satt til 45 kr. Spørsmålet som avgjør alt: **hvor mange kopper må de selge for ikke å tape penger?** Det spørsmålet — og verktøyene som besvarer det — kalles **lønnsomhetsanalyse**, og er noe av det mest brukte i bedriftsøkonomi.\n\nTre nøkkelbegreper bærer analysen. **Nullpunktet** er volumet der inntekten akkurat dekker kostnadene. **Dekningsbidraget** er det hver solgt enhet bidrar med til å dekke faste kostnader og gi overskudd. **Dekningsgraden** er det samme bidraget målt i prosent av prisen.\n\nFormelt er nullpunktet (på engelsk **break-even point**) volumet $x_0$ der\n\n$$I(x_0) = K(x_0) \\quad \\Leftrightarrow \\quad O(x_0) = 0$$\n\nFor $x < x_0$ går bedriften med tap, for $x > x_0$ med overskudd.\n\nLa oss regne på kafeen. Kostnadene er $K(x) = 18x + 60\\,000$ og inntekten $I(x) = 45x$, så overskuddet blir $O(x) = 45x - 18x - 60\\,000 = 27x - 60\\,000$. Nullpunktet: $27x_0 = 60\\,000$ gir $x_0 \\approx 2\\,222$ kopper. De må altså selge rundt **2 223 kopper i måneden** — omtrent 75 om dagen — bare for å gå i null. Selger de 3 000, blir overskuddet $O(3\\,000) = 81\\,000 - 60\\,000 = 21\\,000$ kr. Nå har vennene et konkret mål å styre etter."
+    },
+    {
+      "id": "s1-4-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på nullpunktet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-4-n-quiz1-q0",
+            "task": "Hva er nullpunktet (break-even) for en bedrift?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Volumet der inntekten akkurat dekker kostnadene",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Volumet der de variable kostnadene er null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Volumet der inntekten er størst",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Prisen som gir flest kunder",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nullpunktet er salgsvolumet $x_0$ der $I(x_0) = K(x_0)$, altså der overskuddet er null."
+          },
+          {
+            "id": "s1-4-4-n-quiz1-q1",
+            "task": "Kafeen har $K(x) = 18x + 60\\,000$ og $I(x) = 45x$. Hva er overskuddsfunksjonen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$O(x) = 63x - 60\\,000$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$O(x) = 27x - 60\\,000$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$O(x) = 45x - 18x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$O(x) = 27x + 60\\,000$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$O(x) = I(x) - K(x) = 45x - 18x - 60\\,000 = 27x - 60\\,000$."
+          },
+          {
+            "id": "s1-4-4-n-quiz1-q2",
+            "task": "Hva skjer med resultatet når salget er lavere enn nullpunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bedriften går med overskudd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Overskuddet er maksimalt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bedriften går med tap",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Inntekten er null",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x < x_0$ er $O(x) < 0$ — kostnadene overstiger inntektene, og bedriften taper penger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-4-n-section1",
+      "type": "text",
+      "content": "## Dekningsbidrag og dekningsgrad — kronene bak hver kopp\n\nDet finnes en snarvei til nullpunktet som samtidig gir dypere innsikt. For en lineær kostnadsstruktur $K(x) = vx + F$, der $v$ er variabel kostnad per enhet og $F$ er faste kostnader, og fast pris $p$, definerer vi **dekningsbidraget per enhet**:\n\n$$\\text{DB} = p - v$$\n\nDet totale dekningsbidraget er $\\text{TDB}(x) = (p - v)x$, og **dekningsgraden** er bidraget i prosent av prisen:\n\n$$\\text{DG} = \\frac{\\text{DB}}{p} \\cdot 100\\,\\%$$\n\nNullpunktet kan da skrives kompakt som\n\n$$x_0 = \\frac{F}{\\text{DB}}$$\n\nFor kafeen: $\\text{DB} = 45 - 18 = 27$ kr per kopp, og $\\text{DG} = \\frac{27}{45} \\cdot 100\\,\\% = 60\\,\\%$. Av hver salgskrone går altså 60 øre til å dekke faste kostnader og overskudd, mens 40 øre er ren råvarekostnad. Nullpunktet: $x_0 = \\frac{60\\,000}{27} \\approx 2\\,222$ kopper — samme svar som før, men nå med en formel som viser *hvorfor*: de faste kostnadene må «betales ned» med 27 kr per kopp.\n\nDekningsgraden gjør det mulig å sammenligne bransjer. Dagligvarer ligger typisk på 10–30 % (høye variable kostnader), kafeer og produksjon på 40–60 %, mens digitale tjenester kan ha 70–95 % — hver ny kunde koster nesten ingenting. Selger bedriften flere produkter, brukes det **veide dekningsbidraget** $\\overline{\\text{DB}} = \\sum_i s_i \\cdot \\text{DB}_i$, der $s_i$ er produktenes salgsandeler, og $x_0 = F / \\overline{\\text{DB}}$ — men bare så lenge salgsmiksen holder seg konstant."
+    },
+    {
+      "id": "s1-4-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på dekningsbidrag og dekningsgrad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-4-n-quiz2-q0",
+            "task": "Prisen er $45$ kr og variabel kostnad $18$ kr per kopp. Hva er dekningsbidraget per kopp?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$45$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$18$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$63$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$27$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\text{DB} = p - v = 45 - 18 = 27$ kr per kopp."
+          },
+          {
+            "id": "s1-4-4-n-quiz2-q1",
+            "task": "Hva er dekningsgraden i samme eksempel?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$60\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$40\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$27\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$45\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{DG} = \\frac{27}{45} \\cdot 100\\,\\% = 60\\,\\%$."
+          },
+          {
+            "id": "s1-4-4-n-quiz2-q2",
+            "task": "Faste kostnader er $F = 60\\,000$ kr og $\\text{DB} = 27$ kr. Hvilken formel gir nullpunktet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x_0 = F \\cdot \\text{DB}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x_0 = \\dfrac{F}{\\text{DB}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x_0 = \\dfrac{\\text{DB}}{F}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x_0 = F - \\text{DB}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nullpunktet er $x_0 = \\frac{F}{\\text{DB}} = \\frac{60\\,000}{27} \\approx 2\\,222$ enheter."
+          },
+          {
+            "id": "s1-4-4-n-quiz2-q3",
+            "task": "Hvilken bransje har typisk høyest dekningsgrad?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dagligvarehandel",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kafédrift",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Digitale tjenester og programvare",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Råvareproduksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Digitale tjenester har nesten null variable kostnader per ny kunde, og DG på typisk 70–95 %."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-4-n-section2",
+      "type": "text",
+      "content": "## Sensitivitet — hva om prisen endres?\n\nEn lønnsomhetsanalyse er aldri ferdig med ett regnestykke. Forutsetningene endrer seg: strøm blir dyrere, råvarer svinger, lønninger justeres. Derfor gjør vi **sensitivitetsanalyse** — vi endrer én forutsetning og ser hva som skjer med nullpunktet.\n\nAnta at kafeen vurderer å sette prisen opp fra 45 til 49 kr. Det nye dekningsbidraget blir $49 - 18 = 31$ kr per kopp, og nullpunktet faller til\n\n$$x_0 = \\frac{60\\,000}{31} \\approx 1\\,936 \\text{ kopper}$$\n\nFra 2 222 til 1 936 — bedriften trenger å selge omtrent **286 færre kopper** for å gå i null. En liten prisjustering flytter altså målstreken merkbart.\n\nMen her møtes dette kapittelet og det forrige: vil prisøkningen skremme bort kunder? Det avhenger av **priselastisiteten**. Er etterspørselen uelastisk, tåler kundene 49 kr, og resultatet bedres. Er den elastisk, kan totalresultatet bli verre selv om nullpunktet er lavere. Lønnsomhetsanalysen gir deg kartet; elastisiteten forteller hvordan terrenget reagerer når du flytter deg.\n\nLønnsomhetsanalyse egner seg også godt som prosjekttema. Du kan regne på skolens kantine — hvor mange porsjoner må selges for å gå i null? Du kan sammenligne dekningsgraden i tre bransjer ved hjelp av åpne årsregnskap fra BRREG (regnskap.no), eller undersøke hvor følsomt nullpunktet er for 5 % strømprisøkning, 10 % råvareprisøkning eller 3 % lønnsvekst med prisindekser fra SSB.no. Det er nøyaktig slik analysene gjøres i virkelige bedrifter — bare med større tall."
+    },
+    {
+      "id": "s1-4-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-4-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på sensitivitetsanalyse:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-4-4-n-quiz3-q0",
+            "task": "Kafeen øker prisen fra $45$ til $49$ kr (variabel kostnad fortsatt $18$ kr). Hva blir det nye nullpunktet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. $2\\,222$ kopper",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $2\\,500$ kopper",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $1\\,224$ kopper",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ca. $1\\,936$ kopper",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Nytt DB: $49 - 18 = 31$ kr. $x_0 = \\frac{60\\,000}{31} \\approx 1\\,936$ kopper."
+          },
+          {
+            "id": "s1-4-4-n-quiz3-q1",
+            "task": "Hva er poenget med en sensitivitetsanalyse?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Å undersøke hvordan resultatet endres når forutsetningene endres",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Å finne den eksakte fremtidige prisen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å beregne skatten til bedriften",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å maksimere de faste kostnadene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sensitivitetsanalyse varierer én forutsetning om gangen (pris, kostnad, volum) og viser hvor robust konklusjonen er."
+          },
+          {
+            "id": "s1-4-4-n-quiz3-q2",
+            "task": "Prisøkningen senker nullpunktet — men hva kan likevel gjøre totalresultatet dårligere?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At de faste kostnadene synker",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At etterspørselen er elastisk og mange kunder forsvinner",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "At dekningsbidraget øker",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At dekningsgraden stiger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Hvis etterspørselen er elastisk, faller salget mer enn prisøkningen kompenserer for — da hjelper det ikke at nullpunktet er lavere."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-4-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: målstreken for lønnsomhet\n\nKaffebar-vennene vet nå nøyaktig hva som skal til. **Nullpunktet (break-even)** er salgsvolumet der inntektene akkurat dekker kostnadene — under det taper de penger, over det tjener de. Den raskeste veien dit er formelen $x_0 = \\frac{\\text{faste kostnader}}{\\text{DB}}$.\n\n**Dekningsbidraget** $\\text{DB} = p - v$ — pris minus variabel enhetskostnad — er kronene hver solgt kopp bidrar med til å betale husleie og gi overskudd; for kafeen 27 kr. **Dekningsgraden** $\\text{DG} = \\frac{\\text{DB}}{p} \\cdot 100\\,\\%$ uttrykker det samme i prosent av prisen og gjør det mulig å sammenligne produkter og bransjer, fra dagligvarenes 10–30 % til programvarens 70–95 %. Med flere produkter brukes det veide dekningsbidraget, gitt konstant salgsmiks.\n\n**Sensitivitetsanalysen** minner oss om at tallene lever: en prisøkning fra 45 til 49 kr senket nullpunktet med nesten 300 kopper, men om det faktisk lønner seg, avgjøres av elastisiteten fra forrige kapittel. Slik henger bedriftsøkonomien sammen — kostnadsstruktur, prissetting og markedsrespons i ett regnestykke. Og med åpne data fra BRREG og SSB kan du gjøre nøyaktig samme analyse på ekte norske bedrifter i ditt eget prosjektarbeid."
+    }
+  ],
+  "exercises": []
+}

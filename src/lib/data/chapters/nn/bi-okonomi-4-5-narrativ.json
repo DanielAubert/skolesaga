@@ -1,1 +1,328 @@
-{"id":"bi-okonomi-4-5-narrativ","courseId":"bi-okonomi","chapterNumber":"4.5","title":"Investeringsanalyse","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis bedrifter avgjer om ei investering løner seg -- med netto noverdi, internrente og tilbakebetalingstid som verktøykasse.","estimatedMinutes":32,"competenceGoals":["rekne ut og tolke NPV og IRR","vurdere lønsemda av investeringar"],"linkedChapterId":"bi-okonomi-4-5","content":[{"id":"bi-okonomi-4-5-n-intro","type":"text","content":"## Løner det seg å investere?\n\nEi bedrift står overfor eit val: skal vi kjøpe den nye maskina eller ikkje? Ho kostar mykje no, men lovar inntekter i åra framover. Korleis veit vi om reknestykket går opp? Det er nettopp dette **investeringsanalyse** handlar om, og dei tre viktigaste verktøya er netto noverdi (NPV), internrente (IRR) og tilbakebetalingstid.\n\nVi startar med det kraftigaste: **netto noverdi**. NPV er summen av noverdiane til alle kontantstraumane, inkludert investeringa vi gjer i starten: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa, $CF_t$ er kontantstraumen i periode $t$, $r$ er avkastningskravet og $n$ er prosjektets levetid. Tanken er at vi diskonterer alle framtidige inntekter tilbake til i dag og ser om dei overgår kostnaden.\n\nAvgjerdsregelen er like enkel som han er mektig: er $NPV > 0$ skaper investeringa verdi, og vi seier ja. Er $NPV < 0$ øydelegg ho verdi, og vi seier nei. Er $NPV = 0$ gir prosjektet akkurat avkastningskravet, verken meir eller mindre."},{"id":"bi-okonomi-4-5-n-section1","type":"text","content":"## NPV og internrente i praksis\n\nLat oss ta eit konkret døme. Ei bedrift vurderer ei maskin til $500\\,000$ kr som gir $150\\,000$, $200\\,000$, $200\\,000$ og $150\\,000$ kr dei fire neste åra. Avkastningskravet er $10\\%$. Då blir $NPV = -500\\,000 + \\frac{150\\,000}{1{,}10} + \\frac{200\\,000}{1{,}21} + \\frac{200\\,000}{1{,}331} + \\frac{150\\,000}{1{,}4641} = -500\\,000 + 554\\,368 = 54\\,368$ kr. NPV er positiv, så bedrifta bør investere -- prosjektet skaper $54\\,368$ kr i verdi utover dei $10\\%$ ho allereie krev.\n\nEit nært skylda mål er **internrenta** (IRR). Ho er den diskonteringsrenta som gjer at $NPV = 0$, og ho fortel den faktiske avkastninga til prosjektet. Vi løyser altså $-I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t} = 0$ for $r$. Avgjerdsregelen blir: er IRR større enn avkastningskravet, aksepter; er ho lågare, avvis.\n\nIRR må som regel finnast ved prøving og feiling, eller med kalkulator. Sei at ei investering på $100\\,000$ kr gir $60\\,000$ kr etter eitt år og $60\\,000$ kr etter to år. Prøver vi $r = 10\\%$ får vi $NPV = 4\\,132$ kr (litt for høgt), ved $r = 15\\%$ får vi $-2\\,457$ kr (for lågt), og ved $r = 13\\%$ er vi nesten på null. Internrenta er altså $\\approx 13{,}1\\%$. Er avkastningskravet $10\\%$, ligg IRR godt over, og investeringa blir akseptert. I praksis bruker ein gjerne Excel: $\\texttt{=IR(...)}$ for internrente og $\\texttt{=NNV(...)}$ for noverdi."},{"id":"bi-okonomi-4-5-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-4-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på NPV og internrente:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-5-n-quiz1-q0","task":"Kva er avgjerdsregelen for NPV?","options":[{"id":"a","text":"Aksepter dersom $NPV < 0$","isCorrect":false},{"id":"b","text":"Aksepter dersom $NPV > 0$","isCorrect":true},{"id":"c","text":"Aksepter alltid, uansett NPV","isCorrect":false},{"id":"d","text":"Aksepter berre dersom $NPV = 0$","isCorrect":false}],"solution":"$NPV > 0$ tyder at investeringa skaper verdi utover avkastningskravet, så vi aksepterer. $NPV < 0$ øydelegg verdi og blir avvist."},{"id":"bi-okonomi-4-5-n-quiz1-q1","task":"Ei maskin kostar $500\\,000$ kr og gir noverdiar av kontantstraumane på til saman $554\\,368$ kr (avkastningskrav $10\\%$). Kva er NPV?","options":[{"id":"a","text":"$554\\,368$ kr","isCorrect":false},{"id":"b","text":"$-54\\,368$ kr","isCorrect":false},{"id":"c","text":"$54\\,368$ kr","isCorrect":true},{"id":"d","text":"$1\\,054\\,368$ kr","isCorrect":false}],"solution":"$NPV = -500\\,000 + 554\\,368 = 54\\,368$ kr. Positiv NPV -- investeringa bør gjennomførast."},{"id":"bi-okonomi-4-5-n-quiz1-q2","task":"Kva er internrenta (IRR)?","options":[{"id":"a","text":"Renta banken tek på eit lån","isCorrect":false},{"id":"b","text":"Avkastningskravet bedrifta set","isCorrect":false},{"id":"c","text":"Den nominelle renta i marknaden","isCorrect":false},{"id":"d","text":"Diskonteringsrenta som gjer $NPV = 0$","isCorrect":true}],"solution":"IRR er den renta som løyser $NPV = 0$, og uttrykkjer den faktiske avkastninga til prosjektet."},{"id":"bi-okonomi-4-5-n-quiz1-q3","task":"Ei investering har $IRR = 13{,}1\\%$ og avkastningskravet er $10\\%$. Kva gjer vi?","options":[{"id":"a","text":"Aksepterer, fordi $IRR >$ avkastningskravet","isCorrect":true},{"id":"b","text":"Avviser, fordi IRR er for høg","isCorrect":false},{"id":"c","text":"Avviser, fordi IRR er positiv","isCorrect":false},{"id":"d","text":"Kan ikkje avgjerast utan NPV","isCorrect":false}],"solution":"Når $IRR >$ avkastningskravet ($13{,}1\\% > 10\\%$), gir prosjektet høgare avkastning enn kravet, og vi aksepterer."}]}},{"id":"bi-okonomi-4-5-n-section2","type":"text","content":"## Tilbakebetalingstid og uvisse\n\nEi enklare, men meir intuitiv metode er **tilbakebetalingstida**: kor lang tid tek det før investeringa er «tent inn», altså før dei samla kontantstraumane dekkjer den initiale kostnaden? Ved like årlege kontantstraumar reknar vi det enkelt som $\\frac{I_0}{\\text{årleg kontantstraum}}$. Ei investering på $400\\,000$ kr som gir $120\\,000$ kr i året har ei tilbakebetalingstid på $\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså rundt $3$ år og $4$ månader.\n\nMetoden er populær fordi han er lett å forstå, men han har to svakheiter. Han ignorerer tidsverdien av pengar (med mindre vi bruker ein **diskontert** variant der kontantstraumane blir diskonterte først), og han ser fullstendig bort frå alt som skjer etter at investeringa er tent inn. Eit prosjekt med kort tilbakebetalingstid, men dårlege inntekter deretter, kan sjå betre ut enn det eigentleg er. Difor blir NPV rekna som den teoretisk beste metoden.\n\nEit siste, viktig poeng: i røynda er framtidige kontantstraumar alltid usikre. Då bruker vi **sensitivitetsanalyse** for å teste kor robust konklusjonen er. Vi spør: kva skjer med NPV dersom inntektene blir $10\\%$ lågare enn anteke? Kva om renta stig med $2$ prosentpoeng? Kva for eit salsvolum gir break-even? Slik finn vi ut kor mykje føresetnadene kan svikte før eit lønsamt prosjekt vippar over til å bli ulønsamt -- og det gir eit langt tryggare avgjerdsgrunnlag enn eitt enkelt tal."},{"id":"bi-okonomi-4-5-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-4-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på tilbakebetalingstid og sensitivitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-4-5-n-quiz2-q0","task":"Ei investering på $400\\,000$ kr gir $120\\,000$ kr årleg. Kva er den enkle tilbakebetalingstida?","options":[{"id":"a","text":"$4{,}00$ år","isCorrect":false},{"id":"b","text":"$3{,}33$ år","isCorrect":true},{"id":"c","text":"$2{,}50$ år","isCorrect":false},{"id":"d","text":"$5{,}00$ år","isCorrect":false}],"solution":"$\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså ca. $3$ år og $4$ månader."},{"id":"bi-okonomi-4-5-n-quiz2-q1","task":"Kva er ein vesentleg svakheit ved tilbakebetalingstid-metoden?","options":[{"id":"a","text":"Han er for vanskeleg å rekne ut","isCorrect":false},{"id":"b","text":"Han krev alltid Excel","isCorrect":false},{"id":"c","text":"Han ignorerer kontantstraumar etter at investeringa er tent inn","isCorrect":true},{"id":"d","text":"Han kan berre brukast på lån","isCorrect":false}],"solution":"Metoden ser bort frå alt som skjer etter tilbakebetalingstidspunktet, og (i enkel form) frå tidsverdien av pengar. Difor blir NPV rekna som teoretisk best."},{"id":"bi-okonomi-4-5-n-quiz2-q2","task":"Kva er hensikta med ein sensitivitetsanalyse?","options":[{"id":"a","text":"Å finne den eksakte internrenta","isCorrect":false},{"id":"b","text":"Å rekne ut tilbakebetalingstida raskare","isCorrect":false},{"id":"c","text":"Å fjerne all uvisse frå prosjektet","isCorrect":false},{"id":"d","text":"Å undersøkje korleis NPV endrar seg når føresetnadene endrar seg","isCorrect":true}],"solution":"Sensitivitetsanalyse testar korleis NPV reagerer på endringar i føresetnadene -- til dømes lågare inntekter eller høgare rente -- og viser kor robust avgjerda er."}]}},{"id":"bi-okonomi-4-5-n-summary","type":"text","content":"## Oppsummering\n\nInvesteringsanalyse handlar om å avgjere om eit prosjekt løner seg. Den teoretisk beste metoden er **netto noverdi**: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t}$. Aksepter dersom $NPV > 0$, avvis dersom $NPV < 0$.\n\n**Internrenta** (IRR) er renta som gir $NPV = 0$, altså den faktiske avkastninga til prosjektet; aksepter dersom IRR overgår avkastningskravet. IRR blir vanlegvis funnen ved prøving og feiling eller i Excel. **Tilbakebetalingstida** ($\\frac{I_0}{\\text{årleg CF}}$ ved like kontantstraumar) er intuitiv, men ignorerer både tidsverdien av pengar og alt som skjer etter at investeringa er tent inn. Fordi framtidige kontantstraumar er usikre, supplerer vi med **sensitivitetsanalyse** som viser kor robust konklusjonen er når føresetnadene endrar seg."}],"exercises":[],"_meta":{"sourceHash":"01e93313db071c92","translatedAt":"2026-06-21T00:51:11.853Z","model":"claude-code-agent","strings":55,"tm":{"f3fe171862387031":"Investeringsanalyse","b195b06d1ed59702":"Narrativ versjon","679f66e8d87dc0e0":"Ei forteljing om korleis bedrifter avgjer om ei investering løner seg -- med netto noverdi, internrente og tilbakebetalingstid som verktøykasse.","a9d0a495297b7e4f":"rekne ut og tolke NPV og IRR","da0ff76c56ec19fd":"vurdere lønsemda av investeringar","eb1d2bb1674d3e50":"## Løner det seg å investere?\n\nEi bedrift står overfor eit val: skal vi kjøpe den nye maskina eller ikkje? Ho kostar mykje no, men lovar inntekter i åra framover. Korleis veit vi om reknestykket går opp? Det er nettopp dette **investeringsanalyse** handlar om, og dei tre viktigaste verktøya er netto noverdi (NPV), internrente (IRR) og tilbakebetalingstid.\n\nVi startar med det kraftigaste: **netto noverdi**. NPV er summen av noverdiane til alle kontantstraumane, inkludert investeringa vi gjer i starten: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa, $CF_t$ er kontantstraumen i periode $t$, $r$ er avkastningskravet og $n$ er prosjektets levetid. Tanken er at vi diskonterer alle framtidige inntekter tilbake til i dag og ser om dei overgår kostnaden.\n\nAvgjerdsregelen er like enkel som han er mektig: er $NPV > 0$ skaper investeringa verdi, og vi seier ja. Er $NPV < 0$ øydelegg ho verdi, og vi seier nei. Er $NPV = 0$ gir prosjektet akkurat avkastningskravet, verken meir eller mindre.","f85cda114aea9b29":"## NPV og internrente i praksis\n\nLat oss ta eit konkret døme. Ei bedrift vurderer ei maskin til $500\\,000$ kr som gir $150\\,000$, $200\\,000$, $200\\,000$ og $150\\,000$ kr dei fire neste åra. Avkastningskravet er $10\\%$. Då blir $NPV = -500\\,000 + \\frac{150\\,000}{1{,}10} + \\frac{200\\,000}{1{,}21} + \\frac{200\\,000}{1{,}331} + \\frac{150\\,000}{1{,}4641} = -500\\,000 + 554\\,368 = 54\\,368$ kr. NPV er positiv, så bedrifta bør investere -- prosjektet skaper $54\\,368$ kr i verdi utover dei $10\\%$ ho allereie krev.\n\nEit nært skylda mål er **internrenta** (IRR). Ho er den diskonteringsrenta som gjer at $NPV = 0$, og ho fortel den faktiske avkastninga til prosjektet. Vi løyser altså $-I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t} = 0$ for $r$. Avgjerdsregelen blir: er IRR større enn avkastningskravet, aksepter; er ho lågare, avvis.\n\nIRR må som regel finnast ved prøving og feiling, eller med kalkulator. Sei at ei investering på $100\\,000$ kr gir $60\\,000$ kr etter eitt år og $60\\,000$ kr etter to år. Prøver vi $r = 10\\%$ får vi $NPV = 4\\,132$ kr (litt for høgt), ved $r = 15\\%$ får vi $-2\\,457$ kr (for lågt), og ved $r = 13\\%$ er vi nesten på null. Internrenta er altså $\\approx 13{,}1\\%$. Er avkastningskravet $10\\%$, ligg IRR godt over, og investeringa blir akseptert. I praksis bruker ein gjerne Excel: $\\texttt{=IR(...)}$ for internrente og $\\texttt{=NNV(...)}$ for noverdi.","4fc47b2ba0249ca0":"Test deg sjølv på NPV og internrente:","4097889236a2af26":"placeholder","739ce063f53e8abb":"Kva er avgjerdsregelen for NPV?","0fcb3ed318717d4c":"Aksepter dersom $NPV < 0$","afdc96104e86c203":"Aksepter dersom $NPV > 0$","47b632b701ceedc6":"Aksepter alltid, uansett NPV","6fd6fe4f6452ec60":"Aksepter berre dersom $NPV = 0$","55c04a92432e5fa6":"$NPV > 0$ tyder at investeringa skaper verdi utover avkastningskravet, så vi aksepterer. $NPV < 0$ øydelegg verdi og blir avvist.","a17afd09857aa956":"Ei maskin kostar $500\\,000$ kr og gir noverdiar av kontantstraumane på til saman $554\\,368$ kr (avkastningskrav $10\\%$). Kva er NPV?","70fb909a1b5733fe":"$554\\,368$ kr","31bcbe5ba1d774c2":"$-54\\,368$ kr","a8ad82d68983a4ab":"$54\\,368$ kr","5f1d9ef6e283a2cb":"$1\\,054\\,368$ kr","a7a277900f5ee3af":"$NPV = -500\\,000 + 554\\,368 = 54\\,368$ kr. Positiv NPV -- investeringa bør gjennomførast.","db1f2e6a45eacd31":"Kva er internrenta (IRR)?","b3c6b7833c40da6b":"Renta banken tek på eit lån","f6c042e59ab16987":"Avkastningskravet bedrifta set","c74d00ebc8d5f65f":"Den nominelle renta i marknaden","77f8be11c450a84c":"Diskonteringsrenta som gjer $NPV = 0$","bf1e5d699a228b9d":"IRR er den renta som løyser $NPV = 0$, og uttrykkjer den faktiske avkastninga til prosjektet.","03c96341415ce68b":"Ei investering har $IRR = 13{,}1\\%$ og avkastningskravet er $10\\%$. Kva gjer vi?","7361976609eefe1b":"Aksepterer, fordi $IRR >$ avkastningskravet","5b8c6ff2dff27aaa":"Avviser, fordi IRR er for høg","803b3045bd44669c":"Avviser, fordi IRR er positiv","fcd97d7e853c43f0":"Kan ikkje avgjerast utan NPV","8bb3e32bc07f6896":"Når $IRR >$ avkastningskravet ($13{,}1\\% > 10\\%$), gir prosjektet høgare avkastning enn kravet, og vi aksepterer.","8293783686020566":"## Tilbakebetalingstid og uvisse\n\nEi enklare, men meir intuitiv metode er **tilbakebetalingstida**: kor lang tid tek det før investeringa er «tent inn», altså før dei samla kontantstraumane dekkjer den initiale kostnaden? Ved like årlege kontantstraumar reknar vi det enkelt som $\\frac{I_0}{\\text{årleg kontantstraum}}$. Ei investering på $400\\,000$ kr som gir $120\\,000$ kr i året har ei tilbakebetalingstid på $\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså rundt $3$ år og $4$ månader.\n\nMetoden er populær fordi han er lett å forstå, men han har to svakheiter. Han ignorerer tidsverdien av pengar (med mindre vi bruker ein **diskontert** variant der kontantstraumane blir diskonterte først), og han ser fullstendig bort frå alt som skjer etter at investeringa er tent inn. Eit prosjekt med kort tilbakebetalingstid, men dårlege inntekter deretter, kan sjå betre ut enn det eigentleg er. Difor blir NPV rekna som den teoretisk beste metoden.\n\nEit siste, viktig poeng: i røynda er framtidige kontantstraumar alltid usikre. Då bruker vi **sensitivitetsanalyse** for å teste kor robust konklusjonen er. Vi spør: kva skjer med NPV dersom inntektene blir $10\\%$ lågare enn anteke? Kva om renta stig med $2$ prosentpoeng? Kva for eit salsvolum gir break-even? Slik finn vi ut kor mykje føresetnadene kan svikte før eit lønsamt prosjekt vippar over til å bli ulønsamt -- og det gir eit langt tryggare avgjerdsgrunnlag enn eitt enkelt tal.","0410a0c517156820":"Test deg sjølv på tilbakebetalingstid og sensitivitet:","a4eb9dfa63b6f4db":"Ei investering på $400\\,000$ kr gir $120\\,000$ kr årleg. Kva er den enkle tilbakebetalingstida?","224fffa8a55f6b19":"$4{,}00$ år","44033006fb35142f":"$3{,}33$ år","7ae350af187b515d":"$2{,}50$ år","c4bfed8fe9695267":"$5{,}00$ år","0a6b39138d2ea2fb":"$\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså ca. $3$ år og $4$ månader.","0db00db8a9089584":"Kva er ein vesentleg svakheit ved tilbakebetalingstid-metoden?","a0e47a36f7b27758":"Han er for vanskeleg å rekne ut","2938db9a2ccad357":"Han krev alltid Excel","52afd92fadfe7d41":"Han ignorerer kontantstraumar etter at investeringa er tent inn","b723fe4d52457436":"Han kan berre brukast på lån","e3ce406fc18e2fe0":"Metoden ser bort frå alt som skjer etter tilbakebetalingstidspunktet, og (i enkel form) frå tidsverdien av pengar. Difor blir NPV rekna som teoretisk best.","e5b8c1eeef8ac2a7":"Kva er hensikta med ein sensitivitetsanalyse?","ee12c2c2de886d8b":"Å finne den eksakte internrenta","488eb81bfa04771a":"Å rekne ut tilbakebetalingstida raskare","0435ee5e5f1de231":"Å fjerne all uvisse frå prosjektet","0e6e702a2a3ca287":"Å undersøkje korleis NPV endrar seg når føresetnadene endrar seg","af3a5bce914cd6b1":"Sensitivitetsanalyse testar korleis NPV reagerer på endringar i føresetnadene -- til dømes lågare inntekter eller høgare rente -- og viser kor robust avgjerda er.","a2521df83455d293":"## Oppsummering\n\nInvesteringsanalyse handlar om å avgjere om eit prosjekt løner seg. Den teoretisk beste metoden er **netto noverdi**: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t}$. Aksepter dersom $NPV > 0$, avvis dersom $NPV < 0$.\n\n**Internrenta** (IRR) er renta som gir $NPV = 0$, altså den faktiske avkastninga til prosjektet; aksepter dersom IRR overgår avkastningskravet. IRR blir vanlegvis funnen ved prøving og feiling eller i Excel. **Tilbakebetalingstida** ($\\frac{I_0}{\\text{årleg CF}}$ ved like kontantstraumar) er intuitiv, men ignorerer både tidsverdien av pengar og alt som skjer etter at investeringa er tent inn. Fordi framtidige kontantstraumar er usikre, supplerer vi med **sensitivitetsanalyse** som viser kor robust konklusjonen er når føresetnadene endrar seg."}}}
+{
+  "id": "bi-okonomi-4-5-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "4.5",
+  "title": "Investeringsanalyse",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis bedrifter avgjer om ei investering løner seg -- med netto noverdi, internrente og tilbakebetalingstid som verktøykasse.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "rekne ut og tolke NPV og IRR",
+    "vurdere lønsemda av investeringar"
+  ],
+  "linkedChapterId": "bi-okonomi-4-5",
+  "content": [
+    {
+      "id": "bi-okonomi-4-5-n-intro",
+      "type": "text",
+      "content": "## Løner det seg å investere?\n\nEi bedrift står overfor eit val: skal vi kjøpe den nye maskina eller ikkje? Ho kostar mykje no, men lovar inntekter i åra framover. Korleis veit vi om reknestykket går opp? Det er nettopp dette **investeringsanalyse** handlar om, og dei tre viktigaste verktøya er netto noverdi (NPV), internrente (IRR) og tilbakebetalingstid.\n\nVi startar med det kraftigaste: **netto noverdi**. NPV er summen av noverdiane til alle kontantstraumane, inkludert investeringa vi gjer i starten: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa, $CF_t$ er kontantstraumen i periode $t$, $r$ er avkastningskravet og $n$ er prosjektets levetid. Tanken er at vi diskonterer alle framtidige inntekter tilbake til i dag og ser om dei overgår kostnaden.\n\nAvgjerdsregelen er like enkel som han er mektig: er $NPV > 0$ skaper investeringa verdi, og vi seier ja. Er $NPV < 0$ øydelegg ho verdi, og vi seier nei. Er $NPV = 0$ gir prosjektet akkurat avkastningskravet, verken meir eller mindre."
+    },
+    {
+      "id": "bi-okonomi-4-5-n-section1",
+      "type": "text",
+      "content": "## NPV og internrente i praksis\n\nLat oss ta eit konkret døme. Ei bedrift vurderer ei maskin til $500\\,000$ kr som gir $150\\,000$, $200\\,000$, $200\\,000$ og $150\\,000$ kr dei fire neste åra. Avkastningskravet er $10\\%$. Då blir $NPV = -500\\,000 + \\frac{150\\,000}{1{,}10} + \\frac{200\\,000}{1{,}21} + \\frac{200\\,000}{1{,}331} + \\frac{150\\,000}{1{,}4641} = -500\\,000 + 554\\,368 = 54\\,368$ kr. NPV er positiv, så bedrifta bør investere -- prosjektet skaper $54\\,368$ kr i verdi utover dei $10\\%$ ho allereie krev.\n\nEit nært skylda mål er **internrenta** (IRR). Ho er den diskonteringsrenta som gjer at $NPV = 0$, og ho fortel den faktiske avkastninga til prosjektet. Vi løyser altså $-I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t} = 0$ for $r$. Avgjerdsregelen blir: er IRR større enn avkastningskravet, aksepter; er ho lågare, avvis.\n\nIRR må som regel finnast ved prøving og feiling, eller med kalkulator. Sei at ei investering på $100\\,000$ kr gir $60\\,000$ kr etter eitt år og $60\\,000$ kr etter to år. Prøver vi $r = 10\\%$ får vi $NPV = 4\\,132$ kr (litt for høgt), ved $r = 15\\%$ får vi $-2\\,457$ kr (for lågt), og ved $r = 13\\%$ er vi nesten på null. Internrenta er altså $\\approx 13{,}1\\%$. Er avkastningskravet $10\\%$, ligg IRR godt over, og investeringa blir akseptert. I praksis bruker ein gjerne Excel: $\\texttt{=IR(...)}$ for internrente og $\\texttt{=NNV(...)}$ for noverdi."
+    },
+    {
+      "id": "bi-okonomi-4-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på NPV og internrente:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-5-n-quiz1-q0",
+            "task": "Kva er avgjerdsregelen for NPV?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Aksepter dersom $NPV < 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aksepter alltid, uansett NPV",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aksepter berre dersom $NPV = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Aksepter dersom $NPV > 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$NPV > 0$ tyder at investeringa skaper verdi utover avkastningskravet, så vi aksepterer. $NPV < 0$ øydelegg verdi og blir avvist."
+          },
+          {
+            "id": "bi-okonomi-4-5-n-quiz1-q1",
+            "task": "Ei maskin kostar $500\\,000$ kr og gir noverdiar av kontantstraumane på til saman $554\\,368$ kr (avkastningskrav $10\\%$). Kva er NPV?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$54\\,368$ kr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$554\\,368$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-54\\,368$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1\\,054\\,368$ kr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$NPV = -500\\,000 + 554\\,368 = 54\\,368$ kr. Positiv NPV -- investeringa bør gjennomførast."
+          },
+          {
+            "id": "bi-okonomi-4-5-n-quiz1-q2",
+            "task": "Kva er internrenta (IRR)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Renta banken tek på eit lån",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Diskonteringsrenta som gjer $NPV = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Avkastningskravet bedrifta set",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den nominelle renta i marknaden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "IRR er den renta som løyser $NPV = 0$, og uttrykkjer den faktiske avkastninga til prosjektet."
+          },
+          {
+            "id": "bi-okonomi-4-5-n-quiz1-q3",
+            "task": "Ei investering har $IRR = 13{,}1\\%$ og avkastningskravet er $10\\%$. Kva gjer vi?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Avviser, fordi IRR er for høg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Avviser, fordi IRR er positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Aksepterer, fordi $IRR >$ avkastningskravet",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Kan ikkje avgjerast utan NPV",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $IRR >$ avkastningskravet ($13{,}1\\% > 10\\%$), gir prosjektet høgare avkastning enn kravet, og vi aksepterer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-5-n-section2",
+      "type": "text",
+      "content": "## Tilbakebetalingstid og uvisse\n\nEi enklare, men meir intuitiv metode er **tilbakebetalingstida**: kor lang tid tek det før investeringa er «tent inn», altså før dei samla kontantstraumane dekkjer den initiale kostnaden? Ved like årlege kontantstraumar reknar vi det enkelt som $\\frac{I_0}{\\text{årleg kontantstraum}}$. Ei investering på $400\\,000$ kr som gir $120\\,000$ kr i året har ei tilbakebetalingstid på $\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså rundt $3$ år og $4$ månader.\n\nMetoden er populær fordi han er lett å forstå, men han har to svakheiter. Han ignorerer tidsverdien av pengar (med mindre vi bruker ein **diskontert** variant der kontantstraumane blir diskonterte først), og han ser fullstendig bort frå alt som skjer etter at investeringa er tent inn. Eit prosjekt med kort tilbakebetalingstid, men dårlege inntekter deretter, kan sjå betre ut enn det eigentleg er. Difor blir NPV rekna som den teoretisk beste metoden.\n\nEit siste, viktig poeng: i røynda er framtidige kontantstraumar alltid usikre. Då bruker vi **sensitivitetsanalyse** for å teste kor robust konklusjonen er. Vi spør: kva skjer med NPV dersom inntektene blir $10\\%$ lågare enn anteke? Kva om renta stig med $2$ prosentpoeng? Kva for eit salsvolum gir break-even? Slik finn vi ut kor mykje føresetnadene kan svikte før eit lønsamt prosjekt vippar over til å bli ulønsamt -- og det gir eit langt tryggare avgjerdsgrunnlag enn eitt enkelt tal."
+    },
+    {
+      "id": "bi-okonomi-4-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-4-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tilbakebetalingstid og sensitivitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-4-5-n-quiz2-q0",
+            "task": "Ei investering på $400\\,000$ kr gir $120\\,000$ kr årleg. Kva er den enkle tilbakebetalingstida?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4{,}00$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2{,}50$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5{,}00$ år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3{,}33$ år",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså ca. $3$ år og $4$ månader."
+          },
+          {
+            "id": "bi-okonomi-4-5-n-quiz2-q1",
+            "task": "Kva er ein vesentleg svakheit ved tilbakebetalingstid-metoden?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Han ignorerer kontantstraumar etter at investeringa er tent inn",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Han er for vanskeleg å rekne ut",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han krev alltid Excel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han kan berre brukast på lån",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Metoden ser bort frå alt som skjer etter tilbakebetalingstidspunktet, og (i enkel form) frå tidsverdien av pengar. Difor blir NPV rekna som teoretisk best."
+          },
+          {
+            "id": "bi-okonomi-4-5-n-quiz2-q2",
+            "task": "Kva er hensikta med ein sensitivitetsanalyse?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å finne den eksakte internrenta",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å undersøkje korleis NPV endrar seg når føresetnadene endrar seg",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å rekne ut tilbakebetalingstida raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å fjerne all uvisse frå prosjektet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sensitivitetsanalyse testar korleis NPV reagerer på endringar i føresetnadene -- til dømes lågare inntekter eller høgare rente -- og viser kor robust avgjerda er."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-4-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nInvesteringsanalyse handlar om å avgjere om eit prosjekt løner seg. Den teoretisk beste metoden er **netto noverdi**: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t}$. Aksepter dersom $NPV > 0$, avvis dersom $NPV < 0$.\n\n**Internrenta** (IRR) er renta som gir $NPV = 0$, altså den faktiske avkastninga til prosjektet; aksepter dersom IRR overgår avkastningskravet. IRR blir vanlegvis funnen ved prøving og feiling eller i Excel. **Tilbakebetalingstida** ($\\frac{I_0}{\\text{årleg CF}}$ ved like kontantstraumar) er intuitiv, men ignorerer både tidsverdien av pengar og alt som skjer etter at investeringa er tent inn. Fordi framtidige kontantstraumar er usikre, supplerer vi med **sensitivitetsanalyse** som viser kor robust konklusjonen er når føresetnadene endrar seg."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "01e93313db071c92",
+    "translatedAt": "2026-06-21T00:51:11.853Z",
+    "model": "claude-code-agent",
+    "strings": 55,
+    "tm": {
+      "f3fe171862387031": "Investeringsanalyse",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "679f66e8d87dc0e0": "Ei forteljing om korleis bedrifter avgjer om ei investering løner seg -- med netto noverdi, internrente og tilbakebetalingstid som verktøykasse.",
+      "a9d0a495297b7e4f": "rekne ut og tolke NPV og IRR",
+      "da0ff76c56ec19fd": "vurdere lønsemda av investeringar",
+      "eb1d2bb1674d3e50": "## Løner det seg å investere?\n\nEi bedrift står overfor eit val: skal vi kjøpe den nye maskina eller ikkje? Ho kostar mykje no, men lovar inntekter i åra framover. Korleis veit vi om reknestykket går opp? Det er nettopp dette **investeringsanalyse** handlar om, og dei tre viktigaste verktøya er netto noverdi (NPV), internrente (IRR) og tilbakebetalingstid.\n\nVi startar med det kraftigaste: **netto noverdi**. NPV er summen av noverdiane til alle kontantstraumane, inkludert investeringa vi gjer i starten: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1 + r)^t}$, der $I_0$ er den initiale investeringa, $CF_t$ er kontantstraumen i periode $t$, $r$ er avkastningskravet og $n$ er prosjektets levetid. Tanken er at vi diskonterer alle framtidige inntekter tilbake til i dag og ser om dei overgår kostnaden.\n\nAvgjerdsregelen er like enkel som han er mektig: er $NPV > 0$ skaper investeringa verdi, og vi seier ja. Er $NPV < 0$ øydelegg ho verdi, og vi seier nei. Er $NPV = 0$ gir prosjektet akkurat avkastningskravet, verken meir eller mindre.",
+      "f85cda114aea9b29": "## NPV og internrente i praksis\n\nLat oss ta eit konkret døme. Ei bedrift vurderer ei maskin til $500\\,000$ kr som gir $150\\,000$, $200\\,000$, $200\\,000$ og $150\\,000$ kr dei fire neste åra. Avkastningskravet er $10\\%$. Då blir $NPV = -500\\,000 + \\frac{150\\,000}{1{,}10} + \\frac{200\\,000}{1{,}21} + \\frac{200\\,000}{1{,}331} + \\frac{150\\,000}{1{,}4641} = -500\\,000 + 554\\,368 = 54\\,368$ kr. NPV er positiv, så bedrifta bør investere -- prosjektet skaper $54\\,368$ kr i verdi utover dei $10\\%$ ho allereie krev.\n\nEit nært skylda mål er **internrenta** (IRR). Ho er den diskonteringsrenta som gjer at $NPV = 0$, og ho fortel den faktiske avkastninga til prosjektet. Vi løyser altså $-I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t} = 0$ for $r$. Avgjerdsregelen blir: er IRR større enn avkastningskravet, aksepter; er ho lågare, avvis.\n\nIRR må som regel finnast ved prøving og feiling, eller med kalkulator. Sei at ei investering på $100\\,000$ kr gir $60\\,000$ kr etter eitt år og $60\\,000$ kr etter to år. Prøver vi $r = 10\\%$ får vi $NPV = 4\\,132$ kr (litt for høgt), ved $r = 15\\%$ får vi $-2\\,457$ kr (for lågt), og ved $r = 13\\%$ er vi nesten på null. Internrenta er altså $\\approx 13{,}1\\%$. Er avkastningskravet $10\\%$, ligg IRR godt over, og investeringa blir akseptert. I praksis bruker ein gjerne Excel: $\\texttt{=IR(...)}$ for internrente og $\\texttt{=NNV(...)}$ for noverdi.",
+      "4fc47b2ba0249ca0": "Test deg sjølv på NPV og internrente:",
+      "4097889236a2af26": "placeholder",
+      "739ce063f53e8abb": "Kva er avgjerdsregelen for NPV?",
+      "0fcb3ed318717d4c": "Aksepter dersom $NPV < 0$",
+      "afdc96104e86c203": "Aksepter dersom $NPV > 0$",
+      "47b632b701ceedc6": "Aksepter alltid, uansett NPV",
+      "6fd6fe4f6452ec60": "Aksepter berre dersom $NPV = 0$",
+      "55c04a92432e5fa6": "$NPV > 0$ tyder at investeringa skaper verdi utover avkastningskravet, så vi aksepterer. $NPV < 0$ øydelegg verdi og blir avvist.",
+      "a17afd09857aa956": "Ei maskin kostar $500\\,000$ kr og gir noverdiar av kontantstraumane på til saman $554\\,368$ kr (avkastningskrav $10\\%$). Kva er NPV?",
+      "70fb909a1b5733fe": "$554\\,368$ kr",
+      "31bcbe5ba1d774c2": "$-54\\,368$ kr",
+      "a8ad82d68983a4ab": "$54\\,368$ kr",
+      "5f1d9ef6e283a2cb": "$1\\,054\\,368$ kr",
+      "a7a277900f5ee3af": "$NPV = -500\\,000 + 554\\,368 = 54\\,368$ kr. Positiv NPV -- investeringa bør gjennomførast.",
+      "db1f2e6a45eacd31": "Kva er internrenta (IRR)?",
+      "b3c6b7833c40da6b": "Renta banken tek på eit lån",
+      "f6c042e59ab16987": "Avkastningskravet bedrifta set",
+      "c74d00ebc8d5f65f": "Den nominelle renta i marknaden",
+      "77f8be11c450a84c": "Diskonteringsrenta som gjer $NPV = 0$",
+      "bf1e5d699a228b9d": "IRR er den renta som løyser $NPV = 0$, og uttrykkjer den faktiske avkastninga til prosjektet.",
+      "03c96341415ce68b": "Ei investering har $IRR = 13{,}1\\%$ og avkastningskravet er $10\\%$. Kva gjer vi?",
+      "7361976609eefe1b": "Aksepterer, fordi $IRR >$ avkastningskravet",
+      "5b8c6ff2dff27aaa": "Avviser, fordi IRR er for høg",
+      "803b3045bd44669c": "Avviser, fordi IRR er positiv",
+      "fcd97d7e853c43f0": "Kan ikkje avgjerast utan NPV",
+      "8bb3e32bc07f6896": "Når $IRR >$ avkastningskravet ($13{,}1\\% > 10\\%$), gir prosjektet høgare avkastning enn kravet, og vi aksepterer.",
+      "8293783686020566": "## Tilbakebetalingstid og uvisse\n\nEi enklare, men meir intuitiv metode er **tilbakebetalingstida**: kor lang tid tek det før investeringa er «tent inn», altså før dei samla kontantstraumane dekkjer den initiale kostnaden? Ved like årlege kontantstraumar reknar vi det enkelt som $\\frac{I_0}{\\text{årleg kontantstraum}}$. Ei investering på $400\\,000$ kr som gir $120\\,000$ kr i året har ei tilbakebetalingstid på $\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså rundt $3$ år og $4$ månader.\n\nMetoden er populær fordi han er lett å forstå, men han har to svakheiter. Han ignorerer tidsverdien av pengar (med mindre vi bruker ein **diskontert** variant der kontantstraumane blir diskonterte først), og han ser fullstendig bort frå alt som skjer etter at investeringa er tent inn. Eit prosjekt med kort tilbakebetalingstid, men dårlege inntekter deretter, kan sjå betre ut enn det eigentleg er. Difor blir NPV rekna som den teoretisk beste metoden.\n\nEit siste, viktig poeng: i røynda er framtidige kontantstraumar alltid usikre. Då bruker vi **sensitivitetsanalyse** for å teste kor robust konklusjonen er. Vi spør: kva skjer med NPV dersom inntektene blir $10\\%$ lågare enn anteke? Kva om renta stig med $2$ prosentpoeng? Kva for eit salsvolum gir break-even? Slik finn vi ut kor mykje føresetnadene kan svikte før eit lønsamt prosjekt vippar over til å bli ulønsamt -- og det gir eit langt tryggare avgjerdsgrunnlag enn eitt enkelt tal.",
+      "0410a0c517156820": "Test deg sjølv på tilbakebetalingstid og sensitivitet:",
+      "a4eb9dfa63b6f4db": "Ei investering på $400\\,000$ kr gir $120\\,000$ kr årleg. Kva er den enkle tilbakebetalingstida?",
+      "224fffa8a55f6b19": "$4{,}00$ år",
+      "44033006fb35142f": "$3{,}33$ år",
+      "7ae350af187b515d": "$2{,}50$ år",
+      "c4bfed8fe9695267": "$5{,}00$ år",
+      "0a6b39138d2ea2fb": "$\\frac{400\\,000}{120\\,000} = 3{,}33$ år, altså ca. $3$ år og $4$ månader.",
+      "0db00db8a9089584": "Kva er ein vesentleg svakheit ved tilbakebetalingstid-metoden?",
+      "a0e47a36f7b27758": "Han er for vanskeleg å rekne ut",
+      "2938db9a2ccad357": "Han krev alltid Excel",
+      "52afd92fadfe7d41": "Han ignorerer kontantstraumar etter at investeringa er tent inn",
+      "b723fe4d52457436": "Han kan berre brukast på lån",
+      "e3ce406fc18e2fe0": "Metoden ser bort frå alt som skjer etter tilbakebetalingstidspunktet, og (i enkel form) frå tidsverdien av pengar. Difor blir NPV rekna som teoretisk best.",
+      "e5b8c1eeef8ac2a7": "Kva er hensikta med ein sensitivitetsanalyse?",
+      "ee12c2c2de886d8b": "Å finne den eksakte internrenta",
+      "488eb81bfa04771a": "Å rekne ut tilbakebetalingstida raskare",
+      "0435ee5e5f1de231": "Å fjerne all uvisse frå prosjektet",
+      "0e6e702a2a3ca287": "Å undersøkje korleis NPV endrar seg når føresetnadene endrar seg",
+      "af3a5bce914cd6b1": "Sensitivitetsanalyse testar korleis NPV reagerer på endringar i føresetnadene -- til dømes lågare inntekter eller høgare rente -- og viser kor robust avgjerda er.",
+      "a2521df83455d293": "## Oppsummering\n\nInvesteringsanalyse handlar om å avgjere om eit prosjekt løner seg. Den teoretisk beste metoden er **netto noverdi**: $NPV = -I_0 + \\sum_{t=1}^{n}\\frac{CF_t}{(1+r)^t}$. Aksepter dersom $NPV > 0$, avvis dersom $NPV < 0$.\n\n**Internrenta** (IRR) er renta som gir $NPV = 0$, altså den faktiske avkastninga til prosjektet; aksepter dersom IRR overgår avkastningskravet. IRR blir vanlegvis funnen ved prøving og feiling eller i Excel. **Tilbakebetalingstida** ($\\frac{I_0}{\\text{årleg CF}}$ ved like kontantstraumar) er intuitiv, men ignorerer både tidsverdien av pengar og alt som skjer etter at investeringa er tent inn. Fordi framtidige kontantstraumar er usikre, supplerer vi med **sensitivitetsanalyse** som viser kor robust konklusjonen er når føresetnadene endrar seg."
+    }
+  }
+}

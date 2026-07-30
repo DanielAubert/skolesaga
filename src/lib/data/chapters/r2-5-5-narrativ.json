@@ -1,1 +1,317 @@
-{"id":"r2-5-5-narrativ","courseId":"r2","chapterNumber":"5.5","title":"Areal og volum med vektorer","subtitle":"Narrativ versjon","description":"En fortelling om å måle det skjeve — solseilets areal med kryssproduktet, lasterommets volum med trippelproduktet, tetraedre og testen for koplanare vektorer.","estimatedMinutes":36,"competenceGoals":["beregne arealet av et parallellogram med vektorer","beregne arealet av en trekant i rommet","beregne volumet av et parallellpipedum","bruke trippelproduktet til volumberegning"],"linkedChapterId":"r2-5-5","content":[{"id":"r2-5-5-n-intro","type":"text","content":"## Å måle det skjeve\n\nEt solseil på en satellitt spennes ut mellom to bommer som peker i hver sin retning fra samme feste. Hvor stort blir seilet? Et lasterom i en romstasjon har form som en skjev boks — et parallellepiped — utspent av tre kantvektorer. Hvor mye får du plass til? Vanlige formler som «lengde ganger bredde» bryter sammen når figurene står skjevt i rommet og hjørnene har tre koordinater hver.\n\nMen vektorregningen har allerede gjort grovarbeidet. I forrige kapittel så vi at lengden av kryssproduktet, $|\\vec{a} \\times \\vec{b}| = |\\vec{a}||\\vec{b}|\\sin\\theta$, er nøyaktig arealet av parallellogrammet som $\\vec{a}$ og $\\vec{b}$ spenner ut. I dette kapitlet høster vi gevinsten: arealer av parallellogrammer og trekanter i rommet faller ut av et kryssprodukt og en lengdeberegning — uansett hvor skjevt figuren ligger.\n\nOg så går vi en dimensjon opp. Ved å kombinere de to produktene våre — først kryss, så prikk — får vi **trippelproduktet** $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})$, et tall hvis absoluttverdi er volumet av parallellepipedet de tre vektorene spenner ut. Derfra er veien kort til volumet av et **tetraeder** (en sjettedel av boksen), og til en elegant test: tre vektorer ligger i samme plan — er **koplanare** — nøyaktig når trippelproduktet er null, for da er «boksen» klemt helt flat.\n\nGeometri blir regning: det er fortellingen i dette kapitlet."},{"id":"r2-5-5-n-section1","type":"text","content":"## Arealer: parallellogram og trekant\n\nLa oss begynne med solseilet. De to bommene peker langs $\\vec{a} = [1, 2, 0]$ og $\\vec{b} = [3, 0, 4]$, og seilet fyller parallellogrammet mellom dem. Arealet er\n\n$$A = |\\vec{a} \\times \\vec{b}|$$\n\n— det er hele formelen. Begrunnelsen kjenner du fra forrige kapittel: $|\\vec{a} \\times \\vec{b}| = |\\vec{a}||\\vec{b}|\\sin\\theta$, og $|\\vec{b}|\\sin\\theta$ er nettopp høyden i parallellogrammet når $|\\vec{a}|$ er grunnlinjen — grunnlinje ganger høyde, pakket inn i ett kryssprodukt.\n\nVi regner: $\\vec{a} \\times \\vec{b} = [2 \\cdot 4 - 0 \\cdot 0, \\; 0 \\cdot 3 - 1 \\cdot 4, \\; 1 \\cdot 0 - 2 \\cdot 3] = [8, -4, -6]$, og lengden er $\\sqrt{64 + 16 + 36} = \\sqrt{116} = 2\\sqrt{29} \\approx 10{,}77$. Det er seilarealet — ingen vinkelmåling, ingen høydekonstruksjon.\n\nTrekanter følger med på kjøpet, for en trekant er et halvt parallellogram. Trekanten med hjørner $A$, $B$ og $C$ har areal\n\n$$A = \\frac{1}{2}\\left|\\overrightarrow{AB} \\times \\overrightarrow{AC}\\right|$$\n\nog du kan velge hvilke som helst to sidevektorer fra samme hjørne. Prøv med $A = (1, 0, 0)$, $B = (0, 2, 0)$ og $C = (0, 0, 3)$ — en trekant som henger skjevt mellom de tre aksene. Sidevektorene er $\\overrightarrow{AB} = [-1, 2, 0]$ og $\\overrightarrow{AC} = [-1, 0, 3]$, kryssproduktet blir $[6, 3, 2]$, og lengden $\\sqrt{36 + 9 + 4} = \\sqrt{49} = 7$. Arealet er $\\frac{7}{2} = 3{,}5$. En figur det ville vært et mareritt å måle med linjal, falt på tre regnelinjer."},{"id":"r2-5-5-n-quiz1","type":"exercise","exercise":{"id":"r2-5-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på arealer med kryssproduktet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-5-n-quiz1-q0","task":"Hva er arealet av parallellogrammet utspent av $\\vec{a} = [1, 2, 0]$ og $\\vec{b} = [3, 0, 4]$?","options":[{"id":"a","text":"$\\sqrt{29}$","isCorrect":false},{"id":"b","text":"$2\\sqrt{29}$","isCorrect":true},{"id":"c","text":"$116$","isCorrect":false},{"id":"d","text":"$10$","isCorrect":false}],"solution":"$\\vec{a} \\times \\vec{b} = [8, -4, -6]$, og $|[8,-4,-6]| = \\sqrt{116} = 2\\sqrt{29}$."},{"id":"r2-5-5-n-quiz1-q1","task":"Hvilken formel gir arealet av trekanten $ABC$?","options":[{"id":"a","text":"$\\left|\\overrightarrow{AB} \\times \\overrightarrow{AC}\\right|$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}\\overrightarrow{AB} \\cdot \\overrightarrow{AC}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{2}\\left|\\overrightarrow{AB} \\times \\overrightarrow{AC}\\right|$","isCorrect":true},{"id":"d","text":"$\\frac{1}{2}\\left|\\overrightarrow{AB}\\right|\\left|\\overrightarrow{AC}\\right|$","isCorrect":false}],"solution":"Trekanten er halvparten av parallellogrammet: $A = \\frac{1}{2}|\\overrightarrow{AB} \\times \\overrightarrow{AC}|$."},{"id":"r2-5-5-n-quiz1-q2","task":"Hva er arealet av trekanten med hjørner $A = (1,0,0)$, $B = (0,2,0)$ og $C = (0,0,3)$?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$\\sqrt{49}$","isCorrect":false},{"id":"c","text":"$14$","isCorrect":false},{"id":"d","text":"$3{,}5$","isCorrect":true}],"solution":"$\\overrightarrow{AB} \\times \\overrightarrow{AC} = [6, 3, 2]$ med lengde $7$, så arealet er $\\frac{1}{2} \\cdot 7 = 3{,}5$."}]}},{"id":"r2-5-5-n-section2","type":"text","content":"## Trippelproduktet og volumet av den skjeve boksen\n\nNå til lasterommet. Et **parallellepiped** er en «skjev boks» der alle seks sideflater er parallellogrammer, utspent av tre vektorer $\\vec{a}$, $\\vec{b}$ og $\\vec{c}$ fra samme hjørne. Volumet burde være grunnflate ganger høyde — og se hvor pent verktøyene våre samarbeider: grunnflaten er $|\\vec{b} \\times \\vec{c}|$, og høyden er komponenten av $\\vec{a}$ langs normalen $\\vec{b} \\times \\vec{c}$, som skalarproduktet plukker ut. Begge deler i ett uttrykk:\n\n$$V = |\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$$\n\nTallet $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})$ kalles **trippelproduktet** av de tre vektorene, ofte skrevet $[\\vec{a}, \\vec{b}, \\vec{c}]$. Det kan også beregnes direkte som en $3 \\times 3$-determinant med vektorene som rader, og det har en nyttig symmetri: $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = (\\vec{a} \\times \\vec{b}) \\cdot \\vec{c}$ — kryss og prikk kan bytte plass. Absoluttverdien trengs fordi trippelproduktet kan bli negativt; fortegnet avslører bare orienteringen av vektortrioen (høyre- eller venstrehånds), mens volumet alltid er positivt.\n\nLa oss måle et lasterom med kantvektorer $\\vec{a} = [1, 0, 0]$, $\\vec{b} = [1, 2, 0]$ og $\\vec{c} = [1, 2, 3]$. Først grunnflatens normal: $\\vec{b} \\times \\vec{c} = [2 \\cdot 3 - 0 \\cdot 2, \\; 0 \\cdot 1 - 1 \\cdot 3, \\; 1 \\cdot 2 - 2 \\cdot 1] = [6, -3, 0]$. Så prikker vi: $\\vec{a} \\cdot [6, -3, 0] = 6$. Volumet er $|6| = 6$ kubikkenheter. Tre vektorer inn, ett tall ut — den skjeve boksen er målt."},{"id":"r2-5-5-n-quiz2","type":"exercise","exercise":{"id":"r2-5-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på trippelproduktet og volum:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-5-n-quiz2-q0","task":"Hvilket uttrykk gir volumet av parallellepipedet utspent av $\\vec{a}$, $\\vec{b}$ og $\\vec{c}$?","options":[{"id":"a","text":"$|\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$","isCorrect":true},{"id":"b","text":"$|\\vec{a} \\times \\vec{b} \\times \\vec{c}|$","isCorrect":false},{"id":"c","text":"$|\\vec{a}||\\vec{b}||\\vec{c}|$","isCorrect":false},{"id":"d","text":"$|(\\vec{a} \\cdot \\vec{b}) \\times \\vec{c}|$","isCorrect":false}],"solution":"Volumet er absoluttverdien av trippelproduktet: $V = |\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$ — grunnflate ganger høyde i ett uttrykk."},{"id":"r2-5-5-n-quiz2-q1","task":"Hva er volumet av parallellepipedet utspent av $\\vec{a} = [1,0,0]$, $\\vec{b} = [1,2,0]$ og $\\vec{c} = [1,2,3]$?","options":[{"id":"a","text":"$3$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":true},{"id":"d","text":"$9$","isCorrect":false}],"solution":"$\\vec{b} \\times \\vec{c} = [6, -3, 0]$ og $\\vec{a} \\cdot [6, -3, 0] = 6$, så $V = |6| = 6$."}]}},{"id":"r2-5-5-n-section3","type":"text","content":"## Tetraederet — og testen for flate bokser\n\nIkke alle romlegemer er bokser. Et **tetraeder** — pyramiden med fire trekantflater — er den enkleste av alle romlige figurer, og dukker opp overalt fra molekylstrukturer til dataspillgrafikk, der alle 3D-modeller bygges av nettopp tetraedre og trekanter. Volumet henter vi fra parallellepipedet: en pyramide har $\\frac{1}{3}$ av volumet til prismet med samme grunnflate, og trekantprismet er halve parallellepipedet, så til sammen\n\n$$V = \\frac{1}{6}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$$\n\nfor tetraederet med hjørner $A$, $B$, $C$ og $D$. Standardeksemplet er hjørnetetraederet $A = (0,0,0)$, $B = (1,0,0)$, $C = (0,1,0)$, $D = (0,0,1)$: kantvektorene er enhetsvektorene selv, $\\overrightarrow{AC} \\times \\overrightarrow{AD} = [1, 0, 0]$, trippelproduktet blir $1$, og volumet $\\frac{1}{6}$.\n\nTrippelproduktet har én hemmelighet til. Hva betyr det hvis $[\\vec{a}, \\vec{b}, \\vec{c}] = 0$? Da har parallellepipedet volum null — boksen er klemt helt flat. Det skjer nøyaktig når de tre vektorene ligger i samme plan, altså er **koplanare**:\n\n$$\\vec{a}, \\vec{b}, \\vec{c} \\text{ koplanare} \\iff \\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = 0$$\n\nTest vektorene $\\vec{a} = [1, 2, 3]$, $\\vec{b} = [4, 5, 6]$ og $\\vec{c} = [7, 8, 9]$: $\\vec{b} \\times \\vec{c} = [45 - 48, \\; 42 - 36, \\; 32 - 35] = [-3, 6, -3]$, og $\\vec{a} \\cdot [-3, 6, -3] = -3 + 12 - 9 = 0$. Koplanare! Og ser du nøye etter, skjønner du hvorfor: differansene $\\vec{b} - \\vec{a}$ og $\\vec{c} - \\vec{b}$ er begge $[3, 3, 3]$ — vektorene ligger på rekke i samme plan. Et tall som er null, og en hel geometrisk sannhet følger med."},{"id":"r2-5-5-n-quiz3","type":"exercise","exercise":{"id":"r2-5-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på tetraeder og koplanaritet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-5-5-n-quiz3-q0","task":"Hva er volumformelen for et tetraeder med hjørner $A$, $B$, $C$, $D$?","options":[{"id":"a","text":"$\\frac{1}{3}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$","isCorrect":false},{"id":"b","text":"$\\frac{1}{6}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$","isCorrect":true},{"id":"c","text":"$\\frac{1}{2}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$","isCorrect":false},{"id":"d","text":"$\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$","isCorrect":false}],"solution":"Tetraederet er en sjettedel av parallellepipedet: faktor $\\frac{1}{3}$ (pyramide) ganger $\\frac{1}{2}$ (trekantbasis)."},{"id":"r2-5-5-n-quiz3-q1","task":"Hva er volumet av tetraederet med hjørner $(0,0,0)$, $(1,0,0)$, $(0,1,0)$ og $(0,0,1)$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{6}$","isCorrect":true}],"solution":"Trippelproduktet av enhetsvektorene er $1$, så $V = \\frac{1}{6} \\cdot 1 = \\frac{1}{6}$."},{"id":"r2-5-5-n-quiz3-q2","task":"Når er tre vektorer koplanare?","options":[{"id":"a","text":"Når trippelproduktet er $0$","isCorrect":true},{"id":"b","text":"Når kryssproduktet er $\\vec{0}$","isCorrect":false},{"id":"c","text":"Når skalarproduktet er $0$","isCorrect":false},{"id":"d","text":"Når de har samme lengde","isCorrect":false}],"solution":"Koplanare vektorer spenner ut et flatklemt parallellepiped med volum null: $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = 0$."}]}},{"id":"r2-5-5-n-summary","type":"text","content":"## Oppsummering\n\nSolseilet og det skjeve lasterommet viste hvordan vektorproduktene måler det som er vrient å måle for hånd. Arealet av et parallellogram utspent av $\\vec{a}$ og $\\vec{b}$ er $A = |\\vec{a} \\times \\vec{b}|$ — kryssproduktets lengde er grunnlinje ganger høyde i én operasjon. Trekanten, som halvt parallellogram, fikk formelen $A = \\frac{1}{2}|\\overrightarrow{AB} \\times \\overrightarrow{AC}|$, og den skjeve trekanten mellom aksene falt på tre regnelinjer med svar $3{,}5$.\n\nI tre dimensjoner kombinerte vi produktene til **trippelproduktet** $[\\vec{a}, \\vec{b}, \\vec{c}] = \\vec{a} \\cdot (\\vec{b} \\times \\vec{c})$ — beregnbart også som determinant, med symmetrien at kryss og prikk kan bytte plass. Absoluttverdien er volumet av parallellepipedet: $V = |\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$, der kryssproduktet leverer grunnflaten og skalarproduktet plukker ut høyden. Fortegnet forteller bare om orienteringen.\n\nTetraederet — geometriens minste byggekloss — fikk volumet $V = \\frac{1}{6}|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})|$, en sjettedel av boksen. Og trippelproduktets nullpunkt viste seg å være en geometrisk lakmustest: tre vektorer er koplanare — ligger i samme plan — hvis og bare hvis trippelproduktet er null, for da er boksen klemt flat.\n\nMønsteret i kapitlet er verdt å ta med videre: lengde, areal og volum i rommet er ikke tre ulike teorier, men én — skalarprodukt, kryssprodukt og kombinasjonen av dem, anvendt med stadig større dybde."}],"exercises":[]}
+{
+  "id": "r2-5-5-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "5.5",
+  "title": "Areal og volum med vektorer",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å måle det skjeve — solseilets areal med kryssproduktet, lasterommets volum med trippelproduktet, tetraedre og testen for koplanare vektorer.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "beregne arealet av et parallellogram med vektorer",
+    "beregne arealet av en trekant i rommet",
+    "beregne volumet av et parallellpipedum",
+    "bruke trippelproduktet til volumberegning"
+  ],
+  "linkedChapterId": "r2-5-5",
+  "content": [
+    {
+      "id": "r2-5-5-n-intro",
+      "type": "text",
+      "content": "## Å måle det skjeve\n\nEt solseil på en satellitt spennes ut mellom to bommer som peker i hver sin retning fra samme feste. Hvor stort blir seilet? Et lasterom i en romstasjon har form som en skjev boks — et parallellepiped — utspent av tre kantvektorer. Hvor mye får du plass til? Vanlige formler som «lengde ganger bredde» bryter sammen når figurene står skjevt i rommet og hjørnene har tre koordinater hver.\n\nMen vektorregningen har allerede gjort grovarbeidet. I forrige kapittel så vi at lengden av kryssproduktet, $|\\vec{a} \\times \\vec{b}| = |\\vec{a}||\\vec{b}|\\sin\\theta$, er nøyaktig arealet av parallellogrammet som $\\vec{a}$ og $\\vec{b}$ spenner ut. I dette kapitlet høster vi gevinsten: arealer av parallellogrammer og trekanter i rommet faller ut av et kryssprodukt og en lengdeberegning — uansett hvor skjevt figuren ligger.\n\nOg så går vi en dimensjon opp. Ved å kombinere de to produktene våre — først kryss, så prikk — får vi **trippelproduktet** $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})$, et tall hvis absoluttverdi er volumet av parallellepipedet de tre vektorene spenner ut. Derfra er veien kort til volumet av et **tetraeder** (en sjettedel av boksen), og til en elegant test: tre vektorer ligger i samme plan — er **koplanare** — nøyaktig når trippelproduktet er null, for da er «boksen» klemt helt flat.\n\nGeometri blir regning: det er fortellingen i dette kapitlet."
+    },
+    {
+      "id": "r2-5-5-n-section1",
+      "type": "text",
+      "content": "## Arealer: parallellogram og trekant\n\nLa oss begynne med solseilet. De to bommene peker langs $\\vec{a} = [1, 2, 0]$ og $\\vec{b} = [3, 0, 4]$, og seilet fyller parallellogrammet mellom dem. Arealet er\n\n$$A = |\\vec{a} \\times \\vec{b}|$$\n\n— det er hele formelen. Begrunnelsen kjenner du fra forrige kapittel: $|\\vec{a} \\times \\vec{b}| = |\\vec{a}||\\vec{b}|\\sin\\theta$, og $|\\vec{b}|\\sin\\theta$ er nettopp høyden i parallellogrammet når $|\\vec{a}|$ er grunnlinjen — grunnlinje ganger høyde, pakket inn i ett kryssprodukt.\n\nVi regner: $\\vec{a} \\times \\vec{b} = [2 \\cdot 4 - 0 \\cdot 0, \\; 0 \\cdot 3 - 1 \\cdot 4, \\; 1 \\cdot 0 - 2 \\cdot 3] = [8, -4, -6]$, og lengden er $\\sqrt{64 + 16 + 36} = \\sqrt{116} = 2\\sqrt{29} \\approx 10{,}77$. Det er seilarealet — ingen vinkelmåling, ingen høydekonstruksjon.\n\nTrekanter følger med på kjøpet, for en trekant er et halvt parallellogram. Trekanten med hjørner $A$, $B$ og $C$ har areal\n\n$$A = \\frac{1}{2}\\left|\\overrightarrow{AB} \\times \\overrightarrow{AC}\\right|$$\n\nog du kan velge hvilke som helst to sidevektorer fra samme hjørne. Prøv med $A = (1, 0, 0)$, $B = (0, 2, 0)$ og $C = (0, 0, 3)$ — en trekant som henger skjevt mellom de tre aksene. Sidevektorene er $\\overrightarrow{AB} = [-1, 2, 0]$ og $\\overrightarrow{AC} = [-1, 0, 3]$, kryssproduktet blir $[6, 3, 2]$, og lengden $\\sqrt{36 + 9 + 4} = \\sqrt{49} = 7$. Arealet er $\\frac{7}{2} = 3{,}5$. En figur det ville vært et mareritt å måle med linjal, falt på tre regnelinjer."
+    },
+    {
+      "id": "r2-5-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på arealer med kryssproduktet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-5-n-quiz1-q0",
+            "task": "Hva er arealet av parallellogrammet utspent av $\\vec{a} = [1, 2, 0]$ og $\\vec{b} = [3, 0, 4]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sqrt{29}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$116$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\sqrt{29}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{a} \\times \\vec{b} = [8, -4, -6]$, og $|[8,-4,-6]| = \\sqrt{116} = 2\\sqrt{29}$."
+          },
+          {
+            "id": "r2-5-5-n-quiz1-q1",
+            "task": "Hvilken formel gir arealet av trekanten $ABC$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\left|\\overrightarrow{AB} \\times \\overrightarrow{AC}\\right|$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}\\overrightarrow{AB} \\cdot \\overrightarrow{AC}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2}\\left|\\overrightarrow{AB}\\right|\\left|\\overrightarrow{AC}\\right|$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2}\\left|\\overrightarrow{AB} \\times \\overrightarrow{AC}\\right|$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Trekanten er halvparten av parallellogrammet: $A = \\frac{1}{2}|\\overrightarrow{AB} \\times \\overrightarrow{AC}|$."
+          },
+          {
+            "id": "r2-5-5-n-quiz1-q2",
+            "task": "Hva er arealet av trekanten med hjørner $A = (1,0,0)$, $B = (0,2,0)$ og $C = (0,0,3)$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$3{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{49}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$14$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\overrightarrow{AB} \\times \\overrightarrow{AC} = [6, 3, 2]$ med lengde $7$, så arealet er $\\frac{1}{2} \\cdot 7 = 3{,}5$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-5-n-section2",
+      "type": "text",
+      "content": "## Trippelproduktet og volumet av den skjeve boksen\n\nNå til lasterommet. Et **parallellepiped** er en «skjev boks» der alle seks sideflater er parallellogrammer, utspent av tre vektorer $\\vec{a}$, $\\vec{b}$ og $\\vec{c}$ fra samme hjørne. Volumet burde være grunnflate ganger høyde — og se hvor pent verktøyene våre samarbeider: grunnflaten er $|\\vec{b} \\times \\vec{c}|$, og høyden er komponenten av $\\vec{a}$ langs normalen $\\vec{b} \\times \\vec{c}$, som skalarproduktet plukker ut. Begge deler i ett uttrykk:\n\n$$V = |\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$$\n\nTallet $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})$ kalles **trippelproduktet** av de tre vektorene, ofte skrevet $[\\vec{a}, \\vec{b}, \\vec{c}]$. Det kan også beregnes direkte som en $3 \\times 3$-determinant med vektorene som rader, og det har en nyttig symmetri: $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = (\\vec{a} \\times \\vec{b}) \\cdot \\vec{c}$ — kryss og prikk kan bytte plass. Absoluttverdien trengs fordi trippelproduktet kan bli negativt; fortegnet avslører bare orienteringen av vektortrioen (høyre- eller venstrehånds), mens volumet alltid er positivt.\n\nLa oss måle et lasterom med kantvektorer $\\vec{a} = [1, 0, 0]$, $\\vec{b} = [1, 2, 0]$ og $\\vec{c} = [1, 2, 3]$. Først grunnflatens normal: $\\vec{b} \\times \\vec{c} = [2 \\cdot 3 - 0 \\cdot 2, \\; 0 \\cdot 1 - 1 \\cdot 3, \\; 1 \\cdot 2 - 2 \\cdot 1] = [6, -3, 0]$. Så prikker vi: $\\vec{a} \\cdot [6, -3, 0] = 6$. Volumet er $|6| = 6$ kubikkenheter. Tre vektorer inn, ett tall ut — den skjeve boksen er målt."
+    },
+    {
+      "id": "r2-5-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på trippelproduktet og volum:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-5-n-quiz2-q0",
+            "task": "Hvilket uttrykk gir volumet av parallellepipedet utspent av $\\vec{a}$, $\\vec{b}$ og $\\vec{c}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$|\\vec{a} \\times \\vec{b} \\times \\vec{c}|$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$|\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$|\\vec{a}||\\vec{b}||\\vec{c}|$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$|(\\vec{a} \\cdot \\vec{b}) \\times \\vec{c}|$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Volumet er absoluttverdien av trippelproduktet: $V = |\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$ — grunnflate ganger høyde i ett uttrykk."
+          },
+          {
+            "id": "r2-5-5-n-quiz2-q1",
+            "task": "Hva er volumet av parallellepipedet utspent av $\\vec{a} = [1,0,0]$, $\\vec{b} = [1,2,0]$ og $\\vec{c} = [1,2,3]$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$9$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{b} \\times \\vec{c} = [6, -3, 0]$ og $\\vec{a} \\cdot [6, -3, 0] = 6$, så $V = |6| = 6$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-5-n-section3",
+      "type": "text",
+      "content": "## Tetraederet — og testen for flate bokser\n\nIkke alle romlegemer er bokser. Et **tetraeder** — pyramiden med fire trekantflater — er den enkleste av alle romlige figurer, og dukker opp overalt fra molekylstrukturer til dataspillgrafikk, der alle 3D-modeller bygges av nettopp tetraedre og trekanter. Volumet henter vi fra parallellepipedet: en pyramide har $\\frac{1}{3}$ av volumet til prismet med samme grunnflate, og trekantprismet er halve parallellepipedet, så til sammen\n\n$$V = \\frac{1}{6}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$$\n\nfor tetraederet med hjørner $A$, $B$, $C$ og $D$. Standardeksemplet er hjørnetetraederet $A = (0,0,0)$, $B = (1,0,0)$, $C = (0,1,0)$, $D = (0,0,1)$: kantvektorene er enhetsvektorene selv, $\\overrightarrow{AC} \\times \\overrightarrow{AD} = [1, 0, 0]$, trippelproduktet blir $1$, og volumet $\\frac{1}{6}$.\n\nTrippelproduktet har én hemmelighet til. Hva betyr det hvis $[\\vec{a}, \\vec{b}, \\vec{c}] = 0$? Da har parallellepipedet volum null — boksen er klemt helt flat. Det skjer nøyaktig når de tre vektorene ligger i samme plan, altså er **koplanare**:\n\n$$\\vec{a}, \\vec{b}, \\vec{c} \\text{ koplanare} \\iff \\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = 0$$\n\nTest vektorene $\\vec{a} = [1, 2, 3]$, $\\vec{b} = [4, 5, 6]$ og $\\vec{c} = [7, 8, 9]$: $\\vec{b} \\times \\vec{c} = [45 - 48, \\; 42 - 36, \\; 32 - 35] = [-3, 6, -3]$, og $\\vec{a} \\cdot [-3, 6, -3] = -3 + 12 - 9 = 0$. Koplanare! Og ser du nøye etter, skjønner du hvorfor: differansene $\\vec{b} - \\vec{a}$ og $\\vec{c} - \\vec{b}$ er begge $[3, 3, 3]$ — vektorene ligger på rekke i samme plan. Et tall som er null, og en hel geometrisk sannhet følger med."
+    },
+    {
+      "id": "r2-5-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-5-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på tetraeder og koplanaritet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-5-5-n-quiz3-q0",
+            "task": "Hva er volumformelen for et tetraeder med hjørner $A$, $B$, $C$, $D$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{3}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{2}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{6}\\left|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})\\right|$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Tetraederet er en sjettedel av parallellepipedet: faktor $\\frac{1}{3}$ (pyramide) ganger $\\frac{1}{2}$ (trekantbasis)."
+          },
+          {
+            "id": "r2-5-5-n-quiz3-q1",
+            "task": "Hva er volumet av tetraederet med hjørner $(0,0,0)$, $(1,0,0)$, $(0,1,0)$ og $(0,0,1)$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trippelproduktet av enhetsvektorene er $1$, så $V = \\frac{1}{6} \\cdot 1 = \\frac{1}{6}$."
+          },
+          {
+            "id": "r2-5-5-n-quiz3-q2",
+            "task": "Når er tre vektorer koplanare?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når kryssproduktet er $\\vec{0}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når trippelproduktet er $0$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Når skalarproduktet er $0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når de har samme lengde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Koplanare vektorer spenner ut et flatklemt parallellepiped med volum null: $\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = 0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-5-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nSolseilet og det skjeve lasterommet viste hvordan vektorproduktene måler det som er vrient å måle for hånd. Arealet av et parallellogram utspent av $\\vec{a}$ og $\\vec{b}$ er $A = |\\vec{a} \\times \\vec{b}|$ — kryssproduktets lengde er grunnlinje ganger høyde i én operasjon. Trekanten, som halvt parallellogram, fikk formelen $A = \\frac{1}{2}|\\overrightarrow{AB} \\times \\overrightarrow{AC}|$, og den skjeve trekanten mellom aksene falt på tre regnelinjer med svar $3{,}5$.\n\nI tre dimensjoner kombinerte vi produktene til **trippelproduktet** $[\\vec{a}, \\vec{b}, \\vec{c}] = \\vec{a} \\cdot (\\vec{b} \\times \\vec{c})$ — beregnbart også som determinant, med symmetrien at kryss og prikk kan bytte plass. Absoluttverdien er volumet av parallellepipedet: $V = |\\vec{a} \\cdot (\\vec{b} \\times \\vec{c})|$, der kryssproduktet leverer grunnflaten og skalarproduktet plukker ut høyden. Fortegnet forteller bare om orienteringen.\n\nTetraederet — geometriens minste byggekloss — fikk volumet $V = \\frac{1}{6}|\\overrightarrow{AB} \\cdot (\\overrightarrow{AC} \\times \\overrightarrow{AD})|$, en sjettedel av boksen. Og trippelproduktets nullpunkt viste seg å være en geometrisk lakmustest: tre vektorer er koplanare — ligger i samme plan — hvis og bare hvis trippelproduktet er null, for da er boksen klemt flat.\n\nMønsteret i kapitlet er verdt å ta med videre: lengde, areal og volum i rommet er ikke tre ulike teorier, men én — skalarprodukt, kryssprodukt og kombinasjonen av dem, anvendt med stadig større dybde."
+    }
+  ],
+  "exercises": []
+}

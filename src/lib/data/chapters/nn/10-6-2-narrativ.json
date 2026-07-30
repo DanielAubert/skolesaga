@@ -1,1 +1,361 @@
-{"id":"10-6-2-narrativ","courseId":"10","chapterNumber":"6.2","title":"Vekstfaktor","subtitle":"Narrativ versjon","description":"Forstå kraften i eksponentiell vekst -- frå bakteriekolonier og befolkningsvekst til bilverdi og sparekonto.","estimatedMinutes":35,"competenceGoals":["utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor"],"linkedChapterId":"10-6-2","content":[{"id":"10-6-2-n-intro","type":"text","content":"## Vekstfaktor -- det magiske gangetallet\n\nI førre kapittel såg vi at prosentvise endringar handlar om å gange med eit tal. Ein auke på 20% betyr at vi gangar med 1,20. Ein nedgang på 15% betyr at vi gangar med 0,85. Dette gangetallet kallast **vekstfaktor**, og det er nøkkelen til å forstå eksponentiell vekst og nedgang.\n\n**Vekstfaktor** er talet vi gangar med for å få ny verdi etter ein prosentvis endring:\n\n$$\\text{vekstfaktor} = 1 + \\frac{p}{100}$$\n\nder $p$ er prosentendringen (positiv for auke, negativ for reduksjon).\n\nNokon døme: 8% auke gir vekstfaktor $1{,}08$. 15% reduksjon gir $0{,}85$. Dobling gir $2$. Halvering gir $0{,}5$.\n\nNår vekstfaktoren er større enn 1, aukar verdien. Når ho er mindre enn 1, synkar verdien. Og den andre vegen: ein vekstfaktor på $1{,}15$ betyr 15% auke, medan $0{,}72$ betyr 28% reduksjon (fordi $1 - 0{,}72 = 0{,}28$)."},{"id":"10-6-2-n-section1","type":"text","content":"## Gjentatt prosentvis endring -- eksponentiell vekst\n\nDet verkeleg kraftige med vekstfaktor er når same endring skjer fleire gonger. I staden for å berekne kvar endring for seg, brukar vi:\n\n$$\\text{ny verdi} = \\text{gammal verdi} \\cdot v^n$$\n\nder $v$ er vekstfaktoren og $n$ er antal periodar.\n\nEin investering på 50 000 kr veks med 6% per år. Etter 8 år:\n$$50\\,000 \\cdot 1{,}06^8 = 50\\,000 \\cdot 1{,}594 \\approx 79\\,692 \\text{ kr}$$\n\nEin bil til 400 000 kr mistar 18% av verdien kvar år. Etter 5 år:\n$$400\\,000 \\cdot 0{,}82^5 = 400\\,000 \\cdot 0{,}371 \\approx 148\\,481 \\text{ kr}$$\n\nBilen har altso mista over halvparten av verdien på 5 år! Ein sparekonto med 20 000 kr og 4% rente gir etter 5 år: $20\\,000 \\cdot 1{,}04^5 \\approx 24\\,333$ kr.\n\nEin bakteriekoloni dobblas kvar time. Med 100 bakteriar i starten: etter 6 timar er det $100 \\cdot 2^6 = 6400$ bakteriar. Eit radioaktivt stoff halvast kvart 5. år. Av 200 g gjenstår etter 20 år (4 halveringspariodar): $200 \\cdot 0{,}5^4 = 12{,}5$ g."},{"id":"10-6-2-n-quiz1","type":"exercise","exercise":{"id":"10-6-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på vekstfaktor og eksponentiell vekst:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-6-2-n-quiz1-q0","task":"Kva er vekstfaktoren for 3,5% auke?","options":[{"id":"a","text":"$0{,}035$","isCorrect":false},{"id":"b","text":"$1{,}035$","isCorrect":true},{"id":"c","text":"$1{,}35$","isCorrect":false},{"id":"d","text":"$0{,}965$","isCorrect":false}],"solution":"Vekstfaktor $= 1 + 0{,}035 = 1{,}035$."},{"id":"10-6-2-n-quiz1-q1","task":"Ein vekstfaktor på $0{,}72$ betyr:","options":[{"id":"a","text":"72% auke","isCorrect":false},{"id":"b","text":"72% reduksjon","isCorrect":false},{"id":"c","text":"28% reduksjon","isCorrect":true},{"id":"d","text":"28% auke","isCorrect":false}],"solution":"$(1 - 0{,}72) \\cdot 100\\% = 28\\%$ reduksjon. Verdien er 72% av det opphavlege."},{"id":"10-6-2-n-quiz1-q2","task":"Ein maskin til 150 000 kr mistar 25% av verdien årleg. Kva er ho verdt etter 3 år?","options":[{"id":"a","text":"Ca. $75\\,000$ kr","isCorrect":false},{"id":"b","text":"Ca. $63\\,281$ kr","isCorrect":true},{"id":"c","text":"Ca. $37\\,500$ kr","isCorrect":false},{"id":"d","text":"Ca. $112\\,500$ kr","isCorrect":false}],"solution":"$150\\,000 \\cdot 0{,}75^3 = 150\\,000 \\cdot 0{,}4219 \\approx 63\\,281$ kr."},{"id":"10-6-2-n-quiz1-q3","task":"Ein PC mistar 30% av verdien årleg. Etter kor mange år er ho verdt under halvparten?","options":[{"id":"a","text":"1 år","isCorrect":false},{"id":"b","text":"2 år","isCorrect":true},{"id":"c","text":"3 år","isCorrect":false},{"id":"d","text":"4 år","isCorrect":false}],"solution":"$0{,}70^2 = 0{,}49 < 0{,}5$. Allereie etter 2 år er ho verdt under halvparten."}]}},{"id":"10-6-2-n-section2","type":"text","content":"## Doblingtid og 70-regelen\n\nKor lang tid tek det å doble ein investering? Det heng av renta, og det finst ein elegant tommelfingerregel:\n\n$$\\text{Doblingtid} \\approx \\frac{70}{\\text{vekstprosent}}$$\n\nMed 7% årleg vekst tek det ca. $\\frac{70}{7} = 10$ år å doble. Med 5% rente: ca. $\\frac{70}{5} = 14$ år. La oss sjekke: $1{,}05^{14} \\approx 1{,}98$ -- nesten nøyaktig dobla!\n\nEin investering som dobla seg på 5 år må ha hatt ca. $\\frac{70}{5} = 14\\%$ årleg rente.\n\nFor halveringtid gjeld det same. Eit medikament i blodet halvast kvar 4. time. Av 100 mg gjenstår etter 12 timar (3 halveringspariodar): $100 \\cdot 0{,}5^3 = 12{,}5$ mg.\n\nNår vi treng nøyaktig antal periodar, brukar vi prøving og feil. Døme: Kor mange år tek det før 10 000 kr blir til 15 000 kr med 8% rente?\n\n$1{,}08^5 \\approx 1{,}47$ gir ca. 14 693 kr -- ikkje nok. $1{,}08^6 \\approx 1{,}59$ gir ca. 15 869 kr -- nok! Svar: 6 år."},{"id":"10-6-2-n-section3","type":"text","content":"## Finne årleg vekstrate og samanlikne scenario\n\nNokon gonger kjenner vi start- og sluttverdien og vil finne den årlege vekstraten. Ein aksje auka frå 150 kr til 240 kr på 4 år. Kva var den årlege vekstraten?\n\n$$v^4 = \\frac{240}{150} = 1{,}6 \\quad \\Rightarrow \\quad v = \\sqrt[4]{1{,}6} \\approx 1{,}125$$\n\nÅrleg vekstrate: $12{,}5\\%$.\n\nVi kan også samanlikne ulike vekstscenario. Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?\n\n- A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr\n- B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr\n\nÒverraskande nok er det mindre beløpet med høgare rente som vinn! Renta har enorm kraft over lang tid.\n\nPraktiske anvendingar: Inflasjonen er 4% per år -- ein lunsj til 120 kr kostar om 10 år: $120 \\cdot 1{,}04^{10} \\approx 178$ kr. Noreg sitt befolking på 5,5 millionar med 0,8% vekst per år gir om 25 år: $5{,}5 \\cdot 1{,}008^{25} \\approx 6{,}7$ millionar.\n\nMen kan eksponentiell vekst halde fram for alltid? Nei! Bakteriar som dobblas kvar time gir etter 48 timar $2^{48} \\approx 281$ billionar. Ressursgrensingar vil alltid stoppe veksten."},{"id":"10-6-2-n-quiz2","type":"exercise","exercise":{"id":"10-6-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på doblingtid og praktiske anvendingar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-6-2-n-quiz2-q0","task":"Med 2% årleg befolkningsvekst, omtrent kor lang tid tek det før befolkninga dobblas?","options":[{"id":"a","text":"Ca. 20 år","isCorrect":false},{"id":"b","text":"Ca. 35 år","isCorrect":true},{"id":"c","text":"Ca. 50 år","isCorrect":false},{"id":"d","text":"Ca. 70 år","isCorrect":false}],"solution":"70-regelen: $\\frac{70}{2} = 35$ år."},{"id":"10-6-2-n-quiz2-q1","task":"Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?","options":[{"id":"a","text":"80 000 kr med 6% (ca. 191 736 kr)","isCorrect":true},{"id":"b","text":"100 000 kr med 4% (ca. 180 094 kr)","isCorrect":false},{"id":"c","text":"Like gode","isCorrect":false},{"id":"d","text":"Avheng av inflasjonen","isCorrect":false}],"solution":"A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr. B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr. Høgare rente vinn over tid!"},{"id":"10-6-2-n-quiz2-q2","task":"Prisane stig 3% per år. Kva kostar ei vare til 500 kr om 15 år?","options":[{"id":"a","text":"Ca. $725$ kr","isCorrect":false},{"id":"b","text":"Ca. $779$ kr","isCorrect":true},{"id":"c","text":"Ca. $650$ kr","isCorrect":false},{"id":"d","text":"Ca. $900$ kr","isCorrect":false}],"solution":"$500 \\cdot 1{,}03^{15} \\approx 779$ kr."},{"id":"10-6-2-n-quiz2-q3","task":"Ein investering voks frå 25 000 kr til 40 000 kr på 10 år. Kva er årleg vekstrate?","options":[{"id":"a","text":"Ca. 4,8% per år","isCorrect":true},{"id":"b","text":"Ca. 6,0% per år","isCorrect":false},{"id":"c","text":"Ca. 16% per år","isCorrect":false},{"id":"d","text":"Ca. 3,5% per år","isCorrect":false}],"solution":"$v^{10} = \\frac{40\\,000}{25\\,000} = 1{,}6 \\Rightarrow v = 1{,}6^{0{,}1} \\approx 1{,}048$. Ca. 4,8% per år."}]}},{"id":"10-6-2-n-summary","type":"text","content":"## Samanfatning\n\n- **Vekstfaktor:** Talet vi ganger med: $v = 1 + \\frac{p}{100}$. Større enn 1 = vekst. Mindre enn 1 = nedgang.\n\n- **Gjenteken endring:** $\\text{ny verdi} = \\text{gamal verdi} \\cdot v^n$, der $v$ er vekstfaktoren og $n$ er antal periodar.\n\n- **70-regelen:** Doblingtid $\\approx \\frac{70}{\\text{vekstprosent}}$. Nyttig for raske overslag.\n\n- **Finne vekstrate:** Samla vekstfaktor = sluttverdi / startverdi. Årleg faktor = ta $n$-te rot.\n\n- **Eksponentiell vekst** er uvanleg kraftig over tid: høgare rente på lågare beløp kan slå lågare rente på høgare beløp.\n\n- **Vekst kan ikkje vare eitt:** Ressursgrensingar stoppar alltid eksponentiell vekst i praksis."}],"exercises":[],"_meta":{"sourceHash":"ca168c060c285aec","translatedAt":"2026-06-16T09:46:17.797Z","model":"claude-haiku-4-5-20251001","strings":57,"tm":{"60a86ef28de84f1d":"Vekstfaktor","b195b06d1ed59702":"Narrativ versjon","b521f2b2ccf4dfb4":"Forstå kraften i eksponentiell vekst -- frå bakteriekolonier og befolkningsvekst til bilverdi og sparekonto.","a85b1c9d6fff6c53":"utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor","272a11a077261980":"## Vekstfaktor -- det magiske gangetallet\n\nI førre kapittel såg vi at prosentvise endringar handlar om å gange med eit tal. Ein auke på 20% betyr at vi gangar med 1,20. Ein nedgang på 15% betyr at vi gangar med 0,85. Dette gangetallet kallast **vekstfaktor**, og det er nøkkelen til å forstå eksponentiell vekst og nedgang.\n\n**Vekstfaktor** er talet vi gangar med for å få ny verdi etter ein prosentvis endring:\n\n$$\\text{vekstfaktor} = 1 + \\frac{p}{100}$$\n\nder $p$ er prosentendringen (positiv for auke, negativ for reduksjon).\n\nNokon døme: 8% auke gir vekstfaktor $1{,}08$. 15% reduksjon gir $0{,}85$. Dobling gir $2$. Halvering gir $0{,}5$.\n\nNår vekstfaktoren er større enn 1, aukar verdien. Når ho er mindre enn 1, synkar verdien. Og den andre vegen: ein vekstfaktor på $1{,}15$ betyr 15% auke, medan $0{,}72$ betyr 28% reduksjon (fordi $1 - 0{,}72 = 0{,}28$).","bc7da409f5fdea8d":"## Gjentatt prosentvis endring -- eksponentiell vekst\n\nDet verkeleg kraftige med vekstfaktor er når same endring skjer fleire gonger. I staden for å berekne kvar endring for seg, brukar vi:\n\n$$\\text{ny verdi} = \\text{gammal verdi} \\cdot v^n$$\n\nder $v$ er vekstfaktoren og $n$ er antal periodar.\n\nEin investering på 50 000 kr veks med 6% per år. Etter 8 år:\n$$50\\,000 \\cdot 1{,}06^8 = 50\\,000 \\cdot 1{,}594 \\approx 79\\,692 \\text{ kr}$$\n\nEin bil til 400 000 kr mistar 18% av verdien kvar år. Etter 5 år:\n$$400\\,000 \\cdot 0{,}82^5 = 400\\,000 \\cdot 0{,}371 \\approx 148\\,481 \\text{ kr}$$\n\nBilen har altso mista over halvparten av verdien på 5 år! Ein sparekonto med 20 000 kr og 4% rente gir etter 5 år: $20\\,000 \\cdot 1{,}04^5 \\approx 24\\,333$ kr.\n\nEin bakteriekoloni dobblas kvar time. Med 100 bakteriar i starten: etter 6 timar er det $100 \\cdot 2^6 = 6400$ bakteriar. Eit radioaktivt stoff halvast kvart 5. år. Av 200 g gjenstår etter 20 år (4 halveringspariodar): $200 \\cdot 0{,}5^4 = 12{,}5$ g.","4c91464306d5e1e7":"Test deg sjølv på vekstfaktor og eksponentiell vekst:","4097889236a2af26":"placeholder","2b418da2fbc05ed5":"Kva er vekstfaktoren for 3,5% auke?","6093da430901a6a5":"Vekstfaktor $= 1 + 0{,}035 = 1{,}035$.","f186fd1626c43fc2":"Ein vekstfaktor på $0{,}72$ betyr:","f294cf6e1a22dca3":"72% auke","aa4b0c0ab0998d47":"72% reduksjon","c6e1b24e320df8e2":"28% reduksjon","60468c77ba0b169a":"28% auke","b020512ec8804b0a":"$(1 - 0{,}72) \\cdot 100\\% = 28\\%$ reduksjon. Verdien er 72% av det opphavlege.","4f6fc1c9f4516a78":"Ein maskin til 150 000 kr mistar 25% av verdien årleg. Kva er ho verdt etter 3 år?","ca6eea60bb1e2d54":"Ca. $75\\,000$ kr","a6645a11749acbc7":"Ca. $63\\,281$ kr","86dc096ac1fe6ec4":"Ca. $37\\,500$ kr","9ff29ce620a0b97d":"Ca. $112\\,500$ kr","fb05b316c0a89e29":"$150\\,000 \\cdot 0{,}75^3 = 150\\,000 \\cdot 0{,}4219 \\approx 63\\,281$ kr.","e49b8593b3d1ea8a":"Ein PC mistar 30% av verdien årleg. Etter kor mange år er ho verdt under halvparten?","6408050799a5ec78":"1 år","806b0b17e8eaa5f5":"2 år","de8d3466351b8f15":"3 år","bcf47ee4ba478d7e":"4 år","de5ff83752e7f487":"$0{,}70^2 = 0{,}49 < 0{,}5$. Allereie etter 2 år er ho verdt under halvparten.","2781532a70e040a8":"## Doblingtid og 70-regelen\n\nKor lang tid tek det å doble ein investering? Det heng av renta, og det finst ein elegant tommelfingerregel:\n\n$$\\text{Doblingtid} \\approx \\frac{70}{\\text{vekstprosent}}$$\n\nMed 7% årleg vekst tek det ca. $\\frac{70}{7} = 10$ år å doble. Med 5% rente: ca. $\\frac{70}{5} = 14$ år. La oss sjekke: $1{,}05^{14} \\approx 1{,}98$ -- nesten nøyaktig dobla!\n\nEin investering som dobla seg på 5 år må ha hatt ca. $\\frac{70}{5} = 14\\%$ årleg rente.\n\nFor halveringtid gjeld det same. Eit medikament i blodet halvast kvar 4. time. Av 100 mg gjenstår etter 12 timar (3 halveringspariodar): $100 \\cdot 0{,}5^3 = 12{,}5$ mg.\n\nNår vi treng nøyaktig antal periodar, brukar vi prøving og feil. Døme: Kor mange år tek det før 10 000 kr blir til 15 000 kr med 8% rente?\n\n$1{,}08^5 \\approx 1{,}47$ gir ca. 14 693 kr -- ikkje nok. $1{,}08^6 \\approx 1{,}59$ gir ca. 15 869 kr -- nok! Svar: 6 år.","1b601fe6c5efd273":"## Finne årleg vekstrate og samanlikne scenario\n\nNokon gonger kjenner vi start- og sluttverdien og vil finne den årlege vekstraten. Ein aksje auka frå 150 kr til 240 kr på 4 år. Kva var den årlege vekstraten?\n\n$$v^4 = \\frac{240}{150} = 1{,}6 \\quad \\Rightarrow \\quad v = \\sqrt[4]{1{,}6} \\approx 1{,}125$$\n\nÅrleg vekstrate: $12{,}5\\%$.\n\nVi kan også samanlikne ulike vekstscenario. Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?\n\n- A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr\n- B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr\n\nÒverraskande nok er det mindre beløpet med høgare rente som vinn! Renta har enorm kraft over lang tid.\n\nPraktiske anvendingar: Inflasjonen er 4% per år -- ein lunsj til 120 kr kostar om 10 år: $120 \\cdot 1{,}04^{10} \\approx 178$ kr. Noreg sitt befolking på 5,5 millionar med 0,8% vekst per år gir om 25 år: $5{,}5 \\cdot 1{,}008^{25} \\approx 6{,}7$ millionar.\n\nMen kan eksponentiell vekst halde fram for alltid? Nei! Bakteriar som dobblas kvar time gir etter 48 timar $2^{48} \\approx 281$ billionar. Ressursgrensingar vil alltid stoppe veksten.","6cdbb285ac819222":"Test deg sjølv på doblingtid og praktiske anvendingar:","0742ff75f1f67ac4":"Med 2% årleg befolkningsvekst, omtrent kor lang tid tek det før befolkninga dobblas?","320d68688ca50644":"Ca. 20 år","f877dbba60b05b17":"Ca. 35 år","6bf3f0c5df16df07":"Ca. 50 år","7ee33a1d2887e713":"Ca. 70 år","706aaec3aba26fc2":"70-regelen: $\\frac{70}{2} = 35$ år.","9283bb1eee9366e9":"Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?","d92c3fc6eaa24b0c":"80 000 kr med 6% (ca. 191 736 kr)","e092092769f37c2e":"100 000 kr med 4% (ca. 180 094 kr)","9306e7105ce84763":"Like gode","bdc6230fd62ae67b":"Avheng av inflasjonen","08eeafe052bf6158":"A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr. B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr. Høgare rente vinn over tid!","c9cfa55e466d58a8":"Prisane stig 3% per år. Kva kostar ei vare til 500 kr om 15 år?","8c07c47248d290a2":"Ca. $725$ kr","f2bd2faef9c974dd":"Ca. $779$ kr","ae4c8103c9ec5cda":"Ca. $650$ kr","9034b578567c6d58":"Ca. $900$ kr","684b7427f328ea5d":"$500 \\cdot 1{,}03^{15} \\approx 779$ kr.","0cfadbd63f91327a":"Ein investering voks frå 25 000 kr til 40 000 kr på 10 år. Kva er årleg vekstrate?","b8e6b0f1ab7cbbfd":"Ca. 4,8% per år","0a8f8b69c0775a92":"Ca. 6,0% per år","33d86f3686c8f20a":"Ca. 16% per år","cbbf797d608bdb94":"Ca. 3,5% per år","b61f90f4c2a2d187":"$v^{10} = \\frac{40\\,000}{25\\,000} = 1{,}6 \\Rightarrow v = 1{,}6^{0{,}1} \\approx 1{,}048$. Ca. 4,8% per år.","e9ef3f96c2b22461":"## Samanfatning\n\n- **Vekstfaktor:** Talet vi ganger med: $v = 1 + \\frac{p}{100}$. Større enn 1 = vekst. Mindre enn 1 = nedgang.\n\n- **Gjenteken endring:** $\\text{ny verdi} = \\text{gamal verdi} \\cdot v^n$, der $v$ er vekstfaktoren og $n$ er antal periodar.\n\n- **70-regelen:** Doblingtid $\\approx \\frac{70}{\\text{vekstprosent}}$. Nyttig for raske overslag.\n\n- **Finne vekstrate:** Samla vekstfaktor = sluttverdi / startverdi. Årleg faktor = ta $n$-te rot.\n\n- **Eksponentiell vekst** er uvanleg kraftig over tid: høgare rente på lågare beløp kan slå lågare rente på høgare beløp.\n\n- **Vekst kan ikkje vare eitt:** Ressursgrensingar stoppar alltid eksponentiell vekst i praksis."}}}
+{
+  "id": "10-6-2-narrativ",
+  "courseId": "10",
+  "chapterNumber": "6.2",
+  "title": "Vekstfaktor",
+  "subtitle": "Narrativ versjon",
+  "description": "Forstå kraften i eksponentiell vekst -- frå bakteriekolonier og befolkningsvekst til bilverdi og sparekonto.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor"
+  ],
+  "linkedChapterId": "10-6-2",
+  "content": [
+    {
+      "id": "10-6-2-n-intro",
+      "type": "text",
+      "content": "## Vekstfaktor -- det magiske gangetallet\n\nI førre kapittel såg vi at prosentvise endringar handlar om å gange med eit tal. Ein auke på 20% betyr at vi gangar med 1,20. Ein nedgang på 15% betyr at vi gangar med 0,85. Dette gangetallet kallast **vekstfaktor**, og det er nøkkelen til å forstå eksponentiell vekst og nedgang.\n\n**Vekstfaktor** er talet vi gangar med for å få ny verdi etter ein prosentvis endring:\n\n$$\\text{vekstfaktor} = 1 + \\frac{p}{100}$$\n\nder $p$ er prosentendringen (positiv for auke, negativ for reduksjon).\n\nNokon døme: 8% auke gir vekstfaktor $1{,}08$. 15% reduksjon gir $0{,}85$. Dobling gir $2$. Halvering gir $0{,}5$.\n\nNår vekstfaktoren er større enn 1, aukar verdien. Når ho er mindre enn 1, synkar verdien. Og den andre vegen: ein vekstfaktor på $1{,}15$ betyr 15% auke, medan $0{,}72$ betyr 28% reduksjon (fordi $1 - 0{,}72 = 0{,}28$)."
+    },
+    {
+      "id": "10-6-2-n-section1",
+      "type": "text",
+      "content": "## Gjentatt prosentvis endring -- eksponentiell vekst\n\nDet verkeleg kraftige med vekstfaktor er når same endring skjer fleire gonger. I staden for å berekne kvar endring for seg, brukar vi:\n\n$$\\text{ny verdi} = \\text{gammal verdi} \\cdot v^n$$\n\nder $v$ er vekstfaktoren og $n$ er antal periodar.\n\nEin investering på 50 000 kr veks med 6% per år. Etter 8 år:\n$$50\\,000 \\cdot 1{,}06^8 = 50\\,000 \\cdot 1{,}594 \\approx 79\\,692 \\text{ kr}$$\n\nEin bil til 400 000 kr mistar 18% av verdien kvar år. Etter 5 år:\n$$400\\,000 \\cdot 0{,}82^5 = 400\\,000 \\cdot 0{,}371 \\approx 148\\,481 \\text{ kr}$$\n\nBilen har altso mista over halvparten av verdien på 5 år! Ein sparekonto med 20 000 kr og 4% rente gir etter 5 år: $20\\,000 \\cdot 1{,}04^5 \\approx 24\\,333$ kr.\n\nEin bakteriekoloni dobblas kvar time. Med 100 bakteriar i starten: etter 6 timar er det $100 \\cdot 2^6 = 6400$ bakteriar. Eit radioaktivt stoff halvast kvart 5. år. Av 200 g gjenstår etter 20 år (4 halveringspariodar): $200 \\cdot 0{,}5^4 = 12{,}5$ g."
+    },
+    {
+      "id": "10-6-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-6-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på vekstfaktor og eksponentiell vekst:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-6-2-n-quiz1-q0",
+            "task": "Kva er vekstfaktoren for 3,5% auke?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}035$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1{,}35$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}035$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0{,}965$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vekstfaktor $= 1 + 0{,}035 = 1{,}035$."
+          },
+          {
+            "id": "10-6-2-n-quiz1-q1",
+            "task": "Ein vekstfaktor på $0{,}72$ betyr:",
+            "options": [
+              {
+                "id": "a",
+                "text": "72% auke",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "72% reduksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "28% reduksjon",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "28% auke",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(1 - 0{,}72) \\cdot 100\\% = 28\\%$ reduksjon. Verdien er 72% av det opphavlege."
+          },
+          {
+            "id": "10-6-2-n-quiz1-q2",
+            "task": "Ein maskin til 150 000 kr mistar 25% av verdien årleg. Kva er ho verdt etter 3 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. $75\\,000$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $37\\,500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $112\\,500$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. $63\\,281$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$150\\,000 \\cdot 0{,}75^3 = 150\\,000 \\cdot 0{,}4219 \\approx 63\\,281$ kr."
+          },
+          {
+            "id": "10-6-2-n-quiz1-q3",
+            "task": "Ein PC mistar 30% av verdien årleg. Etter kor mange år er ho verdt under halvparten?",
+            "options": [
+              {
+                "id": "a",
+                "text": "1 år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "2 år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "3 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "4 år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$0{,}70^2 = 0{,}49 < 0{,}5$. Allereie etter 2 år er ho verdt under halvparten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-6-2-n-section2",
+      "type": "text",
+      "content": "## Doblingtid og 70-regelen\n\nKor lang tid tek det å doble ein investering? Det heng av renta, og det finst ein elegant tommelfingerregel:\n\n$$\\text{Doblingtid} \\approx \\frac{70}{\\text{vekstprosent}}$$\n\nMed 7% årleg vekst tek det ca. $\\frac{70}{7} = 10$ år å doble. Med 5% rente: ca. $\\frac{70}{5} = 14$ år. La oss sjekke: $1{,}05^{14} \\approx 1{,}98$ -- nesten nøyaktig dobla!\n\nEin investering som dobla seg på 5 år må ha hatt ca. $\\frac{70}{5} = 14\\%$ årleg rente.\n\nFor halveringtid gjeld det same. Eit medikament i blodet halvast kvar 4. time. Av 100 mg gjenstår etter 12 timar (3 halveringspariodar): $100 \\cdot 0{,}5^3 = 12{,}5$ mg.\n\nNår vi treng nøyaktig antal periodar, brukar vi prøving og feil. Døme: Kor mange år tek det før 10 000 kr blir til 15 000 kr med 8% rente?\n\n$1{,}08^5 \\approx 1{,}47$ gir ca. 14 693 kr -- ikkje nok. $1{,}08^6 \\approx 1{,}59$ gir ca. 15 869 kr -- nok! Svar: 6 år."
+    },
+    {
+      "id": "10-6-2-n-section3",
+      "type": "text",
+      "content": "## Finne årleg vekstrate og samanlikne scenario\n\nNokon gonger kjenner vi start- og sluttverdien og vil finne den årlege vekstraten. Ein aksje auka frå 150 kr til 240 kr på 4 år. Kva var den årlege vekstraten?\n\n$$v^4 = \\frac{240}{150} = 1{,}6 \\quad \\Rightarrow \\quad v = \\sqrt[4]{1{,}6} \\approx 1{,}125$$\n\nÅrleg vekstrate: $12{,}5\\%$.\n\nVi kan også samanlikne ulike vekstscenario. Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?\n\n- A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr\n- B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr\n\nÒverraskande nok er det mindre beløpet med høgare rente som vinn! Renta har enorm kraft over lang tid.\n\nPraktiske anvendingar: Inflasjonen er 4% per år -- ein lunsj til 120 kr kostar om 10 år: $120 \\cdot 1{,}04^{10} \\approx 178$ kr. Noreg sitt befolking på 5,5 millionar med 0,8% vekst per år gir om 25 år: $5{,}5 \\cdot 1{,}008^{25} \\approx 6{,}7$ millionar.\n\nMen kan eksponentiell vekst halde fram for alltid? Nei! Bakteriar som dobblas kvar time gir etter 48 timar $2^{48} \\approx 281$ billionar. Ressursgrensingar vil alltid stoppe veksten."
+    },
+    {
+      "id": "10-6-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-6-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på doblingtid og praktiske anvendingar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-6-2-n-quiz2-q0",
+            "task": "Med 2% årleg befolkningsvekst, omtrent kor lang tid tek det før befolkninga dobblas?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 20 år",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 35 år",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Ca. 50 år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 70 år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "70-regelen: $\\frac{70}{2} = 35$ år."
+          },
+          {
+            "id": "10-6-2-n-quiz2-q1",
+            "task": "Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?",
+            "options": [
+              {
+                "id": "a",
+                "text": "80 000 kr med 6% (ca. 191 736 kr)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "100 000 kr med 4% (ca. 180 094 kr)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Like gode",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avheng av inflasjonen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr. B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr. Høgare rente vinn over tid!"
+          },
+          {
+            "id": "10-6-2-n-quiz2-q2",
+            "task": "Prisane stig 3% per år. Kva kostar ei vare til 500 kr om 15 år?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. $725$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. $650$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. $900$ kr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. $779$ kr",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$500 \\cdot 1{,}03^{15} \\approx 779$ kr."
+          },
+          {
+            "id": "10-6-2-n-quiz2-q3",
+            "task": "Ein investering voks frå 25 000 kr til 40 000 kr på 10 år. Kva er årleg vekstrate?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 4,8% per år",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ca. 6,0% per år",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 16% per år",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ca. 3,5% per år",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$v^{10} = \\frac{40\\,000}{25\\,000} = 1{,}6 \\Rightarrow v = 1{,}6^{0{,}1} \\approx 1{,}048$. Ca. 4,8% per år."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-6-2-n-summary",
+      "type": "text",
+      "content": "## Samanfatning\n\n- **Vekstfaktor:** Talet vi ganger med: $v = 1 + \\frac{p}{100}$. Større enn 1 = vekst. Mindre enn 1 = nedgang.\n\n- **Gjenteken endring:** $\\text{ny verdi} = \\text{gamal verdi} \\cdot v^n$, der $v$ er vekstfaktoren og $n$ er antal periodar.\n\n- **70-regelen:** Doblingtid $\\approx \\frac{70}{\\text{vekstprosent}}$. Nyttig for raske overslag.\n\n- **Finne vekstrate:** Samla vekstfaktor = sluttverdi / startverdi. Årleg faktor = ta $n$-te rot.\n\n- **Eksponentiell vekst** er uvanleg kraftig over tid: høgare rente på lågare beløp kan slå lågare rente på høgare beløp.\n\n- **Vekst kan ikkje vare eitt:** Ressursgrensingar stoppar alltid eksponentiell vekst i praksis."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "ca168c060c285aec",
+    "translatedAt": "2026-06-16T09:46:17.797Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 57,
+    "tm": {
+      "60a86ef28de84f1d": "Vekstfaktor",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "b521f2b2ccf4dfb4": "Forstå kraften i eksponentiell vekst -- frå bakteriekolonier og befolkningsvekst til bilverdi og sparekonto.",
+      "a85b1c9d6fff6c53": "utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor",
+      "272a11a077261980": "## Vekstfaktor -- det magiske gangetallet\n\nI førre kapittel såg vi at prosentvise endringar handlar om å gange med eit tal. Ein auke på 20% betyr at vi gangar med 1,20. Ein nedgang på 15% betyr at vi gangar med 0,85. Dette gangetallet kallast **vekstfaktor**, og det er nøkkelen til å forstå eksponentiell vekst og nedgang.\n\n**Vekstfaktor** er talet vi gangar med for å få ny verdi etter ein prosentvis endring:\n\n$$\\text{vekstfaktor} = 1 + \\frac{p}{100}$$\n\nder $p$ er prosentendringen (positiv for auke, negativ for reduksjon).\n\nNokon døme: 8% auke gir vekstfaktor $1{,}08$. 15% reduksjon gir $0{,}85$. Dobling gir $2$. Halvering gir $0{,}5$.\n\nNår vekstfaktoren er større enn 1, aukar verdien. Når ho er mindre enn 1, synkar verdien. Og den andre vegen: ein vekstfaktor på $1{,}15$ betyr 15% auke, medan $0{,}72$ betyr 28% reduksjon (fordi $1 - 0{,}72 = 0{,}28$).",
+      "bc7da409f5fdea8d": "## Gjentatt prosentvis endring -- eksponentiell vekst\n\nDet verkeleg kraftige med vekstfaktor er når same endring skjer fleire gonger. I staden for å berekne kvar endring for seg, brukar vi:\n\n$$\\text{ny verdi} = \\text{gammal verdi} \\cdot v^n$$\n\nder $v$ er vekstfaktoren og $n$ er antal periodar.\n\nEin investering på 50 000 kr veks med 6% per år. Etter 8 år:\n$$50\\,000 \\cdot 1{,}06^8 = 50\\,000 \\cdot 1{,}594 \\approx 79\\,692 \\text{ kr}$$\n\nEin bil til 400 000 kr mistar 18% av verdien kvar år. Etter 5 år:\n$$400\\,000 \\cdot 0{,}82^5 = 400\\,000 \\cdot 0{,}371 \\approx 148\\,481 \\text{ kr}$$\n\nBilen har altso mista over halvparten av verdien på 5 år! Ein sparekonto med 20 000 kr og 4% rente gir etter 5 år: $20\\,000 \\cdot 1{,}04^5 \\approx 24\\,333$ kr.\n\nEin bakteriekoloni dobblas kvar time. Med 100 bakteriar i starten: etter 6 timar er det $100 \\cdot 2^6 = 6400$ bakteriar. Eit radioaktivt stoff halvast kvart 5. år. Av 200 g gjenstår etter 20 år (4 halveringspariodar): $200 \\cdot 0{,}5^4 = 12{,}5$ g.",
+      "4c91464306d5e1e7": "Test deg sjølv på vekstfaktor og eksponentiell vekst:",
+      "4097889236a2af26": "placeholder",
+      "2b418da2fbc05ed5": "Kva er vekstfaktoren for 3,5% auke?",
+      "6093da430901a6a5": "Vekstfaktor $= 1 + 0{,}035 = 1{,}035$.",
+      "f186fd1626c43fc2": "Ein vekstfaktor på $0{,}72$ betyr:",
+      "f294cf6e1a22dca3": "72% auke",
+      "aa4b0c0ab0998d47": "72% reduksjon",
+      "c6e1b24e320df8e2": "28% reduksjon",
+      "60468c77ba0b169a": "28% auke",
+      "b020512ec8804b0a": "$(1 - 0{,}72) \\cdot 100\\% = 28\\%$ reduksjon. Verdien er 72% av det opphavlege.",
+      "4f6fc1c9f4516a78": "Ein maskin til 150 000 kr mistar 25% av verdien årleg. Kva er ho verdt etter 3 år?",
+      "ca6eea60bb1e2d54": "Ca. $75\\,000$ kr",
+      "a6645a11749acbc7": "Ca. $63\\,281$ kr",
+      "86dc096ac1fe6ec4": "Ca. $37\\,500$ kr",
+      "9ff29ce620a0b97d": "Ca. $112\\,500$ kr",
+      "fb05b316c0a89e29": "$150\\,000 \\cdot 0{,}75^3 = 150\\,000 \\cdot 0{,}4219 \\approx 63\\,281$ kr.",
+      "e49b8593b3d1ea8a": "Ein PC mistar 30% av verdien årleg. Etter kor mange år er ho verdt under halvparten?",
+      "6408050799a5ec78": "1 år",
+      "806b0b17e8eaa5f5": "2 år",
+      "de8d3466351b8f15": "3 år",
+      "bcf47ee4ba478d7e": "4 år",
+      "de5ff83752e7f487": "$0{,}70^2 = 0{,}49 < 0{,}5$. Allereie etter 2 år er ho verdt under halvparten.",
+      "2781532a70e040a8": "## Doblingtid og 70-regelen\n\nKor lang tid tek det å doble ein investering? Det heng av renta, og det finst ein elegant tommelfingerregel:\n\n$$\\text{Doblingtid} \\approx \\frac{70}{\\text{vekstprosent}}$$\n\nMed 7% årleg vekst tek det ca. $\\frac{70}{7} = 10$ år å doble. Med 5% rente: ca. $\\frac{70}{5} = 14$ år. La oss sjekke: $1{,}05^{14} \\approx 1{,}98$ -- nesten nøyaktig dobla!\n\nEin investering som dobla seg på 5 år må ha hatt ca. $\\frac{70}{5} = 14\\%$ årleg rente.\n\nFor halveringtid gjeld det same. Eit medikament i blodet halvast kvar 4. time. Av 100 mg gjenstår etter 12 timar (3 halveringspariodar): $100 \\cdot 0{,}5^3 = 12{,}5$ mg.\n\nNår vi treng nøyaktig antal periodar, brukar vi prøving og feil. Døme: Kor mange år tek det før 10 000 kr blir til 15 000 kr med 8% rente?\n\n$1{,}08^5 \\approx 1{,}47$ gir ca. 14 693 kr -- ikkje nok. $1{,}08^6 \\approx 1{,}59$ gir ca. 15 869 kr -- nok! Svar: 6 år.",
+      "1b601fe6c5efd273": "## Finne årleg vekstrate og samanlikne scenario\n\nNokon gonger kjenner vi start- og sluttverdien og vil finne den årlege vekstraten. Ein aksje auka frå 150 kr til 240 kr på 4 år. Kva var den årlege vekstraten?\n\n$$v^4 = \\frac{240}{150} = 1{,}6 \\quad \\Rightarrow \\quad v = \\sqrt[4]{1{,}6} \\approx 1{,}125$$\n\nÅrleg vekstrate: $12{,}5\\%$.\n\nVi kan også samanlikne ulike vekstscenario. Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?\n\n- A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr\n- B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr\n\nÒverraskande nok er det mindre beløpet med høgare rente som vinn! Renta har enorm kraft over lang tid.\n\nPraktiske anvendingar: Inflasjonen er 4% per år -- ein lunsj til 120 kr kostar om 10 år: $120 \\cdot 1{,}04^{10} \\approx 178$ kr. Noreg sitt befolking på 5,5 millionar med 0,8% vekst per år gir om 25 år: $5{,}5 \\cdot 1{,}008^{25} \\approx 6{,}7$ millionar.\n\nMen kan eksponentiell vekst halde fram for alltid? Nei! Bakteriar som dobblas kvar time gir etter 48 timar $2^{48} \\approx 281$ billionar. Ressursgrensingar vil alltid stoppe veksten.",
+      "6cdbb285ac819222": "Test deg sjølv på doblingtid og praktiske anvendingar:",
+      "0742ff75f1f67ac4": "Med 2% årleg befolkningsvekst, omtrent kor lang tid tek det før befolkninga dobblas?",
+      "320d68688ca50644": "Ca. 20 år",
+      "f877dbba60b05b17": "Ca. 35 år",
+      "6bf3f0c5df16df07": "Ca. 50 år",
+      "7ee33a1d2887e713": "Ca. 70 år",
+      "706aaec3aba26fc2": "70-regelen: $\\frac{70}{2} = 35$ år.",
+      "9283bb1eee9366e9": "Kva er best over 15 år: 80 000 kr med 6% rente, eller 100 000 kr med 4% rente?",
+      "d92c3fc6eaa24b0c": "80 000 kr med 6% (ca. 191 736 kr)",
+      "e092092769f37c2e": "100 000 kr med 4% (ca. 180 094 kr)",
+      "9306e7105ce84763": "Like gode",
+      "bdc6230fd62ae67b": "Avheng av inflasjonen",
+      "08eeafe052bf6158": "A: $80\\,000 \\cdot 1{,}06^{15} \\approx 191\\,736$ kr. B: $100\\,000 \\cdot 1{,}04^{15} \\approx 180\\,094$ kr. Høgare rente vinn over tid!",
+      "c9cfa55e466d58a8": "Prisane stig 3% per år. Kva kostar ei vare til 500 kr om 15 år?",
+      "8c07c47248d290a2": "Ca. $725$ kr",
+      "f2bd2faef9c974dd": "Ca. $779$ kr",
+      "ae4c8103c9ec5cda": "Ca. $650$ kr",
+      "9034b578567c6d58": "Ca. $900$ kr",
+      "684b7427f328ea5d": "$500 \\cdot 1{,}03^{15} \\approx 779$ kr.",
+      "0cfadbd63f91327a": "Ein investering voks frå 25 000 kr til 40 000 kr på 10 år. Kva er årleg vekstrate?",
+      "b8e6b0f1ab7cbbfd": "Ca. 4,8% per år",
+      "0a8f8b69c0775a92": "Ca. 6,0% per år",
+      "33d86f3686c8f20a": "Ca. 16% per år",
+      "cbbf797d608bdb94": "Ca. 3,5% per år",
+      "b61f90f4c2a2d187": "$v^{10} = \\frac{40\\,000}{25\\,000} = 1{,}6 \\Rightarrow v = 1{,}6^{0{,}1} \\approx 1{,}048$. Ca. 4,8% per år.",
+      "e9ef3f96c2b22461": "## Samanfatning\n\n- **Vekstfaktor:** Talet vi ganger med: $v = 1 + \\frac{p}{100}$. Større enn 1 = vekst. Mindre enn 1 = nedgang.\n\n- **Gjenteken endring:** $\\text{ny verdi} = \\text{gamal verdi} \\cdot v^n$, der $v$ er vekstfaktoren og $n$ er antal periodar.\n\n- **70-regelen:** Doblingtid $\\approx \\frac{70}{\\text{vekstprosent}}$. Nyttig for raske overslag.\n\n- **Finne vekstrate:** Samla vekstfaktor = sluttverdi / startverdi. Årleg faktor = ta $n$-te rot.\n\n- **Eksponentiell vekst** er uvanleg kraftig over tid: høgare rente på lågare beløp kan slå lågare rente på høgare beløp.\n\n- **Vekst kan ikkje vare eitt:** Ressursgrensingar stoppar alltid eksponentiell vekst i praksis."
+    }
+  }
+}

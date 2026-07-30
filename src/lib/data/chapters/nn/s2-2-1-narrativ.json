@@ -1,1 +1,358 @@
-{"id":"s2-2-1-narrativ","courseId":"s2","chapterNumber":"2.1","title":"Introduksjon til differensiallikningar","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis SSB, FHI og banken reknar på framtida: likningar der den ukjende er ein funksjon, og initialvilkår som vel kurva i verkelegheita.","estimatedMinutes":35,"competenceGoals":["løyse differensiallikningar med separable variablar","bruke differensiallikningar til å modellere praktiske situasjonar"],"linkedChapterId":"s2-2-1","content":[{"id":"s2-2-1-n-intro","type":"text","content":"## Likningar der svaret er ein funksjon\n\nKorleis klarer Statistisk sentralbyrå å seie noko om kor mange vi blir i Noreg i 2050? Korleis reknar Folkehelseinstituttet ut kor raskt eit virus vil spreie seg? Og korleis veit banken kva lånet ditt veks til? Fellesnemnaren er at ingen av dei kjenner framtida direkte — men dei kjenner *endringa*. Dei veit kor fort folkesetnaden veks i dag, kor mange som blir smitta per veke, kor mykje renter som blir lagde til per år. Utfordringa er å gå frå kunnskap om endringa til kunnskap om sjølve utviklinga.\n\nVerktøyet i matematikken for nett dette heiter **differensiallikningar**. Ei differensiallikning er ei likning som inneheld ein ukjend *funksjon* og éin eller fleire av dei deriverte. Det er ein ny type likning: i likningane du har løyst til no, var den ukjende eit tal — no er den ukjende ein heil funksjon.\n\nDet enklaste dømet: $y' = 2x$ er ei differensiallikning. Ho spør: «Kva funksjon har $2x$ som derivert?» Etter integralkapittelet svarar du på refleks: $y = x^2 + C$. Kvar verdi av $C$ gjev ei løysing, så likninga har uendeleg mange løysingar — ein heil familie av parablar.\n\nI dette kapittelet lærer du omgrepsapparatet: kva orden tyder, skilnaden på generell og partikulær løysing, korleis initialvilkår plukkar ut den eine løysinga verkelegheita følgjer, og korleis du *verifiserer* at ein funksjon faktisk løyser ei likning. Til slutt ser vi korleis verkelege vekstprosessar blir omsette til differensiallikningar — omsetjinga som heile resten av hovudkapittelet byggjer på."},{"id":"s2-2-1-n-section1","type":"text","content":"## Orden, løysingar og initialvilkår\n\nLat oss rydde omgrepa på plass. **Ordenen** til ei differensiallikning er den høgaste deriverte som førekjem: $y' = f(x)$ er av første orden, $y'' = f(x)$ av andre orden. Løysingane kjem i to variantar. Den **generelle løysinga** inneheld ein vilkårleg konstant $C$ (eller fleire) og skildrar *alle* funksjonar som passar i likninga. Ei **partikulær løysing** er éin bestemt funksjon frå denne familien, der konstanten er fastlagd av eit **initialvilkår** — ein kjend verdi som $y(0) = 5$.\n\nLikningar på forma $y' = f(x)$ løyser vi med direkte integrasjon. Lat oss ta heile arbeidsgangen på likninga $y' = 3x^2$ med initialvilkåret $y(0) = 5$. Først den generelle løysinga, ved å integrere begge sider:\n\n$$y = \\int 3x^2 \\, dx = x^3 + C$$\n\nSå den partikulære: initialvilkåret krev $y(0) = 0^3 + C = 5$, altså $C = 5$, og dermed\n\n$$y = x^3 + 5$$\n\nTenk på det som GPS-koordinatar: den generelle løysinga er vegnettet, initialvilkåret fortel kvar du startar, og den partikulære løysinga er ruta di.\n\nTo ting til. For det første: ei andreordens likning som $y'' = 6x$ må integrerast to gonger og får då *to* frie konstantar — ho treng difor to vilkår for å bli eintydig. For det andre, eit undervurdert triks: å **verifisere** ei løysing er mykje enklare enn å finne henne. Påstår nokon at $y = x^3 + 5$ løyser $y' = 3x^2$, deriverer du berre: $y' = 3x^2$. Stemmer. Innsetjing av funksjonen og den deriverte i likninga er alltid den endelege kvalitetskontrollen."},{"id":"s2-2-1-n-quiz1","type":"exercise","exercise":{"id":"s2-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på grunnomgrepa for differensiallikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-1-n-quiz1-q0","task":"Kva er ei differensiallikning?","options":[{"id":"a","text":"Ei likning der den ukjende er eit tal med mange desimalar","isCorrect":false},{"id":"b","text":"Ei likning som inneheld ein ukjend funksjon og éin eller fleire av dei deriverte","isCorrect":true},{"id":"c","text":"Ei likning med to ukjende tal","isCorrect":false},{"id":"d","text":"Ei likning som berre kan løysast numerisk","isCorrect":false}],"solution":"I ei differensiallikning er den ukjende ein funksjon $y = y(x)$, og likninga knyter funksjonen til den deriverte, som i $y' = 2x$ eller $y' = ky$."},{"id":"s2-2-1-n-quiz1-q1","task":"Kva orden har differensiallikninga $y'' = 6x$?","options":[{"id":"a","text":"Første orden","isCorrect":false},{"id":"b","text":"Sjette orden","isCorrect":false},{"id":"c","text":"Andre orden","isCorrect":true},{"id":"d","text":"Null-te orden","isCorrect":false}],"solution":"Ordenen er den høgaste deriverte i likninga. Her førekjem $y''$, så likninga er av andre orden — og ho treng to vilkår for ei eintydig løysing."},{"id":"s2-2-1-n-quiz1-q2","task":"Kva er den generelle løysinga av $y' = 3x^2$?","options":[{"id":"a","text":"$y = 6x + C$","isCorrect":false},{"id":"b","text":"$y = x^3$","isCorrect":false},{"id":"c","text":"$y = 3x^3 + C$","isCorrect":false},{"id":"d","text":"$y = x^3 + C$","isCorrect":true}],"solution":"Direkte integrasjon: $y = \\int 3x^2\\,dx = x^3 + C$. Utan initialvilkår held vi på konstanten — det er ein heil løysingsfamilie."},{"id":"s2-2-1-n-quiz1-q3","task":"Kva er den partikulære løysinga av $y' = 3x^2$ med $y(0) = 5$?","options":[{"id":"a","text":"$y = x^3 + 5$","isCorrect":true},{"id":"b","text":"$y = x^3 + C$","isCorrect":false},{"id":"c","text":"$y = 5x^3$","isCorrect":false},{"id":"d","text":"$y = x^3 - 5$","isCorrect":false}],"solution":"Innsetjing i $y = x^3 + C$ gjev $y(0) = C = 5$. Den partikulære løysinga er $y = x^3 + 5$."},{"id":"s2-2-1-n-quiz1-q4","task":"Korleis verifiserer vi at ein funksjon er ei løysing av ei differensiallikning?","options":[{"id":"a","text":"Vi teiknar grafen og ser om han ser rett ut","isCorrect":false},{"id":"b","text":"Vi integrerer funksjonen og samanliknar med likninga","isCorrect":false},{"id":"c","text":"Vi set funksjonen og den deriverte inn i likninga og sjekkar at det stemmer","isCorrect":true},{"id":"d","text":"Vi sjekkar at funksjonen er kontinuerleg","isCorrect":false}],"solution":"Verifisering er innsetjing: deriver den føreslåtte funksjonen, set funksjon og deriverte inn i likninga, og kontroller at venstre og høgre side blir like."}]}},{"id":"s2-2-1-n-section2","type":"text","content":"## Når endringa er avhengig av tilstanden\n\nLikninga $y' = 3x^2$ var grei, men òg litt spesiell: endringa var ein rein funksjon av $x$. Dei verkeleg interessante modellane oppstår når endringsraten er avhengig av *tilstanden sjølv* — og det er regelen snarare enn unntaket i samfunnet rundt deg. Folkevekst: jo fleire innbyggjarar, desto fleire fødslar per år. Radioaktivt forfall: jo meir materiale, desto fleire atom henfell per sekund. Newtons avkjølingslov: jo varmare kaffien er i forhold til rommet, desto raskare kjølnar han. Økonomisk vekst med rente: jo meir kapital på kontoen, desto meir renter. Epidemiar: jo fleire smitta, desto raskare spreiing.\n\nLat oss omsetje den vanlegaste formuleringa til matematikk. Ein bakteriekultur «veks med ein rate proporsjonal med storleiken». Kall talet på bakteriar ved tid $t$ for $N(t)$. Raten er $\\frac{dN}{dt}$, og «proporsjonal med storleiken» tyder lik ein konstant gonger $N$:\n\n$$\\frac{dN}{dt} = kN$$\n\nder $k > 0$ er vekstkonstanten. Dette er den klassiske modellen for **eksponentiell vekst** — truleg den viktigaste differensiallikninga i heile S2. Legg merke til kor lite som skulle til: éi setning på norsk blei éi linje matematikk. Den omsetjinga — frå «veks proporsjonalt med...» til $y' = ky$ — er sjølve kjernekompetansen i modellering.\n\nKva er løysinga? Du kan allereie verifisere ein kandidat: prøv $y = Ce^{kx}$. Derivasjon gjev $y' = Cke^{kx} = k \\cdot Ce^{kx} = ky$. Han passar! Eksponentialfunksjonen er funksjonen der endringa er proporsjonal med han sjølv — difor dukkar han opp overalt, frå renteberekning til folketalsframskrivingar. *Korleis* ein finn denne løysinga systematisk (og ikkje berre gjettar og verifiserer), er temaet for neste kapittel om separable likningar. Med forteiknet snudd, $k < 0$, skildrar same likninga radioaktivt forfall og andre prosessar som døyr ut."},{"id":"s2-2-1-n-quiz2","type":"exercise","exercise":{"id":"s2-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på modellering med differensiallikningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-2-1-n-quiz2-q0","task":"Ein bakteriekultur veks med ein rate proporsjonal med storleiken $N$. Kva differensiallikning skildrar dette?","options":[{"id":"a","text":"$\\frac{dN}{dt} = k$","isCorrect":false},{"id":"b","text":"$\\frac{dN}{dt} = kN$","isCorrect":true},{"id":"c","text":"$\\frac{dN}{dt} = kt$","isCorrect":false},{"id":"d","text":"$N = kt$","isCorrect":false}],"solution":"Raten er $\\frac{dN}{dt}$, og proporsjonalitet med storleiken tyder konstant gonger $N$: $\\frac{dN}{dt} = kN$ med $k > 0$."},{"id":"s2-2-1-n-quiz2-q1","task":"Kva funksjonsfamilie løyser likninga $y' = ky$?","options":[{"id":"a","text":"$y = kx + C$","isCorrect":false},{"id":"b","text":"$y = Cx^k$","isCorrect":false},{"id":"c","text":"$y = Ce^{kx}$","isCorrect":true},{"id":"d","text":"$y = C\\ln(kx)$","isCorrect":false}],"solution":"Verifisering: $(Ce^{kx})' = Cke^{kx} = k(Ce^{kx}) = ky$. Eksponentialfunksjonen er nett funksjonen der endringsraten er proporsjonal med han sjølv."},{"id":"s2-2-1-n-quiz2-q2","task":"Kva tyder det at $k < 0$ i modellen $\\frac{dN}{dt} = kN$?","options":[{"id":"a","text":"At mengda avtek — til dømes radioaktivt forfall","isCorrect":true},{"id":"b","text":"At likninga ikkje har noka løysing","isCorrect":false},{"id":"c","text":"At veksten er raskare enn eksponentiell","isCorrect":false},{"id":"d","text":"At $N$ blir negativ etter kort tid","isCorrect":false}],"solution":"Negativ $k$ gjev negativ endringsrate så lenge $N > 0$: mengda avtek eksponentielt, som ved radioaktivt forfall eller nedkjøling. Løysinga $N = N_0e^{kt}$ søkk mot null, men blir aldri negativ."}]}},{"id":"s2-2-1-n-summary","type":"text","content":"## Frå endring til utvikling\n\nDu starta med SSB, FHI og banken — alle med same problemet: dei kjenner endringa, men vil vite utviklinga. No har du rammeverket deira. Ei differensiallikning er ei likning med ein ukjend funksjon og den deriverte, og ordenen er den høgaste deriverte som inngår. Den generelle løysinga er ein familie av funksjonar med fri konstant $C$; eit initialvilkår som $y(0) = 5$ fastlegg konstanten og gjev den partikulære løysinga — den eine kurva verkelegheita følgjer. Andreordens likningar treng tilsvarande to vilkår.\n\nVerktøya så langt er to. Likningar på forma $y' = f(x)$ blir løyste ved direkte integrasjon, slik $y' = 3x^2$ med $y(0) = 5$ gav $y = x^3 + 5$. Og kvar føreslått løysing kan *verifiserast* ved innsetjing — deriver kandidaten, set inn, og sjekk at likninga går opp. Den kontrollen er gratis og bør bli ein vane.\n\nViktigast av alt lærte du omsetjinga som driv all modellering: «veks med ein rate proporsjonal med storleiken» tyder $\\frac{dN}{dt} = kN$, med løysingsfamilien $y = Ce^{kx}$ — eksponentiell vekst når $k > 0$, forfall når $k < 0$. Folkesetnad, renter, radioaktivitet og epidemiar snakkar alle dette språket.\n\nMen å gjette og verifisere er ingen metode i lengda. I neste kapittel lærer du den systematiske teknikken som *utleier* løysingane: separable differensiallikningar."}],"exercises":[],"_meta":{"sourceHash":"0514e83e5ec3d168","translatedAt":"2026-06-20T09:03:19.004Z","model":"claude-code-agent","strings":61,"tm":{"835a4fbb7a13b860":"Introduksjon til differensiallikningar","b195b06d1ed59702":"Narrativ versjon","320bbcd9817e892c":"Ei forteljing om korleis SSB, FHI og banken reknar på framtida: likningar der den ukjende er ein funksjon, og initialvilkår som vel kurva i verkelegheita.","111345f67d1a8f4c":"løyse differensiallikningar med separable variablar","30a5f178f583132a":"bruke differensiallikningar til å modellere praktiske situasjonar","5663fb67fbadfd39":"## Likningar der svaret er ein funksjon\n\nKorleis klarer Statistisk sentralbyrå å seie noko om kor mange vi blir i Noreg i 2050? Korleis reknar Folkehelseinstituttet ut kor raskt eit virus vil spreie seg? Og korleis veit banken kva lånet ditt veks til? Fellesnemnaren er at ingen av dei kjenner framtida direkte — men dei kjenner *endringa*. Dei veit kor fort folkesetnaden veks i dag, kor mange som blir smitta per veke, kor mykje renter som blir lagde til per år. Utfordringa er å gå frå kunnskap om endringa til kunnskap om sjølve utviklinga.\n\nVerktøyet i matematikken for nett dette heiter **differensiallikningar**. Ei differensiallikning er ei likning som inneheld ein ukjend *funksjon* og éin eller fleire av dei deriverte. Det er ein ny type likning: i likningane du har løyst til no, var den ukjende eit tal — no er den ukjende ein heil funksjon.\n\nDet enklaste dømet: $y' = 2x$ er ei differensiallikning. Ho spør: «Kva funksjon har $2x$ som derivert?» Etter integralkapittelet svarar du på refleks: $y = x^2 + C$. Kvar verdi av $C$ gjev ei løysing, så likninga har uendeleg mange løysingar — ein heil familie av parablar.\n\nI dette kapittelet lærer du omgrepsapparatet: kva orden tyder, skilnaden på generell og partikulær løysing, korleis initialvilkår plukkar ut den eine løysinga verkelegheita følgjer, og korleis du *verifiserer* at ein funksjon faktisk løyser ei likning. Til slutt ser vi korleis verkelege vekstprosessar blir omsette til differensiallikningar — omsetjinga som heile resten av hovudkapittelet byggjer på.","0f2b157369671e78":"## Orden, løysingar og initialvilkår\n\nLat oss rydde omgrepa på plass. **Ordenen** til ei differensiallikning er den høgaste deriverte som førekjem: $y' = f(x)$ er av første orden, $y'' = f(x)$ av andre orden. Løysingane kjem i to variantar. Den **generelle løysinga** inneheld ein vilkårleg konstant $C$ (eller fleire) og skildrar *alle* funksjonar som passar i likninga. Ei **partikulær løysing** er éin bestemt funksjon frå denne familien, der konstanten er fastlagd av eit **initialvilkår** — ein kjend verdi som $y(0) = 5$.\n\nLikningar på forma $y' = f(x)$ løyser vi med direkte integrasjon. Lat oss ta heile arbeidsgangen på likninga $y' = 3x^2$ med initialvilkåret $y(0) = 5$. Først den generelle løysinga, ved å integrere begge sider:\n\n$$y = \\int 3x^2 \\, dx = x^3 + C$$\n\nSå den partikulære: initialvilkåret krev $y(0) = 0^3 + C = 5$, altså $C = 5$, og dermed\n\n$$y = x^3 + 5$$\n\nTenk på det som GPS-koordinatar: den generelle løysinga er vegnettet, initialvilkåret fortel kvar du startar, og den partikulære løysinga er ruta di.\n\nTo ting til. For det første: ei andreordens likning som $y'' = 6x$ må integrerast to gonger og får då *to* frie konstantar — ho treng difor to vilkår for å bli eintydig. For det andre, eit undervurdert triks: å **verifisere** ei løysing er mykje enklare enn å finne henne. Påstår nokon at $y = x^3 + 5$ løyser $y' = 3x^2$, deriverer du berre: $y' = 3x^2$. Stemmer. Innsetjing av funksjonen og den deriverte i likninga er alltid den endelege kvalitetskontrollen.","81836cbd1e798c97":"Test deg sjølv på grunnomgrepa for differensiallikningar:","4097889236a2af26":"placeholder","3c1a62a692a30189":"Kva er ei differensiallikning?","939f9dbec852ad22":"Ei likning der den ukjende er eit tal med mange desimalar","0a1edb11ece8a0e3":"Ei likning som inneheld ein ukjend funksjon og éin eller fleire av dei deriverte","92f9e3c56c820a33":"Ei likning med to ukjende tal","0caf7b829595bc27":"Ei likning som berre kan løysast numerisk","ac937597290dfdb0":"I ei differensiallikning er den ukjende ein funksjon $y = y(x)$, og likninga knyter funksjonen til den deriverte, som i $y' = 2x$ eller $y' = ky$.","f160e0d973d36a8a":"Kva orden har differensiallikninga $y'' = 6x$?","7eb58386fb7183e5":"Første orden","fe29586a3f8fd851":"Sjette orden","e412a95f6df7a8fa":"Andre orden","7ef92bf18d4d18c8":"Null-te orden","27abe7ca362542e3":"Ordenen er den høgaste deriverte i likninga. Her førekjem $y''$, så likninga er av andre orden — og ho treng to vilkår for ei eintydig løysing.","b70f7a314bc03de9":"Kva er den generelle løysinga av $y' = 3x^2$?","6433d3cb722adf85":"$y = 6x + C$","64a840efef1d0bb7":"$y = x^3$","e1c6f9aa8bd04dca":"$y = 3x^3 + C$","224367ad2017c565":"$y = x^3 + C$","a01d6a8078133263":"Direkte integrasjon: $y = \\int 3x^2\\,dx = x^3 + C$. Utan initialvilkår held vi på konstanten — det er ein heil løysingsfamilie.","78f98ad3e2406a6a":"Kva er den partikulære løysinga av $y' = 3x^2$ med $y(0) = 5$?","9ce200db8abf3063":"$y = x^3 + 5$","65f75e7a4aa85a1e":"$y = 5x^3$","cff987e348e0600b":"$y = x^3 - 5$","267155f9a0f141d4":"Innsetjing i $y = x^3 + C$ gjev $y(0) = C = 5$. Den partikulære løysinga er $y = x^3 + 5$.","9ed91e04d3986a56":"Korleis verifiserer vi at ein funksjon er ei løysing av ei differensiallikning?","87967899bfed9f79":"Vi teiknar grafen og ser om han ser rett ut","b645d7b026829d33":"Vi integrerer funksjonen og samanliknar med likninga","b294ea28553d8dee":"Vi set funksjonen og den deriverte inn i likninga og sjekkar at det stemmer","64797071557037f3":"Vi sjekkar at funksjonen er kontinuerleg","a99d6a257916c378":"Verifisering er innsetjing: deriver den føreslåtte funksjonen, set funksjon og deriverte inn i likninga, og kontroller at venstre og høgre side blir like.","17f42f23e4984456":"## Når endringa er avhengig av tilstanden\n\nLikninga $y' = 3x^2$ var grei, men òg litt spesiell: endringa var ein rein funksjon av $x$. Dei verkeleg interessante modellane oppstår når endringsraten er avhengig av *tilstanden sjølv* — og det er regelen snarare enn unntaket i samfunnet rundt deg. Folkevekst: jo fleire innbyggjarar, desto fleire fødslar per år. Radioaktivt forfall: jo meir materiale, desto fleire atom henfell per sekund. Newtons avkjølingslov: jo varmare kaffien er i forhold til rommet, desto raskare kjølnar han. Økonomisk vekst med rente: jo meir kapital på kontoen, desto meir renter. Epidemiar: jo fleire smitta, desto raskare spreiing.\n\nLat oss omsetje den vanlegaste formuleringa til matematikk. Ein bakteriekultur «veks med ein rate proporsjonal med storleiken». Kall talet på bakteriar ved tid $t$ for $N(t)$. Raten er $\\frac{dN}{dt}$, og «proporsjonal med storleiken» tyder lik ein konstant gonger $N$:\n\n$$\\frac{dN}{dt} = kN$$\n\nder $k > 0$ er vekstkonstanten. Dette er den klassiske modellen for **eksponentiell vekst** — truleg den viktigaste differensiallikninga i heile S2. Legg merke til kor lite som skulle til: éi setning på norsk blei éi linje matematikk. Den omsetjinga — frå «veks proporsjonalt med...» til $y' = ky$ — er sjølve kjernekompetansen i modellering.\n\nKva er løysinga? Du kan allereie verifisere ein kandidat: prøv $y = Ce^{kx}$. Derivasjon gjev $y' = Cke^{kx} = k \\cdot Ce^{kx} = ky$. Han passar! Eksponentialfunksjonen er funksjonen der endringa er proporsjonal med han sjølv — difor dukkar han opp overalt, frå renteberekning til folketalsframskrivingar. *Korleis* ein finn denne løysinga systematisk (og ikkje berre gjettar og verifiserer), er temaet for neste kapittel om separable likningar. Med forteiknet snudd, $k < 0$, skildrar same likninga radioaktivt forfall og andre prosessar som døyr ut.","2bed6503f824582d":"Test deg sjølv på modellering med differensiallikningar:","d5948042187d57b5":"Ein bakteriekultur veks med ein rate proporsjonal med storleiken $N$. Kva differensiallikning skildrar dette?","f112f884697245b6":"$\\frac{dN}{dt} = k$","a280e956b0f3595e":"$\\frac{dN}{dt} = kN$","b9b01d88d9f0def3":"$\\frac{dN}{dt} = kt$","6ff0df68de155c8d":"$N = kt$","1d9fe7e46b8a8262":"Raten er $\\frac{dN}{dt}$, og proporsjonalitet med storleiken tyder konstant gonger $N$: $\\frac{dN}{dt} = kN$ med $k > 0$.","b00f943bd215edf6":"Kva funksjonsfamilie løyser likninga $y' = ky$?","529aaa65c143ae89":"$y = kx + C$","e82a3038b29e6451":"$y = Cx^k$","c38192eac857e39b":"$y = Ce^{kx}$","123eec23f19997c6":"$y = C\\ln(kx)$","589e2dfa191e94c3":"Verifisering: $(Ce^{kx})' = Cke^{kx} = k(Ce^{kx}) = ky$. Eksponentialfunksjonen er nett funksjonen der endringsraten er proporsjonal med han sjølv.","abad82f66845f362":"Kva tyder det at $k < 0$ i modellen $\\frac{dN}{dt} = kN$?","9ddb05e948df88e1":"At mengda avtek — til dømes radioaktivt forfall","6597b899d83aaebf":"At likninga ikkje har noka løysing","2095e31320697a03":"At veksten er raskare enn eksponentiell","572ffee0f4081748":"At $N$ blir negativ etter kort tid","487b35a3a5957e49":"Negativ $k$ gjev negativ endringsrate så lenge $N > 0$: mengda avtek eksponentielt, som ved radioaktivt forfall eller nedkjøling. Løysinga $N = N_0e^{kt}$ søkk mot null, men blir aldri negativ.","b4adcd18f07abef8":"## Frå endring til utvikling\n\nDu starta med SSB, FHI og banken — alle med same problemet: dei kjenner endringa, men vil vite utviklinga. No har du rammeverket deira. Ei differensiallikning er ei likning med ein ukjend funksjon og den deriverte, og ordenen er den høgaste deriverte som inngår. Den generelle løysinga er ein familie av funksjonar med fri konstant $C$; eit initialvilkår som $y(0) = 5$ fastlegg konstanten og gjev den partikulære løysinga — den eine kurva verkelegheita følgjer. Andreordens likningar treng tilsvarande to vilkår.\n\nVerktøya så langt er to. Likningar på forma $y' = f(x)$ blir løyste ved direkte integrasjon, slik $y' = 3x^2$ med $y(0) = 5$ gav $y = x^3 + 5$. Og kvar føreslått løysing kan *verifiserast* ved innsetjing — deriver kandidaten, set inn, og sjekk at likninga går opp. Den kontrollen er gratis og bør bli ein vane.\n\nViktigast av alt lærte du omsetjinga som driv all modellering: «veks med ein rate proporsjonal med storleiken» tyder $\\frac{dN}{dt} = kN$, med løysingsfamilien $y = Ce^{kx}$ — eksponentiell vekst når $k > 0$, forfall når $k < 0$. Folkesetnad, renter, radioaktivitet og epidemiar snakkar alle dette språket.\n\nMen å gjette og verifisere er ingen metode i lengda. I neste kapittel lærer du den systematiske teknikken som *utleier* løysingane: separable differensiallikningar."}}}
+{
+  "id": "s2-2-1-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "2.1",
+  "title": "Introduksjon til differensiallikningar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis SSB, FHI og banken reknar på framtida: likningar der den ukjende er ein funksjon, og initialvilkår som vel kurva i verkelegheita.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "løyse differensiallikningar med separable variablar",
+    "bruke differensiallikningar til å modellere praktiske situasjonar"
+  ],
+  "linkedChapterId": "s2-2-1",
+  "content": [
+    {
+      "id": "s2-2-1-n-intro",
+      "type": "text",
+      "content": "## Likningar der svaret er ein funksjon\n\nKorleis klarer Statistisk sentralbyrå å seie noko om kor mange vi blir i Noreg i 2050? Korleis reknar Folkehelseinstituttet ut kor raskt eit virus vil spreie seg? Og korleis veit banken kva lånet ditt veks til? Fellesnemnaren er at ingen av dei kjenner framtida direkte — men dei kjenner *endringa*. Dei veit kor fort folkesetnaden veks i dag, kor mange som blir smitta per veke, kor mykje renter som blir lagde til per år. Utfordringa er å gå frå kunnskap om endringa til kunnskap om sjølve utviklinga.\n\nVerktøyet i matematikken for nett dette heiter **differensiallikningar**. Ei differensiallikning er ei likning som inneheld ein ukjend *funksjon* og éin eller fleire av dei deriverte. Det er ein ny type likning: i likningane du har løyst til no, var den ukjende eit tal — no er den ukjende ein heil funksjon.\n\nDet enklaste dømet: $y' = 2x$ er ei differensiallikning. Ho spør: «Kva funksjon har $2x$ som derivert?» Etter integralkapittelet svarar du på refleks: $y = x^2 + C$. Kvar verdi av $C$ gjev ei løysing, så likninga har uendeleg mange løysingar — ein heil familie av parablar.\n\nI dette kapittelet lærer du omgrepsapparatet: kva orden tyder, skilnaden på generell og partikulær løysing, korleis initialvilkår plukkar ut den eine løysinga verkelegheita følgjer, og korleis du *verifiserer* at ein funksjon faktisk løyser ei likning. Til slutt ser vi korleis verkelege vekstprosessar blir omsette til differensiallikningar — omsetjinga som heile resten av hovudkapittelet byggjer på."
+    },
+    {
+      "id": "s2-2-1-n-section1",
+      "type": "text",
+      "content": "## Orden, løysingar og initialvilkår\n\nLat oss rydde omgrepa på plass. **Ordenen** til ei differensiallikning er den høgaste deriverte som førekjem: $y' = f(x)$ er av første orden, $y'' = f(x)$ av andre orden. Løysingane kjem i to variantar. Den **generelle løysinga** inneheld ein vilkårleg konstant $C$ (eller fleire) og skildrar *alle* funksjonar som passar i likninga. Ei **partikulær løysing** er éin bestemt funksjon frå denne familien, der konstanten er fastlagd av eit **initialvilkår** — ein kjend verdi som $y(0) = 5$.\n\nLikningar på forma $y' = f(x)$ løyser vi med direkte integrasjon. Lat oss ta heile arbeidsgangen på likninga $y' = 3x^2$ med initialvilkåret $y(0) = 5$. Først den generelle løysinga, ved å integrere begge sider:\n\n$$y = \\int 3x^2 \\, dx = x^3 + C$$\n\nSå den partikulære: initialvilkåret krev $y(0) = 0^3 + C = 5$, altså $C = 5$, og dermed\n\n$$y = x^3 + 5$$\n\nTenk på det som GPS-koordinatar: den generelle løysinga er vegnettet, initialvilkåret fortel kvar du startar, og den partikulære løysinga er ruta di.\n\nTo ting til. For det første: ei andreordens likning som $y'' = 6x$ må integrerast to gonger og får då *to* frie konstantar — ho treng difor to vilkår for å bli eintydig. For det andre, eit undervurdert triks: å **verifisere** ei løysing er mykje enklare enn å finne henne. Påstår nokon at $y = x^3 + 5$ løyser $y' = 3x^2$, deriverer du berre: $y' = 3x^2$. Stemmer. Innsetjing av funksjonen og den deriverte i likninga er alltid den endelege kvalitetskontrollen."
+    },
+    {
+      "id": "s2-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på grunnomgrepa for differensiallikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-1-n-quiz1-q0",
+            "task": "Kva er ei differensiallikning?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ei likning som inneheld ein ukjend funksjon og éin eller fleire av dei deriverte",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ei likning der den ukjende er eit tal med mange desimalar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ei likning med to ukjende tal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei likning som berre kan løysast numerisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I ei differensiallikning er den ukjende ein funksjon $y = y(x)$, og likninga knyter funksjonen til den deriverte, som i $y' = 2x$ eller $y' = ky$."
+          },
+          {
+            "id": "s2-2-1-n-quiz1-q1",
+            "task": "Kva orden har differensiallikninga $y'' = 6x$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Første orden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Andre orden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Sjette orden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Null-te orden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ordenen er den høgaste deriverte i likninga. Her førekjem $y''$, så likninga er av andre orden — og ho treng to vilkår for ei eintydig løysing."
+          },
+          {
+            "id": "s2-2-1-n-quiz1-q2",
+            "task": "Kva er den generelle løysinga av $y' = 3x^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = 6x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = x^3 + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$y = 3x^3 + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Direkte integrasjon: $y = \\int 3x^2\\,dx = x^3 + C$. Utan initialvilkår held vi på konstanten — det er ein heil løysingsfamilie."
+          },
+          {
+            "id": "s2-2-1-n-quiz1-q3",
+            "task": "Kva er den partikulære løysinga av $y' = 3x^2$ med $y(0) = 5$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = x^3 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 5x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = x^3 - 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$y = x^3 + 5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Innsetjing i $y = x^3 + C$ gjev $y(0) = C = 5$. Den partikulære løysinga er $y = x^3 + 5$."
+          },
+          {
+            "id": "s2-2-1-n-quiz1-q4",
+            "task": "Korleis verifiserer vi at ein funksjon er ei løysing av ei differensiallikning?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Vi set funksjonen og den deriverte inn i likninga og sjekkar at det stemmer",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Vi teiknar grafen og ser om han ser rett ut",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vi integrerer funksjonen og samanliknar med likninga",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi sjekkar at funksjonen er kontinuerleg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Verifisering er innsetjing: deriver den føreslåtte funksjonen, set funksjon og deriverte inn i likninga, og kontroller at venstre og høgre side blir like."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-1-n-section2",
+      "type": "text",
+      "content": "## Når endringa er avhengig av tilstanden\n\nLikninga $y' = 3x^2$ var grei, men òg litt spesiell: endringa var ein rein funksjon av $x$. Dei verkeleg interessante modellane oppstår når endringsraten er avhengig av *tilstanden sjølv* — og det er regelen snarare enn unntaket i samfunnet rundt deg. Folkevekst: jo fleire innbyggjarar, desto fleire fødslar per år. Radioaktivt forfall: jo meir materiale, desto fleire atom henfell per sekund. Newtons avkjølingslov: jo varmare kaffien er i forhold til rommet, desto raskare kjølnar han. Økonomisk vekst med rente: jo meir kapital på kontoen, desto meir renter. Epidemiar: jo fleire smitta, desto raskare spreiing.\n\nLat oss omsetje den vanlegaste formuleringa til matematikk. Ein bakteriekultur «veks med ein rate proporsjonal med storleiken». Kall talet på bakteriar ved tid $t$ for $N(t)$. Raten er $\\frac{dN}{dt}$, og «proporsjonal med storleiken» tyder lik ein konstant gonger $N$:\n\n$$\\frac{dN}{dt} = kN$$\n\nder $k > 0$ er vekstkonstanten. Dette er den klassiske modellen for **eksponentiell vekst** — truleg den viktigaste differensiallikninga i heile S2. Legg merke til kor lite som skulle til: éi setning på norsk blei éi linje matematikk. Den omsetjinga — frå «veks proporsjonalt med...» til $y' = ky$ — er sjølve kjernekompetansen i modellering.\n\nKva er løysinga? Du kan allereie verifisere ein kandidat: prøv $y = Ce^{kx}$. Derivasjon gjev $y' = Cke^{kx} = k \\cdot Ce^{kx} = ky$. Han passar! Eksponentialfunksjonen er funksjonen der endringa er proporsjonal med han sjølv — difor dukkar han opp overalt, frå renteberekning til folketalsframskrivingar. *Korleis* ein finn denne løysinga systematisk (og ikkje berre gjettar og verifiserer), er temaet for neste kapittel om separable likningar. Med forteiknet snudd, $k < 0$, skildrar same likninga radioaktivt forfall og andre prosessar som døyr ut."
+    },
+    {
+      "id": "s2-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på modellering med differensiallikningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-2-1-n-quiz2-q0",
+            "task": "Ein bakteriekultur veks med ein rate proporsjonal med storleiken $N$. Kva differensiallikning skildrar dette?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{dN}{dt} = k$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{dN}{dt} = kN$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{dN}{dt} = kt$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$N = kt$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Raten er $\\frac{dN}{dt}$, og proporsjonalitet med storleiken tyder konstant gonger $N$: $\\frac{dN}{dt} = kN$ med $k > 0$."
+          },
+          {
+            "id": "s2-2-1-n-quiz2-q1",
+            "task": "Kva funksjonsfamilie løyser likninga $y' = ky$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$y = kx + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$y = Cx^k$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = Ce^{kx}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$y = C\\ln(kx)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Verifisering: $(Ce^{kx})' = Cke^{kx} = k(Ce^{kx}) = ky$. Eksponentialfunksjonen er nett funksjonen der endringsraten er proporsjonal med han sjølv."
+          },
+          {
+            "id": "s2-2-1-n-quiz2-q2",
+            "task": "Kva tyder det at $k < 0$ i modellen $\\frac{dN}{dt} = kN$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At likninga ikkje har noka løysing",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At veksten er raskare enn eksponentiell",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At $N$ blir negativ etter kort tid",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At mengda avtek — til dømes radioaktivt forfall",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Negativ $k$ gjev negativ endringsrate så lenge $N > 0$: mengda avtek eksponentielt, som ved radioaktivt forfall eller nedkjøling. Løysinga $N = N_0e^{kt}$ søkk mot null, men blir aldri negativ."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-2-1-n-summary",
+      "type": "text",
+      "content": "## Frå endring til utvikling\n\nDu starta med SSB, FHI og banken — alle med same problemet: dei kjenner endringa, men vil vite utviklinga. No har du rammeverket deira. Ei differensiallikning er ei likning med ein ukjend funksjon og den deriverte, og ordenen er den høgaste deriverte som inngår. Den generelle løysinga er ein familie av funksjonar med fri konstant $C$; eit initialvilkår som $y(0) = 5$ fastlegg konstanten og gjev den partikulære løysinga — den eine kurva verkelegheita følgjer. Andreordens likningar treng tilsvarande to vilkår.\n\nVerktøya så langt er to. Likningar på forma $y' = f(x)$ blir løyste ved direkte integrasjon, slik $y' = 3x^2$ med $y(0) = 5$ gav $y = x^3 + 5$. Og kvar føreslått løysing kan *verifiserast* ved innsetjing — deriver kandidaten, set inn, og sjekk at likninga går opp. Den kontrollen er gratis og bør bli ein vane.\n\nViktigast av alt lærte du omsetjinga som driv all modellering: «veks med ein rate proporsjonal med storleiken» tyder $\\frac{dN}{dt} = kN$, med løysingsfamilien $y = Ce^{kx}$ — eksponentiell vekst når $k > 0$, forfall når $k < 0$. Folkesetnad, renter, radioaktivitet og epidemiar snakkar alle dette språket.\n\nMen å gjette og verifisere er ingen metode i lengda. I neste kapittel lærer du den systematiske teknikken som *utleier* løysingane: separable differensiallikningar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0514e83e5ec3d168",
+    "translatedAt": "2026-06-20T09:03:19.004Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "835a4fbb7a13b860": "Introduksjon til differensiallikningar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "320bbcd9817e892c": "Ei forteljing om korleis SSB, FHI og banken reknar på framtida: likningar der den ukjende er ein funksjon, og initialvilkår som vel kurva i verkelegheita.",
+      "111345f67d1a8f4c": "løyse differensiallikningar med separable variablar",
+      "30a5f178f583132a": "bruke differensiallikningar til å modellere praktiske situasjonar",
+      "5663fb67fbadfd39": "## Likningar der svaret er ein funksjon\n\nKorleis klarer Statistisk sentralbyrå å seie noko om kor mange vi blir i Noreg i 2050? Korleis reknar Folkehelseinstituttet ut kor raskt eit virus vil spreie seg? Og korleis veit banken kva lånet ditt veks til? Fellesnemnaren er at ingen av dei kjenner framtida direkte — men dei kjenner *endringa*. Dei veit kor fort folkesetnaden veks i dag, kor mange som blir smitta per veke, kor mykje renter som blir lagde til per år. Utfordringa er å gå frå kunnskap om endringa til kunnskap om sjølve utviklinga.\n\nVerktøyet i matematikken for nett dette heiter **differensiallikningar**. Ei differensiallikning er ei likning som inneheld ein ukjend *funksjon* og éin eller fleire av dei deriverte. Det er ein ny type likning: i likningane du har løyst til no, var den ukjende eit tal — no er den ukjende ein heil funksjon.\n\nDet enklaste dømet: $y' = 2x$ er ei differensiallikning. Ho spør: «Kva funksjon har $2x$ som derivert?» Etter integralkapittelet svarar du på refleks: $y = x^2 + C$. Kvar verdi av $C$ gjev ei løysing, så likninga har uendeleg mange løysingar — ein heil familie av parablar.\n\nI dette kapittelet lærer du omgrepsapparatet: kva orden tyder, skilnaden på generell og partikulær løysing, korleis initialvilkår plukkar ut den eine løysinga verkelegheita følgjer, og korleis du *verifiserer* at ein funksjon faktisk løyser ei likning. Til slutt ser vi korleis verkelege vekstprosessar blir omsette til differensiallikningar — omsetjinga som heile resten av hovudkapittelet byggjer på.",
+      "0f2b157369671e78": "## Orden, løysingar og initialvilkår\n\nLat oss rydde omgrepa på plass. **Ordenen** til ei differensiallikning er den høgaste deriverte som førekjem: $y' = f(x)$ er av første orden, $y'' = f(x)$ av andre orden. Løysingane kjem i to variantar. Den **generelle løysinga** inneheld ein vilkårleg konstant $C$ (eller fleire) og skildrar *alle* funksjonar som passar i likninga. Ei **partikulær løysing** er éin bestemt funksjon frå denne familien, der konstanten er fastlagd av eit **initialvilkår** — ein kjend verdi som $y(0) = 5$.\n\nLikningar på forma $y' = f(x)$ løyser vi med direkte integrasjon. Lat oss ta heile arbeidsgangen på likninga $y' = 3x^2$ med initialvilkåret $y(0) = 5$. Først den generelle løysinga, ved å integrere begge sider:\n\n$$y = \\int 3x^2 \\, dx = x^3 + C$$\n\nSå den partikulære: initialvilkåret krev $y(0) = 0^3 + C = 5$, altså $C = 5$, og dermed\n\n$$y = x^3 + 5$$\n\nTenk på det som GPS-koordinatar: den generelle løysinga er vegnettet, initialvilkåret fortel kvar du startar, og den partikulære løysinga er ruta di.\n\nTo ting til. For det første: ei andreordens likning som $y'' = 6x$ må integrerast to gonger og får då *to* frie konstantar — ho treng difor to vilkår for å bli eintydig. For det andre, eit undervurdert triks: å **verifisere** ei løysing er mykje enklare enn å finne henne. Påstår nokon at $y = x^3 + 5$ løyser $y' = 3x^2$, deriverer du berre: $y' = 3x^2$. Stemmer. Innsetjing av funksjonen og den deriverte i likninga er alltid den endelege kvalitetskontrollen.",
+      "81836cbd1e798c97": "Test deg sjølv på grunnomgrepa for differensiallikningar:",
+      "4097889236a2af26": "placeholder",
+      "3c1a62a692a30189": "Kva er ei differensiallikning?",
+      "939f9dbec852ad22": "Ei likning der den ukjende er eit tal med mange desimalar",
+      "0a1edb11ece8a0e3": "Ei likning som inneheld ein ukjend funksjon og éin eller fleire av dei deriverte",
+      "92f9e3c56c820a33": "Ei likning med to ukjende tal",
+      "0caf7b829595bc27": "Ei likning som berre kan løysast numerisk",
+      "ac937597290dfdb0": "I ei differensiallikning er den ukjende ein funksjon $y = y(x)$, og likninga knyter funksjonen til den deriverte, som i $y' = 2x$ eller $y' = ky$.",
+      "f160e0d973d36a8a": "Kva orden har differensiallikninga $y'' = 6x$?",
+      "7eb58386fb7183e5": "Første orden",
+      "fe29586a3f8fd851": "Sjette orden",
+      "e412a95f6df7a8fa": "Andre orden",
+      "7ef92bf18d4d18c8": "Null-te orden",
+      "27abe7ca362542e3": "Ordenen er den høgaste deriverte i likninga. Her førekjem $y''$, så likninga er av andre orden — og ho treng to vilkår for ei eintydig løysing.",
+      "b70f7a314bc03de9": "Kva er den generelle løysinga av $y' = 3x^2$?",
+      "6433d3cb722adf85": "$y = 6x + C$",
+      "64a840efef1d0bb7": "$y = x^3$",
+      "e1c6f9aa8bd04dca": "$y = 3x^3 + C$",
+      "224367ad2017c565": "$y = x^3 + C$",
+      "a01d6a8078133263": "Direkte integrasjon: $y = \\int 3x^2\\,dx = x^3 + C$. Utan initialvilkår held vi på konstanten — det er ein heil løysingsfamilie.",
+      "78f98ad3e2406a6a": "Kva er den partikulære løysinga av $y' = 3x^2$ med $y(0) = 5$?",
+      "9ce200db8abf3063": "$y = x^3 + 5$",
+      "65f75e7a4aa85a1e": "$y = 5x^3$",
+      "cff987e348e0600b": "$y = x^3 - 5$",
+      "267155f9a0f141d4": "Innsetjing i $y = x^3 + C$ gjev $y(0) = C = 5$. Den partikulære løysinga er $y = x^3 + 5$.",
+      "9ed91e04d3986a56": "Korleis verifiserer vi at ein funksjon er ei løysing av ei differensiallikning?",
+      "87967899bfed9f79": "Vi teiknar grafen og ser om han ser rett ut",
+      "b645d7b026829d33": "Vi integrerer funksjonen og samanliknar med likninga",
+      "b294ea28553d8dee": "Vi set funksjonen og den deriverte inn i likninga og sjekkar at det stemmer",
+      "64797071557037f3": "Vi sjekkar at funksjonen er kontinuerleg",
+      "a99d6a257916c378": "Verifisering er innsetjing: deriver den føreslåtte funksjonen, set funksjon og deriverte inn i likninga, og kontroller at venstre og høgre side blir like.",
+      "17f42f23e4984456": "## Når endringa er avhengig av tilstanden\n\nLikninga $y' = 3x^2$ var grei, men òg litt spesiell: endringa var ein rein funksjon av $x$. Dei verkeleg interessante modellane oppstår når endringsraten er avhengig av *tilstanden sjølv* — og det er regelen snarare enn unntaket i samfunnet rundt deg. Folkevekst: jo fleire innbyggjarar, desto fleire fødslar per år. Radioaktivt forfall: jo meir materiale, desto fleire atom henfell per sekund. Newtons avkjølingslov: jo varmare kaffien er i forhold til rommet, desto raskare kjølnar han. Økonomisk vekst med rente: jo meir kapital på kontoen, desto meir renter. Epidemiar: jo fleire smitta, desto raskare spreiing.\n\nLat oss omsetje den vanlegaste formuleringa til matematikk. Ein bakteriekultur «veks med ein rate proporsjonal med storleiken». Kall talet på bakteriar ved tid $t$ for $N(t)$. Raten er $\\frac{dN}{dt}$, og «proporsjonal med storleiken» tyder lik ein konstant gonger $N$:\n\n$$\\frac{dN}{dt} = kN$$\n\nder $k > 0$ er vekstkonstanten. Dette er den klassiske modellen for **eksponentiell vekst** — truleg den viktigaste differensiallikninga i heile S2. Legg merke til kor lite som skulle til: éi setning på norsk blei éi linje matematikk. Den omsetjinga — frå «veks proporsjonalt med...» til $y' = ky$ — er sjølve kjernekompetansen i modellering.\n\nKva er løysinga? Du kan allereie verifisere ein kandidat: prøv $y = Ce^{kx}$. Derivasjon gjev $y' = Cke^{kx} = k \\cdot Ce^{kx} = ky$. Han passar! Eksponentialfunksjonen er funksjonen der endringa er proporsjonal med han sjølv — difor dukkar han opp overalt, frå renteberekning til folketalsframskrivingar. *Korleis* ein finn denne løysinga systematisk (og ikkje berre gjettar og verifiserer), er temaet for neste kapittel om separable likningar. Med forteiknet snudd, $k < 0$, skildrar same likninga radioaktivt forfall og andre prosessar som døyr ut.",
+      "2bed6503f824582d": "Test deg sjølv på modellering med differensiallikningar:",
+      "d5948042187d57b5": "Ein bakteriekultur veks med ein rate proporsjonal med storleiken $N$. Kva differensiallikning skildrar dette?",
+      "f112f884697245b6": "$\\frac{dN}{dt} = k$",
+      "a280e956b0f3595e": "$\\frac{dN}{dt} = kN$",
+      "b9b01d88d9f0def3": "$\\frac{dN}{dt} = kt$",
+      "6ff0df68de155c8d": "$N = kt$",
+      "1d9fe7e46b8a8262": "Raten er $\\frac{dN}{dt}$, og proporsjonalitet med storleiken tyder konstant gonger $N$: $\\frac{dN}{dt} = kN$ med $k > 0$.",
+      "b00f943bd215edf6": "Kva funksjonsfamilie løyser likninga $y' = ky$?",
+      "529aaa65c143ae89": "$y = kx + C$",
+      "e82a3038b29e6451": "$y = Cx^k$",
+      "c38192eac857e39b": "$y = Ce^{kx}$",
+      "123eec23f19997c6": "$y = C\\ln(kx)$",
+      "589e2dfa191e94c3": "Verifisering: $(Ce^{kx})' = Cke^{kx} = k(Ce^{kx}) = ky$. Eksponentialfunksjonen er nett funksjonen der endringsraten er proporsjonal med han sjølv.",
+      "abad82f66845f362": "Kva tyder det at $k < 0$ i modellen $\\frac{dN}{dt} = kN$?",
+      "9ddb05e948df88e1": "At mengda avtek — til dømes radioaktivt forfall",
+      "6597b899d83aaebf": "At likninga ikkje har noka løysing",
+      "2095e31320697a03": "At veksten er raskare enn eksponentiell",
+      "572ffee0f4081748": "At $N$ blir negativ etter kort tid",
+      "487b35a3a5957e49": "Negativ $k$ gjev negativ endringsrate så lenge $N > 0$: mengda avtek eksponentielt, som ved radioaktivt forfall eller nedkjøling. Løysinga $N = N_0e^{kt}$ søkk mot null, men blir aldri negativ.",
+      "b4adcd18f07abef8": "## Frå endring til utvikling\n\nDu starta med SSB, FHI og banken — alle med same problemet: dei kjenner endringa, men vil vite utviklinga. No har du rammeverket deira. Ei differensiallikning er ei likning med ein ukjend funksjon og den deriverte, og ordenen er den høgaste deriverte som inngår. Den generelle løysinga er ein familie av funksjonar med fri konstant $C$; eit initialvilkår som $y(0) = 5$ fastlegg konstanten og gjev den partikulære løysinga — den eine kurva verkelegheita følgjer. Andreordens likningar treng tilsvarande to vilkår.\n\nVerktøya så langt er to. Likningar på forma $y' = f(x)$ blir løyste ved direkte integrasjon, slik $y' = 3x^2$ med $y(0) = 5$ gav $y = x^3 + 5$. Og kvar føreslått løysing kan *verifiserast* ved innsetjing — deriver kandidaten, set inn, og sjekk at likninga går opp. Den kontrollen er gratis og bør bli ein vane.\n\nViktigast av alt lærte du omsetjinga som driv all modellering: «veks med ein rate proporsjonal med storleiken» tyder $\\frac{dN}{dt} = kN$, med løysingsfamilien $y = Ce^{kx}$ — eksponentiell vekst når $k > 0$, forfall når $k < 0$. Folkesetnad, renter, radioaktivitet og epidemiar snakkar alle dette språket.\n\nMen å gjette og verifisere er ingen metode i lengda. I neste kapittel lærer du den systematiske teknikken som *utleier* løysingane: separable differensiallikningar."
+    }
+  }
+}

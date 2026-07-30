@@ -1,1 +1,328 @@
-{"id":"s2-6-4-narrativ","courseId":"s2","chapterNumber":"6.4","title":"Ikkje-lineær regresjon","subtitle":"Narrativ versjon","description":"Ei forteljing om eit basketballkast og ein bakteriekultur — om polynomisk og eksponentiell regresjon, doblingstid og kunsten å kjenne att rett kurveform.","estimatedMinutes":35,"competenceGoals":["tilpasse polynomiske, eksponentielle og logaritmiske regresjonsmodellar","linearisere ikkje-lineære modellar ved variabeltransformasjon","bruke $R^2$ og residualplott til å vurdere modelltilpassing"],"linkedChapterId":"s2-6-4","content":[{"id":"s2-6-4-n-intro","type":"text","content":"## Ballen, bakteriane og jakta på rett kurve\n\nDu står i gymsalen og filmar ein basketball som blir kasta mot kurven. Etterpå les du av høgda frå videoen: ved $t = 0$ er ballen 1,0 meter over golvet, ved 0,5 sekund 4,6 meter, ved 1,0 sekund 6,8 meter, ved 1,5 sekund 7,2 meter, ved 2,0 sekund 5,9 meter og ved 2,5 sekund 3,1 meter. Opp, så ned — inga rett linje i verda kan skildre dette.\n\nLineær regresjon fungerer når samanhengen er tilnærma lineær, men mange fenomen følgjer andre mønster. **Eksponentiell vekst** skildrar folkevekst og rentes rente. **Logaritmiske** samanhengar ligg bak desibelskalaen og Richter-skalaen. Og **polynomiske** kurver skildrar kastebanar og kostnadsoptimering.\n\nI dette kapittelet utvidar vi regresjonsverktøya i to retningar: polynomisk regresjon, som bøyer kurva med ledd som $x^2$ og $x^3$, og eksponentiell regresjon på forma $y = a \\cdot e^{kx}$, som vi temjer med logaritmar. Til slutt lagar vi ein feltguide for å kjenne att kva modell eit datasett ber om."},{"id":"s2-6-4-n-section1","type":"text","content":"## Polynomisk regresjon — kurver som bøyer seg\n\n**Polynomisk regresjon** tilpassar eit polynom til dataa:\n\n$$y = a_0 + a_1 x + a_2 x^2 + \\cdots + a_k x^k$$\n\nDei vanlegaste variantane er grad 2 (kvadratisk), $y = a + bx + cx^2$, og grad 3 (kubisk), $y = a + bx + cx^2 + dx^3$. Koeffisientane blir bestemte med minste kvadraters metode, akkurat som for den rette linja — verktøyet ditt (GeoGebra, CAS eller Python) gjer reknearbeidet.\n\nTilbake til basketballen. Ein kvadratisk regresjon på måledataa gir\n\n$$h = 0{,}95 + 7{,}62t - 3{,}18t^2 \\qquad \\text{med } R^2 = 0{,}995$$\n\nNo kan vi lese fysikken rett ut av koeffisientane. Starthøgda er $h(0) = 0{,}95$ meter — omtrent hoftehøgd, der ballen slapp handa. Toppunktet finn vi der den deriverte er null: $t = \\frac{7{,}62}{2 \\cdot 3{,}18} = 1{,}20$ sekund. Og $R^2 = 0{,}995$ betyr at 99,5 % av variasjonen i høgda blir forklart av modellen — ei svært god tilpassing, som forventa for eit kast som følgjer parabelen til tyngdekrafta.\n\nPolynom er fleksible: jo høgare grad, desto meir kan kurva bukte seg. Men fleksibilitet er ikkje gratis — eit polynom av høg grad kan tilpasse seg støy i staden for mønster. Vel difor lågast mogleg grad som fangar forma i dataa."},{"id":"s2-6-4-n-quiz1","type":"exercise","exercise":{"id":"s2-6-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på polynomisk regresjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-4-n-quiz1-q0","task":"Ballmodellen er $h = 0{,}95 + 7{,}62t - 3{,}18t^2$. Kva er starthøgda?","options":[{"id":"a","text":"$7{,}62$ m","isCorrect":false},{"id":"b","text":"$0{,}95$ m","isCorrect":true},{"id":"c","text":"$3{,}18$ m","isCorrect":false},{"id":"d","text":"$1{,}20$ m","isCorrect":false}],"solution":"Starthøgda er $h(0) = 0{,}95$ m — konstantleddet i polynomet."},{"id":"s2-6-4-n-quiz1-q1","task":"Når når ballen toppunktet?","options":[{"id":"a","text":"$t = \\frac{7{,}62}{2 \\cdot 3{,}18} \\approx 1{,}20$ s","isCorrect":true},{"id":"b","text":"$t = 7{,}62$ s","isCorrect":false},{"id":"c","text":"$t = \\frac{3{,}18}{7{,}62} \\approx 0{,}42$ s","isCorrect":false},{"id":"d","text":"$t = 2{,}5$ s","isCorrect":false}],"solution":"Toppunktet ligg der $h'(t) = 7{,}62 - 6{,}36t = 0$, altså $t = 7{,}62/6{,}36 \\approx 1{,}20$ s."},{"id":"s2-6-4-n-quiz1-q2","task":"Kvifor bør vi ikkje automatisk velje eit polynom av høg grad?","options":[{"id":"a","text":"Høg grad gir alltid lågare $R^2$","isCorrect":false},{"id":"b","text":"Polynom av grad over 2 kan ikkje tilpassast med MKM","isCorrect":false},{"id":"c","text":"Modellen kan byrje å tilpasse seg tilfeldig støy i staden for det reelle mønsteret","isCorrect":true},{"id":"d","text":"Datamaskiner klarer ikkje rekne på dei","isCorrect":false}],"solution":"Eit fleksibelt polynom kan «jage» kvart enkelt datapunkt og fange opp støy (overtilpassing). Vel lågast mogleg grad som skildrar forma i dataa."}]}},{"id":"s2-6-4-n-section2","type":"text","content":"## Eksponentiell regresjon med $e$ som base\n\nMedan ballen flaug i gymsalen, har bakteriekulturen på naturfagslaben vakse vidare: 100, 150, 220, 340, 500 bakteriar time for time. Her brukar vi ein eksponentiell modell skriven med den naturlege basen:\n\n$$y = a \\cdot e^{kx}$$\n\nLineariseringstrikset er det same som før: $\\ln y = \\ln a + kx$ er lineær i $(x, \\ln y)$. Oppskrifta har tre steg. Først reknar vi ut $\\ln y_i$ for alle datapunkta. Så køyrer vi lineær regresjon på $(x_i, \\ln y_i)$. Til slutt les vi av: konstantleddet er $\\ln a$ og stigingstalet er $k$.\n\nFor bakteriane gir regresjonen $\\ln N = 4{,}61 + 0{,}403t$ med $R^2 = 0{,}999$. Dermed er $a = e^{4{,}61} \\approx 100{,}5$ og $k = 0{,}403$, og modellen blir\n\n$$N(t) = 100{,}5 \\cdot e^{0{,}403t}$$\n\nMed $e$-forma får vi ein bonus: **doblingstida** kjem nesten gratis. Kulturen doblar seg når $e^{0{,}403t} = 2$, altså etter $t = \\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar.\n\nKva med dei andre kurvetypane? **Potensregresjon** $y = ax^b$ blir linearisert med $\\ln y = \\ln a + b\\ln x$ (plott $\\ln x$ mot $\\ln y$), og den **logaritmiske** modellen $y = a + b\\ln x$ er allereie lineær i $\\ln x$. Dermed har du ein komplett feltguide: jamn stiging peikar mot lineær modell, krumming mot polynomisk, rask akselererande vekst mot eksponentiell, avtakande vekst mot logaritmisk, og eit lineært log-log-plott mot potensmodell. I tvilstilfelle lèt du $R^2$ og residualplottet felle dommen."},{"id":"s2-6-4-n-quiz2","type":"exercise","exercise":{"id":"s2-6-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på eksponentiell regresjon og modellval:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-6-4-n-quiz2-q0","task":"Regresjon på $(t, \\ln N)$ gir $\\ln N = 4{,}61 + 0{,}403t$. Kva er $a$ i modellen $N = a \\cdot e^{kt}$?","options":[{"id":"a","text":"$a = 4{,}61$","isCorrect":false},{"id":"b","text":"$a = 0{,}403$","isCorrect":false},{"id":"c","text":"$a = \\ln 4{,}61$","isCorrect":false},{"id":"d","text":"$a = e^{4{,}61} \\approx 100{,}5$","isCorrect":true}],"solution":"Konstantleddet i den lineariserte modellen er $\\ln a = 4{,}61$, så $a = e^{4{,}61} \\approx 100{,}5$."},{"id":"s2-6-4-n-quiz2-q1","task":"Kva er doblingstida for $N(t) = 100{,}5 \\cdot e^{0{,}403t}$?","options":[{"id":"a","text":"$\\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar","isCorrect":true},{"id":"b","text":"$0{,}403$ timar","isCorrect":false},{"id":"c","text":"$\\frac{2}{0{,}403} \\approx 4{,}96$ timar","isCorrect":false},{"id":"d","text":"$100{,}5$ timar","isCorrect":false}],"solution":"Dobling: $e^{0{,}403t} = 2 \\Rightarrow t = \\ln 2 / 0{,}403 \\approx 1{,}72$ timar."},{"id":"s2-6-4-n-quiz2-q2","task":"Eit datasett viser rask vekst i starten som flatar ut mot ei jamn, avtakande stiging. Kva modell antyder mønsteret?","options":[{"id":"a","text":"Eksponentiell $y = ae^{kx}$ med $k > 0$","isCorrect":false},{"id":"b","text":"Kvadratisk med positivt $x^2$-ledd","isCorrect":false},{"id":"c","text":"Logaritmisk $y = a + b\\ln x$","isCorrect":true},{"id":"d","text":"Lineær","isCorrect":false}],"solution":"Avtakande vekst — bratt først, slakare etter kvart — er kjenneteiknet på den logaritmiske modellen."},{"id":"s2-6-4-n-quiz2-q3","task":"Kva verktøy brukar vi til å samanlikne kandidatmodellar?","options":[{"id":"a","text":"Berre talet på datapunkt","isCorrect":false},{"id":"b","text":"$R^2$ og residualplott","isCorrect":true},{"id":"c","text":"Berre konstantledda","isCorrect":false},{"id":"d","text":"Standardavviket til $x$-verdiane","isCorrect":false}],"solution":"Høg $R^2$ og eit residualplott utan systematisk mønster kjenneteiknar den beste modellen — gjerne supplert med fagleg skjøn."}]}},{"id":"s2-6-4-n-summary","type":"text","content":"## Oppsummering: ei kurve for kvart fenomen\n\nBasketballkastet og bakteriekulturen trong kvar si kurve, og no har du begge i verktøykassa. **Polynomisk regresjon** $y = a_0 + a_1x + a_2x^2 + \\cdots$ bøyer kurva og fangar kastebanar og optimeringsproblem; for ballen gav den kvadratiske modellen $h = 0{,}95 + 7{,}62t - 3{,}18t^2$ både starthøgd, toppunkt ved $t = 1{,}20$ s og $R^2 = 0{,}995$.\n\n**Eksponentiell regresjon** $y = ae^{kx}$ blir linearisert med $\\ln y = \\ln a + kx$: regresjon på $(x, \\ln y)$ gir $\\ln a$ som konstantledd og $k$ som stigingstal, og doblingstida følgjer som $\\ln 2 / k$. **Potensmodellen** $y = ax^b$ blir linearisert tilsvarande med $\\ln y = \\ln a + b\\ln x$, medan den **logaritmiske** $y = a + b\\ln x$ allereie er lineær i $\\ln x$.\n\nOg feltguiden til slutt: jamn stiging → lineær, krumming → polynomisk, akselererande vekst → eksponentiell, avtakande vekst → logaritmisk, lineært log-log-plott → potens. Når forma åleine ikkje avgjer, samanliknar du $R^2$ og residualplott. Slik blir regresjon mindre som å gjette og meir som å lytte: dataa fortel deg sjølv kva form dei har — du må berre kjenne språket."}],"exercises":[],"_meta":{"sourceHash":"d0eb299cf534d9cc","translatedAt":"2026-06-20T09:34:22.775Z","model":"claude-code-agent","strings":56,"tm":{"20ab28ad90d865ae":"Ikkje-lineær regresjon","b195b06d1ed59702":"Narrativ versjon","92ffab5648bc2420":"Ei forteljing om eit basketballkast og ein bakteriekultur — om polynomisk og eksponentiell regresjon, doblingstid og kunsten å kjenne att rett kurveform.","af92bc2d81bab421":"tilpasse polynomiske, eksponentielle og logaritmiske regresjonsmodellar","03cf94cffa65d1e2":"linearisere ikkje-lineære modellar ved variabeltransformasjon","25176050c2d43f75":"bruke $R^2$ og residualplott til å vurdere modelltilpassing","a8dfa04e58c0c31d":"## Ballen, bakteriane og jakta på rett kurve\n\nDu står i gymsalen og filmar ein basketball som blir kasta mot kurven. Etterpå les du av høgda frå videoen: ved $t = 0$ er ballen 1,0 meter over golvet, ved 0,5 sekund 4,6 meter, ved 1,0 sekund 6,8 meter, ved 1,5 sekund 7,2 meter, ved 2,0 sekund 5,9 meter og ved 2,5 sekund 3,1 meter. Opp, så ned — inga rett linje i verda kan skildre dette.\n\nLineær regresjon fungerer når samanhengen er tilnærma lineær, men mange fenomen følgjer andre mønster. **Eksponentiell vekst** skildrar folkevekst og rentes rente. **Logaritmiske** samanhengar ligg bak desibelskalaen og Richter-skalaen. Og **polynomiske** kurver skildrar kastebanar og kostnadsoptimering.\n\nI dette kapittelet utvidar vi regresjonsverktøya i to retningar: polynomisk regresjon, som bøyer kurva med ledd som $x^2$ og $x^3$, og eksponentiell regresjon på forma $y = a \\cdot e^{kx}$, som vi temjer med logaritmar. Til slutt lagar vi ein feltguide for å kjenne att kva modell eit datasett ber om.","ec77b9bc90f62b10":"## Polynomisk regresjon — kurver som bøyer seg\n\n**Polynomisk regresjon** tilpassar eit polynom til dataa:\n\n$$y = a_0 + a_1 x + a_2 x^2 + \\cdots + a_k x^k$$\n\nDei vanlegaste variantane er grad 2 (kvadratisk), $y = a + bx + cx^2$, og grad 3 (kubisk), $y = a + bx + cx^2 + dx^3$. Koeffisientane blir bestemte med minste kvadraters metode, akkurat som for den rette linja — verktøyet ditt (GeoGebra, CAS eller Python) gjer reknearbeidet.\n\nTilbake til basketballen. Ein kvadratisk regresjon på måledataa gir\n\n$$h = 0{,}95 + 7{,}62t - 3{,}18t^2 \\qquad \\text{med } R^2 = 0{,}995$$\n\nNo kan vi lese fysikken rett ut av koeffisientane. Starthøgda er $h(0) = 0{,}95$ meter — omtrent hoftehøgd, der ballen slapp handa. Toppunktet finn vi der den deriverte er null: $t = \\frac{7{,}62}{2 \\cdot 3{,}18} = 1{,}20$ sekund. Og $R^2 = 0{,}995$ betyr at 99,5 % av variasjonen i høgda blir forklart av modellen — ei svært god tilpassing, som forventa for eit kast som følgjer parabelen til tyngdekrafta.\n\nPolynom er fleksible: jo høgare grad, desto meir kan kurva bukte seg. Men fleksibilitet er ikkje gratis — eit polynom av høg grad kan tilpasse seg støy i staden for mønster. Vel difor lågast mogleg grad som fangar forma i dataa.","07c5d79a7e5c49a9":"Test deg sjølv på polynomisk regresjon:","4097889236a2af26":"placeholder","9766ea3bac8e5317":"Ballmodellen er $h = 0{,}95 + 7{,}62t - 3{,}18t^2$. Kva er starthøgda?","15e0621b5923e387":"$7{,}62$ m","b1633a43539bfb04":"$0{,}95$ m","fc5594c37227cd77":"$3{,}18$ m","6d4736fd865adb7c":"$1{,}20$ m","a586910bf2088db7":"Starthøgda er $h(0) = 0{,}95$ m — konstantleddet i polynomet.","2c37f283d7877fcb":"Når når ballen toppunktet?","432355a85992d890":"$t = \\frac{7{,}62}{2 \\cdot 3{,}18} \\approx 1{,}20$ s","ac3016d73054de4f":"$t = 7{,}62$ s","6ba42846883582ab":"$t = \\frac{3{,}18}{7{,}62} \\approx 0{,}42$ s","39501d15fe06c0cf":"$t = 2{,}5$ s","8d4e29571848a6ec":"Toppunktet ligg der $h'(t) = 7{,}62 - 6{,}36t = 0$, altså $t = 7{,}62/6{,}36 \\approx 1{,}20$ s.","b64b25ad0b18ef99":"Kvifor bør vi ikkje automatisk velje eit polynom av høg grad?","454a280e0563f0d7":"Høg grad gir alltid lågare $R^2$","00ecadfa87eceeb1":"Polynom av grad over 2 kan ikkje tilpassast med MKM","8ad7ca50f2ee6f62":"Modellen kan byrje å tilpasse seg tilfeldig støy i staden for det reelle mønsteret","446ae5c10180613e":"Datamaskiner klarer ikkje rekne på dei","ec5a7c99e679f13a":"Eit fleksibelt polynom kan «jage» kvart enkelt datapunkt og fange opp støy (overtilpassing). Vel lågast mogleg grad som skildrar forma i dataa.","8e0d3d827f0df5f8":"## Eksponentiell regresjon med $e$ som base\n\nMedan ballen flaug i gymsalen, har bakteriekulturen på naturfagslaben vakse vidare: 100, 150, 220, 340, 500 bakteriar time for time. Her brukar vi ein eksponentiell modell skriven med den naturlege basen:\n\n$$y = a \\cdot e^{kx}$$\n\nLineariseringstrikset er det same som før: $\\ln y = \\ln a + kx$ er lineær i $(x, \\ln y)$. Oppskrifta har tre steg. Først reknar vi ut $\\ln y_i$ for alle datapunkta. Så køyrer vi lineær regresjon på $(x_i, \\ln y_i)$. Til slutt les vi av: konstantleddet er $\\ln a$ og stigingstalet er $k$.\n\nFor bakteriane gir regresjonen $\\ln N = 4{,}61 + 0{,}403t$ med $R^2 = 0{,}999$. Dermed er $a = e^{4{,}61} \\approx 100{,}5$ og $k = 0{,}403$, og modellen blir\n\n$$N(t) = 100{,}5 \\cdot e^{0{,}403t}$$\n\nMed $e$-forma får vi ein bonus: **doblingstida** kjem nesten gratis. Kulturen doblar seg når $e^{0{,}403t} = 2$, altså etter $t = \\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar.\n\nKva med dei andre kurvetypane? **Potensregresjon** $y = ax^b$ blir linearisert med $\\ln y = \\ln a + b\\ln x$ (plott $\\ln x$ mot $\\ln y$), og den **logaritmiske** modellen $y = a + b\\ln x$ er allereie lineær i $\\ln x$. Dermed har du ein komplett feltguide: jamn stiging peikar mot lineær modell, krumming mot polynomisk, rask akselererande vekst mot eksponentiell, avtakande vekst mot logaritmisk, og eit lineært log-log-plott mot potensmodell. I tvilstilfelle lèt du $R^2$ og residualplottet felle dommen.","d8652a4f16bfb5d2":"Test deg sjølv på eksponentiell regresjon og modellval:","1e23dfdb3146bd66":"Regresjon på $(t, \\ln N)$ gir $\\ln N = 4{,}61 + 0{,}403t$. Kva er $a$ i modellen $N = a \\cdot e^{kt}$?","f73d4dd24bdc23dd":"$a = 4{,}61$","eb11ccfa0aaf885c":"$a = 0{,}403$","4be099cdcfd95d4b":"$a = \\ln 4{,}61$","e3c9d959595ae918":"$a = e^{4{,}61} \\approx 100{,}5$","2ad916acaaddc4bb":"Konstantleddet i den lineariserte modellen er $\\ln a = 4{,}61$, så $a = e^{4{,}61} \\approx 100{,}5$.","2ec4878ffbbabfe3":"Kva er doblingstida for $N(t) = 100{,}5 \\cdot e^{0{,}403t}$?","5449687bfbb71015":"$\\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar","7cfcc35e3b5e61aa":"$0{,}403$ timar","f9825f9e8ccbeb37":"$\\frac{2}{0{,}403} \\approx 4{,}96$ timar","b000e777f25329e6":"$100{,}5$ timar","ea3a6f97238298ee":"Dobling: $e^{0{,}403t} = 2 \\Rightarrow t = \\ln 2 / 0{,}403 \\approx 1{,}72$ timar.","9c3116cd46fa1fe5":"Eit datasett viser rask vekst i starten som flatar ut mot ei jamn, avtakande stiging. Kva modell antyder mønsteret?","8e29dbad54d07763":"Eksponentiell $y = ae^{kx}$ med $k > 0$","1c7aaef433706650":"Kvadratisk med positivt $x^2$-ledd","54cb5f6494e32239":"Logaritmisk $y = a + b\\ln x$","d58da0a972a7c333":"Lineær","19a7e0b208eeb198":"Avtakande vekst — bratt først, slakare etter kvart — er kjenneteiknet på den logaritmiske modellen.","ece94fcc43c273d6":"Kva verktøy brukar vi til å samanlikne kandidatmodellar?","2bdc68674e2c329c":"Berre talet på datapunkt","8b4a9aeb300ca28e":"$R^2$ og residualplott","4310f8895cdc2827":"Berre konstantledda","d56548928d247acd":"Standardavviket til $x$-verdiane","be5e8ccb0ff15d91":"Høg $R^2$ og eit residualplott utan systematisk mønster kjenneteiknar den beste modellen — gjerne supplert med fagleg skjøn.","7b16ff70813b1e8b":"## Oppsummering: ei kurve for kvart fenomen\n\nBasketballkastet og bakteriekulturen trong kvar si kurve, og no har du begge i verktøykassa. **Polynomisk regresjon** $y = a_0 + a_1x + a_2x^2 + \\cdots$ bøyer kurva og fangar kastebanar og optimeringsproblem; for ballen gav den kvadratiske modellen $h = 0{,}95 + 7{,}62t - 3{,}18t^2$ både starthøgd, toppunkt ved $t = 1{,}20$ s og $R^2 = 0{,}995$.\n\n**Eksponentiell regresjon** $y = ae^{kx}$ blir linearisert med $\\ln y = \\ln a + kx$: regresjon på $(x, \\ln y)$ gir $\\ln a$ som konstantledd og $k$ som stigingstal, og doblingstida følgjer som $\\ln 2 / k$. **Potensmodellen** $y = ax^b$ blir linearisert tilsvarande med $\\ln y = \\ln a + b\\ln x$, medan den **logaritmiske** $y = a + b\\ln x$ allereie er lineær i $\\ln x$.\n\nOg feltguiden til slutt: jamn stiging → lineær, krumming → polynomisk, akselererande vekst → eksponentiell, avtakande vekst → logaritmisk, lineært log-log-plott → potens. Når forma åleine ikkje avgjer, samanliknar du $R^2$ og residualplott. Slik blir regresjon mindre som å gjette og meir som å lytte: dataa fortel deg sjølv kva form dei har — du må berre kjenne språket."}}}
+{
+  "id": "s2-6-4-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "6.4",
+  "title": "Ikkje-lineær regresjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om eit basketballkast og ein bakteriekultur — om polynomisk og eksponentiell regresjon, doblingstid og kunsten å kjenne att rett kurveform.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "tilpasse polynomiske, eksponentielle og logaritmiske regresjonsmodellar",
+    "linearisere ikkje-lineære modellar ved variabeltransformasjon",
+    "bruke $R^2$ og residualplott til å vurdere modelltilpassing"
+  ],
+  "linkedChapterId": "s2-6-4",
+  "content": [
+    {
+      "id": "s2-6-4-n-intro",
+      "type": "text",
+      "content": "## Ballen, bakteriane og jakta på rett kurve\n\nDu står i gymsalen og filmar ein basketball som blir kasta mot kurven. Etterpå les du av høgda frå videoen: ved $t = 0$ er ballen 1,0 meter over golvet, ved 0,5 sekund 4,6 meter, ved 1,0 sekund 6,8 meter, ved 1,5 sekund 7,2 meter, ved 2,0 sekund 5,9 meter og ved 2,5 sekund 3,1 meter. Opp, så ned — inga rett linje i verda kan skildre dette.\n\nLineær regresjon fungerer når samanhengen er tilnærma lineær, men mange fenomen følgjer andre mønster. **Eksponentiell vekst** skildrar folkevekst og rentes rente. **Logaritmiske** samanhengar ligg bak desibelskalaen og Richter-skalaen. Og **polynomiske** kurver skildrar kastebanar og kostnadsoptimering.\n\nI dette kapittelet utvidar vi regresjonsverktøya i to retningar: polynomisk regresjon, som bøyer kurva med ledd som $x^2$ og $x^3$, og eksponentiell regresjon på forma $y = a \\cdot e^{kx}$, som vi temjer med logaritmar. Til slutt lagar vi ein feltguide for å kjenne att kva modell eit datasett ber om."
+    },
+    {
+      "id": "s2-6-4-n-section1",
+      "type": "text",
+      "content": "## Polynomisk regresjon — kurver som bøyer seg\n\n**Polynomisk regresjon** tilpassar eit polynom til dataa:\n\n$$y = a_0 + a_1 x + a_2 x^2 + \\cdots + a_k x^k$$\n\nDei vanlegaste variantane er grad 2 (kvadratisk), $y = a + bx + cx^2$, og grad 3 (kubisk), $y = a + bx + cx^2 + dx^3$. Koeffisientane blir bestemte med minste kvadraters metode, akkurat som for den rette linja — verktøyet ditt (GeoGebra, CAS eller Python) gjer reknearbeidet.\n\nTilbake til basketballen. Ein kvadratisk regresjon på måledataa gir\n\n$$h = 0{,}95 + 7{,}62t - 3{,}18t^2 \\qquad \\text{med } R^2 = 0{,}995$$\n\nNo kan vi lese fysikken rett ut av koeffisientane. Starthøgda er $h(0) = 0{,}95$ meter — omtrent hoftehøgd, der ballen slapp handa. Toppunktet finn vi der den deriverte er null: $t = \\frac{7{,}62}{2 \\cdot 3{,}18} = 1{,}20$ sekund. Og $R^2 = 0{,}995$ betyr at 99,5 % av variasjonen i høgda blir forklart av modellen — ei svært god tilpassing, som forventa for eit kast som følgjer parabelen til tyngdekrafta.\n\nPolynom er fleksible: jo høgare grad, desto meir kan kurva bukte seg. Men fleksibilitet er ikkje gratis — eit polynom av høg grad kan tilpasse seg støy i staden for mønster. Vel difor lågast mogleg grad som fangar forma i dataa."
+    },
+    {
+      "id": "s2-6-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på polynomisk regresjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-4-n-quiz1-q0",
+            "task": "Ballmodellen er $h = 0{,}95 + 7{,}62t - 3{,}18t^2$. Kva er starthøgda?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7{,}62$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}95$ m",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3{,}18$ m",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1{,}20$ m",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Starthøgda er $h(0) = 0{,}95$ m — konstantleddet i polynomet."
+          },
+          {
+            "id": "s2-6-4-n-quiz1-q1",
+            "task": "Når når ballen toppunktet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$t = 7{,}62$ s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$t = \\frac{3{,}18}{7{,}62} \\approx 0{,}42$ s",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$t = \\frac{7{,}62}{2 \\cdot 3{,}18} \\approx 1{,}20$ s",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$t = 2{,}5$ s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Toppunktet ligg der $h'(t) = 7{,}62 - 6{,}36t = 0$, altså $t = 7{,}62/6{,}36 \\approx 1{,}20$ s."
+          },
+          {
+            "id": "s2-6-4-n-quiz1-q2",
+            "task": "Kvifor bør vi ikkje automatisk velje eit polynom av høg grad?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Høg grad gir alltid lågare $R^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Polynom av grad over 2 kan ikkje tilpassast med MKM",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Datamaskiner klarer ikkje rekne på dei",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Modellen kan byrje å tilpasse seg tilfeldig støy i staden for det reelle mønsteret",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eit fleksibelt polynom kan «jage» kvart enkelt datapunkt og fange opp støy (overtilpassing). Vel lågast mogleg grad som skildrar forma i dataa."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-4-n-section2",
+      "type": "text",
+      "content": "## Eksponentiell regresjon med $e$ som base\n\nMedan ballen flaug i gymsalen, har bakteriekulturen på naturfagslaben vakse vidare: 100, 150, 220, 340, 500 bakteriar time for time. Her brukar vi ein eksponentiell modell skriven med den naturlege basen:\n\n$$y = a \\cdot e^{kx}$$\n\nLineariseringstrikset er det same som før: $\\ln y = \\ln a + kx$ er lineær i $(x, \\ln y)$. Oppskrifta har tre steg. Først reknar vi ut $\\ln y_i$ for alle datapunkta. Så køyrer vi lineær regresjon på $(x_i, \\ln y_i)$. Til slutt les vi av: konstantleddet er $\\ln a$ og stigingstalet er $k$.\n\nFor bakteriane gir regresjonen $\\ln N = 4{,}61 + 0{,}403t$ med $R^2 = 0{,}999$. Dermed er $a = e^{4{,}61} \\approx 100{,}5$ og $k = 0{,}403$, og modellen blir\n\n$$N(t) = 100{,}5 \\cdot e^{0{,}403t}$$\n\nMed $e$-forma får vi ein bonus: **doblingstida** kjem nesten gratis. Kulturen doblar seg når $e^{0{,}403t} = 2$, altså etter $t = \\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar.\n\nKva med dei andre kurvetypane? **Potensregresjon** $y = ax^b$ blir linearisert med $\\ln y = \\ln a + b\\ln x$ (plott $\\ln x$ mot $\\ln y$), og den **logaritmiske** modellen $y = a + b\\ln x$ er allereie lineær i $\\ln x$. Dermed har du ein komplett feltguide: jamn stiging peikar mot lineær modell, krumming mot polynomisk, rask akselererande vekst mot eksponentiell, avtakande vekst mot logaritmisk, og eit lineært log-log-plott mot potensmodell. I tvilstilfelle lèt du $R^2$ og residualplottet felle dommen."
+    },
+    {
+      "id": "s2-6-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-6-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på eksponentiell regresjon og modellval:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-6-4-n-quiz2-q0",
+            "task": "Regresjon på $(t, \\ln N)$ gir $\\ln N = 4{,}61 + 0{,}403t$. Kva er $a$ i modellen $N = a \\cdot e^{kt}$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$a = e^{4{,}61} \\approx 100{,}5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$a = 4{,}61$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a = 0{,}403$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a = \\ln 4{,}61$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstantleddet i den lineariserte modellen er $\\ln a = 4{,}61$, så $a = e^{4{,}61} \\approx 100{,}5$."
+          },
+          {
+            "id": "s2-6-4-n-quiz2-q1",
+            "task": "Kva er doblingstida for $N(t) = 100{,}5 \\cdot e^{0{,}403t}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$0{,}403$ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{0{,}403} \\approx 4{,}96$ timar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$100{,}5$ timar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Dobling: $e^{0{,}403t} = 2 \\Rightarrow t = \\ln 2 / 0{,}403 \\approx 1{,}72$ timar."
+          },
+          {
+            "id": "s2-6-4-n-quiz2-q2",
+            "task": "Eit datasett viser rask vekst i starten som flatar ut mot ei jamn, avtakande stiging. Kva modell antyder mønsteret?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eksponentiell $y = ae^{kx}$ med $k > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kvadratisk med positivt $x^2$-ledd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Logaritmisk $y = a + b\\ln x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Lineær",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Avtakande vekst — bratt først, slakare etter kvart — er kjenneteiknet på den logaritmiske modellen."
+          },
+          {
+            "id": "s2-6-4-n-quiz2-q3",
+            "task": "Kva verktøy brukar vi til å samanlikne kandidatmodellar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre talet på datapunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre konstantledda",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Standardavviket til $x$-verdiane",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$R^2$ og residualplott",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Høg $R^2$ og eit residualplott utan systematisk mønster kjenneteiknar den beste modellen — gjerne supplert med fagleg skjøn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-6-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: ei kurve for kvart fenomen\n\nBasketballkastet og bakteriekulturen trong kvar si kurve, og no har du begge i verktøykassa. **Polynomisk regresjon** $y = a_0 + a_1x + a_2x^2 + \\cdots$ bøyer kurva og fangar kastebanar og optimeringsproblem; for ballen gav den kvadratiske modellen $h = 0{,}95 + 7{,}62t - 3{,}18t^2$ både starthøgd, toppunkt ved $t = 1{,}20$ s og $R^2 = 0{,}995$.\n\n**Eksponentiell regresjon** $y = ae^{kx}$ blir linearisert med $\\ln y = \\ln a + kx$: regresjon på $(x, \\ln y)$ gir $\\ln a$ som konstantledd og $k$ som stigingstal, og doblingstida følgjer som $\\ln 2 / k$. **Potensmodellen** $y = ax^b$ blir linearisert tilsvarande med $\\ln y = \\ln a + b\\ln x$, medan den **logaritmiske** $y = a + b\\ln x$ allereie er lineær i $\\ln x$.\n\nOg feltguiden til slutt: jamn stiging → lineær, krumming → polynomisk, akselererande vekst → eksponentiell, avtakande vekst → logaritmisk, lineært log-log-plott → potens. Når forma åleine ikkje avgjer, samanliknar du $R^2$ og residualplott. Slik blir regresjon mindre som å gjette og meir som å lytte: dataa fortel deg sjølv kva form dei har — du må berre kjenne språket."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "d0eb299cf534d9cc",
+    "translatedAt": "2026-06-20T09:34:22.775Z",
+    "model": "claude-code-agent",
+    "strings": 56,
+    "tm": {
+      "20ab28ad90d865ae": "Ikkje-lineær regresjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "92ffab5648bc2420": "Ei forteljing om eit basketballkast og ein bakteriekultur — om polynomisk og eksponentiell regresjon, doblingstid og kunsten å kjenne att rett kurveform.",
+      "af92bc2d81bab421": "tilpasse polynomiske, eksponentielle og logaritmiske regresjonsmodellar",
+      "03cf94cffa65d1e2": "linearisere ikkje-lineære modellar ved variabeltransformasjon",
+      "25176050c2d43f75": "bruke $R^2$ og residualplott til å vurdere modelltilpassing",
+      "a8dfa04e58c0c31d": "## Ballen, bakteriane og jakta på rett kurve\n\nDu står i gymsalen og filmar ein basketball som blir kasta mot kurven. Etterpå les du av høgda frå videoen: ved $t = 0$ er ballen 1,0 meter over golvet, ved 0,5 sekund 4,6 meter, ved 1,0 sekund 6,8 meter, ved 1,5 sekund 7,2 meter, ved 2,0 sekund 5,9 meter og ved 2,5 sekund 3,1 meter. Opp, så ned — inga rett linje i verda kan skildre dette.\n\nLineær regresjon fungerer når samanhengen er tilnærma lineær, men mange fenomen følgjer andre mønster. **Eksponentiell vekst** skildrar folkevekst og rentes rente. **Logaritmiske** samanhengar ligg bak desibelskalaen og Richter-skalaen. Og **polynomiske** kurver skildrar kastebanar og kostnadsoptimering.\n\nI dette kapittelet utvidar vi regresjonsverktøya i to retningar: polynomisk regresjon, som bøyer kurva med ledd som $x^2$ og $x^3$, og eksponentiell regresjon på forma $y = a \\cdot e^{kx}$, som vi temjer med logaritmar. Til slutt lagar vi ein feltguide for å kjenne att kva modell eit datasett ber om.",
+      "ec77b9bc90f62b10": "## Polynomisk regresjon — kurver som bøyer seg\n\n**Polynomisk regresjon** tilpassar eit polynom til dataa:\n\n$$y = a_0 + a_1 x + a_2 x^2 + \\cdots + a_k x^k$$\n\nDei vanlegaste variantane er grad 2 (kvadratisk), $y = a + bx + cx^2$, og grad 3 (kubisk), $y = a + bx + cx^2 + dx^3$. Koeffisientane blir bestemte med minste kvadraters metode, akkurat som for den rette linja — verktøyet ditt (GeoGebra, CAS eller Python) gjer reknearbeidet.\n\nTilbake til basketballen. Ein kvadratisk regresjon på måledataa gir\n\n$$h = 0{,}95 + 7{,}62t - 3{,}18t^2 \\qquad \\text{med } R^2 = 0{,}995$$\n\nNo kan vi lese fysikken rett ut av koeffisientane. Starthøgda er $h(0) = 0{,}95$ meter — omtrent hoftehøgd, der ballen slapp handa. Toppunktet finn vi der den deriverte er null: $t = \\frac{7{,}62}{2 \\cdot 3{,}18} = 1{,}20$ sekund. Og $R^2 = 0{,}995$ betyr at 99,5 % av variasjonen i høgda blir forklart av modellen — ei svært god tilpassing, som forventa for eit kast som følgjer parabelen til tyngdekrafta.\n\nPolynom er fleksible: jo høgare grad, desto meir kan kurva bukte seg. Men fleksibilitet er ikkje gratis — eit polynom av høg grad kan tilpasse seg støy i staden for mønster. Vel difor lågast mogleg grad som fangar forma i dataa.",
+      "07c5d79a7e5c49a9": "Test deg sjølv på polynomisk regresjon:",
+      "4097889236a2af26": "placeholder",
+      "9766ea3bac8e5317": "Ballmodellen er $h = 0{,}95 + 7{,}62t - 3{,}18t^2$. Kva er starthøgda?",
+      "15e0621b5923e387": "$7{,}62$ m",
+      "b1633a43539bfb04": "$0{,}95$ m",
+      "fc5594c37227cd77": "$3{,}18$ m",
+      "6d4736fd865adb7c": "$1{,}20$ m",
+      "a586910bf2088db7": "Starthøgda er $h(0) = 0{,}95$ m — konstantleddet i polynomet.",
+      "2c37f283d7877fcb": "Når når ballen toppunktet?",
+      "432355a85992d890": "$t = \\frac{7{,}62}{2 \\cdot 3{,}18} \\approx 1{,}20$ s",
+      "ac3016d73054de4f": "$t = 7{,}62$ s",
+      "6ba42846883582ab": "$t = \\frac{3{,}18}{7{,}62} \\approx 0{,}42$ s",
+      "39501d15fe06c0cf": "$t = 2{,}5$ s",
+      "8d4e29571848a6ec": "Toppunktet ligg der $h'(t) = 7{,}62 - 6{,}36t = 0$, altså $t = 7{,}62/6{,}36 \\approx 1{,}20$ s.",
+      "b64b25ad0b18ef99": "Kvifor bør vi ikkje automatisk velje eit polynom av høg grad?",
+      "454a280e0563f0d7": "Høg grad gir alltid lågare $R^2$",
+      "00ecadfa87eceeb1": "Polynom av grad over 2 kan ikkje tilpassast med MKM",
+      "8ad7ca50f2ee6f62": "Modellen kan byrje å tilpasse seg tilfeldig støy i staden for det reelle mønsteret",
+      "446ae5c10180613e": "Datamaskiner klarer ikkje rekne på dei",
+      "ec5a7c99e679f13a": "Eit fleksibelt polynom kan «jage» kvart enkelt datapunkt og fange opp støy (overtilpassing). Vel lågast mogleg grad som skildrar forma i dataa.",
+      "8e0d3d827f0df5f8": "## Eksponentiell regresjon med $e$ som base\n\nMedan ballen flaug i gymsalen, har bakteriekulturen på naturfagslaben vakse vidare: 100, 150, 220, 340, 500 bakteriar time for time. Her brukar vi ein eksponentiell modell skriven med den naturlege basen:\n\n$$y = a \\cdot e^{kx}$$\n\nLineariseringstrikset er det same som før: $\\ln y = \\ln a + kx$ er lineær i $(x, \\ln y)$. Oppskrifta har tre steg. Først reknar vi ut $\\ln y_i$ for alle datapunkta. Så køyrer vi lineær regresjon på $(x_i, \\ln y_i)$. Til slutt les vi av: konstantleddet er $\\ln a$ og stigingstalet er $k$.\n\nFor bakteriane gir regresjonen $\\ln N = 4{,}61 + 0{,}403t$ med $R^2 = 0{,}999$. Dermed er $a = e^{4{,}61} \\approx 100{,}5$ og $k = 0{,}403$, og modellen blir\n\n$$N(t) = 100{,}5 \\cdot e^{0{,}403t}$$\n\nMed $e$-forma får vi ein bonus: **doblingstida** kjem nesten gratis. Kulturen doblar seg når $e^{0{,}403t} = 2$, altså etter $t = \\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar.\n\nKva med dei andre kurvetypane? **Potensregresjon** $y = ax^b$ blir linearisert med $\\ln y = \\ln a + b\\ln x$ (plott $\\ln x$ mot $\\ln y$), og den **logaritmiske** modellen $y = a + b\\ln x$ er allereie lineær i $\\ln x$. Dermed har du ein komplett feltguide: jamn stiging peikar mot lineær modell, krumming mot polynomisk, rask akselererande vekst mot eksponentiell, avtakande vekst mot logaritmisk, og eit lineært log-log-plott mot potensmodell. I tvilstilfelle lèt du $R^2$ og residualplottet felle dommen.",
+      "d8652a4f16bfb5d2": "Test deg sjølv på eksponentiell regresjon og modellval:",
+      "1e23dfdb3146bd66": "Regresjon på $(t, \\ln N)$ gir $\\ln N = 4{,}61 + 0{,}403t$. Kva er $a$ i modellen $N = a \\cdot e^{kt}$?",
+      "f73d4dd24bdc23dd": "$a = 4{,}61$",
+      "eb11ccfa0aaf885c": "$a = 0{,}403$",
+      "4be099cdcfd95d4b": "$a = \\ln 4{,}61$",
+      "e3c9d959595ae918": "$a = e^{4{,}61} \\approx 100{,}5$",
+      "2ad916acaaddc4bb": "Konstantleddet i den lineariserte modellen er $\\ln a = 4{,}61$, så $a = e^{4{,}61} \\approx 100{,}5$.",
+      "2ec4878ffbbabfe3": "Kva er doblingstida for $N(t) = 100{,}5 \\cdot e^{0{,}403t}$?",
+      "5449687bfbb71015": "$\\frac{\\ln 2}{0{,}403} \\approx 1{,}72$ timar",
+      "7cfcc35e3b5e61aa": "$0{,}403$ timar",
+      "f9825f9e8ccbeb37": "$\\frac{2}{0{,}403} \\approx 4{,}96$ timar",
+      "b000e777f25329e6": "$100{,}5$ timar",
+      "ea3a6f97238298ee": "Dobling: $e^{0{,}403t} = 2 \\Rightarrow t = \\ln 2 / 0{,}403 \\approx 1{,}72$ timar.",
+      "9c3116cd46fa1fe5": "Eit datasett viser rask vekst i starten som flatar ut mot ei jamn, avtakande stiging. Kva modell antyder mønsteret?",
+      "8e29dbad54d07763": "Eksponentiell $y = ae^{kx}$ med $k > 0$",
+      "1c7aaef433706650": "Kvadratisk med positivt $x^2$-ledd",
+      "54cb5f6494e32239": "Logaritmisk $y = a + b\\ln x$",
+      "d58da0a972a7c333": "Lineær",
+      "19a7e0b208eeb198": "Avtakande vekst — bratt først, slakare etter kvart — er kjenneteiknet på den logaritmiske modellen.",
+      "ece94fcc43c273d6": "Kva verktøy brukar vi til å samanlikne kandidatmodellar?",
+      "2bdc68674e2c329c": "Berre talet på datapunkt",
+      "8b4a9aeb300ca28e": "$R^2$ og residualplott",
+      "4310f8895cdc2827": "Berre konstantledda",
+      "d56548928d247acd": "Standardavviket til $x$-verdiane",
+      "be5e8ccb0ff15d91": "Høg $R^2$ og eit residualplott utan systematisk mønster kjenneteiknar den beste modellen — gjerne supplert med fagleg skjøn.",
+      "7b16ff70813b1e8b": "## Oppsummering: ei kurve for kvart fenomen\n\nBasketballkastet og bakteriekulturen trong kvar si kurve, og no har du begge i verktøykassa. **Polynomisk regresjon** $y = a_0 + a_1x + a_2x^2 + \\cdots$ bøyer kurva og fangar kastebanar og optimeringsproblem; for ballen gav den kvadratiske modellen $h = 0{,}95 + 7{,}62t - 3{,}18t^2$ både starthøgd, toppunkt ved $t = 1{,}20$ s og $R^2 = 0{,}995$.\n\n**Eksponentiell regresjon** $y = ae^{kx}$ blir linearisert med $\\ln y = \\ln a + kx$: regresjon på $(x, \\ln y)$ gir $\\ln a$ som konstantledd og $k$ som stigingstal, og doblingstida følgjer som $\\ln 2 / k$. **Potensmodellen** $y = ax^b$ blir linearisert tilsvarande med $\\ln y = \\ln a + b\\ln x$, medan den **logaritmiske** $y = a + b\\ln x$ allereie er lineær i $\\ln x$.\n\nOg feltguiden til slutt: jamn stiging → lineær, krumming → polynomisk, akselererande vekst → eksponentiell, avtakande vekst → logaritmisk, lineært log-log-plott → potens. Når forma åleine ikkje avgjer, samanliknar du $R^2$ og residualplott. Slik blir regresjon mindre som å gjette og meir som å lytte: dataa fortel deg sjølv kva form dei har — du må berre kjenne språket."
+    }
+  }
+}

@@ -1,1 +1,396 @@
-{"id":"bi-okonomi-5-4-narrativ","courseId":"bi-okonomi","chapterNumber":"5.4","title":"Funksjonsdrøfting","subtitle":"Narrativ versjon","description":"En fortelling om å lese funksjoner som fortellinger -- hvor de stiger og faller, hvor de når topp og bunn, hvor de krummer og vender, og hvilke linjer de aldri helt når.","estimatedMinutes":45,"competenceGoals":[],"linkedChapterId":"bi-okonomi-5-4","content":[{"id":"bi-okonomi-5-4-n-intro","type":"text","content":"## Når funksjonen forteller en historie\n\nDu har en kostnadsfunksjon for bedriften din, og du vet hvordan du deriverer den. Men hva betyr egentlig kurvens form for beslutningene dine? Hvis overskuddet vokser, men veksten avtar -- er du på vei mot toppen, eller har du allerede passert den? Dette kapittelet handler om å lese en funksjon som om den var en fortelling: hvor den stiger, hvor den faller, hvor den vender, og hvor den når sine topper og bunner.\n\nVerktøyene har vi bygd opp gjennom de forrige kapitlene. Den **deriverte** $f'(x)$ forteller om stigning, den **andrederiverte** $f''(x)$ forteller om krumning, og et **fortegnsskjema** gir oss en ryddig oversikt. La oss begynne med stigningen.\n\nEn deriverbar funksjon $f$ er **voksende** på et intervall der $f'(x) \\geq 0$, og **avtakende** der $f'(x) \\leq 0$. Er $f'(x) = 0$ overalt, er funksjonen konstant. Tegnet til den deriverte forteller altså om grafen klatrer oppover eller raser nedover. Økonomisk lest: der grensekostnaden $K'(x)$ er positiv, vokser totalkostnaden, og der den marginale profitten $\\pi'(x)$ er positiv, lønner det seg å produsere mer."},{"id":"bi-okonomi-5-4-n-section1","type":"text","content":"## Stasjonære punkter og fortegnsskjema\n\nDe mest interessante stedene på en kurve er der den snur -- topper og bunner. Et punkt $x_0$ der $f'(x_0) = 0$ kaller vi et **stasjonært punkt**: her er tangenten vannrett. Et **lokalt maksimum** er en topp i et lite intervall rundt punktet, et **lokalt minimum** er en bunn. Et **globalt** maksimum eller minimum er den aller høyeste eller laveste verdien i hele definisjonsområdet.\n\nMen ikke alle stasjonære punkter er topper eller bunner. For å klassifisere dem lager vi et **fortegnsskjema** for $f'$: vi finner de stasjonære punktene, deler tallinjen i intervaller, og tester fortegnet til $f'$ i hver. Hvis $f'$ skifter fra $+$ til $-$ rundt $x_0$, er det et **lokalt maksimum** (grafen stiger og så faller). Skifter den fra $-$ til $+$, er det et **lokalt minimum**. Skifter den ikke fortegn i det hele tatt, er det et **terrassepunkt** -- en flat plass uten å være topp eller bunn, som $x^3$ i origo.\n\nLa oss drøfte $f(x) = x^3 - 6x^2 + 9x + 1$. Vi deriverer: $f'(x) = 3x^2 - 12x + 9 = 3(x-1)(x-3)$. Stasjonære punkter er $x = 1$ og $x = 3$. Faktorene avgjør fortegnet. Ved $x = 1$ skifter $f'$ fra $+$ til $-$: lokalt maksimum, med $f(1) = 1 - 6 + 9 + 1 = 5$. Ved $x = 3$ skifter den fra $-$ til $+$: lokalt minimum, med $f(3) = 27 - 54 + 27 + 1 = 1$. Slik leser vi ut hele kurvens dramaturgi."},{"id":"bi-okonomi-5-4-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-5-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på vekst, stasjonære punkter og fortegnsskjema:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-4-n-quiz1-q0","task":"Når er en funksjon voksende på et intervall?","options":[{"id":"a","text":"når $f''(x)>0$","isCorrect":false},{"id":"b","text":"når $f'(x)=0$","isCorrect":false},{"id":"c","text":"når $f'(x)\\geq 0$","isCorrect":true},{"id":"d","text":"når $f(x)>0$","isCorrect":false}],"solution":"Funksjonen vokser der den deriverte er ikke-negativ: $f'(x)\\geq 0$."},{"id":"bi-okonomi-5-4-n-quiz1-q1","task":"Hva er et stasjonært punkt?","options":[{"id":"a","text":"et punkt der $f(x)=0$","isCorrect":false},{"id":"b","text":"et punkt der $f''(x)=0$","isCorrect":false},{"id":"c","text":"et punkt der grafen krysser y-aksen","isCorrect":false},{"id":"d","text":"et punkt der $f'(x)=0$","isCorrect":true}],"solution":"Et stasjonært punkt er der $f'(x)=0$, altså der tangenten er vannrett."},{"id":"bi-okonomi-5-4-n-quiz1-q2","task":"Hvis $f'$ skifter fra $+$ til $-$ rundt et stasjonært punkt $x_0$, hva er $x_0$?","options":[{"id":"a","text":"lokalt maksimum","isCorrect":true},{"id":"b","text":"lokalt minimum","isCorrect":false},{"id":"c","text":"vendepunkt","isCorrect":false},{"id":"d","text":"terrassepunkt","isCorrect":false}],"solution":"Funksjonen stiger og så faller -- altså en topp, et lokalt maksimum."},{"id":"bi-okonomi-5-4-n-quiz1-q3","task":"For $f(x)=x^3-6x^2+9x+1$ er $f'(x)=3(x-1)(x-3)$. Hvor er de stasjonære punktene?","options":[{"id":"a","text":"$x=0$ og $x=6$","isCorrect":false},{"id":"b","text":"$x=1$ og $x=3$","isCorrect":true},{"id":"c","text":"$x=3$ og $x=9$","isCorrect":false},{"id":"d","text":"$x=-1$ og $x=-3$","isCorrect":false}],"solution":"$f'(x)=0$ når $(x-1)(x-3)=0$, altså $x=1$ og $x=3$."}]}},{"id":"bi-okonomi-5-4-n-section2","type":"text","content":"## Andrederiverttesten, krumning og vendepunkter\n\nDet finnes en raskere måte å avgjøre om et stasjonært punkt er topp eller bunn -- **andrederiverttesten**. Hvis $f''(x_0) > 0$ i et stasjonært punkt, er det et **lokalt minimum**; hvis $f''(x_0) < 0$, er det et **lokalt maksimum**. Intuisjonen er fin: $f'' > 0$ betyr at grafen krummer oppover som en skål ($\\cup$), og et stasjonært punkt i bunnen av en skål må være et minimum. Tilsvarende gir $f'' < 0$ en kuppel ($\\cap$) med topp.\n\nFor kurven vår $f(x) = x^3 - 6x^2 + 9x + 1$ er $f''(x) = 6x - 12$. Ved $x = 1$ er $f''(1) = -6 < 0$ (maksimum, stemmer), og ved $x = 3$ er $f''(3) = 6 > 0$ (minimum, stemmer). Testen bekrefter det fortegnsskjemaet vårt allerede sa. Pass på: hvis $f''(x_0) = 0$, er testen *ikke* konklusiv, og da må vi tilbake til fortegnsskjemaet for $f'$.\n\nKrumningen har et eget navn. Der $f''(x) > 0$ er funksjonen **konveks** ($\\cup$), der $f''(x) < 0$ er den **konkav** ($\\cap$). Et **vendepunkt** er der den skifter mellom de to -- da må $f''(x_0) = 0$ *og* $f''$ skifte fortegn. For kurven vår er $f''(x) = 0$ ved $x = 2$, der krumningen går fra konkav til konveks: et vendepunkt med $f(2) = 8 - 24 + 18 + 1 = 3$. Økonomisk betyr konveks kostnad ($K'' > 0$) at grensekostnaden øker -- stordriftsulemper -- mens konkav kostnad betyr stordriftsfordeler.\n\nNoen funksjoner har også **asymptoter** -- rette linjer grafen nærmer seg uten å nå. En **vertikal asymptote** dukker opp der nevneren i en brøk blir null. En **horisontal asymptote** $y = c$ finnes når $f(x) \\to c$ for store $|x|$. Og en **skrå asymptote** $y = ax + b$ finnes for rasjonale funksjoner der teller har grad nøyaktig én mer enn nevner -- den finner vi ved polynomdivisjon."},{"id":"bi-okonomi-5-4-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-5-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på andrederiverttesten, krumning og asymptoter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-4-n-quiz2-q0","task":"Hvis $f''(x_0)>0$ i et stasjonært punkt, hva er punktet?","options":[{"id":"a","text":"lokalt maksimum","isCorrect":false},{"id":"b","text":"vendepunkt","isCorrect":false},{"id":"c","text":"lokalt minimum","isCorrect":true},{"id":"d","text":"asymptote","isCorrect":false}],"solution":"$f''>0$ betyr konveks ($\\cup$)-form, og et stasjonært punkt i en skål er et minimum."},{"id":"bi-okonomi-5-4-n-quiz2-q1","task":"En funksjon med $f''(x)<0$ på et intervall er:","options":[{"id":"a","text":"konveks ($\\cup$)","isCorrect":false},{"id":"b","text":"voksende","isCorrect":false},{"id":"c","text":"lineær","isCorrect":false},{"id":"d","text":"konkav ($\\cap$)","isCorrect":true}],"solution":"$f''<0$ gir nedoverkrumming, altså konkav ($\\cap$)-form."},{"id":"bi-okonomi-5-4-n-quiz2-q2","task":"For $f(x)=x^3-6x^2+9x+1$ er $f''(x)=6x-12$. Hvor er vendepunktet?","options":[{"id":"a","text":"$x=2$","isCorrect":true},{"id":"b","text":"$x=0$","isCorrect":false},{"id":"c","text":"$x=1$","isCorrect":false},{"id":"d","text":"$x=3$","isCorrect":false}],"solution":"$f''(x)=0$ gir $6x-12=0$, altså $x=2$, og $f''$ skifter fortegn der."},{"id":"bi-okonomi-5-4-n-quiz2-q3","task":"Hvilken type asymptote finner vi typisk ved polynomdivisjon av en rasjonal funksjon der teller har grad én mer enn nevner?","options":[{"id":"a","text":"horisontal asymptote","isCorrect":false},{"id":"b","text":"skrå asymptote","isCorrect":true},{"id":"c","text":"vertikal asymptote","isCorrect":false},{"id":"d","text":"ingen asymptote","isCorrect":false}],"solution":"Når teller har grad nøyaktig én mer enn nevner, finnes en skrå asymptote $y=ax+b$, funnet ved polynomdivisjon."}]}},{"id":"bi-okonomi-5-4-n-section3","type":"text","content":"## Full drøfting i økonomisk lys\n\nLa oss sette alt sammen i et eksempel som er hjertet av mikroøkonomien. En bedrift har kostnadsfunksjon $K(x) = \\frac{1}{2}x^2 + 8x + 50$ for $x > 0$, og vi vil finne produksjonen som gir lavest **gjennomsnittskostnad** $\\bar{K}(x) = K(x)/x$. Vi deler ledd for ledd: $\\bar{K}(x) = \\frac{1}{2}x + 8 + \\frac{50}{x}$. Grensekostnaden er $K'(x) = x + 8$.\n\nFor å minimere $\\bar{K}$ deriverer vi: $\\bar{K}'(x) = \\frac{1}{2} - \\frac{50}{x^2}$. Setter vi den lik null, får vi $x^2 = 100$, altså $x = 10$ (den positive roten). Andrederiverttesten bekrefter: $\\bar{K}''(x) = \\frac{100}{x^3} > 0$ for $x > 0$, så $x = 10$ er et minimum. Verdiene er $\\bar{K}(10) = 5 + 8 + 5 = 18$ og $K'(10) = 10 + 8 = 18$.\n\nLegg merke til at de er like: $K'(10) = \\bar{K}(10) = 18$. Det er ingen tilfeldighet. Fra $\\bar{K}(x) = K(x)/x$ følger ved kvotientregelen at $\\bar{K}'(x) = \\frac{K'(x) - \\bar{K}(x)}{x}$. Setter vi $\\bar{K}'(x) = 0$, må $K'(x) = \\bar{K}(x)$. Dette er en universell regel: **minimum gjennomsnittskostnad inntreffer der grensekostnaden møter gjennomsnittskostnaden**. En siste advarsel verdt å huske: et lokalt maksimum trenger ikke være globalt. På et lukket intervall $[a, b]$ må du alltid sjekke *endepunktene* i tillegg til de stasjonære punktene -- den største verdien vinner."},{"id":"bi-okonomi-5-4-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-5-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på gjennomsnittskostnad og full drøfting:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-4-n-quiz3-q0","task":"For $K(x)=\\frac{1}{2}x^2+8x+50$ er $\\bar{K}(x)=\\frac{1}{2}x+8+\\frac{50}{x}$. Hvilken $x$ minimerer gjennomsnittskostnaden?","options":[{"id":"a","text":"$x=5$","isCorrect":false},{"id":"b","text":"$x=8$","isCorrect":false},{"id":"c","text":"$x=10$","isCorrect":true},{"id":"d","text":"$x=50$","isCorrect":false}],"solution":"$\\bar{K}'(x)=\\frac{1}{2}-\\frac{50}{x^2}=0$ gir $x^2=100$, altså $x=10$."},{"id":"bi-okonomi-5-4-n-quiz3-q1","task":"Ved minimum gjennomsnittskostnad gjelder en kjent økonomisk regel. Hvilken?","options":[{"id":"a","text":"$K'(x)=0$","isCorrect":false},{"id":"b","text":"$K(x)=0$","isCorrect":false},{"id":"c","text":"grensekostnad = 0","isCorrect":false},{"id":"d","text":"grensekostnad = gjennomsnittskostnad","isCorrect":true}],"solution":"Minimum av $\\bar{K}$ inntreffer der $K'(x)=\\bar{K}(x)$ -- grensekostnad lik gjennomsnittskostnad."},{"id":"bi-okonomi-5-4-n-quiz3-q2","task":"Når du leter etter globalt maksimum på et lukket intervall $[a,b]$, hva må du huske utenom de stasjonære punktene?","options":[{"id":"a","text":"å sjekke endepunktene $a$ og $b$","isCorrect":true},{"id":"b","text":"å ignorere endepunktene","isCorrect":false},{"id":"c","text":"å bare bruke $f''$","isCorrect":false},{"id":"d","text":"å finne asymptotene","isCorrect":false}],"solution":"Globalt maks/min kan ligge i et endepunkt, så du må alltid beregne $f(a)$ og $f(b)$ i tillegg."}]}},{"id":"bi-okonomi-5-4-n-summary","type":"text","content":"## Oppsummering\n\nFunksjonsdrøfting er kunsten å lese en kurves hele livshistorie. Tegnet til $f'(x)$ forteller om funksjonen **stiger** eller **faller**, og **stasjonære punkter** der $f'(x) = 0$ er kandidatene til topper og bunner. Vi klassifiserer dem enten med et **fortegnsskjema** for $f'$ -- skift fra $+$ til $-$ gir maksimum, fra $-$ til $+$ gir minimum -- eller raskere med **andrederiverttesten**: $f''(x_0) > 0$ gir minimum, $f''(x_0) < 0$ gir maksimum.\n\nTegnet til $f''$ avgjør også **krumningen**: konveks ($\\cup$) der $f'' > 0$, konkav ($\\cap$) der $f'' < 0$, med **vendepunkt** der $f''$ skifter fortegn. **Asymptoter** -- vertikale, horisontale og skrå -- forteller hvor grafen forsvinner mot. Til slutt så vi den vakre økonomiske regelen at minimum gjennomsnittskostnad inntreffer der $K'(x) = \\bar{K}(x)$. Med disse verktøyene er vi klare til å løse ekte optimeringsproblemer i neste kapittel."}],"exercises":[]}
+{
+  "id": "bi-okonomi-5-4-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "5.4",
+  "title": "Funksjonsdrøfting",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å lese funksjoner som fortellinger -- hvor de stiger og faller, hvor de når topp og bunn, hvor de krummer og vender, og hvilke linjer de aldri helt når.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-5-4",
+  "content": [
+    {
+      "id": "bi-okonomi-5-4-n-intro",
+      "type": "text",
+      "content": "## Når funksjonen forteller en historie\n\nDu har en kostnadsfunksjon for bedriften din, og du vet hvordan du deriverer den. Men hva betyr egentlig kurvens form for beslutningene dine? Hvis overskuddet vokser, men veksten avtar -- er du på vei mot toppen, eller har du allerede passert den? Dette kapittelet handler om å lese en funksjon som om den var en fortelling: hvor den stiger, hvor den faller, hvor den vender, og hvor den når sine topper og bunner.\n\nVerktøyene har vi bygd opp gjennom de forrige kapitlene. Den **deriverte** $f'(x)$ forteller om stigning, den **andrederiverte** $f''(x)$ forteller om krumning, og et **fortegnsskjema** gir oss en ryddig oversikt. La oss begynne med stigningen.\n\nEn deriverbar funksjon $f$ er **voksende** på et intervall der $f'(x) \\geq 0$, og **avtakende** der $f'(x) \\leq 0$. Er $f'(x) = 0$ overalt, er funksjonen konstant. Tegnet til den deriverte forteller altså om grafen klatrer oppover eller raser nedover. Økonomisk lest: der grensekostnaden $K'(x)$ er positiv, vokser totalkostnaden, og der den marginale profitten $\\pi'(x)$ er positiv, lønner det seg å produsere mer."
+    },
+    {
+      "id": "bi-okonomi-5-4-n-section1",
+      "type": "text",
+      "content": "## Stasjonære punkter og fortegnsskjema\n\nDe mest interessante stedene på en kurve er der den snur -- topper og bunner. Et punkt $x_0$ der $f'(x_0) = 0$ kaller vi et **stasjonært punkt**: her er tangenten vannrett. Et **lokalt maksimum** er en topp i et lite intervall rundt punktet, et **lokalt minimum** er en bunn. Et **globalt** maksimum eller minimum er den aller høyeste eller laveste verdien i hele definisjonsområdet.\n\nMen ikke alle stasjonære punkter er topper eller bunner. For å klassifisere dem lager vi et **fortegnsskjema** for $f'$: vi finner de stasjonære punktene, deler tallinjen i intervaller, og tester fortegnet til $f'$ i hver. Hvis $f'$ skifter fra $+$ til $-$ rundt $x_0$, er det et **lokalt maksimum** (grafen stiger og så faller). Skifter den fra $-$ til $+$, er det et **lokalt minimum**. Skifter den ikke fortegn i det hele tatt, er det et **terrassepunkt** -- en flat plass uten å være topp eller bunn, som $x^3$ i origo.\n\nLa oss drøfte $f(x) = x^3 - 6x^2 + 9x + 1$. Vi deriverer: $f'(x) = 3x^2 - 12x + 9 = 3(x-1)(x-3)$. Stasjonære punkter er $x = 1$ og $x = 3$. Faktorene avgjør fortegnet. Ved $x = 1$ skifter $f'$ fra $+$ til $-$: lokalt maksimum, med $f(1) = 1 - 6 + 9 + 1 = 5$. Ved $x = 3$ skifter den fra $-$ til $+$: lokalt minimum, med $f(3) = 27 - 54 + 27 + 1 = 1$. Slik leser vi ut hele kurvens dramaturgi."
+    },
+    {
+      "id": "bi-okonomi-5-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vekst, stasjonære punkter og fortegnsskjema:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-4-n-quiz1-q0",
+            "task": "Når er en funksjon voksende på et intervall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "når $f''(x)>0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "når $f'(x)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "når $f'(x)\\geq 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "når $f(x)>0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonen vokser der den deriverte er ikke-negativ: $f'(x)\\geq 0$."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz1-q1",
+            "task": "Hva er et stasjonært punkt?",
+            "options": [
+              {
+                "id": "d",
+                "text": "et punkt der $f'(x)=0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "et punkt der $f(x)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "et punkt der $f''(x)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "et punkt der grafen krysser y-aksen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et stasjonært punkt er der $f'(x)=0$, altså der tangenten er vannrett."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz1-q2",
+            "task": "Hvis $f'$ skifter fra $+$ til $-$ rundt et stasjonært punkt $x_0$, hva er $x_0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "lokalt minimum",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "lokalt maksimum",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "vendepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "terrassepunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonen stiger og så faller -- altså en topp, et lokalt maksimum."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz1-q3",
+            "task": "For $f(x)=x^3-6x^2+9x+1$ er $f'(x)=3(x-1)(x-3)$. Hvor er de stasjonære punktene?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=0$ og $x=6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=3$ og $x=9$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x=-1$ og $x=-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=1$ og $x=3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(x)=0$ når $(x-1)(x-3)=0$, altså $x=1$ og $x=3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-4-n-section2",
+      "type": "text",
+      "content": "## Andrederiverttesten, krumning og vendepunkter\n\nDet finnes en raskere måte å avgjøre om et stasjonært punkt er topp eller bunn -- **andrederiverttesten**. Hvis $f''(x_0) > 0$ i et stasjonært punkt, er det et **lokalt minimum**; hvis $f''(x_0) < 0$, er det et **lokalt maksimum**. Intuisjonen er fin: $f'' > 0$ betyr at grafen krummer oppover som en skål ($\\cup$), og et stasjonært punkt i bunnen av en skål må være et minimum. Tilsvarende gir $f'' < 0$ en kuppel ($\\cap$) med topp.\n\nFor kurven vår $f(x) = x^3 - 6x^2 + 9x + 1$ er $f''(x) = 6x - 12$. Ved $x = 1$ er $f''(1) = -6 < 0$ (maksimum, stemmer), og ved $x = 3$ er $f''(3) = 6 > 0$ (minimum, stemmer). Testen bekrefter det fortegnsskjemaet vårt allerede sa. Pass på: hvis $f''(x_0) = 0$, er testen *ikke* konklusiv, og da må vi tilbake til fortegnsskjemaet for $f'$.\n\nKrumningen har et eget navn. Der $f''(x) > 0$ er funksjonen **konveks** ($\\cup$), der $f''(x) < 0$ er den **konkav** ($\\cap$). Et **vendepunkt** er der den skifter mellom de to -- da må $f''(x_0) = 0$ *og* $f''$ skifte fortegn. For kurven vår er $f''(x) = 0$ ved $x = 2$, der krumningen går fra konkav til konveks: et vendepunkt med $f(2) = 8 - 24 + 18 + 1 = 3$. Økonomisk betyr konveks kostnad ($K'' > 0$) at grensekostnaden øker -- stordriftsulemper -- mens konkav kostnad betyr stordriftsfordeler.\n\nNoen funksjoner har også **asymptoter** -- rette linjer grafen nærmer seg uten å nå. En **vertikal asymptote** dukker opp der nevneren i en brøk blir null. En **horisontal asymptote** $y = c$ finnes når $f(x) \\to c$ for store $|x|$. Og en **skrå asymptote** $y = ax + b$ finnes for rasjonale funksjoner der teller har grad nøyaktig én mer enn nevner -- den finner vi ved polynomdivisjon."
+    },
+    {
+      "id": "bi-okonomi-5-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på andrederiverttesten, krumning og asymptoter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-4-n-quiz2-q0",
+            "task": "Hvis $f''(x_0)>0$ i et stasjonært punkt, hva er punktet?",
+            "options": [
+              {
+                "id": "c",
+                "text": "lokalt minimum",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "lokalt maksimum",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "vendepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "asymptote",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''>0$ betyr konveks ($\\cup$)-form, og et stasjonært punkt i en skål er et minimum."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz2-q1",
+            "task": "En funksjon med $f''(x)<0$ på et intervall er:",
+            "options": [
+              {
+                "id": "a",
+                "text": "konveks ($\\cup$)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "konkav ($\\cap$)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "voksende",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "lineær",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''<0$ gir nedoverkrumming, altså konkav ($\\cap$)-form."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz2-q2",
+            "task": "For $f(x)=x^3-6x^2+9x+1$ er $f''(x)=6x-12$. Hvor er vendepunktet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x=2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x=3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(x)=0$ gir $6x-12=0$, altså $x=2$, og $f''$ skifter fortegn der."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz2-q3",
+            "task": "Hvilken type asymptote finner vi typisk ved polynomdivisjon av en rasjonal funksjon der teller har grad én mer enn nevner?",
+            "options": [
+              {
+                "id": "a",
+                "text": "horisontal asymptote",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "vertikal asymptote",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "ingen asymptote",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "skrå asymptote",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når teller har grad nøyaktig én mer enn nevner, finnes en skrå asymptote $y=ax+b$, funnet ved polynomdivisjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-4-n-section3",
+      "type": "text",
+      "content": "## Full drøfting i økonomisk lys\n\nLa oss sette alt sammen i et eksempel som er hjertet av mikroøkonomien. En bedrift har kostnadsfunksjon $K(x) = \\frac{1}{2}x^2 + 8x + 50$ for $x > 0$, og vi vil finne produksjonen som gir lavest **gjennomsnittskostnad** $\\bar{K}(x) = K(x)/x$. Vi deler ledd for ledd: $\\bar{K}(x) = \\frac{1}{2}x + 8 + \\frac{50}{x}$. Grensekostnaden er $K'(x) = x + 8$.\n\nFor å minimere $\\bar{K}$ deriverer vi: $\\bar{K}'(x) = \\frac{1}{2} - \\frac{50}{x^2}$. Setter vi den lik null, får vi $x^2 = 100$, altså $x = 10$ (den positive roten). Andrederiverttesten bekrefter: $\\bar{K}''(x) = \\frac{100}{x^3} > 0$ for $x > 0$, så $x = 10$ er et minimum. Verdiene er $\\bar{K}(10) = 5 + 8 + 5 = 18$ og $K'(10) = 10 + 8 = 18$.\n\nLegg merke til at de er like: $K'(10) = \\bar{K}(10) = 18$. Det er ingen tilfeldighet. Fra $\\bar{K}(x) = K(x)/x$ følger ved kvotientregelen at $\\bar{K}'(x) = \\frac{K'(x) - \\bar{K}(x)}{x}$. Setter vi $\\bar{K}'(x) = 0$, må $K'(x) = \\bar{K}(x)$. Dette er en universell regel: **minimum gjennomsnittskostnad inntreffer der grensekostnaden møter gjennomsnittskostnaden**. En siste advarsel verdt å huske: et lokalt maksimum trenger ikke være globalt. På et lukket intervall $[a, b]$ må du alltid sjekke *endepunktene* i tillegg til de stasjonære punktene -- den største verdien vinner."
+    },
+    {
+      "id": "bi-okonomi-5-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på gjennomsnittskostnad og full drøfting:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-4-n-quiz3-q0",
+            "task": "For $K(x)=\\frac{1}{2}x^2+8x+50$ er $\\bar{K}(x)=\\frac{1}{2}x+8+\\frac{50}{x}$. Hvilken $x$ minimerer gjennomsnittskostnaden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=5$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=10$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x=50$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\bar{K}'(x)=\\frac{1}{2}-\\frac{50}{x^2}=0$ gir $x^2=100$, altså $x=10$."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz3-q1",
+            "task": "Ved minimum gjennomsnittskostnad gjelder en kjent økonomisk regel. Hvilken?",
+            "options": [
+              {
+                "id": "d",
+                "text": "grensekostnad = gjennomsnittskostnad",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$K'(x)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$K(x)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "grensekostnad = 0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Minimum av $\\bar{K}$ inntreffer der $K'(x)=\\bar{K}(x)$ -- grensekostnad lik gjennomsnittskostnad."
+          },
+          {
+            "id": "bi-okonomi-5-4-n-quiz3-q2",
+            "task": "Når du leter etter globalt maksimum på et lukket intervall $[a,b]$, hva må du huske utenom de stasjonære punktene?",
+            "options": [
+              {
+                "id": "b",
+                "text": "å ignorere endepunktene",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "å sjekke endepunktene $a$ og $b$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "å bare bruke $f''$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "å finne asymptotene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Globalt maks/min kan ligge i et endepunkt, så du må alltid beregne $f(a)$ og $f(b)$ i tillegg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFunksjonsdrøfting er kunsten å lese en kurves hele livshistorie. Tegnet til $f'(x)$ forteller om funksjonen **stiger** eller **faller**, og **stasjonære punkter** der $f'(x) = 0$ er kandidatene til topper og bunner. Vi klassifiserer dem enten med et **fortegnsskjema** for $f'$ -- skift fra $+$ til $-$ gir maksimum, fra $-$ til $+$ gir minimum -- eller raskere med **andrederiverttesten**: $f''(x_0) > 0$ gir minimum, $f''(x_0) < 0$ gir maksimum.\n\nTegnet til $f''$ avgjør også **krumningen**: konveks ($\\cup$) der $f'' > 0$, konkav ($\\cap$) der $f'' < 0$, med **vendepunkt** der $f''$ skifter fortegn. **Asymptoter** -- vertikale, horisontale og skrå -- forteller hvor grafen forsvinner mot. Til slutt så vi den vakre økonomiske regelen at minimum gjennomsnittskostnad inntreffer der $K'(x) = \\bar{K}(x)$. Med disse verktøyene er vi klare til å løse ekte optimeringsproblemer i neste kapittel."
+    }
+  ],
+  "exercises": []
+}

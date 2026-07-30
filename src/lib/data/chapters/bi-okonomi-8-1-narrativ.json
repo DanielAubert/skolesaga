@@ -1,1 +1,396 @@
-{"id":"bi-okonomi-8-1-narrativ","courseId":"bi-okonomi","chapterNumber":"8.1","title":"Antiderivert og ubestemt integral","subtitle":"Narrativ versjon","description":"En fortelling om å spole derivasjonen baklengs -- fra grensekostnad tilbake til totalkostnad -- og om hvorfor enhver antiderivert kommer med en hemmelig konstant på slep.","estimatedMinutes":33,"competenceGoals":[],"linkedChapterId":"bi-okonomi-8-1","content":[{"id":"bi-okonomi-8-1-n-intro","type":"text","content":"## Å spole filmen baklengs\n\nTenk deg at en bedriftsleder kommer til deg med ett eneste tall: kostnaden ved å produsere én ekstra enhet -- **grensekostnaden** $K'(x)$. Hun spør: hva blir den totale kostnaden ved å produsere $x$ enheter? Du har den deriverte, men ikke funksjonen selv. Hele kapittelet handler om å løse nettopp dette: å gå motsatt vei av derivasjon.\n\nNår vi deriverer, går vi fra $F(x)$ til $F'(x)$. Nå skal vi gjøre det stikk motsatte. Gitt $f(x)$ leter vi etter en funksjon $F(x)$ slik at $F'(x) = f(x)$. En slik $F$ kaller vi en **antiderivert** (eller primitiv) til $f$. For eksempel er $F(x) = x^2$ en antiderivert til $f(x) = 2x$, rett og slett fordi $F'(x) = 2x$. Denne baklengs-operasjonen heter **antiderivasjon** eller **integrasjon**, og den er selve broen mellom grensestørrelser og totalstørrelser i økonomien.\n\nI økonomi vrimler det av grenseverdier: grensekostnad $K'(x)$, grenseinntekt $I'(x)$ og grensenytte $U'(x)$. Hver gang vi har en av disse og vil tilbake til totalkostnad, total inntekt eller total nytte, er det integrasjon vi trenger. Vi har altså ikke funnet på et abstrakt regnetriks -- vi har funnet returbilletten."},{"id":"bi-okonomi-8-1-n-section1","type":"text","content":"## Den hemmelige konstanten\n\nLa oss se nærmere på $f(x) = 2x$. Vi sa at $F(x) = x^2$ fungerer. Men prøv $F(x) = x^2 + 5$. Deriverer vi, får vi fortsatt $2x$, fordi den deriverte av et tall alltid er null. Det samme gjelder $x^2 - 17$, og helt generelt $x^2 + C$ for et hvilket som helst tall $C$. Vi har altså ikke én antiderivert, men en hel **familie** som skiller seg fra hverandre med en konstant.\n\nDenne familien har et eget navn og symbol. Det **ubestemte integralet** av $f(x)$ er mengden av alle antideriverte, og vi skriver $$\\int f(x)\\,dx = F(x) + C,$$ der $F'(x) = f(x)$ og $C$ er **integrasjonskonstanten**. Tegnet $\\int$ er integraltegnet, $f(x)$ er integranden, og $dx$ forteller at vi integrerer med hensyn på $x$. Glem aldri $+C$ -- uten den har du bare plukket ut én tilfeldig av uendelig mange, og på eksamen koster det poeng.\n\nLa oss kontrollere et eksempel. Påstanden er at $F(x) = \\tfrac{1}{3}x^3 + 2x + 7$ er en antiderivert til $f(x) = x^2 + 2$. Vi deriverer: $F'(x) = \\tfrac{1}{3}\\cdot 3x^2 + 2 = x^2 + 2$. Det stemmer, så vi kan trygt skrive $\\int (x^2 + 2)\\,dx = \\tfrac{1}{3}x^3 + 2x + C$. Legg merke til arbeidsvanen som lønner seg hver gang: når du tror du har funnet $F$, deriver og sjekk at du får $f$ tilbake."},{"id":"bi-okonomi-8-1-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-8-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på antiderivert og den ubestemte integralfamilien:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-1-n-quiz1-q0","task":"Hva betyr det at $F(x)$ er en antiderivert til $f(x)$?","options":[{"id":"a","text":"At $F'(x) = f(x)$","isCorrect":true},{"id":"b","text":"At $f'(x) = F(x)$","isCorrect":false},{"id":"c","text":"At $F(x) = f(x)$ for alle $x$","isCorrect":false},{"id":"d","text":"At $F$ og $f$ har samme nullpunkter","isCorrect":false}],"solution":"Per definisjon er $F$ antiderivert til $f$ nettopp når $F'(x) = f(x)$ -- altså når $f$ er den deriverte av $F$."},{"id":"bi-okonomi-8-1-n-quiz1-q1","task":"Hvorfor skriver vi $+C$ i et ubestemt integral?","options":[{"id":"a","text":"Fordi integralet ellers ville blitt negativt","isCorrect":false},{"id":"b","text":"Fordi alle funksjoner $F(x)+C$ har samme deriverte, så de er alle antideriverte","isCorrect":true},{"id":"c","text":"Fordi $C$ er produksjonsmengden","isCorrect":false},{"id":"d","text":"Fordi $dx$ krever en konstant","isCorrect":false}],"solution":"Den deriverte av en konstant er null, så $x^2$, $x^2+5$ og $x^2+C$ har alle derivert $2x$. Det ubestemte integralet beskriver hele denne familien."},{"id":"bi-okonomi-8-1-n-quiz1-q2","task":"Er $F(x) = \\tfrac{1}{3}x^3 + 2x + 7$ en antiderivert til $f(x) = x^2 + 2$?","options":[{"id":"a","text":"Nei, $F'(x) = x^2 + 2x$","isCorrect":false},{"id":"b","text":"Nei, leddet $+7$ ødelegger","isCorrect":false},{"id":"c","text":"Ja, fordi $F'(x) = x^2 + 2$","isCorrect":true},{"id":"d","text":"Bare hvis vi fjerner $+7$","isCorrect":false}],"solution":"$F'(x) = \\tfrac{1}{3}\\cdot 3x^2 + 2 + 0 = x^2 + 2 = f(x)$. Konstantleddet $7$ forsvinner ved derivasjon, så det spiller ingen rolle."}]}},{"id":"bi-okonomi-8-1-n-section2","type":"text","content":"## Verktøykassen: potensregelen og standardformlene\n\nFor å integrere effektivt trenger vi noen faste regler. Den viktigste er **potensregelen**: for alle reelle $n \\neq -1$ gjelder $$\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C.$$ I praksis: øk eksponenten med 1, og del på den nye eksponenten. Slik blir $\\int x^4\\,dx = \\tfrac{x^5}{5} + C$. Trikset fungerer også for røtter og brøker hvis vi først skriver dem som potenser. Siden $\\sqrt{x} = x^{1/2}$, får vi $\\int x^{1/2}\\,dx = \\tfrac{x^{3/2}}{3/2} + C = \\tfrac{2}{3}x^{3/2} + C$. Og $\\tfrac{1}{x^3} = x^{-3}$ gir $\\int x^{-3}\\,dx = \\tfrac{x^{-2}}{-2} + C = -\\tfrac{1}{2x^2} + C$.\n\nHvorfor må $n \\neq -1$? Fordi $n = -1$ ville gi $\\tfrac{x^0}{0}$, som er udefinert. Akkurat dette tilfellet får sin egen regel: $\\int \\tfrac{1}{x}\\,dx = \\ln|x| + C$. Sammen med eksponentialfunksjonene utgjør disse standardformlene: $\\int e^x\\,dx = e^x + C$, $\\int e^{ax}\\,dx = \\tfrac{1}{a}e^{ax} + C$ for $a \\neq 0$, og $\\int a^x\\,dx = \\tfrac{a^x}{\\ln a} + C$. For eksempel er $\\int e^{0{,}05t}\\,dt = \\tfrac{1}{0{,}05}e^{0{,}05t} + C = 20e^{0{,}05t} + C$.\n\nTil slutt trenger vi tre regneregler. Vi kan flytte en konstant utenfor: $\\int k\\cdot f(x)\\,dx = k\\int f(x)\\,dx$. Og vi kan integrere ledd for ledd, både ved pluss og minus: $\\int (f \\pm g)\\,dx = \\int f\\,dx \\pm \\int g\\,dx$. Med disse blir polynomer enkle: $\\int (6x^2 - 4x + 5)\\,dx = 6\\cdot\\tfrac{x^3}{3} - 4\\cdot\\tfrac{x^2}{2} + 5x + C = 2x^3 - 2x^2 + 5x + C$. Deriverer vi svaret, får vi $6x^2 - 4x + 5$ tilbake -- akkurat det vi startet med. Merk at det ikke finnes noen tilsvarende enkel regel for produkter og kvotienter; de krever egne metoder senere."},{"id":"bi-okonomi-8-1-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-8-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på potensregelen og standardformlene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-1-n-quiz2-q0","task":"Hva er $\\int x^4\\,dx$?","options":[{"id":"a","text":"$4x^3 + C$","isCorrect":false},{"id":"b","text":"$x^5 + C$","isCorrect":false},{"id":"c","text":"$\\tfrac{x^5}{4} + C$","isCorrect":false},{"id":"d","text":"$\\tfrac{x^5}{5} + C$","isCorrect":true}],"solution":"Potensregelen: øk eksponenten til $5$ og del på $5$: $\\tfrac{x^5}{5} + C$. (Alternativ a er derivasjon, ikke integrasjon.)"},{"id":"bi-okonomi-8-1-n-quiz2-q1","task":"Hvorfor kan vi ikke bruke potensregelen på $\\int \\tfrac{1}{x}\\,dx$?","options":[{"id":"a","text":"Fordi $n = -1$ ville gi deling på null","isCorrect":true},{"id":"b","text":"Fordi $\\tfrac{1}{x}$ ikke er en potens","isCorrect":false},{"id":"c","text":"Fordi $x$ kan være negativ","isCorrect":false},{"id":"d","text":"Fordi svaret ville mangle $+C$","isCorrect":false}],"solution":"Her er $n = -1$, og potensregelen gir $\\tfrac{x^0}{0}$, som er udefinert. Derfor har dette tilfellet sin egen regel: $\\int \\tfrac{1}{x}\\,dx = \\ln|x| + C$."},{"id":"bi-okonomi-8-1-n-quiz2-q2","task":"Hva er $\\int e^{0{,}05t}\\,dt$?","options":[{"id":"a","text":"$0{,}05 e^{0{,}05t} + C$","isCorrect":false},{"id":"b","text":"$20 e^{0{,}05t} + C$","isCorrect":true},{"id":"c","text":"$e^{0{,}05t} + C$","isCorrect":false},{"id":"d","text":"$\\tfrac{1}{20} e^{0{,}05t} + C$","isCorrect":false}],"solution":"$\\int e^{at}\\,dt = \\tfrac{1}{a}e^{at} + C$ med $a = 0{,}05$ gir $\\tfrac{1}{0{,}05} = 20$, altså $20e^{0{,}05t} + C$."},{"id":"bi-okonomi-8-1-n-quiz2-q3","task":"Hva er $\\int (6x^2 - 4x + 5)\\,dx$?","options":[{"id":"a","text":"$2x^3 - 4x^2 + 5x + C$","isCorrect":false},{"id":"b","text":"$6x^3 - 2x^2 + 5x + C$","isCorrect":false},{"id":"c","text":"$2x^3 - 2x^2 + 5x + C$","isCorrect":true},{"id":"d","text":"$2x^3 - 2x^2 + 5 + C$","isCorrect":false}],"solution":"Ledd for ledd: $6\\cdot\\tfrac{x^3}{3} = 2x^3$, $-4\\cdot\\tfrac{x^2}{2} = -2x^2$, og $\\int 5\\,dx = 5x$. Sjekk ved derivasjon: $6x^2 - 4x + 5$."}]}},{"id":"bi-okonomi-8-1-n-section3","type":"text","content":"## Returbilletten i økonomien\n\nNå lukker vi sirkelen til bedriftslederen fra starten. Hun hadde grensekostnaden $K'(x) = 3x^2 + 20$ og faste kostnader $K(0) = 1000$. Totalkostnaden er antiderivert til grensekostnaden, så vi integrerer: $K(x) = \\int (3x^2 + 20)\\,dx = x^3 + 20x + C$. Men hvilken $C$? Her gjør betingelsen jobben. Setter vi inn $x = 0$, får vi $K(0) = C = 1000$. Altså er $K(x) = x^3 + 20x + 1000$. Det fine er den økonomiske tolkningen: integrasjonskonstanten $C$ er rett og slett de **faste kostnadene** -- det bedriften betaler selv når den ikke produserer noe.\n\nSamme oppskrift gjelder for inntekt. Anta grenseinntekten $I'(x) = 200 - 4x$, og at det ikke kommer inntekt uten salg, så $I(0) = 0$. Vi integrerer: $I(x) = 200x - 2x^2 + C$, og betingelsen $I(0) = 0$ tvinger $C = 0$. Da er $I(x) = 200x - 2x^2$. Ved et salg på $30$ enheter blir inntekten $I(30) = 200\\cdot 30 - 2\\cdot 30^2 = 6000 - 1800 = 4200$ kroner.\n\nGrensenytte følger samme mønster, men trekker ofte inn logaritmen. Har en konsument grensenytte $U'(x) = \\tfrac{100}{x}$ med $U(1) = 0$, blir $U(x) = 100\\ln|x| + C$. Siden $\\ln 1 = 0$, gir betingelsen $C = 0$, så $U(x) = 100\\ln x$. Poenget i alle tre tilfellene er det samme: integrer grensestørrelsen for å få totalstørrelsen, og bruk en kjent betingelse til å bestemme $C$ entydig."},{"id":"bi-okonomi-8-1-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-8-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på integrasjon i økonomi og bestemmelse av C:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-8-1-n-quiz3-q0","task":"Grensekostnaden er $K'(x) = 3x^2 + 20$ med faste kostnader $K(0) = 1000$. Hva er $K(x)$?","options":[{"id":"a","text":"$6x + 1000$","isCorrect":false},{"id":"b","text":"$3x^3 + 20x + 1000$","isCorrect":false},{"id":"c","text":"$x^3 + 20x$","isCorrect":false},{"id":"d","text":"$x^3 + 20x + 1000$","isCorrect":true}],"solution":"$\\int (3x^2 + 20)\\,dx = x^3 + 20x + C$. Betingelsen $K(0) = C = 1000$ gir $K(x) = x^3 + 20x + 1000$."},{"id":"bi-okonomi-8-1-n-quiz3-q1","task":"Hva tilsvarer integrasjonskonstanten $C$ økonomisk i en kostnadsfunksjon?","options":[{"id":"a","text":"De faste kostnadene","isCorrect":true},{"id":"b","text":"Grensekostnaden","isCorrect":false},{"id":"c","text":"De variable kostnadene","isCorrect":false},{"id":"d","text":"Gjennomsnittskostnaden","isCorrect":false}],"solution":"$K(0) = C$ er kostnaden ved null produksjon -- altså de faste kostnadene som påløper uansett."},{"id":"bi-okonomi-8-1-n-quiz3-q2","task":"Med grenseinntekt $I'(x) = 200 - 4x$ og $I(0) = 0$, hva er inntekten ved $x = 30$?","options":[{"id":"a","text":"$6000$ kroner","isCorrect":false},{"id":"b","text":"$4200$ kroner","isCorrect":true},{"id":"c","text":"$5400$ kroner","isCorrect":false},{"id":"d","text":"$1800$ kroner","isCorrect":false}],"solution":"$I(x) = 200x - 2x^2$ (siden $C = 0$). $I(30) = 6000 - 2\\cdot 900 = 6000 - 1800 = 4200$ kroner."},{"id":"bi-okonomi-8-1-n-quiz3-q3","task":"En konsument har grensenytte $U'(x) = \\tfrac{100}{x}$ med $U(1) = 0$. Hva er $U(x)$?","options":[{"id":"a","text":"$-\\tfrac{100}{x^2} + 100$","isCorrect":false},{"id":"b","text":"$100\\ln x + 100$","isCorrect":false},{"id":"c","text":"$100\\ln x$","isCorrect":true},{"id":"d","text":"$\\tfrac{100}{x} + C$","isCorrect":false}],"solution":"$\\int \\tfrac{100}{x}\\,dx = 100\\ln|x| + C$. Siden $\\ln 1 = 0$ gir $U(1) = C = 0$, så $U(x) = 100\\ln x$."}]}},{"id":"bi-okonomi-8-1-n-summary","type":"text","content":"## Oppsummering\n\nIntegrasjon er derivasjon spolt baklengs. En **antiderivert** $F$ til $f$ oppfyller $F'(x) = f(x)$, og fordi den deriverte av en konstant er null, finnes det en hel familie av antideriverte. Det **ubestemte integralet** $\\int f(x)\\,dx = F(x) + C$ fanger hele familien -- og $+C$ er aldri valgfritt.\n\nVerktøykassen er **potensregelen** $\\int x^n\\,dx = \\tfrac{x^{n+1}}{n+1} + C$ for $n \\neq -1$, med spesialtilfellet $\\int \\tfrac{1}{x}\\,dx = \\ln|x| + C$, samt eksponentialformlene $\\int e^{ax}\\,dx = \\tfrac{1}{a}e^{ax} + C$ og $\\int a^x\\,dx = \\tfrac{a^x}{\\ln a} + C$. Konstantregelen og sumregelen lar oss integrere polynomer ledd for ledd.\n\nDen økonomiske kjernen er returbilletten: integrer en grensestørrelse for å få totalstørrelsen. Slik blir grensekostnad til totalkostnad, grenseinntekt til total inntekt og grensenytte til total nytte -- og en kjent betingelse, som faste kostnader $K(0)$, bestemmer $C$ entydig. Den beste vanen gjennom hele kapittelet er enkel: deriver alltid svaret ditt og sjekk at du lander på $f(x)$ igjen."}],"exercises":[]}
+{
+  "id": "bi-okonomi-8-1-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "8.1",
+  "title": "Antiderivert og ubestemt integral",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å spole derivasjonen baklengs -- fra grensekostnad tilbake til totalkostnad -- og om hvorfor enhver antiderivert kommer med en hemmelig konstant på slep.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-8-1",
+  "content": [
+    {
+      "id": "bi-okonomi-8-1-n-intro",
+      "type": "text",
+      "content": "## Å spole filmen baklengs\n\nTenk deg at en bedriftsleder kommer til deg med ett eneste tall: kostnaden ved å produsere én ekstra enhet -- **grensekostnaden** $K'(x)$. Hun spør: hva blir den totale kostnaden ved å produsere $x$ enheter? Du har den deriverte, men ikke funksjonen selv. Hele kapittelet handler om å løse nettopp dette: å gå motsatt vei av derivasjon.\n\nNår vi deriverer, går vi fra $F(x)$ til $F'(x)$. Nå skal vi gjøre det stikk motsatte. Gitt $f(x)$ leter vi etter en funksjon $F(x)$ slik at $F'(x) = f(x)$. En slik $F$ kaller vi en **antiderivert** (eller primitiv) til $f$. For eksempel er $F(x) = x^2$ en antiderivert til $f(x) = 2x$, rett og slett fordi $F'(x) = 2x$. Denne baklengs-operasjonen heter **antiderivasjon** eller **integrasjon**, og den er selve broen mellom grensestørrelser og totalstørrelser i økonomien.\n\nI økonomi vrimler det av grenseverdier: grensekostnad $K'(x)$, grenseinntekt $I'(x)$ og grensenytte $U'(x)$. Hver gang vi har en av disse og vil tilbake til totalkostnad, total inntekt eller total nytte, er det integrasjon vi trenger. Vi har altså ikke funnet på et abstrakt regnetriks -- vi har funnet returbilletten."
+    },
+    {
+      "id": "bi-okonomi-8-1-n-section1",
+      "type": "text",
+      "content": "## Den hemmelige konstanten\n\nLa oss se nærmere på $f(x) = 2x$. Vi sa at $F(x) = x^2$ fungerer. Men prøv $F(x) = x^2 + 5$. Deriverer vi, får vi fortsatt $2x$, fordi den deriverte av et tall alltid er null. Det samme gjelder $x^2 - 17$, og helt generelt $x^2 + C$ for et hvilket som helst tall $C$. Vi har altså ikke én antiderivert, men en hel **familie** som skiller seg fra hverandre med en konstant.\n\nDenne familien har et eget navn og symbol. Det **ubestemte integralet** av $f(x)$ er mengden av alle antideriverte, og vi skriver $$\\int f(x)\\,dx = F(x) + C,$$ der $F'(x) = f(x)$ og $C$ er **integrasjonskonstanten**. Tegnet $\\int$ er integraltegnet, $f(x)$ er integranden, og $dx$ forteller at vi integrerer med hensyn på $x$. Glem aldri $+C$ -- uten den har du bare plukket ut én tilfeldig av uendelig mange, og på eksamen koster det poeng.\n\nLa oss kontrollere et eksempel. Påstanden er at $F(x) = \\tfrac{1}{3}x^3 + 2x + 7$ er en antiderivert til $f(x) = x^2 + 2$. Vi deriverer: $F'(x) = \\tfrac{1}{3}\\cdot 3x^2 + 2 = x^2 + 2$. Det stemmer, så vi kan trygt skrive $\\int (x^2 + 2)\\,dx = \\tfrac{1}{3}x^3 + 2x + C$. Legg merke til arbeidsvanen som lønner seg hver gang: når du tror du har funnet $F$, deriver og sjekk at du får $f$ tilbake."
+    },
+    {
+      "id": "bi-okonomi-8-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på antiderivert og den ubestemte integralfamilien:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-1-n-quiz1-q0",
+            "task": "Hva betyr det at $F(x)$ er en antiderivert til $f(x)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At $f'(x) = F(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At $F(x) = f(x)$ for alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At $F'(x) = f(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "At $F$ og $f$ har samme nullpunkter",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Per definisjon er $F$ antiderivert til $f$ nettopp når $F'(x) = f(x)$ -- altså når $f$ er den deriverte av $F$."
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz1-q1",
+            "task": "Hvorfor skriver vi $+C$ i et ubestemt integral?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi integralet ellers ville blitt negativt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $C$ er produksjonsmengden",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $dx$ krever en konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi alle funksjoner $F(x)+C$ har samme deriverte, så de er alle antideriverte",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den deriverte av en konstant er null, så $x^2$, $x^2+5$ og $x^2+C$ har alle derivert $2x$. Det ubestemte integralet beskriver hele denne familien."
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz1-q2",
+            "task": "Er $F(x) = \\tfrac{1}{3}x^3 + 2x + 7$ en antiderivert til $f(x) = x^2 + 2$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Ja, fordi $F'(x) = x^2 + 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Nei, $F'(x) = x^2 + 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Nei, leddet $+7$ ødelegger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bare hvis vi fjerner $+7$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$F'(x) = \\tfrac{1}{3}\\cdot 3x^2 + 2 + 0 = x^2 + 2 = f(x)$. Konstantleddet $7$ forsvinner ved derivasjon, så det spiller ingen rolle."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-1-n-section2",
+      "type": "text",
+      "content": "## Verktøykassen: potensregelen og standardformlene\n\nFor å integrere effektivt trenger vi noen faste regler. Den viktigste er **potensregelen**: for alle reelle $n \\neq -1$ gjelder $$\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C.$$ I praksis: øk eksponenten med 1, og del på den nye eksponenten. Slik blir $\\int x^4\\,dx = \\tfrac{x^5}{5} + C$. Trikset fungerer også for røtter og brøker hvis vi først skriver dem som potenser. Siden $\\sqrt{x} = x^{1/2}$, får vi $\\int x^{1/2}\\,dx = \\tfrac{x^{3/2}}{3/2} + C = \\tfrac{2}{3}x^{3/2} + C$. Og $\\tfrac{1}{x^3} = x^{-3}$ gir $\\int x^{-3}\\,dx = \\tfrac{x^{-2}}{-2} + C = -\\tfrac{1}{2x^2} + C$.\n\nHvorfor må $n \\neq -1$? Fordi $n = -1$ ville gi $\\tfrac{x^0}{0}$, som er udefinert. Akkurat dette tilfellet får sin egen regel: $\\int \\tfrac{1}{x}\\,dx = \\ln|x| + C$. Sammen med eksponentialfunksjonene utgjør disse standardformlene: $\\int e^x\\,dx = e^x + C$, $\\int e^{ax}\\,dx = \\tfrac{1}{a}e^{ax} + C$ for $a \\neq 0$, og $\\int a^x\\,dx = \\tfrac{a^x}{\\ln a} + C$. For eksempel er $\\int e^{0{,}05t}\\,dt = \\tfrac{1}{0{,}05}e^{0{,}05t} + C = 20e^{0{,}05t} + C$.\n\nTil slutt trenger vi tre regneregler. Vi kan flytte en konstant utenfor: $\\int k\\cdot f(x)\\,dx = k\\int f(x)\\,dx$. Og vi kan integrere ledd for ledd, både ved pluss og minus: $\\int (f \\pm g)\\,dx = \\int f\\,dx \\pm \\int g\\,dx$. Med disse blir polynomer enkle: $\\int (6x^2 - 4x + 5)\\,dx = 6\\cdot\\tfrac{x^3}{3} - 4\\cdot\\tfrac{x^2}{2} + 5x + C = 2x^3 - 2x^2 + 5x + C$. Deriverer vi svaret, får vi $6x^2 - 4x + 5$ tilbake -- akkurat det vi startet med. Merk at det ikke finnes noen tilsvarende enkel regel for produkter og kvotienter; de krever egne metoder senere."
+    },
+    {
+      "id": "bi-okonomi-8-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på potensregelen og standardformlene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-1-n-quiz2-q0",
+            "task": "Hva er $\\int x^4\\,dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4x^3 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^5 + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\tfrac{x^5}{4} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{x^5}{5} + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Potensregelen: øk eksponenten til $5$ og del på $5$: $\\tfrac{x^5}{5} + C$. (Alternativ a er derivasjon, ikke integrasjon.)"
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz2-q1",
+            "task": "Hvorfor kan vi ikke bruke potensregelen på $\\int \\tfrac{1}{x}\\,dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $\\tfrac{1}{x}$ ikke er en potens",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $n = -1$ ville gi deling på null",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi $x$ kan være negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi svaret ville mangle $+C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Her er $n = -1$, og potensregelen gir $\\tfrac{x^0}{0}$, som er udefinert. Derfor har dette tilfellet sin egen regel: $\\int \\tfrac{1}{x}\\,dx = \\ln|x| + C$."
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz2-q2",
+            "task": "Hva er $\\int e^{0{,}05t}\\,dt$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}05 e^{0{,}05t} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e^{0{,}05t} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$20 e^{0{,}05t} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{1}{20} e^{0{,}05t} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int e^{at}\\,dt = \\tfrac{1}{a}e^{at} + C$ med $a = 0{,}05$ gir $\\tfrac{1}{0{,}05} = 20$, altså $20e^{0{,}05t} + C$."
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz2-q3",
+            "task": "Hva er $\\int (6x^2 - 4x + 5)\\,dx$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$2x^3 - 2x^2 + 5x + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$2x^3 - 4x^2 + 5x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$6x^3 - 2x^2 + 5x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x^3 - 2x^2 + 5 + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ledd for ledd: $6\\cdot\\tfrac{x^3}{3} = 2x^3$, $-4\\cdot\\tfrac{x^2}{2} = -2x^2$, og $\\int 5\\,dx = 5x$. Sjekk ved derivasjon: $6x^2 - 4x + 5$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-1-n-section3",
+      "type": "text",
+      "content": "## Returbilletten i økonomien\n\nNå lukker vi sirkelen til bedriftslederen fra starten. Hun hadde grensekostnaden $K'(x) = 3x^2 + 20$ og faste kostnader $K(0) = 1000$. Totalkostnaden er antiderivert til grensekostnaden, så vi integrerer: $K(x) = \\int (3x^2 + 20)\\,dx = x^3 + 20x + C$. Men hvilken $C$? Her gjør betingelsen jobben. Setter vi inn $x = 0$, får vi $K(0) = C = 1000$. Altså er $K(x) = x^3 + 20x + 1000$. Det fine er den økonomiske tolkningen: integrasjonskonstanten $C$ er rett og slett de **faste kostnadene** -- det bedriften betaler selv når den ikke produserer noe.\n\nSamme oppskrift gjelder for inntekt. Anta grenseinntekten $I'(x) = 200 - 4x$, og at det ikke kommer inntekt uten salg, så $I(0) = 0$. Vi integrerer: $I(x) = 200x - 2x^2 + C$, og betingelsen $I(0) = 0$ tvinger $C = 0$. Da er $I(x) = 200x - 2x^2$. Ved et salg på $30$ enheter blir inntekten $I(30) = 200\\cdot 30 - 2\\cdot 30^2 = 6000 - 1800 = 4200$ kroner.\n\nGrensenytte følger samme mønster, men trekker ofte inn logaritmen. Har en konsument grensenytte $U'(x) = \\tfrac{100}{x}$ med $U(1) = 0$, blir $U(x) = 100\\ln|x| + C$. Siden $\\ln 1 = 0$, gir betingelsen $C = 0$, så $U(x) = 100\\ln x$. Poenget i alle tre tilfellene er det samme: integrer grensestørrelsen for å få totalstørrelsen, og bruk en kjent betingelse til å bestemme $C$ entydig."
+    },
+    {
+      "id": "bi-okonomi-8-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-8-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på integrasjon i økonomi og bestemmelse av C:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-8-1-n-quiz3-q0",
+            "task": "Grensekostnaden er $K'(x) = 3x^2 + 20$ med faste kostnader $K(0) = 1000$. Hva er $K(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6x + 1000$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^3 + 20x + 1000$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$3x^3 + 20x + 1000$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^3 + 20x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int (3x^2 + 20)\\,dx = x^3 + 20x + C$. Betingelsen $K(0) = C = 1000$ gir $K(x) = x^3 + 20x + 1000$."
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz3-q1",
+            "task": "Hva tilsvarer integrasjonskonstanten $C$ økonomisk i en kostnadsfunksjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Grensekostnaden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "De variable kostnadene",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "De faste kostnadene",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Gjennomsnittskostnaden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K(0) = C$ er kostnaden ved null produksjon -- altså de faste kostnadene som påløper uansett."
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz3-q2",
+            "task": "Med grenseinntekt $I'(x) = 200 - 4x$ og $I(0) = 0$, hva er inntekten ved $x = 30$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6000$ kroner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5400$ kroner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1800$ kroner",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4200$ kroner",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$I(x) = 200x - 2x^2$ (siden $C = 0$). $I(30) = 6000 - 2\\cdot 900 = 6000 - 1800 = 4200$ kroner."
+          },
+          {
+            "id": "bi-okonomi-8-1-n-quiz3-q3",
+            "task": "En konsument har grensenytte $U'(x) = \\tfrac{100}{x}$ med $U(1) = 0$. Hva er $U(x)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$100\\ln x$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-\\tfrac{100}{x^2} + 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$100\\ln x + 100$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\tfrac{100}{x} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int \\tfrac{100}{x}\\,dx = 100\\ln|x| + C$. Siden $\\ln 1 = 0$ gir $U(1) = C = 0$, så $U(x) = 100\\ln x$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-8-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nIntegrasjon er derivasjon spolt baklengs. En **antiderivert** $F$ til $f$ oppfyller $F'(x) = f(x)$, og fordi den deriverte av en konstant er null, finnes det en hel familie av antideriverte. Det **ubestemte integralet** $\\int f(x)\\,dx = F(x) + C$ fanger hele familien -- og $+C$ er aldri valgfritt.\n\nVerktøykassen er **potensregelen** $\\int x^n\\,dx = \\tfrac{x^{n+1}}{n+1} + C$ for $n \\neq -1$, med spesialtilfellet $\\int \\tfrac{1}{x}\\,dx = \\ln|x| + C$, samt eksponentialformlene $\\int e^{ax}\\,dx = \\tfrac{1}{a}e^{ax} + C$ og $\\int a^x\\,dx = \\tfrac{a^x}{\\ln a} + C$. Konstantregelen og sumregelen lar oss integrere polynomer ledd for ledd.\n\nDen økonomiske kjernen er returbilletten: integrer en grensestørrelse for å få totalstørrelsen. Slik blir grensekostnad til totalkostnad, grenseinntekt til total inntekt og grensenytte til total nytte -- og en kjent betingelse, som faste kostnader $K(0)$, bestemmer $C$ entydig. Den beste vanen gjennom hele kapittelet er enkel: deriver alltid svaret ditt og sjekk at du lander på $f(x)$ igjen."
+    }
+  ],
+  "exercises": []
+}

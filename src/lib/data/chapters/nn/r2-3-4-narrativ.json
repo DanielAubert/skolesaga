@@ -1,1 +1,485 @@
-{"id":"r2-3-4-narrativ","courseId":"r2","chapterNumber":"3.4","title":"Numerisk integrasjon","subtitle":"Narrativ versjon","description":"Ei forteljing om numerisk integrasjon — kva vi gjer når antideriverten ikkje finst, og kappløpet mellom rektangel, trapes og parablane til Simpson om å fange arealet med minst feil.","estimatedMinutes":50,"competenceGoals":["forstå når numerisk integrasjon er nødvendig","bruke rektangelmetoden, trapesmetoden og Simpsons metode","vurdere nøyaktigheita til numeriske tilnærmingar"],"linkedChapterId":"r2-3-4","content":[{"id":"r2-3-4-n-intro","type":"text","content":"## Integralet som ikkje lét seg løyse\n\nMed substitusjon, delvis integrasjon og delbrøkoppspalting i verktøykassa kjennest det kanskje som om alle integral no kan knekkjast. Så møter du dette:\n\n$$\\int_0^2 e^{-x^2}\\,dx$$\n\nDu prøver substitusjon — ingen kjerne-derivert. Delvis integrasjon — det blir berre verre. Sanninga er nedslåande og fascinerande på éin gong: $e^{-x^2}$ *har ingen antiderivert* som kan skrivast med elementære funksjonar. Det er bevist. Og dette er ikkje eit obskurt unntak — det er normalsongen for funksjonane i statistikk ($e^{-x^2}$ ligg bak normalfordelinga), signalbehandling ($\\frac{\\sin x}{x}$) og geometri ($\\sqrt{1+x^3}$). I tillegg kjem alle situasjonar der funksjonen berre finst som måledata, utan formel i det heile.\n\nMen integralet *eksisterer* jo — arealet under kurva er der, like verkeleg som alltid. Vi kan berre ikkje nå det med antideriverte. Løysinga er å vende tilbake til rektangla til Riemann frå kapittel 2.4, men no med eit praktisk mål: ikkje ein grenseverdi på papiret, men eit *tal med kontrollert nøyaktigheit*. Det er **numerisk integrasjon** — og kappløpet står mellom rektangel, trapes og parablar."},{"id":"r2-3-4-n-section1","type":"text","content":"## Rektangelmetoden: enkel, men grov\n\nUtgangspunktet kjenner du: del $[a,b]$ i $n$ delintervall med breidd $h = \\frac{b-a}{n}$, og tilnærm arealet med rektangel. Bruker vi venstre endepunkt i kvart delintervall, får vi **venstre rektangelmetode**:\n\n$$\\int_a^b f(x)\\,dx \\approx h\\left[f(x_0) + f(x_1) + \\cdots + f(x_{n-1})\\right]$$\n\nHøgre endepunkt gir høgremetoden, og midtpunktet gir **midtpunktmetoden** — same idé, smartare val.\n\nTestbenken vår blir $\\int_0^2 x^2\\,dx = \\frac{8}{3} \\approx 2{,}667$, der fasiten er kjend. Venstre metode med $n = 4$: $h = 0{,}5$, og\n\n$$0{,}5\\,[f(0) + f(0{,}5) + f(1) + f(1{,}5)] = 0{,}5 \\cdot 3{,}5 = 1{,}75$$\n\nEin feil på heile $34\\,\\%$ — rektangla heng etter den veksande grafen. Midtpunktmetoden med same $n$ bruker $x = 0{,}25, 0{,}75, 1{,}25, 1{,}75$ og gir\n\n$$0{,}5\\,[0{,}0625 + 0{,}5625 + 1{,}5625 + 3{,}0625] = 2{,}625$$\n\n— berre $1{,}6\\,\\%$ feil! Løyndomen er at midtpunktet balanserer: rektangelet stikk over grafen på den eine halvdelen og under på den andre, og feila kansellerer nesten. Same talet på rekneoperasjonar, dramatisk betre svar. Lærdomen som pregar heile kapittelet: *kvar* du måler, betyr meir enn *kor mykje* du reknar."},{"id":"r2-3-4-n-quiz1","type":"exercise","exercise":{"id":"r2-3-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på rektangelmetodane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-4-n-quiz1-q0","task":"Kvifor må $\\int_0^2 e^{-x^2}\\,dx$ reknast ut numerisk?","options":[{"id":"a","text":"Fordi integranden er diskontinuerleg","isCorrect":false},{"id":"b","text":"Fordi integralet divergerer","isCorrect":false},{"id":"c","text":"Fordi $e^{-x^2}$ ikkje har nokon antiderivert uttrykt med elementære funksjonar","isCorrect":true},{"id":"d","text":"Fordi grensene er for store","isCorrect":false}],"solution":"Det er bevist at antideriverten til $e^{-x^2}$ ikkje kan skrivast med elementære funksjonar. Integralet eksisterer, men må tilnærmast numerisk."},{"id":"r2-3-4-n-quiz1-q1","task":"Venstre rektangelmetode med $n = 4$ på $\\int_0^2 x^2\\,dx$ gir $1{,}75$, mot eksakt $\\frac{8}{3} \\approx 2{,}667$. Kvifor blir svaret for lite?","options":[{"id":"a","text":"Fordi $f(x) = x^2$ er veksande, slik at venstre endepunkt gir den minste verdien i kvart delintervall","isCorrect":true},{"id":"b","text":"Fordi $n$ er eit partal","isCorrect":false},{"id":"c","text":"Fordi $h$ er valt feil","isCorrect":false},{"id":"d","text":"Venstremetoden gir alltid for lite, uansett funksjon","isCorrect":false}],"solution":"For ein veksande funksjon ligg rektangeltoppen (venstre endepunkt) under grafen i heile delintervallet — ei systematisk undervurdering."},{"id":"r2-3-4-n-quiz1-q2","task":"Midtpunktmetoden med $n = 4$ gav $2{,}625$ ($1{,}6\\,\\%$ feil) mot venstremetodens $1{,}75$ ($34\\,\\%$ feil). Kva er forklaringa?","options":[{"id":"a","text":"Midtpunktmetoden bruker dobbelt så mange punkt","isCorrect":false},{"id":"b","text":"I midtpunktet kansellerer feila over og under grafen nesten kvarandre","isCorrect":true},{"id":"c","text":"Midtpunktmetoden bruker trapes","isCorrect":false},{"id":"d","text":"Tilfeldig flaks for akkurat denne funksjonen","isCorrect":false}],"solution":"Rektangelet gjennom midtpunktet stikk over grafen på éi side og under på den andre. Netto-feilen blir liten — metoden har feilorden $O(1/n^2)$ mot venstremetodens $O(1/n)$."}]}},{"id":"r2-3-4-n-section2","type":"text","content":"## Trapesmetoden: skrå tak\n\nSvakheita til rektangla er dei flate taka. Kvifor ikkje la taket følgje kurva — i det minste som ei rett linje mellom nabopunkta? Då blir kvar stripe eit **trapes** med areal $\\frac{h}{2}[f(x_i) + f(x_{i+1})]$, og summen over alle stripene gir **trapesmetoden**:\n\n$$T_n = \\frac{h}{2}\\left[f(x_0) + 2f(x_1) + 2f(x_2) + \\cdots + 2f(x_{n-1}) + f(x_n)\\right]$$\n\nEndepunkta tel éin gong, dei indre punkta to (dei blir delte av to nabotrapes).\n\nPå testbenken med $n = 4$: $T_4 = 0{,}25\\,[0 + 2(0{,}25) + 2(1) + 2(2{,}25) + 4] = 0{,}25 \\cdot 11 = 2{,}75$ — feil $3{,}1\\,\\%$. Betre enn venstremetoden, men faktisk litt bak midtpunktmetoden her; for konvekse kurver skjer taket til trapeset konsekvent *over* grafen.\n\nKor fort blir det betre når $n$ aukar? Feilestimatet seier $|E_T| \\leq \\frac{(b-a)^3}{12n^2}M_2$, der $M_2$ er maksimum av $|f''|$ — og det vesentlege er $n^2$ i nemnaren: **doblar du $n$, blir feilen delt på fire**. For $\\int_0^1 e^x\\,dx$ ser ein det svart på kvitt: feilen går frå $0{,}0356$ ved $n=2$ til $0{,}0089$ ved $n=4$ til $0{,}0022$ ved $n=8$ — faktor fire kvar gong. Midtpunktmetoden deler same orden, $O(1/n^2)$, med konstanten $24$ i staden for $12$.\n\nAdelsmerket til trapesmetoden er **måledata**: har du berre tabellverdiar frå eit eksperiment — fartar, straumar, sensoravlesingar — er trapesmetoden den naturlege måten å integrere dei på, utan nokon formel for $f$."},{"id":"r2-3-4-n-quiz2","type":"exercise","exercise":{"id":"r2-3-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på trapesmetoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-4-n-quiz2-q0","task":"Kva for eit koeffisientmønster har trapesformelen?","options":[{"id":"a","text":"$1, 1, 1, \\ldots, 1, 1$","isCorrect":false},{"id":"b","text":"$1, 4, 2, 4, \\ldots, 4, 1$","isCorrect":false},{"id":"c","text":"$2, 1, 1, \\ldots, 1, 2$","isCorrect":false},{"id":"d","text":"$1, 2, 2, \\ldots, 2, 1$","isCorrect":true}],"solution":"$T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$: endepunkta éin gong, indre punkt to gonger."},{"id":"r2-3-4-n-quiz2-q1","task":"Trapesmetoden har feil av orden $O(1/n^2)$. Kva skjer med feilen når $n$ blir dobla?","options":[{"id":"a","text":"Han blir halvert","isCorrect":false},{"id":"b","text":"Han blir delt på fire","isCorrect":true},{"id":"c","text":"Han blir delt på åtte","isCorrect":false},{"id":"d","text":"Han blir delt på seksten","isCorrect":false}],"solution":"$\\frac{1}{(2n)^2} = \\frac{1}{4} \\cdot \\frac{1}{n^2}$ — dobling av $n$ gir ein firedel av feilen, som tabellen for $\\int_0^1 e^x\\,dx$ stadfesta."},{"id":"r2-3-4-n-quiz2-q2","task":"For kva for ein situasjon er trapesmetoden særleg eigna?","options":[{"id":"a","text":"Når funksjonen berre er kjend som måledata i tabellform","isCorrect":true},{"id":"b","text":"Når integranden er eit polynom av grad $3$","isCorrect":false},{"id":"c","text":"Når antideriverten er kjend","isCorrect":false},{"id":"d","text":"Når $n$ må vere eit oddetal","isCorrect":false}],"solution":"Trapesmetoden treng berre funksjonsverdiar i gitte punkt — perfekt for eksperimentelle data utan formel."},{"id":"r2-3-4-n-quiz2-q3","task":"Trapesmetoden med $n = 4$ gav $2{,}75$ for $\\int_0^2 x^2\\,dx$ — ei overvurdering. Kvifor?","options":[{"id":"a","text":"Fordi $h$ var for stor","isCorrect":false},{"id":"b","text":"Fordi endepunkta blir talde dobbelt","isCorrect":false},{"id":"c","text":"Fordi grafen til $x^2$ er konveks, slik at det skrå taket til trapesa ligg over kurva","isCorrect":true},{"id":"d","text":"Trapesmetoden overvurderer alltid","isCorrect":false}],"solution":"For konvekse funksjonar (som krummar oppover) ligg korda mellom to grafpunkt over grafen, så kvart trapes blir litt for stort."}]}},{"id":"r2-3-4-n-section3","type":"text","content":"## Simpsons metode: parablane vinn\n\nRette linjer var betre enn flate tak — kva med å la taket *krumme*? **Simpsons metode** legg ein parabel gjennom tre og tre nabopunkt, og parablar følgjer krumninga til kurvene langt betre enn korder. Formelen (som krev at $n$ er eit **partal**):\n\n$$S_n = \\frac{h}{3}\\left[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)\\right]$$\n\nmed det karakteristiske koeffisientmønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$.\n\nTestbenken, $n = 4$: $S_4 = \\frac{0{,}5}{3}[0 + 4(0{,}25) + 2(1) + 4(2{,}25) + 4] = \\frac{0{,}5}{3} \\cdot 16 = \\frac{8}{3}$ — *eksakt*! Ingen tilfeldigheit: Simpsons metode er eksakt for alle polynom til og med **grad 3**, eitt hakk betre enn parabel-opphavet skulle tilseie (ein heldig symmetri viskar ut tredjegradsfeilen).\n\nFor andre funksjonar er feilordenen $O(1/n^4)$: dobling av $n$ deler feilen på *seksten*. Samanlikninga er nådelaus — for same reknearbeid vinn Simpson nesten alltid.\n\nTilbake til den umoglege utfordringa: $\\int_0^1 \\sqrt{1+x^3}\\,dx$, utan elementær antiderivert. Med $n = 4$ gir midtpunkt $1{,}106$, trapes $1{,}115$ og Simpson $1{,}109$ — mot den «sanne» verdien $1{,}1114$ er Simpson nærast. Og feilestimata, som $|E_S| \\leq \\frac{(b-a)^5}{180n^4}M_4$, gjer tilnærminga til vitskap: vi kan *garantere* nøyaktigheita på førehand, eller rekne ut kva for ein $n$ som trengst for ønskt presisjon. Tommelfingerreglane til slutt: trapes for tabelldata, Simpson for glatte funksjonar med valfrie punkt, midtpunkt for raske overslag."},{"id":"r2-3-4-n-quiz3","type":"exercise","exercise":{"id":"r2-3-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på Simpsons metode:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-3-4-n-quiz3-q0","task":"Kva for eit koeffisientmønster har Simpsons metode?","options":[{"id":"a","text":"$1, 2, 2, \\ldots, 2, 1$","isCorrect":false},{"id":"b","text":"$1, 3, 3, 1$ alltid","isCorrect":false},{"id":"c","text":"$1, 4, 4, 4, \\ldots, 4, 1$","isCorrect":false},{"id":"d","text":"$1, 4, 2, 4, 2, \\ldots, 4, 1$","isCorrect":true}],"solution":"Simpson: ytterpunkta får $1$, oddetalsindeksar $4$, indre partalsindeksar $2$ — mønsteret $1, 4, 2, 4, \\ldots, 4, 1$."},{"id":"r2-3-4-n-quiz3-q1","task":"For kva for nokre polynom gir Simpsons metode eksakt svar?","options":[{"id":"a","text":"Berre polynom av grad $\\leq 1$","isCorrect":false},{"id":"b","text":"Polynom av grad $\\leq 3$","isCorrect":true},{"id":"c","text":"Berre polynom av grad $\\leq 2$, sidan metoden bruker parablar","isCorrect":false},{"id":"d","text":"Alle polynom","isCorrect":false}],"solution":"Overraskande nok er Simpson eksakt opp til og med grad $3$ — ein symmetri gjer at tredjegradsfeilen kansellerer. Difor gav han $\\frac{8}{3}$ eksakt for $x^2$."},{"id":"r2-3-4-n-quiz3-q2","task":"Simpsons metode har feilorden $O(1/n^4)$. Kva skjer med feilen når $n$ blir dobla?","options":[{"id":"a","text":"Han blir delt på $16$","isCorrect":true},{"id":"b","text":"Han blir delt på $4$","isCorrect":false},{"id":"c","text":"Han blir delt på $8$","isCorrect":false},{"id":"d","text":"Han blir delt på $2$","isCorrect":false}],"solution":"$\\frac{1}{(2n)^4} = \\frac{1}{16n^4}$. Den raske konvergensen er det store fortrinnet til Simpson over trapes- og midtpunktmetoden ($O(1/n^2)$)."},{"id":"r2-3-4-n-quiz3-q3","task":"Kva for eit krav stiller Simpsons metode til talet på delintervall $n$?","options":[{"id":"a","text":"$n$ må vere deleleg med $3$","isCorrect":false},{"id":"b","text":"$n$ må vere eit kvadrattal","isCorrect":false},{"id":"c","text":"$n$ må vere eit partal","isCorrect":true},{"id":"d","text":"$n$ må vere minst $10$","isCorrect":false}],"solution":"Metoden behandlar delintervalla parvis (éin parabel per par), så $n$ må vere eit partal."}]}},{"id":"r2-3-4-n-summary","type":"text","content":"## Oppsummering: kappløpet om arealet\n\nNår antideriverten ikkje finst — som for $e^{-x^2}$, $\\frac{\\sin x}{x}$ og $\\sqrt{1+x^3}$ — eller funksjonen berre finst som måledata, tek numerikken over. Alle metodane deler grunnplanen frå Riemann: del $[a,b]$ i $n$ bitar med breidd $h = \\frac{b-a}{n}$, og summer bidrag. Skilnaden ligg i taket over kvar stripe. **Rektangelmetoden** (flatt tak) er enklast men grovast, med venstre/høgre-variantane som systematisk bommar på monotone funksjonar; **midtpunktvarianten** bergar mykje ved å la feila kansellere. **Trapesmetoden** (skrått tak, mønster $1,2,2,\\ldots,2,1$) deler feilorden $O(1/n^2)$ med midtpunktmetoden — dobling av $n$ firedeler feilen — og er førsteval for tabelldata. **Simpsons metode** (parabeltak, mønster $1,4,2,4,\\ldots,4,1$, partal $n$) er eksakt for polynom opp til grad $3$ og konvergerer som $O(1/n^4)$: dobling av $n$ deler feilen på seksten.\n\nFeilestimata — $\\frac{(b-a)^3}{12n^2}M_2$ for trapes, $\\frac{(b-a)^5}{180n^4}M_4$ for Simpson — løftar det heile frå gjetting til garanti: nøyaktigheita kan planleggjast før rekninga startar. Men kven orkar å summere hundre funksjonsverdiar for hand? Ingen — og ingen treng det. I neste kapittel skriv vi metodane som Python-kode og lèt maskina løpe kappløpet for oss."}],"exercises":[],"_meta":{"sourceHash":"b90f79f66f8fa00a","translatedAt":"2026-06-20T00:37:51.006Z","model":"claude-code-agent","strings":83,"tm":{"a948240ee9ed6e6e":"Numerisk integrasjon","b195b06d1ed59702":"Narrativ versjon","7705c23252d0095f":"Ei forteljing om numerisk integrasjon — kva vi gjer når antideriverten ikkje finst, og kappløpet mellom rektangel, trapes og parablane til Simpson om å fange arealet med minst feil.","7c5f3ace6bf21788":"forstå når numerisk integrasjon er nødvendig","3625912725330438":"bruke rektangelmetoden, trapesmetoden og Simpsons metode","428c87842bd6ddd3":"vurdere nøyaktigheita til numeriske tilnærmingar","87894bbfb73e2b1b":"## Integralet som ikkje lét seg løyse\n\nMed substitusjon, delvis integrasjon og delbrøkoppspalting i verktøykassa kjennest det kanskje som om alle integral no kan knekkjast. Så møter du dette:\n\n$$\\int_0^2 e^{-x^2}\\,dx$$\n\nDu prøver substitusjon — ingen kjerne-derivert. Delvis integrasjon — det blir berre verre. Sanninga er nedslåande og fascinerande på éin gong: $e^{-x^2}$ *har ingen antiderivert* som kan skrivast med elementære funksjonar. Det er bevist. Og dette er ikkje eit obskurt unntak — det er normalsongen for funksjonane i statistikk ($e^{-x^2}$ ligg bak normalfordelinga), signalbehandling ($\\frac{\\sin x}{x}$) og geometri ($\\sqrt{1+x^3}$). I tillegg kjem alle situasjonar der funksjonen berre finst som måledata, utan formel i det heile.\n\nMen integralet *eksisterer* jo — arealet under kurva er der, like verkeleg som alltid. Vi kan berre ikkje nå det med antideriverte. Løysinga er å vende tilbake til rektangla til Riemann frå kapittel 2.4, men no med eit praktisk mål: ikkje ein grenseverdi på papiret, men eit *tal med kontrollert nøyaktigheit*. Det er **numerisk integrasjon** — og kappløpet står mellom rektangel, trapes og parablar.","0c7bdd9fe3553aa6":"## Rektangelmetoden: enkel, men grov\n\nUtgangspunktet kjenner du: del $[a,b]$ i $n$ delintervall med breidd $h = \\frac{b-a}{n}$, og tilnærm arealet med rektangel. Bruker vi venstre endepunkt i kvart delintervall, får vi **venstre rektangelmetode**:\n\n$$\\int_a^b f(x)\\,dx \\approx h\\left[f(x_0) + f(x_1) + \\cdots + f(x_{n-1})\\right]$$\n\nHøgre endepunkt gir høgremetoden, og midtpunktet gir **midtpunktmetoden** — same idé, smartare val.\n\nTestbenken vår blir $\\int_0^2 x^2\\,dx = \\frac{8}{3} \\approx 2{,}667$, der fasiten er kjend. Venstre metode med $n = 4$: $h = 0{,}5$, og\n\n$$0{,}5\\,[f(0) + f(0{,}5) + f(1) + f(1{,}5)] = 0{,}5 \\cdot 3{,}5 = 1{,}75$$\n\nEin feil på heile $34\\,\\%$ — rektangla heng etter den veksande grafen. Midtpunktmetoden med same $n$ bruker $x = 0{,}25, 0{,}75, 1{,}25, 1{,}75$ og gir\n\n$$0{,}5\\,[0{,}0625 + 0{,}5625 + 1{,}5625 + 3{,}0625] = 2{,}625$$\n\n— berre $1{,}6\\,\\%$ feil! Løyndomen er at midtpunktet balanserer: rektangelet stikk over grafen på den eine halvdelen og under på den andre, og feila kansellerer nesten. Same talet på rekneoperasjonar, dramatisk betre svar. Lærdomen som pregar heile kapittelet: *kvar* du måler, betyr meir enn *kor mykje* du reknar.","2bff4db71e2cea73":"Test deg sjølv på rektangelmetodane:","4097889236a2af26":"placeholder","3f2c430b02904557":"Kvifor må $\\int_0^2 e^{-x^2}\\,dx$ reknast ut numerisk?","ec9fdc80568404cc":"Fordi integranden er diskontinuerleg","548d205c2f74b4f5":"Fordi integralet divergerer","52a53f28204d0d58":"Fordi $e^{-x^2}$ ikkje har nokon antiderivert uttrykt med elementære funksjonar","bd80cf7e9ae2b36e":"Fordi grensene er for store","c73963afaf5387a1":"Det er bevist at antideriverten til $e^{-x^2}$ ikkje kan skrivast med elementære funksjonar. Integralet eksisterer, men må tilnærmast numerisk.","fae3ccaa3babd1fc":"Venstre rektangelmetode med $n = 4$ på $\\int_0^2 x^2\\,dx$ gir $1{,}75$, mot eksakt $\\frac{8}{3} \\approx 2{,}667$. Kvifor blir svaret for lite?","374079ec5bd7886f":"Fordi $f(x) = x^2$ er veksande, slik at venstre endepunkt gir den minste verdien i kvart delintervall","3415e91c30612876":"Fordi $n$ er eit partal","d14d9b544c10006b":"Fordi $h$ er valt feil","67de7eff1e8f3510":"Venstremetoden gir alltid for lite, uansett funksjon","75452b82ebb504ff":"For ein veksande funksjon ligg rektangeltoppen (venstre endepunkt) under grafen i heile delintervallet — ei systematisk undervurdering.","84749880ec61757e":"Midtpunktmetoden med $n = 4$ gav $2{,}625$ ($1{,}6\\,\\%$ feil) mot venstremetodens $1{,}75$ ($34\\,\\%$ feil). Kva er forklaringa?","30242c8019bde11f":"Midtpunktmetoden bruker dobbelt så mange punkt","f391904d8616a091":"I midtpunktet kansellerer feila over og under grafen nesten kvarandre","5d01e0db7c705a8b":"Midtpunktmetoden bruker trapes","d54373e7fc39ee05":"Tilfeldig flaks for akkurat denne funksjonen","c8805d99e8a0f775":"Rektangelet gjennom midtpunktet stikk over grafen på éi side og under på den andre. Netto-feilen blir liten — metoden har feilorden $O(1/n^2)$ mot venstremetodens $O(1/n)$.","a556aa9ae96b6fca":"## Trapesmetoden: skrå tak\n\nSvakheita til rektangla er dei flate taka. Kvifor ikkje la taket følgje kurva — i det minste som ei rett linje mellom nabopunkta? Då blir kvar stripe eit **trapes** med areal $\\frac{h}{2}[f(x_i) + f(x_{i+1})]$, og summen over alle stripene gir **trapesmetoden**:\n\n$$T_n = \\frac{h}{2}\\left[f(x_0) + 2f(x_1) + 2f(x_2) + \\cdots + 2f(x_{n-1}) + f(x_n)\\right]$$\n\nEndepunkta tel éin gong, dei indre punkta to (dei blir delte av to nabotrapes).\n\nPå testbenken med $n = 4$: $T_4 = 0{,}25\\,[0 + 2(0{,}25) + 2(1) + 2(2{,}25) + 4] = 0{,}25 \\cdot 11 = 2{,}75$ — feil $3{,}1\\,\\%$. Betre enn venstremetoden, men faktisk litt bak midtpunktmetoden her; for konvekse kurver skjer taket til trapeset konsekvent *over* grafen.\n\nKor fort blir det betre når $n$ aukar? Feilestimatet seier $|E_T| \\leq \\frac{(b-a)^3}{12n^2}M_2$, der $M_2$ er maksimum av $|f''|$ — og det vesentlege er $n^2$ i nemnaren: **doblar du $n$, blir feilen delt på fire**. For $\\int_0^1 e^x\\,dx$ ser ein det svart på kvitt: feilen går frå $0{,}0356$ ved $n=2$ til $0{,}0089$ ved $n=4$ til $0{,}0022$ ved $n=8$ — faktor fire kvar gong. Midtpunktmetoden deler same orden, $O(1/n^2)$, med konstanten $24$ i staden for $12$.\n\nAdelsmerket til trapesmetoden er **måledata**: har du berre tabellverdiar frå eit eksperiment — fartar, straumar, sensoravlesingar — er trapesmetoden den naturlege måten å integrere dei på, utan nokon formel for $f$.","c40843649e8c4d86":"Test deg sjølv på trapesmetoden:","d8a70fbd66030161":"Kva for eit koeffisientmønster har trapesformelen?","4597bc7e2e016c92":"$1, 1, 1, \\ldots, 1, 1$","b3f7f264b44b0d71":"$1, 4, 2, 4, \\ldots, 4, 1$","3858420d548ce100":"$2, 1, 1, \\ldots, 1, 2$","4fcd7230b596f870":"$1, 2, 2, \\ldots, 2, 1$","58f17b0d50131a95":"$T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$: endepunkta éin gong, indre punkt to gonger.","eb81dce4413f7540":"Trapesmetoden har feil av orden $O(1/n^2)$. Kva skjer med feilen når $n$ blir dobla?","cf674b021ee9aa5b":"Han blir halvert","ac3bda14bfe8b22d":"Han blir delt på fire","674a357ae87b592b":"Han blir delt på åtte","83555fe781ae3da6":"Han blir delt på seksten","8bf5f79efe04dd03":"$\\frac{1}{(2n)^2} = \\frac{1}{4} \\cdot \\frac{1}{n^2}$ — dobling av $n$ gir ein firedel av feilen, som tabellen for $\\int_0^1 e^x\\,dx$ stadfesta.","9d5dcc503b304d51":"For kva for ein situasjon er trapesmetoden særleg eigna?","80acd72795c67324":"Når funksjonen berre er kjend som måledata i tabellform","8c79903267e7e28f":"Når integranden er eit polynom av grad $3$","7798655370b5b56d":"Når antideriverten er kjend","3fd9fa80bc39447d":"Når $n$ må vere eit oddetal","dedc5f84e361656d":"Trapesmetoden treng berre funksjonsverdiar i gitte punkt — perfekt for eksperimentelle data utan formel.","bbd6e56f8c6fa857":"Trapesmetoden med $n = 4$ gav $2{,}75$ for $\\int_0^2 x^2\\,dx$ — ei overvurdering. Kvifor?","3d3bc27d2151db27":"Fordi $h$ var for stor","6cb6a9d00560f85e":"Fordi endepunkta blir talde dobbelt","e5fba0dbc3aac6df":"Fordi grafen til $x^2$ er konveks, slik at det skrå taket til trapesa ligg over kurva","79e1005fdb530d17":"Trapesmetoden overvurderer alltid","fa06c15c07d31d32":"For konvekse funksjonar (som krummar oppover) ligg korda mellom to grafpunkt over grafen, så kvart trapes blir litt for stort.","af685774c606cda5":"## Simpsons metode: parablane vinn\n\nRette linjer var betre enn flate tak — kva med å la taket *krumme*? **Simpsons metode** legg ein parabel gjennom tre og tre nabopunkt, og parablar følgjer krumninga til kurvene langt betre enn korder. Formelen (som krev at $n$ er eit **partal**):\n\n$$S_n = \\frac{h}{3}\\left[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)\\right]$$\n\nmed det karakteristiske koeffisientmønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$.\n\nTestbenken, $n = 4$: $S_4 = \\frac{0{,}5}{3}[0 + 4(0{,}25) + 2(1) + 4(2{,}25) + 4] = \\frac{0{,}5}{3} \\cdot 16 = \\frac{8}{3}$ — *eksakt*! Ingen tilfeldigheit: Simpsons metode er eksakt for alle polynom til og med **grad 3**, eitt hakk betre enn parabel-opphavet skulle tilseie (ein heldig symmetri viskar ut tredjegradsfeilen).\n\nFor andre funksjonar er feilordenen $O(1/n^4)$: dobling av $n$ deler feilen på *seksten*. Samanlikninga er nådelaus — for same reknearbeid vinn Simpson nesten alltid.\n\nTilbake til den umoglege utfordringa: $\\int_0^1 \\sqrt{1+x^3}\\,dx$, utan elementær antiderivert. Med $n = 4$ gir midtpunkt $1{,}106$, trapes $1{,}115$ og Simpson $1{,}109$ — mot den «sanne» verdien $1{,}1114$ er Simpson nærast. Og feilestimata, som $|E_S| \\leq \\frac{(b-a)^5}{180n^4}M_4$, gjer tilnærminga til vitskap: vi kan *garantere* nøyaktigheita på førehand, eller rekne ut kva for ein $n$ som trengst for ønskt presisjon. Tommelfingerreglane til slutt: trapes for tabelldata, Simpson for glatte funksjonar med valfrie punkt, midtpunkt for raske overslag.","f38f8dd7231d6e45":"Test deg sjølv på Simpsons metode:","44638ec179f2b6f0":"Kva for eit koeffisientmønster har Simpsons metode?","f3daf165d5189dcc":"$1, 3, 3, 1$ alltid","79bcb6a69b76e40e":"$1, 4, 4, 4, \\ldots, 4, 1$","d18ce561780b1eff":"$1, 4, 2, 4, 2, \\ldots, 4, 1$","619e6aa3282de72f":"Simpson: ytterpunkta får $1$, oddetalsindeksar $4$, indre partalsindeksar $2$ — mønsteret $1, 4, 2, 4, \\ldots, 4, 1$.","aa13832333098ac2":"For kva for nokre polynom gir Simpsons metode eksakt svar?","3f10842773bab2fd":"Berre polynom av grad $\\leq 1$","7f2ee0dde091f180":"Polynom av grad $\\leq 3$","fcd942cef6f7e63d":"Berre polynom av grad $\\leq 2$, sidan metoden bruker parablar","7723a9a858436183":"Alle polynom","656f2b0170e7e6e1":"Overraskande nok er Simpson eksakt opp til og med grad $3$ — ein symmetri gjer at tredjegradsfeilen kansellerer. Difor gav han $\\frac{8}{3}$ eksakt for $x^2$.","5b8afca2de7a726a":"Simpsons metode har feilorden $O(1/n^4)$. Kva skjer med feilen når $n$ blir dobla?","8e97e25c256474c6":"Han blir delt på $16$","ed021cb14393e298":"Han blir delt på $4$","700c4c22ff6609dd":"Han blir delt på $8$","8da06e62f7a21fec":"Han blir delt på $2$","756dd80e7bdef05d":"$\\frac{1}{(2n)^4} = \\frac{1}{16n^4}$. Den raske konvergensen er det store fortrinnet til Simpson over trapes- og midtpunktmetoden ($O(1/n^2)$).","31ddbf014d979319":"Kva for eit krav stiller Simpsons metode til talet på delintervall $n$?","b530a35da59905c4":"$n$ må vere deleleg med $3$","237b0661b6ae2799":"$n$ må vere eit kvadrattal","d07465e1a32c0a76":"$n$ må vere eit partal","43f8d1cec7d918bc":"$n$ må vere minst $10$","12cb4be838ea904c":"Metoden behandlar delintervalla parvis (éin parabel per par), så $n$ må vere eit partal.","6d41aa91a6f167a6":"## Oppsummering: kappløpet om arealet\n\nNår antideriverten ikkje finst — som for $e^{-x^2}$, $\\frac{\\sin x}{x}$ og $\\sqrt{1+x^3}$ — eller funksjonen berre finst som måledata, tek numerikken over. Alle metodane deler grunnplanen frå Riemann: del $[a,b]$ i $n$ bitar med breidd $h = \\frac{b-a}{n}$, og summer bidrag. Skilnaden ligg i taket over kvar stripe. **Rektangelmetoden** (flatt tak) er enklast men grovast, med venstre/høgre-variantane som systematisk bommar på monotone funksjonar; **midtpunktvarianten** bergar mykje ved å la feila kansellere. **Trapesmetoden** (skrått tak, mønster $1,2,2,\\ldots,2,1$) deler feilorden $O(1/n^2)$ med midtpunktmetoden — dobling av $n$ firedeler feilen — og er førsteval for tabelldata. **Simpsons metode** (parabeltak, mønster $1,4,2,4,\\ldots,4,1$, partal $n$) er eksakt for polynom opp til grad $3$ og konvergerer som $O(1/n^4)$: dobling av $n$ deler feilen på seksten.\n\nFeilestimata — $\\frac{(b-a)^3}{12n^2}M_2$ for trapes, $\\frac{(b-a)^5}{180n^4}M_4$ for Simpson — løftar det heile frå gjetting til garanti: nøyaktigheita kan planleggjast før rekninga startar. Men kven orkar å summere hundre funksjonsverdiar for hand? Ingen — og ingen treng det. I neste kapittel skriv vi metodane som Python-kode og lèt maskina løpe kappløpet for oss."}}}
+{
+  "id": "r2-3-4-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "3.4",
+  "title": "Numerisk integrasjon",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om numerisk integrasjon — kva vi gjer når antideriverten ikkje finst, og kappløpet mellom rektangel, trapes og parablane til Simpson om å fange arealet med minst feil.",
+  "estimatedMinutes": 50,
+  "competenceGoals": [
+    "forstå når numerisk integrasjon er nødvendig",
+    "bruke rektangelmetoden, trapesmetoden og Simpsons metode",
+    "vurdere nøyaktigheita til numeriske tilnærmingar"
+  ],
+  "linkedChapterId": "r2-3-4",
+  "content": [
+    {
+      "id": "r2-3-4-n-intro",
+      "type": "text",
+      "content": "## Integralet som ikkje lét seg løyse\n\nMed substitusjon, delvis integrasjon og delbrøkoppspalting i verktøykassa kjennest det kanskje som om alle integral no kan knekkjast. Så møter du dette:\n\n$$\\int_0^2 e^{-x^2}\\,dx$$\n\nDu prøver substitusjon — ingen kjerne-derivert. Delvis integrasjon — det blir berre verre. Sanninga er nedslåande og fascinerande på éin gong: $e^{-x^2}$ *har ingen antiderivert* som kan skrivast med elementære funksjonar. Det er bevist. Og dette er ikkje eit obskurt unntak — det er normalsongen for funksjonane i statistikk ($e^{-x^2}$ ligg bak normalfordelinga), signalbehandling ($\\frac{\\sin x}{x}$) og geometri ($\\sqrt{1+x^3}$). I tillegg kjem alle situasjonar der funksjonen berre finst som måledata, utan formel i det heile.\n\nMen integralet *eksisterer* jo — arealet under kurva er der, like verkeleg som alltid. Vi kan berre ikkje nå det med antideriverte. Løysinga er å vende tilbake til rektangla til Riemann frå kapittel 2.4, men no med eit praktisk mål: ikkje ein grenseverdi på papiret, men eit *tal med kontrollert nøyaktigheit*. Det er **numerisk integrasjon** — og kappløpet står mellom rektangel, trapes og parablar."
+    },
+    {
+      "id": "r2-3-4-n-section1",
+      "type": "text",
+      "content": "## Rektangelmetoden: enkel, men grov\n\nUtgangspunktet kjenner du: del $[a,b]$ i $n$ delintervall med breidd $h = \\frac{b-a}{n}$, og tilnærm arealet med rektangel. Bruker vi venstre endepunkt i kvart delintervall, får vi **venstre rektangelmetode**:\n\n$$\\int_a^b f(x)\\,dx \\approx h\\left[f(x_0) + f(x_1) + \\cdots + f(x_{n-1})\\right]$$\n\nHøgre endepunkt gir høgremetoden, og midtpunktet gir **midtpunktmetoden** — same idé, smartare val.\n\nTestbenken vår blir $\\int_0^2 x^2\\,dx = \\frac{8}{3} \\approx 2{,}667$, der fasiten er kjend. Venstre metode med $n = 4$: $h = 0{,}5$, og\n\n$$0{,}5\\,[f(0) + f(0{,}5) + f(1) + f(1{,}5)] = 0{,}5 \\cdot 3{,}5 = 1{,}75$$\n\nEin feil på heile $34\\,\\%$ — rektangla heng etter den veksande grafen. Midtpunktmetoden med same $n$ bruker $x = 0{,}25, 0{,}75, 1{,}25, 1{,}75$ og gir\n\n$$0{,}5\\,[0{,}0625 + 0{,}5625 + 1{,}5625 + 3{,}0625] = 2{,}625$$\n\n— berre $1{,}6\\,\\%$ feil! Løyndomen er at midtpunktet balanserer: rektangelet stikk over grafen på den eine halvdelen og under på den andre, og feila kansellerer nesten. Same talet på rekneoperasjonar, dramatisk betre svar. Lærdomen som pregar heile kapittelet: *kvar* du måler, betyr meir enn *kor mykje* du reknar."
+    },
+    {
+      "id": "r2-3-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rektangelmetodane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-4-n-quiz1-q0",
+            "task": "Kvifor må $\\int_0^2 e^{-x^2}\\,dx$ reknast ut numerisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi integranden er diskontinuerleg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $e^{-x^2}$ ikkje har nokon antiderivert uttrykt med elementære funksjonar",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi integralet divergerer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi grensene er for store",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Det er bevist at antideriverten til $e^{-x^2}$ ikkje kan skrivast med elementære funksjonar. Integralet eksisterer, men må tilnærmast numerisk."
+          },
+          {
+            "id": "r2-3-4-n-quiz1-q1",
+            "task": "Venstre rektangelmetode med $n = 4$ på $\\int_0^2 x^2\\,dx$ gir $1{,}75$, mot eksakt $\\frac{8}{3} \\approx 2{,}667$. Kvifor blir svaret for lite?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi $n$ er eit partal",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $h$ er valt feil",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi $f(x) = x^2$ er veksande, slik at venstre endepunkt gir den minste verdien i kvart delintervall",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Venstremetoden gir alltid for lite, uansett funksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For ein veksande funksjon ligg rektangeltoppen (venstre endepunkt) under grafen i heile delintervallet — ei systematisk undervurdering."
+          },
+          {
+            "id": "r2-3-4-n-quiz1-q2",
+            "task": "Midtpunktmetoden med $n = 4$ gav $2{,}625$ ($1{,}6\\,\\%$ feil) mot venstremetodens $1{,}75$ ($34\\,\\%$ feil). Kva er forklaringa?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Midtpunktmetoden bruker dobbelt så mange punkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Midtpunktmetoden bruker trapes",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Tilfeldig flaks for akkurat denne funksjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "I midtpunktet kansellerer feila over og under grafen nesten kvarandre",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Rektangelet gjennom midtpunktet stikk over grafen på éi side og under på den andre. Netto-feilen blir liten — metoden har feilorden $O(1/n^2)$ mot venstremetodens $O(1/n)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-4-n-section2",
+      "type": "text",
+      "content": "## Trapesmetoden: skrå tak\n\nSvakheita til rektangla er dei flate taka. Kvifor ikkje la taket følgje kurva — i det minste som ei rett linje mellom nabopunkta? Då blir kvar stripe eit **trapes** med areal $\\frac{h}{2}[f(x_i) + f(x_{i+1})]$, og summen over alle stripene gir **trapesmetoden**:\n\n$$T_n = \\frac{h}{2}\\left[f(x_0) + 2f(x_1) + 2f(x_2) + \\cdots + 2f(x_{n-1}) + f(x_n)\\right]$$\n\nEndepunkta tel éin gong, dei indre punkta to (dei blir delte av to nabotrapes).\n\nPå testbenken med $n = 4$: $T_4 = 0{,}25\\,[0 + 2(0{,}25) + 2(1) + 2(2{,}25) + 4] = 0{,}25 \\cdot 11 = 2{,}75$ — feil $3{,}1\\,\\%$. Betre enn venstremetoden, men faktisk litt bak midtpunktmetoden her; for konvekse kurver skjer taket til trapeset konsekvent *over* grafen.\n\nKor fort blir det betre når $n$ aukar? Feilestimatet seier $|E_T| \\leq \\frac{(b-a)^3}{12n^2}M_2$, der $M_2$ er maksimum av $|f''|$ — og det vesentlege er $n^2$ i nemnaren: **doblar du $n$, blir feilen delt på fire**. For $\\int_0^1 e^x\\,dx$ ser ein det svart på kvitt: feilen går frå $0{,}0356$ ved $n=2$ til $0{,}0089$ ved $n=4$ til $0{,}0022$ ved $n=8$ — faktor fire kvar gong. Midtpunktmetoden deler same orden, $O(1/n^2)$, med konstanten $24$ i staden for $12$.\n\nAdelsmerket til trapesmetoden er **måledata**: har du berre tabellverdiar frå eit eksperiment — fartar, straumar, sensoravlesingar — er trapesmetoden den naturlege måten å integrere dei på, utan nokon formel for $f$."
+    },
+    {
+      "id": "r2-3-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på trapesmetoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-4-n-quiz2-q0",
+            "task": "Kva for eit koeffisientmønster har trapesformelen?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$1, 2, 2, \\ldots, 2, 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1, 1, 1, \\ldots, 1, 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1, 4, 2, 4, \\ldots, 4, 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2, 1, 1, \\ldots, 1, 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$: endepunkta éin gong, indre punkt to gonger."
+          },
+          {
+            "id": "r2-3-4-n-quiz2-q1",
+            "task": "Trapesmetoden har feil av orden $O(1/n^2)$. Kva skjer med feilen når $n$ blir dobla?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Han blir halvert",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Han blir delt på fire",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Han blir delt på åtte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han blir delt på seksten",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{1}{(2n)^2} = \\frac{1}{4} \\cdot \\frac{1}{n^2}$ — dobling av $n$ gir ein firedel av feilen, som tabellen for $\\int_0^1 e^x\\,dx$ stadfesta."
+          },
+          {
+            "id": "r2-3-4-n-quiz2-q2",
+            "task": "For kva for ein situasjon er trapesmetoden særleg eigna?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når integranden er eit polynom av grad $3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når antideriverten er kjend",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når funksjonen berre er kjend som måledata i tabellform",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når $n$ må vere eit oddetal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Trapesmetoden treng berre funksjonsverdiar i gitte punkt — perfekt for eksperimentelle data utan formel."
+          },
+          {
+            "id": "r2-3-4-n-quiz2-q3",
+            "task": "Trapesmetoden med $n = 4$ gav $2{,}75$ for $\\int_0^2 x^2\\,dx$ — ei overvurdering. Kvifor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $h$ var for stor",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi endepunkta blir talde dobbelt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Trapesmetoden overvurderer alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi grafen til $x^2$ er konveks, slik at det skrå taket til trapesa ligg over kurva",
+                "isCorrect": true
+              }
+            ],
+            "solution": "For konvekse funksjonar (som krummar oppover) ligg korda mellom to grafpunkt over grafen, så kvart trapes blir litt for stort."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-4-n-section3",
+      "type": "text",
+      "content": "## Simpsons metode: parablane vinn\n\nRette linjer var betre enn flate tak — kva med å la taket *krumme*? **Simpsons metode** legg ein parabel gjennom tre og tre nabopunkt, og parablar følgjer krumninga til kurvene langt betre enn korder. Formelen (som krev at $n$ er eit **partal**):\n\n$$S_n = \\frac{h}{3}\\left[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)\\right]$$\n\nmed det karakteristiske koeffisientmønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$.\n\nTestbenken, $n = 4$: $S_4 = \\frac{0{,}5}{3}[0 + 4(0{,}25) + 2(1) + 4(2{,}25) + 4] = \\frac{0{,}5}{3} \\cdot 16 = \\frac{8}{3}$ — *eksakt*! Ingen tilfeldigheit: Simpsons metode er eksakt for alle polynom til og med **grad 3**, eitt hakk betre enn parabel-opphavet skulle tilseie (ein heldig symmetri viskar ut tredjegradsfeilen).\n\nFor andre funksjonar er feilordenen $O(1/n^4)$: dobling av $n$ deler feilen på *seksten*. Samanlikninga er nådelaus — for same reknearbeid vinn Simpson nesten alltid.\n\nTilbake til den umoglege utfordringa: $\\int_0^1 \\sqrt{1+x^3}\\,dx$, utan elementær antiderivert. Med $n = 4$ gir midtpunkt $1{,}106$, trapes $1{,}115$ og Simpson $1{,}109$ — mot den «sanne» verdien $1{,}1114$ er Simpson nærast. Og feilestimata, som $|E_S| \\leq \\frac{(b-a)^5}{180n^4}M_4$, gjer tilnærminga til vitskap: vi kan *garantere* nøyaktigheita på førehand, eller rekne ut kva for ein $n$ som trengst for ønskt presisjon. Tommelfingerreglane til slutt: trapes for tabelldata, Simpson for glatte funksjonar med valfrie punkt, midtpunkt for raske overslag."
+    },
+    {
+      "id": "r2-3-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-3-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Simpsons metode:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-3-4-n-quiz3-q0",
+            "task": "Kva for eit koeffisientmønster har Simpsons metode?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$1, 4, 2, 4, 2, \\ldots, 4, 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$1, 2, 2, \\ldots, 2, 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1, 3, 3, 1$ alltid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1, 4, 4, 4, \\ldots, 4, 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Simpson: ytterpunkta får $1$, oddetalsindeksar $4$, indre partalsindeksar $2$ — mønsteret $1, 4, 2, 4, \\ldots, 4, 1$."
+          },
+          {
+            "id": "r2-3-4-n-quiz3-q1",
+            "task": "For kva for nokre polynom gir Simpsons metode eksakt svar?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre polynom av grad $\\leq 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Polynom av grad $\\leq 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Berre polynom av grad $\\leq 2$, sidan metoden bruker parablar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle polynom",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Overraskande nok er Simpson eksakt opp til og med grad $3$ — ein symmetri gjer at tredjegradsfeilen kansellerer. Difor gav han $\\frac{8}{3}$ eksakt for $x^2$."
+          },
+          {
+            "id": "r2-3-4-n-quiz3-q2",
+            "task": "Simpsons metode har feilorden $O(1/n^4)$. Kva skjer med feilen når $n$ blir dobla?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han blir delt på $4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han blir delt på $8$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Han blir delt på $16$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Han blir delt på $2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{1}{(2n)^4} = \\frac{1}{16n^4}$. Den raske konvergensen er det store fortrinnet til Simpson over trapes- og midtpunktmetoden ($O(1/n^2)$)."
+          },
+          {
+            "id": "r2-3-4-n-quiz3-q3",
+            "task": "Kva for eit krav stiller Simpsons metode til talet på delintervall $n$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$n$ må vere deleleg med $3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$n$ må vere eit kvadrattal",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$n$ må vere minst $10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$n$ må vere eit partal",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Metoden behandlar delintervalla parvis (éin parabel per par), så $n$ må vere eit partal."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-3-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: kappløpet om arealet\n\nNår antideriverten ikkje finst — som for $e^{-x^2}$, $\\frac{\\sin x}{x}$ og $\\sqrt{1+x^3}$ — eller funksjonen berre finst som måledata, tek numerikken over. Alle metodane deler grunnplanen frå Riemann: del $[a,b]$ i $n$ bitar med breidd $h = \\frac{b-a}{n}$, og summer bidrag. Skilnaden ligg i taket over kvar stripe. **Rektangelmetoden** (flatt tak) er enklast men grovast, med venstre/høgre-variantane som systematisk bommar på monotone funksjonar; **midtpunktvarianten** bergar mykje ved å la feila kansellere. **Trapesmetoden** (skrått tak, mønster $1,2,2,\\ldots,2,1$) deler feilorden $O(1/n^2)$ med midtpunktmetoden — dobling av $n$ firedeler feilen — og er førsteval for tabelldata. **Simpsons metode** (parabeltak, mønster $1,4,2,4,\\ldots,4,1$, partal $n$) er eksakt for polynom opp til grad $3$ og konvergerer som $O(1/n^4)$: dobling av $n$ deler feilen på seksten.\n\nFeilestimata — $\\frac{(b-a)^3}{12n^2}M_2$ for trapes, $\\frac{(b-a)^5}{180n^4}M_4$ for Simpson — løftar det heile frå gjetting til garanti: nøyaktigheita kan planleggjast før rekninga startar. Men kven orkar å summere hundre funksjonsverdiar for hand? Ingen — og ingen treng det. I neste kapittel skriv vi metodane som Python-kode og lèt maskina løpe kappløpet for oss."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "b90f79f66f8fa00a",
+    "translatedAt": "2026-06-20T00:37:51.006Z",
+    "model": "claude-code-agent",
+    "strings": 83,
+    "tm": {
+      "a948240ee9ed6e6e": "Numerisk integrasjon",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "7705c23252d0095f": "Ei forteljing om numerisk integrasjon — kva vi gjer når antideriverten ikkje finst, og kappløpet mellom rektangel, trapes og parablane til Simpson om å fange arealet med minst feil.",
+      "7c5f3ace6bf21788": "forstå når numerisk integrasjon er nødvendig",
+      "3625912725330438": "bruke rektangelmetoden, trapesmetoden og Simpsons metode",
+      "428c87842bd6ddd3": "vurdere nøyaktigheita til numeriske tilnærmingar",
+      "87894bbfb73e2b1b": "## Integralet som ikkje lét seg løyse\n\nMed substitusjon, delvis integrasjon og delbrøkoppspalting i verktøykassa kjennest det kanskje som om alle integral no kan knekkjast. Så møter du dette:\n\n$$\\int_0^2 e^{-x^2}\\,dx$$\n\nDu prøver substitusjon — ingen kjerne-derivert. Delvis integrasjon — det blir berre verre. Sanninga er nedslåande og fascinerande på éin gong: $e^{-x^2}$ *har ingen antiderivert* som kan skrivast med elementære funksjonar. Det er bevist. Og dette er ikkje eit obskurt unntak — det er normalsongen for funksjonane i statistikk ($e^{-x^2}$ ligg bak normalfordelinga), signalbehandling ($\\frac{\\sin x}{x}$) og geometri ($\\sqrt{1+x^3}$). I tillegg kjem alle situasjonar der funksjonen berre finst som måledata, utan formel i det heile.\n\nMen integralet *eksisterer* jo — arealet under kurva er der, like verkeleg som alltid. Vi kan berre ikkje nå det med antideriverte. Løysinga er å vende tilbake til rektangla til Riemann frå kapittel 2.4, men no med eit praktisk mål: ikkje ein grenseverdi på papiret, men eit *tal med kontrollert nøyaktigheit*. Det er **numerisk integrasjon** — og kappløpet står mellom rektangel, trapes og parablar.",
+      "0c7bdd9fe3553aa6": "## Rektangelmetoden: enkel, men grov\n\nUtgangspunktet kjenner du: del $[a,b]$ i $n$ delintervall med breidd $h = \\frac{b-a}{n}$, og tilnærm arealet med rektangel. Bruker vi venstre endepunkt i kvart delintervall, får vi **venstre rektangelmetode**:\n\n$$\\int_a^b f(x)\\,dx \\approx h\\left[f(x_0) + f(x_1) + \\cdots + f(x_{n-1})\\right]$$\n\nHøgre endepunkt gir høgremetoden, og midtpunktet gir **midtpunktmetoden** — same idé, smartare val.\n\nTestbenken vår blir $\\int_0^2 x^2\\,dx = \\frac{8}{3} \\approx 2{,}667$, der fasiten er kjend. Venstre metode med $n = 4$: $h = 0{,}5$, og\n\n$$0{,}5\\,[f(0) + f(0{,}5) + f(1) + f(1{,}5)] = 0{,}5 \\cdot 3{,}5 = 1{,}75$$\n\nEin feil på heile $34\\,\\%$ — rektangla heng etter den veksande grafen. Midtpunktmetoden med same $n$ bruker $x = 0{,}25, 0{,}75, 1{,}25, 1{,}75$ og gir\n\n$$0{,}5\\,[0{,}0625 + 0{,}5625 + 1{,}5625 + 3{,}0625] = 2{,}625$$\n\n— berre $1{,}6\\,\\%$ feil! Løyndomen er at midtpunktet balanserer: rektangelet stikk over grafen på den eine halvdelen og under på den andre, og feila kansellerer nesten. Same talet på rekneoperasjonar, dramatisk betre svar. Lærdomen som pregar heile kapittelet: *kvar* du måler, betyr meir enn *kor mykje* du reknar.",
+      "2bff4db71e2cea73": "Test deg sjølv på rektangelmetodane:",
+      "4097889236a2af26": "placeholder",
+      "3f2c430b02904557": "Kvifor må $\\int_0^2 e^{-x^2}\\,dx$ reknast ut numerisk?",
+      "ec9fdc80568404cc": "Fordi integranden er diskontinuerleg",
+      "548d205c2f74b4f5": "Fordi integralet divergerer",
+      "52a53f28204d0d58": "Fordi $e^{-x^2}$ ikkje har nokon antiderivert uttrykt med elementære funksjonar",
+      "bd80cf7e9ae2b36e": "Fordi grensene er for store",
+      "c73963afaf5387a1": "Det er bevist at antideriverten til $e^{-x^2}$ ikkje kan skrivast med elementære funksjonar. Integralet eksisterer, men må tilnærmast numerisk.",
+      "fae3ccaa3babd1fc": "Venstre rektangelmetode med $n = 4$ på $\\int_0^2 x^2\\,dx$ gir $1{,}75$, mot eksakt $\\frac{8}{3} \\approx 2{,}667$. Kvifor blir svaret for lite?",
+      "374079ec5bd7886f": "Fordi $f(x) = x^2$ er veksande, slik at venstre endepunkt gir den minste verdien i kvart delintervall",
+      "3415e91c30612876": "Fordi $n$ er eit partal",
+      "d14d9b544c10006b": "Fordi $h$ er valt feil",
+      "67de7eff1e8f3510": "Venstremetoden gir alltid for lite, uansett funksjon",
+      "75452b82ebb504ff": "For ein veksande funksjon ligg rektangeltoppen (venstre endepunkt) under grafen i heile delintervallet — ei systematisk undervurdering.",
+      "84749880ec61757e": "Midtpunktmetoden med $n = 4$ gav $2{,}625$ ($1{,}6\\,\\%$ feil) mot venstremetodens $1{,}75$ ($34\\,\\%$ feil). Kva er forklaringa?",
+      "30242c8019bde11f": "Midtpunktmetoden bruker dobbelt så mange punkt",
+      "f391904d8616a091": "I midtpunktet kansellerer feila over og under grafen nesten kvarandre",
+      "5d01e0db7c705a8b": "Midtpunktmetoden bruker trapes",
+      "d54373e7fc39ee05": "Tilfeldig flaks for akkurat denne funksjonen",
+      "c8805d99e8a0f775": "Rektangelet gjennom midtpunktet stikk over grafen på éi side og under på den andre. Netto-feilen blir liten — metoden har feilorden $O(1/n^2)$ mot venstremetodens $O(1/n)$.",
+      "a556aa9ae96b6fca": "## Trapesmetoden: skrå tak\n\nSvakheita til rektangla er dei flate taka. Kvifor ikkje la taket følgje kurva — i det minste som ei rett linje mellom nabopunkta? Då blir kvar stripe eit **trapes** med areal $\\frac{h}{2}[f(x_i) + f(x_{i+1})]$, og summen over alle stripene gir **trapesmetoden**:\n\n$$T_n = \\frac{h}{2}\\left[f(x_0) + 2f(x_1) + 2f(x_2) + \\cdots + 2f(x_{n-1}) + f(x_n)\\right]$$\n\nEndepunkta tel éin gong, dei indre punkta to (dei blir delte av to nabotrapes).\n\nPå testbenken med $n = 4$: $T_4 = 0{,}25\\,[0 + 2(0{,}25) + 2(1) + 2(2{,}25) + 4] = 0{,}25 \\cdot 11 = 2{,}75$ — feil $3{,}1\\,\\%$. Betre enn venstremetoden, men faktisk litt bak midtpunktmetoden her; for konvekse kurver skjer taket til trapeset konsekvent *over* grafen.\n\nKor fort blir det betre når $n$ aukar? Feilestimatet seier $|E_T| \\leq \\frac{(b-a)^3}{12n^2}M_2$, der $M_2$ er maksimum av $|f''|$ — og det vesentlege er $n^2$ i nemnaren: **doblar du $n$, blir feilen delt på fire**. For $\\int_0^1 e^x\\,dx$ ser ein det svart på kvitt: feilen går frå $0{,}0356$ ved $n=2$ til $0{,}0089$ ved $n=4$ til $0{,}0022$ ved $n=8$ — faktor fire kvar gong. Midtpunktmetoden deler same orden, $O(1/n^2)$, med konstanten $24$ i staden for $12$.\n\nAdelsmerket til trapesmetoden er **måledata**: har du berre tabellverdiar frå eit eksperiment — fartar, straumar, sensoravlesingar — er trapesmetoden den naturlege måten å integrere dei på, utan nokon formel for $f$.",
+      "c40843649e8c4d86": "Test deg sjølv på trapesmetoden:",
+      "d8a70fbd66030161": "Kva for eit koeffisientmønster har trapesformelen?",
+      "4597bc7e2e016c92": "$1, 1, 1, \\ldots, 1, 1$",
+      "b3f7f264b44b0d71": "$1, 4, 2, 4, \\ldots, 4, 1$",
+      "3858420d548ce100": "$2, 1, 1, \\ldots, 1, 2$",
+      "4fcd7230b596f870": "$1, 2, 2, \\ldots, 2, 1$",
+      "58f17b0d50131a95": "$T_n = \\frac{h}{2}[f(x_0) + 2f(x_1) + \\cdots + 2f(x_{n-1}) + f(x_n)]$: endepunkta éin gong, indre punkt to gonger.",
+      "eb81dce4413f7540": "Trapesmetoden har feil av orden $O(1/n^2)$. Kva skjer med feilen når $n$ blir dobla?",
+      "cf674b021ee9aa5b": "Han blir halvert",
+      "ac3bda14bfe8b22d": "Han blir delt på fire",
+      "674a357ae87b592b": "Han blir delt på åtte",
+      "83555fe781ae3da6": "Han blir delt på seksten",
+      "8bf5f79efe04dd03": "$\\frac{1}{(2n)^2} = \\frac{1}{4} \\cdot \\frac{1}{n^2}$ — dobling av $n$ gir ein firedel av feilen, som tabellen for $\\int_0^1 e^x\\,dx$ stadfesta.",
+      "9d5dcc503b304d51": "For kva for ein situasjon er trapesmetoden særleg eigna?",
+      "80acd72795c67324": "Når funksjonen berre er kjend som måledata i tabellform",
+      "8c79903267e7e28f": "Når integranden er eit polynom av grad $3$",
+      "7798655370b5b56d": "Når antideriverten er kjend",
+      "3fd9fa80bc39447d": "Når $n$ må vere eit oddetal",
+      "dedc5f84e361656d": "Trapesmetoden treng berre funksjonsverdiar i gitte punkt — perfekt for eksperimentelle data utan formel.",
+      "bbd6e56f8c6fa857": "Trapesmetoden med $n = 4$ gav $2{,}75$ for $\\int_0^2 x^2\\,dx$ — ei overvurdering. Kvifor?",
+      "3d3bc27d2151db27": "Fordi $h$ var for stor",
+      "6cb6a9d00560f85e": "Fordi endepunkta blir talde dobbelt",
+      "e5fba0dbc3aac6df": "Fordi grafen til $x^2$ er konveks, slik at det skrå taket til trapesa ligg over kurva",
+      "79e1005fdb530d17": "Trapesmetoden overvurderer alltid",
+      "fa06c15c07d31d32": "For konvekse funksjonar (som krummar oppover) ligg korda mellom to grafpunkt over grafen, så kvart trapes blir litt for stort.",
+      "af685774c606cda5": "## Simpsons metode: parablane vinn\n\nRette linjer var betre enn flate tak — kva med å la taket *krumme*? **Simpsons metode** legg ein parabel gjennom tre og tre nabopunkt, og parablar følgjer krumninga til kurvene langt betre enn korder. Formelen (som krev at $n$ er eit **partal**):\n\n$$S_n = \\frac{h}{3}\\left[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \\cdots + 4f(x_{n-1}) + f(x_n)\\right]$$\n\nmed det karakteristiske koeffisientmønsteret $1, 4, 2, 4, 2, \\ldots, 4, 1$.\n\nTestbenken, $n = 4$: $S_4 = \\frac{0{,}5}{3}[0 + 4(0{,}25) + 2(1) + 4(2{,}25) + 4] = \\frac{0{,}5}{3} \\cdot 16 = \\frac{8}{3}$ — *eksakt*! Ingen tilfeldigheit: Simpsons metode er eksakt for alle polynom til og med **grad 3**, eitt hakk betre enn parabel-opphavet skulle tilseie (ein heldig symmetri viskar ut tredjegradsfeilen).\n\nFor andre funksjonar er feilordenen $O(1/n^4)$: dobling av $n$ deler feilen på *seksten*. Samanlikninga er nådelaus — for same reknearbeid vinn Simpson nesten alltid.\n\nTilbake til den umoglege utfordringa: $\\int_0^1 \\sqrt{1+x^3}\\,dx$, utan elementær antiderivert. Med $n = 4$ gir midtpunkt $1{,}106$, trapes $1{,}115$ og Simpson $1{,}109$ — mot den «sanne» verdien $1{,}1114$ er Simpson nærast. Og feilestimata, som $|E_S| \\leq \\frac{(b-a)^5}{180n^4}M_4$, gjer tilnærminga til vitskap: vi kan *garantere* nøyaktigheita på førehand, eller rekne ut kva for ein $n$ som trengst for ønskt presisjon. Tommelfingerreglane til slutt: trapes for tabelldata, Simpson for glatte funksjonar med valfrie punkt, midtpunkt for raske overslag.",
+      "f38f8dd7231d6e45": "Test deg sjølv på Simpsons metode:",
+      "44638ec179f2b6f0": "Kva for eit koeffisientmønster har Simpsons metode?",
+      "f3daf165d5189dcc": "$1, 3, 3, 1$ alltid",
+      "79bcb6a69b76e40e": "$1, 4, 4, 4, \\ldots, 4, 1$",
+      "d18ce561780b1eff": "$1, 4, 2, 4, 2, \\ldots, 4, 1$",
+      "619e6aa3282de72f": "Simpson: ytterpunkta får $1$, oddetalsindeksar $4$, indre partalsindeksar $2$ — mønsteret $1, 4, 2, 4, \\ldots, 4, 1$.",
+      "aa13832333098ac2": "For kva for nokre polynom gir Simpsons metode eksakt svar?",
+      "3f10842773bab2fd": "Berre polynom av grad $\\leq 1$",
+      "7f2ee0dde091f180": "Polynom av grad $\\leq 3$",
+      "fcd942cef6f7e63d": "Berre polynom av grad $\\leq 2$, sidan metoden bruker parablar",
+      "7723a9a858436183": "Alle polynom",
+      "656f2b0170e7e6e1": "Overraskande nok er Simpson eksakt opp til og med grad $3$ — ein symmetri gjer at tredjegradsfeilen kansellerer. Difor gav han $\\frac{8}{3}$ eksakt for $x^2$.",
+      "5b8afca2de7a726a": "Simpsons metode har feilorden $O(1/n^4)$. Kva skjer med feilen når $n$ blir dobla?",
+      "8e97e25c256474c6": "Han blir delt på $16$",
+      "ed021cb14393e298": "Han blir delt på $4$",
+      "700c4c22ff6609dd": "Han blir delt på $8$",
+      "8da06e62f7a21fec": "Han blir delt på $2$",
+      "756dd80e7bdef05d": "$\\frac{1}{(2n)^4} = \\frac{1}{16n^4}$. Den raske konvergensen er det store fortrinnet til Simpson over trapes- og midtpunktmetoden ($O(1/n^2)$).",
+      "31ddbf014d979319": "Kva for eit krav stiller Simpsons metode til talet på delintervall $n$?",
+      "b530a35da59905c4": "$n$ må vere deleleg med $3$",
+      "237b0661b6ae2799": "$n$ må vere eit kvadrattal",
+      "d07465e1a32c0a76": "$n$ må vere eit partal",
+      "43f8d1cec7d918bc": "$n$ må vere minst $10$",
+      "12cb4be838ea904c": "Metoden behandlar delintervalla parvis (éin parabel per par), så $n$ må vere eit partal.",
+      "6d41aa91a6f167a6": "## Oppsummering: kappløpet om arealet\n\nNår antideriverten ikkje finst — som for $e^{-x^2}$, $\\frac{\\sin x}{x}$ og $\\sqrt{1+x^3}$ — eller funksjonen berre finst som måledata, tek numerikken over. Alle metodane deler grunnplanen frå Riemann: del $[a,b]$ i $n$ bitar med breidd $h = \\frac{b-a}{n}$, og summer bidrag. Skilnaden ligg i taket over kvar stripe. **Rektangelmetoden** (flatt tak) er enklast men grovast, med venstre/høgre-variantane som systematisk bommar på monotone funksjonar; **midtpunktvarianten** bergar mykje ved å la feila kansellere. **Trapesmetoden** (skrått tak, mønster $1,2,2,\\ldots,2,1$) deler feilorden $O(1/n^2)$ med midtpunktmetoden — dobling av $n$ firedeler feilen — og er førsteval for tabelldata. **Simpsons metode** (parabeltak, mønster $1,4,2,4,\\ldots,4,1$, partal $n$) er eksakt for polynom opp til grad $3$ og konvergerer som $O(1/n^4)$: dobling av $n$ deler feilen på seksten.\n\nFeilestimata — $\\frac{(b-a)^3}{12n^2}M_2$ for trapes, $\\frac{(b-a)^5}{180n^4}M_4$ for Simpson — løftar det heile frå gjetting til garanti: nøyaktigheita kan planleggjast før rekninga startar. Men kven orkar å summere hundre funksjonsverdiar for hand? Ingen — og ingen treng det. I neste kapittel skriv vi metodane som Python-kode og lèt maskina løpe kappløpet for oss."
+    }
+  }
+}

@@ -1,1 +1,293 @@
-{"id":"tif-vg1-5-2-narrativ","courseId":"tif-vg1","chapterNumber":"5.2","title":"Elektriske kretser","subtitle":"Narrativ versjon","description":"En fortelling om hvordan strømmen finner veien i lukkede kretser -- og hvorfor det avgjør alt om du kobler komponentene i serie eller parallell.","estimatedMinutes":30,"competenceGoals":["bruke fagterminologi for å beskrive og dokumentere arbeidsprosesser","utføre arbeid i henhold til gjeldende regelverk for helse, miljø og sikkerhet"],"linkedChapterId":"tif-vg1-5-2","content":[{"id":"tif-vg1-5-2-n-intro","type":"text","content":"## Strømmen må gå i ring\n\nHar du noen gang lurt på hvorfor en lampe slukner i det sekundet du trekker ut støpselet? Svaret er at strøm bare kan flyte når den har en *lukket bane* å gå rundt. Bryt banen, og alt stopper. Dette er hjertet i enhver **elektrisk krets**.\n\nEn komplett krets trenger fire ting. Du må ha en **spenningskilde** som batteri, nettspenning eller generator. Du må ha **ledere** -- kablene som fører strømmen. Du må ha en **last**, altså noe som bruker strømmen, som en lampe, motor eller motstand. Og du må ha en **lukket krets**, slik at strømmen kan gå hele veien rundt og tilbake til kilden.\n\nTo ting kan gå galt, og det er viktig å kjenne dem. **Kortslutning** oppstår når strømmen finner en snarvei nesten uten motstand. Etter Ohms lov, $I = U/R$, betyr en bitteliten R en enorm I -- og den voldsomme strømmen kan ødelegge utstyr og starte brann. Derfor er kortslutning farlig. Det motsatte er et **kretsbrudd**, der kretsen er åpen og strømmen ikke kan flyte i det hele tatt. En bryter er rett og slett et kontrollert kretsbrudd -- den lar deg åpne og lukke banen når du vil.\n\nMed disse fire elementene og forståelsen av kortslutning og brudd har du grunnlaget. Det neste store spørsmålet er: hvordan kobler vi flere komponenter sammen? Der finnes det to grunnmåter, og valget mellom dem forandrer alt."},{"id":"tif-vg1-5-2-n-section1","type":"text","content":"## Serie eller parallell -- to verdener\n\nTenk deg en gammeldags lyslenke der alle pærene henger etter hverandre på én eneste tråd. Det er en **seriekobling**: komponentene står på rad, og strømmen *må* passere gjennom hver eneste én. Tre ting kjennetegner serie: strømmen er **lik** gjennom alle komponenter, spenningen **deles** mellom dem, og den totale motstanden er summen: $R_{total} = R_1 + R_2 + R_3 + \\dots$. Bakdelen? Ryker én komponent, brytes hele kretsen.\n\nLa oss kontrollere et eksempel. Tre motstander på $100\\ \\Omega$, $220\\ \\Omega$ og $330\\ \\Omega$ i serie til 12 V gir total motstand $R_{total} = 100 + 220 + 330 = 650\\ \\Omega$. Strømmen blir $I = 12\\ \\text{V} / 650\\ \\Omega \\approx 0{,}0185$ A. Spenningen over hver: $U_1 = 100 \\times 0{,}0185 \\approx 1{,}85$ V, $U_2 \\approx 4{,}07$ V, $U_3 \\approx 6{,}08$ V -- og summen blir omtrent 12 V, akkurat som kilden. Det stemmer.\n\nDen andre verdenen er **parallellkobling**, der komponentene står ved siden av hverandre, og strømmen *deler seg* mellom grenene. Her er det motsatt: spenningen er **lik** over alle komponenter, strømmen **deles**, og den totale motstanden blir *lavere* enn den minste enkeltmotstanden. Formelen er $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$, og for to motstander forenkles den til $R_{total} = \\frac{R_1 \\times R_2}{R_1 + R_2}$. Den store fordelen: svikter én gren, fungerer de andre fortsatt.\n\nLa oss kontrollere: to like motstander på $100\\ \\Omega$ i parallell gir $R_{total} = \\frac{100 \\times 100}{100 + 100} = \\frac{10000}{200} = 50\\ \\Omega$ -- akkurat halvparten."},{"id":"tif-vg1-5-2-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-5-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på kretser, serie og parallell:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-5-2-n-quiz1-q0","task":"Hva skjer med total motstand når du kobler motstander i parallell?","options":[{"id":"a","text":"Den blir høyere enn den høyeste enkeltmotstanden","isCorrect":false},{"id":"b","text":"Den blir lik summen av motstandene","isCorrect":false},{"id":"c","text":"Den blir lavere enn den laveste enkeltmotstanden","isCorrect":true},{"id":"d","text":"Den forblir uendret","isCorrect":false}],"solution":"Ved parallellkobling blir total motstand alltid lavere enn den laveste enkeltmotstanden, fordi strømmen får flere veier å gå."},{"id":"tif-vg1-5-2-n-quiz1-q1","task":"Tre motstander på $47\\ \\Omega$, $100\\ \\Omega$ og $150\\ \\Omega$ er koblet i serie. Hva er total motstand?","options":[{"id":"a","text":"$32\\ \\Omega$","isCorrect":false},{"id":"b","text":"$100\\ \\Omega$","isCorrect":false},{"id":"c","text":"$150\\ \\Omega$","isCorrect":false},{"id":"d","text":"$297\\ \\Omega$","isCorrect":true}],"solution":"I serie summeres motstandene: $R_{total} = 47 + 100 + 150 = 297\\ \\Omega$."},{"id":"tif-vg1-5-2-n-quiz1-q2","task":"Hva er likt for alle komponenter i en seriekobling?","options":[{"id":"a","text":"Strømmen","isCorrect":true},{"id":"b","text":"Spenningen","isCorrect":false},{"id":"c","text":"Effekten","isCorrect":false},{"id":"d","text":"Motstanden","isCorrect":false}],"solution":"I en seriekobling er strømmen lik gjennom alle komponenter, mens spenningen deles mellom dem."},{"id":"tif-vg1-5-2-n-quiz1-q3","task":"To motstander på $470\\ \\Omega$ og $680\\ \\Omega$ er i parallell. Hva er total motstand?","options":[{"id":"a","text":"$\\approx 1150\\ \\Omega$","isCorrect":false},{"id":"b","text":"$\\approx 278\\ \\Omega$","isCorrect":true},{"id":"c","text":"$\\approx 575\\ \\Omega$","isCorrect":false},{"id":"d","text":"$\\approx 470\\ \\Omega$","isCorrect":false}],"solution":"$R_{total} = \\frac{470 \\times 680}{470 + 680} = \\frac{319600}{1150} \\approx 278\\ \\Omega$."}]}},{"id":"tif-vg1-5-2-n-section2","type":"text","content":"## Symboler, sammensatte kretser og hverdagen\n\nNår du skal lese eller tegne en krets, bruker du ikke bilder av komponentene, men standardiserte **symboler** i et kretsdiagram. En motstand tegnes som en sikksakk, en kondensator (som lagrer elektrisk energi) som to parallelle linjer, en spole (som lagrer magnetisk energi) som en spiral, og en diode som en trekant med en strek -- den slipper strøm bare én vei. En LED er en diode med små piler som lyser når strømmen går. En bryter er en åpen eller lukket kontakt, et batteri vises som en lang og en kort strek, og jord tegnes som tre vannrette linjer som referansepunkt. Disse symbolene er et universelt språk på tvers av land.\n\nI virkeligheten er kretser ofte en *blanding* av serie og parallell, og da regner du i to trinn. Tenk på en krets med to $100\\ \\Omega$-motstander i serie, koblet i parallell med en $200\\ \\Omega$-motstand. Først regner du serie-delen: $100 + 100 = 200\\ \\Omega$. Så kombinerer du de to $200\\ \\Omega$ i parallell: $R_{total} = \\frac{200 \\times 200}{200 + 200} = \\frac{40000}{400} = 100\\ \\Omega$. Du bryter altså ned den sammensatte kretsen til biter du allerede kan løse.\n\nHvorfor betyr forskjellen mellom serie og parallell noe i hverdagen? Tenk på julelys versus husbelysning. Gamle julelys i serie slukner *alle* om én pære ryker, fordi kretsen brytes. Husets rombelysning er parallellkoblet, så hver lampe har sin egen komplette strømvei -- ryker én, lyser de andre videre. Derfor kobler vi belysning i parallell: hver last får full spenning, og en feil i én lampe lar resten leve. Valget mellom serie og parallell er altså ikke teori -- det avgjør hvordan ting faktisk oppfører seg."},{"id":"tif-vg1-5-2-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-5-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på symboler, sammensatte kretser og praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-5-2-n-quiz2-q0","task":"Hva gjør en diode i en krets?","options":[{"id":"a","text":"Lagrer magnetisk energi","isCorrect":false},{"id":"b","text":"Måler spenningen","isCorrect":false},{"id":"c","text":"Slipper strøm bare i én retning","isCorrect":true},{"id":"d","text":"Bryter kretsen automatisk","isCorrect":false}],"solution":"En diode slipper strøm gjennom bare i én retning. En LED er en diode som lyser når strømmen går."},{"id":"tif-vg1-5-2-n-quiz2-q1","task":"To $100\\ \\Omega$-motstander i serie er koblet i parallell med en $200\\ \\Omega$. Hva er total motstand?","options":[{"id":"a","text":"$400\\ \\Omega$","isCorrect":false},{"id":"b","text":"$200\\ \\Omega$","isCorrect":false},{"id":"c","text":"$50\\ \\Omega$","isCorrect":false},{"id":"d","text":"$100\\ \\Omega$","isCorrect":true}],"solution":"Serie-delen: $100 + 100 = 200\\ \\Omega$. Parallell med $200\\ \\Omega$: $\\frac{200 \\times 200}{400} = 100\\ \\Omega$."},{"id":"tif-vg1-5-2-n-quiz2-q2","task":"Hvorfor kobles husets rombelysning i parallell?","options":[{"id":"a","text":"Så hver lampe får full spenning og resten lyser om én ryker","isCorrect":true},{"id":"b","text":"For å spare ledning","isCorrect":false},{"id":"c","text":"For å øke total motstand","isCorrect":false},{"id":"d","text":"Fordi serie er farligere","isCorrect":false}],"solution":"I parallell får hver lampe full spenning og sin egen strømvei, så en feil i én lampe slukker ikke de andre -- i motsetning til seriekoblede julelys."},{"id":"tif-vg1-5-2-n-quiz2-q3","task":"Hvorfor er en kortslutning farlig?","options":[{"id":"a","text":"Strømmen stopper helt","isCorrect":false},{"id":"b","text":"Svært lav motstand gir svært høy strøm som kan skade utstyr og starte brann","isCorrect":true},{"id":"c","text":"Spenningen forsvinner","isCorrect":false},{"id":"d","text":"Motstanden blir uendelig høy","isCorrect":false}],"solution":"Ved kortslutning får strømmen en snarvei nesten uten motstand. Etter $I = U/R$ gir den lille R-en en enorm strøm som kan ødelegge utstyr og forårsake brann."}]}},{"id":"tif-vg1-5-2-n-summary","type":"text","content":"## Oppsummering\n\nVi har sett at en **elektrisk krets** krever spenningskilde, ledere, last og en lukket bane, og at **kortslutning** (farlig, høy strøm) og **kretsbrudd** (åpen krets) er de to tingene som kan stoppe den.\n\nDet store skillet går mellom **seriekobling** -- der strømmen er lik, spenningen deles, og $R_{total} = R_1 + R_2 + \\dots$ -- og **parallellkobling** -- der spenningen er lik, strømmen deles, og $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$ gir lavere total motstand. I serie stopper alt ved én feil; i parallell lever resten videre.\n\nKretser tegnes med standardiserte **symboler**, og sammensatte kretser løser du ved å bryte dem ned i serie- og parallelldeler du regner ett trinn av gangen. Forskjellen er ikke akademisk: den forklarer hvorfor julelys slukner samlet mens husbelysningen ikke gjør det -- og gir deg verktøyene til å forstå og bygge trygge kretser."}],"exercises":[]}
+{
+  "id": "tif-vg1-5-2-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "5.2",
+  "title": "Elektriske kretser",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan strømmen finner veien i lukkede kretser -- og hvorfor det avgjør alt om du kobler komponentene i serie eller parallell.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke fagterminologi for å beskrive og dokumentere arbeidsprosesser",
+    "utføre arbeid i henhold til gjeldende regelverk for helse, miljø og sikkerhet"
+  ],
+  "linkedChapterId": "tif-vg1-5-2",
+  "content": [
+    {
+      "id": "tif-vg1-5-2-n-intro",
+      "type": "text",
+      "content": "## Strømmen må gå i ring\n\nHar du noen gang lurt på hvorfor en lampe slukner i det sekundet du trekker ut støpselet? Svaret er at strøm bare kan flyte når den har en *lukket bane* å gå rundt. Bryt banen, og alt stopper. Dette er hjertet i enhver **elektrisk krets**.\n\nEn komplett krets trenger fire ting. Du må ha en **spenningskilde** som batteri, nettspenning eller generator. Du må ha **ledere** -- kablene som fører strømmen. Du må ha en **last**, altså noe som bruker strømmen, som en lampe, motor eller motstand. Og du må ha en **lukket krets**, slik at strømmen kan gå hele veien rundt og tilbake til kilden.\n\nTo ting kan gå galt, og det er viktig å kjenne dem. **Kortslutning** oppstår når strømmen finner en snarvei nesten uten motstand. Etter Ohms lov, $I = U/R$, betyr en bitteliten R en enorm I -- og den voldsomme strømmen kan ødelegge utstyr og starte brann. Derfor er kortslutning farlig. Det motsatte er et **kretsbrudd**, der kretsen er åpen og strømmen ikke kan flyte i det hele tatt. En bryter er rett og slett et kontrollert kretsbrudd -- den lar deg åpne og lukke banen når du vil.\n\nMed disse fire elementene og forståelsen av kortslutning og brudd har du grunnlaget. Det neste store spørsmålet er: hvordan kobler vi flere komponenter sammen? Der finnes det to grunnmåter, og valget mellom dem forandrer alt."
+    },
+    {
+      "id": "tif-vg1-5-2-n-section1",
+      "type": "text",
+      "content": "## Serie eller parallell -- to verdener\n\nTenk deg en gammeldags lyslenke der alle pærene henger etter hverandre på én eneste tråd. Det er en **seriekobling**: komponentene står på rad, og strømmen *må* passere gjennom hver eneste én. Tre ting kjennetegner serie: strømmen er **lik** gjennom alle komponenter, spenningen **deles** mellom dem, og den totale motstanden er summen: $R_{total} = R_1 + R_2 + R_3 + \\dots$. Bakdelen? Ryker én komponent, brytes hele kretsen.\n\nLa oss kontrollere et eksempel. Tre motstander på $100\\ \\Omega$, $220\\ \\Omega$ og $330\\ \\Omega$ i serie til 12 V gir total motstand $R_{total} = 100 + 220 + 330 = 650\\ \\Omega$. Strømmen blir $I = 12\\ \\text{V} / 650\\ \\Omega \\approx 0{,}0185$ A. Spenningen over hver: $U_1 = 100 \\times 0{,}0185 \\approx 1{,}85$ V, $U_2 \\approx 4{,}07$ V, $U_3 \\approx 6{,}08$ V -- og summen blir omtrent 12 V, akkurat som kilden. Det stemmer.\n\nDen andre verdenen er **parallellkobling**, der komponentene står ved siden av hverandre, og strømmen *deler seg* mellom grenene. Her er det motsatt: spenningen er **lik** over alle komponenter, strømmen **deles**, og den totale motstanden blir *lavere* enn den minste enkeltmotstanden. Formelen er $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$, og for to motstander forenkles den til $R_{total} = \\frac{R_1 \\times R_2}{R_1 + R_2}$. Den store fordelen: svikter én gren, fungerer de andre fortsatt.\n\nLa oss kontrollere: to like motstander på $100\\ \\Omega$ i parallell gir $R_{total} = \\frac{100 \\times 100}{100 + 100} = \\frac{10000}{200} = 50\\ \\Omega$ -- akkurat halvparten."
+    },
+    {
+      "id": "tif-vg1-5-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-5-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kretser, serie og parallell:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-5-2-n-quiz1-q0",
+            "task": "Hva skjer med total motstand når du kobler motstander i parallell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den blir høyere enn den høyeste enkeltmotstanden",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den blir lavere enn den laveste enkeltmotstanden",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Den blir lik summen av motstandene",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den forblir uendret",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved parallellkobling blir total motstand alltid lavere enn den laveste enkeltmotstanden, fordi strømmen får flere veier å gå."
+          },
+          {
+            "id": "tif-vg1-5-2-n-quiz1-q1",
+            "task": "Tre motstander på $47\\ \\Omega$, $100\\ \\Omega$ og $150\\ \\Omega$ er koblet i serie. Hva er total motstand?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$32\\ \\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$100\\ \\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$150\\ \\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$297\\ \\Omega$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I serie summeres motstandene: $R_{total} = 47 + 100 + 150 = 297\\ \\Omega$."
+          },
+          {
+            "id": "tif-vg1-5-2-n-quiz1-q2",
+            "task": "Hva er likt for alle komponenter i en seriekobling?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Spenningen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Effekten",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Strømmen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Motstanden",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I en seriekobling er strømmen lik gjennom alle komponenter, mens spenningen deles mellom dem."
+          },
+          {
+            "id": "tif-vg1-5-2-n-quiz1-q3",
+            "task": "To motstander på $470\\ \\Omega$ og $680\\ \\Omega$ er i parallell. Hva er total motstand?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\approx 278\\ \\Omega$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\approx 1150\\ \\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\approx 575\\ \\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\approx 470\\ \\Omega$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$R_{total} = \\frac{470 \\times 680}{470 + 680} = \\frac{319600}{1150} \\approx 278\\ \\Omega$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-5-2-n-section2",
+      "type": "text",
+      "content": "## Symboler, sammensatte kretser og hverdagen\n\nNår du skal lese eller tegne en krets, bruker du ikke bilder av komponentene, men standardiserte **symboler** i et kretsdiagram. En motstand tegnes som en sikksakk, en kondensator (som lagrer elektrisk energi) som to parallelle linjer, en spole (som lagrer magnetisk energi) som en spiral, og en diode som en trekant med en strek -- den slipper strøm bare én vei. En LED er en diode med små piler som lyser når strømmen går. En bryter er en åpen eller lukket kontakt, et batteri vises som en lang og en kort strek, og jord tegnes som tre vannrette linjer som referansepunkt. Disse symbolene er et universelt språk på tvers av land.\n\nI virkeligheten er kretser ofte en *blanding* av serie og parallell, og da regner du i to trinn. Tenk på en krets med to $100\\ \\Omega$-motstander i serie, koblet i parallell med en $200\\ \\Omega$-motstand. Først regner du serie-delen: $100 + 100 = 200\\ \\Omega$. Så kombinerer du de to $200\\ \\Omega$ i parallell: $R_{total} = \\frac{200 \\times 200}{200 + 200} = \\frac{40000}{400} = 100\\ \\Omega$. Du bryter altså ned den sammensatte kretsen til biter du allerede kan løse.\n\nHvorfor betyr forskjellen mellom serie og parallell noe i hverdagen? Tenk på julelys versus husbelysning. Gamle julelys i serie slukner *alle* om én pære ryker, fordi kretsen brytes. Husets rombelysning er parallellkoblet, så hver lampe har sin egen komplette strømvei -- ryker én, lyser de andre videre. Derfor kobler vi belysning i parallell: hver last får full spenning, og en feil i én lampe lar resten leve. Valget mellom serie og parallell er altså ikke teori -- det avgjør hvordan ting faktisk oppfører seg."
+    },
+    {
+      "id": "tif-vg1-5-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-5-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på symboler, sammensatte kretser og praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-5-2-n-quiz2-q0",
+            "task": "Hva gjør en diode i en krets?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lagrer magnetisk energi",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Slipper strøm bare i én retning",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Måler spenningen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bryter kretsen automatisk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En diode slipper strøm gjennom bare i én retning. En LED er en diode som lyser når strømmen går."
+          },
+          {
+            "id": "tif-vg1-5-2-n-quiz2-q1",
+            "task": "To $100\\ \\Omega$-motstander i serie er koblet i parallell med en $200\\ \\Omega$. Hva er total motstand?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$400\\ \\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$200\\ \\Omega$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$100\\ \\Omega$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$50\\ \\Omega$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Serie-delen: $100 + 100 = 200\\ \\Omega$. Parallell med $200\\ \\Omega$: $\\frac{200 \\times 200}{400} = 100\\ \\Omega$."
+          },
+          {
+            "id": "tif-vg1-5-2-n-quiz2-q2",
+            "task": "Hvorfor kobles husets rombelysning i parallell?",
+            "options": [
+              {
+                "id": "b",
+                "text": "For å spare ledning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For å øke total motstand",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi serie er farligere",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Så hver lampe får full spenning og resten lyser om én ryker",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I parallell får hver lampe full spenning og sin egen strømvei, så en feil i én lampe slukker ikke de andre -- i motsetning til seriekoblede julelys."
+          },
+          {
+            "id": "tif-vg1-5-2-n-quiz2-q3",
+            "task": "Hvorfor er en kortslutning farlig?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Svært lav motstand gir svært høy strøm som kan skade utstyr og starte brann",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Strømmen stopper helt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Spenningen forsvinner",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Motstanden blir uendelig høy",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved kortslutning får strømmen en snarvei nesten uten motstand. Etter $I = U/R$ gir den lille R-en en enorm strøm som kan ødelegge utstyr og forårsake brann."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-5-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har sett at en **elektrisk krets** krever spenningskilde, ledere, last og en lukket bane, og at **kortslutning** (farlig, høy strøm) og **kretsbrudd** (åpen krets) er de to tingene som kan stoppe den.\n\nDet store skillet går mellom **seriekobling** -- der strømmen er lik, spenningen deles, og $R_{total} = R_1 + R_2 + \\dots$ -- og **parallellkobling** -- der spenningen er lik, strømmen deles, og $\\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots$ gir lavere total motstand. I serie stopper alt ved én feil; i parallell lever resten videre.\n\nKretser tegnes med standardiserte **symboler**, og sammensatte kretser løser du ved å bryte dem ned i serie- og parallelldeler du regner ett trinn av gangen. Forskjellen er ikke akademisk: den forklarer hvorfor julelys slukner samlet mens husbelysningen ikke gjør det -- og gir deg verktøyene til å forstå og bygge trygge kretser."
+    }
+  ],
+  "exercises": []
+}

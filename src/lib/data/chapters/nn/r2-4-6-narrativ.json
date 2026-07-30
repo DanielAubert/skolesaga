@@ -1,1 +1,598 @@
-{"id":"r2-4-6-narrativ","courseId":"r2","chapterNumber":"4.6","title":"Trigonometriske formlar","subtitle":"Narrativ versjon","description":"Ei forteljing om slektstreet til formlane — frå addisjonsformlane på einingssirkelen til dobbeltvinklar, halvvinklar, produkt- og sumformlar, og korleis dei løyser likningar og beviser identitetar.","estimatedMinutes":40,"competenceGoals":["utforske eigenskapar ved trigonometriske funksjonar","bruke trigonometriske identitetar til å forenkle uttrykk","bevise og bruke addisjonsformlane","utleie og bruke dobbeltvinkel- og halvvinkelformlar"],"linkedChapterId":"r2-4-6","content":[{"id":"r2-4-6-n-intro","type":"text","content":"## Slektstreet til formlane\n\nKva er $\\sin 75°$ — heilt eksakt, utan kalkulator? Ved første augekast verkar det umogleg: $75°$ står ikkje i nokon tabell. Men $75° = 45° + 30°$, og både $45°$ og $30°$ kjenner vi ut og inn. Hadde vi berre hatt ein formel for sinus av ein **sum** av vinklar, ville svaret falle ut av seg sjølv.\n\nDen formelen finst, og han er inngangsporten til dette kapittelet. **Addisjonsformlane** uttrykkjer sinus og cosinus av summar og differansar av vinklar, og dei er stamfedrane i eit heilt slektstre av identitetar: set vi dei to vinklane like, blir **dobbeltvinkelformlane** fødde; løyser vi dei baklengs, får vi **halvvinkelformlane**; adderer og subtraherer vi dei på kryss og tvers, oppstår **produktformlane** og **sumformlane**. Kvar einaste formel i kapittelet kan sporast tilbake til addisjonsformlane — og addisjonsformlane sjølve kan bevisast med rein geometri på einingssirkelen.\n\nKvifor bry seg? Fordi desse formlane er arbeidshestane i all vidare matematikk med trigonometri: dei forenklar uttrykk, løyser likningar som elles ville vore uangripelege, beviser identitetar, og dukkar opp att når du skal derivere og integrere trigonometriske funksjonar. I denne forteljinga følgjer vi slektstreet frå rota og ut i greinene, med bevis og eksempel undervegs — og til slutt ser vi formlane i aksjon på likningar og identitetar."},{"id":"r2-4-6-n-section1","type":"text","content":"## Addisjonsformlane — rota av treet\n\nHer er dei fire formlane alt byggjer på. For alle vinklar $u$ og $v$ gjeld\n\n$$\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v, \\qquad \\sin(u - v) = \\sin u \\cos v - \\cos u \\sin v$$\n$$\\cos(u + v) = \\cos u \\cos v - \\sin u \\sin v, \\qquad \\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$$\n\nLegg merke til forteiknsmønsteret: sinus held på teiknet i midten, cosinus snur det.\n\nKvar kjem dei frå? Bevisidéen er vakker. På einingssirkelen markerer vi punkta $P_1 = (\\cos u, \\sin u)$ og $P_2 = (\\cos v, \\sin v)$, samt $P_3 = (\\cos(u-v), \\sin(u-v))$ og $P_4 = (1, 0)$. Buen frå $P_2$ til $P_1$ og buen frå $P_4$ til $P_3$ spenner begge over vinkelen $u - v$, så avstandane $P_1P_2$ og $P_3P_4$ er like. Reknar vi ut begge avstandane med avstandsformelen og bruker $\\sin^2\\theta + \\cos^2\\theta = 1$, står vi att med $\\cos(u - v) = \\cos u\\cos v + \\sin u\\sin v$. Dei tre andre formlane følgjer ved å setje inn $-v$ for $v$ og bruke $\\sin\\theta = \\cos\\left(\\frac{\\pi}{2} - \\theta\\right)$.\n\nNo kan vi svare på opningsspørsmålet: $\\sin 75° = \\sin(45° + 30°) = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. På same vis er $\\cos 15° = \\cos(45° - 30°) = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ — same verdien, som rimeleg er, sidan $\\cos 15° = \\sin 75°$.\n\nFormlane fungerer òg når vinklane berre er kjende gjennom sinus- og cosinusverdiane sine. Er $\\sin u = \\frac{3}{5}$ og $\\cos v = \\frac{12}{13}$ med begge vinklar i første kvadrant, gir Pytagoras-identiteten $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{5}{13}$, og dermed $\\sin(u + v) = \\frac{3}{5} \\cdot \\frac{12}{13} + \\frac{4}{5} \\cdot \\frac{5}{13} = \\frac{56}{65}$."},{"id":"r2-4-6-n-quiz1","type":"exercise","exercise":{"id":"r2-4-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på addisjonsformlane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-6-n-quiz1-q0","task":"Kva er $\\sin(u + v)$?","options":[{"id":"a","text":"$\\sin u \\cos v - \\cos u \\sin v$","isCorrect":false},{"id":"b","text":"$\\sin u \\cos v + \\cos u \\sin v$","isCorrect":true},{"id":"c","text":"$\\cos u \\cos v - \\sin u \\sin v$","isCorrect":false},{"id":"d","text":"$\\sin u \\sin v + \\cos u \\cos v$","isCorrect":false}],"solution":"Addisjonsformelen for sinus: $\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v$."},{"id":"r2-4-6-n-quiz1-q1","task":"Kva er den eksakte verdien av $\\sin 75°$?","options":[{"id":"a","text":"$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$","isCorrect":true},{"id":"b","text":"$\\frac{\\sqrt{3} + 1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$","isCorrect":false},{"id":"d","text":"$\\frac{\\sqrt{2} + \\sqrt{3}}{4}$","isCorrect":false}],"solution":"$\\sin 75° = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{6}}{4} + \\frac{\\sqrt{2}}{4} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$."},{"id":"r2-4-6-n-quiz1-q2","task":"Kva er $\\cos(u - v)$?","options":[{"id":"a","text":"$\\cos u \\cos v - \\sin u \\sin v$","isCorrect":false},{"id":"b","text":"$\\sin u \\cos v - \\cos u \\sin v$","isCorrect":false},{"id":"c","text":"$\\cos u \\sin v - \\sin u \\cos v$","isCorrect":false},{"id":"d","text":"$\\cos u \\cos v + \\sin u \\sin v$","isCorrect":true}],"solution":"For cosinus blir teiknet snutt: $\\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$."}]}},{"id":"r2-4-6-n-section2","type":"text","content":"## Tangens arvar — og dobbeltvinklane blir fødde\n\nTangens får sin eigen addisjonsformel ved å dele sinusformelen på cosinusformelen og forkorte med $\\cos u \\cos v$:\n\n$$\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}, \\qquad \\tan(u - v) = \\frac{\\tan u - \\tan v}{1 + \\tan u \\tan v}$$\n\nHan gir til dømes $\\tan 75° = \\frac{\\tan 45° + \\tan 30°}{1 - \\tan 45°\\tan 30°} = \\frac{1 + \\frac{\\sqrt{3}}{3}}{1 - \\frac{\\sqrt{3}}{3}} = \\frac{3 + \\sqrt{3}}{3 - \\sqrt{3}} = 2 + \\sqrt{3}$ etter rasjonalisering.\n\nNo til den første forgreininga i slektstreet: kva skjer dersom dei to vinklane er **like**? Set $v = u$ i addisjonsformlane, og dobbeltvinkelformlane fell rett ut: $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u$. Cosinusvarianten kan i tillegg skrivast om med Pytagoras-identiteten til to nyttige sysken: $\\cos 2u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$. For tangens gir same grep $\\tan 2u = \\frac{2\\tan u}{1 - \\tan^2 u}$.\n\nLa oss bruke dei. Anta $\\cos u = \\frac{3}{5}$ med $u$ i første kvadrant, slik at $\\sin u = \\frac{4}{5}$. Då er $\\sin 2u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$, og $\\cos 2u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$ — dobbeltvinkelen har kryssa over i andre kvadrant! Tangens følgjer som forholdet: $\\tan 2u = -\\frac{24}{7}$.\n\nDobbeltvinkelformlane er òg framifrå til forenkling. Uttrykket $\\frac{\\sin 2x}{1 + \\cos 2x}$ blir med $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 2\\cos^2 x - 1$ til $\\frac{2\\sin x\\cos x}{2\\cos^2 x} = \\tan x$ — tre etasjar med dobbeltvinklar kollapsar til éin enkel tangens."},{"id":"r2-4-6-n-quiz2","type":"exercise","exercise":{"id":"r2-4-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på tangens-addisjon og dobbeltvinkelformlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-6-n-quiz2-q0","task":"Kva er $\\sin 2u$ uttrykt ved $\\sin u$ og $\\cos u$?","options":[{"id":"a","text":"$\\sin^2 u - \\cos^2 u$","isCorrect":false},{"id":"b","text":"$2\\sin u + 2\\cos u$","isCorrect":false},{"id":"c","text":"$2\\sin u\\cos u$","isCorrect":true},{"id":"d","text":"$\\sin u\\cos u$","isCorrect":false}],"solution":"Set $v = u$ i addisjonsformelen for sinus: $\\sin 2u = \\sin u\\cos u + \\cos u\\sin u = 2\\sin u\\cos u$."},{"id":"r2-4-6-n-quiz2-q1","task":"Gitt $\\cos u = \\frac{3}{5}$ og $u$ i første kvadrant. Kva er $\\cos 2u$?","options":[{"id":"a","text":"$\\frac{7}{25}$","isCorrect":false},{"id":"b","text":"$-\\frac{7}{25}$","isCorrect":true},{"id":"c","text":"$\\frac{6}{5}$","isCorrect":false},{"id":"d","text":"$\\frac{9}{25}$","isCorrect":false}],"solution":"$\\sin u = \\frac{4}{5}$, så $\\cos 2u = \\cos^2 u - \\sin^2 u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$."},{"id":"r2-4-6-n-quiz2-q2","task":"Med same verdiar: kva er $\\sin 2u$?","options":[{"id":"a","text":"$\\frac{12}{25}$","isCorrect":false},{"id":"b","text":"$\\frac{8}{5}$","isCorrect":false},{"id":"c","text":"$\\frac{7}{25}$","isCorrect":false},{"id":"d","text":"$\\frac{24}{25}$","isCorrect":true}],"solution":"$\\sin 2u = 2\\sin u\\cos u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$."}]}},{"id":"r2-4-6-n-section3","type":"text","content":"## Halvvinkelformlane — slektstreet baklengs\n\nKan vi gå motsett veg — frå ein vinkel til helvta av han? Kva er til dømes $\\cos 22{,}5°$, heilt eksakt? Trikset er å lese dobbeltvinkelformlane baklengs. Start med $\\cos 2\\theta = 1 - 2\\sin^2\\theta$, og la $2\\theta = u$, slik at $\\theta = \\frac{u}{2}$. Då står det $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$, og løyser vi for kvadratet:\n\n$$\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}, \\qquad \\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$$\n\nder den andre kjem frå varianten $\\cos 2\\theta = 2\\cos^2\\theta - 1$. For tangens finst dei elegante bruddfrie formene $\\tan\\frac{u}{2} = \\frac{\\sin u}{1 + \\cos u} = \\frac{1 - \\cos u}{\\sin u}$.\n\nTrekkjer vi kvadratrot, dukkar eit val opp: $\\sin\\frac{u}{2} = \\pm\\sqrt{\\frac{1 - \\cos u}{2}}$ og $\\cos\\frac{u}{2} = \\pm\\sqrt{\\frac{1 + \\cos u}{2}}$, og **forteiknet blir avgjort av kva for kvadrant $\\frac{u}{2}$ ligg i** — det er her dei fleste feila skjer, så tenk alltid gjennom kvadranten før du vel.\n\nNo kan vi svare på spørsmålet: med $u = 45°$ er $\\cos^2 22{,}5° = \\frac{1 + \\cos 45°}{2} = \\frac{2 + \\sqrt{2}}{4}$, og sidan $22{,}5°$ ligg i første kvadrant er $\\cos 22{,}5° = \\frac{\\sqrt{2 + \\sqrt{2}}}{2}$.\n\nEit eksempel med gitte verdiar: dersom $\\cos u = \\frac{4}{5}$ og $0 < u < \\frac{\\pi}{2}$, ligg $\\frac{u}{2}$ trygt i første kvadrant. Då er $\\sin^2\\frac{u}{2} = \\frac{1 - \\frac{4}{5}}{2} = \\frac{1}{10}$, så $\\sin\\frac{u}{2} = \\frac{\\sqrt{10}}{10}$, og $\\cos^2\\frac{u}{2} = \\frac{9}{10}$, så $\\cos\\frac{u}{2} = \\frac{3\\sqrt{10}}{10}$."},{"id":"r2-4-6-n-quiz3","type":"exercise","exercise":{"id":"r2-4-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på halvvinkelformlane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-6-n-quiz3-q0","task":"Kva er $\\sin^2\\frac{u}{2}$ uttrykt ved $\\cos u$?","options":[{"id":"a","text":"$\\frac{1 - \\cos u}{2}$","isCorrect":true},{"id":"b","text":"$\\frac{1 + \\cos u}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{\\cos u - 1}{2}$","isCorrect":false},{"id":"d","text":"$1 - \\cos^2 u$","isCorrect":false}],"solution":"Frå $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$ følgjer $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$."},{"id":"r2-4-6-n-quiz3-q1","task":"Gitt $\\cos u = \\frac{4}{5}$ med $0 < u < \\frac{\\pi}{2}$. Kva er $\\cos\\frac{u}{2}$?","options":[{"id":"a","text":"$\\frac{9}{10}$","isCorrect":false},{"id":"b","text":"$\\frac{\\sqrt{10}}{10}$","isCorrect":false},{"id":"c","text":"$\\frac{3\\sqrt{10}}{10}$","isCorrect":true},{"id":"d","text":"$\\frac{2}{5}$","isCorrect":false}],"solution":"$\\cos^2\\frac{u}{2} = \\frac{1 + \\frac{4}{5}}{2} = \\frac{9}{10}$, og i første kvadrant: $\\cos\\frac{u}{2} = \\frac{3}{\\sqrt{10}} = \\frac{3\\sqrt{10}}{10}$."}]}},{"id":"r2-4-6-n-section4","type":"text","content":"## Produkt blir summar — og summar blir produkt\n\nDei ytste greinene i slektstreet veks fram når vi adderer og subtraherer addisjonsformlane parvis. Legg vi saman $\\sin(u+v)$ og $\\sin(u-v)$, kansellerer kryssledda, og vi får **produktformelen** $\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$. Tilsvarande manøvrar med cosinusformlane gir $\\cos u\\cos v = \\frac{1}{2}[\\cos(u-v) + \\cos(u+v)]$ og $\\sin u\\sin v = \\frac{1}{2}[\\cos(u-v) - \\cos(u+v)]$. Produktformlane gjer produkt om til summar — uvurderleg når du seinare skal integrere uttrykk som $\\sin 5x\\cos 3x$, som blir $\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$. På same vis er $\\cos 4x\\cos 2x = \\frac{1}{2}\\cos 2x + \\frac{1}{2}\\cos 6x$.\n\n**Sumformlane** går motsett veg. Substituerer vi $A = u + v$ og $B = u - v$, slik at $u = \\frac{A+B}{2}$ og $v = \\frac{A-B}{2}$, blir produktformlane forvandla til\n\n$$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n$$\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\cos A - \\cos B = -2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n\nNo blir summar til produkt — perfekt for faktorisering og likningsløysing. Til dømes er $\\sin 5x + \\sin 3x = 2\\sin 4x\\cos x$, og $\\cos 2x - \\cos 6x = -2\\sin 4x\\sin(-2x) = 2\\sin 4x\\sin 2x$.\n\nEi tommelfingerregel for val av formel: treng du eksakte verdiar, del vinkelen opp med addisjonsformlane; skal du redusere potensar eller forenkle, prøv dobbeltvinkel; skal du integrere eit produkt, bruk produktformlane; skal du faktorisere ein sum for å løyse ei likning, bruk sumformlane."},{"id":"r2-4-6-n-quiz4","type":"exercise","exercise":{"id":"r2-4-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på produkt- og sumformlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-6-n-quiz4-q0","task":"Kva er $\\sin 5x\\cos 3x$ skrive som ein sum?","options":[{"id":"a","text":"$\\frac{1}{2}\\sin 8x - \\frac{1}{2}\\sin 2x$","isCorrect":false},{"id":"b","text":"$\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$","isCorrect":true},{"id":"c","text":"$\\sin 8x + \\sin 2x$","isCorrect":false},{"id":"d","text":"$\\frac{1}{2}\\cos 8x + \\frac{1}{2}\\cos 2x$","isCorrect":false}],"solution":"$\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$ med $u = 5x$, $v = 3x$ gir $\\frac{1}{2}[\\sin 8x + \\sin 2x]$."},{"id":"r2-4-6-n-quiz4-q1","task":"Kva er sumformelen for $\\sin A + \\sin B$?","options":[{"id":"a","text":"$2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}$","isCorrect":false},{"id":"b","text":"$2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$","isCorrect":false},{"id":"c","text":"$-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$","isCorrect":false},{"id":"d","text":"$2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$","isCorrect":true}],"solution":"$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$."},{"id":"r2-4-6-n-quiz4-q2","task":"Kva er $\\sin 5x + \\sin 3x$ skrive som eit produkt?","options":[{"id":"a","text":"$2\\sin 4x\\cos x$","isCorrect":true},{"id":"b","text":"$2\\cos 4x\\sin x$","isCorrect":false},{"id":"c","text":"$2\\sin 8x\\cos 2x$","isCorrect":false},{"id":"d","text":"$\\sin 4x\\cos x$","isCorrect":false}],"solution":"$\\sin 5x + \\sin 3x = 2\\sin\\frac{5x+3x}{2}\\cos\\frac{5x-3x}{2} = 2\\sin 4x\\cos x$."}]}},{"id":"r2-4-6-n-section5","type":"text","content":"## Formlane i aksjon\n\nTil slutt skal slektstreet bere frukt. Den første hausten er **identitetsbevis**. Skal du vise at $\\frac{\\sin 2x}{1 - \\cos 2x} = \\cot x$, set du inn $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 1 - 2\\sin^2 x$: nemnaren blir $2\\sin^2 x$, og brøken blir forkorta til $\\frac{\\cos x}{\\sin x} = \\cot x$. Eller ta $\\cos^4 x - \\sin^4 x$: konjugatsetninga faktoriserer dette som $(\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x)$, der første faktor er $1$ og andre er $\\cos 2x$ — heile uttrykket er rett og slett $\\cos 2x$. Med sumformlane viser du like greitt at $\\frac{\\sin 3x + \\sin x}{\\cos 3x + \\cos x} = \\frac{2\\sin 2x\\cos x}{2\\cos 2x\\cos x} = \\tan 2x$.\n\nDen andre hausten er **likningar** som elles ville stått fast. Sjå på $\\sin 2x = \\cos x$ for $0 \\leq x < 2\\pi$. Utan formlar er dette to ulike funksjonar; med dobbeltvinkelformelen blir det $2\\sin x\\cos x = \\cos x$, og flyttar vi alt til venstre og faktoriserer: $\\cos x(2\\sin x - 1) = 0$. Eit produkt er null når éin faktor er null, så anten $\\cos x = 0$, som gir $x = \\frac{\\pi}{2}$ og $\\frac{3\\pi}{2}$, eller $\\sin x = \\frac{1}{2}$, som gir $x = \\frac{\\pi}{6}$ og $\\frac{5\\pi}{6}$. Fire løysingar — og merk fella: hadde vi *delt* på $\\cos x$ i staden for å faktorisere, ville vi mista to av dei.\n\nDette er mønsteret du vil møte att og att: skriv om med rett formel til alt er uttrykt i same vinkel eller same funksjon, faktoriser, og løys delane kvar for seg med teknikkane frå likningskapitla."},{"id":"r2-4-6-n-quiz5","type":"exercise","exercise":{"id":"r2-4-6-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på forenkling og likningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-4-6-n-quiz5-q0","task":"Forenkle $\\cos^4 x - \\sin^4 x$.","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$\\sin 2x$","isCorrect":false},{"id":"c","text":"$\\cos 2x$","isCorrect":true},{"id":"d","text":"$\\cos^2 x$","isCorrect":false}],"solution":"$\\cos^4 x - \\sin^4 x = (\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x) = 1 \\cdot \\cos 2x = \\cos 2x$."},{"id":"r2-4-6-n-quiz5-q1","task":"Kor mange løysingar har $\\sin 2x = \\cos x$ i $[0, 2\\pi)$?","options":[{"id":"a","text":"2","isCorrect":false},{"id":"b","text":"4","isCorrect":true},{"id":"c","text":"3","isCorrect":false},{"id":"d","text":"6","isCorrect":false}],"solution":"$\\cos x(2\\sin x - 1) = 0$ gir $x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}$ (frå $\\cos x = 0$) og $x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}$ (frå $\\sin x = \\frac{1}{2}$) — fire løysingar."}]}},{"id":"r2-4-6-n-summary","type":"text","content":"## Oppsummering\n\nVi byrja med eit tilsynelatande umogleg spørsmål — den eksakte verdien av $\\sin 75°$ — og enda opp med å kartleggje eit heilt slektstre av formlar, alle med same rot. Addisjonsformlane $\\sin(u \\pm v) = \\sin u\\cos v \\pm \\cos u\\sin v$ og $\\cos(u \\pm v) = \\cos u\\cos v \\mp \\sin u\\sin v$ beviste vi geometrisk på einingssirkelen, og dei gav oss straks eksakte verdiar som $\\sin 75° = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ og tangensvarianten $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u\\tan v}$.\n\nMed $v = u$ blei dobbeltvinkelformlane $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$ fødde. Lese baklengs gav dei halvvinkelformlane $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$ og $\\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$, der kvadranten til $\\frac{u}{2}$ avgjer forteiknet ved rotuttrekking. Ved å addere og subtrahere addisjonsformlane fekk vi produktformlane, som gjer produkt til summar, og ved substitusjon sumformlane, som gjer summar til produkt — som $\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$.\n\nTil slutt såg vi formlane i arbeid: identitetar som $\\cos^4 x - \\sin^4 x = \\cos 2x$ fall med eitt formelgrep, og likninga $\\sin 2x = \\cos x$ løyste seg ved omskriving og faktorisering — aldri divisjon som kan slette løysingar. Vel formel etter føremål: addisjon for eksakte verdiar, dobbeltvinkel for forenkling, produktform for integrasjon, sumform for faktorisering. Treet står klart; no er det din tur til å klatre i det."}],"exercises":[],"_meta":{"sourceHash":"6418ab4f0225158a","translatedAt":"2026-06-20T00:36:24.869Z","model":"claude-code-agent","strings":97,"tm":{"1c1cebac4a1ce46c":"Trigonometriske formlar","b195b06d1ed59702":"Narrativ versjon","eebaeb9eeb87584d":"Ei forteljing om slektstreet til formlane — frå addisjonsformlane på einingssirkelen til dobbeltvinklar, halvvinklar, produkt- og sumformlar, og korleis dei løyser likningar og beviser identitetar.","af5512da06380fba":"utforske eigenskapar ved trigonometriske funksjonar","03dbe1b1022e04b7":"bruke trigonometriske identitetar til å forenkle uttrykk","5e816feea87fedb7":"bevise og bruke addisjonsformlane","31ed6b83faed4206":"utleie og bruke dobbeltvinkel- og halvvinkelformlar","4f7d5d5c3c89b6bf":"## Slektstreet til formlane\n\nKva er $\\sin 75°$ — heilt eksakt, utan kalkulator? Ved første augekast verkar det umogleg: $75°$ står ikkje i nokon tabell. Men $75° = 45° + 30°$, og både $45°$ og $30°$ kjenner vi ut og inn. Hadde vi berre hatt ein formel for sinus av ein **sum** av vinklar, ville svaret falle ut av seg sjølv.\n\nDen formelen finst, og han er inngangsporten til dette kapittelet. **Addisjonsformlane** uttrykkjer sinus og cosinus av summar og differansar av vinklar, og dei er stamfedrane i eit heilt slektstre av identitetar: set vi dei to vinklane like, blir **dobbeltvinkelformlane** fødde; løyser vi dei baklengs, får vi **halvvinkelformlane**; adderer og subtraherer vi dei på kryss og tvers, oppstår **produktformlane** og **sumformlane**. Kvar einaste formel i kapittelet kan sporast tilbake til addisjonsformlane — og addisjonsformlane sjølve kan bevisast med rein geometri på einingssirkelen.\n\nKvifor bry seg? Fordi desse formlane er arbeidshestane i all vidare matematikk med trigonometri: dei forenklar uttrykk, løyser likningar som elles ville vore uangripelege, beviser identitetar, og dukkar opp att når du skal derivere og integrere trigonometriske funksjonar. I denne forteljinga følgjer vi slektstreet frå rota og ut i greinene, med bevis og eksempel undervegs — og til slutt ser vi formlane i aksjon på likningar og identitetar.","f803cb268bea2174":"## Addisjonsformlane — rota av treet\n\nHer er dei fire formlane alt byggjer på. For alle vinklar $u$ og $v$ gjeld\n\n$$\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v, \\qquad \\sin(u - v) = \\sin u \\cos v - \\cos u \\sin v$$\n$$\\cos(u + v) = \\cos u \\cos v - \\sin u \\sin v, \\qquad \\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$$\n\nLegg merke til forteiknsmønsteret: sinus held på teiknet i midten, cosinus snur det.\n\nKvar kjem dei frå? Bevisidéen er vakker. På einingssirkelen markerer vi punkta $P_1 = (\\cos u, \\sin u)$ og $P_2 = (\\cos v, \\sin v)$, samt $P_3 = (\\cos(u-v), \\sin(u-v))$ og $P_4 = (1, 0)$. Buen frå $P_2$ til $P_1$ og buen frå $P_4$ til $P_3$ spenner begge over vinkelen $u - v$, så avstandane $P_1P_2$ og $P_3P_4$ er like. Reknar vi ut begge avstandane med avstandsformelen og bruker $\\sin^2\\theta + \\cos^2\\theta = 1$, står vi att med $\\cos(u - v) = \\cos u\\cos v + \\sin u\\sin v$. Dei tre andre formlane følgjer ved å setje inn $-v$ for $v$ og bruke $\\sin\\theta = \\cos\\left(\\frac{\\pi}{2} - \\theta\\right)$.\n\nNo kan vi svare på opningsspørsmålet: $\\sin 75° = \\sin(45° + 30°) = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. På same vis er $\\cos 15° = \\cos(45° - 30°) = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ — same verdien, som rimeleg er, sidan $\\cos 15° = \\sin 75°$.\n\nFormlane fungerer òg når vinklane berre er kjende gjennom sinus- og cosinusverdiane sine. Er $\\sin u = \\frac{3}{5}$ og $\\cos v = \\frac{12}{13}$ med begge vinklar i første kvadrant, gir Pytagoras-identiteten $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{5}{13}$, og dermed $\\sin(u + v) = \\frac{3}{5} \\cdot \\frac{12}{13} + \\frac{4}{5} \\cdot \\frac{5}{13} = \\frac{56}{65}$.","644820bf7c925aa0":"Test deg sjølv på addisjonsformlane:","4097889236a2af26":"placeholder","03c264af9220c891":"Kva er $\\sin(u + v)$?","229582f8292a4b15":"$\\sin u \\cos v - \\cos u \\sin v$","9519767fc8db7974":"$\\sin u \\cos v + \\cos u \\sin v$","d6875cdf7371cab3":"$\\cos u \\cos v - \\sin u \\sin v$","5365c82f7438a72b":"$\\sin u \\sin v + \\cos u \\cos v$","c8a762359cdf3315":"Addisjonsformelen for sinus: $\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v$.","757cd3646275cb6d":"Kva er den eksakte verdien av $\\sin 75°$?","3a8d177e79e0425a":"$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$","92716f14d4f447c3":"$\\frac{\\sqrt{3} + 1}{2}$","44933f17ba200652":"$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$","666804722280ad48":"$\\frac{\\sqrt{2} + \\sqrt{3}}{4}$","283fd0a73b7dde8d":"$\\sin 75° = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{6}}{4} + \\frac{\\sqrt{2}}{4} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$.","36ef4c7df24a5c7d":"Kva er $\\cos(u - v)$?","fdcf18d2c7a1b184":"$\\cos u \\sin v - \\sin u \\cos v$","8f7881a53e36e3ce":"$\\cos u \\cos v + \\sin u \\sin v$","0ef948fe944e5d53":"For cosinus blir teiknet snutt: $\\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$.","3772aa827dc648aa":"## Tangens arvar — og dobbeltvinklane blir fødde\n\nTangens får sin eigen addisjonsformel ved å dele sinusformelen på cosinusformelen og forkorte med $\\cos u \\cos v$:\n\n$$\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}, \\qquad \\tan(u - v) = \\frac{\\tan u - \\tan v}{1 + \\tan u \\tan v}$$\n\nHan gir til dømes $\\tan 75° = \\frac{\\tan 45° + \\tan 30°}{1 - \\tan 45°\\tan 30°} = \\frac{1 + \\frac{\\sqrt{3}}{3}}{1 - \\frac{\\sqrt{3}}{3}} = \\frac{3 + \\sqrt{3}}{3 - \\sqrt{3}} = 2 + \\sqrt{3}$ etter rasjonalisering.\n\nNo til den første forgreininga i slektstreet: kva skjer dersom dei to vinklane er **like**? Set $v = u$ i addisjonsformlane, og dobbeltvinkelformlane fell rett ut: $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u$. Cosinusvarianten kan i tillegg skrivast om med Pytagoras-identiteten til to nyttige sysken: $\\cos 2u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$. For tangens gir same grep $\\tan 2u = \\frac{2\\tan u}{1 - \\tan^2 u}$.\n\nLa oss bruke dei. Anta $\\cos u = \\frac{3}{5}$ med $u$ i første kvadrant, slik at $\\sin u = \\frac{4}{5}$. Då er $\\sin 2u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$, og $\\cos 2u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$ — dobbeltvinkelen har kryssa over i andre kvadrant! Tangens følgjer som forholdet: $\\tan 2u = -\\frac{24}{7}$.\n\nDobbeltvinkelformlane er òg framifrå til forenkling. Uttrykket $\\frac{\\sin 2x}{1 + \\cos 2x}$ blir med $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 2\\cos^2 x - 1$ til $\\frac{2\\sin x\\cos x}{2\\cos^2 x} = \\tan x$ — tre etasjar med dobbeltvinklar kollapsar til éin enkel tangens.","1488c6465d23f45b":"Test deg sjølv på tangens-addisjon og dobbeltvinkelformlar:","567d325b6105ede9":"Kva er $\\sin 2u$ uttrykt ved $\\sin u$ og $\\cos u$?","7d868d0e2ba6f4a1":"$\\sin^2 u - \\cos^2 u$","4d8dafaa9943c600":"$2\\sin u + 2\\cos u$","c2af55bebb399166":"$2\\sin u\\cos u$","ae0f906303f5e4ba":"$\\sin u\\cos u$","c4034855af16cccb":"Set $v = u$ i addisjonsformelen for sinus: $\\sin 2u = \\sin u\\cos u + \\cos u\\sin u = 2\\sin u\\cos u$.","c3f5d306730cdfbc":"Gitt $\\cos u = \\frac{3}{5}$ og $u$ i første kvadrant. Kva er $\\cos 2u$?","7cbdd75e5c057169":"$\\frac{7}{25}$","6b7f77b84003fcd0":"$-\\frac{7}{25}$","d1b8091dcb18939a":"$\\frac{6}{5}$","56beeab1beacb162":"$\\frac{9}{25}$","9016d26b010f2b0b":"$\\sin u = \\frac{4}{5}$, så $\\cos 2u = \\cos^2 u - \\sin^2 u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$.","c2ab0b8df45c615b":"Med same verdiar: kva er $\\sin 2u$?","be95d7da1a0666ba":"$\\frac{12}{25}$","495f72b508ffc9f0":"$\\frac{8}{5}$","3175b9bc2329ca5f":"$\\frac{24}{25}$","4c800e2440aa452d":"$\\sin 2u = 2\\sin u\\cos u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$.","9d92c08ccfb63b4c":"## Halvvinkelformlane — slektstreet baklengs\n\nKan vi gå motsett veg — frå ein vinkel til helvta av han? Kva er til dømes $\\cos 22{,}5°$, heilt eksakt? Trikset er å lese dobbeltvinkelformlane baklengs. Start med $\\cos 2\\theta = 1 - 2\\sin^2\\theta$, og la $2\\theta = u$, slik at $\\theta = \\frac{u}{2}$. Då står det $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$, og løyser vi for kvadratet:\n\n$$\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}, \\qquad \\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$$\n\nder den andre kjem frå varianten $\\cos 2\\theta = 2\\cos^2\\theta - 1$. For tangens finst dei elegante bruddfrie formene $\\tan\\frac{u}{2} = \\frac{\\sin u}{1 + \\cos u} = \\frac{1 - \\cos u}{\\sin u}$.\n\nTrekkjer vi kvadratrot, dukkar eit val opp: $\\sin\\frac{u}{2} = \\pm\\sqrt{\\frac{1 - \\cos u}{2}}$ og $\\cos\\frac{u}{2} = \\pm\\sqrt{\\frac{1 + \\cos u}{2}}$, og **forteiknet blir avgjort av kva for kvadrant $\\frac{u}{2}$ ligg i** — det er her dei fleste feila skjer, så tenk alltid gjennom kvadranten før du vel.\n\nNo kan vi svare på spørsmålet: med $u = 45°$ er $\\cos^2 22{,}5° = \\frac{1 + \\cos 45°}{2} = \\frac{2 + \\sqrt{2}}{4}$, og sidan $22{,}5°$ ligg i første kvadrant er $\\cos 22{,}5° = \\frac{\\sqrt{2 + \\sqrt{2}}}{2}$.\n\nEit eksempel med gitte verdiar: dersom $\\cos u = \\frac{4}{5}$ og $0 < u < \\frac{\\pi}{2}$, ligg $\\frac{u}{2}$ trygt i første kvadrant. Då er $\\sin^2\\frac{u}{2} = \\frac{1 - \\frac{4}{5}}{2} = \\frac{1}{10}$, så $\\sin\\frac{u}{2} = \\frac{\\sqrt{10}}{10}$, og $\\cos^2\\frac{u}{2} = \\frac{9}{10}$, så $\\cos\\frac{u}{2} = \\frac{3\\sqrt{10}}{10}$.","536e476b9affbfdc":"Test deg sjølv på halvvinkelformlane:","f8507a5ada37d473":"Kva er $\\sin^2\\frac{u}{2}$ uttrykt ved $\\cos u$?","42310c2f93e223ee":"$\\frac{1 - \\cos u}{2}$","808df1d007660f08":"$\\frac{1 + \\cos u}{2}$","2b11aff8c54af6b6":"$\\frac{\\cos u - 1}{2}$","102fb6d979158522":"$1 - \\cos^2 u$","50fc294bada626c1":"Frå $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$ følgjer $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$.","bc45a9156bb27438":"Gitt $\\cos u = \\frac{4}{5}$ med $0 < u < \\frac{\\pi}{2}$. Kva er $\\cos\\frac{u}{2}$?","6affe8a6de95dbb2":"$\\frac{9}{10}$","1d06cd8975200eb5":"$\\frac{\\sqrt{10}}{10}$","617107b3d2c2b44d":"$\\frac{3\\sqrt{10}}{10}$","2e32018ef09f6fc3":"$\\frac{2}{5}$","f386f0f4fc0ae832":"$\\cos^2\\frac{u}{2} = \\frac{1 + \\frac{4}{5}}{2} = \\frac{9}{10}$, og i første kvadrant: $\\cos\\frac{u}{2} = \\frac{3}{\\sqrt{10}} = \\frac{3\\sqrt{10}}{10}$.","138e1ac4d76ffdf9":"## Produkt blir summar — og summar blir produkt\n\nDei ytste greinene i slektstreet veks fram når vi adderer og subtraherer addisjonsformlane parvis. Legg vi saman $\\sin(u+v)$ og $\\sin(u-v)$, kansellerer kryssledda, og vi får **produktformelen** $\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$. Tilsvarande manøvrar med cosinusformlane gir $\\cos u\\cos v = \\frac{1}{2}[\\cos(u-v) + \\cos(u+v)]$ og $\\sin u\\sin v = \\frac{1}{2}[\\cos(u-v) - \\cos(u+v)]$. Produktformlane gjer produkt om til summar — uvurderleg når du seinare skal integrere uttrykk som $\\sin 5x\\cos 3x$, som blir $\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$. På same vis er $\\cos 4x\\cos 2x = \\frac{1}{2}\\cos 2x + \\frac{1}{2}\\cos 6x$.\n\n**Sumformlane** går motsett veg. Substituerer vi $A = u + v$ og $B = u - v$, slik at $u = \\frac{A+B}{2}$ og $v = \\frac{A-B}{2}$, blir produktformlane forvandla til\n\n$$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n$$\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\cos A - \\cos B = -2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n\nNo blir summar til produkt — perfekt for faktorisering og likningsløysing. Til dømes er $\\sin 5x + \\sin 3x = 2\\sin 4x\\cos x$, og $\\cos 2x - \\cos 6x = -2\\sin 4x\\sin(-2x) = 2\\sin 4x\\sin 2x$.\n\nEi tommelfingerregel for val av formel: treng du eksakte verdiar, del vinkelen opp med addisjonsformlane; skal du redusere potensar eller forenkle, prøv dobbeltvinkel; skal du integrere eit produkt, bruk produktformlane; skal du faktorisere ein sum for å løyse ei likning, bruk sumformlane.","714ca373328d9ab4":"Test deg sjølv på produkt- og sumformlar:","f1c1f65e04dd1191":"Kva er $\\sin 5x\\cos 3x$ skrive som ein sum?","e4e3758a3d5f81bd":"$\\frac{1}{2}\\sin 8x - \\frac{1}{2}\\sin 2x$","200fc817ddad9f93":"$\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$","848b1e1adf712285":"$\\sin 8x + \\sin 2x$","fb56f483253de096":"$\\frac{1}{2}\\cos 8x + \\frac{1}{2}\\cos 2x$","9cc31e0c1f070b87":"$\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$ med $u = 5x$, $v = 3x$ gir $\\frac{1}{2}[\\sin 8x + \\sin 2x]$.","df8a7a4af54a44f1":"Kva er sumformelen for $\\sin A + \\sin B$?","11d9c1448e655c18":"$2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}$","65d0ce02099e18d8":"$2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$","91e4476ea8447568":"$-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$","11a13149b13006c9":"$2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$","119c1ca432cca517":"$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$.","768725601cdd6b46":"Kva er $\\sin 5x + \\sin 3x$ skrive som eit produkt?","10ecb88d1423a0df":"$2\\sin 4x\\cos x$","39ae8be13f0b8dc3":"$2\\cos 4x\\sin x$","d49ee728a9eb4c3d":"$2\\sin 8x\\cos 2x$","174d82def133ed15":"$\\sin 4x\\cos x$","b20146771fdf11a8":"$\\sin 5x + \\sin 3x = 2\\sin\\frac{5x+3x}{2}\\cos\\frac{5x-3x}{2} = 2\\sin 4x\\cos x$.","8a9525831ce10f53":"## Formlane i aksjon\n\nTil slutt skal slektstreet bere frukt. Den første hausten er **identitetsbevis**. Skal du vise at $\\frac{\\sin 2x}{1 - \\cos 2x} = \\cot x$, set du inn $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 1 - 2\\sin^2 x$: nemnaren blir $2\\sin^2 x$, og brøken blir forkorta til $\\frac{\\cos x}{\\sin x} = \\cot x$. Eller ta $\\cos^4 x - \\sin^4 x$: konjugatsetninga faktoriserer dette som $(\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x)$, der første faktor er $1$ og andre er $\\cos 2x$ — heile uttrykket er rett og slett $\\cos 2x$. Med sumformlane viser du like greitt at $\\frac{\\sin 3x + \\sin x}{\\cos 3x + \\cos x} = \\frac{2\\sin 2x\\cos x}{2\\cos 2x\\cos x} = \\tan 2x$.\n\nDen andre hausten er **likningar** som elles ville stått fast. Sjå på $\\sin 2x = \\cos x$ for $0 \\leq x < 2\\pi$. Utan formlar er dette to ulike funksjonar; med dobbeltvinkelformelen blir det $2\\sin x\\cos x = \\cos x$, og flyttar vi alt til venstre og faktoriserer: $\\cos x(2\\sin x - 1) = 0$. Eit produkt er null når éin faktor er null, så anten $\\cos x = 0$, som gir $x = \\frac{\\pi}{2}$ og $\\frac{3\\pi}{2}$, eller $\\sin x = \\frac{1}{2}$, som gir $x = \\frac{\\pi}{6}$ og $\\frac{5\\pi}{6}$. Fire løysingar — og merk fella: hadde vi *delt* på $\\cos x$ i staden for å faktorisere, ville vi mista to av dei.\n\nDette er mønsteret du vil møte att og att: skriv om med rett formel til alt er uttrykt i same vinkel eller same funksjon, faktoriser, og løys delane kvar for seg med teknikkane frå likningskapitla.","1168bd3ffbe40010":"Test deg sjølv på forenkling og likningar:","b6a21f645044f90f":"Forenkle $\\cos^4 x - \\sin^4 x$.","25e8fba1b9f7df5b":"$\\sin 2x$","cd790c06460e12cc":"$\\cos 2x$","f751559f04212d82":"$\\cos^2 x$","712827a66b6ab177":"$\\cos^4 x - \\sin^4 x = (\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x) = 1 \\cdot \\cos 2x = \\cos 2x$.","3fbcfcd69f8595a0":"Kor mange løysingar har $\\sin 2x = \\cos x$ i $[0, 2\\pi)$?","de8a752d3eeed97e":"$\\cos x(2\\sin x - 1) = 0$ gir $x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}$ (frå $\\cos x = 0$) og $x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}$ (frå $\\sin x = \\frac{1}{2}$) — fire løysingar.","e844890f2e9a5ee2":"## Oppsummering\n\nVi byrja med eit tilsynelatande umogleg spørsmål — den eksakte verdien av $\\sin 75°$ — og enda opp med å kartleggje eit heilt slektstre av formlar, alle med same rot. Addisjonsformlane $\\sin(u \\pm v) = \\sin u\\cos v \\pm \\cos u\\sin v$ og $\\cos(u \\pm v) = \\cos u\\cos v \\mp \\sin u\\sin v$ beviste vi geometrisk på einingssirkelen, og dei gav oss straks eksakte verdiar som $\\sin 75° = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ og tangensvarianten $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u\\tan v}$.\n\nMed $v = u$ blei dobbeltvinkelformlane $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$ fødde. Lese baklengs gav dei halvvinkelformlane $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$ og $\\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$, der kvadranten til $\\frac{u}{2}$ avgjer forteiknet ved rotuttrekking. Ved å addere og subtrahere addisjonsformlane fekk vi produktformlane, som gjer produkt til summar, og ved substitusjon sumformlane, som gjer summar til produkt — som $\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$.\n\nTil slutt såg vi formlane i arbeid: identitetar som $\\cos^4 x - \\sin^4 x = \\cos 2x$ fall med eitt formelgrep, og likninga $\\sin 2x = \\cos x$ løyste seg ved omskriving og faktorisering — aldri divisjon som kan slette løysingar. Vel formel etter føremål: addisjon for eksakte verdiar, dobbeltvinkel for forenkling, produktform for integrasjon, sumform for faktorisering. Treet står klart; no er det din tur til å klatre i det."}}}
+{
+  "id": "r2-4-6-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "4.6",
+  "title": "Trigonometriske formlar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om slektstreet til formlane — frå addisjonsformlane på einingssirkelen til dobbeltvinklar, halvvinklar, produkt- og sumformlar, og korleis dei løyser likningar og beviser identitetar.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "utforske eigenskapar ved trigonometriske funksjonar",
+    "bruke trigonometriske identitetar til å forenkle uttrykk",
+    "bevise og bruke addisjonsformlane",
+    "utleie og bruke dobbeltvinkel- og halvvinkelformlar"
+  ],
+  "linkedChapterId": "r2-4-6",
+  "content": [
+    {
+      "id": "r2-4-6-n-intro",
+      "type": "text",
+      "content": "## Slektstreet til formlane\n\nKva er $\\sin 75°$ — heilt eksakt, utan kalkulator? Ved første augekast verkar det umogleg: $75°$ står ikkje i nokon tabell. Men $75° = 45° + 30°$, og både $45°$ og $30°$ kjenner vi ut og inn. Hadde vi berre hatt ein formel for sinus av ein **sum** av vinklar, ville svaret falle ut av seg sjølv.\n\nDen formelen finst, og han er inngangsporten til dette kapittelet. **Addisjonsformlane** uttrykkjer sinus og cosinus av summar og differansar av vinklar, og dei er stamfedrane i eit heilt slektstre av identitetar: set vi dei to vinklane like, blir **dobbeltvinkelformlane** fødde; løyser vi dei baklengs, får vi **halvvinkelformlane**; adderer og subtraherer vi dei på kryss og tvers, oppstår **produktformlane** og **sumformlane**. Kvar einaste formel i kapittelet kan sporast tilbake til addisjonsformlane — og addisjonsformlane sjølve kan bevisast med rein geometri på einingssirkelen.\n\nKvifor bry seg? Fordi desse formlane er arbeidshestane i all vidare matematikk med trigonometri: dei forenklar uttrykk, løyser likningar som elles ville vore uangripelege, beviser identitetar, og dukkar opp att når du skal derivere og integrere trigonometriske funksjonar. I denne forteljinga følgjer vi slektstreet frå rota og ut i greinene, med bevis og eksempel undervegs — og til slutt ser vi formlane i aksjon på likningar og identitetar."
+    },
+    {
+      "id": "r2-4-6-n-section1",
+      "type": "text",
+      "content": "## Addisjonsformlane — rota av treet\n\nHer er dei fire formlane alt byggjer på. For alle vinklar $u$ og $v$ gjeld\n\n$$\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v, \\qquad \\sin(u - v) = \\sin u \\cos v - \\cos u \\sin v$$\n$$\\cos(u + v) = \\cos u \\cos v - \\sin u \\sin v, \\qquad \\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$$\n\nLegg merke til forteiknsmønsteret: sinus held på teiknet i midten, cosinus snur det.\n\nKvar kjem dei frå? Bevisidéen er vakker. På einingssirkelen markerer vi punkta $P_1 = (\\cos u, \\sin u)$ og $P_2 = (\\cos v, \\sin v)$, samt $P_3 = (\\cos(u-v), \\sin(u-v))$ og $P_4 = (1, 0)$. Buen frå $P_2$ til $P_1$ og buen frå $P_4$ til $P_3$ spenner begge over vinkelen $u - v$, så avstandane $P_1P_2$ og $P_3P_4$ er like. Reknar vi ut begge avstandane med avstandsformelen og bruker $\\sin^2\\theta + \\cos^2\\theta = 1$, står vi att med $\\cos(u - v) = \\cos u\\cos v + \\sin u\\sin v$. Dei tre andre formlane følgjer ved å setje inn $-v$ for $v$ og bruke $\\sin\\theta = \\cos\\left(\\frac{\\pi}{2} - \\theta\\right)$.\n\nNo kan vi svare på opningsspørsmålet: $\\sin 75° = \\sin(45° + 30°) = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. På same vis er $\\cos 15° = \\cos(45° - 30°) = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ — same verdien, som rimeleg er, sidan $\\cos 15° = \\sin 75°$.\n\nFormlane fungerer òg når vinklane berre er kjende gjennom sinus- og cosinusverdiane sine. Er $\\sin u = \\frac{3}{5}$ og $\\cos v = \\frac{12}{13}$ med begge vinklar i første kvadrant, gir Pytagoras-identiteten $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{5}{13}$, og dermed $\\sin(u + v) = \\frac{3}{5} \\cdot \\frac{12}{13} + \\frac{4}{5} \\cdot \\frac{5}{13} = \\frac{56}{65}$."
+    },
+    {
+      "id": "r2-4-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på addisjonsformlane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-6-n-quiz1-q0",
+            "task": "Kva er $\\sin(u + v)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sin u \\cos v - \\cos u \\sin v$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\cos u \\cos v - \\sin u \\sin v$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sin u \\cos v + \\cos u \\sin v$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\sin u \\sin v + \\cos u \\cos v$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Addisjonsformelen for sinus: $\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v$."
+          },
+          {
+            "id": "r2-4-6-n-quiz1-q1",
+            "task": "Kva er den eksakte verdien av $\\sin 75°$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{\\sqrt{3} + 1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{\\sqrt{2} + \\sqrt{3}}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\sin 75° = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{6}}{4} + \\frac{\\sqrt{2}}{4} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$."
+          },
+          {
+            "id": "r2-4-6-n-quiz1-q2",
+            "task": "Kva er $\\cos(u - v)$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$\\cos u \\cos v + \\sin u \\sin v$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\cos u \\cos v - \\sin u \\sin v$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sin u \\cos v - \\cos u \\sin v$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\cos u \\sin v - \\sin u \\cos v$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For cosinus blir teiknet snutt: $\\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-6-n-section2",
+      "type": "text",
+      "content": "## Tangens arvar — og dobbeltvinklane blir fødde\n\nTangens får sin eigen addisjonsformel ved å dele sinusformelen på cosinusformelen og forkorte med $\\cos u \\cos v$:\n\n$$\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}, \\qquad \\tan(u - v) = \\frac{\\tan u - \\tan v}{1 + \\tan u \\tan v}$$\n\nHan gir til dømes $\\tan 75° = \\frac{\\tan 45° + \\tan 30°}{1 - \\tan 45°\\tan 30°} = \\frac{1 + \\frac{\\sqrt{3}}{3}}{1 - \\frac{\\sqrt{3}}{3}} = \\frac{3 + \\sqrt{3}}{3 - \\sqrt{3}} = 2 + \\sqrt{3}$ etter rasjonalisering.\n\nNo til den første forgreininga i slektstreet: kva skjer dersom dei to vinklane er **like**? Set $v = u$ i addisjonsformlane, og dobbeltvinkelformlane fell rett ut: $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u$. Cosinusvarianten kan i tillegg skrivast om med Pytagoras-identiteten til to nyttige sysken: $\\cos 2u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$. For tangens gir same grep $\\tan 2u = \\frac{2\\tan u}{1 - \\tan^2 u}$.\n\nLa oss bruke dei. Anta $\\cos u = \\frac{3}{5}$ med $u$ i første kvadrant, slik at $\\sin u = \\frac{4}{5}$. Då er $\\sin 2u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$, og $\\cos 2u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$ — dobbeltvinkelen har kryssa over i andre kvadrant! Tangens følgjer som forholdet: $\\tan 2u = -\\frac{24}{7}$.\n\nDobbeltvinkelformlane er òg framifrå til forenkling. Uttrykket $\\frac{\\sin 2x}{1 + \\cos 2x}$ blir med $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 2\\cos^2 x - 1$ til $\\frac{2\\sin x\\cos x}{2\\cos^2 x} = \\tan x$ — tre etasjar med dobbeltvinklar kollapsar til éin enkel tangens."
+    },
+    {
+      "id": "r2-4-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tangens-addisjon og dobbeltvinkelformlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-6-n-quiz2-q0",
+            "task": "Kva er $\\sin 2u$ uttrykt ved $\\sin u$ og $\\cos u$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\sin^2 u - \\cos^2 u$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2\\sin u\\cos u$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2\\sin u + 2\\cos u$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sin u\\cos u$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Set $v = u$ i addisjonsformelen for sinus: $\\sin 2u = \\sin u\\cos u + \\cos u\\sin u = 2\\sin u\\cos u$."
+          },
+          {
+            "id": "r2-4-6-n-quiz2-q1",
+            "task": "Gitt $\\cos u = \\frac{3}{5}$ og $u$ i første kvadrant. Kva er $\\cos 2u$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{7}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{6}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-\\frac{7}{25}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{9}{25}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin u = \\frac{4}{5}$, så $\\cos 2u = \\cos^2 u - \\sin^2 u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$."
+          },
+          {
+            "id": "r2-4-6-n-quiz2-q2",
+            "task": "Med same verdiar: kva er $\\sin 2u$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{12}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{8}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{7}{25}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{24}{25}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\sin 2u = 2\\sin u\\cos u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-6-n-section3",
+      "type": "text",
+      "content": "## Halvvinkelformlane — slektstreet baklengs\n\nKan vi gå motsett veg — frå ein vinkel til helvta av han? Kva er til dømes $\\cos 22{,}5°$, heilt eksakt? Trikset er å lese dobbeltvinkelformlane baklengs. Start med $\\cos 2\\theta = 1 - 2\\sin^2\\theta$, og la $2\\theta = u$, slik at $\\theta = \\frac{u}{2}$. Då står det $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$, og løyser vi for kvadratet:\n\n$$\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}, \\qquad \\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$$\n\nder den andre kjem frå varianten $\\cos 2\\theta = 2\\cos^2\\theta - 1$. For tangens finst dei elegante bruddfrie formene $\\tan\\frac{u}{2} = \\frac{\\sin u}{1 + \\cos u} = \\frac{1 - \\cos u}{\\sin u}$.\n\nTrekkjer vi kvadratrot, dukkar eit val opp: $\\sin\\frac{u}{2} = \\pm\\sqrt{\\frac{1 - \\cos u}{2}}$ og $\\cos\\frac{u}{2} = \\pm\\sqrt{\\frac{1 + \\cos u}{2}}$, og **forteiknet blir avgjort av kva for kvadrant $\\frac{u}{2}$ ligg i** — det er her dei fleste feila skjer, så tenk alltid gjennom kvadranten før du vel.\n\nNo kan vi svare på spørsmålet: med $u = 45°$ er $\\cos^2 22{,}5° = \\frac{1 + \\cos 45°}{2} = \\frac{2 + \\sqrt{2}}{4}$, og sidan $22{,}5°$ ligg i første kvadrant er $\\cos 22{,}5° = \\frac{\\sqrt{2 + \\sqrt{2}}}{2}$.\n\nEit eksempel med gitte verdiar: dersom $\\cos u = \\frac{4}{5}$ og $0 < u < \\frac{\\pi}{2}$, ligg $\\frac{u}{2}$ trygt i første kvadrant. Då er $\\sin^2\\frac{u}{2} = \\frac{1 - \\frac{4}{5}}{2} = \\frac{1}{10}$, så $\\sin\\frac{u}{2} = \\frac{\\sqrt{10}}{10}$, og $\\cos^2\\frac{u}{2} = \\frac{9}{10}$, så $\\cos\\frac{u}{2} = \\frac{3\\sqrt{10}}{10}$."
+    },
+    {
+      "id": "r2-4-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på halvvinkelformlane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-6-n-quiz3-q0",
+            "task": "Kva er $\\sin^2\\frac{u}{2}$ uttrykt ved $\\cos u$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1 - \\cos u}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1 + \\cos u}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\cos u - 1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1 - \\cos^2 u$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Frå $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$ følgjer $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$."
+          },
+          {
+            "id": "r2-4-6-n-quiz3-q1",
+            "task": "Gitt $\\cos u = \\frac{4}{5}$ med $0 < u < \\frac{\\pi}{2}$. Kva er $\\cos\\frac{u}{2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{9}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{3\\sqrt{10}}{10}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{\\sqrt{10}}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{2}{5}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos^2\\frac{u}{2} = \\frac{1 + \\frac{4}{5}}{2} = \\frac{9}{10}$, og i første kvadrant: $\\cos\\frac{u}{2} = \\frac{3}{\\sqrt{10}} = \\frac{3\\sqrt{10}}{10}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-6-n-section4",
+      "type": "text",
+      "content": "## Produkt blir summar — og summar blir produkt\n\nDei ytste greinene i slektstreet veks fram når vi adderer og subtraherer addisjonsformlane parvis. Legg vi saman $\\sin(u+v)$ og $\\sin(u-v)$, kansellerer kryssledda, og vi får **produktformelen** $\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$. Tilsvarande manøvrar med cosinusformlane gir $\\cos u\\cos v = \\frac{1}{2}[\\cos(u-v) + \\cos(u+v)]$ og $\\sin u\\sin v = \\frac{1}{2}[\\cos(u-v) - \\cos(u+v)]$. Produktformlane gjer produkt om til summar — uvurderleg når du seinare skal integrere uttrykk som $\\sin 5x\\cos 3x$, som blir $\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$. På same vis er $\\cos 4x\\cos 2x = \\frac{1}{2}\\cos 2x + \\frac{1}{2}\\cos 6x$.\n\n**Sumformlane** går motsett veg. Substituerer vi $A = u + v$ og $B = u - v$, slik at $u = \\frac{A+B}{2}$ og $v = \\frac{A-B}{2}$, blir produktformlane forvandla til\n\n$$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n$$\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\cos A - \\cos B = -2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n\nNo blir summar til produkt — perfekt for faktorisering og likningsløysing. Til dømes er $\\sin 5x + \\sin 3x = 2\\sin 4x\\cos x$, og $\\cos 2x - \\cos 6x = -2\\sin 4x\\sin(-2x) = 2\\sin 4x\\sin 2x$.\n\nEi tommelfingerregel for val av formel: treng du eksakte verdiar, del vinkelen opp med addisjonsformlane; skal du redusere potensar eller forenkle, prøv dobbeltvinkel; skal du integrere eit produkt, bruk produktformlane; skal du faktorisere ein sum for å løyse ei likning, bruk sumformlane."
+    },
+    {
+      "id": "r2-4-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på produkt- og sumformlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-6-n-quiz4-q0",
+            "task": "Kva er $\\sin 5x\\cos 3x$ skrive som ein sum?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2}\\sin 8x - \\frac{1}{2}\\sin 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\sin 8x + \\sin 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2}\\cos 8x + \\frac{1}{2}\\cos 2x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$ med $u = 5x$, $v = 3x$ gir $\\frac{1}{2}[\\sin 8x + \\sin 2x]$."
+          },
+          {
+            "id": "r2-4-6-n-quiz4-q1",
+            "task": "Kva er sumformelen for $\\sin A + \\sin B$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$."
+          },
+          {
+            "id": "r2-4-6-n-quiz4-q2",
+            "task": "Kva er $\\sin 5x + \\sin 3x$ skrive som eit produkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2\\sin 4x\\cos x$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$2\\cos 4x\\sin x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2\\sin 8x\\cos 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sin 4x\\cos x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sin 5x + \\sin 3x = 2\\sin\\frac{5x+3x}{2}\\cos\\frac{5x-3x}{2} = 2\\sin 4x\\cos x$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-6-n-section5",
+      "type": "text",
+      "content": "## Formlane i aksjon\n\nTil slutt skal slektstreet bere frukt. Den første hausten er **identitetsbevis**. Skal du vise at $\\frac{\\sin 2x}{1 - \\cos 2x} = \\cot x$, set du inn $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 1 - 2\\sin^2 x$: nemnaren blir $2\\sin^2 x$, og brøken blir forkorta til $\\frac{\\cos x}{\\sin x} = \\cot x$. Eller ta $\\cos^4 x - \\sin^4 x$: konjugatsetninga faktoriserer dette som $(\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x)$, der første faktor er $1$ og andre er $\\cos 2x$ — heile uttrykket er rett og slett $\\cos 2x$. Med sumformlane viser du like greitt at $\\frac{\\sin 3x + \\sin x}{\\cos 3x + \\cos x} = \\frac{2\\sin 2x\\cos x}{2\\cos 2x\\cos x} = \\tan 2x$.\n\nDen andre hausten er **likningar** som elles ville stått fast. Sjå på $\\sin 2x = \\cos x$ for $0 \\leq x < 2\\pi$. Utan formlar er dette to ulike funksjonar; med dobbeltvinkelformelen blir det $2\\sin x\\cos x = \\cos x$, og flyttar vi alt til venstre og faktoriserer: $\\cos x(2\\sin x - 1) = 0$. Eit produkt er null når éin faktor er null, så anten $\\cos x = 0$, som gir $x = \\frac{\\pi}{2}$ og $\\frac{3\\pi}{2}$, eller $\\sin x = \\frac{1}{2}$, som gir $x = \\frac{\\pi}{6}$ og $\\frac{5\\pi}{6}$. Fire løysingar — og merk fella: hadde vi *delt* på $\\cos x$ i staden for å faktorisere, ville vi mista to av dei.\n\nDette er mønsteret du vil møte att og att: skriv om med rett formel til alt er uttrykt i same vinkel eller same funksjon, faktoriser, og løys delane kvar for seg med teknikkane frå likningskapitla."
+    },
+    {
+      "id": "r2-4-6-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-4-6-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på forenkling og likningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-4-6-n-quiz5-q0",
+            "task": "Forenkle $\\cos^4 x - \\sin^4 x$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sin 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\cos 2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\cos^2 x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos^4 x - \\sin^4 x = (\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x) = 1 \\cdot \\cos 2x = \\cos 2x$."
+          },
+          {
+            "id": "r2-4-6-n-quiz5-q1",
+            "task": "Kor mange løysingar har $\\sin 2x = \\cos x$ i $[0, 2\\pi)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "2",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "4",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "3",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "6",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\cos x(2\\sin x - 1) = 0$ gir $x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}$ (frå $\\cos x = 0$) og $x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}$ (frå $\\sin x = \\frac{1}{2}$) — fire løysingar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-4-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi byrja med eit tilsynelatande umogleg spørsmål — den eksakte verdien av $\\sin 75°$ — og enda opp med å kartleggje eit heilt slektstre av formlar, alle med same rot. Addisjonsformlane $\\sin(u \\pm v) = \\sin u\\cos v \\pm \\cos u\\sin v$ og $\\cos(u \\pm v) = \\cos u\\cos v \\mp \\sin u\\sin v$ beviste vi geometrisk på einingssirkelen, og dei gav oss straks eksakte verdiar som $\\sin 75° = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ og tangensvarianten $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u\\tan v}$.\n\nMed $v = u$ blei dobbeltvinkelformlane $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$ fødde. Lese baklengs gav dei halvvinkelformlane $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$ og $\\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$, der kvadranten til $\\frac{u}{2}$ avgjer forteiknet ved rotuttrekking. Ved å addere og subtrahere addisjonsformlane fekk vi produktformlane, som gjer produkt til summar, og ved substitusjon sumformlane, som gjer summar til produkt — som $\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$.\n\nTil slutt såg vi formlane i arbeid: identitetar som $\\cos^4 x - \\sin^4 x = \\cos 2x$ fall med eitt formelgrep, og likninga $\\sin 2x = \\cos x$ løyste seg ved omskriving og faktorisering — aldri divisjon som kan slette løysingar. Vel formel etter føremål: addisjon for eksakte verdiar, dobbeltvinkel for forenkling, produktform for integrasjon, sumform for faktorisering. Treet står klart; no er det din tur til å klatre i det."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6418ab4f0225158a",
+    "translatedAt": "2026-06-20T00:36:24.869Z",
+    "model": "claude-code-agent",
+    "strings": 97,
+    "tm": {
+      "1c1cebac4a1ce46c": "Trigonometriske formlar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "eebaeb9eeb87584d": "Ei forteljing om slektstreet til formlane — frå addisjonsformlane på einingssirkelen til dobbeltvinklar, halvvinklar, produkt- og sumformlar, og korleis dei løyser likningar og beviser identitetar.",
+      "af5512da06380fba": "utforske eigenskapar ved trigonometriske funksjonar",
+      "03dbe1b1022e04b7": "bruke trigonometriske identitetar til å forenkle uttrykk",
+      "5e816feea87fedb7": "bevise og bruke addisjonsformlane",
+      "31ed6b83faed4206": "utleie og bruke dobbeltvinkel- og halvvinkelformlar",
+      "4f7d5d5c3c89b6bf": "## Slektstreet til formlane\n\nKva er $\\sin 75°$ — heilt eksakt, utan kalkulator? Ved første augekast verkar det umogleg: $75°$ står ikkje i nokon tabell. Men $75° = 45° + 30°$, og både $45°$ og $30°$ kjenner vi ut og inn. Hadde vi berre hatt ein formel for sinus av ein **sum** av vinklar, ville svaret falle ut av seg sjølv.\n\nDen formelen finst, og han er inngangsporten til dette kapittelet. **Addisjonsformlane** uttrykkjer sinus og cosinus av summar og differansar av vinklar, og dei er stamfedrane i eit heilt slektstre av identitetar: set vi dei to vinklane like, blir **dobbeltvinkelformlane** fødde; løyser vi dei baklengs, får vi **halvvinkelformlane**; adderer og subtraherer vi dei på kryss og tvers, oppstår **produktformlane** og **sumformlane**. Kvar einaste formel i kapittelet kan sporast tilbake til addisjonsformlane — og addisjonsformlane sjølve kan bevisast med rein geometri på einingssirkelen.\n\nKvifor bry seg? Fordi desse formlane er arbeidshestane i all vidare matematikk med trigonometri: dei forenklar uttrykk, løyser likningar som elles ville vore uangripelege, beviser identitetar, og dukkar opp att når du skal derivere og integrere trigonometriske funksjonar. I denne forteljinga følgjer vi slektstreet frå rota og ut i greinene, med bevis og eksempel undervegs — og til slutt ser vi formlane i aksjon på likningar og identitetar.",
+      "f803cb268bea2174": "## Addisjonsformlane — rota av treet\n\nHer er dei fire formlane alt byggjer på. For alle vinklar $u$ og $v$ gjeld\n\n$$\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v, \\qquad \\sin(u - v) = \\sin u \\cos v - \\cos u \\sin v$$\n$$\\cos(u + v) = \\cos u \\cos v - \\sin u \\sin v, \\qquad \\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$$\n\nLegg merke til forteiknsmønsteret: sinus held på teiknet i midten, cosinus snur det.\n\nKvar kjem dei frå? Bevisidéen er vakker. På einingssirkelen markerer vi punkta $P_1 = (\\cos u, \\sin u)$ og $P_2 = (\\cos v, \\sin v)$, samt $P_3 = (\\cos(u-v), \\sin(u-v))$ og $P_4 = (1, 0)$. Buen frå $P_2$ til $P_1$ og buen frå $P_4$ til $P_3$ spenner begge over vinkelen $u - v$, så avstandane $P_1P_2$ og $P_3P_4$ er like. Reknar vi ut begge avstandane med avstandsformelen og bruker $\\sin^2\\theta + \\cos^2\\theta = 1$, står vi att med $\\cos(u - v) = \\cos u\\cos v + \\sin u\\sin v$. Dei tre andre formlane følgjer ved å setje inn $-v$ for $v$ og bruke $\\sin\\theta = \\cos\\left(\\frac{\\pi}{2} - \\theta\\right)$.\n\nNo kan vi svare på opningsspørsmålet: $\\sin 75° = \\sin(45° + 30°) = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$. På same vis er $\\cos 15° = \\cos(45° - 30°) = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ — same verdien, som rimeleg er, sidan $\\cos 15° = \\sin 75°$.\n\nFormlane fungerer òg når vinklane berre er kjende gjennom sinus- og cosinusverdiane sine. Er $\\sin u = \\frac{3}{5}$ og $\\cos v = \\frac{12}{13}$ med begge vinklar i første kvadrant, gir Pytagoras-identiteten $\\cos u = \\frac{4}{5}$ og $\\sin v = \\frac{5}{13}$, og dermed $\\sin(u + v) = \\frac{3}{5} \\cdot \\frac{12}{13} + \\frac{4}{5} \\cdot \\frac{5}{13} = \\frac{56}{65}$.",
+      "644820bf7c925aa0": "Test deg sjølv på addisjonsformlane:",
+      "4097889236a2af26": "placeholder",
+      "03c264af9220c891": "Kva er $\\sin(u + v)$?",
+      "229582f8292a4b15": "$\\sin u \\cos v - \\cos u \\sin v$",
+      "9519767fc8db7974": "$\\sin u \\cos v + \\cos u \\sin v$",
+      "d6875cdf7371cab3": "$\\cos u \\cos v - \\sin u \\sin v$",
+      "5365c82f7438a72b": "$\\sin u \\sin v + \\cos u \\cos v$",
+      "c8a762359cdf3315": "Addisjonsformelen for sinus: $\\sin(u + v) = \\sin u \\cos v + \\cos u \\sin v$.",
+      "757cd3646275cb6d": "Kva er den eksakte verdien av $\\sin 75°$?",
+      "3a8d177e79e0425a": "$\\frac{\\sqrt{6} + \\sqrt{2}}{4}$",
+      "92716f14d4f447c3": "$\\frac{\\sqrt{3} + 1}{2}$",
+      "44933f17ba200652": "$\\frac{\\sqrt{6} - \\sqrt{2}}{4}$",
+      "666804722280ad48": "$\\frac{\\sqrt{2} + \\sqrt{3}}{4}$",
+      "283fd0a73b7dde8d": "$\\sin 75° = \\sin 45°\\cos 30° + \\cos 45°\\sin 30° = \\frac{\\sqrt{6}}{4} + \\frac{\\sqrt{2}}{4} = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$.",
+      "36ef4c7df24a5c7d": "Kva er $\\cos(u - v)$?",
+      "fdcf18d2c7a1b184": "$\\cos u \\sin v - \\sin u \\cos v$",
+      "8f7881a53e36e3ce": "$\\cos u \\cos v + \\sin u \\sin v$",
+      "0ef948fe944e5d53": "For cosinus blir teiknet snutt: $\\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$.",
+      "3772aa827dc648aa": "## Tangens arvar — og dobbeltvinklane blir fødde\n\nTangens får sin eigen addisjonsformel ved å dele sinusformelen på cosinusformelen og forkorte med $\\cos u \\cos v$:\n\n$$\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u \\tan v}, \\qquad \\tan(u - v) = \\frac{\\tan u - \\tan v}{1 + \\tan u \\tan v}$$\n\nHan gir til dømes $\\tan 75° = \\frac{\\tan 45° + \\tan 30°}{1 - \\tan 45°\\tan 30°} = \\frac{1 + \\frac{\\sqrt{3}}{3}}{1 - \\frac{\\sqrt{3}}{3}} = \\frac{3 + \\sqrt{3}}{3 - \\sqrt{3}} = 2 + \\sqrt{3}$ etter rasjonalisering.\n\nNo til den første forgreininga i slektstreet: kva skjer dersom dei to vinklane er **like**? Set $v = u$ i addisjonsformlane, og dobbeltvinkelformlane fell rett ut: $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u$. Cosinusvarianten kan i tillegg skrivast om med Pytagoras-identiteten til to nyttige sysken: $\\cos 2u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$. For tangens gir same grep $\\tan 2u = \\frac{2\\tan u}{1 - \\tan^2 u}$.\n\nLa oss bruke dei. Anta $\\cos u = \\frac{3}{5}$ med $u$ i første kvadrant, slik at $\\sin u = \\frac{4}{5}$. Då er $\\sin 2u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$, og $\\cos 2u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$ — dobbeltvinkelen har kryssa over i andre kvadrant! Tangens følgjer som forholdet: $\\tan 2u = -\\frac{24}{7}$.\n\nDobbeltvinkelformlane er òg framifrå til forenkling. Uttrykket $\\frac{\\sin 2x}{1 + \\cos 2x}$ blir med $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 2\\cos^2 x - 1$ til $\\frac{2\\sin x\\cos x}{2\\cos^2 x} = \\tan x$ — tre etasjar med dobbeltvinklar kollapsar til éin enkel tangens.",
+      "1488c6465d23f45b": "Test deg sjølv på tangens-addisjon og dobbeltvinkelformlar:",
+      "567d325b6105ede9": "Kva er $\\sin 2u$ uttrykt ved $\\sin u$ og $\\cos u$?",
+      "7d868d0e2ba6f4a1": "$\\sin^2 u - \\cos^2 u$",
+      "4d8dafaa9943c600": "$2\\sin u + 2\\cos u$",
+      "c2af55bebb399166": "$2\\sin u\\cos u$",
+      "ae0f906303f5e4ba": "$\\sin u\\cos u$",
+      "c4034855af16cccb": "Set $v = u$ i addisjonsformelen for sinus: $\\sin 2u = \\sin u\\cos u + \\cos u\\sin u = 2\\sin u\\cos u$.",
+      "c3f5d306730cdfbc": "Gitt $\\cos u = \\frac{3}{5}$ og $u$ i første kvadrant. Kva er $\\cos 2u$?",
+      "7cbdd75e5c057169": "$\\frac{7}{25}$",
+      "6b7f77b84003fcd0": "$-\\frac{7}{25}$",
+      "d1b8091dcb18939a": "$\\frac{6}{5}$",
+      "56beeab1beacb162": "$\\frac{9}{25}$",
+      "9016d26b010f2b0b": "$\\sin u = \\frac{4}{5}$, så $\\cos 2u = \\cos^2 u - \\sin^2 u = \\frac{9}{25} - \\frac{16}{25} = -\\frac{7}{25}$.",
+      "c2ab0b8df45c615b": "Med same verdiar: kva er $\\sin 2u$?",
+      "be95d7da1a0666ba": "$\\frac{12}{25}$",
+      "495f72b508ffc9f0": "$\\frac{8}{5}$",
+      "3175b9bc2329ca5f": "$\\frac{24}{25}$",
+      "4c800e2440aa452d": "$\\sin 2u = 2\\sin u\\cos u = 2 \\cdot \\frac{4}{5} \\cdot \\frac{3}{5} = \\frac{24}{25}$.",
+      "9d92c08ccfb63b4c": "## Halvvinkelformlane — slektstreet baklengs\n\nKan vi gå motsett veg — frå ein vinkel til helvta av han? Kva er til dømes $\\cos 22{,}5°$, heilt eksakt? Trikset er å lese dobbeltvinkelformlane baklengs. Start med $\\cos 2\\theta = 1 - 2\\sin^2\\theta$, og la $2\\theta = u$, slik at $\\theta = \\frac{u}{2}$. Då står det $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$, og løyser vi for kvadratet:\n\n$$\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}, \\qquad \\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$$\n\nder den andre kjem frå varianten $\\cos 2\\theta = 2\\cos^2\\theta - 1$. For tangens finst dei elegante bruddfrie formene $\\tan\\frac{u}{2} = \\frac{\\sin u}{1 + \\cos u} = \\frac{1 - \\cos u}{\\sin u}$.\n\nTrekkjer vi kvadratrot, dukkar eit val opp: $\\sin\\frac{u}{2} = \\pm\\sqrt{\\frac{1 - \\cos u}{2}}$ og $\\cos\\frac{u}{2} = \\pm\\sqrt{\\frac{1 + \\cos u}{2}}$, og **forteiknet blir avgjort av kva for kvadrant $\\frac{u}{2}$ ligg i** — det er her dei fleste feila skjer, så tenk alltid gjennom kvadranten før du vel.\n\nNo kan vi svare på spørsmålet: med $u = 45°$ er $\\cos^2 22{,}5° = \\frac{1 + \\cos 45°}{2} = \\frac{2 + \\sqrt{2}}{4}$, og sidan $22{,}5°$ ligg i første kvadrant er $\\cos 22{,}5° = \\frac{\\sqrt{2 + \\sqrt{2}}}{2}$.\n\nEit eksempel med gitte verdiar: dersom $\\cos u = \\frac{4}{5}$ og $0 < u < \\frac{\\pi}{2}$, ligg $\\frac{u}{2}$ trygt i første kvadrant. Då er $\\sin^2\\frac{u}{2} = \\frac{1 - \\frac{4}{5}}{2} = \\frac{1}{10}$, så $\\sin\\frac{u}{2} = \\frac{\\sqrt{10}}{10}$, og $\\cos^2\\frac{u}{2} = \\frac{9}{10}$, så $\\cos\\frac{u}{2} = \\frac{3\\sqrt{10}}{10}$.",
+      "536e476b9affbfdc": "Test deg sjølv på halvvinkelformlane:",
+      "f8507a5ada37d473": "Kva er $\\sin^2\\frac{u}{2}$ uttrykt ved $\\cos u$?",
+      "42310c2f93e223ee": "$\\frac{1 - \\cos u}{2}$",
+      "808df1d007660f08": "$\\frac{1 + \\cos u}{2}$",
+      "2b11aff8c54af6b6": "$\\frac{\\cos u - 1}{2}$",
+      "102fb6d979158522": "$1 - \\cos^2 u$",
+      "50fc294bada626c1": "Frå $\\cos u = 1 - 2\\sin^2\\frac{u}{2}$ følgjer $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$.",
+      "bc45a9156bb27438": "Gitt $\\cos u = \\frac{4}{5}$ med $0 < u < \\frac{\\pi}{2}$. Kva er $\\cos\\frac{u}{2}$?",
+      "6affe8a6de95dbb2": "$\\frac{9}{10}$",
+      "1d06cd8975200eb5": "$\\frac{\\sqrt{10}}{10}$",
+      "617107b3d2c2b44d": "$\\frac{3\\sqrt{10}}{10}$",
+      "2e32018ef09f6fc3": "$\\frac{2}{5}$",
+      "f386f0f4fc0ae832": "$\\cos^2\\frac{u}{2} = \\frac{1 + \\frac{4}{5}}{2} = \\frac{9}{10}$, og i første kvadrant: $\\cos\\frac{u}{2} = \\frac{3}{\\sqrt{10}} = \\frac{3\\sqrt{10}}{10}$.",
+      "138e1ac4d76ffdf9": "## Produkt blir summar — og summar blir produkt\n\nDei ytste greinene i slektstreet veks fram når vi adderer og subtraherer addisjonsformlane parvis. Legg vi saman $\\sin(u+v)$ og $\\sin(u-v)$, kansellerer kryssledda, og vi får **produktformelen** $\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$. Tilsvarande manøvrar med cosinusformlane gir $\\cos u\\cos v = \\frac{1}{2}[\\cos(u-v) + \\cos(u+v)]$ og $\\sin u\\sin v = \\frac{1}{2}[\\cos(u-v) - \\cos(u+v)]$. Produktformlane gjer produkt om til summar — uvurderleg når du seinare skal integrere uttrykk som $\\sin 5x\\cos 3x$, som blir $\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$. På same vis er $\\cos 4x\\cos 2x = \\frac{1}{2}\\cos 2x + \\frac{1}{2}\\cos 6x$.\n\n**Sumformlane** går motsett veg. Substituerer vi $A = u + v$ og $B = u - v$, slik at $u = \\frac{A+B}{2}$ og $v = \\frac{A-B}{2}$, blir produktformlane forvandla til\n\n$$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n$$\\cos A + \\cos B = 2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}, \\qquad \\cos A - \\cos B = -2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$$\n\nNo blir summar til produkt — perfekt for faktorisering og likningsløysing. Til dømes er $\\sin 5x + \\sin 3x = 2\\sin 4x\\cos x$, og $\\cos 2x - \\cos 6x = -2\\sin 4x\\sin(-2x) = 2\\sin 4x\\sin 2x$.\n\nEi tommelfingerregel for val av formel: treng du eksakte verdiar, del vinkelen opp med addisjonsformlane; skal du redusere potensar eller forenkle, prøv dobbeltvinkel; skal du integrere eit produkt, bruk produktformlane; skal du faktorisere ein sum for å løyse ei likning, bruk sumformlane.",
+      "714ca373328d9ab4": "Test deg sjølv på produkt- og sumformlar:",
+      "f1c1f65e04dd1191": "Kva er $\\sin 5x\\cos 3x$ skrive som ein sum?",
+      "e4e3758a3d5f81bd": "$\\frac{1}{2}\\sin 8x - \\frac{1}{2}\\sin 2x$",
+      "200fc817ddad9f93": "$\\frac{1}{2}\\sin 8x + \\frac{1}{2}\\sin 2x$",
+      "848b1e1adf712285": "$\\sin 8x + \\sin 2x$",
+      "fb56f483253de096": "$\\frac{1}{2}\\cos 8x + \\frac{1}{2}\\cos 2x$",
+      "9cc31e0c1f070b87": "$\\sin u\\cos v = \\frac{1}{2}[\\sin(u+v) + \\sin(u-v)]$ med $u = 5x$, $v = 3x$ gir $\\frac{1}{2}[\\sin 8x + \\sin 2x]$.",
+      "df8a7a4af54a44f1": "Kva er sumformelen for $\\sin A + \\sin B$?",
+      "11d9c1448e655c18": "$2\\cos\\frac{A+B}{2}\\cos\\frac{A-B}{2}$",
+      "65d0ce02099e18d8": "$2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$",
+      "91e4476ea8447568": "$-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$",
+      "11a13149b13006c9": "$2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$",
+      "119c1ca432cca517": "$\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$.",
+      "768725601cdd6b46": "Kva er $\\sin 5x + \\sin 3x$ skrive som eit produkt?",
+      "10ecb88d1423a0df": "$2\\sin 4x\\cos x$",
+      "39ae8be13f0b8dc3": "$2\\cos 4x\\sin x$",
+      "d49ee728a9eb4c3d": "$2\\sin 8x\\cos 2x$",
+      "174d82def133ed15": "$\\sin 4x\\cos x$",
+      "b20146771fdf11a8": "$\\sin 5x + \\sin 3x = 2\\sin\\frac{5x+3x}{2}\\cos\\frac{5x-3x}{2} = 2\\sin 4x\\cos x$.",
+      "8a9525831ce10f53": "## Formlane i aksjon\n\nTil slutt skal slektstreet bere frukt. Den første hausten er **identitetsbevis**. Skal du vise at $\\frac{\\sin 2x}{1 - \\cos 2x} = \\cot x$, set du inn $\\sin 2x = 2\\sin x\\cos x$ og $\\cos 2x = 1 - 2\\sin^2 x$: nemnaren blir $2\\sin^2 x$, og brøken blir forkorta til $\\frac{\\cos x}{\\sin x} = \\cot x$. Eller ta $\\cos^4 x - \\sin^4 x$: konjugatsetninga faktoriserer dette som $(\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x)$, der første faktor er $1$ og andre er $\\cos 2x$ — heile uttrykket er rett og slett $\\cos 2x$. Med sumformlane viser du like greitt at $\\frac{\\sin 3x + \\sin x}{\\cos 3x + \\cos x} = \\frac{2\\sin 2x\\cos x}{2\\cos 2x\\cos x} = \\tan 2x$.\n\nDen andre hausten er **likningar** som elles ville stått fast. Sjå på $\\sin 2x = \\cos x$ for $0 \\leq x < 2\\pi$. Utan formlar er dette to ulike funksjonar; med dobbeltvinkelformelen blir det $2\\sin x\\cos x = \\cos x$, og flyttar vi alt til venstre og faktoriserer: $\\cos x(2\\sin x - 1) = 0$. Eit produkt er null når éin faktor er null, så anten $\\cos x = 0$, som gir $x = \\frac{\\pi}{2}$ og $\\frac{3\\pi}{2}$, eller $\\sin x = \\frac{1}{2}$, som gir $x = \\frac{\\pi}{6}$ og $\\frac{5\\pi}{6}$. Fire løysingar — og merk fella: hadde vi *delt* på $\\cos x$ i staden for å faktorisere, ville vi mista to av dei.\n\nDette er mønsteret du vil møte att og att: skriv om med rett formel til alt er uttrykt i same vinkel eller same funksjon, faktoriser, og løys delane kvar for seg med teknikkane frå likningskapitla.",
+      "1168bd3ffbe40010": "Test deg sjølv på forenkling og likningar:",
+      "b6a21f645044f90f": "Forenkle $\\cos^4 x - \\sin^4 x$.",
+      "25e8fba1b9f7df5b": "$\\sin 2x$",
+      "cd790c06460e12cc": "$\\cos 2x$",
+      "f751559f04212d82": "$\\cos^2 x$",
+      "712827a66b6ab177": "$\\cos^4 x - \\sin^4 x = (\\cos^2 x + \\sin^2 x)(\\cos^2 x - \\sin^2 x) = 1 \\cdot \\cos 2x = \\cos 2x$.",
+      "3fbcfcd69f8595a0": "Kor mange løysingar har $\\sin 2x = \\cos x$ i $[0, 2\\pi)$?",
+      "de8a752d3eeed97e": "$\\cos x(2\\sin x - 1) = 0$ gir $x = \\frac{\\pi}{2}, \\frac{3\\pi}{2}$ (frå $\\cos x = 0$) og $x = \\frac{\\pi}{6}, \\frac{5\\pi}{6}$ (frå $\\sin x = \\frac{1}{2}$) — fire løysingar.",
+      "e844890f2e9a5ee2": "## Oppsummering\n\nVi byrja med eit tilsynelatande umogleg spørsmål — den eksakte verdien av $\\sin 75°$ — og enda opp med å kartleggje eit heilt slektstre av formlar, alle med same rot. Addisjonsformlane $\\sin(u \\pm v) = \\sin u\\cos v \\pm \\cos u\\sin v$ og $\\cos(u \\pm v) = \\cos u\\cos v \\mp \\sin u\\sin v$ beviste vi geometrisk på einingssirkelen, og dei gav oss straks eksakte verdiar som $\\sin 75° = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$ og tangensvarianten $\\tan(u + v) = \\frac{\\tan u + \\tan v}{1 - \\tan u\\tan v}$.\n\nMed $v = u$ blei dobbeltvinkelformlane $\\sin 2u = 2\\sin u\\cos u$ og $\\cos 2u = \\cos^2 u - \\sin^2 u = 2\\cos^2 u - 1 = 1 - 2\\sin^2 u$ fødde. Lese baklengs gav dei halvvinkelformlane $\\sin^2\\frac{u}{2} = \\frac{1 - \\cos u}{2}$ og $\\cos^2\\frac{u}{2} = \\frac{1 + \\cos u}{2}$, der kvadranten til $\\frac{u}{2}$ avgjer forteiknet ved rotuttrekking. Ved å addere og subtrahere addisjonsformlane fekk vi produktformlane, som gjer produkt til summar, og ved substitusjon sumformlane, som gjer summar til produkt — som $\\sin A + \\sin B = 2\\sin\\frac{A+B}{2}\\cos\\frac{A-B}{2}$.\n\nTil slutt såg vi formlane i arbeid: identitetar som $\\cos^4 x - \\sin^4 x = \\cos 2x$ fall med eitt formelgrep, og likninga $\\sin 2x = \\cos x$ løyste seg ved omskriving og faktorisering — aldri divisjon som kan slette løysingar. Vel formel etter føremål: addisjon for eksakte verdiar, dobbeltvinkel for forenkling, produktform for integrasjon, sumform for faktorisering. Treet står klart; no er det din tur til å klatre i det."
+    }
+  }
+}

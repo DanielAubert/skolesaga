@@ -1,1 +1,521 @@
-{"id":"r1-1-4-narrativ","courseId":"r1","chapterNumber":"1.4","title":"Rasjonale uttrykk","subtitle":"Narrativ versjon","description":"Ei forteljing om brøkar med polynom -- korleis formlane i fysikken for linser og parallellkopla motstandar leier til algebraiske brøkar, og korleis faktorisering temjer dei.","estimatedMinutes":40,"competenceGoals":["forkorte rasjonale uttrykk ved faktorisering","finne fellesnemnar for algebraiske brøkar","addere og subtrahere rasjonale uttrykk","multiplisere og dividere rasjonale uttrykk","bestemme definisjonsmengda til rasjonale uttrykk"],"linkedChapterId":"r1-1-4","content":[{"id":"r1-1-4-n-intro","type":"text","content":"## Favorittbrøkane til fysikken\n\nKopla to motstandar $R_1$ og $R_2$ i parallell i ein straumkrins, og den samla motstanden blir\n\n$$R = \\frac{R_1 R_2}{R_1 + R_2}$$\n\nEin brøk der både teljar og nemnar er algebraiske uttrykk. Same forma dukkar opp i optikken, der linseformelen $\\frac{1}{f} = \\frac{1}{a} + \\frac{1}{b}$ knyter brennvidde til avstandar -- løyser du han for $f$, får du igjen ein brøk av polynom. Reaksjonsratene i kjemien, gjennomsnittskostnadene i økonomien, harmonisk gjennomsnitt i statistikk: naturvitskapen snakkar flytande «brøk med polynom».\n\nSlike uttrykk vert kalla **rasjonale uttrykk** -- ordet kjem frå *ratio*, forhold, akkurat som dei rasjonale tala er forholdstal. Og her er den gode nyhenda i kapittelet: alt du kan om vanleg brøkrekning gjeld framleis. Du forkortar ved å dele ut felles faktorar. Du finn fellesnemnar før du adderer. Du dividerer ved å gange med den omvende brøken. Det einaste nye er at faktorane ikkje lenger er primtal som $2$ og $3$, men polynomfaktorar som $(x-2)$ og $(x+3)$ -- og dei lærte du å finne i kapittel 1.1.\n\nÉi ting krev likevel skjerpa merksemd: ein nemnar kan bli null. Brøken $\\frac{x+3}{x-2}$ er heilt frisk for alle $x$ -- bortsett frå $x = 2$, der han bryt saman. Difor startar all seriøs handsaming av eit rasjonalt uttrykk med spørsmålet: *for kva $x$ gir dette meining?* Det er definisjonsmengda, og det er der vi byrjar."},{"id":"r1-1-4-n-section1","type":"text","content":"## Definisjonsmengda -- kvar uttrykket lever\n\nEit **rasjonalt uttrykk** har forma $\\frac{P(x)}{Q(x)}$ der $P$ og $Q$ er polynom. **Definisjonsmengda** er alle $x$-verdiar der nemnaren ikkje er null:\n\n$$D = \\{x \\in \\mathbb{R} \\mid Q(x) \\neq 0\\}$$\n\nÅ finne henne er ei nullpunktsjakt i nemnaren -- med verktøya frå kapittel 1.1. For $\\frac{x+3}{x-2}$ er nemnaren null berre når $x = 2$, så $D = \\mathbb{R} \\setminus \\{2\\}$. For $\\frac{x^2}{x^2-4}$ faktoriserer vi nemnaren med konjugatsetninga: $x^2 - 4 = (x-2)(x+2)$, som er null for $x = \\pm 2$, så begge må utelukkast. Og nokre gonger er det ingenting å utelukke: i $\\frac{1}{x^2+1}$ er nemnaren alltid minst $1$, så $D = \\mathbb{R}$.\n\nKvifor er dette så viktig? Fordi resten av kapittelet handlar om å *omforme* uttrykk -- forkorte, utvide, slå saman -- og to uttrykk er berre like der begge er definerte. Når vi seinare forkortar $\\frac{x(x+1)}{x}$ til $x + 1$, gjeld likskapen berre for $x \\neq 0$. Det opphavlege uttrykket har eit «hol» i $x = 0$ som det forkorta ikkje har, og det holet må vi bere med oss i notasjonen.\n\nTenk på definisjonsmengda som passet til uttrykket: før du tek eit rasjonalt uttrykk med på reise gjennom ei utrekning, sjekkar du kvar det har lov til å vere. I likningar blir dette heilt avgjerande -- ei løysing som gjer ein nemnar til null, er inga løysing."},{"id":"r1-1-4-n-quiz1","type":"exercise","exercise":{"id":"r1-1-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på definisjonsmengd:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-4-n-quiz1-q0","task":"Kva er definisjonsmengda til $\\frac{x+3}{x-2}$?","options":[{"id":"a","text":"$\\mathbb{R} \\setminus \\{-3\\}$","isCorrect":false},{"id":"b","text":"$\\mathbb{R} \\setminus \\{2\\}$","isCorrect":true},{"id":"c","text":"$\\mathbb{R} \\setminus \\{-2\\}$","isCorrect":false},{"id":"d","text":"$\\mathbb{R}$","isCorrect":false}],"solution":"Nemnaren er null når $x - 2 = 0$, altså $x = 2$. Denne verdien må utelukkast."},{"id":"r1-1-4-n-quiz1-q1","task":"Kva $x$-verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2}{x^2-4}$?","options":[{"id":"a","text":"Berre $x = 2$","isCorrect":false},{"id":"b","text":"Berre $x = 4$","isCorrect":false},{"id":"c","text":"$x = 2$ og $x = -2$","isCorrect":true},{"id":"d","text":"$x = 0$","isCorrect":false}],"solution":"$x^2 - 4 = (x-2)(x+2) = 0$ gir $x = 2$ eller $x = -2$. Begge gir null i nemnaren."},{"id":"r1-1-4-n-quiz1-q2","task":"Kva er definisjonsmengda til $\\frac{1}{x^2+1}$?","options":[{"id":"a","text":"Heile $\\mathbb{R}$","isCorrect":true},{"id":"b","text":"$\\mathbb{R} \\setminus \\{-1\\}$","isCorrect":false},{"id":"c","text":"$\\mathbb{R} \\setminus \\{-1, 1\\}$","isCorrect":false},{"id":"d","text":"$x > 0$","isCorrect":false}],"solution":"$x^2 + 1 \\geq 1 > 0$ for alle reelle $x$, så nemnaren blir aldri null. $D = \\mathbb{R}$."},{"id":"r1-1-4-n-quiz1-q3","task":"Kva verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2-9}{x^2-x}$?","options":[{"id":"a","text":"$x = 3$ og $x = -3$","isCorrect":false},{"id":"b","text":"Berre $x = 1$","isCorrect":false},{"id":"c","text":"Berre $x = 0$","isCorrect":false},{"id":"d","text":"$x = 0$ og $x = 1$","isCorrect":true}],"solution":"Nemnaren $x^2 - x = x(x-1)$ er null for $x = 0$ og $x = 1$. Nullpunkta til teljaren spelar inga rolle for definisjonsmengda."}]}},{"id":"r1-1-4-n-section2","type":"text","content":"## Forkorting, multiplikasjon og divisjon\n\nKorleis forkortar du $\\frac{12}{18}$? Du faktoriserer: $\\frac{2 \\cdot 2 \\cdot 3}{2 \\cdot 3 \\cdot 3}$, og stryk felles faktorar til $\\frac{2}{3}$. Rasjonale uttrykk vert forkorta på nøyaktig same måte: **faktoriser teljar og nemnar, og del ut felles faktorar.**\n\n$$\\frac{x^2-4}{x^2+4x+4} = \\frac{(x-2)(x+2)}{(x+2)^2} = \\frac{x-2}{x+2}, \\quad x \\neq -2$$\n\nHer gjorde konjugatsetninga og første kvadratsetning jobben. Tilsvarande blir $\\frac{x^2-5x+6}{x^2-4x+4} = \\frac{(x-2)(x-3)}{(x-2)^2} = \\frac{x-3}{x-2}$ for $x \\neq 2$.\n\nOg no, den vanlegaste feilen i heile kapittelet: **du kan berre forkorte faktorar, aldri enkeltledd.** Freistinga til å stryke $x$-ane i $\\frac{x^2+1}{x}$ og få $x + 1$ er stor -- og heilt gal. Teljaren $x^2 + 1$ er ein *sum*, ikkje eit produkt med $x$ som faktor. Test sjølv med $x = 1$: $\\frac{1+1}{1} = 2$, medan $x + 1 = 2$... prøv heller $x = 2$: $\\frac{4+1}{2} = 2{,}5$, men $x + 1 = 3$. Ulike! Derimot er $\\frac{x(x+1)}{x} = x + 1$ heilt rett for $x \\neq 0$, fordi $x$ der står som faktor.\n\n**Multiplikasjon** er rett fram: teljar gonger teljar, nemnar gonger nemnar. Men ikkje gang ut i blinde -- faktoriser og forkort *først*:\n\n$$\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x} = \\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)} = x - 1$$\n\nfor $x \\neq 0, -1, -3$. Alt kollapsa fordi faktorane fekk møte kvarandre. **Divisjon** følgjer brøkregelen du kan frå før: å dele på ein brøk er å gange med den omvende, $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$."},{"id":"r1-1-4-n-quiz2","type":"exercise","exercise":{"id":"r1-1-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på forkorting, multiplikasjon og divisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-4-n-quiz2-q0","task":"Forkort $\\frac{x^2-4}{x^2+4x+4}$.","options":[{"id":"a","text":"$\\frac{x-2}{x+2}$","isCorrect":true},{"id":"b","text":"$\\frac{x+2}{x-2}$","isCorrect":false},{"id":"c","text":"$\\frac{-4}{4x+4}$","isCorrect":false},{"id":"d","text":"$x - 1$","isCorrect":false}],"solution":"Faktoriser: $\\frac{(x-2)(x+2)}{(x+2)^2}$. Del ut felles faktor $(x+2)$: $\\frac{x-2}{x+2}$ for $x \\neq -2$."},{"id":"r1-1-4-n-quiz2-q1","task":"Kva påstand er rett?","options":[{"id":"a","text":"$\\frac{x^2+1}{x} = x + 1$","isCorrect":false},{"id":"b","text":"$\\frac{x+2}{2} = x$","isCorrect":false},{"id":"c","text":"$\\frac{x(x+1)}{x} = x + 1$ for $x \\neq 0$","isCorrect":true},{"id":"d","text":"$\\frac{x^2+x}{x^2} = 1 + x$","isCorrect":false}],"solution":"Vi kan berre forkorte faktorar. I $\\frac{x(x+1)}{x}$ er $x$ ein faktor i teljaren og kan delast ut. I $\\frac{x^2+1}{x}$ er teljaren ein sum -- der kan ingenting forkortast."},{"id":"r1-1-4-n-quiz2-q2","task":"Rekn ut og forkort: $\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x}$","options":[{"id":"a","text":"$\\frac{x+1}{x-1}$","isCorrect":false},{"id":"b","text":"$x^2 - 1$","isCorrect":false},{"id":"c","text":"$\\frac{1}{x-1}$","isCorrect":false},{"id":"d","text":"$x - 1$","isCorrect":true}],"solution":"Faktoriser alt: $\\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)}$. Faktorane $(x+1)$, $(x+3)$ og $x$ vert forkorta, og igjen står $x - 1$."},{"id":"r1-1-4-n-quiz2-q3","task":"Korleis dividerer du $\\frac{P(x)}{Q(x)} \\div \\frac{R(x)}{S(x)}$?","options":[{"id":"a","text":"$\\frac{P(x)}{Q(x)} \\cdot \\frac{S(x)}{R(x)}$","isCorrect":true},{"id":"b","text":"$\\frac{P(x)}{Q(x)} \\cdot \\frac{R(x)}{S(x)}$","isCorrect":false},{"id":"c","text":"$\\frac{P(x) - R(x)}{Q(x) - S(x)}$","isCorrect":false},{"id":"d","text":"$\\frac{P(x) \\cdot R(x)}{Q(x) \\cdot S(x)}$","isCorrect":false}],"solution":"Å dele på ein brøk er å gange med den omvende: $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$."}]}},{"id":"r1-1-4-n-section3","type":"text","content":"## Fellesnemnar: addisjon, subtraksjon og likningar\n\nFor å leggje saman $\\frac{1}{6} + \\frac{1}{4}$ treng du fellesnemnaren $12$. For algebraiske brøkar er oppskrifta identisk: faktoriser nemnarane, finn minste felles nemnar, utvid kvar brøk, og slå saman teljarane.\n\nTa $\\frac{2}{x-1} + \\frac{3}{x+2}$. Nemnarane har ingen felles faktorar, så fellesnemnaren er produktet $(x-1)(x+2)$:\n\n$$\\frac{2(x+2) + 3(x-1)}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$$\n\nFaktoriseringa løner seg når nemnarane overlappar. I $\\frac{x}{x^2-4} - \\frac{1}{x+2}$ avslører konjugatsetninga at $x^2 - 4 = (x-2)(x+2)$ -- den første nemnaren *inneheld* allereie den andre. Fellesnemnaren er berre $(x-2)(x+2)$, og vi får $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$. Hugs parentesen rundt det du trekkjer frå: minusteiknet rammar heile teljaren.\n\n**Samansette brøkar** -- brøkar i brøken -- vert rydda med eitt grep: gang teljar og nemnar med fellesnemnaren til småbrøkane. For $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$ gangar vi oppe og nede med $xy$ og får $\\frac{y+x}{y-x}$. Elegant, ikkje sant?\n\nTil slutt **likningar** med rasjonale uttrykk, som $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$. Vi gangar begge sider med fellesnemnaren $(x-1)(x+1)$, og alle brøkane forsvinn: $2(x+1) + 3(x-1) = 5$, altså $5x - 1 = 5$ og $x = \\frac{6}{5}$. Men no melder definisjonsmengda seg: hadde svaret blitt $x = 1$ eller $x = -1$, måtte vi forkasta det, for då er den opphavlege likninga full av nullar i nemnarane. Her er $\\frac{6}{5}$ trygt -- løysinga vert godkjend."},{"id":"r1-1-4-n-quiz3","type":"exercise","exercise":{"id":"r1-1-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på addisjon, subtraksjon og likningar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-1-4-n-quiz3-q0","task":"Rekn ut: $\\frac{2}{x-1} + \\frac{3}{x+2}$","options":[{"id":"a","text":"$\\frac{5}{(x-1)(x+2)}$","isCorrect":false},{"id":"b","text":"$\\frac{5x+1}{(x-1)(x+2)}$","isCorrect":true},{"id":"c","text":"$\\frac{5}{2x+1}$","isCorrect":false},{"id":"d","text":"$\\frac{6}{(x-1)(x+2)}$","isCorrect":false}],"solution":"Fellesnemnar $(x-1)(x+2)$: $\\frac{2(x+2)+3(x-1)}{(x-1)(x+2)} = \\frac{2x+4+3x-3}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$."},{"id":"r1-1-4-n-quiz3-q1","task":"Rekn ut: $\\frac{x}{x^2-4} - \\frac{1}{x+2}$","options":[{"id":"a","text":"$\\frac{x-1}{x^2-4-x-2}$","isCorrect":false},{"id":"b","text":"$\\frac{-2}{(x-2)(x+2)}$","isCorrect":false},{"id":"c","text":"$\\frac{2}{(x-2)(x+2)}$","isCorrect":true},{"id":"d","text":"$\\frac{x-1}{x-2}$","isCorrect":false}],"solution":"$x^2-4 = (x-2)(x+2)$ er fellesnemnar: $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$."},{"id":"r1-1-4-n-quiz3-q2","task":"Forenkle den samansette brøken $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$.","options":[{"id":"a","text":"$\\frac{x+y}{y-x}$","isCorrect":true},{"id":"b","text":"$\\frac{x-y}{x+y}$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$\\frac{xy}{x-y}$","isCorrect":false}],"solution":"Gang teljar og nemnar med $xy$: $\\frac{y+x}{y-x} = \\frac{x+y}{y-x}$."},{"id":"r1-1-4-n-quiz3-q3","task":"Løys likninga $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$.","options":[{"id":"a","text":"$x = 1$","isCorrect":false},{"id":"b","text":"$x = -1$","isCorrect":false},{"id":"c","text":"$x = 5$","isCorrect":false},{"id":"d","text":"$x = \\frac{6}{5}$","isCorrect":true}],"solution":"Gang med fellesnemnaren $(x-1)(x+1)$: $2(x+1) + 3(x-1) = 5$, så $5x - 1 = 5$ og $x = \\frac{6}{5}$. Verdien gir ikkje null i nokon nemnar, så han er gyldig."}]}},{"id":"r1-1-4-n-summary","type":"text","content":"## Forteljinga i eit nøtteskal\n\nParallellkopla motstandar og linseformlar viste oss at naturvitskapen er full av **rasjonale uttrykk** $\\frac{P(x)}{Q(x)}$ -- brøkar av polynom. Og heile kapittelet kvilte på éi roande sanning: reglane er dei same som for talbrøkar, berre med polynomfaktorar i hovudrollene.\n\nFørst kjem alltid **definisjonsmengda**: alle $x$ der nemnaren ikkje er null. Henne finn du ved å faktorisere nemnaren og lokalisere nullpunkta -- og ho følgjer uttrykket gjennom alle omformingar.\n\n**Forkorting** er faktorisering pluss utdeling av felles faktorar, og den viktigaste åtvaringa i kapittelet lyder: berre *faktorar* kan forkortast, aldri enkeltledd. $\\frac{x^2+1}{x}$ lèt seg ikkje forenkle; $\\frac{x(x+1)}{x}$ blir $x+1$.\n\n**Multiplikasjon** er teljar gonger teljar og nemnar gonger nemnar -- men faktoriser og forkort før du gangar ut, så kollapsar uttrykka pent. **Divisjon** er multiplikasjon med den omvende brøken. **Addisjon og subtraksjon** krev fellesnemnar, som du finn ved å faktorisere nemnarane; hugs parentes når du subtraherer ein heil teljar. Samansette brøkar vert rydda ved å gange oppe og nede med fellesnemnaren til småbrøkane.\n\nI **likningar** gangar vi bort alle nemnarane med fellesnemnaren -- men då kan falske løysingar snike seg inn, så kvar kandidat vert sjekka mot definisjonsmengda til den opphavlege likninga.\n\nMed polynomfaktorisering frå 1.1 og brøkhandverket herifrå har du algebraen som trengst når dei rasjonale *funksjonane* med asymptotar og grenseverdiar ventar i kapittel 2 og 3."}],"exercises":[],"_meta":{"sourceHash":"0645debcd1ebcf0f","translatedAt":"2026-06-19T22:12:18.997Z","model":"claude-code-agent","strings":90,"tm":{"2fb457cb5786db8a":"Rasjonale uttrykk","b195b06d1ed59702":"Narrativ versjon","8b54654c5023b78f":"Ei forteljing om brøkar med polynom -- korleis formlane i fysikken for linser og parallellkopla motstandar leier til algebraiske brøkar, og korleis faktorisering temjer dei.","32a95690316dd072":"forkorte rasjonale uttrykk ved faktorisering","358ccf19940684cd":"finne fellesnemnar for algebraiske brøkar","fded772263e299d3":"addere og subtrahere rasjonale uttrykk","33426399f87a016f":"multiplisere og dividere rasjonale uttrykk","a2bfcbe9b2a87a2d":"bestemme definisjonsmengda til rasjonale uttrykk","0c75300929064975":"## Favorittbrøkane til fysikken\n\nKopla to motstandar $R_1$ og $R_2$ i parallell i ein straumkrins, og den samla motstanden blir\n\n$$R = \\frac{R_1 R_2}{R_1 + R_2}$$\n\nEin brøk der både teljar og nemnar er algebraiske uttrykk. Same forma dukkar opp i optikken, der linseformelen $\\frac{1}{f} = \\frac{1}{a} + \\frac{1}{b}$ knyter brennvidde til avstandar -- løyser du han for $f$, får du igjen ein brøk av polynom. Reaksjonsratene i kjemien, gjennomsnittskostnadene i økonomien, harmonisk gjennomsnitt i statistikk: naturvitskapen snakkar flytande «brøk med polynom».\n\nSlike uttrykk vert kalla **rasjonale uttrykk** -- ordet kjem frå *ratio*, forhold, akkurat som dei rasjonale tala er forholdstal. Og her er den gode nyhenda i kapittelet: alt du kan om vanleg brøkrekning gjeld framleis. Du forkortar ved å dele ut felles faktorar. Du finn fellesnemnar før du adderer. Du dividerer ved å gange med den omvende brøken. Det einaste nye er at faktorane ikkje lenger er primtal som $2$ og $3$, men polynomfaktorar som $(x-2)$ og $(x+3)$ -- og dei lærte du å finne i kapittel 1.1.\n\nÉi ting krev likevel skjerpa merksemd: ein nemnar kan bli null. Brøken $\\frac{x+3}{x-2}$ er heilt frisk for alle $x$ -- bortsett frå $x = 2$, der han bryt saman. Difor startar all seriøs handsaming av eit rasjonalt uttrykk med spørsmålet: *for kva $x$ gir dette meining?* Det er definisjonsmengda, og det er der vi byrjar.","c86d8014ef105848":"## Definisjonsmengda -- kvar uttrykket lever\n\nEit **rasjonalt uttrykk** har forma $\\frac{P(x)}{Q(x)}$ der $P$ og $Q$ er polynom. **Definisjonsmengda** er alle $x$-verdiar der nemnaren ikkje er null:\n\n$$D = \\{x \\in \\mathbb{R} \\mid Q(x) \\neq 0\\}$$\n\nÅ finne henne er ei nullpunktsjakt i nemnaren -- med verktøya frå kapittel 1.1. For $\\frac{x+3}{x-2}$ er nemnaren null berre når $x = 2$, så $D = \\mathbb{R} \\setminus \\{2\\}$. For $\\frac{x^2}{x^2-4}$ faktoriserer vi nemnaren med konjugatsetninga: $x^2 - 4 = (x-2)(x+2)$, som er null for $x = \\pm 2$, så begge må utelukkast. Og nokre gonger er det ingenting å utelukke: i $\\frac{1}{x^2+1}$ er nemnaren alltid minst $1$, så $D = \\mathbb{R}$.\n\nKvifor er dette så viktig? Fordi resten av kapittelet handlar om å *omforme* uttrykk -- forkorte, utvide, slå saman -- og to uttrykk er berre like der begge er definerte. Når vi seinare forkortar $\\frac{x(x+1)}{x}$ til $x + 1$, gjeld likskapen berre for $x \\neq 0$. Det opphavlege uttrykket har eit «hol» i $x = 0$ som det forkorta ikkje har, og det holet må vi bere med oss i notasjonen.\n\nTenk på definisjonsmengda som passet til uttrykket: før du tek eit rasjonalt uttrykk med på reise gjennom ei utrekning, sjekkar du kvar det har lov til å vere. I likningar blir dette heilt avgjerande -- ei løysing som gjer ein nemnar til null, er inga løysing.","decb0bb1ba762162":"Test deg sjølv på definisjonsmengd:","4097889236a2af26":"placeholder","adf6653a3779ec16":"Kva er definisjonsmengda til $\\frac{x+3}{x-2}$?","7ab5563ce371a4b8":"$\\mathbb{R} \\setminus \\{-3\\}$","65913e3653cbedb8":"$\\mathbb{R} \\setminus \\{2\\}$","c35fa59642a529f3":"$\\mathbb{R} \\setminus \\{-2\\}$","48ff44047ef8ff67":"$\\mathbb{R}$","79483e4fe3d69e64":"Nemnaren er null når $x - 2 = 0$, altså $x = 2$. Denne verdien må utelukkast.","cdcabb89a6fcd629":"Kva $x$-verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2}{x^2-4}$?","8078e1a733151e98":"Berre $x = 2$","fb66b2b705a36adc":"Berre $x = 4$","16478990d21d8d25":"$x = 2$ og $x = -2$","25efa207f9f60f58":"$x = 0$","784ea0258fd2dee9":"$x^2 - 4 = (x-2)(x+2) = 0$ gir $x = 2$ eller $x = -2$. Begge gir null i nemnaren.","aa10477e6629f4fd":"Kva er definisjonsmengda til $\\frac{1}{x^2+1}$?","9ae069ee8975e15c":"Heile $\\mathbb{R}$","dc03e2621b42e92b":"$\\mathbb{R} \\setminus \\{-1\\}$","ee89c69f87eab7c2":"$\\mathbb{R} \\setminus \\{-1, 1\\}$","fb7aee4e0fddd21c":"$x > 0$","acb2b411c2079828":"$x^2 + 1 \\geq 1 > 0$ for alle reelle $x$, så nemnaren blir aldri null. $D = \\mathbb{R}$.","87067da941fd379e":"Kva verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2-9}{x^2-x}$?","d429cc5fa5cf28d8":"$x = 3$ og $x = -3$","6078cacefd0c867d":"Berre $x = 1$","e049567458489c26":"Berre $x = 0$","391c52a84e60f1d7":"$x = 0$ og $x = 1$","e4b910b7748dc767":"Nemnaren $x^2 - x = x(x-1)$ er null for $x = 0$ og $x = 1$. Nullpunkta til teljaren spelar inga rolle for definisjonsmengda.","ff7306e7811ac968":"## Forkorting, multiplikasjon og divisjon\n\nKorleis forkortar du $\\frac{12}{18}$? Du faktoriserer: $\\frac{2 \\cdot 2 \\cdot 3}{2 \\cdot 3 \\cdot 3}$, og stryk felles faktorar til $\\frac{2}{3}$. Rasjonale uttrykk vert forkorta på nøyaktig same måte: **faktoriser teljar og nemnar, og del ut felles faktorar.**\n\n$$\\frac{x^2-4}{x^2+4x+4} = \\frac{(x-2)(x+2)}{(x+2)^2} = \\frac{x-2}{x+2}, \\quad x \\neq -2$$\n\nHer gjorde konjugatsetninga og første kvadratsetning jobben. Tilsvarande blir $\\frac{x^2-5x+6}{x^2-4x+4} = \\frac{(x-2)(x-3)}{(x-2)^2} = \\frac{x-3}{x-2}$ for $x \\neq 2$.\n\nOg no, den vanlegaste feilen i heile kapittelet: **du kan berre forkorte faktorar, aldri enkeltledd.** Freistinga til å stryke $x$-ane i $\\frac{x^2+1}{x}$ og få $x + 1$ er stor -- og heilt gal. Teljaren $x^2 + 1$ er ein *sum*, ikkje eit produkt med $x$ som faktor. Test sjølv med $x = 1$: $\\frac{1+1}{1} = 2$, medan $x + 1 = 2$... prøv heller $x = 2$: $\\frac{4+1}{2} = 2{,}5$, men $x + 1 = 3$. Ulike! Derimot er $\\frac{x(x+1)}{x} = x + 1$ heilt rett for $x \\neq 0$, fordi $x$ der står som faktor.\n\n**Multiplikasjon** er rett fram: teljar gonger teljar, nemnar gonger nemnar. Men ikkje gang ut i blinde -- faktoriser og forkort *først*:\n\n$$\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x} = \\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)} = x - 1$$\n\nfor $x \\neq 0, -1, -3$. Alt kollapsa fordi faktorane fekk møte kvarandre. **Divisjon** følgjer brøkregelen du kan frå før: å dele på ein brøk er å gange med den omvende, $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$.","376ac9a467898b3b":"Test deg sjølv på forkorting, multiplikasjon og divisjon:","a1aa64c86bec9b8b":"Forkort $\\frac{x^2-4}{x^2+4x+4}$.","56cd4e1f2a977d71":"$\\frac{x-2}{x+2}$","cd5edeeac8026ca1":"$\\frac{x+2}{x-2}$","0f3a18271650c673":"$\\frac{-4}{4x+4}$","bf4ace9f16ab58ea":"$x - 1$","c22a66c825f17bd0":"Faktoriser: $\\frac{(x-2)(x+2)}{(x+2)^2}$. Del ut felles faktor $(x+2)$: $\\frac{x-2}{x+2}$ for $x \\neq -2$.","c940637debfc80d3":"Kva påstand er rett?","d3ba3fb6fc4c6029":"$\\frac{x^2+1}{x} = x + 1$","d12528dd9c633621":"$\\frac{x+2}{2} = x$","1ead8ad75a3a2d56":"$\\frac{x(x+1)}{x} = x + 1$ for $x \\neq 0$","95b413dfb5009419":"$\\frac{x^2+x}{x^2} = 1 + x$","b7f14bf53ecfcc81":"Vi kan berre forkorte faktorar. I $\\frac{x(x+1)}{x}$ er $x$ ein faktor i teljaren og kan delast ut. I $\\frac{x^2+1}{x}$ er teljaren ein sum -- der kan ingenting forkortast.","ef6710a2c7bb0ee4":"Rekn ut og forkort: $\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x}$","d65ff0dea34e3b00":"$\\frac{x+1}{x-1}$","bfe0b48ac841a027":"$x^2 - 1$","48254e38dadce115":"$\\frac{1}{x-1}$","2f3d198fa89eae8b":"Faktoriser alt: $\\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)}$. Faktorane $(x+1)$, $(x+3)$ og $x$ vert forkorta, og igjen står $x - 1$.","776cff74c2c522db":"Korleis dividerer du $\\frac{P(x)}{Q(x)} \\div \\frac{R(x)}{S(x)}$?","d17711a8f6959b36":"$\\frac{P(x)}{Q(x)} \\cdot \\frac{S(x)}{R(x)}$","d14ada6a77ac34bb":"$\\frac{P(x)}{Q(x)} \\cdot \\frac{R(x)}{S(x)}$","bc662a0650459439":"$\\frac{P(x) - R(x)}{Q(x) - S(x)}$","4a0db7f3a3df424d":"$\\frac{P(x) \\cdot R(x)}{Q(x) \\cdot S(x)}$","ccd84b1101cf4a4b":"Å dele på ein brøk er å gange med den omvende: $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$.","df5f97490ce819da":"## Fellesnemnar: addisjon, subtraksjon og likningar\n\nFor å leggje saman $\\frac{1}{6} + \\frac{1}{4}$ treng du fellesnemnaren $12$. For algebraiske brøkar er oppskrifta identisk: faktoriser nemnarane, finn minste felles nemnar, utvid kvar brøk, og slå saman teljarane.\n\nTa $\\frac{2}{x-1} + \\frac{3}{x+2}$. Nemnarane har ingen felles faktorar, så fellesnemnaren er produktet $(x-1)(x+2)$:\n\n$$\\frac{2(x+2) + 3(x-1)}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$$\n\nFaktoriseringa løner seg når nemnarane overlappar. I $\\frac{x}{x^2-4} - \\frac{1}{x+2}$ avslører konjugatsetninga at $x^2 - 4 = (x-2)(x+2)$ -- den første nemnaren *inneheld* allereie den andre. Fellesnemnaren er berre $(x-2)(x+2)$, og vi får $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$. Hugs parentesen rundt det du trekkjer frå: minusteiknet rammar heile teljaren.\n\n**Samansette brøkar** -- brøkar i brøken -- vert rydda med eitt grep: gang teljar og nemnar med fellesnemnaren til småbrøkane. For $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$ gangar vi oppe og nede med $xy$ og får $\\frac{y+x}{y-x}$. Elegant, ikkje sant?\n\nTil slutt **likningar** med rasjonale uttrykk, som $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$. Vi gangar begge sider med fellesnemnaren $(x-1)(x+1)$, og alle brøkane forsvinn: $2(x+1) + 3(x-1) = 5$, altså $5x - 1 = 5$ og $x = \\frac{6}{5}$. Men no melder definisjonsmengda seg: hadde svaret blitt $x = 1$ eller $x = -1$, måtte vi forkasta det, for då er den opphavlege likninga full av nullar i nemnarane. Her er $\\frac{6}{5}$ trygt -- løysinga vert godkjend.","a78b0d08bcf9d319":"Test deg sjølv på addisjon, subtraksjon og likningar:","c95188c3ab6bca56":"Rekn ut: $\\frac{2}{x-1} + \\frac{3}{x+2}$","da1b2f87141a1f9c":"$\\frac{5}{(x-1)(x+2)}$","1c67a8c4aa79a2e0":"$\\frac{5x+1}{(x-1)(x+2)}$","ee2c7d70693f9f34":"$\\frac{5}{2x+1}$","983fa0f9acdb3181":"$\\frac{6}{(x-1)(x+2)}$","8f1b9ef7ac0b58be":"Fellesnemnar $(x-1)(x+2)$: $\\frac{2(x+2)+3(x-1)}{(x-1)(x+2)} = \\frac{2x+4+3x-3}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$.","d67ef87fd9f23d56":"Rekn ut: $\\frac{x}{x^2-4} - \\frac{1}{x+2}$","db90925b6384dfe7":"$\\frac{x-1}{x^2-4-x-2}$","64af4c1c18655b4c":"$\\frac{-2}{(x-2)(x+2)}$","06a734063f36fc64":"$\\frac{2}{(x-2)(x+2)}$","7ae58822e412ee28":"$\\frac{x-1}{x-2}$","d177cbf973b0ee14":"$x^2-4 = (x-2)(x+2)$ er fellesnemnar: $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$.","84efd11d473a2c40":"Forenkle den samansette brøken $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$.","07bd326a96771df3":"$\\frac{x+y}{y-x}$","5bff8ade41f1a3ca":"$\\frac{x-y}{x+y}$","35cebe64161fe6dd":"$\\frac{xy}{x-y}$","b992d4f6328c175e":"Gang teljar og nemnar med $xy$: $\\frac{y+x}{y-x} = \\frac{x+y}{y-x}$.","67b119309aa8c5e8":"Løys likninga $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$.","b96ae96cb92f7fb0":"$x = 1$","ebb6da7f1efb265b":"$x = -1$","b8d921f3516666fe":"$x = 5$","4a3bcb54bd1a12c3":"$x = \\frac{6}{5}$","ad02e45ae0508c32":"Gang med fellesnemnaren $(x-1)(x+1)$: $2(x+1) + 3(x-1) = 5$, så $5x - 1 = 5$ og $x = \\frac{6}{5}$. Verdien gir ikkje null i nokon nemnar, så han er gyldig.","27c62b581acfc94c":"## Forteljinga i eit nøtteskal\n\nParallellkopla motstandar og linseformlar viste oss at naturvitskapen er full av **rasjonale uttrykk** $\\frac{P(x)}{Q(x)}$ -- brøkar av polynom. Og heile kapittelet kvilte på éi roande sanning: reglane er dei same som for talbrøkar, berre med polynomfaktorar i hovudrollene.\n\nFørst kjem alltid **definisjonsmengda**: alle $x$ der nemnaren ikkje er null. Henne finn du ved å faktorisere nemnaren og lokalisere nullpunkta -- og ho følgjer uttrykket gjennom alle omformingar.\n\n**Forkorting** er faktorisering pluss utdeling av felles faktorar, og den viktigaste åtvaringa i kapittelet lyder: berre *faktorar* kan forkortast, aldri enkeltledd. $\\frac{x^2+1}{x}$ lèt seg ikkje forenkle; $\\frac{x(x+1)}{x}$ blir $x+1$.\n\n**Multiplikasjon** er teljar gonger teljar og nemnar gonger nemnar -- men faktoriser og forkort før du gangar ut, så kollapsar uttrykka pent. **Divisjon** er multiplikasjon med den omvende brøken. **Addisjon og subtraksjon** krev fellesnemnar, som du finn ved å faktorisere nemnarane; hugs parentes når du subtraherer ein heil teljar. Samansette brøkar vert rydda ved å gange oppe og nede med fellesnemnaren til småbrøkane.\n\nI **likningar** gangar vi bort alle nemnarane med fellesnemnaren -- men då kan falske løysingar snike seg inn, så kvar kandidat vert sjekka mot definisjonsmengda til den opphavlege likninga.\n\nMed polynomfaktorisering frå 1.1 og brøkhandverket herifrå har du algebraen som trengst når dei rasjonale *funksjonane* med asymptotar og grenseverdiar ventar i kapittel 2 og 3."}}}
+{
+  "id": "r1-1-4-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "1.4",
+  "title": "Rasjonale uttrykk",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om brøkar med polynom -- korleis formlane i fysikken for linser og parallellkopla motstandar leier til algebraiske brøkar, og korleis faktorisering temjer dei.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "forkorte rasjonale uttrykk ved faktorisering",
+    "finne fellesnemnar for algebraiske brøkar",
+    "addere og subtrahere rasjonale uttrykk",
+    "multiplisere og dividere rasjonale uttrykk",
+    "bestemme definisjonsmengda til rasjonale uttrykk"
+  ],
+  "linkedChapterId": "r1-1-4",
+  "content": [
+    {
+      "id": "r1-1-4-n-intro",
+      "type": "text",
+      "content": "## Favorittbrøkane til fysikken\n\nKopla to motstandar $R_1$ og $R_2$ i parallell i ein straumkrins, og den samla motstanden blir\n\n$$R = \\frac{R_1 R_2}{R_1 + R_2}$$\n\nEin brøk der både teljar og nemnar er algebraiske uttrykk. Same forma dukkar opp i optikken, der linseformelen $\\frac{1}{f} = \\frac{1}{a} + \\frac{1}{b}$ knyter brennvidde til avstandar -- løyser du han for $f$, får du igjen ein brøk av polynom. Reaksjonsratene i kjemien, gjennomsnittskostnadene i økonomien, harmonisk gjennomsnitt i statistikk: naturvitskapen snakkar flytande «brøk med polynom».\n\nSlike uttrykk vert kalla **rasjonale uttrykk** -- ordet kjem frå *ratio*, forhold, akkurat som dei rasjonale tala er forholdstal. Og her er den gode nyhenda i kapittelet: alt du kan om vanleg brøkrekning gjeld framleis. Du forkortar ved å dele ut felles faktorar. Du finn fellesnemnar før du adderer. Du dividerer ved å gange med den omvende brøken. Det einaste nye er at faktorane ikkje lenger er primtal som $2$ og $3$, men polynomfaktorar som $(x-2)$ og $(x+3)$ -- og dei lærte du å finne i kapittel 1.1.\n\nÉi ting krev likevel skjerpa merksemd: ein nemnar kan bli null. Brøken $\\frac{x+3}{x-2}$ er heilt frisk for alle $x$ -- bortsett frå $x = 2$, der han bryt saman. Difor startar all seriøs handsaming av eit rasjonalt uttrykk med spørsmålet: *for kva $x$ gir dette meining?* Det er definisjonsmengda, og det er der vi byrjar."
+    },
+    {
+      "id": "r1-1-4-n-section1",
+      "type": "text",
+      "content": "## Definisjonsmengda -- kvar uttrykket lever\n\nEit **rasjonalt uttrykk** har forma $\\frac{P(x)}{Q(x)}$ der $P$ og $Q$ er polynom. **Definisjonsmengda** er alle $x$-verdiar der nemnaren ikkje er null:\n\n$$D = \\{x \\in \\mathbb{R} \\mid Q(x) \\neq 0\\}$$\n\nÅ finne henne er ei nullpunktsjakt i nemnaren -- med verktøya frå kapittel 1.1. For $\\frac{x+3}{x-2}$ er nemnaren null berre når $x = 2$, så $D = \\mathbb{R} \\setminus \\{2\\}$. For $\\frac{x^2}{x^2-4}$ faktoriserer vi nemnaren med konjugatsetninga: $x^2 - 4 = (x-2)(x+2)$, som er null for $x = \\pm 2$, så begge må utelukkast. Og nokre gonger er det ingenting å utelukke: i $\\frac{1}{x^2+1}$ er nemnaren alltid minst $1$, så $D = \\mathbb{R}$.\n\nKvifor er dette så viktig? Fordi resten av kapittelet handlar om å *omforme* uttrykk -- forkorte, utvide, slå saman -- og to uttrykk er berre like der begge er definerte. Når vi seinare forkortar $\\frac{x(x+1)}{x}$ til $x + 1$, gjeld likskapen berre for $x \\neq 0$. Det opphavlege uttrykket har eit «hol» i $x = 0$ som det forkorta ikkje har, og det holet må vi bere med oss i notasjonen.\n\nTenk på definisjonsmengda som passet til uttrykket: før du tek eit rasjonalt uttrykk med på reise gjennom ei utrekning, sjekkar du kvar det har lov til å vere. I likningar blir dette heilt avgjerande -- ei løysing som gjer ein nemnar til null, er inga løysing."
+    },
+    {
+      "id": "r1-1-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på definisjonsmengd:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-4-n-quiz1-q0",
+            "task": "Kva er definisjonsmengda til $\\frac{x+3}{x-2}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\mathbb{R} \\setminus \\{-3\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mathbb{R} \\setminus \\{-2\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\mathbb{R} \\setminus \\{2\\}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\mathbb{R}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nemnaren er null når $x - 2 = 0$, altså $x = 2$. Denne verdien må utelukkast."
+          },
+          {
+            "id": "r1-1-4-n-quiz1-q1",
+            "task": "Kva $x$-verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2}{x^2-4}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre $x = 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 2$ og $x = -2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x^2 - 4 = (x-2)(x+2) = 0$ gir $x = 2$ eller $x = -2$. Begge gir null i nemnaren."
+          },
+          {
+            "id": "r1-1-4-n-quiz1-q2",
+            "task": "Kva er definisjonsmengda til $\\frac{1}{x^2+1}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Heile $\\mathbb{R}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\mathbb{R} \\setminus \\{-1\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\mathbb{R} \\setminus \\{-1, 1\\}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x > 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x^2 + 1 \\geq 1 > 0$ for alle reelle $x$, så nemnaren blir aldri null. $D = \\mathbb{R}$."
+          },
+          {
+            "id": "r1-1-4-n-quiz1-q3",
+            "task": "Kva verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2-9}{x^2-x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 3$ og $x = -3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 0$ og $x = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Berre $x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre $x = 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nemnaren $x^2 - x = x(x-1)$ er null for $x = 0$ og $x = 1$. Nullpunkta til teljaren spelar inga rolle for definisjonsmengda."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-4-n-section2",
+      "type": "text",
+      "content": "## Forkorting, multiplikasjon og divisjon\n\nKorleis forkortar du $\\frac{12}{18}$? Du faktoriserer: $\\frac{2 \\cdot 2 \\cdot 3}{2 \\cdot 3 \\cdot 3}$, og stryk felles faktorar til $\\frac{2}{3}$. Rasjonale uttrykk vert forkorta på nøyaktig same måte: **faktoriser teljar og nemnar, og del ut felles faktorar.**\n\n$$\\frac{x^2-4}{x^2+4x+4} = \\frac{(x-2)(x+2)}{(x+2)^2} = \\frac{x-2}{x+2}, \\quad x \\neq -2$$\n\nHer gjorde konjugatsetninga og første kvadratsetning jobben. Tilsvarande blir $\\frac{x^2-5x+6}{x^2-4x+4} = \\frac{(x-2)(x-3)}{(x-2)^2} = \\frac{x-3}{x-2}$ for $x \\neq 2$.\n\nOg no, den vanlegaste feilen i heile kapittelet: **du kan berre forkorte faktorar, aldri enkeltledd.** Freistinga til å stryke $x$-ane i $\\frac{x^2+1}{x}$ og få $x + 1$ er stor -- og heilt gal. Teljaren $x^2 + 1$ er ein *sum*, ikkje eit produkt med $x$ som faktor. Test sjølv med $x = 1$: $\\frac{1+1}{1} = 2$, medan $x + 1 = 2$... prøv heller $x = 2$: $\\frac{4+1}{2} = 2{,}5$, men $x + 1 = 3$. Ulike! Derimot er $\\frac{x(x+1)}{x} = x + 1$ heilt rett for $x \\neq 0$, fordi $x$ der står som faktor.\n\n**Multiplikasjon** er rett fram: teljar gonger teljar, nemnar gonger nemnar. Men ikkje gang ut i blinde -- faktoriser og forkort *først*:\n\n$$\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x} = \\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)} = x - 1$$\n\nfor $x \\neq 0, -1, -3$. Alt kollapsa fordi faktorane fekk møte kvarandre. **Divisjon** følgjer brøkregelen du kan frå før: å dele på ein brøk er å gange med den omvende, $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$."
+    },
+    {
+      "id": "r1-1-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på forkorting, multiplikasjon og divisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-4-n-quiz2-q0",
+            "task": "Forkort $\\frac{x^2-4}{x^2+4x+4}$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{x+2}{x-2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{-4}{4x+4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{x-2}{x+2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x - 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktoriser: $\\frac{(x-2)(x+2)}{(x+2)^2}$. Del ut felles faktor $(x+2)$: $\\frac{x-2}{x+2}$ for $x \\neq -2$."
+          },
+          {
+            "id": "r1-1-4-n-quiz2-q1",
+            "task": "Kva påstand er rett?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{x^2+1}{x} = x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{x+2}{2} = x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x^2+x}{x^2} = 1 + x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{x(x+1)}{x} = x + 1$ for $x \\neq 0$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi kan berre forkorte faktorar. I $\\frac{x(x+1)}{x}$ er $x$ ein faktor i teljaren og kan delast ut. I $\\frac{x^2+1}{x}$ er teljaren ein sum -- der kan ingenting forkortast."
+          },
+          {
+            "id": "r1-1-4-n-quiz2-q2",
+            "task": "Rekn ut og forkort: $\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x}$",
+            "options": [
+              {
+                "id": "d",
+                "text": "$x - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{x+1}{x-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^2 - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{x-1}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktoriser alt: $\\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)}$. Faktorane $(x+1)$, $(x+3)$ og $x$ vert forkorta, og igjen står $x - 1$."
+          },
+          {
+            "id": "r1-1-4-n-quiz2-q3",
+            "task": "Korleis dividerer du $\\frac{P(x)}{Q(x)} \\div \\frac{R(x)}{S(x)}$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{P(x)}{Q(x)} \\cdot \\frac{R(x)}{S(x)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{P(x)}{Q(x)} \\cdot \\frac{S(x)}{R(x)}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{P(x) - R(x)}{Q(x) - S(x)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{P(x) \\cdot R(x)}{Q(x) \\cdot S(x)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å dele på ein brøk er å gange med den omvende: $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-4-n-section3",
+      "type": "text",
+      "content": "## Fellesnemnar: addisjon, subtraksjon og likningar\n\nFor å leggje saman $\\frac{1}{6} + \\frac{1}{4}$ treng du fellesnemnaren $12$. For algebraiske brøkar er oppskrifta identisk: faktoriser nemnarane, finn minste felles nemnar, utvid kvar brøk, og slå saman teljarane.\n\nTa $\\frac{2}{x-1} + \\frac{3}{x+2}$. Nemnarane har ingen felles faktorar, så fellesnemnaren er produktet $(x-1)(x+2)$:\n\n$$\\frac{2(x+2) + 3(x-1)}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$$\n\nFaktoriseringa løner seg når nemnarane overlappar. I $\\frac{x}{x^2-4} - \\frac{1}{x+2}$ avslører konjugatsetninga at $x^2 - 4 = (x-2)(x+2)$ -- den første nemnaren *inneheld* allereie den andre. Fellesnemnaren er berre $(x-2)(x+2)$, og vi får $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$. Hugs parentesen rundt det du trekkjer frå: minusteiknet rammar heile teljaren.\n\n**Samansette brøkar** -- brøkar i brøken -- vert rydda med eitt grep: gang teljar og nemnar med fellesnemnaren til småbrøkane. For $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$ gangar vi oppe og nede med $xy$ og får $\\frac{y+x}{y-x}$. Elegant, ikkje sant?\n\nTil slutt **likningar** med rasjonale uttrykk, som $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$. Vi gangar begge sider med fellesnemnaren $(x-1)(x+1)$, og alle brøkane forsvinn: $2(x+1) + 3(x-1) = 5$, altså $5x - 1 = 5$ og $x = \\frac{6}{5}$. Men no melder definisjonsmengda seg: hadde svaret blitt $x = 1$ eller $x = -1$, måtte vi forkasta det, for då er den opphavlege likninga full av nullar i nemnarane. Her er $\\frac{6}{5}$ trygt -- løysinga vert godkjend."
+    },
+    {
+      "id": "r1-1-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-1-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på addisjon, subtraksjon og likningar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-1-4-n-quiz3-q0",
+            "task": "Rekn ut: $\\frac{2}{x-1} + \\frac{3}{x+2}$",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{5}{(x-1)(x+2)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{5}{2x+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{5x+1}{(x-1)(x+2)}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{6}{(x-1)(x+2)}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fellesnemnar $(x-1)(x+2)$: $\\frac{2(x+2)+3(x-1)}{(x-1)(x+2)} = \\frac{2x+4+3x-3}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$."
+          },
+          {
+            "id": "r1-1-4-n-quiz3-q1",
+            "task": "Rekn ut: $\\frac{x}{x^2-4} - \\frac{1}{x+2}$",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{x-1}{x^2-4-x-2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{-2}{(x-2)(x+2)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x-1}{x-2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{(x-2)(x+2)}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$x^2-4 = (x-2)(x+2)$ er fellesnemnar: $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$."
+          },
+          {
+            "id": "r1-1-4-n-quiz3-q2",
+            "task": "Forenkle den samansette brøken $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{x+y}{y-x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{x-y}{x+y}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{xy}{x-y}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gang teljar og nemnar med $xy$: $\\frac{y+x}{y-x} = \\frac{x+y}{y-x}$."
+          },
+          {
+            "id": "r1-1-4-n-quiz3-q3",
+            "task": "Løys likninga $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = \\frac{6}{5}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x = -1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gang med fellesnemnaren $(x-1)(x+1)$: $2(x+1) + 3(x-1) = 5$, så $5x - 1 = 5$ og $x = \\frac{6}{5}$. Verdien gir ikkje null i nokon nemnar, så han er gyldig."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-1-4-n-summary",
+      "type": "text",
+      "content": "## Forteljinga i eit nøtteskal\n\nParallellkopla motstandar og linseformlar viste oss at naturvitskapen er full av **rasjonale uttrykk** $\\frac{P(x)}{Q(x)}$ -- brøkar av polynom. Og heile kapittelet kvilte på éi roande sanning: reglane er dei same som for talbrøkar, berre med polynomfaktorar i hovudrollene.\n\nFørst kjem alltid **definisjonsmengda**: alle $x$ der nemnaren ikkje er null. Henne finn du ved å faktorisere nemnaren og lokalisere nullpunkta -- og ho følgjer uttrykket gjennom alle omformingar.\n\n**Forkorting** er faktorisering pluss utdeling av felles faktorar, og den viktigaste åtvaringa i kapittelet lyder: berre *faktorar* kan forkortast, aldri enkeltledd. $\\frac{x^2+1}{x}$ lèt seg ikkje forenkle; $\\frac{x(x+1)}{x}$ blir $x+1$.\n\n**Multiplikasjon** er teljar gonger teljar og nemnar gonger nemnar -- men faktoriser og forkort før du gangar ut, så kollapsar uttrykka pent. **Divisjon** er multiplikasjon med den omvende brøken. **Addisjon og subtraksjon** krev fellesnemnar, som du finn ved å faktorisere nemnarane; hugs parentes når du subtraherer ein heil teljar. Samansette brøkar vert rydda ved å gange oppe og nede med fellesnemnaren til småbrøkane.\n\nI **likningar** gangar vi bort alle nemnarane med fellesnemnaren -- men då kan falske løysingar snike seg inn, så kvar kandidat vert sjekka mot definisjonsmengda til den opphavlege likninga.\n\nMed polynomfaktorisering frå 1.1 og brøkhandverket herifrå har du algebraen som trengst når dei rasjonale *funksjonane* med asymptotar og grenseverdiar ventar i kapittel 2 og 3."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0645debcd1ebcf0f",
+    "translatedAt": "2026-06-19T22:12:18.997Z",
+    "model": "claude-code-agent",
+    "strings": 90,
+    "tm": {
+      "2fb457cb5786db8a": "Rasjonale uttrykk",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "8b54654c5023b78f": "Ei forteljing om brøkar med polynom -- korleis formlane i fysikken for linser og parallellkopla motstandar leier til algebraiske brøkar, og korleis faktorisering temjer dei.",
+      "32a95690316dd072": "forkorte rasjonale uttrykk ved faktorisering",
+      "358ccf19940684cd": "finne fellesnemnar for algebraiske brøkar",
+      "fded772263e299d3": "addere og subtrahere rasjonale uttrykk",
+      "33426399f87a016f": "multiplisere og dividere rasjonale uttrykk",
+      "a2bfcbe9b2a87a2d": "bestemme definisjonsmengda til rasjonale uttrykk",
+      "0c75300929064975": "## Favorittbrøkane til fysikken\n\nKopla to motstandar $R_1$ og $R_2$ i parallell i ein straumkrins, og den samla motstanden blir\n\n$$R = \\frac{R_1 R_2}{R_1 + R_2}$$\n\nEin brøk der både teljar og nemnar er algebraiske uttrykk. Same forma dukkar opp i optikken, der linseformelen $\\frac{1}{f} = \\frac{1}{a} + \\frac{1}{b}$ knyter brennvidde til avstandar -- løyser du han for $f$, får du igjen ein brøk av polynom. Reaksjonsratene i kjemien, gjennomsnittskostnadene i økonomien, harmonisk gjennomsnitt i statistikk: naturvitskapen snakkar flytande «brøk med polynom».\n\nSlike uttrykk vert kalla **rasjonale uttrykk** -- ordet kjem frå *ratio*, forhold, akkurat som dei rasjonale tala er forholdstal. Og her er den gode nyhenda i kapittelet: alt du kan om vanleg brøkrekning gjeld framleis. Du forkortar ved å dele ut felles faktorar. Du finn fellesnemnar før du adderer. Du dividerer ved å gange med den omvende brøken. Det einaste nye er at faktorane ikkje lenger er primtal som $2$ og $3$, men polynomfaktorar som $(x-2)$ og $(x+3)$ -- og dei lærte du å finne i kapittel 1.1.\n\nÉi ting krev likevel skjerpa merksemd: ein nemnar kan bli null. Brøken $\\frac{x+3}{x-2}$ er heilt frisk for alle $x$ -- bortsett frå $x = 2$, der han bryt saman. Difor startar all seriøs handsaming av eit rasjonalt uttrykk med spørsmålet: *for kva $x$ gir dette meining?* Det er definisjonsmengda, og det er der vi byrjar.",
+      "c86d8014ef105848": "## Definisjonsmengda -- kvar uttrykket lever\n\nEit **rasjonalt uttrykk** har forma $\\frac{P(x)}{Q(x)}$ der $P$ og $Q$ er polynom. **Definisjonsmengda** er alle $x$-verdiar der nemnaren ikkje er null:\n\n$$D = \\{x \\in \\mathbb{R} \\mid Q(x) \\neq 0\\}$$\n\nÅ finne henne er ei nullpunktsjakt i nemnaren -- med verktøya frå kapittel 1.1. For $\\frac{x+3}{x-2}$ er nemnaren null berre når $x = 2$, så $D = \\mathbb{R} \\setminus \\{2\\}$. For $\\frac{x^2}{x^2-4}$ faktoriserer vi nemnaren med konjugatsetninga: $x^2 - 4 = (x-2)(x+2)$, som er null for $x = \\pm 2$, så begge må utelukkast. Og nokre gonger er det ingenting å utelukke: i $\\frac{1}{x^2+1}$ er nemnaren alltid minst $1$, så $D = \\mathbb{R}$.\n\nKvifor er dette så viktig? Fordi resten av kapittelet handlar om å *omforme* uttrykk -- forkorte, utvide, slå saman -- og to uttrykk er berre like der begge er definerte. Når vi seinare forkortar $\\frac{x(x+1)}{x}$ til $x + 1$, gjeld likskapen berre for $x \\neq 0$. Det opphavlege uttrykket har eit «hol» i $x = 0$ som det forkorta ikkje har, og det holet må vi bere med oss i notasjonen.\n\nTenk på definisjonsmengda som passet til uttrykket: før du tek eit rasjonalt uttrykk med på reise gjennom ei utrekning, sjekkar du kvar det har lov til å vere. I likningar blir dette heilt avgjerande -- ei løysing som gjer ein nemnar til null, er inga løysing.",
+      "decb0bb1ba762162": "Test deg sjølv på definisjonsmengd:",
+      "4097889236a2af26": "placeholder",
+      "adf6653a3779ec16": "Kva er definisjonsmengda til $\\frac{x+3}{x-2}$?",
+      "7ab5563ce371a4b8": "$\\mathbb{R} \\setminus \\{-3\\}$",
+      "65913e3653cbedb8": "$\\mathbb{R} \\setminus \\{2\\}$",
+      "c35fa59642a529f3": "$\\mathbb{R} \\setminus \\{-2\\}$",
+      "48ff44047ef8ff67": "$\\mathbb{R}$",
+      "79483e4fe3d69e64": "Nemnaren er null når $x - 2 = 0$, altså $x = 2$. Denne verdien må utelukkast.",
+      "cdcabb89a6fcd629": "Kva $x$-verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2}{x^2-4}$?",
+      "8078e1a733151e98": "Berre $x = 2$",
+      "fb66b2b705a36adc": "Berre $x = 4$",
+      "16478990d21d8d25": "$x = 2$ og $x = -2$",
+      "25efa207f9f60f58": "$x = 0$",
+      "784ea0258fd2dee9": "$x^2 - 4 = (x-2)(x+2) = 0$ gir $x = 2$ eller $x = -2$. Begge gir null i nemnaren.",
+      "aa10477e6629f4fd": "Kva er definisjonsmengda til $\\frac{1}{x^2+1}$?",
+      "9ae069ee8975e15c": "Heile $\\mathbb{R}$",
+      "dc03e2621b42e92b": "$\\mathbb{R} \\setminus \\{-1\\}$",
+      "ee89c69f87eab7c2": "$\\mathbb{R} \\setminus \\{-1, 1\\}$",
+      "fb7aee4e0fddd21c": "$x > 0$",
+      "acb2b411c2079828": "$x^2 + 1 \\geq 1 > 0$ for alle reelle $x$, så nemnaren blir aldri null. $D = \\mathbb{R}$.",
+      "87067da941fd379e": "Kva verdiar må utelukkast frå definisjonsmengda til $\\frac{x^2-9}{x^2-x}$?",
+      "d429cc5fa5cf28d8": "$x = 3$ og $x = -3$",
+      "6078cacefd0c867d": "Berre $x = 1$",
+      "e049567458489c26": "Berre $x = 0$",
+      "391c52a84e60f1d7": "$x = 0$ og $x = 1$",
+      "e4b910b7748dc767": "Nemnaren $x^2 - x = x(x-1)$ er null for $x = 0$ og $x = 1$. Nullpunkta til teljaren spelar inga rolle for definisjonsmengda.",
+      "ff7306e7811ac968": "## Forkorting, multiplikasjon og divisjon\n\nKorleis forkortar du $\\frac{12}{18}$? Du faktoriserer: $\\frac{2 \\cdot 2 \\cdot 3}{2 \\cdot 3 \\cdot 3}$, og stryk felles faktorar til $\\frac{2}{3}$. Rasjonale uttrykk vert forkorta på nøyaktig same måte: **faktoriser teljar og nemnar, og del ut felles faktorar.**\n\n$$\\frac{x^2-4}{x^2+4x+4} = \\frac{(x-2)(x+2)}{(x+2)^2} = \\frac{x-2}{x+2}, \\quad x \\neq -2$$\n\nHer gjorde konjugatsetninga og første kvadratsetning jobben. Tilsvarande blir $\\frac{x^2-5x+6}{x^2-4x+4} = \\frac{(x-2)(x-3)}{(x-2)^2} = \\frac{x-3}{x-2}$ for $x \\neq 2$.\n\nOg no, den vanlegaste feilen i heile kapittelet: **du kan berre forkorte faktorar, aldri enkeltledd.** Freistinga til å stryke $x$-ane i $\\frac{x^2+1}{x}$ og få $x + 1$ er stor -- og heilt gal. Teljaren $x^2 + 1$ er ein *sum*, ikkje eit produkt med $x$ som faktor. Test sjølv med $x = 1$: $\\frac{1+1}{1} = 2$, medan $x + 1 = 2$... prøv heller $x = 2$: $\\frac{4+1}{2} = 2{,}5$, men $x + 1 = 3$. Ulike! Derimot er $\\frac{x(x+1)}{x} = x + 1$ heilt rett for $x \\neq 0$, fordi $x$ der står som faktor.\n\n**Multiplikasjon** er rett fram: teljar gonger teljar, nemnar gonger nemnar. Men ikkje gang ut i blinde -- faktoriser og forkort *først*:\n\n$$\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x} = \\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)} = x - 1$$\n\nfor $x \\neq 0, -1, -3$. Alt kollapsa fordi faktorane fekk møte kvarandre. **Divisjon** følgjer brøkregelen du kan frå før: å dele på ein brøk er å gange med den omvende, $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$.",
+      "376ac9a467898b3b": "Test deg sjølv på forkorting, multiplikasjon og divisjon:",
+      "a1aa64c86bec9b8b": "Forkort $\\frac{x^2-4}{x^2+4x+4}$.",
+      "56cd4e1f2a977d71": "$\\frac{x-2}{x+2}$",
+      "cd5edeeac8026ca1": "$\\frac{x+2}{x-2}$",
+      "0f3a18271650c673": "$\\frac{-4}{4x+4}$",
+      "bf4ace9f16ab58ea": "$x - 1$",
+      "c22a66c825f17bd0": "Faktoriser: $\\frac{(x-2)(x+2)}{(x+2)^2}$. Del ut felles faktor $(x+2)$: $\\frac{x-2}{x+2}$ for $x \\neq -2$.",
+      "c940637debfc80d3": "Kva påstand er rett?",
+      "d3ba3fb6fc4c6029": "$\\frac{x^2+1}{x} = x + 1$",
+      "d12528dd9c633621": "$\\frac{x+2}{2} = x$",
+      "1ead8ad75a3a2d56": "$\\frac{x(x+1)}{x} = x + 1$ for $x \\neq 0$",
+      "95b413dfb5009419": "$\\frac{x^2+x}{x^2} = 1 + x$",
+      "b7f14bf53ecfcc81": "Vi kan berre forkorte faktorar. I $\\frac{x(x+1)}{x}$ er $x$ ein faktor i teljaren og kan delast ut. I $\\frac{x^2+1}{x}$ er teljaren ein sum -- der kan ingenting forkortast.",
+      "ef6710a2c7bb0ee4": "Rekn ut og forkort: $\\frac{x^2-1}{x+3} \\cdot \\frac{x^2+3x}{x^2+x}$",
+      "d65ff0dea34e3b00": "$\\frac{x+1}{x-1}$",
+      "bfe0b48ac841a027": "$x^2 - 1$",
+      "48254e38dadce115": "$\\frac{1}{x-1}$",
+      "2f3d198fa89eae8b": "Faktoriser alt: $\\frac{(x-1)(x+1)}{x+3} \\cdot \\frac{x(x+3)}{x(x+1)}$. Faktorane $(x+1)$, $(x+3)$ og $x$ vert forkorta, og igjen står $x - 1$.",
+      "776cff74c2c522db": "Korleis dividerer du $\\frac{P(x)}{Q(x)} \\div \\frac{R(x)}{S(x)}$?",
+      "d17711a8f6959b36": "$\\frac{P(x)}{Q(x)} \\cdot \\frac{S(x)}{R(x)}$",
+      "d14ada6a77ac34bb": "$\\frac{P(x)}{Q(x)} \\cdot \\frac{R(x)}{S(x)}$",
+      "bc662a0650459439": "$\\frac{P(x) - R(x)}{Q(x) - S(x)}$",
+      "4a0db7f3a3df424d": "$\\frac{P(x) \\cdot R(x)}{Q(x) \\cdot S(x)}$",
+      "ccd84b1101cf4a4b": "Å dele på ein brøk er å gange med den omvende: $\\frac{P}{Q} \\div \\frac{R}{S} = \\frac{P}{Q} \\cdot \\frac{S}{R}$.",
+      "df5f97490ce819da": "## Fellesnemnar: addisjon, subtraksjon og likningar\n\nFor å leggje saman $\\frac{1}{6} + \\frac{1}{4}$ treng du fellesnemnaren $12$. For algebraiske brøkar er oppskrifta identisk: faktoriser nemnarane, finn minste felles nemnar, utvid kvar brøk, og slå saman teljarane.\n\nTa $\\frac{2}{x-1} + \\frac{3}{x+2}$. Nemnarane har ingen felles faktorar, så fellesnemnaren er produktet $(x-1)(x+2)$:\n\n$$\\frac{2(x+2) + 3(x-1)}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$$\n\nFaktoriseringa løner seg når nemnarane overlappar. I $\\frac{x}{x^2-4} - \\frac{1}{x+2}$ avslører konjugatsetninga at $x^2 - 4 = (x-2)(x+2)$ -- den første nemnaren *inneheld* allereie den andre. Fellesnemnaren er berre $(x-2)(x+2)$, og vi får $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$. Hugs parentesen rundt det du trekkjer frå: minusteiknet rammar heile teljaren.\n\n**Samansette brøkar** -- brøkar i brøken -- vert rydda med eitt grep: gang teljar og nemnar med fellesnemnaren til småbrøkane. For $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$ gangar vi oppe og nede med $xy$ og får $\\frac{y+x}{y-x}$. Elegant, ikkje sant?\n\nTil slutt **likningar** med rasjonale uttrykk, som $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$. Vi gangar begge sider med fellesnemnaren $(x-1)(x+1)$, og alle brøkane forsvinn: $2(x+1) + 3(x-1) = 5$, altså $5x - 1 = 5$ og $x = \\frac{6}{5}$. Men no melder definisjonsmengda seg: hadde svaret blitt $x = 1$ eller $x = -1$, måtte vi forkasta det, for då er den opphavlege likninga full av nullar i nemnarane. Her er $\\frac{6}{5}$ trygt -- løysinga vert godkjend.",
+      "a78b0d08bcf9d319": "Test deg sjølv på addisjon, subtraksjon og likningar:",
+      "c95188c3ab6bca56": "Rekn ut: $\\frac{2}{x-1} + \\frac{3}{x+2}$",
+      "da1b2f87141a1f9c": "$\\frac{5}{(x-1)(x+2)}$",
+      "1c67a8c4aa79a2e0": "$\\frac{5x+1}{(x-1)(x+2)}$",
+      "ee2c7d70693f9f34": "$\\frac{5}{2x+1}$",
+      "983fa0f9acdb3181": "$\\frac{6}{(x-1)(x+2)}$",
+      "8f1b9ef7ac0b58be": "Fellesnemnar $(x-1)(x+2)$: $\\frac{2(x+2)+3(x-1)}{(x-1)(x+2)} = \\frac{2x+4+3x-3}{(x-1)(x+2)} = \\frac{5x+1}{(x-1)(x+2)}$.",
+      "d67ef87fd9f23d56": "Rekn ut: $\\frac{x}{x^2-4} - \\frac{1}{x+2}$",
+      "db90925b6384dfe7": "$\\frac{x-1}{x^2-4-x-2}$",
+      "64af4c1c18655b4c": "$\\frac{-2}{(x-2)(x+2)}$",
+      "06a734063f36fc64": "$\\frac{2}{(x-2)(x+2)}$",
+      "7ae58822e412ee28": "$\\frac{x-1}{x-2}$",
+      "d177cbf973b0ee14": "$x^2-4 = (x-2)(x+2)$ er fellesnemnar: $\\frac{x - (x-2)}{(x-2)(x+2)} = \\frac{2}{(x-2)(x+2)}$.",
+      "84efd11d473a2c40": "Forenkle den samansette brøken $\\frac{\\frac{1}{x}+\\frac{1}{y}}{\\frac{1}{x}-\\frac{1}{y}}$.",
+      "07bd326a96771df3": "$\\frac{x+y}{y-x}$",
+      "5bff8ade41f1a3ca": "$\\frac{x-y}{x+y}$",
+      "35cebe64161fe6dd": "$\\frac{xy}{x-y}$",
+      "b992d4f6328c175e": "Gang teljar og nemnar med $xy$: $\\frac{y+x}{y-x} = \\frac{x+y}{y-x}$.",
+      "67b119309aa8c5e8": "Løys likninga $\\frac{2}{x-1} + \\frac{3}{x+1} = \\frac{5}{x^2-1}$.",
+      "b96ae96cb92f7fb0": "$x = 1$",
+      "ebb6da7f1efb265b": "$x = -1$",
+      "b8d921f3516666fe": "$x = 5$",
+      "4a3bcb54bd1a12c3": "$x = \\frac{6}{5}$",
+      "ad02e45ae0508c32": "Gang med fellesnemnaren $(x-1)(x+1)$: $2(x+1) + 3(x-1) = 5$, så $5x - 1 = 5$ og $x = \\frac{6}{5}$. Verdien gir ikkje null i nokon nemnar, så han er gyldig.",
+      "27c62b581acfc94c": "## Forteljinga i eit nøtteskal\n\nParallellkopla motstandar og linseformlar viste oss at naturvitskapen er full av **rasjonale uttrykk** $\\frac{P(x)}{Q(x)}$ -- brøkar av polynom. Og heile kapittelet kvilte på éi roande sanning: reglane er dei same som for talbrøkar, berre med polynomfaktorar i hovudrollene.\n\nFørst kjem alltid **definisjonsmengda**: alle $x$ der nemnaren ikkje er null. Henne finn du ved å faktorisere nemnaren og lokalisere nullpunkta -- og ho følgjer uttrykket gjennom alle omformingar.\n\n**Forkorting** er faktorisering pluss utdeling av felles faktorar, og den viktigaste åtvaringa i kapittelet lyder: berre *faktorar* kan forkortast, aldri enkeltledd. $\\frac{x^2+1}{x}$ lèt seg ikkje forenkle; $\\frac{x(x+1)}{x}$ blir $x+1$.\n\n**Multiplikasjon** er teljar gonger teljar og nemnar gonger nemnar -- men faktoriser og forkort før du gangar ut, så kollapsar uttrykka pent. **Divisjon** er multiplikasjon med den omvende brøken. **Addisjon og subtraksjon** krev fellesnemnar, som du finn ved å faktorisere nemnarane; hugs parentes når du subtraherer ein heil teljar. Samansette brøkar vert rydda ved å gange oppe og nede med fellesnemnaren til småbrøkane.\n\nI **likningar** gangar vi bort alle nemnarane med fellesnemnaren -- men då kan falske løysingar snike seg inn, så kvar kandidat vert sjekka mot definisjonsmengda til den opphavlege likninga.\n\nMed polynomfaktorisering frå 1.1 og brøkhandverket herifrå har du algebraen som trengst når dei rasjonale *funksjonane* med asymptotar og grenseverdiar ventar i kapittel 2 og 3."
+    }
+  }
+}

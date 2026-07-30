@@ -1,1 +1,515 @@
-{"id":"s2-7-5-narrativ","courseId":"s2","chapterNumber":"7.5","title":"Rekursive samanhengar","subtitle":"Narrativ versjon","description":"Ei forteljing om medisinen som ikkje hopa seg opp likevel — om rekursive formlar, likevektspunkt, stabile og ustabile modellar og Fibonaccis gylne løyndom.","estimatedMinutes":30,"competenceGoals":["gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","modellere situasjonar ved hjelp av rekursive samanhengar og gjere greie for avgrensingar ved modellane"],"linkedChapterId":"s2-7-5","content":[{"id":"s2-7-5-n-intro","type":"text","content":"## Medisinen som hopar seg opp\n\nEin pasient får beskjed av legen: «Ta 100 mg av medisinen kvar morgon.» Kroppen bryt ned 40 % av verkestoffet i løpet av eit døgn. Pasienten vert uroleg: viss eg fyller på 100 mg kvar dag, hopar ikkje medisinen seg opp i kroppen til farlege nivå? Svaret krev ein ny måte å skildre følgjer på — og det viser seg at mengda stabiliserer seg på eit heilt bestemt tal.\n\nTil no har vi mest brukt **eksplisitte formlar**: ein formel som gjev $a_n$ direkte som funksjon av $n$. Men nokre gonger er det meir naturleg å skildre ei følgje ved å fortelje korleis kvart ledd vert rekna ut frå det føregåande — slik medisinmengda i morgon vert bestemt av mengda i dag. Ei slik skildring vert kalla ein **rekursiv formel**, og han treng to ingrediensar: ein **startverdi** ($a_1 = \\ldots$) og ein **rekursjonsrelasjon** ($a_{n+1} = f(a_n)$).\n\nDu har faktisk møtt rekursjon allereie: $a_1 = 3$, $a_{n+1} = a_n + 5$ er ei aritmetisk følgje med $d = 5$, og $a_1 = 2$, $a_{n+1} = 3a_n$ er ei geometrisk følgje med $k = 3$. Men rekursjon famnar mykje vidare — han skildrar folkesetnadsdynamikk, lånenedbetaling, algoritmar i informatikken og naturens eigen favoritt, Fibonacci-følgja. Lat oss byrje med å omsetje mellom dei to språka."},{"id":"s2-7-5-n-section1","type":"text","content":"## To språk for same følgje\n\nFor aritmetiske og geometriske følgjer kan vi alltid omsetje frå rekursiv til eksplisitt form. Den aritmetiske $a_{n+1} = a_n + d$ vert eksplisitt $a_n = a_1 + (n-1)d$, og den geometriske $a_{n+1} = k \\cdot a_n$ vert $a_n = a_1 \\cdot k^{n-1}$. For meir kompliserte rekursjonar finst det ikkje alltid ein eksplisitt formel — då må ledda reknast ut steg for steg, gjerne i rekneark eller med programmering.\n\nEit døme på omsetjing: følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ er aritmetisk med $d = 4$, så den eksplisitte formelen er $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Kontroll: $a_1 = 7$ ✓ og $a_2 = 11 = 7 + 4$ ✓. No kan vi hoppe rett til $a_{50} = 4 \\cdot 50 + 3 = 203$ — utan 49 mellomrekningar. Det er nettopp styrken til eksplisitte formlar; rekursive formlar er til gjengjeld ofte lettare å *stille opp* frå ein praktisk situasjon.\n\nDen mest berømte rekursive følgja av alle treng to startverdiar: **Fibonacci-følgja**\n\n$$F_1 = 1, \\quad F_2 = 1, \\quad F_{n+2} = F_{n+1} + F_n$$\n\ngjev $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \\ldots$ — kvart ledd er summen av dei to føregåande. Følgja dukkar opp i naturens bladstillingar, skjelmønster og spiralar, og ho ber på ein djup løyndom: forholdet $\\frac{F_{n+1}}{F_n}$ nærmar seg **det gylne snittet** $\\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}618$ når $n$ veks. Det finst til og med ein eksplisitt formel, **Binets formel**:\n\n$$F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}, \\qquad \\psi = \\frac{1 - \\sqrt{5}}{2} \\approx -0{,}618$$\n\nSidan $|\\psi| < 1$ visnar $\\psi^n$ bort, og $F_n \\approx \\frac{\\varphi^n}{\\sqrt{5}}$ for store $n$ — Fibonacci-tala veks i praksis geometrisk med faktor $\\varphi$."},{"id":"s2-7-5-n-quiz1","type":"exercise","exercise":{"id":"s2-7-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på rekursive og eksplisitte formlar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-5-n-quiz1-q0","task":"Kva treng ein rekursiv definisjon av ei følgje?","options":[{"id":"a","text":"Startverdi(ar) og ein regel som gjev neste ledd frå føregåande ledd","isCorrect":true},{"id":"b","text":"Berre ein formel for $a_n$ som funksjon av $n$","isCorrect":false},{"id":"c","text":"Summen av alle ledda","isCorrect":false},{"id":"d","text":"At følgja er aritmetisk eller geometrisk","isCorrect":false}],"solution":"Ein rekursiv formel består av startverdi(ar), t.d. $a_1$, og ein rekursjonsrelasjon, t.d. $a_{n+1} = f(a_n)$."},{"id":"s2-7-5-n-quiz1-q1","task":"Følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ har eksplisitt formel …","options":[{"id":"a","text":"$a_n = 7 \\cdot 4^{n-1}$","isCorrect":false},{"id":"b","text":"$a_n = 4n + 7$","isCorrect":false},{"id":"c","text":"$a_n = 4n + 3$","isCorrect":true},{"id":"d","text":"$a_n = 7n + 4$","isCorrect":false}],"solution":"Aritmetisk med $a_1 = 7$, $d = 4$: $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Sjekk: $a_1 = 7$, $a_2 = 11$."},{"id":"s2-7-5-n-quiz1-q2","task":"Kva er dei neste to ledda i Fibonacci-følgja $1, 1, 2, 3, 5, 8, 13, \\ldots$?","options":[{"id":"a","text":"$18$ og $25$","isCorrect":false},{"id":"b","text":"$21$ og $34$","isCorrect":true},{"id":"c","text":"$20$ og $33$","isCorrect":false},{"id":"d","text":"$26$ og $39$","isCorrect":false}],"solution":"$F_8 = 13 + 8 = 21$ og $F_9 = 21 + 13 = 34$ — kvart ledd er summen av dei to føregåande."},{"id":"s2-7-5-n-quiz1-q3","task":"Kva nærmar forholdet $\\frac{F_{n+1}}{F_n}$ seg når $n \\to \\infty$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$\\sqrt{5} \\approx 2{,}236$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"Det gylne snittet $\\varphi = \\frac{1+\\sqrt{5}}{2} \\approx 1{,}618$","isCorrect":true}],"solution":"Forholdet mellom påfølgjande Fibonacci-tal konvergerer mot det gylne snittet — synleg allereie i $\\frac{34}{21} \\approx 1{,}619$."}]}},{"id":"s2-7-5-n-section2","type":"text","content":"## Lineær rekursjon og likevekt — svaret til medisinen\n\nTilbake til pasienten. Lat $a_n$ vere mengda medisin i kroppen rett etter dose nummer $n$. Kvar dag er 60 % av gårsdagens mengd att, pluss ein ny dose:\n\n$$a_1 = 100, \\qquad a_{n+1} = 0{,}6 \\cdot a_n + 100$$\n\nDette er ein **lineær rekursiv samanheng av første orden**: $a_{n+1} = p \\cdot a_n + q$ med konstantar $p$ og $q$. Spesialtilfella kjenner du: $q = 0$ gjev ei geometrisk følgje med $k = p$, og $p = 1$ gjev ei aritmetisk følgje med $d = q$. Det interessante er det generelle tilfellet $p \\neq 1$.\n\nVi reknar nokre ledd: $a_2 = 0{,}6 \\cdot 100 + 100 = 160$, $a_3 = 196$, $a_4 = 217{,}6$ — auken avtek for kvart døgn. Følgja ser ut til å flate ut. Finst det ei mengd som *ikkje endrar seg* frå dag til dag? Då må $a^* = p \\cdot a^* + q$, som gjev **likevektspunktet**\n\n$$a^* = \\frac{q}{1 - p} = \\frac{100}{1 - 0{,}6} = 250 \\text{ mg}$$\n\nOg det finst ein eksplisitt formel som viser heile forløpet: avstanden frå likevekta krympar geometrisk,\n\n$$a_n = (a_1 - a^*) \\cdot p^{n-1} + a^* = 250 - 150 \\cdot 0{,}6^{n-1}$$\n\nSidan $|p| = 0{,}6 < 1$, konvergerer mengda mot 250 mg. Pasienten kan puste letta ut: medisinen hopar seg ikkje opp i det uendelege, men stabiliserer seg — og legen har sjølvsagt valt dosen slik at 250 mg er terapeutisk rett nivå."},{"id":"s2-7-5-n-quiz2","type":"exercise","exercise":{"id":"s2-7-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på lineær rekursjon og likevektspunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-5-n-quiz2-q0","task":"Kva er likevektspunktet for $a_{n+1} = p \\cdot a_n + q$ (med $p \\neq 1$)?","options":[{"id":"a","text":"$a^* = \\frac{p}{1-q}$","isCorrect":false},{"id":"b","text":"$a^* = \\frac{q}{1-p}$","isCorrect":true},{"id":"c","text":"$a^* = p + q$","isCorrect":false},{"id":"d","text":"$a^* = \\frac{q}{p}$","isCorrect":false}],"solution":"I likevekt er $a^* = pa^* + q$, som gjev $a^*(1-p) = q$ og $a^* = \\frac{q}{1-p}$."},{"id":"s2-7-5-n-quiz2-q1","task":"Medisinmodellen er $a_{n+1} = 0{,}6a_n + 100$ med $a_1 = 100$. Kva er $a_3$?","options":[{"id":"a","text":"$196$ mg","isCorrect":true},{"id":"b","text":"$160$ mg","isCorrect":false},{"id":"c","text":"$217{,}6$ mg","isCorrect":false},{"id":"d","text":"$250$ mg","isCorrect":false}],"solution":"$a_2 = 0{,}6 \\cdot 100 + 100 = 160$ og $a_3 = 0{,}6 \\cdot 160 + 100 = 196$ mg."},{"id":"s2-7-5-n-quiz2-q2","task":"Kvifor konvergerer medisinmengda mot 250 mg?","options":[{"id":"a","text":"Fordi $q = 100$ er mindre enn 250","isCorrect":false},{"id":"b","text":"Fordi dosane etter kvart vert mindre","isCorrect":false},{"id":"c","text":"Fordi $a_1 = 100$ er ein spesiell startverdi","isCorrect":false},{"id":"d","text":"Fordi $|p| = 0{,}6 < 1$, slik at avviket frå likevekta krympar geometrisk","isCorrect":true}],"solution":"Eksplisitt: $a_n = (a_1 - a^*)p^{n-1} + a^*$. Når $|p| < 1$ døyr avviksleddet ut, uansett startverdi."},{"id":"s2-7-5-n-quiz2-q3","task":"Kva rekursjon skildrar ein konto som veks 2 % per termin samstundes som det vert teke ut 500 kr kvar termin?","options":[{"id":"a","text":"$a_{n+1} = 0{,}02a_n - 500$","isCorrect":false},{"id":"b","text":"$a_{n+1} = a_n + 0{,}02 - 500$","isCorrect":false},{"id":"c","text":"$a_{n+1} = 1{,}02a_n - 500$","isCorrect":true},{"id":"d","text":"$a_{n+1} = 1{,}02(a_n - 0{,}02) + 500$","isCorrect":false}],"solution":"Først renter: $a_n \\cdot 1{,}02$, deretter uttak: $-500$. Altså $a_{n+1} = 1{,}02a_n - 500$ — same struktur som lånerekursjonen $R_{n+1} = R_n(1+r) - T$."}]}},{"id":"s2-7-5-n-section3","type":"text","content":"## Stabil eller ustabil? Modellar med vippepunkt\n\nLikevektspunkt er ikkje alltid trygge hamner. Sjå på ein dyrepopulasjon som veks 10 % i året, men der det vert hausta 50 individ årleg. Med 400 dyr ved start:\n\n$$a_1 = 400, \\qquad a_{n+1} = 1{,}1 \\cdot a_n - 50$$\n\nLikevekta er $a^* = \\frac{-50}{1 - 1{,}1} = \\frac{-50}{-0{,}1} = 500$ dyr. Men her er $|p| = 1{,}1 > 1$, og då snur alt: er bestanden *over* 500, veks han utan grense; er han *under* 500, døyr han ut. Sjekk sjølv: $a_2 = 1{,}1 \\cdot 400 - 50 = 390$, $a_3 = 379$ — bestanden er på veg ned. Likevekta på 500 er eit **vippepunkt**, ikkje eit kvilepunkt.\n\nDette er den generelle regelen for $a_{n+1} = pa_n + q$. Ved **stabil likevekt** ($|p| < 1$) konvergerer følgja mot $a^*$ uansett startverdi — små avvik vert dempa ut, som for medisinen. Ved **ustabil likevekt** ($|p| > 1$) vert små avvik forsterka, og følgja rømmer frå $a^*$ — som for den beskatta bestanden. Grensetilfellet $|p| = 1$ gjev aritmetisk følgje (inga likevekt) eller rein oscillasjon.\n\nRekursive modellar vert brukte overalt: logistisk folkesetnadsvekst $P_{n+1} = r P_n (1 - P_n/K)$, medisindosering, lån med renter og terminbeløp $R_{n+1} = R_n(1+r) - T$, og utallige algoritmar i informatikken. Den store fordelen deira er at dei er enkle å implementere i rekneark og programmering — du treng berre startverdien og regelen for neste steg. Men hugs avgrensingane til modellane: føresetnadene (fast prosent, fast uttak) gjeld sjeldan evig i røynda."},{"id":"s2-7-5-n-quiz3","type":"exercise","exercise":{"id":"s2-7-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på stabilitet i rekursive modellar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-7-5-n-quiz3-q0","task":"Når er likevektspunktet til $a_{n+1} = pa_n + q$ stabilt?","options":[{"id":"a","text":"Når $q > 0$","isCorrect":false},{"id":"b","text":"Når $p > 1$","isCorrect":false},{"id":"c","text":"Når $|p| < 1$","isCorrect":true},{"id":"d","text":"Når $a_1 = a^*$","isCorrect":false}],"solution":"For $|p| < 1$ krympar avviket $(a_1 - a^*)p^{n-1}$ mot null, og følgja konvergerer mot $a^*$ uansett start."},{"id":"s2-7-5-n-quiz3-q1","task":"Populasjonsmodellen $a_{n+1} = 1{,}1a_n - 50$ har likevekt 500. Kva skjer med ein bestand som startar på 400?","options":[{"id":"a","text":"Han avtek mot null — likevekta er ustabil og bestanden ligg under vippepunktet","isCorrect":true},{"id":"b","text":"Han veks mot 500 og stabiliserer seg","isCorrect":false},{"id":"c","text":"Han oscillerer rundt 500","isCorrect":false},{"id":"d","text":"Han veks utan grense","isCorrect":false}],"solution":"Med $|p| = 1{,}1 > 1$ vert avvik forsterka: $a_2 = 390$, $a_3 = 379$, … Bestanden under 500 vert hausta ned mot utrydding."},{"id":"s2-7-5-n-quiz3-q2","task":"Kva må bestanden minst vere ved start for at han ikkje skal døy ut i same modell?","options":[{"id":"a","text":"$400$ dyr","isCorrect":false},{"id":"b","text":"$50$ dyr","isCorrect":false},{"id":"c","text":"$450$ dyr","isCorrect":false},{"id":"d","text":"$500$ dyr","isCorrect":true}],"solution":"Likevekta $a^* = 500$ er vippepunktet: over 500 veks bestanden, under 500 avtek han. Minst 500 dyr krevst."},{"id":"s2-7-5-n-quiz3-q3","task":"Kvifor eignar rekursive modellar seg så godt for rekneark og programmering?","options":[{"id":"a","text":"Fordi dei alltid har eksplisitte løysingar","isCorrect":false},{"id":"b","text":"Fordi ein berre treng startverdien og regelen for å rekne ut neste ledd, steg for steg","isCorrect":true},{"id":"c","text":"Fordi dei aldri divergerer","isCorrect":false},{"id":"d","text":"Fordi dei ikkje krev startverdiar","isCorrect":false}],"solution":"Éi linje kode eller éin rekneark­formel — «neste = p·førre + q» — er alt som trengst for å simulere modellen så langt ein vil."}]}},{"id":"s2-7-5-n-summary","type":"text","content":"## Oppsummering: følgjer som fortel framtida\n\nUroa til pasienten vart til ein heil teori. Ein **rekursiv formel** skildrar ei følgje gjennom startverdi(ar) og ein regel for neste ledd — naturens og økonomiens eige språk for utvikling over tid. Aritmetiske og geometriske følgjer er spesialtilfelle som alltid kan omsetjast til eksplisitt form, medan **Fibonacci-følgja** $F_{n+2} = F_{n+1} + F_n$ viste rikdomen i rekursjonen: forholdet mellom naboledd nærmar seg det gylne snittet $\\varphi \\approx 1{,}618$, og Binets formel $F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}$ gjev ledda eksplisitt.\n\nArbeidshesten er den **lineære rekursjonen** $a_{n+1} = pa_n + q$ med likevektspunkt $a^* = \\frac{q}{1-p}$ og eksplisitt løysing $a_n = (a_1 - a^*)p^{n-1} + a^*$. Forteiknet og storleiken på $p$ avgjer alt: $|p| < 1$ gjev **stabil likevekt** — medisinen stabiliserte seg på 250 mg uansett startdose — medan $|p| > 1$ gjev **ustabil likevekt**, som vippepunktet på 500 dyr der bestanden anten eksploderer eller døyr ut.\n\nRekursjon er dessutan brua til programmering: med startverdi og regel kan eitkvart rekneark eller Python-skript simulere medisinnivå, lånenedbetaling og folkesetnader. Men ein modell er aldri betre enn føresetnadene sine — faste prosentar og faste uttak er forenklingar, og ein god modellbrukar veit når dei sluttar å gjelde."}],"exercises":[],"_meta":{"sourceHash":"18d99947d5034d35","translatedAt":"2026-06-20T09:34:06.582Z","model":"claude-code-agent","strings":86,"tm":{"331b058e94138ad9":"Rekursive samanhengar","b195b06d1ed59702":"Narrativ versjon","68be4335a6064fac":"Ei forteljing om medisinen som ikkje hopa seg opp likevel — om rekursive formlar, likevektspunkt, stabile og ustabile modellar og Fibonaccis gylne løyndom.","1106d08617dcc28d":"gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering","3a3f5137a9350200":"modellere situasjonar ved hjelp av rekursive samanhengar og gjere greie for avgrensingar ved modellane","5067d2b95c9c445e":"## Medisinen som hopar seg opp\n\nEin pasient får beskjed av legen: «Ta 100 mg av medisinen kvar morgon.» Kroppen bryt ned 40 % av verkestoffet i løpet av eit døgn. Pasienten vert uroleg: viss eg fyller på 100 mg kvar dag, hopar ikkje medisinen seg opp i kroppen til farlege nivå? Svaret krev ein ny måte å skildre følgjer på — og det viser seg at mengda stabiliserer seg på eit heilt bestemt tal.\n\nTil no har vi mest brukt **eksplisitte formlar**: ein formel som gjev $a_n$ direkte som funksjon av $n$. Men nokre gonger er det meir naturleg å skildre ei følgje ved å fortelje korleis kvart ledd vert rekna ut frå det føregåande — slik medisinmengda i morgon vert bestemt av mengda i dag. Ei slik skildring vert kalla ein **rekursiv formel**, og han treng to ingrediensar: ein **startverdi** ($a_1 = \\ldots$) og ein **rekursjonsrelasjon** ($a_{n+1} = f(a_n)$).\n\nDu har faktisk møtt rekursjon allereie: $a_1 = 3$, $a_{n+1} = a_n + 5$ er ei aritmetisk følgje med $d = 5$, og $a_1 = 2$, $a_{n+1} = 3a_n$ er ei geometrisk følgje med $k = 3$. Men rekursjon famnar mykje vidare — han skildrar folkesetnadsdynamikk, lånenedbetaling, algoritmar i informatikken og naturens eigen favoritt, Fibonacci-følgja. Lat oss byrje med å omsetje mellom dei to språka.","6c1f4497155c5cca":"## To språk for same følgje\n\nFor aritmetiske og geometriske følgjer kan vi alltid omsetje frå rekursiv til eksplisitt form. Den aritmetiske $a_{n+1} = a_n + d$ vert eksplisitt $a_n = a_1 + (n-1)d$, og den geometriske $a_{n+1} = k \\cdot a_n$ vert $a_n = a_1 \\cdot k^{n-1}$. For meir kompliserte rekursjonar finst det ikkje alltid ein eksplisitt formel — då må ledda reknast ut steg for steg, gjerne i rekneark eller med programmering.\n\nEit døme på omsetjing: følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ er aritmetisk med $d = 4$, så den eksplisitte formelen er $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Kontroll: $a_1 = 7$ ✓ og $a_2 = 11 = 7 + 4$ ✓. No kan vi hoppe rett til $a_{50} = 4 \\cdot 50 + 3 = 203$ — utan 49 mellomrekningar. Det er nettopp styrken til eksplisitte formlar; rekursive formlar er til gjengjeld ofte lettare å *stille opp* frå ein praktisk situasjon.\n\nDen mest berømte rekursive følgja av alle treng to startverdiar: **Fibonacci-følgja**\n\n$$F_1 = 1, \\quad F_2 = 1, \\quad F_{n+2} = F_{n+1} + F_n$$\n\ngjev $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \\ldots$ — kvart ledd er summen av dei to føregåande. Følgja dukkar opp i naturens bladstillingar, skjelmønster og spiralar, og ho ber på ein djup løyndom: forholdet $\\frac{F_{n+1}}{F_n}$ nærmar seg **det gylne snittet** $\\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}618$ når $n$ veks. Det finst til og med ein eksplisitt formel, **Binets formel**:\n\n$$F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}, \\qquad \\psi = \\frac{1 - \\sqrt{5}}{2} \\approx -0{,}618$$\n\nSidan $|\\psi| < 1$ visnar $\\psi^n$ bort, og $F_n \\approx \\frac{\\varphi^n}{\\sqrt{5}}$ for store $n$ — Fibonacci-tala veks i praksis geometrisk med faktor $\\varphi$.","c6ce34b40526814a":"Test deg sjølv på rekursive og eksplisitte formlar:","4097889236a2af26":"placeholder","d611aa854c2e17b7":"Kva treng ein rekursiv definisjon av ei følgje?","d28e581bceb2fc53":"Startverdi(ar) og ein regel som gjev neste ledd frå føregåande ledd","577b39bf81d5059f":"Berre ein formel for $a_n$ som funksjon av $n$","550256cd02bf453e":"Summen av alle ledda","c9cab6ced9f4f956":"At følgja er aritmetisk eller geometrisk","444048b9f9e31c08":"Ein rekursiv formel består av startverdi(ar), t.d. $a_1$, og ein rekursjonsrelasjon, t.d. $a_{n+1} = f(a_n)$.","1a5a7e588edde734":"Følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ har eksplisitt formel …","c6193e88def4b69e":"$a_n = 7 \\cdot 4^{n-1}$","0eda33e187512e0c":"$a_n = 4n + 7$","01bca61906889f42":"$a_n = 4n + 3$","e4725069ecf9b37c":"$a_n = 7n + 4$","6961f433419666c3":"Aritmetisk med $a_1 = 7$, $d = 4$: $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Sjekk: $a_1 = 7$, $a_2 = 11$.","578a411bb41c6ce6":"Kva er dei neste to ledda i Fibonacci-følgja $1, 1, 2, 3, 5, 8, 13, \\ldots$?","5029c77f8398ced5":"$18$ og $25$","20d85f7d7349690b":"$21$ og $34$","e4519f9ab9dde7e1":"$20$ og $33$","ad8ece9af2adb329":"$26$ og $39$","884e5fbda37466d5":"$F_8 = 13 + 8 = 21$ og $F_9 = 21 + 13 = 34$ — kvart ledd er summen av dei to føregåande.","cf937dc1e397fd47":"Kva nærmar forholdet $\\frac{F_{n+1}}{F_n}$ seg når $n \\to \\infty$?","7ee895df8bd6fa4d":"$\\sqrt{5} \\approx 2{,}236$","c6b84b3103c706ca":"Det gylne snittet $\\varphi = \\frac{1+\\sqrt{5}}{2} \\approx 1{,}618$","0a19bb864c635d8d":"Forholdet mellom påfølgjande Fibonacci-tal konvergerer mot det gylne snittet — synleg allereie i $\\frac{34}{21} \\approx 1{,}619$.","86e755dff44a9df9":"## Lineær rekursjon og likevekt — svaret til medisinen\n\nTilbake til pasienten. Lat $a_n$ vere mengda medisin i kroppen rett etter dose nummer $n$. Kvar dag er 60 % av gårsdagens mengd att, pluss ein ny dose:\n\n$$a_1 = 100, \\qquad a_{n+1} = 0{,}6 \\cdot a_n + 100$$\n\nDette er ein **lineær rekursiv samanheng av første orden**: $a_{n+1} = p \\cdot a_n + q$ med konstantar $p$ og $q$. Spesialtilfella kjenner du: $q = 0$ gjev ei geometrisk følgje med $k = p$, og $p = 1$ gjev ei aritmetisk følgje med $d = q$. Det interessante er det generelle tilfellet $p \\neq 1$.\n\nVi reknar nokre ledd: $a_2 = 0{,}6 \\cdot 100 + 100 = 160$, $a_3 = 196$, $a_4 = 217{,}6$ — auken avtek for kvart døgn. Følgja ser ut til å flate ut. Finst det ei mengd som *ikkje endrar seg* frå dag til dag? Då må $a^* = p \\cdot a^* + q$, som gjev **likevektspunktet**\n\n$$a^* = \\frac{q}{1 - p} = \\frac{100}{1 - 0{,}6} = 250 \\text{ mg}$$\n\nOg det finst ein eksplisitt formel som viser heile forløpet: avstanden frå likevekta krympar geometrisk,\n\n$$a_n = (a_1 - a^*) \\cdot p^{n-1} + a^* = 250 - 150 \\cdot 0{,}6^{n-1}$$\n\nSidan $|p| = 0{,}6 < 1$, konvergerer mengda mot 250 mg. Pasienten kan puste letta ut: medisinen hopar seg ikkje opp i det uendelege, men stabiliserer seg — og legen har sjølvsagt valt dosen slik at 250 mg er terapeutisk rett nivå.","eaf57c2c34d7b57a":"Test deg sjølv på lineær rekursjon og likevektspunkt:","e09c66ea8a570687":"Kva er likevektspunktet for $a_{n+1} = p \\cdot a_n + q$ (med $p \\neq 1$)?","15ddd486dfdebd83":"$a^* = \\frac{p}{1-q}$","31b22f130bda0975":"$a^* = \\frac{q}{1-p}$","a3c18e99103f44a5":"$a^* = p + q$","752462c145704a01":"$a^* = \\frac{q}{p}$","f174eb5a5a48e661":"I likevekt er $a^* = pa^* + q$, som gjev $a^*(1-p) = q$ og $a^* = \\frac{q}{1-p}$.","4a01fbf3829e0a0a":"Medisinmodellen er $a_{n+1} = 0{,}6a_n + 100$ med $a_1 = 100$. Kva er $a_3$?","8c87de9dbfaadf3d":"$196$ mg","46361f1636746e19":"$160$ mg","5822ebc284770965":"$217{,}6$ mg","bab196e0c4810c22":"$250$ mg","48a2d52e7520c0e6":"$a_2 = 0{,}6 \\cdot 100 + 100 = 160$ og $a_3 = 0{,}6 \\cdot 160 + 100 = 196$ mg.","22b79cef787dfa44":"Kvifor konvergerer medisinmengda mot 250 mg?","9bcd8d002fb1320f":"Fordi $q = 100$ er mindre enn 250","f1534a92ecf15e3c":"Fordi dosane etter kvart vert mindre","ed63199da2ff66ac":"Fordi $a_1 = 100$ er ein spesiell startverdi","6bd76819818f8a12":"Fordi $|p| = 0{,}6 < 1$, slik at avviket frå likevekta krympar geometrisk","c8f3655a63919952":"Eksplisitt: $a_n = (a_1 - a^*)p^{n-1} + a^*$. Når $|p| < 1$ døyr avviksleddet ut, uansett startverdi.","beec08b4ef304cce":"Kva rekursjon skildrar ein konto som veks 2 % per termin samstundes som det vert teke ut 500 kr kvar termin?","96b0dc6dae277fc2":"$a_{n+1} = 0{,}02a_n - 500$","0883714d4b35baab":"$a_{n+1} = a_n + 0{,}02 - 500$","c48b4a4a9e286d5c":"$a_{n+1} = 1{,}02a_n - 500$","b247a24bef655dbb":"$a_{n+1} = 1{,}02(a_n - 0{,}02) + 500$","09dd0f13b59f4208":"Først renter: $a_n \\cdot 1{,}02$, deretter uttak: $-500$. Altså $a_{n+1} = 1{,}02a_n - 500$ — same struktur som lånerekursjonen $R_{n+1} = R_n(1+r) - T$.","dddae0e7a1ca2254":"## Stabil eller ustabil? Modellar med vippepunkt\n\nLikevektspunkt er ikkje alltid trygge hamner. Sjå på ein dyrepopulasjon som veks 10 % i året, men der det vert hausta 50 individ årleg. Med 400 dyr ved start:\n\n$$a_1 = 400, \\qquad a_{n+1} = 1{,}1 \\cdot a_n - 50$$\n\nLikevekta er $a^* = \\frac{-50}{1 - 1{,}1} = \\frac{-50}{-0{,}1} = 500$ dyr. Men her er $|p| = 1{,}1 > 1$, og då snur alt: er bestanden *over* 500, veks han utan grense; er han *under* 500, døyr han ut. Sjekk sjølv: $a_2 = 1{,}1 \\cdot 400 - 50 = 390$, $a_3 = 379$ — bestanden er på veg ned. Likevekta på 500 er eit **vippepunkt**, ikkje eit kvilepunkt.\n\nDette er den generelle regelen for $a_{n+1} = pa_n + q$. Ved **stabil likevekt** ($|p| < 1$) konvergerer følgja mot $a^*$ uansett startverdi — små avvik vert dempa ut, som for medisinen. Ved **ustabil likevekt** ($|p| > 1$) vert små avvik forsterka, og følgja rømmer frå $a^*$ — som for den beskatta bestanden. Grensetilfellet $|p| = 1$ gjev aritmetisk følgje (inga likevekt) eller rein oscillasjon.\n\nRekursive modellar vert brukte overalt: logistisk folkesetnadsvekst $P_{n+1} = r P_n (1 - P_n/K)$, medisindosering, lån med renter og terminbeløp $R_{n+1} = R_n(1+r) - T$, og utallige algoritmar i informatikken. Den store fordelen deira er at dei er enkle å implementere i rekneark og programmering — du treng berre startverdien og regelen for neste steg. Men hugs avgrensingane til modellane: føresetnadene (fast prosent, fast uttak) gjeld sjeldan evig i røynda.","8dec64325faa982d":"Test deg sjølv på stabilitet i rekursive modellar:","23a3972c307fc8f7":"Når er likevektspunktet til $a_{n+1} = pa_n + q$ stabilt?","019474867b9c40af":"Når $q > 0$","d220f0ba8b1fdcd6":"Når $p > 1$","c629398cf8323aeb":"Når $|p| < 1$","2e3f143636d1a105":"Når $a_1 = a^*$","dfc94b507833868e":"For $|p| < 1$ krympar avviket $(a_1 - a^*)p^{n-1}$ mot null, og følgja konvergerer mot $a^*$ uansett start.","6a569209994303be":"Populasjonsmodellen $a_{n+1} = 1{,}1a_n - 50$ har likevekt 500. Kva skjer med ein bestand som startar på 400?","1d38b1d344e85dc8":"Han avtek mot null — likevekta er ustabil og bestanden ligg under vippepunktet","3b786b63dbe0ce01":"Han veks mot 500 og stabiliserer seg","6416a114a6cd2a31":"Han oscillerer rundt 500","fad7b55f3b8363d1":"Han veks utan grense","dfe5266ca6a7945a":"Med $|p| = 1{,}1 > 1$ vert avvik forsterka: $a_2 = 390$, $a_3 = 379$, … Bestanden under 500 vert hausta ned mot utrydding.","93e71ea12be7cbcd":"Kva må bestanden minst vere ved start for at han ikkje skal døy ut i same modell?","3fa8911d02389e2d":"$400$ dyr","5775fb61bf908144":"$50$ dyr","f9ce46702078676b":"$450$ dyr","686ab17e2f4bf48c":"$500$ dyr","35ea250e0541730d":"Likevekta $a^* = 500$ er vippepunktet: over 500 veks bestanden, under 500 avtek han. Minst 500 dyr krevst.","3204df98d5bd0a34":"Kvifor eignar rekursive modellar seg så godt for rekneark og programmering?","4c4b8799b68ee865":"Fordi dei alltid har eksplisitte løysingar","651f45fbf4803ce2":"Fordi ein berre treng startverdien og regelen for å rekne ut neste ledd, steg for steg","29f5f6d52e0ac911":"Fordi dei aldri divergerer","8dfae36dd569caf3":"Fordi dei ikkje krev startverdiar","30b53f556390be12":"Éi linje kode eller éin rekneark­formel — «neste = p·førre + q» — er alt som trengst for å simulere modellen så langt ein vil.","50321d9bac255143":"## Oppsummering: følgjer som fortel framtida\n\nUroa til pasienten vart til ein heil teori. Ein **rekursiv formel** skildrar ei følgje gjennom startverdi(ar) og ein regel for neste ledd — naturens og økonomiens eige språk for utvikling over tid. Aritmetiske og geometriske følgjer er spesialtilfelle som alltid kan omsetjast til eksplisitt form, medan **Fibonacci-følgja** $F_{n+2} = F_{n+1} + F_n$ viste rikdomen i rekursjonen: forholdet mellom naboledd nærmar seg det gylne snittet $\\varphi \\approx 1{,}618$, og Binets formel $F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}$ gjev ledda eksplisitt.\n\nArbeidshesten er den **lineære rekursjonen** $a_{n+1} = pa_n + q$ med likevektspunkt $a^* = \\frac{q}{1-p}$ og eksplisitt løysing $a_n = (a_1 - a^*)p^{n-1} + a^*$. Forteiknet og storleiken på $p$ avgjer alt: $|p| < 1$ gjev **stabil likevekt** — medisinen stabiliserte seg på 250 mg uansett startdose — medan $|p| > 1$ gjev **ustabil likevekt**, som vippepunktet på 500 dyr der bestanden anten eksploderer eller døyr ut.\n\nRekursjon er dessutan brua til programmering: med startverdi og regel kan eitkvart rekneark eller Python-skript simulere medisinnivå, lånenedbetaling og folkesetnader. Men ein modell er aldri betre enn føresetnadene sine — faste prosentar og faste uttak er forenklingar, og ein god modellbrukar veit når dei sluttar å gjelde."}}}
+{
+  "id": "s2-7-5-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "7.5",
+  "title": "Rekursive samanhengar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om medisinen som ikkje hopa seg opp likevel — om rekursive formlar, likevektspunkt, stabile og ustabile modellar og Fibonaccis gylne løyndom.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+    "modellere situasjonar ved hjelp av rekursive samanhengar og gjere greie for avgrensingar ved modellane"
+  ],
+  "linkedChapterId": "s2-7-5",
+  "content": [
+    {
+      "id": "s2-7-5-n-intro",
+      "type": "text",
+      "content": "## Medisinen som hopar seg opp\n\nEin pasient får beskjed av legen: «Ta 100 mg av medisinen kvar morgon.» Kroppen bryt ned 40 % av verkestoffet i løpet av eit døgn. Pasienten vert uroleg: viss eg fyller på 100 mg kvar dag, hopar ikkje medisinen seg opp i kroppen til farlege nivå? Svaret krev ein ny måte å skildre følgjer på — og det viser seg at mengda stabiliserer seg på eit heilt bestemt tal.\n\nTil no har vi mest brukt **eksplisitte formlar**: ein formel som gjev $a_n$ direkte som funksjon av $n$. Men nokre gonger er det meir naturleg å skildre ei følgje ved å fortelje korleis kvart ledd vert rekna ut frå det føregåande — slik medisinmengda i morgon vert bestemt av mengda i dag. Ei slik skildring vert kalla ein **rekursiv formel**, og han treng to ingrediensar: ein **startverdi** ($a_1 = \\ldots$) og ein **rekursjonsrelasjon** ($a_{n+1} = f(a_n)$).\n\nDu har faktisk møtt rekursjon allereie: $a_1 = 3$, $a_{n+1} = a_n + 5$ er ei aritmetisk følgje med $d = 5$, og $a_1 = 2$, $a_{n+1} = 3a_n$ er ei geometrisk følgje med $k = 3$. Men rekursjon famnar mykje vidare — han skildrar folkesetnadsdynamikk, lånenedbetaling, algoritmar i informatikken og naturens eigen favoritt, Fibonacci-følgja. Lat oss byrje med å omsetje mellom dei to språka."
+    },
+    {
+      "id": "s2-7-5-n-section1",
+      "type": "text",
+      "content": "## To språk for same følgje\n\nFor aritmetiske og geometriske følgjer kan vi alltid omsetje frå rekursiv til eksplisitt form. Den aritmetiske $a_{n+1} = a_n + d$ vert eksplisitt $a_n = a_1 + (n-1)d$, og den geometriske $a_{n+1} = k \\cdot a_n$ vert $a_n = a_1 \\cdot k^{n-1}$. For meir kompliserte rekursjonar finst det ikkje alltid ein eksplisitt formel — då må ledda reknast ut steg for steg, gjerne i rekneark eller med programmering.\n\nEit døme på omsetjing: følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ er aritmetisk med $d = 4$, så den eksplisitte formelen er $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Kontroll: $a_1 = 7$ ✓ og $a_2 = 11 = 7 + 4$ ✓. No kan vi hoppe rett til $a_{50} = 4 \\cdot 50 + 3 = 203$ — utan 49 mellomrekningar. Det er nettopp styrken til eksplisitte formlar; rekursive formlar er til gjengjeld ofte lettare å *stille opp* frå ein praktisk situasjon.\n\nDen mest berømte rekursive følgja av alle treng to startverdiar: **Fibonacci-følgja**\n\n$$F_1 = 1, \\quad F_2 = 1, \\quad F_{n+2} = F_{n+1} + F_n$$\n\ngjev $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \\ldots$ — kvart ledd er summen av dei to føregåande. Følgja dukkar opp i naturens bladstillingar, skjelmønster og spiralar, og ho ber på ein djup løyndom: forholdet $\\frac{F_{n+1}}{F_n}$ nærmar seg **det gylne snittet** $\\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}618$ når $n$ veks. Det finst til og med ein eksplisitt formel, **Binets formel**:\n\n$$F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}, \\qquad \\psi = \\frac{1 - \\sqrt{5}}{2} \\approx -0{,}618$$\n\nSidan $|\\psi| < 1$ visnar $\\psi^n$ bort, og $F_n \\approx \\frac{\\varphi^n}{\\sqrt{5}}$ for store $n$ — Fibonacci-tala veks i praksis geometrisk med faktor $\\varphi$."
+    },
+    {
+      "id": "s2-7-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på rekursive og eksplisitte formlar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-5-n-quiz1-q0",
+            "task": "Kva treng ein rekursiv definisjon av ei følgje?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Berre ein formel for $a_n$ som funksjon av $n$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Summen av alle ledda",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At følgja er aritmetisk eller geometrisk",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Startverdi(ar) og ein regel som gjev neste ledd frå føregåande ledd",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein rekursiv formel består av startverdi(ar), t.d. $a_1$, og ein rekursjonsrelasjon, t.d. $a_{n+1} = f(a_n)$."
+          },
+          {
+            "id": "s2-7-5-n-quiz1-q1",
+            "task": "Følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ har eksplisitt formel …",
+            "options": [
+              {
+                "id": "c",
+                "text": "$a_n = 4n + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$a_n = 7 \\cdot 4^{n-1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_n = 4n + 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a_n = 7n + 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Aritmetisk med $a_1 = 7$, $d = 4$: $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Sjekk: $a_1 = 7$, $a_2 = 11$."
+          },
+          {
+            "id": "s2-7-5-n-quiz1-q2",
+            "task": "Kva er dei neste to ledda i Fibonacci-følgja $1, 1, 2, 3, 5, 8, 13, \\ldots$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$18$ og $25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$21$ og $34$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$20$ og $33$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$26$ og $39$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$F_8 = 13 + 8 = 21$ og $F_9 = 21 + 13 = 34$ — kvart ledd er summen av dei to føregåande."
+          },
+          {
+            "id": "s2-7-5-n-quiz1-q3",
+            "task": "Kva nærmar forholdet $\\frac{F_{n+1}}{F_n}$ seg når $n \\to \\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\sqrt{5} \\approx 2{,}236$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det gylne snittet $\\varphi = \\frac{1+\\sqrt{5}}{2} \\approx 1{,}618$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Forholdet mellom påfølgjande Fibonacci-tal konvergerer mot det gylne snittet — synleg allereie i $\\frac{34}{21} \\approx 1{,}619$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-5-n-section2",
+      "type": "text",
+      "content": "## Lineær rekursjon og likevekt — svaret til medisinen\n\nTilbake til pasienten. Lat $a_n$ vere mengda medisin i kroppen rett etter dose nummer $n$. Kvar dag er 60 % av gårsdagens mengd att, pluss ein ny dose:\n\n$$a_1 = 100, \\qquad a_{n+1} = 0{,}6 \\cdot a_n + 100$$\n\nDette er ein **lineær rekursiv samanheng av første orden**: $a_{n+1} = p \\cdot a_n + q$ med konstantar $p$ og $q$. Spesialtilfella kjenner du: $q = 0$ gjev ei geometrisk følgje med $k = p$, og $p = 1$ gjev ei aritmetisk følgje med $d = q$. Det interessante er det generelle tilfellet $p \\neq 1$.\n\nVi reknar nokre ledd: $a_2 = 0{,}6 \\cdot 100 + 100 = 160$, $a_3 = 196$, $a_4 = 217{,}6$ — auken avtek for kvart døgn. Følgja ser ut til å flate ut. Finst det ei mengd som *ikkje endrar seg* frå dag til dag? Då må $a^* = p \\cdot a^* + q$, som gjev **likevektspunktet**\n\n$$a^* = \\frac{q}{1 - p} = \\frac{100}{1 - 0{,}6} = 250 \\text{ mg}$$\n\nOg det finst ein eksplisitt formel som viser heile forløpet: avstanden frå likevekta krympar geometrisk,\n\n$$a_n = (a_1 - a^*) \\cdot p^{n-1} + a^* = 250 - 150 \\cdot 0{,}6^{n-1}$$\n\nSidan $|p| = 0{,}6 < 1$, konvergerer mengda mot 250 mg. Pasienten kan puste letta ut: medisinen hopar seg ikkje opp i det uendelege, men stabiliserer seg — og legen har sjølvsagt valt dosen slik at 250 mg er terapeutisk rett nivå."
+    },
+    {
+      "id": "s2-7-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på lineær rekursjon og likevektspunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-5-n-quiz2-q0",
+            "task": "Kva er likevektspunktet for $a_{n+1} = p \\cdot a_n + q$ (med $p \\neq 1$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a^* = \\frac{p}{1-q}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a^* = p + q$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a^* = \\frac{q}{p}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a^* = \\frac{q}{1-p}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "I likevekt er $a^* = pa^* + q$, som gjev $a^*(1-p) = q$ og $a^* = \\frac{q}{1-p}$."
+          },
+          {
+            "id": "s2-7-5-n-quiz2-q1",
+            "task": "Medisinmodellen er $a_{n+1} = 0{,}6a_n + 100$ med $a_1 = 100$. Kva er $a_3$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$196$ mg",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$160$ mg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$217{,}6$ mg",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$250$ mg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_2 = 0{,}6 \\cdot 100 + 100 = 160$ og $a_3 = 0{,}6 \\cdot 160 + 100 = 196$ mg."
+          },
+          {
+            "id": "s2-7-5-n-quiz2-q2",
+            "task": "Kvifor konvergerer medisinmengda mot 250 mg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $q = 100$ er mindre enn 250",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $|p| = 0{,}6 < 1$, slik at avviket frå likevekta krympar geometrisk",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi dosane etter kvart vert mindre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi $a_1 = 100$ er ein spesiell startverdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksplisitt: $a_n = (a_1 - a^*)p^{n-1} + a^*$. Når $|p| < 1$ døyr avviksleddet ut, uansett startverdi."
+          },
+          {
+            "id": "s2-7-5-n-quiz2-q3",
+            "task": "Kva rekursjon skildrar ein konto som veks 2 % per termin samstundes som det vert teke ut 500 kr kvar termin?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a_{n+1} = 0{,}02a_n - 500$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a_{n+1} = a_n + 0{,}02 - 500$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a_{n+1} = 1{,}02a_n - 500$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a_{n+1} = 1{,}02(a_n - 0{,}02) + 500$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først renter: $a_n \\cdot 1{,}02$, deretter uttak: $-500$. Altså $a_{n+1} = 1{,}02a_n - 500$ — same struktur som lånerekursjonen $R_{n+1} = R_n(1+r) - T$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-5-n-section3",
+      "type": "text",
+      "content": "## Stabil eller ustabil? Modellar med vippepunkt\n\nLikevektspunkt er ikkje alltid trygge hamner. Sjå på ein dyrepopulasjon som veks 10 % i året, men der det vert hausta 50 individ årleg. Med 400 dyr ved start:\n\n$$a_1 = 400, \\qquad a_{n+1} = 1{,}1 \\cdot a_n - 50$$\n\nLikevekta er $a^* = \\frac{-50}{1 - 1{,}1} = \\frac{-50}{-0{,}1} = 500$ dyr. Men her er $|p| = 1{,}1 > 1$, og då snur alt: er bestanden *over* 500, veks han utan grense; er han *under* 500, døyr han ut. Sjekk sjølv: $a_2 = 1{,}1 \\cdot 400 - 50 = 390$, $a_3 = 379$ — bestanden er på veg ned. Likevekta på 500 er eit **vippepunkt**, ikkje eit kvilepunkt.\n\nDette er den generelle regelen for $a_{n+1} = pa_n + q$. Ved **stabil likevekt** ($|p| < 1$) konvergerer følgja mot $a^*$ uansett startverdi — små avvik vert dempa ut, som for medisinen. Ved **ustabil likevekt** ($|p| > 1$) vert små avvik forsterka, og følgja rømmer frå $a^*$ — som for den beskatta bestanden. Grensetilfellet $|p| = 1$ gjev aritmetisk følgje (inga likevekt) eller rein oscillasjon.\n\nRekursive modellar vert brukte overalt: logistisk folkesetnadsvekst $P_{n+1} = r P_n (1 - P_n/K)$, medisindosering, lån med renter og terminbeløp $R_{n+1} = R_n(1+r) - T$, og utallige algoritmar i informatikken. Den store fordelen deira er at dei er enkle å implementere i rekneark og programmering — du treng berre startverdien og regelen for neste steg. Men hugs avgrensingane til modellane: føresetnadene (fast prosent, fast uttak) gjeld sjeldan evig i røynda."
+    },
+    {
+      "id": "s2-7-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-7-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på stabilitet i rekursive modellar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-7-5-n-quiz3-q0",
+            "task": "Når er likevektspunktet til $a_{n+1} = pa_n + q$ stabilt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $q > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $p > 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $|p| < 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når $a_1 = a^*$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $|p| < 1$ krympar avviket $(a_1 - a^*)p^{n-1}$ mot null, og følgja konvergerer mot $a^*$ uansett start."
+          },
+          {
+            "id": "s2-7-5-n-quiz3-q1",
+            "task": "Populasjonsmodellen $a_{n+1} = 1{,}1a_n - 50$ har likevekt 500. Kva skjer med ein bestand som startar på 400?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han veks mot 500 og stabiliserer seg",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han oscillerer rundt 500",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han veks utan grense",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Han avtek mot null — likevekta er ustabil og bestanden ligg under vippepunktet",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $|p| = 1{,}1 > 1$ vert avvik forsterka: $a_2 = 390$, $a_3 = 379$, … Bestanden under 500 vert hausta ned mot utrydding."
+          },
+          {
+            "id": "s2-7-5-n-quiz3-q2",
+            "task": "Kva må bestanden minst vere ved start for at han ikkje skal døy ut i same modell?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$500$ dyr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$400$ dyr",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$50$ dyr",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$450$ dyr",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likevekta $a^* = 500$ er vippepunktet: over 500 veks bestanden, under 500 avtek han. Minst 500 dyr krevst."
+          },
+          {
+            "id": "s2-7-5-n-quiz3-q3",
+            "task": "Kvifor eignar rekursive modellar seg så godt for rekneark og programmering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi dei alltid har eksplisitte løysingar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi ein berre treng startverdien og regelen for å rekne ut neste ledd, steg for steg",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Fordi dei aldri divergerer",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi dei ikkje krev startverdiar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Éi linje kode eller éin rekneark­formel — «neste = p·førre + q» — er alt som trengst for å simulere modellen så langt ein vil."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-7-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: følgjer som fortel framtida\n\nUroa til pasienten vart til ein heil teori. Ein **rekursiv formel** skildrar ei følgje gjennom startverdi(ar) og ein regel for neste ledd — naturens og økonomiens eige språk for utvikling over tid. Aritmetiske og geometriske følgjer er spesialtilfelle som alltid kan omsetjast til eksplisitt form, medan **Fibonacci-følgja** $F_{n+2} = F_{n+1} + F_n$ viste rikdomen i rekursjonen: forholdet mellom naboledd nærmar seg det gylne snittet $\\varphi \\approx 1{,}618$, og Binets formel $F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}$ gjev ledda eksplisitt.\n\nArbeidshesten er den **lineære rekursjonen** $a_{n+1} = pa_n + q$ med likevektspunkt $a^* = \\frac{q}{1-p}$ og eksplisitt løysing $a_n = (a_1 - a^*)p^{n-1} + a^*$. Forteiknet og storleiken på $p$ avgjer alt: $|p| < 1$ gjev **stabil likevekt** — medisinen stabiliserte seg på 250 mg uansett startdose — medan $|p| > 1$ gjev **ustabil likevekt**, som vippepunktet på 500 dyr der bestanden anten eksploderer eller døyr ut.\n\nRekursjon er dessutan brua til programmering: med startverdi og regel kan eitkvart rekneark eller Python-skript simulere medisinnivå, lånenedbetaling og folkesetnader. Men ein modell er aldri betre enn føresetnadene sine — faste prosentar og faste uttak er forenklingar, og ein god modellbrukar veit når dei sluttar å gjelde."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "18d99947d5034d35",
+    "translatedAt": "2026-06-20T09:34:06.582Z",
+    "model": "claude-code-agent",
+    "strings": 86,
+    "tm": {
+      "331b058e94138ad9": "Rekursive samanhengar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "68be4335a6064fac": "Ei forteljing om medisinen som ikkje hopa seg opp likevel — om rekursive formlar, likevektspunkt, stabile og ustabile modellar og Fibonaccis gylne løyndom.",
+      "1106d08617dcc28d": "gjere greie for omgrepa rekkjer, konvergens og divergens, og bruke rekkjer i modellering",
+      "3a3f5137a9350200": "modellere situasjonar ved hjelp av rekursive samanhengar og gjere greie for avgrensingar ved modellane",
+      "5067d2b95c9c445e": "## Medisinen som hopar seg opp\n\nEin pasient får beskjed av legen: «Ta 100 mg av medisinen kvar morgon.» Kroppen bryt ned 40 % av verkestoffet i løpet av eit døgn. Pasienten vert uroleg: viss eg fyller på 100 mg kvar dag, hopar ikkje medisinen seg opp i kroppen til farlege nivå? Svaret krev ein ny måte å skildre følgjer på — og det viser seg at mengda stabiliserer seg på eit heilt bestemt tal.\n\nTil no har vi mest brukt **eksplisitte formlar**: ein formel som gjev $a_n$ direkte som funksjon av $n$. Men nokre gonger er det meir naturleg å skildre ei følgje ved å fortelje korleis kvart ledd vert rekna ut frå det føregåande — slik medisinmengda i morgon vert bestemt av mengda i dag. Ei slik skildring vert kalla ein **rekursiv formel**, og han treng to ingrediensar: ein **startverdi** ($a_1 = \\ldots$) og ein **rekursjonsrelasjon** ($a_{n+1} = f(a_n)$).\n\nDu har faktisk møtt rekursjon allereie: $a_1 = 3$, $a_{n+1} = a_n + 5$ er ei aritmetisk følgje med $d = 5$, og $a_1 = 2$, $a_{n+1} = 3a_n$ er ei geometrisk følgje med $k = 3$. Men rekursjon famnar mykje vidare — han skildrar folkesetnadsdynamikk, lånenedbetaling, algoritmar i informatikken og naturens eigen favoritt, Fibonacci-følgja. Lat oss byrje med å omsetje mellom dei to språka.",
+      "6c1f4497155c5cca": "## To språk for same følgje\n\nFor aritmetiske og geometriske følgjer kan vi alltid omsetje frå rekursiv til eksplisitt form. Den aritmetiske $a_{n+1} = a_n + d$ vert eksplisitt $a_n = a_1 + (n-1)d$, og den geometriske $a_{n+1} = k \\cdot a_n$ vert $a_n = a_1 \\cdot k^{n-1}$. For meir kompliserte rekursjonar finst det ikkje alltid ein eksplisitt formel — då må ledda reknast ut steg for steg, gjerne i rekneark eller med programmering.\n\nEit døme på omsetjing: følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ er aritmetisk med $d = 4$, så den eksplisitte formelen er $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Kontroll: $a_1 = 7$ ✓ og $a_2 = 11 = 7 + 4$ ✓. No kan vi hoppe rett til $a_{50} = 4 \\cdot 50 + 3 = 203$ — utan 49 mellomrekningar. Det er nettopp styrken til eksplisitte formlar; rekursive formlar er til gjengjeld ofte lettare å *stille opp* frå ein praktisk situasjon.\n\nDen mest berømte rekursive følgja av alle treng to startverdiar: **Fibonacci-følgja**\n\n$$F_1 = 1, \\quad F_2 = 1, \\quad F_{n+2} = F_{n+1} + F_n$$\n\ngjev $1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \\ldots$ — kvart ledd er summen av dei to føregåande. Følgja dukkar opp i naturens bladstillingar, skjelmønster og spiralar, og ho ber på ein djup løyndom: forholdet $\\frac{F_{n+1}}{F_n}$ nærmar seg **det gylne snittet** $\\varphi = \\frac{1 + \\sqrt{5}}{2} \\approx 1{,}618$ når $n$ veks. Det finst til og med ein eksplisitt formel, **Binets formel**:\n\n$$F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}, \\qquad \\psi = \\frac{1 - \\sqrt{5}}{2} \\approx -0{,}618$$\n\nSidan $|\\psi| < 1$ visnar $\\psi^n$ bort, og $F_n \\approx \\frac{\\varphi^n}{\\sqrt{5}}$ for store $n$ — Fibonacci-tala veks i praksis geometrisk med faktor $\\varphi$.",
+      "c6ce34b40526814a": "Test deg sjølv på rekursive og eksplisitte formlar:",
+      "4097889236a2af26": "placeholder",
+      "d611aa854c2e17b7": "Kva treng ein rekursiv definisjon av ei følgje?",
+      "d28e581bceb2fc53": "Startverdi(ar) og ein regel som gjev neste ledd frå føregåande ledd",
+      "577b39bf81d5059f": "Berre ein formel for $a_n$ som funksjon av $n$",
+      "550256cd02bf453e": "Summen av alle ledda",
+      "c9cab6ced9f4f956": "At følgja er aritmetisk eller geometrisk",
+      "444048b9f9e31c08": "Ein rekursiv formel består av startverdi(ar), t.d. $a_1$, og ein rekursjonsrelasjon, t.d. $a_{n+1} = f(a_n)$.",
+      "1a5a7e588edde734": "Følgja $a_1 = 7$, $a_{n+1} = a_n + 4$ har eksplisitt formel …",
+      "c6193e88def4b69e": "$a_n = 7 \\cdot 4^{n-1}$",
+      "0eda33e187512e0c": "$a_n = 4n + 7$",
+      "01bca61906889f42": "$a_n = 4n + 3$",
+      "e4725069ecf9b37c": "$a_n = 7n + 4$",
+      "6961f433419666c3": "Aritmetisk med $a_1 = 7$, $d = 4$: $a_n = 7 + (n-1) \\cdot 4 = 4n + 3$. Sjekk: $a_1 = 7$, $a_2 = 11$.",
+      "578a411bb41c6ce6": "Kva er dei neste to ledda i Fibonacci-følgja $1, 1, 2, 3, 5, 8, 13, \\ldots$?",
+      "5029c77f8398ced5": "$18$ og $25$",
+      "20d85f7d7349690b": "$21$ og $34$",
+      "e4519f9ab9dde7e1": "$20$ og $33$",
+      "ad8ece9af2adb329": "$26$ og $39$",
+      "884e5fbda37466d5": "$F_8 = 13 + 8 = 21$ og $F_9 = 21 + 13 = 34$ — kvart ledd er summen av dei to føregåande.",
+      "cf937dc1e397fd47": "Kva nærmar forholdet $\\frac{F_{n+1}}{F_n}$ seg når $n \\to \\infty$?",
+      "7ee895df8bd6fa4d": "$\\sqrt{5} \\approx 2{,}236$",
+      "c6b84b3103c706ca": "Det gylne snittet $\\varphi = \\frac{1+\\sqrt{5}}{2} \\approx 1{,}618$",
+      "0a19bb864c635d8d": "Forholdet mellom påfølgjande Fibonacci-tal konvergerer mot det gylne snittet — synleg allereie i $\\frac{34}{21} \\approx 1{,}619$.",
+      "86e755dff44a9df9": "## Lineær rekursjon og likevekt — svaret til medisinen\n\nTilbake til pasienten. Lat $a_n$ vere mengda medisin i kroppen rett etter dose nummer $n$. Kvar dag er 60 % av gårsdagens mengd att, pluss ein ny dose:\n\n$$a_1 = 100, \\qquad a_{n+1} = 0{,}6 \\cdot a_n + 100$$\n\nDette er ein **lineær rekursiv samanheng av første orden**: $a_{n+1} = p \\cdot a_n + q$ med konstantar $p$ og $q$. Spesialtilfella kjenner du: $q = 0$ gjev ei geometrisk følgje med $k = p$, og $p = 1$ gjev ei aritmetisk følgje med $d = q$. Det interessante er det generelle tilfellet $p \\neq 1$.\n\nVi reknar nokre ledd: $a_2 = 0{,}6 \\cdot 100 + 100 = 160$, $a_3 = 196$, $a_4 = 217{,}6$ — auken avtek for kvart døgn. Følgja ser ut til å flate ut. Finst det ei mengd som *ikkje endrar seg* frå dag til dag? Då må $a^* = p \\cdot a^* + q$, som gjev **likevektspunktet**\n\n$$a^* = \\frac{q}{1 - p} = \\frac{100}{1 - 0{,}6} = 250 \\text{ mg}$$\n\nOg det finst ein eksplisitt formel som viser heile forløpet: avstanden frå likevekta krympar geometrisk,\n\n$$a_n = (a_1 - a^*) \\cdot p^{n-1} + a^* = 250 - 150 \\cdot 0{,}6^{n-1}$$\n\nSidan $|p| = 0{,}6 < 1$, konvergerer mengda mot 250 mg. Pasienten kan puste letta ut: medisinen hopar seg ikkje opp i det uendelege, men stabiliserer seg — og legen har sjølvsagt valt dosen slik at 250 mg er terapeutisk rett nivå.",
+      "eaf57c2c34d7b57a": "Test deg sjølv på lineær rekursjon og likevektspunkt:",
+      "e09c66ea8a570687": "Kva er likevektspunktet for $a_{n+1} = p \\cdot a_n + q$ (med $p \\neq 1$)?",
+      "15ddd486dfdebd83": "$a^* = \\frac{p}{1-q}$",
+      "31b22f130bda0975": "$a^* = \\frac{q}{1-p}$",
+      "a3c18e99103f44a5": "$a^* = p + q$",
+      "752462c145704a01": "$a^* = \\frac{q}{p}$",
+      "f174eb5a5a48e661": "I likevekt er $a^* = pa^* + q$, som gjev $a^*(1-p) = q$ og $a^* = \\frac{q}{1-p}$.",
+      "4a01fbf3829e0a0a": "Medisinmodellen er $a_{n+1} = 0{,}6a_n + 100$ med $a_1 = 100$. Kva er $a_3$?",
+      "8c87de9dbfaadf3d": "$196$ mg",
+      "46361f1636746e19": "$160$ mg",
+      "5822ebc284770965": "$217{,}6$ mg",
+      "bab196e0c4810c22": "$250$ mg",
+      "48a2d52e7520c0e6": "$a_2 = 0{,}6 \\cdot 100 + 100 = 160$ og $a_3 = 0{,}6 \\cdot 160 + 100 = 196$ mg.",
+      "22b79cef787dfa44": "Kvifor konvergerer medisinmengda mot 250 mg?",
+      "9bcd8d002fb1320f": "Fordi $q = 100$ er mindre enn 250",
+      "f1534a92ecf15e3c": "Fordi dosane etter kvart vert mindre",
+      "ed63199da2ff66ac": "Fordi $a_1 = 100$ er ein spesiell startverdi",
+      "6bd76819818f8a12": "Fordi $|p| = 0{,}6 < 1$, slik at avviket frå likevekta krympar geometrisk",
+      "c8f3655a63919952": "Eksplisitt: $a_n = (a_1 - a^*)p^{n-1} + a^*$. Når $|p| < 1$ døyr avviksleddet ut, uansett startverdi.",
+      "beec08b4ef304cce": "Kva rekursjon skildrar ein konto som veks 2 % per termin samstundes som det vert teke ut 500 kr kvar termin?",
+      "96b0dc6dae277fc2": "$a_{n+1} = 0{,}02a_n - 500$",
+      "0883714d4b35baab": "$a_{n+1} = a_n + 0{,}02 - 500$",
+      "c48b4a4a9e286d5c": "$a_{n+1} = 1{,}02a_n - 500$",
+      "b247a24bef655dbb": "$a_{n+1} = 1{,}02(a_n - 0{,}02) + 500$",
+      "09dd0f13b59f4208": "Først renter: $a_n \\cdot 1{,}02$, deretter uttak: $-500$. Altså $a_{n+1} = 1{,}02a_n - 500$ — same struktur som lånerekursjonen $R_{n+1} = R_n(1+r) - T$.",
+      "dddae0e7a1ca2254": "## Stabil eller ustabil? Modellar med vippepunkt\n\nLikevektspunkt er ikkje alltid trygge hamner. Sjå på ein dyrepopulasjon som veks 10 % i året, men der det vert hausta 50 individ årleg. Med 400 dyr ved start:\n\n$$a_1 = 400, \\qquad a_{n+1} = 1{,}1 \\cdot a_n - 50$$\n\nLikevekta er $a^* = \\frac{-50}{1 - 1{,}1} = \\frac{-50}{-0{,}1} = 500$ dyr. Men her er $|p| = 1{,}1 > 1$, og då snur alt: er bestanden *over* 500, veks han utan grense; er han *under* 500, døyr han ut. Sjekk sjølv: $a_2 = 1{,}1 \\cdot 400 - 50 = 390$, $a_3 = 379$ — bestanden er på veg ned. Likevekta på 500 er eit **vippepunkt**, ikkje eit kvilepunkt.\n\nDette er den generelle regelen for $a_{n+1} = pa_n + q$. Ved **stabil likevekt** ($|p| < 1$) konvergerer følgja mot $a^*$ uansett startverdi — små avvik vert dempa ut, som for medisinen. Ved **ustabil likevekt** ($|p| > 1$) vert små avvik forsterka, og følgja rømmer frå $a^*$ — som for den beskatta bestanden. Grensetilfellet $|p| = 1$ gjev aritmetisk følgje (inga likevekt) eller rein oscillasjon.\n\nRekursive modellar vert brukte overalt: logistisk folkesetnadsvekst $P_{n+1} = r P_n (1 - P_n/K)$, medisindosering, lån med renter og terminbeløp $R_{n+1} = R_n(1+r) - T$, og utallige algoritmar i informatikken. Den store fordelen deira er at dei er enkle å implementere i rekneark og programmering — du treng berre startverdien og regelen for neste steg. Men hugs avgrensingane til modellane: føresetnadene (fast prosent, fast uttak) gjeld sjeldan evig i røynda.",
+      "8dec64325faa982d": "Test deg sjølv på stabilitet i rekursive modellar:",
+      "23a3972c307fc8f7": "Når er likevektspunktet til $a_{n+1} = pa_n + q$ stabilt?",
+      "019474867b9c40af": "Når $q > 0$",
+      "d220f0ba8b1fdcd6": "Når $p > 1$",
+      "c629398cf8323aeb": "Når $|p| < 1$",
+      "2e3f143636d1a105": "Når $a_1 = a^*$",
+      "dfc94b507833868e": "For $|p| < 1$ krympar avviket $(a_1 - a^*)p^{n-1}$ mot null, og følgja konvergerer mot $a^*$ uansett start.",
+      "6a569209994303be": "Populasjonsmodellen $a_{n+1} = 1{,}1a_n - 50$ har likevekt 500. Kva skjer med ein bestand som startar på 400?",
+      "1d38b1d344e85dc8": "Han avtek mot null — likevekta er ustabil og bestanden ligg under vippepunktet",
+      "3b786b63dbe0ce01": "Han veks mot 500 og stabiliserer seg",
+      "6416a114a6cd2a31": "Han oscillerer rundt 500",
+      "fad7b55f3b8363d1": "Han veks utan grense",
+      "dfe5266ca6a7945a": "Med $|p| = 1{,}1 > 1$ vert avvik forsterka: $a_2 = 390$, $a_3 = 379$, … Bestanden under 500 vert hausta ned mot utrydding.",
+      "93e71ea12be7cbcd": "Kva må bestanden minst vere ved start for at han ikkje skal døy ut i same modell?",
+      "3fa8911d02389e2d": "$400$ dyr",
+      "5775fb61bf908144": "$50$ dyr",
+      "f9ce46702078676b": "$450$ dyr",
+      "686ab17e2f4bf48c": "$500$ dyr",
+      "35ea250e0541730d": "Likevekta $a^* = 500$ er vippepunktet: over 500 veks bestanden, under 500 avtek han. Minst 500 dyr krevst.",
+      "3204df98d5bd0a34": "Kvifor eignar rekursive modellar seg så godt for rekneark og programmering?",
+      "4c4b8799b68ee865": "Fordi dei alltid har eksplisitte løysingar",
+      "651f45fbf4803ce2": "Fordi ein berre treng startverdien og regelen for å rekne ut neste ledd, steg for steg",
+      "29f5f6d52e0ac911": "Fordi dei aldri divergerer",
+      "8dfae36dd569caf3": "Fordi dei ikkje krev startverdiar",
+      "30b53f556390be12": "Éi linje kode eller éin rekneark­formel — «neste = p·førre + q» — er alt som trengst for å simulere modellen så langt ein vil.",
+      "50321d9bac255143": "## Oppsummering: følgjer som fortel framtida\n\nUroa til pasienten vart til ein heil teori. Ein **rekursiv formel** skildrar ei følgje gjennom startverdi(ar) og ein regel for neste ledd — naturens og økonomiens eige språk for utvikling over tid. Aritmetiske og geometriske følgjer er spesialtilfelle som alltid kan omsetjast til eksplisitt form, medan **Fibonacci-følgja** $F_{n+2} = F_{n+1} + F_n$ viste rikdomen i rekursjonen: forholdet mellom naboledd nærmar seg det gylne snittet $\\varphi \\approx 1{,}618$, og Binets formel $F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt{5}}$ gjev ledda eksplisitt.\n\nArbeidshesten er den **lineære rekursjonen** $a_{n+1} = pa_n + q$ med likevektspunkt $a^* = \\frac{q}{1-p}$ og eksplisitt løysing $a_n = (a_1 - a^*)p^{n-1} + a^*$. Forteiknet og storleiken på $p$ avgjer alt: $|p| < 1$ gjev **stabil likevekt** — medisinen stabiliserte seg på 250 mg uansett startdose — medan $|p| > 1$ gjev **ustabil likevekt**, som vippepunktet på 500 dyr der bestanden anten eksploderer eller døyr ut.\n\nRekursjon er dessutan brua til programmering: med startverdi og regel kan eitkvart rekneark eller Python-skript simulere medisinnivå, lånenedbetaling og folkesetnader. Men ein modell er aldri betre enn føresetnadene sine — faste prosentar og faste uttak er forenklingar, og ein god modellbrukar veit når dei sluttar å gjelde."
+    }
+  }
+}

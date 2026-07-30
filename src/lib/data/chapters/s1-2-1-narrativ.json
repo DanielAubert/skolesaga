@@ -1,1 +1,364 @@
-{"id":"s1-2-1-narrativ","courseId":"s1","chapterNumber":"2.1","title":"Polynomfunksjoner","subtitle":"Narrativ versjon","description":"En fortelling om elevbedriften som leser overskuddsmodellen sin — grad, nullpunkter, faktorteoremet og endeoppførsel.","estimatedMinutes":34,"competenceGoals":["analysere og tolke ulike funksjonstyper","bruke funksjoner i modellering"],"linkedChapterId":"s1-2-1","content":[{"id":"s1-2-1-n-intro","type":"text","content":"## Kinoens overskuddsmodell\n\nTenk deg at du sitter i elevbedriften som driver skolens kinokvelder. Etter et helt semester med billettsalg har dere fått en økonomistudent til å lage en modell for overskuddet, og hun leverer uttrykket $f(x) = x^3 - 6x^2 + 11x - 6$, der $x$ er antall hundre solgte billetter. «Det er bare en polynomfunksjon,» sier hun. Men hva betyr egentlig det?\n\nEn **polynomfunksjon av grad $n$** er en funksjon på formen\n\n$$f(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder $a_n \\neq 0$ og $n$ er et ikke-negativt heltall. Tallene $a_n, \\ldots, a_0$ kalles koeffisienter. Koeffisienten $a_n$ foran leddet med høyest grad kalles den **ledende koeffisienten**, og $a_0$ er **konstantleddet**. **Graden** er den høyeste potensen av $x$ som forekommer.\n\nDu kjenner allerede flere medlemmer av familien. En konstant funksjon $f(x) = a_0$ har grad 0, en lineær funksjon $f(x) = ax + b$ har grad 1, en kvadratisk funksjon $f(x) = ax^2 + bx + c$ har grad 2, en kubisk har grad 3 og en kvartisk har grad 4. Kinomodellen deres er altså en kubisk funksjon — et tredjegradspolynom.\n\nMen vær på vakt: ikke alt som ser ut som et polynom, er det. Uttrykket $g(x) = \\frac{1}{x} + x$ kan skrives $x^{-1} + x$, og den negative eksponenten diskvalifiserer det. Det samme gjelder $h(x) = \\sqrt{x} = x^{1/2}$, der eksponenten ikke er et heltall. Derimot er $p(x) = 7$ et helt lovlig polynom av grad 0. I dette kapittelet skal vi lære å lese slike modeller: finne hvor de er null, og forstå hvordan de oppfører seg når salget blir stort."},{"id":"s1-2-1-n-quiz1","type":"exercise","exercise":{"id":"s1-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på polynomfunksjoner og grad:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-1-n-quiz1-q0","task":"Hva er graden til polynomfunksjonen $f(x) = 3x^4 - 2x^2 + 5x - 1$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$4$","isCorrect":true},{"id":"d","text":"$5$","isCorrect":false}],"solution":"Graden er den høyeste eksponenten. Det høyeste leddet er $3x^4$, så graden er $4$."},{"id":"s1-2-1-n-quiz1-q1","task":"Hvilken av disse er IKKE en polynomfunksjon?","options":[{"id":"a","text":"$p(x) = 7$","isCorrect":false},{"id":"b","text":"$h(x) = \\sqrt{x}$","isCorrect":true},{"id":"c","text":"$f(x) = x^3 - 6x^2 + 11x - 6$","isCorrect":false},{"id":"d","text":"$g(x) = -2x + 5$","isCorrect":false}],"solution":"$\\sqrt{x} = x^{1/2}$ har en eksponent som ikke er et heltall, og er derfor ikke et polynom. En konstant funksjon som $p(x) = 7$ er et polynom av grad 0."},{"id":"s1-2-1-n-quiz1-q2","task":"Hva er den ledende koeffisienten i $f(x) = -2x^3 + 7x^2 - x + 4$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$7$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$-2$","isCorrect":true}],"solution":"Den ledende koeffisienten står foran leddet med høyest grad, $-2x^3$, og er altså $-2$."}]}},{"id":"s1-2-1-n-section1","type":"text","content":"## Nullpunkter — når går kinoen i null?\n\nDet første styret i elevbedriften vil vite, er når overskuddet er nøyaktig null. Et **nullpunkt** til en funksjon $f$ er en $x$-verdi der $f(x) = 0$. For polynomfunksjoner finnes en vakker grense: en polynomfunksjon av grad $n$ har **høyst $n$ nullpunkter**. Kinomodellen deres kan altså maksimalt krysse null tre ganger.\n\nVerktøyet for å finne dem er **faktorteoremet**: hvis $x = a$ er et nullpunkt for $f(x)$, så er $(x - a)$ en faktor i $f(x)$. Det gjelder også motsatt vei, så vi kan skrive $f(a) = 0 \\Leftrightarrow f(x) = (x - a) \\cdot q(x)$ for et polynom $q(x)$.\n\nLa oss bruke det på modellen $f(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver oss fram med små heltall og tester $x = 1$: $f(1) = 1 - 6 + 11 - 6 = 0$. Treff! Da er $(x - 1)$ en faktor, og polynomdivisjon gir\n\n$$x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6)$$\n\nAndregradsuttrykket faktoriserer vi videre: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$f(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunktene er $x = 1$, $x = 2$ og $x = 3$. Oversatt til kino: ved 100, 200 og 300 solgte billetter går dere akkurat i null. Den faktoriserte formen $f(x) = a(x - x_1)(x - x_2)\\cdots$ er gull verdt, for den viser nullpunktene direkte — og mellom nullpunktene kan dere lese av om overskuddet er positivt eller negativt."},{"id":"s1-2-1-n-quiz2","type":"exercise","exercise":{"id":"s1-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på nullpunkter og faktorteoremet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-1-n-quiz2-q0","task":"Hvor mange nullpunkter kan en polynomfunksjon av grad 5 maksimalt ha?","options":[{"id":"a","text":"$5$","isCorrect":true},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"Uendelig mange","isCorrect":false},{"id":"d","text":"$6$","isCorrect":false}],"solution":"En polynomfunksjon av grad $n$ har høyst $n$ nullpunkter, altså maksimalt 5."},{"id":"s1-2-1-n-quiz2-q1","task":"Vi vet at $f(2) = 0$ for et polynom $f$. Hva sier faktorteoremet?","options":[{"id":"a","text":"$(x + 2)$ er en faktor i $f(x)$","isCorrect":false},{"id":"b","text":"$f$ har grad 2","isCorrect":false},{"id":"c","text":"$(x - 2)$ er en faktor i $f(x)$","isCorrect":true},{"id":"d","text":"$f(x) = x - 2$","isCorrect":false}],"solution":"Faktorteoremet: $f(a) = 0$ betyr at $(x - a)$ er en faktor. Med $a = 2$ er $(x - 2)$ en faktor."},{"id":"s1-2-1-n-quiz2-q2","task":"Funksjonen $g(x) = (x - 1)(x + 2)(x - 4)$ er gitt på faktorisert form. Hva er $g(0)$?","options":[{"id":"a","text":"$-8$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":true},{"id":"c","text":"$0$","isCorrect":false},{"id":"d","text":"$-2$","isCorrect":false}],"solution":"$g(0) = (-1)(2)(-4) = 8$."},{"id":"s1-2-1-n-quiz2-q3","task":"Hva er det største nullpunktet til $f(x) = (x - 1)(x - 2)(x - 3)$?","options":[{"id":"a","text":"$1$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$3$","isCorrect":true}],"solution":"Faktorene gir nullpunktene $1$, $2$ og $3$. Det største er $3$."}]}},{"id":"s1-2-1-n-section2","type":"text","content":"## Endeoppførsel — hva skjer når salget vokser?\n\nStyret stiller et siste spørsmål: hva sier modellen hvis salget blir veldig stort — eller om vi tenker oss negative verdier i en utvidet modell? Svaret ligger i **endeoppførselen**, altså hva som skjer med $f(x)$ når $x \\to \\pm\\infty$. For store verdier av $|x|$ dominerer leddet med høyest potens, så det er bare graden og fortegnet til den ledende koeffisienten $a_n$ som teller.\n\nMønsteret er slik: Har polynomet **partallsgrad** ($n = 2, 4, 6, \\ldots$), peker begge endene samme vei — mot $+\\infty$ i begge retninger hvis $a_n > 0$, og mot $-\\infty$ i begge hvis $a_n < 0$. Har det **oddetallsgrad** ($n = 1, 3, 5, \\ldots$) med $a_n > 0$, kommer grafen fra $-\\infty$ og går mot $+\\infty$. Er $a_n < 0$, er det motsatt: ned fra $+\\infty$ til venstre og videre mot $-\\infty$ til høyre.\n\nLa oss skissere $f(x) = -x^3 + 3x$. Nullpunktene finner vi ved å faktorisere: $-x(x^2 - 3) = 0$ gir $x = 0$ og $x = \\pm\\sqrt{3} \\approx \\pm 1{,}73$. Graden er 3 (oddetall) og den ledende koeffisienten er $-1$ (negativ), så grafen starter oppe til venstre og ender nede til høyre. Et par kontrollpunkter bekrefter formen: $f(-1) = 1 - 3 = -2$ og $f(1) = -1 + 3 = 2$. Grafen krysser ved $-\\sqrt{3}$, dukker ned til et bunnpunkt rundt $x = -1$, krysser i origo, stiger til et toppunkt rundt $x = 1$, og faller så for godt.\n\nMed grad, nullpunkter og endeoppførsel kan du altså tegne et ganske presist bilde av en hvilken som helst polynommodell — uten å taste et eneste tall inn i GeoGebra."},{"id":"s1-2-1-n-quiz3","type":"exercise","exercise":{"id":"s1-2-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på grafiske egenskaper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-1-n-quiz3-q0","task":"Hva skjer med $f(x) = x^4 - 5x^2 + 4$ når $x \\to \\pm\\infty$?","options":[{"id":"a","text":"$f(x) \\to +\\infty$ i begge retninger","isCorrect":true},{"id":"b","text":"$f(x) \\to -\\infty$ i begge retninger","isCorrect":false},{"id":"c","text":"$f(x) \\to -\\infty$ til venstre og $+\\infty$ til høyre","isCorrect":false},{"id":"d","text":"Grafen flater ut mot $y = 4$","isCorrect":false}],"solution":"Partallsgrad (4) og positiv ledende koeffisient gir $f(x) \\to +\\infty$ for $x \\to \\pm\\infty$."},{"id":"s1-2-1-n-quiz3-q1","task":"Grafen til $f(x) = -x^3 + 3x$ — hvordan oppfører den seg når $x \\to +\\infty$?","options":[{"id":"a","text":"Den går mot $+\\infty$","isCorrect":false},{"id":"b","text":"Den går mot $-\\infty$","isCorrect":true},{"id":"c","text":"Den nærmer seg $y = 3$","isCorrect":false},{"id":"d","text":"Den går mot $0$","isCorrect":false}],"solution":"Oddetallsgrad med negativ ledende koeffisient: grafen går mot $-\\infty$ når $x \\to +\\infty$."},{"id":"s1-2-1-n-quiz3-q2","task":"En tredjegradsfunksjon har nullpunktene $-1$, $2$ og $3$, og $f(0) = 12$. Hva er $a$ i $f(x) = a(x+1)(x-2)(x-3)$?","options":[{"id":"a","text":"$a = 6$","isCorrect":false},{"id":"b","text":"$a = 12$","isCorrect":false},{"id":"c","text":"$a = 2$","isCorrect":true},{"id":"d","text":"$a = 1$","isCorrect":false}],"solution":"$f(0) = a \\cdot 1 \\cdot (-2) \\cdot (-3) = 6a = 12$ gir $a = 2$."}]}},{"id":"s1-2-1-n-summary","type":"text","content":"## Oppsummering: modellen er lest\n\nElevbedriften startet med et kryptisk uttrykk og endte med full kontroll. Dere vet nå at en **polynomfunksjon** $f(x) = a_n x^n + \\ldots + a_1 x + a_0$ kjennetegnes av **graden** $n$ (den høyeste eksponenten), den **ledende koeffisienten** $a_n$ og **konstantleddet** $a_0$ — og at uttrykk med negative eksponenter eller røtter faller utenfor familien.\n\n**Nullpunktene** er stedene der $f(x) = 0$, og en funksjon av grad $n$ har høyst $n$ av dem. **Faktorteoremet** er nøkkelen: $f(a) = 0$ hvis og bare hvis $(x - a)$ er en faktor, slik at vi kan finne ett nullpunkt ved prøving, dele det bort med polynomdivisjon og faktorisere resten. Den faktoriserte formen $f(x) = a(x - x_1)(x - x_2)\\cdots$ viser alle nullpunktene direkte.\n\n**Endeoppførselen** styres av leddet med høyest grad alene: partallsgrad gir ender som peker samme vei, oddetallsgrad gir ender som peker hver sin vei, og fortegnet til $a_n$ avgjør hvilken. Med disse tre verktøyene — grad, nullpunkter og endeoppførsel — kan du skissere og tolke polynommodeller for alt fra kinooverskudd til kostnadsutvikling, og det er nettopp slike modeller du møter igjen når økonomikapitlene senere spør når en bedrift tjener penger."}],"exercises":[]}
+{
+  "id": "s1-2-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "2.1",
+  "title": "Polynomfunksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om elevbedriften som leser overskuddsmodellen sin — grad, nullpunkter, faktorteoremet og endeoppførsel.",
+  "estimatedMinutes": 34,
+  "competenceGoals": [
+    "analysere og tolke ulike funksjonstyper",
+    "bruke funksjoner i modellering"
+  ],
+  "linkedChapterId": "s1-2-1",
+  "content": [
+    {
+      "id": "s1-2-1-n-intro",
+      "type": "text",
+      "content": "## Kinoens overskuddsmodell\n\nTenk deg at du sitter i elevbedriften som driver skolens kinokvelder. Etter et helt semester med billettsalg har dere fått en økonomistudent til å lage en modell for overskuddet, og hun leverer uttrykket $f(x) = x^3 - 6x^2 + 11x - 6$, der $x$ er antall hundre solgte billetter. «Det er bare en polynomfunksjon,» sier hun. Men hva betyr egentlig det?\n\nEn **polynomfunksjon av grad $n$** er en funksjon på formen\n\n$$f(x) = a_n x^n + a_{n-1} x^{n-1} + \\ldots + a_1 x + a_0$$\n\nder $a_n \\neq 0$ og $n$ er et ikke-negativt heltall. Tallene $a_n, \\ldots, a_0$ kalles koeffisienter. Koeffisienten $a_n$ foran leddet med høyest grad kalles den **ledende koeffisienten**, og $a_0$ er **konstantleddet**. **Graden** er den høyeste potensen av $x$ som forekommer.\n\nDu kjenner allerede flere medlemmer av familien. En konstant funksjon $f(x) = a_0$ har grad 0, en lineær funksjon $f(x) = ax + b$ har grad 1, en kvadratisk funksjon $f(x) = ax^2 + bx + c$ har grad 2, en kubisk har grad 3 og en kvartisk har grad 4. Kinomodellen deres er altså en kubisk funksjon — et tredjegradspolynom.\n\nMen vær på vakt: ikke alt som ser ut som et polynom, er det. Uttrykket $g(x) = \\frac{1}{x} + x$ kan skrives $x^{-1} + x$, og den negative eksponenten diskvalifiserer det. Det samme gjelder $h(x) = \\sqrt{x} = x^{1/2}$, der eksponenten ikke er et heltall. Derimot er $p(x) = 7$ et helt lovlig polynom av grad 0. I dette kapittelet skal vi lære å lese slike modeller: finne hvor de er null, og forstå hvordan de oppfører seg når salget blir stort."
+    },
+    {
+      "id": "s1-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på polynomfunksjoner og grad:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-1-n-quiz1-q0",
+            "task": "Hva er graden til polynomfunksjonen $f(x) = 3x^4 - 2x^2 + 5x - 1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$4$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Graden er den høyeste eksponenten. Det høyeste leddet er $3x^4$, så graden er $4$."
+          },
+          {
+            "id": "s1-2-1-n-quiz1-q1",
+            "task": "Hvilken av disse er IKKE en polynomfunksjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$p(x) = 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$h(x) = \\sqrt{x}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f(x) = x^3 - 6x^2 + 11x - 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$g(x) = -2x + 5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sqrt{x} = x^{1/2}$ har en eksponent som ikke er et heltall, og er derfor ikke et polynom. En konstant funksjon som $p(x) = 7$ er et polynom av grad 0."
+          },
+          {
+            "id": "s1-2-1-n-quiz1-q2",
+            "task": "Hva er den ledende koeffisienten i $f(x) = -2x^3 + 7x^2 - x + 4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den ledende koeffisienten står foran leddet med høyest grad, $-2x^3$, og er altså $-2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-1-n-section1",
+      "type": "text",
+      "content": "## Nullpunkter — når går kinoen i null?\n\nDet første styret i elevbedriften vil vite, er når overskuddet er nøyaktig null. Et **nullpunkt** til en funksjon $f$ er en $x$-verdi der $f(x) = 0$. For polynomfunksjoner finnes en vakker grense: en polynomfunksjon av grad $n$ har **høyst $n$ nullpunkter**. Kinomodellen deres kan altså maksimalt krysse null tre ganger.\n\nVerktøyet for å finne dem er **faktorteoremet**: hvis $x = a$ er et nullpunkt for $f(x)$, så er $(x - a)$ en faktor i $f(x)$. Det gjelder også motsatt vei, så vi kan skrive $f(a) = 0 \\Leftrightarrow f(x) = (x - a) \\cdot q(x)$ for et polynom $q(x)$.\n\nLa oss bruke det på modellen $f(x) = x^3 - 6x^2 + 11x - 6$. Vi prøver oss fram med små heltall og tester $x = 1$: $f(1) = 1 - 6 + 11 - 6 = 0$. Treff! Da er $(x - 1)$ en faktor, og polynomdivisjon gir\n\n$$x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6)$$\n\nAndregradsuttrykket faktoriserer vi videre: $x^2 - 5x + 6 = (x - 2)(x - 3)$. Dermed er\n\n$$f(x) = (x - 1)(x - 2)(x - 3)$$\n\nog nullpunktene er $x = 1$, $x = 2$ og $x = 3$. Oversatt til kino: ved 100, 200 og 300 solgte billetter går dere akkurat i null. Den faktoriserte formen $f(x) = a(x - x_1)(x - x_2)\\cdots$ er gull verdt, for den viser nullpunktene direkte — og mellom nullpunktene kan dere lese av om overskuddet er positivt eller negativt."
+    },
+    {
+      "id": "s1-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på nullpunkter og faktorteoremet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-1-n-quiz2-q0",
+            "task": "Hvor mange nullpunkter kan en polynomfunksjon av grad 5 maksimalt ha?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendelig mange",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En polynomfunksjon av grad $n$ har høyst $n$ nullpunkter, altså maksimalt 5."
+          },
+          {
+            "id": "s1-2-1-n-quiz2-q1",
+            "task": "Vi vet at $f(2) = 0$ for et polynom $f$. Hva sier faktorteoremet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x + 2)$ er en faktor i $f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x - 2)$ er en faktor i $f(x)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$f$ har grad 2",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(x) = x - 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Faktorteoremet: $f(a) = 0$ betyr at $(x - a)$ er en faktor. Med $a = 2$ er $(x - 2)$ en faktor."
+          },
+          {
+            "id": "s1-2-1-n-quiz2-q2",
+            "task": "Funksjonen $g(x) = (x - 1)(x + 2)(x - 4)$ er gitt på faktorisert form. Hva er $g(0)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$-2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$g(0) = (-1)(2)(-4) = 8$."
+          },
+          {
+            "id": "s1-2-1-n-quiz2-q3",
+            "task": "Hva er det største nullpunktet til $f(x) = (x - 1)(x - 2)(x - 3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Faktorene gir nullpunktene $1$, $2$ og $3$. Det største er $3$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-1-n-section2",
+      "type": "text",
+      "content": "## Endeoppførsel — hva skjer når salget vokser?\n\nStyret stiller et siste spørsmål: hva sier modellen hvis salget blir veldig stort — eller om vi tenker oss negative verdier i en utvidet modell? Svaret ligger i **endeoppførselen**, altså hva som skjer med $f(x)$ når $x \\to \\pm\\infty$. For store verdier av $|x|$ dominerer leddet med høyest potens, så det er bare graden og fortegnet til den ledende koeffisienten $a_n$ som teller.\n\nMønsteret er slik: Har polynomet **partallsgrad** ($n = 2, 4, 6, \\ldots$), peker begge endene samme vei — mot $+\\infty$ i begge retninger hvis $a_n > 0$, og mot $-\\infty$ i begge hvis $a_n < 0$. Har det **oddetallsgrad** ($n = 1, 3, 5, \\ldots$) med $a_n > 0$, kommer grafen fra $-\\infty$ og går mot $+\\infty$. Er $a_n < 0$, er det motsatt: ned fra $+\\infty$ til venstre og videre mot $-\\infty$ til høyre.\n\nLa oss skissere $f(x) = -x^3 + 3x$. Nullpunktene finner vi ved å faktorisere: $-x(x^2 - 3) = 0$ gir $x = 0$ og $x = \\pm\\sqrt{3} \\approx \\pm 1{,}73$. Graden er 3 (oddetall) og den ledende koeffisienten er $-1$ (negativ), så grafen starter oppe til venstre og ender nede til høyre. Et par kontrollpunkter bekrefter formen: $f(-1) = 1 - 3 = -2$ og $f(1) = -1 + 3 = 2$. Grafen krysser ved $-\\sqrt{3}$, dukker ned til et bunnpunkt rundt $x = -1$, krysser i origo, stiger til et toppunkt rundt $x = 1$, og faller så for godt.\n\nMed grad, nullpunkter og endeoppførsel kan du altså tegne et ganske presist bilde av en hvilken som helst polynommodell — uten å taste et eneste tall inn i GeoGebra."
+    },
+    {
+      "id": "s1-2-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på grafiske egenskaper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-1-n-quiz3-q0",
+            "task": "Hva skjer med $f(x) = x^4 - 5x^2 + 4$ når $x \\to \\pm\\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) \\to +\\infty$ i begge retninger",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$f(x) \\to -\\infty$ i begge retninger",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) \\to -\\infty$ til venstre og $+\\infty$ til høyre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafen flater ut mot $y = 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Partallsgrad (4) og positiv ledende koeffisient gir $f(x) \\to +\\infty$ for $x \\to \\pm\\infty$."
+          },
+          {
+            "id": "s1-2-1-n-quiz3-q1",
+            "task": "Grafen til $f(x) = -x^3 + 3x$ — hvordan oppfører den seg når $x \\to +\\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den går mot $+\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den går mot $-\\infty$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den nærmer seg $y = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den går mot $0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Oddetallsgrad med negativ ledende koeffisient: grafen går mot $-\\infty$ når $x \\to +\\infty$."
+          },
+          {
+            "id": "s1-2-1-n-quiz3-q2",
+            "task": "En tredjegradsfunksjon har nullpunktene $-1$, $2$ og $3$, og $f(0) = 12$. Hva er $a$ i $f(x) = a(x+1)(x-2)(x-3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a = 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$a = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$a = 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(0) = a \\cdot 1 \\cdot (-2) \\cdot (-3) = 6a = 12$ gir $a = 2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: modellen er lest\n\nElevbedriften startet med et kryptisk uttrykk og endte med full kontroll. Dere vet nå at en **polynomfunksjon** $f(x) = a_n x^n + \\ldots + a_1 x + a_0$ kjennetegnes av **graden** $n$ (den høyeste eksponenten), den **ledende koeffisienten** $a_n$ og **konstantleddet** $a_0$ — og at uttrykk med negative eksponenter eller røtter faller utenfor familien.\n\n**Nullpunktene** er stedene der $f(x) = 0$, og en funksjon av grad $n$ har høyst $n$ av dem. **Faktorteoremet** er nøkkelen: $f(a) = 0$ hvis og bare hvis $(x - a)$ er en faktor, slik at vi kan finne ett nullpunkt ved prøving, dele det bort med polynomdivisjon og faktorisere resten. Den faktoriserte formen $f(x) = a(x - x_1)(x - x_2)\\cdots$ viser alle nullpunktene direkte.\n\n**Endeoppførselen** styres av leddet med høyest grad alene: partallsgrad gir ender som peker samme vei, oddetallsgrad gir ender som peker hver sin vei, og fortegnet til $a_n$ avgjør hvilken. Med disse tre verktøyene — grad, nullpunkter og endeoppførsel — kan du skissere og tolke polynommodeller for alt fra kinooverskudd til kostnadsutvikling, og det er nettopp slike modeller du møter igjen når økonomikapitlene senere spør når en bedrift tjener penger."
+    }
+  ],
+  "exercises": []
+}

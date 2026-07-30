@@ -1,1 +1,417 @@
-{"id":"it-1-6-1-narrativ","courseId":"it-1","chapterNumber":"6.1","title":"Introduksjon til databasar","subtitle":"Narrativ versjon","description":"Ei forteljing om ryggrada i all moderne programvare – kva ein database er, kvifor rekneark ikkje strekk til, og grunnomgrepa tabell, rad, kolonne, primærnøkkel og CRUD.","estimatedMinutes":32,"competenceGoals":["gjøre rede for hva en database er og hvorfor databaser brukes","forklare grunnleggende databasebegreper som tabell, rad, kolonne og primærnøkkel","beskrive forskjellen mellom ulike typer databaser"],"linkedChapterId":"it-1-6-1","content":[{"id":"it-1-6-1-n-intro","type":"text","content":"## Når rekneark ikkje strekk til\n\nTenk deg at du skal halde oversikt over alle elevane på ein skule – namn, fødselsdato, klasse, adresse og karakterar for hundrevis av elevar. Du kunne brukt eit rekneark, men kva skjer når rektor vil vite kva elevar i 2A som har over 4 i snitt? Eller når ein elev byter klasse og informasjonen må oppdaterast fleire stader? Då vert reknearket fort uoversiktleg og feilutsett.\n\n**Databasar** løyser nettopp dette. Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan opprettast, lesast, oppdaterast og slettast. Databasar er ryggrada i nesten all moderne programvare: når du loggar inn på Instagram, søkjer på Google eller bestiller ei vare, snakkar appen med ein database i bakgrunnen.\n\nFør databasar vart vanlege, lagra ein data i lause filer, og det skapte problem. **Redundans** tydde at same data låg fleire stader, så ei adresseendring lett vart gløymd ein stad. **Tilgangen** var tungvint, **tryggleiken** vanskeleg å styre, og når fleire oppdaterte samtidig, kunne data gå tapt. Databasar løyser dette med strukturert lagring, effektive søk, dataintegritet, tilgangskontroll, transaksjonshandtering og backup. Sjølve databasen vert styrt av eit **databasehandteringssystem (DBMS)** – programvara som er mellomledd mellom brukarar, applikasjonar og dei fysiske dataa, og som tek seg av lagring, tryggleik, backup og samtidig tilgang."},{"id":"it-1-6-1-n-quiz1","type":"exercise","exercise":{"id":"it-1-6-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på databasar og DBMS:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-1-n-quiz1-q0","task":"Kva er ein database?","options":[{"id":"a","text":"Eit program for å skrive tekst","isCorrect":false},{"id":"b","text":"Ein type nettlesar","isCorrect":false},{"id":"c","text":"Eit operativsystem for tenarar","isCorrect":false},{"id":"d","text":"Ei organisert samling av strukturerte data som kan søkjast i og administrerast","isCorrect":true}],"solution":"Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan søkjast i, oppdaterast og administrerast."},{"id":"it-1-6-1-n-quiz1-q1","task":"Kva er IKKJE ein fordel med database framfor rekneark?","options":[{"id":"a","text":"Enklare å lage diagram og grafar","isCorrect":true},{"id":"b","text":"Betre tilgangskontroll og tryggleik","isCorrect":false},{"id":"c","text":"Effektive søk i store datamengder","isCorrect":false},{"id":"d","text":"Betre handtering av samtidig tilgang","isCorrect":false}],"solution":"Diagram er styrken til reknearket, ikkje databasen. Databasar gir derimot betre søk, tryggleik og samtidig tilgang."},{"id":"it-1-6-1-n-quiz1-q2","task":"Kva er eit DBMS?","options":[{"id":"a","text":"Ein enkelt tabell","isCorrect":false},{"id":"b","text":"Programvara som handterer databasen og kommunikasjonen med han","isCorrect":true},{"id":"c","text":"Eit programmeringsspråk","isCorrect":false},{"id":"d","text":"Ein primærnøkkel","isCorrect":false}],"solution":"Eit databasehandteringssystem (DBMS) er programvara som er mellomledd mellom brukarar og dataa, og styrer lagring, tryggleik og tilgang."}]}},{"id":"it-1-6-1-n-section1","type":"text","content":"## SQL eller NoSQL?\n\nDet finst mange typar databasar, men to hovudkategoriar. **Relasjonsdatabasar (SQL)** organiserer data i tabellar med rader og kolonnar, der tabellane kan koplast saman gjennom relasjonar. Dette er den mest brukte typen og har vore standarden sidan 1970-talet, og dei bruker språket SQL (Structured Query Language). Døme er MySQL (den mest brukte open kjeldekode-databasen i verda), PostgreSQL (kjend for pålitelegheit), SQLite (ein lettvektar som lagrar heile databasen i éi fil utan tenarinstallasjon) og Oracle.\n\n**Ikkje-relasjonelle databasar (NoSQL)** bruker andre strukturar enn tabellar, og passar ofte betre for ustrukturerte data eller system som krev ekstrem yting. Vanlege typar er dokumentdatabasar som MongoDB (JSON-liknande dokument), nøkkel-verdi-databasar som Redis (ekstremt raske), grafdatabasar som Neo4j (for data med mange relasjonar, som sosiale nettverk) og kolonnebaserte databasar som Cassandra. I dette kurset fokuserer vi på relasjonsdatabasar og SQL, fordi det er den mest grunnleggjande og utbreidde teknologien.\n\nDette har ei lang historie. Det avgjerande året var 1970, då Edgar F. Codd ved IBM publiserte artikkelen om den relasjonelle datamodellen og føreslo at data burde organiserast i tabellar med relasjonar. IBM laga System R i 1974 og skapte spørjespråket SEQUEL, seinare omdøypt til SQL. Oracle lanserte den første kommersielle relasjonsdatabasen i 1979, MySQL kom som open kjeldekode i 1995, og på 2000-talet vaks NoSQL fram for å handtere dei enorme datamengdene frå sosiale medium og stordata."},{"id":"it-1-6-1-n-quiz2","type":"exercise","exercise":{"id":"it-1-6-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på databasetypar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-1-n-quiz2-q0","task":"Kva påstand om SQLite er korrekt?","options":[{"id":"a","text":"SQLite krev ein eigen tenarinstallasjon","isCorrect":false},{"id":"b","text":"SQLite kan berre brukast med C","isCorrect":false},{"id":"c","text":"SQLite lagrar heile databasen i éi fil og krev ingen tenarinstallasjon","isCorrect":true},{"id":"d","text":"SQLite støttar ikkje standard SQL","isCorrect":false}],"solution":"SQLite er ein lettvektsdatabase som lagrar alt i éi fil utan eigen tenar – difor vert han brukt i mobilappar og nettlesarar."},{"id":"it-1-6-1-n-quiz2-q1","task":"Kva type database er MongoDB?","options":[{"id":"a","text":"Ein relasjonsdatabase","isCorrect":false},{"id":"b","text":"Ein grafdatabase","isCorrect":false},{"id":"c","text":"Eit rekneark","isCorrect":false},{"id":"d","text":"Ein dokumentdatabase (NoSQL) som lagrar JSON-liknande dokument","isCorrect":true}],"solution":"MongoDB er ein NoSQL-dokumentdatabase som lagrar data som JSON-liknande dokument."},{"id":"it-1-6-1-n-quiz2-q2","task":"Kven la grunnlaget for relasjonsdatabasar i 1970?","options":[{"id":"a","text":"Edgar F. Codd","isCorrect":true},{"id":"b","text":"Tim Berners-Lee","isCorrect":false},{"id":"c","text":"Brendan Eich","isCorrect":false},{"id":"d","text":"Grace Hopper","isCorrect":false}],"solution":"Edgar F. Codd ved IBM la grunnlaget i 1970 med artikkelen om den relasjonelle datamodellen."}]}},{"id":"it-1-6-1-n-section2","type":"text","content":"## Tabellar, nøklar og dei fire grunnoperasjonane\n\nI ein relasjonsdatabase er **tabellen** grunnsteinen, og han representerer éin type informasjon – til dømes elevar. Kvar tabell har **kolonnar** (felt) som definerer kva eigenskapar som vert lagra, og **rader** (postar) som inneheld dei faktiske dataa. Ein elev-tabell kan ha kolonnane elev_id, fornamn, etternamn, fødselsdato og klasse, med éi rad per elev.\n\nKvar kolonne har ein **datatype** som avgjer kva han kan innehalde: `INTEGER` for heiltal, `TEXT` eller `VARCHAR` for tekst, `REAL` for desimaltal, `DATE` for datoar og `BOOLEAN` for sant/usant. Rett datatype sikrar at berre gyldige data vert lagra – du kan ikkje putte teksten «hei» i ein INTEGER-kolonne.\n\nEin særleg viktig kolonne er **primærnøkkelen**. Det er ein kolonne som unikt identifiserer kvar rad, og han har to ufråvikelege krav: ingen duplikat (to rader kan ikkje ha same verdi) og ingen NULL-verdiar (kvar rad må ha ein verdi). Den vanlegaste løysinga er eit automatisk aukande heiltal, ofte kalla `id`. Primærnøkkelen er fundamental for å kople tabellar saman seinare.\n\nTil slutt: alt arbeid med databasar kokar ned til fire grunnoperasjonar, kjende som **CRUD** – *Create* (opprette nye data), *Read* (lese), *Update* (endre) og *Delete* (slette). I SQL vert desse utførte med kommandoane `INSERT INTO`, `SELECT`, `UPDATE` og `DELETE`, som vi lærer i detalj seinare."},{"id":"it-1-6-1-n-quiz3","type":"exercise","exercise":{"id":"it-1-6-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på tabellar, nøklar og CRUD:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-6-1-n-quiz3-q0","task":"Kva er ein primærnøkkel?","options":[{"id":"a","text":"Den første kolonnen i tabellen","isCorrect":false},{"id":"b","text":"Ein kolonne som unikt identifiserer kvar rad","isCorrect":true},{"id":"c","text":"Eit passord for å logge inn","isCorrect":false},{"id":"d","text":"Ein kolonne som alltid inneheld tekst","isCorrect":false}],"solution":"Ein primærnøkkel identifiserer kvar rad unikt – utan duplikat og utan NULL-verdiar."},{"id":"it-1-6-1-n-quiz3-q1","task":"Kva står CRUD for?","options":[{"id":"a","text":"Copy, Read, Undo, Download","isCorrect":false},{"id":"b","text":"Connect, Request, Upload, Disconnect","isCorrect":false},{"id":"c","text":"Create, Read, Update, Delete","isCorrect":true},{"id":"d","text":"Compile, Run, Update, Debug","isCorrect":false}],"solution":"CRUD står for Create, Read, Update og Delete – dei fire grunnoperasjonane på data."},{"id":"it-1-6-1-n-quiz3-q2","task":"Kva inneheld ei rad i ein tabell?","options":[{"id":"a","text":"Definisjonen av eigenskapane","isCorrect":false},{"id":"b","text":"Berre primærnøkkelen","isCorrect":false},{"id":"c","text":"Namnet på tabellen","isCorrect":false},{"id":"d","text":"Dei faktiske dataa for éin post, til dømes éin elev","isCorrect":true}],"solution":"Ei rad (post) inneheld dei faktiske dataa for éi oppføring, medan kolonnane definerer kva eigenskapar som vert lagra."}]}},{"id":"it-1-6-1-n-summary","type":"text","content":"## Oppsummering\n\nNår reknearket vert for trongt, kjem **databasen** – ei organisert samling strukturerte data som er ryggrada i moderne programvare. Han løyser problem som redundans, dårleg tilgang og samtidig bruk, og vert styrt av eit **DBMS**.\n\nDei to hovudtypane er **relasjonsdatabasar (SQL)**, med data i tabellar, og **NoSQL**-databasar som MongoDB og Redis. Vi fokuserer på relasjonsmodellen, grunnlagd av Codd i 1970. Grunnstrukturen er **tabellar** med kolonnar og rader, der kvar kolonne har ein datatype og kvar tabell har ein **primærnøkkel** som unikt identifiserer radene. Alt arbeid kokar ned til **CRUD** – Create, Read, Update, Delete. Med desse omgrepa på plass er du klar for datamodellering og SQL."}],"exercises":[],"_meta":{"sourceHash":"0ac22dc9d5f1c162","translatedAt":"2026-06-20T23:58:28.799Z","model":"claude-code-agent","strings":70,"tm":{"ea8e85930afc71d3":"Introduksjon til databasar","b195b06d1ed59702":"Narrativ versjon","1cd091fa17cc147c":"Ei forteljing om ryggrada i all moderne programvare – kva ein database er, kvifor rekneark ikkje strekk til, og grunnomgrepa tabell, rad, kolonne, primærnøkkel og CRUD.","dab8d4fa66267a7d":"gjøre rede for hva en database er og hvorfor databaser brukes","700c9db63368319a":"forklare grunnleggende databasebegreper som tabell, rad, kolonne og primærnøkkel","67ad566a978bff52":"beskrive forskjellen mellom ulike typer databaser","10b65aee6d6bb17b":"## Når rekneark ikkje strekk til\n\nTenk deg at du skal halde oversikt over alle elevane på ein skule – namn, fødselsdato, klasse, adresse og karakterar for hundrevis av elevar. Du kunne brukt eit rekneark, men kva skjer når rektor vil vite kva elevar i 2A som har over 4 i snitt? Eller når ein elev byter klasse og informasjonen må oppdaterast fleire stader? Då vert reknearket fort uoversiktleg og feilutsett.\n\n**Databasar** løyser nettopp dette. Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan opprettast, lesast, oppdaterast og slettast. Databasar er ryggrada i nesten all moderne programvare: når du loggar inn på Instagram, søkjer på Google eller bestiller ei vare, snakkar appen med ein database i bakgrunnen.\n\nFør databasar vart vanlege, lagra ein data i lause filer, og det skapte problem. **Redundans** tydde at same data låg fleire stader, så ei adresseendring lett vart gløymd ein stad. **Tilgangen** var tungvint, **tryggleiken** vanskeleg å styre, og når fleire oppdaterte samtidig, kunne data gå tapt. Databasar løyser dette med strukturert lagring, effektive søk, dataintegritet, tilgangskontroll, transaksjonshandtering og backup. Sjølve databasen vert styrt av eit **databasehandteringssystem (DBMS)** – programvara som er mellomledd mellom brukarar, applikasjonar og dei fysiske dataa, og som tek seg av lagring, tryggleik, backup og samtidig tilgang.","c99a1c8e6c24a126":"Test deg sjølv på databasar og DBMS:","4097889236a2af26":"placeholder","6fdd4287f3d50351":"Kva er ein database?","7c155f4323c654c1":"Eit program for å skrive tekst","cce28842957a8f12":"Ein type nettlesar","a0ca435fc6026971":"Eit operativsystem for tenarar","22572edaaa9a97d2":"Ei organisert samling av strukturerte data som kan søkjast i og administrerast","52ced41ac6370681":"Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan søkjast i, oppdaterast og administrerast.","c90bcd9648279493":"Kva er IKKJE ein fordel med database framfor rekneark?","0f19e3e99f4a1428":"Enklare å lage diagram og grafar","eecb7f83b343d445":"Betre tilgangskontroll og tryggleik","cfac678ffbb1d80d":"Effektive søk i store datamengder","94c4927a0508896a":"Betre handtering av samtidig tilgang","375f3efe24d9456b":"Diagram er styrken til reknearket, ikkje databasen. Databasar gir derimot betre søk, tryggleik og samtidig tilgang.","7967f437f0b2c4f6":"Kva er eit DBMS?","d0ecb5ba9a573bc4":"Ein enkelt tabell","72db6cc80f443640":"Programvara som handterer databasen og kommunikasjonen med han","65c2cff9f3ea5605":"Eit programmeringsspråk","e8c812a9fb643cc3":"Ein primærnøkkel","4e0295f025aaad65":"Eit databasehandteringssystem (DBMS) er programvara som er mellomledd mellom brukarar og dataa, og styrer lagring, tryggleik og tilgang.","00f4940d615d1845":"## SQL eller NoSQL?\n\nDet finst mange typar databasar, men to hovudkategoriar. **Relasjonsdatabasar (SQL)** organiserer data i tabellar med rader og kolonnar, der tabellane kan koplast saman gjennom relasjonar. Dette er den mest brukte typen og har vore standarden sidan 1970-talet, og dei bruker språket SQL (Structured Query Language). Døme er MySQL (den mest brukte open kjeldekode-databasen i verda), PostgreSQL (kjend for pålitelegheit), SQLite (ein lettvektar som lagrar heile databasen i éi fil utan tenarinstallasjon) og Oracle.\n\n**Ikkje-relasjonelle databasar (NoSQL)** bruker andre strukturar enn tabellar, og passar ofte betre for ustrukturerte data eller system som krev ekstrem yting. Vanlege typar er dokumentdatabasar som MongoDB (JSON-liknande dokument), nøkkel-verdi-databasar som Redis (ekstremt raske), grafdatabasar som Neo4j (for data med mange relasjonar, som sosiale nettverk) og kolonnebaserte databasar som Cassandra. I dette kurset fokuserer vi på relasjonsdatabasar og SQL, fordi det er den mest grunnleggjande og utbreidde teknologien.\n\nDette har ei lang historie. Det avgjerande året var 1970, då Edgar F. Codd ved IBM publiserte artikkelen om den relasjonelle datamodellen og føreslo at data burde organiserast i tabellar med relasjonar. IBM laga System R i 1974 og skapte spørjespråket SEQUEL, seinare omdøypt til SQL. Oracle lanserte den første kommersielle relasjonsdatabasen i 1979, MySQL kom som open kjeldekode i 1995, og på 2000-talet vaks NoSQL fram for å handtere dei enorme datamengdene frå sosiale medium og stordata.","0ca58057f7de1291":"Test deg sjølv på databasetypar:","7f647af8d1f3b5b5":"Kva påstand om SQLite er korrekt?","c96b476bc37e8569":"SQLite krev ein eigen tenarinstallasjon","7301629a2dd66f61":"SQLite kan berre brukast med C","dc0b38ed195d51a1":"SQLite lagrar heile databasen i éi fil og krev ingen tenarinstallasjon","e49b062e5fa1eade":"SQLite støttar ikkje standard SQL","d02c0af8f002ff7e":"SQLite er ein lettvektsdatabase som lagrar alt i éi fil utan eigen tenar – difor vert han brukt i mobilappar og nettlesarar.","8c6bde23d69d7955":"Kva type database er MongoDB?","946cb8de0c97fd6f":"Ein relasjonsdatabase","5d81c7fd99c0011c":"Ein grafdatabase","88271f7d43ebf492":"Eit rekneark","0f3138e5bcc66a86":"Ein dokumentdatabase (NoSQL) som lagrar JSON-liknande dokument","77efe9c5552bb767":"MongoDB er ein NoSQL-dokumentdatabase som lagrar data som JSON-liknande dokument.","546b470fd1822f84":"Kven la grunnlaget for relasjonsdatabasar i 1970?","f781ffa9c972a3b0":"Edgar F. Codd","5041190c664b69f8":"Tim Berners-Lee","f973a3d4a5634326":"Brendan Eich","b2278a963678b908":"Grace Hopper","6630542684085449":"Edgar F. Codd ved IBM la grunnlaget i 1970 med artikkelen om den relasjonelle datamodellen.","518f0f62f77d71e7":"## Tabellar, nøklar og dei fire grunnoperasjonane\n\nI ein relasjonsdatabase er **tabellen** grunnsteinen, og han representerer éin type informasjon – til dømes elevar. Kvar tabell har **kolonnar** (felt) som definerer kva eigenskapar som vert lagra, og **rader** (postar) som inneheld dei faktiske dataa. Ein elev-tabell kan ha kolonnane elev_id, fornamn, etternamn, fødselsdato og klasse, med éi rad per elev.\n\nKvar kolonne har ein **datatype** som avgjer kva han kan innehalde: `INTEGER` for heiltal, `TEXT` eller `VARCHAR` for tekst, `REAL` for desimaltal, `DATE` for datoar og `BOOLEAN` for sant/usant. Rett datatype sikrar at berre gyldige data vert lagra – du kan ikkje putte teksten «hei» i ein INTEGER-kolonne.\n\nEin særleg viktig kolonne er **primærnøkkelen**. Det er ein kolonne som unikt identifiserer kvar rad, og han har to ufråvikelege krav: ingen duplikat (to rader kan ikkje ha same verdi) og ingen NULL-verdiar (kvar rad må ha ein verdi). Den vanlegaste løysinga er eit automatisk aukande heiltal, ofte kalla `id`. Primærnøkkelen er fundamental for å kople tabellar saman seinare.\n\nTil slutt: alt arbeid med databasar kokar ned til fire grunnoperasjonar, kjende som **CRUD** – *Create* (opprette nye data), *Read* (lese), *Update* (endre) og *Delete* (slette). I SQL vert desse utførte med kommandoane `INSERT INTO`, `SELECT`, `UPDATE` og `DELETE`, som vi lærer i detalj seinare.","859aa45ce2a2df67":"Test deg sjølv på tabellar, nøklar og CRUD:","7f57a07080964478":"Kva er ein primærnøkkel?","4f191c3d9f3e248d":"Den første kolonnen i tabellen","3255701dd1aab0eb":"Ein kolonne som unikt identifiserer kvar rad","368f03007758aa41":"Eit passord for å logge inn","c69006d6a0954d2c":"Ein kolonne som alltid inneheld tekst","10317816ee90f62c":"Ein primærnøkkel identifiserer kvar rad unikt – utan duplikat og utan NULL-verdiar.","a7462f95f4dedac7":"Kva står CRUD for?","bcf132a766aca5d1":"Copy, Read, Undo, Download","5d19c988c94920ff":"Connect, Request, Upload, Disconnect","5b90fa6d742cc800":"Create, Read, Update, Delete","ed46758ce4b5cbfe":"Compile, Run, Update, Debug","5e055cdd36c3af1c":"CRUD står for Create, Read, Update og Delete – dei fire grunnoperasjonane på data.","892014bc44f5b115":"Kva inneheld ei rad i ein tabell?","6ff50457858f0c8a":"Definisjonen av eigenskapane","e76430bb2e0cbca4":"Berre primærnøkkelen","b7e2624307406982":"Namnet på tabellen","136196337e533b55":"Dei faktiske dataa for éin post, til dømes éin elev","70adc8a8e1d33a76":"Ei rad (post) inneheld dei faktiske dataa for éi oppføring, medan kolonnane definerer kva eigenskapar som vert lagra.","2df6d4d45b22f7d4":"## Oppsummering\n\nNår reknearket vert for trongt, kjem **databasen** – ei organisert samling strukturerte data som er ryggrada i moderne programvare. Han løyser problem som redundans, dårleg tilgang og samtidig bruk, og vert styrt av eit **DBMS**.\n\nDei to hovudtypane er **relasjonsdatabasar (SQL)**, med data i tabellar, og **NoSQL**-databasar som MongoDB og Redis. Vi fokuserer på relasjonsmodellen, grunnlagd av Codd i 1970. Grunnstrukturen er **tabellar** med kolonnar og rader, der kvar kolonne har ein datatype og kvar tabell har ein **primærnøkkel** som unikt identifiserer radene. Alt arbeid kokar ned til **CRUD** – Create, Read, Update, Delete. Med desse omgrepa på plass er du klar for datamodellering og SQL."}}}
+{
+  "id": "it-1-6-1-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "6.1",
+  "title": "Introduksjon til databasar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om ryggrada i all moderne programvare – kva ein database er, kvifor rekneark ikkje strekk til, og grunnomgrepa tabell, rad, kolonne, primærnøkkel og CRUD.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "gjøre rede for hva en database er og hvorfor databaser brukes",
+    "forklare grunnleggende databasebegreper som tabell, rad, kolonne og primærnøkkel",
+    "beskrive forskjellen mellom ulike typer databaser"
+  ],
+  "linkedChapterId": "it-1-6-1",
+  "content": [
+    {
+      "id": "it-1-6-1-n-intro",
+      "type": "text",
+      "content": "## Når rekneark ikkje strekk til\n\nTenk deg at du skal halde oversikt over alle elevane på ein skule – namn, fødselsdato, klasse, adresse og karakterar for hundrevis av elevar. Du kunne brukt eit rekneark, men kva skjer når rektor vil vite kva elevar i 2A som har over 4 i snitt? Eller når ein elev byter klasse og informasjonen må oppdaterast fleire stader? Då vert reknearket fort uoversiktleg og feilutsett.\n\n**Databasar** løyser nettopp dette. Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan opprettast, lesast, oppdaterast og slettast. Databasar er ryggrada i nesten all moderne programvare: når du loggar inn på Instagram, søkjer på Google eller bestiller ei vare, snakkar appen med ein database i bakgrunnen.\n\nFør databasar vart vanlege, lagra ein data i lause filer, og det skapte problem. **Redundans** tydde at same data låg fleire stader, så ei adresseendring lett vart gløymd ein stad. **Tilgangen** var tungvint, **tryggleiken** vanskeleg å styre, og når fleire oppdaterte samtidig, kunne data gå tapt. Databasar løyser dette med strukturert lagring, effektive søk, dataintegritet, tilgangskontroll, transaksjonshandtering og backup. Sjølve databasen vert styrt av eit **databasehandteringssystem (DBMS)** – programvara som er mellomledd mellom brukarar, applikasjonar og dei fysiske dataa, og som tek seg av lagring, tryggleik, backup og samtidig tilgang."
+    },
+    {
+      "id": "it-1-6-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på databasar og DBMS:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-1-n-quiz1-q0",
+            "task": "Kva er ein database?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Eit program for å skrive tekst",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein type nettlesar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ei organisert samling av strukturerte data som kan søkjast i og administrerast",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Eit operativsystem for tenarar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan søkjast i, oppdaterast og administrerast."
+          },
+          {
+            "id": "it-1-6-1-n-quiz1-q1",
+            "task": "Kva er IKKJE ein fordel med database framfor rekneark?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Betre tilgangskontroll og tryggleik",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Effektive søk i store datamengder",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Betre handtering av samtidig tilgang",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Enklare å lage diagram og grafar",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Diagram er styrken til reknearket, ikkje databasen. Databasar gir derimot betre søk, tryggleik og samtidig tilgang."
+          },
+          {
+            "id": "it-1-6-1-n-quiz1-q2",
+            "task": "Kva er eit DBMS?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Programvara som handterer databasen og kommunikasjonen med han",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein enkelt tabell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit programmeringsspråk",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein primærnøkkel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eit databasehandteringssystem (DBMS) er programvara som er mellomledd mellom brukarar og dataa, og styrer lagring, tryggleik og tilgang."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-1-n-section1",
+      "type": "text",
+      "content": "## SQL eller NoSQL?\n\nDet finst mange typar databasar, men to hovudkategoriar. **Relasjonsdatabasar (SQL)** organiserer data i tabellar med rader og kolonnar, der tabellane kan koplast saman gjennom relasjonar. Dette er den mest brukte typen og har vore standarden sidan 1970-talet, og dei bruker språket SQL (Structured Query Language). Døme er MySQL (den mest brukte open kjeldekode-databasen i verda), PostgreSQL (kjend for pålitelegheit), SQLite (ein lettvektar som lagrar heile databasen i éi fil utan tenarinstallasjon) og Oracle.\n\n**Ikkje-relasjonelle databasar (NoSQL)** bruker andre strukturar enn tabellar, og passar ofte betre for ustrukturerte data eller system som krev ekstrem yting. Vanlege typar er dokumentdatabasar som MongoDB (JSON-liknande dokument), nøkkel-verdi-databasar som Redis (ekstremt raske), grafdatabasar som Neo4j (for data med mange relasjonar, som sosiale nettverk) og kolonnebaserte databasar som Cassandra. I dette kurset fokuserer vi på relasjonsdatabasar og SQL, fordi det er den mest grunnleggjande og utbreidde teknologien.\n\nDette har ei lang historie. Det avgjerande året var 1970, då Edgar F. Codd ved IBM publiserte artikkelen om den relasjonelle datamodellen og føreslo at data burde organiserast i tabellar med relasjonar. IBM laga System R i 1974 og skapte spørjespråket SEQUEL, seinare omdøypt til SQL. Oracle lanserte den første kommersielle relasjonsdatabasen i 1979, MySQL kom som open kjeldekode i 1995, og på 2000-talet vaks NoSQL fram for å handtere dei enorme datamengdene frå sosiale medium og stordata."
+    },
+    {
+      "id": "it-1-6-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på databasetypar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-1-n-quiz2-q0",
+            "task": "Kva påstand om SQLite er korrekt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "SQLite krev ein eigen tenarinstallasjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "SQLite lagrar heile databasen i éi fil og krev ingen tenarinstallasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "SQLite kan berre brukast med C",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "SQLite støttar ikkje standard SQL",
+                "isCorrect": false
+              }
+            ],
+            "solution": "SQLite er ein lettvektsdatabase som lagrar alt i éi fil utan eigen tenar – difor vert han brukt i mobilappar og nettlesarar."
+          },
+          {
+            "id": "it-1-6-1-n-quiz2-q1",
+            "task": "Kva type database er MongoDB?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein relasjonsdatabase",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ein grafdatabase",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein dokumentdatabase (NoSQL) som lagrar JSON-liknande dokument",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Eit rekneark",
+                "isCorrect": false
+              }
+            ],
+            "solution": "MongoDB er ein NoSQL-dokumentdatabase som lagrar data som JSON-liknande dokument."
+          },
+          {
+            "id": "it-1-6-1-n-quiz2-q2",
+            "task": "Kven la grunnlaget for relasjonsdatabasar i 1970?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Tim Berners-Lee",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Brendan Eich",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grace Hopper",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Edgar F. Codd",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Edgar F. Codd ved IBM la grunnlaget i 1970 med artikkelen om den relasjonelle datamodellen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-1-n-section2",
+      "type": "text",
+      "content": "## Tabellar, nøklar og dei fire grunnoperasjonane\n\nI ein relasjonsdatabase er **tabellen** grunnsteinen, og han representerer éin type informasjon – til dømes elevar. Kvar tabell har **kolonnar** (felt) som definerer kva eigenskapar som vert lagra, og **rader** (postar) som inneheld dei faktiske dataa. Ein elev-tabell kan ha kolonnane elev_id, fornamn, etternamn, fødselsdato og klasse, med éi rad per elev.\n\nKvar kolonne har ein **datatype** som avgjer kva han kan innehalde: `INTEGER` for heiltal, `TEXT` eller `VARCHAR` for tekst, `REAL` for desimaltal, `DATE` for datoar og `BOOLEAN` for sant/usant. Rett datatype sikrar at berre gyldige data vert lagra – du kan ikkje putte teksten «hei» i ein INTEGER-kolonne.\n\nEin særleg viktig kolonne er **primærnøkkelen**. Det er ein kolonne som unikt identifiserer kvar rad, og han har to ufråvikelege krav: ingen duplikat (to rader kan ikkje ha same verdi) og ingen NULL-verdiar (kvar rad må ha ein verdi). Den vanlegaste løysinga er eit automatisk aukande heiltal, ofte kalla `id`. Primærnøkkelen er fundamental for å kople tabellar saman seinare.\n\nTil slutt: alt arbeid med databasar kokar ned til fire grunnoperasjonar, kjende som **CRUD** – *Create* (opprette nye data), *Read* (lese), *Update* (endre) og *Delete* (slette). I SQL vert desse utførte med kommandoane `INSERT INTO`, `SELECT`, `UPDATE` og `DELETE`, som vi lærer i detalj seinare."
+    },
+    {
+      "id": "it-1-6-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-6-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på tabellar, nøklar og CRUD:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-6-1-n-quiz3-q0",
+            "task": "Kva er ein primærnøkkel?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein kolonne som unikt identifiserer kvar rad",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den første kolonnen i tabellen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Eit passord for å logge inn",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein kolonne som alltid inneheld tekst",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein primærnøkkel identifiserer kvar rad unikt – utan duplikat og utan NULL-verdiar."
+          },
+          {
+            "id": "it-1-6-1-n-quiz3-q1",
+            "task": "Kva står CRUD for?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Copy, Read, Undo, Download",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Create, Read, Update, Delete",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Connect, Request, Upload, Disconnect",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Compile, Run, Update, Debug",
+                "isCorrect": false
+              }
+            ],
+            "solution": "CRUD står for Create, Read, Update og Delete – dei fire grunnoperasjonane på data."
+          },
+          {
+            "id": "it-1-6-1-n-quiz3-q2",
+            "task": "Kva inneheld ei rad i ein tabell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Definisjonen av eigenskapane",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre primærnøkkelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Dei faktiske dataa for éin post, til dømes éin elev",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Namnet på tabellen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ei rad (post) inneheld dei faktiske dataa for éi oppføring, medan kolonnane definerer kva eigenskapar som vert lagra."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-6-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nNår reknearket vert for trongt, kjem **databasen** – ei organisert samling strukturerte data som er ryggrada i moderne programvare. Han løyser problem som redundans, dårleg tilgang og samtidig bruk, og vert styrt av eit **DBMS**.\n\nDei to hovudtypane er **relasjonsdatabasar (SQL)**, med data i tabellar, og **NoSQL**-databasar som MongoDB og Redis. Vi fokuserer på relasjonsmodellen, grunnlagd av Codd i 1970. Grunnstrukturen er **tabellar** med kolonnar og rader, der kvar kolonne har ein datatype og kvar tabell har ein **primærnøkkel** som unikt identifiserer radene. Alt arbeid kokar ned til **CRUD** – Create, Read, Update, Delete. Med desse omgrepa på plass er du klar for datamodellering og SQL."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "0ac22dc9d5f1c162",
+    "translatedAt": "2026-06-20T23:58:28.799Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "ea8e85930afc71d3": "Introduksjon til databasar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "1cd091fa17cc147c": "Ei forteljing om ryggrada i all moderne programvare – kva ein database er, kvifor rekneark ikkje strekk til, og grunnomgrepa tabell, rad, kolonne, primærnøkkel og CRUD.",
+      "dab8d4fa66267a7d": "gjøre rede for hva en database er og hvorfor databaser brukes",
+      "700c9db63368319a": "forklare grunnleggende databasebegreper som tabell, rad, kolonne og primærnøkkel",
+      "67ad566a978bff52": "beskrive forskjellen mellom ulike typer databaser",
+      "10b65aee6d6bb17b": "## Når rekneark ikkje strekk til\n\nTenk deg at du skal halde oversikt over alle elevane på ein skule – namn, fødselsdato, klasse, adresse og karakterar for hundrevis av elevar. Du kunne brukt eit rekneark, men kva skjer når rektor vil vite kva elevar i 2A som har over 4 i snitt? Eller når ein elev byter klasse og informasjonen må oppdaterast fleire stader? Då vert reknearket fort uoversiktleg og feilutsett.\n\n**Databasar** løyser nettopp dette. Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan opprettast, lesast, oppdaterast og slettast. Databasar er ryggrada i nesten all moderne programvare: når du loggar inn på Instagram, søkjer på Google eller bestiller ei vare, snakkar appen med ein database i bakgrunnen.\n\nFør databasar vart vanlege, lagra ein data i lause filer, og det skapte problem. **Redundans** tydde at same data låg fleire stader, så ei adresseendring lett vart gløymd ein stad. **Tilgangen** var tungvint, **tryggleiken** vanskeleg å styre, og når fleire oppdaterte samtidig, kunne data gå tapt. Databasar løyser dette med strukturert lagring, effektive søk, dataintegritet, tilgangskontroll, transaksjonshandtering og backup. Sjølve databasen vert styrt av eit **databasehandteringssystem (DBMS)** – programvara som er mellomledd mellom brukarar, applikasjonar og dei fysiske dataa, og som tek seg av lagring, tryggleik, backup og samtidig tilgang.",
+      "c99a1c8e6c24a126": "Test deg sjølv på databasar og DBMS:",
+      "4097889236a2af26": "placeholder",
+      "6fdd4287f3d50351": "Kva er ein database?",
+      "7c155f4323c654c1": "Eit program for å skrive tekst",
+      "cce28842957a8f12": "Ein type nettlesar",
+      "a0ca435fc6026971": "Eit operativsystem for tenarar",
+      "22572edaaa9a97d2": "Ei organisert samling av strukturerte data som kan søkjast i og administrerast",
+      "52ced41ac6370681": "Ein database er ei organisert samling av strukturerte data, lagra slik at han enkelt kan søkjast i, oppdaterast og administrerast.",
+      "c90bcd9648279493": "Kva er IKKJE ein fordel med database framfor rekneark?",
+      "0f19e3e99f4a1428": "Enklare å lage diagram og grafar",
+      "eecb7f83b343d445": "Betre tilgangskontroll og tryggleik",
+      "cfac678ffbb1d80d": "Effektive søk i store datamengder",
+      "94c4927a0508896a": "Betre handtering av samtidig tilgang",
+      "375f3efe24d9456b": "Diagram er styrken til reknearket, ikkje databasen. Databasar gir derimot betre søk, tryggleik og samtidig tilgang.",
+      "7967f437f0b2c4f6": "Kva er eit DBMS?",
+      "d0ecb5ba9a573bc4": "Ein enkelt tabell",
+      "72db6cc80f443640": "Programvara som handterer databasen og kommunikasjonen med han",
+      "65c2cff9f3ea5605": "Eit programmeringsspråk",
+      "e8c812a9fb643cc3": "Ein primærnøkkel",
+      "4e0295f025aaad65": "Eit databasehandteringssystem (DBMS) er programvara som er mellomledd mellom brukarar og dataa, og styrer lagring, tryggleik og tilgang.",
+      "00f4940d615d1845": "## SQL eller NoSQL?\n\nDet finst mange typar databasar, men to hovudkategoriar. **Relasjonsdatabasar (SQL)** organiserer data i tabellar med rader og kolonnar, der tabellane kan koplast saman gjennom relasjonar. Dette er den mest brukte typen og har vore standarden sidan 1970-talet, og dei bruker språket SQL (Structured Query Language). Døme er MySQL (den mest brukte open kjeldekode-databasen i verda), PostgreSQL (kjend for pålitelegheit), SQLite (ein lettvektar som lagrar heile databasen i éi fil utan tenarinstallasjon) og Oracle.\n\n**Ikkje-relasjonelle databasar (NoSQL)** bruker andre strukturar enn tabellar, og passar ofte betre for ustrukturerte data eller system som krev ekstrem yting. Vanlege typar er dokumentdatabasar som MongoDB (JSON-liknande dokument), nøkkel-verdi-databasar som Redis (ekstremt raske), grafdatabasar som Neo4j (for data med mange relasjonar, som sosiale nettverk) og kolonnebaserte databasar som Cassandra. I dette kurset fokuserer vi på relasjonsdatabasar og SQL, fordi det er den mest grunnleggjande og utbreidde teknologien.\n\nDette har ei lang historie. Det avgjerande året var 1970, då Edgar F. Codd ved IBM publiserte artikkelen om den relasjonelle datamodellen og føreslo at data burde organiserast i tabellar med relasjonar. IBM laga System R i 1974 og skapte spørjespråket SEQUEL, seinare omdøypt til SQL. Oracle lanserte den første kommersielle relasjonsdatabasen i 1979, MySQL kom som open kjeldekode i 1995, og på 2000-talet vaks NoSQL fram for å handtere dei enorme datamengdene frå sosiale medium og stordata.",
+      "0ca58057f7de1291": "Test deg sjølv på databasetypar:",
+      "7f647af8d1f3b5b5": "Kva påstand om SQLite er korrekt?",
+      "c96b476bc37e8569": "SQLite krev ein eigen tenarinstallasjon",
+      "7301629a2dd66f61": "SQLite kan berre brukast med C",
+      "dc0b38ed195d51a1": "SQLite lagrar heile databasen i éi fil og krev ingen tenarinstallasjon",
+      "e49b062e5fa1eade": "SQLite støttar ikkje standard SQL",
+      "d02c0af8f002ff7e": "SQLite er ein lettvektsdatabase som lagrar alt i éi fil utan eigen tenar – difor vert han brukt i mobilappar og nettlesarar.",
+      "8c6bde23d69d7955": "Kva type database er MongoDB?",
+      "946cb8de0c97fd6f": "Ein relasjonsdatabase",
+      "5d81c7fd99c0011c": "Ein grafdatabase",
+      "88271f7d43ebf492": "Eit rekneark",
+      "0f3138e5bcc66a86": "Ein dokumentdatabase (NoSQL) som lagrar JSON-liknande dokument",
+      "77efe9c5552bb767": "MongoDB er ein NoSQL-dokumentdatabase som lagrar data som JSON-liknande dokument.",
+      "546b470fd1822f84": "Kven la grunnlaget for relasjonsdatabasar i 1970?",
+      "f781ffa9c972a3b0": "Edgar F. Codd",
+      "5041190c664b69f8": "Tim Berners-Lee",
+      "f973a3d4a5634326": "Brendan Eich",
+      "b2278a963678b908": "Grace Hopper",
+      "6630542684085449": "Edgar F. Codd ved IBM la grunnlaget i 1970 med artikkelen om den relasjonelle datamodellen.",
+      "518f0f62f77d71e7": "## Tabellar, nøklar og dei fire grunnoperasjonane\n\nI ein relasjonsdatabase er **tabellen** grunnsteinen, og han representerer éin type informasjon – til dømes elevar. Kvar tabell har **kolonnar** (felt) som definerer kva eigenskapar som vert lagra, og **rader** (postar) som inneheld dei faktiske dataa. Ein elev-tabell kan ha kolonnane elev_id, fornamn, etternamn, fødselsdato og klasse, med éi rad per elev.\n\nKvar kolonne har ein **datatype** som avgjer kva han kan innehalde: `INTEGER` for heiltal, `TEXT` eller `VARCHAR` for tekst, `REAL` for desimaltal, `DATE` for datoar og `BOOLEAN` for sant/usant. Rett datatype sikrar at berre gyldige data vert lagra – du kan ikkje putte teksten «hei» i ein INTEGER-kolonne.\n\nEin særleg viktig kolonne er **primærnøkkelen**. Det er ein kolonne som unikt identifiserer kvar rad, og han har to ufråvikelege krav: ingen duplikat (to rader kan ikkje ha same verdi) og ingen NULL-verdiar (kvar rad må ha ein verdi). Den vanlegaste løysinga er eit automatisk aukande heiltal, ofte kalla `id`. Primærnøkkelen er fundamental for å kople tabellar saman seinare.\n\nTil slutt: alt arbeid med databasar kokar ned til fire grunnoperasjonar, kjende som **CRUD** – *Create* (opprette nye data), *Read* (lese), *Update* (endre) og *Delete* (slette). I SQL vert desse utførte med kommandoane `INSERT INTO`, `SELECT`, `UPDATE` og `DELETE`, som vi lærer i detalj seinare.",
+      "859aa45ce2a2df67": "Test deg sjølv på tabellar, nøklar og CRUD:",
+      "7f57a07080964478": "Kva er ein primærnøkkel?",
+      "4f191c3d9f3e248d": "Den første kolonnen i tabellen",
+      "3255701dd1aab0eb": "Ein kolonne som unikt identifiserer kvar rad",
+      "368f03007758aa41": "Eit passord for å logge inn",
+      "c69006d6a0954d2c": "Ein kolonne som alltid inneheld tekst",
+      "10317816ee90f62c": "Ein primærnøkkel identifiserer kvar rad unikt – utan duplikat og utan NULL-verdiar.",
+      "a7462f95f4dedac7": "Kva står CRUD for?",
+      "bcf132a766aca5d1": "Copy, Read, Undo, Download",
+      "5d19c988c94920ff": "Connect, Request, Upload, Disconnect",
+      "5b90fa6d742cc800": "Create, Read, Update, Delete",
+      "ed46758ce4b5cbfe": "Compile, Run, Update, Debug",
+      "5e055cdd36c3af1c": "CRUD står for Create, Read, Update og Delete – dei fire grunnoperasjonane på data.",
+      "892014bc44f5b115": "Kva inneheld ei rad i ein tabell?",
+      "6ff50457858f0c8a": "Definisjonen av eigenskapane",
+      "e76430bb2e0cbca4": "Berre primærnøkkelen",
+      "b7e2624307406982": "Namnet på tabellen",
+      "136196337e533b55": "Dei faktiske dataa for éin post, til dømes éin elev",
+      "70adc8a8e1d33a76": "Ei rad (post) inneheld dei faktiske dataa for éi oppføring, medan kolonnane definerer kva eigenskapar som vert lagra.",
+      "2df6d4d45b22f7d4": "## Oppsummering\n\nNår reknearket vert for trongt, kjem **databasen** – ei organisert samling strukturerte data som er ryggrada i moderne programvare. Han løyser problem som redundans, dårleg tilgang og samtidig bruk, og vert styrt av eit **DBMS**.\n\nDei to hovudtypane er **relasjonsdatabasar (SQL)**, med data i tabellar, og **NoSQL**-databasar som MongoDB og Redis. Vi fokuserer på relasjonsmodellen, grunnlagd av Codd i 1970. Grunnstrukturen er **tabellar** med kolonnar og rader, der kvar kolonne har ein datatype og kvar tabell har ein **primærnøkkel** som unikt identifiserer radene. Alt arbeid kokar ned til **CRUD** – Create, Read, Update, Delete. Med desse omgrepa på plass er du klar for datamodellering og SQL."
+    }
+  }
+}

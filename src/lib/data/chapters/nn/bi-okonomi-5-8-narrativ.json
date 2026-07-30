@@ -1,1 +1,445 @@
-{"id":"bi-okonomi-5-8-narrativ","courseId":"bi-okonomi","chapterNumber":"5.8","title":"Konveksitet og konkavitet","subtitle":"Narrativ versjon","description":"Ei forteljing om krumninga til ein graf -- korleis andrederiverttesten avgjer om ein funksjon smiler eller surmular, kvar han vender, og kvifor konkave nyttefunksjonar forklarar at folk kjøper forsikring.","estimatedMinutes":30,"competenceGoals":[],"linkedChapterId":"bi-okonomi-5-8","content":[{"id":"bi-okonomi-5-8-n-intro","type":"text","content":"## Smiler eller surmular kurva?\n\nTo funksjonar kan begge stige, men ha heilt ulik form. Den eine buar oppover som eit smil, den andre buar nedover som ein grimase. Denne skilnaden i **krumning** har eit namn: ein funksjon som krummar oppover ($\\cup$) er **konveks** -- han «smiler» -- medan ein som krummar nedover ($\\cap$) er **konkav** -- han «surmular». Det høyrest kanskje ut som rein geometri, men i økonomi avgjer krumninga avgjerande ting: konkave nyttefunksjonar forklarar kvifor folk er risikoaverse, konvekse kostnadsfunksjonar forklarar kvifor produksjon blir dyrare i marginen, og konkave produksjonsfunksjonar forklarar avtakande grenseproduktivitet.\n\nDet vakre er at vi kan avgjere krumninga med eitt tal: den andrederiverte. **Andrederiverttesten** seier at dersom $f''(x) > 0$ på eit intervall, er $f$ **konveks** der, og dersom $f''(x) < 0$, er $f$ **konkav**. Intuisjonen er fin: $f''$ måler korleis stiginga $f'$ endrar seg. Når $f'' > 0$ blir stiginga meir og meir positiv, så grafen pressar oppover -- det klassiske smilet. Når $f'' < 0$ avtek stiginga, og grafen bøyer nedover.\n\nHugseregelen er like enkel: **pluss er smil**. Er $f''$ positiv, smiler funksjonen ($\\cup$); er han negativ, surmular han ($\\cap$)."},{"id":"bi-okonomi-5-8-n-section1","type":"text","content":"## Tre klassiske eksempel og vendepunkt\n\nLat oss teste regelen på dei viktigaste funksjonane. For $f(x) = x^2$ er $f'(x) = 2x$ og $f''(x) = 2$. Sidan $2 > 0$ for alle $x$, er $x^2$ **konveks** overalt -- ein parabel som opnar oppover. For $f(x) = e^x$ er både førstederivert og andrederivert lik $e^x$, som alltid er positiv, så $e^x$ er òg **konveks** overalt; han veks stadig raskare, typisk for rentes rente.\n\nMotsetnaden er logaritmen. For $f(x) = \\ln x$ er $f'(x) = \\frac{1}{x}$ og $f''(x) = -\\frac{1}{x^2}$. For alle $x > 0$ er dette negativt, så $\\ln x$ er **konkav**. Han veks, men stadig seinare -- og dersom dette er ein nyttefunksjon for pengar, tyder det at kvar krone gjev mindre ekstra nytte enn den førre. Det kallar vi **avtakande grensenytte**.\n\nMange funksjonar skiftar krumning undervegs. Eit **vendepunkt** er der $f''$ skiftar forteikn -- der funksjonen går frå konveks til konkav eller omvendt. Den nødvendige betingelsen er $f''(a) = 0$, men det er ikkje nok: vi må sjekke at forteiknet faktisk skiftar. Ta $f(x) = x^3$, med $f''(x) = 6x$. Her er $f''(0) = 0$, og $f''$ skiftar frå minus (konkav) til pluss (konveks) ved $x = 0$, så $(0, 0)$ er eit vendepunkt. Men åtvaring: for $f(x) = x^4$ er $f''(x) = 12x^2$, og sjølv om $f''(0) = 0$, er $f'' \\geq 0$ overalt -- forteiknet skiftar aldri, så $x = 0$ er **ikkje** eit vendepunkt."},{"id":"bi-okonomi-5-8-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-5-8-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på krumning og vendepunkt:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-8-n-quiz1-q0","task":"Kva tyder $f''(x)>0$ på eit intervall?","options":[{"id":"a","text":"funksjonen er konkav ($\\cap$)","isCorrect":false},{"id":"b","text":"funksjonen er veksande","isCorrect":false},{"id":"c","text":"funksjonen har eit maksimum","isCorrect":false},{"id":"d","text":"funksjonen er konveks ($\\cup$)","isCorrect":true}],"solution":"$f''>0$ tyder at grafen krummar oppover -- konveks, han «smiler» ($\\cup$)."},{"id":"bi-okonomi-5-8-n-quiz1-q1","task":"Kvifor er $f(x)=\\ln x$ konkav på $(0,\\infty)$?","options":[{"id":"a","text":"fordi $f''(x)=-\\frac{1}{x^2}<0$","isCorrect":true},{"id":"b","text":"fordi $f'(x)=\\frac{1}{x}>0$","isCorrect":false},{"id":"c","text":"fordi $\\ln x$ veks","isCorrect":false},{"id":"d","text":"fordi $\\ln 1=0$","isCorrect":false}],"solution":"$f''(x)=-\\frac{1}{x^2}<0$ for alle $x>0$, så $\\ln x$ er konkav."},{"id":"bi-okonomi-5-8-n-quiz1-q2","task":"Kva er eit vendepunkt?","options":[{"id":"a","text":"eit punkt der $f'(x)=0$","isCorrect":false},{"id":"b","text":"eit punkt der $f''$ skiftar forteikn","isCorrect":true},{"id":"c","text":"eit punkt der $f(x)=0$","isCorrect":false},{"id":"d","text":"eit punkt der grafen kryssar y-aksen","isCorrect":false}],"solution":"Eit vendepunkt er der $f''$ skiftar forteikn -- altså der krumninga endrar seg."},{"id":"bi-okonomi-5-8-n-quiz1-q3","task":"For $f(x)=x^4$ er $f''(0)=0$. Er $x=0$ eit vendepunkt?","options":[{"id":"a","text":"ja, fordi $f''(0)=0$","isCorrect":false},{"id":"b","text":"nei, fordi $f'(0)=0$","isCorrect":false},{"id":"c","text":"nei, fordi $f''=12x^2\\geq 0$ ikkje skiftar forteikn","isCorrect":true},{"id":"d","text":"ja, fordi det er eit minimum","isCorrect":false}],"solution":"$f''(0)=0$ er berre ein kandidat. Sidan $f''=12x^2\\geq 0$ overalt og aldri skiftar forteikn, er $x=0$ ikkje eit vendepunkt."}]}},{"id":"bi-okonomi-5-8-n-section2","type":"text","content":"## Kvifor økonomar elskar konkave funksjonar\n\nKrumning er ikkje berre teikning -- ho gjev oss noko svært verdifullt: **globale** ekstrema. Resultatet er enkelt og kraftig. Dersom $f$ er **konveks** på eit intervall og $f'(a) = 0$, så er $x = a$ eit **globalt minimum**. Og dersom $f$ er **konkav** og $f'(a) = 0$, så er $x = a$ eit **globalt maksimum**. For ein konkav funksjon treng vi altså berre å finne eitt stasjonært punkt -- så veit vi at det er det beste i heile verda. Det er nettopp difor økonomar elskar konkave funksjonar: dei gjev eintydige løysingar på optimeringsproblem.\n\nDei økonomiske tolkingane er konkrete. Ein **konkav nyttefunksjon** som $U(c) = \\ln c$ eller $U(c) = \\sqrt{c}$ tyder at kvar krone gjev mindre ekstra nytte enn den førre -- $U' > 0$, $U'' < 0$. Konsekvensen er **risikoaversjon**. Ein investor med nytte $U(c) = \\sqrt{c}$ føretrekkjer ei sikker utbetaling på $25$ kroner framfor eit lodd på $0$ eller $50$ kroner med like sannsyn, sjølv om begge har venta verdi $25$. Lat oss rekne: nytta av det sikre er $U(25) = \\sqrt{25} = 5$, medan venta nytte av loddet er $0{,}5\\cdot\\sqrt{0} + 0{,}5\\cdot\\sqrt{50} \\approx 0{,}5\\cdot 7{,}071 \\approx 3{,}54$. Det sikre vinn. Den konkave nyttefunksjonen «straffar» risiko -- og det er nettopp difor folk kjøper forsikring. Dette er eit utslag av **Jensens ulikskap**: for konkav $U$ er $E[U(X)] \\leq U(E[X])$."},{"id":"bi-okonomi-5-8-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-5-8-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på globale ekstrema og risikoaversjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-8-n-quiz2-q0","task":"Dersom $f$ er konkav og $f'(a)=0$, kva er $x=a$?","options":[{"id":"a","text":"globalt minimum","isCorrect":false},{"id":"b","text":"vendepunkt","isCorrect":false},{"id":"c","text":"terrassepunkt","isCorrect":false},{"id":"d","text":"globalt maksimum","isCorrect":true}],"solution":"For ein konkav funksjon er eit stasjonært punkt automatisk eit globalt maksimum."},{"id":"bi-okonomi-5-8-n-quiz2-q1","task":"Ein konkav nyttefunksjon inneber at konsumenten er:","options":[{"id":"a","text":"risikoavers","isCorrect":true},{"id":"b","text":"risikosøkjande","isCorrect":false},{"id":"c","text":"risikonøytral","isCorrect":false},{"id":"d","text":"likegyldig til pengar","isCorrect":false}],"solution":"Konkav nytte ($U''<0$) gjev avtakande grensenytte og dermed risikoaversjon."},{"id":"bi-okonomi-5-8-n-quiz2-q2","task":"For $U(c)=\\sqrt{c}$: kva er nytta av ei sikker utbetaling på 25 kr?","options":[{"id":"a","text":"$3{,}54$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":true},{"id":"c","text":"$7{,}07$","isCorrect":false},{"id":"d","text":"$25$","isCorrect":false}],"solution":"$U(25)=\\sqrt{25}=5$, høgare enn den venta nytta til loddet $\\approx 3{,}54$."}]}},{"id":"bi-okonomi-5-8-n-section3","type":"text","content":"## Kostnad, produksjon og full drøfting\n\nLat oss sjå dei andre økonomiske rollene. Ein **konveks kostnadsfunksjon** har $K''(x) > 0$, som tyder at grensekostnaden $K'(x)$ stig med produksjonen -- stordriftsulemper på marginen. Ta $K(x) = 0{,}5x^2 + 20x + 1000$. Grensekostnaden er $K'(x) = x + 20$, og $K''(x) = 1 > 0$, så $K$ er konveks overalt. Ved $x = 10$ er grensekostnaden $30$ kroner, men ved $x = 100$ har han stige til $120$ kroner. Bedrifta møter altså aukande marginalkostnad, kanskje fordi ho må betale dyr overtid eller bruke mindre effektive maskinar ved høg produksjon.\n\nEin **konkav produksjonsfunksjon** fortel den motsette historia. Ein Cobb-Douglas-funksjon $Q = K^\\alpha$ med $0 < \\alpha < 1$ har $Q'' = \\alpha(\\alpha - 1)K^{\\alpha - 2} < 0$, altså konkav: kvar ekstra eining kapital gjev mindre tilleggsproduksjon enn den førre -- avtakande grenseproduktivitet.\n\nNår vi skal drøfte krumninga til ein meir samansett funksjon, lagar vi eit **forteiknsskjema** for $f''$. Ta $f(x) = x^4 - 6x^2$. Då er $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$, som er null ved $x = \\pm 1$. Forteiknet til $f''$ er positivt for $|x| > 1$ (konveks) og negativt for $|x| < 1$ (konkav), så funksjonen har **to vendepunkt**, ved $(-1, -5)$ og $(1, -5)$, sidan $f(\\pm 1) = 1 - 6 = -5$. Slik kartlegg vi kvar ei kurve smiler og kvar ho surmular."},{"id":"bi-okonomi-5-8-n-quiz3","type":"exercise","exercise":{"id":"bi-okonomi-5-8-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på kostnad, produksjon og forteiknsskjema:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-5-8-n-quiz3-q0","task":"Kva tyder ein konveks kostnadsfunksjon ($K''>0$) økonomisk?","options":[{"id":"a","text":"grensekostnaden søkk","isCorrect":false},{"id":"b","text":"bedrifta har stordriftsfordelar","isCorrect":false},{"id":"c","text":"grensekostnaden aukar med produksjonen","isCorrect":true},{"id":"d","text":"kostnaden er konstant","isCorrect":false}],"solution":"$K''>0$ tyder at grensekostnaden $K'$ stig -- stordriftsulemper på marginen."},{"id":"bi-okonomi-5-8-n-quiz3-q1","task":"Ein Cobb-Douglas-funksjon $Q=K^\\alpha$ med $0<\\alpha<1$ er konkav i $K$. Kva tyder det?","options":[{"id":"a","text":"aukande grenseproduktivitet","isCorrect":false},{"id":"b","text":"konstant produksjon","isCorrect":false},{"id":"c","text":"uendeleg produksjon","isCorrect":false},{"id":"d","text":"avtakande grenseproduktivitet","isCorrect":true}],"solution":"Konkav produksjon tyder at kvar ekstra eining kapital gjev mindre tilleggsproduksjon -- avtakande grenseproduktivitet."},{"id":"bi-okonomi-5-8-n-quiz3-q2","task":"For $f(x)=x^4-6x^2$ er $f''(x)=12(x-1)(x+1)$. Kvar er vendepunkta?","options":[{"id":"a","text":"$x=\\pm 1$","isCorrect":true},{"id":"b","text":"$x=0$","isCorrect":false},{"id":"c","text":"$x=\\pm 6$","isCorrect":false},{"id":"d","text":"$x=\\pm\\sqrt{6}$","isCorrect":false}],"solution":"$f''(x)=0$ ved $x=\\pm 1$, og $f''$ skiftar forteikn der, så vendepunkta er $(\\pm 1,-5)$."}]}},{"id":"bi-okonomi-5-8-n-summary","type":"text","content":"## Oppsummering\n\nKrumning skil funksjonar som elles liknar. Ein **konveks** funksjon ($f'' > 0$) «smiler» ($\\cup$) og har veksande stiging; ein **konkav** ($f'' < 0$) «surmular» ($\\cap$) og har avtakande stiging. Hugseregelen er at pluss er smil. Eit **vendepunkt** ligg der $f''$ skiftar forteikn -- men $f''(a) = 0$ åleine er ikkje nok, vi må alltid sjekke forteiknsskiftet, slik $x^4$ minner oss om.\n\nDet kraftigaste resultatet er at krumning gjev **globale** ekstrema: ein konkav funksjon med $f'(a) = 0$ har globalt maksimum der, ein konveks har globalt minimum. Økonomisk fortel konkav nytte om risikoaversjon -- difor kjøper folk forsikring -- konveks kostnad om aukande grensekostnad, og konkav produksjon om avtakande grenseproduktivitet. Med forteiknsskjema for $f''$ kan vi kartleggje nøyaktig kvar ei kurve smiler og kvar ho surmular. Dermed er heile kalkulus-verktøykassa for kapittel 5 komplett."}],"exercises":[],"_meta":{"sourceHash":"fb03a80b457ce464","translatedAt":"2026-06-21T00:51:57.216Z","model":"claude-code-agent","strings":70,"tm":{"78f78a77a129a2e5":"Konveksitet og konkavitet","b195b06d1ed59702":"Narrativ versjon","65b96fedf8a12c31":"Ei forteljing om krumninga til ein graf -- korleis andrederiverttesten avgjer om ein funksjon smiler eller surmular, kvar han vender, og kvifor konkave nyttefunksjonar forklarar at folk kjøper forsikring.","f0879b532e435071":"## Smiler eller surmular kurva?\n\nTo funksjonar kan begge stige, men ha heilt ulik form. Den eine buar oppover som eit smil, den andre buar nedover som ein grimase. Denne skilnaden i **krumning** har eit namn: ein funksjon som krummar oppover ($\\cup$) er **konveks** -- han «smiler» -- medan ein som krummar nedover ($\\cap$) er **konkav** -- han «surmular». Det høyrest kanskje ut som rein geometri, men i økonomi avgjer krumninga avgjerande ting: konkave nyttefunksjonar forklarar kvifor folk er risikoaverse, konvekse kostnadsfunksjonar forklarar kvifor produksjon blir dyrare i marginen, og konkave produksjonsfunksjonar forklarar avtakande grenseproduktivitet.\n\nDet vakre er at vi kan avgjere krumninga med eitt tal: den andrederiverte. **Andrederiverttesten** seier at dersom $f''(x) > 0$ på eit intervall, er $f$ **konveks** der, og dersom $f''(x) < 0$, er $f$ **konkav**. Intuisjonen er fin: $f''$ måler korleis stiginga $f'$ endrar seg. Når $f'' > 0$ blir stiginga meir og meir positiv, så grafen pressar oppover -- det klassiske smilet. Når $f'' < 0$ avtek stiginga, og grafen bøyer nedover.\n\nHugseregelen er like enkel: **pluss er smil**. Er $f''$ positiv, smiler funksjonen ($\\cup$); er han negativ, surmular han ($\\cap$).","be7253a55ac7df04":"## Tre klassiske eksempel og vendepunkt\n\nLat oss teste regelen på dei viktigaste funksjonane. For $f(x) = x^2$ er $f'(x) = 2x$ og $f''(x) = 2$. Sidan $2 > 0$ for alle $x$, er $x^2$ **konveks** overalt -- ein parabel som opnar oppover. For $f(x) = e^x$ er både førstederivert og andrederivert lik $e^x$, som alltid er positiv, så $e^x$ er òg **konveks** overalt; han veks stadig raskare, typisk for rentes rente.\n\nMotsetnaden er logaritmen. For $f(x) = \\ln x$ er $f'(x) = \\frac{1}{x}$ og $f''(x) = -\\frac{1}{x^2}$. For alle $x > 0$ er dette negativt, så $\\ln x$ er **konkav**. Han veks, men stadig seinare -- og dersom dette er ein nyttefunksjon for pengar, tyder det at kvar krone gjev mindre ekstra nytte enn den førre. Det kallar vi **avtakande grensenytte**.\n\nMange funksjonar skiftar krumning undervegs. Eit **vendepunkt** er der $f''$ skiftar forteikn -- der funksjonen går frå konveks til konkav eller omvendt. Den nødvendige betingelsen er $f''(a) = 0$, men det er ikkje nok: vi må sjekke at forteiknet faktisk skiftar. Ta $f(x) = x^3$, med $f''(x) = 6x$. Her er $f''(0) = 0$, og $f''$ skiftar frå minus (konkav) til pluss (konveks) ved $x = 0$, så $(0, 0)$ er eit vendepunkt. Men åtvaring: for $f(x) = x^4$ er $f''(x) = 12x^2$, og sjølv om $f''(0) = 0$, er $f'' \\geq 0$ overalt -- forteiknet skiftar aldri, så $x = 0$ er **ikkje** eit vendepunkt.","d4c049fac3bb1925":"Test deg sjølv på krumning og vendepunkt:","4097889236a2af26":"placeholder","8e8d5e20a5b52d0c":"Kva tyder $f''(x)>0$ på eit intervall?","1c417188c7aea1e8":"funksjonen er konkav ($\\cap$)","88feb184ee9cb051":"funksjonen er veksande","ad6f6ef14106dcbc":"funksjonen har eit maksimum","1d7b5c6fdf27b0b1":"funksjonen er konveks ($\\cup$)","12d317eb02974822":"$f''>0$ tyder at grafen krummar oppover -- konveks, han «smiler» ($\\cup$).","a63836de488698df":"Kvifor er $f(x)=\\ln x$ konkav på $(0,\\infty)$?","16e9ba3894cae535":"fordi $f''(x)=-\\frac{1}{x^2}<0$","667c9c6bc30e7ab9":"fordi $f'(x)=\\frac{1}{x}>0$","609445fbe7274606":"fordi $\\ln x$ veks","f085ac673a89d21a":"fordi $\\ln 1=0$","ddf1c10e8ec0146c":"$f''(x)=-\\frac{1}{x^2}<0$ for alle $x>0$, så $\\ln x$ er konkav.","3be401ca1e705e0c":"Kva er eit vendepunkt?","e1b0e249413e2774":"eit punkt der $f'(x)=0$","8bd61bce282af086":"eit punkt der $f''$ skiftar forteikn","f9ac06bc22bc4bb3":"eit punkt der $f(x)=0$","32a88523929ec85d":"eit punkt der grafen kryssar y-aksen","abde43587df3023d":"Eit vendepunkt er der $f''$ skiftar forteikn -- altså der krumninga endrar seg.","adc331f6a038a635":"For $f(x)=x^4$ er $f''(0)=0$. Er $x=0$ eit vendepunkt?","67b8f701c17042a4":"ja, fordi $f''(0)=0$","f72d968de66852a2":"nei, fordi $f'(0)=0$","f1e5997e1b149765":"nei, fordi $f''=12x^2\\geq 0$ ikkje skiftar forteikn","cc32bee7126b99e1":"ja, fordi det er eit minimum","84402425f54886b7":"$f''(0)=0$ er berre ein kandidat. Sidan $f''=12x^2\\geq 0$ overalt og aldri skiftar forteikn, er $x=0$ ikkje eit vendepunkt.","29892d6231464258":"## Kvifor økonomar elskar konkave funksjonar\n\nKrumning er ikkje berre teikning -- ho gjev oss noko svært verdifullt: **globale** ekstrema. Resultatet er enkelt og kraftig. Dersom $f$ er **konveks** på eit intervall og $f'(a) = 0$, så er $x = a$ eit **globalt minimum**. Og dersom $f$ er **konkav** og $f'(a) = 0$, så er $x = a$ eit **globalt maksimum**. For ein konkav funksjon treng vi altså berre å finne eitt stasjonært punkt -- så veit vi at det er det beste i heile verda. Det er nettopp difor økonomar elskar konkave funksjonar: dei gjev eintydige løysingar på optimeringsproblem.\n\nDei økonomiske tolkingane er konkrete. Ein **konkav nyttefunksjon** som $U(c) = \\ln c$ eller $U(c) = \\sqrt{c}$ tyder at kvar krone gjev mindre ekstra nytte enn den førre -- $U' > 0$, $U'' < 0$. Konsekvensen er **risikoaversjon**. Ein investor med nytte $U(c) = \\sqrt{c}$ føretrekkjer ei sikker utbetaling på $25$ kroner framfor eit lodd på $0$ eller $50$ kroner med like sannsyn, sjølv om begge har venta verdi $25$. Lat oss rekne: nytta av det sikre er $U(25) = \\sqrt{25} = 5$, medan venta nytte av loddet er $0{,}5\\cdot\\sqrt{0} + 0{,}5\\cdot\\sqrt{50} \\approx 0{,}5\\cdot 7{,}071 \\approx 3{,}54$. Det sikre vinn. Den konkave nyttefunksjonen «straffar» risiko -- og det er nettopp difor folk kjøper forsikring. Dette er eit utslag av **Jensens ulikskap**: for konkav $U$ er $E[U(X)] \\leq U(E[X])$.","11c541e66c21d8be":"Test deg sjølv på globale ekstrema og risikoaversjon:","7fe2e9464426c16b":"Dersom $f$ er konkav og $f'(a)=0$, kva er $x=a$?","da1d1d0fa2478b29":"globalt minimum","2bf35245e318f3ed":"vendepunkt","85b0f4b65b0fa3ff":"terrassepunkt","214dba500d52d6f5":"globalt maksimum","d100043fa7e65971":"For ein konkav funksjon er eit stasjonært punkt automatisk eit globalt maksimum.","8aa62d3856cf7803":"Ein konkav nyttefunksjon inneber at konsumenten er:","f9086e3735625fc1":"risikoavers","373022c89bc8be0d":"risikosøkjande","6f5b9988dce99d38":"risikonøytral","b29fbededd3430bf":"likegyldig til pengar","1b17effcf0e6b1c0":"Konkav nytte ($U''<0$) gjev avtakande grensenytte og dermed risikoaversjon.","d2377d2c74b286a1":"For $U(c)=\\sqrt{c}$: kva er nytta av ei sikker utbetaling på 25 kr?","88f7fffe6564762b":"$U(25)=\\sqrt{25}=5$, høgare enn den venta nytta til loddet $\\approx 3{,}54$.","3dc4f435834e192e":"## Kostnad, produksjon og full drøfting\n\nLat oss sjå dei andre økonomiske rollene. Ein **konveks kostnadsfunksjon** har $K''(x) > 0$, som tyder at grensekostnaden $K'(x)$ stig med produksjonen -- stordriftsulemper på marginen. Ta $K(x) = 0{,}5x^2 + 20x + 1000$. Grensekostnaden er $K'(x) = x + 20$, og $K''(x) = 1 > 0$, så $K$ er konveks overalt. Ved $x = 10$ er grensekostnaden $30$ kroner, men ved $x = 100$ har han stige til $120$ kroner. Bedrifta møter altså aukande marginalkostnad, kanskje fordi ho må betale dyr overtid eller bruke mindre effektive maskinar ved høg produksjon.\n\nEin **konkav produksjonsfunksjon** fortel den motsette historia. Ein Cobb-Douglas-funksjon $Q = K^\\alpha$ med $0 < \\alpha < 1$ har $Q'' = \\alpha(\\alpha - 1)K^{\\alpha - 2} < 0$, altså konkav: kvar ekstra eining kapital gjev mindre tilleggsproduksjon enn den førre -- avtakande grenseproduktivitet.\n\nNår vi skal drøfte krumninga til ein meir samansett funksjon, lagar vi eit **forteiknsskjema** for $f''$. Ta $f(x) = x^4 - 6x^2$. Då er $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$, som er null ved $x = \\pm 1$. Forteiknet til $f''$ er positivt for $|x| > 1$ (konveks) og negativt for $|x| < 1$ (konkav), så funksjonen har **to vendepunkt**, ved $(-1, -5)$ og $(1, -5)$, sidan $f(\\pm 1) = 1 - 6 = -5$. Slik kartlegg vi kvar ei kurve smiler og kvar ho surmular.","1a8f5e1ea2c4ee57":"Test deg sjølv på kostnad, produksjon og forteiknsskjema:","9f592365b0298ba3":"Kva tyder ein konveks kostnadsfunksjon ($K''>0$) økonomisk?","89286d8f012db1e7":"grensekostnaden søkk","ccb86dc80f968a83":"bedrifta har stordriftsfordelar","7fae5709796834a3":"grensekostnaden aukar med produksjonen","9abbe2bee5b4a0be":"kostnaden er konstant","3a7db767d8d8db40":"$K''>0$ tyder at grensekostnaden $K'$ stig -- stordriftsulemper på marginen.","b9f2c649f5ad49a2":"Ein Cobb-Douglas-funksjon $Q=K^\\alpha$ med $0<\\alpha<1$ er konkav i $K$. Kva tyder det?","9f74618e46383d93":"aukande grenseproduktivitet","4f7b6d3f91d61ccd":"konstant produksjon","824a3974f6072611":"uendeleg produksjon","b5e2e8a656616044":"avtakande grenseproduktivitet","ef797268ff642bdc":"Konkav produksjon tyder at kvar ekstra eining kapital gjev mindre tilleggsproduksjon -- avtakande grenseproduktivitet.","a2252b11561e47dc":"For $f(x)=x^4-6x^2$ er $f''(x)=12(x-1)(x+1)$. Kvar er vendepunkta?","9b056de411f45bf1":"$x=\\pm 1$","dbd5301847c30f3d":"$x=0$","c9f9bcdf2899fae3":"$x=\\pm 6$","07b7ffe38d583c4b":"$x=\\pm\\sqrt{6}$","50d5ef86d6023f3a":"$f''(x)=0$ ved $x=\\pm 1$, og $f''$ skiftar forteikn der, så vendepunkta er $(\\pm 1,-5)$.","fe3f8188f79c8d00":"## Oppsummering\n\nKrumning skil funksjonar som elles liknar. Ein **konveks** funksjon ($f'' > 0$) «smiler» ($\\cup$) og har veksande stiging; ein **konkav** ($f'' < 0$) «surmular» ($\\cap$) og har avtakande stiging. Hugseregelen er at pluss er smil. Eit **vendepunkt** ligg der $f''$ skiftar forteikn -- men $f''(a) = 0$ åleine er ikkje nok, vi må alltid sjekke forteiknsskiftet, slik $x^4$ minner oss om.\n\nDet kraftigaste resultatet er at krumning gjev **globale** ekstrema: ein konkav funksjon med $f'(a) = 0$ har globalt maksimum der, ein konveks har globalt minimum. Økonomisk fortel konkav nytte om risikoaversjon -- difor kjøper folk forsikring -- konveks kostnad om aukande grensekostnad, og konkav produksjon om avtakande grenseproduktivitet. Med forteiknsskjema for $f''$ kan vi kartleggje nøyaktig kvar ei kurve smiler og kvar ho surmular. Dermed er heile kalkulus-verktøykassa for kapittel 5 komplett."}}}
+{
+  "id": "bi-okonomi-5-8-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "5.8",
+  "title": "Konveksitet og konkavitet",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om krumninga til ein graf -- korleis andrederiverttesten avgjer om ein funksjon smiler eller surmular, kvar han vender, og kvifor konkave nyttefunksjonar forklarar at folk kjøper forsikring.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [],
+  "linkedChapterId": "bi-okonomi-5-8",
+  "content": [
+    {
+      "id": "bi-okonomi-5-8-n-intro",
+      "type": "text",
+      "content": "## Smiler eller surmular kurva?\n\nTo funksjonar kan begge stige, men ha heilt ulik form. Den eine buar oppover som eit smil, den andre buar nedover som ein grimase. Denne skilnaden i **krumning** har eit namn: ein funksjon som krummar oppover ($\\cup$) er **konveks** -- han «smiler» -- medan ein som krummar nedover ($\\cap$) er **konkav** -- han «surmular». Det høyrest kanskje ut som rein geometri, men i økonomi avgjer krumninga avgjerande ting: konkave nyttefunksjonar forklarar kvifor folk er risikoaverse, konvekse kostnadsfunksjonar forklarar kvifor produksjon blir dyrare i marginen, og konkave produksjonsfunksjonar forklarar avtakande grenseproduktivitet.\n\nDet vakre er at vi kan avgjere krumninga med eitt tal: den andrederiverte. **Andrederiverttesten** seier at dersom $f''(x) > 0$ på eit intervall, er $f$ **konveks** der, og dersom $f''(x) < 0$, er $f$ **konkav**. Intuisjonen er fin: $f''$ måler korleis stiginga $f'$ endrar seg. Når $f'' > 0$ blir stiginga meir og meir positiv, så grafen pressar oppover -- det klassiske smilet. Når $f'' < 0$ avtek stiginga, og grafen bøyer nedover.\n\nHugseregelen er like enkel: **pluss er smil**. Er $f''$ positiv, smiler funksjonen ($\\cup$); er han negativ, surmular han ($\\cap$)."
+    },
+    {
+      "id": "bi-okonomi-5-8-n-section1",
+      "type": "text",
+      "content": "## Tre klassiske eksempel og vendepunkt\n\nLat oss teste regelen på dei viktigaste funksjonane. For $f(x) = x^2$ er $f'(x) = 2x$ og $f''(x) = 2$. Sidan $2 > 0$ for alle $x$, er $x^2$ **konveks** overalt -- ein parabel som opnar oppover. For $f(x) = e^x$ er både førstederivert og andrederivert lik $e^x$, som alltid er positiv, så $e^x$ er òg **konveks** overalt; han veks stadig raskare, typisk for rentes rente.\n\nMotsetnaden er logaritmen. For $f(x) = \\ln x$ er $f'(x) = \\frac{1}{x}$ og $f''(x) = -\\frac{1}{x^2}$. For alle $x > 0$ er dette negativt, så $\\ln x$ er **konkav**. Han veks, men stadig seinare -- og dersom dette er ein nyttefunksjon for pengar, tyder det at kvar krone gjev mindre ekstra nytte enn den førre. Det kallar vi **avtakande grensenytte**.\n\nMange funksjonar skiftar krumning undervegs. Eit **vendepunkt** er der $f''$ skiftar forteikn -- der funksjonen går frå konveks til konkav eller omvendt. Den nødvendige betingelsen er $f''(a) = 0$, men det er ikkje nok: vi må sjekke at forteiknet faktisk skiftar. Ta $f(x) = x^3$, med $f''(x) = 6x$. Her er $f''(0) = 0$, og $f''$ skiftar frå minus (konkav) til pluss (konveks) ved $x = 0$, så $(0, 0)$ er eit vendepunkt. Men åtvaring: for $f(x) = x^4$ er $f''(x) = 12x^2$, og sjølv om $f''(0) = 0$, er $f'' \\geq 0$ overalt -- forteiknet skiftar aldri, så $x = 0$ er **ikkje** eit vendepunkt."
+    },
+    {
+      "id": "bi-okonomi-5-8-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-8-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på krumning og vendepunkt:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-8-n-quiz1-q0",
+            "task": "Kva tyder $f''(x)>0$ på eit intervall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "funksjonen er konkav ($\\cap$)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "funksjonen er konveks ($\\cup$)",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "funksjonen er veksande",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "funksjonen har eit maksimum",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''>0$ tyder at grafen krummar oppover -- konveks, han «smiler» ($\\cup$)."
+          },
+          {
+            "id": "bi-okonomi-5-8-n-quiz1-q1",
+            "task": "Kvifor er $f(x)=\\ln x$ konkav på $(0,\\infty)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "fordi $f'(x)=\\frac{1}{x}>0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "fordi $\\ln x$ veks",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "fordi $f''(x)=-\\frac{1}{x^2}<0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "fordi $\\ln 1=0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(x)=-\\frac{1}{x^2}<0$ for alle $x>0$, så $\\ln x$ er konkav."
+          },
+          {
+            "id": "bi-okonomi-5-8-n-quiz1-q2",
+            "task": "Kva er eit vendepunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "eit punkt der $f'(x)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "eit punkt der $f(x)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "eit punkt der grafen kryssar y-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "eit punkt der $f''$ skiftar forteikn",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Eit vendepunkt er der $f''$ skiftar forteikn -- altså der krumninga endrar seg."
+          },
+          {
+            "id": "bi-okonomi-5-8-n-quiz1-q3",
+            "task": "For $f(x)=x^4$ er $f''(0)=0$. Er $x=0$ eit vendepunkt?",
+            "options": [
+              {
+                "id": "c",
+                "text": "nei, fordi $f''=12x^2\\geq 0$ ikkje skiftar forteikn",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "ja, fordi $f''(0)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "nei, fordi $f'(0)=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "ja, fordi det er eit minimum",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(0)=0$ er berre ein kandidat. Sidan $f''=12x^2\\geq 0$ overalt og aldri skiftar forteikn, er $x=0$ ikkje eit vendepunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-8-n-section2",
+      "type": "text",
+      "content": "## Kvifor økonomar elskar konkave funksjonar\n\nKrumning er ikkje berre teikning -- ho gjev oss noko svært verdifullt: **globale** ekstrema. Resultatet er enkelt og kraftig. Dersom $f$ er **konveks** på eit intervall og $f'(a) = 0$, så er $x = a$ eit **globalt minimum**. Og dersom $f$ er **konkav** og $f'(a) = 0$, så er $x = a$ eit **globalt maksimum**. For ein konkav funksjon treng vi altså berre å finne eitt stasjonært punkt -- så veit vi at det er det beste i heile verda. Det er nettopp difor økonomar elskar konkave funksjonar: dei gjev eintydige løysingar på optimeringsproblem.\n\nDei økonomiske tolkingane er konkrete. Ein **konkav nyttefunksjon** som $U(c) = \\ln c$ eller $U(c) = \\sqrt{c}$ tyder at kvar krone gjev mindre ekstra nytte enn den førre -- $U' > 0$, $U'' < 0$. Konsekvensen er **risikoaversjon**. Ein investor med nytte $U(c) = \\sqrt{c}$ føretrekkjer ei sikker utbetaling på $25$ kroner framfor eit lodd på $0$ eller $50$ kroner med like sannsyn, sjølv om begge har venta verdi $25$. Lat oss rekne: nytta av det sikre er $U(25) = \\sqrt{25} = 5$, medan venta nytte av loddet er $0{,}5\\cdot\\sqrt{0} + 0{,}5\\cdot\\sqrt{50} \\approx 0{,}5\\cdot 7{,}071 \\approx 3{,}54$. Det sikre vinn. Den konkave nyttefunksjonen «straffar» risiko -- og det er nettopp difor folk kjøper forsikring. Dette er eit utslag av **Jensens ulikskap**: for konkav $U$ er $E[U(X)] \\leq U(E[X])$."
+    },
+    {
+      "id": "bi-okonomi-5-8-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-8-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på globale ekstrema og risikoaversjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-8-n-quiz2-q0",
+            "task": "Dersom $f$ er konkav og $f'(a)=0$, kva er $x=a$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "globalt minimum",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "globalt maksimum",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "vendepunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "terrassepunkt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For ein konkav funksjon er eit stasjonært punkt automatisk eit globalt maksimum."
+          },
+          {
+            "id": "bi-okonomi-5-8-n-quiz2-q1",
+            "task": "Ein konkav nyttefunksjon inneber at konsumenten er:",
+            "options": [
+              {
+                "id": "b",
+                "text": "risikosøkjande",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "risikonøytral",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "risikoavers",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "likegyldig til pengar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konkav nytte ($U''<0$) gjev avtakande grensenytte og dermed risikoaversjon."
+          },
+          {
+            "id": "bi-okonomi-5-8-n-quiz2-q2",
+            "task": "For $U(c)=\\sqrt{c}$: kva er nytta av ei sikker utbetaling på 25 kr?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3{,}54$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7{,}07$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$U(25)=\\sqrt{25}=5$, høgare enn den venta nytta til loddet $\\approx 3{,}54$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-8-n-section3",
+      "type": "text",
+      "content": "## Kostnad, produksjon og full drøfting\n\nLat oss sjå dei andre økonomiske rollene. Ein **konveks kostnadsfunksjon** har $K''(x) > 0$, som tyder at grensekostnaden $K'(x)$ stig med produksjonen -- stordriftsulemper på marginen. Ta $K(x) = 0{,}5x^2 + 20x + 1000$. Grensekostnaden er $K'(x) = x + 20$, og $K''(x) = 1 > 0$, så $K$ er konveks overalt. Ved $x = 10$ er grensekostnaden $30$ kroner, men ved $x = 100$ har han stige til $120$ kroner. Bedrifta møter altså aukande marginalkostnad, kanskje fordi ho må betale dyr overtid eller bruke mindre effektive maskinar ved høg produksjon.\n\nEin **konkav produksjonsfunksjon** fortel den motsette historia. Ein Cobb-Douglas-funksjon $Q = K^\\alpha$ med $0 < \\alpha < 1$ har $Q'' = \\alpha(\\alpha - 1)K^{\\alpha - 2} < 0$, altså konkav: kvar ekstra eining kapital gjev mindre tilleggsproduksjon enn den førre -- avtakande grenseproduktivitet.\n\nNår vi skal drøfte krumninga til ein meir samansett funksjon, lagar vi eit **forteiknsskjema** for $f''$. Ta $f(x) = x^4 - 6x^2$. Då er $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$, som er null ved $x = \\pm 1$. Forteiknet til $f''$ er positivt for $|x| > 1$ (konveks) og negativt for $|x| < 1$ (konkav), så funksjonen har **to vendepunkt**, ved $(-1, -5)$ og $(1, -5)$, sidan $f(\\pm 1) = 1 - 6 = -5$. Slik kartlegg vi kvar ei kurve smiler og kvar ho surmular."
+    },
+    {
+      "id": "bi-okonomi-5-8-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-5-8-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kostnad, produksjon og forteiknsskjema:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-5-8-n-quiz3-q0",
+            "task": "Kva tyder ein konveks kostnadsfunksjon ($K''>0$) økonomisk?",
+            "options": [
+              {
+                "id": "c",
+                "text": "grensekostnaden aukar med produksjonen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "grensekostnaden søkk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "bedrifta har stordriftsfordelar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "kostnaden er konstant",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$K''>0$ tyder at grensekostnaden $K'$ stig -- stordriftsulemper på marginen."
+          },
+          {
+            "id": "bi-okonomi-5-8-n-quiz3-q1",
+            "task": "Ein Cobb-Douglas-funksjon $Q=K^\\alpha$ med $0<\\alpha<1$ er konkav i $K$. Kva tyder det?",
+            "options": [
+              {
+                "id": "a",
+                "text": "aukande grenseproduktivitet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "avtakande grenseproduktivitet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "konstant produksjon",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "uendeleg produksjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konkav produksjon tyder at kvar ekstra eining kapital gjev mindre tilleggsproduksjon -- avtakande grenseproduktivitet."
+          },
+          {
+            "id": "bi-okonomi-5-8-n-quiz3-q2",
+            "task": "For $f(x)=x^4-6x^2$ er $f''(x)=12(x-1)(x+1)$. Kvar er vendepunkta?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x=0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=\\pm 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x=\\pm 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x=\\pm\\sqrt{6}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f''(x)=0$ ved $x=\\pm 1$, og $f''$ skiftar forteikn der, så vendepunkta er $(\\pm 1,-5)$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-5-8-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nKrumning skil funksjonar som elles liknar. Ein **konveks** funksjon ($f'' > 0$) «smiler» ($\\cup$) og har veksande stiging; ein **konkav** ($f'' < 0$) «surmular» ($\\cap$) og har avtakande stiging. Hugseregelen er at pluss er smil. Eit **vendepunkt** ligg der $f''$ skiftar forteikn -- men $f''(a) = 0$ åleine er ikkje nok, vi må alltid sjekke forteiknsskiftet, slik $x^4$ minner oss om.\n\nDet kraftigaste resultatet er at krumning gjev **globale** ekstrema: ein konkav funksjon med $f'(a) = 0$ har globalt maksimum der, ein konveks har globalt minimum. Økonomisk fortel konkav nytte om risikoaversjon -- difor kjøper folk forsikring -- konveks kostnad om aukande grensekostnad, og konkav produksjon om avtakande grenseproduktivitet. Med forteiknsskjema for $f''$ kan vi kartleggje nøyaktig kvar ei kurve smiler og kvar ho surmular. Dermed er heile kalkulus-verktøykassa for kapittel 5 komplett."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "fb03a80b457ce464",
+    "translatedAt": "2026-06-21T00:51:57.216Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "78f78a77a129a2e5": "Konveksitet og konkavitet",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "65b96fedf8a12c31": "Ei forteljing om krumninga til ein graf -- korleis andrederiverttesten avgjer om ein funksjon smiler eller surmular, kvar han vender, og kvifor konkave nyttefunksjonar forklarar at folk kjøper forsikring.",
+      "f0879b532e435071": "## Smiler eller surmular kurva?\n\nTo funksjonar kan begge stige, men ha heilt ulik form. Den eine buar oppover som eit smil, den andre buar nedover som ein grimase. Denne skilnaden i **krumning** har eit namn: ein funksjon som krummar oppover ($\\cup$) er **konveks** -- han «smiler» -- medan ein som krummar nedover ($\\cap$) er **konkav** -- han «surmular». Det høyrest kanskje ut som rein geometri, men i økonomi avgjer krumninga avgjerande ting: konkave nyttefunksjonar forklarar kvifor folk er risikoaverse, konvekse kostnadsfunksjonar forklarar kvifor produksjon blir dyrare i marginen, og konkave produksjonsfunksjonar forklarar avtakande grenseproduktivitet.\n\nDet vakre er at vi kan avgjere krumninga med eitt tal: den andrederiverte. **Andrederiverttesten** seier at dersom $f''(x) > 0$ på eit intervall, er $f$ **konveks** der, og dersom $f''(x) < 0$, er $f$ **konkav**. Intuisjonen er fin: $f''$ måler korleis stiginga $f'$ endrar seg. Når $f'' > 0$ blir stiginga meir og meir positiv, så grafen pressar oppover -- det klassiske smilet. Når $f'' < 0$ avtek stiginga, og grafen bøyer nedover.\n\nHugseregelen er like enkel: **pluss er smil**. Er $f''$ positiv, smiler funksjonen ($\\cup$); er han negativ, surmular han ($\\cap$).",
+      "be7253a55ac7df04": "## Tre klassiske eksempel og vendepunkt\n\nLat oss teste regelen på dei viktigaste funksjonane. For $f(x) = x^2$ er $f'(x) = 2x$ og $f''(x) = 2$. Sidan $2 > 0$ for alle $x$, er $x^2$ **konveks** overalt -- ein parabel som opnar oppover. For $f(x) = e^x$ er både førstederivert og andrederivert lik $e^x$, som alltid er positiv, så $e^x$ er òg **konveks** overalt; han veks stadig raskare, typisk for rentes rente.\n\nMotsetnaden er logaritmen. For $f(x) = \\ln x$ er $f'(x) = \\frac{1}{x}$ og $f''(x) = -\\frac{1}{x^2}$. For alle $x > 0$ er dette negativt, så $\\ln x$ er **konkav**. Han veks, men stadig seinare -- og dersom dette er ein nyttefunksjon for pengar, tyder det at kvar krone gjev mindre ekstra nytte enn den førre. Det kallar vi **avtakande grensenytte**.\n\nMange funksjonar skiftar krumning undervegs. Eit **vendepunkt** er der $f''$ skiftar forteikn -- der funksjonen går frå konveks til konkav eller omvendt. Den nødvendige betingelsen er $f''(a) = 0$, men det er ikkje nok: vi må sjekke at forteiknet faktisk skiftar. Ta $f(x) = x^3$, med $f''(x) = 6x$. Her er $f''(0) = 0$, og $f''$ skiftar frå minus (konkav) til pluss (konveks) ved $x = 0$, så $(0, 0)$ er eit vendepunkt. Men åtvaring: for $f(x) = x^4$ er $f''(x) = 12x^2$, og sjølv om $f''(0) = 0$, er $f'' \\geq 0$ overalt -- forteiknet skiftar aldri, så $x = 0$ er **ikkje** eit vendepunkt.",
+      "d4c049fac3bb1925": "Test deg sjølv på krumning og vendepunkt:",
+      "4097889236a2af26": "placeholder",
+      "8e8d5e20a5b52d0c": "Kva tyder $f''(x)>0$ på eit intervall?",
+      "1c417188c7aea1e8": "funksjonen er konkav ($\\cap$)",
+      "88feb184ee9cb051": "funksjonen er veksande",
+      "ad6f6ef14106dcbc": "funksjonen har eit maksimum",
+      "1d7b5c6fdf27b0b1": "funksjonen er konveks ($\\cup$)",
+      "12d317eb02974822": "$f''>0$ tyder at grafen krummar oppover -- konveks, han «smiler» ($\\cup$).",
+      "a63836de488698df": "Kvifor er $f(x)=\\ln x$ konkav på $(0,\\infty)$?",
+      "16e9ba3894cae535": "fordi $f''(x)=-\\frac{1}{x^2}<0$",
+      "667c9c6bc30e7ab9": "fordi $f'(x)=\\frac{1}{x}>0$",
+      "609445fbe7274606": "fordi $\\ln x$ veks",
+      "f085ac673a89d21a": "fordi $\\ln 1=0$",
+      "ddf1c10e8ec0146c": "$f''(x)=-\\frac{1}{x^2}<0$ for alle $x>0$, så $\\ln x$ er konkav.",
+      "3be401ca1e705e0c": "Kva er eit vendepunkt?",
+      "e1b0e249413e2774": "eit punkt der $f'(x)=0$",
+      "8bd61bce282af086": "eit punkt der $f''$ skiftar forteikn",
+      "f9ac06bc22bc4bb3": "eit punkt der $f(x)=0$",
+      "32a88523929ec85d": "eit punkt der grafen kryssar y-aksen",
+      "abde43587df3023d": "Eit vendepunkt er der $f''$ skiftar forteikn -- altså der krumninga endrar seg.",
+      "adc331f6a038a635": "For $f(x)=x^4$ er $f''(0)=0$. Er $x=0$ eit vendepunkt?",
+      "67b8f701c17042a4": "ja, fordi $f''(0)=0$",
+      "f72d968de66852a2": "nei, fordi $f'(0)=0$",
+      "f1e5997e1b149765": "nei, fordi $f''=12x^2\\geq 0$ ikkje skiftar forteikn",
+      "cc32bee7126b99e1": "ja, fordi det er eit minimum",
+      "84402425f54886b7": "$f''(0)=0$ er berre ein kandidat. Sidan $f''=12x^2\\geq 0$ overalt og aldri skiftar forteikn, er $x=0$ ikkje eit vendepunkt.",
+      "29892d6231464258": "## Kvifor økonomar elskar konkave funksjonar\n\nKrumning er ikkje berre teikning -- ho gjev oss noko svært verdifullt: **globale** ekstrema. Resultatet er enkelt og kraftig. Dersom $f$ er **konveks** på eit intervall og $f'(a) = 0$, så er $x = a$ eit **globalt minimum**. Og dersom $f$ er **konkav** og $f'(a) = 0$, så er $x = a$ eit **globalt maksimum**. For ein konkav funksjon treng vi altså berre å finne eitt stasjonært punkt -- så veit vi at det er det beste i heile verda. Det er nettopp difor økonomar elskar konkave funksjonar: dei gjev eintydige løysingar på optimeringsproblem.\n\nDei økonomiske tolkingane er konkrete. Ein **konkav nyttefunksjon** som $U(c) = \\ln c$ eller $U(c) = \\sqrt{c}$ tyder at kvar krone gjev mindre ekstra nytte enn den førre -- $U' > 0$, $U'' < 0$. Konsekvensen er **risikoaversjon**. Ein investor med nytte $U(c) = \\sqrt{c}$ føretrekkjer ei sikker utbetaling på $25$ kroner framfor eit lodd på $0$ eller $50$ kroner med like sannsyn, sjølv om begge har venta verdi $25$. Lat oss rekne: nytta av det sikre er $U(25) = \\sqrt{25} = 5$, medan venta nytte av loddet er $0{,}5\\cdot\\sqrt{0} + 0{,}5\\cdot\\sqrt{50} \\approx 0{,}5\\cdot 7{,}071 \\approx 3{,}54$. Det sikre vinn. Den konkave nyttefunksjonen «straffar» risiko -- og det er nettopp difor folk kjøper forsikring. Dette er eit utslag av **Jensens ulikskap**: for konkav $U$ er $E[U(X)] \\leq U(E[X])$.",
+      "11c541e66c21d8be": "Test deg sjølv på globale ekstrema og risikoaversjon:",
+      "7fe2e9464426c16b": "Dersom $f$ er konkav og $f'(a)=0$, kva er $x=a$?",
+      "da1d1d0fa2478b29": "globalt minimum",
+      "2bf35245e318f3ed": "vendepunkt",
+      "85b0f4b65b0fa3ff": "terrassepunkt",
+      "214dba500d52d6f5": "globalt maksimum",
+      "d100043fa7e65971": "For ein konkav funksjon er eit stasjonært punkt automatisk eit globalt maksimum.",
+      "8aa62d3856cf7803": "Ein konkav nyttefunksjon inneber at konsumenten er:",
+      "f9086e3735625fc1": "risikoavers",
+      "373022c89bc8be0d": "risikosøkjande",
+      "6f5b9988dce99d38": "risikonøytral",
+      "b29fbededd3430bf": "likegyldig til pengar",
+      "1b17effcf0e6b1c0": "Konkav nytte ($U''<0$) gjev avtakande grensenytte og dermed risikoaversjon.",
+      "d2377d2c74b286a1": "For $U(c)=\\sqrt{c}$: kva er nytta av ei sikker utbetaling på 25 kr?",
+      "88f7fffe6564762b": "$U(25)=\\sqrt{25}=5$, høgare enn den venta nytta til loddet $\\approx 3{,}54$.",
+      "3dc4f435834e192e": "## Kostnad, produksjon og full drøfting\n\nLat oss sjå dei andre økonomiske rollene. Ein **konveks kostnadsfunksjon** har $K''(x) > 0$, som tyder at grensekostnaden $K'(x)$ stig med produksjonen -- stordriftsulemper på marginen. Ta $K(x) = 0{,}5x^2 + 20x + 1000$. Grensekostnaden er $K'(x) = x + 20$, og $K''(x) = 1 > 0$, så $K$ er konveks overalt. Ved $x = 10$ er grensekostnaden $30$ kroner, men ved $x = 100$ har han stige til $120$ kroner. Bedrifta møter altså aukande marginalkostnad, kanskje fordi ho må betale dyr overtid eller bruke mindre effektive maskinar ved høg produksjon.\n\nEin **konkav produksjonsfunksjon** fortel den motsette historia. Ein Cobb-Douglas-funksjon $Q = K^\\alpha$ med $0 < \\alpha < 1$ har $Q'' = \\alpha(\\alpha - 1)K^{\\alpha - 2} < 0$, altså konkav: kvar ekstra eining kapital gjev mindre tilleggsproduksjon enn den førre -- avtakande grenseproduktivitet.\n\nNår vi skal drøfte krumninga til ein meir samansett funksjon, lagar vi eit **forteiknsskjema** for $f''$. Ta $f(x) = x^4 - 6x^2$. Då er $f''(x) = 12x^2 - 12 = 12(x-1)(x+1)$, som er null ved $x = \\pm 1$. Forteiknet til $f''$ er positivt for $|x| > 1$ (konveks) og negativt for $|x| < 1$ (konkav), så funksjonen har **to vendepunkt**, ved $(-1, -5)$ og $(1, -5)$, sidan $f(\\pm 1) = 1 - 6 = -5$. Slik kartlegg vi kvar ei kurve smiler og kvar ho surmular.",
+      "1a8f5e1ea2c4ee57": "Test deg sjølv på kostnad, produksjon og forteiknsskjema:",
+      "9f592365b0298ba3": "Kva tyder ein konveks kostnadsfunksjon ($K''>0$) økonomisk?",
+      "89286d8f012db1e7": "grensekostnaden søkk",
+      "ccb86dc80f968a83": "bedrifta har stordriftsfordelar",
+      "7fae5709796834a3": "grensekostnaden aukar med produksjonen",
+      "9abbe2bee5b4a0be": "kostnaden er konstant",
+      "3a7db767d8d8db40": "$K''>0$ tyder at grensekostnaden $K'$ stig -- stordriftsulemper på marginen.",
+      "b9f2c649f5ad49a2": "Ein Cobb-Douglas-funksjon $Q=K^\\alpha$ med $0<\\alpha<1$ er konkav i $K$. Kva tyder det?",
+      "9f74618e46383d93": "aukande grenseproduktivitet",
+      "4f7b6d3f91d61ccd": "konstant produksjon",
+      "824a3974f6072611": "uendeleg produksjon",
+      "b5e2e8a656616044": "avtakande grenseproduktivitet",
+      "ef797268ff642bdc": "Konkav produksjon tyder at kvar ekstra eining kapital gjev mindre tilleggsproduksjon -- avtakande grenseproduktivitet.",
+      "a2252b11561e47dc": "For $f(x)=x^4-6x^2$ er $f''(x)=12(x-1)(x+1)$. Kvar er vendepunkta?",
+      "9b056de411f45bf1": "$x=\\pm 1$",
+      "dbd5301847c30f3d": "$x=0$",
+      "c9f9bcdf2899fae3": "$x=\\pm 6$",
+      "07b7ffe38d583c4b": "$x=\\pm\\sqrt{6}$",
+      "50d5ef86d6023f3a": "$f''(x)=0$ ved $x=\\pm 1$, og $f''$ skiftar forteikn der, så vendepunkta er $(\\pm 1,-5)$.",
+      "fe3f8188f79c8d00": "## Oppsummering\n\nKrumning skil funksjonar som elles liknar. Ein **konveks** funksjon ($f'' > 0$) «smiler» ($\\cup$) og har veksande stiging; ein **konkav** ($f'' < 0$) «surmular» ($\\cap$) og har avtakande stiging. Hugseregelen er at pluss er smil. Eit **vendepunkt** ligg der $f''$ skiftar forteikn -- men $f''(a) = 0$ åleine er ikkje nok, vi må alltid sjekke forteiknsskiftet, slik $x^4$ minner oss om.\n\nDet kraftigaste resultatet er at krumning gjev **globale** ekstrema: ein konkav funksjon med $f'(a) = 0$ har globalt maksimum der, ein konveks har globalt minimum. Økonomisk fortel konkav nytte om risikoaversjon -- difor kjøper folk forsikring -- konveks kostnad om aukande grensekostnad, og konkav produksjon om avtakande grenseproduktivitet. Med forteiknsskjema for $f''$ kan vi kartleggje nøyaktig kvar ei kurve smiler og kvar ho surmular. Dermed er heile kalkulus-verktøykassa for kapittel 5 komplett."
+    }
+  }
+}

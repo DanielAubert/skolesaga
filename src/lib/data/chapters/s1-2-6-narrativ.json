@@ -1,1 +1,418 @@
-{"id":"s1-2-6-narrativ","courseId":"s1","chapterNumber":"2.6","title":"Trigonometriske funksjoner","subtitle":"Narrativ versjon","description":"En fortelling om strømforbruket som svinger med året — radianer, den generelle sinusfunksjonen og periodisk modellering.","estimatedMinutes":37,"competenceGoals":["bruke trigonometriske funksjoner til å modellere periodiske sammenhenger","tolke og anvende sinus-, cosinus- og tangensfunksjoner i praktiske situasjoner"],"linkedChapterId":"s1-2-6","content":[{"id":"s1-2-6-n-intro","type":"text","content":"## Strømprisen som svinger med året\n\nEn energianalytiker studerer strømforbruket i en norsk by. Kurven over månedsforbruket ser ut som en bølge: høyt om vinteren, lavt om sommeren, og så samme mønster igjen, år etter år. Temperaturer, tidevann, dagslengde, lyd og lys oppfører seg på samme vis — de er **periodiske**. Skal vi modellere slike fenomener, trenger vi funksjoner som selv svinger: de **trigonometriske funksjonene**.\n\nI S1 bruker vi trigonometriske funksjoner først og fremst som **modelleringsverktøy**: vi tilpasser dem til virkelige datasett og tolker parametrene i kontekst.\n\nFørst trenger vi riktig vinkelmål. En **radian** er vinkelen der buelengden langs enhetssirkelen er lik radius, og sammenhengen med grader er\n\n$$\\pi \\text{ rad} = 180°$$\n\nOmregningen går begge veier: fra grader til radianer ganger du med $\\frac{\\pi}{180}$, og fra radianer til grader med $\\frac{180}{\\pi}$. De viktigste verdiene bør sitte: $90° = \\frac{\\pi}{2}$, $180° = \\pi$ og $360° = 2\\pi$.\n\nSelve modellen er den **generelle sinusfunksjonen**:\n\n$$f(x) = A \\sin\\!\\bigl(B(x - C)\\bigr) + D$$\n\nHer er $|A|$ **amplituden** (halve svingningsutslaget), $T = \\frac{2\\pi}{|B|}$ er **perioden** (lengden av én hel svingning), $C$ er **faseforskyvningen** (horisontal forskyving) og $D$ er **likevektslinjen** (vertikal forskyving). Funksjonen svinger mellom $D - |A|$ og $D + |A|$ — for strømforbruket betyr det at $D$ er årsgjennomsnittet, mens $D + |A|$ er vintertoppen."},{"id":"s1-2-6-n-quiz1","type":"exercise","exercise":{"id":"s1-2-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på radianer og sinusfunksjonens parametere:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-6-n-quiz1-q0","task":"Hvor mange radianer er $90°$?","options":[{"id":"a","text":"$\\pi$","isCorrect":false},{"id":"b","text":"$\\frac{\\pi}{2}$","isCorrect":true},{"id":"c","text":"$\\frac{\\pi}{4}$","isCorrect":false},{"id":"d","text":"$2\\pi$","isCorrect":false}],"solution":"$90° = \\frac{90}{180}\\pi = \\frac{\\pi}{2}$."},{"id":"s1-2-6-n-quiz1-q1","task":"Hva er amplituden til $f(x) = 3\\sin x + 2$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$5$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":true},{"id":"d","text":"$1$","isCorrect":false}],"solution":"Amplituden er $|A| = 3$ — tallet foran sinus."},{"id":"s1-2-6-n-quiz1-q2","task":"Hva er den største verdien til $f(x) = 3\\sin x + 2$?","options":[{"id":"a","text":"$3$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$6$","isCorrect":false},{"id":"d","text":"$5$","isCorrect":true}],"solution":"Maks $= D + |A| = 2 + 3 = 5$."},{"id":"s1-2-6-n-quiz1-q3","task":"Hva er perioden til $f(x) = 2\\sin(\\pi x) + 1$?","options":[{"id":"a","text":"$T = 2$","isCorrect":true},{"id":"b","text":"$T = \\pi$","isCorrect":false},{"id":"c","text":"$T = 2\\pi$","isCorrect":false},{"id":"d","text":"$T = \\frac{1}{2}$","isCorrect":false}],"solution":"$T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{\\pi} = 2$."}]}},{"id":"s1-2-6-n-section1","type":"text","content":"## Å lese parametrene ut av virkeligheten\n\nAnalytikeren får en graf over målinger som svinger mellom 2 og 8, med toppunkt i $x = 2$ og bunnpunkt i $x = 8$. Hvordan finner vi modellen $f(x) = A\\sin(B(x - C)) + D$?\n\n**Likevektslinjen** er gjennomsnittet av maks og min: $D = \\frac{8 + 2}{2} = 5$. **Amplituden** er halve avstanden: $A = \\frac{8 - 2}{2} = 3$. **Perioden** leser vi av svingningen: avstanden fra topp til bunn er en halv periode, så $\\frac{T}{2} = 8 - 2 = 6$ gir $T = 12$ og dermed $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$. **Faseforskyvningen** finner vi av at sinus når toppen et kvart svingetid etter start: $C = 2 - \\frac{12}{4} = -1$. Modellen blir\n\n$$f(x) = 3\\sin\\!\\left(\\frac{\\pi}{6}(x + 1)\\right) + 5$$\n\nSamme metode fungerer på temperaturdata. En by har varmest måned juli ($t = 7$) med $17\\,°$C og kaldest januar med $-5\\,°$C, og perioden er 12 måneder. Da er $D = \\frac{17 + (-5)}{2} = 6$, $A = \\frac{17 - (-5)}{2} = 11$, $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$ og $C = 7 - 3 = 4$:\n\n$$T(t) = 11\\sin\\!\\left(\\frac{\\pi}{6}(t - 4)\\right) + 6$$\n\nKontrollen stemmer: $T(7) = 11\\sin\\frac{\\pi}{2} + 6 = 17$ og $T(1) = 11\\sin\\left(-\\frac{\\pi}{2}\\right) + 6 = -5$.\n\nEt praktisk valg: bruk **cosinus** hvis dataene starter i et topp- eller bunnpunkt, og **sinus** hvis de starter ved likevektslinjen og stiger. De to henger sammen gjennom $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$, så valget er bare et spørsmål om bekvemmelighet."},{"id":"s1-2-6-n-quiz2","type":"exercise","exercise":{"id":"s1-2-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på modellering med sinusfunksjoner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-6-n-quiz2-q0","task":"Målinger svinger mellom 2 og 8. Hva er likevektslinjen $D$ og amplituden $A$?","options":[{"id":"a","text":"$D = 5$, $A = 3$","isCorrect":true},{"id":"b","text":"$D = 3$, $A = 5$","isCorrect":false},{"id":"c","text":"$D = 8$, $A = 2$","isCorrect":false},{"id":"d","text":"$D = 6$, $A = 2$","isCorrect":false}],"solution":"$D = \\frac{8+2}{2} = 5$ og $A = \\frac{8-2}{2} = 3$."},{"id":"s1-2-6-n-quiz2-q1","task":"En svingning har topp i $x = 2$ og første bunn i $x = 8$. Hva er perioden?","options":[{"id":"a","text":"$6$","isCorrect":false},{"id":"b","text":"$16$","isCorrect":false},{"id":"c","text":"$12$","isCorrect":true},{"id":"d","text":"$10$","isCorrect":false}],"solution":"Avstanden topp til bunn er en halv periode: $\\frac{T}{2} = 6$ gir $T = 12$."},{"id":"s1-2-6-n-quiz2-q2","task":"For $f(x) = 4\\sin(2(x - 1)) + 3$ — hva er faseforskyvningen?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$4$","isCorrect":false},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$1$","isCorrect":true}],"solution":"Formen er $A\\sin(B(x - C)) + D$, så $C = 1$."},{"id":"s1-2-6-n-quiz2-q3","task":"Når bør du velge cosinus i stedet for sinus i en modell?","options":[{"id":"a","text":"Når perioden er større enn $2\\pi$","isCorrect":false},{"id":"b","text":"Når dataene starter i et toppunkt eller bunnpunkt","isCorrect":true},{"id":"c","text":"Når amplituden er negativ","isCorrect":false},{"id":"d","text":"Når likevektslinjen er null","isCorrect":false}],"solution":"Cosinus starter i toppen ($\\cos 0 = 1$), så den passer når dataene starter i et ekstremalpunkt. Sammenhengen er $\\cos x = \\sin(x + \\frac{\\pi}{2})$."}]}},{"id":"s1-2-6-n-section2","type":"text","content":"## Identiteter, tangens og en advarsel\n\nBak modellene ligger noen sammenhenger det er verdt å kjenne. Den viktigste er **grunnidentiteten**\n\n$$\\sin^2 x + \\cos^2 x = 1$$\n\nsom følger direkte av Pytagoras på enhetssirkelen: et punkt på sirkelen har koordinatene $(\\cos x, \\sin x)$, og avstanden til origo er 1. Videre har sinus og cosinus hver sin **symmetri**: $\\sin(-x) = -\\sin x$ (odde funksjon) og $\\cos(-x) = \\cos x$ (like funksjon).\n\nDen tredje trigonometriske funksjonen, **tangens**, er definert som forholdet\n\n$$\\tan x = \\frac{\\sin x}{\\cos x}$$\n\nDen har periode $\\pi$ — halvparten av sinus og cosinus — og er udefinert der cosinus er null, altså for $x = \\frac{\\pi}{2} + n\\pi$. I de punktene har grafen vertikale asymptoter.\n\nOg så en advarsel som har kostet mang en eksamenskandidat dyrt: sett kalkulatoren i **radianmodus** (RAD) når du regner med modeller der $B$ er oppgitt som for eksempel $\\frac{\\pi}{6}$. Står kalkulatoren i gradmodus (DEG), tolker den $\\frac{\\pi}{6} \\approx 0{,}52$ som et halvt grads vinkel, og alle svar blir feil — ofte uten at noe ser galt ut.\n\nTilbake til energianalytikeren: med modellen $T(t) = 11\\sin\\left(\\frac{\\pi}{6}(t - 4)\\right) + 6$ kan hun nå svare på konkrete spørsmål. Når er temperaturen over null? Hvor mye varierer forbruket rundt årsgjennomsnittet? Og fordi sinus er størst når argumentet er $\\frac{\\pi}{2}$, kan hun regne seg fram til nøyaktig hvilken måned toppen inntreffer. Det er slik periodiske modeller brukes i praksis — fra kraftbransjen til klimaforskning."},{"id":"s1-2-6-n-quiz3","type":"exercise","exercise":{"id":"s1-2-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på identiteter og praktisk bruk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-2-6-n-quiz3-q0","task":"Hva er $\\sin^2 x + \\cos^2 x$ for alle $x$?","options":[{"id":"a","text":"$0$","isCorrect":false},{"id":"b","text":"$2$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":true},{"id":"d","text":"Avhenger av $x$","isCorrect":false}],"solution":"Grunnidentiteten: $\\sin^2 x + \\cos^2 x = 1$, som følger av Pytagoras på enhetssirkelen."},{"id":"s1-2-6-n-quiz3-q1","task":"Temperaturen modelleres med $T(t) = 10\\sin\\left(\\frac{\\pi}{12}(t - 8)\\right) + 15$, der $t$ er timer etter midnatt. Hva er den høyeste temperaturen i døgnet?","options":[{"id":"a","text":"$25$ grader","isCorrect":true},{"id":"b","text":"$15$ grader","isCorrect":false},{"id":"c","text":"$10$ grader","isCorrect":false},{"id":"d","text":"$35$ grader","isCorrect":false}],"solution":"Maks $= D + |A| = 15 + 10 = 25$ grader."},{"id":"s1-2-6-n-quiz3-q2","task":"For samme modell: ved hvilket klokkeslett er temperaturen høyest?","options":[{"id":"a","text":"Kl. 8","isCorrect":false},{"id":"b","text":"Kl. 12","isCorrect":false},{"id":"c","text":"Kl. 20","isCorrect":false},{"id":"d","text":"Kl. 14","isCorrect":true}],"solution":"Sinus er størst når argumentet er $\\frac{\\pi}{2}$: $\\frac{\\pi}{12}(t - 8) = \\frac{\\pi}{2}$ gir $t - 8 = 6$, altså $t = 14$."},{"id":"s1-2-6-n-quiz3-q3","task":"Hva skjer hvis du regner med modellen $f(x) = 3\\sin\\left(\\frac{\\pi}{6}x\\right) + 5$ mens kalkulatoren står i gradmodus?","options":[{"id":"a","text":"Bare amplituden blir feil","isCorrect":false},{"id":"b","text":"Svarene blir feil — $B$-verdier med $\\pi$ forutsetter radianer","isCorrect":true},{"id":"c","text":"Ingenting, grader og radianer gir samme svar","isCorrect":false},{"id":"d","text":"Perioden dobles","isCorrect":false}],"solution":"Når $B$ inneholder $\\pi$, er modellen laget for radianer. Gradmodus gir systematisk feil svar."}]}},{"id":"s1-2-6-n-summary","type":"text","content":"## Oppsummering: bølgens fire parametere\n\nStrømforbruket som svinger med årstidene lot seg fange av én funksjon. Den generelle sinusfunksjonen $f(x) = A\\sin(B(x - C)) + D$ har fire parametere du nå kan lese rett ut av et datasett: **likevektslinjen** $D$ er gjennomsnittet av maks og min, **amplituden** $|A|$ er halve avstanden mellom dem, **perioden** $T = \\frac{2\\pi}{|B|}$ er lengden av én svingning, og **faseforskyvningen** $C$ plasserer toppen riktig — sinus topper et kvart svingetid etter $C$. Største og minste verdi er alltid $D + |A|$ og $D - |A|$.\n\nVinkler måles i **radianer**, der $180° = \\pi$, og omregningen er ren proporsjonalitet. Bak funksjonene ligger **grunnidentiteten** $\\sin^2 x + \\cos^2 x = 1$, symmetriene $\\sin(-x) = -\\sin x$ og $\\cos(-x) = \\cos x$, og **tangens** $\\tan x = \\frac{\\sin x}{\\cos x}$ med periode $\\pi$ og asymptoter der cosinus er null. Og cosinus er bare en forskjøvet sinus: $\\cos x = \\sin(x + \\frac{\\pi}{2})$.\n\nHusk den praktiske regelen — start i topp eller bunn taler for cosinus, start ved likevekt taler for sinus — og fremfor alt: **radianmodus** på kalkulatoren når $B$ inneholder $\\pi$. Med det er du klar til å modellere alt som gjentar seg: temperatur, dagslengde, tidevann og strømpriser."}],"exercises":[]}
+{
+  "id": "s1-2-6-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "2.6",
+  "title": "Trigonometriske funksjoner",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om strømforbruket som svinger med året — radianer, den generelle sinusfunksjonen og periodisk modellering.",
+  "estimatedMinutes": 37,
+  "competenceGoals": [
+    "bruke trigonometriske funksjoner til å modellere periodiske sammenhenger",
+    "tolke og anvende sinus-, cosinus- og tangensfunksjoner i praktiske situasjoner"
+  ],
+  "linkedChapterId": "s1-2-6",
+  "content": [
+    {
+      "id": "s1-2-6-n-intro",
+      "type": "text",
+      "content": "## Strømprisen som svinger med året\n\nEn energianalytiker studerer strømforbruket i en norsk by. Kurven over månedsforbruket ser ut som en bølge: høyt om vinteren, lavt om sommeren, og så samme mønster igjen, år etter år. Temperaturer, tidevann, dagslengde, lyd og lys oppfører seg på samme vis — de er **periodiske**. Skal vi modellere slike fenomener, trenger vi funksjoner som selv svinger: de **trigonometriske funksjonene**.\n\nI S1 bruker vi trigonometriske funksjoner først og fremst som **modelleringsverktøy**: vi tilpasser dem til virkelige datasett og tolker parametrene i kontekst.\n\nFørst trenger vi riktig vinkelmål. En **radian** er vinkelen der buelengden langs enhetssirkelen er lik radius, og sammenhengen med grader er\n\n$$\\pi \\text{ rad} = 180°$$\n\nOmregningen går begge veier: fra grader til radianer ganger du med $\\frac{\\pi}{180}$, og fra radianer til grader med $\\frac{180}{\\pi}$. De viktigste verdiene bør sitte: $90° = \\frac{\\pi}{2}$, $180° = \\pi$ og $360° = 2\\pi$.\n\nSelve modellen er den **generelle sinusfunksjonen**:\n\n$$f(x) = A \\sin\\!\\bigl(B(x - C)\\bigr) + D$$\n\nHer er $|A|$ **amplituden** (halve svingningsutslaget), $T = \\frac{2\\pi}{|B|}$ er **perioden** (lengden av én hel svingning), $C$ er **faseforskyvningen** (horisontal forskyving) og $D$ er **likevektslinjen** (vertikal forskyving). Funksjonen svinger mellom $D - |A|$ og $D + |A|$ — for strømforbruket betyr det at $D$ er årsgjennomsnittet, mens $D + |A|$ er vintertoppen."
+    },
+    {
+      "id": "s1-2-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på radianer og sinusfunksjonens parametere:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-6-n-quiz1-q0",
+            "task": "Hvor mange radianer er $90°$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{\\pi}{2}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{\\pi}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2\\pi$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$90° = \\frac{90}{180}\\pi = \\frac{\\pi}{2}$."
+          },
+          {
+            "id": "s1-2-6-n-quiz1-q1",
+            "task": "Hva er amplituden til $f(x) = 3\\sin x + 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Amplituden er $|A| = 3$ — tallet foran sinus."
+          },
+          {
+            "id": "s1-2-6-n-quiz1-q2",
+            "task": "Hva er den største verdien til $f(x) = 3\\sin x + 2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$6$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Maks $= D + |A| = 2 + 3 = 5$."
+          },
+          {
+            "id": "s1-2-6-n-quiz1-q3",
+            "task": "Hva er perioden til $f(x) = 2\\sin(\\pi x) + 1$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$T = \\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$T = 2\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$T = \\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$T = 2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{\\pi} = 2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-6-n-section1",
+      "type": "text",
+      "content": "## Å lese parametrene ut av virkeligheten\n\nAnalytikeren får en graf over målinger som svinger mellom 2 og 8, med toppunkt i $x = 2$ og bunnpunkt i $x = 8$. Hvordan finner vi modellen $f(x) = A\\sin(B(x - C)) + D$?\n\n**Likevektslinjen** er gjennomsnittet av maks og min: $D = \\frac{8 + 2}{2} = 5$. **Amplituden** er halve avstanden: $A = \\frac{8 - 2}{2} = 3$. **Perioden** leser vi av svingningen: avstanden fra topp til bunn er en halv periode, så $\\frac{T}{2} = 8 - 2 = 6$ gir $T = 12$ og dermed $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$. **Faseforskyvningen** finner vi av at sinus når toppen et kvart svingetid etter start: $C = 2 - \\frac{12}{4} = -1$. Modellen blir\n\n$$f(x) = 3\\sin\\!\\left(\\frac{\\pi}{6}(x + 1)\\right) + 5$$\n\nSamme metode fungerer på temperaturdata. En by har varmest måned juli ($t = 7$) med $17\\,°$C og kaldest januar med $-5\\,°$C, og perioden er 12 måneder. Da er $D = \\frac{17 + (-5)}{2} = 6$, $A = \\frac{17 - (-5)}{2} = 11$, $B = \\frac{2\\pi}{12} = \\frac{\\pi}{6}$ og $C = 7 - 3 = 4$:\n\n$$T(t) = 11\\sin\\!\\left(\\frac{\\pi}{6}(t - 4)\\right) + 6$$\n\nKontrollen stemmer: $T(7) = 11\\sin\\frac{\\pi}{2} + 6 = 17$ og $T(1) = 11\\sin\\left(-\\frac{\\pi}{2}\\right) + 6 = -5$.\n\nEt praktisk valg: bruk **cosinus** hvis dataene starter i et topp- eller bunnpunkt, og **sinus** hvis de starter ved likevektslinjen og stiger. De to henger sammen gjennom $\\cos x = \\sin\\left(x + \\frac{\\pi}{2}\\right)$, så valget er bare et spørsmål om bekvemmelighet."
+    },
+    {
+      "id": "s1-2-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på modellering med sinusfunksjoner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-6-n-quiz2-q0",
+            "task": "Målinger svinger mellom 2 og 8. Hva er likevektslinjen $D$ og amplituden $A$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$D = 5$, $A = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$D = 3$, $A = 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$D = 8$, $A = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$D = 6$, $A = 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D = \\frac{8+2}{2} = 5$ og $A = \\frac{8-2}{2} = 3$."
+          },
+          {
+            "id": "s1-2-6-n-quiz2-q1",
+            "task": "En svingning har topp i $x = 2$ og første bunn i $x = 8$. Hva er perioden?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Avstanden topp til bunn er en halv periode: $\\frac{T}{2} = 6$ gir $T = 12$."
+          },
+          {
+            "id": "s1-2-6-n-quiz2-q2",
+            "task": "For $f(x) = 4\\sin(2(x - 1)) + 3$ — hva er faseforskyvningen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formen er $A\\sin(B(x - C)) + D$, så $C = 1$."
+          },
+          {
+            "id": "s1-2-6-n-quiz2-q3",
+            "task": "Når bør du velge cosinus i stedet for sinus i en modell?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når perioden er større enn $2\\pi$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når amplituden er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når likevektslinjen er null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når dataene starter i et toppunkt eller bunnpunkt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Cosinus starter i toppen ($\\cos 0 = 1$), så den passer når dataene starter i et ekstremalpunkt. Sammenhengen er $\\cos x = \\sin(x + \\frac{\\pi}{2})$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-6-n-section2",
+      "type": "text",
+      "content": "## Identiteter, tangens og en advarsel\n\nBak modellene ligger noen sammenhenger det er verdt å kjenne. Den viktigste er **grunnidentiteten**\n\n$$\\sin^2 x + \\cos^2 x = 1$$\n\nsom følger direkte av Pytagoras på enhetssirkelen: et punkt på sirkelen har koordinatene $(\\cos x, \\sin x)$, og avstanden til origo er 1. Videre har sinus og cosinus hver sin **symmetri**: $\\sin(-x) = -\\sin x$ (odde funksjon) og $\\cos(-x) = \\cos x$ (like funksjon).\n\nDen tredje trigonometriske funksjonen, **tangens**, er definert som forholdet\n\n$$\\tan x = \\frac{\\sin x}{\\cos x}$$\n\nDen har periode $\\pi$ — halvparten av sinus og cosinus — og er udefinert der cosinus er null, altså for $x = \\frac{\\pi}{2} + n\\pi$. I de punktene har grafen vertikale asymptoter.\n\nOg så en advarsel som har kostet mang en eksamenskandidat dyrt: sett kalkulatoren i **radianmodus** (RAD) når du regner med modeller der $B$ er oppgitt som for eksempel $\\frac{\\pi}{6}$. Står kalkulatoren i gradmodus (DEG), tolker den $\\frac{\\pi}{6} \\approx 0{,}52$ som et halvt grads vinkel, og alle svar blir feil — ofte uten at noe ser galt ut.\n\nTilbake til energianalytikeren: med modellen $T(t) = 11\\sin\\left(\\frac{\\pi}{6}(t - 4)\\right) + 6$ kan hun nå svare på konkrete spørsmål. Når er temperaturen over null? Hvor mye varierer forbruket rundt årsgjennomsnittet? Og fordi sinus er størst når argumentet er $\\frac{\\pi}{2}$, kan hun regne seg fram til nøyaktig hvilken måned toppen inntreffer. Det er slik periodiske modeller brukes i praksis — fra kraftbransjen til klimaforskning."
+    },
+    {
+      "id": "s1-2-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-2-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på identiteter og praktisk bruk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-2-6-n-quiz3-q0",
+            "task": "Hva er $\\sin^2 x + \\cos^2 x$ for alle $x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avhenger av $x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Grunnidentiteten: $\\sin^2 x + \\cos^2 x = 1$, som følger av Pytagoras på enhetssirkelen."
+          },
+          {
+            "id": "s1-2-6-n-quiz3-q1",
+            "task": "Temperaturen modelleres med $T(t) = 10\\sin\\left(\\frac{\\pi}{12}(t - 8)\\right) + 15$, der $t$ er timer etter midnatt. Hva er den høyeste temperaturen i døgnet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$15$ grader",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$25$ grader",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$10$ grader",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$35$ grader",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Maks $= D + |A| = 15 + 10 = 25$ grader."
+          },
+          {
+            "id": "s1-2-6-n-quiz3-q2",
+            "task": "For samme modell: ved hvilket klokkeslett er temperaturen høyest?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kl. 8",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Kl. 12",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kl. 14",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Kl. 20",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sinus er størst når argumentet er $\\frac{\\pi}{2}$: $\\frac{\\pi}{12}(t - 8) = \\frac{\\pi}{2}$ gir $t - 8 = 6$, altså $t = 14$."
+          },
+          {
+            "id": "s1-2-6-n-quiz3-q3",
+            "task": "Hva skjer hvis du regner med modellen $f(x) = 3\\sin\\left(\\frac{\\pi}{6}x\\right) + 5$ mens kalkulatoren står i gradmodus?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bare amplituden blir feil",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingenting, grader og radianer gir samme svar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Perioden dobles",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Svarene blir feil — $B$-verdier med $\\pi$ forutsetter radianer",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når $B$ inneholder $\\pi$, er modellen laget for radianer. Gradmodus gir systematisk feil svar."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-2-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: bølgens fire parametere\n\nStrømforbruket som svinger med årstidene lot seg fange av én funksjon. Den generelle sinusfunksjonen $f(x) = A\\sin(B(x - C)) + D$ har fire parametere du nå kan lese rett ut av et datasett: **likevektslinjen** $D$ er gjennomsnittet av maks og min, **amplituden** $|A|$ er halve avstanden mellom dem, **perioden** $T = \\frac{2\\pi}{|B|}$ er lengden av én svingning, og **faseforskyvningen** $C$ plasserer toppen riktig — sinus topper et kvart svingetid etter $C$. Største og minste verdi er alltid $D + |A|$ og $D - |A|$.\n\nVinkler måles i **radianer**, der $180° = \\pi$, og omregningen er ren proporsjonalitet. Bak funksjonene ligger **grunnidentiteten** $\\sin^2 x + \\cos^2 x = 1$, symmetriene $\\sin(-x) = -\\sin x$ og $\\cos(-x) = \\cos x$, og **tangens** $\\tan x = \\frac{\\sin x}{\\cos x}$ med periode $\\pi$ og asymptoter der cosinus er null. Og cosinus er bare en forskjøvet sinus: $\\cos x = \\sin(x + \\frac{\\pi}{2})$.\n\nHusk den praktiske regelen — start i topp eller bunn taler for cosinus, start ved likevekt taler for sinus — og fremfor alt: **radianmodus** på kalkulatoren når $B$ inneholder $\\pi$. Med det er du klar til å modellere alt som gjentar seg: temperatur, dagslengde, tidevann og strømpriser."
+    }
+  ],
+  "exercises": []
+}

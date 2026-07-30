@@ -1,1 +1,293 @@
-{"id":"bi-okonomi-3-5-narrativ","courseId":"bi-okonomi","chapterNumber":"3.5","title":"Nullpunkter og fortegn","subtitle":"Narrativ versjon","description":"En fortelling om hvor parabelen krysser $x$-aksen -- hvordan vi finner nullpunktene ved faktorisering eller abc-formelen, og hvordan de deler tallinja i områder med fast fortegn.","estimatedMinutes":22,"competenceGoals":["finne nullpunkter til andregradsfunksjoner","analysere fortegn"],"linkedChapterId":"bi-okonomi-3-5","content":[{"id":"bi-okonomi-3-5-n-intro","type":"text","content":"## Der grafen treffer bakken\n\nTenk på en parabel som en kasteball: et sted forlater den bakken, og et sted lander den igjen. De stedene der grafen krysser $x$-aksen, kaller vi **nullpunktene** -- det er $x$-verdiene der $f(x)=0$. For andregradsfunksjoner finner vi dem ved å løse likningen $ax^2+bx+c=0$.\n\nDen enkleste veien, når den er mulig, er **faktorisering**. Trikset er å finne to tall som ganget gir $c$ og addert gir $b$. Ta $f(x)=x^2-5x+6$. Vi leter etter to tall som ganget blir $6$ og addert blir $-5$. Da passer $-2$ og $-3$, fordi $(-2)\\cdot(-3)=6$ og $(-2)+(-3)=-5$. Vi kan dermed skrive $f(x)=(x-2)(x-3)$.\n\nEt produkt er null bare når en av faktorene er null, så $(x-2)(x-3)=0$ gir enten $x=2$ eller $x=3$. Det er nullpunktene. Faktorisering er rask og elegant -- men den krever at tallene går pent opp. Når de ikke gjør det, trenger vi et tyngre verktøy."},{"id":"bi-okonomi-3-5-n-section1","type":"text","content":"## Abc-formelen og diskriminanten\n\nNår faktoriseringen butter, redder **abc-formelen** oss. Den løser enhver andregradslikning $ax^2+bx+c=0$ med $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Uttrykket under rottegnet, $D=b^2-4ac$, kaller vi **diskriminanten**, og den forteller på forhånd hvor mange nullpunkter vi får: er $D>0$ finnes to ulike nullpunkter, er $D=0$ finnes ett (en dobbeltrot), og er $D<0$ finnes ingen reelle nullpunkter.\n\nLa oss finne nullpunktene til $f(x)=2x^2+4x-6$. Her er $a=2$, $b=4$ og $c=-6$. Diskriminanten blir $D=b^2-4ac=16-4\\cdot 2\\cdot(-6)=16+48=64$. Siden $D>0$ venter to nullpunkter: $x=\\frac{-4\\pm\\sqrt{64}}{2\\cdot 2}=\\frac{-4\\pm 8}{4}$. Det gir $x=\\frac{4}{4}=1$ og $x=\\frac{-12}{4}=-3$.\n\nKjenner vi nullpunktene, kan vi skrive funksjonen på **faktorisert form**: $f(x)=a(x-x_1)(x-x_2)$. For $f(x)=2x^2-8x+6$ gir abc-formelen $x=\\frac{8\\pm\\sqrt{64-48}}{4}=\\frac{8\\pm 4}{4}$, altså $x=3$ og $x=1$. Da er $f(x)=2(x-1)(x-3)$. Vi kontrollerer ved å gange ut: $2(x^2-4x+3)=2x^2-8x+6$ -- akkurat det vi startet med."},{"id":"bi-okonomi-3-5-n-quiz1","type":"exercise","exercise":{"id":"bi-okonomi-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på nullpunkter, abc-formelen og diskriminanten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-3-5-n-quiz1-q0","task":"Hva er nullpunktene til $f(x)=x^2-5x+6$?","options":[{"id":"a","text":"$x=-2$ og $x=-3$","isCorrect":false},{"id":"b","text":"$x=2$ og $x=3$","isCorrect":true},{"id":"c","text":"$x=1$ og $x=6$","isCorrect":false},{"id":"d","text":"$x=5$ og $x=6$","isCorrect":false}],"solution":"$f(x)=(x-2)(x-3)$, som er null for $x=2$ og $x=3$."},{"id":"bi-okonomi-3-5-n-quiz1-q1","task":"Hva er diskriminanten til $2x^2+4x-6$?","options":[{"id":"a","text":"$-32$","isCorrect":false},{"id":"b","text":"$16$","isCorrect":false},{"id":"c","text":"$64$","isCorrect":true},{"id":"d","text":"$8$","isCorrect":false}],"solution":"$D=b^2-4ac=16-4\\cdot 2\\cdot(-6)=16+48=64$."},{"id":"bi-okonomi-3-5-n-quiz1-q2","task":"Diskriminanten til en andregradsfunksjon er $D<0$. Hvor mange nullpunkter har den?","options":[{"id":"a","text":"To","isCorrect":false},{"id":"b","text":"Ett","isCorrect":false},{"id":"c","text":"Uendelig mange","isCorrect":false},{"id":"d","text":"Ingen reelle","isCorrect":true}],"solution":"$D<0$ betyr at rottegnet ikke gir et reelt tall, så det finnes ingen reelle nullpunkter."},{"id":"bi-okonomi-3-5-n-quiz1-q3","task":"$f(x)=2x^2-8x+6$ har nullpunkter $x=1$ og $x=3$. Hva er faktorisert form?","options":[{"id":"a","text":"$2(x-1)(x-3)$","isCorrect":true},{"id":"b","text":"$(x-1)(x-3)$","isCorrect":false},{"id":"c","text":"$2(x+1)(x+3)$","isCorrect":false},{"id":"d","text":"$(2x-1)(x-3)$","isCorrect":false}],"solution":"$f(x)=a(x-x_1)(x-x_2)=2(x-1)(x-3)$. Gang ut for å kontrollere."}]}},{"id":"bi-okonomi-3-5-n-section2","type":"text","content":"## Fortegnsanalyse -- pluss eller minus?\n\nNullpunktene gjør mer enn å vise hvor grafen krysser aksen. De **deler tallinja** i områder der funksjonen holder fast fortegn. I et område er $f(x)$ enten positiv hele veien eller negativ hele veien -- den kan bare skifte fortegn ved et nullpunkt. Det å kartlegge dette kaller vi **fortegnsanalyse**.\n\nFramgangsmåten er ryddig: finn nullpunktene, del tallinja i intervaller ved dem, og test én $x$-verdi i hvert intervall. La oss lage fortegnslinje for $f(x)=x^2-4$. Nullpunktene er $x^2=4$, altså $x=\\pm 2$, som deler tallinja i tre intervaller. Vi tester: $f(-3)=9-4=5>0$, $f(0)=-4<0$ og $f(3)=5>0$. Så funksjonen er positiv utenfor nullpunktene og negativ mellom dem -- akkurat som vi venter av en smilende parabel med $a>0$.\n\nDette er kraftfullt når vi skal **løse ulikheter**. Ta $x^2-3x-10>0$. Først nullpunktene: $(x-5)(x+2)=0$ gir $x=5$ og $x=-2$. Siden $a=1>0$, er parabelen positiv utenfor nullpunktene. Løsningen er derfor $x<-2$ eller $x>5$, som vi skriver $x\\in(-\\infty,-2)\\cup(5,\\infty)$. Generelt: med $a>0$ er $f(x)>0$ utenfor de to nullpunktene, mens med $a<0$ er $f(x)>0$ mellom dem."},{"id":"bi-okonomi-3-5-n-quiz2","type":"exercise","exercise":{"id":"bi-okonomi-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på fortegnsanalyse og ulikheter:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"bi-okonomi-3-5-n-quiz2-q0","task":"Hvor er $f(x)=x^2-4$ negativ?","options":[{"id":"a","text":"For $x<-2$","isCorrect":false},{"id":"b","text":"For $-2<x<2$","isCorrect":true},{"id":"c","text":"For $x>2$","isCorrect":false},{"id":"d","text":"For alle $x$","isCorrect":false}],"solution":"Med $a>0$ er parabelen negativ mellom nullpunktene, altså for $-2<x<2$."},{"id":"bi-okonomi-3-5-n-quiz2-q1","task":"Hva er nullpunktene i ulikheten $x^2-3x-10>0$?","options":[{"id":"a","text":"$x=3$ og $x=10$","isCorrect":false},{"id":"b","text":"$x=5$ og $x=2$","isCorrect":false},{"id":"c","text":"$x=-2$ og $x=5$","isCorrect":true},{"id":"d","text":"$x=2$ og $x=-5$","isCorrect":false}],"solution":"$(x-5)(x+2)=0$ gir $x=5$ og $x=-2$."},{"id":"bi-okonomi-3-5-n-quiz2-q2","task":"Hva er løsningen på $x^2-3x-10>0$?","options":[{"id":"a","text":"$-2<x<5$","isCorrect":false},{"id":"b","text":"$x<5$","isCorrect":false},{"id":"c","text":"Ingen løsning","isCorrect":false},{"id":"d","text":"$x<-2$ eller $x>5$","isCorrect":true}],"solution":"Med $a>0$ er $f(x)>0$ utenfor nullpunktene: $x<-2$ eller $x>5$."},{"id":"bi-okonomi-3-5-n-quiz2-q3","task":"En parabel har $a<0$ og to nullpunkter $x_1<x_2$. Hvor er $f(x)>0$?","options":[{"id":"a","text":"Mellom nullpunktene, $x_1<x<x_2$","isCorrect":true},{"id":"b","text":"Utenfor nullpunktene","isCorrect":false},{"id":"c","text":"Aldri","isCorrect":false},{"id":"d","text":"Bare i nullpunktene","isCorrect":false}],"solution":"En surmulende parabel ($a<0$) ligger over $x$-aksen mellom nullpunktene."}]}},{"id":"bi-okonomi-3-5-n-summary","type":"text","content":"## Oppsummering\n\n**Nullpunktene** til en andregradsfunksjon er $x$-verdiene der $f(x)=0$, der grafen krysser $x$-aksen. Vi finner dem ved **faktorisering** -- to tall som ganget gir $c$ og addert gir $b$, slik $x^2-5x+6=(x-2)(x-3)$ gir $x=2$ og $x=3$ -- eller med **abc-formelen** $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$.\n\n**Diskriminanten** $D=b^2-4ac$ avslører antallet på forhånd: $D>0$ gir to nullpunkter, $D=0$ gir ett, og $D<0$ gir ingen reelle. Kjenner vi nullpunktene, kan vi skrive funksjonen på **faktorisert form** $f(x)=a(x-x_1)(x-x_2)$.\n\nNullpunktene deler tallinja i intervaller med fast fortegn, og ved å teste én verdi i hvert intervall lager vi en **fortegnslinje**. Det lar oss løse ulikheter: med $a>0$ er $f(x)>0$ utenfor nullpunktene, mens med $a<0$ er $f(x)>0$ mellom dem -- et verktøy vi får stor glede av videre i kurset."}],"exercises":[]}
+{
+  "id": "bi-okonomi-3-5-narrativ",
+  "courseId": "bi-okonomi",
+  "chapterNumber": "3.5",
+  "title": "Nullpunkter og fortegn",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvor parabelen krysser $x$-aksen -- hvordan vi finner nullpunktene ved faktorisering eller abc-formelen, og hvordan de deler tallinja i områder med fast fortegn.",
+  "estimatedMinutes": 22,
+  "competenceGoals": [
+    "finne nullpunkter til andregradsfunksjoner",
+    "analysere fortegn"
+  ],
+  "linkedChapterId": "bi-okonomi-3-5",
+  "content": [
+    {
+      "id": "bi-okonomi-3-5-n-intro",
+      "type": "text",
+      "content": "## Der grafen treffer bakken\n\nTenk på en parabel som en kasteball: et sted forlater den bakken, og et sted lander den igjen. De stedene der grafen krysser $x$-aksen, kaller vi **nullpunktene** -- det er $x$-verdiene der $f(x)=0$. For andregradsfunksjoner finner vi dem ved å løse likningen $ax^2+bx+c=0$.\n\nDen enkleste veien, når den er mulig, er **faktorisering**. Trikset er å finne to tall som ganget gir $c$ og addert gir $b$. Ta $f(x)=x^2-5x+6$. Vi leter etter to tall som ganget blir $6$ og addert blir $-5$. Da passer $-2$ og $-3$, fordi $(-2)\\cdot(-3)=6$ og $(-2)+(-3)=-5$. Vi kan dermed skrive $f(x)=(x-2)(x-3)$.\n\nEt produkt er null bare når en av faktorene er null, så $(x-2)(x-3)=0$ gir enten $x=2$ eller $x=3$. Det er nullpunktene. Faktorisering er rask og elegant -- men den krever at tallene går pent opp. Når de ikke gjør det, trenger vi et tyngre verktøy."
+    },
+    {
+      "id": "bi-okonomi-3-5-n-section1",
+      "type": "text",
+      "content": "## Abc-formelen og diskriminanten\n\nNår faktoriseringen butter, redder **abc-formelen** oss. Den løser enhver andregradslikning $ax^2+bx+c=0$ med $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. Uttrykket under rottegnet, $D=b^2-4ac$, kaller vi **diskriminanten**, og den forteller på forhånd hvor mange nullpunkter vi får: er $D>0$ finnes to ulike nullpunkter, er $D=0$ finnes ett (en dobbeltrot), og er $D<0$ finnes ingen reelle nullpunkter.\n\nLa oss finne nullpunktene til $f(x)=2x^2+4x-6$. Her er $a=2$, $b=4$ og $c=-6$. Diskriminanten blir $D=b^2-4ac=16-4\\cdot 2\\cdot(-6)=16+48=64$. Siden $D>0$ venter to nullpunkter: $x=\\frac{-4\\pm\\sqrt{64}}{2\\cdot 2}=\\frac{-4\\pm 8}{4}$. Det gir $x=\\frac{4}{4}=1$ og $x=\\frac{-12}{4}=-3$.\n\nKjenner vi nullpunktene, kan vi skrive funksjonen på **faktorisert form**: $f(x)=a(x-x_1)(x-x_2)$. For $f(x)=2x^2-8x+6$ gir abc-formelen $x=\\frac{8\\pm\\sqrt{64-48}}{4}=\\frac{8\\pm 4}{4}$, altså $x=3$ og $x=1$. Da er $f(x)=2(x-1)(x-3)$. Vi kontrollerer ved å gange ut: $2(x^2-4x+3)=2x^2-8x+6$ -- akkurat det vi startet med."
+    },
+    {
+      "id": "bi-okonomi-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på nullpunkter, abc-formelen og diskriminanten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-3-5-n-quiz1-q0",
+            "task": "Hva er nullpunktene til $f(x)=x^2-5x+6$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x=-2$ og $x=-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x=1$ og $x=6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x=5$ og $x=6$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=2$ og $x=3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f(x)=(x-2)(x-3)$, som er null for $x=2$ og $x=3$."
+          },
+          {
+            "id": "bi-okonomi-3-5-n-quiz1-q1",
+            "task": "Hva er diskriminanten til $2x^2+4x-6$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$64$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-32$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D=b^2-4ac=16-4\\cdot 2\\cdot(-6)=16+48=64$."
+          },
+          {
+            "id": "bi-okonomi-3-5-n-quiz1-q2",
+            "task": "Diskriminanten til en andregradsfunksjon er $D<0$. Hvor mange nullpunkter har den?",
+            "options": [
+              {
+                "id": "a",
+                "text": "To",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ingen reelle",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Ett",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Uendelig mange",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$D<0$ betyr at rottegnet ikke gir et reelt tall, så det finnes ingen reelle nullpunkter."
+          },
+          {
+            "id": "bi-okonomi-3-5-n-quiz1-q3",
+            "task": "$f(x)=2x^2-8x+6$ har nullpunkter $x=1$ og $x=3$. Hva er faktorisert form?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$(x-1)(x-3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2(x+1)(x+3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2(x-1)(x-3)$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$(2x-1)(x-3)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(x)=a(x-x_1)(x-x_2)=2(x-1)(x-3)$. Gang ut for å kontrollere."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-3-5-n-section2",
+      "type": "text",
+      "content": "## Fortegnsanalyse -- pluss eller minus?\n\nNullpunktene gjør mer enn å vise hvor grafen krysser aksen. De **deler tallinja** i områder der funksjonen holder fast fortegn. I et område er $f(x)$ enten positiv hele veien eller negativ hele veien -- den kan bare skifte fortegn ved et nullpunkt. Det å kartlegge dette kaller vi **fortegnsanalyse**.\n\nFramgangsmåten er ryddig: finn nullpunktene, del tallinja i intervaller ved dem, og test én $x$-verdi i hvert intervall. La oss lage fortegnslinje for $f(x)=x^2-4$. Nullpunktene er $x^2=4$, altså $x=\\pm 2$, som deler tallinja i tre intervaller. Vi tester: $f(-3)=9-4=5>0$, $f(0)=-4<0$ og $f(3)=5>0$. Så funksjonen er positiv utenfor nullpunktene og negativ mellom dem -- akkurat som vi venter av en smilende parabel med $a>0$.\n\nDette er kraftfullt når vi skal **løse ulikheter**. Ta $x^2-3x-10>0$. Først nullpunktene: $(x-5)(x+2)=0$ gir $x=5$ og $x=-2$. Siden $a=1>0$, er parabelen positiv utenfor nullpunktene. Løsningen er derfor $x<-2$ eller $x>5$, som vi skriver $x\\in(-\\infty,-2)\\cup(5,\\infty)$. Generelt: med $a>0$ er $f(x)>0$ utenfor de to nullpunktene, mens med $a<0$ er $f(x)>0$ mellom dem."
+    },
+    {
+      "id": "bi-okonomi-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "bi-okonomi-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på fortegnsanalyse og ulikheter:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "bi-okonomi-3-5-n-quiz2-q0",
+            "task": "Hvor er $f(x)=x^2-4$ negativ?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For $x<-2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For $x>2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "For $-2<x<2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $a>0$ er parabelen negativ mellom nullpunktene, altså for $-2<x<2$."
+          },
+          {
+            "id": "bi-okonomi-3-5-n-quiz2-q1",
+            "task": "Hva er nullpunktene i ulikheten $x^2-3x-10>0$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x=-2$ og $x=5$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x=3$ og $x=10$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x=5$ og $x=2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x=2$ og $x=-5$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(x-5)(x+2)=0$ gir $x=5$ og $x=-2$."
+          },
+          {
+            "id": "bi-okonomi-3-5-n-quiz2-q2",
+            "task": "Hva er løsningen på $x^2-3x-10>0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-2<x<5$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x<-2$ eller $x>5$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x<5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ingen løsning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $a>0$ er $f(x)>0$ utenfor nullpunktene: $x<-2$ eller $x>5$."
+          },
+          {
+            "id": "bi-okonomi-3-5-n-quiz2-q3",
+            "task": "En parabel har $a<0$ og to nullpunkter $x_1<x_2$. Hvor er $f(x)>0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Utenfor nullpunktene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Aldri",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Mellom nullpunktene, $x_1<x<x_2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Bare i nullpunktene",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En surmulende parabel ($a<0$) ligger over $x$-aksen mellom nullpunktene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bi-okonomi-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Nullpunktene** til en andregradsfunksjon er $x$-verdiene der $f(x)=0$, der grafen krysser $x$-aksen. Vi finner dem ved **faktorisering** -- to tall som ganget gir $c$ og addert gir $b$, slik $x^2-5x+6=(x-2)(x-3)$ gir $x=2$ og $x=3$ -- eller med **abc-formelen** $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}$.\n\n**Diskriminanten** $D=b^2-4ac$ avslører antallet på forhånd: $D>0$ gir to nullpunkter, $D=0$ gir ett, og $D<0$ gir ingen reelle. Kjenner vi nullpunktene, kan vi skrive funksjonen på **faktorisert form** $f(x)=a(x-x_1)(x-x_2)$.\n\nNullpunktene deler tallinja i intervaller med fast fortegn, og ved å teste én verdi i hvert intervall lager vi en **fortegnslinje**. Det lar oss løse ulikheter: med $a>0$ er $f(x)>0$ utenfor nullpunktene, mens med $a<0$ er $f(x)>0$ mellom dem -- et verktøy vi får stor glede av videre i kurset."
+    }
+  ],
+  "exercises": []
+}

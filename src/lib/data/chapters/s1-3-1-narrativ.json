@@ -1,1 +1,345 @@
-{"id":"s1-3-1-narrativ","courseId":"s1","chapterNumber":"3.1","title":"Den deriverte","subtitle":"Narrativ versjon","description":"En fortelling om hvordan vi fanger endring i et øyeblikk — fra salgskurver og ballkast til den deriverte som grenseverdi og tangentens stigningstall.","estimatedMinutes":35,"competenceGoals":["derivere polynomfunksjoner, potens-, eksponential- og logaritmefunksjoner","bruke den deriverte til å analysere funksjoner"],"linkedChapterId":"s1-3-1","content":[{"id":"s1-3-1-n-intro","type":"text","content":"## Hvor raskt vokser salget akkurat nå?\n\nTenk deg at du driver en liten nettbutikk. På skjermen foran deg ligger en graf som viser omsetningen uke for uke. Kurven peker oppover -- bra! Men investoren du møter i morgen kommer til å stille et mye skarpere spørsmål: «Hvor raskt vokser salget *akkurat nå*?» Ikke i gjennomsnitt siden nyttår, ikke over de siste tre månedene -- men i dette øyeblikket.\n\nDet spørsmålet høres enkelt ut, men det skjuler en av de største ideene i matematikken: den **deriverte**. Den deriverte til en funksjon beskriver hvor raskt funksjonen endrer seg i hvert enkelt punkt. Geometrisk er den stigningstallet til tangenten til grafen, og praktisk er den den momentane veksthastigheten. Vi skriver den deriverte til $f$ som $f'(x)$ eller $\\frac{df}{dx}$.\n\nI dette kapittelet skal vi bygge dette verktøyet fra grunnen av -- og du vil se at det samme verktøyet brukes til alt fra fart på en ball til kostnadsanalyse i en bedrift."},{"id":"s1-3-1-n-section1","type":"text","content":"## Fra gjennomsnitt til øyeblikk -- definisjonen\n\nLa oss starte med det vi faktisk kan måle. Hvis vi kjenner funksjonsverdiene i to punkter, kan vi regne ut den gjennomsnittlige endringen mellom dem. Brøken\n\n$$\\frac{f(x+h) - f(x)}{h}$$\n\nkalles **differansekvotienten**, og den representerer stigningstallet til en **sekant** -- en rett linje gjennom to punkter på grafen. Det er som å måle gjennomsnittsfarten på en biltur: total strekning delt på total tid.\n\nMen investoren vår spurte om *akkurat nå*. Trikset er å la de to punktene gli mot hverandre: vi lar $h$ bli mindre og mindre. Den **deriverte** av $f$ i punktet $x$ er definert som grenseverdien\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$\n\nhvis denne grenseverdien eksisterer.\n\nLa oss prøve definisjonen på $f(x) = x^2$. Vi setter inn og regner:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{x^2 + 2xh + h^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h}$$\n\nVi faktoriserer ut $h$ i telleren og forkorter:\n\n$$f'(x) = \\lim_{h \\to 0} (2x + h) = 2x$$\n\nAltså er $f'(x) = 2x$. Legg merke til hva dette betyr: den deriverte er selv en funksjon. I punktet $x = 3$ endrer $f$ seg med fart $f'(3) = 6$, mens i $x = -1$ er farten $f'(-1) = -2$ -- der synker grafen."},{"id":"s1-3-1-n-quiz1","type":"exercise","exercise":{"id":"s1-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på definisjonen av den deriverte:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-1-n-quiz1-q0","task":"Hva representerer differansekvotienten $\\frac{f(x+h) - f(x)}{h}$?","options":[{"id":"a","text":"Stigningstallet til tangenten i $x$","isCorrect":false},{"id":"b","text":"Funksjonsverdien i $x + h$","isCorrect":false},{"id":"c","text":"Stigningstallet til sekanten gjennom to punkter på grafen","isCorrect":true},{"id":"d","text":"Arealet under grafen fra $x$ til $x+h$","isCorrect":false}],"solution":"Differansekvotienten er den gjennomsnittlige endringen fra $x$ til $x+h$ — geometrisk stigningstallet til sekanten gjennom $(x, f(x))$ og $(x+h, f(x+h))$."},{"id":"s1-3-1-n-quiz1-q1","task":"Hvordan er den deriverte $f'(x)$ definert?","options":[{"id":"a","text":"$f'(x) = \\lim\\limits_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$","isCorrect":true},{"id":"b","text":"$f'(x) = \\frac{f(x+h) - f(x)}{h}$ for $h = 1$","isCorrect":false},{"id":"c","text":"$f'(x) = f(x+1) - f(x)$","isCorrect":false},{"id":"d","text":"$f'(x) = \\frac{f(x)}{x}$","isCorrect":false}],"solution":"Den deriverte er grenseverdien av differansekvotienten når $h \\to 0$ — vi lar de to punktene gli sammen til ett."},{"id":"s1-3-1-n-quiz1-q2","task":"Vi har vist at $f(x) = x^2$ gir $f'(x) = 2x$. Hva er $f'(3)$?","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$3$","isCorrect":false},{"id":"c","text":"$2$","isCorrect":false},{"id":"d","text":"$6$","isCorrect":true}],"solution":"$f'(3) = 2 \\cdot 3 = 6$. Grafen til $x^2$ stiger med fart 6 i punktet $x = 3$."}],"solution":""}},{"id":"s1-3-1-n-section2","type":"text","content":"## Tangenten -- linjen som berører\n\nHva skjer geometrisk når $h \\to 0$? Se for deg sekanten gjennom to punkter på grafen. Når det ene punktet glir mot det andre, vrir sekanten seg gradvis -- helt til den i grensen bare *berører* grafen i ett punkt. Denne linjen kalles **tangenten**, og den deriverte $f'(a)$ er nettopp stigningstallet til tangenten til grafen $y = f(x)$ i punktet $(a, f(a))$.\n\nDette gir oss en oppskrift på **tangentens likning** i punktet $(a, f(a))$:\n\n$$y - f(a) = f'(a)(x - a)$$\n\nLa oss bruke den. For $f(x) = x^2$ vet vi at $f'(x) = 2x$. I punktet $(1, 1)$ er stigningstallet $f'(1) = 2$, og tangentens likning blir\n\n$$y - 1 = 2(x - 1) \\quad \\Leftrightarrow \\quad y = 2x - 1$$\n\nTegner du grafen til $x^2$ og linjen $y = 2x - 1$ sammen, ser du at linjen legger seg perfekt inntil kurven i punktet $(1, 1)$ -- den har nøyaktig samme retning som grafen der.\n\nTangenten er mer enn et pent bilde. Den er den beste lineære tilnærmingen til funksjonen nær punktet: zoomer du langt nok inn på en glatt kurve, ser den ut som en rett linje -- og den linjen er tangenten. Det er derfor den deriverte er så nyttig: den fanger funksjonens oppførsel i et punkt med ett eneste tall."},{"id":"s1-3-1-n-quiz2","type":"exercise","exercise":{"id":"s1-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på tangent og geometrisk tolkning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-1-n-quiz2-q0","task":"Hva er den geometriske tolkningen av $f'(a)$?","options":[{"id":"a","text":"Avstanden fra grafen til $x$-aksen i $x = a$","isCorrect":false},{"id":"b","text":"Stigningstallet til sekanten gjennom $(0,0)$ og $(a, f(a))$","isCorrect":false},{"id":"c","text":"Funksjonsverdien i toppunktet","isCorrect":false},{"id":"d","text":"Stigningstallet til tangenten til grafen i punktet $(a, f(a))$","isCorrect":true}],"solution":"Den deriverte $f'(a)$ er stigningstallet til tangenten — linjen som berører grafen i $(a, f(a))$."},{"id":"s1-3-1-n-quiz2-q1","task":"Hva er likningen for tangenten til $f(x) = x^2$ i punktet $(1, 1)$?","options":[{"id":"a","text":"$y = x + 1$","isCorrect":false},{"id":"b","text":"$y = 2x - 1$","isCorrect":true},{"id":"c","text":"$y = 2x + 1$","isCorrect":false},{"id":"d","text":"$y = x^2 - 1$","isCorrect":false}],"solution":"Stigningstallet er $f'(1) = 2 \\cdot 1 = 2$. Tangenten: $y - 1 = 2(x - 1)$, altså $y = 2x - 1$."},{"id":"s1-3-1-n-quiz2-q2","task":"Hva skjer med sekanten når $h \\to 0$?","options":[{"id":"a","text":"Den nærmer seg tangenten til kurven","isCorrect":true},{"id":"b","text":"Den blir parallell med $x$-aksen","isCorrect":false},{"id":"c","text":"Den fjerner seg fra grafen","isCorrect":false},{"id":"d","text":"Den blir vertikal","isCorrect":false}],"solution":"Når de to punktene glir sammen, vrir sekanten seg mot tangenten — det er derfor den deriverte er tangentens stigningstall."}],"solution":""}},{"id":"s1-3-1-n-section3","type":"text","content":"## Vekstfart -- fra ballkast til bedrift\n\nNå skal vi se hvorfor den deriverte dukker opp overalt. Husk skillet: den **gjennomsnittlige veksthastigheten** fra $x$ til $x + h$ er differansekvotienten $\\frac{f(x+h) - f(x)}{h}$, mens den **momentane veksthastigheten** i $x$ er grenseverdien $f'(x)$.\n\nTa et klassisk eksempel. En ball kastes rett opp, og høyden etter $t$ sekunder er $h(t) = 20t - 5t^2$ meter. Farten er den deriverte av posisjonen: $v(t) = h'(t) = 20 - 10t$. Etter 2 sekunder er farten\n\n$$v(2) = 20 - 10 \\cdot 2 = 0 \\text{ m/s}$$\n\nNull fart! Ballen står stille et øyeblikk -- den er på toppen av banen. Slik avslører den deriverte vendepunktet i historien, bokstavelig talt.\n\nDet samme mønsteret gjelder alle størrelser som endrer seg: Hvis $s(t)$ er posisjonen ved tid $t$, er $v(t) = s'(t)$ hastigheten. Hvis $N(t)$ er antall kunder, er $N'(t)$ hvor raskt kundemassen vokser. Og i kapitlene om økonomi skal vi se at hvis $K(x)$ er kostnaden ved å produsere $x$ enheter, forteller $K'(x)$ omtrent hva neste enhet koster.\n\nTil slutt litt om skrivemåter, for du vil møte flere. **Lagranges notasjon** er $f'(x)$ og $y'$, mens **Leibniz' notasjon** er $\\frac{df}{dx}$ eller $\\frac{dy}{dx}$ -- de betyr nøyaktig det samme. Deriverer vi den deriverte én gang til, får vi den **andrederiverte**, skrevet $f''(x)$ eller $\\frac{d^2f}{dx^2}$. Den får en hovedrolle senere, når vi skal skille toppunkter fra bunnpunkter."},{"id":"s1-3-1-n-quiz3","type":"exercise","exercise":{"id":"s1-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på vekstfart og notasjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-3-1-n-quiz3-q0","task":"En ball har høyde $h(t) = 20t - 5t^2$. Hva betyr det at $h'(2) = 0$?","options":[{"id":"a","text":"Ballen treffer bakken etter 2 sekunder","isCorrect":false},{"id":"b","text":"Ballen har konstant fart","isCorrect":false},{"id":"c","text":"Ballen er på toppen av banen — farten er null","isCorrect":true},{"id":"d","text":"Ballen faller med 2 m/s","isCorrect":false}],"solution":"$h'(t) = 20 - 10t$ gir $h'(2) = 0$. Farten er null akkurat når ballen snur — den er på toppen."},{"id":"s1-3-1-n-quiz3-q1","task":"Hva er ballens fart etter 1 sekund når $h(t) = 20t - 5t^2$?","options":[{"id":"a","text":"$15$ m/s","isCorrect":false},{"id":"b","text":"$10$ m/s","isCorrect":true},{"id":"c","text":"$20$ m/s","isCorrect":false},{"id":"d","text":"$5$ m/s","isCorrect":false}],"solution":"$h'(t) = 20 - 10t$, så $v(1) = 20 - 10 \\cdot 1 = 10$ m/s."},{"id":"s1-3-1-n-quiz3-q2","task":"Hvilke skrivemåter betyr det samme som $f'(x)$?","options":[{"id":"a","text":"Bare $y'$","isCorrect":false},{"id":"b","text":"$f''(x)$ og $\\frac{d^2f}{dx^2}$","isCorrect":false},{"id":"c","text":"$\\int f \\, dx$","isCorrect":false},{"id":"d","text":"$y'$ og $\\frac{df}{dx}$","isCorrect":true}],"solution":"Lagranges notasjon $f'(x)$, $y'$ og Leibniz' notasjon $\\frac{df}{dx}$ betyr alle den deriverte. $f''(x)$ er derimot den andrederiverte."}],"solution":""}},{"id":"s1-3-1-n-summary","type":"text","content":"## Oppsummering\n\nVi startet med et spørsmål fra investoren: hvor raskt vokser salget akkurat nå? Svaret er den **deriverte** -- den momentane vekstfarten til en funksjon. Den er definert som grenseverdien av gjennomsnittlig vekstfart:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$\n\nBrøken inni grenseverdien kalles **differansekvotienten** og er stigningstallet til en **sekant** gjennom to punkter på grafen. Når $h \\to 0$, blir sekanten til en **tangent**, og $f'(a)$ er tangentens stigningstall i punktet $(a, f(a))$. Tangentens likning er $y = f'(a)(x - a) + f(a)$.\n\nVi brukte definisjonen til å vise at $f(x) = x^2$ gir $f'(x) = 2x$, og vi så at den deriverte tolkes som vekstfart: for en posisjonsfunksjon $s(t)$ er $s'(t)$ farten, og for en kostnadsfunksjon $K(x)$ forteller $K'(x)$ omtrent hva neste enhet koster. Skrivemåtene $f'(x)$, $y'$ og $\\frac{dy}{dx}$ betyr det samme, og $f''(x)$ er den andrederiverte. I neste kapittel slipper vi å bruke definisjonen hver gang -- da lærer vi derivasjonsreglene."}],"exercises":[]}
+{
+  "id": "s1-3-1-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "3.1",
+  "title": "Den deriverte",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hvordan vi fanger endring i et øyeblikk — fra salgskurver og ballkast til den deriverte som grenseverdi og tangentens stigningstall.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "derivere polynomfunksjoner, potens-, eksponential- og logaritmefunksjoner",
+    "bruke den deriverte til å analysere funksjoner"
+  ],
+  "linkedChapterId": "s1-3-1",
+  "content": [
+    {
+      "id": "s1-3-1-n-intro",
+      "type": "text",
+      "content": "## Hvor raskt vokser salget akkurat nå?\n\nTenk deg at du driver en liten nettbutikk. På skjermen foran deg ligger en graf som viser omsetningen uke for uke. Kurven peker oppover -- bra! Men investoren du møter i morgen kommer til å stille et mye skarpere spørsmål: «Hvor raskt vokser salget *akkurat nå*?» Ikke i gjennomsnitt siden nyttår, ikke over de siste tre månedene -- men i dette øyeblikket.\n\nDet spørsmålet høres enkelt ut, men det skjuler en av de største ideene i matematikken: den **deriverte**. Den deriverte til en funksjon beskriver hvor raskt funksjonen endrer seg i hvert enkelt punkt. Geometrisk er den stigningstallet til tangenten til grafen, og praktisk er den den momentane veksthastigheten. Vi skriver den deriverte til $f$ som $f'(x)$ eller $\\frac{df}{dx}$.\n\nI dette kapittelet skal vi bygge dette verktøyet fra grunnen av -- og du vil se at det samme verktøyet brukes til alt fra fart på en ball til kostnadsanalyse i en bedrift."
+    },
+    {
+      "id": "s1-3-1-n-section1",
+      "type": "text",
+      "content": "## Fra gjennomsnitt til øyeblikk -- definisjonen\n\nLa oss starte med det vi faktisk kan måle. Hvis vi kjenner funksjonsverdiene i to punkter, kan vi regne ut den gjennomsnittlige endringen mellom dem. Brøken\n\n$$\\frac{f(x+h) - f(x)}{h}$$\n\nkalles **differansekvotienten**, og den representerer stigningstallet til en **sekant** -- en rett linje gjennom to punkter på grafen. Det er som å måle gjennomsnittsfarten på en biltur: total strekning delt på total tid.\n\nMen investoren vår spurte om *akkurat nå*. Trikset er å la de to punktene gli mot hverandre: vi lar $h$ bli mindre og mindre. Den **deriverte** av $f$ i punktet $x$ er definert som grenseverdien\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$\n\nhvis denne grenseverdien eksisterer.\n\nLa oss prøve definisjonen på $f(x) = x^2$. Vi setter inn og regner:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{(x+h)^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{x^2 + 2xh + h^2 - x^2}{h} = \\lim_{h \\to 0} \\frac{2xh + h^2}{h}$$\n\nVi faktoriserer ut $h$ i telleren og forkorter:\n\n$$f'(x) = \\lim_{h \\to 0} (2x + h) = 2x$$\n\nAltså er $f'(x) = 2x$. Legg merke til hva dette betyr: den deriverte er selv en funksjon. I punktet $x = 3$ endrer $f$ seg med fart $f'(3) = 6$, mens i $x = -1$ er farten $f'(-1) = -2$ -- der synker grafen."
+    },
+    {
+      "id": "s1-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på definisjonen av den deriverte:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-1-n-quiz1-q0",
+            "task": "Hva representerer differansekvotienten $\\frac{f(x+h) - f(x)}{h}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Stigningstallet til sekanten gjennom to punkter på grafen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Stigningstallet til tangenten i $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Funksjonsverdien i $x + h$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Arealet under grafen fra $x$ til $x+h$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Differansekvotienten er den gjennomsnittlige endringen fra $x$ til $x+h$ — geometrisk stigningstallet til sekanten gjennom $(x, f(x))$ og $(x+h, f(x+h))$."
+          },
+          {
+            "id": "s1-3-1-n-quiz1-q1",
+            "task": "Hvordan er den deriverte $f'(x)$ definert?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$f'(x) = \\frac{f(x+h) - f(x)}{h}$ for $h = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$f'(x) = \\lim\\limits_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$f'(x) = f(x+1) - f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f'(x) = \\frac{f(x)}{x}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den deriverte er grenseverdien av differansekvotienten når $h \\to 0$ — vi lar de to punktene gli sammen til ett."
+          },
+          {
+            "id": "s1-3-1-n-quiz1-q2",
+            "task": "Vi har vist at $f(x) = x^2$ gir $f'(x) = 2x$. Hva er $f'(3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(3) = 2 \\cdot 3 = 6$. Grafen til $x^2$ stiger med fart 6 i punktet $x = 3$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-1-n-section2",
+      "type": "text",
+      "content": "## Tangenten -- linjen som berører\n\nHva skjer geometrisk når $h \\to 0$? Se for deg sekanten gjennom to punkter på grafen. Når det ene punktet glir mot det andre, vrir sekanten seg gradvis -- helt til den i grensen bare *berører* grafen i ett punkt. Denne linjen kalles **tangenten**, og den deriverte $f'(a)$ er nettopp stigningstallet til tangenten til grafen $y = f(x)$ i punktet $(a, f(a))$.\n\nDette gir oss en oppskrift på **tangentens likning** i punktet $(a, f(a))$:\n\n$$y - f(a) = f'(a)(x - a)$$\n\nLa oss bruke den. For $f(x) = x^2$ vet vi at $f'(x) = 2x$. I punktet $(1, 1)$ er stigningstallet $f'(1) = 2$, og tangentens likning blir\n\n$$y - 1 = 2(x - 1) \\quad \\Leftrightarrow \\quad y = 2x - 1$$\n\nTegner du grafen til $x^2$ og linjen $y = 2x - 1$ sammen, ser du at linjen legger seg perfekt inntil kurven i punktet $(1, 1)$ -- den har nøyaktig samme retning som grafen der.\n\nTangenten er mer enn et pent bilde. Den er den beste lineære tilnærmingen til funksjonen nær punktet: zoomer du langt nok inn på en glatt kurve, ser den ut som en rett linje -- og den linjen er tangenten. Det er derfor den deriverte er så nyttig: den fanger funksjonens oppførsel i et punkt med ett eneste tall."
+    },
+    {
+      "id": "s1-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på tangent og geometrisk tolkning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-1-n-quiz2-q0",
+            "task": "Hva er den geometriske tolkningen av $f'(a)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Avstanden fra grafen til $x$-aksen i $x = a$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Stigningstallet til sekanten gjennom $(0,0)$ og $(a, f(a))$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonsverdien i toppunktet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Stigningstallet til tangenten til grafen i punktet $(a, f(a))$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den deriverte $f'(a)$ er stigningstallet til tangenten — linjen som berører grafen i $(a, f(a))$."
+          },
+          {
+            "id": "s1-3-1-n-quiz2-q1",
+            "task": "Hva er likningen for tangenten til $f(x) = x^2$ i punktet $(1, 1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$y = 2x - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$y = x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$y = 2x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$y = x^2 - 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Stigningstallet er $f'(1) = 2 \\cdot 1 = 2$. Tangenten: $y - 1 = 2(x - 1)$, altså $y = 2x - 1$."
+          },
+          {
+            "id": "s1-3-1-n-quiz2-q2",
+            "task": "Hva skjer med sekanten når $h \\to 0$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Den blir parallell med $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den nærmer seg tangenten til kurven",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den fjerner seg fra grafen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den blir vertikal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når de to punktene glir sammen, vrir sekanten seg mot tangenten — det er derfor den deriverte er tangentens stigningstall."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-1-n-section3",
+      "type": "text",
+      "content": "## Vekstfart -- fra ballkast til bedrift\n\nNå skal vi se hvorfor den deriverte dukker opp overalt. Husk skillet: den **gjennomsnittlige veksthastigheten** fra $x$ til $x + h$ er differansekvotienten $\\frac{f(x+h) - f(x)}{h}$, mens den **momentane veksthastigheten** i $x$ er grenseverdien $f'(x)$.\n\nTa et klassisk eksempel. En ball kastes rett opp, og høyden etter $t$ sekunder er $h(t) = 20t - 5t^2$ meter. Farten er den deriverte av posisjonen: $v(t) = h'(t) = 20 - 10t$. Etter 2 sekunder er farten\n\n$$v(2) = 20 - 10 \\cdot 2 = 0 \\text{ m/s}$$\n\nNull fart! Ballen står stille et øyeblikk -- den er på toppen av banen. Slik avslører den deriverte vendepunktet i historien, bokstavelig talt.\n\nDet samme mønsteret gjelder alle størrelser som endrer seg: Hvis $s(t)$ er posisjonen ved tid $t$, er $v(t) = s'(t)$ hastigheten. Hvis $N(t)$ er antall kunder, er $N'(t)$ hvor raskt kundemassen vokser. Og i kapitlene om økonomi skal vi se at hvis $K(x)$ er kostnaden ved å produsere $x$ enheter, forteller $K'(x)$ omtrent hva neste enhet koster.\n\nTil slutt litt om skrivemåter, for du vil møte flere. **Lagranges notasjon** er $f'(x)$ og $y'$, mens **Leibniz' notasjon** er $\\frac{df}{dx}$ eller $\\frac{dy}{dx}$ -- de betyr nøyaktig det samme. Deriverer vi den deriverte én gang til, får vi den **andrederiverte**, skrevet $f''(x)$ eller $\\frac{d^2f}{dx^2}$. Den får en hovedrolle senere, når vi skal skille toppunkter fra bunnpunkter."
+    },
+    {
+      "id": "s1-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på vekstfart og notasjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-3-1-n-quiz3-q0",
+            "task": "En ball har høyde $h(t) = 20t - 5t^2$. Hva betyr det at $h'(2) = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ballen treffer bakken etter 2 sekunder",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ballen har konstant fart",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ballen er på toppen av banen — farten er null",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ballen faller med 2 m/s",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h'(t) = 20 - 10t$ gir $h'(2) = 0$. Farten er null akkurat når ballen snur — den er på toppen."
+          },
+          {
+            "id": "s1-3-1-n-quiz3-q1",
+            "task": "Hva er ballens fart etter 1 sekund når $h(t) = 20t - 5t^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$15$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$20$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$5$ m/s",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10$ m/s",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$h'(t) = 20 - 10t$, så $v(1) = 20 - 10 \\cdot 1 = 10$ m/s."
+          },
+          {
+            "id": "s1-3-1-n-quiz3-q2",
+            "task": "Hvilke skrivemåter betyr det samme som $f'(x)$?",
+            "options": [
+              {
+                "id": "d",
+                "text": "$y'$ og $\\frac{df}{dx}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bare $y'$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f''(x)$ og $\\frac{d^2f}{dx^2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\int f \\, dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lagranges notasjon $f'(x)$, $y'$ og Leibniz' notasjon $\\frac{df}{dx}$ betyr alle den deriverte. $f''(x)$ er derimot den andrederiverte."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "s1-3-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi startet med et spørsmål fra investoren: hvor raskt vokser salget akkurat nå? Svaret er den **deriverte** -- den momentane vekstfarten til en funksjon. Den er definert som grenseverdien av gjennomsnittlig vekstfart:\n\n$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$\n\nBrøken inni grenseverdien kalles **differansekvotienten** og er stigningstallet til en **sekant** gjennom to punkter på grafen. Når $h \\to 0$, blir sekanten til en **tangent**, og $f'(a)$ er tangentens stigningstall i punktet $(a, f(a))$. Tangentens likning er $y = f'(a)(x - a) + f(a)$.\n\nVi brukte definisjonen til å vise at $f(x) = x^2$ gir $f'(x) = 2x$, og vi så at den deriverte tolkes som vekstfart: for en posisjonsfunksjon $s(t)$ er $s'(t)$ farten, og for en kostnadsfunksjon $K(x)$ forteller $K'(x)$ omtrent hva neste enhet koster. Skrivemåtene $f'(x)$, $y'$ og $\\frac{dy}{dx}$ betyr det samme, og $f''(x)$ er den andrederiverte. I neste kapittel slipper vi å bruke definisjonen hver gang -- da lærer vi derivasjonsreglene."
+    }
+  ],
+  "exercises": []
+}

@@ -1,1 +1,514 @@
-{"id":"s2-3-6-narrativ","courseId":"s2","chapterNumber":"3.6","title":"Avansert funksjonsanalyse","subtitle":"Narrativ versjon","description":"Ei forteljing om forskingsmodellane som kombinerer polynom, eksponentialar og logaritmar — og strategiane som temjer dei.","estimatedMinutes":43,"competenceGoals":["drøfte samansette funksjonar med eksponential- og logaritmeuttrykk","gjennomføre fullstendig funksjonsdrøfting av avanserte funksjonstypar"],"linkedChapterId":"s2-3-6","content":[{"id":"s2-3-6-n-intro","type":"text","content":"## Modellane frå verkelegheita\n\nNår forskarar modellerer verkelegheita — konsentrasjonen av eit legemiddel i blodet, effekten av ein kampanje, lønsemd per investert krone — endar dei sjeldan opp med eit pent polynom. Modellane kombinerer gjerne fleire funksjonstypar: polynom ganga med eksponentialfunksjonar, logaritmar av samansette uttrykk, brøkar med eksponentialar. I S2 er drøfting av slike samansette funksjonar ei typisk eksamensoppgåve, og dei krev at du meistrar kjerneregel, produktregel og brøkregel i kombinasjon.\n\nHeldigvis fell dei fleste oppgåvene i fire kjennelege typar. **Type 1** er $f(x) = P(x) \\cdot e^{g(x)}$, polynom gangar eksponential: bruk produktregel pluss kjerneregel, og faktoriser alltid ut $e^{g(x)}$ — som aldri er null — slik at nullpunkta til $f'$ blir bestemte av den attverande faktoren. **Type 2** er $f(x) = \\frac{P(x)}{e^{g(x)}}$: skriv om til $P(x) \\cdot e^{-g(x)}$ og bruk type 1, eller bruk brøkregelen direkte. **Type 3** er $f(x) = \\ln(g(x))$: kjerneregelen gir $f'(x) = \\frac{g'(x)}{g(x)}$, og definisjonsmengda krev $g(x) > 0$. **Type 4** er $f(x) = x^a \\cdot \\ln x$: produktregel, med spesiell merksemd på grenseåtferda nær $x = 0$.\n\nEit par derivasjonsresultat er verdt å ha i bakhovudet: $(e^{g(x)})' = g'(x)e^{g(x)}$, $(\\ln g(x))' = \\frac{g'(x)}{g(x)}$, $(a^{g(x)})' = g'(x) \\ln a \\cdot a^{g(x)}$, $([g(x)]^n)' = n g'(x) [g(x)]^{n-1}$, og dei praktiske kombinasjonane $(x^n e^{ax})' = e^{ax}(nx^{n-1} + ax^n)$ og $(x^a \\ln x)' = x^{a-1}(a \\ln x + 1)$. Lat oss bruke alt dette på ekte drøftingar."},{"id":"s2-3-6-n-section1","type":"text","content":"## Legemiddelkurva: polynom gangar eksponential\n\nVi drøftar $f(x) = (x^2 - 2x)e^{-x}$ — ein kurvetype som liknar på korleis verknaden av ein dose byggjer seg opp og døyr ut.\n\n**Definisjonsmengda** er $\\mathbb{R}$. **Nullpunkta**: sidan $e^{-x} > 0$ alltid, er $f(x) = 0$ berre når $x^2 - 2x = x(x-2) = 0$, altså $x = 0$ og $x = 2$. Forteiknet blir òg styrt av polynomfaktoren: positivt for $x < 0$ og $x > 2$, negativt mellom. **Grenseåtferda**: mot høgre er $f(x) = \\frac{x^2 - 2x}{e^x} \\to 0$ fordi eksponentialen vinn — horisontal asymptote $y = 0$. Mot venstre veks $e^{-x}$ utan grenser, så $f(x) \\to \\infty$.\n\nSå derivasjonen, med produktregel: $f'(x) = (2x-2)e^{-x} + (x^2-2x)(-e^{-x})$. No kjem det viktigaste grepet: faktoriser ut $e^{-x}$. Då står vi att med $f'(x) = e^{-x}(-x^2 + 4x - 2)$, og sidan eksponentialfaktoren aldri er null, løyser vi berre $x^2 - 4x + 2 = 0$, som gir $x = 2 \\pm \\sqrt{2}$. Forteiknsskjemaet viser at $f$ minkar, veks og minkar att: **botnpunkt** i $x = 2 - \\sqrt{2} \\approx 0{,}59$ (med $f \\approx -0{,}19$) og **toppunkt** i $x = 2 + \\sqrt{2} \\approx 3{,}41$ (med $f \\approx 0{,}38$).\n\nSame teknikken ein gong til gir $f''(x) = e^{-x}(x^2 - 6x + 6)$, som er null for $x = 3 \\pm \\sqrt{3}$ — to **vendepunkt**, i $x \\approx 1{,}27$ og $x \\approx 4{,}73$. Heile drøftinga kviler på eitt prinsipp: trekk ut den eksponentialfaktoren som aldri kan bli null, og analyser resten som eit vanleg polynom."},{"id":"s2-3-6-n-quiz1","type":"exercise","exercise":{"id":"s2-3-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på drøfting av polynom-eksponential-funksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-6-n-quiz1-q0","task":"Kvifor faktoriserer vi ut $e^{g(x)}$ frå $f'(x)$?","options":[{"id":"a","text":"Fordi $e^{g(x)}$ aldri er null, så nullpunkta til $f'$ blir bestemte av den andre faktoren","isCorrect":true},{"id":"b","text":"Fordi $e^{g(x)}$ alltid er lik 1","isCorrect":false},{"id":"c","text":"Fordi den deriverte av $e^{g(x)}$ er null","isCorrect":false},{"id":"d","text":"Fordi det gjer funksjonen lineær","isCorrect":false}],"solution":"Eksponentialfunksjonen er strengt positiv. Når $f'(x) = e^{-x}(-x^2+4x-2)$, held det å løyse $-x^2+4x-2 = 0$."},{"id":"s2-3-6-n-quiz1-q1","task":"Kva er nullpunkta til $f(x) = (x^2 - 2x)e^{-x}$?","options":[{"id":"a","text":"$x = 2 \\pm \\sqrt{2}$","isCorrect":false},{"id":"b","text":"$x = 0$ og $x = 2$","isCorrect":true},{"id":"c","text":"Berre $x = 0$","isCorrect":false},{"id":"d","text":"$x = 3 \\pm \\sqrt{3}$","isCorrect":false}],"solution":"$e^{-x} > 0$, så nullpunkta kjem frå $x^2 - 2x = x(x-2) = 0$: $x = 0$ og $x = 2$. ($2 \\pm \\sqrt{2}$ er ekstremalpunkta, $3 \\pm \\sqrt{3}$ vendepunkta.)"},{"id":"s2-3-6-n-quiz1-q2","task":"Kva skjer med $f(x) = (x^2-2x)e^{-x}$ når $x \\to \\infty$?","options":[{"id":"a","text":"$f(x) \\to \\infty$ fordi polynomet veks","isCorrect":false},{"id":"b","text":"$f(x) \\to -\\infty$","isCorrect":false},{"id":"c","text":"$f(x) \\to 0$ fordi eksponentialveksten i nemnaren dominerer","isCorrect":true},{"id":"d","text":"$f(x) \\to 2$","isCorrect":false}],"solution":"Skriv $f(x) = \\frac{x^2-2x}{e^x}$. Veksthierarkiet seier at $e^x$ slår eitkvart polynom, så grensa er 0 — horisontal asymptote $y = 0$ mot høgre."},{"id":"s2-3-6-n-quiz1-q3","task":"Kva for ein derivasjonsregel-kombinasjon trengst for $f(x) = P(x) \\cdot e^{g(x)}$?","options":[{"id":"a","text":"Berre kjerneregelen","isCorrect":false},{"id":"b","text":"Produktregel kombinert med kjerneregel","isCorrect":true},{"id":"c","text":"Brøkregelen","isCorrect":false},{"id":"d","text":"Berre potensregelen","isCorrect":false}],"solution":"Produktregelen handterer produktet $P(x) \\cdot e^{g(x)}$, og kjerneregelen trengst for å derivere $e^{g(x)}$ til $g'(x)e^{g(x)}$."}]}},{"id":"s2-3-6-n-section2","type":"text","content":"## Domenet til logaritmen\n\nNeste modelltype inneheld logaritmar, og då er **definisjonsmengda** alltid første sjekkpunkt: $\\ln x$ finst berre for $x > 0$.\n\nVi drøftar først $f(x) = x - \\ln x$ for $x > 0$. Grenseåtferda: når $x \\to 0^+$ går $\\ln x \\to -\\infty$, så $f(x) \\to +\\infty$; når $x \\to \\infty$ dominerer $x$ over $\\ln x$, så $f(x) \\to \\infty$ der òg. Den deriverte er $f'(x) = 1 - \\frac{1}{x} = \\frac{x-1}{x}$, som er null i $x = 1$: funksjonen minkar på $(0,1)$ og veks for $x > 1$, med **botnpunkt** $(1, 1)$. Og sidan $f''(x) = \\frac{1}{x^2} > 0$ overalt, er funksjonen konveks utan vendepunkt. Ein elegant konsekvens: minimumsverdien er $1 > 0$, så $f$ har ingen nullpunkt i det heile teke — likninga $x = \\ln x$ har inga løysing.\n\nSå ein brøk: $f(x) = \\frac{\\ln x}{x}$, som kan tolkast som «logaritmisk utbytte per eining». Nullpunkt der $\\ln x = 0$, altså $x = 1$. Mot null frå høgre: $\\frac{-\\infty}{0^+} = -\\infty$; mot uendeleg: $\\frac{\\ln x}{x} \\to 0$ fordi polynom slår logaritme — horisontal asymptote $y = 0$. Brøkregelen gir $f'(x) = \\frac{\\frac{1}{x} \\cdot x - \\ln x}{x^2} = \\frac{1 - \\ln x}{x^2}$, som er null når $\\ln x = 1$, altså $x = e$. **Toppunktet** er $(e, \\frac{1}{e}) \\approx (2{,}72,\\ 0{,}37)$ — av alle tal er det $e$ som maksimerer $\\frac{\\ln x}{x}$. Den andrederiverte $f''(x) = \\frac{2\\ln x - 3}{x^3}$ gir vendepunkt der $\\ln x = \\frac{3}{2}$, altså $x = e^{3/2} \\approx 4{,}48$."},{"id":"s2-3-6-n-quiz2","type":"exercise","exercise":{"id":"s2-3-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på logaritmefunksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-6-n-quiz2-q0","task":"Kva er definisjonsmengda til $f(x) = \\ln(g(x))$?","options":[{"id":"a","text":"Alle $x$ der $g(x) \\neq 0$","isCorrect":false},{"id":"b","text":"Alle $x$ der $g(x) > 0$","isCorrect":true},{"id":"c","text":"Heile $\\mathbb{R}$","isCorrect":false},{"id":"d","text":"Alle $x > 0$","isCorrect":false}],"solution":"Logaritmen er berre definert for positive argument, så vi krev $g(x) > 0$ — ikkje nødvendigvis $x > 0$."},{"id":"s2-3-6-n-quiz2-q1","task":"Kvifor har $f(x) = x - \\ln x$ ingen nullpunkt?","options":[{"id":"a","text":"Fordi funksjonen er udefinert for $x > 0$","isCorrect":false},{"id":"b","text":"Fordi $f$ er minkande overalt","isCorrect":false},{"id":"c","text":"Fordi minimumsverdien er $f(1) = 1 > 0$","isCorrect":true},{"id":"d","text":"Fordi $\\ln x$ alltid er negativ","isCorrect":false}],"solution":"Botnpunktet er $(1, 1)$, og funksjonen er konveks. Når den lågaste verdien er 1, kjem grafen aldri ned til $x$-aksen — likninga $x = \\ln x$ er uløyseleg."},{"id":"s2-3-6-n-quiz2-q2","task":"Kvar har $f(x) = \\frac{\\ln x}{x}$ toppunktet sitt?","options":[{"id":"a","text":"$(1, 0)$","isCorrect":false},{"id":"b","text":"$(e^{3/2}, \\frac{3}{2e^{3/2}})$","isCorrect":false},{"id":"c","text":"$(2, \\frac{\\ln 2}{2})$","isCorrect":false},{"id":"d","text":"$(e, \\frac{1}{e})$","isCorrect":true}],"solution":"$f'(x) = \\frac{1 - \\ln x}{x^2} = 0$ gir $\\ln x = 1$, altså $x = e$, og $f(e) = \\frac{1}{e}$. Punktet $(e^{3/2}, \\ldots)$ er vendepunktet."},{"id":"s2-3-6-n-quiz2-q3","task":"Kva er $f'(x)$ når $f(x) = \\ln(g(x))$?","options":[{"id":"a","text":"$\\frac{1}{g(x)}$","isCorrect":false},{"id":"b","text":"$\\frac{g'(x)}{g(x)}$","isCorrect":true},{"id":"c","text":"$g'(x) \\ln(g(x))$","isCorrect":false},{"id":"d","text":"$\\frac{g(x)}{g'(x)}$","isCorrect":false}],"solution":"Kjerneregelen: den ytre deriverte er $\\frac{1}{g(x)}$, ganga med den indre deriverte $g'(x)$. Til dømes er $(\\ln(x^2))' = \\frac{2x}{x^2} = \\frac{2}{x}$."}]}},{"id":"s2-3-6-n-section3","type":"text","content":"## Generalprøva: $x^2 \\ln x$\n\nTil slutt tek vi ei oppgåve av rein eksamenstype: drøft $f(x) = x^2 \\ln x$ for $x > 0$ — type 4 i katalogen vår, potens gangar logaritme.\n\n**Nullpunkt**: for $x > 0$ er $x^2 > 0$, så $f(x) = 0$ krev $\\ln x = 0$, altså $x = 1$. Forteiknet følgjer logaritmen: negativt på $(0, 1)$, positivt for $x > 1$. **Grenseåtferda** nær null er det spesielle her: $x^2 \\to 0$ medan $\\ln x \\to -\\infty$ — kven vinn? Den viktige grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$ seier at polynomfaktoren vinn: $f(x) \\to 0$. Mot uendeleg veks begge faktorane, så $f(x) \\to \\infty$.\n\n**Derivasjon** med produktregel: $f'(x) = 2x\\ln x + x^2 \\cdot \\frac{1}{x} = x(2\\ln x + 1)$. For $x > 0$ er $f'(x) = 0$ når $\\ln x = -\\frac{1}{2}$, altså $x = e^{-1/2} = \\frac{1}{\\sqrt{e}} \\approx 0{,}607$. Funksjonen minkar før og veks etter, så vi har **botnpunkt** i $(\\frac{1}{\\sqrt{e}}, -\\frac{1}{2e}) \\approx (0{,}607, -0{,}184)$. Den andrederiverte: $f''(x) = 2\\ln x + 1 + 2 = 2\\ln x + 3$, null når $\\ln x = -\\frac{3}{2}$, altså $x = e^{-3/2} \\approx 0{,}223$, med **vendepunkt** $(e^{-3/2}, -\\frac{3}{2e^3}) \\approx (0{,}223, -0{,}075)$.\n\nDermed har vi ei hugseliste for avanserte drøftingar: sjekk definisjonsmengda først (særleg for logaritmar), faktoriser $f'$ og trekk ut $e^{g(x)}$ der det går, bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ for grenseåtferd, og sjekk gjerne symmetri — om $f(-x) = f(x)$ (par funksjon) eller $f(-x) = -f(x)$ (odde). Og hugs kjerneregelen i kvar einaste derivasjon: $(e^{2x})' = 2e^{2x}$, ikkje $e^{2x}$."},{"id":"s2-3-6-n-quiz3","type":"exercise","exercise":{"id":"s2-3-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på drøfting av $x^2 \\ln x$ og strategiane:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-3-6-n-quiz3-q0","task":"Kva er $\\lim_{x \\to 0^+} x^2 \\ln x$?","options":[{"id":"a","text":"$-\\infty$","isCorrect":false},{"id":"b","text":"$+\\infty$","isCorrect":false},{"id":"c","text":"$0$","isCorrect":true},{"id":"d","text":"$-1$","isCorrect":false}],"solution":"Den generelle regelen $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$: potensfaktoren går mot null raskare enn logaritmen går mot $-\\infty$."},{"id":"s2-3-6-n-quiz3-q1","task":"$f(x) = x^2 \\ln x$ har $f'(x) = x(2\\ln x + 1)$. Kvar er botnpunktet?","options":[{"id":"a","text":"$x = e^{-1/2} = \\frac{1}{\\sqrt{e}}$","isCorrect":true},{"id":"b","text":"$x = 1$","isCorrect":false},{"id":"c","text":"$x = e^{-3/2}$","isCorrect":false},{"id":"d","text":"$x = e$","isCorrect":false}],"solution":"For $x > 0$ er $f'(x) = 0$ når $2\\ln x + 1 = 0$, altså $\\ln x = -\\frac{1}{2}$ og $x = e^{-1/2} \\approx 0{,}607$. ($x = 1$ er nullpunktet, $e^{-3/2}$ vendepunktet.)"},{"id":"s2-3-6-n-quiz3-q2","task":"Kva tyder det at ein funksjon er par?","options":[{"id":"a","text":"$f(-x) = -f(x)$","isCorrect":false},{"id":"b","text":"$f(-x) = f(x)$ — grafen er symmetrisk om $y$-aksen","isCorrect":true},{"id":"c","text":"Funksjonen har to nullpunkt","isCorrect":false},{"id":"d","text":"Graden er eit partal","isCorrect":false}],"solution":"Ein par funksjon oppfyller $f(-x) = f(x)$ og er symmetrisk om $y$-aksen. Ein odde funksjon oppfyller $f(-x) = -f(x)$. Symmetri kan halvere drøftingsarbeidet."},{"id":"s2-3-6-n-quiz3-q3","task":"Kva er den deriverte av $e^{2x}$?","options":[{"id":"a","text":"$e^{2x}$","isCorrect":false},{"id":"b","text":"$2e^{x}$","isCorrect":false},{"id":"c","text":"$x e^{2x}$","isCorrect":false},{"id":"d","text":"$2e^{2x}$","isCorrect":true}],"solution":"Kjerneregelen: indre derivert av $2x$ er $2$, så $(e^{2x})' = 2e^{2x}$. Å gløyme den indre deriverte er ein av dei vanlegaste feila i avansert derivasjon."}]}},{"id":"s2-3-6-n-summary","type":"text","content":"## Oppsummering: fire typar, éin strategi\n\nFunksjonane til forskingsmodellane ser avskrekkjande ut, men dei fell i fire typar med kvar sin angrepsmåte: polynom gangar eksponential ($P(x)e^{g(x)}$ — produktregel pluss kjerneregel, faktoriser ut eksponentialen), polynom delt på eksponential (skriv om med negativ eksponent), logaritme av samansett uttrykk ($\\ln g(x)$ — derivert $\\frac{g'(x)}{g(x)}$, krev $g(x) > 0$), og potens gangar logaritme ($x^a \\ln x$ — produktregel og grensesjekk nær null).\n\nStrategien for drøfting er alltid: definisjonsmengd først, særleg for logaritmar der $\\ln x$ krev $x > 0$. Faktoriser den deriverte og trekk ut $e^{g(x)}$, som aldri er null, slik at nullpunkta til både $f$ og $f'$ blir bestemte av dei andre faktorane. Bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ og grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ til å finne grenseåtferda. Og sjekk symmetri når det er aktuelt.\n\nSlik fann vi at legemiddelkurva $(x^2-2x)e^{-x}$ har ekstremalpunkt i $2 \\pm \\sqrt{2}$ og døyr ut mot asymptoten $y = 0$; at $x - \\ln x$ aldri blir null fordi botnpunktet ligg på høgd 1; at $\\frac{\\ln x}{x}$ toppar seg nettopp i $x = e$; og at $x^2 \\ln x$ kryp mot null i origo trass i logaritmens stup mot $-\\infty$. Kvar gong var det dei same verktøya — kjerneregel, produktregel, brøkregel og forteiknsskjema — sette saman med systematikk. Det er det avansert funksjonsanalyse er: kjende verktøy brukte i rett rekkjefølgje."}],"exercises":[],"_meta":{"sourceHash":"884abfd765b0fa91","translatedAt":"2026-06-20T07:59:03.718Z","model":"claude-code-agent","strings":85,"tm":{"42c2b73f6c3daba7":"Avansert funksjonsanalyse","b195b06d1ed59702":"Narrativ versjon","10d3fb15fe1f92a9":"Ei forteljing om forskingsmodellane som kombinerer polynom, eksponentialar og logaritmar — og strategiane som temjer dei.","77d447aa34e18577":"drøfte samansette funksjonar med eksponential- og logaritmeuttrykk","15794c7250ed551f":"gjennomføre fullstendig funksjonsdrøfting av avanserte funksjonstypar","f03b0d2a80a93563":"## Modellane frå verkelegheita\n\nNår forskarar modellerer verkelegheita — konsentrasjonen av eit legemiddel i blodet, effekten av ein kampanje, lønsemd per investert krone — endar dei sjeldan opp med eit pent polynom. Modellane kombinerer gjerne fleire funksjonstypar: polynom ganga med eksponentialfunksjonar, logaritmar av samansette uttrykk, brøkar med eksponentialar. I S2 er drøfting av slike samansette funksjonar ei typisk eksamensoppgåve, og dei krev at du meistrar kjerneregel, produktregel og brøkregel i kombinasjon.\n\nHeldigvis fell dei fleste oppgåvene i fire kjennelege typar. **Type 1** er $f(x) = P(x) \\cdot e^{g(x)}$, polynom gangar eksponential: bruk produktregel pluss kjerneregel, og faktoriser alltid ut $e^{g(x)}$ — som aldri er null — slik at nullpunkta til $f'$ blir bestemte av den attverande faktoren. **Type 2** er $f(x) = \\frac{P(x)}{e^{g(x)}}$: skriv om til $P(x) \\cdot e^{-g(x)}$ og bruk type 1, eller bruk brøkregelen direkte. **Type 3** er $f(x) = \\ln(g(x))$: kjerneregelen gir $f'(x) = \\frac{g'(x)}{g(x)}$, og definisjonsmengda krev $g(x) > 0$. **Type 4** er $f(x) = x^a \\cdot \\ln x$: produktregel, med spesiell merksemd på grenseåtferda nær $x = 0$.\n\nEit par derivasjonsresultat er verdt å ha i bakhovudet: $(e^{g(x)})' = g'(x)e^{g(x)}$, $(\\ln g(x))' = \\frac{g'(x)}{g(x)}$, $(a^{g(x)})' = g'(x) \\ln a \\cdot a^{g(x)}$, $([g(x)]^n)' = n g'(x) [g(x)]^{n-1}$, og dei praktiske kombinasjonane $(x^n e^{ax})' = e^{ax}(nx^{n-1} + ax^n)$ og $(x^a \\ln x)' = x^{a-1}(a \\ln x + 1)$. Lat oss bruke alt dette på ekte drøftingar.","dc9c03e7fbe425d0":"## Legemiddelkurva: polynom gangar eksponential\n\nVi drøftar $f(x) = (x^2 - 2x)e^{-x}$ — ein kurvetype som liknar på korleis verknaden av ein dose byggjer seg opp og døyr ut.\n\n**Definisjonsmengda** er $\\mathbb{R}$. **Nullpunkta**: sidan $e^{-x} > 0$ alltid, er $f(x) = 0$ berre når $x^2 - 2x = x(x-2) = 0$, altså $x = 0$ og $x = 2$. Forteiknet blir òg styrt av polynomfaktoren: positivt for $x < 0$ og $x > 2$, negativt mellom. **Grenseåtferda**: mot høgre er $f(x) = \\frac{x^2 - 2x}{e^x} \\to 0$ fordi eksponentialen vinn — horisontal asymptote $y = 0$. Mot venstre veks $e^{-x}$ utan grenser, så $f(x) \\to \\infty$.\n\nSå derivasjonen, med produktregel: $f'(x) = (2x-2)e^{-x} + (x^2-2x)(-e^{-x})$. No kjem det viktigaste grepet: faktoriser ut $e^{-x}$. Då står vi att med $f'(x) = e^{-x}(-x^2 + 4x - 2)$, og sidan eksponentialfaktoren aldri er null, løyser vi berre $x^2 - 4x + 2 = 0$, som gir $x = 2 \\pm \\sqrt{2}$. Forteiknsskjemaet viser at $f$ minkar, veks og minkar att: **botnpunkt** i $x = 2 - \\sqrt{2} \\approx 0{,}59$ (med $f \\approx -0{,}19$) og **toppunkt** i $x = 2 + \\sqrt{2} \\approx 3{,}41$ (med $f \\approx 0{,}38$).\n\nSame teknikken ein gong til gir $f''(x) = e^{-x}(x^2 - 6x + 6)$, som er null for $x = 3 \\pm \\sqrt{3}$ — to **vendepunkt**, i $x \\approx 1{,}27$ og $x \\approx 4{,}73$. Heile drøftinga kviler på eitt prinsipp: trekk ut den eksponentialfaktoren som aldri kan bli null, og analyser resten som eit vanleg polynom.","fef79c5f2d23311c":"Test deg sjølv på drøfting av polynom-eksponential-funksjonar:","4097889236a2af26":"placeholder","5ea5082dbe66e487":"Kvifor faktoriserer vi ut $e^{g(x)}$ frå $f'(x)$?","6fbffdbbbbeb71cd":"Fordi $e^{g(x)}$ aldri er null, så nullpunkta til $f'$ blir bestemte av den andre faktoren","f0740aa4a149622f":"Fordi $e^{g(x)}$ alltid er lik 1","0a02283617dd7be9":"Fordi den deriverte av $e^{g(x)}$ er null","34e17b2a6b0f31f5":"Fordi det gjer funksjonen lineær","93f0f3f664c302b1":"Eksponentialfunksjonen er strengt positiv. Når $f'(x) = e^{-x}(-x^2+4x-2)$, held det å løyse $-x^2+4x-2 = 0$.","ba79e737d0814814":"Kva er nullpunkta til $f(x) = (x^2 - 2x)e^{-x}$?","dcd23ccbc274a863":"$x = 2 \\pm \\sqrt{2}$","3bcd8f83a343204d":"$x = 0$ og $x = 2$","e049567458489c26":"Berre $x = 0$","960a88c3b9b68969":"$x = 3 \\pm \\sqrt{3}$","e4de7824157acc9a":"$e^{-x} > 0$, så nullpunkta kjem frå $x^2 - 2x = x(x-2) = 0$: $x = 0$ og $x = 2$. ($2 \\pm \\sqrt{2}$ er ekstremalpunkta, $3 \\pm \\sqrt{3}$ vendepunkta.)","6bac1b464f9e69a2":"Kva skjer med $f(x) = (x^2-2x)e^{-x}$ når $x \\to \\infty$?","a4032134baa9f7dd":"$f(x) \\to \\infty$ fordi polynomet veks","b210602a603dd39e":"$f(x) \\to -\\infty$","4ca68ed87d388080":"$f(x) \\to 0$ fordi eksponentialveksten i nemnaren dominerer","39b7bb3cbf99a153":"$f(x) \\to 2$","c2b39ad2aab6b4d7":"Skriv $f(x) = \\frac{x^2-2x}{e^x}$. Veksthierarkiet seier at $e^x$ slår eitkvart polynom, så grensa er 0 — horisontal asymptote $y = 0$ mot høgre.","f12a190376118dc7":"Kva for ein derivasjonsregel-kombinasjon trengst for $f(x) = P(x) \\cdot e^{g(x)}$?","2dcd1ee1244d8976":"Berre kjerneregelen","52244847e9be441a":"Produktregel kombinert med kjerneregel","2b9acbdcb4d2e394":"Brøkregelen","9b26316e9cc5d291":"Berre potensregelen","7f01477cae2558c1":"Produktregelen handterer produktet $P(x) \\cdot e^{g(x)}$, og kjerneregelen trengst for å derivere $e^{g(x)}$ til $g'(x)e^{g(x)}$.","b1428fccad6bd365":"## Domenet til logaritmen\n\nNeste modelltype inneheld logaritmar, og då er **definisjonsmengda** alltid første sjekkpunkt: $\\ln x$ finst berre for $x > 0$.\n\nVi drøftar først $f(x) = x - \\ln x$ for $x > 0$. Grenseåtferda: når $x \\to 0^+$ går $\\ln x \\to -\\infty$, så $f(x) \\to +\\infty$; når $x \\to \\infty$ dominerer $x$ over $\\ln x$, så $f(x) \\to \\infty$ der òg. Den deriverte er $f'(x) = 1 - \\frac{1}{x} = \\frac{x-1}{x}$, som er null i $x = 1$: funksjonen minkar på $(0,1)$ og veks for $x > 1$, med **botnpunkt** $(1, 1)$. Og sidan $f''(x) = \\frac{1}{x^2} > 0$ overalt, er funksjonen konveks utan vendepunkt. Ein elegant konsekvens: minimumsverdien er $1 > 0$, så $f$ har ingen nullpunkt i det heile teke — likninga $x = \\ln x$ har inga løysing.\n\nSå ein brøk: $f(x) = \\frac{\\ln x}{x}$, som kan tolkast som «logaritmisk utbytte per eining». Nullpunkt der $\\ln x = 0$, altså $x = 1$. Mot null frå høgre: $\\frac{-\\infty}{0^+} = -\\infty$; mot uendeleg: $\\frac{\\ln x}{x} \\to 0$ fordi polynom slår logaritme — horisontal asymptote $y = 0$. Brøkregelen gir $f'(x) = \\frac{\\frac{1}{x} \\cdot x - \\ln x}{x^2} = \\frac{1 - \\ln x}{x^2}$, som er null når $\\ln x = 1$, altså $x = e$. **Toppunktet** er $(e, \\frac{1}{e}) \\approx (2{,}72,\\ 0{,}37)$ — av alle tal er det $e$ som maksimerer $\\frac{\\ln x}{x}$. Den andrederiverte $f''(x) = \\frac{2\\ln x - 3}{x^3}$ gir vendepunkt der $\\ln x = \\frac{3}{2}$, altså $x = e^{3/2} \\approx 4{,}48$.","01c4b3eda8eebc51":"Test deg sjølv på logaritmefunksjonar:","02c89b17fcec21c2":"Kva er definisjonsmengda til $f(x) = \\ln(g(x))$?","dae0b5c48173cf32":"Alle $x$ der $g(x) \\neq 0$","a90704430b4da5e6":"Alle $x$ der $g(x) > 0$","9ae069ee8975e15c":"Heile $\\mathbb{R}$","89c6d41cce35a84e":"Alle $x > 0$","53054304f3b69ddd":"Logaritmen er berre definert for positive argument, så vi krev $g(x) > 0$ — ikkje nødvendigvis $x > 0$.","9bb8a9c0860a13b3":"Kvifor har $f(x) = x - \\ln x$ ingen nullpunkt?","0b299074e6aef30b":"Fordi funksjonen er udefinert for $x > 0$","3e22609833eeb6af":"Fordi $f$ er minkande overalt","dbe1232101e808f7":"Fordi minimumsverdien er $f(1) = 1 > 0$","63730ac14c210d32":"Fordi $\\ln x$ alltid er negativ","6914c18d20fc6f65":"Botnpunktet er $(1, 1)$, og funksjonen er konveks. Når den lågaste verdien er 1, kjem grafen aldri ned til $x$-aksen — likninga $x = \\ln x$ er uløyseleg.","322d1cf9e6d2f1c6":"Kvar har $f(x) = \\frac{\\ln x}{x}$ toppunktet sitt?","d53ddd66e1e01dd7":"$(e^{3/2}, \\frac{3}{2e^{3/2}})$","67253719af044835":"$(2, \\frac{\\ln 2}{2})$","434599098fd22e22":"$(e, \\frac{1}{e})$","d2e4e08c7ed958e1":"$f'(x) = \\frac{1 - \\ln x}{x^2} = 0$ gir $\\ln x = 1$, altså $x = e$, og $f(e) = \\frac{1}{e}$. Punktet $(e^{3/2}, \\ldots)$ er vendepunktet.","19cf28764df075c5":"Kva er $f'(x)$ når $f(x) = \\ln(g(x))$?","d19a3a6ae308c095":"$\\frac{1}{g(x)}$","c03f99f96183c427":"$\\frac{g'(x)}{g(x)}$","33909ed7039a3a79":"$g'(x) \\ln(g(x))$","7bc67175cd5eb226":"$\\frac{g(x)}{g'(x)}$","68a87e1e8e40de93":"Kjerneregelen: den ytre deriverte er $\\frac{1}{g(x)}$, ganga med den indre deriverte $g'(x)$. Til dømes er $(\\ln(x^2))' = \\frac{2x}{x^2} = \\frac{2}{x}$.","59fd7d0c1c1e2ddb":"## Generalprøva: $x^2 \\ln x$\n\nTil slutt tek vi ei oppgåve av rein eksamenstype: drøft $f(x) = x^2 \\ln x$ for $x > 0$ — type 4 i katalogen vår, potens gangar logaritme.\n\n**Nullpunkt**: for $x > 0$ er $x^2 > 0$, så $f(x) = 0$ krev $\\ln x = 0$, altså $x = 1$. Forteiknet følgjer logaritmen: negativt på $(0, 1)$, positivt for $x > 1$. **Grenseåtferda** nær null er det spesielle her: $x^2 \\to 0$ medan $\\ln x \\to -\\infty$ — kven vinn? Den viktige grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$ seier at polynomfaktoren vinn: $f(x) \\to 0$. Mot uendeleg veks begge faktorane, så $f(x) \\to \\infty$.\n\n**Derivasjon** med produktregel: $f'(x) = 2x\\ln x + x^2 \\cdot \\frac{1}{x} = x(2\\ln x + 1)$. For $x > 0$ er $f'(x) = 0$ når $\\ln x = -\\frac{1}{2}$, altså $x = e^{-1/2} = \\frac{1}{\\sqrt{e}} \\approx 0{,}607$. Funksjonen minkar før og veks etter, så vi har **botnpunkt** i $(\\frac{1}{\\sqrt{e}}, -\\frac{1}{2e}) \\approx (0{,}607, -0{,}184)$. Den andrederiverte: $f''(x) = 2\\ln x + 1 + 2 = 2\\ln x + 3$, null når $\\ln x = -\\frac{3}{2}$, altså $x = e^{-3/2} \\approx 0{,}223$, med **vendepunkt** $(e^{-3/2}, -\\frac{3}{2e^3}) \\approx (0{,}223, -0{,}075)$.\n\nDermed har vi ei hugseliste for avanserte drøftingar: sjekk definisjonsmengda først (særleg for logaritmar), faktoriser $f'$ og trekk ut $e^{g(x)}$ der det går, bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ for grenseåtferd, og sjekk gjerne symmetri — om $f(-x) = f(x)$ (par funksjon) eller $f(-x) = -f(x)$ (odde). Og hugs kjerneregelen i kvar einaste derivasjon: $(e^{2x})' = 2e^{2x}$, ikkje $e^{2x}$.","74dbb618ef63b655":"Test deg sjølv på drøfting av $x^2 \\ln x$ og strategiane:","298a3107199377d2":"Kva er $\\lim_{x \\to 0^+} x^2 \\ln x$?","53877e249bb1ce67":"$-\\infty$","c66760d57327e8e0":"$+\\infty$","bfdedaf43b6f1997":"Den generelle regelen $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$: potensfaktoren går mot null raskare enn logaritmen går mot $-\\infty$.","3853c8b9045f14d4":"$f(x) = x^2 \\ln x$ har $f'(x) = x(2\\ln x + 1)$. Kvar er botnpunktet?","d846f5996b5a4b9b":"$x = e^{-1/2} = \\frac{1}{\\sqrt{e}}$","b96ae96cb92f7fb0":"$x = 1$","c63f26821aaf1d40":"$x = e^{-3/2}$","180eeb59df34c03d":"$x = e$","4348a5dc19dd5627":"For $x > 0$ er $f'(x) = 0$ når $2\\ln x + 1 = 0$, altså $\\ln x = -\\frac{1}{2}$ og $x = e^{-1/2} \\approx 0{,}607$. ($x = 1$ er nullpunktet, $e^{-3/2}$ vendepunktet.)","6950f262bfc7dca9":"Kva tyder det at ein funksjon er par?","a2de22d2b1204aec":"$f(-x) = -f(x)$","7445c3135bea0ea8":"$f(-x) = f(x)$ — grafen er symmetrisk om $y$-aksen","e924441618d90fd7":"Funksjonen har to nullpunkt","52ea500f8c9d277e":"Graden er eit partal","b3278610d6a63e18":"Ein par funksjon oppfyller $f(-x) = f(x)$ og er symmetrisk om $y$-aksen. Ein odde funksjon oppfyller $f(-x) = -f(x)$. Symmetri kan halvere drøftingsarbeidet.","0b6f39ddd76b0a4e":"Kva er den deriverte av $e^{2x}$?","cacc17eb4bdde10b":"$e^{2x}$","dab9485164ce56e4":"$2e^{x}$","ff42cd4bdfec9acf":"$x e^{2x}$","44cdc71ffcd18499":"$2e^{2x}$","93fbd6fb4ac87c93":"Kjerneregelen: indre derivert av $2x$ er $2$, så $(e^{2x})' = 2e^{2x}$. Å gløyme den indre deriverte er ein av dei vanlegaste feila i avansert derivasjon.","a69ec478ffe3c1b4":"## Oppsummering: fire typar, éin strategi\n\nFunksjonane til forskingsmodellane ser avskrekkjande ut, men dei fell i fire typar med kvar sin angrepsmåte: polynom gangar eksponential ($P(x)e^{g(x)}$ — produktregel pluss kjerneregel, faktoriser ut eksponentialen), polynom delt på eksponential (skriv om med negativ eksponent), logaritme av samansett uttrykk ($\\ln g(x)$ — derivert $\\frac{g'(x)}{g(x)}$, krev $g(x) > 0$), og potens gangar logaritme ($x^a \\ln x$ — produktregel og grensesjekk nær null).\n\nStrategien for drøfting er alltid: definisjonsmengd først, særleg for logaritmar der $\\ln x$ krev $x > 0$. Faktoriser den deriverte og trekk ut $e^{g(x)}$, som aldri er null, slik at nullpunkta til både $f$ og $f'$ blir bestemte av dei andre faktorane. Bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ og grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ til å finne grenseåtferda. Og sjekk symmetri når det er aktuelt.\n\nSlik fann vi at legemiddelkurva $(x^2-2x)e^{-x}$ har ekstremalpunkt i $2 \\pm \\sqrt{2}$ og døyr ut mot asymptoten $y = 0$; at $x - \\ln x$ aldri blir null fordi botnpunktet ligg på høgd 1; at $\\frac{\\ln x}{x}$ toppar seg nettopp i $x = e$; og at $x^2 \\ln x$ kryp mot null i origo trass i logaritmens stup mot $-\\infty$. Kvar gong var det dei same verktøya — kjerneregel, produktregel, brøkregel og forteiknsskjema — sette saman med systematikk. Det er det avansert funksjonsanalyse er: kjende verktøy brukte i rett rekkjefølgje."}}}
+{
+  "id": "s2-3-6-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "3.6",
+  "title": "Avansert funksjonsanalyse",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om forskingsmodellane som kombinerer polynom, eksponentialar og logaritmar — og strategiane som temjer dei.",
+  "estimatedMinutes": 43,
+  "competenceGoals": [
+    "drøfte samansette funksjonar med eksponential- og logaritmeuttrykk",
+    "gjennomføre fullstendig funksjonsdrøfting av avanserte funksjonstypar"
+  ],
+  "linkedChapterId": "s2-3-6",
+  "content": [
+    {
+      "id": "s2-3-6-n-intro",
+      "type": "text",
+      "content": "## Modellane frå verkelegheita\n\nNår forskarar modellerer verkelegheita — konsentrasjonen av eit legemiddel i blodet, effekten av ein kampanje, lønsemd per investert krone — endar dei sjeldan opp med eit pent polynom. Modellane kombinerer gjerne fleire funksjonstypar: polynom ganga med eksponentialfunksjonar, logaritmar av samansette uttrykk, brøkar med eksponentialar. I S2 er drøfting av slike samansette funksjonar ei typisk eksamensoppgåve, og dei krev at du meistrar kjerneregel, produktregel og brøkregel i kombinasjon.\n\nHeldigvis fell dei fleste oppgåvene i fire kjennelege typar. **Type 1** er $f(x) = P(x) \\cdot e^{g(x)}$, polynom gangar eksponential: bruk produktregel pluss kjerneregel, og faktoriser alltid ut $e^{g(x)}$ — som aldri er null — slik at nullpunkta til $f'$ blir bestemte av den attverande faktoren. **Type 2** er $f(x) = \\frac{P(x)}{e^{g(x)}}$: skriv om til $P(x) \\cdot e^{-g(x)}$ og bruk type 1, eller bruk brøkregelen direkte. **Type 3** er $f(x) = \\ln(g(x))$: kjerneregelen gir $f'(x) = \\frac{g'(x)}{g(x)}$, og definisjonsmengda krev $g(x) > 0$. **Type 4** er $f(x) = x^a \\cdot \\ln x$: produktregel, med spesiell merksemd på grenseåtferda nær $x = 0$.\n\nEit par derivasjonsresultat er verdt å ha i bakhovudet: $(e^{g(x)})' = g'(x)e^{g(x)}$, $(\\ln g(x))' = \\frac{g'(x)}{g(x)}$, $(a^{g(x)})' = g'(x) \\ln a \\cdot a^{g(x)}$, $([g(x)]^n)' = n g'(x) [g(x)]^{n-1}$, og dei praktiske kombinasjonane $(x^n e^{ax})' = e^{ax}(nx^{n-1} + ax^n)$ og $(x^a \\ln x)' = x^{a-1}(a \\ln x + 1)$. Lat oss bruke alt dette på ekte drøftingar."
+    },
+    {
+      "id": "s2-3-6-n-section1",
+      "type": "text",
+      "content": "## Legemiddelkurva: polynom gangar eksponential\n\nVi drøftar $f(x) = (x^2 - 2x)e^{-x}$ — ein kurvetype som liknar på korleis verknaden av ein dose byggjer seg opp og døyr ut.\n\n**Definisjonsmengda** er $\\mathbb{R}$. **Nullpunkta**: sidan $e^{-x} > 0$ alltid, er $f(x) = 0$ berre når $x^2 - 2x = x(x-2) = 0$, altså $x = 0$ og $x = 2$. Forteiknet blir òg styrt av polynomfaktoren: positivt for $x < 0$ og $x > 2$, negativt mellom. **Grenseåtferda**: mot høgre er $f(x) = \\frac{x^2 - 2x}{e^x} \\to 0$ fordi eksponentialen vinn — horisontal asymptote $y = 0$. Mot venstre veks $e^{-x}$ utan grenser, så $f(x) \\to \\infty$.\n\nSå derivasjonen, med produktregel: $f'(x) = (2x-2)e^{-x} + (x^2-2x)(-e^{-x})$. No kjem det viktigaste grepet: faktoriser ut $e^{-x}$. Då står vi att med $f'(x) = e^{-x}(-x^2 + 4x - 2)$, og sidan eksponentialfaktoren aldri er null, løyser vi berre $x^2 - 4x + 2 = 0$, som gir $x = 2 \\pm \\sqrt{2}$. Forteiknsskjemaet viser at $f$ minkar, veks og minkar att: **botnpunkt** i $x = 2 - \\sqrt{2} \\approx 0{,}59$ (med $f \\approx -0{,}19$) og **toppunkt** i $x = 2 + \\sqrt{2} \\approx 3{,}41$ (med $f \\approx 0{,}38$).\n\nSame teknikken ein gong til gir $f''(x) = e^{-x}(x^2 - 6x + 6)$, som er null for $x = 3 \\pm \\sqrt{3}$ — to **vendepunkt**, i $x \\approx 1{,}27$ og $x \\approx 4{,}73$. Heile drøftinga kviler på eitt prinsipp: trekk ut den eksponentialfaktoren som aldri kan bli null, og analyser resten som eit vanleg polynom."
+    },
+    {
+      "id": "s2-3-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på drøfting av polynom-eksponential-funksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-6-n-quiz1-q0",
+            "task": "Kvifor faktoriserer vi ut $e^{g(x)}$ frå $f'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi $e^{g(x)}$ aldri er null, så nullpunkta til $f'$ blir bestemte av den andre faktoren",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi $e^{g(x)}$ alltid er lik 1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi den deriverte av $e^{g(x)}$ er null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det gjer funksjonen lineær",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Eksponentialfunksjonen er strengt positiv. Når $f'(x) = e^{-x}(-x^2+4x-2)$, held det å løyse $-x^2+4x-2 = 0$."
+          },
+          {
+            "id": "s2-3-6-n-quiz1-q1",
+            "task": "Kva er nullpunkta til $f(x) = (x^2 - 2x)e^{-x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 2 \\pm \\sqrt{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 0$ og $x = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Berre $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 3 \\pm \\sqrt{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$e^{-x} > 0$, så nullpunkta kjem frå $x^2 - 2x = x(x-2) = 0$: $x = 0$ og $x = 2$. ($2 \\pm \\sqrt{2}$ er ekstremalpunkta, $3 \\pm \\sqrt{3}$ vendepunkta.)"
+          },
+          {
+            "id": "s2-3-6-n-quiz1-q2",
+            "task": "Kva skjer med $f(x) = (x^2-2x)e^{-x}$ når $x \\to \\infty$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(x) \\to \\infty$ fordi polynomet veks",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(x) \\to -\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$f(x) \\to 0$ fordi eksponentialveksten i nemnaren dominerer",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$f(x) \\to 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skriv $f(x) = \\frac{x^2-2x}{e^x}$. Veksthierarkiet seier at $e^x$ slår eitkvart polynom, så grensa er 0 — horisontal asymptote $y = 0$ mot høgre."
+          },
+          {
+            "id": "s2-3-6-n-quiz1-q3",
+            "task": "Kva for ein derivasjonsregel-kombinasjon trengst for $f(x) = P(x) \\cdot e^{g(x)}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Berre kjerneregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Brøkregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Berre potensregelen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Produktregel kombinert med kjerneregel",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Produktregelen handterer produktet $P(x) \\cdot e^{g(x)}$, og kjerneregelen trengst for å derivere $e^{g(x)}$ til $g'(x)e^{g(x)}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-6-n-section2",
+      "type": "text",
+      "content": "## Domenet til logaritmen\n\nNeste modelltype inneheld logaritmar, og då er **definisjonsmengda** alltid første sjekkpunkt: $\\ln x$ finst berre for $x > 0$.\n\nVi drøftar først $f(x) = x - \\ln x$ for $x > 0$. Grenseåtferda: når $x \\to 0^+$ går $\\ln x \\to -\\infty$, så $f(x) \\to +\\infty$; når $x \\to \\infty$ dominerer $x$ over $\\ln x$, så $f(x) \\to \\infty$ der òg. Den deriverte er $f'(x) = 1 - \\frac{1}{x} = \\frac{x-1}{x}$, som er null i $x = 1$: funksjonen minkar på $(0,1)$ og veks for $x > 1$, med **botnpunkt** $(1, 1)$. Og sidan $f''(x) = \\frac{1}{x^2} > 0$ overalt, er funksjonen konveks utan vendepunkt. Ein elegant konsekvens: minimumsverdien er $1 > 0$, så $f$ har ingen nullpunkt i det heile teke — likninga $x = \\ln x$ har inga løysing.\n\nSå ein brøk: $f(x) = \\frac{\\ln x}{x}$, som kan tolkast som «logaritmisk utbytte per eining». Nullpunkt der $\\ln x = 0$, altså $x = 1$. Mot null frå høgre: $\\frac{-\\infty}{0^+} = -\\infty$; mot uendeleg: $\\frac{\\ln x}{x} \\to 0$ fordi polynom slår logaritme — horisontal asymptote $y = 0$. Brøkregelen gir $f'(x) = \\frac{\\frac{1}{x} \\cdot x - \\ln x}{x^2} = \\frac{1 - \\ln x}{x^2}$, som er null når $\\ln x = 1$, altså $x = e$. **Toppunktet** er $(e, \\frac{1}{e}) \\approx (2{,}72,\\ 0{,}37)$ — av alle tal er det $e$ som maksimerer $\\frac{\\ln x}{x}$. Den andrederiverte $f''(x) = \\frac{2\\ln x - 3}{x^3}$ gir vendepunkt der $\\ln x = \\frac{3}{2}$, altså $x = e^{3/2} \\approx 4{,}48$."
+    },
+    {
+      "id": "s2-3-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på logaritmefunksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-6-n-quiz2-q0",
+            "task": "Kva er definisjonsmengda til $f(x) = \\ln(g(x))$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Alle $x$ der $g(x) > 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Alle $x$ der $g(x) \\neq 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Heile $\\mathbb{R}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle $x > 0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Logaritmen er berre definert for positive argument, så vi krev $g(x) > 0$ — ikkje nødvendigvis $x > 0$."
+          },
+          {
+            "id": "s2-3-6-n-quiz2-q1",
+            "task": "Kvifor har $f(x) = x - \\ln x$ ingen nullpunkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi funksjonen er udefinert for $x > 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi minimumsverdien er $f(1) = 1 > 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi $f$ er minkande overalt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi $\\ln x$ alltid er negativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Botnpunktet er $(1, 1)$, og funksjonen er konveks. Når den lågaste verdien er 1, kjem grafen aldri ned til $x$-aksen — likninga $x = \\ln x$ er uløyseleg."
+          },
+          {
+            "id": "s2-3-6-n-quiz2-q2",
+            "task": "Kvar har $f(x) = \\frac{\\ln x}{x}$ toppunktet sitt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(1, 0)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(e^{3/2}, \\frac{3}{2e^{3/2}})$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(e, \\frac{1}{e})$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$(2, \\frac{\\ln 2}{2})$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = \\frac{1 - \\ln x}{x^2} = 0$ gir $\\ln x = 1$, altså $x = e$, og $f(e) = \\frac{1}{e}$. Punktet $(e^{3/2}, \\ldots)$ er vendepunktet."
+          },
+          {
+            "id": "s2-3-6-n-quiz2-q3",
+            "task": "Kva er $f'(x)$ når $f(x) = \\ln(g(x))$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{g(x)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$g'(x) \\ln(g(x))$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{g(x)}{g'(x)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{g'(x)}{g(x)}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kjerneregelen: den ytre deriverte er $\\frac{1}{g(x)}$, ganga med den indre deriverte $g'(x)$. Til dømes er $(\\ln(x^2))' = \\frac{2x}{x^2} = \\frac{2}{x}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-6-n-section3",
+      "type": "text",
+      "content": "## Generalprøva: $x^2 \\ln x$\n\nTil slutt tek vi ei oppgåve av rein eksamenstype: drøft $f(x) = x^2 \\ln x$ for $x > 0$ — type 4 i katalogen vår, potens gangar logaritme.\n\n**Nullpunkt**: for $x > 0$ er $x^2 > 0$, så $f(x) = 0$ krev $\\ln x = 0$, altså $x = 1$. Forteiknet følgjer logaritmen: negativt på $(0, 1)$, positivt for $x > 1$. **Grenseåtferda** nær null er det spesielle her: $x^2 \\to 0$ medan $\\ln x \\to -\\infty$ — kven vinn? Den viktige grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$ seier at polynomfaktoren vinn: $f(x) \\to 0$. Mot uendeleg veks begge faktorane, så $f(x) \\to \\infty$.\n\n**Derivasjon** med produktregel: $f'(x) = 2x\\ln x + x^2 \\cdot \\frac{1}{x} = x(2\\ln x + 1)$. For $x > 0$ er $f'(x) = 0$ når $\\ln x = -\\frac{1}{2}$, altså $x = e^{-1/2} = \\frac{1}{\\sqrt{e}} \\approx 0{,}607$. Funksjonen minkar før og veks etter, så vi har **botnpunkt** i $(\\frac{1}{\\sqrt{e}}, -\\frac{1}{2e}) \\approx (0{,}607, -0{,}184)$. Den andrederiverte: $f''(x) = 2\\ln x + 1 + 2 = 2\\ln x + 3$, null når $\\ln x = -\\frac{3}{2}$, altså $x = e^{-3/2} \\approx 0{,}223$, med **vendepunkt** $(e^{-3/2}, -\\frac{3}{2e^3}) \\approx (0{,}223, -0{,}075)$.\n\nDermed har vi ei hugseliste for avanserte drøftingar: sjekk definisjonsmengda først (særleg for logaritmar), faktoriser $f'$ og trekk ut $e^{g(x)}$ der det går, bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ for grenseåtferd, og sjekk gjerne symmetri — om $f(-x) = f(x)$ (par funksjon) eller $f(-x) = -f(x)$ (odde). Og hugs kjerneregelen i kvar einaste derivasjon: $(e^{2x})' = 2e^{2x}$, ikkje $e^{2x}$."
+    },
+    {
+      "id": "s2-3-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-3-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på drøfting av $x^2 \\ln x$ og strategiane:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-3-6-n-quiz3-q0",
+            "task": "Kva er $\\lim_{x \\to 0^+} x^2 \\ln x$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$+\\infty$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den generelle regelen $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$: potensfaktoren går mot null raskare enn logaritmen går mot $-\\infty$."
+          },
+          {
+            "id": "s2-3-6-n-quiz3-q1",
+            "task": "$f(x) = x^2 \\ln x$ har $f'(x) = x(2\\ln x + 1)$. Kvar er botnpunktet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = e^{-1/2} = \\frac{1}{\\sqrt{e}}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = e^{-3/2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = e$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x > 0$ er $f'(x) = 0$ når $2\\ln x + 1 = 0$, altså $\\ln x = -\\frac{1}{2}$ og $x = e^{-1/2} \\approx 0{,}607$. ($x = 1$ er nullpunktet, $e^{-3/2}$ vendepunktet.)"
+          },
+          {
+            "id": "s2-3-6-n-quiz3-q2",
+            "task": "Kva tyder det at ein funksjon er par?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$f(-x) = -f(x)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Funksjonen har to nullpunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$f(-x) = f(x)$ — grafen er symmetrisk om $y$-aksen",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Graden er eit partal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ein par funksjon oppfyller $f(-x) = f(x)$ og er symmetrisk om $y$-aksen. Ein odde funksjon oppfyller $f(-x) = -f(x)$. Symmetri kan halvere drøftingsarbeidet."
+          },
+          {
+            "id": "s2-3-6-n-quiz3-q3",
+            "task": "Kva er den deriverte av $e^{2x}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2e^{x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x e^{2x}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2e^{2x}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kjerneregelen: indre derivert av $2x$ er $2$, så $(e^{2x})' = 2e^{2x}$. Å gløyme den indre deriverte er ein av dei vanlegaste feila i avansert derivasjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-3-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: fire typar, éin strategi\n\nFunksjonane til forskingsmodellane ser avskrekkjande ut, men dei fell i fire typar med kvar sin angrepsmåte: polynom gangar eksponential ($P(x)e^{g(x)}$ — produktregel pluss kjerneregel, faktoriser ut eksponentialen), polynom delt på eksponential (skriv om med negativ eksponent), logaritme av samansett uttrykk ($\\ln g(x)$ — derivert $\\frac{g'(x)}{g(x)}$, krev $g(x) > 0$), og potens gangar logaritme ($x^a \\ln x$ — produktregel og grensesjekk nær null).\n\nStrategien for drøfting er alltid: definisjonsmengd først, særleg for logaritmar der $\\ln x$ krev $x > 0$. Faktoriser den deriverte og trekk ut $e^{g(x)}$, som aldri er null, slik at nullpunkta til både $f$ og $f'$ blir bestemte av dei andre faktorane. Bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ og grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ til å finne grenseåtferda. Og sjekk symmetri når det er aktuelt.\n\nSlik fann vi at legemiddelkurva $(x^2-2x)e^{-x}$ har ekstremalpunkt i $2 \\pm \\sqrt{2}$ og døyr ut mot asymptoten $y = 0$; at $x - \\ln x$ aldri blir null fordi botnpunktet ligg på høgd 1; at $\\frac{\\ln x}{x}$ toppar seg nettopp i $x = e$; og at $x^2 \\ln x$ kryp mot null i origo trass i logaritmens stup mot $-\\infty$. Kvar gong var det dei same verktøya — kjerneregel, produktregel, brøkregel og forteiknsskjema — sette saman med systematikk. Det er det avansert funksjonsanalyse er: kjende verktøy brukte i rett rekkjefølgje."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "884abfd765b0fa91",
+    "translatedAt": "2026-06-20T07:59:03.718Z",
+    "model": "claude-code-agent",
+    "strings": 85,
+    "tm": {
+      "42c2b73f6c3daba7": "Avansert funksjonsanalyse",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "10d3fb15fe1f92a9": "Ei forteljing om forskingsmodellane som kombinerer polynom, eksponentialar og logaritmar — og strategiane som temjer dei.",
+      "77d447aa34e18577": "drøfte samansette funksjonar med eksponential- og logaritmeuttrykk",
+      "15794c7250ed551f": "gjennomføre fullstendig funksjonsdrøfting av avanserte funksjonstypar",
+      "f03b0d2a80a93563": "## Modellane frå verkelegheita\n\nNår forskarar modellerer verkelegheita — konsentrasjonen av eit legemiddel i blodet, effekten av ein kampanje, lønsemd per investert krone — endar dei sjeldan opp med eit pent polynom. Modellane kombinerer gjerne fleire funksjonstypar: polynom ganga med eksponentialfunksjonar, logaritmar av samansette uttrykk, brøkar med eksponentialar. I S2 er drøfting av slike samansette funksjonar ei typisk eksamensoppgåve, og dei krev at du meistrar kjerneregel, produktregel og brøkregel i kombinasjon.\n\nHeldigvis fell dei fleste oppgåvene i fire kjennelege typar. **Type 1** er $f(x) = P(x) \\cdot e^{g(x)}$, polynom gangar eksponential: bruk produktregel pluss kjerneregel, og faktoriser alltid ut $e^{g(x)}$ — som aldri er null — slik at nullpunkta til $f'$ blir bestemte av den attverande faktoren. **Type 2** er $f(x) = \\frac{P(x)}{e^{g(x)}}$: skriv om til $P(x) \\cdot e^{-g(x)}$ og bruk type 1, eller bruk brøkregelen direkte. **Type 3** er $f(x) = \\ln(g(x))$: kjerneregelen gir $f'(x) = \\frac{g'(x)}{g(x)}$, og definisjonsmengda krev $g(x) > 0$. **Type 4** er $f(x) = x^a \\cdot \\ln x$: produktregel, med spesiell merksemd på grenseåtferda nær $x = 0$.\n\nEit par derivasjonsresultat er verdt å ha i bakhovudet: $(e^{g(x)})' = g'(x)e^{g(x)}$, $(\\ln g(x))' = \\frac{g'(x)}{g(x)}$, $(a^{g(x)})' = g'(x) \\ln a \\cdot a^{g(x)}$, $([g(x)]^n)' = n g'(x) [g(x)]^{n-1}$, og dei praktiske kombinasjonane $(x^n e^{ax})' = e^{ax}(nx^{n-1} + ax^n)$ og $(x^a \\ln x)' = x^{a-1}(a \\ln x + 1)$. Lat oss bruke alt dette på ekte drøftingar.",
+      "dc9c03e7fbe425d0": "## Legemiddelkurva: polynom gangar eksponential\n\nVi drøftar $f(x) = (x^2 - 2x)e^{-x}$ — ein kurvetype som liknar på korleis verknaden av ein dose byggjer seg opp og døyr ut.\n\n**Definisjonsmengda** er $\\mathbb{R}$. **Nullpunkta**: sidan $e^{-x} > 0$ alltid, er $f(x) = 0$ berre når $x^2 - 2x = x(x-2) = 0$, altså $x = 0$ og $x = 2$. Forteiknet blir òg styrt av polynomfaktoren: positivt for $x < 0$ og $x > 2$, negativt mellom. **Grenseåtferda**: mot høgre er $f(x) = \\frac{x^2 - 2x}{e^x} \\to 0$ fordi eksponentialen vinn — horisontal asymptote $y = 0$. Mot venstre veks $e^{-x}$ utan grenser, så $f(x) \\to \\infty$.\n\nSå derivasjonen, med produktregel: $f'(x) = (2x-2)e^{-x} + (x^2-2x)(-e^{-x})$. No kjem det viktigaste grepet: faktoriser ut $e^{-x}$. Då står vi att med $f'(x) = e^{-x}(-x^2 + 4x - 2)$, og sidan eksponentialfaktoren aldri er null, løyser vi berre $x^2 - 4x + 2 = 0$, som gir $x = 2 \\pm \\sqrt{2}$. Forteiknsskjemaet viser at $f$ minkar, veks og minkar att: **botnpunkt** i $x = 2 - \\sqrt{2} \\approx 0{,}59$ (med $f \\approx -0{,}19$) og **toppunkt** i $x = 2 + \\sqrt{2} \\approx 3{,}41$ (med $f \\approx 0{,}38$).\n\nSame teknikken ein gong til gir $f''(x) = e^{-x}(x^2 - 6x + 6)$, som er null for $x = 3 \\pm \\sqrt{3}$ — to **vendepunkt**, i $x \\approx 1{,}27$ og $x \\approx 4{,}73$. Heile drøftinga kviler på eitt prinsipp: trekk ut den eksponentialfaktoren som aldri kan bli null, og analyser resten som eit vanleg polynom.",
+      "fef79c5f2d23311c": "Test deg sjølv på drøfting av polynom-eksponential-funksjonar:",
+      "4097889236a2af26": "placeholder",
+      "5ea5082dbe66e487": "Kvifor faktoriserer vi ut $e^{g(x)}$ frå $f'(x)$?",
+      "6fbffdbbbbeb71cd": "Fordi $e^{g(x)}$ aldri er null, så nullpunkta til $f'$ blir bestemte av den andre faktoren",
+      "f0740aa4a149622f": "Fordi $e^{g(x)}$ alltid er lik 1",
+      "0a02283617dd7be9": "Fordi den deriverte av $e^{g(x)}$ er null",
+      "34e17b2a6b0f31f5": "Fordi det gjer funksjonen lineær",
+      "93f0f3f664c302b1": "Eksponentialfunksjonen er strengt positiv. Når $f'(x) = e^{-x}(-x^2+4x-2)$, held det å løyse $-x^2+4x-2 = 0$.",
+      "ba79e737d0814814": "Kva er nullpunkta til $f(x) = (x^2 - 2x)e^{-x}$?",
+      "dcd23ccbc274a863": "$x = 2 \\pm \\sqrt{2}$",
+      "3bcd8f83a343204d": "$x = 0$ og $x = 2$",
+      "e049567458489c26": "Berre $x = 0$",
+      "960a88c3b9b68969": "$x = 3 \\pm \\sqrt{3}$",
+      "e4de7824157acc9a": "$e^{-x} > 0$, så nullpunkta kjem frå $x^2 - 2x = x(x-2) = 0$: $x = 0$ og $x = 2$. ($2 \\pm \\sqrt{2}$ er ekstremalpunkta, $3 \\pm \\sqrt{3}$ vendepunkta.)",
+      "6bac1b464f9e69a2": "Kva skjer med $f(x) = (x^2-2x)e^{-x}$ når $x \\to \\infty$?",
+      "a4032134baa9f7dd": "$f(x) \\to \\infty$ fordi polynomet veks",
+      "b210602a603dd39e": "$f(x) \\to -\\infty$",
+      "4ca68ed87d388080": "$f(x) \\to 0$ fordi eksponentialveksten i nemnaren dominerer",
+      "39b7bb3cbf99a153": "$f(x) \\to 2$",
+      "c2b39ad2aab6b4d7": "Skriv $f(x) = \\frac{x^2-2x}{e^x}$. Veksthierarkiet seier at $e^x$ slår eitkvart polynom, så grensa er 0 — horisontal asymptote $y = 0$ mot høgre.",
+      "f12a190376118dc7": "Kva for ein derivasjonsregel-kombinasjon trengst for $f(x) = P(x) \\cdot e^{g(x)}$?",
+      "2dcd1ee1244d8976": "Berre kjerneregelen",
+      "52244847e9be441a": "Produktregel kombinert med kjerneregel",
+      "2b9acbdcb4d2e394": "Brøkregelen",
+      "9b26316e9cc5d291": "Berre potensregelen",
+      "7f01477cae2558c1": "Produktregelen handterer produktet $P(x) \\cdot e^{g(x)}$, og kjerneregelen trengst for å derivere $e^{g(x)}$ til $g'(x)e^{g(x)}$.",
+      "b1428fccad6bd365": "## Domenet til logaritmen\n\nNeste modelltype inneheld logaritmar, og då er **definisjonsmengda** alltid første sjekkpunkt: $\\ln x$ finst berre for $x > 0$.\n\nVi drøftar først $f(x) = x - \\ln x$ for $x > 0$. Grenseåtferda: når $x \\to 0^+$ går $\\ln x \\to -\\infty$, så $f(x) \\to +\\infty$; når $x \\to \\infty$ dominerer $x$ over $\\ln x$, så $f(x) \\to \\infty$ der òg. Den deriverte er $f'(x) = 1 - \\frac{1}{x} = \\frac{x-1}{x}$, som er null i $x = 1$: funksjonen minkar på $(0,1)$ og veks for $x > 1$, med **botnpunkt** $(1, 1)$. Og sidan $f''(x) = \\frac{1}{x^2} > 0$ overalt, er funksjonen konveks utan vendepunkt. Ein elegant konsekvens: minimumsverdien er $1 > 0$, så $f$ har ingen nullpunkt i det heile teke — likninga $x = \\ln x$ har inga løysing.\n\nSå ein brøk: $f(x) = \\frac{\\ln x}{x}$, som kan tolkast som «logaritmisk utbytte per eining». Nullpunkt der $\\ln x = 0$, altså $x = 1$. Mot null frå høgre: $\\frac{-\\infty}{0^+} = -\\infty$; mot uendeleg: $\\frac{\\ln x}{x} \\to 0$ fordi polynom slår logaritme — horisontal asymptote $y = 0$. Brøkregelen gir $f'(x) = \\frac{\\frac{1}{x} \\cdot x - \\ln x}{x^2} = \\frac{1 - \\ln x}{x^2}$, som er null når $\\ln x = 1$, altså $x = e$. **Toppunktet** er $(e, \\frac{1}{e}) \\approx (2{,}72,\\ 0{,}37)$ — av alle tal er det $e$ som maksimerer $\\frac{\\ln x}{x}$. Den andrederiverte $f''(x) = \\frac{2\\ln x - 3}{x^3}$ gir vendepunkt der $\\ln x = \\frac{3}{2}$, altså $x = e^{3/2} \\approx 4{,}48$.",
+      "01c4b3eda8eebc51": "Test deg sjølv på logaritmefunksjonar:",
+      "02c89b17fcec21c2": "Kva er definisjonsmengda til $f(x) = \\ln(g(x))$?",
+      "dae0b5c48173cf32": "Alle $x$ der $g(x) \\neq 0$",
+      "a90704430b4da5e6": "Alle $x$ der $g(x) > 0$",
+      "9ae069ee8975e15c": "Heile $\\mathbb{R}$",
+      "89c6d41cce35a84e": "Alle $x > 0$",
+      "53054304f3b69ddd": "Logaritmen er berre definert for positive argument, så vi krev $g(x) > 0$ — ikkje nødvendigvis $x > 0$.",
+      "9bb8a9c0860a13b3": "Kvifor har $f(x) = x - \\ln x$ ingen nullpunkt?",
+      "0b299074e6aef30b": "Fordi funksjonen er udefinert for $x > 0$",
+      "3e22609833eeb6af": "Fordi $f$ er minkande overalt",
+      "dbe1232101e808f7": "Fordi minimumsverdien er $f(1) = 1 > 0$",
+      "63730ac14c210d32": "Fordi $\\ln x$ alltid er negativ",
+      "6914c18d20fc6f65": "Botnpunktet er $(1, 1)$, og funksjonen er konveks. Når den lågaste verdien er 1, kjem grafen aldri ned til $x$-aksen — likninga $x = \\ln x$ er uløyseleg.",
+      "322d1cf9e6d2f1c6": "Kvar har $f(x) = \\frac{\\ln x}{x}$ toppunktet sitt?",
+      "d53ddd66e1e01dd7": "$(e^{3/2}, \\frac{3}{2e^{3/2}})$",
+      "67253719af044835": "$(2, \\frac{\\ln 2}{2})$",
+      "434599098fd22e22": "$(e, \\frac{1}{e})$",
+      "d2e4e08c7ed958e1": "$f'(x) = \\frac{1 - \\ln x}{x^2} = 0$ gir $\\ln x = 1$, altså $x = e$, og $f(e) = \\frac{1}{e}$. Punktet $(e^{3/2}, \\ldots)$ er vendepunktet.",
+      "19cf28764df075c5": "Kva er $f'(x)$ når $f(x) = \\ln(g(x))$?",
+      "d19a3a6ae308c095": "$\\frac{1}{g(x)}$",
+      "c03f99f96183c427": "$\\frac{g'(x)}{g(x)}$",
+      "33909ed7039a3a79": "$g'(x) \\ln(g(x))$",
+      "7bc67175cd5eb226": "$\\frac{g(x)}{g'(x)}$",
+      "68a87e1e8e40de93": "Kjerneregelen: den ytre deriverte er $\\frac{1}{g(x)}$, ganga med den indre deriverte $g'(x)$. Til dømes er $(\\ln(x^2))' = \\frac{2x}{x^2} = \\frac{2}{x}$.",
+      "59fd7d0c1c1e2ddb": "## Generalprøva: $x^2 \\ln x$\n\nTil slutt tek vi ei oppgåve av rein eksamenstype: drøft $f(x) = x^2 \\ln x$ for $x > 0$ — type 4 i katalogen vår, potens gangar logaritme.\n\n**Nullpunkt**: for $x > 0$ er $x^2 > 0$, så $f(x) = 0$ krev $\\ln x = 0$, altså $x = 1$. Forteiknet følgjer logaritmen: negativt på $(0, 1)$, positivt for $x > 1$. **Grenseåtferda** nær null er det spesielle her: $x^2 \\to 0$ medan $\\ln x \\to -\\infty$ — kven vinn? Den viktige grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$ seier at polynomfaktoren vinn: $f(x) \\to 0$. Mot uendeleg veks begge faktorane, så $f(x) \\to \\infty$.\n\n**Derivasjon** med produktregel: $f'(x) = 2x\\ln x + x^2 \\cdot \\frac{1}{x} = x(2\\ln x + 1)$. For $x > 0$ er $f'(x) = 0$ når $\\ln x = -\\frac{1}{2}$, altså $x = e^{-1/2} = \\frac{1}{\\sqrt{e}} \\approx 0{,}607$. Funksjonen minkar før og veks etter, så vi har **botnpunkt** i $(\\frac{1}{\\sqrt{e}}, -\\frac{1}{2e}) \\approx (0{,}607, -0{,}184)$. Den andrederiverte: $f''(x) = 2\\ln x + 1 + 2 = 2\\ln x + 3$, null når $\\ln x = -\\frac{3}{2}$, altså $x = e^{-3/2} \\approx 0{,}223$, med **vendepunkt** $(e^{-3/2}, -\\frac{3}{2e^3}) \\approx (0{,}223, -0{,}075)$.\n\nDermed har vi ei hugseliste for avanserte drøftingar: sjekk definisjonsmengda først (særleg for logaritmar), faktoriser $f'$ og trekk ut $e^{g(x)}$ der det går, bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ for grenseåtferd, og sjekk gjerne symmetri — om $f(-x) = f(x)$ (par funksjon) eller $f(-x) = -f(x)$ (odde). Og hugs kjerneregelen i kvar einaste derivasjon: $(e^{2x})' = 2e^{2x}$, ikkje $e^{2x}$.",
+      "74dbb618ef63b655": "Test deg sjølv på drøfting av $x^2 \\ln x$ og strategiane:",
+      "298a3107199377d2": "Kva er $\\lim_{x \\to 0^+} x^2 \\ln x$?",
+      "53877e249bb1ce67": "$-\\infty$",
+      "c66760d57327e8e0": "$+\\infty$",
+      "bfdedaf43b6f1997": "Den generelle regelen $\\lim_{x\\to 0^+} x^a \\ln x = 0$ for $a > 0$: potensfaktoren går mot null raskare enn logaritmen går mot $-\\infty$.",
+      "3853c8b9045f14d4": "$f(x) = x^2 \\ln x$ har $f'(x) = x(2\\ln x + 1)$. Kvar er botnpunktet?",
+      "d846f5996b5a4b9b": "$x = e^{-1/2} = \\frac{1}{\\sqrt{e}}$",
+      "b96ae96cb92f7fb0": "$x = 1$",
+      "c63f26821aaf1d40": "$x = e^{-3/2}$",
+      "180eeb59df34c03d": "$x = e$",
+      "4348a5dc19dd5627": "For $x > 0$ er $f'(x) = 0$ når $2\\ln x + 1 = 0$, altså $\\ln x = -\\frac{1}{2}$ og $x = e^{-1/2} \\approx 0{,}607$. ($x = 1$ er nullpunktet, $e^{-3/2}$ vendepunktet.)",
+      "6950f262bfc7dca9": "Kva tyder det at ein funksjon er par?",
+      "a2de22d2b1204aec": "$f(-x) = -f(x)$",
+      "7445c3135bea0ea8": "$f(-x) = f(x)$ — grafen er symmetrisk om $y$-aksen",
+      "e924441618d90fd7": "Funksjonen har to nullpunkt",
+      "52ea500f8c9d277e": "Graden er eit partal",
+      "b3278610d6a63e18": "Ein par funksjon oppfyller $f(-x) = f(x)$ og er symmetrisk om $y$-aksen. Ein odde funksjon oppfyller $f(-x) = -f(x)$. Symmetri kan halvere drøftingsarbeidet.",
+      "0b6f39ddd76b0a4e": "Kva er den deriverte av $e^{2x}$?",
+      "cacc17eb4bdde10b": "$e^{2x}$",
+      "dab9485164ce56e4": "$2e^{x}$",
+      "ff42cd4bdfec9acf": "$x e^{2x}$",
+      "44cdc71ffcd18499": "$2e^{2x}$",
+      "93fbd6fb4ac87c93": "Kjerneregelen: indre derivert av $2x$ er $2$, så $(e^{2x})' = 2e^{2x}$. Å gløyme den indre deriverte er ein av dei vanlegaste feila i avansert derivasjon.",
+      "a69ec478ffe3c1b4": "## Oppsummering: fire typar, éin strategi\n\nFunksjonane til forskingsmodellane ser avskrekkjande ut, men dei fell i fire typar med kvar sin angrepsmåte: polynom gangar eksponential ($P(x)e^{g(x)}$ — produktregel pluss kjerneregel, faktoriser ut eksponentialen), polynom delt på eksponential (skriv om med negativ eksponent), logaritme av samansett uttrykk ($\\ln g(x)$ — derivert $\\frac{g'(x)}{g(x)}$, krev $g(x) > 0$), og potens gangar logaritme ($x^a \\ln x$ — produktregel og grensesjekk nær null).\n\nStrategien for drøfting er alltid: definisjonsmengd først, særleg for logaritmar der $\\ln x$ krev $x > 0$. Faktoriser den deriverte og trekk ut $e^{g(x)}$, som aldri er null, slik at nullpunkta til både $f$ og $f'$ blir bestemte av dei andre faktorane. Bruk veksthierarkiet $\\ln x \\ll x^a \\ll e^x$ og grenseverdien $\\lim_{x\\to 0^+} x^a \\ln x = 0$ til å finne grenseåtferda. Og sjekk symmetri når det er aktuelt.\n\nSlik fann vi at legemiddelkurva $(x^2-2x)e^{-x}$ har ekstremalpunkt i $2 \\pm \\sqrt{2}$ og døyr ut mot asymptoten $y = 0$; at $x - \\ln x$ aldri blir null fordi botnpunktet ligg på høgd 1; at $\\frac{\\ln x}{x}$ toppar seg nettopp i $x = e$; og at $x^2 \\ln x$ kryp mot null i origo trass i logaritmens stup mot $-\\infty$. Kvar gong var det dei same verktøya — kjerneregel, produktregel, brøkregel og forteiknsskjema — sette saman med systematikk. Det er det avansert funksjonsanalyse er: kjende verktøy brukte i rett rekkjefølgje."
+    }
+  }
+}

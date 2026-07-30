@@ -1,1 +1,565 @@
-{"id":"s1-5-3-narrativ","courseId":"s1","chapterNumber":"5.3","title":"Bayes' setning","subtitle":"Narrativ versjon","description":"Ei forteljing om kunsten å snu sannsyn -- frå ein skremmande screeningtest som nesten alltid tek feil, via defekte komponentar på fabrikken, til spamfilter og sekvensiell oppdatering.","estimatedMinutes":35,"competenceGoals":["bruke kombinatorikk til å berekne sannsyn"],"linkedChapterId":"s1-5-3","content":[{"id":"s1-5-3-n-intro","type":"text","content":"## Den positive testen som ikkje betydde det du trur\n\nEin frisk person deltek i ei screeningundersøking for ein sjeldan sjukdom. Testen er imponerande: han fangar opp 99 % av dei sjuke. Så kjem brevet — testen var positiv. Kor uroleg bør personen vere? Dei fleste vil gjette «99 % sikkert sjuk». Det rette svaret, skal vi sjå, er rundt 2 %.\n\nKorleis kan det stemme? Svaret ligg i **Bayes' setning**, ei av dei mest innflytelsesrike formlane i heile sannsynsteorien. Ho lèt oss «snu» vilkårsbundne sannsyn: testen fortel oss $P(\\text{positiv}|\\text{sjuk})$, men det vi eigentleg lurer på er det omvendte, $P(\\text{sjuk}|\\text{positiv})$. Desse to er ofte dramatisk forskjellige — og å blande dei saman har ført til feildiagnosar, justismord og dårlege avgjerder.\n\nTankegangen er like nyttig utanfor medisinen: Eit produkt er defekt — kva maskin lagde det mest sannsynleg? Ein e-post inneheld ordet «gratis» — er det spam? Felles for alle eksempla er at vi startar med ei **forhandsantaking** (prior), mottek ny informasjon, og oppdaterer til ei **etterantaking** (posterior). I dette kapittelet utleier vi setninga, løyser testgåta, sporar opp den defekte komponenten i ein fabrikk, og ser korleis vi kan oppdatere sannsyn gong på gong etter kvart som bevisa hopar seg opp."},{"id":"s1-5-3-n-section1","type":"text","content":"## Å snu betinginga — sjølve setninga\n\nUtleiinga er overraskande kort, og ho byggjer berre på det du allereie kan. Definisjonen av vilkårsbunde sannsyn seier at $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$. Samtidig veit vi frå produktregelen at $P(A \\cap B) = P(B|A) \\cdot P(A)$. Set vi det inn, får vi **Bayes' setning**:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nKvart ledd har fått eige namn i den bayesianske tradisjonen. $P(A)$ er **prioren** — det vi trudde om $A$ før vi fekk informasjonen. $P(B|A)$ er **likelihooden** — kor sannsynleg observasjonen $B$ er dersom $A$ er sann. $P(B)$ er **marginalen** — det totale sannsynet for å observere $B$ uansett. Og resultatet $P(A|B)$ er **posterioren** — det oppdaterte sannsynet.\n\nNemnaren $P(B)$ reknar vi som regel ut med totalsetninga frå førre kapittel, og då får setninga den mest brukte forma si:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B|A) \\cdot P(A) + P(B|\\overline{A}) \\cdot P(\\overline{A})}$$\n\nLes ho gjerne slik: teljaren er «vegen til $B$ gjennom $A$», nemnaren er «alle vegar til $B$». Posterioren er rett og slett delen av $B$-tilfella som skuldast $A$. Med det verktøyet i handa kan vi vende tilbake til screeningbrevet."},{"id":"s1-5-3-n-quiz1","type":"exercise","exercise":{"id":"s1-5-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på Bayes' setning:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-3-n-quiz1-q0","task":"Kva er Bayes' setning?","options":[{"id":"a","text":"$P(A|B) = \\dfrac{P(B|A) \\cdot P(A)}{P(B)}$","isCorrect":true},{"id":"b","text":"$P(A|B) = P(B|A)$","isCorrect":false},{"id":"c","text":"$P(A|B) = \\dfrac{P(A)}{P(B)}$","isCorrect":false},{"id":"d","text":"$P(A|B) = P(A) \\cdot P(B)$","isCorrect":false}],"solution":"Bayes' setning: $P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$. Ho lèt oss snu betinginga frå $P(B|A)$ til $P(A|B)$."},{"id":"s1-5-3-n-quiz1-q1","task":"I bayesiansk språkbruk: kva blir $P(A)$, sannsynet før ny informasjon, kalla?","options":[{"id":"a","text":"Posterior","isCorrect":false},{"id":"b","text":"Likelihood","isCorrect":false},{"id":"c","text":"Prior","isCorrect":true},{"id":"d","text":"Marginal","isCorrect":false}],"solution":"$P(A)$ er prioren (forhandsantakinga). $P(B|A)$ er likelihood, $P(B)$ marginalen, og $P(A|B)$ posterioren."},{"id":"s1-5-3-n-quiz1-q2","task":"Korleis blir nemnaren $P(B)$ vanlegvis rekna ut?","options":[{"id":"a","text":"Med totalsetninga: $P(B) = P(B|A)P(A) + P(B|\\overline{A})P(\\overline{A})$","isCorrect":true},{"id":"b","text":"Ho blir alltid sett lik 1","isCorrect":false},{"id":"c","text":"Som $P(A) \\cdot P(B|A)$","isCorrect":false},{"id":"d","text":"Som $1 - P(A)$","isCorrect":false}],"solution":"Totalsetninga gjev $P(B)$ ved å summere alle vegane til $B$: gjennom $A$ og gjennom $\\overline{A}$."}]}},{"id":"s1-5-3-n-section2","type":"text","content":"## Diagnosen — når 99 % presisjon gjev 2 % visse\n\nNo løyser vi gåta frå innleiinga, og først treng vi presist språk. For ein diagnostisk test definerer vi **sensitivitet** som $P(+|\\text{sjuk})$ — delen sjuke som testar positivt, **spesifisitet** som $P(-|\\text{frisk})$ — delen friske som testar negativt, og **prevalens** som $P(\\text{sjuk})$ — delen av befolkninga som har sjukdomen. Det vi vil finne, blir kalla **positiv prediktiv verdi**: $P(\\text{sjuk}|+)$.\n\nTesten vår har sensitivitet 99 % og spesifisitet 95 %, og sjukdomen rammar 0,1 % av befolkninga. Merk at 5 % av dei friske testar *falskt* positivt: $P(+|\\overline{S}) = 1 - 0{,}95 = 0{,}05$. Totalsetninga gjev sannsynet for ein positiv test:\n\n$$P(+) = 0{,}99 \\cdot 0{,}001 + 0{,}05 \\cdot 0{,}999 = 0{,}00099 + 0{,}04995 = 0{,}05094$$\n\nOg Bayes' setning gjev svaret:\n\n$$P(S|+) = \\frac{0{,}99 \\cdot 0{,}001}{0{,}05094} \\approx 0{,}019 \\approx 1{,}9\\,\\%$$\n\nBerre rundt 2 %! Intuisjonen blir tydelegare med konkrete tal. Sjå for deg 100 000 testa: om lag 100 er sjuke, og 99 av dei testar positivt. Men blant dei 99 900 friske testar rundt 4995 positivt. Av drygt 5000 positive svar er altså berre 99 ekte — dei falske positive frå den enorme friske gruppa druknar dei sanne.\n\nÅ oversjå dette blir kalla **base rate fallacy** — grunnsatsfeilen: vi gløymer kor sjeldan tilstanden er i utgangspunktet. Difor er hovudregelen i screeningprogram at ein positiv test ved sjeldne tilstandar må stadfestast med tilleggstestar før nokon får ein diagnose."},{"id":"s1-5-3-n-quiz2","type":"exercise","exercise":{"id":"s1-5-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på diagnostiske testar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-3-n-quiz2-q0","task":"Kva er sensitiviteten til ein test?","options":[{"id":"a","text":"$P(\\text{sjuk}|+)$","isCorrect":false},{"id":"b","text":"$P(+|\\text{sjuk})$","isCorrect":true},{"id":"c","text":"$P(-|\\text{frisk})$","isCorrect":false},{"id":"d","text":"Delen av befolkninga som er sjuk","isCorrect":false}],"solution":"Sensitivitet er $P(+|\\text{sjuk})$ — delen sjuke som testen fangar opp. $P(\\text{sjuk}|+)$ er den positive prediktive verdien, og $P(-|\\text{frisk})$ er spesifisiteten."},{"id":"s1-5-3-n-quiz2-q1","task":"Ein test har spesifisitet 90 %. Kva er sannsynet for at ein frisk person testar (falskt) positivt?","options":[{"id":"a","text":"$0{,}90$","isCorrect":false},{"id":"b","text":"$0{,}10$","isCorrect":true},{"id":"c","text":"$0{,}01$","isCorrect":false},{"id":"d","text":"Det kan ikkje reknast ut","isCorrect":false}],"solution":"Falsk positiv-raten er $1 - \\text{spesifisitet} = 1 - 0{,}90 = 0{,}10$."},{"id":"s1-5-3-n-quiz2-q2","task":"Kvifor blir $P(\\text{sjuk}|+)$ låg for sjeldne sjukdomar sjølv med ein god test?","options":[{"id":"a","text":"Fordi testen mistar sensitivitet over tid","isCorrect":false},{"id":"b","text":"Fordi dei falske positive frå den store friske gruppa langt overstig dei sanne positive","isCorrect":true},{"id":"c","text":"Fordi prevalensen aukar når mange blir testa","isCorrect":false},{"id":"d","text":"Fordi spesifisiteten og sensitiviteten alltid summerer til 1","isCorrect":false}],"solution":"Med låg prevalens er den friske gruppa enorm, så sjølv ein liten falsk positiv-rate gjev mange fleire falske enn sanne positive. Dette er base rate fallacy."},{"id":"s1-5-3-n-quiz2-q3","task":"Ein sjukdom har prevalens 1 %. Testen har sensitivitet 90 % og spesifisitet 90 %. Kva er om lag $P(\\text{sjuk}|+)$?","options":[{"id":"a","text":"Ca. 90 %","isCorrect":false},{"id":"b","text":"Ca. 50 %","isCorrect":false},{"id":"c","text":"Ca. 8 %","isCorrect":true},{"id":"d","text":"Ca. 1 %","isCorrect":false}],"solution":"$P(+) = 0{,}9 \\cdot 0{,}01 + 0{,}1 \\cdot 0{,}99 = 0{,}009 + 0{,}099 = 0{,}108$. $P(S|+) = \\frac{0{,}009}{0{,}108} \\approx 0{,}083$, altså ca. 8 %."}]}},{"id":"s1-5-3-n-section3","type":"text","content":"## Jakta på den defekte komponenten\n\nBayes' setning er like heime på fabrikkgolvet som på legekontoret. Ein elektronikkfabrikk har tre maskiner: maskin A står for 50 % av produksjonen med 2 % defekte, maskin B for 30 % med 3 % defekte, og maskin C for 20 % med 4 % defekte. Kvalitetskontrollen plukkar opp ein defekt komponent. Kva maskin er den mest sannsynlege syndaren? Magekjensla peikar kanskje på C — han har jo høgast defektrate. Lat oss rekne.\n\nFørst totalsetninga, no med tre tilfelle i partisjonen:\n\n$$P(D) = 0{,}02 \\cdot 0{,}50 + 0{,}03 \\cdot 0{,}30 + 0{,}04 \\cdot 0{,}20 = 0{,}01 + 0{,}009 + 0{,}008 = 0{,}027$$\n\nSå Bayes for kvar maskin — teljaren er «bidraget» til maskinen til defektane, nemnaren totalen:\n\n$$P(M_A|D) = \\frac{0{,}01}{0{,}027} \\approx 37{,}0\\,\\% \\qquad P(M_B|D) = \\frac{0{,}009}{0{,}027} \\approx 33{,}3\\,\\% \\qquad P(M_C|D) = \\frac{0{,}008}{0{,}027} \\approx 29{,}6\\,\\%$$\n\nOverraskinga er komplett: **maskin A** er mest sannsynleg kjelde, til trass for at han har *lågast* defektrate. Forklaringa er volumet — A produserer halvparten av alt, så sjølv ein låg feilprosent gjev mange defekte einingar i absolutte tal. Igjen er det prioren (marknadsdelen i produksjonen) som magekjensla gløymer.\n\nLegg òg merke til kontrollen: $37{,}0 + 33{,}3 + 29{,}6 \\approx 100\\,\\%$. Posteriorane over ein heil partisjon skal alltid summere til 1 — eit nyttig sjekkpunkt i kvar Bayes-berekning."},{"id":"s1-5-3-n-quiz3","type":"exercise","exercise":{"id":"s1-5-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på Bayes i kvalitetskontroll:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-3-n-quiz3-q0","task":"To maskiner: M1 lagar 80 % av delane med 1 % defekte, M2 lagar 20 % med 5 % defekte. Ein del er defekt. Kva er $P(M_1|D)$?","options":[{"id":"a","text":"$\\dfrac{0{,}008}{0{,}018} \\approx 44\\,\\%$","isCorrect":true},{"id":"b","text":"$1\\,\\%$","isCorrect":false},{"id":"c","text":"$80\\,\\%$","isCorrect":false},{"id":"d","text":"$\\dfrac{0{,}01}{0{,}05} = 20\\,\\%$","isCorrect":false}],"solution":"$P(D) = 0{,}01 \\cdot 0{,}8 + 0{,}05 \\cdot 0{,}2 = 0{,}008 + 0{,}010 = 0{,}018$. $P(M_1|D) = \\frac{0{,}008}{0{,}018} \\approx 0{,}444$."},{"id":"s1-5-3-n-quiz3-q1","task":"Kvifor kan maskinen med lågast defektrate likevel vere den mest sannsynlege kjelda til ein defekt del?","options":[{"id":"a","text":"Fordi defektraten alltid er feilmålt","isCorrect":false},{"id":"b","text":"Fordi han produserer ein så stor del at han bidreg med flest defekte i absolutte tal","isCorrect":true},{"id":"c","text":"Fordi Bayes' setning ignorerer defektraten","isCorrect":false},{"id":"d","text":"Det er umogleg — høgast defektrate gjev alltid høgast posterior","isCorrect":false}],"solution":"Posterioren avheng av produktet av prior (produksjonsdel) og likelihood (defektrate). Ein stor produksjonsdel kan vege opp for låg defektrate."},{"id":"s1-5-3-n-quiz3-q2","task":"Posteriorsannsyna $P(M_A|D)$, $P(M_B|D)$ og $P(M_C|D)$ for ein partisjon skal alltid ...","options":[{"id":"a","text":"vere like store","isCorrect":false},{"id":"b","text":"summere til 1","isCorrect":true},{"id":"c","text":"summere til $P(D)$","isCorrect":false},{"id":"d","text":"vere mindre enn priorane","isCorrect":false}],"solution":"Gitt at delen er defekt, må han kome frå nøyaktig éi av maskinene, så posteriorane summerer til 1. Dette er ein god kontroll av rekninga."}]}},{"id":"s1-5-3-n-section4","type":"text","content":"## Sekvensiell oppdatering — når bevisa hopar seg opp\n\nDet kanskje vakraste ved Bayes' setning er at ho kan brukast om og om att: posterioren i dag blir prioren i morgon. Slik byggjer ein etterforskar, ein forskar eller eit spamfilter gradvis opp visse etter kvart som nye observasjonar kjem inn.\n\nSjå på eit reindyrka eksempel. Ei eske er anten av type R (3 raude og 1 blå kule) eller type B (1 raud og 3 blå), med 50 % sjanse for kvar. Du trekkjer ei kule med tilbakelegging — ho er raud. Likelihoodane er $P(\\text{raud}|R) = \\frac{3}{4}$ og $P(\\text{raud}|B) = \\frac{1}{4}$, så $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}5 + \\frac{1}{4} \\cdot 0{,}5 = \\frac{1}{2}$, og Bayes gjev\n\n$$P(R|\\text{1 raud}) = \\frac{\\frac{3}{4} \\cdot 0{,}5}{0{,}5} = \\frac{3}{4} = 75\\,\\%$$\n\nSå trekkjer du igjen — raud ein gong til. No er $0{,}75$ den nye prioren. Totalsetninga gjev $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}75 + \\frac{1}{4} \\cdot 0{,}25 = \\frac{10}{16} = \\frac{5}{8}$, og\n\n$$P(R|\\text{2 raude}) = \\frac{\\frac{3}{4} \\cdot 0{,}75}{\\frac{5}{8}} = \\frac{9}{10} = 90\\,\\%$$\n\nFrå 50 til 75 til 90 prosent: kvar observasjon flyttar trua vår, men aldri heilt til 100 — det skal alltid vere rom for at vi tek feil.\n\nAkkurat denne mekanismen driv moderne teknologi og forsking. Spamfilteret startar med ein prior for «spam», og kvart ord i e-posten («gratis!», «vinn!») oppdaterer sannsynet. I rettssaker diskuterer sakkunnige korleis DNA-bevis bør oppdatere skuldsannsynet. Og i maskinlæring ber heile familiar av metodar namnet bayesiansk inferens, med naive Bayes-klassifiseraren som enklaste slektning. Prinsippet er alltid det same: prior, likelihood, posterior — og om att."},{"id":"s1-5-3-n-quiz4","type":"exercise","exercise":{"id":"s1-5-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på sekvensiell oppdatering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s1-5-3-n-quiz4-q0","task":"Kva er prinsippet i sekvensiell bayesiansk oppdatering?","options":[{"id":"a","text":"Posterioren etter éin observasjon blir brukt som prior for neste","isCorrect":true},{"id":"b","text":"Prioren blir halden fast gjennom alle observasjonane","isCorrect":false},{"id":"c","text":"Berre den siste observasjonen tel","isCorrect":false},{"id":"d","text":"Likelihooden blir oppdatert, ikkje prioren","isCorrect":false}],"solution":"Kvar observasjon flyttar sannsynet: posterior etter trinn 1 blir prior i trinn 2, og så vidare."},{"id":"s1-5-3-n-quiz4-q1","task":"I eske-eksempelet var sannsynet for type R 50 % før trekningane. Kva var det etter to raude kuler?","options":[{"id":"a","text":"$75\\,\\%$","isCorrect":false},{"id":"b","text":"$90\\,\\%$","isCorrect":true},{"id":"c","text":"$100\\,\\%$","isCorrect":false},{"id":"d","text":"$56{,}25\\,\\%$","isCorrect":false}],"solution":"Første raude kule gav posterior 75 %, andre gav $\\frac{(3/4) \\cdot 0{,}75}{5/8} = \\frac{9}{10} = 90\\,\\%$."},{"id":"s1-5-3-n-quiz4-q2","task":"Kva av desse er eit typisk bruksområde for Bayes' setning?","options":[{"id":"a","text":"Å finne stigingstalet til ei rett linje","isCorrect":false},{"id":"b","text":"Å klassifisere e-post som spam basert på ordbruk","isCorrect":true},{"id":"c","text":"Å rekne ut gjennomsnittet i eit datasett","isCorrect":false},{"id":"d","text":"Å faktorisere eit polynom","isCorrect":false}],"solution":"Spamfilter (naive Bayes) oppdaterer sannsynet for spam for kvart ord i e-posten. Andre bruksområde: medisinsk diagnostikk, bevisvurdering i juss og bayesiansk maskinlæring."}]}},{"id":"s1-5-3-n-summary","type":"text","content":"## Oppsummering: kunsten å skifte meining rett\n\nScreeningbrevet frå innleiinga miste mykje av skrekken sin: ein positiv test for ein sjeldan sjukdom betydde berre rundt 2 % sannsyn for å vere sjuk. Nøkkelen var **Bayes' setning**,\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nsom snur betinginga — frå det testen kan fortelje oss, $P(+|\\text{sjuk})$, til det vi faktisk lurer på, $P(\\text{sjuk}|+)$. Nemnaren $P(B)$ hentar vi frå totalsetninga, og ledda har eigne namn: **prior** ($P(A)$), **likelihood** ($P(B|A)$) og **posterior** ($P(A|B)$).\n\nI medisinen lærte vi omgrepa sensitivitet, spesifisitet, prevalens og positiv prediktiv verdi — og fella **base rate fallacy**: ved låg prevalens druknar dei sanne positive i falske positive frå den store friske gruppa. Eit godt mottiltak er å rekne med konkrete tal, til dømes per 100 000 personar, og hugse at sjeldne tilstandar krev stadfestande testar.\n\nPå fabrikken viste Bayes at maskinen med *lågast* defektrate likevel var den mest sannsynlege kjelda til ein defekt del, fordi han produserte mest — prioren tel like mykje som likelihooden. Og kontrollen er alltid at posteriorane over ein partisjon summerer til 1.\n\nTil slutt såg vi at setninga kan køyrast i sløyfe: **sekvensiell oppdatering** lét sannsynet for eske-typen klatre frå 50 via 75 til 90 prosent etter to raude kuler. Det er same maskineriet som driv spamfilter, bevisvurdering i retten og bayesiansk maskinlæring: start med det du trur, møt verkelegheita, og oppdater — gong på gong."}],"exercises":[],"_meta":{"sourceHash":"33f75fb45638782a","translatedAt":"2026-06-20T03:33:54.887Z","model":"claude-code-agent","strings":87,"tm":{"06e61b8016454902":"Bayes' setning","b195b06d1ed59702":"Narrativ versjon","3974bcf99b97b38e":"Ei forteljing om kunsten å snu sannsyn -- frå ein skremmande screeningtest som nesten alltid tek feil, via defekte komponentar på fabrikken, til spamfilter og sekvensiell oppdatering.","6f8683053d9bad78":"bruke kombinatorikk til å berekne sannsyn","0c121014fa869790":"## Den positive testen som ikkje betydde det du trur\n\nEin frisk person deltek i ei screeningundersøking for ein sjeldan sjukdom. Testen er imponerande: han fangar opp 99 % av dei sjuke. Så kjem brevet — testen var positiv. Kor uroleg bør personen vere? Dei fleste vil gjette «99 % sikkert sjuk». Det rette svaret, skal vi sjå, er rundt 2 %.\n\nKorleis kan det stemme? Svaret ligg i **Bayes' setning**, ei av dei mest innflytelsesrike formlane i heile sannsynsteorien. Ho lèt oss «snu» vilkårsbundne sannsyn: testen fortel oss $P(\\text{positiv}|\\text{sjuk})$, men det vi eigentleg lurer på er det omvendte, $P(\\text{sjuk}|\\text{positiv})$. Desse to er ofte dramatisk forskjellige — og å blande dei saman har ført til feildiagnosar, justismord og dårlege avgjerder.\n\nTankegangen er like nyttig utanfor medisinen: Eit produkt er defekt — kva maskin lagde det mest sannsynleg? Ein e-post inneheld ordet «gratis» — er det spam? Felles for alle eksempla er at vi startar med ei **forhandsantaking** (prior), mottek ny informasjon, og oppdaterer til ei **etterantaking** (posterior). I dette kapittelet utleier vi setninga, løyser testgåta, sporar opp den defekte komponenten i ein fabrikk, og ser korleis vi kan oppdatere sannsyn gong på gong etter kvart som bevisa hopar seg opp.","cf724b69b47b4709":"## Å snu betinginga — sjølve setninga\n\nUtleiinga er overraskande kort, og ho byggjer berre på det du allereie kan. Definisjonen av vilkårsbunde sannsyn seier at $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$. Samtidig veit vi frå produktregelen at $P(A \\cap B) = P(B|A) \\cdot P(A)$. Set vi det inn, får vi **Bayes' setning**:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nKvart ledd har fått eige namn i den bayesianske tradisjonen. $P(A)$ er **prioren** — det vi trudde om $A$ før vi fekk informasjonen. $P(B|A)$ er **likelihooden** — kor sannsynleg observasjonen $B$ er dersom $A$ er sann. $P(B)$ er **marginalen** — det totale sannsynet for å observere $B$ uansett. Og resultatet $P(A|B)$ er **posterioren** — det oppdaterte sannsynet.\n\nNemnaren $P(B)$ reknar vi som regel ut med totalsetninga frå førre kapittel, og då får setninga den mest brukte forma si:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B|A) \\cdot P(A) + P(B|\\overline{A}) \\cdot P(\\overline{A})}$$\n\nLes ho gjerne slik: teljaren er «vegen til $B$ gjennom $A$», nemnaren er «alle vegar til $B$». Posterioren er rett og slett delen av $B$-tilfella som skuldast $A$. Med det verktøyet i handa kan vi vende tilbake til screeningbrevet.","b8f52815cfda093a":"Test deg sjølv på Bayes' setning:","4097889236a2af26":"placeholder","f0de6ff298dbea3b":"Kva er Bayes' setning?","c064f0be53e81af8":"$P(A|B) = \\dfrac{P(B|A) \\cdot P(A)}{P(B)}$","cd895cf0f0cae3d2":"$P(A|B) = P(B|A)$","2591a320935b500a":"$P(A|B) = \\dfrac{P(A)}{P(B)}$","82dab64aa8bcf7ec":"$P(A|B) = P(A) \\cdot P(B)$","db244522cbaa6a31":"Bayes' setning: $P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$. Ho lèt oss snu betinginga frå $P(B|A)$ til $P(A|B)$.","6e0c2e8f2b96b9a2":"I bayesiansk språkbruk: kva blir $P(A)$, sannsynet før ny informasjon, kalla?","f6fe1c8bb8d549da":"Posterior","545c4351af10f3d4":"Likelihood","def7d604fad05c32":"Prior","023f2ca37ae40798":"Marginal","5c834e6ae79e60fa":"$P(A)$ er prioren (forhandsantakinga). $P(B|A)$ er likelihood, $P(B)$ marginalen, og $P(A|B)$ posterioren.","4719d882f2ae57df":"Korleis blir nemnaren $P(B)$ vanlegvis rekna ut?","6754d88df1ef8cfa":"Med totalsetninga: $P(B) = P(B|A)P(A) + P(B|\\overline{A})P(\\overline{A})$","94b116f57a3e6d45":"Ho blir alltid sett lik 1","fa7807b3acfeeca6":"Som $P(A) \\cdot P(B|A)$","81efc3d78020d7ea":"Som $1 - P(A)$","ee7c2bc89946989f":"Totalsetninga gjev $P(B)$ ved å summere alle vegane til $B$: gjennom $A$ og gjennom $\\overline{A}$.","a61e508d69813a35":"## Diagnosen — når 99 % presisjon gjev 2 % visse\n\nNo løyser vi gåta frå innleiinga, og først treng vi presist språk. For ein diagnostisk test definerer vi **sensitivitet** som $P(+|\\text{sjuk})$ — delen sjuke som testar positivt, **spesifisitet** som $P(-|\\text{frisk})$ — delen friske som testar negativt, og **prevalens** som $P(\\text{sjuk})$ — delen av befolkninga som har sjukdomen. Det vi vil finne, blir kalla **positiv prediktiv verdi**: $P(\\text{sjuk}|+)$.\n\nTesten vår har sensitivitet 99 % og spesifisitet 95 %, og sjukdomen rammar 0,1 % av befolkninga. Merk at 5 % av dei friske testar *falskt* positivt: $P(+|\\overline{S}) = 1 - 0{,}95 = 0{,}05$. Totalsetninga gjev sannsynet for ein positiv test:\n\n$$P(+) = 0{,}99 \\cdot 0{,}001 + 0{,}05 \\cdot 0{,}999 = 0{,}00099 + 0{,}04995 = 0{,}05094$$\n\nOg Bayes' setning gjev svaret:\n\n$$P(S|+) = \\frac{0{,}99 \\cdot 0{,}001}{0{,}05094} \\approx 0{,}019 \\approx 1{,}9\\,\\%$$\n\nBerre rundt 2 %! Intuisjonen blir tydelegare med konkrete tal. Sjå for deg 100 000 testa: om lag 100 er sjuke, og 99 av dei testar positivt. Men blant dei 99 900 friske testar rundt 4995 positivt. Av drygt 5000 positive svar er altså berre 99 ekte — dei falske positive frå den enorme friske gruppa druknar dei sanne.\n\nÅ oversjå dette blir kalla **base rate fallacy** — grunnsatsfeilen: vi gløymer kor sjeldan tilstanden er i utgangspunktet. Difor er hovudregelen i screeningprogram at ein positiv test ved sjeldne tilstandar må stadfestast med tilleggstestar før nokon får ein diagnose.","2515c15d9b30d89a":"Test deg sjølv på diagnostiske testar:","9b9fee031cd2478a":"Kva er sensitiviteten til ein test?","705bfda561b7e9c9":"$P(\\text{sjuk}|+)$","38dcdf0dec608aa8":"$P(+|\\text{sjuk})$","75d2bfb9a1c26b61":"$P(-|\\text{frisk})$","7b328ea257bf99ea":"Delen av befolkninga som er sjuk","c8f972a8136e24ba":"Sensitivitet er $P(+|\\text{sjuk})$ — delen sjuke som testen fangar opp. $P(\\text{sjuk}|+)$ er den positive prediktive verdien, og $P(-|\\text{frisk})$ er spesifisiteten.","0219c937057b440e":"Ein test har spesifisitet 90 %. Kva er sannsynet for at ein frisk person testar (falskt) positivt?","1cc2c3671e89ee7b":"Det kan ikkje reknast ut","e64c96ce09fa80dc":"Falsk positiv-raten er $1 - \\text{spesifisitet} = 1 - 0{,}90 = 0{,}10$.","c2cd944724c48e34":"Kvifor blir $P(\\text{sjuk}|+)$ låg for sjeldne sjukdomar sjølv med ein god test?","dc8bd3139656240b":"Fordi testen mistar sensitivitet over tid","a43aac63e24ff707":"Fordi dei falske positive frå den store friske gruppa langt overstig dei sanne positive","14f1b99d387f129c":"Fordi prevalensen aukar når mange blir testa","b1d78f3611ba4908":"Fordi spesifisiteten og sensitiviteten alltid summerer til 1","c6445402a7a48dd9":"Med låg prevalens er den friske gruppa enorm, så sjølv ein liten falsk positiv-rate gjev mange fleire falske enn sanne positive. Dette er base rate fallacy.","a2f97247656b3fde":"Ein sjukdom har prevalens 1 %. Testen har sensitivitet 90 % og spesifisitet 90 %. Kva er om lag $P(\\text{sjuk}|+)$?","5483c1c2d668144e":"Ca. 90 %","9c1ea785671db0ce":"Ca. 50 %","51f93a1dd88c47f7":"Ca. 8 %","a3feba04ef705770":"Ca. 1 %","24b378160cb4b6a4":"$P(+) = 0{,}9 \\cdot 0{,}01 + 0{,}1 \\cdot 0{,}99 = 0{,}009 + 0{,}099 = 0{,}108$. $P(S|+) = \\frac{0{,}009}{0{,}108} \\approx 0{,}083$, altså ca. 8 %.","40636b546de4cb15":"## Jakta på den defekte komponenten\n\nBayes' setning er like heime på fabrikkgolvet som på legekontoret. Ein elektronikkfabrikk har tre maskiner: maskin A står for 50 % av produksjonen med 2 % defekte, maskin B for 30 % med 3 % defekte, og maskin C for 20 % med 4 % defekte. Kvalitetskontrollen plukkar opp ein defekt komponent. Kva maskin er den mest sannsynlege syndaren? Magekjensla peikar kanskje på C — han har jo høgast defektrate. Lat oss rekne.\n\nFørst totalsetninga, no med tre tilfelle i partisjonen:\n\n$$P(D) = 0{,}02 \\cdot 0{,}50 + 0{,}03 \\cdot 0{,}30 + 0{,}04 \\cdot 0{,}20 = 0{,}01 + 0{,}009 + 0{,}008 = 0{,}027$$\n\nSå Bayes for kvar maskin — teljaren er «bidraget» til maskinen til defektane, nemnaren totalen:\n\n$$P(M_A|D) = \\frac{0{,}01}{0{,}027} \\approx 37{,}0\\,\\% \\qquad P(M_B|D) = \\frac{0{,}009}{0{,}027} \\approx 33{,}3\\,\\% \\qquad P(M_C|D) = \\frac{0{,}008}{0{,}027} \\approx 29{,}6\\,\\%$$\n\nOverraskinga er komplett: **maskin A** er mest sannsynleg kjelde, til trass for at han har *lågast* defektrate. Forklaringa er volumet — A produserer halvparten av alt, så sjølv ein låg feilprosent gjev mange defekte einingar i absolutte tal. Igjen er det prioren (marknadsdelen i produksjonen) som magekjensla gløymer.\n\nLegg òg merke til kontrollen: $37{,}0 + 33{,}3 + 29{,}6 \\approx 100\\,\\%$. Posteriorane over ein heil partisjon skal alltid summere til 1 — eit nyttig sjekkpunkt i kvar Bayes-berekning.","2553547c4384847c":"Test deg sjølv på Bayes i kvalitetskontroll:","7005537ce66a0114":"To maskiner: M1 lagar 80 % av delane med 1 % defekte, M2 lagar 20 % med 5 % defekte. Ein del er defekt. Kva er $P(M_1|D)$?","23cba7db353b2fa3":"$\\dfrac{0{,}008}{0{,}018} \\approx 44\\,\\%$","a9c2a59079ec536d":"$\\dfrac{0{,}01}{0{,}05} = 20\\,\\%$","2dcbbe60e938a6da":"$P(D) = 0{,}01 \\cdot 0{,}8 + 0{,}05 \\cdot 0{,}2 = 0{,}008 + 0{,}010 = 0{,}018$. $P(M_1|D) = \\frac{0{,}008}{0{,}018} \\approx 0{,}444$.","98b6c85af5d86df2":"Kvifor kan maskinen med lågast defektrate likevel vere den mest sannsynlege kjelda til ein defekt del?","23dbd64d8961fb4c":"Fordi defektraten alltid er feilmålt","43cb8e02560a223b":"Fordi han produserer ein så stor del at han bidreg med flest defekte i absolutte tal","84d51f66720a2f96":"Fordi Bayes' setning ignorerer defektraten","8678801adf13493c":"Det er umogleg — høgast defektrate gjev alltid høgast posterior","a49c1ff66a2b3bf3":"Posterioren avheng av produktet av prior (produksjonsdel) og likelihood (defektrate). Ein stor produksjonsdel kan vege opp for låg defektrate.","2961de4cd337967a":"Posteriorsannsyna $P(M_A|D)$, $P(M_B|D)$ og $P(M_C|D)$ for ein partisjon skal alltid ...","09877e8825a35a1a":"vere like store","05e9d3103588ec76":"summere til 1","6058dc412953592c":"summere til $P(D)$","02f3003bbad4a32c":"vere mindre enn priorane","f70d9ce8847ac728":"Gitt at delen er defekt, må han kome frå nøyaktig éi av maskinene, så posteriorane summerer til 1. Dette er ein god kontroll av rekninga.","93e933ee19c3bcfc":"## Sekvensiell oppdatering — når bevisa hopar seg opp\n\nDet kanskje vakraste ved Bayes' setning er at ho kan brukast om og om att: posterioren i dag blir prioren i morgon. Slik byggjer ein etterforskar, ein forskar eller eit spamfilter gradvis opp visse etter kvart som nye observasjonar kjem inn.\n\nSjå på eit reindyrka eksempel. Ei eske er anten av type R (3 raude og 1 blå kule) eller type B (1 raud og 3 blå), med 50 % sjanse for kvar. Du trekkjer ei kule med tilbakelegging — ho er raud. Likelihoodane er $P(\\text{raud}|R) = \\frac{3}{4}$ og $P(\\text{raud}|B) = \\frac{1}{4}$, så $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}5 + \\frac{1}{4} \\cdot 0{,}5 = \\frac{1}{2}$, og Bayes gjev\n\n$$P(R|\\text{1 raud}) = \\frac{\\frac{3}{4} \\cdot 0{,}5}{0{,}5} = \\frac{3}{4} = 75\\,\\%$$\n\nSå trekkjer du igjen — raud ein gong til. No er $0{,}75$ den nye prioren. Totalsetninga gjev $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}75 + \\frac{1}{4} \\cdot 0{,}25 = \\frac{10}{16} = \\frac{5}{8}$, og\n\n$$P(R|\\text{2 raude}) = \\frac{\\frac{3}{4} \\cdot 0{,}75}{\\frac{5}{8}} = \\frac{9}{10} = 90\\,\\%$$\n\nFrå 50 til 75 til 90 prosent: kvar observasjon flyttar trua vår, men aldri heilt til 100 — det skal alltid vere rom for at vi tek feil.\n\nAkkurat denne mekanismen driv moderne teknologi og forsking. Spamfilteret startar med ein prior for «spam», og kvart ord i e-posten («gratis!», «vinn!») oppdaterer sannsynet. I rettssaker diskuterer sakkunnige korleis DNA-bevis bør oppdatere skuldsannsynet. Og i maskinlæring ber heile familiar av metodar namnet bayesiansk inferens, med naive Bayes-klassifiseraren som enklaste slektning. Prinsippet er alltid det same: prior, likelihood, posterior — og om att.","abad88e96b814b02":"Test deg sjølv på sekvensiell oppdatering:","94436e8ca53e2149":"Kva er prinsippet i sekvensiell bayesiansk oppdatering?","b6d3e427537971e5":"Posterioren etter éin observasjon blir brukt som prior for neste","07e9ba6ef9eb6ca4":"Prioren blir halden fast gjennom alle observasjonane","1c625150c6976c02":"Berre den siste observasjonen tel","1ddcb6ab202cbf65":"Likelihooden blir oppdatert, ikkje prioren","79ba4660caec1a13":"Kvar observasjon flyttar sannsynet: posterior etter trinn 1 blir prior i trinn 2, og så vidare.","33e885831ecbba12":"I eske-eksempelet var sannsynet for type R 50 % før trekningane. Kva var det etter to raude kuler?","04ae713f8e319b65":"Første raude kule gav posterior 75 %, andre gav $\\frac{(3/4) \\cdot 0{,}75}{5/8} = \\frac{9}{10} = 90\\,\\%$.","39b0c3a6e16713a4":"Kva av desse er eit typisk bruksområde for Bayes' setning?","7c0e1ae7439ca0b7":"Å finne stigingstalet til ei rett linje","2ca82f39f2b481fa":"Å klassifisere e-post som spam basert på ordbruk","23e0b733dfd695c2":"Å rekne ut gjennomsnittet i eit datasett","7954d9a2eabf33c1":"Å faktorisere eit polynom","a89bcc2f9bb3e949":"Spamfilter (naive Bayes) oppdaterer sannsynet for spam for kvart ord i e-posten. Andre bruksområde: medisinsk diagnostikk, bevisvurdering i juss og bayesiansk maskinlæring.","72ada07478bbec92":"## Oppsummering: kunsten å skifte meining rett\n\nScreeningbrevet frå innleiinga miste mykje av skrekken sin: ein positiv test for ein sjeldan sjukdom betydde berre rundt 2 % sannsyn for å vere sjuk. Nøkkelen var **Bayes' setning**,\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nsom snur betinginga — frå det testen kan fortelje oss, $P(+|\\text{sjuk})$, til det vi faktisk lurer på, $P(\\text{sjuk}|+)$. Nemnaren $P(B)$ hentar vi frå totalsetninga, og ledda har eigne namn: **prior** ($P(A)$), **likelihood** ($P(B|A)$) og **posterior** ($P(A|B)$).\n\nI medisinen lærte vi omgrepa sensitivitet, spesifisitet, prevalens og positiv prediktiv verdi — og fella **base rate fallacy**: ved låg prevalens druknar dei sanne positive i falske positive frå den store friske gruppa. Eit godt mottiltak er å rekne med konkrete tal, til dømes per 100 000 personar, og hugse at sjeldne tilstandar krev stadfestande testar.\n\nPå fabrikken viste Bayes at maskinen med *lågast* defektrate likevel var den mest sannsynlege kjelda til ein defekt del, fordi han produserte mest — prioren tel like mykje som likelihooden. Og kontrollen er alltid at posteriorane over ein partisjon summerer til 1.\n\nTil slutt såg vi at setninga kan køyrast i sløyfe: **sekvensiell oppdatering** lét sannsynet for eske-typen klatre frå 50 via 75 til 90 prosent etter to raude kuler. Det er same maskineriet som driv spamfilter, bevisvurdering i retten og bayesiansk maskinlæring: start med det du trur, møt verkelegheita, og oppdater — gong på gong."}}}
+{
+  "id": "s1-5-3-narrativ",
+  "courseId": "s1",
+  "chapterNumber": "5.3",
+  "title": "Bayes' setning",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om kunsten å snu sannsyn -- frå ein skremmande screeningtest som nesten alltid tek feil, via defekte komponentar på fabrikken, til spamfilter og sekvensiell oppdatering.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke kombinatorikk til å berekne sannsyn"
+  ],
+  "linkedChapterId": "s1-5-3",
+  "content": [
+    {
+      "id": "s1-5-3-n-intro",
+      "type": "text",
+      "content": "## Den positive testen som ikkje betydde det du trur\n\nEin frisk person deltek i ei screeningundersøking for ein sjeldan sjukdom. Testen er imponerande: han fangar opp 99 % av dei sjuke. Så kjem brevet — testen var positiv. Kor uroleg bør personen vere? Dei fleste vil gjette «99 % sikkert sjuk». Det rette svaret, skal vi sjå, er rundt 2 %.\n\nKorleis kan det stemme? Svaret ligg i **Bayes' setning**, ei av dei mest innflytelsesrike formlane i heile sannsynsteorien. Ho lèt oss «snu» vilkårsbundne sannsyn: testen fortel oss $P(\\text{positiv}|\\text{sjuk})$, men det vi eigentleg lurer på er det omvendte, $P(\\text{sjuk}|\\text{positiv})$. Desse to er ofte dramatisk forskjellige — og å blande dei saman har ført til feildiagnosar, justismord og dårlege avgjerder.\n\nTankegangen er like nyttig utanfor medisinen: Eit produkt er defekt — kva maskin lagde det mest sannsynleg? Ein e-post inneheld ordet «gratis» — er det spam? Felles for alle eksempla er at vi startar med ei **forhandsantaking** (prior), mottek ny informasjon, og oppdaterer til ei **etterantaking** (posterior). I dette kapittelet utleier vi setninga, løyser testgåta, sporar opp den defekte komponenten i ein fabrikk, og ser korleis vi kan oppdatere sannsyn gong på gong etter kvart som bevisa hopar seg opp."
+    },
+    {
+      "id": "s1-5-3-n-section1",
+      "type": "text",
+      "content": "## Å snu betinginga — sjølve setninga\n\nUtleiinga er overraskande kort, og ho byggjer berre på det du allereie kan. Definisjonen av vilkårsbunde sannsyn seier at $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$. Samtidig veit vi frå produktregelen at $P(A \\cap B) = P(B|A) \\cdot P(A)$. Set vi det inn, får vi **Bayes' setning**:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nKvart ledd har fått eige namn i den bayesianske tradisjonen. $P(A)$ er **prioren** — det vi trudde om $A$ før vi fekk informasjonen. $P(B|A)$ er **likelihooden** — kor sannsynleg observasjonen $B$ er dersom $A$ er sann. $P(B)$ er **marginalen** — det totale sannsynet for å observere $B$ uansett. Og resultatet $P(A|B)$ er **posterioren** — det oppdaterte sannsynet.\n\nNemnaren $P(B)$ reknar vi som regel ut med totalsetninga frå førre kapittel, og då får setninga den mest brukte forma si:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B|A) \\cdot P(A) + P(B|\\overline{A}) \\cdot P(\\overline{A})}$$\n\nLes ho gjerne slik: teljaren er «vegen til $B$ gjennom $A$», nemnaren er «alle vegar til $B$». Posterioren er rett og slett delen av $B$-tilfella som skuldast $A$. Med det verktøyet i handa kan vi vende tilbake til screeningbrevet."
+    },
+    {
+      "id": "s1-5-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Bayes' setning:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-3-n-quiz1-q0",
+            "task": "Kva er Bayes' setning?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(A|B) = P(B|A)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$P(A|B) = \\dfrac{P(B|A) \\cdot P(A)}{P(B)}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$P(A|B) = \\dfrac{P(A)}{P(B)}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$P(A|B) = P(A) \\cdot P(B)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bayes' setning: $P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$. Ho lèt oss snu betinginga frå $P(B|A)$ til $P(A|B)$."
+          },
+          {
+            "id": "s1-5-3-n-quiz1-q1",
+            "task": "I bayesiansk språkbruk: kva blir $P(A)$, sannsynet før ny informasjon, kalla?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Posterior",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Likelihood",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Prior",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Marginal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(A)$ er prioren (forhandsantakinga). $P(B|A)$ er likelihood, $P(B)$ marginalen, og $P(A|B)$ posterioren."
+          },
+          {
+            "id": "s1-5-3-n-quiz1-q2",
+            "task": "Korleis blir nemnaren $P(B)$ vanlegvis rekna ut?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ho blir alltid sett lik 1",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Som $P(A) \\cdot P(B|A)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Som $1 - P(A)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Med totalsetninga: $P(B) = P(B|A)P(A) + P(B|\\overline{A})P(\\overline{A})$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Totalsetninga gjev $P(B)$ ved å summere alle vegane til $B$: gjennom $A$ og gjennom $\\overline{A}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-3-n-section2",
+      "type": "text",
+      "content": "## Diagnosen — når 99 % presisjon gjev 2 % visse\n\nNo løyser vi gåta frå innleiinga, og først treng vi presist språk. For ein diagnostisk test definerer vi **sensitivitet** som $P(+|\\text{sjuk})$ — delen sjuke som testar positivt, **spesifisitet** som $P(-|\\text{frisk})$ — delen friske som testar negativt, og **prevalens** som $P(\\text{sjuk})$ — delen av befolkninga som har sjukdomen. Det vi vil finne, blir kalla **positiv prediktiv verdi**: $P(\\text{sjuk}|+)$.\n\nTesten vår har sensitivitet 99 % og spesifisitet 95 %, og sjukdomen rammar 0,1 % av befolkninga. Merk at 5 % av dei friske testar *falskt* positivt: $P(+|\\overline{S}) = 1 - 0{,}95 = 0{,}05$. Totalsetninga gjev sannsynet for ein positiv test:\n\n$$P(+) = 0{,}99 \\cdot 0{,}001 + 0{,}05 \\cdot 0{,}999 = 0{,}00099 + 0{,}04995 = 0{,}05094$$\n\nOg Bayes' setning gjev svaret:\n\n$$P(S|+) = \\frac{0{,}99 \\cdot 0{,}001}{0{,}05094} \\approx 0{,}019 \\approx 1{,}9\\,\\%$$\n\nBerre rundt 2 %! Intuisjonen blir tydelegare med konkrete tal. Sjå for deg 100 000 testa: om lag 100 er sjuke, og 99 av dei testar positivt. Men blant dei 99 900 friske testar rundt 4995 positivt. Av drygt 5000 positive svar er altså berre 99 ekte — dei falske positive frå den enorme friske gruppa druknar dei sanne.\n\nÅ oversjå dette blir kalla **base rate fallacy** — grunnsatsfeilen: vi gløymer kor sjeldan tilstanden er i utgangspunktet. Difor er hovudregelen i screeningprogram at ein positiv test ved sjeldne tilstandar må stadfestast med tilleggstestar før nokon får ein diagnose."
+    },
+    {
+      "id": "s1-5-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på diagnostiske testar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-3-n-quiz2-q0",
+            "task": "Kva er sensitiviteten til ein test?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$P(+|\\text{sjuk})$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$P(\\text{sjuk}|+)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$P(-|\\text{frisk})$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Delen av befolkninga som er sjuk",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sensitivitet er $P(+|\\text{sjuk})$ — delen sjuke som testen fangar opp. $P(\\text{sjuk}|+)$ er den positive prediktive verdien, og $P(-|\\text{frisk})$ er spesifisiteten."
+          },
+          {
+            "id": "s1-5-3-n-quiz2-q1",
+            "task": "Ein test har spesifisitet 90 %. Kva er sannsynet for at ein frisk person testar (falskt) positivt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$0{,}90$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$0{,}10$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$0{,}01$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det kan ikkje reknast ut",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Falsk positiv-raten er $1 - \\text{spesifisitet} = 1 - 0{,}90 = 0{,}10$."
+          },
+          {
+            "id": "s1-5-3-n-quiz2-q2",
+            "task": "Kvifor blir $P(\\text{sjuk}|+)$ låg for sjeldne sjukdomar sjølv med ein god test?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi testen mistar sensitivitet over tid",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi prevalensen aukar når mange blir testa",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi dei falske positive frå den store friske gruppa langt overstig dei sanne positive",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi spesifisiteten og sensitiviteten alltid summerer til 1",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med låg prevalens er den friske gruppa enorm, så sjølv ein liten falsk positiv-rate gjev mange fleire falske enn sanne positive. Dette er base rate fallacy."
+          },
+          {
+            "id": "s1-5-3-n-quiz2-q3",
+            "task": "Ein sjukdom har prevalens 1 %. Testen har sensitivitet 90 % og spesifisitet 90 %. Kva er om lag $P(\\text{sjuk}|+)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ca. 90 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ca. 50 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ca. 8 %",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ca. 1 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$P(+) = 0{,}9 \\cdot 0{,}01 + 0{,}1 \\cdot 0{,}99 = 0{,}009 + 0{,}099 = 0{,}108$. $P(S|+) = \\frac{0{,}009}{0{,}108} \\approx 0{,}083$, altså ca. 8 %."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-3-n-section3",
+      "type": "text",
+      "content": "## Jakta på den defekte komponenten\n\nBayes' setning er like heime på fabrikkgolvet som på legekontoret. Ein elektronikkfabrikk har tre maskiner: maskin A står for 50 % av produksjonen med 2 % defekte, maskin B for 30 % med 3 % defekte, og maskin C for 20 % med 4 % defekte. Kvalitetskontrollen plukkar opp ein defekt komponent. Kva maskin er den mest sannsynlege syndaren? Magekjensla peikar kanskje på C — han har jo høgast defektrate. Lat oss rekne.\n\nFørst totalsetninga, no med tre tilfelle i partisjonen:\n\n$$P(D) = 0{,}02 \\cdot 0{,}50 + 0{,}03 \\cdot 0{,}30 + 0{,}04 \\cdot 0{,}20 = 0{,}01 + 0{,}009 + 0{,}008 = 0{,}027$$\n\nSå Bayes for kvar maskin — teljaren er «bidraget» til maskinen til defektane, nemnaren totalen:\n\n$$P(M_A|D) = \\frac{0{,}01}{0{,}027} \\approx 37{,}0\\,\\% \\qquad P(M_B|D) = \\frac{0{,}009}{0{,}027} \\approx 33{,}3\\,\\% \\qquad P(M_C|D) = \\frac{0{,}008}{0{,}027} \\approx 29{,}6\\,\\%$$\n\nOverraskinga er komplett: **maskin A** er mest sannsynleg kjelde, til trass for at han har *lågast* defektrate. Forklaringa er volumet — A produserer halvparten av alt, så sjølv ein låg feilprosent gjev mange defekte einingar i absolutte tal. Igjen er det prioren (marknadsdelen i produksjonen) som magekjensla gløymer.\n\nLegg òg merke til kontrollen: $37{,}0 + 33{,}3 + 29{,}6 \\approx 100\\,\\%$. Posteriorane over ein heil partisjon skal alltid summere til 1 — eit nyttig sjekkpunkt i kvar Bayes-berekning."
+    },
+    {
+      "id": "s1-5-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på Bayes i kvalitetskontroll:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-3-n-quiz3-q0",
+            "task": "To maskiner: M1 lagar 80 % av delane med 1 % defekte, M2 lagar 20 % med 5 % defekte. Ein del er defekt. Kva er $P(M_1|D)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$1\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$80\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\dfrac{0{,}01}{0{,}05} = 20\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\dfrac{0{,}008}{0{,}018} \\approx 44\\,\\%$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$P(D) = 0{,}01 \\cdot 0{,}8 + 0{,}05 \\cdot 0{,}2 = 0{,}008 + 0{,}010 = 0{,}018$. $P(M_1|D) = \\frac{0{,}008}{0{,}018} \\approx 0{,}444$."
+          },
+          {
+            "id": "s1-5-3-n-quiz3-q1",
+            "task": "Kvifor kan maskinen med lågast defektrate likevel vere den mest sannsynlege kjelda til ein defekt del?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi han produserer ein så stor del at han bidreg med flest defekte i absolutte tal",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi defektraten alltid er feilmålt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi Bayes' setning ignorerer defektraten",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er umogleg — høgast defektrate gjev alltid høgast posterior",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Posterioren avheng av produktet av prior (produksjonsdel) og likelihood (defektrate). Ein stor produksjonsdel kan vege opp for låg defektrate."
+          },
+          {
+            "id": "s1-5-3-n-quiz3-q2",
+            "task": "Posteriorsannsyna $P(M_A|D)$, $P(M_B|D)$ og $P(M_C|D)$ for ein partisjon skal alltid ...",
+            "options": [
+              {
+                "id": "a",
+                "text": "vere like store",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "summere til 1",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "summere til $P(D)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "vere mindre enn priorane",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gitt at delen er defekt, må han kome frå nøyaktig éi av maskinene, så posteriorane summerer til 1. Dette er ein god kontroll av rekninga."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-3-n-section4",
+      "type": "text",
+      "content": "## Sekvensiell oppdatering — når bevisa hopar seg opp\n\nDet kanskje vakraste ved Bayes' setning er at ho kan brukast om og om att: posterioren i dag blir prioren i morgon. Slik byggjer ein etterforskar, ein forskar eller eit spamfilter gradvis opp visse etter kvart som nye observasjonar kjem inn.\n\nSjå på eit reindyrka eksempel. Ei eske er anten av type R (3 raude og 1 blå kule) eller type B (1 raud og 3 blå), med 50 % sjanse for kvar. Du trekkjer ei kule med tilbakelegging — ho er raud. Likelihoodane er $P(\\text{raud}|R) = \\frac{3}{4}$ og $P(\\text{raud}|B) = \\frac{1}{4}$, så $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}5 + \\frac{1}{4} \\cdot 0{,}5 = \\frac{1}{2}$, og Bayes gjev\n\n$$P(R|\\text{1 raud}) = \\frac{\\frac{3}{4} \\cdot 0{,}5}{0{,}5} = \\frac{3}{4} = 75\\,\\%$$\n\nSå trekkjer du igjen — raud ein gong til. No er $0{,}75$ den nye prioren. Totalsetninga gjev $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}75 + \\frac{1}{4} \\cdot 0{,}25 = \\frac{10}{16} = \\frac{5}{8}$, og\n\n$$P(R|\\text{2 raude}) = \\frac{\\frac{3}{4} \\cdot 0{,}75}{\\frac{5}{8}} = \\frac{9}{10} = 90\\,\\%$$\n\nFrå 50 til 75 til 90 prosent: kvar observasjon flyttar trua vår, men aldri heilt til 100 — det skal alltid vere rom for at vi tek feil.\n\nAkkurat denne mekanismen driv moderne teknologi og forsking. Spamfilteret startar med ein prior for «spam», og kvart ord i e-posten («gratis!», «vinn!») oppdaterer sannsynet. I rettssaker diskuterer sakkunnige korleis DNA-bevis bør oppdatere skuldsannsynet. Og i maskinlæring ber heile familiar av metodar namnet bayesiansk inferens, med naive Bayes-klassifiseraren som enklaste slektning. Prinsippet er alltid det same: prior, likelihood, posterior — og om att."
+    },
+    {
+      "id": "s1-5-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "s1-5-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sekvensiell oppdatering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s1-5-3-n-quiz4-q0",
+            "task": "Kva er prinsippet i sekvensiell bayesiansk oppdatering?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Prioren blir halden fast gjennom alle observasjonane",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre den siste observasjonen tel",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Likelihooden blir oppdatert, ikkje prioren",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Posterioren etter éin observasjon blir brukt som prior for neste",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Kvar observasjon flyttar sannsynet: posterior etter trinn 1 blir prior i trinn 2, og så vidare."
+          },
+          {
+            "id": "s1-5-3-n-quiz4-q1",
+            "task": "I eske-eksempelet var sannsynet for type R 50 % før trekningane. Kva var det etter to raude kuler?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$90\\,\\%$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$75\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$100\\,\\%$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$56{,}25\\,\\%$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Første raude kule gav posterior 75 %, andre gav $\\frac{(3/4) \\cdot 0{,}75}{5/8} = \\frac{9}{10} = 90\\,\\%$."
+          },
+          {
+            "id": "s1-5-3-n-quiz4-q2",
+            "task": "Kva av desse er eit typisk bruksområde for Bayes' setning?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å finne stigingstalet til ei rett linje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å klassifisere e-post som spam basert på ordbruk",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å rekne ut gjennomsnittet i eit datasett",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å faktorisere eit polynom",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Spamfilter (naive Bayes) oppdaterer sannsynet for spam for kvart ord i e-posten. Andre bruksområde: medisinsk diagnostikk, bevisvurdering i juss og bayesiansk maskinlæring."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1-5-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: kunsten å skifte meining rett\n\nScreeningbrevet frå innleiinga miste mykje av skrekken sin: ein positiv test for ein sjeldan sjukdom betydde berre rundt 2 % sannsyn for å vere sjuk. Nøkkelen var **Bayes' setning**,\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nsom snur betinginga — frå det testen kan fortelje oss, $P(+|\\text{sjuk})$, til det vi faktisk lurer på, $P(\\text{sjuk}|+)$. Nemnaren $P(B)$ hentar vi frå totalsetninga, og ledda har eigne namn: **prior** ($P(A)$), **likelihood** ($P(B|A)$) og **posterior** ($P(A|B)$).\n\nI medisinen lærte vi omgrepa sensitivitet, spesifisitet, prevalens og positiv prediktiv verdi — og fella **base rate fallacy**: ved låg prevalens druknar dei sanne positive i falske positive frå den store friske gruppa. Eit godt mottiltak er å rekne med konkrete tal, til dømes per 100 000 personar, og hugse at sjeldne tilstandar krev stadfestande testar.\n\nPå fabrikken viste Bayes at maskinen med *lågast* defektrate likevel var den mest sannsynlege kjelda til ein defekt del, fordi han produserte mest — prioren tel like mykje som likelihooden. Og kontrollen er alltid at posteriorane over ein partisjon summerer til 1.\n\nTil slutt såg vi at setninga kan køyrast i sløyfe: **sekvensiell oppdatering** lét sannsynet for eske-typen klatre frå 50 via 75 til 90 prosent etter to raude kuler. Det er same maskineriet som driv spamfilter, bevisvurdering i retten og bayesiansk maskinlæring: start med det du trur, møt verkelegheita, og oppdater — gong på gong."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "33f75fb45638782a",
+    "translatedAt": "2026-06-20T03:33:54.887Z",
+    "model": "claude-code-agent",
+    "strings": 87,
+    "tm": {
+      "06e61b8016454902": "Bayes' setning",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "3974bcf99b97b38e": "Ei forteljing om kunsten å snu sannsyn -- frå ein skremmande screeningtest som nesten alltid tek feil, via defekte komponentar på fabrikken, til spamfilter og sekvensiell oppdatering.",
+      "6f8683053d9bad78": "bruke kombinatorikk til å berekne sannsyn",
+      "0c121014fa869790": "## Den positive testen som ikkje betydde det du trur\n\nEin frisk person deltek i ei screeningundersøking for ein sjeldan sjukdom. Testen er imponerande: han fangar opp 99 % av dei sjuke. Så kjem brevet — testen var positiv. Kor uroleg bør personen vere? Dei fleste vil gjette «99 % sikkert sjuk». Det rette svaret, skal vi sjå, er rundt 2 %.\n\nKorleis kan det stemme? Svaret ligg i **Bayes' setning**, ei av dei mest innflytelsesrike formlane i heile sannsynsteorien. Ho lèt oss «snu» vilkårsbundne sannsyn: testen fortel oss $P(\\text{positiv}|\\text{sjuk})$, men det vi eigentleg lurer på er det omvendte, $P(\\text{sjuk}|\\text{positiv})$. Desse to er ofte dramatisk forskjellige — og å blande dei saman har ført til feildiagnosar, justismord og dårlege avgjerder.\n\nTankegangen er like nyttig utanfor medisinen: Eit produkt er defekt — kva maskin lagde det mest sannsynleg? Ein e-post inneheld ordet «gratis» — er det spam? Felles for alle eksempla er at vi startar med ei **forhandsantaking** (prior), mottek ny informasjon, og oppdaterer til ei **etterantaking** (posterior). I dette kapittelet utleier vi setninga, løyser testgåta, sporar opp den defekte komponenten i ein fabrikk, og ser korleis vi kan oppdatere sannsyn gong på gong etter kvart som bevisa hopar seg opp.",
+      "cf724b69b47b4709": "## Å snu betinginga — sjølve setninga\n\nUtleiinga er overraskande kort, og ho byggjer berre på det du allereie kan. Definisjonen av vilkårsbunde sannsyn seier at $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$. Samtidig veit vi frå produktregelen at $P(A \\cap B) = P(B|A) \\cdot P(A)$. Set vi det inn, får vi **Bayes' setning**:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nKvart ledd har fått eige namn i den bayesianske tradisjonen. $P(A)$ er **prioren** — det vi trudde om $A$ før vi fekk informasjonen. $P(B|A)$ er **likelihooden** — kor sannsynleg observasjonen $B$ er dersom $A$ er sann. $P(B)$ er **marginalen** — det totale sannsynet for å observere $B$ uansett. Og resultatet $P(A|B)$ er **posterioren** — det oppdaterte sannsynet.\n\nNemnaren $P(B)$ reknar vi som regel ut med totalsetninga frå førre kapittel, og då får setninga den mest brukte forma si:\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B|A) \\cdot P(A) + P(B|\\overline{A}) \\cdot P(\\overline{A})}$$\n\nLes ho gjerne slik: teljaren er «vegen til $B$ gjennom $A$», nemnaren er «alle vegar til $B$». Posterioren er rett og slett delen av $B$-tilfella som skuldast $A$. Med det verktøyet i handa kan vi vende tilbake til screeningbrevet.",
+      "b8f52815cfda093a": "Test deg sjølv på Bayes' setning:",
+      "4097889236a2af26": "placeholder",
+      "f0de6ff298dbea3b": "Kva er Bayes' setning?",
+      "c064f0be53e81af8": "$P(A|B) = \\dfrac{P(B|A) \\cdot P(A)}{P(B)}$",
+      "cd895cf0f0cae3d2": "$P(A|B) = P(B|A)$",
+      "2591a320935b500a": "$P(A|B) = \\dfrac{P(A)}{P(B)}$",
+      "82dab64aa8bcf7ec": "$P(A|B) = P(A) \\cdot P(B)$",
+      "db244522cbaa6a31": "Bayes' setning: $P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$. Ho lèt oss snu betinginga frå $P(B|A)$ til $P(A|B)$.",
+      "6e0c2e8f2b96b9a2": "I bayesiansk språkbruk: kva blir $P(A)$, sannsynet før ny informasjon, kalla?",
+      "f6fe1c8bb8d549da": "Posterior",
+      "545c4351af10f3d4": "Likelihood",
+      "def7d604fad05c32": "Prior",
+      "023f2ca37ae40798": "Marginal",
+      "5c834e6ae79e60fa": "$P(A)$ er prioren (forhandsantakinga). $P(B|A)$ er likelihood, $P(B)$ marginalen, og $P(A|B)$ posterioren.",
+      "4719d882f2ae57df": "Korleis blir nemnaren $P(B)$ vanlegvis rekna ut?",
+      "6754d88df1ef8cfa": "Med totalsetninga: $P(B) = P(B|A)P(A) + P(B|\\overline{A})P(\\overline{A})$",
+      "94b116f57a3e6d45": "Ho blir alltid sett lik 1",
+      "fa7807b3acfeeca6": "Som $P(A) \\cdot P(B|A)$",
+      "81efc3d78020d7ea": "Som $1 - P(A)$",
+      "ee7c2bc89946989f": "Totalsetninga gjev $P(B)$ ved å summere alle vegane til $B$: gjennom $A$ og gjennom $\\overline{A}$.",
+      "a61e508d69813a35": "## Diagnosen — når 99 % presisjon gjev 2 % visse\n\nNo løyser vi gåta frå innleiinga, og først treng vi presist språk. For ein diagnostisk test definerer vi **sensitivitet** som $P(+|\\text{sjuk})$ — delen sjuke som testar positivt, **spesifisitet** som $P(-|\\text{frisk})$ — delen friske som testar negativt, og **prevalens** som $P(\\text{sjuk})$ — delen av befolkninga som har sjukdomen. Det vi vil finne, blir kalla **positiv prediktiv verdi**: $P(\\text{sjuk}|+)$.\n\nTesten vår har sensitivitet 99 % og spesifisitet 95 %, og sjukdomen rammar 0,1 % av befolkninga. Merk at 5 % av dei friske testar *falskt* positivt: $P(+|\\overline{S}) = 1 - 0{,}95 = 0{,}05$. Totalsetninga gjev sannsynet for ein positiv test:\n\n$$P(+) = 0{,}99 \\cdot 0{,}001 + 0{,}05 \\cdot 0{,}999 = 0{,}00099 + 0{,}04995 = 0{,}05094$$\n\nOg Bayes' setning gjev svaret:\n\n$$P(S|+) = \\frac{0{,}99 \\cdot 0{,}001}{0{,}05094} \\approx 0{,}019 \\approx 1{,}9\\,\\%$$\n\nBerre rundt 2 %! Intuisjonen blir tydelegare med konkrete tal. Sjå for deg 100 000 testa: om lag 100 er sjuke, og 99 av dei testar positivt. Men blant dei 99 900 friske testar rundt 4995 positivt. Av drygt 5000 positive svar er altså berre 99 ekte — dei falske positive frå den enorme friske gruppa druknar dei sanne.\n\nÅ oversjå dette blir kalla **base rate fallacy** — grunnsatsfeilen: vi gløymer kor sjeldan tilstanden er i utgangspunktet. Difor er hovudregelen i screeningprogram at ein positiv test ved sjeldne tilstandar må stadfestast med tilleggstestar før nokon får ein diagnose.",
+      "2515c15d9b30d89a": "Test deg sjølv på diagnostiske testar:",
+      "9b9fee031cd2478a": "Kva er sensitiviteten til ein test?",
+      "705bfda561b7e9c9": "$P(\\text{sjuk}|+)$",
+      "38dcdf0dec608aa8": "$P(+|\\text{sjuk})$",
+      "75d2bfb9a1c26b61": "$P(-|\\text{frisk})$",
+      "7b328ea257bf99ea": "Delen av befolkninga som er sjuk",
+      "c8f972a8136e24ba": "Sensitivitet er $P(+|\\text{sjuk})$ — delen sjuke som testen fangar opp. $P(\\text{sjuk}|+)$ er den positive prediktive verdien, og $P(-|\\text{frisk})$ er spesifisiteten.",
+      "0219c937057b440e": "Ein test har spesifisitet 90 %. Kva er sannsynet for at ein frisk person testar (falskt) positivt?",
+      "1cc2c3671e89ee7b": "Det kan ikkje reknast ut",
+      "e64c96ce09fa80dc": "Falsk positiv-raten er $1 - \\text{spesifisitet} = 1 - 0{,}90 = 0{,}10$.",
+      "c2cd944724c48e34": "Kvifor blir $P(\\text{sjuk}|+)$ låg for sjeldne sjukdomar sjølv med ein god test?",
+      "dc8bd3139656240b": "Fordi testen mistar sensitivitet over tid",
+      "a43aac63e24ff707": "Fordi dei falske positive frå den store friske gruppa langt overstig dei sanne positive",
+      "14f1b99d387f129c": "Fordi prevalensen aukar når mange blir testa",
+      "b1d78f3611ba4908": "Fordi spesifisiteten og sensitiviteten alltid summerer til 1",
+      "c6445402a7a48dd9": "Med låg prevalens er den friske gruppa enorm, så sjølv ein liten falsk positiv-rate gjev mange fleire falske enn sanne positive. Dette er base rate fallacy.",
+      "a2f97247656b3fde": "Ein sjukdom har prevalens 1 %. Testen har sensitivitet 90 % og spesifisitet 90 %. Kva er om lag $P(\\text{sjuk}|+)$?",
+      "5483c1c2d668144e": "Ca. 90 %",
+      "9c1ea785671db0ce": "Ca. 50 %",
+      "51f93a1dd88c47f7": "Ca. 8 %",
+      "a3feba04ef705770": "Ca. 1 %",
+      "24b378160cb4b6a4": "$P(+) = 0{,}9 \\cdot 0{,}01 + 0{,}1 \\cdot 0{,}99 = 0{,}009 + 0{,}099 = 0{,}108$. $P(S|+) = \\frac{0{,}009}{0{,}108} \\approx 0{,}083$, altså ca. 8 %.",
+      "40636b546de4cb15": "## Jakta på den defekte komponenten\n\nBayes' setning er like heime på fabrikkgolvet som på legekontoret. Ein elektronikkfabrikk har tre maskiner: maskin A står for 50 % av produksjonen med 2 % defekte, maskin B for 30 % med 3 % defekte, og maskin C for 20 % med 4 % defekte. Kvalitetskontrollen plukkar opp ein defekt komponent. Kva maskin er den mest sannsynlege syndaren? Magekjensla peikar kanskje på C — han har jo høgast defektrate. Lat oss rekne.\n\nFørst totalsetninga, no med tre tilfelle i partisjonen:\n\n$$P(D) = 0{,}02 \\cdot 0{,}50 + 0{,}03 \\cdot 0{,}30 + 0{,}04 \\cdot 0{,}20 = 0{,}01 + 0{,}009 + 0{,}008 = 0{,}027$$\n\nSå Bayes for kvar maskin — teljaren er «bidraget» til maskinen til defektane, nemnaren totalen:\n\n$$P(M_A|D) = \\frac{0{,}01}{0{,}027} \\approx 37{,}0\\,\\% \\qquad P(M_B|D) = \\frac{0{,}009}{0{,}027} \\approx 33{,}3\\,\\% \\qquad P(M_C|D) = \\frac{0{,}008}{0{,}027} \\approx 29{,}6\\,\\%$$\n\nOverraskinga er komplett: **maskin A** er mest sannsynleg kjelde, til trass for at han har *lågast* defektrate. Forklaringa er volumet — A produserer halvparten av alt, så sjølv ein låg feilprosent gjev mange defekte einingar i absolutte tal. Igjen er det prioren (marknadsdelen i produksjonen) som magekjensla gløymer.\n\nLegg òg merke til kontrollen: $37{,}0 + 33{,}3 + 29{,}6 \\approx 100\\,\\%$. Posteriorane over ein heil partisjon skal alltid summere til 1 — eit nyttig sjekkpunkt i kvar Bayes-berekning.",
+      "2553547c4384847c": "Test deg sjølv på Bayes i kvalitetskontroll:",
+      "7005537ce66a0114": "To maskiner: M1 lagar 80 % av delane med 1 % defekte, M2 lagar 20 % med 5 % defekte. Ein del er defekt. Kva er $P(M_1|D)$?",
+      "23cba7db353b2fa3": "$\\dfrac{0{,}008}{0{,}018} \\approx 44\\,\\%$",
+      "a9c2a59079ec536d": "$\\dfrac{0{,}01}{0{,}05} = 20\\,\\%$",
+      "2dcbbe60e938a6da": "$P(D) = 0{,}01 \\cdot 0{,}8 + 0{,}05 \\cdot 0{,}2 = 0{,}008 + 0{,}010 = 0{,}018$. $P(M_1|D) = \\frac{0{,}008}{0{,}018} \\approx 0{,}444$.",
+      "98b6c85af5d86df2": "Kvifor kan maskinen med lågast defektrate likevel vere den mest sannsynlege kjelda til ein defekt del?",
+      "23dbd64d8961fb4c": "Fordi defektraten alltid er feilmålt",
+      "43cb8e02560a223b": "Fordi han produserer ein så stor del at han bidreg med flest defekte i absolutte tal",
+      "84d51f66720a2f96": "Fordi Bayes' setning ignorerer defektraten",
+      "8678801adf13493c": "Det er umogleg — høgast defektrate gjev alltid høgast posterior",
+      "a49c1ff66a2b3bf3": "Posterioren avheng av produktet av prior (produksjonsdel) og likelihood (defektrate). Ein stor produksjonsdel kan vege opp for låg defektrate.",
+      "2961de4cd337967a": "Posteriorsannsyna $P(M_A|D)$, $P(M_B|D)$ og $P(M_C|D)$ for ein partisjon skal alltid ...",
+      "09877e8825a35a1a": "vere like store",
+      "05e9d3103588ec76": "summere til 1",
+      "6058dc412953592c": "summere til $P(D)$",
+      "02f3003bbad4a32c": "vere mindre enn priorane",
+      "f70d9ce8847ac728": "Gitt at delen er defekt, må han kome frå nøyaktig éi av maskinene, så posteriorane summerer til 1. Dette er ein god kontroll av rekninga.",
+      "93e933ee19c3bcfc": "## Sekvensiell oppdatering — når bevisa hopar seg opp\n\nDet kanskje vakraste ved Bayes' setning er at ho kan brukast om og om att: posterioren i dag blir prioren i morgon. Slik byggjer ein etterforskar, ein forskar eller eit spamfilter gradvis opp visse etter kvart som nye observasjonar kjem inn.\n\nSjå på eit reindyrka eksempel. Ei eske er anten av type R (3 raude og 1 blå kule) eller type B (1 raud og 3 blå), med 50 % sjanse for kvar. Du trekkjer ei kule med tilbakelegging — ho er raud. Likelihoodane er $P(\\text{raud}|R) = \\frac{3}{4}$ og $P(\\text{raud}|B) = \\frac{1}{4}$, så $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}5 + \\frac{1}{4} \\cdot 0{,}5 = \\frac{1}{2}$, og Bayes gjev\n\n$$P(R|\\text{1 raud}) = \\frac{\\frac{3}{4} \\cdot 0{,}5}{0{,}5} = \\frac{3}{4} = 75\\,\\%$$\n\nSå trekkjer du igjen — raud ein gong til. No er $0{,}75$ den nye prioren. Totalsetninga gjev $P(\\text{raud}) = \\frac{3}{4} \\cdot 0{,}75 + \\frac{1}{4} \\cdot 0{,}25 = \\frac{10}{16} = \\frac{5}{8}$, og\n\n$$P(R|\\text{2 raude}) = \\frac{\\frac{3}{4} \\cdot 0{,}75}{\\frac{5}{8}} = \\frac{9}{10} = 90\\,\\%$$\n\nFrå 50 til 75 til 90 prosent: kvar observasjon flyttar trua vår, men aldri heilt til 100 — det skal alltid vere rom for at vi tek feil.\n\nAkkurat denne mekanismen driv moderne teknologi og forsking. Spamfilteret startar med ein prior for «spam», og kvart ord i e-posten («gratis!», «vinn!») oppdaterer sannsynet. I rettssaker diskuterer sakkunnige korleis DNA-bevis bør oppdatere skuldsannsynet. Og i maskinlæring ber heile familiar av metodar namnet bayesiansk inferens, med naive Bayes-klassifiseraren som enklaste slektning. Prinsippet er alltid det same: prior, likelihood, posterior — og om att.",
+      "abad88e96b814b02": "Test deg sjølv på sekvensiell oppdatering:",
+      "94436e8ca53e2149": "Kva er prinsippet i sekvensiell bayesiansk oppdatering?",
+      "b6d3e427537971e5": "Posterioren etter éin observasjon blir brukt som prior for neste",
+      "07e9ba6ef9eb6ca4": "Prioren blir halden fast gjennom alle observasjonane",
+      "1c625150c6976c02": "Berre den siste observasjonen tel",
+      "1ddcb6ab202cbf65": "Likelihooden blir oppdatert, ikkje prioren",
+      "79ba4660caec1a13": "Kvar observasjon flyttar sannsynet: posterior etter trinn 1 blir prior i trinn 2, og så vidare.",
+      "33e885831ecbba12": "I eske-eksempelet var sannsynet for type R 50 % før trekningane. Kva var det etter to raude kuler?",
+      "04ae713f8e319b65": "Første raude kule gav posterior 75 %, andre gav $\\frac{(3/4) \\cdot 0{,}75}{5/8} = \\frac{9}{10} = 90\\,\\%$.",
+      "39b0c3a6e16713a4": "Kva av desse er eit typisk bruksområde for Bayes' setning?",
+      "7c0e1ae7439ca0b7": "Å finne stigingstalet til ei rett linje",
+      "2ca82f39f2b481fa": "Å klassifisere e-post som spam basert på ordbruk",
+      "23e0b733dfd695c2": "Å rekne ut gjennomsnittet i eit datasett",
+      "7954d9a2eabf33c1": "Å faktorisere eit polynom",
+      "a89bcc2f9bb3e949": "Spamfilter (naive Bayes) oppdaterer sannsynet for spam for kvart ord i e-posten. Andre bruksområde: medisinsk diagnostikk, bevisvurdering i juss og bayesiansk maskinlæring.",
+      "72ada07478bbec92": "## Oppsummering: kunsten å skifte meining rett\n\nScreeningbrevet frå innleiinga miste mykje av skrekken sin: ein positiv test for ein sjeldan sjukdom betydde berre rundt 2 % sannsyn for å vere sjuk. Nøkkelen var **Bayes' setning**,\n\n$$P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}$$\n\nsom snur betinginga — frå det testen kan fortelje oss, $P(+|\\text{sjuk})$, til det vi faktisk lurer på, $P(\\text{sjuk}|+)$. Nemnaren $P(B)$ hentar vi frå totalsetninga, og ledda har eigne namn: **prior** ($P(A)$), **likelihood** ($P(B|A)$) og **posterior** ($P(A|B)$).\n\nI medisinen lærte vi omgrepa sensitivitet, spesifisitet, prevalens og positiv prediktiv verdi — og fella **base rate fallacy**: ved låg prevalens druknar dei sanne positive i falske positive frå den store friske gruppa. Eit godt mottiltak er å rekne med konkrete tal, til dømes per 100 000 personar, og hugse at sjeldne tilstandar krev stadfestande testar.\n\nPå fabrikken viste Bayes at maskinen med *lågast* defektrate likevel var den mest sannsynlege kjelda til ein defekt del, fordi han produserte mest — prioren tel like mykje som likelihooden. Og kontrollen er alltid at posteriorane over ein partisjon summerer til 1.\n\nTil slutt såg vi at setninga kan køyrast i sløyfe: **sekvensiell oppdatering** lét sannsynet for eske-typen klatre frå 50 via 75 til 90 prosent etter to raude kuler. Det er same maskineriet som driv spamfilter, bevisvurdering i retten og bayesiansk maskinlæring: start med det du trur, møt verkelegheita, og oppdater — gong på gong."
+    }
+  }
+}

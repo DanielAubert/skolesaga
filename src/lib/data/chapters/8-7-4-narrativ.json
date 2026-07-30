@@ -1,1 +1,341 @@
-{"id":"8-7-4-narrativ","courseId":"8","chapterNumber":"7.4","title":"Brøk med primtallsfaktorisering","subtitle":"Narrativ versjon","description":"En fortellende gjennomgang av hvordan primtallsfaktorisering gjør brøkregning enklere -- der vi lærer å forenkle brøker effektivt, finne fellesnevnere og forstå sammenhengen mellom SFF, MFM og brøk.","estimatedMinutes":30,"competenceGoals":["bruke faktorisering og primtall i berekningar"],"linkedChapterId":"8-7-4","content":[{"id":"8-7-4-n-intro","type":"text","content":"## Brøk møter primtall\n\nDu kan allerede forenkle brøker: $\\frac{6}{10} = \\frac{3}{5}$ (del teller og nevner på $2$). Men hva med $\\frac{84}{126}$? Hva skal du dele på? Skal du prøve $2$? $3$? $7$? Og hvordan vet du at du har forenklet helt?\n\nMed primtallsfaktorisering får du svaret direkte og sikkert. Du faktoriserer teller og nevner, stryker felles faktorer, og det som er igjen er brøken i sin enkleste form. Ingen gjetting!\n\nI dette kapittelet skal vi se hvordan primtallsfaktorisering gjør to oppgaver mye enklere:\n1. **Forenkle brøker** -- finne den enkleste formen\n2. **Finne fellesnevner** -- for å legge sammen eller trekke fra brøker"},{"id":"8-7-4-n-section1","type":"text","content":"## Forenkle brøker med primtallsfaktorisering\n\n**Oppskrift:**\n1. Faktoriser telleren og nevneren\n2. Stryk felles primfaktorer (del begge på SFF)\n3. Gang sammen det som er igjen\n\n**Eksempel: Forenkle $\\frac{84}{126}$**\n\nFaktoriser:\n$$84 = 2^2 \\cdot 3 \\cdot 7$$\n$$126 = 2 \\cdot 3^2 \\cdot 7$$\n\nStryk felles faktorer -- de minste eksponentene:\n- $2$: $\\min(2, 1) = 1$ strykes, igjen: $2^{2-1} = 2$ i teller, $2^{1-1} = 1$ i nevner\n- $3$: $\\min(1, 2) = 1$ strykes, igjen: $3^{1-1} = 1$ i teller, $3^{2-1} = 3$ i nevner\n- $7$: $\\min(1, 1) = 1$ strykes, igjen: ingenting\n\n$$\\frac{84}{126} = \\frac{\\cancel{2} \\cdot 2 \\cdot \\cancel{3} \\cdot \\cancel{7}}{\\cancel{2} \\cdot \\cancel{3} \\cdot 3 \\cdot \\cancel{7}} = \\frac{2}{3}$$\n\nVi kan sjekke: $\\text{SFF}(84, 126) = 2 \\cdot 3 \\cdot 7 = 42$. Og $\\frac{84}{126} = \\frac{84 \\div 42}{126 \\div 42} = \\frac{2}{3}$ ✓\n\n**Eksempel: Forenkle $\\frac{60}{90}$**\n\n$$60 = 2^2 \\cdot 3 \\cdot 5$$\n$$90 = 2 \\cdot 3^2 \\cdot 5$$\n\nSFF $= 2 \\cdot 3 \\cdot 5 = 30$\n\n$$\\frac{60}{90} = \\frac{60 \\div 30}{90 \\div 30} = \\frac{2}{3}$$"},{"id":"8-7-4-n-quiz1","type":"exercise","exercise":{"id":"8-7-4-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på å forenkle brøker:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-4-n-quiz1-q0","task":"Forenkle $\\frac{48}{72}$.","options":[{"id":"a","text":"$\\frac{3}{4}$","isCorrect":false},{"id":"b","text":"$\\frac{2}{3}$","isCorrect":true},{"id":"c","text":"$\\frac{4}{6}$","isCorrect":false},{"id":"d","text":"$\\frac{8}{12}$","isCorrect":false}],"solution":"$48 = 2^4 \\cdot 3$ og $72 = 2^3 \\cdot 3^2$. SFF $= 2^3 \\cdot 3 = 24$. $\\frac{48}{72} = \\frac{48 \\div 24}{72 \\div 24} = \\frac{2}{3}$."},{"id":"8-7-4-n-quiz1-q1","task":"Forenkle $\\frac{75}{100}$.","options":[{"id":"a","text":"$\\frac{3}{4}$","isCorrect":true},{"id":"b","text":"$\\frac{15}{20}$","isCorrect":false},{"id":"c","text":"$\\frac{7}{10}$","isCorrect":false},{"id":"d","text":"$\\frac{5}{8}$","isCorrect":false}],"solution":"$75 = 3 \\cdot 5^2$ og $100 = 2^2 \\cdot 5^2$. SFF $= 5^2 = 25$. $\\frac{75}{100} = \\frac{3}{4}$."},{"id":"8-7-4-n-quiz1-q2","task":"Når er en brøk $\\frac{a}{b}$ allerede i enkleste form?","options":[{"id":"a","text":"Når $a < b$","isCorrect":false},{"id":"b","text":"Når $a$ og $b$ er oddetall","isCorrect":false},{"id":"c","text":"Når $\\text{SFF}(a, b) = 1$","isCorrect":true},{"id":"d","text":"Når $b$ er et primtall","isCorrect":false}],"solution":"Brøken er i enkleste form når teller og nevner ikke har felles primfaktorer -- altså når $\\text{SFF}(a, b) = 1$."}]}},{"id":"8-7-4-n-section2","type":"text","content":"## Fellesnevner med MFM\n\nFor å legge sammen (eller trekke fra) brøker med ulike nevnere trenger vi en **fellesnevner** -- et tall som begge nevnerne går opp i. Vi velger den **minste** fellesnevneren, som er nøyaktig $\\text{MFM}$ av nevnerne.\n\n**Eksempel: $\\frac{5}{12} + \\frac{7}{18}$**\n\nFinn fellesnevner: $\\text{MFM}(12, 18)$.\n\n$$12 = 2^2 \\cdot 3$$\n$$18 = 2 \\cdot 3^2$$\n\n$$\\text{MFM}(12, 18) = 2^2 \\cdot 3^2 = 4 \\cdot 9 = 36$$\n\nUtvid begge brøkene:\n$$\\frac{5}{12} = \\frac{5 \\cdot 3}{12 \\cdot 3} = \\frac{15}{36}$$\n$$\\frac{7}{18} = \\frac{7 \\cdot 2}{18 \\cdot 2} = \\frac{14}{36}$$\n\nLegg sammen:\n$$\\frac{15}{36} + \\frac{14}{36} = \\frac{29}{36}$$\n\n**Eksempel: $\\frac{3}{8} - \\frac{1}{6}$**\n\n$$\\text{MFM}(8, 6): \\quad 8 = 2^3, \\quad 6 = 2 \\cdot 3$$\n$$\\text{MFM} = 2^3 \\cdot 3 = 24$$\n\n$$\\frac{3}{8} = \\frac{9}{24}, \\quad \\frac{1}{6} = \\frac{4}{24}$$\n\n$$\\frac{9}{24} - \\frac{4}{24} = \\frac{5}{24}$$\n\nHvorfor er MFM bedre enn å bare gange nevnerne? Fordi $12 \\cdot 18 = 216$, men MFM gir $36$ -- et mye mindre tall å jobbe med!"},{"id":"8-7-4-n-quiz2","type":"exercise","exercise":{"id":"8-7-4-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på fellesnevner:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-4-n-quiz2-q0","task":"Hva er den minste fellesnevneren for $\\frac{1}{4}$ og $\\frac{2}{6}$?","options":[{"id":"a","text":"$24$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":true},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$8$","isCorrect":false}],"solution":"$\\text{MFM}(4, 6)$. $4 = 2^2$, $6 = 2 \\cdot 3$. MFM $= 2^2 \\cdot 3 = 12$."},{"id":"8-7-4-n-quiz2-q1","task":"Regn ut $\\frac{5}{6} + \\frac{3}{10}$.","options":[{"id":"a","text":"$\\frac{34}{30} = \\frac{17}{15}$","isCorrect":true},{"id":"b","text":"$\\frac{8}{16} = \\frac{1}{2}$","isCorrect":false},{"id":"c","text":"$\\frac{50}{60} = \\frac{5}{6}$","isCorrect":false},{"id":"d","text":"$\\frac{28}{30} = \\frac{14}{15}$","isCorrect":false}],"solution":"MFM$(6, 10) = 30$. $\\frac{5}{6} = \\frac{25}{30}$, $\\frac{3}{10} = \\frac{9}{30}$. Sum: $\\frac{25 + 9}{30} = \\frac{34}{30} = \\frac{17}{15}$."},{"id":"8-7-4-n-quiz2-q2","task":"Regn ut $\\frac{7}{15} - \\frac{1}{9}$.","options":[{"id":"a","text":"$\\frac{16}{45}$","isCorrect":true},{"id":"b","text":"$\\frac{6}{6} = 1$","isCorrect":false},{"id":"c","text":"$\\frac{2}{5}$","isCorrect":false},{"id":"d","text":"$\\frac{14}{45}$","isCorrect":false}],"solution":"MFM$(15, 9) = 45$. $\\frac{7}{15} = \\frac{21}{45}$, $\\frac{1}{9} = \\frac{5}{45}$. Differanse: $\\frac{21 - 5}{45} = \\frac{16}{45}$."}]}},{"id":"8-7-4-n-section3","type":"text","content":"## Multiplikasjon og forenkling med primtall\n\nNår du ganger brøker, kan du forenkle **før** du ganger -- noe som sparer deg for store tall. Primtallsfaktorisering gjør dette oversiktlig.\n\n**Eksempel: $\\frac{14}{15} \\cdot \\frac{25}{21}$**\n\nFaktoriser alt:\n$$\\frac{14}{15} \\cdot \\frac{25}{21} = \\frac{2 \\cdot 7}{3 \\cdot 5} \\cdot \\frac{5^2}{3 \\cdot 7}$$\n\nSkriv som én brøk:\n$$= \\frac{2 \\cdot 7 \\cdot 5^2}{3 \\cdot 5 \\cdot 3 \\cdot 7}$$\n\nStryk felles faktorer (teller mot nevner):\n$$= \\frac{2 \\cdot \\cancel{7} \\cdot \\cancel{5} \\cdot 5}{3 \\cdot \\cancel{5} \\cdot 3 \\cdot \\cancel{7}} = \\frac{2 \\cdot 5}{3 \\cdot 3} = \\frac{10}{9}$$\n\nUten forenkling hadde vi fått $\\frac{350}{315}$, som vi deretter måtte forenkle -- mye mer arbeid!\n\n**Eksempel: $\\frac{12}{35} \\cdot \\frac{49}{18}$**\n\n$$= \\frac{2^2 \\cdot 3}{5 \\cdot 7} \\cdot \\frac{7^2}{2 \\cdot 3^2} = \\frac{2^2 \\cdot 3 \\cdot 7^2}{5 \\cdot 7 \\cdot 2 \\cdot 3^2}$$\n\nStryk: $2^1$, $3^1$, $7^1$:\n\n$$= \\frac{2 \\cdot 7}{5 \\cdot 3} = \\frac{14}{15}$$\n\nDenne teknikken -- å faktorisere og forenkle diagonalt -- kalles **kryssforenkling** og er en av de mest nyttige ferdighetene i brøkregning."},{"id":"8-7-4-n-quiz3","type":"exercise","exercise":{"id":"8-7-4-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på brøkmultiplikasjon med forenkling:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-7-4-n-quiz3-q0","task":"Forenkle og regn ut $\\frac{9}{14} \\cdot \\frac{7}{12}$.","options":[{"id":"a","text":"$\\frac{3}{8}$","isCorrect":true},{"id":"b","text":"$\\frac{63}{168}$","isCorrect":false},{"id":"c","text":"$\\frac{9}{24}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{2}$","isCorrect":false}],"solution":"$\\frac{9}{14} \\cdot \\frac{7}{12} = \\frac{3^2}{2 \\cdot 7} \\cdot \\frac{7}{2^2 \\cdot 3} = \\frac{3^2 \\cdot 7}{2 \\cdot 7 \\cdot 2^2 \\cdot 3} = \\frac{3}{2^3} = \\frac{3}{8}$."},{"id":"8-7-4-n-quiz3-q1","task":"Forenkle $\\frac{36}{77} \\cdot \\frac{11}{24}$.","options":[{"id":"a","text":"$\\frac{3}{14}$","isCorrect":true},{"id":"b","text":"$\\frac{6}{14}$","isCorrect":false},{"id":"c","text":"$\\frac{9}{28}$","isCorrect":false},{"id":"d","text":"$\\frac{1}{7}$","isCorrect":false}],"solution":"$\\frac{36}{77} \\cdot \\frac{11}{24} = \\frac{2^2 \\cdot 3^2}{7 \\cdot 11} \\cdot \\frac{11}{2^3 \\cdot 3} = \\frac{2^2 \\cdot 3^2 \\cdot 11}{7 \\cdot 11 \\cdot 2^3 \\cdot 3} = \\frac{3}{2 \\cdot 7} = \\frac{3}{14}$."},{"id":"8-7-4-n-quiz3-q2","task":"Hva er fordelen med å forenkle FØR du ganger brøker?","options":[{"id":"a","text":"Du får et annet svar","isCorrect":false},{"id":"b","text":"Du slipper å jobbe med store tall","isCorrect":true},{"id":"c","text":"Det er obligatorisk -- ellers er svaret feil","isCorrect":false},{"id":"d","text":"Det endrer brøkens fortegn","isCorrect":false}],"solution":"Å forenkle før ganging gir samme svar, men du jobber med mindre tall. $\\frac{14 \\cdot 25}{15 \\cdot 21} = \\frac{350}{315}$ vs. å forenkle først og få $\\frac{10}{9}$ direkte."}]}},{"id":"8-7-4-n-summary","type":"text","content":"## Oppsummering\n\nPrimtallsfaktorisering gjør brøkregning enklere og sikrere:\n\n| Oppgave | Metode |\n|---------|--------|\n| **Forenkle brøk** | Faktoriser teller og nevner, del begge på SFF |\n| **Fellesnevner** | Finn MFM av nevnerne, utvid brøkene |\n| **Gange brøker** | Faktoriser alt, stryk felles faktorer FØR du ganger |\n\n**Huskeliste:**\n- En brøk er i enkleste form når $\\text{SFF}(\\text{teller}, \\text{nevner}) = 1$\n- Minste fellesnevner $= \\text{MFM}(\\text{nevner}_1, \\text{nevner}_2)$\n- Kryssforenkling: stryk felles primfaktorer mellom teller og nevner (diagonalt) før du ganger\n- Primtallsfaktorisering gir deg full kontroll -- ingen gjetting, ingen tvil om at brøken er fullstendig forenklet"}],"exercises":[]}
+{
+  "id": "8-7-4-narrativ",
+  "courseId": "8",
+  "chapterNumber": "7.4",
+  "title": "Brøk med primtallsfaktorisering",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende gjennomgang av hvordan primtallsfaktorisering gjør brøkregning enklere -- der vi lærer å forenkle brøker effektivt, finne fellesnevnere og forstå sammenhengen mellom SFF, MFM og brøk.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "bruke faktorisering og primtall i berekningar"
+  ],
+  "linkedChapterId": "8-7-4",
+  "content": [
+    {
+      "id": "8-7-4-n-intro",
+      "type": "text",
+      "content": "## Brøk møter primtall\n\nDu kan allerede forenkle brøker: $\\frac{6}{10} = \\frac{3}{5}$ (del teller og nevner på $2$). Men hva med $\\frac{84}{126}$? Hva skal du dele på? Skal du prøve $2$? $3$? $7$? Og hvordan vet du at du har forenklet helt?\n\nMed primtallsfaktorisering får du svaret direkte og sikkert. Du faktoriserer teller og nevner, stryker felles faktorer, og det som er igjen er brøken i sin enkleste form. Ingen gjetting!\n\nI dette kapittelet skal vi se hvordan primtallsfaktorisering gjør to oppgaver mye enklere:\n1. **Forenkle brøker** -- finne den enkleste formen\n2. **Finne fellesnevner** -- for å legge sammen eller trekke fra brøker"
+    },
+    {
+      "id": "8-7-4-n-section1",
+      "type": "text",
+      "content": "## Forenkle brøker med primtallsfaktorisering\n\n**Oppskrift:**\n1. Faktoriser telleren og nevneren\n2. Stryk felles primfaktorer (del begge på SFF)\n3. Gang sammen det som er igjen\n\n**Eksempel: Forenkle $\\frac{84}{126}$**\n\nFaktoriser:\n$$84 = 2^2 \\cdot 3 \\cdot 7$$\n$$126 = 2 \\cdot 3^2 \\cdot 7$$\n\nStryk felles faktorer -- de minste eksponentene:\n- $2$: $\\min(2, 1) = 1$ strykes, igjen: $2^{2-1} = 2$ i teller, $2^{1-1} = 1$ i nevner\n- $3$: $\\min(1, 2) = 1$ strykes, igjen: $3^{1-1} = 1$ i teller, $3^{2-1} = 3$ i nevner\n- $7$: $\\min(1, 1) = 1$ strykes, igjen: ingenting\n\n$$\\frac{84}{126} = \\frac{\\cancel{2} \\cdot 2 \\cdot \\cancel{3} \\cdot \\cancel{7}}{\\cancel{2} \\cdot \\cancel{3} \\cdot 3 \\cdot \\cancel{7}} = \\frac{2}{3}$$\n\nVi kan sjekke: $\\text{SFF}(84, 126) = 2 \\cdot 3 \\cdot 7 = 42$. Og $\\frac{84}{126} = \\frac{84 \\div 42}{126 \\div 42} = \\frac{2}{3}$ ✓\n\n**Eksempel: Forenkle $\\frac{60}{90}$**\n\n$$60 = 2^2 \\cdot 3 \\cdot 5$$\n$$90 = 2 \\cdot 3^2 \\cdot 5$$\n\nSFF $= 2 \\cdot 3 \\cdot 5 = 30$\n\n$$\\frac{60}{90} = \\frac{60 \\div 30}{90 \\div 30} = \\frac{2}{3}$$"
+    },
+    {
+      "id": "8-7-4-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-4-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på å forenkle brøker:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-4-n-quiz1-q0",
+            "task": "Forenkle $\\frac{48}{72}$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{2}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{3}{4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{4}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{8}{12}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$48 = 2^4 \\cdot 3$ og $72 = 2^3 \\cdot 3^2$. SFF $= 2^3 \\cdot 3 = 24$. $\\frac{48}{72} = \\frac{48 \\div 24}{72 \\div 24} = \\frac{2}{3}$."
+          },
+          {
+            "id": "8-7-4-n-quiz1-q1",
+            "task": "Forenkle $\\frac{75}{100}$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{15}{20}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{7}{10}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{3}{4}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{5}{8}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$75 = 3 \\cdot 5^2$ og $100 = 2^2 \\cdot 5^2$. SFF $= 5^2 = 25$. $\\frac{75}{100} = \\frac{3}{4}$."
+          },
+          {
+            "id": "8-7-4-n-quiz1-q2",
+            "task": "Når er en brøk $\\frac{a}{b}$ allerede i enkleste form?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Når $a < b$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Når $a$ og $b$ er oddetall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Når $b$ er et primtall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når $\\text{SFF}(a, b) = 1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Brøken er i enkleste form når teller og nevner ikke har felles primfaktorer -- altså når $\\text{SFF}(a, b) = 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-4-n-section2",
+      "type": "text",
+      "content": "## Fellesnevner med MFM\n\nFor å legge sammen (eller trekke fra) brøker med ulike nevnere trenger vi en **fellesnevner** -- et tall som begge nevnerne går opp i. Vi velger den **minste** fellesnevneren, som er nøyaktig $\\text{MFM}$ av nevnerne.\n\n**Eksempel: $\\frac{5}{12} + \\frac{7}{18}$**\n\nFinn fellesnevner: $\\text{MFM}(12, 18)$.\n\n$$12 = 2^2 \\cdot 3$$\n$$18 = 2 \\cdot 3^2$$\n\n$$\\text{MFM}(12, 18) = 2^2 \\cdot 3^2 = 4 \\cdot 9 = 36$$\n\nUtvid begge brøkene:\n$$\\frac{5}{12} = \\frac{5 \\cdot 3}{12 \\cdot 3} = \\frac{15}{36}$$\n$$\\frac{7}{18} = \\frac{7 \\cdot 2}{18 \\cdot 2} = \\frac{14}{36}$$\n\nLegg sammen:\n$$\\frac{15}{36} + \\frac{14}{36} = \\frac{29}{36}$$\n\n**Eksempel: $\\frac{3}{8} - \\frac{1}{6}$**\n\n$$\\text{MFM}(8, 6): \\quad 8 = 2^3, \\quad 6 = 2 \\cdot 3$$\n$$\\text{MFM} = 2^3 \\cdot 3 = 24$$\n\n$$\\frac{3}{8} = \\frac{9}{24}, \\quad \\frac{1}{6} = \\frac{4}{24}$$\n\n$$\\frac{9}{24} - \\frac{4}{24} = \\frac{5}{24}$$\n\nHvorfor er MFM bedre enn å bare gange nevnerne? Fordi $12 \\cdot 18 = 216$, men MFM gir $36$ -- et mye mindre tall å jobbe med!"
+    },
+    {
+      "id": "8-7-4-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-4-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på fellesnevner:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-4-n-quiz2-q0",
+            "task": "Hva er den minste fellesnevneren for $\\frac{1}{4}$ og $\\frac{2}{6}$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$24$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\text{MFM}(4, 6)$. $4 = 2^2$, $6 = 2 \\cdot 3$. MFM $= 2^2 \\cdot 3 = 12$."
+          },
+          {
+            "id": "8-7-4-n-quiz2-q1",
+            "task": "Regn ut $\\frac{5}{6} + \\frac{3}{10}$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{34}{30} = \\frac{17}{15}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{8}{16} = \\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{50}{60} = \\frac{5}{6}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{28}{30} = \\frac{14}{15}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "MFM$(6, 10) = 30$. $\\frac{5}{6} = \\frac{25}{30}$, $\\frac{3}{10} = \\frac{9}{30}$. Sum: $\\frac{25 + 9}{30} = \\frac{34}{30} = \\frac{17}{15}$."
+          },
+          {
+            "id": "8-7-4-n-quiz2-q2",
+            "task": "Regn ut $\\frac{7}{15} - \\frac{1}{9}$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{6}{6} = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2}{5}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{16}{45}$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{14}{45}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "MFM$(15, 9) = 45$. $\\frac{7}{15} = \\frac{21}{45}$, $\\frac{1}{9} = \\frac{5}{45}$. Differanse: $\\frac{21 - 5}{45} = \\frac{16}{45}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-4-n-section3",
+      "type": "text",
+      "content": "## Multiplikasjon og forenkling med primtall\n\nNår du ganger brøker, kan du forenkle **før** du ganger -- noe som sparer deg for store tall. Primtallsfaktorisering gjør dette oversiktlig.\n\n**Eksempel: $\\frac{14}{15} \\cdot \\frac{25}{21}$**\n\nFaktoriser alt:\n$$\\frac{14}{15} \\cdot \\frac{25}{21} = \\frac{2 \\cdot 7}{3 \\cdot 5} \\cdot \\frac{5^2}{3 \\cdot 7}$$\n\nSkriv som én brøk:\n$$= \\frac{2 \\cdot 7 \\cdot 5^2}{3 \\cdot 5 \\cdot 3 \\cdot 7}$$\n\nStryk felles faktorer (teller mot nevner):\n$$= \\frac{2 \\cdot \\cancel{7} \\cdot \\cancel{5} \\cdot 5}{3 \\cdot \\cancel{5} \\cdot 3 \\cdot \\cancel{7}} = \\frac{2 \\cdot 5}{3 \\cdot 3} = \\frac{10}{9}$$\n\nUten forenkling hadde vi fått $\\frac{350}{315}$, som vi deretter måtte forenkle -- mye mer arbeid!\n\n**Eksempel: $\\frac{12}{35} \\cdot \\frac{49}{18}$**\n\n$$= \\frac{2^2 \\cdot 3}{5 \\cdot 7} \\cdot \\frac{7^2}{2 \\cdot 3^2} = \\frac{2^2 \\cdot 3 \\cdot 7^2}{5 \\cdot 7 \\cdot 2 \\cdot 3^2}$$\n\nStryk: $2^1$, $3^1$, $7^1$:\n\n$$= \\frac{2 \\cdot 7}{5 \\cdot 3} = \\frac{14}{15}$$\n\nDenne teknikken -- å faktorisere og forenkle diagonalt -- kalles **kryssforenkling** og er en av de mest nyttige ferdighetene i brøkregning."
+    },
+    {
+      "id": "8-7-4-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-7-4-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på brøkmultiplikasjon med forenkling:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-7-4-n-quiz3-q0",
+            "task": "Forenkle og regn ut $\\frac{9}{14} \\cdot \\frac{7}{12}$.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\frac{63}{168}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{9}{24}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{3}{8}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{9}{14} \\cdot \\frac{7}{12} = \\frac{3^2}{2 \\cdot 7} \\cdot \\frac{7}{2^2 \\cdot 3} = \\frac{3^2 \\cdot 7}{2 \\cdot 7 \\cdot 2^2 \\cdot 3} = \\frac{3}{2^3} = \\frac{3}{8}$."
+          },
+          {
+            "id": "8-7-4-n-quiz3-q1",
+            "task": "Forenkle $\\frac{36}{77} \\cdot \\frac{11}{24}$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{3}{14}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{6}{14}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{9}{28}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{7}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{36}{77} \\cdot \\frac{11}{24} = \\frac{2^2 \\cdot 3^2}{7 \\cdot 11} \\cdot \\frac{11}{2^3 \\cdot 3} = \\frac{2^2 \\cdot 3^2 \\cdot 11}{7 \\cdot 11 \\cdot 2^3 \\cdot 3} = \\frac{3}{2 \\cdot 7} = \\frac{3}{14}$."
+          },
+          {
+            "id": "8-7-4-n-quiz3-q2",
+            "task": "Hva er fordelen med å forenkle FØR du ganger brøker?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Du får et annet svar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det er obligatorisk -- ellers er svaret feil",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Du slipper å jobbe med store tall",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det endrer brøkens fortegn",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Å forenkle før ganging gir samme svar, men du jobber med mindre tall. $\\frac{14 \\cdot 25}{15 \\cdot 21} = \\frac{350}{315}$ vs. å forenkle først og få $\\frac{10}{9}$ direkte."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-7-4-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nPrimtallsfaktorisering gjør brøkregning enklere og sikrere:\n\n| Oppgave | Metode |\n|---------|--------|\n| **Forenkle brøk** | Faktoriser teller og nevner, del begge på SFF |\n| **Fellesnevner** | Finn MFM av nevnerne, utvid brøkene |\n| **Gange brøker** | Faktoriser alt, stryk felles faktorer FØR du ganger |\n\n**Huskeliste:**\n- En brøk er i enkleste form når $\\text{SFF}(\\text{teller}, \\text{nevner}) = 1$\n- Minste fellesnevner $= \\text{MFM}(\\text{nevner}_1, \\text{nevner}_2)$\n- Kryssforenkling: stryk felles primfaktorer mellom teller og nevner (diagonalt) før du ganger\n- Primtallsfaktorisering gir deg full kontroll -- ingen gjetting, ingen tvil om at brøken er fullstendig forenklet"
+    }
+  ],
+  "exercises": []
+}

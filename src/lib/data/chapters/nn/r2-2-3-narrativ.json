@@ -1,1 +1,449 @@
-{"id":"r2-2-3-narrativ","courseId":"r2","chapterNumber":"2.3","title":"Integrasjon av 1/x og eksponentialfunksjonar","subtitle":"Narrativ versjon","description":"Ei forteljing om integrala som tettar holet i potensregelen — logaritmen som antiderivert til 1/x, integrala til eksponentialfunksjonane og kunsten å sjå fotavtrykket til kjerneregelen.","estimatedMinutes":33,"competenceGoals":["integrere 1/x og eksponentialfunksjonar","bruke kjerneregelen ved integrasjon"],"linkedChapterId":"r2-2-3","content":[{"id":"r2-2-3-n-intro","type":"text","content":"## Holet i potensregelen\n\nFørre kapittel etterlét oss med eit mysterium. Potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ verkar for alle eksponentar — utanom éin. For $n = -1$ bryt han saman i ei deling på null. Men funksjonen $\\frac{1}{x}$ er då vel ikkje noko monster? Grafen er glatt og pen, arealet under han er høgst reelt. *Noko* må då vere den antideriverte hans!\n\nSvaret er ei av dei vakraste overraskingane i matematikken: den antideriverte til $\\frac{1}{x}$ er ikkje ein potensfunksjon i det heile, men den naturlege logaritmen. Hugs frå R1 at $(\\ln x)' = \\frac{1}{x}$ — der ligg løysinga og ventar.\n\nI dette kapittelet tettar vi holet og utvidar samtidig repertoaret med eksponentialfunksjonane $e^x$, $e^{kx}$ og $a^x$ — funksjonane som styrer vekst og forfall i naturen. Til slutt lærer vi å kjenne att fotavtrykket til kjerneregelen i integral, eit mønster som løyser tilsynelatande håplause oppgåver på éi linje."},{"id":"r2-2-3-n-section1","type":"text","content":"## Logaritmen tettar holet\n\nSidan $(\\ln x)' = \\frac{1}{x}$, er $\\ln x$ ein antiderivert til $\\frac{1}{x}$ — i alle fall for $x > 0$, der $\\ln x$ er definert. Men $\\frac{1}{x}$ lever òg på den negative sida av tallina. Der reddar absoluttverdien oss: for $x < 0$ er $(\\ln|x|)' = (\\ln(-x))' = \\frac{-1}{-x} = \\frac{1}{x}$. Dermed gjeld for alle $x \\neq 0$:\n\n$$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$\n\nAbsoluttverditeiknet er altså ikkje pynt — det gjer formelen gyldig på begge sider av null. Konstantfaktorar blir med som vanleg: $\\int \\frac{3}{x}\\,dx = 3\\ln|x| + C$.\n\nFor bestemte integral (som vi snart skal rekne mange av) gir dette $\\int_a^b \\frac{1}{x}\\,dx = \\ln|b| - \\ln|a|$, føresett at $a$ og $b$ har same forteikn — vi kan ikkje integrere tvers over brotet i $x = 0$. Eit særleg pent tilfelle:\n\n$$\\int_1^e \\frac{1}{x} \\, dx = \\ln e - \\ln 1 = 1 - 0 = 1$$\n\nArealet under hyperbelen frå $1$ til $e$ er nøyaktig $1$ — det er faktisk ein av måtane talet $e$ kan *definerast* på. Holet i potensregelen viste seg å skjule ein av dei djupaste forbindelsane i analysen."},{"id":"r2-2-3-n-quiz1","type":"exercise","exercise":{"id":"r2-2-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på integralet av 1/x:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-3-n-quiz1-q0","task":"Kva er $\\displaystyle\\int \\frac{1}{x} \\, dx$?","options":[{"id":"a","text":"$\\frac{x^0}{0} + C$","isCorrect":false},{"id":"b","text":"$\\ln|x| + C$","isCorrect":true},{"id":"c","text":"$\\ln x + C$","isCorrect":false},{"id":"d","text":"$-\\frac{1}{x^2} + C$","isCorrect":false}],"solution":"$(\\ln|x|)' = \\frac{1}{x}$ for alle $x \\neq 0$. Absoluttverdien trengst fordi $\\ln x$ berre er definert for $x > 0$, medan $\\frac{1}{x}$ òg er definert for negative $x$."},{"id":"r2-2-3-n-quiz1-q1","task":"Kvifor bruker vi absoluttverdi i $\\ln|x|$?","options":[{"id":"a","text":"For å unngå negative integralverdiar","isCorrect":false},{"id":"b","text":"Fordi logaritmen alltid er positiv","isCorrect":false},{"id":"c","text":"For at formelen skal gjelde òg for $x < 0$, der $\\ln x$ ikkje er definert","isCorrect":true},{"id":"d","text":"Det er valfritt og berre ein konvensjon","isCorrect":false}],"solution":"For $x < 0$ er $\\ln x$ udefinert, men $(\\ln(-x))' = \\frac{1}{x}$. Skrivemåten $\\ln|x|$ dekkjer begge tilfella."},{"id":"r2-2-3-n-quiz1-q2","task":"Kva er $\\displaystyle\\int_1^e \\frac{1}{x} \\, dx$?","options":[{"id":"a","text":"$1$","isCorrect":true},{"id":"b","text":"$e - 1$","isCorrect":false},{"id":"c","text":"$\\ln e + 1$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":false}],"solution":"$\\left[\\ln|x|\\right]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$."}]}},{"id":"r2-2-3-n-section2","type":"text","content":"## Eksponentialfunksjonane — integrala til veksten\n\nNo til funksjonane som modellerer alt frå bakterievekst til bankrenter. Aller enklast er $e^x$: sidan $(e^x)' = e^x$, er funksjonen òg sitt eige integral:\n\n$$\\int e^x \\, dx = e^x + C$$\n\nI praksis møter vi oftare $e^{kx}$ — vekst eller forfall med rate $k$. Derivasjonen av $e^{kx}$ spyttar ut ein faktor $k$ (kjerneregelen), så integrasjonen må kompensere med å dele:\n\n$$\\int e^{kx} \\, dx = \\frac{1}{k} e^{kx} + C \\qquad (k \\neq 0)$$\n\nSjekk: $\\left(\\frac{1}{k}e^{kx}\\right)' = \\frac{1}{k} \\cdot k \\cdot e^{kx} = e^{kx}$. ✓ Konkret: $\\int e^{3x}\\,dx = \\frac{1}{3}e^{3x} + C$ og $\\int e^{-2x}\\,dx = -\\frac{1}{2}e^{-2x} + C$ — pass på forteiknet når $k$ er negativ.\n\nOgså andre grunntal lèt seg integrere. Frå $(a^x)' = a^x \\ln a$ følgjer\n\n$$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C \\qquad (a > 0,\\ a \\neq 1)$$\n\nslik at til dømes $\\int 2^x\\,dx = \\frac{2^x}{\\ln 2} + C$.\n\nBestemte integral går som før via den antideriverte: $\\int_0^2 e^x\\,dx = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Legg merke til kor mykje areal som gøymer seg under ei eksponentialkurve allereie på eit kort intervall — det er naturen til veksten."},{"id":"r2-2-3-n-quiz2","type":"exercise","exercise":{"id":"r2-2-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på integrasjon av eksponentialfunksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-3-n-quiz2-q0","task":"Kva er $\\displaystyle\\int e^{3x} \\, dx$?","options":[{"id":"a","text":"$3e^{3x} + C$","isCorrect":false},{"id":"b","text":"$e^{3x} + C$","isCorrect":false},{"id":"c","text":"$\\frac{e^{3x+1}}{3x+1} + C$","isCorrect":false},{"id":"d","text":"$\\frac{1}{3}e^{3x} + C$","isCorrect":true}],"solution":"$\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ med $k = 3$. Kontroll: $\\left(\\frac{1}{3}e^{3x}\\right)' = e^{3x}$."},{"id":"r2-2-3-n-quiz2-q1","task":"Kva er $\\displaystyle\\int e^{-2x} \\, dx$?","options":[{"id":"a","text":"$-\\frac{1}{2}e^{-2x} + C$","isCorrect":true},{"id":"b","text":"$\\frac{1}{2}e^{-2x} + C$","isCorrect":false},{"id":"c","text":"$-2e^{-2x} + C$","isCorrect":false},{"id":"d","text":"$e^{-2x} + C$","isCorrect":false}],"solution":"$k = -2$ gir $\\frac{1}{-2}e^{-2x} + C = -\\frac{1}{2}e^{-2x} + C$."},{"id":"r2-2-3-n-quiz2-q2","task":"Kva er $\\displaystyle\\int 2^x \\, dx$?","options":[{"id":"a","text":"$2^x + C$","isCorrect":false},{"id":"b","text":"$\\frac{2^x}{\\ln 2} + C$","isCorrect":true},{"id":"c","text":"$\\frac{2^{x+1}}{x+1} + C$","isCorrect":false},{"id":"d","text":"$2^x \\ln 2 + C$","isCorrect":false}],"solution":"$\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$. Sidan $(2^x)' = 2^x \\ln 2$, må vi dele på $\\ln 2$."},{"id":"r2-2-3-n-quiz2-q3","task":"Kva er $\\displaystyle\\int_0^2 e^x \\, dx$?","options":[{"id":"a","text":"$e^2$","isCorrect":false},{"id":"b","text":"$2e$","isCorrect":false},{"id":"c","text":"$e^2 - 1$","isCorrect":true},{"id":"d","text":"$e^2 + 1$","isCorrect":false}],"solution":"$\\left[e^x\\right]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$."}]}},{"id":"r2-2-3-n-section3","type":"text","content":"## Fotavtrykket til kjerneregelen\n\nNo kjem den mest elegante ideen i kapittelet. Hugs kjerneregelen forlengs: $(F(g(x)))' = f(g(x)) \\cdot g'(x)$. Les vi han baklengs, seier han at integral på forma «funksjon av ein kjerne, ganga med den deriverte til kjernen» blir løyste med ein gong:\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = F(g(x)) + C$$\n\nTo spesialtilfelle er så vanlege at dei fortener å stå i ramme. Brøkar der teljaren er den deriverte av nemnaren:\n\n$$\\int \\frac{g'(x)}{g(x)} \\, dx = \\ln|g(x)| + C$$\n\nog eksponentialuttrykk der den deriverte av kjernen står som faktor:\n\n$$\\int g'(x) \\cdot e^{g(x)} \\, dx = e^{g(x)} + C$$\n\nSjå mønsteret i aksjon. I $\\int \\frac{2x}{x^2+1}\\,dx$ er nemnaren $g(x) = x^2 + 1$ og teljaren nøyaktig $g'(x) = 2x$ — altså\n\n$$\\int \\frac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$$\n\n(absoluttverdien kan sløyfast sidan $x^2 + 1 > 0$). Og i $\\int 2x \\cdot e^{x^2}\\,dx$ er kjernen $x^2$ med derivert $2x$ på plass som faktor:\n\n$$\\int 2x \\cdot e^{x^2}\\,dx = e^{x^2} + C$$\n\nTreninga går ut på å *sjå* mønsteret: sjekk om teljaren er den deriverte av nemnaren, eller om den deriverte av eksponenten står ved sida av. Dette blikket blir til ein fullverdig teknikk — substitusjon — i kapittel 3.1."},{"id":"r2-2-3-n-quiz3","type":"exercise","exercise":{"id":"r2-2-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på kjerneregel-mønstera:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r2-2-3-n-quiz3-q0","task":"Kva er $\\displaystyle\\int \\frac{2x}{x^2+1} \\, dx$?","options":[{"id":"a","text":"$\\frac{1}{x^2+1} + C$","isCorrect":false},{"id":"b","text":"$2x\\ln(x^2+1) + C$","isCorrect":false},{"id":"c","text":"$\\arctan x + C$","isCorrect":false},{"id":"d","text":"$\\ln(x^2+1) + C$","isCorrect":true}],"solution":"Teljaren $2x$ er den deriverte av nemnaren $x^2+1$, så $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C = \\ln(x^2+1) + C$."},{"id":"r2-2-3-n-quiz3-q1","task":"Kva er $\\displaystyle\\int 2x \\cdot e^{x^2} \\, dx$?","options":[{"id":"a","text":"$e^{x^2} + C$","isCorrect":true},{"id":"b","text":"$x^2 e^{x^2} + C$","isCorrect":false},{"id":"c","text":"$\\frac{e^{x^2}}{2x} + C$","isCorrect":false},{"id":"d","text":"$2e^{x^2} + C$","isCorrect":false}],"solution":"Kjernen er $g(x) = x^2$ med $g'(x) = 2x$ på plass som faktor: $\\int g' e^g\\,dx = e^g + C = e^{x^2} + C$."},{"id":"r2-2-3-n-quiz3-q2","task":"Kva for eit av desse integrala passar mønsteret $\\int \\frac{g'(x)}{g(x)}\\,dx$?","options":[{"id":"a","text":"$\\displaystyle\\int \\frac{x}{x^2+1}\\,dx$ med $g = x^2 + 1$ (etter justering med faktor $\\frac{1}{2}$)","isCorrect":true},{"id":"b","text":"$\\displaystyle\\int \\frac{x^2+1}{2x}\\,dx$","isCorrect":false},{"id":"c","text":"$\\displaystyle\\int \\frac{1}{x^2+1}\\,dx$","isCorrect":false},{"id":"d","text":"$\\displaystyle\\int \\frac{e^x}{x}\\,dx$","isCorrect":false}],"solution":"Med $g = x^2+1$ er $g' = 2x$, og $\\frac{x}{x^2+1} = \\frac{1}{2} \\cdot \\frac{2x}{x^2+1}$. Integralet blir $\\frac{1}{2}\\ln(x^2+1) + C$. Dei andre passar ikkje mønsteret."}]}},{"id":"r2-2-3-n-summary","type":"text","content":"## Oppsummering: holet er tetta, repertoaret utvida\n\nMysteriet frå førre kapittel er løyst: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$, med absoluttverdien som syter for gyldigheit på begge sider av null. Logaritmen — som i R1 mest var eit rekneverktøy — viste seg å vere den manglande brikka i integralrekninga, og arealet under $\\frac{1}{x}$ frå $1$ til $e$ er nøyaktig $1$.\n\nEksponentialfunksjonane føydde seg pent inn: $\\int e^x\\,dx = e^x + C$, $\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ og $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$ — i kvart tilfelle kompenserer vi for faktoren derivasjonen ville produsert. Og viktigast for vegen vidare: vi lærte å kjenne att fotavtrykket til kjerneregelen. Mønstera $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C$ og $\\int g' e^{g}\\,dx = e^{g} + C$ løyser integral som ser skremmande ut, berre vi ser at den deriverte av kjernen står klar i uttrykket.\n\nSå langt har vi samla antideriverte. Men kva *er* eigentleg eit bestemt integral — kvifor gir $F(b) - F(a)$ eit areal? For å svare på det må vi tilbake til det antikke Hellas, til ein mann som teikna sirklar i sanden medan Syrakus fall."}],"exercises":[],"_meta":{"sourceHash":"a513c7470700fd5b","translatedAt":"2026-06-20T00:58:40.722Z","model":"claude-code-agent","strings":74,"tm":{"af5ad1a0ff53176b":"Integrasjon av 1/x og eksponentialfunksjonar","b195b06d1ed59702":"Narrativ versjon","e2b4c70494e75253":"Ei forteljing om integrala som tettar holet i potensregelen — logaritmen som antiderivert til 1/x, integrala til eksponentialfunksjonane og kunsten å sjå fotavtrykket til kjerneregelen.","c181bb7116786023":"integrere 1/x og eksponentialfunksjonar","01ef270882cccd18":"bruke kjerneregelen ved integrasjon","369da4ce2cc63e30":"## Holet i potensregelen\n\nFørre kapittel etterlét oss med eit mysterium. Potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ verkar for alle eksponentar — utanom éin. For $n = -1$ bryt han saman i ei deling på null. Men funksjonen $\\frac{1}{x}$ er då vel ikkje noko monster? Grafen er glatt og pen, arealet under han er høgst reelt. *Noko* må då vere den antideriverte hans!\n\nSvaret er ei av dei vakraste overraskingane i matematikken: den antideriverte til $\\frac{1}{x}$ er ikkje ein potensfunksjon i det heile, men den naturlege logaritmen. Hugs frå R1 at $(\\ln x)' = \\frac{1}{x}$ — der ligg løysinga og ventar.\n\nI dette kapittelet tettar vi holet og utvidar samtidig repertoaret med eksponentialfunksjonane $e^x$, $e^{kx}$ og $a^x$ — funksjonane som styrer vekst og forfall i naturen. Til slutt lærer vi å kjenne att fotavtrykket til kjerneregelen i integral, eit mønster som løyser tilsynelatande håplause oppgåver på éi linje.","ae2896326fefa752":"## Logaritmen tettar holet\n\nSidan $(\\ln x)' = \\frac{1}{x}$, er $\\ln x$ ein antiderivert til $\\frac{1}{x}$ — i alle fall for $x > 0$, der $\\ln x$ er definert. Men $\\frac{1}{x}$ lever òg på den negative sida av tallina. Der reddar absoluttverdien oss: for $x < 0$ er $(\\ln|x|)' = (\\ln(-x))' = \\frac{-1}{-x} = \\frac{1}{x}$. Dermed gjeld for alle $x \\neq 0$:\n\n$$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$\n\nAbsoluttverditeiknet er altså ikkje pynt — det gjer formelen gyldig på begge sider av null. Konstantfaktorar blir med som vanleg: $\\int \\frac{3}{x}\\,dx = 3\\ln|x| + C$.\n\nFor bestemte integral (som vi snart skal rekne mange av) gir dette $\\int_a^b \\frac{1}{x}\\,dx = \\ln|b| - \\ln|a|$, føresett at $a$ og $b$ har same forteikn — vi kan ikkje integrere tvers over brotet i $x = 0$. Eit særleg pent tilfelle:\n\n$$\\int_1^e \\frac{1}{x} \\, dx = \\ln e - \\ln 1 = 1 - 0 = 1$$\n\nArealet under hyperbelen frå $1$ til $e$ er nøyaktig $1$ — det er faktisk ein av måtane talet $e$ kan *definerast* på. Holet i potensregelen viste seg å skjule ein av dei djupaste forbindelsane i analysen.","24c1bb9ac23b8833":"Test deg sjølv på integralet av 1/x:","4097889236a2af26":"placeholder","0dca88e051cedf05":"Kva er $\\displaystyle\\int \\frac{1}{x} \\, dx$?","36ebafddde18e09a":"$\\frac{x^0}{0} + C$","b45f0278866c14e1":"$\\ln|x| + C$","a5f481819709992a":"$\\ln x + C$","defc60e2feed49f7":"$-\\frac{1}{x^2} + C$","9d412e6a57775424":"$(\\ln|x|)' = \\frac{1}{x}$ for alle $x \\neq 0$. Absoluttverdien trengst fordi $\\ln x$ berre er definert for $x > 0$, medan $\\frac{1}{x}$ òg er definert for negative $x$.","0487bb1a0facec02":"Kvifor bruker vi absoluttverdi i $\\ln|x|$?","905357ee8c012faa":"For å unngå negative integralverdiar","e1a90c32a2ad5b0e":"Fordi logaritmen alltid er positiv","aaa3685ff54e65df":"For at formelen skal gjelde òg for $x < 0$, der $\\ln x$ ikkje er definert","982c500851e5e1a8":"Det er valfritt og berre ein konvensjon","9760ee7204ba69b3":"For $x < 0$ er $\\ln x$ udefinert, men $(\\ln(-x))' = \\frac{1}{x}$. Skrivemåten $\\ln|x|$ dekkjer begge tilfella.","34b830578addaa73":"Kva er $\\displaystyle\\int_1^e \\frac{1}{x} \\, dx$?","a0e7bf181c0ca133":"$e - 1$","4996f23288f4ae28":"$\\ln e + 1$","a7fea775ab963761":"$\\left[\\ln|x|\\right]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$.","e1ae4a5fd0944f47":"## Eksponentialfunksjonane — integrala til veksten\n\nNo til funksjonane som modellerer alt frå bakterievekst til bankrenter. Aller enklast er $e^x$: sidan $(e^x)' = e^x$, er funksjonen òg sitt eige integral:\n\n$$\\int e^x \\, dx = e^x + C$$\n\nI praksis møter vi oftare $e^{kx}$ — vekst eller forfall med rate $k$. Derivasjonen av $e^{kx}$ spyttar ut ein faktor $k$ (kjerneregelen), så integrasjonen må kompensere med å dele:\n\n$$\\int e^{kx} \\, dx = \\frac{1}{k} e^{kx} + C \\qquad (k \\neq 0)$$\n\nSjekk: $\\left(\\frac{1}{k}e^{kx}\\right)' = \\frac{1}{k} \\cdot k \\cdot e^{kx} = e^{kx}$. ✓ Konkret: $\\int e^{3x}\\,dx = \\frac{1}{3}e^{3x} + C$ og $\\int e^{-2x}\\,dx = -\\frac{1}{2}e^{-2x} + C$ — pass på forteiknet når $k$ er negativ.\n\nOgså andre grunntal lèt seg integrere. Frå $(a^x)' = a^x \\ln a$ følgjer\n\n$$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C \\qquad (a > 0,\\ a \\neq 1)$$\n\nslik at til dømes $\\int 2^x\\,dx = \\frac{2^x}{\\ln 2} + C$.\n\nBestemte integral går som før via den antideriverte: $\\int_0^2 e^x\\,dx = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Legg merke til kor mykje areal som gøymer seg under ei eksponentialkurve allereie på eit kort intervall — det er naturen til veksten.","ae41a8c207cd1e9f":"Test deg sjølv på integrasjon av eksponentialfunksjonar:","d8ce7903acaac989":"Kva er $\\displaystyle\\int e^{3x} \\, dx$?","bfc86ed6b1c9474a":"$3e^{3x} + C$","762908398945d638":"$e^{3x} + C$","04537fc4b1670eb6":"$\\frac{e^{3x+1}}{3x+1} + C$","6d2543849ca6606b":"$\\frac{1}{3}e^{3x} + C$","a6a30d7bccb60fc7":"$\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ med $k = 3$. Kontroll: $\\left(\\frac{1}{3}e^{3x}\\right)' = e^{3x}$.","d04f71add93da5cd":"Kva er $\\displaystyle\\int e^{-2x} \\, dx$?","99adc3d6da7f884a":"$-\\frac{1}{2}e^{-2x} + C$","bc72d9027c6e6c03":"$\\frac{1}{2}e^{-2x} + C$","e286bf49414f0cdc":"$-2e^{-2x} + C$","021aa80b26899118":"$e^{-2x} + C$","d60211f0015c1fd5":"$k = -2$ gir $\\frac{1}{-2}e^{-2x} + C = -\\frac{1}{2}e^{-2x} + C$.","fd52d3611dc07db8":"Kva er $\\displaystyle\\int 2^x \\, dx$?","13e9cf44f7c3bd2b":"$2^x + C$","fd477fcdae1f7911":"$\\frac{2^x}{\\ln 2} + C$","1d042d560d2bf758":"$\\frac{2^{x+1}}{x+1} + C$","b64d24e860f8ad18":"$2^x \\ln 2 + C$","5261010d22aa7c1a":"$\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$. Sidan $(2^x)' = 2^x \\ln 2$, må vi dele på $\\ln 2$.","cff052d2e97ab70d":"Kva er $\\displaystyle\\int_0^2 e^x \\, dx$?","018940799b8e8475":"$e^2$","9caaebbbb91ca012":"$2e$","c4bf46d0391c8fad":"$e^2 - 1$","498689c802fb16f9":"$e^2 + 1$","3505774f483879ef":"$\\left[e^x\\right]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$.","2ab90e651593ddde":"## Fotavtrykket til kjerneregelen\n\nNo kjem den mest elegante ideen i kapittelet. Hugs kjerneregelen forlengs: $(F(g(x)))' = f(g(x)) \\cdot g'(x)$. Les vi han baklengs, seier han at integral på forma «funksjon av ein kjerne, ganga med den deriverte til kjernen» blir løyste med ein gong:\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = F(g(x)) + C$$\n\nTo spesialtilfelle er så vanlege at dei fortener å stå i ramme. Brøkar der teljaren er den deriverte av nemnaren:\n\n$$\\int \\frac{g'(x)}{g(x)} \\, dx = \\ln|g(x)| + C$$\n\nog eksponentialuttrykk der den deriverte av kjernen står som faktor:\n\n$$\\int g'(x) \\cdot e^{g(x)} \\, dx = e^{g(x)} + C$$\n\nSjå mønsteret i aksjon. I $\\int \\frac{2x}{x^2+1}\\,dx$ er nemnaren $g(x) = x^2 + 1$ og teljaren nøyaktig $g'(x) = 2x$ — altså\n\n$$\\int \\frac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$$\n\n(absoluttverdien kan sløyfast sidan $x^2 + 1 > 0$). Og i $\\int 2x \\cdot e^{x^2}\\,dx$ er kjernen $x^2$ med derivert $2x$ på plass som faktor:\n\n$$\\int 2x \\cdot e^{x^2}\\,dx = e^{x^2} + C$$\n\nTreninga går ut på å *sjå* mønsteret: sjekk om teljaren er den deriverte av nemnaren, eller om den deriverte av eksponenten står ved sida av. Dette blikket blir til ein fullverdig teknikk — substitusjon — i kapittel 3.1.","d2c546d6cf8c5133":"Test deg sjølv på kjerneregel-mønstera:","b554781f94b20d89":"Kva er $\\displaystyle\\int \\frac{2x}{x^2+1} \\, dx$?","8b2b1aa3b00f436c":"$\\frac{1}{x^2+1} + C$","d17a36db3f8725f8":"$2x\\ln(x^2+1) + C$","6163575bba679c7e":"$\\arctan x + C$","a4a4498b681c808e":"$\\ln(x^2+1) + C$","aae9900719c600ba":"Teljaren $2x$ er den deriverte av nemnaren $x^2+1$, så $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C = \\ln(x^2+1) + C$.","5d506e699a1c80eb":"Kva er $\\displaystyle\\int 2x \\cdot e^{x^2} \\, dx$?","7c5a07ddc020f327":"$e^{x^2} + C$","12dcbef57efd558e":"$x^2 e^{x^2} + C$","d4db6fef9f281bae":"$\\frac{e^{x^2}}{2x} + C$","592317ec6446e4ee":"$2e^{x^2} + C$","07d27d8c22c47208":"Kjernen er $g(x) = x^2$ med $g'(x) = 2x$ på plass som faktor: $\\int g' e^g\\,dx = e^g + C = e^{x^2} + C$.","51c54c0661d30fb3":"Kva for eit av desse integrala passar mønsteret $\\int \\frac{g'(x)}{g(x)}\\,dx$?","cd64b472ac5a24cd":"$\\displaystyle\\int \\frac{x}{x^2+1}\\,dx$ med $g = x^2 + 1$ (etter justering med faktor $\\frac{1}{2}$)","6236b5840b14e701":"$\\displaystyle\\int \\frac{x^2+1}{2x}\\,dx$","9e0122d01376d272":"$\\displaystyle\\int \\frac{1}{x^2+1}\\,dx$","3806383535507843":"$\\displaystyle\\int \\frac{e^x}{x}\\,dx$","77b9bfe49f003849":"Med $g = x^2+1$ er $g' = 2x$, og $\\frac{x}{x^2+1} = \\frac{1}{2} \\cdot \\frac{2x}{x^2+1}$. Integralet blir $\\frac{1}{2}\\ln(x^2+1) + C$. Dei andre passar ikkje mønsteret.","f7b596a36f9423ba":"## Oppsummering: holet er tetta, repertoaret utvida\n\nMysteriet frå førre kapittel er løyst: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$, med absoluttverdien som syter for gyldigheit på begge sider av null. Logaritmen — som i R1 mest var eit rekneverktøy — viste seg å vere den manglande brikka i integralrekninga, og arealet under $\\frac{1}{x}$ frå $1$ til $e$ er nøyaktig $1$.\n\nEksponentialfunksjonane føydde seg pent inn: $\\int e^x\\,dx = e^x + C$, $\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ og $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$ — i kvart tilfelle kompenserer vi for faktoren derivasjonen ville produsert. Og viktigast for vegen vidare: vi lærte å kjenne att fotavtrykket til kjerneregelen. Mønstera $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C$ og $\\int g' e^{g}\\,dx = e^{g} + C$ løyser integral som ser skremmande ut, berre vi ser at den deriverte av kjernen står klar i uttrykket.\n\nSå langt har vi samla antideriverte. Men kva *er* eigentleg eit bestemt integral — kvifor gir $F(b) - F(a)$ eit areal? For å svare på det må vi tilbake til det antikke Hellas, til ein mann som teikna sirklar i sanden medan Syrakus fall."}}}
+{
+  "id": "r2-2-3-narrativ",
+  "courseId": "r2",
+  "chapterNumber": "2.3",
+  "title": "Integrasjon av 1/x og eksponentialfunksjonar",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om integrala som tettar holet i potensregelen — logaritmen som antiderivert til 1/x, integrala til eksponentialfunksjonane og kunsten å sjå fotavtrykket til kjerneregelen.",
+  "estimatedMinutes": 33,
+  "competenceGoals": [
+    "integrere 1/x og eksponentialfunksjonar",
+    "bruke kjerneregelen ved integrasjon"
+  ],
+  "linkedChapterId": "r2-2-3",
+  "content": [
+    {
+      "id": "r2-2-3-n-intro",
+      "type": "text",
+      "content": "## Holet i potensregelen\n\nFørre kapittel etterlét oss med eit mysterium. Potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ verkar for alle eksponentar — utanom éin. For $n = -1$ bryt han saman i ei deling på null. Men funksjonen $\\frac{1}{x}$ er då vel ikkje noko monster? Grafen er glatt og pen, arealet under han er høgst reelt. *Noko* må då vere den antideriverte hans!\n\nSvaret er ei av dei vakraste overraskingane i matematikken: den antideriverte til $\\frac{1}{x}$ er ikkje ein potensfunksjon i det heile, men den naturlege logaritmen. Hugs frå R1 at $(\\ln x)' = \\frac{1}{x}$ — der ligg løysinga og ventar.\n\nI dette kapittelet tettar vi holet og utvidar samtidig repertoaret med eksponentialfunksjonane $e^x$, $e^{kx}$ og $a^x$ — funksjonane som styrer vekst og forfall i naturen. Til slutt lærer vi å kjenne att fotavtrykket til kjerneregelen i integral, eit mønster som løyser tilsynelatande håplause oppgåver på éi linje."
+    },
+    {
+      "id": "r2-2-3-n-section1",
+      "type": "text",
+      "content": "## Logaritmen tettar holet\n\nSidan $(\\ln x)' = \\frac{1}{x}$, er $\\ln x$ ein antiderivert til $\\frac{1}{x}$ — i alle fall for $x > 0$, der $\\ln x$ er definert. Men $\\frac{1}{x}$ lever òg på den negative sida av tallina. Der reddar absoluttverdien oss: for $x < 0$ er $(\\ln|x|)' = (\\ln(-x))' = \\frac{-1}{-x} = \\frac{1}{x}$. Dermed gjeld for alle $x \\neq 0$:\n\n$$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$\n\nAbsoluttverditeiknet er altså ikkje pynt — det gjer formelen gyldig på begge sider av null. Konstantfaktorar blir med som vanleg: $\\int \\frac{3}{x}\\,dx = 3\\ln|x| + C$.\n\nFor bestemte integral (som vi snart skal rekne mange av) gir dette $\\int_a^b \\frac{1}{x}\\,dx = \\ln|b| - \\ln|a|$, føresett at $a$ og $b$ har same forteikn — vi kan ikkje integrere tvers over brotet i $x = 0$. Eit særleg pent tilfelle:\n\n$$\\int_1^e \\frac{1}{x} \\, dx = \\ln e - \\ln 1 = 1 - 0 = 1$$\n\nArealet under hyperbelen frå $1$ til $e$ er nøyaktig $1$ — det er faktisk ein av måtane talet $e$ kan *definerast* på. Holet i potensregelen viste seg å skjule ein av dei djupaste forbindelsane i analysen."
+    },
+    {
+      "id": "r2-2-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på integralet av 1/x:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-3-n-quiz1-q0",
+            "task": "Kva er $\\displaystyle\\int \\frac{1}{x} \\, dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\ln|x| + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{x^0}{0} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\ln x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-\\frac{1}{x^2} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$(\\ln|x|)' = \\frac{1}{x}$ for alle $x \\neq 0$. Absoluttverdien trengst fordi $\\ln x$ berre er definert for $x > 0$, medan $\\frac{1}{x}$ òg er definert for negative $x$."
+          },
+          {
+            "id": "r2-2-3-n-quiz1-q1",
+            "task": "Kvifor bruker vi absoluttverdi i $\\ln|x|$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å unngå negative integralverdiar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "For at formelen skal gjelde òg for $x < 0$, der $\\ln x$ ikkje er definert",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Fordi logaritmen alltid er positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det er valfritt og berre ein konvensjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For $x < 0$ er $\\ln x$ udefinert, men $(\\ln(-x))' = \\frac{1}{x}$. Skrivemåten $\\ln|x|$ dekkjer begge tilfella."
+          },
+          {
+            "id": "r2-2-3-n-quiz1-q2",
+            "task": "Kva er $\\displaystyle\\int_1^e \\frac{1}{x} \\, dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$e - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\ln e + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\left[\\ln|x|\\right]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-3-n-section2",
+      "type": "text",
+      "content": "## Eksponentialfunksjonane — integrala til veksten\n\nNo til funksjonane som modellerer alt frå bakterievekst til bankrenter. Aller enklast er $e^x$: sidan $(e^x)' = e^x$, er funksjonen òg sitt eige integral:\n\n$$\\int e^x \\, dx = e^x + C$$\n\nI praksis møter vi oftare $e^{kx}$ — vekst eller forfall med rate $k$. Derivasjonen av $e^{kx}$ spyttar ut ein faktor $k$ (kjerneregelen), så integrasjonen må kompensere med å dele:\n\n$$\\int e^{kx} \\, dx = \\frac{1}{k} e^{kx} + C \\qquad (k \\neq 0)$$\n\nSjekk: $\\left(\\frac{1}{k}e^{kx}\\right)' = \\frac{1}{k} \\cdot k \\cdot e^{kx} = e^{kx}$. ✓ Konkret: $\\int e^{3x}\\,dx = \\frac{1}{3}e^{3x} + C$ og $\\int e^{-2x}\\,dx = -\\frac{1}{2}e^{-2x} + C$ — pass på forteiknet når $k$ er negativ.\n\nOgså andre grunntal lèt seg integrere. Frå $(a^x)' = a^x \\ln a$ følgjer\n\n$$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C \\qquad (a > 0,\\ a \\neq 1)$$\n\nslik at til dømes $\\int 2^x\\,dx = \\frac{2^x}{\\ln 2} + C$.\n\nBestemte integral går som før via den antideriverte: $\\int_0^2 e^x\\,dx = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Legg merke til kor mykje areal som gøymer seg under ei eksponentialkurve allereie på eit kort intervall — det er naturen til veksten."
+    },
+    {
+      "id": "r2-2-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på integrasjon av eksponentialfunksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-3-n-quiz2-q0",
+            "task": "Kva er $\\displaystyle\\int e^{3x} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3e^{3x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$e^{3x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{e^{3x+1}}{3x+1} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{1}{3}e^{3x} + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ med $k = 3$. Kontroll: $\\left(\\frac{1}{3}e^{3x}\\right)' = e^{3x}$."
+          },
+          {
+            "id": "r2-2-3-n-quiz2-q1",
+            "task": "Kva er $\\displaystyle\\int e^{-2x} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-\\frac{1}{2}e^{-2x} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{2}e^{-2x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-2e^{-2x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$e^{-2x} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$k = -2$ gir $\\frac{1}{-2}e^{-2x} + C = -\\frac{1}{2}e^{-2x} + C$."
+          },
+          {
+            "id": "r2-2-3-n-quiz2-q2",
+            "task": "Kva er $\\displaystyle\\int 2^x \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2^x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{2^x}{\\ln 2} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{2^{x+1}}{x+1} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2^x \\ln 2 + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$. Sidan $(2^x)' = 2^x \\ln 2$, må vi dele på $\\ln 2$."
+          },
+          {
+            "id": "r2-2-3-n-quiz2-q3",
+            "task": "Kva er $\\displaystyle\\int_0^2 e^x \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2e$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$e^2 - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$e^2 + 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\left[e^x\\right]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-3-n-section3",
+      "type": "text",
+      "content": "## Fotavtrykket til kjerneregelen\n\nNo kjem den mest elegante ideen i kapittelet. Hugs kjerneregelen forlengs: $(F(g(x)))' = f(g(x)) \\cdot g'(x)$. Les vi han baklengs, seier han at integral på forma «funksjon av ein kjerne, ganga med den deriverte til kjernen» blir løyste med ein gong:\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = F(g(x)) + C$$\n\nTo spesialtilfelle er så vanlege at dei fortener å stå i ramme. Brøkar der teljaren er den deriverte av nemnaren:\n\n$$\\int \\frac{g'(x)}{g(x)} \\, dx = \\ln|g(x)| + C$$\n\nog eksponentialuttrykk der den deriverte av kjernen står som faktor:\n\n$$\\int g'(x) \\cdot e^{g(x)} \\, dx = e^{g(x)} + C$$\n\nSjå mønsteret i aksjon. I $\\int \\frac{2x}{x^2+1}\\,dx$ er nemnaren $g(x) = x^2 + 1$ og teljaren nøyaktig $g'(x) = 2x$ — altså\n\n$$\\int \\frac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$$\n\n(absoluttverdien kan sløyfast sidan $x^2 + 1 > 0$). Og i $\\int 2x \\cdot e^{x^2}\\,dx$ er kjernen $x^2$ med derivert $2x$ på plass som faktor:\n\n$$\\int 2x \\cdot e^{x^2}\\,dx = e^{x^2} + C$$\n\nTreninga går ut på å *sjå* mønsteret: sjekk om teljaren er den deriverte av nemnaren, eller om den deriverte av eksponenten står ved sida av. Dette blikket blir til ein fullverdig teknikk — substitusjon — i kapittel 3.1."
+    },
+    {
+      "id": "r2-2-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r2-2-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kjerneregel-mønstera:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r2-2-3-n-quiz3-q0",
+            "task": "Kva er $\\displaystyle\\int \\frac{2x}{x^2+1} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{x^2+1} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$2x\\ln(x^2+1) + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\arctan x + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\ln(x^2+1) + C$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Teljaren $2x$ er den deriverte av nemnaren $x^2+1$, så $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C = \\ln(x^2+1) + C$."
+          },
+          {
+            "id": "r2-2-3-n-quiz3-q1",
+            "task": "Kva er $\\displaystyle\\int 2x \\cdot e^{x^2} \\, dx$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$e^{x^2} + C$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x^2 e^{x^2} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{e^{x^2}}{2x} + C$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2e^{x^2} + C$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kjernen er $g(x) = x^2$ med $g'(x) = 2x$ på plass som faktor: $\\int g' e^g\\,dx = e^g + C = e^{x^2} + C$."
+          },
+          {
+            "id": "r2-2-3-n-quiz3-q2",
+            "task": "Kva for eit av desse integrala passar mønsteret $\\int \\frac{g'(x)}{g(x)}\\,dx$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$\\displaystyle\\int \\frac{x^2+1}{2x}\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$\\displaystyle\\int \\frac{x}{x^2+1}\\,dx$ med $g = x^2 + 1$ (etter justering med faktor $\\frac{1}{2}$)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\displaystyle\\int \\frac{1}{x^2+1}\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\displaystyle\\int \\frac{e^x}{x}\\,dx$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med $g = x^2+1$ er $g' = 2x$, og $\\frac{x}{x^2+1} = \\frac{1}{2} \\cdot \\frac{2x}{x^2+1}$. Integralet blir $\\frac{1}{2}\\ln(x^2+1) + C$. Dei andre passar ikkje mønsteret."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2-2-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering: holet er tetta, repertoaret utvida\n\nMysteriet frå førre kapittel er løyst: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$, med absoluttverdien som syter for gyldigheit på begge sider av null. Logaritmen — som i R1 mest var eit rekneverktøy — viste seg å vere den manglande brikka i integralrekninga, og arealet under $\\frac{1}{x}$ frå $1$ til $e$ er nøyaktig $1$.\n\nEksponentialfunksjonane føydde seg pent inn: $\\int e^x\\,dx = e^x + C$, $\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ og $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$ — i kvart tilfelle kompenserer vi for faktoren derivasjonen ville produsert. Og viktigast for vegen vidare: vi lærte å kjenne att fotavtrykket til kjerneregelen. Mønstera $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C$ og $\\int g' e^{g}\\,dx = e^{g} + C$ løyser integral som ser skremmande ut, berre vi ser at den deriverte av kjernen står klar i uttrykket.\n\nSå langt har vi samla antideriverte. Men kva *er* eigentleg eit bestemt integral — kvifor gir $F(b) - F(a)$ eit areal? For å svare på det må vi tilbake til det antikke Hellas, til ein mann som teikna sirklar i sanden medan Syrakus fall."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "a513c7470700fd5b",
+    "translatedAt": "2026-06-20T00:58:40.722Z",
+    "model": "claude-code-agent",
+    "strings": 74,
+    "tm": {
+      "af5ad1a0ff53176b": "Integrasjon av 1/x og eksponentialfunksjonar",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "e2b4c70494e75253": "Ei forteljing om integrala som tettar holet i potensregelen — logaritmen som antiderivert til 1/x, integrala til eksponentialfunksjonane og kunsten å sjå fotavtrykket til kjerneregelen.",
+      "c181bb7116786023": "integrere 1/x og eksponentialfunksjonar",
+      "01ef270882cccd18": "bruke kjerneregelen ved integrasjon",
+      "369da4ce2cc63e30": "## Holet i potensregelen\n\nFørre kapittel etterlét oss med eit mysterium. Potensregelen $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C$ verkar for alle eksponentar — utanom éin. For $n = -1$ bryt han saman i ei deling på null. Men funksjonen $\\frac{1}{x}$ er då vel ikkje noko monster? Grafen er glatt og pen, arealet under han er høgst reelt. *Noko* må då vere den antideriverte hans!\n\nSvaret er ei av dei vakraste overraskingane i matematikken: den antideriverte til $\\frac{1}{x}$ er ikkje ein potensfunksjon i det heile, men den naturlege logaritmen. Hugs frå R1 at $(\\ln x)' = \\frac{1}{x}$ — der ligg løysinga og ventar.\n\nI dette kapittelet tettar vi holet og utvidar samtidig repertoaret med eksponentialfunksjonane $e^x$, $e^{kx}$ og $a^x$ — funksjonane som styrer vekst og forfall i naturen. Til slutt lærer vi å kjenne att fotavtrykket til kjerneregelen i integral, eit mønster som løyser tilsynelatande håplause oppgåver på éi linje.",
+      "ae2896326fefa752": "## Logaritmen tettar holet\n\nSidan $(\\ln x)' = \\frac{1}{x}$, er $\\ln x$ ein antiderivert til $\\frac{1}{x}$ — i alle fall for $x > 0$, der $\\ln x$ er definert. Men $\\frac{1}{x}$ lever òg på den negative sida av tallina. Der reddar absoluttverdien oss: for $x < 0$ er $(\\ln|x|)' = (\\ln(-x))' = \\frac{-1}{-x} = \\frac{1}{x}$. Dermed gjeld for alle $x \\neq 0$:\n\n$$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$\n\nAbsoluttverditeiknet er altså ikkje pynt — det gjer formelen gyldig på begge sider av null. Konstantfaktorar blir med som vanleg: $\\int \\frac{3}{x}\\,dx = 3\\ln|x| + C$.\n\nFor bestemte integral (som vi snart skal rekne mange av) gir dette $\\int_a^b \\frac{1}{x}\\,dx = \\ln|b| - \\ln|a|$, føresett at $a$ og $b$ har same forteikn — vi kan ikkje integrere tvers over brotet i $x = 0$. Eit særleg pent tilfelle:\n\n$$\\int_1^e \\frac{1}{x} \\, dx = \\ln e - \\ln 1 = 1 - 0 = 1$$\n\nArealet under hyperbelen frå $1$ til $e$ er nøyaktig $1$ — det er faktisk ein av måtane talet $e$ kan *definerast* på. Holet i potensregelen viste seg å skjule ein av dei djupaste forbindelsane i analysen.",
+      "24c1bb9ac23b8833": "Test deg sjølv på integralet av 1/x:",
+      "4097889236a2af26": "placeholder",
+      "0dca88e051cedf05": "Kva er $\\displaystyle\\int \\frac{1}{x} \\, dx$?",
+      "36ebafddde18e09a": "$\\frac{x^0}{0} + C$",
+      "b45f0278866c14e1": "$\\ln|x| + C$",
+      "a5f481819709992a": "$\\ln x + C$",
+      "defc60e2feed49f7": "$-\\frac{1}{x^2} + C$",
+      "9d412e6a57775424": "$(\\ln|x|)' = \\frac{1}{x}$ for alle $x \\neq 0$. Absoluttverdien trengst fordi $\\ln x$ berre er definert for $x > 0$, medan $\\frac{1}{x}$ òg er definert for negative $x$.",
+      "0487bb1a0facec02": "Kvifor bruker vi absoluttverdi i $\\ln|x|$?",
+      "905357ee8c012faa": "For å unngå negative integralverdiar",
+      "e1a90c32a2ad5b0e": "Fordi logaritmen alltid er positiv",
+      "aaa3685ff54e65df": "For at formelen skal gjelde òg for $x < 0$, der $\\ln x$ ikkje er definert",
+      "982c500851e5e1a8": "Det er valfritt og berre ein konvensjon",
+      "9760ee7204ba69b3": "For $x < 0$ er $\\ln x$ udefinert, men $(\\ln(-x))' = \\frac{1}{x}$. Skrivemåten $\\ln|x|$ dekkjer begge tilfella.",
+      "34b830578addaa73": "Kva er $\\displaystyle\\int_1^e \\frac{1}{x} \\, dx$?",
+      "a0e7bf181c0ca133": "$e - 1$",
+      "4996f23288f4ae28": "$\\ln e + 1$",
+      "a7fea775ab963761": "$\\left[\\ln|x|\\right]_1^e = \\ln e - \\ln 1 = 1 - 0 = 1$.",
+      "e1ae4a5fd0944f47": "## Eksponentialfunksjonane — integrala til veksten\n\nNo til funksjonane som modellerer alt frå bakterievekst til bankrenter. Aller enklast er $e^x$: sidan $(e^x)' = e^x$, er funksjonen òg sitt eige integral:\n\n$$\\int e^x \\, dx = e^x + C$$\n\nI praksis møter vi oftare $e^{kx}$ — vekst eller forfall med rate $k$. Derivasjonen av $e^{kx}$ spyttar ut ein faktor $k$ (kjerneregelen), så integrasjonen må kompensere med å dele:\n\n$$\\int e^{kx} \\, dx = \\frac{1}{k} e^{kx} + C \\qquad (k \\neq 0)$$\n\nSjekk: $\\left(\\frac{1}{k}e^{kx}\\right)' = \\frac{1}{k} \\cdot k \\cdot e^{kx} = e^{kx}$. ✓ Konkret: $\\int e^{3x}\\,dx = \\frac{1}{3}e^{3x} + C$ og $\\int e^{-2x}\\,dx = -\\frac{1}{2}e^{-2x} + C$ — pass på forteiknet når $k$ er negativ.\n\nOgså andre grunntal lèt seg integrere. Frå $(a^x)' = a^x \\ln a$ følgjer\n\n$$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C \\qquad (a > 0,\\ a \\neq 1)$$\n\nslik at til dømes $\\int 2^x\\,dx = \\frac{2^x}{\\ln 2} + C$.\n\nBestemte integral går som før via den antideriverte: $\\int_0^2 e^x\\,dx = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$. Legg merke til kor mykje areal som gøymer seg under ei eksponentialkurve allereie på eit kort intervall — det er naturen til veksten.",
+      "ae41a8c207cd1e9f": "Test deg sjølv på integrasjon av eksponentialfunksjonar:",
+      "d8ce7903acaac989": "Kva er $\\displaystyle\\int e^{3x} \\, dx$?",
+      "bfc86ed6b1c9474a": "$3e^{3x} + C$",
+      "762908398945d638": "$e^{3x} + C$",
+      "04537fc4b1670eb6": "$\\frac{e^{3x+1}}{3x+1} + C$",
+      "6d2543849ca6606b": "$\\frac{1}{3}e^{3x} + C$",
+      "a6a30d7bccb60fc7": "$\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ med $k = 3$. Kontroll: $\\left(\\frac{1}{3}e^{3x}\\right)' = e^{3x}$.",
+      "d04f71add93da5cd": "Kva er $\\displaystyle\\int e^{-2x} \\, dx$?",
+      "99adc3d6da7f884a": "$-\\frac{1}{2}e^{-2x} + C$",
+      "bc72d9027c6e6c03": "$\\frac{1}{2}e^{-2x} + C$",
+      "e286bf49414f0cdc": "$-2e^{-2x} + C$",
+      "021aa80b26899118": "$e^{-2x} + C$",
+      "d60211f0015c1fd5": "$k = -2$ gir $\\frac{1}{-2}e^{-2x} + C = -\\frac{1}{2}e^{-2x} + C$.",
+      "fd52d3611dc07db8": "Kva er $\\displaystyle\\int 2^x \\, dx$?",
+      "13e9cf44f7c3bd2b": "$2^x + C$",
+      "fd477fcdae1f7911": "$\\frac{2^x}{\\ln 2} + C$",
+      "1d042d560d2bf758": "$\\frac{2^{x+1}}{x+1} + C$",
+      "b64d24e860f8ad18": "$2^x \\ln 2 + C$",
+      "5261010d22aa7c1a": "$\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$. Sidan $(2^x)' = 2^x \\ln 2$, må vi dele på $\\ln 2$.",
+      "cff052d2e97ab70d": "Kva er $\\displaystyle\\int_0^2 e^x \\, dx$?",
+      "018940799b8e8475": "$e^2$",
+      "9caaebbbb91ca012": "$2e$",
+      "c4bf46d0391c8fad": "$e^2 - 1$",
+      "498689c802fb16f9": "$e^2 + 1$",
+      "3505774f483879ef": "$\\left[e^x\\right]_0^2 = e^2 - e^0 = e^2 - 1 \\approx 6{,}39$.",
+      "2ab90e651593ddde": "## Fotavtrykket til kjerneregelen\n\nNo kjem den mest elegante ideen i kapittelet. Hugs kjerneregelen forlengs: $(F(g(x)))' = f(g(x)) \\cdot g'(x)$. Les vi han baklengs, seier han at integral på forma «funksjon av ein kjerne, ganga med den deriverte til kjernen» blir løyste med ein gong:\n\n$$\\int f(g(x)) \\cdot g'(x) \\, dx = F(g(x)) + C$$\n\nTo spesialtilfelle er så vanlege at dei fortener å stå i ramme. Brøkar der teljaren er den deriverte av nemnaren:\n\n$$\\int \\frac{g'(x)}{g(x)} \\, dx = \\ln|g(x)| + C$$\n\nog eksponentialuttrykk der den deriverte av kjernen står som faktor:\n\n$$\\int g'(x) \\cdot e^{g(x)} \\, dx = e^{g(x)} + C$$\n\nSjå mønsteret i aksjon. I $\\int \\frac{2x}{x^2+1}\\,dx$ er nemnaren $g(x) = x^2 + 1$ og teljaren nøyaktig $g'(x) = 2x$ — altså\n\n$$\\int \\frac{2x}{x^2+1}\\,dx = \\ln(x^2+1) + C$$\n\n(absoluttverdien kan sløyfast sidan $x^2 + 1 > 0$). Og i $\\int 2x \\cdot e^{x^2}\\,dx$ er kjernen $x^2$ med derivert $2x$ på plass som faktor:\n\n$$\\int 2x \\cdot e^{x^2}\\,dx = e^{x^2} + C$$\n\nTreninga går ut på å *sjå* mønsteret: sjekk om teljaren er den deriverte av nemnaren, eller om den deriverte av eksponenten står ved sida av. Dette blikket blir til ein fullverdig teknikk — substitusjon — i kapittel 3.1.",
+      "d2c546d6cf8c5133": "Test deg sjølv på kjerneregel-mønstera:",
+      "b554781f94b20d89": "Kva er $\\displaystyle\\int \\frac{2x}{x^2+1} \\, dx$?",
+      "8b2b1aa3b00f436c": "$\\frac{1}{x^2+1} + C$",
+      "d17a36db3f8725f8": "$2x\\ln(x^2+1) + C$",
+      "6163575bba679c7e": "$\\arctan x + C$",
+      "a4a4498b681c808e": "$\\ln(x^2+1) + C$",
+      "aae9900719c600ba": "Teljaren $2x$ er den deriverte av nemnaren $x^2+1$, så $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C = \\ln(x^2+1) + C$.",
+      "5d506e699a1c80eb": "Kva er $\\displaystyle\\int 2x \\cdot e^{x^2} \\, dx$?",
+      "7c5a07ddc020f327": "$e^{x^2} + C$",
+      "12dcbef57efd558e": "$x^2 e^{x^2} + C$",
+      "d4db6fef9f281bae": "$\\frac{e^{x^2}}{2x} + C$",
+      "592317ec6446e4ee": "$2e^{x^2} + C$",
+      "07d27d8c22c47208": "Kjernen er $g(x) = x^2$ med $g'(x) = 2x$ på plass som faktor: $\\int g' e^g\\,dx = e^g + C = e^{x^2} + C$.",
+      "51c54c0661d30fb3": "Kva for eit av desse integrala passar mønsteret $\\int \\frac{g'(x)}{g(x)}\\,dx$?",
+      "cd64b472ac5a24cd": "$\\displaystyle\\int \\frac{x}{x^2+1}\\,dx$ med $g = x^2 + 1$ (etter justering med faktor $\\frac{1}{2}$)",
+      "6236b5840b14e701": "$\\displaystyle\\int \\frac{x^2+1}{2x}\\,dx$",
+      "9e0122d01376d272": "$\\displaystyle\\int \\frac{1}{x^2+1}\\,dx$",
+      "3806383535507843": "$\\displaystyle\\int \\frac{e^x}{x}\\,dx$",
+      "77b9bfe49f003849": "Med $g = x^2+1$ er $g' = 2x$, og $\\frac{x}{x^2+1} = \\frac{1}{2} \\cdot \\frac{2x}{x^2+1}$. Integralet blir $\\frac{1}{2}\\ln(x^2+1) + C$. Dei andre passar ikkje mønsteret.",
+      "f7b596a36f9423ba": "## Oppsummering: holet er tetta, repertoaret utvida\n\nMysteriet frå førre kapittel er løyst: $\\int \\frac{1}{x}\\,dx = \\ln|x| + C$, med absoluttverdien som syter for gyldigheit på begge sider av null. Logaritmen — som i R1 mest var eit rekneverktøy — viste seg å vere den manglande brikka i integralrekninga, og arealet under $\\frac{1}{x}$ frå $1$ til $e$ er nøyaktig $1$.\n\nEksponentialfunksjonane føydde seg pent inn: $\\int e^x\\,dx = e^x + C$, $\\int e^{kx}\\,dx = \\frac{1}{k}e^{kx} + C$ og $\\int a^x\\,dx = \\frac{a^x}{\\ln a} + C$ — i kvart tilfelle kompenserer vi for faktoren derivasjonen ville produsert. Og viktigast for vegen vidare: vi lærte å kjenne att fotavtrykket til kjerneregelen. Mønstera $\\int \\frac{g'}{g}\\,dx = \\ln|g| + C$ og $\\int g' e^{g}\\,dx = e^{g} + C$ løyser integral som ser skremmande ut, berre vi ser at den deriverte av kjernen står klar i uttrykket.\n\nSå langt har vi samla antideriverte. Men kva *er* eigentleg eit bestemt integral — kvifor gir $F(b) - F(a)$ eit areal? For å svare på det må vi tilbake til det antikke Hellas, til ein mann som teikna sirklar i sanden medan Syrakus fall."
+    }
+  }
+}

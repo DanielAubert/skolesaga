@@ -1,1 +1,265 @@
-{"id":"10-4-3-narrativ","courseId":"10","chapterNumber":"4.3","title":"Vektorer - introduksjon","subtitle":"Narrativ versjon","description":"En fortelling om størrelser med retning -- fra båter i strøm til fly i motvind.","estimatedMinutes":30,"competenceGoals":["utforske og argumentere for korleis geometri i planet kan brukast i samband med koordinatsystem"],"linkedChapterId":"10-4-3","content":[{"id":"10-4-3-n-intro","type":"text","content":"## Størrelser med retning\n\nNoen størrelser i verden rundt oss har bare en størrelse -- som temperatur, masse og tid. Slike kalles skalarer. Men mange størrelser har også en retning: fart (50 km/t mot nord), kraft (100 N nedover) og forflytning (3 km mot øst). Slike størrelser kalles vektorer, og de trenger vi egne regnemetoder for.\n\nVi skriver vektorer som $\\vec{v}$ og representerer dem på koordinatform som $\\vec{v} = [v_x, v_y]$, der $v_x$ er x-komponenten og $v_y$ er y-komponenten. Lengden (eller absoluttverdien) finner vi med Pytagoras: $|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$.\n\nFor å finne vektoren fra punkt $A(1, 2)$ til punkt $B(4, 6)$ trekker vi fra: $\\vec{AB} = [4 - 1, 6 - 2] = [3, 4]$. Lengden er $|\\vec{AB}| = \\sqrt{9 + 16} = 5$. Legg merke til at vektoren mellom to punkter er sluttpunkt minus startpunkt, komponent for komponent."},{"id":"10-4-3-n-section1","type":"text","content":"## Regning med vektorer\n\nAddisjon av vektorer er enkelt: vi legger sammen tilsvarende komponenter. Hvis $\\vec{a} = [3, 2]$ og $\\vec{b} = [1, 4]$, er $\\vec{a} + \\vec{b} = [4, 6]$. Geometrisk betyr dette at vi legger vektorene etter hverandre (hode til hale), og sumvektoren går fra starten av den første til slutten av den andre.\n\nSubtraksjon fungerer tilsvarende: $\\vec{a} - \\vec{b} = [a_x - b_x, a_y - b_y]$. Og skalarmultiplikasjon betyr at vi ganger hver komponent med et tall: $3\\vec{v} = 3 \\cdot [2, -3] = [6, -9]$. Hvis vi ganger med et negativt tall, snur vektoren retning: $-2\\vec{v} = [-4, 6]$.\n\nVi kan også kombinere operasjoner. For eksempel: $2\\vec{a} + 3\\vec{b}$ med $\\vec{a} = [1, 2]$ og $\\vec{b} = [3, -1]$ gir $[2, 4] + [9, -3] = [11, 1]$.\n\nEt spesielt tilfelle: to vektorer som er like store men motsatt rettet, gir nullvektoren $\\vec{0} = [0, 0]$ når de legges sammen. For eksempel er $[4, -3] + [-4, 3] = [0, 0]$."},{"id":"10-4-3-n-quiz1","type":"exercise","exercise":{"id":"10-4-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-4-3-n-quiz1-q0","task":"Finn lengden til vektoren $\\vec{a} = [-5, 12]$.","options":[{"id":"a","text":"7","isCorrect":false},{"id":"b","text":"17","isCorrect":false},{"id":"c","text":"13","isCorrect":true},{"id":"d","text":"$\\sqrt{119}$","isCorrect":false}],"solution":"$|\\vec{a}| = \\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$."},{"id":"10-4-3-n-quiz1-q1","task":"Finn $\\vec{a} + \\vec{b}$ når $\\vec{a} = [2, 5]$ og $\\vec{b} = [3, -1]$.","options":[{"id":"a","text":"$[5, 6]$","isCorrect":false},{"id":"b","text":"$[5, 4]$","isCorrect":true},{"id":"c","text":"$[-1, 6]$","isCorrect":false},{"id":"d","text":"$[6, 4]$","isCorrect":false}],"solution":"$\\vec{a} + \\vec{b} = [2 + 3, 5 + (-1)] = [5, 4]$."},{"id":"10-4-3-n-quiz1-q2","task":"Finn $-3\\vec{b}$ når $\\vec{b} = [1, -4]$.","options":[{"id":"a","text":"$[3, -12]$","isCorrect":false},{"id":"b","text":"$[-3, -12]$","isCorrect":false},{"id":"c","text":"$[-3, 12]$","isCorrect":true},{"id":"d","text":"$[3, 12]$","isCorrect":false}],"solution":"$-3\\vec{b} = -3 \\cdot [1, -4] = [-3, 12]$."},{"id":"10-4-3-n-quiz1-q3","task":"Finn vektoren fra $P(2, 3)$ til $Q(8, 11)$ og dens lengde.","options":[{"id":"a","text":"$[6, 8]$, lengde 10","isCorrect":true},{"id":"b","text":"$[10, 14]$, lengde 10","isCorrect":false},{"id":"c","text":"$[-6, -8]$, lengde 10","isCorrect":false},{"id":"d","text":"$[6, 8]$, lengde 14","isCorrect":false}],"solution":"$\\vec{PQ} = [8 - 2, 11 - 3] = [6, 8]$. Lengde: $\\sqrt{36 + 64} = 10$."}]}},{"id":"10-4-3-n-section2","type":"text","content":"## Vektorer i praksis\n\nVektorer er uunnværlige i fysikk og navigasjon. Tenk deg en båt som kjører med 20 km/t mot øst, men strømmen går 5 km/t mot nord. Båtens vektor er $\\vec{v_b} = [20, 0]$ og strømmens er $\\vec{v_s} = [0, 5]$. Den resulterende hastigheten er $\\vec{v_r} = [20, 5]$ med fart $\\sqrt{400 + 25} = \\sqrt{425} \\approx 20{,}6$ km/t.\n\nEller tenk på et fly som skal fly rett nord med lufthastighet 300 km/t, men det blåser 50 km/t fra vest mot øst. Flyet må styre litt mot nordvest for å kompensere. Vinkelen fra nord: $\\sin v = \\frac{50}{300}$, som gir $v \\approx 9{,}6°$ vest for nord. Bakkehastigheten blir $\\sqrt{300^2 - 50^2} \\approx 296$ km/t.\n\nEt skip seiler fra A til B med $\\vec{AB} = [12, 5]$ km, deretter fra B til C med $\\vec{BC} = [-4, 8]$ km. Total forflytning: $\\vec{AC} = [8, 13]$ km, og avstanden fra A til C er $\\sqrt{64 + 169} \\approx 15{,}3$ km -- mye kortere enn den faktiske seilte distansen på $13 + \\sqrt{80} \\approx 21{,}9$ km."},{"id":"10-4-3-n-quiz2","type":"exercise","exercise":{"id":"10-4-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"10-4-3-n-quiz2-q0","task":"En båt kjører $[20, 0]$ km/t og strømmen er $[0, 5]$ km/t. Hva er den resulterende farten?","options":[{"id":"a","text":"25 km/t","isCorrect":false},{"id":"b","text":"Ca. 20,6 km/t","isCorrect":true},{"id":"c","text":"15 km/t","isCorrect":false},{"id":"d","text":"20 km/t","isCorrect":false}],"solution":"Resultant: $[20, 5]$. Fart: $\\sqrt{400 + 25} \\approx 20{,}6$ km/t."},{"id":"10-4-3-n-quiz2-q1","task":"Finn $4\\vec{u} - 2\\vec{v}$ når $\\vec{u} = [2, 3]$ og $\\vec{v} = [5, 1]$.","options":[{"id":"a","text":"$[18, 14]$","isCorrect":false},{"id":"b","text":"$[-2, 10]$","isCorrect":true},{"id":"c","text":"$[2, 10]$","isCorrect":false},{"id":"d","text":"$[-2, -10]$","isCorrect":false}],"solution":"$4\\vec{u} = [8, 12]$, $2\\vec{v} = [10, 2]$. Differanse: $[8 - 10, 12 - 2] = [-2, 10]$."},{"id":"10-4-3-n-quiz2-q2","task":"Hva er forskjellen mellom en skalar og en vektor?","options":[{"id":"a","text":"En skalar er alltid større enn en vektor","isCorrect":false},{"id":"b","text":"En vektor har bare retning, en skalar har bare størrelse","isCorrect":false},{"id":"c","text":"En skalar har bare størrelse, en vektor har både størrelse og retning","isCorrect":true},{"id":"d","text":"Det er ingen forskjell","isCorrect":false}],"solution":"En skalar (f.eks. temperatur, masse) har bare størrelse. En vektor (f.eks. hastighet, kraft) har både størrelse og retning."}]}},{"id":"10-4-3-n-summary","type":"text","content":"## Oppsummering\n\nEn vektor er en størrelse med både lengde og retning, skrevet som $\\vec{v} = [v_x, v_y]$. Lengden er $|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$. Vektorer legges sammen og trekkes fra komponent for komponent. Skalarmultiplikasjon ganger hver komponent med tallet. Vektoren mellom to punkter er sluttpunkt minus startpunkt. Vektorer brukes til å beskrive krefter, hastigheter og forflytninger i fysikk og navigasjon. Summen av vektorer gir den resulterende effekten."}],"exercises":[]}
+{
+  "id": "10-4-3-narrativ",
+  "courseId": "10",
+  "chapterNumber": "4.3",
+  "title": "Vektorer - introduksjon",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om størrelser med retning -- fra båter i strøm til fly i motvind.",
+  "estimatedMinutes": 30,
+  "competenceGoals": [
+    "utforske og argumentere for korleis geometri i planet kan brukast i samband med koordinatsystem"
+  ],
+  "linkedChapterId": "10-4-3",
+  "content": [
+    {
+      "id": "10-4-3-n-intro",
+      "type": "text",
+      "content": "## Størrelser med retning\n\nNoen størrelser i verden rundt oss har bare en størrelse -- som temperatur, masse og tid. Slike kalles skalarer. Men mange størrelser har også en retning: fart (50 km/t mot nord), kraft (100 N nedover) og forflytning (3 km mot øst). Slike størrelser kalles vektorer, og de trenger vi egne regnemetoder for.\n\nVi skriver vektorer som $\\vec{v}$ og representerer dem på koordinatform som $\\vec{v} = [v_x, v_y]$, der $v_x$ er x-komponenten og $v_y$ er y-komponenten. Lengden (eller absoluttverdien) finner vi med Pytagoras: $|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$.\n\nFor å finne vektoren fra punkt $A(1, 2)$ til punkt $B(4, 6)$ trekker vi fra: $\\vec{AB} = [4 - 1, 6 - 2] = [3, 4]$. Lengden er $|\\vec{AB}| = \\sqrt{9 + 16} = 5$. Legg merke til at vektoren mellom to punkter er sluttpunkt minus startpunkt, komponent for komponent."
+    },
+    {
+      "id": "10-4-3-n-section1",
+      "type": "text",
+      "content": "## Regning med vektorer\n\nAddisjon av vektorer er enkelt: vi legger sammen tilsvarende komponenter. Hvis $\\vec{a} = [3, 2]$ og $\\vec{b} = [1, 4]$, er $\\vec{a} + \\vec{b} = [4, 6]$. Geometrisk betyr dette at vi legger vektorene etter hverandre (hode til hale), og sumvektoren går fra starten av den første til slutten av den andre.\n\nSubtraksjon fungerer tilsvarende: $\\vec{a} - \\vec{b} = [a_x - b_x, a_y - b_y]$. Og skalarmultiplikasjon betyr at vi ganger hver komponent med et tall: $3\\vec{v} = 3 \\cdot [2, -3] = [6, -9]$. Hvis vi ganger med et negativt tall, snur vektoren retning: $-2\\vec{v} = [-4, 6]$.\n\nVi kan også kombinere operasjoner. For eksempel: $2\\vec{a} + 3\\vec{b}$ med $\\vec{a} = [1, 2]$ og $\\vec{b} = [3, -1]$ gir $[2, 4] + [9, -3] = [11, 1]$.\n\nEt spesielt tilfelle: to vektorer som er like store men motsatt rettet, gir nullvektoren $\\vec{0} = [0, 0]$ når de legges sammen. For eksempel er $[4, -3] + [-4, 3] = [0, 0]$."
+    },
+    {
+      "id": "10-4-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-4-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-4-3-n-quiz1-q0",
+            "task": "Finn lengden til vektoren $\\vec{a} = [-5, 12]$.",
+            "options": [
+              {
+                "id": "c",
+                "text": "13",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "7",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "17",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\sqrt{119}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$|\\vec{a}| = \\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$."
+          },
+          {
+            "id": "10-4-3-n-quiz1-q1",
+            "task": "Finn $\\vec{a} + \\vec{b}$ når $\\vec{a} = [2, 5]$ og $\\vec{b} = [3, -1]$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[5, 6]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[5, 4]$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$[-1, 6]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[6, 4]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\vec{a} + \\vec{b} = [2 + 3, 5 + (-1)] = [5, 4]$."
+          },
+          {
+            "id": "10-4-3-n-quiz1-q2",
+            "task": "Finn $-3\\vec{b}$ når $\\vec{b} = [1, -4]$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[3, -12]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[-3, -12]$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[-3, 12]$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$[3, 12]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$-3\\vec{b} = -3 \\cdot [1, -4] = [-3, 12]$."
+          },
+          {
+            "id": "10-4-3-n-quiz1-q3",
+            "task": "Finn vektoren fra $P(2, 3)$ til $Q(8, 11)$ og dens lengde.",
+            "options": [
+              {
+                "id": "b",
+                "text": "$[10, 14]$, lengde 10",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$[-6, -8]$, lengde 10",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[6, 8]$, lengde 14",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$[6, 8]$, lengde 10",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\vec{PQ} = [8 - 2, 11 - 3] = [6, 8]$. Lengde: $\\sqrt{36 + 64} = 10$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-4-3-n-section2",
+      "type": "text",
+      "content": "## Vektorer i praksis\n\nVektorer er uunnværlige i fysikk og navigasjon. Tenk deg en båt som kjører med 20 km/t mot øst, men strømmen går 5 km/t mot nord. Båtens vektor er $\\vec{v_b} = [20, 0]$ og strømmens er $\\vec{v_s} = [0, 5]$. Den resulterende hastigheten er $\\vec{v_r} = [20, 5]$ med fart $\\sqrt{400 + 25} = \\sqrt{425} \\approx 20{,}6$ km/t.\n\nEller tenk på et fly som skal fly rett nord med lufthastighet 300 km/t, men det blåser 50 km/t fra vest mot øst. Flyet må styre litt mot nordvest for å kompensere. Vinkelen fra nord: $\\sin v = \\frac{50}{300}$, som gir $v \\approx 9{,}6°$ vest for nord. Bakkehastigheten blir $\\sqrt{300^2 - 50^2} \\approx 296$ km/t.\n\nEt skip seiler fra A til B med $\\vec{AB} = [12, 5]$ km, deretter fra B til C med $\\vec{BC} = [-4, 8]$ km. Total forflytning: $\\vec{AC} = [8, 13]$ km, og avstanden fra A til C er $\\sqrt{64 + 169} \\approx 15{,}3$ km -- mye kortere enn den faktiske seilte distansen på $13 + \\sqrt{80} \\approx 21{,}9$ km."
+    },
+    {
+      "id": "10-4-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-4-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "10-4-3-n-quiz2-q0",
+            "task": "En båt kjører $[20, 0]$ km/t og strømmen er $[0, 5]$ km/t. Hva er den resulterende farten?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ca. 20,6 km/t",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "25 km/t",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "15 km/t",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "20 km/t",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Resultant: $[20, 5]$. Fart: $\\sqrt{400 + 25} \\approx 20{,}6$ km/t."
+          },
+          {
+            "id": "10-4-3-n-quiz2-q1",
+            "task": "Finn $4\\vec{u} - 2\\vec{v}$ når $\\vec{u} = [2, 3]$ og $\\vec{v} = [5, 1]$.",
+            "options": [
+              {
+                "id": "a",
+                "text": "$[18, 14]$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$[-2, 10]$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$[2, 10]$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$[-2, -10]$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$4\\vec{u} = [8, 12]$, $2\\vec{v} = [10, 2]$. Differanse: $[8 - 10, 12 - 2] = [-2, 10]$."
+          },
+          {
+            "id": "10-4-3-n-quiz2-q2",
+            "task": "Hva er forskjellen mellom en skalar og en vektor?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En skalar er alltid større enn en vektor",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "En vektor har bare retning, en skalar har bare størrelse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En skalar har bare størrelse, en vektor har både størrelse og retning",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Det er ingen forskjell",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En skalar (f.eks. temperatur, masse) har bare størrelse. En vektor (f.eks. hastighet, kraft) har både størrelse og retning."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-4-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nEn vektor er en størrelse med både lengde og retning, skrevet som $\\vec{v} = [v_x, v_y]$. Lengden er $|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$. Vektorer legges sammen og trekkes fra komponent for komponent. Skalarmultiplikasjon ganger hver komponent med tallet. Vektoren mellom to punkter er sluttpunkt minus startpunkt. Vektorer brukes til å beskrive krefter, hastigheter og forflytninger i fysikk og navigasjon. Summen av vektorer gir den resulterende effekten."
+    }
+  ],
+  "exercises": []
+}

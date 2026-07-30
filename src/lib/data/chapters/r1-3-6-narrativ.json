@@ -1,1 +1,426 @@
-{"id":"r1-3-6-narrativ","courseId":"r1","chapterNumber":"3.6","title":"Numerisk derivasjon med digitale verktøy","subtitle":"Narrativ versjon","description":"En fortelling om å derivere uten formel -- differansekvotienter med endelig h, kappløpet mellom metodefeil og avrundingsfeil, og verktøyene som gjør jobben.","estimatedMinutes":29,"competenceGoals":["tilnærme den deriverte numerisk med fremover-, bakover- og sentraldifferanse","bruke regneark til å beregne numeriske deriverte","bruke CAS-verktøy for symbolsk og numerisk derivasjon","vurdere noeyyaktigheten av numeriske tilnærminger","sammenligne analytisk og numerisk derivasjon"],"linkedChapterId":"r1-3-6","content":[{"id":"r1-3-6-n-intro","type":"text","content":"## Derivasjon uten formel\n\nEn treningsklokke logger posisjonen din hvert sekund. En værstasjon registrerer temperaturen hvert minutt. En ingeniør får måleserier fra en sensor i en bro. Alle tre vil vite det samme: *hvor fort endrer dette seg?* -- altså den deriverte. Men her er problemet: ingen av dem har noe funksjonsuttrykk. Det finnes ingen $f(x) = x^3 + \\sin x$ å derivere med reglene fra kapittel 2 og 3 -- bare en tabell med tall.\n\nOg selv når formelen finnes, kan den være så uhåndterlig at symbolsk derivasjon er upraktisk. Hva gjør vi da?\n\nVi går tilbake til kilden. Derivasjonens definisjon var grenseverdien av differansekvotienten:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nGrenseverdien krever formelen -- men *kvotienten* gjør ikke. Ideen i **numerisk derivasjon** er frekk i all sin enkelhet: dropp grenseovergangen, og bruk differansekvotienten med en liten, men *endelig* $h$. Med $h = 0{,}001$ får du ikke den deriverte eksakt, men du får en tilnærming -- og spørsmålene blir straks praktiske: Hvilken differanseformel gir best tilnærming? Hvor liten bør $h$ være? Og kan den bli *for* liten?\n\nSvaret på det siste er et overraskende ja, og historien om hvorfor -- kappløpet mellom metodefeil og avrundingsfeil -- er kapittelets mest lærerike poeng. Underveis setter vi opp beregningene i regneark, og lar CAS-verktøy gjøre både symbolsk og numerisk derivasjon for oss."},{"id":"r1-3-6-n-section1","type":"text","content":"## Tre måter å spørre naboene på\n\nDu står i punktet $a$ og vil anslå stigningen der. Med steglengde $h > 0$ har du tre naturlige muligheter, alt etter hvilke naboverdier du bruker.\n\n**Framoverdifferansen** ser fremover: $f'(a) \\approx \\frac{f(a+h) - f(a)}{h}$. **Bakoverdifferansen** ser bakover: $f'(a) \\approx \\frac{f(a) - f(a-h)}{h}$. Og **sentraldifferansen** ser begge veier og hopper over punktet selv:\n\n$$f'(a) \\approx \\frac{f(a+h) - f(a-h)}{2h}$$\n\nGeometrisk er alle tre sekantstigninger -- forskjellen er hvor sekanten festes. Framover- og bakoverdifferansen lener seg til hver sin side av $a$, mens sentraldifferansen spenner symmetrisk over punktet, og symmetrien viser seg å være gull verdt.\n\nLa oss måle dem mot en fasit. Ta $f(x) = x^3$ i $a = 2$, der vi vet at $f'(2) = 12$ eksakt. Med $h = 0{,}1$ er $f(2) = 8$, $f(2{,}1) = 9{,}261$ og $f(1{,}9) = 6{,}859$. Framoverdifferansen gir $\\frac{9{,}261 - 8}{0{,}1} = 12{,}61$ -- feil på $0{,}61$. Bakoverdifferansen gir $\\frac{8 - 6{,}859}{0{,}1} = 11{,}41$ -- feil på $0{,}59$. Men sentraldifferansen:\n\n$$\\frac{9{,}261 - 6{,}859}{0{,}2} = 12{,}01$$\n\nFeil på bare $0{,}01$ -- seksti ganger bedre enn de ensidige, med nøyaktig samme datamengde! Intuisjonen: framoverdifferansen overdriver stigningen der grafen krummer oppover, bakoverdifferansen underdriver den, og i den symmetriske sentraldifferansen kansellerer de to skjevhetene hverandre nesten perfekt. Når du har verdier på begge sider av punktet, er sentraldifferansen derfor standardvalget."},{"id":"r1-3-6-n-quiz1","type":"exercise","exercise":{"id":"r1-3-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på differanseformlene:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-6-n-quiz1-q0","task":"Hva er sentraldifferansen for $f'(a)$?","options":[{"id":"a","text":"$\\frac{f(a+h) - f(a)}{h}$","isCorrect":false},{"id":"b","text":"$\\frac{f(a) - f(a-h)}{h}$","isCorrect":false},{"id":"c","text":"$\\frac{f(a+h) - f(a-h)}{2h}$","isCorrect":true},{"id":"d","text":"$\\frac{f(a+h) + f(a-h)}{2h}$","isCorrect":false}],"solution":"Sentraldifferansen bruker naboene på begge sider og deler på avstanden $2h$ mellom dem."},{"id":"r1-3-6-n-quiz1-q1","task":"For $f(x) = x^3$ i $a = 2$ med $h = 0{,}1$: hvilken formel ga tilnærmingen $12{,}01$ (eksakt verdi $12$)?","options":[{"id":"a","text":"Sentraldifferansen","isCorrect":true},{"id":"b","text":"Framoverdifferansen","isCorrect":false},{"id":"c","text":"Bakoverdifferansen","isCorrect":false},{"id":"d","text":"Alle tre ga samme verdi","isCorrect":false}],"solution":"Framover ga $12{,}61$ og bakover $11{,}41$, men sentraldifferansen $\\frac{9{,}261 - 6{,}859}{0{,}2} = 12{,}01$ -- klart best."},{"id":"r1-3-6-n-quiz1-q2","task":"Hvorfor er sentraldifferansen som regel mest nøyaktig?","options":[{"id":"a","text":"Den bruker flere datapunkter enn de andre","isCorrect":false},{"id":"b","text":"Symmetrien gjør at skjevhetene fra hver side nesten kansellerer","isCorrect":true},{"id":"c","text":"Den har størst $h$","isCorrect":false},{"id":"d","text":"Den unngår divisjon","isCorrect":false}],"solution":"Framover- og bakoverdifferansen bommer i hver sin retning når grafen krummer; den symmetriske sentraldifferansen lar feilene oppheve hverandre."},{"id":"r1-3-6-n-quiz1-q3","task":"Hva gir framoverdifferansen for $f(x) = x^2$ i $a = 1$ med $h = 0{,}1$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$1{,}9$","isCorrect":false},{"id":"c","text":"$2{,}2$","isCorrect":false},{"id":"d","text":"$2{,}1$","isCorrect":true}],"solution":"$\\frac{f(1{,}1) - f(1)}{0{,}1} = \\frac{1{,}21 - 1}{0{,}1} = 2{,}1$ -- nær den eksakte verdien $f'(1) = 2$."}]}},{"id":"r1-3-6-n-section2","type":"text","content":"## Feilens anatomi -- og fellen ved liten $h$\n\nTalleksempelet antydet et mønster, og mønsteret er en presis lov. Feilen i framover- og bakoverdifferansen er av størrelsesorden $O(h)$ -- proporsjonal med $h$ -- mens sentraldifferansens feil er $O(h^2)$, proporsjonal med $h^2$. Konsekvensen merkes hver gang du forfiner: halverer du $h$, halveres feilen i de ensidige formlene, men sentraldifferansens feil deles på *fire*. Sentraldifferansen konvergerer altså mye raskere mot den eksakte verdien, og det er denne kvadratiske gevinsten symmetrien kjøper oss.\n\nDa skulle man tro strategien var opplagt: velg $h$ mikroskopisk, så blir feilen mikroskopisk. Men her venter kapittelets felle. Datamaskinen regner med endelig presisjon -- omtrent 16 gjeldende siffer i vanlig dobbeltpresisjon. Når $h$ blir bitteliten, er $f(a + h)$ og $f(a)$ *nesten like tall*, og i subtraksjonen utsletter de felles sifrene hverandre. Du sitter igjen med\n\n$$\\frac{f(a+h) - f(a)}{h} \\approx \\frac{\\text{nesten like tall}}{\\text{lite tall}}$$\n\n-- en differanse der bare de usikre sifrene overlever, blåst opp av divisjonen med den lille $h$-en. Dette kalles **avrundingsfeil**, og den *vokser* når $h$ krymper.\n\nTo krefter drar altså i hver sin retning: metodefeilen vil ha liten $h$, avrundingsfeilen vil ha stor. Et sted imellom ligger en optimal steglengde. Tommelregelen, med maskinpresisjonen $\\varepsilon \\approx 10^{-16}$: bruk $h \\approx \\sqrt{\\varepsilon} \\approx 10^{-8}$ for framover- og bakoverdifferanse, og $h \\approx \\varepsilon^{1/3}$ for sentraldifferansen. «Mindre er bedre» gjelder altså bare til et visst punkt -- numerikkens første leveregel."},{"id":"r1-3-6-n-quiz2","type":"exercise","exercise":{"id":"r1-3-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på feilorden og avrundingsfeil:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-6-n-quiz2-q0","task":"Du halverer $h$ i sentraldifferansen. Hva skjer (omtrent) med metodefeilen?","options":[{"id":"a","text":"Den halveres","isCorrect":false},{"id":"b","text":"Den er uendret","isCorrect":false},{"id":"c","text":"Den reduseres til en fjerdedel","isCorrect":true},{"id":"d","text":"Den dobles","isCorrect":false}],"solution":"Sentraldifferansen har feil $O(h^2)$: halvering av $h$ gir $(\\frac{1}{2})^2 = \\frac{1}{4}$ av feilen."},{"id":"r1-3-6-n-quiz2-q1","task":"Hvilken feilorden har framover- og bakoverdifferansen?","options":[{"id":"a","text":"$O(h)$","isCorrect":true},{"id":"b","text":"$O(h^2)$","isCorrect":false},{"id":"c","text":"$O(h^3)$","isCorrect":false},{"id":"d","text":"$O(1)$","isCorrect":false}],"solution":"De ensidige formlene har feil proporsjonal med $h$ -- halvering av $h$ halverer bare feilen."},{"id":"r1-3-6-n-quiz2-q2","task":"Hvorfor gir en ekstremt liten $h$ (f.eks. $10^{-15}$) dårlige resultater?","options":[{"id":"a","text":"Metodefeilen vokser med liten $h$","isCorrect":false},{"id":"b","text":"Datamaskinen nekter å regne med så små tall","isCorrect":false},{"id":"c","text":"Sekanten blir for bratt","isCorrect":false},{"id":"d","text":"$f(a+h)$ og $f(a)$ blir nesten like, og subtraksjonen utsletter gjeldende siffer (avrundingsfeil)","isCorrect":true}],"solution":"Ved subtraksjon av nesten like tall overlever bare de usikre sifrene, og divisjonen med liten $h$ forstørrer feilen."},{"id":"r1-3-6-n-quiz2-q3","task":"Hva er tommelregelen for steglengde i sentraldifferansen (med maskinpresisjon $\\varepsilon \\approx 10^{-16}$)?","options":[{"id":"a","text":"$h \\approx \\varepsilon$","isCorrect":false},{"id":"b","text":"$h \\approx \\varepsilon^{1/3}$","isCorrect":true},{"id":"c","text":"$h \\approx 1$","isCorrect":false},{"id":"d","text":"$h$ så liten som mulig","isCorrect":false}],"solution":"Balansen mellom metodefeil og avrundingsfeil gir $h \\approx \\varepsilon^{1/3}$ for sentral og $h \\approx \\sqrt{\\varepsilon}$ for de ensidige."}]}},{"id":"r1-3-6-n-section3","type":"text","content":"## Verktøyene: regneark og CAS\n\nTeorien er på plass -- nå til verkstedet. I et **regneark** settes numerisk derivasjon opp på minutter. Legg $x$-verdiene $a - h$, $a$ og $a + h$ i kolonne A, funksjonsverdiene i kolonne B (for $f(x) = x^3$ skriver du `=A2^3` og kopierer nedover), og sentraldifferansen i kolonne C: `=(B4-B2)/(A4-A2)` -- differansen mellom verdiene over og under, delt på $x$-avstanden $2h$. Vil du eksperimentere, lar du $h$ stå i en egen celle (f.eks. `=A3-0.001`) og ser tilnærmingen endre seg når du justerer den. Regnearkets styrke er nettopp måledata: har du en tabell fra en sensor, deriverer du hele serien med én formel kopiert nedover.\n\n**CAS-verktøy** (Computer Algebra System) hever ambisjonen: de kan derivere *symbolsk* -- finne selve uttrykket for $f'(x)$ -- i tillegg til numerisk. I GeoGebra CAS gir `Derivative[x^3 + sin(x)]` svaret `3x^2 + cos(x)`, eksakt og gyldig for alle $x$, mens `NDerivative[x^3 + sin(x), 2]` gir en numerisk verdi av $f'(2)$. I Python gjør SymPy det samme: `diff(f, x)` for det symbolske uttrykket, etterfulgt av `.subs(x, 2).evalf()` for tallverdien i punktet.\n\nNår velger du hva? **Analytisk** derivasjon (for hånd eller med CAS) når du har funksjonsuttrykket og trenger eksakte svar -- den gir full informasjon om $f'(x)$ overalt. **Numerisk** når du bare har tabelldata, når uttrykket er for innfløkt til at symbolsk derivasjon er praktisk, eller når du raskt trenger ett tall i ett punkt. Og i praksis kombineres de gjerne: CAS finner det analytiske uttrykket, som så evalueres numerisk akkurat der du trenger det. Verktøyene konkurrerer ikke -- de deler arbeidet."},{"id":"r1-3-6-n-quiz3","type":"exercise","exercise":{"id":"r1-3-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på regneark, CAS og metodevalg:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"r1-3-6-n-quiz3-q0","task":"Hva beregner regnearkformelen `=(B4-B2)/(A4-A2)` når radene 2, 3 og 4 inneholder $a-h$, $a$ og $a+h$?","options":[{"id":"a","text":"Framoverdifferansen i $a$","isCorrect":false},{"id":"b","text":"Sentraldifferansen i $a$","isCorrect":true},{"id":"c","text":"Bakoverdifferansen i $a$","isCorrect":false},{"id":"d","text":"Den andrederiverte i $a$","isCorrect":false}],"solution":"$\\frac{f(a+h) - f(a-h)}{(a+h) - (a-h)} = \\frac{f(a+h) - f(a-h)}{2h}$ -- nettopp sentraldifferansen."},{"id":"r1-3-6-n-quiz3-q1","task":"Hva gir GeoGebra-kommandoen `Derivative[x^3 + sin(x)]`?","options":[{"id":"a","text":"En numerisk verdi av $f'(2)$","isCorrect":false},{"id":"b","text":"Grafen til $f$","isCorrect":false},{"id":"c","text":"Det symbolske uttrykket $3x^2 + \\cos x$","isCorrect":true},{"id":"d","text":"En feilmelding","isCorrect":false}],"solution":"`Derivative` deriverer symbolsk og gir det eksakte uttrykket; `NDerivative` gir numeriske verdier i et punkt."},{"id":"r1-3-6-n-quiz3-q2","task":"I hvilken situasjon er numerisk derivasjon eneste mulighet?","options":[{"id":"a","text":"Når vi bare har måledata i en tabell, uten funksjonsuttrykk","isCorrect":true},{"id":"b","text":"Når funksjonen er et polynom","isCorrect":false},{"id":"c","text":"Når vi trenger $f'(x)$ for alle $x$","isCorrect":false},{"id":"d","text":"Når $h$ er stor","isCorrect":false}],"solution":"Uten funksjonsuttrykk finnes ingenting å derivere symbolsk -- da er differansekvotienter på tabellverdiene veien å gå."},{"id":"r1-3-6-n-quiz3-q3","task":"Hva er styrken til analytisk derivasjon sammenlignet med numerisk?","options":[{"id":"a","text":"Den er alltid raskere å taste inn","isCorrect":false},{"id":"b","text":"Den trenger ingen funksjonsuttrykk","isCorrect":false},{"id":"c","text":"Den unngår all bruk av datamaskin","isCorrect":false},{"id":"d","text":"Den gir et eksakt uttrykk for $f'(x)$, gyldig for alle $x$","isCorrect":true}],"solution":"Symbolsk derivasjon gir hele funksjonen $f'(x)$ eksakt; numerisk derivasjon gir en tilnærmet verdi i ett punkt om gangen."}]}},{"id":"r1-3-6-n-summary","type":"text","content":"## Fortellingen i et nøtteskall\n\nTreningsklokka, værstasjonen og brosensoren fikk svaret sitt: den deriverte kan tilnærmes uten formel, med differansekvotienter der grenseovergangen $h \\to 0$ er byttet ut med en liten, endelig $h$.\n\nTre formler sto til rådighet. **Framoverdifferansen** $\\frac{f(a+h) - f(a)}{h}$ og **bakoverdifferansen** $\\frac{f(a) - f(a-h)}{h}$ ser hver sin vei og har feil av orden $O(h)$. **Sentraldifferansen** $\\frac{f(a+h) - f(a-h)}{2h}$ spenner symmetrisk over punktet, lar skjevhetene kansellere og oppnår $O(h^2)$ -- testen på $f(x) = x^3$ i $a = 2$ ga feil $0{,}01$ mot de ensidiges $0{,}6$. Halverer du $h$, kvarteres sentraldifferansens feil.\n\nMen «mindre $h$ er bedre» har en grense: når $f(a+h)$ og $f(a)$ blir nesten like, utsletter subtraksjonen de gjeldende sifrene, og **avrundingsfeilen** vokser. Mellom metodefeil og avrundingsfeil ligger den optimale steglengden -- tommelregelen sier $h \\approx \\sqrt{\\varepsilon}$ for ensidige og $h \\approx \\varepsilon^{1/3}$ for sentral, med maskinpresisjon $\\varepsilon \\approx 10^{-16}$.\n\nVerktøyene deler arbeidet: regnearket deriverer måleserier med én kopiert formel, og CAS behersker begge verdener -- `Derivative` gir det eksakte uttrykket, `NDerivative` (eller SymPys `diff` + `evalf`) tallverdien. Analytisk når du har uttrykk og trenger eksakthet; numerisk når du har tabeller eller hastverk.\n\nDermed er kapittel 3 fullført: grenseverdien ga den deriverte mening, og tallene ga den hender å arbeide med."}],"exercises":[]}
+{
+  "id": "r1-3-6-narrativ",
+  "courseId": "r1",
+  "chapterNumber": "3.6",
+  "title": "Numerisk derivasjon med digitale verktøy",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å derivere uten formel -- differansekvotienter med endelig h, kappløpet mellom metodefeil og avrundingsfeil, og verktøyene som gjør jobben.",
+  "estimatedMinutes": 29,
+  "competenceGoals": [
+    "tilnærme den deriverte numerisk med fremover-, bakover- og sentraldifferanse",
+    "bruke regneark til å beregne numeriske deriverte",
+    "bruke CAS-verktøy for symbolsk og numerisk derivasjon",
+    "vurdere noeyyaktigheten av numeriske tilnærminger",
+    "sammenligne analytisk og numerisk derivasjon"
+  ],
+  "linkedChapterId": "r1-3-6",
+  "content": [
+    {
+      "id": "r1-3-6-n-intro",
+      "type": "text",
+      "content": "## Derivasjon uten formel\n\nEn treningsklokke logger posisjonen din hvert sekund. En værstasjon registrerer temperaturen hvert minutt. En ingeniør får måleserier fra en sensor i en bro. Alle tre vil vite det samme: *hvor fort endrer dette seg?* -- altså den deriverte. Men her er problemet: ingen av dem har noe funksjonsuttrykk. Det finnes ingen $f(x) = x^3 + \\sin x$ å derivere med reglene fra kapittel 2 og 3 -- bare en tabell med tall.\n\nOg selv når formelen finnes, kan den være så uhåndterlig at symbolsk derivasjon er upraktisk. Hva gjør vi da?\n\nVi går tilbake til kilden. Derivasjonens definisjon var grenseverdien av differansekvotienten:\n\n$$f'(a) = \\lim_{h \\to 0} \\frac{f(a+h) - f(a)}{h}$$\n\nGrenseverdien krever formelen -- men *kvotienten* gjør ikke. Ideen i **numerisk derivasjon** er frekk i all sin enkelhet: dropp grenseovergangen, og bruk differansekvotienten med en liten, men *endelig* $h$. Med $h = 0{,}001$ får du ikke den deriverte eksakt, men du får en tilnærming -- og spørsmålene blir straks praktiske: Hvilken differanseformel gir best tilnærming? Hvor liten bør $h$ være? Og kan den bli *for* liten?\n\nSvaret på det siste er et overraskende ja, og historien om hvorfor -- kappløpet mellom metodefeil og avrundingsfeil -- er kapittelets mest lærerike poeng. Underveis setter vi opp beregningene i regneark, og lar CAS-verktøy gjøre både symbolsk og numerisk derivasjon for oss."
+    },
+    {
+      "id": "r1-3-6-n-section1",
+      "type": "text",
+      "content": "## Tre måter å spørre naboene på\n\nDu står i punktet $a$ og vil anslå stigningen der. Med steglengde $h > 0$ har du tre naturlige muligheter, alt etter hvilke naboverdier du bruker.\n\n**Framoverdifferansen** ser fremover: $f'(a) \\approx \\frac{f(a+h) - f(a)}{h}$. **Bakoverdifferansen** ser bakover: $f'(a) \\approx \\frac{f(a) - f(a-h)}{h}$. Og **sentraldifferansen** ser begge veier og hopper over punktet selv:\n\n$$f'(a) \\approx \\frac{f(a+h) - f(a-h)}{2h}$$\n\nGeometrisk er alle tre sekantstigninger -- forskjellen er hvor sekanten festes. Framover- og bakoverdifferansen lener seg til hver sin side av $a$, mens sentraldifferansen spenner symmetrisk over punktet, og symmetrien viser seg å være gull verdt.\n\nLa oss måle dem mot en fasit. Ta $f(x) = x^3$ i $a = 2$, der vi vet at $f'(2) = 12$ eksakt. Med $h = 0{,}1$ er $f(2) = 8$, $f(2{,}1) = 9{,}261$ og $f(1{,}9) = 6{,}859$. Framoverdifferansen gir $\\frac{9{,}261 - 8}{0{,}1} = 12{,}61$ -- feil på $0{,}61$. Bakoverdifferansen gir $\\frac{8 - 6{,}859}{0{,}1} = 11{,}41$ -- feil på $0{,}59$. Men sentraldifferansen:\n\n$$\\frac{9{,}261 - 6{,}859}{0{,}2} = 12{,}01$$\n\nFeil på bare $0{,}01$ -- seksti ganger bedre enn de ensidige, med nøyaktig samme datamengde! Intuisjonen: framoverdifferansen overdriver stigningen der grafen krummer oppover, bakoverdifferansen underdriver den, og i den symmetriske sentraldifferansen kansellerer de to skjevhetene hverandre nesten perfekt. Når du har verdier på begge sider av punktet, er sentraldifferansen derfor standardvalget."
+    },
+    {
+      "id": "r1-3-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på differanseformlene:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-6-n-quiz1-q0",
+            "task": "Hva er sentraldifferansen for $f'(a)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$\\frac{f(a+h) - f(a-h)}{2h}$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$\\frac{f(a+h) - f(a)}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{f(a) - f(a-h)}{h}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{f(a+h) + f(a-h)}{2h}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sentraldifferansen bruker naboene på begge sider og deler på avstanden $2h$ mellom dem."
+          },
+          {
+            "id": "r1-3-6-n-quiz1-q1",
+            "task": "For $f(x) = x^3$ i $a = 2$ med $h = 0{,}1$: hvilken formel ga tilnærmingen $12{,}01$ (eksakt verdi $12$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Framoverdifferansen",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Sentraldifferansen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bakoverdifferansen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle tre ga samme verdi",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Framover ga $12{,}61$ og bakover $11{,}41$, men sentraldifferansen $\\frac{9{,}261 - 6{,}859}{0{,}2} = 12{,}01$ -- klart best."
+          },
+          {
+            "id": "r1-3-6-n-quiz1-q2",
+            "task": "Hvorfor er sentraldifferansen som regel mest nøyaktig?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den bruker flere datapunkter enn de andre",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den har størst $h$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Symmetrien gjør at skjevhetene fra hver side nesten kansellerer",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Den unngår divisjon",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Framover- og bakoverdifferansen bommer i hver sin retning når grafen krummer; den symmetriske sentraldifferansen lar feilene oppheve hverandre."
+          },
+          {
+            "id": "r1-3-6-n-quiz1-q3",
+            "task": "Hva gir framoverdifferansen for $f(x) = x^2$ i $a = 1$ med $h = 0{,}1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$1{,}9$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2{,}2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2{,}1$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$\\frac{f(1{,}1) - f(1)}{0{,}1} = \\frac{1{,}21 - 1}{0{,}1} = 2{,}1$ -- nær den eksakte verdien $f'(1) = 2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-6-n-section2",
+      "type": "text",
+      "content": "## Feilens anatomi -- og fellen ved liten $h$\n\nTalleksempelet antydet et mønster, og mønsteret er en presis lov. Feilen i framover- og bakoverdifferansen er av størrelsesorden $O(h)$ -- proporsjonal med $h$ -- mens sentraldifferansens feil er $O(h^2)$, proporsjonal med $h^2$. Konsekvensen merkes hver gang du forfiner: halverer du $h$, halveres feilen i de ensidige formlene, men sentraldifferansens feil deles på *fire*. Sentraldifferansen konvergerer altså mye raskere mot den eksakte verdien, og det er denne kvadratiske gevinsten symmetrien kjøper oss.\n\nDa skulle man tro strategien var opplagt: velg $h$ mikroskopisk, så blir feilen mikroskopisk. Men her venter kapittelets felle. Datamaskinen regner med endelig presisjon -- omtrent 16 gjeldende siffer i vanlig dobbeltpresisjon. Når $h$ blir bitteliten, er $f(a + h)$ og $f(a)$ *nesten like tall*, og i subtraksjonen utsletter de felles sifrene hverandre. Du sitter igjen med\n\n$$\\frac{f(a+h) - f(a)}{h} \\approx \\frac{\\text{nesten like tall}}{\\text{lite tall}}$$\n\n-- en differanse der bare de usikre sifrene overlever, blåst opp av divisjonen med den lille $h$-en. Dette kalles **avrundingsfeil**, og den *vokser* når $h$ krymper.\n\nTo krefter drar altså i hver sin retning: metodefeilen vil ha liten $h$, avrundingsfeilen vil ha stor. Et sted imellom ligger en optimal steglengde. Tommelregelen, med maskinpresisjonen $\\varepsilon \\approx 10^{-16}$: bruk $h \\approx \\sqrt{\\varepsilon} \\approx 10^{-8}$ for framover- og bakoverdifferanse, og $h \\approx \\varepsilon^{1/3}$ for sentraldifferansen. «Mindre er bedre» gjelder altså bare til et visst punkt -- numerikkens første leveregel."
+    },
+    {
+      "id": "r1-3-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på feilorden og avrundingsfeil:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-6-n-quiz2-q0",
+            "task": "Du halverer $h$ i sentraldifferansen. Hva skjer (omtrent) med metodefeilen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Den reduseres til en fjerdedel",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Den halveres",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den er uendret",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den dobles",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sentraldifferansen har feil $O(h^2)$: halvering av $h$ gir $(\\frac{1}{2})^2 = \\frac{1}{4}$ av feilen."
+          },
+          {
+            "id": "r1-3-6-n-quiz2-q1",
+            "task": "Hvilken feilorden har framover- og bakoverdifferansen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$O(h^2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$O(h)$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$O(h^3)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$O(1)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "De ensidige formlene har feil proporsjonal med $h$ -- halvering av $h$ halverer bare feilen."
+          },
+          {
+            "id": "r1-3-6-n-quiz2-q2",
+            "task": "Hvorfor gir en ekstremt liten $h$ (f.eks. $10^{-15}$) dårlige resultater?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Metodefeilen vokser med liten $h$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Datamaskinen nekter å regne med så små tall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$f(a+h)$ og $f(a)$ blir nesten like, og subtraksjonen utsletter gjeldende siffer (avrundingsfeil)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Sekanten blir for bratt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved subtraksjon av nesten like tall overlever bare de usikre sifrene, og divisjonen med liten $h$ forstørrer feilen."
+          },
+          {
+            "id": "r1-3-6-n-quiz2-q3",
+            "task": "Hva er tommelregelen for steglengde i sentraldifferansen (med maskinpresisjon $\\varepsilon \\approx 10^{-16}$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$h \\approx \\varepsilon$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$h \\approx 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$h$ så liten som mulig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$h \\approx \\varepsilon^{1/3}$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Balansen mellom metodefeil og avrundingsfeil gir $h \\approx \\varepsilon^{1/3}$ for sentral og $h \\approx \\sqrt{\\varepsilon}$ for de ensidige."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-6-n-section3",
+      "type": "text",
+      "content": "## Verktøyene: regneark og CAS\n\nTeorien er på plass -- nå til verkstedet. I et **regneark** settes numerisk derivasjon opp på minutter. Legg $x$-verdiene $a - h$, $a$ og $a + h$ i kolonne A, funksjonsverdiene i kolonne B (for $f(x) = x^3$ skriver du `=A2^3` og kopierer nedover), og sentraldifferansen i kolonne C: `=(B4-B2)/(A4-A2)` -- differansen mellom verdiene over og under, delt på $x$-avstanden $2h$. Vil du eksperimentere, lar du $h$ stå i en egen celle (f.eks. `=A3-0.001`) og ser tilnærmingen endre seg når du justerer den. Regnearkets styrke er nettopp måledata: har du en tabell fra en sensor, deriverer du hele serien med én formel kopiert nedover.\n\n**CAS-verktøy** (Computer Algebra System) hever ambisjonen: de kan derivere *symbolsk* -- finne selve uttrykket for $f'(x)$ -- i tillegg til numerisk. I GeoGebra CAS gir `Derivative[x^3 + sin(x)]` svaret `3x^2 + cos(x)`, eksakt og gyldig for alle $x$, mens `NDerivative[x^3 + sin(x), 2]` gir en numerisk verdi av $f'(2)$. I Python gjør SymPy det samme: `diff(f, x)` for det symbolske uttrykket, etterfulgt av `.subs(x, 2).evalf()` for tallverdien i punktet.\n\nNår velger du hva? **Analytisk** derivasjon (for hånd eller med CAS) når du har funksjonsuttrykket og trenger eksakte svar -- den gir full informasjon om $f'(x)$ overalt. **Numerisk** når du bare har tabelldata, når uttrykket er for innfløkt til at symbolsk derivasjon er praktisk, eller når du raskt trenger ett tall i ett punkt. Og i praksis kombineres de gjerne: CAS finner det analytiske uttrykket, som så evalueres numerisk akkurat der du trenger det. Verktøyene konkurrerer ikke -- de deler arbeidet."
+    },
+    {
+      "id": "r1-3-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "r1-3-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på regneark, CAS og metodevalg:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "r1-3-6-n-quiz3-q0",
+            "task": "Hva beregner regnearkformelen `=(B4-B2)/(A4-A2)` når radene 2, 3 og 4 inneholder $a-h$, $a$ og $a+h$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Sentraldifferansen i $a$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Framoverdifferansen i $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Bakoverdifferansen i $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den andrederiverte i $a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\frac{f(a+h) - f(a-h)}{(a+h) - (a-h)} = \\frac{f(a+h) - f(a-h)}{2h}$ -- nettopp sentraldifferansen."
+          },
+          {
+            "id": "r1-3-6-n-quiz3-q1",
+            "task": "Hva gir GeoGebra-kommandoen `Derivative[x^3 + sin(x)]`?",
+            "options": [
+              {
+                "id": "a",
+                "text": "En numerisk verdi av $f'(2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det symbolske uttrykket $3x^2 + \\cos x$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Grafen til $f$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En feilmelding",
+                "isCorrect": false
+              }
+            ],
+            "solution": "`Derivative` deriverer symbolsk og gir det eksakte uttrykket; `NDerivative` gir numeriske verdier i et punkt."
+          },
+          {
+            "id": "r1-3-6-n-quiz3-q2",
+            "task": "I hvilken situasjon er numerisk derivasjon eneste mulighet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Når funksjonen er et polynom",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Når vi trenger $f'(x)$ for alle $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Når vi bare har måledata i en tabell, uten funksjonsuttrykk",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Når $h$ er stor",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten funksjonsuttrykk finnes ingenting å derivere symbolsk -- da er differansekvotienter på tabellverdiene veien å gå."
+          },
+          {
+            "id": "r1-3-6-n-quiz3-q3",
+            "task": "Hva er styrken til analytisk derivasjon sammenlignet med numerisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den er alltid raskere å taste inn",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den trenger ingen funksjonsuttrykk",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den unngår all bruk av datamaskin",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den gir et eksakt uttrykk for $f'(x)$, gyldig for alle $x$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Symbolsk derivasjon gir hele funksjonen $f'(x)$ eksakt; numerisk derivasjon gir en tilnærmet verdi i ett punkt om gangen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1-3-6-n-summary",
+      "type": "text",
+      "content": "## Fortellingen i et nøtteskall\n\nTreningsklokka, værstasjonen og brosensoren fikk svaret sitt: den deriverte kan tilnærmes uten formel, med differansekvotienter der grenseovergangen $h \\to 0$ er byttet ut med en liten, endelig $h$.\n\nTre formler sto til rådighet. **Framoverdifferansen** $\\frac{f(a+h) - f(a)}{h}$ og **bakoverdifferansen** $\\frac{f(a) - f(a-h)}{h}$ ser hver sin vei og har feil av orden $O(h)$. **Sentraldifferansen** $\\frac{f(a+h) - f(a-h)}{2h}$ spenner symmetrisk over punktet, lar skjevhetene kansellere og oppnår $O(h^2)$ -- testen på $f(x) = x^3$ i $a = 2$ ga feil $0{,}01$ mot de ensidiges $0{,}6$. Halverer du $h$, kvarteres sentraldifferansens feil.\n\nMen «mindre $h$ er bedre» har en grense: når $f(a+h)$ og $f(a)$ blir nesten like, utsletter subtraksjonen de gjeldende sifrene, og **avrundingsfeilen** vokser. Mellom metodefeil og avrundingsfeil ligger den optimale steglengden -- tommelregelen sier $h \\approx \\sqrt{\\varepsilon}$ for ensidige og $h \\approx \\varepsilon^{1/3}$ for sentral, med maskinpresisjon $\\varepsilon \\approx 10^{-16}$.\n\nVerktøyene deler arbeidet: regnearket deriverer måleserier med én kopiert formel, og CAS behersker begge verdener -- `Derivative` gir det eksakte uttrykket, `NDerivative` (eller SymPys `diff` + `evalf`) tallverdien. Analytisk når du har uttrykk og trenger eksakthet; numerisk når du har tabeller eller hastverk.\n\nDermed er kapittel 3 fullført: grenseverdien ga den deriverte mening, og tallene ga den hender å arbeide med."
+    }
+  ],
+  "exercises": []
+}

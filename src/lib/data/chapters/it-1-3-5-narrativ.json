@@ -1,1 +1,314 @@
-{"id":"it-1-3-5-narrativ","courseId":"it-1","chapterNumber":"3.5","title":"Rekursjon og algoritmekompleksitet","subtitle":"Narrativ versjon","description":"En fortelling om funksjoner som kaller seg selv, og om Big O – språket som forteller deg om et program kjører på et sekund eller en uke.","estimatedMinutes":38,"competenceGoals":["forklare hva rekursjon er og implementere rekursive funksjoner i Python","identifisere basistilfelle og rekursivt tilfelle i en rekursiv funksjon","bruke Big O-notasjon til å beskrive og sammenligne algoritmers effektivitet"],"linkedChapterId":"it-1-3-5","content":[{"id":"it-1-3-5-n-intro","type":"text","content":"## Speilet som speiler et speil\n\nStår du foran et speil som reflekterer et annet speil, ser du deg selv, som ser deg selv, som ser deg selv – i en tilsynelatende uendelig rekke. Det er en god metafor for **rekursjon**: noe som refererer til seg selv.\n\nI programmering er rekursjon en teknikk der en funksjon løser et problem ved å kalle seg selv med et enklere delproblem. Hver rekursiv funksjon har to deler: et **basistilfelle** som stopper rekursjonen og gir et direkte svar, og et **rekursivt tilfelle** der funksjonen kaller seg selv med et mindre problem. Glemmer du basistilfellet, kaller funksjonen seg selv i det uendelige og krasjer med en «stack overflow»-feil.\n\nDet klassiske eksempelet er fakultet. 5! = 5 × 4 × 3 × 2 × 1 = 120, og det kan defineres rekursivt: n! = n × (n-1)!, med 0! = 1 som basistilfelle.\n\n```python\ndef fakultet(n):\n    if n == 0:        # basistilfelle\n        return 1\n    return n * fakultet(n - 1)  # rekursivt tilfelle\n```\n\nKaller du `fakultet(4)`, kaller funksjonen seg selv med stadig mindre n til den treffer `fakultet(0)`, som gir 1. Deretter «rulles» resultatet tilbake oppover: 1 × 1, så × 2, så × 3, så × 4 = 24. Samme mønster gjelder en rekursiv sum: `sum(n) = n + sum(n-1)` med `sum(0) = 0`, som for n = 100 gir 5050."},{"id":"it-1-3-5-n-quiz1","type":"exercise","exercise":{"id":"it-1-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på rekursjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-5-n-quiz1-q0","task":"Hva er de to nødvendige delene i en rekursiv funksjon?","options":[{"id":"a","text":"En for-løkke og en if-setning","isCorrect":false},{"id":"b","text":"Et basistilfelle og et rekursivt tilfelle","isCorrect":true},{"id":"c","text":"En input og en output","isCorrect":false},{"id":"d","text":"En while-løkke og en variabel","isCorrect":false}],"solution":"En rekursiv funksjon trenger et basistilfelle som stopper rekursjonen, og et rekursivt tilfelle der den kaller seg selv med et mindre problem."},{"id":"it-1-3-5-n-quiz1-q1","task":"Hva returnerer mysterium(4) når funksjonen er: if n==0: return 0; return n + mysterium(n-1)?","options":[{"id":"a","text":"4","isCorrect":false},{"id":"b","text":"24","isCorrect":false},{"id":"c","text":"10","isCorrect":true},{"id":"d","text":"0","isCorrect":false}],"solution":"Funksjonen summerer 4 + 3 + 2 + 1 + 0 = 10."},{"id":"it-1-3-5-n-quiz1-q2","task":"Hva skjer hvis en rekursiv funksjon mangler basistilfelle?","options":[{"id":"a","text":"Den returnerer alltid 0","isCorrect":false},{"id":"b","text":"Den kjører raskere","isCorrect":false},{"id":"c","text":"Den gjør ingenting","isCorrect":false},{"id":"d","text":"Den kaller seg selv uendelig og krasjer med stack overflow","isCorrect":true}],"solution":"Uten basistilfelle kaller funksjonen seg selv i det uendelige til programmet krasjer med en stack overflow-feil."}]}},{"id":"it-1-3-5-n-section1","type":"text","content":"## Når elegant ikke betyr effektivt\n\nFibonacci-tallrekken passer naturlig til rekursjon. Hvert tall er summen av de to foregående: 0, 1, 1, 2, 3, 5, 8, 13, ... Definisjonen er `fib(n) = fib(n-1) + fib(n-2)`, med `fib(0) = 0` og `fib(1) = 1` som basistilfeller. Den rekursive koden er kort og vakker – men den har et alvorlig problem: den er hopløst ineffektiv. For å regne ut `fibonacci(5)` kalles `fibonacci(2)` flere ganger, og antall kall vokser eksponentielt. `fibonacci(40)` kan ta flere sekunder, og `fibonacci(100)` ville ta lenger enn universets levetid.\n\nEn iterativ versjon med en enkel løkke beregner derimot `fibonacci(50)` umiddelbart. Lærdommen er viktig: rekursjon er elegant, men ikke alltid den beste løsningen. Du må vurdere effektivitet.\n\nNoen ganger passer rekursjon perfekt likevel, fordi den speiler algoritmen direkte. Binærsøk er et godt eksempel: halvér, velg riktig side, gjenta. En rekursiv variant kaller seg selv på den halvdelen som er igjen:\n\n```python\ndef binaersok_rekursiv(liste, sokeord, lav, hoy):\n    if lav > hoy:\n        return -1\n    midt = (lav + hoy) // 2\n    if liste[midt] == sokeord:\n        return midt\n    if liste[midt] < sokeord:\n        return binaersok_rekursiv(liste, sokeord, midt + 1, hoy)\n    else:\n        return binaersok_rekursiv(liste, sokeord, lav, midt - 1)\n```\n\nHvert kall halverer søkeområdet, og koden gjenspeiler nettopp den intuitive «halvér og gjenta»-tankegangen fra telefonkatalogen."},{"id":"it-1-3-5-n-quiz2","type":"exercise","exercise":{"id":"it-1-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på rekursive eksempler:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-5-n-quiz2-q0","task":"Hvorfor er den naive rekursive Fibonacci-funksjonen ineffektiv?","options":[{"id":"a","text":"Fordi den beregner de samme delproblemene mange ganger, og antall kall vokser eksponentielt","isCorrect":true},{"id":"b","text":"Fordi den mangler basistilfelle","isCorrect":false},{"id":"c","text":"Fordi rekursjon alltid er feil","isCorrect":false},{"id":"d","text":"Fordi den bruker for lite minne","isCorrect":false}],"solution":"Den naive Fibonacci-rekursjonen regner ut de samme verdiene om og om igjen, slik at antall kall vokser eksponentielt (O(2ⁿ))."},{"id":"it-1-3-5-n-quiz2-q1","task":"Hvorfor passer rekursjon godt for binærsøk?","options":[{"id":"a","text":"Fordi binærsøk aldri stopper","isCorrect":false},{"id":"b","text":"Fordi algoritmen naturlig halverer problemet og kaller seg selv på den gjenværende halvdelen","isCorrect":true},{"id":"c","text":"Fordi listen ikke trenger å være sortert","isCorrect":false},{"id":"d","text":"Fordi det fjerner behovet for et basistilfelle","isCorrect":false}],"solution":"Binærsøk halverer søkeområdet hvert steg, og rekursjon speiler dette direkte ved å kalle seg selv på den aktuelle halvdelen."}]}},{"id":"it-1-3-5-n-section2","type":"text","content":"## Big O – et språk for fart\n\nVi har sett at algoritmer har ulik ytelse. **Big O-notasjon** gir oss et presist språk for dette. Den beskriver hvordan ressursbruken (tid eller minne) *vokser* når inndatastørrelsen n øker, og ignorerer konstante faktorer og lavere ledd. En algoritme som gjør 3n² + 5n + 10 operasjoner har kompleksitet O(n²), fordi n²-leddet dominerer for store n.\n\nDe vanligste klassene, fra raskest til tregest: **O(1)** (konstant – like rask uansett størrelse, som å hente et listeelement via indeks), **O(log n)** (logaritmisk – binærsøk), **O(n)** (lineær – lineært søk eller én løkke gjennom n), **O(n log n)** (Pythons innebygde sortering), **O(n²)** (kvadratisk – nøstede løkker, som boblesortering) og **O(2ⁿ)** (eksponentiell – naiv Fibonacci). Noen tommelfingerregler: én løkke gjennom n gir O(n), to nøstede løkker gir O(n²), og halvering hvert steg gir O(log n).\n\nHvorfor betyr dette noe? Tenk deg en million elementer. En O(n)-algoritme bruker millisekunder, en O(n log n) bruker sekunder, men en O(n²) bruker en million millioner operasjoner – timer eller dager. Måler du tiden på boblesortering (O(n²)) mot Pythons `sorted()` (O(n log n)), ser du det tydelig: når n dobles, bruker boblesortering rundt fire ganger så lang tid, mens `sorted()` knapt merker det. For 10 000 elementer kan den innebygde sorteringen være tusenvis av ganger raskere. Forskjellen mellom O(n) og O(n²) kan være forskjellen på et program som kjører på et sekund og ett som tar en uke."},{"id":"it-1-3-5-n-quiz3","type":"exercise","exercise":{"id":"it-1-3-5-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på Big O:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-3-5-n-quiz3-q0","task":"Hva betyr O(n) i Big O-notasjon?","options":[{"id":"a","text":"Algoritmen tar alltid nøyaktig n millisekunder","isCorrect":false},{"id":"b","text":"Algoritmen er den raskeste mulige","isCorrect":false},{"id":"c","text":"Tiden vokser lineært med inndatastørrelsen n","isCorrect":true},{"id":"d","text":"Algoritmen bruker n megabyte minne","isCorrect":false}],"solution":"O(n) betyr at tidsbruken vokser lineært med antall elementer n."},{"id":"it-1-3-5-n-quiz3-q1","task":"Ranger fra raskest til tregest: O(n²), O(1), O(n log n), O(log n), O(n).","options":[{"id":"a","text":"O(1), O(n), O(log n), O(n log n), O(n²)","isCorrect":false},{"id":"b","text":"O(n²), O(n log n), O(n), O(log n), O(1)","isCorrect":false},{"id":"c","text":"O(1), O(log n), O(n log n), O(n), O(n²)","isCorrect":false},{"id":"d","text":"O(1), O(log n), O(n), O(n log n), O(n²)","isCorrect":true}],"solution":"Fra raskest til tregest: O(1), O(log n), O(n), O(n log n), O(n²)."},{"id":"it-1-3-5-n-quiz3-q2","task":"Hva er tidskompleksiteten? i = n; while i > 1: i = i // 2; teller += 1","options":[{"id":"a","text":"O(log n)","isCorrect":true},{"id":"b","text":"O(n)","isCorrect":false},{"id":"c","text":"O(n²)","isCorrect":false},{"id":"d","text":"O(1)","isCorrect":false}],"solution":"Fordi i halveres hvert steg, kjører løkken omtrent log₂(n) ganger, altså O(log n)."}]}},{"id":"it-1-3-5-n-summary","type":"text","content":"## Oppsummering\n\n**Rekursjon** er når en funksjon kaller seg selv, og den trenger alltid et **basistilfelle** som stopper og et **rekursivt tilfelle** som forenkler problemet. Fakultet, sum og binærsøk passer naturlig, men Fibonacci minnet oss om at rekursjon kan være elegant og likevel hopløst ineffektiv (O(2ⁿ)) – noen ganger er en løkke mye bedre.\n\n**Big O-notasjon** gir oss et felles språk for effektivitet, fra O(1) og O(log n) via O(n) og O(n log n) til O(n²) og O(2ⁿ). Reglene er enkle: én løkke gir O(n), nøstede løkker O(n²), og halvering O(log n). Å forstå kompleksitet er ikke akademisk pirk – det kan avgjøre om programmet ditt kjører på et sekund eller en uke."}],"exercises":[]}
+{
+  "id": "it-1-3-5-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "3.5",
+  "title": "Rekursjon og algoritmekompleksitet",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om funksjoner som kaller seg selv, og om Big O – språket som forteller deg om et program kjører på et sekund eller en uke.",
+  "estimatedMinutes": 38,
+  "competenceGoals": [
+    "forklare hva rekursjon er og implementere rekursive funksjoner i Python",
+    "identifisere basistilfelle og rekursivt tilfelle i en rekursiv funksjon",
+    "bruke Big O-notasjon til å beskrive og sammenligne algoritmers effektivitet"
+  ],
+  "linkedChapterId": "it-1-3-5",
+  "content": [
+    {
+      "id": "it-1-3-5-n-intro",
+      "type": "text",
+      "content": "## Speilet som speiler et speil\n\nStår du foran et speil som reflekterer et annet speil, ser du deg selv, som ser deg selv, som ser deg selv – i en tilsynelatende uendelig rekke. Det er en god metafor for **rekursjon**: noe som refererer til seg selv.\n\nI programmering er rekursjon en teknikk der en funksjon løser et problem ved å kalle seg selv med et enklere delproblem. Hver rekursiv funksjon har to deler: et **basistilfelle** som stopper rekursjonen og gir et direkte svar, og et **rekursivt tilfelle** der funksjonen kaller seg selv med et mindre problem. Glemmer du basistilfellet, kaller funksjonen seg selv i det uendelige og krasjer med en «stack overflow»-feil.\n\nDet klassiske eksempelet er fakultet. 5! = 5 × 4 × 3 × 2 × 1 = 120, og det kan defineres rekursivt: n! = n × (n-1)!, med 0! = 1 som basistilfelle.\n\n```python\ndef fakultet(n):\n    if n == 0:        # basistilfelle\n        return 1\n    return n * fakultet(n - 1)  # rekursivt tilfelle\n```\n\nKaller du `fakultet(4)`, kaller funksjonen seg selv med stadig mindre n til den treffer `fakultet(0)`, som gir 1. Deretter «rulles» resultatet tilbake oppover: 1 × 1, så × 2, så × 3, så × 4 = 24. Samme mønster gjelder en rekursiv sum: `sum(n) = n + sum(n-1)` med `sum(0) = 0`, som for n = 100 gir 5050."
+    },
+    {
+      "id": "it-1-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rekursjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-5-n-quiz1-q0",
+            "task": "Hva er de to nødvendige delene i en rekursiv funksjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Et basistilfelle og et rekursivt tilfelle",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "En for-løkke og en if-setning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En input og en output",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En while-løkke og en variabel",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En rekursiv funksjon trenger et basistilfelle som stopper rekursjonen, og et rekursivt tilfelle der den kaller seg selv med et mindre problem."
+          },
+          {
+            "id": "it-1-3-5-n-quiz1-q1",
+            "task": "Hva returnerer mysterium(4) når funksjonen er: if n==0: return 0; return n + mysterium(n-1)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "4",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "10",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "24",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Funksjonen summerer 4 + 3 + 2 + 1 + 0 = 10."
+          },
+          {
+            "id": "it-1-3-5-n-quiz1-q2",
+            "task": "Hva skjer hvis en rekursiv funksjon mangler basistilfelle?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den returnerer alltid 0",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Den kjører raskere",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Den kaller seg selv uendelig og krasjer med stack overflow",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Den gjør ingenting",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Uten basistilfelle kaller funksjonen seg selv i det uendelige til programmet krasjer med en stack overflow-feil."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-5-n-section1",
+      "type": "text",
+      "content": "## Når elegant ikke betyr effektivt\n\nFibonacci-tallrekken passer naturlig til rekursjon. Hvert tall er summen av de to foregående: 0, 1, 1, 2, 3, 5, 8, 13, ... Definisjonen er `fib(n) = fib(n-1) + fib(n-2)`, med `fib(0) = 0` og `fib(1) = 1` som basistilfeller. Den rekursive koden er kort og vakker – men den har et alvorlig problem: den er hopløst ineffektiv. For å regne ut `fibonacci(5)` kalles `fibonacci(2)` flere ganger, og antall kall vokser eksponentielt. `fibonacci(40)` kan ta flere sekunder, og `fibonacci(100)` ville ta lenger enn universets levetid.\n\nEn iterativ versjon med en enkel løkke beregner derimot `fibonacci(50)` umiddelbart. Lærdommen er viktig: rekursjon er elegant, men ikke alltid den beste løsningen. Du må vurdere effektivitet.\n\nNoen ganger passer rekursjon perfekt likevel, fordi den speiler algoritmen direkte. Binærsøk er et godt eksempel: halvér, velg riktig side, gjenta. En rekursiv variant kaller seg selv på den halvdelen som er igjen:\n\n```python\ndef binaersok_rekursiv(liste, sokeord, lav, hoy):\n    if lav > hoy:\n        return -1\n    midt = (lav + hoy) // 2\n    if liste[midt] == sokeord:\n        return midt\n    if liste[midt] < sokeord:\n        return binaersok_rekursiv(liste, sokeord, midt + 1, hoy)\n    else:\n        return binaersok_rekursiv(liste, sokeord, lav, midt - 1)\n```\n\nHvert kall halverer søkeområdet, og koden gjenspeiler nettopp den intuitive «halvér og gjenta»-tankegangen fra telefonkatalogen."
+    },
+    {
+      "id": "it-1-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på rekursive eksempler:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-5-n-quiz2-q0",
+            "task": "Hvorfor er den naive rekursive Fibonacci-funksjonen ineffektiv?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi den mangler basistilfelle",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi rekursjon alltid er feil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi den bruker for lite minne",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Fordi den beregner de samme delproblemene mange ganger, og antall kall vokser eksponentielt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Den naive Fibonacci-rekursjonen regner ut de samme verdiene om og om igjen, slik at antall kall vokser eksponentielt (O(2ⁿ))."
+          },
+          {
+            "id": "it-1-3-5-n-quiz2-q1",
+            "task": "Hvorfor passer rekursjon godt for binærsøk?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Fordi algoritmen naturlig halverer problemet og kaller seg selv på den gjenværende halvdelen",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Fordi binærsøk aldri stopper",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi listen ikke trenger å være sortert",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi det fjerner behovet for et basistilfelle",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Binærsøk halverer søkeområdet hvert steg, og rekursjon speiler dette direkte ved å kalle seg selv på den aktuelle halvdelen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-5-n-section2",
+      "type": "text",
+      "content": "## Big O – et språk for fart\n\nVi har sett at algoritmer har ulik ytelse. **Big O-notasjon** gir oss et presist språk for dette. Den beskriver hvordan ressursbruken (tid eller minne) *vokser* når inndatastørrelsen n øker, og ignorerer konstante faktorer og lavere ledd. En algoritme som gjør 3n² + 5n + 10 operasjoner har kompleksitet O(n²), fordi n²-leddet dominerer for store n.\n\nDe vanligste klassene, fra raskest til tregest: **O(1)** (konstant – like rask uansett størrelse, som å hente et listeelement via indeks), **O(log n)** (logaritmisk – binærsøk), **O(n)** (lineær – lineært søk eller én løkke gjennom n), **O(n log n)** (Pythons innebygde sortering), **O(n²)** (kvadratisk – nøstede løkker, som boblesortering) og **O(2ⁿ)** (eksponentiell – naiv Fibonacci). Noen tommelfingerregler: én løkke gjennom n gir O(n), to nøstede løkker gir O(n²), og halvering hvert steg gir O(log n).\n\nHvorfor betyr dette noe? Tenk deg en million elementer. En O(n)-algoritme bruker millisekunder, en O(n log n) bruker sekunder, men en O(n²) bruker en million millioner operasjoner – timer eller dager. Måler du tiden på boblesortering (O(n²)) mot Pythons `sorted()` (O(n log n)), ser du det tydelig: når n dobles, bruker boblesortering rundt fire ganger så lang tid, mens `sorted()` knapt merker det. For 10 000 elementer kan den innebygde sorteringen være tusenvis av ganger raskere. Forskjellen mellom O(n) og O(n²) kan være forskjellen på et program som kjører på et sekund og ett som tar en uke."
+    },
+    {
+      "id": "it-1-3-5-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-3-5-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på Big O:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-3-5-n-quiz3-q0",
+            "task": "Hva betyr O(n) i Big O-notasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Algoritmen tar alltid nøyaktig n millisekunder",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tiden vokser lineært med inndatastørrelsen n",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Algoritmen er den raskeste mulige",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Algoritmen bruker n megabyte minne",
+                "isCorrect": false
+              }
+            ],
+            "solution": "O(n) betyr at tidsbruken vokser lineært med antall elementer n."
+          },
+          {
+            "id": "it-1-3-5-n-quiz3-q1",
+            "task": "Ranger fra raskest til tregest: O(n²), O(1), O(n log n), O(log n), O(n).",
+            "options": [
+              {
+                "id": "a",
+                "text": "O(1), O(n), O(log n), O(n log n), O(n²)",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "O(n²), O(n log n), O(n), O(log n), O(1)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "O(1), O(log n), O(n log n), O(n), O(n²)",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "O(1), O(log n), O(n), O(n log n), O(n²)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Fra raskest til tregest: O(1), O(log n), O(n), O(n log n), O(n²)."
+          },
+          {
+            "id": "it-1-3-5-n-quiz3-q2",
+            "task": "Hva er tidskompleksiteten? i = n; while i > 1: i = i // 2; teller += 1",
+            "options": [
+              {
+                "id": "b",
+                "text": "O(n)",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "O(n²)",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "O(log n)",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "O(1)",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Fordi i halveres hvert steg, kjører løkken omtrent log₂(n) ganger, altså O(log n)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\n**Rekursjon** er når en funksjon kaller seg selv, og den trenger alltid et **basistilfelle** som stopper og et **rekursivt tilfelle** som forenkler problemet. Fakultet, sum og binærsøk passer naturlig, men Fibonacci minnet oss om at rekursjon kan være elegant og likevel hopløst ineffektiv (O(2ⁿ)) – noen ganger er en løkke mye bedre.\n\n**Big O-notasjon** gir oss et felles språk for effektivitet, fra O(1) og O(log n) via O(n) og O(n log n) til O(n²) og O(2ⁿ). Reglene er enkle: én løkke gir O(n), nøstede løkker O(n²), og halvering O(log n). Å forstå kompleksitet er ikke akademisk pirk – det kan avgjøre om programmet ditt kjører på et sekund eller en uke."
+    }
+  ],
+  "exercises": []
+}

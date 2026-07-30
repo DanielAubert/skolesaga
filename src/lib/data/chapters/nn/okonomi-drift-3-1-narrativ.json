@@ -1,1 +1,411 @@
-{"id":"okonomi-drift-3-1-narrativ","courseId":"okonomi-drift","chapterNumber":"3.1","title":"Produksjonsplanlegging","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis bedrifter planlegg produksjonen -- om kapasitet, gjennomløpstid og den svakaste lekken som avgjer alt: flaskehalsen.","estimatedMinutes":28,"competenceGoals":["planlegge og gjennomføre produksjon av varer og tjenester"],"linkedChapterId":"okonomi-drift-3-1","content":[{"id":"okonomi-drift-3-1-n-intro","type":"text","content":"## Kva, kor mykje, når -- og korleis?\n\nTenk deg at du er produksjonsleiar på ein fabrikk. Kvar dag må du svare på fire spørsmål: Kva skal vi produsere? Kor mykje? Når? Og med kva for ressursar? Dette er kjernen i **produksjonsplanlegging** -- kunsten å levere rett kvalitet til rett tid, utan å sløse med ressursar.\n\nGod planlegging er ikkje berre teknisk -- ho er avgjerande for økonomien. Produserer du for lite, mistar du sal. Produserer du for mykje, bind du opp kapital i varer ingen vil ha enno. Og dersom produksjonen flyt dårleg, kostar kvar forseinking pengar.\n\nI dette kapittelet skal vi forstå kva kapasitet eigentleg er og korleis ho blir rekna ut, kva gjennomløpstid betyr, og -- kanskje mest avslørande -- korleis ein einaste **flaskehals** kan avgrense heile produksjonen, uansett kor raskt resten av fabrikken jobbar."},{"id":"okonomi-drift-3-1-n-section1","type":"text","content":"## Produksjonsmetodar og kapasitet\n\nFørst må vi forstå at bedrifter organiserer produksjonen ulikt. Ved **ordreproduksjon** (make-to-order) startar produksjonen først når kunden bestiller -- tenk skreddarsydde møblar eller bryllaupskaker. Det gjev lite lager, men lengre leveringstid. Ved **lagerproduksjon** (make-to-stock) produserer ein til lager basert på prognosar -- som daglegvarer og standardklede. Det gjev kort leveringstid, men risiko for overproduksjon. I tillegg finst **serieproduksjon** (eit visst tal før ein byter produkt) og **kontinuerleg produksjon** (døgnet rundt, som oljeraffinering).\n\nSentralt i all planlegging står **kapasitet** -- den maksimale mengda ei bedrift kan produsere i ein gitt periode. Vi skil mellom *teoretisk* kapasitet (maks under ideelle forhold) og *praktisk* kapasitet (maks når vi tek høgd for vedlikehald, pausar og realistiske avgrensingar). **Kapasitetsutnyttinga** måler kor stor del vi faktisk brukar: $\\text{Kapasitetsutnyttelse} = \\frac{\\text{Faktisk produksjon}}{\\text{Maksimal kapasitet}} \\times 100\\%$.\n\nLat oss rekne. Ein møbelfabrikk kan maksimalt lage 200 stolar i veka, men produserte 160. Då blir utnyttinga $\\frac{160}{200} \\times 100\\% = 80\\%$. Og merkeleg nok er ikkje 100 % idealet! Ei utnytting på **80-90 %** blir ofte rekna som optimalt, fordi bedrifta då har litt ledig kapasitet til å handtere uventa etterspurnad, gjennomføre vedlikehald og takle fråvær."},{"id":"okonomi-drift-3-1-n-quiz1","type":"exercise","exercise":{"id":"okonomi-drift-3-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på produksjonsmetodar og kapasitet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-3-1-n-quiz1-q0","task":"Kva kjenneteiknar ordreproduksjon (make-to-order)?","options":[{"id":"a","text":"Produksjonen startar først når kunden bestiller","isCorrect":true},{"id":"b","text":"Ein produserer til lager basert på prognosar","isCorrect":false},{"id":"c","text":"Produksjonen går alltid døgnet rundt","isCorrect":false},{"id":"d","text":"Alle produkt er standardiserte","isCorrect":false}],"solution":"Ved ordreproduksjon startar ein ikkje før kunden har bestilt. Det gjev lite lager, men lengre leveringstid -- typisk for skreddarsydde produkt."},{"id":"okonomi-drift-3-1-n-quiz1-q1","task":"Ein fabrikk kan maks produsere 200 stolar/veke, men laga 160. Kva er kapasitetsutnyttinga?","options":[{"id":"a","text":"60 %","isCorrect":false},{"id":"b","text":"80 %","isCorrect":true},{"id":"c","text":"125 %","isCorrect":false},{"id":"d","text":"40 %","isCorrect":false}],"solution":"Kapasitetsutnytting = 160 / 200 × 100 % = 80 %."},{"id":"okonomi-drift-3-1-n-quiz1-q2","task":"Kvifor er ikkje 100 % kapasitetsutnytting alltid ideelt?","options":[{"id":"a","text":"Fordi det er ulovleg","isCorrect":false},{"id":"b","text":"Fordi maskiner ikkje kan køyre fullt","isCorrect":false},{"id":"c","text":"Fordi ein treng ledig kapasitet til uventa etterspurnad, vedlikehald og fråvær","isCorrect":true},{"id":"d","text":"Fordi 100 % gjev for låg forteneste","isCorrect":false}],"solution":"Med litt ledig kapasitet (80-90 %) kan bedrifta handtere uventa etterspurnad, vedlikehald og fråvær utan at alt stoppar opp."}]}},{"id":"okonomi-drift-3-1-n-section2","type":"text","content":"## Gjennomløpstid -- kvar blir tida av?\n\nNår ein produksjonsordre startar, tek det ei viss tid før det ferdige produktet er klart. Denne totale tida kallar vi **gjennomløpstid**, og ho består av langt meir enn sjølve arbeidet. Ho inkluderer *bearbeidingstid* (sjølve produksjonen -- saging, montering, måling), *ventetid* (kø framfor neste maskin), *transporttid* (flytting mellom stasjonar) og *inspeksjonstid* (kvalitetskontroll).\n\nHer kjem ei overraskande innsikt. I mange bedrifter utgjer den verdiskapande bearbeidingstida berre **5-10 %** av den totale gjennomløpstida. Resten er venting og transport! Lat oss rekne på det. Sei at gjennomløpstida er 5 dagar, som med 8-timars dagar blir 40 timar. Av desse er berre 4 timar bearbeidingstid. Då er delen verdiskapande tid $\\frac{4}{40} \\times 100\\% = 10\\%$. Dei resterande 90 prosentane er venting, transport og inspeksjon.\n\nDette betyr at det finst eit enormt forbetringspotensial. Du treng ikkje nødvendigvis raskare maskiner -- du treng betre flyt. Ved å redusere ventetida gjennom smartare produksjonsplanlegging, og transporttida gjennom betre fabrikklayout, kan gjennomløpstida kuttast monaleg. Kortare gjennomløpstid gjev raskare levering til kundane og lågare kapitalbinding i halvferdige varer."},{"id":"okonomi-drift-3-1-n-quiz2","type":"exercise","exercise":{"id":"okonomi-drift-3-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på gjennomløpstid:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-3-1-n-quiz2-q0","task":"Kva inngår i gjennomløpstida?","options":[{"id":"a","text":"Berre bearbeidingstida","isCorrect":false},{"id":"b","text":"Berre transporttida","isCorrect":false},{"id":"c","text":"Berre ventetida","isCorrect":false},{"id":"d","text":"Bearbeiding, venting, transport og inspeksjon","isCorrect":true}],"solution":"Gjennomløpstida er den totale tida frå ordrestart til ferdig produkt, og inkluderer bearbeiding, venting, transport og inspeksjon."},{"id":"okonomi-drift-3-1-n-quiz2-q1","task":"Gjennomløpstid 40 timar, der 4 timar er bearbeiding. Kor stor del er verdiskapande?","options":[{"id":"a","text":"10 %","isCorrect":true},{"id":"b","text":"40 %","isCorrect":false},{"id":"c","text":"25 %","isCorrect":false},{"id":"d","text":"4 %","isCorrect":false}],"solution":"Del verdiskapande tid = 4 / 40 × 100 % = 10 %. Resten er venting, transport og inspeksjon."},{"id":"okonomi-drift-3-1-n-quiz2-q2","task":"Kva er den mest effektive måten å redusere gjennomløpstid på i mange bedrifter?","options":[{"id":"a","text":"Kjøpe raskare maskiner","isCorrect":false},{"id":"b","text":"Redusere ventetid og transport gjennom betre flyt og layout","isCorrect":true},{"id":"c","text":"Auke bearbeidingstida","isCorrect":false},{"id":"d","text":"Tilsetje fleire inspektørar","isCorrect":false}],"solution":"Sidan ventetid og transport ofte utgjer 90 % av gjennomløpstida, ligg det største potensialet i betre flyt og layout -- ikkje raskare bearbeiding."}]}},{"id":"okonomi-drift-3-1-n-section3","type":"text","content":"## Flaskehalsen -- den svakaste lekken avgjer\n\nNo til den kanskje viktigaste innsikta i heile kapittelet. Ein **flaskehals** er det steget i produksjonsprosessen som har lågast kapasitet -- og dermed avgrensar heile produksjonen. Uansett kor raskt dei andre stega jobbar, kan den samla produksjonen aldri gå raskare enn flaskehalsen. Det er som ei kjede: den svakaste lekken avgjer styrken.\n\nLat oss sjå det konkret. Ein sjokoladefabrikk har tre steg: blanding (100 kg/time), støyping (60 kg/time) og pakking (90 kg/time). Kvar er flaskehalsen? Det er **støyping** med 60 kg/time, det lågaste talet. Den totale kapasiteten til fabrikken kan aldri overstige 60 kg/time, sjølv om blandinga kunne klart 100. Dei raske stega må rett og slett vente.\n\nKorleis handterer ein ein flaskehals? Ein kan *auke kapasiteten* (meir utstyr eller fleire tilsette), *redusere nedetid* (betre vedlikehald), *flytte arbeid* til steg med ledig kapasitet, *setje ut* flaskehalsarbeidet, eller *endre produktdesignet* for å forenkle operasjonen. Men hugs ein lur ting: flaskehalsen kan *flytte seg*. Dersom du aukar støypekapasiteten frå 60 til 120 kg/time, blir plutseleg pakking (90 kg/time) den nye flaskehalsen. Forbetring er ein kontinuerleg prosess der du alltid jobbar med den svakaste lekken i kjeda. Ein komplett produksjonsplan bind dette saman med etterspurnadsprognose, kapasitetsplan, materialplan og tidsplan."},{"id":"okonomi-drift-3-1-n-quiz3","type":"exercise","exercise":{"id":"okonomi-drift-3-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på flaskehalsar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"okonomi-drift-3-1-n-quiz3-q0","task":"Kva er ein flaskehals i produksjonssamanheng?","options":[{"id":"a","text":"Det steget med høgast kapasitet","isCorrect":false},{"id":"b","text":"Det siste steget i prosessen","isCorrect":false},{"id":"c","text":"Det steget med lågast kapasitet, som avgrensar total produksjon","isCorrect":true},{"id":"d","text":"Eit steg der det oppstår kvalitetsproblem","isCorrect":false}],"solution":"Flaskehalsen er steget med lågast kapasitet. Han avgrensar heile linja, fordi resten ikkje kan produsere meir enn flaskehalsen klarar."},{"id":"okonomi-drift-3-1-n-quiz3-q1","task":"Tre steg: blanding 100 kg/t, støyping 60 kg/t, pakking 90 kg/t. Kva er den totale kapasiteten til fabrikken?","options":[{"id":"a","text":"100 kg/time","isCorrect":false},{"id":"b","text":"250 kg/time","isCorrect":false},{"id":"c","text":"90 kg/time","isCorrect":false},{"id":"d","text":"60 kg/time","isCorrect":true}],"solution":"Total kapasitet blir avgjord av flaskehalsen, som er støyping med 60 kg/time."},{"id":"okonomi-drift-3-1-n-quiz3-q2","task":"Du doblar kapasiteten i flaskehalsen støyping frå 60 til 120 kg/t. Kva skjer?","options":[{"id":"a","text":"Pakking (90 kg/t) blir den nye flaskehalsen","isCorrect":true},{"id":"b","text":"Total kapasitet blir 120 kg/time","isCorrect":false},{"id":"c","text":"Blanding stoppar opp","isCorrect":false},{"id":"d","text":"Det blir ingen flaskehals lenger","isCorrect":false}],"solution":"Flaskehalsen flyttar seg. Når støyping når 120 kg/t, blir pakking (90 kg/t) den nye avgrensinga. Forbetring er ein kontinuerleg prosess."}]}},{"id":"okonomi-drift-3-1-n-summary","type":"text","content":"## Oppsummering\n\nProduksjonsplanlegging handlar om å avgjere kva, kor mykje, når og med kva for ressursar ein skal produsere. Bedrifter vel ulike **produksjonsmetodar** -- ordreproduksjon, lagerproduksjon, serieproduksjon eller kontinuerleg produksjon -- ut frå produkttype og kundekrav.\n\n**Kapasitet** er maksimal produksjon i ein periode, og **kapasitetsutnyttinga** måler kor mykje vi faktisk brukar. Overraskande nok er 80-90 % ofte meir ideelt enn 100 %, fordi litt slakk gjev rom for vedlikehald og uventa etterspurnad.\n\n**Gjennomløpstida** er den totale tida gjennom prosessen, og berre 5-10 % av ho er ofte verdiskapande -- resten er venting og transport, som gjev stort forbetringspotensial. Til slutt: **flaskehalsen**, steget med lågast kapasitet, avgjer heile produksjonen. Han kan handterast på fleire måtar, men hugs at han gjerne flyttar seg når han blir løyst -- forbetring er ei evig jakt på den svakaste lekken."}],"exercises":[],"_meta":{"sourceHash":"422ccedaa7176914","translatedAt":"2026-06-21T01:16:09.973Z","model":"claude-code-agent","strings":61,"tm":{"fdc9e35d15d8f207":"Produksjonsplanlegging","b195b06d1ed59702":"Narrativ versjon","47b429f0e2a56c5c":"Ei forteljing om korleis bedrifter planlegg produksjonen -- om kapasitet, gjennomløpstid og den svakaste lekken som avgjer alt: flaskehalsen.","388e8eb46318be31":"planlegge og gjennomføre produksjon av varer og tjenester","0234850850eb5f21":"## Kva, kor mykje, når -- og korleis?\n\nTenk deg at du er produksjonsleiar på ein fabrikk. Kvar dag må du svare på fire spørsmål: Kva skal vi produsere? Kor mykje? Når? Og med kva for ressursar? Dette er kjernen i **produksjonsplanlegging** -- kunsten å levere rett kvalitet til rett tid, utan å sløse med ressursar.\n\nGod planlegging er ikkje berre teknisk -- ho er avgjerande for økonomien. Produserer du for lite, mistar du sal. Produserer du for mykje, bind du opp kapital i varer ingen vil ha enno. Og dersom produksjonen flyt dårleg, kostar kvar forseinking pengar.\n\nI dette kapittelet skal vi forstå kva kapasitet eigentleg er og korleis ho blir rekna ut, kva gjennomløpstid betyr, og -- kanskje mest avslørande -- korleis ein einaste **flaskehals** kan avgrense heile produksjonen, uansett kor raskt resten av fabrikken jobbar.","7fb2743f1ed1f9ca":"## Produksjonsmetodar og kapasitet\n\nFørst må vi forstå at bedrifter organiserer produksjonen ulikt. Ved **ordreproduksjon** (make-to-order) startar produksjonen først når kunden bestiller -- tenk skreddarsydde møblar eller bryllaupskaker. Det gjev lite lager, men lengre leveringstid. Ved **lagerproduksjon** (make-to-stock) produserer ein til lager basert på prognosar -- som daglegvarer og standardklede. Det gjev kort leveringstid, men risiko for overproduksjon. I tillegg finst **serieproduksjon** (eit visst tal før ein byter produkt) og **kontinuerleg produksjon** (døgnet rundt, som oljeraffinering).\n\nSentralt i all planlegging står **kapasitet** -- den maksimale mengda ei bedrift kan produsere i ein gitt periode. Vi skil mellom *teoretisk* kapasitet (maks under ideelle forhold) og *praktisk* kapasitet (maks når vi tek høgd for vedlikehald, pausar og realistiske avgrensingar). **Kapasitetsutnyttinga** måler kor stor del vi faktisk brukar: $\\text{Kapasitetsutnyttelse} = \\frac{\\text{Faktisk produksjon}}{\\text{Maksimal kapasitet}} \\times 100\\%$.\n\nLat oss rekne. Ein møbelfabrikk kan maksimalt lage 200 stolar i veka, men produserte 160. Då blir utnyttinga $\\frac{160}{200} \\times 100\\% = 80\\%$. Og merkeleg nok er ikkje 100 % idealet! Ei utnytting på **80-90 %** blir ofte rekna som optimalt, fordi bedrifta då har litt ledig kapasitet til å handtere uventa etterspurnad, gjennomføre vedlikehald og takle fråvær.","c30177429a6844cf":"Test deg sjølv på produksjonsmetodar og kapasitet:","4097889236a2af26":"placeholder","da8de6f196149e82":"Kva kjenneteiknar ordreproduksjon (make-to-order)?","3e0b818694cd4e1a":"Produksjonen startar først når kunden bestiller","63541bcb8bf3b66a":"Ein produserer til lager basert på prognosar","9a77c2d1140a40d1":"Produksjonen går alltid døgnet rundt","f26c0cdd27401a88":"Alle produkt er standardiserte","55bc9ff13e72dac6":"Ved ordreproduksjon startar ein ikkje før kunden har bestilt. Det gjev lite lager, men lengre leveringstid -- typisk for skreddarsydde produkt.","b1aea9bce2fb69ad":"Ein fabrikk kan maks produsere 200 stolar/veke, men laga 160. Kva er kapasitetsutnyttinga?","2cf11259f2af4531":"Kapasitetsutnytting = 160 / 200 × 100 % = 80 %.","8a9f0079df87bc27":"Kvifor er ikkje 100 % kapasitetsutnytting alltid ideelt?","ecf7f5ac9fa63140":"Fordi det er ulovleg","a3e8609d013aceac":"Fordi maskiner ikkje kan køyre fullt","748e52ef98384113":"Fordi ein treng ledig kapasitet til uventa etterspurnad, vedlikehald og fråvær","32e1d3767bb975e4":"Fordi 100 % gjev for låg forteneste","10dc831eccd2ea74":"Med litt ledig kapasitet (80-90 %) kan bedrifta handtere uventa etterspurnad, vedlikehald og fråvær utan at alt stoppar opp.","82f0b490dbf4e53c":"## Gjennomløpstid -- kvar blir tida av?\n\nNår ein produksjonsordre startar, tek det ei viss tid før det ferdige produktet er klart. Denne totale tida kallar vi **gjennomløpstid**, og ho består av langt meir enn sjølve arbeidet. Ho inkluderer *bearbeidingstid* (sjølve produksjonen -- saging, montering, måling), *ventetid* (kø framfor neste maskin), *transporttid* (flytting mellom stasjonar) og *inspeksjonstid* (kvalitetskontroll).\n\nHer kjem ei overraskande innsikt. I mange bedrifter utgjer den verdiskapande bearbeidingstida berre **5-10 %** av den totale gjennomløpstida. Resten er venting og transport! Lat oss rekne på det. Sei at gjennomløpstida er 5 dagar, som med 8-timars dagar blir 40 timar. Av desse er berre 4 timar bearbeidingstid. Då er delen verdiskapande tid $\\frac{4}{40} \\times 100\\% = 10\\%$. Dei resterande 90 prosentane er venting, transport og inspeksjon.\n\nDette betyr at det finst eit enormt forbetringspotensial. Du treng ikkje nødvendigvis raskare maskiner -- du treng betre flyt. Ved å redusere ventetida gjennom smartare produksjonsplanlegging, og transporttida gjennom betre fabrikklayout, kan gjennomløpstida kuttast monaleg. Kortare gjennomløpstid gjev raskare levering til kundane og lågare kapitalbinding i halvferdige varer.","5f5e4b7fb80b9b82":"Test deg sjølv på gjennomløpstid:","4daf99f11d546a10":"Kva inngår i gjennomløpstida?","7d9595013a45d4e8":"Berre bearbeidingstida","b3af6f53fc37792d":"Berre transporttida","ca934062da6bd606":"Berre ventetida","b0c46f8355bd5f73":"Bearbeiding, venting, transport og inspeksjon","9adaed6891a05a0f":"Gjennomløpstida er den totale tida frå ordrestart til ferdig produkt, og inkluderer bearbeiding, venting, transport og inspeksjon.","b52fe8806118ce05":"Gjennomløpstid 40 timar, der 4 timar er bearbeiding. Kor stor del er verdiskapande?","cf42733c342f9933":"Del verdiskapande tid = 4 / 40 × 100 % = 10 %. Resten er venting, transport og inspeksjon.","1fc6b8afc84d01a4":"Kva er den mest effektive måten å redusere gjennomløpstid på i mange bedrifter?","573e1d6a74ee1b2c":"Kjøpe raskare maskiner","99029ac46698cd6d":"Redusere ventetid og transport gjennom betre flyt og layout","bd30efff3dc94d37":"Auke bearbeidingstida","ea43684f2250f2cf":"Tilsetje fleire inspektørar","c80526bc1af6a4f3":"Sidan ventetid og transport ofte utgjer 90 % av gjennomløpstida, ligg det største potensialet i betre flyt og layout -- ikkje raskare bearbeiding.","f79c464e8b9a0f37":"## Flaskehalsen -- den svakaste lekken avgjer\n\nNo til den kanskje viktigaste innsikta i heile kapittelet. Ein **flaskehals** er det steget i produksjonsprosessen som har lågast kapasitet -- og dermed avgrensar heile produksjonen. Uansett kor raskt dei andre stega jobbar, kan den samla produksjonen aldri gå raskare enn flaskehalsen. Det er som ei kjede: den svakaste lekken avgjer styrken.\n\nLat oss sjå det konkret. Ein sjokoladefabrikk har tre steg: blanding (100 kg/time), støyping (60 kg/time) og pakking (90 kg/time). Kvar er flaskehalsen? Det er **støyping** med 60 kg/time, det lågaste talet. Den totale kapasiteten til fabrikken kan aldri overstige 60 kg/time, sjølv om blandinga kunne klart 100. Dei raske stega må rett og slett vente.\n\nKorleis handterer ein ein flaskehals? Ein kan *auke kapasiteten* (meir utstyr eller fleire tilsette), *redusere nedetid* (betre vedlikehald), *flytte arbeid* til steg med ledig kapasitet, *setje ut* flaskehalsarbeidet, eller *endre produktdesignet* for å forenkle operasjonen. Men hugs ein lur ting: flaskehalsen kan *flytte seg*. Dersom du aukar støypekapasiteten frå 60 til 120 kg/time, blir plutseleg pakking (90 kg/time) den nye flaskehalsen. Forbetring er ein kontinuerleg prosess der du alltid jobbar med den svakaste lekken i kjeda. Ein komplett produksjonsplan bind dette saman med etterspurnadsprognose, kapasitetsplan, materialplan og tidsplan.","337d28f003e9e07e":"Test deg sjølv på flaskehalsar:","2aeebfa82167b508":"Kva er ein flaskehals i produksjonssamanheng?","94f6e235cbdaa0e1":"Det steget med høgast kapasitet","fc0ef533b06d4a34":"Det siste steget i prosessen","06c99316a9bb0f2b":"Det steget med lågast kapasitet, som avgrensar total produksjon","fb45f24645c150ef":"Eit steg der det oppstår kvalitetsproblem","f0ec143504129a27":"Flaskehalsen er steget med lågast kapasitet. Han avgrensar heile linja, fordi resten ikkje kan produsere meir enn flaskehalsen klarar.","d168c3b41a60875c":"Tre steg: blanding 100 kg/t, støyping 60 kg/t, pakking 90 kg/t. Kva er den totale kapasiteten til fabrikken?","95de7895a9fe5866":"100 kg/time","5cfaea48b410b163":"250 kg/time","2106d4640db24cd2":"90 kg/time","71307e49040b126b":"60 kg/time","429432099daad19f":"Total kapasitet blir avgjord av flaskehalsen, som er støyping med 60 kg/time.","76a89f3471560726":"Du doblar kapasiteten i flaskehalsen støyping frå 60 til 120 kg/t. Kva skjer?","5d9e1949d8c6e7ac":"Pakking (90 kg/t) blir den nye flaskehalsen","c929c341a895247c":"Total kapasitet blir 120 kg/time","17ac40da2f7e0173":"Blanding stoppar opp","e2b475d9d49ebeda":"Det blir ingen flaskehals lenger","6fc16c07b75102d1":"Flaskehalsen flyttar seg. Når støyping når 120 kg/t, blir pakking (90 kg/t) den nye avgrensinga. Forbetring er ein kontinuerleg prosess.","302c60d6279f339b":"## Oppsummering\n\nProduksjonsplanlegging handlar om å avgjere kva, kor mykje, når og med kva for ressursar ein skal produsere. Bedrifter vel ulike **produksjonsmetodar** -- ordreproduksjon, lagerproduksjon, serieproduksjon eller kontinuerleg produksjon -- ut frå produkttype og kundekrav.\n\n**Kapasitet** er maksimal produksjon i ein periode, og **kapasitetsutnyttinga** måler kor mykje vi faktisk brukar. Overraskande nok er 80-90 % ofte meir ideelt enn 100 %, fordi litt slakk gjev rom for vedlikehald og uventa etterspurnad.\n\n**Gjennomløpstida** er den totale tida gjennom prosessen, og berre 5-10 % av ho er ofte verdiskapande -- resten er venting og transport, som gjev stort forbetringspotensial. Til slutt: **flaskehalsen**, steget med lågast kapasitet, avgjer heile produksjonen. Han kan handterast på fleire måtar, men hugs at han gjerne flyttar seg når han blir løyst -- forbetring er ei evig jakt på den svakaste lekken."}}}
+{
+  "id": "okonomi-drift-3-1-narrativ",
+  "courseId": "okonomi-drift",
+  "chapterNumber": "3.1",
+  "title": "Produksjonsplanlegging",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis bedrifter planlegg produksjonen -- om kapasitet, gjennomløpstid og den svakaste lekken som avgjer alt: flaskehalsen.",
+  "estimatedMinutes": 28,
+  "competenceGoals": [
+    "planlegge og gjennomføre produksjon av varer og tjenester"
+  ],
+  "linkedChapterId": "okonomi-drift-3-1",
+  "content": [
+    {
+      "id": "okonomi-drift-3-1-n-intro",
+      "type": "text",
+      "content": "## Kva, kor mykje, når -- og korleis?\n\nTenk deg at du er produksjonsleiar på ein fabrikk. Kvar dag må du svare på fire spørsmål: Kva skal vi produsere? Kor mykje? Når? Og med kva for ressursar? Dette er kjernen i **produksjonsplanlegging** -- kunsten å levere rett kvalitet til rett tid, utan å sløse med ressursar.\n\nGod planlegging er ikkje berre teknisk -- ho er avgjerande for økonomien. Produserer du for lite, mistar du sal. Produserer du for mykje, bind du opp kapital i varer ingen vil ha enno. Og dersom produksjonen flyt dårleg, kostar kvar forseinking pengar.\n\nI dette kapittelet skal vi forstå kva kapasitet eigentleg er og korleis ho blir rekna ut, kva gjennomløpstid betyr, og -- kanskje mest avslørande -- korleis ein einaste **flaskehals** kan avgrense heile produksjonen, uansett kor raskt resten av fabrikken jobbar."
+    },
+    {
+      "id": "okonomi-drift-3-1-n-section1",
+      "type": "text",
+      "content": "## Produksjonsmetodar og kapasitet\n\nFørst må vi forstå at bedrifter organiserer produksjonen ulikt. Ved **ordreproduksjon** (make-to-order) startar produksjonen først når kunden bestiller -- tenk skreddarsydde møblar eller bryllaupskaker. Det gjev lite lager, men lengre leveringstid. Ved **lagerproduksjon** (make-to-stock) produserer ein til lager basert på prognosar -- som daglegvarer og standardklede. Det gjev kort leveringstid, men risiko for overproduksjon. I tillegg finst **serieproduksjon** (eit visst tal før ein byter produkt) og **kontinuerleg produksjon** (døgnet rundt, som oljeraffinering).\n\nSentralt i all planlegging står **kapasitet** -- den maksimale mengda ei bedrift kan produsere i ein gitt periode. Vi skil mellom *teoretisk* kapasitet (maks under ideelle forhold) og *praktisk* kapasitet (maks når vi tek høgd for vedlikehald, pausar og realistiske avgrensingar). **Kapasitetsutnyttinga** måler kor stor del vi faktisk brukar: $\\text{Kapasitetsutnyttelse} = \\frac{\\text{Faktisk produksjon}}{\\text{Maksimal kapasitet}} \\times 100\\%$.\n\nLat oss rekne. Ein møbelfabrikk kan maksimalt lage 200 stolar i veka, men produserte 160. Då blir utnyttinga $\\frac{160}{200} \\times 100\\% = 80\\%$. Og merkeleg nok er ikkje 100 % idealet! Ei utnytting på **80-90 %** blir ofte rekna som optimalt, fordi bedrifta då har litt ledig kapasitet til å handtere uventa etterspurnad, gjennomføre vedlikehald og takle fråvær."
+    },
+    {
+      "id": "okonomi-drift-3-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-3-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på produksjonsmetodar og kapasitet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-3-1-n-quiz1-q0",
+            "task": "Kva kjenneteiknar ordreproduksjon (make-to-order)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein produserer til lager basert på prognosar",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Produksjonen startar først når kunden bestiller",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Produksjonen går alltid døgnet rundt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Alle produkt er standardiserte",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Ved ordreproduksjon startar ein ikkje før kunden har bestilt. Det gjev lite lager, men lengre leveringstid -- typisk for skreddarsydde produkt."
+          },
+          {
+            "id": "okonomi-drift-3-1-n-quiz1-q1",
+            "task": "Ein fabrikk kan maks produsere 200 stolar/veke, men laga 160. Kva er kapasitetsutnyttinga?",
+            "options": [
+              {
+                "id": "a",
+                "text": "60 %",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "125 %",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "80 %",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "40 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Kapasitetsutnytting = 160 / 200 × 100 % = 80 %."
+          },
+          {
+            "id": "okonomi-drift-3-1-n-quiz1-q2",
+            "task": "Kvifor er ikkje 100 % kapasitetsutnytting alltid ideelt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi det er ulovleg",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi maskiner ikkje kan køyre fullt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi 100 % gjev for låg forteneste",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi ein treng ledig kapasitet til uventa etterspurnad, vedlikehald og fråvær",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med litt ledig kapasitet (80-90 %) kan bedrifta handtere uventa etterspurnad, vedlikehald og fråvær utan at alt stoppar opp."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-3-1-n-section2",
+      "type": "text",
+      "content": "## Gjennomløpstid -- kvar blir tida av?\n\nNår ein produksjonsordre startar, tek det ei viss tid før det ferdige produktet er klart. Denne totale tida kallar vi **gjennomløpstid**, og ho består av langt meir enn sjølve arbeidet. Ho inkluderer *bearbeidingstid* (sjølve produksjonen -- saging, montering, måling), *ventetid* (kø framfor neste maskin), *transporttid* (flytting mellom stasjonar) og *inspeksjonstid* (kvalitetskontroll).\n\nHer kjem ei overraskande innsikt. I mange bedrifter utgjer den verdiskapande bearbeidingstida berre **5-10 %** av den totale gjennomløpstida. Resten er venting og transport! Lat oss rekne på det. Sei at gjennomløpstida er 5 dagar, som med 8-timars dagar blir 40 timar. Av desse er berre 4 timar bearbeidingstid. Då er delen verdiskapande tid $\\frac{4}{40} \\times 100\\% = 10\\%$. Dei resterande 90 prosentane er venting, transport og inspeksjon.\n\nDette betyr at det finst eit enormt forbetringspotensial. Du treng ikkje nødvendigvis raskare maskiner -- du treng betre flyt. Ved å redusere ventetida gjennom smartare produksjonsplanlegging, og transporttida gjennom betre fabrikklayout, kan gjennomløpstida kuttast monaleg. Kortare gjennomløpstid gjev raskare levering til kundane og lågare kapitalbinding i halvferdige varer."
+    },
+    {
+      "id": "okonomi-drift-3-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-3-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på gjennomløpstid:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-3-1-n-quiz2-q0",
+            "task": "Kva inngår i gjennomløpstida?",
+            "options": [
+              {
+                "id": "d",
+                "text": "Bearbeiding, venting, transport og inspeksjon",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Berre bearbeidingstida",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Berre transporttida",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Berre ventetida",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Gjennomløpstida er den totale tida frå ordrestart til ferdig produkt, og inkluderer bearbeiding, venting, transport og inspeksjon."
+          },
+          {
+            "id": "okonomi-drift-3-1-n-quiz2-q1",
+            "task": "Gjennomløpstid 40 timar, der 4 timar er bearbeiding. Kor stor del er verdiskapande?",
+            "options": [
+              {
+                "id": "b",
+                "text": "40 %",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "10 %",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "25 %",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "4 %",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Del verdiskapande tid = 4 / 40 × 100 % = 10 %. Resten er venting, transport og inspeksjon."
+          },
+          {
+            "id": "okonomi-drift-3-1-n-quiz2-q2",
+            "task": "Kva er den mest effektive måten å redusere gjennomløpstid på i mange bedrifter?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kjøpe raskare maskiner",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Auke bearbeidingstida",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Redusere ventetid og transport gjennom betre flyt og layout",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Tilsetje fleire inspektørar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sidan ventetid og transport ofte utgjer 90 % av gjennomløpstida, ligg det største potensialet i betre flyt og layout -- ikkje raskare bearbeiding."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-3-1-n-section3",
+      "type": "text",
+      "content": "## Flaskehalsen -- den svakaste lekken avgjer\n\nNo til den kanskje viktigaste innsikta i heile kapittelet. Ein **flaskehals** er det steget i produksjonsprosessen som har lågast kapasitet -- og dermed avgrensar heile produksjonen. Uansett kor raskt dei andre stega jobbar, kan den samla produksjonen aldri gå raskare enn flaskehalsen. Det er som ei kjede: den svakaste lekken avgjer styrken.\n\nLat oss sjå det konkret. Ein sjokoladefabrikk har tre steg: blanding (100 kg/time), støyping (60 kg/time) og pakking (90 kg/time). Kvar er flaskehalsen? Det er **støyping** med 60 kg/time, det lågaste talet. Den totale kapasiteten til fabrikken kan aldri overstige 60 kg/time, sjølv om blandinga kunne klart 100. Dei raske stega må rett og slett vente.\n\nKorleis handterer ein ein flaskehals? Ein kan *auke kapasiteten* (meir utstyr eller fleire tilsette), *redusere nedetid* (betre vedlikehald), *flytte arbeid* til steg med ledig kapasitet, *setje ut* flaskehalsarbeidet, eller *endre produktdesignet* for å forenkle operasjonen. Men hugs ein lur ting: flaskehalsen kan *flytte seg*. Dersom du aukar støypekapasiteten frå 60 til 120 kg/time, blir plutseleg pakking (90 kg/time) den nye flaskehalsen. Forbetring er ein kontinuerleg prosess der du alltid jobbar med den svakaste lekken i kjeda. Ein komplett produksjonsplan bind dette saman med etterspurnadsprognose, kapasitetsplan, materialplan og tidsplan."
+    },
+    {
+      "id": "okonomi-drift-3-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "okonomi-drift-3-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på flaskehalsar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "okonomi-drift-3-1-n-quiz3-q0",
+            "task": "Kva er ein flaskehals i produksjonssamanheng?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det steget med høgast kapasitet",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Det siste steget i prosessen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit steg der det oppstår kvalitetsproblem",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det steget med lågast kapasitet, som avgrensar total produksjon",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Flaskehalsen er steget med lågast kapasitet. Han avgrensar heile linja, fordi resten ikkje kan produsere meir enn flaskehalsen klarar."
+          },
+          {
+            "id": "okonomi-drift-3-1-n-quiz3-q1",
+            "task": "Tre steg: blanding 100 kg/t, støyping 60 kg/t, pakking 90 kg/t. Kva er den totale kapasiteten til fabrikken?",
+            "options": [
+              {
+                "id": "d",
+                "text": "60 kg/time",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "100 kg/time",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "250 kg/time",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "90 kg/time",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Total kapasitet blir avgjord av flaskehalsen, som er støyping med 60 kg/time."
+          },
+          {
+            "id": "okonomi-drift-3-1-n-quiz3-q2",
+            "task": "Du doblar kapasiteten i flaskehalsen støyping frå 60 til 120 kg/t. Kva skjer?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Total kapasitet blir 120 kg/time",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Pakking (90 kg/t) blir den nye flaskehalsen",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Blanding stoppar opp",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det blir ingen flaskehals lenger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Flaskehalsen flyttar seg. Når støyping når 120 kg/t, blir pakking (90 kg/t) den nye avgrensinga. Forbetring er ein kontinuerleg prosess."
+          }
+        ]
+      }
+    },
+    {
+      "id": "okonomi-drift-3-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nProduksjonsplanlegging handlar om å avgjere kva, kor mykje, når og med kva for ressursar ein skal produsere. Bedrifter vel ulike **produksjonsmetodar** -- ordreproduksjon, lagerproduksjon, serieproduksjon eller kontinuerleg produksjon -- ut frå produkttype og kundekrav.\n\n**Kapasitet** er maksimal produksjon i ein periode, og **kapasitetsutnyttinga** måler kor mykje vi faktisk brukar. Overraskande nok er 80-90 % ofte meir ideelt enn 100 %, fordi litt slakk gjev rom for vedlikehald og uventa etterspurnad.\n\n**Gjennomløpstida** er den totale tida gjennom prosessen, og berre 5-10 % av ho er ofte verdiskapande -- resten er venting og transport, som gjev stort forbetringspotensial. Til slutt: **flaskehalsen**, steget med lågast kapasitet, avgjer heile produksjonen. Han kan handterast på fleire måtar, men hugs at han gjerne flyttar seg når han blir løyst -- forbetring er ei evig jakt på den svakaste lekken."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "422ccedaa7176914",
+    "translatedAt": "2026-06-21T01:16:09.973Z",
+    "model": "claude-code-agent",
+    "strings": 61,
+    "tm": {
+      "fdc9e35d15d8f207": "Produksjonsplanlegging",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "47b429f0e2a56c5c": "Ei forteljing om korleis bedrifter planlegg produksjonen -- om kapasitet, gjennomløpstid og den svakaste lekken som avgjer alt: flaskehalsen.",
+      "388e8eb46318be31": "planlegge og gjennomføre produksjon av varer og tjenester",
+      "0234850850eb5f21": "## Kva, kor mykje, når -- og korleis?\n\nTenk deg at du er produksjonsleiar på ein fabrikk. Kvar dag må du svare på fire spørsmål: Kva skal vi produsere? Kor mykje? Når? Og med kva for ressursar? Dette er kjernen i **produksjonsplanlegging** -- kunsten å levere rett kvalitet til rett tid, utan å sløse med ressursar.\n\nGod planlegging er ikkje berre teknisk -- ho er avgjerande for økonomien. Produserer du for lite, mistar du sal. Produserer du for mykje, bind du opp kapital i varer ingen vil ha enno. Og dersom produksjonen flyt dårleg, kostar kvar forseinking pengar.\n\nI dette kapittelet skal vi forstå kva kapasitet eigentleg er og korleis ho blir rekna ut, kva gjennomløpstid betyr, og -- kanskje mest avslørande -- korleis ein einaste **flaskehals** kan avgrense heile produksjonen, uansett kor raskt resten av fabrikken jobbar.",
+      "7fb2743f1ed1f9ca": "## Produksjonsmetodar og kapasitet\n\nFørst må vi forstå at bedrifter organiserer produksjonen ulikt. Ved **ordreproduksjon** (make-to-order) startar produksjonen først når kunden bestiller -- tenk skreddarsydde møblar eller bryllaupskaker. Det gjev lite lager, men lengre leveringstid. Ved **lagerproduksjon** (make-to-stock) produserer ein til lager basert på prognosar -- som daglegvarer og standardklede. Det gjev kort leveringstid, men risiko for overproduksjon. I tillegg finst **serieproduksjon** (eit visst tal før ein byter produkt) og **kontinuerleg produksjon** (døgnet rundt, som oljeraffinering).\n\nSentralt i all planlegging står **kapasitet** -- den maksimale mengda ei bedrift kan produsere i ein gitt periode. Vi skil mellom *teoretisk* kapasitet (maks under ideelle forhold) og *praktisk* kapasitet (maks når vi tek høgd for vedlikehald, pausar og realistiske avgrensingar). **Kapasitetsutnyttinga** måler kor stor del vi faktisk brukar: $\\text{Kapasitetsutnyttelse} = \\frac{\\text{Faktisk produksjon}}{\\text{Maksimal kapasitet}} \\times 100\\%$.\n\nLat oss rekne. Ein møbelfabrikk kan maksimalt lage 200 stolar i veka, men produserte 160. Då blir utnyttinga $\\frac{160}{200} \\times 100\\% = 80\\%$. Og merkeleg nok er ikkje 100 % idealet! Ei utnytting på **80-90 %** blir ofte rekna som optimalt, fordi bedrifta då har litt ledig kapasitet til å handtere uventa etterspurnad, gjennomføre vedlikehald og takle fråvær.",
+      "c30177429a6844cf": "Test deg sjølv på produksjonsmetodar og kapasitet:",
+      "4097889236a2af26": "placeholder",
+      "da8de6f196149e82": "Kva kjenneteiknar ordreproduksjon (make-to-order)?",
+      "3e0b818694cd4e1a": "Produksjonen startar først når kunden bestiller",
+      "63541bcb8bf3b66a": "Ein produserer til lager basert på prognosar",
+      "9a77c2d1140a40d1": "Produksjonen går alltid døgnet rundt",
+      "f26c0cdd27401a88": "Alle produkt er standardiserte",
+      "55bc9ff13e72dac6": "Ved ordreproduksjon startar ein ikkje før kunden har bestilt. Det gjev lite lager, men lengre leveringstid -- typisk for skreddarsydde produkt.",
+      "b1aea9bce2fb69ad": "Ein fabrikk kan maks produsere 200 stolar/veke, men laga 160. Kva er kapasitetsutnyttinga?",
+      "2cf11259f2af4531": "Kapasitetsutnytting = 160 / 200 × 100 % = 80 %.",
+      "8a9f0079df87bc27": "Kvifor er ikkje 100 % kapasitetsutnytting alltid ideelt?",
+      "ecf7f5ac9fa63140": "Fordi det er ulovleg",
+      "a3e8609d013aceac": "Fordi maskiner ikkje kan køyre fullt",
+      "748e52ef98384113": "Fordi ein treng ledig kapasitet til uventa etterspurnad, vedlikehald og fråvær",
+      "32e1d3767bb975e4": "Fordi 100 % gjev for låg forteneste",
+      "10dc831eccd2ea74": "Med litt ledig kapasitet (80-90 %) kan bedrifta handtere uventa etterspurnad, vedlikehald og fråvær utan at alt stoppar opp.",
+      "82f0b490dbf4e53c": "## Gjennomløpstid -- kvar blir tida av?\n\nNår ein produksjonsordre startar, tek det ei viss tid før det ferdige produktet er klart. Denne totale tida kallar vi **gjennomløpstid**, og ho består av langt meir enn sjølve arbeidet. Ho inkluderer *bearbeidingstid* (sjølve produksjonen -- saging, montering, måling), *ventetid* (kø framfor neste maskin), *transporttid* (flytting mellom stasjonar) og *inspeksjonstid* (kvalitetskontroll).\n\nHer kjem ei overraskande innsikt. I mange bedrifter utgjer den verdiskapande bearbeidingstida berre **5-10 %** av den totale gjennomløpstida. Resten er venting og transport! Lat oss rekne på det. Sei at gjennomløpstida er 5 dagar, som med 8-timars dagar blir 40 timar. Av desse er berre 4 timar bearbeidingstid. Då er delen verdiskapande tid $\\frac{4}{40} \\times 100\\% = 10\\%$. Dei resterande 90 prosentane er venting, transport og inspeksjon.\n\nDette betyr at det finst eit enormt forbetringspotensial. Du treng ikkje nødvendigvis raskare maskiner -- du treng betre flyt. Ved å redusere ventetida gjennom smartare produksjonsplanlegging, og transporttida gjennom betre fabrikklayout, kan gjennomløpstida kuttast monaleg. Kortare gjennomløpstid gjev raskare levering til kundane og lågare kapitalbinding i halvferdige varer.",
+      "5f5e4b7fb80b9b82": "Test deg sjølv på gjennomløpstid:",
+      "4daf99f11d546a10": "Kva inngår i gjennomløpstida?",
+      "7d9595013a45d4e8": "Berre bearbeidingstida",
+      "b3af6f53fc37792d": "Berre transporttida",
+      "ca934062da6bd606": "Berre ventetida",
+      "b0c46f8355bd5f73": "Bearbeiding, venting, transport og inspeksjon",
+      "9adaed6891a05a0f": "Gjennomløpstida er den totale tida frå ordrestart til ferdig produkt, og inkluderer bearbeiding, venting, transport og inspeksjon.",
+      "b52fe8806118ce05": "Gjennomløpstid 40 timar, der 4 timar er bearbeiding. Kor stor del er verdiskapande?",
+      "cf42733c342f9933": "Del verdiskapande tid = 4 / 40 × 100 % = 10 %. Resten er venting, transport og inspeksjon.",
+      "1fc6b8afc84d01a4": "Kva er den mest effektive måten å redusere gjennomløpstid på i mange bedrifter?",
+      "573e1d6a74ee1b2c": "Kjøpe raskare maskiner",
+      "99029ac46698cd6d": "Redusere ventetid og transport gjennom betre flyt og layout",
+      "bd30efff3dc94d37": "Auke bearbeidingstida",
+      "ea43684f2250f2cf": "Tilsetje fleire inspektørar",
+      "c80526bc1af6a4f3": "Sidan ventetid og transport ofte utgjer 90 % av gjennomløpstida, ligg det største potensialet i betre flyt og layout -- ikkje raskare bearbeiding.",
+      "f79c464e8b9a0f37": "## Flaskehalsen -- den svakaste lekken avgjer\n\nNo til den kanskje viktigaste innsikta i heile kapittelet. Ein **flaskehals** er det steget i produksjonsprosessen som har lågast kapasitet -- og dermed avgrensar heile produksjonen. Uansett kor raskt dei andre stega jobbar, kan den samla produksjonen aldri gå raskare enn flaskehalsen. Det er som ei kjede: den svakaste lekken avgjer styrken.\n\nLat oss sjå det konkret. Ein sjokoladefabrikk har tre steg: blanding (100 kg/time), støyping (60 kg/time) og pakking (90 kg/time). Kvar er flaskehalsen? Det er **støyping** med 60 kg/time, det lågaste talet. Den totale kapasiteten til fabrikken kan aldri overstige 60 kg/time, sjølv om blandinga kunne klart 100. Dei raske stega må rett og slett vente.\n\nKorleis handterer ein ein flaskehals? Ein kan *auke kapasiteten* (meir utstyr eller fleire tilsette), *redusere nedetid* (betre vedlikehald), *flytte arbeid* til steg med ledig kapasitet, *setje ut* flaskehalsarbeidet, eller *endre produktdesignet* for å forenkle operasjonen. Men hugs ein lur ting: flaskehalsen kan *flytte seg*. Dersom du aukar støypekapasiteten frå 60 til 120 kg/time, blir plutseleg pakking (90 kg/time) den nye flaskehalsen. Forbetring er ein kontinuerleg prosess der du alltid jobbar med den svakaste lekken i kjeda. Ein komplett produksjonsplan bind dette saman med etterspurnadsprognose, kapasitetsplan, materialplan og tidsplan.",
+      "337d28f003e9e07e": "Test deg sjølv på flaskehalsar:",
+      "2aeebfa82167b508": "Kva er ein flaskehals i produksjonssamanheng?",
+      "94f6e235cbdaa0e1": "Det steget med høgast kapasitet",
+      "fc0ef533b06d4a34": "Det siste steget i prosessen",
+      "06c99316a9bb0f2b": "Det steget med lågast kapasitet, som avgrensar total produksjon",
+      "fb45f24645c150ef": "Eit steg der det oppstår kvalitetsproblem",
+      "f0ec143504129a27": "Flaskehalsen er steget med lågast kapasitet. Han avgrensar heile linja, fordi resten ikkje kan produsere meir enn flaskehalsen klarar.",
+      "d168c3b41a60875c": "Tre steg: blanding 100 kg/t, støyping 60 kg/t, pakking 90 kg/t. Kva er den totale kapasiteten til fabrikken?",
+      "95de7895a9fe5866": "100 kg/time",
+      "5cfaea48b410b163": "250 kg/time",
+      "2106d4640db24cd2": "90 kg/time",
+      "71307e49040b126b": "60 kg/time",
+      "429432099daad19f": "Total kapasitet blir avgjord av flaskehalsen, som er støyping med 60 kg/time.",
+      "76a89f3471560726": "Du doblar kapasiteten i flaskehalsen støyping frå 60 til 120 kg/t. Kva skjer?",
+      "5d9e1949d8c6e7ac": "Pakking (90 kg/t) blir den nye flaskehalsen",
+      "c929c341a895247c": "Total kapasitet blir 120 kg/time",
+      "17ac40da2f7e0173": "Blanding stoppar opp",
+      "e2b475d9d49ebeda": "Det blir ingen flaskehals lenger",
+      "6fc16c07b75102d1": "Flaskehalsen flyttar seg. Når støyping når 120 kg/t, blir pakking (90 kg/t) den nye avgrensinga. Forbetring er ein kontinuerleg prosess.",
+      "302c60d6279f339b": "## Oppsummering\n\nProduksjonsplanlegging handlar om å avgjere kva, kor mykje, når og med kva for ressursar ein skal produsere. Bedrifter vel ulike **produksjonsmetodar** -- ordreproduksjon, lagerproduksjon, serieproduksjon eller kontinuerleg produksjon -- ut frå produkttype og kundekrav.\n\n**Kapasitet** er maksimal produksjon i ein periode, og **kapasitetsutnyttinga** måler kor mykje vi faktisk brukar. Overraskande nok er 80-90 % ofte meir ideelt enn 100 %, fordi litt slakk gjev rom for vedlikehald og uventa etterspurnad.\n\n**Gjennomløpstida** er den totale tida gjennom prosessen, og berre 5-10 % av ho er ofte verdiskapande -- resten er venting og transport, som gjev stort forbetringspotensial. Til slutt: **flaskehalsen**, steget med lågast kapasitet, avgjer heile produksjonen. Han kan handterast på fleire måtar, men hugs at han gjerne flyttar seg når han blir løyst -- forbetring er ei evig jakt på den svakaste lekken."
+    }
+  }
+}

@@ -1,1 +1,341 @@
-{"id":"8-8-2-narrativ","courseId":"8","chapterNumber":"8.2","title":"Figurtall og geometriske mønstre","subtitle":"Narrativ versjon","description":"En fortellende gjennomgang av figurtall og geometriske mønstre -- fra trekanttall og kvadrattall til egne figurer -- der vi oppdager matematikk gjemt i former og bilder.","estimatedMinutes":35,"competenceGoals":["utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar"],"linkedChapterId":"8-8-2","content":[{"id":"8-8-2-n-intro","type":"text","content":"## Tall du kan tegne\n\nVisste du at noen tall har en helt spesiell form? Allerede for over 2500 år siden oppdaget de greske matematikerne at visse tall kan arrangeres som geometriske figurer -- prikker lagt ut i trekanter, kvadrater eller andre former.\n\nDe kalte dem **figurtall**, og ideen er like enkel som den er vakker: i stedet for bare å telle, kan vi **tegne** tallene og oppdage mønstre vi aldri ville sett ellers.\n\nI dette kapittelet utforsker vi:\n- **Trekanttall** -- tall som danner trekanter\n- **Kvadrattall** -- tall som danner kvadrater\n- Hvordan vi finner mønstre ved å studere figurer som vokser steg for steg"},{"id":"8-8-2-n-section1","type":"text","content":"## Trekanttall -- prikker i trekantform\n\nLegg en prikk. Legg to prikker under. Legg tre prikker under der igjen. Nå har du en trekant av prikker med totalt $1 + 2 + 3 = 6$ prikker. Det er det tredje **trekanttallet**.\n\nTrekanttallene er:\n\n| Figur nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|-----------------|-----|-----|-----|-----|-----|-----|\n| Trekanttall | $1$ | $3$ | $6$ | $10$ | $15$ | $21$ |\n| Nye prikker | $1$ | $+2$ | $+3$ | $+4$ | $+5$ | $+6$ |\n\nSer du mønsteret? Det $n$-te trekanttallet er summen $1 + 2 + 3 + \\cdots + n$. For hver ny rad i trekanten legger vi til én prikk mer enn raden over.\n\nMen finnes det en snarvei i stedet for å legge sammen alle tallene? Ja! Tenk deg at du kopierer trekanten og snur den opp ned. Sammen danner de to trekantene et **rektangel** med $n$ rader og $(n + 1)$ kolonner. Rektangelet har $n \\cdot (n + 1)$ prikker, og trekanten er halvparten:\n\n$$T_n = \\frac{n(n + 1)}{2}$$\n\nFor eksempel: $T_5 = \\frac{5 \\cdot 6}{2} = 15$. Og $T_{10} = \\frac{10 \\cdot 11}{2} = 55$. Prøv å legge sammen $1 + 2 + 3 + \\cdots + 10$ for hånd -- du får $55$!\n\nEn kjent fortelling sier at den unge Carl Friedrich Gauss fant denne formelen da han var bare $10$ år gammel. Læreren ba klassen legge sammen alle tallene fra $1$ til $100$. Gauss la merke til at $1 + 100 = 101$, $2 + 99 = 101$, $3 + 98 = 101$, og så videre -- $50$ slike par. Svaret er $50 \\cdot 101 = 5050$."},{"id":"8-8-2-n-quiz1","type":"exercise","exercise":{"id":"8-8-2-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på trekanttall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-2-n-quiz1-q0","task":"Hva er det $7$-de trekanttallet ($T_7$)?","options":[{"id":"a","text":"$21$","isCorrect":false},{"id":"b","text":"$28$","isCorrect":true},{"id":"c","text":"$35$","isCorrect":false},{"id":"d","text":"$49$","isCorrect":false}],"solution":"$T_7 = \\frac{7 \\cdot 8}{2} = \\frac{56}{2} = 28$."},{"id":"8-8-2-n-quiz1-q1","task":"Hva er summen $1 + 2 + 3 + \\cdots + 20$?","options":[{"id":"a","text":"$190$","isCorrect":false},{"id":"b","text":"$200$","isCorrect":false},{"id":"c","text":"$210$","isCorrect":true},{"id":"d","text":"$220$","isCorrect":false}],"solution":"Summen er det $20$-de trekanttallet: $T_{20} = \\frac{20 \\cdot 21}{2} = 210$."},{"id":"8-8-2-n-quiz1-q2","task":"Hvor mange nye prikker legger vi til for å gå fra det $8$-de til det $9$-de trekanttallet?","options":[{"id":"a","text":"$8$","isCorrect":false},{"id":"b","text":"$9$","isCorrect":true},{"id":"c","text":"$10$","isCorrect":false},{"id":"d","text":"$17$","isCorrect":false}],"solution":"For å gå fra $T_8$ til $T_9$ legger vi til en ny rad med $9$ prikker. Generelt: vi legger til $n$ prikker for å gå til det $n$-te trekanttallet."}]}},{"id":"8-8-2-n-section2","type":"text","content":"## Kvadrattall -- prikker i firkantform\n\n**Kvadrattallene** er enda enklere å se for seg. Legg prikkene i et rutenett: $1 \\times 1 = 1$, $2 \\times 2 = 4$, $3 \\times 3 = 9$, og så videre.\n\n| Figur nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|-----------------|-----|-----|-----|-----|-----|-----|\n| Kvadrattall | $1$ | $4$ | $9$ | $16$ | $25$ | $36$ |\n| Nye prikker | $1$ | $+3$ | $+5$ | $+7$ | $+9$ | $+11$ |\n\nDet $n$-te kvadrattallet er ganske enkelt:\n\n$$K_n = n^2$$\n\nMen se på de nye prikkene! Vi legger til $3, 5, 7, 9, 11, \\ldots$ -- altså **oddetallene**. Det er en vakker sammenheng:\n\n$$1 + 3 + 5 + 7 + \\cdots + (2n - 1) = n^2$$\n\nHvorfor? Tenk visuelt: for å utvide et $3 \\times 3$ kvadrat til et $4 \\times 4$ kvadrat, legger du til en ny rad nederst ($4$ prikker), en ny kolonne til høyre ($4$ prikker) og et hjørnepunkt. Men raden og kolonnen deler et hjørne, så det blir $4 + 4 - 1 = 7$ nye prikker. Generelt: $n + n - 1 = 2n - 1$.\n\nDet finnes enda en spennende sammenheng mellom trekanttall og kvadrattall: **summen av to påfølgende trekanttall er et kvadrattall**. For eksempel: $T_3 + T_4 = 6 + 10 = 16 = 4^2$. Algebraisk: $\\frac{n(n+1)}{2} + \\frac{(n+1)(n+2)}{2} = (n+1)^2$."},{"id":"8-8-2-n-quiz2","type":"exercise","exercise":{"id":"8-8-2-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på kvadrattall:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-2-n-quiz2-q0","task":"Hva er summen av de fem første oddetallene ($1 + 3 + 5 + 7 + 9$)?","options":[{"id":"a","text":"$20$","isCorrect":false},{"id":"b","text":"$25$","isCorrect":true},{"id":"c","text":"$30$","isCorrect":false},{"id":"d","text":"$15$","isCorrect":false}],"solution":"Summen av de $n$ første oddetallene er $n^2$. For $n = 5$: $5^2 = 25$."},{"id":"8-8-2-n-quiz2-q1","task":"Hvor mange nye prikker trengs for å utvide et $6 \\times 6$ kvadrat til et $7 \\times 7$ kvadrat?","options":[{"id":"a","text":"$7$","isCorrect":false},{"id":"b","text":"$12$","isCorrect":false},{"id":"c","text":"$13$","isCorrect":true},{"id":"d","text":"$14$","isCorrect":false}],"solution":"Vi trenger $2 \\cdot 7 - 1 = 13$ nye prikker. Alternativt: $7^2 - 6^2 = 49 - 36 = 13$."},{"id":"8-8-2-n-quiz2-q2","task":"Hva er $T_5 + T_6$ (summen av det $5$-te og $6$-te trekanttallet)?","options":[{"id":"a","text":"$25$","isCorrect":false},{"id":"b","text":"$30$","isCorrect":false},{"id":"c","text":"$36$","isCorrect":true},{"id":"d","text":"$42$","isCorrect":false}],"solution":"$T_5 = 15$ og $T_6 = 21$. $15 + 21 = 36 = 6^2$. Summen av to påfølgende trekanttall gir alltid et kvadrattall!"}]}},{"id":"8-8-2-n-section3","type":"text","content":"## Egne figurmønstre -- fra figur til tall\n\nI mange oppgaver får du en serie med figurer som vokser, og du skal finne mønsteret. La oss se på noen eksempler.\n\n**Eksempel 1: Stolpefigurer**\nTenk deg figurer laget av fyrstikker i en rad med firkanter:\n- Figur 1: én firkant, $4$ fyrstikker\n- Figur 2: to firkanter som deler en side, $7$ fyrstikker\n- Figur 3: tre firkanter, $10$ fyrstikker\n- Figur 4: fire firkanter, $13$ fyrstikker\n\nMønsteret: den første firkanten krever $4$ fyrstikker, og hver ny firkant legger til $3$ (fordi den deler én side med den forrige). Antall fyrstikker for figur $n$ er $4 + 3(n-1) = 3n + 1$.\n\n**Eksempel 2: L-figurer**\nFigurer formet som en L, der hvert steg legger til et nytt lag:\n- Figur 1: $3$ ruter ($1$ bred, $1$ høy pluss $1$ ekstra)\n- Figur 2: $5$ ruter\n- Figur 3: $7$ ruter\n- Figur 4: $9$ ruter\n\nMønsteret: $3, 5, 7, 9$ -- en aritmetisk følge med $d = 2$. Formel: $2n + 1$.\n\n**Strategi for å finne mønster i figurer:**\n1. Tell antall elementer i hver figur og skriv dem i en tabell\n2. Finn differansene\n3. Er differansen konstant? Da er det en lineær formel: $a_n = a_1 + (n-1) \\cdot d$\n4. Øker differansene? Se etter et andregradsmønster\n5. Prøv å se **hva som legges til** visuelt fra figur til figur"},{"id":"8-8-2-n-quiz3","type":"exercise","exercise":{"id":"8-8-2-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på figurmønstre:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"8-8-2-n-quiz3-q0","task":"Fyrspikkfigurer: Figur 1 har $4$, Figur 2 har $7$, Figur 3 har $10$. Hvor mange fyrstikker har Figur $10$?","options":[{"id":"a","text":"$28$","isCorrect":false},{"id":"b","text":"$30$","isCorrect":false},{"id":"c","text":"$31$","isCorrect":true},{"id":"d","text":"$33$","isCorrect":false}],"solution":"Formelen er $3n + 1$. For $n = 10$: $3 \\cdot 10 + 1 = 31$ fyrstikker."},{"id":"8-8-2-n-quiz3-q1","task":"En serie figurer har $2, 6, 12, 20, 30$ elementer. Hva er dette for slags figurtall?","options":[{"id":"a","text":"Kvadrattall","isCorrect":false},{"id":"b","text":"Trekanttall ganget med $2$ -- altså $n(n+1)$","isCorrect":true},{"id":"c","text":"Rektangeltall","isCorrect":false},{"id":"d","text":"Femkanttall","isCorrect":false}],"solution":"$2 = 1 \\cdot 2$, $6 = 2 \\cdot 3$, $12 = 3 \\cdot 4$, $20 = 4 \\cdot 5$, $30 = 5 \\cdot 6$. Mønsteret er $n(n+1)$, som er det dobbelte av trekanttallene."},{"id":"8-8-2-n-quiz3-q2","task":"En figurserie har $5, 8, 11, 14, \\ldots$ elementer. Hvilken formel gir antall elementer i figur nr. $n$?","options":[{"id":"a","text":"$3n + 5$","isCorrect":false},{"id":"b","text":"$3n + 2$","isCorrect":true},{"id":"c","text":"$5n + 3$","isCorrect":false},{"id":"d","text":"$2n + 3$","isCorrect":false}],"solution":"$a_1 = 5$, $d = 3$. Formelen er $a_n = 5 + (n-1) \\cdot 3 = 5 + 3n - 3 = 3n + 2$. Sjekk: $n = 1$ gir $5$, $n = 2$ gir $8$. Stemmer!"}]}},{"id":"8-8-2-n-summary","type":"text","content":"## Oppsummering\n\nFigurtall viser oss den vakre forbindelsen mellom geometri og tall.\n\n| Figurtall | Formel | Følge |\n|-----------|--------|-------|\n| Trekanttall ($T_n$) | $\\frac{n(n+1)}{2}$ | $1, 3, 6, 10, 15, 21, \\ldots$ |\n| Kvadrattall ($K_n$) | $n^2$ | $1, 4, 9, 16, 25, 36, \\ldots$ |\n| Rektangeltall | $n(n+1)$ | $2, 6, 12, 20, 30, \\ldots$ |\n\nViktige sammenhenger:\n- Summen av de $n$ første oddetallene er $n^2$\n- Summen av to påfølgende trekanttall er et kvadrattall\n- Rektangeltallene er det dobbelte av trekanttallene\n\n**Strategi for figuroppgaver:**\n1. Tegn en tabell med figurnummer og antall elementer\n2. Finn differansene for å avgjøre type mønster\n3. Bruk den visuelle strukturen til å forstå **hvorfor** mønsteret er som det er\n4. Skriv opp en formel og sjekk at den gir riktige verdier"}],"exercises":[]}
+{
+  "id": "8-8-2-narrativ",
+  "courseId": "8",
+  "chapterNumber": "8.2",
+  "title": "Figurtall og geometriske mønstre",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortellende gjennomgang av figurtall og geometriske mønstre -- fra trekanttall og kvadrattall til egne figurer -- der vi oppdager matematikk gjemt i former og bilder.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og beskrive strukturar og endringar i geometriske mønster og tallmønster med figurar, ord og formlar"
+  ],
+  "linkedChapterId": "8-8-2",
+  "content": [
+    {
+      "id": "8-8-2-n-intro",
+      "type": "text",
+      "content": "## Tall du kan tegne\n\nVisste du at noen tall har en helt spesiell form? Allerede for over 2500 år siden oppdaget de greske matematikerne at visse tall kan arrangeres som geometriske figurer -- prikker lagt ut i trekanter, kvadrater eller andre former.\n\nDe kalte dem **figurtall**, og ideen er like enkel som den er vakker: i stedet for bare å telle, kan vi **tegne** tallene og oppdage mønstre vi aldri ville sett ellers.\n\nI dette kapittelet utforsker vi:\n- **Trekanttall** -- tall som danner trekanter\n- **Kvadrattall** -- tall som danner kvadrater\n- Hvordan vi finner mønstre ved å studere figurer som vokser steg for steg"
+    },
+    {
+      "id": "8-8-2-n-section1",
+      "type": "text",
+      "content": "## Trekanttall -- prikker i trekantform\n\nLegg en prikk. Legg to prikker under. Legg tre prikker under der igjen. Nå har du en trekant av prikker med totalt $1 + 2 + 3 = 6$ prikker. Det er det tredje **trekanttallet**.\n\nTrekanttallene er:\n\n| Figur nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|-----------------|-----|-----|-----|-----|-----|-----|\n| Trekanttall | $1$ | $3$ | $6$ | $10$ | $15$ | $21$ |\n| Nye prikker | $1$ | $+2$ | $+3$ | $+4$ | $+5$ | $+6$ |\n\nSer du mønsteret? Det $n$-te trekanttallet er summen $1 + 2 + 3 + \\cdots + n$. For hver ny rad i trekanten legger vi til én prikk mer enn raden over.\n\nMen finnes det en snarvei i stedet for å legge sammen alle tallene? Ja! Tenk deg at du kopierer trekanten og snur den opp ned. Sammen danner de to trekantene et **rektangel** med $n$ rader og $(n + 1)$ kolonner. Rektangelet har $n \\cdot (n + 1)$ prikker, og trekanten er halvparten:\n\n$$T_n = \\frac{n(n + 1)}{2}$$\n\nFor eksempel: $T_5 = \\frac{5 \\cdot 6}{2} = 15$. Og $T_{10} = \\frac{10 \\cdot 11}{2} = 55$. Prøv å legge sammen $1 + 2 + 3 + \\cdots + 10$ for hånd -- du får $55$!\n\nEn kjent fortelling sier at den unge Carl Friedrich Gauss fant denne formelen da han var bare $10$ år gammel. Læreren ba klassen legge sammen alle tallene fra $1$ til $100$. Gauss la merke til at $1 + 100 = 101$, $2 + 99 = 101$, $3 + 98 = 101$, og så videre -- $50$ slike par. Svaret er $50 \\cdot 101 = 5050$."
+    },
+    {
+      "id": "8-8-2-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-2-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på trekanttall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-2-n-quiz1-q0",
+            "task": "Hva er det $7$-de trekanttallet ($T_7$)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$21$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$28$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$35$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$49$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_7 = \\frac{7 \\cdot 8}{2} = \\frac{56}{2} = 28$."
+          },
+          {
+            "id": "8-8-2-n-quiz1-q1",
+            "task": "Hva er summen $1 + 2 + 3 + \\cdots + 20$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$190$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$200$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$210$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$220$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Summen er det $20$-de trekanttallet: $T_{20} = \\frac{20 \\cdot 21}{2} = 210$."
+          },
+          {
+            "id": "8-8-2-n-quiz1-q2",
+            "task": "Hvor mange nye prikker legger vi til for å gå fra det $8$-de til det $9$-de trekanttallet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$17$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For å gå fra $T_8$ til $T_9$ legger vi til en ny rad med $9$ prikker. Generelt: vi legger til $n$ prikker for å gå til det $n$-te trekanttallet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-2-n-section2",
+      "type": "text",
+      "content": "## Kvadrattall -- prikker i firkantform\n\n**Kvadrattallene** er enda enklere å se for seg. Legg prikkene i et rutenett: $1 \\times 1 = 1$, $2 \\times 2 = 4$, $3 \\times 3 = 9$, og så videre.\n\n| Figur nr. ($n$) | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |\n|-----------------|-----|-----|-----|-----|-----|-----|\n| Kvadrattall | $1$ | $4$ | $9$ | $16$ | $25$ | $36$ |\n| Nye prikker | $1$ | $+3$ | $+5$ | $+7$ | $+9$ | $+11$ |\n\nDet $n$-te kvadrattallet er ganske enkelt:\n\n$$K_n = n^2$$\n\nMen se på de nye prikkene! Vi legger til $3, 5, 7, 9, 11, \\ldots$ -- altså **oddetallene**. Det er en vakker sammenheng:\n\n$$1 + 3 + 5 + 7 + \\cdots + (2n - 1) = n^2$$\n\nHvorfor? Tenk visuelt: for å utvide et $3 \\times 3$ kvadrat til et $4 \\times 4$ kvadrat, legger du til en ny rad nederst ($4$ prikker), en ny kolonne til høyre ($4$ prikker) og et hjørnepunkt. Men raden og kolonnen deler et hjørne, så det blir $4 + 4 - 1 = 7$ nye prikker. Generelt: $n + n - 1 = 2n - 1$.\n\nDet finnes enda en spennende sammenheng mellom trekanttall og kvadrattall: **summen av to påfølgende trekanttall er et kvadrattall**. For eksempel: $T_3 + T_4 = 6 + 10 = 16 = 4^2$. Algebraisk: $\\frac{n(n+1)}{2} + \\frac{(n+1)(n+2)}{2} = (n+1)^2$."
+    },
+    {
+      "id": "8-8-2-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-2-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på kvadrattall:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-2-n-quiz2-q0",
+            "task": "Hva er summen av de fem første oddetallene ($1 + 3 + 5 + 7 + 9$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$25$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$20$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$15$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Summen av de $n$ første oddetallene er $n^2$. For $n = 5$: $5^2 = 25$."
+          },
+          {
+            "id": "8-8-2-n-quiz2-q1",
+            "task": "Hvor mange nye prikker trengs for å utvide et $6 \\times 6$ kvadrat til et $7 \\times 7$ kvadrat?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$13$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$14$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi trenger $2 \\cdot 7 - 1 = 13$ nye prikker. Alternativt: $7^2 - 6^2 = 49 - 36 = 13$."
+          },
+          {
+            "id": "8-8-2-n-quiz2-q2",
+            "task": "Hva er $T_5 + T_6$ (summen av det $5$-te og $6$-te trekanttallet)?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$25$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$36$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$42$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$T_5 = 15$ og $T_6 = 21$. $15 + 21 = 36 = 6^2$. Summen av to påfølgende trekanttall gir alltid et kvadrattall!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-2-n-section3",
+      "type": "text",
+      "content": "## Egne figurmønstre -- fra figur til tall\n\nI mange oppgaver får du en serie med figurer som vokser, og du skal finne mønsteret. La oss se på noen eksempler.\n\n**Eksempel 1: Stolpefigurer**\nTenk deg figurer laget av fyrstikker i en rad med firkanter:\n- Figur 1: én firkant, $4$ fyrstikker\n- Figur 2: to firkanter som deler en side, $7$ fyrstikker\n- Figur 3: tre firkanter, $10$ fyrstikker\n- Figur 4: fire firkanter, $13$ fyrstikker\n\nMønsteret: den første firkanten krever $4$ fyrstikker, og hver ny firkant legger til $3$ (fordi den deler én side med den forrige). Antall fyrstikker for figur $n$ er $4 + 3(n-1) = 3n + 1$.\n\n**Eksempel 2: L-figurer**\nFigurer formet som en L, der hvert steg legger til et nytt lag:\n- Figur 1: $3$ ruter ($1$ bred, $1$ høy pluss $1$ ekstra)\n- Figur 2: $5$ ruter\n- Figur 3: $7$ ruter\n- Figur 4: $9$ ruter\n\nMønsteret: $3, 5, 7, 9$ -- en aritmetisk følge med $d = 2$. Formel: $2n + 1$.\n\n**Strategi for å finne mønster i figurer:**\n1. Tell antall elementer i hver figur og skriv dem i en tabell\n2. Finn differansene\n3. Er differansen konstant? Da er det en lineær formel: $a_n = a_1 + (n-1) \\cdot d$\n4. Øker differansene? Se etter et andregradsmønster\n5. Prøv å se **hva som legges til** visuelt fra figur til figur"
+    },
+    {
+      "id": "8-8-2-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "8-8-2-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på figurmønstre:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "8-8-2-n-quiz3-q0",
+            "task": "Fyrspikkfigurer: Figur 1 har $4$, Figur 2 har $7$, Figur 3 har $10$. Hvor mange fyrstikker har Figur $10$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$28$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$30$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$31$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$33$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formelen er $3n + 1$. For $n = 10$: $3 \\cdot 10 + 1 = 31$ fyrstikker."
+          },
+          {
+            "id": "8-8-2-n-quiz3-q1",
+            "task": "En serie figurer har $2, 6, 12, 20, 30$ elementer. Hva er dette for slags figurtall?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Kvadrattall",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Rektangeltall",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Femkanttall",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Trekanttall ganget med $2$ -- altså $n(n+1)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$2 = 1 \\cdot 2$, $6 = 2 \\cdot 3$, $12 = 3 \\cdot 4$, $20 = 4 \\cdot 5$, $30 = 5 \\cdot 6$. Mønsteret er $n(n+1)$, som er det dobbelte av trekanttallene."
+          },
+          {
+            "id": "8-8-2-n-quiz3-q2",
+            "task": "En figurserie har $5, 8, 11, 14, \\ldots$ elementer. Hvilken formel gir antall elementer i figur nr. $n$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$3n + 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$3n + 5$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$5n + 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2n + 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$a_1 = 5$, $d = 3$. Formelen er $a_n = 5 + (n-1) \\cdot 3 = 5 + 3n - 3 = 3n + 2$. Sjekk: $n = 1$ gir $5$, $n = 2$ gir $8$. Stemmer!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "8-8-2-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nFigurtall viser oss den vakre forbindelsen mellom geometri og tall.\n\n| Figurtall | Formel | Følge |\n|-----------|--------|-------|\n| Trekanttall ($T_n$) | $\\frac{n(n+1)}{2}$ | $1, 3, 6, 10, 15, 21, \\ldots$ |\n| Kvadrattall ($K_n$) | $n^2$ | $1, 4, 9, 16, 25, 36, \\ldots$ |\n| Rektangeltall | $n(n+1)$ | $2, 6, 12, 20, 30, \\ldots$ |\n\nViktige sammenhenger:\n- Summen av de $n$ første oddetallene er $n^2$\n- Summen av to påfølgende trekanttall er et kvadrattall\n- Rektangeltallene er det dobbelte av trekanttallene\n\n**Strategi for figuroppgaver:**\n1. Tegn en tabell med figurnummer og antall elementer\n2. Finn differansene for å avgjøre type mønster\n3. Bruk den visuelle strukturen til å forstå **hvorfor** mønsteret er som det er\n4. Skriv opp en formel og sjekk at den gir riktige verdier"
+    }
+  ],
+  "exercises": []
+}

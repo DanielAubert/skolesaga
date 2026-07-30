@@ -1,1 +1,417 @@
-{"id":"it-2-2-1-narrativ","courseId":"it-2","chapterNumber":"1","title":"Komposisjon og aggregering","subtitle":"Narrativ versjon","description":"Ei forteljing om korleis vi byggjer komplekse objekt ved å setje saman enklare – frå bilen som har ein motor til anda som kan byte ut flyteknikken sin utan å bli ein ny klasse.","estimatedMinutes":32,"competenceGoals":["Forstå skilnaden mellom komposisjon (har-ein) og arv (er-ein)","Implementere komposisjon og delegering i Python","Vurdere når komposisjon er betre enn arv"],"linkedChapterId":"it-2-2-1","content":[{"id":"it-2-2-1-n-intro","type":"text","content":"## Har-ein, ikkje er-ein\n\nDu har lært om arv, der ein klasse *er ein* spesialisering av ein annan. Men svært ofte er det noko anna vi eigentleg vil uttrykkje: at ein klasse *har ein* annan som ein del av seg sjølv. Ein bil er ikkje ein motor – men ein bil har ein motor. Denne tankegangen blir kalla **komposisjon**, og er eit kraftig alternativ til arv.\n\nKomposisjon er når eitt objekt inneheld eitt eller fleire andre objekt som ein del av tilstanden sin. I staden for at `Bil` arvar frå `Motor`, lèt vi `Bil` lage og halde eit `Motor`-objekt:\n\n```python\nclass Motor:\n    def __init__(self, hestekrefter):\n        self.hestekrefter = hestekrefter\n    def start(self):\n        print(f\"Motor med {self.hestekrefter} hk startet!\")\n\nclass Bil:\n    def __init__(self, merke, hestekrefter):\n        self.merke = merke\n        self.motor = Motor(hestekrefter)  # komposisjon\n    def start_bil(self):\n        self.motor.start()  # delegering\n```\n\nLegg merke til to omgrep her. Sjølve det at bilen *inneheld* ein motor er komposisjon. Det at bilen *overlèt* startoppgåva til motoren, i staden for å gjere ho sjølv, blir kalla **delegering**. Bilen seier i praksis: «motor, start deg sjølv» – og slepp å vite korleis."},{"id":"it-2-2-1-n-quiz1","type":"exercise","exercise":{"id":"it-2-2-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på komposisjon og delegering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-2-1-n-quiz1-q0","task":"Kva skildrar best komposisjon?","options":[{"id":"a","text":"Ein klasse arvar frå ein annan klasse","isCorrect":false},{"id":"b","text":"Ein klasse inneheld objekt av andre klassar","isCorrect":true},{"id":"c","text":"Ein klasse overstyrer superklassens metodar","isCorrect":false},{"id":"d","text":"Ein klasse har berre statiske metodar","isCorrect":false}],"solution":"Komposisjon betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin – ein har-ein-relasjon."},{"id":"it-2-2-1-n-quiz1-q1","task":"Kva betyr delegering?","options":[{"id":"a","text":"Å slette eit objekt","isCorrect":false},{"id":"b","text":"Å arve frå to klassar samtidig","isCorrect":false},{"id":"c","text":"Å overlate ansvar til eit innebygt objekt i staden for å gjere alt sjølv","isCorrect":true},{"id":"d","text":"Å gjere eit attributt privat","isCorrect":false}],"solution":"Delegering er å la eit innebygt objekt utføre oppgåva, slik bilen lèt motoren starte seg sjølv."},{"id":"it-2-2-1-n-quiz1-q2","task":"Kva relasjon uttrykkjer `self.motor = Motor()` inni Bil?","options":[{"id":"a","text":"Bil er ein Motor","isCorrect":false},{"id":"b","text":"Motor arvar frå Bil","isCorrect":false},{"id":"c","text":"Bil og Motor er same klasse","isCorrect":false},{"id":"d","text":"Bil har ein Motor","isCorrect":true}],"solution":"Bilen inneheld eit motor-objekt – ein har-ein-relasjon, altså komposisjon."}]}},{"id":"it-2-2-1-n-section1","type":"text","content":"## Kvifor komposisjon ofte slår arv\n\nDet finst eit velkjent designprinsipp: «favor composition over inheritance» – føretrekk å byggje funksjonalitet ved å kombinere objekt framfor å arve oppførsel. Kvifor? Komposisjon er meir fleksibel, fordi du kan endre oppførsel medan programmet køyrer. Han gjev lausare kobling, fordi objekta er mindre avhengige av kvarandre. Han gjer testing enklare, fordi du kan byte ut delar. Og han unngår problema med djupe, stive arvshierarki.\n\nEit klassisk døme er ei and. Med arv kunne du la `And` arve frå både `Flygende` og `Svømmende`. Men kva om du seinare vil ha ei and som ikkje kan fly? Då må du lage ein heilt ny klasse. Med komposisjon gjev du anda ein flyteknikk og ein symjeteknikk som objekt:\n\n```python\nclass And:\n    def __init__(self, fly_oppførsel, svøm_oppførsel):\n        self.fly_oppførsel = fly_oppførsel\n        self.svøm_oppførsel = svøm_oppførsel\n    def fly(self):\n        self.fly_oppførsel.utfør()\n```\n\nNo kan du lage `And(FlyOppførsel(), SvømOppførsel())` for ei vanleg and, eller `And(IngenFlyOppførsel(), SvømOppførsel())` for ei and som ikkje kan fly. Du byter oppførsel utan å lage nye klassar. Det er fleksibiliteten komposisjon gjev."},{"id":"it-2-2-1-n-quiz2","type":"exercise","exercise":{"id":"it-2-2-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på fordelane med komposisjon:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-2-1-n-quiz2-q0","task":"Kva er hovudfordelen med komposisjon framfor arv?","options":[{"id":"a","text":"Han er meir fleksibel og gjev lausare kobling","isCorrect":true},{"id":"b","text":"Han krev alltid mindre kode","isCorrect":false},{"id":"c","text":"Han gjev alltid raskare køyretid","isCorrect":false},{"id":"d","text":"Han fjernar behovet for objekt","isCorrect":false}],"solution":"Komposisjon gjev lausare kobling og lèt deg endre oppførsel under køyring, noko som gjer koden meir vedlikehaldbar og testbar."},{"id":"it-2-2-1-n-quiz2-q1","task":"Kva betyr mottoet «favor composition over inheritance»?","options":[{"id":"a","text":"Bruk alltid arv","isCorrect":false},{"id":"b","text":"Føretrekk å kombinere objekt framfor å arve oppførsel","isCorrect":true},{"id":"c","text":"Unngå alle klassar","isCorrect":false},{"id":"d","text":"Bruk så djupe arvshierarki som mogleg","isCorrect":false}],"solution":"Mottoet rår til å byggje funksjonalitet ved komposisjon framfor arv, særleg når ein er i tvil."},{"id":"it-2-2-1-n-quiz2-q2","task":"Kvifor er and-dømet enklare med komposisjon?","options":[{"id":"a","text":"Du slepp å bruke metodar","isCorrect":false},{"id":"b","text":"Komposisjon krev ingen objekt","isCorrect":false},{"id":"c","text":"Du kan byte flyteknikk utan å lage ein ny klasse","isCorrect":true},{"id":"d","text":"Anda treng ikkje symje","isCorrect":false}],"solution":"Med komposisjon kan du sende inn ulik oppførsel til same And-klasse, medan arv ville kravt ein ny klasse for kvar variant."}]}},{"id":"it-2-2-1-n-section2","type":"text","content":"## Komposisjon, aggregering og delegering i praksis\n\nInnanfor komposisjon finst det ein gradsskilnad som er verdt å kjenne til. Ekte **komposisjon** er ei tett kobling der delane ikkje kan eksistere utan heilskapen. Eit hjarte gjev ikkje meining utan ein person; lagar `Person`-klassen sjølv sitt `Hjerte` i konstruktøren, forsvinn hjartet når personen forsvinn. **Aggregering** er ein svakare variant, ei lausare kobling der delane kan leve uavhengig. Fire `Hjul`-objekt kan lagast utanfor bilen og sendast inn til han – hjula eksisterer framleis sjølv om bilen blir sletta. I praksis blir ofte begge orda brukte om kvarandre, men skilnaden ligg i kven som «eig» delane og om dei kan leve på eiga hand.\n\nKomposisjon skin når du set saman eit system av samarbeidande delar. Eit spel kan *ha* eit grafikk-objekt, eit lyd-objekt og eit inndata-objekt, og delegere oppgåver til kvar av dei: grafikken teiknar skjermen, lyden spelar effektar, inndata les tastetrykk. `Spill`-klassen koordinerer, men gjer ikkje alt sjølv. Tilsvarande følgjer ein `Smarttelefon` komposisjonsprinsippet best når han *inneheld* eit `Kamera`, ein `GPS` og ein `Skjerm` som attributt – ikkje ved å arve frå dei alle gjennom multippel arv. Hugs samtidig at arv framleis er rett verktøy når relasjonen verkeleg er er-ein: ein hund er eit dyr, og det held fram å vere eit arvsforhold."},{"id":"it-2-2-1-n-quiz3","type":"exercise","exercise":{"id":"it-2-2-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på aggregering og val av teknikk:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-2-2-1-n-quiz3-q0","task":"Kva er skilnaden på komposisjon og aggregering?","options":[{"id":"a","text":"Komposisjon bruker arv, aggregering ikkje","isCorrect":false},{"id":"b","text":"Aggregering er raskare","isCorrect":false},{"id":"c","text":"Det er ingen skilnad","isCorrect":false},{"id":"d","text":"I komposisjon eig objektet delane tett; i aggregering kan delane eksistere uavhengig","isCorrect":true}],"solution":"I komposisjon er delane tett kobla og forsvinn med heilskapen; i aggregering kan delane leve uavhengig."},{"id":"it-2-2-1-n-quiz3-q1","task":"Kva Smarttelefon-design følgjer komposisjonsprinsippet best?","options":[{"id":"a","text":"Ein Smarttelefon som inneheld Kamera(), GPS() og Skjerm() som attributt","isCorrect":true},{"id":"b","text":"class Smarttelefon(Kamera, GPS, Skjerm): pass","isCorrect":false},{"id":"c","text":"La Kamera arve frå Smarttelefon","isCorrect":false},{"id":"d","text":"Slå alt saman til éin stor klasse","isCorrect":false}],"solution":"Komposisjon betyr at Smarttelefon inneheld objekta som attributt, framfor å arve frå dei alle."},{"id":"it-2-2-1-n-quiz3-q2","task":"Kva situasjon passar BEST for arv?","options":[{"id":"a","text":"Ein Bil har ein Motor","isCorrect":false},{"id":"b","text":"Ein Hund er eit Dyr","isCorrect":true},{"id":"c","text":"Ein Person har eit Hjarte","isCorrect":false},{"id":"d","text":"Eit Hus har Vindauge","isCorrect":false}],"solution":"Arv passar for er-ein-relasjonar. Ein hund er eit dyr, medan dei andre er har-ein og passar for komposisjon."}]}},{"id":"it-2-2-1-n-summary","type":"text","content":"## Oppsummering\n\nVi gjekk frå «er-ein» til «har-ein». **Komposisjon** betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin, og **delegering** er å overlate ansvar til desse innebygde objekta i staden for å gjere alt sjølv. **Aggregering** er ein svakare, lausare variant der delane kan eksistere uavhengig av heilskapen.\n\nDesignprinsippet «favor composition over inheritance» minner oss om at komposisjon ofte er det beste valet: han gjev meir fleksibilitet, lausare kobling og enklare testing, og lèt oss endre oppførsel under køyring – som anda som kan byte flyteknikk utan å bli ein ny klasse. Men arv har framleis sin plass når relasjonen verkeleg er er-ein, som at ein hund er eit dyr. I neste kapittel skal vi bruke komposisjon til å byggje datastrukturar."}],"exercises":[],"_meta":{"sourceHash":"6e62a112b54d04b5","translatedAt":"2026-06-20T23:59:44.539Z","model":"claude-code-agent","strings":70,"tm":{"e138e9b0ed7933f0":"Komposisjon og aggregering","b195b06d1ed59702":"Narrativ versjon","52eec4de81c2eba1":"Ei forteljing om korleis vi byggjer komplekse objekt ved å setje saman enklare – frå bilen som har ein motor til anda som kan byte ut flyteknikken sin utan å bli ein ny klasse.","aec383539889aba0":"Forstå skilnaden mellom komposisjon (har-ein) og arv (er-ein)","88c24850a8b17aa6":"Implementere komposisjon og delegering i Python","b7f20f72f3a1f4a2":"Vurdere når komposisjon er betre enn arv","5df7d4b15b5c6d8e":"## Har-ein, ikkje er-ein\n\nDu har lært om arv, der ein klasse *er ein* spesialisering av ein annan. Men svært ofte er det noko anna vi eigentleg vil uttrykkje: at ein klasse *har ein* annan som ein del av seg sjølv. Ein bil er ikkje ein motor – men ein bil har ein motor. Denne tankegangen blir kalla **komposisjon**, og er eit kraftig alternativ til arv.\n\nKomposisjon er når eitt objekt inneheld eitt eller fleire andre objekt som ein del av tilstanden sin. I staden for at `Bil` arvar frå `Motor`, lèt vi `Bil` lage og halde eit `Motor`-objekt:\n\n```python\nclass Motor:\n    def __init__(self, hestekrefter):\n        self.hestekrefter = hestekrefter\n    def start(self):\n        print(f\"Motor med {self.hestekrefter} hk startet!\")\n\nclass Bil:\n    def __init__(self, merke, hestekrefter):\n        self.merke = merke\n        self.motor = Motor(hestekrefter)  # komposisjon\n    def start_bil(self):\n        self.motor.start()  # delegering\n```\n\nLegg merke til to omgrep her. Sjølve det at bilen *inneheld* ein motor er komposisjon. Det at bilen *overlèt* startoppgåva til motoren, i staden for å gjere ho sjølv, blir kalla **delegering**. Bilen seier i praksis: «motor, start deg sjølv» – og slepp å vite korleis.","e52bbbdf27a66e46":"Test deg sjølv på komposisjon og delegering:","4097889236a2af26":"placeholder","57767b3abcffb378":"Kva skildrar best komposisjon?","7b40e23f323b6171":"Ein klasse arvar frå ein annan klasse","2f73c8371aa24773":"Ein klasse inneheld objekt av andre klassar","66dd31f9fdc63783":"Ein klasse overstyrer superklassens metodar","9265b16bbfc21add":"Ein klasse har berre statiske metodar","c5d5b3f849b69994":"Komposisjon betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin – ein har-ein-relasjon.","68ed627d954f1463":"Kva betyr delegering?","05124fe0d9010f5f":"Å slette eit objekt","7a8d74f8ac82b145":"Å arve frå to klassar samtidig","c0d5d94f6fb35d11":"Å overlate ansvar til eit innebygt objekt i staden for å gjere alt sjølv","37ffd8738f1f26d8":"Å gjere eit attributt privat","1a46ed0f7a069972":"Delegering er å la eit innebygt objekt utføre oppgåva, slik bilen lèt motoren starte seg sjølv.","647d122af29d1d56":"Kva relasjon uttrykkjer `self.motor = Motor()` inni Bil?","c395d0f8e6e26f0d":"Bil er ein Motor","9522b3c23aaa24d7":"Motor arvar frå Bil","6f6c8417ee2cdfee":"Bil og Motor er same klasse","0e0fe74ec79a2c5d":"Bil har ein Motor","e800d766a239fd10":"Bilen inneheld eit motor-objekt – ein har-ein-relasjon, altså komposisjon.","4dc07c247b1d3e62":"## Kvifor komposisjon ofte slår arv\n\nDet finst eit velkjent designprinsipp: «favor composition over inheritance» – føretrekk å byggje funksjonalitet ved å kombinere objekt framfor å arve oppførsel. Kvifor? Komposisjon er meir fleksibel, fordi du kan endre oppførsel medan programmet køyrer. Han gjev lausare kobling, fordi objekta er mindre avhengige av kvarandre. Han gjer testing enklare, fordi du kan byte ut delar. Og han unngår problema med djupe, stive arvshierarki.\n\nEit klassisk døme er ei and. Med arv kunne du la `And` arve frå både `Flygende` og `Svømmende`. Men kva om du seinare vil ha ei and som ikkje kan fly? Då må du lage ein heilt ny klasse. Med komposisjon gjev du anda ein flyteknikk og ein symjeteknikk som objekt:\n\n```python\nclass And:\n    def __init__(self, fly_oppførsel, svøm_oppførsel):\n        self.fly_oppførsel = fly_oppførsel\n        self.svøm_oppførsel = svøm_oppførsel\n    def fly(self):\n        self.fly_oppførsel.utfør()\n```\n\nNo kan du lage `And(FlyOppførsel(), SvømOppførsel())` for ei vanleg and, eller `And(IngenFlyOppførsel(), SvømOppførsel())` for ei and som ikkje kan fly. Du byter oppførsel utan å lage nye klassar. Det er fleksibiliteten komposisjon gjev.","448b7f4fed6efc2b":"Test deg sjølv på fordelane med komposisjon:","e13c3d90fc55ff89":"Kva er hovudfordelen med komposisjon framfor arv?","88735681f39603dc":"Han er meir fleksibel og gjev lausare kobling","40654dd48f5c2cea":"Han krev alltid mindre kode","e10ac87e0d769d9f":"Han gjev alltid raskare køyretid","f6c2d5a9c24b2d82":"Han fjernar behovet for objekt","498dac2ebd45571e":"Komposisjon gjev lausare kobling og lèt deg endre oppførsel under køyring, noko som gjer koden meir vedlikehaldbar og testbar.","081c322206eb4e19":"Kva betyr mottoet «favor composition over inheritance»?","09c41147ab8cd23f":"Bruk alltid arv","efcfec4f4a1f3583":"Føretrekk å kombinere objekt framfor å arve oppførsel","62539ad5be77657d":"Unngå alle klassar","d0b4081d57f2849f":"Bruk så djupe arvshierarki som mogleg","c5ea13099f1a0637":"Mottoet rår til å byggje funksjonalitet ved komposisjon framfor arv, særleg når ein er i tvil.","86aee7a1c7b83513":"Kvifor er and-dømet enklare med komposisjon?","783bd1725ad7cfdf":"Du slepp å bruke metodar","cf7e64fe030597de":"Komposisjon krev ingen objekt","f4426169f1caa773":"Du kan byte flyteknikk utan å lage ein ny klasse","ccc3f0b26cf8fa3d":"Anda treng ikkje symje","02a9105800295878":"Med komposisjon kan du sende inn ulik oppførsel til same And-klasse, medan arv ville kravt ein ny klasse for kvar variant.","8f7099ff57bdd5ee":"## Komposisjon, aggregering og delegering i praksis\n\nInnanfor komposisjon finst det ein gradsskilnad som er verdt å kjenne til. Ekte **komposisjon** er ei tett kobling der delane ikkje kan eksistere utan heilskapen. Eit hjarte gjev ikkje meining utan ein person; lagar `Person`-klassen sjølv sitt `Hjerte` i konstruktøren, forsvinn hjartet når personen forsvinn. **Aggregering** er ein svakare variant, ei lausare kobling der delane kan leve uavhengig. Fire `Hjul`-objekt kan lagast utanfor bilen og sendast inn til han – hjula eksisterer framleis sjølv om bilen blir sletta. I praksis blir ofte begge orda brukte om kvarandre, men skilnaden ligg i kven som «eig» delane og om dei kan leve på eiga hand.\n\nKomposisjon skin når du set saman eit system av samarbeidande delar. Eit spel kan *ha* eit grafikk-objekt, eit lyd-objekt og eit inndata-objekt, og delegere oppgåver til kvar av dei: grafikken teiknar skjermen, lyden spelar effektar, inndata les tastetrykk. `Spill`-klassen koordinerer, men gjer ikkje alt sjølv. Tilsvarande følgjer ein `Smarttelefon` komposisjonsprinsippet best når han *inneheld* eit `Kamera`, ein `GPS` og ein `Skjerm` som attributt – ikkje ved å arve frå dei alle gjennom multippel arv. Hugs samtidig at arv framleis er rett verktøy når relasjonen verkeleg er er-ein: ein hund er eit dyr, og det held fram å vere eit arvsforhold.","8eb2986a266bb853":"Test deg sjølv på aggregering og val av teknikk:","e709fe7c23945935":"Kva er skilnaden på komposisjon og aggregering?","d0962aef7261ddc2":"Komposisjon bruker arv, aggregering ikkje","b5a7dab4ee25e637":"Aggregering er raskare","290d93c2e3522153":"Det er ingen skilnad","69a7edfd94e807ac":"I komposisjon eig objektet delane tett; i aggregering kan delane eksistere uavhengig","c5ff302f2e2e386a":"I komposisjon er delane tett kobla og forsvinn med heilskapen; i aggregering kan delane leve uavhengig.","5d51b4f2b0afa59d":"Kva Smarttelefon-design følgjer komposisjonsprinsippet best?","61bc4a704da50deb":"Ein Smarttelefon som inneheld Kamera(), GPS() og Skjerm() som attributt","50ab4e7accaa8959":"class Smarttelefon(Kamera, GPS, Skjerm): pass","4569946e75b4ca55":"La Kamera arve frå Smarttelefon","e0ea475726a418aa":"Slå alt saman til éin stor klasse","88373fae71537247":"Komposisjon betyr at Smarttelefon inneheld objekta som attributt, framfor å arve frå dei alle.","740d59db80d22ebf":"Kva situasjon passar BEST for arv?","6a623c5c338a0944":"Ein Bil har ein Motor","569b196ab8c95d3f":"Ein Hund er eit Dyr","a5f28607b89b9975":"Ein Person har eit Hjarte","b62c2c4a8f877131":"Eit Hus har Vindauge","d009991a376f7798":"Arv passar for er-ein-relasjonar. Ein hund er eit dyr, medan dei andre er har-ein og passar for komposisjon.","352e16c3244fae61":"## Oppsummering\n\nVi gjekk frå «er-ein» til «har-ein». **Komposisjon** betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin, og **delegering** er å overlate ansvar til desse innebygde objekta i staden for å gjere alt sjølv. **Aggregering** er ein svakare, lausare variant der delane kan eksistere uavhengig av heilskapen.\n\nDesignprinsippet «favor composition over inheritance» minner oss om at komposisjon ofte er det beste valet: han gjev meir fleksibilitet, lausare kobling og enklare testing, og lèt oss endre oppførsel under køyring – som anda som kan byte flyteknikk utan å bli ein ny klasse. Men arv har framleis sin plass når relasjonen verkeleg er er-ein, som at ein hund er eit dyr. I neste kapittel skal vi bruke komposisjon til å byggje datastrukturar."}}}
+{
+  "id": "it-2-2-1-narrativ",
+  "courseId": "it-2",
+  "chapterNumber": "1",
+  "title": "Komposisjon og aggregering",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om korleis vi byggjer komplekse objekt ved å setje saman enklare – frå bilen som har ein motor til anda som kan byte ut flyteknikken sin utan å bli ein ny klasse.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "Forstå skilnaden mellom komposisjon (har-ein) og arv (er-ein)",
+    "Implementere komposisjon og delegering i Python",
+    "Vurdere når komposisjon er betre enn arv"
+  ],
+  "linkedChapterId": "it-2-2-1",
+  "content": [
+    {
+      "id": "it-2-2-1-n-intro",
+      "type": "text",
+      "content": "## Har-ein, ikkje er-ein\n\nDu har lært om arv, der ein klasse *er ein* spesialisering av ein annan. Men svært ofte er det noko anna vi eigentleg vil uttrykkje: at ein klasse *har ein* annan som ein del av seg sjølv. Ein bil er ikkje ein motor – men ein bil har ein motor. Denne tankegangen blir kalla **komposisjon**, og er eit kraftig alternativ til arv.\n\nKomposisjon er når eitt objekt inneheld eitt eller fleire andre objekt som ein del av tilstanden sin. I staden for at `Bil` arvar frå `Motor`, lèt vi `Bil` lage og halde eit `Motor`-objekt:\n\n```python\nclass Motor:\n    def __init__(self, hestekrefter):\n        self.hestekrefter = hestekrefter\n    def start(self):\n        print(f\"Motor med {self.hestekrefter} hk startet!\")\n\nclass Bil:\n    def __init__(self, merke, hestekrefter):\n        self.merke = merke\n        self.motor = Motor(hestekrefter)  # komposisjon\n    def start_bil(self):\n        self.motor.start()  # delegering\n```\n\nLegg merke til to omgrep her. Sjølve det at bilen *inneheld* ein motor er komposisjon. Det at bilen *overlèt* startoppgåva til motoren, i staden for å gjere ho sjølv, blir kalla **delegering**. Bilen seier i praksis: «motor, start deg sjølv» – og slepp å vite korleis."
+    },
+    {
+      "id": "it-2-2-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-2-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på komposisjon og delegering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-2-1-n-quiz1-q0",
+            "task": "Kva skildrar best komposisjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein klasse inneheld objekt av andre klassar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein klasse arvar frå ein annan klasse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein klasse overstyrer superklassens metodar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ein klasse har berre statiske metodar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Komposisjon betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin – ein har-ein-relasjon."
+          },
+          {
+            "id": "it-2-2-1-n-quiz1-q1",
+            "task": "Kva betyr delegering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å slette eit objekt",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å overlate ansvar til eit innebygt objekt i staden for å gjere alt sjølv",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Å arve frå to klassar samtidig",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å gjere eit attributt privat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Delegering er å la eit innebygt objekt utføre oppgåva, slik bilen lèt motoren starte seg sjølv."
+          },
+          {
+            "id": "it-2-2-1-n-quiz1-q2",
+            "task": "Kva relasjon uttrykkjer `self.motor = Motor()` inni Bil?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bil er ein Motor",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Motor arvar frå Bil",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bil har ein Motor",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Bil og Motor er same klasse",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Bilen inneheld eit motor-objekt – ein har-ein-relasjon, altså komposisjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-2-1-n-section1",
+      "type": "text",
+      "content": "## Kvifor komposisjon ofte slår arv\n\nDet finst eit velkjent designprinsipp: «favor composition over inheritance» – føretrekk å byggje funksjonalitet ved å kombinere objekt framfor å arve oppførsel. Kvifor? Komposisjon er meir fleksibel, fordi du kan endre oppførsel medan programmet køyrer. Han gjev lausare kobling, fordi objekta er mindre avhengige av kvarandre. Han gjer testing enklare, fordi du kan byte ut delar. Og han unngår problema med djupe, stive arvshierarki.\n\nEit klassisk døme er ei and. Med arv kunne du la `And` arve frå både `Flygende` og `Svømmende`. Men kva om du seinare vil ha ei and som ikkje kan fly? Då må du lage ein heilt ny klasse. Med komposisjon gjev du anda ein flyteknikk og ein symjeteknikk som objekt:\n\n```python\nclass And:\n    def __init__(self, fly_oppførsel, svøm_oppførsel):\n        self.fly_oppførsel = fly_oppførsel\n        self.svøm_oppførsel = svøm_oppførsel\n    def fly(self):\n        self.fly_oppførsel.utfør()\n```\n\nNo kan du lage `And(FlyOppførsel(), SvømOppførsel())` for ei vanleg and, eller `And(IngenFlyOppførsel(), SvømOppførsel())` for ei and som ikkje kan fly. Du byter oppførsel utan å lage nye klassar. Det er fleksibiliteten komposisjon gjev."
+    },
+    {
+      "id": "it-2-2-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-2-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på fordelane med komposisjon:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-2-1-n-quiz2-q0",
+            "task": "Kva er hovudfordelen med komposisjon framfor arv?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Han krev alltid mindre kode",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Han gjev alltid raskare køyretid",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Han fjernar behovet for objekt",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Han er meir fleksibel og gjev lausare kobling",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Komposisjon gjev lausare kobling og lèt deg endre oppførsel under køyring, noko som gjer koden meir vedlikehaldbar og testbar."
+          },
+          {
+            "id": "it-2-2-1-n-quiz2-q1",
+            "task": "Kva betyr mottoet «favor composition over inheritance»?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Føretrekk å kombinere objekt framfor å arve oppførsel",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Bruk alltid arv",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Unngå alle klassar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bruk så djupe arvshierarki som mogleg",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Mottoet rår til å byggje funksjonalitet ved komposisjon framfor arv, særleg når ein er i tvil."
+          },
+          {
+            "id": "it-2-2-1-n-quiz2-q2",
+            "task": "Kvifor er and-dømet enklare med komposisjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Du slepp å bruke metodar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Du kan byte flyteknikk utan å lage ein ny klasse",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Komposisjon krev ingen objekt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Anda treng ikkje symje",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med komposisjon kan du sende inn ulik oppførsel til same And-klasse, medan arv ville kravt ein ny klasse for kvar variant."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-2-1-n-section2",
+      "type": "text",
+      "content": "## Komposisjon, aggregering og delegering i praksis\n\nInnanfor komposisjon finst det ein gradsskilnad som er verdt å kjenne til. Ekte **komposisjon** er ei tett kobling der delane ikkje kan eksistere utan heilskapen. Eit hjarte gjev ikkje meining utan ein person; lagar `Person`-klassen sjølv sitt `Hjerte` i konstruktøren, forsvinn hjartet når personen forsvinn. **Aggregering** er ein svakare variant, ei lausare kobling der delane kan leve uavhengig. Fire `Hjul`-objekt kan lagast utanfor bilen og sendast inn til han – hjula eksisterer framleis sjølv om bilen blir sletta. I praksis blir ofte begge orda brukte om kvarandre, men skilnaden ligg i kven som «eig» delane og om dei kan leve på eiga hand.\n\nKomposisjon skin når du set saman eit system av samarbeidande delar. Eit spel kan *ha* eit grafikk-objekt, eit lyd-objekt og eit inndata-objekt, og delegere oppgåver til kvar av dei: grafikken teiknar skjermen, lyden spelar effektar, inndata les tastetrykk. `Spill`-klassen koordinerer, men gjer ikkje alt sjølv. Tilsvarande følgjer ein `Smarttelefon` komposisjonsprinsippet best når han *inneheld* eit `Kamera`, ein `GPS` og ein `Skjerm` som attributt – ikkje ved å arve frå dei alle gjennom multippel arv. Hugs samtidig at arv framleis er rett verktøy når relasjonen verkeleg er er-ein: ein hund er eit dyr, og det held fram å vere eit arvsforhold."
+    },
+    {
+      "id": "it-2-2-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-2-2-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på aggregering og val av teknikk:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-2-2-1-n-quiz3-q0",
+            "task": "Kva er skilnaden på komposisjon og aggregering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Komposisjon bruker arv, aggregering ikkje",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Aggregering er raskare",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "I komposisjon eig objektet delane tett; i aggregering kan delane eksistere uavhengig",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Det er ingen skilnad",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I komposisjon er delane tett kobla og forsvinn med heilskapen; i aggregering kan delane leve uavhengig."
+          },
+          {
+            "id": "it-2-2-1-n-quiz3-q1",
+            "task": "Kva Smarttelefon-design følgjer komposisjonsprinsippet best?",
+            "options": [
+              {
+                "id": "b",
+                "text": "class Smarttelefon(Kamera, GPS, Skjerm): pass",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "La Kamera arve frå Smarttelefon",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Slå alt saman til éin stor klasse",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Ein Smarttelefon som inneheld Kamera(), GPS() og Skjerm() som attributt",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Komposisjon betyr at Smarttelefon inneheld objekta som attributt, framfor å arve frå dei alle."
+          },
+          {
+            "id": "it-2-2-1-n-quiz3-q2",
+            "task": "Kva situasjon passar BEST for arv?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Ein Hund er eit Dyr",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ein Bil har ein Motor",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ein Person har eit Hjarte",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Eit Hus har Vindauge",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Arv passar for er-ein-relasjonar. Ein hund er eit dyr, medan dei andre er har-ein og passar for komposisjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-2-2-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi gjekk frå «er-ein» til «har-ein». **Komposisjon** betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin, og **delegering** er å overlate ansvar til desse innebygde objekta i staden for å gjere alt sjølv. **Aggregering** er ein svakare, lausare variant der delane kan eksistere uavhengig av heilskapen.\n\nDesignprinsippet «favor composition over inheritance» minner oss om at komposisjon ofte er det beste valet: han gjev meir fleksibilitet, lausare kobling og enklare testing, og lèt oss endre oppførsel under køyring – som anda som kan byte flyteknikk utan å bli ein ny klasse. Men arv har framleis sin plass når relasjonen verkeleg er er-ein, som at ein hund er eit dyr. I neste kapittel skal vi bruke komposisjon til å byggje datastrukturar."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "6e62a112b54d04b5",
+    "translatedAt": "2026-06-20T23:59:44.539Z",
+    "model": "claude-code-agent",
+    "strings": 70,
+    "tm": {
+      "e138e9b0ed7933f0": "Komposisjon og aggregering",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "52eec4de81c2eba1": "Ei forteljing om korleis vi byggjer komplekse objekt ved å setje saman enklare – frå bilen som har ein motor til anda som kan byte ut flyteknikken sin utan å bli ein ny klasse.",
+      "aec383539889aba0": "Forstå skilnaden mellom komposisjon (har-ein) og arv (er-ein)",
+      "88c24850a8b17aa6": "Implementere komposisjon og delegering i Python",
+      "b7f20f72f3a1f4a2": "Vurdere når komposisjon er betre enn arv",
+      "5df7d4b15b5c6d8e": "## Har-ein, ikkje er-ein\n\nDu har lært om arv, der ein klasse *er ein* spesialisering av ein annan. Men svært ofte er det noko anna vi eigentleg vil uttrykkje: at ein klasse *har ein* annan som ein del av seg sjølv. Ein bil er ikkje ein motor – men ein bil har ein motor. Denne tankegangen blir kalla **komposisjon**, og er eit kraftig alternativ til arv.\n\nKomposisjon er når eitt objekt inneheld eitt eller fleire andre objekt som ein del av tilstanden sin. I staden for at `Bil` arvar frå `Motor`, lèt vi `Bil` lage og halde eit `Motor`-objekt:\n\n```python\nclass Motor:\n    def __init__(self, hestekrefter):\n        self.hestekrefter = hestekrefter\n    def start(self):\n        print(f\"Motor med {self.hestekrefter} hk startet!\")\n\nclass Bil:\n    def __init__(self, merke, hestekrefter):\n        self.merke = merke\n        self.motor = Motor(hestekrefter)  # komposisjon\n    def start_bil(self):\n        self.motor.start()  # delegering\n```\n\nLegg merke til to omgrep her. Sjølve det at bilen *inneheld* ein motor er komposisjon. Det at bilen *overlèt* startoppgåva til motoren, i staden for å gjere ho sjølv, blir kalla **delegering**. Bilen seier i praksis: «motor, start deg sjølv» – og slepp å vite korleis.",
+      "e52bbbdf27a66e46": "Test deg sjølv på komposisjon og delegering:",
+      "4097889236a2af26": "placeholder",
+      "57767b3abcffb378": "Kva skildrar best komposisjon?",
+      "7b40e23f323b6171": "Ein klasse arvar frå ein annan klasse",
+      "2f73c8371aa24773": "Ein klasse inneheld objekt av andre klassar",
+      "66dd31f9fdc63783": "Ein klasse overstyrer superklassens metodar",
+      "9265b16bbfc21add": "Ein klasse har berre statiske metodar",
+      "c5d5b3f849b69994": "Komposisjon betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin – ein har-ein-relasjon.",
+      "68ed627d954f1463": "Kva betyr delegering?",
+      "05124fe0d9010f5f": "Å slette eit objekt",
+      "7a8d74f8ac82b145": "Å arve frå to klassar samtidig",
+      "c0d5d94f6fb35d11": "Å overlate ansvar til eit innebygt objekt i staden for å gjere alt sjølv",
+      "37ffd8738f1f26d8": "Å gjere eit attributt privat",
+      "1a46ed0f7a069972": "Delegering er å la eit innebygt objekt utføre oppgåva, slik bilen lèt motoren starte seg sjølv.",
+      "647d122af29d1d56": "Kva relasjon uttrykkjer `self.motor = Motor()` inni Bil?",
+      "c395d0f8e6e26f0d": "Bil er ein Motor",
+      "9522b3c23aaa24d7": "Motor arvar frå Bil",
+      "6f6c8417ee2cdfee": "Bil og Motor er same klasse",
+      "0e0fe74ec79a2c5d": "Bil har ein Motor",
+      "e800d766a239fd10": "Bilen inneheld eit motor-objekt – ein har-ein-relasjon, altså komposisjon.",
+      "4dc07c247b1d3e62": "## Kvifor komposisjon ofte slår arv\n\nDet finst eit velkjent designprinsipp: «favor composition over inheritance» – føretrekk å byggje funksjonalitet ved å kombinere objekt framfor å arve oppførsel. Kvifor? Komposisjon er meir fleksibel, fordi du kan endre oppførsel medan programmet køyrer. Han gjev lausare kobling, fordi objekta er mindre avhengige av kvarandre. Han gjer testing enklare, fordi du kan byte ut delar. Og han unngår problema med djupe, stive arvshierarki.\n\nEit klassisk døme er ei and. Med arv kunne du la `And` arve frå både `Flygende` og `Svømmende`. Men kva om du seinare vil ha ei and som ikkje kan fly? Då må du lage ein heilt ny klasse. Med komposisjon gjev du anda ein flyteknikk og ein symjeteknikk som objekt:\n\n```python\nclass And:\n    def __init__(self, fly_oppførsel, svøm_oppførsel):\n        self.fly_oppførsel = fly_oppførsel\n        self.svøm_oppførsel = svøm_oppførsel\n    def fly(self):\n        self.fly_oppførsel.utfør()\n```\n\nNo kan du lage `And(FlyOppførsel(), SvømOppførsel())` for ei vanleg and, eller `And(IngenFlyOppførsel(), SvømOppførsel())` for ei and som ikkje kan fly. Du byter oppførsel utan å lage nye klassar. Det er fleksibiliteten komposisjon gjev.",
+      "448b7f4fed6efc2b": "Test deg sjølv på fordelane med komposisjon:",
+      "e13c3d90fc55ff89": "Kva er hovudfordelen med komposisjon framfor arv?",
+      "88735681f39603dc": "Han er meir fleksibel og gjev lausare kobling",
+      "40654dd48f5c2cea": "Han krev alltid mindre kode",
+      "e10ac87e0d769d9f": "Han gjev alltid raskare køyretid",
+      "f6c2d5a9c24b2d82": "Han fjernar behovet for objekt",
+      "498dac2ebd45571e": "Komposisjon gjev lausare kobling og lèt deg endre oppførsel under køyring, noko som gjer koden meir vedlikehaldbar og testbar.",
+      "081c322206eb4e19": "Kva betyr mottoet «favor composition over inheritance»?",
+      "09c41147ab8cd23f": "Bruk alltid arv",
+      "efcfec4f4a1f3583": "Føretrekk å kombinere objekt framfor å arve oppførsel",
+      "62539ad5be77657d": "Unngå alle klassar",
+      "d0b4081d57f2849f": "Bruk så djupe arvshierarki som mogleg",
+      "c5ea13099f1a0637": "Mottoet rår til å byggje funksjonalitet ved komposisjon framfor arv, særleg når ein er i tvil.",
+      "86aee7a1c7b83513": "Kvifor er and-dømet enklare med komposisjon?",
+      "783bd1725ad7cfdf": "Du slepp å bruke metodar",
+      "cf7e64fe030597de": "Komposisjon krev ingen objekt",
+      "f4426169f1caa773": "Du kan byte flyteknikk utan å lage ein ny klasse",
+      "ccc3f0b26cf8fa3d": "Anda treng ikkje symje",
+      "02a9105800295878": "Med komposisjon kan du sende inn ulik oppførsel til same And-klasse, medan arv ville kravt ein ny klasse for kvar variant.",
+      "8f7099ff57bdd5ee": "## Komposisjon, aggregering og delegering i praksis\n\nInnanfor komposisjon finst det ein gradsskilnad som er verdt å kjenne til. Ekte **komposisjon** er ei tett kobling der delane ikkje kan eksistere utan heilskapen. Eit hjarte gjev ikkje meining utan ein person; lagar `Person`-klassen sjølv sitt `Hjerte` i konstruktøren, forsvinn hjartet når personen forsvinn. **Aggregering** er ein svakare variant, ei lausare kobling der delane kan leve uavhengig. Fire `Hjul`-objekt kan lagast utanfor bilen og sendast inn til han – hjula eksisterer framleis sjølv om bilen blir sletta. I praksis blir ofte begge orda brukte om kvarandre, men skilnaden ligg i kven som «eig» delane og om dei kan leve på eiga hand.\n\nKomposisjon skin når du set saman eit system av samarbeidande delar. Eit spel kan *ha* eit grafikk-objekt, eit lyd-objekt og eit inndata-objekt, og delegere oppgåver til kvar av dei: grafikken teiknar skjermen, lyden spelar effektar, inndata les tastetrykk. `Spill`-klassen koordinerer, men gjer ikkje alt sjølv. Tilsvarande følgjer ein `Smarttelefon` komposisjonsprinsippet best når han *inneheld* eit `Kamera`, ein `GPS` og ein `Skjerm` som attributt – ikkje ved å arve frå dei alle gjennom multippel arv. Hugs samtidig at arv framleis er rett verktøy når relasjonen verkeleg er er-ein: ein hund er eit dyr, og det held fram å vere eit arvsforhold.",
+      "8eb2986a266bb853": "Test deg sjølv på aggregering og val av teknikk:",
+      "e709fe7c23945935": "Kva er skilnaden på komposisjon og aggregering?",
+      "d0962aef7261ddc2": "Komposisjon bruker arv, aggregering ikkje",
+      "b5a7dab4ee25e637": "Aggregering er raskare",
+      "290d93c2e3522153": "Det er ingen skilnad",
+      "69a7edfd94e807ac": "I komposisjon eig objektet delane tett; i aggregering kan delane eksistere uavhengig",
+      "c5ff302f2e2e386a": "I komposisjon er delane tett kobla og forsvinn med heilskapen; i aggregering kan delane leve uavhengig.",
+      "5d51b4f2b0afa59d": "Kva Smarttelefon-design følgjer komposisjonsprinsippet best?",
+      "61bc4a704da50deb": "Ein Smarttelefon som inneheld Kamera(), GPS() og Skjerm() som attributt",
+      "50ab4e7accaa8959": "class Smarttelefon(Kamera, GPS, Skjerm): pass",
+      "4569946e75b4ca55": "La Kamera arve frå Smarttelefon",
+      "e0ea475726a418aa": "Slå alt saman til éin stor klasse",
+      "88373fae71537247": "Komposisjon betyr at Smarttelefon inneheld objekta som attributt, framfor å arve frå dei alle.",
+      "740d59db80d22ebf": "Kva situasjon passar BEST for arv?",
+      "6a623c5c338a0944": "Ein Bil har ein Motor",
+      "569b196ab8c95d3f": "Ein Hund er eit Dyr",
+      "a5f28607b89b9975": "Ein Person har eit Hjarte",
+      "b62c2c4a8f877131": "Eit Hus har Vindauge",
+      "d009991a376f7798": "Arv passar for er-ein-relasjonar. Ein hund er eit dyr, medan dei andre er har-ein og passar for komposisjon.",
+      "352e16c3244fae61": "## Oppsummering\n\nVi gjekk frå «er-ein» til «har-ein». **Komposisjon** betyr at ein klasse inneheld objekt av andre klassar som del av tilstanden sin, og **delegering** er å overlate ansvar til desse innebygde objekta i staden for å gjere alt sjølv. **Aggregering** er ein svakare, lausare variant der delane kan eksistere uavhengig av heilskapen.\n\nDesignprinsippet «favor composition over inheritance» minner oss om at komposisjon ofte er det beste valet: han gjev meir fleksibilitet, lausare kobling og enklare testing, og lèt oss endre oppførsel under køyring – som anda som kan byte flyteknikk utan å bli ein ny klasse. Men arv har framleis sin plass når relasjonen verkeleg er er-ein, som at ein hund er eit dyr. I neste kapittel skal vi bruke komposisjon til å byggje datastrukturar."
+    }
+  }
+}

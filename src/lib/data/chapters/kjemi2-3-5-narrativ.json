@@ -1,1 +1,296 @@
-{"id":"kjemi2-3-5-narrativ","courseId":"kjemi2","chapterNumber":"3.5","title":"Sammenheng mellom K og ΔG","subtitle":"Narrativ versjon","description":"En fortelling om broen mellom termodynamikk og likevekt -- ligningen ΔG° = -RT ln K -- som lar oss regne ut likevektskonstanten fra energi alene, og forutsi hvordan den endrer seg med temperaturen.","estimatedMinutes":42,"competenceGoals":["bruke formelen ΔG° = -RT ln K til å beregne K fra ΔG° og omvendt","beregne likevektskonstanten K fra termodynamiske data (ΔH° og ΔS°)","anvende van't Hoff-likningen for å beregne temperaturavhengighet av K","tolke sammenhengen mellom K, ΔG og spontanitet","løse praktiske anvendelsesproblemer med termodynamikk og likevekt"],"linkedChapterId":"kjemi2-3-5","content":[{"id":"kjemi2-3-5-n-intro","type":"text","content":"## To språk for samme virkelighet\n\nVi har studert to store temaer hver for seg: termodynamikkens Gibbs fri energi (ΔG) og likevektens konstant (K). Men her kommer en av kjemiens vakreste innsikter -- de to beskriver egentlig den **samme virkeligheten**, bare fra hver sin synsvinkel. K forteller *hvor* likevekten ligger, mens ΔG° forteller *hvor mye energi* som driver reaksjonen dit. Og de er bundet sammen av én eneste, elegant ligning:\n$$\\Delta G^\\circ = -RT \\ln K$$\nHer er R gasskonstanten (8,314 J/(mol·K)) og T temperaturen i kelvin. Denne broen er kraftig fordi den lar oss krysse mellom de to verdenene.\n\nLa oss lese hva den sier. Er K > 1 (produkter favoriseres), er ln K positiv, og dermed blir ΔG° negativ -- reaksjonen er spontan mot høyre under standardbetingelser. Er K < 1 (reaktanter favoriseres), er ln K negativ og ΔG° positiv -- ikke spontan. Og er K = 1, er ln K = 0 og ΔG° = 0 -- perfekt balanse. Fortegnene matcher altså intuisjonen vår fullstendig: en reaksjon som er termodynamisk spontan, ender med mest produkter, og omvendt.\n\nDet store gjennombruddet er at vi nå kan **beregne K fra energi alene**, uten å måle likevekten i et laboratorium. Vi kan forutsi hvordan K endres med temperaturen, og forstå dypere hvorfor likevekter ligger akkurat der de gjør -- en innsikt med praktisk verdi i alt fra industrielle prosesser til biologisk metabolisme og miljøkjemi."},{"id":"kjemi2-3-5-n-section1","type":"text","content":"## Å regne begge veier\n\nDen mest direkte bruken er å finne K når vi kjenner ΔG°. Vi løser ligningen for K:\n$$\\ln K = -\\frac{\\Delta G^\\circ}{RT}, \\qquad K = e^{-\\Delta G^\\circ/RT}$$\nDet eneste du må passe nøye på, er enhetene: ΔG° oppgis ofte i kJ/mol og må gjøres om til J/mol (gang med 1000), R er i J (ikke kJ), og T må være i kelvin. Ta $\\text{N}_2\\text{O}_4 \\rightleftharpoons 2\\text{NO}_2$ ved 298 K med ΔG° = +4,8 kJ/mol = +4800 J/mol. Da blir $\\ln K = -\\frac{4800}{8{,}314 \\times 298} = -\\frac{4800}{2478} = -1{,}937$, og $K = e^{-1{,}937} = 0{,}144$. K < 1 og ΔG° > 0, så reaktanten N₂O₄ dominerer -- starter du med ren N₂O₄, dissosierer bare rundt 27 %.\n\nDet går naturligvis også andre veien. For ammoniakksyntesen $\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3$ ved 500 K med K = 0,0061 regner vi $\\ln K = \\ln(0{,}0061) = -5{,}100$, og $\\Delta G^\\circ = -RT \\ln K = -(8{,}314)(500)(-5{,}100) = +21\\,200$ J/mol = +21,2 kJ/mol. Positiv -- reaktantene favoriseres ved denne høye temperaturen, selv om reaksjonen er spontan ved lavere temperatur.\n\nDen virkelig mektige fremgangsmåten er å regne K helt fra termodynamiske tabelldata. Du finner $\\Delta H^\\circ$ og $\\Delta S^\\circ$ fra tabeller, regner $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$, og deretter $K = e^{-\\Delta G^\\circ/RT}$. Setter vi alt sammen, får vi en lærerik kombinert formel:\n$$\\ln K = -\\frac{\\Delta H^\\circ}{RT} + \\frac{\\Delta S^\\circ}{R}$$\nDette er en lineær sammenheng mellom ln K og 1/T -- en innsikt vi snart skal utnytte."},{"id":"kjemi2-3-5-n-quiz1","type":"exercise","exercise":{"id":"kjemi2-3-5-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på ΔG° = -RT ln K:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"kjemi2-3-5-n-quiz1-q0","task":"Hva er den fundamentale sammenhengen mellom Gibbs fri energi og likevektskonstanten?","options":[{"id":"a","text":"ΔG° = RT ln K","isCorrect":false},{"id":"b","text":"ΔG° = -RT / K","isCorrect":false},{"id":"c","text":"ΔG° = K / RT","isCorrect":false},{"id":"d","text":"ΔG° = -RT ln K","isCorrect":true}],"solution":"Den fundamentale ligningen er ΔG° = -RT ln K, som knytter termodynamikk til likevekt."},{"id":"kjemi2-3-5-n-quiz1-q1","task":"Hvis K > 1, hva er fortegnet til ΔG°?","options":[{"id":"a","text":"Negativt (spontan)","isCorrect":true},{"id":"b","text":"Positivt (ikke spontan)","isCorrect":false},{"id":"c","text":"Null","isCorrect":false},{"id":"d","text":"Avhenger av trykket","isCorrect":false}],"solution":"K > 1 gir ln K > 0, og dermed ΔG° = -RT·lnK < 0. Reaksjonen er spontan og favoriserer produkter."},{"id":"kjemi2-3-5-n-quiz1-q2","task":"For N₂O₄ ⇌ 2NO₂ ved 298 K med ΔG° = +4800 J/mol: hva er K? (RT ≈ 2478 J/mol)","options":[{"id":"a","text":"K ≈ 6,9","isCorrect":false},{"id":"b","text":"K ≈ 0,144","isCorrect":true},{"id":"c","text":"K ≈ 1,94","isCorrect":false},{"id":"d","text":"K ≈ 1,0","isCorrect":false}],"solution":"ln K = -4800/2478 = -1,937, så K = e^(-1,937) ≈ 0,144. K < 1, reaktanten N₂O₄ dominerer."},{"id":"kjemi2-3-5-n-quiz1-q3","task":"Hvilken enhet må T ha i ligningen ΔG° = -RT ln K?","options":[{"id":"a","text":"Celsius (°C)","isCorrect":false},{"id":"b","text":"Fahrenheit","isCorrect":false},{"id":"c","text":"Kelvin (K)","isCorrect":true},{"id":"d","text":"Joule","isCorrect":false}],"solution":"Temperaturen må alltid være i kelvin (°C + 273,15) i termodynamiske ligninger."}]}},{"id":"kjemi2-3-5-n-section2","type":"text","content":"## Hvordan likevekten flytter seg med temperaturen\n\nVi avsluttet med at ln K er lineær i 1/T. Det fører oss til en av kjemiens mest nyttige ligninger, **van't Hoff-likningen**, som forteller nøyaktig hvordan K endres når temperaturen endres:\n$$\\ln\\left(\\frac{K_2}{K_1}\\right) = -\\frac{\\Delta H^\\circ}{R}\\left(\\frac{1}{T_2} - \\frac{1}{T_1}\\right)$$\nDen utledes ved å skrive den kombinerte formelen ved to temperaturer og trekke dem fra hverandre -- entropileddet faller bort, og bare entalpien blir igjen som drivkraft for temperaturavhengigheten.\n\nResultatet stemmer perfekt med Le Chateliers prinsipp. For en **eksoterm** reaksjon (ΔH° < 0) gir økt temperatur lavere K -- produktene favoriseres mindre, akkurat som om varmen var et produkt som ble \"tilsatt\". For en **endoterm** reaksjon (ΔH° > 0) gir økt temperatur høyere K. Ta $2\\text{SO}_2 + \\text{O}_2 \\rightleftharpoons 2\\text{SO}_3$ med ΔH° = -198 kJ/mol, der K = 9,1 ved 800 K. Ved 1000 K blir leddet $\\frac{1}{1000} - \\frac{1}{800} = -0{,}000250$, og siden reaksjonen er eksoterm, faller K -- nettopp det vi venter når vi varmer opp en eksoterm likevekt.\n\nEn siste skjønnhet: hvis du plotter ln K mot 1/T, får du en rett linje med stigningstall $-\\frac{\\Delta H^\\circ}{R}$ og skjæringspunkt $\\frac{\\Delta S^\\circ}{R}$ på y-aksen. Det betyr at eksperimentelle målinger av K ved ulike temperaturer kan brukes til å *bestemme* ΔH° og ΔS° -- en omvendt vei fra likevekt tilbake til energien. Slik lukkes ringen: termodynamikk og likevekt er ikke to fag, men ett, sett fra to kanter."},{"id":"kjemi2-3-5-n-quiz2","type":"exercise","exercise":{"id":"kjemi2-3-5-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på van't Hoff og temperaturavhengighet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"kjemi2-3-5-n-quiz2-q0","task":"For en eksoterm reaksjon, hva skjer med K når temperaturen øker?","options":[{"id":"a","text":"K øker","isCorrect":false},{"id":"b","text":"K er uendret","isCorrect":false},{"id":"c","text":"K blir negativ","isCorrect":false},{"id":"d","text":"K minker","isCorrect":true}],"solution":"For en eksoterm reaksjon (ΔH° < 0) gir van't Hoff-likningen at K minker når T øker -- i samsvar med Le Chatelier (varme behandles som produkt)."},{"id":"kjemi2-3-5-n-quiz2-q1","task":"Hvilken størrelse driver temperaturavhengigheten i van't Hoff-likningen?","options":[{"id":"a","text":"ΔH°","isCorrect":true},{"id":"b","text":"ΔS°","isCorrect":false},{"id":"c","text":"ΔG°","isCorrect":false},{"id":"d","text":"Katalysatoren","isCorrect":false}],"solution":"I van't Hoff-likningen er det reaksjonsentalpien ΔH° som bestemmer hvordan K endres med temperaturen -- entropileddet falt bort i utledningen."},{"id":"kjemi2-3-5-n-quiz2-q2","task":"Hvis du plotter ln K mot 1/T, hva er stigningstallet?","options":[{"id":"a","text":"ΔS°/R","isCorrect":false},{"id":"b","text":"-ΔH°/R","isCorrect":true},{"id":"c","text":"-ΔG°/R","isCorrect":false},{"id":"d","text":"R/ΔH°","isCorrect":false}],"solution":"Et plott av ln K mot 1/T gir en rett linje med stigningstall -ΔH°/R og skjæringspunkt ΔS°/R, som lar oss bestemme ΔH° og ΔS° eksperimentelt."},{"id":"kjemi2-3-5-n-quiz2-q3","task":"For en endoterm reaksjon, hvordan endres K når temperaturen øker?","options":[{"id":"a","text":"K minker","isCorrect":false},{"id":"b","text":"K er konstant","isCorrect":false},{"id":"c","text":"K øker","isCorrect":true},{"id":"d","text":"K blir null","isCorrect":false}],"solution":"For en endoterm reaksjon (ΔH° > 0) øker K med temperaturen -- høyere T favoriserer den endoterme retningen og dermed produktene."}]}},{"id":"kjemi2-3-5-n-summary","type":"text","content":"## Oppsummering\n\nVi har bygget broen mellom termodynamikk og likevekt: $\\Delta G^\\circ = -RT \\ln K$. Den knytter Gibbs fri energi til likevektskonstanten slik at ΔG° < 0 svarer til K > 1 (produkter), ΔG° > 0 til K < 1 (reaktanter), og ΔG° = 0 til K = 1 (balanse).\n\nVi kan regne begge veier -- $K = e^{-\\Delta G^\\circ/RT}$ for å finne K, eller $\\Delta G^\\circ = -RT \\ln K$ for å finne energien -- og med den kombinerte formelen $\\ln K = -\\frac{\\Delta H^\\circ}{RT} + \\frac{\\Delta S^\\circ}{R}$ kan vi beregne K direkte fra tabelldata. **Van't Hoff-likningen** $\\ln(K_2/K_1) = -\\frac{\\Delta H^\\circ}{R}(\\frac{1}{T_2} - \\frac{1}{T_1})$ forteller hvordan K endres med temperaturen: eksoterme reaksjoner får lavere K ved oppvarming, endoterme høyere -- akkurat som Le Chatelier sa. Og et plott av ln K mot 1/T avslører ΔH° og ΔS° eksperimentelt. Termodynamikk og likevekt viser seg å være samme virkelighet, fortalt på to språk."}],"exercises":[]}
+{
+  "id": "kjemi2-3-5-narrativ",
+  "courseId": "kjemi2",
+  "chapterNumber": "3.5",
+  "title": "Sammenheng mellom K og ΔG",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om broen mellom termodynamikk og likevekt -- ligningen ΔG° = -RT ln K -- som lar oss regne ut likevektskonstanten fra energi alene, og forutsi hvordan den endrer seg med temperaturen.",
+  "estimatedMinutes": 42,
+  "competenceGoals": [
+    "bruke formelen ΔG° = -RT ln K til å beregne K fra ΔG° og omvendt",
+    "beregne likevektskonstanten K fra termodynamiske data (ΔH° og ΔS°)",
+    "anvende van't Hoff-likningen for å beregne temperaturavhengighet av K",
+    "tolke sammenhengen mellom K, ΔG og spontanitet",
+    "løse praktiske anvendelsesproblemer med termodynamikk og likevekt"
+  ],
+  "linkedChapterId": "kjemi2-3-5",
+  "content": [
+    {
+      "id": "kjemi2-3-5-n-intro",
+      "type": "text",
+      "content": "## To språk for samme virkelighet\n\nVi har studert to store temaer hver for seg: termodynamikkens Gibbs fri energi (ΔG) og likevektens konstant (K). Men her kommer en av kjemiens vakreste innsikter -- de to beskriver egentlig den **samme virkeligheten**, bare fra hver sin synsvinkel. K forteller *hvor* likevekten ligger, mens ΔG° forteller *hvor mye energi* som driver reaksjonen dit. Og de er bundet sammen av én eneste, elegant ligning:\n$$\\Delta G^\\circ = -RT \\ln K$$\nHer er R gasskonstanten (8,314 J/(mol·K)) og T temperaturen i kelvin. Denne broen er kraftig fordi den lar oss krysse mellom de to verdenene.\n\nLa oss lese hva den sier. Er K > 1 (produkter favoriseres), er ln K positiv, og dermed blir ΔG° negativ -- reaksjonen er spontan mot høyre under standardbetingelser. Er K < 1 (reaktanter favoriseres), er ln K negativ og ΔG° positiv -- ikke spontan. Og er K = 1, er ln K = 0 og ΔG° = 0 -- perfekt balanse. Fortegnene matcher altså intuisjonen vår fullstendig: en reaksjon som er termodynamisk spontan, ender med mest produkter, og omvendt.\n\nDet store gjennombruddet er at vi nå kan **beregne K fra energi alene**, uten å måle likevekten i et laboratorium. Vi kan forutsi hvordan K endres med temperaturen, og forstå dypere hvorfor likevekter ligger akkurat der de gjør -- en innsikt med praktisk verdi i alt fra industrielle prosesser til biologisk metabolisme og miljøkjemi."
+    },
+    {
+      "id": "kjemi2-3-5-n-section1",
+      "type": "text",
+      "content": "## Å regne begge veier\n\nDen mest direkte bruken er å finne K når vi kjenner ΔG°. Vi løser ligningen for K:\n$$\\ln K = -\\frac{\\Delta G^\\circ}{RT}, \\qquad K = e^{-\\Delta G^\\circ/RT}$$\nDet eneste du må passe nøye på, er enhetene: ΔG° oppgis ofte i kJ/mol og må gjøres om til J/mol (gang med 1000), R er i J (ikke kJ), og T må være i kelvin. Ta $\\text{N}_2\\text{O}_4 \\rightleftharpoons 2\\text{NO}_2$ ved 298 K med ΔG° = +4,8 kJ/mol = +4800 J/mol. Da blir $\\ln K = -\\frac{4800}{8{,}314 \\times 298} = -\\frac{4800}{2478} = -1{,}937$, og $K = e^{-1{,}937} = 0{,}144$. K < 1 og ΔG° > 0, så reaktanten N₂O₄ dominerer -- starter du med ren N₂O₄, dissosierer bare rundt 27 %.\n\nDet går naturligvis også andre veien. For ammoniakksyntesen $\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3$ ved 500 K med K = 0,0061 regner vi $\\ln K = \\ln(0{,}0061) = -5{,}100$, og $\\Delta G^\\circ = -RT \\ln K = -(8{,}314)(500)(-5{,}100) = +21\\,200$ J/mol = +21,2 kJ/mol. Positiv -- reaktantene favoriseres ved denne høye temperaturen, selv om reaksjonen er spontan ved lavere temperatur.\n\nDen virkelig mektige fremgangsmåten er å regne K helt fra termodynamiske tabelldata. Du finner $\\Delta H^\\circ$ og $\\Delta S^\\circ$ fra tabeller, regner $\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ$, og deretter $K = e^{-\\Delta G^\\circ/RT}$. Setter vi alt sammen, får vi en lærerik kombinert formel:\n$$\\ln K = -\\frac{\\Delta H^\\circ}{RT} + \\frac{\\Delta S^\\circ}{R}$$\nDette er en lineær sammenheng mellom ln K og 1/T -- en innsikt vi snart skal utnytte."
+    },
+    {
+      "id": "kjemi2-3-5-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "kjemi2-3-5-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på ΔG° = -RT ln K:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "kjemi2-3-5-n-quiz1-q0",
+            "task": "Hva er den fundamentale sammenhengen mellom Gibbs fri energi og likevektskonstanten?",
+            "options": [
+              {
+                "id": "d",
+                "text": "ΔG° = -RT ln K",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "ΔG° = RT ln K",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "ΔG° = -RT / K",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "ΔG° = K / RT",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Den fundamentale ligningen er ΔG° = -RT ln K, som knytter termodynamikk til likevekt."
+          },
+          {
+            "id": "kjemi2-3-5-n-quiz1-q1",
+            "task": "Hvis K > 1, hva er fortegnet til ΔG°?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Positivt (ikke spontan)",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Negativt (spontan)",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Avhenger av trykket",
+                "isCorrect": false
+              }
+            ],
+            "solution": "K > 1 gir ln K > 0, og dermed ΔG° = -RT·lnK < 0. Reaksjonen er spontan og favoriserer produkter."
+          },
+          {
+            "id": "kjemi2-3-5-n-quiz1-q2",
+            "task": "For N₂O₄ ⇌ 2NO₂ ved 298 K med ΔG° = +4800 J/mol: hva er K? (RT ≈ 2478 J/mol)",
+            "options": [
+              {
+                "id": "a",
+                "text": "K ≈ 6,9",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "K ≈ 1,94",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "K ≈ 0,144",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "K ≈ 1,0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "ln K = -4800/2478 = -1,937, så K = e^(-1,937) ≈ 0,144. K < 1, reaktanten N₂O₄ dominerer."
+          },
+          {
+            "id": "kjemi2-3-5-n-quiz1-q3",
+            "task": "Hvilken enhet må T ha i ligningen ΔG° = -RT ln K?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Celsius (°C)",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fahrenheit",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Joule",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Kelvin (K)",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Temperaturen må alltid være i kelvin (°C + 273,15) i termodynamiske ligninger."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kjemi2-3-5-n-section2",
+      "type": "text",
+      "content": "## Hvordan likevekten flytter seg med temperaturen\n\nVi avsluttet med at ln K er lineær i 1/T. Det fører oss til en av kjemiens mest nyttige ligninger, **van't Hoff-likningen**, som forteller nøyaktig hvordan K endres når temperaturen endres:\n$$\\ln\\left(\\frac{K_2}{K_1}\\right) = -\\frac{\\Delta H^\\circ}{R}\\left(\\frac{1}{T_2} - \\frac{1}{T_1}\\right)$$\nDen utledes ved å skrive den kombinerte formelen ved to temperaturer og trekke dem fra hverandre -- entropileddet faller bort, og bare entalpien blir igjen som drivkraft for temperaturavhengigheten.\n\nResultatet stemmer perfekt med Le Chateliers prinsipp. For en **eksoterm** reaksjon (ΔH° < 0) gir økt temperatur lavere K -- produktene favoriseres mindre, akkurat som om varmen var et produkt som ble \"tilsatt\". For en **endoterm** reaksjon (ΔH° > 0) gir økt temperatur høyere K. Ta $2\\text{SO}_2 + \\text{O}_2 \\rightleftharpoons 2\\text{SO}_3$ med ΔH° = -198 kJ/mol, der K = 9,1 ved 800 K. Ved 1000 K blir leddet $\\frac{1}{1000} - \\frac{1}{800} = -0{,}000250$, og siden reaksjonen er eksoterm, faller K -- nettopp det vi venter når vi varmer opp en eksoterm likevekt.\n\nEn siste skjønnhet: hvis du plotter ln K mot 1/T, får du en rett linje med stigningstall $-\\frac{\\Delta H^\\circ}{R}$ og skjæringspunkt $\\frac{\\Delta S^\\circ}{R}$ på y-aksen. Det betyr at eksperimentelle målinger av K ved ulike temperaturer kan brukes til å *bestemme* ΔH° og ΔS° -- en omvendt vei fra likevekt tilbake til energien. Slik lukkes ringen: termodynamikk og likevekt er ikke to fag, men ett, sett fra to kanter."
+    },
+    {
+      "id": "kjemi2-3-5-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "kjemi2-3-5-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på van't Hoff og temperaturavhengighet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "kjemi2-3-5-n-quiz2-q0",
+            "task": "For en eksoterm reaksjon, hva skjer med K når temperaturen øker?",
+            "options": [
+              {
+                "id": "d",
+                "text": "K minker",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "K øker",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "K er uendret",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "K blir negativ",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For en eksoterm reaksjon (ΔH° < 0) gir van't Hoff-likningen at K minker når T øker -- i samsvar med Le Chatelier (varme behandles som produkt)."
+          },
+          {
+            "id": "kjemi2-3-5-n-quiz2-q1",
+            "task": "Hvilken størrelse driver temperaturavhengigheten i van't Hoff-likningen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "ΔS°",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "ΔH°",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "ΔG°",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Katalysatoren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I van't Hoff-likningen er det reaksjonsentalpien ΔH° som bestemmer hvordan K endres med temperaturen -- entropileddet falt bort i utledningen."
+          },
+          {
+            "id": "kjemi2-3-5-n-quiz2-q2",
+            "task": "Hvis du plotter ln K mot 1/T, hva er stigningstallet?",
+            "options": [
+              {
+                "id": "a",
+                "text": "ΔS°/R",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "-ΔG°/R",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "-ΔH°/R",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "R/ΔH°",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et plott av ln K mot 1/T gir en rett linje med stigningstall -ΔH°/R og skjæringspunkt ΔS°/R, som lar oss bestemme ΔH° og ΔS° eksperimentelt."
+          },
+          {
+            "id": "kjemi2-3-5-n-quiz2-q3",
+            "task": "For en endoterm reaksjon, hvordan endres K når temperaturen øker?",
+            "options": [
+              {
+                "id": "a",
+                "text": "K minker",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "K er konstant",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "K blir null",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "K øker",
+                "isCorrect": true
+              }
+            ],
+            "solution": "For en endoterm reaksjon (ΔH° > 0) øker K med temperaturen -- høyere T favoriserer den endoterme retningen og dermed produktene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kjemi2-3-5-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har bygget broen mellom termodynamikk og likevekt: $\\Delta G^\\circ = -RT \\ln K$. Den knytter Gibbs fri energi til likevektskonstanten slik at ΔG° < 0 svarer til K > 1 (produkter), ΔG° > 0 til K < 1 (reaktanter), og ΔG° = 0 til K = 1 (balanse).\n\nVi kan regne begge veier -- $K = e^{-\\Delta G^\\circ/RT}$ for å finne K, eller $\\Delta G^\\circ = -RT \\ln K$ for å finne energien -- og med den kombinerte formelen $\\ln K = -\\frac{\\Delta H^\\circ}{RT} + \\frac{\\Delta S^\\circ}{R}$ kan vi beregne K direkte fra tabelldata. **Van't Hoff-likningen** $\\ln(K_2/K_1) = -\\frac{\\Delta H^\\circ}{R}(\\frac{1}{T_2} - \\frac{1}{T_1})$ forteller hvordan K endres med temperaturen: eksoterme reaksjoner får lavere K ved oppvarming, endoterme høyere -- akkurat som Le Chatelier sa. Og et plott av ln K mot 1/T avslører ΔH° og ΔS° eksperimentelt. Termodynamikk og likevekt viser seg å være samme virkelighet, fortalt på to språk."
+    }
+  ],
+  "exercises": []
+}

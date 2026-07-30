@@ -1,1 +1,831 @@
-{"id":"1t-7-3-narrativ","courseId":"1t","chapterNumber":"7.3","title":"Den deriverte","subtitle":"Narrativ versjon","description":"Ei forteljing om den deriverte funksjonen – korleis potensregelen, konstantregelen og sumregelen lèt deg finne momentan vekstfart overalt.","estimatedMinutes":45,"competenceGoals":["forstå den deriverte som funksjon for momentan vekstfart","derivere konstante og lineære funksjonar","bruke potensregelen til å derivere polynomfunksjonar"],"linkedChapterId":"1t-7-3","content":[{"id":"1t-7-3-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-3-narrativ-del1.mp3","description":"Lydfil som les opp teksten fram til første quiz."},{"id":"1t-7-3-n-intro","type":"text","content":"## Ein formel for vekstfart overalt\n\nI dei to føregåande kapitla har vi funne vekstfart i enkeltpunkt – anten grafisk ved å teikne tangentar, eller ved å rekne ut stigningstal. Men kva om vi kunne ha ein *formel* som gjev oss den momentane vekstfarten for *alle* verdiar av $x$ på éin gong?\n\nDet er nettopp det **den deriverte** gjev oss. Den deriverte av ein funksjon $f(x)$ er ein heilt ny funksjon, som vi skriv $f'(x)$ (les «f derivert av x»). Denne nye funksjonen fortel oss stigningstalet til tangenten – altså den momentane vekstfarten – for kvar einaste $x$-verdi. I dette kapittelet skal vi lære reglar som lèt oss finne $f'(x)$ raskt og effektivt."},{"id":"1t-7-3-n-section1","type":"text","content":"## Kva den deriverte fortel oss\n\nFør vi byrjar å rekne, lat oss forstå kva den deriverte eigentleg tyder. Viss du har ein funksjon $f(x)$ og den deriverte $f'(x)$, så gjev $f'(a)$ deg stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Med andre ord: $f'(a)$ er den momentane vekstfarten til $f$ når $x = a$.\n\nMen den deriverte fortel oss enda meir. Forteiknet til $f'(x)$ avslører om funksjonen stig eller søkk. Når $f'(x) > 0$, er funksjonen $f$ **stigande** – grafen peikar oppover. Når $f'(x) < 0$, er funksjonen **søkkande** – grafen peikar nedover. Og når $f'(x) = 0$, har grafen ein horisontal tangent. Det tyder at vi er ved eit **toppunkt**, eit **botnpunkt**, eller eit vendepunkt.\n\nTenk deg at du køyrer bil langs ein veg som svingar opp og ned. Den deriverte er som eit instrument som fortel deg om vegen peikar oppover, nedover, eller om du er på toppen av ein bakke akkurat no. Det er eit ekstremt nyttig verktøy."},{"id":"1t-7-3-n-quiz1","type":"exercise","exercise":{"id":"1t-7-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på kva den deriverte fortel oss:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-3-n-quiz1-q0","task":"Kva tyder det at $f'(x) < 0$ i eit punkt?","options":[{"id":"a","text":"Funksjonen er stigande","isCorrect":false},{"id":"b","text":"Funksjonen har eit toppunkt","isCorrect":false},{"id":"c","text":"Funksjonen er søkkande","isCorrect":true},{"id":"d","text":"Funksjonen har verdi 0","isCorrect":false}],"solution":"Når $f'(x) < 0$, er den momentane vekstfarten negativ. Det tyder at funksjonen $f$ er **søkkande** i det punktet – grafen peikar nedover."},{"id":"1t-7-3-n-quiz1-q1","task":"Kva gjev $f'(a)$ oss?","options":[{"id":"a","text":"Funksjonsverdien i $x = a$","isCorrect":false},{"id":"b","text":"Stigningstalet til tangenten i $(a, f(a))$","isCorrect":true},{"id":"c","text":"Nullpunktet nærast $a$","isCorrect":false},{"id":"d","text":"Arealet under grafen frå $0$ til $a$","isCorrect":false}],"solution":"$f'(a)$ gjev stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Det er den momentane vekstfarten til $f$ når $x = a$."},{"id":"1t-7-3-n-quiz1-q2","task":"Kva tyder det at $f'(x) = 0$ i eit punkt?","options":[{"id":"a","text":"Funksjonen er null","isCorrect":false},{"id":"b","text":"Funksjonen er stigande","isCorrect":false},{"id":"c","text":"Grafen kryssar $x$-aksen","isCorrect":false},{"id":"d","text":"Grafen har ein horisontal tangent","isCorrect":true}],"solution":"Når $f'(x) = 0$, har tangenten stigningstal $0$, altså er han horisontal. Det kan tyde eit toppunkt, botnpunkt eller vendepunkt."}]}},{"id":"1t-7-3-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-3-narrativ-del2.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-3-n-section2","type":"text","content":"## Konstantregelen og lineære funksjonar\n\nLat oss starte med dei enklaste funksjonane. Kva er den deriverte av ein **konstant funksjon** $f(x) = a$, til dømes $f(x) = 5$? Grafen er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, uansett kvar du er. Difor er $f'(x) = 0$.\n\nDet gjev meining intuitivt: ein konstant funksjon endrar seg aldri, så vekstfarten er null overalt. Denne regelen kallar vi **konstantregelen**.\n\nKva med ein **lineær funksjon** $f(x) = ax + b$? Grafen er ei rett linje med stigningstal $a$. Tangenten i kvart punkt er sjølve linja, og stigningstalet er $a$ overalt. Difor er $f'(x) = a$.\n\nTil dømes: $f(x) = 4x - 2$ gjev $f'(x) = 4$. Funksjonen $f(x) = x + 9$ (som er det same som $1 \\cdot x + 9$) gjev $f'(x) = 1$. Og $f(x) = 3$ gjev $f'(x) = 0$, fordi det er ein konstant.\n\nDesse to reglane er utgangspunktet, og dei er lette å hugse: konstantar forsvinn, og stigningstalet til ein lineær funksjon er den deriverte."},{"id":"1t-7-3-n-quiz2","type":"exercise","exercise":{"id":"1t-7-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på konstantregelen og lineære funksjonar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-3-n-quiz2-q0","task":"Kva er $f'(x)$ når $f(x) = -7x + 10$?","options":[{"id":"a","text":"$10$","isCorrect":false},{"id":"b","text":"$-7$","isCorrect":true},{"id":"c","text":"$-7x$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":false}],"solution":"$f(x) = -7x + 10$ er ein lineær funksjon med stigningstal $-7$. Den deriverte av ein lineær funksjon er stigningstalet, så $f'(x) = -7$."},{"id":"1t-7-3-n-quiz2-q1","task":"Kva er $f'(x)$ når $f(x) = 42$?","options":[{"id":"a","text":"$42$","isCorrect":false},{"id":"b","text":"$1$","isCorrect":false},{"id":"c","text":"$42x$","isCorrect":false},{"id":"d","text":"$0$","isCorrect":true}],"solution":"$f(x) = 42$ er ein konstant funksjon. Konstantregelen seier at den deriverte av ein konstant er $0$, fordi ein konstant endrar seg aldri."},{"id":"1t-7-3-n-quiz2-q2","task":"Kva er $f'(x)$ når $f(x) = x + 9$?","options":[{"id":"a","text":"$9$","isCorrect":false},{"id":"b","text":"$x$","isCorrect":false},{"id":"c","text":"$1$","isCorrect":true},{"id":"d","text":"$10$","isCorrect":false}],"solution":"$f(x) = x + 9 = 1 \\cdot x + 9$ er ein lineær funksjon med stigningstal $1$. Dermed er $f'(x) = 1$. Konstanten $9$ forsvinn ved derivasjon."},{"id":"1t-7-3-n-quiz2-q3","task":"Kvifor er den deriverte av ein konstant funksjon lik null?","options":[{"id":"a","text":"Fordi konstanten er positiv","isCorrect":false},{"id":"b","text":"Fordi grafen er ei horisontal linje som aldri endrar seg","isCorrect":true},{"id":"c","text":"Fordi vi deler på null","isCorrect":false},{"id":"d","text":"Fordi konstanten ikkje har nokon $x$","isCorrect":false}],"solution":"Ein konstant funksjon har ein graf som er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, og dermed er den deriverte – som gjev stigningstalet – òg $0$."}]}},{"id":"1t-7-3-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-3-narrativ-del3.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-3-n-section3","type":"text","content":"## Potensregelen – den viktigaste derivasjonsregelen\n\nNo kjem vi til regelen som verkeleg opnar dørene: **potensregelen**. Han fortel oss korleis vi deriverer funksjonar som $x^2$, $x^3$, $x^5$ og så vidare. Regelen er:\n\n$$f(x) = x^n \\quad \\Rightarrow \\quad f'(x) = n \\cdot x^{n-1}$$\n\nEi enkel hugseregel er «ta ned og trekk frå éin»: ta eksponenten *ned* framføre som koeffisient, og trekk frå *éin* frå eksponenten. Til dømes: $f(x) = x^5$ gjev $f'(x) = 5x^4$. Eksponenten $5$ vert flytta ned, og den nye eksponenten vert $5 - 1 = 4$.\n\nLat oss prøve med $f(x) = x^2$. Då er $f'(x) = 2x^{2-1} = 2x$. Det tyder at den momentane vekstfarten til $x^2$ i eit punkt er $2x$. Når $x = 3$, er vekstfarten $2 \\cdot 3 = 6$. Når $x = -1$, er vekstfarten $2 \\cdot (-1) = -2$.\n\nKva med koeffisientar framføre? Viss $f(x) = 3x^4$, gangar vi koeffisienten med eksponenten: $f'(x) = 3 \\cdot 4 \\cdot x^3 = 12x^3$. Konstanten «heng med» gjennom derivasjonen."},{"id":"1t-7-3-n-quiz3","type":"exercise","exercise":{"id":"1t-7-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på potensregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-3-n-quiz3-q0","task":"Kva er $f'(x)$ når $f(x) = x^3$?","options":[{"id":"a","text":"$x^2$","isCorrect":false},{"id":"b","text":"$3x$","isCorrect":false},{"id":"c","text":"$3x^2$","isCorrect":true},{"id":"d","text":"$3x^3$","isCorrect":false}],"solution":"Med potensregelen: $f(x) = x^3$ gjev $f'(x) = 3 \\cdot x^{3-1} = 3x^2$. Vi tek eksponenten 3 ned som koeffisient og reduserer eksponenten med 1."},{"id":"1t-7-3-n-quiz3-q1","task":"Kva seier potensregelen? Viss $f(x) = x^n$, kva er $f'(x)$?","options":[{"id":"a","text":"$x^{n+1}$","isCorrect":false},{"id":"b","text":"$n \\cdot x^{n-1}$","isCorrect":true},{"id":"c","text":"$n \\cdot x^n$","isCorrect":false},{"id":"d","text":"$(n-1) \\cdot x^n$","isCorrect":false}],"solution":"Potensregelen: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugseregelen er «ta ned og trekk frå éin» – eksponenten vert flytta ned og redusert med 1."},{"id":"1t-7-3-n-quiz3-q2","task":"Kva er $f'(x)$ når $f(x) = 3x^4$?","options":[{"id":"a","text":"$3x^3$","isCorrect":false},{"id":"b","text":"$4x^3$","isCorrect":false},{"id":"c","text":"$12x^3$","isCorrect":true},{"id":"d","text":"$12x^4$","isCorrect":false}],"solution":"$f'(x) = 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$. Koeffisienten $3$ vert ganga med eksponenten $4$, og eksponenten vert redusert frå $4$ til $3$."},{"id":"1t-7-3-n-quiz3-q3","task":"Kva er den momentane vekstfarten til $f(x) = x^2$ når $x = -1$?","options":[{"id":"a","text":"$2$","isCorrect":false},{"id":"b","text":"$-2$","isCorrect":true},{"id":"c","text":"$1$","isCorrect":false},{"id":"d","text":"$-1$","isCorrect":false}],"solution":"$f'(x) = 2x$. Vi set inn $x = -1$: $f'(-1) = 2 \\cdot (-1) = -2$. Den momentane vekstfarten er $-2$, altså søkk funksjonen i det punktet."}]}},{"id":"1t-7-3-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-3-narrativ-del4.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-3-n-section4","type":"text","content":"## Sumregelen – derivere ledd for ledd\n\nNår funksjonen vår er ein sum av fleire ledd, brukar vi **sumregelen**: vi deriverer kvart ledd for seg. Formelt: $(f + g)'(x) = f'(x) + g'(x)$. Tilsvarande for differansar: $(f - g)'(x) = f'(x) - g'(x)$.\n\nLat oss bruke dette på eit polynom. Ta $f(x) = 3x^4 - 2x + 5$. Vi deriverer ledd for ledd: $3x^4$ gjev $3 \\cdot 4x^3 = 12x^3$. Leddet $-2x$ er lineært med stigningstal $-2$, så det gjev $-2$. Og konstanten $5$ gjev $0$. Til saman: $f'(x) = 12x^3 - 2$.\n\nHer er eit viktig poeng: konstantar «forsvinn» ved derivasjon. Om funksjonen din er $x^2 + 100$ eller $x^2 - 7$, vert den deriverte $2x$ i begge tilfella. Det er fordi konstantar ikkje bidreg til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken.\n\nLat oss ta enda eit døme. Vi har $f(x) = 2x^2 - 5x$ og vil finne $f'(-2)$. Først deriverer vi: $f'(x) = 4x - 5$. Deretter set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$. Den momentane vekstfarten er altså $-13$ når $x = -2$, som tyder at funksjonen søkk raskt."},{"id":"1t-7-3-n-quiz4","type":"exercise","exercise":{"id":"1t-7-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg sjølv på sumregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-3-n-quiz4-q0","task":"Lat $f(x) = x^2 + 2x - 3$. Kva er $f'(x)$?","options":[{"id":"a","text":"$2x + 2$","isCorrect":true},{"id":"b","text":"$x^2 + 2$","isCorrect":false},{"id":"c","text":"$2x$","isCorrect":false},{"id":"d","text":"$2x + 2 - 3$","isCorrect":false}],"solution":"Vi deriverer ledd for ledd: $x^2$ gjev $2x$, leddet $2x$ gjev $2$, og konstanten $-3$ gjev $0$. Til saman: $f'(x) = 2x + 2$."},{"id":"1t-7-3-n-quiz4-q1","task":"Kva seier sumregelen for derivasjon?","options":[{"id":"a","text":"Vi legg saman alle ledda","isCorrect":false},{"id":"b","text":"Vi deriverer kvart ledd for seg","isCorrect":true},{"id":"c","text":"Vi gangar alle ledda","isCorrect":false},{"id":"d","text":"Vi kan berre derivere eitt ledd om gongen","isCorrect":false}],"solution":"Sumregelen seier at $(f + g)'(x) = f'(x) + g'(x)$. Vi deriverer kvart ledd for seg og set saman resultatet."},{"id":"1t-7-3-n-quiz4-q2","task":"Lat $f(x) = 2x^2 - 5x$. Kva er $f'(-2)$?","options":[{"id":"a","text":"$-3$","isCorrect":false},{"id":"b","text":"$-13$","isCorrect":true},{"id":"c","text":"$3$","isCorrect":false},{"id":"d","text":"$13$","isCorrect":false}],"solution":"Først deriverer vi: $f'(x) = 4x - 5$. Så set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$."},{"id":"1t-7-3-n-quiz4-q3","task":"Kvifor forsvinn konstantar ved derivasjon?","options":[{"id":"a","text":"Fordi dei er tal, ikkje variablar","isCorrect":false},{"id":"b","text":"Fordi dei ikkje bidreg til endring – dei berre løftar eller senkar grafen","isCorrect":true},{"id":"c","text":"Fordi dei alltid er positive","isCorrect":false},{"id":"d","text":"Fordi potensregelen ikkje gjeld for dei","isCorrect":false}],"solution":"Konstantar bidreg ikkje til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken. Stigningstalet er det same uansett om vi legg til ein konstant, så han forsvinn ved derivasjon."}]}},{"id":"1t-7-3-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-7-3-narrativ-del5.mp3","description":"Lydfil som les opp teksten fram til neste quiz."},{"id":"1t-7-3-n-section5","type":"text","content":"## Den deriverte i praksis – ballen igjen\n\nLat oss vende attende til ballen som vert kasta opp i lufta. Høgdefunksjonen er $h(t) = -5t^2 + 20t + 1$. Vi kan no finne den deriverte: $h'(t) = -10t + 20$.\n\nKva tyder denne deriverte fysisk? Han gjev oss **farten** til ballen som funksjon av tid. Farten $h'(t) = -10t + 20$ fortel oss kor fort ballen rører seg oppover (eller nedover) i kvart augneblink.\n\nNår $t = 0$: $h'(0) = 20$ m/s. Ballen startar med fart 20 meter per sekund oppover. Når $t = 2$: $h'(2) = -10 \\cdot 2 + 20 = 0$ m/s. Farten er null! Ballen er på sitt høgaste punkt og er i ferd med å snu. Når $t = 3$: $h'(3) = -10 \\cdot 3 + 20 = -10$ m/s. Farten er $-10$ m/s, altså rører ballen seg 10 meter per sekund nedover.\n\nVi kan òg finne *når* ballen er på toppen ved å setje $h'(t) = 0$: $-10t + 20 = 0$, som gjev $t = 2$ sekund. Deretter finn vi *høgda* på toppen: $h(2) = -20 + 40 + 1 = 21$ meter. Derivasjon gjev oss altså eit kraftig verktøy for å analysere rørsle."},{"id":"1t-7-3-n-quiz5","type":"exercise","exercise":{"id":"1t-7-3-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg sjølv på den deriverte i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"1t-7-3-n-quiz5-q0","task":"Lat $f(x) = \\frac{7}{2}x^2 - 5x$. Kva er $f'(2)$?","options":[{"id":"a","text":"$4$","isCorrect":false},{"id":"b","text":"$9$","isCorrect":true},{"id":"c","text":"$7$","isCorrect":false},{"id":"d","text":"$12$","isCorrect":false}],"solution":"Vi deriverer: $f'(x) = \\frac{7}{2} \\cdot 2x - 5 = 7x - 5$. Deretter set vi inn $x = 2$: $f'(2) = 7 \\cdot 2 - 5 = 14 - 5 = 9$."},{"id":"1t-7-3-n-quiz5-q1","task":"Høgda til ein ball er $h(t) = -5t^2 + 20t + 1$. Kva er $h'(t)$?","options":[{"id":"a","text":"$-5t + 20$","isCorrect":false},{"id":"b","text":"$-10t + 20$","isCorrect":true},{"id":"c","text":"$-10t^2 + 20$","isCorrect":false},{"id":"d","text":"$-10t + 1$","isCorrect":false}],"solution":"Vi deriverer ledd for ledd: $-5t^2$ gjev $-10t$, $20t$ gjev $20$, og konstanten $1$ gjev $0$. Altså $h'(t) = -10t + 20$."},{"id":"1t-7-3-n-quiz5-q2","task":"Ballen har $h'(2) = 0$. Kva tyder det fysisk?","options":[{"id":"a","text":"Ballen er på bakken","isCorrect":false},{"id":"b","text":"Ballen rører seg oppover","isCorrect":false},{"id":"c","text":"Ballen er på sitt høgaste punkt og er i ferd med å snu","isCorrect":true},{"id":"d","text":"Ballen har falle i $2$ sekund","isCorrect":false}],"solution":"$h'(2) = 0$ tyder at farten er null – ballen verken stig eller søkk. Han er på sitt høgaste punkt og er i ferd med å snu retning."},{"id":"1t-7-3-n-quiz5-q3","task":"Når er ballen på toppen? (Set $h'(t) = 0$ med $h'(t) = -10t + 20$)","options":[{"id":"a","text":"$t = 0$","isCorrect":false},{"id":"b","text":"$t = 1$","isCorrect":false},{"id":"c","text":"$t = 2$","isCorrect":true},{"id":"d","text":"$t = 4$","isCorrect":false}],"solution":"$h'(t) = -10t + 20 = 0$ gjev $10t = 20$, altså $t = 2$ sekund. Ved dette tidspunktet er farten null, og ballen er på toppen."}]}},{"id":"1t-7-3-n-audio-6","type":"audio","title":"Lytt til oppsummeringa","src":"/audio/1t/1t-7-3-narrativ-del6.mp3","description":"Lydfil som les opp oppsummeringa."},{"id":"1t-7-3-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi lært at **den deriverte** $f'(x)$ er ein ny funksjon som gjev oss den momentane vekstfarten – stigningstalet til tangenten – for kvar einaste $x$-verdi. Vi har tre grunnleggjande reglar for derivasjon.\n\n**Konstantregelen** seier at den deriverte av ein konstant er $0$: konstantar endrar seg ikkje, så vekstfarten er null. **Lineære funksjonar** $f(x) = ax + b$ har derivert lik stigningstalet $a$, fordi ei rett linje har konstant stigningstal overalt.\n\n**Potensregelen** er nøkkelen til å derivere dei fleste uttrykka vi møter: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugs «ta ned og trekk frå éin». Med **sumregelen** deriverer vi summar ledd for ledd. Konstantmultiplikasjon tyder at koeffisientar «heng med» gjennom derivasjonen.\n\nForteiknet til den deriverte fortel oss om funksjonen stig ($f' > 0$), søkk ($f' < 0$), eller har ein horisontal tangent ($f' = 0$). I praktiske samanhengar gjev den deriverte av posisjon oss fart, og $f'(a)$ gjev den momentane vekstfarten i punktet $x = a$."}],"exercises":[],"_meta":{"sourceHash":"25d37dd04d047c2c","translatedAt":"2026-06-16T23:52:14.813Z","model":"claude-code-agent","strings":128,"tm":{"c214482f6ce3f80a":"Den deriverte","b195b06d1ed59702":"Narrativ versjon","cf62f6299b9663da":"Ei forteljing om den deriverte funksjonen – korleis potensregelen, konstantregelen og sumregelen lèt deg finne momentan vekstfart overalt.","6acb97823b2a8436":"forstå den deriverte som funksjon for momentan vekstfart","dd22505be6179069":"derivere konstante og lineære funksjonar","b86ae1e7dd185963":"bruke potensregelen til å derivere polynomfunksjonar","d2c9d9ef5d3f774f":"Lytt til denne delen","21954805f17795e8":"Lydfil som les opp teksten fram til første quiz.","211edc5d505d1cda":"## Ein formel for vekstfart overalt\n\nI dei to føregåande kapitla har vi funne vekstfart i enkeltpunkt – anten grafisk ved å teikne tangentar, eller ved å rekne ut stigningstal. Men kva om vi kunne ha ein *formel* som gjev oss den momentane vekstfarten for *alle* verdiar av $x$ på éin gong?\n\nDet er nettopp det **den deriverte** gjev oss. Den deriverte av ein funksjon $f(x)$ er ein heilt ny funksjon, som vi skriv $f'(x)$ (les «f derivert av x»). Denne nye funksjonen fortel oss stigningstalet til tangenten – altså den momentane vekstfarten – for kvar einaste $x$-verdi. I dette kapittelet skal vi lære reglar som lèt oss finne $f'(x)$ raskt og effektivt.","36bac6c9ff14ed28":"## Kva den deriverte fortel oss\n\nFør vi byrjar å rekne, lat oss forstå kva den deriverte eigentleg tyder. Viss du har ein funksjon $f(x)$ og den deriverte $f'(x)$, så gjev $f'(a)$ deg stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Med andre ord: $f'(a)$ er den momentane vekstfarten til $f$ når $x = a$.\n\nMen den deriverte fortel oss enda meir. Forteiknet til $f'(x)$ avslører om funksjonen stig eller søkk. Når $f'(x) > 0$, er funksjonen $f$ **stigande** – grafen peikar oppover. Når $f'(x) < 0$, er funksjonen **søkkande** – grafen peikar nedover. Og når $f'(x) = 0$, har grafen ein horisontal tangent. Det tyder at vi er ved eit **toppunkt**, eit **botnpunkt**, eller eit vendepunkt.\n\nTenk deg at du køyrer bil langs ein veg som svingar opp og ned. Den deriverte er som eit instrument som fortel deg om vegen peikar oppover, nedover, eller om du er på toppen av ein bakke akkurat no. Det er eit ekstremt nyttig verktøy.","606ff988f1b3dc3d":"Test deg sjølv på kva den deriverte fortel oss:","4097889236a2af26":"placeholder","23d66b93bb871872":"Kva tyder det at $f'(x) < 0$ i eit punkt?","1a0fde0d210608b9":"Funksjonen er stigande","fa2c051e050ad687":"Funksjonen har eit toppunkt","f5c6c8cd8829656e":"Funksjonen er søkkande","7c515fbf4bb18850":"Funksjonen har verdi 0","37aabaef5d34197d":"Når $f'(x) < 0$, er den momentane vekstfarten negativ. Det tyder at funksjonen $f$ er **søkkande** i det punktet – grafen peikar nedover.","16fe49a2a2528a30":"Kva gjev $f'(a)$ oss?","a4873a8be8ad3603":"Funksjonsverdien i $x = a$","476a5ec216098dd3":"Stigningstalet til tangenten i $(a, f(a))$","1395b2d8649ef631":"Nullpunktet nærast $a$","5c666c0d0c0c4d74":"Arealet under grafen frå $0$ til $a$","1df5f45e65f95820":"$f'(a)$ gjev stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Det er den momentane vekstfarten til $f$ når $x = a$.","4b5e6859a7fca06f":"Kva tyder det at $f'(x) = 0$ i eit punkt?","a3be04a73191f663":"Funksjonen er null","d7b9c6620640fc8a":"Grafen kryssar $x$-aksen","219cc2ea4d82b302":"Grafen har ein horisontal tangent","e117e6dd2546878b":"Når $f'(x) = 0$, har tangenten stigningstal $0$, altså er han horisontal. Det kan tyde eit toppunkt, botnpunkt eller vendepunkt.","058005533831b7f6":"Lydfil som les opp teksten fram til neste quiz.","6d482604e9df692c":"## Konstantregelen og lineære funksjonar\n\nLat oss starte med dei enklaste funksjonane. Kva er den deriverte av ein **konstant funksjon** $f(x) = a$, til dømes $f(x) = 5$? Grafen er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, uansett kvar du er. Difor er $f'(x) = 0$.\n\nDet gjev meining intuitivt: ein konstant funksjon endrar seg aldri, så vekstfarten er null overalt. Denne regelen kallar vi **konstantregelen**.\n\nKva med ein **lineær funksjon** $f(x) = ax + b$? Grafen er ei rett linje med stigningstal $a$. Tangenten i kvart punkt er sjølve linja, og stigningstalet er $a$ overalt. Difor er $f'(x) = a$.\n\nTil dømes: $f(x) = 4x - 2$ gjev $f'(x) = 4$. Funksjonen $f(x) = x + 9$ (som er det same som $1 \\cdot x + 9$) gjev $f'(x) = 1$. Og $f(x) = 3$ gjev $f'(x) = 0$, fordi det er ein konstant.\n\nDesse to reglane er utgangspunktet, og dei er lette å hugse: konstantar forsvinn, og stigningstalet til ein lineær funksjon er den deriverte.","34522c0bda0d96e6":"Test deg sjølv på konstantregelen og lineære funksjonar:","d211853705dad156":"Kva er $f'(x)$ når $f(x) = -7x + 10$?","3bbf4aa8059a4fe9":"$-7x$","c5f70c4920735ea0":"$f(x) = -7x + 10$ er ein lineær funksjon med stigningstal $-7$. Den deriverte av ein lineær funksjon er stigningstalet, så $f'(x) = -7$.","8159c2effc57f319":"Kva er $f'(x)$ når $f(x) = 42$?","e915939ce7318461":"$42x$","dc70599bff342924":"$f(x) = 42$ er ein konstant funksjon. Konstantregelen seier at den deriverte av ein konstant er $0$, fordi ein konstant endrar seg aldri.","9968759fb5224ea9":"Kva er $f'(x)$ når $f(x) = x + 9$?","22bf003d6cac79e1":"$x$","4d0d84ad3ea0ff73":"$f(x) = x + 9 = 1 \\cdot x + 9$ er ein lineær funksjon med stigningstal $1$. Dermed er $f'(x) = 1$. Konstanten $9$ forsvinn ved derivasjon.","ed465114ea3afbcd":"Kvifor er den deriverte av ein konstant funksjon lik null?","c6f723a8abda50ac":"Fordi konstanten er positiv","50e0914b6a871163":"Fordi grafen er ei horisontal linje som aldri endrar seg","72552c4faef8948d":"Fordi vi deler på null","33991fd7f2205c2c":"Fordi konstanten ikkje har nokon $x$","9c3591b89e0eaeae":"Ein konstant funksjon har ein graf som er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, og dermed er den deriverte – som gjev stigningstalet – òg $0$.","649203fb897ed546":"## Potensregelen – den viktigaste derivasjonsregelen\n\nNo kjem vi til regelen som verkeleg opnar dørene: **potensregelen**. Han fortel oss korleis vi deriverer funksjonar som $x^2$, $x^3$, $x^5$ og så vidare. Regelen er:\n\n$$f(x) = x^n \\quad \\Rightarrow \\quad f'(x) = n \\cdot x^{n-1}$$\n\nEi enkel hugseregel er «ta ned og trekk frå éin»: ta eksponenten *ned* framføre som koeffisient, og trekk frå *éin* frå eksponenten. Til dømes: $f(x) = x^5$ gjev $f'(x) = 5x^4$. Eksponenten $5$ vert flytta ned, og den nye eksponenten vert $5 - 1 = 4$.\n\nLat oss prøve med $f(x) = x^2$. Då er $f'(x) = 2x^{2-1} = 2x$. Det tyder at den momentane vekstfarten til $x^2$ i eit punkt er $2x$. Når $x = 3$, er vekstfarten $2 \\cdot 3 = 6$. Når $x = -1$, er vekstfarten $2 \\cdot (-1) = -2$.\n\nKva med koeffisientar framføre? Viss $f(x) = 3x^4$, gangar vi koeffisienten med eksponenten: $f'(x) = 3 \\cdot 4 \\cdot x^3 = 12x^3$. Konstanten «heng med» gjennom derivasjonen.","667ff7f9e58ec1e8":"Test deg sjølv på potensregelen:","14bf1aa2964af038":"Kva er $f'(x)$ når $f(x) = x^3$?","7f408224ea7b716f":"$x^2$","e2fe3bdcb9849f47":"$3x$","63e2473004fc4669":"$3x^2$","4ad62bc962da8919":"$3x^3$","c55b1d35defc61b8":"Med potensregelen: $f(x) = x^3$ gjev $f'(x) = 3 \\cdot x^{3-1} = 3x^2$. Vi tek eksponenten 3 ned som koeffisient og reduserer eksponenten med 1.","7a3d2d74da81b468":"Kva seier potensregelen? Viss $f(x) = x^n$, kva er $f'(x)$?","75401906df9fb657":"$x^{n+1}$","e54bf5affbc2d37f":"$n \\cdot x^{n-1}$","3daba3a1a0e6243a":"$n \\cdot x^n$","b53f6d03212bb77c":"$(n-1) \\cdot x^n$","12fccd0961863d2e":"Potensregelen: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugseregelen er «ta ned og trekk frå éin» – eksponenten vert flytta ned og redusert med 1.","3d22a4fa3e3f1145":"Kva er $f'(x)$ når $f(x) = 3x^4$?","3cf6659151272471":"$4x^3$","050ca9c41acb7d6b":"$12x^3$","a48dde59bfee4690":"$12x^4$","3c211397e19389d0":"$f'(x) = 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$. Koeffisienten $3$ vert ganga med eksponenten $4$, og eksponenten vert redusert frå $4$ til $3$.","ed46491b21208695":"Kva er den momentane vekstfarten til $f(x) = x^2$ når $x = -1$?","90e4ab0da0d857de":"$f'(x) = 2x$. Vi set inn $x = -1$: $f'(-1) = 2 \\cdot (-1) = -2$. Den momentane vekstfarten er $-2$, altså søkk funksjonen i det punktet.","a9ee6fdbc8f81a21":"## Sumregelen – derivere ledd for ledd\n\nNår funksjonen vår er ein sum av fleire ledd, brukar vi **sumregelen**: vi deriverer kvart ledd for seg. Formelt: $(f + g)'(x) = f'(x) + g'(x)$. Tilsvarande for differansar: $(f - g)'(x) = f'(x) - g'(x)$.\n\nLat oss bruke dette på eit polynom. Ta $f(x) = 3x^4 - 2x + 5$. Vi deriverer ledd for ledd: $3x^4$ gjev $3 \\cdot 4x^3 = 12x^3$. Leddet $-2x$ er lineært med stigningstal $-2$, så det gjev $-2$. Og konstanten $5$ gjev $0$. Til saman: $f'(x) = 12x^3 - 2$.\n\nHer er eit viktig poeng: konstantar «forsvinn» ved derivasjon. Om funksjonen din er $x^2 + 100$ eller $x^2 - 7$, vert den deriverte $2x$ i begge tilfella. Det er fordi konstantar ikkje bidreg til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken.\n\nLat oss ta enda eit døme. Vi har $f(x) = 2x^2 - 5x$ og vil finne $f'(-2)$. Først deriverer vi: $f'(x) = 4x - 5$. Deretter set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$. Den momentane vekstfarten er altså $-13$ når $x = -2$, som tyder at funksjonen søkk raskt.","8f46ac0082b92252":"Test deg sjølv på sumregelen:","425265f38939e463":"Lat $f(x) = x^2 + 2x - 3$. Kva er $f'(x)$?","61649d39f1ed7ff5":"$2x + 2$","4d5c726c8c73fbc1":"$x^2 + 2$","78a5bb6d2b2ceac0":"$2x$","544ac14da92ac9e6":"$2x + 2 - 3$","5d9bb7103ca38b9b":"Vi deriverer ledd for ledd: $x^2$ gjev $2x$, leddet $2x$ gjev $2$, og konstanten $-3$ gjev $0$. Til saman: $f'(x) = 2x + 2$.","71b66e83cea1197f":"Kva seier sumregelen for derivasjon?","5d9982f2aa0d3157":"Vi legg saman alle ledda","56bbb1da2b6fade4":"Vi deriverer kvart ledd for seg","c560501bb1b7ecb7":"Vi gangar alle ledda","59ae891bd2c80cf3":"Vi kan berre derivere eitt ledd om gongen","72a32f6d3d797c16":"Sumregelen seier at $(f + g)'(x) = f'(x) + g'(x)$. Vi deriverer kvart ledd for seg og set saman resultatet.","22544893f45e20ea":"Lat $f(x) = 2x^2 - 5x$. Kva er $f'(-2)$?","d37d5b96a13a1f61":"Først deriverer vi: $f'(x) = 4x - 5$. Så set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$.","2b64026bf03646c0":"Kvifor forsvinn konstantar ved derivasjon?","ec021e0dec3690c6":"Fordi dei er tal, ikkje variablar","ddf58e8121bdd99b":"Fordi dei ikkje bidreg til endring – dei berre løftar eller senkar grafen","581de9e6a51111ca":"Fordi dei alltid er positive","cf850c968939a5ab":"Fordi potensregelen ikkje gjeld for dei","b9faea0c520456b2":"Konstantar bidreg ikkje til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken. Stigningstalet er det same uansett om vi legg til ein konstant, så han forsvinn ved derivasjon.","5097a7b961a204b2":"## Den deriverte i praksis – ballen igjen\n\nLat oss vende attende til ballen som vert kasta opp i lufta. Høgdefunksjonen er $h(t) = -5t^2 + 20t + 1$. Vi kan no finne den deriverte: $h'(t) = -10t + 20$.\n\nKva tyder denne deriverte fysisk? Han gjev oss **farten** til ballen som funksjon av tid. Farten $h'(t) = -10t + 20$ fortel oss kor fort ballen rører seg oppover (eller nedover) i kvart augneblink.\n\nNår $t = 0$: $h'(0) = 20$ m/s. Ballen startar med fart 20 meter per sekund oppover. Når $t = 2$: $h'(2) = -10 \\cdot 2 + 20 = 0$ m/s. Farten er null! Ballen er på sitt høgaste punkt og er i ferd med å snu. Når $t = 3$: $h'(3) = -10 \\cdot 3 + 20 = -10$ m/s. Farten er $-10$ m/s, altså rører ballen seg 10 meter per sekund nedover.\n\nVi kan òg finne *når* ballen er på toppen ved å setje $h'(t) = 0$: $-10t + 20 = 0$, som gjev $t = 2$ sekund. Deretter finn vi *høgda* på toppen: $h(2) = -20 + 40 + 1 = 21$ meter. Derivasjon gjev oss altså eit kraftig verktøy for å analysere rørsle.","2bb3f7bd9e7da893":"Test deg sjølv på den deriverte i praksis:","7486b92df03c253d":"Lat $f(x) = \\frac{7}{2}x^2 - 5x$. Kva er $f'(2)$?","f53e94c3b0ce3414":"Vi deriverer: $f'(x) = \\frac{7}{2} \\cdot 2x - 5 = 7x - 5$. Deretter set vi inn $x = 2$: $f'(2) = 7 \\cdot 2 - 5 = 14 - 5 = 9$.","00b9cebc57756a78":"Høgda til ein ball er $h(t) = -5t^2 + 20t + 1$. Kva er $h'(t)$?","ebf065304272c2d0":"$-5t + 20$","a83291d543a034e2":"$-10t + 20$","477ba6fa92e73789":"$-10t^2 + 20$","4c2ab87a5e6fcefb":"$-10t + 1$","b1b8ca6f320963d5":"Vi deriverer ledd for ledd: $-5t^2$ gjev $-10t$, $20t$ gjev $20$, og konstanten $1$ gjev $0$. Altså $h'(t) = -10t + 20$.","918cd0704dc7e762":"Ballen har $h'(2) = 0$. Kva tyder det fysisk?","b05d4c767eb0f0a7":"Ballen er på bakken","976e5bd45f14a100":"Ballen rører seg oppover","58ddf1e6f839e0b7":"Ballen er på sitt høgaste punkt og er i ferd med å snu","cd5e99de30815877":"Ballen har falle i $2$ sekund","811e8e78aa9a000a":"$h'(2) = 0$ tyder at farten er null – ballen verken stig eller søkk. Han er på sitt høgaste punkt og er i ferd med å snu retning.","e700b8c72edb1020":"Når er ballen på toppen? (Set $h'(t) = 0$ med $h'(t) = -10t + 20$)","f671b6ca8747334c":"$t = 0$","cbd63f1d542e79b0":"$t = 1$","8befb4f8d957f331":"$t = 2$","25a620a01b1e27d5":"$t = 4$","35d89a8bd905e109":"$h'(t) = -10t + 20 = 0$ gjev $10t = 20$, altså $t = 2$ sekund. Ved dette tidspunktet er farten null, og ballen er på toppen.","79eeeec37aef74be":"Lytt til oppsummeringa","b409d1128419f9c6":"Lydfil som les opp oppsummeringa.","439afbf5ff1ed803":"## Oppsummering\n\nI dette kapittelet har vi lært at **den deriverte** $f'(x)$ er ein ny funksjon som gjev oss den momentane vekstfarten – stigningstalet til tangenten – for kvar einaste $x$-verdi. Vi har tre grunnleggjande reglar for derivasjon.\n\n**Konstantregelen** seier at den deriverte av ein konstant er $0$: konstantar endrar seg ikkje, så vekstfarten er null. **Lineære funksjonar** $f(x) = ax + b$ har derivert lik stigningstalet $a$, fordi ei rett linje har konstant stigningstal overalt.\n\n**Potensregelen** er nøkkelen til å derivere dei fleste uttrykka vi møter: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugs «ta ned og trekk frå éin». Med **sumregelen** deriverer vi summar ledd for ledd. Konstantmultiplikasjon tyder at koeffisientar «heng med» gjennom derivasjonen.\n\nForteiknet til den deriverte fortel oss om funksjonen stig ($f' > 0$), søkk ($f' < 0$), eller har ein horisontal tangent ($f' = 0$). I praktiske samanhengar gjev den deriverte av posisjon oss fart, og $f'(a)$ gjev den momentane vekstfarten i punktet $x = a$."}}}
+{
+  "id": "1t-7-3-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "7.3",
+  "title": "Den deriverte",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om den deriverte funksjonen – korleis potensregelen, konstantregelen og sumregelen lèt deg finne momentan vekstfart overalt.",
+  "estimatedMinutes": 45,
+  "competenceGoals": [
+    "forstå den deriverte som funksjon for momentan vekstfart",
+    "derivere konstante og lineære funksjonar",
+    "bruke potensregelen til å derivere polynomfunksjonar"
+  ],
+  "linkedChapterId": "1t-7-3",
+  "content": [
+    {
+      "id": "1t-7-3-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-3-narrativ-del1.mp3",
+      "description": "Lydfil som les opp teksten fram til første quiz."
+    },
+    {
+      "id": "1t-7-3-n-intro",
+      "type": "text",
+      "content": "## Ein formel for vekstfart overalt\n\nI dei to føregåande kapitla har vi funne vekstfart i enkeltpunkt – anten grafisk ved å teikne tangentar, eller ved å rekne ut stigningstal. Men kva om vi kunne ha ein *formel* som gjev oss den momentane vekstfarten for *alle* verdiar av $x$ på éin gong?\n\nDet er nettopp det **den deriverte** gjev oss. Den deriverte av ein funksjon $f(x)$ er ein heilt ny funksjon, som vi skriv $f'(x)$ (les «f derivert av x»). Denne nye funksjonen fortel oss stigningstalet til tangenten – altså den momentane vekstfarten – for kvar einaste $x$-verdi. I dette kapittelet skal vi lære reglar som lèt oss finne $f'(x)$ raskt og effektivt."
+    },
+    {
+      "id": "1t-7-3-n-section1",
+      "type": "text",
+      "content": "## Kva den deriverte fortel oss\n\nFør vi byrjar å rekne, lat oss forstå kva den deriverte eigentleg tyder. Viss du har ein funksjon $f(x)$ og den deriverte $f'(x)$, så gjev $f'(a)$ deg stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Med andre ord: $f'(a)$ er den momentane vekstfarten til $f$ når $x = a$.\n\nMen den deriverte fortel oss enda meir. Forteiknet til $f'(x)$ avslører om funksjonen stig eller søkk. Når $f'(x) > 0$, er funksjonen $f$ **stigande** – grafen peikar oppover. Når $f'(x) < 0$, er funksjonen **søkkande** – grafen peikar nedover. Og når $f'(x) = 0$, har grafen ein horisontal tangent. Det tyder at vi er ved eit **toppunkt**, eit **botnpunkt**, eller eit vendepunkt.\n\nTenk deg at du køyrer bil langs ein veg som svingar opp og ned. Den deriverte er som eit instrument som fortel deg om vegen peikar oppover, nedover, eller om du er på toppen av ein bakke akkurat no. Det er eit ekstremt nyttig verktøy."
+    },
+    {
+      "id": "1t-7-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på kva den deriverte fortel oss:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-3-n-quiz1-q0",
+            "task": "Kva tyder det at $f'(x) < 0$ i eit punkt?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Funksjonen er søkkande",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Funksjonen er stigande",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Funksjonen har eit toppunkt",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Funksjonen har verdi 0",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $f'(x) < 0$, er den momentane vekstfarten negativ. Det tyder at funksjonen $f$ er **søkkande** i det punktet – grafen peikar nedover."
+          },
+          {
+            "id": "1t-7-3-n-quiz1-q1",
+            "task": "Kva gjev $f'(a)$ oss?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Funksjonsverdien i $x = a$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nullpunktet nærast $a$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Stigningstalet til tangenten i $(a, f(a))$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Arealet under grafen frå $0$ til $a$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(a)$ gjev stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Det er den momentane vekstfarten til $f$ når $x = a$."
+          },
+          {
+            "id": "1t-7-3-n-quiz1-q2",
+            "task": "Kva tyder det at $f'(x) = 0$ i eit punkt?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Funksjonen er null",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Funksjonen er stigande",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Grafen kryssar $x$-aksen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafen har ein horisontal tangent",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når $f'(x) = 0$, har tangenten stigningstal $0$, altså er han horisontal. Det kan tyde eit toppunkt, botnpunkt eller vendepunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-3-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-3-narrativ-del2.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-3-n-section2",
+      "type": "text",
+      "content": "## Konstantregelen og lineære funksjonar\n\nLat oss starte med dei enklaste funksjonane. Kva er den deriverte av ein **konstant funksjon** $f(x) = a$, til dømes $f(x) = 5$? Grafen er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, uansett kvar du er. Difor er $f'(x) = 0$.\n\nDet gjev meining intuitivt: ein konstant funksjon endrar seg aldri, så vekstfarten er null overalt. Denne regelen kallar vi **konstantregelen**.\n\nKva med ein **lineær funksjon** $f(x) = ax + b$? Grafen er ei rett linje med stigningstal $a$. Tangenten i kvart punkt er sjølve linja, og stigningstalet er $a$ overalt. Difor er $f'(x) = a$.\n\nTil dømes: $f(x) = 4x - 2$ gjev $f'(x) = 4$. Funksjonen $f(x) = x + 9$ (som er det same som $1 \\cdot x + 9$) gjev $f'(x) = 1$. Og $f(x) = 3$ gjev $f'(x) = 0$, fordi det er ein konstant.\n\nDesse to reglane er utgangspunktet, og dei er lette å hugse: konstantar forsvinn, og stigningstalet til ein lineær funksjon er den deriverte."
+    },
+    {
+      "id": "1t-7-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på konstantregelen og lineære funksjonar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-3-n-quiz2-q0",
+            "task": "Kva er $f'(x)$ når $f(x) = -7x + 10$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$-7$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$10$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-7x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(x) = -7x + 10$ er ein lineær funksjon med stigningstal $-7$. Den deriverte av ein lineær funksjon er stigningstalet, så $f'(x) = -7$."
+          },
+          {
+            "id": "1t-7-3-n-quiz2-q1",
+            "task": "Kva er $f'(x)$ når $f(x) = 42$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$42$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$42x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(x) = 42$ er ein konstant funksjon. Konstantregelen seier at den deriverte av ein konstant er $0$, fordi ein konstant endrar seg aldri."
+          },
+          {
+            "id": "1t-7-3-n-quiz2-q2",
+            "task": "Kva er $f'(x)$ når $f(x) = x + 9$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$9$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$10$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f(x) = x + 9 = 1 \\cdot x + 9$ er ein lineær funksjon med stigningstal $1$. Dermed er $f'(x) = 1$. Konstanten $9$ forsvinn ved derivasjon."
+          },
+          {
+            "id": "1t-7-3-n-quiz2-q3",
+            "task": "Kvifor er den deriverte av ein konstant funksjon lik null?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi konstanten er positiv",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi vi deler på null",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi konstanten ikkje har nokon $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi grafen er ei horisontal linje som aldri endrar seg",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ein konstant funksjon har ein graf som er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, og dermed er den deriverte – som gjev stigningstalet – òg $0$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-3-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-3-narrativ-del3.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-3-n-section3",
+      "type": "text",
+      "content": "## Potensregelen – den viktigaste derivasjonsregelen\n\nNo kjem vi til regelen som verkeleg opnar dørene: **potensregelen**. Han fortel oss korleis vi deriverer funksjonar som $x^2$, $x^3$, $x^5$ og så vidare. Regelen er:\n\n$$f(x) = x^n \\quad \\Rightarrow \\quad f'(x) = n \\cdot x^{n-1}$$\n\nEi enkel hugseregel er «ta ned og trekk frå éin»: ta eksponenten *ned* framføre som koeffisient, og trekk frå *éin* frå eksponenten. Til dømes: $f(x) = x^5$ gjev $f'(x) = 5x^4$. Eksponenten $5$ vert flytta ned, og den nye eksponenten vert $5 - 1 = 4$.\n\nLat oss prøve med $f(x) = x^2$. Då er $f'(x) = 2x^{2-1} = 2x$. Det tyder at den momentane vekstfarten til $x^2$ i eit punkt er $2x$. Når $x = 3$, er vekstfarten $2 \\cdot 3 = 6$. Når $x = -1$, er vekstfarten $2 \\cdot (-1) = -2$.\n\nKva med koeffisientar framføre? Viss $f(x) = 3x^4$, gangar vi koeffisienten med eksponenten: $f'(x) = 3 \\cdot 4 \\cdot x^3 = 12x^3$. Konstanten «heng med» gjennom derivasjonen."
+    },
+    {
+      "id": "1t-7-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på potensregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-3-n-quiz3-q0",
+            "task": "Kva er $f'(x)$ når $f(x) = x^3$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$3x^2$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$3x^3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Med potensregelen: $f(x) = x^3$ gjev $f'(x) = 3 \\cdot x^{3-1} = 3x^2$. Vi tek eksponenten 3 ned som koeffisient og reduserer eksponenten med 1."
+          },
+          {
+            "id": "1t-7-3-n-quiz3-q1",
+            "task": "Kva seier potensregelen? Viss $f(x) = x^n$, kva er $f'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x^{n+1}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$n \\cdot x^{n-1}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$n \\cdot x^n$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(n-1) \\cdot x^n$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Potensregelen: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugseregelen er «ta ned og trekk frå éin» – eksponenten vert flytta ned og redusert med 1."
+          },
+          {
+            "id": "1t-7-3-n-quiz3-q2",
+            "task": "Kva er $f'(x)$ når $f(x) = 3x^4$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$3x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$4x^3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$12x^3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$12x^4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$f'(x) = 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$. Koeffisienten $3$ vert ganga med eksponenten $4$, og eksponenten vert redusert frå $4$ til $3$."
+          },
+          {
+            "id": "1t-7-3-n-quiz3-q3",
+            "task": "Kva er den momentane vekstfarten til $f(x) = x^2$ når $x = -1$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$f'(x) = 2x$. Vi set inn $x = -1$: $f'(-1) = 2 \\cdot (-1) = -2$. Den momentane vekstfarten er $-2$, altså søkk funksjonen i det punktet."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-3-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-3-narrativ-del4.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-3-n-section4",
+      "type": "text",
+      "content": "## Sumregelen – derivere ledd for ledd\n\nNår funksjonen vår er ein sum av fleire ledd, brukar vi **sumregelen**: vi deriverer kvart ledd for seg. Formelt: $(f + g)'(x) = f'(x) + g'(x)$. Tilsvarande for differansar: $(f - g)'(x) = f'(x) - g'(x)$.\n\nLat oss bruke dette på eit polynom. Ta $f(x) = 3x^4 - 2x + 5$. Vi deriverer ledd for ledd: $3x^4$ gjev $3 \\cdot 4x^3 = 12x^3$. Leddet $-2x$ er lineært med stigningstal $-2$, så det gjev $-2$. Og konstanten $5$ gjev $0$. Til saman: $f'(x) = 12x^3 - 2$.\n\nHer er eit viktig poeng: konstantar «forsvinn» ved derivasjon. Om funksjonen din er $x^2 + 100$ eller $x^2 - 7$, vert den deriverte $2x$ i begge tilfella. Det er fordi konstantar ikkje bidreg til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken.\n\nLat oss ta enda eit døme. Vi har $f(x) = 2x^2 - 5x$ og vil finne $f'(-2)$. Først deriverer vi: $f'(x) = 4x - 5$. Deretter set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$. Den momentane vekstfarten er altså $-13$ når $x = -2$, som tyder at funksjonen søkk raskt."
+    },
+    {
+      "id": "1t-7-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på sumregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-3-n-quiz4-q0",
+            "task": "Lat $f(x) = x^2 + 2x - 3$. Kva er $f'(x)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x + 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$x^2 + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x + 2 - 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer ledd for ledd: $x^2$ gjev $2x$, leddet $2x$ gjev $2$, og konstanten $-3$ gjev $0$. Til saman: $f'(x) = 2x + 2$."
+          },
+          {
+            "id": "1t-7-3-n-quiz4-q1",
+            "task": "Kva seier sumregelen for derivasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vi legg saman alle ledda",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vi deriverer kvart ledd for seg",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Vi gangar alle ledda",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi kan berre derivere eitt ledd om gongen",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sumregelen seier at $(f + g)'(x) = f'(x) + g'(x)$. Vi deriverer kvart ledd for seg og set saman resultatet."
+          },
+          {
+            "id": "1t-7-3-n-quiz4-q2",
+            "task": "Lat $f(x) = 2x^2 - 5x$. Kva er $f'(-2)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-13$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$13$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Først deriverer vi: $f'(x) = 4x - 5$. Så set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$."
+          },
+          {
+            "id": "1t-7-3-n-quiz4-q3",
+            "task": "Kvifor forsvinn konstantar ved derivasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi dei er tal, ikkje variablar",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi dei alltid er positive",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Fordi potensregelen ikkje gjeld for dei",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi dei ikkje bidreg til endring – dei berre løftar eller senkar grafen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Konstantar bidreg ikkje til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken. Stigningstalet er det same uansett om vi legg til ein konstant, så han forsvinn ved derivasjon."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-3-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-7-3-narrativ-del5.mp3",
+      "description": "Lydfil som les opp teksten fram til neste quiz."
+    },
+    {
+      "id": "1t-7-3-n-section5",
+      "type": "text",
+      "content": "## Den deriverte i praksis – ballen igjen\n\nLat oss vende attende til ballen som vert kasta opp i lufta. Høgdefunksjonen er $h(t) = -5t^2 + 20t + 1$. Vi kan no finne den deriverte: $h'(t) = -10t + 20$.\n\nKva tyder denne deriverte fysisk? Han gjev oss **farten** til ballen som funksjon av tid. Farten $h'(t) = -10t + 20$ fortel oss kor fort ballen rører seg oppover (eller nedover) i kvart augneblink.\n\nNår $t = 0$: $h'(0) = 20$ m/s. Ballen startar med fart 20 meter per sekund oppover. Når $t = 2$: $h'(2) = -10 \\cdot 2 + 20 = 0$ m/s. Farten er null! Ballen er på sitt høgaste punkt og er i ferd med å snu. Når $t = 3$: $h'(3) = -10 \\cdot 3 + 20 = -10$ m/s. Farten er $-10$ m/s, altså rører ballen seg 10 meter per sekund nedover.\n\nVi kan òg finne *når* ballen er på toppen ved å setje $h'(t) = 0$: $-10t + 20 = 0$, som gjev $t = 2$ sekund. Deretter finn vi *høgda* på toppen: $h(2) = -20 + 40 + 1 = 21$ meter. Derivasjon gjev oss altså eit kraftig verktøy for å analysere rørsle."
+    },
+    {
+      "id": "1t-7-3-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-7-3-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på den deriverte i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "1t-7-3-n-quiz5-q0",
+            "task": "Lat $f(x) = \\frac{7}{2}x^2 - 5x$. Kva er $f'(2)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$9$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$12$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer: $f'(x) = \\frac{7}{2} \\cdot 2x - 5 = 7x - 5$. Deretter set vi inn $x = 2$: $f'(2) = 7 \\cdot 2 - 5 = 14 - 5 = 9$."
+          },
+          {
+            "id": "1t-7-3-n-quiz5-q1",
+            "task": "Høgda til ein ball er $h(t) = -5t^2 + 20t + 1$. Kva er $h'(t)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-5t + 20$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$-10t + 20$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$-10t^2 + 20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$-10t + 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi deriverer ledd for ledd: $-5t^2$ gjev $-10t$, $20t$ gjev $20$, og konstanten $1$ gjev $0$. Altså $h'(t) = -10t + 20$."
+          },
+          {
+            "id": "1t-7-3-n-quiz5-q2",
+            "task": "Ballen har $h'(2) = 0$. Kva tyder det fysisk?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ballen er på bakken",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ballen rører seg oppover",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ballen er på sitt høgaste punkt og er i ferd med å snu",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Ballen har falle i $2$ sekund",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h'(2) = 0$ tyder at farten er null – ballen verken stig eller søkk. Han er på sitt høgaste punkt og er i ferd med å snu retning."
+          },
+          {
+            "id": "1t-7-3-n-quiz5-q3",
+            "task": "Når er ballen på toppen? (Set $h'(t) = 0$ med $h'(t) = -10t + 20$)",
+            "options": [
+              {
+                "id": "a",
+                "text": "$t = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$t = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$t = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$t = 4$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$h'(t) = -10t + 20 = 0$ gjev $10t = 20$, altså $t = 2$ sekund. Ved dette tidspunktet er farten null, og ballen er på toppen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "1t-7-3-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringa",
+      "src": "/audio/1t/1t-7-3-narrativ-del6.mp3",
+      "description": "Lydfil som les opp oppsummeringa."
+    },
+    {
+      "id": "1t-7-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi lært at **den deriverte** $f'(x)$ er ein ny funksjon som gjev oss den momentane vekstfarten – stigningstalet til tangenten – for kvar einaste $x$-verdi. Vi har tre grunnleggjande reglar for derivasjon.\n\n**Konstantregelen** seier at den deriverte av ein konstant er $0$: konstantar endrar seg ikkje, så vekstfarten er null. **Lineære funksjonar** $f(x) = ax + b$ har derivert lik stigningstalet $a$, fordi ei rett linje har konstant stigningstal overalt.\n\n**Potensregelen** er nøkkelen til å derivere dei fleste uttrykka vi møter: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugs «ta ned og trekk frå éin». Med **sumregelen** deriverer vi summar ledd for ledd. Konstantmultiplikasjon tyder at koeffisientar «heng med» gjennom derivasjonen.\n\nForteiknet til den deriverte fortel oss om funksjonen stig ($f' > 0$), søkk ($f' < 0$), eller har ein horisontal tangent ($f' = 0$). I praktiske samanhengar gjev den deriverte av posisjon oss fart, og $f'(a)$ gjev den momentane vekstfarten i punktet $x = a$."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "25d37dd04d047c2c",
+    "translatedAt": "2026-06-16T23:52:14.813Z",
+    "model": "claude-code-agent",
+    "strings": 128,
+    "tm": {
+      "c214482f6ce3f80a": "Den deriverte",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "cf62f6299b9663da": "Ei forteljing om den deriverte funksjonen – korleis potensregelen, konstantregelen og sumregelen lèt deg finne momentan vekstfart overalt.",
+      "6acb97823b2a8436": "forstå den deriverte som funksjon for momentan vekstfart",
+      "dd22505be6179069": "derivere konstante og lineære funksjonar",
+      "b86ae1e7dd185963": "bruke potensregelen til å derivere polynomfunksjonar",
+      "d2c9d9ef5d3f774f": "Lytt til denne delen",
+      "21954805f17795e8": "Lydfil som les opp teksten fram til første quiz.",
+      "211edc5d505d1cda": "## Ein formel for vekstfart overalt\n\nI dei to føregåande kapitla har vi funne vekstfart i enkeltpunkt – anten grafisk ved å teikne tangentar, eller ved å rekne ut stigningstal. Men kva om vi kunne ha ein *formel* som gjev oss den momentane vekstfarten for *alle* verdiar av $x$ på éin gong?\n\nDet er nettopp det **den deriverte** gjev oss. Den deriverte av ein funksjon $f(x)$ er ein heilt ny funksjon, som vi skriv $f'(x)$ (les «f derivert av x»). Denne nye funksjonen fortel oss stigningstalet til tangenten – altså den momentane vekstfarten – for kvar einaste $x$-verdi. I dette kapittelet skal vi lære reglar som lèt oss finne $f'(x)$ raskt og effektivt.",
+      "36bac6c9ff14ed28": "## Kva den deriverte fortel oss\n\nFør vi byrjar å rekne, lat oss forstå kva den deriverte eigentleg tyder. Viss du har ein funksjon $f(x)$ og den deriverte $f'(x)$, så gjev $f'(a)$ deg stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Med andre ord: $f'(a)$ er den momentane vekstfarten til $f$ når $x = a$.\n\nMen den deriverte fortel oss enda meir. Forteiknet til $f'(x)$ avslører om funksjonen stig eller søkk. Når $f'(x) > 0$, er funksjonen $f$ **stigande** – grafen peikar oppover. Når $f'(x) < 0$, er funksjonen **søkkande** – grafen peikar nedover. Og når $f'(x) = 0$, har grafen ein horisontal tangent. Det tyder at vi er ved eit **toppunkt**, eit **botnpunkt**, eller eit vendepunkt.\n\nTenk deg at du køyrer bil langs ein veg som svingar opp og ned. Den deriverte er som eit instrument som fortel deg om vegen peikar oppover, nedover, eller om du er på toppen av ein bakke akkurat no. Det er eit ekstremt nyttig verktøy.",
+      "606ff988f1b3dc3d": "Test deg sjølv på kva den deriverte fortel oss:",
+      "4097889236a2af26": "placeholder",
+      "23d66b93bb871872": "Kva tyder det at $f'(x) < 0$ i eit punkt?",
+      "1a0fde0d210608b9": "Funksjonen er stigande",
+      "fa2c051e050ad687": "Funksjonen har eit toppunkt",
+      "f5c6c8cd8829656e": "Funksjonen er søkkande",
+      "7c515fbf4bb18850": "Funksjonen har verdi 0",
+      "37aabaef5d34197d": "Når $f'(x) < 0$, er den momentane vekstfarten negativ. Det tyder at funksjonen $f$ er **søkkande** i det punktet – grafen peikar nedover.",
+      "16fe49a2a2528a30": "Kva gjev $f'(a)$ oss?",
+      "a4873a8be8ad3603": "Funksjonsverdien i $x = a$",
+      "476a5ec216098dd3": "Stigningstalet til tangenten i $(a, f(a))$",
+      "1395b2d8649ef631": "Nullpunktet nærast $a$",
+      "5c666c0d0c0c4d74": "Arealet under grafen frå $0$ til $a$",
+      "1df5f45e65f95820": "$f'(a)$ gjev stigningstalet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Det er den momentane vekstfarten til $f$ når $x = a$.",
+      "4b5e6859a7fca06f": "Kva tyder det at $f'(x) = 0$ i eit punkt?",
+      "a3be04a73191f663": "Funksjonen er null",
+      "d7b9c6620640fc8a": "Grafen kryssar $x$-aksen",
+      "219cc2ea4d82b302": "Grafen har ein horisontal tangent",
+      "e117e6dd2546878b": "Når $f'(x) = 0$, har tangenten stigningstal $0$, altså er han horisontal. Det kan tyde eit toppunkt, botnpunkt eller vendepunkt.",
+      "058005533831b7f6": "Lydfil som les opp teksten fram til neste quiz.",
+      "6d482604e9df692c": "## Konstantregelen og lineære funksjonar\n\nLat oss starte med dei enklaste funksjonane. Kva er den deriverte av ein **konstant funksjon** $f(x) = a$, til dømes $f(x) = 5$? Grafen er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, uansett kvar du er. Difor er $f'(x) = 0$.\n\nDet gjev meining intuitivt: ein konstant funksjon endrar seg aldri, så vekstfarten er null overalt. Denne regelen kallar vi **konstantregelen**.\n\nKva med ein **lineær funksjon** $f(x) = ax + b$? Grafen er ei rett linje med stigningstal $a$. Tangenten i kvart punkt er sjølve linja, og stigningstalet er $a$ overalt. Difor er $f'(x) = a$.\n\nTil dømes: $f(x) = 4x - 2$ gjev $f'(x) = 4$. Funksjonen $f(x) = x + 9$ (som er det same som $1 \\cdot x + 9$) gjev $f'(x) = 1$. Og $f(x) = 3$ gjev $f'(x) = 0$, fordi det er ein konstant.\n\nDesse to reglane er utgangspunktet, og dei er lette å hugse: konstantar forsvinn, og stigningstalet til ein lineær funksjon er den deriverte.",
+      "34522c0bda0d96e6": "Test deg sjølv på konstantregelen og lineære funksjonar:",
+      "d211853705dad156": "Kva er $f'(x)$ når $f(x) = -7x + 10$?",
+      "3bbf4aa8059a4fe9": "$-7x$",
+      "c5f70c4920735ea0": "$f(x) = -7x + 10$ er ein lineær funksjon med stigningstal $-7$. Den deriverte av ein lineær funksjon er stigningstalet, så $f'(x) = -7$.",
+      "8159c2effc57f319": "Kva er $f'(x)$ når $f(x) = 42$?",
+      "e915939ce7318461": "$42x$",
+      "dc70599bff342924": "$f(x) = 42$ er ein konstant funksjon. Konstantregelen seier at den deriverte av ein konstant er $0$, fordi ein konstant endrar seg aldri.",
+      "9968759fb5224ea9": "Kva er $f'(x)$ når $f(x) = x + 9$?",
+      "22bf003d6cac79e1": "$x$",
+      "4d0d84ad3ea0ff73": "$f(x) = x + 9 = 1 \\cdot x + 9$ er ein lineær funksjon med stigningstal $1$. Dermed er $f'(x) = 1$. Konstanten $9$ forsvinn ved derivasjon.",
+      "ed465114ea3afbcd": "Kvifor er den deriverte av ein konstant funksjon lik null?",
+      "c6f723a8abda50ac": "Fordi konstanten er positiv",
+      "50e0914b6a871163": "Fordi grafen er ei horisontal linje som aldri endrar seg",
+      "72552c4faef8948d": "Fordi vi deler på null",
+      "33991fd7f2205c2c": "Fordi konstanten ikkje har nokon $x$",
+      "9c3591b89e0eaeae": "Ein konstant funksjon har ein graf som er ei horisontal linje. Stigningstalet til ei horisontal linje er alltid $0$, og dermed er den deriverte – som gjev stigningstalet – òg $0$.",
+      "649203fb897ed546": "## Potensregelen – den viktigaste derivasjonsregelen\n\nNo kjem vi til regelen som verkeleg opnar dørene: **potensregelen**. Han fortel oss korleis vi deriverer funksjonar som $x^2$, $x^3$, $x^5$ og så vidare. Regelen er:\n\n$$f(x) = x^n \\quad \\Rightarrow \\quad f'(x) = n \\cdot x^{n-1}$$\n\nEi enkel hugseregel er «ta ned og trekk frå éin»: ta eksponenten *ned* framføre som koeffisient, og trekk frå *éin* frå eksponenten. Til dømes: $f(x) = x^5$ gjev $f'(x) = 5x^4$. Eksponenten $5$ vert flytta ned, og den nye eksponenten vert $5 - 1 = 4$.\n\nLat oss prøve med $f(x) = x^2$. Då er $f'(x) = 2x^{2-1} = 2x$. Det tyder at den momentane vekstfarten til $x^2$ i eit punkt er $2x$. Når $x = 3$, er vekstfarten $2 \\cdot 3 = 6$. Når $x = -1$, er vekstfarten $2 \\cdot (-1) = -2$.\n\nKva med koeffisientar framføre? Viss $f(x) = 3x^4$, gangar vi koeffisienten med eksponenten: $f'(x) = 3 \\cdot 4 \\cdot x^3 = 12x^3$. Konstanten «heng med» gjennom derivasjonen.",
+      "667ff7f9e58ec1e8": "Test deg sjølv på potensregelen:",
+      "14bf1aa2964af038": "Kva er $f'(x)$ når $f(x) = x^3$?",
+      "7f408224ea7b716f": "$x^2$",
+      "e2fe3bdcb9849f47": "$3x$",
+      "63e2473004fc4669": "$3x^2$",
+      "4ad62bc962da8919": "$3x^3$",
+      "c55b1d35defc61b8": "Med potensregelen: $f(x) = x^3$ gjev $f'(x) = 3 \\cdot x^{3-1} = 3x^2$. Vi tek eksponenten 3 ned som koeffisient og reduserer eksponenten med 1.",
+      "7a3d2d74da81b468": "Kva seier potensregelen? Viss $f(x) = x^n$, kva er $f'(x)$?",
+      "75401906df9fb657": "$x^{n+1}$",
+      "e54bf5affbc2d37f": "$n \\cdot x^{n-1}$",
+      "3daba3a1a0e6243a": "$n \\cdot x^n$",
+      "b53f6d03212bb77c": "$(n-1) \\cdot x^n$",
+      "12fccd0961863d2e": "Potensregelen: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugseregelen er «ta ned og trekk frå éin» – eksponenten vert flytta ned og redusert med 1.",
+      "3d22a4fa3e3f1145": "Kva er $f'(x)$ når $f(x) = 3x^4$?",
+      "3cf6659151272471": "$4x^3$",
+      "050ca9c41acb7d6b": "$12x^3$",
+      "a48dde59bfee4690": "$12x^4$",
+      "3c211397e19389d0": "$f'(x) = 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$. Koeffisienten $3$ vert ganga med eksponenten $4$, og eksponenten vert redusert frå $4$ til $3$.",
+      "ed46491b21208695": "Kva er den momentane vekstfarten til $f(x) = x^2$ når $x = -1$?",
+      "90e4ab0da0d857de": "$f'(x) = 2x$. Vi set inn $x = -1$: $f'(-1) = 2 \\cdot (-1) = -2$. Den momentane vekstfarten er $-2$, altså søkk funksjonen i det punktet.",
+      "a9ee6fdbc8f81a21": "## Sumregelen – derivere ledd for ledd\n\nNår funksjonen vår er ein sum av fleire ledd, brukar vi **sumregelen**: vi deriverer kvart ledd for seg. Formelt: $(f + g)'(x) = f'(x) + g'(x)$. Tilsvarande for differansar: $(f - g)'(x) = f'(x) - g'(x)$.\n\nLat oss bruke dette på eit polynom. Ta $f(x) = 3x^4 - 2x + 5$. Vi deriverer ledd for ledd: $3x^4$ gjev $3 \\cdot 4x^3 = 12x^3$. Leddet $-2x$ er lineært med stigningstal $-2$, så det gjev $-2$. Og konstanten $5$ gjev $0$. Til saman: $f'(x) = 12x^3 - 2$.\n\nHer er eit viktig poeng: konstantar «forsvinn» ved derivasjon. Om funksjonen din er $x^2 + 100$ eller $x^2 - 7$, vert den deriverte $2x$ i begge tilfella. Det er fordi konstantar ikkje bidreg til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken.\n\nLat oss ta enda eit døme. Vi har $f(x) = 2x^2 - 5x$ og vil finne $f'(-2)$. Først deriverer vi: $f'(x) = 4x - 5$. Deretter set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$. Den momentane vekstfarten er altså $-13$ når $x = -2$, som tyder at funksjonen søkk raskt.",
+      "8f46ac0082b92252": "Test deg sjølv på sumregelen:",
+      "425265f38939e463": "Lat $f(x) = x^2 + 2x - 3$. Kva er $f'(x)$?",
+      "61649d39f1ed7ff5": "$2x + 2$",
+      "4d5c726c8c73fbc1": "$x^2 + 2$",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "544ac14da92ac9e6": "$2x + 2 - 3$",
+      "5d9bb7103ca38b9b": "Vi deriverer ledd for ledd: $x^2$ gjev $2x$, leddet $2x$ gjev $2$, og konstanten $-3$ gjev $0$. Til saman: $f'(x) = 2x + 2$.",
+      "71b66e83cea1197f": "Kva seier sumregelen for derivasjon?",
+      "5d9982f2aa0d3157": "Vi legg saman alle ledda",
+      "56bbb1da2b6fade4": "Vi deriverer kvart ledd for seg",
+      "c560501bb1b7ecb7": "Vi gangar alle ledda",
+      "59ae891bd2c80cf3": "Vi kan berre derivere eitt ledd om gongen",
+      "72a32f6d3d797c16": "Sumregelen seier at $(f + g)'(x) = f'(x) + g'(x)$. Vi deriverer kvart ledd for seg og set saman resultatet.",
+      "22544893f45e20ea": "Lat $f(x) = 2x^2 - 5x$. Kva er $f'(-2)$?",
+      "d37d5b96a13a1f61": "Først deriverer vi: $f'(x) = 4x - 5$. Så set vi inn $x = -2$: $f'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$.",
+      "2b64026bf03646c0": "Kvifor forsvinn konstantar ved derivasjon?",
+      "ec021e0dec3690c6": "Fordi dei er tal, ikkje variablar",
+      "ddf58e8121bdd99b": "Fordi dei ikkje bidreg til endring – dei berre løftar eller senkar grafen",
+      "581de9e6a51111ca": "Fordi dei alltid er positive",
+      "cf850c968939a5ab": "Fordi potensregelen ikkje gjeld for dei",
+      "b9faea0c520456b2": "Konstantar bidreg ikkje til endring – dei berre løftar eller senkar heile grafen utan å endre brattleiken. Stigningstalet er det same uansett om vi legg til ein konstant, så han forsvinn ved derivasjon.",
+      "5097a7b961a204b2": "## Den deriverte i praksis – ballen igjen\n\nLat oss vende attende til ballen som vert kasta opp i lufta. Høgdefunksjonen er $h(t) = -5t^2 + 20t + 1$. Vi kan no finne den deriverte: $h'(t) = -10t + 20$.\n\nKva tyder denne deriverte fysisk? Han gjev oss **farten** til ballen som funksjon av tid. Farten $h'(t) = -10t + 20$ fortel oss kor fort ballen rører seg oppover (eller nedover) i kvart augneblink.\n\nNår $t = 0$: $h'(0) = 20$ m/s. Ballen startar med fart 20 meter per sekund oppover. Når $t = 2$: $h'(2) = -10 \\cdot 2 + 20 = 0$ m/s. Farten er null! Ballen er på sitt høgaste punkt og er i ferd med å snu. Når $t = 3$: $h'(3) = -10 \\cdot 3 + 20 = -10$ m/s. Farten er $-10$ m/s, altså rører ballen seg 10 meter per sekund nedover.\n\nVi kan òg finne *når* ballen er på toppen ved å setje $h'(t) = 0$: $-10t + 20 = 0$, som gjev $t = 2$ sekund. Deretter finn vi *høgda* på toppen: $h(2) = -20 + 40 + 1 = 21$ meter. Derivasjon gjev oss altså eit kraftig verktøy for å analysere rørsle.",
+      "2bb3f7bd9e7da893": "Test deg sjølv på den deriverte i praksis:",
+      "7486b92df03c253d": "Lat $f(x) = \\frac{7}{2}x^2 - 5x$. Kva er $f'(2)$?",
+      "f53e94c3b0ce3414": "Vi deriverer: $f'(x) = \\frac{7}{2} \\cdot 2x - 5 = 7x - 5$. Deretter set vi inn $x = 2$: $f'(2) = 7 \\cdot 2 - 5 = 14 - 5 = 9$.",
+      "00b9cebc57756a78": "Høgda til ein ball er $h(t) = -5t^2 + 20t + 1$. Kva er $h'(t)$?",
+      "ebf065304272c2d0": "$-5t + 20$",
+      "a83291d543a034e2": "$-10t + 20$",
+      "477ba6fa92e73789": "$-10t^2 + 20$",
+      "4c2ab87a5e6fcefb": "$-10t + 1$",
+      "b1b8ca6f320963d5": "Vi deriverer ledd for ledd: $-5t^2$ gjev $-10t$, $20t$ gjev $20$, og konstanten $1$ gjev $0$. Altså $h'(t) = -10t + 20$.",
+      "918cd0704dc7e762": "Ballen har $h'(2) = 0$. Kva tyder det fysisk?",
+      "b05d4c767eb0f0a7": "Ballen er på bakken",
+      "976e5bd45f14a100": "Ballen rører seg oppover",
+      "58ddf1e6f839e0b7": "Ballen er på sitt høgaste punkt og er i ferd med å snu",
+      "cd5e99de30815877": "Ballen har falle i $2$ sekund",
+      "811e8e78aa9a000a": "$h'(2) = 0$ tyder at farten er null – ballen verken stig eller søkk. Han er på sitt høgaste punkt og er i ferd med å snu retning.",
+      "e700b8c72edb1020": "Når er ballen på toppen? (Set $h'(t) = 0$ med $h'(t) = -10t + 20$)",
+      "f671b6ca8747334c": "$t = 0$",
+      "cbd63f1d542e79b0": "$t = 1$",
+      "8befb4f8d957f331": "$t = 2$",
+      "25a620a01b1e27d5": "$t = 4$",
+      "35d89a8bd905e109": "$h'(t) = -10t + 20 = 0$ gjev $10t = 20$, altså $t = 2$ sekund. Ved dette tidspunktet er farten null, og ballen er på toppen.",
+      "79eeeec37aef74be": "Lytt til oppsummeringa",
+      "b409d1128419f9c6": "Lydfil som les opp oppsummeringa.",
+      "439afbf5ff1ed803": "## Oppsummering\n\nI dette kapittelet har vi lært at **den deriverte** $f'(x)$ er ein ny funksjon som gjev oss den momentane vekstfarten – stigningstalet til tangenten – for kvar einaste $x$-verdi. Vi har tre grunnleggjande reglar for derivasjon.\n\n**Konstantregelen** seier at den deriverte av ein konstant er $0$: konstantar endrar seg ikkje, så vekstfarten er null. **Lineære funksjonar** $f(x) = ax + b$ har derivert lik stigningstalet $a$, fordi ei rett linje har konstant stigningstal overalt.\n\n**Potensregelen** er nøkkelen til å derivere dei fleste uttrykka vi møter: $f(x) = x^n$ gjev $f'(x) = n \\cdot x^{n-1}$. Hugs «ta ned og trekk frå éin». Med **sumregelen** deriverer vi summar ledd for ledd. Konstantmultiplikasjon tyder at koeffisientar «heng med» gjennom derivasjonen.\n\nForteiknet til den deriverte fortel oss om funksjonen stig ($f' > 0$), søkk ($f' < 0$), eller har ein horisontal tangent ($f' = 0$). I praktiske samanhengar gjev den deriverte av posisjon oss fart, og $f'(a)$ gjev den momentane vekstfarten i punktet $x = a$."
+    }
+  }
+}

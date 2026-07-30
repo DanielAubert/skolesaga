@@ -1,1 +1,415 @@
-{"id":"10-8-1-narrativ","courseId":"10","chapterNumber":"8.1","title":"Multiplikasjon av polynomar","subtitle":"Forteljaande versjon","description":"Ein forteljaande gjennomgang av polynom-multiplikasjon -- frå distributiv lov via FOIL-metoden til arealmodellen, der algebra og geometri møtest.","estimatedMinutes":35,"competenceGoals":["utforske og generalisere multiplikasjon av polynomar algebraisk og geometrisk"],"linkedChapterId":"10-8-1","content":[{"id":"10-8-1-n-intro","type":"text","content":"## Algebra som areal\n\nTenk deg at du skal finne arealet av eit rektangulært rom der sidene er $(x + 3)$ meter og $(x + 5)$ meter. Eller kanskje du skal forenkle eit uttrykk i ei likning. I båe tilfella må du vita korleis du multipliserer polynomar. Eit **polynom** er eit algebraisk uttrykk med eitt eller fleire ledd, til dømes $2x^2 + 3x - 5$. Eit uttrykk med berre eitt ledd (som $3x^2$) kallast eit **monom**, og eit uttrykk med to ledd (som $x + 3$) kallast eit **binom**.\n\nI dette kapitlet byggjer vi opp ferdigheitene steg for steg: først monom gonger polynom, så binom gonger binom, og til slutt vilkårlege polynomar."},{"id":"10-8-1-n-section1","type":"text","content":"## Monom gonger polynom -- distributiv lov\n\nNår me multipliserer eit monom med eit polynom, brukar me den **distributive loven**:\n\n$$a(b + c) = ab + ac$$\n\nDu gongar monomet med kvart ledd i polynomet, eitt om gongen. Til dømes: $3x(2x + 5) = 3x \\cdot 2x + 3x \\cdot 5 = 6x^2 + 15x$. Husk at $x \\cdot x = x^2$.\n\nDet fungerer òg med fleire ledd og negative koeffisientar. $-2x^2(3x^2 - 4x + 1)$: me gongar $-2x^2$ med kvart ledd og får $-6x^4 + 8x^3 - 2x^2$. Legg merke til at minus gonger minus gir pluss ($-2x^2 \\cdot (-4x) = +8x^3$).\n\nDen generelle regelen er: $a(b_1 + b_2 + \\ldots + b_n) = ab_1 + ab_2 + \\ldots + ab_n$. Uansett kor mange ledd polynomet har, gongar du monomet med kvart enkelt ledd."},{"id":"10-8-1-n-quiz1","type":"exercise","exercise":{"id":"10-8-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på monom gonger polynom:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-8-1-n-quiz1-q0","task":"Kva er $2x(3x - 1)$?","options":[{"id":"a","text":"$6x^2 - 2x$","isCorrect":true},{"id":"b","text":"$6x - 2x$","isCorrect":false},{"id":"c","text":"$5x^2 - 1$","isCorrect":false},{"id":"d","text":"$6x^2 - 1$","isCorrect":false}],"solution":"Me brukar distributiv lov: $2x \\cdot 3x = 6x^2$ og $2x \\cdot (-1) = -2x$. Svaret er $6x^2 - 2x$."},{"id":"10-8-1-n-quiz1-q1","task":"Kva er $-3x(x + 7)$?","options":[{"id":"a","text":"$-3x^2 + 21x$","isCorrect":false},{"id":"b","text":"$3x^2 - 21x$","isCorrect":false},{"id":"c","text":"$-3x^2 - 21x$","isCorrect":true},{"id":"d","text":"$-3x^2 - 7x$","isCorrect":false}],"solution":"$-3x \\cdot x = -3x^2$ og $-3x \\cdot 7 = -21x$. Minus gonger pluss gir minus. Svaret er $-3x^2 - 21x$."},{"id":"10-8-1-n-quiz1-q2","task":"Kva er $5x^2(2x - 3)$?","options":[{"id":"a","text":"$10x^2 - 15x^2$","isCorrect":false},{"id":"b","text":"$10x^3 - 15x^2$","isCorrect":true},{"id":"c","text":"$7x^3 - 8x^2$","isCorrect":false},{"id":"d","text":"$10x^3 - 3$","isCorrect":false}],"solution":"$5x^2 \\cdot 2x = 10x^3$ (legg saman eksponentane: $x^2 \\cdot x = x^3$) og $5x^2 \\cdot (-3) = -15x^2$."}]}},{"id":"10-8-1-n-section2","type":"text","content":"## Binom gonger binom -- FOIL-metoden\n\nNår du multipliserer to binomar $(a + b)(c + d)$, må kvart ledd i den første parentesen gangast med kvart ledd i den andre. Ein populær huskeregel er **FOIL**:\n\n- **F**irst (første ledd): $a \\cdot c$\n- **O**uter (ytre ledd): $a \\cdot d$\n- **I**nner (indre ledd): $b \\cdot c$\n- **L**ast (siste ledd): $b \\cdot d$\n\n$$(a + b)(c + d) = ac + ad + bc + bd$$\n\nLa oss prøve: $(x + 3)(x + 5)$. F: $x \\cdot x = x^2$. O: $x \\cdot 5 = 5x$. I: $3 \\cdot x = 3x$. L: $3 \\cdot 5 = 15$. Så får me $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$.\n\nVær nøyaktig med fortegna! $(x - 3)(x + 2)$: F: $x^2$, O: $2x$, I: $-3x$, L: $-6$. Resultat: $x^2 + 2x - 3x - 6 = x^2 - x - 6$. Og $(x - 4)(x - 5)$: F: $x^2$, O: $-5x$, I: $-4x$, L: $+20$ (minus gonger minus gir pluss!). Resultat: $x^2 - 9x + 20$.\n\nDet finst òg ein nyttig generell formel: $(x + a)(x + b) = x^2 + (a + b)x + ab$. Midtleddet er summen av $a$ og $b$, og siste ledd er produktet. For $(x + 7)(x - 3)$: $a + b = 7 + (-3) = 4$ og $ab = 7 \\cdot (-3) = -21$, så svaret er $x^2 + 4x - 21$."},{"id":"10-8-1-n-quiz2","type":"exercise","exercise":{"id":"10-8-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på FOIL-metoden:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-8-1-n-quiz2-q0","task":"Kva er $(x + 2)(x + 4)$?","options":[{"id":"a","text":"$x^2 + 8$","isCorrect":false},{"id":"b","text":"$x^2 + 6x + 8$","isCorrect":true},{"id":"c","text":"$x^2 + 2x + 8$","isCorrect":false},{"id":"d","text":"$2x^2 + 6x + 8$","isCorrect":false}],"solution":"FOIL: $x^2 + 4x + 2x + 8 = x^2 + 6x + 8$. Midtleddet: $4 + 2 = 6$, siste ledd: $4 \\cdot 2 = 8$."},{"id":"10-8-1-n-quiz2-q1","task":"Kva er $(x - 4)(x - 5)$?","options":[{"id":"a","text":"$x^2 - 9x + 20$","isCorrect":true},{"id":"b","text":"$x^2 + 9x + 20$","isCorrect":false},{"id":"c","text":"$x^2 - 9x - 20$","isCorrect":false},{"id":"d","text":"$x^2 - x - 20$","isCorrect":false}],"solution":"FOIL: $x^2 - 5x - 4x + 20 = x^2 - 9x + 20$. Minus gonger minus gir pluss, så siste leddet er $+20$."},{"id":"10-8-1-n-quiz2-q2","task":"Kva er $(4x + 1)(4x - 1)$?","options":[{"id":"a","text":"$16x^2 + 1$","isCorrect":false},{"id":"b","text":"$16x^2 - 1$","isCorrect":true},{"id":"c","text":"$8x^2 - 1$","isCorrect":false},{"id":"d","text":"$16x^2 - 2$","isCorrect":false}],"solution":"FOIL: $16x^2 - 4x + 4x - 1 = 16x^2 - 1$. Dei to midtledda slår kvarandre ut! (Dette er konjugatsetningen.)"}]}},{"id":"10-8-1-n-section3","type":"text","content":"## Arealmodellen og større polynomar\n\n**Arealmodellen** gir ei vakker geometrisk tolking av polynom-multiplikasjon. Tenk deg eit rektangel med sider $(x + 3)$ og $(x + 5)$. Del rektangelet i fire delar:\n\n| | $x$ | $5$ |\n|---|---|---|\n| $x$ | $x^2$ | $5x$ |\n| $3$ | $3x$ | $15$ |\n\nTotalt areal: $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$. Nøyaktig det same som FOIL! Arealmodellen viser *kvifor* formelen fungerer.\n\nNår vi multipliserer **større polynomar** brukar vi same prinsipp: kvart ledd i det første polynomet gongast med kvart ledd i det andre. For $(x^2 + 3x + 2)(x + 4)$ tek vi eitt ledd om gongen: $x^2(x + 4) + 3x(x + 4) + 2(x + 4) = x^3 + 4x^2 + 3x^2 + 12x + 2x + 8 = x^3 + 7x^2 + 14x + 8$.\n\nEit spesielt fint resultat: $(x + 1)(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alt forsvinn bortsett frå første og siste leddet!\n\nFor tre parentesar multipliserer du to om gongen: $(x + 2)(x - 3)(x + 1)$ -- først $(x + 2)(x - 3) = x^2 - x - 6$, så $(x^2 - x - 6)(x + 1) = x^3 + x^2 - x^2 - x - 6x - 6 = x^3 - 7x - 6$.\n\nHusk alltid å **samle like ledd** til slutt!"},{"id":"10-8-1-n-quiz3","type":"exercise","exercise":{"id":"10-8-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg sjølv på arealmodellen og større polynomar:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"10-8-1-n-quiz3-q0","task":"Eit rom har lengd $(2x + 3)$ m og breidd $(x + 4)$ m. Kva er arealet?","options":[{"id":"a","text":"$2x^2 + 11x + 12$","isCorrect":true},{"id":"b","text":"$2x^2 + 7x + 12$","isCorrect":false},{"id":"c","text":"$3x^2 + 11x + 12$","isCorrect":false},{"id":"d","text":"$2x^2 + 11x + 7$","isCorrect":false}],"solution":"$(2x + 3)(x + 4) = 2x^2 + 8x + 3x + 12 = 2x^2 + 11x + 12$."},{"id":"10-8-1-n-quiz3-q1","task":"Kva er $(x + 1)(x^2 - x + 1)$?","options":[{"id":"a","text":"$x^3 - 1$","isCorrect":false},{"id":"b","text":"$x^3 + x^2 - x + 1$","isCorrect":false},{"id":"c","text":"$x^3 + 1$","isCorrect":true},{"id":"d","text":"$x^3 + 2x + 1$","isCorrect":false}],"solution":"$x(x^2 - x + 1) + 1(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alle midtledda slår kvarandre ut."},{"id":"10-8-1-n-quiz3-q2","task":"I arealmodellen for $(x + 2)(x + 7)$, kva er arealet av feltet nede til høgre?","options":[{"id":"a","text":"$2x$","isCorrect":false},{"id":"b","text":"$7x$","isCorrect":false},{"id":"c","text":"$14$","isCorrect":true},{"id":"d","text":"$x^2$","isCorrect":false}],"solution":"I arealmodellen ligg $2$ langs den eine sida og $7$ langs den andre. Feltet nede til høgre har areal $2 \\times 7 = 14$."}]}},{"id":"10-8-1-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært fire teknikkar for polynom-multiplikasjon:\n\n1. **Monom gonger polynom**: Distributiv lov -- $a(b + c) = ab + ac$\n2. **Binom gonger binom (FOIL)**: $(a + b)(c + d) = ac + ad + bc + bd$\n3. **Arealmodellen**: Ei geometrisk tolking som viser at multiplikasjonen svarar til summen av delareala i eit rektangel\n4. **Polynom gonger polynom**: Kvart ledd i den eine faktoren gongast med kvart ledd i den andre\n\nHusk alltid å samle like ledd etter at du har utvida uttrykket, og ver nøyaktig med fortegna!"}],"exercises":[],"_meta":{"sourceHash":"abc7405b6e82e604","translatedAt":"2026-06-16T09:47:49.526Z","model":"claude-haiku-4-5-20251001","strings":68,"tm":{"27576ac5088f5b62":"Multiplikasjon av polynomar","b195b06d1ed59702":"Forteljaande versjon","ea174f36846631e5":"Ein forteljaande gjennomgang av polynom-multiplikasjon -- frå distributiv lov via FOIL-metoden til arealmodellen, der algebra og geometri møtest.","359a66fed99ecdb6":"utforske og generalisere multiplikasjon av polynomar algebraisk og geometrisk","827a63f7d1d0bebe":"## Algebra som areal\n\nTenk deg at du skal finne arealet av eit rektangulært rom der sidene er $(x + 3)$ meter og $(x + 5)$ meter. Eller kanskje du skal forenkle eit uttrykk i ei likning. I båe tilfella må du vita korleis du multipliserer polynomar. Eit **polynom** er eit algebraisk uttrykk med eitt eller fleire ledd, til dømes $2x^2 + 3x - 5$. Eit uttrykk med berre eitt ledd (som $3x^2$) kallast eit **monom**, og eit uttrykk med to ledd (som $x + 3$) kallast eit **binom**.\n\nI dette kapitlet byggjer vi opp ferdigheitene steg for steg: først monom gonger polynom, så binom gonger binom, og til slutt vilkårlege polynomar.","cfe8728209843fe9":"## Monom gonger polynom -- distributiv lov\n\nNår me multipliserer eit monom med eit polynom, brukar me den **distributive loven**:\n\n$$a(b + c) = ab + ac$$\n\nDu gongar monomet med kvart ledd i polynomet, eitt om gongen. Til dømes: $3x(2x + 5) = 3x \\cdot 2x + 3x \\cdot 5 = 6x^2 + 15x$. Husk at $x \\cdot x = x^2$.\n\nDet fungerer òg med fleire ledd og negative koeffisientar. $-2x^2(3x^2 - 4x + 1)$: me gongar $-2x^2$ med kvart ledd og får $-6x^4 + 8x^3 - 2x^2$. Legg merke til at minus gonger minus gir pluss ($-2x^2 \\cdot (-4x) = +8x^3$).\n\nDen generelle regelen er: $a(b_1 + b_2 + \\ldots + b_n) = ab_1 + ab_2 + \\ldots + ab_n$. Uansett kor mange ledd polynomet har, gongar du monomet med kvart enkelt ledd.","e57a1441cef38e24":"Test deg sjølv på monom gonger polynom:","4097889236a2af26":"placeholder","5539e56b9fda65e9":"Kva er $2x(3x - 1)$?","f37222aed2ad2469":"$6x^2 - 2x$","cd9ab37d4468cf43":"$6x - 2x$","7f9faf42aa692750":"$5x^2 - 1$","7a84b585934d08f9":"$6x^2 - 1$","2c02b20e3ed58dee":"Me brukar distributiv lov: $2x \\cdot 3x = 6x^2$ og $2x \\cdot (-1) = -2x$. Svaret er $6x^2 - 2x$.","42fe776139f5b4cb":"Kva er $-3x(x + 7)$?","0703010a35533007":"$-3x^2 + 21x$","73657d77ae594232":"$3x^2 - 21x$","1d5615c1383ac115":"$-3x^2 - 21x$","93bbdc9cb9faaa4a":"$-3x^2 - 7x$","dd12380e68c7801a":"$-3x \\cdot x = -3x^2$ og $-3x \\cdot 7 = -21x$. Minus gonger pluss gir minus. Svaret er $-3x^2 - 21x$.","29ec46a31586162d":"Kva er $5x^2(2x - 3)$?","9c6e8763fc1a8004":"$10x^2 - 15x^2$","20f4ceb304fc0702":"$10x^3 - 15x^2$","8e44d7a704e868b1":"$7x^3 - 8x^2$","e949dddfbb22e6f7":"$10x^3 - 3$","ead5a9c5652e8316":"$5x^2 \\cdot 2x = 10x^3$ (legg saman eksponentane: $x^2 \\cdot x = x^3$) og $5x^2 \\cdot (-3) = -15x^2$.","85d3a7ce5c5971c5":"## Binom gonger binom -- FOIL-metoden\n\nNår du multipliserer to binomar $(a + b)(c + d)$, må kvart ledd i den første parentesen gangast med kvart ledd i den andre. Ein populær huskeregel er **FOIL**:\n\n- **F**irst (første ledd): $a \\cdot c$\n- **O**uter (ytre ledd): $a \\cdot d$\n- **I**nner (indre ledd): $b \\cdot c$\n- **L**ast (siste ledd): $b \\cdot d$\n\n$$(a + b)(c + d) = ac + ad + bc + bd$$\n\nLa oss prøve: $(x + 3)(x + 5)$. F: $x \\cdot x = x^2$. O: $x \\cdot 5 = 5x$. I: $3 \\cdot x = 3x$. L: $3 \\cdot 5 = 15$. Så får me $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$.\n\nVær nøyaktig med fortegna! $(x - 3)(x + 2)$: F: $x^2$, O: $2x$, I: $-3x$, L: $-6$. Resultat: $x^2 + 2x - 3x - 6 = x^2 - x - 6$. Og $(x - 4)(x - 5)$: F: $x^2$, O: $-5x$, I: $-4x$, L: $+20$ (minus gonger minus gir pluss!). Resultat: $x^2 - 9x + 20$.\n\nDet finst òg ein nyttig generell formel: $(x + a)(x + b) = x^2 + (a + b)x + ab$. Midtleddet er summen av $a$ og $b$, og siste ledd er produktet. For $(x + 7)(x - 3)$: $a + b = 7 + (-3) = 4$ og $ab = 7 \\cdot (-3) = -21$, så svaret er $x^2 + 4x - 21$.","69ab95a747c6bebc":"Test deg sjølv på FOIL-metoden:","0370a7e041f03b54":"Kva er $(x + 2)(x + 4)$?","c02a56316baba062":"$x^2 + 8$","dbb3c6cf8fe97384":"$x^2 + 6x + 8$","e3e5b210765b660d":"$x^2 + 2x + 8$","32cf99b551a95e65":"$2x^2 + 6x + 8$","d5d07a793e78c7b3":"FOIL: $x^2 + 4x + 2x + 8 = x^2 + 6x + 8$. Midtleddet: $4 + 2 = 6$, siste ledd: $4 \\cdot 2 = 8$.","2b40d64b5dc39156":"Kva er $(x - 4)(x - 5)$?","adca8c803ac7c761":"$x^2 - 9x + 20$","21cbd929212fd6bb":"$x^2 + 9x + 20$","7a63c76bfb7e453b":"$x^2 - 9x - 20$","73cdc7d4ad3ab829":"$x^2 - x - 20$","1ef5114a4e437116":"FOIL: $x^2 - 5x - 4x + 20 = x^2 - 9x + 20$. Minus gonger minus gir pluss, så siste leddet er $+20$.","2a505fd70c4d0511":"Kva er $(4x + 1)(4x - 1)$?","93a978b79d523dcc":"$16x^2 + 1$","194e582b1e691c8f":"$16x^2 - 1$","d6d3feed95727e9a":"$8x^2 - 1$","3c5bc614d1b05629":"$16x^2 - 2$","57da93686ac5bbc1":"FOIL: $16x^2 - 4x + 4x - 1 = 16x^2 - 1$. Dei to midtledda slår kvarandre ut! (Dette er konjugatsetningen.)","729381bf1ba21767":"## Arealmodellen og større polynomar\n\n**Arealmodellen** gir ei vakker geometrisk tolking av polynom-multiplikasjon. Tenk deg eit rektangel med sider $(x + 3)$ og $(x + 5)$. Del rektangelet i fire delar:\n\n| | $x$ | $5$ |\n|---|---|---|\n| $x$ | $x^2$ | $5x$ |\n| $3$ | $3x$ | $15$ |\n\nTotalt areal: $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$. Nøyaktig det same som FOIL! Arealmodellen viser *kvifor* formelen fungerer.\n\nNår vi multipliserer **større polynomar** brukar vi same prinsipp: kvart ledd i det første polynomet gongast med kvart ledd i det andre. For $(x^2 + 3x + 2)(x + 4)$ tek vi eitt ledd om gongen: $x^2(x + 4) + 3x(x + 4) + 2(x + 4) = x^3 + 4x^2 + 3x^2 + 12x + 2x + 8 = x^3 + 7x^2 + 14x + 8$.\n\nEit spesielt fint resultat: $(x + 1)(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alt forsvinn bortsett frå første og siste leddet!\n\nFor tre parentesar multipliserer du to om gongen: $(x + 2)(x - 3)(x + 1)$ -- først $(x + 2)(x - 3) = x^2 - x - 6$, så $(x^2 - x - 6)(x + 1) = x^3 + x^2 - x^2 - x - 6x - 6 = x^3 - 7x - 6$.\n\nHusk alltid å **samle like ledd** til slutt!","78c03be8a0ad81ea":"Test deg sjølv på arealmodellen og større polynomar:","0c0719889eb896e9":"Eit rom har lengd $(2x + 3)$ m og breidd $(x + 4)$ m. Kva er arealet?","47488ec88bae7b79":"$2x^2 + 11x + 12$","27cf2c402a2a64b7":"$2x^2 + 7x + 12$","098eeb7a671b670f":"$3x^2 + 11x + 12$","97382c696083094c":"$2x^2 + 11x + 7$","ba585c8668d9338f":"$(2x + 3)(x + 4) = 2x^2 + 8x + 3x + 12 = 2x^2 + 11x + 12$.","8a8ced4db680c236":"Kva er $(x + 1)(x^2 - x + 1)$?","6b21a331b47750aa":"$x^3 - 1$","4db73eed82caabab":"$x^3 + x^2 - x + 1$","0e97ffa28b098b88":"$x^3 + 1$","61cfb44a2e3ac8ba":"$x^3 + 2x + 1$","c10907273acc143f":"$x(x^2 - x + 1) + 1(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alle midtledda slår kvarandre ut.","f06c9e91b1d5bb62":"I arealmodellen for $(x + 2)(x + 7)$, kva er arealet av feltet nede til høgre?","78a5bb6d2b2ceac0":"$2x$","c8fc87ea0e037045":"$7x$","7f408224ea7b716f":"$x^2$","5c6679f175ae28b0":"I arealmodellen ligg $2$ langs den eine sida og $7$ langs den andre. Feltet nede til høgre har areal $2 \\times 7 = 14$.","58038b141d8384fc":"## Oppsummering\n\nVi har lært fire teknikkar for polynom-multiplikasjon:\n\n1. **Monom gonger polynom**: Distributiv lov -- $a(b + c) = ab + ac$\n2. **Binom gonger binom (FOIL)**: $(a + b)(c + d) = ac + ad + bc + bd$\n3. **Arealmodellen**: Ei geometrisk tolking som viser at multiplikasjonen svarar til summen av delareala i eit rektangel\n4. **Polynom gonger polynom**: Kvart ledd i den eine faktoren gongast med kvart ledd i den andre\n\nHusk alltid å samle like ledd etter at du har utvida uttrykket, og ver nøyaktig med fortegna!"}}}
+{
+  "id": "10-8-1-narrativ",
+  "courseId": "10",
+  "chapterNumber": "8.1",
+  "title": "Multiplikasjon av polynomar",
+  "subtitle": "Forteljaande versjon",
+  "description": "Ein forteljaande gjennomgang av polynom-multiplikasjon -- frå distributiv lov via FOIL-metoden til arealmodellen, der algebra og geometri møtest.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "utforske og generalisere multiplikasjon av polynomar algebraisk og geometrisk"
+  ],
+  "linkedChapterId": "10-8-1",
+  "content": [
+    {
+      "id": "10-8-1-n-intro",
+      "type": "text",
+      "content": "## Algebra som areal\n\nTenk deg at du skal finne arealet av eit rektangulært rom der sidene er $(x + 3)$ meter og $(x + 5)$ meter. Eller kanskje du skal forenkle eit uttrykk i ei likning. I båe tilfella må du vita korleis du multipliserer polynomar. Eit **polynom** er eit algebraisk uttrykk med eitt eller fleire ledd, til dømes $2x^2 + 3x - 5$. Eit uttrykk med berre eitt ledd (som $3x^2$) kallast eit **monom**, og eit uttrykk med to ledd (som $x + 3$) kallast eit **binom**.\n\nI dette kapitlet byggjer vi opp ferdigheitene steg for steg: først monom gonger polynom, så binom gonger binom, og til slutt vilkårlege polynomar."
+    },
+    {
+      "id": "10-8-1-n-section1",
+      "type": "text",
+      "content": "## Monom gonger polynom -- distributiv lov\n\nNår me multipliserer eit monom med eit polynom, brukar me den **distributive loven**:\n\n$$a(b + c) = ab + ac$$\n\nDu gongar monomet med kvart ledd i polynomet, eitt om gongen. Til dømes: $3x(2x + 5) = 3x \\cdot 2x + 3x \\cdot 5 = 6x^2 + 15x$. Husk at $x \\cdot x = x^2$.\n\nDet fungerer òg med fleire ledd og negative koeffisientar. $-2x^2(3x^2 - 4x + 1)$: me gongar $-2x^2$ med kvart ledd og får $-6x^4 + 8x^3 - 2x^2$. Legg merke til at minus gonger minus gir pluss ($-2x^2 \\cdot (-4x) = +8x^3$).\n\nDen generelle regelen er: $a(b_1 + b_2 + \\ldots + b_n) = ab_1 + ab_2 + \\ldots + ab_n$. Uansett kor mange ledd polynomet har, gongar du monomet med kvart enkelt ledd."
+    },
+    {
+      "id": "10-8-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-8-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på monom gonger polynom:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-8-1-n-quiz1-q0",
+            "task": "Kva er $2x(3x - 1)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$6x - 2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$6x^2 - 2x$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$5x^2 - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$6x^2 - 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Me brukar distributiv lov: $2x \\cdot 3x = 6x^2$ og $2x \\cdot (-1) = -2x$. Svaret er $6x^2 - 2x$."
+          },
+          {
+            "id": "10-8-1-n-quiz1-q1",
+            "task": "Kva er $-3x(x + 7)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$-3x^2 + 21x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3x^2 - 21x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$-3x^2 - 21x$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$-3x^2 - 7x$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$-3x \\cdot x = -3x^2$ og $-3x \\cdot 7 = -21x$. Minus gonger pluss gir minus. Svaret er $-3x^2 - 21x$."
+          },
+          {
+            "id": "10-8-1-n-quiz1-q2",
+            "task": "Kva er $5x^2(2x - 3)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$10x^2 - 15x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$7x^3 - 8x^2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$10x^3 - 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$10x^3 - 15x^2$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$5x^2 \\cdot 2x = 10x^3$ (legg saman eksponentane: $x^2 \\cdot x = x^3$) og $5x^2 \\cdot (-3) = -15x^2$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-8-1-n-section2",
+      "type": "text",
+      "content": "## Binom gonger binom -- FOIL-metoden\n\nNår du multipliserer to binomar $(a + b)(c + d)$, må kvart ledd i den første parentesen gangast med kvart ledd i den andre. Ein populær huskeregel er **FOIL**:\n\n- **F**irst (første ledd): $a \\cdot c$\n- **O**uter (ytre ledd): $a \\cdot d$\n- **I**nner (indre ledd): $b \\cdot c$\n- **L**ast (siste ledd): $b \\cdot d$\n\n$$(a + b)(c + d) = ac + ad + bc + bd$$\n\nLa oss prøve: $(x + 3)(x + 5)$. F: $x \\cdot x = x^2$. O: $x \\cdot 5 = 5x$. I: $3 \\cdot x = 3x$. L: $3 \\cdot 5 = 15$. Så får me $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$.\n\nVær nøyaktig med fortegna! $(x - 3)(x + 2)$: F: $x^2$, O: $2x$, I: $-3x$, L: $-6$. Resultat: $x^2 + 2x - 3x - 6 = x^2 - x - 6$. Og $(x - 4)(x - 5)$: F: $x^2$, O: $-5x$, I: $-4x$, L: $+20$ (minus gonger minus gir pluss!). Resultat: $x^2 - 9x + 20$.\n\nDet finst òg ein nyttig generell formel: $(x + a)(x + b) = x^2 + (a + b)x + ab$. Midtleddet er summen av $a$ og $b$, og siste ledd er produktet. For $(x + 7)(x - 3)$: $a + b = 7 + (-3) = 4$ og $ab = 7 \\cdot (-3) = -21$, så svaret er $x^2 + 4x - 21$."
+    },
+    {
+      "id": "10-8-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-8-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på FOIL-metoden:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-8-1-n-quiz2-q0",
+            "task": "Kva er $(x + 2)(x + 4)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^2 + 6x + 8$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x^2 + 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x^2 + 2x + 8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x^2 + 6x + 8$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "FOIL: $x^2 + 4x + 2x + 8 = x^2 + 6x + 8$. Midtleddet: $4 + 2 = 6$, siste ledd: $4 \\cdot 2 = 8$."
+          },
+          {
+            "id": "10-8-1-n-quiz2-q1",
+            "task": "Kva er $(x - 4)(x - 5)$?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x^2 + 9x + 20$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x^2 - 9x + 20$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x^2 - 9x - 20$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2 - x - 20$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "FOIL: $x^2 - 5x - 4x + 20 = x^2 - 9x + 20$. Minus gonger minus gir pluss, så siste leddet er $+20$."
+          },
+          {
+            "id": "10-8-1-n-quiz2-q2",
+            "task": "Kva er $(4x + 1)(4x - 1)$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$16x^2 + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$8x^2 - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$16x^2 - 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$16x^2 - 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "FOIL: $16x^2 - 4x + 4x - 1 = 16x^2 - 1$. Dei to midtledda slår kvarandre ut! (Dette er konjugatsetningen.)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-8-1-n-section3",
+      "type": "text",
+      "content": "## Arealmodellen og større polynomar\n\n**Arealmodellen** gir ei vakker geometrisk tolking av polynom-multiplikasjon. Tenk deg eit rektangel med sider $(x + 3)$ og $(x + 5)$. Del rektangelet i fire delar:\n\n| | $x$ | $5$ |\n|---|---|---|\n| $x$ | $x^2$ | $5x$ |\n| $3$ | $3x$ | $15$ |\n\nTotalt areal: $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$. Nøyaktig det same som FOIL! Arealmodellen viser *kvifor* formelen fungerer.\n\nNår vi multipliserer **større polynomar** brukar vi same prinsipp: kvart ledd i det første polynomet gongast med kvart ledd i det andre. For $(x^2 + 3x + 2)(x + 4)$ tek vi eitt ledd om gongen: $x^2(x + 4) + 3x(x + 4) + 2(x + 4) = x^3 + 4x^2 + 3x^2 + 12x + 2x + 8 = x^3 + 7x^2 + 14x + 8$.\n\nEit spesielt fint resultat: $(x + 1)(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alt forsvinn bortsett frå første og siste leddet!\n\nFor tre parentesar multipliserer du to om gongen: $(x + 2)(x - 3)(x + 1)$ -- først $(x + 2)(x - 3) = x^2 - x - 6$, så $(x^2 - x - 6)(x + 1) = x^3 + x^2 - x^2 - x - 6x - 6 = x^3 - 7x - 6$.\n\nHusk alltid å **samle like ledd** til slutt!"
+    },
+    {
+      "id": "10-8-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "10-8-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på arealmodellen og større polynomar:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "10-8-1-n-quiz3-q0",
+            "task": "Eit rom har lengd $(2x + 3)$ m og breidd $(x + 4)$ m. Kva er arealet?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2x^2 + 7x + 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$3x^2 + 11x + 12$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$2x^2 + 11x + 7$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$2x^2 + 11x + 12$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "$(2x + 3)(x + 4) = 2x^2 + 8x + 3x + 12 = 2x^2 + 11x + 12$."
+          },
+          {
+            "id": "10-8-1-n-quiz3-q1",
+            "task": "Kva er $(x + 1)(x^2 - x + 1)$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$x^3 + 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$x^3 - 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x^3 + x^2 - x + 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^3 + 2x + 1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$x(x^2 - x + 1) + 1(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alle midtledda slår kvarandre ut."
+          },
+          {
+            "id": "10-8-1-n-quiz3-q2",
+            "task": "I arealmodellen for $(x + 2)(x + 7)$, kva er arealet av feltet nede til høgre?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$2x$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$14$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$7x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x^2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I arealmodellen ligg $2$ langs den eine sida og $7$ langs den andre. Feltet nede til høgre har areal $2 \\times 7 = 14$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "10-8-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært fire teknikkar for polynom-multiplikasjon:\n\n1. **Monom gonger polynom**: Distributiv lov -- $a(b + c) = ab + ac$\n2. **Binom gonger binom (FOIL)**: $(a + b)(c + d) = ac + ad + bc + bd$\n3. **Arealmodellen**: Ei geometrisk tolking som viser at multiplikasjonen svarar til summen av delareala i eit rektangel\n4. **Polynom gonger polynom**: Kvart ledd i den eine faktoren gongast med kvart ledd i den andre\n\nHusk alltid å samle like ledd etter at du har utvida uttrykket, og ver nøyaktig med fortegna!"
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "abc7405b6e82e604",
+    "translatedAt": "2026-06-16T09:47:49.526Z",
+    "model": "claude-haiku-4-5-20251001",
+    "strings": 68,
+    "tm": {
+      "27576ac5088f5b62": "Multiplikasjon av polynomar",
+      "b195b06d1ed59702": "Forteljaande versjon",
+      "ea174f36846631e5": "Ein forteljaande gjennomgang av polynom-multiplikasjon -- frå distributiv lov via FOIL-metoden til arealmodellen, der algebra og geometri møtest.",
+      "359a66fed99ecdb6": "utforske og generalisere multiplikasjon av polynomar algebraisk og geometrisk",
+      "827a63f7d1d0bebe": "## Algebra som areal\n\nTenk deg at du skal finne arealet av eit rektangulært rom der sidene er $(x + 3)$ meter og $(x + 5)$ meter. Eller kanskje du skal forenkle eit uttrykk i ei likning. I båe tilfella må du vita korleis du multipliserer polynomar. Eit **polynom** er eit algebraisk uttrykk med eitt eller fleire ledd, til dømes $2x^2 + 3x - 5$. Eit uttrykk med berre eitt ledd (som $3x^2$) kallast eit **monom**, og eit uttrykk med to ledd (som $x + 3$) kallast eit **binom**.\n\nI dette kapitlet byggjer vi opp ferdigheitene steg for steg: først monom gonger polynom, så binom gonger binom, og til slutt vilkårlege polynomar.",
+      "cfe8728209843fe9": "## Monom gonger polynom -- distributiv lov\n\nNår me multipliserer eit monom med eit polynom, brukar me den **distributive loven**:\n\n$$a(b + c) = ab + ac$$\n\nDu gongar monomet med kvart ledd i polynomet, eitt om gongen. Til dømes: $3x(2x + 5) = 3x \\cdot 2x + 3x \\cdot 5 = 6x^2 + 15x$. Husk at $x \\cdot x = x^2$.\n\nDet fungerer òg med fleire ledd og negative koeffisientar. $-2x^2(3x^2 - 4x + 1)$: me gongar $-2x^2$ med kvart ledd og får $-6x^4 + 8x^3 - 2x^2$. Legg merke til at minus gonger minus gir pluss ($-2x^2 \\cdot (-4x) = +8x^3$).\n\nDen generelle regelen er: $a(b_1 + b_2 + \\ldots + b_n) = ab_1 + ab_2 + \\ldots + ab_n$. Uansett kor mange ledd polynomet har, gongar du monomet med kvart enkelt ledd.",
+      "e57a1441cef38e24": "Test deg sjølv på monom gonger polynom:",
+      "4097889236a2af26": "placeholder",
+      "5539e56b9fda65e9": "Kva er $2x(3x - 1)$?",
+      "f37222aed2ad2469": "$6x^2 - 2x$",
+      "cd9ab37d4468cf43": "$6x - 2x$",
+      "7f9faf42aa692750": "$5x^2 - 1$",
+      "7a84b585934d08f9": "$6x^2 - 1$",
+      "2c02b20e3ed58dee": "Me brukar distributiv lov: $2x \\cdot 3x = 6x^2$ og $2x \\cdot (-1) = -2x$. Svaret er $6x^2 - 2x$.",
+      "42fe776139f5b4cb": "Kva er $-3x(x + 7)$?",
+      "0703010a35533007": "$-3x^2 + 21x$",
+      "73657d77ae594232": "$3x^2 - 21x$",
+      "1d5615c1383ac115": "$-3x^2 - 21x$",
+      "93bbdc9cb9faaa4a": "$-3x^2 - 7x$",
+      "dd12380e68c7801a": "$-3x \\cdot x = -3x^2$ og $-3x \\cdot 7 = -21x$. Minus gonger pluss gir minus. Svaret er $-3x^2 - 21x$.",
+      "29ec46a31586162d": "Kva er $5x^2(2x - 3)$?",
+      "9c6e8763fc1a8004": "$10x^2 - 15x^2$",
+      "20f4ceb304fc0702": "$10x^3 - 15x^2$",
+      "8e44d7a704e868b1": "$7x^3 - 8x^2$",
+      "e949dddfbb22e6f7": "$10x^3 - 3$",
+      "ead5a9c5652e8316": "$5x^2 \\cdot 2x = 10x^3$ (legg saman eksponentane: $x^2 \\cdot x = x^3$) og $5x^2 \\cdot (-3) = -15x^2$.",
+      "85d3a7ce5c5971c5": "## Binom gonger binom -- FOIL-metoden\n\nNår du multipliserer to binomar $(a + b)(c + d)$, må kvart ledd i den første parentesen gangast med kvart ledd i den andre. Ein populær huskeregel er **FOIL**:\n\n- **F**irst (første ledd): $a \\cdot c$\n- **O**uter (ytre ledd): $a \\cdot d$\n- **I**nner (indre ledd): $b \\cdot c$\n- **L**ast (siste ledd): $b \\cdot d$\n\n$$(a + b)(c + d) = ac + ad + bc + bd$$\n\nLa oss prøve: $(x + 3)(x + 5)$. F: $x \\cdot x = x^2$. O: $x \\cdot 5 = 5x$. I: $3 \\cdot x = 3x$. L: $3 \\cdot 5 = 15$. Så får me $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$.\n\nVær nøyaktig med fortegna! $(x - 3)(x + 2)$: F: $x^2$, O: $2x$, I: $-3x$, L: $-6$. Resultat: $x^2 + 2x - 3x - 6 = x^2 - x - 6$. Og $(x - 4)(x - 5)$: F: $x^2$, O: $-5x$, I: $-4x$, L: $+20$ (minus gonger minus gir pluss!). Resultat: $x^2 - 9x + 20$.\n\nDet finst òg ein nyttig generell formel: $(x + a)(x + b) = x^2 + (a + b)x + ab$. Midtleddet er summen av $a$ og $b$, og siste ledd er produktet. For $(x + 7)(x - 3)$: $a + b = 7 + (-3) = 4$ og $ab = 7 \\cdot (-3) = -21$, så svaret er $x^2 + 4x - 21$.",
+      "69ab95a747c6bebc": "Test deg sjølv på FOIL-metoden:",
+      "0370a7e041f03b54": "Kva er $(x + 2)(x + 4)$?",
+      "c02a56316baba062": "$x^2 + 8$",
+      "dbb3c6cf8fe97384": "$x^2 + 6x + 8$",
+      "e3e5b210765b660d": "$x^2 + 2x + 8$",
+      "32cf99b551a95e65": "$2x^2 + 6x + 8$",
+      "d5d07a793e78c7b3": "FOIL: $x^2 + 4x + 2x + 8 = x^2 + 6x + 8$. Midtleddet: $4 + 2 = 6$, siste ledd: $4 \\cdot 2 = 8$.",
+      "2b40d64b5dc39156": "Kva er $(x - 4)(x - 5)$?",
+      "adca8c803ac7c761": "$x^2 - 9x + 20$",
+      "21cbd929212fd6bb": "$x^2 + 9x + 20$",
+      "7a63c76bfb7e453b": "$x^2 - 9x - 20$",
+      "73cdc7d4ad3ab829": "$x^2 - x - 20$",
+      "1ef5114a4e437116": "FOIL: $x^2 - 5x - 4x + 20 = x^2 - 9x + 20$. Minus gonger minus gir pluss, så siste leddet er $+20$.",
+      "2a505fd70c4d0511": "Kva er $(4x + 1)(4x - 1)$?",
+      "93a978b79d523dcc": "$16x^2 + 1$",
+      "194e582b1e691c8f": "$16x^2 - 1$",
+      "d6d3feed95727e9a": "$8x^2 - 1$",
+      "3c5bc614d1b05629": "$16x^2 - 2$",
+      "57da93686ac5bbc1": "FOIL: $16x^2 - 4x + 4x - 1 = 16x^2 - 1$. Dei to midtledda slår kvarandre ut! (Dette er konjugatsetningen.)",
+      "729381bf1ba21767": "## Arealmodellen og større polynomar\n\n**Arealmodellen** gir ei vakker geometrisk tolking av polynom-multiplikasjon. Tenk deg eit rektangel med sider $(x + 3)$ og $(x + 5)$. Del rektangelet i fire delar:\n\n| | $x$ | $5$ |\n|---|---|---|\n| $x$ | $x^2$ | $5x$ |\n| $3$ | $3x$ | $15$ |\n\nTotalt areal: $x^2 + 5x + 3x + 15 = x^2 + 8x + 15$. Nøyaktig det same som FOIL! Arealmodellen viser *kvifor* formelen fungerer.\n\nNår vi multipliserer **større polynomar** brukar vi same prinsipp: kvart ledd i det første polynomet gongast med kvart ledd i det andre. For $(x^2 + 3x + 2)(x + 4)$ tek vi eitt ledd om gongen: $x^2(x + 4) + 3x(x + 4) + 2(x + 4) = x^3 + 4x^2 + 3x^2 + 12x + 2x + 8 = x^3 + 7x^2 + 14x + 8$.\n\nEit spesielt fint resultat: $(x + 1)(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alt forsvinn bortsett frå første og siste leddet!\n\nFor tre parentesar multipliserer du to om gongen: $(x + 2)(x - 3)(x + 1)$ -- først $(x + 2)(x - 3) = x^2 - x - 6$, så $(x^2 - x - 6)(x + 1) = x^3 + x^2 - x^2 - x - 6x - 6 = x^3 - 7x - 6$.\n\nHusk alltid å **samle like ledd** til slutt!",
+      "78c03be8a0ad81ea": "Test deg sjølv på arealmodellen og større polynomar:",
+      "0c0719889eb896e9": "Eit rom har lengd $(2x + 3)$ m og breidd $(x + 4)$ m. Kva er arealet?",
+      "47488ec88bae7b79": "$2x^2 + 11x + 12$",
+      "27cf2c402a2a64b7": "$2x^2 + 7x + 12$",
+      "098eeb7a671b670f": "$3x^2 + 11x + 12$",
+      "97382c696083094c": "$2x^2 + 11x + 7$",
+      "ba585c8668d9338f": "$(2x + 3)(x + 4) = 2x^2 + 8x + 3x + 12 = 2x^2 + 11x + 12$.",
+      "8a8ced4db680c236": "Kva er $(x + 1)(x^2 - x + 1)$?",
+      "6b21a331b47750aa": "$x^3 - 1$",
+      "4db73eed82caabab": "$x^3 + x^2 - x + 1$",
+      "0e97ffa28b098b88": "$x^3 + 1$",
+      "61cfb44a2e3ac8ba": "$x^3 + 2x + 1$",
+      "c10907273acc143f": "$x(x^2 - x + 1) + 1(x^2 - x + 1) = x^3 - x^2 + x + x^2 - x + 1 = x^3 + 1$. Alle midtledda slår kvarandre ut.",
+      "f06c9e91b1d5bb62": "I arealmodellen for $(x + 2)(x + 7)$, kva er arealet av feltet nede til høgre?",
+      "78a5bb6d2b2ceac0": "$2x$",
+      "c8fc87ea0e037045": "$7x$",
+      "7f408224ea7b716f": "$x^2$",
+      "5c6679f175ae28b0": "I arealmodellen ligg $2$ langs den eine sida og $7$ langs den andre. Feltet nede til høgre har areal $2 \\times 7 = 14$.",
+      "58038b141d8384fc": "## Oppsummering\n\nVi har lært fire teknikkar for polynom-multiplikasjon:\n\n1. **Monom gonger polynom**: Distributiv lov -- $a(b + c) = ab + ac$\n2. **Binom gonger binom (FOIL)**: $(a + b)(c + d) = ac + ad + bc + bd$\n3. **Arealmodellen**: Ei geometrisk tolking som viser at multiplikasjonen svarar til summen av delareala i eit rektangel\n4. **Polynom gonger polynom**: Kvart ledd i den eine faktoren gongast med kvart ledd i den andre\n\nHusk alltid å samle like ledd etter at du har utvida uttrykket, og ver nøyaktig med fortegna!"
+    }
+  }
+}

@@ -1,1 +1,357 @@
-{"id":"s2-1-3-narrativ","courseId":"s2","chapterNumber":"1.3","title":"Areal","subtitle":"Narrativ versjon","description":"Ei forteljing om eit kaffibrenneri der tap og vinst blir lesne som areal under og over aksen — og om korleis integralet reknar ut areal under éi kurve og mellom to.","estimatedMinutes":35,"competenceGoals":["bruke integrasjon i praktiske bruksområde","rekne ut areal under og mellom kurver"],"linkedChapterId":"s2-1-3","content":[{"id":"s2-1-3-n-intro","type":"text","content":"## Arealet som fortel ei historie\n\nEin ven av deg har starta eit lite kaffibrenneri og syner deg ein graf over resultatraten — overskot per månad — gjennom det første driftsåret. Kurva startar under $x$-aksen (oppstartskostnadene svir), kryssar aksen etter nokre månader og stig deretter pent. «Kor mykje har vi eigentleg tapt og tent?» spør ho. Svaret ligg i areala mellom kurva og aksen: arealet under aksen er det samla tapet, arealet over er den samla vinsten.\n\nFrå førre kapittel veit du at det bestemte integralet $\\int_a^b f(x)\\,dx$ gir arealet mellom grafen til $f$ og $x$-aksen — men **med forteikn**. Der $f(x) > 0$ bidreg integralet positivt, og der $f(x) < 0$ bidreg det negativt. Det er nyttig når vi vil ha nettoresultatet, men nokre gonger vil vi ha sjølve *arealet*, altså eit positivt tal som måler kor stort området er.\n\nTenk på skilnaden i kaffibrenneriet: nettoresultatet for året kan vere nær null sjølv om bedrifta både har tapt mykje og tent mykje — dei to areala kan nesten oppheve kvarandre i integralet. Vil vi vite kor mykje som blei tapt i tapsmånadene, må vi behandle det negative området for seg.\n\nI dette kapittelet lærer du nøyaktig korleis: først korleis du finn arealet mellom éin graf og $x$-aksen, òg når grafen dippar under aksen, og deretter korleis du finn arealet mellom *to* grafar — ein teknikk som i neste kapittel skal brukast på alt frå marknadsanalyse til overskotsutrekningar."},{"id":"s2-1-3-n-section1","type":"text","content":"## Areal under ei kurve\n\nLat oss gjere forteiknsdrøftinga presis. Arealet mellom grafen til $f$ og $x$-aksen på intervallet $[a, b]$ er\n\n$$A = \\int_a^b |f(x)| \\, dx$$\n\nAbsoluttverdien sørgjer for at alt tel positivt. I praksis tyder det: viss $f(x) \\geq 0$ på heile intervallet, er arealet rett og slett $A = \\int_a^b f(x)\\,dx$. Viss grafen ligg under aksen, blir integralet negativt, og arealet er absoluttverdien av det. Og viss $f$ *skiftar forteikn* undervegs — som resultatraten til kaffibrenneriet — må vi dele opp integralet i nullpunkta, rekne kvart delintervall for seg og legge saman absoluttverdiane.\n\nArbeidsgangen er altså alltid den same: finn nullpunkta først, sjekk forteiknet på kvart delintervall, og integrer bit for bit.\n\nLat oss rekne eit heilt døme. Vi vil finne arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen. Først nullpunkta: $4 - x^2 = 0$ gir $x = \\pm 2$. Mellom $-2$ og $2$ er $f(x) \\geq 0$ (parabelen smiler nedover med toppunkt i $(0, 4)$), så her treng vi inga oppdeling:\n\n$$A = \\int_{-2}^2 (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^2 = \\left(8 - \\frac{8}{3}\\right) - \\left(-8 + \\frac{8}{3}\\right) = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$$\n\nArealet er $\\frac{32}{3} \\approx 10{,}7$ arealeiningar. Hadde vi i staden integrert ein funksjon som kryssar aksen, til dømes frå månad 0 til månad 12 i kaffibrenneriet, ville vi delt i kryssingsmånaden: tapet er absoluttverdien av integralet før nullpunktet, vinsten er integralet etter."},{"id":"s2-1-3-n-quiz1","type":"exercise","exercise":{"id":"s2-1-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg sjølv på areal under ei kurve:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-3-n-quiz1-q0","task":"Funksjonen $f$ oppfyller $f(x) \\geq 0$ på heile $[a, b]$. Kva er arealet mellom grafen og $x$-aksen?","options":[{"id":"a","text":"$A = \\int_a^b f(x)\\,dx$","isCorrect":true},{"id":"b","text":"$A = f(b) - f(a)$","isCorrect":false},{"id":"c","text":"$A = -\\int_a^b f(x)\\,dx$","isCorrect":false},{"id":"d","text":"$A = \\int_a^b f(x)^2\\,dx$","isCorrect":false}],"solution":"Når grafen ligg over aksen på heile intervallet, er arealet lik det bestemte integralet direkte."},{"id":"s2-1-3-n-quiz1-q1","task":"Ei bedrift har negativ resultatrate, og $\\int_0^3 r(t)\\,dt = -6$ millionar. Kor stort er det samla tapet (arealet) i perioden?","options":[{"id":"a","text":"$-6$ millionar","isCorrect":false},{"id":"b","text":"$3$ millionar","isCorrect":false},{"id":"c","text":"$6$ millionar","isCorrect":true},{"id":"d","text":"$0$ millionar","isCorrect":false}],"solution":"Integralet er negativt fordi grafen ligg under aksen. Arealet — det samla tapet — er absoluttverdien: $|-6| = 6$ millionar."},{"id":"s2-1-3-n-quiz1-q2","task":"Funksjonen $f$ skiftar forteikn i $x = c$ inne i intervallet $[a, b]$. Korleis finn vi arealet mellom grafen og $x$-aksen?","options":[{"id":"a","text":"Vi integrerer frå $a$ til $b$ og tek absoluttverdien til slutt","isCorrect":false},{"id":"b","text":"Vi deler opp i nullpunktet og summerer absoluttverdiane: $A = \\left|\\int_a^c f\\,dx\\right| + \\left|\\int_c^b f\\,dx\\right|$","isCorrect":true},{"id":"c","text":"Vi droppar den delen der $f$ er negativ","isCorrect":false},{"id":"d","text":"Vi gangar integralet med $2$","isCorrect":false}],"solution":"Integrerer vi rett over nullpunktet, opphevar positive og negative bidrag kvarandre. Difor må vi dele opp i nullpunkta og legge saman absoluttverdiane av delintegrala."},{"id":"s2-1-3-n-quiz1-q3","task":"Kva er arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen?","options":[{"id":"a","text":"$\\frac{16}{3}$","isCorrect":false},{"id":"b","text":"$8$","isCorrect":false},{"id":"c","text":"$\\frac{64}{3}$","isCorrect":false},{"id":"d","text":"$\\frac{32}{3}$","isCorrect":true}],"solution":"Nullpunkta er $x = \\pm 2$, og $f \\geq 0$ mellom dei. $\\int_{-2}^2 (4 - x^2)\\,dx = [4x - \\frac{x^3}{3}]_{-2}^2 = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$."}]}},{"id":"s2-1-3-n-section2","type":"text","content":"## Areal mellom to kurver\n\nTilbake i kaffibrenneriet får du to kurver på bordet: inntektsraten $f(x)$ og kostnadsraten $g(x)$. Så lenge $f$ ligg over $g$, tener bedrifta pengar, og det samla overskotet i perioden er nettopp *arealet mellom dei to kurvene*. Slike spørsmål — kor mykje meir er den eine enn den andre, samla over eit intervall — dukkar opp overalt i økonomi og samfunnsfag.\n\nFormelen er naturleg: arealet mellom grafane til $f$ og $g$ på $[a, b]$, der $f(x) \\geq g(x)$, er\n\n$$A = \\int_a^b [f(x) - g(x)] \\, dx$$\n\nVi integrerer rett og slett differansen «øvre minus nedre». Veit vi ikkje kva for ein graf som ligg øvst — eller byter dei plass undervegs — bruker vi den generelle forma $A = \\int_a^b |f(x) - g(x)|\\,dx$ og deler opp i skjeringspunkta, akkurat som vi delte opp i nullpunkt i førre seksjon.\n\nOfte er det skjeringspunkta sjølve som avgrensar området, og då blir dei integrasjonsgrensene. Lat oss ta standarddømet: arealet mellom $f(x) = x^2$ og $g(x) = x$. Skjeringspunkta finn vi ved å løyse $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$. På intervallet $[0, 1]$ er $x > x^2$ (prøv $x = \\frac{1}{2}$: $0{,}5 > 0{,}25$), så linja ligg øvst:\n\n$$A = \\int_0^1 (x - x^2) \\, dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$$\n\nOppskrifta er alltid den same: finn skjeringspunkta, avgjer kven som ligg øvst, integrer differansen. I neste kapittel skal du sjå at akkurat denne teknikken reknar ut konsument- og produsentoverskot i ein marknad."},{"id":"s2-1-3-n-quiz2","type":"exercise","exercise":{"id":"s2-1-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg sjølv på areal mellom to kurver:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"s2-1-3-n-quiz2-q0","task":"Grafen til $f$ ligg over grafen til $g$ på heile $[a, b]$. Kva er arealet mellom dei?","options":[{"id":"a","text":"$\\int_a^b f(x)\\,dx + \\int_a^b g(x)\\,dx$","isCorrect":false},{"id":"b","text":"$\\int_a^b [f(x) - g(x)]\\,dx$","isCorrect":true},{"id":"c","text":"$\\int_a^b [g(x) - f(x)]\\,dx$","isCorrect":false},{"id":"d","text":"$\\int_a^b f(x) \\cdot g(x)\\,dx$","isCorrect":false}],"solution":"Vi integrerer differansen øvre minus nedre funksjon: $A = \\int_a^b [f(x) - g(x)]\\,dx$."},{"id":"s2-1-3-n-quiz2-q1","task":"Kvar skjer grafane til $f(x) = x^2$ og $g(x) = x$ kvarandre?","options":[{"id":"a","text":"$x = 0$ og $x = 1$","isCorrect":true},{"id":"b","text":"Berre i $x = 0$","isCorrect":false},{"id":"c","text":"$x = -1$ og $x = 1$","isCorrect":false},{"id":"d","text":"$x = 1$ og $x = 2$","isCorrect":false}],"solution":"Vi løyser $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$."},{"id":"s2-1-3-n-quiz2-q2","task":"Kva er arealet mellom grafane til $y = x$ og $y = x^2$?","options":[{"id":"a","text":"$\\frac{1}{2}$","isCorrect":false},{"id":"b","text":"$\\frac{1}{3}$","isCorrect":false},{"id":"c","text":"$\\frac{1}{6}$","isCorrect":true},{"id":"d","text":"$1$","isCorrect":false}],"solution":"På $[0, 1]$ ligg $y = x$ øvst: $A = \\int_0^1 (x - x^2)\\,dx = [\\frac{x^2}{2} - \\frac{x^3}{3}]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$."},{"id":"s2-1-3-n-quiz2-q3","task":"Kvifor bruker vi ofte skjeringspunkta mellom $f$ og $g$ som integrasjonsgrenser?","options":[{"id":"a","text":"Fordi integralet alltid er null i skjeringspunkta","isCorrect":false},{"id":"b","text":"Fordi funksjonane er like store der, og det gjer integranden enklare","isCorrect":false},{"id":"c","text":"Fordi det avgrensa området mellom kurvene startar og sluttar der differansen $f - g$ skiftar forteikn","isCorrect":true},{"id":"d","text":"Fordi skjeringspunkta alltid er heile tal","isCorrect":false}],"solution":"Skjeringspunkta er der $f(x) = g(x)$, altså der området mellom kurvene lukkar seg og differansen kan skifte forteikn. Difor blir dei naturlege grenser — og oppdelingspunkt."}]}},{"id":"s2-1-3-n-summary","type":"text","content":"## Frå forteikn til flate\n\nSpørsmålet til kaffibrennaren — kor mykje tapte vi, kor mykje tente vi — viste seg å vere eit spørsmål om areal. No har du heile verktøyet. Arealet mellom ein graf og $x$-aksen er $A = \\int_a^b |f(x)|\\,dx$: integralet direkte når $f \\geq 0$, absoluttverdien når grafen ligg under aksen, og ei oppdeling i nullpunkta når funksjonen skiftar forteikn. Hugs alltid rekkjefølgja: nullpunkt først, forteikn etterpå, integrer bit for bit.\n\nFor to kurver integrerer du differansen øvre minus nedre, $A = \\int_a^b [f(x) - g(x)]\\,dx$, der grensene som regel er skjeringspunkta du finn ved å løyse $f(x) = g(x)$. Døma er verdt å hugse som referansar: parabelen $4 - x^2$ omsluttar arealet $\\frac{32}{3}$ saman med $x$-aksen, og mellom $y = x$ og $y = x^2$ ligg det nøyaktig $\\frac{1}{6}$.\n\nDet viktigaste å ta med vidare er skiljet mellom *integral* og *areal*: integralet er forteiknsbestemt og gir nettoresultatet, arealet er alltid positivt og krev at du handterer forteikna sjølv. I neste delkapittel set vi alt dette i arbeid på praktiske storleikar — gjennomsnittsverdiar, totale endringar og økonomiske overskot — der areal under og mellom kurver plutseleg blir målt i kroner."}],"exercises":[],"_meta":{"sourceHash":"8f297a3854f72f67","translatedAt":"2026-06-20T08:59:55.654Z","model":"claude-code-agent","strings":59,"tm":{"94a9f454d8df16bf":"Areal","b195b06d1ed59702":"Narrativ versjon","962a346f44bd3009":"Ei forteljing om eit kaffibrenneri der tap og vinst blir lesne som areal under og over aksen — og om korleis integralet reknar ut areal under éi kurve og mellom to.","efa3d9a781a2ae70":"bruke integrasjon i praktiske bruksområde","c72482e6d3751470":"rekne ut areal under og mellom kurver","dbd0956860ced5c5":"## Arealet som fortel ei historie\n\nEin ven av deg har starta eit lite kaffibrenneri og syner deg ein graf over resultatraten — overskot per månad — gjennom det første driftsåret. Kurva startar under $x$-aksen (oppstartskostnadene svir), kryssar aksen etter nokre månader og stig deretter pent. «Kor mykje har vi eigentleg tapt og tent?» spør ho. Svaret ligg i areala mellom kurva og aksen: arealet under aksen er det samla tapet, arealet over er den samla vinsten.\n\nFrå førre kapittel veit du at det bestemte integralet $\\int_a^b f(x)\\,dx$ gir arealet mellom grafen til $f$ og $x$-aksen — men **med forteikn**. Der $f(x) > 0$ bidreg integralet positivt, og der $f(x) < 0$ bidreg det negativt. Det er nyttig når vi vil ha nettoresultatet, men nokre gonger vil vi ha sjølve *arealet*, altså eit positivt tal som måler kor stort området er.\n\nTenk på skilnaden i kaffibrenneriet: nettoresultatet for året kan vere nær null sjølv om bedrifta både har tapt mykje og tent mykje — dei to areala kan nesten oppheve kvarandre i integralet. Vil vi vite kor mykje som blei tapt i tapsmånadene, må vi behandle det negative området for seg.\n\nI dette kapittelet lærer du nøyaktig korleis: først korleis du finn arealet mellom éin graf og $x$-aksen, òg når grafen dippar under aksen, og deretter korleis du finn arealet mellom *to* grafar — ein teknikk som i neste kapittel skal brukast på alt frå marknadsanalyse til overskotsutrekningar.","4628a0e9f6ed2b81":"## Areal under ei kurve\n\nLat oss gjere forteiknsdrøftinga presis. Arealet mellom grafen til $f$ og $x$-aksen på intervallet $[a, b]$ er\n\n$$A = \\int_a^b |f(x)| \\, dx$$\n\nAbsoluttverdien sørgjer for at alt tel positivt. I praksis tyder det: viss $f(x) \\geq 0$ på heile intervallet, er arealet rett og slett $A = \\int_a^b f(x)\\,dx$. Viss grafen ligg under aksen, blir integralet negativt, og arealet er absoluttverdien av det. Og viss $f$ *skiftar forteikn* undervegs — som resultatraten til kaffibrenneriet — må vi dele opp integralet i nullpunkta, rekne kvart delintervall for seg og legge saman absoluttverdiane.\n\nArbeidsgangen er altså alltid den same: finn nullpunkta først, sjekk forteiknet på kvart delintervall, og integrer bit for bit.\n\nLat oss rekne eit heilt døme. Vi vil finne arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen. Først nullpunkta: $4 - x^2 = 0$ gir $x = \\pm 2$. Mellom $-2$ og $2$ er $f(x) \\geq 0$ (parabelen smiler nedover med toppunkt i $(0, 4)$), så her treng vi inga oppdeling:\n\n$$A = \\int_{-2}^2 (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^2 = \\left(8 - \\frac{8}{3}\\right) - \\left(-8 + \\frac{8}{3}\\right) = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$$\n\nArealet er $\\frac{32}{3} \\approx 10{,}7$ arealeiningar. Hadde vi i staden integrert ein funksjon som kryssar aksen, til dømes frå månad 0 til månad 12 i kaffibrenneriet, ville vi delt i kryssingsmånaden: tapet er absoluttverdien av integralet før nullpunktet, vinsten er integralet etter.","882d61dce50241db":"Test deg sjølv på areal under ei kurve:","4097889236a2af26":"placeholder","a0588cf5fe951773":"Funksjonen $f$ oppfyller $f(x) \\geq 0$ på heile $[a, b]$. Kva er arealet mellom grafen og $x$-aksen?","6b5e82a17f7878a9":"$A = \\int_a^b f(x)\\,dx$","eadb0f8d73ae166f":"$A = f(b) - f(a)$","4c850c11ef668e43":"$A = -\\int_a^b f(x)\\,dx$","7a46b0a2ed39823c":"$A = \\int_a^b f(x)^2\\,dx$","ec59f44d486e099a":"Når grafen ligg over aksen på heile intervallet, er arealet lik det bestemte integralet direkte.","9091b21379df94a1":"Ei bedrift har negativ resultatrate, og $\\int_0^3 r(t)\\,dt = -6$ millionar. Kor stort er det samla tapet (arealet) i perioden?","bd9c687725719206":"$-6$ millionar","2177e35050266dc7":"$3$ millionar","2df9df6d2c253f65":"$6$ millionar","1df31f2d9bc68247":"$0$ millionar","e67b8e1bd33a4c60":"Integralet er negativt fordi grafen ligg under aksen. Arealet — det samla tapet — er absoluttverdien: $|-6| = 6$ millionar.","c09eb06455adcf06":"Funksjonen $f$ skiftar forteikn i $x = c$ inne i intervallet $[a, b]$. Korleis finn vi arealet mellom grafen og $x$-aksen?","fbe2812be5a15c32":"Vi integrerer frå $a$ til $b$ og tek absoluttverdien til slutt","fc8d6460666066de":"Vi deler opp i nullpunktet og summerer absoluttverdiane: $A = \\left|\\int_a^c f\\,dx\\right| + \\left|\\int_c^b f\\,dx\\right|$","94ea94a7721749a2":"Vi droppar den delen der $f$ er negativ","ae07f8ad52d547e2":"Vi gangar integralet med $2$","abd520ee87f8700a":"Integrerer vi rett over nullpunktet, opphevar positive og negative bidrag kvarandre. Difor må vi dele opp i nullpunkta og legge saman absoluttverdiane av delintegrala.","f409dcc04eb05693":"Kva er arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen?","9a774df9fbf65d8f":"$\\frac{16}{3}$","eb1514d1ec29089f":"$\\frac{64}{3}$","f13c44b665656e5b":"$\\frac{32}{3}$","d25cb96b50a0ca7c":"Nullpunkta er $x = \\pm 2$, og $f \\geq 0$ mellom dei. $\\int_{-2}^2 (4 - x^2)\\,dx = [4x - \\frac{x^3}{3}]_{-2}^2 = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$.","7f6223d2e83ffdb7":"## Areal mellom to kurver\n\nTilbake i kaffibrenneriet får du to kurver på bordet: inntektsraten $f(x)$ og kostnadsraten $g(x)$. Så lenge $f$ ligg over $g$, tener bedrifta pengar, og det samla overskotet i perioden er nettopp *arealet mellom dei to kurvene*. Slike spørsmål — kor mykje meir er den eine enn den andre, samla over eit intervall — dukkar opp overalt i økonomi og samfunnsfag.\n\nFormelen er naturleg: arealet mellom grafane til $f$ og $g$ på $[a, b]$, der $f(x) \\geq g(x)$, er\n\n$$A = \\int_a^b [f(x) - g(x)] \\, dx$$\n\nVi integrerer rett og slett differansen «øvre minus nedre». Veit vi ikkje kva for ein graf som ligg øvst — eller byter dei plass undervegs — bruker vi den generelle forma $A = \\int_a^b |f(x) - g(x)|\\,dx$ og deler opp i skjeringspunkta, akkurat som vi delte opp i nullpunkt i førre seksjon.\n\nOfte er det skjeringspunkta sjølve som avgrensar området, og då blir dei integrasjonsgrensene. Lat oss ta standarddømet: arealet mellom $f(x) = x^2$ og $g(x) = x$. Skjeringspunkta finn vi ved å løyse $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$. På intervallet $[0, 1]$ er $x > x^2$ (prøv $x = \\frac{1}{2}$: $0{,}5 > 0{,}25$), så linja ligg øvst:\n\n$$A = \\int_0^1 (x - x^2) \\, dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$$\n\nOppskrifta er alltid den same: finn skjeringspunkta, avgjer kven som ligg øvst, integrer differansen. I neste kapittel skal du sjå at akkurat denne teknikken reknar ut konsument- og produsentoverskot i ein marknad.","804f42cdd5ecbc41":"Test deg sjølv på areal mellom to kurver:","b98b77002c29e850":"Grafen til $f$ ligg over grafen til $g$ på heile $[a, b]$. Kva er arealet mellom dei?","7c7c6ebeafd1f4fe":"$\\int_a^b f(x)\\,dx + \\int_a^b g(x)\\,dx$","014fc4644e7841a4":"$\\int_a^b [f(x) - g(x)]\\,dx$","662385699a718b6f":"$\\int_a^b [g(x) - f(x)]\\,dx$","fecc13eb72da479f":"$\\int_a^b f(x) \\cdot g(x)\\,dx$","dc2d4d39682819d3":"Vi integrerer differansen øvre minus nedre funksjon: $A = \\int_a^b [f(x) - g(x)]\\,dx$.","6e8cc8b4d545b648":"Kvar skjer grafane til $f(x) = x^2$ og $g(x) = x$ kvarandre?","391c52a84e60f1d7":"$x = 0$ og $x = 1$","30183e581ddb6b97":"Berre i $x = 0$","f06cbc12230afb6a":"$x = -1$ og $x = 1$","7d32b724910b8788":"$x = 1$ og $x = 2$","9d729fd9ae57e2dd":"Vi løyser $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$.","3123a756af7b8c0c":"Kva er arealet mellom grafane til $y = x$ og $y = x^2$?","b61def0872c567fe":"$\\frac{1}{2}$","b87bda455923b2a6":"$\\frac{1}{3}$","ed2f0dca805db9c6":"$\\frac{1}{6}$","9917693a53c817f4":"På $[0, 1]$ ligg $y = x$ øvst: $A = \\int_0^1 (x - x^2)\\,dx = [\\frac{x^2}{2} - \\frac{x^3}{3}]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$.","fda15e4648f43a06":"Kvifor bruker vi ofte skjeringspunkta mellom $f$ og $g$ som integrasjonsgrenser?","e415b3c1a2a61a15":"Fordi integralet alltid er null i skjeringspunkta","1127702d320a96ce":"Fordi funksjonane er like store der, og det gjer integranden enklare","a931035cf000ac5f":"Fordi det avgrensa området mellom kurvene startar og sluttar der differansen $f - g$ skiftar forteikn","9a9e3a79434336e2":"Fordi skjeringspunkta alltid er heile tal","4a9e802ac7214759":"Skjeringspunkta er der $f(x) = g(x)$, altså der området mellom kurvene lukkar seg og differansen kan skifte forteikn. Difor blir dei naturlege grenser — og oppdelingspunkt.","8ae5e79d4d9aa8ec":"## Frå forteikn til flate\n\nSpørsmålet til kaffibrennaren — kor mykje tapte vi, kor mykje tente vi — viste seg å vere eit spørsmål om areal. No har du heile verktøyet. Arealet mellom ein graf og $x$-aksen er $A = \\int_a^b |f(x)|\\,dx$: integralet direkte når $f \\geq 0$, absoluttverdien når grafen ligg under aksen, og ei oppdeling i nullpunkta når funksjonen skiftar forteikn. Hugs alltid rekkjefølgja: nullpunkt først, forteikn etterpå, integrer bit for bit.\n\nFor to kurver integrerer du differansen øvre minus nedre, $A = \\int_a^b [f(x) - g(x)]\\,dx$, der grensene som regel er skjeringspunkta du finn ved å løyse $f(x) = g(x)$. Døma er verdt å hugse som referansar: parabelen $4 - x^2$ omsluttar arealet $\\frac{32}{3}$ saman med $x$-aksen, og mellom $y = x$ og $y = x^2$ ligg det nøyaktig $\\frac{1}{6}$.\n\nDet viktigaste å ta med vidare er skiljet mellom *integral* og *areal*: integralet er forteiknsbestemt og gir nettoresultatet, arealet er alltid positivt og krev at du handterer forteikna sjølv. I neste delkapittel set vi alt dette i arbeid på praktiske storleikar — gjennomsnittsverdiar, totale endringar og økonomiske overskot — der areal under og mellom kurver plutseleg blir målt i kroner."}}}
+{
+  "id": "s2-1-3-narrativ",
+  "courseId": "s2",
+  "chapterNumber": "1.3",
+  "title": "Areal",
+  "subtitle": "Narrativ versjon",
+  "description": "Ei forteljing om eit kaffibrenneri der tap og vinst blir lesne som areal under og over aksen — og om korleis integralet reknar ut areal under éi kurve og mellom to.",
+  "estimatedMinutes": 35,
+  "competenceGoals": [
+    "bruke integrasjon i praktiske bruksområde",
+    "rekne ut areal under og mellom kurver"
+  ],
+  "linkedChapterId": "s2-1-3",
+  "content": [
+    {
+      "id": "s2-1-3-n-intro",
+      "type": "text",
+      "content": "## Arealet som fortel ei historie\n\nEin ven av deg har starta eit lite kaffibrenneri og syner deg ein graf over resultatraten — overskot per månad — gjennom det første driftsåret. Kurva startar under $x$-aksen (oppstartskostnadene svir), kryssar aksen etter nokre månader og stig deretter pent. «Kor mykje har vi eigentleg tapt og tent?» spør ho. Svaret ligg i areala mellom kurva og aksen: arealet under aksen er det samla tapet, arealet over er den samla vinsten.\n\nFrå førre kapittel veit du at det bestemte integralet $\\int_a^b f(x)\\,dx$ gir arealet mellom grafen til $f$ og $x$-aksen — men **med forteikn**. Der $f(x) > 0$ bidreg integralet positivt, og der $f(x) < 0$ bidreg det negativt. Det er nyttig når vi vil ha nettoresultatet, men nokre gonger vil vi ha sjølve *arealet*, altså eit positivt tal som måler kor stort området er.\n\nTenk på skilnaden i kaffibrenneriet: nettoresultatet for året kan vere nær null sjølv om bedrifta både har tapt mykje og tent mykje — dei to areala kan nesten oppheve kvarandre i integralet. Vil vi vite kor mykje som blei tapt i tapsmånadene, må vi behandle det negative området for seg.\n\nI dette kapittelet lærer du nøyaktig korleis: først korleis du finn arealet mellom éin graf og $x$-aksen, òg når grafen dippar under aksen, og deretter korleis du finn arealet mellom *to* grafar — ein teknikk som i neste kapittel skal brukast på alt frå marknadsanalyse til overskotsutrekningar."
+    },
+    {
+      "id": "s2-1-3-n-section1",
+      "type": "text",
+      "content": "## Areal under ei kurve\n\nLat oss gjere forteiknsdrøftinga presis. Arealet mellom grafen til $f$ og $x$-aksen på intervallet $[a, b]$ er\n\n$$A = \\int_a^b |f(x)| \\, dx$$\n\nAbsoluttverdien sørgjer for at alt tel positivt. I praksis tyder det: viss $f(x) \\geq 0$ på heile intervallet, er arealet rett og slett $A = \\int_a^b f(x)\\,dx$. Viss grafen ligg under aksen, blir integralet negativt, og arealet er absoluttverdien av det. Og viss $f$ *skiftar forteikn* undervegs — som resultatraten til kaffibrenneriet — må vi dele opp integralet i nullpunkta, rekne kvart delintervall for seg og legge saman absoluttverdiane.\n\nArbeidsgangen er altså alltid den same: finn nullpunkta først, sjekk forteiknet på kvart delintervall, og integrer bit for bit.\n\nLat oss rekne eit heilt døme. Vi vil finne arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen. Først nullpunkta: $4 - x^2 = 0$ gir $x = \\pm 2$. Mellom $-2$ og $2$ er $f(x) \\geq 0$ (parabelen smiler nedover med toppunkt i $(0, 4)$), så her treng vi inga oppdeling:\n\n$$A = \\int_{-2}^2 (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^2 = \\left(8 - \\frac{8}{3}\\right) - \\left(-8 + \\frac{8}{3}\\right) = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$$\n\nArealet er $\\frac{32}{3} \\approx 10{,}7$ arealeiningar. Hadde vi i staden integrert ein funksjon som kryssar aksen, til dømes frå månad 0 til månad 12 i kaffibrenneriet, ville vi delt i kryssingsmånaden: tapet er absoluttverdien av integralet før nullpunktet, vinsten er integralet etter."
+    },
+    {
+      "id": "s2-1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på areal under ei kurve:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-3-n-quiz1-q0",
+            "task": "Funksjonen $f$ oppfyller $f(x) \\geq 0$ på heile $[a, b]$. Kva er arealet mellom grafen og $x$-aksen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$A = f(b) - f(a)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$A = -\\int_a^b f(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$A = \\int_a^b f(x)^2\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$A = \\int_a^b f(x)\\,dx$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Når grafen ligg over aksen på heile intervallet, er arealet lik det bestemte integralet direkte."
+          },
+          {
+            "id": "s2-1-3-n-quiz1-q1",
+            "task": "Ei bedrift har negativ resultatrate, og $\\int_0^3 r(t)\\,dt = -6$ millionar. Kor stort er det samla tapet (arealet) i perioden?",
+            "options": [
+              {
+                "id": "c",
+                "text": "$6$ millionar",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$-6$ millionar",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$3$ millionar",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$0$ millionar",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Integralet er negativt fordi grafen ligg under aksen. Arealet — det samla tapet — er absoluttverdien: $|-6| = 6$ millionar."
+          },
+          {
+            "id": "s2-1-3-n-quiz1-q2",
+            "task": "Funksjonen $f$ skiftar forteikn i $x = c$ inne i intervallet $[a, b]$. Korleis finn vi arealet mellom grafen og $x$-aksen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vi integrerer frå $a$ til $b$ og tek absoluttverdien til slutt",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Vi deler opp i nullpunktet og summerer absoluttverdiane: $A = \\left|\\int_a^c f\\,dx\\right| + \\left|\\int_c^b f\\,dx\\right|$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Vi droppar den delen der $f$ er negativ",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vi gangar integralet med $2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Integrerer vi rett over nullpunktet, opphevar positive og negative bidrag kvarandre. Difor må vi dele opp i nullpunkta og legge saman absoluttverdiane av delintegrala."
+          },
+          {
+            "id": "s2-1-3-n-quiz1-q3",
+            "task": "Kva er arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{16}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$8$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{32}{3}$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{64}{3}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Nullpunkta er $x = \\pm 2$, og $f \\geq 0$ mellom dei. $\\int_{-2}^2 (4 - x^2)\\,dx = [4x - \\frac{x^3}{3}]_{-2}^2 = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-3-n-section2",
+      "type": "text",
+      "content": "## Areal mellom to kurver\n\nTilbake i kaffibrenneriet får du to kurver på bordet: inntektsraten $f(x)$ og kostnadsraten $g(x)$. Så lenge $f$ ligg over $g$, tener bedrifta pengar, og det samla overskotet i perioden er nettopp *arealet mellom dei to kurvene*. Slike spørsmål — kor mykje meir er den eine enn den andre, samla over eit intervall — dukkar opp overalt i økonomi og samfunnsfag.\n\nFormelen er naturleg: arealet mellom grafane til $f$ og $g$ på $[a, b]$, der $f(x) \\geq g(x)$, er\n\n$$A = \\int_a^b [f(x) - g(x)] \\, dx$$\n\nVi integrerer rett og slett differansen «øvre minus nedre». Veit vi ikkje kva for ein graf som ligg øvst — eller byter dei plass undervegs — bruker vi den generelle forma $A = \\int_a^b |f(x) - g(x)|\\,dx$ og deler opp i skjeringspunkta, akkurat som vi delte opp i nullpunkt i førre seksjon.\n\nOfte er det skjeringspunkta sjølve som avgrensar området, og då blir dei integrasjonsgrensene. Lat oss ta standarddømet: arealet mellom $f(x) = x^2$ og $g(x) = x$. Skjeringspunkta finn vi ved å løyse $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$. På intervallet $[0, 1]$ er $x > x^2$ (prøv $x = \\frac{1}{2}$: $0{,}5 > 0{,}25$), så linja ligg øvst:\n\n$$A = \\int_0^1 (x - x^2) \\, dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$$\n\nOppskrifta er alltid den same: finn skjeringspunkta, avgjer kven som ligg øvst, integrer differansen. I neste kapittel skal du sjå at akkurat denne teknikken reknar ut konsument- og produsentoverskot i ein marknad."
+    },
+    {
+      "id": "s2-1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "s2-1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg sjølv på areal mellom to kurver:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "s2-1-3-n-quiz2-q0",
+            "task": "Grafen til $f$ ligg over grafen til $g$ på heile $[a, b]$. Kva er arealet mellom dei?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\int_a^b f(x)\\,dx + \\int_a^b g(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\int_a^b [g(x) - f(x)]\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\int_a^b f(x) \\cdot g(x)\\,dx$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$\\int_a^b [f(x) - g(x)]\\,dx$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi integrerer differansen øvre minus nedre funksjon: $A = \\int_a^b [f(x) - g(x)]\\,dx$."
+          },
+          {
+            "id": "s2-1-3-n-quiz2-q1",
+            "task": "Kvar skjer grafane til $f(x) = x^2$ og $g(x) = x$ kvarandre?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 0$ og $x = 1$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Berre i $x = 0$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = -1$ og $x = 1$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = 1$ og $x = 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi løyser $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$."
+          },
+          {
+            "id": "s2-1-3-n-quiz2-q2",
+            "task": "Kva er arealet mellom grafane til $y = x$ og $y = x^2$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$\\frac{1}{2}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$\\frac{1}{6}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$\\frac{1}{3}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$1$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "På $[0, 1]$ ligg $y = x$ øvst: $A = \\int_0^1 (x - x^2)\\,dx = [\\frac{x^2}{2} - \\frac{x^3}{3}]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$."
+          },
+          {
+            "id": "s2-1-3-n-quiz2-q3",
+            "task": "Kvifor bruker vi ofte skjeringspunkta mellom $f$ og $g$ som integrasjonsgrenser?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Fordi integralet alltid er null i skjeringspunkta",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Fordi funksjonane er like store der, og det gjer integranden enklare",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fordi det avgrensa området mellom kurvene startar og sluttar der differansen $f - g$ skiftar forteikn",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Fordi skjeringspunkta alltid er heile tal",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Skjeringspunkta er der $f(x) = g(x)$, altså der området mellom kurvene lukkar seg og differansen kan skifte forteikn. Difor blir dei naturlege grenser — og oppdelingspunkt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2-1-3-n-summary",
+      "type": "text",
+      "content": "## Frå forteikn til flate\n\nSpørsmålet til kaffibrennaren — kor mykje tapte vi, kor mykje tente vi — viste seg å vere eit spørsmål om areal. No har du heile verktøyet. Arealet mellom ein graf og $x$-aksen er $A = \\int_a^b |f(x)|\\,dx$: integralet direkte når $f \\geq 0$, absoluttverdien når grafen ligg under aksen, og ei oppdeling i nullpunkta når funksjonen skiftar forteikn. Hugs alltid rekkjefølgja: nullpunkt først, forteikn etterpå, integrer bit for bit.\n\nFor to kurver integrerer du differansen øvre minus nedre, $A = \\int_a^b [f(x) - g(x)]\\,dx$, der grensene som regel er skjeringspunkta du finn ved å løyse $f(x) = g(x)$. Døma er verdt å hugse som referansar: parabelen $4 - x^2$ omsluttar arealet $\\frac{32}{3}$ saman med $x$-aksen, og mellom $y = x$ og $y = x^2$ ligg det nøyaktig $\\frac{1}{6}$.\n\nDet viktigaste å ta med vidare er skiljet mellom *integral* og *areal*: integralet er forteiknsbestemt og gir nettoresultatet, arealet er alltid positivt og krev at du handterer forteikna sjølv. I neste delkapittel set vi alt dette i arbeid på praktiske storleikar — gjennomsnittsverdiar, totale endringar og økonomiske overskot — der areal under og mellom kurver plutseleg blir målt i kroner."
+    }
+  ],
+  "exercises": [],
+  "_meta": {
+    "sourceHash": "8f297a3854f72f67",
+    "translatedAt": "2026-06-20T08:59:55.654Z",
+    "model": "claude-code-agent",
+    "strings": 59,
+    "tm": {
+      "94a9f454d8df16bf": "Areal",
+      "b195b06d1ed59702": "Narrativ versjon",
+      "962a346f44bd3009": "Ei forteljing om eit kaffibrenneri der tap og vinst blir lesne som areal under og over aksen — og om korleis integralet reknar ut areal under éi kurve og mellom to.",
+      "efa3d9a781a2ae70": "bruke integrasjon i praktiske bruksområde",
+      "c72482e6d3751470": "rekne ut areal under og mellom kurver",
+      "dbd0956860ced5c5": "## Arealet som fortel ei historie\n\nEin ven av deg har starta eit lite kaffibrenneri og syner deg ein graf over resultatraten — overskot per månad — gjennom det første driftsåret. Kurva startar under $x$-aksen (oppstartskostnadene svir), kryssar aksen etter nokre månader og stig deretter pent. «Kor mykje har vi eigentleg tapt og tent?» spør ho. Svaret ligg i areala mellom kurva og aksen: arealet under aksen er det samla tapet, arealet over er den samla vinsten.\n\nFrå førre kapittel veit du at det bestemte integralet $\\int_a^b f(x)\\,dx$ gir arealet mellom grafen til $f$ og $x$-aksen — men **med forteikn**. Der $f(x) > 0$ bidreg integralet positivt, og der $f(x) < 0$ bidreg det negativt. Det er nyttig når vi vil ha nettoresultatet, men nokre gonger vil vi ha sjølve *arealet*, altså eit positivt tal som måler kor stort området er.\n\nTenk på skilnaden i kaffibrenneriet: nettoresultatet for året kan vere nær null sjølv om bedrifta både har tapt mykje og tent mykje — dei to areala kan nesten oppheve kvarandre i integralet. Vil vi vite kor mykje som blei tapt i tapsmånadene, må vi behandle det negative området for seg.\n\nI dette kapittelet lærer du nøyaktig korleis: først korleis du finn arealet mellom éin graf og $x$-aksen, òg når grafen dippar under aksen, og deretter korleis du finn arealet mellom *to* grafar — ein teknikk som i neste kapittel skal brukast på alt frå marknadsanalyse til overskotsutrekningar.",
+      "4628a0e9f6ed2b81": "## Areal under ei kurve\n\nLat oss gjere forteiknsdrøftinga presis. Arealet mellom grafen til $f$ og $x$-aksen på intervallet $[a, b]$ er\n\n$$A = \\int_a^b |f(x)| \\, dx$$\n\nAbsoluttverdien sørgjer for at alt tel positivt. I praksis tyder det: viss $f(x) \\geq 0$ på heile intervallet, er arealet rett og slett $A = \\int_a^b f(x)\\,dx$. Viss grafen ligg under aksen, blir integralet negativt, og arealet er absoluttverdien av det. Og viss $f$ *skiftar forteikn* undervegs — som resultatraten til kaffibrenneriet — må vi dele opp integralet i nullpunkta, rekne kvart delintervall for seg og legge saman absoluttverdiane.\n\nArbeidsgangen er altså alltid den same: finn nullpunkta først, sjekk forteiknet på kvart delintervall, og integrer bit for bit.\n\nLat oss rekne eit heilt døme. Vi vil finne arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen. Først nullpunkta: $4 - x^2 = 0$ gir $x = \\pm 2$. Mellom $-2$ og $2$ er $f(x) \\geq 0$ (parabelen smiler nedover med toppunkt i $(0, 4)$), så her treng vi inga oppdeling:\n\n$$A = \\int_{-2}^2 (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^2 = \\left(8 - \\frac{8}{3}\\right) - \\left(-8 + \\frac{8}{3}\\right) = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$$\n\nArealet er $\\frac{32}{3} \\approx 10{,}7$ arealeiningar. Hadde vi i staden integrert ein funksjon som kryssar aksen, til dømes frå månad 0 til månad 12 i kaffibrenneriet, ville vi delt i kryssingsmånaden: tapet er absoluttverdien av integralet før nullpunktet, vinsten er integralet etter.",
+      "882d61dce50241db": "Test deg sjølv på areal under ei kurve:",
+      "4097889236a2af26": "placeholder",
+      "a0588cf5fe951773": "Funksjonen $f$ oppfyller $f(x) \\geq 0$ på heile $[a, b]$. Kva er arealet mellom grafen og $x$-aksen?",
+      "6b5e82a17f7878a9": "$A = \\int_a^b f(x)\\,dx$",
+      "eadb0f8d73ae166f": "$A = f(b) - f(a)$",
+      "4c850c11ef668e43": "$A = -\\int_a^b f(x)\\,dx$",
+      "7a46b0a2ed39823c": "$A = \\int_a^b f(x)^2\\,dx$",
+      "ec59f44d486e099a": "Når grafen ligg over aksen på heile intervallet, er arealet lik det bestemte integralet direkte.",
+      "9091b21379df94a1": "Ei bedrift har negativ resultatrate, og $\\int_0^3 r(t)\\,dt = -6$ millionar. Kor stort er det samla tapet (arealet) i perioden?",
+      "bd9c687725719206": "$-6$ millionar",
+      "2177e35050266dc7": "$3$ millionar",
+      "2df9df6d2c253f65": "$6$ millionar",
+      "1df31f2d9bc68247": "$0$ millionar",
+      "e67b8e1bd33a4c60": "Integralet er negativt fordi grafen ligg under aksen. Arealet — det samla tapet — er absoluttverdien: $|-6| = 6$ millionar.",
+      "c09eb06455adcf06": "Funksjonen $f$ skiftar forteikn i $x = c$ inne i intervallet $[a, b]$. Korleis finn vi arealet mellom grafen og $x$-aksen?",
+      "fbe2812be5a15c32": "Vi integrerer frå $a$ til $b$ og tek absoluttverdien til slutt",
+      "fc8d6460666066de": "Vi deler opp i nullpunktet og summerer absoluttverdiane: $A = \\left|\\int_a^c f\\,dx\\right| + \\left|\\int_c^b f\\,dx\\right|$",
+      "94ea94a7721749a2": "Vi droppar den delen der $f$ er negativ",
+      "ae07f8ad52d547e2": "Vi gangar integralet med $2$",
+      "abd520ee87f8700a": "Integrerer vi rett over nullpunktet, opphevar positive og negative bidrag kvarandre. Difor må vi dele opp i nullpunkta og legge saman absoluttverdiane av delintegrala.",
+      "f409dcc04eb05693": "Kva er arealet mellom grafen til $f(x) = 4 - x^2$ og $x$-aksen?",
+      "9a774df9fbf65d8f": "$\\frac{16}{3}$",
+      "eb1514d1ec29089f": "$\\frac{64}{3}$",
+      "f13c44b665656e5b": "$\\frac{32}{3}$",
+      "d25cb96b50a0ca7c": "Nullpunkta er $x = \\pm 2$, og $f \\geq 0$ mellom dei. $\\int_{-2}^2 (4 - x^2)\\,dx = [4x - \\frac{x^3}{3}]_{-2}^2 = \\frac{16}{3} + \\frac{16}{3} = \\frac{32}{3}$.",
+      "7f6223d2e83ffdb7": "## Areal mellom to kurver\n\nTilbake i kaffibrenneriet får du to kurver på bordet: inntektsraten $f(x)$ og kostnadsraten $g(x)$. Så lenge $f$ ligg over $g$, tener bedrifta pengar, og det samla overskotet i perioden er nettopp *arealet mellom dei to kurvene*. Slike spørsmål — kor mykje meir er den eine enn den andre, samla over eit intervall — dukkar opp overalt i økonomi og samfunnsfag.\n\nFormelen er naturleg: arealet mellom grafane til $f$ og $g$ på $[a, b]$, der $f(x) \\geq g(x)$, er\n\n$$A = \\int_a^b [f(x) - g(x)] \\, dx$$\n\nVi integrerer rett og slett differansen «øvre minus nedre». Veit vi ikkje kva for ein graf som ligg øvst — eller byter dei plass undervegs — bruker vi den generelle forma $A = \\int_a^b |f(x) - g(x)|\\,dx$ og deler opp i skjeringspunkta, akkurat som vi delte opp i nullpunkt i førre seksjon.\n\nOfte er det skjeringspunkta sjølve som avgrensar området, og då blir dei integrasjonsgrensene. Lat oss ta standarddømet: arealet mellom $f(x) = x^2$ og $g(x) = x$. Skjeringspunkta finn vi ved å løyse $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$. På intervallet $[0, 1]$ er $x > x^2$ (prøv $x = \\frac{1}{2}$: $0{,}5 > 0{,}25$), så linja ligg øvst:\n\n$$A = \\int_0^1 (x - x^2) \\, dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$$\n\nOppskrifta er alltid den same: finn skjeringspunkta, avgjer kven som ligg øvst, integrer differansen. I neste kapittel skal du sjå at akkurat denne teknikken reknar ut konsument- og produsentoverskot i ein marknad.",
+      "804f42cdd5ecbc41": "Test deg sjølv på areal mellom to kurver:",
+      "b98b77002c29e850": "Grafen til $f$ ligg over grafen til $g$ på heile $[a, b]$. Kva er arealet mellom dei?",
+      "7c7c6ebeafd1f4fe": "$\\int_a^b f(x)\\,dx + \\int_a^b g(x)\\,dx$",
+      "014fc4644e7841a4": "$\\int_a^b [f(x) - g(x)]\\,dx$",
+      "662385699a718b6f": "$\\int_a^b [g(x) - f(x)]\\,dx$",
+      "fecc13eb72da479f": "$\\int_a^b f(x) \\cdot g(x)\\,dx$",
+      "dc2d4d39682819d3": "Vi integrerer differansen øvre minus nedre funksjon: $A = \\int_a^b [f(x) - g(x)]\\,dx$.",
+      "6e8cc8b4d545b648": "Kvar skjer grafane til $f(x) = x^2$ og $g(x) = x$ kvarandre?",
+      "391c52a84e60f1d7": "$x = 0$ og $x = 1$",
+      "30183e581ddb6b97": "Berre i $x = 0$",
+      "f06cbc12230afb6a": "$x = -1$ og $x = 1$",
+      "7d32b724910b8788": "$x = 1$ og $x = 2$",
+      "9d729fd9ae57e2dd": "Vi løyser $x^2 = x$, altså $x(x - 1) = 0$, som gir $x = 0$ og $x = 1$.",
+      "3123a756af7b8c0c": "Kva er arealet mellom grafane til $y = x$ og $y = x^2$?",
+      "b61def0872c567fe": "$\\frac{1}{2}$",
+      "b87bda455923b2a6": "$\\frac{1}{3}$",
+      "ed2f0dca805db9c6": "$\\frac{1}{6}$",
+      "9917693a53c817f4": "På $[0, 1]$ ligg $y = x$ øvst: $A = \\int_0^1 (x - x^2)\\,dx = [\\frac{x^2}{2} - \\frac{x^3}{3}]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$.",
+      "fda15e4648f43a06": "Kvifor bruker vi ofte skjeringspunkta mellom $f$ og $g$ som integrasjonsgrenser?",
+      "e415b3c1a2a61a15": "Fordi integralet alltid er null i skjeringspunkta",
+      "1127702d320a96ce": "Fordi funksjonane er like store der, og det gjer integranden enklare",
+      "a931035cf000ac5f": "Fordi det avgrensa området mellom kurvene startar og sluttar der differansen $f - g$ skiftar forteikn",
+      "9a9e3a79434336e2": "Fordi skjeringspunkta alltid er heile tal",
+      "4a9e802ac7214759": "Skjeringspunkta er der $f(x) = g(x)$, altså der området mellom kurvene lukkar seg og differansen kan skifte forteikn. Difor blir dei naturlege grenser — og oppdelingspunkt.",
+      "8ae5e79d4d9aa8ec": "## Frå forteikn til flate\n\nSpørsmålet til kaffibrennaren — kor mykje tapte vi, kor mykje tente vi — viste seg å vere eit spørsmål om areal. No har du heile verktøyet. Arealet mellom ein graf og $x$-aksen er $A = \\int_a^b |f(x)|\\,dx$: integralet direkte når $f \\geq 0$, absoluttverdien når grafen ligg under aksen, og ei oppdeling i nullpunkta når funksjonen skiftar forteikn. Hugs alltid rekkjefølgja: nullpunkt først, forteikn etterpå, integrer bit for bit.\n\nFor to kurver integrerer du differansen øvre minus nedre, $A = \\int_a^b [f(x) - g(x)]\\,dx$, der grensene som regel er skjeringspunkta du finn ved å løyse $f(x) = g(x)$. Døma er verdt å hugse som referansar: parabelen $4 - x^2$ omsluttar arealet $\\frac{32}{3}$ saman med $x$-aksen, og mellom $y = x$ og $y = x^2$ ligg det nøyaktig $\\frac{1}{6}$.\n\nDet viktigaste å ta med vidare er skiljet mellom *integral* og *areal*: integralet er forteiknsbestemt og gir nettoresultatet, arealet er alltid positivt og krev at du handterer forteikna sjølv. I neste delkapittel set vi alt dette i arbeid på praktiske storleikar — gjennomsnittsverdiar, totale endringar og økonomiske overskot — der areal under og mellom kurver plutseleg blir målt i kroner."
+    }
+  }
+}

@@ -1,1 +1,340 @@
-{"id":"it-1-4-1-narrativ","courseId":"it-1","chapterNumber":"4.1","title":"Internett og webbens oppbygging","subtitle":"Narrativ versjon","description":"En fortelling om hva som egentlig skjer når du åpner en nettside – fra ARPANET og Tim Berners-Lee til klient-server-modellen, HTTP, DNS og oppbygningen av en URL.","estimatedMinutes":36,"competenceGoals":["gjøre rede for grunnleggende teknologier bak internett og webben","forklare hvordan kommunikasjon mellom klient og server foregår"],"linkedChapterId":"it-1-4-1","content":[{"id":"it-1-4-1-n-intro","type":"text","content":"## Hva skjer i det halve sekundet?\n\nHver gang du åpner en nettside, skjer det en rekke tekniske prosesser i bakgrunnen, på brøkdelen av et sekund. Nettleseren sender forespørsler over internett, DNS-servere oversetter domenenavn til IP-adresser, og webservere sender tilbake HTML-kode som nettleseren tolker og viser. La oss forstå maskineriet bak.\n\nFørst en oppklaring: internett og webben er ikke det samme. **Internett** er det fysiske og logiske nettverket av kabler, rutere og servere som kobler datamaskiner sammen verden over, ved hjelp av standardprotokollene TCP/IP. **Webben** (World Wide Web) er en tjeneste som kjører *oppå* internett – på samme måte som e-post og nettspill gjør. Du kan altså bruke internett uten webben, for eksempel når du sender e-post.\n\nInternett har en spennende historie. Det vokste ut av ARPANET, et nettverk det amerikanske forsvaret finansierte på 1960-tallet for å overleve atomkrig ved å desentralisere kommunikasjonen. I 1969 ble den første meldingen sendt mellom UCLA og Stanford – ordet «LOGIN» – men systemet krasjet etter to bokstaver, så bare «LO» kom fram. Senere milepæler: i 1971 sendte Ray Tomlinson den første e-posten og innførte @-tegnet; i 1974 utviklet Cerf og Kahn TCP/IP; og i 1983 gikk ARPANET over til TCP/IP, regnet som internettets offisielle fødsel. I 1989 foreslo Tim Berners-Lee ved CERN **World Wide Web**, og skapte de tre grunnteknologiene HTML (struktur), URL (identifikasjon) og HTTP (overføring)."},{"id":"it-1-4-1-n-quiz1","type":"exercise","exercise":{"id":"it-1-4-1-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på internett og webben:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-4-1-n-quiz1-q0","task":"Hva er forskjellen mellom internett og World Wide Web?","options":[{"id":"a","text":"Det er ingen forskjell – de betyr det samme","isCorrect":false},{"id":"b","text":"Internett er det fysiske nettverket, og webben er en tjeneste som kjører oppå internett","isCorrect":true},{"id":"c","text":"Webben er det fysiske nettverket, og internett er programvaren","isCorrect":false},{"id":"d","text":"Internett er for datamaskiner og webben for mobiler","isCorrect":false}],"solution":"Internett er den fysiske infrastrukturen, mens webben er én av flere tjenester som kjører oppå den – på linje med e-post."},{"id":"it-1-4-1-n-quiz1-q1","task":"Hvem regnes som oppfinneren av World Wide Web?","options":[{"id":"a","text":"Ray Tomlinson","isCorrect":false},{"id":"b","text":"Paul Mockapetris","isCorrect":false},{"id":"c","text":"Tim Berners-Lee","isCorrect":true},{"id":"d","text":"Vint Cerf","isCorrect":false}],"solution":"Tim Berners-Lee foreslo WWW i 1989 ved CERN og skapte HTML, URL og HTTP."},{"id":"it-1-4-1-n-quiz1-q2","task":"Hvilke tre grunnteknologier skapte Berners-Lee for webben?","options":[{"id":"a","text":"TCP, IP og DNS","isCorrect":false},{"id":"b","text":"HTML, CSS og JavaScript","isCorrect":false},{"id":"c","text":"E-post, nettspill og strømming","isCorrect":false},{"id":"d","text":"HTML, URL og HTTP","isCorrect":true}],"solution":"De tre grunnteknologiene er HTML (struktur), URL (identifikasjon) og HTTP (overføring)."}]}},{"id":"it-1-4-1-n-section1","type":"text","content":"## Klienten spør, serveren svarer\n\nKommunikasjon på webben følger **klient-server-modellen**. **Klienten** er programmet som sender forespørsler – vanligvis en nettleser som Chrome eller Safari – og det er alltid klienten som starter samtalen. **Serveren** er et program som kjører et sted i verden og venter på forespørsler; når den får én, behandler den den og sender et svar. Én webserver kan betjene tusenvis av klienter samtidig.\n\nFlyten når du henter en nettside ser slik ut: du skriver en URL som `https://www.nrk.no`; nettleseren slår opp IP-adressen via DNS; den oppretter en forbindelse til serveren; den sender en HTTP-forespørsel (en GET-request); serveren finner riktig innhold og sender tilbake HTML, CSS og JavaScript; og nettleseren tolker koden og viser siden. Ofte lastes mange ressurser – HTML, stilark, skript, bilder og fonter – hver med sin egen forespørsel, men moderne nettlesere sender flere parallelt for å gå raskere.\n\nProtokollen som styrer dette heter **HTTP** (Hypertext Transfer Protocol). Den definerer hvordan meldinger formateres, og bruker metoder som GET (hent data), POST (send data), PUT (oppdater) og DELETE (slett). Serveren svarer med statuskoder, der 200 OK betyr at forespørselen var vellykket og innholdet sendes. **HTTPS** er den sikre versjonen, der all kommunikasjon krypteres med TLS/SSL slik at ingen kan avlytte eller endre dataene underveis. I dag bruker nesten alle nettsider HTTPS, og nettlesere advarer mot usikre HTTP-sider."},{"id":"it-1-4-1-n-quiz2","type":"exercise","exercise":{"id":"it-1-4-1-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på klient-server og HTTP:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-4-1-n-quiz2-q0","task":"Hvem starter alltid kommunikasjonen i klient-server-modellen?","options":[{"id":"a","text":"Klienten","isCorrect":true},{"id":"b","text":"Serveren","isCorrect":false},{"id":"c","text":"DNS-serveren","isCorrect":false},{"id":"d","text":"Internettleverandøren","isCorrect":false}],"solution":"Klienten (vanligvis nettleseren) initierer alltid kommunikasjonen ved å sende en forespørsel til serveren."},{"id":"it-1-4-1-n-quiz2-q1","task":"Hva betyr statuskoden 200 OK?","options":[{"id":"a","text":"Serveren er overbelastet","isCorrect":false},{"id":"b","text":"Forespørselen var vellykket og serveren sender tilbake innholdet","isCorrect":true},{"id":"c","text":"Nettsiden er flyttet til ny adresse","isCorrect":false},{"id":"d","text":"Nettleseren mangler en plugin","isCorrect":false}],"solution":"200 OK betyr at forespørselen var vellykket og at serveren returnerer det forespurte innholdet."},{"id":"it-1-4-1-n-quiz2-q2","task":"Hva er hovedforskjellen mellom HTTP og HTTPS?","options":[{"id":"a","text":"HTTPS er raskere enn HTTP","isCorrect":false},{"id":"b","text":"HTTP brukes for tekst og HTTPS for bilder","isCorrect":false},{"id":"c","text":"HTTPS krypterer all kommunikasjon med TLS/SSL","isCorrect":true},{"id":"d","text":"HTTPS krever innlogging","isCorrect":false}],"solution":"HTTPS er den sikre versjonen av HTTP der kommunikasjonen krypteres med TLS/SSL."}]}},{"id":"it-1-4-1-n-section2","type":"text","content":"## Adresseboka og adressen\n\nDatamaskiner kommuniserer med numeriske **IP-adresser** som `195.88.55.16`, men mennesker husker lettere navn som `www.vg.no`. **DNS** (Domain Name System) løser dette ved å være internettets adressebok – det oversetter domenenavn til IP-adresser. Når du skriver en adresse, sjekker nettleseren først sin egen hurtigbuffer, så operativsystemets cache, og hvis ingen kjenner svaret, sendes forespørselen til en DNS-resolver hos internettleverandøren. Resolveren spør rotservere, så toppdomene-servere (.no), og til slutt den autoritative navneserveren for domenet. Hele oppslaget tar vanligvis under 100 millisekunder, og resultatet lagres i cache med en begrenset levetid (TTL).\n\nDNS er hierarkisk: øverst er toppdomenet (TLD) som .no eller .com, så andrenivådomenet som vg.no, og deretter subdomener som www.vg.no eller mail.google.com. Systemet ble designet av Paul Mockapetris i 1983 og er en distribuert database over tusenvis av servere, noe som gir høy tilgjengelighet.\n\nSelve adressen, **URL-en** (Uniform Resource Locator), har flere deler. Ta `https://www.eksempel.no:443/nyheter/artikkel.html?id=42&lang=no#kommentarer`: `https://` er protokollen, `www.eksempel.no` er domenenavnet, `:443` er portnummeret (standard for HTTPS, vises sjelden), `/nyheter/artikkel.html` er stien til ressursen, `?id=42&lang=no` er spørreparametere (query string) som sender data til serveren, og `#kommentarer` er en fragmentidentifikator som peker til en bestemt del av siden. Forstår du URL-strukturen, navigerer du lettere, oppdager feil i lenker, og skjønner hvorfor lesbare URL-er er gunstig for søkemotoroptimalisering (SEO)."},{"id":"it-1-4-1-n-quiz3","type":"exercise","exercise":{"id":"it-1-4-1-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på DNS og URL:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"it-1-4-1-n-quiz3-q0","task":"Hva er DNS sin hovedoppgave?","options":[{"id":"a","text":"Å kryptere datatrafikk","isCorrect":false},{"id":"b","text":"Å blokkere skadelige nettsider","isCorrect":false},{"id":"c","text":"Å lagre nettsider lokalt","isCorrect":false},{"id":"d","text":"Å oversette domenenavn til IP-adresser","isCorrect":true}],"solution":"DNS fungerer som internettets adressebok og oversetter menneskelesbare domenenavn til numeriske IP-adresser."},{"id":"it-1-4-1-n-quiz3-q1","task":"I URL-en https://www.butikk.no/sko.html?farge=rod&str=42, hva er ?farge=rod&str=42?","options":[{"id":"a","text":"Spørreparametere (query string) som sender data til serveren","isCorrect":true},{"id":"b","text":"En fragmentidentifikator","isCorrect":false},{"id":"c","text":"Portnummeret","isCorrect":false},{"id":"d","text":"Kommentarer nettleseren ignorerer","isCorrect":false}],"solution":"Delen etter ? er spørreparametere (query string) som sender data, her farge og størrelse, til serveren."},{"id":"it-1-4-1-n-quiz3-q2","task":"Hva representerer .no i domenet www.vg.no?","options":[{"id":"a","text":"Et subdomene","isCorrect":false},{"id":"b","text":"Toppdomenet (TLD)","isCorrect":true},{"id":"c","text":"Portnummeret","isCorrect":false},{"id":"d","text":"Protokollen","isCorrect":false}],"solution":".no er toppdomenet (TLD). vg.no er andrenivådomenet, og www er et subdomene."}]}},{"id":"it-1-4-1-n-summary","type":"text","content":"## Oppsummering\n\nBak hver nettside ligger et finstemt maskineri. **Internett** er det globale nettverket bygd på TCP/IP, mens **World Wide Web** er informasjonssystemet av sammenkoblede dokumenter som kjører oppå – oppfunnet av Tim Berners-Lee med HTML, URL og HTTP.\n\nKommunikasjonen følger **klient-server-modellen**: klienten (nettleseren) spør, serveren svarer. Protokollen er **HTTP** med metoder som GET og POST og statuskoder som 200 OK, og den sikre versjonen **HTTPS** krypterer alt med TLS/SSL. **DNS** oversetter domenenavn til IP-adresser via et hierarkisk system, og **URL-en** identifiserer en ressurs med protokoll, domene, sti, spørreparametere og fragment. Til sammen forklarer dette hvordan «LO» fra 1969 ble til den sømløse webben vi bruker i dag."}],"exercises":[]}
+{
+  "id": "it-1-4-1-narrativ",
+  "courseId": "it-1",
+  "chapterNumber": "4.1",
+  "title": "Internett og webbens oppbygging",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hva som egentlig skjer når du åpner en nettside – fra ARPANET og Tim Berners-Lee til klient-server-modellen, HTTP, DNS og oppbygningen av en URL.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "gjøre rede for grunnleggende teknologier bak internett og webben",
+    "forklare hvordan kommunikasjon mellom klient og server foregår"
+  ],
+  "linkedChapterId": "it-1-4-1",
+  "content": [
+    {
+      "id": "it-1-4-1-n-intro",
+      "type": "text",
+      "content": "## Hva skjer i det halve sekundet?\n\nHver gang du åpner en nettside, skjer det en rekke tekniske prosesser i bakgrunnen, på brøkdelen av et sekund. Nettleseren sender forespørsler over internett, DNS-servere oversetter domenenavn til IP-adresser, og webservere sender tilbake HTML-kode som nettleseren tolker og viser. La oss forstå maskineriet bak.\n\nFørst en oppklaring: internett og webben er ikke det samme. **Internett** er det fysiske og logiske nettverket av kabler, rutere og servere som kobler datamaskiner sammen verden over, ved hjelp av standardprotokollene TCP/IP. **Webben** (World Wide Web) er en tjeneste som kjører *oppå* internett – på samme måte som e-post og nettspill gjør. Du kan altså bruke internett uten webben, for eksempel når du sender e-post.\n\nInternett har en spennende historie. Det vokste ut av ARPANET, et nettverk det amerikanske forsvaret finansierte på 1960-tallet for å overleve atomkrig ved å desentralisere kommunikasjonen. I 1969 ble den første meldingen sendt mellom UCLA og Stanford – ordet «LOGIN» – men systemet krasjet etter to bokstaver, så bare «LO» kom fram. Senere milepæler: i 1971 sendte Ray Tomlinson den første e-posten og innførte @-tegnet; i 1974 utviklet Cerf og Kahn TCP/IP; og i 1983 gikk ARPANET over til TCP/IP, regnet som internettets offisielle fødsel. I 1989 foreslo Tim Berners-Lee ved CERN **World Wide Web**, og skapte de tre grunnteknologiene HTML (struktur), URL (identifikasjon) og HTTP (overføring)."
+    },
+    {
+      "id": "it-1-4-1-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-4-1-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på internett og webben:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-4-1-n-quiz1-q0",
+            "task": "Hva er forskjellen mellom internett og World Wide Web?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Internett er det fysiske nettverket, og webben er en tjeneste som kjører oppå internett",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Det er ingen forskjell – de betyr det samme",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Webben er det fysiske nettverket, og internett er programvaren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Internett er for datamaskiner og webben for mobiler",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Internett er den fysiske infrastrukturen, mens webben er én av flere tjenester som kjører oppå den – på linje med e-post."
+          },
+          {
+            "id": "it-1-4-1-n-quiz1-q1",
+            "task": "Hvem regnes som oppfinneren av World Wide Web?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ray Tomlinson",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Tim Berners-Lee",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Paul Mockapetris",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Vint Cerf",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Tim Berners-Lee foreslo WWW i 1989 ved CERN og skapte HTML, URL og HTTP."
+          },
+          {
+            "id": "it-1-4-1-n-quiz1-q2",
+            "task": "Hvilke tre grunnteknologier skapte Berners-Lee for webben?",
+            "options": [
+              {
+                "id": "a",
+                "text": "TCP, IP og DNS",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "HTML, CSS og JavaScript",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "HTML, URL og HTTP",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "E-post, nettspill og strømming",
+                "isCorrect": false
+              }
+            ],
+            "solution": "De tre grunnteknologiene er HTML (struktur), URL (identifikasjon) og HTTP (overføring)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-4-1-n-section1",
+      "type": "text",
+      "content": "## Klienten spør, serveren svarer\n\nKommunikasjon på webben følger **klient-server-modellen**. **Klienten** er programmet som sender forespørsler – vanligvis en nettleser som Chrome eller Safari – og det er alltid klienten som starter samtalen. **Serveren** er et program som kjører et sted i verden og venter på forespørsler; når den får én, behandler den den og sender et svar. Én webserver kan betjene tusenvis av klienter samtidig.\n\nFlyten når du henter en nettside ser slik ut: du skriver en URL som `https://www.nrk.no`; nettleseren slår opp IP-adressen via DNS; den oppretter en forbindelse til serveren; den sender en HTTP-forespørsel (en GET-request); serveren finner riktig innhold og sender tilbake HTML, CSS og JavaScript; og nettleseren tolker koden og viser siden. Ofte lastes mange ressurser – HTML, stilark, skript, bilder og fonter – hver med sin egen forespørsel, men moderne nettlesere sender flere parallelt for å gå raskere.\n\nProtokollen som styrer dette heter **HTTP** (Hypertext Transfer Protocol). Den definerer hvordan meldinger formateres, og bruker metoder som GET (hent data), POST (send data), PUT (oppdater) og DELETE (slett). Serveren svarer med statuskoder, der 200 OK betyr at forespørselen var vellykket og innholdet sendes. **HTTPS** er den sikre versjonen, der all kommunikasjon krypteres med TLS/SSL slik at ingen kan avlytte eller endre dataene underveis. I dag bruker nesten alle nettsider HTTPS, og nettlesere advarer mot usikre HTTP-sider."
+    },
+    {
+      "id": "it-1-4-1-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-4-1-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på klient-server og HTTP:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-4-1-n-quiz2-q0",
+            "task": "Hvem starter alltid kommunikasjonen i klient-server-modellen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "DNS-serveren",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Internettleverandøren",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Klienten",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Klienten (vanligvis nettleseren) initierer alltid kommunikasjonen ved å sende en forespørsel til serveren."
+          },
+          {
+            "id": "it-1-4-1-n-quiz2-q1",
+            "task": "Hva betyr statuskoden 200 OK?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Forespørselen var vellykket og serveren sender tilbake innholdet",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Serveren er overbelastet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Nettsiden er flyttet til ny adresse",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Nettleseren mangler en plugin",
+                "isCorrect": false
+              }
+            ],
+            "solution": "200 OK betyr at forespørselen var vellykket og at serveren returnerer det forespurte innholdet."
+          },
+          {
+            "id": "it-1-4-1-n-quiz2-q2",
+            "task": "Hva er hovedforskjellen mellom HTTP og HTTPS?",
+            "options": [
+              {
+                "id": "a",
+                "text": "HTTPS er raskere enn HTTP",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "HTTPS krypterer all kommunikasjon med TLS/SSL",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "HTTP brukes for tekst og HTTPS for bilder",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "HTTPS krever innlogging",
+                "isCorrect": false
+              }
+            ],
+            "solution": "HTTPS er den sikre versjonen av HTTP der kommunikasjonen krypteres med TLS/SSL."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-4-1-n-section2",
+      "type": "text",
+      "content": "## Adresseboka og adressen\n\nDatamaskiner kommuniserer med numeriske **IP-adresser** som `195.88.55.16`, men mennesker husker lettere navn som `www.vg.no`. **DNS** (Domain Name System) løser dette ved å være internettets adressebok – det oversetter domenenavn til IP-adresser. Når du skriver en adresse, sjekker nettleseren først sin egen hurtigbuffer, så operativsystemets cache, og hvis ingen kjenner svaret, sendes forespørselen til en DNS-resolver hos internettleverandøren. Resolveren spør rotservere, så toppdomene-servere (.no), og til slutt den autoritative navneserveren for domenet. Hele oppslaget tar vanligvis under 100 millisekunder, og resultatet lagres i cache med en begrenset levetid (TTL).\n\nDNS er hierarkisk: øverst er toppdomenet (TLD) som .no eller .com, så andrenivådomenet som vg.no, og deretter subdomener som www.vg.no eller mail.google.com. Systemet ble designet av Paul Mockapetris i 1983 og er en distribuert database over tusenvis av servere, noe som gir høy tilgjengelighet.\n\nSelve adressen, **URL-en** (Uniform Resource Locator), har flere deler. Ta `https://www.eksempel.no:443/nyheter/artikkel.html?id=42&lang=no#kommentarer`: `https://` er protokollen, `www.eksempel.no` er domenenavnet, `:443` er portnummeret (standard for HTTPS, vises sjelden), `/nyheter/artikkel.html` er stien til ressursen, `?id=42&lang=no` er spørreparametere (query string) som sender data til serveren, og `#kommentarer` er en fragmentidentifikator som peker til en bestemt del av siden. Forstår du URL-strukturen, navigerer du lettere, oppdager feil i lenker, og skjønner hvorfor lesbare URL-er er gunstig for søkemotoroptimalisering (SEO)."
+    },
+    {
+      "id": "it-1-4-1-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "it-1-4-1-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på DNS og URL:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "it-1-4-1-n-quiz3-q0",
+            "task": "Hva er DNS sin hovedoppgave?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å kryptere datatrafikk",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Å blokkere skadelige nettsider",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å oversette domenenavn til IP-adresser",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Å lagre nettsider lokalt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "DNS fungerer som internettets adressebok og oversetter menneskelesbare domenenavn til numeriske IP-adresser."
+          },
+          {
+            "id": "it-1-4-1-n-quiz3-q1",
+            "task": "I URL-en https://www.butikk.no/sko.html?farge=rod&str=42, hva er ?farge=rod&str=42?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En fragmentidentifikator",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Portnummeret",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Kommentarer nettleseren ignorerer",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Spørreparametere (query string) som sender data til serveren",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Delen etter ? er spørreparametere (query string) som sender data, her farge og størrelse, til serveren."
+          },
+          {
+            "id": "it-1-4-1-n-quiz3-q2",
+            "task": "Hva representerer .no i domenet www.vg.no?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Toppdomenet (TLD)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Et subdomene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Portnummeret",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Protokollen",
+                "isCorrect": false
+              }
+            ],
+            "solution": ".no er toppdomenet (TLD). vg.no er andrenivådomenet, og www er et subdomene."
+          }
+        ]
+      }
+    },
+    {
+      "id": "it-1-4-1-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nBak hver nettside ligger et finstemt maskineri. **Internett** er det globale nettverket bygd på TCP/IP, mens **World Wide Web** er informasjonssystemet av sammenkoblede dokumenter som kjører oppå – oppfunnet av Tim Berners-Lee med HTML, URL og HTTP.\n\nKommunikasjonen følger **klient-server-modellen**: klienten (nettleseren) spør, serveren svarer. Protokollen er **HTTP** med metoder som GET og POST og statuskoder som 200 OK, og den sikre versjonen **HTTPS** krypterer alt med TLS/SSL. **DNS** oversetter domenenavn til IP-adresser via et hierarkisk system, og **URL-en** identifiserer en ressurs med protokoll, domene, sti, spørreparametere og fragment. Til sammen forklarer dette hvordan «LO» fra 1969 ble til den sømløse webben vi bruker i dag."
+    }
+  ],
+  "exercises": []
+}

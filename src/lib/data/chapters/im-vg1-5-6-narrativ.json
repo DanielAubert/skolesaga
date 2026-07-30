@@ -1,1 +1,451 @@
-{"id":"im-vg1-5-6-narrativ","courseId":"im-vg1","chapterNumber":"5.6","title":"Animasjon og motion graphics","subtitle":"Narrativ versjon","description":"En fortelling om å gi liv til det livløse -- Disneys animasjonsprinsipper, keyframes og interpolering, motion graphics i praksis, og kunsten å få bevegelse til å føles ekte.","estimatedMinutes":36,"competenceGoals":["produsere og kommunisere innhold innenfor ulike sjangre tilpasset visuelle og auditive medier","utforske og beskrive hvordan teknologi kan formidle nye uttrykk og gi nye opplevelser"],"linkedChapterId":"im-vg1-5-6","content":[{"id":"im-vg1-5-6-n-intro","type":"text","content":"## Å gi liv til det som står stille\n\nTenk på forskjellen mellom et stillbilde av en ball og en ball som spretter over skjermen. Det første er informasjon; det andre er *liv*. Animasjon er kunsten å gi liv til statiske elementer, og det er overalt rundt deg -- fra klassisk tegnefilm til den bevegelige grafikken i reklamefilmer, på nettsider og i appene du bruker hver dag.\n\nI en verden som flommer over av visuelt innhold, er bevegelse et kraftig våpen. Bevegelig grafikk fanger oppmerksomheten, formidler informasjon effektivt, og hjelper deg å skille deg ut. Når en YouTube-video starter med en smart animert logo, eller når en app gir en liten, tilfredsstillende bevegelse idet du trykker på en knapp -- da er det animasjon i arbeid.\n\nI denne fortellingen skal vi lære å gi liv til det livløse. Vi skal oppdage de tidløse animasjonsprinsippene som Disney-animatørene utviklet, og som fortsatt gjelder. Vi skal forstå keyframes og interpolering, selve maskineriet bak digital animasjon. Vi skal se hvordan motion graphics brukes i praksis. Og vi skal lære det viktigste av alt -- hvordan man får bevegelse til å føles ekte i stedet for mekanisk."},{"id":"im-vg1-5-6-n-section1","type":"text","content":"## Visdommen fra Disney\n\nLenge før datamaskiner kunne animere noe som helst, satt animatørene hos Disney og finpusset håndtegnet film -- og de utviklet 12 prinsipper for animasjon som fortsatt er bibelen for alle som jobber med bevegelse. La oss møte de viktigste.\n\nDet første er **squash og stretch** -- at objekter deformeres når de beveger seg. En ball flater ut når den treffer bakken, og strekkes når den spretter opp igjen. Dette gir en følelse av vekt og fleksibilitet; uten det virker bevegelsen stiv og død. Det andre er **anticipation**, eller forberedelse: en bevegelse varsles med en motsatt bevegelse. En person bøyer knærne *før* hoppet. Og i moderne grensesnitt krymper en knapp litt *før* den forstørres ved klikk -- en liten forberedelse som føles naturlig.\n\nDet tredje, og kanskje viktigste prinsippet, er **ease in og ease out**: bevegelser starter sakte, akselererer, og bremser ned igjen. Tenk etter -- ingenting i den virkelige verden starter eller stopper helt brått. Et fjerde prinsipp er **follow through og overlapping action**: når et objekt stopper, fortsetter deler av det å bevege seg -- håret følger etter hodet, jakken svinger etter kroppen. Og det femte er **timing**: hvor mange bilder en bevegelse tar, bestemmer både hastighet og stemning. Rask timing føles lett og kvikt; langsom timing føles tungt og alvorlig. Disse prinsippene handler alle om én ting: å låne fysikkens lover fra virkeligheten, så det vi ser, føles ekte."},{"id":"im-vg1-5-6-n-quiz1","type":"exercise","exercise":{"id":"im-vg1-5-6-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på animasjonsprinsipper:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-5-6-n-quiz1-q0","task":"Hva betyr «ease in og ease out»?","options":[{"id":"a","text":"At alle bevegelser har konstant fart","isCorrect":false},{"id":"b","text":"At bevegelser starter sakte, akselererer og bremser ned igjen","isCorrect":true},{"id":"c","text":"At animasjonen er svart-hvit","isCorrect":false},{"id":"d","text":"At lyden tones inn","isCorrect":false}],"solution":"Ease in og ease out betyr at bevegelser starter sakte, akselererer og bremser ned igjen, slik som i virkeligheten."},{"id":"im-vg1-5-6-n-quiz1-q1","task":"Hva er anticipation (forberedelse)?","options":[{"id":"a","text":"At objektet blir usynlig","isCorrect":false},{"id":"b","text":"At fargen endres","isCorrect":false},{"id":"c","text":"En forberedende bevegelse som signaliserer en kommende handling","isCorrect":true},{"id":"d","text":"At animasjonen stopper","isCorrect":false}],"solution":"Anticipation er en forberedende bevegelse, som å bøye knærne før et hopp, som signaliserer hva som skal skje."},{"id":"im-vg1-5-6-n-quiz1-q2","task":"Hva gir squash og stretch en animasjon?","options":[{"id":"a","text":"Mer støy","isCorrect":false},{"id":"b","text":"Mindre filstørrelse","isCorrect":false},{"id":"c","text":"Høyere oppløsning","isCorrect":false},{"id":"d","text":"En følelse av vekt og fleksibilitet","isCorrect":true}],"solution":"Squash og stretch deformerer objektet under bevegelse og gir en følelse av vekt og fleksibilitet, som en ball som flater ut og strekkes."}]}},{"id":"im-vg1-5-6-n-section2","type":"text","content":"## Nøkkelbildene og det datamaskinen fyller inn\n\nHvordan lager man egentlig digital animasjon? Du tegner ikke hvert eneste bilde -- det ville tatt evigheter. I stedet bruker du **keyframes**, eller nøkkelbilder. En keyframe definerer tilstanden til et element på et bestemt tidspunkt, og så lar du datamaskinen gjøre resten.\n\nTa et enkelt eksempel: en sirkel som skal bevege seg over skjermen. Du setter keyframe 1 ved sekund 0, med sirkelen i venstre kant. Du setter keyframe 2 ved sekund 1, med sirkelen i høyre kant. Og så? Da regner datamaskinen automatisk ut *alle bildene imellom* -- en prosess som kalles **interpolering**. Du definerer bare start og slutt; maskinen fyller inn reisen. Dette er en enorm tidsbesparelse og selve grunnlaget for moderne animasjon.\n\nMen interpoleringen kan se ulik ut, og her møter vi igjen prinsippet om easing. *Lineær* interpolering gir jevn hastighet hele veien -- det ser mekanisk ut, som en maskin. *Ease in* starter sakte og akselererer. *Ease out* starter raskt og bremser ned. Og *ease in/out* gjør begge deler -- starter sakte, akselererer, bremser ned -- og dette er det mest naturlige, fordi det etterligner virkelig fysikk. Alt dette styrer du på en **tidslinje**, som viser alle keyframes kronologisk. Og hva kan du animere? Mye: **posisjon** (flytte ting), **skalering** (forstørre/forminske), **rotasjon** (dreie), **gjennomsiktighet** (fade inn og ut) og **farge** (endre over tid). Med keyframes, interpolering og disse egenskapene har du byggesteinene til nesten enhver animasjon."},{"id":"im-vg1-5-6-n-quiz2","type":"exercise","exercise":{"id":"im-vg1-5-6-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på keyframes og interpolering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-5-6-n-quiz2-q0","task":"Hva er en keyframe?","options":[{"id":"a","text":"Et nøkkelbilde som definerer tilstanden til et element på et bestemt tidspunkt","isCorrect":true},{"id":"b","text":"En ramme rundt bildet","isCorrect":false},{"id":"c","text":"En tastatursnarvei","isCorrect":false},{"id":"d","text":"En lydeffekt","isCorrect":false}],"solution":"En keyframe er et nøkkelbilde som definerer et elements tilstand på et bestemt tidspunkt. Datamaskinen beregner bildene imellom."},{"id":"im-vg1-5-6-n-quiz2-q1","task":"Hva er interpolering?","options":[{"id":"a","text":"Å legge til lyd","isCorrect":false},{"id":"b","text":"Automatisk beregning av mellombilder mellom keyframes","isCorrect":true},{"id":"c","text":"Å eksportere animasjonen","isCorrect":false},{"id":"d","text":"Å justere fargebalansen","isCorrect":false}],"solution":"Interpolering er den automatiske beregningen av alle mellombildene mellom to keyframes, så bevegelsen blir jevn."},{"id":"im-vg1-5-6-n-quiz2-q2","task":"Hvilken interpolering ser mest mekanisk ut?","options":[{"id":"a","text":"Ease in/out","isCorrect":false},{"id":"b","text":"Ease out","isCorrect":false},{"id":"c","text":"Lineær (jevn hastighet hele veien)","isCorrect":true},{"id":"d","text":"Ease in","isCorrect":false}],"solution":"Lineær interpolering gir jevn hastighet gjennom hele bevegelsen og ser mekanisk ut, mens ease in/out er mest naturlig."}]}},{"id":"im-vg1-5-6-n-section3","type":"text","content":"## Motion graphics i den virkelige verden\n\nLa oss løfte blikket og se hva all denne kunnskapen brukes til. **Motion graphics** -- grafisk design i bevegelse -- kombinerer designelementer som tekst, former, ikoner og illustrasjoner med animasjon, og du møter det overalt.\n\nTenk på **tittelsekvenser** -- de animerte titlene og rulletekstene i filmer og serier. De ikoniske James Bond-åpningene eller introene til Netflix-serier er motion graphics på sitt mest forseggjorte. Eller tenk på **infografikk i bevegelse**: statistikk, diagrammer og data som animeres for å gjøre tørre tall engasjerende og lette å forstå. Det finnes også **logoanimasjon**, der et firmas logo animeres for bruk i videoer og på sosiale medier, og **UI-animasjon** -- de små bevegelsene i knapper, menyer og overganger i apper og nettsider som gir tilbakemelding og gjør opplevelsen mer behagelig. Og ikke minst **forklaringsvideoer**, der kompliserte konsepter forklares med animert grafikk og voiceover, svært populært til produktpresentasjoner og opplæring.\n\nHvilke verktøy bruker man? **Adobe After Effects** er industristandarden for motion graphics og visuelle effekter. **Canva** tilbyr enkel animasjon for presentasjoner og sosiale medier. På nett kan du animere direkte med **CSS-animasjoner** i koden, eller bruke det lette **Lottie**-formatet for nett og apper. Og **Blender** er et gratis verktøy for 3D-animasjon. Poenget er at terskelen for å lage motion graphics aldri har vært lavere -- du kan begynne med enkle verktøy og likevel skape noe som fanger blikket."},{"id":"im-vg1-5-6-n-quiz3","type":"exercise","exercise":{"id":"im-vg1-5-6-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på motion graphics:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-5-6-n-quiz3-q0","task":"Hva er motion graphics?","options":[{"id":"a","text":"Stillbilder i høy oppløsning","isCorrect":false},{"id":"b","text":"Trykt reklamemateriell","isCorrect":false},{"id":"c","text":"Et lydformat","isCorrect":false},{"id":"d","text":"Grafisk design i bevegelse som kombinerer tekst, former og animasjon","isCorrect":true}],"solution":"Motion graphics er grafisk design i bevegelse, der tekst, former, ikoner og illustrasjoner kombineres med animasjon."},{"id":"im-vg1-5-6-n-quiz3-q1","task":"Hva er et typisk eksempel på UI-animasjon?","options":[{"id":"a","text":"En knapp som gir en liten bevegelse ved klikk","isCorrect":true},{"id":"b","text":"En trykt plakat","isCorrect":false},{"id":"c","text":"Et fotografi","isCorrect":false},{"id":"d","text":"En lydeffekt uten bilde","isCorrect":false}],"solution":"UI-animasjon er de små bevegelsene i knapper, menyer og overganger som gir tilbakemelding og forbedrer brukeropplevelsen."},{"id":"im-vg1-5-6-n-quiz3-q2","task":"Hvilket verktøy regnes som industristandard for motion graphics?","options":[{"id":"a","text":"Microsoft Word","isCorrect":false},{"id":"b","text":"Adobe After Effects","isCorrect":true},{"id":"c","text":"Et regneark","isCorrect":false},{"id":"d","text":"En kalkulator","isCorrect":false}],"solution":"Adobe After Effects er industristandarden for motion graphics og visuelle effekter."}]}},{"id":"im-vg1-5-6-n-section4","type":"text","content":"## Mindre er mer: en logoavsløring\n\nLa oss samle alt vi har lært i et konkret prosjekt: en enkel logoanimasjon på et par sekunder. Dette viser hvordan prinsipper, keyframes og easing spiller sammen i praksis -- og det illustrerer et viktig prinsipp i seg selv: i animasjon er mindre ofte mer.\n\nTenk deg en logoavsløring over rundt to og et halvt sekund. I de første halve sekundet er logoen usynlig -- gjennomsiktigheten er på null -- og en enkel form, kanskje en sirkel eller en linje, animeres inn fra venstre. Mellom et halvt og ett sekund transformeres formen til logoens omriss, og her bruker du *ease out* for en naturlig bremsing til den lander. Fra ett til halvannet sekund fylles logoens farge inn i formen, med en myk fade. Fra halvannet til to sekunder skrives firmanavnet inn under logoen, kanskje med en skrivemaskineffekt. Og det siste halve sekundet holdes alt stille -- logoen er ferdig avslørt, og publikum får tid til å feste den i minnet.\n\nLegg merke til to ting. For det første: easing brukes på *alle* bevegelsene, så ingenting starter eller stopper brått -- det er det som skiller den profesjonelle animasjonen fra den klønete. For det andre: animasjonen er *enkel*. Den prøver ikke å gjøre ti ting på en gang. Den fryktelig vanlige feilen blant nybegynnere er å fylle animasjonen med spinn, sprett og effekter til alt blir kaotisk. De beste animatørene vet at tilbakeholdenhet er en dyd. Hold det enkelt, gi hver bevegelse god easing, og la designet puste. Da gir du liv til det livløse -- på en måte som føles ekte."},{"id":"im-vg1-5-6-n-quiz4","type":"exercise","exercise":{"id":"im-vg1-5-6-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på animasjon i praksis:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"im-vg1-5-6-n-quiz4-q0","task":"Hvilken egenskap animerer du for å la et element tone inn fra usynlig?","options":[{"id":"a","text":"Lydvolum","isCorrect":false},{"id":"b","text":"Filformat","isCorrect":false},{"id":"c","text":"Gjennomsiktighet (opacity)","isCorrect":true},{"id":"d","text":"Bitrate","isCorrect":false}],"solution":"Du animerer gjennomsiktigheten (opacity) fra 0 til full for å la et element tone inn fra usynlig."},{"id":"im-vg1-5-6-n-quiz4-q1","task":"Hvorfor bør du bruke easing på bevegelsene i en logoanimasjon?","options":[{"id":"a","text":"For å gjøre filen mindre","isCorrect":false},{"id":"b","text":"For å fjerne fargene","isCorrect":false},{"id":"c","text":"Det har ingen effekt","isCorrect":false},{"id":"d","text":"For at bevegelsene skal føles naturlige i stedet for mekaniske","isCorrect":true}],"solution":"Easing får bevegelsene til å starte og stoppe mykt, slik at de føles naturlige i stedet for mekaniske."},{"id":"im-vg1-5-6-n-quiz4-q2","task":"Hva er et godt prinsipp i logoanimasjon?","options":[{"id":"a","text":"Hold det enkelt og bruk god easing","isCorrect":true},{"id":"b","text":"Hold det enkelt -- mindre er mer","isCorrect":false},{"id":"c","text":"Fyll animasjonen med flest mulig effekter","isCorrect":false},{"id":"d","text":"Bruk bare lineær interpolering","isCorrect":false}],"solution":"Et godt prinsipp er å holde det enkelt og bruke god easing -- mindre er mer i logoanimasjon, så budskapet kommer tydelig fram."}]}},{"id":"im-vg1-5-6-n-summary","type":"text","content":"## Oppsummering\n\nVi har lært å gi liv til det livløse. Disneys **animasjonsprinsipper** -- squash og stretch, anticipation, ease in/out, follow through og timing -- handler alle om å låne fysikkens lover fra virkeligheten så bevegelse føles ekte. Vi forsto **keyframes** som definerer nøkkelbilder, og **interpolering** der datamaskinen beregner alt imellom, styrt av easing på en tidslinje, med egenskaper som posisjon, skala, rotasjon, opacity og farge.\n\nVi så **motion graphics** i praksis -- tittelsekvenser, infografikk, logoanimasjon, UI-animasjon og forklaringsvideoer -- og verktøyene fra After Effects til Canva og CSS. Og i logoavsløringen lærte vi det viktigste: bruk easing på alt, og hold det enkelt. Mindre er mer. Når du behersker disse prinsippene, kan du forvandle stillestående grafikk til bevegelse som fanger blikket og føles levende."}],"exercises":[]}
+{
+  "id": "im-vg1-5-6-narrativ",
+  "courseId": "im-vg1",
+  "chapterNumber": "5.6",
+  "title": "Animasjon og motion graphics",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om å gi liv til det livløse -- Disneys animasjonsprinsipper, keyframes og interpolering, motion graphics i praksis, og kunsten å få bevegelse til å føles ekte.",
+  "estimatedMinutes": 36,
+  "competenceGoals": [
+    "produsere og kommunisere innhold innenfor ulike sjangre tilpasset visuelle og auditive medier",
+    "utforske og beskrive hvordan teknologi kan formidle nye uttrykk og gi nye opplevelser"
+  ],
+  "linkedChapterId": "im-vg1-5-6",
+  "content": [
+    {
+      "id": "im-vg1-5-6-n-intro",
+      "type": "text",
+      "content": "## Å gi liv til det som står stille\n\nTenk på forskjellen mellom et stillbilde av en ball og en ball som spretter over skjermen. Det første er informasjon; det andre er *liv*. Animasjon er kunsten å gi liv til statiske elementer, og det er overalt rundt deg -- fra klassisk tegnefilm til den bevegelige grafikken i reklamefilmer, på nettsider og i appene du bruker hver dag.\n\nI en verden som flommer over av visuelt innhold, er bevegelse et kraftig våpen. Bevegelig grafikk fanger oppmerksomheten, formidler informasjon effektivt, og hjelper deg å skille deg ut. Når en YouTube-video starter med en smart animert logo, eller når en app gir en liten, tilfredsstillende bevegelse idet du trykker på en knapp -- da er det animasjon i arbeid.\n\nI denne fortellingen skal vi lære å gi liv til det livløse. Vi skal oppdage de tidløse animasjonsprinsippene som Disney-animatørene utviklet, og som fortsatt gjelder. Vi skal forstå keyframes og interpolering, selve maskineriet bak digital animasjon. Vi skal se hvordan motion graphics brukes i praksis. Og vi skal lære det viktigste av alt -- hvordan man får bevegelse til å føles ekte i stedet for mekanisk."
+    },
+    {
+      "id": "im-vg1-5-6-n-section1",
+      "type": "text",
+      "content": "## Visdommen fra Disney\n\nLenge før datamaskiner kunne animere noe som helst, satt animatørene hos Disney og finpusset håndtegnet film -- og de utviklet 12 prinsipper for animasjon som fortsatt er bibelen for alle som jobber med bevegelse. La oss møte de viktigste.\n\nDet første er **squash og stretch** -- at objekter deformeres når de beveger seg. En ball flater ut når den treffer bakken, og strekkes når den spretter opp igjen. Dette gir en følelse av vekt og fleksibilitet; uten det virker bevegelsen stiv og død. Det andre er **anticipation**, eller forberedelse: en bevegelse varsles med en motsatt bevegelse. En person bøyer knærne *før* hoppet. Og i moderne grensesnitt krymper en knapp litt *før* den forstørres ved klikk -- en liten forberedelse som føles naturlig.\n\nDet tredje, og kanskje viktigste prinsippet, er **ease in og ease out**: bevegelser starter sakte, akselererer, og bremser ned igjen. Tenk etter -- ingenting i den virkelige verden starter eller stopper helt brått. Et fjerde prinsipp er **follow through og overlapping action**: når et objekt stopper, fortsetter deler av det å bevege seg -- håret følger etter hodet, jakken svinger etter kroppen. Og det femte er **timing**: hvor mange bilder en bevegelse tar, bestemmer både hastighet og stemning. Rask timing føles lett og kvikt; langsom timing føles tungt og alvorlig. Disse prinsippene handler alle om én ting: å låne fysikkens lover fra virkeligheten, så det vi ser, føles ekte."
+    },
+    {
+      "id": "im-vg1-5-6-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-5-6-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på animasjonsprinsipper:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-5-6-n-quiz1-q0",
+            "task": "Hva betyr «ease in og ease out»?",
+            "options": [
+              {
+                "id": "a",
+                "text": "At alle bevegelser har konstant fart",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At animasjonen er svart-hvit",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At lyden tones inn",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At bevegelser starter sakte, akselererer og bremser ned igjen",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Ease in og ease out betyr at bevegelser starter sakte, akselererer og bremser ned igjen, slik som i virkeligheten."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz1-q1",
+            "task": "Hva er anticipation (forberedelse)?",
+            "options": [
+              {
+                "id": "c",
+                "text": "En forberedende bevegelse som signaliserer en kommende handling",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "At objektet blir usynlig",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "At fargen endres",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At animasjonen stopper",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Anticipation er en forberedende bevegelse, som å bøye knærne før et hopp, som signaliserer hva som skal skje."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz1-q2",
+            "task": "Hva gir squash og stretch en animasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Mer støy",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En følelse av vekt og fleksibilitet",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Mindre filstørrelse",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Høyere oppløsning",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Squash og stretch deformerer objektet under bevegelse og gir en følelse av vekt og fleksibilitet, som en ball som flater ut og strekkes."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-5-6-n-section2",
+      "type": "text",
+      "content": "## Nøkkelbildene og det datamaskinen fyller inn\n\nHvordan lager man egentlig digital animasjon? Du tegner ikke hvert eneste bilde -- det ville tatt evigheter. I stedet bruker du **keyframes**, eller nøkkelbilder. En keyframe definerer tilstanden til et element på et bestemt tidspunkt, og så lar du datamaskinen gjøre resten.\n\nTa et enkelt eksempel: en sirkel som skal bevege seg over skjermen. Du setter keyframe 1 ved sekund 0, med sirkelen i venstre kant. Du setter keyframe 2 ved sekund 1, med sirkelen i høyre kant. Og så? Da regner datamaskinen automatisk ut *alle bildene imellom* -- en prosess som kalles **interpolering**. Du definerer bare start og slutt; maskinen fyller inn reisen. Dette er en enorm tidsbesparelse og selve grunnlaget for moderne animasjon.\n\nMen interpoleringen kan se ulik ut, og her møter vi igjen prinsippet om easing. *Lineær* interpolering gir jevn hastighet hele veien -- det ser mekanisk ut, som en maskin. *Ease in* starter sakte og akselererer. *Ease out* starter raskt og bremser ned. Og *ease in/out* gjør begge deler -- starter sakte, akselererer, bremser ned -- og dette er det mest naturlige, fordi det etterligner virkelig fysikk. Alt dette styrer du på en **tidslinje**, som viser alle keyframes kronologisk. Og hva kan du animere? Mye: **posisjon** (flytte ting), **skalering** (forstørre/forminske), **rotasjon** (dreie), **gjennomsiktighet** (fade inn og ut) og **farge** (endre over tid). Med keyframes, interpolering og disse egenskapene har du byggesteinene til nesten enhver animasjon."
+    },
+    {
+      "id": "im-vg1-5-6-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-5-6-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på keyframes og interpolering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-5-6-n-quiz2-q0",
+            "task": "Hva er en keyframe?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En ramme rundt bildet",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "En tastatursnarvei",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Et nøkkelbilde som definerer tilstanden til et element på et bestemt tidspunkt",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "En lydeffekt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "En keyframe er et nøkkelbilde som definerer et elements tilstand på et bestemt tidspunkt. Datamaskinen beregner bildene imellom."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz2-q1",
+            "task": "Hva er interpolering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Å legge til lyd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Å eksportere animasjonen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Å justere fargebalansen",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Automatisk beregning av mellombilder mellom keyframes",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Interpolering er den automatiske beregningen av alle mellombildene mellom to keyframes, så bevegelsen blir jevn."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz2-q2",
+            "task": "Hvilken interpolering ser mest mekanisk ut?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Lineær (jevn hastighet hele veien)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Ease in/out",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Ease out",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Ease in",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Lineær interpolering gir jevn hastighet gjennom hele bevegelsen og ser mekanisk ut, mens ease in/out er mest naturlig."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-5-6-n-section3",
+      "type": "text",
+      "content": "## Motion graphics i den virkelige verden\n\nLa oss løfte blikket og se hva all denne kunnskapen brukes til. **Motion graphics** -- grafisk design i bevegelse -- kombinerer designelementer som tekst, former, ikoner og illustrasjoner med animasjon, og du møter det overalt.\n\nTenk på **tittelsekvenser** -- de animerte titlene og rulletekstene i filmer og serier. De ikoniske James Bond-åpningene eller introene til Netflix-serier er motion graphics på sitt mest forseggjorte. Eller tenk på **infografikk i bevegelse**: statistikk, diagrammer og data som animeres for å gjøre tørre tall engasjerende og lette å forstå. Det finnes også **logoanimasjon**, der et firmas logo animeres for bruk i videoer og på sosiale medier, og **UI-animasjon** -- de små bevegelsene i knapper, menyer og overganger i apper og nettsider som gir tilbakemelding og gjør opplevelsen mer behagelig. Og ikke minst **forklaringsvideoer**, der kompliserte konsepter forklares med animert grafikk og voiceover, svært populært til produktpresentasjoner og opplæring.\n\nHvilke verktøy bruker man? **Adobe After Effects** er industristandarden for motion graphics og visuelle effekter. **Canva** tilbyr enkel animasjon for presentasjoner og sosiale medier. På nett kan du animere direkte med **CSS-animasjoner** i koden, eller bruke det lette **Lottie**-formatet for nett og apper. Og **Blender** er et gratis verktøy for 3D-animasjon. Poenget er at terskelen for å lage motion graphics aldri har vært lavere -- du kan begynne med enkle verktøy og likevel skape noe som fanger blikket."
+    },
+    {
+      "id": "im-vg1-5-6-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-5-6-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på motion graphics:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-5-6-n-quiz3-q0",
+            "task": "Hva er motion graphics?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Stillbilder i høy oppløsning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Grafisk design i bevegelse som kombinerer tekst, former og animasjon",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Trykt reklamemateriell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et lydformat",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Motion graphics er grafisk design i bevegelse, der tekst, former, ikoner og illustrasjoner kombineres med animasjon."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz3-q1",
+            "task": "Hva er et typisk eksempel på UI-animasjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "En trykt plakat",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et fotografi",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "En knapp som gir en liten bevegelse ved klikk",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "En lydeffekt uten bilde",
+                "isCorrect": false
+              }
+            ],
+            "solution": "UI-animasjon er de små bevegelsene i knapper, menyer og overganger som gir tilbakemelding og forbedrer brukeropplevelsen."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz3-q2",
+            "task": "Hvilket verktøy regnes som industristandard for motion graphics?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Microsoft Word",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Et regneark",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "En kalkulator",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Adobe After Effects",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Adobe After Effects er industristandarden for motion graphics og visuelle effekter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-5-6-n-section4",
+      "type": "text",
+      "content": "## Mindre er mer: en logoavsløring\n\nLa oss samle alt vi har lært i et konkret prosjekt: en enkel logoanimasjon på et par sekunder. Dette viser hvordan prinsipper, keyframes og easing spiller sammen i praksis -- og det illustrerer et viktig prinsipp i seg selv: i animasjon er mindre ofte mer.\n\nTenk deg en logoavsløring over rundt to og et halvt sekund. I de første halve sekundet er logoen usynlig -- gjennomsiktigheten er på null -- og en enkel form, kanskje en sirkel eller en linje, animeres inn fra venstre. Mellom et halvt og ett sekund transformeres formen til logoens omriss, og her bruker du *ease out* for en naturlig bremsing til den lander. Fra ett til halvannet sekund fylles logoens farge inn i formen, med en myk fade. Fra halvannet til to sekunder skrives firmanavnet inn under logoen, kanskje med en skrivemaskineffekt. Og det siste halve sekundet holdes alt stille -- logoen er ferdig avslørt, og publikum får tid til å feste den i minnet.\n\nLegg merke til to ting. For det første: easing brukes på *alle* bevegelsene, så ingenting starter eller stopper brått -- det er det som skiller den profesjonelle animasjonen fra den klønete. For det andre: animasjonen er *enkel*. Den prøver ikke å gjøre ti ting på en gang. Den fryktelig vanlige feilen blant nybegynnere er å fylle animasjonen med spinn, sprett og effekter til alt blir kaotisk. De beste animatørene vet at tilbakeholdenhet er en dyd. Hold det enkelt, gi hver bevegelse god easing, og la designet puste. Da gir du liv til det livløse -- på en måte som føles ekte."
+    },
+    {
+      "id": "im-vg1-5-6-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "im-vg1-5-6-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på animasjon i praksis:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "im-vg1-5-6-n-quiz4-q0",
+            "task": "Hvilken egenskap animerer du for å la et element tone inn fra usynlig?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Gjennomsiktighet (opacity)",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Lydvolum",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Filformat",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Bitrate",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Du animerer gjennomsiktigheten (opacity) fra 0 til full for å la et element tone inn fra usynlig."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz4-q1",
+            "task": "Hvorfor bør du bruke easing på bevegelsene i en logoanimasjon?",
+            "options": [
+              {
+                "id": "a",
+                "text": "For å gjøre filen mindre",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "For at bevegelsene skal føles naturlige i stedet for mekaniske",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "For å fjerne fargene",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det har ingen effekt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Easing får bevegelsene til å starte og stoppe mykt, slik at de føles naturlige i stedet for mekaniske."
+          },
+          {
+            "id": "im-vg1-5-6-n-quiz4-q2",
+            "task": "Hva er et godt prinsipp i logoanimasjon?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Hold det enkelt -- mindre er mer",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Fyll animasjonen med flest mulig effekter",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Hold det enkelt og bruk god easing",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Bruk bare lineær interpolering",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Et godt prinsipp er å holde det enkelt og bruke god easing -- mindre er mer i logoanimasjon, så budskapet kommer tydelig fram."
+          }
+        ]
+      }
+    },
+    {
+      "id": "im-vg1-5-6-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi har lært å gi liv til det livløse. Disneys **animasjonsprinsipper** -- squash og stretch, anticipation, ease in/out, follow through og timing -- handler alle om å låne fysikkens lover fra virkeligheten så bevegelse føles ekte. Vi forsto **keyframes** som definerer nøkkelbilder, og **interpolering** der datamaskinen beregner alt imellom, styrt av easing på en tidslinje, med egenskaper som posisjon, skala, rotasjon, opacity og farge.\n\nVi så **motion graphics** i praksis -- tittelsekvenser, infografikk, logoanimasjon, UI-animasjon og forklaringsvideoer -- og verktøyene fra After Effects til Canva og CSS. Og i logoavsløringen lærte vi det viktigste: bruk easing på alt, og hold det enkelt. Mindre er mer. Når du behersker disse prinsippene, kan du forvandle stillestående grafikk til bevegelse som fanger blikket og føles levende."
+    }
+  ],
+  "exercises": []
+}

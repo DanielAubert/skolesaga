@@ -1,1 +1,265 @@
-{"id":"tif-vg1-1-3-narrativ","courseId":"tif-vg1","chapterNumber":"1.3","title":"Mekaniske egenskaper","subtitle":"Narrativ versjon","description":"En fortelling om hva som skjer inni et materiale når du belaster det -- spenning, tøyning, hardhet og seighet -- og hvordan du regner ut om en del holder.","estimatedMinutes":32,"competenceGoals":["forklare og anvende egnede håndverktøy, måleverktøy og maskiner for bearbeiding av materialer innenfor produksjon og tolke måleresultater i henhold til arbeidstegninger"],"linkedChapterId":"tif-vg1-1-3","content":[{"id":"tif-vg1-1-3-n-intro","type":"text","content":"## Hvor mye tåler den egentlig?\n\nTenk deg at du henger en tung motor i en stålstang. Hvor tjukk må stangen være for at den ikke skal strekke seg permanent -- eller verre, ryke? Det spørsmålet ligger i bunnen av alt du konstruerer, og for å svare på det trenger du to grunnbegreper: spenning og tøyning.\n\n**Spenning** ($\\sigma$) er rett og slett kraft fordelt på areal, og måles i megapascal (MPa), som er det samme som N/mm². Formelen er $\\sigma = F / A$, der $F$ er kraften i newton og $A$ er tverrsnittsarealet i mm². Jo tynnere stangen er, jo mer spenning gir den samme kraften. La oss prøve: en stålstang med tverrsnitt $A = 100 \\text{ mm}^2$ belastes med $F = 50\\,000 \\text{ N}$. Da blir $\\sigma = 50\\,000 / 100 = 500 \\text{ MPa}$. Det ligger innenfor strekkfastheten til vanlig stål, som er rundt 400-800 MPa, så stangen holder.\n\nDet andre begrepet er **tøyning** ($\\varepsilon$), som forteller hvor mye materialet strekker seg i forhold til sin opprinnelige lengde: $\\varepsilon = \\Delta L / L_0$. Strekker en stang på 1000 mm seg 1 mm, blir tøyningen $1/1000 = 0{,}001$, altså 0,1 %. Spenning og tøyning henger sammen, og den sammenhengen er nøkkelen til å forstå hvordan ethvert materiale oppfører seg under last."},{"id":"tif-vg1-1-3-n-section1","type":"text","content":"## Strekkprøven forteller hele historien\n\nVil du virkelig kjenne et materiale, drar du det i stykker -- kontrollert. I en strekkprøve trekker en maskin i en prøvestav til den ryker, og tegner samtidig opp et spennings-tøyningsdiagram som avslører alt.\n\nFørst kommer det **elastiske området**. Her går materialet tilbake til opprinnelig form når du fjerner lasten, akkurat som en strikk. Sammenhengen er lineær og følger Hookes lov, $\\sigma = E \\cdot \\varepsilon$. Fortsetter du å trekke, når du **flytegrensen** ($R_e$, eller $R_{p0{,}2}$ for materialer uten tydelig flytegrense). Dette er det avgjørende punktet: her begynner materialet å deformeres permanent. Etter dette er du i det **plastiske området**, der stangen blir varig lengre selv om du slipper lasten. Spenningen klatrer videre til **strekkfastheten** ($R_m$), den maksimale spenningen materialet tåler, før det snører seg sammen (necking) og til slutt brister.\n\nDisse tallene bruker du til å dimensjonere. Si at en bolt skal tåle $F = 10\\,000 \\text{ N}$ uten å deformeres permanent, og stålet har flytegrense $R_e = 250 \\text{ MPa}$. Du tør ikke kjøre helt på grensa, så du legger inn en sikkerhetsfaktor på 2: tillatt spenning blir $250 / 2 = 125 \\text{ MPa}$. Da trenger du et areal på $A = F / \\sigma = 10\\,000 / 125 = 80 \\text{ mm}^2$, som tilsvarer en diameter rundt $d = \\sqrt{4A/\\pi} \\approx 10{,}1 \\text{ mm}$. Du runder opp og velger en M12-bolt. Slik gjør tallene fra strekkprøven om abstrakt teori til en konkret komponent."},{"id":"tif-vg1-1-3-n-quiz1","type":"exercise","exercise":{"id":"tif-vg1-1-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på spenning, tøyning og strekkprøven:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-1-3-n-quiz1-q0","task":"En stang med tverrsnitt $A = 200 \\text{ mm}^2$ belastes med $F = 40\\,000 \\text{ N}$. Hva blir spenningen?","options":[{"id":"a","text":"$400 \\text{ MPa}$","isCorrect":false},{"id":"b","text":"$80 \\text{ MPa}$","isCorrect":false},{"id":"c","text":"$200 \\text{ MPa}$","isCorrect":true},{"id":"d","text":"$8000 \\text{ MPa}$","isCorrect":false}],"solution":"$\\sigma = F/A = 40\\,000 / 200 = 200 \\text{ MPa}$."},{"id":"tif-vg1-1-3-n-quiz1-q1","task":"Hva forteller flytegrensen ($R_e$) deg?","options":[{"id":"a","text":"Maksimal spenning før brudd","isCorrect":false},{"id":"b","text":"Materialets hardhet","isCorrect":false},{"id":"c","text":"Materialets tetthet","isCorrect":false},{"id":"d","text":"Spenningen der materialet begynner å deformeres permanent","isCorrect":true}],"solution":"Flytegrensen er spenningen der materialet begynner å deformeres plastisk (permanent). Under den går materialet tilbake til opprinnelig form."},{"id":"tif-vg1-1-3-n-quiz1-q2","task":"Hva er strekkfastheten ($R_m$)?","options":[{"id":"a","text":"Den maksimale spenningen materialet tåler","isCorrect":true},{"id":"b","text":"Spenningen der plastisk deformasjon starter","isCorrect":false},{"id":"c","text":"Den spenningen der materialet går tilbake til opprinnelig form","isCorrect":false},{"id":"d","text":"Forholdet mellom spenning og tøyning","isCorrect":false}],"solution":"Strekkfastheten $R_m$ er den høyeste spenningen materialet tåler i en strekkprøve, før innsnevring og brudd."}]}},{"id":"tif-vg1-1-3-n-section2","type":"text","content":"## Hardhet, seighet og stivhet\n\nStyrke er ikke alt. To andre egenskaper avgjør ofte hvordan et materiale oppfører seg i praksis: hvor godt det står imot riper og slitasje, og hvor godt det tåler et plutselig slag.\n\n**Hardhet** er motstanden mot lokal deformasjon når noe hardere presses inn i overflaten. Du måler det på tre vanlige måter. Brinell (HB) presser inn en kule og måler diameteren på avtrykket -- bra for grove, myke materialer. Rockwell (HR) presser inn en diamantkjegle og måler dybden direkte; den gir svar med en gang og er derfor industriens arbeidshest for rask kvalitetskontroll, med HRC-skalaen for harde materialer. Vickers (HV) bruker en diamantpyramide og er den mest nøyaktige, mye brukt i laboratorier. Et bløtt stål ligger rundt 120-180 HV, mens herdet verktøystål når 550-700 HV. Tenk deg at en batch verktøystål skal ha 58-62 HRC: får du en prøve på 56 HRC, er den for myk og må herdes på nytt.\n\n**Seighet** er materialets evne til å absorbere energi før det brister, og måles ofte med en Charpy-prøve der en pendel slår mot en innskåret stav. Et seigt materiale, som konstruksjonsstål, bøyer seg synlig og gir varsel før det ryker -- derfor velger du seigt stål i et fallsikringssystem. Et sprøtt materiale, som glass, keramikk eller støpejern, knekker plutselig uten forvarsel. Seigheten synker dessuten ved lav temperatur, og finkornet materiale er seigere enn grovkornet. I slekt med seighet er **duktilitet**, evnen til å tøyes mye uten å ryke -- det er duktiliteten som lar deg kaldforme et materiale.\n\nTil slutt: **stivhet**, beskrevet av elastisitetsmodulen $E$ via Hookes lov $\\sigma = E \\cdot \\varepsilon$. Stål har $E = 210 \\text{ GPa}$, aluminium bare $E = 70 \\text{ GPa}$. Det betyr at en aluminiumbjelke bøyer seg omtrent tre ganger så mye som en stålbjelke med samme form og last. Vil du ha samme stivhet i aluminium, må du øke tverrsnittet -- noe som spiser opp en del av vektfordelen."},{"id":"tif-vg1-1-3-n-quiz2","type":"exercise","exercise":{"id":"tif-vg1-1-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på hardhet, seighet og stivhet:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"solution":"","questions":[{"id":"tif-vg1-1-3-n-quiz2-q0","task":"Hvilken hardhetsmetode gir raskest svar og brukes mest i produksjonskontroll?","options":[{"id":"a","text":"Brinell","isCorrect":false},{"id":"b","text":"Rockwell","isCorrect":true},{"id":"c","text":"Vickers","isCorrect":false},{"id":"d","text":"Mohs","isCorrect":false}],"solution":"Rockwell måler dybden direkte og gir avlesning med en gang, derfor er den rask og mye brukt i produksjon."},{"id":"tif-vg1-1-3-n-quiz2-q1","task":"Hva kjennetegner et sprøtt materiale?","options":[{"id":"a","text":"Det bøyer seg mye og gir varsel før brudd","isCorrect":false},{"id":"b","text":"Det kan ikke ruste","isCorrect":false},{"id":"c","text":"Det bryter plutselig uten forvarsel","isCorrect":true},{"id":"d","text":"Det leder strøm godt","isCorrect":false}],"solution":"Sprø materialer som glass og støpejern absorberer lite energi og bryter plutselig uten synlig deformasjon, i motsetning til seige materialer."},{"id":"tif-vg1-1-3-n-quiz2-q2","task":"Stål har $E = 210 \\text{ GPa}$ og aluminium $E = 70 \\text{ GPa}$. Hva betyr det for en bjelke med samme form og last?","options":[{"id":"a","text":"Stålbjelken bøyer seg tre ganger så mye","isCorrect":false},{"id":"b","text":"De bøyer seg like mye","isCorrect":false},{"id":"c","text":"Aluminiumbjelken ryker umiddelbart","isCorrect":false},{"id":"d","text":"Aluminiumbjelken bøyer seg omtrent tre ganger så mye som stålbjelken","isCorrect":true}],"solution":"Høyere E-modul betyr stivere materiale. Siden stål har tre ganger så høy E-modul, bøyer aluminiumbjelken seg omtrent tre ganger så mye ved samme geometri og last."},{"id":"tif-vg1-1-3-n-quiz2-q3","task":"Hva er hovedgrunnen til å velge et seigt materiale i et fallsikringssystem?","options":[{"id":"a","text":"At det gir varsel og absorberer energi før brudd","isCorrect":true},{"id":"b","text":"At det er billigst","isCorrect":false},{"id":"c","text":"At det leder strøm","isCorrect":false},{"id":"d","text":"At det er magnetisk","isCorrect":false}],"solution":"Et seigt materiale deformeres synlig og absorberer energi før det ryker, slik at skader oppdages før et farlig brudd skjer."}]}},{"id":"tif-vg1-1-3-n-summary","type":"text","content":"## Oppsummering\n\nVi startet med to grunnbegreper: **spenning** $\\sigma = F/A$ måler kraft per areal i MPa, og **tøyning** $\\varepsilon = \\Delta L / L_0$ måler relativ forlengelse. **Strekkprøven** tegner et spennings-tøyningsdiagram med et elastisk område (Hookes lov $\\sigma = E\\varepsilon$), en **flytegrense** $R_e$ der permanent deformasjon starter, og en **strekkfasthet** $R_m$ som er maksimal spenning før brudd. Med disse tallene og en sikkerhetsfaktor dimensjonerer du komponenter -- som da vi fant at en M12-bolt holdt for 10 000 N.\n\nVi så også på **hardhet** (Brinell, Rockwell, Vickers) som motstand mot riper og slitasje, på **seighet** og duktilitet som evnen til å absorbere energi og tøyes uten å ryke, og på **stivhet** via E-modulen, der stål er tre ganger stivere enn aluminium. Til sammen forteller disse egenskapene deg om en del er sterk nok, hard nok, seig nok og stiv nok til jobben."}],"exercises":[]}
+{
+  "id": "tif-vg1-1-3-narrativ",
+  "courseId": "tif-vg1",
+  "chapterNumber": "1.3",
+  "title": "Mekaniske egenskaper",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om hva som skjer inni et materiale når du belaster det -- spenning, tøyning, hardhet og seighet -- og hvordan du regner ut om en del holder.",
+  "estimatedMinutes": 32,
+  "competenceGoals": [
+    "forklare og anvende egnede håndverktøy, måleverktøy og maskiner for bearbeiding av materialer innenfor produksjon og tolke måleresultater i henhold til arbeidstegninger"
+  ],
+  "linkedChapterId": "tif-vg1-1-3",
+  "content": [
+    {
+      "id": "tif-vg1-1-3-n-intro",
+      "type": "text",
+      "content": "## Hvor mye tåler den egentlig?\n\nTenk deg at du henger en tung motor i en stålstang. Hvor tjukk må stangen være for at den ikke skal strekke seg permanent -- eller verre, ryke? Det spørsmålet ligger i bunnen av alt du konstruerer, og for å svare på det trenger du to grunnbegreper: spenning og tøyning.\n\n**Spenning** ($\\sigma$) er rett og slett kraft fordelt på areal, og måles i megapascal (MPa), som er det samme som N/mm². Formelen er $\\sigma = F / A$, der $F$ er kraften i newton og $A$ er tverrsnittsarealet i mm². Jo tynnere stangen er, jo mer spenning gir den samme kraften. La oss prøve: en stålstang med tverrsnitt $A = 100 \\text{ mm}^2$ belastes med $F = 50\\,000 \\text{ N}$. Da blir $\\sigma = 50\\,000 / 100 = 500 \\text{ MPa}$. Det ligger innenfor strekkfastheten til vanlig stål, som er rundt 400-800 MPa, så stangen holder.\n\nDet andre begrepet er **tøyning** ($\\varepsilon$), som forteller hvor mye materialet strekker seg i forhold til sin opprinnelige lengde: $\\varepsilon = \\Delta L / L_0$. Strekker en stang på 1000 mm seg 1 mm, blir tøyningen $1/1000 = 0{,}001$, altså 0,1 %. Spenning og tøyning henger sammen, og den sammenhengen er nøkkelen til å forstå hvordan ethvert materiale oppfører seg under last."
+    },
+    {
+      "id": "tif-vg1-1-3-n-section1",
+      "type": "text",
+      "content": "## Strekkprøven forteller hele historien\n\nVil du virkelig kjenne et materiale, drar du det i stykker -- kontrollert. I en strekkprøve trekker en maskin i en prøvestav til den ryker, og tegner samtidig opp et spennings-tøyningsdiagram som avslører alt.\n\nFørst kommer det **elastiske området**. Her går materialet tilbake til opprinnelig form når du fjerner lasten, akkurat som en strikk. Sammenhengen er lineær og følger Hookes lov, $\\sigma = E \\cdot \\varepsilon$. Fortsetter du å trekke, når du **flytegrensen** ($R_e$, eller $R_{p0{,}2}$ for materialer uten tydelig flytegrense). Dette er det avgjørende punktet: her begynner materialet å deformeres permanent. Etter dette er du i det **plastiske området**, der stangen blir varig lengre selv om du slipper lasten. Spenningen klatrer videre til **strekkfastheten** ($R_m$), den maksimale spenningen materialet tåler, før det snører seg sammen (necking) og til slutt brister.\n\nDisse tallene bruker du til å dimensjonere. Si at en bolt skal tåle $F = 10\\,000 \\text{ N}$ uten å deformeres permanent, og stålet har flytegrense $R_e = 250 \\text{ MPa}$. Du tør ikke kjøre helt på grensa, så du legger inn en sikkerhetsfaktor på 2: tillatt spenning blir $250 / 2 = 125 \\text{ MPa}$. Da trenger du et areal på $A = F / \\sigma = 10\\,000 / 125 = 80 \\text{ mm}^2$, som tilsvarer en diameter rundt $d = \\sqrt{4A/\\pi} \\approx 10{,}1 \\text{ mm}$. Du runder opp og velger en M12-bolt. Slik gjør tallene fra strekkprøven om abstrakt teori til en konkret komponent."
+    },
+    {
+      "id": "tif-vg1-1-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-1-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på spenning, tøyning og strekkprøven:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-1-3-n-quiz1-q0",
+            "task": "En stang med tverrsnitt $A = 200 \\text{ mm}^2$ belastes med $F = 40\\,000 \\text{ N}$. Hva blir spenningen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$400 \\text{ MPa}$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$200 \\text{ MPa}$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$80 \\text{ MPa}$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$8000 \\text{ MPa}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$\\sigma = F/A = 40\\,000 / 200 = 200 \\text{ MPa}$."
+          },
+          {
+            "id": "tif-vg1-1-3-n-quiz1-q1",
+            "task": "Hva forteller flytegrensen ($R_e$) deg?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Maksimal spenning før brudd",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Materialets hardhet",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Spenningen der materialet begynner å deformeres permanent",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Materialets tetthet",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Flytegrensen er spenningen der materialet begynner å deformeres plastisk (permanent). Under den går materialet tilbake til opprinnelig form."
+          },
+          {
+            "id": "tif-vg1-1-3-n-quiz1-q2",
+            "task": "Hva er strekkfastheten ($R_m$)?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Spenningen der plastisk deformasjon starter",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Den spenningen der materialet går tilbake til opprinnelig form",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Forholdet mellom spenning og tøyning",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Den maksimale spenningen materialet tåler",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Strekkfastheten $R_m$ er den høyeste spenningen materialet tåler i en strekkprøve, før innsnevring og brudd."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-1-3-n-section2",
+      "type": "text",
+      "content": "## Hardhet, seighet og stivhet\n\nStyrke er ikke alt. To andre egenskaper avgjør ofte hvordan et materiale oppfører seg i praksis: hvor godt det står imot riper og slitasje, og hvor godt det tåler et plutselig slag.\n\n**Hardhet** er motstanden mot lokal deformasjon når noe hardere presses inn i overflaten. Du måler det på tre vanlige måter. Brinell (HB) presser inn en kule og måler diameteren på avtrykket -- bra for grove, myke materialer. Rockwell (HR) presser inn en diamantkjegle og måler dybden direkte; den gir svar med en gang og er derfor industriens arbeidshest for rask kvalitetskontroll, med HRC-skalaen for harde materialer. Vickers (HV) bruker en diamantpyramide og er den mest nøyaktige, mye brukt i laboratorier. Et bløtt stål ligger rundt 120-180 HV, mens herdet verktøystål når 550-700 HV. Tenk deg at en batch verktøystål skal ha 58-62 HRC: får du en prøve på 56 HRC, er den for myk og må herdes på nytt.\n\n**Seighet** er materialets evne til å absorbere energi før det brister, og måles ofte med en Charpy-prøve der en pendel slår mot en innskåret stav. Et seigt materiale, som konstruksjonsstål, bøyer seg synlig og gir varsel før det ryker -- derfor velger du seigt stål i et fallsikringssystem. Et sprøtt materiale, som glass, keramikk eller støpejern, knekker plutselig uten forvarsel. Seigheten synker dessuten ved lav temperatur, og finkornet materiale er seigere enn grovkornet. I slekt med seighet er **duktilitet**, evnen til å tøyes mye uten å ryke -- det er duktiliteten som lar deg kaldforme et materiale.\n\nTil slutt: **stivhet**, beskrevet av elastisitetsmodulen $E$ via Hookes lov $\\sigma = E \\cdot \\varepsilon$. Stål har $E = 210 \\text{ GPa}$, aluminium bare $E = 70 \\text{ GPa}$. Det betyr at en aluminiumbjelke bøyer seg omtrent tre ganger så mye som en stålbjelke med samme form og last. Vil du ha samme stivhet i aluminium, må du øke tverrsnittet -- noe som spiser opp en del av vektfordelen."
+    },
+    {
+      "id": "tif-vg1-1-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "tif-vg1-1-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på hardhet, seighet og stivhet:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "solution": "",
+        "questions": [
+          {
+            "id": "tif-vg1-1-3-n-quiz2-q0",
+            "task": "Hvilken hardhetsmetode gir raskest svar og brukes mest i produksjonskontroll?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Rockwell",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Brinell",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Vickers",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Mohs",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Rockwell måler dybden direkte og gir avlesning med en gang, derfor er den rask og mye brukt i produksjon."
+          },
+          {
+            "id": "tif-vg1-1-3-n-quiz2-q1",
+            "task": "Hva kjennetegner et sprøtt materiale?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Det bøyer seg mye og gir varsel før brudd",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Det bryter plutselig uten forvarsel",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "Det kan ikke ruste",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Det leder strøm godt",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Sprø materialer som glass og støpejern absorberer lite energi og bryter plutselig uten synlig deformasjon, i motsetning til seige materialer."
+          },
+          {
+            "id": "tif-vg1-1-3-n-quiz2-q2",
+            "task": "Stål har $E = 210 \\text{ GPa}$ og aluminium $E = 70 \\text{ GPa}$. Hva betyr det for en bjelke med samme form og last?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Stålbjelken bøyer seg tre ganger så mye",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "De bøyer seg like mye",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Aluminiumbjelken bøyer seg omtrent tre ganger så mye som stålbjelken",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Aluminiumbjelken ryker umiddelbart",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Høyere E-modul betyr stivere materiale. Siden stål har tre ganger så høy E-modul, bøyer aluminiumbjelken seg omtrent tre ganger så mye ved samme geometri og last."
+          },
+          {
+            "id": "tif-vg1-1-3-n-quiz2-q3",
+            "task": "Hva er hovedgrunnen til å velge et seigt materiale i et fallsikringssystem?",
+            "options": [
+              {
+                "id": "b",
+                "text": "At det er billigst",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "At det leder strøm",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "At det er magnetisk",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "At det gir varsel og absorberer energi før brudd",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Et seigt materiale deformeres synlig og absorberer energi før det ryker, slik at skader oppdages før et farlig brudd skjer."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tif-vg1-1-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nVi startet med to grunnbegreper: **spenning** $\\sigma = F/A$ måler kraft per areal i MPa, og **tøyning** $\\varepsilon = \\Delta L / L_0$ måler relativ forlengelse. **Strekkprøven** tegner et spennings-tøyningsdiagram med et elastisk område (Hookes lov $\\sigma = E\\varepsilon$), en **flytegrense** $R_e$ der permanent deformasjon starter, og en **strekkfasthet** $R_m$ som er maksimal spenning før brudd. Med disse tallene og en sikkerhetsfaktor dimensjonerer du komponenter -- som da vi fant at en M12-bolt holdt for 10 000 N.\n\nVi så også på **hardhet** (Brinell, Rockwell, Vickers) som motstand mot riper og slitasje, på **seighet** og duktilitet som evnen til å absorbere energi og tøyes uten å ryke, og på **stivhet** via E-modulen, der stål er tre ganger stivere enn aluminium. Til sammen forteller disse egenskapene deg om en del er sterk nok, hard nok, seig nok og stiv nok til jobben."
+    }
+  ],
+  "exercises": []
+}

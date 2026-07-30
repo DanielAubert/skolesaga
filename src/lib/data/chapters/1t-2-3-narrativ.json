@@ -1,1 +1,599 @@
-{"id":"1t-2-3-narrativ","courseId":"1t","chapterNumber":"2.3","title":"ABC-formelen","subtitle":"Narrativ versjon","description":"En fortelling om den berømte formelen som knekker alle andregradslikninger – fra diskriminanten som avslører antall løsninger, til nullpunktsfaktorisering og produktregelen.","estimatedMinutes":40,"competenceGoals":["løse andregradslikninger med abc-formelen","faktorisere andregradsuttrykk ved nullpunktsfaktorisering"],"linkedChapterId":"1t-2-3","content":[{"id":"1t-2-3-n-audio-1","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-3-narrativ-del1.mp3","description":"Lydfil som leser opp teksten frem til første quiz."},{"id":"1t-2-3-n-intro","type":"text","content":"## Formelen som løser alt\n\nTenk deg at du står foran en andregradslikning. Kanskje du prøver å finne når en ball treffer bakken, eller når inntektene til en bedrift passerer et bestemt nivå. Uansett situasjon ender du opp med noe som ser ut som $ax^2 + bx + c = 0$. Finnes det en universaloppskrift som alltid virker? Svaret er ja, og den heter **abc-formelen** – også kalt **andregradsformelen**. I dette kapittelet skal vi lære å bruke den, forstå hva **diskriminanten** forteller oss om antall løsninger, og deretter se hvordan vi kan bruke løsningene til å **faktorisere** andregradsuttrykk med en teknikk som kalles **nullpunktsfaktorisering**. Til slutt møter vi **produktregelen**, som lar oss løse likninger der venstresiden allerede er et produkt av faktorer."},{"id":"1t-2-3-n-section1","type":"text","content":"## ABC-formelen i praksis\n\nNår du har en likning på formen $ax^2 + bx + c = 0$, gir abc-formelen deg svaret direkte:\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nBokstavene $a$, $b$ og $c$ er koeffisientene i likningen. $a$ er tallet foran $x^2$, $b$ er tallet foran $x$, og $c$ er konstantleddet. Symbolet $\\pm$ betyr at vi regner ut to verdier: én gang med pluss og én gang med minus. Disse to verdiene kalles $x_1$ og $x_2$ – likningens to løsninger.\n\nLa oss prøve med $x^2 - 5x + 6 = 0$. Her er $a = 1$, $b = -5$ og $c = 6$. Vi setter inn i formelen: $x = \\frac{-(-5) \\pm \\sqrt{(-5)^2 - 4 \\cdot 1 \\cdot 6}}{2 \\cdot 1} = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2}$. Det gir $x_1 = \\frac{5 - 1}{2} = 2$ og $x_2 = \\frac{5 + 1}{2} = 3$.\n\nEt viktig poeng: likningen **må** stå på formen $ax^2 + bx + c = 0$ før du leser av koeffisientene. Får du for eksempel $2x^2 - 12x = -16$, må du først flytte $-16$ over slik at du får $2x^2 - 12x + 16 = 0$. Da er $a = 2$, $b = -12$ og $c = 16$. Setter du inn, finner du $x_1 = 4$ og $x_2 = 2$. Vær alltid nøye med fortegnene – husk at $b$ kan være negativ, og da blir $-b$ positiv."},{"id":"1t-2-3-n-quiz1","type":"exercise","exercise":{"id":"1t-2-3-n-quiz1","number":"Quiz 1","type":"multiple-choice","task":"Test deg selv på abc-formelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-3-n-quiz1-q0","task":"Hva er verdiene av $a$, $b$ og $c$ i likningen $3x^2 + 7x - 2 = 0$?","options":[{"id":"a","text":"$a = 3$, $b = 7$, $c = 2$","isCorrect":false},{"id":"b","text":"$a = 3$, $b = 7$, $c = -2$","isCorrect":true},{"id":"c","text":"$a = 3$, $b = -7$, $c = -2$","isCorrect":false},{"id":"d","text":"$a = 7$, $b = 3$, $c = -2$","isCorrect":false}],"solution":"I likningen $3x^2 + 7x - 2 = 0$ leser vi av koeffisientene: $a$ er tallet foran $x^2$, altså $3$. $b$ er tallet foran $x$, altså $7$. $c$ er konstantleddet, altså $-2$ (husk fortegnet!)."},{"id":"1t-2-3-n-quiz1-q1","task":"I likningen $2x^2 - 10 = 3x$ -- hva må du gjøre før du bruker abc-formelen?","options":[{"id":"a","text":"Dele på 2","isCorrect":false},{"id":"b","text":"Flytte $3x$ slik at alt står på formen $ax^2 + bx + c = 0$","isCorrect":true},{"id":"c","text":"Ta kvadratroten","isCorrect":false},{"id":"d","text":"Sette inn $a = 2$, $b = -10$, $c = 3$","isCorrect":false}],"solution":"Likningen må stå på formen $ax^2 + bx + c = 0$ før du leser av koeffisientene. Vi flytter $3x$: $2x^2 - 3x - 10 = 0$. Da er $a = 2$, $b = -3$ og $c = -10$."},{"id":"1t-2-3-n-quiz1-q2","task":"Hva er løsningene til $x^2 - 5x + 6 = 0$ med abc-formelen?","options":[{"id":"a","text":"$x = 2$ eller $x = 3$","isCorrect":true},{"id":"b","text":"$x = -2$ eller $x = -3$","isCorrect":false},{"id":"c","text":"$x = 1$ eller $x = 6$","isCorrect":false},{"id":"d","text":"$x = -1$ eller $x = -6$","isCorrect":false}],"solution":"Med $a = 1$, $b = -5$, $c = 6$: $x = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2}$. Det gir $x_1 = \\frac{5 - 1}{2} = 2$ og $x_2 = \\frac{5 + 1}{2} = 3$."}],"solution":""}},{"id":"1t-2-3-n-audio-2","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-3-narrativ-del2.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-2-3-n-section2","type":"text","content":"## Diskriminanten – nøkkelen til antall løsninger\n\nDu la kanskje merke til uttrykket $b^2 - 4ac$ som står under rottegnet i abc-formelen. Dette uttrykket har et eget navn: **diskriminanten**. Den er utrolig nyttig fordi den forteller oss, uten at vi trenger å fullføre hele utregningen, hvor mange løsninger likningen har.\n\nTenk på det slik: vi skal ta kvadratroten av $b^2 - 4ac$. Kvadratroten av et positivt tall gir oss et vanlig tall, og da får vi to forskjellige verdier når vi regner $\\pm$. Men hva skjer dersom $b^2 - 4ac = 0$? Da blir $\\pm\\sqrt{0} = \\pm 0$, og pluss null er det samme som minus null – vi får bare **én** løsning. Og hvis $b^2 - 4ac$ er negativt? Da skal vi ta kvadratroten av et negativt tall, noe som ikke er definert blant de reelle tallene. Likningen har da **ingen løsninger**, og vi skriver $L = \\emptyset$.\n\nLa oss se dette i praksis. For $x^2 + 10x + 25 = 0$ har vi $b^2 - 4ac = 100 - 100 = 0$. Diskriminanten er null, og vi vet med én gang at det bare finnes én løsning. Setter vi inn, finner vi $x = \\frac{-10}{2} = -5$. For $x^2 - 5x + 8 = 0$ blir diskriminanten $25 - 32 = -7$. Siden dette er negativt, finnes ingen løsninger.\n\nOppsummert: er diskriminanten positiv, har vi to løsninger. Er den null, har vi nøyaktig én. Er den negativ, har vi ingen. Denne raske sjekken kan spare deg for mye regnearbeid."},{"id":"1t-2-3-n-quiz2","type":"exercise","exercise":{"id":"1t-2-3-n-quiz2","number":"Quiz 2","type":"multiple-choice","task":"Test deg selv på diskriminanten:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-3-n-quiz2-q0","task":"Likningen $x^2 - 7x + 15 = 0$ har diskriminant $b^2 - 4ac = 49 - 60 = -11$. Hvor mange løsninger har likningen?","options":[{"id":"a","text":"To løsninger","isCorrect":false},{"id":"b","text":"Én løsning","isCorrect":false},{"id":"c","text":"Ingen løsninger","isCorrect":true},{"id":"d","text":"Uendelig mange løsninger","isCorrect":false}],"solution":"Diskriminanten er $-11$, altså negativ. Vi kan ikke ta kvadratroten av et negativt tall, så likningen har ingen reelle løsninger. Vi skriver $L = \\emptyset$."},{"id":"1t-2-3-n-quiz2-q1","task":"Hva er diskriminanten til $x^2 + 10x + 25 = 0$, og hvor mange løsninger har likningen?","options":[{"id":"a","text":"Diskriminant $= 0$, én løsning","isCorrect":true},{"id":"b","text":"Diskriminant $= 100$, to løsninger","isCorrect":false},{"id":"c","text":"Diskriminant $= -100$, ingen løsninger","isCorrect":false},{"id":"d","text":"Diskriminant $= 25$, to løsninger","isCorrect":false}],"solution":"$b^2 - 4ac = 10^2 - 4 \\cdot 1 \\cdot 25 = 100 - 100 = 0$. Diskriminanten er null, og likningen har nøyaktig én løsning: $x = \\frac{-10}{2} = -5$."},{"id":"1t-2-3-n-quiz2-q2","task":"Hva forteller en positiv diskriminant oss?","options":[{"id":"a","text":"Likningen har ingen løsninger","isCorrect":false},{"id":"b","text":"Likningen har nøyaktig én løsning","isCorrect":false},{"id":"c","text":"Likningen har to forskjellige løsninger","isCorrect":true},{"id":"d","text":"Likningen har uendelig mange løsninger","isCorrect":false}],"solution":"Når $b^2 - 4ac > 0$, gir $\\pm\\sqrt{b^2 - 4ac}$ to forskjellige verdier, og abc-formelen gir to forskjellige løsninger $x_1$ og $x_2$."}],"solution":""}},{"id":"1t-2-3-n-audio-3","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-3-narrativ-del3.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-2-3-n-section3","type":"text","content":"## Nullpunktsfaktorisering – fra løsninger til faktorer\n\nNå skal vi snu prosessen. I stedet for å gå fra et andregradsuttrykk til løsninger, skal vi bruke løsningene til å **faktorisere** uttrykket. Denne teknikken kalles **nullpunktsfaktorisering**.\n\nIdeen er elegant: når du har funnet at $ax^2 + bx + c = 0$ har løsningene $x_1$ og $x_2$, kan du skrive uttrykket som et produkt:\n\n$$ax^2 + bx + c = a(x - x_1)(x - x_2)$$\n\nLegg merke til at vi setter inn $x_1$ og $x_2$ med minustegn foran. Hvis $x_1 = 2$, skriver vi $(x - 2)$. Hvis $x_1 = -3$, skriver vi $(x - (-3)) = (x + 3)$.\n\nLa oss teste dette med $x^2 - 5x + 6$. Vi vet allerede at løsningene er $x_1 = 2$ og $x_2 = 3$ (vi fant dem med abc-formelen). Siden $a = 1$, blir faktoriseringen $1 \\cdot (x - 2)(x - 3) = (x - 2)(x - 3)$. Og sannelig: $(x - 2)(x - 3) = x^2 - 3x - 2x + 6 = x^2 - 5x + 6$. Det stemmer!\n\nFor $2x^2 - 12x + 16$ finner vi med abc-formelen at $x_1 = 2$ og $x_2 = 4$. Siden $a = 2$, blir faktoriseringen $2(x - 2)(x - 4)$. Husk at $a$-verdien alltid skal stå foran parentesene.\n\nHva hvis likningen bare har én løsning? Da setter vi inn den samme verdien for både $x_1$ og $x_2$. For eksempel gir $3x^2 + 18x + 27 = 0$ kun $x = -3$, og vi faktoriserer som $3(x + 3)(x + 3) = 3(x + 3)^2$."},{"id":"1t-2-3-n-quiz3","type":"exercise","exercise":{"id":"1t-2-3-n-quiz3","number":"Quiz 3","type":"multiple-choice","task":"Test deg selv på nullpunktsfaktorisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-3-n-quiz3-q0","task":"Gitt at $x^2 + 3x - 10 = 0$ har løsningene $x_1 = -5$ og $x_2 = 2$, hva er den faktoriserte formen?","options":[{"id":"a","text":"$(x - 5)(x + 2)$","isCorrect":false},{"id":"b","text":"$(x + 5)(x + 2)$","isCorrect":false},{"id":"c","text":"$(x - 5)(x - 2)$","isCorrect":false},{"id":"d","text":"$(x + 5)(x - 2)$","isCorrect":true}],"solution":"Vi bruker formelen $a(x - x_1)(x - x_2)$ med $a = 1$, $x_1 = -5$ og $x_2 = 2$. Det gir $(x - (-5))(x - 2) = (x + 5)(x - 2)$."},{"id":"1t-2-3-n-quiz3-q1","task":"Gitt at $2x^2 - 12x + 16 = 0$ har løsningene $x_1 = 2$ og $x_2 = 4$, hva er den faktoriserte formen?","options":[{"id":"a","text":"$(x - 2)(x - 4)$","isCorrect":false},{"id":"b","text":"$2(x - 2)(x - 4)$","isCorrect":true},{"id":"c","text":"$2(x + 2)(x + 4)$","isCorrect":false},{"id":"d","text":"$(2x - 2)(x - 4)$","isCorrect":false}],"solution":"Vi bruker formelen $a(x - x_1)(x - x_2)$ med $a = 2$. Det gir $2(x - 2)(x - 4)$. Husk at $a$-verdien alltid skal stå foran parentesene."},{"id":"1t-2-3-n-quiz3-q2","task":"Hva er formelen for nullpunktsfaktorisering?","options":[{"id":"a","text":"$ax^2 + bx + c = (x - x_1)(x - x_2)$","isCorrect":false},{"id":"b","text":"$ax^2 + bx + c = a(x + x_1)(x + x_2)$","isCorrect":false},{"id":"c","text":"$ax^2 + bx + c = a(x - x_1)(x - x_2)$","isCorrect":true},{"id":"d","text":"$ax^2 + bx + c = (ax - x_1)(x - x_2)$","isCorrect":false}],"solution":"Formelen er $ax^2 + bx + c = a(x - x_1)(x - x_2)$, der $x_1$ og $x_2$ er løsningene og $a$ er koeffisienten foran $x^2$. Legg merke til at $a$ alltid står foran."}],"solution":""}},{"id":"1t-2-3-n-audio-4","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-3-narrativ-del4.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-2-3-n-section4","type":"text","content":"## Forkorting av brøker med faktorisering\n\nNullpunktsfaktorisering viser virkelig sin styrke når vi skal forkorte brøker der teller eller nevner inneholder andregradsuttrykk. Trikset er å faktorisere både teller og nevner, og deretter stryke felles faktorer.\n\nTa for eksempel $\\frac{x^2 + 5x + 6}{x + 3}$. Vi faktoriserer telleren: $x^2 + 5x + 6 = 0$ gir $x_1 = -2$ og $x_2 = -3$, altså $x^2 + 5x + 6 = (x + 2)(x + 3)$. Nå ser vi at $(x + 3)$ er felles i teller og nevner, og vi kan forkorte: $\\frac{(x + 2)(x + 3)}{x + 3} = x + 2$.\n\nEt mer utfordrende eksempel er $\\frac{x^2 - 10x + 24}{x^2 - 16}$. Telleren faktoriseres med nullpunktsfaktorisering: $x^2 - 10x + 24 = (x - 4)(x - 6)$. Nevneren kjenner vi igjen som konjugatsetningen: $x^2 - 16 = (x + 4)(x - 4)$. Felles faktor er $(x - 4)$, og vi står igjen med $\\frac{x - 6}{x + 4}$.\n\nNoen ganger må vi faktorisere ut en felles faktor før vi bruker nullpunktsfaktorisering. I $\\frac{2x^2 - 16x + 30}{4x^2 - 100}$ begynner vi med å trekke ut 2 fra telleren og 4 fra nevneren: $\\frac{2(x^2 - 8x + 15)}{4(x^2 - 25)}$. Telleren gir $(x - 3)(x - 5)$, og nevneren er $(x + 5)(x - 5)$. Etter forkorting av $(x - 5)$ og $\\frac{2}{4}$ sitter vi igjen med $\\frac{x - 3}{2(x + 5)}$. Evnen til å se felles faktorer er nøkkelen – og det krever øvelse."},{"id":"1t-2-3-n-quiz4","type":"exercise","exercise":{"id":"1t-2-3-n-quiz4","number":"Quiz 4","type":"multiple-choice","task":"Test deg selv på forkorting med faktorisering:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-3-n-quiz4-q0","task":"Hva blir $\\frac{x^2 + 5x + 6}{x + 2}$ etter forkorting?","options":[{"id":"a","text":"$x + 2$","isCorrect":false},{"id":"b","text":"$x + 6$","isCorrect":false},{"id":"c","text":"$x + 3$","isCorrect":true},{"id":"d","text":"$\\frac{x + 6}{x + 2}$","isCorrect":false}],"solution":"Vi faktoriserer telleren: $x^2 + 5x + 6 = (x + 2)(x + 3)$. Nevneren er $(x + 2)$. Felles faktor strykes, og vi sitter igjen med $x + 3$."},{"id":"1t-2-3-n-quiz4-q1","task":"Hva blir $\\frac{x^2 - 16}{x + 4}$ etter forkorting?","options":[{"id":"a","text":"$x + 4$","isCorrect":false},{"id":"b","text":"$x - 4$","isCorrect":true},{"id":"c","text":"$x - 16$","isCorrect":false},{"id":"d","text":"$\\frac{x - 4}{x + 4}$","isCorrect":false}],"solution":"Vi faktoriserer telleren med konjugatsetningen: $x^2 - 16 = (x + 4)(x - 4)$. Nevneren er $(x + 4)$. Etter forkorting sitter vi igjen med $x - 4$."},{"id":"1t-2-3-n-quiz4-q2","task":"Hva er første steg for å forkorte $\\frac{x^2 - 10x + 24}{x^2 - 16}$?","options":[{"id":"a","text":"Dele teller og nevner på $x$","isCorrect":false},{"id":"b","text":"Sette inn et tall for $x$","isCorrect":false},{"id":"c","text":"Faktorisere både teller og nevner","isCorrect":true},{"id":"d","text":"Trekke nevneren fra telleren","isCorrect":false}],"solution":"For å forkorte en brøk med andregradsuttrykk må vi faktorisere både teller og nevner. Telleren gir $(x - 4)(x - 6)$, nevneren gir $(x + 4)(x - 4)$. Felles faktor $(x - 4)$ strykes."}],"solution":""}},{"id":"1t-2-3-n-audio-5","type":"audio","title":"Lytt til denne delen","src":"/audio/1t/1t-2-3-narrativ-del5.mp3","description":"Lydfil som leser opp teksten frem til neste quiz."},{"id":"1t-2-3-n-section5","type":"text","content":"## Produktregelen – når svaret allerede er faktorisert\n\nTil slutt i dette kapittelet skal vi se på **produktregelen**. Den er enkel, men utrolig nyttig: dersom $a \\cdot b = 0$, så må enten $a = 0$ eller $b = 0$ (eller begge).\n\nTenk på det logisk: det eneste som kan gjøre et produkt lik null, er at minst én av faktorene er null. $5 \\cdot 0 = 0$, $0 \\cdot 7 = 0$, men $5 \\cdot 7 = 35 \\neq 0$.\n\nHvorfor er dette nyttig? Fordi vi noen ganger møter likninger der venstresiden allerede er et produkt av faktorer. Ta $(x - 4)(x + 2) = 0$. Produktregelen sier at enten $x - 4 = 0$ eller $x + 2 = 0$. Fra den første får vi $x = 4$, og fra den andre $x = -2$. Vi fant to løsninger uten å bruke abc-formelen i det hele tatt.\n\nProduktregelen fungerer også med flere enn to faktorer. For $3\\left(x + \\frac{1}{2}\\right)(x - 0{,}3)(x - \\sqrt{5}) = 0$ sier regelen at minst én faktor må være null. Konstanten 3 kan aldri bli null, så vi sjekker de tre parentesene: $x = -\\frac{1}{2}$, $x = 0{,}3$ og $x = \\sqrt{5}$.\n\nLegg merke til sammenhengen med nullpunktsfaktorisering. Når vi faktoriserer $x^2 - 5x + 6 = (x - 2)(x - 3) = 0$ og deretter bruker produktregelen, får vi akkurat de samme løsningene som abc-formelen ville gitt oss. De to teknikkene er altså to sider av samme sak: abc-formelen tar oss fra uttrykk til løsninger, og produktregelen tar oss fra faktorer til løsninger."},{"id":"1t-2-3-n-quiz5","type":"exercise","exercise":{"id":"1t-2-3-n-quiz5","number":"Quiz 5","type":"multiple-choice","task":"Test deg selv på produktregelen:","options":[{"id":"a","text":"placeholder","isCorrect":true}],"questions":[{"id":"1t-2-3-n-quiz5-q0","task":"Hva er løsningene til $(x + 7)(x - 3) = 0$?","options":[{"id":"a","text":"$x = 7$ eller $x = -3$","isCorrect":false},{"id":"b","text":"$x = -7$ eller $x = 3$","isCorrect":true},{"id":"c","text":"$x = 7$ eller $x = 3$","isCorrect":false},{"id":"d","text":"$x = -7$ eller $x = -3$","isCorrect":false}],"solution":"Produktregelen sier at enten $x + 7 = 0$ eller $x - 3 = 0$. Fra den første: $x = -7$. Fra den andre: $x = 3$. Løsningene er altså $x = -7$ eller $x = 3$."},{"id":"1t-2-3-n-quiz5-q1","task":"Hva er løsningene til $5(x - 1)(x + 4)(x - 2) = 0$?","options":[{"id":"a","text":"$x = 5$, $x = 1$, $x = -4$ eller $x = 2$","isCorrect":false},{"id":"b","text":"$x = 1$, $x = -4$ eller $x = 2$","isCorrect":true},{"id":"c","text":"$x = -1$, $x = 4$ eller $x = -2$","isCorrect":false},{"id":"d","text":"$x = 0$, $x = 1$, $x = -4$ eller $x = 2$","isCorrect":false}],"solution":"Konstanten $5$ kan aldri bli null. Vi setter hver parentes lik null: $x - 1 = 0$ gir $x = 1$, $x + 4 = 0$ gir $x = -4$, $x - 2 = 0$ gir $x = 2$."},{"id":"1t-2-3-n-quiz5-q2","task":"Hva er sammenhengen mellom abc-formelen og produktregelen?","options":[{"id":"a","text":"De er helt uavhengige teknikker","isCorrect":false},{"id":"b","text":"Abc-formelen gir løsninger fra uttrykk, produktregelen gir løsninger fra faktorer","isCorrect":true},{"id":"c","text":"Produktregelen er bare en forenklet versjon av abc-formelen","isCorrect":false},{"id":"d","text":"Abc-formelen brukes bare for lineære likninger","isCorrect":false}],"solution":"Abc-formelen tar oss fra et andregradsuttrykk til løsninger, mens produktregelen tar oss fra et faktorisert uttrykk til løsninger. De er to sider av samme sak -- abc-formelen finner løsningene, som vi kan bruke til å faktorisere."}],"solution":""}},{"id":"1t-2-3-n-audio-6","type":"audio","title":"Lytt til oppsummeringen","src":"/audio/1t/1t-2-3-narrativ-del6.mp3","description":"Lydfil som leser opp oppsummeringen."},{"id":"1t-2-3-n-summary","type":"text","content":"## Oppsummering\n\nI dette kapittelet har vi lært fire sammenhengende teknikker for andregradslikninger:\n\n**ABC-formelen** $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ løser enhver andregradslikning $ax^2 + bx + c = 0$. Husk å skrive likningen på riktig form og vær nøye med fortegnene til $a$, $b$ og $c$.\n\n**Diskriminanten** $b^2 - 4ac$ forteller oss hvor mange løsninger likningen har uten at vi trenger å fullføre utregningen. Positiv diskriminant gir to løsninger, null gir nøyaktig én, og negativ diskriminant betyr at likningen ikke har noen reelle løsninger.\n\n**Nullpunktsfaktorisering** snur prosessen: når vi har funnet løsningene $x_1$ og $x_2$, kan vi skrive uttrykket som $a(x - x_1)(x - x_2)$. Denne teknikken er spesielt kraftig i kombinasjon med forkorting av rasjonale uttrykk, der vi faktoriserer teller og nevner og stryker felles faktorer.\n\n**Produktregelen** sier at dersom et produkt er null, må minst én av faktorene være null. Den lar oss løse likninger som allerede er faktorisert ved å sette hver faktor lik null – en enkel og direkte vei til svaret."}],"exercises":[]}
+{
+  "id": "1t-2-3-narrativ",
+  "courseId": "1t",
+  "chapterNumber": "2.3",
+  "title": "ABC-formelen",
+  "subtitle": "Narrativ versjon",
+  "description": "En fortelling om den berømte formelen som knekker alle andregradslikninger – fra diskriminanten som avslører antall løsninger, til nullpunktsfaktorisering og produktregelen.",
+  "estimatedMinutes": 40,
+  "competenceGoals": [
+    "løse andregradslikninger med abc-formelen",
+    "faktorisere andregradsuttrykk ved nullpunktsfaktorisering"
+  ],
+  "linkedChapterId": "1t-2-3",
+  "content": [
+    {
+      "id": "1t-2-3-n-audio-1",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-3-narrativ-del1.mp3",
+      "description": "Lydfil som leser opp teksten frem til første quiz."
+    },
+    {
+      "id": "1t-2-3-n-intro",
+      "type": "text",
+      "content": "## Formelen som løser alt\n\nTenk deg at du står foran en andregradslikning. Kanskje du prøver å finne når en ball treffer bakken, eller når inntektene til en bedrift passerer et bestemt nivå. Uansett situasjon ender du opp med noe som ser ut som $ax^2 + bx + c = 0$. Finnes det en universaloppskrift som alltid virker? Svaret er ja, og den heter **abc-formelen** – også kalt **andregradsformelen**. I dette kapittelet skal vi lære å bruke den, forstå hva **diskriminanten** forteller oss om antall løsninger, og deretter se hvordan vi kan bruke løsningene til å **faktorisere** andregradsuttrykk med en teknikk som kalles **nullpunktsfaktorisering**. Til slutt møter vi **produktregelen**, som lar oss løse likninger der venstresiden allerede er et produkt av faktorer."
+    },
+    {
+      "id": "1t-2-3-n-section1",
+      "type": "text",
+      "content": "## ABC-formelen i praksis\n\nNår du har en likning på formen $ax^2 + bx + c = 0$, gir abc-formelen deg svaret direkte:\n\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\nBokstavene $a$, $b$ og $c$ er koeffisientene i likningen. $a$ er tallet foran $x^2$, $b$ er tallet foran $x$, og $c$ er konstantleddet. Symbolet $\\pm$ betyr at vi regner ut to verdier: én gang med pluss og én gang med minus. Disse to verdiene kalles $x_1$ og $x_2$ – likningens to løsninger.\n\nLa oss prøve med $x^2 - 5x + 6 = 0$. Her er $a = 1$, $b = -5$ og $c = 6$. Vi setter inn i formelen: $x = \\frac{-(-5) \\pm \\sqrt{(-5)^2 - 4 \\cdot 1 \\cdot 6}}{2 \\cdot 1} = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2}$. Det gir $x_1 = \\frac{5 - 1}{2} = 2$ og $x_2 = \\frac{5 + 1}{2} = 3$.\n\nEt viktig poeng: likningen **må** stå på formen $ax^2 + bx + c = 0$ før du leser av koeffisientene. Får du for eksempel $2x^2 - 12x = -16$, må du først flytte $-16$ over slik at du får $2x^2 - 12x + 16 = 0$. Da er $a = 2$, $b = -12$ og $c = 16$. Setter du inn, finner du $x_1 = 4$ og $x_2 = 2$. Vær alltid nøye med fortegnene – husk at $b$ kan være negativ, og da blir $-b$ positiv."
+    },
+    {
+      "id": "1t-2-3-n-quiz1",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-3-n-quiz1",
+        "number": "Quiz 1",
+        "type": "multiple-choice",
+        "task": "Test deg selv på abc-formelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-3-n-quiz1-q0",
+            "task": "Hva er verdiene av $a$, $b$ og $c$ i likningen $3x^2 + 7x - 2 = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$a = 3$, $b = 7$, $c = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$a = 3$, $b = 7$, $c = -2$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$a = 3$, $b = -7$, $c = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$a = 7$, $b = 3$, $c = -2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "I likningen $3x^2 + 7x - 2 = 0$ leser vi av koeffisientene: $a$ er tallet foran $x^2$, altså $3$. $b$ er tallet foran $x$, altså $7$. $c$ er konstantleddet, altså $-2$ (husk fortegnet!)."
+          },
+          {
+            "id": "1t-2-3-n-quiz1-q1",
+            "task": "I likningen $2x^2 - 10 = 3x$ -- hva må du gjøre før du bruker abc-formelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dele på 2",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Ta kvadratroten",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Flytte $3x$ slik at alt står på formen $ax^2 + bx + c = 0$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Sette inn $a = 2$, $b = -10$, $c = 3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Likningen må stå på formen $ax^2 + bx + c = 0$ før du leser av koeffisientene. Vi flytter $3x$: $2x^2 - 3x - 10 = 0$. Da er $a = 2$, $b = -3$ og $c = -10$."
+          },
+          {
+            "id": "1t-2-3-n-quiz1-q2",
+            "task": "Hva er løsningene til $x^2 - 5x + 6 = 0$ med abc-formelen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$x = -2$ eller $x = -3$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = 1$ eller $x = 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = -1$ eller $x = -6$",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "$x = 2$ eller $x = 3$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Med $a = 1$, $b = -5$, $c = 6$: $x = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2}$. Det gir $x_1 = \\frac{5 - 1}{2} = 2$ og $x_2 = \\frac{5 + 1}{2} = 3$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-2-3-n-audio-2",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-3-narrativ-del2.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-2-3-n-section2",
+      "type": "text",
+      "content": "## Diskriminanten – nøkkelen til antall løsninger\n\nDu la kanskje merke til uttrykket $b^2 - 4ac$ som står under rottegnet i abc-formelen. Dette uttrykket har et eget navn: **diskriminanten**. Den er utrolig nyttig fordi den forteller oss, uten at vi trenger å fullføre hele utregningen, hvor mange løsninger likningen har.\n\nTenk på det slik: vi skal ta kvadratroten av $b^2 - 4ac$. Kvadratroten av et positivt tall gir oss et vanlig tall, og da får vi to forskjellige verdier når vi regner $\\pm$. Men hva skjer dersom $b^2 - 4ac = 0$? Da blir $\\pm\\sqrt{0} = \\pm 0$, og pluss null er det samme som minus null – vi får bare **én** løsning. Og hvis $b^2 - 4ac$ er negativt? Da skal vi ta kvadratroten av et negativt tall, noe som ikke er definert blant de reelle tallene. Likningen har da **ingen løsninger**, og vi skriver $L = \\emptyset$.\n\nLa oss se dette i praksis. For $x^2 + 10x + 25 = 0$ har vi $b^2 - 4ac = 100 - 100 = 0$. Diskriminanten er null, og vi vet med én gang at det bare finnes én løsning. Setter vi inn, finner vi $x = \\frac{-10}{2} = -5$. For $x^2 - 5x + 8 = 0$ blir diskriminanten $25 - 32 = -7$. Siden dette er negativt, finnes ingen løsninger.\n\nOppsummert: er diskriminanten positiv, har vi to løsninger. Er den null, har vi nøyaktig én. Er den negativ, har vi ingen. Denne raske sjekken kan spare deg for mye regnearbeid."
+    },
+    {
+      "id": "1t-2-3-n-quiz2",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-3-n-quiz2",
+        "number": "Quiz 2",
+        "type": "multiple-choice",
+        "task": "Test deg selv på diskriminanten:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-3-n-quiz2-q0",
+            "task": "Likningen $x^2 - 7x + 15 = 0$ har diskriminant $b^2 - 4ac = 49 - 60 = -11$. Hvor mange løsninger har likningen?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Ingen løsninger",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "To løsninger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Én løsning",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Uendelig mange løsninger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Diskriminanten er $-11$, altså negativ. Vi kan ikke ta kvadratroten av et negativt tall, så likningen har ingen reelle løsninger. Vi skriver $L = \\emptyset$."
+          },
+          {
+            "id": "1t-2-3-n-quiz2-q1",
+            "task": "Hva er diskriminanten til $x^2 + 10x + 25 = 0$, og hvor mange løsninger har likningen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "Diskriminant $= 100$, to løsninger",
+                "isCorrect": false
+              },
+              {
+                "id": "a",
+                "text": "Diskriminant $= 0$, én løsning",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "Diskriminant $= -100$, ingen løsninger",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Diskriminant $= 25$, to løsninger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "$b^2 - 4ac = 10^2 - 4 \\cdot 1 \\cdot 25 = 100 - 100 = 0$. Diskriminanten er null, og likningen har nøyaktig én løsning: $x = \\frac{-10}{2} = -5$."
+          },
+          {
+            "id": "1t-2-3-n-quiz2-q2",
+            "task": "Hva forteller en positiv diskriminant oss?",
+            "options": [
+              {
+                "id": "a",
+                "text": "Likningen har ingen løsninger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Likningen har nøyaktig én løsning",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Likningen har to forskjellige løsninger",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "Likningen har uendelig mange løsninger",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Når $b^2 - 4ac > 0$, gir $\\pm\\sqrt{b^2 - 4ac}$ to forskjellige verdier, og abc-formelen gir to forskjellige løsninger $x_1$ og $x_2$."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-2-3-n-audio-3",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-3-narrativ-del3.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-2-3-n-section3",
+      "type": "text",
+      "content": "## Nullpunktsfaktorisering – fra løsninger til faktorer\n\nNå skal vi snu prosessen. I stedet for å gå fra et andregradsuttrykk til løsninger, skal vi bruke løsningene til å **faktorisere** uttrykket. Denne teknikken kalles **nullpunktsfaktorisering**.\n\nIdeen er elegant: når du har funnet at $ax^2 + bx + c = 0$ har løsningene $x_1$ og $x_2$, kan du skrive uttrykket som et produkt:\n\n$$ax^2 + bx + c = a(x - x_1)(x - x_2)$$\n\nLegg merke til at vi setter inn $x_1$ og $x_2$ med minustegn foran. Hvis $x_1 = 2$, skriver vi $(x - 2)$. Hvis $x_1 = -3$, skriver vi $(x - (-3)) = (x + 3)$.\n\nLa oss teste dette med $x^2 - 5x + 6$. Vi vet allerede at løsningene er $x_1 = 2$ og $x_2 = 3$ (vi fant dem med abc-formelen). Siden $a = 1$, blir faktoriseringen $1 \\cdot (x - 2)(x - 3) = (x - 2)(x - 3)$. Og sannelig: $(x - 2)(x - 3) = x^2 - 3x - 2x + 6 = x^2 - 5x + 6$. Det stemmer!\n\nFor $2x^2 - 12x + 16$ finner vi med abc-formelen at $x_1 = 2$ og $x_2 = 4$. Siden $a = 2$, blir faktoriseringen $2(x - 2)(x - 4)$. Husk at $a$-verdien alltid skal stå foran parentesene.\n\nHva hvis likningen bare har én løsning? Da setter vi inn den samme verdien for både $x_1$ og $x_2$. For eksempel gir $3x^2 + 18x + 27 = 0$ kun $x = -3$, og vi faktoriserer som $3(x + 3)(x + 3) = 3(x + 3)^2$."
+    },
+    {
+      "id": "1t-2-3-n-quiz3",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-3-n-quiz3",
+        "number": "Quiz 3",
+        "type": "multiple-choice",
+        "task": "Test deg selv på nullpunktsfaktorisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-3-n-quiz3-q0",
+            "task": "Gitt at $x^2 + 3x - 10 = 0$ har løsningene $x_1 = -5$ og $x_2 = 2$, hva er den faktoriserte formen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$(x - 5)(x + 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$(x + 5)(x + 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$(x - 5)(x - 2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(x + 5)(x - 2)$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi bruker formelen $a(x - x_1)(x - x_2)$ med $a = 1$, $x_1 = -5$ og $x_2 = 2$. Det gir $(x - (-5))(x - 2) = (x + 5)(x - 2)$."
+          },
+          {
+            "id": "1t-2-3-n-quiz3-q1",
+            "task": "Gitt at $2x^2 - 12x + 16 = 0$ har løsningene $x_1 = 2$ og $x_2 = 4$, hva er den faktoriserte formen?",
+            "options": [
+              {
+                "id": "b",
+                "text": "$2(x - 2)(x - 4)$",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "$(x - 2)(x - 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$2(x + 2)(x + 4)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$(2x - 2)(x - 4)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi bruker formelen $a(x - x_1)(x - x_2)$ med $a = 2$. Det gir $2(x - 2)(x - 4)$. Husk at $a$-verdien alltid skal stå foran parentesene."
+          },
+          {
+            "id": "1t-2-3-n-quiz3-q2",
+            "task": "Hva er formelen for nullpunktsfaktorisering?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$ax^2 + bx + c = (x - x_1)(x - x_2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$ax^2 + bx + c = a(x - x_1)(x - x_2)$",
+                "isCorrect": true
+              },
+              {
+                "id": "b",
+                "text": "$ax^2 + bx + c = a(x + x_1)(x + x_2)$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$ax^2 + bx + c = (ax - x_1)(x - x_2)$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Formelen er $ax^2 + bx + c = a(x - x_1)(x - x_2)$, der $x_1$ og $x_2$ er løsningene og $a$ er koeffisienten foran $x^2$. Legg merke til at $a$ alltid står foran."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-2-3-n-audio-4",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-3-narrativ-del4.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-2-3-n-section4",
+      "type": "text",
+      "content": "## Forkorting av brøker med faktorisering\n\nNullpunktsfaktorisering viser virkelig sin styrke når vi skal forkorte brøker der teller eller nevner inneholder andregradsuttrykk. Trikset er å faktorisere både teller og nevner, og deretter stryke felles faktorer.\n\nTa for eksempel $\\frac{x^2 + 5x + 6}{x + 3}$. Vi faktoriserer telleren: $x^2 + 5x + 6 = 0$ gir $x_1 = -2$ og $x_2 = -3$, altså $x^2 + 5x + 6 = (x + 2)(x + 3)$. Nå ser vi at $(x + 3)$ er felles i teller og nevner, og vi kan forkorte: $\\frac{(x + 2)(x + 3)}{x + 3} = x + 2$.\n\nEt mer utfordrende eksempel er $\\frac{x^2 - 10x + 24}{x^2 - 16}$. Telleren faktoriseres med nullpunktsfaktorisering: $x^2 - 10x + 24 = (x - 4)(x - 6)$. Nevneren kjenner vi igjen som konjugatsetningen: $x^2 - 16 = (x + 4)(x - 4)$. Felles faktor er $(x - 4)$, og vi står igjen med $\\frac{x - 6}{x + 4}$.\n\nNoen ganger må vi faktorisere ut en felles faktor før vi bruker nullpunktsfaktorisering. I $\\frac{2x^2 - 16x + 30}{4x^2 - 100}$ begynner vi med å trekke ut 2 fra telleren og 4 fra nevneren: $\\frac{2(x^2 - 8x + 15)}{4(x^2 - 25)}$. Telleren gir $(x - 3)(x - 5)$, og nevneren er $(x + 5)(x - 5)$. Etter forkorting av $(x - 5)$ og $\\frac{2}{4}$ sitter vi igjen med $\\frac{x - 3}{2(x + 5)}$. Evnen til å se felles faktorer er nøkkelen – og det krever øvelse."
+    },
+    {
+      "id": "1t-2-3-n-quiz4",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-3-n-quiz4",
+        "number": "Quiz 4",
+        "type": "multiple-choice",
+        "task": "Test deg selv på forkorting med faktorisering:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-3-n-quiz4-q0",
+            "task": "Hva blir $\\frac{x^2 + 5x + 6}{x + 2}$ etter forkorting?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x + 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x + 6$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x + 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x + 6}{x + 2}$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Vi faktoriserer telleren: $x^2 + 5x + 6 = (x + 2)(x + 3)$. Nevneren er $(x + 2)$. Felles faktor strykes, og vi sitter igjen med $x + 3$."
+          },
+          {
+            "id": "1t-2-3-n-quiz4-q1",
+            "task": "Hva blir $\\frac{x^2 - 16}{x + 4}$ etter forkorting?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x + 4$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x - 16$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$\\frac{x - 4}{x + 4}$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x - 4$",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Vi faktoriserer telleren med konjugatsetningen: $x^2 - 16 = (x + 4)(x - 4)$. Nevneren er $(x + 4)$. Etter forkorting sitter vi igjen med $x - 4$."
+          },
+          {
+            "id": "1t-2-3-n-quiz4-q2",
+            "task": "Hva er første steg for å forkorte $\\frac{x^2 - 10x + 24}{x^2 - 16}$?",
+            "options": [
+              {
+                "id": "c",
+                "text": "Faktorisere både teller og nevner",
+                "isCorrect": true
+              },
+              {
+                "id": "a",
+                "text": "Dele teller og nevner på $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Sette inn et tall for $x$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Trekke nevneren fra telleren",
+                "isCorrect": false
+              }
+            ],
+            "solution": "For å forkorte en brøk med andregradsuttrykk må vi faktorisere både teller og nevner. Telleren gir $(x - 4)(x - 6)$, nevneren gir $(x + 4)(x - 4)$. Felles faktor $(x - 4)$ strykes."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-2-3-n-audio-5",
+      "type": "audio",
+      "title": "Lytt til denne delen",
+      "src": "/audio/1t/1t-2-3-narrativ-del5.mp3",
+      "description": "Lydfil som leser opp teksten frem til neste quiz."
+    },
+    {
+      "id": "1t-2-3-n-section5",
+      "type": "text",
+      "content": "## Produktregelen – når svaret allerede er faktorisert\n\nTil slutt i dette kapittelet skal vi se på **produktregelen**. Den er enkel, men utrolig nyttig: dersom $a \\cdot b = 0$, så må enten $a = 0$ eller $b = 0$ (eller begge).\n\nTenk på det logisk: det eneste som kan gjøre et produkt lik null, er at minst én av faktorene er null. $5 \\cdot 0 = 0$, $0 \\cdot 7 = 0$, men $5 \\cdot 7 = 35 \\neq 0$.\n\nHvorfor er dette nyttig? Fordi vi noen ganger møter likninger der venstresiden allerede er et produkt av faktorer. Ta $(x - 4)(x + 2) = 0$. Produktregelen sier at enten $x - 4 = 0$ eller $x + 2 = 0$. Fra den første får vi $x = 4$, og fra den andre $x = -2$. Vi fant to løsninger uten å bruke abc-formelen i det hele tatt.\n\nProduktregelen fungerer også med flere enn to faktorer. For $3\\left(x + \\frac{1}{2}\\right)(x - 0{,}3)(x - \\sqrt{5}) = 0$ sier regelen at minst én faktor må være null. Konstanten 3 kan aldri bli null, så vi sjekker de tre parentesene: $x = -\\frac{1}{2}$, $x = 0{,}3$ og $x = \\sqrt{5}$.\n\nLegg merke til sammenhengen med nullpunktsfaktorisering. Når vi faktoriserer $x^2 - 5x + 6 = (x - 2)(x - 3) = 0$ og deretter bruker produktregelen, får vi akkurat de samme løsningene som abc-formelen ville gitt oss. De to teknikkene er altså to sider av samme sak: abc-formelen tar oss fra uttrykk til løsninger, og produktregelen tar oss fra faktorer til løsninger."
+    },
+    {
+      "id": "1t-2-3-n-quiz5",
+      "type": "exercise",
+      "exercise": {
+        "id": "1t-2-3-n-quiz5",
+        "number": "Quiz 5",
+        "type": "multiple-choice",
+        "task": "Test deg selv på produktregelen:",
+        "options": [
+          {
+            "id": "a",
+            "text": "placeholder",
+            "isCorrect": true
+          }
+        ],
+        "questions": [
+          {
+            "id": "1t-2-3-n-quiz5-q0",
+            "task": "Hva er løsningene til $(x + 7)(x - 3) = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 7$ eller $x = -3$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = -7$ eller $x = 3$",
+                "isCorrect": true
+              },
+              {
+                "id": "c",
+                "text": "$x = 7$ eller $x = 3$",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "$x = -7$ eller $x = -3$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Produktregelen sier at enten $x + 7 = 0$ eller $x - 3 = 0$. Fra den første: $x = -7$. Fra den andre: $x = 3$. Løsningene er altså $x = -7$ eller $x = 3$."
+          },
+          {
+            "id": "1t-2-3-n-quiz5-q1",
+            "task": "Hva er løsningene til $5(x - 1)(x + 4)(x - 2) = 0$?",
+            "options": [
+              {
+                "id": "a",
+                "text": "$x = 5$, $x = 1$, $x = -4$ eller $x = 2$",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "$x = -1$, $x = 4$ eller $x = -2$",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "$x = 1$, $x = -4$ eller $x = 2$",
+                "isCorrect": true
+              },
+              {
+                "id": "d",
+                "text": "$x = 0$, $x = 1$, $x = -4$ eller $x = 2$",
+                "isCorrect": false
+              }
+            ],
+            "solution": "Konstanten $5$ kan aldri bli null. Vi setter hver parentes lik null: $x - 1 = 0$ gir $x = 1$, $x + 4 = 0$ gir $x = -4$, $x - 2 = 0$ gir $x = 2$."
+          },
+          {
+            "id": "1t-2-3-n-quiz5-q2",
+            "task": "Hva er sammenhengen mellom abc-formelen og produktregelen?",
+            "options": [
+              {
+                "id": "a",
+                "text": "De er helt uavhengige teknikker",
+                "isCorrect": false
+              },
+              {
+                "id": "c",
+                "text": "Produktregelen er bare en forenklet versjon av abc-formelen",
+                "isCorrect": false
+              },
+              {
+                "id": "d",
+                "text": "Abc-formelen brukes bare for lineære likninger",
+                "isCorrect": false
+              },
+              {
+                "id": "b",
+                "text": "Abc-formelen gir løsninger fra uttrykk, produktregelen gir løsninger fra faktorer",
+                "isCorrect": true
+              }
+            ],
+            "solution": "Abc-formelen tar oss fra et andregradsuttrykk til løsninger, mens produktregelen tar oss fra et faktorisert uttrykk til løsninger. De er to sider av samme sak -- abc-formelen finner løsningene, som vi kan bruke til å faktorisere."
+          }
+        ],
+        "solution": ""
+      }
+    },
+    {
+      "id": "1t-2-3-n-audio-6",
+      "type": "audio",
+      "title": "Lytt til oppsummeringen",
+      "src": "/audio/1t/1t-2-3-narrativ-del6.mp3",
+      "description": "Lydfil som leser opp oppsummeringen."
+    },
+    {
+      "id": "1t-2-3-n-summary",
+      "type": "text",
+      "content": "## Oppsummering\n\nI dette kapittelet har vi lært fire sammenhengende teknikker for andregradslikninger:\n\n**ABC-formelen** $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$ løser enhver andregradslikning $ax^2 + bx + c = 0$. Husk å skrive likningen på riktig form og vær nøye med fortegnene til $a$, $b$ og $c$.\n\n**Diskriminanten** $b^2 - 4ac$ forteller oss hvor mange løsninger likningen har uten at vi trenger å fullføre utregningen. Positiv diskriminant gir to løsninger, null gir nøyaktig én, og negativ diskriminant betyr at likningen ikke har noen reelle løsninger.\n\n**Nullpunktsfaktorisering** snur prosessen: når vi har funnet løsningene $x_1$ og $x_2$, kan vi skrive uttrykket som $a(x - x_1)(x - x_2)$. Denne teknikken er spesielt kraftig i kombinasjon med forkorting av rasjonale uttrykk, der vi faktoriserer teller og nevner og stryker felles faktorer.\n\n**Produktregelen** sier at dersom et produkt er null, må minst én av faktorene være null. Den lar oss løse likninger som allerede er faktorisert ved å sette hver faktor lik null – en enkel og direkte vei til svaret."
+    }
+  ],
+  "exercises": []
+}
